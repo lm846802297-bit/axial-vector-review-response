@@ -1,0 +1,95 @@
+Python: 3.14.7
+Arithmetic: Fraction polynomials, Laurent simplex moments, explicit epsilon-pole finite terms
+PASS 001 heavy zero-momentum gauge vertex
+PASS 002 scalar zero-momentum gauge vertex
+PASS 003 charge Ward identity before canonical fields
+PASS 004 finite charge shift cancels field normalization
+PASS 005 scalar dimensional prefactor cancellation
+PASS 006 heavy triangle moment gamma S
+PASS 007 heavy triangle moment gamma dot
+PASS 008 heavy triangle moment triple
+PASS 009 heavy triangle moment diagonal vector
+PASS 010 heavy triangle moment crossed vector
+PASS 011 scalar triangle S moment
+PASS 012 scalar triangle diagonal moment
+PASS 013 scalar triangle crossed moment
+PASS 014 heavy offshell decomposition
+PASS 015 scalar offshell decomposition
+PASS 016 heavy offshell Ward through p^3
+PASS 017 scalar offshell Ward through p^3
+PASS 018 Pauli EOM tensor is transverse
+PASS 019 current-P tensor is transverse
+PASS 020 form-factor matching current-P coefficient
+PASS 021 Pauli EOM coefficient
+PASS 022 scalar-current soft polarization weight
+PASS 023 scalar-current soft polarization logarithmic moment
+PASS 024 scalar hard/soft IR pole cancellation
+PASS 025 current-P logarithm and EFT counterterm RG
+PASS 026 direct exchange radial kernel EE
+DIRECT_KERNEL EE -7/2 + 7*L + -7*UV LONG -3/2 + 1*L + -1*UV
+PASS 027 direct exchange radial kernel LE
+DIRECT_KERNEL LE 1 + -4*L + 4*UV LONG 3/2 + -1*L + 1*UV
+PASS 028 direct exchange radial kernel LR
+DIRECT_KERNEL LR 3/2 + -1*IR + 1*L LONG -3/2 + -1*IR + 1*L
+PASS 029 direct exchange radial kernel HE
+DIRECT_KERNEL HE -11/4 + -3/2*IR + 5/2*L + -1*UV LONG -3/2 + 1*L + -1*UV
+PASS 030 direct exchange radial kernel HR
+DIRECT_KERNEL HR 11/4 + 5/2*IR + -5/2*L LONG 3/2 + 1*IR + -1*L
+PASS 031 direct exchange radial kernel HS
+DIRECT_KERNEL HS -3/2 + -1*IR + 1*L LONG -3/2 + -1*IR + 1*L
+PASS 032 longitudinal exchange sum is scaleless
+PASS 033 general Abelian proper current hard coefficient
+PASS 034 direct exchange finite gauge parameter cancellation
+PASS 035 direct exchange total pole
+PASS 036 neutral scalar proper current limit
+PASS 037 Abelian current-projection logarithm versus UV tree ratio
+PASS 038 full UV proper amplitude counterterm
+PASS 039 s=1 f_LB
+PASS 040 s=1 f_LX
+PASS 041 s=1 f_RB
+PASS 042 s=1 f_RX
+PASS 043 s=-1 f_LB
+PASS 044 s=-1 f_LX
+PASS 045 s=-1 f_RB
+PASS 046 s=-1 f_RX
+PASS 047 f_LW
+PASS 048 L/H proper hypercharge
+PASS 049 L/H proper X neutral-scalar cancellation
+PASS 050 R/S proper X charged-scalar coefficient
+PASS 051 R/S proper hypercharge cancellation
+PASS 052 s=1 proper Kinv L numerator
+PASS 053 s=1 proper Kinv R numerator
+PASS 054 s=-1 proper Kinv L numerator
+PASS 055 s=-1 proper Kinv R numerator
+PASS 056 weak direct radial sum
+PASS 057 weak longitudinal radial sum
+PASS 058 weak group Fierz all indices
+PASS 059 published rank-one hypercharge H-l singlet
+PASS 060 published rank-one hypercharge H-l triplet
+PASS 061 published rank-one weak H-l singlet
+PASS 062 published rank-one weak H-l triplet
+PASS 063 published complete single-flavor H-l singlet
+PASS 064 published complete single-flavor H-l triplet
+PASS 065 heavy equal-mass removable numerator order 0
+PASS 066 scalar equal-mass removable numerator order 0
+PASS 067 heavy equal-mass removable numerator order 1
+PASS 068 scalar equal-mass removable numerator order 1
+PASS 069 heavy equal-mass removable numerator order 2
+PASS 070 scalar equal-mass removable numerator order 2
+PASS 071 heavy equal-mass removable numerator order 3
+PASS 072 scalar equal-mass removable numerator order 3
+PASS 073 heavy equal-mass finite parameter limit
+PASS 074 scalar equal-mass finite parameter limit
+NUMERICAL on-shell heavy/scalar parameter functions, Simpson n=8192:
+PARAM r=0.02, heavy_int=0.190501872299, heavy_exact=0.190501872299, scalar_int=0.386341093048, scalar_exact=0.386341093048
+PARAM r=0.005, heavy_int=0.193380343480, heavy_exact=0.193380343480, scalar_int=0.591737378271, scalar_exact=0.591737378271
+PARAM r=0.001, heavy_int=0.194224880523, heavy_exact=0.194224880525, scalar_int=0.849630167283, scalar_exact=0.849630167283
+NUMERICAL scalar hard remainder, Decimal precision=50:
+HARD_IR r=0.01, full-minus-soft=-0.281426132518676, target=-11/36
+HARD_IR r=0.001, full-minus-soft=-0.301662379214201, target=-11/36
+HARD_IR r=0.0001, full-minus-soft=-0.305013614607545, target=-11/36
+RESULT: 74 exact parameter/symbolic/group checks passed; 6 integrals and 3 IR hard limits passed
+f_psi,a = q0*Yuk2/M2*[-7*h_a/36+(l_a-h_a)*(11/36-L/6)]
+proper Abelian c = 3*(h^2-l^2)*L+5*h*(l-h)+11*(l-h)^2/2
+Scope: offshell gauge vertex, Ward identity, and physical-current projection of proper gauge exchange.
+No FeynArts/FeynCalc, Matchete, matchmakereft, or external diagram generator was run.

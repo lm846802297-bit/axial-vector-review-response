@@ -1,0 +1,63 @@
+{
+  "created_on_client_date": "2026-10-20",
+  "baseline_version": 57,
+  "output_version": 58,
+  "baseline_path": "C:\\Users\\84680\\Documents\\Codex\\2026-10-19\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\higgs_portal_mixing_unified_reviewer_response_and_uv_eft_UPDATED_v2(8)(20261019)(57).md",
+  "output_path": "C:\\Users\\84680\\Documents\\Codex\\2026-10-19\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\higgs_portal_mixing_unified_reviewer_response_and_uv_eft_UPDATED_v2(8)(20261019)(58).md",
+  "baseline_sha256_before": "e96549df671a17f1504326e384cfebb44dfd738aa7ae32a8d0a176e39e97ca09",
+  "baseline_sha256_after": "e96549df671a17f1504326e384cfebb44dfd738aa7ae32a8d0a176e39e97ca09",
+  "v57_is_exact_byte_prefix_of_v58": true,
+  "baseline_bytes": 1275548,
+  "appendix_bytes": 41692,
+  "output_bytes": 1317240,
+  "output_sha256": "4bba3ff33cc26cb635e6cd80cbbbaf2e9e35bf972782bb0e08f8f9501705e236",
+  "section254_subsections": [
+    "254.1",
+    "254.2",
+    "254.3",
+    "254.4",
+    "254.5",
+    "254.6",
+    "254.7",
+    "254.8",
+    "254.9",
+    "254.10",
+    "254.11",
+    "254.12",
+    "254.13"
+  ],
+  "appendix_math_delimiters_balanced": true,
+  "math_expression_braces_balanced": 302,
+  "appendix_code_fences_balanced": true,
+  "appendix_has_no_unexpected_control_characters": true,
+  "embedded_checker_equals_delivered_checker": true,
+  "python_version": "3.14.7",
+  "symbolic_checks_passed": 68,
+  "numerical_cases_passed": 3,
+  "numerical_method": "neutral-scalar background only; composite Simpson, 2048 segments, binary64",
+  "actual_box_cycles": 6,
+  "exact_scattering_cosines": [
+    "0",
+    "1/3",
+    "-1/2"
+  ],
+  "literature_SM_control_checks": 6,
+  "checker_sha256": "633c63dfc9810ae9ae124fe2994dfb7082ace8b4c3e1284df20a84a37824f297",
+  "check_log_sha256": "612c8f7355e7c5a02befbdf2bb8b3f6d7608cb156bfe86c18cdc6fc9bc7ece49",
+  "feynarts_run": false,
+  "feyncalc_run": false,
+  "matchete_run": false,
+  "matchmakereft_run": false,
+  "desktop_v53_original_sha256_verified_unchanged": "6f14ea4a0f31df1c7809325719b952dcb914261938288e3bb84dd89fc01846c5",
+  "library_updated": false,
+  "planned_main_document_versions": [
+    58,
+    57
+  ],
+  "older_main_document_removed": "higgs_portal_mixing_unified_reviewer_response_and_uv_eft_UPDATED_v2(8)(20261019)(56).md",
+  "older_content_verified_in_latest_before_removal": true,
+  "remaining_main_document_versions": [
+    58,
+    57
+  ]
+}

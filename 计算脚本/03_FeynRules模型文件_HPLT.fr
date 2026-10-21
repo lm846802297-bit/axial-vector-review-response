@@ -1,0 +1,222 @@
+(* ============================================================ *)
+(*                                                              *)
+(*   HPLT  ——  Higgs-Portal axial L_mu - L_tau                    *)
+(*   FeynRules 模型文件                                           *)
+(*                                                              *)
+(*   用法（在 Mathematica 中）：                                  *)
+(*     << FeynRules`                                             *)
+(*     LoadModel["03_FeynRules模型文件_HPLT.fr"];                *)
+(*     verts = FeynmanRules[LTotal];   Length[verts]             *)
+(*     WriteFeynArtsOutput[LTotal];    (* -> HPLT.mod *)         *)
+(*     WriteUFO[LTotal];               (* -> UFO, 给 HiggsTools *) *)
+(*                                                              *)
+(*   本文件为**模板**：不同 FeynRules 版本语法略有差异，            *)
+(*   建议对照你的版本自带的 SM.fr / SM_NLO.fr 调整。               *)
+(*                                                              *)
+(*   核心物理（务必在生成顶点后逐条核对）：                        *)
+(*     X 电荷：L_mu=+1, mu_R=-1（轴向！）, E_mu=+1（左右手同荷）     *)
+(*             L_tau=-1, tau_R=+1,       E_tau=-1                *)
+(*             H=0,  S=+2                                        *)
+(*     允许：  y1 Lbar.H.E   (X: -1+0+1=0)                        *)
+(*             y2 Ebar.eR.S  (X: -1-1+2=0)                        *)
+(*             lamHS |H|^2|S|^2 (X: 0)      <- 本问题主角          *)
+(*     禁戒：  Lbar.H.eR      (X: -1+0-1=-2)  <- 应被判非规范不变   *)
+(*                                                              *)
+(* ============================================================ *)
+
+M$ModelName = "HPLT";
+M$Information = {
+  Authors      -> {"..."},
+  Institutions -> {"..."},
+  Emails       -> {"..."},
+  Date         -> "2026-01-01",
+  References   -> {""}
+};
+
+(* ------------------------------------------------------------ *)
+(*  指标                                                         *)
+(* ------------------------------------------------------------ *)
+
+IndexRange[ Index[Generation] ] = Range[3];
+IndexStyle[ Index[Generation], i ];
+IndexRange[ Index[Colour] ] = Range[3];
+IndexStyle[ Index[Colour], a ];
+
+(* ------------------------------------------------------------ *)
+(*  规范群                                                        *)
+(*  FeynRules 中 U(1) 的电荷需按代（分量）逐个给出，故用列表       *)
+(* ------------------------------------------------------------ *)
+
+(* 新 U(1)_X = U_A(1)_{L_mu - L_tau}  的电荷指派 *)
+(*   代序： { e,  mu,  tau }                                      *)
+U1XchargesL = { 0, +1, -1};        (* L_e, L_mu, L_tau *)
+U1XchargesR = { 0, -1, +1};        (* e_R, mu_R, tau_R —— 注意 mu_R = -1（轴向！） *)
+(*   矢量样轻子：{ E_mu, E_tau }（SU(2) 单态, Y=-1, 左右手同荷）*)
+U1XchargesE = {     +1, -1};
+
+(* ------------------------------------------------------------ *)
+(*  参数                                                          *)
+(* ------------------------------------------------------------ *)
+
+M$Parameters = {
+  gX  == { ParameterType    -> External,
+           BlockName        -> GAUGE,
+           OrderBlock       -> 4,
+           Value            -> 0.1,
+           InteractionOrder -> {QED, 1},
+           TeX              -> Subscript[g, X],
+           Description      -> "U(1)_X gauge coupling" },
+
+  lamHS == { ParameterType  -> External,
+             BlockName      -> SCALARPOT,
+             OrderBlock     -> 3,
+             Value          -> 0.001,
+             TeX            -> Subscript[\[Lambda], HS],
+             Description    -> "Higgs-portal coupling (the operator in question)" },
+
+  vh  == { ParameterType -> External, Value -> 246,
+           TeX -> v,      Description -> "Higgs VEV" },
+  vsv == { ParameterType -> External, Value -> 30,
+           TeX -> Subscript[v, s], Description -> "S VEV" },
+  ME  == { ParameterType -> External, Value -> 1000,
+           TeX -> M, Description -> "vectorlike lepton bare mass" }
+};
+
+(* ------------------------------------------------------------ *)
+(*  场                                                            *)
+(* ------------------------------------------------------------ *)
+
+M$ClassesDescription = {
+
+  (* ---- 轻子二重态 L_i = (nu_i, l_i)_L :  SU(2) 二重, Y = -1/2 ---- *)
+  F[1] == {
+    ClassName       -> LL,
+    ClassMembers    -> {LLe, LLmu, LLtau},
+    Indices         -> {Index[Generation]},
+    FlavorIndex     -> Generation,
+    SelfConjugate   -> False,
+    Chirality       -> Left,
+    QuantumNumbers  -> {Y -> -1/2, X -> U1XchargesL},
+    Mass            -> 0,
+    Width           -> 0,
+    TeX             -> L
+  },
+
+  (* ---- 右手带电轻子 l_R : SU(2) 单态, Y = -1 ---- *)
+  (*      mu_R 的 X 电荷为 -1，与 L_mu(+1) 反号 —— 这是"轴向"的关键 *)
+  F[2] == {
+    ClassName       -> lR,
+    ClassMembers    -> {eR, muR, tauR},
+    Indices         -> {Index[Generation]},
+    FlavorIndex     -> Generation,
+    SelfConjugate   -> False,
+    Chirality       -> Right,
+    QuantumNumbers  -> {Y -> -1, X -> U1XchargesR},
+    Mass            -> 0,
+    Width           -> 0,
+    TeX             -> Subscript[l, R]
+  },
+
+  (* ---- 矢量样轻子 E : SU(2) 单态, Y = -1, X = +1 (E_mu) / -1 (E_tau) ---- *)
+  (*      左右手电荷**相同** => U(1)_X 下也是矢量样 => 不贡献任何反常 *)
+  F[3] == {
+    ClassName       -> EE,
+    ClassMembers    -> {EEmu, EEtau},
+    Indices         -> {Index[Generation]},
+    FlavorIndex     -> Generation,
+    SelfConjugate   -> False,
+    QuantumNumbers  -> {Y -> -1, X -> U1XchargesE},
+    Mass            -> {ME, 0},
+    Width           -> 0,
+    TeX             -> E
+  },
+
+  (* ---- Higgs 二重态 : Y = +1/2, X = 0 ---- *)
+  S[1] == {
+    ClassName       -> H,
+    SelfConjugate   -> False,
+    QuantumNumbers  -> {Y -> 1/2, X -> 0},
+    VEV             -> vh/Sqrt[2],
+    Mass            -> {MH, 0},
+    Width           -> 0,
+    TeX             -> H
+  },
+
+  (* ---- 破缺 U(1)_X 的复单态 S : Y = 0, X = +2 ---- *)
+  S[2] == {
+    ClassName       -> Sg,
+    SelfConjugate   -> False,
+    QuantumNumbers  -> {Y -> 0, X -> 2},
+    VEV             -> vsv/Sqrt[2],
+    Mass            -> {MS, 0},
+    Width           -> 0,
+    TeX             -> S
+  }
+};
+
+(* ------------------------------------------------------------ *)
+(*  拉氏量                                                        *)
+(* ------------------------------------------------------------ *)
+
+(* --- 规范与动能项（FeynRules 可由 Gauge 定义自动生成）--- *)
+LGauge  := -1/4 FS[B, mu, nu] FS[B, mu, nu]
+           -1/4 FS[WB, mu, nu, i] FS[WB, mu, nu, i]
+           -1/4 FS[G,  mu, nu, a] FS[G,  mu, nu, a]
+           -1/4 FS[X,  mu, nu]    FS[X,  mu, nu];
+
+LFERM   := I LLbar.Ga[mu].DC[LL, mu] + I lRbar.Ga[mu].DC[lR, mu]
+           + I EEbar.Ga[mu].DC[EE, mu];
+
+LHIGGS  := DC[Hdag, mu].DC[H, mu] + DC[Sdag, mu].DC[S, mu];
+
+(* --- Yukawa / 混合项 --- *)
+(* (1) H 与矢量样轻子的混合 : X = -1 + 0 + 1 = 0  ✓ *)
+LY1 := - y1 LLbar . H . EE;
+
+(* (2) S 与右手轻子的混合   : X = -1 - 1 + 2 = 0  ✓ *)
+LY2 := - y2 EEbar . lR . Sg;
+
+(* (3) ★禁戒项★ —— 故意保留，用来**验证**电荷指派读对了 *)
+(*     X = -1 + 0 - 1 = -2  ≠ 0                                  *)
+(*     若 FeynRules 判定此项非规范不变，说明电荷指派正确。          *)
+(*     正式生成模型时请把 LY3 注释掉。                             *)
+(* LY3 := - yd LLbar . H . lR; *)
+
+(* --- 标量势 --- *)
+(* 注意：|H|^2 S 与 |H|^2 S^2 的 X 电荷分别为 +2、+4，非规范不变。   *)
+(*       唯一允许的可重整 portal 是 |H|^2 |S|^2（X = 0）。          *)
+LPhi := - MuH2 (Hdag . H) - MuS2 (Sdag . Sg)
+        - lamH  (Hdag . H)^2
+        - lamS  (Sdag . Sg)^2
+        - lamHS (Hdag . H) (Sdag . Sg);       (* <-- 本问题的主角 *)
+
+LTotal := LGauge + LFERM + LHIGGS + LY1 + LY2 + LPhi;
+
+(* ------------------------------------------------------------ *)
+(*  自检（取消注释运行）                                          *)
+(* ------------------------------------------------------------ *)
+
+(* LoadModel["HPLT.fr"]; *)
+(* CheckQuantumNumbers[LTotal];     (* 应通过 *)                  *)
+(* CheckDiagonalMassTerms[LTotal];  (* 应通过 *)                  *)
+
+(* 若把 LY3 加入 LTotal，CheckQuantumNumbers 应**报错**：           *)
+(*   "The term ... is not gauge invariant"                        *)
+(* 这正是我们要的：证明 mu_R 的电荷翻号（轴向）确实禁戒了直接质量项。 *)
+
+(* ------------------------------------------------------------ *)
+(*  预期判据                                                      *)
+(* ------------------------------------------------------------ *)
+
+(*  1) FeynmanRules[LTotal] 给出的顶点数 > 0                      *)
+(*  2) 顶点表中应含 lamHS 对应的 h-s-s、h-h-s 等相互作用            *)
+(*  3) 积掉 E 后（EFT 层面）应出现接触项 h s fbar f，系数 m_f/(v v_s) *)
+(*     —— 它的一圈 tadpole 与泡图**同量级**（实测比值 0.895），不可漏 *)
+(*  4) 加入 LY3 应被判非规范不变（电荷 -2 ≠ 0）                     *)
+(*  5) lamHS 项被接受（电荷 0）—— 确认主文档第 3 节的地基           *)
+(*                                                              *)
+(* ------------------------------------------------------------ *)
+
+(* 导出 *)
+(* WriteFeynArtsOutput[LTotal];   (* -> HPLT.mod, 供 02 号脚本 STEP 11 用 *) *)
+(* WriteUFO[LTotal];              (* -> UFO, 供 05 号脚本用 *)                 *)

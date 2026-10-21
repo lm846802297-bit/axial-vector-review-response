@@ -1,0 +1,68 @@
+Python: 3.14.7
+Arithmetic: exact fractions.Fraction sparse multivariate polynomials
+PASS 01 light eigenvalue characteristic equation to degree 6
+PASS 02 heavy eigenvalue characteristic equation to degree 6
+PASS 03 trace of squared-mass matrix
+PASS 04 determinant of squared-mass matrix
+PASS 05 heavy eigenvalue through degree 3
+PASS 06 light eigenvalue through degree 3
+PASS 07 light determinant starts at degree 4
+PASS 08 light determinant leading degree 4
+PASS 09 exact trace-square invariant
+PASS 10 UV mixed quartic is absent
+PASS 11 UV degree-3 polynomial is absent
+PASS 12 entire heavy Coleman-Weinberg polynomial through degree 3
+PASS 13 CW linear a
+PASS 14 CW linear b
+PASS 15 CW quartic a^2
+PASS 16 CW quartic b^2
+PASS 17 CW quartic ab
+PASS 18 CW sextic a^3
+PASS 19 CW sextic b^3
+PASS 20 CW sextic a^2 b
+PASS 21 CW sextic a b^2
+PASS 22 all sextic scale logarithms cancel
+PASS 23 finite Euclidean J03
+PASS 24 finite Euclidean J12
+PASS 25 independent momentum determinant equals eigenvalue sextic
+PASS 26 momentum determinant pure sign
+PASS 27 momentum determinant mixed sign
+PASS 28 direct V monomial X^1Y^0
+PASS 29 direct V monomial X^0Y^1
+PASS 30 direct V monomial X^2Y^0
+PASS 31 direct V monomial X^0Y^2
+PASS 32 direct V monomial X^1Y^1
+PASS 33 direct V monomial X^3Y^0
+PASS 34 direct V monomial X^0Y^3
+PASS 35 direct V monomial X^2Y^1
+PASS 36 direct V monomial X^1Y^2
+PASS 37 two-point mass threshold recovered
+PASS 38 portal V threshold recovered
+PASS 39 UV X mass row
+PASS 40 UV X2 row
+PASS 41 UV XY row
+PASS 42 canonical threshold cancels heavy beta muH2
+PASS 43 canonical threshold cancels heavy beta muS2
+PASS 44 canonical threshold cancels heavy beta lambdaH
+PASS 45 canonical threshold cancels heavy beta lambdaS
+PASS 46 canonical threshold cancels heavy beta lambdaP
+PASS 47 subtract overlap with v54
+PASS 48 do not duplicate X threshold
+PASS 49 do not duplicate Y threshold
+PASS 50 do not duplicate portal threshold
+PASS 51 new sextic L coefficient X2Y
+PASS 52 new sextic L coefficient XY2
+PASS 53 fixed-VEV Higgs tadpole cancels
+PASS 54 fixed-VEV singlet tadpole cancels
+PASS 55 mixed radial potential curvature
+PASS 56 Higgs diagonal potential curvature
+PASS 57 singlet diagonal potential curvature
+PASS 58 pure-A limit
+PASS 59 A-B interchange symmetry
+NUMERICAL CHECKS (Decimal precision 80; M^2=1)
+a=1e-2, b=0.7a: heavy remainder=2.1065410452E-8; |R|/a^4=2.1065410452E+0; light determinant=-5.1095773918E-8
+a=1e-3, b=0.7a: heavy remainder=2.1545213156E-12; |R|/a^4=2.1545213156E+0; light determinant=-7.5076655974E-12
+a=1e-4, b=0.7a: heavy remainder=2.1594433452E-16; |R|/a^4=2.1594433452E+0; light determinant=-9.7856603062E-16
+RESULT: 59 exact symbolic checks passed; 3 high-precision numerical cases passed
+V6 = -[A^3/3+B^3/3-A^2 B-A B^2]/(16 pi^2 M^2)
+Scope: constant-background fermion determinant and selected vector merge; no FeynArts/FeynCalc run.

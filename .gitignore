@@ -1,0 +1,11 @@
+# Temporary and generated files
+**/latex-build/
+**/__pycache__/
+**/.pytest_cache/
+**/.ipynb_checkpoints/
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk

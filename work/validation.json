@@ -1,0 +1,19 @@
+{
+  "original_unchanged": true,
+  "atomic_ids": 59,
+  "high_level_ids": 38,
+  "major_stages": 32,
+  "section_references_resolve": true,
+  "tables_checked": 63,
+  "control_chars": 0,
+  "math_environments_balanced": true,
+  "rotation_cases": 44,
+  "max_residual_GeV2": 7.275957614183426e-12,
+  "conditional_vS_GeV": [
+    70.88645803540898,
+    19.996700619086447
+  ],
+  "chars": 250961,
+  "lines": 5676,
+  "output_sha256": "248a330ccc4fe006c64037fd0a5f8ef75b697975b248c11277a57d9f3707ce22"
+}

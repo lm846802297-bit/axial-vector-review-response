@@ -1,0 +1,419 @@
+{
+  "date": "2026-10-20",
+  "files": [
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\section250_checks.txt",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\section250_checks.txt",
+      "sha256_before": "86f94f77ac7422c8675086bca45de742127dc61bd488cc0537188c5d5fadc8d4",
+      "sha256_after": "86f94f77ac7422c8675086bca45de742127dc61bd488cc0537188c5d5fadc8d4",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\section250_reproduce.py",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\section250_reproduce.py",
+      "sha256_before": "b7cbaf111ebc9f9eed7df56f8ff6d6e6195b215dc133a459994a3b8b64253603",
+      "sha256_after": "b7cbaf111ebc9f9eed7df56f8ff6d6e6195b215dc133a459994a3b8b64253603",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\section251_checks.txt",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\section251_checks.txt",
+      "sha256_before": "4334698cb2a086b8eecbba9d5d83e89011ba0a2c90862668eda39ec3df3d9cfc",
+      "sha256_after": "4334698cb2a086b8eecbba9d5d83e89011ba0a2c90862668eda39ec3df3d9cfc",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\section251_reproduce.py",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\section251_reproduce.py",
+      "sha256_before": "7264e2bdd0ffcf2708fc04879ec40a3c64ee72462cd9d90788a16019e5db3ccd",
+      "sha256_after": "7264e2bdd0ffcf2708fc04879ec40a3c64ee72462cd9d90788a16019e5db3ccd",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\section252_checks.txt",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\section252_checks.txt",
+      "sha256_before": "01ee98ad56606868409c4b368e5fcf2b2fa5ab6bc4bcf614d05977255110f911",
+      "sha256_after": "01ee98ad56606868409c4b368e5fcf2b2fa5ab6bc4bcf614d05977255110f911",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\section252_reproduce.py",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\section252_reproduce.py",
+      "sha256_before": "832a3af675790a6219ec8bc849ad24ad7d864bf7f02a86603c65c96cc85e521b",
+      "sha256_after": "832a3af675790a6219ec8bc849ad24ad7d864bf7f02a86603c65c96cc85e521b",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\section253_checks.txt",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\section253_checks.txt",
+      "sha256_before": "06f2d1373c86cb213ed94ab7d37c20266d21c0370a6dddb9e8326ed2b5264ae7",
+      "sha256_after": "06f2d1373c86cb213ed94ab7d37c20266d21c0370a6dddb9e8326ed2b5264ae7",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\section253_reproduce.py",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\section253_reproduce.py",
+      "sha256_before": "b8c97d2b26a56edba4d662d58d93468e24bbb5c0658466bdfa1ff81ae095d335",
+      "sha256_after": "b8c97d2b26a56edba4d662d58d93468e24bbb5c0658466bdfa1ff81ae095d335",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\section254_checks.txt",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\section254_checks.txt",
+      "sha256_before": "612c8f7355e7c5a02befbdf2bb8b3f6d7608cb156bfe86c18cdc6fc9bc7ece49",
+      "sha256_after": "612c8f7355e7c5a02befbdf2bb8b3f6d7608cb156bfe86c18cdc6fc9bc7ece49",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\section254_reproduce.py",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\section254_reproduce.py",
+      "sha256_before": "633c63dfc9810ae9ae124fe2994dfb7082ace8b4c3e1284df20a84a37824f297",
+      "sha256_after": "633c63dfc9810ae9ae124fe2994dfb7082ace8b4c3e1284df20a84a37824f297",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\section255_checks.txt",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\section255_checks.txt",
+      "sha256_before": "569ff1d11058f0cdb6cdb14bd5a23a61437f281e64ca0155a52d20956adacb31",
+      "sha256_after": "569ff1d11058f0cdb6cdb14bd5a23a61437f281e64ca0155a52d20956adacb31",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\section255_reproduce.py",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\section255_reproduce.py",
+      "sha256_before": "643c3e05ea7bf371baae8d6980eee9fc816674572db5eb1c4d5049ad53dd7c2d",
+      "sha256_after": "643c3e05ea7bf371baae8d6980eee9fc816674572db5eb1c4d5049ad53dd7c2d",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\section256_checks.txt",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\section256_checks.txt",
+      "sha256_before": "407e85be85f6729b9f837874ade3bb2f3b4c6a63250a3623301daddfc46e61c6",
+      "sha256_after": "407e85be85f6729b9f837874ade3bb2f3b4c6a63250a3623301daddfc46e61c6",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\section256_reproduce.py",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\section256_reproduce.py",
+      "sha256_before": "7ea661bd7e836c043f14be19b27cb50469e71ef6211512211340166ec9b17b85",
+      "sha256_after": "7ea661bd7e836c043f14be19b27cb50469e71ef6211512211340166ec9b17b85",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\section257_checks.txt",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\section257_checks.txt",
+      "sha256_before": "9918adc9d809e354897537ddf2c9717ce5a54d9d381ae27e01e2659a09cbc2bc",
+      "sha256_after": "9918adc9d809e354897537ddf2c9717ce5a54d9d381ae27e01e2659a09cbc2bc",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\section257_reproduce.py",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\section257_reproduce.py",
+      "sha256_before": "f8f2f991a118ac20767cf9017030057ebb7dbe18ec364e9f1a93bd1c279f1432",
+      "sha256_after": "f8f2f991a118ac20767cf9017030057ebb7dbe18ec364e9f1a93bd1c279f1432",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\section258_checks.txt",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\section258_checks.txt",
+      "sha256_before": "f7fe678b1597b89b4ecbbc9964e19a036d1d051b8bf0ecff6935fb888e404d57",
+      "sha256_after": "f7fe678b1597b89b4ecbbc9964e19a036d1d051b8bf0ecff6935fb888e404d57",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\section258_reproduce.py",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\section258_reproduce.py",
+      "sha256_before": "7a5e5fc703e5e8a53e18051be20f4f8976a6b9b804e7aa1d7245fa1e68f93658",
+      "sha256_after": "7a5e5fc703e5e8a53e18051be20f4f8976a6b9b804e7aa1d7245fa1e68f93658",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\section259_checks.txt",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\section259_checks.txt",
+      "sha256_before": "47378c9f4ced384ba9ffdfe9af2ac3e1d4b365c7776471f88df71ae0ca62420c",
+      "sha256_after": "47378c9f4ced384ba9ffdfe9af2ac3e1d4b365c7776471f88df71ae0ca62420c",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\section259_reproduce.py",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\section259_reproduce.py",
+      "sha256_before": "1d804342679312a973a319494f34fc2a301da9cfe4bf120b737b53f2ddcf3847",
+      "sha256_after": "1d804342679312a973a319494f34fc2a301da9cfe4bf120b737b53f2ddcf3847",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\section260_checks.txt",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\section260_checks.txt",
+      "sha256_before": "d03213a89066cadadf9fbbcf66c5b3c410551199a24cb60525de8f35b12edeb1",
+      "sha256_after": "d03213a89066cadadf9fbbcf66c5b3c410551199a24cb60525de8f35b12edeb1",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\section260_reproduce.py",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\section260_reproduce.py",
+      "sha256_before": "05f4013d666a14265e577ccbeb9257e3cdfcff4f1f4bfa31973326c9dad7dc63",
+      "sha256_after": "05f4013d666a14265e577ccbeb9257e3cdfcff4f1f4bfa31973326c9dad7dc63",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\section261_checks.txt",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\section261_checks.txt",
+      "sha256_before": "79999d7d0fef3fb8f4b03bb9e475a054bf9b3d48fe2a4a8cd07f30aa2b96db00",
+      "sha256_after": "79999d7d0fef3fb8f4b03bb9e475a054bf9b3d48fe2a4a8cd07f30aa2b96db00",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\section261_mathematica_checks.txt",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\section261_mathematica_checks.txt",
+      "sha256_before": "7df0664e17d2d31e3c94c8666b0921975421932331e263306338ee913ac5bbc5",
+      "sha256_after": "7df0664e17d2d31e3c94c8666b0921975421932331e263306338ee913ac5bbc5",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\section261_mathematica.wl",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\section261_mathematica.wl",
+      "sha256_before": "b2f3bf1bc66731415419faeecf7c4a0cc828e92be3e009c40ee891f978953a7c",
+      "sha256_after": "b2f3bf1bc66731415419faeecf7c4a0cc828e92be3e009c40ee891f978953a7c",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\section261_reproduce.py",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\section261_reproduce.py",
+      "sha256_before": "199fee49595f1623523dfbe76689a8a46bef08db85fef4cf7b99c20a4102ef82",
+      "sha256_after": "199fee49595f1623523dfbe76689a8a46bef08db85fef4cf7b99c20a4102ef82",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\section262_checks.txt",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\section262_checks.txt",
+      "sha256_before": "0c1ed3b3988d2985e0a57765680d5ce5cb88b0f877a5a6d16011f93b64bab353",
+      "sha256_after": "0c1ed3b3988d2985e0a57765680d5ce5cb88b0f877a5a6d16011f93b64bab353",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\section262_mathematica_checks.txt",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\section262_mathematica_checks.txt",
+      "sha256_before": "c43736da058c20611b90f10d8b9b2f40ff2f212a2b7948ebf4bffde94ac953c5",
+      "sha256_after": "c43736da058c20611b90f10d8b9b2f40ff2f212a2b7948ebf4bffde94ac953c5",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\section262_mathematica.wl",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\section262_mathematica.wl",
+      "sha256_before": "9ac966f2ccfa5937660f66ad272043f4248d9ec5c9c34add72a836b6b81aac6a",
+      "sha256_after": "9ac966f2ccfa5937660f66ad272043f4248d9ec5c9c34add72a836b6b81aac6a",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\section262_reproduce.py",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\section262_reproduce.py",
+      "sha256_before": "07ca907b58cad437e9bc1dca5fb3e97a1bb909dcc73ff3ca8ac46d8af0813f5c",
+      "sha256_after": "07ca907b58cad437e9bc1dca5fb3e97a1bb909dcc73ff3ca8ac46d8af0813f5c",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\version54_validation.json",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\version54_validation.json",
+      "sha256_before": "d321412119115c981d913de4f974d0d2dc0b71673ac7398be7447d0db2e6a392",
+      "sha256_after": "d321412119115c981d913de4f974d0d2dc0b71673ac7398be7447d0db2e6a392",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\version55_validation.json",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\version55_validation.json",
+      "sha256_before": "fe3ab3addde537ef2294151ebb6ca13ab7383a48d5731b6064a464b6d6a43deb",
+      "sha256_after": "fe3ab3addde537ef2294151ebb6ca13ab7383a48d5731b6064a464b6d6a43deb",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\version56_validation.json",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\version56_validation.json",
+      "sha256_before": "e28e3dbe6225938d2f3f291022abd7fb323dc697a56c8bb86144f04444f9ac1e",
+      "sha256_after": "e28e3dbe6225938d2f3f291022abd7fb323dc697a56c8bb86144f04444f9ac1e",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\version57_validation.json",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\version57_validation.json",
+      "sha256_before": "48cbb22e74c236b4de641a3774e9e6418514bd4d55eb59454bda2bcec28d5834",
+      "sha256_after": "48cbb22e74c236b4de641a3774e9e6418514bd4d55eb59454bda2bcec28d5834",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\version58_validation.json",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\version58_validation.json",
+      "sha256_before": "b1f9e3d4f640d695f632dee3d16cc6f8f46861e0591589d3f4f0d8970f1edb41",
+      "sha256_after": "b1f9e3d4f640d695f632dee3d16cc6f8f46861e0591589d3f4f0d8970f1edb41",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\version59_validation.json",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\version59_validation.json",
+      "sha256_before": "9f4ae08a1a81b01b588ff180d5479b71ba8089655024fddd4861e177ea2cfcc2",
+      "sha256_after": "9f4ae08a1a81b01b588ff180d5479b71ba8089655024fddd4861e177ea2cfcc2",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\version60_validation.json",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\version60_validation.json",
+      "sha256_before": "c6f8c8047d8ca349a59880f8ec30d909feda073a5aca2aa4ea8535c9db9103a4",
+      "sha256_after": "c6f8c8047d8ca349a59880f8ec30d909feda073a5aca2aa4ea8535c9db9103a4",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\version61_validation.json",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\version61_validation.json",
+      "sha256_before": "f1d62fabd36b0af791972203eb5688d78817f8f349694a6442c579db05c967b5",
+      "sha256_after": "f1d62fabd36b0af791972203eb5688d78817f8f349694a6442c579db05c967b5",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\version62_validation.json",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\version62_validation.json",
+      "sha256_before": "3ab3db8de665012548fe62090519403bb1210b506d7484fa2379439546914962",
+      "sha256_after": "3ab3db8de665012548fe62090519403bb1210b506d7484fa2379439546914962",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\version63_validation.json",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\version63_validation.json",
+      "sha256_before": "06ca583d152e147260c332937a48d9bed67e8270e8f4738df5469f4194387958",
+      "sha256_after": "06ca583d152e147260c332937a48d9bed67e8270e8f4738df5469f4194387958",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\version64_validation.json",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\version64_validation.json",
+      "sha256_before": "0cd06ff9f1f59c6181c0376cac87f60deac8fd5978a902b986b978c6b6857818",
+      "sha256_after": "0cd06ff9f1f59c6181c0376cac87f60deac8fd5978a902b986b978c6b6857818",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\version65_validation.json",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\version65_validation.json",
+      "sha256_before": "27e5a682a6f57ed28e298637a82707c492e55d6ec13e91240e42736e729954e7",
+      "sha256_after": "27e5a682a6f57ed28e298637a82707c492e55d6ec13e91240e42736e729954e7",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算输出\\version66_validation.json",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\计算输出\\version66_validation.json",
+      "sha256_before": "3a11d44d162c4059abe4c959f6a8b864d52f8c0e48a96391dc76c84f258b1c77",
+      "sha256_after": "3a11d44d162c4059abe4c959f6a8b864d52f8c0e48a96391dc76c84f258b1c77",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\审计结果\\DeepSeek66\\audit_evidence.json",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\审计结果\\DeepSeek66\\audit_evidence.json",
+      "sha256_before": "870edcc2058836a9ae127c9b4b8c3a93e160ef6ae76d812d55a935fbd1fe5b93",
+      "sha256_after": "8283c27057888b6daaccfe487f8f9a88594fdef7884aa523895bd040d7dd4f1c",
+      "bytes_unchanged": false
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\审计结果\\DeepSeek66\\deepseek_assertions_only.py",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\审计结果\\DeepSeek66\\deepseek_assertions_only.py",
+      "sha256_before": "2eddc56ea688690d6a4ef954abbb3f6200388a60c1f7bd4f6592c7bc725fae5c",
+      "sha256_after": "2eddc56ea688690d6a4ef954abbb3f6200388a60c1f7bd4f6592c7bc725fae5c",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\审计结果\\DeepSeek66\\deepseek_assertions_rerun.txt",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\审计结果\\DeepSeek66\\deepseek_assertions_rerun.txt",
+      "sha256_before": "b08443d75af1d378b47afa4299befa2a6dfea46de2d41eb2267c0846de0aa9a4",
+      "sha256_after": "b08443d75af1d378b47afa4299befa2a6dfea46de2d41eb2267c0846de0aa9a4",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\审计结果\\DeepSeek66\\DeepSeek第66版独立审计-20261020.md",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\审计结果\\DeepSeek66\\DeepSeek第66版独立审计-20261020.md",
+      "sha256_before": "1c8209bb1f9e5209d80106bebf60a44900d21c2a5aececc4fed6fd8bade0e509",
+      "sha256_after": "bed8da4cb51b5528db5e26b287fe8c18bc5b47f93c918eb8a94d91fcfb13d9be",
+      "bytes_unchanged": false
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\审计结果\\DeepSeek66\\independent_review_checks.txt",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\审计结果\\DeepSeek66\\independent_review_checks.txt",
+      "sha256_before": "48f5124b0a9d3564e6fefd7638aeba500a6b497b8ff9f0126b68d11e35a1fd5e",
+      "sha256_after": "48f5124b0a9d3564e6fefd7638aeba500a6b497b8ff9f0126b68d11e35a1fd5e",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\审计结果\\DeepSeek66\\independent_review.wl",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\审计结果\\DeepSeek66\\independent_review.wl",
+      "sha256_before": "39053c06bbc05f357a556e735d474cf45cd6a671fbdd00bbc6d315d7e083d39b",
+      "sha256_after": "39053c06bbc05f357a556e735d474cf45cd6a671fbdd00bbc6d315d7e083d39b",
+      "bytes_unchanged": true
+    },
+    {
+      "old_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\审计结果\\DeepSeek66\\section261_changes.diff",
+      "new_path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\计算脚本\\审计结果\\DeepSeek66\\section261_changes.diff",
+      "sha256_before": "5eba72e07e8499bc4ab289841d778870068502e254b7a547dd9dbea37f0d7e4b",
+      "sha256_after": "5eba72e07e8499bc4ab289841d778870068502e254b7a547dd9dbea37f0d7e4b",
+      "bytes_unchanged": true
+    }
+  ],
+  "main_documents": [
+    {
+      "path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\higgs_portal_mixing_unified_reviewer_response_and_uv_eft_UPDATED_v2(8)(20261019)(65).md",
+      "sha256_before": "64b3d08d44f20706031ccc4d5c10bd82ad17a9da7bc113c4105194912967f34e",
+      "sha256_after": "64b3d08d44f20706031ccc4d5c10bd82ad17a9da7bc113c4105194912967f34e",
+      "bytes_unchanged": true
+    },
+    {
+      "path": "C:\\Users\\84680\\Desktop\\axial-vector审稿意见回复\\higgs_portal_mixing_unified_reviewer_response_and_uv_eft_UPDATED_v2(8)(20261019)(66).md",
+      "sha256_before": "082b9add00b2aecbba9e708cda834033b6c8391679d68ed4b86761ed0d464332",
+      "sha256_after": "082b9add00b2aecbba9e708cda834033b6c8391679d68ed4b86761ed0d464332",
+      "bytes_unchanged": true
+    }
+  ],
+  "verification": {
+    "moved_files": 50,
+    "unmodified_evidence_files": 48,
+    "intentional_path_metadata_edits": 2,
+    "unchanged_main_documents": 2,
+    "local_links_checked": 14,
+    "external_reference_links": [
+      {
+        "target": "C:/Users/84680/Desktop/测试（非gpt）/outputs/higgs_portal_mixing_unified_reviewer_response_and_uv_eft_UPDATED_v2(8)(20261019)(66).md",
+        "exists": true
+      },
+      {
+        "target": "C:/Users/84680/Desktop/测试（非gpt）/outputs/higgs_portal_mixing_unified_reviewer_response_and_uv_eft_UPDATED_v2(8)(20261019)(66).md:31717",
+        "exists": true
+      },
+      {
+        "target": "C:/Users/84680/Desktop/测试（非gpt）/outputs/higgs_portal_mixing_unified_reviewer_response_and_uv_eft_UPDATED_v2(8)(20261019)(66).md:31820",
+        "exists": true
+      },
+      {
+        "target": "C:/Users/84680/Desktop/测试（非gpt）/outputs/higgs_portal_mixing_unified_reviewer_response_and_uv_eft_UPDATED_v2(8)(20261019)(66).md:31881",
+        "exists": true
+      },
+      {
+        "target": "C:/Users/84680/Desktop/测试（非gpt）/outputs/section262_reproduce.py:192",
+        "exists": true
+      },
+      {
+        "target": "C:/Users/84680/Desktop/测试（非gpt）/outputs/higgs_portal_mixing_unified_reviewer_response_and_uv_eft_UPDATED_v2(8)(20261019)(66).md:32058",
+        "exists": true
+      },
+      {
+        "target": "C:/Users/84680/Desktop/测试（非gpt）/work/tsk2_b0.m:1",
+        "exists": false
+      },
+      {
+        "target": "C:/Users/84680/Desktop/测试（非gpt）/outputs/higgs_portal_mixing_unified_reviewer_response_and_uv_eft_UPDATED_v2(8)(20261019)(66).md:32023",
+        "exists": true
+      },
+      {
+        "target": "C:/Users/84680/Desktop/测试（非gpt）/outputs/higgs_portal_mixing_unified_reviewer_response_and_uv_eft_UPDATED_v2(8)(20261019)(66).md:32013",
+        "exists": true
+      },
+      {
+        "target": "C:/Users/84680/Desktop/测试（非gpt）/outputs/higgs_portal_mixing_unified_reviewer_response_and_uv_eft_UPDATED_v2(8)(20261019)(66).md:31032",
+        "exists": true
+      }
+    ],
+    "physics_calculations_rerun": false
+  }
+}

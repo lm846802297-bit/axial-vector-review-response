@@ -1,0 +1,83 @@
+PASS 01 scalar master k(1, 0)
+PASS 02 scalar master k(0, 1)
+PASS 03 scalar master k(2, 0)
+PASS 04 scalar master k(0, 2)
+PASS 05 scalar master k(1, 1)
+PASS 06 scalar master k(3, 0)
+PASS 07 scalar master k(0, 3)
+PASS 08 scalar master k(2, 1)
+PASS 09 scalar master k(1, 2)
+PASS 10 scalar potential reconstruction
+PASS 11 linear source FH X0Y0
+PASS 12 linear source FH X1Y0
+PASS 13 linear source FH X0Y1
+PASS 14 linear source FS X0Y0
+PASS 15 linear source FS X0Y1
+PASS 16 linear source FS X1Y0
+PASS 17 H source square appears once
+PASS 18 S source square appears once
+PASS 19 gauge master HH
+PASS 20 gauge master SS
+PASS 21 gauge master HS
+PASS 22 gauge master weak scalar
+PASS 23 gauge master H fermion
+PASS 24 gauge master S fermion
+PASS 25 gauge master diagonal four fermion
+PASS 26 gauge master weak scalar fermion
+PASS 27 gauge master weak heavy fermion
+PASS 28 gauge master weak four fermion
+PASS 29 scalar gauge EOM QX
+PASS 30 scalar gauge EOM QHD
+PASS 31 scalar gauge EOM QY
+PASS 32 scalar gauge EOM OJ
+PASS 33 scalar gauge EOM OD
+PASS 34 scalar gauge EOM X2
+PASS 35 scalar gauge EOM X3
+PASS 36 scalar gauge EOM Y2
+PASS 37 scalar gauge EOM Y3
+PASS 38 scalar gauge EOM X2Y
+PASS 39 scalar gauge EOM XY2
+PASS 40 scalar gauge EOM XFH
+PASS 41 scalar gauge EOM YFS
+PASS 42 zero mixing A
+PASS 43 zero mixing B
+PASS 44 zero mixing D
+PASS 45 K0 adjugate entry 00
+PASS 46 K0 adjugate entry 01
+PASS 47 K0 adjugate entry 10
+PASS 48 K0 adjugate entry 11
+PASS 49 direct P substitution kappa=0
+PASS 50 direct P substitution kappa=1/3
+PASS 51 direct P substitution kappa=-2/5
+PASS 52 unordered four fermion from master
+PASS 53 ordered to unordered factor
+PASS 54 diagonal not divided twice
+PASS 55 off shell higher derivative removal
+PASS 56 reference Eq6.4 signed mass conversion
+PASS 57 reference Eq6.7 Yukawa mass conversion
+PASS 58 heavy order r J4J4
+PASS 59 heavy order r J4J5
+PASS 60 heavy order r J5J5
+PASS 61 heavy order dim6 fermion EOM times C5
+PASS 62 heavy order scalar z times C5
+PASS 63 heavy order scalar r times C5
+PASS 64 forbidden diagonal dim6 dipole charge s=1
+PASS 65 first dipole S charge completion s=1
+PASS 66 forbidden diagonal dim6 dipole charge s=-1
+PASS 67 first dipole S charge completion s=-1
+PASS 68 dipole scalar fermion F dimension
+PASS 69 allowed dipole with S dimension
+RERUN 250 | RESULT: 56 checks passed; no failures | archived stdout identical
+RERUN 251 | RESULT: 59 exact symbolic checks passed; 3 high-precision numerical cases passed | archived stdout identical
+RERUN 252 | RESULT: 46 exact symbolic checks passed | archived stdout identical
+RERUN 253 | RESULT: 68 exact symbolic checks passed; 3 numerical parameter-integral cases passed | archived stdout identical
+RERUN 254 | RESULT: 68 exact symbolic checks passed; 3 neutral-background numerical cases passed | archived stdout identical
+RERUN 255 | RESULT: 47 exact symbolic/matrix checks passed; 6 numerical cases passed | archived stdout identical
+RERUN 256 | RESULT: 62 exact graph/symbolic/matrix checks passed; 3 integrals and 3 high-precision hard limits passed | archived stdout identical
+RERUN 257 | RESULT: 58 exact graph/symbolic checks passed; 3 integrals and 3 mass-basis hard limits passed | archived stdout identical
+RERUN 258 | RESULT: 74 exact parameter/symbolic/group checks passed; 6 integrals and 3 IR hard limits passed | archived stdout identical
+RERUN 259 | RESULT: 53 exact determinant/Fierz/symbolic checks passed; 9 integrals and 6 IR hard limits passed | archived stdout identical
+RERUN_LEDGER_JSON [{"section":250,"script_sha256":"b7cbaf111ebc9f9eed7df56f8ff6d6e6195b215dc133a459994a3b8b64253603","archived_log_sha256":"86f94f77ac7422c8675086bca45de742127dc61bd488cc0537188c5d5fadc8d4","exit_code":0,"stdout_equals_archived":true,"result":"RESULT: 56 checks passed; no failures"},{"section":251,"script_sha256":"7264e2bdd0ffcf2708fc04879ec40a3c64ee72462cd9d90788a16019e5db3ccd","archived_log_sha256":"4334698cb2a086b8eecbba9d5d83e89011ba0a2c90862668eda39ec3df3d9cfc","exit_code":0,"stdout_equals_archived":true,"result":"RESULT: 59 exact symbolic checks passed; 3 high-precision numerical cases passed"},{"section":252,"script_sha256":"832a3af675790a6219ec8bc849ad24ad7d864bf7f02a86603c65c96cc85e521b","archived_log_sha256":"01ee98ad56606868409c4b368e5fcf2b2fa5ab6bc4bcf614d05977255110f911","exit_code":0,"stdout_equals_archived":true,"result":"RESULT: 46 exact symbolic checks passed"},{"section":253,"script_sha256":"b8c97d2b26a56edba4d662d58d93468e24bbb5c0658466bdfa1ff81ae095d335","archived_log_sha256":"06f2d1373c86cb213ed94ab7d37c20266d21c0370a6dddb9e8326ed2b5264ae7","exit_code":0,"stdout_equals_archived":true,"result":"RESULT: 68 exact symbolic checks passed; 3 numerical parameter-integral cases passed"},{"section":254,"script_sha256":"633c63dfc9810ae9ae124fe2994dfb7082ace8b4c3e1284df20a84a37824f297","archived_log_sha256":"612c8f7355e7c5a02befbdf2bb8b3f6d7608cb156bfe86c18cdc6fc9bc7ece49","exit_code":0,"stdout_equals_archived":true,"result":"RESULT: 68 exact symbolic checks passed; 3 neutral-background numerical cases passed"},{"section":255,"script_sha256":"643c3e05ea7bf371baae8d6980eee9fc816674572db5eb1c4d5049ad53dd7c2d","archived_log_sha256":"569ff1d11058f0cdb6cdb14bd5a23a61437f281e64ca0155a52d20956adacb31","exit_code":0,"stdout_equals_archived":true,"result":"RESULT: 47 exact symbolic/matrix checks passed; 6 numerical cases passed"},{"section":256,"script_sha256":"7ea661bd7e836c043f14be19b27cb50469e71ef6211512211340166ec9b17b85","archived_log_sha256":"407e85be85f6729b9f837874ade3bb2f3b4c6a63250a3623301daddfc46e61c6","exit_code":0,"stdout_equals_archived":true,"result":"RESULT: 62 exact graph/symbolic/matrix checks passed; 3 integrals and 3 high-precision hard limits passed"},{"section":257,"script_sha256":"f8f2f991a118ac20767cf9017030057ebb7dbe18ec364e9f1a93bd1c279f1432","archived_log_sha256":"9918adc9d809e354897537ddf2c9717ce5a54d9d381ae27e01e2659a09cbc2bc","exit_code":0,"stdout_equals_archived":true,"result":"RESULT: 58 exact graph/symbolic checks passed; 3 integrals and 3 mass-basis hard limits passed"},{"section":258,"script_sha256":"7a5e5fc703e5e8a53e18051be20f4f8976a6b9b804e7aa1d7245fa1e68f93658","archived_log_sha256":"f7fe678b1597b89b4ecbbc9964e19a036d1d051b8bf0ecff6935fb888e404d57","exit_code":0,"stdout_equals_archived":true,"result":"RESULT: 74 exact parameter/symbolic/group checks passed; 6 integrals and 3 IR hard limits passed"},{"section":259,"script_sha256":"1d804342679312a973a319494f34fc2a301da9cfe4bf120b737b53f2ddcf3847","archived_log_sha256":"47378c9f4ced384ba9ffdfe9af2ac3e1d4b365c7776471f88df71ae0ca62420c","exit_code":0,"stdout_equals_archived":true,"result":"RESULT: 53 exact determinant/Fierz/symbolic checks passed; 9 integrals and 6 IR hard limits passed"}]
+RESULT: 69 exact global assembly checks passed; 10 delivered section scripts rerun successfully
+Scope: symbolic assembly, source/order/charge checks, and reproducibility; no new automated diagram census.
+No FeynArts/FeynCalc, Matchete, matchmakereft, or external diagram generator was run.

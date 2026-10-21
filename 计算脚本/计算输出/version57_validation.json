@@ -1,0 +1,50 @@
+{
+  "created_on_client_date": "2026-10-19",
+  "baseline_version": 56,
+  "output_version": 57,
+  "baseline_path": "C:\\Users\\84680\\Documents\\Codex\\2026-10-19\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\higgs_portal_mixing_unified_reviewer_response_and_uv_eft_UPDATED_v2(8)(20261019)(56).md",
+  "output_path": "C:\\Users\\84680\\Documents\\Codex\\2026-10-19\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\higgs_portal_mixing_unified_reviewer_response_and_uv_eft_UPDATED_v2(8)(20261019)(57).md",
+  "baseline_sha256_before": "1d2c90f4385391a21f878910b000a548ff3eedab137873033a1bfe089d4a9de6",
+  "baseline_sha256_after": "1d2c90f4385391a21f878910b000a548ff3eedab137873033a1bfe089d4a9de6",
+  "v56_is_exact_byte_prefix_of_v57": true,
+  "baseline_bytes": 1244306,
+  "appendix_bytes": 31242,
+  "output_bytes": 1275548,
+  "output_sha256": "e96549df671a17f1504326e384cfebb44dfd738aa7ae32a8d0a176e39e97ca09",
+  "section253_subsections": [
+    "253.1",
+    "253.2",
+    "253.3",
+    "253.4",
+    "253.5",
+    "253.6",
+    "253.7",
+    "253.8",
+    "253.9",
+    "253.10",
+    "253.11",
+    "253.12"
+  ],
+  "appendix_math_delimiters_balanced": true,
+  "appendix_code_fences_balanced": true,
+  "embedded_checker_equals_delivered_checker": true,
+  "python_version": "3.14.7",
+  "symbolic_checks_passed": 68,
+  "numerical_cases_passed": 3,
+  "numerical_method": "composite Simpson, 4096 segments, binary64",
+  "checker_sha256": "b8c97d2b26a56edba4d662d58d93468e24bbb5c0658466bdfa1ff81ae095d335",
+  "check_log_sha256": "06f2d1373c86cb213ed94ab7d37c20266d21c0370a6dddb9e8326ed2b5264ae7",
+  "feynarts_run": false,
+  "feyncalc_run": false,
+  "library_updated": false,
+  "planned_main_document_versions": [
+    57,
+    56
+  ],
+  "older_main_document_removed": "higgs_portal_mixing_unified_reviewer_response_and_uv_eft_UPDATED_v2(8)(20261019)(55).md",
+  "older_content_verified_in_latest_before_removal": true,
+  "remaining_main_document_versions": [
+    57,
+    56
+  ]
+}

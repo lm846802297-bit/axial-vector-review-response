@@ -1,0 +1,27 @@
+ENGINE 14.2.0 for Microsoft Windows (64-bit) (December 26, 2024)
+VERIFIED radial h vertex from original mass
+VERIFIED radial s vertex from original mass
+VERIFIED unavoidable mixed contact
+COUNTEREXAMPLE wrong bubble hh/ss ratio at v=3,w=4 | claimed=0.5625`18. | correct=1.77777777777777777777777777777777777778`18. | difference=-1.2152777777777777777777777777777777777777777777777777777777`30.
+VERIFIED exact PV numerator
+COUNTEREXAMPLE B0 bracket at m=1,p2=-1 | claimed=1.5`18. | correct=2.5`18. | difference=-1.`30.
+COUNTEREXAMPLE UV bracket at m=1,p2=-1 | claimed=2.5`18. | correct=3.5`18. | difference=-1.`30.
+VERIFIED A0 pole remains one times m squared
+COUNTEREXAMPLE B0 finite at zero with m=mu=1 | claimed=2.`18. | correct=0 | difference=2.`30.
+INTEGRAL z=-1 | B0fin(m=mu=1)=-0.15204470482002019444716616475302712712`18.
+INTEGRAL z=1 | B0fin(m=mu=1)=0.18620063576578214940592174235784426771`18.
+INTEGRAL z=5 | B0fin(m=mu=1)=1.56959105903599596111056676704939457458`18.02273052170092 + 1.40496294620814527863127492864097895989`17.97460887608413*I
+COUNTEREXAMPLE published B0 additive constant, spacelike z=-1 | claimed=1.84795529517997980555283383524697287288`18. | correct=-0.15204470482002019444716616475302712712`18. | difference=2.`30.
+COUNTEREXAMPLE imaginary I2 at z=5 in the fixed Feynman convention | claimed=-1.40496294620814527863127492864097895989`18. | correct=1.40496294620814527863127492864097895989`18. | difference=-2.8099258924162905572625498572819579197866036748268809679962`30.
+COUNTEREXAMPLE scalar absorptive part at z=5 after stripping q*g^2 | claimed=-8.42977767724887167178764957184587375934`18. | correct=2.80992589241629055726254985728195791978`18. | difference=-11.2397035696651622290501994291278316791464146993075238719851`30.
+VERIFIED CW Hessian fixes full finite Pi(0)
+COUNTEREXAMPLE rank one for full massive C5 self energy at p2=0 | claimed=0 | correct=-48.`18. | difference=48.`30.
+COUNTEREXAMPLE opposite pole shift in document example | claimed=3.0519`18. | correct=4.1481`18. | difference=-1.0961999999999999999999999999999999999999999999999999999999`30.
+COUNTEREXAMPLE det Gamma(0) is not product of momentum-dependent pole masses | claimed=4.`18. | correct=3.63636363636363636363636363636363636364`18. | difference=0.3636363636363636363636363636363636363636363636363636363636`30.
+VERIFIED omitted Khs squared term
+COUNTEREXAMPLE claimed exact scalar characteristic polynomial at z=1 | claimed=0 | correct=-0.04`18. | difference=0.04`30.
+GAUGE_SCALAR_MIXUP | no scalar-derivative Wilson: correct scalar masses2={1,4}; using gauge K0 gives {0.98706513580624752824349356591948117678`15., 4.2212681975270858050898397674138521566`15.}
+AUTHOR_ANCHOR | erroneous written expression=-3.99792699556485125736576999892942398631`18. | correct bubble with same arbitrary coupling, q stripped=58.50096413324829724881242902437804639468`18.
+COUNTEREXAMPLE same-input full bubble anchor | claimed=-3.99792699556485125736576999892942398632`18. | correct=58.50096413324829724881242902437804639468`18. | difference=-62.49889112881314850617819902330747038102`30.
+RESULT: 7 independent symbolic identities verified; 12 explicit claimed relations falsified; 3 independent B0 integrals passed
+Scope: no prior chapter checker was used as the physical ground truth. No FeynArts/FeynCalc was loaded.
