@@ -565,10 +565,14 @@ The line therefore does not represent a nonperturbativity bound on
 
 ### 7A. 在 Eq. (12) 附近直接定义严格纯轴矢量极限
 
-在给出 $$
+在给出
+
+$
 g_V^\mu=g_X\sin^2\theta_{\mu R},\qquad
 g_A^\mu=-g_X\cos^2\theta_{\mu R}
-$$ 之后，紧接着说明：
+$
+
+之后，紧接着说明：
 
 ``` latex
 The strict pure-axial limit in the muon sector is defined by
