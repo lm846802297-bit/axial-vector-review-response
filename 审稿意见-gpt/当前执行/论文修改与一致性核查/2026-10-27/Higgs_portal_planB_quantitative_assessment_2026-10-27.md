@@ -132,6 +132,25 @@ B_0^{\rm fin}(s;m^2,m^2)=
 1. 在这两个明确的低能匹配 benchmark 下，远离 \(m_s=m_h\) 时，轻子圈给出的 \(\rho_{\rm mix}\) 通常在 \(10^{-4}\)–\(10^{-3}\) 量级；靠近简并点时，它迅速增长。
 2. \(m_s=m_h\) 行的 “失效” 是小混合展开的分母为零，不表示物理振幅发散。物理问题必须用完整的复数 \(2\times2\) 逆传播子和极点条件处理。
 3. 这些数字是仅由轻子对角圈、特定局域匹配条件和 \(v_s^{\min}\) 得到的条件性估计。不能将表格中的 \(\rho_{\rm mix}\) 当作完整 UV 混合角的上界，因为独立的 renormalized portal 参数尚未匹配。
+### 可选的 Yukawa 微扰性敏感性检查（不是原稿当前约束）
+
+原稿明确使用 \(|\theta_{\tau R}|\leq10^{-2}\)，但没有在这一 benchmark 中同时写出 \(|\lambda_\tau|\leq\sqrt{4\pi}\) 的 Yukawa 微扰性条件。若额外采用该条件，由
+\[
+m_\tau\simeq \theta_{\tau L}\frac{\lambda_\tau v_s}{\sqrt2},
+\qquad |\theta_{\tau L}|\leq10^{-2},
+\]
+可得
+\[
+v_s\gtrsim\frac{\sqrt2m_\tau}{10^{-2}\sqrt{4\pi}}
+\simeq70.9~\mathrm{GeV}.
+\]
+在 \(m_s=m_h\) 时，这会把轻子圈估计缩小到
+\[
+|\Pi_{hs}^{\rm MOM}|\simeq0.240~\mathrm{GeV}^2,\qquad
+|\Pi_{hs}^{\overline{\rm MS}+\mathrm{contact}}|\simeq0.134~\mathrm{GeV}^2.
+\]
+这只是一个附加的理论一致性敏感性检查；因为原稿没有声明该 Yukawa 上限，本报告主表仍使用原稿明确给出的 \(\lambda_S\leq4\pi\) 条件，不把该附加限制暗中并入主结果。
+
 
 ## 4. 哪些结果不依赖实部的局域减除？
 
