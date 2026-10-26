@@ -114,3 +114,10 @@ Interpretation:
 - With the matched benchmark, the open A'A' channel makes the singlet-like pole broad and keeps the Higgs-like pole close to the SM width in this approximation.
 - With A'A' closed, the exact-degenerate poles show width redistribution and a non-negligible complex mixing diagnostic. A dedicated two-pole lineshape/signal-strength fit is required before classifying this narrow region as allowed or excluded.
 - The near-degenerate region remains NOT ASSESSED by a model-specific experimental recast.
+
+Follow-up independent equation-level reproduction (2026-10-27):
+- Reimplemented the benchmark threshold, matched off-diagonal self-energy, widths, and 2x2 complex-pole solver in a separate Python kernel, without importing the committed script.
+- Benchmark A reproduced Delta lambda_HS^E = -0.210763976176, Pi_hs(m_h^2) = -0.413263168196 - 0.113173708982 i GeV^2, Gamma_s = 3.7468142014 GeV, and the narrow-pole width = 4.072690688 MeV.
+- Benchmark B reproduced Delta lambda_HS^E = -0.010673376489, Pi_hs(m_h^2) = -0.092999245174 - 0.025468201182 i GeV^2, Gamma_s = 0.158940037 MeV, and the two pole widths = 0.292112477 MeV and 3.936824146 MeV.
+- The scale residuals were reproduced as 5.871402e-4 GeV^2 (A) and 1.321279e-4 GeV^2 (B).
+- These are independent equation-level reproductions, not a byte-for-byte execution of higgs_portal_planC_lite.py. The committed script's clean-environment execution remains open, as do the derivative-matching and experimental-recast limitations listed above.
