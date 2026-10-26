@@ -54,7 +54,7 @@
 |:-----|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------|:-----------------------|:------------------------------------------------------------------------------------------|:-----------------|
 | T-00 | 锁定审稿人实际收到的 PDF，并与当前 v6 核对 Eq. (30)/(34) 及相关约定                                                                                                          | Major 1；Minor 6.4                 | Diff 0                 | 投稿版本、逐式对照记录、确认后的约定                                                      | 待完成           |
 | T-01 | 落实已选择的路线 B：说明允许/禁止的 Weinberg 算符、残余 $Z_2$、PMNS 结构限制；将同一范围声明同步至 Introduction、模型部分、Conclusion、Major 3 与 Major 4.1；不新增粒子 | Major 3、Major 4.1 | Diff 11 及模型部分 | 正文实际差异、正式回复、Major 3/4.1 逐项一致性核验与编译记录 | **路线已选；正文/回复同步待验收** |
-| T-02 | 将 Higgs portal 纳入完整势能，定义重整化条件和尺度，计算轻子/VLL 圈级贡献、阈值及非对角二点函数；正确处理 $m_s\simeq m_h$                                                    | Major 1.3                          | Diff 2                 | 势能与质量矩阵、重整化条件、圈级计算、近简并处理和独立核查                                | 待计算           |
+| T-02 | 将 Higgs portal 纳入完整势能，定义重整化条件和尺度，计算轻子/VLL 圈级贡献、阈值及非对角二点函数；正确处理 $m_s\simeq m_h$ | Major Point 1.3 | Diff 2 | 势能与质量矩阵、匹配边界、候选导数项证据边界、近简并极点诊断与约束分类 | **portal 阈值和两个代表点、首轮复数极点已完成；导数匹配闭环、独立图级验证和 Higgs 重铸仍开放** |
 | T-03 | 量化标量/Higgs 约束：产生率、总宽度、分支比、寿命、Higgs 信号强度、exotic decays 和适用直接搜索；区分已排除、所考虑约束下未排除、未评估                                      | Major 1、1.1、1.2、1.3；Major 4    | Diff 4、5、6           | 模型特定重铸、假设清单、质量分类图/表、独立复核                                           | 待计算/重铸      |
 | T-04 | 核查 Belle II 等标量搜索的原始分析、spin-0 解释、产生/衰变假设及接受度；不能仅凭质量覆盖判为排除                                                                             | Major 1.1、Major 4；Minor 6.2、6.3 | Diff 4A–4C             | 原始分析依据、模型映射、适用性判断及必要的重铸                                            | 待完成           |
 | T-05 | 统一 VLL 质量与混合角 benchmark；核对 $m_\ell\simeq\theta_{\ell L}\theta_{\ell R}M_E$、Eq. (22)/(27) 和直接搜索界限；将 benchmark 推论与实验质量下限分开                     | Minor 3、Minor 4                   | Diff 3                 | 精确/近似质量关系、可行参数选择、直接搜索假设和修订理由                                   | 待修改与复核     |
@@ -322,7 +322,60 @@ S=\frac{v_s+s_0}{\sqrt2},
 4. 对相关物理本征态核查 Higgs 信号强度、exotic decays、标量产生率、总宽度、分支比和寿命；若 $s\to A'A'$ 运动学开放，须纳入其对可见分支比的影响。
 5. 只有当标量对**指定观测量、参数域和目标精度**的影响经定量验证足够小，才可采用 scalar-suppressed 近似；不得仅因选取 $m_s\geq10\,\mathrm{GeV}$ 就宣称标量已退耦。
 
-**状态：** T-02/T-03 的物理阻塞项。没有完成以上计算和独立核查之前，不得在正文或回复信中宣称“loop-induced mixing is negligible”或“the Higgs constraints have been applied”。
+**状态更新（2026-10-27）：** portal 阈值和两个代表点的数值化、候选有限导数系数的首轮组合以及第一轮复数极点诊断已完成。有限导数系数的完整同阶 EFT soft/counterterm 闭合、独立图级验证、全动量对角自能以及模型专属 Higgs 线形/直接搜索重铸仍未完成。因此不能声称全质量区间的混合均可忽略；近简并窄宽度区域必须标记为 **not assessed**，不能直接分类为允许或排除。
+
+### 2D. Plan C-lite 的匹配条件与论文中应明确的范围（2026-10-27）
+
+**目的：** 将已完成的 portal 阈值和第一轮极点诊断纳入修改方案，但不把候选导数系数或条件性数值结果写成已完全验证的 UV 预测。
+
+建议在 Sec. II.C 的 portal 讨论中加入以下文字；正式应用前仍须核对符号、章节和方程编号：
+
+~~~latex
+The renormalizable operator $(H^\dagger H)(S^\dagger S)$ is allowed by
+the gauge symmetry. Integrating out the vector-like leptons at
+$\mu_M=M_E$ gives, in the stated $\overline{\mathrm{MS}}$ potential
+convention,
+\[
+\lambda_{HS}^{\mathrm{EFT}}(\mu_M)
+=\lambda_{HS}^{\mathrm{UV}}(\mu_M)
++\Delta\lambda_{HS}^{E},\qquad
+\Delta\lambda_{HS}^{E}
+=-\frac{1}{8\pi^2}\sum_{\ell=\mu,\tau}
+|y_\ell|^2|\lambda_\ell|^2+\cdots .
+\]
+For the scalar-suppressed reference benchmark we impose
+$\lambda_{HS}^{\mathrm{EFT}}(M_E)=0$, which requires
+$\lambda_{HS}^{\mathrm{UV}}(M_E)=-\Delta\lambda_{HS}^{E}$.
+This is an explicit matching-boundary choice, not a symmetry prediction;
+setting the UV portal to zero is a different assumption.
+
+For illustration, at $M_E=20\,\mathrm{TeV}$ with
+$\theta_{\mu L}=\theta_{\tau L}=10^{-2}$ and the leading seesaw
+relations, the threshold is
+$\Delta\lambda_{HS}^{E}\simeq-0.2108$ for
+$(m_{A'},g_X,v_s)=(10\,\mathrm{GeV},0.0705,70.9\,\mathrm{GeV})$
+and $\simeq-0.01067$ for
+$(63\,\mathrm{GeV},0.1,315\,\mathrm{GeV})$.
+These are illustrative benchmark points, with
+$|\lambda_\ell|\leq\sqrt{4\pi}$ imposed as an additional perturbativity
+criterion; they are not a global scan or an exclusion contour.
+
+The finite-derivative contribution used in the first-pass pole diagnostic
+is a candidate coefficient from the existing two-point/EOM matching
+analysis. Its complete same-order EFT soft/counterterm closure and
+independent diagram-level validation have not been completed. The
+near-degenerate narrow-width region around $m_s\simeq m_h$ is therefore
+not classified as allowed or excluded: a model-specific two-pole Higgs
+lineshape analysis and the relevant direct-search recast remain necessary.
+~~~
+
+**状态与边界：**
+
+- 正文可说明 portal 边界条件、阈值公式、代表点及其条件性；不得将 $\lambda_{HS}^{\mathrm{EFT}}(M_E)=0$ 写成对称性强制的结果。
+- 如果保留有限导数系数对应的数值自能，应明确它是候选匹配输入，且首轮极点计算采用固定对角宽度/吸收对角实部的近似。
+- 正式回复信与正文必须使用同一组 benchmark 和同一套未评估边界；不得只在回复信中声称已经完成，而主文没有相应说明。
+- 此 Diff 是待应用的修改方案，不代表主论文 TeX 已修改或编译通过。
+
 ------------------------------------------------------------------------
 
 ## Diff 3 — Sec. II.C：修正 VLL benchmark 与 “conservative” 用语
