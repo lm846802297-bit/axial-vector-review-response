@@ -93,7 +93,7 @@ For the adopted mass convention, the perturbativity condition is
 \quad\Longrightarrow\quad
 m_s^2\leq 2\lambda_S^{\max}v_s^2.
 \]
-For example, \(\lambda_S^{\max}=4\pi\) gives \(m_s^2\leq8\pi v_s^2\), consistent with the \(v_s\simeq2\,\mathrm{GeV}\) reference line for \(m_s=10\,\mathrm{GeV}\) discussed below. This theoretical condition is not an experimental exclusion and does not, by itself, establish an experimentally allowed scalar-mass interval.
+For example, \(\lambda_S^{\max}=4\pi\) gives \(m_s\leq\sqrt{8\pi}\,v_s\), consistent with the \(v_s\simeq2\,\mathrm{GeV}\) reference line for \(m_s=10\,\mathrm{GeV}\) discussed below. In particular, \(m_s\leq v_s\) is not a general consequence of \(\lambda_S\leq4\pi\); it would require the stronger condition \(\lambda_S\leq1/2\). Conversely, within the plotted range \(g_X\leq0.1\), the vector mass relation gives \(m_{A'}=2g_Xv_s\leq0.2v_s\). These are conditional theoretical relations, not experimental exclusions, and do not by themselves establish an experimentally allowed scalar-mass interval.
 
 For clarity, we reproduce the low-mass scalar constraints quoted in the original manuscript. They constrain the scalar coupling \(y_{s\mu\mu}\), not the gauge-boson coupling \(g_X\) directly:
 \begin{center}
@@ -110,7 +110,11 @@ Scalar-mass range & Published constraint & Approximate upper bound on \(|y_{s\mu
 \hline
 \end{tabular}
 \end{center}
-These are approximate, source-dependent bounds. They inherit the production, trapping, and loop-matching assumptions of the cited analyses; they are not an exhaustive global constraint set and do not establish the strongest bound at every scalar mass.
+These are approximate, source-dependent bounds on \(y_{s\mu\mu}\). They inherit the production, trapping, and loop-matching assumptions of the cited analyses; they are not an exhaustive global constraint set and do not establish the strongest bound at every scalar mass. They are not direct, model-independent bounds on \(g_X\). Only under the mass-proportional benchmark \(y_{s\mu\mu}=m_\mu/v_s\), together with \(m_{A'}=2g_Xv_s\), can one translate a bound \(|y_{s\mu\mu}|<y_{\max}\) into the conditional relation
+\[
+g_X<\frac{y_{\max}m_{A'}}{2m_\mu}.
+\]
+This translation must not be identified with a bound on a distinct scalar--vector--vector coupling, if such a coupling is denoted separately in the original manuscript.
 
 A consistent phenomenological classification must separately identify points satisfying the theoretical criterion, points excluded by applicable experimental constraints, points not excluded by the constraints actually considered, and points that remain unassessed. The final model-specific classification is \textbf{[To be completed after the scalar-search recasts and the portal/mixing analysis; do not classify unassessed regions as allowed.]}
 
@@ -121,7 +125,7 @@ It is thus an odd choice to exclude the scalar from the phenomenology of the eff
 \noindent {\bf Reply.}
 We agree that the scalar prediction should be assessed within the UV construction rather than dismissed solely by invoking a scalar-decoupling benchmark. However, a scalar mass below the perturbativity upper bound does not, by itself, establish collider sensitivity. A model-specific assessment requires the production rate, physical Higgs--singlet mixing, total width, branching fractions, lifetime, and the assumptions underlying the relevant experimental analyses to be matched consistently to the model.
 
-In particular, when kinematically allowed, \(s\to A'A'\) can change the visible branching fractions and therefore the interpretation of visible-decay searches. Published mass coverage is not itself an exclusion of the present UV scalar. The relevant Belle II analyses must also be treated separately: the four-muon resonance search (arXiv:2403.02841) and the \(\mu^+\mu^-\tau^+\tau^-\) resonance search (arXiv:2306.12294) each report scalar-specific interpretations, but use different production channels and benchmark assumptions.
+For organizing the discussion, we distinguish the low-mass scalar region, where the astrophysical constraints summarized in Table~II are relevant, from heavier scalar masses for which collider searches may provide complementary information. This is a division of the relevant constraint sources, not a claim that either set excludes a continuous mass interval. In particular, when kinematically allowed, \(s\to A'A'\) can change the visible branching fractions and therefore the interpretation of visible-decay searches. Published mass coverage is not itself an exclusion of the present UV scalar. The relevant Belle II analyses must also be treated separately: the four-muon resonance search (arXiv:2403.02841) and the \(\mu^+\mu^-\tau^+\tau^-\) resonance search (arXiv:2306.12294) each report scalar-specific interpretations, but use different production channels and benchmark assumptions.
 
 \textbf{[To be completed before submission: map the scalar production and decay couplings to each applicable search; evaluate the total width, branching fractions and lifetime; include \(s\to A'A'\) when open; and report only the resulting model-specific exclusions or sensitivity. Until this is done, do not claim that the scalar is excluded, experimentally accessible, or negligible throughout the plotted domain.]}
 
@@ -154,7 +158,7 @@ Satisfying the perturbativity criterion alone is not taken as evidence of experi
 Above (34): the authors ``assume negligible Higgs-portal mixing.'' Is this interaction not generated at loop level? It seems that \(S\)-\(h\) mixing cannot be avoided due to \(\mu\) and \(\tau\) loops. In turn, this seems like it would lead to strong experimental bounds on the UV completion. In fact, once there is mixing, is there not a resonance where the mixing becomes large as \(m_S\to m_h\)? It would be useful to quantify the size of this mixing over the allowed range of \(m_S\). Existing Higgs measurements may set the strongest bounds on the UV completion. If these bounds are obviously negligible (though again, I expect this to be strongly constrained as \(m_S\to m_h\)), then the authors should present this as the justification for ignoring \(m_S\) in the low-energy theory. (Though I am still skeptical that the \(S\) can be ignored since it cannot formally decouple.)\end{quote}
 
 \noindent {\bf Reply.}
-We agree that a vanishing Higgs-portal coupling cannot be treated as a symmetry-protected statement: \((H^\dagger H)(S^\dagger S)\) is allowed by the gauge symmetries, and the portal boundary condition must be specified at a matching scale and in a stated renormalization convention. The zero-momentum effective-potential analysis recorded for the VLL sector gives, under its stated potential convention,
+We agree that a vanishing Higgs-portal coupling cannot be treated as a symmetry-protected statement: \((H^\dagger H)(S^\dagger S)\) is allowed by the gauge symmetries, and the portal boundary condition must be specified at a matching scale and in a stated renormalization convention. Existing Higgs-portal limits can constrain a specified mixing or coupling benchmark, but they do not by themselves prove that the physical mixing predicted by this UV model is negligible throughout the scalar-mass range. We therefore use the negligible-portal assumption only as a conditional phenomenological benchmark, not as a general statement that the portal is absent at all scales. The zero-momentum effective-potential analysis recorded for the VLL sector gives, under its stated potential convention,
 \[
 \lambda_{HS}^{\mathrm{EFT}}(\mu_R)
 =\lambda_{HS}^{\mathrm{UV}}(\mu_R)
@@ -188,7 +192,7 @@ v_s=\frac{m_{A'}}{2g_X},
 \lambda_S=\frac{m_s^2}{2v_s^2}
 =\frac{2g_X^2m_s^2}{m_{A'}^2}.
 \]
-The perturbativity requirement therefore correlates the scalar benchmark with \((m_{A'},g_X)\); it does not, by itself, establish a universal experimentally allowed region in the two-dimensional plane.
+The perturbativity requirement therefore correlates the scalar benchmark with \((m_{A'},g_X)\); it does not, by itself, establish a universal experimentally allowed region in the two-dimensional plane. The lower-mass portion of the plotting window is useful for displaying the low-energy precision and astrophysical constraints that may be relevant there, while the heavier portion permits comparison with terrestrial searches. This organizational rationale does not assert that \((g-2)_\mu\) is explained by the axial benchmark, nor that any single constraint is strongest throughout the entire plane; those statements require the model-specific signs and quantitative limits to be checked.
 
 The parameter table and figure caption should distinguish the plotting window, the chosen benchmark, theoretical consistency, experimental exclusions, regions not excluded by the constraints actually applied, and regions that remain unassessed. \textbf{[To be completed before submission: insert the final parameter table, the physically motivated rationale for both scan endpoints, the complete constraint set used, and the verified classification. The figure and table references must match the final manuscript.] }
 
@@ -241,7 +245,7 @@ U_{\rm PMNS}=U_L^\dagger U_\nu
 \qquad
 \theta_{12}=\theta_{13}=0,
 \]
-although a nonzero \(\theta_{23}\) can arise from the internal \(\mu\)-\(\tau\) rotations. Thus the minimal charge assignment does not reproduce the observed PMNS matrix; it is not accurate to describe the prediction simply as \(U_{\rm PMNS}=I\), but the absence of electron-flavor mixing is already incompatible with oscillation data.
+although a nonzero \(\theta_{23}\) can arise from the internal \(\mu\)-\(\tau\) rotations. Thus the allowed Weinberg operators can generate nonzero neutrino-mass entries, but the minimal charge assignment does not reproduce the observed PMNS matrix; it is not accurate to describe the prediction simply as \(U_{\rm PMNS}=I\), but the absence of electron-flavor mixing is already incompatible with oscillation data.
 
 This is a limitation of the minimal construction, not a solved neutrino-mass mechanism. The manuscript must state explicitly that the model as written does not provide a complete explanation of observed neutrino oscillations.
 
@@ -342,11 +346,13 @@ Are stellar cooling bounds not relevant? See e.g. 2511.09619 for a recent paper 
 \end{quote}
 
 \noindent {\bf Reply.}
-We thank the referee for drawing our attention to the potentially relevant stellar-cooling constraints in the cited study. The scalar constraints summarized in Table~II do not, by themselves, determine whether the gauge boson \(A'\) is constrained in stellar environments. Moreover, a result obtained for a vector \(L_\mu-L_\tau\) current cannot be transferred directly to the axial-vector benchmark without checking the current structure and the production and transport rates.
+We thank the referee for drawing our attention to this study. The current version of Blinov, Fox, Kelly, Plestid, and Zhou, \href{https://arxiv.org/abs/2511.09619}{arXiv:2511.09619} (v2, 15 May 2026), re-examines a sub-GeV gauge boson coupled to the \(L_\mu-L_\tau\) current. It discusses the standard SN~1987A cooling bound as well as diffusive cooling, constraints from low-energy supernovae, and the absence of a high-energy neutrino signal from SN~1987A. These results make clear that the supernova discussion should identify which physical probe and transport regime is being invoked, rather than treating “stellar cooling” as a single universal limit.
 
-A model-specific recast for the exact axial benchmark has not yet been established. We therefore do not claim that the cited stellar-cooling or supernova constraints are subdominant or inapplicable. The assessment must identify the relevant mass and coupling range, production processes, longitudinal-mode contributions, residual vector coupling and kinetic mixing, and the conditions for trapping, escape, and decay.
+The scalar constraints summarized in Table~II do not, by themselves, determine whether the gauge boson \(A'\) is constrained in stellar environments. In addition, the cited analysis is for a vector \(L_\mu-L_\tau\) gauge boson, whereas the benchmark studied here has an axial charged-lepton current. Its exclusion curves therefore cannot be transferred directly without checking the current structure, neutrino and charged-lepton couplings, kinetic mixing and residual vector interactions, production rates, and transport assumptions. In particular, the relevant mass and coupling ranges and the conditions for trapping, escape, and decay must be compared explicitly.
 
-\textbf{[To be completed before submission: report the verified applicability or recast result, with source assumptions, mass/coupling domain, and the corresponding manuscript changes. If the constraint remains unassessed, state that limitation explicitly rather than classifying the region as allowed.] }
+A model-specific recast for the exact axial benchmark has not yet been established. We therefore do not claim that the cited stellar-cooling or supernova constraints are subdominant or inapplicable.
+
+\textbf{[To be completed before submission: compare the assumptions and parameter range of arXiv:2511.09619 with the axial benchmark; establish which production/transport results apply or require a recast; and record the justified result and corresponding manuscript changes. If the constraint remains unassessed, state that limitation explicitly rather than classifying the region as allowed.] }
 
 \medskip
 \noindent {\bf Minor Point 1)}. \begin{quote}\itshape
