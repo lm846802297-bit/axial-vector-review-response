@@ -761,7 +761,7 @@ After \(S\) acquires a vacuum expectation value, the neutrino mass matrix genera
 M_\nu=\begin{pmatrix} A&0&0\\0&B\varepsilon&C\\0&C&D\varepsilon\end{pmatrix},
 \qquad \varepsilon\sim v_s/\Lambda,
 \]
-where the coefficients absorb convention-dependent factors. The charged-lepton mass matrix allowed by the same residual selection rule also separates the electron flavor from the \(\mu\)-\(\tau\) sector. Consequently, the leptonic mixing matrix has no electron-flavor mixing between these sectors; in the usual parameterization this implies \(\theta_{12}=\theta_{13}=0\), while a non-trivial \(\mu\)-\(\tau\) rotation may remain. This structure is incompatible with the observed PMNS matrix.
+where the coefficients absorb convention-dependent factors. The charged-lepton mass matrix allowed by the same residual selection rule also separates the electron flavor from the \(\mu\)-\(\tau\) sector. Consequently, up to a permutation of neutrino mass eigenstates, the leptonic mixing matrix is block diagonal with a one-dimensional pure-electron-flavor sector and a \(\mu\)-\(\tau\) sub-block. If the isolated electron-flavor eigenstate is listed first, this corresponds to \(\theta_{12}=\theta_{13}=0\); independently of ordering, the other two mass eigenstates have no electron-flavor component. This structure is incompatible with the observed PMNS matrix.
 
 These higher-dimensional operators describe an allowed effective neutrino-mass structure; they are not a complete neutrino-mass mechanism contained in the original renormalizable UV Lagrangian. The present work therefore does not claim to explain the observed neutrino masses or PMNS mixing.
 ~~~
