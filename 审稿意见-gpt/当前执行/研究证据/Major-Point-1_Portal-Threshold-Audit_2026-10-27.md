@@ -8,9 +8,9 @@
 
 ## 1. Purpose and scope
 
-This note carries into \`axial-vector-review-response\` a concise, traceable evidence summary for the Higgs–singlet portal threshold relevant to Major Point 1. It does **not** copy the complete calculation repository or promote a provisional result to a final model prediction.
+This note carries into `axial-vector-review-response` a concise, traceable evidence summary for the Higgs–singlet portal threshold relevant to Major Point 1. It does **not** copy the complete calculation repository or promote a provisional result to a final model prediction.
 
-The calculation authority remains \`high-energy-theory-research\`. The evidence snapshot in this repository records the source version, assumptions, formulas, benchmark arithmetic, validation limits, and the reviewer-task mapping.
+The calculation authority remains `high-energy-theory-research`. The evidence snapshot in this repository records the source version, assumptions, formulas, benchmark arithmetic, validation limits, and the reviewer-task mapping.
 
 In scope:
 
@@ -30,10 +30,10 @@ Out of scope:
 
 ### 2.1 Research repository
 
-- **Repository:** [\`high-energy-theory-research\`](https://github.com/lm846802297-bit/high-energy-theory-research)
-- **Source \`main\` HEAD at audit:** [\`d6143c2aa15191ac8521e062d90860ba86713f00\`](https://github.com/lm846802297-bit/high-energy-theory-research/commit/d6143c2aa15191ac8521e062d90860ba86713f00)
-- **Authoritative RC-001 record:** [\`research/RC-001-vll-higgs-singlet-uv-eft.md\`](https://github.com/lm846802297-bit/high-energy-theory-research/blob/d6143c2aa15191ac8521e062d90860ba86713f00/research/RC-001-vll-higgs-singlet-uv-eft.md)
-- **Record blob SHA:** \`4a334a2ad0ca1ebed9063b9657588c82cdf2f14b\`
+- **Repository:** [`high-energy-theory-research`](https://github.com/lm846802297-bit/high-energy-theory-research)
+- **Source `main` HEAD at audit:** [`d6143c2aa15191ac8521e062d90860ba86713f00`](https://github.com/lm846802297-bit/high-energy-theory-research/commit/d6143c2aa15191ac8521e062d90860ba86713f00)
+- **Authoritative RC-001 record:** [`research/RC-001-vll-higgs-singlet-uv-eft.md`](https://github.com/lm846802297-bit/high-energy-theory-research/blob/d6143c2aa15191ac8521e062d90860ba86713f00/research/RC-001-vll-higgs-singlet-uv-eft.md)
+- **Record blob SHA:** `4a334a2ad0ca1ebed9063b9657588c82cdf2f14b`
 - **Relevant source-record sections:** §§4.3–4.5 (zero-momentum threshold and scope); §§9.4–9.5 (normalization/sign discussion and algebraic-audit limits); §§10.4–10.5 (hard-minus-EFT kernel and the stated EFT subset counterterm); §§6–7 (claim status and acceptance gates).
 
 The record explicitly distinguishes effective-potential algebra from a complete UV amplitude minus EFT amplitude, and states that the FeynArts/FeynCalc scaffold has not been run.
@@ -42,20 +42,20 @@ The record explicitly distinguishes effective-potential algebra from a complete 
 
 The RC-001 record freezes the following Library source as its baseline:
 
-- **File:** \`higgs_portal_mixing_unified_reviewer_response_and_uv_eft_UPDATED_v2(8)(20261021)(153)_matchete_mapping_version_history.md\`
-- **Library file ID:** \`file_00000000b7b48230a2ada1957a9ed4a0\`
-- **Version ID:** \`1\`
-- **Size:** \`1,989,214\` bytes
-- **SHA-256:** \`f30af8ccc62feafa3923e8356437e4b80b40e518fc9b1188646b4d763e2791f1\`
+- **File:** `higgs_portal_mixing_unified_reviewer_response_and_uv_eft_UPDATED_v2(8)(20261021)(153)_matchete_mapping_version_history.md`
+- **Library file ID:** `file_00000000b7b48230a2ada1957a9ed4a0`
+- **Version ID:** `1`
+- **Size:** `1,989,214` bytes
+- **SHA-256:** `f30af8ccc62feafa3923e8356437e4b80b40e518fc9b1188646b4d763e2791f1`
 - **Relevant sections:** §§248–251, §§261–262, §273.9, §274; the historical B1/B3 candidate-kernel issue is discussed in §§238–240.
 
 This Library file is not itself committed as a complete v153 source bundle in the research repository. The filename and hash identify the source used by RC-001; they do not imply that every derivation in the cumulative working file has been independently revalidated.
 
 ### 2.3 Supporting artifact provenance and limits
 
-The RC-001 record lists an annotated FeynArts/FeynCalc scaffold with SHA-256 \`8e2c7a36c5cacecf35194a92cde50e52ec457cb884684c719e5aafc6b67053ab\`. It is a 2,577-byte scaffold, **not** an execution log; the custom model file and schematic particle mapping are still required.
+The RC-001 record lists an annotated FeynArts/FeynCalc scaffold with SHA-256 `8e2c7a36c5cacecf35194a92cde50e52ec457cb884684c719e5aafc6b67053ab`. It is a 2,577-byte scaffold, **not** an execution log; the custom model file and schematic particle mapping are still required.
 
-The associated historical audit JSON has SHA-256 \`dea8c3ff0a18163d4e1b697a4a44ea44f33a416ab7c85adc3dc71c8bd11e0bfa\` and identifies v76→v77, not a run against v153. Its reported PASS applies only to the listed effective-potential algebra and artifact-integrity checks; it explicitly records FeynCalc as not run.
+The associated historical audit JSON has SHA-256 `dea8c3ff0a18163d4e1b697a4a44ea44f33a416ab7c85adc3dc71c8bd11e0bfa` and identifies v76→v77, not a run against v153. Its reported PASS applies only to the listed effective-potential algebra and artifact-integrity checks; it explicitly records FeynCalc as not run.
 
 The v66 archive remains historical and unchanged. This evidence note does not copy or overwrite it.
 
@@ -114,7 +114,7 @@ Inputs:
 
 The arithmetic can be reproduced with standard Python:
 
-\`\`\`python
+```python
 from math import pi
 
 M_E = 1000.0
@@ -138,7 +138,7 @@ print("Delta lambda_HS =", delta_lambda)
 print("delta M_hs^2 from potential =", delta_Mhs_sq, "GeV^2")
 print("Delta Pi_hs^hard(0) =", delta_Pi_hard_0, "GeV^2")
 print("|delta M_hs^2| / m_h^2 =", abs(delta_Mhs_sq) / m_h**2)
-\`\`\`
+```
 
 Rounded output:
 
