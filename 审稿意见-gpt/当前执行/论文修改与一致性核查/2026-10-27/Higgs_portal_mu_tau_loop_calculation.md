@@ -283,3 +283,12 @@ B_0(p^2;m_\ell^2,m_\ell^2)
 吸收部在两种方案中相同；实部差异反映不同局域匹配条件，不能作为完整 UV 预测。原稿给出的 \(s\to A'A'\) 宽度公式还表明近简并处的 \(s\) 可能很宽，因此需要完整复数传播子。
 
 **Plan B 结论：** 低能轻子圈远离简并区的贡献可以定量估算，但它不足以独立关闭 Major Point 1.3。若要声称完整 UV 模型的混合已得到定量控制，应继续进行有限范围的 Plan C-lite；论文主文和正式回复信暂不改写为“已解决”。
+
+
+## 8. Plan C-lite follow-up: matched portal and complex poles (2026-10-27)
+
+The Plan C-lite calculation is recorded in [Higgs_portal_planC_lite_matching_and_complex_poles_2026-10-27.md](Higgs_portal_planC_lite_matching_and_complex_poles_2026-10-27.md), with code in [higgs_portal_planC_lite.py](higgs_portal_planC_lite.py) and a separate [validation/limitation record](higgs_portal_planC_lite_validation.txt).
+
+The portal boundary is now stated as \(\lambda_{HS}^{<}(M_E)=0\), which requires \(\lambda_{HS}^{>}(M_E)=-\Delta\lambda_{HS}^{E}\) to cancel the finite VLL threshold. This is an explicit reference benchmark, not a value predicted by the original manuscript. The finite derivative coefficient from RC-001 has been included with an explicit sign-convention conversion, but its full same-order EFT soft/counterterm closure and independent diagram-level validation remain open.
+
+The first-pass complex-pole diagnostic shows two distinct cases: an open \(s\to A'A'\) channel gives a broad singlet-like pole and a nearly SM-width Higgs-like pole; a closed \(A'A'\) channel near exact degeneracy gives a narrow/broad pole pair with appreciable width redistribution. The near-degenerate region is therefore still **not assessed** by a model-specific Higgs lineshape or direct-search recast. These results do not upgrade the Plan-B low-energy estimates into a global UV prediction.
