@@ -251,3 +251,33 @@ PDG 2025 的 Higgs 综述总结，ATLAS 和 CMS 的整体 Higgs 信号强度分�
 - PR #10 继续保持 Draft，未合并。
 
 **决策：** 当前采用“引用已有研究 + Plan B 最低限度模型相关估算 + 明确限制适用范围”的回应方式。其优点是符合课题组“不为回应审稿人而把模型无限扩张”的原则；其风险是审稿人仍可能坚持要求全质量区间的 model-specific mixing 结果。若出现这种要求，再启动 Plan C-lite，而不是现在预先扩展成完整标量现象学研究。
+
+
+## 10. Plan C-lite follow-up (2026-10-27)
+
+**Status update:** The earlier §8 records the decision at that point to defer Plan C-lite. The user subsequently chose to proceed, so this section supersedes that decision as the current execution status.
+
+New artifacts:
+- [Plan C-lite matching and complex-pole report](Higgs_portal_planC_lite_matching_and_complex_poles_2026-10-27.md)
+- [Reproducible calculation script](higgs_portal_planC_lite.py)
+- [Validation and limitation record](higgs_portal_planC_lite_validation.txt)
+
+The reference matching condition is now explicit:
+\[
+\lambda_{HS}^{<}(M_E)=0,\qquad
+\lambda_{HS}^{>}(M_E)=-\Delta\lambda_{HS}^{E},\qquad
+\Delta\lambda_{HS}^{E}=-\frac{1}{8\pi^2}\sum_{\ell=\mu,\tau}|y_\ell|^2|\lambda_\ell|^2.
+\]
+Two representative points were evaluated at \(M_E=20~\mathrm{TeV}\): \(v_s=70.886~\mathrm{GeV},m_{A'}=10~\mathrm{GeV},g_X=0.07054\) (open \(A'A'\) channel), and \(v_s=315~\mathrm{GeV},m_{A'}=63~\mathrm{GeV},g_X=0.1\) (closed \(A'A'\) channel). The corresponding finite portal thresholds are \(-0.210764\) and \(-0.0106734\), so zero matched EFT portal requires positive UV portal values of the opposite sign.
+
+Using the RC-001 candidate finite derivative coefficient with the Plan-B sign convention mapped consistently, the first-pass matched off-diagonal self-energies at \(s=m_h^2\) are
+\[
+\Pi_{hs}^{B}=(-0.413263-0.113174i)~\mathrm{GeV}^2
+\]
+for the open-channel point and
+\[
+\Pi_{hs}^{B}=(-0.092999-0.025468i)~\mathrm{GeV}^2
+\]
+for the closed-channel point. The constant-diagonal-width complex-pole diagnostic gives a broad \(s\)-like pole when \(A'A'\) is open; when closed and exactly degenerate, the two poles have widths about \(0.292\) and \(3.937\) MeV. This is evidence that the narrow near-degenerate case requires a two-pole signal/lineshape analysis rather than a real small-angle formula.
+
+**Limitations remain:** the finite derivative coefficient is source-aligned but the full same-order EFT soft/counterterm closure and independent diagram-level validation are still open; the diagonal self-energies are approximated by on-shell masses and fixed widths; no HiggsSignals or model-specific direct-search recast has been run. The near-degenerate UV region remains **not assessed**, not classified as allowed or excluded.
