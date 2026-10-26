@@ -256,18 +256,25 @@ $$\Pi_{sh}^{(\ell)}(p^2) = \frac{y_{s\ell\ell}\, y_{h\ell\ell}}{16\pi^2} \int_0^
 \]
 这显示硬 portal 阈值与轻子质量、重费米子质量和 \(v_s\) 相关，不能由低能软泡图的单一对数替代。
 
-**仅作量级演示**：取 \(M_{E_\tau}=1\,\mathrm{TeV}\)、\(v_s=50\,\mathrm{GeV}\)、\(v=246.22\,\mathrm{GeV}\)，并使用上述领先质量关系，单独的 \(\tau\) 味道给出
+**与现有研究手册 benchmark 的条件性对照**：现有研究者完整版记录了 \(M_{E_\tau}=17.77\,\mathrm{TeV}\)、\(v_s=1000\,\mathrm{GeV}\) 的候选点。用 \(v=246.22\,\mathrm{GeV}\)、\(m_\tau=1.77686\,\mathrm{GeV}\) 和领先关系 \(m_\tau\simeq |y_\tau\lambda_\tau|vv_s/(2M_{E_\tau})\)，独立代数代入得到
 \[
-\delta\lambda_P^{\rm hard}\simeq-1.055\times10^{-3},\qquad
-\delta\mathcal M_{hs,V}^{2,\rm leading}\simeq-12.99\,\mathrm{GeV}^2.
+|y_\tau\lambda_\tau|\simeq0.25648,\qquad
+\delta\lambda_P^{\rm hard}\simeq-8.33\times10^{-4},\qquad
+\delta\mathcal M_{hs,V}^{2,\rm leading}\simeq-205.1\,\mathrm{GeV}^2.
 \]
-这不是完整 UV benchmark：有限场归一化、\(1/M_E^2\) 修正、其他味道、树级 \(\lambda_P\) 和完整极点仍需同一方案处理。与前一小节的 \(|\Pi_{hs,\tau}^{\rm soft,fin}(m_h^2)|\simeq0.351\,\mathrm{GeV}^2\) 相比，这个局部硬曲率在量级上可能更大；两者处于不同匹配/动量定义，不能直接相加或据此宣布物理混合角。
+研究者完整版记录的值为 \(-8.36\times10^{-4}\) 与 \(-205.8\,\mathrm{GeV}^2\)；约 \(0.3\%\) 的差别需在最终冻结数值前用同一组未舍入输入和耦合约定核对。这里采用的是领先硬阈值，尚未加入 \(1/M_E^2\) 项、有限场归一化、树级 portal 或完整复数极点。
 
-**因此，下一步不是再猜一个 \(6\Delta\) 对数，而是把已有硬势阈值、EFT 软圈与接触项、有限场归一化、portal 边界/RGE 及动量依赖二点函数放到同一重整化方案中，检查重叠扣除和不重复计图。**
+在相同 \(v_s=1000\,\mathrm{GeV}\)、\(\mu_R=M_{E_\tau}=17.77\,\mathrm{TeV}\) 输入下，EFT 软圈函数给出
+\[
+\Pi_{hs,\tau}^{\mathrm{soft,fin}}(m_h^2)
+=(0.030288+0.007994\,i)\,\mathrm{GeV}^2,\qquad
+|\Pi_{hs,\tau}^{\mathrm{soft,fin}}|\simeq0.03133\,\mathrm{GeV}^2.
+\]
+这与 \(\delta\mathcal M_{hs,V}^{2,\rm leading}\) 属于不同动量/匹配定义，不能直接相加；它们的量级差异只说明，若 UV portal 边界留下未抵消的硬势阈值，单独计算轻子软圈不足以证明混合很小。
 
 #### 未抵消硬阈值的树级质量矩阵诊断（条件性，不是实验排除）
 
-只为展示量级，假设上面的 \(\delta\mathcal M_{hs,V}^2\simeq-12.99\,\mathrm{GeV}^2\) 没有被 UV portal 参数或其他局域项抵消，并暂时忽略动量依赖自能与复数极点。对
+仅作诊断，假设上面的 \(\delta\mathcal M_{hs,V}^2=-205.1\,\mathrm{GeV}^2\) 未被 UV portal 参数或其他局域项抵消，并暂时忽略动量依赖自能与复数极点。对
 \[
 \mathcal M^2=
 \begin{pmatrix}m_h^2&\delta M_{hs}^2\\
@@ -279,15 +286,20 @@ $$\Pi_{sh}^{(\ell)}(p^2) = \frac{y_{s\ell\ell}\, y_{h\ell\ell}}{16\pi^2} \int_0^
 \[
 \begin{array}{c|c}
 m_s\;(\mathrm{GeV})&|\sin\theta|\ \text{（仅硬阈值诊断）}\\\hline
-10&8.33\times10^{-4}\\
-120&1.01\times10^{-2}\\
-124&4.16\times10^{-2}\\
-125&1.96\times10^{-1}
+10&1.32\times10^{-2}\\
+50&1.55\times10^{-2}\\
+120&1.54\times10^{-1}\\
+124&4.45\times10^{-1}\\
+125&6.52\times10^{-1}\\
+125.25&7.07\times10^{-1}
 \end{array}
 \]
-若仅把 \(|\sin\theta|=0.1\) 当作一个示意参考值，而非真实实验上限，则该硬项单独给出的边界约为 \(|m_s-m_h|\simeq0.51\,\mathrm{GeV}\)。这比旧笔记仅由轻子软圈与宽度差得到的 MeV 级窗口宽得多，说明旧窗口不能作为模型级结论。
+表中 \(m_s\) 是未混合质量矩阵的对角参数，不是混合后的物理本征质量。若仅把 \(|\sin\theta|=0.1\) 当作示意参考值（不是实际实验上限），该硬项单独对应的边界约为 \(|m_s-m_h|\simeq8.1\,\mathrm{GeV}\)。因此，旧笔记中仅由软圈和宽度差估算的 MeV 级窗口不能代表未抵消硬 portal 阈值下的模型级结论。
 
-**适用边界：** 这个诊断刻意假设硬项未被抵消，使用实树级质量矩阵，也未包含树级 portal、有限场归一化、软圈、其他味道与完整复数极点。它不能直接宣称排除该质量区；它只说明，必须先明确 \(\lambda_P^{UV}\) 与 \(\lambda_P^{EFT}\) 的边界关系并完成同方案匹配，才能判断现有唯象学结果在哪些质量区可保留。
+**适用边界与对现有唯象学结果的含义：** 这一诊断假设硬项未被抵消，使用实树级质量矩阵，未包含完整场归一化、软圈、其他局域项和复数极点；它不是实验重铸，也不能直接宣称排除该质量区。它说明：远离 Higgs 简并区时，现有轴矢量低能结果仍可作为**给定 portal 边界条件下的条件性 benchmark**；接近 \(m_s\simeq m_h\) 时，是否能保留原有结论取决于 UV/EFT portal 匹配和完整极点分析，不能沿用“全区间安全”的旧结论。
+
+**下一步不是再猜一个 \(6\Delta\) 对数，而是把已有硬势阈值、EFT 软圈与接触项、有限场归一化、portal 边界/RGE 及动量依赖二点函数放到同一重整化方案中，检查重叠扣除和不重复计图。**
+
 
 ### 条件性数值交叉核对：EFT 软圈（不是完整 UV benchmark）
 
