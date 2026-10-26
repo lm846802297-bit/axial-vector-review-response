@@ -1,13 +1,13 @@
 Plan C-lite portal matching and complex-pole validation record
 Date: 2026-10-27
-Branch: docs/meeting-screenshot-revision-2026-10-27
+Source branch (merged by PR #10): docs/meeting-screenshot-revision-2026-10-27
 Script: higgs_portal_planC_lite.py
 Report: Higgs_portal_planC_lite_matching_and_complex_poles_2026-10-27.md
 
 Validation boundary:
 - The matching and pole formulas were independently evaluated in the in-session Python analysis environment using the same stated equations and benchmark inputs.
-- The committed 321-line script was fetched back from the PR branch and structurally inspected for its main entry point, second-sheet B0 routine, derivative sign map, and pole solver.
-- The committed script was not executed byte-for-byte in this environment; a clean local run remains an explicit validation item. Do not represent this record as a captured stdout log from the committed script.
+- The exact 321-line script was fetched from main, decoded into a clean temporary path, and verified byte-for-byte against Git blob SHA 1ebfb28edce1d829e6d883dbe5c3ab36bc981d06 (12,445 bytes).
+- Clean execution completed in Python 3.13.5: `python3 -m py_compile higgs_portal_planC_lite.py` passed and `python3 higgs_portal_planC_lite.py` exited 0. Captured stdout is archived in `higgs_portal_planC_lite_clean_run_2026-10-27.txt`.
 - The finite derivative coefficient is source-aligned to RC-001, but complete same-order EFT soft/counterterm closure and independent diagram-level validation remain open.
 - Pole results use momentum-dependent off-diagonal B0 functions but fixed diagonal widths and on-shell diagonal real masses. They are first-pass complex-pole diagnostics, not a full pole-scheme calculation or experimental recast.
 
@@ -120,4 +120,4 @@ Follow-up independent equation-level reproduction (2026-10-27):
 - Benchmark A reproduced Delta lambda_HS^E = -0.210763976176, Pi_hs(m_h^2) = -0.413263168196 - 0.113173708982 i GeV^2, Gamma_s = 3.7468142014 GeV, and the narrow-pole width = 4.072690688 MeV.
 - Benchmark B reproduced Delta lambda_HS^E = -0.010673376489, Pi_hs(m_h^2) = -0.092999245174 - 0.025468201182 i GeV^2, Gamma_s = 0.158940037 MeV, and the two pole widths = 0.292112477 MeV and 3.936824146 MeV.
 - The scale residuals were reproduced as 5.871402e-4 GeV^2 (A) and 1.321279e-4 GeV^2 (B).
-- These are independent equation-level reproductions, not a byte-for-byte execution of higgs_portal_planC_lite.py. The committed script's clean-environment execution remains open, as do the derivative-matching and experimental-recast limitations listed above.
+- The independent equation-level reproductions agree with the captured clean-run output. The clean execution validates the script's execution and numerical reproducibility under the recorded benchmark inputs; it does not close the derivative-matching or experimental-recast limitations listed above.
