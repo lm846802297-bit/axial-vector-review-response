@@ -256,7 +256,7 @@ def main():
         print(f"  lambda_HS^UV for lambda_HS^EFT=0: {-delta_lambda:.9g}")
         print(f"  q_sum={q_sum(vs):.9g}")
         print(f"  candidate c_partialHS (RC convention, mu=M_E)="
-              f"{M_E**2 * (-q_sum(vs)/(16*pi**2)*(-2.0/3.0))/(VH*vs):.9g}")
+              f"{M_E**2 * (q_sum(vs)/(16*pi**2)*(-2.0/3.0))/(VH*vs):.9g}")
         print(f"  lambda_S at m_s=m_h={lambda_s(MH, vs):.8g}")
         soft, _ = pi_soft_planb(MH**2, vs, M_E)
         hard = pi_hard_derivative_planb(MH**2, vs, M_E)
