@@ -191,20 +191,35 @@ v6 的核心是：构造 anomaly-free、renormalizable 的 axial $U_A(1)_{L_\mu-
 
 ### 0.3 已可从 v6 直接核对的代数关系
 
-在**单个破缺 VEV、portal 混合可忽略**的基准中， $$
-m_{A'}=2g_Xv_s,\qquad m_s^2=2\lambda_Sv_s^2,
-\qquad
+在**单个破缺 VEV、portal 混合可忽略**的基准中：
+
+$$
+m_{A'}=2g_Xv_s,\qquad m_s^2=2\lambda_Sv_s^2,\qquad
 \lambda_S=\frac{2g_X^2m_s^2}{m_{A'}^2}.
-$$ 若采用 $\lambda_S\leq\lambda_S^{\max}$，则 $$
+$$
+
+若采用 $\lambda_S\leq\lambda_S^{\max}$，则
+
+$$
 m_s\leq\sqrt{2\lambda_S^{\max}}\,v_s
 =\sqrt{\frac{\lambda_S^{\max}}{2}}\frac{m_{A'}}{g_X}.
-$$ 取 $\lambda_S^{\max}=4\pi$ 时， $$
+$$
+
+取 $\lambda_S^{\max}=4\pi$ 时，
+
+$$
 m_s\leq\sqrt{8\pi}\,v_s
 =\sqrt{2\pi}\frac{m_{A'}}{g_X}.
-$$ 因此 $m_s=10\,\mathrm{GeV}$ 的 benchmark 要求 $$
-v_s\geq\frac{10\,\mathrm{GeV}}{\sqrt{8\pi}}\simeq1.995\,\mathrm{GeV}.
-$$ v6 的 Eq. (30) 与 Eq. (34) 在本文采用的约定下代数一致。审稿意见引用的系数 $4\\pi$ 与由本文 $\\lambda_S^{\\max}=4\\pi$ 推得的 $8\\pi$ 上界不同；二者不是等价表达式，而对应不同的耦合上界。按作者已确定的处理原则，将其作为对判据或公式的理解差异处理：回复中列出本文的势能定义、质量关系和推导即可，不再追查投稿版本差异，也不因该引用差异改动内部一致的公式.
+$$
 
+因此 $m_s=10\,\mathrm{GeV}$ 的 benchmark 要求
+
+$$
+v_s\geq\frac{10\,\mathrm{GeV}}{\sqrt{8\pi}}\simeq1.995\,\mathrm{GeV}.
+$$
+
+v6 的 Eq. (30) 与 Eq. (34) 在本文采用的约定下代数一致。审稿意见引用的系数 $4\pi$ 与由本文 $\lambda_S^{\max}=4\pi$ 推得的 $8\pi$ 上界不同；二者不是等价表达式，而对应不同的耦合上界。按作者已确定的处理原则，将其作为对判据或公式的理解差异处理：回复中列出本文的势能定义、质量关系和推导即可，不再追查投稿版本差异，也不因该引用差异改动内部一致的公式。
+ 
 ### 0.4 一个由当前 benchmark 直接导出的内部一致性检查
 
 v6 同时写有 $$
@@ -224,7 +239,7 @@ $$ 因此仅写 $M_E>10\,\mathrm{TeV}$ 不能保证 Eq. (27) 对两个 $\tau$ �
 
 **位置：** Sec. II.C，Eqs. (28)–(35)，印刷页码 11–13。
 
-**操作：** 不再追查投稿系统中的版本差异。核对当前工作稿中 $m_s^2=2\\lambda_Sv_s^2$、$m_{A'}=2g_Xv_s$ 与 Eq. (30)/(34) 的内部一致性；在正文或回复信中清楚写出由 $\\lambda_S\\leq\\lambda_S^{\\max}$ 推得的边界。取 $\\lambda_S^{\\max}=4\\pi$ 时，结果为 $m_s^2\\leq8\\pi v_s^2$。不要把 $4\\pi v_s^2$ 与 $8\\pi v_s^2$ 写成等价表达式.
+**操作：** 不再追查投稿系统中的版本差异。核对当前工作稿中 $m_s^2=2\lambda_Sv_s^2$、$m_{A'}=2g_Xv_s$ 与 Eq. (30)/(34) 的内部一致性；在正文或回复信中清楚写出由 $\lambda_S\leq\lambda_S^{\max}$ 推得的边界。取 $\lambda_S^{\max}=4\pi$ 时，结果为 $m_s^2\leq8\pi v_s^2$。不要把 $4\pi v_s^2$ 与 $8\pi v_s^2$ 写成等价表达式.
 
 **建议新增句（仅在确认当前约定后插入 Eq. (30) 后）：**
 
