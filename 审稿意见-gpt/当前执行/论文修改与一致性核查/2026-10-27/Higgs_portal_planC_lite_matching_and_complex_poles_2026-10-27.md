@@ -102,7 +102,7 @@ Both points lie inside the original Fig. 2 plotting window for \((m_{A'},g_X)\),
 \]
 的树级势能有界下限（约 \(-0.0718\)）。因此，“零 UV portal”在该示例中甚至会破坏低质量 benchmark 的树级有界条件。
 
-这不是说 \(\lambda_{HS}^{<}=0\) 被模型自动预测，而是说明：**如果要保留小混合 benchmark，必须明确指定一个与 VLL 阈值相容的 portal 边界条件。**
+这不是说 \(\lambda_{HS}^{<}=0\) 被模型自动预测，而是说明：**如果要保留小混合 benchmark，必须明确指定一个与 VLL 阈值相容的 portal 边界条件。该选择对应 UV portal 与有限 VLL 阈值在匹配尺度上的抵消，不是由对称性保护的自然小量。**
 
 ## 3. 导数混合算符的匹配与符号约定
 
