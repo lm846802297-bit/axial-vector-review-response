@@ -9,7 +9,7 @@ Dependencies: Python 3 and NumPy.
 Source for oscillation central values:
 https://www.nu-fit.org/sites/default/files/v61.tbl-parameters.pdf
 See also:
-../审稿意见-gpt/当前执行/PMNS_Major3路线决策与扩展模型解析核查_2026-10-27.md
+../../审稿意见-gpt/当前执行/PMNS_Major3路线决策与扩展模型解析核查_2026-10-27.md
 """
 
 from __future__ import annotations
