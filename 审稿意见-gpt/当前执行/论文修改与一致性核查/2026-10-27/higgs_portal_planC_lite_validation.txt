@@ -1,0 +1,116 @@
+Plan C-lite portal matching and complex-pole validation record
+Date: 2026-10-27
+Branch: docs/meeting-screenshot-revision-2026-10-27
+Script: higgs_portal_planC_lite.py
+Report: Higgs_portal_planC_lite_matching_and_complex_poles_2026-10-27.md
+
+Validation boundary:
+- The matching and pole formulas were independently evaluated in the in-session Python analysis environment using the same stated equations and benchmark inputs.
+- The committed 321-line script was fetched back from the PR branch and structurally inspected for its main entry point, second-sheet B0 routine, derivative sign map, and pole solver.
+- The committed script was not executed byte-for-byte in this environment; a clean local run remains an explicit validation item. Do not represent this record as a captured stdout log from the committed script.
+- The finite derivative coefficient is source-aligned to RC-001, but complete same-order EFT soft/counterterm closure and independent diagram-level validation remain open.
+- Pole results use momentum-dependent off-diagonal B0 functions but fixed diagonal widths and on-shell diagonal real masses. They are first-pass complex-pole diagnostics, not a full pole-scheme calculation or experimental recast.
+
+Inputs:
+- m_h = 125.25 GeV; v_h = 246.22 GeV.
+- M_E = 20 TeV; theta_muL = theta_tauL = 0.01.
+- theta_lR = m_l/(M_E theta_lL); |lambda_l| <= sqrt(4 pi) is an added perturbativity benchmark.
+- Benchmark A: v_s = 70.886458 GeV, m_A' = 10 GeV, g_X = 0.0705353.
+- Benchmark B: v_s = 315 GeV, m_A' = 63 GeV, g_X = 0.1.
+- lambda_HS^EFT(M_E) = 0; lambda_HS^UV(M_E) = -Delta lambda_HS^E.
+
+Portal-threshold outputs:
+Benchmark A:
+  theta_muR = 0.0005282919
+  theta_tauR = 0.0088843000
+  y_mu = y_tau = 1.1487398
+  lambda_mu = 0.2107927
+  lambda_tau = 3.5449077
+  y_mu lambda_mu = 0.2421460
+  y_tau lambda_tau = 4.0721765
+  Delta lambda_HS^E = -0.210763976
+  lambda_HS^UV for zero matched EFT portal = +0.210763976
+
+Benchmark B:
+  theta_muR = 0.0005282919
+  theta_tauR = 0.0088843000
+  y_mu = y_tau = 1.1487398
+  lambda_mu = 0.0474360
+  lambda_tau = 0.7977332
+  y_mu lambda_mu = 0.0544917
+  y_tau lambda_tau = 0.9163878
+  Delta lambda_HS^E = -0.0106733765
+  lambda_HS^UV for zero matched EFT portal = +0.0106733765
+
+Matched off-diagonal self-energy at s=m_h^2, mu_R=M_E:
+Benchmark A:
+  Pi_soft = -0.437308303 - 0.113173709 i GeV^2
+  s Pi_hard,derivative = +0.024045135 GeV^2
+  Pi_total = -0.413263168 - 0.113173709 i GeV^2
+Benchmark B:
+  Pi_soft = -0.098410275 - 0.025468201 i GeV^2
+  s Pi_hard,derivative = +0.005411030 GeV^2
+  Pi_total = -0.092999245 - 0.025468201 i GeV^2
+
+Scale comparison:
+Benchmark A:
+  mu_R=m_h: Pi_total = -0.413850308 - 0.113173709 i GeV^2
+  mu_R=M_E: Pi_total = -0.413263168 - 0.113173709 i GeV^2
+  absolute real residual = 5.87140e-4 GeV^2 (about 0.14% of the total real part)
+Benchmark B:
+  mu_R=m_h: Pi_total = -0.093131373 - 0.025468201 i GeV^2
+  mu_R=M_E: Pi_total = -0.092999245 - 0.025468201 i GeV^2
+  absolute real residual = 1.32128e-4 GeV^2 (about 0.14% of the total real part)
+
+Complex-pole outputs at m_s=m_h=125.25 GeV:
+Benchmark A, m_A'=10 GeV:
+  Gamma_s = 3.74681420 GeV
+  Pi_hs = -0.413263168 - 0.113173709 i GeV^2
+  |Pi/(a-b)| = 9.14034e-4
+  2|Pi/(a-b)| = 0.00182807
+  Pole 1: m = 125.250000813 GeV, Gamma = 4.072691 MeV
+          |s/h| eigenvector diagnostic = 9.14035e-4
+  Pole 2: m = 125.264005936 GeV, Gamma = 3746.392485 MeV
+          |s/h| eigenvector diagnostic = 1.09288e3
+
+Benchmark B, m_A'=63 GeV:
+  Gamma_s = 1.58940037e-4 GeV = 0.158940 MeV
+  Pi_hs = -0.092999245 - 0.025468201 i GeV^2
+  |Pi/(a-b)| = 0.196839
+  2|Pi/(a-b)| = 0.393678
+  Pole 1: m = 125.250041424 GeV, Gamma = 0.292112 MeV
+          |s/h| eigenvector diagnostic = 4.90849
+  Pole 2: m = 125.249958595 GeV, Gamma = 3.936824 MeV
+          |s/h| eigenvector diagnostic = 0.203729
+
+The |s/h| values are eigenvector diagnostics in a non-Hermitian constant-diagonal-width approximation; they are not pole residues or directly observable mixing angles.
+
+Near-degenerate scan, poles sorted by width:
+Benchmark A:
+  m_s=124.50: (125.250001 GeV, 4.0718 MeV); (124.513579 GeV, 3677.8442 MeV)
+  m_s=125.00: (125.250001 GeV, 4.0725 MeV); (125.013862 GeV, 3723.4503 MeV)
+  m_s=125.25: (125.250001 GeV, 4.0727 MeV); (125.264006 GeV, 3746.3926 MeV)
+  m_s=125.50: (125.250001 GeV, 4.0728 MeV); (125.514151 GeV, 3769.4278 MeV)
+  m_s=125.90: (125.250000 GeV, 4.0729 MeV); (125.914385 GeV, 3806.4781 MeV)
+
+Benchmark B:
+  m_s=124.50: (124.500000 GeV, 0.1582 MeV); (125.250000 GeV, 4.0698 MeV)
+  m_s=125.00: (124.999999 GeV, 0.1592 MeV); (125.250001 GeV, 4.0694 MeV)
+  m_s=125.25: (125.250041 GeV, 0.2921 MeV); (125.249959 GeV, 3.9368 MeV)
+  m_s=125.50: (125.500001 GeV, 0.1587 MeV); (125.250000 GeV, 4.0706 MeV)
+  m_s=125.90: (125.900000 GeV, 0.1595 MeV); (125.250000 GeV, 4.0702 MeV)
+
+Tree-level comparator if lambda_HS^UV=0:
+- Benchmark A: lambda_HS^EFT=-0.210763976; M_hs^2=-3678.604 GeV^2.
+  At m_s=10 GeV, the bounded-from-below lower limit is -0.0717614, so this comparator violates the tree-level condition.
+  At m_s=m_h, the fixed-diagonal tree-level eigenmass splitting is about 29.577 GeV.
+- Benchmark B: lambda_HS^EFT=-0.01067338; M_hs^2=-827.820 GeV^2.
+  At m_s=10 GeV, the bounded-from-below lower limit is -0.0161489, so the comparator satisfies this particular tree-level test.
+  At m_s=m_h, the fixed-diagonal tree-level eigenmass splitting is about 6.612 GeV.
+
+Interpretation:
+- Zero UV portal and zero matched EFT portal are different choices.
+- The reference condition lambda_HS^EFT(M_E)=0 requires a nonzero UV portal to cancel the finite VLL threshold. This is a stated benchmark choice, not a symmetry prediction.
+- With the matched benchmark, the open A'A' channel makes the singlet-like pole broad and keeps the Higgs-like pole close to the SM width in this approximation.
+- With A'A' closed, the exact-degenerate poles show width redistribution and a non-negligible complex mixing diagnostic. A dedicated two-pole lineshape/signal-strength fit is required before classifying this narrow region as allowed or excluded.
+- The near-degenerate region remains NOT ASSESSED by a model-specific experimental recast.
