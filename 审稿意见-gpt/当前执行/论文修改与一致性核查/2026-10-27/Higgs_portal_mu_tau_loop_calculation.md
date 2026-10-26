@@ -254,16 +254,32 @@ B_0(p^2;m_\ell^2,m_\ell^2)
 |---|---|---|---|
 | HP-\(\mu\tau\)-01 | 从原稿抽取精确的 \(y_{h\ell\ell}\)、\(y_{s\ell\ell}\) 及相位约定 | **已完成：领先阶关系已核对** | 若数值扫描使用精确混合角，补入精确耦合而非仅用 \(m_\ell/v\) |
 | HP-\(\mu\tau\)-02 | 写出内部为 \(\mu,\tau\) 的对角 Dirac 泡图 | **已完成：解析表达式已整理** | 独立代数/符号检查与 PV 约定复核 |
-| HP-\(\mu\tau\)-03 | 评估 \(p^2=m_h^2\) 与 \(p^2=m_s^2\) 的有限部分和吸收部 | **未完成** | 固定 \(\mu\)、\(m_s\)、\(v_s\) 及耦合输入；报告实部、虚部与数值精度 |
-| HP-\(\mu\tau\)-04 | 计算 EFT 的 \(hs\bar\ell\ell\) 接触 tadpole，并与泡图一起核对 | **未完成** | 从 Eq. (5d) 展开并与所用 EFT 反项/匹配条件一致 |
+| HP-\(\mu\tau\)-03 | 评估轻子圈有限部分与吸收部 | **已完成 Plan B 条件性评估** | 两种低能匹配条件及数值表见 `Higgs_portal_planB_quantitative_assessment_2026-10-27.md`；完整 UV 混合仍未确定 |
+| HP-\(\mu\tau\)-04 | 计算 EFT 的 \(hs\bar\ell\ell\) 接触 tadpole，并与泡图一起核对 | **已完成 Plan B 表达式与有限项** | 接触项来自 Eq. (5d)；已纳入 \\overline{\\mathrm{MS}}-like benchmark，MOM 条件下其常数部分由 \(\Pi(0)=0\) 减除 |
 | HP-\(\mu\tau\)-05 | 检查完整 UV 质量本征态中轻—重、重—重图的 UV 极点抵消与 portal 阈值 | **未完成；当前未按用户优先级展开重图有限部分** | 至少用完整 Yukawa 矩阵证明极点抵消，并明确阈值是否影响 \(\lambda_{HS}\) |
-| HP-\(\mu\tau\)-06 | 固定 \(\lambda_{HS}\) 匹配/重整化条件并求物理混合 | **未完成** | 说明方案、尺度、反项、tadpole 约定及标量极点 |
-| HP-\(\mu\tau\)-07 | 判断 Higgs portal 是否影响原稿 Fig. 2 的有效流 benchmark | **未完成** | 仅在得到重整化混合或有控制的上界后作出判断 |
+| HP-\(\mu\tau\)-06 | 固定低能 portal/导数混合的示例重整化条件 | **部分完成；UV 匹配未完成** | MOM 与 \\overline{\\mathrm{MS}}-like 条件已明示；它们不是原稿推导出的 UV 边界条件，不能决定完整 UV 的总混合 |
+| HP-\(\mu\tau\)-07 | 判断 Higgs portal 是否影响原稿 Fig. 2 的有效流 benchmark | **部分完成** | 低能轻子圈在远离简并区通常给出 \(10^{-4}\)–\(10^{-3}\) 的混合诊断量；完整 UV portal 匹配和近简并复数极点仍未评估 |
 | HP-\(\mu\tau\)-08 | 将结果映射到 Major Point 1 的正式回复 | **暂缓** | 正文与数值结论同步后再改回复信完成时态 |
 
 ## 6. 暂定结论
 
-1. 现有文献已经提供一般 Yukawa 模型中标量二点自能的标准一圈框架；没有必要从零重推所有通用积分。
-2. 原稿给出了足以写出轻子对角泡图的领先阶耦合关系。该部分的 \(A_0/B_0\) 表达式已整理，\(\tau\) 圈的耦合乘积在领先阶下比 \(\mu\) 圈大约 \(2.8\times10^2\)。
-3. 该泡图的 UV 极点说明它不是完整 UV 重整化结果。EFT 接触项、完整 UV 质量本征态的极点抵消、portal 边界条件和物理混合仍未关闭。
-4. 因此，目前不能把“negligible Higgs-portal mixing”从 benchmark 假设改写成已由圈图证明的结论；也不能据此推翻现有轴矢量唯象学结果。应先完成 HP-\(\mu\tau\)-03 至 HP-\(\mu\tau\)-06，再决定正文最小修改方案。
+1. 现有文献已提供一般 Yukawa 标量自能的计算框架。
+2. Plan B 已完成两种低能匹配条件下的有限部分数值评估，并将 Eq. (5d) 的接触 tadpole 纳入 \(\overline{\mathrm{MS}}\)-like benchmark。
+3. 在标量四次耦合上限 \(\lambda_S^{\max}=4\pi\) 仅约束 \(v_s\) 的条件下，远离 \(m_s=m_h\) 时低能轻子圈诊断量通常为 \(10^{-4}\)–\(10^{-3}\)；在简并点小混合展开失效，且宽度依赖 \(m_{A'}\) 与 \(v_s\)。
+4. 两种匹配条件在简并示例中的实部结果不同，说明低能圈本身不能决定完整 UV 的总混合。要完整回应 Major Point 1.3，需要 Plan C-lite 的 portal/导数算符匹配及近简并复数极点分析。
+
+## 7. Plan B 数值评估的摘要
+
+完整输入、两种重整化 benchmark、数值表、EFT 接触 tadpole、近简并宽度示例和文献对照见 [Higgs_portal_planB_quantitative_assessment_2026-10-27.md](Higgs_portal_planB_quantitative_assessment_2026-10-27.md)。可复现脚本为 [higgs_portal_planB.py](higgs_portal_planB.py)。
+
+在 \(m_s=m_h=125.25\,\mathrm{GeV}\)、仅使用原稿标量四次耦合上限给出的 \(v_s^{\min}=24.984\,\mathrm{GeV}\) 时，
+\[
+\widehat\Pi_{hs}^{\rm MOM}(m_h^2)=(0.5992-0.3211i)\,\mathrm{GeV}^2,
+\]
+\[
+\widehat\Pi_{hs}^{\overline{\rm MS}+\mathrm{contact}}(m_h^2)
+=(-0.2041-0.3211i)\,\mathrm{GeV}^2.
+\]
+吸收部在两种方案中相同；实部差异反映不同局域匹配条件，不能作为完整 UV 预测。原稿给出的 \(s\to A'A'\) 宽度公式还表明近简并处的 \(s\) 可能很宽，因此需要完整复数传播子。
+
+**Plan B 结论：** 低能轻子圈远离简并区的贡献可以定量估算，但它不足以独立关闭 Major Point 1.3。若要声称完整 UV 模型的混合已得到定量控制，应继续进行有限范围的 Plan C-lite；论文主文和正式回复信暂不改写为“已解决”。
