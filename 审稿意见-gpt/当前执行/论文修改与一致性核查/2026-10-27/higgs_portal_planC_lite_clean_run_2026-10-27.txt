@@ -1,0 +1,90 @@
+Clean execution record for Plan C-lite
+Date: 2026-10-27
+Source repository: lm846802297-bit/axial-vector-review-response
+Source ref: main
+Script: higgs_portal_planC_lite.py
+Verified Git blob SHA: 1ebfb28edce1d829e6d883dbe5c3ab36bc981d06
+Script bytes: 12445
+Runtime: Python 3.13.5
+Checks:
+- python3 -m py_compile higgs_portal_planC_lite.py: PASS (exit code 0)
+- python3 higgs_portal_planC_lite.py: PASS (exit code 0)
+- The script was run from a clean temporary path after its decoded bytes were checked against the exact Git blob SHA above. No third-party Python packages are required.
+
+--- Captured stdout begins ---
+
+Plan C-lite benchmark calculation
+m_h=125.25000 GeV, v_h=246.22000 GeV, M_E=20000.0 GeV
+theta_L=0.01, |lambda|_max=sqrt(4 pi)=3.544908
+Reference matching: lambda_HS^EFT(M_E)=0; lambda_HS^UV=-Delta lambda_HS.
+The finite derivative coefficient is a source-aligned candidate, not final UV closure.
+
+BENCHMARK: open A-prime channel
+  m_A=10 GeV, g_X=0.070535334, v_s=70.886458 GeV
+  theta_R(mu)=0.00052829188, theta_R(tau)=0.0088843
+  y_mu=y_tau=1.1487398
+  lambda_mu=0.21079274, lambda_tau=3.5449077
+  y_lambda products: mu=0.24214601, tau=4.0721765
+  Delta lambda_HS^E=-0.210763976
+  lambda_HS^UV for lambda_HS^EFT=0: 0.210763976
+  q_sum=0.000363063619
+  candidate c_partialHS (RC convention, mu=M_E)=-0.0351273294
+  lambda_S at m_s=m_h=1.5609857
+  Pi_soft(mu=M_E)=-0.437308303-0.113173709i GeV^2
+  Pi_hard_derivative(mu=M_E)=0.0240451347+0i GeV^2
+  Pi_total(mu=M_E)=-0.413263168-0.113173709i GeV^2
+  scale check total(mu=m_h)=-0.413850308-0.113173709i
+  scale residual |Re[Pi(mu=m_h)-Pi(mu=M_E)]|=0.00058714 GeV^2 (contact/higher-order matching remains open)
+  Gamma_s(m_h)=3.7468142 GeV
+  complex mixing diagnostic |Pi/(a-b)|=0.000914033746
+  complex-pole proxy 2|Pi/(a-b)|=0.00182806749
+    pole: m=125.250000813 GeV, Gamma=4.072691 MeV, |F|=3.73e-10, |s/h|=0.000914035
+    pole: m=125.264005936 GeV, Gamma=3746.392485 MeV, |F|=1.9e-10, |s/h|=1092.88
+  near-degenerate pole rows (poles sorted by width):
+    m_s=124.50 GeV, Gamma_s=3.67825 GeV: (125.250001 GeV, 4.0718 MeV); (124.513579 GeV, 3677.8441 MeV)
+    m_s=125.00 GeV, Gamma_s=3.72387 GeV: (125.250001 GeV, 4.0725 MeV); (125.013862 GeV, 3723.4503 MeV)
+    m_s=125.25 GeV, Gamma_s=3.74681 GeV: (125.250001 GeV, 4.0727 MeV); (125.264006 GeV, 3746.3925 MeV)
+    m_s=125.50 GeV, Gamma_s=3.76986 GeV: (125.250001 GeV, 4.0728 MeV); (125.514151 GeV, 3769.4277 MeV)
+    m_s=125.90 GeV, Gamma_s=3.80692 GeV: (125.250000 GeV, 4.0728 MeV); (125.914385 GeV, 3806.4780 MeV)
+  |tan(2 theta_complex)|<0.1 throughout the width-regulated exact-degeneracy diagnostic (value at degeneracy=0.00182807)
+  zero-UV-portal comparator at m_s=10 GeV: lambda_EFT=-0.210764, M_hs^2=-3678.604 GeV^2, bounded-from-below=False, tan2theta=-0.47199214883276513
+  zero-UV-portal comparator at m_s=125.25 GeV: lambda_EFT=-0.210764, M_hs^2=-3678.604 GeV^2, bounded-from-below=True, tan2theta=inf
+
+BENCHMARK: closed A-prime channel
+  m_A=63 GeV, g_X=0.1, v_s=315 GeV
+  theta_R(mu)=0.00052829188, theta_R(tau)=0.0088843
+  y_mu=y_tau=1.1487398
+  lambda_mu=0.047436034, lambda_tau=0.79773318
+  y_lambda products: mu=0.05449166, tau=0.91638785
+  Delta lambda_HS^E=-0.0106733765
+  lambda_HS^UV for lambda_HS^EFT=0: 0.0106733765
+  q_sum=8.17025206e-05
+  candidate c_partialHS (RC convention, mu=M_E)=-0.00177889608
+  lambda_S at m_s=m_h=0.079050454
+  Pi_soft(mu=M_E)=-0.0984102751-0.0254682012i GeV^2
+  Pi_hard_derivative(mu=M_E)=0.00541102994+0i GeV^2
+  Pi_total(mu=M_E)=-0.0929992452-0.0254682012i GeV^2
+  scale check total(mu=m_h)=-0.0931313731-0.0254682012i
+  scale residual |Re[Pi(mu=m_h)-Pi(mu=M_E)]|=0.000132128 GeV^2 (contact/higher-order matching remains open)
+  Gamma_s(m_h)=0.000158940037 GeV
+  complex mixing diagnostic |Pi/(a-b)|=0.196838762
+  complex-pole proxy 2|Pi/(a-b)|=0.393677524
+    pole: m=125.250041424 GeV, Gamma=0.292112 MeV, |F|=2.38e-13, |s/h|=4.90849
+    pole: m=125.249958595 GeV, Gamma=3.936824 MeV, |F|=4.05e-13, |s/h|=0.203729
+  near-degenerate pole rows (poles sorted by width):
+    m_s=124.50 GeV, Gamma_s=0.000157986 GeV: (124.500000 GeV, 0.1582 MeV); (125.250000 GeV, 4.0698 MeV)
+    m_s=125.00 GeV, Gamma_s=0.000158622 GeV: (124.999999 GeV, 0.1592 MeV); (125.250001 GeV, 4.0694 MeV)
+    m_s=125.25 GeV, Gamma_s=0.00015894 GeV: (125.250041 GeV, 0.2921 MeV); (125.249959 GeV, 3.9368 MeV)
+    m_s=125.50 GeV, Gamma_s=0.000159258 GeV: (125.500001 GeV, 0.1587 MeV); (125.250000 GeV, 4.0706 MeV)
+    m_s=125.90 GeV, Gamma_s=0.000159767 GeV: (125.900000 GeV, 0.1595 MeV); (125.250000 GeV, 4.0702 MeV)
+  |tan(2 theta_complex)|>=0.1 band estimate: |m_s-m_h|<=7.4460 MeV
+  zero-UV-portal comparator at m_s=10 GeV: lambda_EFT=-0.01067338, M_hs^2=-827.8196 GeV^2, bounded-from-below=True, tan2theta=-0.1062154020675439
+  zero-UV-portal comparator at m_s=125.25 GeV: lambda_EFT=-0.01067338, M_hs^2=-827.8196 GeV^2, bounded-from-below=True, tan2theta=inf
+
+--- Captured stdout ends ---
+
+Scientific interpretation boundary:
+- The run validates execution and reproduces the recorded benchmark numbers. It does not validate the physical completeness of the finite derivative matching coefficient.
+- Full same-order EFT soft/counterterm closure and independent diagram-level validation remain open.
+- The pole solver uses momentum-dependent off-diagonal self-energy but fixed diagonal widths and absorbs diagonal real parts into benchmark masses. These are first-pass diagnostics, not a full pole scheme.
+- No model-specific two-pole Higgs lineshape fit or direct-search recast has been run; the near-degenerate narrow-width region remains NOT ASSESSED.
