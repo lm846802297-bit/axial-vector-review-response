@@ -271,7 +271,7 @@ $$\Pi_{sh}^{(\ell)}(p^2) = \frac{y_{s\ell\ell}\, y_{h\ell\ell}}{16\pi^2} \int_0^
 \]
 （对上面研究者手册的候选点，且暂不计有限场归一化项）。这是一项明确的 UV 参数边界条件，不是模型对称性自动给出的结果。
 
-在同一候选点 \(v_s=1000\,\mathrm{GeV}\)、\(M_E=\mu_R=17.77\,\mathrm{TeV}\) 下，EFT 软圈的 on-shell 示例为 \(|\Pi_{hs,\tau}^{\mathrm{soft,fin}}(m_h^2)|\simeq0.0313\,\mathrm{GeV}^2\)。它在远离 Higgs 简并区时可以对应很小的混合修正，但不能单独证明近简并区的完整物理极点或实验率安全。
+在同一候选点 \(v_s=1000\,\mathrm{GeV}\)、\(M_E=\mu_R=17.77\,\mathrm{TeV}\) 下，EFT 软圈的 on-shell 示例为 \(\Pi_{hs,\tau}^{\mathrm{soft,fin}}(m_h^2)=(0.030288+0.007994i)\,\mathrm{GeV}^2\)，模值约 \(0.03133\,\mathrm{GeV}^2\)；其 \(B_0\) 有限部已用高精度 Feynman 参数积分独立核对。它在远离 Higgs 简并区时可以对应很小的混合修正，但不能单独证明近简并区的完整物理极点或实验率安全。
 
 还需注意，按领先轻子质量关系，\(\delta\lambda_P^{\mathrm{hard}}\propto M_E^2m_\ell^2/v_s^2\)。在原二维扫描中 \(v_s=m_{A'}/(2g_X)\) 随网格点变化；因此若要求每个点的 EFT portal 都接近零，所需 UV 边界一般也随点变化。**这不是一个固定 portal 参数自动保证整个二维平面成立的结论。**
 
