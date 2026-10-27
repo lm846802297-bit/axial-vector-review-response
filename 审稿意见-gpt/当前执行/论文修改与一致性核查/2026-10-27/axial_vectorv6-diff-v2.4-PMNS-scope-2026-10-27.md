@@ -319,16 +319,16 @@ S=\frac{v_s+s_0}{\sqrt2},
 **范围说明（方案 B）：** 以下任务是将来若要对完整 UV 模型作全质量区间的定量标量混合/排除分类时所需的核查；本轮正式回复不再依赖尚未闭合的有限导数 Wilson 系数或首轮复数极点数值。当前回复明确不声称混合可忽略，并将近简并窄宽度区域标为 **not assessed**。因此，这些后续计算保留在 RC-001 研究路线中，不作为当前收窄后轴矢量唯象学主张的无条件前置门槛。
 
 1. 明确 $\lambda_{HS}$ 的重整化方案、匹配/重整化尺度和边界条件；在某一尺度设置其重整化值为零，不代表所有能标上的物理混合效应都为零。
-2. 计算完整 UV 场内容下轻子和 VLL 对 portal 及非对角二点函数的贡献，区分重整化 portal 参数、动量依赖自能和物理混合角。
+2. **已完成 leading one-loop fermion sector：** 使用精确质量本征态 (h/s) Yukawa 矩阵，求和 μ、τ 与 VLL 的 light-light、light-heavy、heavy-light、heavy-heavy 内部态；分别记录零动量阈值、(p^2=m_h^2) 的 hard-minus-light 动量项和匹配后的 (Pi_{hs})。完整对角自能、tadpole/VEV counterterms 与最终 pole scheme 仍需单独闭合。
 3. 在 $m_s\simeq m_h$ 附近使用完整的（必要时圈修正的）物理质量矩阵/极点条件，不把远离简并区的小混合角近似外推到近简并区。
 4. 对相关物理本征态核查 Higgs 信号强度、exotic decays、标量产生率、总宽度、分支比和寿命；若 $s\to A'A'$ 运动学开放，须纳入其对可见分支比的影响。
 5. 只有当标量对**指定观测量、参数域和目标精度**的影响经定量验证足够小，才可采用 scalar-suppressed 近似；不得仅因选取 $m_s\geq10\,\mathrm{GeV}$ 就宣称标量已退耦。
 
 **状态更新（2026-10-27，补入 exact fermion-loop audit）：** 完整 μ/τ+VLL 质量本征态一圈求和已独立核对；Σ C_kin 的 p^2 发散系数抵消通过；精确 hard-minus-light 动量项与 source-aligned derivative estimate 的相对差为 6.11e-4，零动量阈值与 leading-seesaw 关系的相对差为 1.79e-4。两个代表点的匹配后 Π_hs(m_h^2) 和首轮复数两极点诊断已更新。完整 pole scheme、tadpole/VEV/对角自能闭环及模型专属 Higgs 线形/直接搜索重铸仍开放；窄宽度近简并区域继续标记 **not assessed**。
 
-### 2D. 方案 B：保留零动量 portal 阈值，收窄有限动量混合主张（2026-10-27）
+### 2D. 方案 B：保留 portal 匹配边界，加入条件性一圈混合估算并保留近简并限制（2026-10-27）
 
-**目的：** 正式回复和主文只使用现有零动量有效势阈值及明确的匹配边界条件；不将尚未闭合的有限导数系数、两组首轮非对角自能数值或首轮复数极点宽度作为已完成的定量论据。上述计算、脚本与数值继续保留在 Plan C-lite/RC-001 内部研究记录中，不删除，也不宣称其已完成独立图级验证。
+**目的：** 正式回复保留零动量 portal 阈值与明确的匹配条件，并加入 exact one-loop fermion-sector 结果。计算已包括 μ/τ 与 VLL 的全部质量本征态组合；finite-momentum hard-minus-light 项在 (p^2=m_h^2) 独立验证了 source-aligned derivative estimate。近简并诊断只作为条件性 pole proxy，不冒充完整 pole scheme 或实验重铸。
 
 建议在 Sec. II.C 的 portal 讨论中加入以下范围明确的文字；正式应用前仍须核对符号、章节和方程编号：
 
