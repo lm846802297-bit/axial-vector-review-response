@@ -68,6 +68,14 @@ For an on-shell \(A'\), set \(q^2=m_{A'}^2\). The integral becomes complex above
 
 Numerical method: integrate the real logarithm of the absolute ratio piecewise, splitting the Feynman-parameter interval at the roots of \(m_\ell^2-q^2x(1-x)=0\); integrate the absorptive part from the corresponding branch-cut intervals. The physical masses used were \(m_\mu=105.6583755\) MeV and \(m_\tau=1.77686\) GeV, with \(e=\sqrt{4\pi/137.035999084}\). At \(m_{A'}\simeq2m_\mu\), the modulus is about 1.47 times its zero-momentum value, consistent with arXiv:2610.35379.
 
+### 2.1 Laboratory comparison for the induced electron coupling
+
+For the plotted upper endpoint \(g_X=0.1\), the zero-momentum estimate gives
+\[
+|\epsilon_{\gamma A'}(0)|\le1.44\times10^{-7},
+\]
+and the largest on-shell value in the table is approximately \(2.12\times10^{-7}\). Below the dimuon threshold, the \(A'\) decays predominantly to neutrinos, so invisible-dark-photon missing-energy searches are the relevant direct laboratory comparison. The NA64 sub-GeV search (arXiv:1906.00176, https://arxiv.org/abs/1906.00176) probes kinetic mixing at roughly the \(\mathcal O(10^{-4})\) level in the corresponding mass range. The induced mixing is therefore well below that laboratory sensitivity for the stated equal-mixing benchmark. This comparison concerns the electron-production channel only; it is not a substitute for the separate supernova applicability analysis below.
+
 For unequal \(\theta_{\mu R}\) and \(\theta_{\tau R}\), the cancellation of scale-dependent terms does not follow from the individual upper bounds \(|\theta_{\ell R}|\le10^{-2}\). One must consistently match the renormalized kinetic-mixing counterterm, heavy thresholds, and electroweak-scale contributions. For spacelike virtual exchange, the same integral must be evaluated at the process-specific spacelike \(q^2\); the on-shell table is not a universal replacement for every observable.
 
 ## 3. Major Point 4.3: finite vector component versus axial benchmark
