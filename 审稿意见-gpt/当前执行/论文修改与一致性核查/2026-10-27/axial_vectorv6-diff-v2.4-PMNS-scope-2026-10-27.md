@@ -414,12 +414,24 @@ This audit compares the Major Point 1 response in Replies_to_Referee_3_revised_w
 5. The original meeting proposed a one-loop estimate of the \(h\)--\(s\) mixing angle, because argument alone would be insufficient. The subsequently adopted Route B narrows the current formal claim: retain the zero-momentum portal threshold and its explicit matching condition, but do not use the incomplete finite-momentum coefficient/self-energy/pole calculations as a completed mixing-angle result. This is a documented scope decision, not a claim that the originally proposed one-loop task has been completed.
 6. Do not assign an allowed/excluded label to the near-degenerate \(m_s\simeq m_h\) region without the required two-pole analysis and model-specific recast.
 
+**Line-by-line response/Diff crosswalk**
+
+| Referee request | Current response-letter treatment | Corresponding manuscript Diff | Status / boundary |
+|---|---|---|---|
+| Overall gap between the UV scalar and the \(A'\)-only effective-current analysis | Acknowledges \(S\) as a UV degree of freedom; states that the \(A'\) contours are conditional and not a global UV viability map | Diff 2D and Diff 4D | Claim/scope aligned; manuscript source has not yet been edited |
+| 1.1: why not make \(S\) a central collider prediction? | Keeps the paper focused on \(A'\); cites generic singlet-scalar/Higgs-portal literature; distinguishes Belle II spin-0 interpretations and their different mass ranges/channels | Diff 2F, Diff 4A–4B | Literature context included; no model-specific scalar-search recast claimed |
+| 1.2: scalar mass range and perturbativity | Reproduces the low-mass Table-II constraints in the reply; relates \(\lambda_S\) to \(m_s/v_s\); separates plotting window, theoretical consistency, applied exclusions, and unassessed regions | Diff 4A, Diff 4C–4D | No universal phenomenologically allowed \(m_s\) interval is claimed because the complete model-specific recast is open |
+| 1.3: loop-induced portal, Higgs mixing, and \(m_s\simeq m_h\) | States the zero-momentum matching boundary and illustrative threshold points; explicitly does not claim a completed finite-momentum mixing angle or negligible mixing across the full mass range | Diff 2C–2D and Diff 4D | Near-degenerate narrow-width region remains **not assessed** |
+| Consistency with the meeting decision not to enlarge the model | No new particle is introduced; the paper's main phenomenological focus remains the axial-vector \(A'\) | Diff 2D and the Route B decision note | Consistent with the adopted Route B scope |
+
 **Consistency result**
 
-- The response currently includes the conditional relations \(m_{A'}=2g_Xv_s\) and \(m_s^2=2\lambda_Sv_s^2\), the selected low-mass Table-II constraints, representative scalar-portal literature, the two illustrative zero-momentum portal-threshold benchmarks, and an explicit statement that the finite-momentum mixing angle and near-degenerate classification remain open.
-- The manuscript Diff must mirror the same distinctions. Diff 2D already contains the adopted Route B matching-boundary wording; Diff 4D and the Diff 12 checklist are updated here so that the manuscript proposal says “not assessed” rather than retaining a final-classification placeholder.
-- The response cites Robens--Stefaniak (2015), Robens--Stefaniak--Wittbrodt (2020), and Hiller et al. (2020) by direct links. The manuscript TeX/BibTeX source is not present in this repository, so the exact bibliography keys and insertion of those references into the manuscript cannot yet be verified. Do not invent citation keys.
-- The response text and Diff are therefore **consistent at the claim/scope level**, but the manuscript has not yet been edited from the Diff. This is not a completed manuscript/reply synchronization or a final scientific acceptance.
+- The response now explicitly states the conditional relation \(m_s^2=2\lambda_Sv_s^2\) and that the perturbativity criterion constrains \(m_s/v_s\), while \(v_s=m_{A'}/(2g_X)\) is derived point by point. This avoids implying that the plotting window or the scalar mass relation alone defines an experimentally allowed interval.
+- The reply identifies the approximate mass coverage and distinct spin-0 interpretations of Belle II arXiv:2403.02841 and arXiv:2306.12294, consistent with Diff 4B; it does not treat published mass coverage as a model-specific exclusion.
+- The reply reproduces the selected low-mass scalar-coupling constraints rather than telling the referee only to consult Table II, as required by meeting principle 1.
+- The 2026-10-23 meeting initially proposed calculating a loop-induced \(h\)--\(s\) mixing estimate and arguing quantitatively that it is small. The later-adopted Route B and current evidence ledger do **not** support claiming that this task has been completed. The current response therefore explicitly leaves finite-momentum mixing and the near-degenerate region unresolved. This is an honest narrowing of the current claim, not evidence that the referee's requested quantitative mixing assessment has been completed.
+- The response cites Robens--Stefaniak (2015), Robens--Stefaniak--Wittbrodt (2020), and Hiller et al. (2020) by direct links. The manuscript TeX/BibTeX source is not present in this repository, so exact bibliography keys and insertion of these references into the manuscript cannot yet be verified. Do not invent citation keys.
+- The response and Diff are **consistent at the claim/scope level** after this review, but the manuscript has not yet been edited from the Diff. This is not a completed manuscript/reply synchronization or a final scientific acceptance.
 
 **Remaining gates**
 
