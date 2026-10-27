@@ -208,7 +208,9 @@ We thank the referee for asking us to motivate the parameter window and to disti
 \]
 They define the plotting window adopted for this comparison, not universal theoretical or experimental boundaries. Values outside this window are not excluded by the choice of axes alone, and points inside it are not automatically viable in the complete UV model.
 
-The window is intended to display the broad mass interval relevant to the low-energy precision constraints and the terrestrial searches discussed in this work. The meeting discussion identified the MeV-to-\(100\,\mathrm{GeV}\) interval as a practical range for this comparison: the low-mass end includes the region where low-energy precision constraints, including the stated \((g-2)_\mu\) comparison, are relevant, while the upper end reaches the terrestrial search coverage considered in the paper. The stellar and white-dwarf bounds on the scalar listed separately in Table~II constrain \(y_{s\mu\mu}\) under their own assumptions; they should not be read as direct constraints on the \(A'\) effective-current coupling \(g_X\). We therefore keep scalar-sector bounds and \(A'\) effective-current bounds distinct. The displayed window could be extended in either direction for a different study, but its endpoints are chosen for the scope and coverage of this analysis, not because all lower or higher masses are forbidden. We also do not claim that any single constraint is strongest throughout the full plane.
+The mass interval is chosen to display several distinct regimes represented by the constraints actually included in Fig.~2, rather than to imply uniform experimental coverage across the entire interval. The PIENU pion-decay search is kinematically sensitive for \(m_{A'}<m_{\pi^+}-m_\mu\simeq33.9\,\mathrm{MeV}\)~\cite{PIENU:2021clt,Altmannshofer:2026opc}, while the NA62 kaon-decay channel reaches \(m_{A'}<m_{K^+}-m_\mu\simeq388\,\mathrm{MeV}\) and is shown as an indicative recast~\cite{NA62:2021bji}. CCFR and CHARM~II neutrino-trident measurements provide complementary low-energy constraints~\cite{CCFR:1991lpl,geiregat1990first}; the NA64\(_\mu\) beam-dump result probes the sub-GeV region~\cite{NA64:2024nwj}; and the BaBar and Belle~II four-muon searches extend the visible-resonance coverage to the several-GeV range, while CMS reaches masses of order tens of GeV~\cite{BaBar:2016sci,Belle-II:2024wtd,CMS:2018yxg}. The \((g-2)_\mu\) comparison supplies a separate low-energy precision constraint~\cite{Muong-2:2025xyk}. Thus, the MeV--\(100\,\mathrm{GeV}\) interval spans the different mass regimes relevant to the analyses included in the paper; it does not mean that every experiment covers every mass in this interval. In particular, \(1\,\mathrm{MeV}\) and \(100\,\mathrm{GeV}\) are the chosen endpoints of the displayed mass window, not experimentally established lower and upper cutoffs.
+
+The coupling endpoints \(10^{-6}\) and \(10^{-1}\) are likewise numerical choices for the scan and display. The upper endpoint \(g_X=0.1\) lies well below the usual gauge-coupling perturbativity criterion \(g_X\lesssim\sqrt{4\pi}\), but perturbativity does not select \(0.1\) as a maximum. The lower endpoint \(10^{-6}\) is not a universal lower bound from theory or experiment. We therefore make no claim that either coupling endpoint is a strict physical boundary; extending the scan would require displaying and reassessing the relevant constraints in the additional region.
 
 For clarity, the scan variables and their UV interpretation are summarized here:
 \begin{center}
@@ -217,14 +219,43 @@ For clarity, the scan variables and their UV interpretation are summarized here:
 \hline
 Quantity & Range or relation & Interpretation\\
 \hline
-\(m_{A'}\) & \(10^{-3}\)--\(10^2\,\mathrm{GeV}\) & Chosen plotting window; not a universal mass bound.\\
-\(g_X\) & \(10^{-6}\)--\(10^{-1}\) & Chosen plotting window; the upper edge is well below the usual perturbative criterion \(g_X\lesssim\sqrt{4\pi}\). The lower edge is not a universal lower bound.\\
+\(m_{A'}\) & \(10^{-3}\)--\(10^2\,\mathrm{GeV}\) & Chosen plotting window spanning several experimentally probed regimes; not a universal mass bound.\\
+\(g_X\) & \(10^{-6}\)--\(10^{-1}\) & Chosen scan endpoints; the upper edge is below the usual perturbativity criterion, but neither endpoint is a universal allowed-range boundary.\\
 \(v_s\) & \(v_s=m_{A'}/(2g_X)\) & Derived from each selected \((m_{A'},g_X)\) point, not an independent scan variable.\\
 \(\lambda_S\) & \(\lambda_S=m_s^2/(2v_s^2)=2g_X^2m_s^2/m_{A'}^2\) & Scalar self-coupling in the stated small-portal benchmark; its perturbativity condition must be checked separately.\\
 \(m_s\) benchmark & \(m_s\geq10\,\mathrm{GeV}\) for the scalar-suppressed reference case & Conditional benchmark choice, not a claim that \(s\) is automatically decoupled or experimentally allowed.\\
 \hline
 \end{tabular}
 \end{center}
+
+The scalar constraints must be distinguished from the constraints on the pure-axial \(A'\) effective current. The astrophysical limits summarized below are expressed as bounds on the scalar Yukawa coupling \(y_{s\mu\mu}\), with mass-dependent assumptions about scalar production, trapping or free streaming, and (where relevant) loop-induced couplings to photons or ordinary matter. They are not direct limits on \(g_X\):
+\begin{center}
+\small
+\begin{tabular}{p{0.26\linewidth}p{0.32\linewidth}p{0.32\linewidth}}
+\hline
+Scalar-mass regime & Constraint expressed in \(y_{s\mu\mu}\) & Source and qualification\\
+\hline
+\(m_s\lesssim10^{-2}\,\mathrm{eV}\) & \(y_{s\mu\mu}\lesssim10^{-16}\) & Fifth-force data; the conversion to a muon Yukawa coupling is model-dependent and uses the loop-induced coupling to ordinary matter~\cite{Hoskins:1985tn,Kapner:2006si,Blakemore:2021zna}.\\
+\(m_s\lesssim100\,\mathrm{keV}\) & \(y_{s\mu\mu}\lesssim1.2\times10^{-12}\) & Neutron-star cooling for a muon-philic scalar; the published bound is mass-dependent~\cite{Fiorillo:2026wso}.\\
+\(m_s\lesssim\mathcal O(10)\,\mathrm{MeV}\) & \(y_{s\mu\mu}\lesssim4.2\times10^{-9}\) & SN~1987A energy-loss bound in the stated supernova benchmark~\cite{Caputo:2021rux}.\\
+\(100\,\mathrm{keV}\lesssim m_s\lesssim\mathcal O(10)\,\mathrm{MeV}\) & \(y_{s\mu\mu}\lesssim5\times10^{-11}\) & Diffuse supernova \(\gamma\)-ray bound; it depends on the scalar decay and supernova-population assumptions~\cite{Caputo:2021rux,Balazs:2022tjl}.\\
+\hline
+\end{tabular}
+\end{center}
+These are representative, mass-dependent limits in the scalar-coupling parameterization, not one universal bound valid throughout the scalar-mass range. For example, the scalar-coupling-versus-mass plot in Fig.~1 of Ref.~\cite{Fiorillo:2026wso} and the diffuse-supernova-\(\gamma\)-ray scalar bound in Fig.~11 of Ref.~\cite{Caputo:2021rux} display this mass dependence. We cite these published plots rather than overlaying them directly on Fig.~2: Fig.~2 is the pure-axial \(A'\) plane, and a scalar exclusion can be mapped onto it only after fixing \(m_s\) and adopting the corresponding production, decay, and loop-matching assumptions. We do not transfer bounds derived for a long-range vector force to the scalar Yukawa coupling without a separate scalar analysis.
+
+In the UV benchmark used in the manuscript, the scalar coupling is related to the effective parameters by
+\[
+y_{s\mu\mu}\simeq\frac{m_\mu}{v_s}
+=\frac{2g_Xm_\mu}{m_{A'}}.
+\]
+Accordingly, a scalar analysis that gives \(y_{s\mu\mu}\lesssim y_{s\mu\mu}^{\rm lim}(m_s)\) yields, at fixed scalar mass and under the stated UV assumptions,
+\[
+g_X\lesssim y_{s\mu\mu}^{\rm lim}(m_s)\frac{m_{A'}}{2m_\mu}
+\simeq4.7\times10^{-3}\,y_{s\mu\mu}^{\rm lim}(m_s)
+\frac{m_{A'}}{\mathrm{MeV}}.
+\]
+The first inequality is the scalar constraint expressed in the scalar-coupling parameterization; the second is its conditional translation into the \((m_{A'},g_X)\) plane. It is not a direct experimental bound on the \(A'\) current and depends on the scalar mass and the UV relation above. In particular, stellar or compact-object bounds on \(y_{s\mu\mu}\) can constrain \(g_X\) after this translation, but they must not be presented as direct, model-independent exclusions of the pure-axial effective-current plane.
 
 In the scalar-mass convention used in the manuscript, imposing \(\lambda_S\leq\lambda_S^{\max}\) gives
 \[
