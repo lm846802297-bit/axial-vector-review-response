@@ -1,8 +1,9 @@
-# $U_A(1)_{L_\mu-L_\tau}$ 模型中单圈 $s$–$h$ 混合、LHC 实验限制与标量退耦的完整分步推导与审稿回复合集
+# $U_A(1)_{L_\mu-L_\tau}$ 模型中单圈 $s$–$h$ 混合：条件性计算与待核查事项
 
-> **核心结论速览（Executive Summary）**：
-> 在轴矢量 $U_A(1)_{L_\mu-L_\tau}$ 模型中，带电轻子质量源于双真空期望值破缺机制，使得实标量 $s$ 与带电轻子的有效汤川耦合满足 $y_{s\ell\ell} = m_\ell / v_s = 2g_X m_\ell / m_{A'}$。尽管 $\tau$ 和 $\mu$ 圈图确实会在单圈水平诱导出 $s$–$h$ 质量混合 $\delta m_{sh}^2$，但由于标准模型轻子汤川耦合的手征压低以及公式 (34) 微扰论上限（$m_s < \sqrt{2\lambda_S^{\max}} v_s$）对 $v_s$ 的下界约束，单圈诱导的无量纲混合比在允许参数空间内仅为 $\delta m_{sh}^2 / m_h^2 \lesssim 10^{-5}\text{--}10^{-4}$（若仅计及动量无关手征质量项则低至 $\lesssim 10^{-7}$）。在非简并区，混合角 $|\sin\theta_{sh}| \lesssim 10^{-4}$ 比当前 LHC 希格斯耦合测量上限（$|\sin\theta_{\text{exp}}| \lesssim 0.1\text{--}0.3$）小 $3\text{--}4$ 个数量级；即便在简并极限 $m_s \to m_h$ 处，不仅公式 (34) 强制要求 $v_s \gtrsim 25\text{--}50\text{ GeV}$ 从而进一步压低圈图顶点，且计入希格斯与标量自身的自然衰变宽度（$\Gamma_h \approx 4.1\text{ MeV}, \Gamma_s \sim 7\text{--}25\text{ MeV}$）后，有限宽度效应本身即可正规化共振分母，使有效混合角始终低于实验排除线，完全无需抵消项微调（$\Delta_{\text{FT}} \ll 1$）。
-
+> **当前证据状态（2026-10-26；本说明优先于下文旧版强结论）：**
+> 本文保存了轻子诱导 $s$--$h$ 二点函数的条件性 EFT 软圈计算、树级标量势关系，以及统一工作文档 v66 第 251.6–251.9 节已有的零动量重费米子 portal 势阈值。它们仍未被统一成完整的物理 $h$--$s$ 极点预测。关系 $y_{s\ell\ell}=m_\ell/v_s=2g_Xm_\ell/m_{A'}$ 与小混合近似下 $m_s^2\simeq2\lambda_Sv_s^2$ 可在其假设内使用；软圈数值只核验该 EFT 软贡献，不等于完整 UV 预测。
+>
+> **以下结论尚未得到充分证明，不可作为论文或正式回复中的既定结论：** 旧 $6\Delta$ 核已被撤回为同一 EFT 软圈的结果；完整 UV 硬阈值与软圈、接触项、有限场归一化的同方案匹配仍未闭环。严格近简并区的复数传播子极点、总宽度与干涉、完整 $h\to ss$ 率及模型专属 LHC 重铸也未完成。仅凭非零衰变宽度不能证明简并区必然安全，也不能据此断言“全参数空间均低于实验限制”“无需微调”或“不需要更新参数图”。详见 [单圈混合独立复核报告](单圈混合推导独立复核报告-协调更新版-20261019.md)。
 ## 导论：审稿人质疑的三条核心逻辑链拆解
 
 审稿人在第 3 条意见中针对正文公式 (34) 上方的假设（“选取标量退耦基准 $m_s \gtrsim 10\text{ GeV}$ 并假设希格斯门户混合可以忽略”）提出了三个层层递进的场论与唯象学问题，要求作者逐一回应：
@@ -11,7 +12,7 @@
 2. **简并共振放大与 LHC 希格斯实验限制（要求二：对比实验限制、共振区与微调分析）**：双标量系统的混合角满足 $\tan(2\theta_{sh}) = \frac{2\delta m_{sh}^2}{m_h^2 - m_s^2}$。审稿人担心当 $m_s \to m_h \approx 125\text{ GeV}$ 时，分母趋于零导致混合角发生共振增强，进而使紫外完备理论受到现有 LHC 希格斯精确测量的强烈限制。需要对比实验上限、给出共振区宽度及微调程度。
 3. **低能有效理论中 $m_s$ 的“非退耦（Non-decoupling）”疑问（要求三：澄清非退耦概念与划定适用范围）**：审稿人在双括号中质疑，由于 $m_s$ 在形式上不能退耦（cannot formally decouple），在低能有效理论中忽略标量 $s$ 的传播子效应是否合理，需要证明运动学压低机制并明确划定该近似的适用边界。
 
-下文将原 LaTeX 备忘录的框架与零跳步分步推导完全去重整合，依次完成前置准备与三大阶段的完整演算。
+下文保留原 LaTeX 备忘录中的计算路径，并把已核验的代数、条件性积分与未完成的 UV/现象学检查分开标注；步骤存在不代表相应研究已经完成。
 
 ## 前置准备阶段：从模型规范荷表到费曼规则的完整建立（Step 0.1 – Step 0.5）
 
@@ -195,20 +196,142 @@ $$\begin{aligned}
 再乘上前面的系数 $4 \, y_{s\ell\ell}\, y_{h\ell\ell}$，并代回 $\Delta = m_\ell^2 - x(1-x)p^2$（在实标量归一化下对应动能混合系数 $\int_0^1 dx\, 6x(1-x) = 1$）：
 $$\Pi_{sh}^{(\ell)}(p^2) = \frac{y_{s\ell\ell}\, y_{h\ell\ell}}{16\pi^2} \int_0^1 dx \, \Big[ 12 m_\ell^2 - 12 x(1-x) p^2 \Big] \left( \frac{1}{\tilde{\epsilon}} - \ln\frac{m_\ell^2 - x(1-x)p^2 - i\epsilon}{\mu_R^2} + \frac{1}{3} \right)$$
 
-### Step 1.5：紫外完备理论匹配（UV Matching）与树图抵消项的作用
+### Step 1.5：UV 阈值匹配假设与系数差异（尚未闭合）
 
 现在回答审稿人最关心的场论自洽性问题：**既然上式含有紫外发散 $\frac{1}{\tilde{\epsilon}}$，作者假设“Higgs-portal 混合可忽略”在重整化场论中的严格定义是什么？**
 
 1. **紫外完整理论（含重费米子 $E_\ell$，质量 $M_{E_\ell}$）中的截断机制**：
    在完整标量势 $V(H,S) \supset \lambda_{HS} (H^\dagger H)(S^* S)$ 中，树图非对角质量平方元为 $\left(\mathcal{M}_{\text{tree}}^2\right)_{sh} = \lambda_{HS} v v_s$。
    在能标 $\mu > M_{E_\ell}$ 的紫外完备理论中，轻子与重矢量类轻子通过 Step 0.1 的拉氏量耦合：$H$ 连接 $\bar{L}_\ell E_{\ell R}$（耦合 $y_{H\ell}$），$S$ 连接 $\bar{E}_{\ell L}\ell_R$（耦合 $y_{S\ell}$）。单圈图连接外腿 $s$ 与 $h$ 时，圈内上方传播子是重费米子 $E_\ell$（质量 $M_{E_\ell}$），下方传播子是轻子 $\ell$（质量 $m_\ell$）。
-   根据可重整化量子场论的标准程序，裸参数 $\lambda_{HS}^0 = \lambda_{HS}(\mu_R) + \delta\lambda_{HS}$ 中的抵消项 $\delta\lambda_{HS}$ 严格吸收高动量区 $k \gtrsim M_{E_\ell}$ 的紫外发散，而低能有效理论的紫外对数截断能标自然固定在重费米子质量阈值 $\mu_R = M_{E_\ell}$。
+   根据可重整化量子场论，裸参数 $\lambda_{HS}^0 = \lambda_{HS}(\mu_R) + \delta\lambda_{HS}$ 中的反项吸收紫外发散；但这本身不能确定有限阈值项或对数核的系数。把匹配能标选为 $\mu_R=M_{E_\ell}$ 是一个可用的计算约定，仍需用完整 UV 振幅减去 EFT 软区贡献来证明相应有限项。
 
-2. **施加重整化条件（Renormalization Condition）**：
-   当正文声明“假设希格斯门户混合可忽略（assume negligible Higgs-portal mixing）”时，其严格的场论含义是：**在紫外匹配能标 $\mu_R = M_{E_\ell}$ 处施加重整化条件 $\lambda_{HS}(\mu_R = M_{E_\ell}) = 0$，随后检验从 $\mu_R = M_{E_\ell}$ 演化到电弱能标 $\mu_R \sim m_h, m_s$ 时，由 $\tau, \mu$ 圈图辐射产生的有限重整化混合 $\delta m_{sh}^2(p^2)$ 是否真的足够小**：
-   $$\delta m_{sh}^2(p^2) = \sum_{\ell=\mu,\tau} \frac{y_{s\ell\ell}\, y_{h\ell\ell}}{16\pi^2} \int_0^1 dx \, \Big[ 6 m_\ell^2 - 6 x(1-x) p^2 \Big] \ln\left(\frac{M_{E_\ell}^2}{m_\ell^2 - x(1-x)p^2 - i\epsilon}\right)$$
+2. **边界条件与 EFT 软圈函数（不是完整 UV 匹配）**：
 
-### Step 1.6：分离出“静态手征质量项”与“在壳动量项”
+   为使“portal 混合可忽略”成为可检验假设，可以把 \(\lambda_{HS}(\mu_R=M_{E_\ell})=0\) 作为一个明确的 benchmark 边界条件；这不是由“混合可忽略”这句话自动推出的结论。还必须给出重整化方案、完整 UV 硬匹配和相同方案下的局域项。
+
+   以第 262 节的 \(i\Pi\) 约定（1PI 插入为 \(i\Pi\)，逆核为 \(p^2-m_0^2+\Pi\)）为例，令 \(q_0=1/(16\pi^2)\)、\(\ell_\ell=\ln(m_\ell^2/\mu_R^2)\)，并令 \(\bar B_\ell(t)=B_0(t;m_\ell^2,m_\ell^2)-\Delta_{\rm UV}\)。单轻子圈的有限 EFT 软贡献（泡图加 \(hs\bar\ell\ell\) 接触图）为
+   \[
+   \Pi_{hs,\ell}^{\mathrm{soft,fin}}(t)=
+   -2q_0\frac{m_\ell^2}{v v_s}
+   \left[4m_\ell^2(1-\ell_\ell)+(4m_\ell^2-t)\bar B_\ell(t)\right].
+   \]
+   若沿用本文件 Step 1.1 的 \(-i\Pi\) 约定，整体符号需相应转换；在把两份文档的 1PI 约定统一前，不得直接混用它们的有符号自能。
+
+   固定外动量并取严格 \(M_{E_\ell}^{-2}\) 阶时，软圈的非解析动量项正比于
+   \[
+   \Pi_{hs,\ell}^{[M^{-2}],\mathrm{fin}}(t)
+   =2q_0\frac{m_\ell^2}{v v_s}\,t
+   \left[2-\ln\frac{-t-i0}{\mu_R^2}\right]
+   \]
+   （按上面第 262 节的符号约定）。这与 Step 1.4 的 \(12\Delta\) Feynman 参数对数核一致：积分后 \(p^2\) 项的系数大小为 \(2\)，而不是 \(1\)。
+
+> **更正与停机条件（2026-10-26）：** 旧版 \(\int dx\,[6m_\ell^2-6x(1-x)p^2]\ln(M_E^2/\Delta)\) 表达式的 \(p^2\)-依赖非解析对数系数比上述 EFT 软圈少一半，并且没有显式包含接触图。它不能作为相同耦合约定下的完整 UV 结果。硬匹配的局域项在轻阈值附近对外动量解析，不能任意改变轻子对产生的非解析 \(\Delta\ln\Delta\) 系数；若仍得到 \(6\Delta\)，必须追踪不同耦合归一化、额外轻态贡献或推导错误。当前已确认的是软圈系数结构，不是完整 UV portal 混合：硬匹配、portal 反项/RGE、总宽度和物理极点仍未闭环。
+
+### 已有的零动量 UV portal 势阈值：必须与软圈分开记账
+
+统一工作文档 v66 的第 251.6–251.9 节已经给出一项**部分 UV 硬阈值结果**，所以不应再把“所有 portal 硬阈值均未计算”作为当前状态。需要区分两种方案：
+
+1. **规范化场下的参数匹配方案**（v66 第 251.7 节）：若势写为 \(V\supset\lambda_PXY\)，\(X=H^\dagger H\)、\(Y=S^\dagger S\)，并令 \(u_\ell=|y_\ell|^2\)、\(w_\ell=|\lambda_\ell|^2\)，重费米子来源的有限参数阈值包含
+   \[
+   \delta\lambda_P=-2q_0\sum_\ell u_\ell w_\ell-\lambda_P(z_H+z_S),
+   \qquad q_0=\frac1{16\pi^2}.
+   \]
+   第二项是有限场归一化对既有树级 portal 的转换，不能再当作一张新圈图。若 \(\lambda_P=0\) 是在 UV 参数中施加的边界，第一项仍会产生 EFT 阈值；若要令匹配后的 EFT portal 为零，则需在 UV 参数中选择相应的抵消边界。
+
+2. **固定 VEV 的 tadpole 方案**（v66 第 251.9 节）：直接势曲率为
+   \[
+   \delta\mathcal M_{hs,V}^2
+   =q_0vv_s\sum_\ell u_\ell w_\ell
+   \left[-2+\frac{u_\ell v^2+w_\ell v_s^2}{M_{E_\ell}^2}\right].
+   \]
+   这里的 \(-2q_0u_\ell w_\ell\) 是可重整化 portal 势阈值；\(1/M_{E_\ell}^2\) 项来自六标量势。该式是指定 tadpole 方案下的零动量势曲率，不是完整的动量依赖 \(\Pi_{hs}(p^2)\)。它与上面的规范化参数阈值属于不同记账方案，不能不经转换直接相加。
+
+用领先质量关系 \(m_\ell\simeq |y_\ell\lambda_\ell|vv_s/(2M_{E_\ell})\)，可把第一项写成
+\[
+\delta\lambda_P^{\rm hard}\simeq
+-8q_0\sum_\ell\frac{M_{E_\ell}^2m_\ell^2}{v^2v_s^2},
+\qquad
+\delta\mathcal M_{hs,V}^{2,\rm leading}\simeq
+-8q_0\sum_\ell\frac{M_{E_\ell}^2m_\ell^2}{vv_s}.
+\]
+这显示硬 portal 阈值与轻子质量、重费米子质量和 \(v_s\) 相关，不能由低能软泡图的单一对数替代。
+
+### 保留现有低能唯象学结果的条件性路线
+
+若希望保留原有纯轴矢量低能结果，一个明确但**非自动、非对称性保护**的方案是：在指定匹配方案中要求 EFT portal 在匹配尺度足够小。若采用
+\[
+\lambda_P^{\mathrm{EFT}}(M_E)
+=\lambda_P^{\mathrm{UV}}(M_E)+\delta\lambda_P^{\mathrm{hard}}(M_E)
+\]
+这一匹配记号，则要令 \(\lambda_P^{\mathrm{EFT}}(M_E)=0\)，需要选择
+\[
+\lambda_P^{\mathrm{UV}}(M_E)
+\simeq-\delta\lambda_P^{\mathrm{hard}}(M_E)
+\simeq+8.3\times10^{-4}
+\]
+（对上面研究者手册的候选点，且暂不计有限场归一化项）。这是一项明确的 UV 参数边界条件，不是模型对称性自动给出的结果。
+
+在同一候选点 \(v_s=1000\,\mathrm{GeV}\)、\(M_E=\mu_R=17.77\,\mathrm{TeV}\) 下，EFT 软圈的 on-shell 示例为 \(\Pi_{hs,\tau}^{\mathrm{soft,fin}}(m_h^2)=(0.030288+0.007994i)\,\mathrm{GeV}^2\)，模值约 \(0.03133\,\mathrm{GeV}^2\)；其 \(B_0\) 有限部已用高精度 Feynman 参数积分独立核对。它在远离 Higgs 简并区时可以对应很小的混合修正，但不能单独证明近简并区的完整物理极点或实验率安全。
+
+还需注意，按领先轻子质量关系，\(\delta\lambda_P^{\mathrm{hard}}\propto M_E^2m_\ell^2/v_s^2\)。在原二维扫描中 \(v_s=m_{A'}/(2g_X)\) 随网格点变化；因此若要求每个点的 EFT portal 都接近零，所需 UV 边界一般也随点变化。**这不是一个固定 portal 参数自动保证整个二维平面成立的结论。**
+
+所以，可保留现有轴矢量唯象学结果作为“给定 portal 边界与适用范围的条件性 EFT benchmark”；但不能据此把同一平面直接称为完整 UV 模型的普遍允许区。最终仍需同方案匹配、近简并极点和相关 Higgs/标量约束。
+
+
+**数值 benchmark 与混合角表的唯一阅读位置：** 现有[研究者完整版](审稿意见-gpt/研究者阅读版/DW13678_论文修订与理论核查手册_研究者完整版.md) 的 §2.5.3.1 已保存 \(M_{E_\tau}=17.77\,\mathrm{TeV}\)、\(v_s=1000\,\mathrm{GeV}\) 候选点的硬阈值、树级质量矩阵对角化和近简并诊断。为避免维护第二套混合角表，本文件不重复其数值表；应以研究者完整版中的条件性诊断为阅读入口，并保留以下限制：
+
+- 该结果采用 \(\lambda_{HS}^{\rm UV}=0\) 的特定边界与零动量势曲率，尚未包含完整动量依赖自能、复数极点及实验重铸。
+- 用当前展示的圆整物理常数独立代入领先质量关系，得到 \(\delta\lambda_P^{\rm hard}\simeq-8.33\times10^{-4}\)、\(\delta\mathcal M_{hs,V}^{2}\simeq-205.1\,\mathrm{GeV}^2\)；研究者完整版记录为 \(-8.36\times10^{-4}\)、\(-205.8\,\mathrm{GeV}^2\)。约 \(0.3\%\) 的差异应在最终冻结前用原始未舍入耦合、质量和方案统一核对，不能只归因于舍入而不查输入。
+- 这些阈值与下一小节的 EFT 软圈函数属于不同动量/匹配定义；在同一重整化方案中完成边界、有限场归一化、接触项和重叠扣除之前，不能直接相加，也不能由任一单独项宣布参数区被排除或安全。
+
+
+### 条件性数值交叉核对：EFT 软圈（不是完整 UV benchmark）
+
+为检查第 262 节的有限软圈函数，取一个仅用于代数测试的示例点：
+\[
+m_h=125.25\,\mathrm{GeV},\quad m_\tau=1.77686\,\mathrm{GeV},\quad
+m_\mu=0.105658\,\mathrm{GeV},\quad v=246.22\,\mathrm{GeV},
+\]
+\[
+v_s=50\,\mathrm{GeV},\qquad \mu_R=M_E=1\,\mathrm{TeV}.
+\]
+这里的 \(v_s\) 只是示例输入，不表示已通过完整 UV 参数扫描的 benchmark。用
+\[
+\bar B_\ell(t)=2-\ln\frac{m_\ell^2}{\mu_R^2}
+-\beta_\ell\ln\frac{1+\beta_\ell}{1-\beta_\ell}
++i\pi\beta_\ell,\qquad
+\beta_\ell=\sqrt{1-\frac{4m_\ell^2}{t}}
+\]
+计算 \(t=m_h^2\)，并代入上面的 EFT 软圈有限函数，得到（第 262 节的 \(i\Pi\) 符号约定）
+\[
+\bar B_\tau(m_h^2)=6.158716+3.140328\,i,
+\]
+\[
+\Pi_{hs,\tau}^{\mathrm{soft,fin}}(m_h^2)
+=(0.312998+0.159884\,i)\,\mathrm{GeV}^2,\qquad
+\frac{|\Pi_{hs,\tau}^{\mathrm{soft,fin}}|}{m_h^2}=2.2404\times10^{-5}.
+\]
+缪子项为
+\[
+\Pi_{hs,\mu}^{\mathrm{soft,fin}}(m_h^2)
+=(1.1089\times10^{-3}+5.6602\times10^{-4}i)\,\mathrm{GeV}^2,\qquad
+\frac{|\Pi_{hs,\mu}^{\mathrm{soft,fin}}|}{m_h^2}=7.9363\times10^{-8}.
+\]
+\(\bar B_\tau\) 还与直接高精度 Feynman 参数积分核对一致（数值差异约 \(10^{-23}\)）。同一示例点的三种计算对照为：
+
+| 计算口径 | \(|\Pi_{hs,\tau}|\) | \(|\Pi_{hs,\tau}|/m_h^2\) | 状态 |
+|---|---:|---:|---|
+| 旧式对数积分，系数 \(6\Delta\) | \(0.16835\,\mathrm{GeV}^2\) | \(1.0731\times10^{-5}\) | 条件性旧方案 A；不作为最终结果 |
+| 对数积分，系数 \(12\Delta\) | \(0.33670\,\mathrm{GeV}^2\) | \(2.1463\times10^{-5}\) | 软圈对数项；不含完整有限项 |
+| 有限 \(B_0\) 软圈函数（泡图加接触项） | \(0.35147\,\mathrm{GeV}^2\) | \(2.2404\times10^{-5}\) | 本节核对的 EFT 软贡献；不含 UV 硬匹配 |
+
+完整有限软圈结果比 \(12\Delta\) 的对数项大约 4.4%，来自有限常数与接触项的处理；它仍不是完整 UV 预测。作为另一项粗略对照，旧 Step 1.7 的单实对数估计给出 \(q_0m_\tau^2/(vv_s)\ln(M_E^2/m_h^2)=6.7477\times10^{-6}\)，约比有限软圈模值小 3.3 倍；该近似没有保留完整有限 \(B_0\) 常数与虚部。
+
+**解释边界：** 这些数字只验证所列 EFT 软圈函数和数值积分，不包含 UV 硬匹配、完整 portal 局域项或同一参数点的完整复数极点。比值 \(|\Pi|/m_h^2\) 不是物理混合角，也不能直接与实验的 \(\sin\theta\) 上限比较；在 \(m_s\simeq m_h\) 时必须计算完整传播子与可观测率。
+
+> **历史结果警告：** 下列 Step 1.6–1.8、旧版表 2 与由其得到的“反相关保护”结论基于已撤回的 \(6\Delta\) 核，且未包含统一约定下的完整软圈接触项与 UV 硬匹配。它们只保留作审计追溯，不是当前数值预测，不得作为论文排除/允许结论；必须在软圈、硬匹配和 portal 边界闭环后重算。
+
+### Step 1.6：旧版静态/在壳估算（已撤回；仅留档）
 
 利用积分公式 $\int_0^1 dx \, 1 = 1$ 和 $\int_0^1 dx \, 6 x(1-x) = 6 \left[\frac{x^2}{2} - \frac{x^3}{3}\right]_0^1 = 1$，并代入 Step 0.4 的汤川耦合乘积：
 $$y_{s\ell\ell}\, y_{h\ell\ell} = \left(\frac{m_\ell}{v_s}\right) \left(\frac{m_\ell}{v}\right) = \frac{m_\ell^2}{v \, v_s}$$
@@ -222,7 +345,7 @@ $$y_{s\ell\ell}\, y_{h\ell\ell} = \left(\frac{m_\ell}{v_s}\right) \left(\frac{m_
    当我们在希格斯质量壳 $p^2 = m_h^2 \gg m_\tau^2$ 处评估自能（这是产生最大可能混合的保守上限估计）时，被积函数中的 $-6x(1-x)p^2$ 积分给出 $-m_h^2$：
    $$\left|\delta m_{sh}^2(p^2 = m_h^2)\right| \simeq \sum_{\ell=\mu,\tau} \frac{y_{s\ell\ell}\, y_{h\ell\ell}}{16\pi^2} m_h^2 \ln\left(\frac{M_{E_\ell}^2}{m_h^2}\right) = \sum_{\ell=\mu,\tau} \frac{1}{16\pi^2} \frac{m_\ell^2}{v \, v_s} m_h^2 \ln\left(\frac{M_{E_\ell}^2}{m_h^2}\right)$$
 
-### Step 1.7：逐步代入物理常数计算 $\mu$ 圈与 $\tau$ 圈的具体数值
+### Step 1.7：旧版数值估算（已撤回；仅留档）
 
 代入粒子物理标准常数（PDG 数值）：
 - 缪子质量：$m_\mu = 0.10566\text{ GeV}$
@@ -248,7 +371,7 @@ $$y_{s\ell\ell}\, y_{h\ell\ell} = \left(\frac{m_\ell}{v_s}\right) \left(\frac{m_
      乘以对数因子 $\ln(M_{E_\tau}^2/m_\tau^2) = 2\ln(1000/1.77686) = 12.66$，得到：
      $$\frac{\left|\delta m_{sh}^2(0)\right|}{m_h^2} \approx \frac{1.24 \times 10^{-6}\text{ GeV}}{v_s} \left(\frac{\ln(M_{E_\tau}^2/m_\tau^2)}{12.66}\right)$$
 
-### Step 1.8：结合公式 (34) 写出混合角 $\sin\theta_{sh}(m_s)$ 随 $m_s$ 变化的解析函数与数值表
+### Step 1.8：旧版混合角函数与数值表（已撤回；须重算）
 
 根据正文公式 (34) 的微扰论条件：
 $$m_s < \sqrt{2\lambda_S^{\max}}\, v_s \implies v_s > v_s^{\min}(m_s) \equiv \frac{m_s}{\sqrt{2\lambda_S^{\max}}}$$
@@ -258,12 +381,12 @@ $$\left(\frac{|\delta m_{sh}^2(m_h^2)|}{m_h^2}\right)_{\max} = \frac{\sqrt{2\lam
 进而，双标量混合角 $\theta_{sh}$ 随 $m_s$ 变化的**显式解析上限函数**为：
 $$\left|\sin\theta_{sh}(m_s)\right|_{\max} \simeq \left|\frac{\delta m_{sh}^2(m_h^2)}{m_h^2 - m_s^2}\right|_{\max} = \frac{\sqrt{2\lambda_S^{\max}}}{16\pi^2} \frac{m_\tau^2}{v \, m_s} \frac{m_h^2}{|m_h^2 - m_s^2|} \ln\left(\frac{M_{E_\tau}^2}{m_h^2}\right)$$
 
-**物理洞察（公式 34 的反相关保护机制 Anti-Correlation Protection）**：
+**旧版物理解释（未验证，不得作为结论）：**
 观察上式中的因子 $\frac{1}{m_s |m_h^2 - m_s^2|}$：
 - **在轻质量端（$m_s = 10\text{ GeV}$）**：虽然 $v_s$ 可以较小（$v_s^{\min} \approx 2.0\text{--}4.0\text{ GeV}$，$y_{s\tau\tau}$ 相对较大），但质量平方差 $|m_h^2 - m_s^2| \approx m_h^2$ 处于最大，因此混合角被大质量分母压低至 $|\sin\theta_{sh}| \lesssim 10^{-4}$；
 - **在希格斯简并区（$m_s \to m_h = 125.25\text{ GeV}$）**：为了使 $m_s$ 能够达到 $125\text{ GeV}$ 而不破坏公式 (34) 的微扰论要求，**$v_s$ 必须同步成比例增大至 $25\text{--}50\text{ GeV}$ 以上**（取 $\lambda_S^{\max}=\pi$ 时 $v_s^{\min} \approx 49.97\text{ GeV}$；取 $\lambda_S^{\max}=4\pi$ 时 $v_s^{\min} \approx 24.98\text{ GeV}$），从而自动把汤川耦合压低至 $y_{s\tau\tau} = m_\tau/v_s \lesssim 0.035\text{--}0.071$，使圈图混合元在 $m_s \approx m_h$ 处反而进一步减小至 $(0.68\text{--}1.35)\times 10^{-5}$！
 
-表 2 汇总了跨越 $m_s \in [10, 500]\text{ GeV}$ 全区间的逐点精确计算值与 LHC 实验上限对比（取 $\lambda_S^{\max} = \pi$，$M_{E_\tau} = 1\text{ TeV}$）：
+旧版表 2（仅作历史追溯；由已撤回的 $6\Delta$ 核导出，不能作为当前结果）曾尝试比较 $m_s \in [10,500]\text{ GeV}$ 的数值与 LHC 上限；取值为 $\lambda_S^{\max}=\pi$、$M_{E_\tau}=1\text{ TeV}$，但尚未使用统一软圈函数和 UV 硬匹配重新计算：
 
 | $m_s$ [GeV] | 最小允许 $v_s^{\min}$ [GeV] | 最大耦合 $y_{s\tau\tau}^{\max}$ | $\frac{\vert\delta m_{sh}^2(m_h^2)\vert}{m_h^2}$ (动量项) | $\frac{\vert\delta m_{sh}^2(0)\vert}{m_h^2}$ (静态项) | 最大混合角 $\vert\sin\theta_{sh}\vert$ (动量项) | 最大混合角 $\vert\sin\theta_{sh}\vert$ (静态项) | LHC 实验上限 $\vert\sin\theta_{\text{exp}}\vert$ |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -309,7 +432,7 @@ $$\left|\sin\theta_{sh}(m_s)\right|_{\max} \simeq \left|\frac{\delta m_{sh}^2(m_
      $$\Gamma(h \to ss) = \frac{\left|g_{hss}^{\text{loop}}\right|^2}{32\pi m_h} \sqrt{1 - \frac{4 m_s^2}{m_h^2}} \le \frac{(2.43 \times 10^{-3})^2}{32\pi \times 125.25} \times 0.987 = 4.6 \times 10^{-10}\text{ GeV}$$
    - 除以标准模型希格斯总宽度 $\Gamma_h^{\text{SM}} = 4.1\times 10^{-3}\text{ GeV}$，得到单圈诱导分支比：
      $$\text{BR}(h \to ss)_{\text{loop}} = \frac{\Gamma(h \to ss)}{\Gamma_h^{\text{SM}}} \le 1.1 \times 10^{-7} \ll \text{BR}_{\text{exp}} \sim 10^{-4}\text{--}10^{-1}$$
-     结论：**在 $10\text{ GeV} \le m_s < m_h/2$ 区间内，单圈诱导的 $h \to ss$ 衰变比实验上限小 $3\text{--}6$ 个数量级，完全可忽略。**
+     在这一简化三角图估算下得到的数值很小，但它尚未包括完整 UV 匹配、所有允许的三标量顶点和一致的 portal 边界；因此不能据此宣布 $h\to ss$ 在全参数空间完全可忽略。该约束仍需按实际模型输入重新验收。
 
 ### Step 2.2：逐步求解简并共振区（$m_s \to m_h$）的排除窗口宽度 $\Delta m_s$
 
@@ -317,10 +440,10 @@ $$\left|\sin\theta_{sh}(m_s)\right|_{\max} \simeq \left|\frac{\delta m_{sh}^2(m_
 $$\tan(2\theta_{sh}) = \frac{2 \delta m_{sh}^2}{m_h^2 - m_s^2}$$
 当混合角达到实验灵敏度阈值 $\theta_{\text{exp}}$（取严苛标准 $\sin\theta_{\text{exp}} = 0.10 \implies \tan(2\theta_{\text{exp}}) \approx 2\sin\theta_{\text{exp}} = 0.20$）时，对应的标量质量 $m_s$ 与 $m_h$ 的距离 $\Delta m_s \equiv |m_s - m_h|$ 满足：
 $$\left|m_h^2 - m_s^2\right| = (m_h + m_s)|m_h - m_s| \simeq 2 m_h \Delta m_s \le \frac{2 \left|\delta m_{sh}^2\right|}{\tan(2\theta_{\text{exp}})} \simeq \frac{\left|\delta m_{sh}^2\right|}{\sin\theta_{\text{exp}}}$$
-两边同除以 $2 m_h$，得到共振排除窗口的半宽度公式：
+两边同除以 $2m_h$，得到实质量矩阵与小混合近似下的形式窗口估算（不是经实验重铸后的排除窗口）：
 $$\Delta m_s = \left|m_s - m_h\right| \le \frac{m_h}{2 \sin\theta_{\text{exp}}} \left(\frac{\left|\delta m_{sh}^2\right|}{m_h^2}\right)$$
 
-代入 $m_s = m_h = 125.25\text{ GeV}$ 处的单圈混合数值：
+在指定低能积分核与参数假设下，代入 $m_s = m_h = 125.25\text{ GeV}$ 的条件性数值：
 1. **第一步**：由公式 (34)，在 $m_s = 125.25\text{ GeV}$ 处：
    - 若取 $\lambda_S^{\max} = \pi$，则 $v_s > \frac{125.25}{\sqrt{2\pi}} = 49.97\text{ GeV}$，此时：
      $$\left.\frac{|\delta m_{sh}^2(m_h^2)|}{m_h^2}\right|_{\lambda_S^{\max}=\pi} = \frac{3.37 \times 10^{-4}\text{ GeV}}{49.97\text{ GeV}} = 6.75 \times 10^{-6}$$
@@ -334,28 +457,34 @@ $$\Delta m_s = \left|m_s - m_h\right| \le \frac{m_h}{2 \sin\theta_{\text{exp}}} 
    - 若采用静态手征质量项 $\frac{|\delta m_{sh}^2(0)|}{m_h^2} \le \frac{1.24 \times 10^{-6}}{24.98} = 4.96 \times 10^{-8}$（或对 $\lambda_S^{\max}=\pi$ 为 $2.48 \times 10^{-8}$）：
      $$\Delta m_s \le \frac{125.25\text{ GeV}}{2 \times 0.10} \times (4.96 \times 10^{-8}) = 3.1 \times 10^{-5}\text{ GeV} = 31\text{ keV}$$
 
-### Step 2.3：计入有限衰变宽度（Finite-Width Regularization）证明共振奇点自动消除
+### Step 2.3：有限宽度与近简并区（条件性估算；不能单独证明安全）
 
-当两粒子质量差 $|m_s - m_h| \lesssim 4\text{--}8\text{ MeV}$ 时，不能再使用零宽度的实数质量矩阵，因为任何不稳定粒子在共振区的传播子分母都包含虚部 $-i m \Gamma$（Breit-Wigner 宽度）：
-1. **标准模型希格斯总衰变宽度**：
-   $$\Gamma_h \approx 4.1\text{ MeV} \implies m_h \Gamma_h \approx 125.25 \times 0.0041 = 0.514\text{ GeV}^2$$
-2. **标量 $s$ 在 $m_s = 125.25\text{ GeV}$ 处的衰变宽度 $\Gamma_s$**：
-   $s$ 主要衰变到 $\tau^+\tau^-$，树图部分宽度为：
-   $$\Gamma(s \to \tau^+\tau^-) = \frac{y_{s\tau\tau}^2 m_s}{8\pi} \left(1 - \frac{4m_\tau^2}{m_s^2}\right)^{3/2} \simeq \frac{m_\tau^2 m_s}{8\pi v_s^2}$$
-   在 $v_s = 25\text{--}50\text{ GeV}$ 处：
-   $$\Gamma_s \approx \frac{3.157 \times 125.25}{25.13 \times v_s^2}\text{ GeV} = \frac{15.73\text{ GeV}^3}{v_s^2} \approx 6.3\text{--}25.2\text{ MeV}$$
-   对应的虚部为 $m_s \Gamma_s \approx 0.79\text{--}3.15\text{ GeV}^2$。
-3. **复传播子矩阵的有效混合角**：
-   在包含宽度的非厄米有效哈密顿量中，有效混合角由复分母的模控制：
-   $$\left|\theta_{sh}^{\text{eff}}\right| \simeq \frac{\left|\delta m_{sh}^2\right|}{\sqrt{\left(m_h^2 - m_s^2\right)^2 + \left(m_h \Gamma_h - m_s \Gamma_s\right)^2}}$$
-   即使在**严格简并点 $m_s = m_h$**（实部 $m_h^2 - m_s^2 = 0$），分母也由宽度差 $|m_h \Gamma_h - m_s \Gamma_s| \gtrsim 0.28\text{--}2.64\text{ GeV}^2$ 托底，而分子 $|\delta m_{sh}^2| \le (0.68\text{--}1.35)\times 10^{-5} m_h^2 = 0.11\text{--}0.21\text{ GeV}^2$。
-   因此，在 $m_s = m_h$ 处的最大有效混合角为：
-   $$\left|\theta_{sh}^{\text{eff}}\right|_{m_s = m_h} \lesssim \frac{0.11\text{ GeV}^2}{0.28\text{ GeV}^2} \sim \mathcal{O}(0.1)$$
-   （若按静态质量项 $|\delta m_{sh}^2(0)| \approx 8\times 10^{-4}\text{ GeV}^2$ 计算，则在 $m_s = m_h$ 处有效混合角仅为 $|\theta_{sh}^{\text{eff}}| \approx 3\times 10^{-3} \ll 0.1$。）
+当 $m_s\simeq m_h$ 时，实数质量矩阵的小混合近似失效。完整验收应从复数逆传播子矩阵出发，例如
+\[
+D^{-1}(p^2)=
+\begin{pmatrix}
+p^2-m_{h,0}^2+\widehat\Pi_{hh}(p^2)&\widehat\Pi_{hs}(p^2)\\
+\widehat\Pi_{sh}(p^2)&p^2-m_{s,0}^2+\widehat\Pi_{ss}(p^2)
+\end{pmatrix},
+\]
+并在同一重整化方案中求复极点、包含树级 portal 项和相关反项，再计算实际产生与衰变率及干涉效应。
+
+本节原有的常数宽度估算采用分母
+\[
+\sqrt{(m_h^2-m_s^2)^2+(m_h\Gamma_h-m_s\Gamma_s)^2}.
+\]
+它只是一种固定宽度的诊断性近似，不是一般的混合角公式。分母中的宽度差可能变小甚至在某些参数选择下抵消；“两个粒子各自有非零宽度”并不保证这个差非零，也不能单独证明混合受到实验上限约束。
+
+例如，取本笔记使用的 $\Gamma_h\simeq4.1\,\mathrm{MeV}$ 以及由树级 $s\to\tau^+\tau^-$ 得到的示例宽度，只能在这些特定假设下估算 $|m_h\Gamma_h-m_s\Gamma_s|$。它不是完整 UV 模型的宽度预测，因为其他衰变道、portal 混合和总宽度尚未统一验收。因此，原笔记中由该分母推导的严格简并点混合角数值应视为条件性示例，而非全模型上限。
+
+**关闭本项所需的实际工作：** 明确 $\lambda_{HS}$ 的边界和重整化方案，完成 UV 阈值匹配与反项，构造完整复数二点函数矩阵，求复极点并计算适用的信号率。完成前，$m_s\simeq m_h$ 区域应标记为“未评估”，不得写成已排除、已允许或自动安全。
 
 ### Step 2.4：定量计算抵消项微调程度（Counterterm Fine-Tuning Analysis）
 
-审稿人提到：“如果存在强限制，需要说明多大程度的抵消项（counterterm）微调”。可以通过标准 Barbieri-Giudice 自然性/微调判据来定量回答：
+> **状态限制：** 本节定义的 $\Delta_{\mathrm{FT}}=|\delta\lambda_{HS}^{\mathrm{loop}}/\lambda_{HS}^{\mathrm{exp}}|$ 只是特定近似和参数化下的比值，不自动等同于一般的 Barbieri--Giudice 灵敏度或模型无关的微调度量。只有在重整化方案、portal 边界、完整混合矩阵和所选可观测量明确后，才可将其用于物理结论。
+
+
+审稿人提到：“如果存在强限制，需要说明多大程度的抵消项（counterterm）微调”。下面的比值只提供一个指定参数化下的诊断性比较；标准 Barbieri–Giudice 灵敏度需要对明确的可观测量和独立输入参数求导，不能由这个比值自动替代：
 1. **单圈对四次门户耦合 $\lambda_{HS}$ 的辐射修正大小 $\delta\lambda_{HS}^{\text{loop}}$**：
    由 $\delta m_{sh}^2 = \delta\lambda_{HS}^{\text{loop}} v v_s$，将 Step 1.6 的公式两边除以 $v v_s$：
    - 若按动量项计：
@@ -367,14 +496,15 @@ $$\Delta m_s = \left|m_s - m_h\right| \le \frac{m_h}{2 \sin\theta_{\text{exp}}} 
    $$\lambda_{HS}^{\text{exp}}(m_s) = \frac{0.1 \, |m_h^2 - m_s^2|}{v \, v_s}$$
 3. **微调参数 $\Delta_{\text{FT}} \equiv \left|\frac{\delta\lambda_{HS}^{\text{loop}}}{\lambda_{HS}^{\text{exp}}}\right|$**：
    $$\Delta_{\text{FT}} = \left|\frac{\delta m_{sh,\text{loop}}^2}{0.1 (m_h^2 - m_s^2)}\right| = \frac{|\sin\theta_{sh}^{\text{loop}}|}{0.1}$$
-   - 在非简并区（$|m_s - m_h| \gtrsim 1\text{ GeV}$）：$\Delta_{\text{FT}} \lesssim 10^{-3} \ll 1$，**完全不需要任何抵消项微调（No fine-tuning at all）**。
-   - 即便在距离 $m_h$ 仅 $1\text{ MeV}$ 的极端简并点，若不计宽度效应而直接用树图抵消项抵消到 $|\sin\theta_{sh}| < 0.1$，所需的微调程度也仅为 $\Delta_{\text{FT}} \sim \frac{8.5\text{ MeV}}{1\text{ MeV}} \sim \mathcal{O}(1\text{--}10)$。
+   - 该近似给出的非简并区数值只能作为指定边界条件下的诊断性比值；在完整 UV 阈值匹配和可观测量核验完成前，不得据此下结论说“完全不需要微调”。
+   - 在近简并区，基于实质量矩阵的小角近似本身失效；没有完整复数极点与率的计算，不能从本节的简单比值给出可靠的微调结论。
 
-### Step 2.5：关于参数空间图（Parameter Space Plot）的修改操作指南
+### Step 2.5：参数空间图的处理原则（未完成近简并核查前不得关闭）
 
-既然已经算清共振窗口半宽度 $\Delta m_s = |m_s - m_h| \lesssim 8.5\text{ MeV}$，不需要重画任何参数空间图，原因如下：
-- 在横轴跨度为几十到几百 GeV 的参数图上，$2\Delta m_s \lesssim 17\text{ MeV}$ 的宽度占整张图宽度的比例不到 $10^{-4}$（远小于 PDF 矢量图上一条最细实线宽度的 $1/100$）。
-- 只需要在正文中公式 (34) 下方（或对应图注中）加上一句定量说明：**“除 $|m_s - m_h| \lesssim \mathcal{O}(10\text{ MeV})$ 的极窄简并切片外，单圈诱导混合在整个参数空间均比 LHC 希格斯测量上限低 $3\text{--}4$ 个数量级。”**
+- 质量窗口 $|m_s-m_h|\lesssim\mathcal O(10\,\mathrm{MeV})$ 在宽质量轴图上可能很窄，但“图上看不清”不是物理上可以忽略的理由。
+- 若当前图未包含完整 UV portal、复数极点和相关 Higgs 率的结果，应将近简并区域明确标记为“未评估”，或在图注中说明该区域尚未由本分析覆盖；不能写成“计入宽度后全区间安全”。
+- 只有在同一组 UV 输入下完成完整传播子与可观测率计算后，才决定是否重画、单独放大或以有依据的范围限制处理该区域。
+- 任何“整个参数空间低于 LHC 限制”的结论，都必须同时通过阈值匹配、portal 树级项、相关衰变道和模型专属实验适用性检查。
 
 ## 第三阶段（对应审稿要求三）：一步步证明低能理论中忽略 $s$ 的合理性与适用边界（Step 3.1 – Step 3.4）
 
@@ -448,17 +578,21 @@ $$\Delta m_s = \left|m_s - m_h\right| \le \frac{m_h}{2 \sin\theta_{\text{exp}}} 
    $$\left|\frac{\Delta a_\mu^{(s)}}{\Delta a_\mu^{(A')}}\right|_{m_s=10\text{ GeV}} = 1.2 \times \frac{(0.10566)^2}{10^2} \times \left[ \ln\left(\frac{100}{0.01116}\right) - 1.167 \right] = 1.34 \times 10^{-4} \times 7.93 = 1.06 \times 10^{-3} \approx 0.1\%$$
    结论：**在 $m_s \gtrsim 10\text{ GeV}$ 时，标量 $s$ 对 $(g-2)_\mu$ 的贡献不到轴矢量 $A'$ 贡献的千分之一（$0.1\%$）。**
 
-### Step 3.4：明确划定“忽略 $s$ 近似”成立与失效的精确边界表
+### Step 3.4：忽略 $s$ 近似的条件与失效边界（不是普适安全区）
 
-将参数空间与能标范围的精确边界总结为表 3：
+将需要逐过程核验的条件与主要失效风险总结为表 3：
 
-| 物理判据维度 | 近似完全成立的区域（可安全忽略 $s$） | 近似失效的区域（必须保留 $s$ 或被排除） | 物理原因与定量指标 |
+| 物理判据维度 | 可考虑近似的条件（仍需逐过程验收） | 尚未评估或近似可能失效的区域 | 物理原因与所需核验 |
 | :--- | :--- | :--- | :--- |
 | **1. 微扰幺正性边界** | $v_s = \frac{m_{A'}}{2g_X} > \frac{m_s}{\sqrt{2\lambda_S^{\max}}} \gtrsim 2\text{--}4\text{ GeV}$ | $v_s = \frac{m_{A'}}{2g_X} < \frac{10\text{ GeV}}{\sqrt{2\lambda_S^{\max}}}$ | 正文公式 (34)：若 $v_s$ 过小，$m_s$ 无法在不破坏微扰论的前提下达到 $10\text{ GeV}$ |
-| **2. 过程动量转移 $q^2$** | 低能过程：$\sqrt{\vert q^2\vert} \ll m_s$（且 $m_{A'} \ll m_s$） | 高能对撞过程：$\sqrt{\hat{s}} \gtrsim m_s$ | 低能下 $\vert\mathcal{M}_s / \mathcal{M}_{A'}\vert \sim 4m_\ell^2/m_s^2 \ll 1$；当 $\sqrt{\hat{s}} \sim m_s$ 时 $s$ 传播子可共振激发 |
-| **3. 紫外重整化混合** | 除 $\vert m_s - m_h\vert \lesssim 8\text{ MeV}$ 外的全部 $m_s \ge 10\text{ GeV}$ | 仅在无宽度近似下的极窄点 $\vert m_s - m_h\vert \lesssim 8\text{ MeV}$ | 单圈 $\tau$ 圈图混合 $\delta m_{sh}^2/m_h^2 \lesssim 10^{-5}\text{--}10^{-4}$，计入宽度后全区间安全 |
+| **2. 过程动量转移 $q^2$** | 仅在指定过程的洛伦兹结构与输入假设已核对，且 $|q^2|\ll m_s^2$ 时可作低能展开 | 高能对撞过程：$\sqrt{\hat{s}}\gtrsim m_s$，或标量传播子可接近壳 | $4m_\ell^2/m_s^2$ 不能作为任意过程的普适振幅比；须对具体可观测量单独推导。 |
+| **3. 紫外重整化混合** | 远离简并区且完整 UV 匹配与小混合条件已验证的指定可观测量 | $m_s\simeq m_h$ 及任何尚未完成阈值/实验核查的区域 | 低能积分给出条件性数量级；完整复数极点、总宽度、portal 项和实验率未完成前，不能判定全区间安全。 |
 
-## 第四阶段：可直接复制粘贴的英文审稿回复信与论文修改段落
+## 第四阶段：历史英文措辞材料（不得直接提交；须待研究闭环后重写）
+
+
+> **不得直接提交本阶段现存英文段落。** 其中仍有 “we have explicitly calculated”“we find” 等完成时陈述，而完整 UV 匹配、近简并区和实验重铸尚未闭环。该段仅是内部措辞材料；只有实际计算、正文修改与证据验收全部完成后，才能据结果重新撰写正式回复信。
+
 
 ### 1. 审稿回复信完整段落（Response to Referee Comment 3）
 
@@ -503,3 +637,53 @@ We fully agree with the referee that $m_s$ cannot formally decouple ($m_s \to \i
 ```latex
 We note that although $\tau$ and $\mu$ loops radiatively generate $s$--$h$ mixing even when the renormalized tree-level portal coupling vanishes at the UV scale $M_E$, the resulting one-loop off-diagonal self-energy is strongly suppressed by the tau Yukawa coupling and loop factor, $|\delta m_{sh}^2|/m_h^2 \simeq (16\pi^2)^{-1} (m_\tau^2 / v v_s) \ln(M_E^2/m_h^2) \lesssim 10^{-4}$ for $m_s \gtrsim 10\text{ GeV}$. Because Eq.~(34) enforces $v_s > m_s/\sqrt{2\lambda_S^{\max}}$ (requiring $v_s \gtrsim 25\text{--}50\text{ GeV}$ near $m_s \approx m_h$), the loop-induced mixing angle remains $|\sin\theta_{sh}| \lesssim 10^{-4}$ across the allowed parameter space—three to four orders of magnitude below LHC Higgs signal-strength and $h \to ss$ bounds—except within an ultra-narrow degeneracy window $|m_s - m_h| \lesssim \mathcal{O}(10\text{ MeV})$ that is regularized by the natural scalar widths $\Gamma_{h,s}$. Furthermore, while $m_s$ cannot formally decouple ($m_s \to \infty$) at fixed $v_s$ due to Eq.~(34), choosing $m_s \gtrsim 10\text{ GeV}$ within the perturbative regime kinematically suppresses $s$-exchange relative to $A'$-exchange by $\sim 4m_\ell^2/m_s^2 \ll 1$ in low-energy observables ($|q^2| \ll m_s^2$).
 ```
+
+
+---
+
+## 独立树级标量势核查（2026-10-26）
+
+本节只核对给定可重整化势、规范场归一化和实 VEV 下的树级代数，不代表完整圈级极点、全局真空或实验扫描已完成。
+
+取
+\[
+V=-\mu_H^2(H^\dagger H)+\lambda_H(H^\dagger H)^2
+-\mu_S^2(S^\dagger S)+\lambda_S(S^\dagger S)^2
++\lambda_{HS}(H^\dagger H)(S^\dagger S),
+\]
+并令 \(H=(0,(v+h)/\sqrt2)^T\)、\(S=(v_s+s)/\sqrt2\)。驻点方程为
+\[
+\mu_H^2=\lambda_Hv^2+\frac12\lambda_{HS}v_s^2,\qquad
+\mu_S^2=\lambda_Sv_s^2+\frac12\lambda_{HS}v^2.
+\]
+消去质量参数后，CP-even 树级质量平方矩阵是
+\[
+\mathcal M^2_{\rm tree}=
+\begin{pmatrix}
+2\lambda_Hv^2&\lambda_{HS}vv_s\\
+\lambda_{HS}vv_s&2\lambda_Sv_s^2
+\end{pmatrix},
+\]
+其本征值为
+\[
+m_{\pm}^2=\lambda_Hv^2+\lambda_Sv_s^2
+\pm\sqrt{(\lambda_Hv^2-\lambda_Sv_s^2)^2+\lambda_{HS}^2v^2v_s^2}.
+\]
+因此 \(m_s^2\simeq2\lambda_Sv_s^2\) 只在 portal 混合足够小、且圈级质量修正尚未纳入的近似下成立。
+
+令 \(x=H^\dagger H\ge0\)、\(y=S^\dagger S\ge0\)。四次项在大场方向有下界的常用条件为
+\[
+\lambda_H\ge0,\qquad \lambda_S\ge0,\qquad
+\lambda_{HS}\ge-2\sqrt{\lambda_H\lambda_S},
+\]
+其中等号可能对应平坦方向，需进一步检查低阶项与真空结构。对于 \(v,v_s\ne0\) 的混合驻点，局部质量矩阵正定还要求对角项为正且
+\[
+\det\mathcal M^2_{\rm tree}
+=v^2v_s^2(4\lambda_H\lambda_S-\lambda_{HS}^2)>0.
+\]
+这只检验该驻点的局部稳定性；要确定全局真空，还必须与 \(v=0\)、\(v_s=0\) 及其他允许驻点的势能比较。
+
+当 \(\lambda_{HS}=0\) 时，树级非对角质量元消失，但这只是给定尺度上的参数边界条件，不是对辐射混合的禁止定理。完整 UV 阈值、portal 的重整化群演化、圈级极点及近简并可观测率仍需独立计算。
+
+**公式边界复核：** 在小 portal 混合近似下，\(m_s^2=2\lambda_Sv_s^2\)。若取 \(\lambda_S^{\max}=4\pi\)，则 \(m_s^2\le8\pi v_s^2\)；\(4\pi v_s^2\) 对应的是 \(\lambda_S^{\max}=2\pi\)，两者不是同一边界。
+
