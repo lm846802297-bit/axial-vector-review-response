@@ -34,6 +34,14 @@ A source bound \(|y_{s\mu\mu}|\le y_{\rm lim}(m_s)\) therefore maps, at fixed \(
 \]
 This is a conditional UV translation, not a direct experimental limit on \(g_X\) or on the pure-axial \(A'\) effective current.
 
+## Conditional translation example (not applied to the main Fig. 2 benchmark)
+
+For an **alternative light-scalar benchmark** with \(m_s\lesssim1\,\mathrm{keV}\), using the neutron-star-cooling entry \(y_{s\mu\mu}^{\rm lim}\simeq7.4\times10^{-14}\) from Fiorillo et al., Table 1, the mass-proportional UV relation gives
+\[
+g_X\lesssim 3.5\times10^{-13}\left(\frac{m_{A'}}{\mathrm{GeV}}\right).
+\]
+At the upper end \(m_{A'}=100\,\mathrm{GeV}\), this is \(g_X\lesssim3.5\times10^{-11}\), still below the displayed scan floor \(g_X=10^{-6}\). Thus this *conditional light-scalar realization* would not overlap the plotted window if the source assumptions and UV relation apply. It is **not** a bound on the manuscript's \(m_s\gtrsim10\,\mathrm{GeV}\) reference benchmark, and it is not overlaid on Fig. 2. A model-specific recast would be needed before interpreting it as a general exclusion of the UV model.
+
 ## Citation/figure provenance
 
 - Liu & Tang: Fig. 5 (95% CL scalar-muon coupling constraints).
