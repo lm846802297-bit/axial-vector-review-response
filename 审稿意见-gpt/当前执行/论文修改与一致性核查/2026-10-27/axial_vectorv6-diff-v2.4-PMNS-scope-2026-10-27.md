@@ -54,7 +54,7 @@
 |:-----|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------|:-----------------------|:------------------------------------------------------------------------------------------|:-----------------|
 | T-00 | 锁定审稿人实际收到的 PDF，并与当前 v6 核对 Eq. (30)/(34) 及相关约定                                                                                                          | Major 1；Minor 6.4                 | Diff 0                 | 投稿版本、逐式对照记录、确认后的约定                                                      | 待完成           |
 | T-01 | 落实已选择的路线 B：说明允许/禁止的 Weinberg 算符、残余 $Z_2$、PMNS 结构限制；将同一范围声明同步至 Introduction、模型部分、Conclusion、Major 3 与 Major 4.1；不新增粒子 | Major 3、Major 4.1 | Diff 11 及模型部分 | 正文实际差异、正式回复、Major 3/4.1 逐项一致性核验与编译记录 | **修订副本已应用并编译；范围限定已同步；PMNS 未解决** |
-| T-02 | 明确 Higgs-portal 重整化条件与零动量阈值；区分该阈值、有限动量自能与物理混合角；方案 B 不以未闭合的有限导数系数支撑正式回复 | Major Point 1.3 | Diff 2 | 门槛条件、代表点、适用范围声明；候选导数系数/自能/极点结果仅归档于内部研究记录 | **零动量 portal 阈值和两个代表点已记录；首轮有限动量/极点结果仅保留内部；完整匹配闭环与 Higgs 重铸仍开放** |
+| T-02 | 明确 Higgs-portal 重整化条件与零动量阈值；量化有限动量 \(h\)-\(s\) 自能并与 EFT soft 部分匹配；区分 benchmark 结果与物理混合角/完整极点 | Major Point 1.3 | Diff 2 | 门槛条件、代表点、有限动量自能、EFT soft subtraction 与适用范围声明 | **两代表点的完整质量本征态一圈费米子自能与 hard/soft 差额已数值核查；完整 pole-scheme、反项/tadpole 闭环及 Higgs 重铸仍开放** |
 | T-03 | 量化标量/Higgs 约束：产生率、总宽度、分支比、寿命、Higgs 信号强度、exotic decays 和适用直接搜索；区分已排除、所考虑约束下未排除、未评估                                      | Major 1、1.1、1.2、1.3；Major 4    | Diff 4、5、6           | 模型特定重铸、假设清单、质量分类图/表、独立复核                                           | 待计算/重铸      |
 | T-04 | 核查 Belle II 等标量搜索的原始分析、spin-0 解释、产生/衰变假设及接受度；不能仅凭质量覆盖判为排除                                                                             | Major 1.1、Major 4；Minor 6.2、6.3 | Diff 4A–4C             | 原始分析依据、模型映射、适用性判断及必要的重铸                                            | 待完成           |
 | T-05 | 统一 VLL 质量与混合角 benchmark；核对 $m_\ell\simeq\theta_{\ell L}\theta_{\ell R}M_E$、Eq. (22)/(27) 和直接搜索界限；将 benchmark 推论与实验质量下限分开                     | Minor 3、Minor 4                   | Diff 3                 | 精确/近似质量关系、可行参数选择、直接搜索假设和修订理由                                   | 待修改与复核     |
@@ -316,7 +316,7 @@ S=\frac{v_s+s_0}{\sqrt2},
 
 ### 2C. 完整 UV 标量混合论断所需的后续核查（方案 B 下不作为当前唯象学回复的前置条件）
 
-**范围说明（方案 B）：** 以下任务是将来若要对完整 UV 模型作全质量区间的定量标量混合/排除分类时所需的核查；本轮正式回复不再依赖尚未闭合的有限导数 Wilson 系数或首轮复数极点数值。当前回复明确不声称混合可忽略，并将近简并窄宽度区域标为 **not assessed**。因此，这些后续计算保留在 RC-001 研究路线中，不作为当前收窄后轴矢量唯象学主张的无条件前置门槛。
+**范围说明（方案 B）：** 现已完成两个明确 benchmark 下的有限动量一圈费米子自能计算，包括完整 \(2\times2\) 质量本征态求和、EFT soft subtraction 和领先导数匹配系数的数值对照。后续仍需对完整 UV 模型完成全动量 pole-scheme、对角自能/反项/tadpole 闭环及实验重铸；当前回复不声称混合在全质量范围内可忽略，近简并窄宽度区域仍标为 **not assessed**。这些后续工作保留在 RC-001 研究路线中。
 
 1. 明确 $\lambda_{HS}$ 的重整化方案、匹配/重整化尺度和边界条件；在某一尺度设置其重整化值为零，不代表所有能标上的物理混合效应都为零。
 2. 计算完整 UV 场内容下轻子和 VLL 对 portal 及非对角二点函数的贡献，区分重整化 portal 参数、动量依赖自能和物理混合角。
@@ -324,11 +324,17 @@ S=\frac{v_s+s_0}{\sqrt2},
 4. 对相关物理本征态核查 Higgs 信号强度、exotic decays、标量产生率、总宽度、分支比和寿命；若 $s\to A'A'$ 运动学开放，须纳入其对可见分支比的影响。
 5. 只有当标量对**指定观测量、参数域和目标精度**的影响经定量验证足够小，才可采用 scalar-suppressed 近似；不得仅因选取 $m_s\geq10\,\mathrm{GeV}$ 就宣称标量已退耦。
 
-**状态更新（2026-10-27）：** portal 阈值和两个代表点的数值化、候选有限导数系数的首轮组合以及第一轮复数极点诊断已完成。有限导数系数的完整同阶 EFT soft/counterterm 闭合、独立图级验证、全动量对角自能以及模型专属 Higgs 线形/直接搜索重铸仍未完成。因此不能声称全质量区间的混合均可忽略；近简并窄宽度区域必须标记为 **not assessed**，不能直接分类为允许或排除。
+**状态更新（2026-10-27）：** 新的独立数值脚本已对完整质量本征态一圈费米子自能进行 PV 积分，并在两代表点将 hard momentum difference 与 EFT soft 部分分开。有限导数匹配系数与精确 hard 差额的相对差为 \(6.11\times10^{-4}\)，零动量阈值比较残差为 \(1.79\times10^{-4}\)。这完成了 benchmark-level 的一圈费米子混合估算，但不等于完整 pole-scheme 或实验约束闭环。对角自能、tadpole/input 反项、完整复数极点与模型专属 Higgs 线形/直接搜索重铸仍未完成；近简并窄宽度区域继续标记为 **not assessed**。
 
 ### 2D. 方案 B：保留零动量 portal 阈值，收窄有限动量混合主张（2026-10-27）
 
-**目的：** 正式回复和主文只使用现有零动量有效势阈值及明确的匹配边界条件；不将尚未闭合的有限导数系数、两组首轮非对角自能数值或首轮复数极点宽度作为已完成的定量论据。上述计算、脚本与数值继续保留在 Plan C-lite/RC-001 内部研究记录中，不删除，也不宣称其已完成独立图级验证。
+**新增定量证据（2026-10-27）：** 完整 \(2\times2\) 质量本征态一圈自能的独立数值实现现已归档：
+- 报告：Higgs_portal_exact_mass_eigenstate_one_loop_2026-10-27.md
+- 脚本：higgs_portal_exact_mass_eigenstate_one_loop.py
+- 验证输出：higgs_portal_exact_mass_eigenstate_one_loop_validation.txt
+
+
+**目的：** 正式回复可报告两个明确 benchmark 下的有限动量一圈费米子自能及其与 EFT soft 部分的匹配结果；必须同时说明所用的 \(\lambda_{HS}^{\mathrm{EFT}}(M_E)=0\) 条件和 benchmark 输入。不得把该结果升级为全参数空间物理混合预测：完整 pole-scheme、对角自能/反项/tadpole 闭环及模型专属 Higgs 线形/直接搜索重铸仍开放。新计算是独立数值实现，不应误称为 FeynArts/FeynCalc 已运行通过。
 
 建议在 Sec. II.C 的 portal 讨论中加入以下范围明确的文字；正式应用前仍须核对符号、章节和方程编号：
 
@@ -362,21 +368,7 @@ These are illustrative benchmark points, with
 $|\lambda_\ell|\leq\sqrt{4\pi}$ imposed as an additional perturbativity
 criterion; they are not a global scan or an exclusion contour.
 
-The zero-momentum threshold and the condition
-$\lambda_{HS}^{\mathrm{EFT}}(M_E)=0$ do not determine the finite-momentum
-off-diagonal self-energy or a physical $h$--$S$ mixing angle. We do not
-claim that scalar mixing is negligible throughout the scalar-mass range,
-and we do not use the present calculation to justify neglecting $S$ in
-the full UV model. A complete finite-momentum prediction would require
-same-order UV--EFT matching, including EFT soft graphs and counterterms,
-and independent diagram-level validation; a quantitative constraint
-classification would additionally require the relevant two-pole Higgs
-lineshape and direct-search recasts. These steps remain open. The
-near-degenerate narrow-width region is therefore \emph{not assessed},
-with no allowed/excluded classification assigned. The scalar $S$ remains
-part of the UV construction, and the retained $A'$ contours are conditional
-constraints on the stated small-portal, pure-axial effective-current
-benchmark, not a global viability classification of the full UV model.
+Under the explicit reference condition \(\lambda_{HS}^{\mathrm{EFT}}(M_E)=0\), we have evaluated the finite-momentum one-loop fermion contribution using the full charged-lepton/VLL mass-eigenstate matrices and separated the EFT soft contribution. For two stated benchmarks this gives \(\Pi_{hs}^{\mathrm{matched}}(m_h^2)\simeq(-0.4133-0.1132i)\,\mathrm{GeV}^2\) and \((-0.09300-0.02547i)\,\mathrm{GeV}^2\), respectively. The width-regulated diagnostic is small for the benchmark with an open \(s\to A'A'\) channel, but reaches \(2|\Pi_{hs}/(a-b)|\simeq0.394\) at exact degeneracy in the closed-channel narrow-width benchmark. Therefore we do not claim that mixing is negligible throughout the scalar-mass range. The full pole-scheme, diagonal self-energy/tadpole/input-counterterm closure, and model-specific two-pole Higgs lineshape/direct-search recasts remain open; the near-degenerate narrow-width region remains \emph{not assessed}. The scalar \(S\) remains part of the UV construction, and the retained \(A'\) contours are conditional constraints on the stated small-portal, pure-axial effective-current benchmark, not a global viability classification of the full UV model.
 ~~~
 
 **状态与边界：**
@@ -411,7 +403,7 @@ This audit compares the Major Point 1 response in Replies_to_Referee_3_revised_w
 2. Keep the paper's main phenomenological line focused on \(A'\); briefly acknowledge the existing singlet-scalar/Higgs-portal literature rather than reproduce a generic scalar review.
 3. Reproduce the selected low-mass scalar constraints in the response and identify them as bounds on the stated scalar--muon coupling, with the assumptions of their source analyses.
 4. Separate the theoretical perturbativity relation from the phenomenologically allowed mass set. The scan window is not itself an allowed region.
-5. The original meeting proposed a one-loop estimate of the \(h\)--\(s\) mixing angle, because argument alone would be insufficient. The subsequently adopted Route B narrows the current formal claim: retain the zero-momentum portal threshold and its explicit matching condition, but do not use the incomplete finite-momentum coefficient/self-energy/pole calculations as a completed mixing-angle result. This is a documented scope decision, not a claim that the originally proposed one-loop task has been completed.
+5. The original meeting proposed a quantitative loop-induced \(h\)-\(s\) estimate. A benchmark-level one-loop fermion calculation is now complete and recorded in a separate report/script, including full mass-eigenstate sums and EFT soft subtraction. It shows small mixing diagnostics away from degeneracy and in the open-channel benchmark, but a non-negligible diagnostic at exact degeneracy in the closed-channel narrow-width benchmark. The complete pole-scheme and experimental recasts remain open, and no global allowed/excluded classification is claimed.
 6. Do not assign an allowed/excluded label to the near-degenerate \(m_s\simeq m_h\) region without the required two-pole analysis and model-specific recast.
 
 **Line-by-line response/Diff crosswalk**
@@ -421,7 +413,7 @@ This audit compares the Major Point 1 response in Replies_to_Referee_3_revised_w
 | Overall gap between the UV scalar and the \(A'\)-only effective-current analysis | Acknowledges \(S\) as a UV degree of freedom; states that the \(A'\) contours are conditional and not a global UV viability map | Diff 2D and Diff 4D | Claim/scope aligned; manuscript source has not yet been edited |
 | 1.1: why not make \(S\) a central collider prediction? | Keeps the paper focused on \(A'\); cites generic singlet-scalar/Higgs-portal literature; distinguishes Belle II spin-0 interpretations and their different mass ranges/channels | Diff 2F, Diff 4A–4B | Literature context included; no model-specific scalar-search recast claimed |
 | 1.2: scalar mass range and perturbativity | Reproduces the low-mass Table-II constraints in the reply; relates \(\lambda_S\) to \(m_s/v_s\); separates plotting window, theoretical consistency, applied exclusions, and unassessed regions | Diff 4A, Diff 4C–4D | No universal phenomenologically allowed \(m_s\) interval is claimed because the complete model-specific recast is open |
-| 1.3: loop-induced portal, Higgs mixing, and \(m_s\simeq m_h\) | States the zero-momentum matching boundary and illustrative threshold points; explicitly does not claim a completed finite-momentum mixing angle or negligible mixing across the full mass range | Diff 2C–2D and Diff 4D | Near-degenerate narrow-width region remains **not assessed** |
+| 1.3: loop-induced portal, Higgs mixing, and \(m_s\simeq m_h\) | Reports the conditional portal boundary and two matched finite-momentum one-loop fermion benchmarks; distinguishes open-/closed-channel mixing diagnostics and does not claim global viability | Diff 2C–2D and Diff 4D | Benchmark-level loop estimate completed; full pole scheme and near-degenerate experimental recast remain open, so that region remains **not assessed** |
 | Consistency with the meeting decision not to enlarge the model | No new particle is introduced; the paper's main phenomenological focus remains the axial-vector \(A'\) | Diff 2D and the Route B decision note | Consistent with the adopted Route B scope |
 
 **Consistency result**
@@ -429,7 +421,7 @@ This audit compares the Major Point 1 response in Replies_to_Referee_3_revised_w
 - The response now explicitly states the conditional relation \(m_s^2=2\lambda_Sv_s^2\) and that the perturbativity criterion constrains \(m_s/v_s\), while \(v_s=m_{A'}/(2g_X)\) is derived point by point. This avoids implying that the plotting window or the scalar mass relation alone defines an experimentally allowed interval.
 - The reply identifies the approximate mass coverage and distinct spin-0 interpretations of Belle II arXiv:2403.02841 and arXiv:2306.12294, consistent with Diff 4B; it does not treat published mass coverage as a model-specific exclusion.
 - The reply reproduces the selected low-mass scalar-coupling constraints rather than telling the referee only to consult Table II, as required by meeting principle 1. It explicitly separates these scalar-specific bounds from the collider and \(g-2\)_\mu constraints on the \(A'\) effective current, avoiding the implication that the latter are scalar-specific exclusions.
-- The 2026-10-23 meeting initially proposed calculating a loop-induced \(h\)--\(s\) mixing estimate and arguing quantitatively that it is small. The later-adopted Route B and current evidence ledger do **not** support claiming that this task has been completed. The current response therefore explicitly leaves finite-momentum mixing and the near-degenerate region unresolved. This is an honest narrowing of the current claim, not evidence that the referee's requested quantitative mixing assessment has been completed.
+- The 2026-10-23 meeting proposed a quantitative loop-induced \(h\)--\(s\) estimate. The new exact mass-eigenstate calculation addresses the one-loop fermion contribution at two stated benchmarks and records the hard/soft comparison. It does not establish negligible mixing everywhere: the closed-channel exact-degeneracy diagnostic is non-negligible. The complete pole-scheme and experimental recasts remain open, so the narrow-width near-degenerate region is still **not assessed**.
 - The response cites Robens--Stefaniak (2015), Robens--Stefaniak--Wittbrodt (2020), and Hiller et al. (2020) by direct links. The manuscript TeX/BibTeX source is not present in this repository, so exact bibliography keys and insertion of these references into the manuscript cannot yet be verified. Do not invent citation keys.
 - The response and Diff are **consistent at the claim/scope level** after this review, but the manuscript has not yet been edited from the Diff. This is not a completed manuscript/reply synchronization or a final scientific acceptance.
 
@@ -947,7 +939,7 @@ We agree that the minimal construction does not reproduce the observed PMNS matr
 | Major Point 1                  | 给出 $m_s$、$\lambda_S$、$v_s$ 的条件性关系；区分理论上界、实验排除、所考虑约束下未排除和未评估区域                                   | T-03、T-04、T-09             | 回复信已明确将未覆盖区域标为 not assessed；正文应同步该分类，不能把理论公式当作实验允许质量区间。模型特定重铸仍开放 |
 | Major Point 1.1                | 将 scalar $s$ 纳入 UV 完备模型的现象学讨论；引用通用 singlet-scalar 研究，并计算产生率、物理混合、总宽度、分支比、寿命和适用搜索；处理 $s\to A'A'$ | T-02、T-03、T-04 | 回复信已解释本文以 $A'$ 为主线并引用代表性文献；正文补引文献时须核对原稿 BibTeX keys。模型特定重铸未完成，质量覆盖不等于排除 |
 | Major Point 1.2                | 给出 $m_{A'}$、$g_X$ 扫描范围、scalar benchmark、$\lambda_S^{\max}$、约束清单及投影分类                                               | T-03、T-09                   | 回复信区分绘图窗口、条件性理论上限和实验分类；正文需同步同一参数范围与约束口径。微扰性不等于实验可行，完整投影分类仍开放 |
-| Major Point 1.3                | 写出 Higgs portal 定义与重整化条件、零动量阈值及其适用边界；区分轻子/VLL 圈级贡献、有限动量自能和物理混合角，并处理 $m_s\simeq m_h$ | T-02、T-03 | 回复信保留零动量阈值与两个代表点，但不声称已得到全质量范围的物理混合角；正文应同步该边界。完整有限动量匹配、独立图级验证和近简并重铸仍开放 |
+| Major Point 1.3                | 写出 Higgs portal 定义与重整化条件、零动量阈值及其适用边界；报告 benchmark-level 有限动量一圈费米子自能，并区分物理混合角/完整极点和近简并分类 | T-02、T-03 | 回复信已加入两代表点的匹配自能及宽度调节诊断；正文同步、完整 pole-scheme 和近简并实验重铸仍开放 |
 | Major Point 2                  | 统一参数表；区分 Fig. 2 plotting window、条件性 benchmark、理论一致性、实验排除和未评估区域，并验证 UV–EFT 匹配/截断及同点 UV 实现性 | T-09、T-13、T-14 | Fig. 2 的轴范围不是全局物理边界；图的稳健性须由比较决定                                                                           |
 | Major Point 3 / Point 3.1      | 明确允许/禁止的 Weinberg 算符、残余 $Z_2$ 与 $e\oplus(\mu,\tau)$ 分块；说明质量项存在不等于完整 PMNS 已解决 | T-01 | 路线 B 已选；必须实际应用正文 Diff，并避免声称已解释观测振荡 |
 | Major Point 3 / Point 3.2      | 不新增右手中微子或标量；说明右手中微子单独加入并不能打破残余选择规则，扩展需重做模型一致性检查 | T-01 | 路线 B 已选；扩展方案仅为未选候选，不作为已验证解决方案 |
