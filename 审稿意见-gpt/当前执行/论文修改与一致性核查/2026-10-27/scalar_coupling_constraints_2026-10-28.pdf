@@ -12,7 +12,7 @@ endobj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
 endobj
 5 0 obj
-<< /Length 4314 >>
+<< /Length 4257 >>
 stream
 1 w 1 J 1 j
 1 1 1 rg
@@ -115,14 +115,14 @@ BT /F1 8 Tf 1 0 0 1 748.00 172.00 Tm (1e7) Tj ET
 375.00 379.21 m 650.00 379.21 l S
 0.75 0.25 0.23 RG
 2.1 w [6 4] 0 d
-100.00 480.63 m 650.00 480.63 l S
+375.00 480.63 m 650.00 480.63 l S
 [] 0 d
 0.13 0.52 0.36 RG
 2.1 w [8 3 2 3] 0 d
 705.00 437.51 m 760.00 437.51 l S
 [] 0 d
 0.14 0.35 0.58 rg
-140.06 207.33 8 8 re f
+140.06 207.33 8.00 8.00 re f
 0.12 0.16 0.21 RG
 1.1 w
 100.00 190.00 m 760.00 190.00 l S
@@ -135,25 +135,25 @@ BT /F1 11 Tf 0 1 -1 0 30 310 Tm (|y_smm|) Tj ET
 100.00 118.00 m 128.00 118.00 l S
 [] 0 d
 0.16 0.19 0.25 rg
-BT /F1 7.8 Tf 1 0 0 1 138.00 115.00 Tm (Binary-pulsar periastron advance: marker = best point \(~1e-21 at 4e-16 eV\); shaded interval = strongest sensitivity.) Tj ET
+BT /F1 7.8 Tf 1 0 0 1 138.00 115.00 Tm (Binary-pulsar periastron advance: best point ~1e-21 at 4e-16 eV; shaded interval = strongest sensitivity.) Tj ET
 0.85 0.49 0.14 RG
 2 w [] 0 d
 100.00 98.00 m 128.00 98.00 l S
 [] 0 d
 0.16 0.19 0.25 rg
-BT /F1 7.8 Tf 1 0 0 1 138.00 95.00 Tm (Neutron-star cooling: |y_smm| ~7.4e-14 for m_s <= 1 keV \(Fiorillo et al., Table 1\).) Tj ET
+BT /F1 7.8 Tf 1 0 0 1 138.00 95.00 Tm (Neutron-star cooling: |y_smm| ~7.4e-14; segment shown for 1e-7 eV to 1 keV.) Tj ET
 0.75 0.25 0.23 RG
 2 w [6 4] 0 d
 100.00 78.00 m 128.00 78.00 l S
 [] 0 d
 0.16 0.19 0.25 rg
-BT /F1 7.8 Tf 1 0 0 1 138.00 75.00 Tm (SN 1987A cooling: ~4.2e-9 for m_s <= 1 keV; free-streaming threshold only, not full trapping/explosion exclusion.) Tj ET
+BT /F1 7.8 Tf 1 0 0 1 138.00 75.00 Tm (SN 1987A cooling: ~4.2e-9; segment shown for 1e-7 eV to 1 keV; free-streaming threshold only.) Tj ET
 0.13 0.52 0.36 RG
 2 w [8 3 2 3] 0 d
 100.00 58.00 m 128.00 58.00 l S
 [] 0 d
 0.16 0.19 0.25 rg
-BT /F1 7.8 Tf 1 0 0 1 138.00 55.00 Tm (Diffuse SN gamma rays: ~4e-11 for m_s >= 0.1 MeV; plateau to 10 MeV \(Caputo et al., Fig. 11\).) Tj ET
+BT /F1 7.8 Tf 1 0 0 1 138.00 55.00 Tm (Diffuse SN gamma rays: ~4e-11 for 0.1 to 10 MeV \(Caputo et al., Fig. 11\).) Tj ET
 0.6 0.2 0.17 rg
 BT /F1 8 Tf 1 0 0 1 100.00 29.00 Tm (Caution:) Tj ET
 0.34 0.39 0.47 rg
@@ -172,5 +172,5 @@ xref
 trailer
 << /Size 6 /Root 1 0 R >>
 startxref
-4676
+4619
 %%EOF
