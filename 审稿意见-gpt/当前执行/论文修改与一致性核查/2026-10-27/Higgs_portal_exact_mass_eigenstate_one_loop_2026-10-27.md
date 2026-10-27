@@ -131,7 +131,7 @@ This band is a theoretical diagnostic, not an experimental exclusion interval. A
 - Script: [higgs_portal_exact_mass_eigenstate_one_loop.py](higgs_portal_exact_mass_eigenstate_one_loop.py).
 - Captured output: [higgs_portal_exact_mass_eigenstate_one_loop_validation.txt](higgs_portal_exact_mass_eigenstate_one_loop_validation.txt).
 - The script computes the full SVD and all four internal mass-state pairs for both \(\mu\) and \(\tau\), evaluates finite \(A_0/B_0\) functions numerically, and asserts the UV-pole structure, absorptive-part subtraction, hard derivative, and threshold scale.
-- The local execution exited with code 0 and all assertions passed.
+- The exact committed script was compiled and executed in the local Linux environment: Python 3.13.5, NumPy 2.3.5, SciPy 1.17.0. Its Git blob SHA-1 is `b5228e49f58834f6f5a2cb84dfc61e7a69749db5`, matching the branch source. `py_compile` passed, runtime exit code was 0, and all in-script assertions passed for both benchmarks.
 - This is an independent numerical implementation of the mass-eigenstate formula, **not** a FeynArts/FeynCalc run. External diagram-package reproduction still requires the model-specific file and compatible Mathematica/FeynArts/FeynCalc.
 - The result uses the leading-seesaw benchmark and the conditional matched-portal choice. A different renormalized portal boundary changes the local mixing term and the physical prediction.
 
