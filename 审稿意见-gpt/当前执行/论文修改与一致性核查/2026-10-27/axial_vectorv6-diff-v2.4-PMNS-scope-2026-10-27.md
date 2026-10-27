@@ -18,7 +18,7 @@
 > 4. **Minor Point 6.3：** 当前回复信包含两篇 Belle II 分析的 spin-0 解释，但 v6 原稿仍称其 published interpretations assume spin-one，并保留 “intermediate scalar-mass region”。
 > 5. **Minor Point 6.4 / 6.5：** 回复信给出了网格点定义与 prompt 寿命示例，但当前 v6 正文尚未包含对应的完整定义和适用域分析。
 > 6. **Major Point 3 / 4.1：** 已选择“保留现有轴矢量唯象学、收窄论文主张”的路线 B。独立修订副本现已加入 Weinberg 算符选择规则、残余 $Z_2$、分块质量矩阵和范围限定，并通过干净编译；Major 3/4.1 回复引用已同步到 Sec. II.A.1、Eqs. (11)–(12)。T-01 的正文/回复一致性文本工作已完成，但 PMNS 仍未解决，其他 Diff 任务保持开放。
-> 7. **Major Point 1.3 与 Major 4.4：** 当前正式回复信明确承认圈级混合的完整定量判断和轴矢量 benchmark 的超新星重铸尚未完成。v2.2 中把当前回复信描述为“声称已完成但仍有结果占位符”的文字过时，不能继续沿用。
+> 7. **Major Point 1.3 与 Major 4.4：** 当前回复信已报告 benchmark-level 的有限动量一圈费米子混合计算，但完整 pole-scheme 与近简并区实验重铸仍未完成；轴矢量 benchmark 的超新星重铸也仍开放。v2.2 中把当前回复信描述为“声称已完成但仍有结果占位符”的文字过时，不能继续沿用。
 > 8. **Major Point 2 / 4.2–4.3：** 绘图窗口、纯轴极限、VLL 有限混合、动能混合与 UV–EFT 截断误差必须分别判断。T-06、T-07、T-09、T-13、T-14 仍保持开放。
 >
 > 本文件的一致性核查只更新任务状态说明与核对规则；不代表任何物理计算、实验重铸或论文正文修改已经完成。
@@ -387,11 +387,11 @@ Under the explicit reference condition \(\lambda_{HS}^{\mathrm{EFT}}(M_E)=0\), w
 
 **Meeting basis:** The meeting decided not to turn this paper into a second, generic singlet-scalar phenomenology study. The manuscript should instead acknowledge that Higgs--singlet mixing, Higgs signal-strength limits, and direct searches for singlet-like scalars have been studied extensively, and then return to the paper's \(A'\) focus. This supplements, rather than replaces, the model-specific limitations in Diff 2D and 4D.
 
-**Proposed text (citation keys must be resolved against the original manuscript bibliography before application):**
+**Proposed text (citation keys now verified against the archived bibliography; manuscript application remains pending):**
 
-> The phenomenology of singlet-like scalars with Higgs mixing, including constraints from the observed Higgs signal strengths and direct searches for additional scalar states, has been studied extensively. Representative analyses include Robens and Stefaniak (2015), Robens, Stefaniak, and Wittbrodt (2020), and Hiller et al. (2020). We therefore do not reproduce a general singlet-scalar analysis here and focus on the axial-vector \(A'\) phenomenology. The numerical limits from these studies are not transferred directly to the present UV model: a model-specific comparison must account for its scalar couplings, possible Higgs mixing, production mechanisms, and decay channels, including \(s\to A'A'\) when kinematically open.
+> The generic phenomenology of a singlet-like scalar mixed with the Standard Model Higgs, including Higgs signal-strength constraints and direct searches, has been studied extensively \cite{Robens:2015status}. The GeV-scale scalar-portal phenomenology and its production channels have also been studied systematically \cite{Boiarska:2019scalarportal}. We therefore do not reproduce a comprehensive generic scalar-portal analysis here and focus on the axial-vector \(A'\) phenomenology. These published limits are not transferred directly to the present UV model: a model-specific comparison must account for its scalar couplings, production mechanisms, widths, lifetimes, and decay channels, including \(s\to A'A'\) when kinematically open.
 
-**Bibliography gate:** The manuscript TeX/BibTeX source is now archived in `overleaf-source/axial-vector-model-building-v6/`, including `main-v6.tex` and `references.bib`; the current response letter uses direct links rather than the manuscript's citation keys. Before applying this paragraph, check the archived source for these references and use the exact existing keys or add verified bibliography entries. Do not invent keys or claim the citations have already been added to the manuscript.
+**Bibliography gate:** The archived `references.bib` now contains verified entries for `Robens:2015status` and `Boiarska:2019scalarportal`, and the response letter uses these keys together with the existing BaBar/Belle/Belle II keys. The citation keys resolve, but the proposed paragraph has not yet been applied to `main-v6.tex`; manuscript edits and compilation remain pending.
 
 ### 2E. Major Point 1 — response/Diff consistency audit (2026-10-27)
 
@@ -422,7 +422,7 @@ This audit compares the Major Point 1 response in Replies_to_Referee_3_revised_w
 - The reply identifies the approximate mass coverage and distinct spin-0 interpretations of Belle II arXiv:2403.02841 and arXiv:2306.12294, consistent with Diff 4B; it does not treat published mass coverage as a model-specific exclusion.
 - The reply reproduces the selected low-mass scalar-coupling constraints rather than telling the referee only to consult Table II, as required by meeting principle 1. It explicitly separates these scalar-specific bounds from the collider and \(g-2\)_\mu constraints on the \(A'\) effective current, avoiding the implication that the latter are scalar-specific exclusions.
 - The 2026-10-23 meeting proposed a quantitative loop-induced \(h\)--\(s\) estimate. The new exact mass-eigenstate calculation addresses the one-loop fermion contribution at two stated benchmarks and records the hard/soft comparison. It does not establish negligible mixing everywhere: the closed-channel exact-degeneracy diagnostic is non-negligible. The complete pole-scheme and experimental recasts remain open, so the narrow-width near-degenerate region is still **not assessed**.
-- The response cites Robens--Stefaniak (2015), Robens--Stefaniak--Wittbrodt (2020), and Hiller et al. (2020) by direct links. The manuscript TeX/BibTeX source is now available in `overleaf-source/axial-vector-model-building-v6/`; exact bibliography keys and insertion of these references remain to be checked against that archive. Do not invent citation keys.
+- The response now cites Robens and Stefaniak (2015), Boiarska et al. (2019), and the existing BaBar/Belle/Belle II scalar-search references using BibTeX keys. The two new bibliography entries are present in the archived `references.bib` and all six keys used by the response resolve. The corresponding manuscript paragraph has not yet been applied; do not describe the manuscript as revised or compiled.
 - The response and Diff are **consistent at the claim/scope level** after this review, but the manuscript has not yet been edited from the Diff. This is not a completed manuscript/reply synchronization or a final scientific acceptance.
 
 **Remaining gates**
