@@ -10,7 +10,8 @@ These four labels describe the state of the response workflow; they do **not** m
 | Workstream | Status | Meaning |
 | --- | --- | --- |
 | Response-letter text draft | **Complete** | The draft response to Major Point 1 and subpoints 1.1–1.3 has been written in the referee's original order. |
-| Response–Diff consistency review | **Complete at claim/scope level** | The response wording has been checked against the four meeting transcripts, meeting summary, and the corresponding Diff sections; the crosswalk is recorded in Diff v2.4, §2E. |\n| Manuscript and Diff synchronization | **Pending** | The Diff proposal is cross-checked against the response, but the actual manuscript edits have not been applied; the manuscript TeX/BibTeX source is not present in this repository. |
+| Response–Diff consistency review | **Complete at claim/scope level** | The response wording has been checked against the four meeting transcripts, meeting summary, and the corresponding Diff sections; the crosswalk is recorded in Diff v2.4, §2E. |
+| Manuscript and Diff synchronization | **Pending** | The Diff proposal is cross-checked against the response, but the actual manuscript edits have not been applied; the manuscript TeX/BibTeX source is not present in this repository. |
 | Quantitative scalar-phenomenology validation | **Partially complete; open issues remain** | Existing threshold/benchmark evidence is retained within its stated scope; model-specific scalar-search recasts, complete finite-momentum mixing validation, and the near-degenerate two-pole assessment remain open. |
 | Formal acceptance of the full response letter | **Pending** | The full letter still requires cross-section consistency checks, completion of other response items, and final LaTeX compilation and review. |
 
