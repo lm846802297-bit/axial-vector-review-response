@@ -1,0 +1,50 @@
+name: PR14 response-letter LaTeX diagnostic
+on:
+  push:
+    branches:
+      - docs/portal-mainline-reconciliation-2026-10-27
+permissions:
+  contents: read
+jobs:
+  latex-diagnostic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - name: Install TeX Live
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y latexmk texlive-xetex texlive-latex-extra texlive-bibtex-extra texlive-fonts-recommended poppler-utils
+      - name: Compile exact response-letter source and collect diagnostics
+        shell: bash
+        run: |
+          set +e
+          SRC='审稿意见-gpt/当前执行/论文修改与一致性核查/2026-10-27/Replies_to_Referee_3_revised_working_2026-10-27.tex'
+          mkdir -p build-evidence
+          printf 'HEAD=%s\n' "$GITHUB_SHA" | tee build-evidence/revision.txt
+          xelatex --version > build-evidence/xelatex-version.txt 2>&1
+          latexmk -v > build-evidence/latexmk-version.txt 2>&1
+          printf 'COMMAND=latexmk -xelatex -interaction=nonstopmode -halt-on-error %s\n' "$SRC" > build-evidence/command.txt
+          latexmk -xelatex -interaction=nonstopmode -halt-on-error -file-line-error "$SRC" > build-evidence/latexmk-console.log 2>&1
+          RC=$?
+          printf '%s\n' "$RC" > build-evidence/exit-code.txt
+          cp -f Replies_to_Referee_3_revised_working_2026-10-27.{aux,log,bbl,blg,fls,fdb_latexmk,pdf} build-evidence/ 2>/dev/null
+          find . -maxdepth 1 -type f \( -name '*.aux' -o -name '*.log' -o -name '*.bbl' -o -name '*.blg' -o -name '*.pdf' \) -print >> build-evidence/generated-files.txt
+          if [ -f 'Replies_to_Referee_3_revised_working_2026-10-27.pdf' ]; then
+            pdfinfo 'Replies_to_Referee_3_revised_working_2026-10-27.pdf' > build-evidence/pdfinfo.txt 2>&1
+            sha256sum 'Replies_to_Referee_3_revised_working_2026-10-27.pdf' > build-evidence/pdf-sha256.txt
+          fi
+          grep -E 'LaTeX Warning|Package .* Warning|Citation .* undefined|Reference .* undefined|No file .*bbl|I couldn.t open database file|Overfull \\hbox|Underfull \\hbox|Emergency stop|Fatal error' build-evidence/latexmk-console.log > build-evidence/warnings.txt
+          printf '\n--- tracked external dependencies ---\n' > build-evidence/dependencies.txt
+          for f in main-v6.aux references.bib JHEP.bst; do
+            if [ -f "$f" ]; then printf 'PRESENT %s\n' "$f" >> build-evidence/dependencies.txt; else printf 'MISSING %s\n' "$f" >> build-evidence/dependencies.txt; fi
+          done
+          exit 0
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pr14-latex-diagnostic
+          path: build-evidence/
+          if-no-files-found: error
+          retention-days: 7
