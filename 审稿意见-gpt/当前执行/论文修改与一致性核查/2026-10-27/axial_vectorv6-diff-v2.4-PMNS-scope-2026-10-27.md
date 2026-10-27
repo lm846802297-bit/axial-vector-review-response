@@ -366,7 +366,7 @@ For the first-pass pole diagnostic only, the finite-derivative contribution is t
 \simeq\frac{q}{16\pi^2}\left(\ln\frac{M_E^2}{\mu_R^2}-\frac23\right),\qquad
 q\simeq\sum_{\ell=\mu,\tau}\frac{2m_\ell^2}{v_hv_s}.
 \]
-Only the retained leading term is displayed; no explicit higher-order remainder is quoted because its form has not yet been established by the matching calculation. The low-energy self-energy convention used for the pole diagnostic has the opposite sign, \(\Pi_{\mathrm{low}}=-\Pi_{\mathrm{match}}\). At \(s=m_h^2\) and \(\mu_R=M_E=20\,\mathrm{TeV}\), the first-pass matched values in the low-energy convention are
+Here the prime denotes differentiation with respect to the external invariant \(s=p^2\), evaluated at \(s=0\). Only the retained leading term is displayed; no explicit higher-order remainder is quoted because its form has not yet been established by the matching calculation. The low-energy self-energy convention used for the pole diagnostic has the opposite sign, \(\Pi_{\mathrm{low}}=-\Pi_{\mathrm{match}}\). At \(s=m_h^2\) and \(\mu_R=M_E=20\,\mathrm{TeV}\), the first-pass matched values in the low-energy convention are
 \[
 \Pi_{hs}^{B,\mathrm{matched}}(m_h^2;\mu_R=M_E)
 \simeq
