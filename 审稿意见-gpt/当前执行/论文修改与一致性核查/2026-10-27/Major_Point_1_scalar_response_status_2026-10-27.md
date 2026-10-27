@@ -3,6 +3,17 @@
 **Date:** 2026-10-27  
 **Purpose:** Internal evidence and follow-up record for the ordered response to Major Point 1 and subpoints 1.1–1.3. This file is not part of the formal letter to the referee.
 
+## Current workflow status
+
+These four labels describe the state of the response workflow; they do **not** mean that the scalar phenomenology has been fully solved.
+
+| Workstream | Status | Meaning |
+| --- | --- | --- |
+| Response-letter text draft | **Complete** | The draft response to Major Point 1 and subpoints 1.1–1.3 has been written in the referee's original order. |
+| Manuscript and Diff synchronization | **Pending** | The corresponding manuscript edits have not yet been applied and cross-checked against the current Diff. |
+| Quantitative scalar-phenomenology validation | **Partially complete; open issues remain** | Existing threshold/benchmark evidence is retained within its stated scope; model-specific scalar-search recasts, complete finite-momentum mixing validation, and the near-degenerate two-pole assessment remain open. |
+| Formal acceptance of the full response letter | **Pending** | The full letter still requires cross-section consistency checks, completion of other response items, and final LaTeX compilation and review. |
+
 ## Decision basis
 
 The response follows the 2026-10-23 meeting summary and transcripts:
