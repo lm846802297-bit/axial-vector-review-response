@@ -71,7 +71,7 @@ File: `Replies_to_Referee_3_revised_working_2026-10-27.tex`
 - Completed the overall Major Point 1 response so that it states the evidence boundary instead of leaving a scalar-classification placeholder.
 - Completed Major Point 1.1: separates generic published search coverage from a model-specific exclusion/discovery claim.
 - Completed Major Point 1.2: distinguishes the scan window, theoretical perturbativity condition, and phenomenological classification.
-- Strengthened Major Point 1.3 to acknowledge possible \(\mu\), \(\tau\), and vector-like-lepton loop contributions and to state explicitly that the finite-momentum mixing calculation and near-degenerate recast remain incomplete.
+- Strengthened Major Point 1.3 with the newly evaluated matched finite-momentum one-loop fermion self-energies at two benchmarks and the open-/closed-channel width-regulated diagnostics. The near-degenerate experimental recast and full pole-scheme closure remain incomplete.
 - Preserved the referee's quoted wording and the existing order of the response.
 
 ## Evidence boundary — claims that may be made now
@@ -92,4 +92,4 @@ File: `Replies_to_Referee_3_revised_working_2026-10-27.tex`
 
 ## Status
 
-This branch updates the response-letter draft and adds this internal status record only. It does **not** claim that the main manuscript has been edited, that the scalar collider recast is complete, or that the full finite-momentum portal/mixing problem has been solved. No merge is performed by this change.
+This branch adds a reproducible benchmark-level one-loop fermion mixing calculation and updates the response, Diff, and status record. It does **not** claim that the main manuscript has been edited, that the full pole scheme is closed, or that the scalar collider recast is complete. No merge is performed by this change.
