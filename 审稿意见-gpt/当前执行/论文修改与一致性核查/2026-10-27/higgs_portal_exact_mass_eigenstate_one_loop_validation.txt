@@ -1,0 +1,67 @@
+Exact mass-eigenstate one-loop h-s self-energy check
+Date: 2026-10-27
+Script: higgs_portal_exact_mass_eigenstate_one_loop.py
+Dependencies: Python 3, NumPy, SciPy
+Execution: python3 script.py
+Exit status: 0
+Assertions: PASS for both benchmarks
+
+Conventions:
+- RC-001 inverse propagator: Gamma_inv = p^2 I - M_loc^2 + Pi_RC.
+- Plan-B convention: Pi_B = -Pi_RC.
+- Finite A0 and B0 are evaluated at mu_R = M_E = 20 TeV.
+- Full exact mass-eigenstate sums include heavy-heavy, heavy-light, light-heavy and light-light internal states.
+
+Benchmark A: v_s=70.886458 GeV, m_A'=10 GeV, g_X=0.070535334
+- mu masses: light 0.105653078 GeV, heavy 20001.0028 GeV
+- tau masses: light 1.77670106 GeV, heavy 20001.7891 GeV
+- Pi_RC(0) full = 3677.94551962 GeV^2
+- Pi_RC(m_h^2) full = 3678.35974941 +0.113133310091 i GeV^2
+- Pi_B(m_h^2)-Pi_B(0) full = -0.414229795477 -0.113133310091 i GeV^2
+- exact light-light Pi_B(m_h^2)-Pi_B(0) = -0.438260239463 -0.113133310091 i GeV^2
+- exact hard momentum difference = +0.0240304439859 GeV^2
+- leading hard-derivative prediction = +0.0240451347019 GeV^2
+- relative difference = -6.109642e-4
+- UV p^2 coefficient sum C = -2.1176e-22
+- UV local coefficient sum = +6.1149e-9
+- leading-seesaw Delta lambda_HS = -0.210763976387
+- -v_h v_s Delta lambda_HS = +3678.60356156 GeV^2
+- zero-momentum hard comparator = +3677.9466282 GeV^2
+- threshold relative residual = -1.785823e-4
+- matched Pi_hs(m_h^2) = -0.413277859118 -0.113173709038 i GeV^2
+- Gamma_s(m_h) = 3.74681420514 GeV
+- |Pi/(a-b)| at m_s=m_h = 9.14063970947e-4
+- 2|Pi/(a-b)| diagnostic = 1.82812794189e-3
+
+Benchmark B: v_s=315 GeV, m_A'=63 GeV, g_X=0.1
+- mu masses: light 0.105653078 GeV, heavy 20001.0028 GeV
+- tau masses: light 1.77670106 GeV, heavy 20001.7891 GeV
+- Pi_RC(0) full = 827.671525723 GeV^2
+- Pi_RC(m_h^2) full = 827.764742494 +0.0254591099496 i GeV^2
+- Pi_B(m_h^2)-Pi_B(0) full = -0.0932167714267 -0.0254591099496 i GeV^2
+- exact light-light Pi_B(m_h^2)-Pi_B(0) = -0.0986244954214 -0.0254591099496 i GeV^2
+- exact hard momentum difference = +0.00540772399471 GeV^2
+- leading hard-derivative prediction = +0.00541102994017 GeV^2
+- relative difference = -6.109642e-4
+- UV p^2 coefficient sum C = -1.3553e-20
+- UV local coefficient sum = +1.3807e-9
+- leading-seesaw Delta lambda_HS = -0.0106733764886
+- -v_h v_s Delta lambda_HS = +827.819609095 GeV^2
+- zero-momentum hard comparator = +827.671775194 GeV^2
+- threshold relative residual = -1.785823e-4
+- matched Pi_hs(m_h^2) = -0.0930025511197 -0.0254682011824 i GeV^2
+- Gamma_s(m_h) = 0.000158940037262 GeV
+- |Pi/(a-b)| at m_s=m_h = 0.196845271002
+- 2|Pi/(a-b)| diagnostic = 0.393690542004
+
+Checks:
+1. Sum of p^2 UV coefficients vanishes numerically after the complete mass-eigenstate sum.
+2. Remaining local UV coefficient is consistent with zero at numerical precision.
+3. The absorptive part of the full one-loop self-energy equals the light-light cut; the hard momentum difference has zero imaginary part.
+4. The exact hard momentum difference agrees with the leading finite-derivative matching result to 6.11e-4 relative.
+5. The zero-momentum hard comparator agrees with the leading-seesaw portal threshold to 1.79e-4 relative.
+
+Interpretation boundary:
+- The UV portal constant is a separate renormalized parameter. The reported matched Pi_hs uses the explicit reference condition lambda_HS^EFT(M_E)=0 and the Plan-C low-energy soft contribution.
+- The benchmark Yukawas use leading-seesaw relations; exact singular values therefore differ slightly from the target physical mu/tau masses.
+- This validates the fermion-loop calculation under the stated mass-matrix, scheme, and benchmark assumptions. It is not a complete scalar-sector pole-scheme calculation or experimental recast.
