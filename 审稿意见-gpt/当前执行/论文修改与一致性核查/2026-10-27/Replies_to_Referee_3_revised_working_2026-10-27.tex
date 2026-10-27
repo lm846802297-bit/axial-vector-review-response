@@ -343,7 +343,7 @@ Is this the full set of experimental constraints? The second half of the manuscr
 
 We agree that the constraints presented for the two-parameter effective \(A'\) model do not, by themselves, establish a complete phenomenological assessment of the full UV construction. The relevant constraints must be separated by physical state and interaction structure. The scalar \(s\) constraints summarized in Table~II are not a substitute for stellar-cooling constraints on the gauge boson \(A'\); finite vector-like-lepton effects and kinetic mixing are also distinct from the strict pure-axial effective-current limit.
 
-At present, the published scalar limits and their assumptions can be summarized, but the model-specific recasts of the scalar searches, the finite-mixing vector-versus-axial comparison, and the applicability of the cited \(A'\) stellar-cooling analysis have not all been established. We therefore do not claim that these constraints are globally subdominant or inapplicable. The current status is as follows. The neutrino-oscillation issue is acknowledged as a limitation of the minimal charge assignment, not as a solved PMNS construction. For kinetic mixing, the degenerate heavy-VLL threshold cancels under the stated benchmark, while the residual finite-mixing light-lepton contribution is parametrically small in the illustrative zero-momentum estimate above but depends on the mixing angles, matching condition, and momentum transfer. The finite-vector-versus-axial constraint comparison has not been completed, and the applicability of the cited stellar-cooling/supernova analysis to the exact axial benchmark remains not assessed. We therefore do not make a blanket claim that all four classes of constraints are subdominant or inapplicable.
+At present, the published scalar limits and their assumptions can be summarized, while the finite-mixing effects and astrophysical constraints require distinctions between contributions that can be transferred and those that need a model-specific calculation. The kinetic-mixing estimate below now includes the full one-loop momentum dependence for the equal-right-handed-mixing benchmark. For Major Point~4.3, we quantify the vector-to-axial coupling ratio and its implications for the muon anomalous magnetic moment and the leading trident interference term; this does not establish a universal point-by-point exclusion comparison for every search. For Major Point~4.4, the \(\nu_\mu,\nu_\tau\) couplings are unchanged relative to the standard \(L_\mu-L_\tau\) gauge-boson benchmark, so the neutrino-coalescence contribution to supernova production and the invisible neutrino widths are directly transferable. The total SN1987A and low-energy-supernova bounds are not directly transferable because muon semi-Compton production/absorption and visible-decay transport depend on the charged-lepton current structure. We therefore distinguish these established partial results from the still-uncompleted total supernova recast and do not claim a globally complete constraint classification.
 
 The scalar-sector constraints are addressed in connection with Major Point~1, while the four specific issues raised by the referee are discussed individually below.
 
@@ -365,31 +365,54 @@ There is no quantitative estimate of the amount of kinetic mixing generated with
 
 \noindent {\bf Reply.}
 
-We agree that a vanishing kinetic-mixing coefficient at a matching scale does not, by itself, quantify the residual mixing relevant to experiments. In the stated hypercharge--\(A'\) convention, the one-loop heavy-VLL threshold at zero momentum is
-\[
-\chi_{\rm EFT}(\mu_R)=\chi_{\rm UV}(\mu_R)
-+\frac{g_Yg_XQ_\ell}{12\pi^2}
-\ln\frac{M_{E_\mu}^2}{M_{E_\tau}^2}.
-\]
-It vanishes for the degenerate heavy-lepton benchmark \(M_{E_\mu}=M_{E_\tau}\), under the charge and coupling assumptions used in this matching result. A finite mass splitting produces a nonzero threshold even though the additive ultraviolet pole cancels.
+We agree that a vanishing kinetic-mixing coefficient at the heavy-vector-like-lepton matching scale does not, by itself, quantify the residual photon--\(A'\) polarization relevant to experiments. The degenerate heavy-VLL threshold and the low-energy charged-lepton loop are distinct contributions. For \(M_{E_\mu}=M_{E_\tau}\), the one-loop heavy threshold proportional to \(\ln(M_{E_\mu}^2/M_{E_\tau}^2)\) vanishes under the stated charge assignment and matching condition. We take no additional bare low-energy kinetic-mixing term in the benchmark considered here.
 
-This heavy-VLL hypercharge threshold must not be conflated with the low-energy photon--\(A'\) polarization induced by the \(\mu\)- and \(\tau\)-lepton loops, nor does the matching-scale condition \(\chi_{\rm UV}=0\) establish that every mixing contribution vanishes at experimental scales. Using the standard one-loop vacuum-polarization expression in the charge and field-basis convention stated here~\cite{Holdom:1985ag,Joshipura:2019qxz} gives the benchmark estimate below; its numerical interpretation remains conditional on the matching boundary and momentum regime.
-
-For the residual light-lepton contribution, the relevant vertices are the vector components
+For the light-lepton loop, we use the momentum-dependent one-loop expression discussed by Kamada and Yu (\href{https://arxiv.org/abs/1504.00711}{arXiv:1504.00711}) and by Wang and Zhang (\href{https://arxiv.org/abs/2610.35379}{arXiv:2610.35379}). In the convention of those references, the irreducible contribution is
 \[
-g_V^\mu=g_X\sin^2\theta_{\mu R},\qquad
-g_V^\tau=-g_X\sin^2\theta_{\tau R}.
+\epsilon_{\gamma A'}(q^2)=
+-\frac{e\,g_X\sin^2\theta_R}{2\pi^2}
+\int_0^1 dx\,x(1-x)
+\log\!\left[
+\frac{m_\tau^2-x(1-x)q^2-i0}
+     {m_\mu^2-x(1-x)q^2-i0}
+\right],
 \]
-For the illustrative equal-mixing benchmark \(\theta_{\mu R}=\theta_{\tau R}\equiv\theta_R\), the opposite muon and tau vector charges satisfy \(g_V^\mu=-g_V^\tau=g_X\sin^2\theta_R\). The ultraviolet-divergent and matching-scale-dependent terms then cancel between the two loops, leaving the finite zero-momentum contribution
+where we have imposed the illustrative equal-mixing benchmark
+\(\theta_{\mu R}=\theta_{\tau R}\equiv\theta_R\), for which
+\(g_V^\mu=-g_V^\tau=g_X\sin^2\theta_R\). The ultraviolet-sensitive terms cancel between the two light-lepton loops in this equal-mixing limit. At \(q^2=0\), this reduces to
 \[
-|\epsilon_{\gamma A'}^{\mu\tau}(0)|
-=\frac{e}{12\pi^2}|g_X|\sin^2\theta_R
+\epsilon_{\gamma A'}(0)=
+-\frac{e\,g_X\sin^2\theta_R}{12\pi^2}
 \ln\frac{m_\tau^2}{m_\mu^2}
-=\frac{e|g_X|}{6\pi^2}\sin^2\theta_R
-\ln\frac{m_\tau}{m_\mu}
-\simeq1.4\times10^{-6}|g_X|
+=-\frac{e\,g_X\sin^2\theta_R}{6\pi^2}
+\ln\frac{m_\tau}{m_\mu}.
 \]
-for \(\theta_R=10^{-2}\). This is an illustrative parametric estimate, not a universal bound over the scan. For unequal right-handed mixing angles, \(g_V^\mu+g_V^\tau\) does not generally vanish, so the scale-dependent term no longer cancels; a unique prediction then requires the renormalized hypercharge kinetic-mixing boundary condition and electroweak threshold matching, and cannot be inferred from the individual condition \(|\theta_{\ell R}|\leq10^{-2}\) alone. At finite \(q^2=m_{A'}^2\), particularly above the \(\mu^+\mu^-\) or \(\tau^+\tau^-\) thresholds, the full momentum-dependent polarization and its absorptive part must be used. The degenerate heavy-VLL threshold cancellation and this mixing-suppressed light-lepton contribution are distinct effects. We therefore provide the requested order-of-magnitude estimate, but do not infer from it alone that kinetic mixing is irrelevant for every observable or every point in Fig.~2; a point-by-point comparison requires the corresponding experimental recast.
+Using \(e=0.3028\), \(m_\mu=105.658~\mathrm{MeV}\), \(m_\tau=1.77686~\mathrm{GeV}\), and \(\theta_R=10^{-2}\), the zero-momentum magnitude is
+\[
+|\epsilon_{\gamma A'}(0)|\simeq1.44\times10^{-6}|g_X|.
+\]
+This is a benchmark estimate, not a universal prediction for unequal mixing angles or an arbitrary ultraviolet matching condition.
+
+For an on-shell \(A'\), the relevant timelike argument is \(q^2=m_{A'}^2\). The loop function becomes complex above the charged-lepton pair thresholds; its magnitude is not constant across the scan. A numerical evaluation of the integral gives the following representative values for \(\theta_R=10^{-2}\):
+\[
+\begin{array}{c|c|c}
+m_{A'} & |\epsilon_{\gamma A'}(m_{A'}^2)|/|g_X| &
+|\epsilon_{\gamma A'}(m_{A'}^2)|/|\epsilon_{\gamma A'}(0)|\\
+\hline
+10~\mathrm{MeV} & 1.44\times10^{-6} & 1.00\\
+100~\mathrm{MeV} & 1.49\times10^{-6} & 1.04\\
+200~\mathrm{MeV} & 1.82\times10^{-6} & 1.26\\
+212~\mathrm{MeV} & 2.12\times10^{-6} & 1.47\\
+500~\mathrm{MeV} & 1.40\times10^{-6} & 0.97\\
+1~\mathrm{GeV} & 1.08\times10^{-6} & 0.75\\
+3~\mathrm{GeV} & 8.06\times10^{-7} & 0.56\\
+10~\mathrm{GeV} & 5.47\times10^{-8} & 3.79\times10^{-2}\\
+100~\mathrm{GeV} & 4.84\times10^{-10} & 3.35\times10^{-4}
+\end{array}
+\]
+The value near \(m_{A'}=2m_\mu\) agrees with the approximately \(1.47\) enhancement of the magnitude over its zero-momentum value reported in arXiv:2610.35379. For the low-mass benchmark, the induced electron-current coupling is of order \(e|\epsilon|\simeq4.4\times10^{-7}|g_X|\). The momentum-dependent expression should be used for on-shell production and decay; spacelike virtual exchange requires evaluating the same function at the relevant spacelike \(q^2\).
+
+For unequal \(\theta_{\mu R}\) and \(\theta_{\tau R}\), the two light-lepton vector charges no longer cancel in the same way. A unique prediction then requires consistent matching of the renormalized kinetic-mixing counterterm, heavy thresholds, and electroweak-scale contributions. We therefore provide a quantitative momentum-dependent benchmark, but do not infer from it alone that kinetic mixing is irrelevant at every point in Fig.~2; the resulting induced electron/proton interactions must be included in any observable-specific recast.
 
 \medskip
 \noindent {\bf 4.3)}.
@@ -399,17 +422,59 @@ Another way of reframing the above point: the bounds presented are in the pure a
 
 \noindent {\bf Reply.}
 
-We agree that the smallness of a residual vector coupling alone does not establish its phenomenological irrelevance, since experimental sensitivities can differ substantially between vector and axial interactions. In the conventions adopted in the manuscript, the muon couplings satisfy
+We agree that the smallness of a residual vector coupling does not, by itself, prove that it is phenomenologically irrelevant. In the conventions of the mass-basis Lagrangian, the light charged-lepton couplings are
 \[
 g_V^\mu=g_X\sin^2\theta_{\mu R},\qquad
 g_A^\mu=-g_X\cos^2\theta_{\mu R},
-\qquad
-\left|\frac{g_V^\mu}{g_A^\mu}\right|
-=\tan^2\theta_{\mu R}.
 \]
-Thus, for \(|\theta_{\mu R}|\leq10^{-2}\), the ratio is at most of order \(10^{-4}\). However, this parametric suppression alone is insufficient to establish that the residual vector interaction is subdominant to the axial interaction in the relevant experimental constraints.
+and, after reversing the \(U_A(1)_{L_\mu-L_\tau}\) charges,
+\[
+g_V^\tau=-g_X\sin^2\theta_{\tau R},\qquad
+g_A^\tau=+g_X\cos^2\theta_{\tau R}.
+\]
+Thus
+\[
+\left|\frac{g_V^\ell}{g_A^\ell}\right|
+=\tan^2\theta_{\ell R}\leq1.01\times10^{-4}
+\quad\text{for}\quad |\theta_{\ell R}|\leq10^{-2}.
+\]
+The corresponding neutrino couplings remain \(g_{\nu_\mu}=+g_X\) and \(g_{\nu_\tau}=-g_X\); they are not suppressed by the charged-lepton right-handed mixing angle.
 
-The ratio above establishes a parametric suppression of the vector component under the adopted small-mixing assumption, but it does not by itself compare experimental exclusions. Such a comparison requires a point-by-point recast of the relevant searches using their separate vector and axial response, finite-mixing branching fractions, and the kinetic-mixing contribution. That recast has not been completed, so we cannot claim that vector bounds are always weaker than axial bounds. The contours in Fig.~2 remain constraints on the strict pure-axial effective-current benchmark; the effect of finite mixing on the full UV-model classification remains not assessed.
+We can quantify the effect for several observables already considered in the manuscript. For neutrino trident production, the pure-axial calculation shifts the axial coefficient \(C_A\), whereas the vector component induces a shift in \(C_V\). At the same momentum transfer, their coupling-level ratio is
+\[
+\left|\frac{\delta C_V}{\delta C_A}\right|
+\simeq\tan^2\theta_{\mu R}\leq1.01\times10^{-4}.
+\]
+Using \(C_V=1/2+2s_W^2\simeq0.96\) and \(C_A=1/2\), the vector contribution to the leading Standard-Model interference term is parametrically of order
+\[
+\left|\frac{C_V\delta C_V}{C_A\delta C_A}\right|
+\sim\frac{C_V}{C_A}\tan^2\theta_{\mu R}
+\lesssim2.0\times10^{-4},
+\]
+before accounting for the distinct finite-\(m_\mu\) response functions. This is a coupling-level diagnostic, not a replacement for a full finite-mixing trident integration.
+
+For the muon anomalous magnetic moment, the manuscript gives
+\[
+\Delta a_\mu^{A'}=
+\frac{m_\mu^2}{4\pi^2m_{A'}^2}
+\left[(g_\mu^V)^2F_V(r)-(g_\mu^A)^2F_A(r)\right].
+\]
+The ratio of the vector contribution to the magnitude of the axial contribution is
+\[
+\left|\frac{\Delta a_\mu^{V}}{\Delta a_\mu^{A}}\right|
+=\tan^4\theta_{\mu R}\frac{F_V(r)}{F_A(r)}.
+\]
+Numerical evaluation of the functions defined in the manuscript over \(1~\mathrm{MeV}\leq m_{A'}\leq100~\mathrm{GeV}\) gives \(F_V/F_A\leq0.20\). Hence this ratio is at most approximately \(2.1\times10^{-9}\) for \(|\theta_{\mu R}|\leq10^{-2}\). The vector admixture is therefore negligible in the quoted \((g-2)_\mu\) benchmark.
+
+For \(A'\to\mu^+\mu^-\), the vector and axial pieces of the partial width scale, respectively, as
+\[
+\Gamma_V\propto(g_V^\mu)^2(1+2r_\mu)\sqrt{1-4r_\mu},\qquad
+\Gamma_A\propto(g_A^\mu)^2(1-4r_\mu)^{3/2},
+\quad r_\mu=\frac{m_\mu^2}{m_{A'}^2}.
+\]
+Away from the immediate dimuon threshold, the vector-squared contribution is suppressed by \(\tan^4\theta_{\mu R}\), up to the displayed phase-space factor. Very close to threshold the axial width has an additional \(\beta^2=1-4r_\mu\) suppression, so even a small vector term can affect the branching fraction in a narrow threshold region; a threshold-sensitive reinterpretation must retain both terms. This caveat also matters for visible-decay and low-energy-supernova energy-deposition calculations.
+
+These estimates show that the finite vector component is parametrically negligible for the stated \((g-2)_\mu\) benchmark and small in the leading trident interference term, while identifying the threshold region and kinetic-mixing-induced interactions that require separate treatment. They do not establish that vector bounds are always weaker for every possible observable. The Fig.~2 contours remain constraints on the strict pure-axial effective-current benchmark; a complete finite-mixing classification would require recomputing the affected production rates, branching fractions, and experimental response under one consistent set of UV inputs.
 
 \medskip
 \noindent {\bf 4.4)}.
@@ -418,11 +483,22 @@ Are stellar cooling bounds not relevant? See e.g. 2511.09619 for a recent paper 
 \end{quote}
 
 \noindent {\bf Reply.}
-We thank the referee for drawing our attention to this study. The current version of Blinov, Fox, Kelly, Plestid, and Zhou, \href{https://arxiv.org/abs/2511.09619}{arXiv:2511.09619} (v2, 15 May 2026), re-examines a sub-GeV gauge boson coupled to the \(L_\mu-L_\tau\) current. It discusses the standard SN~1987A cooling bound as well as diffusive cooling, constraints from low-energy supernovae, and the absence of a high-energy neutrino signal from SN~1987A. These results make clear that the supernova discussion should identify which physical probe and transport regime is being invoked, rather than treating “stellar cooling” as a single universal limit.
 
-The scalar constraints summarized in Table~II do not, by themselves, determine whether the gauge boson \(A'\) is constrained in stellar environments. In addition, the cited analysis is for a vector \(L_\mu-L_\tau\) gauge boson, whereas the benchmark studied here has an axial charged-lepton current. Its exclusion curves therefore cannot be transferred directly without checking the current structure, neutrino and charged-lepton couplings, kinetic mixing and residual vector interactions, production rates, and transport assumptions. In particular, the relevant mass and coupling ranges and the conditions for trapping, escape, and decay must be compared explicitly.
+We agree that supernova constraints are relevant to the sub-GeV part of the parameter space and should not be dismissed. The analysis cited by the referee, Blinov, Fox, Kelly, Plestid, and Zhou, was published as JHEP 06 (2026) 155 (\href{https://arxiv.org/abs/2511.09619}{arXiv:2511.09619}). It treats SN1987A cooling, diffusive energy transport, high-energy neutrinos from \(A'\)-like boson decays, and energy deposition in low-energy supernova progenitors. A newer preprint by Wang and Zhang (\href{https://arxiv.org/abs/2610.35379}{arXiv:2610.35379}, submitted 26 October 2026) updates the SN1987A cooling and low-energy-supernova analysis for the conventional vector \(L_\mu-L_\tau\) gauge boson. For their representative SFHo-18.8 profile, they find sensitivity to the vector-model coupling down to approximately \(1.4\times10^{-10}\) from SN1987A cooling, with masses up to about \(300~\mathrm{MeV}\), and down to \(6.4\times10^{-12}\) from low-energy-supernova constraints, with masses up to about \(600~\mathrm{MeV}\). These are important reference results, but they are not adopted here as direct exclusions of the axial benchmark.
 
-A model-specific recast for the exact axial benchmark has not yet been established. Accordingly, the applicability of arXiv:2511.09619 to this benchmark remains \textbf{not assessed}: we do not transfer its vector-current exclusion curve directly, nor do we claim that the stellar-cooling or supernova constraints are subdominant or inapplicable without a model-specific production-and-transport recast.
+A relevant correction to a blanket “different current” caveat is that our model retains the same tree-level neutrino couplings as the standard \(L_\mu-L_\tau\) model:
+\[
+\mathcal L\supset
+g_X A'_\alpha\bar\nu_\mu\gamma^\alpha P_L\nu_\mu
+-g_X A'_\alpha\bar\nu_\tau\gamma^\alpha P_L\nu_\tau.
+\]
+Consequently, the matrix elements for \(\nu_\alpha\bar\nu_\alpha\to A'\), the invisible \(A'\to\nu_\alpha\bar\nu_\alpha\) widths, and the associated high-energy-neutrino source term are unchanged at fixed \((m_{A'},g_X)\). The neutrino-coalescence contribution to the cited supernova analyses can therefore be transferred at the level of this production/decay channel.
+
+The total exclusion curve, however, cannot be transferred without a model-specific recalculation. The published calculations also include muon semi-Compton production and its inverse absorption, whose matrix elements depend on the charged-muon current. Our charged-muon interaction is axial, \(g_A^\mu\simeq-g_X\), rather than vectorial, \(g_V^\mu=g_X\), so the polarization-resolved rates and optical depth must be recomputed. This distinction is particularly important at \(m_{A'}\lesssim10~\mathrm{MeV}\), where arXiv:2610.35379 finds semi-Compton production to dominate over neutrino coalescence; above roughly \(10~\mathrm{MeV}\), neutrino coalescence dominates the production luminosity in their benchmark, making that component directly reusable but not proving that the full exclusion curve is identical. The different axial and vector partial widths into \(\mu^+\mu^-\) also affect the visible-decay and progenitor-heating constraint above the dimuon threshold.
+
+The kinetic-mixing-induced couplings to electrons and protons are additionally much smaller in the equal-mixing benchmark than in the conventional vector \(L_\mu-L_\tau\) model: at low momentum, \(|\epsilon_{\gamma A'}|/|g_X|\simeq1.4\times10^{-6}\), compared with the conventional \(|\epsilon_{\mu\tau}|/|g_{\mu\tau}|\simeq1/70\). Thus the mixing-induced amplitude is suppressed by about \(10^{-4}\), and the corresponding rate by about \(10^{-8}\), at the same gauge coupling. This suppresses the associated electron/proton production channels but does not remove the direct neutrino and muon channels.
+
+Accordingly, the applicability assessment is now more specific than “not assessed”: the neutrino-coalescence and invisible-neutrino-decay pieces transfer directly; the total SN1987A cooling, trapping/diffusion, and low-energy-supernova curves still require a recast using the axial muon matrix elements, the finite-momentum kinetic mixing, the corresponding decay widths, and the same supernova profiles and transport treatment. We therefore acknowledge these astrophysical constraints as relevant and do not claim that they are subdominant or inapplicable. This response addresses the supernova bounds raised by the referee; other stellar environments and mass ranges still require their own production and transport applicability checks.
 
 \medskip
 \noindent {\bf Minor Point 1)}. \begin{quote}\itshape
@@ -689,7 +765,7 @@ Regarding neutrino oscillations, the charge assignment permits Weinberg operator
 
 Regarding the scalar \(S\), we retain it as a physical state in the UV construction and do not claim that its mixing with the Higgs is negligible over the full scalar-mass range. The zero-momentum portal threshold and the explicit small-portal matching condition are stated as benchmark inputs. The response now reports the completed benchmark-level finite-momentum one-loop fermion self-energies and the width-regulated near-degeneracy diagnostic, while distinguishing these from a physical mixing angle or a global viability result. The full pole-scheme treatment, diagonal self-energies and tadpole/input counterterms, and model-specific two-pole Higgs lineshape and direct-search recasts remain open; the narrow-width near-degenerate region therefore remains \textbf{not assessed}.
 
-The effective-current limits are interpreted only under the interaction structures and assumptions for which their applicability has been established. The final constraint classification is The degenerate heavy-VLL threshold cancellation and the illustrative zero-momentum estimate for finite-mixing kinetic mixing are stated under their respective matching assumptions. The finite-vector-versus-axial comparison and the applicability of the cited stellar-cooling/supernova results to the exact axial benchmark remain not assessed; no claim is made that these constraints are universally subdominant or inapplicable.
+The effective-current limits are interpreted only under the interaction structures and assumptions for which their applicability has been established. The constraint discussion now includes the finite-momentum light-lepton kinetic-mixing estimate and benchmark-level quantitative diagnostics for the finite vector admixture. For supernovae, the neutrino-coalescence and invisible-neutrino-decay contributions transfer because the neutrino couplings are unchanged, whereas the total SN1987A and low-energy-supernova exclusion curves remain un-recast because muon semi-Compton production/absorption and visible-decay transport depend on the axial charged-lepton current. We do not claim a complete global UV-model exclusion.
 
 The referee concludes:
 
