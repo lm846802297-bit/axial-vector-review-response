@@ -363,11 +363,10 @@ criterion; they are not a global scan or an exclusion contour.
 For the first-pass pole diagnostic only, the finite-derivative contribution is treated as a candidate coefficient from the existing two-point/EOM matching analysis. In the matching calculation's inverse-propagator convention,
 \[
 \Pi_{hs,\mathrm{hard}}^{\mathrm{match}\,\prime}(0;\mu_R)
-=\frac{q}{16\pi^2}\left(\ln\frac{M_E^2}{\mu_R^2}-\frac23\right)
-+O(M_E^{-4}\ln M_E),\qquad
+\simeq\frac{q}{16\pi^2}\left(\ln\frac{M_E^2}{\mu_R^2}-\frac23\right),\qquad
 q\simeq\sum_{\ell=\mu,\tau}\frac{2m_\ell^2}{v_hv_s}.
 \]
-The low-energy self-energy convention used for the pole diagnostic has the opposite sign, \(\Pi_{\mathrm{low}}=-\Pi_{\mathrm{match}}\). At \(s=m_h^2\) and \(\mu_R=M_E=20\,\mathrm{TeV}\), the first-pass matched values in the low-energy convention are
+Only the retained leading term is displayed; no explicit higher-order remainder is quoted because its form has not yet been established by the matching calculation. The low-energy self-energy convention used for the pole diagnostic has the opposite sign, \(\Pi_{\mathrm{low}}=-\Pi_{\mathrm{match}}\). At \(s=m_h^2\) and \(\mu_R=M_E=20\,\mathrm{TeV}\), the first-pass matched values in the low-energy convention are
 \[
 \Pi_{hs}^{B,\mathrm{matched}}(m_h^2;\mu_R=M_E)
 \simeq
