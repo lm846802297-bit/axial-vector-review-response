@@ -612,6 +612,10 @@ completion, and the scalar-suppression assumption must be validated separately f
 | $\lambda_{HS}$      | portal parameter                         | specify renormalization condition and scale                               | cannot be omitted without justification                   |
 | $\epsilon$          | kinetic mixing                           | specify matching condition and loop/threshold result                      | distinct from the VLL-induced $g_V$                       |
 
+**Major Point 2 的参数范围动机（建议放在参数表附近）：**
+
+> The displayed MeV-to-\(100\,\mathrm{GeV}\) window is a plotting choice for the phenomenological comparison, not a universal physical boundary. The lower-mass end includes the domain where the low-energy precision constraints discussed in this work, including the stated \((g-2)_\mu\) comparison, are relevant; the upper end reaches the terrestrial search coverage considered here. The stellar/white-dwarf limits on the scalar \(s\) in Table~II constrain \(y_{s\mu\mu}\) under their own assumptions and are not direct limits on the \(A'\) effective-current coupling \(g_X\). The displayed window could be extended in either direction in a different study; it does not imply that points outside the axes are forbidden or that any single constraint is strongest throughout the plane.
+
 **表下注释必须写清楚：** The table summarizes the benchmark used for the plotted analysis. It is not a claim that every point in the displayed window satisfies all theoretical conditions or all experimental constraints. Unassessed regions remain unassessed.
 
 ------------------------------------------------------------------------
@@ -948,7 +952,7 @@ We agree that the minimal construction does not reproduce the observed PMNS matr
 | Major Point 1.1                | 将 scalar $s$ 纳入 UV 完备模型的现象学讨论；引用通用 singlet-scalar 研究，并计算产生率、物理混合、总宽度、分支比、寿命和适用搜索；处理 $s\to A'A'$ | T-02、T-03、T-04 | 回复信已解释本文以 $A'$ 为主线并引用代表性文献；正文补引文献时须核对原稿 BibTeX keys。模型特定重铸未完成，质量覆盖不等于排除 |
 | Major Point 1.2                | 给出 $m_{A'}$、$g_X$ 扫描范围、scalar benchmark、$\lambda_S^{\max}$、约束清单及投影分类                                               | T-03、T-09                   | 回复信区分绘图窗口、条件性理论上限和实验分类；正文需同步同一参数范围与约束口径。微扰性不等于实验可行，完整投影分类仍开放 |
 | Major Point 1.3                | 写出 Higgs portal 定义与重整化条件、零动量阈值及其适用边界；区分轻子/VLL 圈级贡献、有限动量自能和物理混合角，并处理 $m_s\simeq m_h$ | T-02、T-03 | 回复信保留零动量阈值与两个代表点，但不声称已得到全质量范围的物理混合角；正文应同步该边界。完整有限动量匹配、独立图级验证和近简并重铸仍开放 |
-| Major Point 2                  | 统一参数表；区分 Fig. 2 plotting window、条件性 benchmark、理论一致性、实验排除和未评估区域，并验证 UV–EFT 匹配/截断及同点 UV 实现性 | T-09、T-13、T-14 | Fig. 2 的轴范围不是全局物理边界；图的稳健性须由比较决定                                                                           |
+| Major Point 2                  | Motivate the Fig. 2 plotting window and explain the conditional UV perturbativity relation; separate scalar Table-II bounds from the \(A'\) effective-current constraints; distinguish plotting range, theory consistency, applied exclusions, and unassessed regions | T-09、T-13、T-14 | Response draft gives the chosen ranges and the conditional \(m_s\) bound without treating axes as physical boundaries or points inside as globally viable; same-point UV/EFT validity and full constraint classification remain open |
 | Major Point 3 / Point 3.1      | 明确允许/禁止的 Weinberg 算符、残余 $Z_2$ 与 $e\oplus(\mu,\tau)$ 分块；说明质量项存在不等于完整 PMNS 已解决 | T-01 | 路线 B 已选；必须实际应用正文 Diff，并避免声称已解释观测振荡 |
 | Major Point 3 / Point 3.2      | 不新增右手中微子或标量；说明右手中微子单独加入并不能打破残余选择规则，扩展需重做模型一致性检查 | T-01 | 路线 B 已选；扩展方案仅为未选候选，不作为已验证解决方案 |
 | Major Point 3 总结与 Major 4.1 | 与 Point 3 使用同一范围限定；摘要、引言、模型部分、结论及回复信一致 | T-01、T-12 | 路线已选；正文未应用、章节/页码和最终审稿风险评估仍待完成 |
