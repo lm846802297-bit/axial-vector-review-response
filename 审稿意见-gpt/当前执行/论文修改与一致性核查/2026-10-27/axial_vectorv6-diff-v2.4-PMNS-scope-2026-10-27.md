@@ -324,7 +324,7 @@ S=\frac{v_s+s_0}{\sqrt2},
 4. 对相关物理本征态核查 Higgs 信号强度、exotic decays、标量产生率、总宽度、分支比和寿命；若 $s\to A'A'$ 运动学开放，须纳入其对可见分支比的影响。
 5. 只有当标量对**指定观测量、参数域和目标精度**的影响经定量验证足够小，才可采用 scalar-suppressed 近似；不得仅因选取 $m_s\geq10\,\mathrm{GeV}$ 就宣称标量已退耦。
 
-**状态更新（2026-10-27）：** portal 阈值和两个代表点的数值化、候选有限导数系数的首轮组合以及第一轮复数极点诊断已完成。有限导数系数的完整同阶 EFT soft/counterterm 闭合、独立图级验证、全动量对角自能以及模型专属 Higgs 线形/直接搜索重铸仍未完成。因此不能声称全质量区间的混合均可忽略；近简并窄宽度区域必须标记为 **not assessed**，不能直接分类为允许或排除。
+**状态更新（2026-10-27，补入 exact fermion-loop audit）：** 完整 μ/τ+VLL 质量本征态一圈求和已独立核对；Σ C_kin 的 p^2 发散系数抵消通过；精确 hard-minus-light 动量项与 source-aligned derivative estimate 的相对差为 6.11e-4，零动量阈值与 leading-seesaw 关系的相对差为 1.79e-4。两个代表点的匹配后 Π_hs(m_h^2) 和首轮复数两极点诊断已更新。完整 pole scheme、tadpole/VEV/对角自能闭环及模型专属 Higgs 线形/直接搜索重铸仍开放；窄宽度近简并区域继续标记 **not assessed**。
 
 ### 2D. 方案 B：保留零动量 portal 阈值，收窄有限动量混合主张（2026-10-27）
 
