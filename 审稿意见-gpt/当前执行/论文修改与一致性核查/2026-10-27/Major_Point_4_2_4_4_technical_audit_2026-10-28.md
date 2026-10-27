@@ -168,8 +168,8 @@ This note covers the supernova probes raised by the referee. Other stellar envir
 ## 5. Sources consulted
 
 1. Kamada and Yu, arXiv:1504.00711: https://arxiv.org/abs/1504.00711
-5. NA64 Collaboration, “Search for Light Dark Matter with NA64 at CERN,” arXiv:2307.02404: https://arxiv.org/abs/2307.02404
-2. Blinov, Fox, Kelly, Plestid and Zhou, “\(L_\mu-L_\tau\) gauge bosons in beam dumps and supernovae,” arXiv:2511.09619; JHEP 06 (2026) 155: https://arxiv.org/abs/2511.09619
-3. Wang and Zhang, “Revisiting supernova constraints on dark gauge bosons,” arXiv:2610.35379 (submitted 26 October 2026): https://arxiv.org/abs/2610.35379
-4. Das, Ghosh and Puri, “SN1987A Constraints of Light \(Z'\) with Non-Mixing Polarisations,” arXiv:2606.23769: https://arxiv.org/abs/2606.23769
-5. Current UV model source: overleaf-source/axial-vector-model-building-v6/main-v6.tex in this repository.
+2. NA64 Collaboration, “Search for Light Dark Matter with NA64 at CERN,” arXiv:2307.02404: https://arxiv.org/abs/2307.02404
+3. Blinov, Fox, Kelly, Plestid and Zhou, “\(L_\mu-L_\tau\) gauge bosons in beam dumps and supernovae,” arXiv:2511.09619; JHEP 06 (2026) 155: https://arxiv.org/abs/2511.09619
+4. Wang and Zhang, “Revisiting supernova constraints on dark gauge bosons,” arXiv:2610.35379 (submitted 26 October 2026): https://arxiv.org/abs/2610.35379
+5. Das, Ghosh and Puri, “SN1987A Constraints of Light \(Z'\) with Non-Mixing Polarisations,” arXiv:2606.23769: https://arxiv.org/abs/2606.23769
+6. Current UV model source: `overleaf-source/axial-vector-model-building-v6/main-v6.tex` in this repository.
