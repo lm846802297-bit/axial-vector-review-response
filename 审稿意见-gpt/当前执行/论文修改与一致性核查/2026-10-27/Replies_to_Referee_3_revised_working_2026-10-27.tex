@@ -99,9 +99,9 @@ Scalar-mass range & Published constraint & Approximate upper bound on \(|y_{s\mu
 \hline
 \(10^{-17}\,\mathrm{eV}\lesssim m_s\lesssim2\times10^{-15}\,\mathrm{eV}\) & Binary-pulsar bounds for an ultralight scalar~\cite{Liu:2025zuz} & \(\mathcal{O}(10^{-21})\) near \(m_s\simeq4\times10^{-16}\,\mathrm{eV}\)\\
 \(m_s\lesssim10^{-2}\,\mathrm{eV}\) & Fifth-force tests~\cite{Hoskins:1985tn,Kapner:2006si,Blakemore:2021zna} & \(\lesssim10^{-16}\)\\
-\(m_s\lesssim100\,\mathrm{keV}\) & Neutron-star cooling~\cite{Fiorillo:2026wso} & \(\lesssim1.2\times10^{-12}\)\\
+\\(m_s\\lesssim1\\,\\mathrm{keV}\\) & Neutron-star cooling~\\cite{Fiorillo:2026wso} & \\(\\lesssim7.4\\times10^{-14}\\)\\\\
 \(m_s\lesssim\mathcal{O}(10)\,\mathrm{MeV}\) & SN~1987A cooling~\cite{Caputo:2021rux,Balazs:2022tjl} & \(\lesssim4.2\times10^{-9}\)\\
-\(100\,\mathrm{keV}\lesssim m_s\lesssim\mathcal{O}(10)\,\mathrm{MeV}\) & SN~1987A and diffuse \(\gamma\)-rays~\cite{Caputo:2021rux,Balazs:2022tjl} & \(\lesssim5\times10^{-11}\)\\
+\\(100\\,\\mathrm{keV}\\lesssim m_s\\lesssim\\mathcal{O}(10)\\,\\mathrm{MeV}\\) & SN~1987A and diffuse \\(\\gamma\\)-rays~\\cite{Caputo:2021rux,Balazs:2022tjl} & \\(\\lesssim4\\times10^{-11}\\)\\\\
 \hline
 \end{tabular}
 \end{center}
@@ -112,6 +112,13 @@ g_X<\frac{y_{\max}m_{A'}}{2m_\mu}.
 This is the same conditional conversion used in Eq.~(31) of the original manuscript. It is not a model-independent bound on \(g_X\); it applies only when the scalar--muon Yukawa normalization and benchmark assumptions stated above are satisfied.
 
 The tabulated limits are a summary of selected low-mass constraints on the scalar--muon coupling, not a complete scalar-sector exclusion map. They inherit the production, trapping, and matching assumptions of the cited analyses. Collider constraints additionally depend on the model-specific production rates, portal-induced mixing, branching fractions (including \(s\to A'A'\) when kinematically open), widths, and lifetime. Since a full model-specific scalar recast has not been completed, we do not classify the full scalar-mass domain as allowed or excluded on the basis of the mass relation or published search coverage alone.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.96\linewidth]{scalar_coupling_constraints_2026-10-28.pdf}
+\caption{Source-anchored summary of selected constraints on the scalar--muon Yukawa coupling \(y_{s\mu\mu}\). The horizontal segments show only the source-reported approximate limits in the indicated mass regimes; the binary-pulsar marker gives the published best-sensitivity point and the shaded interval indicates the mass range where that analysis is most sensitive. This is not a digitized combined exclusion contour. In particular, the SN~1987A line shows the free-streaming cooling threshold only and does not represent the full trapping/explosion-energy exclusion. These scalar constraints are not direct limits on the pure-axial \(A'\) current; the UV translation is conditional on \(y_{s\mu\mu}=2g_Xm_\mu/m_{A'}\) and a fixed scalar-mass benchmark within each source's applicability range; the light-scalar bounds shown here do not apply to the \\(m_s\\gtrsim10\\,\\mathrm{GeV}\\) reference benchmark used for Fig.~2~\cite{Liu:2025zuz,Fiorillo:2026wso,Caputo:2021rux}.}
+\label{fig:scalar-muon-constraints-response}
+\end{figure}
 
 \medskip
 \noindent {\bf Major Points 1.1)}. \begin{quote}\itshape
@@ -241,6 +248,11 @@ g_X\lesssim y_{s\mu\mu}^{\rm lim}(m_s)\frac{m_{A'}}{2m_\mu}
 \simeq4.7\times10^{-3}\,y_{s\mu\mu}^{\rm lim}(m_s)
 \frac{m_{A'}}{\mathrm{MeV}}.
 \]
+As a numerical illustration of this mapping, for the alternative light-scalar regime \(m_s\lesssim1\,\mathrm{keV}\), the neutron-star-cooling limit \(y_{s\mu\mu}^{\rm lim}\simeq7.4\times10^{-14}\) in Ref.~\cite{Fiorillo:2026wso} gives
+\[
+g_X\lesssim3.5\times10^{-13}\left(\frac{m_{A'}}{\mathrm{GeV}}\right).
+\]
+Across the displayed \(m_{A'}=1\,\mathrm{MeV}\)--\(100\,\mathrm{GeV}\) interval, this conditional line lies below \(g_X=10^{-6}\). Thus, under the source assumptions and the mass-proportional UV relation, this *alternative light-scalar benchmark* would not overlap the displayed scan. It is not applicable to the manuscript's reference benchmark \(m_s\gtrsim10\,\mathrm{GeV}\); we do not use it to exclude points in the main Fig.~2 benchmark.
 This is a conditional translation of a scalar-coupling limit into the \((m_{A'},g_X)\) plane, not a direct bound on the \(A'\) current. It depends on the chosen scalar mass and on the relation \(y_{s\mu\mu}=2g_Xm_\mu/m_{A'}\) holding in the adopted UV benchmark. We cite the published scalar-coupling plots rather than overlaying them directly on Fig.~2, because Fig.~2 shows the pure-axial \(A'\) plane; superimposing scalar limits requires fixing \(m_s\) and consistently mapping the assumptions of each scalar analysis.
 
 In the scalar-mass convention used in the manuscript, imposing \(\lambda_S\leq\lambda_S^{\max}\) gives
@@ -254,17 +266,12 @@ v_s\geq\frac{10\,\mathrm{GeV}}{\sqrt{8\pi}}
 \qquad
 m_{A'}\gtrsim(3.99\,\mathrm{GeV})\,g_X.
 \]
-This is a conditional theoretical consistency requirement for that scalar benchmark. A point that fails it does not support the chosen \(m_s\geq10\,\mathrm{GeV}\), \(\lambda_S\leq4\pi\) benchmark; it is not thereby excluded from every possible realization of the UV model. Within the displayed range \(g_X\leq0.1\), the gauge-coupling perturbativity criterion is not the limiting condition. The scalar self-coupling condition instead imposes a point-dependent check once \(m_s\) is specified.
+This is the same \(v_s\simeq2\,\mathrm{GeV}\) boundary shown by the dashed line in Fig.~2: the side with \(v_s<2\,\mathrm{GeV}\) does not satisfy the chosen \(m_s\geq10\,\mathrm{GeV}\), \(\lambda_S\leq4\pi\) benchmark. This is a conditional theoretical consistency requirement, not an experimental exclusion. A point that fails it does not support this scalar benchmark; it is not thereby excluded from every possible realization of the UV model if the scalar mass or scalar-sector assumptions are changed. Within the displayed range \(g_X\leq0.1\), the gauge-coupling perturbativity criterion is not the limiting condition. The scalar self-coupling condition instead imposes a point-dependent check once \(m_s\) is specified.
 
 The effective-current contours in Fig.~2 are conditional constraints in the stated pure-axial benchmark. The final UV interpretation also depends on the portal boundary condition, finite vector-like-lepton effects, kinetic mixing, EFT validity and truncation, and the applicability of the relevant experimental constraints at the same UV parameter point. These checks do not yet provide a global classification of the full UV parameter space. We therefore distinguish the plotting window, theoretical consistency conditions, regions excluded by constraints actually applied, regions not excluded by those constraints, and regions that remain unassessed. Satisfying perturbativity alone is not evidence of experimental viability.
 
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.96\linewidth]{scalar_coupling_constraints_2026-10-28.pdf}
-\caption{Source-anchored summary of selected constraints on the scalar--muon Yukawa coupling \(y_{s\mu\mu}\). The horizontal segments show only the source-reported approximate limits in the indicated mass regimes; the binary-pulsar marker gives the published best-sensitivity point and the shaded interval indicates the mass range where that analysis is most sensitive. This is not a digitized combined exclusion contour. In particular, the SN~1987A line shows the free-streaming cooling threshold only and does not represent the full trapping/explosion-energy exclusion. These scalar constraints are not direct limits on the pure-axial \(A'\) current; the UV translation is conditional on \(y_{s\mu\mu}=2g_Xm_\mu/m_{A'}\) and the stated scalar benchmark~\cite{Liu:2025zuz,Fiorillo:2026wso,Caputo:2021rux}.}
-\label{fig:scalar-muon-constraints-response}
-\end{figure}
+
 \medskip
 \noindent {\bf Major Points 3)}.
 
