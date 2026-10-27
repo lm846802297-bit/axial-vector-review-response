@@ -91,9 +91,14 @@ Benchmark B (v_s=315 GeV, m_A'=63 GeV):
 
 The scan is a width-regulated diagnostic under the same conditional matching benchmark, not an experimental exclusion contour.
 
+Dense scan over the full diagnostic interval [10, 150] GeV, with 1 MeV grid and Brent-refined threshold edges (criterion 2|Pi/(a-b)| >= 0.1):
+- Benchmark A: maximum diagnostic = 0.00183151382 at m_s = 125.137 GeV; no interval crosses 0.1.
+- Benchmark B: maximum diagnostic = 0.393690542 at m_s = 125.250 GeV; threshold interval m_s in [125.242553544, 125.257446018] GeV, corresponding to a half-width of 7.446237 MeV around m_h.
+- This scan holds the matched Pi_hs(m_h^2) fixed at its benchmark value while varying m_s and the tree-level singlet width. It is a diagnostic approximation, not a self-consistent two-pole solution or experimental exclusion.
+
 Independent execution record (2026-10-27)
 - Executed the exact committed script source in the local Linux execution environment.
-- Git blob SHA-1 of executed source: b5228e49f58834f6f5a2cb84dfc61e7a69749db5 (matches the branch's fetched script blob SHA).
+- Git blob SHA-1 of executed source: a2128e5ed9fe0065fc01e61972fdbfbe3f4859fb (matches the branch's fetched script blob SHA).
 - Python: 3.13.5; NumPy: 2.3.5; SciPy: 1.17.0.
 - Syntax compilation: PASS (python -m py_compile).
 - Runtime: PASS (exit code 0); all in-script assertions passed for both benchmarks.
