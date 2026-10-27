@@ -7,7 +7,7 @@
 <rect x="125" y="115" width="91.56181857746259" height="370" fill="#4b83c3" opacity="0.13"/>
 <line x1="125" y1="115" x2="125" y2="485" stroke="#477db6" stroke-width="1.6" stroke-dasharray="5 5"/>
 <line x1="216.5618185774626" y1="115" x2="216.5618185774626" y2="485" stroke="#477db6" stroke-width="1.6" stroke-dasharray="5 5"/>
-<line x1="125" y1="148.95985083685179" x2="920.8333333333334" y2="148.95985083685179" stroke="#c34b43" stroke-width="3" stroke-dasharray="9 6"/>
+<line x1="522.9166666666666" y1="148.95985083685179" x2="920.8333333333334" y2="148.95985083685179" stroke="#c34b43" stroke-width="3" stroke-dasharray="9 6"/>
 <line x1="522.9166666666667" y1="266.22561757996925" x2="920.8333333333334" y2="266.22561757996925" stroke="#d8892c" stroke-width="3"/>
 <line x1="1000.4166666666666" y1="198.8158535472436" x2="1080" y2="198.8158535472436" stroke="#27865d" stroke-width="3" stroke-dasharray="12 4 3 4"/>
 <circle cx="188.74863715492518" cy="460.3333333333333" r="6.5" fill="#245b96" stroke="#ffffff" stroke-width="2"/>
@@ -21,8 +21,8 @@
 <text x="35" y="300" transform="rotate(-90 35 300)" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#172033">Scalar–muon Yukawa coupling |yₛμμ|</text>
 <g font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#273246">
 <line x1="125" y1="582" x2="169" y2="582" stroke="#477db6" stroke-width="3" stroke-dasharray="5 5"/><circle cx="147" cy="582" r="5" fill="#245b96"/><text x="181" y="577">Binary-pulsar periastron advance: best point only; 95% CL</text><text x="181" y="597" font-size="13" fill="#596579">Strongest-sensitivity interval: 10⁻¹⁷–2×10⁻¹⁵ eV [Liu &amp; Tang, Fig. 5]</text>
-<line x1="125" y1="630" x2="169" y2="630" stroke="#d8892c" stroke-width="3"/><text x="181" y="625">Neutron-star cooling: |y| ≈ 7.4×10⁻¹⁴ for mₛ ≲ 1 keV</text><text x="181" y="645" font-size="13" fill="#596579">Table 1 benchmark; source-dependent cooling assumptions [Fiorillo et al.]</text>
-<line x1="625" y1="582" x2="669" y2="582" stroke="#c34b43" stroke-width="3" stroke-dasharray="9 6"/><text x="681" y="577">SN 1987A cooling: |y| ≈ 4.2×10⁻⁹ for mₛ ≲ 1 keV</text><text x="681" y="597" font-size="13" fill="#596579">Free-streaming threshold only; not the full trapping exclusion</text>
+<line x1="125" y1="630" x2="169" y2="630" stroke="#d8892c" stroke-width="3"/><text x="181" y="625">Neutron-star cooling: |y| ≈ 7.4×10⁻¹⁴ (shown for 10⁻⁷ eV–1 keV)</text><text x="181" y="645" font-size="13" fill="#596579">Table 1 benchmark; source-dependent cooling assumptions [Fiorillo et al.]</text>
+<line x1="625" y1="582" x2="669" y2="582" stroke="#c34b43" stroke-width="3" stroke-dasharray="9 6"/><text x="681" y="577">SN 1987A cooling: |y| ≈ 4.2×10⁻⁹ (shown for 10⁻⁷ eV–1 keV)</text><text x="681" y="597" font-size="13" fill="#596579">Free-streaming threshold only; not the full trapping exclusion</text>
 <line x1="625" y1="630" x2="669" y2="630" stroke="#27865d" stroke-width="3" stroke-dasharray="12 4 3 4"/><text x="681" y="625">Diffuse SN γ rays: |y| ≈ 4×10⁻¹¹</text><text x="681" y="645" font-size="13" fill="#596579">Plateau for mₛ ≳ 0.1 MeV; shown to 10 MeV [Caputo et al., Fig. 11]</text>
 </g>
 <text x="125" y="694" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#9b3d35">Important:</text>
