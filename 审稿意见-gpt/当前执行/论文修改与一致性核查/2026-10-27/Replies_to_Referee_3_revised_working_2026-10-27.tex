@@ -1,3 +1,6 @@
+% INTERNAL WORKING COPY: do not submit until the selected manuscript revision is synchronized with the repository source, the response-only additions identified in the 2026-10-28 final review are reconciled with the manuscript, and the response/manuscript pair has been compiled and cross-checked.
+% Source-alignment note: a compiled Route B revision copy exists in the research workspace and contains the Major 3/4.1 Weinberg-operator/PMNS clarification and removal of the undefined opening adjective “Light”. The repository's canonical overleaf-source/axial-vector-model-building-v6/main-v6.tex remains unchanged. The scalar-constraint values in this letter differ from Table II in that source; the Major 1.3 portal/mixing diagnostics, Major 2 parameter summary, Major 4.2–4.4 quantitative additions, and Minor Points 2–5/6.2–6.5 are not yet synchronized to the manuscript. Do not treat this letter as submission-ready until these differences are reconciled. This PR intentionally changes response materials only.
+% Editorial decision (2026-10-28): retain the existing angular-distribution figure and shorten the surrounding collider discussion to a brief outlook. This decision does not mean the canonical manuscript source has already been updated.
 \documentclass[12pt,a4paper]{article}
 
 % Mathematics
@@ -31,9 +34,21 @@
     linkcolor=blue
 ]{hyperref}
 
+% Custom commands
+\newcommand{\GJH}[1]{\textcolor{blue}{GJH: #1}}
+\newcommand{\WXP}[1]{\textcolor{magenta}{#1}}
+
 \begin{document}
 
-\subsection*{Response to the Referee}
+%\title{Referee Report on DY13253}
+%\author{Rundong Fang, Jinhui Guo, Ming Li, Jia Liu, Xiao-Ping Wang, Yiheng Xiong}
+%\date{2026.19.22}
+%\maketitle
+
+\noindent \textbf{Replies to Referee}
+\medskip
+
+\subsection*{Replies to Referee}
 
 \noindent Dear Editor,
 
@@ -42,7 +57,7 @@ gauge boson \(A'\) with chiral couplings to muons and taus. In this model, vecto
 leptons and a scalar field \(S\) are introduced to construct the ultraviolet completion
 of the axial \(U_A(1)_{L_{\mu-\tau}}\) gauge theory. The phenomenology of the \(A'\) in
 the axial limit is studied, and the relevant experimental constraints are discussed.
-The revised manuscript retains a brief outlook on possible future collider tests as a complementary topic.
+The revised manuscript will retain a brief outlook on possible future collider tests as a complementary topic.
 
 The referee summarizes our work as follows:
 
@@ -327,7 +342,7 @@ Thus it is not obvious to me how neutrino oscillations can be included in this f
 
 \noindent {\bf Reply.}
 
-We agree that the minimal construction, with the stated field content and charge assignments, does not reproduce the observed PMNS matrix and should not be presented as a complete model of neutrino oscillations. More precisely, the allowed mass matrices are block diagonal rather than necessarily proportional to the identity: \(\mu\)--\(\tau\) mixing may occur, but the electron-flavor admixtures required by oscillation data are absent. Right-handed neutrinos alone do not remove this obstruction; related constructions in the literature illustrate possible extensions but do not establish a solution within the field content adopted here. We therefore do not add new particles for this revision or claim that the minimal construction is compatible with the full neutrino-oscillation data. The paper's scope remains the anomaly-free gauge and charged-lepton construction and its specified axial-vector effective-current phenomenology. We have made this scope limitation and the distinction between symmetry-allowed EFT operators and a UV-generated neutrino-mass mechanism explicit in the revised manuscript.
+We agree that the minimal construction, with the stated field content and charge assignments, does not reproduce the observed PMNS matrix and should not be presented as a complete model of neutrino oscillations. More precisely, the allowed mass matrices are block diagonal rather than necessarily proportional to the identity: \(\mu\)--\(\tau\) mixing may occur, but the electron-flavor admixtures required by oscillation data are absent. Right-handed neutrinos alone do not remove this obstruction; related constructions in the literature illustrate possible extensions but do not establish a solution within the field content adopted here. We therefore do not add new particles for this revision or claim that the minimal construction is compatible with the full neutrino-oscillation data. The paper's scope remains the anomaly-free gauge and charged-lepton construction and its specified axial-vector effective-current phenomenology. We will make this scope limitation and the distinction between symmetry-allowed EFT operators and a UV-generated neutrino-mass mechanism explicit in the revised manuscript.
 
 \medskip
 \noindent {\bf 4)}.
@@ -347,7 +362,7 @@ Neutrino oscillation observations. See point \#3 above. It appears that this mod
 
 \noindent {\bf Reply.}
 
-We agree that the minimal construction does not reproduce the observed PMNS matrix. It is more precise to describe the result as a block-diagonal matrix, up to mass-eigenstate ordering, rather than necessarily the identity: the \(\mu\)--\(\tau\) sub-block may contain a nontrivial rotation, but the electron-flavor mixing required by oscillation data is absent. We apply the same scope limitation as in Major Point~3: the present construction is not claimed to be a complete neutrino-mass model, and no additional particles are introduced for this revision. We state this limitation and the symmetry-allowed operator structure explicitly in the revised manuscript.
+We agree that the minimal construction does not reproduce the observed PMNS matrix. It is more precise to describe the result as a block-diagonal matrix, up to mass-eigenstate ordering, rather than necessarily the identity: the \(\mu\)--\(\tau\) sub-block may contain a nontrivial rotation, but the electron-flavor mixing required by oscillation data is absent. We apply the same scope limitation as in Major Point~3: the present construction is not claimed to be a complete neutrino-mass model, and no additional particles are introduced for this revision. We will state this limitation and the symmetry-allowed operator structure explicitly in the revised manuscript.
 
 \medskip
 \noindent {\bf 4.2)}.
@@ -470,7 +485,7 @@ Thus stellar constraints are not dismissed: the neutrino-coalescence contributio
 Range of parameters. The general construction of the model is clearly written, but it is difficult for the reader to envision the mass and coupling range that the authors are targeting. It would be very helpful if the authors decide on a range of \(m_{A'}\) and \(g_X\) of interest. For example: is there a range of masses where experimental or theoretical limits are less constraining? Is there some set of phenomenology that the authors seek to realize with a ``light'' \(A'\)? If so, they should define ``light.'' (See, e.g. the first word of the introduction, which is not defined with respect to any reference mass scale.)\end{quote}
 
 \noindent {\bf Reply.}
-We agree that the parameter range should be stated explicitly and that the term ``light'' requires a reference scale. We have replaced the opening phrase ``Light neutral spin-one bosons'' with ``Neutral spin-one bosons'' in Sec.~I; the Abstract retains the explicit MeV-to-TeV mass range. We do not use ``light'' to denote a separate phenomenological target regime; Fig.~2 instead compares the benchmark constraints across the stated mass window.
+We agree that the parameter range should be stated explicitly and that the term ``light'' requires a reference scale. In the revised manuscript, we will replace the opening phrase ``Light neutral spin-one bosons'' with ``Neutral spin-one bosons'' in Sec.~I; the Abstract will retain the explicit MeV-to-TeV mass range. We do not use ``light'' to denote a separate phenomenological target regime; Fig.~2 instead compares the benchmark constraints across the stated mass window.
 
 The plotting window in Fig.~2 is
 \[
@@ -538,7 +553,7 @@ Conservative benchmark. Equation (27) is presented as a ``conservative benchmark
 \end{quote}
 
 \noindent {\bf Reply.}
-We agree that ``conservative benchmark'' was imprecise. Equation~(27) is not a benchmark point, and \(10^{-2}\) is not a universal experimental upper limit on all four mixing angles. It is a small-mixing assumption adopted for the phenomenological analysis. Under this assumption, mixing-dependent corrections are suppressed at order \(\theta^2\lesssim10^{-4}\), and the residual vector component of the \(A'\) coupling is correspondingly small. Existing experimental limits depend on the chirality, vector-like-lepton representation, and observables considered; they do not establish the same \(10^{-2}\) upper limit for every mixing angle. In the revised manuscript, Eq.~(27) is identified as the ``small-mixing assumption'', and the results obtained with it are explicitly conditional on this choice.
+We agree that ``conservative benchmark'' was imprecise. Equation~(27) is not a benchmark point, and \(10^{-2}\) is not a universal experimental upper limit on all four mixing angles. It is a small-mixing assumption adopted for the phenomenological analysis. Under this assumption, mixing-dependent corrections are suppressed at order \(\theta^2\lesssim10^{-4}\), and the residual vector component of the \(A'\) coupling is correspondingly small. Existing experimental limits depend on the chirality, vector-like-lepton representation, and observables considered; they do not establish the same \(10^{-2}\) upper limit for every mixing angle. In the revised manuscript, we will refer to Eq.~(27) as the ``small-mixing assumption'' and state that the results obtained with it are conditional on this choice.
 
 \medskip
 \noindent {\bf Minor Point 5)}.
@@ -546,14 +561,14 @@ We agree that ``conservative benchmark'' was imprecise. Equation~(27) is not a b
 What is the purpose of including muon collider bounds? The second half of the paper focuses on existing experimental bounds on the effective theory. It is a strange change in tone to include hypothetical muon collider bounds for future reach. The authors do not justify why a future muon collider is the way to test this model in the future and the section feels like it is tacked on. Most of the section emphasizes that the muon collider search would be a ``standard'' follow up of existing work (Ref 83) and so this section does not seem particularly novel. The authors simply focus on the forward-backward asymmetry. Why not also include polarization asymmetries? Or would there be asymmetries in the \(ee\) versus \(\tau\tau\) final states? Given the first half of the paper, though, it seems that the real ``smoking gun'' for this UV completion is the physics of the \(S\) particle which should be tested in any Higgs-factory phase of a future lepton collider. I feel that this section either adds too little and should be downplayed as an example of future tests, or otherwise should have its own full fledged exploration (which may be a separate paper).
 \end{quote}
 
-
+% INTERNAL SYNCHRONIZATION NOTE: the author decided on 2026-10-28 to retain the existing angular-distribution figure and shorten the surrounding muon-collider discussion to a brief future-test outlook. The canonical manuscript source has not yet been updated; synchronize it before submission.
 \noindent {\bf Reply.}
 
 We agree that the muon-collider discussion should not be presented as a comprehensive future-collider study or as a major independent result of this paper. Since the \(A'\) couples directly to muons, a high-energy muon collider offers a complementary possible probe of the heavier-mass regime, beyond the low-energy constraints that form the main focus of this work. The forward--backward asymmetry is included only as an illustrative chirality-sensitive observable: the total rate can be similar for vector and axial interactions, whereas the angular distribution can retain information about their different chiral structures. We do not claim that this single observable constitutes a complete collider analysis or establishes a projected exclusion or discovery reach.
 
 In the effective-current limit considered here, the \(A'\) has no tree-level coupling to electrons, so an \(ee\) final state is not an equivalent direct comparison with \(\tau^+\tau^-\). A comparison that includes loop-induced kinetic mixing, as well as a systematic study of polarization and other flavor-tagged asymmetries, would require a separate analysis with a consistently specified collider setup. We agree that the scalar \(S\) is also an important and distinctive prediction of the UV completion and could provide a complementary target at a future Higgs factory; we do not infer a quantitative Higgs-factory reach from the present \(A'\) analysis.
 
-We retain the existing angular-distribution figure as an illustrative example and have shortened the surrounding muon-collider discussion to a brief outlook on possible future tests. The figure is not intended to convey a comprehensive sensitivity analysis or a projected exclusion or discovery reach. We do not develop this part into a full collider study in the present paper.
+We will therefore retain the existing angular-distribution figure as an illustrative example, while shortening the surrounding muon-collider discussion to a brief outlook on possible future tests. The figure is not intended to convey a comprehensive sensitivity analysis or a projected exclusion or discovery reach. We will not expand this part into a full collider study in the present paper.
 
 \medskip
 \noindent {\bf Minor Point 6)}. \begin{quote}\itshape
@@ -566,7 +581,7 @@ The word ``light'' on page 2 has no reference scale.
 \end{quote}
 
 \noindent {\bf Reply.}
-We agree that the term \texttt{light} should not be used without an explicit reference scale. We have replaced the opening phrase \texttt{Light neutral spin-one bosons} with \texttt{Neutral spin-one bosons} in Sec.~I; the Abstract retains the explicit MeV-to-TeV mass range.
+We agree that the term \texttt{light} should not be used without an explicit reference scale. In the revised manuscript, we will replace the opening phrase \texttt{Light neutral spin-one bosons} with \texttt{Neutral spin-one bosons} in Sec.~I; the Abstract will retain the explicit MeV-to-TeV mass range.
 
 \medskip
 \noindent {\bf Minor Point 6.2)}. \begin{quote}\itshape
@@ -709,7 +724,7 @@ The line at \(v_s\simeq2\,\mathrm{GeV}\) instead corresponds to the adopted scal
 
 We thank the referee for identifying the need to connect the UV construction more clearly to the phenomenological analysis. The response distinguishes the specified benchmark results from claims about the full UV parameter space and states the assumptions under which each constraint applies.
 
-For neutrino oscillations, the allowed Weinberg operators and the resulting block-form mass matrix explain why the minimal charge assignment does not reproduce the observed PMNS matrix. The revised manuscript retains the anomaly-free gauge and charged-lepton construction, states this neutrino-sector scope limitation explicitly, and introduces no additional particles solely for this revision.
+For neutrino oscillations, the allowed Weinberg operators and the resulting block-form mass matrix explain why the minimal charge assignment does not reproduce the observed PMNS matrix. The revised manuscript will retain the anomaly-free gauge and charged-lepton construction, state this neutrino-sector scope limitation explicitly, and introduce no additional particles solely for this revision.
 
 For the scalar \(S\), we retain it as a physical state, give the scalar-mass and perturbativity relations, summarize selected low-mass scalar constraints, and report the VLL threshold and finite-momentum one-loop mixing diagnostics under an explicit small-portal matching condition. The near-degenerate closed-channel benchmark is identified separately because its mixing diagnostic can become non-negligible; the \(A'\) contours are not used to infer that \(S\) can be neglected.
 
