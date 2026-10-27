@@ -65,3 +65,28 @@ Interpretation boundary:
 - The UV portal constant is a separate renormalized parameter. The reported matched Pi_hs uses the explicit reference condition lambda_HS^EFT(M_E)=0 and the Plan-C low-energy soft contribution.
 - The benchmark Yukawas use leading-seesaw relations; exact singular values therefore differ slightly from the target physical mu/tau masses.
 - This validates the fermion-loop calculation under the stated mass-matrix, scheme, and benchmark assumptions. It is not a complete scalar-sector pole-scheme calculation or experimental recast.
+
+Width-regulated diagnostic scan at fixed benchmark inputs
+Columns: m_s [GeV] ; Gamma_s [GeV] ; 2|Pi_hs(m_h^2)/(a-b)|
+
+Benchmark A (v_s=70.886458 GeV, m_A'=10 GeV):
+10.00 ; 0.00020505319 ; 5.4978927e-5
+50.00 ; 0.19610264 ; 6.4984507e-5
+100.00 ; 1.8668349 ; 1.505968e-4
+124.50 ; 3.6782472 ; 0.0017337483
+125.00 ; 3.7238658 ; 0.0018266286
+125.25 ; 3.7468142 ; 0.0018281279
+125.50 ; 3.7698556 ; 0.0017975748
+150.00 ; 6.5090522 ; 0.00012452638
+
+Benchmark B (v_s=315 GeV, m_A'=63 GeV):
+10.00 ; 1.0384175e-5 ; 1.2372258e-5
+50.00 ; 6.3046482e-5 ; 1.4623881e-5
+100.00 ; 0.00012681133 ; 3.3907909e-5
+124.50 ; 0.000157986 ; 0.0010295773
+125.00 ; 0.00015862203 ; 0.0030824765
+125.25 ; 0.00015894004 ; 0.39369054
+125.50 ; 0.00015925805 ; 0.0030763305
+150.00 ; 0.12278476 ; 2.8308911e-5
+
+The scan is a width-regulated diagnostic under the same conditional matching benchmark, not an experimental exclusion contour.
