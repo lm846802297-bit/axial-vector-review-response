@@ -1,5 +1,5 @@
 % INTERNAL WORKING COPY: do not submit until all bold placeholders are closed and the manuscript Diff is applied and checked.
-% Source-alignment note: Sec. II.A.1/Eqs. (11)-(12) and the Introduction wording refer to the separate Route B revision copy documented with PR #13. The canonical original main-v6.tex has not been overwritten in this repository. Do not treat the response as accepted until the final manuscript source baseline is selected, synchronized, and all remaining placeholders and reference dependencies are resolved.
+% Source-alignment note: existing manuscript-edit claims outside the neutrino response (including the Introduction wording) refer to the separate Route B revision copy documented with PR #13. The neutrino replies follow the transcript-aligned response v2 and propose a short manuscript clarification without claiming that it has already been applied. The canonical original main-v6.tex has not been overwritten in this repository. Do not treat the response as accepted until the final manuscript source baseline is selected, synchronized, and all remaining placeholders and reference dependencies are resolved.
 \documentclass[12pt,a4paper]{article}
 
 % Mathematics
@@ -263,40 +263,24 @@ In this model, \(U_A(1)_{L_{\mu-\tau}}\) invariance allows Weinberg operators fo
 
 \noindent {\bf Reply.}
 
-We have examined the operator structure implied by the charge assignment used in the minimal model,
-\[
-Q'(L_e,L_\mu,L_\tau)=(0,+Q_\ell,-Q_\ell),\qquad
-Q'(H)=0,\qquad Q'(S)=2Q_\ell.
-\]
-When \(S\) acquires a vacuum expectation value, the gauge symmetry leaves a residual \(Z_2\): the electron-flavor fields are even, whereas the \(\mu\)- and \(\tau\)-flavor fields are odd. With only \(S\) and \(S^\dagger\) insertions, the Weinberg operators \((L_eH)(L_eH)\) and \((L_\mu H)(L_\tau H)\) are allowed at dimension five; \((L_\mu H)(L_\mu H)\) and \((L_\tau H)(L_\tau H)\) can arise with one \(S^\dagger\) or \(S\) insertion at dimension six. The \(e\mu\) and \(e\tau\) entries remain forbidden because an insertion of \(S\) changes the charge only by an even multiple of \(Q_\ell\).
+We thank the referee for this comment. The focus of the present work is the construction and phenomenology of the axial \(U_A(1)_{L_\mu-L_\tau}\) interaction. We have not attempted to provide a simultaneous explanation of the neutrino mass spectrum and the full PMNS matrix. Nevertheless, we agree that the neutrino-mass terms allowed by the present field content, and the limitations of the resulting mixing structure, should be stated explicitly.
 
-The resulting neutrino mass matrix has the block form
+With the charge assignment in Table~I, namely
+\[
+q(L_e,L_\mu,L_\tau)=(0,1,-1),\qquad q(H)=0,\qquad q(S)=2,
+\]
+where \(q=Q/Q_\ell\), Majorana neutrino masses can be introduced through symmetry-allowed effective operators. Writing \(\mathcal O_{ij}=(L_i\!\cdot H)(L_j\!\cdot H)\) with the Lorentz contraction understood, the dimension-five operators allow the \(ee\) and \(\mu\tau\) entries. The \(\mu\mu\) and \(\tau\tau\) entries require the dimension-six operators \(S^\dagger\mathcal O_{\mu\mu}/\Lambda_\nu^2\) and \(S\mathcal O_{\tau\tau}/\Lambda_\nu^2\), respectively. After symmetry breaking, the resulting mass matrix has the form
 \[
 M_\nu=
 \begin{pmatrix}
-A&0&0\\
-0&B\varepsilon&C\\
-0&C&D\varepsilon
-\end{pmatrix},
-\qquad \varepsilon\sim v_s/\Lambda,
-\]
-while the charged-lepton Yukawa matrix has the corresponding structure
-\[
-Y_\ell=
-\begin{pmatrix}
-c&0&0\\
-0&a\varepsilon&b\\
-0&b'&d\varepsilon
+a&0&0\\
+0&b&c\\
+0&c&d
 \end{pmatrix},
 \]
-where the \(\mu\)-\(\tau\) entries \(b,b'\) are allowed without an \(S/\Lambda\) suppression. Both matrices therefore preserve the \(\{e\}\oplus\{\mu,\tau\}\) block decomposition. Consequently, up to a permutation of the neutrino mass eigenstates,
-\[
-U_{\rm PMNS}=U_L^\dagger U_\nu
-=\operatorname{diag}\!\left(1,U_{23}\right).
-\]
-If the isolated electron-flavor eigenstate is listed first, this corresponds to \(\theta_{12}=\theta_{13}=0\). Independently of that ordering convention, one neutrino mass eigenstate is purely electron flavor and the other two have no electron-flavor component; the \(\mu\)-\(\tau\) sub-block may still contain a nontrivial rotation. Thus, although the allowed Weinberg operators can generate nonzero neutrino-mass entries, the minimal charge assignment does not reproduce the observed PMNS matrix. It is more precise to describe the matrix as block diagonal up to mass-eigenstate ordering, rather than simply \(U_{\rm PMNS}=I\); the absence of the observed electron-flavor admixtures is incompatible with oscillation data.
+where \(a,c\) arise from dimension-five operators and \(b,d\) can arise from the operators containing \(S^\dagger,S\).
 
-This is a limitation of the minimal construction, not a solved neutrino-mass mechanism. We therefore do not claim that the minimal field content explains the observed neutrino oscillations or reproduces the full PMNS matrix. The scope of the present work is restricted to the anomaly-free gauge and charged-lepton construction and the specified axial-current phenomenology; the neutrino-sector limitation is stated explicitly rather than treated as resolved.
+This structure permits nonzero neutrino masses and mixing within the \(\mu\)--\(\tau\) sector. However, it does not generate the electron--muon and electron--tau mixing required for the full observed PMNS matrix. The missing entries cannot be generated by further insertions of \(S\) alone: its charge-two vacuum expectation value preserves a residual \(Z_2\) symmetry separating the electron sector from the muon and tau sectors. The charged-lepton mass matrix respects the same separation. Thus, complete alignment and an identity PMNS matrix are not required by the symmetry, but the electron-flavour mixing remains absent. The present field content therefore allows a restricted neutrino-mass structure, without reproducing the complete observed mixing pattern.
 
 \medskip
 \noindent {\bf Reply to Point 3.2}
@@ -307,9 +291,9 @@ Perhaps a full model would require right-handed neutrinos. These would now be ch
 
 \noindent {\bf Reply.}
 
-Introducing right-handed neutrinos alone does not remove this obstruction. Under the same residual \(Z_2\), right-handed neutrinos that couple to \(L_e\) have even charge, whereas those that couple to \(L_\mu\) or \(L_\tau\) have odd charge. The allowed Dirac and Majorana mass matrices therefore retain the \(\{e\}\oplus\{\mu,\tau\}\) block structure, and the type-I seesaw relation \(M_\nu=-m_D M_R^{-1}m_D^T\) preserves it.
+As the referee notes, the gauge charges also restrict the Dirac and Majorana mass terms when right-handed neutrinos are introduced. Adding such fermions while retaining the present symmetry-breaking sector does not remove the separation described above. In a type-I seesaw realization, the symmetry-enforced block structure is inherited by the effective light-neutrino mass matrix \(M_\nu=-m_DM_R^{-1}m_D^T\). A complete neutrino-sector extension would therefore require additional ingredients, such as a suitably charged scalar whose vacuum expectation value permits the missing mixing terms.
 
-A scalar \(\sigma\) with odd \(U_A(1)\) charge and a nonzero vacuum expectation value is a possible way to break the residual selection rule, but allowing additional matrix entries is not sufficient to establish a viable PMNS fit. Such an extension requires an explicit mass-matrix fit, charged-lepton-flavor-violation checks, anomaly cancellation, a consistent scalar potential and vacuum, and a re-derivation of the \(A'\) mass relation including the additional charged vacuum expectation value. These checks have not been completed; we therefore do not present this extension as a verified solution. We do not add right-handed neutrinos or an additional scalar in this revision: right-handed neutrinos alone preserve the same block structure, while a viable extension that breaks it would alter the field content, scalar sector, gauge-boson mass relation, and potentially the charged-lepton currents and constraints. Completing that extension would require a new, model-wide consistency analysis rather than a minimal clarification of the present axial-vector benchmark.
+Neutrino-mass constructions involving right-handed neutrinos and additional symmetry-breaking scalars have been studied in the conventional gauged \(L_\mu-L_\tau\) framework; see Heeck and Rodejohann, Phys.\ Rev.\ D \textbf{84}, 075007 (2011) (\href{https://arxiv.org/abs/1107.5238}{arXiv:1107.5238}), and Asai, Hamaguchi and Nagata, Eur.\ Phys.\ J.\ C \textbf{77}, 763 (2017) (\href{https://arxiv.org/abs/1705.00419}{arXiv:1705.00419}). These provide relevant examples of neutrino-sector extensions, but are not identical to the axial construction considered here.
 
 \medskip
 \noindent {\bf Overall response to Major Point 3.}
@@ -320,7 +304,12 @@ Thus it is not obvious to me how neutrino oscillations can be included in this f
 
 \noindent {\bf Reply.}
 
-We agree that the minimal construction, with the stated field content and charge assignments, does not reproduce the observed PMNS matrix. We therefore restrict the claim of this work to the anomaly-free gauge and charged-lepton construction and its specified axial-vector effective-current phenomenology; we do not present it as a complete neutrino-mass model. We do not introduce additional particles solely for this revision, because adding right-handed neutrinos alone does not remove the residual \(\{e\}\oplus\{\mu,\tau\}\) block structure, while a successful extension would require additional symmetry-breaking field content and a full reanalysis of the scalar potential, gauge-boson mass relation, charged-lepton flavor violation, and affected phenomenological constraints. This is a scope limitation, not a claim that the minimal UV construction is compatible with all neutrino-oscillation data. We have added the operator-selection analysis and the block-form neutrino mass matrix in Sec.~II.A.1, Eqs.~(11) and (12), and have made the same scope limitation explicit in the Abstract, Introduction, and Conclusion.
+Developing such an extension would introduce additional fields and interactions beyond the model studied in this work. We therefore do not pursue a complete neutrino-mass and mixing mechanism here. Our statement is limited to the fact that the allowed effective operators can generate neutrino masses and \(\mu\)--\(\tau\) mixing; we do not claim that the present field content reproduces the full PMNS matrix. We thank the referee for drawing attention to this limitation and the need to distinguish these two issues.
+
+To state this scope concisely in the manuscript, we propose the following clarification:
+\begin{quote}
+Neutrino masses and mixing within the \(\mu\)--\(\tau\) sector can be introduced through symmetry-allowed Weinberg-type operators, including higher-dimensional operators involving \(S\). However, the present field content does not generate the electron-flavour mixing required for the full observed PMNS matrix; a complete neutrino-mass and mixing mechanism would require additional ingredients and is not pursued in this work.
+\end{quote}
 
 \medskip
 \noindent {\bf 4)}.
@@ -344,7 +333,7 @@ Neutrino oscillation observations. See point \#3 above. It appears that this mod
 
 \noindent {\bf Reply.}
 
-We agree that the minimal construction does not reproduce the observed PMNS matrix. The allowed Weinberg operators and their \(S\)-inserted higher-dimensional counterparts preserve the \(\{e\}\oplus\{\mu,\tau\}\) block structure, so the required electron-flavor mixing is absent. We therefore adopt the same scope limitation as in Major Point~3: no claim is made that the minimal model explains the full neutrino mass spectrum or observed oscillations, and no right-handed neutrinos or additional scalars are introduced in this revision. The existing \(A'\) contours are retained as constraints on the specified pure-axial effective-current benchmark; they are not presented as proof that every plotted point is a globally viable UV-model point. The same limitation is stated in Sec.~II.A.1, Eqs.~(11) and (12), and consistently reiterated in the Abstract, Introduction, and Conclusion.
+This point is addressed in our response to Major Point~3. The allowed effective operators can generate neutrino masses and mixing within the \(\mu\)--\(\tau\) sector, so an identity PMNS matrix is not required by the symmetry. However, the electron-flavour mixing remains absent with the present field content, and the full observed PMNS matrix is not reproduced. A complete neutrino-mass and mixing mechanism would require additional ingredients and is not pursued in this work. The \(A'\) phenomenological results should be read under their stated interaction assumptions; they do not establish a complete explanation of the observed neutrino oscillations.
 
 \medskip
 \noindent {\bf 4.2)}.
@@ -664,7 +653,7 @@ The line at \(v_s\simeq2\,\mathrm{GeV}\) instead corresponds to the adopted scal
 
 We thank the referee again for the careful and constructive report. The revised manuscript must state the assumptions underlying the effective-current phenomenology, distinguish the plotted parameter window from theoretical and experimental boundaries, and separate established constraints from benchmark-dependent interpretations and regions that remain unassessed.
 
-Regarding neutrino oscillations, the charge assignment permits Weinberg operators that generate nonzero entries but preserves the \(\{e\}\oplus\{\mu,\tau\}\) block structure. Up to mass-eigenstate ordering, one neutrino mass eigenstate is purely electron flavor and the other two have no electron-flavor component; in the ordering that places the isolated state first, this is represented by \(\theta_{12}=\theta_{13}=0\). This is incompatible with observed PMNS mixing. We therefore retain the existing axial-vector phenomenology as a conditional pure-axial effective-current benchmark and narrow the manuscript's claim: the minimal model is not a complete neutrino-mass/PMNS completion. We do not add right-handed neutrinos or a new scalar solely for this revision. Our response to Major Point~4.1 follows the same scope limitation, and the retained axial-vector effective-current contours are not interpreted as a demonstration of global UV-model viability.
+Regarding neutrino oscillations, the symmetry-allowed effective operators can generate neutrino masses and mixing within the \(\mu\)--\(\tau\) sector, but the present field content does not generate the electron-flavour mixing required for the full observed PMNS matrix. Our replies to Major Points~3 and 4.1 distinguish these two statements. We do not pursue a complete neutrino-mass and mixing mechanism here; this would require additional fields and interactions beyond the model studied in this work. A concise manuscript clarification is proposed in the overall response to Major Point~3.
 
 Regarding the scalar \(S\), we retain it as a physical state in the UV construction and do not claim that its mixing with the Higgs is negligible over the full scalar-mass range. The zero-momentum portal threshold and the explicit small-portal matching condition are stated as benchmark inputs. The response now reports the completed benchmark-level finite-momentum one-loop fermion self-energies and the width-regulated near-degeneracy diagnostic, while distinguishing these from a physical mixing angle or a global viability result. The full pole-scheme treatment, diagonal self-energies and tadpole/input counterterms, and model-specific two-pole Higgs lineshape and direct-search recasts remain open; the narrow-width near-degenerate region therefore remains \textbf{not assessed}.
 
