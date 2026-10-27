@@ -184,34 +184,9 @@ To make the portal assumption explicit, we have evaluated the leading VLL thresh
 \]
 We use \(\lambda_{HS}^{\mathrm{EFT}}(M_E)=0\) as an explicit small-portal reference condition, which requires a nonzero UV portal \(\lambda_{HS}^{\mathrm{UV}}=-\Delta\lambda_{HS}^{E}\). This condition is a benchmark choice, not a symmetry prediction. For illustration, taking \(M_E=20\,\mathrm{TeV}\), \(\theta_{\mu L}=\theta_{\tau L}=10^{-2}\), and the leading seesaw relations gives \(\Delta\lambda_{HS}^{E}\simeq-0.2108\) at \((m_{A'},g_X,v_s)=(10\,\mathrm{GeV},0.0705,70.9\,\mathrm{GeV})\), and \(\Delta\lambda_{HS}^{E}\simeq-0.01067\) at \((63\,\mathrm{GeV},0.1,315\,\mathrm{GeV})\). For these illustrative points only, we additionally impose \(|\lambda_\ell|\leq\sqrt{4\pi}\); this is a theory-consistency benchmark rather than a new exclusion contour in Fig.~2. The comparison demonstrates that setting the UV portal to zero is not equivalent to setting the matched EFT portal to zero, and that the latter must be stated as an input if the small-portal benchmark is retained.
 
-For the first-pass pole diagnostic only, we use the candidate finite derivative matching coefficient obtained from the two-point/EOM matching calculation for
-\[
-\mathcal L_{\mathrm{EFT}}\supset
-\frac{c_{\partial HS}}{M_E^2}
-\partial_\mu(H^\dagger H)\partial^\mu(S^\dagger S).
-\]
-In the matching calculation's inverse-propagator convention,
-\[
-\Pi_{hs,\mathrm{hard}}^{\mathrm{match}\,\prime}(0;\mu_R)
-\simeq\frac{q}{16\pi^2}\left(\ln\frac{M_E^2}{\mu_R^2}-\frac23\right),\qquad
-q\simeq\sum_{\ell=\mu,\tau}\frac{2m_\ell^2}{v_hv_s}.
-\]
-Here the prime denotes differentiation with respect to the external invariant \(s=p^2\), evaluated at \(s=0\). Only the retained leading term is displayed; no explicit higher-order remainder is quoted because its form has not yet been established by the matching calculation. The low-energy self-energy convention used below has the opposite sign, \(\Pi_{\mathrm{low}}=-\Pi_{\mathrm{match}}\). We apply this sign conversion before combining the hard derivative term with the low-energy soft contribution. The coefficient is consistent with the existing two-point/EOM algebraic analysis, but it has not yet received independent diagram-level validation, and the complete same-order EFT soft/counterterm closure remains open. The numerical results below are therefore conditional on this candidate coefficient, not a completed one-loop UV prediction. Under the reference condition \(\lambda_{HS}^{\mathrm{EFT}}(M_E)=0\), the first-pass matched off-diagonal self-energies at \(s=m_h^2\), evaluated at \(\mu_R=M_E=20\,\mathrm{TeV}\), are
-\[
-\Pi_{hs}^{B,\mathrm{matched}}(m_h^2;\mu_R=M_E)
-\simeq
-\begin{cases}
-(-0.413263-0.113174i)\,\mathrm{GeV}^2,
-& \text{Benchmark A: }m_{A'}=10\,\mathrm{GeV}\text{ (open channel)},\\[1mm]
-(-0.092999-0.025468i)\,\mathrm{GeV}^2,
-& \text{Benchmark B: }m_{A'}=63\,\mathrm{GeV}\text{ (closed channel)}.
-\end{cases}
-\]
-These are conditional benchmark results, not a universal bound on the mixing.
+In this revision, we do not use a finite-momentum off-diagonal self-energy or a physical \(h\)--\(S\) mixing angle as a quantitative input to the effective-current contours. The zero-momentum threshold above fixes only the stated matching boundary; it does not determine \(\Pi_{hs}(p^2)\), the scalar pole structure, or the size of mixing near \(m_S\simeq m_h\). A model-specific finite-momentum prediction would require a closed same-order UV--EFT matching calculation, including the EFT soft graphs and counterterms, together with independent diagram-level validation. A reliable constraint assessment would then require the relevant two-pole Higgs lineshape and direct-search recasts. These steps have not been completed.
 
-A first-pass complex-pole calculation illustrates why the \(A'A'\) width matters. At \(m_s=m_h=125.25\,\mathrm{GeV}\), the open-channel point gives a broad singlet-like pole with \(\Gamma\simeq3.75\,\mathrm{GeV}\) and a Higgs-like pole with \(\Gamma\simeq4.073\,\mathrm{MeV}\). When \(A'A'\) is closed, the two poles are both narrow and their widths are redistributed to approximately \(0.292\,\mathrm{MeV}\) and \(3.937\,\mathrm{MeV}\); their pole masses differ by only about \(0.083\,\mathrm{MeV}\). Thus, the closed-channel near-degenerate region cannot be classified using the real small-angle formula or a single-resonance signal-strength approximation.
-
-These results improve the model-specific matching and pole diagnosis, but they do not yet constitute a complete UV prediction. The finite derivative coefficient still requires the remaining same-order EFT soft/counterterm closure and independent diagram-level validation. In the first-pass pole calculation, the diagonal widths are held fixed and the diagonal real parts are absorbed into the benchmark masses; no dedicated two-pole Higgs lineshape or broad-scalar direct-search recast has been completed. We therefore do not claim that mixing is negligible throughout the full scalar-mass range. The near-degenerate narrow-width region remains \textbf{not assessed}: no model-specific exclusion or allowed classification is claimed until the two-pole Higgs lineshape and the relevant direct-search recast have been completed. The existing \(A'\) constraints remain conditional on the stated small-portal, pure-axial benchmark, while the scalar \(S\) is retained as a physical part of the UV construction.
+We therefore do not claim that scalar mixing is negligible throughout the scalar-mass range, and we do not use the present calculation to justify neglecting \(S\) in the full UV model. The near-degenerate narrow-width region remains \textbf{not assessed}, with no allowed/excluded classification assigned. The scalar \(S\) is retained as a physical state in the UV construction. The \(A'\) contours are retained only as conditional constraints on the specified small-portal, pure-axial effective-current benchmark; they are not a global viability classification of the full UV model.
 
 \medskip
 \noindent {\bf Major Points 2)}. \begin{quote}\itshape
@@ -656,7 +631,7 @@ We thank the referee again for the careful and constructive report. The revised 
 
 Regarding neutrino oscillations, the charge assignment permits Weinberg operators that generate nonzero entries but preserves the \(\{e\}\oplus\{\mu,\tau\}\) block structure. Up to mass-eigenstate ordering, one neutrino mass eigenstate is purely electron flavor and the other two have no electron-flavor component; in the ordering that places the isolated state first, this is represented by \(\theta_{12}=\theta_{13}=0\). This is incompatible with observed PMNS mixing. We therefore retain the existing axial-vector phenomenology as a conditional pure-axial effective-current benchmark and narrow the manuscript's claim: the minimal model is not a complete neutrino-mass/PMNS completion. We do not add right-handed neutrinos or a new scalar solely for this revision. Our response to Major Point~4.1 follows the same scope limitation, and the retained axial-vector effective-current contours are not interpreted as a demonstration of global UV-model viability.
 
-Regarding the scalar \(S\), we retain its role in the UV construction and state its mass and self-coupling relations, while keeping the paper's main focus on the axial-vector \(A'\) phenomenology. The established singlet-Higgs literature is cited to avoid duplicating a general scalar-sector analysis; it is not used as a substitute for model-specific matching. \textbf{[Finalize this summary after the portal subsection has been applied to the revised manuscript and the matching closure and model-specific Higgs lineshape/direct-search assessment have been completed or explicitly scoped out. The final text must preserve the distinction between conditional effective-current contours and global UV-model viability.]}
+Regarding the scalar \(S\), we retain it as a physical state in the UV construction and do not claim that its mixing with the Higgs is negligible over the full scalar-mass range. The zero-momentum portal threshold and the explicit small-portal matching condition are stated as benchmark inputs; they do not establish the finite-momentum mixing or the viability of the full UV model. The candidate finite-derivative coefficient, first-pass off-diagonal self-energies, and complex-pole diagnostics remain in the internal Plan C-lite research record and are not used as completed quantitative evidence in this response. The near-degenerate narrow-width region remains \textbf{not assessed}; a model-specific two-pole Higgs lineshape and direct-search recast have not been completed.
 
 The effective-current limits are interpreted only under the interaction structures and assumptions for which their applicability has been established. The final constraint classification is \textbf{[Insert the final kinetic-mixing, finite-vector, and stellar-cooling applicability classification.]}
 
