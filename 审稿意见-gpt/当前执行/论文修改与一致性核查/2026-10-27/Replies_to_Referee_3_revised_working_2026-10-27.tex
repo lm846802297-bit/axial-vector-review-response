@@ -88,13 +88,7 @@ m_s\leq\sqrt{2\lambda_S^{\max}}\,v_s
 =\sqrt{\frac{\lambda_S^{\max}}{2}}\frac{m_{A'}}{g_X}.
 \]
 
-For the adopted mass convention, the perturbativity condition is
-\[
-\lambda_S\leq\lambda_S^{\max}
-\quad\Longrightarrow\quad
-m_s^2\leq 2\lambda_S^{\max}v_s^2.
-\]
-To make the coefficient in the referee's quoted Eq.~(34) unambiguous, \(m_s^2<4\pi v_s^2\) corresponds to \(\lambda_S^{\max}=2\pi\) in this potential convention, whereas the \(\lambda_S^{\max}=4\pi\) benchmark used in our numerical example gives \(m_s^2\leq8\pi v_s^2\), or \(m_s\leq\sqrt{8\pi}\,v_s\). We will check the coefficient against the exact submitted version and state the chosen perturbativity threshold explicitly, using a consistent convention in Eq.~(34), the numerical example, and the figure caption. For \(m_s=10\,\mathrm{GeV}\), this latter benchmark gives \(v_s\gtrsim2.0\,\mathrm{GeV}\). In particular, \(m_s\leq v_s\) is not a general consequence of \(\lambda_S\leq4\pi\); it would require the stronger condition \(\lambda_S\leq1/2\). Conversely, within the plotted range \(g_X\leq0.1\), the vector mass relation gives \(m_{A'}=2g_Xv_s\leq0.2v_s\). These are conditional theoretical relations, not experimental exclusions, and do not by themselves establish an experimentally allowed scalar-mass interval.
+For the illustrative benchmark \(\lambda_S^{\max}=4\pi\), the perturbativity condition gives \(m_s^2\leq8\pi v_s^2\), or \(m_s\leq\sqrt{8\pi}\,v_s\). For \(m_s=10\,\mathrm{GeV}\), this requires \(v_s\gtrsim1.995\,\mathrm{GeV}\). Within the plotted range \(g_X\leq0.1\), the vector-mass relation also gives \(m_{A'}=2g_Xv_s\leq0.2v_s\). These are conditional theoretical relations, not experimental exclusions, and do not by themselves establish an experimentally allowed scalar-mass interval.
 
 For clarity, we reproduce here the selected, non-exhaustive low-mass scalar constraints listed in Table~II of the manuscript. They constrain the scalar coupling \(y_{s\mu\mu}\), not the gauge-boson coupling \(g_X\) directly:
 \begin{center}
@@ -332,7 +326,7 @@ Is this the full set of experimental constraints? The second half of the manuscr
 
 We agree that the constraints presented for the two-parameter effective \(A'\) model do not, by themselves, establish a complete phenomenological assessment of the full UV construction. The relevant constraints must be separated by physical state and interaction structure. The scalar \(s\) constraints summarized in Table~II are not a substitute for stellar-cooling constraints on the gauge boson \(A'\); finite vector-like-lepton effects and kinetic mixing are also distinct from the strict pure-axial effective-current limit.
 
-At present, the published scalar limits and their assumptions can be summarized, but the model-specific recasts of the scalar searches, the finite-mixing vector-versus-axial comparison, and the applicability of the cited \(A'\) stellar-cooling analysis have not all been established. We therefore do not claim that these constraints are globally subdominant or inapplicable. \textbf{[Insert the constraint-applicability summary and justified status for each constraint.]}
+At present, the published scalar limits and their assumptions can be summarized, but the model-specific recasts of the scalar searches, the finite-mixing vector-versus-axial comparison, and the applicability of the cited \(A'\) stellar-cooling analysis have not all been established. We therefore do not claim that these constraints are globally subdominant or inapplicable. The current status is as follows. The neutrino-oscillation issue is acknowledged as a limitation of the minimal charge assignment, not as a solved PMNS construction. For kinetic mixing, the degenerate heavy-VLL threshold cancels under the stated benchmark, while the residual finite-mixing light-lepton contribution is parametrically small in the illustrative zero-momentum estimate above but depends on the mixing angles, matching condition, and momentum transfer. The finite-vector-versus-axial constraint comparison has not been completed, and the applicability of the cited stellar-cooling/supernova analysis to the exact axial benchmark remains not assessed. We therefore do not make a blanket claim that all four classes of constraints are subdominant or inapplicable.
 
 The scalar-sector constraints are addressed in connection with Major Point~1, while the four specific issues raised by the referee are discussed individually below.
 
@@ -364,7 +358,27 @@ It vanishes for the degenerate heavy-lepton benchmark \(M_{E_\mu}=M_{E_\tau}\), 
 
 This heavy-VLL hypercharge threshold must not be conflated with the low-energy photon--\(A'\) polarization induced by the \(\mu\)- and \(\tau\)-lepton loops, nor does the matching-scale condition \(\chi_{\rm UV}=0\) establish that every mixing contribution vanishes at experimental scales. The loop expression cited by the referee must be checked in the same charge, renormalization, and field-basis conventions before it is used for a numerical comparison.
 
-\textbf{[Insert the verified loop estimate, matching scale and scheme, and comparison with applicable constraints.]}
+For the residual light-lepton contribution, the relevant vertices are the vector components
+\[
+g_V^\mu=g_X\sin^2\theta_{\mu R},\qquad
+g_V^\tau=-g_X\sin^2\theta_{\tau R}.
+\]
+In the convention \(\mathcal L\supset-\epsilon F_{\mu\nu}F'^{\mu\nu}/2\), the zero-momentum one-loop threshold, with the renormalized kinetic-mixing coefficient set to zero at the matching scale \(\mu_M=M_E\), can be written (up to the overall sign convention for \(\epsilon\)) as
+\[
+\epsilon_{\gamma A'}(0)=\frac{e}{12\pi^2}
+\left[
+g_V^\mu\ln\frac{M_E^2}{m_\mu^2}
++g_V^\tau\ln\frac{M_E^2}{m_\tau^2}
+\right].
+\]
+For the illustrative equal-mixing benchmark \(\theta_{\mu R}=\theta_{\tau R}=10^{-2}\), the matching-scale logarithms cancel between the opposite muon and tau vector charges, leaving
+\[
+|\epsilon_{\gamma A'}(0)|
+\simeq \frac{e|g_X|}{6\pi^2}\sin^2\theta_R
+\ln\frac{m_\tau}{m_\mu}
+\simeq1.4\times10^{-6}|g_X|.
+\]
+For \(M_E=20\,\mathrm{TeV}\) and independently varied \(|\theta_{\mu R}|,|\theta_{\tau R}|\leq10^{-2}\), the same zero-momentum expression gives \(|\epsilon_{\gamma A'}(0)|\lesssim6.3\times10^{-6}|g_X|\). These are parametric estimates under the stated matching condition, not a universal bound over the scan. If the two mixing angles differ, the cancellation of the matching-scale logarithm is incomplete; at \(q^2\) comparable to the mediator or charged-lepton thresholds, the full momentum-dependent polarization must also be used. The degenerate heavy-VLL threshold cancellation and this mixing-suppressed light-lepton contribution are distinct effects. We therefore provide the requested order-of-magnitude estimate, but do not infer from it alone that kinetic mixing is irrelevant for every observable or every point in Fig.~2; a point-by-point comparison requires the corresponding experimental recast.
 
 \medskip
 \noindent {\bf 4.3)}.
@@ -386,7 +400,7 @@ Thus, for \(|\theta_{\mu R}|\leq10^{-2}\), the ratio is at most of order \(10^{-
 
 The phenomenological implications of finite vector-like-lepton mixing must therefore be assessed by comparing the constraints applicable to the vector and axial interactions separately, while accounting for kinetic-mixing effects where relevant.
 
-\textbf{[Insert the quantitative finite-mixing comparison and its impact on the plotted regions.]}
+The ratio above establishes a parametric suppression of the vector component under the adopted small-mixing assumption, but it is not by itself a comparison of experimental exclusions. We have not completed a point-by-point recast of the relevant searches using their separate vector and axial response, the finite-mixing branching fractions, and the kinetic-mixing contribution. We therefore cannot claim that the vector bounds are always weaker than the axial bounds. The contours in Fig.~2 remain constraints on the strict pure-axial effective-current benchmark; the effect of finite mixing on the full UV-model classification remains not assessed.
 
 \medskip
 \noindent {\bf 4.4)}.
@@ -401,7 +415,7 @@ The scalar constraints summarized in Table~II do not, by themselves, determine w
 
 A model-specific recast for the exact axial benchmark has not yet been established. We therefore do not claim that the cited stellar-cooling or supernova constraints are subdominant or inapplicable.
 
-\textbf{[Insert the applicability assessment and recast status for arXiv:2511.09619.]}
+The applicability status of arXiv:2511.09619 to the exact axial benchmark is therefore \textbf{not assessed}. We do not transfer its vector-current exclusion curve directly, and we do not claim that the stellar-cooling or supernova constraints are subdominant or inapplicable without a model-specific production-and-transport recast.
 
 \medskip
 \noindent {\bf Minor Point 1)}. \begin{quote}\itshape
