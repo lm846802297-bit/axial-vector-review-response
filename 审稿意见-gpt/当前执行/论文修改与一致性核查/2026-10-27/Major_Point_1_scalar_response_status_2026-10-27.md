@@ -10,9 +10,18 @@ These four labels describe the state of the response workflow; they do **not** m
 | Workstream | Status | Meaning |
 | --- | --- | --- |
 | Response-letter text draft | **Complete** | The draft response to Major Point 1 and subpoints 1.1–1.3 has been written in the referee's original order. |
-| Manuscript and Diff synchronization | **Pending** | The corresponding manuscript edits have not yet been applied and cross-checked against the current Diff. |
+| Response–Diff consistency review | **Complete at claim/scope level** | The response wording has been checked against the four meeting transcripts, meeting summary, and the corresponding Diff sections; the crosswalk is recorded in Diff v2.4, §2E. |\n| Manuscript and Diff synchronization | **Pending** | The Diff proposal is cross-checked against the response, but the actual manuscript edits have not been applied; the manuscript TeX/BibTeX source is not present in this repository. |
 | Quantitative scalar-phenomenology validation | **Partially complete; open issues remain** | Existing threshold/benchmark evidence is retained within its stated scope; model-specific scalar-search recasts, complete finite-momentum mixing validation, and the near-degenerate two-pole assessment remain open. |
 | Formal acceptance of the full response letter | **Pending** | The full letter still requires cross-section consistency checks, completion of other response items, and final LaTeX compilation and review. |
+
+## Response–Diff consistency review (2026-10-27)
+
+Before this review, all four original meeting transcripts (01–04) and \`会议观点总结_2026-10-23.md\` were read, then compared with the current response draft, Diff v2.4, and the v5.6 execution-state snapshot.
+
+- **Aligned:** retain \(S\) in the UV model; keep the paper's main line focused on \(A'\); reproduce the selected low-mass scalar constraints in the response instead of sending the referee back to Table II; cite existing singlet-scalar/Higgs-portal and scalar-search literature; distinguish perturbativity, plotting range, applied experimental exclusions, and unassessed regions; do not add particles.
+- **Specific response refinements:** the reply now explains that the perturbativity condition constrains \(m_s/v_s\) with \(v_s=m_{A'}/(2g_X)\) derived point by point, and gives the approximate mass ranges and distinct spin-0 interpretations of the two Belle II analyses cited in Diff 4B.
+- **Important reconciliation:** the 2026-10-23 meeting initially proposed calculating a loop-induced \(h\)--\(s\) mixing estimate and using it to argue that the effect is small. The later-adopted Route B and the present evidence ledger do not support claiming that this finite-momentum calculation and the near-degenerate pole analysis are complete. The current reply therefore does **not** claim that mixing is negligible; it retains the verified zero-momentum matching-boundary result and marks the near-degenerate region **not assessed**. This is a deliberate narrowing of the claim, not a claim that the original quantitative request has been fully answered.
+- **Manuscript application remains pending:** the repository does not contain the actual manuscript TeX/BibTeX source. The Diff gives section/equation anchors and proposed text, but the source must be obtained before applying changes, checking citation keys, or verifying equation numbers.
 
 ## Decision basis
 
