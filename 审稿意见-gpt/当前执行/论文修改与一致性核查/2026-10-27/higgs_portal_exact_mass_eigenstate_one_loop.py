@@ -11,6 +11,7 @@ The Plan-B convention is Pi_B=-Pi_RC.
 from math import log, pi, sqrt
 import numpy as np
 from scipy.integrate import quad
+from scipy.optimize import brentq
 
 MH = 125.25
 VH = 246.22
@@ -152,6 +153,35 @@ def scalar_width(ms, vs, ma):
     return width
 
 
+def mixing_diagnostic(ms, matched_pi, vs, ma):
+    gamma_s = scalar_width(ms, vs, ma)
+    a = MH*MH-1j*MH*0.00407
+    b = ms*ms-1j*ms*gamma_s
+    return 2*abs(matched_pi)/abs(a-b)
+
+
+def scan_mixing_diagnostic(matched_pi, vs, ma, lower=10.0, upper=150.0, threshold=0.1):
+    # 1 MeV grid locates any threshold intervals; brentq refines their edges.
+    grid = np.linspace(lower, upper, int(round((upper-lower)/0.001))+1)
+    values = np.array([mixing_diagnostic(ms, matched_pi, vs, ma) for ms in grid])
+    imax = int(np.argmax(values))
+    print(f"  scan maximum on [{lower:g}, {upper:g}] GeV: 2|Pi/(a-b)|={values[imax]:.9g} at m_s={grid[imax]:.6f} GeV")
+    above = values >= threshold
+    if not np.any(above):
+        print(f"  no interval with 2|Pi/(a-b)| >= {threshold:g} in this scan range")
+        return
+    starts = np.where(above & ~np.r_[False, above[:-1]])[0]
+    ends = np.where(above & ~np.r_[above[1:], False])[0]
+    for i0, i1 in zip(starts, ends):
+        left = lower if i0 == 0 else brentq(
+            lambda x: mixing_diagnostic(x, matched_pi, vs, ma)-threshold,
+            grid[i0-1], grid[i0], xtol=1e-12)
+        right = upper if i1 == len(grid)-1 else brentq(
+            lambda x: mixing_diagnostic(x, matched_pi, vs, ma)-threshold,
+            grid[i1], grid[i1+1], xtol=1e-12)
+        print(f"  threshold interval 2|Pi/(a-b)| >= {threshold:g}: m_s in [{left:.9f}, {right:.9f}] GeV; half-width around m_h approximately {(right-left)*500:.6f} MeV")
+
+
 def main():
     print("Exact mass-eigenstate one-loop h-s self-energy check")
     print(f"m_h={MH} GeV; v_h={VH} GeV; M_E(input)={ME} GeV; theta_L(input)={THETA_L}")
@@ -222,6 +252,7 @@ def main():
             b_scan = ms_scan*ms_scan-1j*ms_scan*gamma_scan
             diagnostic = 2*abs(matched_pi)/abs(a_scan-b_scan)
             print(f"    {ms_scan:.2f}, {gamma_scan:.9g}, {diagnostic:.9g}")
+        scan_mixing_diagnostic(matched_pi, vs, ma)
         assert abs(uv_p2) < 1e-12
         assert abs(uv_const) < 1e-5
         assert abs(full_diff_B.imag-light_diff_B.imag) < 1e-9
