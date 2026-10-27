@@ -54,7 +54,7 @@
 |:-----|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------|:-----------------------|:------------------------------------------------------------------------------------------|:-----------------|
 | T-00 | 锁定审稿人实际收到的 PDF，并与当前 v6 核对 Eq. (30)/(34) 及相关约定                                                                                                          | Major 1；Minor 6.4                 | Diff 0                 | 投稿版本、逐式对照记录、确认后的约定                                                      | 待完成           |
 | T-01 | 落实已选择的路线 B：说明允许/禁止的 Weinberg 算符、残余 $Z_2$、PMNS 结构限制；将同一范围声明同步至 Introduction、模型部分、Conclusion、Major 3 与 Major 4.1；不新增粒子 | Major 3、Major 4.1 | Diff 11 及模型部分 | 正文实际差异、正式回复、Major 3/4.1 逐项一致性核验与编译记录 | **修订副本已应用并编译；范围限定已同步；PMNS 未解决** |
-| T-02 | 将 Higgs portal 纳入完整势能，定义重整化条件和尺度，计算轻子/VLL 圈级贡献、阈值及非对角二点函数；正确处理 $m_s\simeq m_h$ | Major Point 1.3 | Diff 2 | 势能与质量矩阵、匹配边界、候选导数项证据边界、近简并极点诊断与约束分类 | **portal 阈值和两个代表点、首轮复数极点已完成；导数匹配闭环、独立图级验证和 Higgs 重铸仍开放** |
+| T-02 | 明确 Higgs-portal 重整化条件与零动量阈值；区分该阈值、有限动量自能与物理混合角；方案 B 不以未闭合的有限导数系数支撑正式回复 | Major Point 1.3 | Diff 2 | 门槛条件、代表点、适用范围声明；候选导数系数/自能/极点结果仅归档于内部研究记录 | **零动量 portal 阈值和两个代表点已记录；首轮有限动量/极点结果仅保留内部；完整匹配闭环与 Higgs 重铸仍开放** |
 | T-03 | 量化标量/Higgs 约束：产生率、总宽度、分支比、寿命、Higgs 信号强度、exotic decays 和适用直接搜索；区分已排除、所考虑约束下未排除、未评估                                      | Major 1、1.1、1.2、1.3；Major 4    | Diff 4、5、6           | 模型特定重铸、假设清单、质量分类图/表、独立复核                                           | 待计算/重铸      |
 | T-04 | 核查 Belle II 等标量搜索的原始分析、spin-0 解释、产生/衰变假设及接受度；不能仅凭质量覆盖判为排除                                                                             | Major 1.1、Major 4；Minor 6.2、6.3 | Diff 4A–4C             | 原始分析依据、模型映射、适用性判断及必要的重铸                                            | 待完成           |
 | T-05 | 统一 VLL 质量与混合角 benchmark；核对 $m_\ell\simeq\theta_{\ell L}\theta_{\ell R}M_E$、Eq. (22)/(27) 和直接搜索界限；将 benchmark 推论与实验质量下限分开                     | Minor 3、Minor 4                   | Diff 3                 | 精确/近似质量关系、可行参数选择、直接搜索假设和修订理由                                   | 待修改与复核     |
@@ -314,7 +314,9 @@ S=\frac{v_s+s_0}{\sqrt2},
 
 这些是**树级关系**，不是圈级物理极点质量或最终混合角的替代品。正式稿必须注明符号约定，并检查势能有界性、所选真空的稳定性及所采用的微扰性条件。
 
-### 2C. 必须完成的圈级和实验核查
+### 2C. 完整 UV 标量混合论断所需的后续核查（方案 B 下不作为当前唯象学回复的前置条件）
+
+**范围说明（方案 B）：** 以下任务是将来若要对完整 UV 模型作全质量区间的定量标量混合/排除分类时所需的核查；本轮正式回复不再依赖尚未闭合的有限导数 Wilson 系数或首轮复数极点数值。当前回复明确不声称混合可忽略，并将近简并窄宽度区域标为 **not assessed**。因此，这些后续计算保留在 RC-001 研究路线中，不作为当前收窄后轴矢量唯象学主张的无条件前置门槛。
 
 1. 明确 $\lambda_{HS}$ 的重整化方案、匹配/重整化尺度和边界条件；在某一尺度设置其重整化值为零，不代表所有能标上的物理混合效应都为零。
 2. 计算完整 UV 场内容下轻子和 VLL 对 portal 及非对角二点函数的贡献，区分重整化 portal 参数、动量依赖自能和物理混合角。
@@ -324,11 +326,11 @@ S=\frac{v_s+s_0}{\sqrt2},
 
 **状态更新（2026-10-27）：** portal 阈值和两个代表点的数值化、候选有限导数系数的首轮组合以及第一轮复数极点诊断已完成。有限导数系数的完整同阶 EFT soft/counterterm 闭合、独立图级验证、全动量对角自能以及模型专属 Higgs 线形/直接搜索重铸仍未完成。因此不能声称全质量区间的混合均可忽略；近简并窄宽度区域必须标记为 **not assessed**，不能直接分类为允许或排除。
 
-### 2D. Plan C-lite 的匹配条件与论文中应明确的范围（2026-10-27）
+### 2D. 方案 B：保留零动量 portal 阈值，收窄有限动量混合主张（2026-10-27）
 
-**目的：** 将已完成的 portal 阈值和第一轮极点诊断纳入修改方案，但不把候选导数系数或条件性数值结果写成已完全验证的 UV 预测。
+**目的：** 正式回复和主文只使用现有零动量有效势阈值及明确的匹配边界条件；不将尚未闭合的有限导数系数、两组首轮非对角自能数值或首轮复数极点宽度作为已完成的定量论据。上述计算、脚本与数值继续保留在 Plan C-lite/RC-001 内部研究记录中，不删除，也不宣称其已完成独立图级验证。
 
-建议在 Sec. II.C 的 portal 讨论中加入以下文字；正式应用前仍须核对符号、章节和方程编号：
+建议在 Sec. II.C 的 portal 讨论中加入以下范围明确的文字；正式应用前仍须核对符号、章节和方程编号：
 
 ~~~latex
 The renormalizable operator $(H^\dagger H)(S^\dagger S)$ is allowed by
@@ -337,8 +339,8 @@ $\mu_M=M_E$ gives, in the stated $\overline{\mathrm{MS}}$ potential
 convention,
 \[
 \lambda_{HS}^{\mathrm{EFT}}(\mu_M)
-=\lambda_{HS}^{\mathrm{UV}}(\mu_M)
-+\Delta\lambda_{HS}^{E},\qquad
+=\lambda_{HS}^{\mathrm{UV}}(\mu_M)+\Delta\lambda_{HS}^{E},
+\qquad
 \Delta\lambda_{HS}^{E}
 =-\frac{1}{8\pi^2}\sum_{\ell=\mu,\tau}
 |y_\ell|^2|\lambda_\ell|^2+\cdots .
@@ -360,31 +362,28 @@ These are illustrative benchmark points, with
 $|\lambda_\ell|\leq\sqrt{4\pi}$ imposed as an additional perturbativity
 criterion; they are not a global scan or an exclusion contour.
 
-For the first-pass pole diagnostic only, the finite-derivative contribution is treated as a candidate coefficient from the existing two-point/EOM matching analysis. In the matching calculation's inverse-propagator convention,
-\[
-\Pi_{hs,\mathrm{hard}}^{\mathrm{match}\,\prime}(0;\mu_R)
-\simeq\frac{q}{16\pi^2}\left(\ln\frac{M_E^2}{\mu_R^2}-\frac23\right),\qquad
-q\simeq\sum_{\ell=\mu,\tau}\frac{2m_\ell^2}{v_hv_s}.
-\]
-Here the prime denotes differentiation with respect to the external invariant \(s=p^2\), evaluated at \(s=0\). Only the retained leading term is displayed; no explicit higher-order remainder is quoted because its form has not yet been established by the matching calculation. The low-energy self-energy convention used for the pole diagnostic has the opposite sign, \(\Pi_{\mathrm{low}}=-\Pi_{\mathrm{match}}\). At \(s=m_h^2\) and \(\mu_R=M_E=20\,\mathrm{TeV}\), the first-pass matched values in the low-energy convention are
-\[
-\Pi_{hs}^{B,\mathrm{matched}}(m_h^2;\mu_R=M_E)
-\simeq
-\begin{cases}
-(-0.413263-0.113174i)\,\mathrm{GeV}^2,
-& \text{Benchmark A: }m_{A'}=10\,\mathrm{GeV}\text{ (open channel)},\\[1mm]
-(-0.092999-0.025468i)\,\mathrm{GeV}^2,
-& \text{Benchmark B: }m_{A'}=63\,\mathrm{GeV}\text{ (closed channel)}.
-\end{cases}
-\]
-These are conditional results based on the candidate coefficient, not a completed one-loop UV prediction. The complete same-order EFT soft/counterterm closure and independent diagram-level validation remain open. The pole diagnostic keeps the diagonal widths fixed and absorbs diagonal real parts into the benchmark masses. The near-degenerate narrow-width region around \(m_s\simeq m_h\) therefore remains not assessed: a model-specific two-pole Higgs lineshape analysis and the relevant direct-search recast are still required.
+The zero-momentum threshold and the condition
+$\lambda_{HS}^{\mathrm{EFT}}(M_E)=0$ do not determine the finite-momentum
+off-diagonal self-energy or a physical $h$--$S$ mixing angle. We do not
+claim that scalar mixing is negligible throughout the scalar-mass range,
+and we do not use the present calculation to justify neglecting $S$ in
+the full UV model. A complete finite-momentum prediction would require
+same-order UV--EFT matching, including EFT soft graphs and counterterms,
+and independent diagram-level validation; a quantitative constraint
+classification would additionally require the relevant two-pole Higgs
+lineshape and direct-search recasts. These steps remain open. The
+near-degenerate narrow-width region is therefore \emph{not assessed},
+with no allowed/excluded classification assigned. The scalar $S$ remains
+part of the UV construction, and the retained $A'$ contours are conditional
+constraints on the stated small-portal, pure-axial effective-current
+benchmark, not a global viability classification of the full UV model.
 ~~~
 
 **状态与边界：**
 
-- 正文可说明 portal 边界条件、阈值公式、代表点及其条件性；不得将 $\lambda_{HS}^{\mathrm{EFT}}(M_E)=0$ 写成对称性强制的结果。
-- 如果保留有限导数系数对应的数值自能，应明确它是候选匹配输入，且首轮极点计算采用固定对角宽度/吸收对角实部的近似。
-- 正式回复信与正文必须使用同一组 benchmark 和同一套未评估边界；不得只在回复信中声称已经完成，而主文没有相应说明。
+- 可保留零动量 portal 阈值公式、两个代表点和明确的匹配边界；这些数值不等于有限动量自能或物理混合角。
+- 候选有限导数系数、两组首轮非对角自能和复数极点诊断仅保留在内部 Plan C-lite/RC-001 记录，不作为正式回复中“混合已定量解决”的证据。
+- 完整同阶 EFT soft/counterterm 闭环、独立图级验证、全动量对角自能及模型专属两极点线形/直接搜索重铸仍开放。若未来论文要对完整 UV 模型作相应数值主张，则需先完成这些工作。
 - 此 Diff 是待应用的修改方案，不代表主论文 TeX 已修改或编译通过。
 
 ------------------------------------------------------------------------
