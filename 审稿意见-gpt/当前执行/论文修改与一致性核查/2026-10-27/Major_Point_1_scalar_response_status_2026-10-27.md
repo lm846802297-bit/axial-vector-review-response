@@ -17,7 +17,7 @@ These four labels describe the state of the response workflow; they do **not** m
 
 ## Response–Diff consistency review (2026-10-27)
 
-Before this review, all four original meeting transcripts (01–04) and \`会议观点总结_2026-10-23.md\` were read, then compared with the current response draft, Diff v2.4, and the v5.6 execution-state snapshot.
+Before this review, all four original meeting transcripts (01–04) and `会议观点总结_2026-10-23.md` were read, then compared with the current response draft, Diff v2.4, and the v5.6 execution-state snapshot.
 
 - **Aligned:** retain \(S\) in the UV model; keep the paper's main line focused on \(A'\); reproduce the selected low-mass scalar constraints in the response instead of sending the referee back to Table II; cite existing singlet-scalar/Higgs-portal and scalar-search literature; distinguish perturbativity, plotting range, applied experimental exclusions, and unassessed regions; do not add particles.
 - **Specific response refinements:** the reply now explains that the perturbativity condition constrains \(m_s/v_s\) with \(v_s=m_{A'}/(2g_X)\) derived point by point, and gives the approximate mass ranges and distinct spin-0 interpretations of the two Belle II analyses cited in Diff 4B.
@@ -57,7 +57,7 @@ The response follows the 2026-10-23 meeting summary and transcripts:
 
 ## Changes made to the response-letter draft
 
-File: \`Replies_to_Referee_3_revised_working_2026-10-27.tex\`
+File: `Replies_to_Referee_3_revised_working_2026-10-27.tex`
 
 - Completed the overall Major Point 1 response so that it states the evidence boundary instead of leaving a scalar-classification placeholder.
 - Completed Major Point 1.1: separates generic published search coverage from a model-specific exclusion/discovery claim.
