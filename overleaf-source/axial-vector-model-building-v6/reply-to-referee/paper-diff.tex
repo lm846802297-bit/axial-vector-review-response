@@ -1,0 +1,1669 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+% !TeX program = xelatex
+% 中文排版：请使用 XeLaTeX 编译。
+\usepackage[UTF8]{ctex}
+\usepackage{slashed}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{fancyvrb}
+\usepackage{fvextra}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\},breaklines,breakanywhere,fontsize=\small}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{6em} % flexible line breaking for long technical text
+\tolerance=4000
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{chinese}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={axial\_vectorv6-diff-v2.2-原子映射与证据双轴-BelleII与Fig2闭环-2026-10-23},
+  pdflang={zh-CN},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{axial\_vectorv6-diff-v2.2-原子映射与证据双轴-BelleII与Fig2闭环-2026-10-23}
+\author{}
+\date{}
+
+\begin{document}
+\sloppy
+\maketitle
+
+\section{轴矢量模型 v6：统一研究工作与论文修改 Diff
+v2.2（原子映射与证据双轴版）}\label{ux8f74ux77e2ux91cfux6a21ux578b-v6ux7edfux4e00ux7814ux7a76ux5de5ux4f5cux4e0eux8bbaux6587ux4feeux6539-diff-v2.2ux539fux5b50ux6620ux5c04ux4e0eux8bc1ux636eux53ccux8f74ux7248}
+
+\begin{quote}
+\textbf{文档性质：} 作者内部唯一主文档，不随正式回复信提交。
+
+\textbf{研究对象：} \emph{An Axial \(U_A(1)_{L_{\mu-\tau}}\): UV
+Completion and Experimental Searches}，基准稿为
+\texttt{axial\_\hspace{0pt}vector\_\hspace{0pt}model\_\hspace{0pt}building-\hspace{0pt}v6.\hspace{0pt}pdf}。
+
+\textbf{用途：}
+将科学问题、研究任务、证据要求、论文逐段修改方案和最终验收集中维护。本版对照当前上传的
+\texttt{Replies\ to\ Referee(2).\hspace{0pt}tex}、\texttt{审稿意见分析\ v5.\hspace{0pt}7} 与原
+Diff；正式回复信 \texttt{.\hspace{0pt}tex}
+是独立的对外文档，本文件中的待办、内部状态和未完成占位符不得复制到正式回复信中。
+
+\textbf{状态原则：}
+本版只调整研究任务、论文修改方案及其与回复信的对应关系，不代表任何物理计算、实验重铸或论文修改已经完成。只有证据已保存、结果经过核查且论文修改已经实际落实，任务才可标记为''已验证''。回复信中的完成时表述也不等于工作已完成；凡与任务登记表状态冲突之处，均须在正式提交前解决。
+\end{quote}
+
+\subsection{\texorpdfstring{本版与 \texttt{Replies\ to\ Referee(2).\hspace{0pt}tex}
+的对齐原则}{本版与 Replies to Referee(2).tex 的对齐原则}}\label{ux672cux7248ux4e0e-replies-to-referee2.tex-ux7684ux5bf9ux9f50ux539fux5219}
+
+
+\subsection{统一任务登记表（唯一状态源）}\label{ux7edfux4e00ux4efbux52a1ux767bux8bb0ux8868ux552fux4e00ux72b6ux6001ux6e90}
+
+下表把原内部工作清单和原 Diff 的强制验收任务合并为同一套任务
+ID。状态是现有文档记录的基线，不代表本轮已重新执行计算或验收。
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.0600}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.3550}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1300}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2350}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1200}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+ID
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+研究任务与关闭条件
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+对应审稿意见
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+对应论文 Diff
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+主要证据/交付物
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+当前记录状态
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+T-00 & 锁定审稿人实际收到的 PDF，并与当前 v6 核对 Eq. (30)/(34)
+及相关约定 & Major 1；Minor 6.4 & Diff 0 &
+投稿版本、逐式对照记录、确认后的约定 & 待完成 \\
+T-01 & 决定 PMNS
+路线；若扩展，完成场与荷、质量矩阵、对角化/拟合、异常抵消及相关约束回归；若不扩展，收窄主张并评估是否足以回应审稿人
+& Major 3、Major 4.1 & Diff 11 及相关模型章节 &
+完整推导/拟合、独立核查、模型一致性检查，或明确的范围限制与理由 &
+\textbf{阻塞 Major 3} \\
+T-02 & 将 Higgs portal 纳入完整势能，定义重整化条件和尺度，计算轻子/VLL
+圈级贡献、阈值及非对角二点函数；正确处理 \(m_s\simeq m_h\) & Major 1.3 &
+Diff 2 & 势能与质量矩阵、重整化条件、圈级计算、近简并处理和独立核查 &
+待计算 \\
+T-03 & 量化标量/Higgs 约束：产生率、总宽度、分支比、寿命、Higgs
+信号强度、exotic decays
+和适用直接搜索；区分已排除、所考虑约束下未排除、未评估 & Major
+1、1.1、1.2、1.3；Major 4 & Diff 4、5、6 &
+模型特定重铸、假设清单、质量分类图/表、独立复核 & 待计算/重铸 \\
+T-04 & 核查 Belle II 等标量搜索的原始分析、spin-0
+解释、产生/衰变假设及接受度；不能仅凭质量覆盖判为排除 & Major 1.1、Major
+4；Minor 6.2、6.3 & Diff 4A--4C &
+原始分析依据、模型映射、适用性判断及必要的重铸 & 待完成 \\
+T-05 & 统一 VLL 质量与混合角 benchmark；核对
+\(m_\ell\simeq\theta_{\ell L}\theta_{\ell R}M_E\)、Eq. (22)/(27)
+和直接搜索界限；将 benchmark 推论与实验质量下限分开 & Minor 3、Minor 4 &
+Diff 3 & 精确/近似质量关系、可行参数选择、直接搜索假设和修订理由 &
+待修改与复核 \\
+T-06 & 定量计算动能混合
+\(\epsilon\)，说明匹配尺度、重整化条件、圈图表达式、阈值抵消条件、benchmark
+数值与误差 & Major 4.2 & Diff 7 &
+推导、参数/尺度记录、数值输出、实验尺度比较 & 待计算 \\
+T-07 & 评估有限 VLL 质量产生的残余矢量耦合及其与轴矢量约束的差异；将
+\(g_V^\ell\) 与动能混合 \(\epsilon\) 分开分析 & Major 4.3；Minor 2 &
+Diff 7 & \(g_V/g_A\) 的参数依赖、矢量敏感实验比较、对 Fig. 2 的影响 &
+待重铸 \\
+T-08 & 独立核查 \(A'\)
+的恒星冷却/超新星限制，包括粒子身份、电流结构、质量范围、产生机制及
+trapping/escape/decay 假设 & Major 4.4 & Diff 8 &
+原始文献、适用性判断、必要重铸及明确的约束分类 & 待完成 \\
+T-09 & 统一参数域与图表解释：删除或明确定义 ``light''（与 Minor 1/6.1
+统一）、绘图窗口、派生量、微扰性条件、pure-axial 定义、\(v_s\)
+参考线、扫描点定义、理论边界、实验排除和未评估区域 & Major 2；Minor
+1、2、6.1、6.4、6.6 & Diff 1、5、6、7 &
+参数表、图注、质量/耦合范围说明、pure-axial
+定义、扫描分类规则和重算后的图表 & 待修改 \\
+T-10 & 对四轻子/共振分析逐项核对质量覆盖、总宽度、分支比、寿命和
+prompt-decay 判据 & Minor 6.5 & Diff 9 &
+各实验适用区间、模型宽度/衰变长度计算、prompt 判据 & 待计算/修改 \\
+T-11 & 决定 muon-collider 部分保留为 illustrative
+study/outlook，还是扩展为完整 forecast；文字必须与实际计算深度一致 &
+Minor 5 & Diff 10 & 明确的研究范围；若做 forecast，则需
+luminosity、束流/探测器、背景、接受度和系统误差等假设 & 待决定 \\
+T-12 &
+将已验证的结果同步到摘要、引言、正文、表格、图注、结论和正式回复信；逐条核对回复信的完成时声明、占位符、实际论文差异与证据是否一致，并核对全部引用与编号
+& 全部意见 & Diff 1--14；正式回复信 & 最终 LaTeX
+diff、证据索引、完整编译 PDF、逐条回复---正文---证据核对表 & 最后执行 \\
+T-13 & 验证 UV 参数到低能 EFT 系数的匹配、匹配尺度与算符截断；在相同 UV
+输入点比较完整理论与截断 EFT
+的振幅/可观测量，量化截断误差，并检查扫描点是否存在满足同一组 UV
+条件的实现 & Major 2 及 UV--EFT 对照问题 & Diff 13 &
+匹配推导、适用能标、截断误差估计、同点 UV 参数记录、独立核查及正文修改 &
+待建立/待验证 \\
+T-14 & 汇总同一 UV
+输入下的全部相关修正，量化曲线/区域分类变化，并决定保留、局部修正或重算；T-14A
+基准冻结可先行，最终关闭需通过相关 T-04、T-09、T-10
+及其他适用依赖的结果门槛 & Major 2、3、4.2--4.4；Minor 1、2、6.2--6.6 &
+Diff 14 & 基准图及输入哈希、比较脚本、逐项影响报告、依赖/ N/A
+依据、保留/局部修正/重算决策记录 & 基准冻结待执行（T-14A 可先行） \\
+\end{longtable}
+
+\subsubsection{审稿意见到任务的补充映射}\label{ux5ba1ux7a3fux610fux89c1ux5230ux4efbux52a1ux7684ux8865ux5145ux6620ux5c04}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2929}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1286}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5786}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+审稿意见
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+统一任务
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+具体要避免的问题
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Major 1：标量 \(S\) & T-02、T-03、T-04 &
+把微扰性上界直接写成实验允许质量区间；仅凭质量覆盖声称已排除 \\
+Major 1.1：标量可探测性 & T-03、T-04 &
+没有匹配产生率、混合、总宽度、分支比、寿命和接受度就声称有灵敏度 \\
+Major 1.2：允许质量范围 & T-03、T-09 & 不给
+benchmark、参数范围和约束清单；把非连通区域写成单一连续区间 \\
+Major 1.3：portal 与 Higgs 限制 & T-02、T-03 &
+未计算就称混合可忽略；把远离简并区的小角近似外推到 \(m_s\simeq m_h\) \\
+Major 2：有效参数范围与 UV--EFT 对照 & T-09、T-13、T-14 & 把 Fig. 2
+的坐标范围当成完整物理允许域，或未检查 EFT 截断与同点 UV 实现性 \\
+Major 3、4.1：PMNS & T-01 &
+未构造并验证中微子质量机制却暗示最小模型已解释振荡 \\
+Major 4.2：动能混合 & T-06 & 把匹配尺度设定为零等同于实验尺度预测为零 \\
+Major 4.3：有限 VLL 质量 & T-05、T-07、T-14 & 仅凭 \(g_V/g_A\)
+小就忽略矢量敏感实验，或未比较对 Fig. 2 的实际影响 \\
+Major 4.4：恒星冷却 & T-08 & 把对标量 \(s\) 的限制当成对规范玻色子
+\(A'\) 的限制，或未经论证地判为无关 \\
+Minor 1、6.1：light & T-09、T-14 & 引言已删除未限定的
+``light''；仍须补充绘图范围的物理动机并验证相关参数域 \\
+Minor 2：pure axial & T-07 &
+未在引入质量基底耦合时定义严格纯轴矢量极限 \\
+Minor 3、4：VLL 与 benchmark & T-05 &
+混淆实验下限、条件性质量关系与人为选取的 benchmark \\
+Minor 5：muon collider & T-11 & 将解析示例写成未来排除/发现灵敏度预测 \\
+Minor 6.2、6.3：约束表述 & T-03、T-04 & 将 selected/non-exhaustive
+表说成全局最强限制；使用未定义的 ``intermediate mass'' \\
+Minor 6.4：point & T-09 & 不说明一个点是扫描网格中的 \((m_{A'},g_X)\)
+点 \\
+Minor 6.5：parameter region of interest & T-10 &
+不说明具体实验质量区间及 prompt 假设 \\
+Minor 6.6：\(v_s\) 参考线 & T-09 & 把标量自耦合 benchmark 线误称为
+\(y_{s\mu\mu}\) 的微扰性界限 \\
+\end{longtable}
+
+\subsubsection{依赖关系与推荐执行顺序}\label{ux4f9dux8d56ux5173ux7cfbux4e0eux63a8ux8350ux6267ux884cux987aux5e8f}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{版本基线：T-00；并行冻结图基准：R-14A。}
+  先核对审稿人实际收到的 PDF，锁定 Eq. (30)/(34)
+  的公式与约定；同时保存当前 Fig.
+  2、输入参数、约束曲线/来源、脚本和代码版本。冻结只为建立比较基准，不表示图已通过稳健性验证。
+\item
+  \textbf{先做模型决策与 benchmark 一致性：T-01、T-05。} PMNS
+  路线是科学阻塞项；VLL 质量与混合角也需一致。若中微子扩展引入新的带荷
+  VEV，必须重新推导 \(m_{A'}\) 与 VEV
+  的关系，并重新检查标量谱和受影响的约束。
+\item
+  \textbf{标量扇区：T-02，然后 T-03/T-04。} 先明确 portal
+  和物理标量谱，再作标量搜索的模型特定判断。Belle II
+  原始分析核查可并行开展，但最终排除结论必须使用一致的模型输入。
+\item
+  \textbf{有限质量与额外约束：T-06、T-07、T-08。}
+  明确区分动能混合与质量基底中的残余矢量耦合，并独立核查恒星冷却/超新星限制。
+\item
+  \textbf{UV--EFT 与基准稳健性：T-13、T-14。} T-13 核对匹配、EFT
+  截断和同点 UV 实现性；T-14A 可提前冻结 Fig. 2
+  的原始输入、脚本、数据和哈希，独立建立比较基线。T-14
+  的最终关闭则必须把所有会影响 Fig. 2 的相关结果放到同一组 UV
+  输入下比较，至少显式检查 T-04（Belle II
+  标量分析适用性）、T-09（参数域与图例分类）、T-10（四轻子质量覆盖/宽度/分支比/prompt
+  条件），以及 T-01/T-02/T-03/T-05/T-06/T-07/T-08/T-13。若其中某项对指定
+  benchmark
+  确实不适用，必须给出可复核的物理理由和证据；不能仅凭任务未完成就将其标为
+  N/A。T-14A 完成不代表 T-14 已关闭。
+\item
+  \textbf{参数图和具体分析：T-09、T-10、T-11。}
+  只有在相应计算和约束适用性明确后，才能定稿图表分类、prompt
+  区间和对撞机部分的定位。
+\item
+  \textbf{全文与回复信：T-12。}
+  最后同步摘要、引言、正文、图表、结论及回复信，重新生成编号并完成最终验收。
+\end{enumerate}
+
+\begin{quote}
+依赖顺序不意味着所有任务必须串行。原始文献核查、代码准备和部分独立推导可以并行；但依赖上游物理输入的最终数值结论不能提前定稿。
+\end{quote}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Part I.
+科学核查基线与优先级}\label{part-i.-ux79d1ux5b66ux6838ux67e5ux57faux7ebfux4e0eux4f18ux5148ux7ea7}
+
+\subsection{0.
+阅读论文后确认的关键事实与修改优先级}\label{ux9605ux8bfbux8bbaux6587ux540eux786eux8ba4ux7684ux5173ux952eux4e8bux5b9eux4e0eux4feeux6539ux4f18ux5148ux7ea7}
+
+\subsubsection{0.1
+当前稿件的实际结构}\label{ux5f53ux524dux7a3fux4ef6ux7684ux5b9eux9645ux7ed3ux6784}
+
+v6 的核心是：构造 anomaly-free、renormalizable 的 axial
+\(U_A(1)_{L_\mu-L_\tau}\) 规范扇区；通过 \(S\) 与 vector-like
+leptons（VLL）产生带电轻子质量；在 \(M_E\)
+较大、小轻重混合、\(m_s\gtrsim10\,\mathrm{GeV}\) 且忽略 Higgs--singlet
+混合的 benchmark 下，将现象学投影到 \((m_{A'},g_X)\) 平面。Fig. 2
+是这个\textbf{条件性 benchmark 切片}的约束图，不是完整 UV
+模型的全局允许区域。
+
+\subsubsection{0.2
+不能跳过的四个科学阻塞项}\label{ux4e0dux80fdux8df3ux8fc7ux7684ux56dbux4e2aux79d1ux5b66ux963bux585eux9879}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{PMNS/中微子质量：} 当前 v6
+  没有构造完整的中微子质量生成机制。按当前荷分配、仅有带荷 \(S\) 获得
+  VEV 的最小结构，残余对称性使电子味与 \(\mu,\tau\)
+  味分块；不能仅靠一段文字声称已解释观测到的 PMNS
+  混合。必须决定并完成一个明确的中微子扩展，或明确收窄本文主张；后者可能不足以消除审稿人对完整模型一致性的顾虑。
+\item
+  \textbf{标量/Higgs portal：} v6 的 Eq. (28) 只写
+  \(V(S)\)，之后直接假设 Higgs--singlet 混合可忽略。规范允许的
+  \((H^\dagger H)(S^\dagger S)\) 项、重整化边界、轻子/VLL 圈级贡献、近
+  \(m_s\simeq m_h\) 的精确谱与 Higgs
+  约束必须统一处理。没有计算前不能声称混合很小或 Higgs 约束可以忽略。
+\item
+  \textbf{动能混合与有限 VLL 质量：} v6 说明简并 VLL
+  的一圈阈值贡献相消，并在匹配尺度令动能混合为零；这不等于已定量回答有限质量、有限混合时的
+  \(\epsilon\) 和残余矢量耦合问题。
+\item
+  \textbf{实验约束完整性：} Table II 是轻标量 \(s\)
+  的限制，不能替代审稿人问到的规范玻色子 \(A'\)
+  的恒星冷却/超新星约束。BaBar、Belle 和 Belle II
+  的标量搜索也不能只按质量覆盖直接当成本文模型的排除线。
+\end{enumerate}
+
+\subsubsection{0.3 已可从 v6
+直接核对的代数关系}\label{ux5df2ux53efux4ece-v6-ux76f4ux63a5ux6838ux5bf9ux7684ux4ee3ux6570ux5173ux7cfb}
+
+在\textbf{单个破缺 VEV、portal 混合可忽略}的基准中， \[
+m_{A'}=2g_Xv_s,\qquad m_s^2=2\lambda_Sv_s^2,
+\qquad
+\lambda_S=\frac{2g_X^2m_s^2}{m_{A'}^2}.
+\] 若采用 \(\lambda_S\leq\lambda_S^{\max}\)，则 \[
+m_s\leq\sqrt{2\lambda_S^{\max}}\,v_s
+=\sqrt{\frac{\lambda_S^{\max}}{2}}\frac{m_{A'}}{g_X}.
+\] 取 \(\lambda_S^{\max}=4\pi\) 时， \[
+m_s\leq\sqrt{8\pi}\,v_s
+=\sqrt{2\pi}\frac{m_{A'}}{g_X}.
+\] 因此 \(m_s=10\,\mathrm{GeV}\) 的 benchmark 要求 \[
+v_s\geq\frac{10\,\mathrm{GeV}}{\sqrt{8\pi}}\simeq1.995\,\mathrm{GeV}.
+\] v6 的 Eq. (30) 与 Eq. (34) 在该约定下代数一致。审稿报告引用的上界系数
+\(4\pi\) 与当前 v6 在 \(\lambda_S^{\max}=4\pi\) 时导出的系数 \(8\pi\)
+不同；严格或非严格不等号取决于所采用的微扰性判据。必须先确认投稿系统中审稿人实际收到的版本，不能直接指称审稿人错误或擅自改动当前公式。
+
+\subsubsection{0.4 一个由当前 benchmark
+直接导出的内部一致性检查}\label{ux4e00ux4e2aux7531ux5f53ux524d-benchmark-ux76f4ux63a5ux5bfcux51faux7684ux5185ux90e8ux4e00ux81f4ux6027ux68c0ux67e5}
+
+v6 同时写有 \[
+m_\tau\simeq\theta_{\tau L}\theta_{\tau R}M_E,\qquad
+|\theta_{\tau L,R}|\le10^{-2}.
+\] 在该近似下，若两个 \(\tau\) 混合角都必须不超过 \(10^{-2}\)，则 \[
+M_E\gtrsim\frac{m_\tau}{10^{-4}}\simeq17.8\,\mathrm{TeV}.
+\] 因此仅写 \(M_E>10\,\mathrm{TeV}\) 不能保证 Eq. (27) 对两个 \(\tau\)
+混合角同时成立。建议将 benchmark 下限调整为约
+\(18\,\mathrm{TeV}\)，或重新定义混合角条件；该数值是\textbf{由所选混合角
+benchmark 推出的条件性理论关系，不是 VLL 直接搜索的实验质量下限}。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Part II. 论文修改
+Diff：位置、删除/替换/新增文本}\label{part-ii.-ux8bbaux6587ux4feeux6539-diffux4f4dux7f6eux5220ux9664ux66ffux6362ux65b0ux589eux6587ux672c}
+
+以下以 v6 的章节和印刷页码定位。页码、行号和公式编号必须在实际 LaTeX
+源稿更新后重新生成；若修改会改变公式编号，应使用
+\texttt{\textbackslash{}label\{\}} / \texttt{\textbackslash{}ref\{\}}
+而不是手工沿用旧编号。
+
+\subsection{Diff 0 --- 版本基线与 Eq.
+(30)/(34)（先做，不改物理内容）}\label{diff-0-ux7248ux672cux57faux7ebfux4e0e-eq.-3034ux5148ux505aux4e0dux6539ux7269ux7406ux5185ux5bb9}
+
+\textbf{位置：} Sec. II.C，Eqs. (28)--(35)，印刷页码 11--13。
+
+\textbf{操作：} 暂不直接改公式；先把投稿系统中审稿人收到的 PDF 与当前 v6
+对齐。审稿报告引用的上界与当前 v6
+的写法不同。锁定版本后，在正文用一行代数关系同时展示两个等价表达式，避免歧义。
+
+\textbf{建议新增句（仅在确认当前约定后插入 Eq. (30) 后）：}
+
+\begin{quote}
+Using \(m_s^2=2\lambda_Sv_s^2\) and \(m_{A'}=2g_Xv_s\), the
+perturbativity condition \(\lambda_S\leq\lambda_S^{\max}\) can
+equivalently be written as
+\(m_s\leq\sqrt{2\lambda_S^{\max}}\,v_s=\sqrt{\lambda_S^{\max}/2}\,m_{A'}/g_X\).
+This is a conditional theoretical bound at fixed \((m_{A'},g_X)\), not
+an experimental exclusion contour.
+\end{quote}
+
+\textbf{不要做：}
+不要在没有确认送审版本的情况下写''审稿人引用错误''；也不要只为了与审稿报告中的系数一致而改变
+v6 中彼此一致的公式。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Diff 1 --- Introduction 开头：删除未定义的 ``light''，并与
+Minor Point 1
+统一}\label{diff-1-introduction-ux5f00ux5934ux5220ux9664ux672aux5b9aux4e49ux7684-lightux5e76ux4e0e-minor-point-1-ux7edfux4e00}
+
+\textbf{位置：} Abstract 与 Sec. I 第一段第一句，印刷页码 1、3。
+
+\textbf{删除：}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{{-} Light neutral spin{-}one bosons provide a minimal and experimentally accessible extension of the Standard Model (SM).}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{替换为：}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Neutral spin{-}one bosons provide a minimal and experimentally accessible extension of the Standard Model (SM).}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{同步要求：}
+
+\begin{itemize}
+\tightlist
+\item
+  Abstract 保留论文实际研究的 MeV-to-TeV 质量范围。
+\item
+  在参数范围说明处明确 Fig.\textasciitilde2
+  的绘图窗口及其物理动机，不把整个范围笼统称为 ``light''。
+\item
+  如果作者决定在其他段落继续使用
+  ``light''，必须在该处给出相对于明确质量尺度或物理层级的定义；否则统一删除该词。
+\end{itemize}
+
+\textbf{与当前回复信的对齐状态：} \texttt{Replies\ to\ Referee(2).\hspace{0pt}tex}
+的 Minor Point 1 与 Minor Point 6.1 都采用删除未加限定的 \texttt{light}
+的路线，因此处理方向一致。Minor Point 1 仍需补充选择
+Fig.\textasciitilde2 绘图范围的物理动机；Minor Point 6.1
+的引号写法目前有缺失的左引号/多余的右引号，须修复。最终还要检查主论文源稿是否实际完成该删除，并在回复信中补入准确章节/页码信息（如需要）。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Diff 2 --- Sec. II.A 与 Sec. II.C：统一标量势、Higgs portal
+和物理质量矩阵}\label{diff-2-sec.-ii.a-ux4e0e-sec.-ii.cux7edfux4e00ux6807ux91cfux52bfhiggs-portal-ux548cux7269ux7406ux8d28ux91cfux77e9ux9635}
+
+\textbf{位置：} Sec. II.A 的 Eq. (2)（总拉氏量中出现 \(-V(S)\)
+的位置），以及 Sec. II.C 的 Eq. (28)（当前只定义 \(V(S)\)
+的位置）。这两个位置承担不同功能，不能用一个笼统的``替换 Eq.
+(28)''指令代替。
+
+\subsubsection{2A. 先明确总拉氏量如何组织，避免重复计入标准模型 Higgs
+势}\label{a.-ux5148ux660eux786eux603bux62c9ux6c0fux91cfux5982ux4f55ux7ec4ux7ec7ux907fux514dux91cdux590dux8ba1ux5165ux6807ux51c6ux6a21ux578b-higgs-ux52bf}
+
+先检查 \(\mathcal L_{\rm SM}\) 是否已经包含标准模型 Higgs
+势。若已包含，不得在新增势能中再次把同一项计入总拉氏量。建议采用以下两种组织方式之一，并在源稿中只保留一种：
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{方式 A（优先，改动较小）：} 保留 \(\mathcal L_{\rm SM}\)
+  中的标准模型 Higgs 势；在新增扇区中定义 \(V_{\rm new}(H,S)\)，仅包含
+  \(S\) 自势与 portal 项，并在 Eq. (2) 处以一致的符号加入
+  \(-V_{\rm new}(H,S)\)。
+\item
+  \textbf{方式 B：} 若要统一定义完整的 \(V(H,S)\)，则从
+  \(\mathcal L_{\rm SM}\) 中移除重复的 Higgs
+  势项，并明确说明总拉氏量中该势只出现一次。
+\end{itemize}
+
+在方式 A 下，可写为
+
+\[
+\begin{aligned}
+V_{\rm new}(H,S)
+={}& \lambda_S (S^\dagger S)^2
+-\mu_S^2 S^\dagger S\\
+&+\lambda_{HS}(H^\dagger H)(S^\dagger S).
+\end{aligned}
+\]
+
+而标准模型 Higgs 势仍由 \(\mathcal L_{\rm SM}\) 提供。若选方式
+B，完整势可写为
+
+\[
+\begin{aligned}
+V(H,S)
+={}&-\mu_H^2 H^\dagger H
++\lambda_H(H^\dagger H)^2\\
+&-\mu_S^2 S^\dagger S
++\lambda_S(S^\dagger S)^2\\
+&+\lambda_{HS}(H^\dagger H)(S^\dagger S).
+\end{aligned}
+\]
+
+
+\subsubsection{2B. 在 Eq. (28)
+统一定义，并列出树级结果的适用条件}\label{b.-ux5728-eq.-28-ux7edfux4e00ux5b9aux4e49ux5e76ux5217ux51faux6811ux7ea7ux7ed3ux679cux7684ux9002ux7528ux6761ux4ef6}
+
+采用
+
+\[
+H=\frac{1}{\sqrt2}\begin{pmatrix}0\\v_h+h_0\end{pmatrix},\qquad
+S=\frac{v_s+s_0}{\sqrt2},
+\]
+
+且以完整势能的驻点条件消去 \(\mu_H^2\)、\(\mu_S^2\) 后，树级 CP-even
+质量矩阵为
+
+\[
+\mathcal M^2_{hs}=\begin{pmatrix}
+2\lambda_Hv_h^2 & \lambda_{HS}v_hv_s\\
+\lambda_{HS}v_hv_s & 2\lambda_Sv_s^2
+\end{pmatrix},
+\qquad
+\tan 2\theta_{hs}=\frac{2\lambda_{HS}v_hv_s}
+{2\lambda_Hv_h^2-2\lambda_Sv_s^2}.
+\]
+
+在上述势能约定下，驻点条件为
+
+\[
+\mu_H^2=\lambda_Hv_h^2+\frac{\lambda_{HS}}{2}v_s^2,\qquad
+\mu_S^2=\lambda_Sv_s^2+\frac{\lambda_{HS}}{2}v_h^2.
+\]
+
+这些是\textbf{树级关系}，不是圈级物理极点质量或最终混合角的替代品。正式稿必须注明符号约定，并检查势能有界性、所选真空的稳定性及所采用的微扰性条件。
+
+\subsubsection{2C.
+必须完成的圈级和实验核查}\label{c.-ux5fc5ux987bux5b8cux6210ux7684ux5708ux7ea7ux548cux5b9eux9a8cux6838ux67e5}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  明确 \(\lambda_{HS}\)
+  的重整化方案、匹配/重整化尺度和边界条件；在某一尺度设置其重整化值为零，不代表所有能标上的物理混合效应都为零。
+\item
+  计算完整 UV 场内容下轻子和 VLL 对 portal
+  及非对角二点函数的贡献，区分重整化 portal
+  参数、动量依赖自能和物理混合角。
+\item
+  在 \(m_s\simeq m_h\)
+  附近使用完整的（必要时圈修正的）物理质量矩阵/极点条件，不把远离简并区的小混合角近似外推到近简并区。
+\item
+  对相关物理本征态核查 Higgs 信号强度、exotic
+  decays、标量产生率、总宽度、分支比和寿命；若 \(s\to A'A'\)
+  运动学开放，须纳入其对可见分支比的影响。
+\item
+  只有当标量对\textbf{指定观测量、参数域和目标精度}的影响经定量验证足够小，才可采用
+  scalar-suppressed 近似；不得仅因选取 \(m_s\geq10\,\mathrm{GeV}\)
+  就宣称标量已退耦。
+\end{enumerate}
+
+\subsection{\texorpdfstring{\textbf{状态：} T-02/T-03
+的物理阻塞项。没有完成以上计算和独立核查之前，不得在正文或回复信中宣称``loop-induced
+mixing is negligible''或``the Higgs constraints have been
+applied''。}{状态： T-02/T-03 的物理阻塞项。没有完成以上计算和独立核查之前，不得在正文或回复信中宣称``loop-induced mixing is negligible''或``the Higgs constraints have been applied''。}}\label{ux72b6ux6001-t-02t-03-ux7684ux7269ux7406ux963bux585eux9879ux6ca1ux6709ux5b8cux6210ux4ee5ux4e0aux8ba1ux7b97ux548cux72ecux7acbux6838ux67e5ux4e4bux524dux4e0dux5f97ux5728ux6b63ux6587ux6216ux56deux590dux4fe1ux4e2dux5ba3ux79f0loop-induced-mixing-is-negligibleux6216the-higgs-constraints-have-been-applied}
+
+\subsection{Diff 3 --- Sec. II.C：修正 VLL benchmark 与 ``conservative''
+用语}\label{diff-3-sec.-ii.cux4feeux6b63-vll-benchmark-ux4e0e-conservative-ux7528ux8bed}
+
+\textbf{位置：} Eqs. (21)--(27)，印刷页码 10--12。
+
+\subsubsection{3A. Eq. (22)
+的质量下限}\label{a.-eq.-22-ux7684ux8d28ux91cfux4e0bux9650}
+
+\textbf{当前文字：}
+
+\begin{equation}
+M_{E_\mu}=M_{E_\tau}\equiv M_E>10~\mathrm{TeV}.
+\end{equation}
+
+\textbf{建议改为（若保留 Eq. (27) 对左右两个混合角都成立）：}
+
+\[
+M_{E_\mu}=M_{E_\tau}\equiv M_E
+\gtrsim \frac{m_\tau}{(10^{-2})^2}
+\simeq 17.8~\mathrm{TeV}.
+\]
+
+并紧接着说明：
+
+\begin{quote}
+This lower scale follows from the leading-order mass--mixing relation
+together with the adopted upper bound on both \(\tau\) mixing angles; it
+is not a direct-search lower bound on vector-like-lepton masses.
+Direct-search limits depend on the representation, decay modes, and
+lifetime and are treated separately.
+\end{quote}
+
+如果作者不希望将 benchmark 下限改为约 \(18\,\mathrm{TeV}\)，则必须调整
+Eq. (27)
+的混合角假设，或用精确质量矩阵说明可行的参数选择；不能保留互相不兼容的下限和混合角条件。
+
+\subsubsection{3B. Eq. (27)
+前的用语}\label{b.-eq.-27-ux524dux7684ux7528ux8bed}
+
+\textbf{删除/替换：}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{{-} We therefore adopt the conservative benchmark}
+\VariableTok{+ For the illustrative small{-}mixing benchmark used in the following analysis, we impose}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{并在 Eq. (27) 后增加：}
+
+\begin{quote}
+The values in Eq. (27) are adopted benchmark assumptions, not universal
+experimental upper limits on all four mixing angles. Their consistency
+with the charged-lepton masses and \(M_E\) is checked using Eq. (21).
+Experimental constraints and benchmark choices are kept distinct below.
+\end{quote}
+
+\textbf{理由：}
+``conservative''需要说明相对于哪组限制、哪个置信水平以及哪种 VLL
+表示；未完成全套比较前应删除这一含糊判断。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Diff 4 --- Sec. II.C：重写 Table II
+前后的标量约束说明}\label{diff-4-sec.-ii.cux91cdux5199-table-ii-ux524dux540eux7684ux6807ux91cfux7ea6ux675fux8bf4ux660e}
+
+\textbf{位置：} Eq. (29) 后、Table II、Eq. (31)--(34)，印刷页码 11--13。
+
+\subsubsection{4A. Table II caption}\label{a.-table-ii-caption}
+
+\textbf{当前：}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{{-} TABLE II: Representative upper bounds ...}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{替换为：}
+
+\noindent
+\textbf{TABLE II:} Selected, non-exhaustive published constraints on the
+scalar \(s\) in the low-mass region, expressed as approximate upper bounds on
+\(\lvert y_{s\mu\mu}\rvert\). The quoted limits are approximate and inherit the
+assumptions of the corresponding analyses; production, trapping, decay,
+and loop-matching assumptions apply only where relevant to a given
+constraint. The table is not a complete global constraint set and does
+not identify the strongest bound at every scalar mass.
+
+\subsubsection{4B. 更正 Belle II
+的自旋解释}\label{b.-ux66f4ux6b63-belle-ii-ux7684ux81eaux65cbux89e3ux91ca}
+
+\textbf{当前文字（应删除）：}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{{-} Belle II four{-}lepton resonance searches reach approximately 9–10 GeV, but their published interpretations assume a spin{-}one mediator; applying them to s requires a scalar production and acceptance recast.}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{替换为：}
+
+ The Belle II results relevant to this discussion must be kept as
+separate analyses rather than combined into one generic scalar limit:
+
+\begin{itemize}
+    \item The four-muon resonance search (arXiv:2403.02841) covers an
+    approximately \(0.212\text{--}9\,\mathrm{GeV}\) dimuon-resonance mass
+    interval and includes a muonphilic spin-0 scalar interpretation.
+
+    \item The \(e^+e^-\to\mu^+\mu^-\tau^+\tau^-\) search
+    (arXiv:2306.12294) covers an approximately
+    \(3.6\text{--}10\,\mathrm{GeV}\) \(\tau^+\tau^-\) resonance interval
+    and includes a Higgs-like leptophilic spin-0 scalar interpretation.
+\end{itemize}
+
+These analyses have different production processes, final states,
+acceptances, and benchmark assumptions. The source and model assumptions
+must be recorded separately:
+
+\begin{longtable}{p{0.14\textwidth} p{0.22\textwidth} p{0.23\textwidth} p{0.23\textwidth} p{0.18\textwidth}}
+\hline
+\textbf{Analysis} &
+\textbf{Source / identifier} &
+\textbf{Data, channel and mass coverage} &
+\textbf{Published spin-0 benchmark and limits} &
+\textbf{Current recast status} \\
+\hline
+\endfirsthead
+
+\hline
+\textbf{Analysis} &
+\textbf{Source / identifier} &
+\textbf{Data, channel and mass coverage} &
+\textbf{Published spin-0 benchmark and limits} &
+\textbf{Current recast status} \\
+\hline
+\endhead
+
+Belle II four-muon resonance &
+\href{https://arxiv.org/abs/2403.02841}{arXiv:2403.02841};
+Phys.\ Rev.\ D \textbf{109}, 112015 (2024);
+Belle II record \texttt{BELLE2-PUB-PH-2023-007}. &
+\(e^+e^-\to\mu^+\mu^-X\), \(X\to\mu^+\mu^-\);
+\(m_X=0.212\text{--}9.000\,\mathrm{GeV}\);
+\(178\,\mathrm{fb}^{-1}\) at
+\(\sqrt{s}=10.58\,\mathrm{GeV}\). &
+Muonphilic spin-0 scalar with a Yukawa-like interaction exclusively to muons, parameterized by \(g_S\). The paper reports 90\% CL upper limits on the production cross section times dimuon branching fraction. &
+Source and published benchmark verified; model-specific mapping and recast not completed. \\
+\hline
+
+Belle II \(\tau^+\tau^-\) resonance &
+\href{https://arxiv.org/abs/2306.12294}{arXiv:2306.12294};
+Phys.\ Rev.\ Lett.\ \textbf{131}, 121802 (2023);
+Belle II record \texttt{BELLE2-PUB-PH-2022-004}. &
+\(e^+e^-\to\mu^+\mu^-X\), \(X\to\tau^+\tau^-\);
+\(m_X=3.6\text{--}10\,\mathrm{GeV}\);
+\(62.8\,\mathrm{fb}^{-1}\) at
+\(\sqrt{s}=10.58\,\mathrm{GeV}\). &
+Published interpretations include a Higgs-like spin-0 leptophilic scalar. The paper reports 90\% CL limits on the production cross section times \(\tau^+\tau^-\) branching fraction. &
+Source and existence of spin-0 interpretation verified; point-by-point mapping and recast not completed. \\
+\hline
+\end{longtable}
+
+For each analysis, assess whether its published scalar interpretation maps
+onto the present model by checking the relevant production couplings,
+mass-dependent Yukawa interactions, total width, branching fractions
+(including \(s\to A'A'\) where kinematically open), lifetime, and
+acceptance. A mass-range overlap alone is not sufficient to classify any
+region as excluded.
+
+The four-muon paper's \(g_S\) convention must not be silently substituted
+for the manuscript's \(y_{s\mu\mu}\). The two analyses also cannot be
+combined into one generic ``Belle II scalar limit.''
+
+\textbf{重要：}
+这段是对文献适用性的正确描述，不等于已经完成本文模型的重铸。若后续确认
+Belle II 的某个 spin-0 benchmark
+与本文完全匹配，应说明匹配条件；若不匹配，应给出差异并计算或明确保留未评估状态。
+
+\subsubsection{4C. 删除含糊的 ``intermediate scalar-mass
+region''}\label{c.-ux5220ux9664ux542bux7ccaux7684-intermediate-scalar-mass-region}
+
+\textbf{当前文字（应删除或重写）：}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{{-} Thus the B{-}factory searches do not provide a universal \textbackslash{}(g\_X\textbackslash{}) bound, but they show that the intermediate scalar{-}mass region cannot simply be assumed unconstrained.}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{建议替换为：}
+
+The published searches cover different scalar-mass intervals and make
+specific assumptions about production and decay. For the present model,
+the relevant comparison must include \(\Gamma(s\to A'A')\) when
+kinematically allowed, the visible leptonic widths, the total width,
+and the resulting branching fractions. We therefore report the
+constraint status separately for each mass interval:
+\textit{[Insert the model-specific recast result, or mark the interval
+as not yet assessed.]}
+The published mass coverage by itself is not an exclusion of the
+corresponding parameter region in this model.
+
+
+\subsubsection{4D. 重写 Eq. (34) 后的 scalar-suppressed benchmark
+段}\label{d.-ux91cdux5199-eq.-34-ux540eux7684-scalar-suppressed-benchmark-ux6bb5}
+
+\textbf{建议替换当前从 ``To isolate the axial-vector
+phenomenology\ldots{}'' 到 ``\ldots treat \(s\) as decoupled\ldots{}''
+的段落：}
+
+For the two-parameter effective-current analysis below, we define a conditional
+scalar-suppressed benchmark with \(m_s\geq 10\,\mathrm{GeV}\). This mass choice
+alone does not establish scalar decoupling; the approximation is used only for
+observables and parameter points for which the scalar-sector checks support it.
+
+In the negligible-mixing limit, the scalar self-coupling satisfies
+\[
+m_s\leq \sqrt{2\lambda_S^{\max}}\,v_s,
+\qquad
+v_s=\frac{m_{A'}}{2g_X}.
+\]
+For the illustrative choice \(\lambda_S^{\max}=4\pi\), the existence
+of a point with \(m_s\geq 10\,\mathrm{GeV}\) requires
+\[
+v_s\geq \frac{10}{\sqrt{8\pi}}\,\mathrm{GeV}
+\simeq 1.995\,\mathrm{GeV}.
+\]
+This is a theoretical condition on the selected benchmark, not an
+experimental exclusion line.
+
+For each plotted point \((m_{A'},g_X)\), we derive \(v_s\), apply the
+stated scalar-coupling condition, and separately record the status of
+the scalar-sector constraints. The effective-current contours in
+Fig.~2 are not, by themselves, a global allowed region of the UV
+completion, and the scalar-suppression assumption must be validated
+separately for the observables under discussion. The final scalar
+classification is [insert the result after the scalar search recast
+and portal analysis].
+
+\textbf{必须删去或在计算后重写：} - ``avoids the strongest light-scalar
+constraints''------除非完成相应约束比较； - ``there is no comparably
+broad published scalar exclusion''------在核查并映射 Belle II spin-0
+结果前不能这样概括； - ``otherwise treat \(s\) as
+decoupled''------应限定到已验证的观测量、参数域和误差门槛。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Diff 5 --- 在 Sec. II.C
+增加统一参数表}\label{diff-5-ux5728-sec.-ii.c-ux589eux52a0ux7edfux4e00ux53c2ux6570ux8868}
+
+\textbf{位置：} Eq. (35) 后、Sec. III 前。
+
+新增一张表（建议编号 Table III；原 Table III 如被占用则顺延）：
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1800}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1900}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3400}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2900}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Parameter
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Role in the benchmark
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Range/condition
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Interpretation
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(m_{A'}\) & independent scan variable & Fig. 2 plotting window:
+\(10^{-3}\)--\(10^2\,\mathrm{GeV}\) & plotting range, not a universal
+bound \\
+\(g_X\) & independent scan variable & Fig. 2 plotting window:
+\(10^{-6}\)--\(10^{-1}\) & plotting range, not a universal bound \\
+\(v_s\) & derived in the minimal one-VEV benchmark &
+\(v_s=m_{A'}/(2g_X)\) & not independent once \((m_{A'},g_X)\) are
+fixed \\
+\(m_s\) & scalar-suppressed benchmark input &
+\(m_s\geq10\,\mathrm{GeV}\), subject to perturbativity and scalar-sector
+checks & not automatically decoupled or experimentally allowed \\
+\(\lambda_S\) & derived scalar coupling &
+\(\lambda_S=2g_X^2m_s^2/m_{A'}^2\) in the negligible-mixing limit &
+apply the stated \(\lambda_S^{\max}\) criterion \\
+\(M_E\) & VLL benchmark & revise consistently with Eq. (21) and Eq. (27)
+& distinguish benchmark inference from direct-search limits \\
+\(\theta_{\ell L,R}\) & small-mixing assumptions & state the chosen
+benchmark and the experimental basis separately & finite values imply
+residual non-axial effects \\
+\(\lambda_{HS}\) & portal parameter & specify renormalization condition
+and scale & cannot be omitted without justification \\
+\(\epsilon\) & kinetic mixing & specify matching condition and
+loop/threshold result & distinct from the VLL-induced \(g_V\) \\
+\end{longtable}
+
+\textbf{表下注释必须写清楚：} The table summarizes the benchmark used
+for the plotted analysis. It is not a claim that every point in the
+displayed window satisfies all theoretical conditions or all
+experimental constraints. Unassessed regions remain unassessed.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Diff 6 --- Fig. 2
+caption：明确坐标范围与灰虚线含义}\label{diff-6-fig.-2-captionux660eux786eux5750ux6807ux8303ux56f4ux4e0eux7070ux865aux7ebfux542bux4e49}
+
+\textbf{位置：} Fig. 2，印刷页码 21。
+
+\textbf{建议在现有 caption 末尾增加：}
+
+The displayed axes define the plotting window
+\(10^{-3}\,\mathrm{GeV}\lesssim m_{A'}\lesssim 10^2\,\mathrm{GeV}\) and
+\(10^{-6}\lesssim g_X\lesssim 10^{-1}\); they are not global physical
+boundaries. The contours refer to the conditional pure-axial
+effective-current benchmark in Sec.~II.C; the scalar-suppression
+assumption is valid only where supported by the scalar-sector checks.
+For \(m_s=10\,\mathrm{GeV}\) and \(\lambda_S^{\max}=4\pi\), the exact
+tree-level condition is
+\[
+v_s\geq \frac{10}{\sqrt{8\pi}}\,\mathrm{GeV}
+\simeq 1.995\,\mathrm{GeV}.
+\]
+The dashed \(v_s=2\,\mathrm{GeV}\) line is a rounded visual reference,
+not the exact boundary and not an experimental exclusion line.
+
+The scalar constraints and the finite-VLL/kinetic-mixing constraints
+must be applied separately when assessing the full UV model.
+
+\textbf{正文 Fig. 2 后的相关句子建议替换为：}
+
+The \(v_s=2\,\mathrm{GeV}\) line is a reference for the chosen scalar
+benchmark. Since \(y_{s\mu\mu}=m_\mu/v_s\), the Yukawa coupling equals
+approximately \(0.053\) on this line. Moreover,
+\[
+\frac{y_{s\mu\mu}^2}{4\pi}
+\simeq 2.2\times 10^{-4}\ll 1,
+\]
+so the Yukawa coupling itself is perturbative at this reference point.
+The line therefore does not represent a nonperturbativity bound on
+\(y_{s\mu\mu}\); it encodes the chosen upper bound on
+\(\lambda_S\) for \(m_s=10\,\mathrm{GeV}\).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Diff 7 --- 在质量基底耦合处定义 pure-axial limit，并限定
+Fig. 2
+的适用范围}\label{diff-7-ux5728ux8d28ux91cfux57faux5e95ux8026ux5408ux5904ux5b9aux4e49-pure-axial-limitux5e76ux9650ux5b9a-fig.-2-ux7684ux9002ux7528ux8303ux56f4}
+
+\textbf{位置：} Sec. II 中引入质量基底耦合的 Eq.\textasciitilde(12)
+附近，以及 Sec. III 的 Eq.\textasciitilde(36) 前后；印刷页码约
+7、13--14（以最终稿为准）。
+
+\subsubsection{7A. 在 Eq. (12)
+附近直接定义严格纯轴矢量极限}\label{a.-ux5728-eq.-12-ux9644ux8fd1ux76f4ux63a5ux5b9aux4e49ux4e25ux683cux7eafux8f74ux77e2ux91cfux6781ux9650}
+
+在给出 \[
+g_V^\mu=g_X\sin^2\theta_{\mu R},\qquad
+g_A^\mu=-g_X\cos^2\theta_{\mu R}
+\] 之后，紧接着说明：
+
+The strict pure-axial limit in the muon sector is defined by
+\(\theta_{\mu R}\to 0\), for which \(g_V^\mu\to 0\) and
+\(g_A^\mu\to -g_X\). For finite \(\theta_{\mu R}\), the interaction
+contains a residual vector component and is not strictly purely axial.
+The corresponding limit in the tau sector is defined consistently
+using the tau mass-basis couplings and the same charge conventions.
+
+在最终源稿中，应将 tau 扇区的实际耦合关系与极限写清楚，不要仅以一句
+``treated consistently'' 代替可核查的定义。
+
+\subsubsection{7B. 在 Eq. (36)
+后说明后续约束图所采用的近似}\label{b.-ux5728-eq.-36-ux540eux8bf4ux660eux540eux7eedux7ea6ux675fux56feux6240ux91c7ux7528ux7684ux8fd1ux4f3c}
+
+Unless explicitly stated otherwise, the constraints below are
+evaluated in the strict pure-axial effective-current limit. This
+limit is approached by the UV benchmark for small light--heavy
+mixing, but finite vector-like-lepton masses can leave residual
+vector couplings and can contribute to kinetic mixing through
+threshold and mixing effects. The mass-basis vector coupling
+\(g_V^\ell\) and the gauge-field kinetic-mixing parameter
+\(\epsilon\) are distinct quantities and must be assessed separately.
+
+\textbf{必须另行完成的工作：} 给出 \(\epsilon\)
+的匹配/重整化条件、圈级表达式及 benchmark 数值；分别评估 \(g_V^\ell\) 与
+\(\epsilon\) 对实验约束的影响。只有在 T-06/T-07
+的定量比较完成后，才能声称这些效应不会改变 Fig.\textasciitilde2
+的排除结论。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{\texorpdfstring{Diff 8 --- Major 4.4：单独增加 \(A'\)
+的恒星冷却/超新星适用性讨论}{Diff 8 --- Major 4.4：单独增加 A\textquotesingle{} 的恒星冷却/超新星适用性讨论}}\label{diff-8-major-4.4ux5355ux72ecux589eux52a0-a-ux7684ux6052ux661fux51b7ux5374ux8d85ux65b0ux661fux9002ux7528ux6027ux8ba8ux8bba}
+
+\textbf{位置：} 建议在 Sec. III 的现有约束小节之后、Sec. IV
+之前增加一个小节；若结果很简短，也可在 Sec. III
+开头的约束清单中增加专门段落。
+
+\textbf{建议小节标题：}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{\textbackslash{}subsection}\NormalTok{\{Stellar{-}cooling and supernova constraints\}}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{可先插入的结构性文字（方括号必须由实际核查结果替换）：}
+
+The stellar constraints on the scalar \(s\) summarized in Table~II
+are distinct from stellar-cooling and supernova constraints on the
+gauge boson \(A'\). We assess the latter using the production,
+trapping, and escape assumptions of the relevant analyses, and check
+their applicability to the axial current and to the mass and coupling
+range considered here. The resulting constraint is [applicable in
+the specified region / subdominant to the stated constraints /
+not directly applicable for the following physical reason].
+The comparison and its assumptions are summarized in [Table/Fig.~X].
+
+\textbf{必须做的核查：} 1. 回到审稿人点名的原始论文，确认其研究的是
+\(A'\) 还是其他粒子、矢量还是轴矢量电流、适用质量区间及介质条件。 2.
+检查产生率、纵向模、有限
+\(g_V\)、动能混合、俘获/逃逸和衰变长度是否改变结果。 3.
+如果需要重铸，记录数据/曲线、假设和误差；若无法可靠重铸，明确标记未评估，不得写成已排除或不相关。
+4. 在参考文献表加入并核对该原始文献的完整 bibliographic entry。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Diff 9 --- Sec. III.E：删除未定义的 ``parameter region of
+interest''}\label{diff-9-sec.-iii.eux5220ux9664ux672aux5b9aux4e49ux7684-parameter-region-of-interest}
+
+\textbf{位置：} Sec. III.E 第一段，印刷页码 22。
+
+\textbf{当前文字：}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{{-} In the parameter region of interest, the produced \textbackslash{}(A\textquotesingle{}\textbackslash{}) promptly decays into a pair of charged leptons or neutrinos ...}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{建议替换为：}
+
+For each four-muon search, we use only the mass interval and event
+selection covered by the corresponding experimental analysis. The
+prompt-decay approximation is applied only where the model-dependent
+decay length
+\[
+L_{\rm dec}=\beta\gamma c\tau_{A'},
+\qquad
+c\tau_{A'}=\frac{\hbar c}{\Gamma_{A'}},
+\]
+is short compared with the relevant prompt-selection scale. The total
+width and \(\mathrm{Br}(A'\to\mu^+\mu^-)\) are evaluated with the open
+channels of the benchmark. Parameter points that do not satisfy the
+prompt assumption are not interpreted using the prompt-resonance recast.
+
+\textbf{与回复信 Minor Point 6.5 对齐的实验覆盖范围：}
+
+\[
+\begin{aligned}
+\text{BaBar}:&\quad 0.212\text{--}10\,\mathrm{GeV},\\
+\text{Belle II}:&\quad 0.212\text{--}9\,\mathrm{GeV},\\
+\text{CMS}:&\quad 5\text{--}70\,\mathrm{GeV}.
+\end{aligned}
+\]
+
+这些是相应已发表分析的近似质量覆盖范围，不是整个区间都被本文模型排除。正文或表格还须分别列明过程
+\(e^+e^-\to\mu^+\mu^-A'\), \(A'\to\mu^+\mu^-\) 与 \(Z\to\mu^+\mu^-A'\),
+\(A'\to\mu^+\mu^-\)，以及各分析实际使用的事件选择和宽度/分支比假设。
+
+\textbf{可保留的示例估算（仅代表一个 benchmark 点）：}
+
+As an illustrative check, at \(m_{A'}=0.212\,\mathrm{GeV}\) and
+\(g_X=7\times10^{-4}\), the neutrino decay channels alone give
+\[
+c\tau_{A'}\lesssim 0.072\,\mu\mathrm{m},
+\]
+corresponding to a laboratory-frame decay length of approximately
+\(1.8\,\mu\mathrm{m}\) for \(\gamma\simeq25\). This estimate supports
+the prompt-decay approximation at this benchmark point, but does not
+establish its validity throughout the full parameter space.
+
+\textbf{后续必须补充：}
+对用于重铸的参数点计算总宽度、\(\mathrm{Br}(A'\to\mu^+\mu^-)\)
+和实验室衰变长度，并与每个实验的 prompt-selection 条件比较。单个
+benchmark 的估算不能替代整个参数域的检验。近 dimuon
+阈值处还须保留矢量到轴矢量的 rate-matching 近似不等于 detector-level
+exclusion 的限定。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Diff 10 --- Sec. IV：把 muon-collider 部分定位为
+illustrative
+study}\label{diff-10-sec.-ivux628a-muon-collider-ux90e8ux5206ux5b9aux4f4dux4e3a-illustrative-study}
+
+\textbf{位置：} Sec. IV 第一段，印刷页码 24--26。
+
+\textbf{建议将开头两段重写为：}
+
+This section presents an illustrative study of angular observables
+that distinguish vector and axial \(U_A(1)_{L_\mu-L_\tau}\) currents
+at a future high-energy muon collider. The purpose is not to provide
+a detector-level sensitivity projection, but to demonstrate why a
+total-rate rescaling alone can miss the chirality dependence of the
+signal. The muon collider is a complementary probe because the
+initial state couples directly to the muon-philic interaction and
+can access mediator masses beyond the low-energy searches discussed
+above.
+
+We use \(\mu^+\mu^-\to\tau^+\tau^-\) as a clean analytic example and
+study the differential rate and forward--backward asymmetry. A full
+forecast would require a specified integrated luminosity, beam and
+detector assumptions, signal/background simulation, and systematic
+uncertainties. Polarization asymmetries require additional assumptions
+about beam polarization and are left for future work. Searches for
+the scalar sector at a future Higgs factory are complementary, but
+their sensitivity depends on the physical scalar mixing, production
+modes, and branching fractions; we do not claim a quantitative reach
+without a dedicated study.
+
+\textbf{操作：} - 保留 Eq. (65)--(67) 与 Fig. 3 作为解析示例； -
+删除任何可能被理解为''已经给出未来排除曲线''的措辞； -
+若没有新增极化或探测器模拟，不要把它们写成本文已完成结果； -
+若后续决定把 muon-collider
+分析扩展成主要结果，则必须补全设置和统计分析，而不能只加强文字。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Diff 11 --- Introduction、Conclusion
+与摘要：同步收窄主张}\label{diff-11-introductionconclusion-ux4e0eux6458ux8981ux540cux6b65ux6536ux7a84ux4e3bux5f20}
+
+\textbf{位置：} Abstract、Introduction 末段、Conclusion，印刷页码
+1、4、26--27。
+
+\subsubsection{11A. Abstract}\label{a.-abstract}
+
+当前摘要中 ``In this limit, the observables considered here depend
+mainly on \((m_{A'},g_X)\)'' 应明确为 benchmark 结论，而不是对完整 UV
+参数空间的陈述。
+
+\textbf{建议替换相关句子为：}
+
+For the specified heavy-VLL and small-mixing benchmark, with scalar
+effects suppressed only where quantitatively justified, the observables
+studied below are primarily organized in the
+\((m_{A'},g_X)\) plane. The resulting contours are conditional
+on these assumptions and do not by themselves represent the global
+allowed region of the full UV model.
+
+\textbf{PMNS 的摘要表述：}
+只有在完成扩展模型及质量矩阵拟合后，才可在摘要中声称已解决中微子振荡问题。若未完成，摘要不得暗示当前最小场内容已经提供完整的
+neutrino-mass completion。
+
+\subsubsection{11B. Introduction
+末段}\label{b.-introduction-ux672bux6bb5}
+
+在论文组织结构段前，新增一段简短的 scope statement：
+
+The two-parameter plots below refer to a specified benchmark of the
+UV construction. They should be distinguished from a global fit of
+all scalar, vector-like-lepton, kinetic-mixing, and neutrino-sector
+parameters. The assumptions needed for this benchmark and the
+additional conditions required to interpret it as a complete UV
+parameter point are stated explicitly in Sec.~II.
+
+若完成中微子扩展，应将 ``neutrino-sector parameters''
+后补充该扩展的具体说明；若未完成，必须明确当前模型不自行解释观测到的
+PMNS。
+
+\subsubsection{11C. Conclusion}\label{c.-conclusion}
+
+\textbf{在结论末段增加：}
+
+The constraints displayed in Fig.~2 are evaluated in the specified
+pure-axial effective-current limit and a scalar-suppressed benchmark
+whose validity must be established for the observables considered. A
+point in this plane is not automatically a viable point of the full
+UV model: the scalar potential and portal, finite-VLL effects,
+kinetic mixing, and the relevant additional constraints must be
+checked under a consistent set of UV inputs. We therefore distinguish
+the effective-current constraints from the full UV-model classification.
+
+PMNS 部分必须根据实际模型决策改写为以下二者之一：
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{若扩展已验证：} 简述新场内容、质量矩阵和已验证的 PMNS
+  兼容性，并说明对 \(m_{A'}\)、标量谱及约束的影响。
+\item
+  \textbf{若未扩展：} 明确说明最小模型不提供完整的中微子质量/PMNS
+  机制；不得在结论中暗示其已经解决中微子振荡问题。
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Part III.
+任务关闭、证据归档与最终验收}\label{part-iii.-ux4efbux52a1ux5173ux95edux8bc1ux636eux5f52ux6863ux4e0eux6700ux7ec8ux9a8cux6536}
+
+本部分是发布前的\textbf{流程验收门}；各项研究任务的状态只在前面的''统一任务登记表''中维护，避免出现两套状态表。
+
+\subsection{任务关闭标准}\label{ux4efbux52a1ux5173ux95edux6807ux51c6}
+
+任何 T-00 至 T-14 任务，只有同时满足适用条件时才能标记为``已验证''：
+
+\begin{itemize}
+\tightlist
+\item[$\square$]
+  研究输入与基准版本已记录，包括论文版本、模型假设、参数范围、重整化/匹配条件及实验分析版本。
+\item[$\square$]
+  推导或计算已完成，代码/notebook、软件版本、输入和输出文件可追溯；手算、数值检查或独立实现至少完成适合该任务的交叉核验。
+\item[$\square$]
+  实验约束已核对实际适用的粒子、电流结构、质量覆盖、产生率、总宽度、分支比、寿命、接受度及置信水平；不适用的项目须给出物理理由。
+\item[$\square$]
+  结论被明确分类为理论一致、实验排除、在已考虑约束下未排除、未评估或未来灵敏度；没有将
+  benchmark 结论外推到整个参数空间。
+\item[$\square$]
+  对应论文修改已经实际写入源稿，且修改前后差异可定位；若决定不修改，记录理由及审稿意见为何仍得到回应。
+\item[$\square$]
+  独立复核结果、未解决的不确定度和剩余适用边界已记录。若任何关键项仍未满足，状态应保留为``进行中''``待独立核查''或``阻塞''。
+\item[$\square$]
+  若任务涉及 Fig.
+  2，已与冻结基准进行同输入、同实验假设下的比较；明确指出曲线变化的质量/耦合区域、数值标准和不确定度，不以视觉相似替代定量比较。
+\item[$\square$]
+  T-13 关闭时，已记录 UV--EFT
+  匹配约定、适用能标、保留算符阶数、截断误差和同点 UV
+  可实现性；不能只给出形式上的 Wilson 系数对应。
+\item[$\square$]
+  T-14
+  关闭时，已给出保留原图、局部修正或重算的证据化决定；不得预先承诺图一定保留或一定重算。
+\end{itemize}
+
+\subsection{正式提交发布门}\label{ux6b63ux5f0fux63d0ux4ea4ux53d1ux5e03ux95e8}
+
+\begin{itemize}
+\tightlist
+\item[$\square$]
+  T-00 至 T-14
+  均已验证，或对不再适用的任务给出有证据支持的关闭理由；T-01 的 PMNS
+  阻塞已明确解决或经过充分论证地收窄论文主张，并评估是否满足审稿人要求。
+\item[$\square$]
+  Diff 0--14 的每项操作均已落实，或记录了不采纳该修改的明确理由；Diff
+  建议文本没有未经核验就直接当作最终结论。
+\item[$\square$]
+  论文摘要、引言、模型、约束部分、图表、结论之间没有相互矛盾的主张；公式、图表、文献、章节引用和页码均按最终稿重新核对。
+\item[$\square$]
+  Fig. 2 的绘图窗口、条件性
+  benchmark、理论一致性、实验排除、所考虑约束下未排除和未评估区域明确区分。
+\item[$\square$]
+  正式回复信逐条保留审稿意见原文并给出对应回应；不含内部清单、工作状态、待办、方括号占位符或尚未完成的结果声明。
+\item[$\square$]
+  回复信中的每一项 ``we have revised''``we
+  find''``excluded''``allowed''``consistent with
+  PMNS''等陈述，都有最终论文差异、计算输出或实验重铸证据对应。
+\item[$\square$]
+  主论文和回复信的 LaTeX 均完整编译；检查 PDF
+  中的标题层级、编号、公式断行、引用、分页和超出边界的文本。
+\item[$\square$]
+  最终提交版本、源稿 commit/hash、编译日志、最终 PDF
+  和回复信版本已归档，确保结论可复现、可追溯。
+\end{itemize}
+
+\subsection{最终写作规则（与任务登记表配套）}\label{ux6700ux7ec8ux5199ux4f5cux89c4ux5219ux4e0eux4efbux52a1ux767bux8bb0ux8868ux914dux5957}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  ``理论上可实现''``在列明实验下未排除''``实验排除''``EFT
+  不适用''``未来可探测''是不同结论，不能混用。
+\item
+  一个 benchmark 通过检查，不代表整个参数区间通过检查。
+\item
+  发现某个实验的质量覆盖，不代表它已经排除本文模型；必须匹配产生率、耦合、宽度、分支比、寿命和接受度。
+\item
+  ``portal 可忽略''必须限定在明确参数域、过程和误差门槛；不能只依据
+  \(\lambda_{HS}\) 的某个边界值。
+\item
+  PMNS 扩展若引入新带荷 VEV，必须重新推导 \(m_{A'}\) 与 VEV
+  的关系，并重新检查标量谱、UV--EFT 映射和所有受影响的实验约束。
+\item
+  所有 \texttt{{[}待计算/\hspace{0pt}待填入{]}}
+  项完成后，才把工作稿转为正式回复信；最后再按修订稿重新核对章节、方程、图表编号和页码。
+\end{enumerate}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Diff 12 ---
+正式回复信逐点对照表与提交前一致性验收}\label{diff-12-ux6b63ux5f0fux56deux590dux4fe1ux9010ux70b9ux5bf9ux7167ux8868ux4e0eux63d0ux4ea4ux524dux4e00ux81f4ux6027ux9a8cux6536}
+
+\textbf{用途：} 将 \texttt{Replies\ to\ Referee(2).\hspace{0pt}tex}
+中的每项主要陈述映射到论文正文、计算或实验核查。此处是内部验收表，不应放入正式回复信。
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1800}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3900}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1200}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3100}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+回复信位置
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+论文应落实的修改/证据
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+对应任务
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+当前必须注意的事项
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Major Point 1 & 给出 \(m_s\)、\(\lambda_S\)、\(v_s\)
+的条件性关系；区分理论上界、实验排除、所考虑约束下未排除和未评估区域 &
+T-03、T-04、T-09 &
+只有理论公式不足以给出实验允许质量区间；保留最终分类占位符直至重铸完成 \\
+Major Point 1.1 & 将 scalar \(s\) 纳入 UV
+完备模型的现象学讨论；计算产生率、物理混合、总宽度、分支比、寿命和适用搜索；处理
+\(s\to A'A'\) & T-02、T-03、T-04 &
+质量落在实验覆盖内不等于已排除或已证明可探测 \\
+Major Point 1.2 & 给出 \(m_{A'}\)、\(g_X\) 扫描范围、scalar
+benchmark、\(\lambda_S^{\max}\)、约束清单及投影分类 & T-03、T-09 &
+不能把满足微扰性写成实验可行；允许投影可为非连通区域 \\
+Major Point 1.3 & 写出完整 Higgs portal 势、重整化条件、轻子/VLL
+圈级贡献、物理质量矩阵，并处理 \(m_s\simeq m_h\) & T-02、T-03 &
+当前回复信写成''已计算/已应用''，但任务仍未关闭；完成前必须修正回复语气或先完成研究 \\
+Major Point 2 & 统一参数表；区分 Fig. 2 plotting window、条件性
+benchmark、理论一致性、实验排除和未评估区域，并验证 UV--EFT
+匹配/截断及同点 UV 实现性 & T-09、T-13、T-14 & Fig. 2
+的轴范围不是全局物理边界；图的稳健性须由比较决定 \\
+Major Point 3 / Point 3.1 & 推导允许/禁止的 Weinberg 算符与带电轻子
+Yukawa 项，构造质量矩阵并检查 PMNS & T-01 &
+必须作出扩展或范围限定的明确决定；不能只用文字承诺解决 \\
+Major Point 3 / Point 3.2 & 若增加右手中微子，给出场内容、荷、允许的
+Dirac/Majorana 项、质量矩阵、异常抵消及受影响扇区的复核 & T-01 &
+仅加入右手中微子并不能保证混合 \\
+Major Point 3 总结与 Major 4.1 & 与 Point 3
+使用同一中微子方案；摘要、引言、结论及回复信不能相互矛盾 & T-01、T-12 &
+如果采用范围限定路线，明确写出最小构造不自行解释非平凡
+PMNS，并评估是否足以回应审稿人 \\
+Major Point 4 总述 & 给出约束适用性表，区分 \(s\)、\(A'\)、有限 VLL
+效应、严格纯轴矢量极限 & T-03、T-06、T-07、T-08、T-12、T-14 &
+``已应用/次主导/不适用''每种分类都要有依据；未评估不能写成不相关 \\
+Major 4.2 &
+匹配尺度、重整化条件、动能混合圈级表达式、阈值抵消条件、benchmark
+数值和实验尺度比较 & T-06 &
+在数值和误差核查完成前，不声称实验尺度动能混合为零 \\
+Major 4.3 & 单独比较残余矢量耦合与轴矢量约束，并评估动能混合对 Fig. 2
+的影响 & T-07、T-14 & \(g_V/g_A\lesssim10^{-4}\)
+是耦合比，不是实验约束强弱之比 \\
+Major 4.4 & 对 \(A'\)
+的恒星冷却/超新星限制核查电流结构、质量/耦合范围、产生、纵向模、trapping/escape/decay
+& T-08 &
+回复信当前称''已评估''，但最终结论仍占位；证据闭环前不能保留该完成时陈述 \\
+Minor Point 1 & 解释 \(m_{A'}\) 和 \(g_X\)
+范围为何被选作绘图窗口，给出相关现象学动机 & T-09 & 删除路线已与 Minor
+6.1 对齐；仍须补足绘图范围的物理动机，并核对正文实际差异 \\
+Minor Point 2 & 在 Eq. (12) 质量基底耦合处定义 \(\theta_{\mu R}\to0\)
+的严格纯轴矢量极限，并按相同约定说明 tau 扇区 & T-07、T-09 & 不要只在
+Eq. (36) 附近首次定义该词 \\
+Minor Point 3 & 给出由
+\(m_\ell\simeq\theta_{\ell L}\theta_{\ell R}M_{E\ell}\)
+推出的条件性质量尺度，区分直接搜索界限并核查表示、衰变和寿命假设 & T-05
+& \(M_E\gtrsim17.8\,\mathrm{TeV}\) 是两个 tau 混合角均不超过 \(10^{-2}\)
+时的领先阶条件性推论，不是直接实验下限 \\
+Minor Point 4 & 将 ``conservative benchmark'' 改为 ``small-mixing
+assumption''，并与实验界限区分 & T-05 & 若要继续称
+conservative，必须提供相对于明确实验约束的定量比较 \\
+Minor Point 5 & 将 muon-collider 部分定位为 illustrative
+study/outlook；保留已有前后不对称示例，不宣称完整灵敏度预测 & T-11 &
+未进行探测器级模拟时，不应声称 exclusion/discovery reach \\
+Minor Point 6.1 & 从引言开头删除未定义的 ``light''，并核对 Abstract 的
+MeV-to-TeV 范围说明 & T-09 &
+当前回复信的引号格式有误；还需核对正文实际差异与准确章节引用 \\
+Minor Point 6.2 & 将 Table II 说明为 selected, non-exhaustive
+constraints，并列明限制所依赖的假设 & T-03、T-04 &
+不宣称每个质量处均为最强约束 \\
+Minor Point 6.3 & 删除 ``intermediate scalar-mass region''；列出
+BaBar/Belle 搜索范围、Belle II 标量解释的适用条件和
+\(\xi_{\rm lim}=0.483\) 的条件性换算 & T-03、T-04 & 数值换算只适用于所述
+mass-proportional benchmark；若 \(s\to A'A'\) 开放须处理可见分支比 \\
+Minor Point 6.4 & 定义 scan ``point''为 \((m_{A'},g_X)\)
+网格点，并在每点派生 \(v_s\)、计算 \(\lambda_S\) & T-09 &
+理论微扰性检查与实验约束必须分开 \\
+Minor Point 6.5 & 列出 BaBar \(0.212\)--\(10\) GeV、Belle II
+\(0.212\)--\(9\) GeV、CMS \(5\)--\(70\) GeV
+的近似覆盖；计算总宽度、分支比和 prompt 条件 & T-10 & \(c\tau\)
+示例仅验证单一 benchmark 点，不足以证明整个扫描域 prompt \\
+Minor Point 6.6 & 解释 \(v_s\simeq2\) GeV 来自 \(m_s=10\)
+GeV、\(\lambda_S^{\max}=4\pi\)；给出 \(y_{s\mu\mu}\simeq0.053\) 及
+\(y^2/(4\pi)\simeq2.2\times10^{-4}\) & T-09 & 该线是 scalar
+self-coupling benchmark 边界，不是 Yukawa 非微扰界限或实验排除线 \\
+UV--EFT matching / truncation & 给出 \(c_\alpha/\Lambda\) 与 UV
+参数的匹配关系、EFT 适用能标、保留算符阶数及截断误差，并检查同一参数点的
+UV 实现性 & T-13 & 不把形式匹配关系当作数值验证或全参数域 UV 实现证明 \\
+Fig. 2 baseline / robustness & 与冻结基准比较有限
+VLL、\(g_V^\ell\)、\(\epsilon\)、中微子扩展和标量效应，作出保留/局部修正/重算决定
+& T-14 & 冻结基准不等于预先认可；必须给出量化差异和不确定度 \\
+Summary & 将 PMNS、标量、额外约束、UV--EFT 适用性及 Fig. 2
+稳健性结论与正文、图表和逐条回复同步 & T-12、T-13、T-14 &
+占位符只能在对应任务完成或经过有依据的范围限定后替换 \\
+\end{longtable}
+
+\subsubsection{回复信中的完成时声明：逐项核验规则}\label{ux56deux590dux4fe1ux4e2dux7684ux5b8cux6210ux65f6ux58f0ux660eux9010ux9879ux6838ux9a8cux89c4ux5219}
+
+正式回复信可以在最终版本中使用 ``we have
+clarified/revised/calculated/assessed''，但必须满足以下条件：
+
+\begin{itemize}
+\tightlist
+\item
+  相关正文文字或公式已实际写入修订稿，而非仅存在于本 Diff 的建议文本中。
+\item
+  涉及计算的陈述具有可追溯的推导、代码/数值输出或独立核查记录。
+\item
+  涉及实验限制的陈述具有来源、适用条件、质量/耦合范围以及必要的模型特定重铸。
+\item
+  仍有方括号占位符的段落，不得作为最终提交版本；尤其不能同时保留''已完成评估''的完成时句子与尚未得到的结果。
+\item
+  最终章节、公式、图表编号必须由最终编译稿生成并核对，不得在修改前预填。
+\end{itemize}
+
+\subsubsection{本轮变更记录}\label{ux672cux8f6eux53d8ux66f4ux8bb0ux5f55}
+
+\begin{itemize}
+\tightlist
+\item
+  将原 Diff 与 \texttt{Replies\ to\ Referee(2).\hspace{0pt}tex}
+  逐条建立对应关系，增加回复信---正文---证据的核对表；本轮不修改回复信文件本身。
+\item
+  更正 ``light'' 的跨文档状态：Minor Point 1 与 Minor Point 6.1
+  的删除路线已一致；待办是补齐绘图范围动机、修复 Minor 6.1
+  引号并核对正文实际差异。
+\item
+  将 pure-axial 定义前移到质量基底耦合处，并保留 Eq. (36)
+  后对有效理论约束范围的说明。
+\item
+  将 \(v_s=2\,\mathrm{GeV}\) 处的 Yukawa
+  微扰性量级加入图注/正文修改建议。
+\item
+  将四轻子实验质量覆盖和单点 prompt-decay 示例明确写入
+  Diff，并强调不得外推到整个参数空间。
+\item
+  明确标记回复信中 Major Point 1.3 与 Major 4.4
+  的完成时陈述需要证据闭环；本轮文件修改不代表相应计算或重铸已经完成。
+\item
+  新增 T-13 / Diff 13：UV--EFT 匹配、适用能标、截断误差与同一 UV
+  输入点的可实现性验证。
+\item
+  新增 T-14 / Diff 14：由 T-14A 提前冻结 Fig. 2
+  参考基准；最终关闭还须满足 T-04、T-09、T-10
+  和其他相关依赖的同点量化比较。
+\item
+  将标量势的修改位置拆分为 Eq. (2) 的总拉氏量组织和 Eq. (28)
+  的势能定义，明确避免重复计入 SM Higgs
+  势，并加入驻点条件与树级/圈级结果的区分。
+\item
+  分开记录 Belle II 四缪子分析与 \(\mu^+\mu^-\tau^+\tau^-\) 分析，修正
+  Table II 的低质量范围限定。
+\item
+  统一 \(\lambda_S\leq\lambda_S^{\max}\) 对应的非严格质量不等式，并澄清
+  \(v_s=2\,\mathrm{GeV}\) 是约 \(1.995\,\mathrm{GeV}\)
+  精确阈值的圆整参考线。
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Diff 13 --- UV--EFT 匹配、适用能标与截断误差（新增研究任务
+T-13）}\label{diff-13-uveft-ux5339ux914dux9002ux7528ux80fdux6807ux4e0eux622aux65adux8befux5deeux65b0ux589eux7814ux7a76ux4efbux52a1-t-13}
+
+\textbf{定位：} Major Point 2 的 UV--EFT
+对照要求；具体正文位置以当前稿中维五算符与有效耦合定义处为准。该项是新增研究任务，不意味着现有
+EFT 结果已被判错。
+
+\subsubsection{13A.
+必须明确的匹配关系}\label{a.-ux5fc5ux987bux660eux786eux7684ux5339ux914dux5173ux7cfb}
+
+对文中采用的维五算符，先从原始 UV
+拉氏量和质量本征态耦合独立复核匹配关系（当前手册记录的候选关系为）
+
+\[
+\frac{c_\alpha}{\Lambda}\simeq
+\frac{y_\alpha\lambda_\alpha}{M_{E_\alpha}},
+\qquad \alpha=\mu,\tau.
+\]
+
+该式必须与实际场归一化、质量矩阵、耦合定义和匹配阶数一致；不能仅凭文献中的相似公式确认。明确匹配尺度、被积分掉的
+VLL、保留的算符集合、重整化方案以及树级/圈级精度。
+
+\subsubsection{13B.
+最低验证要求}\label{b.-ux6700ux4f4eux9a8cux8bc1ux8981ux6c42}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  对照当前 UV 拉氏量与 EFT 算符基底，核查 Wilson
+  系数的符号、维数、味指标和规范结构。
+\item
+  说明 EFT
+  的适用能标与运动学条件，包括哪些质量阈值或新通道会使截断不再可靠。
+\item
+  在同一组 UV 输入参数下，比较完整 UV 理论与截断 EFT
+  对至少一个与论文结论直接相关的振幅或可观测量的预测；定义截断误差指标和可接受阈值。
+\item
+  对 Fig. 2 中被解释为 UV benchmark 的代表点，检查是否能映射到满足 VLL
+  质量、混合角、portal/标量条件及其他已采用假设的同一组 UV
+  参数。不能用分别来自不同 benchmark 的参数拼成一个``UV 实现点''。
+\item
+  记录独立解析或数值复核、参数输入、代码/笔记本版本和输出；若尚无法完成定量比较，明确标记为未验证，不将其表述成
+  UV--EFT 一致性已经建立。
+\end{enumerate}
+
+\textbf{建议写入论文的范围说明（只有在 T-13
+验证完成后，按实际结果改写）：}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{The effective{-}current description is used within the energy and}
+\NormalTok{parameter domain where the stated matching conditions and operator}
+\NormalTok{truncation are valid. The correspondence between the UV parameters}
+\NormalTok{and the EFT coefficients is assessed at a common set of UV inputs;}
+\NormalTok{the residual truncation uncertainty is [quantified result]. The}
+\NormalTok{parameter contours shown below should therefore be interpreted as}
+\NormalTok{[the validated benchmark projection / an EFT{-}only result in the}
+\NormalTok{specified domain], rather than as a global classification of the UV}
+\NormalTok{theory.}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{依赖：} 与 T-05 的 VLL 参数一致性相关；若 T-01 引入新场或新带荷
+VEV，须在扩展模型的同一组参数下重新检查匹配关系和适用能标。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Diff 14 --- Fig. 2 基准保护与稳健性审计（新增研究任务
+T-14）}\label{diff-14-fig.-2-ux57faux51c6ux4fddux62a4ux4e0eux7a33ux5065ux6027ux5ba1ux8ba1ux65b0ux589eux7814ux7a76ux4efbux52a1-t-14}
+
+\textbf{目标：} 最大限度保留已经完成的唯象学工作，同时不预设原图在 UV
+修正后必然有效。Fig. 2
+先作为参考基准冻结；后续根据可追溯的定量比较决定保留、局部修正或重算。
+
+\subsubsection{14A.
+冻结基准，不预判结论}\label{a.-ux51bbux7ed3ux57faux51c6ux4e0dux9884ux5224ux7ed3ux8bba}
+
+保存当前 v6 Fig. 2
+的原始图文件（若当前源稿/资料库中可取得）、生成脚本/notebook（若存在）、网格定义、参数输入、约束数据/引用、插值与重铸方法、软件版本，以及生成图时采用的纯轴矢、VLL、动能混合和标量假设。若原始脚本或中间数据缺失，应把``恢复可复现基准''登记为前置工作，不得声称已完成冻结。对源稿和相关文件记录版本号或哈希。冻结的含义仅是建立可复现比较基线，不代表该图已经通过
+UV 完整性或稳健性审计。
+
+\subsubsection{14B.
+分项比较，避免把不同物理效应混成一个修正}\label{b.-ux5206ux9879ux6bd4ux8f83ux907fux514dux628aux4e0dux540cux7269ux7406ux6548ux5e94ux6df7ux6210ux4e00ux4e2aux4feeux6b63}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+检查项
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+对比内容
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+不能替代的证据
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+有限 VLL 混合 / \(g_V^\ell\) & 在同一 \((m_{A'},g_X)\)
+网格上计算质量基底耦合，并分别应用矢量与轴矢量实验限制 & 不能只用
+\(|g_V/g_A|\ll1\) 推断实验影响很小 \\
+动能混合 \(\epsilon\) &
+从指定匹配条件演化到相关实验能标，计算诱导相互作用并比较约束 &
+不能把匹配尺度取零等同于实验能标严格为零 \\
+中微子扇区 &
+使用所选中微子扩展的同一组荷、质量矩阵和规范流，检查是否改变相关产生/衰变或实验约束
+& 不能仅以``中微子扩展与 Fig. 2 无关''作为假设 \\
+标量 \(s\) 与 portal &
+比较物理标量谱、混合、产生率、总宽度、分支比及适用的标量搜索 & 不能把
+\(m_s\geq10\,\mathrm{GeV}\) 自动等同于完全退耦 \\
+UV--EFT 映射 & 在同一 UV 参数点比较 UV 与 EFT 结果并评估截断误差 &
+不能将不同 benchmark 的参数拼接成同一个 UV 点 \\
+\end{longtable}
+
+\subsubsection{14C.
+量化标准与决策规则}\label{c.-ux91cfux5316ux6807ux51c6ux4e0eux51b3ux7b56ux89c4ux5219}
+
+对每一项修正，记录：输入点、使用的实验限制及版本、修正前后预测/排除边界、相对变化、数值/理论不确定度，以及变化是否超过预先声明的目标精度。目标精度应根据对应实验分析和论文结论确定，不得在看到结果后通过任意放宽阈值来保证原图不变。
+
+按以下规则作出最终决策：
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{保留原曲线：}
+  仅当相关修正对目标参数域内的结论影响低于事先定义且有理由支持的精度，并且主要实验限制的适用性已核查。论文须明确
+  benchmark 假设与残余不确定度。
+\item
+  \textbf{局部修正：}
+  若影响只出现在部分质量/耦合区域，更新受影响曲线、阴影或区域分类；保留其他已验证区域，并清楚标出未评估区域。
+\item
+  \textbf{重算受影响的扫描：} 若相互作用结构、实验重铸、UV 参数映射或
+  EFT
+  适用性在大范围内改变，则重算相关扫描。只有当依赖关系确实要求时才重算全图，不因某个独立问题未解决就默认所有数值结果失效。
+\end{itemize}
+
+\textbf{必须保留的表述边界：} 纯轴矢有效理论限制不能自动表述为完整 UV
+模型的全局实验允许区域。若中微子扩展尚未完成，必须明确模型完整性仍未解决；若标量、动能混合或有限
+VLL 效应尚未定量验证，则相应区域标记为待评估，而不是默认未排除。
+
+\textbf{与论文 Diff 的连接：} T-14 的结果用于决定 Diff 4--7、Diff 11
+中哪些标量约束说明、参数表、图注、范围说明和曲线需要保留或更新；在 T-14
+关闭前，不应把``原 Fig. 2 保持不变''写成最终结论。
+
+\subsubsection{14D. T-14A 可先行；T-14
+最终关闭门槛}\label{d.-t-14a-ux53efux5148ux884ct-14-ux6700ux7ec8ux5173ux95edux95e8ux69db}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{T-14A（可先行）：} 保存当前 Fig.
+  2、可获得的源文件/脚本、参数网格、原始约束数据、插值与重铸配置、软件版本和哈希。若脚本或中间数据缺失，状态只能是``基准恢复中''，不能声称已冻结出可复现基准。
+\item
+  \textbf{T-14（最终综合审计）：} 最终关闭前，T-04、T-09、T-10
+  必须有明确结果；并且 T-01、T-02、T-03、T-05、T-06、T-07、T-08、T-13
+  中所有与该 benchmark/图域有关的检查都必须完成，或被逐项论证为
+  N/A。结果必须投影到同一套 UV
+  输入和一致的物理/实验假设，不能拼接来自不同 benchmark 的曲线或参数。
+\item
+  \textbf{最小结案包：} (i) 基准输入/代码/数据版本与哈希；(ii) 各相关 T
+  任务状态与具体 claim 的 S0--S7 等级；(iii)
+  每项修正前后预测、边界变化、数值/理论不确定度；(iv) T-04/T-09/T-10
+  的显式验收记录；(v) 保留、局部修正或重算的理由；(vi)
+  更新后的图、图注和未评估区域标记。
+\item
+  \textbf{禁止的结案方式：} 不能因 T-14A 已完成就关闭
+  T-14；不能因为图形看起来相似就判定稳健；不能将``未重铸''写成``实验不相关''；不能在尚有相关约束未评估时声称
+  Fig. 2 是完整 UV 模型的全局允许区域。
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\end{document}
