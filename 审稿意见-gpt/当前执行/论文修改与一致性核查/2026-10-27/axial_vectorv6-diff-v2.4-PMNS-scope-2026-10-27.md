@@ -363,18 +363,38 @@ $|\lambda_\ell|\leq\sqrt{4\pi}$ imposed as an additional perturbativity
 criterion; they are not a global scan or an exclusion contour.
 
 The zero-momentum threshold and the condition
-$\lambda_{HS}^{\mathrm{EFT}}(M_E)=0$ do not determine the finite-momentum
-off-diagonal self-energy or a physical $h$--$S$ mixing angle. We do not
-claim that scalar mixing is negligible throughout the scalar-mass range,
-and we do not use the present calculation to justify neglecting $S$ in
-the full UV model. A complete finite-momentum prediction would require
-same-order UV--EFT matching, including EFT soft graphs and counterterms,
-and independent diagram-level validation; a quantitative constraint
-classification would additionally require the relevant two-pole Higgs
-lineshape and direct-search recasts. These steps remain open. The
-near-degenerate narrow-width region is therefore \emph{not assessed},
-with no allowed/excluded classification assigned. The scalar $S$ remains
-part of the UV construction, and the retained $A'$ contours are conditional
+$\lambda_{HS}^{\mathrm{EFT}}(M_E)=0$ do not by themselves determine the
+finite-momentum mixing. We have evaluated the full one-loop charged-lepton/VLL
+mass-eigenstate contribution and matched its hard momentum dependence to the
+EFT soft bubble/contact term. For $M_E=20\,\mathrm{TeV}$,
+$\theta_{\mu L}=\theta_{\tau L}=10^{-2}$, and
+$\lambda_{HS}^{\mathrm{EFT}}(M_E)=0$, the matched result at $p^2=m_h^2$ is
+$\Pi_{hs}=(-0.413278-0.113174i)\,\mathrm{GeV}^2$ for
+$(m_{A'},g_X,v_s)=(10\,\mathrm{GeV},0.0705,70.9\,\mathrm{GeV})$ and
+$\Pi_{hs}=(-0.0930026-0.0254682i)\,\mathrm{GeV}^2$ for
+$(63\,\mathrm{GeV},0.1,315\,\mathrm{GeV})$. A direct top or $W$ loop is
+absent at this order because $S$ has no tree-level $s\bar t t$ or
+$sW^+W^-$ vertex in the stated model. The exact hard-minus-light term agrees
+with the source-aligned leading derivative estimate to $0.0611\%$.
+
+Away from degeneracy, these benchmark points give small mixing; for
+$m_s=10\,\mathrm{GeV}$, $|\theta_{hs}|$ is approximately
+$2.75\times10^{-5}$ and $6.19\times10^{-6}$, respectively. Near
+$m_s=m_h=125.25\,\mathrm{GeV}$, however, the widths differ materially:
+benchmark A gives $2|\Pi_{hs}/(a-b)|\simeq1.83\times10^{-3}$, whereas
+benchmark B gives $\simeq0.394$ and a Higgs-like pole with $|s/h|\simeq0.204$.
+For B, the diagnostic $2|\Pi_{hs}/(a-b)|\geq0.1$ spans approximately
+$|m_s-m_h|\lesssim7.45\,\mathrm{MeV}$. Thus the calculation supports small
+mixing away from degeneracy for the illustrated benchmarks, but not a
+universal negligible-mixing claim over the full scalar-mass range.
+
+The pole diagnostic is conditional and not a complete pole-scheme or
+experimental analysis: diagonal self-energies, tadpole/VEV counterterms,
+residues, and the model-specific Higgs signal-strength/lineshape and direct
+search recasts remain outside this calculation. The near-degenerate
+narrow-width region is therefore still \emph{not assessed}, with no
+allowed/excluded classification assigned. The scalar $S$ remains part of
+the UV construction, and the retained $A'$ contours are conditional
 constraints on the stated small-portal, pure-axial effective-current
 benchmark, not a global viability classification of the full UV model.
 ~~~
