@@ -90,3 +90,12 @@ Benchmark B (v_s=315 GeV, m_A'=63 GeV):
 150.00 ; 0.12278476 ; 2.8308911e-5
 
 The scan is a width-regulated diagnostic under the same conditional matching benchmark, not an experimental exclusion contour.
+
+Independent execution record (2026-10-27)
+- Executed the exact committed script source in the local Linux execution environment.
+- Git blob SHA-1 of executed source: b5228e49f58834f6f5a2cb84dfc61e7a69749db5 (matches the branch's fetched script blob SHA).
+- Python: 3.13.5; NumPy: 2.3.5; SciPy: 1.17.0.
+- Syntax compilation: PASS (python -m py_compile).
+- Runtime: PASS (exit code 0); all in-script assertions passed for both benchmarks.
+- Re-run confirmed the printed finite hard momentum differences, threshold residuals, matched self-energies, widths, and diagnostic scan above.
+- Scope: this execution validates the committed numerical implementation and its stated algebraic/numerical checks. It does not substitute for a separate FeynArts/FeynCalc derivation, full scalar pole-scheme calculation, or experimental recast.
