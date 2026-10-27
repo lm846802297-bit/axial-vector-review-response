@@ -388,6 +388,19 @@ benchmark, not a global viability classification of the full UV model.
 
 ------------------------------------------------------------------------
 
+
+### 2F. Major Point 1.1 — concise manuscript context from existing scalar-portal literature
+
+**Location:** Sec. II.C near the sentence “Sum Negligible Higgs Portal Mixing” and the paragraph introducing the scalar constraints.
+
+**Meeting basis:** The meeting decided not to turn this paper into a second, generic singlet-scalar phenomenology study. The manuscript should instead acknowledge that Higgs--singlet mixing, Higgs signal-strength limits, and direct searches for singlet-like scalars have been studied extensively, and then return to the paper's \(A'\) focus. This supplements, rather than replaces, the model-specific limitations in Diff 2D and 4D.
+
+**Proposed text (citation keys must be resolved against the original manuscript bibliography before application):**
+
+> The phenomenology of singlet-like scalars with Higgs mixing, including constraints from the observed Higgs signal strengths and direct searches for additional scalar states, has been studied extensively. Representative analyses include Robens and Stefaniak (2015), Robens, Stefaniak, and Wittbrodt (2020), and Hiller et al. (2020). We therefore do not reproduce a general singlet-scalar analysis here and focus on the axial-vector \(A'\) phenomenology. The numerical limits from these studies are not transferred directly to the present UV model: a model-specific comparison must account for its scalar couplings, possible Higgs mixing, production mechanisms, and decay channels, including \(s\to A'A'\) when kinematically open.
+
+**Bibliography gate:** The manuscript TeX/BibTeX source is not included in this repository, and the current response letter uses direct links rather than the manuscript's citation keys. Before applying this paragraph, retrieve the actual source project, verify whether these references are already present, and use the exact existing keys or add verified bibliography entries. Do not invent keys or claim the citations have already been added to the manuscript.
+
 ### 2E. Major Point 1 — response/Diff consistency audit (2026-10-27)
 
 This audit compares the Major Point 1 response in Replies_to_Referee_3_revised_working_2026-10-27.tex with the decisions recorded in the four 2026-10-23 meeting transcripts and 会议观点总结_2026-10-23.md.
