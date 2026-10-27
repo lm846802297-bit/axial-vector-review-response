@@ -104,3 +104,11 @@ Independent execution record (2026-10-27)
 - Runtime: PASS (exit code 0); all in-script assertions passed for both benchmarks.
 - Re-run confirmed the printed finite hard momentum differences, threshold residuals, matched self-energies, widths, and diagnostic scan above.
 - Scope: this execution validates the committed numerical implementation and its stated algebraic/numerical checks. It does not substitute for a separate FeynArts/FeynCalc derivation, full scalar pole-scheme calculation, or experimental recast.
+
+PR #22 integration re-run (2026-10-27)
+- Source Git blob: a2128e5ed9fe0065fc01e61972fdbfbe3f4859fb; verified against fetched content.
+- Python: 3.12.14; NumPy: 2.3.5; SciPy: 1.17.0.
+- Syntax compilation: PASS (python -m py_compile).
+- Runtime: exit code 0; CHECKS: PASS for both benchmarks (six assertions each).
+- Reproduced both matched self-energies and the dense-scan threshold interval [125.242553544, 125.257446018] GeV with half-width 7.446237 MeV.
+- This is a repeat run of the same numerical implementation; all interpretation limits above remain in force.

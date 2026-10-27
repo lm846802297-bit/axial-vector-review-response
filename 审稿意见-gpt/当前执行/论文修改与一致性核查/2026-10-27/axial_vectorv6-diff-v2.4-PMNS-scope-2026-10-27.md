@@ -391,7 +391,7 @@ Under the explicit reference condition \(\lambda_{HS}^{\mathrm{EFT}}(M_E)=0\), w
 
 > The phenomenology of singlet-like scalars with Higgs mixing, including constraints from the observed Higgs signal strengths and direct searches for additional scalar states, has been studied extensively. Representative analyses include Robens and Stefaniak (2015), Robens, Stefaniak, and Wittbrodt (2020), and Hiller et al. (2020). We therefore do not reproduce a general singlet-scalar analysis here and focus on the axial-vector \(A'\) phenomenology. The numerical limits from these studies are not transferred directly to the present UV model: a model-specific comparison must account for its scalar couplings, possible Higgs mixing, production mechanisms, and decay channels, including \(s\to A'A'\) when kinematically open.
 
-**Bibliography gate:** The manuscript TeX/BibTeX source is not included in this repository, and the current response letter uses direct links rather than the manuscript's citation keys. Before applying this paragraph, retrieve the actual source project, verify whether these references are already present, and use the exact existing keys or add verified bibliography entries. Do not invent keys or claim the citations have already been added to the manuscript.
+**Bibliography gate:** The manuscript TeX/BibTeX source is now archived in `overleaf-source/axial-vector-model-building-v6/`, including `main-v6.tex` and `references.bib`; the current response letter uses direct links rather than the manuscript's citation keys. Before applying this paragraph, check the archived source for these references and use the exact existing keys or add verified bibliography entries. Do not invent keys or claim the citations have already been added to the manuscript.
 
 ### 2E. Major Point 1 — response/Diff consistency audit (2026-10-27)
 
@@ -422,15 +422,15 @@ This audit compares the Major Point 1 response in Replies_to_Referee_3_revised_w
 - The reply identifies the approximate mass coverage and distinct spin-0 interpretations of Belle II arXiv:2403.02841 and arXiv:2306.12294, consistent with Diff 4B; it does not treat published mass coverage as a model-specific exclusion.
 - The reply reproduces the selected low-mass scalar-coupling constraints rather than telling the referee only to consult Table II, as required by meeting principle 1. It explicitly separates these scalar-specific bounds from the collider and \(g-2\)_\mu constraints on the \(A'\) effective current, avoiding the implication that the latter are scalar-specific exclusions.
 - The 2026-10-23 meeting proposed a quantitative loop-induced \(h\)--\(s\) estimate. The new exact mass-eigenstate calculation addresses the one-loop fermion contribution at two stated benchmarks and records the hard/soft comparison. It does not establish negligible mixing everywhere: the closed-channel exact-degeneracy diagnostic is non-negligible. The complete pole-scheme and experimental recasts remain open, so the narrow-width near-degenerate region is still **not assessed**.
-- The response cites Robens--Stefaniak (2015), Robens--Stefaniak--Wittbrodt (2020), and Hiller et al. (2020) by direct links. The manuscript TeX/BibTeX source is not present in this repository, so exact bibliography keys and insertion of these references into the manuscript cannot yet be verified. Do not invent citation keys.
+- The response cites Robens--Stefaniak (2015), Robens--Stefaniak--Wittbrodt (2020), and Hiller et al. (2020) by direct links. The manuscript TeX/BibTeX source is now available in `overleaf-source/axial-vector-model-building-v6/`; exact bibliography keys and insertion of these references remain to be checked against that archive. Do not invent citation keys.
 - The response and Diff are **consistent at the claim/scope level** after this review, but the manuscript has not yet been edited from the Diff. This is not a completed manuscript/reply synchronization or a final scientific acceptance.
 
 **Remaining gates**
 
-1. Obtain the actual manuscript source and bibliography; apply the Diff's scalar-scope, Table-II, Belle-II spin-0, and portal-boundary edits.
+1. Use the archived manuscript source and bibliography in `overleaf-source/axial-vector-model-building-v6/` to apply the Diff's scalar-scope, Table-II, Belle-II spin-0, and portal-boundary edits.
 2. Check the scalar-portal bibliography entries and equation/section numbering against that source.
 3. Keep T-03/T-04 open until model-specific scalar constraints are mapped/recast. T-02's benchmark-level finite-momentum fermion-loop estimate is complete, but keep T-02 open until the full pole-scheme, diagonal self-energies/counterterms, and stated physical-mixing interpretation are closed.
-4. Compile the manuscript and full response letter only after the source and bibliography are available and synchronized.
+4. Compile the manuscript and full response letter after applying the edits and synchronizing the archived source and bibliography.
 
 ## Diff 3 — Sec. II.C：修正 VLL benchmark 与 “conservative” 用语
 
@@ -850,7 +850,7 @@ constraints from the full UV-model classification.
 
 ### 11D. Model section: Weinberg operators and the residual selection rule
 
-**位置锚点：** 模型构造部分中列出 \(Q'(L_e,L_\mu,L_\tau)=(0,+Q_\ell,-Q_\ell)\)、\(Q'(H)=0\)、\(Q'(S)=2Q_\ell\) 的电荷指派之后，进入纯轴矢量 benchmark/唯象学讨论之前。由于本次 GitHub 分支未包含主论文 TeX 源文件，本位置按内容锚点指定；实际节号、方程号和页码须在源稿修改后确认。
+**位置锚点：** 模型构造部分中列出 \(Q'(L_e,L_\mu,L_\tau)=(0,+Q_\ell,-Q_\ell)\)、\(Q'(H)=0\)、\(Q'(S)=2Q_\ell\) 的电荷指派之后，进入纯轴矢量 benchmark/唯象学讨论之前。主论文 TeX 源文件现已归档于 `overleaf-source/axial-vector-model-building-v6/`。本位置仍按内容锚点指定；实际节号、方程号和页码须在应用修改后对照源稿确认。
 
 **新增正文建议：**
 

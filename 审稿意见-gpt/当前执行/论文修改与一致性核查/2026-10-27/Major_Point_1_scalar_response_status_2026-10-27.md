@@ -5,13 +5,13 @@
 
 ## Current workflow status
 
-These four labels describe the state of the response workflow; they do **not** mean that the scalar phenomenology has been fully solved.
+These five labels describe the state of the response workflow; they do **not** mean that the scalar phenomenology has been fully solved.
 
 | Workstream | Status | Meaning |
 | --- | --- | --- |
 | Response-letter text draft | **Complete** | The draft response to Major Point 1 and subpoints 1.1–1.3 has been written in the referee's original order. |
 | Response–Diff consistency review | **Complete at claim/scope level** | The response wording has been checked against the four meeting transcripts, meeting summary, and the corresponding Diff sections; the crosswalk is recorded in Diff v2.4, §2E. |
-| Manuscript and Diff synchronization | **Pending** | The Diff proposal is cross-checked against the response, but the actual manuscript edits have not been applied; the manuscript TeX/BibTeX source is not present in this repository. |
+| Manuscript and Diff synchronization | **Pending** | The Diff proposal is cross-checked against the response, but these scalar-response edits have not been applied to the manuscript. The TeX/BibTeX source is now archived under `overleaf-source/axial-vector-model-building-v6/`; citation checks, source edits, and compilation remain pending. |
 | Quantitative scalar-phenomenology validation | **One-loop fermion mixing benchmark completed; full phenomenology remains open** | Exact mass-eigenstate \(h\)-\(s\) fermion self-energy has been numerically evaluated at two stated benchmarks and matched to the EFT soft contribution; full pole-scheme closure, scalar-search recasts, and near-degenerate experimental classification remain open. |
 | Formal acceptance of the full response letter | **Pending** | The full letter still requires cross-section consistency checks, completion of other response items, and final LaTeX compilation and review. |
 
@@ -22,14 +22,14 @@ Before this review, all four original meeting transcripts (01–04) and `会议�
 - **Aligned:** retain \(S\) in the UV model; keep the paper's main line focused on \(A'\); reproduce the selected low-mass scalar constraints in the response instead of sending the referee back to Table II; cite existing singlet-scalar/Higgs-portal and scalar-search literature; distinguish perturbativity, plotting range, applied experimental exclusions, and unassessed regions; do not add particles.
 - **Specific response refinements:** the reply now explains that the perturbativity condition constrains \(m_s/v_s\) with \(v_s=m_{A'}/(2g_X)\) derived point by point, and gives the approximate mass ranges and distinct spin-0 interpretations of the two Belle II analyses cited in Diff 4B.
 - **Quantitative follow-up completed (2026-10-27):** the exact mass-eigenstate one-loop calculation evaluates all light/heavy \(\mu,\tau\) internal-state pairs at two Plan-C-lite benchmarks, separates the EFT soft contribution, checks the hard momentum derivative against the RC-001 leading coefficient (relative difference \(6.11\times10^{-4}\)), and checks the zero-momentum threshold scale (relative residual \(1.79\times10^{-4}\)). A 1 MeV scan over \(m_s\in[10,150]\) GeV finds no \(2|\Pi_{hs}/(a-b)|\geq0.1\) interval in the open-channel benchmark; for the closed-channel benchmark it finds \([125.242553544,125.257446018]\) GeV, a half-width of \(7.446237\) MeV around \(m_h\). The exact-degeneracy diagnostic reaches \(2|\Pi_{hs}/(a-b)|\simeq0.394\) in that narrow-width case. Thus the original fermion-loop estimate is quantitatively addressed; it does **not** establish negligible mixing over the whole mass range. Full pole-scheme closure and model-specific experimental recasts remain open.
-- **Manuscript application remains pending:** the repository does not contain the actual manuscript TeX/BibTeX source. The Diff gives section/equation anchors and proposed text, but the source must be obtained before applying changes, checking citation keys, or verifying equation numbers.
+- **Manuscript application remains pending:** the TeX/BibTeX source is now [archived in the repository](../../../../overleaf-source/axial-vector-model-building-v6/), including `main-v6.tex` and `references.bib`. The Diff gives section/equation anchors and proposed text; applying the scalar edits, checking citation keys, verifying equation numbers, and compiling the synchronized files remain separate tasks.
 
 ### Cross-check findings: response letter vs. Diff v2.4
 
 | Referee item | Response-letter text | Diff anchor | Consistency result |
 |---|---|---|---|
 | Overall Major Point 1 | States the scalar mass/self-coupling relation under the chosen small-portal benchmark; reproduces the five selected low-mass scalar-coupling rows; distinguishes scalar limits from the (A') effective-current constraints; avoids claiming a complete scalar exclusion map. | Diff 4A and 4D; task T-03/T-09 | **Aligned at claim/scope level.** The copied table is labelled selected/non-exhaustive and its source assumptions are stated. |
-| Major Point 1.1 | Retains (S) as a UV degree of freedom, keeps the paper focused on (A'), cites general singlet-scalar literature, and distinguishes the two Belle II spin-0 interpretations and their approximate mass ranges. No model-specific exclusion or discovery reach is claimed. | Diff 2F and 4B | **Aligned at claim/scope level.** The exact manuscript bibliography keys and insertion remain pending because the manuscript source is absent. |
+| Major Point 1.1 | Retains (S) as a UV degree of freedom, keeps the paper focused on (A'), cites general singlet-scalar literature, and distinguishes the two Belle II spin-0 interpretations and their approximate mass ranges. No model-specific exclusion or discovery reach is claimed. | Diff 2F and 4B | **Aligned at claim/scope level.** The exact manuscript bibliography keys and insertion remain pending; the archived source is available for those checks. |
 | Major Point 1.2 | Gives the conditional perturbativity bound through (v_s=m_{A'}/(2g_X)), but does not claim a universal phenomenologically allowed (m_s) interval. Theoretical consistency, applied exclusions, and unassessed regions are separated. | Diff 4A and 4D; task T-03/T-09 | **Aligned at claim/scope level.** The model-specific scalar search recast remains open, so the physical allowed set is not yet fully classified. |
 | Major Point 1.3 | Gives the conditional zero-momentum portal threshold, the matched finite-momentum one-loop fermion self-energy at two benchmarks, and the width-regulated degeneracy diagnostic; does not claim a global scalar classification. | Diff 2C and 2D; new exact mass-eigenstate calculation record | **Quantitative fermion-loop benchmark addressed.** The narrow-width near-degenerate case is demonstrably non-negligible in one stated benchmark; full pole-scheme closure and experimental recasts remain open. |
 
@@ -51,7 +51,7 @@ Before this review, all four original meeting transcripts (01–04) and `会议�
 
 ### Scope of this completed review
 
-The **response–Diff claim/scope consistency review is complete** for Major Point 1 and subpoints 1.1–1.3. This does not mean the scalar phenomenology is fully solved, nor that the manuscript has been edited. The actual manuscript TeX/BibTeX source is not present in this repository, so the Diff remains a proposed patch: source-level application, citation-key verification, equation/section cross-checks, and compilation remain pending.
+The **response–Diff claim/scope consistency review is complete** for Major Point 1 and subpoints 1.1–1.3. This does not mean the scalar phenomenology is fully solved, nor that the manuscript has been edited. The manuscript TeX/BibTeX source is now archived in `overleaf-source/axial-vector-model-building-v6/`. The scalar Diff remains a proposed patch: source-level application, citation-key verification, equation/section cross-checks, and compilation remain pending.
 
 ## Decision basis
 
@@ -92,6 +92,8 @@ File: `Replies_to_Referee_3_revised_working_2026-10-27.tex`
 
 ## Status
 
-**Draft PR:** [#22 — quantify one-loop Higgs-singlet mixing for Major Point 1.3](https://github.com/lm846802297-bit/axial-vector-review-response/pull/22). It is open as a draft for technical review and has not been merged. The repository reported no PR-triggered workflow runs for the initial PR head; the numerical evidence currently consists of the locally executed script and its captured validation record.
+**Integration PR:** [#22 — quantify one-loop Higgs-singlet mixing for Major Point 1.3](https://github.com/lm846802297-bit/axial-vector-review-response/pull/22) consolidates `research/major-point-1-exact-hs-mixing-2026-10-27` and its `-v2` successor. The v2 result retains the original calculation, adds the dense mass scan, and preserves the Major Point 2 response already on `main`. The integration includes both branch histories; consult the PR for its live merge status. No GitHub check runs or commit statuses were configured for the reviewed head, so validation is documented as local execution, not CI.
 
-This branch adds a reproducible benchmark-level one-loop fermion mixing calculation and updates the response, Diff, and status record. It does **not** claim that the main manuscript has been edited, that the full pole scheme is closed, or that the scalar collider recast is complete. No merge is performed by this change.
+**Integration validation:** the unchanged script (Git blob `a2128e5ed9fe0065fc01e61972fdbfbe3f4859fb`) was syntax-compiled and rerun with Python 3.12.14, NumPy 2.3.5, and SciPy 1.17.0. Both benchmark assertion sets passed; the reported matched self-energies and dense-scan interval were reproduced. The separate `work/hs-mixing-one-loop-20261027` development branch is outside this integration.
+
+This branch adds a reproducible benchmark-level one-loop fermion mixing calculation and updates the response, Diff, and status record. It does **not** claim that the main manuscript has been edited, that the full pole scheme is closed, or that the scalar collider recast is complete. Repository integration does not constitute final scientific acceptance or readiness to submit the response letter.
