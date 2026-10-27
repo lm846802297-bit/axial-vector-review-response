@@ -215,6 +215,13 @@ def main():
         print(f"  Gamma_s(m_h) = {gamma_s:.12g} GeV")
         print(f"  |Pi/(a-b)| at m_s=m_h = {mixing_ratio:.12g}")
         print(f"  2|Pi/(a-b)| diagnostic = {2*mixing_ratio:.12g}")
+        print("  width-regulated diagnostic scan: m_s [GeV], Gamma_s [GeV], 2|Pi/(a-b)|")
+        for ms_scan in (10.0, 50.0, 100.0, 124.5, 125.0, 125.25, 125.5, 150.0):
+            gamma_scan = scalar_width(ms_scan, vs, ma)
+            a_scan = MH*MH-1j*MH*0.00407
+            b_scan = ms_scan*ms_scan-1j*ms_scan*gamma_scan
+            diagnostic = 2*abs(matched_pi)/abs(a_scan-b_scan)
+            print(f"    {ms_scan:.2f}, {gamma_scan:.9g}, {diagnostic:.9g}")
         assert abs(uv_p2) < 1e-12
         assert abs(uv_const) < 1e-5
         assert abs(full_diff_B.imag-light_diff_B.imag) < 1e-9
