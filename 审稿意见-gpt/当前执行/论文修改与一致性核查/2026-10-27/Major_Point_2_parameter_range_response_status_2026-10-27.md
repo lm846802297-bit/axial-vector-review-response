@@ -5,7 +5,7 @@
 
 ## Meeting sources reviewed before drafting
 
-Before editing the response, the four original meeting transcripts (01–04) from 2026-10-23 and \`会议观点总结_2026-10-23.md\` were read. The directly relevant discussion is transcript 01 at 27:57–32:07 and the summary's “意见族 E：Figure 2 参数空间范围缺乏物理动机.” The current v5.6 execution manual and Diff v2.4 were also checked.
+Before editing the response, the four original meeting transcripts (01–04) from 2026-10-23 and `会议观点总结_2026-10-23.md` were read. The directly relevant discussion is transcript 01 at 27:57–32:07 and the summary's “意见族 E：Figure 2 参数空间范围缺乏物理动机.” The current v5.6 execution manual and Diff v2.4 were also checked.
 
 The meeting decision is to acknowledge that the plotted window could be extended in either direction, then explain the chosen scope:
 - The upper end is motivated by the combination of perturbativity and the mass reach of terrestrial searches considered in the paper.
