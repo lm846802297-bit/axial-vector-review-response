@@ -373,9 +373,9 @@ Under the explicit reference condition \(\lambda_{HS}^{\mathrm{EFT}}(M_E)=0\), w
 
 **状态与边界：**
 
-- 可保留零动量 portal 阈值公式、两个代表点和明确的匹配边界；这些数值不等于有限动量自能或物理混合角。
-- 候选有限导数系数、两组首轮非对角自能和复数极点诊断仅保留在内部 Plan C-lite/RC-001 记录，不作为正式回复中“混合已定量解决”的证据。
-- 完整同阶 EFT soft/counterterm 闭环、独立图级验证、全动量对角自能及模型专属两极点线形/直接搜索重铸仍开放。若未来论文要对完整 UV 模型作相应数值主张，则需先完成这些工作。
+- 零动量 portal 阈值与两个有限动量 benchmark 结果均可报告，但必须区分：阈值是局域匹配常数，有限动量自能依赖所选 portal 边界，宽度调节比值只是近简并诊断而非物理混合角。
+- 两组匹配自能与宽度调节诊断已纳入正式回复草案；它们支持 benchmark-level 的定量估算，但不等于“完整模型的混合问题已解决”，也不构成实验排除/允许结论。
+- 本脚本已数值实现 EFT soft subtraction，并通过硬动量差额、领先导数系数、UV 系数和 absorptive cut 的内部一致性检查；但尚未完成全套 pole-scheme 所需的对角自能、tadpole/input 反项与物理输入重整化，也没有用 FeynArts/FeynCalc 独立复算。模型专属两极点线形和直接搜索重铸仍开放。若论文要对完整 UV 模型作排除/允许主张，必须先完成这些工作。
 - 此 Diff 是待应用的修改方案，不代表主论文 TeX 已修改或编译通过。
 
 ------------------------------------------------------------------------
@@ -429,7 +429,7 @@ This audit compares the Major Point 1 response in Replies_to_Referee_3_revised_w
 
 1. Obtain the actual manuscript source and bibliography; apply the Diff's scalar-scope, Table-II, Belle-II spin-0, and portal-boundary edits.
 2. Check the scalar-portal bibliography entries and equation/section numbering against that source.
-3. Keep T-03/T-04 open until model-specific scalar constraints are mapped/recast; keep T-02 open until the stated matching/finite-momentum closure conditions are satisfied.
+3. Keep T-03/T-04 open until model-specific scalar constraints are mapped/recast. T-02's benchmark-level finite-momentum fermion-loop estimate is complete, but keep T-02 open until the full pole-scheme, diagonal self-energies/counterterms, and stated physical-mixing interpretation are closed.
 4. Compile the manuscript and full response letter only after the source and bibliography are available and synchronized.
 
 ## Diff 3 — Sec. II.C：修正 VLL benchmark 与 “conservative” 用语
