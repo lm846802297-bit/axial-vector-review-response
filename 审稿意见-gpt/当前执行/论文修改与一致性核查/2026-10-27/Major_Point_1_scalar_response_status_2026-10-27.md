@@ -92,4 +92,6 @@ File: `Replies_to_Referee_3_revised_working_2026-10-27.tex`
 
 ## Status
 
+**Draft PR:** [#22 — quantify one-loop Higgs-singlet mixing for Major Point 1.3](https://github.com/lm846802297-bit/axial-vector-review-response/pull/22). It is open as a draft for technical review and has not been merged. The repository reported no PR-triggered workflow runs for the initial PR head; the numerical evidence currently consists of the locally executed script and its captured validation record.
+
 This branch adds a reproducible benchmark-level one-loop fermion mixing calculation and updates the response, Diff, and status record. It does **not** claim that the main manuscript has been edited, that the full pole scheme is closed, or that the scalar collider recast is complete. No merge is performed by this change.
