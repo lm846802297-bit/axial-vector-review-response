@@ -1,5 +1,7 @@
 # Scalar–muon Yukawa constraints: source note
 
+![Scalar-muon constraint schematic](scalar_coupling_constraints_2026-10-28.svg)
+
 **Purpose.** This figure is a source-anchored schematic summary for the referee-response materials. It is deliberately **not** a digitized or globally combined exclusion contour. Horizontal segments show only explicit source-reported limits over stated mass regimes. The binary-pulsar entry shows the published best-sensitivity point and the interval in which the paper reports its strongest sensitivity; it is not a reconstructed continuous curve.
 
 ## Inputs shown
