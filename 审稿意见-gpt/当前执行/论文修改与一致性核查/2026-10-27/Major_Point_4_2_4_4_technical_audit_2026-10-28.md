@@ -74,7 +74,7 @@ For the plotted upper endpoint \(g_X=0.1\), the zero-momentum estimate gives
 \[
 |\epsilon_{\gamma A'}(0)|\le1.44\times10^{-7},
 \]
-and the largest on-shell value in the table is approximately \(2.12\times10^{-7}\). Below the dimuon threshold, the \(A'\) decays predominantly to neutrinos, so invisible-dark-photon missing-energy searches are the relevant direct laboratory comparison. The NA64 sub-GeV search (arXiv:1906.00176, https://arxiv.org/abs/1906.00176) probes kinetic mixing at roughly the \(\mathcal O(10^{-4})\) level in the corresponding mass range. The induced mixing is therefore well below that laboratory sensitivity for the stated equal-mixing benchmark. This comparison concerns the electron-production channel only; it is not a substitute for the separate supernova applicability analysis below.
+and the largest on-shell value in the table is approximately \(2.12\times10^{-7}\). Below the dimuon threshold, the \(A'\) decays predominantly to neutrinos, so invisible-dark-photon missing-energy searches are the relevant direct laboratory comparison. The updated NA64 missing-energy analysis (arXiv:2307.02404, https://arxiv.org/abs/2307.02404) constrains the kinetic-mixing parameter for \(m_{A'}\lesssim0.35\,\mathrm{GeV}\), including the dimuon-threshold neighborhood; the mass-dependent sensitivity is at roughly the \(\mathcal O(10^{-4})\) scale in the relevant interval. The induced mixing is therefore well below that laboratory sensitivity for the stated equal-mixing benchmark. This comparison concerns the electron-production channel only; it is not a substitute for the separate supernova applicability analysis below.
 
 For unequal \(\theta_{\mu R}\) and \(\theta_{\tau R}\), the cancellation of scale-dependent terms does not follow from the individual upper bounds \(|\theta_{\ell R}|\le10^{-2}\). One must consistently match the renormalized kinetic-mixing counterterm, heavy thresholds, and electroweak-scale contributions. For spacelike virtual exchange, the same integral must be evaluated at the process-specific spacelike \(q^2\); the on-shell table is not a universal replacement for every observable.
 
@@ -143,7 +143,7 @@ The axial UV model has the same tree-level neutrino couplings as the conventiona
 \[
 g_{\nu_\mu}=+g_X,\qquad g_{\nu_\tau}=-g_X.
 \]
-Consequently, at fixed \((m_{A'},g_X)\), the matrix element for neutrino coalescence \(\nu_\alpha\bar\nu_\alpha\to A'\), the partial width \(\Gamma(A'\to\nu_\alpha\bar\nu_\alpha)\), and the neutrino-coalescence production integrand are unchanged. Below the dimuon threshold, where the \(A'\) decays almost entirely to neutrinos and the kinetic-mixing-induced electron channel is highly suppressed, the neutrino production/decay part of the supernova analysis is directly applicable.
+Consequently, at fixed \((m_{A'},g_X)\), the matrix element for neutrino coalescence \(\nu_\alpha\bar\nu_\alpha\to A'\), the partial width \(\Gamma(A'\to\nu_\alpha\bar\nu_\alpha)\), and the neutrino-coalescence production integrand are unchanged. Below the dimuon threshold, where the \(A'\) decays almost entirely to neutrinos and the kinetic-mixing-induced electron channel is highly suppressed, the neutrino-coalescence production contribution and neutrino partial widths are directly applicable; this does not by itself transfer the full cooling exclusion contour.
 
 The final high-energy-neutrino flux is not automatically identical above the dimuon threshold: it depends on the total width and \(\mathrm{BR}(A'\to\nu\bar\nu)\), which change when the axial \(\mu^+\mu^-\) channel opens.
 
@@ -168,6 +168,7 @@ This note covers the supernova probes raised by the referee. Other stellar envir
 ## 5. Sources consulted
 
 1. Kamada and Yu, arXiv:1504.00711: https://arxiv.org/abs/1504.00711
+5. NA64 Collaboration, “Search for Light Dark Matter with NA64 at CERN,” arXiv:2307.02404: https://arxiv.org/abs/2307.02404
 2. Blinov, Fox, Kelly, Plestid and Zhou, “\(L_\mu-L_\tau\) gauge bosons in beam dumps and supernovae,” arXiv:2511.09619; JHEP 06 (2026) 155: https://arxiv.org/abs/2511.09619
 3. Wang and Zhang, “Revisiting supernova constraints on dark gauge bosons,” arXiv:2610.35379 (submitted 26 October 2026): https://arxiv.org/abs/2610.35379
 4. Das, Ghosh and Puri, “SN1987A Constraints of Light \(Z'\) with Non-Mixing Polarisations,” arXiv:2606.23769: https://arxiv.org/abs/2606.23769
