@@ -388,6 +388,58 @@ benchmark, not a global viability classification of the full UV model.
 
 ------------------------------------------------------------------------
 
+
+### 2F. Major Point 1.1 — concise manuscript context from existing scalar-portal literature
+
+**Location:** Sec. II.C near the sentence “Sum Negligible Higgs Portal Mixing” and the paragraph introducing the scalar constraints.
+
+**Meeting basis:** The meeting decided not to turn this paper into a second, generic singlet-scalar phenomenology study. The manuscript should instead acknowledge that Higgs--singlet mixing, Higgs signal-strength limits, and direct searches for singlet-like scalars have been studied extensively, and then return to the paper's \(A'\) focus. This supplements, rather than replaces, the model-specific limitations in Diff 2D and 4D.
+
+**Proposed text (citation keys must be resolved against the original manuscript bibliography before application):**
+
+> The phenomenology of singlet-like scalars with Higgs mixing, including constraints from the observed Higgs signal strengths and direct searches for additional scalar states, has been studied extensively. Representative analyses include Robens and Stefaniak (2015), Robens, Stefaniak, and Wittbrodt (2020), and Hiller et al. (2020). We therefore do not reproduce a general singlet-scalar analysis here and focus on the axial-vector \(A'\) phenomenology. The numerical limits from these studies are not transferred directly to the present UV model: a model-specific comparison must account for its scalar couplings, possible Higgs mixing, production mechanisms, and decay channels, including \(s\to A'A'\) when kinematically open.
+
+**Bibliography gate:** The manuscript TeX/BibTeX source is not included in this repository, and the current response letter uses direct links rather than the manuscript's citation keys. Before applying this paragraph, retrieve the actual source project, verify whether these references are already present, and use the exact existing keys or add verified bibliography entries. Do not invent keys or claim the citations have already been added to the manuscript.
+
+### 2E. Major Point 1 — response/Diff consistency audit (2026-10-27)
+
+This audit compares the Major Point 1 response in Replies_to_Referee_3_revised_working_2026-10-27.tex with the decisions recorded in the four 2026-10-23 meeting transcripts and 会议观点总结_2026-10-23.md.
+
+**Meeting-aligned decisions**
+
+1. Keep the scalar \(S\) in the UV construction; do not claim it is absent or arbitrarily decoupled.
+2. Keep the paper's main phenomenological line focused on \(A'\); briefly acknowledge the existing singlet-scalar/Higgs-portal literature rather than reproduce a generic scalar review.
+3. Reproduce the selected low-mass scalar constraints in the response and identify them as bounds on the stated scalar--muon coupling, with the assumptions of their source analyses.
+4. Separate the theoretical perturbativity relation from the phenomenologically allowed mass set. The scan window is not itself an allowed region.
+5. The original meeting proposed a one-loop estimate of the \(h\)--\(s\) mixing angle, because argument alone would be insufficient. The subsequently adopted Route B narrows the current formal claim: retain the zero-momentum portal threshold and its explicit matching condition, but do not use the incomplete finite-momentum coefficient/self-energy/pole calculations as a completed mixing-angle result. This is a documented scope decision, not a claim that the originally proposed one-loop task has been completed.
+6. Do not assign an allowed/excluded label to the near-degenerate \(m_s\simeq m_h\) region without the required two-pole analysis and model-specific recast.
+
+**Line-by-line response/Diff crosswalk**
+
+| Referee request | Current response-letter treatment | Corresponding manuscript Diff | Status / boundary |
+|---|---|---|---|
+| Overall gap between the UV scalar and the \(A'\)-only effective-current analysis | Acknowledges \(S\) as a UV degree of freedom; states that the \(A'\) contours are conditional and not a global UV viability map | Diff 2D and Diff 4D | Claim/scope aligned; manuscript source has not yet been edited |
+| 1.1: why not make \(S\) a central collider prediction? | Keeps the paper focused on \(A'\); cites generic singlet-scalar/Higgs-portal literature; distinguishes Belle II spin-0 interpretations and their different mass ranges/channels | Diff 2F, Diff 4A–4B | Literature context included; no model-specific scalar-search recast claimed |
+| 1.2: scalar mass range and perturbativity | Reproduces the low-mass Table-II constraints in the reply; relates \(\lambda_S\) to \(m_s/v_s\); separates plotting window, theoretical consistency, applied exclusions, and unassessed regions | Diff 4A, Diff 4C–4D | No universal phenomenologically allowed \(m_s\) interval is claimed because the complete model-specific recast is open |
+| 1.3: loop-induced portal, Higgs mixing, and \(m_s\simeq m_h\) | States the zero-momentum matching boundary and illustrative threshold points; explicitly does not claim a completed finite-momentum mixing angle or negligible mixing across the full mass range | Diff 2C–2D and Diff 4D | Near-degenerate narrow-width region remains **not assessed** |
+| Consistency with the meeting decision not to enlarge the model | No new particle is introduced; the paper's main phenomenological focus remains the axial-vector \(A'\) | Diff 2D and the Route B decision note | Consistent with the adopted Route B scope |
+
+**Consistency result**
+
+- The response now explicitly states the conditional relation \(m_s^2=2\lambda_Sv_s^2\) and that the perturbativity criterion constrains \(m_s/v_s\), while \(v_s=m_{A'}/(2g_X)\) is derived point by point. This avoids implying that the plotting window or the scalar mass relation alone defines an experimentally allowed interval.
+- The reply identifies the approximate mass coverage and distinct spin-0 interpretations of Belle II arXiv:2403.02841 and arXiv:2306.12294, consistent with Diff 4B; it does not treat published mass coverage as a model-specific exclusion.
+- The reply reproduces the selected low-mass scalar-coupling constraints rather than telling the referee only to consult Table II, as required by meeting principle 1. It explicitly separates these scalar-specific bounds from the collider and \(g-2\)_\mu constraints on the \(A'\) effective current, avoiding the implication that the latter are scalar-specific exclusions.
+- The 2026-10-23 meeting initially proposed calculating a loop-induced \(h\)--\(s\) mixing estimate and arguing quantitatively that it is small. The later-adopted Route B and current evidence ledger do **not** support claiming that this task has been completed. The current response therefore explicitly leaves finite-momentum mixing and the near-degenerate region unresolved. This is an honest narrowing of the current claim, not evidence that the referee's requested quantitative mixing assessment has been completed.
+- The response cites Robens--Stefaniak (2015), Robens--Stefaniak--Wittbrodt (2020), and Hiller et al. (2020) by direct links. The manuscript TeX/BibTeX source is not present in this repository, so exact bibliography keys and insertion of these references into the manuscript cannot yet be verified. Do not invent citation keys.
+- The response and Diff are **consistent at the claim/scope level** after this review, but the manuscript has not yet been edited from the Diff. This is not a completed manuscript/reply synchronization or a final scientific acceptance.
+
+**Remaining gates**
+
+1. Obtain the actual manuscript source and bibliography; apply the Diff's scalar-scope, Table-II, Belle-II spin-0, and portal-boundary edits.
+2. Check the scalar-portal bibliography entries and equation/section numbering against that source.
+3. Keep T-03/T-04 open until model-specific scalar constraints are mapped/recast; keep T-02 open until the stated matching/finite-momentum closure conditions are satisfied.
+4. Compile the manuscript and full response letter only after the source and bibliography are available and synchronized.
+
 ## Diff 3 — Sec. II.C：修正 VLL benchmark 与 “conservative” 用语
 
 **位置：** Eqs. (21)–(27)，印刷页码 10–12。
@@ -535,8 +587,7 @@ For each plotted point \((m_{A'},g_X)\), we derive \(v_s\), apply the
 stated scalar-coupling condition, and separately record the status of
 the scalar-sector constraints. The effective-current contours in
 Fig.~2 are not, by themselves, a global allowed region of the UV
-completion, and the scalar-suppression assumption must be validated separately for the observables under discussion. The final scalar classification is [insert the result
-after the scalar search recast and portal analysis].
+completion, and the scalar-suppression assumption must be validated separately for the observables under discussion. The scalar-mass regions not covered by an applicable model-specific analysis remain \emph{not assessed}; no global allowed/excluded classification is assigned here. The effective-current contours below are conditional constraints on the stated small-portal, pure-axial benchmark, not a global viability classification of the full UV model.
 ```
 
 **必须删去或在计算后重写：** - “avoids the strongest light-scalar constraints”——除非完成相应约束比较； - “there is no comparably broad published scalar exclusion”——在核查并映射 Belle II spin-0 结果前不能这样概括； - “otherwise treat $s$ as decoupled”——应限定到已验证的观测量、参数域和误差门槛。
@@ -893,10 +944,10 @@ We agree that the minimal construction does not reproduce the observed PMNS matr
 
 | 回复信位置                     | 论文应落实的修改/证据                                                                                                                 | 对应任务                     | 当前必须注意的事项                                                                                        |
 |:-------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:----------------------------------------------------------------------------------------------------------|
-| Major Point 1                  | 给出 $m_s$、$\lambda_S$、$v_s$ 的条件性关系；区分理论上界、实验排除、所考虑约束下未排除和未评估区域                                   | T-03、T-04、T-09             | 只有理论公式不足以给出实验允许质量区间；保留最终分类占位符直至重铸完成                                    |
-| Major Point 1.1                | 将 scalar $s$ 纳入 UV 完备模型的现象学讨论；计算产生率、物理混合、总宽度、分支比、寿命和适用搜索；处理 $s\to A'A'$                    | T-02、T-03、T-04             | 质量落在实验覆盖内不等于已排除或已证明可探测                                                              |
-| Major Point 1.2                | 给出 $m_{A'}$、$g_X$ 扫描范围、scalar benchmark、$\lambda_S^{\max}$、约束清单及投影分类                                               | T-03、T-09                   | 不能把满足微扰性写成实验可行；允许投影可为非连通区域                                                      |
-| Major Point 1.3                | 写出完整 Higgs portal 势、重整化条件、轻子/VLL 圈级贡献、物理质量矩阵，并处理 $m_s\simeq m_h$                                         | T-02、T-03                   | 当前正式回复信承认全质量范围的圈级混合界限尚未建立；应将同样的限制写入修订稿，任务仍未关闭                         |
+| Major Point 1                  | 给出 $m_s$、$\lambda_S$、$v_s$ 的条件性关系；区分理论上界、实验排除、所考虑约束下未排除和未评估区域                                   | T-03、T-04、T-09             | 回复信已明确将未覆盖区域标为 not assessed；正文应同步该分类，不能把理论公式当作实验允许质量区间。模型特定重铸仍开放 |
+| Major Point 1.1                | 将 scalar $s$ 纳入 UV 完备模型的现象学讨论；引用通用 singlet-scalar 研究，并计算产生率、物理混合、总宽度、分支比、寿命和适用搜索；处理 $s\to A'A'$ | T-02、T-03、T-04 | 回复信已解释本文以 $A'$ 为主线并引用代表性文献；正文补引文献时须核对原稿 BibTeX keys。模型特定重铸未完成，质量覆盖不等于排除 |
+| Major Point 1.2                | 给出 $m_{A'}$、$g_X$ 扫描范围、scalar benchmark、$\lambda_S^{\max}$、约束清单及投影分类                                               | T-03、T-09                   | 回复信区分绘图窗口、条件性理论上限和实验分类；正文需同步同一参数范围与约束口径。微扰性不等于实验可行，完整投影分类仍开放 |
+| Major Point 1.3                | 写出 Higgs portal 定义与重整化条件、零动量阈值及其适用边界；区分轻子/VLL 圈级贡献、有限动量自能和物理混合角，并处理 $m_s\simeq m_h$ | T-02、T-03 | 回复信保留零动量阈值与两个代表点，但不声称已得到全质量范围的物理混合角；正文应同步该边界。完整有限动量匹配、独立图级验证和近简并重铸仍开放 |
 | Major Point 2                  | 统一参数表；区分 Fig. 2 plotting window、条件性 benchmark、理论一致性、实验排除和未评估区域，并验证 UV–EFT 匹配/截断及同点 UV 实现性 | T-09、T-13、T-14 | Fig. 2 的轴范围不是全局物理边界；图的稳健性须由比较决定                                                                           |
 | Major Point 3 / Point 3.1      | 明确允许/禁止的 Weinberg 算符、残余 $Z_2$ 与 $e\oplus(\mu,\tau)$ 分块；说明质量项存在不等于完整 PMNS 已解决 | T-01 | 路线 B 已选；必须实际应用正文 Diff，并避免声称已解释观测振荡 |
 | Major Point 3 / Point 3.2      | 不新增右手中微子或标量；说明右手中微子单独加入并不能打破残余选择规则，扩展需重做模型一致性检查 | T-01 | 路线 B 已选；扩展方案仅为未选候选，不作为已验证解决方案 |
