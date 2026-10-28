@@ -222,6 +222,39 @@ def polarization_resolved_matrix_element_squared(
     return float(total / 4.0)
 
 
+def differential_cross_section_lab(
+    photon_energy: float,
+    vector_mass: float,
+    cos_theta: float,
+    g_v: float,
+    g_a: float,
+    mode: str = "all",
+    muon_mass: float = M_MU_MEV,
+    e_charge: float = E_CHARGE,
+) -> float:
+    """Exact tree-level d sigma/dOmega in the initial-muon rest frame, MeV^-2."""
+    p, k, p_prime, q = lab_kinematics(
+        photon_energy, vector_mass, float(cos_theta), muon_mass
+    )
+    msq = polarization_resolved_matrix_element_squared(
+        p, k, p_prime, q, vector_mass, g_v, g_a, mode, muon_mass
+    )
+    q_abs = float(np.linalg.norm(q[1:]))
+    jacobian_denominator = (
+        q_abs * (muon_mass + photon_energy)
+        - q[0] * photon_energy * float(cos_theta)
+    )
+    if jacobian_denominator <= 0.0:
+        raise ArithmeticError(
+            "Non-positive two-body phase-space Jacobian denominator"
+        )
+    return (
+        e_charge**2 * msq * q_abs**2
+        / (64.0 * math.pi**2 * muon_mass * photon_energy
+           * jacobian_denominator)
+    )
+
+
 def total_cross_section_lab(
     photon_energy: float,
     vector_mass: float,
@@ -232,39 +265,16 @@ def total_cross_section_lab(
     muon_mass: float = M_MU_MEV,
     e_charge: float = E_CHARGE,
 ) -> float:
-    """Exact tree-level total cross section in the muon-rest frame, in MeV^-2.
-
-    The lab-frame two-body phase-space Jacobian gives
-    d sigma/dOmega = e^2 |M/e|^2 |q|^2 /
-      [64 pi^2 m_mu E_gamma (|q|(m_mu+E_gamma)-E_q E_gamma cos(theta))].
-    This expression reduces to the Thomson result in the soft-photon limit.
-    """
+    """Integrate the exact lab-frame two-body cross section over solid angle."""
     nodes, weights = np.polynomial.legendre.leggauss(n_angle)
     integral = 0.0
     for cos_theta, weight in zip(nodes, weights):
-        p, k, p_prime, q = lab_kinematics(
-            photon_energy, vector_mass, float(cos_theta), muon_mass
-        )
-        msq = polarization_resolved_matrix_element_squared(
-            p, k, p_prime, q, vector_mass, g_v, g_a, mode, muon_mass
-        )
-        q_abs = float(np.linalg.norm(q[1:]))
-        jacobian_denominator = (
-            q_abs * (muon_mass + photon_energy)
-            - q[0] * photon_energy * float(cos_theta)
-        )
-        if jacobian_denominator <= 0.0:
-            raise ArithmeticError(
-                "Non-positive two-body phase-space Jacobian denominator"
-            )
-        dsigma_domega = (
-            e_charge**2 * msq * q_abs**2
-            / (64.0 * math.pi**2 * muon_mass * photon_energy
-               * jacobian_denominator)
+        dsigma_domega = differential_cross_section_lab(
+            photon_energy, vector_mass, float(cos_theta),
+            g_v, g_a, mode, muon_mass, e_charge
         )
         integral += float(weight) * 2.0 * math.pi * dsigma_domega
     return integral
-
 
 def low_energy_vector_reference(
     photon_energy: float, vector_mass: float, muon_mass: float = M_MU_MEV
