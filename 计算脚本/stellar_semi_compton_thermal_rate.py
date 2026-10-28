@@ -37,6 +37,9 @@ class ThermalResult:
     photon_max_mev: float
     quadrature_order: int
     phi_order: int
+    spectrum_edges_mev: np.ndarray | None = None
+    spectrum_event_rate_mev4: np.ndarray | None = None
+    spectrum_emissivity_mev5: np.ndarray | None = None
 
 
 def fermi_dirac(energy: float, temperature: float, chemical_potential: float) -> float:
@@ -125,6 +128,7 @@ def thermal_emissivity(
     phi_order: int | None = None,
     p_max_mev: float | None = None,
     photon_max_mev: float | None = None,
+    spectrum_bins: int = 0,
 ) -> ThermalResult:
     """Compute the optically thin local muon semi-Compton rate and emissivity.
 
@@ -150,6 +154,17 @@ def thermal_emissivity(
         photon_max_mev = max(20.0*T, 2.0*threshold + 10.0*T)
     if p_max_mev <= 0.0 or photon_max_mev <= 0.0:
         raise ValueError("Integration cutoffs must be positive")
+    if spectrum_bins < 0:
+        raise ValueError("spectrum_bins must be non-negative")
+    spectrum_edges = None
+    spectrum_rate = None
+    spectrum_energy = None
+    if spectrum_bins:
+        emax = math.sqrt(p_max_mev*p_max_mev + m*m) + photon_max_mev - m
+        emax = max(emax, ma * (1.0 + 1e-9))
+        spectrum_edges = np.geomspace(ma, emax, spectrum_bins + 1)
+        spectrum_rate = np.zeros(spectrum_bins, dtype=float)
+        spectrum_energy = np.zeros(spectrum_bins, dtype=float)
 
     nodes, weights = np.polynomial.legendre.leggauss(order)
     p_nodes = 0.5 * p_max_mev * (nodes + 1.0)
@@ -200,6 +215,10 @@ def thermal_emissivity(
                 if f_minus == 0.0 and f_plus == 0.0:
                     continue
 
+                initial_weight = (
+                    p_measure * omega_measure * float(wc)
+                    * flux_velocity
+                )
                 blocked_sigma = 0.0
                 energy_weighted_sigma = 0.0
                 for ctheta, wtheta in zip(theta_nodes, theta_weights):
@@ -228,22 +247,33 @@ def thermal_emissivity(
                         block_plus = 1.0 - fermi_dirac(
                             e_prime_medium, T, initial_muon_plus
                         )
-                        phi_block_sum += phi_weight * (
+                        occupancy_weight = (
                             f_minus * block_minus + f_plus * block_plus
                         )
-                        phi_energy_sum += phi_weight * e_q_medium * (
-                            f_minus * block_minus + f_plus * block_plus
+                        phi_block_sum += phi_weight * occupancy_weight
+                        phi_energy_sum += (
+                            phi_weight * e_q_medium * occupancy_weight
                         )
+                        if spectrum_bins:
+                            bin_index = int(np.searchsorted(
+                                spectrum_edges, e_q_medium, side="right"
+                            ) - 1)
+                            bin_index = min(max(bin_index, 0), spectrum_bins - 1)
+                            contribution = (
+                                common_prefactor * initial_weight
+                                * float(wtheta) * dsigma_domega
+                                * phi_weight * occupancy_weight
+                            )
+                            spectrum_rate[bin_index] += contribution
+                            spectrum_energy[bin_index] += (
+                                contribution * e_q_medium
+                            )
 
                     blocked_sigma += float(wtheta) * dsigma_domega * phi_block_sum
                     energy_weighted_sigma += (
                         float(wtheta) * dsigma_domega * phi_energy_sum
                     )
 
-                initial_weight = (
-                    p_measure * omega_measure * float(wc)
-                    * flux_velocity
-                )
                 event_integral += initial_weight * blocked_sigma
                 energy_integral += initial_weight * energy_weighted_sigma
 
@@ -254,6 +284,9 @@ def thermal_emissivity(
         photon_max_mev=float(photon_max_mev),
         quadrature_order=order,
         phi_order=phi_order,
+        spectrum_edges_mev=spectrum_edges,
+        spectrum_event_rate_mev4=spectrum_rate,
+        spectrum_emissivity_mev5=spectrum_energy,
     )
 
 
@@ -290,9 +323,14 @@ def run_checks() -> None:
         phi_order=4,
         p_max_mev=200.0,
         photon_max_mev=100.0,
+        spectrum_bins=4,
     )
     assert result.event_rate_mev4 > 0.0, result
     assert result.emissivity_mev5 > 0.0, result
+    assert result.spectrum_event_rate_mev4 is not None
+    assert result.spectrum_emissivity_mev5 is not None
+    assert abs(np.sum(result.spectrum_event_rate_mev4) / result.event_rate_mev4 - 1.0) < 1e-8
+    assert abs(np.sum(result.spectrum_emissivity_mev5) / result.emissivity_mev5 - 1.0) < 1e-8
     print("checks=PASS")
     print(f"geometry_U2={minkowski_dot(u_cm, u_cm):.12f}")
     print(f"geometry_energy_residual={abs(k_cm*(u_cm[0]-u_cm[3])-omega):.3e}")
@@ -321,6 +359,8 @@ def main() -> None:
                         help="optional muon momentum cutoff in MeV")
     parser.add_argument("--photon-max", type=float, default=None,
                         help="optional photon energy cutoff in MeV")
+    parser.add_argument("--spectrum-bins", type=int, default=0,
+                        help="optional logarithmic A' energy bins; 0 disables spectrum")
     args = parser.parse_args()
     if args.check:
         run_checks()
@@ -329,7 +369,7 @@ def main() -> None:
     result = thermal_emissivity(
         args.temperature, args.muon_chemical_potential, args.mass,
         args.g_v, args.g_a, args.order, args.phi_order,
-        args.p_max, args.photon_max
+        args.p_max, args.photon_max, args.spectrum_bins
     )
     print("quantity,value,unit")
     print(f"event_rate_density,{result.event_rate_mev4:.10e},MeV^4")
@@ -338,6 +378,16 @@ def main() -> None:
     print(f"photon_max,{result.photon_max_mev:.8g},MeV")
     print(f"quadrature_order,{result.quadrature_order},dimensionless")
     print(f"phi_order,{result.phi_order},dimensionless")
+    if result.spectrum_edges_mev is not None:
+        print("spectrum_bin,energy_low_mev,energy_high_mev,event_rate_MeV4,emissivity_MeV5")
+        for i, (rate, emissivity) in enumerate(zip(
+            result.spectrum_event_rate_mev4, result.spectrum_emissivity_mev5
+        )):
+            print(
+                f"{i},{result.spectrum_edges_mev[i]:.8e},"
+                f"{result.spectrum_edges_mev[i+1]:.8e},"
+                f"{rate:.8e},{emissivity:.8e}"
+            )
 
 
 if __name__ == "__main__":
