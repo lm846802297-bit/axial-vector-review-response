@@ -423,6 +423,19 @@ def run_checks() -> None:
         sigma_t, sigma_thomson
     )
     assert sigma_l / sigma_t < 1e-3, (sigma_l, sigma_t)
+
+    # The lab-angle Jacobian and invariant CM phase space must give the same
+    # total cross section at fixed s, away from threshold.
+    sigma_lab = total_cross_section_lab(
+        1.0, 0.01, 1.0, 0.0, "all", n_angle=96
+    )
+    sigma_cm = total_cross_section_cm(
+        1.0, 0.01, 1.0, 0.0, "all", n_angle=96
+    )
+    assert abs(sigma_lab / sigma_cm - 1.0) < 5e-3, (
+        sigma_lab, sigma_cm, sigma_lab / sigma_cm
+    )
+
     printed_t, printed_l = low_energy_vector_reference(eg, ma)
     assert abs(sigma_t / printed_l - 1.0) < 0.02, (sigma_t, printed_l)
     assert abs((sigma_t + sigma_l) / (printed_t + printed_l) - 1.0) < 0.02
