@@ -105,3 +105,22 @@ New reproducible files:
 CMS-EXO-24-006 (arXiv:2604.14236, April 2026) searches \(X\to YY\to4\ell\) for \(m_X=250\text{--}2000\) GeV and includes generated \(m_Y=10\) GeV hypotheses. It is a potential topology match for Benchmark A at high scalar masses, but CMS assumes \(\Gamma_X/M_X=10^{-4}\). The Benchmark A radial scalar instead has \(\Gamma(s\to A'A')\simeq30.6\) GeV at \(m_s=250\) GeV, so the narrow-width experimental limit cannot be copied directly. The source and the mismatch are documented in the direct-search matrix; a broad-resonance reinterpretation has not been performed.
 
 Source: https://arxiv.org/abs/2604.14236
+
+
+## Additional Higgs-decay search audit for Benchmark A
+
+The 125 GeV Higgs searches are a separate topology from direct production of the radial scalar \(s\). ATLAS 2110.13673 covers \(1<m_X<15\) GeV in its low-mass \(H\to XX\to4\mu\) search, but explicitly vetoes pair masses in \(8\text{--}12\) GeV. CMS HIG-19-007 also marks the \(\Upsilon\) region as excluded in its \(H\to XX\to4\ell\) limits. Thus neither published four-lepton limit should be applied as a point-specific exclusion at the exact \(m_{A'}=10\) GeV benchmark.
+
+A new calculation in higgs_signal_strength_screen.py estimates, away from degeneracy, the conditional proxy
+\[
+\mathrm{BR}(h_{\rm like}\to A'A')\simeq
+\frac{\epsilon_{\rm nd}^2\,\Gamma(s\to A'A';m_h)}
+{\Gamma_h^{\rm SM}+\epsilon_{\rm nd}^2\,\Gamma(s\to A'A';m_h)}.
+\]
+For Benchmark A over \(m_s=65\text{--}115\) GeV, this is approximately \(1.3\times10^{-6}\) to \(2.8\times10^{-5}\); the corresponding \(4\mu\) branching proxy is \(1.4\times10^{-7}\) to \(3.1\times10^{-6}\) if \(\mathrm{BR}(A'\to\mu^+\mu^-)\simeq1/3\). These are fixed-self-energy, non-pole estimates and are not exclusions. The \(4\mu\) searches' quarkonium veto means the exact 10 GeV point is not directly constrained by those curves.
+
+Sources:
+- ATLAS: https://arxiv.org/abs/2110.13673
+- CMS HIG-19-007: https://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-19-007/index.html
+
+The updated script has corresponding unit-test coverage. The tests were run in a local Python scratch environment against a copy of the tracked scripts; all 11 tests passed. This is not a GitHub Actions/CI run.
