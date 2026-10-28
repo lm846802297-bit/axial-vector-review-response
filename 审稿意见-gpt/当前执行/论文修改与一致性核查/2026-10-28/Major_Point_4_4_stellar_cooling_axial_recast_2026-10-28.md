@@ -251,6 +251,8 @@ g_{X,\mathrm{lim}}^A
 4. 规范模型源文件：[main-v6.tex](https://github.com/lm846802297-bit/axial-vector-review-response/blob/main/overleaf-source/axial-vector-model-building-v6/main-v6.tex)，尤其是轻 μ 子耦合式、动能混合基准和 \(m_{A'}=2g_Xv_s\) 的参数关系。
 
 
+5. D. Das, P. Ghosh and R. Puri, “SN1987A Constraints of Light Z' with Non-Mixing Polarisations,” [arXiv:2606.23769](https://arxiv.org/abs/2606.23769), Eq. (14) for the low-mass semi-Compton transverse/longitudinal scaling.
+
 ## 8. 下一阶段：半康普顿振幅与极化分辨验证（2026-10-28）
 
 ### 8.1 完整树级振幅
@@ -353,7 +355,9 @@ Wang & Zhang 的最新预印本 [arXiv:2610.35379v1，第 5.2 节及附录 B](ht
 
 这也是标准 Thomson 极限与 \(q_\nu\mathcal M^\nu=0\) 的预期：质量趋于零时，守恒矢量流的物理纵向发射被抑制，横向两偏振给出 Thomson 总截面。新脚本在 \(E_\gamma=10^{-4}\,\mathrm{MeV}\)、\(m_{A'}=10^{-7}\,\mathrm{MeV}\)、\(g_V=1\) 下得到 \(\sigma_T/\sigma_{\rm Thomson}=0.999998\)，且 \(\sigma_L/\sigma_T\simeq5.0\times10^{-7}\)。同一极限下，文献印出的两条表达式之和与精确总截面一致到约 \(2\times10^{-6}\)，但其占主导与受抑制的 **T/L 标签看起来与显式极化投影相反**；对被抑制的小分量，系数也不完全一致。
 
-这应作为需要进一步核实的文献一致性问题，而不是在没有作者确认前断言论文存在确定错误。2024 年 Lai, Leung & Lin 的原始工作 [arXiv:2401.16023](https://arxiv.org/abs/2401.16023) 给出低能半康普顿的**未分辨极化总截面**，不能独立确认 2026 年文献的 T/L 标签。实际 SN1987A 总光度可能对这一标签交换不敏感，因为总截面在该极限仍接近 Thomson 结果；但我们的轴矢量重铸恰恰依赖纵向模，因此必须先确认偏振约定或对照作者的计算实现，不能直接把印出的 T/L 分量当作已核验输入。
+这一判断还有独立文献交叉核验：Das, Ghosh & Puri 的 [arXiv:2606.23769](https://arxiv.org/abs/2606.23769) 在其半康普顿极化分辨式（Eq. 14）中给出横向截面在 \(m_{A'}/\omega\to0\) 时不受抑制，而纵向截面乘以 \(m_{A'}^2/\omega^2\)，与本脚本的守恒矢量流软极限相符。两篇 2026 预印本的极化标签表现不一致，因此不宜静默沿用其中任一组 T/L 标签。
+
+这应作为需要进一步核实的文献一致性问题，而不是在没有作者确认前断言 Wang & Zhang 的论文存在确定错误。2024 年 Lai, Leung & Lin 的原始工作 [arXiv:2401.16023](https://arxiv.org/abs/2401.16023) 给出低能半康普顿的**未分辨极化总截面**，不能独立确认 2026 年文献的 T/L 标签。实际 SN1987A 总光度可能对这一标签交换不敏感，因为总截面在该极限仍接近 Thomson 结果；但我们的轴矢量重铸恰恰依赖纵向模，因此必须先确认偏振约定或对照作者的计算实现，不能直接把印出的 T/L 分量当作已核验输入。
 
 ### 8.5 可复现测试结果与边界
 
