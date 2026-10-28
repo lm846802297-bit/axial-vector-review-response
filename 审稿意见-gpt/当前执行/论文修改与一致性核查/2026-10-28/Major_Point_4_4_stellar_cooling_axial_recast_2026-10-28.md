@@ -537,7 +537,7 @@ python 计算脚本/stellar_semi_compton_thermal_rate.py --check
 工作流运行记录如下：
 
 - [Push 触发的运行 #40625698810](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/40625698810)，对应提交 2559e8a85843e609fed504a1a350b53e498c0bfa；
-- [最近一次 Pull-request 触发的运行 #40625649773](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/40625649773)，对应前一提交 f1d273281516c920f5ddadd144150b740f86d4e9。
+- [最新 Pull-request 触发的运行 #40625842217](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/40625842217)，对应当前报告提交 b0c04767cf0b3b3125c9afc5c7508984d06d22f4。
 
 最新 Push 运行仍在任何测试步骤开始前失败。工作流中的 pip 缓存依赖文件假设已移除，以免后续真正启动 runner 时产生无关失败。
 
