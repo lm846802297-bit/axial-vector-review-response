@@ -386,3 +386,38 @@ axial sigma_L(M=0.1 MeV) / sigma_L(M=0.2 MeV) = 4.124194
 2. 将完整振幅热平均，加入 μ 子费米分布、末态 Pauli 阻塞和光子 Bose 分布，检查与详细平衡相容的吸收率。
 3. 在相同的 SN profile 上分别计算矢量与轴矢量 T/L 产生率，核验 \(m_{A'}\) 与 \(v_s\) 的参数依赖，再做自由流、trapping 和 LESN 的数值积分。
 4. 在上述计算完成前，不把该结果表述为已完成的轴矢量 SN1987A 或 LESN 排除曲线。
+
+
+### 8.7 下一阶段热平均所需的精确相空间表达式
+
+在给定超新星局部温度 \(T\) 和 μ 子化学势 \(\mu_\mu\) 后，按每个末态 \(A'\) 偏振 \(\lambda\in\{T_1,T_2,L\}\) 分辨的产生率应从热场论相空间积分开始：
+
+\[
+\begin{aligned}
+\Gamma_{\mathrm{prod}}^\lambda(q)
+={1\over 2E_q}\int&
+d\Pi_p\,d\Pi_k\,d\Pi_{p'}\,
+(2\pi)^4\delta^{(4)}(p+k-p'-q)\\
+&\times\overline{|\mathcal M_\lambda|^2}
+f_\mu(E_p)f_\gamma(\omega)
+[1-f_\mu(E_{p'})],
+\end{aligned}
+\]
+
+其中 \(d\Pi_a=d^3p_a/[(2\pi)^3 2E_a]\)，\(f_\mu(E)=[e^{(E-\mu_\mu)/T}+1]^{-1}\)，\(f_\gamma(\omega)=[e^{\omega/T}-1]^{-1}\)。对每个偏振，\(\overline{|\mathcal M_\lambda|^2}\) 需使用相同的初态自旋平均、光子偏振平均和末态偏振投影。发射的能量损失率随后为
+
+\[
+Q^\lambda=\int {d^3q\over(2\pi)^3} E_q\,
+\Gamma_{\mathrm{prod}}^\lambda(q).
+\]
+
+在平衡浴中，利用能量守恒和 Fermi–Dirac/Bose–Einstein 分布的详细平衡关系，**对同一个偏振模式、采用一致的态计数约定**，
+
+\[
+\Gamma_{\mathrm{abs}}^\lambda(q)
+=e^{E_q/T}\Gamma_{\mathrm{prod}}^\lambda(q).
+\]
+
+如果文献中的产生率是对三种末态偏振求和的总率，而吸收率是对初态 \(A'\) 偏振平均的率，则必须显式处理二个横向自由度与一个纵向自由度的计数，不能把总率公式中的 \(2/3\) 因子不加区分地搬到每个极化模式。
+
+**当前代码还没有数值求解这一热相空间积分。** 现有半康普顿脚本在初态 μ 子静止系计算精确真空截面，并用软光子极限核验 Thomson 结果；它不包含 μ 子热运动、化学势、末态 Pauli 阻塞或 SN profile。下一步应先将矩阵元推广到任意初态 μ 子动量，再用热分布对产生率积分，并以逐偏振详细平衡关系检查逆过程。只有该局部产生率/吸收率模块通过验证后，才应嵌入超新星径向 profile 与几何逃逸积分。
