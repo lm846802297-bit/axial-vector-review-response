@@ -643,3 +643,71 @@ python 计算脚本/stellar_semi_compton_thermal_convergence.py
 4. **随后才计算模型特定的 SN1987A/LESN。** 采用有来源的超新星 profile，明确处理光度、吸收光深、方向平均逃逸、寿命/分支比和适用的扩散近似。
 5. **最后更新正式回复信。** 用文献引用加上真实完成的模型特定结果回应审稿人。当前只更新本研究报告，不修改论文正文或正式回复信。
 
+
+
+## 12. 对照文献半康普顿公式的独立一致性审计（2026-10-28）
+
+### 12.1 arXiv:2511.09619 的可复现矢量基准
+
+Blinov et al. 的 Appendix B 给出标准矢量流下的热产生率，并明确指出：
+\[
+\Gamma_{\mu\gamma\to\mu V}^{\rm prod}(\omega)
+=\frac{1}{v_V}\,n_\mu F_{\rm deg}\,
+\frac{2}{e^{\omega/T}-1}\,
+\sigma(\mu\gamma\to\mu V),
+\]
+其中 \(v_V=\sqrt{1-m_V^2/\omega^2}\)。作者强调，若将 \(\mu\gamma\to\mu V\) 的产生率误用成逆反应 \(\mu V\to\mu\gamma\) 的相空间，会漏掉速度因子；热率中还需显式保留两个初态光子偏振的简并因子。其吸收率采用详细平衡
+\[
+\Gamma_{\mu\gamma\to\mu V}^{\rm abs}
+=e^{\omega/T}\Gamma_{\mu\gamma\to\mu V}^{\rm prod}.
+\]
+来源：[arXiv:2511.09619v2, Appendix B, Eqs. (29)–(35)](https://arxiv.org/html/2511.09619v2)。
+
+文中低能总截面为
+\[
+\sigma_V\simeq \frac{8\pi\alpha\alpha_V}{3m_\mu^2}
+\left(1+\frac{m_V^2}{2\omega^2}\right)
+\sqrt{1-\frac{m_V^2}{\omega^2}},
+\]
+在 \(m_V/\omega\to0\) 时回到 Thomson 型总截面。该式适合作为总偏振求和的低能矢量基准，但没有提供本模型所需的轴矢量 \(T/L\) 分辨结果。我们的精确树级矩阵元与热积分后续应在矢量极限下复现该总截面和相应热率因子，再检查轴矢量情况；不能把该矢量总截面直接当成轴矢量截面。
+
+### 12.2 对 arXiv:2610.35379v1 的模式分辨公式发现了待解决的不一致
+
+Wang & Zhang 在 §5.2 给出矢量 \(U(1)_{L_\mu-L_\tau}\) 半康普顿低能极限的 Eq. (58a,b)，并在 Appendix B 的 Eq. (106a,b) 给出角微分截面。其模式投影在 Eq. (77) 中定义为介质静止系的标准空间横向投影 \(P_T\) 与完整 massive-vector 极化和减去 \(P_T\) 所得的 \(P_L\)。来源：[arXiv:2610.35379v1, Eqs. (58), (77), (105)–(106)](https://arxiv.org/html/2610.35379v1)。
+
+按原文打印的积分式，
+\[
+\sigma_T^{\rm paper}=
+\frac{2\pi\alpha\alpha_{\mu\tau}m_{Z'}^2}
+{m_\mu^2 E_\gamma^2}
+\sqrt{1-\frac{m_{Z'}^2}{E_\gamma^2}},
+\qquad
+\sigma_L^{\rm paper}=
+\frac{8\pi\alpha\alpha_{\mu\tau}}{3m_\mu^2}
+\sqrt{1-\frac{m_{Z'}^2}{E_\gamma^2}}.
+\]
+在 \(m_{Z'}\ll E_\gamma\ll m_\mu\) 下，前者被 \(m_{Z'}^2/E_\gamma^2\) 压低，而后者趋近 Thomson 型截面。对一个守恒的纯矢量 μ 子流，Ward identity \(q_\mu J^\mu=0\) 要求物理纵向振幅在 \(m_{Z'}/E_\gamma\to0\) 时受抑，而横向总截面回到 Thomson 极限。因此，按 Eq. (77) 的通常 \(T/L\) 定义，Eq. (58a,b) 的模式标记似乎与守恒矢量流极限相反。
+
+另一个独立的代数检查来自原文 Appendix B 的 Eq. (106a)：
+\[
+\frac{d\sigma_T}{d\cos\theta}\propto
+m_{Z'}^2+2E_\gamma^2\cos\theta.
+\]
+按 Eq. (105) 中通常的 Compton 散射角定义，该表达式在合法的低能参数点 \(E_\gamma=0.1\,\mathrm{MeV}\)、\(m_{Z'}=0.001\,\mathrm{MeV}\)、\(\cos\theta=-1\) 处的括号为
+\[
+m_{Z'}^2-2E_\gamma^2=-0.019999\,\mathrm{MeV}^2<0.
+\]
+这与微分截面非负的要求冲突。该检查只对论文打印的解析表达式进行代数代入；它**不是**对仓库矩阵元脚本的运行结果，也尚不能单独判定问题究竟来自印刷错误、角度约定还是推导错误。
+
+因此，在完成独立的精确振幅对照前，不能把 arXiv:2610.35379 的 Eq. (58)/(106) 直接当作已验证的 \(T/L\) 数值基准。应以 Eq. (77) 的投影定义、守恒矢量流的 Thomson 极限和独立的 Dirac 振幅计算共同核查；如无法解释差异，应将其记录为文献公式待澄清项，而不是静默交换 \(T/L\) 标签。
+
+### 12.3 对本轴矢量计算的影响
+
+该发现不意味着可以忽略 arXiv:2610.35379。恰恰相反，它决定了我们应当如何使用这篇新文献：
+
+1. 将它用于识别所需的模式分解、热率与几何输运流程；
+2. 对矢量耦合先验证 \(T\) 模式的 Thomson 极限、\(L\) 模式的守恒流抑制，以及 \(T+L\) 总截面；
+3. 再切换到 \(g_V^\mu=0,\ g_A^\mu\ne0\)，核验非守恒轴流的纵向增强与 \(m_{A'}\) 标度；
+4. 在完成上述交叉核验前，不采用该文 Eq. (58)/(106) 的单独 \(T/L\) 曲线作为定量对照，也不据此声称本模型的超新星排除边界已得到验证。
+
+当前仓库的 stellar_semi_compton_axial_matrix_element.py 已包含矢量软极限和纵向抑制的 --check 断言，并有对 Eq. (58) 积分值进行比较的诊断代码；但由于最新 GitHub Actions 作业仍在任何测试步骤开始前失败，这些检查**尚未在当前仓库版本中得到实际执行结果**。本节的文献公式代数检查与解析 Ward-identity 论证不得写成已通过的仓库测试。
