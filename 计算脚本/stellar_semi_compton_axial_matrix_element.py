@@ -119,8 +119,18 @@ def vector_polarizations(
         direction = np.array([0.0, 0.0, 1.0])
     else:
         direction = q3 / q_abs
-    e1 = np.array([direction[2], 0.0, -direction[0]])
-    e2 = np.array([0.0, 1.0, 0.0])
+
+    # Construct a transverse orthonormal basis for an arbitrary q direction.
+    # The previous fixed e2=(0,1,0) was only orthogonal to q when q_y=0.
+    reference = (
+        np.array([0.0, 1.0, 0.0])
+        if abs(direction[1]) < 0.9
+        else np.array([1.0, 0.0, 0.0])
+    )
+    e1 = np.cross(reference, direction)
+    e1 /= np.linalg.norm(e1)
+    e2 = np.cross(direction, e1)
+    e2 /= np.linalg.norm(e2)
     transverse_1 = np.concatenate(([0.0], e1))
     transverse_2 = np.concatenate(([0.0], e2))
     longitudinal = np.concatenate(
@@ -438,6 +448,21 @@ def run_checks() -> None:
     for i in range(3):
         for j in range(i):
             assert abs(minkowski_dot(pols[i], pols[j])) < 1e-10
+
+    # A general non-coplanar q direction must also have physical polarizations.
+    ma_general = 0.5
+    q_spatial = np.array([0.7, 0.2, 0.9])
+    q_general = np.concatenate((
+        [math.sqrt(ma_general**2 + float(np.dot(q_spatial, q_spatial)))],
+        q_spatial,
+    ))
+    general_pols = vector_polarizations(q_general, ma_general)
+    for eps in general_pols:
+        assert abs(minkowski_dot(q_general, eps)) < 1e-10
+        assert abs(minkowski_dot(eps, eps) + 1.0) < 1e-10
+    for i in range(3):
+        for j in range(i):
+            assert abs(minkowski_dot(general_pols[i], general_pols[j])) < 1e-10
 
     # Electromagnetic Ward identity for vector, axial and mixed A' currents.
     for gv, ga in ((1.0, 0.0), (0.0, 1.0), (0.25, 0.75)):
