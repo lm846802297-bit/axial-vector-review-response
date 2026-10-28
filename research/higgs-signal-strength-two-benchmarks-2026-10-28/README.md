@@ -84,7 +84,7 @@ The limited Higgs signal-strength screen is encouraging away from degeneracy, bu
 A directly relevant ATLAS search for a separate scalar decaying as \(S\to Z_dZ_d\to4\ell\) has been identified and assessed against both benchmarks. See [direct-search-source-matrix-2026-10-28.md](direct-search-source-matrix-2026-10-28.md).
 
 - Benchmark A with \(m_{A'}=10\) GeV does not satisfy the ATLAS intermediate-mass coverage or the explicit \(m_{\ell\ell}>11.105\) GeV pair-mass selection; no limit is transferred.
-- Benchmark B with \(m_{A'}=63\) GeV can be compared with the ATLAS higher-mass search for \(m_s>130\) GeV. A conservative rate screen based on the non-degenerate self-energy proxy is far below the published limit scale, but it is not a detector-level recast or a formal exclusion statement.
+- Benchmark B with \(m_{A'}=63\) GeV has an on-shell cascade above 126 GeV, but the ATLAS paper documents high-mass signal MC samples beginning at \(m_S=150\) GeV. The updated screening calculation therefore uses 150 GeV, not 130 GeV, and remains an analytic upper-envelope estimate rather than a point-specific recast.
 
 
 ## Corrected ATLAS mass-grid audit
