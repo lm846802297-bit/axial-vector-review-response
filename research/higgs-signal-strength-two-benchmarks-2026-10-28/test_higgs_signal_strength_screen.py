@@ -48,6 +48,20 @@ class HiggsSignalStrengthScreenTests(unittest.TestCase):
         self.assertIn("screen_only", result_a["status"])
         self.assertNotIn("excluded", result_a["status"])
 
+    def test_benchmark_a_higgs_exotic_branching_proxy_is_small_away_from_degeneracy(self):
+        benchmark_a = BENCHMARKS[0]
+        low = screen_point(65.0, benchmark_a)
+        high = screen_point(115.0, benchmark_a)
+        self.assertGreater(low["br_h_to_aprime_pair_proxy"], 1.0e-6)
+        self.assertLess(low["br_h_to_aprime_pair_proxy"], 2.0e-6)
+        self.assertGreater(high["br_h_to_aprime_pair_proxy"], 2.0e-5)
+        self.assertLess(high["br_h_to_aprime_pair_proxy"], 3.5e-5)
+        self.assertAlmostEqual(
+            high["br_h_to_4mu_proxy"],
+            high["br_h_to_aprime_pair_proxy"] / 9.0,
+            delta=1.0e-12,
+        )
+
     def test_benchmark_a_accounts_for_open_higgs_to_aprime_pair(self):
         benchmark_a, benchmark_b = BENCHMARKS
         result_a = screen_point(120.0, benchmark_a)
