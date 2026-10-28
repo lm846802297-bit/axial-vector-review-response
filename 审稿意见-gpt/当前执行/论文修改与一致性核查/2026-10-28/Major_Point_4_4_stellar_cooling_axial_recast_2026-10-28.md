@@ -470,6 +470,19 @@ Q^\lambda=\int {d^3q\over(2\pi)^3} E_q\,
 
 CM 计算使用完整的 \(A'\) 物理偏振求和；这是总发射率的洛伦兹不变求和，不应与介质静止系下分别定义的纵向/横向吸收光深混为一谈。后者仍需单独实现。
 
+开启能量分箱时，代码还用分箱中心给出一个偏振求和的详细平衡吸收率估计。各向同性介质中，若 \(R_i\) 是第 \(i\) 个能量 bin 的发射事件率，则
+
+\[
+\frac{dR}{dE}\simeq \frac{R_i}{\Delta E_i}
+=\frac{qE}{2\pi^2}\sum_\lambda\Gamma^\lambda_{\rm prod}(E),
+\qquad
+\sum_\lambda\Gamma^\lambda_{\rm abs}(E)
+=e^{E/T}\sum_\lambda\Gamma^\lambda_{\rm prod}(E),
+\quad q=\sqrt{E^2-m_{A'}^2}.
+\]
+
+这里的 \(\Gamma_{\rm prod/abs}\) 是每个模式的时间率，输出的求和包含横向和纵向模式；它通过分箱中心近似获得，只能作为总偏振求和的详细平衡检查。它不能给出 \(T/L\) 分别的吸收光深，不能直接判定 trapping，也不能替代逐偏振的介质输运。
+
 ### 9.3 热积分的几何检查与状态
 
 独立复算已验证 CM 中介质四速度满足 \(U_{\rm CM}^2=1\)，入射光子满足 \(k_{\rm CM}\cdot U_{\rm CM}=\omega_{\rm medium}\)，并且任意测试角度下
