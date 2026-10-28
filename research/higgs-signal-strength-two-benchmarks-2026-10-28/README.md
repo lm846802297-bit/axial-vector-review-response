@@ -75,7 +75,7 @@ The limited Higgs signal-strength screen is encouraging away from degeneracy, bu
 ## Validation status
 
 - The representative numerical rows were independently cross-checked against the stated proxy formulas.
-- A Python unittest suite is included, but it has **not yet been executed in a Python/CI environment** during this branch-creation pass.
+- Python unittest suites are included for both the Higgs-rate and ATLAS rate-screen scripts. They have **not yet been executed in a Python/CI environment**. The ATLAS screening formulas were independently recalculated, but that is not a substitute for running the checked-in tests.
 - The ATLAS global signal-strength number is used as a source-level orientation point only; no official likelihood-level fit or model-specific exclusion has been performed.
 
 
