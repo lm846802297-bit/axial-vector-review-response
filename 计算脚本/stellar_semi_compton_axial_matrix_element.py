@@ -234,8 +234,10 @@ def total_cross_section_lab(
 ) -> float:
     """Exact tree-level total cross section in the muon-rest frame, in MeV^-2.
 
-    Uses d sigma/dOmega = e^2 |M/e|^2 |q| /
-    [64 pi^2 m_mu E_gamma (m_mu+E_gamma)].
+    The lab-frame two-body phase-space Jacobian gives
+    d sigma/dOmega = e^2 |M/e|^2 |q|^2 /
+      [64 pi^2 m_mu E_gamma (|q|(m_mu+E_gamma)-E_q E_gamma cos(theta))].
+    This expression reduces to the Thomson result in the soft-photon limit.
     """
     nodes, weights = np.polynomial.legendre.leggauss(n_angle)
     integral = 0.0
@@ -247,10 +249,18 @@ def total_cross_section_lab(
             p, k, p_prime, q, vector_mass, g_v, g_a, mode, muon_mass
         )
         q_abs = float(np.linalg.norm(q[1:]))
+        jacobian_denominator = (
+            q_abs * (muon_mass + photon_energy)
+            - q[0] * photon_energy * float(cos_theta)
+        )
+        if jacobian_denominator <= 0.0:
+            raise ArithmeticError(
+                "Non-positive two-body phase-space Jacobian denominator"
+            )
         dsigma_domega = (
-            e_charge**2 * msq * q_abs
+            e_charge**2 * msq * q_abs**2
             / (64.0 * math.pi**2 * muon_mass * photon_energy
-               * (muon_mass + photon_energy))
+               * jacobian_denominator)
         )
         integral += float(weight) * 2.0 * math.pi * dsigma_domega
     return integral
