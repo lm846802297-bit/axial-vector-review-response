@@ -85,3 +85,16 @@ A directly relevant ATLAS search for a separate scalar decaying as \(S\to Z_dZ_d
 
 - Benchmark A with \(m_{A'}=10\) GeV does not satisfy the ATLAS intermediate-mass coverage or the explicit \(m_{\ell\ell}>11.105\) GeV pair-mass selection; no limit is transferred.
 - Benchmark B with \(m_{A'}=63\) GeV can be compared with the ATLAS higher-mass search for \(m_s>130\) GeV. A conservative rate screen based on the non-degenerate self-energy proxy is far below the published limit scale, but it is not a detector-level recast or a formal exclusion statement.
+
+
+## Corrected ATLAS mass-grid audit
+
+The ATLAS paper distinguishes the high-mass event-selection boundary \(m_{4\ell}>130\) GeV from its documented generated signal samples, which start at \(m_S=150\) GeV. The new source matrix therefore evaluates the fixed-self-energy screening proxy at \(m_s=150\) GeV.
+
+At that point the screening proxy gives \(\epsilon_{\mathrm{nd}}\simeq1.415\times10^{-5}\), and a deliberately conservative 50 pb SM gluon-fusion envelope gives \(\sigma(gg\to s)\lesssim1.01\times10^{-5}\) fb before branching fractions. This is about \(5.0\times10^3\) below the smallest published observed limit value over the high-mass plane (0.05 fb). It is **not** a point-specific exclusion result.
+
+The official [HEPData record 145171](https://www.hepdata.net/record/145171) lists Table 15 as the observed 95% CL limit in SR2. Automated retrieval of its CSV/YAML payload was blocked in this pass; the exact observed limit near \(m_{A'}=63\) GeV has not been quoted or digitized. The updated analysis records this explicitly rather than inventing a table value.
+
+New reproducible files:
+- [ATLAS direct-search screening script](atlas_direct_search_screen.py)
+- [ATLAS screening unit tests](test_atlas_direct_search_screen.py)
