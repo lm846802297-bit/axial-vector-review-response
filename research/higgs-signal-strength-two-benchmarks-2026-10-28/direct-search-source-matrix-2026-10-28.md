@@ -103,6 +103,14 @@ Published LEP limits commonly assume SM-Higgs-like branching fractions or a spec
 
 The ATLAS \(S\to Z_dZ_d\to4\ell\) analysis is the closest directly matched public search found for Benchmark B above threshold. Searches of the 125 GeV Higgs for \(H\to Z_dZ_d\) are not interchangeable with direct production of a separate \(s\) resonance: the parent mass, production rate, and signal selection differ. Generic heavy-scalar \(ZZ\) searches also do not directly match a pair of 63 GeV \(A'\) bosons with \(L_\mu-L_\tau\) branching fractions.
 
+
+
+## 4. Width and acceptance caveat for Benchmark B
+
+The ATLAS signal samples use a scalar width that varies with mass as the SM-Higgs width. In the present benchmark, the leading tree-level estimate gives \(\Gamma(s\to A'A')\simeq39\) MeV at \(m_s=130\) GeV, which is larger than the SM-Higgs width at that mass but still narrow compared with the GeV-scale mass binning and detector mass resolution. This makes a large width-shape effect unlikely at the lower edge of the search, but it does not replace checking the published signal-shape interpolation or a dedicated simulation.
+
+The paper reports signal samples generated at discrete masses and interpolates the signal shape and limits. Therefore the exact observed limit at \((m_s,m_{A'})=(130,63)\) GeV should be extracted from the relevant mass bin or auxiliary figure/data; the overall minimum limit of 0.05 fb is used above only as a conservative sensitivity scale, not as the point-specific observed limit.
+
 ## 5. Evidence ledger and next actions
 
 1. **Verified:** a relevant ATLAS direct-search analysis exists and publishes cross-section-times-four-lepton-branching-ratio limits.
