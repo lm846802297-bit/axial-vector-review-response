@@ -15,8 +15,8 @@
 
 - [Major Point 4.4 轴矢量恒星冷却研究报告](../审稿意见-gpt/当前执行/论文修改与一致性核查/2026-10-28/Major_Point_4_4_stellar_cooling_axial_recast_2026-10-28.md)
 - [恒星冷却解析宽度与分支比复现脚本](stellar_cooling_axial_recast.py)：仅验证树级衰变宽度与分支比，不计算超新星排除曲线。
-- [半康普顿轴矢量振幅与极化分辨脚本](stellar_semi_compton_axial_matrix_element.py)：计算真空树级 μγ→μA′ 矩阵元、检查光子 Ward identity，使用精确实验室/CM 相空间公式，并加入 Klein–Nishina 解析基准测试；不包含 SN profile 或输运。
-- [半康普顿热产生率原型](stellar_semi_compton_thermal_rate.py)：对均匀介质单元积分 μ±γ→μ±A′ 产生率与能量发射率，包含初态分布、末态 μ 子 Pauli 阻塞和可选的 A′ 能量分箱（`--spectrum-bins`）；分箱还给出总偏振求和的详细平衡吸收率估计，但不是 T/L 分辨光深。运行 `python stellar_semi_compton_thermal_rate.py --check` 可执行几何、分箱守恒和低阶积分 smoke test。该原型不是 SN profile/transport 求解器。
+- [半康普顿轴矢量振幅与极化分辨脚本](stellar_semi_compton_axial_matrix_element.py)：计算真空树级 μγ→μA′ 矩阵元、检查光子 Ward identity，使用精确实验室/CM 相空间公式，并加入 Klein–Nishina 解析基准测试；不包含 SN profile 或输运。注意：脚本中的 T/L 模式按输入四动量所在参考系定义；CM 模式分解不等同于热介质静止系的 T/L 分解。
+- [半康普顿热产生率原型](stellar_semi_compton_thermal_rate.py)：对均匀介质单元积分 μ±γ→μ±A′ 产生率与能量发射率，包含初态分布、末态 μ 子 Pauli 阻塞和可选的 A′ 能量分箱（`--spectrum-bins`）；分箱还给出总偏振求和的详细平衡吸收率估计，但不是 T/L 分辨光深。热积分当前只使用总偏振求和截面；不能将 CM helicity 分解直接当作介质静止系的 T/L 发射率。运行 `python stellar_semi_compton_thermal_rate.py --check` 可执行几何、分箱守恒和低阶积分 smoke test。该原型不是 SN profile/transport 求解器。
 - [热积分收敛性研究脚本](stellar_semi_compton_thermal_convergence.py)：固定物理输入，分别扫描 Gauss–Legendre 阶数、μ 子动量截断与光子能量截断，输出 CSV；默认数值研究并不预设结果已收敛。
 
 - [第 262 节 Python 复现脚本](计算输出/section262_reproduce.py)
