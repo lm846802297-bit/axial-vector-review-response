@@ -276,6 +276,96 @@ def total_cross_section_lab(
         integral += float(weight) * 2.0 * math.pi * dsigma_domega
     return integral
 
+
+def cm_kinematics(
+    photon_energy_muon_rest: float,
+    vector_mass: float,
+    cos_theta_cm: float,
+    phi_cm: float = 0.0,
+    muon_mass: float = M_MU_MEV,
+) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+    """Exact CM-frame kinematics at fixed invariant energy.
+
+    The input photon energy is the invariantly equivalent energy in the
+    initial-muon rest frame, E_star=(p_mu.k)/m_mu. The CM z axis is along
+    the incoming photon. Returns p_mu, k, p'_mu, q in MeV.
+    """
+    eg_star, ma, m = photon_energy_muon_rest, vector_mass, muon_mass
+    threshold = ma + ma * ma / (2.0 * m)
+    if eg_star < threshold:
+        raise ValueError("Below A' production threshold")
+    s = m * m + 2.0 * m * eg_star
+    root_s = math.sqrt(s)
+    k_cm = (s - m * m) / (2.0 * root_s)
+    e_mu_cm = (s + m * m) / (2.0 * root_s)
+    e_q_cm = (s + ma * ma - m * m) / (2.0 * root_s)
+    e_prime_cm = (s + m * m - ma * ma) / (2.0 * root_s)
+    lambda_kallen = (
+        s * s + m**4 + ma**4 - 2.0 * s * m * m
+        - 2.0 * s * ma * ma - 2.0 * m * m * ma * ma
+    )
+    q_cm = math.sqrt(max(lambda_kallen, 0.0)) / (2.0 * root_s)
+    c = max(-1.0, min(1.0, cos_theta_cm))
+    sin_theta = math.sqrt(max(1.0 - c * c, 0.0))
+    q_vec = np.array([
+        q_cm * sin_theta * math.cos(phi_cm),
+        q_cm * sin_theta * math.sin(phi_cm),
+        q_cm * c,
+    ])
+    p_mu = np.array([e_mu_cm, 0.0, 0.0, -k_cm])
+    k = np.array([k_cm, 0.0, 0.0, k_cm])
+    q = np.concatenate(([e_q_cm], q_vec))
+    p_prime = np.concatenate(([e_prime_cm], -q_vec))
+    return p_mu, k, p_prime, q
+
+
+def differential_cross_section_cm(
+    photon_energy_muon_rest: float,
+    vector_mass: float,
+    cos_theta_cm: float,
+    g_v: float,
+    g_a: float,
+    mode: str = "all",
+    muon_mass: float = M_MU_MEV,
+    e_charge: float = E_CHARGE,
+) -> float:
+    """Exact d sigma/dOmega_CM, in MeV^-2, with initial spin/polarization averages."""
+    p, k, p_prime, q = cm_kinematics(
+        photon_energy_muon_rest, vector_mass, cos_theta_cm, 0.0, muon_mass
+    )
+    s = muon_mass**2 + 2.0 * muon_mass * photon_energy_muon_rest
+    q_abs = float(np.linalg.norm(q[1:]))
+    k_abs = float(np.linalg.norm(k[1:]))
+    if q_abs == 0.0 or k_abs == 0.0:
+        return 0.0
+    msq = polarization_resolved_matrix_element_squared(
+        p, k, p_prime, q, vector_mass, g_v, g_a, mode, muon_mass
+    )
+    return e_charge**2 * msq * q_abs / (64.0 * math.pi**2 * s * k_abs)
+
+
+def total_cross_section_cm(
+    photon_energy_muon_rest: float,
+    vector_mass: float,
+    g_v: float,
+    g_a: float,
+    mode: str = "all",
+    n_angle: int = 120,
+    muon_mass: float = M_MU_MEV,
+) -> float:
+    """Integrate the exact CM-frame differential cross section over solid angle."""
+    threshold = vector_mass + vector_mass**2 / (2.0 * muon_mass)
+    if photon_energy_muon_rest <= threshold:
+        return 0.0
+    nodes, weights = np.polynomial.legendre.leggauss(n_angle)
+    return sum(
+        float(w) * 2.0 * math.pi * differential_cross_section_cm(
+            photon_energy_muon_rest, vector_mass, float(c),
+            g_v, g_a, mode, muon_mass
+        )
+        for c, w in zip(nodes, weights)
+    )
+
 def low_energy_vector_reference(
     photon_energy: float, vector_mass: float, muon_mass: float = M_MU_MEV
 ) -> tuple[float, float]:
