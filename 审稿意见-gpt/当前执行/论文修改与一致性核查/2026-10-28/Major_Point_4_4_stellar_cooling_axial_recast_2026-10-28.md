@@ -249,3 +249,136 @@ g_{X,\mathrm{lim}}^A
 2. Z. Wang and Y. Zhang, “Revisiting supernova constraints on dark gauge bosons,” [arXiv:2610.35379v1](https://arxiv.org/html/2610.35379v1), submitted 2026-10-26.
 3. D. Croon, G. Elor, R. K. Leane and S. D. McDermott, “Supernova Muons: New Constraints on \(Z'\) Bosons, Axions and ALPs,” *JHEP* 01 (2021) 107, [arXiv:2006.13942](https://arxiv.org/abs/2006.13942).
 4. 规范模型源文件：[main-v6.tex](https://github.com/lm846802297-bit/axial-vector-review-response/blob/main/overleaf-source/axial-vector-model-building-v6/main-v6.tex)，尤其是轻 μ 子耦合式、动能混合基准和 \(m_{A'}=2g_Xv_s\) 的参数关系。
+
+
+## 8. 下一阶段：半康普顿振幅与极化分辨验证（2026-10-28）
+
+### 8.1 完整树级振幅
+
+对过程
+
+\[
+\gamma(k,\epsilon_\gamma)+\mu(p)\to\mu(p')+A'(q,\epsilon_{A'}),
+\qquad p+k=p'+q,
+\]
+
+令
+
+\[
+\Gamma^\nu_{A'}=\gamma^\nu(g_V^\mu-g_A^\mu\gamma^5),\quad
+s=(p+k)^2,\quad u=(p-q)^2.
+\]
+
+两个 μ 子交换图的振幅可写为
+
+\[
+\begin{aligned}
+\mathcal M={}&e\,\epsilon_{\gamma\mu}\epsilon^*_{A'\nu}\,
+\bar u(p')\Bigg[
+\Gamma^\nu_{A'}\,
+\frac{\not p+\not k+m_\mu}{s-m_\mu^2}\gamma^\mu\\
+&\hspace{35mm}
++\gamma^\mu\,
+\frac{\not p-\not q+m_\mu}{u-m_\mu^2}
+\Gamma^\nu_{A'}
+\Bigg]u(p).
+\end{aligned}
+\]
+
+这条表达式保留有限 \(m_{A'}\) 的精确树级运动学，没有使用 \(E_\gamma\ll m_\mu\) 展开。随本报告新增的脚本 **计算脚本/stellar_semi_compton_axial_matrix_element.py** 用显式 Dirac 矩阵、外线旋量与物理极化向量直接计算该振幅，再对初态 μ 子自旋和光子偏振取平均、对末态 μ 子自旋及指定的 \(A'\) 偏振求和，并对实验室系散射角作 Gauss–Legendre 数值积分。
+
+在初始 μ 子静止系，代码使用的微分截面为
+
+\[
+\frac{d\sigma}{d\Omega_{\rm lab}}
+=\frac{|\mathbf q|}{64\pi^2m_\mu E_\gamma(m_\mu+E_\gamma)}
+\overline{|\mathcal M|^2}.
+\]
+
+其中 \(\overline{|\mathcal M|^2}\) 对初态自旋和光子偏振平均，并保留相应的末态 \(A'\) 极化分量。数值积分只包含真空树级 \(2\to2\) 过程；尚未包括超新星热分布、μ 子末态 Pauli 阻塞、光子 Bose 因子、介质效应或星体径向积分。
+
+### 8.2 电磁 Ward identity 的数值检查
+
+把振幅中的入射光子极化替换为其四动量 \(\epsilon_\gamma^\mu\to k^\mu\)，应得到
+
+\[
+k_\mu\mathcal M^{\mu\nu}=0.
+\]
+
+脚本对纯矢量、纯轴矢量和混合耦合分别进行数值检查。以 \(E_\gamma=0.01\,\mathrm{MeV}\)、\(m_{A'}=0.001\,\mathrm{MeV}\)、\(\cos\theta=0.3\) 为检查点，最大残余约为 \(2.2\times10^{-9}\)（归一化耦合取 1），满足脚本采用的 \(10^{-7}\) 数值容差。有限残余来自浮点数中近似相消的分母与旋量运算，不是解析 Ward identity 的非零结果。
+
+### 8.3 轴矢量纵向模的独立数值证据
+
+物理纵向极化向量为
+
+\[
+\epsilon_L^\mu(q)=
+\left(\frac{|\mathbf q|}{m_{A'}},
+\frac{E_{A'}}{m_{A'}}\widehat{\mathbf q}\right),
+\qquad q\cdot\epsilon_L=0,\quad \epsilon_L^2=-1.
+\]
+
+对轴矢量流，\(q_\nu\Gamma^\nu_{A'}\) 不像守恒的矢量流那样消失。高能极限下 \(\epsilon_L^\nu\simeq q^\nu/m_{A'}\)，纵向振幅因此与 Goldstone 等价关系相连，其有效赝标量耦合尺度为
+
+\[
+g_G\simeq \frac{2g_A^\mu m_\mu}{m_{A'}}.
+\]
+
+在规范模型的近纯轴矢量基准 \(g_A^\mu\simeq-g_X\)、\(m_{A'}=2g_Xv_s\) 下，这一尺度为 \(|g_G|\simeq m_\mu/v_s\)。所以 \(m_{A'}\) 变小、而 \(g_X\) 固定时，纵向半康普顿产生不能只按 \(g_X^2\) 作矢量模型的简单重标度；还必须同时检查由 \(v_s\) 决定的 Yukawa 耦合及其微扰性。
+
+数值测试在固定 \(E_\gamma=10^{-3}\,\mathrm{MeV}\)、单位归一化 \(g_A=1\) 下，将 \(m_{A'}\) 从 \(0.2\,\mathrm{keV}\) 降到 \(0.1\,\mathrm{keV}\)，得到纵向截面增大约 \(4.12\) 倍，接近小质量极限的 \(1/m_{A'}^2\) 标度。该结果验证的是树级振幅的极化与质量标度，不代表物理耦合取 1 的参数点是微扰可行的，也不是超新星排除曲线。
+
+### 8.4 对最新矢量文献的极化标签核验
+
+Wang & Zhang 的最新预印本 [arXiv:2610.35379v1，第 5.2 节及附录 B](https://arxiv.org/html/2610.35379v1) 给出了矢量 \(L_\mu-L_\tau\) 半康普顿过程的低能极化分辨结果，Eqs. (58a,b) 与 (106a,b) 印出的形式是
+
+\[
+\sigma_{\rm printed}^{T}\propto
+\frac{m_{A'}^2}{E_\gamma^2}\frac{1}{m_\mu^2},
+\qquad
+\sigma_{\rm printed}^{L}\to
+\frac{8\pi\alpha\alpha_{\mu\tau}}{3m_\mu^2}
+\quad(m_{A'}/E_\gamma\to0).
+\]
+
+然而，对守恒的纯矢量 μ 子流，独立的显式旋量计算在软光子、轻 \(A'\) 极限得到
+
+\[
+\sigma_V^T\longrightarrow
+\frac{8\pi\alpha\alpha_X}{3m_\mu^2},
+\qquad
+\frac{\sigma_V^L}{\sigma_V^T}\longrightarrow0,
+\quad \alpha_X=\frac{g_V^2}{4\pi}.
+\]
+
+这也是标准 Thomson 极限与 \(q_\nu\mathcal M^\nu=0\) 的预期：质量趋于零时，守恒矢量流的物理纵向发射被抑制，横向两偏振给出 Thomson 总截面。新脚本在 \(E_\gamma=10^{-4}\,\mathrm{MeV}\)、\(m_{A'}=10^{-7}\,\mathrm{MeV}\)、\(g_V=1\) 下得到 \(\sigma_T/\sigma_{\rm Thomson}=0.999998\)，且 \(\sigma_L/\sigma_T\simeq5.0\times10^{-7}\)。同一极限下，文献印出的两条表达式之和与精确总截面一致到约 \(2\times10^{-6}\)，但其占主导与受抑制的 **T/L 标签看起来与显式极化投影相反**；对被抑制的小分量，系数也不完全一致。
+
+这应作为需要进一步核实的文献一致性问题，而不是在没有作者确认前断言论文存在确定错误。2024 年 Lai, Leung & Lin 的原始工作 [arXiv:2401.16023](https://arxiv.org/abs/2401.16023) 给出低能半康普顿的**未分辨极化总截面**，不能独立确认 2026 年文献的 T/L 标签。实际 SN1987A 总光度可能对这一标签交换不敏感，因为总截面在该极限仍接近 Thomson 结果；但我们的轴矢量重铸恰恰依赖纵向模，因此必须先确认偏振约定或对照作者的计算实现，不能直接把印出的 T/L 分量当作已核验输入。
+
+### 8.5 可复现测试结果与边界
+
+运行命令：
+
+~~~bash
+python 计算脚本/stellar_semi_compton_axial_matrix_element.py --check
+~~~
+
+本地执行结果：
+
+~~~text
+checks=PASS
+vector Ward residual (gV=1): 2.252e-09
+axial Ward residual (gA=1): 2.159e-09
+vector soft-limit sigma_T / Thomson = 0.999998
+vector soft-limit sigma_L / sigma_T = 5.001e-07
+axial sigma_L(M=0.1 MeV) / sigma_L(M=0.2 MeV) = 4.124194
+~~~
+
+该脚本是独立的树级振幅核查工具。它还没有将振幅与 arXiv:2610.35379 的所有有限质量表达式逐点对照，也没有做完整的热平均和超新星输运；后续必须在获得一致的 T/L 定义后再完成这一步。
+
+### 8.6 下一步
+
+1. 对照 arXiv:2610.35379 的 Eq. (77)、(101)–(106)，并尽可能联系作者或取得其计算代码，确认偏振标签与小质量极限的约定。
+2. 将完整振幅热平均，加入 μ 子费米分布、末态 Pauli 阻塞和光子 Bose 分布，检查与详细平衡相容的吸收率。
+3. 在相同的 SN profile 上分别计算矢量与轴矢量 T/L 产生率，核验 \(m_{A'}\) 与 \(v_s\) 的参数依赖，再做自由流、trapping 和 LESN 的数值积分。
+4. 在上述计算完成前，不把该结果表述为已完成的轴矢量 SN1987A 或 LESN 排除曲线。
