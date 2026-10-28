@@ -1,0 +1,65 @@
+name: Stellar cooling numerical validation
+
+on:
+  push:
+    branches:
+      - research/stellar-cooling-axial-recast-2026-10-28
+    paths:
+      - '计算脚本/stellar_semi_compton_axial_matrix_element.py'
+      - '计算脚本/stellar_semi_compton_thermal_rate.py'
+      - '计算脚本/stellar_semi_compton_thermal_convergence.py'
+      - '.github/workflows/stellar-cooling-validation.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '计算脚本/stellar_semi_compton_axial_matrix_element.py'
+      - '计算脚本/stellar_semi_compton_thermal_rate.py'
+      - '计算脚本/stellar_semi_compton_thermal_convergence.py'
+      - '.github/workflows/stellar-cooling-validation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  numerical-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install numerical dependency
+        run: python -m pip install --disable-pip-version-check numpy
+      - name: Compile the calculation scripts
+        run: |
+          python -m py_compile \
+            "计算脚本/stellar_semi_compton_axial_matrix_element.py" \
+            "计算脚本/stellar_semi_compton_thermal_rate.py" \
+            "计算脚本/stellar_semi_compton_thermal_convergence.py"
+      - name: Run amplitude and cross-section checks
+        run: python "计算脚本/stellar_semi_compton_axial_matrix_element.py" --check
+      - name: Run thermal geometry and bookkeeping checks
+        run: python "计算脚本/stellar_semi_compton_thermal_rate.py" --check
+      - name: Run quadrature-order and cutoff study
+        shell: bash
+        run: |
+          set -o pipefail
+          python "计算脚本/stellar_semi_compton_thermal_convergence.py" \
+            --orders 2,4,6,8,10,12 \
+            --cutoff-order 6 \
+            --p-cutoffs 160,200,240 \
+            --photon-cutoffs 80,100,140 \
+            | tee thermal-convergence.csv
+      - name: Upload reproducible convergence output
+        if: always() && hashFiles('thermal-convergence.csv') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: stellar-cooling-thermal-convergence
+          path: thermal-convergence.csv
+          if-no-files-found: error
