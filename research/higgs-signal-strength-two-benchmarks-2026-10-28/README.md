@@ -77,3 +77,11 @@ The limited Higgs signal-strength screen is encouraging away from degeneracy, bu
 - The representative numerical rows were independently cross-checked against the stated proxy formulas.
 - A Python unittest suite is included, but it has **not yet been executed in a Python/CI environment** during this branch-creation pass.
 - The ATLAS global signal-strength number is used as a source-level orientation point only; no official likelihood-level fit or model-specific exclusion has been performed.
+
+
+## Direct-search source audit (new)
+
+A directly relevant ATLAS search for a separate scalar decaying as \(S\to Z_dZ_d\to4\ell\) has been identified and assessed against both benchmarks. See [direct-search-source-matrix-2026-10-28.md](direct-search-source-matrix-2026-10-28.md).
+
+- Benchmark A with \(m_{A'}=10\) GeV does not satisfy the ATLAS intermediate-mass coverage or the explicit \(m_{\ell\ell}>11.105\) GeV pair-mass selection; no limit is transferred.
+- Benchmark B with \(m_{A'}=63\) GeV can be compared with the ATLAS higher-mass search for \(m_s>130\) GeV. A conservative rate screen based on the non-degenerate self-energy proxy is far below the published limit scale, but it is not a detector-level recast or a formal exclusion statement.
