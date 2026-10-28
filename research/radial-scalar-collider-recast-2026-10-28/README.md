@@ -148,9 +148,11 @@ It may be disconnected, benchmark-dependent, and incomplete until all listed gat
 | Item | Status |
 |---|---|
 | Repository baseline and previous work identified | Complete |
-| Belle II four-muon and tau-pair source-level ranges identified | Initial literature check complete |
+| Belle II four-muon and tau-pair source-level ranges identified | Complete at abstract/source-page level |
+| Public supplemental numerical curves located | Complete; automated retrieval is currently blocked in this environment |
 | Exact supplemental numerical curves extracted and benchmark reproduced | Pending |
-| UV radial-scalar widths and total branching fractions cross-checked | Pending |
+| Partial-width calculator scaffold for \(s\to\mu\mu,\tau\tau,A'A'\) added | Complete; six unit tests passed locally |
+| Complete UV widths and branching fractions cross-checked | Pending; portal, loop-induced and any other open channels must be included |
 | Model-specific production and yield predictions | Pending |
 | Belle II model-specific reinterpretations/recasts | Pending |
 | Complementary Higgs-mixing/direct-search audit | Pending |
@@ -158,4 +160,4 @@ It may be disconnected, benchmark-dependent, and incomplete until all listed gat
 | Full pole-consistent near-degenerate scalar treatment | Pending |
 | Referee response updated with quantitative results | Pending |
 
-No new experimental exclusion is claimed in this initial commit.
+No new experimental exclusion is claimed. The width calculator deliberately marks branching fractions as incomplete unless the caller explicitly certifies that all open channels have been included; its present tests validate threshold and bookkeeping behavior, not the complete phenomenology.
