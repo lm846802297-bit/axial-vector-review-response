@@ -560,3 +560,86 @@ python 计算脚本/stellar_semi_compton_thermal_convergence.py
 ### 10.3 本轮结论与边界
 
 本轮已把数值验收流程代码化，并将其列入 README 与本报告，但**热积分数值验收仍然阻塞**。尚无新的、由当前仓库脚本实际运行得到的截面测试输出或收敛 CSV。因此本轮不推进到 T/L 分辨吸收率的定量实现，更不报告 SN1987A/LESN 排除结论。恢复执行环境后，优先运行本节命令；只有在截面基准通过且阶数/截断变化足够小、误差有明确预算后，才继续介质吸收率和 trapping 分析。
+
+
+## 11. 审稿人指定文献的来源核查与研究顺序（2026-10-28）
+
+### 11.1 文献身份与版本核实
+
+审稿人明确指出的 arXiv:2511.09619 不是一般性的恒星冷却综述，而是 Blinov, Fox, Kelly, Plestid and Zhou 对亚 GeV 标准矢量 \(L_\mu-L_\tau\) 规范玻色子的专门研究：
+
+- 预印本：N. Blinov et al., *\(L_\mu-L_\tau\) gauge bosons in beam dumps and supernovae*, arXiv:2511.09619，v2 于 2026-05-15 更新：[arXiv v2 正文](https://arxiv.org/html/2511.09619v2)。
+- 正式发表：*JHEP* 06 (2026) 155，2026-06-15 发表，DOI [10.1007/JHEP06(2026)155](https://doi.org/10.1007/JHEP06%282026%29155)。出版信息由 INSPIRE 记录核对：[INSPIRE 书目信息](https://inspirehep.net/literature/3082665)。
+- 本节将该文作为审稿人指定的**必须引用并正面讨论的主文献**；不是仅在背景参考文献中列出。
+
+### 11.2 原文真正研究了什么
+
+该文的低能有效拉格朗日量为标准矢量流
+\[
+\mathcal L\supset g_{\mu\tau}V_\alpha J^\alpha_{L_\mu-L_\tau},
+\qquad J^\alpha_{L_\mu-L_\tau}=\sum_f Q'_f\bar f\gamma^\alpha f.
+\]
+其模型有直接的 \(\nu_\mu,\nu_\tau\) 耦合；光子、电子和强子耦合则主要来自 \(\mu/\tau\) 圈诱导的动能混合。作者明确将所采用的不可约圈贡献纳入计算，同时不加入额外 UV 态产生的 bare kinetic-mixing 项。
+
+该文并不只给出一条传统 Raffelt 冷却曲线，而是把下列探针分开分析：
+
+1. **Ballistic SN1987A cooling**：计算局部产生、相空间能谱及逃逸概率的加权积分；主要产生通道包括 \(\bar\nu\nu\to V\)、\(\gamma\mu\to V\mu\) 和 \(\bar\mu\mu\to V\)。相应逆过程影响吸收与逃逸。
+2. **Diffusive energy loss**：在平均自由程与半径、以及逃逸距离之间满足特定不等式的窄区域内使用扩散近似。作者发现该项并未比标准 ballistic 冷却界限提供更强的排除。
+3. **高能 SN1987A 中微子**：使用 IMB 高能区无事件的观测建立额外限制。文中采用 \(E_e\in[75,200]\,\mathrm{MeV}\) 的零事件窗口，并以期望事件数 \(N_{\rm ev}=3\) 定义保守边界。
+4. **Low-energy supernovae (LESNe)**：评估新粒子衰变在 progenitor 包层内沉积的能量。对标准矢量 \(L_\mu-L_\tau\) 模型，低于 \(2m_\mu\) 时 \(V\to e^+e^-\) 分支比约为 \(10^{-5}\)，所以作者认为这一可见能量沉积限制在该阈值以下不具竞争力；超过双 μ 子阈值后，\(V\to\mu^+\mu^-\) 可使 LESN 约束变得重要。
+5. **输运微物理修正**：该文明确纳入方向平均的逃逸概率、有限质量下的速度因子、刺激发射导致的 reduced absorption rate，以及原中子星引力势引起的时间膨胀和能量红移。
+
+原文位置可直接核查：[模型定义与动能混合，§2](https://arxiv.org/html/2511.09619v2)；[ballistic 与 diffusive 冷却，§4.1–4.2](https://arxiv.org/html/2511.09619v2)；[高能中微子与 LESN，§4.3–4.4](https://arxiv.org/html/2511.09619v2)；[光度、方向平均逃逸和 reduced absorption，Appendix B](https://arxiv.org/html/2511.09619v2)。
+
+### 11.3 从标准矢量结果到本轴矢量模型：证据边界
+
+本模型采用
+\[
+\mathcal L_{\mu A'}=A'_\alpha\bar\mu\gamma^\alpha
+(g_V^\mu-g_A^\mu\gamma^5)\mu,
+\qquad |g_V^\mu/g_A^\mu|\ll1,
+\]
+而标准参考文献采用 \(g_{\mu\tau}V_\alpha\bar\mu\gamma^\alpha\mu\)。所以，不能把该文整张质量—耦合排除图简单改名为轴矢量限制。
+
+| 原文内容 | 对本模型的可用性 | 下一步要求 |
+|---|---|---|
+| \(\nu_\mu,\nu_\tau\) 与 \(A'\) 的树级顶角 | 当 \(g_{\mu\tau}=g_X\)、忽略中微子质量并固定相同归一化时，可直接对应 | 将文献的中微子产生、部分宽度和分布作为独立 benchmark；不能由此认定总光度相同 |
+| 中微子逆衰变主导的 ballistic 产生部分 | 可作为领先阶参考 | 检查本模型总宽度、可用衰变道、能谱和逃逸概率后再映射 |
+| \(\gamma\mu\leftrightarrow \mu V\) 半康普顿过程 | 不可直接对应 | 用本模型的轴矢量顶角重算完整有限质量矩阵元，分辨 \(A'_T,A'_L\)，并计算热分布与逆过程 |
+| \(\mu^+\mu^-\leftrightarrow V\) 与 \(V\to\mu^+\mu^-\) | 不可直接对应 | 使用轴矢量衰变宽度及相应的相空间、寿命和分支比 |
+| 方向平均、有限速度、刺激发射、引力红移 | 属于输运方法，不应因耦合结构改变而省略 | 若采用同类 SN profile 与近似，应保留一致的几何/详细平衡处理；若不能复现，须明确差异 |
+| diffusive cooling | 只能借用方法，不能直接借用排除线 | 验证扩散近似的适用区间，并计算本模型的平均自由程 |
+| 高能 SN1987A 中微子 | 不能直接沿用整条曲线 | 用本模型的总宽度、寿命、分支比和轴矢量光度重算到达地球的通量与事件数 |
+| LESN 包层沉积 | 不能直接沿用整条曲线 | 采用本模型的动能混合匹配条件、可见衰变分支比和轴矢量 \(\mu^+\mu^-\) 阈值行为重新计算沉积能量 |
+
+**一个必须保留的限定：** 文献对 \(m_V<2m_\mu\) 的 LESN 结论依赖其标准矢量模型中圈诱导的 \(V\to e^+e^-\) 分支比。本论文所选的匹配尺度零动能混合基准不同，因此不能把该文“阈值以下 LESN 不具竞争力”的数字直接转写成对本模型的结论。应先确认本模型在相关质量范围内的可见衰变与有效动能混合，再决定是否需要 LESN 数值重铸。
+
+### 11.4 与较新预印本 arXiv:2610.35379 的关系
+
+[arXiv:2610.35379 v1](https://arxiv.org/abs/2610.35379) 于 2026-10-26 提交，题为 *Revisiting supernova constraints on dark gauge bosons*，作者 Zun Wang 与 Yongchao Zhang。其摘要涵盖 dark photon、\(U(1)_{B-L}\) 与标准矢量 \(U(1)_{L_\mu-L_\tau}\)，并更新 SN1987A cooling 和 LESN 的几何衰变/吸收处理。它是本轮的补充对照，但截至本记录日期为预印本；引用时须标为 arXiv 预印本，不能与已正式发表于 JHEP 的 arXiv:2511.09619 混写为同一发表状态。
+
+研究顺序上，2511.09619 是审稿人点名、必须逐项回应的首要文献；2610.35379 用来检查 2026 年最新矢量结果是否改变基准曲线和输运方法。二者均不能替代轴矢量重铸。
+
+### 11.5 推荐的回复信引用策略
+
+正式回复信应直接引用 Blinov et al. 的正式期刊版本，同时可将 arXiv v2 作为便于审稿人查看的链接。回复中至少应做到：
+
+- 明确承认该文给出了标准矢量 \(L_\mu-L_\tau\) 模型的 SN1987A 与 LESN 分析；
+- 具体点出其纳入的半康普顿、逆 μ 子衰变、方向平均逃逸、reduced absorption 与高能中微子探针，而不是笼统说“已有恒星冷却限制”；
+- 说明本模型的中微子顶角可在固定归一化下作为直接 benchmark，但 μ 子轴矢量顶角、纵向极化、总宽度及零动能混合假设阻止我们原样移植完整曲线；
+- 只陈述已经完成的计算。半康普顿数值收敛、T/L 分辨吸收和 SN profile 输运尚未完成时，不应声称已证明约束无关、已排除某段参数空间，或给出模型专属最终允许区间。
+
+建议的英文框架（不是最终回复信）：
+
+> We thank the referee for pointing out Ref. [Blinov et al., JHEP 06 (2026) 155, arXiv:2511.09619]. This work provides an updated analysis of the conventional vector \(L_\mu-L_\tau\) model, including SN1987A cooling, diffusive transport, high-energy neutrinos, and low-energy supernovae. We use its neutrino-induced production and decay rates as a benchmark where the neutrino-current normalization agrees. Its complete exclusion curves cannot be transferred directly to our axial-vector benchmark, because the muon semi-Compton and inverse-decay amplitudes, longitudinal-mode contribution, total width, and visible energy-deposition channels differ. The kinetic-mixing matching condition must also be kept consistent. We therefore distinguish the directly comparable neutrino-sector ingredients from the axial-specific production and transport calculation.
+
+在最终回复信中，这段只能保留已验证的陈述；若后续没有完成数值重铸，应将最后一句写成明确的适用范围说明，而不能暗示已获得完整轴矢量排除曲线。
+
+### 11.6 工作排序：文献核查先行，数值验收并行
+
+1. **先完成文献到模型的映射。** 以 arXiv:2511.09619 的 §2、§4 与 Appendix B 建立逐过程清单，确认哪些公式对应中微子、哪些依赖矢量 μ 子流、哪些依赖其动能混合和可见衰变。
+2. **并行恢复数值验收。** 已添加的截面与热积分测试/收敛扫描仍是必要的技术门槛。当前 GitHub Actions 作业未启动任何步骤，因此仍没有仓库脚本通过或收敛 CSV 的证据。文献审阅不应等待 CI 恢复，但也不能替代数值验收。
+3. **先核验半康普顿，再实现 T/L 分辨吸收。** 只有矩阵元、相空间、详细平衡、阶数与截断稳定性通过后，才把局部热产生率作为介质输运输入。
+4. **随后才计算模型特定的 SN1987A/LESN。** 采用有来源的超新星 profile，明确处理光度、吸收光深、方向平均逃逸、寿命/分支比和适用的扩散近似。
+5. **最后更新正式回复信。** 用文献引用加上真实完成的模型特定结果回应审稿人。当前只更新本研究报告，不修改论文正文或正式回复信。
+
