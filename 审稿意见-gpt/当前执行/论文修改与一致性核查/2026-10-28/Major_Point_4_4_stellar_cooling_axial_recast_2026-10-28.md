@@ -1,8 +1,8 @@
 # Major Point 4.4：恒星冷却与超新星约束向轴矢量基准的转换
 
 **日期：** 2026-10-28  
-**研究分支：** \`research/stellar-cooling-axial-recast-2026-10-28\`  
-**基准论文：** \`overleaf-source/axial-vector-model-building-v6/main-v6.tex\`（本轮未修改）  
+**研究分支：** `research/stellar-cooling-axial-recast-2026-10-28`  
+**基准论文：** `overleaf-source/axial-vector-model-building-v6/main-v6.tex`（本轮未修改）  
 **目的：** 回答审稿人“Are stellar cooling bounds not relevant? See e.g. 2511.09619”并明确矢量 \(L_\mu-L_\tau\) 结果在本模型中的可转移范围。
 
 ## 0. 结论摘要
@@ -120,7 +120,7 @@ r_\mu=\frac{m_\mu^2}{m_{A'}^2},\qquad
 =\frac{1}{1+(1+2r_\mu)\beta_\mu}.
 \]
 
-数值由随本报告提交的脚本 \`计算脚本/stellar_cooling_axial_recast.py\` 计算。示例结果：
+数值由随本报告提交的脚本 `计算脚本/stellar_cooling_axial_recast.py` 计算。示例结果：
 
 | \(m_{A'}\) | \(\Gamma_A/\Gamma_V\) | 矢量基准 \(\mathrm{BR}_{\nu\bar\nu}\) | 轴矢量 \(\mathrm{BR}_{\nu\bar\nu}\) |
 |---:|---:|---:|---:|
@@ -229,7 +229,7 @@ g_{X,\mathrm{lim}}^A
 
 ## 5. 可复现计算与验证范围
 
-脚本 \`计算脚本/stellar_cooling_axial_recast.py\` 仅计算树级解析宽度、衰变分支比与矢量—轴矢量比值。它不读取或拟合超新星数据，不生成官方或模型专属的排除曲线。
+脚本 `计算脚本/stellar_cooling_axial_recast.py` 仅计算树级解析宽度、衰变分支比与矢量—轴矢量比值。它不读取或拟合超新星数据，不生成官方或模型专属的排除曲线。
 
 应将后续工作分为两个层次：
 1. **本 PR 已完成：** 文献版本核对、耦合映射、衰变宽度解析推导、阈值行为、纵向模的参数依赖，以及约束逐项适用性判断。
