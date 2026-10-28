@@ -366,6 +366,24 @@ def total_cross_section_cm(
         for c, w in zip(nodes, weights)
     )
 
+
+def klein_nishina_reference(
+    photon_energy: float, g_v: float = 1.0, muon_mass: float = M_MU_MEV
+) -> float:
+    """Massless-vector Klein-Nishina total cross section for a vector muon current."""
+    x = photon_energy / muon_mass
+    if x <= 0.0:
+        raise ValueError("Photon energy must be positive")
+    bracket = (
+        (1.0 + x) / x**2
+        * (2.0 * (1.0 + x) / (1.0 + 2.0 * x)
+           - math.log1p(2.0 * x) / x)
+        + math.log1p(2.0 * x) / (2.0 * x)
+        - (1.0 + 3.0 * x) / (1.0 + 2.0 * x)**2
+    )
+    r0_sq = (E_CHARGE * g_v / (4.0 * math.pi * muon_mass))**2
+    return 2.0 * math.pi * r0_sq * bracket
+
 def low_energy_vector_reference(
     photon_energy: float, vector_mass: float, muon_mass: float = M_MU_MEV
 ) -> tuple[float, float]:
@@ -434,6 +452,13 @@ def run_checks() -> None:
     )
     assert abs(sigma_lab / sigma_cm - 1.0) < 5e-3, (
         sigma_lab, sigma_cm, sigma_lab / sigma_cm
+    )
+    sigma_kn_numeric = total_cross_section_cm(
+        1.0, 1e-4, 1.0, 0.0, "all", n_angle=96
+    )
+    sigma_kn_exact = klein_nishina_reference(1.0, g_v=1.0)
+    assert abs(sigma_kn_numeric / sigma_kn_exact - 1.0) < 1e-4, (
+        sigma_kn_numeric, sigma_kn_exact
     )
 
     printed_t, printed_l = low_energy_vector_reference(eg, ma)
