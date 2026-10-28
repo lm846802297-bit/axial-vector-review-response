@@ -9,44 +9,50 @@
 
 This branch is intentionally narrower than the parent radial-scalar collider-recast study. It focuses on:
 
-1. the 125 GeV Higgs signal strength away from the near-degenerate (m_s\simeq m_h) region;
+1. the 125 GeV Higgs signal strength away from the near-degenerate $m_s\simeq m_h$ region;
 2. the applicability of direct searches for an additional singlet-like scalar to the two benchmark decay patterns;
-3. a separate, explicit blocker for the near-degenerate region, where a fixed-self-energy diagnostic is not a physical mixing-angle calculation.
+3. a separate blocker for the near-degenerate region, where a fixed-self-energy diagnostic is not a physical mixing-angle calculation.
 
 It does **not** modify the referee-facing response or claim a complete experimentally allowed scalar-mass interval.
 
 ## Frozen inputs from the current response
 
-Both illustrative points use (M_E=20\,\mathrm{TeV}), (\theta_{\mu L}=\theta_{\tau L}=10^{-2}), the stated leading-seesaw Yukawa relations, and the matching condition (\lambda_{HS}^{\mathrm{EFT}}(M_E)=0).
+Both illustrative points use $M_E=20\,\mathrm{TeV}$, $\theta_{\mu L}=\theta_{\tau L}=10^{-2}$, the stated leading-seesaw Yukawa relations, and the matching condition $\lambda_{HS}^{\mathrm{EFT}}(M_E)=0$.
 
 | Input | Benchmark A | Benchmark B |
 |---|---:|---:|
-| (m_{A'}) | (10\,\mathrm{GeV}) | (63\,\mathrm{GeV}) |
-| (g_X) | (0.0705) | (0.1) |
-| (v_s) | (70.9\,\mathrm{GeV}) | (315\,\mathrm{GeV}) |
-| (\Pi_{hs}^{\mathrm{matched}}(m_h^2)) | ((-0.4133-0.1132i)\,\mathrm{GeV}^2) | ((-0.09300-0.02547i)\,\mathrm{GeV}^2) |
-| (s\to A'A') at (m_s\simeq m_h) | Open | Closed ((2m_{A'}=126\,\mathrm{GeV}>m_h=125.25\,\mathrm{GeV})) |
-| Scalar width used in the response at degeneracy | (3.75\,\mathrm{GeV}) | (0.159\,\mathrm{MeV}) |
+| $m_{A'}$ | $10\,\mathrm{GeV}$ | $63\,\mathrm{GeV}$ |
+| $g_X$ | $0.0705$ | $0.1$ |
+| $v_s$ | $70.9\,\mathrm{GeV}$ | $315\,\mathrm{GeV}$ |
+| $\Pi_{hs}^{\mathrm{matched}}(m_h^2)$ | $(-0.4133-0.1132i)\,\mathrm{GeV}^2$ | $(-0.09300-0.02547i)\,\mathrm{GeV}^2$ |
+| $s\to A'A'$ at $m_s\simeq m_h$ | Open | Closed ($2m_{A'}=126\,\mathrm{GeV}>m_h=125.25\,\mathrm{GeV}$) |
+| Scalar width used in the response at degeneracy | $3.75\,\mathrm{GeV}$ | $0.159\,\mathrm{MeV}$ |
 
 These values are inherited from `Replies_to_Referee_3_referee_facing_2026-10-28.tex` and the parent branch's one-loop mixing record. They are not independently rederived by this branch.
 
 ## First-pass finding
 
-Using (|\Pi_{hs}(m_h^2)|/|m_h^2-m_s^2|) only as a **non-degenerate screening proxy**, the illustrative mixing scale for (m_s\in[65,150]\,\mathrm{GeV}), excluding the near-degenerate region, is at most a few (10^{-4}). In a simple isolated-pole, no-new-Higgs-decay approximation, this would make the visible Higgs signal-strength shift tiny. For Benchmark A, (h\to A'A') is kinematically open and must also be included; a leading small-mixing estimate still gives a sub-per-mille shift away from degeneracy, but this is not a pole-scheme result.
+Using $|\Pi_{hs}(m_h^2)|/|m_h^2-m_s^2|$ only as a **non-degenerate screening proxy**, the illustrative mixing scale for $m_s\in[65,150]\,\mathrm{GeV}$, excluding the near-degenerate region, is at most a few $10^{-4}$. In a simple isolated-pole, no-new-Higgs-decay approximation, this would make the visible Higgs signal-strength shift tiny. For Benchmark A, $h\to A'A'$ is kinematically open and must also be included; a leading small-mixing estimate still gives a sub-per-mille shift away from degeneracy, but this is not a pole-scheme result.
 
 This screening result does **not** validate the near-degenerate region and does **not** constitute a direct-search recast. The model-specific scalar branching fractions differ from the standard singlet-scalar benchmark used by many published limits.
 
 ## Key source anchors
 
-- ATLAS, `ATLAS-CONF-2025-006`, global Higgs signal strength (\mu=1.023^{+0.056}_{-0.053}): https://cds.cern.ch/record/2937634/files/ATLAS-CONF-2025-006.pdf
+- ATLAS, `ATLAS-CONF-2025-006`, global Higgs signal strength $\mu=1.023^{+0.056}_{-0.053}$: https://cds.cern.ch/record/2937634/files/ATLAS-CONF-2025-006.pdf
 - Generic singlet-like scalar LEP/LHC constraint discussion and its branching-ratio assumptions: https://doi.org/10.1140/epjc/s10052-023-11887-z
 - GeV-scale scalar-portal production and phenomenology review: https://doi.org/10.1007/JHEP11(2019)162
 - Parent branch's radial-scalar recast protocol: [`recast-protocol.md`](../radial-scalar-collider-recast-2026-10-28/recast-protocol.md)
 - Parent branch's source-data audit: [`source-data-audit-2026-10-28.md`](../radial-scalar-collider-recast-2026-10-28/source-data-audit-2026-10-28.md)
 
+## Files in this branch
+
+- [First-pass calculation and source applicability matrix](higgs-signal-strength-first-pass.md)
+- [Screening script](higgs_signal_strength_screen.py)
+- [Unit tests](test_higgs_signal_strength_screen.py)
+
 ## Evidence labels
 
-- **Analytic/proxy result:** reproducible algebra using the fixed (Pi_{hs}(m_h^2)) values; not a physical mixing-angle extraction.
+- **Analytic/proxy result:** reproducible algebra using the fixed $\Pi_{hs}(m_h^2)$ values; not a physical mixing-angle extraction.
 - **Source-level constraint:** an experimental result reported under the source's own benchmark and assumptions.
 - **Model-specific reinterpretation:** a source observable compared against the UV model's prediction after matching production, widths, branching fractions and lifetime.
 - **Unclassified:** the necessary model-specific observable, acceptance, branching ratio or pole treatment has not been validated.
@@ -56,8 +62,8 @@ This screening result does **not** validate the near-degenerate region and does 
 1. Reproduce the screening calculations from the script and tests in this directory.
 2. State the global signal-strength approximation and its limitations explicitly.
 3. For each benchmark, audit the direct searches whose production and decay topology overlaps with the UV scalar.
-4. Do not apply standard singlet limits without checking (\mathrm{BR}(s\to A'A')), direct lepton Yukawa decays, portal-mediated decays, and lifetime.
-5. Keep (m_s<m_h/2) separate until the matched scalar potential and (h\to ss) width are calculated consistently.
+4. Do not apply standard singlet limits without checking $\mathrm{BR}(s\to A'A')$, direct lepton Yukawa decays, portal-mediated decays, and lifetime.
+5. Keep $m_s<m_h/2$ separate until the matched scalar potential and $h\to ss$ width are calculated consistently.
 6. Keep the near-degenerate region unclassified until a width-/pole-consistent two-state calculation is performed.
 7. Only promote a point to “excluded” or “passes evaluated constraints” after a reproducible comparison to a source observable. Missing information means “unclassified,” not “allowed.”
 
