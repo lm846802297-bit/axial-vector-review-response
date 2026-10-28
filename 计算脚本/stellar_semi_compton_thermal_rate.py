@@ -262,8 +262,52 @@ def thermal_emissivity(
     )
 
 
+
+def run_checks() -> None:
+    """Fast geometry and positive-rate smoke checks."""
+    m = sc.M_MU_MEV
+    p = 50.0
+    omega = 20.0
+    cpsi = -0.4
+    e_mu = math.sqrt(m*m + p*p)
+    beta = p / e_mu
+    e_star = (e_mu / m) * omega * (1.0 - beta*cpsi)
+    invariant_s = m*m + 2.0*m*e_star
+    u_cm = medium_four_velocity_in_amplitude_cm(
+        e_mu, omega, p, cpsi, invariant_s
+    )
+    assert abs(minkowski_dot(u_cm, u_cm) - 1.0) < 1e-10
+    k_cm = (invariant_s - m*m) / (2.0 * math.sqrt(invariant_s))
+    assert abs(k_cm * (u_cm[0] - u_cm[3]) - omega) < 1e-9
+
+    for ctheta, phi in ((-0.7, 0.2), (0.0, 1.4), (0.8, 2.7)):
+        _, _, p_prime, q = sc.cm_kinematics(e_star, 1.0, ctheta, phi)
+        energy_sum = minkowski_dot(p_prime + q, u_cm)
+        assert abs(energy_sum - (e_mu + omega)) < 1e-8
+
+    result = thermal_emissivity(
+        temperature_mev=10.0,
+        muon_chemical_potential_mev=0.0,
+        vector_mass_mev=1.0,
+        g_v=0.0,
+        g_a=0.01,
+        order=2,
+        phi_order=4,
+        p_max_mev=200.0,
+        photon_max_mev=100.0,
+    )
+    assert result.event_rate_mev4 > 0.0, result
+    assert result.emissivity_mev5 > 0.0, result
+    print("checks=PASS")
+    print(f"geometry_U2={minkowski_dot(u_cm, u_cm):.12f}")
+    print(f"geometry_energy_residual={abs(k_cm*(u_cm[0]-u_cm[3])-omega):.3e}")
+    print(f"smoke_rate_MeV4={result.event_rate_mev4:.6e}")
+    print(f"smoke_emissivity_MeV5={result.emissivity_mev5:.6e}")
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--check", action="store_true",
+                        help="run geometry and low-order thermal smoke checks")
     parser.add_argument("--temperature", type=float, default=30.0,
                         help="medium temperature in MeV")
     parser.add_argument("--muon-chemical-potential", type=float, default=0.0,
@@ -283,6 +327,9 @@ def main() -> None:
     parser.add_argument("--photon-max", type=float, default=None,
                         help="optional photon energy cutoff in MeV")
     args = parser.parse_args()
+    if args.check:
+        run_checks()
+        return
 
     result = thermal_emissivity(
         args.temperature, args.muon_chemical_potential, args.mass,
