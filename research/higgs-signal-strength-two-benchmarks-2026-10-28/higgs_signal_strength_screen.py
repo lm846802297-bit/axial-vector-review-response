@@ -78,6 +78,8 @@ def screen_point(scalar_mass_GeV: float, benchmark: Benchmark) -> dict:
         "mu_visible_proxy": None,
         "delta_mu_visible_proxy": None,
         "gamma_h_to_aprime_pair_GeV": None,
+        "br_h_to_aprime_pair_proxy": None,
+        "br_h_to_4mu_proxy": None,
     }
 
     if scalar_mass_GeV < M_H_GEV / 2.0:
@@ -105,11 +107,19 @@ def screen_point(scalar_mass_GeV: float, benchmark: Benchmark) -> dict:
     if gamma_aa > 0:
         # h-like state's A'A' width is approximated as sin(theta)^2 times
         # the singlet-like width at m_h. SM partial widths scale as cos^2.
+        gamma_h_to_aa = sin2 * gamma_aa
+        gamma_total_proxy = cos2 * GAMMA_H_SM_GEV + gamma_h_to_aa
+        br_h_to_aa = gamma_h_to_aa / gamma_total_proxy
+        # Benchmark-A orientation only: BR(A' -> mu+mu-) ~= 1/3 at tree level,
+        # neglecting loop-induced electron couplings and other small corrections.
+        br_h_to_4mu = br_h_to_aa / 9.0
         ratio_new_width = gamma_aa / GAMMA_H_SM_GEV
         mu_visible = cos2**2 / (cos2 + sin2 * ratio_new_width)
     else:
         # Isolated pole, universal mixing rescaling, and no extra Higgs width.
         mu_visible = cos2
+        br_h_to_aa = 0.0
+        br_h_to_4mu = 0.0
 
     result.update(
         {
@@ -117,6 +127,8 @@ def screen_point(scalar_mass_GeV: float, benchmark: Benchmark) -> dict:
             "mu_visible_proxy": mu_visible,
             "delta_mu_visible_proxy": 1.0 - mu_visible,
             "gamma_h_to_aprime_pair_GeV": gamma_aa,
+            "br_h_to_aprime_pair_proxy": br_h_to_aa,
+            "br_h_to_4mu_proxy": br_h_to_4mu,
         }
     )
     return result
@@ -126,7 +138,7 @@ def main() -> None:
     masses = (65.0, 80.0, 100.0, 120.0, 125.25, 130.0, 150.0)
     header = (
         "benchmark,m_s_GeV,status,mixing_proxy,mu_visible_proxy,"
-        "delta_mu_visible_proxy,gamma_h_to_AA_GeV"
+        "delta_mu_visible_proxy,gamma_h_to_AA_GeV,br_h_to_AA_proxy,br_h_to_4mu_proxy"
     )
     print(header)
     for benchmark in BENCHMARKS:
@@ -140,6 +152,8 @@ def main() -> None:
                 "" if r["mu_visible_proxy"] is None else f'{r["mu_visible_proxy"]:.12f}',
                 "" if r["delta_mu_visible_proxy"] is None else f'{r["delta_mu_visible_proxy"]:.8e}',
                 "" if r["gamma_h_to_aprime_pair_GeV"] is None else f'{r["gamma_h_to_aprime_pair_GeV"]:.8e}',
+                "" if r["br_h_to_aprime_pair_proxy"] is None else f'{r["br_h_to_aprime_pair_proxy"]:.8e}',
+                "" if r["br_h_to_4mu_proxy"] is None else f'{r["br_h_to_4mu_proxy"]:.8e}',
             )
             print(",".join(fields))
 
