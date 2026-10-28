@@ -124,3 +124,12 @@ Sources:
 - CMS HIG-19-007: https://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-19-007/index.html
 
 The updated script has corresponding unit-test coverage. The tests were run in a local Python scratch environment against a copy of the tracked scripts; all 11 tests passed. This is not a GitHub Actions/CI run.
+
+
+## Conservative direct-production screen for Benchmark A
+
+The ATLAS low-mass scalar search simulates \(m_S=30\text{--}110\) GeV but only \(m_{Z_d}=15\text{--}48\) GeV, and requires every dilepton pair to exceed 11.105 GeV. Thus its parent-mass range overlaps the benchmark, but the daughter mass \(m_{A'}=10\) GeV fails the analysis acceptance. No ATLAS limit is transferred to this point.
+
+A new reproducible script, [benchmark_a_direct_rate_screen.py](benchmark_a_direct_rate_screen.py), estimates the Higgs-mixing-induced \(gg\to s\) rate using the inherited fixed-self-energy proxy and a deliberately conservative \(\sigma_{\rm ggF}^{\rm SM}<100\) pb envelope. At \(m_s=110\) GeV it gives \(\sigma(gg\to s)<1.43\times10^{-3}\) fb before branching fractions, around 98 times below the smallest published low-mass limit value (0.14 fb) in the different accepted \(m_{A'}\ge15\) GeV region. This is only a rate-scale comparison; it is not a point-specific exclusion or a detector-level recast.
+
+The new [test_benchmark_a_direct_rate_screen.py](test_benchmark_a_direct_rate_screen.py) has four tests; all four passed in a local Python scratch environment. The earlier two test suites had 11 tests passing in a prior scratch run. The full current 15-test suite has not yet been executed as one combined run, and no GitHub Actions result is claimed.
