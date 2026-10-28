@@ -13,6 +13,9 @@
 
 ## 常用入口
 
+- [Major Point 4.4 轴矢量恒星冷却研究报告](../审稿意见-gpt/当前执行/论文修改与一致性核查/2026-10-28/Major_Point_4_4_stellar_cooling_axial_recast_2026-10-28.md)
+- [恒星冷却解析宽度与分支比复现脚本](stellar_cooling_axial_recast.py)：仅验证树级衰变宽度与分支比，不计算超新星排除曲线。
+
 - [第 262 节 Python 复现脚本](计算输出/section262_reproduce.py)
 - [第 262 节 Python 检查输出](计算输出/section262_checks.txt)
 - [第 262 节 Mathematica 源码](计算输出/section262_mathematica.wl)
