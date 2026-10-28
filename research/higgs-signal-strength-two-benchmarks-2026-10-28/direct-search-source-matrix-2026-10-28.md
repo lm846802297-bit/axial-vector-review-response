@@ -144,8 +144,9 @@ The CMS analysis is valuable evidence that a low-mass \(A'\) four-lepton topolog
 3. **Verified:** Benchmark B's on-shell cascade is closed below 126 GeV and open above threshold.
 4. **Verified correction:** the high-mass signal MC samples documented in the paper begin at \(m_S=150\) GeV; the \(m_{4\ell}>130\) GeV event-selection boundary is not itself a generated signal mass point.
 5. **Preliminary analytic screen:** at \(m_s=150\) GeV, Benchmark B's non-degenerate mixing proxy gives an inclusive production estimate below \(1.1\times10^{-5}\) fb under the conservative 50 pb envelope, well below the overall 0.05 fb best-sensitivity scale even before branching fractions.
-6. **Not yet done:** retrieve HEPData Table 15's numeric payload and determine the exact observed limit/interpolation at \(m_{A'}=63\) GeV; validate the pole-scheme mixing; complete \(A'\) branching fractions including kinetic mixing; validate detector-level acceptance; perform a dedicated LEP recast for Benchmark A.
-7. **Do not claim:** a complete UV-allowed scalar-mass interval or a global experimental exclusion.
+6. **New source identified, not yet applicable as a direct limit:** CMS-EXO-24-006 covers \(m_Y=10\) GeV and \(m_X\ge250\) GeV, but assumes \(\Gamma_X/m_X=10^{-4}\); the Benchmark A scalar has \(\Gamma_s/m_s\simeq0.12\) at 250 GeV. A broad-resonance reinterpretation would be required.
+7. **Not yet done:** retrieve HEPData Table 15's numeric payload and determine the exact observed limit/interpolation at \(m_{A'}=63\) GeV; validate the pole-scheme mixing; complete \(A'\) branching fractions including kinetic mixing; validate detector-level acceptance; perform a dedicated LEP recast for Benchmark A; evaluate whether a broad-width CMS reinterpretation is worth pursuing.
+8. **Do not claim:** a complete UV-allowed scalar-mass interval or a global experimental exclusion.
 
 ## Sources
 
