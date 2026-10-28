@@ -13,8 +13,11 @@ A' energy and final muon blocking are evaluated in the medium rest frame.
 Outputs:
   event rate density R [MeV^4]
   A' energy emissivity Q [MeV^5]
+  optional logarithmic energy bins with a bin-center, polarization-summed
+  detailed-balance absorption-rate estimate [MeV]
 
-It does NOT solve SN radial profiles, in-medium dispersion, absorption/trapping,
+The binned absorption estimate is not mode-resolved opacity. This code does NOT
+solve SN radial profiles, in-medium dispersion, absorption/trapping transport,
 neutrino coalescence, or a global SN1987A/LESN exclusion. A converged result
 requires quadrature-order and cutoff stability checks.
 """
