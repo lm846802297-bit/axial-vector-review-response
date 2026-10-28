@@ -36,7 +36,7 @@ ax.hlines(4e-11, 1e5, 1e7, color="tab:red", linewidth=1.8,
           linestyle="-.", label="Diffuse supernova gamma-ray background")
 
 ax.set_xlabel(r"Scalar mass $m_s$ [eV]")
-ax.set_ylabel(r"Scalar--muon Yukawa $|y_{s\\mu\\mu}|$")
+ax.set_ylabel(r"Scalar--muon Yukawa $|y_{s\mu\mu}|$")
 ax.grid(True, which="major", alpha=0.28, linewidth=0.6)
 ax.grid(True, which="minor", alpha=0.12, linewidth=0.4)
 ax.legend(loc="lower right", fontsize=7.6, framealpha=0.96,
