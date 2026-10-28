@@ -490,7 +490,7 @@ CM 计算使用完整的 \(A'\) 物理偏振求和；这是总发射率的洛伦
 (p'_{\rm CM}+q_{\rm CM})\cdot U_{\rm CM}
 =E_\mu+\omega_{\rm medium}.
 \]
-测试残差在双精度浮点数精度范围内。独立复算还验证了四个对数能量 bin 的事件率之和与总事件率、能量发射率之和与总发射率一致到约 \(10^{-15}\) 相对差；该检查验证分箱记账，不代表热积分已经收敛。
+测试残差在双精度浮点数精度范围内。另一个独立公式实现的复算还验证了四个对数能量 bin 的事件率之和与总事件率、能量发射率之和与总发射率一致到约 \(10^{-15}\) 相对差；该检查并非对仓库提交脚本的执行结果，只验证分箱记账，不代表热积分已经收敛。
 
 一个低阶（\(N=2\)）独立 smoke test，在 \(T=10\,\mathrm{MeV}\)、\(\mu_\mu=0\)、\(m_{A'}=1\,\mathrm{MeV}\)、\(g_A^\mu=0.01\)、\(g_V^\mu=0\) 的纯数值基准下得到正的局部事件率与发射率，分别约为 \(3.09\times10^{-6}\,\mathrm{MeV}^4\) 和 \(7.87\times10^{-5}\,\mathrm{MeV}^5\)。该值仅验证积分结构能够产生有限正结果，不是物理 benchmark，也不用于实验约束。
 
@@ -536,8 +536,10 @@ python 计算脚本/stellar_semi_compton_thermal_rate.py --check
 
 工作流在提交 8ddd1a48f3fc9babbd2396c7a21d3bce25c7e867 上出现两个失败记录：
 
-- [Push 触发的运行 #40625113929](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/40625113929)；
-- [Pull-request 触发的运行 #40625119125](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/40625119125)。
+- [最新 Push 触发的运行 #40625562898](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/40625562898)；
+- [最新 Pull-request 触发的运行 #40625567633](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/40625567633)。
+
+最新运行对应提交 `a45cbdeffa9da5bd13106983b0c68d506f3eee0a)，其中还加入了对任意三维 (A') 动量方向的横向极化基矢正交归一检查。
 
 从可读取的 GitHub Actions 元数据看，两次运行均在约两秒内结束，job 的 runner_id 为 0，步骤列表为空，且没有可下载的 job 日志。因此，当前证据**不能证明 Python 测试失败，也不能证明测试通过**；它只能证明作业没有产生可检查的测试步骤和结果。现有接口未返回足够的诊断信息来确定是 runner/账户策略还是其他调度问题，故不猜测具体原因。
 
