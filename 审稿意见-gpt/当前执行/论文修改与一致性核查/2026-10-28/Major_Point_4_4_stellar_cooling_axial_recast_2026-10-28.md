@@ -289,15 +289,7 @@ s=(p+k)^2,\quad u=(p-q)^2.
 
 这条表达式保留有限 \(m_{A'}\) 的精确树级运动学，没有使用 \(E_\gamma\ll m_\mu\) 展开。随本报告新增的脚本 **计算脚本/stellar_semi_compton_axial_matrix_element.py** 用显式 Dirac 矩阵、外线旋量与物理极化向量直接计算该振幅，再对初态 μ 子自旋和光子偏振取平均、对末态 μ 子自旋及指定的 \(A'\) 偏振求和，并对实验室系散射角作 Gauss–Legendre 数值积分。
 
-在初始 μ 子静止系，代码使用的微分截面为
-
-\[
-\frac{d\sigma}{d\Omega_{\rm lab}}
-=\frac{|\mathbf q|}{64\pi^2m_\mu E_\gamma(m_\mu+E_\gamma)}
-\overline{|\mathcal M|^2}.
-\]
-
-其中 \(\overline{|\mathcal M|^2}\) 对初态自旋和光子偏振平均，并保留相应的末态 \(A'\) 极化分量。数值积分只包含真空树级 \(2\to2\) 过程；尚未包括超新星热分布、μ 子末态 Pauli 阻塞、光子 Bose 因子、介质效应或星体径向积分。
+初始 μ 子静止系的微分截面必须保留精确二体相空间 Jacobian。早期简化分母已在 §9.1 更正；当前热积分使用同一不变能量下的 CM 微分截面，并在介质静止系计算末态能量和 Pauli 阻塞。完整公式与实验室系/CM 系交叉核验见 §9.1。当前数值积分只包含真空树级 \(2\to2\) 过程；尚未包括超新星介质修正、径向 profile 或吸收/trapping 输运。
 
 ### 8.2 电磁 Ward identity 的数值检查
 
