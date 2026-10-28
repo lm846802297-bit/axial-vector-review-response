@@ -40,6 +40,8 @@ class ThermalResult:
     spectrum_edges_mev: np.ndarray | None = None
     spectrum_event_rate_mev4: np.ndarray | None = None
     spectrum_emissivity_mev5: np.ndarray | None = None
+    spectrum_gamma_prod_sum_mev: np.ndarray | None = None
+    spectrum_gamma_abs_sum_mev: np.ndarray | None = None
 
 
 def fermi_dirac(energy: float, temperature: float, chemical_potential: float) -> float:
@@ -277,6 +279,31 @@ def thermal_emissivity(
                 event_integral += initial_weight * blocked_sigma
                 energy_integral += initial_weight * energy_weighted_sigma
 
+    spectrum_gamma_prod = None
+    spectrum_gamma_abs = None
+    if spectrum_bins:
+        spectrum_gamma_prod = np.zeros(spectrum_bins, dtype=float)
+        spectrum_gamma_abs = np.zeros(spectrum_bins, dtype=float)
+        for i in range(spectrum_bins):
+            e_low = float(spectrum_edges[i])
+            e_high = float(spectrum_edges[i + 1])
+            e_center = math.sqrt(e_low * e_high)
+            q_center = math.sqrt(max(e_center*e_center - ma*ma, 0.0))
+            d_rate_d_energy = spectrum_rate[i] / (e_high - e_low)
+            if q_center > 0.0:
+                gamma_prod = 2.0 * math.pi**2 * d_rate_d_energy / (
+                    q_center * e_center
+                )
+            else:
+                gamma_prod = 0.0
+            spectrum_gamma_prod[i] = gamma_prod
+            if gamma_prod == 0.0:
+                gamma_abs = 0.0
+            else:
+                log_gamma_abs = math.log(gamma_prod) + e_center / T
+                gamma_abs = math.exp(log_gamma_abs) if log_gamma_abs < 700.0 else math.inf
+            spectrum_gamma_abs[i] = gamma_abs
+
     return ThermalResult(
         event_rate_mev4=common_prefactor * event_integral,
         emissivity_mev5=common_prefactor * energy_integral,
@@ -287,6 +314,8 @@ def thermal_emissivity(
         spectrum_edges_mev=spectrum_edges,
         spectrum_event_rate_mev4=spectrum_rate,
         spectrum_emissivity_mev5=spectrum_energy,
+        spectrum_gamma_prod_sum_mev=spectrum_gamma_prod,
+        spectrum_gamma_abs_sum_mev=spectrum_gamma_abs,
     )
 
 
@@ -329,8 +358,16 @@ def run_checks() -> None:
     assert result.emissivity_mev5 > 0.0, result
     assert result.spectrum_event_rate_mev4 is not None
     assert result.spectrum_emissivity_mev5 is not None
+    assert result.spectrum_gamma_prod_sum_mev is not None
+    assert result.spectrum_gamma_abs_sum_mev is not None
     assert abs(np.sum(result.spectrum_event_rate_mev4) / result.event_rate_mev4 - 1.0) < 1e-8
     assert abs(np.sum(result.spectrum_emissivity_mev5) / result.emissivity_mev5 - 1.0) < 1e-8
+    for i, gp in enumerate(result.spectrum_gamma_prod_sum_mev):
+        if gp > 0.0:
+            ec = math.sqrt(result.spectrum_edges_mev[i] * result.spectrum_edges_mev[i+1])
+            ga = result.spectrum_gamma_abs_sum_mev[i]
+            if ec / 10.0 < 700.0:
+                assert abs(ga / gp / math.exp(ec / 10.0) - 1.0) < 1e-10
     print("checks=PASS")
     print(f"geometry_U2={minkowski_dot(u_cm, u_cm):.12f}")
     print(f"geometry_energy_residual={abs(k_cm*(u_cm[0]-u_cm[3])-omega):.3e}")
@@ -379,14 +416,16 @@ def main() -> None:
     print(f"quadrature_order,{result.quadrature_order},dimensionless")
     print(f"phi_order,{result.phi_order},dimensionless")
     if result.spectrum_edges_mev is not None:
-        print("spectrum_bin,energy_low_mev,energy_high_mev,event_rate_MeV4,emissivity_MeV5")
-        for i, (rate, emissivity) in enumerate(zip(
-            result.spectrum_event_rate_mev4, result.spectrum_emissivity_mev5
+        print("spectrum_bin,energy_low_mev,energy_high_mev,event_rate_MeV4,emissivity_MeV5,gamma_prod_sum_MeV,gamma_abs_sum_MeV")
+        for i, (rate, emissivity, gamma_prod, gamma_abs) in enumerate(zip(
+            result.spectrum_event_rate_mev4, result.spectrum_emissivity_mev5,
+            result.spectrum_gamma_prod_sum_mev, result.spectrum_gamma_abs_sum_mev
         )):
             print(
                 f"{i},{result.spectrum_edges_mev[i]:.8e},"
                 f"{result.spectrum_edges_mev[i+1]:.8e},"
-                f"{rate:.8e},{emissivity:.8e}"
+                f"{rate:.8e},{emissivity:.8e},"
+                f"{gamma_prod:.8e},{gamma_abs:.8e}"
             )
 
 
