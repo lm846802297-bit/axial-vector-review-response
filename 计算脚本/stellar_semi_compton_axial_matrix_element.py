@@ -86,12 +86,18 @@ def lab_kinematics(
         raise ValueError("No real physical final-state solution")
     discriminant = max(discriminant, 0.0)
     q_energy = (a * d + b * math.sqrt(discriminant)) / (a * a - b * b)
+    energy_tolerance = 1e-10 * max(ma, abs(q_energy), 1.0)
+    if q_energy < ma - energy_tolerance:
+        raise ValueError("No physical outgoing A' energy at this lab angle")
     q_momentum = math.sqrt(max(q_energy * q_energy - ma * ma, 0.0))
     sin_theta = math.sqrt(max(1.0 - c * c, 0.0))
     q = np.array(
         [q_energy, q_momentum * sin_theta, 0.0, q_momentum * c]
     )
     p_prime = p + k - q
+    p_prime_mass_sq = p_prime[0]**2 - float(np.dot(p_prime[1:], p_prime[1:]))
+    if abs(p_prime_mass_sq - muon_mass**2) > 1e-7 * max(muon_mass**2, 1.0):
+        raise ValueError("No on-shell final muon at this lab angle")
     return p, k, p_prime, q
 
 
@@ -233,9 +239,16 @@ def differential_cross_section_lab(
     e_charge: float = E_CHARGE,
 ) -> float:
     """Exact tree-level d sigma/dOmega in the initial-muon rest frame, MeV^-2."""
-    p, k, p_prime, q = lab_kinematics(
-        photon_energy, vector_mass, float(cos_theta), muon_mass
-    )
+    threshold = vector_mass + vector_mass**2 / (2.0 * muon_mass)
+    if photon_energy <= threshold:
+        return 0.0
+    try:
+        p, k, p_prime, q = lab_kinematics(
+            photon_energy, vector_mass, float(cos_theta), muon_mass
+        )
+    except ValueError:
+        # Some lab angles are kinematically inaccessible close to threshold.
+        return 0.0
     msq = polarization_resolved_matrix_element_squared(
         p, k, p_prime, q, vector_mass, g_v, g_a, mode, muon_mass
     )
