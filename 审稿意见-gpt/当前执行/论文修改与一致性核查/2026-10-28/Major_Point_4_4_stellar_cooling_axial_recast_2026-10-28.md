@@ -536,12 +536,12 @@ python 计算脚本/stellar_semi_compton_thermal_rate.py --check
 
 工作流运行记录如下：
 
-- [Push 触发的运行 #40625698810](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/40625698810)，对应提交 2559e8a85843e609fed504a1a350b53e498c0bfa；
-- [最新 Pull-request 触发的运行 #40625842217](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/40625842217)，对应当前报告提交 b0c04767cf0b3b3125c9afc5c7508984d06d22f4。
+- [最新 Pull-request 运行 #40628033982](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/40628033982)，对应当前报告提交 b47bb4c3909364ce2c657d841ca33865303179d0；
+- [前一 Pull-request 运行 #40627279031](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/40627279031)，对应提交 3feeebb764463c3905573735e87c98cc86f3fb34。
 
-最新 Push 运行仍在任何测试步骤开始前失败。工作流中的 pip 缓存依赖文件假设已移除，以免后续真正启动 runner 时产生无关失败。
+我还尝试重新运行 #40627279031 的失败 job。重跑曾进入 queued，随后仍以 `runner_id=0`、空步骤列表结束；最新运行 #40628033982 也同样未执行任何测试步骤。工作流中的 pip 缓存依赖文件假设已移除，以免后续真正启动 runner 时产生无关失败。
 
-从可读取的 GitHub Actions 元数据看，两次运行均在约两秒内结束，job 的 runner_id 为 0，步骤列表为空，且没有可下载的 job 日志。因此，当前证据**不能证明 Python 测试失败，也不能证明测试通过**；它只能证明作业没有产生可检查的测试步骤和结果。现有接口未返回足够的诊断信息来确定是 runner/账户策略还是其他调度问题，故不猜测具体原因。
+从可读取的 GitHub Actions 元数据看，最新作业在约两秒内结束，runner_id 为 0，步骤列表为空，且没有可下载的 job 日志。因此，当前证据**不能证明 Python 测试失败，也不能证明测试通过**；它只能证明作业没有产生可检查的测试步骤和结果。现有接口未返回足够的诊断信息来确定是 runner/账户策略还是其他调度问题，故不猜测具体原因。
 
 后续应先恢复可执行的 runner（或在有 NumPy 的本地环境运行下列命令），再把实际 stdout/stderr 与收敛 CSV 归档：
 
