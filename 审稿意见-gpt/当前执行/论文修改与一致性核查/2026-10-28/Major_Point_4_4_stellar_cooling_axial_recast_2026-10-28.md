@@ -530,16 +530,16 @@ python 计算脚本/stellar_semi_compton_thermal_rate.py --check
 - 分别扫描 \(\omega_{\max}=80,100,140\,\mathrm{MeV}\)；
 - 输出事件率、能量发射率、相对参考值的变化及每次计算耗时，格式为 CSV。
 
-新增 .github/workflows/stellar-cooling-validation.yml，目标是在可用的 Python 3.12 runner 上安装 NumPy，依次运行两个脚本的 --check，再执行上述收敛性扫描，并保存 CSV artifact。此工作流是验收基础设施，不是数值通过的证据。
+新增 .github/workflows/stellar-cooling-validation.yml，目标是在可用的 Python 3.12 runner 上安装 NumPy，依次运行两个脚本的 --check，再执行上述收敛性扫描，并保存 CSV artifact。另修正了振幅脚本中的横向极化基矢构造：旧写法仅在 q_y=0 时保证完整正交归一；新写法对任意三维 A' 动量方向构造正交基，并加入非共面动量的检查。现有实验室系/CM 系振幅调用本来就取 q_y=0，此修正主要避免后续角积分或介质模式分析误用。工作流是验收基础设施，不是数值通过的证据。
 
 ### 10.2 实际 CI 状态：未执行到任何测试步骤
 
-工作流在提交 8ddd1a48f3fc9babbd2396c7a21d3bce25c7e867 上出现两个失败记录：
+工作流运行记录如下：
 
-- [最新 Push 触发的运行 #40625562898](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/40625562898)；
-- [最新 Pull-request 触发的运行 #40625567633](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/40625567633)。
+- [Push 触发的运行 #40625698810](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/40625698810)，对应提交 2559e8a85843e609fed504a1a350b53e498c0bfa；
+- [最近一次 Pull-request 触发的运行 #40625649773](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/40625649773)，对应前一提交 f1d273281516c920f5ddadd144150b740f86d4e9。
 
-最新运行对应提交 `a45cbdeffa9da5bd13106983b0c68d506f3eee0a)，其中还加入了对任意三维 (A') 动量方向的横向极化基矢正交归一检查。
+最新 Push 运行仍在任何测试步骤开始前失败。工作流中的 pip 缓存依赖文件假设已移除，以免后续真正启动 runner 时产生无关失败。
 
 从可读取的 GitHub Actions 元数据看，两次运行均在约两秒内结束，job 的 runner_id 为 0，步骤列表为空，且没有可下载的 job 日志。因此，当前证据**不能证明 Python 测试失败，也不能证明测试通过**；它只能证明作业没有产生可检查的测试步骤和结果。现有接口未返回足够的诊断信息来确定是 runner/账户策略还是其他调度问题，故不猜测具体原因。
 
