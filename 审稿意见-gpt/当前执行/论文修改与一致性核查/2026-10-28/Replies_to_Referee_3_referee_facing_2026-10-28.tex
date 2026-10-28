@@ -2,7 +2,6 @@
 
 % Mathematics
 \usepackage{amsmath,amssymb}
-\usepackage{bbm}
 \usepackage{slashed}
 
 % Graphics
@@ -12,17 +11,19 @@
 
 % Tables and page layout
 \usepackage{multirow}
+\usepackage{array}
+\usepackage{needspace}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
 \usepackage{placeins}
 \setlength{\parskip}{10pt}
 
 % Text formatting and URLs
-\usepackage[normalem]{ulem}
+\usepackage{microtype}
+\setlength{\emergencystretch}{3em}
 \usepackage{url}
 
 % Colors and cross-document citations
 \usepackage[dvipsnames]{xcolor}
-\usepackage{xcite}
-\externalcitedocument{main-v6}
 
 % Hyperlinks (load near the end)
 \usepackage[
@@ -79,7 +80,7 @@ For the illustrative benchmark \(\lambda_S^{\max}=4\pi\), the perturbativity con
 For clarity, we summarize selected, non-exhaustive low-mass constraints in the scalar-coupling parameterization relevant to this model. The direct entries constrain \(y_{s\mu\mu}\), not \(g_X\) directly; fifth-force tests are noted separately because their translation depends on loop-induced couplings to ordinary matter and UV matching. For the ultralight binary-pulsar entry, we use Liu and Tang's explicit scalar-mediator analysis, which defines the interaction \(g_{\phi\mu}\phi\bar\mu\mu\) and reports the 95\% CL periastron-advance limit in Fig.~5~\cite{Liu:2025zuz}. We quote the reported sensitivity interval and best-sensitivity point, rather than treating the best point as a uniform bound throughout that interval. The \(L_\mu-L_\tau\) vector-mediator constraint in Ref.~\cite{Dror:2019uea} is not transferred as a direct scalar-Yukawa bound:
 \begin{center}
 \small
-\begin{tabular}{p{0.28\linewidth}p{0.39\linewidth}p{0.20\linewidth}}
+\begin{tabular}{P{0.28\linewidth}P{0.39\linewidth}P{0.20\linewidth}}
 \hline
 Scalar-mass range & Published constraint & Approximate bound / applicability for \(y_{s\mu\mu}\)\\
 \hline
@@ -107,6 +108,7 @@ The table is a source-anchored summary of selected low-mass constraints on the s
 \end{figure}
 
 \medskip
+\Needspace{8\baselineskip}
 \noindent {\bf Major Points 1.1)}. \begin{quote}\itshape
 It is thus an odd choice to exclude the scalar from the phenomenology of the effective theory: if the \(S\) is unavoidable at phenomenologically relevant scales, shouldn't one of the main points of the paper be that the only known UV completion of an axial \(L_{\mu-\tau}\) gauge boson has a prediction for a scalar particle in a mass range that can be probed by colliders?\end{quote}
 
@@ -206,7 +208,7 @@ The coupling endpoints \(10^{-6}\) and \(10^{-1}\) are likewise numerical choice
 For clarity, the scan variables and their UV interpretation are summarized here:
 \begin{center}
 \small
-\begin{tabular}{p{0.19\linewidth}p{0.34\linewidth}p{0.39\linewidth}}
+\begin{tabular}{@{}P{0.19\linewidth}P{0.34\linewidth}P{0.39\linewidth}@{}}
 \hline
 Quantity & Range or relation & Interpretation\\
 \hline
