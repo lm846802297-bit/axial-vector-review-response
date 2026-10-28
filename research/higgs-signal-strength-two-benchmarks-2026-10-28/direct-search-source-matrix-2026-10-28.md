@@ -225,7 +225,8 @@ The calculation is reproducible in [benchmark_a_direct_rate_screen.py](benchmark
 5. **Preliminary analytic screen:** at \(m_s=150\) GeV, Benchmark B's non-degenerate mixing proxy gives an inclusive production estimate below \(1.1\times10^{-5}\) fb under the conservative 50 pb envelope, well below the overall 0.05 fb best-sensitivity scale even before branching fractions.
 6. **New source identified, not yet applicable as a direct limit:** CMS-EXO-24-006 covers \(m_Y=10\) GeV and \(m_X\ge250\) GeV, but assumes \(\Gamma_X/m_X=10^{-4}\); the Benchmark A scalar has \(\Gamma_s/m_s\simeq0.12\) at 250 GeV. A broad-resonance reinterpretation would be required.
 7. **Not yet done:** retrieve HEPData Table 15's numeric payload and determine the exact observed limit/interpolation at \(m_{A'}=63\) GeV; validate the pole-scheme mixing; complete \(A'\) branching fractions including kinetic mixing; validate detector-level acceptance; search for a non-vetoed direct-\(s\) search for Benchmark A; evaluate whether a broad-width CMS reinterpretation is worth pursuing.
-8. **Do not claim:** a complete UV-allowed scalar-mass interval or a global experimental exclusion.
+8. **Preliminary rate-scale check for Benchmark A:** with a conservative 100 pb SM ggF envelope, the largest estimated inclusive \(gg\to s\) rate among \(m_s=65,80,100,110\) GeV is \(1.43\times10^{-3}\) fb at 110 GeV. This is about 98 times below the smallest published low-mass limit value, but the ATLAS limit does not apply at \(m_{A'}=10\) GeV because the daughter-mass and dilepton-selection requirements fail. This is not a direct exclusion comparison.
+9. **Do not claim:** a complete UV-allowed scalar-mass interval or a global experimental exclusion.
 
 ## Sources
 
