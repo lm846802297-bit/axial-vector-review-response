@@ -8,7 +8,9 @@ The code:
 * checks the electromagnetic Ward identity k_mu M^{mu nu}=0 for vector,
   axial and mixed A' currents;
 * integrates exact 2->2 phase space over the lab scattering angle;
-* resolves final A' transverse and longitudinal polarizations separately.
+* resolves final A' transverse and longitudinal polarizations separately in the frame used to define the supplied four-momenta.
+
+Important frame convention: the T/L split made by this module is defined in the same frame as the supplied kinematics. In particular, mode="T"/"L" in the CM cross-section routine means CM-frame helicity modes. It is not the medium-rest-frame T/L split when the thermal medium moves in the pair CM frame. The thermal-rate prototype therefore uses only mode="all"; a medium-frame T/L emissivity requires polarization projectors built from both q and the medium four-velocity.
 
 Units: masses and energies are in MeV; cross sections are in MeV^{-2}.
 The couplings gV and gA are the A' muon-current couplings. This is a
@@ -211,7 +213,10 @@ def polarization_resolved_matrix_element_squared(
 ) -> float:
     """Spin-summed |M|^2, averaged over initial muon spin and photon polarization.
 
-    The electromagnetic coupling e^2 is not included here.
+    The T/L split is defined in the frame of the supplied four-momenta. If
+    these are CM-frame momenta, the modes are CM helicity modes, not
+    medium-rest-frame modes for a moving thermal medium. The electromagnetic
+    coupling e^2 is not included here.
     """
     gamma_pols = photon_polarizations()
     x_pols = vector_polarizations(q, vector_mass)
@@ -352,7 +357,13 @@ def differential_cross_section_cm(
     muon_mass: float = M_MU_MEV,
     e_charge: float = E_CHARGE,
 ) -> float:
-    """Exact d sigma/dOmega_CM, in MeV^-2, with initial spin/polarization averages."""
+    """Exact d sigma/dOmega_CM, in MeV^-2, with initial spin/polarization averages.
+
+    mode="T"/"L" refers to CM helicity modes. Do not use these mode-separated
+    values as medium-frame T/L rates unless the medium is at rest in this CM
+    frame; use a polarization projector constructed from q and U_medium.
+    The polarization-summed mode="all" cross section is frame invariant.
+    """
     p, k, p_prime, q = cm_kinematics(
         photon_energy_muon_rest, vector_mass, cos_theta_cm, 0.0, muon_mass
     )
