@@ -129,6 +129,14 @@ Published LEP limits commonly assume SM-Higgs-like branching fractions or a spec
 
 The ATLAS \(S\to Z_dZ_d\to4\ell\) analysis is the closest directly matched public search identified for Benchmark B above threshold. Searches of the 125 GeV Higgs for \(H\to Z_dZ_d\) are not interchangeable with direct production of a separate \(s\) resonance: the parent mass, production rate, and signal selection differ. Generic heavy-scalar \(ZZ\) searches also do not directly match a pair of 63 GeV \(A'\) bosons with \(L_\mu-L_\tau\) branching fractions.
 
+### New CMS heavy-resonance search for \(m_{A'}\simeq10\) GeV
+
+A newer, relevant topology has also been identified: CMS-EXO-24-006, *Search for heavy resonances decaying into four-lepton final states via light bosons in proton-proton collisions at \(\sqrt{s}=13\) TeV*, arXiv:2604.14236 (submitted to PRL in April 2026). It uses \(138\,\mathrm{fb}^{-1}\), covers \(m_X=250\text{--}2000\) GeV and \(m_Y>0.4\) GeV, and explicitly includes generated hypotheses at \(m_Y=10\) GeV. The publication reports model-independent limits on \(\sigma(pp\to X)\times\mathrm{BR}(X\to YY\to4\ell)\), including exclusive \(4\mu\) results. Source: https://arxiv.org/abs/2604.14236 and CMS result page https://cms-results.web.cern.ch/cms-results/public-results/publications/EXO-24-006/index.html.
+
+This search is a candidate for Benchmark A only in the high-mass scalar region \(m_s\gtrsim250\) GeV; it does not cover the \(m_s=65\text{--}115\) GeV region that failed the ATLAS HDBS-2021-13 selection. More importantly, CMS generated \(X\) and \(Y\) with a narrow-width assumption \(\Gamma/M=10^{-4}\). For the present Benchmark A, the tree-level \(s\to A'A'\) width is approximately \(30.6\) GeV at \(m_s=250\) GeV, i.e. \(\Gamma_s/m_s\simeq0.12\), using \(v_s=70.9\) GeV and \(m_{A'}=10\) GeV. This is orders of magnitude broader than the signal model used in the CMS limit. The published narrow-width limit therefore **must not be applied directly** to this benchmark without a broad-resonance reinterpretation.
+
+The CMS analysis is valuable evidence that a low-mass \(A'\) four-lepton topology has been searched for at high \(m_s\), but it does not close the model-specific constraint gap by itself. The exact pointwise \(4\mu\) limit is also not extracted in this pass. The \(s\to A'A'\) width and the validity of the one-loop mixing/production proxy must be assessed consistently before this channel can be used quantitatively.
+
 ## 6. Evidence ledger and next actions
 
 1. **Verified:** a relevant ATLAS direct-search analysis exists and publishes cross-section-times-four-lepton-branching-ratio limits.
