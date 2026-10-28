@@ -24,7 +24,7 @@
 - [Major Point 1 一圈 Higgs–singlet 混合计算](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-10-27/Higgs_portal_exact_mass_eigenstate_one_loop_2026-10-27.md)：提供两组 benchmark 的计算说明、Python 脚本和验证记录；[状态与后续任务](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-10-27/Major_Point_1_scalar_response_status_2026-10-27.md)。这些结果保留匹配条件、完整极点方案及实验重铸的适用边界。
 
 - [Major Point 4.4 恒星冷却/超新星约束向轴矢量基准的转换研究](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-10-28/Major_Point_4_4_stellar_cooling_axial_recast_2026-10-28.md)：独立研究记录，包含中微子过程的解析映射、轴矢量 μ 子宽度、纵向模与 LESN 适用性判断；[可复现宽度计算脚本](计算脚本/stellar_cooling_axial_recast.py)。完整轴矢量超新星数值重铸仍明确列为未完成，不修改论文正文。
-- [半康普顿轴矢量振幅与极化分辨检查](计算脚本/stellar_semi_compton_axial_matrix_element.py)：显式 Dirac 旋量计算、光子 Ward identity、横/纵极化分辨截面与 Thomson 极限测试；对应分析见研究报告 §8。
+- [半康普顿轴矢量振幅与极化分辨检查](计算脚本/stellar_semi_compton_axial_matrix_element.py)：显式 Dirac 旋量计算、光子 Ward identity、横/纵极化分辨截面、精确实验室/CM 截面 Jacobian 与 Klein–Nishina 基准；对应分析见研究报告 §8–9。
 - [半康普顿热产生率原型](计算脚本/stellar_semi_compton_thermal_rate.py)：均匀介质单元中的 μ±γ→μ±A′ 局部热积分，包含初态 Fermi/Bose 分布、末态 μ 子 Pauli 阻塞及介质系发射能量；不包含超新星径向 profile、吸收/ trapping 或最终排除曲线。
 
 当前选择保留原有轴矢量唯象学并收窄论文主张；最小模型对完整 PMNS 混合的限制需要明确说明。研究记录、候选计算和正文修改方案的存在不等于相应任务已完成；具体状态与证据请以执行手册和专题记录为准。
