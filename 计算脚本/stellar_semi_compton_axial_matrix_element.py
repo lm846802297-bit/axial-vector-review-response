@@ -297,6 +297,9 @@ def run_checks() -> None:
         sigma_t, sigma_thomson
     )
     assert sigma_l / sigma_t < 1e-3, (sigma_l, sigma_t)
+    printed_t, printed_l = low_energy_vector_reference(eg, ma)
+    assert abs(sigma_t / printed_l - 1.0) < 0.02, (sigma_t, printed_l)
+    assert abs((sigma_t + sigma_l) / (printed_t + printed_l) - 1.0) < 0.02
 
     # For the axial current, the longitudinal cross section scales as 1/M^2
     # at fixed E_gamma in the small-M regime (Goldstone-equivalence behavior).
