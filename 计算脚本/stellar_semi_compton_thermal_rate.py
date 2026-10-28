@@ -228,6 +228,10 @@ def thermal_emissivity(
                 energy_weighted_sigma = 0.0
                 for ctheta, wtheta in zip(theta_nodes, theta_weights):
                     ctheta = float(ctheta)
+                    # The total polarization sum is Lorentz invariant. Do not
+                    # split T/L here using CM helicities: the thermal medium
+                    # is moving in this pair-CM frame, so medium-frame T/L
+                    # rates require projectors built from q and u_cm.
                     dsigma_domega = sc.differential_cross_section_cm(
                         e_star, ma, ctheta, g_v, g_a, mode="all"
                     )
