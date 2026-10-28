@@ -517,3 +517,44 @@ python 计算脚本/stellar_semi_compton_thermal_rate.py --check
 6. 将轴矢量曲线与论文 Fig. 2 的参数区域逐点比较。
 
 因此，目前只能报告已推导的矩阵元、修正后的二体相空间公式和局部热积分原型；尚不能声称已经确定恒星冷却对论文参数空间的最终排除结论。
+
+
+## 10. 数值验收基础设施与当前阻塞（2026-10-28）
+
+### 10.1 新增可复现的收敛性扫描
+
+新增 计算脚本/stellar_semi_compton_thermal_convergence.py，将数值稳定性检查从一次性 smoke test 改为可复现的参数扫描。默认扫描：
+
+- 固定 \(p_{\max}=200\,\mathrm{MeV}\)、\(\omega_{\max}=100\,\mathrm{MeV}\)，比较 Gauss–Legendre 阶数 \(N=2,4,6,8,10,12\)；
+- 在固定积分阶数下，分别扫描 \(p_{\max}=160,200,240\,\mathrm{MeV}\)；
+- 分别扫描 \(\omega_{\max}=80,100,140\,\mathrm{MeV}\)；
+- 输出事件率、能量发射率、相对参考值的变化及每次计算耗时，格式为 CSV。
+
+新增 .github/workflows/stellar-cooling-validation.yml，目标是在可用的 Python 3.12 runner 上安装 NumPy，依次运行两个脚本的 --check，再执行上述收敛性扫描，并保存 CSV artifact。此工作流是验收基础设施，不是数值通过的证据。
+
+### 10.2 实际 CI 状态：未执行到任何测试步骤
+
+工作流在提交 8ddd1a48f3fc9babbd2396c7a21d3bce25c7e867 上出现两个失败记录：
+
+- [Push 触发的运行 #40625113929](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/40625113929)；
+- [Pull-request 触发的运行 #40625119125](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/40625119125)。
+
+从可读取的 GitHub Actions 元数据看，两次运行均在约两秒内结束，job 的 runner_id 为 0，步骤列表为空，且没有可下载的 job 日志。因此，当前证据**不能证明 Python 测试失败，也不能证明测试通过**；它只能证明作业没有产生可检查的测试步骤和结果。现有接口未返回足够的诊断信息来确定是 runner/账户策略还是其他调度问题，故不猜测具体原因。
+
+后续应先恢复可执行的 runner（或在有 NumPy 的本地环境运行下列命令），再把实际 stdout/stderr 与收敛 CSV 归档：
+
+~~~bash
+python -m py_compile \
+  计算脚本/stellar_semi_compton_axial_matrix_element.py \
+  计算脚本/stellar_semi_compton_thermal_rate.py \
+  计算脚本/stellar_semi_compton_thermal_convergence.py
+python 计算脚本/stellar_semi_compton_axial_matrix_element.py --check
+python 计算脚本/stellar_semi_compton_thermal_rate.py --check
+python 计算脚本/stellar_semi_compton_thermal_convergence.py
+~~~
+
+在上述命令获得实际执行结果之前，不应把此前独立公式复算中的数值误差，误写成当前仓库版本已通过的测试结果；也不应把收敛性扫描的预期参数网格误写成已得到的收敛数值。
+
+### 10.3 本轮结论与边界
+
+本轮已把数值验收流程代码化，并将其列入 README 与本报告，但**热积分数值验收仍然阻塞**。尚无新的、由当前仓库脚本实际运行得到的截面测试输出或收敛 CSV。因此本轮不推进到 T/L 分辨吸收率的定量实现，更不报告 SN1987A/LESN 排除结论。恢复执行环境后，优先运行本节命令；只有在截面基准通过且阶数/截断变化足够小、误差有明确预算后，才继续介质吸收率和 trapping 分析。
