@@ -186,10 +186,8 @@ def thermal_emissivity(
                 if e_star <= threshold:
                     continue
 
-                # Angle between the medium-frame time direction's spatial
-                # part in the muon rest frame and the incoming photon in that
-                # frame; useful for checking the boost geometry. The CM
-                # implementation below uses the exact four-vector transform.
+                # Use the exact invariant s and express the medium-frame
+                # four-velocity in the same CM axes as the matrix element.
                 invariant_s = m*m + 2.0*m*e_star
                 u_cm = medium_four_velocity_in_amplitude_cm(
                     e_mu, float(omega), float(p), cpsi, invariant_s
@@ -211,9 +209,6 @@ def thermal_emissivity(
                     )
                     if dsigma_domega == 0.0:
                         continue
-                    _, _, _, q_phi0 = sc.cm_kinematics(
-                        e_star, ma, ctheta, 0.0
-                    )
                     # CM q energy/momentum and p' energy/momentum do not
                     # depend on azimuth; only their projections on U_CM do.
                     phi_block_sum = 0.0
