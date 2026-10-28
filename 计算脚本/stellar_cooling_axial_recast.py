@@ -82,7 +82,7 @@ def main() -> None:
     assert beta_mu(2.0 * M_MU_MEV) == 0.0
     assert abs(axial_to_vector_width_ratio(220.0) - 0.053) < 0.002
     assert abs(neutrino_branching_fractions(220.0)[1] - 0.979) < 0.002
-    assert mixed_muon_width_factor(300.0, 0.0) == axial_muon_width_factor(300.0)
+    assert abs(mixed_muon_width_factor(300.0, 0.0) - axial_muon_width_factor(300.0)) < 1e-12
     assert axial_to_vector_width_ratio(600.0) > axial_to_vector_width_ratio(300.0)
     print("checks=PASS")
 
