@@ -98,3 +98,10 @@ The official [HEPData record 145171](https://www.hepdata.net/record/145171) list
 New reproducible files:
 - [ATLAS direct-search screening script](atlas_direct_search_screen.py)
 - [ATLAS screening unit tests](test_atlas_direct_search_screen.py)
+
+
+## Additional source audit: CMS low-mass-vector four-lepton resonance search
+
+CMS-EXO-24-006 (arXiv:2604.14236, April 2026) searches \(X\to YY\to4\ell\) for \(m_X=250\text{--}2000\) GeV and includes generated \(m_Y=10\) GeV hypotheses. It is a potential topology match for Benchmark A at high scalar masses, but CMS assumes \(\Gamma_X/M_X=10^{-4}\). The Benchmark A radial scalar instead has \(\Gamma(s\to A'A')\simeq30.6\) GeV at \(m_s=250\) GeV, so the narrow-width experimental limit cannot be copied directly. The source and the mismatch are documented in the direct-search matrix; a broad-resonance reinterpretation has not been performed.
+
+Source: https://arxiv.org/abs/2604.14236
