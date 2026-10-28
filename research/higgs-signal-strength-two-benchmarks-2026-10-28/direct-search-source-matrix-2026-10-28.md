@@ -189,7 +189,34 @@ These numbers are **conditional screening estimates**, not a pole-scheme predict
 
 The direct-\(s\) scalar width in the same \(m_s=65\text{--}115\) GeV interval is approximately \(0.47\text{--}2.88\) GeV under the benchmark normalization. The ATLAS separate-scalar search in the 2025 paper also fails the \(m_{A'}=10\) GeV mass/pair-selection requirements, so no direct-\(s\) limit is assigned from that search.
 
-## 7. Evidence ledger and next actions
+## 8. Benchmark A: direct-\(s\) production-rate upper-envelope check
+
+The ATLAS low-mass signal simulation covers \(30\le m_S\le110\) GeV and \(15\le m_{Z_d}\le48\) GeV. Its event selection also requires every dilepton pairing to have invariant mass above \(11.105\) GeV. Thus the parent-mass coverage overlaps \(m_s=65\text{--}110\) GeV, but the daughter-mass and pair-selection requirements do not cover \(m_{A'}=10\) GeV. This is an applicability failure, not evidence that the model point is excluded.
+
+To estimate the scale of a possible signal without transferring the published limit, use the same fixed-self-energy non-degenerate proxy for Benchmark A:
+\[
+\epsilon_{\rm nd}(m_s)=\frac{|\Pi_{hs}(m_h^2)|}{|m_h^2-m_s^2|},
+\quad
+|\Pi_{hs}|=0.42852\ \mathrm{GeV}^2.
+\]
+Assuming production is dominated by the Higgs-mixing-induced gluon-fusion process, and deliberately taking the conservative envelope \(\sigma_{\rm ggF}^{\rm SM}(m_s)<100\) pb over this mass interval,
+\[
+\sigma(gg\to s)<\epsilon_{\rm nd}^2(100\ \mathrm{pb}).
+\]
+This envelope exceeds the standard 13 TeV SM gluon-fusion cross sections across the stated interval. The resulting upper-envelope estimates are:
+
+| \(m_s\) (GeV) | \(\epsilon_{\rm nd}\) | \(\sigma(gg\to s)\) upper envelope (fb) | \(4\mu\) rate upper estimate (fb), using \(\mathrm{BR}(A'\to\mu\mu)\simeq1/3\) |
+|---:|---:|---:|---:|
+| 65 | \(3.74\times10^{-5}\) | \(1.40\times10^{-4}\) | \(1.55\times10^{-5}\) |
+| 80 | \(4.61\times10^{-5}\) | \(2.13\times10^{-4}\) | \(2.37\times10^{-5}\) |
+| 100 | \(7.53\times10^{-5}\) | \(5.68\times10^{-4}\) | \(6.31\times10^{-5}\) |
+| 110 | \(1.19\times10^{-4}\) | \(1.43\times10^{-3}\) | \(1.59\times10^{-4}\) |
+
+The 4-muon column additionally assumes \(\mathrm{BR}(s\to A'A')\le1\) and neglects small loop-induced electron-coupling effects. The predicted inclusive production envelope at \(m_s=110\) GeV is about 98 times below the smallest published low-mass limit value (0.14 fb); at lower \(m_s\) the hierarchy is larger. This is a **rate-scale comparison only**: the \(0.14\) fb minimum is published for the ATLAS analysis's accepted \(m_{Z_d}\ge15\) GeV mass region and is not an experimental limit at \(m_{A'}=10\) GeV. The signal efficiency and selection acceptance at 10 GeV are not available from that analysis. The comparison suggests a very small predicted rate in the non-degenerate benchmark, but it does not substitute for an applicable search or a detector-level recast.
+
+The calculation is reproducible in [benchmark_a_direct_rate_screen.py](benchmark_a_direct_rate_screen.py). Its four unit tests passed in a local Python scratch environment. This is not a GitHub Actions run.
+
+## 9. Evidence ledger and next actions
 
 1. **Verified:** a relevant ATLAS direct-search analysis exists and publishes cross-section-times-four-lepton-branching-ratio limits.
 2. **Verified:** Benchmark A fails the \(A'\) mass coverage and explicit dilepton-mass requirement of the 2025 separate-scalar ATLAS analysis. The 2022 ATLAS \(H\to XX\to4\mu\) selection also explicitly vetoes \(m_{\mu\mu}=8\text{--}12\) GeV, so it does not constrain the exact \(m_{A'}=10\) GeV point; CMS HIG-19-007 marks the \(\Upsilon\) region as excluded as well.
