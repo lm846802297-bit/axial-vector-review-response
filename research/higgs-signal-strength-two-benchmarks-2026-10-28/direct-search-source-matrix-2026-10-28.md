@@ -177,13 +177,13 @@ and, with \(\Gamma_h^{\rm SM}=4.07\) MeV, the small-mixing branching-fraction pr
 {\Gamma_h^{\rm SM}+\epsilon_{\rm nd}^2\Gamma(s\to A'A';m_h)}.
 \]
 
-| \(m_s\) (GeV) | \(\epsilon_{\rm nd}\) | \(\mathrm{BR}(h_{\rm like}\to A'A')\) proxy | \(4\mu\) proxy if \(\mathrm{BR}(A'\to\mu\mu)\simeq1/3\) |
-|---:|---:|---:|---:|
-| 65 | \(3.74\times10^{-5}\) | \(1.29\times10^{-6}\) | \(1.43\times10^{-7}\) |
-| 80 | \(4.61\times10^{-5}\) | \(1.96\times10^{-6}\) | \(2.17\times10^{-7}\) |
-| 100 | \(7.53\times10^{-5}\) | \(5.22\times10^{-6}\) | \(5.80\times10^{-7}\) |
-| 110 | \(1.19\times10^{-4}\) | \(1.31\times10^{-5}\) | \(1.46\times10^{-6}\) |
-| 115 | \(1.74\times10^{-4}\) | \(2.78\times10^{-5}\) | \(3.09\times10^{-6}\) |
+| \(m_s\) (GeV) | \(\epsilon_{\rm nd}\) | \(\mathrm{BR}(h_{\rm like}\to A'A')\) proxy | \(\Delta\mu_{\rm visible}\) proxy | \(4\mu\) proxy if \(\mathrm{BR}(A'\to\mu\mu)\simeq1/3\) |
+|---:|---:|---:|---:|---:|
+| 65 | \(3.74\times10^{-5}\) | \(1.29\times10^{-6}\) | \(1.29\times10^{-6}\) | \(1.43\times10^{-7}\) |
+| 80 | \(4.61\times10^{-5}\) | \(1.96\times10^{-6}\) | \(1.96\times10^{-6}\) | \(2.17\times10^{-7}\) |
+| 100 | \(7.53\times10^{-5}\) | \(5.22\times10^{-6}\) | \(5.23\times10^{-6}\) | \(5.80\times10^{-7}\) |
+| 110 | \(1.19\times10^{-4}\) | \(1.31\times10^{-5}\) | \(1.31\times10^{-5}\) | \(1.46\times10^{-6}\) |
+| 115 | \(1.74\times10^{-4}\) | \(2.78\times10^{-5}\) | \(2.79\times10^{-5}\) | \(3.09\times10^{-6}\) |
 
 These numbers are **conditional screening estimates**, not a pole-scheme prediction: they hold \(\Pi_{hs}(m_h^2)\) fixed, use a tree-level mass denominator, and neglect a self-consistent two-pole treatment. The \(4\mu\) values also assume the approximate tree-level \(\mathrm{BR}(A'\to\mu^+\mu^-)\simeq1/3\). Most importantly, the ATLAS \(4\mu\) selection vetoes the \(m_{A'}=10\) GeV point, and the CMS plots likewise mark the \(\Upsilon\) region. These tiny rates are useful for assessing the inclusive Higgs-rate impact away from degeneracy; they do **not** convert the vetoed four-lepton searches into exclusions.
 
