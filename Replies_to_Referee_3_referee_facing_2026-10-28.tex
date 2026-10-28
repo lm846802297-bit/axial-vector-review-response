@@ -53,29 +53,29 @@ The authors construct an anomaly-free, renormalizable model in which an addition
 The paper presents results that are useful for the model building community. However, I have some significant reservations about key points that either should be included or otherwise justified in being excluded from the manuscript. These are explained below. Revisions for these major points (even if only to clarify why they are not issues) are required before the paper is at the level of a PRD manuscript.
 \end{quote}
 
-We sincerely thank the referee for the positive assessment of the model-building construction and for identifying issues that require further clarification or quantitative analysis. We respond to each point below.
+We thank the referee for recognizing the model-building result and for identifying places where the relation between the UV construction and the effective-current phenomenology needs to be made clearer. In the replies below, we state which existing results or additional checks address each concern and distinguish those results from conclusions that would require a broader UV-model analysis.
 
 \medskip
 \noindent {\bf Major Points 1)}. \begin{quote}\itshape
 Phenomenology of the \(S\) scalar. The second half of the paper reviews a set of experimental bounds on only an effective theory of the \(A'\) axially coupled to the \(L_{\mu-\tau}\) current. This leaves a major gap between these two parts of the paper: the authors show that their UV theory requires a scalar \(S\) that cannot be arbitrarily decoupled from the low-energy dynamics, e.g. from Eq. (34) which states that \(m_S^2 < 4\pi\left(m_{A'}/(2g_X)\right)^2\).\end{quote}
 
 \noindent {\bf Reply.}
-We thank the referee for highlighting the need to clarify the role of the scalar \(S\) in the UV completion and its phenomenological implications. We agree that \(S\) is an intrinsic component of the symmetry-breaking sector, and that its phenomenological relevance must be assessed under clearly stated assumptions and in light of the applicable theoretical and experimental constraints.
+We agree with the referee's central point: \(S\) is a required degree of freedom in the UV construction and cannot be declared phenomenologically irrelevant simply because Fig.~2 focuses on \(A'\). Our choice is to keep the paper's main question—the axial-current phenomenology of \(A'\)—while making explicit which scalar constraints already bear on the model and which require a separate collider interpretation.
 
-For the small-portal reference benchmark used in the Fig.~2 analysis, the scalar mass relations are
+For the small-portal reference benchmark used in Fig.~2, the mass relations are
 \[
 m_{A'}=2g_Xv_s,\qquad m_s^2=2\lambda_Sv_s^2,
 \qquad
 \lambda_S=\frac{2g_X^2m_s^2}{m_{A'}^2}.
 \]
-Imposing the perturbativity criterion \(\lambda_S\leq\lambda_S^{\max}\) therefore gives
+Thus, imposing \(\lambda_S\leq\lambda_S^{\max}\) gives the conditional theoretical bound
 \[
 m_s\leq\sqrt{2\lambda_S^{\max}}\,v_s
 =\sqrt{\frac{\lambda_S^{\max}}{2}}\frac{m_{A'}}{g_X}.
 \]
+For \(\lambda_S^{\max}=4\pi\), this is \(m_s\leq\sqrt{8\pi}\,v_s\); the reference choice \(m_s=10\,\mathrm{GeV}\) then requires \(v_s\gtrsim1.995\,\mathrm{GeV}\). These relations explain the scalar-sector consistency condition used alongside the \(A'\) benchmark. They are not experimental exclusions.
 
-For the illustrative benchmark \(\lambda_S^{\max}=4\pi\), the perturbativity condition gives \(m_s^2\leq8\pi v_s^2\), or \(m_s\leq\sqrt{8\pi}\,v_s\). For \(m_s=10\,\mathrm{GeV}\), this requires \(v_s\gtrsim1.995\,\mathrm{GeV}\). Within the plotted range \(g_X\leq0.1\), the vector-mass relation also gives \(m_{A'}=2g_Xv_s\leq0.2v_s\). These are conditional theoretical relations, not experimental exclusions, and do not by themselves establish an experimentally allowed scalar-mass interval.
-
+To show directly what the existing low-mass constraints establish, rather than sending the referee back to Table~II, we reproduce the relevant source-dependent limits below. The key distinction is that the direct scalar entries constrain \(y_{s\mu\mu}\), while fifth-force results constrain induced couplings to ordinary matter and require the corresponding UV matching.
 For clarity, we summarize selected, non-exhaustive low-mass constraints in the scalar-coupling parameterization relevant to this model. The direct entries constrain \(y_{s\mu\mu}\), not \(g_X\) directly; fifth-force tests are noted separately because their translation depends on loop-induced couplings to ordinary matter and UV matching. For the ultralight binary-pulsar entry, we use Liu and Tang's explicit scalar-mediator analysis, which defines the interaction \(g_{\phi\mu}\phi\bar\mu\mu\) and reports the 95\% CL periastron-advance limit in Fig.~5~\cite{Liu:2025zuz}. We quote the reported sensitivity interval and best-sensitivity point, rather than treating the best point as a uniform bound throughout that interval. The \(L_\mu-L_\tau\) vector-mediator constraint in Ref.~\cite{Dror:2019uea} is not transferred as a direct scalar-Yukawa bound:
 \begin{center}
 \small
@@ -91,13 +91,12 @@ Scalar-mass range & Published constraint & Approximate bound / applicability for
 \hline
 \end{tabular}
 \end{center}
-These are approximate, source-dependent constraints, not a combined exclusion band. The neutron-star cooling and SN~1987A cooling entries use the scalar column in Fiorillo et al.'s Table~1 for the stated low-mass regime~\cite{Fiorillo:2026wso}; the diffuse-supernova-\(\gamma\)-ray plateau is taken from Caputo et al. and applies for masses above approximately \(100\,\mathrm{keV}\) in their reference setup~\cite{Caputo:2021rux}. The fifth-force row flags the loop-induced scalar-to-proton recast shown in Fiorillo et al.'s Fig.~1~\cite{Fiorillo:2026wso}; we do not compress that mass-dependent result into a single direct \(y_{s\mu\mu}\) limit, since translating it to the present UV benchmark requires matching the induced ordinary-matter coupling. None of these entries is a direct, model-independent bound on \(g_X\).
+These are approximate, source-dependent constraints, not a combined exclusion band.The table establishes that the low-mass scalar is not being assumed unconstrained. It is not a combined exclusion band: the cooling limits use the scalar results in Fiorillo et al.'s Table~1 for the stated regime~\cite{Fiorillo:2026wso}, while the diffuse-supernova-\(\gamma\)-ray result applies above approximately \(100\,\mathrm{keV}\) in Caputo et al.'s reference setup~\cite{Caputo:2021rux}. The fifth-force result depends on loop-induced couplings to ordinary matter and must be matched to this UV benchmark. The purpose of the table is to identify the applicable source constraints and their coupling definitions, not to turn them into a universal \(g_X\) exclusion.
+
 \[
 g_X<\frac{y_{\max}m_{A'}}{2m_\mu}.
 \]
-This is the same conditional conversion used in Eq.~(31) of the original manuscript. It is not a model-independent bound on \(g_X\); it applies only when the scalar--muon Yukawa normalization and benchmark assumptions stated above are satisfied.
-
-The table is a source-anchored summary of selected low-mass constraints on the scalar--muon coupling, not a combined scalar--\(A'\) exclusion map. Collider searches are discussed separately below because their interpretation depends on the portal mixing, production rate, branching fractions, widths, and lifetime, including \(s\to A'A'\) when kinematically open.
+This conversion is conditional on the scalar--muon Yukawa normalization and the benchmark assumptions stated above. The low-mass entries should not be extrapolated to the \(m_s\geq10\,\mathrm{GeV}\) reference benchmark used for Fig.~2; collider-mass constraints require a separate interpretation, as discussed next.
 
 \begin{figure}[htbp]
 \centering
@@ -111,151 +110,92 @@ The table is a source-anchored summary of selected low-mass constraints on the s
 It is thus an odd choice to exclude the scalar from the phenomenology of the effective theory: if the \(S\) is unavoidable at phenomenologically relevant scales, shouldn't one of the main points of the paper be that the only known UV completion of an axial \(L_{\mu-\tau}\) gauge boson has a prediction for a scalar particle in a mass range that can be probed by colliders?\end{quote}
 
 \noindent {\bf Reply.}
-We agree that \(S\) is a genuine prediction of the UV construction. The purpose of this paper, however, is to study the axial-current phenomenology of \(A'\), not to provide a comprehensive collider analysis of every singlet-like scalar realization. This scope choice does not mean that \(S\) is absent or can be arbitrarily decoupled; its role in symmetry breaking, its mass relation, and the applicable constraints are addressed in this response.
+Yes: \(S\) is a prediction of the UV completion, and collider searches can in principle test it. We do not omit \(S\) from the UV model; we separate its phenomenology from Fig.~2 because that figure presents constraints on the \(A'\) effective current, whereas scalar searches depend on additional quantities that are not fixed by the two plotted parameters alone.
 
-The generic phenomenology of singlet-like scalars mixed with the Standard Model Higgs—including Higgs signal-strength constraints, direct searches, and the dependence on scalar masses and mixing—is well established; see Robens and Stefaniak~\cite{Robens:2015singlet} and Robens, Stefaniak, and Wittbrodt~\cite{Robens:2020twoSinglets}. The GeV-scale scalar-portal phenomenology and its production channels have also been studied systematically by Boiarska et al.~\cite{Boiarska:2019scalarPortal}. These studies establish the general Higgs--singlet constraints. Their results provide context for the present benchmark, whose interpretation depends on the portal boundary condition and the scalar production and decay pattern, including \(s\to A'A'\) when kinematically open.
+The existing singlet--Higgs literature establishes how Higgs signal strengths and direct scalar searches depend on the portal mixing and scalar mass~\cite{Robens:2015singlet,Robens:2020twoSinglets,Boiarska:2019scalarPortal}. Dedicated leptophilic-scalar searches at BaBar, Belle and Belle~II also cover relevant production channels and mass ranges~\cite{BaBar:2020jma,Belle:2022gbl,Belle-II:2024wtd,Belle-II:2023ydz}. For example, the Belle~II four-muon search includes a muonphilic spin-0 interpretation over approximately \(0.212\text{--}9.0\,\mathrm{GeV}\), while the \(\mu^+\mu^-\tau^+\tau^-\) search includes a Higgs-like leptophilic interpretation over approximately \(3.6\text{--}10\,\mathrm{GeV}\). These searches establish relevant coverage, but they are not interchangeable: their production modes, coupling normalizations, decay selections and acceptances differ.
 
-Dedicated searches for leptophilic scalars have also been performed at BaBar, Belle, and Belle II \cite{BaBar:2020jma,Belle:2022gbl,Belle-II:2024wtd,Belle-II:2023ydz}. In particular, the Belle II four-muon resonance search~\cite{Belle-II:2024wtd} covers approximately \(0.212\text{--}9.0\,\mathrm{GeV}\) and includes a muonphilic spin-0 interpretation, while the \(e^+e^-\to\mu^+\mu^-\tau^+\tau^-\) search~\cite{Belle-II:2023ydz} covers approximately \(3.6\text{--}10\,\mathrm{GeV}\) and includes a Higgs-like leptophilic spin-0 interpretation. The associated-production search and the four-muon search probe different production channels and final states, so they cannot be combined into a universal scalar limit. For heavier masses, prospective sensitivity at high-energy colliders, including a future muon collider, has been studied for leptophilic-scalar benchmarks with different Yukawa and CP assumptions \cite{Chen:2021leptophilic}. This provides context for possible future searches, not a reach projection for the radial scalar in our UV model. For the radial scalar in this UV model, these searches establish relevant mass coverage and production channels rather than model-independent exclusions: the interpretation depends on the matched coupling normalization, production rate, branching fractions, widths, lifetime, and acceptance, including \(s\to A'A'\) when kinematically open.
+The point of citing these results is to identify where the radial scalar can be searched for, not to claim that the published limits automatically exclude it in our UV model. A model-specific interpretation must use the matched scalar coupling and portal mixing, and account for branching fractions, widths, lifetime and acceptance, including \(s\to A'A'\) when open. The present response therefore connects the scalar to the relevant existing searches without presenting an unperformed global scalar-collider recast as a result.
 
 \medskip
 \noindent {\bf Major Points 1.2)}. \begin{quote}\itshape
 What is the range of phenomenologically allowed \(S\) mass including perturbativity limits on \(\lambda\) and a motivated range of \(m_{A'}\) and \(g_X\). For example: perhaps the authors imagine a range of \(m_{A'}\) below some benchmark mass where certain experimental constraints on \(g_X\) become very strong. Then with that set of constraints (which should be stated clearly, see minor point \#1 below), one may give a range of \(m_S\) and comment on the experimental constraints.\end{quote}
 
 \noindent {\bf Reply.}
-The figure does not imply a single, model-independent phenomenologically allowed interval for \(m_s\). In the minimal one-VEV benchmark, \(v_s=m_{A'}/(2g_X)\) is derived at each selected \((m_{A'},g_X)\) point, and
+The allowed \(m_s\) range is conditional on the chosen \((m_{A'},g_X)\) point and on which scalar constraints apply; it is not a single interval that can be read off from the \(A'\) contours. The referee's suggested comparison is the right way to organize the question: first impose the UV consistency condition, then apply the experimental limits using the scalar coupling and decay assumptions relevant to each search.
+
+In the one-VEV benchmark, \(v_s=m_{A'}/(2g_X)\) and
 \[
 \lambda_S=\frac{m_s^2}{2v_s^2}
 =\frac{2g_X^2m_s^2}{m_{A'}^2}.
 \]
-For a specified perturbativity criterion \(\lambda_S\leq\lambda_S^{\max}\), the conditional upper bound is
+A specified perturbativity criterion \(\lambda_S\leq\lambda_S^{\max}\) gives
 \[
 m_s\leq\sqrt{2\lambda_S^{\max}}\,v_s.
 \]
-For \(\lambda_S^{\max}=4\pi\), this becomes \(m_s\leq\sqrt{8\pi}\,v_s\). Requiring the scalar-suppressed reference benchmark \(m_s\geq10\,\mathrm{GeV}\) then gives \(v_s\gtrsim1.995\,\mathrm{GeV}\), or \(m_{A'}\gtrsim(3.99\,\mathrm{GeV})g_X\). This is a conditional consistency condition for that benchmark, not an experimental lower bound on \(m_s\).
+For \(\lambda_S^{\max}=4\pi\), this is \(m_s\leq\sqrt{8\pi}\,v_s\). If the scalar-suppressed reference benchmark \(m_s\geq10\,\mathrm{GeV}\) is adopted, it requires \(v_s\gtrsim1.995\,\mathrm{GeV}\), equivalently \(m_{A'}\gtrsim(3.99\,\mathrm{GeV})g_X\). This is the conditional scalar-sector consistency boundary represented by the dashed line, not an experimental lower bound on \(m_s\).
 
-The scalar constraints summarized under Major Point~1 act on \(y_{s\mu\mu}\), or on source-specific induced couplings to ordinary matter, under the assumptions of the corresponding analyses. The collider searches discussed under Major Point~1.1 establish relevant mass coverage and production channels, but their coverage alone does not exclude the radial scalar in this UV model: the interpretation depends on the matched coupling normalization, production rate, branching fractions, widths, lifetime, and acceptance, including \(s\to A'A'\) when open. We therefore do not quote a global allowed interval for \(m_s\). At each selected \((m_{A'},g_X)\), the scalar self-coupling gives a conditional theoretical upper bound; the experimentally constrained subset depends on the specified scalar benchmark and on which source constraints can actually be applied. The \(A'\) contours in Fig.~2 do not by themselves classify the scalar mass as allowed or excluded.
+The scalar limits summarized under Major Point~1 constrain \(y_{s\mu\mu}\) or source-specific induced matter couplings; the collider searches under Major Point~1.1 require a model-matched interpretation. Taken together, these results show how the theoretical and experimental conditions enter, but they do not establish a global phenomenologically allowed \(m_s\) interval for the full UV parameter space. We therefore state the conditional mass relation and the source-specific constraints rather than assigning a single allowed interval unsupported by a consistent joint analysis.
 
 \medskip
 \noindent {\bf Major Points 1.3)}. \begin{quote}\itshape
 Above (34): the authors ``assume negligible Higgs-portal mixing.'' Is this interaction not generated at loop level? It seems that \(S\)-\(h\) mixing cannot be avoided due to \(\mu\) and \(\tau\) loops. In turn, this seems like it would lead to strong experimental bounds on the UV completion. In fact, once there is mixing, is there not a resonance where the mixing becomes large as \(m_S\to m_h\)? It would be useful to quantify the size of this mixing over the allowed range of \(m_S\). Existing Higgs measurements may set the strongest bounds on the UV completion. If these bounds are obviously negligible (though again, I expect this to be strongly constrained as \(m_S\to m_h\)), then the authors should present this as the justification for ignoring \(m_S\) in the low-energy theory. (Though I am still skeptical that the \(S\) can be ignored since it cannot formally decouple.)\end{quote}
 
 \noindent {\bf Reply.}
-We agree that a vanishing Higgs-portal coupling is not enforced by the gauge symmetry: the operator \((H^\dagger H)(S^\dagger S)\) is allowed, so the portal boundary condition must be stated at a matching scale and in a specified renormalization convention. The negligible-portal assumption is therefore used only as a conditional phenomenological benchmark, not as a symmetry-protected statement or a claim that the portal vanishes at every scale.
+The referee is correct that the portal operator \((H^\dagger H)(S^\dagger S)\) is allowed by the gauge symmetry, so a negligible portal is not a symmetry-protected prediction. To address the loop concern quantitatively, we evaluated the leading VLL threshold and the finite-momentum off-diagonal self-energy under an explicit matching condition, \(\lambda_{HS}^{\mathrm{EFT}}(M_E)=0\). This is a specified small-portal benchmark; it requires a nonzero UV portal, \(\lambda_{HS}^{\mathrm{UV}}=-\Delta\lambda_{HS}^{E}\), and is not independent of the renormalized boundary condition.
 
-The general phenomenology of Higgs--singlet mixing, including its impact on the \(125\) GeV Higgs signal strengths and searches for additional scalar states, has already been studied in detail; representative analyses are cited above. This is one reason we do not reproduce a full generic singlet-Higgs analysis in a paper whose main objective is the axial-vector \(A'\) phenomenology. These studies do not, however, determine the physical mixing in our particular UV model, and we do not use them as a substitute for the model-specific loop check.
-
-The zero-momentum effective-potential analysis for the vector-like-lepton (VLL) sector gives, under its stated potential convention,
-\[
-\lambda_{HS}^{\mathrm{EFT}}(\mu_R)
-=\lambda_{HS}^{\mathrm{UV}}(\mu_R)
--\sum_{\ell=\mu,\tau}
-\frac{|y_\ell|^2|\lambda_\ell|^2}{8\pi^2}
-+\cdots,
-\]
-where \(y_\ell\) and \(\lambda_\ell\) are the Yukawa couplings in the VLL interaction. This is a conditional zero-momentum threshold relation; it does not determine the finite-momentum off-diagonal self-energy or a physical scalar mixing angle.
-
-To make the portal assumption explicit, we have evaluated the leading VLL threshold at the matching scale \(\mu_M=M_E\),
+At zero momentum, the VLL threshold in the potential convention used here is
 \[
 \Delta\lambda_{HS}^{E}
-=-\frac{1}{8\pi^2}\sum_{\ell=\mu,\tau}|y_\ell|^2|\lambda_\ell|^2,
-\qquad
-\lambda_{HS}^{\mathrm{EFT}}(\mu_M)
-=\lambda_{HS}^{\mathrm{UV}}(\mu_M)+\Delta\lambda_{HS}^{E}.
+=-\frac{1}{8\pi^2}\sum_{\ell=\mu,\tau}|y_\ell|^2|\lambda_\ell|^2.
 \]
-We use \(\lambda_{HS}^{\mathrm{EFT}}(M_E)=0\) as an explicit small-portal reference condition, which requires a nonzero UV portal \(\lambda_{HS}^{\mathrm{UV}}=-\Delta\lambda_{HS}^{E}\). This condition is a benchmark choice, not a symmetry prediction. For illustration, taking \(M_E=20\,\mathrm{TeV}\), \(\theta_{\mu L}=\theta_{\tau L}=10^{-2}\), and the leading seesaw relations gives \(\Delta\lambda_{HS}^{E}\simeq-0.2108\) at \((m_{A'},g_X,v_s)=(10\,\mathrm{GeV},0.0705,70.9\,\mathrm{GeV})\), and \(\Delta\lambda_{HS}^{E}\simeq-0.01067\) at \((63\,\mathrm{GeV},0.1,315\,\mathrm{GeV})\). For these illustrative points only, we additionally impose \(|\lambda_\ell|\leq\sqrt{4\pi}\); this is a theory-consistency benchmark rather than a new exclusion contour in Fig.~2. The comparison demonstrates that setting the UV portal to zero is not equivalent to setting the matched EFT portal to zero, and that the latter must be stated as an input if the small-portal benchmark is retained.
+For \(M_E=20\,\mathrm{TeV}\) and \(\theta_{\mu L}=\theta_{\tau L}=10^{-2}\), the two illustrative benchmarks give \(\Delta\lambda_{HS}^{E}\simeq-0.2108\) at \((m_{A'},g_X,v_s)=(10\,\mathrm{GeV},0.0705,70.9\,\mathrm{GeV})\), and \(-0.01067\) at \((63\,\mathrm{GeV},0.1,315\,\mathrm{GeV})\). This shows why setting the UV portal to zero and setting the matched EFT portal to zero are different assumptions.
 
-In the present zero-tree-level-mixing setup, the singlet-like field \(s\) has no tree-level \(sWW\) or \(s\bar t t\) vertex; accordingly, direct one-loop \(W\)- or top-quark diagrams do not contribute to \(\Pi_{hs}\) at this order. The leading one-loop off-diagonal contribution instead comes from the charged-lepton/vector-like-lepton sector. We have evaluated this fermion contribution using the full \(2\times2\) charged-lepton/VLL mass-eigenstate matrices, including light-light, light-heavy, heavy-light, and heavy-heavy internal states, and have separated the light-lepton EFT contribution from the hard momentum-dependent term. We use the explicit reference condition \(\lambda_{HS}^{\mathrm{EFT}}(M_E)=0\) stated above; the result is therefore conditional on that matching choice and is not a prediction independent of the renormalized portal boundary.
-
-For illustration, with \(M_E=20\,\mathrm{TeV}\), \(\theta_{\mu L}=\theta_{\tau L}=10^{-2}\), and the same leading-seesaw benchmark inputs used for the threshold check, the matched off-diagonal self-energy at \(p^2=m_h^2\) is
+We also evaluated the leading charged-lepton/VLL contribution to \(\Pi_{hs}(p^2)\) using the full \(2\times2\) mass-eigenstate matrices, including light--light, light--heavy, heavy--light and heavy--heavy internal states. In the zero-tree-level-mixing setup there is no tree-level \(sWW\) or \(s\bar t t\) vertex, so direct \(W\)- or top-quark diagrams do not contribute at this order. At \(p^2=m_h^2\), the matched self-energy is
 \[
 \Pi_{hs}^{\mathrm{matched}}(m_h^2)
 \simeq(-0.4133-0.1132i)\,\mathrm{GeV}^2
 \]
-for \((m_{A'},g_X,v_s)=(10\,\mathrm{GeV},0.0705,70.9\,\mathrm{GeV})\), and
+for the first benchmark above, and
 \[
 \Pi_{hs}^{\mathrm{matched}}(m_h^2)
 \simeq(-0.09300-0.02547i)\,\mathrm{GeV}^2
 \]
-for \((m_{A'},g_X,v_s)=(63\,\mathrm{GeV},0.1,315\,\mathrm{GeV})\). 
+for the second.
 
-The finite-momentum result does not imply uniformly negligible mixing. At \(m_s=m_h=125.25\,\mathrm{GeV}\), the width-regulated diagnostic \(|\Pi_{hs}/(a-b)|\), with \(a=m_h^2-i m_h\Gamma_h\) and \(b=m_s^2-i m_s\Gamma_s\), is approximately \(9.1\times10^{-4}\) when \(s\to A'A'\) is open and \(\Gamma_s\simeq3.75\,\mathrm{GeV}\). For the benchmark in which \(s\to A'A'\) is closed and \(\Gamma_s\simeq0.159\,\mathrm{MeV}\), the same diagnostic reaches about \(0.197\) at exact degeneracy; the corresponding \(2|\Pi_{hs}/(a-b)|\) diagnostic is about \(0.394\). 
+These results answer the loop-generation question: the mixing contribution is calculable and depends on the matching condition and benchmark. They also show why one cannot dismiss the near-degenerate case by quoting a generic small-mixing estimate. At \(m_s=m_h=125.25\,\mathrm{GeV}\), the width-regulated diagnostic \(2|\Pi_{hs}/(a-b)|\) is about \(9.1\times10^{-4}\) when \(s\to A'A'\) is open with \(\Gamma_s\simeq3.75\,\mathrm{GeV}\), but reaches about \(0.394\) at exact degeneracy in the closed-channel benchmark with \(\Gamma_s\simeq0.159\,\mathrm{MeV}\). In the latter case the fixed-self-energy diagnostic exceeds \(0.1\) only in a narrow band around \(m_h\), approximately \(7.5\,\mathrm{MeV}\) on either side.
 
-Across the illustrative \(m_s\in[10,150]\,\mathrm{GeV}\) diagnostic scan, the criterion \(2|\Pi_{hs}/(a-b)|\geq0.1\) is not reached in the open-channel benchmark. In the closed-channel benchmark near \(m_s\simeq m_h\), the fixed-self-energy diagnostic exceeds this criterion only within a narrow band of approximately \(7.5\,\mathrm{MeV}\) on either side of \(m_h=125.25\,\mathrm{GeV}\). The estimate holds the matched \(\Pi_{hs}(m_h^2)\) fixed while varying \(m_s\) and the tree-level singlet width; it is a diagnostic approximation, not a self-consistent two-pole solution or an experimental exclusion interval. This narrow band is not covered by the small-mixing approximation. These diagnostics quantify the one-loop self-energy under the stated matching condition, but they do not themselves give a Higgs signal-strength limit or a direct-search exclusion. We therefore do not infer that Higgs constraints are negligible throughout the UV parameter space, nor do we classify the near-degenerate, narrow-width region as allowed or excluded from this fixed-self-energy diagnostic alone. The scalar \(S\) remains part of the UV construction, and Fig.~2 represents the specified small-portal, pure-axial effective-current benchmark rather than a global UV exclusion.
-
-
+The last quantity is a diagnostic, not a self-consistent two-pole solution or a Higgs signal-strength exclusion. It identifies where the small-mixing approximation needs special care; it does not establish a global Higgs constraint or classify the near-degenerate UV parameter space as allowed or excluded. The scalar remains part of the UV model, while Fig.~2 retains its stated role as the \(A'\) effective-current benchmark.
 
 \medskip
 \noindent {\bf Major Points 2)}. \begin{quote}\itshape
 Motivating the range of effective theory parameters. To further aid in the comparison between the UV theory and the two-parameter low-energy theory, it would be useful to explicitly state in one place (perhaps in a table or a figure like Fig. 2) the range of the effective model parameters that are feasible. The main phenomenological results are in Fig. 2, but it was not clear why this range of couplings and \(A'\) masses were chosen: are values outside this range not allowed? What, if anything, does the perturbativity of the UV theory impose on the effective parameters?\end{quote}
 
 \noindent {\bf Reply.}
-We thank the referee for asking us to motivate the parameter window and to distinguish the low-energy effective-current analysis from the UV theory. The ranges displayed in Fig.~2 are
+The window in Fig.~2 is chosen to compare the complementary experimental regimes used in this paper on a common \((m_{A'},g_X)\) plane; it is not a claim that the endpoints delimit the full allowed parameter space. The displayed ranges are
 \[
 10^{-3}\,\mathrm{GeV}\leq m_{A'}\leq10^2\,\mathrm{GeV},
 \qquad
 10^{-6}\leq g_X\leq10^{-1}.
 \]
-They define the plotting window adopted for this comparison, not universal theoretical or experimental boundaries.
+The mass interval spans low-energy precision tests, pion and kaon decays, beam-dump searches, neutrino trident production, visible-resonance searches at \(B\) factories and higher-energy collider searches. For example, PIENU is kinematically sensitive below \(m_{\pi^+}-m_\mu\simeq33.9\,\mathrm{MeV}\)~\cite{PIENU:2021clt,Altmannshofer:2026opc}, NA62 reaches below \(m_{K^+}-m_\mu\simeq388\,\mathrm{MeV}\) in the channel shown as an indicative recast~\cite{NA62:2021bji}, and BaBar/Belle~II and CMS cover complementary higher-mass visible-resonance regimes~\cite{BaBar:2016sci,Belle-II:2024wtd,CMS:2018yxg}. These searches do not provide uniform coverage at every mass.
 
-The mass window is chosen to place the complementary regimes studied in this paper on one plot: low-energy precision constraints, including the \((g-2)_\mu\) comparison; meson-decay and beam-dump searches; neutrino-trident measurements; visible-resonance searches at \(B\) factories; and higher-energy collider searches. For example, the PIENU pion-decay search is kinematically sensitive for \(m_{A'}<m_{\pi^+}-m_\mu\simeq33.9\,\mathrm{MeV}\)~\cite{PIENU:2021clt,Altmannshofer:2026opc}, while the NA62 kaon-decay channel reaches \(m_{A'}<m_{K^+}-m_\mu\simeq388\,\mathrm{MeV}\) and is shown as an indicative recast~\cite{NA62:2021bji}. CCFR and CHARM~II neutrino-trident measurements provide complementary low-energy constraints~\cite{CCFR:1991lpl,geiregat1990first}; NA64\(_\mu\) probes the sub-GeV region~\cite{NA64:2024nwj}; BaBar and Belle~II four-muon searches extend visible-resonance coverage to the several-GeV range; and CMS reaches masses of order tens of GeV~\cite{BaBar:2016sci,Belle-II:2024wtd,CMS:2018yxg}. The \((g-2)_\mu\) comparison provides a separate low-energy precision reference~\cite{Muong-2:2025xyk}. These searches do not cover every mass in the plotted interval uniformly.
+The lower endpoint \(1\,\mathrm{MeV}\) keeps the low-energy regime visible; it is not a lower mass bound, and the analysis could be extended below it with the relevant additional constraints. The upper endpoint \(100\,\mathrm{GeV}\) is a presentation choice covering the higher-mass terrestrial searches considered here, not an experimental upper limit or a theoretical cutoff. Likewise, \(10^{-6}\) and \(0.1\) are scan endpoints, not universal lower and upper bounds on \(g_X\). Although \(g_X=0.1\) is below the usual gauge-coupling perturbativity criterion, perturbativity alone does not select \(0.1\) as a maximum.
 
-The lower endpoint \(m_{A'}=1\,\mathrm{MeV}\) is a display choice that keeps the low-energy regime visible; it is not a lower cutoff derived from a universal bound. The low-mass stellar constraints discussed for the scalar sector are source- and coupling-dependent and are kept separate from the \(A'\) effective-current contours: the scalar limits summarized under Major Point~1 constrain \(y_{s\mu\mu}\), or source-specific induced matter couplings, rather than providing a direct, benchmark-independent bound on \(g_X\). The lower endpoint could be extended, but doing so would require extending the displayed analysis and checking the additional constraints in the relevant regime.
-
-The upper endpoint \(m_{A'}=100\,\mathrm{GeV}\) is likewise a plotting choice intended to include the higher-mass end of the terrestrial searches considered here; it is not an experimentally established upper cutoff. UV perturbativity enters through the scalar-sector relations and must be checked at each point, rather than defining a universal upper bound on \(m_{A'}\). In the minimal one-VEV benchmark,
+The UV consistency condition relevant to the dashed line comes from the scalar sector. In the one-VEV benchmark,
 \[
-v_s=\frac{m_{A'}}{2g_X},
-\qquad
+v_s=\frac{m_{A'}}{2g_X},\qquad
 \lambda_S=\frac{m_s^2}{2v_s^2}
 =\frac{2g_X^2m_s^2}{m_{A'}^2}.
 \]
-For a chosen criterion \(\lambda_S\leq\lambda_S^{\max}\), this gives
+Thus \(\lambda_S\leq\lambda_S^{\max}\) implies \(m_s\leq\sqrt{2\lambda_S^{\max}}\,v_s\). For \(\lambda_S^{\max}=4\pi\) and the reference choice \(m_s\geq10\,\mathrm{GeV}\), this gives
 \[
-m_s\leq\sqrt{2\lambda_S^{\max}}\,v_s.
-\]
-For the illustrative choice \(\lambda_S^{\max}=4\pi\), \(m_s\leq\sqrt{8\pi}\,v_s\). Requiring the scalar-suppressed reference benchmark \(m_s\geq10\,\mathrm{GeV}\) then implies
-\[
-v_s\geq\frac{10\,\mathrm{GeV}}{\sqrt{8\pi}}
-\simeq1.995\,\mathrm{GeV},
+v_s\gtrsim1.995\,\mathrm{GeV},
 \qquad
-m_{A'}\gtrsim(3.99\,\mathrm{GeV})\,g_X.
+m_{A'}\gtrsim(3.99\,\mathrm{GeV})g_X.
 \]
-This is the conditional \(v_s\simeq2\,\mathrm{GeV}\) boundary shown by the dashed line in Fig.~2. Points below it fail the chosen \(m_s\geq10\,\mathrm{GeV}\), \(\lambda_S\leq4\pi\) benchmark; they are not thereby excluded from every possible UV realization.
+The dashed line therefore marks the boundary of that specified scalar benchmark. It is not a universal exclusion of points below the line or a global UV-viability contour.
 
-The coupling endpoints \(10^{-6}\) and \(10^{-1}\) are numerical choices for the scan and display. The upper endpoint \(g_X=0.1\) lies below the usual gauge-coupling perturbativity criterion \(g_X\lesssim\sqrt{4\pi}\), but perturbativity does not select \(0.1\) as a maximum. The lower endpoint \(10^{-6}\) is not a universal lower bound from theory or experiment. Within the displayed interval, gauge-coupling perturbativity is not the limiting condition; the dashed line instead records the point-dependent scalar self-coupling condition for the specified \(m_s\) benchmark.
-
-For clarity, the scan variables and their UV interpretation are summarized here:
-\begin{center}
-\small
-\begin{tabular}{p{0.19\linewidth}p{0.34\linewidth}p{0.39\linewidth}}
-\hline
-Quantity & Range or relation & Interpretation\\
-\hline
-\(m_{A'}\) & \(10^{-3}\)--\(10^2\,\mathrm{GeV}\) & Chosen plotting window spanning low-energy precision, meson/beam-dump/trident, \(B\)-factory, and higher-energy collider regimes; not a universal mass bound.\\
-\(g_X\) & \(10^{-6}\)--\(10^{-1}\) & Chosen scan endpoints; the upper edge is below the usual perturbativity criterion, but neither endpoint is a universal allowed-range boundary.\\
-\(v_s\) & \(v_s=m_{A'}/(2g_X)\) & Derived from each selected \((m_{A'},g_X)\) point, not an independent scan variable.\\
-\(\lambda_S\) & \(\lambda_S=m_s^2/(2v_s^2)=2g_X^2m_s^2/m_{A'}^2\) & Scalar self-coupling in the stated small-portal benchmark; its perturbativity condition must be checked separately.\\
-\(m_s\) benchmark & \(m_s\geq10\,\mathrm{GeV}\) for the scalar-suppressed reference case & Reference scalar-mass benchmark used to evaluate the UV consistency condition.\\
-\hline
-\end{tabular}
-\end{center}
-
-The scalar constraints discussed under Major Point~1 constrain \(y_{s\mu\mu}\) directly. They can be translated into the \((m_{A'},g_X)\) plane only for a specified scalar-mass benchmark and under the UV relation \(y_{s\mu\mu}=2g_Xm_\mu/m_{A'}\); they are not direct, benchmark-independent limits on the pure-axial \(A'\) current.
-
-For clarity, Fig.~2 should be read according to the following distinctions:
-\begin{center}
-\small
-\begin{tabular}{p{0.30\linewidth}p{0.62\linewidth}}
-\hline
-Region or condition & Interpretation \\
-\hline
-Excluded by a contour shown in Fig.~2 & Excluded under the assumptions of that particular effective-current constraint. \\
-Not excluded by the contours shown & Survives the constraints displayed in Fig.~2; this alone does not establish every UV consistency condition. \\
-Fails the chosen scalar benchmark & Does not satisfy \(m_s\geq10\,\mathrm{GeV}\) together with \(\lambda_S\leq4\pi\) at that point; other scalar-sector choices are not ruled out by this condition alone. \\
-Outside the plotted window & Not forbidden by the scan endpoints themselves; no exclusion or viability claim follows solely from being outside the displayed axes. \\
-\hline
-\end{tabular}
-\end{center}
-The contours therefore communicate the constraints actually applied, while the axis endpoints specify the range chosen to present the phenomenology.
+The plotted information should consequently be read in three steps: a displayed contour excludes only under the assumptions of its source analysis; a point not excluded by those contours is not automatically a viable point of the full UV model; and a point below the dashed line fails the chosen \(m_s\geq10\,\mathrm{GeV}\), \(\lambda_S\leq4\pi\) benchmark, not every possible scalar-sector realization. This is the intended comparison between the effective-current results and the UV consistency condition.
 
 \medskip
 \noindent {\bf Major Points 3)}.
