@@ -536,7 +536,7 @@ python 计算脚本/stellar_semi_compton_thermal_rate.py --check
 
 工作流运行记录如下：
 
-- [最新 Pull-request 运行 #40628541978](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/40628541978)，对应当前报告提交 24cb38c1c7b947f13acc3d509caeb319ea65b364；
+- [最新代码相关 Pull-request 运行 #40628541978](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/40628541978)，对应代码提交 24cb38c1c7b947f13acc3d509caeb319ea65b364；报告后续文档更新提交为 7c7d1fb88e3fda0b3010a4609336b9771eb1a125。
 - [前一 Pull-request 运行 #40627279031](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/40627279031)，对应提交 3feeebb764463c3905573735e87c98cc86f3fb34。
 
 我还尝试重新运行 #40627279031 的失败 job。重跑曾进入 queued，随后仍以 `runner_id=0`、空步骤列表结束；最新运行 #40628033982 也同样未执行任何测试步骤。工作流中的 pip 缓存依赖文件假设已移除，以免后续真正启动 runner 时产生无关失败。
