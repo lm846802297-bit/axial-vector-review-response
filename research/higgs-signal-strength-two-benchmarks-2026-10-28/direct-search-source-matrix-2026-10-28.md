@@ -6,24 +6,26 @@
 
 ## Executive result
 
-A directly relevant published search has been identified: ATLAS HDBS-2021-13, *Search for a new scalar decaying into new spin-1 bosons in four-lepton final states with the ATLAS detector*, Phys. Lett. B 865 (2025) 139472, DOI 10.1016/j.physletb.2025.139472; arXiv:2410.16781.
+A directly relevant published search has been identified: ATLAS HDBS-2021-13, *Search for a new scalar decaying into new spin-1 bosons in four-lepton final states with the ATLAS detector*, Phys. Lett. B 865 (2025) 139472, DOI 10.1016/j.physletb.2025.139472; arXiv:2410.16781. The paper's numerical results are also deposited in the official HEPData record: https://www.hepdata.net/record/145171.
 
-The analysis searches for a prompt scalar \(S\to Z_dZ_d\to4\ell\), with \(\ell=e,\mu\), over \(30<m_S<115\) GeV and \(130<m_S<800\) GeV, with \(15<m_{Z_d}<300\) GeV. It reports 95% CL upper limits on \(\sigma(gg\to S)\,\mathrm{BR}(S\to Z_dZ_d\to4\ell)\) ranging from 0.14–3.1 fb in the lower-mass region and 0.05–0.60 fb in the higher-mass region.
+The analysis searches for a prompt scalar \(S\to Z_dZ_d\to4\ell\), with \(\ell=e,\mu\), and reports 95% CL upper limits on \(\sigma(gg\to S)\,\mathrm{BR}(S\to Z_dZ_d\to4\ell)\). The paper's abstract describes the analysis regions as \(30<m_S<115\) GeV and \(130<m_S<800\) GeV, with \(15<m_{Z_d}<300\) GeV. **Important qualification:** the paper's signal-simulation section states that the generated high-mass signal samples cover \(150\le m_S\le800\) GeV, not a dedicated generated point at \(m_S=130\) GeV. The \(m_{4\ell}>130\) GeV requirement is the signal-region boundary; it must not be confused with a generated \(m_S=130\) GeV signal sample.
 
-**Benchmark A (\(m_{A'}=10\) GeV):** this search is not directly applicable. The intermediate mass is below the analysis's generated \(m_{Z_d}\ge15\) GeV range, and the event selection requires every dilepton pairing to have invariant mass above 11.105 GeV. A prompt \(A'\to\ell^+\ell^-\) pair at 10 GeV fails that requirement. Do not extrapolate the published limit to this benchmark.
+**Benchmark A (\(m_{A'}=10\) GeV):** this search is not directly applicable. The intermediate mass is below the analysis's generated \(m_{Z_d}\ge15\) GeV range, and every dilepton pairing must satisfy \(m_{\ell\ell}>11.105\) GeV. A direct \(A'\to\ell^+\ell^-\) pair at 10 GeV fails that requirement. Do not extrapolate this published limit to Benchmark A.
 
-**Benchmark B (\(m_{A'}=63\) GeV):** for \(m_s<126\) GeV, the \(s\to A'A'\) channel is closed, so this particular topology is absent. For \(m_s\gtrsim130\) GeV, the on-shell cascade is open and the ATLAS search is a relevant source-level constraint. A conservative rate screen using the current non-degenerate self-energy proxy places the predicted rate far below the published limit scale. This is encouraging but remains an indicative comparison until the physical pole mixing and exact model branching fractions are validated.
+**Benchmark B (\(m_{A'}=63\) GeV):** the on-shell \(s\to A'A'\) channel opens at \(m_s>126\) GeV. The ATLAS high-mass analysis is therefore a relevant search topology above its \(m_{4\ell}>130\) GeV selection threshold, but the first generated high-mass scalar sample stated in the paper is at \(m_S=150\) GeV. A conservative rate screen should therefore be evaluated at \(m_s=150\) GeV, the first documented generated scalar mass, rather than at 130 GeV. The exact point-specific observed limit near \(m_{A'}=63\) GeV remains to be extracted from HEPData Table 15; the direct CSV retrieval was blocked in this pass, so no point-specific number is invented.
 
 ## 1. Verified source details
 
 - ATLAS Collaboration, HDBS-2021-13, arXiv:2410.16781; Phys. Lett. B 865 (2025) 139472.
-- Official/preprint source: https://arxiv.org/abs/2410.16781
-- Full text and event selection: https://escholarship.org/uc/item/9g9590fs
-- DOI: https://doi.org/10.1016/j.physletb.2025.139472
-- The analysis uses 139 fb\(^{-1}\) of \(pp\) data at \(\sqrt{s}=13\) TeV and requires prompt decays.
-- The observable is the total scalar production cross section times the branching fraction into the selected four-lepton final state, not a universal bound on a scalar mixing angle.
+- Preprint: https://arxiv.org/abs/2410.16781
+- Full text: https://escholarship.org/uc/item/9g9590fs
+- Official numerical record: https://www.hepdata.net/record/145171
+- HEPData Table 15 is identified as the observed 95% CL limit in SR2, i.e. the high-mass region with the \(Z\)-mass veto.
+- The analysis uses \(139\,\mathrm{fb}^{-1}\) of \(pp\) data at \(\sqrt{s}=13\) TeV and requires prompt decays.
+- The observable is the scalar production cross section times branching fraction into the selected four-lepton final state, not a universal bound on a scalar mixing angle.
 - The analysis selects \(4e\), \(2e2\mu\), and \(4\mu\) candidates; every dilepton pairing must satisfy \(m_{\ell\ell}>11.105\) GeV. The higher-mass signal region also applies a \(Z\)-mass veto to the dilepton pairings.
-- Published observed 95% CL limit ranges: 0.14–3.1 fb for the lower-mass region and 0.05–0.60 fb for the higher-mass region. These are overall ranges across the mass plane, not the exact limit at a specific \((m_s,m_{A'})\) point.
+- Published observed 95% CL limit ranges are 0.14–3.1 fb in the lower-mass region and 0.05–0.60 fb in the higher-mass region. These are overall ranges across the mass plane, not the exact limit at a specific \((m_s,m_{A'})\) point.
+- The paper states that its high-mass simulated signal samples span \(150\le m_S\le800\) GeV and \(15\le m_{Z_d}\le300\) GeV, subject to \(m_S>2m_{Z_d}\).
 
 ## 2. Benchmark-by-benchmark applicability
 
@@ -32,41 +34,48 @@ The analysis searches for a prompt scalar \(S\to Z_dZ_d\to4\ell\), with \(\ell=e
 | On-shell \(s\to A'A'\) near \(m_s=125.25\) GeV | Open | Closed because \(2m_{A'}=126\) GeV |
 | ATLAS intermediate-vector mass range \(15\)–\(300\) GeV | **Fails** | Passes |
 | ATLAS pair-mass requirement \(m_{\ell\ell}>11.105\) GeV | **Fails** for direct \(A'\to\ell\ell\) pairs at 10 GeV | Passes for 63 GeV pairs |
-| Scalar mass region with on-shell \(A'A'\) and ATLAS coverage | \(m_s>20\) GeV kinematically, but this analysis fails the intermediate-mass/pair-mass cuts | \(m_s>126\) GeV; use the higher-mass signal region for \(m_s>130\) GeV |
-| Promptness | Expected for the stated \(g_X\), but does not fix the mass-selection mismatch | Expected for the stated \(g_X=0.1\); see width estimate below |
-| Four-lepton branching pattern | Not directly constrained by this analysis because the 10 GeV pair is rejected | Different from the HAHM dark-photon benchmark; compute \(A'\) branching fractions explicitly |
-| Present classification from this source | **Not applicable; no exclusion inferred** | Relevant search identified; preliminary rate screen is far below the limit scale; no formal recast claimed |
+| Kinematic opening of \(s\to A'A'\) | \(m_s>20\) GeV | \(m_s>126\) GeV |
+| First documented high-mass scalar MC point | Not applicable to this \(A'\) mass | \(m_S=150\) GeV; the \(m_{A'}=63\) GeV limit requires the table grid/interpolation to be checked |
+| Promptness | Expected for the stated \(g_X\), but does not fix the mass-selection mismatch | Expected for the stated \(g_X=0.1\); scalar width is evaluated below |
+| Present classification from this source | **Not applicable; no exclusion inferred** | Relevant topology; preliminary production-rate screen is far below the published sensitivity scale; no formal recast claimed |
 
-## 3. Conservative non-degenerate rate screen for Benchmark B
+## 3. Corrected conservative non-degenerate rate screen for Benchmark B
 
-Use the inherited matched self-energy \(\Pi_B=(-0.09300-0.02547i)\,\mathrm{GeV}^2\), \(m_h=125.25\) GeV, and \(m_s=130\) GeV only as a non-degenerate screening proxy:
+Use the inherited matched self-energy
+\[
+\Pi_B=(-0.09300-0.02547i)\,\mathrm{GeV}^2,
+\qquad |\Pi_B|=0.096425\,\mathrm{GeV}^2,
+\]
+with \(m_h=125.25\) GeV. Because the documented high-mass signal simulation starts at \(m_S=150\) GeV, evaluate the non-degenerate screening proxy at \(m_s=150\) GeV:
 
 \[
-\epsilon_{\mathrm{nd}}
-=\frac{|\Pi_B|}{|m_h^2-m_s^2|}
-\simeq7.95\times10^{-5},
-\qquad
-\epsilon_{\mathrm{nd}}^2\simeq6.32\times10^{-9}.
+\epsilon_{\mathrm{nd}}(150)
+=\frac{|\Pi_B|}{|m_h^2-(150\,\mathrm{GeV})^2|}
+\simeq1.415\times10^{-5},
 \]
 
-This is not a pole-scheme mixing angle. If the scalar is produced only through Higgs mixing, the isolated-state estimate is
+\[
+\epsilon_{\mathrm{nd}}^2\simeq2.003\times10^{-10}.
+\]
+
+This is **not** a pole-scheme physical mixing angle. It is only a fixed-self-energy estimate away from pole overlap. If the scalar is produced only through Higgs mixing, the isolated-state production estimate is
 
 \[
 \sigma(gg\to s)\simeq \epsilon_{\mathrm{nd}}^2
 \,\sigma_{\mathrm{ggF}}^{\mathrm{SM}}(m_s).
 \]
 
-For a conservative upper envelope, take \(\sigma_{\mathrm{ggF}}^{\mathrm{SM}}(130\,\mathrm{GeV})<50\) pb, consistent with the scale of the LHC Higgs Cross Section Working Group's 13 TeV recommendation. Then
+For a conservative upper envelope, take \(\sigma_{\mathrm{ggF}}^{\mathrm{SM}}(150\,\mathrm{GeV})<50\) pb, which is above the recommended 13 TeV SM gluon-fusion cross section at this mass. Then
 
 \[
 \sigma(gg\to s)\lesssim
-6.32\times10^{-9}\times50\,\mathrm{pb}
-=3.16\times10^{-4}\,\mathrm{fb}.
+2.003\times10^{-10}\times50\,\mathrm{pb}
+\simeq1.00\times10^{-5}\,\mathrm{fb}.
 \]
 
-This is an upper bound on the inclusive production estimate before multiplying by any branching fraction. Even setting \(\mathrm{BR}(s\to A'A'\to4\ell)=1\), it is below the smallest published high-mass limit value (0.05 fb) by a factor of about 160. The model's actual four-lepton branching fraction is less than one, so its predicted selected rate is smaller still.
+This is the inclusive scalar production estimate **before** multiplying by any branching fraction. The smallest published observed upper limit reported over the entire high-mass plane is 0.05 fb. Therefore the conservative production estimate is at least a factor of about \(5.0\times10^3\) below that global best-sensitivity value, even under the extreme assumption \(\mathrm{BR}(s\to A'A'\to4\ell)=1\). This comparison is a robust order-of-magnitude screening statement, not a point-specific exclusion test.
 
-At \(m_s=130\) GeV, the tree-level width from the inherited radial-scalar normalization is
+For orientation, with the inherited tree-level radial-scalar normalization at \(m_s=150\) GeV, \(m_{A'}=63\) GeV and \(v_s=315\) GeV,
 
 \[
 \Gamma(s\to A'A')=
@@ -74,22 +83,39 @@ At \(m_s=130\) GeV, the tree-level width from the inherited radial-scalar normal
 \sqrt{1-\frac{4m_{A'}^2}{m_s^2}}
 \left(1-\frac{4m_{A'}^2}{m_s^2}
 +12\frac{m_{A'}^4}{m_s^4}\right)
-\simeq 3.92\times10^{-2}\,\mathrm{GeV}.
+\simeq0.123\,\mathrm{GeV}.
 \]
 
-This is a prompt decay. For \(A'\) at 63 GeV with \(g_X=0.1\), the leading \(L_\mu-L_\tau\) partial widths to \(\mu^+\mu^-\), \(\tau^+\tau^-\), and the two active neutrino flavours give \(\mathrm{BR}(A'\to\mu^+\mu^-)\simeq1/3\), neglecting loop-induced electron couplings and any additional open states. Thus the direct \(4\mu\) branch alone is approximately
+This is prompt and narrow relative to the 150 GeV mass, but it is larger than the SM-Higgs width assumed in the ATLAS signal generation. A final reinterpretation should check whether this width difference changes the signal shape or acceptance; do not silently assume the generated width matches the model.
 
+For the leading \(L_\mu-L_\tau\) couplings at \(m_{A'}=63\) GeV and \(g_X=0.1\), the tree-level branching fraction \(\mathrm{BR}(A'\to\mu^+\mu^-)\simeq1/3\) follows when the open channels are \(\mu^+\mu^-\), \(\tau^+\tau^-\), and the two active neutrino flavours, neglecting loop-induced electron couplings and additional states. The direct \(4\mu\) branching factor is then approximately
 \[
 \mathrm{BR}(s\to A'A'\to4\mu)
-\simeq \mathrm{BR}(s\to A'A')\,[\mathrm{BR}(A'\to\mu^+\mu^-)]^2
-\lesssim \frac{1}{9}.
+\simeq \mathrm{BR}(s\to A'A')
+[\mathrm{BR}(A'\to\mu^+\mu^-)]^2
+\lesssim\frac19.
 \]
+Using the conservative production envelope gives
+\[
+\sigma(gg\to s\to4\mu)\lesssim1.1\times10^{-6}\,\mathrm{fb}.
+\]
+This is only a partial-final-state estimate; the exact \(4e\) and mixed-flavour contributions require the model's loop-induced kinetic-mixing normalization. The more conservative inclusive-rate comparison above does not depend on those branching-fraction details because every selected four-lepton rate is bounded by the inclusive production rate.
 
-With this tree-level branching estimate, the selected \(4\mu\) rate is at most about \(3.5\times10^{-5}\) fb under the conservative 50 pb production envelope. This is about \(1.4\times10^3\) below the most sensitive published limit value of 0.05 fb. The exact \(4e\) and \(2e2\mu\) contributions require the model's loop-induced kinetic-mixing normalization and are not included here.
+## 4. Exact point-specific limit: retrieval status
 
-**Interpretation:** this is a robustly small *screening estimate* for the stated non-degenerate benchmark, not a formal exclusion test. The comparison uses the most sensitive value in the whole ATLAS mass plane rather than the exact point-specific limit, and the production rate still uses a proxy instead of a physical pole mixing angle. A final result should use the exact observed limit at \((m_s,m_{A'})\), a consistent pole prescription, and model-specific branching fractions.
+The official HEPData record lists Table 15 as the observed 95% CL limit in SR2:
+https://www.hepdata.net/record/145171
 
-## 4. Other constraints: what can and cannot be imported
+The HEPData record page and paper's table inventory were accessible, but direct retrieval of the CSV/YAML payload for Table 15 was blocked by the current browsing environment. Accordingly:
+
+- no exact observed limit at \((m_s,m_{A'})=(150,63)\) GeV is quoted here;
+- no value is digitized from the figure and mislabelled as exact;
+- the global minimum 0.05 fb is used only as a conservative sensitivity scale;
+- the final source-specific check still needs the Table 15 data grid and a justified interpolation in \(m_{A'}\), if \(63\) GeV is not itself a published grid point.
+
+This limitation does not undermine the preliminary rate hierarchy: the estimated inclusive production rate at 150 GeV is already thousands of times below the best observed limit scale, before applying any four-lepton branching fraction. It does mean that the result should not be described as a completed experimental recast.
+
+## 5. Other constraints: what can and cannot be imported
 
 ### Higgs signal strength
 
@@ -101,27 +127,21 @@ Published LEP limits commonly assume SM-Higgs-like branching fractions or a spec
 
 ### Other LHC scalar searches
 
-The ATLAS \(S\to Z_dZ_d\to4\ell\) analysis is the closest directly matched public search found for Benchmark B above threshold. Searches of the 125 GeV Higgs for \(H\to Z_dZ_d\) are not interchangeable with direct production of a separate \(s\) resonance: the parent mass, production rate, and signal selection differ. Generic heavy-scalar \(ZZ\) searches also do not directly match a pair of 63 GeV \(A'\) bosons with \(L_\mu-L_\tau\) branching fractions.
+The ATLAS \(S\to Z_dZ_d\to4\ell\) analysis is the closest directly matched public search identified for Benchmark B above threshold. Searches of the 125 GeV Higgs for \(H\to Z_dZ_d\) are not interchangeable with direct production of a separate \(s\) resonance: the parent mass, production rate, and signal selection differ. Generic heavy-scalar \(ZZ\) searches also do not directly match a pair of 63 GeV \(A'\) bosons with \(L_\mu-L_\tau\) branching fractions.
 
-
-
-## 4. Width and acceptance caveat for Benchmark B
-
-The ATLAS signal samples use a scalar width that varies with mass as the SM-Higgs width. In the present benchmark, the leading tree-level estimate gives \(\Gamma(s\to A'A')\simeq39\) MeV at \(m_s=130\) GeV, which is larger than the SM-Higgs width at that mass but still narrow compared with the GeV-scale mass binning and detector mass resolution. This makes a large width-shape effect unlikely at the lower edge of the search, but it does not replace checking the published signal-shape interpolation or a dedicated simulation.
-
-The paper reports signal samples generated at discrete masses and interpolates the signal shape and limits. Therefore the exact observed limit at \((m_s,m_{A'})=(130,63)\) GeV should be extracted from the relevant mass bin or auxiliary figure/data; the overall minimum limit of 0.05 fb is used above only as a conservative sensitivity scale, not as the point-specific observed limit.
-
-## 5. Evidence ledger and next actions
+## 6. Evidence ledger and next actions
 
 1. **Verified:** a relevant ATLAS direct-search analysis exists and publishes cross-section-times-four-lepton-branching-ratio limits.
-2. **Verified:** Benchmark A fails the \(A'\) mass coverage and explicit dilepton-mass requirement of that analysis.
-3. **Verified:** Benchmark B's on-shell cascade is closed below 126 GeV and open in the ATLAS high-mass signal region above 130 GeV.
-4. **Preliminary analytic screen:** Benchmark B's non-degenerate mixing proxy makes the predicted \(gg\to s\to A'A'\to4\ell\) rate much smaller than the published limit scale, even before detailed acceptance corrections.
-5. **Not yet done:** point-specific digitization/retrieval of the ATLAS limit at \(m_{A'}=63\) GeV; exact physical pole mixing; complete \(A'\) branching fractions including kinetic mixing; detector-level acceptance validation; a dedicated LEP recast for Benchmark A.
-6. **Do not claim:** a complete UV-allowed scalar-mass interval or a global experimental exclusion.
+2. **Verified:** Benchmark A fails the \(A'\) mass coverage and explicit dilepton-mass requirement of this analysis.
+3. **Verified:** Benchmark B's on-shell cascade is closed below 126 GeV and open above threshold.
+4. **Verified correction:** the high-mass signal MC samples documented in the paper begin at \(m_S=150\) GeV; the \(m_{4\ell}>130\) GeV event-selection boundary is not itself a generated signal mass point.
+5. **Preliminary analytic screen:** at \(m_s=150\) GeV, Benchmark B's non-degenerate mixing proxy gives an inclusive production estimate below \(1.1\times10^{-5}\) fb under the conservative 50 pb envelope, well below the overall 0.05 fb best-sensitivity scale even before branching fractions.
+6. **Not yet done:** retrieve HEPData Table 15's numeric payload and determine the exact observed limit/interpolation at \(m_{A'}=63\) GeV; validate the pole-scheme mixing; complete \(A'\) branching fractions including kinetic mixing; validate detector-level acceptance; perform a dedicated LEP recast for Benchmark A.
+7. **Do not claim:** a complete UV-allowed scalar-mass interval or a global experimental exclusion.
 
 ## Sources
 
 - ATLAS Collaboration, *Search for a new scalar decaying into new spin-1 bosons in four-lepton final states with the ATLAS detector*, Phys. Lett. B 865 (2025) 139472, https://doi.org/10.1016/j.physletb.2025.139472 ; https://arxiv.org/abs/2410.16781
+- Official numerical results: HEPData record 145171, Table 15 (observed 95% CL limit in SR2), https://www.hepdata.net/record/145171
 - LHC Higgs Cross Section Working Group, 13 TeV SM Higgs production cross sections, https://twiki.cern.ch/twiki/bin/view/LHCPhysics/HiggsXSBR
 - ATLAS Collaboration, ATLAS-CONF-2025-006, https://cds.cern.ch/record/2937634/files/ATLAS-CONF-2025-006.pdf
