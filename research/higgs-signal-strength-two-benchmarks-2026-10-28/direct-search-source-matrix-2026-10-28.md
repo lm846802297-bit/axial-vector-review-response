@@ -137,7 +137,59 @@ This search is a candidate for Benchmark A only in the high-mass scalar region \
 
 The CMS analysis is valuable evidence that a low-mass \(A'\) four-lepton topology has been searched for at high \(m_s\), but it does not close the model-specific constraint gap by itself. The exact pointwise \(4\mu\) limit is also not extracted in this pass. The \(s\to A'A'\) width and the validity of the one-loop mixing/production proxy must be assessed consistently before this channel can be used quantitatively.
 
-## 6. Evidence ledger and next actions
+## 6. The 125 GeV Higgs exotic-decay searches and the \(m_{A'}=10\) GeV benchmark
+
+A separate class of searches constrains the **125 GeV Higgs-like state** decaying as \(h\to A'A'\to4\ell\). These searches are relevant to the loop-induced Higgs-singlet admixture, but they are not searches for direct production of the separate scalar \(s\) with \(m_s=65\text{--}115\) GeV. The two topologies must not be conflated.
+
+### ATLAS H→XX→4μ (139 fb⁻¹)
+
+ATLAS 2110.13673 covers \(1<m_X<15\) GeV in its low-mass \(H\to XX\to4\mu\) analysis. However, the low-mass selection explicitly rejects events if either reconstructed dimuon mass lies in \(8\text{--}12\) GeV. Therefore the benchmark \(m_{A'}=10\) GeV falls inside the quarkonium-veto window and **does not receive a valid point-specific constraint from that four-muon limit**. Source: https://arxiv.org/abs/2110.13673; the selection and veto are described in the paper's Table 2 and low-mass event-selection section.
+
+### CMS HIG-19-007 (137 fb⁻¹)
+
+CMS also searches for \(H\to XX\to4\ell\) and reports limits on products of Higgs branching fractions and \(X\to\ell\ell\) branching fractions. Its published limit plots mark the excluded \(\Upsilon\)-resonance region. The \(m_X=10\) GeV benchmark lies in that resonance-veto region, so the plotted limit should not be read as a normal exclusion at this exact mass. Source: https://cms-results.web.cern.ch/cms-results/public-results/publications/HIG-19-007/index.html and https://arxiv.org/abs/2111.01299.
+
+### Conditional estimate of the exotic Higgs branching fraction
+
+For Benchmark A, take the inherited fixed one-loop self-energy
+\[
+|\Pi_{hs}(m_h^2)|=|{-0.4133-0.1132i}|\,\mathrm{GeV}^2
+\simeq0.42852\,\mathrm{GeV}^2.
+\]
+Away from degeneracy, use only as a proxy
+\[
+\epsilon_{\rm nd}(m_s)=
+\frac{|\Pi_{hs}(m_h^2)|}{|m_h^2-m_s^2|},
+\qquad
+\Gamma(s\to A'A';m_h)\simeq3.742\,\mathrm{GeV}.
+\]
+Then
+\[
+\Gamma(h_{\rm like}\to A'A')
+\simeq \epsilon_{\rm nd}^2\,
+\Gamma(s\to A'A';m_h),
+\]
+and, with \(\Gamma_h^{\rm SM}=4.07\) MeV, the small-mixing branching-fraction proxy is
+\[
+\mathrm{BR}(h_{\rm like}\to A'A')
+\simeq
+\frac{\epsilon_{\rm nd}^2\Gamma(s\to A'A';m_h)}
+{\Gamma_h^{\rm SM}+\epsilon_{\rm nd}^2\Gamma(s\to A'A';m_h)}.
+\]
+
+| \(m_s\) (GeV) | \(\epsilon_{\rm nd}\) | \(\mathrm{BR}(h_{\rm like}\to A'A')\) proxy | \(4\mu\) proxy if \(\mathrm{BR}(A'\to\mu\mu)\simeq1/3\) |
+|---:|---:|---:|---:|
+| 65 | \(3.74\times10^{-5}\) | \(1.29\times10^{-6}\) | \(1.43\times10^{-7}\) |
+| 80 | \(4.61\times10^{-5}\) | \(1.96\times10^{-6}\) | \(2.17\times10^{-7}\) |
+| 100 | \(7.53\times10^{-5}\) | \(5.22\times10^{-6}\) | \(5.80\times10^{-7}\) |
+| 110 | \(1.19\times10^{-4}\) | \(1.31\times10^{-5}\) | \(1.46\times10^{-6}\) |
+| 115 | \(1.74\times10^{-4}\) | \(2.78\times10^{-5}\) | \(3.09\times10^{-6}\) |
+
+These numbers are **conditional screening estimates**, not a pole-scheme prediction: they hold \(\Pi_{hs}(m_h^2)\) fixed, use a tree-level mass denominator, and neglect a self-consistent two-pole treatment. The \(4\mu\) values also assume the approximate tree-level \(\mathrm{BR}(A'\to\mu^+\mu^-)\simeq1/3\). Most importantly, the ATLAS \(4\mu\) selection vetoes the \(m_{A'}=10\) GeV point, and the CMS plots likewise mark the \(\Upsilon\) region. These tiny rates are useful for assessing the inclusive Higgs-rate impact away from degeneracy; they do **not** convert the vetoed four-lepton searches into exclusions.
+
+The direct-\(s\) scalar width in the same \(m_s=65\text{--}115\) GeV interval is approximately \(0.47\text{--}2.88\) GeV under the benchmark normalization. The ATLAS separate-scalar search in the 2025 paper also fails the \(m_{A'}=10\) GeV mass/pair-selection requirements, so no direct-\(s\) limit is assigned from that search.
+
+## 7. Evidence ledger and next actions
 
 1. **Verified:** a relevant ATLAS direct-search analysis exists and publishes cross-section-times-four-lepton-branching-ratio limits.
 2. **Verified:** Benchmark A fails the \(A'\) mass coverage and explicit dilepton-mass requirement of this analysis.
@@ -154,3 +206,6 @@ The CMS analysis is valuable evidence that a low-mass \(A'\) four-lepton topolog
 - Official numerical results: HEPData record 145171, Table 15 (observed 95% CL limit in SR2), https://www.hepdata.net/record/145171
 - LHC Higgs Cross Section Working Group, 13 TeV SM Higgs production cross sections, https://twiki.cern.ch/twiki/bin/view/LHCPhysics/HiggsXSBR
 - ATLAS Collaboration, ATLAS-CONF-2025-006, https://cds.cern.ch/record/2937634/files/ATLAS-CONF-2025-006.pdf
+
+- ATLAS Collaboration, *Search for Higgs bosons decaying into new spin-0 or spin-1 particles in four-lepton final states*, JHEP 03 (2022) 041, https://arxiv.org/abs/2110.13673
+- CMS Collaboration, *Search for low-mass dilepton resonances in Higgs boson decays to four-lepton final states*, Eur. Phys. J. C 82 (2022) 290, https://arxiv.org/abs/2111.01299
