@@ -281,7 +281,23 @@ def low_energy_vector_reference(
     return sigma_t_printed, sigma_l_printed
 
 
+def minkowski_dot(a: np.ndarray, b: np.ndarray) -> float:
+    return float(a[0] * b[0] - np.dot(a[1:], b[1:]))
+
+
 def run_checks() -> None:
+    # On-shell kinematics and polarization orthonormality.
+    p, k, p_prime, q = lab_kinematics(0.01, 0.001, 0.3)
+    assert abs(minkowski_dot(p_prime, p_prime) - M_MU_MEV**2) < 1e-7
+    assert abs(minkowski_dot(q, q) - 0.001**2) < 1e-10
+    pols = vector_polarizations(q, 0.001)
+    for eps in pols:
+        assert abs(minkowski_dot(q, eps)) < 1e-10
+        assert abs(minkowski_dot(eps, eps) + 1.0) < 1e-10
+    for i in range(3):
+        for j in range(i):
+            assert abs(minkowski_dot(pols[i], pols[j])) < 1e-10
+
     # Electromagnetic Ward identity for vector, axial and mixed A' currents.
     for gv, ga in ((1.0, 0.0), (0.0, 1.0), (0.25, 0.75)):
         residual = ward_identity_residual(0.01, 0.001, 0.3, gv, ga)
