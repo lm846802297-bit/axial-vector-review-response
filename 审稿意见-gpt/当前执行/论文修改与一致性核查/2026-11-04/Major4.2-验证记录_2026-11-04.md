@@ -15,8 +15,8 @@
 |---|---|
 | 根目录 `Replies_to_Referee_3_referee_facing_2026-11-04.tex`（本轮更新） | `e41dde8e0cfb7f85b960a6ef12112091ad3054cdd2cccb351991335c4bd2dc4c` |
 | `overleaf-source/axial-vector-model-building-v6/main-v6.tex`（未修改） | `de9132ba936c6b1f3701d7c5a6398e39b89357903be789953972527753540e9a` |
-| `计算脚本/Major42_kinetic/check_kinetic_dark_photon.py`（本轮更新） | `16f8560d7688082452a5a09cfb862bcf10e1104ce5274a206c0618ff173c58d9` |
-| `计算脚本/Major42_kinetic/outputs/kinetic_dark_photon_2026-11-04.json`（本轮更新） | `13d7a867c3a2efb9cc026ebec30ff4e386b58c637e9cad0a828a225f04939ecf` |
+| `计算脚本/Major42_kinetic/check_kinetic_dark_photon.py`（本轮更新） | `fdaff6e9abc5ee216154dff6882a8107587a7b19fd3f5d6f40ff61a9d3bc2711` |
+| `计算脚本/Major42_kinetic/outputs/kinetic_dark_photon_2026-11-04.json`（本轮更新） | `82aff8adab87dea416ef6a28b2b05a4e7cbfb2566043c1e2b2187d9e9dc10e0c` |
 | 同目录回复 PDF（45 页，379014 bytes；旧 TeX 快照，尚未按本轮 TeX 重编译） | `9863180aebb425a404affc0c817cc7e7fd60ac2229126dda1a2a8a7b7cdc8d` |
 
 输入、复数积分实部/虚部、模长、质量依赖 NA64 视觉读图区间、Br_inv、epsilon_eff 比值及源文件 SHA-256 均写入 [JSON 输出](../../../../计算脚本/Major42_kinetic/outputs/kinetic_dark_photon_2026-11-04.json)。本轮 PDF 哈希仍是旧 TeX 快照，不能用于提交验收；须在重新编译后更新。Major 2/3 的旧哈希和页数作为各自 PR 的历史快照保留，不表示当前 PDF 的状态。
