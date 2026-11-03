@@ -10,7 +10,7 @@
 
 ## 2026-11-04 更新：Major 4.1 PMNS 论证强化（PR #43）
 
-[PR #43](https://github.com/lm846802297-bit/axial-vector-review-response/pull/43) 已于 2026-11-04 通过 Squash Merge 合并至 main，合并提交为 \`9889beff08d827ede166f196f47fbb94db4a26f8\`。该修订严格按《审稿回复写作原则》处理 Major 4.1：先精确说明 \(S\)-only 残余 \(Z_2\) 所给出的 \(U_{\rm PMNS}=\operatorname{diag}(1,U_{23})\) 结构（允许非平凡 \(\mu\)-\(\tau\) 旋转，但缺少电子味混合，因此“严格单位矩阵”并不准确）；再给出保留 \(S\)、增加电荷一 \(\sigma\) 与三个 \(N_R\) 的可重整化完成机制；随后用 seesaw、含 \(U_L\) 的 PMNS 关系和 \(M_R=-m_D^T M_\nu^{-1}m_D\) 逆构造展示一般三味混合的构造性实现；最后核对新增单态中微子的异常抵消及双 VEV 的 \(A'\) 质量关系。
+[PR #43](https://github.com/lm846802297-bit/axial-vector-review-response/pull/43) 已于 2026-11-04 通过 Squash Merge 合并至 main，合并提交为 9889beff08d827ede166f196f47fbb94db4a26f8。该修订严格按《审稿回复写作原则》处理 Major 4.1：先精确说明 S-only 残余 Z2 所给出的 U_PMNS = diag(1, U_23) 结构（允许非平凡 μ–τ 旋转，但缺少电子味混合，因此“严格单位矩阵”并不准确）；再给出保留 S、增加电荷一 σ 与三个 N_R 的可重整化完成机制；随后用 seesaw、含 U_L 的 PMNS 关系和 M_R = −m_D^T M_ν^−1 m_D 逆构造展示一般三味混合的构造性实现；最后核对新增单态中微子的异常抵消及双 VEV 的 A′ 质量关系。
 
 - 正式回复只增加面向审稿人的物理论证；没有把分支、PR、内部任务或正文同步状态写入回复信。
 - 内部[论文正文待同步修改清单](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-03/论文正文待同步修改清单_2026-11-03.md)已同步记录 Major 4.1 的论证结构；论文源码、references 和 PDF 未修改。
