@@ -598,9 +598,49 @@ There is no quantitative estimate of the amount of kinetic mixing generated with
 
 \noindent {\bf Reply.}
 
-We agree that a vanishing kinetic-mixing coefficient at the heavy-vector-like-lepton matching scale does not, by itself, quantify the residual photon--\(A'\) polarization relevant to experiments. The degenerate heavy-VLL threshold and the low-energy charged-lepton loop are distinct contributions. For \(M_{E_\mu}=M_{E_\tau}\), the one-loop heavy threshold proportional to \(\ln(M_{E_\mu}^2/M_{E_\tau}^2)\) vanishes under the stated charge assignment and matching condition. We take no additional bare low-energy kinetic-mixing term in the benchmark considered here.
+Finite light--heavy lepton mixing generates a nonzero photon--\(A'\) mixing of order \(g_X\theta_R^2\). With equal right-handed mixing angles, degenerate physical heavy-lepton masses, and zero independent matching coefficient, \(\theta_R=10^{-2}\) gives \(|\epsilon_{\gamma A'}(0)|=1.44\times10^{-6}|g_X|\). At \(m_{A'}=100\,\mathrm{MeV}\) and \(g_X=0.1\), its on-shell value is \(1.49\times10^{-7}\), well below the \(\mathcal O(10^{-4})\) sensitivity of the NA64 electron-beam invisible search~\cite{NA64:2023lightDM}. The derivation and the conditions for this experimental comparison are given below.
 
-For the light-lepton loop, we use the momentum-transfer-dependent kinetic-mixing function studied by Hapitas, Tuckler, and Zhang~\cite{Hapitas:2021kineticMixing}; the timelike threshold behavior is compared with Wang and Zhang~\cite{Wang:2026supernova}. In the equal-mixing benchmark and matching condition used here, the irreducible contribution is
+We define \(\epsilon_{\gamma A'}\) in the photon convention, with induced interaction \(\mathcal L\supset e\epsilon_{\gamma A'}A'_\alpha J_{\rm EM}^\alpha\) after diagonalizing the kinetic terms. It is this coefficient, rather than a hypercharge-mixing coefficient before electroweak symmetry breaking, that enters the dark-photon comparison. In the muon block the chiral couplings are \(g_L^\mu=g_X\) and \(g_R^\mu=-g_X\cos2\theta_{\mu R}\). Consequently,
+\[
+g_V^\mu=\frac{g_L^\mu+g_R^\mu}{2}=g_X\sin^2\theta_{\mu R},
+\qquad
+g_A^\mu=\frac{g_R^\mu-g_L^\mu}{2}=-g_X\cos^2\theta_{\mu R}.
+\]
+The tau block has the opposite charge signs. At one loop, the vector--axial two-point function vanishes in vacuum: its parity-odd tensor is proportional to \(\varepsilon^{\alpha\beta\rho\sigma}q_\rho q_\sigma=0\). Thus the parity-even photon kinetic term depends on \(g_V\), not on the unsuppressed axial coupling. The photon vertex remains diagonal and proportional to the identity in each light--heavy block, so a single off-diagonal \(A'\) vertex cannot close this two-point fermion loop.
+
+The heavy threshold can be exhibited in the same mass basis. Writing \(s_\ell=\sin\theta_{\ell R}\), \(c_\ell=\cos\theta_{\ell R}\), the four diagonal vector couplings are
+\[
+(g_V^\mu,g_V^\tau,g_V^{E_\mu},g_V^{E_\tau})
+=g_X(s_\mu^2,-s_\tau^2,c_\mu^2,-c_\tau^2).
+\]
+For these leptons of electric charge \(-1\), the one-loop photon mixing in the above convention can be written as
+\[
+\epsilon_{\gamma A'}(q^2)=\epsilon_{\rm ind}
++\frac{e}{2\pi^2}\sum_{f=\mu,\tau,E_\mu,E_\tau}g_V^f
+\int_0^1dx\,x(1-x)
+\ln\frac{m_f^2-x(1-x)q^2-i0}{\mu_{\rm r}^2}.
+\]
+Here \(m_f\) are physical mass eigenvalues, \(\mu_{\rm r}\) is a renormalization scale, and \(\epsilon_{\rm ind}\) is the independent local mixing coefficient. Since \(\sum_f g_V^f=0\), the common ultraviolet term and the explicit \(\mu_{\rm r}\) dependence cancel in this sum; that cancellation does not fix \(\epsilon_{\rm ind}\). We impose the matching condition
+\[
+\boxed{\epsilon_{\rm ind}(\mu_{\rm match})=0}
+\]
+at the heavy-VLL matching scale. This boundary condition applies only to the independent local coefficient; it does not set the full momentum-dependent physical mixing \(\epsilon_{\gamma A'}(q^2)\) to zero, because finite light-lepton loop contributions remain. For equal right-handed angles the heavy contribution at zero momentum is
+\[
+\epsilon_{\rm heavy}(0)=\frac{eg_X\cos^2\theta_R}{12\pi^2}
+\ln\frac{m_{E_\mu}^2}{m_{E_\tau}^2}.
+\]
+It vanishes for degenerate physical heavy states; their full loop functions then cancel at any momentum. Equal coupling weights are also required, and equality of the bare mass parameters alone need not ensure exact degeneracy after lepton mixing. We take this paired-heavy-state reference choice together with the matching condition above. These assumptions leave a finite light-lepton contribution because \(m_\mu\ne m_\tau\).
+
+The difference from imposing only the original common bare mass \(M_E\) can also be estimated. In the small-mixing expansion,
+\[
+m_{E_\ell}^2\simeq M_E^2(1+\theta_{\ell L}^2+\theta_{\ell R}^2),
+\qquad
+\epsilon_{\rm heavy}(0)\simeq\frac{eg_X}{12\pi^2}
+(\theta_{\mu L}^2-\theta_{\tau L}^2),
+\]
+where the second expression keeps equal right-handed angles and \(\epsilon_{\rm ind}=0\). With \(|\theta_{\ell L}|\leq10^{-2}\), this residual threshold obeys \(|\epsilon_{\rm heavy}(0)|\lesssim2.56\times10^{-7}|g_X|\), to leading order in the mixing angles. Its momentum dependence is negligible at \(100\,\mathrm{MeV}\) for \(M_E>10\,\mathrm{TeV}\). Thus the physical-mass-degenerate reference and the common-bare-mass choice can be compared without assuming that their thresholds are identical.
+
+For the light-lepton loop, we use the momentum-transfer-dependent kinetic-mixing function studied by Hapitas, Tuckler, and Zhang~\cite{Hapitas:2021kineticMixing}, replacing their charged-lepton vector coupling by \(g_X\sin^2\theta_R\) and analytically continuing their spacelike expression with \(Q^2\to-q^2-i0\). The timelike threshold behavior is compared with Wang and Zhang~\cite{Wang:2026supernova}. Under the matching assumptions above, the remaining contribution is
 \[
 \epsilon_{\gamma A'}(q^2)=
 -\frac{e\,g_X\sin^2\theta_R}{2\pi^2}
@@ -610,9 +650,7 @@ For the light-lepton loop, we use the momentum-transfer-dependent kinetic-mixing
      {m_\mu^2-x(1-x)q^2-i0}
 \right],
 \]
-where we have imposed the illustrative equal-mixing benchmark
-\(\theta_{\mu R}=\theta_{\tau R}\equiv\theta_R\), for which
-\(g_V^\mu=-g_V^\tau=g_X\sin^2\theta_R\). The ultraviolet-sensitive terms cancel between the two light-lepton loops in this equal-mixing limit. At \(q^2=0\), this reduces to
+where \(\theta_{\mu R}=\theta_{\tau R}\equiv\theta_R\). The light-lepton ultraviolet terms cancel separately in this limit. At \(q^2=0\), \(\int_0^1dx\,x(1-x)=1/6\), giving
 \[
 \epsilon_{\gamma A'}(0)=
 -\frac{e\,g_X\sin^2\theta_R}{12\pi^2}
@@ -622,9 +660,15 @@ where we have imposed the illustrative equal-mixing benchmark
 \]
 Using \(e=0.3028\), \(m_\mu=105.658~\mathrm{MeV}\), \(m_\tau=1.77686~\mathrm{GeV}\), and \(\theta_R=10^{-2}\), the zero-momentum magnitude is
 \[
-|\epsilon_{\gamma A'}(0)|\simeq1.44\times10^{-6}|g_X|.
+\begin{aligned}
+|\epsilon_{\gamma A'}(0)|&\simeq1.44\times10^{-6}|g_X|\quad(\theta_R=10^{-2}),\\
+&\simeq1.44\times10^{-7}
+\left(\frac{|g_X|}{0.1}\right)
+\left(\frac{\theta_R}{10^{-2}}\right)^2
+\quad\text{for small }\theta_R.
+\end{aligned}
 \]
-This is a benchmark estimate, not a universal prediction for unequal mixing angles or an arbitrary ultraviolet matching condition.
+At fixed off-diagonal lepton mass entry \(m_R\), \(\theta_R\simeq m_R/M_E\), so this contribution scales as \(g_Xm_R^2/M_E^2\). This explicitly exhibits its decoupling with the vector-like-lepton mass under that fixed-parameter choice; maintaining the observed light-lepton masses can require correlated changes of the Yukawa parameters.
 
 For an on-shell \(A'\), the relevant timelike argument is \(q^2=m_{A'}^2\). The loop function becomes complex above the charged-lepton pair thresholds; its magnitude is not constant across the scan. A numerical evaluation of the integral gives the following representative values for \(\theta_R=10^{-2}\):
 \begin{center}
@@ -638,6 +682,7 @@ For an on-shell \(A'\), the relevant timelike argument is \(q^2=m_{A'}^2\). The 
 \(100~\mathrm{MeV}\) & \(1.49\times10^{-6}\) & \(1.04\)\\
 \(200~\mathrm{MeV}\) & \(1.82\times10^{-6}\) & \(1.26\)\\
 \(212~\mathrm{MeV}\) & \(2.12\times10^{-6}\) & \(1.47\)\\
+\(300~\mathrm{MeV}\) & \(1.74\times10^{-6}\) & \(1.21\)\\
 \(500~\mathrm{MeV}\) & \(1.40\times10^{-6}\) & \(0.97\)\\
 \(1~\mathrm{GeV}\) & \(1.08\times10^{-6}\) & \(0.75\)\\
 \(3~\mathrm{GeV}\) & \(8.06\times10^{-7}\) & \(0.56\)\\
@@ -647,7 +692,68 @@ For an on-shell \(A'\), the relevant timelike argument is \(q^2=m_{A'}^2\). The 
 \end{center}
 The value near \(m_{A'}=2m_\mu\) agrees with the approximately \(1.47\) enhancement of the magnitude over its zero-momentum value reported by Wang and Zhang~\cite{Wang:2026supernova}. For the low-mass benchmark, the induced electron-current coupling is of order \(e|\epsilon|\simeq4.4\times10^{-7}|g_X|\). The momentum-dependent expression should be used for on-shell production and decay; spacelike virtual exchange requires evaluating the same function at the relevant spacelike \(q^2\).
 
-For the plotted range \(g_X\leq0.1\), the zero-momentum value satisfies \(|\epsilon_{\gamma A'}(0)|\leq1.44\times10^{-7}\); the largest tabulated on-shell value, near \(m_{A'}=2m_\mu\), is \(|\epsilon_{\gamma A'}|\leq2.12\times10^{-7}\). Below the dimuon threshold, \(A'\) decays predominantly to neutrinos, so invisible-dark-photon searches provide the relevant laboratory comparison. The NA64 missing-energy analysis constrains the kinetic-mixing parameter up to \(m_{A'}\lesssim0.35\,\mathrm{GeV}\), with a mass-dependent sensitivity at roughly the \(\mathcal O(10^{-4})\) scale in the relevant interval~\cite{NA64:2023lightDM}. This is well above the induced value in our benchmark. Thus the loop-induced electron-production channel does not set the leading laboratory bound for the stated parameter range. This estimate assumes \(\theta_{\mu R}=\theta_{\tau R}\) and the stated matching condition; unequal angles require the corresponding threshold matching.
+For the reference normalization \(g_X=0.1\), the zero-momentum value is \(1.44\times10^{-7}\), and the largest tabulated on-shell value is \(2.12\times10^{-7}\). The displayed range in Fig.~2 extends to \(g_X=1\), so the corresponding conservative upper estimates over that rectangle are ten times larger. These estimates do not assert that the largest-coupling points satisfy the other constraints.
+
+The appropriate dark-photon comparison is the NA64 electron-beam missing-energy search~\cite{NA64:2023lightDM}, rather than its thermal-dark-matter parameter combinations. The experiment constrains the electromagnetic production vertex \(e\epsilon_{\gamma A'}A'_\alpha J_{\rm EM}^\alpha\), which is precisely the vertex induced by the photon--\(A'\) kinetic mixing here. Its Fig.~3 gives a 90\% confidence-level exclusion boundary in the \((m_{A'},\epsilon)\) plane from \(9.37\times10^{11}\) electrons on target. We compare to that mass-dependent boundary, not to the thermal-relic parameters \(y\), \(\alpha_D\), or \(m_\chi\).
+
+With the additional channels of the neutrino completion closed, and neglecting neutrino masses, the leading widths below the dimuon threshold are
+\[
+\Gamma_{\nu\bar\nu}=\frac{g_X^2m_{A'}}{12\pi},
+\qquad
+\Gamma_{e^+e^-}=\frac{e^2|\epsilon_{\gamma A'}(m_{A'}^2)|^2m_{A'}}{12\pi}
+(1+2r_e)\sqrt{1-4r_e},
+\]
+where the first expression sums the two charged neutrino flavors and \(r_e=m_e^2/m_{A'}^2\); the electron width is zero below threshold. For negligible active--heavy neutrino mixing, the PMNS rotation in Major Point~3 does not change this inclusive neutrino width: with \(Q_\nu=\operatorname{diag}(0,1,-1)\), \(\operatorname{Tr}[(U^\dagger Q_\nu U)^2]=\operatorname{Tr}(Q_\nu^2)=2\). At \(m_{A'}=100\,\mathrm{MeV}\) and \(\theta_R=10^{-2}\), \(\Gamma_{e^+e^-}/\Gamma_{\nu\bar\nu}\simeq2.05\times10^{-13}\), so \(\operatorname{Br}_{\rm inv}\simeq1\).
+
+Above the dimuon threshold, the direct axial muon current opens a visible channel. In the same convention,
+\[
+\Gamma_{\mu^+\mu^-}
+=\frac{m_{A'}}{12\pi}\sqrt{1-4r_\mu}
+\left[(g_V^\mu)^2(1+2r_\mu)+(g_A^\mu)^2(1-4r_\mu)\right],
+\qquad r_\mu=\frac{m_\mu^2}{m_{A'}^2}.
+\]
+At \(m_{A'}=300\,\mathrm{MeV}\), with \(g_V^\mu=g_X\sin^2\theta_R\), \(g_A^\mu=-g_X\cos^2\theta_R\), and \(\theta_R=10^{-2}\), this gives
+\[
+\frac{\Gamma_{\mu^+\mu^-}}{\Gamma_{\nu\bar\nu}}\simeq0.3576,
+\qquad
+\operatorname{Br}_{\rm inv}\simeq0.7366.
+\]
+The loop-induced electromagnetic widths, including the hadronic width above the two-pion threshold, are negligible relative to these direct widths at the stated benchmark. We therefore compare the missing-energy signal using
+\[
+\epsilon_{\rm eff}(m_{A'})
+=|\epsilon_{\gamma A'}(m_{A'}^2)|
+\sqrt{\operatorname{Br}_{\rm inv}(m_{A'})},
+\qquad
+N_{\rm sig}\propto\epsilon_{\rm eff}^2,
+\]
+assuming the published missing-energy acceptance for an invisible spin-one state. This is a leading-yield rescaling, not a detector-level recast of visible dimuon decays.
+
+For a transparent mass-dependent comparison, we read the NA64 90\% CL boundary from Fig.~3 of Ref.~\cite{NA64:2023lightDM} in log--log coordinates. The figure does not provide a machine-readable table; we therefore quote conservative visual-read-off intervals, with an approximately \(0.2\)--\(0.3\) dex line-thickness/read-off uncertainty, rather than spurious high-precision point values. The lower edge of each interval is used in the ratios below. The model values are evaluated from the full timelike loop function at the same mass:
+\begin{center}
+\small
+\begin{tabular}{c|c|c|c|c|c}
+\(m_{A'}\) &
+\( |\epsilon|/|g_X| \) &
+\(\operatorname{Br}_{\rm inv}\) &
+\(\epsilon_{\rm NA64}^{90\%}\) (visual range) &
+\(\epsilon_{\rm eff}\) at \(g_X=0.1\) &
+\(R\) at \(g_X=0.1\)\\
+\hline
+\(10~\mathrm{MeV}\) & \(1.44\times10^{-6}\) & \(1.000\) &
+\((0.8\text{--}2.0)\times10^{-5}\) & \(1.44\times10^{-7}\) & \(1.80\times10^{-2}\)\\
+\(100~\mathrm{MeV}\) & \(1.49\times10^{-6}\) & \(1.000\) &
+\((0.5\text{--}1.2)\times10^{-4}\) & \(1.49\times10^{-7}\) & \(2.99\times10^{-3}\)\\
+\(200~\mathrm{MeV}\) & \(1.82\times10^{-6}\) & \(1.000\) &
+\((0.7\text{--}1.8)\times10^{-4}\) & \(1.82\times10^{-7}\) & \(2.59\times10^{-3}\)\\
+\(300~\mathrm{MeV}\) & \(1.74\times10^{-6}\) & \(0.737\) &
+\((1.0\text{--}2.5)\times10^{-4}\) & \(1.50\times10^{-7}\) & \(1.50\times10^{-3}\)
+\end{tabular}
+\end{center}
+Here \(R\equiv\epsilon_{\rm eff}/\epsilon_{\rm NA64,low}\), where \(\epsilon_{\rm NA64,low}\) is the conservative lower edge of the visually read-off interval. The corresponding signal-yield ratios \(R^2\) are \(3.3\times10^{-4}\), \(8.9\times10^{-6}\), \(6.7\times10^{-6}\), and \(2.2\times10^{-6}\), respectively, at \(g_X=0.1\). Since \(\epsilon\propto g_X\), the amplitude ratios are ten times larger and the yield ratios one hundred times larger at \(g_X=1\); even there the largest conservative ratio is \(R\simeq0.18\) at \(10\,\mathrm{MeV}\), corresponding to about \(3.3\%\) of the limiting signal yield. The other three mass points remain below \(10^{-3}\) of the limiting yield at \(g_X=1\). These upper-edge values are a conservative comparison over the plotted rectangle, not a claim that those large-coupling points satisfy every other constraint.
+
+The secondary-positron resonance energy is \(E_{e^+}^{\rm res}=m_{A'}^2/(2m_e)\): it is approximately \(0.098\), \(9.78\), and \(39.1\,\mathrm{GeV}\) at 10, 100, and 200 MeV, respectively, below the approximately \(50\,\mathrm{GeV}\) missing-energy selection; at 300 MeV it is approximately \(88.1\,\mathrm{GeV}\), so the published NA64 curve includes the resonant secondary-positron contribution as well as bremsstrahlung. The rescaling by \(\operatorname{Br}_{\rm inv}\) accounts for the open dimuon width at this point. For \(g_X=0.1\) and 1 the total width remains narrow compared with the mass. No dark-matter particle or thermal-relic assumption is required; the invisible final states here are neutrinos.
+
+The residual common-bare-mass threshold estimated above adds at most \(2.56\times10^{-7}|g_X|\) to the low-momentum mixing, and the corresponding leading-order conservative total at 100 MeV is \(1.75\times10^{-6}|g_X|\). The mass-dependent table uses the paired physical-heavy-mass reference; the residual-threshold estimate does not change the conclusion that the induced electron-production channel is below the published NA64 sensitivity in these representative mass points. This comparison is separate from the direct muon-production constraint of NA64\(_\mu\) in Fig.~2. Unequal right-handed mixing angles, independent heavy-mass splittings, or a nonzero independent matching coefficient require evaluating the general four-state expression above.
 
 \medskip
 \noindent {\bf 4.3)}.
@@ -662,7 +768,7 @@ For \(|\theta_{\ell R}|\leq10^{-2}\), the mass-basis couplings obey
 \left|\frac{g_V^\ell}{g_A^\ell}\right|
 =\tan^2\theta_{\ell R}\leq1.01\times10^{-4}.
 \]
-At the scan endpoint \(g_X=0.1\), this corresponds to \(|g_V^\ell|\leq10^{-5}\). The neutrino couplings remain \(g_{\nu_\mu}=+g_X\) and \(g_{\nu_\tau}=-g_X\).
+At the reference value \(g_X=0.1\), this corresponds to \(|g_V^\ell|\leq10^{-5}\); at the plotting upper edge \(g_X=1\), the bound is \(10^{-4}\). The neutrino couplings remain \(g_{\nu_\mu}=+g_X\) and \(g_{\nu_\tau}=-g_X\).
 
 For neutrino trident production, the ratio of the leading Standard-Model interference terms induced by the vector and axial components is parametrically
 \[
