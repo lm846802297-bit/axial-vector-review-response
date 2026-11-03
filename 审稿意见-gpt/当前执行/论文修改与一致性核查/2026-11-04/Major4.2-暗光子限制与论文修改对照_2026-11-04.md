@@ -111,7 +111,7 @@ NA64 Fig. 3 的 90% CL 曲线不是机器可读表。本轮从公开 PDF 的 log
 
 | ID | 源码位置 | 应增加/核对的内容 |
 |---|---|---|
-| K-01 | `eq:light-muon-Apr` 及 benchmark kinetic-mixing 段（原第 395–453 行附近） | 明示 g_V=g_X sin²theta_R；零匹配系数与物理 epsilon(q²) 的区别 |
+| K-01 | `eq:light-muon-Apr` 及 benchmark kinetic-mixing 段（原第 395–453 行附近） | 明示 g_V=g_X sin²theta_R；写出 epsilon_ind(mu_match)=0，并区分独立局域匹配项与非零物理 epsilon(q²) |
 | K-02 | VLL 简并和 kinetic-mixing 段 | 写清重态质量与耦合权重条件；补等混合角参考及一圈公式 |
 | K-03 | 同段或简短附录 | 加 epsilon(0) 参数化式，100 MeV 在壳数值；需要时保留回复已有 timelike 表 |
 | K-04 | 现有实验约束讨论 | 引用 NA64:2023lightDM 的电子束不可见结果，给出质量依赖的 epsilon_lim 区间、epsilon_eff=|epsilon|sqrt(Br_inv)、300 MeV dimuon 分支比和次级正电子共振适用性；仅作 leading-yield 对照，不称 detector-level recast |
