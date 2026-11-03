@@ -1,0 +1,138 @@
+{
+  "status": "constructive tree-level benchmark; not a statistical fit",
+  "source": "NuFIT 6.1 (2025), IC24 + SK, normal ordering",
+  "inputs": {
+    "sin2_theta12": 0.3088,
+    "sin2_theta23": 0.47,
+    "sin2_theta13": 0.02248,
+    "delta_cp_deg": 212.0,
+    "dm21_eV2": 7.537e-05,
+    "dm31_eV2": 0.002511,
+    "m1_eV_choice": 0.01,
+    "majorana_phase_21_deg_choice": 0.0,
+    "majorana_phase_31_deg_choice": 0.0,
+    "mD_GeV_diagonal_choice": 1e-05,
+    "vS_GeV_choice": 10.0,
+    "vsigma_GeV_choice": 1.0
+  },
+  "light_neutrino_masses_eV": [
+    0.01,
+    0.01324273385672309,
+    0.05109794516416487
+  ],
+  "sum_light_masses_eV": 0.07434067902088795,
+  "Mnu_eV": [
+    [
+      {
+        "re": 0.011257594688401531,
+        "im": 0.0010324283694848023
+      },
+      {
+        "re": -0.0023773820125981638,
+        "im": -0.003344308482981583
+      },
+      {
+        "re": -0.0046851301881449415,
+        "im": -0.0035513652129345453
+      }
+    ],
+    [
+      {
+        "re": -0.0023773820125981633,
+        "im": -0.003344308482981583
+      },
+      {
+        "re": 0.030205184457605828,
+        "im": -0.00022328860152582924
+      },
+      {
+        "re": 0.01888551374711462,
+        "im": -0.00011808221687346553
+      }
+    ],
+    [
+      {
+        "re": -0.004685130188144942,
+        "im": -0.0035513652129345453
+      },
+      {
+        "re": 0.018885513747114623,
+        "im": -0.00011808221687346547
+      },
+      {
+        "re": 0.03209387032314697,
+        "im": 1.007407582748778e-06
+      }
+    ]
+  ],
+  "MR_GeV": [
+    [
+      {
+        "re": -9.055328837372427,
+        "im": 0.0395414925118654
+      },
+      {
+        "re": 0.18626955315799326,
+        "im": -0.6032139799857688
+      },
+      {
+        "re": -1.4337016067534005,
+        "im": -0.6405608679278806
+      }
+    ],
+    [
+      {
+        "re": 0.18626955315799368,
+        "im": -0.6032139799857691
+      },
+      {
+        "re": -5.201311114178008,
+        "im": 0.0019396793638064268
+      },
+      {
+        "re": 3.154622495360474,
+        "im": -0.08782415354619262
+      }
+    ],
+    [
+      {
+        "re": -1.4337016067534012,
+        "im": -0.6405608679278803
+      },
+      {
+        "re": 3.154622495360474,
+        "im": -0.08782415354619265
+      },
+      {
+        "re": -5.110281109285753,
+        "im": -0.18871054808686266
+      }
+    ]
+  ],
+  "heavy_Majorana_masses_GeV": [
+    10.000000000000004,
+    7.551310860878765,
+    1.957025858451354
+  ],
+  "Ynu_diagonal": 5.7436989780403516e-08,
+  "singlet_yukawa_magnitudes": {
+    "abs_y_emu": 0.8928196369748483,
+    "abs_y_etau": 2.22072894461607,
+    "abs_y_mumu": 0.7355765231276445,
+    "abs_y_tautau": 0.7231954740854244
+  },
+  "active_heavy_mixing_spectral_norm": 5.109794516416485e-06,
+  "MR_symmetry_residual_GeV": 1.2959208739370123e-15,
+  "Mnu_reconstruction_residual_eV": 1.4817967385937692e-17,
+  "delta_A": 0.0025,
+  "relative_Aprime_mass_shift": 0.00124921972503933,
+  "caveat": "No scalar-potential/vacuum, LFV, HNL, cosmology, A-prime, or statistical-likelihood constraints are evaluated.",
+  "reproducibility": {
+    "calculation_script": "计算脚本/PMNS_Major3/pmns_tree_level_reconstruction.py",
+    "calculation_script_sha256": "defcb737e09844ee0c51a6c6caeaa80e31eb72aa01d2941c301d011ae13ba658",
+    "runner_script": "计算脚本/PMNS_Major3/reproduce_pmns_tree_level_reconstruction.py",
+    "python_version": "3.14.7",
+    "numpy_version": "2.5.4",
+    "invocation": "python 计算脚本/PMNS_Major3/reproduce_pmns_tree_level_reconstruction.py"
+  }
+}

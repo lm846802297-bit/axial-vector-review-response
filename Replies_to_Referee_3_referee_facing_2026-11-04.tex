@@ -67,7 +67,7 @@ With the scalar-potential convention
 \[
 V(S)=-\mu_S^2|S|^2+\lambda_S|S|^4,
 \]
-the UV construction gives
+the one-VEV gauge and charged-lepton reference construction gives
 \[
 m_{A'}=2g_Xv_s,\qquad
 m_s=\sqrt{2\lambda_S}\,v_s,\qquad
@@ -75,7 +75,7 @@ y_{s\ell\ell}\simeq\frac{m_\ell}{v_s}
 =\frac{2g_Xm_\ell}{m_{A'}},
 \quad \ell=\mu,\tau.
 \]
-Thus, at fixed \((m_{A'},g_X)\), the scalar--lepton couplings are fixed by the symmetry-breaking scale, whereas the physical scalar mass is controlled by \(\lambda_S\). Equivalently,
+The neutrino completion under Major Point~3 instead obeys Eq.~\eqref{eq:reply-neutrino-gauge-mass}. Throughout the scalar and two-parameter benchmark discussions, one-VEV equalities refer to the reference construction above, or to its leading approximation for \(r_\sigma\ll1\) with negligible additional scalar mass shifts and mixing. They are not exact relations over the enlarged completion parameter space. Thus, at fixed \((m_{A'},g_X)\) in this reference limit, the scalar--lepton couplings are fixed by the symmetry-breaking scale, whereas the physical scalar mass is controlled by \(\lambda_S\). Equivalently,
 \[
 \lambda_S=\frac{2g_X^2m_s^2}{m_{A'}^2},
 \qquad
@@ -213,13 +213,14 @@ When both channels are open, their ratio is
 \]
 Away from the \(A'A'\) threshold this ratio can be large, so the \(A'A'\) mode can dominate over an individual charged-lepton partial width. The visible branching fraction is consequently
 \[
+\begin{aligned}
 \operatorname{BR}(s\to\ell^+\ell^-)
-=\frac{\Gamma(s\to\ell^+\ell^-)}{\Gamma_s^{\mathrm{tot}}},
-\qquad
-\Gamma_s^{\mathrm{tot}}\supset
-\Theta(m_s-2m_\mu)\Gamma(s\to\mu^+\mu^-)
-+\Theta(m_s-2m_\tau)\Gamma(s\to\tau^+\tau^-)
-+\Theta(m_s-2m_{A'})\Gamma(s\to A'A').
+&=\frac{\Gamma(s\to\ell^+\ell^-)}{\Gamma_s^{\mathrm{tot}}},\\
+\Gamma_s^{\mathrm{tot}}&\supset
+\Theta(m_s-2m_\mu)\Gamma(s\to\mu^+\mu^-)\\
+&\quad+\Theta(m_s-2m_\tau)\Gamma(s\to\tau^+\tau^-)\\
+&\quad+\Theta(m_s-2m_{A'})\Gamma(s\to A'A').
+\end{aligned}
 \]
 Thus the event yield in a dilepton search depends on the production rate, this model-dependent visible branching fraction, and the corresponding selection efficiency. When \(s\to A'A'\) is open, the resulting \(A'\) decays can also change the final-state topology. The published B-factory limits therefore constrain their stated mass-proportional visible-decay benchmark. Their direct translation to the present UV parameter plane applies where the UV branching fractions reproduce the assumed visible benchmark; when \(s\to A'A'\) is open, the interpretation instead requires the model-dependent visible branching fractions and the corresponding final-state selection.
 
@@ -392,7 +393,7 @@ Outside the plotted window & Not forbidden by the scan endpoints themselves; no 
 \hline
 \end{tabular}
 \end{center}
-The contours therefore communicate the constraints actually applied, while the axis endpoints specify the range chosen to present the phenomenology.
+The contours therefore communicate the constraints actually applied, while the axis endpoints specify the range chosen to present the phenomenology. The neutrino completion introduces additional parameters, including \(r_\sigma\); this table uses the one-VEV reference mapping. Embedding it in the completion requires Eq.~\eqref{eq:reply-neutrino-gauge-mass} and the mixing and closed-new-channel conditions under Major Point~3, rather than identifying the two plotting variables with all parameters of the completed theory.
 
 
 \medskip
@@ -402,6 +403,9 @@ The contours therefore communicate the constraints actually applied, while the a
 Are neutrino oscillations possible? The Standard Model is defined with only left-handed neutrinos because of the possibility that neutrinos are their own antiparticle. In such a case neutrino masses are generated through, e.g. through the Weinberg operator.
 \end{quote}
 
+\noindent {\bf Reply.}
+Yes. Realistic neutrino masses and mixing can be accommodated by supplementing the axial gauge and charged-lepton construction with the singlet-scalar type-I seesaw used in gauged \(L_\mu-L_\tau\) models~\cite{Heeck:2011wj,Asai:2017ryy,Borah:2021twoSingletSeesaw,He:2024twoSingletHNL}. The relevant equivalence is that the lepton doublets and the SM Higgs have the same charges in the axial and conventional vector constructions. The reversed charges of the right-handed charged leptons do not enter the neutrino mass operators. The completion uses three right-handed neutrinos and one additional charge-one scalar, together with the existing charge-two scalar \(S\). The selection rules and an explicit mass-generation construction follow.
+
 \medskip
 \noindent {\bf Reply to Point 3.1}
 
@@ -410,87 +414,50 @@ In this model, \(U_A(1)_{L_{\mu-\tau}}\) invariance allows Weinberg operators fo
 \end{quote}
 
 \noindent {\bf Reply.}
-The residual selection rule follows directly from the charge assignments
+The charge-two scalar alone leaves a restriction on mixing, but the standard charge-one breaking field removes it. Set \(Q_\ell=1\), absorbing the overall charge normalization into \(g_X\). The original assignments are
 \[
-Q'(L_e,L_\mu,L_\tau)=(0,+Q_\ell,-Q_\ell),\qquad
-Q'(e_R,\mu_R,\tau_R)=(0,-Q_\ell,+Q_\ell),\qquad
-Q'(H)=0,\qquad Q'(S)=2Q_\ell.
+\begin{gathered}
+Q_X(L_e,L_\mu,L_\tau)=(0,1,-1),\qquad
+Q_X(e_R,\mu_R,\tau_R)=(0,-1,1),\\
+Q_X(H)=0,\qquad Q_X(S)=2.
+\end{gathered}
 \]
-When \(S\) acquires a vacuum expectation value, the transformation with phase
-\(\alpha=\pi/Q_\ell\) leaves \(\langle S\rangle\) invariant but acts as
-\[
-L_e\longrightarrow L_e,\qquad
-L_\mu\longrightarrow-L_\mu,\qquad
-L_\tau\longrightarrow-L_\tau.
-\]
-The unbroken subgroup is therefore a residual \(Z_2\), under which the electron family is even and the muon and tau families are odd.
+If only \(S\) obtains a new-symmetry-breaking VEV, the phase transformation \(\alpha=\pi\) leaves this VEV invariant and acts as \((+1,-1,-1)\) on the three lepton families. An exact residual \(Z_2\) therefore separates the electron family from the other two.
 
-Since \(Q'(H)=0\), the charge of the Weinberg bilinear \((L_i\widetilde H)(L_j\widetilde H)\) is \(Q'(L_i)+Q'(L_j)\): it is zero for \(ee\) and \(\mu\tau\), \(\pm2Q_\ell\) for \(\mu\mu\) and \(\tau\tau\), and \(\pm Q_\ell\) for \(e\mu\) and \(e\tau\). The charge-two entries can be compensated by one \(S\) or \(S^\dagger\), whereas the charge-one entries cannot be compensated by any integer number of charge-two insertions.
-Writing \(\widetilde H=i\sigma_2H^*\), the symmetry-allowed neutrino operators through dimension six include
+Define \(\chi_\alpha=L_\alpha\cdot H\equiv\epsilon_{ab}L_\alpha^aH^b\), with the Lorentz-spinor contraction in \(\chi_\alpha\chi_\beta\) understood. Since \(Y(L)=-1/2\) and \(Y(H)=+1/2\), this is the electroweak-invariant Weinberg structure in two-component notation. Its \(U(1)_X\) charge is \(q_\alpha+q_\beta\). The compensating scalar insertions are
+\begin{center}
+\small
+\begin{tabular}{c|c|c|c}
+Flavor entry & \(q_\alpha+q_\beta\) & Compensating field & Operator dimension\\
+\hline
+\(ee,\mu\tau\) & \(0\) & None & 5\\
+\(e\mu\) & \(+1\) & \(\sigma^\dagger\) & 6\\
+\(e\tau\) & \(-1\) & \(\sigma\) & 6\\
+\(\mu\mu\) & \(+2\) & \(S^\dagger\) & 6\\
+\(\tau\tau\) & \(-2\) & \(S\) & 6
+\end{tabular}
+\end{center}
+The two entries involving \(\sigma\) are absent in the original field content. No integer number of \(S\) or \(S^\dagger\) insertions compensates their odd charges. With \(S\) alone, the symmetry-allowed EFT mass matrices have the forms
 \[
-\mathcal L_{\nu}^{(5)}
-=
-\frac{c_{ee}}{\Lambda}(L_e\widetilde H)(L_e\widetilde H)
-+\frac{c_{\mu\tau}}{\Lambda}(L_\mu\widetilde H)(L_\tau\widetilde H)
-+\mathrm{h.c.},
+M_\nu^{(S)}=\begin{pmatrix}a&0&0\\0&b&c\\0&c&d\end{pmatrix},
+\qquad
+Y_\ell^{(S)}=\begin{pmatrix}y_e&0&0\\0&y_{\mu\mu}&y_{\mu\tau}\\0&y_{\tau\mu}&y_{\tau\tau}\end{pmatrix}.
 \]
-and
-\[
-\mathcal L_{\nu}^{(6)}
-=
-\frac{c_{\mu\mu}}{\Lambda^2}S^\dagger
-(L_\mu\widetilde H)(L_\mu\widetilde H)
-+\frac{c_{\tau\tau}}{\Lambda^2}S
-(L_\tau\widetilde H)(L_\tau\widetilde H)
-+\mathrm{h.c.},
-\]
-where the Lorentz and electroweak contractions are implicit. Thus the \(ee\) and \(\mu\tau\) entries are allowed at dimension five, while the \(\mu\mu\) and \(\tau\tau\) entries require one \(S^\dagger\) or \(S\) insertion and first occur at dimension six. By contrast, the \(e\mu\) and \(e\tau\) operators are odd under the residual \(Z_2\); inserting any integer number of \(S\) or \(S^\dagger\) fields cannot make them invariant.
+The off-diagonal \(\mu\)--\(\tau\) charged-lepton Yukawa operators are gauge allowed; setting them to zero is the flavor-diagonal benchmark, not a gauge selection rule. In either case the left-handed rotations retain the electron block and yield \(U_{\rm PMNS}=\operatorname{diag}(1,U_{23})\), up to phases and mass ordering. This need not be the identity, but it cannot describe the observed electron-flavor admixtures. Allowed EFT coefficients alone also do not specify a UV origin of neutrino masses.
 
-If these symmetry-allowed EFT operators are parameterized by their Wilson coefficients, the neutrino mass matrix after symmetry breaking has the form
+Now introduce a complex SM-singlet scalar \(\sigma\) with \(Q_X(\sigma)=1\) and \(\langle\sigma\rangle\ne0\). Its VEV breaks the residual \(Z_2\), and all six independent Majorana entries become allowed. A gauge-invariant EFT parameterization through dimension six is
 \[
-M_\nu=
-\begin{pmatrix}
-A&0&0\\
-0&B\varepsilon&C\\
-0&C&D\varepsilon
-\end{pmatrix},
-\qquad \varepsilon\sim\frac{v_s}{\Lambda}.
+\mathcal L_{\nu,\mathrm{EFT}}\supset
+-\frac12\sum_{\alpha,\beta}K_{\alpha\beta}\chi_\alpha\chi_\beta+\mathrm{h.c.},
 \]
-The same charge assignments fix the charged-lepton texture: \(\overline L_\mu H\mu_R\) and \(\overline L_\tau H\tau_R\) carry charges \(-2Q_\ell\) and \(+2Q_\ell\), respectively, and therefore require \(S\) and \(S^\dagger\) insertions. In contrast, \(\overline L_\mu H\tau_R\) and \(\overline L_\tau H\mu_R\) are neutral and are gauge allowed without such insertions.
-The effective charged-lepton Yukawa matrix has the corresponding block structure
 \[
-Y_\ell=
-\begin{pmatrix}
-c&0&0\\
-0&a\varepsilon&b\\
-0&b'&d\varepsilon
-\end{pmatrix},
+K=\begin{pmatrix}
+c_{ee}/\Lambda&c_{e\mu}\sigma^\dagger/\Lambda^2&c_{e\tau}\sigma/\Lambda^2\\
+c_{e\mu}\sigma^\dagger/\Lambda^2&c_{\mu\mu}S^\dagger/\Lambda^2&c_{\mu\tau}/\Lambda\\
+c_{e\tau}\sigma/\Lambda^2&c_{\mu\tau}/\Lambda&c_{\tau\tau}S/\Lambda^2
+\end{pmatrix}.
 \]
-where \(b,b'\) parameterize the gauge-allowed \(\mu\)--\(\tau\) Yukawa entries, which do not require an \(S/\Lambda\) insertion. In the benchmark adopted in the manuscript, however, \(y_{\mu\tau}=0\), so \(b=b'=0\); the general form above displays the allowed texture, while the benchmark charged-lepton rotation has no \(\mu\)--\(\tau\) mixing. In either case, the electron sector remains an isolated block.
-
-Because \(M_\nu\) is complex symmetric, its diagonalization is a Takagi factorization,
-\[
-U_\nu^T M_\nu U_\nu=\operatorname{diag}(m_1,m_2,m_3),
-\]
-whereas the left-handed charged-lepton rotation is defined by
-\[
-U_L^\dagger Y_\ell Y_\ell^\dagger U_L
-=\operatorname{diag}(y_e^2,y_\mu^2,y_\tau^2).
-\]
-The two unitary matrices therefore have the block forms
-\[
-U_\nu=\operatorname{diag}(1,U_\nu^{(23)}),\qquad
-U_L=\operatorname{diag}(1,U_L^{(23)}),
-\]
-and their mismatch is
-\[
-U_{\rm PMNS}=U_L^\dagger U_\nu
-=\operatorname{diag}(1,U_{23}),\qquad
-U_{23}=U_L^{(23)\dagger}U_\nu^{(23)}.
-\]
-The PMNS matrix is therefore not forced to be the identity: a nontrivial \(\mu\)--\(\tau\) rotation is allowed. However, the electron flavor remains an isolated one-dimensional block, so one row of \(U_{\rm PMNS}\) contains a single unit entry and two zeros. In the conventional ordering where this state is identified as \(\nu_1\), this corresponds to \(\theta_{12}=\theta_{13}=0\); any other mass-eigenstate ordering gives the same absence of electron-flavor admixtures and is incompatible with the observed mixing angles.
-
-The operators above identify the EFT structures permitted by the gauge symmetry; their existence as allowed operators does not, by itself, specify a UV origin or predict their Wilson coefficients. In particular, the minimal renormalizable field content used for the axial-vector construction does not supply the additional neutrino-mass dynamics needed to generate the missing electron-flavor entries. This is the precise distinction between allowing neutrino mass operators in the EFT and obtaining a complete neutrino-mass model from the stated UV field content.
+This displays the allowed operators, without assuming independent Wilson coefficients in a particular UV completion or a universal ordering of the heavy and symmetry-breaking thresholds. The seesaw below supplies an explicit renormalizable origin. After the extra \(U(1)\) is broken and the heavy neutrinos are integrated out, the low-energy theory contains the usual Weinberg operator and light Majorana neutrinos. No light right-handed neutrino is required; heavy right-handed fields in the UV are fully compatible with Majorana light neutrinos.
 
 \medskip
 \noindent {\bf Reply to Point 3.2}
@@ -500,38 +467,61 @@ Perhaps a full model would require right-handed neutrinos. These would now be ch
 \end{quote}
 
 \noindent {\bf Reply.}
-For the Dirac term \(\overline L\,\widetilde H\,N_R\), with \(Q'(H)=0\), gauge invariance assigns
+Introduce three SM-singlet right-handed neutrinos with
 \[
-Q'(N_{Re},N_{R\mu},N_{R\tau})=(0,+Q_\ell,-Q_\ell).
+Q_X(N_{Re},N_{R\mu},N_{R\tau})=(0,1,-1).
 \]
-The right-handed neutrinos therefore have the same residual-\(Z_2\) parities as the corresponding lepton doublets. The allowed Dirac and Majorana matrices have the block forms
-\[
-m_D=\begin{pmatrix}d_e&0&0\\0&d_{\mu\mu}&d_{\mu\tau}\\0&d_{\tau\mu}&d_{\tau\tau}\end{pmatrix},
-\qquad
-M_R=\begin{pmatrix}M_e&0&0\\0&M_{\mu\mu}&M_{\mu\tau}\\0&M_{\mu\tau}&M_{\tau\tau}\end{pmatrix}.
-\]
-The gauge-invariant operator structure further distinguishes the two matrices. For the Dirac mass terms, the diagonal operators
-\[
-\overline L_\mu\widetilde H N_{R\mu},\qquad
-\overline L_\tau\widetilde H N_{R\tau}
-\]
-are allowed without an \(S\) insertion, whereas the off-diagonal operators require
-\[
-\frac{S}{\Lambda}\,\overline L_\mu\widetilde H N_{R\tau},
-\qquad
-\frac{S^\dagger}{\Lambda}\,\overline L_\tau\widetilde H N_{R\mu}.
-\]
-For the Majorana matrix the pattern is reversed: \(N_{R\mu}^T C N_{R\tau}\) is neutral and can have a bare mass, while the diagonal terms require \(S^\dagger N_{R\mu}^T C N_{R\mu}\) and \(S N_{R\tau}^T C N_{R\tau}\), respectively, through renormalizable singlet-Yukawa interactions. The off-diagonal Dirac terms displayed above are dimension-five operators. Thus, after \(\langle S\rangle\neq0\), the lower-right \(2\times2\) blocks of both matrices can be nontrivial, but neither matrix connects the electron sector to the \(\mu\)--\(\tau\) sector. The inverse and products of such block-diagonal matrices preserve this decomposition.
+These charges allow \(\overline L_\alpha\widetilde H N_{R\alpha}\), with \(\widetilde H=i\sigma_2H^*\). At the renormalizable level with a single neutral electroweak Higgs doublet the Dirac matrix is diagonal. The neutral Majorana bilinears admit bare masses \(M_{ee}\) and \(M_{\mu\tau}\); the two charged singlets supply the other four independent entries. In four-component right-handed-field notation,
+\begin{align*}
+-\mathcal L_\nu={}&\sum_{\alpha=e,\mu,\tau}y_\alpha\overline L_\alpha\widetilde H N_{R\alpha}\\
+&+\frac12 M_{ee}\overline{N_{Re}^{c}}N_{Re}
++M_{\mu\tau}\overline{N_{R\mu}^{c}}N_{R\tau}\\
+&+h_{e\mu}\sigma^\dagger\overline{N_{Re}^{c}}N_{R\mu}
++h_{e\tau}\sigma\overline{N_{Re}^{c}}N_{R\tau}\\
+&+\frac12h_{\mu\mu}S^\dagger\overline{N_{R\mu}^{c}}N_{R\mu}
++\frac12h_{\tau\tau}S\overline{N_{R\tau}^{c}}N_{R\tau}+\mathrm{h.c.}
+\end{align*}
+For example, the total charges of \(\sigma^\dagger\overline{N_{Re}^{c}}N_{R\mu}\) and \(S^\dagger\overline{N_{R\mu}^{c}}N_{R\mu}\) are \(-1+0+1=0\) and \(-2+1+1=0\). All remaining terms are neutral as well. Generation mixing is therefore generated by spontaneous breaking without explicit gauge-symmetry violation.
 
-The new right-handed neutrinos occur as a pair with opposite \(U_A(1)_{L_{\mu-\tau}}\) charges. In a left-handed Weyl basis their charge conjugates carry charges \(-Q_\ell\) and \(+Q_\ell\), so they form a vectorlike pair under the new \(U_A(1)\). Since they are SM singlets, their contributions to the cubic and mixed gravitational \(U_A(1)\) anomalies cancel pairwise. This is a diagnostic extension used to test whether adding gauge-compatible \(N_R\) fields alone resolves the mixing problem; these fields are not part of the minimal UV field content specified in the manuscript.
+Take \(\langle H^0\rangle=v_h/\sqrt2\), \(\langle\sigma\rangle=v_\sigma/\sqrt2\), and \(\langle S\rangle=v_s/\sqrt2\), absorbing VEV phases into couplings. Then
+\begin{equation}\label{eq:reply-neutrino-matrices}
+\begin{gathered}
+m_D=\frac{v_h}{\sqrt2}\operatorname{diag}(y_e,y_\mu,y_\tau),\\[3pt]
+M_R=\begin{pmatrix}
+M_{ee}&h_{e\mu}v_\sigma/\sqrt2&h_{e\tau}v_\sigma/\sqrt2\\
+h_{e\mu}v_\sigma/\sqrt2&h_{\mu\mu}v_s/\sqrt2&M_{\mu\tau}\\
+h_{e\tau}v_\sigma/\sqrt2&M_{\mu\tau}&h_{\tau\tau}v_s/\sqrt2
+\end{pmatrix}.
+\end{gathered}
+\end{equation}
+In the seesaw regime \(\|m_DM_R^{-1}\|\ll1\),
+\begin{equation}\label{eq:reply-neutrino-seesaw}
+M_\nu\simeq-m_DM_R^{-1}m_D^T.
+\end{equation}
+All six independent complex entries of \(M_R\) are available. For a nonsingular target \(M_\nu\) and nonsingular diagonal \(m_D\), reconstruct
+\begin{equation}\label{eq:reply-neutrino-reconstruction}
+M_R=-m_D^T M_\nu^{-1}m_D.
+\end{equation}
+Each reconstructed entry has a gauge-invariant origin in Eq.~\eqref{eq:reply-neutrino-matrices}. Substitution into the seesaw formula returns the target matrix. This is a constructive mass-texture existence argument, rather than parameter counting alone.
+
+Neglecting small light--heavy nonunitarity corrections in the stated seesaw and VLL limits, define the light charged-lepton rotation \(U_L\). Then
 \[
-M_\nu=-m_D M_R^{-1}m_D^T
+\begin{gathered}
+U_\nu^T M_\nu U_\nu=\widehat m,\qquad
+U_{\rm PMNS}=U_L^\dagger U_\nu,\\
+\widehat m=\operatorname{diag}(m_1,m_2,m_3).
+\end{gathered}
 \]
-therefore remains block diagonal and cannot generate the missing electron-flavor mixing. Right-handed neutrinos with the gauge-compatible charges do not, by themselves, solve the PMNS problem. Obtaining electron--muon or electron--tau entries requires additional symmetry-breaking structure or different charge assignments, together with a consistent specification of the extended neutrino mass and anomaly structure.
+For a chosen \(U_{\rm PMNS}\), set \(U_\nu=U_LU_{\rm PMNS}\) and \(M_\nu=U_\nu^*\widehat mU_\nu^\dagger\) in Eq.~\eqref{eq:reply-neutrino-reconstruction}. Nonzero light masses with the observed mass-squared differences and mixing can therefore be realized, even for a nondiagonal charged-lepton rotation. The Majorana parameters are independent of the charged-lepton Yukawa parameters, so no alignment is enforced. Perturbativity, heavy-state masses, and flavor constraints still select the physical parameter region; the construction is not a global viability claim for all UV parameters.
 
-Related gauged \(L_\mu-L_\tau\) constructions that address neutrino masses and mixing are discussed by Heeck and Rodejohann, Phys. Rev. D \textbf{84}, 075007 (2011)~\cite{Heeck:2011wj}, and Asai, Hamaguchi and Nagata, Eur. Phys. J. C \textbf{77}, 763 (2017)~\cite{Asai:2017ryy}. These examples use model-dependent field content and charge assignments, so their neutrino-sector mechanisms cannot be transferred unchanged to the present axial construction.
+The additional fermions preserve anomaly cancellation. In a left-handed Weyl basis their charges are \((0,-1,+1)\), so
+\[
+\Delta\mathcal A_{X^3}\propto0^3+(-1)^3+(+1)^3=0,\qquad
+\Delta\mathcal A_{\mathrm{grav}^2X}\propto0-1+1=0.
+\]
+They are SM singlets and add no mixed SM-gauge anomalies. The opposite-charge pair is vectorlike under \(U(1)_X\) before breaking, but the scalar-assisted Majorana entries are allowed after breaking. Adding \(N_R\) without \(\sigma\) would still leave the electron block intact.
 
-A scalar with a \(U_A(1)\) charge that is an odd multiple of \(Q_\ell\), if it acquires a vacuum expectation value, breaks the residual \(Z_2\) and can permit electron--muon and electron--tau mixing. Such a possibility illustrates how the selection rule can be relaxed, but it belongs to an extended scalar sector rather than the minimal construction.
+The correspondence to existing mechanisms is explicit: identify the charge-\((1,2)\) singlets \((\Phi_1,\Phi_2)\) of Refs.~\cite{Borah:2021twoSingletSeesaw,He:2024twoSingletHNL} with \((\sigma,S)\). Their neutrino interactions then have the form above. See Table~I and Eqs.~(4), (7), (8) of Ref.~\cite{Borah:2021twoSingletSeesaw}, and Sec.~II, Eqs.~(1)--(4) of Ref.~\cite{He:2024twoSingletHNL}; our VEV convention fixes the factors of \(\sqrt2\). This equivalence concerns the neutrino mass sector, not vector-model charged-lepton phenomenology. The single charge-one scalar construction of Ref.~\cite{Asai:2017ryy} instead has \((M_R)_{\mu\mu}=(M_R)_{\tau\tau}=0\), and hence two zeros in \(M_\nu^{-1}\) for diagonal \(m_D\). Our existing \(S\) allows both entries, so that special two-zero-minor prediction is not imposed here.
 
 \medskip
 \noindent {\bf Overall response to Major Point 3.}
@@ -541,8 +531,32 @@ Thus it is not obvious to me how neutrino oscillations can be included in this f
 \end{quote}
 
 \noindent {\bf Reply.}
+The two-singlet seesaw provides an established completion with realistic neutrino masses and mixing. The original \(S\)-only theory has a residual selection rule; the \(\sigma+3N_R\) completion removes it. The axial charged-lepton assignment itself is therefore not an obstruction to neutrino oscillations. The distinction between these two field contents is essential.
 
-The charge-selection rules imply \(U_{\rm PMNS}=\operatorname{diag}(1,U_{23})\): the minimal construction permits \(\mu\)--\(\tau\) mixing but cannot produce the electron-flavor admixtures observed in neutrino oscillations. Right-handed neutrinos alone preserve the same block structure, as follows from the type-I seesaw relation above. The neutrino-sector result therefore specifies the scope of the minimal anomaly-free gauge and charged-lepton construction, whose phenomenological focus is the axial-vector effective current.
+The additional VEV changes the UV parameter relations. With canonical gauge kinetic terms, before the small kinetic-mixing effects considered separately, the scalar kinetic terms give
+\begin{equation}\label{eq:reply-neutrino-gauge-mass}
+m_{A'}^2=g_X^2(4v_s^2+v_\sigma^2),\qquad
+r_\sigma\equiv\frac{v_\sigma^2}{4v_s^2}.
+\end{equation}
+Thus
+\[
+v_s=\frac{m_{A'}}{2g_X\sqrt{1+r_\sigma}},\qquad
+y_{s\ell\ell}\simeq\frac{m_\ell}{v_s}
+=\frac{2g_Xm_\ell}{m_{A'}}\sqrt{1+r_\sigma},
+\]
+where the Yukawa expression assumes an approximately \(S\)-radial mass eigenstate and small VLL mixing. The one-VEV formulas elsewhere in the response are reference-benchmark relations, recovered at leading order for \(r_\sigma\ll1\); they are not exact identities of the completion. A small nonzero \(v_\sigma\) removes the exact selection rule, but the mixing magnitudes must still follow from Eq.~\eqref{eq:reply-neutrino-matrices}, not from small \(r_\sigma\) alone.
+
+The scalar potential permits
+\begin{align*}
+\Delta V={}&-\mu_\sigma^2|\sigma|^2+\lambda_\sigma|\sigma|^4
++\lambda_{H\sigma}|H|^2|\sigma|^2\\
+&+\lambda_{S\sigma}|S|^2|\sigma|^2
++(\kappa S^\dagger\sigma^2+\mathrm{h.c.}),
+\end{align*}
+where \(\kappa\) has mass dimension one. These interactions affect the scalar spectrum and mixing; nonzero \(\kappa\) removes the otherwise accidental relative scalar-phase symmetry. The relation \(m_s^2=2\lambda_Sv_s^2\) is a reference limit requiring negligible additional mass shifts and mixing. Moreover, \(\sigma\overline E_{\mu L}e_R\) and \(\sigma^\dagger\overline E_{\tau L}e_R\) are gauge allowed. Their coefficients must be sufficiently suppressed to retain the flavor-diagonal charged-lepton benchmark; this is a flavor assumption, not a gauge selection rule.
+
+The two-parameter axial-current results therefore refer to a conditional regime with small \(r_\sigma\), small additional scalar and charged-lepton mixing, small active--heavy neutrino mixing, and no relevant new production or decay channels. The new fields are not automatically decoupled by the neutrino mechanism. These conditions separate the explicit mass-generation construction from the phenomenological benchmark without asserting that every point of the enlarged UV parameter space is allowed.
+
 
 \medskip
 \noindent {\bf 4)}.
@@ -562,7 +576,7 @@ Neutrino oscillation observations. See point \#3 above. It appears that this mod
 
 \noindent {\bf Reply.}
 
-The charge-selection rules derived under Major Point~3 give \(U_{\rm PMNS}=\operatorname{diag}(1,U_{23})\), up to mass-eigenstate ordering and phase conventions. Thus the matrix is not necessarily the identity: a \(\mu\)--\(\tau\) rotation is allowed, while the electron flavor remains unmixed. The resulting absence of electron-flavor admixtures is incompatible with the observed nonzero \(\theta_{12}\) and \(\theta_{13}\). The operator derivation and the seesaw argument are given under Major Point~3.
+The original charge-two-scalar theory permits a \(\mu\)--\(\tau\) rotation but leaves the electron family unmixed; it does not generically predict the identity, and that restricted texture cannot reproduce oscillation data. The completion under Major Point~3 adds \(Q_X(\sigma)=1\) and \(Q_X(N_R)=(0,1,-1)\). Its general \(M_R\), Eq.~\eqref{eq:reply-neutrino-matrices}, removes the electron block. Equation~\eqref{eq:reply-neutrino-reconstruction} reconstructs the heavy matrix for a chosen light-neutrino spectrum and PMNS matrix. Thus oscillations can be included through the established two-singlet seesaw~\cite{Borah:2021twoSingletSeesaw,He:2024twoSingletHNL}, with the VEV and flavor assumptions stated there. This does not ascribe realistic mixing to the original \(S\)-only field content.
 
 \medskip
 \noindent {\bf 4.2)}.
@@ -766,14 +780,12 @@ A high-energy muon collider is a natural complementary probe because \(A'\) coup
 
 We use the \(\tau^+\tau^-\) final state because it receives only \(s\)-channel \(\gamma,Z,A'\) exchange; the same-flavor \(\mu^+\mu^-\) final state also contains \(t\)-channel diagrams, which complicate the angular interpretation. For \(\mu^+\mu^-\to\tau^+\tau^-\), neglecting the external-lepton masses, the unpolarized angular distribution is
 \[
+\begin{aligned}
 \frac{d\sigma_{\tau\tau}}{d\cos\theta}
-=
-\frac{s}{128\pi}
-\left[
-\left(|\mathcal A_{LL}|^2+|\mathcal A_{RR}|^2\right)(1+\cos\theta)^2
-+
-\left(|\mathcal A_{LR}|^2+|\mathcal A_{RL}|^2\right)(1-\cos\theta)^2
-\right],
+=\frac{s}{128\pi}\Big[&
+\left(|\mathcal A_{LL}|^2+|\mathcal A_{RR}|^2\right)(1+\cos\theta)^2\\
++{}&\left(|\mathcal A_{LR}|^2+|\mathcal A_{RL}|^2\right)(1-\cos\theta)^2\Big],
+\end{aligned}
 \]
 where the chiral amplitudes are
 \[
@@ -992,7 +1004,7 @@ At this reference value, \(y_{s\mu\mu}=m_\mu/v_s\simeq0.053\), so \(y_{s\mu\mu}^
 
 The paper constructs an anomaly-free axial \(U_A(1)_{L_{\mu-\tau}}\) UV completion in which the scalar \(S\) and vector-like leptons generate the charged-lepton masses. The present response makes explicit how the scalar mass, its lepton couplings, perturbativity, direct scalar searches, and its contribution to \((g-2)_\mu\) fit together, while identifying the benchmark under which Fig.~2 isolates the axial-current phenomenology.
 
-For the neutrino sector, the charge-selection rules give a block-diagonal mass structure: a \(\mu\)--\(\tau\) rotation is possible, but the electron-flavor admixtures required by oscillation data are absent. The model claim is therefore restricted to the anomaly-free gauge and charged-lepton construction and its axial-vector phenomenology.
+For the neutrino sector, the established two-singlet type-I seesaw supplies an explicit completion: the existing charge-two scalar \(S\), an additional charge-one scalar \(\sigma\), and three right-handed neutrinos produce a general Majorana mass matrix and realistic mixing. The \(S\)-only residual selection rule is removed by \(\langle\sigma\rangle\ne0\). The extended gauge-mass relation and the scalar, flavor, and heavy-state conditions needed to retain the axial-current benchmark are stated explicitly; the mass-texture argument is not a global UV parameter-space analysis.
 
 For the additional constraints, the response gives a momentum-dependent kinetic-mixing estimate and compares the leading finite-vector effects in trident production and \((g-2)_\mu\). The Table~II entries are source-dependent scalar--muon benchmarks rather than a full-UV exclusion, whereas the \(A'\) supernova discussion concerns a distinct vector-current problem: neutrino-coalescence production and invisible widths follow from the unchanged \(L_\mu-L_\tau\) neutrino couplings, while semi-Compton production and absorption depend on the axial charged-muon current; the cited vector-model curve is used only as a reference scale, not as a full axial-model exclusion. All conclusions remain tied to the explicitly stated benchmarks and do not constitute a global exclusion of the full UV parameter space.
 
@@ -1001,5 +1013,5 @@ For the additional constraints, the response gives a momentum-dependent kinetic-
 \noindent Rundong Fang, Jinhui Guo, Ming Li, Jia Liu, Xiao-Ping Wang, Yiheng Xiong
 
 \bibliographystyle{JHEP}
-\bibliography{overleaf-source/axial-vector-model-building-v6/references}
+\bibliography{overleaf-source/axial-vector-model-building-v6/references,Replies_to_Referee_3_neutrino_references}
 \end{document}
