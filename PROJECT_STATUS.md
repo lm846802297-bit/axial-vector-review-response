@@ -9,7 +9,7 @@
 
 ## 1. 项目当前阶段
 
-当前项目处于**正式回复信主线已形成、Major/Minor 一致性审查已完成；PR #38 已合并；针对低质量标量 Table II 的物理一致性修订已提交 PR #39，尚待审查和合并；论文正文其他同步事项及独立研究专题仍需分别推进**的阶段。
+当前项目处于**正式回复信主线已形成、Major/Minor 一致性审查已完成；PR #38 已合并；PR #39 正在修订正式回复信并归档 Table II 的详细论文修改方案；论文源码与 bibliography 不在本 PR 修改范围内，仍待后续同步**的阶段。
 
 已完成：
 - 完整回复信主线按会议决策整理并合并（PR #33）。
@@ -46,7 +46,7 @@
 | 文件 | 用途 | 状态 |
 |---|---|---|
 | [正式回复信 TeX（当前 main 版本）](Replies_to_Referee_3_referee_facing_2026-11-04.tex) | 当前唯一权威回复信 | PR #38 已合并；包含标量偏宽度、可见分支比、Belle 数值阈值条件及 Belle II spin-0 文献修正 |
-| [正文待同步清单](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-03/论文正文待同步修改清单_2026-11-03.md) | 内部正文修改追踪 | Table II 专项已在 PR #39 分支修改，待审查/合并；其他项目仍待核对 |
+| [正文待同步清单](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-03/论文正文待同步修改清单_2026-11-03.md) | 内部正文修改追踪 | Table II 专项修改清单已在 PR #39 分支整理；论文正文尚未修改，其他项目仍待核对 |
 | [审稿回复写作原则](审稿意见-gpt/写作规范/审稿回复写作原则.md) | 回复信与内部清单的长期规范 | 已合并 |
 | [研究决策与不可回退事项](审稿意见-gpt/项目规范/研究决策与不可回退事项.md) | 当前研究立场及变更历史 | 动态文档，允许作者随最新观点修改 |
 | [原始论文 v6 PDF](axial_vector_model_building-v6.pdf) | 归档论文事实基线 | 根目录只读归档 |
@@ -63,9 +63,9 @@
 - 已补入 s→A′A′、s→ℓ⁺ℓ⁻ 的偏宽度和可见分支比论证，限定 Belle 1 GeV 数值映射的 m_A′ > 0.5 GeV 条件，并纠正 Belle-II:2023ydz 与 Belle-II:2024wtd 的 scalar-specific interpretation 分类。
 - 内部正文待同步清单和 2026-11-04 Belle II 文献核查记录已同步更新；论文源码没有修改。
 
-### 论文 Table II 针对性修订（待审查）
-- [PR #39：Correct scalar Table II source mapping and UV applicability](https://github.com/lm846802297-bit/axial-vector-review-response/pull/39)：保留三列表格结构，修正 Liu–Tang 标量双脉冲星来源、Fiorillo v2 的 neutron-star/SN 适用范围、loop-induced fifth-force 表述，以及 Caputo diffuse supernova gamma-ray benchmark；补充 μ、τ 双轻子圈匹配边界和条件性 UV 映射。
-- PR #39 修改 `main-v6.tex`、`references.bib`、2026-11-04 正式回复信及内部 Table II 修改清单；增加详细核查记录。**该修改尚未合并到 main，也未完成 LaTeX 编译或 PDF 视觉验收。**
+### Table II 回复信修订与论文修改方案（待审查）
+- [PR #39：Revise referee response and document Table II manuscript updates](https://github.com/lm846802297-bit/axial-vector-review-response/pull/39)：统一 Major Point 1、Minor Point 6.2 和 Summary 的标量约束数值、文献来源及物理适用条件；保留详细的未来论文修改清单。
+- PR #39 修改正式回复信和内部清单/核查文档；不修改 main-v6.tex 或 references.bib。论文 Table II、正文解释和 Fiorillo v2 的 BibTeX 更新留待后续正文修订。回复信 TeX 尚未编译，PDF 视觉验收尚未完成。
 
 ### 已合并
 - [PR #33](https://github.com/lm846802297-bit/axial-vector-review-response/pull/33)：按会议决策整理完整回复信。
@@ -99,7 +99,7 @@
 ## 6. 当前建议的工作顺序
 
 1. 对当前 2026-11-04 回复信 TeX 编译 PDF，检查引用、公式、分页和图表，并逐页视觉验收。
-2. 审查并决定是否合并 PR #39；合并后确认作者当前使用的 Overleaf 正文基线，再按正文清单逐项同步；不得把未实施的修改写成已完成。
+2. 审查并决定是否合并 PR #39（回复信修订 + 论文修改清单）；之后另行确认作者当前使用的 Overleaf 正文基线，再按清单实施论文修改；不得把未实施的正文修改写成已完成。
 3. 优先核对影响主要物理主张的 PMNS、标量约束、portal/mixing 和参数范围；完成后更新清单中的实际正文位置和状态。
 4. 若作者决定继续，分别推进 PR #32 标量重铸和 PR #30 轴矢量超新星输运；不将未完成工作写成已得到的排除结论。
 5. 关键 PR 合并、作者改变路线、正文基线更新或专题验收后，更新本文件和相关决策条目。
