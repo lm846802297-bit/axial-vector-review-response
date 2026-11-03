@@ -385,7 +385,18 @@ c&0&0\\
 0&b'&d\varepsilon
 \end{pmatrix},
 \]
-where the \(\mu\)--\(\tau\) entries \(b,b'\) are allowed without an \(S/\Lambda\) suppression. Consequently, the unitary matrices that diagonalize the two sectors have the forms
+where \(b,b'\) parameterize the gauge-allowed \(\mu\)--\(\tau\) Yukawa entries, which do not require an \(S/\Lambda\) insertion. In the benchmark adopted in the manuscript, however, \(y_{\mu\tau}=0\), so \(b=b'=0\); the general form above displays the allowed texture, while the benchmark charged-lepton rotation has no \(\mu\)--\(\tau\) mixing. In either case, the electron sector remains an isolated block.
+
+Because \(M_\nu\) is complex symmetric, its diagonalization is a Takagi factorization,
+\[
+U_\nu^T M_\nu U_\nu=\operatorname{diag}(m_1,m_2,m_3),
+\]
+whereas the left-handed charged-lepton rotation is defined by
+\[
+U_L^\dagger Y_\ell Y_\ell^\dagger U_L
+=\operatorname{diag}(y_e^2,y_\mu^2,y_\tau^2).
+\]
+The two unitary matrices therefore have the block forms
 \[
 U_\nu=\operatorname{diag}(1,U_\nu^{(23)}),\qquad
 U_L=\operatorname{diag}(1,U_L^{(23)}),
@@ -418,11 +429,24 @@ m_D=\begin{pmatrix}d_e&0&0\\0&d_{\mu\mu}&d_{\mu\tau}\\0&d_{\tau\mu}&d_{\tau\tau}
 \qquad
 M_R=\begin{pmatrix}M_e&0&0\\0&M_{\mu\mu}&M_{\mu\tau}\\0&M_{\mu\tau}&M_{\tau\tau}\end{pmatrix}.
 \]
-The lower-right \(2\times2\) blocks may contain nontrivial \(\mu\)--\(\tau\) mixing: the \(\mu\tau\) bilinear is neutral under \(U_A(1)_{L_{\mu-\tau}}\), while diagonal \(\mu\mu\) and \(\tau\tau\) entries can be generated with the appropriate \(S^\dagger\) and \(S\) insertions. Neither matrix connects the electron sector to the other two families. Their inverses and products preserve this decomposition.
+The gauge-invariant operator structure further distinguishes the two matrices. For the Dirac mass terms, the diagonal operators
+\[
+\overline L_\mu\widetilde H N_{R\mu},\qquad
+\overline L_\tau\widetilde H N_{R\tau}
+\]
+are allowed without an \(S\) insertion, whereas the off-diagonal operators require
+\[
+\frac{S}{\Lambda}\,\overline L_\mu\widetilde H N_{R\tau},
+\qquad
+\frac{S^\dagger}{\Lambda}\,\overline L_\tau\widetilde H N_{R\mu}.
+\]
+For the Majorana matrix the pattern is reversed: \(N_{R\mu}^T C N_{R\tau}\) is neutral and can have a bare mass, while the diagonal terms require \(S^\dagger N_{R\mu}^T C N_{R\mu}\) and \(S N_{R\tau}^T C N_{R\tau}\), respectively. Thus, after \(\langle S\rangle\neq0\), the lower-right \(2\times2\) blocks of both matrices can be nontrivial, but neither matrix connects the electron sector to the \(\mu\)--\(\tau\) sector. The inverse and products of such block-diagonal matrices preserve this decomposition.
+
+The new right-handed neutrinos occur as a pair with opposite \(U_A(1)_{L_{\mu-\tau}}\) charges. Since they are SM singlets, their contributions to the cubic and mixed gravitational \(U_A(1)\) anomalies cancel pairwise. This is a diagnostic extension used to test whether adding gauge-compatible \(N_R\) fields alone resolves the mixing problem; these fields are not part of the minimal UV field content specified in the manuscript.
 \[
 M_\nu=-m_D M_R^{-1}m_D^T
 \]
-also remains block diagonal and cannot generate the missing electron-flavor mixing. Right-handed neutrinos with the gauge-compatible charges therefore do not, by themselves, solve the PMNS problem. Obtaining electron--muon or electron--tau entries requires additional symmetry-breaking structure or different charge assignments, together with a consistent specification of the extended neutrino mass and anomaly structure.
+therefore remains block diagonal and cannot generate the missing electron-flavor mixing. Right-handed neutrinos with the gauge-compatible charges do not, by themselves, solve the PMNS problem. Obtaining electron--muon or electron--tau entries requires additional symmetry-breaking structure or different charge assignments, together with a consistent specification of the extended neutrino mass and anomaly structure.
 
 Related gauged \(L_\mu-L_\tau\) constructions that address neutrino masses and mixing are discussed by Heeck and Rodejohann, Phys. Rev. D \textbf{84}, 075007 (2011)~\cite{Heeck:2011wj}, and Asai, Hamaguchi and Nagata, Eur. Phys. J. C \textbf{77}, 763 (2017)~\cite{Asai:2017ryy}. These examples use model-dependent field content and charge assignments, so their neutrino-sector mechanisms cannot be transferred unchanged to the present axial construction.
 
@@ -672,13 +696,11 @@ For \(\mu^+\mu^-\to\tau^+\tau^-\), neglecting the external-lepton masses, the un
 \]
 where
 \[
-\mathcal A_{ij}
-=
-\frac{e^2}{s}
-+\frac{g_i^Zg_j^Z}{s-m_Z^2+i m_Z\Gamma_Z}
-+\frac{g_i^\mu g_j^\tau}{s-m_{A'}^2+i m_{A'}\Gamma_{A'}},
-\qquad i,j=L,R.
+g_Z=\frac{e}{s_Wc_W},\qquad
+g_L^Z=g_Z\left(-\frac12+s_W^2\right),\qquad
+g_R^Z=g_Zs_W^2.
 \]
+Here \(i\) labels the initial-state muon chirality and \(j\) the final-state tau chirality. We define \(\theta\) as the angle between the incoming \(\mu^-\) and outgoing \(\tau^-\) momenta in the center-of-mass frame, so \(\cos\theta>0\) is the forward \(\tau^-\) hemisphere.
 The vector and axial charge assignments are
 \[
 \begin{aligned}
@@ -692,7 +714,7 @@ The vector and axial charge assignments are
 \]
 The sign reversal between the left- and right-handed couplings changes the helicity amplitudes and the relative weights of the \((1+\cos\theta)^2\) and \((1-\cos\theta)^2\) terms. Thus a total-rate reinterpretation of the vector result can obscure the axial-current effect, whereas the angular distribution retains sensitivity to the chiral structure.
 
-The forward--backward asymmetry,
+For the same central angular acceptance \(|\cos\theta|<0.9\) used in the figure, the cut forward--backward asymmetry is
 \[
 A_{\rm FB}
 =
@@ -703,27 +725,41 @@ A_{\rm FB}
 {\displaystyle
 \int_{-0.9}^{0.9}d\cos\theta\,\frac{d\sigma}{d\cos\theta}},
 \]
-isolates the forward--backward odd part of the distribution and is therefore a chirality-sensitive observable that does not require polarized initial beams. In the benchmark shown in the paper, \(\sqrt{s}=3\,\mathrm{TeV}\), \(m_{A'}=1\,\mathrm{TeV}\), and \(g_X=0.05\), the vector benchmark changes the total rate in \(|\cos\theta|<0.9\) by about \(5\%\), whereas the axial benchmark changes it by about \(2\%\). In contrast, the axial benchmark produces \(\Delta A_{\rm FB}\simeq-2.9\times10^{-2}\), larger in magnitude than the vector shift for the same benchmark. This comparison demonstrates why an angular observable is more discriminating than a simple total-rate rescaling for the axial interaction.
+isolates the forward--backward odd part of the distribution and is therefore a chirality-sensitive observable that does not require polarized initial beams. The fully inclusive definition corresponds to replacing the cut value \(0.9\) by \(1\). In the benchmark shown in the paper, \(\sqrt{s}=3\,\mathrm{TeV}\), \(m_{A'}=1\,\mathrm{TeV}\), and \(g_X=0.05\), the vector benchmark changes the total rate in \(|\cos\theta|<0.9\) by about \(5\%\), whereas the axial benchmark changes it by about \(2\%\). In contrast, the axial benchmark produces \(\Delta A_{\rm FB}\simeq-2.9\times10^{-2}\), larger in magnitude than the vector shift for the same benchmark. This comparison demonstrates why an angular observable is more discriminating than a simple total-rate rescaling for the axial interaction.
 
-Polarization observables would provide complementary information because they project separately onto initial- and final-state chiral amplitudes. For example, with polarized muon beams one may form
+Polarization observables would provide complementary information because they project separately onto initial- and final-state chiral amplitudes. With both initial beams polarized, a standard left--right asymmetry can be defined by
 \[
 A_{\rm LR}^{\mu}
 =
-\frac{\sigma(\mu^-_L\mu^+)-\sigma(\mu^-_R\mu^+)}
-{\sigma(\mu^-_L\mu^+)+\sigma(\mu^-_R\mu^+)},
+\frac{\sigma_{LR}-\sigma_{RL}}{\sigma_{LR}+\sigma_{RL}},
 \]
-while final-state tau polarimetry can access
+where
+\[
+\sigma_{LR}\equiv\sigma(\mu^-_L\mu^+_R\to\tau^+\tau^-),\qquad
+\sigma_{RL}\equiv\sigma(\mu^-_R\mu^+_L\to\tau^+\tau^-).
+\]
+With unpolarized initial beams, final-state tau polarimetry can instead measure
 \[
 P_\tau
 =
-\frac{\sigma(\tau^-_R)-\sigma(\tau^-_L)}
-{\sigma(\tau^-_R)+\sigma(\tau^-_L)}.
+\frac{\sigma_{\tau_R}-\sigma_{\tau_L}}
+{\sigma_{\tau_R}+\sigma_{\tau_L}},
 \]
-These observables resolve additional helicity combinations beyond the unpolarized \(A_{\rm FB}\) distribution. We use \(A_{\rm FB}\) as the representative observable because it already tests the chiral structure through the unpolarized angular distribution without requiring polarized beams or final-state tau polarimetry.
+where
+\[
+\sigma_{\tau_R}\equiv\sigma(\mu^+\mu^-\to\tau^-_R\tau^+_L),\qquad
+\sigma_{\tau_L}\equiv\sigma(\mu^+\mu^-\to\tau^-_L\tau^+_R)
+\]
+in the relativistic limit. These observables resolve helicity combinations beyond the unpolarized \(A_{\rm FB}\) distribution. We use \(A_{\rm FB}\) as the representative observable because it already tests the chiral structure through the unpolarized angular distribution, without requiring polarized beams or final-state tau polarimetry; no quantitative polarization reach is claimed.
 
-The \(ee\) final state is not an equivalent tree-level channel in the pure-axial effective-current limit, because \(A'\) has no tree-level coupling to electrons. An electron coupling can arise through loop-induced kinetic mixing, whose size in the equal-mixing benchmark is quantified under Major Point~4.2; in the tabulated low-mass range, \(|\epsilon_{\gamma A'}|\leq2.12\times10^{-7}\) for \(g_X\leq0.1\), corresponding to \(e|\epsilon_{\gamma A'}|\lesssim6.4\times10^{-8}\). Thus an \(ee\) signal is controlled by a loop-induced coupling rather than the direct muon and tau couplings that govern the \(\tau^+\tau^-\) channel.
+The \(ee\) final state is not an equivalent tree-level channel in the pure-axial effective-current limit, because \(A'\) has no tree-level coupling to electrons. An electron coupling can arise through loop-induced kinetic mixing. The equal-mixing benchmark gives \(|\epsilon_{\gamma A'}|\leq2.12\times10^{-7}\) for \(g_X\leq0.1\) in the tabulated low-mass, on-shell range, corresponding to \(e|\epsilon_{\gamma A'}|\lesssim6.4\times10^{-8}\). This number is not a prediction for a multi-TeV muon collider: the mixing is momentum dependent, and the relevant virtuality for \(\mu^+\mu^-\to e^+e^-\) is \(q^2=s\). A collider-level \(ee\) prediction would require evaluating \(\epsilon_{\gamma A'}(s)\) with the corresponding matching condition. Thus, unlike the direct tree-level \(\tau^+\tau^-\) channel, the \(ee\) channel is loop induced in the pure-axial limit.
 
-We agree that \(S\) is an important complementary UV target for a future Higgs factory. As the radial mode associated with \(U_A(1)_{L_{\mu-\tau}}\) breaking, it couples to the Standard Model through the Higgs portal \((H^\dagger H)(S^\dagger S)\). At leading order, Higgs mixing gives an associated-production rate \( \sigma(e^+e^-\to Zs)\propto\sin^2\theta_{hs}\), and, when \(m_s<m_h/2\), can also allow the exotic decay \(h\to ss\). The rates and visible final states depend on the portal mixing, the scalar mass, and the scalar decay pattern, including \(s\to A'A'\) when allowed; the scalar mass and coupling relations and the relevant direct searches are discussed under Major Point~1. The Higgs-factory scalar programme is therefore complementary to, rather than replaced by, the muon-collider angular test of the \(A'\) current.
+We agree that \(S\) is an important complementary UV target for a future Higgs factory. The renormalizable portal operator \((H^\dagger H)(S^\dagger S)\) is allowed by the gauge symmetry; a nonzero portal coefficient induces Higgs--singlet mixing. For \(m_s<\sqrt{s}-m_Z\), this mixing permits associated production \(e^+e^-\to Zs\), with a rate proportional to \(\sin^2\theta_{hs}\). Separately, if \(m_s<m_h/2\), the exotic decay \(h\to ss\) can be kinematically open. Its rate is controlled by the trilinear coupling \(g_{hss}\), defined by \(\mathcal L\supset-\tfrac12g_{hss}h s^2\), and is not fixed by \(\sin^2\theta_{hs}\) alone:
+\[
+\Gamma(h\to ss)=\frac{g_{hss}^2}{32\pi m_h}
+\sqrt{1-\frac{4m_s^2}{m_h^2}}.
+\]
+Both \(g_{hss}\) and \(\theta_{hs}\) depend on the scalar potential and portal parameter. Since the benchmark used for the axial-vector phenomenology assumes negligible Higgs--singlet mixing, these channels are identified as complementary possibilities rather than assigned a numerical rate or reach. The scalar decay pattern, including \(s\to A'A'\) when allowed, further determines the visible final states. The Higgs-factory scalar programme is therefore complementary to, rather than replaced by, the muon-collider angular test of the \(A'\) current.
 
 Accordingly, the muon-collider result is presented as a concrete example of a future chirality-sensitive test, not as a detector-level discovery or exclusion projection. Its purpose is to show that the axial interaction has a distinctive angular signature that is not captured by a vector-to-axial total-rate reinterpretation, while the scalar \(S\) remains a separate target for a future Higgs factory.
 
