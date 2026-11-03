@@ -588,7 +588,36 @@ Neutrino oscillation observations. See point \#3 above. It appears that this mod
 
 \noindent {\bf Reply.}
 
-The original charge-two-scalar theory permits a \(\mu\)--\(\tau\) rotation but leaves the electron family unmixed; it does not generically predict the identity, and that restricted texture cannot reproduce oscillation data. The completion under Major Point~3 adds \(Q_X(\sigma)=1\) and \(Q_X(N_R)=(0,1,-1)\). Its general \(M_R\), Eq.~\eqref{eq:reply-neutrino-matrices}, removes the electron block. Equation~\eqref{eq:reply-neutrino-reconstruction} reconstructs the heavy matrix for a chosen light-neutrino spectrum and PMNS matrix. Thus oscillations can be included through the established two-singlet seesaw~\cite{Borah:2021twoSingletSeesaw,He:2024twoSingletHNL}, with the VEV and flavor assumptions stated there. This does not ascribe realistic mixing to the original \(S\)-only field content.
+The PMNS structure is determined by whether the neutrino sector is restricted to the original charge-two scalar \(S\) or is supplied with the renormalizable completion specified in our response to Major Point~3. In the \(S\)-only limit, the VEV of \(S\) leaves the residual \(Z_2\) transformation described there, under which the electron family is even and the \(\mu\)- and \(\tau\)-families are odd. Both the charged-lepton and light-neutrino mass matrices therefore preserve the \(e\oplus(\mu,\tau)\) block structure. After diagonalizing the charged-lepton mass matrix, the resulting mixing matrix has the form
+\[
+U_{\rm PMNS}=\operatorname{diag}(1,U_{23}),
+\]
+up to phases and the ordering of the neutrino mass eigenstates. Thus the PMNS matrix need not be exactly the identity: a nontrivial \(\mu\)--\(\tau\) rotation is allowed. The defining restriction is that the electron flavor does not mix with the other two flavors, in conflict with the observed nonzero solar and reactor mixing angles.
+
+A renormalizable neutrino-mass completion removes this selection rule while retaining the original axial gauge and charged-lepton construction. We retain \(S\), introduce a complex SM-singlet scalar \(\sigma\) with \(Q_X(\sigma)=+1\), and add three right-handed neutrinos with \(Q_X(N_R)=(0,+1,-1)\). Since \(Q_X(N_{R\alpha})=Q_X(L_\alpha)\) and \(Q_X(H)=0\), the diagonal Dirac Yukawa terms are gauge invariant. The nonzero \(\sigma\) VEV breaks the residual \(Z_2\) and generates the previously forbidden \(e\)--\(\mu\) and \(e\)--\(\tau\) entries of \(M_R\); the existing \(S\) generates the \(\mu\mu\) and \(\tau\tau\) entries, while the \(ee\) and \(\mu\tau\) entries are allowed as bare Majorana masses. The resulting general symmetric matrix is given explicitly in Eq.~\eqref{eq:reply-neutrino-matrices}. In particular, the axial charges of the right-handed charged leptons do not obstruct this construction: they do not enter the neutrino Dirac or Majorana mass terms.
+
+With
+\[
+m_D=\frac{v_h}{\sqrt2}\operatorname{diag}(y_e,y_\mu,y_\tau),
+\qquad
+M_\nu\simeq-m_D M_R^{-1}m_D^T,
+\]
+the six independent entries of \(M_R\) provide the required flavor structure. The construction demonstrates the compatibility with a general three-flavor mixing matrix explicitly. For a nonsingular target light-neutrino mass matrix, with a chosen nonzero mass spectrum \(\widehat m\) and observed \(U_{\rm PMNS}\), define
+\[
+U_\nu=U_L U_{\rm PMNS},\qquad
+M_\nu=U_\nu^*\widehat m\,U_\nu^\dagger,
+\]
+where \(U_L\) is the left-handed charged-lepton rotation. The reconstruction therefore uses the actual charged-lepton basis and does not require setting \(U_L\) to the identity. The additional \(\sigma\)-induced charged-lepton operators are subject to the flavor assumptions specified under Major Point~3. The corresponding heavy-neutrino matrix is then reconstructed as
+\[
+M_R=-m_D^T M_\nu^{-1}m_D.
+\]
+Every entry of this reconstructed matrix has a gauge-invariant origin among the terms in Eq.~\eqref{eq:reply-neutrino-matrices}. This is a constructive seesaw realization of the observed mass splittings and three-flavor PMNS mixing, rather than an inference based only on parameter counting. The same construction and its correspondence to the two-singlet-scalar type-I seesaw literature are detailed under Major Point~3~\cite{Borah:2021twoSingletSeesaw,He:2024twoSingletHNL}.
+
+The extension is also consistent with the gauge sector and anomaly conditions. For canonical gauge kinetic terms, before the small kinetic-mixing effects treated under Major Point~4.2, the two scalar VEVs give
+\[
+m_{A'}^2=g_X^2(4v_s^2+v_\sigma^2),
+\]
+with the one-VEV relation recovered only in the small-\(r_\sigma\) reference regime specified under Major Point~3. In a left-handed Weyl basis the added singlet-neutrino charges are \((0,-1,+1)\), whose linear and cubic sums vanish; the new fermions are SM singlets, and the scalar \(\sigma\) does not contribute to chiral anomalies. The neutrino-oscillation concern is therefore addressed by an explicit, gauge-invariant and anomaly-consistent neutrino-mass completion: the restricted block form characterizes the \(S\)-only limit, whereas the \(\sigma+3N_R\) construction accommodates the observed three-flavor mixing.
 
 \medskip
 \noindent {\bf 4.2)}.
