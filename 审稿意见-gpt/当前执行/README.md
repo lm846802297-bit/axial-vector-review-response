@@ -24,6 +24,7 @@
 | 论文正文修改 | PROJECT_STATUS → 正文待同步清单 → 作者选定的活动源文件及依赖 → 对应 v5.7 专题推导/文献 |
 | PMNS/中微子问题 | 动态研究决策登记表 → 本目录 PMNS 路线决策记录 → v5.7 Major 3 → 当前回复信 Major 3/4.1 → 原始模型荷表 |
 | Scalar/Higgs portal | 动态研究决策登记表 → portal 专题指南与计算证据 → v5.7 Major 1 → 当前回复信 Major 1/Minor 5 → PR #32（如继续重铸） |
+| Table II / 低质量标量约束 | 2026-11-04 Table II 详细修改方案 → Fiorillo v2 / Liu–Tang / Caputo 原文 → 活动论文源文件与 references.bib；不将 muon-only loop limits 直接当作完整 UV exclusion |
 | Kinetic mixing/有限矢量耦合 | 动态研究决策登记表 → 对应计算账本 → v5.7 Major 4 → 当前回复信 Major 4.2/4.3 |
 | Stellar/SN | 动态研究决策登记表 → PR #30 研究报告和脚本 → 审稿人引用的原始文献；不要把尚未完成的输运工作当成已验证 |
 | Muon Collider | 当前回复信 Minor Point 5 → v5.7 Minor 专题 → 论文正文同步清单；区分正文篇幅与回复信论证详略 |
@@ -40,6 +41,7 @@
 - [当前正式回复信 TeX（2026-11-04，PR #38 已合并）](../../Replies_to_Referee_3_referee_facing_2026-11-04.tex)：包含标量部分衰变宽度、可见分支比及 Belle II spin-0 标量搜索分类修正。
 - [2026-11-04 标量回复与 Belle II 文献核查记录](论文修改与一致性核查/2026-11-04/标量回复与BelleII文献核查_2026-11-04.md)：内部证据与正文待同步事项。
 - [2026-11-03 论文正文待同步修改清单](论文修改与一致性核查/2026-11-03/论文正文待同步修改清单_2026-11-03.md)：内部状态文件，不进入正式回复信。
+- [2026-11-04 Table II 低质量标量约束正文修改详细方案](论文修改与一致性核查/2026-11-04/Table_II低质量标量约束_正文修改详细方案_2026-11-04.md)：保存推荐的详细表格、LaTeX、caption、表格前后解释、直接/间接约束区分、μ/τ 环匹配与 references.bib 待办；正文尚未修改。
 - [PR #14 中的历史 Diff v2.4](https://github.com/lm846802297-bit/axial-vector-review-response/pull/14/files)：仅为历史修订方案，不能视为主文已经修改。
 - [2026-10-23 会议记录与观点总结](../会议记录/2026-10-23/README.md)：记录当时讨论；需要确认原话时回查文字稿，不能以会议口头意见替代物理核验。
 
