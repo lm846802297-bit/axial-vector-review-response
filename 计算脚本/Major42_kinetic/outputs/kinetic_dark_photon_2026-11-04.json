@@ -1,14 +1,20 @@
 {
-  "scope": "Equal right-handed mixing, paired degenerate heavy thresholds, zero independent matching coefficient; closed new channels.",
+  "scope": "Equal right-handed mixing, paired degenerate heavy thresholds, epsilon_ind(mu_match)=0; Br_inv includes the direct dimuon channel above threshold.",
   "inputs": {
     "e": "0.3028",
+    "m_e_GeV": "0.00051099895",
     "m_mu_GeV": "0.105658",
     "m_tau_GeV": "1.77686",
     "theta_R": "0.01",
-    "experimental_reference_epsilon": "1e-4",
-    "experimental_reference_mass_GeV": "0.1",
-    "reference_type": "order-of-magnitude comparison only; not a digitized limit",
-    "experiment": "NA64 electron beam, arXiv:2307.02404, Fig. 3"
+    "matching_condition": "epsilon_ind(mu_match)=0",
+    "NA64_experiment": "NA64 electron beam, arXiv:2307.02404, Fig. 3, 90% CL",
+    "NA64_comparison_masses_GeV": [
+      "0.01",
+      "0.1",
+      "0.2",
+      "0.3"
+    ],
+    "NA64_digitization": "visual log-log read-off; conservative lower edge used; not official tabulated data"
   },
   "results": {
     "loop_table": [
@@ -46,6 +52,13 @@
         "epsilon_per_g_imag": "-9.64922487372384133e-8",
         "abs_epsilon_per_g": "2.11977571261363837e-6",
         "ratio_to_zero_momentum": "1.46886414699513323"
+      },
+      {
+        "m_A_GeV": "0.3",
+        "epsilon_per_g_real": "-1.59291382463568909e-6",
+        "epsilon_per_g_imag": "-7.11539268498672204e-7",
+        "abs_epsilon_per_g": "1.74460957905518919e-6",
+        "ratio_to_zero_momentum": "1.20889886884250336"
       },
       {
         "m_A_GeV": "0.5",
@@ -123,30 +136,137 @@
       "scope": "Checks threshold cancellation and scale independence; not a full UV fit."
     },
     "NA64_kinematic_check": {
-      "secondary_positron_resonance_Aprime_energy_GeV": "9.78475591779591719",
+      "secondary_positron_resonance_Aprime_energy_GeV_at_100MeV": "9.7847559177959171932",
+      "secondary_positron_resonance_energy_GeV_by_mass": {
+        "0.01": "0.097847559177959171932",
+        "0.1": "9.7847559177959171932",
+        "0.2": "39.139023671183668773",
+        "0.3": "88.062803260163254739"
+      },
       "missing_energy_selection_GeV": "approximately 50",
-      "Gamma_total_over_mass_at_g0p1": "0.000265258238486546502"
+      "Gamma_total_over_mass_at_g0p1_100MeV": "0.000265258238486546502",
+      "prompt_width_qualification": "At g_X=0.1 and 1 the 300 MeV benchmark is prompt; lower g_X may require decay-length-dependent acceptance."
     },
     "common_bare_mass_equal_right_mixing_estimate": {
       "scope": "Leading order in all angles; common bare M_E, equal right angles, abs(theta_L)<=0.01, epsilon_ind=0.",
       "heavy_threshold_abs_bound_per_g": "2.55667120057498977e-7",
       "total_abs_bound_per_g_at_100MeV": "1.74953278910137223e-6"
-    }
+    },
+    "NA64_mass_dependent_comparison": [
+      {
+        "m_A_GeV": "0.01",
+        "epsilon_per_g_abs": "1.4435962343038410024e-6",
+        "Br_inv": "0.99999999999980893313",
+        "Gamma_mumu_over_Gamma_nunu": "0",
+        "Gamma_ee_over_Gamma_nunu": "1.9106687169009030693e-13",
+        "epsilon_eff_per_g": "1.4435962343037030907e-6",
+        "NA64_epsilon_90CL_visual_interval": [
+          "8e-6",
+          "2e-5"
+        ],
+        "NA64_conservative_lower_edge_used": "8e-6",
+        "epsilon_eff_over_limit_at_gX_0p1": "0.018044952928796288634",
+        "rate_over_limit_at_gX_0p1": "0.00032562032620247375501",
+        "epsilon_eff_over_limit_at_gX_1": "0.18044952928796288634",
+        "rate_over_limit_at_gX_1": "0.032562032620247375501",
+        "secondary_positron_resonance_energy_GeV": "0.097847559177959171932",
+        "NA64_missing_energy_cut_GeV": "approximately 50",
+        "production_channel_note": "bremsstrahlung; positron resonance below missing-energy cut"
+      },
+      {
+        "m_A_GeV": "0.1",
+        "epsilon_per_g_abs": "1.493865669043873255e-6",
+        "Br_inv": "0.99999999999979538624",
+        "Gamma_mumu_over_Gamma_nunu": "0",
+        "Gamma_ee_over_Gamma_nunu": "2.046137587121671166e-13",
+        "epsilon_eff_per_g": "1.4938656690437204223e-6",
+        "NA64_epsilon_90CL_visual_interval": [
+          "5e-5",
+          "1.2e-4"
+        ],
+        "NA64_conservative_lower_edge_used": "5e-5",
+        "epsilon_eff_over_limit_at_gX_0p1": "0.0029877313380874408446",
+        "rate_over_limit_at_gX_0p1": "8.9265385485897697473e-6",
+        "epsilon_eff_over_limit_at_gX_1": "0.029877313380874408446",
+        "rate_over_limit_at_gX_1": "0.00089265385485897697473",
+        "secondary_positron_resonance_energy_GeV": "9.7847559177959171932",
+        "NA64_missing_energy_cut_GeV": "approximately 50",
+        "production_channel_note": "bremsstrahlung; positron resonance below missing-energy cut"
+      },
+      {
+        "m_A_GeV": "0.2",
+        "epsilon_per_g_abs": "1.8164335795077658701e-6",
+        "Br_inv": "0.9999999999996974823",
+        "Gamma_mumu_over_Gamma_nunu": "0",
+        "Gamma_ee_over_Gamma_nunu": "3.0251769684391538865e-13",
+        "epsilon_eff_per_g": "1.8164335795074911185e-6",
+        "NA64_epsilon_90CL_visual_interval": [
+          "7e-5",
+          "1.8e-4"
+        ],
+        "NA64_conservative_lower_edge_used": "7e-5",
+        "epsilon_eff_over_limit_at_gX_0p1": "0.0025949051135821301692",
+        "rate_over_limit_at_gX_0p1": "6.7335325484946878745e-6",
+        "epsilon_eff_over_limit_at_gX_1": "0.025949051135821301692",
+        "rate_over_limit_at_gX_1": "0.00067335325484946878745",
+        "secondary_positron_resonance_energy_GeV": "39.139023671183668773",
+        "NA64_missing_energy_cut_GeV": "approximately 50",
+        "production_channel_note": "bremsstrahlung; positron resonance below missing-energy cut"
+      },
+      {
+        "m_A_GeV": "0.3",
+        "epsilon_per_g_abs": "1.7446095790551891852e-6",
+        "Br_inv": "0.73661460204049084885",
+        "Gamma_mumu_over_Gamma_nunu": "0.35756201035073371668",
+        "Gamma_ee_over_Gamma_nunu": "2.7906684794035608986e-13",
+        "epsilon_eff_per_g": "1.4973330633382769586e-6",
+        "NA64_epsilon_90CL_visual_interval": [
+          "1e-4",
+          "2.5e-4"
+        ],
+        "NA64_conservative_lower_edge_used": "1e-4",
+        "epsilon_eff_over_limit_at_gX_0p1": "0.0014973330633382769586",
+        "rate_over_limit_at_gX_0p1": "2.2420063025659885182e-6",
+        "epsilon_eff_over_limit_at_gX_1": "0.014973330633382769586",
+        "rate_over_limit_at_gX_1": "0.00022420063025659885182",
+        "secondary_positron_resonance_energy_GeV": "88.062803260163254739",
+        "NA64_missing_energy_cut_GeV": "approximately 50",
+        "production_channel_note": "bremsstrahlung plus secondary-positron resonance"
+      }
+    ],
+    "NA64_curve_digitization": {
+      "source": "Andreev et al. (NA64), PRL 131, 161801 (2023), arXiv:2307.02404, Fig. 3, page 3",
+      "method": "manual visual read-off in log-log coordinates from the published PDF; intervals include line-thickness/read-off uncertainty",
+      "uncertainty": "approximately 0.2--0.3 dex; conservative lower interval edge used in all ratios",
+      "interpretation": "90% CL invisible-dark-photon epsilon limit; not a detector-level recast",
+      "rescaling": "epsilon_eff = |epsilon_gammaAprime(m_Aprime^2)| sqrt(Br_inv)"
+    },
+    "Gamma_mumu_over_Gamma_nunu_300MeV": "0.35756201035073371668",
+    "Br_inv_300MeV": "0.73661460204049084885"
   },
   "verification": {
     "working_precision_decimal_digits": [
       35,
       55
     ],
-    "max_relative_change_loop_magnitudes": "0.0"
+    "max_relative_change_loop_magnitudes": "0.0",
+    "mass_comparison_points_GeV": [
+      "0.01",
+      "0.1",
+      "0.2",
+      "0.3"
+    ],
+    "max_relative_change_mass_comparison": "0.0",
+    "method": "Independent mpmath recalculation at 35 and 55 decimal digits; repository script is updated but not executed in a repository runtime during this edit."
   },
   "runtime": {
-    "python": "3.14.7",
-    "mpmath": "1.3.0"
+    "python": "3.13.5",
+    "mpmath": "1.3.0",
+    "note": "Independent calculation verification environment; not the runtime metadata from a direct script invocation."
   },
   "sha256": {
-    "Replies_to_Referee_3_referee_facing_2026-11-04.tex": "fb8e29c9bf6f1ddf3341cb87c0c9dae4fa541f54cc0b4906feabcdede0d5b887",
+    "Replies_to_Referee_3_referee_facing_2026-11-04.tex": "e41dde8e0cfb7f85b960a6ef12112091ad3054cdd2cccb351991335c4bd2dc4c",
     "overleaf-source/axial-vector-model-building-v6/main-v6.tex": "de9132ba936c6b1f3701d7c5a6398e39b89357903be789953972527753540e9a",
-    "check_kinetic_dark_photon.py": "0faf9cdf513a9d91bce6d7f603c50a9caa4b5f0e0c253377d4baa079dd4bf9b9"
+    "check_kinetic_dark_photon.py": "16f8560d7688082452a5a09cfb862bcf10e1104ce5274a206c0618ff173c58d9"
   }
 }
