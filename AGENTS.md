@@ -15,7 +15,7 @@ This file (AGENTS.md) defines mandatory rules. Do not load every research docume
 
 Read:
 - [审稿回复信与论文修改清单写作规范](审稿意见-gpt/写作规范/审稿回复写作原则.md)
-- [Current referee-facing response](Replies_to_Referee_3_referee_facing_2026-11-03.tex)
+- [Current referee-facing response](Replies_to_Referee_3_referee_facing_2026-11-04.tex)
 - [Internal manuscript synchronization checklist](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-03/论文正文待同步修改清单_2026-11-03.md)
 - The relevant original referee-report passage and relevant meeting summary/transcript where needed.
 
