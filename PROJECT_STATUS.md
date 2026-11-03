@@ -1,6 +1,6 @@
 # PROJECT_STATUS — Axial-vector paper revision and referee response
 
-**状态快照日期：** 2026-11-04（PR #38 已合并；PR #39 已提交待审查）  
+**状态快照日期：** 2026-11-04（PR #38、PR #39 均已合并）  
 **本状态快照的初始核验基线：** 243b0e62d9c3912525d1144971a1e81c2af84db7（PR #36 合并前）  
 **项目启动机制合并提交：** [9b4e17519230e9eef65b34b643d3a1f8c19f46a2](https://github.com/lm846802297-bit/axial-vector-review-response/commit/9b4e17519230e9eef65b34b643d3a1f8c19f46a2)  
 **用途：** 每次启动项目时快速恢复当前阶段、权威文件和下一步工作。本文件是可更新的状态快照，不替代物理推导、原始论文、计算证据或作者最新指示。
@@ -9,7 +9,7 @@
 
 ## 1. 项目当前阶段
 
-当前项目处于**正式回复信主线已形成、Major/Minor 一致性审查已完成；PR #38 已合并；PR #39 正在修订正式回复信并归档 Table II 的详细论文修改方案；论文源码与 bibliography 不在本 PR 修改范围内，仍待后续同步**的阶段。
+当前项目处于**正式回复信主线已形成、Major/Minor 一致性审查已完成；PR #38、PR #39 均已合并；PR #39 已统一标量约束相关回复并归档 Table II 的详细论文修改方案；论文源码与 bibliography 尚未修改，待后续按清单同步**的阶段。
 
 已完成：
 - 完整回复信主线按会议决策整理并合并（PR #33）。
@@ -63,9 +63,9 @@
 - 已补入 s→A′A′、s→ℓ⁺ℓ⁻ 的偏宽度和可见分支比论证，限定 Belle 1 GeV 数值映射的 m_A′ > 0.5 GeV 条件，并纠正 Belle-II:2023ydz 与 Belle-II:2024wtd 的 scalar-specific interpretation 分类。
 - 内部正文待同步清单和 2026-11-04 Belle II 文献核查记录已同步更新；论文源码没有修改。
 
-### Table II 回复信修订与论文修改方案（待审查）
-- [PR #39：Revise referee response and add Table II manuscript revision plan](https://github.com/lm846802297-bit/axial-vector-review-response/pull/39)：统一 Major Point 1、Minor Point 6.2 和 Summary 的标量约束数值、文献来源及物理适用条件；保留详细的未来论文修改清单。
-- PR #39 修改正式回复信和内部清单/核查文档；不修改 main-v6.tex 或 references.bib。论文 Table II、正文解释和 Fiorillo v2 的 BibTeX 更新留待后续正文修订。回复信 TeX 尚未编译，PDF 视觉验收尚未完成。
+### Table II 回复信修订与论文修改方案（PR #39 已合并）
+- [PR #39：Revise referee response and add Table II manuscript revision plan](https://github.com/lm846802297-bit/axial-vector-review-response/pull/39)（已合并，squash commit `76268abf`）：统一 Major Point 1、Minor Point 6.2 和 Summary 的标量约束数值、文献来源及物理适用条件；保留详细的未来论文修改清单。回复信不包含标量约束图；是否在论文中加入配套图留待后续决定。
+- PR #39 仅修改正式回复信和内部清单/核查文档；未修改 main-v6.tex 或 references.bib。论文 Table II、正文解释和 Fiorillo v2 的 BibTeX 更新留待后续正文修订。回复信 TeX 尚未编译，PDF 视觉验收尚未完成。
 
 ### 已合并
 - [PR #33](https://github.com/lm846802297-bit/axial-vector-review-response/pull/33)：按会议决策整理完整回复信。
@@ -99,7 +99,7 @@
 ## 6. 当前建议的工作顺序
 
 1. 对当前 2026-11-04 回复信 TeX 编译 PDF，检查引用、公式、分页和图表，并逐页视觉验收。
-2. 审查并决定是否合并 PR #39（回复信修订 + 论文修改清单）；之后另行确认作者当前使用的 Overleaf 正文基线，再按清单实施论文修改；不得把未实施的正文修改写成已完成。
+2. PR #39 已合并。下一步另行确认作者当前使用的 Overleaf 正文基线，再按已归档清单实施论文修改；不得把未实施的正文修改写成已完成。
 3. 优先核对影响主要物理主张的 PMNS、标量约束、portal/mixing 和参数范围；完成后更新清单中的实际正文位置和状态。
 4. 若作者决定继续，分别推进 PR #32 标量重铸和 PR #30 轴矢量超新星输运；不将未完成工作写成已得到的排除结论。
 5. 关键 PR 合并、作者改变路线、正文基线更新或专题验收后，更新本文件和相关决策条目。
