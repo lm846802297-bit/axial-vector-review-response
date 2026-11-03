@@ -18,6 +18,7 @@ Read:
 - [Current referee-facing response](Replies_to_Referee_3_referee_facing_2026-11-04.tex)
 - [Internal manuscript synchronization checklist](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-03/论文正文待同步修改清单_2026-11-03.md)
 - The relevant original referee-report passage and relevant meeting summary/transcript where needed.
+- If the task touches Table II or low-mass scalar constraints, also read [the 2026-11-04 detailed Table II manuscript specification](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-04/Table_II低质量标量约束_正文修改详细方案_2026-11-04.md).
 
 Rules:
 - The response letter is written only for the PRD referee. Directly answer every point and retain necessary derivations, equations, benchmarks, quantitative comparisons, citations, and scientific scope qualifications.
