@@ -6,9 +6,10 @@
 
 | 文件 | SHA-256 |
 |---|---|
-| 根目录 `Replies_to_Referee_3_referee_facing_2026-11-04.tex` | `bbde0930907f2ce3fc823be5e0480c6f5a00fc60db36d276324bdb1ba4bf4bf6` |
-| 同目录回复 PDF（43 页，371383 bytes） | `a16e895f9135661214030679cc076c9cc90a3abec7f071f3864c1b4cdba79d19` |
-| `计算脚本/Major42_kinetic/check_kinetic_dark_photon.py` | `20401e33cf0520e49b48d3567be0b2e06a4fd4f13e9b66324d6ee456bc74bac2` |
+| 根目录 `Replies_to_Referee_3_referee_facing_2026-11-04.tex` | `fb8e29c9bf6f1ddf3341cb87c0c9dae4fa541f54cc0b4906feabcdede0d5b887` |
+| 同目录回复 PDF（45 页，379014 bytes） | `9863180aebb425a404affc0c817cc7e7fd60ac2229126dda1a2a8a7b7cdc8d` |
+| `计算脚本/Major42_kinetic/check_kinetic_dark_photon.py` | `0faf9cdf513a9d91bce6d7f603c50a9caa4b5f0e0c253377d4baa079dd4bf9b9` |
+| `计算脚本/Major42_kinetic/outputs/kinetic_dark_photon_2026-11-04.json` | `d190941cb30a9b60415cbf1e9b616bc6a5d6275773f787e849a77dc739aae72d` |
 
 输入、复数积分实部/虚部、模长、比较比值及源文件哈希均写入 [JSON 输出](../../../../计算脚本/Major42_kinetic/outputs/kinetic_dark_photon_2026-11-04.json)。Major 2/3 的旧哈希和页数作为各自 PR 的历史快照保留，不表示当前 PDF 的状态。
 
@@ -50,7 +51,9 @@ python '计算脚本/Major42_kinetic/check_kinetic_dark_photon.py'
 - 34 个引用键均存在；4 个标签唯一，交叉引用可解析。无需新增 bibliography 条目。
 - 归档 `overleaf-source` 目录无差异；原论文待按 [K-01–K-05](Major4.2-暗光子限制与论文修改对照_2026-11-04.md) 同步。
 - `latexmk` 退出码 0，生成 43 页 PDF；最终 TeX 日志无 warning、undefined reference/citation、overfull 或 underfull box。
-- 已检查全 43 页缩略图以及第 24–27 页大图：圈图公式、参数化式、原数值表、宽度、实验映射和比较段均无裁切/重叠。
+- 按审稿回复写作原则复核 Major 4.2：先给出结果；显式推出轻/重态矢量耦合及四态真空极化；分开说明独立匹配项、重阈值与轻子环；量化共同裸质量下残余阈值；交代 NA64 电子顶点、隐形分支、中微子味旋转和参考质量处的产生运动学；结论限定于所写条件。
+- 复编译后为 45 页；检查第 25–28 页布局，新增公式、阈值估计、分支比和实验比较没有裁切或重叠。最终 TeX 日志无警告、未定义引用或 overfull/underfull box。
+- 计算脚本的四态和检验在两种重整化尺度下与轻子对表达式相差至多 `2.02e-52`，并核实总矢量耦合和为零。两种精度的积分模长一致；新增共同裸质量阈值估计为 `2.5567e-7 |g_X|`，100 MeV 总量级上界为 `1.7496e-6 |g_X|`。NA64 次级正电子共振能量核对为 9.785 GeV，低于约 50 GeV 缺失能选择。
 - 导出的 PDF 与构建文件逐字一致；两个作者本地原始 PDF 不纳入提交。
 
 编译命令：

@@ -10,9 +10,9 @@
 
 ## 2026-11-04 更新：Major 4.2 暗光子实验比较
 
-按作者最新要求，补强 Major 4.2 的圈图估计与 NA64 电子束不可见暗光子结果之间的对应：e epsilon 归一化、Br_inv 近乎为一的宽度依据、epsilon√Br_inv 映射和 100 MeV 的数量级比较。保留等混合角、配对重态阈值和匹配条件；同时修正 Major 4.2/4.3 遗留的“g_X=0.1 为图上限”表述。
+按作者指定的写作原则审查并补强 Major 4.2：首段先给结果；从质量基底手征耦合推导四态矢量耦合及真空极化；区分物理简并与共同裸质量下的残余重阈值；补足中微子味旋转、偏宽度和 NA64 100 MeV 运动学比较。正式回复现为 45 页；27 段审稿引文、Major 2/3 保持不变，34 个引用键可解析。
 
-[PR #42](https://github.com/lm846802297-bit/axial-vector-review-response/pull/42) 已创建，待审阅。正式回复已编译为 43 页 PDF；27 段审稿人引文、Major 2 和 Major 3 正文保持不变，34 个引用键可解析。
+[PR #42](https://github.com/lm846802297-bit/axial-vector-review-response/pull/42) 已创建，待审阅。本轮复核版本已编译为 45 页 PDF；27 段审稿人引文、Major 2 和 Major 3 正文保持不变，34 个引用键可解析。
 
 - [Major 4.2 论证与论文修改对照](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-04/Major4.2-暗光子限制与论文修改对照_2026-11-04.md) 包含 K-01–K-05 正文同步建议、原始文献位置与前后对照。
 - 数值积分、分支比与比较比值通过 [计算入口](计算脚本/Major42_kinetic/check_kinetic_dark_photon.py) 和 [JSON](计算脚本/Major42_kinetic/outputs/kinetic_dark_photon_2026-11-04.json) 追溯；实际编译/内容检查见 [Major 4.2 验证记录](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-04/Major4.2-验证记录_2026-11-04.md)。

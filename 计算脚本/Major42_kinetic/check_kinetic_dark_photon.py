@@ -57,6 +57,21 @@ def evaluate(dps):
     visible_ratio=(e*ep)**2*(1+2*re)*mp.sqrt(1-4*re)
     br=1/(1+visible_ratio)
     reference=mp.mpf('1e-4')
+    # Check the complete four-state sum against the paired-light formula.
+    # The heavy mass is only an algebraic/numerical check, not a fitted UV point.
+    heavy=mp.mpf('20000')
+    weights=[mp.sin(theta)**2,-mp.sin(theta)**2,
+             mp.cos(theta)**2,-mp.cos(theta)**2]
+    scale_checks=[]
+    for scale in map(mp.mpf,['1','1000']):
+        full=e/(2*mp.pi**2)*sum(
+            w*(weighted_log(m,mass)-mp.log(scale**2)/6)
+            for w,m in zip(weights,[mu,tau,heavy,heavy]))
+        scale_checks.append(abs(full/epsilon_per_g(mass)-1))
+    assert abs(sum(weights))<mp.mpf('1e-30')
+    assert max(scale_checks)<mp.mpf('1e-25')
+    resonance_energy=mass**2/(2*me)
+    heavy_threshold_bound=e/(12*mp.pi**2)*mp.mpf('0.01')**2
     comparison=[]
     for g in map(mp.mpf,['0.0001','0.1','1']):
         ratio=g*ep*mp.sqrt(br)/reference
@@ -65,7 +80,22 @@ def evaluate(dps):
                            'rate_over_reference':mp.nstr(ratio**2,18)})
     return {'loop_table':rows,'comparison_at_100MeV':comparison,
             'Gamma_ee_over_Gamma_nunu_100MeV':mp.nstr(visible_ratio,18),
-            'Br_inv_100MeV':mp.nstr(br,18)}
+            'Br_inv_100MeV':mp.nstr(br,18),
+            'four_state_sum_check':{
+                'physical_heavy_masses_GeV':['20000','20000'],
+                'right_handed_angles':['0.01','0.01'],
+                'renormalization_scales_GeV':['1','1000'],
+                'sum_vector_couplings_over_g':mp.nstr(sum(weights),8),
+                'max_relative_difference_from_light_pair':mp.nstr(max(scale_checks),8),
+                'scope':'Checks threshold cancellation and scale independence; not a full UV fit.'},
+            'NA64_kinematic_check':{
+                'secondary_positron_resonance_Aprime_energy_GeV':mp.nstr(resonance_energy,18),
+                'missing_energy_selection_GeV':'approximately 50',
+                'Gamma_total_over_mass_at_g0p1':mp.nstr(mp.mpf('0.1')**2/(12*mp.pi)*(1+visible_ratio),18)},
+            'common_bare_mass_equal_right_mixing_estimate':{
+                'scope':'Leading order in all angles; common bare M_E, equal right angles, abs(theta_L)<=0.01, epsilon_ind=0.',
+                'heavy_threshold_abs_bound_per_g':mp.nstr(heavy_threshold_bound,18),
+                'total_abs_bound_per_g_at_100MeV':mp.nstr(ep+heavy_threshold_bound,18)}}
 
 
 def main():

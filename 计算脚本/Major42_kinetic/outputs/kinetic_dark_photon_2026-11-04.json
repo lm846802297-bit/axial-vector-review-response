@@ -104,7 +104,34 @@
       }
     ],
     "Gamma_ee_over_Gamma_nunu_100MeV": "2.04613758712167117e-13",
-    "Br_inv_100MeV": "0.999999999999795386"
+    "Br_inv_100MeV": "0.999999999999795386",
+    "four_state_sum_check": {
+      "physical_heavy_masses_GeV": [
+        "20000",
+        "20000"
+      ],
+      "right_handed_angles": [
+        "0.01",
+        "0.01"
+      ],
+      "renormalization_scales_GeV": [
+        "1",
+        "1000"
+      ],
+      "sum_vector_couplings_over_g": "0.0",
+      "max_relative_difference_from_light_pair": "2.014076e-52",
+      "scope": "Checks threshold cancellation and scale independence; not a full UV fit."
+    },
+    "NA64_kinematic_check": {
+      "secondary_positron_resonance_Aprime_energy_GeV": "9.78475591779591719",
+      "missing_energy_selection_GeV": "approximately 50",
+      "Gamma_total_over_mass_at_g0p1": "0.000265258238486546502"
+    },
+    "common_bare_mass_equal_right_mixing_estimate": {
+      "scope": "Leading order in all angles; common bare M_E, equal right angles, abs(theta_L)<=0.01, epsilon_ind=0.",
+      "heavy_threshold_abs_bound_per_g": "2.55667120057498977e-7",
+      "total_abs_bound_per_g_at_100MeV": "1.74953278910137223e-6"
+    }
   },
   "verification": {
     "working_precision_decimal_digits": [
@@ -118,8 +145,8 @@
     "mpmath": "1.3.0"
   },
   "sha256": {
-    "Replies_to_Referee_3_referee_facing_2026-11-04.tex": "bbde0930907f2ce3fc823be5e0480c6f5a00fc60db36d276324bdb1ba4bf4bf6",
+    "Replies_to_Referee_3_referee_facing_2026-11-04.tex": "fb8e29c9bf6f1ddf3341cb87c0c9dae4fa541f54cc0b4906feabcdede0d5b887",
     "overleaf-source/axial-vector-model-building-v6/main-v6.tex": "de9132ba936c6b1f3701d7c5a6398e39b89357903be789953972527753540e9a",
-    "check_kinetic_dark_photon.py": "20401e33cf0520e49b48d3567be0b2e06a4fd4f13e9b66324d6ee456bc74bac2"
+    "check_kinetic_dark_photon.py": "0faf9cdf513a9d91bce6d7f603c50a9caa4b5f0e0c253377d4baa079dd4bf9b9"
   }
 }
