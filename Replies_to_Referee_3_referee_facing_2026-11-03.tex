@@ -332,15 +332,41 @@ In this model, \(U_A(1)_{L_{\mu-\tau}}\) invariance allows Weinberg operators fo
 \end{quote}
 
 \noindent {\bf Reply.}
-
-The operator-selection rules for the charge assignment of the minimal construction are
+The residual selection rule follows directly from the charge assignments
 \[
 Q'(L_e,L_\mu,L_\tau)=(0,+Q_\ell,-Q_\ell),\qquad
 Q'(H)=0,\qquad Q'(S)=2Q_\ell.
 \]
-After \(S\) acquires a vacuum expectation value, the residual \(Z_2\) makes the electron-flavor fields even and the \(\mu\)- and \(\tau\)-flavor fields odd. At the effective-field-theory (EFT) level, the Weinberg operators \((L_eH)(L_eH)\) and \((L_\mu H)(L_\tau H)\) are allowed at dimension five. The diagonal operators \((L_\mu H)(L_\mu H)\) and \((L_\tau H)(L_\tau H)\) require one \(S^\dagger\) or \(S\) insertion, respectively, and therefore first occur at dimension six. The \(e\mu\) and \(e\tau\) entries remain forbidden for any number of \(S\) and \(S^\dagger\) insertions, because these insertions change the charge only by even multiples of \(Q_\ell\).
+When \(S\) acquires a vacuum expectation value, the transformation with phase
+\(\alpha=\pi/Q_\ell\) leaves \(\langle S\rangle\) invariant but acts as
+\[
+L_e\longrightarrow L_e,\qquad
+L_\mu\longrightarrow-L_\mu,\qquad
+L_\tau\longrightarrow-L_\tau.
+\]
+The unbroken subgroup is therefore a residual \(Z_2\), under which the electron family is even and the muon and tau families are odd.
 
-If these symmetry-allowed EFT operators are included, the resulting neutrino mass matrix has the block form
+Writing \(\widetilde H=i\sigma_2H^*\), the symmetry-allowed neutrino operators through dimension six include
+\[
+\mathcal L_{\nu}^{(5)}
+=
+\frac{c_{ee}}{\Lambda}(L_e\widetilde H)(L_e\widetilde H)
++\frac{c_{\mu\tau}}{\Lambda}(L_\mu\widetilde H)(L_\tau\widetilde H)
++\mathrm{h.c.},
+\]
+and
+\[
+\mathcal L_{\nu}^{(6)}
+=
+\frac{c_{\mu\mu}}{\Lambda^2}S^\dagger
+(L_\mu\widetilde H)(L_\mu\widetilde H)
++\frac{c_{\tau\tau}}{\Lambda^2}S
+(L_\tau\widetilde H)(L_\tau\widetilde H)
++\mathrm{h.c.},
+\]
+where the Lorentz and electroweak contractions are implicit. Thus the \(ee\) and \(\mu\tau\) entries are allowed at dimension five, while the \(\mu\mu\) and \(\tau\tau\) entries require one \(S^\dagger\) or \(S\) insertion and first occur at dimension six. By contrast, the \(e\mu\) and \(e\tau\) operators are odd under the residual \(Z_2\); inserting any integer number of \(S\) or \(S^\dagger\) fields cannot make them invariant.
+
+If these symmetry-allowed EFT operators are parameterized by their Wilson coefficients, the neutrino mass matrix after symmetry breaking has the form
 \[
 M_\nu=
 \begin{pmatrix}
@@ -348,9 +374,9 @@ A&0&0\\
 0&B\varepsilon&C\\
 0&C&D\varepsilon
 \end{pmatrix},
-\qquad \varepsilon\sim v_s/\Lambda,
+\qquad \varepsilon\sim\frac{v_s}{\Lambda}.
 \]
-while the charged-lepton Yukawa matrix has the corresponding structure
+The effective charged-lepton Yukawa matrix has the corresponding block structure
 \[
 Y_\ell=
 \begin{pmatrix}
@@ -359,14 +385,20 @@ c&0&0\\
 0&b'&d\varepsilon
 \end{pmatrix},
 \]
-where the \(\mu\)--\(\tau\) entries \(b,b'\) are allowed without an \(S/\Lambda\) suppression. Both matrices preserve the \(\{e\}\oplus\{\mu,\tau\}\) block decomposition. Consequently, up to a permutation of the neutrino mass eigenstates and phase conventions,
+where the \(\mu\)--\(\tau\) entries \(b,b'\) are allowed without an \(S/\Lambda\) suppression. Consequently, the unitary matrices that diagonalize the two sectors have the forms
+\[
+U_\nu=\operatorname{diag}(1,U_\nu^{(23)}),\qquad
+U_L=\operatorname{diag}(1,U_L^{(23)}),
+\]
+and their mismatch is
 \[
 U_{\rm PMNS}=U_L^\dagger U_\nu
-=\operatorname{diag}\!\left(1,U_{23}\right).
+=\operatorname{diag}(1,U_{23}),\qquad
+U_{23}=U_L^{(23)\dagger}U_\nu^{(23)}.
 \]
-The PMNS matrix is therefore not necessarily the identity: a nontrivial rotation within the \(\mu\)--\(\tau\) sector may remain. However, one mass eigenstate is purely electron flavor and the other two have no electron-flavor component. Thus the nonzero electron-flavor admixtures required by oscillation data (in particular, the observed nonzero \(\theta_{12}\) and \(\theta_{13}\)) cannot be reproduced by the minimal charge assignment.
+The PMNS matrix is therefore not forced to be the identity: a nontrivial \(\mu\)--\(\tau\) rotation is allowed. However, the electron flavor remains an isolated one-dimensional block, so the minimal charge assignment gives \(\theta_{12}=\theta_{13}=0\) (up to mass-eigenstate ordering and phase conventions) and cannot reproduce the observed nonzero electron-flavor admixtures.
 
-The dimension-five and dimension-six operators specify the symmetry-allowed EFT structures; their presence at the EFT level does not by itself determine their UV origin or coefficients. The minimal renormalizable field content therefore does not generate the electron-flavor entries required for the observed PMNS matrix.
+The operators above identify the EFT structures permitted by the gauge symmetry; their existence as allowed operators does not, by itself, specify a UV origin or predict their Wilson coefficients. In particular, the minimal renormalizable field content used for the axial-vector construction does not supply the additional neutrino-mass dynamics needed to generate the missing electron-flavor entries. This is the precise distinction between allowing neutrino mass operators in the EFT and obtaining a complete neutrino-mass model from the stated UV field content.
 
 \medskip
 \noindent {\bf Reply to Point 3.2}
