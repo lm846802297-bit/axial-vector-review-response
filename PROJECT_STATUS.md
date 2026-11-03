@@ -1,6 +1,6 @@
 # PROJECT_STATUS — Axial-vector paper revision and referee response
 
-**状态快照日期：** 2026-11-04（标量回复补充 PR #37 创建后）  
+**状态快照日期：** 2026-11-04（标量回复补充 PR #38 创建后）  
 **本状态快照的初始核验基线：** 243b0e62d9c3912525d1144971a1e81c2af84db7（PR #36 合并前）  
 **项目启动机制合并提交：** [9b4e17519230e9eef65b34b643d3a1f8c19f46a2](https://github.com/lm846802297-bit/axial-vector-review-response/commit/9b4e17519230e9eef65b34b643d3a1f8c19f46a2)  
 **用途：** 每次启动项目时快速恢复当前阶段、权威文件和下一步工作。本文件是可更新的状态快照，不替代物理推导、原始论文、计算证据或作者最新指示。
@@ -9,7 +9,7 @@
 
 ## 1. 项目当前阶段
 
-当前项目处于**正式回复信主线已形成、Major/Minor 一致性审查已完成；标量衰变宽度与 Belle II 标量文献分类的补充修订已提交 PR #37；论文正文同步和若干独立研究专题仍需分别推进**的阶段。
+当前项目处于**正式回复信主线已形成、Major/Minor 一致性审查已完成；标量衰变宽度与 Belle II 标量文献分类的补充修订已提交 PR #38；论文正文同步和若干独立研究专题仍需分别推进**的阶段。
 
 已完成：
 - 完整回复信主线按会议决策整理并合并（PR #33）。
@@ -45,8 +45,8 @@
 
 | 文件 | 用途 | 状态 |
 |---|---|---|
-| [正式回复信 TeX（main 当前版本）](Replies_to_Referee_3_referee_facing_2026-11-03.tex) | PR #37 合并前的 main 权威文件 | 包含 PR #33/#34 合并后的文字 |
-| [正式回复信 TeX（2026-11-04 候选）](Replies_to_Referee_3_referee_facing_2026-11-04.tex) | PR #37 候选主文件 | 补入 Eq. (33) 两个偏宽度、可见分支比解释，并更正 Belle II spin-0 标量文献分类；尚待审查/合并 |
+| [正式回复信 TeX（main 当前版本）](Replies_to_Referee_3_referee_facing_2026-11-03.tex) | PR #38 合并前的 main 权威文件 | 包含 PR #33/#34 合并后的文字 |
+| [正式回复信 TeX（2026-11-04 候选）](Replies_to_Referee_3_referee_facing_2026-11-04.tex) | PR #38 候选主文件 | 补入 Eq. (33) 两个偏宽度、可见分支比解释，并更正 Belle II spin-0 标量文献分类；尚待审查/合并 |
 | [正文待同步清单](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-03/论文正文待同步修改清单_2026-11-03.md) | 内部正文修改追踪 | 多项仍待修改/核对；不得复制到正式回复信 |
 | [审稿回复写作原则](审稿意见-gpt/写作规范/审稿回复写作原则.md) | 回复信与内部清单的长期规范 | 已合并 |
 | [研究决策与不可回退事项](审稿意见-gpt/项目规范/研究决策与不可回退事项.md) | 当前研究立场及变更历史 | 动态文档，允许作者随最新观点修改 |
@@ -60,7 +60,7 @@
 ## 4. GitHub 工作状态（本次核验）
 
 ### 正式回复信修订（待审查）
-- [PR #37：Add scalar partial widths and correct Belle II scalar interpretations](https://github.com/lm846802297-bit/axial-vector-review-response/pull/37)：新增 2026-11-04 回复信候选文件；补入 (s\to A'A')、(s\to\ell^+\ell^-) 的偏宽度和可见分支比论证；纠正 Belle-II:2023ydz 与 Belle-II:2024wtd 均含 scalar-specific interpretation 的文献分类。PR 合并前 main 仍以 2026-11-03 回复信为准。
+- [PR #38：Add scalar partial widths and correct Belle II scalar interpretations](https://github.com/lm846802297-bit/axial-vector-review-response/pull/37)：新增 2026-11-04 回复信候选文件；补入 (s\to A'A')、(s\to\ell^+\ell^-) 的偏宽度和可见分支比论证；纠正 Belle-II:2023ydz 与 Belle-II:2024wtd 均含 scalar-specific interpretation 的文献分类。PR 合并前 main 仍以 2026-11-03 回复信为准。
 - 同步更新内部正文待同步清单和 2026-11-04 Belle II 文献核查记录；没有修改论文源码。
 
 ### 已合并
@@ -80,8 +80,8 @@
 ## 5. 正式回复信与论文正文的状态边界
 
 ### 正式回复信
-- PR #37 合并前，main 当前主文件仍为根目录 2026-11-03 TeX；PR #33/#34 已合并，Major/Minor 主要论证及交叉一致性已审查。
-- 2026-11-04 候选 TeX 在 PR #37 中补入 Eq. (33) 的 (s\to A'A') 与 (s\to\ell^+\ell^-) 偏宽度、visible-branching-ratio 论证，并纠正 Belle II 两篇 scalar-specific 搜索的描述；尚未合并，也尚未重新编译或进行 PDF 视觉验收。
+- PR #38 合并前，main 当前主文件仍为根目录 2026-11-03 TeX；PR #33/#34 已合并，Major/Minor 主要论证及交叉一致性已审查。
+- 2026-11-04 候选 TeX 在 PR #38 中补入 Eq. (33) 的 (s\to A'A') 与 (s\to\ell^+\ell^-) 偏宽度、visible-branching-ratio 论证，并纠正 Belle II 两篇 scalar-specific 搜索的描述；尚未合并，也尚未重新编译或进行 PDF 视觉验收。
 - PR #31 生成的 PDF 位于 2026-10-28 历史目录，文件名为 Replies_to_Referee_3_referee_facing_2026-10-28.pdf；它不是当前 2026-11-03 回复信的最终编译件。
 - **待核验：** 当前 TeX 是否在 PR #34 合并后重新编译、逐页检查并形成对应 PDF。不能用 PR #31 的旧 PDF 代替。
 
@@ -93,7 +93,7 @@
 
 ## 6. 当前建议的工作顺序
 
-1. 先审查并决定是否合并 PR #37；合并后再对 2026-11-04 当前回复信 TeX 编译 PDF，检查引用、公式、分页和图表，并逐页视觉验收。
+1. 先审查并决定是否合并 PR #38；合并后再对 2026-11-04 当前回复信 TeX 编译 PDF，检查引用、公式、分页和图表，并逐页视觉验收。
 2. 确认作者当前使用的 Overleaf 正文基线，再按 2026-11-03 清单逐项同步；不得把未实施的修改写成已完成。
 3. 优先核对影响主要物理主张的 PMNS、标量约束、portal/mixing 和参数范围；完成后更新清单中的实际正文位置和状态。
 4. 若作者决定继续，分别推进 PR #32 标量重铸和 PR #30 轴矢量超新星输运；不将未完成工作写成已得到的排除结论。
