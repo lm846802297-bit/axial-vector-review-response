@@ -81,7 +81,7 @@
 
 ### 正式回复信
 - PR #38 合并前，main 当前主文件仍为根目录 2026-11-03 TeX；PR #33/#34 已合并，Major/Minor 主要论证及交叉一致性已审查。
-- 2026-11-04 候选 TeX 在 PR #38 中补入 Eq. (33) 的 (s\to A'A') 与 (s\to\ell^+\ell^-) 偏宽度、visible-branching-ratio 论证；限定 Belle 1 GeV 数值映射只在 m_A′ > 0.5 GeV 时直接适用；并纠正 Belle II 两篇 scalar-specific 搜索的描述。尚未合并，也尚未重新编译或进行 PDF 视觉验收。
+- 2026-11-04 候选 TeX 在 PR #38 中补入 Eq. (33) 的 s→A′A′ 与 s→ℓ⁺ℓ⁻ 偏宽度、visible-branching-ratio 论证；限定 Belle 1 GeV 数值映射只在 m_A′ > 0.5 GeV 时直接适用；并纠正 Belle II 两篇 scalar-specific 搜索的描述。尚未合并，也尚未重新编译或进行 PDF 视觉验收。
 - PR #31 生成的 PDF 位于 2026-10-28 历史目录，文件名为 Replies_to_Referee_3_referee_facing_2026-10-28.pdf；它不是当前 2026-11-03 回复信的最终编译件。
 - **待核验：** 当前 TeX 是否在 PR #34 合并后重新编译、逐页检查并形成对应 PDF。不能用 PR #31 的旧 PDF 代替。
 
