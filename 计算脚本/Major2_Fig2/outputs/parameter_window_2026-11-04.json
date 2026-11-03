@@ -1,0 +1,47 @@
+{
+  "scope": "Pure axial, heavy-scalar, no-cancellation reference benchmark; no astrophysical ranking or exclusion recast.",
+  "inputs": {
+    "m_mu_GeV": "0.1056583755",
+    "delta_a_mean": "38e-11",
+    "delta_a_sigma": "63e-11",
+    "sigma_multiplier": 2,
+    "g_display_min": "1e-6",
+    "g_display_max": "1",
+    "mass_display_GeV": [
+      "1e-3",
+      "1e2"
+    ],
+    "m_s_reference_GeV": "10",
+    "lambda_max": "4*pi"
+  },
+  "outputs": {
+    "negative_delta_a_limit_abs": "8.8e-10",
+    "g_limit_per_GeV_light_limit": "0.001764075934301940786558616",
+    "g_limit_at_1MeV_light_limit": "0.000001764075934301940786558616",
+    "g_limit_at_1MeV_exact_integral": "0.00000176353274782632501868974",
+    "F_A_at_1MeV": "1.000616115725477370549026",
+    "coupling_floor_crossing_MeV_light_limit": "0.5668690222202414114193719",
+    "coupling_floor_crossing_MeV_exact_integral": "0.5669342078724068636293088",
+    "v_s_min_GeV_ms10_lambda4pi": "1.99471140200716338969973",
+    "mA_over_g_min_GeV_ms10_lambda4pi": "3.989422804014326779399461",
+    "g_max_unit_charge_sqrt4pi_convention": "3.544907701811032054596335",
+    "g_max_charge2_sqrt4pi_convention": "1.772453850905516027298167"
+  },
+  "verification": {
+    "working_precision_decimal_digits": [
+      40,
+      60
+    ],
+    "max_relative_change": "0.0"
+  },
+  "runtime": {
+    "python": "3.14.7",
+    "mpmath": "1.3.0"
+  },
+  "sha256": {
+    "Replies_to_Referee_3_referee_facing_2026-11-04.tex": "f146eb863253244d72f5335a3be113466202ecd26380df6e373ac2bd5e28e8bb",
+    "overleaf-source/axial-vector-model-building-v6/main-v6.tex": "de9132ba936c6b1f3701d7c5a6398e39b89357903be789953972527753540e9a",
+    "overleaf-source/axial-vector-model-building-v6/plots/axial_vector_constraint.pdf": "376b232856af01995abe5b7350bc1ecc357d51c3b93002b23c8946a0b81f5adb",
+    "check_parameter_window.py": "1e47c77932273ddc76a3fb5ef8024a318f5f14afb7ec64cdf309ce5972581713"
+  }
+}
