@@ -64,7 +64,7 @@
 - 内部正文待同步清单和 2026-11-04 Belle II 文献核查记录已同步更新；论文源码没有修改。
 
 ### Table II 回复信修订与论文修改方案（待审查）
-- [PR #39：Revise referee response and document Table II manuscript updates](https://github.com/lm846802297-bit/axial-vector-review-response/pull/39)：统一 Major Point 1、Minor Point 6.2 和 Summary 的标量约束数值、文献来源及物理适用条件；保留详细的未来论文修改清单。
+- [PR #39：Revise referee response and add Table II manuscript revision plan](https://github.com/lm846802297-bit/axial-vector-review-response/pull/39)：统一 Major Point 1、Minor Point 6.2 和 Summary 的标量约束数值、文献来源及物理适用条件；保留详细的未来论文修改清单。
 - PR #39 修改正式回复信和内部清单/核查文档；不修改 main-v6.tex 或 references.bib。论文 Table II、正文解释和 Fiorillo v2 的 BibTeX 更新留待后续正文修订。回复信 TeX 尚未编译，PDF 视觉验收尚未完成。
 
 ### 已合并
