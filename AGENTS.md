@@ -23,6 +23,7 @@ Rules:
 - The response letter is written only for the PRD referee. Directly answer every point and retain necessary derivations, equations, benchmarks, quantitative comparisons, citations, and scientific scope qualifications.
 - Do not put internal task status, version mismatches, pending manuscript edits, branch/PR/CI information, or workflow notes in the referee-facing letter.
 - Never claim a manuscript edit has been completed unless the actual selected manuscript source has been changed and checked.
+- If the task is limited to the referee-response letter or its internal checklist, do not modify the manuscript source.
 - A genuine scientific limitation is not an internal progress report. State physical and experimental applicability boundaries accurately.
 - Preserve complete scientific reasoning. Remove repetition, redundant definitions, unrelated background, and disclaimers that add no argument.
 - Check that related Major and Minor points use the same model assumptions, conventions, and scope.
