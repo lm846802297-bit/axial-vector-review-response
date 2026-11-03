@@ -257,7 +257,7 @@
       "0.3"
     ],
     "max_relative_change_mass_comparison": "0.0",
-    "method": "Independent mpmath recalculation at 35 and 55 decimal digits; repository script is updated but not executed in a repository runtime during this edit."
+    "method": "Independent mpmath recalculation at 35 and 55 decimal digits; both loop magnitudes and the four-point Br_inv/epsilon_eff/NA64 ratios agree at reported precision. Repository script updated to reproduce both checks; it has not yet been executed in a repository runtime."
   },
   "runtime": {
     "python": "3.13.5",
@@ -267,6 +267,6 @@
   "sha256": {
     "Replies_to_Referee_3_referee_facing_2026-11-04.tex": "e41dde8e0cfb7f85b960a6ef12112091ad3054cdd2cccb351991335c4bd2dc4c",
     "overleaf-source/axial-vector-model-building-v6/main-v6.tex": "de9132ba936c6b1f3701d7c5a6398e39b89357903be789953972527753540e9a",
-    "check_kinetic_dark_photon.py": "16f8560d7688082452a5a09cfb862bcf10e1104ce5274a206c0618ff173c58d9"
+    "check_kinetic_dark_photon.py": "fdaff6e9abc5ee216154dff6882a8107587a7b19fd3f5d6f40ff61a9d3bc2711"
   }
 }
