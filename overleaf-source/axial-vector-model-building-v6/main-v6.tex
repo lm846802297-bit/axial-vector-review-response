@@ -514,34 +514,75 @@ g_X<\sqrt{\frac{\lambda_S^{\rm max}}{2}}\frac{m_{A'}}{m_s},
 \end{equation}
 so increasing $m_s$ suppresses scalar exchange but eventually becomes limited by perturbativity.
 
-The phenomenological constraints on $s$ depend strongly on its mass. For light scalars, macroscopic-force tests, compact-star dynamics, and stellar cooling can impose stringent limits on $y_{s\mu\mu}$ once loop-induced couplings to photons and ordinary matter are included. Table~\ref{tab:scalar_constraints} lists representative bounds on a light scalar $s$.
+The phenomenological constraints on $s$ depend strongly on its mass. Table~\ref{tab:scalar_constraints} summarizes selected, source-reported constraints on the effective scalar--muon Yukawa coupling in the low-mass regime. The entries refer to different observables and source benchmarks; they are not a combined exclusion band or a classification of the full UV parameter space. We distinguish constraints on the muon coupling itself from fifth-force and photon-mediated results that rely on loop-induced interactions with ordinary matter.
 
 \begin{table}[htbp]
 \centering
-%\begin{tabular}{p{0.25\linewidth}p{0.50\linewidth}p{0.2\linewidth}}
-\begin{tabular}{ccc}
+\small
+\begin{tabular}{p{0.27\linewidth}p{0.39\linewidth}p{0.27\linewidth}}
 \hline
-$m_s$ range & representative constraint & approximate $y_{s\mu\mu}^{\rm lim}$ bounds \\
+$m_s$ range & Representative constraint & Approximate $y_{s\mu\mu}$ bound / applicability \\
 \hline
-$m_s<10^{-10}~\mathrm{eV}$ & neutron-star binaries~\cite{Dror:2019uea,Liu:2025zuz} & $\lesssim10^{-20}$ \\
-$m_s\lesssim10^{-2}~\mathrm{eV}$ & fifth-force tests~\cite{Hoskins:1985tn,Kapner:2006si,Blakemore:2021zna} & $\lesssim10^{-16}$ \\
-$m_s\lesssim100~\mathrm{keV}$ & neutron-star cooling~\cite{Fiorillo:2026wso} & $\lesssim1.2\times10^{-12}$ \\
-$m_s\lesssim\mathcal O(10)~\mathrm{MeV}$ & SN~1987A cooling~\cite{Caputo:2021rux,Balazs:2022tjl} & $\lesssim4.2\times10^{-9}$ \\
-$100~\mathrm{keV}\lesssim m_s\lesssim\mathcal O(10)~\mathrm{MeV}$ & SN~1987A and diffuse $\gamma$ rays~\cite{Caputo:2021rux,Balazs:2022tjl} & $\lesssim5\times10^{-11}$ \\
+$10^{-17}\,\mathrm{eV}\lesssim m_s\lesssim2\times10^{-15}\,\mathrm{eV}$
+& Binary-pulsar periastron advance (95\% CL), scalar mediator~\cite{Liu:2025zuz}
+& $\mathcal{O}(10^{-21})$ at the best-sensitivity point $m_s\simeq4\times10^{-16}\,\mathrm{eV}$; not a uniform bound over the interval
+\\[3pt]
+$m_s\lesssim30\,\mathrm{meV}$
+& Fifth-force tests through loop-induced scalar--proton coupling~\cite{Fiorillo:2026wso,Hoskins:1985tn,Kapner:2006si,Blakemore:2021zna}
+& Mass-dependent source constraint; no universal direct $y_{s\mu\mu}$ limit is quoted
+\\[3pt]
+$m_s\lesssim100\,\mathrm{keV}$
+& Neutron-star cooling (Fiorillo et al., v2)~\cite{Fiorillo:2026wso}
+& $\mathcal{O}(10^{-13})$ over the mass-dependent reach; Table~1 gives $7.4\times10^{-14}$ for $m_s\lesssim1\,\mathrm{keV}$
+\\[3pt]
+$m_s\lesssim1\,\mathrm{keV}$
+& SN~1987A cooling, conservative cold-SN model~\cite{Fiorillo:2026wso}
+& $4.2\times10^{-9}$
+\\[3pt]
+$m_s\gtrsim100\,\mathrm{keV}$
+& Diffuse supernova $\gamma$-ray background, free-streaming muonic-scalar benchmark~\cite{Caputo:2021rux}
+& $4.0\times10^{-11}$ in the source benchmark
+\\
 \hline
 \end{tabular}
-\caption{Representative upper bounds $y_{s\mu\mu}\lesssim y_{s\mu\mu}^{\rm lim}(m_s)$ in the low-mass region. The quoted values are order-of-magnitude limits and inherit the production, trapping, and loop-matching assumptions of the cited analyses.}
+\caption{Selected, non-exhaustive, source-reported constraints relevant to the effective scalar--muon Yukawa coupling $y_{s\mu\mu}$. The binary-pulsar entry quotes the best-sensitivity point, not a uniform limit across its sensitivity interval. The fifth-force result is mass-dependent and arises from loop-induced couplings to ordinary matter; it is not a direct, mass-independent Yukawa bound. The stellar-cooling and diffuse-$\gamma$-ray entries retain the production, propagation, and benchmark assumptions of their source analyses. These entries are not combined into a global exclusion of the UV model.}
 \label{tab:scalar_constraints}
 \end{table}
 
-For any fixed $m_s$, such a coupling bound translates into
+The binary-pulsar entry uses the scalar-mediator analysis of Liu and Tang, which studies the interaction $g_{\phi\mu}\phi\bar\mu\mu$ and reports a 95\% CL periastron-advance sensitivity over $10^{-17}\,\mathrm{eV}\lesssim m_\phi\lesssim2\times10^{-15}\,\mathrm{eV}$, reaching $\mathcal{O}(10^{-21})$ at its best-sensitivity point~\cite{Liu:2025zuz}. This is the scalar result relevant to $y_{s\mu\mu}$; the $L_\mu-L_\tau$ vector-mediator analysis of Ref.~\cite{Dror:2019uea} is not used as a scalar-Yukawa bound.
+
+The fifth-force constraint is physically different. In the muon-only benchmark of Fiorillo et al., the loop-induced proton coupling is $g_{\phi p}^{(\mu)}=\alpha^2g_{\phi\mu}/4$. The resulting fifth-force limit is mass-dependent and becomes stronger than the astrophysical limits for $m_\phi\lesssim30\,\mathrm{meV}$~\cite{Fiorillo:2026wso}. It therefore should not be represented by a universal direct upper bound on $y_{s\mu\mu}$. In the present UV completion, the radial scalar couples to both charged leptons,
+\[
+y_{s\mu\mu}=\frac{m_\mu}{v_s},\qquad
+y_{s\tau\tau}=\frac{m_\tau}{v_s},\qquad
+\frac{y_{s\mu\mu}}{m_\mu}=\frac{y_{s\tau\tau}}{m_\tau}=\frac{1}{v_s}.
+\]
+Consequently, the low-energy scalar--photon form factor receives both muon- and tau-loop contributions,
+\[
+g_{s\gamma\gamma}^{\rm UV}(q^2)\propto
+\sum_{\ell=\mu,\tau}Q_\ell^2\frac{y_{s\ell\ell}}{m_\ell}
+F_{1/2}\!\left(\frac{q^2}{4m_\ell^2}\right),
+\]
+which add in the limit $q^2\ll4m_\mu^2$. The muon-only proton matching quoted above is therefore a source benchmark and cannot be transferred unchanged to the complete UV model. A model-specific two-photon/proton matching is required before assigning a UV fifth-force exclusion; no such recast is claimed here.
+
+For neutron-star cooling, Fiorillo et al. (v2) obtain a mass-dependent scalar sensitivity extending to $m_s\lesssim100\,\mathrm{keV}$, with a characteristic coupling reach of $\mathcal{O}(10^{-13})$. Their Table~1 quotes $y_{s\mu\mu}\lesssim7.4\times10^{-14}$ for the tabulated $m_s\lesssim1\,\mathrm{keV}$ benchmark~\cite{Fiorillo:2026wso}. The same table gives $y_{s\mu\mu}\lesssim4.2\times10^{-9}$ for the conservative cold-SN cooling benchmark, also tabulated for $m_s\lesssim1\,\mathrm{keV}$. This value is a free-streaming cooling criterion; it is not a complete trapping or explosion-energy exclusion.
+
+The diffuse supernova $\gamma$-ray entry is a separate observable. Caputo, Raffelt, and Vitagliano consider muon-philic scalars and the two-photon coupling induced by a muon loop. In their free-streaming benchmark, the diffuse cosmic $\gamma$-ray energy budget gives $g_\phi\lesssim0.4\times10^{-10}$ for $m_\phi\gtrsim100\,\mathrm{keV}$~\cite{Caputo:2021rux}. This is not the same constraint as the SN~1987A cooling threshold and is not combined with it. The ALP-only cosmological analysis of Ref.~\cite{Balazs:2022tjl} is not used as a direct muonic-scalar Yukawa bound.
+
+The source constraints in Table~\ref{tab:scalar_constraints} are stated in terms of the effective scalar--muon interaction. Their existence is not invalidated wholesale by the UV decay channel $s\to A'A'$. That channel is open only for $m_s>2m_{A'}$; where it is open, its effect on the scalar lifetime, visible branching fractions, or energy deposition must be included for observables that depend on those quantities. It does not by itself remove the underlying scalar--muon coupling or invalidate every low-mass constraint.
+
+For a source result that can consistently be expressed as a limit on the same effective $y_{s\mu\mu}$ normalization, the one-VEV relation
+\[
+y_{s\mu\mu}=\frac{m_\mu}{v_s}=\frac{2g_Xm_\mu}{m_{A'}}
+\]
+gives
 \begin{equation}
 g_X\lesssim y_{s\mu\mu}^{\rm lim}(m_s)\frac{m_{A'}}{2m_\mu}
-\simeq4.7\times10^{-3}\,y_{s\mu\mu}^{\rm lim}(m_s)
+\simeq4.73\times10^{-3}\,y_{s\mu\mu}^{\rm lim}(m_s)
 \frac{m_{A'}}{\mathrm{MeV}}.
 \label{eq:scalar-limit-to-gx}
 \end{equation}
-The light-scalar searches can therefore provide a powerful complementary probe of the UV completion and, in parts of parameter space, constrain $g_X$ more strongly than direct axial-vector searches.
+This conversion is conditional on the source coupling normalization and the relevant production/propagation assumptions. For the fifth-force and photon-mediated entries, the muon-only source result must first be matched to both charged-lepton loops in the UV model; the equation is not a direct model-independent $g_X$ bound.
 
 
 
