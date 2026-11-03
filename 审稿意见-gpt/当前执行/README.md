@@ -25,7 +25,7 @@
 | 论文正文修改 | PROJECT_STATUS → 正文待同步清单 → 作者选定的活动源文件及依赖 → 对应 v5.7 专题推导/文献 |
 | PMNS/中微子问题 | 动态研究决策登记表 → [2026-11-04 双单态 seesaw 与正文修改对照](论文修改与一致性核查/2026-11-04/Major3-中微子完成机制与论文修改对照_2026-11-04.md) → [数值重构运行入口与 JSON](../../计算脚本/PMNS_Major3/reproduce_pmns_tree_level_reconstruction.py) → 当前回复信 Major 3/4.1 → 原始荷表；旧 PMNS 路线记录仅供历史追溯 |
 | Scalar/Higgs portal | 动态研究决策登记表 → portal 专题指南与计算证据 → v5.7 Major 1 → 当前回复信 Major 1/Minor 5 → PR #32（如继续重铸） |
-| Kinetic mixing/有限矢量耦合 | 动态研究决策登记表 → 对应计算账本 → v5.7 Major 4 → 当前回复信 Major 4.2/4.3 |
+| Kinetic mixing/有限矢量耦合 | [Major 4.2 暗光子限制对照](论文修改与一致性核查/2026-11-04/Major4.2-暗光子限制与论文修改对照_2026-11-04.md) → 动态研究决策登记表 → 对应计算账本 → 当前回复信 Major 4.2/4.3 |
 | Stellar/SN | 动态研究决策登记表 → PR #30 研究报告和脚本 → 审稿人引用的原始文献；不要把尚未完成的输运工作当成已验证 |
 | Muon Collider | 当前回复信 Minor Point 5 → v5.7 Minor 专题 → 论文正文同步清单；区分正文篇幅与回复信论证详略 |
 
