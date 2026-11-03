@@ -657,7 +657,75 @@ What is the purpose of including muon collider bounds? The second half of the pa
 
 
 \noindent {\bf Reply.}
-The muon-collider discussion is an illustrative future-test example rather than a comprehensive collider study or projected exclusion. Since \(A'\) couples directly to muons, the process \(\mu^+\mu^-\to\tau^+\tau^-\) provides a complementary probe of the heavier-mass regime. The forward--backward asymmetry is shown because the angular distribution retains sensitivity to the chiral structure even when the total rate is similar for vector and axial interactions. In the effective-current limit considered here, \(A'\) has no tree-level coupling to electrons, so an \(ee\) final state is not an equivalent direct comparison with \(\tau^+\tau^-\). The scalar \(S\) provides a complementary UV target for a future Higgs factory.
+A high-energy muon collider is a natural complementary probe because \(A'\) couples directly to the initial-state muons and can therefore be tested in the heavier-mass regime, beyond the low-energy probes emphasized in the first part of the paper. Ref.~\cite{Huang:2021nkl} provides a useful vector \(L_\mu-L_\tau\) collider benchmark at \(\sqrt{s}=3\,\mathrm{TeV}\). The axial model, however, cannot be assessed by simply importing the vector result: the left- and right-handed couplings entering the helicity amplitudes are different.
+
+For \(\mu^+\mu^-\to\tau^+\tau^-\), neglecting the external-lepton masses, the unpolarized angular distribution is
+\[
+\frac{d\sigma_{\tau\tau}}{d\cos\theta}
+=
+\frac{s}{128\pi}
+\left[
+\left(|\mathcal A_{LL}|^2+|\mathcal A_{RR}|^2\right)(1+\cos\theta)^2
++
+\left(|\mathcal A_{LR}|^2+|\mathcal A_{RL}|^2\right)(1-\cos\theta)^2
+\right],
+\]
+where
+\[
+\mathcal A_{ij}
+=
+\frac{e^2}{s}
++\frac{g_i^Zg_j^Z}{s-m_Z^2+i m_Z\Gamma_Z}
++\frac{g_i^\mu g_j^\tau}{s-m_{A'}^2+i m_{A'}\Gamma_{A'}},
+\qquad i,j=L,R.
+\]
+The vector and axial charge assignments are
+\[
+\begin{aligned}
+\text{vector:}\quad&
+(g_L^\mu,g_R^\mu,g_L^\tau,g_R^\tau)
+=(g_X,g_X,-g_X,-g_X),\\
+\text{axial:}\quad&
+(g_L^\mu,g_R^\mu,g_L^\tau,g_R^\tau)
+=(g_X,-g_X,-g_X,g_X).
+\end{aligned}
+\]
+The sign reversal between the left- and right-handed couplings changes the helicity amplitudes and the relative weights of the \((1+\cos\theta)^2\) and \((1-\cos\theta)^2\) terms. Thus a total-rate reinterpretation of the vector result can obscure the axial-current effect, whereas the angular distribution retains sensitivity to the chiral structure.
+
+The forward--backward asymmetry,
+\[
+A_{\rm FB}
+=
+\frac{\displaystyle
+\int_0^{0.9}d\cos\theta\,\frac{d\sigma}{d\cos\theta}
+-
+\int_{-0.9}^{0}d\cos\theta\,\frac{d\sigma}{d\cos\theta}}
+{\displaystyle
+\int_{-0.9}^{0.9}d\cos\theta\,\frac{d\sigma}{d\cos\theta}},
+\]
+isolates the forward--backward odd part of the distribution and is therefore a chirality-sensitive observable that does not require polarized initial beams. In the benchmark shown in the paper, \(\sqrt{s}=3\,\mathrm{TeV}\), \(m_{A'}=1\,\mathrm{TeV}\), and \(g_X=0.05\), the vector benchmark changes the total rate in \(|\cos\theta|<0.9\) by about \(5\%\), whereas the axial benchmark changes it by about \(2\%\). In contrast, the axial benchmark produces \(\Delta A_{\rm FB}\simeq-2.9\times10^{-2}\), larger in magnitude than the vector shift for the same benchmark. This comparison demonstrates why an angular observable is more discriminating than a simple total-rate rescaling for the axial interaction.
+
+Polarization observables would provide complementary information because they project separately onto initial- and final-state chiral amplitudes. For example, with polarized muon beams one may form
+\[
+A_{\rm LR}^{\mu}
+=
+\frac{\sigma(\mu^-_L\mu^+)-\sigma(\mu^-_R\mu^+)}
+{\sigma(\mu^-_L\mu^+)+\sigma(\mu^-_R\mu^+)},
+\]
+while final-state tau polarimetry can access
+\[
+P_\tau
+=
+\frac{\sigma(\tau^-_R)-\sigma(\tau^-_L)}
+{\sigma(\tau^-_R)+\sigma(\tau^-_L)}.
+\]
+These observables resolve additional helicity combinations beyond the unpolarized \(A_{\rm FB}\) distribution. We use \(A_{\rm FB}\) as the representative observable because it already tests the chiral structure through the unpolarized angular distribution; no numerical polarization reach is inferred.
+
+The \(ee\) final state is not an equivalent tree-level channel in the pure-axial effective-current limit, because \(A'\) has no tree-level coupling to electrons. An electron coupling can arise through loop-induced kinetic mixing, whose size in the equal-mixing benchmark is quantified under Major Point~4.2; in the tabulated low-mass range, \(|\epsilon_{\gamma A'}|\leq2.12\times10^{-7}\) for \(g_X\leq0.1\). Thus an \(ee\) signal is controlled by a loop-induced coupling rather than the direct muon and tau couplings that govern the \(\tau^+\tau^-\) channel.
+
+The scalar \(S\) is a separate and important UV signature. As the radial mode associated with \(U_A(1)_{L_{\mu-\tau}}\) breaking, it couples to the Standard Model through the Higgs portal \((H^\dagger H)(S^\dagger S)\). At a Higgs factory, this portal can induce associated scalar production through Higgs mixing and, when kinematically open, exotic Higgs decays such as \(h\to ss\). The rates and visible final states depend on the portal mixing, the scalar mass, and the scalar decay pattern, including \(s\to A'A'\) when allowed; the scalar mass and coupling relations and the relevant direct searches are discussed under Major Point~1. The Higgs-factory scalar programme is therefore complementary to, rather than replaced by, the muon-collider angular test of the \(A'\) current.
+
+Accordingly, the muon-collider result is presented as a concrete example of a future chirality-sensitive test, not as a detector-level discovery or exclusion projection. Its purpose is to show that the axial interaction has a distinctive angular signature that is not captured by a vector-to-axial total-rate reinterpretation, while the scalar \(S\) remains a separate target for a future Higgs factory.
 
 \medskip
 \noindent {\bf Minor Point 6)}. \begin{quote}\itshape
