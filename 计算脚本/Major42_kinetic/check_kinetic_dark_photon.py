@@ -179,6 +179,15 @@ def main():
     differences=[abs(mp.mpf(a['abs_epsilon_per_g'])/mp.mpf(b['abs_epsilon_per_g'])-1)
                  for a,b in zip(low['loop_table'],high['loop_table'])]
     assert max(differences)<mp.mpf('1e-12')
+    mass_fields=['Br_inv','epsilon_eff_per_g',
+                 'rate_over_limit_at_gX_0p1','rate_over_limit_at_gX_1']
+    mass_differences=[
+        abs(mp.mpf(a[field])/mp.mpf(b[field])-1)
+        for a,b in zip(low['NA64_mass_dependent_comparison'],
+                       high['NA64_mass_dependent_comparison'])
+        for field in mass_fields
+    ]
+    assert max(mass_differences)<mp.mpf('1e-12')
     script=Path(__file__).resolve()
     root=script.parents[2]
     paths=['Replies_to_Referee_3_referee_facing_2026-11-04.tex',
@@ -192,7 +201,8 @@ def main():
                   'NA64_digitization':'visual log-log read-off; conservative lower edge used; not official tabulated data'},
         'results':high,
         'verification':{'working_precision_decimal_digits':[35,55],
-                        'max_relative_change_loop_magnitudes':mp.nstr(max(differences),8)},
+                        'max_relative_change_loop_magnitudes':mp.nstr(max(differences),8),
+                        'max_relative_change_mass_comparison':mp.nstr(max(mass_differences),8)},
         'runtime':{'python':platform.python_version(),'mpmath':mp.__version__},
         'sha256':{**{p:hashlib.sha256((root/p).read_bytes()).hexdigest() for p in paths},
                   script.name:hashlib.sha256(script.read_bytes()).hexdigest()},
