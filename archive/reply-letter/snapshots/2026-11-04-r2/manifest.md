@@ -23,7 +23,7 @@ The root-level `JHEP.bst` copy is byte-for-byte identical to the original `overl
 
 ## Citation and bibliography audit
 
-- 72 citation occurrences were found in the response TeX, corresponding to 34 unique citation keys.
+- 45 citation commands were found in the response TeX, representing 72 citation-key occurrences and 34 unique citation keys.
 - All 34 unique keys resolve to entries in the two bibliography databases.
 - No duplicate citation keys were found across the two databases.
 - Both bibliography files passed a static brace-balance scan.
