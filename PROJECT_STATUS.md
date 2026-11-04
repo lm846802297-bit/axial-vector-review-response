@@ -12,9 +12,9 @@
 
 [PR #49](https://github.com/lm846802297-bit/axial-vector-review-response/pull/49) 从 main `4abcf13c45789f75deee27a4b6a3cc9480639448` 创建，分支为 `review/major1.3-higgs-portal-higgs-strength-20261104`。本 PR 更新正式回复信 Major 1.3、Plan-C-lite 内部 Higgs 对照和论文正文待同步清单；不修改论文源码，也不修改 main。
 
-- 正式回复新增 (m_s=100\,\mathrm{GeV}) 的非简并 (S)-dominated reference benchmark：(2|\Pi_{hs}/(a-b)|=3.39\times10^{-5})、(eta_{hs}\simeq1.70\times10^{-5})、leading isolated-pole estimate (1-\mu_h\simeq2.9\times10^{-10})。该估算与 PDG 2025 update 的 ATLAS (1.023^{+0.056}_{-0.053}) 和 CMS (1.014^{+0.055}_{-0.053}) global signal strengths 比较；明确这只是 pole-level scale comparison，不是模型专属 likelihood fit。
-- 明确近简并闭道窄宽度区域不使用单一 (cos^2\theta) 近似；fixed-self-energy diagnostic 不是物理混合角、实验排除或允许区间。
-- 因 Major 3 已采用 (S+\sigma+3N_R) 双单态 completion，回复现明确一般标量势还允许 (\lambda_{H\sigma})、(\lambda_{S\sigma}) 和 (\kappa S^\dagger\sigma^2)；现有 (2\times2) (h-s) 结果仅适用于额外标量混合受抑制的 (S)-dominated one-VEV reference limit。小 (r_\sigma) 本身不保证额外混合可忽略。
+- 正式回复新增 `m_s=100 GeV` 的非简并 S-dominated reference benchmark：`2|Pi_hs/(a-b)|=3.39e-5`、`eta_hs≈1.70e-5`、leading isolated-pole estimate `1-mu_h≈2.9e-10`。该估算与 PDG 2025 update 的 ATLAS `1.023 +0.056/-0.053` 和 CMS `1.014 +0.055/-0.053` global signal strengths 比较；明确这只是 pole-level scale comparison，不是模型专属 likelihood fit。
+- 明确近简并闭道窄宽度区域不使用单一 `cos^2(theta)` 近似；fixed-self-energy diagnostic 不是物理混合角、实验排除或允许区间。
+- 因 Major 3 已采用 `S+sigma+3N_R` 双单态 completion，回复现明确一般标量势还允许 `lambda_Hsigma`、`lambda_Ssigma` 和 `kappa S^dagger sigma^2`；现有 `2x2` `h-s` 结果仅适用于额外标量混合受抑制的 S-dominated one-VEV reference limit。小 `r_sigma` 本身不保证额外混合可忽略。
 - 静态验证：TeX 花括号平衡、环境配对、方程标签唯一；35 个唯一 citation keys 均可在两份 BibTeX 数据库中找到。
 - **PDF 尚未按 PR #49 的新 TeX 重编译；main 根目录的 48 页 PDF 是上一轮构建，不包含本 PR 修改。** 本 PR 未运行 CI。完整三态标量匹配/极点与模型专属 Higgs likelihood/direct-search recast 不在本轮声称完成的范围内。
 
