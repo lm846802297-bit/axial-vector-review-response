@@ -33,7 +33,7 @@ The TeX preamble uses the following LaTeX packages:
 - `multirow`, `array`, `needspace`, `placeins`
 - `microtype`, `url`, `xcolor`, `hyperref`
 
-The bibliography command uses `\bibliographystyle{JHEP}`. A repository-local `JHEP.bst` was not found in the checked source tree; it must be available in the TeX/BibTeX environment used for compilation.
+The bibliography command uses `\bibliographystyle{JHEP}`. At the source commit, the repository did contain `JHEP.bst` at `overleaf-source/axial-vector-model-building-v6/JHEP.bst`; it was not included in this first snapshot and was not co-located with the root-level response TeX. The later `2026-11-04-r1` and `2026-11-04-r2` snapshots preserve a root-level copy to make BibTeX style lookup deterministic.
 
 Static source scan found no `\input{...}`, `\include{...}`, or `\includegraphics{...}` file dependencies in the response TeX. No PDF is part of this source snapshot.
 
