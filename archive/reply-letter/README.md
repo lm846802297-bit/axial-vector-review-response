@@ -59,4 +59,4 @@ git push origin reply-letter-2026-11-04
 
 The response TeX has no `\input`, `\include`, or `\includegraphics` file dependencies. Its two bibliography databases and the `JHEP.bst` style are repository files. LaTeX packages such as `amsmath`, `slashed`, `graphicx`, `multirow`, `needspace`, `placeins`, `microtype`, `url`, `xcolor`, and `hyperref` remain TeX-environment dependencies.
 
-No PDF was rebuilt or visually inspected in this task. The existing PDF must not be represented as matching the corrected reference source until the full compile sequence and visual check are complete.
+The root-level PDF was built from the reference-complete r2 source package. Its build commit and all four source blob IDs are recorded in the r2 manifest. The build record reports one remaining overfull-box warning in the NA64 table; the table was visually judged readable. Raw `.log` and `.blg` files were not retained in the repository, and CI was not run.
