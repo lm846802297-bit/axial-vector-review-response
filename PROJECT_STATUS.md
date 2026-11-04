@@ -1,6 +1,6 @@
 # PROJECT_STATUS — Axial-vector paper revision and referee response
 
-**状态快照日期：** 2026-11-04（PR #38–#43 已合并；PR #44 为 Major 3/4.1 中微子记号与条件性纹理修订，待审查）
+**状态快照日期：** 2026-11-04（PR #38–#44 已合并；PR #45 为 Major 4.3 有限矢量耦合与小混合参数域修订，待审查）
 
 **本状态快照的初始核验基线：** 243b0e62d9c3912525d1144971a1e81c2af84db7（PR #36 合并前）  
 **项目启动机制合并提交：** [9b4e17519230e9eef65b34b643d3a1f8c19f46a2](https://github.com/lm846802297-bit/axial-vector-review-response/commit/9b4e17519230e9eef65b34b643d3a1f8c19f46a2)  
@@ -8,9 +8,25 @@
 
 > **更新原则：** 任务完成、作者改变观点、PR 合并、论文基线更换或计算结论更新后，应检查并更新本文件。尚未重新核验的内容标为“待核验”，不得沿用旧状态作确定陈述。
 
+## 2026-11-04 更新：Major 4.3 有限矢量耦合与小混合参数域（PR #45）
+
+PR #45 已创建于分支 `review/major4.3-small-mixing-domain-20261104`，目标为 `main`，当前待审查。修改前重新阅读了 `AGENTS.md`、`README-先读这里.md`、强制写作规范、main 正式回复信、正文同步清单、DEC-08 和 2026-10-23 第三段会议文字稿。
+
+正式回复 Major 4.3 明确将本文轴矢量现象学限定在有限 VLL 质量下的 (|\theta_{\ell R}|\leq10^{-2}) 小混合域。新增 vector-specific 与 axial 限制映射条件：
+[
+\tan^2\theta_{\ell R}<
+\frac{g_{V,\mathrm{lim}}(m_{A'})}{g_{A,\mathrm{lim}}(m_{A'})},
+]
+并说明在角度上限处，矢量专属耦合限制必须比同质量、同假设下的轴矢量限制严格约四个数量级，才可能产生更强的共同 (g_X) 限制。回复保留 trident 与 ((g-2)_\mu) 过程贡献比，明确它们不是独立实验排除限；新增 dimuon 阈值的宽度比及质量依赖角度条件，避免将小混合结论推广到阈值敏感衰变或所有实验。
+
+- 修改正式回复信 Major 4.3；新增内部专项推导记录；同步论文正文待修改清单、DEC-08 和本状态文件。
+- 不修改论文源码，不新增矢量排除图，不进行全 UV 扫描或 collider recast。
+- 静态核验覆盖 TeX 花括号、环境配对、方程标签、公式与现有 benchmark 的一致性；具体结果见 PR 描述。
+- **未进行完整 LaTeX 编译、PDF 视觉检查或 CI。** 不宣称这些验证通过。
+
 ## 2026-11-04 更新：Major 3 / 4.1 中微子记号与 S-only 条件性表述（PR #44）
 
-PR #44 已创建于分支 `review/major3-neutrino-yukawa-and-s-only-clarity-20261104`，目标为 `main`，当前待审查。正式回复信统一以 `y^nu_alpha` 表示中微子 Dirac Yukawa 耦合，并保留 `y_e, y_mumu, y_mutau, ...` 作为带电轻子 Yukawa 参数。Major 3 的 `m_D` 定义和 Major 4.1 的重复定义均已同步。
+PR #44 已于 2026-11-04 Squash Merge 至 `main`，合并提交为 `e78ae8a4b26a9b595e64ad0eaf52e7e836e50751`。正式回复信统一以 `y^nu_alpha` 表示中微子 Dirac Yukawa 耦合，并保留 `y_e, y_mumu, y_mutau, ...` 作为带电轻子 Yukawa 参数。Major 3 的 `m_D` 定义和 Major 4.1 的重复定义均已同步。
 
 Major 4.1 将 S-only 纹理明确限定为：只有原电荷二标量 S 提供残余 Z2 破缺、没有其他破缺来源时，允许的中微子质量纹理保持 `e ⊕ (mu,tau)` 分块。文字同时明确该纹理是条件性对称性结论，不是原始带电轻子构造已经给出的中微子质量预测。Major 3 的 EFT 段落也统一为相同条件表述。
 
