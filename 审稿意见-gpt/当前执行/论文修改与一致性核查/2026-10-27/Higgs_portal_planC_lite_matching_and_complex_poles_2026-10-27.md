@@ -251,13 +251,13 @@ PDG 2025 年 12 月更新的 Higgs 综述 Sec. 11.3.3 给出的 inclusive global
 \simeq1.695\times10^{-5}.
 \]
 
-在 \(S\)-dominated one-VEV reference limit、孤立窄极点和 SM 主导道的 leading-order 近似下，
+在 one-singlet \(S+\mathrm{VLL}\) reference model、孤立窄极点和 SM 主导道的 leading-order 近似下，
 \[
 \mu_h^{\rm pole}\simeq\cos^2\theta_{\rm eff}
 \simeq1-\eta_{hs}^2
 \simeq1-2.87\times10^{-10}.
 \]
-即 125 GeV Higgs-like pole 的可见率重标度约为 \(2.9\times10^{-8}\%\)，比 PDG 2025 global-\(\mu\) 的约 \(5.3\%\) 不确定度小约 \(1.8\times10^8\) 倍。这里的 \(\eta_{hs}\) 是由固定 matched off-diagonal self-energy 得到的一阶 mass-insertion diagnostic，不是独立求得的物理混合角；这个比较只说明该非简并 \(S\)-dominated benchmark 的 125 GeV 极点混合效应远低于当前整体 rate precision。它不是模型特定 likelihood fit，也不约束 100 GeV singlet-like 标量自身的直接搜索。
+即 125 GeV Higgs-like pole 的可见率重标度约为 \(2.9\times10^{-8}\%\)，比 PDG 2025 global-\(\mu\) 的约 \(5.3\%\) 不确定度小约 \(1.8\times10^8\) 倍。这里的 \(\eta_{hs}\) 是由固定 matched off-diagonal self-energy 得到的一阶 mass-insertion diagnostic，不是独立求得的物理混合角；这个比较只说明该非简并 one-singlet benchmark 的 125 GeV 极点混合效应远低于当前整体 rate precision。它不是模型特定 likelihood fit，也不约束 100 GeV singlet-like 标量自身的直接搜索。
 
 ### 6.2 近简并点不能用单一 \(\cos^2\theta\) 公式
 
