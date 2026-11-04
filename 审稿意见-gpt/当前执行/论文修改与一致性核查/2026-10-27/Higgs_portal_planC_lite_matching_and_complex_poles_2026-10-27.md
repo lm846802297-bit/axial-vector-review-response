@@ -230,17 +230,61 @@ s-m_h^2+i m_h\Gamma_h&-\Pi_{hs}^{B}(s)\\
 \]
 这不是实验排除窗，只是表明需要专门处理复数极点的理论区域。开放 \(A'A'\) 道时，宽度差足够大，该诊断在精确简并点仍低于 \(0.002\)。
 
-## 6. Higgs 约束：本轮能够得出的结论
+## 6. Higgs 约束：非简并 benchmark 的量级比较与近简并边界（2026-11-04 更新）
 
-PDG 2025 的 Higgs 综述汇总的整体信号强度约为 ATLAS \(1.05\pm0.06\)、CMS \(1.002\pm0.057\)，与 SM 相容（[PDG 2025 Higgs review](https://pdg.lbl.gov/2025/reviews/rpp2025-rev-higgs-boson.pdf)）。
+PDG 2025 年 12 月更新的 Higgs 综述 Sec. 11.3.3 给出的 inclusive global signal strengths 为
+\[
+\mu_{\rm ATLAS}=1.023^{+0.056}_{-0.053},\qquad
+\mu_{\rm CMS}=1.014^{+0.055}_{-0.053}.
+\]
+两组测量的典型不确定度约为 \(5.3\%\)--\(5.6\%\)。该节的 global-\(\mu\) 与 \(\kappa\)-framework 解释采用单一窄共振和固定信号形状假设；它们不是本文两个标量极点的联合拟合。引用采用已有 BibTeX 键 \`ParticleDataGroup:2024cfk\`，正文明确标记为 PDG 2025 update。
 
-在当前匹配 benchmark 下：
+### 6.1 一个真正非简并、孤立的 125 GeV 极点 benchmark
 
-1. **非简并区域：** 例如 Benchmark B 的 \(|m_s-m_h|=0.1\) GeV 时，实质量差诊断量约 \(3.85\times10^{-3}\)；简单单态近似下由此引起的可见信号强度变化远小于当前约 \(5\%\)–\(6\%\) 的整体精度。
-2. **精确简并、\(A'A'\) 关闭：** 两个窄极点重叠，宽度发生重分配，Higgs-like 极点的本征向量中有不可忽略的 singlet 分量。单一窄标量的 \(\mu\simeq\cos^2\theta\) 公式不够；需要考虑两极点对同一末态的共同贡献和干涉。
-3. **\(A'A'\) 开放：** singlet-like 极点宽达数 GeV，Higgs-like 极点在当前近似中基本保持 SM 宽度。该结论不代表宽标量已通过所有直接搜索；本轮没有完成宽共振/连续谱的实验重铸。
+为避免把近简并双极点误当成单标量，选取 Benchmark B 的 \(m_s=100\) GeV 点作量级比较。此时：
+- \(|m_s-m_h|=25.25\) GeV，两个质量极点在物理质量尺度上分离；
+- \(m_s>m_h/2\)，所以 \(h\to ss\) 关闭；
+- Benchmark B 的 \(m_{A'}=63\) GeV，故 \(s\to A'A'\) 在 \(m_s=100\) GeV 时也关闭；
+- 由 exact mass-eigenstate scan 得到 \(2|\Pi_{hs}/(a-b)|=3.39\times10^{-5}\)，因此
+\[
+\eta_{hs}\equiv\left|\frac{\Pi_{hs}}{a-b}\right|
+\simeq1.695\times10^{-5}.
+\]
 
-**因此，本轮没有将近简并 benchmark 直接标为排除或允许。** 对非简并区域可以给出条件性的小修正判断；对窄宽度近简并区域，仍需模型专属的 Higgs 信号线形/强度拟合。
+在 \(S\)-dominated one-VEV reference limit、孤立窄极点和 SM 主导道的 leading-order 近似下，
+\[
+\mu_h^{\rm pole}\simeq\cos^2\theta_{\rm eff}
+\simeq1-\eta_{hs}^2
+\simeq1-2.87\times10^{-10}.
+\]
+即 125 GeV Higgs-like pole 的可见率重标度约为 \(2.9\times10^{-8}\%\)，比 PDG 2025 global-\(\mu\) 的约 \(5.3\%\) 不确定度小约 \(1.8\times10^8\) 倍。这里的 \(\eta_{hs}\) 是由固定 matched off-diagonal self-energy 得到的一阶 mass-insertion diagnostic，不是独立求得的物理混合角；这个比较只说明该非简并 \(S\)-dominated benchmark 的 125 GeV 极点混合效应远低于当前整体 rate precision。它不是模型特定 likelihood fit，也不约束 100 GeV singlet-like 标量自身的直接搜索。
+
+### 6.2 近简并点不能用单一 \(\cos^2\theta\) 公式
+
+Plan C-lite 的 \(|m_s-m_h|=0.1\) GeV 例子给出约 \(3.85\times10^{-3}\) 的实质量分母诊断量；它仅用于说明分母变小后混合增强，不能直接当作 detector-level global signal-strength shift。PDG 的单窄共振 \(\mu\) 结果不是两个相近标量的联合信号拟合。
+
+在 \(m_s=m_h=125.25\) GeV 处，exact mass-eigenstate calculation 给出：
+- \(A'A'\) 开放时，\(\Gamma_s\simeq3.7468\) GeV，\(|\Pi_{hs}/(a-b)|\simeq9.14\times10^{-4}\)；
+- \(A'A'\) 关闭时，\(\Gamma_s\simeq0.15894\) MeV，\(|\Pi_{hs}/(a-b)|\simeq0.19685\)，相应 \(2|\Pi_{hs}/(a-b)|\simeq0.39369\)。
+
+对闭道窄宽度 benchmark，固定自能诊断 \(2|\Pi_{hs}/(a-b)|\geq0.1\) 的区间约为 \(|m_s-m_h|\lesssim7.45\) MeV。该区间不是实验排除窗，也不是允许窗。近简并时必须由完整复数 \(2\times2\) 传播子极点、残数、产生/衰变振幅、干涉及实验质量响应决定可观测信号；单一孤立极点的 \(\mu_h\simeq\cos^2\theta\) 近似不适用。
+
+### 6.3 与 2026-11-04 双单态中微子完成机制的一致性
+
+Major 3 已采用电荷二标量 \(S\) 与电荷一标量 \(\sigma\) 的双单态 seesaw completion。一般标量势允许
+\[
+\lambda_{HS}|H|^2|S|^2,\quad
+\lambda_{H\sigma}|H|^2|\sigma|^2,\quad
+\lambda_{S\sigma}|S|^2|\sigma|^2,\quad
+\kappa S^\dagger\sigma^2+\mathrm{h.c.}
+\]
+因此 CP-even 标量系统一般是三态问题。上述 exact \(h-s\) 计算只对应 \(S\)-dominated one-VEV reference limit \(r_\sigma=v_\sigma^2/(4v_s^2)\ll1\)，并另行要求 \(\sigma\)-径向混合及独立 \(\lambda_{H\sigma}\) portal 的贡献受到抑制；小 \(r_\sigma\) 本身并不足以保证这一点。扩展模型的精确规范玻色子质量为
+\[
+m_{A'}^2=g_X^2(4v_s^2+v_\sigma^2).
+\]
+故原单 VEV 参数和 \(m_s^2\simeq2\lambda_Sv_s^2\) 关系仅在额外标量质量修正及混合可忽略时作为参考近似。
+
+**当前可支持的结论：** 对指定 \(S\)-dominated、small-portal、非简并 benchmark，125 GeV Higgs-like pole 的 leading mixing-induced rate shift 远低于 PDG 2025 global-\(\mu\) 精度；对闭道窄宽度近简并区域，不使用单一 \(\cos^2\theta\) 近似，也不作允许/排除判断。此结果不能扩展为任意 \(\sigma\)-sector portal 参数下的完整三标量 UV 约束。
 
 ## 7. Plan C-lite 状态与剩余闭环
 
