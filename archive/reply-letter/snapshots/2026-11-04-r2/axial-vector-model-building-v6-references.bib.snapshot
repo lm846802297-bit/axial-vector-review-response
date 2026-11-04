@@ -1,0 +1,2146 @@
+@CONTROL{REVTEX41Control}
+
+@CONTROL{apsrev41Control,
+    author = "08",
+    editor = "1",
+    pages = "0",
+    title = "",
+    year = "1"
+}
+
+@article{Holdom:1985ag,
+    author = "Holdom, Bob",
+    title = "{Two U(1)'s and Epsilon Charge Shifts}",
+    reportNumber = "UTPT-85-30",
+    doi = "10.1016/0370-2693(86)91377-8",
+    journal = "Phys. Lett. B",
+    volume = "166",
+    pages = "196--198",
+    year = "1986"
+}
+
+@article{Foot:1990mn,
+    author = "Foot, Robert",
+    title = "{New Physics From Electric Charge Quantization?}",
+    reportNumber = "MAD/TH/90-14",
+    doi = "10.1142/S0217732391000543",
+    journal = "Mod. Phys. Lett. A",
+    volume = "6",
+    pages = "527--530",
+    year = "1991"
+}
+
+@article{He:1990pn,
+    author = "He, X. G. and Joshi, Girish C. and Lew, H. and Volkas, R. R.",
+    title = "{NEW Z-prime PHENOMENOLOGY}",
+    reportNumber = "UM-P-90/42, OZ-P-90/16",
+    doi = "10.1103/PhysRevD.43.R22",
+    journal = "Phys. Rev. D",
+    volume = "43",
+    pages = "22--24",
+    year = "1991"
+}
+
+@article{He:1991qd,
+    author = "He, Xiao-Gang and Joshi, Girish C. and Lew, H. and Volkas, R. R.",
+    title = "{Simplest Z-prime model}",
+    reportNumber = "CERN-TH-6084-91, UM-P-91-32, OZ-91-07",
+    doi = "10.1103/PhysRevD.44.2118",
+    journal = "Phys. Rev. D",
+    volume = "44",
+    pages = "2118--2132",
+    year = "1991"
+}
+
+@article{Baek:2001kca,
+    author = "Baek, Seungwon and Deshpande, N. G. and He, X. G. and Ko, P.",
+    title = "{Muon anomalous g-2 and gauged L(muon) - L(tau) models}",
+    eprint = "hep-ph/0104141",
+    archivePrefix = "arXiv",
+    reportNumber = "KAIST-TH-2001-08",
+    doi = "10.1103/PhysRevD.64.055006",
+    journal = "Phys. Rev. D",
+    volume = "64",
+    pages = "055006",
+    year = "2001"
+}
+
+@article{Ma:2001md,
+    author = "Ma, Ernest and Roy, D. P. and Roy, Sourov",
+    title = "{Gauged L(mu) - L(tau) with large muon anomalous magnetic moment and the bimaximal mixing of neutrinos}",
+    eprint = "hep-ph/0110146",
+    archivePrefix = "arXiv",
+    reportNumber = "UCRHEP-T320, TIFR-TH-01-39",
+    doi = "10.1016/S0370-2693(01)01428-9",
+    journal = "Phys. Lett. B",
+    volume = "525",
+    pages = "101--106",
+    year = "2002"
+}
+
+@article{Heeck:2011wj,
+    author = "Heeck, Julian and Rodejohann, Werner",
+    title = "{Gauged  $L_\mu  -  L_\tau$  Symmetry  at  the  Electroweak  Scale}",
+    eprint = "1107.5238",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1103/PhysRevD.84.075007",
+    journal = "Phys. Rev. D",
+    volume = "84",
+    pages = "075007",
+    year = "2011"
+}
+
+@article{Harigaya:2013twa,
+    author = "Harigaya, Keisuke and Igari, Takafumi and Nojiri, Mihoko M. and Takeuchi, Michihisa and Tobe, Kazuhiro",
+    title = "{Muon g-2 and LHC phenomenology in the $L_\mu-L_\tau$ gauge symmetric model}",
+    eprint = "1311.0870",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "KCL-PH-TH-2013-37, KEK-TH-1684, IPMU-13-0213",
+    doi = "10.1007/JHEP03(2014)105",
+    journal = "JHEP",
+    volume = "03",
+    pages = "105",
+    year = "2014"
+}
+
+@article{Altmannshofer:2014cfa,
+    author = "Altmannshofer, Wolfgang and Gori, Stefania and Pospelov, Maxim and Yavin, Itay",
+    title = "{Quark flavor transitions in $L_\mu-L_\tau$ models}",
+    eprint = "1403.1269",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1103/PhysRevD.89.095033",
+    journal = "Phys. Rev. D",
+    volume = "89",
+    pages = "095033",
+    year = "2014"
+}
+
+@article{Crivellin:2015mga,
+    author = "Crivellin, Andreas and D'Ambrosio, Giancarlo and Heeck, Julian",
+    title = "{Explaining $h\to\mu^\pm\tau^\mp$, $B\to K^* \mu^+\mu^-$ and $B\to K \mu^+\mu^-/B\to K e^+e^-$ in a two-Higgs-doublet model with gauged $L_\mu-L_\tau$}",
+    eprint = "1501.00993",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "CERN-PH-TH-2015-001, ULB-TH-14-26",
+    doi = "10.1103/PhysRevLett.114.151801",
+    journal = "Phys. Rev. Lett.",
+    volume = "114",
+    pages = "151801",
+    year = "2015"
+}
+
+@article{Altmannshofer:2016brv,
+    author = "Altmannshofer, Wolfgang and Chen, Chien-Yi and Bhupal Dev, P. S. and Soni, Amarjit",
+    title = "{Lepton flavor violating Z' explanation of the muon anomalous magnetic moment}",
+    eprint = "1607.06832",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1016/j.physletb.2016.09.046",
+    journal = "Phys. Lett. B",
+    volume = "762",
+    pages = "389--398",
+    year = "2016"
+}
+
+@article{Heeck:2016xkh,
+    author = "Heeck, Julian",
+    title = "{Lepton flavor violation with light vector bosons}",
+    eprint = "1602.03810",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1016/j.physletb.2016.05.007",
+    journal = "Phys. Lett. B",
+    volume = "758",
+    pages = "101--105",
+    year = "2016"
+}
+
+@article{Ibarra:2021aon,
+    author = "Ibarra, Alejandro and Marin, Marcela and Roig, Pablo",
+    title = "{Flavor violating muon decay into an electron and a light gauge boson}",
+    eprint = "2110.03737",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1016/j.physletb.2022.136933",
+    journal = "Phys. Lett. B",
+    volume = "827",
+    pages = "136933",
+    year = "2022"
+}
+
+@article{Baek:2015mna,
+    author = "Baek, Seungwon and Okada, Hiroshi and Yagyu, Kei",
+    title = "{Flavour Dependent Gauged Radiative Neutrino Mass Model}",
+    eprint = "1501.01530",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "KIAS-P15001",
+    doi = "10.1007/JHEP04(2015)049",
+    journal = "JHEP",
+    volume = "04",
+    pages = "049",
+    year = "2015"
+}
+
+@article{Biswas:2016yan,
+    author = "Biswas, Anirban and Choubey, Sandhya and Khan, Sarif",
+    title = "{Neutrino Mass, Dark Matter and Anomalous Magnetic Moment of Muon in a $U(1)_{L_{\mu}-L_{\tau}}$ Model}",
+    eprint = "1608.04194",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1007/JHEP09(2016)147",
+    journal = "JHEP",
+    volume = "09",
+    pages = "147",
+    year = "2016"
+}
+
+@article{Patra:2016shz,
+    author = "Patra, Sudhanwa and Rao, Soumya and Sahoo, Nirakar and Sahu, Narendra",
+    title = "{Gauged $U(1)_{L_\mu - L_\tau}$ model in light of muon $g-2$ anomaly, neutrino mass and dark matter phenomenology}",
+    eprint = "1607.04046",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1016/j.nuclphysb.2017.02.010",
+    journal = "Nucl. Phys. B",
+    volume = "917",
+    pages = "317--336",
+    year = "2017"
+}
+
+@article{Asai:2017ryy,
+    author = "Asai, Kento and Hamaguchi, Koichi and Nagata, Natsumi",
+    title = "{Predictions for the neutrino parameters in the minimal gauged U(1)$_{L_\mu-L_\tau}$ model}",
+    eprint = "1705.00419",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "UT-17-17, IPMU-17-0072",
+    doi = "10.1140/epjc/s10052-017-5348-x",
+    journal = "Eur. Phys. J. C",
+    volume = "77",
+    number = "11",
+    pages = "763",
+    year = "2017"
+}
+
+@article{Joshipura:2019qxz,
+    author = "Joshipura, Anjan S. and Mahajan, Namit and Patel, Ketan M.",
+    title = "{Generalised $\mu$-$\tau$ symmetries and calculable gauge kinetic and mass mixing in $\mathrm{U}{(1)}_{L_{\mu }-{L}_{\tau }}$ models}",
+    eprint = "1909.02331",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1007/JHEP03(2020)001",
+    journal = "JHEP",
+    volume = "03",
+    pages = "001",
+    year = "2020"
+}
+
+@article{Esteban:2024eli,
+    author = "Esteban, Ivan and Gonzalez-Garcia, M. C. and Maltoni, Michele and Martinez-Soler, Ivan and Pinheiro, Jo{\~a}o Paulo and Schwetz, Thomas",
+    title = "{NuFit-6.0: updated global analysis of three-flavor neutrino oscillations}",
+    eprint = "2410.05380",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "IFT-UAM/CSIC-24-140, YITP-SB-2024-24, IPPP/24/64, IPPP/24/64, IFT-UAM/CSIC-24-140, YITP-SB-2024-24",
+    doi = "10.1007/JHEP12(2024)216",
+    journal = "JHEP",
+    volume = "12",
+    pages = "216",
+    year = "2024"
+}
+
+@article{Majumdar:2020xws,
+    author = "Majumdar, Chayan and Patra, Sudhanwa and Pritimita, Prativa and Senapati, Supriya and Yajnik, Urjit A.",
+    title = "{Neutrino mass, mixing and muon g {\ensuremath{-}} 2 explanation in $ \mathrm{U}{(1)}_{L_{\mu }-{L}_{\tau }} $ extension of left-right theory}",
+    eprint = "2004.14259",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1007/JHEP09(2020)010",
+    journal = "JHEP",
+    volume = "09",
+    pages = "010",
+    year = "2020"
+}
+
+@article{Kamada:2018zxi,
+    author = "Kamada, Ayuki and Kaneta, Kunio and Yanagi, Keisuke and Yu, Hai-Bo",
+    title = "{Self-interacting dark matter and muon $g-2$ in a gauged U$(1)_{L_{\mu} - L_{\tau}}$ model}",
+    eprint = "1805.00651",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "CTPU-PTC-18-10, UMN-TH-3716/18, FTPI-MINN-18/07, UT-18-10, UMN-TH-3716-18, FTPI-MINN-18-07",
+    doi = "10.1007/JHEP06(2018)117",
+    journal = "JHEP",
+    volume = "06",
+    pages = "117",
+    year = "2018"
+}
+
+@article{Eijima:2023yiw,
+    author = "Eijima, Shintaro and Ibe, Masahiro and Murai, Kai",
+    title = "{Muon g {\ensuremath{-}} 2 and non-thermal leptogenesis in $ \textrm{U}{(1)}_{L_{\mu }-{L}_{\tau }} $ model}",
+    eprint = "2303.09751",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1007/JHEP05(2023)010",
+    journal = "JHEP",
+    volume = "05",
+    pages = "010",
+    year = "2023"
+}
+
+@article{Escudero:2019gzq,
+    author = "Escudero, Miguel and Hooper, Dan and Krnjaic, Gordan and Pierre, Mathias",
+    title = "{Cosmology with A Very Light L$_{\mu}$ {\ensuremath{-}} L$_{\tau}$ Gauge Boson}",
+    eprint = "1901.02010",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "FERMILAB-PUB-19-001-A, LPT-Orsay-18-15, IFIC-19-02, KCL-19-01,
+  IFT-UAM/CSIC-19-7, KCL-19-01",
+    doi = "10.1007/JHEP03(2019)071",
+    journal = "JHEP",
+    volume = "03",
+    pages = "071",
+    year = "2019"
+}
+
+@article{Croon:2020lrf,
+    author = "Croon, Djuna and Elor, Gilly and Leane, Rebecca K. and McDermott, Samuel D.",
+    title = "{Supernova Muons: New Constraints on $Z$' Bosons, Axions and ALPs}",
+    eprint = "2006.13942",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "MIT-CTP/5214, FERMILAB-PUB-20-246-A-T",
+    doi = "10.1007/JHEP01(2021)107",
+    journal = "JHEP",
+    volume = "01",
+    pages = "107",
+    year = "2021"
+}
+
+@article{Foldenauer:2024cdp,
+    author = "Foldenauer, Patrick and Hoefken Zink, Jaime",
+    title = "{How to rule out $(g-2)_\mu$ in $U(1)_{L_\mu-L_\tau}$ with white dwarf cooling}",
+    eprint = "2405.00094",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "IFT-UAM/CSIC-24-66",
+    doi = "10.1007/JHEP07(2024)096",
+    journal = "JHEP",
+    volume = "07",
+    pages = "096",
+    year = "2024"
+}
+
+@article{Altmannshofer:2014pba,
+    author = "Altmannshofer, Wolfgang and Gori, Stefania and Pospelov, Maxim and Yavin, Itay",
+    title = "{Neutrino Trident Production: A Powerful Probe of New Physics with Neutrino Beams}",
+    eprint = "1406.2332",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1103/PhysRevLett.113.091801",
+    journal = "Phys. Rev. Lett.",
+    volume = "113",
+    pages = "091801",
+    year = "2014"
+}
+
+@article{Ballett:2018uuc,
+    author = "Ballett, Peter and Hostert, Matheus and Pascoli, Silvia and Perez-Gonzalez, Yuber F. and Tabrizi, Zahra and Zukanovich Funchal, Renata",
+    title = "{Neutrino Trident Scattering at Near Detectors}",
+    eprint = "1807.10973",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "IPPP/18/64",
+    doi = "10.1007/JHEP01(2019)119",
+    journal = "JHEP",
+    volume = "01",
+    pages = "119",
+    year = "2019"
+}
+
+@article{Altmannshofer:2026opc,
+    author = "Altmannshofer, Wolfgang and Dror, Jeff A. and Giffin, Pierce and Gori, Stefania and Jackson, Ollie and Luong, Khai and Schwendimann, Patrick and Seo, Se Rang",
+    title = "{Exploring Invisible New Physics with Exotic Pion Decays}",
+    eprint = "2601.06254",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    month = "1",
+    year = "2026"
+}
+
+@article{CCFR:1991lpl,
+    author = "Mishra, S. R. and others",
+    collaboration = "CCFR",
+    title = "{Neutrino Tridents and W Z Interference}",
+    reportNumber = "NEVIS-1437, FERMILAB-PUB-91-390",
+    doi = "10.1103/PhysRevLett.66.3117",
+    journal = "Phys. Rev. Lett.",
+    volume = "66",
+    pages = "3117--3120",
+    year = "1991"
+}
+
+@article{Williams:1934ad,
+    author = "Williams, E. J.",
+    title = "{Nature of the high-energy particles of penetrating radiation and status of ionization and radiation formulae}",
+    doi = "10.1103/PhysRev.45.729",
+    journal = "Phys. Rev.",
+    volume = "45",
+    pages = "729--730",
+    year = "1934"
+}
+
+@article{Belusevic:1987cw,
+    author = "Belusevic, R. and Smith, J.",
+    title = "{W - Z Interference in $\nu$-Nucleus Scattering}",
+    reportNumber = "ITP-SB-87-59, FERMILAB-PUB-87-124-T",
+    doi = "10.1103/PhysRevD.37.2419",
+    journal = "Phys. Rev. D",
+    volume = "37",
+    pages = "2419",
+    year = "1988"
+}
+
+@article{Kaneta:2016uyt,
+    author = "Kaneta, Yuya and Shimomura, Takashi",
+    title = "{On the possibility of a search for the $L_\mu - L_\tau$ gauge boson at Belle-II and neutrino beam experiments}",
+    eprint = "1701.00156",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "UME-PP-007",
+    doi = "10.1093/ptep/ptx050",
+    journal = "PTEP",
+    volume = "2017",
+    number = "5",
+    pages = "053B04",
+    year = "2017"
+}
+
+@article{Araki:2017wyg,
+    author = "Araki, Takeshi and Hoshino, Shihori and Ota, Toshihiko and Sato, Joe and Shimomura, Takashi",
+    title = "{Detecting the $L_{\mu}-L_{\tau}$ gauge boson at Belle II}",
+    eprint = "1702.01497",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "STUPP-17-229, UME-PP-006, YACHAY-PUB-17-01-PN",
+    doi = "10.1103/PhysRevD.95.055006",
+    journal = "Phys. Rev. D",
+    volume = "95",
+    number = "5",
+    pages = "055006",
+    year = "2017"
+}
+
+@article{Cadeddu:2020nbr,
+    author = "Cadeddu, M. and Cargioli, N. and Dordei, F. and Giunti, C. and Li, Y. F. and Picciau, E. and Zhang, Y. Y.",
+    title = "{Constraints on light vector mediators through coherent elastic neutrino nucleus scattering data from COHERENT}",
+    eprint = "2008.05022",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1007/JHEP01(2021)116",
+    journal = "JHEP",
+    volume = "01",
+    pages = "116",
+    year = "2021"
+}
+
+@article{Harnik:2012pb,
+    author = "Harnik, Roni and Kopp, Joachim and Zupan, Jure",
+    title = "{Flavor Violating Higgs Decays}",
+    eprint = "1209.1397",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "FERMILAB-PUB-12-498-T",
+    doi = "10.1007/JHEP03(2013)026",
+    journal = "JHEP",
+    volume = "03",
+    pages = "026",
+    year = "2013"
+}
+
+@article{Belle:2010jhm,
+    author = "Hayasaka, K. and others",
+    collaboration = "Belle",
+    title = "{Search for Lepton Flavor Violating Tau Decays into Three Leptons with 719 Million Produced Tau+Tau- Pairs}",
+    eprint = "1001.3221",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ex",
+    doi = "10.1016/j.physletb.2010.03.037",
+    journal = "Phys. Lett. B",
+    volume = "687",
+    pages = "139--143",
+    year = "2010"
+}
+
+@article{Belle:2021ysv,
+    author = "Hernandez Villanueva, A. and others",
+    collaboration = "Belle",
+    title = "{Search for lepton-flavor-violating tau-lepton decays to $\ell\gamma$ at Belle}",
+    eprint = "2103.12994",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ex",
+    doi = "10.1007/JHEP10(2021)019",
+    journal = "JHEP",
+    volume = "10",
+    pages = "019",
+    year = "2021"
+}
+
+@article{CMS:2021rsq,
+    author = "Tumasyan, Armen and others",
+    collaboration = "CMS",
+    title = "{Search for lepton-flavor violating decays of the Higgs boson in the $\mu\tau$ and e$\tau$ final states in proton-proton collisions at $\sqrt{s}=13$ TeV}",
+    eprint = "2105.03007",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ex",
+    reportNumber = "CMS-HIG-20-009, CERN-EP-2021-054",
+    doi = "10.1103/PhysRevD.104.032013",
+    journal = "Phys. Rev. D",
+    volume = "104",
+    number = "3",
+    pages = "032013",
+    year = "2021"
+}
+
+@article{Belle-II:2022heu,
+    author = "Abudin{\'e}n, F. and others",
+    collaboration = "Belle II",
+    title = "{Search for Lepton-Flavor-Violating $\tau$ Decays to a Lepton and an Invisible Boson at Belle II}",
+    eprint = "2212.03634",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ex",
+    doi = "10.1103/PhysRevLett.130.181803",
+    journal = "Phys. Rev. Lett.",
+    volume = "130",
+    number = "18",
+    pages = "181803",
+    year = "2023"
+}
+
+@article{Belle-II:2024ami,
+    author = "Glazov, A. and others",
+    collaboration = "Belle II",
+    title = "{Search for lepton-flavor-violating $\tau^{-}\to \mu^{-}\mu^{+}\mu^{-}$ decays at Belle II}",
+    eprint = "2405.07386",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ex",
+    doi = "10.1007/JHEP09(2024)062",
+    journal = "JHEP",
+    volume = "09",
+    pages = "062",
+    year = "2024"
+}
+
+@article{ATLAS:2021bdj,
+    author = "Aad, Georges and others",
+    collaboration = "ATLAS",
+    title = "{Search for Lepton-Flavor Violation in $Z$-Boson Decays with $\tau$ Leptons with the ATLAS Detector}",
+    eprint = "2105.12491",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ex",
+    reportNumber = "CERN-EP-2021-082",
+    doi = "10.1103/PhysRevLett.127.271801",
+    journal = "Phys. Rev. Lett.",
+    volume = "127",
+    number = "27",
+    pages = "271801",
+    year = "2021"
+}
+
+@article{Banerjee:2022xuw,
+    author = "Banerjee, Swagato and others",
+    title = "{Snowmass 2021 White Paper: Charged lepton flavor violation in the tau sector}",
+    eprint = "2203.14919",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "FERMILAB-CONF-22-163-V",
+    month = "3",
+    year = "2022"
+}
+
+@article{Kahn:2018cqs,
+    author = "Kahn, Yonatan and Krnjaic, Gordan and Tran, Nhan and Whitbeck, Andrew",
+    title = "{M$^{3}$: a new muon missing momentum experiment to probe $(g-2)_\mu$ and dark matter at Fermilab}",
+    eprint = "1804.03144",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "FERMILAB-PUB-18-087-A",
+    doi = "10.1007/JHEP09(2018)153",
+    journal = "JHEP",
+    volume = "09",
+    pages = "153",
+    year = "2018"
+}
+
+@article{Kahn:2016vjr,
+    author = "Kahn, Yonatan and Krnjaic, Gordan and Mishra-Sharma, Siddharth and Tait, Tim M. P.",
+    title = "{Light Weakly Coupled Axial Forces: Models, Constraints, and Projections}",
+    eprint = "1609.09072",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "FERMILAB-PUB-16-385-PPD, UCI-HEP-TR-2016-15, MITP-16-098, PUPT-2507",
+    doi = "10.1007/JHEP05(2017)002",
+    journal = "JHEP",
+    volume = "05",
+    pages = "002",
+    year = "2017"
+}
+
+@article{Ismail:2016tod,
+    author = "Ismail, Ahmed and Keung, Wai-Yee and Tsao, Kuo-Hsing and Unwin, James",
+    title = "{Axial vector $Z'$ and anomaly cancellation}",
+    eprint = "1609.02188",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "PITT-PACC-1607",
+    doi = "10.1016/j.nuclphysb.2017.03.001",
+    journal = "Nucl. Phys. B",
+    volume = "918",
+    pages = "220--244",
+    year = "2017"
+}
+
+@article{Anastasopoulos:2022ywj,
+    author = "Anastasopoulos, Pascal and Kaneta, Kunio and Kiritsis, Elias and Mambrini, Yann",
+    title = "{Anomalous and axial Z' contributions to g{\ensuremath{-}}2}",
+    eprint = "2209.12947",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "CCTP-2022-2, ITCP-2022/5",
+    doi = "10.1007/JHEP02(2023)051",
+    journal = "JHEP",
+    volume = "02",
+    pages = "051",
+    year = "2023"
+}
+
+@article{Leveille:1977rc,
+    author = "Leveille, Jacques P.",
+    title = "{The Second Order Weak Correction to (G-2) of the Muon in Arbitrary Gauge Models}",
+    reportNumber = "ICTP/77-78/2",
+    doi = "10.1016/0550-3213(78)90051-2",
+    journal = "Nucl. Phys. B",
+    volume = "137",
+    pages = "63--76",
+    year = "1978"
+}
+
+@article{Davoudiasl:2014kua,
+    author = "Davoudiasl, Hooman and Lee, Hye-Sung and Marciano, William J.",
+    title = "{Muon $g{\ensuremath{-}}2$, rare kaon decays, and parity violation from dark bosons}",
+    eprint = "1402.3620",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "JLAB-THY-14-1841",
+    doi = "10.1103/PhysRevD.89.095006",
+    journal = "Phys. Rev. D",
+    volume = "89",
+    number = "9",
+    pages = "095006",
+    year = "2014"
+}
+
+@article{Aoyama:2020ynm,
+    author = "Aoyama, T. and others",
+    title = "{The anomalous magnetic moment of the muon in the Standard Model}",
+    eprint = "2006.04822",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "FERMILAB-PUB-20-207-T, INT-PUB-20-021, KEK Preprint 2020-5,
+  MITP/20-028, KEK Preprint 2020-5, MITP/20-028, CERN-TH-2020-075, IFT-UAM/CSIC-20-74, LMU-ASC 18/20, LTH 1234,
+  LU TP 20-20, LTH 1234, LU TP 20-20, MAN/HEP/2020/003, PSI-PR-20-06, UWThPh 2020-14, ZU-TH 18/20",
+    doi = "10.1016/j.physrep.2020.07.006",
+    journal = "Phys. Rept.",
+    volume = "887",
+    pages = "1--166",
+    year = "2020"
+}
+
+@article{Aliberti:2025beg,
+    author = "Aliberti, R. and others",
+    title = "{The anomalous magnetic moment of the muon in the Standard Model: an update}",
+    eprint = "2505.21476",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "CERN-TH-2025-101, FERMILAB-PUB-25-0344-T, INT-PUB-25-015, IPARCOS-UCM-25-029, KEK Preprint 2025-22, LTH 1403, MITP-25-037, UWThPh 2025-15, UWThPh
+  2025-15, ZU-TH 37/25, IPARCOS-UCM-25-029",
+    doi = "10.1016/j.physrep.2025.08.002",
+    journal = "Phys. Rept.",
+    volume = "1143",
+    pages = "1--158",
+    year = "2025"
+}
+
+@article{Muong-2:2025xyk,
+    author = "Aguillard, D. P. and others",
+    collaboration = "Muon g-2",
+    title = "{Measurement of the Positive Muon Anomalous Magnetic Moment to 127~ppb}",
+    eprint = "2506.03069",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ex",
+    reportNumber = "FERMILAB-PUB-25-0364-PPD",
+    doi = "10.1103/7clf-sm2v",
+    journal = "Phys. Rev. Lett.",
+    volume = "135",
+    number = "10",
+    pages = "101802",
+    year = "2025"
+}
+
+@article{Huang:2021nkl,
+    author = "Huang, Guo-yuan and Queiroz, Farinaldo S. and Rodejohann, Werner",
+    title = "{Gauged $L^{}_{\mu}{-}L^{}_{\tau}$ at a muon collider}",
+    eprint = "2101.04956",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1103/PhysRevD.103.095005",
+    journal = "Phys. Rev. D",
+    volume = "103",
+    number = "9",
+    pages = "095005",
+    year = "2021"
+}
+
+@article{Batell:2011qq,
+    author = "Batell, Brian and McKeen, David and Pospelov, Maxim",
+    title = "{New Parity-Violating Muonic Forces and the Proton Charge Radius}",
+    eprint = "1103.0721",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1103/PhysRevLett.107.011803",
+    journal = "Phys. Rev. Lett.",
+    volume = "107",
+    pages = "011803",
+    year = "2011"
+}
+
+@article{Davoudiasl:2012ag,
+    author = "Davoudiasl, Hooman and Lee, Hye-Sung and Marciano, William J.",
+    title = "{'Dark' Z implications for Parity Violation, Rare Meson Decays, and Higgs Physics}",
+    eprint = "1203.2947",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1103/PhysRevD.85.115019",
+    journal = "Phys. Rev. D",
+    volume = "85",
+    pages = "115019",
+    year = "2012"
+}
+
+@article{Fayet:2024ddk,
+    author = "Fayet, Pierre and Olea-Romacho, Mar{\'\i}a Olalla",
+    title = "{Searching for a new light gauge boson with axial couplings in muon beam dump experiments}",
+    eprint = "2405.02104",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1007/JHEP07(2024)223",
+    journal = "JHEP",
+    volume = "07",
+    pages = "223",
+    year = "2024"
+}
+
+@article{Fayet:2020bmb,
+    author = "Fayet, Pierre",
+    title = "{$U$ boson interpolating between a generalized dark photon or dark $Z$ , an axial boson, and an axionlike particle}",
+    eprint = "2010.04673",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1103/PhysRevD.103.035034",
+    journal = "Phys. Rev. D",
+    volume = "103",
+    number = "3",
+    pages = "035034",
+    year = "2021"
+}
+
+@article{Baruch:2022esd,
+    author = "Baruch, Chaja and Ilten, Philip and Soreq, Yotam and Williams, Mike",
+    title = "{Axial vectors in DarkCast}",
+    eprint = "2206.08563",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1007/JHEP11(2022)124",
+    journal = "JHEP",
+    volume = "11",
+    pages = "124",
+    year = "2022"
+}
+
+@article{Liu:2017htz,
+    author = "Liu, Yu-Sheng and Miller, Gerald A.",
+    title = {{Validity of the Weizs{\"a}cker-Williams approximation and the analysis of beam dump experiments: Production of an axion, a dark photon, or a new axial-vector boson}},
+    eprint = "1705.01633",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "NT@UW-17-05",
+    doi = "10.1103/PhysRevD.96.016004",
+    journal = "Phys. Rev. D",
+    volume = "96",
+    number = "1",
+    pages = "016004",
+    year = "2017"
+}
+
+@article{Voronchikhin:2024vfu,
+    author = "Voronchikhin, I. V. and Kirpichnikov, D. V.",
+    title = "{Implication of the Weizsacker-Williams approximation for the dark matter mediator production}",
+    eprint = "2409.12748",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1103/PhysRevD.111.035034",
+    journal = "Phys. Rev. D",
+    volume = "111",
+    number = "3",
+    pages = "035034",
+    year = "2025"
+}
+
+@article{Cesarotti:2022ttv,
+    author = "Cesarotti, Cari and Homiller, Samuel and Mishra, Rashmish K. and Reece, Matthew",
+    title = "{Probing New Gauge Forces with a High-Energy Muon Beam Dump}",
+    eprint = "2202.12302",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1103/PhysRevLett.130.071803",
+    journal = "Phys. Rev. Lett.",
+    volume = "130",
+    number = "7",
+    pages = "071803",
+    year = "2023"
+}
+
+@article{Cesarotti:2023sje,
+    author = "Cesarotti, Cari and Gambhir, Rikab",
+    title = "{The new physics case for beam-dump experiments with accelerated muon beams}",
+    eprint = "2310.16110",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "MIT-CTP 5606",
+    doi = "10.1007/JHEP05(2024)283",
+    journal = "JHEP",
+    volume = "05",
+    pages = "283",
+    year = "2024"
+}
+
+@article{Davoudiasl:2024fiz,
+    author = "Davoudiasl, Hooman and Liu, Hongkai and Marcarelli, Roman and Soreq, Yotam and Trifinopoulos, Sokratis",
+    title = "{New physics at the Muon (Synchrotron) Ion Collider: MuSIC for several scales}",
+    eprint = "2412.13289",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "MIT-CTP/5811",
+    doi = "10.1007/JHEP03(2025)046",
+    journal = "JHEP",
+    volume = "03",
+    pages = "046",
+    year = "2025"
+}
+
+@article{Blinov:2025aha,
+    author = "Blinov, Nikita and Fox, Patrick J. and Kelly, Kevin J. and Plestid, Ryan and Zhou, Tao",
+    title = "{$L_\mu-L_\tau$ gauge bosons in beam dumps and supernovae}",
+    eprint = "2511.09619",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "FERMILAB-PUB-25-0818-T, MI-HET-869, CALT-TH/2025-034, CERN-TH-2025-229",
+    doi = "10.1007/JHEP06(2026)155",
+    journal = "JHEP",
+    volume = "06",
+    pages = "155",
+    year = "2026"
+}
+
+@article{Fang:2025fvo,
+    author = "Fang, Rundong and Guo, Ji-Heng and Liu, Jia and Wang, Xiao-Ping and Zhao, YanLi",
+    title = "{Axial-vector leptophilic fifth force sourced by solar neutrinos}",
+    eprint = "2510.20672",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1103/mrm8-qv1j",
+    journal = "Phys. Rev. D",
+    volume = "113",
+    number = "5",
+    pages = "055041",
+    year = "2026"
+}
+
+@article{Chakraborty:2025jbd,
+    author = "Chakraborty, Dibyendu and Chatterjee, Arindam and Kaushik, Ayushi and Nishiwaki, Kenji",
+    title = "{Muon Beam Dump Experiments explicate five-dimensional nature of $U(1)_{L_\mu-L_\tau}$}",
+    eprint = "2510.25613",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    month = "10",
+    year = "2025"
+}
+
+@article{Duerr:2019dmv,
+    author = "Duerr, Michael and Ferber, Torben and Hearty, Christopher and Kahlhoefer, Felix and Schmidt-Hoberg, Kai and Tunney, Patrick",
+    title = "{Invisible and displaced dark matter signatures at Belle II}",
+    eprint = "1911.03176",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "DESY-19-141, OUTP-19-10P, TTK-19-46",
+    doi = "10.1007/JHEP02(2020)039",
+    journal = "JHEP",
+    volume = "02",
+    pages = "039",
+    year = "2020"
+}
+
+@article{Duerr:2020muu,
+    author = "Duerr, Michael and Ferber, Torben and Garcia-Cely, Camilo and Hearty, Christopher and Schmidt-Hoberg, Kai",
+    title = "{Long-lived Dark Higgs and Inelastic Dark Matter at Belle II}",
+    eprint = "2012.08595",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "DESY-20-226",
+    doi = "10.1007/JHEP04(2021)146",
+    journal = "JHEP",
+    volume = "04",
+    pages = "146",
+    year = "2021"
+}
+
+@article{Tsai:2019buq,
+    author = "Tsai, Yu-Dai and deNiverville, Patrick and Liu, Ming Xiong",
+    title = "{Dark Photon and Muon $g-2$ Inspired Inelastic Dark Matter Models at the High-Energy Intensity Frontier}",
+    eprint = "1908.07525",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "FERMILAB-PUB-19-393-A-PPD",
+    doi = "10.1103/PhysRevLett.126.181801",
+    journal = "Phys. Rev. Lett.",
+    volume = "126",
+    number = "18",
+    pages = "181801",
+    year = "2021"
+}
+
+@article{Jodlowski:2023ohn,
+    author = "Jod{\l}owski, Krzysztof",
+    title = "{Looking forward to inelastic DM with electromagnetic form factors at FASER and beam dump experiments}",
+    eprint = "2305.16781",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "CTPU-PTC-23-21",
+    doi = "10.1103/PhysRevD.108.115025",
+    journal = "Phys. Rev. D",
+    volume = "108",
+    number = "11",
+    pages = "115025",
+    year = "2023"
+}
+
+@article{ATLAS:2022vkf,
+    author = "Aad, Georges and others",
+    collaboration = "ATLAS",
+    title = "{A detailed map of Higgs boson interactions by the ATLAS experiment ten years after the discovery}",
+    eprint = "2207.00092",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ex",
+    reportNumber = "CERN-EP-2022-057",
+    doi = "10.1038/s41586-022-04893-w",
+    journal = "Nature",
+    volume = "607",
+    number = "7917",
+    pages = "52--59",
+    year = "2022",
+    note = "[Erratum: Nature 612, E24 (2022)]"
+}
+
+@article{CMS:2022dwd,
+    author = "Tumasyan, Armen and others",
+    collaboration = "CMS",
+    title = "{A portrait of the Higgs boson by the CMS experiment ten years after the discovery.}",
+    eprint = "2207.00043",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ex",
+    reportNumber = "CMS-HIG-22-001, CERN-EP-2022-039",
+    doi = "10.1038/s41586-022-04892-x",
+    journal = "Nature",
+    volume = "607",
+    number = "7917",
+    pages = "60--68",
+    year = "2022",
+    note = "[Erratum: Nature 623, (2023)]"
+}
+
+@article{doble1994upgraded,
+  title={The upgraded muon beam at the SPS},
+  author={Doble, N and Gatignon, L and Von Holtey, G and Novoskoltsev, F},
+  journal={Nuclear Instruments and Methods in Physics Research Section A: Accelerators, Spectrometers, Detectors and Associated Equipment},
+  volume={343},
+  number={2-3},
+  pages={351--362},
+  year={1994},
+  publisher={Elsevier}
+}
+
+@article{andreev2024exploration,
+  title={Exploration of the Muon $ g-2$ and Light Dark Matter explanations in NA64 with the CERN SPS high energy muon beam},
+  author={Andreev, Yu M and Banerjee, D and Oberhauser, B Banto and Bernhard, J and Bisio, P and Charitonidis, N and Crivelli, P and Depero, E and Dermenev, AV and Donskov, SV and others},
+  journal={arXiv preprint arXiv:2401.01708},
+  year={2024}
+}
+
+@article{navas2024review,
+  title={Review of particle physics},
+  author={Navas, Sea and Amsler, C and Gutsche, T and Hanhart, C and Louren{\c{c}}o, C and Masoni, A and Mikhasenko, M and Mitchell, R and Patrignani, C and Schwanda, C and others},
+  journal={Physical Review D},
+  volume={110},
+  number={3},
+  year={2024}
+}
+
+@article{andreev2024shedding,
+  title={Shedding light on dark sectors with high-energy muons at the NA64 experiment at the CERN SPS},
+  author={Andreev, Yu M and Banerjee, D and Oberhauser, B Banto and Bernhard, J and Bisio, P and Charitonidis, N and Crivelli, P and Depero, E and Dermenev, AV and Donskov, SV and others},
+  journal={Physical Review D},
+  volume={110},
+  number={11},
+  pages={112015},
+  year={2024},
+  publisher={APS}
+}
+
+@article{chen2018exploring,
+  title={Exploring leptophilic dark matter with NA64-$\mu$},
+  author={Chen, Chien-Yi and Kozaczuk, Jonathan and Zhong, Yi-Ming},
+  journal={Journal of High Energy Physics},
+  volume={2018},
+  number={10},
+  pages={1--30},
+  year={2018},
+  publisher={Springer}
+}
+
+@article{kirpichnikov2021probing,
+  title={Probing hidden sectors with a muon beam: Total and differential cross sections for vector boson production in muon bremsstrahlung},
+  author={Kirpichnikov, Dmitry V and Sieber, Henri and Molina Bueno, Laura and Crivelli, Paolo and Kirsanov, Mikhail M},
+  journal={Physical Review D},
+  volume={104},
+  number={7},
+  pages={076012},
+  year={2021},
+  publisher={APS}
+}
+
+@article{lista2023statistical,
+  title={Statistical Methods for Data Analysis},
+  author={Lista, Luca},
+  journal={Lecture Notes in Physics (Apr. 2023)},
+  year={2023},
+  publisher={Springer}
+}
+
+@article{bjorken2009new,
+  title={New fixed-target experiments to search for dark gauge forces},
+  author={Bjorken, James D and Essig, Rouven and Schuster, Philip and Toro, Natalia},
+  journal={Physical Review D},
+  volume={80},
+  number={7},
+  pages={075018},
+  year={2009},
+  publisher={APS}
+}
+
+@article{chakraborty2025muon,
+  title={Muon Beam Dump Experiments explicate five-dimensional nature of $ U (1) \_ $\{$L\_ $\{$$\backslash$mu$\}$-L\_ $\{$$\backslash$tau$\}$$\}$ $},
+  author={Chakraborty, Dibyendu and Chatterjee, Arindam and Kaushik, Ayushi and Nishiwaki, Kenji},
+  journal={arXiv preprint arXiv:2510.25613},
+  year={2025}
+}
+
+@article{tsai1986axion,
+  title={Axion bremsstrahlung by an electron beam},
+  author={Tsai, Yung Su},
+  journal={Physical Review D},
+  volume={34},
+  number={5},
+  pages={1326},
+  year={1986},
+  publisher={APS}
+}
+
+@article{von1934radiation,
+  title={Radiation emitted in collisions of very fast electrons},
+  author={Von Weizsacker, CF},
+  journal={Z. Phys},
+  volume={88},
+  number={612},
+  pages={95},
+  year={1934}
+}
+
+@article{williams1935correlation,
+  title={Correlation of certain collision problems with radiation theory},
+  author={Williams, Evan J},
+  journal={(No Title)},
+  year={1935}
+}
+
+@article{kim1973improved,
+  title={Improved Weizs{\"a}cker-Williams method and its application to lepton and W-boson pair production},
+  author={Kim, Kwang Je and Tsai, Yung-Su},
+  journal={Physical Review D},
+  volume={8},
+  number={9},
+  pages={3109},
+  year={1973},
+  publisher={APS}
+}
+
+@article{tsai1974pair,
+  title={Pair production and bremsstrahlung of charged leptons},
+  author={Tsai, Yung-Su},
+  journal={Reviews of Modern Physics},
+  volume={46},
+  number={4},
+  pages={815},
+  year={1974},
+  publisher={APS}
+}
+
+@article{liu2017validity,
+  title={Validity of the Weizs{\"a}cker-Williams approximation and the analysis of beam dump experiments: Production of a new scalar boson},
+  author={Liu, Yu-Sheng and McKeen, David and Miller, Gerald A},
+  journal={Physical Review D},
+  volume={95},
+  number={3},
+  pages={036010},
+  year={2017},
+  publisher={APS}
+}
+
+@article{liu2017validity1,
+  title={Validity of the Weizs{\"a}cker-Williams approximation and the analysis of beam dump experiments: Production of an axion, a dark photon, or a new axial-vector boson},
+  author={Liu, Yu-Sheng and Miller, Gerald A},
+  journal={Physical Review D},
+  volume={96},
+  number={1},
+  pages={016004},
+  year={2017},
+  publisher={APS}
+}
+
+@article{voronchikhin2025implication,
+  title={Implication of the Weizsacker-Williams approximation for the dark matter mediator production},
+  author={Voronchikhin, IV and Kirpichnikov, DV},
+  journal={Physical Review D},
+  volume={111},
+  number={3},
+  pages={035034},
+  year={2025},
+  publisher={APS}
+}
+
+@article{batell2024lepton,
+  title={Lepton-flavor-violating ALP signals with TeV-scale muon beams},
+  author={Batell, Brian and Davoudiasl, Hooman and Marcarelli, Roman and Neil, Ethan T and Trojanowski, Sebastian},
+  journal={Physical Review D},
+  volume={110},
+  number={7},
+  pages={075039},
+  year={2024},
+  publisher={APS}
+}
+
+@article{Cao:2023smj,
+    author = "Cao, Qing-Hong and Guo, Jinhui and Liu, Jia and Luo, Yan and Wang, Xiao-Ping",
+    title = "{Long-lived searches of vectorlike lepton and its accompanying scalar at colliders}",
+    eprint = "2311.12934",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1103/PhysRevD.110.015029",
+    journal = "Phys. Rev. D",
+    volume = "110",
+    number = "1",
+    pages = "015029",
+    year = "2024"
+}
+
+@article{Yue:2026tbc,
+    author = "Yue, Chong-Xing and Wang, Mei-Shu-Yu and Li, Xin-Yang and Zhang, Si-Yu",
+    title = "{Prospects for probing neutral vector-like leptons via pair production at muon collider}",
+    eprint = "2606.27878",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    month = "6",
+    year = "2026"
+}
+
+@article{Yue:2025xvk,
+    author = "Yue, Chong-Xing and Wang, Mei-Shu-Yu and Li, Xin-Yang",
+    title = "{Detection of the singlet charged vector-like lepton via its single production at the ILC}",
+    doi = "10.1016/j.nuclphysb.2025.117143",
+    journal = "Nucl. Phys. B",
+    volume = "1020",
+    pages = "117143",
+    year = "2025"
+}
+
+@article{Yue:2024sds,
+    author = "Yue, Chong-Xing and Wang, Yue-Qi and Wang, Han and Wang, Yi-Hang and Li, Si",
+    title = "{Searching for singlet vector-like leptons via pair production at ILC}",
+    eprint = "2402.02072",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1016/j.nuclphysb.2024.116482",
+    journal = "Nucl. Phys. B",
+    volume = "1000",
+    pages = "116482",
+    year = "2024"
+}
+
+@article{Ibarra:2021xyk,
+    author = "Ibarra, Alejandro and Mar{\'\i}n, Marcela and Roig, Pablo",
+    title = "{Flavor violating muon decay into an electron and a light gauge boson}",
+    eprint = "2110.03737",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "TUM-HEP 1355/21",
+    doi = "10.1016/j.physletb.2022.136933",
+    journal = "Phys. Lett. B",
+    volume = "827",
+    pages = "136933",
+    year = "2022"
+}
+
+@article{Hayasaka:2010np,
+    author = "Hayasaka, K. and others",
+    title = "{Search for Lepton Flavor Violating Tau Decays into Three Leptons with 719 Million Produced Tau+Tau- Pairs}",
+    eprint = "1001.3221",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ex",
+    doi = "10.1016/j.physletb.2010.03.037",
+    journal = "Phys. Lett. B",
+    volume = "687",
+    pages = "139--143",
+    year = "2010"
+}
+
+@article{Belle-II:2024sce,
+    author = "Adachi, I. and others",
+    collaboration = "Belle-II",
+    title = "{Search for lepton-flavor-violating $\tau^-\to\mu^-\mu^+\mu^-$ decays at Belle II}",
+    eprint = "2405.07386",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ex",
+    reportNumber = "Belle II Preprint 2024-012 KEK Preprint 2024-6",
+    doi = "10.1007/JHEP09(2024)062",
+    journal = "JHEP",
+    volume = "09",
+    pages = "062",
+    year = "2024"
+}
+
+@article{geiregat1990first,
+  title={First observation of neutrino trident production},
+  author={Geiregat, D and Wilquet, Gaston and Binder, U and Burkard, H and Dore, U and Flegel, W and Grote, H and Mouthuy, T and {\O}ver{\aa}s, H and Panman, J and others},
+  journal={Physics Letters B},
+  volume={245},
+  number={2},
+  pages={271--275},
+  year={1990},
+  publisher={Elsevier},
+  doi={10.1016/0370-2693(90)90146-W}
+}
+
+@article{PIONEER:2022yag,
+    author = "Altmannshofer, W. and others",
+    collaboration = "PIONEER",
+    title = "{PIONEER: Studies of Rare Pion Decays}",
+    eprint = "2203.01981",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ex",
+    month = "3",
+    year = "2022"
+}
+
+@inproceedings{PIONEER:2022alm,
+    author = "Altmannshofer, W. and others",
+    collaboration = "PIONEER",
+    title = "{Testing Lepton Flavor Universality and CKM Unitarity with Rare Pion Decays in the PIONEER experiment}",
+    booktitle = "{Snowmass 2021}",
+    eprint = "2203.05505",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ex",
+    reportNumber = "FERMILAB-CONF-22-328-PPD",
+    month = "3",
+    year = "2022"
+}
+
+@article{PIENU:2021clt,
+    author = "Aguilar-Arevalo, A. and others",
+    collaboration = "PIENU",
+    title = "{Search for three body pion decays ${\pi}^+{\to}l^+{\nu}X$}",
+    eprint = "2101.07381",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ex",
+    doi = "10.1103/PhysRevD.103.052006",
+    journal = "Phys. Rev. D",
+    volume = "103",
+    number = "5",
+    pages = "052006",
+    year = "2021"
+}
+
+@article{NA64:2024nwj,
+    author = "Andreev, Yu. M. and others",
+    collaboration = "NA64",
+    title = "{Shedding light on dark sectors with high-energy muons at the NA64 experiment at the CERN SPS}",
+    eprint = "2409.10128",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ex",
+    reportNumber = "CERN-EP-2024-236",
+    doi = "10.1103/PhysRevD.110.112015",
+    journal = "Phys. Rev. D",
+    volume = "110",
+    number = "11",
+    pages = "112015",
+    year = "2024"
+}
+
+@article{Acosta:2021qpx,
+    author = "Acosta, Darin and Li, Wei",
+    title = "{A muon{\textendash}ion collider at BNL: The future QCD frontier and path to a new energy frontier of {\ensuremath{\mu}}+{\ensuremath{\mu}}{\ensuremath{-}} colliders}",
+    eprint = "2107.02073",
+    archivePrefix = "arXiv",
+    primaryClass = "physics.acc-ph",
+    doi = "10.1016/j.nima.2022.166334",
+    journal = "Nucl. Instrum. Meth. A",
+    volume = "1027",
+    pages = "166334",
+    year = "2022"
+}
+
+@article{Acosta:2022ejc,
+    author = "Acosta, Darin and Barberis, Emanuela and Hurley, Nicholas and Li, Wei and Miguel Colin, Osvaldo and Wang, Yijie and Wood, Darien and Zuo, Xunwu",
+    title = "{The potential of a TeV-scale muon-ion collider}",
+    eprint = "2203.06258",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ex",
+    doi = "10.1088/1748-0221/18/09/P09025",
+    journal = "JINST",
+    volume = "18",
+    number = "09",
+    pages = "P09025",
+    year = "2023"
+}
+
+@article{Dror:2017nsg,
+  author  = {Dror, Jeff A. and Lasenby, Robert and Pospelov, Maxim},
+  title   = {Dark forces coupled to nonconserved currents},
+  journal = {Phys. Rev. D},
+  volume  = {96},
+  number  = {7},
+  pages   = {075036},
+  year    = {2017},
+  eprint  = {1707.01503},
+  archivePrefix = {arXiv},
+  primaryClass = {hep-ph},
+  doi     = {10.1103/PhysRevD.96.075036}
+}
+
+@article{Fayet:2020nyx,
+  author  = {Fayet, Pierre},
+  title   = {U boson interpolating between a generalized dark photon or dark Z, an axial boson, and an axionlike particle},
+  journal = {Phys. Rev. D},
+  volume  = {103},
+  number  = {3},
+  pages   = {035034},
+  year    = {2021},
+  eprint  = {2010.04673},
+  archivePrefix = {arXiv},
+  primaryClass = {hep-ph},
+  doi     = {10.1103/PhysRevD.103.035034}
+}
+
+@article{Biggio:2016wyy,
+  author  = {Biggio, Carla and Bordone, Marzia and Di Luzio, Luca and Ridolfi, Giovanni},
+  title   = {Massive vectors and loop observables: the g-2 case},
+  journal = {JHEP},
+  volume  = {10},
+  pages   = {002},
+  year    = {2016},
+  eprint  = {1607.07621},
+  archivePrefix = {arXiv},
+  primaryClass  = {hep-ph},
+  doi     = {10.1007/JHEP10(2016)002}
+}
+
+@article{CMS:2018yxg,
+    author = "Sirunyan, Albert M and others",
+    collaboration = "CMS",
+    title = "{Search for an $L_{\mu}-L_{\tau}$ gauge boson using Z$\to4\mu$ events in proton-proton collisions at $\sqrt{s} =$ 13 TeV}",
+    eprint = "1808.03684",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ex",
+    reportNumber = "CMS-EXO-18-008, CERN-EP-2018-208",
+    doi = "10.1016/j.physletb.2019.01.072",
+    journal = "Phys. Lett. B",
+    volume = "792",
+    pages = "345--368",
+    year = "2019"
+}
+
+@article{delAguila:2014soa,
+	author = "del Aguila, Francisco and Chala, Mikael and Santiago, Jose and Yamamoto, Yasuhiro",
+	title = "{Collider limits on leptophilic interactions}",
+	eprint = "1411.7394",
+	archivePrefix = "arXiv",
+	primaryClass = "hep-ph",
+	reportNumber = "CAFPE-183-14, UG-FT-313-14, CERN-PH-TH-2014-237, DESY-14-228",
+	doi = "10.1007/JHEP03(2015)059",
+	journal = "JHEP",
+	volume = "03",
+	pages = "059",
+	year = "2015"
+}
+
+@article{Belle-II:2024wtd,
+	author = "Adachi, I. and others",
+	collaboration = "Belle-II",
+	title = "{Search for a {\ensuremath{\mu}}+{\ensuremath{\mu}}- resonance in four-muon final states at Belle II}",
+	eprint = "2403.02841",
+	archivePrefix = "arXiv",
+	primaryClass = "hep-ex",
+	reportNumber = "2024-007, 2023-55",
+	doi = "10.1103/PhysRevD.109.112015",
+	journal = "Phys. Rev. D",
+	volume = "109",
+	number = "11",
+	pages = "112015",
+	year = "2024"
+}
+
+@article{Belle-II:2022yaw,
+	author = "Adachi, I. and others",
+	collaboration = "Belle-II",
+	title = "{Search for an Invisible Z' in a Final State with Two Muons and Missing Energy at Belle II}",
+	eprint = "2212.03066",
+	archivePrefix = "arXiv",
+	primaryClass = "hep-ex",
+	reportNumber = "Belle II Preprint 2022-008, KEK Preprint 2022-40",
+	doi = "10.1103/PhysRevLett.130.231801",
+	journal = "Phys. Rev. Lett.",
+	volume = "130",
+	number = "23",
+	pages = "231801",
+	year = "2023"
+}
+
+@article{BaBar:2016sci,
+	author = "Lees, J. P. and others",
+	collaboration = "BaBar",
+	title = "{Search for a muonic dark force at BABAR}",
+	eprint = "1606.03501",
+	archivePrefix = "arXiv",
+	primaryClass = "hep-ex",
+	reportNumber = "BABAR-PUB-16-003, SLAC-PUB-16549",
+	doi = "10.1103/PhysRevD.94.011102",
+	journal = "Phys. Rev. D",
+	volume = "94",
+	number = "1",
+	pages = "011102",
+	year = "2016"
+}
+
+@article{Brown:2024jah,
+    author = "Brown, Connor and Fiaschi, Juri and Fischer, Oliver and Teubner, Thomas",
+    title = "{Systematic analysis of search strategies for $L_{\mu}-L_{\tau}$ gauge bosons at Belle II}",
+    eprint = "2406.10204",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "LTH-1372",
+    doi = "10.1007/JHEP10(2024)233",
+    journal = "JHEP",
+    volume = "10",
+    pages = "233",
+    year = "2024"
+}
+
+@article{Belle-II:2019qfb,
+    author = "Adachi, I. and others",
+    collaboration = "Belle-II",
+    title = "{Search for an Invisibly Decaying $Z^{\prime}$ Boson at Belle II in $e^+ e^- \to \mu^+ \mu^- (e^{\pm} \mu^{\mp})$ Plus Missing Energy Final States}",
+    eprint = "1912.11276",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ex",
+    reportNumber = "Belle II Preprint 2019-002, KEK Preprint 2019-55,",
+    doi = "10.1103/PhysRevLett.124.141801",
+    journal = "Phys. Rev. Lett.",
+    volume = "124",
+    number = "14",
+    pages = "141801",
+    year = "2020"
+}
+
+@article{NA64:2024klw,
+    author = "Andreev, Yu. M. and others",
+    collaboration = "NA64",
+    title = "{First Results in the Search for Dark Sectors at NA64 with the CERN SPS High Energy Muon Beam}",
+    eprint = "2401.01708",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ex",
+    reportNumber = "CERN-EP-2023-306",
+    doi = "10.1103/PhysRevLett.132.211803",
+    journal = "Phys. Rev. Lett.",
+    volume = "132",
+    number = "21",
+    pages = "211803",
+    year = "2024"
+}
+
+@article{Prajapati:2026tfv,
+    author = "Prajapati, Hemant Kumar and Srivastava, Rahul",
+    title = "{Light and Heavy $Z'$ from Flavored Chiral $U(1)_X$ Gauge Symmetries: Purely Axial and Mixed Vector-Axial Couplings}",
+    eprint = "2603.27157",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    month = "3",
+    year = "2026"
+}
+
+@article{Dutta:2026dnf,
+    author = "Dutta, Bhaskar and Karthikeyan, Aparajitha and Mohapatra, Rabindra N.",
+    title = "{UV-Complete Models for a Light Axial Gauge Boson}",
+    eprint = "2603.27280",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "MI-HET-880",
+    month = "3",
+    year = "2026"
+}
+
+@article{Hicyilmaz:2022owb,
+    author = "Hi{\c{c}}y{\i}lmaz, Ya{\c{s}}ar and Khalil, Shaaban and Moretti, Stefano",
+    title = "{Light Z' signatures at the LHC}",
+    eprint = "2209.09226",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1103/PhysRevD.107.035030",
+    journal = "Phys. Rev. D",
+    volume = "107",
+    number = "3",
+    pages = "035030",
+    year = "2023"
+}
+
+@article{Kozaczuk:2016nma,
+    author = "Kozaczuk, Jonathan and Morrissey, David E. and Stroberg, S. R.",
+    title = "{Light axial vector bosons, nuclear transitions, and the $^8$Be anomaly}",
+    eprint = "1612.01525",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    reportNumber = "ACFI-T16-32",
+    doi = "10.1103/PhysRevD.95.115024",
+    journal = "Phys. Rev. D",
+    volume = "95",
+    number = "11",
+    pages = "115024",
+    year = "2017"
+}
+
+@article{Dror:2019uea,
+	author = "Dror, Jeff A. and Laha, Ranjan and Opferkuch, Toby",
+	title = "{Probing muonic forces with neutron star binaries}",
+	eprint = "1909.12845",
+	archivePrefix = "arXiv",
+	primaryClass = "hep-ph",
+	reportNumber = "CERN-TH-2019-150",
+	doi = "10.1103/PhysRevD.102.023005",
+	journal = "Phys. Rev. D",
+	volume = "102",
+	number = "2",
+	pages = "023005",
+	year = "2020"
+}
+
+@article{Liu:2025zuz,
+	author = "Liu, Zuowei and Tang, Zi-Wei",
+	title = "{Probing a muonic force with the periastron advance in binary pulsar systems}",
+	eprint = "2501.10927",
+	archivePrefix = "arXiv",
+	primaryClass = "astro-ph.HE",
+	doi = "10.1103/4v46-c5zt",
+	journal = "Phys. Rev. D",
+	volume = "112",
+	number = "5",
+	pages = "055021",
+	year = "2025"
+}
+
+@article{Fiorillo:2026wso,
+    author = "Fiorillo, Damiano F. G. and Lella, Alessandro and Raffelt, Georg G. and Selimovic, Nudzeim and Vitagliano, Edoardo",
+    title = "{Neutron Star Bounds on Muonic Fifth Forces from Picometer to Kilometer Scales}",
+    eprint = "2605.24094",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    month = "5",
+    year = "2026"
+}
+
+@article{Hoskins:1985tn,
+    author = "Hoskins, J. K. and Newman, R. D. and Spero, R. and Schultz, J.",
+    title = "{Experimental tests of the gravitational inverse square law for mass separations from 2-cm to 105-cm}",
+    doi = "10.1103/PhysRevD.32.3084",
+    journal = "Phys. Rev. D",
+    volume = "32",
+    pages = "3084--3095",
+    year = "1985"
+}
+
+@article{Smith:1999cr,
+    author = "Smith, G. L. and Hoyle, C. D. and Gundlach, J. H. and Adelberger, E. G. and Heckel, Blayne R. and Swanson, H. E.",
+    title = "{Short range tests of the equivalence principle}",
+    eprint = "2405.10982",
+    archivePrefix = "arXiv",
+    primaryClass = "gr-qc",
+    doi = "10.1103/PhysRevD.61.022001",
+    journal = "Phys. Rev. D",
+    volume = "61",
+    pages = "022001",
+    year = "2000"
+}
+
+@article{Kapner:2006si,
+    author = "Kapner, D. J. and Cook, T. S. and Adelberger, E. G. and Gundlach, J. H. and Heckel, Blayne R. and Hoyle, C. D. and Swanson, H. E.",
+    title = "{Tests of the gravitational inverse-square law below the dark-energy length scale}",
+    eprint = "hep-ph/0611184",
+    archivePrefix = "arXiv",
+    doi = "10.1103/PhysRevLett.98.021101",
+    journal = "Phys. Rev. Lett.",
+    volume = "98",
+    pages = "021101",
+    year = "2007"
+}
+
+@article{Geraci:2008hb,
+    author = "Geraci, Andrew A. and Smullin, Sylvia J. and Weld, David M. and Chiaverini, John and Kapitulnik, Aharon",
+    title = "{Improved constraints on non-Newtonian forces at 10 microns}",
+    eprint = "0802.2350",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ex",
+    doi = "10.1103/PhysRevD.78.022002",
+    journal = "Phys. Rev. D",
+    volume = "78",
+    pages = "022002",
+    year = "2008"
+}
+
+@article{Sushkov:2011md,
+    author = "Sushkov, A. O. and Kim, W. J. and Dalvit, D. A. R. and Lamoreaux, S. K.",
+    title = "{New Experimental Limits on Non-Newtonian Forces in the Micrometer Range}",
+    eprint = "1108.2547",
+    archivePrefix = "arXiv",
+    primaryClass = "quant-ph",
+    doi = "10.1103/PhysRevLett.107.171101",
+    journal = "Phys. Rev. Lett.",
+    volume = "107",
+    pages = "171101",
+    year = "2011"
+}
+
+@article{Yang:2012zzb,
+    author = "Yang, Shan-Qing and Zhan, Bi-Fu and Wang, Qing-Lan and Shao, Cheng-Gang and Tu, Liang-Cheng and Tan, Wen-Hai and Luo, Jun",
+    title = "{Test of the Gravitational Inverse Square Law at Millimeter Ranges}",
+    doi = "10.1103/PhysRevLett.108.081101",
+    journal = "Phys. Rev. Lett.",
+    volume = "108",
+    pages = "081101",
+    year = "2012"
+}
+
+@article{Chen:2014oda,
+    author = "Chen, Y. -J. and Tham, W. K. and Krause, D. E. and Lopez, D. and Fischbach, Ephraim and Decca, R. S.",
+    title = "{Stronger Limits on Hypothetical Yukawa Interactions in the 30{\textendash}8000 nm Range}",
+    eprint = "1410.7267",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ex",
+    doi = "10.1103/PhysRevLett.116.221102",
+    journal = "Phys. Rev. Lett.",
+    volume = "116",
+    number = "22",
+    pages = "221102",
+    year = "2016"
+}
+
+@article{Decca:2007yb,
+    author = "Decca, R. S. and Lopez, D. and Fischbach, E. and Klimchitskaya, G. L. and Krause, D. E. and Mostepanenko, V. M.",
+    title = "{Tests of new physics from precise measurements of the Casimir pressure between two gold-coated plates}",
+    eprint = "hep-ph/0703290",
+    archivePrefix = "arXiv",
+    doi = "10.1103/PhysRevD.75.077101",
+    journal = "Phys. Rev. D",
+    volume = "75",
+    pages = "077101",
+    year = "2007"
+}
+
+@article{Blakemore:2021zna,
+    author = "Blakemore, Charles P. and Fieguth, Alexander and Kawasaki, Akio and Priel, Nadav and Martin, Denzal and Rider, Alexander D. and Wang, Qidong and Gratta, Giorgio",
+    title = "{Search for non-Newtonian interactions at micrometer scale with a levitated test mass}",
+    eprint = "2102.06848",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ex",
+    doi = "10.1103/PhysRevD.104.L061101",
+    journal = "Phys. Rev. D",
+    volume = "104",
+    number = "6",
+    pages = "L061101",
+    year = "2021"
+}
+
+@article{Venugopalan:2024kgu,
+    author = "Venugopalan, Gautam and others",
+    title = "{Optomechanical vector sensing of new forces at 6 micron separation}",
+    eprint = "2412.13167",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ex",
+    doi = "10.1038/s41598-026-35656-6",
+    journal = "Sci. Rep.",
+    volume = "16",
+    pages = "5180",
+    year = "2026"
+}
+
+@article{Chiu:2009fqu,
+    author = "Chiu, H. -C. and Klimchitskaya, G. L. and Marachevsky, V. N. and Mostepanenko, V. M. and Mohideen, U.",
+    title = "{Demonstration of the asymmetric lateral Casimir force between corrugated surfaces in the nonadditive regime}",
+    eprint = "0909.2161",
+    archivePrefix = "arXiv",
+    primaryClass = "quant-ph",
+    doi = "10.1103/PhysRevB.80.121402",
+    journal = "Phys. Rev. B",
+    volume = "80",
+    number = "12",
+    pages = "121402",
+    year = "2009"
+}
+
+@article{Bezerra:2010pq,
+    author = "Bezerra, V. B. and Klimchitskaya, G. L. and Mostepanenko, V. M. and Romero, C.",
+    title = "{Advance and prospects in constraining the Yukawa-type corrections to Newtonian gravity from the Casimir effect}",
+    eprint = "1002.2141",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-th",
+    doi = "10.1103/PhysRevD.81.055003",
+    journal = "Phys. Rev. D",
+    volume = "81",
+    pages = "055003",
+    year = "2010"
+}
+
+@article{Banishev:2012kkb,
+    author = "Banishev, A. A. and Wagner, J. and Emig, T. and Zandi, R. and Mohideen, U.",
+    title = "{Demonstration of Angle Dependent Casimir Force Between Corrugations}",
+    eprint = "1212.6271",
+    archivePrefix = "arXiv",
+    primaryClass = "quant-ph",
+    doi = "10.1103/PhysRevLett.110.250403",
+    journal = "Phys. Rev. Lett.",
+    volume = "110",
+    number = "25",
+    pages = "250403",
+    year = "2013"
+}
+
+@article{Banishev:2014jka,
+    author = "Banishev, A. A. and Wagner, J. and Emig, T. and Zandi, R. and Mohideen, U.",
+    title = "{Experimental and theoretical investigation of the angular dependence of the Casimir force between sinusoidally corrugated surfaces}",
+    eprint = "1402.2716",
+    archivePrefix = "arXiv",
+    primaryClass = "quant-ph",
+    doi = "10.1103/PhysRevB.89.235436",
+    journal = "Phys. Rev. B",
+    volume = "89",
+    number = "23",
+    pages = "235436",
+    year = "2014"
+}
+
+@article{Berge:2017ovy,
+    author = "Berg{\'e}, Joel and Brax, Philippe and M{\'e}tris, Gilles and Pernot-Borr{\`a}s, Martin and Touboul, Pierre and Uzan, Jean-Philippe",
+    title = "{MICROSCOPE Mission: First Constraints on the Violation of the Weak Equivalence Principle by a Light Scalar Dilaton}",
+    eprint = "1712.00483",
+    archivePrefix = "arXiv",
+    primaryClass = "gr-qc",
+    doi = "10.1103/PhysRevLett.120.141101",
+    journal = "Phys. Rev. Lett.",
+    volume = "120",
+    number = "14",
+    pages = "141101",
+    year = "2018"
+}
+
+@article{Lee:2020zjt,
+    author = "Lee, J. G. and Adelberger, E. G. and Cook, T. S. and Fleischer, S. M. and Heckel, B. R.",
+    title = "{New Test of the Gravitational $1/r^2$ Law at Separations down to 52 $\mu$m}",
+    eprint = "2002.11761",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ex",
+    doi = "10.1103/PhysRevLett.124.101101",
+    journal = "Phys. Rev. Lett.",
+    volume = "124",
+    number = "10",
+    pages = "101101",
+    year = "2020"
+}
+
+@article{Tan:2020vpf,
+    author = "Tan, Wen-Hai and others",
+    title = "{Improvement for Testing the Gravitational Inverse-Square Law at the Submillimeter Range}",
+    doi = "10.1103/PhysRevLett.124.051301",
+    journal = "Phys. Rev. Lett.",
+    volume = "124",
+    number = "5",
+    pages = "051301",
+    year = "2020"
+}
+
+@article{Matias:2025vrq,
+    author = "Matias, J. E. J. and Lemos, A. S. and Dahia, F.",
+    title = "{Probing short-distance modifications of gravity via spin-independent and spin-dependent effects in muonic atoms}",
+    eprint = "2511.00719",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1140/epjp/s13360-026-07560-5",
+    journal = "Eur. Phys. J. Plus",
+    volume = "141",
+    number = "3",
+    pages = "328",
+    year = "2026"
+}
+
+@article{Boynewicz:2025daj,
+    author = "Boynewicz, J. and Sackett, C. A.",
+    title = "{Probing short-range gravity using quantum reflection}",
+    eprint = "2511.08770",
+    archivePrefix = "arXiv",
+    primaryClass = "cond-mat.quant-gas",
+    doi = "10.1103/7wv2-5r1n",
+    journal = "Phys. Rev. A",
+    volume = "114",
+    number = "1",
+    pages = "013301",
+    year = "2026"
+}
+
+@article{Ren:2026hff,
+    author = "Ren, Yi-Chong and Xu, Feng and Broer, Wijnand and Chen, Xiao-Jing and Xue, Fei",
+    title = "{Field-Tunable Meissner-Levitated Ferromagnetic Microsphere Sensor for Cryogenic Casimir and Short-Range Gravity Tests}",
+    eprint = "2602.13829",
+    archivePrefix = "arXiv",
+    primaryClass = "quant-ph",
+    month = "2",
+    year = "2026"
+}
+
+@article{Caputo:2021rux,
+	author = "Caputo, Andrea and Raffelt, Georg and Vitagliano, Edoardo",
+	title = "{Muonic boson limits: Supernova redux}",
+	eprint = "2109.03244",
+	archivePrefix = "arXiv",
+	primaryClass = "hep-ph",
+	reportNumber = "MPP-2021-154",
+	doi = "10.1103/PhysRevD.105.035022",
+	journal = "Phys. Rev. D",
+	volume = "105",
+	number = "3",
+	pages = "035022",
+	year = "2022"
+}
+
+@article{Balazs:2022tjl,
+	author = "Bal{\'a}zs, Csaba and others",
+	title = "{Cosmological constraints on decaying axion-like particles: a global analysis}",
+	eprint = "2205.13549",
+	archivePrefix = "arXiv",
+	primaryClass = "astro-ph.CO",
+	reportNumber = "gambit-physics-2022, KCL-PH-TH/2022-23, TTP22-034",
+	doi = "10.1088/1475-7516/2022/12/027",
+	journal = "JCAP",
+	volume = "12",
+	pages = "027",
+	year = "2022"
+}
+
+@article{Chen:2015vqy,
+    author = "Chen, Chien-Yi and Davoudiasl, Hooman and Marciano, William J. and Zhang, Cen",
+    title = "{Implications of a light ``dark Higgs'' solution to the $(g-2)_\mu$ discrepancy}",
+    eprint = "1511.04715",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1103/PhysRevD.93.035006",
+    journal = "Phys. Rev. D",
+    volume = "93",
+    number = "3",
+    pages = "035006",
+    year = "2016"
+}
+
+@article{Tucker-Smith:2010wdq,
+    author = "Tucker-Smith, David and Yavin, Itay",
+    title = "{Muonic hydrogen and MeV forces}",
+    eprint = "1011.4922",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1103/PhysRevD.83.101702",
+    journal = "Phys. Rev. D",
+    volume = "83",
+    pages = "101702",
+    year = "2011"
+}
+
+@article{ALEPH:2005ab,
+    author = "Schael, S. and others",
+    collaboration = "ALEPH, DELPHI, L3, OPAL, SLD, LEP Electroweak Working Group, SLD Electroweak Group, SLD Heavy Flavour Group",
+    title = "{Precision electroweak measurements on the $Z$ resonance}",
+    eprint = "hep-ex/0509008",
+    archivePrefix = "arXiv",
+    reportNumber = "SLAC-R-774",
+    doi = "10.1016/j.physrep.2005.12.006",
+    journal = "Phys. Rept.",
+    volume = "427",
+    pages = "257--454",
+    year = "2006"
+}
+
+@article{ParticleDataGroup:2024cfk,
+    author = "Navas, S. and others",
+    collaboration = "Particle Data Group",
+    title = "{Review of particle physics}",
+    doi = "10.1103/PhysRevD.110.030001",
+    journal = "Phys. Rev. D",
+    volume = "110",
+    number = "3",
+    pages = "030001",
+    year = "2024"
+}
+
+@article{gil2021search,
+  title={Search for K+ decays to a muon and invisible particles},
+  author={Gil, E Cortina and Kleimenova, Alina and Minucci, E and Padolski, S and Petrov, P and Shaikhiev, A and Volpe, R and Numao, Toshio and Petrov, Yevgeniy and Velghe, B and others},
+  journal={Physics Letters B},
+  volume={816},
+  pages={136259},
+  year={2021},
+  publisher={Elsevier}
+}
+
+@article{cogollo2025constraints,
+  title={Constraints on hidden sectors using rare kaon decays},
+  author={Cogollo, D and Neves, MJ and de Melo, Tessio B and de Jesus, Alvaro S and Oviedo-Torres, YM and Queiroz, FS},
+  journal={Modern Physics Letters A},
+  volume={40},
+  number={19n20},
+  pages={2550062},
+  year={2025},
+  publisher={World Scientific}
+}
+@article{BaBar:2020jma,
+    author = "Lees, J. P. and others",
+    collaboration = "BaBar",
+    title = "{Search for a Dark Leptophilic Scalar in $e^+e^-$ Collisions}",
+    eprint = "2005.01885",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ex",
+    doi = "10.1103/PhysRevLett.125.181801",
+    journal = "Phys. Rev. Lett.",
+    volume = "125",
+    number = "18",
+    pages = "181801",
+    year = "2020"
+}
+
+@article{Belle:2022gbl,
+    author = "Biswas, D. and others",
+    collaboration = "Belle",
+    title = "{Search for a dark leptophilic scalar produced in association with $\tau^+\tau^-$ pair in $e^+e^-$ annihilation at center-of-mass energies near 10.58 GeV}",
+    eprint = "2207.07476",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ex",
+    doi = "10.1103/PhysRevD.109.032002",
+    journal = "Phys. Rev. D",
+    volume = "109",
+    number = "3",
+    pages = "032002",
+    year = "2024"
+}
+
+@article{Belle-II:2023ydz,
+    author = "Adachi, I. and others",
+    collaboration = "Belle-II",
+    title = "{Search for a $\tau^+\tau^-$ resonance in $e^+e^-\to\mu^+\mu^-\tau^+\tau^-$ events with the Belle II experiment}",
+    eprint = "2306.12294",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ex",
+    doi = "10.1103/PhysRevLett.131.121802",
+    journal = "Phys. Rev. Lett.",
+    volume = "131",
+    number = "12",
+    pages = "121802",
+    year = "2023"
+}
+
+@article{NA62:2021bji,
+    author = "Cortina Gil, Eduardo and others",
+    collaboration = "NA62",
+    title = "{Search for $K^+$ decays to a muon and invisible particles}",
+    eprint = "2101.12304",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ex",
+    doi = "10.1016/j.physletb.2021.136259",
+    journal = "Phys. Lett. B",
+    volume = "816",
+    pages = "136259",
+    year = "2021"
+}
+@article{Chen:2021leptophilic,
+    author = "Chen, Ning and Wang, Bin and Yao, Chang-Yuan",
+    title = "{The collider tests of a leptophilic scalar for the anomalous magnetic moments}",
+    eprint = "2102.05619",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    year = "2021"
+}
+@article{Crivellin:2020ebi,
+    author = "Crivellin, Andreas and Kirk, Fiona and Manzari, Claudio Andrea and Montull, Marc",
+    title = "{Global Electroweak Fit and Vector-Like Leptons in Light of the Cabibbo Angle Anomaly}",
+    eprint = "2008.01113",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1007/JHEP12(2020)166",
+    journal = "JHEP",
+    volume = "12",
+    pages = "166",
+    year = "2020"
+}
+
+@article{Poh:2017tfo,
+    author = "Poh, Zijie and Raby, Stuart",
+    title = "{Vector-like Leptons: Muon g-2 Anomaly, Lepton Flavor Violation, Higgs Decays, and Lepton Non-Universality}",
+    eprint = "1705.07007",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1103/PhysRevD.96.015032",
+    journal = "Phys. Rev. D",
+    volume = "96",
+    number = "1",
+    pages = "015032",
+    year = "2017"
+}
+
+@article{Abbaslu:2024hep,
+    author = "Abbaslu, S. and Farzan, Yasaman",
+    title = "{A model for axial non-standard interactions of neutrinos with quarks}",
+    eprint = "2407.13834",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1016/j.nuclphysb.2025.117070",
+    journal = "Nucl. Phys. B",
+    volume = "1018",
+    pages = "117070",
+    year = "2025"
+}
+
+@article{Abbaslu:2025fwt,
+    author = "Abbaslu, S. and Farzan, Y.",
+    title = "{Constraining axial non-standard neutrino interactionswith MINOS and MINOS+}",
+    eprint = "2509.02711",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1140/epjc/s10052-026-15662-8",
+    journal = "Eur. Phys. J. C",
+    volume = "86",
+    number = "4",
+    pages = "435",
+    year = "2026"
+}
+
+@article{Robens:2015singlet,
+    author = "Robens, Tania and Stefaniak, Tim",
+    title = "{Status of the Higgs Singlet Extension of the Standard Model after LHC Run 1}",
+    eprint = "1501.02234",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1140/epjc/s10052-015-3323-y",
+    journal = "Eur. Phys. J. C",
+    volume = "75",
+    pages = "104",
+    year = "2015"
+}
+
+@article{Robens:2020twoSinglets,
+    author = "Robens, Tania and Stefaniak, Tim and Wittbrodt, Jonas",
+    title = "{Two-real-scalar-singlet extension of the SM: LHC phenomenology and benchmark scenarios}",
+    eprint = "1908.08554",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1140/epjc/s10052-020-7655-x",
+    journal = "Eur. Phys. J. C",
+    volume = "80",
+    pages = "151",
+    year = "2020"
+}
+
+@article{Boiarska:2019scalarPortal,
+    author = "Boiarska, Iryna and Bondarenko, Kyrylo and Boyarsky, Alexey and Gorkavenko, Volodymyr and Ovchynnikov, Maksym and Sokolenko, Anastasia",
+    title = "{Phenomenology of GeV-scale scalar portal}",
+    eprint = "1904.10447",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1007/JHEP11(2019)162",
+    journal = "JHEP",
+    volume = "11",
+    pages = "162",
+    year = "2019"
+}
+
+@article{Hapitas:2021kineticMixing,
+    author = "Hapitas, Timothy and Tuckler, Douglas and Zhang, Yue",
+    title = "{General Kinetic Mixing in Gauged $U(1)_{L_\mu-L_\tau}$ Model for Muon $g-2$ and Dark Matter}",
+    eprint = "2108.12440",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1103/PhysRevD.105.016014",
+    journal = "Phys. Rev. D",
+    volume = "105",
+    pages = "016014",
+    year = "2022"
+}
+
+@article{Wang:2026supernova,
+    author = "Wang, Zun and Zhang, Yongchao",
+    title = "{Revisiting supernova constraints on dark gauge bosons}",
+    eprint = "2610.35379",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    year = "2026"
+}
+
+@article{NA64:2023lightDM,
+    author = "Andreev, Yu. M. and others",
+    collaboration = "NA64",
+    title = "{Search for Light Dark Matter with NA64 at CERN}",
+    journal = "Phys. Rev. Lett.",
+    volume = "131",
+    number = "16",
+    pages = "161801",
+    year = "2023",
+    doi = "10.1103/PhysRevLett.131.161801",
+    eprint = "2307.02404",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ex",
+    reportNumber = "CERN-EP-2023-130"
+}
+
