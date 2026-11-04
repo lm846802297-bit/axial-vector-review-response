@@ -1,6 +1,6 @@
 # PROJECT_STATUS — Axial-vector paper revision and referee response
 
-**状态快照日期：** 2026-11-04（PR #38–#48 已合并；PR #49 Draft；PR #30、#32 仍开放）
+**状态快照日期：** 2026-11-05（PR #38–#48 已合并；PR #49 Draft；PR #30、#32 仍开放）
 
 **本状态快照的初始核验基线：** 243b0e62d9c3912525d1144971a1e81c2af84db7（PR #36 合并前）  
 **项目启动机制合并提交：** [9b4e17519230e9eef65b34b643d3a1f8c19f46a2](https://github.com/lm846802297-bit/axial-vector-review-response/commit/9b4e17519230e9eef65b34b643d3a1f8c19f46a2)  
@@ -10,18 +10,17 @@
 
 ## 2026-11-05 更新：Major Point 1.3 公式链条与近极点诊断补强（PR #49，Draft）
 
-[PR #49](https://github.com/lm846802297-bit/axial-vector-review-response/pull/49) 仍基于 main `4abcf13c45789f75deee27a4b6a3cc9480639448`，分支为 `review/major1.3-higgs-portal-higgs-strength-20261104`。本轮仅修改回复信及其内部证据/同步文档，不修改论文正文，不合并 PR。
+[PR #49](https://github.com/lm846802297-bit/axial-vector-review-response/pull/49) 仍基于 main \`4abcf13c45789f75deee27a4b6a3cc9480639448\`，分支为 \`review/major1.3-higgs-portal-higgs-strength-20261104\`。本轮仅修改回复信及其内部证据/同步文档，不修改论文正文，不合并 PR。
 
-- **P0：** 正式回复补入 (2\times2) charged-lepton/VLL 质量矩阵、规范基底 (h,s) Yukawa 顶角、质量本征态旋转、(C,D,K) 定义和完整质量本征态一圈费米子自能公式。
-- **P0：** 补入 exact full-minus-light EFT subtraction、保留的 bubble-plus-contact soft 子集，以及 hard/soft 数值分解。将结果记为 `Pi_hs^ret`，并明确该 soft 子集不是完整同阶 EFT soft/counterterm 集，避免把条件性数值写成完整 UV pole 预测。
-- **P0：** 修正“zero-tree-level-mixing”歧义：(lambda_{HS}^{EFT}(M_E)=0) 是匹配 EFT 的局域混合边界；对应 (lambda_{HS}^{UV}(M_E)=-Deltalambda_{HS}^E
-e0)。补充 portal-induced mass entry 与 loop counting。
-- **P0：** 将 (mu_h^{pole}) 改为 (deltamu_h^{(mix,LO)})，明确它是 mixing-only leading rate diagnostic，而不是完整物理 pole signal strength。
-- **P1：** 明确 (m_s) 是未混合对角质量输入；补充 (Gamma_s(s	o A'A',mu^+mu^-,	au^+	au^-)) 公式及 Benchmark B 的开闭道条件、宽度和非简并极点位置。
-- **P1：** 补充 (lambda_Sle4pi) 对应的 (m_s^{max}=sqrt{8pi}v_s)：Benchmark A 为 (355.4) GeV，B 为 (1579.2) GeV。明确 (10)--(150) GeV 是 Higgs 极点附近局部诊断窗口，不是整个微扰性区间的扫描。
-- **近极点数值：** Plan-C-lite 脚本新增 (125.20)--(125.30) GeV、(0.1) MeV 步长的复数极点局部扫描。相同 1001 点算法已在 in-session Python 环境独立复现；A/B 的 1001 个点均收敛。更新后的仓库脚本尚未在干净容器中整文件重跑，验证记录明确区分了这两类证据。
+- **P0：** 正式回复补入 \(2\times2\) charged-lepton/VLL 质量矩阵、规范基底 \(h,s\) Yukawa 顶角、质量本征态旋转、\(C,D,K\) 定义和完整质量本征态一圈费米子自能公式。
+- **P0：** 补入 exact full-minus-light EFT subtraction、保留的 bubble-plus-contact soft 子集，以及 hard/soft 数值分解。将结果记为 \(\Pi_{hs}^{\mathrm{ret}}\)，并明确该 soft 子集不是完整同阶 EFT soft/counterterm 集，避免把条件性数值写成完整 UV pole 预测。
+- **P0：** 修正“zero-tree-level-mixing”歧义：\(\lambda_{HS}^{\mathrm{EFT}}(M_E)=0\) 是匹配 EFT 的局域混合边界；对应 \(\lambda_{HS}^{\mathrm{UV}}(M_E)=-\Delta\lambda_{HS}^{E}\ne0\)。补充 portal-induced mass entry 与 loop counting。
+- **P0：** 将 \(\mu_h^{\mathrm{pole}}\) 改为 \(\delta\mu_h^{(\mathrm{mix,LO})}\)，明确它是 mixing-only leading rate diagnostic，而不是完整物理 pole signal strength。
+- **P1：** 明确 \(m_s\) 是未混合对角质量输入；补充 \(\Gamma_s(s\to A'A',\mu^+\mu^-,\tau^+\tau^-)\) 公式及 Benchmark B 的开闭道条件、宽度和非简并极点位置。
+- **P1：** 补充 \(\lambda_S\le4\pi\) 对应的 \(m_s^{\max}=\sqrt{8\pi}v_s\)：Benchmark A 为 \(355.4\) GeV，B 为 \(1579.2\) GeV。明确 \(10\)--\(150\) GeV 是 Higgs 极点附近局部诊断窗口，不是整个微扰性区间的扫描。
+- **近极点数值：** Plan-C-lite 脚本新增 \(125.20\)--\(125.30\) GeV、\(0.1\) MeV 步长的复数极点局部扫描。相同 1001 点算法已在 in-session Python 环境独立复现；A/B 的 1001 个点均收敛。更新后的仓库脚本尚未在干净容器中整文件重跑，验证记录明确区分了这两类证据。
 - **P2：** 增加 portal-induced scalar-loop 的 loop-counting 估计；明确这些是参数量级估计，不是完整高阶标量圈图计算。
-- **范围：** Major 1.3 继续只讨论原始单标量 (S+mathrm{VLL}) 两态系统，不混入 (sigma,N_R,mathrm{PMNS}) 或三态标量势；近简并区不赋予 allowed/excluded 状态。
+- **范围：** Major 1.3 继续只讨论原始单标量 \(S+\mathrm{VLL}\) 两态系统，不混入 \(\sigma,N_R,\mathrm{PMNS}\) 或三态标量势；近简并区不赋予 allowed/excluded 状态。
 
 **验证边界：** 没有运行 CI；没有对更新后的 Plan-C-lite 脚本做干净容器整文件执行；回复信 PDF 尚未按本轮 TeX 重编译或视觉检查。main 根目录现有 48 页 PDF 仍是旧版，不包含本轮修改。PR #49 保持 Draft，未合并。
  
