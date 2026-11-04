@@ -51,6 +51,6 @@ git push origin reply-letter-2026-11-04
 
 ## Scope and validation boundary
 
-This archive includes the response TeX and both bibliography databases referenced by its \`\bibliography{...}\` command. The TeX file has no \`\\input\`, \`\\include\`, or \`\\includegraphics\` dependencies. The \`JHEP\` BibTeX style and the listed LaTeX packages are TeX-environment dependencies, not repository-local source files in this snapshot.
+This archive includes the response TeX and both bibliography databases referenced by its \`\bibliography{...}\` command. The TeX file has no \`\input\`, \`\include\`, or \`\includegraphics\` dependencies. The \`JHEP\` BibTeX style and the listed LaTeX packages are TeX-environment dependencies, not repository-local source files in this snapshot.
 
 No PDF was compiled or added. The PDF currently in the repository is not silently represented as matching this source snapshot.
