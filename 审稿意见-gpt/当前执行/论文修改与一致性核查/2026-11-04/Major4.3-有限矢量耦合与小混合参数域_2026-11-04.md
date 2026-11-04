@@ -101,11 +101,20 @@ g_A^\ell=-g_X\cos^2\theta_{\ell R},
 \]
 其中在本文质量范围内 \(F_V/F_A\leq0.20\)。这同样是过程贡献之比，而不是实验耦合上限。
 
-### 4.3 Kinetic mixing
+### 4.3 Direct four-muon FSR searches
+
+For the BaBar, Belle II, and CMS four-muon searches used in Fig. 2, the manuscript's rate-matching argument applies in the \(m_{A'}\gg m_\mu\) regime: the unit-coupling vector and axial FSR kernels are nearly equal, and the acceptances are correspondingly similar. Away from the dimuon threshold, their dimuon widths and branching fractions also approach the same leading behavior. Thus the vector-only coupling reach in those same channels is of the same order as the axial reach, not more than four orders stronger. The separately squared vector-current contribution in the mixed current is weighted by
+\[
+\left|\frac{g_V^\mu}{g_A^\mu}\right|^2
+=\tan^4\theta_{\mu R}\leq1.01\times10^{-8}.
+\]
+This comparison is restricted to the away-from-threshold rate-matching regime; it does not replace the finite-angle width treatment below.
+
+### 4.4 Kinetic mixing
 
 有限矢量分量也会诱导 photon–\(A'\) kinetic mixing。其匹配边界、动量依赖积分和 NA64 比较由 Major 4.2 单独处理；不能将 \(\epsilon_{\rm ind}(\mu_{\rm match})=0\) 解释为物理混合函数处处为零，也不能把这一 loop-induced electron coupling 与本节的 tree-level muon vector current 重复计数。
 
-### 4.4 Visible dimuon width threshold
+### 4.5 Visible dimuon width threshold
 
 矢量和轴矢量 dimuon 部分宽度为
 \[
