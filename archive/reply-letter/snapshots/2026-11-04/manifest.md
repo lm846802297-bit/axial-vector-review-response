@@ -35,7 +35,7 @@ The TeX preamble uses the following LaTeX packages:
 
 The bibliography command uses \`\bibliographystyle{JHEP}\`. A repository-local \`JHEP.bst\` was not found in the checked source tree; it must be available in the TeX/BibTeX environment used for compilation.
 
-Static source scan found no \`\\input{...}\`, \`\\include{...}\`, or \`\\includegraphics{...}\` file dependencies in the response TeX. No PDF is part of this source snapshot.
+Static source scan found no \`\input{...}\`, \`\include{...}\`, or \`\includegraphics{...}\` file dependencies in the response TeX. No PDF is part of this source snapshot.
 
 ## Restore and verify
 
