@@ -441,19 +441,51 @@ The corresponding mixing-only fractional rate shift is about \(2.9\times10^{-8}\
 
 For comparison, the PDG 2025 update quotes the inclusive global signal strengths \(\mu_{\mathrm{ATLAS}}=1.023^{+0.056}_{-0.053}\) and \(\mu_{\mathrm{CMS}}=1.014^{+0.055}_{-0.053}\) \cite{ParticleDataGroup:2024cfk}. Their uncertainties are approximately \(5.3\%\)--\(5.6\%\), more than \(1.8\times10^8\) times larger than the illustrative \(2.9\times10^{-10}\) mixing-only rate shift. This is a comparison of scales for the isolated \(125\,\mathrm{GeV}\) pole in the stated non-degenerate benchmark, not a model-specific likelihood fit or a bound on the separate \(S\)-like state. The quoted experimental combinations assume a single narrow resonance and fixed signal shapes; they are not a two-scalar fit. The present comparison is deliberately restricted to a point with a well-separated \(S\)-like pole and with \(h\to ss\) closed. For \(m_s<m_h/2\), scalar-pair decays such as \(h\to ss\), when open, depend on the corresponding trilinear coupling and cannot be inferred from \(\cos^2\theta\) alone.
 
-The finite-momentum result does not imply uniformly negligible mixing. At \(m_s=m_h=125.25\,\mathrm{GeV}\), the width-regulated diagnostic \(|\Pi_{hs}/(a-b)|\), with \(a=m_h^2-i m_h\Gamma_h\) and \(b=m_s^2-i m_s\Gamma_s\), is approximately \(9.1\times10^{-4}\) when \(s\to A'A'\) is open and \(\Gamma_s\simeq3.75\,\mathrm{GeV}\). For the benchmark in which \(s\to A'A'\) is closed and \(\Gamma_s\simeq0.159\,\mathrm{MeV}\), the same diagnostic reaches about \(0.197\) at exact degeneracy; the corresponding \(2|\Pi_{hs}/(a-b)|\) diagnostic is about \(0.394\).
-
-Across the illustrative \(m_s\in[10,150]\,\mathrm{GeV}\) diagnostic scan, the criterion \(2|\Pi_{hs}/(a-b)|\geq0.1\) is not reached in the open-channel benchmark. In the closed-channel benchmark near \(m_s\simeq m_h\), the fixed-self-energy diagnostic exceeds this criterion only within a narrow band of approximately \(7.5\,\mathrm{MeV}\) on either side of \(m_h=125.25\,\mathrm{GeV}\). The estimate holds the matched \(\Pi_{hs}(m_h^2)\) fixed while varying \(m_s\) and the tree-level singlet width; it is a diagnostic approximation, not a self-consistent two-pole solution or an experimental exclusion interval. In this band the single-pole formula \(\mu_h\simeq\cos^2\theta\) is not used. The relevant inverse propagator has the schematic form
+The finite-momentum result does not imply uniformly negligible mixing. The relevant complex inverse propagator is
 \[
-\Delta^{-1}(p^2)=
+\mathcal D_B^{-1}(p^2)=
 \begin{pmatrix}
-p^2-a & -\Pi_{hs}(p^2)\\
--\Pi_{sh}(p^2) & p^2-b
+p^2-m_h^2+i m_h\Gamma_h&-\Pi_{hs}^{B}(p^2)\\
+-\Pi_{sh}^{B}(p^2)&p^2-m_s^2+i m_s\Gamma_s
 \end{pmatrix},
 \qquad
-\det\Delta^{-1}(p^2)=0,
+\det\mathcal D_B^{-1}(p^2)=0.
 \]
-so the physical poles and the measured rate depend on both complex pole positions, their residues, production and decay amplitudes, possible interference, and the experimental mass response. The fixed-self-energy diagnostic only identifies where this two-pole treatment is essential; it is neither an experimental exclusion nor an allowed-region determination.
+The near-pole solver retains the momentum dependence of the light-lepton soft \(B_0\) functions and analytically continues them to the resonance sheet. Its hard part uses the source-aligned finite-derivative approximation; at \(p^2=m_h^2\), replacing this by the exact mass-eigenstate hard difference changes the hard term by \(6.11\times10^{-4}\) relative and the total retained \(\Pi_{hs}\) by about \(3.43\times10^{-5}\) relative. The diagonal real self-energies are absorbed into the benchmark mass inputs and the diagonal widths are held fixed. The resulting poles are therefore first-pass complex-pole diagnostics, not a complete pole-scheme calculation or an experimental lineshape fit.
+
+At exact diagonal-mass degeneracy \(m_s=m_h=125.25\,\mathrm{GeV}\), the two benchmarks give different pole behavior:
+\[
+\begin{array}{c|cc}
+&\text{Benchmark A: }A'A'\text{ open}
+&\text{Benchmark B: }A'A'\text{ closed}\\ \hline
+\Gamma_s&3.7468\,\mathrm{GeV}&0.15894\,\mathrm{MeV}\\
+|\Pi_{hs}/(a-b)|&9.14\times10^{-4}&0.19685\\
+(m_{\rm pole},\Gamma_{\rm pole})_{\rm narrow}&
+(125.250001\,\mathrm{GeV},4.0727\,\mathrm{MeV})&
+(125.250041\,\mathrm{GeV},0.2921\,\mathrm{MeV})\\
+(m_{\rm pole},\Gamma_{\rm pole})_{\rm broad}&
+(125.264006\,\mathrm{GeV},3746.39\,\mathrm{MeV})&
+(125.249959\,\mathrm{GeV},3.9368\,\mathrm{MeV})
+\end{array}
+\]
+For the closed-channel benchmark, a \(0.1\,\mathrm{MeV}\)-step scan over \(m_s\in[125.20,125.30]\,\mathrm{GeV}\) finds a maximum Higgs-like pole-eigenvector composition diagnostic \(|s/h|\simeq0.2039\) near \(m_s=125.2499\,\mathrm{GeV}\); the sampled interval with \(|s/h|\geq0.1\) is approximately \(125.2467\)--\(125.2532\,\mathrm{GeV}\). In the open-channel benchmark the maximum over the same local scan is \(9.15\times10^{-4}\), and no point reaches \(0.1\). The quantity \(|s/h|\) is a non-Hermitian pole-eigenvector diagnostic, not a directly observable mixing angle or rate.
+
+Separately, the exact mass-eigenstate fixed-self-energy scan over the local interval \(m_s\in[10,150]\,\mathrm{GeV}\), with \(1\,\mathrm{MeV}\) spacing and root-refined threshold crossings, gives no interval satisfying \(2|\Pi_{hs}/(a-b)|\geq0.1\) in Benchmark A. In Benchmark B the corresponding diagnostic interval is
+\[
+m_s\in[125.242553544,125.257446018]\,\mathrm{GeV},
+\]
+or approximately \(|m_s-m_h|\lesssim7.45\,\mathrm{MeV}\). This is a fixed-self-energy diagnostic, not an allowed or excluded interval. The \(|s/h|\) eigenvector criterion and \(2|\Pi_{hs}/(a-b)|\) criterion are distinct diagnostics and are not identified with one another. In the narrow near-degenerate region, the single-pole approximation \(\mu_h\simeq\cos^2\theta\) is not used; a physical rate requires both pole residues, production and decay amplitudes, interference and the experimental mass response.
+
+The perturbativity condition \(\lambda_S=m_s^2/(2v_s^2)\leq4\pi\) gives
+\[
+m_s\leq m_s^{\max}=\sqrt{8\pi}\,v_s
+=
+\begin{cases}
+355.4\,\mathrm{GeV},&\text{Benchmark A},\\
+1579.2\,\mathrm{GeV},&\text{Benchmark B}.
+\end{cases}
+\]
+The numerical interval \(10\)--\(150\,\mathrm{GeV}\) is a local diagnostic window around the \(125\,\mathrm{GeV}\) Higgs pole, not an exhaustive scan of these full perturbative intervals. For \(m_s\gg m_h\), at fixed benchmark inputs the retained off-diagonal numerator varies slowly with \(m_s\), whereas the diagonal mass separation grows as \(m_s^2\); hence the mixing diagnostic decreases parametrically as \(|\Pi_{hs}|/m_s^2\). The local scan is not used to infer a global scalar-sector exclusion or viability statement. The radial mode \(s\) remains a physical degree of freedom in the UV theory; the scalar-suppressed benchmark only specifies when the axial-current observables in Fig.~2 can be discussed separately from scalar-mediated observables. It does not establish formal decoupling or the absence of scalar effects in every process.
 
 The one-singlet scalar-suppressed benchmark specifies the regime in which the \(A'\) effective-current observables in Fig.~2 are presented separately from scalar-mediated observables; it does not remove \(s\) from the UV theory, establish formal decoupling, or imply that scalar effects vanish in every process.
 
