@@ -8,18 +8,23 @@
 
 > **更新原则：** 任务完成、作者改变观点、PR 合并、论文基线更换或计算结论更新后，应检查并更新本文件。尚未重新核验的内容标为“待核验”，不得沿用旧状态作确定陈述。
 
-## 2026-11-04 更新：Major Point 1.3 Higgs-portal mixing 补强（PR #49，Draft）
+## 2026-11-05 更新：Major Point 1.3 公式链条与近极点诊断补强（PR #49，Draft）
 
-[PR #49](https://github.com/lm846802297-bit/axial-vector-review-response/pull/49) 从 main `4abcf13c45789f75deee27a4b6a3cc9480639448` 创建，分支为 `review/major1.3-higgs-portal-higgs-strength-20261104`。本 PR 更新正式回复信 Major 1.3、Plan-C-lite 内部 Higgs 对照和论文正文待同步清单；不修改论文源码，也不修改 main。
+[PR #49](https://github.com/lm846802297-bit/axial-vector-review-response/pull/49) 仍基于 main `4abcf13c45789f75deee27a4b6a3cc9480639448`，分支为 `review/major1.3-higgs-portal-higgs-strength-20261104`。本轮仅修改回复信及其内部证据/同步文档，不修改论文正文，不合并 PR。
 
-- 正式回复新增 `m_s=100 GeV` 的非简并 one-singlet S+VLL reference benchmark：`2|Pi_hs/(a-b)|=3.39e-5`、`eta_hs≈1.70e-5`、leading isolated-pole estimate `1-mu_h≈2.9e-10`。该估算与 PDG 2025 update 的 ATLAS `1.023 +0.056/-0.053` 和 CMS `1.014 +0.055/-0.053` global signal strengths 比较；明确这只是 pole-level scale comparison，不是模型专属 likelihood fit。
-- 明确近简并闭道窄宽度区域不使用单一 `cos^2(theta)` 近似；fixed-self-energy diagnostic 不是物理混合角、实验排除或允许区间。
-- Major 1.3 严格以原始单标量 `S+VLL` 模型为计算对象。现有 `2x2` `h-s` 结果仅支持该模型及明确给出的 portal-matching benchmark，不被表述为任意额外标量扩展的完整 UV 约束；其他场内容的扩展单独处理，不并入本节。
-- 静态验证：TeX 花括号平衡、环境配对、方程标签唯一；35 个唯一 citation keys 均可在两份 BibTeX 数据库中找到。
-- **PDF 尚未按 PR #49 的新 TeX 重编译；main 根目录的 48 页 PDF 是上一轮构建，不包含本 PR 修改。** 本 PR 未运行 CI。完整的扩展标量扇区匹配/极点分析与模型专属 Higgs likelihood/direct-search recast 不在本轮声称完成的范围内。
+- **P0：** 正式回复补入 (2\times2) charged-lepton/VLL 质量矩阵、规范基底 (h,s) Yukawa 顶角、质量本征态旋转、(C,D,K) 定义和完整质量本征态一圈费米子自能公式。
+- **P0：** 补入 exact full-minus-light EFT subtraction、保留的 bubble-plus-contact soft 子集，以及 hard/soft 数值分解。将结果记为 `Pi_hs^ret`，并明确该 soft 子集不是完整同阶 EFT soft/counterterm 集，避免把条件性数值写成完整 UV pole 预测。
+- **P0：** 修正“zero-tree-level-mixing”歧义：(lambda_{HS}^{EFT}(M_E)=0) 是匹配 EFT 的局域混合边界；对应 (lambda_{HS}^{UV}(M_E)=-Deltalambda_{HS}^E
+e0)。补充 portal-induced mass entry 与 loop counting。
+- **P0：** 将 (mu_h^{pole}) 改为 (deltamu_h^{(mix,LO)})，明确它是 mixing-only leading rate diagnostic，而不是完整物理 pole signal strength。
+- **P1：** 明确 (m_s) 是未混合对角质量输入；补充 (Gamma_s(s	o A'A',mu^+mu^-,	au^+	au^-)) 公式及 Benchmark B 的开闭道条件、宽度和非简并极点位置。
+- **P1：** 补充 (lambda_Sle4pi) 对应的 (m_s^{max}=sqrt{8pi}v_s)：Benchmark A 为 (355.4) GeV，B 为 (1579.2) GeV。明确 (10)--(150) GeV 是 Higgs 极点附近局部诊断窗口，不是整个微扰性区间的扫描。
+- **近极点数值：** Plan-C-lite 脚本新增 (125.20)--(125.30) GeV、(0.1) MeV 步长的复数极点局部扫描。相同 1001 点算法已在 in-session Python 环境独立复现；A/B 的 1001 个点均收敛。更新后的仓库脚本尚未在干净容器中整文件重跑，验证记录明确区分了这两类证据。
+- **P2：** 增加 portal-induced scalar-loop 的 loop-counting 估计；明确这些是参数量级估计，不是完整高阶标量圈图计算。
+- **范围：** Major 1.3 继续只讨论原始单标量 (S+mathrm{VLL}) 两态系统，不混入 (sigma,N_R,mathrm{PMNS}) 或三态标量势；近简并区不赋予 allowed/excluded 状态。
 
-PR 保持 Draft，等待科学范围审查及后续 PDF 编译/视觉验收。
-
+**验证边界：** 没有运行 CI；没有对更新后的 Plan-C-lite 脚本做干净容器整文件执行；回复信 PDF 尚未按本轮 TeX 重编译或视觉检查。main 根目录现有 48 页 PDF 仍是旧版，不包含本轮修改。PR #49 保持 Draft，未合并。
+ 
 ## 2026-11-04 更新：Major 4.4 轴矢量 stellar-cooling 文献调查（PR #46）
 
 PR #46 已于 2026-11-04 Squash Merge 至 `main`，合并提交为 [b453e9be09a4f67d00cb90dfb85435c07472c5b4](https://github.com/lm846802297-bit/axial-vector-review-response/commit/b453e9be09a4f67d00cb90dfb85435c07472c5b4)。新增文档 [Major 4.4 轴矢量 stellar-cooling 文献适用性调查](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-04/Major4.4-轴矢量stellar-cooling文献适用性调查_2026-11-04.md)，并更新 README 导航与 DEC-09。
