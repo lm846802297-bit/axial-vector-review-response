@@ -138,3 +138,18 @@ Follow-up independent equation-level reproduction (2026-10-27):
 - A standalone one-page LaTeX fragment containing the newly added portal threshold, charged-lepton/VLL mass matrix, scalar vertices, mass-eigenstate self-energy, finite A0/B0 functions, hard/soft subtraction, scalar widths, complex inverse propagator, perturbativity bound and scalar-exchange coefficient comparison was compiled with the local pdflatex installation.
 - pdflatex -interaction=nonstopmode -halt-on-error completed successfully; the one-page fragment was visually inspected and showed no clipping or equation overflow.
 - This is a formula-fragment syntax/layout check only. It is not a compilation or visual inspection of the complete 48-page referee-response letter. The full source was not materialized into the container, and the container cannot resolve raw.githubusercontent.com.
+
+
+2026-11-05 P2-lite portal-induced scalar-loop diagnostic:
+- Added `portal_scalar_loop_power_counting_2026-11-05.py` and the accompanying derivation note under `2026-11-05/`.
+- Derived the CP-even radial cubic vertices from the potential:
+  \(g_{hhh}=6\lambda_Hv_h\), \(g_{sss}=6\lambda_Sv_s\),
+  \(g_{hhs}=\lambda_{HS}^{UV}v_s\), \(g_{hss}=\lambda_{HS}^{UV}v_h\).
+- Evaluated the three CP-even bubble topologies and the finite subset subtraction
+  \(\Pi^{(h,s)}(m_h^2)-\Pi^{(h,s)}(0)\). The standard-library script passed Python AST parsing and execution. Composite-Simpson results at 2k/4k/8k/16k intervals converge to better than \(10^{-12}\).
+- At \(m_s=100\) GeV, the isolated CP-even subset magnitudes are \(24.7547\) GeV\(^2\) (A) and \(0.641797\) GeV\(^2\) (B). They are respectively 57.77 and 6.656 times the retained fermionic \(|\Pi_{hs}^{ret}|\). This does **not** make them physical corrections: the subset is not combined with same-order mixed VLL-scalar matching, Goldstone/gauge/ghost terms, and complete tadpole/VEV renormalization.
+- The same subset alone gives the non-degenerate \(m_s=100\) GeV isolated-pole scale diagnostics \(\eta=4.3501\times10^{-3}\) (A) and \(1.1284\times10^{-4}\) (B). The corresponding \(\eta^2\) scales remain below the \(\sim5.3\%\) Higgs signal-strength precision, but are not physical rate predictions and are not added to the fermionic result.
+- At exact diagonal-mass degeneracy, the subset-only width-regulated diagnostics are \(\eta=0.04887\) (A) and \(1.2673\) (B); the latter is outside the weak-mixing expansion. These are not pole solutions. They reinforce that the near-degenerate region remains unassessed.
+- Goldstone vertices and their \(R_\xi\)-gauge masses are recorded analytically in the note. They are not numerically summed because a Goldstone-only result is gauge dependent and requires the associated gauge/ghost set.
+- **Formal reply update:** Added the CP-even cubic vertices, the subtracted bubble structure, combined loop counting, Goldstone vertices, and the physical pole/matching qualification. Raw subset numbers are kept internal and are not presented as a complete physical two-loop correction.
+- No full two-loop UV--EFT matching, complete gauge-independent pole calculation, CI, or full reply-PDF compilation is claimed.
