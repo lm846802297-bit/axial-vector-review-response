@@ -449,7 +449,7 @@ Flavor entry & \(q_\alpha+q_\beta\) & Compensating field & Operator dimension\\
 \(\tau\tau\) & \(-2\) & \(S\) & 6
 \end{tabular}
 \end{center}
-The two entries involving \(\sigma\) are absent in the original field content. No integer number of \(S\) or \(S^\dagger\) insertions compensates their odd charges. With \(S\) alone, the symmetry-allowed EFT mass matrices have the forms
+The two entries involving \(\sigma\) are absent in the original field content. No integer number of \(S\) or \(S^\dagger\) insertions compensates their odd charges. Under this \(S\)-only symmetry-breaking assumption, the symmetry-allowed EFT mass matrices have the forms
 \[
 M_\nu^{(S)}=\begin{pmatrix}a&0&0\\0&b&c\\0&c&d\end{pmatrix},
 \qquad
@@ -483,9 +483,9 @@ Introduce three SM-singlet right-handed neutrinos with
 \[
 Q_X(N_{Re},N_{R\mu},N_{R\tau})=(0,1,-1).
 \]
-These charges allow \(\overline L_\alpha\widetilde H N_{R\alpha}\), with \(\widetilde H=i\sigma_2H^*\). At the renormalizable level with a single neutral electroweak Higgs doublet the Dirac matrix is diagonal. The neutral Majorana bilinears admit bare masses \(M_{ee}\) and \(M_{\mu\tau}\); the two charged singlets supply the other four independent entries. In four-component right-handed-field notation,
+These charges allow \(\overline L_\alpha\widetilde H N_{R\alpha}\), with \(\widetilde H=i\sigma_2H^*\). At the renormalizable level with a single neutral electroweak Higgs doublet the Dirac matrix is diagonal. We denote the corresponding neutrino Dirac Yukawa couplings by \(y^\nu_\alpha\), to distinguish them from the charged-lepton Yukawa parameters introduced above. The neutral Majorana bilinears admit bare masses \(M_{ee}\) and \(M_{\mu\tau}\); the two charged singlets supply the other four independent entries. In four-component right-handed-field notation,
 \begin{align*}
--\mathcal L_\nu={}&\sum_{\alpha=e,\mu,\tau}y_\alpha\overline L_\alpha\widetilde H N_{R\alpha}\\
+-\mathcal L_\nu={}&\sum_{\alpha=e,\mu,\tau}y^\nu_\alpha\overline L_\alpha\widetilde H N_{R\alpha}\\
 &+\frac12 M_{ee}\overline{N_{Re}^{c}}N_{Re}
 +M_{\mu\tau}\overline{N_{R\mu}^{c}}N_{R\tau}\\
 &+h_{e\mu}\sigma^\dagger\overline{N_{Re}^{c}}N_{R\mu}
@@ -498,7 +498,7 @@ For example, the total charges of \(\sigma^\dagger\overline{N_{Re}^{c}}N_{R\mu}\
 Take \(\langle H^0\rangle=v_h/\sqrt2\), \(\langle\sigma\rangle=v_\sigma/\sqrt2\), and \(\langle S\rangle=v_s/\sqrt2\), absorbing VEV phases into couplings. Then
 \begin{equation}\label{eq:reply-neutrino-matrices}
 \begin{gathered}
-m_D=\frac{v_h}{\sqrt2}\operatorname{diag}(y_e,y_\mu,y_\tau),\\[3pt]
+m_D=\frac{v_h}{\sqrt2}\operatorname{diag}(y^\nu_e,y^\nu_\mu,y^\nu_\tau),\\[3pt]
 M_R=\begin{pmatrix}
 M_{ee}&h_{e\mu}v_\sigma/\sqrt2&h_{e\tau}v_\sigma/\sqrt2\\
 h_{e\mu}v_\sigma/\sqrt2&h_{\mu\mu}v_s/\sqrt2&M_{\mu\tau}\\
@@ -588,17 +588,11 @@ Neutrino oscillation observations. See point \#3 above. It appears that this mod
 
 \noindent {\bf Reply.}
 
-The PMNS structure is determined by whether the neutrino sector is restricted to the original charge-two scalar \(S\) or is supplied with the renormalizable completion specified in our response to Major Point~3. In the \(S\)-only limit, the VEV of \(S\) leaves the residual \(Z_2\) transformation described there, under which the electron family is even and the \(\mu\)- and \(\tau\)-families are odd. Both the charged-lepton and light-neutrino mass matrices therefore preserve the \(e\oplus(\mu,\tau)\) block structure. After diagonalizing the charged-lepton mass matrix, the resulting mixing matrix has the form
-\[
-U_{\rm PMNS}=\operatorname{diag}(1,U_{23}),
-\]
-up to phases and the ordering of the neutrino mass eigenstates. Thus the PMNS matrix need not be exactly the identity: a nontrivial \(\mu\)--\(\tau\) rotation is allowed. The defining restriction is that the electron flavor does not mix with the other two flavors, in conflict with the observed nonzero solar and reactor mixing angles.
-
-A renormalizable neutrino-mass completion removes this selection rule while retaining the original axial gauge and charged-lepton construction. We retain \(S\), introduce a complex SM-singlet scalar \(\sigma\) with \(Q_X(\sigma)=+1\), and add three right-handed neutrinos with \(Q_X(N_R)=(0,+1,-1)\). Since \(Q_X(N_{R\alpha})=Q_X(L_\alpha)\) and \(Q_X(H)=0\), the diagonal Dirac Yukawa terms are gauge invariant. The nonzero \(\sigma\) VEV breaks the residual \(Z_2\) and generates the previously forbidden \(e\)--\(\mu\) and \(e\)--\(\tau\) entries of \(M_R\); the existing \(S\) generates the \(\mu\mu\) and \(\tau\tau\) entries, while the \(ee\) and \(\mu\tau\) entries are allowed as bare Majorana masses. The resulting general symmetric matrix is given explicitly in Eq.~\eqref{eq:reply-neutrino-matrices}. In particular, the axial charges of the right-handed charged leptons do not obstruct this construction: they do not enter the neutrino Dirac or Majorana mass terms.
+The relevant restriction is the residual-flavor selection rule. If the neutrino mass operators are generated without any additional source of residual-\(Z_2\) breaking beyond the original charge-two scalar \(S\), the symmetry-allowed light-neutrino mass matrix has the \(e\oplus(\mu,\tau)\) block form described under Major Point~3. The charged-lepton mass matrix in the same \(S\)-only field content has the corresponding block structure. After diagonalizing the charged leptons, the mixing matrix is therefore \(U_{\rm PMNS}=\operatorname{diag}(1,U_{23})\), up to phases and mass ordering. This is a conditional statement about the texture allowed by the \(S\)-only symmetry-breaking sector, not a neutrino-mass prediction derived in the original charged-lepton construction. It allows a nontrivial \(\mu\)--\(\tau\) rotation, but forbids electron-flavor admixtures and hence cannot reproduce the observed nonzero solar and reactor mixing angles. A renormalizable neutrino-mass completion removes this selection rule while retaining the original axial gauge and charged-lepton construction. We retain \(S\), introduce a complex SM-singlet scalar \(\sigma\) with \(Q_X(\sigma)=+1\), and add three right-handed neutrinos with \(Q_X(N_R)=(0,+1,-1)\). Since \(Q_X(N_{R\alpha})=Q_X(L_\alpha)\) and \(Q_X(H)=0\), the diagonal Dirac Yukawa terms are gauge invariant. The nonzero \(\sigma\) VEV breaks the residual \(Z_2\) and generates the previously forbidden \(e\)--\(\mu\) and \(e\)--\(\tau\) entries of \(M_R\); the existing \(S\) generates the \(\mu\mu\) and \(\tau\tau\) entries, while the \(ee\) and \(\mu\tau\) entries are allowed as bare Majorana masses. The resulting general symmetric matrix is given explicitly in Eq.~\eqref{eq:reply-neutrino-matrices}. In particular, the axial charges of the right-handed charged leptons do not obstruct this construction: they do not enter the neutrino Dirac or Majorana mass terms.
 
 With
 \[
-m_D=\frac{v_h}{\sqrt2}\operatorname{diag}(y_e,y_\mu,y_\tau),
+m_D=\frac{v_h}{\sqrt2}\operatorname{diag}(y^\nu_e,y^\nu_\mu,y^\nu_\tau),
 \qquad
 M_\nu\simeq-m_D M_R^{-1}m_D^T,
 \]
