@@ -94,15 +94,15 @@ The exact mass-eigenstate calculation reproduces it within \(0.0611\%\) at both 
 
 The full mass-eigenstate sum also gives the \(p^2\) UV-pole coefficient consistent with zero, the local UV coefficient consistent with zero at numerical precision, and an absorptive part equal to the light-light cut. The hard momentum difference has no residual imaginary part below the heavy threshold.
 
-The zero-momentum hard comparator agrees with \(-v_hv_s\Delta\lambda_{HS}^{E}\) from the leading charged-lepton/VLL portal threshold to \(1.79\times10^{-4}\) relative. The residual is consistent with using leading-seesaw Yukawas alongside exact mass diagonalization. The portal threshold and the momentum-dependent derivative are separate contributions; the same constant threshold is not added twice.
+The zero-momentum hard comparator agrees with \(-v_hv_s\Delta\lambda_{HS}^{E}\) from the leading charged-lepton/VLL portal threshold to \(1.79\times10^{-4}\) relative. The residual is consistent with using leading charged-lepton/VLL mass-mixing Yukawas alongside exact mass diagonalization. The portal threshold and the momentum-dependent derivative are separate contributions; the same constant threshold is not added twice.
 
-## 5. Matched self-energy and mixing magnitude
+## 5. Retained matched-benchmark self-energy and mixing magnitude
 
 The reference condition is \(\lambda_{HS}^{\mathrm{EFT}}(M_E)=0\), which requires \(\lambda_{HS}^{\mathrm{UV}}(M_E)=-\Delta\lambda_{HS}^{E}\) at the displayed order. This is a benchmark input, not a symmetry prediction. Combining the exact hard momentum difference with the retained low-energy bubble-plus-contact EFT soft subset gives the following conditional benchmark estimate; this is not the complete same-order EFT soft/counterterm result:
 
 | Result | Benchmark A | Benchmark B |
 |---|---:|---:|
-| \(\Pi_{hs}^{\mathrm{matched}}(m_h^2)\) [GeV²] | \(-0.413277859-0.113173709i\) | \(-0.093002551-0.025468201i\) |
+| \(\Pi_{hs}^{\mathrm{ret}}(m_h^2)\) [GeV²] | \(-0.413277859-0.113173709i\) | \(-0.093002551-0.025468201i\) |
 | \(\Gamma_s(m_h)\) | \(3.746814\) GeV | \(0.158940\) MeV |
 | \(\left|\Pi_{hs}/(a-b)\right|\), \(m_s=m_h\) | \(9.14\times10^{-4}\) | \(0.19685\) |
 | \(2\left|\Pi_{hs}/(a-b)\right|\) diagnostic | \(1.83\times10^{-3}\) | \(0.39369\) |
