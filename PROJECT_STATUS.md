@@ -1,12 +1,23 @@
 # PROJECT_STATUS — Axial-vector paper revision and referee response
 
-**状态快照日期：** 2026-11-04（PR #38–#45 已合并；Major 4.3 有限矢量耦合与小混合参数域修订已合并）
+**状态快照日期：** 2026-11-04（PR #38–#45 已合并；PR #46 为 Major 4.4 轴矢量 stellar-cooling 文献调查，待审查）
 
 **本状态快照的初始核验基线：** 243b0e62d9c3912525d1144971a1e81c2af84db7（PR #36 合并前）  
 **项目启动机制合并提交：** [9b4e17519230e9eef65b34b643d3a1f8c19f46a2](https://github.com/lm846802297-bit/axial-vector-review-response/commit/9b4e17519230e9eef65b34b643d3a1f8c19f46a2)  
 **用途：** 每次启动项目时快速恢复当前阶段、权威文件和下一步工作。本文件是可更新的状态快照，不替代物理推导、原始论文、计算证据或作者最新指示。
 
 > **更新原则：** 任务完成、作者改变观点、PR 合并、论文基线更换或计算结论更新后，应检查并更新本文件。尚未重新核验的内容标为“待核验”，不得沿用旧状态作确定陈述。
+
+## 2026-11-04 更新：Major 4.4 轴矢量 stellar-cooling 文献调查（PR #46）
+
+PR #46 已创建于分支 `docs/major4.4-direct-axial-stellar-literature-20261104`，目标为 `main`，当前待审查。新增文档 [Major 4.4 轴矢量 stellar-cooling 文献适用性调查](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-04/Major4.4-轴矢量stellar-cooling文献适用性调查_2026-11-04.md)，并更新 README 导航与 DEC-09。
+
+调查确认：Kahn et al. 2017 已明确讨论轴矢量 (U(1)) 的 stellar cooling，但没有本文模型的 SN1987A 数值曲线；EPS-HEP 2019 有轴矢量核子耦合 SN 报告；Bell et al. 2024 对轴矢量核子流使用的是 vector SN proxy。对本文最直接的定量映射是与常规 (L_\mu-L_\tau) 完全相同的中微子 coalescence 与不可见中微子宽度。常规矢量 (L_\mu-L_\tau) 的完整 SN 曲线不能直接移植，因为轴矢量缪子 semi-Compton、纵向模式、(mu^+mu^-) 阈值宽度和 LESN 能量沉积不同。
+
+- 保留“stellar cooling 对 sub-GeV 区域相关”的判断，不把矢量模型曲线作为本文轴矢量模型的完整排除。
+- 文档区分直接轴矢量文献、矢量 (L_\mu-L_\tau) SN 参考、相同的中微子子过程，以及尚需模型特定计算的部分。
+- 不修改正式回复信或论文源码；不声称完成新的 SN luminosity、opacity、trapping、LESN 或 WD emissivity 计算。
+- 未运行 LaTeX 编译、PDF 视觉检查或 CI；这些状态不作通过声明。
 
 ## 2026-11-04 更新：Major 4.3 有限矢量耦合与小混合参数域（PR #45）
 
