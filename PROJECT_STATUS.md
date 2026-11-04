@@ -20,7 +20,7 @@
 - **P1：** 补充 \(\lambda_S\le4\pi\) 对应的 \(m_s^{\max}=\sqrt{8\pi}v_s\)：Benchmark A 为 \(355.4\) GeV，B 为 \(1579.2\) GeV。明确 \(10\)--\(150\) GeV 是 Higgs 极点附近局部诊断窗口，不是整个微扰性区间的扫描。
 - **近极点数值：** Plan-C-lite 脚本新增 \(125.20\)--\(125.30\) GeV、\(0.1\) MeV 步长的复数极点局部扫描。相同 1001 点算法已在 in-session Python 环境独立复现；A/B 的 1001 个点均收敛。更新后的仓库脚本尚未在干净容器中整文件重跑，验证记录明确区分了这两类证据。
 - **P2：** 增加 portal-induced scalar-loop 的 loop-counting 估计；明确这些是参数量级估计，不是完整高阶标量圈图计算。
-- **低能 EFT 交叉核查：** 补充 (q^2\ll m_s^2) 下的 scalar four-lepton operator 与 (A')-exchange 系数尺度比较：(|C_{mumu}^{(s)}/C^{(A')}|\sim4m_mu^2/m_s^2\leq4.5\times10^{-4})（(m_s\geq10\) GeV），而 (	au	au) 在 (m_s=10) GeV 时仍可达约 (0.13)。该比较仅是不同 Lorentz 结构的系数量级，不是过程级率比；不据此忽略 tau-sensitive scalar processes。
+- **低能 EFT 交叉核查：** 补充 \(q^2\ll m_s^2\) 下的 scalar four-lepton operator 与 \(A'\)-exchange 系数尺度比较：\(|C_{\mu\mu}^{(s)}/C^{(A')}|\sim4m_\mu^2/m_s^2\leq4.5\times10^{-4}\)（\(m_s\geq10\) GeV），而 \(\tau\tau\) 在 \(m_s=10\) GeV 时仍可达约 \(0.13\)。该比较仅是不同 Lorentz 结构的系数量级，不是过程级率比；不据此忽略 tau-sensitive scalar processes。
 - **范围：** Major 1.3 继续只讨论原始单标量 \(S+\mathrm{VLL}\) 两态系统，不混入 \(\sigma,N_R,\mathrm{PMNS}\) 或三态标量势；近简并区不赋予 allowed/excluded 状态。
 
 **验证边界：** 没有运行 CI；没有对更新后的 Plan-C-lite 脚本做干净容器整文件执行；回复信 PDF 尚未按本轮 TeX 重编译或视觉检查。main 根目录现有 48 页 PDF 仍是旧版，不包含本轮修改。PR #49 保持 Draft，未合并。
