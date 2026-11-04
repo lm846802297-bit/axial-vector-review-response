@@ -132,3 +132,9 @@ Follow-up independent equation-level reproduction (2026-10-27):
 - The updated repository script has not been executed as a complete file in a clean container after this edit. No CI run is claimed. The pre-existing 2026-10-27 clean-run evidence above applies to the previous script blob, not the updated blob.
 
 - Static syntax check: the newly added `fine_scan_near_higgs` function body was parsed with Python `ast.parse` and passed. The complete updated repository script still has not been run in a clean container because the container cannot resolve `raw.githubusercontent.com`; no full-script execution is claimed.
+
+
+2026-11-05 LaTeX formula-fragment check:
+- A standalone one-page LaTeX fragment containing the newly added portal threshold, charged-lepton/VLL mass matrix, scalar vertices, mass-eigenstate self-energy, finite A0/B0 functions, hard/soft subtraction, scalar widths, complex inverse propagator, perturbativity bound and scalar-exchange coefficient comparison was compiled with the local pdflatex installation.
+- pdflatex -interaction=nonstopmode -halt-on-error completed successfully; the one-page fragment was visually inspected and showed no clipping or equation overflow.
+- This is a formula-fragment syntax/layout check only. It is not a compilation or visual inspection of the complete 48-page referee-response letter. The full source was not materialized into the container, and the container cannot resolve raw.githubusercontent.com.
