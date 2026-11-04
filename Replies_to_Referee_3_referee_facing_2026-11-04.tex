@@ -403,19 +403,43 @@ For \(M_E=20\,\mathrm{TeV}\), \(\theta_{\mu L}=\theta_{\tau L}=10^{-2}\), \(m_h=
 \]
 The exact hard momentum difference agrees with the leading source-aligned derivative result to \(6.11\times10^{-4}\) relative at both benchmarks, and the zero-momentum hard comparator agrees with the leading portal-threshold estimate to \(1.79\times10^{-4}\) relative. These checks validate the stated fermionic subcalculation and its numerical implementation, but do not close the remaining same-order EFT soft/counterterm sectors.
 
-For a clearly non-degenerate point in Benchmark B, we take \(m_s=100\,\mathrm{GeV}\), for which the \(125.25\,\mathrm{GeV}\) Higgs-like pole is separated from the \(S\)-like pole by \(25.25\,\mathrm{GeV}\), and \(h\to ss\) is kinematically closed. For \(m_{A'}=63\,\mathrm{GeV}\), \(h\to A'A'\) is also kinematically closed. The same fixed-self-energy scan gives \(2|\Pi_{hs}/(a-b)|\simeq3.39\times10^{-5}\), or
+For a clearly non-degenerate point in Benchmark B, we take \(m_s=100\,\mathrm{GeV}\). Here \(m_s\) denotes the unmixed diagonal singlet-mass input in the inverse propagator, not an already diagonalized physical pole mass, and
 \[
-\eta_{hs}\equiv\left|\frac{\Pi_{hs}}{a-b}\right|\simeq1.70\times10^{-5}.
+\lambda_S=\frac{m_s^2}{2v_s^2}=0.05039.
 \]
-In the one-singlet scalar isolated-pole approximation, and for the SM-dominated production and decay channels, the leading doublet-coupling rescaling of the \(125\,\mathrm{GeV}\) pole is therefore
+The singlet width in the mass interval considered is
 \[
-\mu_h^{\mathrm{pole}}\simeq\cos^2\theta_{\mathrm{eff}}
-\simeq1-\eta_{hs}^2
-\simeq1-2.9\times10^{-10}.
+\begin{aligned}
+\Gamma_s={}&
+\Theta(m_s-2m_{A'})
+\frac{m_s^3}{32\pi v_s^2}
+(1-4x+12x^2)\sqrt{1-4x}\\
+&+\sum_{\ell=\mu,\tau}
+\Theta(m_s-2m_\ell)
+\frac{m_\ell^2m_s}{8\pi v_s^2}
+\left(1-\frac{4m_\ell^2}{m_s^2}\right)^{3/2},
+\qquad x=\frac{m_{A'}^2}{m_s^2}.
+\end{aligned}
 \]
-The corresponding fractional rate shift is about \(2.9\times10^{-8}\%\). Here \(\eta_{hs}\) is a first-order off-diagonal mass-insertion diagnostic, not an independently calculated physical mixing angle; the estimate also does not include process-specific direct-singlet-Yukawa corrections in the \(\mu\) and \(\tau\) channels or the separate searches for the \(100\,\mathrm{GeV}\) scalar.
+At this point \(s\to A'A'\) is closed because \(m_s<2m_{A'}=126\,\mathrm{GeV}\), and \(h\to ss\) is closed because \(m_s>m_h/2\). The width is \(\Gamma_s=0.126811\,\mathrm{MeV}\). The first-pass complex-pole solution gives a singlet-like pole at \(99.999999997\,\mathrm{GeV}\) with width \(0.126815\,\mathrm{MeV}\), and a Higgs-like pole at \(125.250000022\,\mathrm{GeV}\) with width \(4.069993\,\mathrm{MeV}\).
 
-For comparison, the PDG 2025 update quotes the inclusive global signal strengths \(\mu_{\mathrm{ATLAS}}=1.023^{+0.056}_{-0.053}\) and \(\mu_{\mathrm{CMS}}=1.014^{+0.055}_{-0.053}\) \cite{ParticleDataGroup:2024cfk}. Their uncertainties are approximately \(5.3\%\)--\(5.6\%\), more than \(1.8\times10^8\) times larger than the illustrative \(2.9\times10^{-10}\) pole-level shift. This is a comparison of scales for the isolated \(125\,\mathrm{GeV}\) pole in the stated non-degenerate benchmark, not a model-specific likelihood fit or a bound on the separate \(S\)-like state. The quoted experimental combinations assume a single narrow resonance and fixed signal shapes; they are not a two-scalar fit. The present comparison is deliberately restricted to a point with a well-separated \(S\)-like pole and with \(h\to ss\) closed. For \(m_s<m_h/2\), scalar-pair decays such as \(h\to ss\), when open, depend on the corresponding trilinear coupling and cannot be inferred from \(\cos^2\theta\) alone.
+For this non-degenerate point, the retained off-diagonal estimate gives
+\[
+\eta_{hs}\equiv\left|\frac{\Pi_{hs}^{\mathrm{ret}}(m_h^2)}{a-b}\right|
+\simeq1.695\times10^{-5},
+\qquad
+a=m_h^2-im_h\Gamma_h,\quad b=m_s^2-im_s\Gamma_s.
+\]
+In the isolated-pole, weak-mixing and SM-dominated-channel limit, the mixing-only leading rate diagnostic is
+\[
+\delta\mu_h^{(\mathrm{mix,LO})}
+\equiv\mu_h^{(\mathrm{mix,LO})}-1
+\simeq-\eta_{hs}^2
+\simeq-2.87\times10^{-10}.
+\]
+The corresponding mixing-only fractional rate shift is about \(2.9\times10^{-8}\%\). Here \(\eta_{hs}\) is a first-order off-diagonal mass-insertion diagnostic, not an independently calculated physical mixing angle. The rate estimate is mixing-only: it is not a complete pole signal strength and does not include process-dependent direct-singlet-Yukawa corrections in the \(\mu\) and \(\tau\) channels or the separate searches for the \(100\,\mathrm{GeV}\) scalar.
+
+For comparison, the PDG 2025 update quotes the inclusive global signal strengths \(\mu_{\mathrm{ATLAS}}=1.023^{+0.056}_{-0.053}\) and \(\mu_{\mathrm{CMS}}=1.014^{+0.055}_{-0.053}\) \cite{ParticleDataGroup:2024cfk}. Their uncertainties are approximately \(5.3\%\)--\(5.6\%\), more than \(1.8\times10^8\) times larger than the illustrative \(2.9\times10^{-10}\) mixing-only rate shift. This is a comparison of scales for the isolated \(125\,\mathrm{GeV}\) pole in the stated non-degenerate benchmark, not a model-specific likelihood fit or a bound on the separate \(S\)-like state. The quoted experimental combinations assume a single narrow resonance and fixed signal shapes; they are not a two-scalar fit. The present comparison is deliberately restricted to a point with a well-separated \(S\)-like pole and with \(h\to ss\) closed. For \(m_s<m_h/2\), scalar-pair decays such as \(h\to ss\), when open, depend on the corresponding trilinear coupling and cannot be inferred from \(\cos^2\theta\) alone.
 
 The finite-momentum result does not imply uniformly negligible mixing. At \(m_s=m_h=125.25\,\mathrm{GeV}\), the width-regulated diagnostic \(|\Pi_{hs}/(a-b)|\), with \(a=m_h^2-i m_h\Gamma_h\) and \(b=m_s^2-i m_s\Gamma_s\), is approximately \(9.1\times10^{-4}\) when \(s\to A'A'\) is open and \(\Gamma_s\simeq3.75\,\mathrm{GeV}\). For the benchmark in which \(s\to A'A'\) is closed and \(\Gamma_s\simeq0.159\,\mathrm{MeV}\), the same diagnostic reaches about \(0.197\) at exact degeneracy; the corresponding \(2|\Pi_{hs}/(a-b)|\) diagnostic is about \(0.394\).
 
