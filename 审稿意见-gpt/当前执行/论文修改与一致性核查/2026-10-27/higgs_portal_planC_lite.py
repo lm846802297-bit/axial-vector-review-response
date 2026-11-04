@@ -3,7 +3,7 @@
 
 This script implements a deliberately scoped benchmark:
 - degenerate vector-like lepton mass M_E;
-- leading seesaw relations for Yukawas and mixing angles;
+- leading charged-lepton/VLL mass-mixing relations for Yukawas and mixing angles;
 - the recorded one-loop zero-momentum portal threshold;
 - the source-recorded finite derivative coefficient, with its sign converted
   from the RC-001 inverse-propagator convention to the Plan-B convention;
@@ -61,7 +61,7 @@ def b0_finite_second_sheet(s, m, mu):
 
 
 def coupling_inputs(vs):
-    """Leading seesaw benchmark satisfying theta_L,R <= 1e-2."""
+    """Leading charged-lepton/VLL mass-mixing benchmark satisfying theta_L,R <= 1e-2."""
     theta_r = {name: mass / (M_E * THETA_L) for name, mass in M_LEPTON.items()}
     yukawa_y = {name: sqrt(2.0) * M_E * THETA_L / VH for name in M_LEPTON}
     yukawa_lam = {
