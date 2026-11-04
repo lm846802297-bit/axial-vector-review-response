@@ -357,7 +357,7 @@ m_s^{\max}=\sqrt{8\pi}\,v_s
 
 ### 6.8 低能标量交换与有效流 benchmark 的分离
 
-在 \(q^2\ll m_s^2\) 时，径向标量交换给出
+在 \(q^2\ll m_s^2,m_{A'}^2\) 时，径向标量交换与 \(A'\) 交换均可作局域系数比较
 \[
 \mathcal L_{\mathrm{eff}}^{(s)}
 \sim \frac{y_{s\ell\ell}y_{s\ell'\ell'}}{m_s^2}
