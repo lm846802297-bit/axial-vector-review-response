@@ -6,9 +6,9 @@ This directory preserves recoverable, immutable source snapshots of the referee-
 
 The only editable, authoritative response letter remains at the repository root:
 
-- \`Replies_to_Referee_3_referee_facing_2026-11-04.tex\`
+- `Replies_to_Referee_3_referee_facing_2026-11-04.tex`
 
-All files under \`snapshots/\` are archival copies. Do not edit them in place and do not compile from them as the working version. To make a new revision, edit the root source, review it, and create a new dated snapshot after the revision is accepted.
+All files under `snapshots/` are archival copies. Do not edit them in place and do not compile from them as the working version. To make a new revision, edit the root source, review it, and create a new dated snapshot after the revision is accepted.
 
 ## Snapshot currently preserved
 
@@ -17,15 +17,15 @@ All files under \`snapshots/\` are archival copies. Do not edit them in place an
 - [Reply-specific neutrino bibliography snapshot](snapshots/2026-11-04/Replies_to_Referee_3_neutrino_references.bib.snapshot)
 - [Model bibliography snapshot](snapshots/2026-11-04/axial-vector-model-building-v6-references.bib.snapshot)
 
-The three snapshot files are byte-for-byte copies of the files at source commit \`d9b262798f80c0f109f328b1b0019191e99d5437\`. Their Git blob IDs are recorded in the manifest.
+The three snapshot files are byte-for-byte copies of the files at source commit `d9b262798f80c0f109f328b1b0019191e99d5437`. Their Git blob IDs are recorded in the manifest.
 
 ## Restore procedure
 
-1. Check out or download source commit \`d9b262798f80c0f109f328b1b0019191e99d5437\` if you need the entire repository state.
-2. Alternatively, copy the archival TeX snapshot back to the repository root and remove the \`.snapshot\` suffix.
-3. Restore the two bibliography snapshots to their original paths, removing \`.snapshot\` and restoring the original file names:
-   - \`Replies_to_Referee_3_neutrino_references.bib\` at the repository root;
-   - \`overleaf-source/axial-vector-model-building-v6/references.bib\`.
+1. Check out or download source commit `d9b262798f80c0f109f328b1b0019191e99d5437` if you need the entire repository state.
+2. Alternatively, copy the archival TeX snapshot back to the repository root and remove the `.snapshot` suffix.
+3. Restore the two bibliography snapshots to their original paths, removing `.snapshot` and restoring the original file names:
+   - `Replies_to_Referee_3_neutrino_references.bib` at the repository root;
+   - `overleaf-source/axial-vector-model-building-v6/references.bib`.
 4. Verify the restored files against the Git blob IDs in the manifest before editing or compiling.
 
 For a complete repository source archive pinned to the exact commit, use GitHub's commit-addressed ZIP archive:
@@ -38,9 +38,9 @@ GitHub documents that an archive requested by commit SHA reproduces the same ext
 
 A tag is a repository reference, not a file that can be committed as part of a pull-request diff. After this PR is merged, create the annotated tag:
 
-\`reply-letter-2026-11-04\`
+`reply-letter-2026-11-04`
 
-pointing to the source commit \`d9b262798f80c0f109f328b1b0019191e99d5437\`, not to a later moving branch head. The tag has not been created by this documentation change. The source commit and blob IDs already make the archived state independently identifiable.
+pointing to the source commit `d9b262798f80c0f109f328b1b0019191e99d5437`, not to a later moving branch head. The tag has not been created by this documentation change. The source commit and blob IDs already make the archived state independently identifiable.
 
 After merge, the annotated tag can be created from a local clone with:
 
@@ -51,6 +51,6 @@ git push origin reply-letter-2026-11-04
 
 ## Scope and validation boundary
 
-This archive includes the response TeX and both bibliography databases referenced by its \`\bibliography{...}\` command. The TeX file has no \`\input\`, \`\include\`, or \`\includegraphics\` dependencies. The \`JHEP\` BibTeX style and the listed LaTeX packages are TeX-environment dependencies, not repository-local source files in this snapshot.
+This archive includes the response TeX and both bibliography databases referenced by its `\bibliography{...}` command. The TeX file has no `\input`, `\include`, or `\includegraphics` dependencies. The `JHEP` BibTeX style and the listed LaTeX packages are TeX-environment dependencies, not repository-local source files in this snapshot.
 
 No PDF was compiled or added. The PDF currently in the repository is not silently represented as matching this source snapshot.
