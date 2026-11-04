@@ -21,13 +21,13 @@ PR #46 已创建于分支 docs/major4.4-direct-axial-stellar-literature-20261104
  
 ### 同步补充：正式回复信不可变源码备份
 
-PR #46 同时加入正式回复信归档结构 \`archive/reply-letter/\`。根目录 TeX 仍是唯一可编辑权威版本；归档目录中的 \`.snapshot\` 文件只用于恢复，不作为第二份工作稿。
+PR #46 同时加入正式回复信归档结构 `archive/reply-letter/`。根目录 TeX 仍是唯一可编辑权威版本；归档目录中的 `.snapshot` 文件只用于恢复，不作为第二份工作稿。
 
-- 源版本固定为 main commit \`d9b262798f80c0f109f328b1b0019191e99d5437\`。
+- 源版本固定为 main commit `d9b262798f80c0f109f328b1b0019191e99d5437`。
 - 已保存回复信 TeX 与其两份 BibTeX 输入文件；三份归档文件的 Git blob SHA-1 均与源文件一致。
 - 归档说明和 manifest 记录原始路径、blob SHA-1、恢复步骤及 GitHub 按 commit SHA 下载完整仓库快照的链接。
-- TeX 静态扫描未发现 \`\\input\`、\`\\include\` 或 \`\\includegraphics\` 依赖；\`JHEP\` BibTeX style 与所列 LaTeX packages 属于编译环境依赖。未编译 PDF。
-- Git tag \`reply-letter-2026-11-04\` 尚未创建。Tag 是 Git ref，不能作为文件纳入 PR diff；建议 PR 合并后将该 annotated tag 指向上述固定源 commit，而不是后续 main HEAD。
+- TeX 静态扫描未发现 `\input`、`\include` 或 `\includegraphics` 依赖；`JHEP` BibTeX style 与所列 LaTeX packages 属于编译环境依赖。未编译 PDF。
+- Git tag `reply-letter-2026-11-04` 尚未创建。Tag 是 Git ref，不能作为文件纳入 PR diff；建议 PR 合并后将该 annotated tag 指向上述固定源 commit，而不是后续 main HEAD。
 
 
 
