@@ -121,3 +121,12 @@ Follow-up independent equation-level reproduction (2026-10-27):
 - Benchmark B reproduced Delta lambda_HS^E = -0.010673376489, Pi_hs(m_h^2) = -0.092999245174 - 0.025468201182 i GeV^2, Gamma_s = 0.158940037 MeV, and the two pole widths = 0.292112477 MeV and 3.936824146 MeV.
 - The scale residuals were reproduced as 5.871402e-4 GeV^2 (A) and 1.321279e-4 GeV^2 (B).
 - The independent equation-level reproductions agree with the captured clean-run output. The clean execution validates the script's execution and numerical reproducibility under the recorded benchmark inputs; it does not close the derivative-matching or experimental-recast limitations listed above.
+
+
+2026-11-05 local fine complex-pole scan:
+- The Plan-C-lite script was extended with a 0.1 MeV grid over m_s in [m_h-50 MeV, m_h+50 MeV], solving both complex poles at each point with the existing second-sheet, momentum-dependent soft B0 kernel and the source-aligned hard-derivative approximation.
+- The same 1001-point numerical loop was independently reproduced in the in-session Python environment. All 1001 points converged for each benchmark; the maximum determinant residual of the selected Higgs-like roots was 4.27e-10 (A) and 1.09e-11 (B). This is an independent reproduction of the updated loop, not a separate clean-container execution of the updated repository script.
+- Benchmark A: max Higgs-like |s/h| = 9.15197e-4 at m_s = 125.20 GeV; no sampled point reaches |s/h| >= 0.1. The Higgs-like pole mass varies from 125.250000775 to 125.250000850 GeV and its width from 4.072650 to 4.072727 MeV.
+- Benchmark B: max Higgs-like |s/h| = 0.203908 at m_s = 125.2499 GeV. The sampled interval with |s/h| >= 0.1 is 125.2467--125.2532 GeV. The Higgs-like pole mass varies from 125.249941827 to 125.250018922 GeV and its width from 3.923605 to 4.080541 MeV.
+- |s/h| is a non-Hermitian pole-eigenvector composition diagnostic, not a pole residue, observable mixing angle, or detector-level rate. Its threshold interval is distinct from the fixed-self-energy 2|Pi/(a-b)| >= 0.1 interval.
+- The updated repository script has not been executed as a complete file in a clean container after this edit. No CI run is claimed. The pre-existing 2026-10-27 clean-run evidence above applies to the previous script blob, not the updated blob.
