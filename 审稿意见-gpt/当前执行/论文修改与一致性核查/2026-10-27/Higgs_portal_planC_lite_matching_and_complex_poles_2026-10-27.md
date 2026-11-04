@@ -237,7 +237,7 @@ PDG 2025 年 12 月更新的 Higgs 综述 Sec. 11.3.3 给出的 inclusive global
 \mu_{\rm ATLAS}=1.023^{+0.056}_{-0.053},\qquad
 \mu_{\rm CMS}=1.014^{+0.055}_{-0.053}.
 \]
-两组测量的典型不确定度约为 \(5.3\%\)--\(5.6\%\)。该节的 global-\(\mu\) 与 \(\kappa\)-framework 解释采用单一窄共振和固定信号形状假设；它们不是本文两个标量极点的联合拟合。引用采用已有 BibTeX 键 \`ParticleDataGroup:2024cfk\`，正文明确标记为 PDG 2025 update。
+两组测量的典型不确定度约为 \(5.3\%\)--\(5.6\%\)。该节的 global-\(\mu\) 与 \(\kappa\)-framework 解释采用单一窄共振和固定信号形状假设；它们不是本文两个标量极点的联合拟合。引用采用已有 BibTeX 键 `ParticleDataGroup:2024cfk`，正文明确标记为 PDG 2025 update。
 
 ### 6.1 一个真正非简并、孤立的 125 GeV 极点 benchmark
 
