@@ -40,11 +40,11 @@ and the Plan-B/Plan-C convention is \(\Pi_B=-\Pi_{\mathrm{RC}}\). The finite PV 
 \]
 with \(\mu_R=M_E=20\) TeV.
 
-The inputs are those of the existing Plan-C-lite benchmarks: \(m_h=125.25\) GeV, \(v_h=246.22\) GeV, \(M_E=20\) TeV, \(\theta_{\mu L}=\theta_{\tau L}=10^{-2}\), and leading-seesaw Yukawa relations.
+The inputs are those of the existing Plan-C-lite benchmarks: \(m_h=125.25\) GeV, \(v_h=246.22\) GeV, \(M_E=20\) TeV, \(\theta_{\mu L}=\theta_{\tau L}=10^{-2}\), and leading charged-lepton/VLL mass-mixing relations.
 - **A, open \(A'A'\) at \(m_s=m_h\):** \(v_s=70.886458\) GeV, \(m_{A'}=10\) GeV, \(g_X=0.0705353\).
 - **B, closed \(A'A'\) at \(m_s=m_h\):** \(v_s=315\) GeV, \(m_{A'}=63\) GeV, \(g_X=0.1\).
 
-Because the Yukawas are selected from leading-seesaw relations, exact singular values differ slightly from the input physical muon/tau masses. This is recorded in the run output; it is not hidden by rounding.
+Because the Yukawas are selected from leading charged-lepton/VLL mass-mixing relations, exact singular values differ slightly from the input physical muon/tau masses. This is recorded in the run output; it is not hidden by rounding.
 
 ## 3. One-loop formula
 
@@ -90,11 +90,11 @@ At \(\mu_R=M_E\), the leading source-aligned hard derivative is
 \Pi_{B,\mathrm{hard}}'(0)=\frac{q}{24\pi^2},\qquad
 q=\sum_{\ell=\mu,\tau}\frac{2m_\ell^2}{v_hv_s}.
 \]
-The exact mass-eigenstate calculation reproduces it within \(0.0611\%\) at both points. The residual is retained as a finite-mixing/leading-seesaw correction rather than rounded away.
+The exact mass-eigenstate calculation reproduces it within \(0.0611\%\) at both points. The residual is retained as a finite-mixing/leading charged-lepton/VLL mass-mixing correction rather than rounded away.
 
 The full mass-eigenstate sum also gives the \(p^2\) UV-pole coefficient consistent with zero, the local UV coefficient consistent with zero at numerical precision, and an absorptive part equal to the light-light cut. The hard momentum difference has no residual imaginary part below the heavy threshold.
 
-The zero-momentum hard comparator agrees with \(-v_hv_s\Delta\lambda_{HS}^{E}\) from the leading-seesaw portal threshold to \(1.79\times10^{-4}\) relative. The residual is consistent with using leading-seesaw Yukawas alongside exact mass diagonalization. The portal threshold and the momentum-dependent derivative are separate contributions; the same constant threshold is not added twice.
+The zero-momentum hard comparator agrees with \(-v_hv_s\Delta\lambda_{HS}^{E}\) from the leading charged-lepton/VLL portal threshold to \(1.79\times10^{-4}\) relative. The residual is consistent with using leading-seesaw Yukawas alongside exact mass diagonalization. The portal threshold and the momentum-dependent derivative are separate contributions; the same constant threshold is not added twice.
 
 ## 5. Matched self-energy and mixing magnitude
 
@@ -134,7 +134,7 @@ This band is a theoretical diagnostic, not an experimental exclusion interval. A
 - The exact committed script was compiled and executed in the local Linux environment: Python 3.13.5, NumPy 2.3.5, SciPy 1.17.0. Its Git blob SHA-1 is `a2128e5ed9fe0065fc01e61972fdbfbe3f4859fb`, matching the branch source. The script also scans \(m_s\in[10,150]\) GeV on a 1 MeV grid and refines the \(2|\Pi/(a-b)|=0.1\) threshold crossings with Brent's method. `py_compile` passed, runtime exit code was 0, and all in-script assertions passed for both benchmarks.
 - Integration re-run: the same script blob was syntax-compiled and executed with Python 3.12.14, NumPy 2.3.5, and SciPy 1.17.0. Both benchmark assertion sets passed (exit code 0), reproducing the reported self-energies, residuals, and dense-scan interval. This is a repeat execution of the same implementation, not an independent diagrammatic derivation.
 - This is an independent numerical implementation of the mass-eigenstate formula, **not** a FeynArts/FeynCalc run. External diagram-package reproduction still requires the model-specific file and compatible Mathematica/FeynArts/FeynCalc.
-- The result uses the leading-seesaw benchmark and the conditional matched-portal choice. A different renormalized portal boundary changes the local mixing term and the physical prediction.
+- The result uses the leading charged-lepton/VLL mass-mixing benchmark and the conditional matched-portal choice. A different renormalized portal boundary changes the local mixing term and the physical prediction.
 
 ## 7. Conclusion
 
