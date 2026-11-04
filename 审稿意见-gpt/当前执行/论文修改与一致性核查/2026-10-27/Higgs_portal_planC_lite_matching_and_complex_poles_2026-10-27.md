@@ -273,6 +273,88 @@ Plan C-lite 的 \(|m_s-m_h|=0.1\) GeV 例子给出约 \(3.85\times10^{-3}\) 的�
 
 本节及以上数值结果严格针对原始单标量 \(S\) 与 VLL 构成的两态 \(h\)-\(s\) 系统。计算采用明确给出的 \(S\)-portal 匹配边界和两个参考 benchmark；不包含额外标量场、额外 portal 或三态 CP-even 传播子。因此，这些结果不应被表述为对任意扩展标量扇区的完整 UV 约束。其他场内容的扩展及其独立标量参数关系不属于本 Plan C-lite 计算范围。
 
+### 6.4 近 Higgs 极点的 0.1 MeV 复数极点扫描（2026-11-05）
+
+在原有第二 Riemann sheet 求解器基础上，增加了 \(m_s\in[m_h-50\,\mathrm{MeV},m_h+50\,\mathrm{MeV}]\) 的局部扫描，步长为 \(0.1\,\mathrm{MeV}\)，每个质量点求解
+\[
+F(s)=(s-a)(s-b)-\Pi_{hs}^{B}(s)\Pi_{sh}^{B}(s)=0,
+\quad
+a=m_h^2-i m_h\Gamma_h,\quad b=m_s^2-i m_s\Gamma_s.
+\]
+本实现采用实耦合基准 \(\Pi_{sh}=\Pi_{hs}\)，以常数自能根作为 Newton 初值；在第二 sheet 上保留轻子 \(B_0(s)\) 的动量依赖。对每个点，以较小 \(|s/h|\) 的极点标记为 Higgs-like pole。
+
+扫描结果：
+
+| 量 | Benchmark A：\(A'A'\) 开放 | Benchmark B：\(A'A'\) 关闭 |
+|---|---:|---:|
+| 局部扫描区间 | \(125.20\)--\(125.30\) GeV | \(125.20\)--\(125.30\) GeV |
+| 步长 | \(0.1\) MeV | \(0.1\) MeV |
+| Higgs-like pole 的最大 \(|s/h|\) | \(9.152\times10^{-4}\) | \(0.20391\) |
+| 最大值附近的 \(m_s\) | \(125.20\) GeV | \(125.2499\) GeV |
+| \(|s/h|\geq0.1\) 的采样区间 | 无 | \(125.2467\)--\(125.2532\) GeV |
+| Higgs-like pole 质量范围 | \(125.250000775\)--\(125.250000850\) GeV | \(125.249941827\)--\(125.250018922\) GeV |
+| Higgs-like pole 宽度范围 | \(4.072650\)--\(4.072727\) MeV | \(3.923605\)--\(4.080541\) MeV |
+
+所有 1001 个质量点的两个 Newton 根均收敛；被选取 Higgs-like 根的最大行列式残差为 \(4.27\times10^{-10}\)（A）和 \(1.09\times10^{-11}\)（B）。\(|s/h|\) 是非厄米极点本征向量的组成诊断，不是极点残数、可观测混合角或 detector-level signal strength。该阈值区间不得与固定自能诊断 \(2|\Pi/(a-b)|\geq0.1\) 的约 \(7.45\) MeV 半宽混为同一个量。
+
+### 6.5 精确有限硬项与复数极点求解器的精度接口
+
+精确质量本征态脚本在 \(p^2=m_h^2\) 给出的保留自能为
+\[
+\Pi_{hs}^{\mathrm{ret}}(m_h^2)=
+\begin{cases}
+-0.413277859-0.113173709i\ \mathrm{GeV}^2,&A,\\
+-0.093002551-0.025468201i\ \mathrm{GeV}^2,&B.
+\end{cases}
+\]
+Plan C-lite 的动量依赖极点求解器使用 RC-001 的 source-aligned 有限导数硬项，而不是对该精确硬项进行完整复动量解析延拓。两者在 \(m_h^2\) 的总自能差分别为 \(1.4691\times10^{-5}\) 和 \(3.3060\times10^{-6}\ \mathrm{GeV}^2\)，相对差均约 \(3.43\times10^{-5}\)；硬项本身与领先导数近似的相对差为 \(6.11\times10^{-4}\)。因此，复数极点结果是受控的第一轮诊断，不应称为精确全动量 UV 自能的极点解。
+
+### 6.6 微扰性质量上限与局部扫描的区别
+
+由
+\[
+\lambda_S=\frac{m_s^2}{2v_s^2}\leq4\pi
+\quad\Longrightarrow\quad
+m_s^{\max}=\sqrt{8\pi}\,v_s
+\]
+得到：
+
+| 量 | Benchmark A | Benchmark B |
+|---|---:|---:|
+| \(v_s\) | \(70.886458\) GeV | \(315\) GeV |
+| \(m_s^{\max}\)（\(\lambda_S=4\pi\)） | \(355.372\) GeV | \(1579.176\) GeV |
+| \(\lambda_S(m_s=100\,\mathrm{GeV})\) | \(0.99505\) | \(0.05039\) |
+| \(\lambda_S(m_s=m_h)\) | \(1.56099\) | \(0.07905\) |
+
+因此，\(m_s\in[10,150]\) GeV 是覆盖 Higgs 极点的局部诊断窗口，并非整个微扰性质量区间。对固定 benchmark 的保留一圈 Yukawa 自能，远离 Higgs 极点时
+\[
+\eta_{hs}\sim
+\frac{|\Pi_{hs}^{\mathrm{ret}}(m_h^2)|}{|m_s^2-m_h^2|}
+\underset{m_s\gg m_h}{\sim}
+\frac{|\Pi_{hs}^{\mathrm{ret}}(m_h^2)|}{m_s^2}.
+\]
+这说明大质量端的混合诊断具有 \(1/m_s^2\) 的解析抑制；它不是对整个高质量区间的数值扫描，也不构成 scalar direct-search 的全局约束。
+
+### 6.7 非零 UV portal 下的 loop counting
+
+匹配条件 \(\lambda_{HS}^{\mathrm{EFT}}(M_E)=0\) 意味着
+\[
+\lambda_{HS}^{\mathrm{UV}}(M_E)=-\Delta\lambda_{HS}^{E}\neq0.
+\]
+所以“zero-tree-level-mixing”只能指匹配 EFT 在该尺度的局域维四混合项为零，不能用于描述 UV 拉格朗日量。该 UV portal 的数值按构造与一圈 VLL 阈值同阶；带有额外 portal 顶角的标量圈图在这一 loop counting 中属于更高阶。作为参数量级检查，
+\[
+\frac{\lambda_S}{16\pi^2}=
+\begin{cases}
+6.30\times10^{-3}\ (m_s=100\,\mathrm{GeV}),\
+9.89\times10^{-3}\ (m_s=m_h),&A,\\
+3.19\times10^{-4}\ (m_s=100\,\mathrm{GeV}),\
+5.01\times10^{-4}\ (m_s=m_h),&B,
+\end{cases}
+\qquad
+\frac{\lambda_H}{16\pi^2}=8.19\times10^{-4}.
+\]
+这些数字仅估计代表性标量圈的额外耦合/圈因子；没有计算完整的 portal-induced scalar-loop diagrams，也不能据此把它们设为严格零。直接 \(W\)/top 一圈图在规范基底缺少 \(sWW\)、\(s\bar t t\) 顶角；通过 portal 诱导混合产生的相关贡献须按上述更高阶计数处理。
+
 ## 7. Plan C-lite 状态与剩余闭环
 
 ### 已完成的子任务
@@ -280,13 +362,13 @@ Plan C-lite 的 \(|m_s-m_h|=0.1\) GeV 例子给出约 \(3.85\times10^{-3}\) 的�
 - 将原稿 \(M_E>10\) TeV、混合角 benchmark 与额外 Yukawa 微扰性敏感性条件转化为两个明确的代表点。
 - 数值评估 \(\overline{\mathrm{MS}}\) 零动量 portal 阈值，并区分零 UV portal 与零匹配 EFT portal。
 - 按一致的 \(\Pi_B=-\Pi_{RC}\) 约定组合低能 \(\mu,\tau\) 圈、EFT 接触 tadpole 和 RC-001 有来源的有限导数系数。
-- 计算两个衰变宽度极限下的复数极点，并定量展示近简并时的宽度重分配。
+- 计算两个衰变宽度极限下的第一轮复数极点诊断；2026-11-05 增加了 Higgs 极点附近 0.1 MeV 步长的局部扫描，并明确其固定对角宽度与硬项导数近似。
 - 对 Higgs 整体信号强度完成第一轮适用性判断，明确何处需要完整两极点线形拟合。
 
 ### 尚未关闭的项目
 
-1. RC-001 的有限导数系数仍需要完整同阶 EFT soft/counterterm 账本及独立图级验证；本报告将其作为候选输入，不升级为完全闭合的 UV 结果。
-2. 当前极点计算固定了对角宽度，并吸收对角实部到质量输入；尚未求解包含所有 UV/EFT 对角自能、tadpole/VEV 反项和完整波函数残数的全动量矩阵。
+1. RC-001 的有限导数系数仍需要完整同阶 EFT soft/counterterm 账本及独立图级验证；本报告将其作为候选输入。bubble-plus-contact 只是保留的 EFT soft 子集，不是完整同阶 soft/counterterm 集。
+2. 当前极点计算固定了对角宽度，并吸收对角实部到质量输入；尚未求解包含所有 UV/EFT 对角自能、tadpole/VEV 反项和完整波函数残数的全动量矩阵。精确质量本征态硬项与极点求解器中的导数近似已量化对照，但尚未对精确硬项作完整复动量解析延拓。
 3. 尚未运行 HiggsSignals 或模型专属的 LHC 额外标量搜索重铸；近简并窄宽度区域继续标为 **not assessed**，而不是允许或排除。
 4. 原论文 TeX、Fig. 2 PDF 和绘图源尚未因本计算自动修改；应先完成以上闭环，再决定哪些结果写入正文和正式回复信。
 
