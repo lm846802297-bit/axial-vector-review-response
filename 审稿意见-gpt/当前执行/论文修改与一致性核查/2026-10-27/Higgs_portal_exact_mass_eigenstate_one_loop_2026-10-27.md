@@ -1,7 +1,7 @@
 # Major Point 1.3 — exact mass-eigenstate one-loop \(h\)-\(s\) mixing
 
 **Date:** 2026-10-27  
-**Status:** The one-loop charged-lepton/VLL contribution has been evaluated numerically in the full \(2\times2\) mass-eigenstate basis at two stated benchmarks. The finite hard momentum dependence agrees with the leading derivative matching result at \(6.11\times10^{-4}\) relative. The physical interpretation remains conditional on the portal boundary and the scalar pole/constraint treatment.
+**Status:** The full-theory one-loop charged-lepton/VLL self-energy and its finite hard momentum subtraction have been evaluated numerically in the full \(2\times2\) mass-eigenstate basis at two stated benchmarks. The finite hard momentum dependence agrees with the leading derivative matching result at \(6.11\times10^{-4}\) relative. The combined low-energy number retains only the bubble-plus-contact EFT soft subset; the complete same-order EFT soft/counterterm set and the physical scalar pole/constraint treatment remain open.
 
 ## 1. Meeting request and correct diagram set
 
@@ -98,7 +98,7 @@ The zero-momentum hard comparator agrees with \(-v_hv_s\Delta\lambda_{HS}^{E}\) 
 
 ## 5. Matched self-energy and mixing magnitude
 
-The reference condition is \(\lambda_{HS}^{\mathrm{EFT}}(M_E)=0\), which requires \(\lambda_{HS}^{\mathrm{UV}}(M_E)=-\Delta\lambda_{HS}^{E}\) at the displayed order. This is a benchmark input, not a symmetry prediction. Combining the exact hard momentum difference with the established low-energy EFT soft contribution gives:
+The reference condition is \(\lambda_{HS}^{\mathrm{EFT}}(M_E)=0\), which requires \(\lambda_{HS}^{\mathrm{UV}}(M_E)=-\Delta\lambda_{HS}^{E}\) at the displayed order. This is a benchmark input, not a symmetry prediction. Combining the exact hard momentum difference with the retained low-energy bubble-plus-contact EFT soft subset gives the following conditional benchmark estimate; this is not the complete same-order EFT soft/counterterm result:
 
 | Result | Benchmark A | Benchmark B |
 |---|---:|---:|
@@ -138,6 +138,6 @@ This band is a theoretical diagnostic, not an experimental exclusion interval. A
 
 ## 7. Conclusion
 
-The requested one-loop fermion-loop estimate is now quantitatively completed for two stated UV benchmarks, including the finite-momentum hard contribution and its combination with the EFT soft loop. The exact mass-eigenstate calculation reproduces the leading derivative matching coefficient at \(6.11\times10^{-4}\) relative and passes the recorded UV/absorptive checks.
+The full-theory fermion-loop and finite hard-subtraction subcalculation is numerically completed for two stated UV benchmarks. Its combination with the retained EFT bubble-plus-contact soft subset gives a conditional estimate, not a fully closed matched self-energy. The exact mass-eigenstate calculation reproduces the leading derivative matching coefficient at \(6.11\times10^{-4}\) relative and passes the recorded UV/absorptive checks.
 
 It does **not** justify claiming that \(h\)-\(s\) mixing is negligible across the entire scalar-mass range. It is small away from degeneracy and in the open-\(A'A'\) benchmark, but it becomes non-negligible in the narrow-width near-degenerate benchmark. The portal boundary remains an independent input, and the full pole-scheme calculation and experimental recast remain open.
