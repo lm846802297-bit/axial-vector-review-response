@@ -16,17 +16,30 @@ PR #46 已创建于分支 docs/major4.4-direct-axial-stellar-literature-20261104
 
 - 保留“stellar cooling 对 sub-GeV 区域相关”的判断，不把矢量模型曲线作为本文轴矢量模型的完整排除。
 - 文档区分直接轴矢量文献、矢量 \(L_\mu-L_\tau\) SN 参考、相同的中微子子过程，以及尚需模型特定计算的部分。
-- 不修改正式回复信或论文源码；不声称完成新的 SN luminosity、opacity、trapping、LESN 或 WD emissivity 计算。
+- 不修改回复信 TeX 正文或论文源码；本次仅修复回复信的 BibTeX 构建依赖并补全三条文献元数据，不声称完成新的 SN luminosity、opacity、trapping、LESN 或 WD emissivity 计算。
 - 未运行 LaTeX 编译、PDF 视觉检查或 CI；这些状态不作通过声明。
+ 
+### 回复信参考文献与 BibTeX 问号核查（2026-11-04）
+
+作者指出回复信 PDF 中多处引用显示为 `[?]`。对当前根目录权威 TeX 与两份 BibTeX 数据库进行了静态核查：
+
+- 找到 **72 次引用出现、34 个唯一 citation keys**；34 个键全部存在于两份 `.bib` 数据库中。
+- 未发现重复 citation keys；两份 BibTeX 文件的花括号静态平衡检查通过；TeX 源码没有 `[?]` 或 `??` 字面占位符。
+- 因此，当前源码证据不支持“34 个引用键缺失”的判断。更可能的问题是 BibTeX 生成/读取环节，而不是正文的 `\cite` 键没有对应条目。
+- 定位到关键构建隐患：回复信位于仓库根目录，使用 `\bibliographystyle{JHEP}`；原 `JHEP.bst` 仅位于 `overleaf-source/axial-vector-model-building-v6/`。本地 BibTeX 路径测试表明，默认样式搜索不会递归发现任意项目子目录中的 `.bst`。现已将原文件逐字节复制到仓库根目录；其 Git blob SHA-1 与原文件相同：`d39cbe846e531ed7be07eebb11be0bd72d675579`。
+- 补全三条被引用文献的元数据：`NA64:2023lightDM` 加入 PRL 131 (2023) 161801 与 DOI；`geiregat1990first` 加入 DOI；`He:2024twoSingletHNL` 加入 arXiv:2401.14687。2026 年的 `Fiorillo:2026wso` 与 `Wang:2026supernova` 仍为预印本，未虚构期刊或 DOI。
+- 最新可恢复包为 [2026-11-04-r2 manifest](archive/reply-letter/snapshots/2026-11-04-r2/manifest.md)，包括回复信 TeX、两份 BibTeX 数据库和 `JHEP.bst`。
+- **未重新编译当前回复信 PDF，也未做 PDF 视觉检查。** 因此尚不能宣称现有 PDF 中的 `[?]` 已消失；需按 manifest 中的 LaTeX → BibTeX → LaTeX → LaTeX 顺序重编译，并检查 `.blg` 与最终 PDF。
+
  
 ### 同步补充：正式回复信不可变源码备份
 
 PR #46 同时加入正式回复信归档结构 `archive/reply-letter/`。根目录 TeX 仍是唯一可编辑权威版本；归档目录中的 `.snapshot` 文件只用于恢复，不作为第二份工作稿。
 
 - 源版本固定为 main commit `d9b262798f80c0f109f328b1b0019191e99d5437`。
-- 已保存回复信 TeX 与其两份 BibTeX 输入文件；三份归档文件的 Git blob SHA-1 均与源文件一致。
+- 已保存回复信 TeX、两份 BibTeX 输入文件及根目录 `JHEP.bst`；最新 r2 快照的四份归档文件均记录 Git blob SHA-1。
 - 归档说明和 manifest 记录原始路径、blob SHA-1、恢复步骤及 GitHub 按 commit SHA 下载完整仓库快照的链接。
-- TeX 静态扫描未发现 `\input`、`\include` 或 `\includegraphics` 依赖；`JHEP` BibTeX style 与所列 LaTeX packages 属于编译环境依赖。未编译 PDF。
+- TeX 静态扫描未发现 `\input`、`\include` 或 `\includegraphics` 依赖；`JHEP.bst` 已作为仓库根目录构建依赖保存，LaTeX packages 仍属于编译环境依赖。未重编译 PDF。
 - Git tag `reply-letter-2026-11-04` 尚未创建。Tag 是 Git ref，不能作为文件纳入 PR diff；建议 PR 合并后将该 annotated tag 指向上述固定源 commit，而不是后续 main HEAD。
 
 
