@@ -269,22 +269,9 @@ Plan C-lite 的 \(|m_s-m_h|=0.1\) GeV 例子给出约 \(3.85\times10^{-3}\) 的�
 
 对闭道窄宽度 benchmark，固定自能诊断 \(2|\Pi_{hs}/(a-b)|\geq0.1\) 的区间约为 \(|m_s-m_h|\lesssim7.45\) MeV。该区间不是实验排除窗，也不是允许窗。近简并时必须由完整复数 \(2\times2\) 传播子极点、残数、产生/衰变振幅、干涉及实验质量响应决定可观测信号；单一孤立极点的 \(\mu_h\simeq\cos^2\theta\) 近似不适用。
 
-### 6.3 与 2026-11-04 双单态中微子完成机制的一致性
+### 6.3 Scope boundary
 
-Major 3 已采用电荷二标量 \(S\) 与电荷一标量 \(\sigma\) 的双单态 seesaw completion。一般标量势允许
-\[
-\lambda_{HS}|H|^2|S|^2,\quad
-\lambda_{H\sigma}|H|^2|\sigma|^2,\quad
-\lambda_{S\sigma}|S|^2|\sigma|^2,\quad
-\kappa S^\dagger\sigma^2+\mathrm{h.c.}
-\]
-因此 CP-even 标量系统一般是三态问题。上述 exact \(h-s\) 计算只对应 \(S\)-dominated one-VEV reference limit \(r_\sigma=v_\sigma^2/(4v_s^2)\ll1\)，并另行要求 \(\sigma\)-径向混合及独立 \(\lambda_{H\sigma}\) portal 的贡献受到抑制；小 \(r_\sigma\) 本身并不足以保证这一点。扩展模型的精确规范玻色子质量为
-\[
-m_{A'}^2=g_X^2(4v_s^2+v_\sigma^2).
-\]
-故原单 VEV 参数和 \(m_s^2\simeq2\lambda_Sv_s^2\) 关系仅在额外标量质量修正及混合可忽略时作为参考近似。
-
-**当前可支持的结论：** 对指定 \(S\)-dominated、small-portal、非简并 benchmark，125 GeV Higgs-like pole 的 leading mixing-induced rate shift 远低于 PDG 2025 global-\(\mu\) 精度；对闭道窄宽度近简并区域，不使用单一 \(\cos^2\theta\) 近似，也不作允许/排除判断。此结果不能扩展为任意 \(\sigma\)-sector portal 参数下的完整三标量 UV 约束。
+本节及以上数值结果严格针对原始单标量 \\(S\\) 与 VLL 构成的两态 \\(h\\)-\\(s\\) 系统。计算采用明确给出的 \\(S\\)-portal 匹配边界和两个参考 benchmark；不包含额外标量场、额外 portal 或三态 CP-even 传播子。因此，这些结果不应被表述为对任意扩展标量扇区的完整 UV 约束。其他场内容的扩展及其独立标量参数关系不属于本 Plan C-lite 计算范围。
 
 ## 7. Plan C-lite 状态与剩余闭环
 
