@@ -355,19 +355,53 @@ The one-loop fermion self-energy in the source convention is
 \left[C_{ab}^{ij}K_{ij}
 +2m_im_jD_{ab}^{ij}B_0(p^2;m_i^2,m_j^2)\right].
 \]
-We use \(\Gamma_{\rm inv}=p^2\mathbf1-\mathcal M_{\rm loc}^2+\Pi_{\rm RC}\) and \(\Pi_B=-\Pi_{\rm RC}\).
+We use \(\Gamma_{\rm inv}=p^2\mathbf1-\mathcal M_{\rm loc}^2+\Pi_{\rm RC}\) and \(\Pi_B=-\Pi_{\rm RC}\). The finite functions at \(\mu_R=M_E\) are
+\[
+\bar A_0(m^2)=m^2\left(1-\ln\frac{m^2}{\mu_R^2}\right),
+\qquad
+\bar B_0(p^2;m_i^2,m_j^2)
+=-\int_0^1dx\,
+\ln\frac{xm_i^2+(1-x)m_j^2-x(1-x)p^2-i0}{\mu_R^2}.
+\]
 
-For illustration, with \(M_E=20\,\mathrm{TeV}\), \(\theta_{\mu L}=\theta_{\tau L}=10^{-2}\), and the same leading charged-lepton/VLL mass-mixing benchmark inputs used for the threshold check, the matched off-diagonal self-energy at \(p^2=m_h^2\) is
+The full-theory self-energy contains the local portal-threshold constant and the light-lepton contribution reproduced in the EFT. The momentum-dependent hard term is isolated by
 \[
-\Pi_{hs}^{\mathrm{matched}}(m_h^2)
-\simeq(-0.4133-0.1132i)\,\mathrm{GeV}^2
+\Delta\Pi_{\mathrm{hard}}(m_h^2)=
+[\Pi_B^{\mathrm{full}}(m_h^2)-\Pi_B^{\mathrm{full}}(0)]
+-[\Pi_B^{\mathrm{light,exact}}(m_h^2)-\Pi_B^{\mathrm{light,exact}}(0)],
 \]
-for \((m_{A'},g_X,v_s)=(10\,\mathrm{GeV},0.0705,70.9\,\mathrm{GeV})\), and
+where the light-light term uses the exact light-state Yukawa couplings from the same mass diagonalization. The retained EFT soft contribution is the light-lepton bubble plus the dimension-five contact tadpole,
 \[
-\Pi_{hs}^{\mathrm{matched}}(m_h^2)
-\simeq(-0.09300-0.02547i)\,\mathrm{GeV}^2
+\Pi_{\mathrm{soft,bub+ct}}^B(p^2)
+=\sum_{\ell=\mu,\tau}\frac{q_\ell}{16\pi^2}
+\left[4\bar A_0(m_\ell^2)
++(4m_\ell^2-p^2)\bar B_0(p^2;m_\ell^2,m_\ell^2)\right],
+\qquad q_\ell=\frac{2m_\ell^2}{v_hv_s}.
 \]
-for \((m_{A'},g_X,v_s)=(63\,\mathrm{GeV},0.1,315\,\mathrm{GeV})\). 
+We denote their sum by
+\[
+\Pi_{hs}^{\mathrm{ret}}(m_h^2)
+=\Pi_{\mathrm{soft,bub+ct}}^B(m_h^2)
++\Delta\Pi_{\mathrm{hard}}(m_h^2).
+\]
+The soft term here is the specified bubble-plus-contact subset, not the complete set of all same-order EFT soft insertions and counterterms. Thus \(\Pi_{hs}^{\mathrm{ret}}\) is a conditional Yukawa-sector benchmark estimate rather than a fully closed model-level pole prediction.
+
+For \(M_E=20\,\mathrm{TeV}\), \(\theta_{\mu L}=\theta_{\tau L}=10^{-2}\), \(m_h=125.25\,\mathrm{GeV}\), \(v_h=246.22\,\mathrm{GeV}\), and \(\mu_R=M_E\), the numerical decomposition is
+\[
+\begin{array}{c|cc}
+[\mathrm{GeV}^2]&\text{Benchmark A}&\text{Benchmark B}\\ \hline
+\Pi_{\mathrm{soft,bub+ct}}^B(m_h^2)&
+-0.437308303-0.113173709i&
+-0.098410275-0.025468201i\\
+\Delta\Pi_{\mathrm{hard}}(m_h^2)&
++0.024030444&
++0.005407724\\
+\Pi_{hs}^{\mathrm{ret}}(m_h^2)&
+-0.413277859-0.113173709i&
+-0.093002551-0.025468201i
+\end{array}
+\]
+The exact hard momentum difference agrees with the leading source-aligned derivative result to \(6.11\times10^{-4}\) relative at both benchmarks, and the zero-momentum hard comparator agrees with the leading portal-threshold estimate to \(1.79\times10^{-4}\) relative. These checks validate the stated fermionic subcalculation and its numerical implementation, but do not close the remaining same-order EFT soft/counterterm sectors.
 
 For a clearly non-degenerate point in Benchmark B, we take \(m_s=100\,\mathrm{GeV}\), for which the \(125.25\,\mathrm{GeV}\) Higgs-like pole is separated from the \(S\)-like pole by \(25.25\,\mathrm{GeV}\), and \(h\to ss\) is kinematically closed. For \(m_{A'}=63\,\mathrm{GeV}\), \(h\to A'A'\) is also kinematically closed. The same fixed-self-energy scan gives \(2|\Pi_{hs}/(a-b)|\simeq3.39\times10^{-5}\), or
 \[
