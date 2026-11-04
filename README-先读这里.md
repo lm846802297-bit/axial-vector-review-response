@@ -21,7 +21,7 @@
 
 ## 当前工作入口
 
-- **2026-11-04 Major 4.4 文献调查：** [轴矢量 stellar-cooling / SN1987A 文献适用性调查](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-04/Major4.4-轴矢量stellar-cooling文献适用性调查_2026-11-04.md)。区分一般轴矢量恒星冷却讨论、轴矢量核子耦合 SN 文献、常规矢量 (L_\mu-L_\tau) 超新星计算，以及本文完全相同的中微子 coalescence 子过程；不将矢量模型完整曲线直接作为轴矢量 UV 模型排除。相关部分计算继续见 [PR #30](https://github.com/lm846802297-bit/axial-vector-review-response/pull/30)。
+- **2026-11-04 Major 4.4 文献调查：** [轴矢量 stellar-cooling / SN1987A 文献适用性调查](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-04/Major4.4-轴矢量stellar-cooling文献适用性调查_2026-11-04.md)。区分一般轴矢量恒星冷却讨论、轴矢量核子耦合 SN 文献、常规矢量型 \(L_\mu-L_\tau\) 超新星计算，以及本文完全相同的中微子 coalescence 子过程；不将矢量模型完整曲线直接作为轴矢量 UV 模型排除。相关部分计算继续见 [PR #30](https://github.com/lm846802297-bit/axial-vector-review-response/pull/30)。
 
 - **2026-11-04 Major 4.2 新修订：** [动能混合与暗光子限制对照](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-04/Major4.2-暗光子限制与论文修改对照_2026-11-04.md) 及[验证记录](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-04/Major4.2-验证记录_2026-11-04.md)，记录显式匹配边界 epsilon_ind(mu_match)=0、10/100/200/300 MeV 的 NA64 质量依赖视觉读取区间、300 MeV dimuon 分支比，以及 epsilon_eff=|epsilon|sqrt(Br_inv) 的 leading-yield 比较。
 
