@@ -310,7 +310,52 @@ To make the portal assumption explicit, we have evaluated the leading VLL thresh
 \]
 We use \(\lambda_{HS}^{\mathrm{EFT}}(M_E)=0\) as an explicit small-portal reference condition, which requires a nonzero UV portal \(\lambda_{HS}^{\mathrm{UV}}=-\Delta\lambda_{HS}^{E}\). This condition is a benchmark choice, not a symmetry prediction. For illustration, taking \(M_E=20\,\mathrm{TeV}\), \(\theta_{\mu L}=\theta_{\tau L}=10^{-2}\), and the leading charged-lepton/VLL mass-mixing relations gives \(\Delta\lambda_{HS}^{E}\simeq-0.2108\) at \((m_{A'},g_X,v_s)=(10\,\mathrm{GeV},0.0705,70.9\,\mathrm{GeV})\), and \(\Delta\lambda_{HS}^{E}\simeq-0.01067\) at \((63\,\mathrm{GeV},0.1,315\,\mathrm{GeV})\). For these illustrative points only, we additionally impose \(|\lambda_\ell|\leq\sqrt{4\pi}\); this is a theory-consistency benchmark rather than a new exclusion contour in Fig.~2. The comparison demonstrates that setting the UV portal to zero is not equivalent to setting the matched EFT portal to zero, and that the latter must be stated as an input if the small-portal benchmark is retained.
 
-In the present zero-tree-level-mixing setup, the singlet-like field \(s\) has no tree-level \(sWW\) or \(s\bar t t\) vertex; accordingly, direct one-loop \(W\)- or top-quark diagrams do not contribute to \(\Pi_{hs}\) at this order. The leading one-loop off-diagonal contribution instead comes from the charged-lepton/vector-like-lepton sector. We have evaluated this fermion contribution using the full \(2\times2\) charged-lepton/VLL mass-eigenstate matrices, including light-light, light-heavy, heavy-light, and heavy-heavy internal states, and have separated the light-lepton EFT contribution from the hard momentum-dependent term. The result is conditional on the explicit reference condition \(\lambda_{HS}^{\mathrm{EFT}}(M_E)=0\) stated above; it is therefore not a prediction independent of the renormalized portal boundary.
+The condition \(\lambda_{HS}^{\mathrm{EFT}}(M_E)=0\) removes the local dimension-four mixed mass insertion from the matched EFT at the matching scale; it does not set the UV portal to zero. In particular, \(\lambda_{HS}^{\mathrm{UV}}(M_E)=-\Delta\lambda_{HS}^{E}\) is nonzero in both benchmarks. Since this UV portal is chosen to be of the same perturbative order as the one-loop VLL threshold, scalar-loop corrections containing an additional portal insertion are higher order in the counting used for the one-loop fermionic estimate. At \(m_s=m_h\), the representative factors are \(\lambda_S/(16\pi^2)=9.89\times10^{-3}\) in Benchmark A and \(5.01\times10^{-4}\) in Benchmark B. These are power-counting estimates, not explicit higher-order scalar-loop calculations. In the gauge basis the singlet radial mode has no direct \(sWW\) or \(s\bar t t\) vertex, so direct one-loop \(W\)- or top-quark contributions to \(\Pi_{hs}\) are absent at the retained order; portal-induced effects in those loops enter at higher order.
+
+For each charged-lepton flavour, the field-dependent mass matrix and gauge-basis scalar vertices are
+\[
+\mathcal M_\ell(h,s)=
+\begin{pmatrix}
+0&y_\ell(v_h+h)/\sqrt2\\
+\lambda_\ell(v_s+s)/\sqrt2&M_{E_\ell}
+\end{pmatrix},
+\qquad
+\Gamma_h^\ell=
+\begin{pmatrix}0&y_\ell/\sqrt2\\0&0\end{pmatrix},
+\qquad
+\Gamma_s^\ell=
+\begin{pmatrix}0&0\\\lambda_\ell/\sqrt2&0\end{pmatrix}.
+\]
+For the \(\tau\) interaction the original model contains \(S^*\); its radial real-\(s\) vertex is the same for the real benchmark couplings. With
+\[
+U_L^T\mathcal M_\ell(0,0)U_R
+=\operatorname{diag}(m_{\ell1},m_{\ell2}),
+\qquad
+G_a^\ell=U_L^T\Gamma_a^\ell U_R\quad(a=h,s),
+\]
+all four internal mass-eigenstate pairs are included for both \(\mu\) and \(\tau\).
+
+Define
+\[
+C_{ab}^{ij}=(G_a)_{ij}(G_b)_{ij}^{*}
+ +(G_a)_{ji}^{*}(G_b)_{ji},
+\qquad
+D_{ab}^{ij}=(G_a)_{ij}(G_b)_{ji}
+ +(G_a)_{ji}^{*}(G_b)_{ij}^{*},
+\]
+and
+\[
+K_{ij}=A_0(m_i^2)+A_0(m_j^2)
+ +(m_i^2+m_j^2-p^2)B_0(p^2;m_i^2,m_j^2).
+\]
+The one-loop fermion self-energy in the source convention is
+\[
+\Pi_{ab}^{F,\ell}(p^2)
+=-\frac{1}{16\pi^2}\sum_{i,j=1}^{2}
+\left[C_{ab}^{ij}K_{ij}
++2m_im_jD_{ab}^{ij}B_0(p^2;m_i^2,m_j^2)\right].
+\]
+We use \(\Gamma_{\rm inv}=p^2\mathbf1-\mathcal M_{\rm loc}^2+\Pi_{\rm RC}\) and \(\Pi_B=-\Pi_{\rm RC}\).
 
 For illustration, with \(M_E=20\,\mathrm{TeV}\), \(\theta_{\mu L}=\theta_{\tau L}=10^{-2}\), and the same leading charged-lepton/VLL mass-mixing benchmark inputs used for the threshold check, the matched off-diagonal self-energy at \(p^2=m_h^2\) is
 \[
