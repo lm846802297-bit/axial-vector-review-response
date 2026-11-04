@@ -12,7 +12,7 @@
 
 [PR #49](https://github.com/lm846802297-bit/axial-vector-review-response/pull/49) 从 main `4abcf13c45789f75deee27a4b6a3cc9480639448` 创建，分支为 `review/major1.3-higgs-portal-higgs-strength-20261104`。本 PR 更新正式回复信 Major 1.3、Plan-C-lite 内部 Higgs 对照和论文正文待同步清单；不修改论文源码，也不修改 main。
 
-- 正式回复新增 `m_s=100 GeV` 的非简并 S-dominated reference benchmark：`2|Pi_hs/(a-b)|=3.39e-5`、`eta_hs≈1.70e-5`、leading isolated-pole estimate `1-mu_h≈2.9e-10`。该估算与 PDG 2025 update 的 ATLAS `1.023 +0.056/-0.053` 和 CMS `1.014 +0.055/-0.053` global signal strengths 比较；明确这只是 pole-level scale comparison，不是模型专属 likelihood fit。
+- 正式回复新增 `m_s=100 GeV` 的非简并 one-singlet S+VLL reference benchmark：`2|Pi_hs/(a-b)|=3.39e-5`、`eta_hs≈1.70e-5`、leading isolated-pole estimate `1-mu_h≈2.9e-10`。该估算与 PDG 2025 update 的 ATLAS `1.023 +0.056/-0.053` 和 CMS `1.014 +0.055/-0.053` global signal strengths 比较；明确这只是 pole-level scale comparison，不是模型专属 likelihood fit。
 - 明确近简并闭道窄宽度区域不使用单一 `cos^2(theta)` 近似；fixed-self-energy diagnostic 不是物理混合角、实验排除或允许区间。
 - Major 1.3 严格以原始单标量 `S+VLL` 模型为计算对象。现有 `2x2` `h-s` 结果仅支持该模型及明确给出的 portal-matching benchmark，不被表述为任意额外标量扩展的完整 UV 约束；其他场内容的扩展单独处理，不并入本节。
 - 静态验证：TeX 花括号平衡、环境配对、方程标签唯一；35 个唯一 citation keys 均可在两份 BibTeX 数据库中找到。
