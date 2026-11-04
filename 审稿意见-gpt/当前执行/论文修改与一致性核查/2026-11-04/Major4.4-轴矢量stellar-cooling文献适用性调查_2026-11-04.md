@@ -204,7 +204,7 @@ Zun Wang and Yongchao Zhang, “Revisiting supernova constraints on dark gauge b
 对其矢量 \(L_\mu-L_\tau\) benchmark：
 - \(m_{Z'}=1,10,100\,\mathrm{MeV}\) 的产生率比较显示，semi-Compton 在 \(m_{Z'}\lesssim10\,\mathrm{MeV}\) 时占主导，而 neutrino coalescence 在 \(m_{Z'}\gtrsim10\,\mathrm{MeV}\) 时占主导；
 - 在其自然 kinetic-mixing 设定 \(\epsilon_{\mu\tau}=-g_{\mu\tau}/70\) 下，\(np\) bremsstrahlung 在所研究参数区间始终次要；
-- 其 SFHo-18.8 profile 的 SN1987A cooling 质量覆盖约到 \(300\,\mathrm{MeV}\)，耦合灵敏度达到约 \(1.2\times10^{-10}\)；
+- 其 SFHo-18.8 profile 的 SN1987A cooling 质量覆盖约到 \(300\,\mathrm{MeV}\)；预印本摘要/概览给出的排除耦合区间下边界约 \(1.4\times10^{-10}\)，而 §5.3 正文给出的下边界为 \(1.2\times10^{-10}\)。因此稳妥表述是灵敏度约为 \(10^{-10}\)，精确数值应按所引用的图和正文口径说明；
 - LESN 质量覆盖约到 \(600\,\mathrm{MeV}\)，耦合灵敏度达到约 \(6.4\times10^{-12}\)；
 - LESN 的 \(e^+e^-\) 能量沉积依赖 loop-induced kinetic mixing，而 \(m_{Z'}>2m_\mu\) 后 \(\mu^+\mu^-\) 衰变成为主要的带电粒子能量沉积通道。
 
