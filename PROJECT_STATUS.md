@@ -1,12 +1,23 @@
 # PROJECT_STATUS — Axial-vector paper revision and referee response
 
-**状态快照日期：** 2026-11-04（PR #38–#43 已合并；Major 4.1 PMNS 论证强化已进入 main）
+**状态快照日期：** 2026-11-04（PR #38–#43 已合并；PR #44 为 Major 3/4.1 中微子记号与条件性纹理修订，待审查）
 
 **本状态快照的初始核验基线：** 243b0e62d9c3912525d1144971a1e81c2af84db7（PR #36 合并前）  
 **项目启动机制合并提交：** [9b4e17519230e9eef65b34b643d3a1f8c19f46a2](https://github.com/lm846802297-bit/axial-vector-review-response/commit/9b4e17519230e9eef65b34b643d3a1f8c19f46a2)  
 **用途：** 每次启动项目时快速恢复当前阶段、权威文件和下一步工作。本文件是可更新的状态快照，不替代物理推导、原始论文、计算证据或作者最新指示。
 
 > **更新原则：** 任务完成、作者改变观点、PR 合并、论文基线更换或计算结论更新后，应检查并更新本文件。尚未重新核验的内容标为“待核验”，不得沿用旧状态作确定陈述。
+
+## 2026-11-04 更新：Major 3 / 4.1 中微子记号与 S-only 条件性表述（PR #44）
+
+PR #44 已创建于分支 `review/major3-neutrino-yukawa-and-s-only-clarity-20261104`，目标为 `main`，当前待审查。正式回复信统一以 (y^\nu_\alpha) 表示中微子 Dirac Yukawa 耦合，并保留 (y_e,y_{\mu\mu},y_{\mu\tau},\ldots) 作为带电轻子 Yukawa 参数。Major 3 的 (m_D) 定义和 Major 4.1 的重复定义均已同步。
+
+Major 4.1 将 S-only 纹理明确限定为：只有原电荷二标量 S 提供残余 (Z_2) 破缺、没有其他破缺来源时，允许的中微子质量纹理保持 (e\oplus(\mu,\tau)) 分块。文字同时明确该纹理是条件性对称性结论，不是原始带电轻子构造已经给出的中微子质量预测。Major 3 的 EFT 段落也统一为相同条件表述。
+
+- 修改文件：正式回复信 TeX、Major 3 专项修改对照、论文正文待同步修改清单。
+- 保留原 charged-lepton Yukawa 记号，避免将 (y_e) 等重新解释为中微子 Yukawa。
+- 静态检查：中微子 Dirac 项和两处 (m_D) 均使用 (y^\nu_\alpha)；S-only 条件措辞一致；方程标签唯一；TeX 花括号及环境配对通过。
+- **未进行完整 LaTeX 编译、PDF 视觉检查或 CI。** 不宣称这些检查通过；论文正文未修改。
 
 ## 2026-11-04 更新：Major 4.1 PMNS 论证强化（PR #43）
 
