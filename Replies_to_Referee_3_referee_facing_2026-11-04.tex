@@ -786,12 +786,35 @@ Another way of reframing the above point: the bounds presented are in the pure a
 
 \noindent {\bf Reply.}
 
-For \(|\theta_{\ell R}|\leq10^{-2}\), the mass-basis couplings obey
+We restrict the UV parameter region underlying the axial-vector phenomenology to the finite-mixing domain
 \[
+|\theta_{\ell L}|,\ |\theta_{\ell R}|\leq10^{-2},\qquad \ell=\mu,\tau,
+\]
+within the small-mixing benchmark of the UV construction. This is a finite-mass domain, not the strict \(M_E\to\infty\) limit: in the seesaw-like regime,
+\[
+m_\ell\simeq\theta_{\ell L}\theta_{\ell R}M_{E\ell}.
+\]
+For the degenerate VLL benchmark, saturating both angle upper values in the \(\tau\) sector corresponds to \(M_E\simeq17.8~\mathrm{TeV}\); smaller mixing angles correspond to larger, still finite VLL masses. In the mass basis, the diagonal light-lepton couplings are
+\[
+g_V^\ell=g_X\sin^2\theta_{\ell R},\qquad
+g_A^\ell=-g_X\cos^2\theta_{\ell R},
+\qquad
 \left|\frac{g_V^\ell}{g_A^\ell}\right|
 =\tan^2\theta_{\ell R}\leq1.01\times10^{-4}.
 \]
-At the reference value \(g_X=0.1\), this corresponds to \(|g_V^\ell|\leq10^{-5}\); at the plotting upper edge \(g_X=1\), the bound is \(10^{-4}\). The neutrino couplings remain \(g_{\nu_\mu}=+g_X\) and \(g_{\nu_\tau}=-g_X\).
+Thus the vector coupling is suppressed by at least four orders of magnitude relative to the axial coupling throughout the parameter region considered. At the reference value \(g_X=0.1\), this gives \(|g_V^\ell|\leq10^{-5}\); at the plotting upper edge \(g_X=1\), it gives \(|g_V^\ell|\leq10^{-4}\). The neutrino couplings remain \(g_{\nu_\mu}=+g_X\) and \(g_{\nu_\tau}=-g_X\).
+
+The angle restriction also gives a direct criterion for assessing a vector-specific experimental bound. At a fixed \(m_{A'}\), let \(g_{V,\mathrm{lim}}\) and \(g_{A,\mathrm{lim}}\) denote limits on the corresponding vector and axial charged-lepton couplings, obtained with matched production, decay, and acceptance assumptions. Since both couplings are proportional to the same \(g_X\), the vector limit is weaker than the axial limit when
+\[
+\frac{g_{V,\mathrm{lim}}}{g_{A,\mathrm{lim}}}>
+\tan^2\theta_{\ell R}.
+\]
+Equivalently, the angle required for the vector-specific bound to remain subdominant is
+\[
+|\theta_{\ell R}|<
+\arctan\sqrt{\frac{g_{V,\mathrm{lim}}}{g_{A,\mathrm{lim}}}}.
+\]
+For our adopted upper value \(|\theta_{\ell R}|=10^{-2}\), a vector-specific limit would have to constrain the vector coupling to below approximately \(10^{-4}\) of the corresponding axial limit—more than four orders of magnitude tighter at the same mass—to yield a stronger bound on \(g_X\). This is the quantitative criterion defining the small-mixing region used here; it does not assert that vector-sensitive limits vanish for arbitrary mixing angles or for unmatched experimental assumptions.
 
 For neutrino trident production, the ratio of the leading Standard-Model interference terms induced by the vector and axial components is parametrically
 \[
@@ -806,15 +829,38 @@ at the same momentum transfer, before the distinct finite-\(m_\mu\) response fun
 =\tan^4\theta_{\mu R}\frac{F_V(r)}{F_A(r)}
 \lesssim2.1\times10^{-9},
 \]
-using \(F_V/F_A\leq0.20\) over the mass range considered. These estimates show that the finite vector component does not materially change the leading trident-interference or \((g-2)_\mu\) results for the stated benchmark.
+using \(F_V/F_A\leq0.20\) over the mass range considered. These are ratios of contributions to the specified observables, not standalone experimental exclusion limits; they show that the finite vector component is subleading in the trident-interference and \((g-2)_\mu\) observables used in our analysis.
 
-The dimuon width requires one threshold qualification:
+For the BaBar, Belle~II, and CMS four-muon final-state-radiation searches used in Fig.~2, the unit-coupling vector and axial production kernels become nearly identical for \(m_{A'}\gg m_\mu\), with correspondingly similar acceptances; away from threshold, the dimuon widths and branching fractions also approach the same leading behavior~\cite{BaBar:2016sci,Belle-II:2024wtd,CMS:2018yxg}. Thus the vector-only coupling reach in these same channels is of the same order as the axial reach, rather than more than four orders of magnitude stronger. In the mixed current, the separate vector-current-squared production contribution is weighted by
+\[
+\left|\frac{g_V^\mu}{g_A^\mu}\right|^2
+=\tan^4\theta_{\mu R}\leq1.01\times10^{-8},
+\]
+in this away-from-threshold regime. The dimuon branching fraction still requires the threshold-dependent width factors given below.
+
+The loop-induced electromagnetic coupling associated with the same vector admixture is treated separately through the kinetic-mixing estimate in our response to Major Point~4.2.
+
+For visible dimuon decays, the vector and axial partial widths have different threshold behavior:
 \[
 \Gamma_V\propto(g_V^\mu)^2(1+2r_\mu)\sqrt{1-4r_\mu},\qquad
 \Gamma_A\propto(g_A^\mu)^2(1-4r_\mu)^{3/2},
 \quad r_\mu=\frac{m_\mu^2}{m_{A'}^2}.
 \]
-Away from threshold, the vector-squared contribution is suppressed by \(\tan^4\theta_{\mu R}\leq10^{-8}\); very close to threshold, the additional axial phase-space suppression can make the vector term relevant to the branching fraction. We therefore retain the pure-axial interpretation of Fig.~2 for the benchmark observables above and do not extrapolate it to threshold-sensitive visible-decay observables without the corresponding width factors.
+Their ratio is therefore
+\[
+\frac{\Gamma_V}{\Gamma_A}
+=\tan^4\theta_{\mu R}\,
+\frac{1+2r_\mu}{1-4r_\mu}.
+\]
+For any chosen tolerance \(\eta\) on the relative vector contribution, the corresponding angle condition is mass dependent:
+\[
+|\theta_{\mu R}|<
+\arctan\!\left[
+\eta^{1/4}
+\left(\frac{1-4r_\mu}{1+2r_\mu}\right)^{1/4}
+\right].
+\]
+Away from threshold, the vector-squared contribution is suppressed by \(\tan^4\theta_{\mu R}\leq1.01\times10^{-8}\). Arbitrarily close to \(m_{A'}=2m_\mu\), however, the axial phase-space factor vanishes more rapidly, so no nonzero mass-independent upper bound on the mixing angle can keep the vector-to-axial width ratio uniformly small arbitrarily close to threshold. We therefore retain the pure-axial interpretation of the benchmark observables only where the corresponding threshold factors do not enhance the vector contribution; threshold-sensitive visible-decay interpretations require the full finite-angle widths.
 
 \noindent {\bf 4.4)}.
 \begin{quote}\itshape
