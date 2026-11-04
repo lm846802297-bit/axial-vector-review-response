@@ -21,7 +21,7 @@
 
 ## 当前工作入口
 
-- **正式回复信与参考文献归档：** [回复信归档说明](archive/reply-letter/README.md)；最新 [2026-11-04-r2 源码快照清单](archive/reply-letter/snapshots/2026-11-04-r2/manifest.md) 包含回复信 TeX、两份 BibTeX 数据库和根目录 `JHEP.bst`。唯一可编辑的正式 TeX 仍在仓库根目录；快照使用 `.snapshot` 后缀，不作为第二份工作稿。引用核查记录为 72 次引用、34 个唯一键，全部有对应 BibTeX 条目；PDF 仍需完整 BibTeX 重编译和视觉检查。
+- **正式回复信、PDF 与参考文献归档：** [回复信归档说明](archive/reply-letter/README.md)；最新 [2026-11-04-r2 源码快照清单](archive/reply-letter/snapshots/2026-11-04-r2/manifest.md) 包含回复信 TeX、两份 BibTeX 数据库和根目录 `JHEP.bst`。唯一可编辑的正式 TeX 仍在仓库根目录；快照使用 `.snapshot` 后缀，不作为第二份工作稿。引用核查记录为 72 次引用、34 个唯一键，全部有对应 BibTeX 条目。**编译版 PDF 已放在仓库根目录：** [下载 2026-11-04 正式回复信 PDF](Replies_to_Referee_3_referee_facing_2026-11-04.pdf)。编译提交、源码哈希、48 页检查记录及剩余 NA64 表格 overfull 警告见 r2 manifest。
 
 - **2026-11-04 Major 4.4 文献调查：** [轴矢量 stellar-cooling / SN1987A 文献适用性调查](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-04/Major4.4-轴矢量stellar-cooling文献适用性调查_2026-11-04.md)。区分一般轴矢量恒星冷却讨论、轴矢量核子耦合 SN 文献、常规矢量型 \(L_\mu-L_\tau\) 超新星计算，以及本文完全相同的中微子 coalescence 子过程；不将矢量模型完整曲线直接作为轴矢量 UV 模型排除。相关部分计算继续见 [PR #30](https://github.com/lm846802297-bit/axial-vector-review-response/pull/30)。
 

@@ -38,9 +38,22 @@ The 2026 preprints `Fiorillo:2026wso` (arXiv:2605.24094) and `Wang:2026supernova
 
 The reply TeX ends with `\bibliographystyle{JHEP}`, while the pre-existing `JHEP.bst` was stored only under `overleaf-source/axial-vector-model-building-v6/`. A local BibTeX path test confirms that the default search path does not recursively find a style file in an arbitrary project subdirectory. The root-level copy removes this path ambiguity for the root-level reply TeX.
 
-## Compile and PDF validation boundary
+## Compile and PDF validation record
 
-The source-level audit is complete, but the corrected PDF has **not** been rebuilt or visually inspected in this task. The required classic BibTeX sequence is:
+The corrected response PDF is present at the repository root:
+
+- **Output:** [`Replies_to_Referee_3_referee_facing_2026-11-04.pdf`](../../../../Replies_to_Referee_3_referee_facing_2026-11-04.pdf)
+- **PDF Git blob SHA-1:** `63058b5679ee85f3b0780ac565e165b2a5dbb6ab`
+- **File size:** 395,889 bytes.
+- **PDF format / producer:** PDF 1.5; pdfTeX 1.40.25 (TeX Live 2023).
+- **Build commit:** `a9edb509dc47932b872465b5d0dd1263bd1c26da`, whose parent is source commit `edce6a37a162e9fe97b5162bd2107656f50865db`.
+- **Source identity:** the TeX, both bibliography databases, and root-level `JHEP.bst` at the build commit have the same Git blob SHA-1 values as the current `main` source files and this r2 snapshot:
+  - TeX: `a36cfa0069b578dc7796e580b54cb95a57730fef`
+  - Reply bibliography: `d5e1b6e10951c9626ff52928a24df6d3d6130b2d`
+  - Model bibliography: `6a88611b2f064093a68cf388ed2c2abd6035fc74`
+  - `JHEP.bst`: `d39cbe846e531ed7be07eebb11be0bd72d675579`
+
+The recorded build sequence is:
 
 ```bash
 pdflatex Replies_to_Referee_3_referee_facing_2026-11-04.tex
@@ -49,4 +62,8 @@ pdflatex Replies_to_Referee_3_referee_facing_2026-11-04.tex
 pdflatex Replies_to_Referee_3_referee_facing_2026-11-04.tex
 ```
 
-After compilation, inspect the `.blg` for missing entries/style errors and verify that the PDF has no `[?]` citations and that every cited work appears in the bibliography. No PDF is claimed to be fixed until that check is performed.
+The corresponding `PROJECT_STATUS.md` build record reports 34 bibliography entries, 48 PDF pages, no unresolved citation/cross-reference markers or `[?]`/ `??` placeholders, embedded fonts, and a full-page thumbnail plus targeted table/equation/reference-page visual review. No clipping, overlap, or unreadable content was reported.
+
+One layout warning remains recorded: `Overfull \\hbox (44.0084pt too wide)` at TeX source lines 757–774, corresponding to the six-column NA64 table on PDF page 29. The table was judged visually readable; the warning is not represented as fixed. CI was not run.
+
+The build `.log` and `.blg` files are not committed in the repository, so the validation details above are the retained build record rather than a newly re-read raw log. In the present synchronization pass, the PDF file, its Git blob SHA-1, PDF header/producer metadata, build commit ancestry, and exact source-file blob identities were rechecked. The PDF did not need to be regenerated because the current `main` sources are byte-identical to the sources used for the recorded build.
