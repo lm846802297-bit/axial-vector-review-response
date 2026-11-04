@@ -42,8 +42,15 @@ A tag is a repository reference, not a file that can be committed as part of a p
 
 pointing to the source commit \`d9b262798f80c0f109f328b1b0019191e99d5437\`, not to a later moving branch head. The tag has not been created by this documentation change. The source commit and blob IDs already make the archived state independently identifiable.
 
+After merge, the annotated tag can be created from a local clone with:
+
+```bash
+git tag -a reply-letter-2026-11-04 d9b262798f80c0f109f328b1b0019191e99d5437 -m "Archive referee-response letter source and bibliography state as of 2026-11-04"
+git push origin reply-letter-2026-11-04
+```
+
 ## Scope and validation boundary
 
-This archive includes the response TeX and both bibliography databases referenced by its \`\\bibliography{...}\` command. The TeX file has no \`\\input\`, \`\\include\`, or \`\\includegraphics\` dependencies. The \`JHEP\` BibTeX style and the listed LaTeX packages are TeX-environment dependencies, not repository-local source files in this snapshot.
+This archive includes the response TeX and both bibliography databases referenced by its \`\bibliography{...}\` command. The TeX file has no \`\\input\`, \`\\include\`, or \`\\includegraphics\` dependencies. The \`JHEP\` BibTeX style and the listed LaTeX packages are TeX-environment dependencies, not repository-local source files in this snapshot.
 
 No PDF was compiled or added. The PDF currently in the repository is not silently represented as matching this source snapshot.
