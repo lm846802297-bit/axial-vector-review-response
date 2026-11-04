@@ -355,6 +355,23 @@ m_s^{\max}=\sqrt{8\pi}\,v_s
 \]
 这些数字仅估计代表性标量圈的额外耦合/圈因子；没有计算完整的 portal-induced scalar-loop diagrams，也不能据此把它们设为严格零。直接 \(W\)/top 一圈图在规范基底缺少 \(sWW\)、\(s\bar t t\) 顶角；通过 portal 诱导混合产生的相关贡献须按上述更高阶计数处理。
 
+### 6.8 低能标量交换与有效流 benchmark 的分离
+
+在 \(q^2\ll m_s^2\) 时，径向标量交换给出
+\[
+\mathcal L_{\mathrm{eff}}^{(s)}
+\sim \frac{y_{s\ell\ell}y_{s\ell'\ell'}}{m_s^2}
+(\bar\ell\ell)(\bar\ell'\ell'),
+\qquad
+y_{s\ell\ell}\simeq\frac{m_\ell}{v_s}.
+\]
+与 \(A'\) 交换系数尺度 \(g_X^2/m_{A'}^2=1/(4v_s^2)\) 比较，
+\[
+\frac{|C_{\ell\ell'}^{(s)}|}{|C^{(A')}|}
+\sim\frac{4m_\ell m_{\ell'}}{m_s^2}.
+\]
+对 \(m_s\geq10\) GeV，\(\mu\mu\) 系数比不超过 \(4.5\times10^{-4}\)，在 \(m_s=100\) GeV 时约为 \(4.5\times10^{-6}\)；\(\tau\tau\) 系数比在 \(m_s=10\) GeV 时仍可达到约 \(0.13\)。这只是不同 Lorentz 结构算符的系数量级比较，不是过程级振幅或率之比。它支持把 muon-dominated \(A'\) effective-current benchmark 与 scalar-mediated observables 分开呈现，但不支持在所有 tau-sensitive processes 中忽略 \(s\)。
+
 ## 7. Plan C-lite 状态与剩余闭环
 
 ### 已完成的子任务
