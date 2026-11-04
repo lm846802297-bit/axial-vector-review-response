@@ -42,12 +42,12 @@ The reply TeX ends with `\bibliographystyle{JHEP}`, while the pre-existing `JHEP
 
 The corrected response PDF is present at the repository root:
 
-- **Output:** [`Replies_to_Referee_3_referee_facing_2026-11-04.pdf`](../../../Replies_to_Referee_3_referee_facing_2026-11-04.pdf)
+- **Output:** [`Replies_to_Referee_3_referee_facing_2026-11-04.pdf`](../../../../Replies_to_Referee_3_referee_facing_2026-11-04.pdf)
 - **PDF Git blob SHA-1:** `63058b5679ee85f3b0780ac565e165b2a5dbb6ab`
 - **File size:** 395,889 bytes.
 - **PDF format / producer:** PDF 1.5; pdfTeX 1.40.25 (TeX Live 2023).
 - **Build commit:** `a9edb509dc47932b872465b5d0dd1263bd1c26da`, whose parent is source commit `edce6a37a162e9fe97b5162bd2107656f50865db`.
-- **Source identity:** the TeX, both bibliography databases, and root-level `JHEP.bst` at the build commit have the same Git blob SHA-1 values as the current `main) source files and this r2 snapshot:
+- **Source identity:** the TeX, both bibliography databases, and root-level `JHEP.bst` at the build commit have the same Git blob SHA-1 values as the current `main` source files and this r2 snapshot:
   - TeX: `a36cfa0069b578dc7796e580b54cb95a57730fef`
   - Reply bibliography: `d5e1b6e10951c9626ff52928a24df6d3d6130b2d`
   - Model bibliography: `6a88611b2f064093a68cf388ed2c2abd6035fc74`
