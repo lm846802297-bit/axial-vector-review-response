@@ -130,3 +130,5 @@ Follow-up independent equation-level reproduction (2026-10-27):
 - Benchmark B: max Higgs-like |s/h| = 0.203908 at m_s = 125.2499 GeV. The sampled interval with |s/h| >= 0.1 is 125.2467--125.2532 GeV. The Higgs-like pole mass varies from 125.249941827 to 125.250018922 GeV and its width from 3.923605 to 4.080541 MeV.
 - |s/h| is a non-Hermitian pole-eigenvector composition diagnostic, not a pole residue, observable mixing angle, or detector-level rate. Its threshold interval is distinct from the fixed-self-energy 2|Pi/(a-b)| >= 0.1 interval.
 - The updated repository script has not been executed as a complete file in a clean container after this edit. No CI run is claimed. The pre-existing 2026-10-27 clean-run evidence above applies to the previous script blob, not the updated blob.
+
+- Static syntax check: the newly added `fine_scan_near_higgs` function body was parsed with Python `ast.parse` and passed. The complete updated repository script still has not been run in a clean container because the container cannot resolve `raw.githubusercontent.com`; no full-script execution is claimed.
