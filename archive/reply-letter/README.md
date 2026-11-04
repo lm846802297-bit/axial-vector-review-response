@@ -22,7 +22,7 @@ The `2026-11-04-r2` snapshot is the current recommended recovery point for the r
 
 The current response TeX contains 45 citation commands, representing 72 citation-key occurrences and 34 unique citation keys. All 34 keys resolve in the two bibliography databases; no duplicate keys were found, and both databases passed a static brace-balance scan.
 
-The likely source-level issue behind widespread `[?]` markers is the BibTeX style lookup: the root-level response TeX uses `\bibliographystyle{JHEP}`, while the original `JHEP.bst` was stored only in the nested model-source directory. A default local BibTeX search does not recursively discover arbitrary project subdirectories. A byte-identical copy is therefore now present at repository root. The corrected PDF still requires a complete BibTeX build and visual check; no PDF is claimed to be fixed yet.
+The likely source-level issue behind widespread `[?]` markers is the BibTeX style lookup: the root-level response TeX uses `\bibliographystyle{JHEP}`, while the original `JHEP.bst` was stored only in the nested model-source directory. A default local BibTeX search does not recursively discover arbitrary project subdirectories. A byte-identical copy is therefore now present at repository root. The corrected PDF has been compiled and visually reviewed; see the build record in [the r2 manifest](snapshots/2026-11-04-r2/manifest.md) and the current [root-level PDF](../../Replies_to_Referee_3_referee_facing_2026-11-04.pdf).
 
 ## Restore procedure
 
