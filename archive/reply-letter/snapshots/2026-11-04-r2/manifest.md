@@ -36,7 +36,7 @@ The 2026 preprints `Fiorillo:2026wso` (arXiv:2605.24094) and `Wang:2026supernova
 
 ## Why the root-level style copy is included
 
-The reply TeX ends with `\\bibliographystyle{JHEP}`, while the pre-existing `JHEP.bst` was stored only under `overleaf-source/axial-vector-model-building-v6/`. A local BibTeX path test confirms that the default search path does not recursively find a style file in an arbitrary project subdirectory. The root-level copy removes this path ambiguity for the root-level reply TeX.
+The reply TeX ends with `\bibliographystyle{JHEP}`, while the pre-existing `JHEP.bst` was stored only under `overleaf-source/axial-vector-model-building-v6/`. A local BibTeX path test confirms that the default search path does not recursively find a style file in an arbitrary project subdirectory. The root-level copy removes this path ambiguity for the root-level reply TeX.
 
 ## Compile and PDF validation boundary
 
