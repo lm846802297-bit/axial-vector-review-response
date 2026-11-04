@@ -153,3 +153,9 @@ Follow-up independent equation-level reproduction (2026-10-27):
 - Goldstone vertices and their \(R_\xi\)-gauge masses are recorded analytically in the note. They are not numerically summed because a Goldstone-only result is gauge dependent and requires the associated gauge/ghost set.
 - **Formal reply update:** Added the CP-even cubic vertices, the subtracted bubble structure, combined loop counting, Goldstone vertices, and the physical pole/matching qualification. Raw subset numbers are kept internal and are not presented as a complete physical two-loop correction.
 - No full two-loop UV--EFT matching, complete gauge-independent pole calculation, CI, or full reply-PDF compilation is claimed.
+
+
+2026-11-05 standalone LaTeX check for the P2 response formulas:
+- Compiled a one-page fragment containing the CP-even cubic vertices, the three bubble terms, the zero-momentum-subtracted \(\Delta\bar B_{ij}\) definition, and the Goldstone vertices.
+- `pdflatex -interaction=nonstopmode -halt-on-error` completed successfully; the generated one-page PDF was rendered and visually inspected. No clipping, overlap, or equation overflow was seen.
+- This validates the new formula fragment only. The complete referee-response PDF has not yet been rebuilt from the updated source.
