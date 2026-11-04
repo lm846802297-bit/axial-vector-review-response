@@ -33,7 +33,7 @@ The TeX preamble uses the following LaTeX packages:
 - \`multirow\`, \`array\`, \`needspace\`, \`placeins\`
 - \`microtype\`, \`url\`, \`xcolor\`, \`hyperref\`
 
-The bibliography command uses \`\\bibliographystyle{JHEP}\`. A repository-local \`JHEP.bst\` was not found in the checked source tree; it must be available in the TeX/BibTeX environment used for compilation.
+The bibliography command uses \`\bibliographystyle{JHEP}\`. A repository-local \`JHEP.bst\` was not found in the checked source tree; it must be available in the TeX/BibTeX environment used for compilation.
 
 Static source scan found no \`\\input{...}\`, \`\\include{...}\`, or \`\\includegraphics{...}\` file dependencies in the response TeX. No PDF is part of this source snapshot.
 
@@ -54,3 +54,10 @@ Recommended annotated tag after this PR is merged:
 - Message: \`Archive referee-response letter source and bibliography state as of 2026-11-04\`
 
 The tag is not created by this PR because Git tags are repository refs rather than tracked files. Do not retarget or overwrite this tag once created.
+
+After merge, create and push it from a local clone:
+
+```bash
+git tag -a reply-letter-2026-11-04 d9b262798f80c0f109f328b1b0019191e99d5437 -m "Archive referee-response letter source and bibliography state as of 2026-11-04"
+git push origin reply-letter-2026-11-04
+```
