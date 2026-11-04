@@ -1,6 +1,6 @@
 # PROJECT_STATUS — Axial-vector paper revision and referee response
 
-**状态快照日期：** 2026-11-04（PR #38–#45 已合并；PR #46 为 Major 4.4 轴矢量 stellar-cooling 文献调查，待审查）
+**状态快照日期：** 2026-11-04（PR #38–#45 已合并；PR #46 为 Major 4.4 文献调查、回复信源码归档与 BibTeX 修复，待审查）
 
 **本状态快照的初始核验基线：** 243b0e62d9c3912525d1144971a1e81c2af84db7（PR #36 合并前）  
 **项目启动机制合并提交：** [9b4e17519230e9eef65b34b643d3a1f8c19f46a2](https://github.com/lm846802297-bit/axial-vector-review-response/commit/9b4e17519230e9eef65b34b643d3a1f8c19f46a2)  
