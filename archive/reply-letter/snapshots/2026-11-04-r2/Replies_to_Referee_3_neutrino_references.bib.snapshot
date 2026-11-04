@@ -1,0 +1,25 @@
+@article{Borah:2021twoSingletSeesaw,
+    author = {Borah, Debasish and Dasgupta, Arnab and Mahanta, Devabrat},
+    title = {{TeV Scale Resonant Leptogenesis with $L_\mu-L_\tau$ Gauge Symmetry in the Light of Muon $(g-2)$}},
+    journal = {Phys. Rev. D},
+    volume = {104},
+    pages = {075006},
+    year = {2021},
+    doi = {10.1103/PhysRevD.104.075006},
+    eprint = {2106.14410},
+    archivePrefix = {arXiv},
+    primaryClass = {hep-ph}
+}
+
+@article{He:2024twoSingletHNL,
+    author = {He, Ru-Yi and Huang, Jia-Qi and Xu, Jin-Yuan and Yang, Fa-Xin and Han, Zhi-Long and Shao, Feng-Lan},
+    title = {{Heavy neutral leptons in gauged $U(1)_{L_\mu-L_\tau}$ at muon collider}},
+    journal = {Chin. Phys. C},
+    volume = {48},
+    pages = {093102},
+    year = {2024},
+    doi = {10.1088/1674-1137/ad4d61},
+    eprint = {2401.14687},
+    archivePrefix = {arXiv},
+    primaryClass = {hep-ph}
+}
