@@ -21,7 +21,7 @@
 
 ## 当前工作入口
 
-- **正式回复信、PDF 与参考文献归档：** [回复信归档说明](archive/reply-letter/README.md)；最新 [2026-11-04-r2 源码快照清单](archive/reply-letter/snapshots/2026-11-04-r2/manifest.md) 包含回复信 TeX、两份 BibTeX 数据库和根目录 `JHEP.bst`。唯一可编辑的正式 TeX 仍在仓库根目录；快照使用 `.snapshot` 后缀，不作为第二份工作稿。引用核查记录为 72 次引用、34 个唯一键，全部有对应 BibTeX 条目。**编译版 PDF 已放在仓库根目录：** [下载 2026-11-04 正式回复信 PDF](Replies_to_Referee_3_referee_facing_2026-11-04.pdf)。编译提交、源码哈希、48 页检查记录及剩余 NA64 表格 overfull 警告见 r2 manifest。
+- **正式回复信、PDF 与参考文献归档：** [回复信归档说明](archive/reply-letter/README.md)；最新 [2026-11-04-r2 源码快照清单](archive/reply-letter/snapshots/2026-11-04-r2/manifest.md) 包含回复信 TeX、两份 BibTeX 数据库和根目录 `JHEP.bst`。唯一可编辑的正式 TeX 仍在仓库根目录；快照使用 `.snapshot` 后缀，不作为第二份工作稿。2026-11-04-r2 引用核查记录为 72 次引用、34 个唯一键，全部有对应 BibTeX 条目。仓库根目录保留了 [2026-11-04 编译版 PDF](Replies_to_Referee_3_referee_facing_2026-11-04.pdf)，但该 PDF 对应 2026-11-04-r2 源码包，早于 PR #49 和 PR #50 的 TeX 修改；目前它是历史编译件，不是当前 main TeX 的同步 PDF。编译提交、源码哈希、48 页检查记录及剩余 NA64 表格 overfull 警告见 r2 manifest。
 
 - **2026-11-04 Major 4.4 文献调查：** [轴矢量 stellar-cooling / SN1987A 文献适用性调查](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-04/Major4.4-轴矢量stellar-cooling文献适用性调查_2026-11-04.md)。区分一般轴矢量恒星冷却讨论、轴矢量核子耦合 SN 文献、常规矢量型 \(L_\mu-L_\tau\) 超新星计算，以及本文完全相同的中微子 coalescence 子过程；不将矢量模型完整曲线直接作为轴矢量 UV 模型排除。相关部分计算继续见 [PR #30](https://github.com/lm846802297-bit/axial-vector-review-response/pull/30)。
 
@@ -29,7 +29,9 @@
 
 - **2026-11-04 Major 2 新修订：** [Fig. 2 参数范围与论文修改对照](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-04/Major2-Fig2参数范围与论文修改对照_2026-11-04.md) 及[验证记录](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-04/Major2-验证记录_2026-11-04.md)。低质量端以 g−2 主导约束线可继续延伸解释不扩图；修正实际纵轴上限为 1。此前 Major 3 的 PR #40 已合并。
 
-- **2026-11-05 Major 1.3 / PR #49（Draft）：** [P2-lite portal-induced scalar-loop 计算记录](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-05/Portal_induced_scalar_loop_power_counting_P2_lite_2026-11-05.md) 与[可复现脚本](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-05/portal_scalar_loop_power_counting_2026-11-05.py)。记录 CP-even radial-scalar bubble 子集、Goldstone 顶角、零动量相减和证据边界；正式回复只采用顶角结构与联合 loop counting，不把未闭合子集数值作为完整两圈物理预测。 正式回复信已补入等质量和非等质量 B0 差值的闭式解析表达式，并以 Simpson 积分独立交叉验证，最大相对误差低于 1e-14。
+- **2026-11-05 Major 1.3 / PR #49（已于 2026-11-05 合并）：** [P2-lite portal-induced scalar-loop 计算记录](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-05/Portal_induced_scalar_loop_power_counting_P2_lite_2026-11-05.md) 与[可复现脚本](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-05/portal_scalar_loop_power_counting_2026-11-05.py)。记录 CP-even radial-scalar bubble 子集、Goldstone 顶角、零动量相减和证据边界；正式回复只采用顶角结构与联合 loop counting，不把未闭合子集数值作为完整两圈物理预测。 正式回复信已补入等质量和非等质量 B0 差值的闭式解析表达式，并以 Simpson 积分独立交叉验证，最大相对误差低于 1e-14。
+
+- **2026-11-05 回复信解析论证一致性修订 / [PR #50（Open）](https://github.com/lm846802297-bit/axial-vector-review-response/pull/50)：** [审查与修订记录](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-05/回复信解析论证完整性审查与修订记录_2026-11-05.md)。修正 Minor 6.1 的 \(g_X\) 上限；补充 Major 4.4 的 Kahn et al. 轴矢量恒星冷却引用、轴矢量流散度和 Goldstone 等效纵向耦合，并限定 kinetic-mixing 比较的电磁过程适用范围；精简 Major 1.3 重复的限制说明。未修改论文正文，也未开展新的 SN 输运计算。完整 PDF 尚未按当前 TeX 重编译。
 
 日常推进使用 **[精简执行手册 v5.6](审稿意见-gpt/当前执行/审稿意见分析与执行手册_v5.6-主分析全任务映射与原子步骤版-20261019.md)** 的任务 ID、依赖和验收条件；其 §0.1 是 2026-10-27 历史状态快照，不再作为当前状态源。物理推导使用 **[v5.7 Markdown 技术参考](审稿意见-gpt/审稿意见分析v5.7-物理校核与专题连续阅读版.md)** 的相关章节。v5.7.1 LaTeX 仅用于查阅尚未回收到 Markdown 的历史细节。
 
