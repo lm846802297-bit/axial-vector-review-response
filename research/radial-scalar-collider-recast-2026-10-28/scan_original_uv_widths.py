@@ -37,6 +37,11 @@ from off_shell_cascades import (
     aprime_decay_widths, off_shell_aprime_three_body_width,
 )
 from off_shell_four_body import fourbody_spectral_widths
+from belleii_resolution_promptness import (
+    TRACK_DCA_TRANSVERSE_M, TRACK_DCA_LONGITUDINAL_M,
+    scalar_beta_gamma_lab_max, aprime_beta_gamma_lab_max,
+    fourmu_width_resolution_ratios,
+)
 
 
 FOURBODY_REFERENCE_GX = 0.1
@@ -136,6 +141,36 @@ def evaluate_scan_point(
             width / direct_total if direct_total > 0 else 0.0
         )
 
+    beta_gamma_s_max = scalar_beta_gamma_lab_max(ms)
+    scalar_flight_min = beta_gamma_s_max * HBAR_C_GEV_M / total_upper if total_upper > 0 else math.inf
+    scalar_flight_max = beta_gamma_s_max * HBAR_C_GEV_M / direct_total if direct_total > 0 else math.inf
+    beta_gamma_A_max = aprime_beta_gamma_lab_max(ms, mA)
+    A_flight_max = beta_gamma_A_max * aprime["ctau_m"] if beta_gamma_A_max is not None else None
+
+    fourmu_lower = fourmu_width_resolution_ratios(ms, direct_total)
+    fourmu_upper = fourmu_width_resolution_ratios(ms, total_upper)
+    fourmu_resolution = {}
+    if fourmu_lower is not None and fourmu_upper is not None:
+        fourmu_resolution = {
+            "fourmu_Gamma_MR_lower_GeV": fourmu_lower["Gamma_MR_GeV"],
+            "fourmu_Gamma_MR_upper_GeV": fourmu_upper["Gamma_MR_GeV"],
+            "fourmu_sigma_MR_min_GeV": fourmu_lower["sigma_MR_min_GeV"],
+            "fourmu_sigma_MR_max_GeV": fourmu_lower["sigma_MR_max_GeV"],
+            "fourmu_Gamma_over_sigma_lower_bound": fourmu_lower["Gamma_over_sigma_upper_resolution"],
+            "fourmu_Gamma_over_sigma_upper_bound": fourmu_upper["Gamma_over_sigma_lower_resolution"],
+            "fourmu_mass_in_published_scan": not (3.07 <= ms <= 3.12),
+        }
+    else:
+        fourmu_resolution = {
+            "fourmu_Gamma_MR_lower_GeV": None,
+            "fourmu_Gamma_MR_upper_GeV": None,
+            "fourmu_sigma_MR_min_GeV": None,
+            "fourmu_sigma_MR_max_GeV": None,
+            "fourmu_Gamma_over_sigma_lower_bound": None,
+            "fourmu_Gamma_over_sigma_upper_bound": None,
+            "fourmu_mass_in_published_scan": False,
+        }
+
     return {
         "ms_GeV": ms, "mA_GeV": mA, "gX": gX, "vs_GeV": vs,
         "lambdaS": lam, "passes_lambdaS_le_4pi": lam <= 4.0 * math.pi,
@@ -162,6 +197,14 @@ def evaluate_scan_point(
         "ctau_s_upper_bound_m": (
             HBAR_C_GEV_M / direct_total if direct_total > 0 else math.inf
         ),
+        "beta_gamma_s_lab_kinematic_max": beta_gamma_s_max,
+        "scalar_mean_lab_flight_max_lower_m": scalar_flight_min,
+        "scalar_mean_lab_flight_max_upper_m": scalar_flight_max,
+        "scalar_flight_upper_over_track_DCA_transverse": scalar_flight_max / TRACK_DCA_TRANSVERSE_M,
+        "scalar_flight_upper_over_track_DCA_longitudinal": scalar_flight_max / TRACK_DCA_LONGITUDINAL_M,
+        "beta_gamma_A_lab_kinematic_max": beta_gamma_A_max,
+        "A_mean_lab_flight_max_m": A_flight_max,
+        **fourmu_resolution,
         "branching_fractions_exact_under_declared_benchmark": exact_widths_under_benchmark,
         "branching_fractions_bounded_under_declared_benchmark": True,
         "width_regime": regime,
