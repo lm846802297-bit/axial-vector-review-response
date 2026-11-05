@@ -1,6 +1,6 @@
 # PROJECT_STATUS — Axial-vector paper revision and referee response
 
-**状态快照日期：** 2026-11-05（PR #38–#48 已合并；PR #49 Draft；PR #30、#32 仍开放）
+**状态快照日期：** 2026-11-05（PR #38–#49 已合并；PR #30、#32 仍开放；PR #50 Open）
 
 **本状态快照的初始核验基线：** 243b0e62d9c3912525d1144971a1e81c2af84db7（PR #36 合并前）  
 **项目启动机制合并提交：** [9b4e17519230e9eef65b34b643d3a1f8c19f46a2](https://github.com/lm846802297-bit/axial-vector-review-response/commit/9b4e17519230e9eef65b34b643d3a1f8c19f46a2)  
@@ -8,9 +8,9 @@
 
 > **更新原则：** 任务完成、作者改变观点、PR 合并、论文基线更换或计算结论更新后，应检查并更新本文件。尚未重新核验的内容标为“待核验”，不得沿用旧状态作确定陈述。
 
-## 2026-11-05 更新：Major Point 1.3 公式链条与近极点诊断补强（PR #49，Draft）
+## 2026-11-05 更新：Major Point 1.3 公式链条与近极点诊断补强（PR #49，已合并）
 
-[PR #49](https://github.com/lm846802297-bit/axial-vector-review-response/pull/49) 仍基于 main \`4abcf13c45789f75deee27a4b6a3cc9480639448\`，分支为 \`review/major1.3-higgs-portal-higgs-strength-20261104\`。本轮仅修改回复信及其内部证据/同步文档，不修改论文正文，不合并 PR。
+[PR #49](https://github.com/lm846802297-bit/axial-vector-review-response/pull/49) 的基准为 main SHA 4abcf13c45789f75deee27a4b6a3cc9480639448，分支为 review/major1.3-higgs-portal-higgs-strength-20261104，已于 2026-11-05 合并至 main。本轮仅修改回复信及其内部证据/同步文档，不修改论文正文。
 
 - **P0：** 正式回复补入 \(2\times2\) charged-lepton/VLL 质量矩阵、规范基底 \(h,s\) Yukawa 顶角、质量本征态旋转、\(C,D,K\) 定义和完整质量本征态一圈费米子自能公式。
 - **P0：** 补入 exact full-minus-light EFT subtraction、保留的 bubble-plus-contact soft 子集，以及 hard/soft 数值分解。将结果记为 \(\Pi_{hs}^{\mathrm{ret}}\)，并明确该 soft 子集不是完整同阶 EFT soft/counterterm 集，避免把条件性数值写成完整 UV pole 预测。
@@ -23,8 +23,20 @@
 - **低能 EFT 交叉核查：** 补充 \(q^2\ll m_s^2,m_{A'}^2\) 下的 scalar four-lepton operator 与 \(A'\)-exchange 系数尺度比较：\(|C_{\mu\mu}^{(s)}/C^{(A')}|\sim4m_\mu^2/m_s^2\leq4.5\times10^{-4}\)（\(m_s\geq10\) GeV），而 \(\tau\tau\) 在 \(m_s=10\) GeV 时仍可达约 \(0.13\)。该比较仅是不同 Lorentz 结构的系数量级，不是过程级率比；不据此忽略 tau-sensitive scalar processes。
 - **范围：** Major 1.3 继续只讨论原始单标量 \(S+\mathrm{VLL}\) 两态系统，不混入 \(\sigma,N_R,\mathrm{PMNS}\) 或三态标量势；近简并区不赋予 allowed/excluded 状态。
 
-**验证边界：** 没有运行 CI；没有对更新后的 Plan-C-lite 脚本做干净容器整文件执行；回复信 PDF 尚未按本轮 TeX 重编译或视觉检查。main 根目录现有 48 页 PDF 仍是旧版，不包含本轮修改。PR #49 保持 Draft，未合并。
- 
+**验证边界：** 没有运行 CI；没有对更新后的 Plan-C-lite 脚本做干净容器整文件执行；回复信 PDF 尚未按 PR #49 的 TeX 重编译或视觉检查。main 根目录现有 48 页 PDF 仍是 PR #49 修改前的旧版，不包含 PR #49 的 TeX 修改。PR #49 已于 2026-11-05 合并。
+
+## 2026-11-05 更新：回复信解析论证一致性修订（PR #50，Open）
+
+[PR #50](https://github.com/lm846802297-bit/axial-vector-review-response/pull/50) 基于当前 main 创建，分支为 review/response-analytic-consistency-20261105。正式回复信的本轮修改限于以下内容：
+
+- **Minor Point 6.1：** 将 \(g_X\) 上限从旧值 \(10^{-1}\) 修正为实际 Fig. 2 展示窗口的 \(1\)，与 Major Point 2 和 Minor Point 1 一致。
+- **Major Point 4.4：** 引入 Kahn et al. (2017) 的轴矢量恒星冷却讨论；用 \(O(10^{-10})\) 表示 Wang--Zhang 矢量参考的 SN1987A 灵敏度；明确 neutrino coalescence 的相同电流比较所需的 active--heavy mixing 与额外通道条件，并交叉引用 Major Point 4.2 的 PMNS inclusive-width 迹恒等式。
+- **Major Point 4.4：** 新增矢量流守恒、轴矢量流散度及 Goldstone 等效纵向耦合关系，解释矢量 semi-Compton 产生率不能直接移植；将低动量 kinetic-mixing 抑制限定为电磁流介导过程，不用于 neutrino coalescence 或直接轴矢量 semi-Compton。
+- **Major Point 1.3：** 合并重复的限制表述，不改变公式、benchmark、数值结果或近简并区的未评估边界。
+- 新增 [解析论证完整性审查与修订记录](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-05/回复信解析论证完整性审查与修订记录_2026-11-05.md)。
+
+**验证边界：** TeX 花括号、环境配对、标签唯一性和 citation-key 静态核查通过；36 个唯一引用键均可解析。新增公式片段通过独立 pdflatex 编译。完整回复信 PDF 尚未重编译或逐页视觉检查；未运行 CI；没有新增超新星输运计算；论文正文未修改。根目录现有 PDF 仍是 2026-11-04-r2 历史编译件，不包含 PR #49/#50 的 TeX 更新。
+
 ## 2026-11-04 更新：Major 4.4 轴矢量 stellar-cooling 文献调查（PR #46）
 
 PR #46 已于 2026-11-04 Squash Merge 至 `main`，合并提交为 [b453e9be09a4f67d00cb90dfb85435c07472c5b4](https://github.com/lm846802297-bit/axial-vector-review-response/commit/b453e9be09a4f67d00cb90dfb85435c07472c5b4)。新增文档 [Major 4.4 轴矢量 stellar-cooling 文献适用性调查](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-04/Major4.4-轴矢量stellar-cooling文献适用性调查_2026-11-04.md)，并更新 README 导航与 DEC-09。
