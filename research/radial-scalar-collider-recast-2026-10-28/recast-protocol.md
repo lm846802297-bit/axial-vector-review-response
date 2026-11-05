@@ -1,6 +1,6 @@
 # Recast protocol — radial scalar \(s\)
 
-**Model scope:** original paper's one-VEV UV model only. The benchmark identities are (m_{A'}=2g_Xv_s), (m_s^2=2\lambda_Sv_s^2), and (y_{s\ell\ell}=m_\ell/v_s), subject to the stated VLL mass-eigenstate assumptions. Do not import a different UV completion or scalar sector into this protocol.
+**Model scope:** original paper's one-VEV UV model only. The benchmark identities are \(m_{A'}=2g_Xv_s\), \(m_s^2=2\lambda_Sv_s^2\), and \(y_{s\ell\ell}=m_\ell/v_s\), subject to the stated VLL mass-eigenstate assumptions. Do not import a different UV completion or scalar sector into this protocol.
 
 ## 1. Fixed model definition
 
