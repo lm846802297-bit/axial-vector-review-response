@@ -186,11 +186,12 @@ Detailed formulas and benchmark assumptions are in [belleii-benchmark-mapping-20
 | Promptness / flight-distance diagnostics | Added using SuperKEKB \(\beta\gamma\simeq0.28\), maximum kinematic boost, and published track-DCA scales |
 | Portal-induced widths and finite-VLL loop effects | Not included; zero-portal/decoupled-VLL benchmark only |
 | Exact identical-flavor four-body exchange amplitudes | Not explicitly integrated; their contribution is bounded |
-| Model-specific production cross sections and pointwise Belle II yield mapping | Pending |
+| Narrow-width/prompt coupling-level Belle II reinterpretation | Implemented on width-complete rows; conditional only, no new CLs fit |
+| Independent MadGraph production cross-section validation | Pending |
 | Finite-width line-shape convolution for broad points | Pending |
 | Lifetime-dependent detector efficiency for displaced points | Pending; the papers do not provide lifetime-dependent efficiency curves |
-| Belle II four-muon and tau-pair UV reinterpretations | Pending |
-| Final excluded / evaluated-allowed / unclassified UV point map | Pending |
+| Belle II four-muon and tau-pair narrow/prompt UV reinterpretations | Conditional pointwise tables generated; incomplete-width, finite-width, and lifetime-sensitive points remain unclassified |
+| Final excluded / evaluated-allowed / unclassified UV point map | Partial conditional classification generated; full map pending updated scan artifact, finite-width and lifetime response |
 | Current referee-response dependency | Not required; this is independent follow-up research and does not change the agreed Major Point 1 response |
 
 The detailed equations, scan counts, convergence checks, mass-resolution anchors, promptness assumptions, and remaining collider-recast gates are recorded in [original-uv-width-scan-and-belleii-width-audit-2026-11-05.md](original-uv-width-scan-and-belleii-width-audit-2026-11-05.md).
@@ -198,3 +199,28 @@ The detailed equations, scan counts, convergence checks, mass-resolution anchors
 The executable scan is [scan_original_uv_widths.py](scan_original_uv_widths.py). The two-virtual-vector calculation and its exchange bound are in [off_shell_four_body.py](off_shell_four_body.py). The Belle II resolution and promptness inputs are in [belleii_resolution_promptness.py](belleii_resolution_promptness.py). Tests cover the width formulas, all three kinematic regimes, the four-body bound, and the published resolution inputs.
 
 The full 73,728-row CSV and the pointwise quadrature-audit tables were generated as local scan artifacts. They are not represented as committed repository data files in this status table. No complete detector-level UV exclusion or universal allowed scalar-mass interval is claimed.
+
+
+## 9. 2026-11-05 update — narrow-width/prompt benchmark reinterpretation
+
+The first pointwise coupling-level reinterpretation is now implemented in [narrow_prompt_benchmark_recast.py](narrow_prompt_benchmark_recast.py), with seven unit tests in [test_narrow_prompt_benchmark_recast.py](test_narrow_prompt_benchmark_recast.py). The detailed source, assumptions, equations, classification counts, and caveats are recorded in [narrow-prompt-belleii-uv-reinterpretation-2026-11-05.md](narrow-prompt-belleii-uv-reinterpretation-2026-11-05.md).
+
+The four-muon mapping uses \(g_S^{\rm UV}=m_\mu/v_s\) and the published muonphilic-scalar \(g_S\) limit with \(\mathrm{BR}_{\mu\mu}^{\rm ref}=1\). The tau-pair mapping uses \(\xi_{\rm UV}=v/v_s\), the published scalar \(\xi\) limit, and the benchmark \(\mathrm{BR}_{\tau\tau}^{\rm ref}\) computed from its \(e,\mu,\tau\) mass-proportional Yukawas. The two searches are evaluated independently.
+
+Conditional pointwise results on the available width-complete scan rows:
+
+| Classification | Four-muon points | Tau-pair points |
+|---|---:|---:|
+| Excluded under published narrow/prompt benchmark (conditional) | 1,852 | 0 |
+| Evaluated; not excluded by this channel (conditional) | 24,828 | 7,396 |
+| Finite-width-sensitive | 11,330 | 4,152 |
+| Lifetime-sensitive | 946 | 15 |
+| Theoretically inconsistent, \(\lambda_S>4\pi\) | 4,948 | 2,414 |
+| Unclassified: incomplete width sum | 26,752 | 4,992 |
+| Unclassified: outside numerical limit grid | 0 | 999 |
+
+**Important scan-artifact reconciliation:** the archived 73,728-row CSV used for these tables has 33 columns and predates the later double-virtual four-body code update. It marks all 27,392 \(m_{A'}\geq m_s\) rows as incomplete and contains no four-body width columns. These rows are therefore unclassified here, even though the newer code now implements a double-spectral contribution and exchange upper bound. The scan must be rerun and the artifact regenerated before those points can be included. Do not cite the earlier four-body scan report as if its output had already been incorporated into this CSV.
+
+The 0.10 \(\Gamma/\sigma\) tolerance is an internal conservative diagnostic, not an experimental cut. The 5 mm flight-length comparison is a geometry proxy, not a lifetime-dependent detector efficiency. No finite-width convolution, detector-level lifetime simulation, independent MadGraph production normalization, or event-level CLs fit is complete. Consequently, the pointwise results are conditional benchmark reinterpretations, not a complete Belle II exclusion map.
+
+The formal referee response and manuscript remain unchanged. PR #52 remains Draft.
