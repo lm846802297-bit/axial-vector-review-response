@@ -1,7 +1,7 @@
 # Evidence ledger — radial-scalar collider recast
 
 **Status date:** 2026-10-28  
-**Model scope:** original paper's single-VEV UV model only, with (m_{A'}=2g_Xv_s). No change to the paper's field content is made in this research line.
+**Model scope:** original paper's single-VEV UV model only, with \(m_{A'}=2g_Xv_s\). No change to the paper's field content is made in this research line.
 
 **Rule:** Every numerical claim in the final scan must link to a source datum or reproducible calculation. Abstract-level ranges are orientation only; they must not be substituted for mass-by-mass likelihood limits.
 
