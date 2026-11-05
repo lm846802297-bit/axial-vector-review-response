@@ -98,7 +98,7 @@ def delta_b0_closed(p2: float, mi: float, mj: float) -> float:
         return (
             t * log(p2 * (t * t + q * q) / mu2)
             - 2.0 * t
-            + 2.0 * q * __import__("math").atan(t / q)
+            + 2.0 * q * atan(t / q)
         )
 
     i0 = (a * log(a / mu2) - b * log(b / mu2)) / (a - b) - 1.0
