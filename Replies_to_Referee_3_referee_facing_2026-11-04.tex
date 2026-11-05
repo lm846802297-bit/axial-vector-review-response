@@ -337,8 +337,49 @@ Their zero-momentum-subtracted contribution has the form
 \right],
 \qquad
 \Delta\bar B_{ij}\equiv
-\bar B_0(m_h^2;m_i^2,m_j^2)-\bar B_0(0;m_i^2,m_j^2).
+\Delta\bar B_0(m_h^2;m_i^2,m_j^2),
 \]
+where the finite, subtraction-scale-independent function is
+\[
+\Delta\bar B_0(s;a,b)
+=-\int_0^1 dx\,
+\ln\!\left[
+1-\frac{x(1-x)s}{xa+(1-x)b}
+\right],
+\qquad a=m_i^2,\quad b=m_j^2.
+\]
+For equal internal masses, this integral has the elementary closed form
+\[
+\boxed{
+\Delta\bar B_0(s;a,a)
+=2-2\sqrt{\frac{4a}{s}-1}\,
+\arctan\!\left(\frac{1}{\sqrt{4a/s-1}}\right),
+\qquad 0<s<4a.
+}
+\]
+For unequal internal masses, define
+\[
+\Lambda(s,a,b)=(s-a-b)^2-4ab,\qquad
+q=\frac{\sqrt{-\Lambda(s,a,b)}}{2s},\qquad
+t_0=\frac{a-b-s}{2s},\quad t_1=t_0+1,
+\]
+and
+\[
+G(t)=t\ln\!\left[\frac{s(t^2+q^2)}{\mu_0^2}\right]
+-2t+2q\arctan\!\left(\frac{t}{q}\right),
+\qquad
+I_0(a,b;\mu_0)=
+\frac{a\ln(a/\mu_0^2)-b\ln(b/\mu_0^2)}{a-b}-1.
+\]
+The mixed-mass result is then
+\[
+\boxed{
+\Delta\bar B_0(s;a,b)
+=I_0(a,b;\mu_0)-\big[G(t_1)-G(t_0)\big],
+\qquad a\ne b,\quad \Lambda(s,a,b)<0.
+}
+\]
+The arbitrary reference scale \(\mu_0\) cancels from this difference. All benchmark evaluations below lie on this real sub-threshold branch. Thus the \(hh\) and \(ss\) terms use the equal-mass expression, while the \(hs\) term uses the mixed-mass expression.
 Because \(\lambda_{HS}^{\mathrm{UV}}\) is fixed at the one-loop VLL-threshold order, the terms with one portal insertion are next order in this combined counting; the term with two portal insertions is one order further. In an \(R_\xi\) gauge, the corresponding Goldstone vertices are \(g_{hG_HG_H}=2\lambda_Hv_h\), \(g_{sG_HG_H}=\lambda_{HS}^{\mathrm{UV}}v_s\), \(g_{haa}=\lambda_{HS}^{\mathrm{UV}}v_h\), and \(g_{saa}=2\lambda_Sv_s\). A physical pole calculation must combine these with the gauge/ghost contributions and a consistent tadpole/VEV prescription. Tadpole and VEV-counterterm terms are local and cancel in the displayed momentum difference, but are required in a complete un-subtracted mass/pole renormalization. Thus this expression fixes the perturbative order and diagram structure; it is not by itself a complete two-loop UV--EFT matched self-energy. We do not add this isolated subset to \(\Pi_{hs}^{\mathrm{ret}}\) or use it to classify the near-degenerate region. In the gauge basis the singlet radial mode has no direct \(sWW\) or \(s\bar t t\) vertex, so direct one-loop \(W\)- or top-quark contributions to \(\Pi_{hs}\) are absent at the retained order; portal-induced effects in those loops enter at higher order.
 
 For each charged-lepton flavour, the field-dependent mass matrix and gauge-basis scalar vertices are
