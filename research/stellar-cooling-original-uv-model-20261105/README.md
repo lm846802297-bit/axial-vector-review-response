@@ -40,7 +40,7 @@ The \(A'\to\nu\bar\nu\) partial width uses only the original \(L_\mu-L_\tau\) ac
 - `stellar_semi_compton_axial_matrix_element.py`: exact generic-current \(\gamma\mu\to\mu A'\) matrix element, polarization-resolved CM calculation, Ward checks, lab/CM comparison, and Klein–Nishina reference.
 - `stellar_semi_compton_thermal_rate.py`: homogeneous, optically thin thermal production prototype.
 - `stellar_semi_compton_thermal_convergence.py`: quadrature-order and cutoff-stability study; reference cutoffs follow the thermal-rate defaults.
-- `axial_decay_widths.py`: \(A'\to\nu\bar\nu,\mu^+\mu^-\) partial-width checks using the original active-flavor \(L_\mu-L_\tau\) current and the massless-neutrino approximation.
+- `axial_decay_widths.py`: \(A'\to\nu\bar\nu,\mu^+\mu^-\) partial-width checks using the original active-flavor \(L_\mu-L_\tau\) current and the massless-neutrino approximation; the quoted neutrino fraction is a two-channel \(\nu\bar\nu+\mu^+\mu^-\) approximation, not a complete physical branching fraction.
 
 The semi-Compton amplitude takes \(g_V,g_A,m_{A'}\) as independent physical inputs. Its matrix element does not depend on the scalar VEV map; the UV-to-current/Goldstone relation is isolated in `single_vev_axial_mapping.py`.
 
