@@ -1,12 +1,25 @@
 # PROJECT_STATUS — Axial-vector paper revision and referee response
 
-**状态快照日期：** 2026-11-05（PR #38–#50 已合并；旧 PR #30/#51 已关闭并由 #53 替代；旧 PR #32 已关闭并由 #52 替代；PR #52/#53/#54 均 Open / Draft）
+**状态快照日期：** 2026-11-06（PR #38–#50 已合并；PR #55 Open / 未合并；PR #52/#53/#54 保持独立研究分支）
 
 **本状态快照的初始核验基线：** 243b0e62d9c3912525d1144971a1e81c2af84db7（PR #36 合并前）  
 **项目启动机制合并提交：** [9b4e17519230e9eef65b34b643d3a1f8c19f46a2](https://github.com/lm846802297-bit/axial-vector-review-response/commit/9b4e17519230e9eef65b34b643d3a1f8c19f46a2)  
 **用途：** 每次启动项目时快速恢复当前阶段、权威文件和下一步工作。本文件是可更新的状态快照，不替代物理推导、原始论文、计算证据或作者最新指示。
 
 > **更新原则：** 任务完成、作者改变观点、PR 合并、论文基线更换或计算结论更新后，应检查并更新本文件。尚未重新核验的内容标为“待核验”，不得沿用旧状态作确定陈述。
+
+## 2026-11-06 更新：PR #55 Minor Points 论证扩充与长期写作规范
+
+[PR #55](https://github.com/lm846802297-bit/axial-vector-review-response/pull/55) 继续更新正式回复信及其写作规范，当前保持 Open、未合并。工作分支为 review/response-point-conclusions-20261106。
+
+- **正式回复信：** 在此前 Major 3、Major 4.2、Major 4.3 和 Minor 6.5 结尾修订基础上，进一步扩充 Minor 1–5、6.1、6.2、6.4、6.5、6.6；Minor 6.3 经核对保持不变。所有非中微子问题继续采用原论文单 VEV \(S+\mathrm{VLL}\) 模型。
+- **新增物理论证：** Minor 5 增加 \(A_{\rm LR}^\mu\)、\(P_\tau\) 的手征振幅解析投影、\(A'\) 总宽度部分道分解、\(ee\) 通道高动量 kinetic-mixing 适用性以及 \(e^+e^-\to Zs\) 的 Higgsstrahlung 缩放关系；Minor 6.5 从两个活性 chiral-neutrino 道推导寿命上界、boost 后飞行距离和 dimuon 阈值抑制。没有加入未经复核的 collider reach 数值。
+- **长期规范：** 在审稿回复写作原则新增强制 §2.2「论证充分性原则：从结论陈述到可复核的物理论证」，并同步 §5、§6、§6.1、§7。覆盖物理原因、公式来源、benchmark/近似/数值意义、实验适用性映射和多子问题逐项回答；强调不机械增加篇幅。
+- **内部记录：** Minor Points 论证扩充与复核记录、全信结尾修订审查记录均已写入 2026-11-06 目录。
+- **静态验收：** 78 次引用出现、39 个唯一 citation keys 全部解析；LaTeX 环境配对、花括号、标签和交叉引用检查通过；Minor 6.3 与 main 原段落逐字一致。
+- **未执行：** 完整 LaTeX 编译、最新 PDF 重编译与逐页视觉检查、CI、全部数值脚本 clean-environment 重跑和 detector-level collider 模拟。论文源码、图表、BibTeX 数据库和 PDF 均未修改。
+
+**下一步：** 作者审阅 PR #55 的实际 TeX diff；正式合并前完成当前 TeX 的完整编译和 PDF 视觉检查，并明确记录尚未执行的验证。
 
 ## 2026-11-05 更新：模型范围纠正与研究 PR 替代关系
 
