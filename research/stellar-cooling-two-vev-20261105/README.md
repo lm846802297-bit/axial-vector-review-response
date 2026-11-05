@@ -1,6 +1,6 @@
 # Axial stellar-cooling calculation — two-VEV baseline
 
-This is a clean research line based on the current \`main\` at branch creation.
+This is a clean research line based on the current `main` at branch creation.
 It carries forward only the useful generic-current calculations from the
 former PR #30; it does not inherit that PR's commit history.
 
@@ -42,35 +42,43 @@ Thus the old \(m_\ell/v_s\) Goldstone result is recovered only in the
 
 ## 2. Carried-forward calculation components
 
-- \`stellar_semi_compton_axial_matrix_element.py\`: exact vacuum tree-level
+- `stellar_semi_compton_axial_matrix_element.py`: exact vacuum tree-level
   \(\gamma\mu\to\mu A'\) amplitude, EM Ward checks, exact lab/CM phase space,
   and T/L projections in the frame of the supplied momenta.
-- \`stellar_semi_compton_thermal_rate.py\`: optically thin homogeneous-cell
+- `stellar_semi_compton_thermal_rate.py`: optically thin homogeneous-cell
   polarization-summed production prototype, with Fermi/Bose distributions
   and final-state Pauli blocking.
-- \`stellar_semi_compton_thermal_convergence.py\`: quadrature/cutoff study.
-- \`axial_decay_widths.py\`: current-level \(A'\to\nu\bar\nu,\mu^+\mu^-\)
+- `stellar_semi_compton_thermal_convergence.py`: quadrature/cutoff study.
+- `axial_decay_widths.py`: current-level \(A'\to\nu\bar\nu,\mu^+\mu^-\)
   partial-width comparison, independent of the VEV parameterization.
-- \`two_vev_axial_mapping.py\`: exact gauge-mass and eaten-Goldstone map.
+- `two_vev_axial_mapping.py`: exact gauge-mass and eaten-Goldstone map.
 
 The matrix-element routine takes \(g_V,g_A,m_{A'}\) as independent physical
 inputs. It does not need to be rewritten when the VEV parameterization changes.
 The VEV-to-Goldstone map is isolated in its own module.
 
+The neutrino partial-width helper uses the inclusive light-neutrino result
+\(\mathrm{Tr}(G_\nu^\dagger G_\nu)=2\) for a unitary three-flavour PMNS
+rotation. It assumes active-heavy mixing is negligible and all heavy-neutrino
+channels are closed. If an \(N_R\) threshold opens, the total width must be
+extended before computing branching fractions or lifetimes.
+
 ## 3. Local validation commands
 
 Run from this directory:
 
-\`\`\`bash
+```bash
 python -m unittest -v test_two_vev_axial_mapping.py
 python stellar_semi_compton_axial_matrix_element.py --check
 python axial_decay_widths.py
 python stellar_semi_compton_thermal_rate.py --check
-\`\`\`
+```
 
-The full convergence sweep is deliberately not part of the first acceptance
-gate. First establish that the amplitude and homogeneous-cell integration
-checks pass; then run a reduced order/cutoff sweep and record the CSV output.
+The local acceptance has been run and is recorded in
+`validation-results-2026-11-05.md`; the associated machine-readable data are in
+`thermal-convergence-2026-11-05.csv`. The convergence script now derives its
+reference cutoffs from the same defaults as `thermal_emissivity`, unless
+explicit reference cutoffs are supplied.
 
 ## 4. Physics/validation boundaries
 
@@ -84,9 +92,9 @@ is claimed in this branch. No result is added to the referee-facing letter.
 
 ## 5. Acceptance checklist
 
-- [ ] Exact two-VEV mass relation and Goldstone projection verified.
-- [ ] Semi-Compton \`--check\` executed locally on this branch.
-- [ ] Decay-width checks executed locally.
-- [ ] Thermal \`--check\` executed locally.
-- [ ] Reduced quadrature/cutoff stability CSV archived.
-- [ ] Medium-frame T/L opacity and SN transport remain explicitly out of scope.
+- [x] Exact two-VEV mass relation and Goldstone projection verified.
+- [x] Semi-Compton `--check` executed locally on the fetched branch source.
+- [x] Decay-width checks executed locally.
+- [x] Thermal `--check` executed locally.
+- [x] Reduced and higher-order quadrature/cutoff stability results archived.
+- [ ] Medium-frame T/L opacity and SN transport: explicitly deferred, not part of this phase.
