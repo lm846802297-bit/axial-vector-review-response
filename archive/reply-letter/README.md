@@ -16,13 +16,17 @@ The two bibliography databases remain at their working paths, and the root-level
 - [2026-11-04-r1 manifest](snapshots/2026-11-04-r1/manifest.md): adds a root-level copy of the pre-existing nested `JHEP.bst`.
 - [2026-11-04-r2 corrected reference snapshot manifest](snapshots/2026-11-04-r2/manifest.md): latest source package, including the root-level `JHEP.bst` and the completed NA64, CHARM-II, and HNL bibliographic metadata.
 
-The `2026-11-04-r2` snapshot is the current recommended recovery point for the reference-complete source package. The older snapshots remain unchanged for history.
+The `2026-11-04-r2` snapshot is the reference-complete recovery point for the 2026-11-04 source state. It does not include the subsequent referee-response TeX edits in PR #49 or PR #50; use the repository-root TeX on the current branch/main as the editable source. The older snapshots remain unchanged for history.
 
 ## Citation audit result
 
-The current response TeX contains 45 citation commands, representing 72 citation-key occurrences and 34 unique citation keys. All 34 keys resolve in the two bibliography databases; no duplicate keys were found, and both databases passed a static brace-balance scan.
+The 2026-11-04-r2 response TeX snapshot contained 45 citation commands, representing 72 citation-key occurrences and 34 unique citation keys. All 34 keys resolved in the two bibliography databases; no duplicate keys were found, and both databases passed a static brace-balance scan. This is a historical snapshot audit, not a count for the post-PR #49/#50 source.
 
-The likely source-level issue behind widespread `[?]` markers is the BibTeX style lookup: the root-level response TeX uses `\bibliographystyle{JHEP}`, while the original `JHEP.bst` was stored only in the nested model-source directory. A default local BibTeX search does not recursively discover arbitrary project subdirectories. A byte-identical copy is therefore now present at repository root. The corrected PDF has been compiled and visually reviewed; see the build record in [the r2 manifest](snapshots/2026-11-04-r2/manifest.md) and the current [root-level PDF](../../Replies_to_Referee_3_referee_facing_2026-11-04.pdf).
+The likely source-level issue behind widespread `[?]` markers is the BibTeX style lookup: the root-level response TeX uses `\bibliographystyle{JHEP}`, while the original `JHEP.bst` was stored only in the nested model-source directory. A default local BibTeX search does not recursively discover arbitrary project subdirectories. A byte-identical copy is therefore now present at repository root. The 2026-11-04-r2 PDF was compiled and visually reviewed; see the build record in [the r2 manifest](snapshots/2026-11-04-r2/manifest.md). That PDF predates the TeX changes in PR #49 and PR #50 and is not a current build of the root-level response source.
+
+## Current source and PDF status (2026-11-05)
+
+The only editable response source remains the repository-root TeX file. PR #49 has been merged, and PR #50 contains a further referee-response-only update. The root-level PDF remains the 2026-11-04-r2 build and does not include either later TeX update. Do not treat it as the current compiled response; a full LaTeX/BibTeX rebuild and visual inspection are still required before submission. No full PDF rebuild or CI pass is claimed by PR #49 or PR #50.
 
 ## Restore procedure
 
