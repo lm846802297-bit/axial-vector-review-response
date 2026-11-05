@@ -1,6 +1,6 @@
 # PROJECT_STATUS — Axial-vector paper revision and referee response
 
-**状态快照日期：** 2026-11-06（PR #38–#50 已合并；PR #55 Open / 未合并；PR #52/#53/#54 保持独立研究分支）
+**状态快照日期：** 2026-11-06（PR #38–#50 已合并；PR #54 已合并；PR #55 Open / 未合并；PR #52 Closed / 未合并且保留研究分支；PR #53 Open / Draft）
 
 **本状态快照的初始核验基线：** 243b0e62d9c3912525d1144971a1e81c2af84db7（PR #36 合并前）  
 **项目启动机制合并提交：** [9b4e17519230e9eef65b34b643d3a1f8c19f46a2](https://github.com/lm846802297-bit/axial-vector-review-response/commit/9b4e17519230e9eef65b34b643d3a1f8c19f46a2)  
@@ -29,9 +29,9 @@ PR #50 已于 2026-11-05 Squash Merge 至 main，合并提交为 [51a245b0a36703
 
 - **旧 PR #30：** 已关闭且未合并；其错误采用双 VEV 映射的 PR #51 也已关闭且未合并。现由 [PR #53](https://github.com/lm846802297-bit/axial-vector-review-response/pull/53) 替代。PR #53 从当前 main 创建，严格使用原论文单 VEV 模型 \(m_{A'}=2|g_X|v_s\)、\(G=a_s\)，保留通用电流半康普顿振幅和局部热率计算。六项单 VEV 映射测试通过；介质静止系 T/L opacity、trapping、SN profile 和最终 SN1987A/LESN 曲线仍未完成。
 - **旧 PR #32：** 已关闭且未合并；现由 [PR #52](https://github.com/lm846802297-bit/axial-vector-review-response/pull/52) 替代。PR #52 从当前 main 创建，研究原论文的单 VEV 径向标量，保留 Belle II 来源台账、重铸协议、逐点分类框架和部分宽度计算器。Belle II 逐质量补充数据提取、实验 benchmark 复现、完整宽度/分支比/寿命、产生率、接受度和质量扫描仍未完成。
-- 两个新 PR 均保持 Draft，均不修改论文正文或正式回复信，也都不是当前审稿回复的前置条件。旧 PR 的讨论和提交保留作历史溯源，不合并其错误模型范围的提交。
+- **PR #52：** 已 Closed、未合并；其研究分支 \`research/radial-scalar-original-model-belleii-20261105\` 仍保留，研究成果未合并、未删除。\n- **PR #53：** 保持 Open / Draft；其研究分支 \`research/stellar-cooling-original-uv-model-20261105\` 独立保留。\n- PR #52/#53 均不修改论文正文或正式回复信，也不是当前审稿回复的前置条件。旧 PR 的讨论和提交保留作历史溯源，不合并其错误模型范围的提交。
 
-- **PR #54：** 当前 Draft，修正正式回复信中 Major 1、2、4.2、4.4 对 Major 3 扩展的跨问题引用，并将中微子完成机制限定为 Major 3/4.1 专门回复内容。TeX 静态结构检查及引用 key 审计通过（36/36）；完整编译、PDF 视觉检查和 CI 尚未执行。
+- **PR #54：** 已合并至 \`main\`，合并提交为 [\`0f3816e3e62dd7668fca1d4aee5e8749708f99f2\`](https://github.com/lm846802297-bit/axial-vector-review-response/commit/0f3816e3e62dd7668fca1d4aee5e8749708f99f2)。该 PR 修正正式回复信中 Major 1、2、4.2、4.4 对 Major 3 扩展的跨问题引用，并将中微子完成机制限定为 Major 3/4.1 专门回复内容。
 
 **统一模型边界：** 除 Major Point 3/4.1 的专门中微子回复段落外，所有非中微子审稿回复和专题研究均以原论文 \(S+\mathrm{VLL}\) 单 VEV UV 模型为准。不得将 Major Point 3/4.1 中讨论的可选扩展机制作为原论文已经采用的场内容。
 ## 2026-11-05 更新：PR #53 原论文单 VEV 轴矢量恒星冷却计算（Draft）
@@ -44,7 +44,7 @@ PR #50 已于 2026-11-05 Squash Merge 至 main，合并提交为 [51a245b0a36703
 - **本地验收：** 单 VEV 映射测试 6/6 通过；通用电流半康普顿振幅的 Ward residual 分别为 \(2.252\times10^{-9}\)、\(2.159\times10^{-9}\)；热率 order 10→12 的率和发射率变化分别为 0.0108% 和 0.0202%。详细数值见 PR #53 的 validation record。
 - **分支比口径：** PR #53 的 \(\mathrm{BR}_{\nu\bar\nu}\) 数值仅为保留 \(\nu\bar\nu+\mu^+\mu^-\) 的两通道近似；动能混合诱导的 \(e^+e^-\) 及其他开放道未纳入，不能当作完整物理分支比。
 - **未完成：** 介质静止系 T/L 分辨吸收、opacity、trapping、SN profile、diffusion 和最终 SN1987A/LESN 曲线；不声称已得到超新星排除。
-- **范围：** PR #53 保持 Draft；不修改论文正文或正式回复信。
+- **范围：** PR #53 保持 Open / Draft；不修改论文正文或正式回复信。
 
 ## 2026-11-05 更新：Major Point 1.3 公式链条与近极点诊断补强（PR #49，已合并）
 
@@ -278,7 +278,7 @@ Major 4.2 已补充有限轻子混合产生的非零动能混合、四态矢量�
 1. 审阅本轮 Major 3 回复与 N-01–N-14 正文修改对照；本轮回复编译和关键页面检查已有验证记录。
 2. PR #39 已合并。下一步另行确认作者当前使用的 Overleaf 正文基线，再按已归档清单实施论文修改；不得把未实施的正文修改写成已完成。
 3. 优先核对影响主要物理主张的 PMNS、标量约束、portal/mixing 和参数范围；完成后更新清单中的实际正文位置和状态。
-4. PR #53 与 PR #52 均作为基于原论文单 VEV 模型的独立后续研究；只有在研究本身值得继续时推进，不作为当前回复信的前置条件。未完成工作不得写成已得到的排除结论。
+4. PR #52（已关闭、未合并但保留研究分支）与 PR #53（Open / Draft）均作为基于原论文单 VEV 模型的独立后续研究；只有在研究本身值得继续时推进，不作为当前回复信的前置条件。未完成工作不得写成已得到的排除结论。
 5. 关键 PR 合并、作者改变路线、正文基线更新或专题验收后，更新本文件和相关决策条目。
 
 ## 7. 状态可信度约定
