@@ -1,6 +1,6 @@
 # PROJECT_STATUS — Axial-vector paper revision and referee response
 
-**状态快照日期：** 2026-11-05（PR #38–#50 已合并；旧 PR #30/#51 已关闭并由 #53 替代；旧 PR #32 已关闭并由 #52 替代；PR #52/#53 均 Open / Draft）
+**状态快照日期：** 2026-11-05（PR #38–#50 已合并；旧 PR #30/#51 已关闭并由 #53 替代；旧 PR #32 已关闭并由 #52 替代；PR #52/#53/#54 均 Open / Draft）
 
 **本状态快照的初始核验基线：** 243b0e62d9c3912525d1144971a1e81c2af84db7（PR #36 合并前）  
 **项目启动机制合并提交：** [9b4e17519230e9eef65b34b643d3a1f8c19f46a2](https://github.com/lm846802297-bit/axial-vector-review-response/commit/9b4e17519230e9eef65b34b643d3a1f8c19f46a2)  
@@ -15,6 +15,8 @@ PR #50 已于 2026-11-05 Squash Merge 至 main，合并提交为 [51a245b0a36703
 - **旧 PR #30：** 已关闭且未合并；其错误采用双 VEV 映射的 PR #51 也已关闭且未合并。现由 [PR #53](https://github.com/lm846802297-bit/axial-vector-review-response/pull/53) 替代。PR #53 从当前 main 创建，严格使用原论文单 VEV 模型 \(m_{A'}=2|g_X|v_s\)、\(G=a_s\)，保留通用电流半康普顿振幅和局部热率计算。六项单 VEV 映射测试通过；介质静止系 T/L opacity、trapping、SN profile 和最终 SN1987A/LESN 曲线仍未完成。
 - **旧 PR #32：** 已关闭且未合并；现由 [PR #52](https://github.com/lm846802297-bit/axial-vector-review-response/pull/52) 替代。PR #52 从当前 main 创建，研究原论文的单 VEV 径向标量，保留 Belle II 来源台账、重铸协议、逐点分类框架和部分宽度计算器。Belle II 逐质量补充数据提取、实验 benchmark 复现、完整宽度/分支比/寿命、产生率、接受度和质量扫描仍未完成。
 - 两个新 PR 均保持 Draft，均不修改论文正文或正式回复信，也都不是当前审稿回复的前置条件。旧 PR 的讨论和提交保留作历史溯源，不合并其错误模型范围的提交。
+
+- **PR #54：** 当前 Draft，修正正式回复信中 Major 1、2、4.2、4.4 对 Major 3 扩展的跨问题引用，并将中微子完成机制限定为 Major 3 专门回复内容。TeX 静态结构检查通过；完整编译、PDF 视觉检查和 CI 尚未执行。
 
 **统一模型边界：** 除 Major Point 3 的专门回复段落外，所有其他审稿回复和专题研究均以原论文 \(S+\mathrm{VLL}\) 单 VEV UV 模型为准。不得将 Major Point 3 中讨论的可选扩展机制作为原论文已经采用的场内容。
 ## 2026-11-05 更新：PR #53 原论文单 VEV 轴矢量恒星冷却计算（Draft）
@@ -235,6 +237,7 @@ Major 4.2 已补充有限轻子混合产生的非零动能混合、四态矢量�
 | PR | 状态 | 当前已知边界 |
 |---|---|---|
 | [#53 原论文单 VEV 轴矢量恒星冷却/半康普顿计算](https://github.com/lm846802297-bit/axial-vector-review-response/pull/53) | Open / Draft；2026-11-05 新建 | 原论文单 VEV 映射与局部振幅/热率已验收；完整介质 T/L opacity 和 SN 输运未完成 |
+| [#54 Major 3 回复范围隔离与原论文模型一致性](https://github.com/lm846802297-bit/axial-vector-review-response/pull/54) | Open / Draft；2026-11-05 新建 | Major 3 扩展仅限回复论证；Major 1/2/4.2/4.4 恢复原论文单 VEV/原始 active-flavor current；静态检查通过，完整编译与视觉检查未做 |
 | [#52 原论文单 VEV 标量 Belle II 后续研究](https://github.com/lm846802297-bit/axial-vector-review-response/pull/52) | Open / Draft；2026-11-05 新建 | 保留来源台账、重铸协议和部分宽度框架；Belle II 补充数据提取、benchmark 复现和 UV 重铸尚未完成 |
 
 两个开放 PR 是独立研究工作流，不是正式回复信已完成的证据。继续前应重新检查 head、分支内容和验证记录；PR 仍开放不代表仍在持续推进。
