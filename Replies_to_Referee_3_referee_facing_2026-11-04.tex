@@ -380,7 +380,7 @@ The mixed-mass result is then
 }
 \]
 The arbitrary reference scale \(\mu_0\) cancels from this difference. All benchmark evaluations below lie on this real sub-threshold branch. Thus the \(hh\) and \(ss\) terms use the equal-mass expression, while the \(hs\) term uses the mixed-mass expression. At \(m_s=100\,\mathrm{GeV}\), the function triplet is \((\Delta\bar B_{hh},\Delta\bar B_{ss},\Delta\bar B_{hs})=(0.1862006,0.3150601,0.2366921)\); at \(m_s=m_h\), all three equal \(0.1862006\). The closed forms agree with independent 8,000-interval Simpson integration at relative differences below \(10^{-14}\).
-Because \(\lambda_{HS}^{\mathrm{UV}}\) is fixed at the one-loop VLL-threshold order, the terms with one portal insertion are next order in this combined counting; the term with two portal insertions is one order further. In an \(R_\xi\) gauge, the corresponding Goldstone vertices are \(g_{hG_HG_H}=2\lambda_Hv_h\), \(g_{sG_HG_H}=\lambda_{HS}^{\mathrm{UV}}v_s\), \(g_{haa}=\lambda_{HS}^{\mathrm{UV}}v_h\), and \(g_{saa}=2\lambda_Sv_s\). A physical pole calculation must combine these with the gauge/ghost contributions and a consistent tadpole/VEV prescription. Tadpole and VEV-counterterm terms are local and cancel in the displayed momentum difference, but are required in a complete un-subtracted mass/pole renormalization. Thus this expression fixes the perturbative order and diagram structure; it is not by itself a complete two-loop UV--EFT matched self-energy. We do not add this isolated subset to \(\Pi_{hs}^{\mathrm{ret}}\) or use it to classify the near-degenerate region. In the gauge basis the singlet radial mode has no direct \(sWW\) or \(s\bar t t\) vertex, so direct one-loop \(W\)- or top-quark contributions to \(\Pi_{hs}\) are absent at the retained order; portal-induced effects in those loops enter at higher order.
+Because \(\lambda_{HS}^{\mathrm{UV}}\) is fixed at the one-loop VLL-threshold order, the terms with one portal insertion are next order in this combined counting; the term with two portal insertions is one order further. In an \(R_\xi\) gauge, the corresponding Goldstone vertices are \(g_{hG_HG_H}=2\lambda_Hv_h\), \(g_{sG_HG_H}=\lambda_{HS}^{\mathrm{UV}}v_s\), \(g_{haa}=\lambda_{HS}^{\mathrm{UV}}v_h\), and \(g_{saa}=2\lambda_Sv_s\). A physical pole calculation must combine these with the gauge/ghost contributions and a consistent tadpole/VEV prescription. Tadpole and VEV-counterterm terms are local and cancel in the displayed momentum difference, but are required in a complete un-subtracted mass/pole renormalization. The displayed scalar-bubble subset therefore fixes the perturbative order and diagram structure, but is not a complete two-loop UV--EFT matched self-energy; it is not added to \(\Pi_{hs}^{\mathrm{ret}}\) or used to classify the near-degenerate region. In the gauge basis the singlet radial mode has no direct \(sWW\) or \(s\bar t t\) vertex, so direct one-loop \(W\)- or top-quark contributions to \(\Pi_{hs}\) are absent at the retained order; portal-induced effects in those loops enter at higher order.
 
 For each charged-lepton flavour, the field-dependent mass matrix and gauge-basis scalar vertices are
 \[
@@ -454,7 +454,7 @@ We denote their sum by
 =\Pi_{\mathrm{soft,bub+ct}}^B(m_h^2)
 +\Delta\Pi_{\mathrm{hard}}(m_h^2).
 \]
-The soft term here is the specified bubble-plus-contact subset, not the complete set of all same-order EFT soft insertions and counterterms. Thus \(\Pi_{hs}^{\mathrm{ret}}\) is a conditional Yukawa-sector benchmark estimate rather than a fully closed model-level pole prediction.
+Thus \(\Pi_{hs}^{\mathrm{ret}}\) is a conditional Yukawa-sector benchmark estimate: its soft part contains the specified bubble-plus-contact subset, not all same-order EFT soft insertions and counterterms, and it is not a fully closed model-level pole prediction.
 
 For \(M_E=20\,\mathrm{TeV}\), \(\theta_{\mu L}=\theta_{\tau L}=10^{-2}\), \(m_h=125.25\,\mathrm{GeV}\), \(v_h=246.22\,\mathrm{GeV}\), and \(\mu_R=M_E\), the numerical decomposition is
 \[
@@ -471,7 +471,7 @@ For \(M_E=20\,\mathrm{TeV}\), \(\theta_{\mu L}=\theta_{\tau L}=10^{-2}\), \(m_h=
 -0.093002551-0.025468201i
 \end{array}
 \]
-The exact hard momentum difference agrees with the leading source-aligned derivative result to \(6.11\times10^{-4}\) relative at both benchmarks, and the zero-momentum hard comparator agrees with the leading portal-threshold estimate to \(1.79\times10^{-4}\) relative. These checks validate the stated fermionic subcalculation and its numerical implementation, but do not close the remaining same-order EFT soft/counterterm sectors.
+The exact hard momentum difference agrees with the leading source-aligned derivative result to \(6.11\times10^{-4}\) relative at both benchmarks, and the zero-momentum hard comparator agrees with the leading portal-threshold estimate to \(1.79\times10^{-4}\) relative; these checks validate the stated fermionic subcalculation and its numerical implementation.
 
 For a clearly non-degenerate point in Benchmark B, we take \(m_s=100\,\mathrm{GeV}\). Here \(m_s\) denotes the unmixed diagonal singlet-mass input in the inverse propagator, not an already diagonalized physical pole mass, and
 \[
@@ -1112,17 +1112,34 @@ Are stellar cooling bounds not relevant? See e.g. 2511.09619 for a recent paper 
 
 \noindent {\bf Reply.}
 
-Supernova cooling is relevant to the sub-GeV region. The referee-cited analysis is now published as JHEP 06 (2026) 155~\cite{Blinov:2025aha}; a recent update for the conventional vector \(L_\mu-L_\tau\) boson, using the SFHo-18.8 profile, reports SN1987A sensitivity up to \(m_{A'}\sim300~\mathrm{MeV}\) and low-energy-supernova sensitivity up to about \(600~\mathrm{MeV}\), with coupling sensitivity reaching approximately \(1.4\times10^{-10}\) and \(6.4\times10^{-12}\), respectively~\cite{Wang:2026supernova}. These values provide the relevant reference scales for assessing the axial benchmark.
+Supernova cooling is relevant to the sub-GeV region. The referee-cited analysis is now published as JHEP 06 (2026) 155~\cite{Blinov:2025aha}; a recent update for the conventional vector \(L_\mu-L_\tau\) boson, using the SFHo-18.8 profile, reports SN1987A sensitivity up to \(m_{A'}\sim300~\mathrm{MeV}\) and low-energy-supernova sensitivity up to about \(600~\mathrm{MeV}\), with SN1987A coupling sensitivity of order \(10^{-10}\) and low-energy-supernova sensitivity reaching \(6.4\times10^{-12}\)~\cite{Wang:2026supernova}. These values provide reference scales for assessing the axial benchmark. Dedicated stellar-cooling discussions for light axial forces also exist; Kahn et al. analyze the stellar-cooling implications of axial-vector \(A'\) interactions~\cite{Kahn:2016vjr}. This establishes that stellar cooling is a genuine axial-vector constraint, but it does not provide a model-specific SN1987A contour for the present \(L_\mu-L_\tau\) completion.
 
 In our model, the tree-level neutrino couplings are the same as in the conventional \(L_\mu-L_\tau\) model,
 \[
 g_{\nu_\mu}=+g_X,\qquad g_{\nu_\tau}=-g_X.
 \]
-Consequently, neutrino-coalescence production and the invisible partial widths \(A'\to\nu_\alpha\bar\nu_\alpha\) are unchanged at fixed \((m_{A'},g_X)\). In the cited supernova profile, neutrino coalescence dominates the production luminosity for \(m_{A'}\gtrsim10~\mathrm{MeV}\). Accordingly, for \(10~\mathrm{MeV}\lesssim m_{A'}<2m_\mu\), the published SN1987A cooling result is a useful reference scale: neutrino-coalescence production is unchanged and dominates the luminosity in the cited profile, while \(A'\) decays predominantly to neutrinos. We use this as a benchmark comparison, not as a fully recast exclusion contour for the axial model.
+With negligible active--heavy neutrino mixing and the additional neutrino-completion channels kinematically closed, the PMNS rotation leaves the inclusive light-neutrino width unchanged, as shown by the trace identity under Major Point~4.2. The flavor-summed neutrino-coalescence matrix element and the invisible partial widths \(A'\to\nu_\alpha\bar\nu_\alpha\) therefore have the same coupling normalization as in the conventional vector \(L_\mu-L_\tau\) reference at fixed \((m_{A'},g_X)\), for the same neutrino phase-space distributions and supernova profile. In the cited supernova profile, neutrino coalescence dominates the production luminosity for \(m_{A'}\gtrsim10~\mathrm{MeV}\). Accordingly, for \(10~\mathrm{MeV}\lesssim m_{A'}<2m_\mu\), the published SN1987A cooling result is a useful reference scale: neutrino-coalescence production is unchanged and dominates the luminosity in the cited profile, while \(A'\) decays predominantly to neutrinos. We use this as a benchmark comparison, not as a fully recast exclusion contour for the axial model.
 
-The distinction arises in processes involving the charged-muon current. The semi-Compton process \(\mu\gamma\to\mu A'\) and its inverse absorption depend on whether that current is vector or axial; the vector-model curve is therefore not directly transferable in the low-mass region where semi-Compton production dominates. Above \(m_{A'}=2m_\mu\), the axial and vector dimuon widths also differ in their threshold dependence, affecting visible-decay and low-energy-supernova energy-deposition constraints. In the equal-mixing benchmark, the low-momentum kinetic mixing satisfies \(|\epsilon_{\gamma A'}|/|g_X|\simeq1.4\times10^{-6}\), compared with approximately \(1/70\) in the conventional vector model; the corresponding mixing-induced amplitude and rate are smaller by about \(10^{-4}\) and \(10^{-8}\), respectively.
+The distinction arises in processes involving the charged-muon current. The semi-Compton process \(\mu\gamma\to\mu A'\) and its inverse absorption depend on whether that current is vector or axial. For on-shell muons, the vector current is conserved whereas the axial current obeys
+\[
+q_\alpha\bar u(p')\gamma^\alpha u(p)=0,\qquad
+q_\alpha\bar u(p')\gamma^\alpha\gamma_5u(p)
+=2m_\mu\bar u(p')\gamma_5u(p),
+\qquad q=p'-p.
+\]
+The non-conserved axial current therefore sources a longitudinal \(A'\) mode; by Goldstone equivalence its effective coupling scales as
+\[
+|g_{G\mu}|\sim\frac{2|g_A^\mu|m_\mu}{m_{A'}}.
+\]
+The semi-Compton emissivity and inverse absorption must consequently be evaluated with the axial current and its polarization structure; the vector-model curve is not directly transferable in the low-mass region where semi-Compton production dominates. Above \(m_{A'}=2m_\mu\), the axial and vector dimuon widths also differ in their threshold dependence, as quantified under Major Point~4.3, affecting visible-decay and low-energy-supernova energy-deposition constraints.
 
-Thus stellar constraints are not dismissed: the neutrino-coalescence contribution is applicable where it dominates, while the full vector-current supernova exclusion curve is not treated as a universal exclusion of the axial model. This distinction preserves the relevant astrophysical information without applying a bound outside the interaction structure for which it was derived.
+The low-momentum kinetic-mixing estimate has a separate scope. In the equal-mixing benchmark,
+\[
+\frac{|\epsilon_{\gamma A'}(0)|}{|g_X|}\simeq1.4\times10^{-6},
+\]
+compared with approximately \(1/70\) in the conventional vector model. At the same vacuum kinematics, this suppresses only electromagnetic-current-mediated amplitudes and rates, such as plasmon conversion or the mixing-induced proton coupling in \(np\) bremsstrahlung, by about \(10^{-4}\) and \(10^{-8}\), respectively. It does not suppress neutrino coalescence or the direct axial semi-Compton process. These factors are same-kinematics vacuum scaling estimates, not supernova emissivity ratios; an actual in-medium rate requires the momentum-dependent mixing and plasma propagators.
+
+Thus stellar constraints are not dismissed: the neutrino-coalescence contribution is applicable where it dominates, while the full vector-current supernova exclusion curve is not treated as a universal exclusion of the axial model. The semi-Compton and electromagnetic-current-mediated channels are distinguished according to their respective interactions, preserving the relevant astrophysical information without applying a bound outside the interaction structure for which it was derived.
 
 \medskip
 \noindent {\bf Minor Point 1)}. \begin{quote}\itshape
@@ -1321,7 +1338,7 @@ The adjective "light" is not used as a quantitative mass classification. The Abs
 \[
 10^{-3}\,\mathrm{GeV}\leq m_{A'}\leq10^2\,\mathrm{GeV},
 \qquad
-10^{-6}\leq g_X\leq10^{-1}.
+10^{-6}\leq g_X\leq1.
 \]
 These numerical ranges, together with the observables included in the analysis, define the phenomenological domain; the word "light" does not introduce an additional universal mass threshold.
 
