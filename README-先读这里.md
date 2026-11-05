@@ -31,7 +31,9 @@
 
 - **2026-11-05 Major 1.3 / PR #49（已于 2026-11-05 合并）：** [P2-lite portal-induced scalar-loop 计算记录](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-05/Portal_induced_scalar_loop_power_counting_P2_lite_2026-11-05.md) 与[可复现脚本](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-05/portal_scalar_loop_power_counting_2026-11-05.py)。记录 CP-even radial-scalar bubble 子集、Goldstone 顶角、零动量相减和证据边界；正式回复只采用顶角结构与联合 loop counting，不把未闭合子集数值作为完整两圈物理预测。 正式回复信已补入等质量和非等质量 B0 差值的闭式解析表达式，并以 Simpson 积分独立交叉验证，最大相对误差低于 1e-14。
 
-- **2026-11-05 回复信解析论证一致性修订 / [PR #50（Open）](https://github.com/lm846802297-bit/axial-vector-review-response/pull/50)：** [审查与修订记录](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-05/回复信解析论证完整性审查与修订记录_2026-11-05.md)。修正 Minor 6.1 的 \(g_X\) 上限；补充 Major 4.4 的 Kahn et al. 轴矢量恒星冷却引用、轴矢量流散度和 Goldstone 等效纵向耦合，并限定 kinetic-mixing 比较的电磁过程适用范围。复核后已撤销最初拟议的 Major 1.3 三处文字精简，恢复 main 原有表述；PR #50 不修改 Major 1.3。未修改论文正文，也未开展新的 SN 输运计算。完整 PDF 尚未按当前 TeX 重编译。
+- **2026-11-05 回复信解析论证一致性修订 / [PR #50（已合并）](https://github.com/lm846802297-bit/axial-vector-review-response/pull/50)：** [审查与修订记录](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-05/回复信解析论证完整性审查与修订记录_2026-11-05.md)。修正 Minor 6.1 的 \(g_X\) 上限；补充 Major 4.4 的 Kahn et al. 轴矢量恒星冷却引用、轴矢量流散度和 Goldstone 等效纵向耦合，并限定 kinetic-mixing 比较的电磁过程适用范围。复核后已撤销最初拟议的 Major 1.3 三处文字精简，恢复 main 原有表述；PR #50 不修改 Major 1.3。未修改论文正文，也未开展新的 SN 输运计算。完整 PDF 尚未按当前 TeX 重编译。
+
+- **剩余研究 PR 审查（2026-11-05）：** [PR #30](https://github.com/lm846802297-bit/axial-vector-review-response/pull/30) 保留 Open，包含有价值的轴矢量半康普顿振幅和局部热率原型，但脚本未通过实际验收，且 Goldstone 参数映射仍按单 VEV；[PR #32](https://github.com/lm846802297-bit/axial-vector-review-response/pull/32) 保留 Draft，其来源台账、重铸协议和质量分类框架值得保留，但 Belle II 补充数据/benchmark 未复现，宽度公式仍基于单 VEV。两者均需按当前 DEC-02 的 \(m_{A'}^2=g_X^2(4v_s^2+v_\sigma^2)\) 双 VEV 模型更新后再考虑合并；均未修改正式回复信或论文正文。详见 [PROJECT_STATUS](PROJECT_STATUS.md) 与两份 PR 的审查记录。
 
 日常推进使用 **[精简执行手册 v5.6](审稿意见-gpt/当前执行/审稿意见分析与执行手册_v5.6-主分析全任务映射与原子步骤版-20261019.md)** 的任务 ID、依赖和验收条件；其 §0.1 是 2026-10-27 历史状态快照，不再作为当前状态源。物理推导使用 **[v5.7 Markdown 技术参考](审稿意见-gpt/审稿意见分析v5.7-物理校核与专题连续阅读版.md)** 的相关章节。v5.7.1 LaTeX 仅用于查阅尚未回收到 Markdown 的历史细节。
 
