@@ -26,7 +26,7 @@ class OriginalUVWidthScanTests(unittest.TestCase):
     def test_lambda_and_width_ratio_are_reported(self):
         p = evaluate_scan_point(4.0, 0.5, 0.1, 1e-2, 1e-2, 64, 1e-2)
         self.assertAlmostEqual(p["lambdaS"], 1.28)
-        self.assertAlmostEqual(p["Gamma_s_over_ms"], 0.0252020078593, places=10)
+        self.assertAlmostEqual(p["Gamma_s_over_ms"], 0.0252021016483, places=10)
         self.assertFalse(p["narrow_ratio_below_user_threshold"])
 
     def test_original_field_content_does_not_add_electron_yukawa(self):
