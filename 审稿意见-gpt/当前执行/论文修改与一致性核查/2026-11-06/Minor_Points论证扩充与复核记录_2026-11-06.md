@@ -146,7 +146,7 @@ v_s^{\min}(m_s)=\frac{m_s}{\sqrt{8\pi}}\simeq0.1995m_s
 
 论文源码、图表、BibTeX 数据库和 PDF 均未修改。上述未执行项目不标记为通过。
 
-**本轮源文件版本：** TeX blob SHA `2307b04cc562bd71bf8733a20695e28a198cdeea`；写作规范 blob SHA `f52ffad0ee8fd047eebd8ca2d514ec41bfa6f93b`。静态引用审计结果为 78 次引用出现、39 个唯一 key，全部可在两份 BibTeX 数据库中解析。
+**本轮源文件版本：** TeX blob SHA `b9539627b6cd1402766080c37030892ba5d895c6`；写作规范 blob SHA `f52ffad0ee8fd047eebd8ca2d514ec41bfa6f93b`。静态引用审计结果为 78 次引用出现、39 个唯一 key，全部可在两份 BibTeX 数据库中解析。
 
 ## 6. 审查结论
 
