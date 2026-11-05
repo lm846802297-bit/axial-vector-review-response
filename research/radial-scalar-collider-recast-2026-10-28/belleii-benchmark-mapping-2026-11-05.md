@@ -2,7 +2,7 @@
 
 **Record date:** 2026-11-05  
 **Research scope:** the original paper's single-VEV \(S+\mathrm{VLL}\) model only.  
-**Status:** source-level model mapping and analytic branching-ratio diagnostics completed; supplemental numerical files not yet downloaded or transcribed; no experimental recast claimed.
+**Status:** official numerical supplements archived byte-for-byte; published scalar benchmark curves reconstructed from the numerical tables; conditional original-UV/perturbativity overlay completed; no detector-level recast or complete UV exclusion claimed.
 
 ## 1. Model-scope lock
 
@@ -162,16 +162,37 @@ The two analyses are not interchangeable:
 - Recast the two channels independently. Do not combine their limits by taking the smaller quoted coupling number.
 - Check the prompt-lifetime assumption at each UV point. A partial-width sum cannot certify promptness.
 
-## 6. Numerical supplement retrieval and benchmark-reproduction status
+## 6. Numerical supplements and benchmark reconstruction
 
-The official source pages identify the required mass-dependent data files:
+The three official APS files have now been retrieved, archived verbatim in this PR branch, and verified against the original downloaded bytes. The exact SHA-256 and Git blob SHA-1 values are recorded in [the data manifest](data/manifest-2026-11-05.json); the complete structural and numerical audit is in [the 2026-11-05 source-data audit](source-data-audit-2026-11-05.md).
 
-1. Four-muon scalar supplement: S_supplemental.txt, from https://journals.aps.org/prd/supplemental/10.1103/PhysRevD.109.112015
-2. Tau-pair supplement: limits.csv and limits.txt, from https://journals.aps.org/prl/supplemental/10.1103/PhysRevLett.131.121802
+| Analysis | Official file | Rows | Columns | Mass range (GeV) |
+|---|---|---:|---:|---:|
+| Four-muon scalar | S_supplemental.txt | 2317 | 15 | 0.212–8.999862 |
+| Tau-pair scalar | limits.csv / limits.txt | 2384 | 27 | 3.600–9.99943 |
 
-The four-muon paper states that the supplement contains the observed cross sections and observed 90% CL upper limits on the cross section and \(g_S\) as functions of mass. The tau-pair paper states that its supplement contains numerical cross-section and coupling results, and the arXiv record lists limits.csv as an ancillary file.
+The tau-pair CSV and TXT are byte-identical. Both are retained under their official filenames, but they are one numerical dataset. Three exact duplicate mass rows occur at 7.73369, 8.06147, and 9.53960 GeV; the raw data are unchanged, and duplicates are removed only in plotting copies. The four-muon supplement has 2317 unique mass rows, while the paper text reports 2315 fits. This two-row discrepancy is unresolved and is recorded without modifying the source table.
 
-**Not yet done:** raw files have not been retrieved into this repository, no per-mass rows have been transcribed, and neither experimental scalar benchmark has been numerically reproduced. The abstract-level ranges above are orientation only. No values have been digitized from plots and presented as exact numerical data.
+### 6.1 Four-muon benchmark
+
+The observed 90% CL and expected median / ±1σ / ±2σ curves for the muonphilic scalar coupling g_S have been reconstructed directly from the official supplement. The six cross-section-to-coupling quantile pairs obey the expected quadratic normalization σ_UL(m_S) ∝ g_S,UL²(m_S), with a median relative normalization spread of 1.31×10^-4 and a maximum of 9.78×10^-4. The observed g_S limit below 6 GeV ranges from 0.001818 to 0.040342, consistent with the paper's quoted approximate range.
+
+### 6.2 Tau-pair benchmark
+
+The observed 90% CL and expected median / ±1σ / ±2σ curves for the mass-proportional scalar coupling ξ have been reconstructed directly from the xi_UL columns. Use those published scalar-specific ξ columns directly; do not infer the scalar curve from the cross-section columns alone. The analysis applies its selection to dedicated scalar signal samples and reports 10–20% scalar/vector efficiency differences.
+
+The observed ξ limit ranges from 53.5592 to 2944.70 over the supplied mass grid. The observed cross-section range, 0.692–24.214 fb, agrees with the paper's approximate 0.7–24 fb summary.
+
+### 6.3 Conditional original-UV overlay
+
+Under the restrictive assumptions that s→A'A' is closed, portal/other widths are negligible, the scalar remains prompt and narrow, and the Belle II scalar-specific efficiency is unchanged:
+
+- The four-muon limit must be weakened by 1/√BR(s→μμ) above the τ threshold. After this correction, the observed pointwise limit remains below the λ_S≤4π perturbativity envelope through m_s=4.997842 GeV; the expected median does so through 4.552977 GeV.
+- For the tau-pair channel, the Belle benchmark includes an electron Yukawa absent in the original UV model, but the resulting relative BR(ττ) difference is at most 1.09×10^-5. The expected median remains below the λ_S≤4π envelope through 6.11868 GeV; the noisy observed curve's last point below it is 6.44291 GeV.
+
+These are conditional grid-level crossings, not sharp mass cutoffs or complete exclusions. Opening s→A'A' or portal-mediated channels changes the branching fractions and requires a point-by-point width/lifetime calculation.
+
+**Reproduction boundary:** the published numerical benchmark curves are reconstructed from the supplements. No detector simulation, selection-efficiency recalculation, event-level likelihood, or CL_s fit has been rerun. The original-UV overlay is conditional and does not constitute a detector-level recast or a complete allowed-region classification.
 
 ## 7. Acceptance gates
 
@@ -179,9 +200,9 @@ The four-muon paper states that the supplement contains the observed cross secti
 - [x] Belle II scalar benchmark normalizations and channel topologies audited at source level.
 - [x] Analytic \(\mu\mu/\tau\tau\) branching-ratio threshold effect evaluated.
 - [x] Analytic importance of \(s\to A'A'\) identified.
-- [ ] Download the exact official supplemental files and record SHA-256 hashes.
-- [ ] Parse and archive the mass grid, units, observed/expected status, confidence level, and all coupling/cross-section columns.
-- [ ] Reproduce the Belle II scalar benchmark curves from the source files.
+- [x] Download and archive the exact official supplemental files; verify SHA-256 and Git blob hashes.
+- [x] Parse the mass grids, units, observed/expected status, confidence level, and coupling/cross-section columns; record source-table anomalies.
+- [x] Reconstruct the published Belle II scalar benchmark curves from the official numerical tables.
 - [ ] Validate the original-UV total width, branching fractions, lifetime, and production normalization point by point.
 - [ ] Apply each published limit independently with the scalar-specific acceptance.
 - [ ] Classify points as excluded / passes evaluated constraints / unclassified / theoretically inconsistent.
