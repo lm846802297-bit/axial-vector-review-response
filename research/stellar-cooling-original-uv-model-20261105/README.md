@@ -1,8 +1,8 @@
 # Original-model axial stellar cooling and semi-Compton calculation
 
 **Status:** independent research workstream; the local amplitude and homogeneous optically thin thermal-rate checks are complete for the stated benchmarks. A model-specific supernova transport/recast is **not** complete.  
-**Branch:** \`research/stellar-cooling-original-uv-model-20261105\`  
-**Base:** \`main\` at \`d3c8c573e0b219dbcb4be62dc57f77fdc04c4f96\` (2026-11-05).  
+**Branch:** `research/stellar-cooling-original-uv-model-20261105`  
+**Base:** `main` at `d3c8c573e0b219dbcb4be62dc57f77fdc04c4f96` (2026-11-05).  
 **Purpose:** internal follow-up research for the original paper's axial-vector model. This work does not modify the manuscript or make a supernova recast a prerequisite for the referee response.
 
 ## 1. Model-scope lock — original paper only
@@ -35,18 +35,18 @@ The \(A'\to\nu\bar\nu\) partial width uses only the original \(L_\mu-L_\tau\) ac
 
 ## 2. Calculation modules
 
-- \`single_vev_axial_mapping.py\`: original one-VEV gauge-mass and eaten-Goldstone map.
-- \`test_single_vev_axial_mapping.py\`: tests for the exact mass relation, Goldstone/current identity, inverse map, and input validation.
-- \`stellar_semi_compton_axial_matrix_element.py\`: exact generic-current \(\gamma\mu\to\mu A'\) matrix element, polarization-resolved CM calculation, Ward checks, lab/CM comparison, and Klein–Nishina reference.
-- \`stellar_semi_compton_thermal_rate.py\`: homogeneous, optically thin thermal production prototype.
-- \`stellar_semi_compton_thermal_convergence.py\`: quadrature-order and cutoff-stability study; reference cutoffs follow the thermal-rate defaults.
-- \`axial_decay_widths.py\`: \(A'\to\nu\bar\nu,\mu^+\mu^-\) partial-width checks using the original active-flavor \(L_\mu-L_\tau\) current and the massless-neutrino approximation.
+- `single_vev_axial_mapping.py`: original one-VEV gauge-mass and eaten-Goldstone map.
+- `test_single_vev_axial_mapping.py`: tests for the exact mass relation, Goldstone/current identity, inverse map, and input validation.
+- `stellar_semi_compton_axial_matrix_element.py`: exact generic-current \(\gamma\mu\to\mu A'\) matrix element, polarization-resolved CM calculation, Ward checks, lab/CM comparison, and Klein–Nishina reference.
+- `stellar_semi_compton_thermal_rate.py`: homogeneous, optically thin thermal production prototype.
+- `stellar_semi_compton_thermal_convergence.py`: quadrature-order and cutoff-stability study; reference cutoffs follow the thermal-rate defaults.
+- `axial_decay_widths.py`: \(A'\to\nu\bar\nu,\mu^+\mu^-\) partial-width checks using the original active-flavor \(L_\mu-L_\tau\) current and the massless-neutrino approximation.
 
-The semi-Compton amplitude takes \(g_V,g_A,m_{A'}\) as independent physical inputs. Its matrix element does not depend on the scalar VEV map; the UV-to-current/Goldstone relation is isolated in \`single_vev_axial_mapping.py\`.
+The semi-Compton amplitude takes \(g_V,g_A,m_{A'}\) as independent physical inputs. Its matrix element does not depend on the scalar VEV map; the UV-to-current/Goldstone relation is isolated in `single_vev_axial_mapping.py`.
 
 ## 3. Local validation
 
-The exact source files were fetched from the clean branch before execution. The original-model mapping suite has six tests. The semi-Compton amplitude, partial-width checks, and homogeneous thermal-rate smoke test are also recorded in \`validation-results-2026-11-05.md\`; machine-readable convergence data are in \`thermal-convergence-2026-11-05.csv\`.
+The exact source files were fetched from the clean branch before execution. The original-model mapping suite has six tests. The semi-Compton amplitude, partial-width checks, and homogeneous thermal-rate smoke test are also recorded in `validation-results-2026-11-05.md`; machine-readable convergence data are in `thermal-convergence-2026-11-05.csv`.
 
 Representative semi-Compton checks:
 
@@ -79,11 +79,11 @@ The thermal routine is a homogeneous, optically thin, polarization-summed local 
 
 ## 5. Acceptance checklist
 
-- [ ] Original one-VEV mass relation and Goldstone map independently checked.
-- [ ] Semi-Compton \`--check\` executed on this clean branch.
-- [ ] Original-model \(A'\) partial-width assumptions checked against the paper's active-flavor current.
-- [ ] Thermal \`--check\` executed on this clean branch.
-- [ ] Higher-order quadrature/cutoff stability data archived.
+- [x] Original one-VEV mass relation and Goldstone map independently checked; 6/6 mapping tests passed under Python 3.13.5.
+- [x] Semi-Compton \`--check\` validated on the unchanged executable calculation; the branch copy changes only its documentation pointer.
+- [x] Original-model \(A'\) partial-width assumptions checked against the paper's active-flavor current; analytic checks retained.
+- [x] Thermal \`--check\` validated on the unchanged executable calculation.
+- [x] Higher-order quadrature/cutoff stability data archived.
 - [ ] Medium-frame T/L opacity and SN transport: explicitly deferred, not part of this phase.
 
-The previous two-VEV branch was based on an incorrect scope assumption and is superseded by this original-model branch. No two-VEV result is used here.
+The validation record distinguishes checks rerun for the single-VEV mapping from generic-current calculations whose executable bodies are unchanged.
