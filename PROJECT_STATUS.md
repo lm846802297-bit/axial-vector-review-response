@@ -239,7 +239,7 @@ Major 4.2 已补充有限轻子混合产生的非零动能混合、四态矢量�
 | PR | 状态 | 当前已知边界 |
 |---|---|---|
 | [#53 原论文单 VEV 轴矢量恒星冷却/半康普顿计算](https://github.com/lm846802297-bit/axial-vector-review-response/pull/53) | Open / Draft；2026-11-05 新建 | 原论文单 VEV 映射与局部振幅/热率已验收；完整介质 T/L opacity 和 SN 输运未完成 |
-| [#54 Major 3 回复范围隔离与原论文模型一致性](https://github.com/lm846802297-bit/axial-vector-review-response/pull/54) | Open / Draft；2026-11-05 新建 | Major 3 扩展仅限回复论证；Major 1/2/4.2/4.4 恢复原论文单 VEV/原始 active-flavor current；静态检查通过，完整编译与视觉检查未做 |
+| [#54 Major 3/4.1 回复范围隔离与原论文模型一致性](https://github.com/lm846802297-bit/axial-vector-review-response/pull/54) | Open / Draft；2026-11-05 新建 | Major 3/4.1 扩展仅限中微子回复论证；Major 1/2/4.2/4.4 恢复原论文单 VEV/原始 active-flavor current；静态检查通过，完整编译与视觉检查未做 |
 | [#52 原论文单 VEV 标量 Belle II 后续研究](https://github.com/lm846802297-bit/axial-vector-review-response/pull/52) | Open / Draft；2026-11-05 新建 | 保留来源台账、重铸协议和部分宽度框架；Belle II 补充数据提取、benchmark 复现和 UV 重铸尚未完成 |
 
 两个开放 PR 是独立研究工作流，不是正式回复信已完成的证据。继续前应重新检查 head、分支内容和验证记录；PR 仍开放不代表仍在持续推进。
