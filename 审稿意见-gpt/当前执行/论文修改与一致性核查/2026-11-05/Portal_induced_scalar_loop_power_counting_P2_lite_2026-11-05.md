@@ -103,6 +103,63 @@ The overall sign changes if the opposite self-energy convention is adopted; the 
 
 The first two terms contain one portal insertion and one ordinary scalar cubic. Since \(\lambda_{HS}^{\mathrm{UV}}\) is itself chosen at the one-loop VLL-threshold order, these terms are next order in the combined counting. The mixed term has two portal insertions and is one order further in that counting.
 
+## 3.1 Closed forms and independent numerical cross-check
+
+The Feynman-parameter representation above is exact. For the sub-threshold benchmark points, all three bubble functions also admit real closed forms.
+
+Write \(s=p^2\), \(a=m_i^2\), \(b=m_j^2\), and
+\[
+\Delta B_0(s;a,b)
+=-\int_0^1 dx\,
+\ln\!\left[1-\frac{x(1-x)s}{xa+(1-x)b}\right].
+\]
+
+For equal internal masses \(a=b=m^2\),
+\[
+\boxed{
+\Delta B_0(s;a,a)
+=2-2\sqrt{\frac{4a}{s}-1}\,
+\arctan\!\left(\frac{1}{\sqrt{4a/s-1}}\right),
+\quad 0<s<4a.
+}
+\]
+
+For unequal internal masses, define
+\[
+\Lambda=(s-a-b)^2-4ab,\quad
+q=\frac{\sqrt{-\Lambda}}{2s},\quad
+t_0=\frac{a-b-s}{2s},\quad t_1=t_0+1,
+\]
+\[
+G(t)=t\ln\!\left[\frac{s(t^2+q^2)}{\mu_0^2}\right]
+-2t+2q\arctan(t/q),
+\]
+\[
+I_0(a,b;\mu_0)=
+\frac{a\ln(a/\mu_0^2)-b\ln(b/\mu_0^2)}{a-b}-1.
+\]
+Then
+\[
+\boxed{
+\Delta B_0(s;a,b)=I_0(a,b;\mu_0)-[G(t_1)-G(t_0)],
+\quad a\ne b,\quad \Lambda<0.
+}
+\]
+The arbitrary reference scale \(\mu_0\) cancels. The benchmark evaluations all lie on this real branch. The \(hh\) and \(ss\) functions use the equal-mass expression; the \(hs\) function uses the unequal-mass expression.
+
+### Closed form versus Simpson integration
+
+The standard-library script now evaluates the bubble functions from the closed forms and independently compares them with 8,000-interval composite Simpson integration. The unique function values are:
+
+| Bubble | Internal masses | Closed form | Simpson, \(n=8000\) | Relative difference |
+|---|---|---:|---:|---:|
+| \(hh\) | \(125.25,125.25\) GeV | 0.186200635765782 | 0.186200635765782 | \(1.2\times10^{-15}\) |
+| \(ss\) | \(100,100\) GeV | 0.315060125853570 | 0.315060125853571 | \(5.3\times10^{-16}\) |
+| \(hs\) | \(125.25,100\) GeV | 0.236692107871086 | 0.236692107871088 | \(1.0\times10^{-14}\) |
+| \(ss\) or \(hs\) at \(m_s=m_h\) | \(125.25,125.25\) GeV | 0.186200635765782 | 0.186200635765782 | \(1.2\times10^{-15}\) |
+
+These values are independent of whether benchmark A or B is selected; the benchmarks enter through \(v_s\), \(\lambda_{HS}^{UV}\), and \(\lambda_S\), not through the loop functions at fixed masses. The script checks all 12 benchmark/mass/topology combinations. The maximum closed-form versus Simpson relative difference is below \(10^{-14}\), while the separate 2k/4k/8k/16k convergence test remains satisfied.
+
 ## 4. Goldstone, tadpole, and VEV bookkeeping
 
 The Goldstone interactions are also fixed by the same potential. For each of the three real Goldstones in the Higgs doublet,
