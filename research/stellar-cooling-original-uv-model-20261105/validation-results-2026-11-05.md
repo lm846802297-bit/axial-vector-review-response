@@ -77,14 +77,14 @@ The width formulae are unchanged. Their interpretation is now explicitly tied to
 
 Representative outputs:
 
-| \(m_{A'}\) (MeV) | \(\Gamma_A^{\mu\mu}/\Gamma_V^{\mu\mu}\) | \(BR_{\nu\nu}^{A}\) |
+| \(m_{A'}\) (MeV) | \(\Gamma_A^{\mu\mu}/\Gamma_V^{\mu\mu}\) | \(F_{\nu\nu}^{(2\mathrm{ch},A)}\) |
 |---:|---:|---:|
 | 220 | 0.052953 | 0.978928 |
 | 250 | 0.210371 | 0.867628 |
 | 300 | 0.403688 | 0.736578 |
 | 600 | 0.824804 | 0.549501 |
 
-The neutrino normalization corresponds to the sum of the two original active-flavor charges squared, \( (+1)^2+(-1)^2=2 \), in the massless flavor basis. It is not a statement about a separate neutrino-mass model.
+The neutrino normalization corresponds to the sum of the two original active-flavor charges squared, \( (+1)^2+(-1)^2=2 \), in the massless flavor basis. The tabulated \(F_{\nu\nu}^{(2\mathrm{ch},A)}\) is the two-channel fraction \(\Gamma_{\nu\bar\nu}/(\Gamma_{\nu\bar\nu}+\Gamma_{\mu^+\mu^-})\), not a complete physical branching fraction: kinetic-mixing-induced \(e^+e^-\) and any other open channels are omitted. It is not a statement about a separate neutrino-mass model.
 
 ## 4. Homogeneous optically thin thermal-rate smoke test
 
