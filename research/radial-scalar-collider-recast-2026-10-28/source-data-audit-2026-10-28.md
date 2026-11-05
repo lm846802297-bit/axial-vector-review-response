@@ -40,3 +40,15 @@ The two priority Belle II analyses do publish mass-dependent numerical informati
 - https://docs.belle2.org/pub_data/documents/4407/
 - https://arxiv.org/abs/2403.02841
 - https://arxiv.org/abs/2306.12294
+
+
+## 2026-11-05 re-audit — scalar benchmark normalization and branching fractions
+
+The source-level audit is refined in [belleii-benchmark-mapping-2026-11-05.md](belleii-benchmark-mapping-2026-11-05.md).
+
+1. The four-muon search uses a muonphilic scalar and scalar-specific signal simulation. Its scalar efficiency is not the \(Z'\) efficiency. In the original UV model, the direct dimuon branching fraction is reduced by the \(\tau^+\tau^-\) channel above \(2m_\tau\), and potentially by \(A'A'\) whenever \(m_s>2m_{A'}\).
+2. The tau-pair search uses mass-proportional leptophilic Yukawas \(\xi m_\ell/v\), with \(v=246\,\mathrm{GeV}\). The original model's \(\mu,\tau\) Yukawa normalization matches \(\xi_{\rm UV}=v/v_s=2vg_X/m_{A'}\). The collaboration reports 10–20% scalar/vector efficiency differences; the scalar efficiency must be used.
+3. In the original model's two-channel \(\mu+\tau\) limit with \(A'A'\) closed, the calculated \(\mathrm{BR}_{\tau\tau}\) rises from 0.537 at \(m_s=3.6\,\mathrm{GeV}\) to 0.965 at 4 GeV and 0.996 at 10 GeV. The lower endpoint is close enough to threshold that \(\mathrm{BR}_{\tau\tau}\simeq1\) is not a valid approximation there.
+4. The analytic \(s\to A'A'\) width can dominate over the tau width once open. It must be included before mapping either Belle II observable to the UV model.
+
+**Raw-data status remains unchanged:** the official APS supplemental file names and URLs are confirmed, but the numerical files have not been downloaded, hashed, or transcribed. No benchmark reproduction or UV recast is claimed. The source downloader and offline payload checks are ready; the next step is to retrieve the three official files and record their SHA-256 hashes.
