@@ -33,8 +33,8 @@
 
 - **2026-11-05 回复信解析论证一致性修订 / [PR #50（已合并）](https://github.com/lm846802297-bit/axial-vector-review-response/pull/50)：** [审查与修订记录](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-05/回复信解析论证完整性审查与修订记录_2026-11-05.md)。修正 Minor 6.1 的 \(g_X\) 上限；补充 Major 4.4 的 Kahn et al. 轴矢量恒星冷却引用、轴矢量流散度和 Goldstone 等效纵向耦合，并限定 kinetic-mixing 比较的电磁过程适用范围。复核后已撤销最初拟议的 Major 1.3 三处文字精简，恢复 main 原有表述；PR #50 不修改 Major 1.3。未修改论文正文，也未开展新的 SN 输运计算。完整 PDF 尚未按当前 TeX 重编译。
 
-- **模型一致性边界：** Major Point 3/4.1 的额外中微子完成机制只用于对应的专门中微子回复论证，不改变原论文的 `S+VLL` 单 VEV UV 模型。其他 Major/Minor 回答及其专题 PR 均以原论文模型为基准。
-- **[PR #54（Draft）](https://github.com/lm846802297-bit/axial-vector-review-response/pull/54)：** 修正正式回复信与项目规范，明确 Major 3/4.1 的中微子完成机制只属于对应问题的回复论证；其他回答仍以原论文单 VEV 模型和原始规范流为基准。
+- **模型一致性边界：** Major Point 3/4.1 的额外中微子完成机制只用于对应的专门中微子回复论证，不改变原论文的 `S+VLL` 单 VEV UV 模型。其他非中微子 Major/Minor 回答及其专题 PR 均以原论文模型为基准。
+- **[PR #54（Draft）](https://github.com/lm846802297-bit/axial-vector-review-response/pull/54)：** 修正正式回复信与项目规范，明确 Major 3/4.1 的中微子完成机制只属于对应问题的回复论证；其他非中微子回答仍以原论文单 VEV 模型和原始规范流为基准。
 - **2026-11-05 PR #30/#51 清洁替代 / [PR #53（Draft）](https://github.com/lm846802297-bit/axial-vector-review-response/pull/53)：** 旧 #30 和错误采用双 VEV 映射的 #51 均已关闭、未合并。#53 从当前 main 创建，恢复原论文单 VEV 映射；半康普顿振幅和均匀局部热率计算保留。完整介质 T/L opacity 和 SN transport 仍未完成。
 - **2026-11-05 PR #32 替代 / [PR #52（Draft）](https://github.com/lm846802297-bit/axial-vector-review-response/pull/52)：** 旧 #32 已关闭、未合并。#52 从当前 main 创建，严格使用原论文单 VEV 标量模型；保留 Belle II 来源台账、重铸协议、部分宽度框架和逐点分类规则。Belle II 数值数据提取、实验 benchmark 复现和 UV 重铸尚未完成；这些是独立后续研究，不是当前 Major Point 1 回复的前置条件。
 
