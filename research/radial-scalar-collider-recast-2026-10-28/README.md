@@ -171,21 +171,30 @@ Detailed formulas and benchmark assumptions are in [belleii-benchmark-mapping-20
 | Item | Status |
 |---|---|
 | Repository baseline and previous work identified | Complete |
-| Belle II four-muon and tau-pair source-level ranges identified | Complete |
-| Official supplemental files and exact file names located | Complete |
-| Raw supplemental files downloaded, hashed, and parsed | Complete; byte-for-byte Git archive verified; source anomalies recorded |
-| Published scalar benchmark curves reconstructed from official numerical tables | Complete; no detector-level or CLs reanalysis claimed |
-| Partial-width calculator scaffold for \(s\to\mu\mu,\tau\tau,A'A'\) added | Complete; ten unit tests passed locally |
-| Conditional UV/perturbativity overlay with A'A' closed | Complete as a preliminary pointwise diagnostic; not a full recast |
-| Original-model two-body widths and scan scaffold | Implemented: μμ, ττ, on-shell A'A', μ/τ-loop γγ; separate one-on-shell/one-virtual A' three-body cascade is reused |
-| Original-UV width scan and Γs/ms, lifetime, perturbativity diagnostics | Script and tests added; execution and grid-level numerical audit pending |
-| Complete UV widths and branching fractions cross-checked | Pending for mA' ≥ ms (two-virtual-A' four-body modes); portal and non-decoupled VLL effects also excluded from benchmark |
-| Model-specific production and yield predictions | Pending |
-| Supplement downloader and offline payload-validation tests | Complete; four tests passed locally |
-| Belle II model-specific reinterpretations/recasts | Pending |
-| Complementary Higgs-mixing/direct-search audit | Pending |
-| Point-by-point \(m_s\) scan and validated allowed set | Pending |
-| Full pole-consistent near-degenerate scalar treatment | Pending |
-| Current referee-response dependency | Not required; reconsider only if a newly validated result materially improves the existing response |
+| Belle II four-muon and tau-pair official scalar benchmarks identified | Complete |
+| Official supplemental files archived, hashed, parsed, and curves reconstructed | Complete; no detector-level or CLs reanalysis claimed |
+| Original-model \(s\to\mu\mu,\tau\tau,A'A',\gamma\gamma\) widths | Implemented and unit-tested |
+| One-on-shell/one-virtual \(A'\) three-body cascade | Implemented and scanned |
+| Two-virtual-\(A'\) four-fermion width | Double-spectral diagonal contribution implemented; identical-flavor exchange bounded with a Cauchy upper bound, not explicitly integrated |
+| Full \(m_s,m_{A'},g_X\) width scan | Executed: 73,728 points |
+| Three-body quadrature convergence | Audited on all 4,096 three-body points; 192 vs 768 nodes agrees within \(1.12\times10^{-4}\) relative |
+| Four-body quadrature convergence | Audited on 856 unique mass pairs; 96 vs 128 nodes agrees within \(1.39\times10^{-3}\) relative |
+| Double-virtual four-body impact on direct scalar BRs | Bounded; maximum exchange upper bound is \(1.85\times10^{-6}\) of direct \(\mu\mu+\tau\tau+\gamma\gamma\) widths |
+| \(\lambda_S\leq4\pi\) classification | Applied to all 73,728 points; 68,351 points pass |
+| Belle II four-muon mass-resolution comparison | Added using the published reduced-mass resolution envelope and \(M_R\) width conversion |
+| Belle II tau recoil-mass resolution comparison | Added using published resolution anchors and conservative intervals |
+| Promptness / flight-distance diagnostics | Added using SuperKEKB \(\beta\gamma\simeq0.28\), maximum kinematic boost, and published track-DCA scales |
+| Portal-induced widths and finite-VLL loop effects | Not included; zero-portal/decoupled-VLL benchmark only |
+| Exact identical-flavor four-body exchange amplitudes | Not explicitly integrated; their contribution is bounded |
+| Model-specific production cross sections and pointwise Belle II yield mapping | Pending |
+| Finite-width line-shape convolution for broad points | Pending |
+| Lifetime-dependent detector efficiency for displaced points | Pending; the papers do not provide lifetime-dependent efficiency curves |
+| Belle II four-muon and tau-pair UV reinterpretations | Pending |
+| Final excluded / evaluated-allowed / unclassified UV point map | Pending |
+| Current referee-response dependency | Not required; this is independent follow-up research and does not change the agreed Major Point 1 response |
 
-No complete UV-model exclusion or universal allowed scalar-mass interval is claimed. The table-driven benchmark curves are reconstructed, but the UV mapping is conditional on A'A' being closed and portal/other widths being negligible. The scan driver distinguishes the on-shell A'A' region, the one-on-shell/one-virtual three-body region, and the unresolved two-virtual-A' four-body region. In the last region, total widths and branching fractions are explicitly marked incomplete. Portal-mediated widths and non-decoupled VLL effects are excluded by the stated benchmark. The new scan tests have been added but are not yet claimed to have passed.
+The detailed equations, scan counts, convergence checks, mass-resolution anchors, promptness assumptions, and remaining collider-recast gates are recorded in [original-uv-width-scan-and-belleii-width-audit-2026-11-05.md](original-uv-width-scan-and-belleii-width-audit-2026-11-05.md).
+
+The executable scan is [scan_original_uv_widths.py](scan_original_uv_widths.py). The two-virtual-vector calculation and its exchange bound are in [off_shell_four_body.py](off_shell_four_body.py). The Belle II resolution and promptness inputs are in [belleii_resolution_promptness.py](belleii_resolution_promptness.py). Tests cover the width formulas, all three kinematic regimes, the four-body bound, and the published resolution inputs.
+
+The full 73,728-row CSV and the pointwise quadrature-audit tables were generated as local scan artifacts. They are not represented as committed repository data files in this status table. No complete detector-level UV exclusion or universal allowed scalar-mass interval is claimed.
