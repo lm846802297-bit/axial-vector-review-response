@@ -174,7 +174,7 @@ Detailed formulas, benchmark assumptions, and the threshold table are in [bellei
 | Belle II four-muon and tau-pair source-level ranges identified | Complete at abstract/source-page level |
 | Official supplemental files and exact file names located | Complete; raw numerical files not yet retrieved |
 | Raw supplemental files downloaded, hashed, and parsed | Pending |\n| Exact supplemental numerical curves extracted and benchmark reproduced | Pending |
-| Partial-width calculator scaffold for \(s\to\mu\mu,\tau\tau,A'A'\) added | Complete; six unit tests passed locally |
+| Partial-width calculator scaffold for \(s\to\mu\mu,\tau\tau,A'A'\) added | Complete; ten unit tests passed locally |
 | Complete UV widths and branching fractions cross-checked | Pending; portal, loop-induced and any other open channels must be included |
 | Model-specific production and yield predictions | Pending |\n| Supplement downloader and offline payload-validation tests | Complete; four tests passed locally |
 | Belle II model-specific reinterpretations/recasts | Pending |
