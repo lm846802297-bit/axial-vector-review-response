@@ -59,9 +59,11 @@ def axial_to_vector_width_ratio(m_a_mev: float) -> float:
 
 
 def neutrino_branching_fractions(m_a_mev: float) -> tuple[float, float]:
-    """Return (BR_nunu_vector, BR_nunu_axial).
+    """Return two-channel fractions Gamma(nu nubar)/[Gamma(nu nubar)+Gamma(mu+mu-)].
 
-    Assumptions: only the original model's two massless active flavor
+    These are not complete physical branching fractions: kinetic-mixing-
+    induced e+e- and any other open channels are omitted. Assumptions: only
+    the original model's two massless active flavor
     channels nu_mu and nu_tau are included, with U(1)_X charges +1 and -1;
     nu_e is uncoupled. Their inclusive current trace is
     sum_alpha |q_alpha|^2 = 2. Only these invisible channels plus mu+mu-
@@ -77,7 +79,7 @@ def neutrino_branching_fractions(m_a_mev: float) -> tuple[float, float]:
 
 def main() -> None:
     masses = (220.0, 250.0, 300.0, 600.0)
-    print("mA_MeV,beta_mu,GammaA_over_GammaV,BRnu_vector,BRnu_axial")
+    print("mA_MeV,beta_mu,GammaA_over_GammaV,Fnu_2ch_vector,Fnu_2ch_axial")
     for mass in masses:
         br_v, br_a = neutrino_branching_fractions(mass)
         print(
