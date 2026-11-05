@@ -10,7 +10,7 @@
 
 ## 2026-11-05 更新：PR #50 合并与剩余 PR #30/#32 审查结论
 
-PR #50 已于 2026-11-05 Squash Merge 至 main，合并提交为 [51a245b0a36703f40c24ca469d6969e70abc8954](https://github.com/lm846802297-bit/axial-vector-review-response/commit/51a245b0a36703f40c24ca469d6969e70abc8954)。随后同步了 PR 审查结论和状态文档；当前 main HEAD 为 [d3c1a49d258293b8dbe0e292424c0cd80269efb2](https://github.com/lm846802297-bit/axial-vector-review-response/commit/d3c1a49d258293b8dbe0e292424c0cd80269efb2)。
+PR #50 已于 2026-11-05 Squash Merge 至 main，合并提交为 [51a245b0a36703f40c24ca469d6969e70abc8954](https://github.com/lm846802297-bit/axial-vector-review-response/commit/51a245b0a36703f40c24ca469d6969e70abc8954)。随后已将 PR #30/#32 的审查结论同步至项目状态、入口说明和研究决策登记表。
 
 本轮重新检查了剩余两个开放 PR 的元数据、完整文件列表、实际 Diff、研究报告/代码及当前研究决策：
 
