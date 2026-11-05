@@ -17,6 +17,42 @@ from typing import Mapping, Optional
 M_MU_GEV = 0.1056583755
 M_TAU_GEV = 1.77686
 HBAR_C_GEV_M = 1.973269804e-16
+SM_HIGGS_VEV_GEV = 246.0
+
+
+def leptophilic_scalar_xi_from_vs(vs_GeV: float) -> float:
+    """Map the original UV mass-proportional Yukawa to Belle II's xi convention.
+
+    Belle II's leptophilic benchmark uses y_l = xi * m_l / v with v=246 GeV.
+    The original one-VEV UV model has y_sll = m_l / v_s for l=mu,tau.
+    Therefore xi_UV = v / v_s for these two charged-lepton couplings.
+    This is a coupling-normalization match, not a collider-limit recast.
+    """
+    if vs_GeV <= 0:
+        raise ValueError("vs_GeV must be positive")
+    return SM_HIGGS_VEV_GEV / vs_GeV
+
+
+def rescale_coupling_limit_for_branching_fraction(
+    coupling_limit_benchmark: float,
+    br_benchmark: float,
+    br_uv: float,
+) -> float:
+    """Rescale a published scalar coupling limit for a changed decay BR.
+
+    Assumes the same scalar production matrix element, kinematics, and
+    selection efficiency, with sigma_prod proportional to coupling squared.
+    The observable is sigma_prod * BR(final state). Both branching fractions
+    must be complete and independently validated before this is used.
+    This helper does not establish those conditions.
+    """
+    if coupling_limit_benchmark <= 0:
+        raise ValueError("coupling_limit_benchmark must be positive")
+    if not 0.0 < br_benchmark <= 1.0:
+        raise ValueError("br_benchmark must lie in (0, 1]")
+    if not 0.0 < br_uv <= 1.0:
+        raise ValueError("br_uv must lie in (0, 1]")
+    return coupling_limit_benchmark * sqrt(br_benchmark / br_uv)
 
 
 def fermion_pair_width(ms_GeV: float, y_sff: float, mf_GeV: float) -> float:
