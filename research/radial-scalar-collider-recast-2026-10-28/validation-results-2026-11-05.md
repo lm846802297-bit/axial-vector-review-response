@@ -55,14 +55,18 @@ These are two-channel fractions with only \(\mu^+\mu^-\) and \(\tau^+\tau^-\) in
 
 For \(m_{A'}\ll m_s\), the analytic ratio \(\Gamma(s\to A'A')/\Gamma(s\to\tau^+\tau^-)\) is approximately 251 at \(m_s=3.6\,\mathrm{GeV}\), 13.1 at 4 GeV, 5.69 at 5 GeV, and 9.70 at 10 GeV. This identifies a potentially dominant open channel; it does not constitute an experimental constraint.
 
-## 4. What this validation does not establish
+## 4. Scope of this code-validation snapshot
 
-- The official APS supplemental files have **not** been downloaded into the repository.
-- No raw mass grid, observed cross-section row, expected limit, or coupling-limit row has been transcribed.
-- Neither Belle II scalar benchmark has been numerically reproduced.
-- No detector efficiency or likelihood has been recomputed.
-- No model-specific exclusion, allowed interval, or point classification has been produced.
-- The downloader tests validate local payload checks only; they do not demonstrate successful access to APS.
+These statements describe the scope of the original 14-test code-validation run, which was performed before the supplemental files were retrieved. They are not the current data status.
+
+- That test run did not parse raw mass grids or reproduce either scalar benchmark.
+- It did not recompute detector efficiencies, event-level likelihoods, or the CLs procedure.
+- It did not produce a complete UV-model exclusion, allowed interval, or point classification.
+- The downloader tests validate rejection of empty, HTML, and access-block payloads. Actual retrieval and byte-for-byte archival were subsequently verified separately.
 - No GitHub Actions/CI run is claimed.
 
-The next evidence gate is to retrieve the three official files, archive them verbatim with SHA-256 hashes, parse their schemas, and reproduce the Belle II scalar benchmark before any UV reinterpretation.
+## 5. Superseding data-validation record — 2026-11-05
+
+The three official APS supplements have since been retrieved and archived verbatim in this PR branch. SHA-256 hashes, Git blob SHA-1 verification, row/column counts, duplicate-row checks, expected-band ordering, four-muon quadratic normalization, and table-driven benchmark plots are documented in [source-data-audit-2026-11-05.md](source-data-audit-2026-11-05.md). Exact file provenance is recorded in [data/manifest-2026-11-05.json](data/manifest-2026-11-05.json).
+
+The published scalar benchmark curves are reconstructed from the numerical tables, but no detector-level reanalysis or complete original-UV collider exclusion is claimed. The remaining UV width, lifetime, and point-by-point recast gates are listed in the source-data audit.
