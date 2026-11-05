@@ -32,7 +32,7 @@
 - **Minor Point 6.1：** 将 \(g_X\) 上限从旧值 \(10^{-1}\) 修正为实际 Fig. 2 展示窗口的 \(1\)，与 Major Point 2 和 Minor Point 1 一致。
 - **Major Point 4.4：** 引入 Kahn et al. (2017) 的轴矢量恒星冷却讨论；用 \(O(10^{-10})\) 表示 Wang--Zhang 矢量参考的 SN1987A 灵敏度；明确 neutrino coalescence 的相同电流比较所需的 active--heavy mixing 与额外通道条件，并交叉引用 Major Point 4.2 的 PMNS inclusive-width 迹恒等式。
 - **Major Point 4.4：** 新增矢量流守恒、轴矢量流散度及 Goldstone 等效纵向耦合关系，解释矢量 semi-Compton 产生率不能直接移植；将低动量 kinetic-mixing 抑制限定为电磁流介导过程，不用于 neutrino coalescence 或直接轴矢量 semi-Compton。
-- **Major Point 1.3：** 合并重复的限制表述，不改变公式、benchmark、数值结果或近简并区的未评估边界。
+- **Major Point 1.3：** 本轮复核后撤销最初拟议的三处文字精简，恢复 PR #50 修改前 `main` 的原有表述；PR #50 最终不修改该部分，完整保留闭式泡图表达式、UV--EFT 匹配、benchmark 数值、数值验证精度及各子集的适用范围和未完成项。
 - 新增 [解析论证完整性审查与修订记录](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-05/回复信解析论证完整性审查与修订记录_2026-11-05.md)。
 
 **验证边界：** TeX 花括号、环境配对、标签唯一性和 citation-key 静态核查通过；36 个唯一引用键均可解析。新增公式片段通过独立 pdflatex 编译。完整回复信 PDF 尚未重编译或逐页视觉检查；未运行 CI；没有新增超新星输运计算；论文正文未修改。根目录现有 PDF 仍是 2026-11-04-r2 历史编译件，不包含 PR #49/#50 的 TeX 更新。
