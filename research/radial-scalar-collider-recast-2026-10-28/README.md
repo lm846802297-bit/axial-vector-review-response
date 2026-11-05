@@ -238,3 +238,14 @@ The module:
 - returns a reconstructed signal shape and fit-window signal fraction, not a new CLs limit.
 
 **No real Belle II finite-width convolution has been run.** The archived numerical supplements do not provide the full mass-dependent two-Crystal-Ball parameter tables. The kernel also requires the mass-dependent scalar production-times-efficiency product and running widths over the full integration range. These inputs are not replaced by invented values. Synthetic tests validate only the numerical machinery.
+
+
+## 11. 2026-11-05 update — lifetime-dependent efficiency audit
+
+The publication-level lifetime evidence and the requirements for a detector-level study are recorded in [lifetime-dependent-belleii-efficiency-audit-2026-11-05.md](lifetime-dependent-belleii-efficiency-audit-2026-11-05.md).
+
+The four-muon paper explicitly states that the lifetime is negligible for the couplings explored in its prompt scalar benchmark. Both analyses apply track-DCA requirements of 0.5 cm transverse and 2.0 cm longitudinal, but neither publication provides a lifetime-dependent scalar efficiency curve. The tau-pair paper does not discuss a lifetime scan.
+
+The existing maximum-kinematic mean-flight diagnostic is therefore retained only as a geometry proxy. For the 1,852 conditional four-muon excluded points, its maximum value is 0.209 mm, below the 5 mm transverse DCA scale. The tau-pair narrow/prompt subset contains no conditional exclusions. Points marked lifetime-sensitive remain unclassified until a lifetime-dependent efficiency is supplied by Belle II or obtained with a validated detector/analysis simulation.
+
+No DCA requirement is converted into a decay-radius cut, and no detector efficiency is invented.
