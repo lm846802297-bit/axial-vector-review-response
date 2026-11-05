@@ -20,7 +20,7 @@ PR #50 已于 2026-11-05 Squash Merge 至 main，合并提交为 [51a245b0a36703
 
 - **PR #54：** 当前 Draft，修正正式回复信中 Major 1、2、4.2、4.4 对 Major 3 扩展的跨问题引用，并将中微子完成机制限定为 Major 3/4.1 专门回复内容。TeX 静态结构检查通过；完整编译、PDF 视觉检查和 CI 尚未执行。
 
-**统一模型边界：** 除 Major Point 3 的专门回复段落外，所有其他审稿回复和专题研究均以原论文 \(S+\mathrm{VLL}\) 单 VEV UV 模型为准。不得将 Major Point 3 中讨论的可选扩展机制作为原论文已经采用的场内容。
+**统一模型边界：** 除 Major Point 3/4.1 的专门中微子回复段落外，所有非中微子审稿回复和专题研究均以原论文 \(S+\mathrm{VLL}\) 单 VEV UV 模型为准。不得将 Major Point 3/4.1 中讨论的可选扩展机制作为原论文已经采用的场内容。
 ## 2026-11-05 更新：PR #53 原论文单 VEV 轴矢量恒星冷却计算（Draft）
 
 [PR #53](https://github.com/lm846802297-bit/axial-vector-review-response/pull/53) 从当前 main 的 \`d3c8c573e0b219dbcb4be62dc57f77fdc04c4f96\` 创建，替代旧 PR #30 及错误采用双 VEV 映射的 PR #51；两者均关闭且未合并。
