@@ -1,6 +1,6 @@
 # Scalar-mass classification: definition and acceptance criteria
 
-**Model scope:** the original paper's one-VEV UV model only. Use (m_{A'}=2g_Xv_s), (m_s^2=2\lambda_Sv_s^2), and the original mass-proportional Yukawa benchmark. This file does not define a scan for an extended scalar sector.
+**Model scope:** the original paper's one-VEV UV model only. Use \(m_{A'}=2g_Xv_s\), \(m_s^2=2\lambda_Sv_s^2\), and the original mass-proportional Yukawa benchmark. This file does not define a scan for an extended scalar sector.
 
 ## 1. Why there is not yet one universal allowed interval
 
