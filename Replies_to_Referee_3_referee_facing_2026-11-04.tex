@@ -286,11 +286,11 @@ The lower-mass scalar regimes are treated separately through the source-based co
 Above (34): the authors ``assume negligible Higgs-portal mixing.'' Is this interaction not generated at loop level? It seems that \(S\)-\(h\) mixing cannot be avoided due to \(\mu\) and \(\tau\) loops. In turn, this seems like it would lead to strong experimental bounds on the UV completion. In fact, once there is mixing, is there not a resonance where the mixing becomes large as \(m_S\to m_h\)? It would be useful to quantify the size of this mixing over the allowed range of \(m_S\). Existing Higgs measurements may set the strongest bounds on the UV completion. If these bounds are obviously negligible (though again, I expect this to be strongly constrained as \(m_S\to m_h\)), then the authors should present this as the justification for ignoring \(m_S\) in the low-energy theory. (Though I am still skeptical that the \(S\) can be ignored since it cannot formally decouple.)\end{quote}
 
 \noindent {\bf Reply.}
-We agree that a vanishing Higgs-portal coupling is not enforced by the gauge symmetry: the operator \((H^\dagger H)(S^\dagger S)\) is allowed, so the portal boundary condition must be stated at a matching scale and in a specified renormalization convention. The negligible-portal assumption is therefore used only as a conditional phenomenological benchmark, not as a symmetry-protected statement or a claim that the portal vanishes at every scale.
+We agree that a vanishing Higgs-portal coupling is not enforced by the gauge symmetry: the operator \((H^\dagger H)(S^\dagger S)\) is allowed and contributes \((M_{\mathrm{loc}}^2)_{hs}=\lambda_{HS}v_hv_s\) after symmetry breaking, so the portal boundary condition must be stated at a matching scale and in a specified renormalization convention. The negligible-portal assumption is therefore used only as a conditional phenomenological benchmark, not as a symmetry-protected statement or a claim that the portal vanishes at every scale.
 
-Generic singlet--Higgs mixing is constrained by the \(125\) GeV Higgs signal strengths and direct searches for additional scalar states; representative analyses are cited above. For the present UV completion, we complement these general results with the model-specific VLL threshold matching and the finite-momentum \(h\)-\(s\) self-energy, evaluated using the full charged-lepton/VLL mass-eigenstate matrices as detailed below.
+Generic singlet--Higgs mixing is constrained by the \(125\) GeV Higgs signal strengths and direct searches for additional scalar states; representative analyses are cited above. For the original one-singlet \(S+\mathrm{VLL}\) UV model considered here, we complement these general results with the model-specific VLL threshold matching and the finite-momentum \(h\)-\(s\) self-energy, evaluated using the full charged-lepton/VLL mass-eigenstate matrices as detailed below.
 
-The zero-momentum effective-potential analysis for the vector-like-lepton (VLL) sector gives, under its stated potential convention,
+In the \(\overline{\mathrm{MS}}\) scheme, with \(\mathcal L\supset -V\) and \(V\supset\lambda_{HS}(H^\dagger H)(S^\dagger S)\), the zero-momentum effective-potential matching for the vector-like-lepton (VLL) sector gives
 \[
 \lambda_{HS}^{\mathrm{EFT}}(\mu_R)
 =\lambda_{HS}^{\mathrm{UV}}(\mu_R)
@@ -308,25 +308,268 @@ To make the portal assumption explicit, we have evaluated the leading VLL thresh
 \lambda_{HS}^{\mathrm{EFT}}(\mu_M)
 =\lambda_{HS}^{\mathrm{UV}}(\mu_M)+\Delta\lambda_{HS}^{E}.
 \]
-We use \(\lambda_{HS}^{\mathrm{EFT}}(M_E)=0\) as an explicit small-portal reference condition, which requires a nonzero UV portal \(\lambda_{HS}^{\mathrm{UV}}=-\Delta\lambda_{HS}^{E}\). This condition is a benchmark choice, not a symmetry prediction. For illustration, taking \(M_E=20\,\mathrm{TeV}\), \(\theta_{\mu L}=\theta_{\tau L}=10^{-2}\), and the leading seesaw relations gives \(\Delta\lambda_{HS}^{E}\simeq-0.2108\) at \((m_{A'},g_X,v_s)=(10\,\mathrm{GeV},0.0705,70.9\,\mathrm{GeV})\), and \(\Delta\lambda_{HS}^{E}\simeq-0.01067\) at \((63\,\mathrm{GeV},0.1,315\,\mathrm{GeV})\). For these illustrative points only, we additionally impose \(|\lambda_\ell|\leq\sqrt{4\pi}\); this is a theory-consistency benchmark rather than a new exclusion contour in Fig.~2. The comparison demonstrates that setting the UV portal to zero is not equivalent to setting the matched EFT portal to zero, and that the latter must be stated as an input if the small-portal benchmark is retained.
-
-In the present zero-tree-level-mixing setup, the singlet-like field \(s\) has no tree-level \(sWW\) or \(s\bar t t\) vertex; accordingly, direct one-loop \(W\)- or top-quark diagrams do not contribute to \(\Pi_{hs}\) at this order. The leading one-loop off-diagonal contribution instead comes from the charged-lepton/vector-like-lepton sector. We have evaluated this fermion contribution using the full \(2\times2\) charged-lepton/VLL mass-eigenstate matrices, including light-light, light-heavy, heavy-light, and heavy-heavy internal states, and have separated the light-lepton EFT contribution from the hard momentum-dependent term. We use the explicit reference condition \(\lambda_{HS}^{\mathrm{EFT}}(M_E)=0\) stated above; the result is therefore conditional on that matching choice and is not a prediction independent of the renormalized portal boundary.
-
-For illustration, with \(M_E=20\,\mathrm{TeV}\), \(\theta_{\mu L}=\theta_{\tau L}=10^{-2}\), and the same leading-seesaw benchmark inputs used for the threshold check, the matched off-diagonal self-energy at \(p^2=m_h^2\) is
+We use \(\lambda_{HS}^{\mathrm{EFT}}(M_E)=0\) as an explicit small-portal reference condition, which requires a nonzero UV portal \(\lambda_{HS}^{\mathrm{UV}}=-\Delta\lambda_{HS}^{E}\). This condition is a benchmark choice, not a symmetry prediction. In the leading charged-lepton/VLL mass-mixing approximation,
 \[
-\Pi_{hs}^{\mathrm{matched}}(m_h^2)
-\simeq(-0.4133-0.1132i)\,\mathrm{GeV}^2
+\theta_{\ell L}\simeq\frac{y_\ell v_h}{\sqrt2M_E},
+\qquad
+\theta_{\ell R}\simeq\frac{\lambda_\ell v_s}{\sqrt2M_E},
+\qquad
+m_\ell\simeq\theta_{\ell L}\theta_{\ell R}M_E
+\simeq\frac{y_\ell\lambda_\ell v_hv_s}{2M_E}.
 \]
-for \((m_{A'},g_X,v_s)=(10\,\mathrm{GeV},0.0705,70.9\,\mathrm{GeV})\), and
+For illustration, taking \(M_E=20\,\mathrm{TeV}\), \(\theta_{\mu L}=\theta_{\tau L}=10^{-2}\), and the leading charged-lepton/VLL mass-mixing relations gives \(\Delta\lambda_{HS}^{E}\simeq-0.2108\) at \((m_{A'},g_X,v_s)=(10\,\mathrm{GeV},0.0705,70.9\,\mathrm{GeV})\), and \(\Delta\lambda_{HS}^{E}\simeq-0.01067\) at \((63\,\mathrm{GeV},0.1,315\,\mathrm{GeV})\). For these illustrative points only, we additionally impose \(|\lambda_\ell|\leq\sqrt{4\pi}\); this is a theory-consistency benchmark rather than a new exclusion contour in Fig.~2. The comparison demonstrates that setting the UV portal to zero is not equivalent to setting the matched EFT portal to zero, and that the latter must be stated as an input if the small-portal benchmark is retained.
+
+The condition \(\lambda_{HS}^{\mathrm{EFT}}(M_E)=0\) removes the local dimension-four mixed mass insertion from the matched EFT at the matching scale; it does not set the UV portal to zero. In particular, \(\lambda_{HS}^{\mathrm{UV}}(M_E)=-\Delta\lambda_{HS}^{E}\) is nonzero in both benchmarks. The CP-even radial-scalar bubbles generated by this portal can be organized using
 \[
-\Pi_{hs}^{\mathrm{matched}}(m_h^2)
-\simeq(-0.09300-0.02547i)\,\mathrm{GeV}^2
+g_{hhh}=6\lambda_Hv_h,\qquad
+g_{sss}=6\lambda_Sv_s,\qquad
+g_{hhs}=\lambda_{HS}^{\mathrm{UV}}v_s,\qquad
+g_{hss}=\lambda_{HS}^{\mathrm{UV}}v_h.
 \]
-for \((m_{A'},g_X,v_s)=(63\,\mathrm{GeV},0.1,315\,\mathrm{GeV})\). 
+Their zero-momentum-subtracted contribution has the form
+\[
+\Delta\Pi_{hs}^{(h,s)\,\mathrm{subset}}
+=\frac{\lambda_{HS}^{\mathrm{UV}}v_hv_s}{32\pi^2}
+\left[
+6\lambda_H\Delta\bar B_{hh}
++6\lambda_S\Delta\bar B_{ss}
++2\lambda_{HS}^{\mathrm{UV}}\Delta\bar B_{hs}
+\right],
+\qquad
+\Delta\bar B_{ij}\equiv
+\Delta\bar B_0(m_h^2;m_i^2,m_j^2),
+\]
+where the finite, subtraction-scale-independent function is
+\[
+\Delta\bar B_0(s;a,b)
+=-\int_0^1 dx\,
+\ln\!\left[
+1-\frac{x(1-x)s}{xa+(1-x)b}
+\right],
+\qquad a=m_i^2,\quad b=m_j^2.
+\]
+For equal internal masses, this integral has the elementary closed form
+\[
+\boxed{
+\Delta\bar B_0(s;a,a)
+=2-2\sqrt{\frac{4a}{s}-1}\,
+\arctan\!\left(\frac{1}{\sqrt{4a/s-1}}\right),
+\qquad 0<s<4a.
+}
+\]
+For unequal internal masses, define
+\[
+\Lambda(s,a,b)=(s-a-b)^2-4ab,\qquad
+q=\frac{\sqrt{-\Lambda(s,a,b)}}{2s},\qquad
+t_0=\frac{a-b-s}{2s},\quad t_1=t_0+1,
+\]
+and
+\[
+G(t)=t\ln\!\left[\frac{s(t^2+q^2)}{\mu_0^2}\right]
+-2t+2q\arctan\!\left(\frac{t}{q}\right),
+\qquad
+I_0(a,b;\mu_0)=
+\frac{a\ln(a/\mu_0^2)-b\ln(b/\mu_0^2)}{a-b}-1.
+\]
+The mixed-mass result is then
+\[
+\boxed{
+\Delta\bar B_0(s;a,b)
+=I_0(a,b;\mu_0)-\big[G(t_1)-G(t_0)\big],
+\qquad a\ne b,\quad \Lambda(s,a,b)<0.
+}
+\]
+The arbitrary reference scale \(\mu_0\) cancels from this difference. All benchmark evaluations below lie on this real sub-threshold branch. Thus the \(hh\) and \(ss\) terms use the equal-mass expression, while the \(hs\) term uses the mixed-mass expression. At \(m_s=100\,\mathrm{GeV}\), the function triplet is \((\Delta\bar B_{hh},\Delta\bar B_{ss},\Delta\bar B_{hs})=(0.1862006,0.3150601,0.2366921)\); at \(m_s=m_h\), all three equal \(0.1862006\). The closed forms agree with independent 8,000-interval Simpson integration at relative differences below \(10^{-14}\).
+Because \(\lambda_{HS}^{\mathrm{UV}}\) is fixed at the one-loop VLL-threshold order, the terms with one portal insertion are next order in this combined counting; the term with two portal insertions is one order further. In an \(R_\xi\) gauge, the corresponding Goldstone vertices are \(g_{hG_HG_H}=2\lambda_Hv_h\), \(g_{sG_HG_H}=\lambda_{HS}^{\mathrm{UV}}v_s\), \(g_{haa}=\lambda_{HS}^{\mathrm{UV}}v_h\), and \(g_{saa}=2\lambda_Sv_s\). A physical pole calculation must combine these with the gauge/ghost contributions and a consistent tadpole/VEV prescription. Tadpole and VEV-counterterm terms are local and cancel in the displayed momentum difference, but are required in a complete un-subtracted mass/pole renormalization. Thus this expression fixes the perturbative order and diagram structure; it is not by itself a complete two-loop UV--EFT matched self-energy. We do not add this isolated subset to \(\Pi_{hs}^{\mathrm{ret}}\) or use it to classify the near-degenerate region. In the gauge basis the singlet radial mode has no direct \(sWW\) or \(s\bar t t\) vertex, so direct one-loop \(W\)- or top-quark contributions to \(\Pi_{hs}\) are absent at the retained order; portal-induced effects in those loops enter at higher order.
 
-The finite-momentum result does not imply uniformly negligible mixing. At \(m_s=m_h=125.25\,\mathrm{GeV}\), the width-regulated diagnostic \(|\Pi_{hs}/(a-b)|\), with \(a=m_h^2-i m_h\Gamma_h\) and \(b=m_s^2-i m_s\Gamma_s\), is approximately \(9.1\times10^{-4}\) when \(s\to A'A'\) is open and \(\Gamma_s\simeq3.75\,\mathrm{GeV}\). For the benchmark in which \(s\to A'A'\) is closed and \(\Gamma_s\simeq0.159\,\mathrm{MeV}\), the same diagnostic reaches about \(0.197\) at exact degeneracy; the corresponding \(2|\Pi_{hs}/(a-b)|\) diagnostic is about \(0.394\). 
+For each charged-lepton flavour, the field-dependent mass matrix and gauge-basis scalar vertices are
+\[
+\mathcal M_\ell(h,s)=
+\begin{pmatrix}
+0&y_\ell(v_h+h)/\sqrt2\\
+\lambda_\ell(v_s+s)/\sqrt2&M_{E_\ell}
+\end{pmatrix},
+\qquad
+\Gamma_h^\ell=
+\begin{pmatrix}0&y_\ell/\sqrt2\\0&0\end{pmatrix},
+\qquad
+\Gamma_s^\ell=
+\begin{pmatrix}0&0\\\lambda_\ell/\sqrt2&0\end{pmatrix}.
+\]
+For the \(\tau\) interaction the original model contains \(S^*\); its radial real-\(s\) vertex is the same for the real benchmark couplings. With
+\[
+U_L^T\mathcal M_\ell(0,0)U_R
+=\operatorname{diag}(m_{\ell1},m_{\ell2}),
+\qquad
+G_a^\ell=U_L^T\Gamma_a^\ell U_R\quad(a=h,s),
+\]
+all four internal mass-eigenstate pairs are included for both \(\mu\) and \(\tau\). In the following kernels the flavour label \(\ell\) on \(G_a^\ell\) is suppressed.
 
-Across the illustrative \(m_s\in[10,150]\,\mathrm{GeV}\) diagnostic scan, the criterion \(2|\Pi_{hs}/(a-b)|\geq0.1\) is not reached in the open-channel benchmark. In the closed-channel benchmark near \(m_s\simeq m_h\), the fixed-self-energy diagnostic exceeds this criterion only within a narrow band of approximately \(7.5\,\mathrm{MeV}\) on either side of \(m_h=125.25\,\mathrm{GeV}\). The estimate holds the matched \(\Pi_{hs}(m_h^2)\) fixed while varying \(m_s\) and the tree-level singlet width; it is a diagnostic approximation, not a self-consistent two-pole solution or an experimental exclusion interval. This narrow band is not covered by the small-mixing approximation. The scalar \(S\) remains part of the UV construction, and Fig.~2 represents the specified small-portal, pure-axial effective-current benchmark rather than a global UV exclusion.
+Define
+\[
+C_{ab}^{ij}=(G_a)_{ij}(G_b)_{ij}^{*}
+ +(G_a)_{ji}^{*}(G_b)_{ji},
+\qquad
+D_{ab}^{ij}=(G_a)_{ij}(G_b)_{ji}
+ +(G_a)_{ji}^{*}(G_b)_{ij}^{*},
+\]
+and
+\[
+K_{ij}=\bar A_0(m_i^2)+\bar A_0(m_j^2)
+ +(m_i^2+m_j^2-p^2)\bar B_0(p^2;m_i^2,m_j^2).
+\]
+The one-loop fermion self-energy in the source convention is
+\[
+\Pi_{ab}^{F,\ell}(p^2)
+=-\frac{1}{16\pi^2}\sum_{i,j=1}^{2}
+\left[C_{ab}^{ij}K_{ij}
++2m_im_jD_{ab}^{ij}\bar B_0(p^2;m_i^2,m_j^2)\right].
+\]
+We use \(\Gamma_{\rm inv}=p^2\mathbf1-\mathcal M_{\rm loc}^2+\Pi_{\rm RC}\) and \(\Pi_B=-\Pi_{\rm RC}\). The finite functions at \(\mu_R=M_E\) are
+\[
+\bar A_0(m^2)=m^2\left(1-\ln\frac{m^2}{\mu_R^2}\right),
+\qquad
+\bar B_0(p^2;m_i^2,m_j^2)
+=-\int_0^1dx\,
+\ln\frac{xm_i^2+(1-x)m_j^2-x(1-x)p^2-i0}{\mu_R^2}.
+\]
+
+The full-theory self-energy contains the local portal-threshold constant and the light-lepton contribution reproduced in the EFT. The momentum-dependent hard term is isolated by
+\[
+\Delta\Pi_{\mathrm{hard}}(m_h^2)=
+[\Pi_B^{\mathrm{full}}(m_h^2)-\Pi_B^{\mathrm{full}}(0)]
+-[\Pi_B^{\mathrm{light,exact}}(m_h^2)-\Pi_B^{\mathrm{light,exact}}(0)],
+\]
+where the light-light term uses the exact light-state Yukawa couplings from the same mass diagonalization. The retained EFT soft contribution is the light-lepton bubble plus the dimension-five contact tadpole,
+\[
+\Pi_{\mathrm{soft,bub+ct}}^B(p^2)
+=\sum_{\ell=\mu,\tau}\frac{q_\ell}{16\pi^2}
+\left[4\bar A_0(m_\ell^2)
++(4m_\ell^2-p^2)\bar B_0(p^2;m_\ell^2,m_\ell^2)\right],
+\qquad q_\ell=\frac{2m_\ell^2}{v_hv_s}.
+\]
+We denote their sum by
+\[
+\Pi_{hs}^{\mathrm{ret}}(m_h^2)
+=\Pi_{\mathrm{soft,bub+ct}}^B(m_h^2)
++\Delta\Pi_{\mathrm{hard}}(m_h^2).
+\]
+The soft term here is the specified bubble-plus-contact subset, not the complete set of all same-order EFT soft insertions and counterterms. Thus \(\Pi_{hs}^{\mathrm{ret}}\) is a conditional Yukawa-sector benchmark estimate rather than a fully closed model-level pole prediction.
+
+For \(M_E=20\,\mathrm{TeV}\), \(\theta_{\mu L}=\theta_{\tau L}=10^{-2}\), \(m_h=125.25\,\mathrm{GeV}\), \(v_h=246.22\,\mathrm{GeV}\), and \(\mu_R=M_E\), the numerical decomposition is
+\[
+\begin{array}{c|cc}
+[\mathrm{GeV}^2]&\text{Benchmark A}&\text{Benchmark B}\\ \hline
+\Pi_{\mathrm{soft,bub+ct}}^B(m_h^2)&
+-0.437308303-0.113173709i&
+-0.098410275-0.025468201i\\
+\Delta\Pi_{\mathrm{hard}}(m_h^2)&
++0.024030444&
++0.005407724\\
+\Pi_{hs}^{\mathrm{ret}}(m_h^2)&
+-0.413277859-0.113173709i&
+-0.093002551-0.025468201i
+\end{array}
+\]
+The exact hard momentum difference agrees with the leading source-aligned derivative result to \(6.11\times10^{-4}\) relative at both benchmarks, and the zero-momentum hard comparator agrees with the leading portal-threshold estimate to \(1.79\times10^{-4}\) relative. These checks validate the stated fermionic subcalculation and its numerical implementation, but do not close the remaining same-order EFT soft/counterterm sectors.
+
+For a clearly non-degenerate point in Benchmark B, we take \(m_s=100\,\mathrm{GeV}\). Here \(m_s\) denotes the unmixed diagonal singlet-mass input in the inverse propagator, not an already diagonalized physical pole mass, and
+\[
+\lambda_S=\frac{m_s^2}{2v_s^2}=0.05039.
+\]
+The singlet width in the mass interval considered is
+\[
+\begin{aligned}
+\Gamma_s={}&
+\Theta(m_s-2m_{A'})
+\frac{m_s^3}{32\pi v_s^2}
+(1-4x+12x^2)\sqrt{1-4x}\\
+&+\sum_{\ell=\mu,\tau}
+\Theta(m_s-2m_\ell)
+\frac{m_\ell^2m_s}{8\pi v_s^2}
+\left(1-\frac{4m_\ell^2}{m_s^2}\right)^{3/2},
+\qquad x=\frac{m_{A'}^2}{m_s^2}.
+\end{aligned}
+\]
+At this point \(s\to A'A'\) is closed because \(m_s<2m_{A'}=126\,\mathrm{GeV}\), \(h\to A'A'\) is closed because \(m_h<2m_{A'}\), and \(h\to ss\) is closed because \(m_s>m_h/2\). The width is \(\Gamma_s=0.126811\,\mathrm{MeV}\). The first-pass complex-pole solution gives a singlet-like pole at \(99.999999997\,\mathrm{GeV}\) with width \(0.126815\,\mathrm{MeV}\), and a Higgs-like pole at \(125.250000022\,\mathrm{GeV}\) with width \(4.069993\,\mathrm{MeV}\).
+
+For this non-degenerate point, the leading-fermionic retained off-diagonal estimate gives
+\[
+\eta_{hs}\equiv\left|\frac{\Pi_{hs}^{\mathrm{ret}}(m_h^2)}{a-b}\right|
+\simeq1.695\times10^{-5},
+\qquad
+a=m_h^2-im_h\Gamma_h,\quad b=m_s^2-im_s\Gamma_s.
+\]
+In the isolated-pole, weak-mixing and SM-dominated-channel limit, the mixing-only leading rate diagnostic is
+\[
+\delta\mu_h^{(\mathrm{mix,LO})}
+\equiv\mu_h^{(\mathrm{mix,LO})}-1
+\simeq-\eta_{hs}^2
+\simeq-2.87\times10^{-10}.
+\]
+The corresponding mixing-only fractional rate shift is about \(2.9\times10^{-8}\%\). Here \(\eta_{hs}\) is a first-order off-diagonal mass-insertion diagnostic, not an independently calculated physical mixing angle. The rate estimate is mixing-only: it is not a complete pole signal strength and does not include process-dependent direct-singlet-Yukawa corrections in the \(\mu\) and \(\tau\) channels or the separate searches for the \(100\,\mathrm{GeV}\) scalar.
+
+For comparison, the PDG 2025 update quotes the inclusive global signal strengths \(\mu_{\mathrm{ATLAS}}=1.023^{+0.056}_{-0.053}\) and \(\mu_{\mathrm{CMS}}=1.014^{+0.055}_{-0.053}\) \cite{ParticleDataGroup:2024cfk}. Their uncertainties are approximately \(5.3\%\)--\(5.6\%\), more than \(1.8\times10^8\) times larger than the illustrative \(2.9\times10^{-10}\) mixing-only rate shift. This is a comparison of scales for the isolated \(125\,\mathrm{GeV}\) pole in the stated non-degenerate benchmark, not a model-specific likelihood fit or a bound on the separate \(S\)-like state. The quoted experimental combinations assume a single narrow resonance and fixed signal shapes; they are not a two-scalar fit. The present comparison is deliberately restricted to a point with a well-separated \(S\)-like pole and with \(h\to ss\) closed. For \(m_s<m_h/2\), scalar-pair decays such as \(h\to ss\), when open, depend on the corresponding trilinear coupling and cannot be inferred from \(\cos^2\theta\) alone.
+
+The finite-momentum result does not imply uniformly negligible mixing. The relevant complex inverse propagator is
+\[
+\mathcal D_B^{-1}(p^2)=
+\begin{pmatrix}
+p^2-m_h^2+i m_h\Gamma_h&-\Pi_{hs}^{B}(p^2)\\
+-\Pi_{sh}^{B}(p^2)&p^2-m_s^2+i m_s\Gamma_s
+\end{pmatrix},
+\qquad
+\det\mathcal D_B^{-1}(p^2)=0.
+\]
+The near-pole solver retains the momentum dependence of the light-lepton soft \(B_0\) functions and analytically continues them to the resonance sheet. Its hard part uses the source-aligned finite-derivative approximation; at \(p^2=m_h^2\), replacing this by the exact mass-eigenstate hard difference changes the hard term by \(6.11\times10^{-4}\) relative and the total retained \(\Pi_{hs}\) by about \(3.43\times10^{-5}\) relative. The diagonal real self-energies are absorbed into the benchmark mass inputs and the diagonal widths are held fixed, with \(\Gamma_h=4.07\,\mathrm{MeV}\). The resulting poles are therefore first-pass complex-pole diagnostics, not a complete pole-scheme calculation or an experimental lineshape fit.
+
+At exact diagonal-mass degeneracy \(m_s=m_h=125.25\,\mathrm{GeV}\), the two benchmarks give different pole behavior:
+\[
+\begin{array}{c|cc}
+&\text{Benchmark A: }A'A'\text{ open}
+&\text{Benchmark B: }A'A'\text{ closed}\\ \hline
+\Gamma_s&3.7468\,\mathrm{GeV}&0.15894\,\mathrm{MeV}\\
+|\Pi_{hs}/(a-b)|&9.14\times10^{-4}&0.19685\\
+(m_{\rm pole},\Gamma_{\rm pole})_{\rm narrow}&
+(125.250001\,\mathrm{GeV},4.0727\,\mathrm{MeV})&
+(125.250041\,\mathrm{GeV},0.2921\,\mathrm{MeV})\\
+(m_{\rm pole},\Gamma_{\rm pole})_{\rm broad}&
+(125.264006\,\mathrm{GeV},3746.39\,\mathrm{MeV})&
+(125.249959\,\mathrm{GeV},3.9368\,\mathrm{MeV})
+\end{array}
+\]
+For the closed-channel benchmark, a \(0.1\,\mathrm{MeV}\)-step scan over \(m_s\in[125.20,125.30]\,\mathrm{GeV}\) finds a maximum Higgs-like pole-eigenvector composition diagnostic \(|s/h|\simeq0.2039\) near \(m_s=125.2499\,\mathrm{GeV}\); the sampled interval with \(|s/h|\geq0.1\) is approximately \(125.2467\)--\(125.2532\,\mathrm{GeV}\). In the open-channel benchmark the maximum over the same local scan is \(9.15\times10^{-4}\), and no point reaches \(0.1\). The quantity \(|s/h|\) is a non-Hermitian pole-eigenvector diagnostic, not a directly observable mixing angle or rate.
+
+Separately, the exact mass-eigenstate fixed-self-energy scan over the local interval \(m_s\in[10,150]\,\mathrm{GeV}\), with \(1\,\mathrm{MeV}\) spacing and root-refined threshold crossings, gives no interval satisfying \(2|\Pi_{hs}/(a-b)|\geq0.1\) in Benchmark A. In Benchmark B the corresponding diagnostic interval is
+\[
+m_s\in[125.242553544,125.257446018]\,\mathrm{GeV},
+\]
+or approximately \(|m_s-m_h|\lesssim7.45\,\mathrm{MeV}\). This is a fixed-self-energy diagnostic, not an allowed or excluded interval. The \(|s/h|\) eigenvector criterion and \(2|\Pi_{hs}/(a-b)|\) criterion are distinct diagnostics and are not identified with one another. In the narrow near-degenerate region, the single-pole approximation \(\mu_h\simeq\cos^2\theta\) is not used; a physical rate requires both pole residues, production and decay amplitudes, interference and the experimental mass response.
+
+The perturbativity condition \(\lambda_S=m_s^2/(2v_s^2)\leq4\pi\) gives
+\[
+m_s\leq m_s^{\max}=\sqrt{8\pi}\,v_s
+=
+\begin{cases}
+355.4\,\mathrm{GeV},&\text{Benchmark A},\\
+1579.2\,\mathrm{GeV},&\text{Benchmark B}.
+\end{cases}
+\]
+The numerical interval \(10\)--\(150\,\mathrm{GeV}\) is a local diagnostic window around the \(125\,\mathrm{GeV}\) Higgs pole, not an exhaustive scan of these full perturbative intervals. For \(m_s\gg m_h\), at fixed benchmark inputs the retained off-diagonal numerator varies slowly with \(m_s\), whereas the diagonal mass separation grows as \(m_s^2\); hence the mixing diagnostic decreases parametrically as \(|\Pi_{hs}|/m_s^2\). The local scan is not used to infer a global scalar-sector exclusion or viability statement. The radial mode \(s\) remains a physical degree of freedom in the UV theory; the scalar-suppressed benchmark only specifies when the axial-current observables in Fig.~2 can be discussed separately from scalar-mediated observables. It does not establish formal decoupling or the absence of scalar effects in every process.
+
+For \(q^2\ll m_s^2,m_{A'}^2\), integrating out \(s\) and comparing local exchange coefficients gives scalar four-lepton operators with coefficient scale
+\[
+C_{\ell\ell'}^{(s)}\sim\frac{y_{s\ell\ell}y_{s\ell'\ell'}}{m_s^2},
+\qquad y_{s\ell\ell}\simeq\frac{m_\ell}{v_s}.
+\]
+Using \(m_{A'}=2g_Xv_s\), the corresponding \(A'\)-exchange coefficient scale is \(C^{(A')}\sim g_X^2/m_{A'}^2=1/(4v_s^2)\), so
+\[
+\frac{|C_{\ell\ell'}^{(s)}|}{|C^{(A')}|}
+\sim\frac{4m_\ell m_{\ell'}}{m_s^2}.
+\]
+For \(m_s\geq10\,\mathrm{GeV}\), this coefficient-level ratio is at most \(4.5\times10^{-4}\) for a \(\mu\mu\) operator; at \(m_s=100\,\mathrm{GeV}\) it is \(4.5\times10^{-6}\). For a \(\tau\tau\) operator it can instead be about \(0.13\) at \(m_s=10\,\mathrm{GeV}\). This scaling comparison therefore supports separating scalar exchange from the muon-dominated effective-current benchmark, but it does not justify neglecting scalar effects in every \(\tau\)-sensitive process and is not a process-specific rate comparison.
+
+The one-singlet scalar-suppressed benchmark specifies the regime in which the \(A'\) effective-current observables in Fig.~2 are presented separately from scalar-mediated observables; it does not remove \(s\) from the UV theory, establish formal decoupling, or imply that scalar effects vanish in every process.
 
 
 

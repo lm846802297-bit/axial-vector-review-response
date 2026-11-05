@@ -230,17 +230,147 @@ s-m_h^2+i m_h\Gamma_h&-\Pi_{hs}^{B}(s)\\
 \]
 这不是实验排除窗，只是表明需要专门处理复数极点的理论区域。开放 \(A'A'\) 道时，宽度差足够大，该诊断在精确简并点仍低于 \(0.002\)。
 
-## 6. Higgs 约束：本轮能够得出的结论
+## 6. Higgs 约束：非简并 benchmark 的量级比较与近简并边界（2026-11-04 更新）
 
-PDG 2025 的 Higgs 综述汇总的整体信号强度约为 ATLAS \(1.05\pm0.06\)、CMS \(1.002\pm0.057\)，与 SM 相容（[PDG 2025 Higgs review](https://pdg.lbl.gov/2025/reviews/rpp2025-rev-higgs-boson.pdf)）。
+PDG 2025 年 12 月更新的 Higgs 综述 Sec. 11.3.3 给出的 inclusive global signal strengths 为
+\[
+\mu_{\rm ATLAS}=1.023^{+0.056}_{-0.053},\qquad
+\mu_{\rm CMS}=1.014^{+0.055}_{-0.053}.
+\]
+两组测量的典型不确定度约为 \(5.3\%\)--\(5.6\%\)。该节的 global-\(\mu\) 与 \(\kappa\)-framework 解释采用单一窄共振和固定信号形状假设；它们不是本文两个标量极点的联合拟合。引用采用已有 BibTeX 键 `ParticleDataGroup:2024cfk`，正文明确标记为 PDG 2025 update。
 
-在当前匹配 benchmark 下：
+### 6.1 一个真正非简并、孤立的 125 GeV 极点 benchmark
 
-1. **非简并区域：** 例如 Benchmark B 的 \(|m_s-m_h|=0.1\) GeV 时，实质量差诊断量约 \(3.85\times10^{-3}\)；简单单态近似下由此引起的可见信号强度变化远小于当前约 \(5\%\)–\(6\%\) 的整体精度。
-2. **精确简并、\(A'A'\) 关闭：** 两个窄极点重叠，宽度发生重分配，Higgs-like 极点的本征向量中有不可忽略的 singlet 分量。单一窄标量的 \(\mu\simeq\cos^2\theta\) 公式不够；需要考虑两极点对同一末态的共同贡献和干涉。
-3. **\(A'A'\) 开放：** singlet-like 极点宽达数 GeV，Higgs-like 极点在当前近似中基本保持 SM 宽度。该结论不代表宽标量已通过所有直接搜索；本轮没有完成宽共振/连续谱的实验重铸。
+为避免把近简并双极点误当成单标量，选取 Benchmark B 的 \(m_s=100\) GeV 点作量级比较。此时：
+- \(|m_s-m_h|=25.25\) GeV，两个质量极点在物理质量尺度上分离；
+- \(m_s>m_h/2\)，所以 \(h\to ss\) 关闭；
+- Benchmark B 的 \(m_{A'}=63\) GeV，故 \(s\to A'A'\) 在 \(m_s=100\) GeV 时也关闭；
+- 由 exact mass-eigenstate scan 得到 \(2|\Pi_{hs}/(a-b)|=3.39\times10^{-5}\)，因此
+\[
+\eta_{hs}\equiv\left|\frac{\Pi_{hs}}{a-b}\right|
+\simeq1.695\times10^{-5}.
+\]
 
-**因此，本轮没有将近简并 benchmark 直接标为排除或允许。** 对非简并区域可以给出条件性的小修正判断；对窄宽度近简并区域，仍需模型专属的 Higgs 信号线形/强度拟合。
+在 one-singlet \(S+\mathrm{VLL}\) reference model、孤立窄极点和 SM 主导道的 leading-order 近似下，
+\[
+\mu_h^{\rm pole}\simeq\cos^2\theta_{\rm eff}
+\simeq1-\eta_{hs}^2
+\simeq1-2.87\times10^{-10}.
+\]
+即 125 GeV Higgs-like pole 的可见率重标度约为 \(2.9\times10^{-8}\%\)，比 PDG 2025 global-\(\mu\) 的约 \(5.3\%\) 不确定度小约 \(1.8\times10^8\) 倍。这里的 \(\eta_{hs}\) 是由固定 matched off-diagonal self-energy 得到的一阶 mass-insertion diagnostic，不是独立求得的物理混合角；这个比较只说明该非简并 one-singlet benchmark 的 125 GeV 极点混合效应远低于当前整体 rate precision。它不是模型特定 likelihood fit，也不约束 100 GeV singlet-like 标量自身的直接搜索。
+
+### 6.2 近简并点不能用单一 \(\cos^2\theta\) 公式
+
+Plan C-lite 的 \(|m_s-m_h|=0.1\) GeV 例子给出约 \(3.85\times10^{-3}\) 的实质量分母诊断量；它仅用于说明分母变小后混合增强，不能直接当作 detector-level global signal-strength shift。PDG 的单窄共振 \(\mu\) 结果不是两个相近标量的联合信号拟合。
+
+在 \(m_s=m_h=125.25\) GeV 处，exact mass-eigenstate calculation 给出：
+- \(A'A'\) 开放时，\(\Gamma_s\simeq3.7468\) GeV，\(|\Pi_{hs}/(a-b)|\simeq9.14\times10^{-4}\)；
+- \(A'A'\) 关闭时，\(\Gamma_s\simeq0.15894\) MeV，\(|\Pi_{hs}/(a-b)|\simeq0.19685\)，相应 \(2|\Pi_{hs}/(a-b)|\simeq0.39369\)。
+
+对闭道窄宽度 benchmark，固定自能诊断 \(2|\Pi_{hs}/(a-b)|\geq0.1\) 的区间约为 \(|m_s-m_h|\lesssim7.45\) MeV。该区间不是实验排除窗，也不是允许窗。近简并时必须由完整复数 \(2\times2\) 传播子极点、残数、产生/衰变振幅、干涉及实验质量响应决定可观测信号；单一孤立极点的 \(\mu_h\simeq\cos^2\theta\) 近似不适用。
+
+### 6.3 Scope boundary
+
+本节及以上数值结果严格针对原始单标量 \(S\) 与 VLL 构成的两态 \(h\)-\(s\) 系统。计算采用明确给出的 \(S\)-portal 匹配边界和两个参考 benchmark；不包含额外标量场、额外 portal 或三态 CP-even 传播子。因此，这些结果不应被表述为对任意扩展标量扇区的完整 UV 约束。其他场内容的扩展及其独立标量参数关系不属于本 Plan C-lite 计算范围。
+
+### 6.4 近 Higgs 极点的 0.1 MeV 复数极点扫描（2026-11-05）
+
+在原有第二 Riemann sheet 求解器基础上，增加了 \(m_s\in[m_h-50\,\mathrm{MeV},m_h+50\,\mathrm{MeV}]\) 的局部扫描，步长为 \(0.1\,\mathrm{MeV}\)，每个质量点求解
+\[
+F(s)=(s-a)(s-b)-\Pi_{hs}^{B}(s)\Pi_{sh}^{B}(s)=0,
+\quad
+a=m_h^2-i m_h\Gamma_h,\quad b=m_s^2-i m_s\Gamma_s.
+\]
+本实现采用实耦合基准 \(\Pi_{sh}=\Pi_{hs}\)，以常数自能根作为 Newton 初值；在第二 sheet 上保留轻子 \(B_0(s)\) 的动量依赖。对每个点，以较小 \(|s/h|\) 的极点标记为 Higgs-like pole。
+
+扫描结果：
+
+| 量 | Benchmark A：\(A'A'\) 开放 | Benchmark B：\(A'A'\) 关闭 |
+|---|---:|---:|
+| 局部扫描区间 | \(125.20\)--\(125.30\) GeV | \(125.20\)--\(125.30\) GeV |
+| 步长 | \(0.1\) MeV | \(0.1\) MeV |
+| Higgs-like pole 的最大 \(|s/h|\) | \(9.152\times10^{-4}\) | \(0.20391\) |
+| 最大值附近的 \(m_s\) | \(125.20\) GeV | \(125.2499\) GeV |
+| \(|s/h|\geq0.1\) 的采样区间 | 无 | \(125.2467\)--\(125.2532\) GeV |
+| Higgs-like pole 质量范围 | \(125.250000775\)--\(125.250000850\) GeV | \(125.249941827\)--\(125.250018922\) GeV |
+| Higgs-like pole 宽度范围 | \(4.072650\)--\(4.072727\) MeV | \(3.923605\)--\(4.080541\) MeV |
+
+所有 1001 个质量点的两个 Newton 根均收敛；被选取 Higgs-like 根的最大行列式残差为 \(4.27\times10^{-10}\)（A）和 \(1.09\times10^{-11}\)（B）。\(|s/h|\) 是非厄米极点本征向量的组成诊断，不是极点残数、可观测混合角或 detector-level signal strength。该阈值区间不得与固定自能诊断 \(2|\Pi/(a-b)|\geq0.1\) 的约 \(7.45\) MeV 半宽混为同一个量。
+
+### 6.5 精确有限硬项与复数极点求解器的精度接口
+
+精确质量本征态脚本在 \(p^2=m_h^2\) 给出的保留自能为
+\[
+\Pi_{hs}^{\mathrm{ret}}(m_h^2)=
+\begin{cases}
+-0.413277859-0.113173709i\ \mathrm{GeV}^2,&A,\\
+-0.093002551-0.025468201i\ \mathrm{GeV}^2,&B.
+\end{cases}
+\]
+Plan C-lite 的动量依赖极点求解器使用 RC-001 的 source-aligned 有限导数硬项，而不是对该精确硬项进行完整复动量解析延拓。两者在 \(m_h^2\) 的总自能差分别为 \(1.4691\times10^{-5}\) 和 \(3.3060\times10^{-6}\ \mathrm{GeV}^2\)，相对差均约 \(3.43\times10^{-5}\)；硬项本身与领先导数近似的相对差为 \(6.11\times10^{-4}\)。因此，复数极点结果是受控的第一轮诊断，不应称为精确全动量 UV 自能的极点解。
+
+### 6.6 微扰性质量上限与局部扫描的区别
+
+由
+\[
+\lambda_S=\frac{m_s^2}{2v_s^2}\leq4\pi
+\quad\Longrightarrow\quad
+m_s^{\max}=\sqrt{8\pi}\,v_s
+\]
+得到：
+
+| 量 | Benchmark A | Benchmark B |
+|---|---:|---:|
+| \(v_s\) | \(70.886458\) GeV | \(315\) GeV |
+| \(m_s^{\max}\)（\(\lambda_S=4\pi\)） | \(355.372\) GeV | \(1579.176\) GeV |
+| \(\lambda_S(m_s=100\,\mathrm{GeV})\) | \(0.99505\) | \(0.05039\) |
+| \(\lambda_S(m_s=m_h)\) | \(1.56099\) | \(0.07905\) |
+
+因此，\(m_s\in[10,150]\) GeV 是覆盖 Higgs 极点的局部诊断窗口，并非整个微扰性质量区间。对固定 benchmark 的保留一圈 Yukawa 自能，远离 Higgs 极点时
+\[
+\eta_{hs}\sim
+\frac{|\Pi_{hs}^{\mathrm{ret}}(m_h^2)|}{|m_s^2-m_h^2|}
+\underset{m_s\gg m_h}{\sim}
+\frac{|\Pi_{hs}^{\mathrm{ret}}(m_h^2)|}{m_s^2}.
+\]
+这说明大质量端的混合诊断具有 \(1/m_s^2\) 的解析抑制；它不是对整个高质量区间的数值扫描，也不构成 scalar direct-search 的全局约束。
+
+### 6.7 非零 UV portal 下的 loop counting
+
+匹配条件 \(\lambda_{HS}^{\mathrm{EFT}}(M_E)=0\) 意味着
+\[
+\lambda_{HS}^{\mathrm{UV}}(M_E)=-\Delta\lambda_{HS}^{E}\neq0.
+\]
+所以“zero-tree-level-mixing”只能指匹配 EFT 在该尺度的局域维四混合项为零，不能用于描述 UV 拉格朗日量。该 UV portal 的数值按构造与一圈 VLL 阈值同阶；带有额外 portal 顶角的标量圈图在这一 loop counting 中属于更高阶。作为参数量级检查，
+\[
+\frac{\lambda_S}{16\pi^2}=
+\begin{cases}
+6.30\times10^{-3}\ (m_s=100\,\mathrm{GeV}),\
+9.89\times10^{-3}\ (m_s=m_h),&A,\\
+3.19\times10^{-4}\ (m_s=100\,\mathrm{GeV}),\
+5.01\times10^{-4}\ (m_s=m_h),&B,
+\end{cases}
+\qquad
+\frac{\lambda_H}{16\pi^2}=8.19\times10^{-4}.
+\]
+这些数字仅估计代表性标量圈的额外耦合/圈因子；没有计算完整的 portal-induced scalar-loop diagrams，也不能据此把它们设为严格零。直接 \(W\)/top 一圈图在规范基底缺少 \(sWW\)、\(s\bar t t\) 顶角；通过 portal 诱导混合产生的相关贡献须按上述更高阶计数处理。
+
+### 6.8 低能标量交换与有效流 benchmark 的分离
+
+在 \(q^2\ll m_s^2,m_{A'}^2\) 时，径向标量交换与 \(A'\) 交换均可作局域系数比较
+\[
+\mathcal L_{\mathrm{eff}}^{(s)}
+\sim \frac{y_{s\ell\ell}y_{s\ell'\ell'}}{m_s^2}
+(\bar\ell\ell)(\bar\ell'\ell'),
+\qquad
+y_{s\ell\ell}\simeq\frac{m_\ell}{v_s}.
+\]
+与 \(A'\) 交换系数尺度 \(g_X^2/m_{A'}^2=1/(4v_s^2)\) 比较，
+\[
+\frac{|C_{\ell\ell'}^{(s)}|}{|C^{(A')}|}
+\sim\frac{4m_\ell m_{\ell'}}{m_s^2}.
+\]
+对 \(m_s\geq10\) GeV，\(\mu\mu\) 系数比不超过 \(4.5\times10^{-4}\)，在 \(m_s=100\) GeV 时约为 \(4.5\times10^{-6}\)；\(\tau\tau\) 系数比在 \(m_s=10\) GeV 时仍可达到约 \(0.13\)。这只是不同 Lorentz 结构算符的系数量级比较，不是过程级振幅或率之比。它支持把 muon-dominated \(A'\) effective-current benchmark 与 scalar-mediated observables 分开呈现，但不支持在所有 tau-sensitive processes 中忽略 \(s\)。
 
 ## 7. Plan C-lite 状态与剩余闭环
 
@@ -249,13 +379,13 @@ PDG 2025 的 Higgs 综述汇总的整体信号强度约为 ATLAS \(1.05\pm0.06\)
 - 将原稿 \(M_E>10\) TeV、混合角 benchmark 与额外 Yukawa 微扰性敏感性条件转化为两个明确的代表点。
 - 数值评估 \(\overline{\mathrm{MS}}\) 零动量 portal 阈值，并区分零 UV portal 与零匹配 EFT portal。
 - 按一致的 \(\Pi_B=-\Pi_{RC}\) 约定组合低能 \(\mu,\tau\) 圈、EFT 接触 tadpole 和 RC-001 有来源的有限导数系数。
-- 计算两个衰变宽度极限下的复数极点，并定量展示近简并时的宽度重分配。
+- 计算两个衰变宽度极限下的第一轮复数极点诊断；2026-11-05 增加了 Higgs 极点附近 0.1 MeV 步长的局部扫描，并明确其固定对角宽度与硬项导数近似。
 - 对 Higgs 整体信号强度完成第一轮适用性判断，明确何处需要完整两极点线形拟合。
 
 ### 尚未关闭的项目
 
-1. RC-001 的有限导数系数仍需要完整同阶 EFT soft/counterterm 账本及独立图级验证；本报告将其作为候选输入，不升级为完全闭合的 UV 结果。
-2. 当前极点计算固定了对角宽度，并吸收对角实部到质量输入；尚未求解包含所有 UV/EFT 对角自能、tadpole/VEV 反项和完整波函数残数的全动量矩阵。
+1. RC-001 的有限导数系数仍需要完整同阶 EFT soft/counterterm 账本及独立图级验证；本报告将其作为候选输入。bubble-plus-contact 只是保留的 EFT soft 子集，不是完整同阶 soft/counterterm 集。
+2. 当前极点计算固定了对角宽度，并吸收对角实部到质量输入；尚未求解包含所有 UV/EFT 对角自能、tadpole/VEV 反项和完整波函数残数的全动量矩阵。精确质量本征态硬项与极点求解器中的导数近似已量化对照，但尚未对精确硬项作完整复动量解析延拓。
 3. 尚未运行 HiggsSignals 或模型专属的 LHC 额外标量搜索重铸；近简并窄宽度区域继续标为 **not assessed**，而不是允许或排除。
 4. 原论文 TeX、Fig. 2 PDF 和绘图源尚未因本计算自动修改；应先完成以上闭环，再决定哪些结果写入正文和正式回复信。
 

@@ -3,7 +3,7 @@
 
 This script implements a deliberately scoped benchmark:
 - degenerate vector-like lepton mass M_E;
-- leading seesaw relations for Yukawas and mixing angles;
+- leading charged-lepton/VLL mass-mixing relations for Yukawas and mixing angles;
 - the recorded one-loop zero-momentum portal threshold;
 - the source-recorded finite derivative coefficient, with its sign converted
   from the RC-001 inverse-propagator convention to the Plan-B convention;
@@ -61,7 +61,7 @@ def b0_finite_second_sheet(s, m, mu):
 
 
 def coupling_inputs(vs):
-    """Leading seesaw benchmark satisfying theta_L,R <= 1e-2."""
+    """Leading charged-lepton/VLL mass-mixing benchmark satisfying theta_L,R <= 1e-2."""
     theta_r = {name: mass / (M_E * THETA_L) for name, mass in M_LEPTON.items()}
     yukawa_y = {name: sqrt(2.0) * M_E * THETA_L / VH for name in M_LEPTON}
     yukawa_lam = {
@@ -258,6 +258,9 @@ def main():
         print(f"  candidate c_partialHS (RC convention, mu=M_E)="
               f"{M_E**2 * (q_sum(vs)/(16*pi**2)*(-2.0/3.0))/(VH*vs):.9g}")
         print(f"  lambda_S at m_s=m_h={lambda_s(MH, vs):.8g}")
+        ms_perturbative_max = sqrt(8.0*pi)*vs
+        print(f"  perturbative radial-mass ceiling for lambda_S<=4 pi: {ms_perturbative_max:.6f} GeV")
+        print("  m_s in the following diagnostic is the unmixed diagonal singlet-mass input.")
         soft, _ = pi_soft_planb(MH**2, vs, M_E)
         hard = pi_hard_derivative_planb(MH**2, vs, M_E)
         total = soft + hard
@@ -295,6 +298,7 @@ def main():
                   f"(value at degeneracy={tan2_exact:.6g})")
         else:
             print(f"  |tan(2 theta_complex)|>=0.1 band estimate: |m_s-m_h|<={band:.4f} MeV")
+        fine_scan_near_higgs(vs, m_a, half_window=0.05, step=1.0e-4)
         for ms in (10.0, MH):
             offdiag, tan2, theta_abs = zero_uv_portal_comparator(ms, vs, delta_lambda)
             stable = delta_lambda > stability_lower_bound(ms, vs)
@@ -314,6 +318,64 @@ def near_degenerate_band(vs, m_a, threshold=0.1):
     delta_s = sqrt(target * target - delta_im * delta_im)
     delta_m_mev = delta_s / (2.0 * MH) * 1000.0
     return delta_m_mev, 2.0 * abs(pi_at_ref) / delta_im, delta_im, target
+
+
+def fine_scan_near_higgs(vs, m_a, half_window=0.05, step=1.0e-4, threshold=0.1):
+    """Dense first-pass complex-pole scan around the Higgs diagonal mass.
+
+    The h-like pole is selected by the smaller non-Hermitian eigenvector
+    diagnostic |s/h|. This is a pole-composition diagnostic, not an observable
+    or a detector-level signal strength.
+    """
+    n_steps = int(round(2.0*half_window/step))
+    rows = []
+    for index in range(n_steps + 1):
+        ms = MH - half_window + index*step
+        _, roots = complex_poles(ms, vs, m_a)
+        h_like = min(roots, key=lambda item: abs(item["s_over_h"]))
+        rows.append({
+            "ms": ms,
+            "s_over_h": abs(h_like["s_over_h"]),
+            "mass": h_like["mass"],
+            "width": h_like["width"],
+            "residual": h_like["residual"],
+        })
+
+    maximum = max(rows, key=lambda item: item["s_over_h"])
+    print(
+        f"  fine complex-pole scan: m_s in [{MH-half_window:.5f}, "
+        f"{MH+half_window:.5f}] GeV, step={step*1000.0:.3f} MeV, "
+        f"N={len(rows)}"
+    )
+    print(
+        f"    max h-like |s/h|={maximum['s_over_h']:.9g} "
+        f"at m_s={maximum['ms']:.6f} GeV; "
+        f"m_pole={maximum['mass']:.9f} GeV; "
+        f"Gamma_pole={maximum['width']*1000.0:.6f} MeV"
+    )
+    above = [row for row in rows if row["s_over_h"] >= threshold]
+    if above:
+        print(
+            f"    sampled |s/h|>={threshold:g} interval: "
+            f"[{above[0]['ms']:.6f}, {above[-1]['ms']:.6f}] GeV "
+            f"({len(above)} grid points)"
+        )
+    else:
+        print(f"    no sampled point reaches |s/h|>={threshold:g}")
+    print(
+        f"    h-like pole mass range: "
+        f"[{min(row['mass'] for row in rows):.9f}, "
+        f"{max(row['mass'] for row in rows):.9f}] GeV"
+    )
+    print(
+        f"    h-like pole width range: "
+        f"[{min(row['width'] for row in rows)*1000.0:.6f}, "
+        f"{max(row['width'] for row in rows)*1000.0:.6f}] MeV"
+    )
+    print(
+        f"    maximum determinant residual among selected h-like roots: "
+        f"{max(row['residual'] for row in rows):.3e}"
+    )
 
 
 if __name__ == "__main__":

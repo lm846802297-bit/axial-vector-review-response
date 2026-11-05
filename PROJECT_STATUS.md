@@ -1,6 +1,6 @@
 # PROJECT_STATUS — Axial-vector paper revision and referee response
 
-**状态快照日期：** 2026-11-04（PR #38–#46 已合并；Major 4.4 文献调查、回复信源码归档与 BibTeX 修复已合并）
+**状态快照日期：** 2026-11-05（PR #38–#48 已合并；PR #49 Draft；PR #30、#32 仍开放）
 
 **本状态快照的初始核验基线：** 243b0e62d9c3912525d1144971a1e81c2af84db7（PR #36 合并前）  
 **项目启动机制合并提交：** [9b4e17519230e9eef65b34b643d3a1f8c19f46a2](https://github.com/lm846802297-bit/axial-vector-review-response/commit/9b4e17519230e9eef65b34b643d3a1f8c19f46a2)  
@@ -8,6 +8,23 @@
 
 > **更新原则：** 任务完成、作者改变观点、PR 合并、论文基线更换或计算结论更新后，应检查并更新本文件。尚未重新核验的内容标为“待核验”，不得沿用旧状态作确定陈述。
 
+## 2026-11-05 更新：Major Point 1.3 公式链条与近极点诊断补强（PR #49，Draft）
+
+[PR #49](https://github.com/lm846802297-bit/axial-vector-review-response/pull/49) 仍基于 main \`4abcf13c45789f75deee27a4b6a3cc9480639448\`，分支为 \`review/major1.3-higgs-portal-higgs-strength-20261104\`。本轮仅修改回复信及其内部证据/同步文档，不修改论文正文，不合并 PR。
+
+- **P0：** 正式回复补入 \(2\times2\) charged-lepton/VLL 质量矩阵、规范基底 \(h,s\) Yukawa 顶角、质量本征态旋转、\(C,D,K\) 定义和完整质量本征态一圈费米子自能公式。
+- **P0：** 补入 exact full-minus-light EFT subtraction、保留的 bubble-plus-contact soft 子集，以及 hard/soft 数值分解。将结果记为 \(\Pi_{hs}^{\mathrm{ret}}\)，并明确该 soft 子集不是完整同阶 EFT soft/counterterm 集，避免把条件性数值写成完整 UV pole 预测。
+- **P0：** 修正“zero-tree-level-mixing”歧义：\(\lambda_{HS}^{\mathrm{EFT}}(M_E)=0\) 是匹配 EFT 的局域混合边界；对应 \(\lambda_{HS}^{\mathrm{UV}}(M_E)=-\Delta\lambda_{HS}^{E}\ne0\)。补充 portal-induced mass entry 与 loop counting。
+- **P0：** 将 \(\mu_h^{\mathrm{pole}}\) 改为 \(\delta\mu_h^{(\mathrm{mix,LO})}\)，明确它是 mixing-only leading rate diagnostic，而不是完整物理 pole signal strength。
+- **P1：** 明确 \(m_s\) 是未混合对角质量输入；补充 \(\Gamma_s(s\to A'A',\mu^+\mu^-,\tau^+\tau^-)\) 公式及 Benchmark B 的开闭道条件、宽度和非简并极点位置。
+- **P1：** 补充 \(\lambda_S\le4\pi\) 对应的 \(m_s^{\max}=\sqrt{8\pi}v_s\)：Benchmark A 为 \(355.4\) GeV，B 为 \(1579.2\) GeV。明确 \(10\)--\(150\) GeV 是 Higgs 极点附近局部诊断窗口，不是整个微扰性区间的扫描。
+- **近极点数值：** Plan-C-lite 脚本新增 \(125.20\)--\(125.30\) GeV、\(0.1\) MeV 步长的复数极点局部扫描。相同 1001 点算法已在 in-session Python 环境独立复现；A/B 的 1001 个点均收敛。更新后的仓库脚本尚未在干净容器中整文件重跑，验证记录明确区分了这两类证据。
+- **P2-lite：** 已新增 CP-even radial-scalar 三类 bubble 图的解析表达式和可复现数值脚本；正式回复信现直接包含等质量与非等质量 \(\Delta\bar B_0\) 的闭式表达式、Feynman 参数表示及代表性函数值。\(m_s=100\) GeV 与 \(m_s=m_h\) 两点的零动量相减子集数值仍只作为内部诊断：\(m_s=100\) GeV 时子集模长为 A: \(24.7547\) GeV\(^2\)、B: \(0.641797\) GeV\(^2\)，分别为当前保留费米子 \(|\Pi_{hs}^{ret}|\) 的 57.77 和 6.656 倍。闭式结果与 8,000 区间 Simpson 积分对全部 12 个 benchmark/质量/拓扑组合的最大相对差为 \(9.97\times10^{-15}\)，2k/4k/8k/16k 收敛检查通过。该比值只说明不能单凭形式 loop counting 断言标量项相对有限费米子结果必然很小；此子集不是完整两圈 UV--EFT 匹配，不能直接加到 \(\Pi_{hs}^{ret}\) 或作为物理极点修正。Goldstone 顶角已解析列出，但其数值贡献需与 gauge/ghost、混合 VLL--scalar 图及 tadpole/VEV 反项一起处理；近简并区继续标为未评估。详见 2026-11-05/Portal_induced_scalar_loop_power_counting_P2_lite_2026-11-05.md。
+- **低能 EFT 交叉核查：** 补充 \(q^2\ll m_s^2,m_{A'}^2\) 下的 scalar four-lepton operator 与 \(A'\)-exchange 系数尺度比较：\(|C_{\mu\mu}^{(s)}/C^{(A')}|\sim4m_\mu^2/m_s^2\leq4.5\times10^{-4}\)（\(m_s\geq10\) GeV），而 \(\tau\tau\) 在 \(m_s=10\) GeV 时仍可达约 \(0.13\)。该比较仅是不同 Lorentz 结构的系数量级，不是过程级率比；不据此忽略 tau-sensitive scalar processes。
+- **范围：** Major 1.3 继续只讨论原始单标量 \(S+\mathrm{VLL}\) 两态系统，不混入 \(\sigma,N_R,\mathrm{PMNS}\) 或三态标量势；近简并区不赋予 allowed/excluded 状态。
+
+**验证边界：** 没有运行 CI；没有对更新后的 Plan-C-lite 脚本做干净容器整文件执行；回复信 PDF 尚未按本轮 TeX 重编译或视觉检查。main 根目录现有 48 页 PDF 仍是旧版，不包含本轮修改。PR #49 保持 Draft，未合并。
+ 
 ## 2026-11-04 更新：Major 4.4 轴矢量 stellar-cooling 文献调查（PR #46）
 
 PR #46 已于 2026-11-04 Squash Merge 至 `main`，合并提交为 [b453e9be09a4f67d00cb90dfb85435c07472c5b4](https://github.com/lm846802297-bit/axial-vector-review-response/commit/b453e9be09a4f67d00cb90dfb85435c07472c5b4)。新增文档 [Major 4.4 轴矢量 stellar-cooling 文献适用性调查](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-04/Major4.4-轴矢量stellar-cooling文献适用性调查_2026-11-04.md)，并更新 README 导航与 DEC-09。
