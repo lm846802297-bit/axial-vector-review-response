@@ -1,13 +1,15 @@
 # Radial-scalar collider recast and allowed-mass study
 
 **Status:** research plan opened; model-specific recast and full allowed-mass classification are **not yet complete**.  
-**Branch:** \`research/radial-scalar-collider-recast-2026-10-28\`  
-**Base:** \`main\` at \`2191cb612fe443820243b5abc1f04cad8a23bd95\` (2026-10-28).  
+**Branch:** `research/radial-scalar-original-model-belleii-20261105`  
+**Base:** `main` at `d3c8c573e0b219dbcb4be62dc57f77fdc04c4f96` (2026-11-05).  
 **Purpose:** internal research record. Nothing in this directory should be read as a completed exclusion result until its evidence gate is passed.
 
 ## 1. Research questions
 
-This branch addresses two outstanding tasks recorded in \`Major_Point_1_scalar_response_status_2026-10-27.md\`:
+This is an **independent follow-up research programme**, not a list of unresolved requirements for the current referee response. The 2026-11-04 referee-facing response already addresses Major Point 1 at the agreed scope. The additional calculations below may strengthen future phenomenological work, but completing them is not a prerequisite for the current response.
+
+The research questions were originally tracked in the historical note `Major_Point_1_scalar_response_status_2026-10-27.md`; that note is retained as provenance, not as the current acceptance criterion:
 
 1. **Model-specific collider recast for the radial scalar \(s\).** Translate published collider searches into constraints on the actual radial mode of the UV model, rather than borrowing coupling limits from a generic muonphilic or Higgs-like scalar benchmark without checking its assumptions.
 2. **A validated scalar-mass viable set.** Combine the chosen UV parameter relations, scalar self-coupling perturbativity, portal/mixing treatment, and applicable collider exclusions into a point-by-point classification. Do not claim a universal interval in \(m_s\) if the answer depends on \((m_{A'},g_X)\), the portal boundary, or the decay pattern.
@@ -16,12 +18,12 @@ The desired final output is a conditional allowed set in a stated benchmark, not
 
 ## 2. Baseline and relation to existing work
 
-This branch starts from the exact \`main\` commit listed above. The following work already exists and must be reused rather than silently repeated:
+This branch starts from the exact `main` commit listed above. The following work already exists and must be reused rather than silently repeated:
 
-- \`审稿意见-gpt/当前执行/论文修改与一致性核查/2026-10-27/Major_Point_1_scalar_response_status_2026-10-27.md\`: response status; explicitly leaves model-specific scalar-search recasts and near-degenerate experimental classification open.
-- \`审稿意见-gpt/当前执行/论文修改与一致性核查/2026-10-27/Higgs_portal_exact_mass_eigenstate_one_loop_2026-10-27.md\`: numerical mass-eigenstate one-loop \(h\)-\(s\) self-energy at two Plan-C-lite benchmarks, with EFT-soft subtraction and validation checks. It is **not** a completed pole-scheme closure or collider recast.
-- \`审稿意见-gpt/当前执行/论文修改与一致性核查/2026-10-27/scalar_coupling_constraints_source_note_2026-10-28.md\`: source-anchored summary of selected low-mass scalar–muon limits. These light-scalar limits do **not** directly constrain the \(m_s\gtrsim10\,\mathrm{GeV}\) reference benchmark used in Fig. 2.
-- \`Replies_to_Referee_3_referee_facing_2026-10-28.tex\`: the referee response currently states that Belle II and related searches establish mass coverage and production channels, not model-independent exclusions for this UV radial scalar.
+- `审稿意见-gpt/当前执行/论文修改与一致性核查/2026-10-27/Major_Point_1_scalar_response_status_2026-10-27.md`: response status; explicitly leaves model-specific scalar-search recasts and near-degenerate experimental classification open.
+- `审稿意见-gpt/当前执行/论文修改与一致性核查/2026-10-27/Higgs_portal_exact_mass_eigenstate_one_loop_2026-10-27.md`: numerical mass-eigenstate one-loop \(h\)-\(s\) self-energy at two Plan-C-lite benchmarks, with EFT-soft subtraction and validation checks. It is **not** a completed pole-scheme closure or collider recast.
+- `审稿意见-gpt/当前执行/论文修改与一致性核查/2026-10-27/scalar_coupling_constraints_source_note_2026-10-28.md`: source-anchored summary of selected low-mass scalar–muon limits. These light-scalar limits do **not** directly constrain the \(m_s\gtrsim10\,\mathrm{GeV}\) reference benchmark used in Fig. 2.
+- `Replies_to_Referee_3_referee_facing_2026-11-04.tex`: the current referee-facing response gives the source-anchored Belle II/BaBar discussion and explicitly distinguishes experimental benchmark limits from exclusions of the original UV radial scalar.
 
 The branch must preserve these distinctions. A source-reported search limit, a translated benchmark limit, and a fully recast UV-model exclusion are three different evidence levels.
 
