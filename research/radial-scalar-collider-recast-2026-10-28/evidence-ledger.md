@@ -62,3 +62,14 @@ For each source, record:
 - “The existing portal-loop benchmarks prove the mixing is negligible for every \(m_s\).”
 
 Any of these claims requires additional evidence beyond the present source-level summary.
+
+
+## 2026-11-05 source-level model mapping update
+
+The benchmark normalizations and the corresponding original-UV coupling map are now recorded in [belleii-benchmark-mapping-2026-11-05.md](belleii-benchmark-mapping-2026-11-05.md).
+
+- **B2-4MU:** The published scalar signal has scalar-specific simulated efficiencies and is not to be recast with the \(Z'\) efficiency. The original UV scalar shares the muon-FSR production coupling, but \(s\to\tau^+\tau^-\) above threshold and \(s\to A'A'\) when open modify \(\mathrm{BR}_{\mu\mu}\). The per-mass S_supplemental rows remain unextracted; E1 is still partial and E2 is pending.
+- **B2-TAU:** The Belle II leptophilic-scalar normalization is \(\xi m_\ell/v\), \(v=246\,\mathrm{GeV}\). It matches the original UV \(\mu,\tau\) Yukawas through \(\xi_{\rm UV}=v/v_s=2vg_X/m_{A'}\). Belle II's scalar efficiency differs from the vector benchmark by 10–20%, so the vector efficiency is not interchangeable. The \(2m_\tau\) threshold and \(s\to A'A'\) channel must be included in the UV branching fraction. The official mass-dependent limits.csv/limits.txt rows remain unextracted; E1 is still partial and E2 is pending.
+- **No recast status upgrade:** source-level model mapping and analytic branching-ratio diagnostics do not reproduce the experimental benchmark. Neither B2-4MU nor B2-TAU is upgraded to E2 or E3.
+
+The local code now contains the \(\xi=v/v_s\) normalization helper and the conditional branching-fraction coupling-rescaling helper. The 14 local tests validate formulas, thresholds, bookkeeping, and download-payload validation only; they do not validate source-file retrieval or an experimental limit curve.
