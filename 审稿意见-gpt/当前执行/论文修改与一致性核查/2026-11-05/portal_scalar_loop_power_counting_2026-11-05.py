@@ -13,7 +13,7 @@ Only the Python standard library is required.
 """
 from __future__ import annotations
 
-from math import log, pi, sqrt
+from math import atan, log, pi, sqrt
 
 MH = 125.25
 VH = 246.22
@@ -63,6 +63,46 @@ def delta_b0(p2: float, mi: float, mj: float, n: int = 8000) -> float:
 
     return simpson(integrand, n)
 
+
+
+def delta_b0_closed(p2: float, mi: float, mj: float) -> float:
+    r"""Closed form for B0(p2;mi^2,mj^2)-B0(0;mi^2,mj^2).
+
+    The selected benchmark kinematics satisfy the sub-threshold condition
+    lambda_K=(p2-mi^2-mj^2)^2-4 mi^2 mj^2 < 0, so the result is real.
+    The arbitrary reference scale mu^2 cancels between the two terms.
+    """
+    if p2 <= 0.0 or mi <= 0.0 or mj <= 0.0:
+        raise ValueError("Require p2>0 and positive internal masses.")
+    a, b = mi * mi, mj * mj
+    scale = max(a, b)
+
+    # Equal-mass limit: a numerically stable elementary expression.
+    if abs(a - b) <= 1.0e-12 * scale:
+        z = p2 / (4.0 * a)
+        if not 0.0 < z < 1.0:
+            raise ValueError("Equal-mass point is not below its two-particle threshold.")
+        return 2.0 - 2.0 * sqrt((1.0 - z) / z) * atan(
+            sqrt(z / (1.0 - z))
+        )
+
+    lam_k = (p2 - a - b) ** 2 - 4.0 * a * b
+    if lam_k >= 0.0:
+        raise ValueError("Closed real branch requires lambda_K<0.")
+    q = sqrt(-lam_k) / (2.0 * p2)
+    t0 = (a - b - p2) / (2.0 * p2)
+    t1 = t0 + 1.0
+    mu2 = 1.0  # arbitrary reference scale squared; it cancels exactly
+
+    def primitive(t: float) -> float:
+        return (
+            t * log(p2 * (t * t + q * q) / mu2)
+            - 2.0 * t
+            + 2.0 * q * __import__("math").atan(t / q)
+        )
+
+    i0 = (a * log(a / mu2) - b * log(b / mu2)) / (a - b) - 1.0
+    return i0 - (primitive(t1) - primitive(t0))
 
 def coupling_inputs(vs: float) -> tuple[float, float]:
     """Return lambda_HS^UV=-Delta lambda_HS^E and lambda_H."""
@@ -114,9 +154,9 @@ def cp_even_bubble_subset(vs: float, ms: float, lam_hs: float, lam_h: float) -> 
     g_hhs = lam_hs * vs
     g_hss = lam_hs * VH
 
-    db_hh = delta_b0(MH**2, MH, MH)
-    db_ss = delta_b0(MH**2, ms, ms)
-    db_hs = delta_b0(MH**2, MH, ms)
+    db_hh = delta_b0_closed(MH**2, MH, MH)
+    db_ss = delta_b0_closed(MH**2, ms, ms)
+    db_hs = delta_b0_closed(MH**2, MH, ms)
 
     prefactor = 1.0 / (32.0 * pi**2)
     terms = {
@@ -176,11 +216,34 @@ def main() -> None:
             print(f"    isolated-pole eta_subset={eta:.9g}; eta^2={eta**2:.9g}")
         print()
 
-    # Numerical convergence check for all three independent B0 differences.
-    for mi, mj in ((MH, MH), (100.0, 100.0), (MH, 100.0)):
+    # Cross-check the closed forms against Simpson integration at every
+    # benchmark/m_s point and for all hh, ss, and hs bubble topologies.
+    max_relative_error = 0.0
+    for name, vs, ma in BENCHMARKS:
+        for ms in (100.0, MH):
+            pairs = (("hh", MH, MH), ("ss", ms, ms), ("hs", MH, ms))
+            for label, mi, mj in pairs:
+                analytic = delta_b0_closed(MH**2, mi, mj)
+                numeric = delta_b0(MH**2, mi, mj, 8000)
+                relative_error = abs(analytic - numeric) / abs(analytic)
+                max_relative_error = max(max_relative_error, relative_error)
+                print(
+                    f"CROSS-CHECK {name} m_s={ms:.5f} {label}: "
+                    f"closed={analytic:.14g}, Simpson={numeric:.14g}, "
+                    f"relative_error={relative_error:.3e}"
+                )
+
+    # Simpson convergence at every distinct mass pair.
+    checked_pairs = set()
+    for _, _, _ in BENCHMARKS:
+        for ms in (100.0, MH):
+            for mi, mj in ((MH, MH), (ms, ms), (MH, ms)):
+                checked_pairs.add((mi, mj))
+    for mi, mj in sorted(checked_pairs):
         vals = [delta_b0(MH**2, mi, mj, n) for n in (2000, 4000, 8000, 16000)]
         assert abs(vals[-1] - vals[-2]) < 1.0e-12
-    print("CHECKS: Simpson convergence passed at 2k/4k/8k/16k intervals.")
+    assert max_relative_error < 1.0e-11
+    print(f"CHECKS: Simpson convergence passed; max closed-vs-Simpson relative error={max_relative_error:.3e}.")
     print("SCOPE: CP-even radial scalar subset only; not a complete matched two-loop pole result.")
 
 
