@@ -40,7 +40,7 @@ from off_shell_four_body import fourbody_spectral_widths
 from belleii_resolution_promptness import (
     TRACK_DCA_TRANSVERSE_M, TRACK_DCA_LONGITUDINAL_M,
     scalar_beta_gamma_lab_max, aprime_beta_gamma_lab_max,
-    fourmu_width_resolution_ratios,
+    fourmu_width_resolution_ratios, tau_width_resolution_ratios,
 )
 
 
@@ -171,6 +171,25 @@ def evaluate_scan_point(
             "fourmu_mass_in_published_scan": False,
         }
 
+    tau_lower = tau_width_resolution_ratios(ms, direct_total)
+    tau_upper = tau_width_resolution_ratios(ms, total_upper)
+    if tau_lower is not None and tau_upper is not None:
+        tau_resolution = {
+            "tau_sigma_recoil_min_GeV": tau_lower["sigma_recoil_min_GeV"],
+            "tau_sigma_recoil_max_GeV": tau_lower["sigma_recoil_max_GeV"],
+            "tau_Gamma_over_sigma_lower_bound": tau_lower["Gamma_over_sigma_lower_resolution"],
+            "tau_Gamma_over_sigma_upper_bound": tau_upper["Gamma_over_sigma_upper_resolution"],
+            "tau_mass_in_published_scan": True,
+        }
+    else:
+        tau_resolution = {
+            "tau_sigma_recoil_min_GeV": None,
+            "tau_sigma_recoil_max_GeV": None,
+            "tau_Gamma_over_sigma_lower_bound": None,
+            "tau_Gamma_over_sigma_upper_bound": None,
+            "tau_mass_in_published_scan": False,
+        }
+
     return {
         "ms_GeV": ms, "mA_GeV": mA, "gX": gX, "vs_GeV": vs,
         "lambdaS": lam, "passes_lambdaS_le_4pi": lam <= 4.0 * math.pi,
@@ -205,6 +224,7 @@ def evaluate_scan_point(
         "beta_gamma_A_lab_kinematic_max": beta_gamma_A_max,
         "A_mean_lab_flight_max_m": A_flight_max,
         **fourmu_resolution,
+        **tau_resolution,
         "branching_fractions_exact_under_declared_benchmark": exact_widths_under_benchmark,
         "branching_fractions_bounded_under_declared_benchmark": True,
         "width_regime": regime,
