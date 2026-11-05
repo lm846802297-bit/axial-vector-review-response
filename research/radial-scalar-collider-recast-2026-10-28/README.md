@@ -189,7 +189,7 @@ Detailed formulas and benchmark assumptions are in [belleii-benchmark-mapping-20
 | Narrow-width/prompt coupling-level Belle II reinterpretation | Implemented on width-complete rows; conditional only, no new CLs fit |
 | Independent MadGraph production cross-section validation | Pending |
 | Finite-width line-shape convolution for broad points | Analysis-specific two-Crystal-Ball convolution kernel implemented and synthetic-tested; real Belle II response parameters and production-times-efficiency inputs unavailable |
-| Lifetime-dependent detector efficiency for displaced points | Pending; the papers do not provide lifetime-dependent efficiency curves |
+| Lifetime-dependent detector efficiency for displaced points | Publication audit complete; no lifetime-dependent efficiency curves or full MLP/reconstruction inputs are public, so detector-level acceptance remains blocked |
 | Belle II four-muon and tau-pair narrow/prompt UV reinterpretations | Conditional pointwise tables generated; incomplete-width, finite-width, and lifetime-sensitive points remain unclassified |
 | Final excluded / evaluated-allowed / unclassified UV point map | Partial conditional classification generated; full map pending updated scan artifact, finite-width and lifetime response |
 | Current referee-response dependency | Not required; this is independent follow-up research and does not change the agreed Major Point 1 response |
