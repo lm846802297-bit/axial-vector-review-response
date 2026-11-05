@@ -3,6 +3,8 @@
 Publication-derived inputs:
 - four-muon reduced-mass resolution: 2--2.5 MeV below 1 GeV, rising to
   about 5 MeV near 5 GeV and falling to 2.5 MeV at 9 GeV;
+- tau-pair recoil-mass resolution: 30 MeV at threshold, 10 MeV at 6 GeV,
+  and 1 MeV at 10 GeV; the supplement independently gives 10 MeV at 6.6 GeV;
 - both analyses require track DCA below 0.5 cm transverse and 2.0 cm longitudinal;
 - SuperKEKB lab boost beta*gamma ~= 0.28.
 
@@ -35,7 +37,6 @@ def scalar_beta_gamma_lab_max(ms_GeV: float) -> float:
 
 
 def aprime_beta_gamma_lab_max(ms_GeV: float, mA_GeV: float) -> float | None:
-    """Maximum lab beta*gamma for an on-shell A' daughter, if kinematically open."""
     if ms_GeV <= 0.0 or mA_GeV <= 0.0:
         raise ValueError("masses must be positive")
     if mA_GeV >= ms_GeV:
@@ -58,7 +59,6 @@ def aprime_beta_gamma_lab_max(ms_GeV: float, mA_GeV: float) -> float | None:
 
 
 def fourmu_sigma_MR_envelope_GeV(ms_GeV: float) -> tuple[float, float] | None:
-    """Conservative envelope of the published reduced-mass resolution."""
     if not 0.212 <= ms_GeV <= 9.0:
         return None
     if ms_GeV < 1.0:
@@ -69,7 +69,6 @@ def fourmu_sigma_MR_envelope_GeV(ms_GeV: float) -> tuple[float, float] | None:
 
 
 def fourmu_width_resolution_ratios(ms_GeV: float, gamma_s_GeV: float) -> dict | None:
-    """Convert natural width to reduced-mass width and compare to resolution."""
     sigma_range = fourmu_sigma_MR_envelope_GeV(ms_GeV)
     if sigma_range is None:
         return None
@@ -80,6 +79,35 @@ def fourmu_width_resolution_ratios(ms_GeV: float, gamma_s_GeV: float) -> dict | 
         "Gamma_MR_GeV": gamma_reduced,
         "sigma_MR_min_GeV": sigma_min,
         "sigma_MR_max_GeV": sigma_max,
-        "Gamma_over_sigma_lower_resolution": gamma_reduced/sigma_min,
-        "Gamma_over_sigma_upper_resolution": gamma_reduced/sigma_max,
+        "Gamma_over_sigma_lower_resolution": gamma_reduced/sigma_max,
+        "Gamma_over_sigma_upper_resolution": gamma_reduced/sigma_min,
+    }
+
+
+def tau_sigma_recoil_envelope_GeV(ms_GeV: float) -> tuple[float, float] | None:
+    """Conservative interval using the paper's stated resolution anchors.
+
+    3.6--6 GeV: 10--30 MeV; 6--6.6 GeV: 10 MeV at both quoted anchors;
+    6.6--10 GeV: 1--10 MeV. These are conservative intervals, not a
+    reconstructed point-by-point resolution curve.
+    """
+    if not 3.6 <= ms_GeV <= 10.0:
+        return None
+    if ms_GeV < 6.0:
+        return (0.010, 0.030)
+    if ms_GeV <= 6.6:
+        return (0.010, 0.010)
+    return (0.001, 0.010)
+
+
+def tau_width_resolution_ratios(ms_GeV: float, gamma_s_GeV: float) -> dict | None:
+    sigma_range = tau_sigma_recoil_envelope_GeV(ms_GeV)
+    if sigma_range is None:
+        return None
+    sigma_min, sigma_max = sigma_range
+    return {
+        "sigma_recoil_min_GeV": sigma_min,
+        "sigma_recoil_max_GeV": sigma_max,
+        "Gamma_over_sigma_lower_resolution": gamma_s_GeV/sigma_max,
+        "Gamma_over_sigma_upper_resolution": gamma_s_GeV/sigma_min,
     }
