@@ -188,7 +188,7 @@ Detailed formulas and benchmark assumptions are in [belleii-benchmark-mapping-20
 | Exact identical-flavor four-body exchange amplitudes | Not explicitly integrated; their contribution is bounded |
 | Narrow-width/prompt coupling-level Belle II reinterpretation | Implemented on width-complete rows; conditional only, no new CLs fit |
 | Independent MadGraph production cross-section validation | Pending |
-| Finite-width line-shape convolution for broad points | Pending |
+| Finite-width line-shape convolution for broad points | Analysis-specific two-Crystal-Ball convolution kernel implemented and synthetic-tested; real Belle II response parameters and production-times-efficiency inputs unavailable |
 | Lifetime-dependent detector efficiency for displaced points | Pending; the papers do not provide lifetime-dependent efficiency curves |
 | Belle II four-muon and tau-pair narrow/prompt UV reinterpretations | Conditional pointwise tables generated; incomplete-width, finite-width, and lifetime-sensitive points remain unclassified |
 | Final excluded / evaluated-allowed / unclassified UV point map | Partial conditional classification generated; full map pending updated scan artifact, finite-width and lifetime response |
@@ -224,3 +224,17 @@ Conditional pointwise results on the available width-complete scan rows:
 The 0.10 \(\Gamma/\sigma\) tolerance is an internal conservative diagnostic, not an experimental cut. The 5 mm flight-length comparison is a geometry proxy, not a lifetime-dependent detector efficiency. No finite-width convolution, detector-level lifetime simulation, independent MadGraph production normalization, or event-level CLs fit is complete. Consequently, the pointwise results are conditional benchmark reinterpretations, not a complete Belle II exclusion map.
 
 The formal referee response and manuscript remain unchanged. PR #52 remains Draft.
+
+
+## 10. 2026-11-05 update — finite-width convolution kernel
+
+The analysis-specific finite-width shape-convolution machinery is now implemented in [finite_width_line_shape.py](finite_width_line_shape.py), with seven synthetic-input tests in [test_finite_width_line_shape.py](test_finite_width_line_shape.py). The input and validation boundary is documented in [finite-width-line-shape-inputs-and-validation-2026-11-05.md](finite-width-line-shape-inputs-and-validation-2026-11-05.md).
+
+The module:
+- uses the original-model running partial and total widths as explicit arrays;
+- folds the scalar spectral shape with a two-component Crystal-Ball mixture sharing a common mean;
+- uses \(M_R=\sqrt{q^2-4m_\mu^2}\) for the four-muon analysis and \(M_{\rm recoil}=q\) for the tau-pair analysis;
+- applies the distinct Belle II fit-window widths (60 resolutions total for four-muon and 40 for tau-pair);
+- returns a reconstructed signal shape and fit-window signal fraction, not a new CLs limit.
+
+**No real Belle II finite-width convolution has been run.** The archived numerical supplements do not provide the full mass-dependent two-Crystal-Ball parameter tables. The kernel also requires the mass-dependent scalar production-times-efficiency product and running widths over the full integration range. These inputs are not replaced by invented values. Synthetic tests validate only the numerical machinery.
