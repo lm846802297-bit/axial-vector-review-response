@@ -153,7 +153,7 @@ Major 4.2 已补充有限轻子混合产生的非零动能混合、四态矢量�
 
 作者已明确要求采用本轮文献调查结果修改回复并提交 PR。[PR #40](https://github.com/lm846802297-bit/axial-vector-review-response/pull/40) 已按作者要求合并，合并提交 `f3d54dc9ec3c89bb6b8cbd22ecab6a92c4c83c3e`。该工作原基于 GitHub main `613bca12`；GitHub 是同步到本地的基准，不将旧本地工作稿回推覆盖主线。以下为 PR #40 的成果与验证快照。
 
-- 正式回复 Major 3 增加双单态 type-I seesaw、详细算符/质量矩阵/PMNS/异常论证；Major 4.1、Summary 及单 VEV 适用范围一致更新。
+- 正式回复 Major 3/4.1 专门讨论双单态 type-I seesaw、详细算符/质量矩阵/PMNS/异常论证；该扩展仅属于中微子回复，不改变原论文场内容。Major 1、2、4.2–4.4 及其他非中微子回答继续使用原论文单 VEV (S+\mathrm{VLL}) 模型。
 - 新增回复专用文献文件 `Replies_to_Referee_3_neutrino_references.bib`；归档论文 `main-v6.tex` 和 `references.bib` 未改。
 - **原论文需要修改。** [N-01–N-14 修改对照](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-04/Major3-中微子完成机制与论文修改对照_2026-11-04.md) 列明位置、前后差异及条件；状态为待正文修改。
 - 研究决策 DEC-01/02 已按作者新指示更新并保留旧立场；最小 S-only 的分块定理继续成立。
