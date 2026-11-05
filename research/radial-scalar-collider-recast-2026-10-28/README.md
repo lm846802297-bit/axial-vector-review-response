@@ -1,6 +1,6 @@
 # Radial-scalar collider recast and allowed-mass study
 
-**Status:** research plan opened; model-specific recast and full allowed-mass classification are **not yet complete**.  
+**Status:** official Belle II numerical supplements are archived and the published scalar benchmark curves are reconstructed; model-specific UV recast and full allowed-mass classification are **not yet complete**.  
 **Branch:** `research/radial-scalar-original-model-belleii-20261105`  
 **Base:** `main` at `d3c8c573e0b219dbcb4be62dc57f77fdc04c4f96` (2026-11-05).  
 **Purpose:** internal research record. Nothing in this directory should be read as a completed exclusion result until its evidence gate is passed.
@@ -164,18 +164,19 @@ A source-level audit now distinguishes the two published spin-0 benchmarks:
 - The tau threshold makes \(\mathrm{BR}_{\tau\tau}\) strongly mass-dependent near \(2m_\tau\). The analytic two-channel diagnostic gives 0.537 at \(m_s=3.6\,\mathrm{GeV}\), 0.965 at 4 GeV, and 0.996 at 10 GeV, with \(s\to A'A'\) closed.
 - The \(s\to A'A'\) channel can dominate once open; it must be included before translating either published limit.
 
-Detailed formulas, benchmark assumptions, and the threshold table are in [belleii-benchmark-mapping-2026-11-05.md](belleii-benchmark-mapping-2026-11-05.md). The downloader and offline payload-validation tests are in fetch_belleii_supplements.py and test_fetch_belleii_supplements.py. Local validation is recorded in [validation-results-2026-11-05.md](validation-results-2026-11-05.md).
+Detailed formulas and benchmark assumptions are in [belleii-benchmark-mapping-2026-11-05.md](belleii-benchmark-mapping-2026-11-05.md). The official raw files are archived under data/raw/belleii/; exact hashes are in [data/manifest-2026-11-05.json](data/manifest-2026-11-05.json). The data checks, source-table anomalies, benchmark-curve reconstruction, and conditional UV/perturbativity overlay are documented in [source-data-audit-2026-11-05.md](source-data-audit-2026-11-05.md). The downloader and offline payload-validation tests remain in fetch_belleii_supplements.py and test_fetch_belleii_supplements.py.
 
 ## 8. Current status
 
 | Item | Status |
 |---|---|
 | Repository baseline and previous work identified | Complete |
-| Belle II four-muon and tau-pair source-level ranges identified | Complete at abstract/source-page level |
-| Official supplemental files and exact file names located | Complete; raw numerical files not yet retrieved |
-| Raw supplemental files downloaded, hashed, and parsed | Pending |
-| Exact supplemental numerical curves extracted and benchmark reproduced | Pending |
+| Belle II four-muon and tau-pair source-level ranges identified | Complete |
+| Official supplemental files and exact file names located | Complete |
+| Raw supplemental files downloaded, hashed, and parsed | Complete; byte-for-byte Git archive verified; source anomalies recorded |
+| Published scalar benchmark curves reconstructed from official numerical tables | Complete; no detector-level or CLs reanalysis claimed |
 | Partial-width calculator scaffold for \(s\to\mu\mu,\tau\tau,A'A'\) added | Complete; ten unit tests passed locally |
+| Conditional UV/perturbativity overlay with A'A' closed | Complete as a preliminary pointwise diagnostic; not a full recast |
 | Complete UV widths and branching fractions cross-checked | Pending; portal, loop-induced and any other open channels must be included |
 | Model-specific production and yield predictions | Pending |
 | Supplement downloader and offline payload-validation tests | Complete; four tests passed locally |
@@ -185,4 +186,4 @@ Detailed formulas, benchmark assumptions, and the threshold table are in [bellei
 | Full pole-consistent near-degenerate scalar treatment | Pending |
 | Current referee-response dependency | Not required; reconsider only if a newly validated result materially improves the existing response |
 
-No new experimental exclusion is claimed. The width calculator deliberately marks branching fractions as incomplete unless the caller explicitly certifies that all open channels have been included; its present tests validate threshold and bookkeeping behavior, not the complete phenomenology.
+No complete UV-model exclusion or universal allowed scalar-mass interval is claimed. The table-driven benchmark curves are reconstructed, but the UV mapping is conditional on A'A' being closed and portal/other widths being negligible. The width calculator deliberately marks branching fractions as incomplete unless the caller explicitly certifies that all open channels have been included; its present tests validate threshold and bookkeeping behavior, not the complete phenomenology.
