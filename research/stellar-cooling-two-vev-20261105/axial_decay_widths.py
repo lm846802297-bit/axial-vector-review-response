@@ -3,7 +3,9 @@
 
 This script computes tree-level A' -> nu nubar and A' -> mu+ mu- widths
 for the pure-vector and pure-axial benchmarks, plus the finite right-mixing
-formula used in the manuscript. It does not calculate supernova luminosities
+formula used in the manuscript. The neutrino width is the inclusive light-
+neutrino trace result for a unitary three-flavour PMNS rotation; heavy-neutrino
+final states are assumed closed and are not included. It does not calculate supernova luminosities
 or exclusion contours. Its widths depend on physical (m_A', g_X), not on a
 choice of scalar VEV parameterization; use two_vev_axial_mapping.py for the
 current UV-to-axial-current/Goldstone mapping.
@@ -58,9 +60,14 @@ def axial_to_vector_width_ratio(m_a_mev: float) -> float:
 def neutrino_branching_fractions(m_a_mev: float) -> tuple[float, float]:
     """Return (BR_nunu_vector, BR_nunu_axial).
 
-    Assumptions: two massless neutrino flavours, no electron coupling, and
-    only nu-nubar plus mu+mu- final states. Below dimuon threshold both BRs
-    are one under these assumptions.
+    Assumptions: the inclusive width into all three effectively massless
+    light-neutrino mass eigenstates is normalized by
+    Tr(G_nu^dagger G_nu)=2, as for two unmixed massless L_mu-L_tau flavours.
+    The PMNS rotation is unitary, active-heavy mixing is negligible, all
+    heavy-neutrino channels are kinematically closed, and only light-nu-nu
+    plus mu+mu- final states are retained. Below dimuon threshold BR_nunu=1
+    under these assumptions. If a heavy-neutrino threshold opens, or the
+    active-heavy sector is non-negligible, the total width must be extended.
     """
     if m_a_mev <= 2.0 * M_MU_MEV:
         return 1.0, 1.0
