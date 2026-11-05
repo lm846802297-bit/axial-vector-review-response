@@ -12,6 +12,8 @@
 
 PR #50 已于 2026-11-05 Squash Merge 至 main，合并提交为 [51a245b0a36703f40c24ca469d6969e70abc8954](https://github.com/lm846802297-bit/axial-vector-review-response/commit/51a245b0a36703f40c24ca469d6969e70abc8954)。本次进一步纠正研究范围：Major Point 3 的额外中微子完成机制只属于该问题的回复论证，不改变原论文 UV 场内容，也不改变其他审稿问题的模型基准。
 
+**2026-11-05 统一原则（DEC-15）：** 原论文单 VEV 模型是所有非中微子问题的默认基准；Major 3/4.1 可独立讨论中微子机制；不同模型公式和实验限制不得未经重新推导或 matching 直接混用；回复信讨论扩展不代表论文已采用；每个问题必须明确模型、场内容、理论输入、参数关系、近似、适用范围和证据来源。目标是回应原论文的审稿质疑，而不是逐步把论文扩展成另一个 UV 模型。详见研究决策登记表 DEC-15 与审稿回复写作原则 §2.1。
+
 - **旧 PR #30：** 已关闭且未合并；其错误采用双 VEV 映射的 PR #51 也已关闭且未合并。现由 [PR #53](https://github.com/lm846802297-bit/axial-vector-review-response/pull/53) 替代。PR #53 从当前 main 创建，严格使用原论文单 VEV 模型 \(m_{A'}=2|g_X|v_s\)、\(G=a_s\)，保留通用电流半康普顿振幅和局部热率计算。六项单 VEV 映射测试通过；介质静止系 T/L opacity、trapping、SN profile 和最终 SN1987A/LESN 曲线仍未完成。
 - **旧 PR #32：** 已关闭且未合并；现由 [PR #52](https://github.com/lm846802297-bit/axial-vector-review-response/pull/52) 替代。PR #52 从当前 main 创建，研究原论文的单 VEV 径向标量，保留 Belle II 来源台账、重铸协议、逐点分类框架和部分宽度计算器。Belle II 逐质量补充数据提取、实验 benchmark 复现、完整宽度/分支比/寿命、产生率、接受度和质量扫描仍未完成。
 - 两个新 PR 均保持 Draft，均不修改论文正文或正式回复信，也都不是当前审稿回复的前置条件。旧 PR 的讨论和提交保留作历史溯源，不合并其错误模型范围的提交。
