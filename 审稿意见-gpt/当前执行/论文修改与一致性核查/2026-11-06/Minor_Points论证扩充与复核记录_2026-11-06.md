@@ -129,7 +129,7 @@ v_s^{\min}(m_s)=\frac{m_s}{\sqrt{8\pi}}\simeq0.1995m_s
 - LaTeX begin/end 环境配对；
 - equation/figure/table 标签唯一性；
 - \ref、\eqref 等交叉引用目标存在；
-- 当前两份 BibTeX 数据库中的 36 个唯一 citation keys 均存在（本轮新增的 PDG、ALEPH、Crivellin、Poh keys 已在主 references 数据库中）；
+- 当前两份 BibTeX 数据库中的 39 个唯一 citation keys（78 次引用出现） 均存在（本轮新增的 PDG、ALEPH、Crivellin、Poh keys 已在主 references 数据库中）；
 - 检查了本轮新增公式、数值及原论文单 VEV 模型边界。
 
 **独立数值复核：**
@@ -145,6 +145,8 @@ v_s^{\min}(m_s)=\frac{m_s}{\sqrt{8\pi}}\simeq0.1995m_s
 - 全部数值脚本的 clean-environment 重跑。
 
 论文源码、图表、BibTeX 数据库和 PDF 均未修改。上述未执行项目不标记为通过。
+
+**本轮源文件版本：** TeX blob SHA `2307b04cc562bd71bf8733a20695e28a198cdeea`；写作规范 blob SHA `f52ffad0ee8fd047eebd8ca2d514ec41bfa6f93b`。静态引用审计结果为 78 次引用出现、39 个唯一 key，全部可在两份 BibTeX 数据库中解析。
 
 ## 6. 审查结论
 
