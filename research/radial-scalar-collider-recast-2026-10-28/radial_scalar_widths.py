@@ -121,7 +121,7 @@ def evaluate_point(
     widths = {
         "mu_mu": fermion_pair_width(ms_GeV, ymu, M_MU_GEV),
         "tau_tau": fermion_pair_width(ms_GeV, ytau, M_TAU_GEV),
-        "Aprime_AAprime": vector_pair_width(ms_GeV, mA_GeV, vs),
+        "Aprime_Aprime": vector_pair_width(ms_GeV, mA_GeV, vs),
         "gamma_gamma_lepton_loops": photon_pair_width_lepton_loops(ms_GeV, vs),
     }
     for name, width in (additional_widths_GeV or {}).items():
