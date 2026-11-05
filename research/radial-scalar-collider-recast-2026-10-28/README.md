@@ -155,17 +155,28 @@ It may be disconnected, benchmark-dependent, and incomplete until all listed gat
 - A final validation note distinguishing recast limitations from physical conclusions.
 - A short, accurate response-letter paragraph once numerical findings are validated.
 
+## 2026-11-05 update — Belle II benchmark mapping
+
+A source-level audit now distinguishes the two published spin-0 benchmarks:
+
+- The four-muon search uses a muonphilic scalar benchmark and its own scalar signal efficiencies. The original UV model's \(s\to\tau^+\tau^-\) and \(s\to A'A'\) widths can reduce the direct dimuon branching fraction.
+- The tau-pair search uses mass-proportional leptophilic Yukawas \(\xi m_\ell/v\), with \(v=246\,\mathrm{GeV}\). The original UV model matches the \(\mu,\tau\) Yukawa normalization through \(\xi_{\mathrm{UV}}=v/v_s=2vg_X/m_{A'}\), conditional on the original single-VEV benchmark.
+- The tau threshold makes \(\mathrm{BR}_{\tau\tau}\) strongly mass-dependent near \(2m_\tau\). The analytic two-channel diagnostic gives 0.537 at \(m_s=3.6\,\mathrm{GeV}\), 0.965 at 4 GeV, and 0.996 at 10 GeV, with \(s\to A'A'\) closed.
+- The \(s\to A'A'\) channel can dominate once open; it must be included before translating either published limit.
+
+Detailed formulas, benchmark assumptions, and the threshold table are in [belleii-benchmark-mapping-2026-11-05.md](belleii-benchmark-mapping-2026-11-05.md). The downloader and offline payload-validation tests are in fetch_belleii_supplements.py and test_fetch_belleii_supplements.py. Local validation is recorded in [validation-results-2026-11-05.md](validation-results-2026-11-05.md).
+
 ## 8. Current status
 
 | Item | Status |
 |---|---|
 | Repository baseline and previous work identified | Complete |
 | Belle II four-muon and tau-pair source-level ranges identified | Complete at abstract/source-page level |
-| Public supplemental numerical curves located | Complete; automated retrieval is currently blocked in this environment |
-| Exact supplemental numerical curves extracted and benchmark reproduced | Pending |
+| Official supplemental files and exact file names located | Complete; raw numerical files not yet retrieved |
+| Raw supplemental files downloaded, hashed, and parsed | Pending |\n| Exact supplemental numerical curves extracted and benchmark reproduced | Pending |
 | Partial-width calculator scaffold for \(s\to\mu\mu,\tau\tau,A'A'\) added | Complete; six unit tests passed locally |
 | Complete UV widths and branching fractions cross-checked | Pending; portal, loop-induced and any other open channels must be included |
-| Model-specific production and yield predictions | Pending |
+| Model-specific production and yield predictions | Pending |\n| Supplement downloader and offline payload-validation tests | Complete; four tests passed locally |
 | Belle II model-specific reinterpretations/recasts | Pending |
 | Complementary Higgs-mixing/direct-search audit | Pending |
 | Point-by-point \(m_s\) scan and validated allowed set | Pending |
