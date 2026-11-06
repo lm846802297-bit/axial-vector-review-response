@@ -19,8 +19,10 @@ still be included for a full rate calculation.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import math
+import os
 from pathlib import Path
 
 import numpy as np
@@ -340,6 +342,8 @@ def run_audit(
             "replaced in the supernova calculation. Thermal muon averaging and "
             "Pauli blocking are outside this audit."
         ),
+        "run_commit_sha": os.environ.get("GITHUB_SHA"),
+        "reference_code_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         "m_mu_MeV": m_mu,
         "alpha": alpha,
         "gV": g_v,
