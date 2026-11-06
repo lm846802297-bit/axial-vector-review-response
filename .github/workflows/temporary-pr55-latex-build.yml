@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - review/response-point-conclusions-20261106
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: read
