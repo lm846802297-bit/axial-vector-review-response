@@ -4,6 +4,11 @@ on:
   pull_request:
     branches: [main]
     types: [opened, synchronize, reopened]
+    paths:
+      - 'Replies_to_Referee_3_referee_facing_2026-11-04.tex'
+      - 'Replies_to_Referee_3_neutrino_references.bib'
+      - 'overleaf-source/axial-vector-model-building-v6/references.bib'
+      - 'JHEP.bst'
 
 permissions:
   contents: write
