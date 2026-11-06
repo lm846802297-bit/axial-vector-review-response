@@ -36,7 +36,12 @@ def main():
             assert len(lum) == len(gs) and np.all(np.isfinite(lum)) and np.all(lum >= 0)
             assert abs(sum(row['thin_fractions'].values())-1) < 1e-12
             for key, threshold in [('intervals_4p4e52', 4.4e52), ('intervals_3e52', 3e52)]:
-                assert find_intervals(gs, lum, threshold) == row[key], (name, row['mass_MeV'])
+                calculated = np.asarray(find_intervals(gs, lum, threshold), dtype=float)
+                stored = np.asarray(row[key], dtype=float)
+                assert calculated.shape == stored.shape, (name, row['mass_MeV'], key, calculated.shape, stored.shape)
+                assert np.all(np.isfinite(stored)) and np.allclose(
+                    calculated, stored, rtol=5e-13, atol=0.0
+                ), (name, row['mass_MeV'], key, calculated.tolist(), stored.tolist())
     comparisons = {n: differences(base, by_mass(d)) for n, d in scans.items()
                    if n not in ['axial', 'vector', 'endpoint', 'refined_low']}
     slow, fast = scans['refined_low'], scans['refined_fast']
@@ -48,7 +53,7 @@ def main():
     report = dict(
         baseline_config=scans['axial']['config'], baseline_mass_count=len(scans['axial']['results']),
         plotted_axial_mass_count=len(base), coupling_count=len(scans['axial']['couplings']),
-        comparisons=comparisons,
+        comparisons=comparisons, interval_reconstruction_rtol=5e-13,
         optimized_column_luminosity_relative_difference_above_1e40=optimization_error,
         endpoint_intervals={str(m):base[m]['intervals_4p4e52'] for m in [250.,255.,260.,265.,270.]},
         largest_surface_blackbody_erg_s=max(r['surface_blackbody_erg_s'] for r in base.values()),

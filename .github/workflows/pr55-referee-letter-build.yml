@@ -57,7 +57,7 @@ jobs:
         run: |
           set -euo pipefail
           pdftotext -layout Replies_to_Referee_3_referee_facing_2026-11-04.pdf build/reply.txt
-          if grep -Eq '\\[\\?\\]|\\?\\?' build/reply.txt; then
+          if grep -Eq '\[\?\]|\?\?' build/reply.txt; then
             echo "Unresolved [ ? ] or ?? placeholder found in extracted PDF text"
             exit 1
           fi
@@ -87,6 +87,14 @@ jobs:
           fi
           echo "Final .log contains no unresolved citation/reference warnings."
           echo "BibTeX .blg contains no missing-entry/database warnings."
+
+      - name: Run source-preservation and PDF audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m venv build/audit-venv
+          build/audit-venv/bin/pip install --disable-pip-version-check pymupdf
+          build/audit-venv/bin/python research/stellar-cooling-constraints-20261105/audit_reply.py
 
       - name: Render every page and create inspectable contact sheets
         run: |
@@ -126,6 +134,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add Replies_to_Referee_3_referee_facing_2026-11-04.pdf
+          git add research/stellar-cooling-constraints-20261105/outputs/reply_audit.json
+          git add -f build/review/pages-*.svg
           if git diff --cached --quiet; then
             echo "Compiled PDF and visual-review sheets are already current."
           else

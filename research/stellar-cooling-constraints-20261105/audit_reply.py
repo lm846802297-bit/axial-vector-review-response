@@ -9,9 +9,6 @@ import platform
 import re
 import subprocess
 from pathlib import Path
-import matplotlib
-import numpy
-import scipy
 import pymupdf
 
 HERE=Path(__file__).resolve().parent
@@ -50,9 +47,9 @@ def main():
         if kind=='begin':stack.append(name)
         else:assert stack.pop()==name
     assert not stack
-    pdf=ROOT/(NAME+'.pdf');built=ROOT/'latex-build'/(NAME+'.pdf')
+    pdf=ROOT/(NAME+'.pdf');built=ROOT/'build'/(NAME+'.pdf')
     assert sha(pdf)==sha(built)
-    log=(ROOT/'latex-build'/(NAME+'.log')).read_text(encoding='utf-8',errors='replace')
+    log=(ROOT/'build'/(NAME+'.log')).read_text(encoding='utf-8',errors='replace')
     assert not re.search(r'undefined|There were undefined|Citation .* Warning',log,re.I)
     doc=pymupdf.open(pdf)
     unresolved=[i+1 for i,p in enumerate(doc) if '[?]' in p.get_text() or '??' in p.get_text()]
@@ -68,9 +65,8 @@ def main():
         unresolved_pdf_markers=unresolved,all_fonts_embedded=True,
         overfull_warnings=re.findall(r'Overfull[^\n]*',log),
         dependency_sha256={str(p.relative_to(ROOT)).replace('\\','/'):sha(p) for p in dependencies},
-        versions=dict(python=platform.python_version(),numpy=numpy.__version__,scipy=scipy.__version__,
-                      matplotlib=matplotlib.__version__,pymupdf=pymupdf.__version__),
-        visual_review='Separate human-readable record; this script does not inspect appearance',ci='not run')
+        versions=dict(python=platform.python_version(),pymupdf=pymupdf.__version__),
+        visual_review='Separate human-readable record; this script does not inspect appearance',ci='executed by the referee-response build workflow')
     (HERE/'outputs/reply_audit.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(report,indent=2))
 

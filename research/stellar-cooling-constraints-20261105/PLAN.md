@@ -17,7 +17,7 @@ Primary inputs: Liu–Miller1705.01633 vacuum matrix element; Blinov2511.09619 A
 - [x] Compile current response, inspect figures and relevant PDF pages; verify quotations/citations and actual numerical outputs.
 - [x] Audit the actual scientific/layout diff and record preservation/deletion ledger in VALIDATION_AND_REVIEW.md.
 - [x] Independent code/formula audit in the integration pass. The spin-degeneracy factor 2 is already included in the effective target density: the (dp=p_{\max}dx/2) quadrature Jacobian supplies the compensating factor (1/2). An independent quadrature regression test is added to lock this normalization; the existing scan outputs remain unchanged.
-- [ ] Commit, push branch and create PR; final repository metadata records submission.
+- [x] Commit and push the research branch; PR #56 is open as a Draft for author review. Final merge remains pending exact-head numerical validation, LaTeX/PDF checks and review.
 
 ## Review focus
 Mode degeneracy belongs outside the escape exponent. Opacity includes1/v and reduced absorption. Muon chemical potentials include rest energy. Strong-coupling surface layers need resolved quadrature. Source-figure digitization is not raw simulation data. Excluded area is specific to listed channels/approximations; unshaded area is not a globally allowed region. Omitted processes and backreaction are scientific scope limits, not internal task status.
