@@ -11,7 +11,9 @@ Units: MeV, km at the API boundary, hbar=c=1 internally.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
+import os
 from pathlib import Path
 
 import numpy as np
@@ -304,6 +306,9 @@ def main():
     payload = {
         "source": "Blinov et al., arXiv:2511.09619v2, Appendix B, Eqs. (17)-(35)",
         "implementation": "independent scalar literal reference; no imports from production rates.py or transport.py",
+        "run_commit_sha": os.environ.get("GITHUB_SHA"),
+        "reference_code_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+        "profile_sha256": hashlib.sha256(args.profile.read_bytes()).hexdigest(),
         "results": results,
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
