@@ -37,6 +37,14 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y latexmk texlive-latex-extra texlive-fonts-recommended texlive-science texlive-publishers texlive-bibtex-extra poppler-utils ghostscript python3-pil
 
+      - name: Refresh checkout to latest PR branch before compilation
+        shell: bash
+        run: |
+          set -euo pipefail
+          BRANCH="${{ github.event.pull_request.head.ref }}"
+          git fetch origin "$BRANCH"
+          git reset --hard FETCH_HEAD
+
       - name: Compile with latexmk and BibTeX
         shell: bash
         run: |
@@ -134,6 +142,12 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          BRANCH="${{ github.event.pull_request.head.ref }}"
+          git fetch origin "$BRANCH"
+          if [ "$(git rev-parse HEAD)" != "$(git rev-parse FETCH_HEAD)" ]; then
+            echo "PR branch advanced during build; refusing to publish a stale PDF."
+            exit 1
+          fi
           git add Replies_to_Referee_3_referee_facing_2026-11-04.pdf
           git add research/stellar-cooling-constraints-20261105/outputs/reply_audit.json
           git add -f build/review/pages-*.svg
