@@ -7,7 +7,7 @@ import numpy as np
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
 from vector_reference import summed_decay_production, thomson_absorption_modes
-from blinov_reproduction.compare_reference import contour_crossings, load_vertices, log_interpolate
+from blinov_reproduction.compare_reference import contour_crossings, cooling_intervals, load_vertices, log_interpolate
 from blinov_reproduction.reference import (
     M_MU, compton_production, decay_production, fermi_pair_average,
     negative_muon_density_and_degeneracy, scalar_optical_depths, local_rates,
@@ -81,6 +81,13 @@ class BlinovReferenceTests(unittest.TestCase):
             crossings = contour_crossings(vertices, mass)
             self.assertEqual(len(crossings), 2, msg=f"mass={mass}: {crossings}")
             self.assertLess(crossings[0], crossings[1])
+
+    def test_cooling_interval_handles_zero_underflow_samples(self):
+        intervals = cooling_intervals(
+            np.array([1e-10, 1e-9, 1e-8, 1e-7]),
+            np.array([0.0, 1e53, 1e53, 0.0]), 4.4e52)
+        self.assertEqual(len(intervals), 1)
+        self.assertLess(intervals[0][0], intervals[0][1])
 
     def test_log_interpolation_ignores_zero_underflow_samples(self):
         values = log_interpolate(
