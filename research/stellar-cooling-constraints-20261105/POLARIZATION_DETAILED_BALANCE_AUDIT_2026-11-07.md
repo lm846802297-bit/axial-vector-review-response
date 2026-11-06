@@ -132,7 +132,7 @@ For the vector current used in the Blinov benchmark, the vacuum width into both 
 =\frac{g_X^2m_V}{12\pi}
 \left(1+\frac{2m_\mu^2}{m_V^2}\right)\beta_\mu,
 \]
-which is Eq. (B.12) after using (\alpha_V=g_X^2/(4\pi)). This unpolarized width equals the width of each fixed polarization in vacuum.
+which is Eq. (B.12) after using $\alpha_V=g_X^2/(4\pi)$.  This unpolarized width equals the width of each fixed polarization in vacuum.
 
 The normalized angular weights for the three fixed vector modes are
 \[
@@ -167,8 +167,8 @@ Replacing $ff$ by $(1-f)(1-f)$ gives the absorption rate. Since $E_1+E_2=\omega$
 
 ### Code comparison
 
-- `rates.charged_muon_decay_rates(current="vector")` uses the exact vector vacuum width and the (W_L^\mu,W_T^\mu) angular weights above.
-- The code retains the finite (m_\mu) threshold and Fermi blocking.
+- `rates.charged_muon_decay_rates(current="vector")` uses the exact vector vacuum width and the $W_L^\mu,W_T^\mu$ angular weights above.
+- The code retains the finite $m_\mu$ threshold and Fermi blocking.
 - `test_rates.py::test_dimuon_angular_weights_from_dirac_trace` compares the longitudinal/transverse angular tensors with an explicit Dirac trace.
 - `test_rates.py::test_charged_muon_decay_width_and_balance` checks the vacuum width and detailed balance mode by mode.
 - `test_vector_reference.py::test_spin_sums_against_blinov_closed_form` checks the total rate against the independent B.11 scalar expression.
@@ -212,7 +212,7 @@ The non-relativistic-muon, negligible-recoil production cross section printed in
 \frac{8\pi\alpha\alpha_V}{3m_\mu^2}
 \left(1+\frac{m_V^2}{2\omega^2}\right)v_V.
 \]
-It is a polarization-summed production cross section with the conventional initial-state spin averages. Let
+It is a polarization-summed production cross section with the conventional initial-state spin averages.
 
 Let $\sigma_h^{\rm inv}$ be the inverse cross section for a fixed incident vector mode $h$, averaged over the initial muon spin and summed over final muon spin and photon polarization. Define the unpolarized inverse cross section by
 \[
@@ -264,17 +264,17 @@ v_V\sum_h\sigma_h^{\rm inv}
 =\frac{2\alpha}{3m_\mu^2}
 \left(2+\frac{m_V^2}{\omega^2}\right),
 \]
-which, inserted into the mode-resolved thermal rate above, reproduces B.14–B.16. In particular, the longitudinal inverse cross section is suppressed as (m_V^2/\omega^2) in the light-vector limit; it is not equal to either transverse mode.
+which, inserted into the mode-resolved thermal rate above, reproduces B.14–B.16. In particular, the longitudinal inverse cross section is suppressed as $m_V^2/\omega^2$ in the light-vector limit; it is not equal to either transverse mode.
 
 ### 4.4 Code comparison and approximation boundary
 
 - `rates.compton_matrix_elements` evaluates the crossed inverse amplitude for a **fixed incident vector polarization** and sums the final photon polarizations. The initial muon spin is averaged in the trace.
-- `rates.compton_kernels` integrates the two-body inverse cross section separately for (L,+,-), returning the angle-resolved (v_Vd\sigma_h^{\rm inv}) weights.
+- `rates.compton_kernels` integrates the two-body inverse cross section separately for $L,+,-$, returning the angle-resolved $v_Vd\sigma_h^{\rm inv}$ weights.
 - `rates.compton_absorption` multiplies these weights by an effective muon susceptibility density and the final-state photon stimulation factor. It returns three separate absorption rates.
-- `run_scan.py` forms the production rates as (\Gamma_h^{\rm prod}=e^{-\omega/T}\Gamma_h^{\rm abs}) and the reduced opacity as (\Gamma_h^*=(1-e^{-\omega/T})\Gamma_h^{\rm abs}), mode by mode.
+- `run_scan.py` forms the production rates as $\Gamma_h^{\rm prod}=e^{-\omega/T}\Gamma_h^{\rm abs}$ and the reduced opacity as $\Gamma_h^*=(1-e^{-\omega/T})\Gamma_h^{\rm abs}$, mode by mode.
 - `test_rates.py::test_vector_thomson_limit` checks the per-mode vector Thomson limit. `test_vector_reference.py::test_photon_factor_two_and_velocity` checks the summed B.16 normalization and the photon factor 2.
 
-There is an important approximation boundary. Blinov explicitly states that B.13 is usually evaluated in the non-relativistic-muon, negligible-recoil limit, $E_\gamma\simeq\omega$. The production scan instead uses exact vacuum two-body recoil with the initial muon at rest, then folds it with an effective muon density; it does **not** perform the full moving-muon thermal phase-space integral in B.13. The factor (e^{-\omega/T}) is imposed consistently at the effective-rate level, but the present implementation does not independently evaluate both sides of the exact moving-muon collision integral. It should therefore be described as a mode-resolved stationary-muon/effective-density approximation, not as an exact thermal evaluation of B.13.
+There is an important approximation boundary. Blinov explicitly states that B.13 is usually evaluated in the non-relativistic-muon, negligible-recoil limit, $E_\gamma\simeq\omega$. The production scan instead uses exact vacuum two-body recoil with the initial muon at rest, then folds it with an effective muon density; it does **not** perform the full moving-muon thermal phase-space integral in B.13. The factor $e^{-\omega/T}$ is imposed consistently at the effective-rate level, but the present implementation does not independently evaluate both sides of the exact moving-muon collision integral. It should therefore be described as a mode-resolved stationary-muon/effective-density approximation, not as an exact thermal evaluation of B.13.
 
 A second convention requires explicit tracking: B.17 is printed with $2\int d^3p\,f_\mu(1-f_\mu)$, whereas `transport.effective_muon_density` includes both $\mu^-$ and $\mu^+$ distributions, each with two spin states. The printed equation does not explicitly state whether the symbol $n_\mu F_{\rm deg}$ includes the charge-conjugate species. This note does not decide that convention or change the code; it records it as a separate input-normalization question.
 
