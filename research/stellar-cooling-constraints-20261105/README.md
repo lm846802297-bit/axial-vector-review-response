@@ -73,6 +73,19 @@ L=\sum_h\int 4\pi r^2dr\,N^2
 
 `surface_blackbody_erg_s` 是强截获极限的表面诊断值。极强耦合下固定径向网格不能解析无限薄表层，数值 L 会下溢；不把这一数值下溢解释为物理零光度。25 km 表面的三模态黑体上限约为 8.7e51 erg/s，低于冷却标准；图的截获边界在收敛检查中单独核查。
 
+## 3.1 Stage 1: Blinov polarization-resolved audit
+
+The Appendix-B derivation and source/code comparison are in [POLARIZATION_DETAILED_BALANCE_AUDIT_2026-11-07.md](POLARIZATION_DETAILED_BALANCE_AUDIT_2026-11-07.md). Stage 1 keeps the production rates, transport normalization, and saved scans unchanged.
+
+- `test_rates.py` checks neutrino and dimuon detailed balance mode by mode, their vacuum widths and angular weights, and the B.7/B.11 spin sums.
+- `test_vector_reference.py` checks the independent scalar spin-summed rates, the per-mode Thomson limit, the B.16 photon/velocity normalization, and why a polarization-summed opacity is not a single-particle survival rate.
+- `test_stage1_detailed_balance.py` adds a B.19 collision-integrand test using the actual inverse-Compton matrix elements for all three incident vector modes and both muon charges. It also checks the three-mode opacity output and the independent B.17 susceptibility integral.
+- `audit_muon_susceptibility.py` and [its saved JSON output](outputs/vector_audit/muon_susceptibility_charge_audit.json) quantify the separate $\mu^-$ and $\mu^+$ susceptibility contributions on the selected reconstructed profile.
+
+At the sampled inner radii 0–10 km, the positive-muon contribution is about 0.3–1.3% of the two-charge susceptibility; it becomes negligible farther out, except that the two charges are equal at 25 km where the absolute susceptibility is only about $1.15\times10^{-12}$ MeV$^3$. The printed B.17 notation still does not settle whether its $n_\mu F_{\rm deg}$ includes the charge-conjugate species. This remains a source-convention question, not a reason to silently change the code.
+
+The PR workflow runs the full discovered suite and checks the saved susceptibility audit numerically. The Stage-1 validation run [#49](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42284283285) passes all 30 tests and the reproducibility checks. This does not validate the unresolved B.2 scalar-opacity convention or the full moving-muon thermal integral.
+
 ## 4. 剖面来源及不确定性
 
 `extract_profile.py` 从两个公开 arXiv source 包中只读取命名的 PDF 图；不接触受限模拟表。PDF 哈希、路径号、坐标变换和样点在 [profile_provenance.json](data/profile_provenance.json) 中。
