@@ -80,7 +80,17 @@ jobs:
           test "$(grep -c '\\bibitem' build/Replies_to_Referee_3_referee_facing_2026-11-04.bbl)" -gt 0
           pdftotext -layout Replies_to_Referee_3_referee_facing_2026-11-04.pdf build/reply-extracted.txt
           test -s build/reply-extracted.txt
+          if grep -Eq '\\[\\?\\]|\\?\\?' build/reply-extracted.txt; then
+            echo "Unresolved [ ? ] or ?? placeholder found in extracted PDF text"
+            exit 1
+          fi
           pdfinfo Replies_to_Referee_3_referee_facing_2026-11-04.pdf | tee build/pdfinfo.txt
+          pdffonts Replies_to_Referee_3_referee_facing_2026-11-04.pdf | tee build/pdffonts.txt
+          if ! awk 'NR > 2 && $4 != "yes" { bad=1 } END { exit bad }' build/pdffonts.txt; then
+            echo "At least one PDF font is not embedded"
+            exit 1
+          fi
+          sha256sum Replies_to_Referee_3_referee_facing_2026-11-04.pdf | tee build/pdf-sha256.txt
           grep -E 'Pages:|Page size:|File size:' build/pdfinfo.txt
 
       - name: Render all pages and prepare page-by-page visual review
