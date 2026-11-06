@@ -51,7 +51,7 @@ jobs:
       - name: Check numerical validation records are reproducible
         run: |
           git diff --exit-code -- \
-            research/stellar-cooling-constraints-20261105/outputs/numerical_validation.json \\
+            research/stellar-cooling-constraints-20261105/outputs/numerical_validation.json \
             research/stellar-cooling-constraints-20261105/outputs/vector_audit/muon_susceptibility_charge_audit.json
           echo "The independent kernel checker is tolerance-based; its JSON may differ in final floating-point digits across runners."
       - name: Publish regenerated figure assets
