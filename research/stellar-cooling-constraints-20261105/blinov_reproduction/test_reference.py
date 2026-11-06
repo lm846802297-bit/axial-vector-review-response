@@ -9,7 +9,7 @@ sys.path.insert(0, str(HERE.parent))
 from vector_reference import summed_decay_production, thomson_absorption_modes
 from blinov_reproduction.reference import (
     M_MU, compton_production, decay_production, fermi_pair_average,
-    negative_muon_density_and_degeneracy, scalar_optical_depths,
+    negative_muon_density_and_degeneracy, scalar_optical_depths, local_rates,
 )
 
 
@@ -54,6 +54,18 @@ class BlinovReferenceTests(unittest.TestCase):
             mass, omega, temp, np.array(n_mu_fdeg)))
         expected_prod = np.exp(-omega / temp) * expected_abs
         np.testing.assert_allclose(actual, expected_prod, rtol=2e-13)
+
+    def test_scalar_absorption_satisfies_eq35(self):
+        rates = local_rates(
+            10.0, np.array([[15.0, 30.0]]), np.array([[22.0]]),
+            np.array([[-15.0]]), np.array([[55.0]]))
+        omega = np.array([[15.0, 30.0]])
+        expected = np.exp(omega / 22.0) * rates["production"]
+        np.testing.assert_allclose(rates["absorption"], expected, rtol=2e-14)
+        np.testing.assert_allclose(
+            rates["reduced_absorption"],
+            (1.0 - np.exp(-omega / 22.0)) * rates["absorption"],
+            rtol=2e-14)
 
     def test_muon_density_and_degeneracy_are_finite(self):
         n, fdeg = negative_muon_density_and_degeneracy(
