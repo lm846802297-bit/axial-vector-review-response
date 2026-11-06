@@ -1,9 +1,9 @@
 name: Major 4.4 EFT numerical validation
 
 on:
-  pull_request:
-    branches: [main]
-    types: [opened, synchronize, reopened]
+  push:
+    branches:
+      - codex/major44-axial-cooling-constraints-20261105
     paths:
       - 'research/stellar-cooling-constraints-20261105/*.py'
       - 'research/stellar-cooling-constraints-20261105/data/**'
@@ -20,7 +20,7 @@ concurrency:
 
 jobs:
   validate:
-    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.ref == 'codex/major44-axial-cooling-constraints-20261105'
+    if: github.event_name == 'workflow_dispatch' || github.ref_name == 'codex/major44-axial-cooling-constraints-20261105'
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:

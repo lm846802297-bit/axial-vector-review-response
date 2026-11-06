@@ -1,9 +1,10 @@
 name: Referee response LaTeX build (PR55 and PR56)
 
 on:
-  pull_request:
-    branches: [main]
-    types: [opened, synchronize, reopened]
+  push:
+    branches:
+      - review/response-point-conclusions-20261106
+      - codex/major44-axial-cooling-constraints-20261105
     paths:
       - 'Replies_to_Referee_3_referee_facing_2026-11-04.tex'
       - 'Replies_to_Referee_3_neutrino_references.bib'
@@ -22,14 +23,14 @@ concurrency:
 
 jobs:
   build-and-inspect:
-    if: github.event.pull_request.head.ref == 'review/response-point-conclusions-20261106' || github.event.pull_request.head.ref == 'codex/major44-axial-cooling-constraints-20261105'
+    if: github.event_name == 'workflow_dispatch' || github.ref_name == 'review/response-point-conclusions-20261106' || github.ref_name == 'codex/major44-axial-cooling-constraints-20261105'
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
       - name: Checkout exact PR head
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
           fetch-depth: 0
 
       - name: Install TeX and PDF inspection tools
@@ -41,7 +42,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          BRANCH="${{ github.event.pull_request.head.ref }}"
+          BRANCH="${{ github.event.pull_request.head.ref || github.ref_name }}"
           git fetch origin "$BRANCH"
           git reset --hard FETCH_HEAD
 
@@ -105,7 +106,7 @@ jobs:
           build/audit-venv/bin/pip install --disable-pip-version-check --no-deps pymupdf==1.26.7
           build/audit-venv/bin/python research/stellar-cooling-constraints-20261105/audit_reply.py
 
-      - name: Render every page and create inspectable contact sheets
+      - name: Render every page and create local contact sheets for visual QA
         run: |
           set -euo pipefail
           pdftoppm -png -r 150 Replies_to_Referee_3_referee_facing_2026-11-04.pdf build/pages/page
@@ -150,7 +151,6 @@ jobs:
           fi
           git add Replies_to_Referee_3_referee_facing_2026-11-04.pdf
           git add research/stellar-cooling-constraints-20261105/outputs/reply_audit.json
-          git add -f build/review/pages-*.svg
           if git diff --cached --quiet; then
             echo "Compiled PDF and visual-review sheets are already current."
           else
