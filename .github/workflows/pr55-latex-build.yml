@@ -80,7 +80,7 @@ jobs:
           test "$(grep -c '\\bibitem' build/Replies_to_Referee_3_referee_facing_2026-11-04.bbl)" -gt 0
           pdftotext -layout Replies_to_Referee_3_referee_facing_2026-11-04.pdf build/reply-extracted.txt
           test -s build/reply-extracted.txt
-          if grep -Eq '\\[\\?\\]|\\?\\?' build/reply-extracted.txt; then
+          if grep -Eq '\[\?\]|\?\?' build/reply-extracted.txt; then
             echo "Unresolved [ ? ] or ?? placeholder found in extracted PDF text"
             exit 1
           fi
