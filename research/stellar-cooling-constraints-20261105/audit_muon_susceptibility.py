@@ -85,22 +85,48 @@ def build_audit(profile_path):
     }
 
 
+def compare_records(actual, reference, path="$"):
+    """Compare JSON records numerically, allowing only output-rounding noise."""
+    if isinstance(actual, dict) and isinstance(reference, dict):
+        if actual.keys() != reference.keys():
+            raise AssertionError(f"JSON keys differ at {path}")
+        for key in actual:
+            compare_records(actual[key], reference[key], f"{path}.{key}")
+    elif isinstance(actual, list) and isinstance(reference, list):
+        if len(actual) != len(reference):
+            raise AssertionError(f"JSON list lengths differ at {path}")
+        for index, (a, b) in enumerate(zip(actual, reference)):
+            compare_records(a, b, f"{path}[{index}]")
+    elif isinstance(actual, (int, float)) and isinstance(reference, (int, float)):
+        if not np.isclose(actual, reference, rtol=2e-8, atol=1e-300):
+            raise AssertionError(f"Numerical mismatch at {path}: {actual} != {reference}")
+    elif actual != reference:
+        raise AssertionError(f"Value mismatch at {path}: {actual!r} != {reference!r}")
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--profile", type=Path, default=DEFAULT_PROFILE)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument("--check", action="store_true",
+                        help="compare the regenerated result with the saved JSON")
     args = parser.parse_args()
     result = build_audit(args.profile)
-    args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
-    for point in result["points"]:
-        print(
-            f"r={point['r_km']:>4} km: "
-            f"mu+/mu-={point['n_plus_over_n_minus']:.4g}, "
-            f"mu+ fraction={point['n_plus_fraction_of_both']:.4g}, "
-            f"Gauss-vs-quad={point['transport_relative_difference_vs_adaptive_quad']:.3g}"
-        )
-    print(f"Wrote {args.output}")
+    if args.check:
+        reference = json.loads(args.output.read_text(encoding="utf-8"))
+        compare_records(result, reference)
+        print(f"Validated saved audit {args.output}")
+    else:
+        args.output.parent.mkdir(parents=True, exist_ok=True)
+        args.output.write_text(json.dumps(result, indent=2) + "\\n", encoding="utf-8")
+        for point in result["points"]:
+            print(
+                f"r={point['r_km']:>4} km: "
+                f"mu+/mu-={point['n_plus_over_n_minus']:.4g}, "
+                f"mu+ fraction={point['n_plus_fraction_of_both']:.4g}, "
+                f"Gauss-vs-quad={point['transport_relative_difference_vs_adaptive_quad']:.3g}"
+            )
+        print(f"Wrote {args.output}")
 
 
 if __name__ == "__main__":
