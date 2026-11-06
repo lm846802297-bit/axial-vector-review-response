@@ -77,14 +77,14 @@ dp=\frac{p_{\max}}2\,dx.
 ## 5. LaTeX、引用与 PDF 视觉验收
 
 - 数值工作流：GitHub Actions Run [42165316227](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42165316227)，通过；19/19 单元测试通过，28 个独立核对点的最大相对误差为 \\(2.8801\\times10^{-12}\\)，保存扫描输出与数值验证记录复现通过。
-- 回复信 LaTeX/PDF 构建与视觉验收：GitHub Actions Run [42161589195](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42161589195)，通过。该次构建使用当前回复信 TeX（SHA-256 `109933617fdec936f1ffd981e6438e89a9b653d2c7ff799f7cfc8f74eaf6eaab`），PDF 与 `reply_audit.json` 来自同一次构建。后续仅修改 PDF 发布工作流；空 refspec 问题已修正为使用已解析的 `BRANCH`，新的工作流验收仍在进行，不涉及 TeX 或数值源。
+- 回复信 LaTeX/PDF 构建与视觉验收：GitHub Actions Run [42165491749](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42165491749)，通过。该次构建使用回复信 TeX（SHA-256 `109933617fdec936f1ffd981e6438e89a9b653d2c7ff799f7cfc8f74eaf6eaab`）；工作流 refspec 修正已得到实际验证，PDF 与 `reply_audit.json` 来自同一次构建。此后没有修改 TeX 或数值源。
 - PDF：65 页 A4，506,944 bytes；SHA-256：
-  `7d70e7afddcf6004aa67e206477d5c99b71afa28f3c8da78d4abed4a1b0cde0c`。
+  `56451f2dedf9ecee9ed826785424f934a2c0d21e46456ce8c18665afc962af1a`。
 - `reply_audit.json`：45 个唯一引用键；27 段审稿引文不变；标签和环境检查通过；PDF 文本无 `[?]`/`??`；全部字体嵌入；无 overfull 警告；根目录 PDF 与实际 build 文件哈希一致。
-- 全部 65 页以 150 dpi 渲染并完成人工缩略图检查。重点检查 Major 4.4 的公式页 43–44、新图第 45 页、讨论页 46 和参考文献页 61–65；没有公式/图表裁切、缺字、页边距溢出或异常空白页。
+- 最新 Run 42165491749 将全部 65 页以 150 dpi 渲染，并生成 11 份本地 contact sheets；该工作流不上传 contact sheets，也不自动判断页面视觉质量。此前对同一 TeX 源（SHA-256 不变）的视觉检查记录仍可作为内容版式核查依据；本次新 PDF 的自动审计确认页数、字体嵌入、文本标记和结构正常。
 - 第 65 页只包含最后一条参考文献，不是空白页。曾试验缩小整个参考文献字号，但没有减少页数，因此恢复标准字号，优先保持引用可读性。
 - LaTeX 日志有一处非阻塞 `Underfull \hbox`（badness 1199，源文件第 555–557 行）；无 `Overfull`。初次 LaTeX pass 的 citation warnings 经 BibTeX 和后续 pass 消除，最终审计无未解析引用/交叉引用。
-- 视觉检查用的 11 个临时 contact sheets 已在审阅后删除；根目录 PDF、`reply_audit.json` 和数值输出保留。
+- 本次 workflow 的 11 份 contact sheets 保留在 runner 临时目录，不作为 PR 文件提交；根目录 PDF、`reply_audit.json` 和数值输出保留。
 
 ## 6. 物理限制与结论
 
