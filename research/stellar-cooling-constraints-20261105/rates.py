@@ -200,3 +200,171 @@ def charged_muon_decay_rates(mass, energy, temperature, mu_mu, current="axial", 
     prod = np.einsum("...z,zh->...h", _fermion(x1)*_fermion(x2), angular)
     absorp = np.einsum("...z,zh->...h", _fermion(-x1)*_fermion(-x2), angular)
     return (mass/energy*width)[..., None]*prod, (mass/energy*width)[..., None]*absorp
+
+
+def compton_mixed_matrix_elements(mass, energies, cosines, g_vector, g_axial,
+                                  photon_ward=False):
+    """Return |M_h|^2 for a mixed muon current at unit overall gX.
+
+    g_vector and g_axial are the coefficients normalized to gX in
+    L_int = A'_mu mu_bar gamma^mu (g_vector + g_axial*gamma^5) mu.
+    The axial vertex in this module's pure-axial basis is gamma^mu(-gamma^5),
+    so the amplitude is g_vector*M_vector - g_axial*M_axial_basis.
+
+    The physical longitudinal polarization is used for the axial amplitude.
+    For the conserved vector amplitude only, the equivalent Ward-shifted
+    polarization is used to stabilize the m/E << 1 limit. The interference
+    term is retained at amplitude level.
+    """
+    g_vector, g_axial = float(g_vector), float(g_axial)
+    if not np.isfinite(g_vector) or not np.isfinite(g_axial):
+        raise ValueError("Mixed-current couplings must be finite")
+    energies = np.atleast_1d(np.asarray(energies, float))
+    cosines = np.atleast_1d(np.asarray(cosines, float))
+    if mass <= 0 or np.any(energies < mass) or np.any(abs(cosines) > 1):
+        raise ValueError("Require M>0, E>=M, |cos(theta)|<=1")
+
+    ee, cc = np.broadcast_arrays(energies[:, None], cosines[None, :])
+    kk = np.sqrt(np.maximum((ee-mass)*(ee+mass), 0.))
+    ss = np.sqrt(np.maximum(1-cc*cc, 0.))
+    denominator = M_MU + ee - kk*cc
+    eg = (mass*mass+2*M_MU*ee)/(2*denominator)
+    zeros = np.zeros_like(ee)
+    p = np.stack([np.full_like(ee, M_MU), zeros, zeros, zeros], axis=-1)
+    q = np.stack([ee, zeros, zeros, kk], axis=-1)
+    photon = np.stack([eg, eg*ss, zeros, eg*cc], axis=-1)
+    pp = p+q-photon
+    prop_s = (_slash(p+q)+M_MU*_I4)/(mass*mass+2*M_MU*ee)[..., None, None]
+    prop_u = (_slash(p-photon)+M_MU*_I4)/(-2*M_MU*eg)[..., None, None]
+    spin_out, spin_in = _slash(p)+M_MU*_I4, _slash(pp)+M_MU*_I4
+
+    eps_l_axial = np.stack([kk/mass, zeros, zeros, ee/mass], axis=-1)
+    small = mass/(ee+kk)
+    eps_l_vector = np.stack([-small, zeros, zeros, small], axis=-1)
+    eps_plus = np.array([0, 1, 1j, 0])/np.sqrt(2)
+    eps_minus = np.array([0, 1, -1j, 0])/np.sqrt(2)
+    eps_mediator = (
+        (eps_l_vector, eps_l_axial),
+        (eps_plus, eps_plus),
+        (eps_minus, eps_minus),
+    )
+    eps_gamma = (np.stack([zeros, cc, zeros, -ss], axis=-1),
+                 np.array([0, 0, 1, 0]))
+    if photon_ward:
+        eps_gamma = (photon,)
+
+    answer = []
+    for eps_vector, eps_axial in eps_mediator:
+        vx_vector = _slash(eps_vector)
+        vx_axial = _slash(eps_axial)@(-_G5)
+        total = np.zeros_like(ee)
+        for photon_polarization in eps_gamma:
+            vg = _slash(photon_polarization)
+            amp_vector = vx_vector@prop_s@vg + vg@prop_u@vx_vector
+            amp_axial = vx_axial@prop_s@vg + vg@prop_u@vx_axial
+            amplitude = g_vector*amp_vector - g_axial*amp_axial
+            conjugate = _GAMMA[0]@_dagger(amplitude)@_GAMMA[0]
+            trace = np.trace(spin_out@amplitude@spin_in@conjugate,
+                             axis1=-2, axis2=-1)
+            total += trace.real/2
+        answer.append(total*E2)
+    return eg, np.stack(answer, axis=-1)
+
+
+def compton_mixed_kernels(mass, energies, g_vector, g_axial, order=32):
+    """Return mixed-current (E_gamma, dOmega-weighted v*sigma) at unit gX."""
+    cosines, weights = quadrature(order)
+    eg, msq = compton_mixed_matrix_elements(
+        mass, energies, cosines, g_vector, g_axial
+    )
+    ee = np.atleast_1d(np.asarray(energies, float))[:, None]
+    kk = np.sqrt(np.maximum((ee-mass)*(ee+mass), 0.))
+    denominator = M_MU + ee - kk*cosines
+    factor = eg/(64*np.pi**2*M_MU*ee*denominator)*(2*np.pi*weights)
+    return eg, factor[..., None]*msq
+
+
+def dimuon_mixed_angular_weights(mass, g_vector, g_axial, order=48):
+    """Return z, Gauss weights and normalized L,+,- decay angular weights.
+
+    Couplings are normalized to gX and use the Lagrangian convention
+    gamma^mu(g_vector + g_axial*gamma^5). The V-A interference is retained.
+    """
+    g_vector, g_axial = float(g_vector), float(g_axial)
+    if not np.isfinite(g_vector) or not np.isfinite(g_axial):
+        raise ValueError("Mixed-current couplings must be finite")
+    if mass <= 2*M_MU:
+        raise ValueError("The dimuon channel is closed below threshold")
+    if g_vector == 0.0 and g_axial == 0.0:
+        raise ValueError("At least one muon-current coupling must be nonzero")
+
+    z, weights = quadrature(order)
+    beta = np.sqrt(1-4*M_MU*M_MU/(mass*mass))
+    e = mass/2
+    p = mass*beta/2
+    sintheta = np.sqrt(np.maximum(1-z*z, 0.))
+    p_minus = np.stack([np.full_like(z, e), p*sintheta,
+                        np.zeros_like(z), p*z], axis=-1)
+    p_plus = np.stack([np.full_like(z, e), -p*sintheta,
+                       np.zeros_like(z), -p*z], axis=-1)
+    spin_minus = _slash(p_minus)+M_MU*_I4
+    spin_plus = _slash(p_plus)-M_MU*_I4
+    eps_modes = (
+        np.array([0, 0, 0, 1], dtype=complex),
+        np.array([0, 1, 1j, 0], dtype=complex)/np.sqrt(2),
+        np.array([0, 1, -1j, 0], dtype=complex)/np.sqrt(2),
+    )
+    matrix_elements = []
+    for eps in eps_modes:
+        vertex = _slash(eps)@(g_vector*_I4+g_axial*_G5)
+        barred_vertex = _GAMMA[0]@_dagger(vertex)@_GAMMA[0]
+        trace = np.trace(spin_minus@vertex@spin_plus@barred_vertex,
+                         axis1=-2, axis2=-1)
+        matrix_elements.append(trace.real)
+    matrix_elements = np.stack(matrix_elements, axis=-1)
+    norms = np.einsum("z,zh->h", weights, matrix_elements)
+    if np.any(norms <= 0.0):
+        raise ArithmeticError("Nonpositive mixed dimuon angular normalization")
+    angular = matrix_elements/norms[None, :]
+    return z, weights, angular
+
+
+def charged_muon_decay_rates_mixed(mass, energy, temperature, mu_mu,
+                                   g_vector, g_axial, order=48):
+    """Mode-resolved mixed mu+mu- inverse decay / decay at unit overall gX.
+
+    The spin-summed vacuum width is Gamma_V + Gamma_A. The angular
+    distributions are obtained from the full Dirac trace, so the circular
+    mode V-A interference is retained when the in-medium Fermi factors are
+    not symmetric. Multiply the returned rates by gX^2.
+    """
+    energy, temperature, chemical = _decay_inputs(
+        mass, energy, temperature, mu_mu
+    )
+    g_vector, g_axial = float(g_vector), float(g_axial)
+    if not np.isfinite(g_vector) or not np.isfinite(g_axial):
+        raise ValueError("Mixed-current couplings must be finite")
+    if mass <= 2*M_MU or (g_vector == 0.0 and g_axial == 0.0):
+        zero = np.zeros(energy.shape+(3,))
+        return zero, zero.copy()
+
+    z, weights, angular = dimuon_mixed_angular_weights(
+        mass, g_vector, g_axial, order
+    )
+    beta = np.sqrt(1-4*M_MU*M_MU/(mass*mass))
+    k = np.sqrt(np.maximum((energy-mass)*(energy+mass), 0.))
+    e1 = (energy[..., None]+k[..., None]*beta*z)/2
+    e2 = (energy[..., None]-k[..., None]*beta*z)/2
+    x1 = (e1-chemical[..., None])/temperature[..., None]
+    x2 = (e2+chemical[..., None])/temperature[..., None]
+    f1, f2 = _fermion(x1), _fermion(x2)
+    prod = np.einsum("...z,z,zh->...h", f1*f2, weights, angular)
+    absorp = np.einsum("...z,z,zh->...h",
+                       (1-f1)*(1-f2), weights, angular)
+
+    width_vector = (g_vector*g_vector*mass*beta
+                    *(1+2*M_MU*M_MU/(mass*mass))/(12*np.pi))
+    width_axial = g_axial*g_axial*mass*beta**3/(12*np.pi)
+    width = width_vector+width_axial
+    prefactor = (mass/energy*width)[..., None]
+    return prefactor*prod, prefactor*absorp

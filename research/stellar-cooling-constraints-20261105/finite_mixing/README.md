@@ -1,6 +1,6 @@
 # Finite-mixing vector--axial stellar-cooling constraints
 
-**Status (2026-11-07): coupling map and validation gate only. No mixed-current luminosity scan or exclusion curve has been produced.**
+**Status (2026-11-07): UV coupling map and amplitude-level mixed Compton/dimuon kernels are implemented and endpoint-tested. No mixed-current luminosity scan or exclusion curve has been produced; the pure-vector literature gate remains blocked.**
 
 This module is a separate research line inside PR #56. Its purpose is to calculate the stellar-cooling constraint for the actual UV-model muon current, which contains both vector and axial components for nonzero right-handed mixing.
 
@@ -51,7 +51,7 @@ A close match to a cooling contour alone is not sufficient: the full luminosity 
 
 ## 3. Required calculation after the gate passes
 
-1. Construct the amplitude, not a rate-level interpolation:
+1. The amplitude-level kernels are implemented in rates.py as compton_mixed_matrix_elements / compton_mixed_kernels and charged_muon_decay_rates_mixed. Tests verify exact pure-vector and pure-axial endpoints, photon Ward identity, mode-by-mode detailed balance, and the circular-mode V-A interference. Do not infer full cooling validity from these local-kernel tests. The amplitude is constructed as:
    \[
    \mathcal M_h^{\rm mix}
    =g_V^\mu\mathcal M_{V,h}
@@ -76,4 +76,4 @@ A close match to a cooling contour alone is not sufficient: the full luminosity 
 
 The published pure-vector curve is an external benchmark, not a substitute for the mixed-current calculation. The existing axial curve is an internal endpoint, not a proof of the mixed calculation. A mixed curve is a new model-specific result and is not obtained by adding or rescaling the two endpoint curves.
 
-Until the vector-endpoint gate passes, this directory contains only the UV coupling map and the validation protocol. PR #56 remains Draft, and no referee-response or manuscript file is changed.
+Until the vector-endpoint gate passes, the module is limited to the UV coupling map, local mixed-kernel implementations, endpoint regressions, and validation protocol. PR #56 remains Draft, and no referee-response or manuscript file is changed.

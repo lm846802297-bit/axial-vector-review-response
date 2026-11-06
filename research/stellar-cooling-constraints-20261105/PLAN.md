@@ -68,7 +68,7 @@ See [POLARIZATION_DETAILED_BALANCE_AUDIT_2026-11-07.md](POLARIZATION_DETAILED_BA
 
 ## Stage 3: finite-mixing vector–axial extension (2026-11-07)
 
-**Status: model-coupling map and a hard vector-endpoint gate are added; no mixed-current luminosity scan or constraint curve is yet claimed.**
+**Status: UV coupling map plus amplitude-level mixed Compton/dimuon kernels and endpoint tests are added; no mixed-current luminosity scan or constraint curve is yet claimed.**
 
 The dedicated module is [finite_mixing/README.md](finite_mixing/README.md). The UV coupling map is implemented in [finite_mixing/model.py](finite_mixing/model.py), with endpoint and chiral-coupling tests.
 
@@ -99,7 +99,7 @@ The current Fig. 4/Fig. 7 digitizations originate from the arXiv source archive.
 1. Re-extract the published version-of-record Fig. 4 and Fig. 7 reference curves, recording source PDF hashes and digitization provenance.
 2. Resolve the pure-vector local-rate, polarization/opacity, and transport comparison one ingredient at a time. Preserve detailed balance and do not insert fitted rescaling factors.
 3. Require both contour-boundary and full-luminosity-curve agreement before declaring the vector benchmark passed.
-4. Only then implement amplitude-level vector–axial interference in semi-Compton and dimuon channels, and run the three endpoints: pure axial, pure vector, and the UV benchmark \(\theta_{\mu R}=10^{-2}\).
+4. The local amplitude-level vector–axial kernels are implemented and endpoint-tested; only after the vector gate passes, integrate them into the transport scan and run the three endpoints: pure axial, pure vector, and the UV benchmark \(\theta_{\mu R}=10^{-2}\).
 5. Keep the existing axial scan and all referee-response/manuscript files unchanged until the mixed result passes its own convergence and endpoint tests.
 
 **Disposition:** PR #56 remains Open / Draft. The mixed-current module is deliberately blocked at the vector-validation gate; no mixed constraint curve is presented as a result.
