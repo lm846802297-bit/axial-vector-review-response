@@ -1,0 +1,68 @@
+name: 10 MeV muon-profile sensitivity audit
+
+on:
+  push:
+    branches:
+      - codex/major44-axial-cooling-constraints-20261105
+    paths:
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/diagnose_muon_profile_sensitivity.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_muon_profile_sensitivity.py'
+      - '.github/workflows/muon-profile-sensitivity-10mev.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: muon-profile-sensitivity-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    if: github.ref_name == 'codex/major44-axial-cooling-constraints-20261105'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out triggering commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy
+      - name: Run diagnostic unit tests
+        run: |
+          python -m unittest discover \
+            -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
+            -p 'test_muon_profile_sensitivity.py' -v
+      - name: Run one-factor muon-profile sensitivity
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/diagnose_muon_profile_sensitivity.py
+      - name: Verify production and referee-response files are untouched
+        run: |
+          git diff --exit-code -- \
+            research/stellar-cooling-constraints-20261105/rates.py \
+            research/stellar-cooling-constraints-20261105/transport.py \
+            research/stellar-cooling-constraints-20261105/outputs/axial.json \
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.pdf \
+            Replies_to_Referee_3_referee_facing_2026-11-04.tex \
+            Replies_to_Referee_3_referee_facing_2026-11-04.pdf
+      - name: Archive sensitivity output
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/muon_profile_sensitivity_10mev.json
+          if git diff --cached --quiet; then
+            echo "Muon-profile sensitivity output is already current."
+          else
+            git commit -m "Archive 10 MeV muon-profile sensitivity audit"
+            git push origin HEAD:codex/major44-axial-cooling-constraints-20261105
+          fi
