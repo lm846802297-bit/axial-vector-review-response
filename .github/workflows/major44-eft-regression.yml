@@ -98,12 +98,14 @@ jobs:
                 research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_literal_scan.json \
                 research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig4_fig7_comparison.json \
                 research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_numu_sensitivity.json \
-                research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_opacity_sensitivity.json
+                research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_opacity_sensitivity.json \
+                research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/compton_detailed_balance_audit.json
               git add \
                 research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_literal_scan.json \
                 research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig4_fig7_comparison.json \
                 research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_numu_sensitivity.json \
-                research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_opacity_sensitivity.json
+                research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_opacity_sensitivity.json \
+                research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/compton_detailed_balance_audit.json
               GIT_EDITOR=true git rebase --continue
             fi
             git push origin "HEAD:${BRANCH}"
