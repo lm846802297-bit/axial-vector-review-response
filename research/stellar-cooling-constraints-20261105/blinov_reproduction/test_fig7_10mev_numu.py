@@ -5,7 +5,10 @@ from pathlib import Path
 
 import numpy as np
 
-from diagnose_fig7_10mev_numu import read_profile, write_scaled_profile
+try:
+    from .diagnose_fig7_10mev_numu import read_profile, write_scaled_profile
+except ImportError:  # direct unittest discovery with this directory as top-level
+    from diagnose_fig7_10mev_numu import read_profile, write_scaled_profile
 
 
 class Fig7MuonNeutrinoSensitivityTests(unittest.TestCase):
