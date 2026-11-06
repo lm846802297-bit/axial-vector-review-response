@@ -55,9 +55,11 @@ See [POLARIZATION_DETAILED_BALANCE_AUDIT_2026-11-07.md](POLARIZATION_DETAILED_BA
 - [x] Add regression tests for the Fermi-integral rest limit, archived independent decay-rate formula, Compton Thomson limit, Eq. (35) detailed balance, and constant-opacity chord integration.
 - [x] Add a comparison script for digitized Fig. 4 cooling contours and Fig. 7 luminosity curves.
 - [x] Add CI execution and archival of the generated four-mass scan and comparison JSON.
-- [ ] Inspect the new run's actual Fig. 4 and Fig. 7 residuals; do not label reproduction successful from unit tests alone.
+- [x] Inspect the new run's actual Fig. 4 and Fig. 7 residuals; do not label reproduction successful from unit tests alone.
 - [ ] Compare the independent scalar reference against the existing mode-resolved solver under matched microphysics and transport inputs, varying one ingredient at a time.
 - [ ] Only after the vector benchmark is understood, resume axial-vector result validation.
+
+**First-run result:** the 40/100/16/32 quadrature scan matches the digitized Fig. 4 lower/upper boundaries at 1, 10, 100, and 200 MeV to within 2.60%. The Fig. 7 pointwise residuals are 5.54% max / 1.60% mean at 1 MeV, 91.35% max / 15.64% mean at 10 MeV, and 1.59% max / 0.71% mean at 200 MeV. Thus the boundary match does not establish complete luminosity-curve reproduction; 10 MeV remains a clear mismatch. Numerical outputs are saved in blinov_reproduction/outputs/ and include code/profile/input hashes and the run commit SHA.
 
 **Interpretation boundary:** this module implements the scalar Appendix-B prescription literally, including the scalar opacity. It is a reference-reproduction path, not a declaration that scalar summed opacity is the physically correct per-particle attenuation law when the three polarization opacities differ. The original authors' private numerical choices are not inferred. The profile remains the archived reconstructed SFHo-18.8, t=1 s profile; it is not original simulation data.
 
