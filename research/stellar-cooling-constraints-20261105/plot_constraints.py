@@ -99,7 +99,7 @@ axG.fill_between(
     color='#ece8de', alpha=.6, zorder=-1
 )
 axG.text(
-    1.35e-3, 1.45e-5, 'Fig. 2 overlap\n(shown portion)',
+    1.6e-3, 3.0e-6, 'Fig. 2 overlap\n(shown portion)',
     fontsize=8, color='#756c5b'
 )
 axG.text(
