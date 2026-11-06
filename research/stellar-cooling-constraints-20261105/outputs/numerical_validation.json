@@ -247,6 +247,7 @@
       }
     ]
   },
+  "interval_reconstruction_rtol": 5e-13,
   "optimized_column_luminosity_relative_difference_above_1e40": 2.0321598240561412e-15,
   "endpoint_intervals": {
     "250.0": [
