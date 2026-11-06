@@ -23,7 +23,7 @@ concurrency:
 
 jobs:
   build-and-inspect:
-    if: github.event_name == 'workflow_dispatch' || github.ref_name == 'review/response-point-conclusions-20261106' || github.ref_name == 'codex/major44-axial-cooling-constraints-20261105'
+    if: github.ref_name == 'review/response-point-conclusions-20261106' || github.ref_name == 'codex/major44-axial-cooling-constraints-20261105'
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
