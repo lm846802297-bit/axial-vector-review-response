@@ -79,7 +79,7 @@ jobs:
           from pathlib import Path
           import base64, io, re
           pages = sorted(Path("build/pages").glob("page-*.png"),
-                         key=lambda p: int(re.search(r"-(\\d+)\\.png$", p.name).group(1)))
+                         key=lambda p: int(re.search(r"-(\d+)\.png$", p.name).group(1)))
           if not pages:
               raise SystemExit("No PDF pages rendered")
           for batch_start in range(0, len(pages), 6):
