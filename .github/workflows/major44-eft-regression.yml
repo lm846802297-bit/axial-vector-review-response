@@ -40,6 +40,7 @@ jobs:
       - name: Run rate, transport, and independent kernel tests
         run: |
           python -m unittest discover -s research/stellar-cooling-constraints-20261105 -p 'test_*.py' -v
+          python research/stellar-cooling-constraints-20261105/audit_muon_susceptibility.py --output research/stellar-cooling-constraints-20261105/outputs/vector_audit/muon_susceptibility_charge_audit.json
           python research/stellar-cooling-eft-literature-20261105/check_literature_kernels.py \
             --matrix-script research/stellar-cooling-eft-literature-20261105/reference_matrix_element.py \
             --output research/stellar-cooling-eft-literature-20261105/literature_kernel_validation.json
@@ -50,7 +51,8 @@ jobs:
       - name: Check numerical validation records are reproducible
         run: |
           git diff --exit-code -- \
-            research/stellar-cooling-constraints-20261105/outputs/numerical_validation.json
+            research/stellar-cooling-constraints-20261105/outputs/numerical_validation.json \\
+            research/stellar-cooling-constraints-20261105/outputs/vector_audit/muon_susceptibility_charge_audit.json
           echo "The independent kernel checker is tolerance-based; its JSON may differ in final floating-point digits across runners."
       - name: Publish regenerated figure assets
         if: success()
