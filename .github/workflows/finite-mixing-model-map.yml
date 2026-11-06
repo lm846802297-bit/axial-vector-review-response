@@ -29,4 +29,5 @@ jobs:
         run: |
           python -m unittest discover \\
             -s research/stellar-cooling-constraints-20261105/finite_mixing \\
+            -t research/stellar-cooling-constraints-20261105 \\
             -p 'test_*.py' -v
