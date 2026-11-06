@@ -31,8 +31,8 @@ ax.fill_between([1,500],1e-6,1e-4,color='#ece8de',alpha=.6,zorder=-1)
 ax.text(2,1.1e-5,'Original Fig. 2 window\n(shown portion)',fontsize=8,color='#756c5b')
 ax.text(.022,3e-9,'Axial excluded:\n'+r'$L_{\rm axial}>4.4\times10^{52}$ erg s$^{-1}$',color='#235d91',fontsize=9)
 ax.plot([],[],color='#235d91',lw=1.7,label=r'Axial: $L_{\rm crit}=4.4\times10^{52}$ erg s$^{-1}$')
-ax.plot([],[],color='k',ls='--',lw=1.2,label=r'Vector $\mu$-current control (same profile)')
-ax.plot([],[],color='#235d91',ls=':',label=r'Axial: $L_{\rm crit}=3.0\times10^{52}$ erg s$^{-1}$')
+ax.plot([],[],color='k',ls='--',lw=1.2,label=r'Vector $\mu$-current control (not a bound)')
+ax.plot([],[],color='#235d91',ls=':',label=r'Axial: $L_{\rm crit}=3.0\times10^{52}$ erg s$^{-1}$ (alternative)')
 ax.set(xscale='log',yscale='log',xlim=(.01,500),ylim=(1e-14,1e-4),xlabel=r'$m_{A^\prime}$ [MeV]',ylabel=r'$|g_X| \simeq |g_A^\mu|$')
 ax.legend(loc='lower right',fontsize=7.4,frameon=False)
 for key,col in [('Compton','#b44b3b'),('neutrino','#235d91'),('dimuon','#53835a')]:
@@ -114,11 +114,11 @@ axG.plot(
 )
 axG.plot(
     [], [], color='k', ls='--', lw=1.2,
-    label=r'Vector $\mu$-current control (same profile)'
+    label=r'Vector $\mu$-current control (not a bound)'
 )
 axG.plot(
     [], [], color='#235d91', ls=':',
-    label=r'Axial: $L_{\rm crit}=3.0\times10^{52}$ erg s$^{-1}$'
+    label=r'Axial: $L_{\rm crit}=3.0\times10^{52}$ erg s$^{-1}$ (alternative)'
 )
 axG.set(
     xscale='log', yscale='log',
