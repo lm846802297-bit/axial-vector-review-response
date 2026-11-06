@@ -76,10 +76,10 @@ dp=\frac{p_{\max}}2\,dx.
 
 ## 5. LaTeX、引用与 PDF 视觉验收
 
-- 数值工作流：GitHub Actions Run [42157634239](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42157634239)，通过。
-- 回复信构建工作流：GitHub Actions Run [42157634281](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42157634281)，通过。构建前刷新到最新 PR 分支，PDF 与审计报告来自同一次构建。
-- PDF：65 页 A4，506,847 bytes；SHA-256：
-  `57c87b7106bb8bc5f70479d7134ab90b9a2e850bf46759ac67f83258c00b26dc`。
+- 数值工作流：GitHub Actions Run [42165316227](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42165316227)，通过；19/19 单元测试通过，28 个独立核对点的最大相对误差为 \\(2.8801\\times10^{-12}\\)，保存扫描输出与数值验证记录复现通过。
+- 回复信 LaTeX/PDF 构建与视觉验收：GitHub Actions Run [42161589195](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42161589195)，通过。该次构建使用当前回复信 TeX（SHA-256 `109933617fdec936f1ffd981e6438e89a9b653d2c7ff799f7cfc8f74eaf6eaab`），PDF 与 `reply_audit.json` 来自同一次构建。后续仅修改 PDF 发布工作流；空 refspec 问题已修正为使用已解析的 `BRANCH`，新的工作流验收仍在进行，不涉及 TeX 或数值源。
+- PDF：65 页 A4，506,944 bytes；SHA-256：
+  `7d70e7afddcf6004aa67e206477d5c99b71afa28f3c8da78d4abed4a1b0cde0c`。
 - `reply_audit.json`：45 个唯一引用键；27 段审稿引文不变；标签和环境检查通过；PDF 文本无 `[?]`/`??`；全部字体嵌入；无 overfull 警告；根目录 PDF 与实际 build 文件哈希一致。
 - 全部 65 页以 150 dpi 渲染并完成人工缩略图检查。重点检查 Major 4.4 的公式页 43–44、新图第 45 页、讨论页 46 和参考文献页 61–65；没有公式/图表裁切、缺字、页边距溢出或异常空白页。
 - 第 65 页只包含最后一条参考文献，不是空白页。曾试验缩小整个参考文献字号，但没有减少页数，因此恢复标准字号，优先保持引用可读性。
