@@ -205,6 +205,12 @@ Therefore B.19 also holds for each fixed $h$, not only after summing the three v
 =e^{-\omega/T}\Gamma_{h,\mu V\to\mu\gamma}^{\rm abs}}.
 \]
 
+### 4.1.1 Independent B.19 collision-integrand regression
+
+A new regression test evaluates the **actual mode-resolved matrix elements** from `rates.compton_matrix_elements` at three $(m_V,\omega)$ benchmarks and several scattering angles. It uses exact two-body recoil in the fixed-target inverse kinematics, obtains the outgoing muon energy from energy conservation, and multiplies the same $|\mathcal M_h|^2$ by the forward and inverse Fermi/Bose statistical factors. The ratio is checked separately for $h=L,+,-$ and for both signs of the muon chemical potential.
+
+This is a pointwise collision-integrand test of B.19. It is **not** a full moving-muon thermal phase-space integration and does not remove the effective-density approximation in the production scan. See `test_stage1_detailed_balance.py::test_b19_collision_integrand_balance_for_each_vector_mode`.
+
 ### 4.2 How B.14–B.18 encode polarization sums
 
 The non-relativistic-muon, negligible-recoil production cross section printed in B.14 is
@@ -282,6 +288,37 @@ A clean Stage-2 diagnostic, if needed, must vary one ingredient at a time: (i) h
 There is an important approximation boundary. Blinov explicitly states that B.13 is usually evaluated in the non-relativistic-muon, negligible-recoil limit, $E_\gamma\simeq\omega$. The production scan instead uses exact vacuum two-body recoil with the initial muon at rest, then folds it with an effective muon density; it does **not** perform the full moving-muon thermal phase-space integral in B.13. The factor $e^{-\omega/T}$ is imposed consistently at the effective-rate level, but the present implementation does not independently evaluate both sides of the exact moving-muon collision integral. It should therefore be described as a mode-resolved stationary-muon/effective-density approximation, not as an exact thermal evaluation of B.13.
 
 A second convention requires explicit tracking: B.17 is printed with $2\int d^3p\,f_\mu(1-f_\mu)$, whereas `transport.effective_muon_density` includes both $\mu^-$ and $\mu^+$ distributions, each with two spin states. The printed equation does not explicitly state whether the symbol $n_\mu F_{\rm deg}$ includes the charge-conjugate species. This note does not decide that convention or change the code; it records it as a separate input-normalization question.
+### 4.5 Quantitative B.17 charge-conjugate susceptibility audit
+
+The ambiguity is now quantified on the selected Caputo SFHo-18.8 profile. For each charge separately, the susceptibility is evaluated independently as
+\[
+n_{\mu^\mp}^{\rm eff}
+=2\int\frac{d^3p}{(2\pi)^3}
+ f_{\mu^\mp}(E;\pm\mu_\mu)
+ [1-f_{\mu^\mp}(E;\pm\mu_\mu)]
+=\frac{1}{\pi^2}\int_0^\infty dp\,p^2 f(1-f).
+\]
+The table reports the positive-muon fraction of the sum of both charge states. Densities are in MeV$^3$.
+
+| $r$ (km) | $n_{\mu^-}^{\rm eff}+n_{\mu^+}^{\rm eff}$ | Positive-muon fraction |
+|---:|---:|---:|
+| 0 | $7.32\times10^2$ | 0.802% |
+| 5 | $3.50\times10^3$ | 1.273% |
+| 8 | $3.16\times10^4$ | 1.170% |
+| 10 | $2.92\times10^4$ | 0.336% |
+| 15 | $3.05\times10^2$ | 0.00835% |
+| 20 | $5.24\times10^{-7}$ | 0.0887% |
+| 25 | $1.15\times10^{-12}$ | 50% |
+
+The equal charge fraction at 25 km occurs because the reconstructed profile sets $\mu_\mu=0$ there; the absolute susceptibility is negligible. In the dense inner 0–10 km region, including $\mu^+$ changes the combined susceptibility by approximately 0.3–1.3% relative to the $\mu^-$ contribution alone. This is a small but nonzero convention dependence, not a basis for silently choosing the source's intended definition.
+
+The saved 100-point Gauss–Legendre implementation agrees with the independent adaptive quadrature to better than $2\times10^{-5}$ through 15 km. The relative discrepancy grows to 0.39% at 20 km and 1.60% at 25 km, where the absolute susceptibility is already tiny. No production-code change is made on this basis.
+
+Reproduction:
+- Script: [audit_muon_susceptibility.py](audit_muon_susceptibility.py)
+- Saved numerical output: [muon_susceptibility_charge_audit.json](outputs/vector_audit/muon_susceptibility_charge_audit.json)
+- Regression test: `test_stage1_detailed_balance.py::test_effective_density_matches_independent_two_charge_integral`
+
 
 ## 5. What B.2 does—and does not—define
 
@@ -343,7 +380,7 @@ Relevant existing tests:
 - `test_vector_reference.py::test_photon_factor_two_and_velocity`
 - `test_vector_reference.py::test_polarization_sum_is_not_decay_probability`
 
-The PR's prior audit records 27 local tests passing. This note is a source/code inspection and derivation; it does not claim a new test-suite run.
+The existing neutrino and dimuon mode-by-mode balance tests remain in `test_rates.py`. The Stage-1 supplement adds three tests in `test_stage1_detailed_balance.py`: a pointwise B.19 test using the actual three-mode inverse-Compton matrix elements, a check that the inverse kernel retains all three incident modes, and an independent two-charge susceptibility quadrature. The complete discovered suite contains 30 tests. The saved B.17 charge audit is regenerated and checked by `audit_muon_susceptibility.py --check` in the PR workflow.
 
 ## 7. Decision for the next stage
 
@@ -353,6 +390,6 @@ Stage 1 establishes:
 2. The semi-Compton vector kernel is mode-resolved at the vacuum cross-section level and reproduces the published summed Thomson normalization. Its thermal treatment remains an effective stationary-muon approximation, not the full B.13 integral.
 3. B.2 does not print an unambiguous polarization convention for the scalar opacity. When mode opacities differ, the physically transparent construction is to propagate each mode and sum escaped luminosities afterward.
 4. The existing production solver already follows that mode-resolved transport structure. The `blinov_literal` and `blinov_average` branches are scalar diagnostic interpretations and must not be promoted to the physical per-mode solver.
-5. The B.17 charge-conjugate muon-density convention remains to be recorded/verified separately.
+5. The B.17 charge-conjugate muon-density convention remains ambiguous in the printed paper. Its numerical impact is now quantified with an independent adaptive-quadrature script; the current implementation includes both charges and is unchanged.
 
-**No production code or normalization is changed in this stage.** Stage 2 may begin only after the above definitions and the intended comparison prescription are accepted. PR #56 remains Draft; the manuscript and referee response remain untouched.
+**No production rate, transport normalization, or saved scan is changed in this stage.** The added tests and B.17 audit are diagnostic/reproducibility assets only. Stage 2 may begin only after the above definitions and the intended comparison prescription are accepted. PR #56 remains Draft; the manuscript and referee response remain untouched.
