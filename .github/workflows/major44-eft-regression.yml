@@ -53,19 +53,3 @@ jobs:
             research/stellar-cooling-constraints-20261105/outputs/numerical_validation.json \
             research/stellar-cooling-eft-literature-20261105/literature_kernel_validation.json
 
-      - name: Upload numerical validation outputs and regenerated figures
-        if: success()
-        uses: actions/upload-artifact@v4
-        with:
-          name: major44-eft-validation-${{ github.run_id }}
-          path: |
-            research/stellar-cooling-eft-literature-20261105/literature_kernel_validation.json
-            research/stellar-cooling-constraints-20261105/outputs/numerical_validation.json
-            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.pdf
-            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.png
-            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply.pdf
-            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply.png
-            research/stellar-cooling-constraints-20261105/outputs/luminosity_checks.pdf
-            research/stellar-cooling-constraints-20261105/outputs/luminosity_checks.png
-          if-no-files-found: error
-          retention-days: 7
