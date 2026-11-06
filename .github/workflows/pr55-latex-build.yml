@@ -97,7 +97,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p build/review-pages visual-review/pr55-2026-11-06
+          mkdir -p build/review-pages build/review
           pdftoppm -jpeg -r 90 -jpegopt quality=78 Replies_to_Referee_3_referee_facing_2026-11-04.pdf build/review-pages/page
           python3 - <<'PY'
           import base64, json
@@ -120,7 +120,7 @@ jobs:
                   "content_bbox": [left, top, right, bottom],
                   "edge_clearance_px": [left, top, width-right, height-bottom]
               })
-          review = Path("visual-review/pr55-2026-11-06")
+          review = Path("build/review")
           (review / "page-metrics.json").write_text(json.dumps(metrics, indent=2))
           # Store five full-page JPEGs per UTF-8 text file. This bypasses the
           # repository's exhausted Actions artifact quota while preserving
@@ -159,9 +159,9 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add Replies_to_Referee_3_referee_facing_2026-11-04.pdf visual-review/pr55-2026-11-06/
+          git add Replies_to_Referee_3_referee_facing_2026-11-04.pdf
           if ! git diff --cached --quiet; then
-            git commit -m "Publish PR55 PDF and temporary page-by-page review images [skip ci]"
+            git commit -m "Publish refreshed PR55 referee-response PDF [skip ci]"
             git push origin HEAD:review/response-point-conclusions-20261106
           else
             echo "Compiled PDF and page-review files are unchanged."

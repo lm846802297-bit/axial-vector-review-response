@@ -106,18 +106,16 @@ jobs:
           print(f"Rendered {len(pages)} pages at 150 dpi into {((len(pages)+5)//6)} contact sheets.")
           PY
 
-      - name: Commit the compiled PDF and temporary visual-review sheets
+      - name: Commit the compiled PDF
         if: success()
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          mkdir -p pr55-visual-review
-          cp build/review/*.svg pr55-visual-review/
-          git add Replies_to_Referee_3_referee_facing_2026-11-04.pdf pr55-visual-review/
+          git add Replies_to_Referee_3_referee_facing_2026-11-04.pdf
           if git diff --cached --quiet; then
             echo "Compiled PDF and visual-review sheets are already current."
           else
-            git commit -m "Add compiled referee response PDF and page previews [skip ci]"
+            git commit -m "Update compiled referee response PDF [skip ci]"
             git push origin HEAD:${{ github.event.pull_request.head.ref }}
           fi

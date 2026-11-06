@@ -44,11 +44,7 @@ PR #50 已于 2026-11-05 Squash Merge 至 main，合并提交为 [51a245b0a36703
 
 - **原论文模型映射：** \(S=(v_s+s+ia_s)/\sqrt2\)、\(Q_X(S)=2\)、\(m_{A'}=2|g_X|v_s\)、\(G=a_s\)。在小 VLL 混合 benchmark 下 \(y_{s\ell\ell}=m_\ell/v_s\)，Goldstone/current 关系为 \(m_\ell/v_s=2|g_A^\ell|m_\ell/m_{A'}\)（\(|g_A^\ell|=|g_X|\)）。
 - **保留的计算：** 显式 Dirac 旋量半康普顿振幅、EM Ward identity、实验室系/CM 截面对照、Klein–Nishina 对照、轴矢量纵向标度、均匀介质局部热产生率及积分阶数/截断扫描。
-- **原模型中微子规范流边界：** \(A'\to
-u\bar
-u\) 仅使用原论文 \(L_\mu-L_\tau\) 活性味规范流（无质量近似下的 \(
-u_\mu,
-u_\tau\)，电子味不耦合）；不引入额外中微子态或质量完成机制。
+- **原模型中微子规范流边界：** \(A'\to\nu\bar\nu\) 仅使用原论文 \(L_\mu-L_\tau\) 活性味规范流（无质量近似下的 \(\nu_\mu,\nu_\tau\)，电子味不耦合）；不引入额外中微子态或质量完成机制。
 - **本地验收：** 单 VEV 映射测试 6/6 通过；通用电流半康普顿振幅的 Ward residual 分别为 \(2.252\times10^{-9}\)、\(2.159\times10^{-9}\)；热率 order 10→12 的率和发射率变化分别为 0.0108% 和 0.0202%。详细数值见 PR #53 的 validation record。
 - **分支比口径：** PR #53 的 \(\mathrm{BR}_{
 u\bar
