@@ -46,3 +46,22 @@ If the original stellar profile is unavailable, the result must be labelled a re
 ## Disposition
 
 No mixed-current scan starts until the published-source vector endpoint passes this gate. No rescale factor, opacity multiplier, or post-hoc contour adjustment is allowed. PR #56 remains Open / Draft.
+
+
+## Published version-of-record visual cross-check (2026-11-07)
+
+The published JHEP PDF and arXiv v2 PDF have now been compared visually:
+
+- Published-version Fig. 4 (PDF p. 16) and arXiv v2 Fig. 4 (PDF p. 17) show the same plotted cooling contour, shaded regions, axes, and line styles.
+- Published-version Fig. 7 (PDF p. 24) and arXiv v2 Fig. 7 (PDF p. 26) show the same six luminosity curves, axes, and legend.
+
+No visible figure revision is found. This is a visual cross-check only: the archived numerical vertices remain those extracted from the arXiv source PDF, and exact path-level re-digitization from the version-of-record PDF is still pending. The 10 MeV residual therefore remains a genuine unresolved numerical mismatch, not something explained away by a visibly revised figure.
+
+Two statements in the published paper are relevant to interpreting that mismatch:
+
+1. The text below Fig. 7 states that above the MeV scale, neutrino decay dominates trapping, while Compton absorption is mainly relevant at lower masses.
+2. Appendix B below Eq. (B.14) says the nonrelativistic-muon/no-recoil semi-Compton approximation is typically relevant for \(m_V\lesssim\mathrm{MeV}\).
+
+Our 10 MeV audit finds a source-weighted opacity split of about 89.8% neutrino inverse decay and 10.2% inverse Compton. A 10% opacity component can still have a large effect after exponentiation in the strong-trapping tail. This does not justify changing its normalization; it identifies the 10 MeV Compton approximation/profile input as a targeted controlled-comparison priority.
+
+The paper's Section 4.5 also explicitly notes order-one differences from earlier literature due to its updated treatment and says previous results are recovered when their methods are replicated. Therefore the acceptance target here is the Blinov version-of-record result itself, not an unspecified older vector curve.

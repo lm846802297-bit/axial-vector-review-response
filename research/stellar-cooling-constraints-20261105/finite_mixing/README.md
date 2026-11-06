@@ -45,7 +45,7 @@ The current state is **BLOCKED**; see VECTOR_ENDPOINT_GATE_2026-11-07.md. In bri
 - The archived independent scalar Appendix-B calculation reproduces four digitized Fig. 4 contour points within 2.60%, but does not reproduce the full Fig. 7 luminosity curve at 10 MeV (91.35% maximum and 15.64% mean absolute relative residual).
 - The current mode-resolved vector scan closes at 259.08--259.14 MeV, while the archived digitized Fig. 4 contour ends near 210.98 MeV.
 - The two implementations differ in more than one ingredient. No fitted rescaling or arbitrary opacity multiplier is permitted.
-- Existing digitized figures were extracted from the arXiv source archive. The published version-of-record Fig. 4 and Fig. 7 must be independently checked and digitized before final acceptance.
+- A visual cross-check finds the published version-of-record Fig. 4 and Fig. 7 visually unchanged relative to arXiv v2. The archived numeric vertices are still the arXiv extraction; exact path-level re-digitization from the published PDF remains pending.
 
 A close match to a cooling contour alone is not sufficient: the full luminosity curve controls the escape/trapping behavior used in the mixed-current extension.
 

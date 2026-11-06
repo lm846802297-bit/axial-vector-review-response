@@ -103,3 +103,8 @@ The current Fig. 4/Fig. 7 digitizations originate from the arXiv source archive.
 5. Keep the existing axial scan and all referee-response/manuscript files unchanged until the mixed result passes its own convergence and endpoint tests.
 
 **Disposition:** PR #56 remains Open / Draft. The mixed-current module is deliberately blocked at the vector-validation gate; no mixed constraint curve is presented as a result.
+
+
+### Version-of-record figure check
+
+A visual side-by-side check of the published JHEP PDF and arXiv v2 finds no visible changes to Fig. 4 or Fig. 7 (published PDF pp. 16 and 24; arXiv v2 pp. 17 and 26). This does not replace exact path-level re-digitization; the archived vertices remain the arXiv-source extraction. The published text also states that the no-recoil semi-Compton approximation is typically relevant for m_V below the MeV scale, making the 10 MeV tail a priority for controlled Compton/profile comparisons. See [finite_mixing/VECTOR_ENDPOINT_GATE_2026-11-07.md](finite_mixing/VECTOR_ENDPOINT_GATE_2026-11-07.md).
