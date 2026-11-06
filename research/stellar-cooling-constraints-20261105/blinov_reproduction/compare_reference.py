@@ -47,7 +47,7 @@ def cooling_intervals(couplings, luminosities, threshold):
     g = np.asarray(couplings, float)
     l = np.asarray(luminosities, float)
     x = np.log(g)
-    y = np.log(np.maximum(l, 1e-300) / threshold)
+    y = np.log(np.maximum(l, np.finfo(float).tiny)) - np.log(threshold)
     crossings = []
     for i in range(len(g) - 1):
         if y[i] * y[i + 1] < 0:
