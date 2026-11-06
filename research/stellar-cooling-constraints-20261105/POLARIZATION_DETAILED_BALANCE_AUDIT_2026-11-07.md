@@ -111,7 +111,7 @@ for each $h$, and summing over $h$ gives the scalar relation in Eq. (B.10).
 
 ### 2.3 Code comparison
 
-- `rates.neutrino_rates` implements the three (W_h) weights, exact two-body kinematics, Fermi occupation factors and Pauli blocking. It sums the two active flavors separately.
+- `rates.neutrino_rates` implements the three $W_h$ weights, exact two-body kinematics, Fermi occupation factors and Pauli blocking. It sums the two active flavors separately.
 - The prefactor $m_V^2/(24\pi\omega)$ is the time-dilated one-flavor fixed-polarization vacuum width at unit coupling.
 - `vector_reference.summed_decay_production` independently evaluates the scalar Fermi-pair integral corresponding to Eq. (B.7)/(B.9).
 - Existing tests cover the mode-by-mode detailed-balance identity and the unequal circular-mode rates at nonzero chemical potential (`test_rates.py::test_neutrino_detailed_balance_and_circular_modes)); the total mode sum is compared with the independent scalar integral (`test_vector_reference.py::test_spin_sums_against_blinov_closed_form`).
