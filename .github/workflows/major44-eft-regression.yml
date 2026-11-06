@@ -81,6 +81,17 @@ jobs:
             # Plot regeneration may leave unrelated generated files unstaged.
             # Stash those artifacts before rebasing the selected, committed outputs.
             git stash push --include-untracked -m "temporary unselected generated artifacts"
-            git pull --rebase origin "$BRANCH"
+            if ! git pull --rebase origin "$BRANCH"; then
+              # These JSON outputs are deterministic products of the exact
+              # triggering commit. Prefer this run's outputs if another run
+              # archived a different run_commit_sha concurrently.
+              git checkout --theirs -- \
+                research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_literal_scan.json \
+                research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig4_fig7_comparison.json
+              git add \
+                research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_literal_scan.json \
+                research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig4_fig7_comparison.json
+              GIT_EDITOR=true git rebase --continue
+            fi
             git push origin "HEAD:${BRANCH}"
           fi
