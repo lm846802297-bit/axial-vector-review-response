@@ -121,7 +121,7 @@ jobs:
               target = review / f"pages-{first:02d}-{last:02d}.b64.txt"
               with target.open("w") as out:
                   for page in subset:
-                      out.write(page.name + "|" + base64.b64encode(page.read_bytes()).decode("ascii") + "\\n")
+                      out.write(page.name + "|" + base64.b64encode(page.read_bytes()).decode("ascii") + "\n")
           # A quick overview montage accompanies the individual page images.
           for start in range(0, len(pages), 20):
               subset = pages[start:start+20]
