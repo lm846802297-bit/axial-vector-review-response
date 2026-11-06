@@ -86,6 +86,18 @@ At the sampled inner radii 0–10 km, the positive-muon contribution is about 0.
 
 The PR workflow runs the full discovered suite and checks the saved susceptibility audit numerically. The Stage-1 validation run [#49](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42284283285) passes all 30 tests and the reproducibility checks. This does not validate the unresolved B.2 scalar-opacity convention or the full moving-muon thermal integral.
 
+## 3.2 Independent literal Blinov reproduction path
+
+A separate implementation now lives in [blinov_reproduction/](blinov_reproduction/). It is intentionally isolated from the production rates.py and transport.py:
+
+- reference.py independently implements the summed neutrino and dimuon thermal rates, the no-recoil semi-Compton cross-section prescription, the Eq. (33) negative-muon degeneracy factor, scalar reduced opacity, chord/direction averaging, and the Eq. (17) luminosity.
+- The scalar opacity is used literally as written in Appendix B. This is a document-reproduction prescription, not a claim that it equals mode-resolved transport when polarization opacities differ.
+- test_reference.py checks the Fermi-integral rest limit, the archived independent decay-rate formula, the Compton Thomson limit, Eq. (35) detailed balance, and constant-opacity chord integration.
+- compare_reference.py compares the generated Fig. 4 cooling crossings and Fig. 7 luminosity samples with the existing digitized public-figure data. These digitizations are not author numerical tables.
+- The workflow runs the independent tests, generates the four-mass reference scan, and archives the comparison JSON. The output is not used to update the axial constraint figure or referee response.
+
+Reproduction instructions and the independence boundary are documented in [blinov_reproduction/README.md](blinov_reproduction/README.md). The initial reference run is a numerical reproduction attempt; it is not marked as passed until its Fig. 4 and Fig. 7 comparisons are inspected.
+
 ## 4. 剖面来源及不确定性
 
 `extract_profile.py` 从两个公开 arXiv source 包中只读取命名的 PDF 图；不接触受限模拟表。PDF 哈希、路径号、坐标变换和样点在 [profile_provenance.json](data/profile_provenance.json) 中。
