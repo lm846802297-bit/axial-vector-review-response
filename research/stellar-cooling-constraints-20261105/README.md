@@ -29,6 +29,9 @@ g_{\nu_\mu}=+g_X,\quad g_{\nu_\tau}=-g_X.
 
 - [横版 PDF](outputs/axial_stellar_constraints.pdf)：独立比较图。
 - [回复信竖排 PDF](outputs/axial_stellar_constraints_reply.pdf)：相同数据，提高在正文栏宽下的可读性。
+- [GeV 单位对比版 PDF](outputs/axial_stellar_constraints_gev.pdf) / [PNG](outputs/axial_stellar_constraints_gev.png)：由同一组已保存扫描数据生成，只将质量坐标按 \(m_{A'}[\mathrm{GeV}]=m_{A'}[\mathrm{MeV}]/1000\) 转换；作为 Fig. 2 对照视图新增，不替换原来的 MeV 宽版图或回复信版图。
+
+![GeV 单位对比版](outputs/axial_stellar_constraints_gev.png)
 - [光度随耦合变化](outputs/luminosity_checks.pdf)：显示产生增加与截获抑制。
 - [数值验证摘要](outputs/numerical_validation.json)、[验证与正式自审记录](VALIDATION_AND_REVIEW.md)。
 

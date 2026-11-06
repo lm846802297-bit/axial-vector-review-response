@@ -69,3 +69,93 @@ ax.set(xscale='log',yscale='log',xlim=(1e-12,1e-5),ylim=(1e49,1e56),xlabel=r'$|g
 ax.legend(frameon=False,fontsize=9,ncol=2);ax.grid(alpha=.15);fig.tight_layout()
 fig.savefig(OUT/'luminosity_checks.pdf');fig.savefig(OUT/'luminosity_checks.png')
 print('Saved constraint and luminosity figures')
+# Additional GeV-axis comparison view. This is generated from the same saved
+# scans; it does not replace or alter either of the existing MeV-axis figures.
+plt.close(fig)
+m_GeV = m / 1000.0
+mv_GeV = mv / 1000.0
+
+figG, (axG, fracG) = plt.subplots(
+    1, 2, figsize=(11.4, 4.8), gridspec_kw={'width_ratios': [1.65, 1]}
+)
+zG = (np.log10(np.maximum(L, 1e-200)) - np.log10(4.4e52)).T
+axG.contourf(m_GeV, g, zG, levels=[0, 100], colors=['#dce7f3'], alpha=1)
+axG.contour(m_GeV, g, zG, levels=[0], colors=['#235d91'], linewidths=1.7)
+axG.contour(
+    mv_GeV, gv,
+    (np.log10(np.maximum(LV, 1e-200)) - np.log10(4.4e52)).T,
+    levels=[0], colors=['#252525'], linestyles=['--'], linewidths=1.2
+)
+axG.contour(
+    m_GeV, g,
+    (np.log10(np.maximum(L, 1e-200)) - np.log10(3e52)).T,
+    levels=[0], colors=['#235d91'], linestyles=[':'], linewidths=1
+)
+
+# Show only the intersection of the original Fig. 2 display window with
+# this panel's zoom range: m_A' >= 10^-3 GeV and g_X >= 10^-6.
+axG.fill_between(
+    [1e-3, 0.5], 1e-6, 1e-4,
+    color='#ece8de', alpha=.6, zorder=-1
+)
+axG.text(
+    1.35e-3, 1.45e-5, 'Fig. 2 overlap\\n(shown portion)',
+    fontsize=8, color='#756c5b'
+)
+axG.text(
+    2.2e-5, 3e-9,
+    'Excluded by the stated\\nballistic-cooling benchmark',
+    color='#235d91', fontsize=9
+)
+
+axG.plot(
+    [], [], color='#235d91', lw=1.7,
+    label=r'Axial $\mu$ current: $4.4\times10^{52}$ erg s$^{-1}$'
+)
+axG.plot(
+    [], [], color='k', ls='--', lw=1.2,
+    label='Vector-current comparison, same inputs'
+)
+axG.plot(
+    [], [], color='#235d91', ls=':',
+    label=r'Axial: $3.0\times10^{52}$ erg s$^{-1}$'
+)
+axG.set(
+    xscale='log', yscale='log',
+    xlim=(1e-5, 0.5), ylim=(1e-14, 1e-4),
+    xlabel=r'$m_{A^\prime}$ [GeV]',
+    ylabel=r'$|g_X| \simeq |g_A^\mu|$'
+)
+axG.legend(loc='lower right', fontsize=7.4, frameon=False)
+
+for key, col in [('Compton', '#b44b3b'),
+                 ('neutrino', '#235d91'),
+                 ('dimuon', '#53835a')]:
+    vals = np.array([r['thin_fractions'][key] for r in a['results']])
+    fracG.plot(m_GeV, vals, lw=1.8, color=col, label=key)
+
+fracG.axvline(2 * 105.6583755 / 1000.0, color='.65', lw=.8, ls=':')
+fracG.set(
+    xscale='log', yscale='log',
+    xlim=(1e-5, 0.5), ylim=(1e-4, 1.2),
+    xlabel=r'$m_{A^\prime}$ [GeV]',
+    ylabel='Fraction of optically thin axial luminosity'
+)
+fracG.legend(frameon=False, loc='lower left')
+for axis in (axG, fracG):
+    axis.grid(which='major', alpha=.15)
+    axis.tick_params(which='both', direction='in', top=True, right=True)
+
+figG.suptitle('SN1987A: axial-EFT fixed-profile benchmark (GeV)', fontsize=13)
+figG.text(
+    .5, .012,
+    'Same saved scan as the MeV figures; only the mass coordinate is converted: '
+    'm[GeV] = m[MeV]/1000.\\n'
+    'Shading marks the visible overlap with the paper Fig. 2 display window. '
+    'Ballistic cooling only; unshaded regions are not globally allowed.',
+    ha='center', fontsize=7.7
+)
+figG.tight_layout(rect=(0, .08, 1, .95))
+figG.savefig(OUT / 'axial_stellar_constraints_gev.pdf')
+figG.savefig(OUT / 'axial_stellar_constraints_gev.png')
+plt.close(figG)

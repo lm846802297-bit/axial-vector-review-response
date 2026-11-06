@@ -52,7 +52,7 @@ jobs:
           git diff --exit-code -- \
             research/stellar-cooling-constraints-20261105/outputs/numerical_validation.json
           echo "The independent kernel checker is tolerance-based; its JSON may differ in final floating-point digits across runners."
-      - name: Publish regenerated reply figure assets
+      - name: Publish regenerated figure assets
         if: success()
         shell: bash
         run: |
@@ -67,6 +67,8 @@ jobs:
           fi
           git add research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply.png
           git add research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply.pdf
+          git add research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_gev.png
+          git add research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_gev.pdf
           if git diff --cached --quiet; then
             echo "Reply figure assets are already current."
           else
