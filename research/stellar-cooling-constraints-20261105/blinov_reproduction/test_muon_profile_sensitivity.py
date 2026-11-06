@@ -2,7 +2,10 @@ import tempfile
 import unittest
 from pathlib import Path
 import numpy as np
-from diagnose_muon_profile_sensitivity import contour_crossings, write_ferreira_mu_profile
+try:
+    from .diagnose_muon_profile_sensitivity import contour_crossings, write_ferreira_mu_profile
+except ImportError:
+    from diagnose_muon_profile_sensitivity import contour_crossings, write_ferreira_mu_profile
 
 
 class MuonProfileSensitivityTests(unittest.TestCase):
