@@ -1,0 +1,107 @@
+name: PR55 referee response LaTeX build
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pr55-referee-letter-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-inspect:
+    if: github.event.pull_request.head.ref == 'review/response-point-conclusions-20261106'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Checkout exact PR head
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Install TeX and PDF inspection tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y latexmk texlive-latex-extra texlive-fonts-recommended texlive-science texlive-publishers texlive-bibtex-extra poppler-utils ghostscript python3-pil
+
+      - name: Compile with latexmk and BibTeX
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/pages
+          export BIBINPUTS="$GITHUB_WORKSPACE/overleaf-source/axial-vector-model-building-v6:$GITHUB_WORKSPACE:"
+          export BSTINPUTS="$GITHUB_WORKSPACE:"
+          latexmk -pdf -bibtex -interaction=nonstopmode -file-line-error -halt-on-error -outdir=build Replies_to_Referee_3_referee_facing_2026-11-04.tex 2>&1 | tee build/latexmk.log
+          test -s build/Replies_to_Referee_3_referee_facing_2026-11-04.pdf
+          cp build/Replies_to_Referee_3_referee_facing_2026-11-04.pdf ./Replies_to_Referee_3_referee_facing_2026-11-04.pdf
+
+      - name: Validate references and PDF structure
+        shell: bash
+        run: |
+          set -euo pipefail
+          pdftotext -layout Replies_to_Referee_3_referee_facing_2026-11-04.pdf build/reply.txt
+          pdfinfo Replies_to_Referee_3_referee_facing_2026-11-04.pdf | tee build/pdfinfo.txt
+          if grep -E 'undefined references|Citation .* undefined|There were undefined citations|Label\(s\) may have changed' build/latexmk.log; then
+            echo "Potential unresolved citation/reference warning; inspect build log."
+          fi
+          if grep -q 'Citation .* undefined\|There were undefined citations' build/latexmk.log; then
+            exit 1
+          fi
+
+      - name: Render every PDF page and build contact sheet
+        run: |
+          set -euo pipefail
+          pdftoppm -png -r 150 Replies_to_Referee_3_referee_facing_2026-11-04.pdf build/pages/page
+          python3 - <<'PY'
+          from PIL import Image, ImageDraw
+          from pathlib import Path
+          pages = sorted(Path("build/pages").glob("page-*.png"))
+          if not pages:
+              raise SystemExit("No PDF pages rendered")
+          thumbs = []
+          for p in pages:
+              im = Image.open(p).convert("RGB")
+              im.thumbnail((420, 594))
+              tile = Image.new("RGB", (440, 624), "white")
+              tile.paste(im, ((440-im.width)//2, 20))
+              ImageDraw.Draw(tile).text((12, 4), p.stem, fill="black")
+              thumbs.append(tile)
+          cols = 3
+          rows = (len(thumbs)+cols-1)//cols
+          sheet = Image.new("RGB", (cols*440, rows*624), (220,220,220))
+          for i, im in enumerate(thumbs):
+              sheet.paste(im, ((i%cols)*440, (i//cols)*624))
+          sheet.save("build/contact-sheet.png")
+          print(f"Rendered {len(pages)} pages at 150 dpi")
+          PY
+
+      - name: Commit the freshly compiled PDF to the PR branch
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Replies_to_Referee_3_referee_facing_2026-11-04.pdf
+          if git diff --cached --quiet; then
+            echo "Compiled PDF is already current."
+          else
+            git commit -m "Add freshly compiled referee response PDF [skip ci]"
+            git push origin HEAD:${{ github.event.pull_request.head.ref }}
+          fi
+
+      - name: Upload build log, PDF, extracted text, and rendered pages
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr55-referee-letter-build
+          path: |
+            Replies_to_Referee_3_referee_facing_2026-11-04.pdf
+            build/
+          if-no-files-found: warn
+          retention-days: 14
