@@ -161,15 +161,17 @@ figG.savefig(OUT / 'axial_stellar_constraints_gev.png')
 # It is derived from the exact same saved scans and axes as the wide GeV view;
 # only the layout changes. The bottom-panel label explicitly retains the
 # optically-thin production-fraction qualification.
-figG.set_size_inches(6.0, 6.8)
-axG.set_position([0.16, 0.52, 0.80, 0.38])
-fracG.set_position([0.16, 0.10, 0.80, 0.30])
+# The comparison-only footer is omitted here; its relevant qualifications are
+# stated in the LaTeX figure caption instead.
+figG.texts[-1].remove()
+figG.set_size_inches(6.0, 6.6)
+axG.set_position([0.16, 0.54, 0.80, 0.36])
+fracG.set_position([0.16, 0.12, 0.80, 0.29])
 axG.get_legend().remove()
 axG.legend(loc='lower right', fontsize=8, frameon=False)
-fracG.set_ylabel('Fraction of optically thin\naxial luminosity', fontsize=9)
+fracG.set_ylabel('Fraction of optically thin\\naxial luminosity', fontsize=9)
 fracG.legend(frameon=False, fontsize=8, loc='lower left', ncol=3)
 figG._suptitle.set_fontsize(11)
-figG.texts[-1].set_fontsize(6.5)
 figG.savefig(OUT / 'axial_stellar_constraints_reply_gev.pdf')
 figG.savefig(OUT / 'axial_stellar_constraints_reply_gev.png')
 plt.close(figG)
