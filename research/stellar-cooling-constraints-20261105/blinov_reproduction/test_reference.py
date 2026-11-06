@@ -7,6 +7,7 @@ import numpy as np
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
 from vector_reference import summed_decay_production, thomson_absorption_modes
+from blinov_reproduction.compare_reference import contour_crossings, load_vertices, log_interpolate
 from blinov_reproduction.reference import (
     M_MU, compton_production, decay_production, fermi_pair_average,
     negative_muon_density_and_degeneracy, scalar_optical_depths, local_rates,
@@ -72,6 +73,21 @@ class BlinovReferenceTests(unittest.TestCase):
             np.array([10.0, 25.0]), np.array([45.0, 60.0]))
         self.assertTrue(np.all(n > 0))
         self.assertTrue(np.all((fdeg > 0) & (fdeg <= 1)))
+
+    def test_digitized_fig4_returns_both_boundaries_at_heavy_masses(self):
+        vertices = load_vertices(
+            HERE / ".." / "data" / "vector_reference" / "blinov_cooling_vertices.csv")
+        for mass in (1.0, 10.0, 100.0, 200.0):
+            crossings = contour_crossings(vertices, mass)
+            self.assertEqual(len(crossings), 2, msg=f"mass={mass}: {crossings}")
+            self.assertLess(crossings[0], crossings[1])
+
+    def test_log_interpolation_ignores_zero_underflow_samples(self):
+        values = log_interpolate(
+            np.array([1e-10, 1e-9, 1e-8]),
+            np.array([0.0, 1.0, 100.0]),
+            np.array([1e-9, 1e-8]))
+        np.testing.assert_allclose(values, [1.0, 100.0], rtol=1e-14)
 
     def test_constant_opacity_chord_column(self):
         radius = 10.0
