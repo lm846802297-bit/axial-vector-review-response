@@ -29,7 +29,7 @@ ax.contour(mv,gv,(np.log10(np.maximum(LV,1e-200))-np.log10(4.4e52)).T,levels=[0]
 ax.contour(m,g,(np.log10(np.maximum(L,1e-200))-np.log10(3e52)).T,levels=[0],colors=['#235d91'],linestyles=[':'],linewidths=1)
 ax.fill_between([1,500],1e-6,1e-4,color='#ece8de',alpha=.6,zorder=-1)
 ax.text(2,1.1e-5,'Original Fig. 2 window\n(shown portion)',fontsize=8,color='#756c5b')
-ax.text(.022,3e-9,'Axial excluded:\n'+r'$L_{\rm axial}>4.4\times10^{52}$ erg s$^{-1}
+ax.text(.022,3e-9,'Axial excluded:\n'+r'$L_{\rm axial}>4.4\times10^{52}$ erg s$^{-1}$',color='#235d91',fontsize=9)
 ax.plot([],[],color='#235d91',lw=1.7,label=r'Axial: $L_{\rm crit}=4.4\times10^{52}$ erg s$^{-1}$')
 ax.plot([],[],color='k',ls='--',lw=1.2,label=r'Vector $\mu$-current control (same profile)')
 ax.plot([],[],color='#235d91',ls=':',label=r'Axial: $L_{\rm crit}=3.0\times10^{52}$ erg s$^{-1}$')
@@ -104,7 +104,7 @@ axG.text(
 )
 axG.text(
     2.2e-5, 3e-9,
-    'Axial excluded:\n' + r'$L_{\rm axial}>4.4\times10^{52}$ erg s$^{-1}
+    'Axial excluded:\n' + r'$L_{\rm axial}>4.4\times10^{52}$ erg s$^{-1}$',
     color='#235d91', fontsize=9
 )
 
