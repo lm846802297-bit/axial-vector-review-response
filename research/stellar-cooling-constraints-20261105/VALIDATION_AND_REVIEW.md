@@ -93,3 +93,25 @@ dp=\frac{p_{\max}}2\,dx.
 **结论：** 当前计算足以支持回复信中限定的 Major 4.4 论证：天体物理约束并非无关，但已发表的矢量模型排除不能直接当作轴矢量完整排除；本次提供独立的轴矢量 EFT 条件性 ballistic benchmark，并显示其在原 Fig. 2 展示窗口内不重叠。它不证明完整 UV 模型的全局允许区。
 
 PR #56 保持 Open / Draft，尚未合并，等待作者审阅。论文正文未修改。第二位独立研究者的全分支复核尚未完成，本记录不将其标为通过。
+
+
+## 7. GeV 单位对比图（2026-11-06）
+
+新增 outputs/axial_stellar_constraints_gev.png 和 outputs/axial_stellar_constraints_gev.pdf，用于将冷却结果的质量坐标直接与论文 Fig. 2 的 GeV 单位进行比较。
+
+- **数据来源：** 直接读取同一份 axial.json、vector.json 和 endpoint.json；只进行坐标变换
+  \[
+  m_{A'}^{\rm GeV}=m_{A'}^{\rm MeV}/1000.
+  \]
+  不重新扫描、不插值、不改变耦合网格、光度、冷却阈值、区间端点或薄极限通道份额。
+- **旧图保留：** axial_stellar_constraints.png/.pdf 与 axial_stellar_constraints_reply.png/.pdf 继续由原绘图代码生成；GeV 版是独立新增输出，不覆盖原来的 MeV 宽版或回复信版。
+- **坐标和 Fig. 2 对照：** GeV 图的质量轴显示 \(10^{-5}\)–\(0.5\) GeV，即原 SN 扫描 \(0.01\)–\(500\) MeV 的完整范围。阴影仅表示 Fig. 2 展示窗口与当前坐标范围的可见交集；它不是 Fig. 2 全部质量范围的重绘，也不表示新增了实验排除。
+- **纵轴文字：** 保留完整的 “Fraction of optically thin axial luminosity”，对应
+  \[
+  f_i^{\rm thin}=\frac{L_i^{\rm thin}}{\sum_j L_j^{\rm thin}},
+  \]
+  因此通道份额仍明确是光学薄极限的产生端占比，不是完整传播后的实际逃逸能量比例。
+- **实际图像检查：** 对 Actions 生成并提交的 PNG 进行视觉检查；修正首轮图中将换行符显示为字面字符及底部说明文字过长的问题。最终坐标标签、Fig. 2 阴影说明、通道占比纵轴和底部注释均完整可读。
+- **自动验证：** GitHub Actions Run [42225655771](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42225655771) 成功。19/19 单元测试通过；28 个独立半康普顿振幅对照的最大相对误差为 \(2.8801\times10^{-12}\)；保存扫描输出检查、全部图形再生成及 GeV PNG/PDF 发布步骤均通过。自动生成图像的提交为 4ec40c9e55c29ff7213a96f85135e9da09829afa。
+
+本次仅新增绘图展示单位和相应文件，不改变 Major 4.4 的物理结论、模型假设或论文正文。
