@@ -136,6 +136,15 @@ jobs:
           print(f"Rendered {len(pages)} pages at 150 dpi into {((len(pages)+5)//6)} contact sheets.")
           PY
 
+      - name: Upload page contact sheets for visual review
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: referee-response-contact-sheets-${{ github.run_id }}
+          path: build/review/*.svg
+          if-no-files-found: error
+          retention-days: 7
+
       - name: Commit the compiled PDF
         if: success()
         run: |

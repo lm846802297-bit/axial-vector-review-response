@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: major44-eft-${{ github.event.pull_request.number || github.ref }}
@@ -47,25 +47,25 @@ jobs:
         run: |
           python research/stellar-cooling-constraints-20261105/validate_outputs.py
           python research/stellar-cooling-constraints-20261105/plot_constraints.py
-      - name: Commit regenerated validation records and figures
-        if: success()
-        shell: bash
+      - name: Check numerical validation records are reproducible
         run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add research/stellar-cooling-eft-literature-20261105/literature_kernel_validation.json
-          git add research/stellar-cooling-constraints-20261105/outputs/numerical_validation.json
-          git add research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.pdf
-          git add research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.png
-          git add research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply.pdf
-          git add research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply.png
-          git add research/stellar-cooling-constraints-20261105/outputs/luminosity_checks.pdf
-          git add research/stellar-cooling-constraints-20261105/outputs/luminosity_checks.png
-          if ! git diff --cached --quiet; then
-            git commit -m "Validate existing Major 4.4 EFT cooling results [skip ci]"
-            BRANCH="${{ github.event.pull_request.head.ref || github.ref_name }}"
-            git push origin "HEAD:${BRANCH}"
-          else
-            echo "Validation outputs are already current."
-          fi
+          git diff --exit-code -- \
+            research/stellar-cooling-constraints-20261105/outputs/numerical_validation.json \
+            research/stellar-cooling-eft-literature-20261105/literature_kernel_validation.json
+
+      - name: Upload numerical validation outputs and regenerated figures
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: major44-eft-validation-${{ github.run_id }}
+          path: |
+            research/stellar-cooling-eft-literature-20261105/literature_kernel_validation.json
+            research/stellar-cooling-constraints-20261105/outputs/numerical_validation.json
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.pdf
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.png
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply.pdf
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply.png
+            research/stellar-cooling-constraints-20261105/outputs/luminosity_checks.pdf
+            research/stellar-cooling-constraints-20261105/outputs/luminosity_checks.png
+          if-no-files-found: error
+          retention-days: 7
