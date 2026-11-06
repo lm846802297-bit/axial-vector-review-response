@@ -1,6 +1,6 @@
 # 审稿修订项目入口
 
-更新日期：2026-11-05。
+更新日期：2026-11-06。
 
 ## 分类索引
 
@@ -21,7 +21,11 @@
 
 ## 当前工作入口
 
-- **正式回复信、PDF 与参考文献归档：** [回复信归档说明](archive/reply-letter/README.md)；最新 [2026-11-04-r2 源码快照清单](archive/reply-letter/snapshots/2026-11-04-r2/manifest.md) 包含回复信 TeX、两份 BibTeX 数据库和根目录 `JHEP.bst`。唯一可编辑的正式 TeX 仍在仓库根目录；快照使用 `.snapshot` 后缀，不作为第二份工作稿。2026-11-04-r2 引用核查记录为 72 次引用、34 个唯一键，全部有对应 BibTeX 条目。仓库根目录保留了 [2026-11-04 编译版 PDF](Replies_to_Referee_3_referee_facing_2026-11-04.pdf)，但该 PDF 对应 2026-11-04-r2 源码包，早于 PR #49 和 PR #50 的 TeX 修改；目前它是历史编译件，不是当前 main TeX 的同步 PDF。编译提交、源码哈希、48 页检查记录及剩余 NA64 表格 overfull 警告见 r2 manifest。
+下面较早日期条目保留其历史验收边界；当前计算/PDF 状态以 2026-11-06 条目为准。
+
+- **2026-11-06 Major 4.4 计算与回复：** [轴矢量固定剖面冷却限制](research/stellar-cooling-constraints-20261105/README.md)、[验证与正式自审记录](research/stellar-cooling-constraints-20261105/VALIDATION_AND_REVIEW.md)。沿用适配的轴矢量/V+A EFT 文献，给出三偏振产生/吸收/衰变、条件性 SN1987A 限制图、收敛与敏感性对照。论文正文未改。
+
+- **正式回复信、PDF 与参考文献归档：** 根目录 [当前回复 PDF](Replies_to_Referee_3_referee_facing_2026-11-04.pdf) 已于 2026-11-06 按当前 TeX 重编译并检查，共 60 页，包含 Major 4.4 新图。唯一可编辑权威 TeX 仍在根目录；当前构建新增 stellar bibliography 和限制图依赖，哈希及完整依赖见本轮验证记录。[归档说明](archive/reply-letter/README.md)与[2026-11-04-r2](archive/reply-letter/snapshots/2026-11-04-r2/manifest.md)保持历史快照用途。
 
 - **2026-11-04 Major 4.4 文献调查：** [轴矢量 stellar-cooling / SN1987A 文献适用性调查](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-04/Major4.4-轴矢量stellar-cooling文献适用性调查_2026-11-04.md)。区分一般轴矢量恒星冷却讨论、轴矢量核子耦合 SN 文献、常规矢量型 \(L_\mu-L_\tau\) 超新星计算，以及本文完全相同的中微子 coalescence 子过程；不将矢量模型完整曲线直接作为轴矢量 UV 模型排除。原论文单 VEV 模型的后续计算见 [PR #53](https://github.com/lm846802297-bit/axial-vector-review-response/pull/53)；该研究仍为独立 Draft，不构成已完成的超新星排除。
 
