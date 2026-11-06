@@ -328,16 +328,18 @@ g_{hss}=\lambda_{HS}^{\mathrm{UV}}v_h.
 \]
 Their zero-momentum-subtracted contribution has the form
 \[
+\begin{aligned}
 \Delta\Pi_{hs}^{(h,s)\,\mathrm{subset}}
-=\frac{\lambda_{HS}^{\mathrm{UV}}v_hv_s}{32\pi^2}
-\left[
+&=\frac{\lambda_{HS}^{\mathrm{UV}}v_hv_s}{32\pi^2}
+\Big[
 6\lambda_H\Delta\bar B_{hh}
-+6\lambda_S\Delta\bar B_{ss}
++6\lambda_S\Delta\bar B_{ss}\\
+&\qquad
 +2\lambda_{HS}^{\mathrm{UV}}\Delta\bar B_{hs}
-\right],
-\qquad
-\Delta\bar B_{ij}\equiv
-\Delta\bar B_0(m_h^2;m_i^2,m_j^2),
+\Big],\\
+\Delta\bar B_{ij}
+&\equiv\Delta\bar B_0(m_h^2;m_i^2,m_j^2).
+\end{aligned}
 \]
 where the finite, subtraction-scale-independent function is
 \[
@@ -359,17 +361,20 @@ For equal internal masses, this integral has the elementary closed form
 \]
 For unequal internal masses, define
 \[
-\Lambda(s,a,b)=(s-a-b)^2-4ab,\qquad
-q=\frac{\sqrt{-\Lambda(s,a,b)}}{2s},\qquad
-t_0=\frac{a-b-s}{2s},\quad t_1=t_0+1,
+\begin{aligned}
+\Lambda(s,a,b)&=(s-a-b)^2-4ab,\\
+q&=\frac{\sqrt{-\Lambda(s,a,b)}}{2s},\\
+t_0&=\frac{a-b-s}{2s},\qquad t_1=t_0+1.
+\end{aligned}
 \]
 and
 \[
-G(t)=t\ln\!\left[\frac{s(t^2+q^2)}{\mu_0^2}\right]
--2t+2q\arctan\!\left(\frac{t}{q}\right),
-\qquad
-I_0(a,b;\mu_0)=
+\begin{aligned}
+G(t)&=t\ln\!\left[\frac{s(t^2+q^2)}{\mu_0^2}\right]
+-2t+2q\arctan\!\left(\frac{t}{q}\right),\\
+I_0(a,b;\mu_0)&=
 \frac{a\ln(a/\mu_0^2)-b\ln(b/\mu_0^2)}{a-b}-1.
+\end{aligned}
 \]
 The mixed-mass result is then
 \[
@@ -384,17 +389,18 @@ Because \(\lambda_{HS}^{\mathrm{UV}}\) is fixed at the one-loop VLL-threshold or
 
 For each charged-lepton flavour, the field-dependent mass matrix and gauge-basis scalar vertices are
 \[
-\mathcal M_\ell(h,s)=
+\begin{aligned}
+\mathcal M_\ell(h,s)&=
 \begin{pmatrix}
 0&y_\ell(v_h+h)/\sqrt2\\
 \lambda_\ell(v_s+s)/\sqrt2&M_{E_\ell}
-\end{pmatrix},
-\qquad
-\Gamma_h^\ell=
+\end{pmatrix},\\[3pt]
+\Gamma_h^\ell&=
 \begin{pmatrix}0&y_\ell/\sqrt2\\0&0\end{pmatrix},
 \qquad
 \Gamma_s^\ell=
 \begin{pmatrix}0&0\\\lambda_\ell/\sqrt2&0\end{pmatrix}.
+\end{aligned}
 \]
 For the \(\tau\) interaction the original model contains \(S^*\); its radial real-\(s\) vertex is the same for the real benchmark couplings. With
 \[
@@ -427,11 +433,14 @@ The one-loop fermion self-energy in the source convention is
 \]
 We use \(\Gamma_{\rm inv}=p^2\mathbf1-\mathcal M_{\rm loc}^2+\Pi_{\rm RC}\) and \(\Pi_B=-\Pi_{\rm RC}\). The finite functions at \(\mu_R=M_E\) are
 \[
-\bar A_0(m^2)=m^2\left(1-\ln\frac{m^2}{\mu_R^2}\right),
-\qquad
+\begin{aligned}
+\bar A_0(m^2)&=m^2\left(1-\ln\frac{m^2}{\mu_R^2}\right),\\
 \bar B_0(p^2;m_i^2,m_j^2)
-=-\int_0^1dx\,
-\ln\frac{xm_i^2+(1-x)m_j^2-x(1-x)p^2-i0}{\mu_R^2}.
+&=-\int_0^1dx\,
+\ln\!\left[
+\frac{xm_i^2+(1-x)m_j^2-x(1-x)p^2-i0}{\mu_R^2}
+\right].
+\end{aligned}
 \]
 
 The full-theory self-energy contains the local portal-threshold constant and the light-lepton contribution reproduced in the EFT. The momentum-dependent hard term is isolated by
@@ -442,11 +451,13 @@ The full-theory self-energy contains the local portal-threshold constant and the
 \]
 where the light-light term uses the exact light-state Yukawa couplings from the same mass diagonalization. The retained EFT soft contribution is the light-lepton bubble plus the dimension-five contact tadpole,
 \[
+\begin{aligned}
 \Pi_{\mathrm{soft,bub+ct}}^B(p^2)
-=\sum_{\ell=\mu,\tau}\frac{q_\ell}{16\pi^2}
+&=\sum_{\ell=\mu,\tau}\frac{q_\ell}{16\pi^2}
 \left[4\bar A_0(m_\ell^2)
-+(4m_\ell^2-p^2)\bar B_0(p^2;m_\ell^2,m_\ell^2)\right],
-\qquad q_\ell=\frac{2m_\ell^2}{v_hv_s}.
++(4m_\ell^2-p^2)\bar B_0(p^2;m_\ell^2,m_\ell^2)\right],\\
+q_\ell&=\frac{2m_\ell^2}{v_hv_s}.
+\end{aligned}
 \]
 We denote their sum by
 \[
@@ -458,6 +469,7 @@ The soft term here is the specified bubble-plus-contact subset, not the complete
 
 For \(M_E=20\,\mathrm{TeV}\), \(\theta_{\mu L}=\theta_{\tau L}=10^{-2}\), \(m_h=125.25\,\mathrm{GeV}\), \(v_h=246.22\,\mathrm{GeV}\), and \(\mu_R=M_E\), the numerical decomposition is
 \[
+\resizebox{\textwidth}{!}{$
 \begin{array}{c|cc}
 [\mathrm{GeV}^2]&\text{Benchmark A}&\text{Benchmark B}\\ \hline
 \Pi_{\mathrm{soft,bub+ct}}^B(m_h^2)&
@@ -470,6 +482,7 @@ For \(M_E=20\,\mathrm{TeV}\), \(\theta_{\mu L}=\theta_{\tau L}=10^{-2}\), \(m_h=
 -0.413277859-0.113173709i&
 -0.093002551-0.025468201i
 \end{array}
+$}
 \]
 The exact hard momentum difference agrees with the leading source-aligned derivative result to \(6.11\times10^{-4}\) relative at both benchmarks, and the zero-momentum hard comparator agrees with the leading portal-threshold estimate to \(1.79\times10^{-4}\) relative. These checks validate the stated fermionic subcalculation and its numerical implementation, but do not close the remaining same-order EFT soft/counterterm sectors.
 
@@ -525,6 +538,7 @@ The near-pole solver retains the momentum dependence of the light-lepton soft \(
 
 At exact diagonal-mass degeneracy \(m_s=m_h=125.25\,\mathrm{GeV}\), the two benchmarks give different pole behavior:
 \[
+\resizebox{\textwidth}{!}{$
 \begin{array}{c|cc}
 &\text{Benchmark A: }A'A'\text{ open}
 &\text{Benchmark B: }A'A'\text{ closed}\\ \hline
@@ -537,6 +551,7 @@ At exact diagonal-mass degeneracy \(m_s=m_h=125.25\,\mathrm{GeV}\), the two benc
 (125.264006\,\mathrm{GeV},3746.39\,\mathrm{MeV})&
 (125.249959\,\mathrm{GeV},3.9368\,\mathrm{MeV})
 \end{array}
+$}
 \]
 For the closed-channel benchmark, a \(0.1\,\mathrm{MeV}\)-step scan over \(m_s\in[125.20,125.30]\,\mathrm{GeV}\) finds a maximum Higgs-like pole-eigenvector composition diagnostic \(|s/h|\simeq0.2039\) near \(m_s=125.2499\,\mathrm{GeV}\); the sampled interval with \(|s/h|\geq0.1\) is approximately \(125.2467\)--\(125.2532\,\mathrm{GeV}\). In the open-channel benchmark the maximum over the same local scan is \(9.15\times10^{-4}\), and no point reaches \(0.1\). The quantity \(|s/h|\) is a non-Hermitian pole-eigenvector diagnostic, not a directly observable mixing angle or rate.
 
@@ -994,6 +1009,7 @@ assuming the published missing-energy acceptance for an invisible spin-one state
 For a transparent mass-dependent comparison, we read the NA64 90\% CL boundary from Fig.~3 of Ref.~\cite{NA64:2023lightDM} in log--log coordinates. The figure does not provide a machine-readable table; we therefore quote conservative visual-read-off intervals, with an approximately \(0.2\)--\(0.3\) dex line-thickness/read-off uncertainty, rather than spurious high-precision point values. The lower edge of each interval is used in the ratios below. The model values are evaluated from the full timelike loop function at the same mass:
 \begin{center}
 \small
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{c|c|c|c|c|c}
 \(m_{A'}\) &
 \( |\epsilon|/|g_X| \) &
@@ -1010,7 +1026,8 @@ For a transparent mass-dependent comparison, we read the NA64 90\% CL boundary f
 \((0.7\text{--}1.8)\times10^{-4}\) & \(1.82\times10^{-7}\) & \(2.59\times10^{-3}\)\\
 \(300~\mathrm{MeV}\) & \(1.74\times10^{-6}\) & \(0.737\) &
 \((1.0\text{--}2.5)\times10^{-4}\) & \(1.50\times10^{-7}\) & \(1.50\times10^{-3}\)
-\end{tabular}
+\end{tabular}%
+}
 \end{center}
 Here \(R\equiv\epsilon_{\rm eff}/\epsilon_{\rm NA64,low}\), where \(\epsilon_{\rm NA64,low}\) is the conservative lower edge of the visually read-off interval. The corresponding signal-yield ratios \(R^2\) are \(3.3\times10^{-4}\), \(8.9\times10^{-6}\), \(6.7\times10^{-6}\), and \(2.2\times10^{-6}\), respectively, at \(g_X=0.1\). Since \(\epsilon\propto g_X\), the amplitude ratios are ten times larger and the yield ratios one hundred times larger at \(g_X=1\); even there the largest conservative ratio is \(R\simeq0.18\) at \(10\,\mathrm{MeV}\), corresponding to about \(3.3\%\) of the limiting signal yield. The other three mass points remain below \(10^{-3}\) of the limiting yield at \(g_X=1\). These upper-edge values are a conservative comparison over the plotted rectangle, not a claim that those large-coupling points satisfy every other constraint.
 
@@ -1325,19 +1342,20 @@ where
 \]
 in the relativistic limit. For the same symmetric angular acceptance \(|\cos\theta|<c_{\max}\) and in the massless-lepton approximation used above, the common angular integrals cancel in the ratios. With the first index of \(\mathcal A_{ij}\) denoting the initial \(\mu^-\) chirality and the second the final \(\tau^-\) chirality, these definitions become
 \[
+\begin{aligned}
 A_{\rm LR}^{\mu}
-=
+&=
 \frac{|\mathcal A_{LL}|^2+|\mathcal A_{LR}|^2
       -|\mathcal A_{RL}|^2-|\mathcal A_{RR}|^2}
      {|\mathcal A_{LL}|^2+|\mathcal A_{LR}|^2
-      +|\mathcal A_{RL}|^2+|\mathcal A_{RR}|^2},
-\qquad
+      +|\mathcal A_{RL}|^2+|\mathcal A_{RR}|^2},\\[4pt]
 P_\tau
-=
+&=
 \frac{|\mathcal A_{LR}|^2+|\mathcal A_{RR}|^2
       -|\mathcal A_{LL}|^2-|\mathcal A_{RL}|^2}
      {|\mathcal A_{LL}|^2+|\mathcal A_{LR}|^2
       +|\mathcal A_{RL}|^2+|\mathcal A_{RR}|^2}.
+\end{aligned}
 \]
 The first expression separates the two initial-muon chiralities, while the second separates the final tau helicities. They therefore supply information complementary to \(A_{\rm FB}\), which instead compares same- and opposite-chirality amplitude combinations after summing over both beams and final-state helicities. We retain \(A_{\rm FB}\) as the representative observable because the collider illustration in the manuscript uses unpolarized beams and does not model beam-polarization or tau-polarimetry efficiencies, analyzing powers, or systematic uncertainties. The expressions above establish the parton-level chiral information, but a numerical sensitivity or reach for either polarization observable would require those additional collider inputs and is not claimed.
 
