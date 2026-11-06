@@ -84,6 +84,9 @@ jobs:
             echo "Reply figure assets are already current."
           else
             git commit -m "Archive independent Blinov reference scan and refresh reply figures"
+            # Plot regeneration may leave unrelated generated files unstaged.
+            # Stash those artifacts before rebasing the selected, committed outputs.
+            git stash push --include-untracked -m "temporary unselected generated artifacts"
             git pull --rebase origin "$BRANCH"
             git push origin "HEAD:${BRANCH}"
           fi
