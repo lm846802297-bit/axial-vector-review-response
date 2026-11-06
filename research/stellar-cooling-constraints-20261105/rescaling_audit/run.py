@@ -11,7 +11,7 @@ from pathlib import Path
 import numpy as np
 
 HERE = Path(__file__).resolve().parent
-ROOT = HERE.parents[3]
+ROOT = HERE.parents[2]
 BASE = ROOT / "research" / "stellar-cooling-constraints-20261105"
 INPUTS = {
     "literal_scan": BASE / "blinov_reproduction" / "outputs" / "blinov_literal_scan.json",
