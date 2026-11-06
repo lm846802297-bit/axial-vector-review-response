@@ -63,7 +63,7 @@ The mode-resolved production rate is therefore
 \Gamma_{h,\nu\bar\nu}^{\rm prod}(\omega)
 =\frac{m_V}{\omega}\,\Gamma_{V\to\nu\bar\nu}^{(1)}
 \int_{-1}^{1}dz\,W_h(z)
- f_{\bar\nu}(E_1;-\mu_\nu)f_\nu(E_2;\mu_\nu),
+ f_\nu(E_1;\mu_\nu)f_{\bar\nu}(E_2;-\mu_\nu),
 \]
 where the vacuum width for **one flavor and one fixed vector polarization** is
 [
@@ -204,7 +204,15 @@ Therefore B.19 also holds for each fixed (h), not only after summing the three v
 =e^{-\omega/T}\Gamma_{h,\mu V\to\mu\gamma}^{\rm abs}}.
 ]
 
-### 4.2 How B.15–B.18 encode polarization sums
+### 4.2 How B.14–B.18 encode polarization sums
+
+The non-relativistic-muon, negligible-recoil production cross section printed in B.14 is
+\[
+\sigma(\mu\gamma\to\mu V)\simeq
+\frac{8\pi\alpha\alpha_V}{3m_\mu^2}
+\left(1+\frac{m_V^2}{2\omega^2}\right)v_V.
+\]
+It is a polarization-summed production cross section with the conventional initial-state spin averages. Let
 
 Let (\sigma_h^{\rm inv}\) be the inverse cross section for a fixed incident vector mode (h), averaged over the initial muon spin and summed over final muon spin and photon polarization. Define the unpolarized inverse cross section by
 [
