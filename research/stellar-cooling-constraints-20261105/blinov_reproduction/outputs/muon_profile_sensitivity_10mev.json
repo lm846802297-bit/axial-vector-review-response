@@ -8,7 +8,7 @@
     "fig7_reference": "6ec153f4bc0acbc1fdcdcc6b7855cfc980a61e440e858ea571d06923823de0a2",
     "script": "3016a0ba84cb4481c81817ab79324fecda87e6f289fc648f631f3ecdfe7c38ce"
   },
-  "run_commit_sha": "8ed9e70021f7a48f40513b845de74a16dee69c51",
+  "run_commit_sha": "9373ac78e8684e96287fad4022d84b05a25524f0",
   "quadrature": {
     "radial": 40,
     "energy": 100,
