@@ -30,7 +30,7 @@ g_{\nu_\mu}=+g_X,\quad g_{\nu_\tau}=-g_X.
 - [横版 PDF](outputs/axial_stellar_constraints.pdf)：独立比较图。
 - [回复信竖排 PDF（MeV）](outputs/axial_stellar_constraints_reply.pdf)：保留原 MeV 质量轴版本，便于与超新星质量基准对照。
 - [GeV 单位对比版 PDF](outputs/axial_stellar_constraints_gev.pdf) / [PNG](outputs/axial_stellar_constraints_gev.png)：由同一组已保存扫描数据生成，只将质量坐标按 \(m_{A'}[\mathrm{GeV}]=m_{A'}[\mathrm{MeV}]/1000\) 转换；作为 Fig. 2 对照视图新增，不替换原来的 MeV 宽版图或回复信版图。 绘图范围仍覆盖 SN 扫描的 \(10^{-5}\)–\(0.5\) GeV；阴影只标示当前面板与 Fig. 2 展示窗口的可见交集，不代表重画 Fig. 2 的完整质量范围。
-- [回复信竖排 GeV PDF](outputs/axial_stellar_constraints_reply_gev.pdf) / [PNG](outputs/axial_stellar_constraints_reply_gev.png)：与 GeV 宽版使用同一组扫描数据和质量坐标变换，但采用上下两面板竖排，适合正式回复信栏宽；下方面板保留完整的光学薄产生端占比定义。
+- [回复信竖排 GeV PDF](outputs/axial_stellar_constraints_reply_gev.pdf) / [PNG](outputs/axial_stellar_constraints_reply_gev.png)：与 GeV 宽版使用同一组扫描数据和质量坐标变换，但采用上下两面板竖排，适合正式回复信栏宽；下方面板保留完整的光学薄产生端占比定义。回复信专用竖版已删除图内底部说明，质量换算、Fig. 2 阴影含义及 ballistic-cooling 适用范围均由正式 LaTeX 图注说明；宽版 GeV 对照图仍保留自身说明文字。
 
 ![GeV 单位对比版](outputs/axial_stellar_constraints_gev.png)
 
