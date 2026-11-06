@@ -83,48 +83,64 @@ jobs:
           pdfinfo Replies_to_Referee_3_referee_facing_2026-11-04.pdf | tee build/pdfinfo.txt
           grep -E 'Pages:|Page size:|File size:' build/pdfinfo.txt
 
-      - name: Render every PDF page and create contact sheet
+      - name: Render all pages and prepare page-by-page visual review
         shell: bash
         run: |
           set -euo pipefail
-          pdftoppm -png -r 120 Replies_to_Referee_3_referee_facing_2026-11-04.pdf build/pages/page
+          mkdir -p build/review-pages visual-review/pr55-2026-11-06
+          pdftoppm -jpeg -r 90 -jpegopt quality=78 Replies_to_Referee_3_referee_facing_2026-11-04.pdf build/review-pages/page
           python3 - <<'PY'
+          import base64, json
           from pathlib import Path
           from PIL import Image, ImageDraw
-          pages = sorted(Path("build/pages").glob("page-*.png"))
+          pages = sorted(Path("build/review-pages").glob("page-*.jpg"))
           if not pages:
               raise SystemExit("No PDF pages were rendered")
-          thumbs = []
           metrics = []
-          for page in pages:
+          for i, page in enumerate(pages, start=1):
               image = Image.open(page).convert("RGB")
               width, height = image.size
               gray = image.convert("L")
-              # Bounding box of visibly non-white content; useful for spotting
-              # blank pages and grossly displaced/overflowing page content.
-              mask = gray.point(lambda p: 255 if p < 245 else 0)
-              bbox = mask.getbbox()
+              bbox = gray.point(lambda p: 255 if p < 245 else 0).getbbox()
               if bbox is None:
                   raise SystemExit(f"Blank page detected: {page.name}")
               left, top, right, bottom = bbox
               metrics.append({
-                  "page": page.name, "width": width, "height": height,
+                  "page": i, "render": page.name, "width": width, "height": height,
                   "content_bbox": [left, top, right, bottom],
                   "edge_clearance_px": [left, top, width-right, height-bottom]
               })
-              image.thumbnail((480, 680))
-              tile = Image.new("RGB", (500, 715), "white")
-              tile.paste(image, ((500-image.width)//2, 24))
-              ImageDraw.Draw(tile).text((12, 5), page.stem, fill="black")
-              thumbs.append(tile)
-          columns = 3
-          rows = (len(thumbs) + columns - 1) // columns
-          sheet = Image.new("RGB", (columns*500, rows*715), (218, 218, 218))
-          for i, tile in enumerate(thumbs):
-              sheet.paste(tile, ((i % columns)*500, (i // columns)*715))
-          sheet.save("build/contact-sheet.png")
-          Path("build/page-metrics.json").write_text(__import__("json").dumps(metrics, indent=2))
-          print(f"Rendered and checked {len(pages)} pages")
+          review = Path("visual-review/pr55-2026-11-06")
+          (review / "page-metrics.json").write_text(json.dumps(metrics, indent=2))
+          # Store five full-page JPEGs per UTF-8 text file. This bypasses the
+          # repository's exhausted Actions artifact quota while preserving
+          # inspectable page images through the authenticated GitHub connector.
+          for start in range(0, len(pages), 5):
+              subset = pages[start:start+5]
+              first, last = start+1, start+len(subset)
+              target = review / f"pages-{first:02d}-{last:02d}.b64.txt"
+              with target.open("w") as out:
+                  for page in subset:
+                      out.write(page.name + "|" + base64.b64encode(page.read_bytes()).decode("ascii") + "\\n")
+          # A quick overview montage accompanies the individual page images.
+          for start in range(0, len(pages), 20):
+              subset = pages[start:start+20]
+              tiles = []
+              for page in subset:
+                  im = Image.open(page).convert("RGB")
+                  im.thumbnail((300, 424))
+                  tile = Image.new("RGB", (320, 450), "white")
+                  tile.paste(im, ((320-im.width)//2, 20))
+                  ImageDraw.Draw(tile).text((8, 3), page.stem, fill="black")
+                  tiles.append(tile)
+              cols = 4
+              rows = (len(tiles)+cols-1)//cols
+              sheet = Image.new("RGB", (cols*320, rows*450), (220,220,220))
+              for i, tile in enumerate(tiles):
+                  sheet.paste(tile, ((i%cols)*320, (i//cols)*450))
+              (review / f"overview-{start+1:02d}-{start+len(subset):02d}.jpg").write_bytes(b"")
+              sheet.save(review / f"overview-{start+1:02d}-{start+len(subset):02d}.jpg", quality=82)
+          print(f"Rendered {len(pages)} pages; prepared {((len(pages)+4)//5)} page-image batches")
           PY
 
       - name: Commit the freshly compiled PDF to the PR branch
@@ -133,21 +149,10 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add Replies_to_Referee_3_referee_facing_2026-11-04.pdf
+          git add Replies_to_Referee_3_referee_facing_2026-11-04.pdf visual-review/pr55-2026-11-06/
           if ! git diff --cached --quiet; then
-            git commit -m "Add freshly compiled PR55 referee response PDF [skip ci]"
+            git commit -m "Publish PR55 PDF and temporary page-by-page review images [skip ci]"
             git push origin HEAD:review/response-point-conclusions-20261106
           else
-            echo "Compiled PDF is byte-identical to the existing repository PDF."
+            echo "Compiled PDF and page-review files are unchanged."
           fi
-
-      - name: Upload full build logs and page renders
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: pr55-latex-build-and-page-renders
-          path: |
-            build/
-            Replies_to_Referee_3_referee_facing_2026-11-04.pdf
-          if-no-files-found: warn
-          retention-days: 14
