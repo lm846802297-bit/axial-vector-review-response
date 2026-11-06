@@ -98,6 +98,8 @@ A separate implementation now lives in [blinov_reproduction/](blinov_reproductio
 
 Reproduction instructions and the independence boundary are documented in [blinov_reproduction/README.md](blinov_reproduction/README.md). The initial reference run is a numerical reproduction attempt; it is not marked as passed until its Fig. 4 and Fig. 7 comparisons are inspected.
 
+The first independent run reproduces the digitized Fig. 4 boundaries at 1, 10, 100, and 200 MeV within 2.60%, but it does **not** reproduce every Fig. 7 luminosity curve: the maximum/mean absolute relative differences are 5.54%/1.60% (1 MeV), 91.35%/15.64% (10 MeV), and 1.59%/0.71% (200 MeV). The 10 MeV curve remains unresolved. These are conditional comparisons against digitized figures using the reconstructed profile, not an exact reproduction from original author tables. Detailed values and input/code fingerprints are in the independent module's saved JSON and README.
+
 ## 4. 剖面来源及不确定性
 
 `extract_profile.py` 从两个公开 arXiv source 包中只读取命名的 PDF 图；不接触受限模拟表。PDF 哈希、路径号、坐标变换和样点在 [profile_provenance.json](data/profile_provenance.json) 中。
