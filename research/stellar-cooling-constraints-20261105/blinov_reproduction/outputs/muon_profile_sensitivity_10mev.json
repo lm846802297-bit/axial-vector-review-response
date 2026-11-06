@@ -1,0 +1,582 @@
+{
+  "title": "10 MeV Fig. 7 sensitivity to alternative muon chemical-potential profile",
+  "status": "diagnostic_only_not_a_profile_replacement",
+  "scope": "Only mu_mu(r) changes; T, mu_numu, lapse, mass, coupling grid, rates and transport are fixed.",
+  "source_hashes": {
+    "baseline_profile": "08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9",
+    "profile_provenance": "270486e2c3e955eee81fb4ca7be9300b4a5767468c144717df2726318c1e4a56",
+    "fig7_reference": "6ec153f4bc0acbc1fdcdcc6b7855cfc980a61e440e858ea571d06923823de0a2",
+    "script": "3016a0ba84cb4481c81817ab79324fecda87e6f289fc648f631f3ecdfe7c38ce"
+  },
+  "run_commit_sha": "8ed9e70021f7a48f40513b845de74a16dee69c51",
+  "quadrature": {
+    "radial": 40,
+    "energy": 100,
+    "angular": 16,
+    "path": 32
+  },
+  "profile_build": {
+    "n_rows": 501,
+    "changed_column": "mu_mu_MeV <- mu_mu_Ferreira_MeV; nonfinite tail -> 0",
+    "preserved_columns": [
+      "r_km",
+      "T_MeV",
+      "mu_numu_MeV",
+      "lapse"
+    ],
+    "mu_mu_baseline_range_MeV": [
+      0.0,
+      103.4904016
+    ],
+    "mu_mu_ferreira_range_MeV": [
+      0.0,
+      254.9211865
+    ],
+    "alternate_profile_sha256": "3aaa934a38f77474a643667c98c5e1821bca98577f0234f8f7dcb374b2bf4763"
+  },
+  "provenance_assumptions": [
+    "Caputo top-panel x axis is [0.1,20] km; bottom-panel x axis [0,20] km. Curves encode public PDF vertices beyond clipping frame.",
+    "T used through25km from encoded public Caputo path, including off-frame vertices. No temperature tail fitted.",
+    "mu_mu set0 beyond final encoded point where plotted value drops below1MeV; no effect expected on muon density in cold tail.",
+    "mu_numu set0 in intervals not represented by the |mu_numu|>=1MeV logarithmic plot; use zero-chemical-potential sensitivity check.",
+    "First available core point extended constantly to r=0 (first original plotted point at about0.116km).",
+    "Lapse uses Ferreira SFHo18.8 orange curve through24km, then matched exterior Schwarzschild form through25km.",
+    "Ferreira mu_mu curve disagrees strongly with Caputo despite same profile label. It is retained only as diagnostic, not silently mixed into baseline.",
+    "No permission-restricted Garching raw tables were accessed or redistributed."
+  ],
+  "baseline_caputo_mu_mu": {
+    "curve_metrics": {
+      "n_points": 25,
+      "mean_absolute_relative_difference": 0.15731911000924145,
+      "maximum_absolute_relative_difference": 0.9223822076625598,
+      "weak_coupling_relative_difference": -0.08885673650311054,
+      "reference_peak_relative_difference": 0.02568260609084705,
+      "strong_absorption_relative_difference": 0.9223822076625598
+    },
+    "contour_crossings_g": {
+      "Lcrit_4p4e52": [
+        1.0136250439365486e-09,
+        3.8618673251718725e-08
+      ],
+      "Lcrit_3p0e52": [
+        8.356968476681634e-10,
+        4.059995962292031e-08
+      ]
+    },
+    "selected_points": {
+      "weak_coupling": {
+        "g": 4.796429536550025e-10,
+        "relative_difference": -0.08885673650311054,
+        "thin_luminosity_erg_s": 9.94654069206567e+51,
+        "escape_fraction": 0.9978698300943244,
+        "source_weighted_optical_depth": {
+          "neutrino": {
+            "weighted_mean": 0.0019151156225777823,
+            "weighted_median": 0.0016428383253984879,
+            "weighted_p90": 0.003209402214875988,
+            "fraction_of_mean_total": 0.8977829355978981
+          },
+          "compton": {
+            "weighted_mean": 0.00021804546418576759,
+            "weighted_median": 0.0002019734915517649,
+            "weighted_p90": 0.00041543722741092624,
+            "fraction_of_mean_total": 0.10221706440210197
+          },
+          "dimuon": {
+            "weighted_mean": 0.0,
+            "weighted_median": 0.0,
+            "weighted_p90": 0.0,
+            "fraction_of_mean_total": 0.0
+          },
+          "total": {
+            "weighted_mean": 0.0021331610867635496,
+            "weighted_median": 0.0018693739913287302,
+            "weighted_p90": 0.0034740462846269173
+          }
+        }
+      },
+      "reference_peak": {
+        "g": 1.1341108687336194e-08,
+        "relative_difference": 0.02568260609084705,
+        "thin_luminosity_erg_s": 5.560923892487673e+54,
+        "escape_fraction": 0.35247270781802587,
+        "source_weighted_optical_depth": {
+          "neutrino": {
+            "weighted_mean": 1.0707051378138455,
+            "weighted_median": 0.918480020143125,
+            "weighted_p90": 1.794316437225601,
+            "fraction_of_mean_total": 0.897782935597898
+          },
+          "compton": {
+            "weighted_mean": 0.12190511947600392,
+            "weighted_median": 0.11291958175120198,
+            "weighted_p90": 0.2322631430625028,
+            "fraction_of_mean_total": 0.10221706440210196
+          },
+          "dimuon": {
+            "weighted_mean": 0.0,
+            "weighted_median": 0.0,
+            "weighted_p90": 0.0,
+            "fraction_of_mean_total": 0.0
+          },
+          "total": {
+            "weighted_mean": 1.1926102572898494,
+            "weighted_median": 1.0451318517871646,
+            "weighted_p90": 1.9422739609561441
+          }
+        }
+      },
+      "strong_absorption": {
+        "g": 4.171689650228597e-08,
+        "relative_difference": 0.9223822076625598,
+        "thin_luminosity_erg_s": 7.524192709325186e+55,
+        "escape_fraction": 0.0003239184095371075,
+        "source_weighted_optical_depth": {
+          "neutrino": {
+            "weighted_mean": 14.48714628635571,
+            "weighted_median": 12.427468537301278,
+            "weighted_p90": 24.277948981523735,
+            "fraction_of_mean_total": 0.8977829355978982
+          },
+          "compton": {
+            "weighted_mean": 1.649433851144543,
+            "weighted_median": 1.527855281206452,
+            "weighted_p90": 3.1426300403727563,
+            "fraction_of_mean_total": 0.102217064402102
+          },
+          "dimuon": {
+            "weighted_mean": 0.0,
+            "weighted_median": 0.0,
+            "weighted_p90": 0.0,
+            "fraction_of_mean_total": 0.0
+          },
+          "total": {
+            "weighted_mean": 16.13658013750025,
+            "weighted_median": 14.141127646295953,
+            "weighted_p90": 26.27988416867326
+          }
+        }
+      }
+    },
+    "curve_points": [
+      {
+        "g": 4.796429536550025e-10,
+        "reference_luminosity_erg_s": 1.0893295563998579e+52,
+        "calculated_luminosity_erg_s": 9.925352870417855e+51,
+        "relative_difference": -0.08885673650311054
+      },
+      {
+        "g": 5.777315855500023e-10,
+        "reference_luminosity_erg_s": 1.5763155203558458e+52,
+        "calculated_luminosity_erg_s": 1.4386154835144875e+52,
+        "relative_difference": -0.08735563094010079
+      },
+      {
+        "g": 6.958799646472595e-10,
+        "reference_luminosity_erg_s": 2.2802506349178829e+52,
+        "calculated_luminosity_erg_s": 2.0842794529413624e+52,
+        "relative_difference": -0.08594282530857744
+      },
+      {
+        "g": 8.381898081991092e-10,
+        "reference_luminosity_erg_s": 3.304721508056609e+52,
+        "calculated_luminosity_erg_s": 3.0178276222305125e+52,
+        "relative_difference": -0.0868133321148773
+      },
+      {
+        "g": 1.0096025036803394e-09,
+        "reference_luminosity_erg_s": 4.792800789316209e+52,
+        "calculated_luminosity_erg_s": 4.36554281633234e+52,
+        "relative_difference": -0.08914578171833953
+      },
+      {
+        "g": 1.2160696842969427e-09,
+        "reference_luminosity_erg_s": 6.909473018494258e+52,
+        "calculated_luminosity_erg_s": 6.306822004268633e+52,
+        "relative_difference": -0.08722098090730468
+      },
+      {
+        "g": 1.464760112693122e-09,
+        "reference_luminosity_erg_s": 9.983345461931242e+52,
+        "calculated_luminosity_erg_s": 9.09402206903547e+52,
+        "relative_difference": -0.08908069907897742
+      },
+      {
+        "g": 1.7643093106416046e-09,
+        "reference_luminosity_erg_s": 1.4222087256678137e+53,
+        "calculated_luminosity_erg_s": 1.307695969932783e+53,
+        "relative_difference": -0.08051754546876377
+      },
+      {
+        "g": 2.1251157558698884e-09,
+        "reference_luminosity_erg_s": 2.052224110978683e+53,
+        "calculated_luminosity_erg_s": 1.8729786105117856e+53,
+        "relative_difference": -0.08734206927401178
+      },
+      {
+        "g": 2.559710277322341e-09,
+        "reference_luminosity_erg_s": 2.8932837865575006e+53,
+        "calculated_luminosity_erg_s": 2.6673378545599606e+53,
+        "relative_difference": -0.07809324928557249
+      },
+      {
+        "g": 3.0831810858922337e-09,
+        "reference_luminosity_erg_s": 4.070510587188928e+53,
+        "calculated_luminosity_erg_s": 3.767585634962058e+53,
+        "relative_difference": -0.0744193991732296
+      },
+      {
+        "g": 3.7137006897316035e-09,
+        "reference_luminosity_erg_s": 5.672638380236869e+53,
+        "calculated_luminosity_erg_s": 5.25972127901519e+53,
+        "relative_difference": -0.07279101425894818
+      },
+      {
+        "g": 4.473167071557425e-09,
+        "reference_luminosity_erg_s": 7.778729935114823e+53,
+        "calculated_luminosity_erg_s": 7.2217627715644645e+53,
+        "relative_difference": -0.07160129843769125
+      },
+      {
+        "g": 5.387942899280016e-09,
+        "reference_luminosity_erg_s": 1.023421990907104e+54,
+        "calculated_luminosity_erg_s": 9.686151536745992e+53,
+        "relative_difference": -0.05355253035351237
+      },
+      {
+        "g": 6.4897983908964e-09,
+        "reference_luminosity_erg_s": 1.3155978611139927e+54,
+        "calculated_luminosity_erg_s": 1.2573887175925153e+54,
+        "relative_difference": -0.044245392336065614
+      },
+      {
+        "g": 7.81698765963344e-09,
+        "reference_luminosity_erg_s": 1.6112693384409214e+54,
+        "calculated_luminosity_erg_s": 1.5603918137855568e+54,
+        "relative_difference": -0.03157605214817416
+      },
+      {
+        "g": 9.415584636282641e-09,
+        "reference_luminosity_erg_s": 1.8222467898580756e+54,
+        "calculated_luminosity_erg_s": 1.821597545696683e+54,
+        "relative_difference": -0.00035628772403728526
+      },
+      {
+        "g": 1.1341108687336194e-08,
+        "reference_luminosity_erg_s": 1.910994581282271e+54,
+        "calculated_luminosity_erg_s": 1.9600739023550867e+54,
+        "relative_difference": 0.02568260609084705
+      },
+      {
+        "g": 1.3660409972030494e-08,
+        "reference_luminosity_erg_s": 1.7750616042948693e+54,
+        "calculated_luminosity_erg_s": 1.8960551796580544e+54,
+        "relative_difference": 0.06816302886076397
+      },
+      {
+        "g": 1.6454004004914003e-08,
+        "reference_luminosity_erg_s": 1.4146008873057794e+54,
+        "calculated_luminosity_erg_s": 1.6010409668891663e+54,
+        "relative_difference": 0.1317969479988641
+      },
+      {
+        "g": 1.9818912470130955e-08,
+        "reference_luminosity_erg_s": 9.494231795275183e+53,
+        "calculated_luminosity_erg_s": 1.141305738273139e+54,
+        "relative_difference": 0.20210435439454022
+      },
+      {
+        "g": 2.3871938384298948e-08,
+        "reference_luminosity_erg_s": 5.076675014703045e+53,
+        "calculated_luminosity_erg_s": 6.618937331554955e+53,
+        "relative_difference": 0.30379378478732955
+      },
+      {
+        "g": 2.8753843574456517e-08,
+        "reference_luminosity_erg_s": 2.0855979250328497e+53,
+        "calculated_luminosity_erg_s": 2.997861869202586e+53,
+        "relative_difference": 0.43741122544287503
+      },
+      {
+        "g": 3.4634117556541197e-08,
+        "reference_luminosity_erg_s": 6.202557246004756e+52,
+        "calculated_luminosity_erg_s": 1.0127118473116984e+53,
+        "relative_difference": 0.632732769961962
+      },
+      {
+        "g": 4.171689650228597e-08,
+        "reference_luminosity_erg_s": 1.26781475907372e+52,
+        "calculated_luminosity_erg_s": 2.437224535455314e+52,
+        "relative_difference": 0.9223822076625598
+      }
+    ]
+  },
+  "ferreira_mu_mu_only": {
+    "curve_metrics": {
+      "n_points": 25,
+      "mean_absolute_relative_difference": 0.4213434463936281,
+      "maximum_absolute_relative_difference": 0.6503858959757944,
+      "weak_coupling_relative_difference": 0.4390540852623368,
+      "reference_peak_relative_difference": 0.33908396923672934,
+      "strong_absorption_relative_difference": 0.6503858959757944
+    },
+    "contour_crossings_g": {
+      "Lcrit_4p4e52": [
+        8.054954897200029e-10,
+        3.8067569492067775e-08
+      ],
+      "Lcrit_3p0e52": [
+        6.643367633842314e-10,
+        3.990618532496676e-08
+      ]
+    },
+    "selected_points": {
+      "weak_coupling": {
+        "g": 4.796429536550025e-10,
+        "relative_difference": 0.4390540852623368,
+        "thin_luminosity_erg_s": 1.5716577387251195e+52,
+        "escape_fraction": 0.9974208186101746,
+        "source_weighted_optical_depth": {
+          "neutrino": {
+            "weighted_mean": 0.0018107596069470299,
+            "weighted_median": 0.001563744446030209,
+            "weighted_p90": 0.003016981754397794,
+            "fraction_of_mean_total": 0.7009140936821057
+          },
+          "compton": {
+            "weighted_mean": 0.0007726662697314977,
+            "weighted_median": 0.0005358164988025345,
+            "weighted_p90": 0.0018948504773082507,
+            "fraction_of_mean_total": 0.2990859063178941
+          },
+          "dimuon": {
+            "weighted_mean": 0.0,
+            "weighted_median": 0.0,
+            "weighted_p90": 0.0,
+            "fraction_of_mean_total": 0.0
+          },
+          "total": {
+            "weighted_mean": 0.0025834258766785283,
+            "weighted_median": 0.0023234953642361353,
+            "weighted_p90": 0.004265096987366258
+          }
+        }
+      },
+      "reference_peak": {
+        "g": 1.1341108687336194e-08,
+        "relative_difference": 0.33908396923672934,
+        "thin_luminosity_erg_s": 8.786842924255503e+54,
+        "escape_fraction": 0.29122885559151657,
+        "source_weighted_optical_depth": {
+          "neutrino": {
+            "weighted_mean": 1.0123616515092266,
+            "weighted_median": 0.8742601192604539,
+            "weighted_p90": 1.6867377755377007,
+            "fraction_of_mean_total": 0.700914093682106
+          },
+          "compton": {
+            "weighted_mean": 0.4319831842337616,
+            "weighted_median": 0.29956493040409055,
+            "weighted_p90": 1.059375276105848,
+            "fraction_of_mean_total": 0.29908590631789417
+          },
+          "dimuon": {
+            "weighted_mean": 0.0,
+            "weighted_median": 0.0,
+            "weighted_p90": 0.0,
+            "fraction_of_mean_total": 0.0
+          },
+          "total": {
+            "weighted_mean": 1.444344835742988,
+            "weighted_median": 1.2990225732823821,
+            "weighted_p90": 2.3845355360323324
+          }
+        }
+      },
+      "strong_absorption": {
+        "g": 4.171689650228597e-08,
+        "relative_difference": 0.6503858959757944,
+        "thin_luminosity_erg_s": 1.1889013542872433e+56,
+        "escape_fraction": 0.00017599303672587868,
+        "source_weighted_optical_depth": {
+          "neutrino": {
+            "weighted_mean": 13.697731356791829,
+            "weighted_median": 11.829152390090647,
+            "weighted_p90": 22.82235887167787,
+            "fraction_of_mean_total": 0.7009140936821059
+          },
+          "compton": {
+            "weighted_mean": 5.844936539688404,
+            "weighted_median": 4.053255014622485,
+            "weighted_p90": 14.333847905530648,
+            "fraction_of_mean_total": 0.2990859063178941
+          },
+          "dimuon": {
+            "weighted_mean": 0.0,
+            "weighted_median": 0.0,
+            "weighted_p90": 0.0,
+            "fraction_of_mean_total": 0.0
+          },
+          "total": {
+            "weighted_mean": 19.542667896480232,
+            "weighted_median": 17.576389039138085,
+            "weighted_p90": 32.263892191689564
+          }
+        }
+      }
+    },
+    "curve_points": [
+      {
+        "g": 4.796429536550025e-10,
+        "reference_luminosity_erg_s": 1.0893295563998579e+52,
+        "calculated_luminosity_erg_s": 1.5676041483342247e+52,
+        "relative_difference": 0.4390540852623368
+      },
+      {
+        "g": 5.777315855500023e-10,
+        "reference_luminosity_erg_s": 1.5763155203558458e+52,
+        "calculated_luminosity_erg_s": 2.2716797822901343e+52,
+        "relative_difference": 0.4411326621825771
+      },
+      {
+        "g": 6.958799646472595e-10,
+        "reference_luminosity_erg_s": 2.2802506349178829e+52,
+        "calculated_luminosity_erg_s": 3.290263066724658e+52,
+        "relative_difference": 0.4429392174440281
+      },
+      {
+        "g": 8.381898081991092e-10,
+        "reference_luminosity_erg_s": 3.304721508056609e+52,
+        "calculated_luminosity_erg_s": 4.761940359404408e+52,
+        "relative_difference": 0.4409505756522094
+      },
+      {
+        "g": 1.0096025036803394e-09,
+        "reference_luminosity_erg_s": 4.792800789316209e+52,
+        "calculated_luminosity_erg_s": 6.884294177450282e+52,
+        "relative_difference": 0.4363822908718198
+      },
+      {
+        "g": 1.2160696842969427e-09,
+        "reference_luminosity_erg_s": 6.909473018494258e+52,
+        "calculated_luminosity_erg_s": 9.93671828604758e+52,
+        "relative_difference": 0.43812968940618746
+      },
+      {
+        "g": 1.464760112693122e-09,
+        "reference_luminosity_erg_s": 9.983345461931242e+52,
+        "calculated_luminosity_erg_s": 1.430953702290224e+53,
+        "relative_difference": 0.43334086529087346
+      },
+      {
+        "g": 1.7643093106416046e-09,
+        "reference_luminosity_erg_s": 1.4222087256678137e+53,
+        "calculated_luminosity_erg_s": 2.0538198824666835e+53,
+        "relative_difference": 0.4441058090838881
+      },
+      {
+        "g": 2.1251157558698884e-09,
+        "reference_luminosity_erg_s": 2.052224110978683e+53,
+        "calculated_luminosity_erg_s": 2.9336804980295066e+53,
+        "relative_difference": 0.4295127332026456
+      },
+      {
+        "g": 2.559710277322341e-09,
+        "reference_luminosity_erg_s": 2.8932837865575006e+53,
+        "calculated_luminosity_erg_s": 4.161634684429784e+53,
+        "relative_difference": 0.4383776329737077
+      },
+      {
+        "g": 3.0831810858922337e-09,
+        "reference_luminosity_erg_s": 4.070510587188928e+53,
+        "calculated_luminosity_erg_s": 5.845419651245781e+53,
+        "relative_difference": 0.4360408911950764
+      },
+      {
+        "g": 3.7137006897316035e-09,
+        "reference_luminosity_erg_s": 5.672638380236869e+53,
+        "calculated_luminosity_erg_s": 8.095374796712112e+53,
+        "relative_difference": 0.4270916378022458
+      },
+      {
+        "g": 4.473167071557425e-09,
+        "reference_luminosity_erg_s": 7.778729935114823e+53,
+        "calculated_luminosity_erg_s": 1.0989593585155742e+54,
+        "relative_difference": 0.4127747944489504
+      },
+      {
+        "g": 5.387942899280016e-09,
+        "reference_luminosity_erg_s": 1.023421990907104e+54,
+        "calculated_luminosity_erg_s": 1.4506505704717674e+54,
+        "relative_difference": 0.41745104498486674
+      },
+      {
+        "g": 6.4897983908964e-09,
+        "reference_luminosity_erg_s": 1.3155978611139927e+54,
+        "calculated_luminosity_erg_s": 1.842133063421986e+54,
+        "relative_difference": 0.4002250367465219
+      },
+      {
+        "g": 7.81698765963344e-09,
+        "reference_luminosity_erg_s": 1.6112693384409214e+54,
+        "calculated_luminosity_erg_s": 2.2193073876225036e+54,
+        "relative_difference": 0.37736586595132815
+      },
+      {
+        "g": 9.415584636282641e-09,
+        "reference_luminosity_erg_s": 1.8222467898580756e+54,
+        "calculated_luminosity_erg_s": 2.4931559465831068e+54,
+        "relative_difference": 0.36817689045142155
+      },
+      {
+        "g": 1.1341108687336194e-08,
+        "reference_luminosity_erg_s": 1.910994581282271e+54,
+        "calculated_luminosity_erg_s": 2.558982209093345e+54,
+        "relative_difference": 0.33908396923672934
+      },
+      {
+        "g": 1.3660409972030494e-08,
+        "reference_luminosity_erg_s": 1.7750616042948693e+54,
+        "calculated_luminosity_erg_s": 2.345687048813767e+54,
+        "relative_difference": 0.3214679665980238
+      },
+      {
+        "g": 1.6454004004914003e-08,
+        "reference_luminosity_erg_s": 1.4146008873057794e+54,
+        "calculated_luminosity_erg_s": 1.8729900467879623e+54,
+        "relative_difference": 0.3240413346235218
+      },
+      {
+        "g": 1.9818912470130955e-08,
+        "reference_luminosity_erg_s": 9.494231795275183e+53,
+        "calculated_luminosity_erg_s": 1.2659144840125548e+54,
+        "relative_difference": 0.33335114552663314
+      },
+      {
+        "g": 2.3871938384298948e-08,
+        "reference_luminosity_erg_s": 5.076675014703045e+53,
+        "calculated_luminosity_erg_s": 6.983684605095023e+53,
+        "relative_difference": 0.37564145525740855
+      },
+      {
+        "g": 2.8753843574456517e-08,
+        "reference_luminosity_erg_s": 2.0855979250328497e+53,
+        "calculated_luminosity_erg_s": 2.99968953156099e+53,
+        "relative_difference": 0.43828755080572046
+      },
+      {
+        "g": 3.4634117556541197e-08,
+        "reference_luminosity_erg_s": 6.202557246004756e+52,
+        "calculated_luminosity_erg_s": 9.479213912412249e+52,
+        "relative_difference": 0.5282751188661872
+      },
+      {
+        "g": 4.171689650228597e-08,
+        "reference_luminosity_erg_s": 1.26781475907372e+52,
+        "calculated_luminosity_erg_s": 2.092383597085217e+52,
+        "relative_difference": 0.6503858959757944
+      }
+    ]
+  },
+  "interpretation": "A changed curve diagnoses sensitivity to the reconstructed muon chemical-potential profile. It does not establish that the Ferreira curve is the correct profile for the Blinov snapshot. No alternative profile or normalization is adopted."
+}
