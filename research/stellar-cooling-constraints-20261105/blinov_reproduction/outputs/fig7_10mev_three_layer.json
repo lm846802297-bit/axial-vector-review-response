@@ -1,0 +1,1555 @@
+{
+  "title": "Three-layer decomposition of Blinov Fig. 7 at 10 MeV",
+  "mass_MeV": 10.0,
+  "scope": "Independent diagnostic using the archived literal scalar Appendix-B reference. Production rates, transport code, axial scan, manuscript and constraint figures are unchanged.",
+  "interpretation_limit": "The channel opacities use the same detailed-balance prescription as reference.py. This is not an independent microscopic derivation or direct forward/reverse thermal phase-space integration of B.19.",
+  "input_sha256": {
+    "profile": "08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9",
+    "fig7_comparison_json": "6ec153f4bc0acbc1fdcdcc6b7855cfc980a61e440e858ea571d06923823de0a2",
+    "fig7_pdf": "4d7d1d10bfe2b52992af94df98749fa3adac887c009cbf98515fa12e6c48fdb5"
+  },
+  "run_commit_sha": "855b3b2119932039dfcbed6304e3940c0f2434d5",
+  "quadrature": {
+    "radial_order": 40,
+    "energy_order": 100,
+    "angular_order": 16,
+    "path_order": 32,
+    "radius_km": 25.0,
+    "energy_offset_MeV": 1000.0
+  },
+  "channel_definitions": {
+    "neutrino": "neutrino-pair coalescence production and inverse neutrino-decay opacity",
+    "compton": "semi-Compton muon-photon production and inverse Compton opacity",
+    "dimuon": "muon-pair production and inverse dimuon opacity, when open"
+  },
+  "internal_consistency": {
+    "channel_reduced_opacity_sum_vs_reference_max_relative_residual": 3.959547893130429e-16,
+    "sum_channel_columns_vs_direct_total_max_relative_residual": 6.724089930264748e-16,
+    "angle_weight_max_absolute_residual": 0.0,
+    "escaped_channel_luminosity_sum_max_relative_residual": 0.0
+  },
+  "curve_metrics": {
+    "n_points": 25,
+    "mean_absolute_relative_difference": 0.15731911000924145,
+    "maximum_absolute_relative_difference": 0.9223822076625598,
+    "weak_coupling_relative_difference": -0.08885673650311054,
+    "reference_peak_relative_difference": 0.02568260609084705,
+    "strong_absorption_relative_difference": 0.9223822076625598
+  },
+  "selected_points": {
+    "weak_coupling": {
+      "index": 0,
+      "g": 4.796429536550025e-10,
+      "reference_luminosity_erg_s": 1.0893295563998579e+52,
+      "calculated_luminosity_erg_s": 9.925352870417855e+51,
+      "relative_difference": -0.08885673650311054,
+      "optically_thin_total_luminosity_erg_s": 9.94654069206567e+51,
+      "total_escape_fraction": 0.9978698300943244,
+      "channels": {
+        "neutrino": {
+          "optically_thin_luminosity_erg_s": 6.763174390466615e+51,
+          "escaped_luminosity_erg_s": 6.747922135660259e+51,
+          "escape_fraction": 0.99774480829182,
+          "fraction_of_total_escaped": 0.6798672272672733
+        },
+        "compton": {
+          "optically_thin_luminosity_erg_s": 3.1833663015990556e+51,
+          "escaped_luminosity_erg_s": 3.177430734757596e+51,
+          "escape_fraction": 0.9981354433391852,
+          "fraction_of_total_escaped": 0.3201327727327267
+        },
+        "dimuon": {
+          "optically_thin_luminosity_erg_s": 0.0,
+          "escaped_luminosity_erg_s": 0.0,
+          "escape_fraction": 0.0,
+          "fraction_of_total_escaped": 0.0
+        }
+      },
+      "source_weighted_optical_depth": {
+        "neutrino": {
+          "weighted_mean": 0.0019151156225777823,
+          "weighted_median": 0.0016428383253984879,
+          "weighted_p90": 0.003209402214875988,
+          "fraction_of_mean_total": 0.8977829355978981
+        },
+        "compton": {
+          "weighted_mean": 0.00021804546418576759,
+          "weighted_median": 0.0002019734915517649,
+          "weighted_p90": 0.00041543722741092624,
+          "fraction_of_mean_total": 0.10221706440210197
+        },
+        "dimuon": {
+          "weighted_mean": 0.0,
+          "weighted_median": 0.0,
+          "weighted_p90": 0.0,
+          "fraction_of_mean_total": 0.0
+        },
+        "total": {
+          "weighted_mean": 0.0021331610867635496,
+          "weighted_median": 0.0018693739913287302,
+          "weighted_p90": 0.0034740462846269173
+        }
+      }
+    },
+    "reference_peak": {
+      "index": 17,
+      "g": 1.1341108687336194e-08,
+      "reference_luminosity_erg_s": 1.910994581282271e+54,
+      "calculated_luminosity_erg_s": 1.9600739023550867e+54,
+      "relative_difference": 0.02568260609084705,
+      "optically_thin_total_luminosity_erg_s": 5.560923892487673e+54,
+      "total_escape_fraction": 0.35247270781802587,
+      "channels": {
+        "neutrino": {
+          "optically_thin_luminosity_erg_s": 3.7811636448647475e+54,
+          "escaped_luminosity_erg_s": 1.2663888389280381e+54,
+          "escape_fraction": 0.33492039960977066,
+          "fraction_of_total_escaped": 0.6460923934584479
+        },
+        "compton": {
+          "optically_thin_luminosity_erg_s": 1.779760247622926e+54,
+          "escaped_luminosity_erg_s": 6.936850634270485e+53,
+          "escape_fraction": 0.3897632079115962,
+          "fraction_of_total_escaped": 0.353907606541552
+        },
+        "dimuon": {
+          "optically_thin_luminosity_erg_s": 0.0,
+          "escaped_luminosity_erg_s": 0.0,
+          "escape_fraction": 0.0,
+          "fraction_of_total_escaped": 0.0
+        }
+      },
+      "source_weighted_optical_depth": {
+        "neutrino": {
+          "weighted_mean": 1.0707051378138455,
+          "weighted_median": 0.918480020143125,
+          "weighted_p90": 1.794316437225601,
+          "fraction_of_mean_total": 0.897782935597898
+        },
+        "compton": {
+          "weighted_mean": 0.12190511947600392,
+          "weighted_median": 0.11291958175120198,
+          "weighted_p90": 0.2322631430625028,
+          "fraction_of_mean_total": 0.10221706440210196
+        },
+        "dimuon": {
+          "weighted_mean": 0.0,
+          "weighted_median": 0.0,
+          "weighted_p90": 0.0,
+          "fraction_of_mean_total": 0.0
+        },
+        "total": {
+          "weighted_mean": 1.1926102572898494,
+          "weighted_median": 1.0451318517871646,
+          "weighted_p90": 1.9422739609561441
+        }
+      }
+    },
+    "strong_absorption": {
+      "index": 24,
+      "g": 4.171689650228597e-08,
+      "reference_luminosity_erg_s": 1.26781475907372e+52,
+      "calculated_luminosity_erg_s": 2.437224535455314e+52,
+      "relative_difference": 0.9223822076625598,
+      "optically_thin_total_luminosity_erg_s": 7.524192709325186e+55,
+      "total_escape_fraction": 0.0003239184095371075,
+      "channels": {
+        "neutrino": {
+          "optically_thin_luminosity_erg_s": 5.116093023299696e+55,
+          "escaped_luminosity_erg_s": 1.3196399094512986e+52,
+          "escape_fraction": 0.0002579389982632056,
+          "fraction_of_total_escaped": 0.5414519221573354
+        },
+        "compton": {
+          "optically_thin_luminosity_erg_s": 2.4080996860254894e+55,
+          "escaped_luminosity_erg_s": 1.1175846260040155e+52,
+          "escape_fraction": 0.00046409400428458264,
+          "fraction_of_total_escaped": 0.45854807784266466
+        },
+        "dimuon": {
+          "optically_thin_luminosity_erg_s": 0.0,
+          "escaped_luminosity_erg_s": 0.0,
+          "escape_fraction": 0.0,
+          "fraction_of_total_escaped": 0.0
+        }
+      },
+      "source_weighted_optical_depth": {
+        "neutrino": {
+          "weighted_mean": 14.48714628635571,
+          "weighted_median": 12.427468537301278,
+          "weighted_p90": 24.277948981523735,
+          "fraction_of_mean_total": 0.8977829355978982
+        },
+        "compton": {
+          "weighted_mean": 1.649433851144543,
+          "weighted_median": 1.527855281206452,
+          "weighted_p90": 3.1426300403727563,
+          "fraction_of_mean_total": 0.102217064402102
+        },
+        "dimuon": {
+          "weighted_mean": 0.0,
+          "weighted_median": 0.0,
+          "weighted_p90": 0.0,
+          "fraction_of_mean_total": 0.0
+        },
+        "total": {
+          "weighted_mean": 16.13658013750025,
+          "weighted_median": 14.141127646295953,
+          "weighted_p90": 26.27988416867326
+        }
+      }
+    }
+  },
+  "all_25_curve_points": [
+    {
+      "index": 0,
+      "g": 4.796429536550025e-10,
+      "reference_luminosity_erg_s": 1.0893295563998579e+52,
+      "calculated_luminosity_erg_s": 9.925352870417855e+51,
+      "relative_difference": -0.08885673650311054,
+      "optically_thin_total_luminosity_erg_s": 9.94654069206567e+51,
+      "total_escape_fraction": 0.9978698300943244,
+      "channels": {
+        "neutrino": {
+          "optically_thin_luminosity_erg_s": 6.763174390466615e+51,
+          "escaped_luminosity_erg_s": 6.747922135660259e+51,
+          "escape_fraction": 0.99774480829182,
+          "fraction_of_total_escaped": 0.6798672272672733
+        },
+        "compton": {
+          "optically_thin_luminosity_erg_s": 3.1833663015990556e+51,
+          "escaped_luminosity_erg_s": 3.177430734757596e+51,
+          "escape_fraction": 0.9981354433391852,
+          "fraction_of_total_escaped": 0.3201327727327267
+        },
+        "dimuon": {
+          "optically_thin_luminosity_erg_s": 0.0,
+          "escaped_luminosity_erg_s": 0.0,
+          "escape_fraction": 0.0,
+          "fraction_of_total_escaped": 0.0
+        }
+      },
+      "source_weighted_optical_depth": {
+        "neutrino": {
+          "weighted_mean": 0.0019151156225777823,
+          "weighted_median": 0.0016428383253984879,
+          "weighted_p90": 0.003209402214875988,
+          "fraction_of_mean_total": 0.8977829355978981
+        },
+        "compton": {
+          "weighted_mean": 0.00021804546418576759,
+          "weighted_median": 0.0002019734915517649,
+          "weighted_p90": 0.00041543722741092624,
+          "fraction_of_mean_total": 0.10221706440210197
+        },
+        "dimuon": {
+          "weighted_mean": 0.0,
+          "weighted_median": 0.0,
+          "weighted_p90": 0.0,
+          "fraction_of_mean_total": 0.0
+        },
+        "total": {
+          "weighted_mean": 0.0021331610867635496,
+          "weighted_median": 0.0018693739913287302,
+          "weighted_p90": 0.0034740462846269173
+        }
+      }
+    },
+    {
+      "index": 1,
+      "g": 5.777315855500023e-10,
+      "reference_luminosity_erg_s": 1.5763155203558458e+52,
+      "calculated_luminosity_erg_s": 1.4386154835144875e+52,
+      "relative_difference": -0.08735563094010079,
+      "optically_thin_total_luminosity_erg_s": 1.4430724975331313e+52,
+      "total_escape_fraction": 0.9969114413681482,
+      "channels": {
+        "neutrino": {
+          "optically_thin_luminosity_erg_s": 9.812206334900032e+51,
+          "escaped_luminosity_erg_s": 9.780123480924184e+51,
+          "escape_fraction": 0.9967303119318093,
+          "fraction_of_total_escaped": 0.6798288766524104
+        },
+        "compton": {
+          "optically_thin_luminosity_erg_s": 4.618518640431282e+51,
+          "escaped_luminosity_erg_s": 4.6060313542206905e+51,
+          "escape_fraction": 0.9972962572671514,
+          "fraction_of_total_escaped": 0.32017112334758946
+        },
+        "dimuon": {
+          "optically_thin_luminosity_erg_s": 0.0,
+          "escaped_luminosity_erg_s": 0.0,
+          "escape_fraction": 0.0,
+          "fraction_of_total_escaped": 0.0
+        }
+      },
+      "source_weighted_optical_depth": {
+        "neutrino": {
+          "weighted_mean": 0.0027785043766448314,
+          "weighted_median": 0.002383476706798246,
+          "weighted_p90": 0.004656292286125076,
+          "fraction_of_mean_total": 0.8977829355978979
+        },
+        "compton": {
+          "weighted_mean": 0.0003163465794990679,
+          "weighted_median": 0.0002930289031256776,
+          "weighted_p90": 0.0006027281804681593,
+          "fraction_of_mean_total": 0.10221706440210197
+        },
+        "dimuon": {
+          "weighted_mean": 0.0,
+          "weighted_median": 0.0,
+          "weighted_p90": 0.0,
+          "fraction_of_mean_total": 0.0
+        },
+        "total": {
+          "weighted_mean": 0.0030948509561439,
+          "weighted_median": 0.002712141113183331,
+          "weighted_p90": 0.005040245451869872
+        }
+      }
+    },
+    {
+      "index": 2,
+      "g": 6.958799646472595e-10,
+      "reference_luminosity_erg_s": 2.2802506349178829e+52,
+      "calculated_luminosity_erg_s": 2.0842794529413624e+52,
+      "relative_difference": -0.08594282530857744,
+      "optically_thin_total_luminosity_erg_s": 2.0936524599546683e+52,
+      "total_escape_fraction": 0.9955231313732419,
+      "channels": {
+        "neutrino": {
+          "optically_thin_luminosity_erg_s": 1.4235840517897874e+52,
+          "escaped_luminosity_erg_s": 1.4168375166883857e+52,
+          "escape_fraction": 0.9952608803864306,
+          "fraction_of_total_escaped": 0.6797732975244399
+        },
+        "compton": {
+          "optically_thin_luminosity_erg_s": 6.70068408164881e+51,
+          "escaped_luminosity_erg_s": 6.674419362529767e+51,
+          "escape_fraction": 0.9960802928777117,
+          "fraction_of_total_escaped": 0.32022670247556
+        },
+        "dimuon": {
+          "optically_thin_luminosity_erg_s": 0.0,
+          "escaped_luminosity_erg_s": 0.0,
+          "escape_fraction": 0.0,
+          "fraction_of_total_escaped": 0.0
+        }
+      },
+      "source_weighted_optical_depth": {
+        "neutrino": {
+          "weighted_mean": 0.004031136712189823,
+          "weighted_median": 0.0034580188306292843,
+          "weighted_p90": 0.006755487209255675,
+          "fraction_of_mean_total": 0.8977829355978979
+        },
+        "compton": {
+          "weighted_mean": 0.0004589650176956978,
+          "weighted_median": 0.0004251350399343383,
+          "weighted_p90": 0.0008744559541383617,
+          "fraction_of_mean_total": 0.10221706440210196
+        },
+        "dimuon": {
+          "weighted_mean": 0.0,
+          "weighted_median": 0.0,
+          "weighted_p90": 0.0,
+          "fraction_of_mean_total": 0.0
+        },
+        "total": {
+          "weighted_mean": 0.004490101729885522,
+          "weighted_median": 0.0039348549175923205,
+          "weighted_p90": 0.007312537871189257
+        }
+      }
+    },
+    {
+      "index": 3,
+      "g": 8.381898081991092e-10,
+      "reference_luminosity_erg_s": 3.304721508056609e+52,
+      "calculated_luminosity_erg_s": 3.0178276222305125e+52,
+      "relative_difference": -0.0868133321148773,
+      "optically_thin_total_luminosity_erg_s": 3.0375307133295543e+52,
+      "total_escape_fraction": 0.9935134512343927,
+      "channels": {
+        "neutrino": {
+          "optically_thin_luminosity_erg_s": 2.0653763521053714e+52,
+          "escaped_luminosity_erg_s": 2.0511956766431435e+52,
+          "escape_fraction": 0.9931340961429269,
+          "fraction_of_total_escaped": 0.6796927901160505
+        },
+        "compton": {
+          "optically_thin_luminosity_erg_s": 9.721543612241828e+51,
+          "escaped_luminosity_erg_s": 9.666319455873689e+51,
+          "escape_fraction": 0.9943194045543756,
+          "fraction_of_total_escaped": 0.32030720988394945
+        },
+        "dimuon": {
+          "optically_thin_luminosity_erg_s": 0.0,
+          "escaped_luminosity_erg_s": 0.0,
+          "escape_fraction": 0.0,
+          "fraction_of_total_escaped": 0.0
+        }
+      },
+      "source_weighted_optical_depth": {
+        "neutrino": {
+          "weighted_mean": 0.0058484881359784175,
+          "weighted_median": 0.005016992364404085,
+          "weighted_p90": 0.009801053553111375,
+          "fraction_of_mean_total": 0.8977829355978979
+        },
+        "compton": {
+          "weighted_mean": 0.0006658795403057056,
+          "weighted_median": 0.0006167980435210817,
+          "weighted_p90": 0.0012686856433692369,
+          "fraction_of_mean_total": 0.10221706440210196
+        },
+        "dimuon": {
+          "weighted_mean": 0.0,
+          "weighted_median": 0.0,
+          "weighted_p90": 0.0,
+          "fraction_of_mean_total": 0.0
+        },
+        "total": {
+          "weighted_mean": 0.006514367676284124,
+          "weighted_median": 0.0057087997618006266,
+          "weighted_p90": 0.010609238544110522
+        }
+      }
+    },
+    {
+      "index": 4,
+      "g": 1.0096025036803394e-09,
+      "reference_luminosity_erg_s": 4.792800789316209e+52,
+      "calculated_luminosity_erg_s": 4.36554281633234e+52,
+      "relative_difference": -0.08914578171833953,
+      "optically_thin_total_luminosity_erg_s": 4.406936208801399e+52,
+      "total_escape_fraction": 0.9906072176886997,
+      "channels": {
+        "neutrino": {
+          "optically_thin_luminosity_erg_s": 2.996506929445423e+52,
+          "escaped_luminosity_erg_s": 2.966719242067507e+52,
+          "escape_fraction": 0.99005919623105,
+          "fraction_of_total_escaped": 0.6795762558938688
+        },
+        "compton": {
+          "optically_thin_luminosity_erg_s": 1.4104292793559756e+52,
+          "escaped_luminosity_erg_s": 1.3988235742648334e+52,
+          "escape_fraction": 0.9917715086739821,
+          "fraction_of_total_escaped": 0.3204237441061313
+        },
+        "dimuon": {
+          "optically_thin_luminosity_erg_s": 0.0,
+          "escaped_luminosity_erg_s": 0.0,
+          "escape_fraction": 0.0,
+          "fraction_of_total_escaped": 0.0
+        }
+      },
+      "source_weighted_optical_depth": {
+        "neutrino": {
+          "weighted_mean": 0.008485153424156464,
+          "weighted_median": 0.007278795639151697,
+          "weighted_p90": 0.014219648083907941,
+          "fraction_of_mean_total": 0.8977829355978983
+        },
+        "compton": {
+          "weighted_mean": 0.0009660770322406515,
+          "weighted_median": 0.0008948681965857074,
+          "weighted_p90": 0.0018406453224704548,
+          "fraction_of_mean_total": 0.102217064402102
+        },
+        "dimuon": {
+          "weighted_mean": 0.0,
+          "weighted_median": 0.0,
+          "weighted_p90": 0.0,
+          "fraction_of_mean_total": 0.0
+        },
+        "total": {
+          "weighted_mean": 0.009451230456397113,
+          "weighted_median": 0.008282489546088897,
+          "weighted_p90": 0.015392185923480912
+        }
+      }
+    },
+    {
+      "index": 5,
+      "g": 1.2160696842969427e-09,
+      "reference_luminosity_erg_s": 6.909473018494258e+52,
+      "calculated_luminosity_erg_s": 6.306822004268633e+52,
+      "relative_difference": -0.08722098090730468,
+      "optically_thin_total_luminosity_erg_s": 6.393708765879928e+52,
+      "total_escape_fraction": 0.9864105850308718,
+      "channels": {
+        "neutrino": {
+          "optically_thin_luminosity_erg_s": 4.3474177328802247e+52,
+          "escaped_luminosity_erg_s": 4.284903711129402e+52,
+          "escape_fraction": 0.9856204244469035,
+          "fraction_of_total_escaped": 0.679407744221933
+        },
+        "compton": {
+          "optically_thin_luminosity_erg_s": 2.0462910329997036e+52,
+          "escaped_luminosity_erg_s": 2.021918293139231e+52,
+          "escape_fraction": 0.9880893091611,
+          "fraction_of_total_escaped": 0.320592255778067
+        },
+        "dimuon": {
+          "optically_thin_luminosity_erg_s": 0.0,
+          "escaped_luminosity_erg_s": 0.0,
+          "escape_fraction": 0.0,
+          "fraction_of_total_escaped": 0.0
+        }
+      },
+      "source_weighted_optical_depth": {
+        "neutrino": {
+          "weighted_mean": 0.012310502638889038,
+          "weighted_median": 0.01056028435132497,
+          "weighted_p90": 0.02063027107590863,
+          "fraction_of_mean_total": 0.8977829355978982
+        },
+        "compton": {
+          "weighted_mean": 0.0014016121171021656,
+          "weighted_median": 0.0012983003070002107,
+          "weighted_p90": 0.0026704607408774023,
+          "fraction_of_mean_total": 0.10221706440210199
+        },
+        "dimuon": {
+          "weighted_mean": 0.0,
+          "weighted_median": 0.0,
+          "weighted_p90": 0.0,
+          "fraction_of_mean_total": 0.0
+        },
+        "total": {
+          "weighted_mean": 0.013712114755991201,
+          "weighted_median": 0.012016472103311974,
+          "weighted_p90": 0.02233142242187799
+        }
+      }
+    },
+    {
+      "index": 6,
+      "g": 1.464760112693122e-09,
+      "reference_luminosity_erg_s": 9.983345461931242e+52,
+      "calculated_luminosity_erg_s": 9.09402206903547e+52,
+      "relative_difference": -0.08908069907897742,
+      "optically_thin_total_luminosity_erg_s": 9.27617506721492e+52,
+      "total_escape_fraction": 0.9803633505340754,
+      "channels": {
+        "neutrino": {
+          "optically_thin_luminosity_erg_s": 6.307357663163991e+52,
+          "escaped_luminosity_erg_s": 6.176336271121512e+52,
+          "escape_fraction": 0.9792272138287534,
+          "fraction_of_total_escaped": 0.6791644251833872
+        },
+        "compton": {
+          "optically_thin_luminosity_erg_s": 2.9688174040509285e+52,
+          "escaped_luminosity_erg_s": 2.917685797913958e+52,
+          "escape_fraction": 0.9827771131807562,
+          "fraction_of_total_escaped": 0.32083557481661285
+        },
+        "dimuon": {
+          "optically_thin_luminosity_erg_s": 0.0,
+          "escaped_luminosity_erg_s": 0.0,
+          "escape_fraction": 0.0,
+          "fraction_of_total_escaped": 0.0
+        }
+      },
+      "source_weighted_optical_depth": {
+        "neutrino": {
+          "weighted_mean": 0.017860428403174235,
+          "weighted_median": 0.01532116178409935,
+          "weighted_p90": 0.029930985784882184,
+          "fraction_of_mean_total": 0.897782935597898
+        },
+        "compton": {
+          "weighted_mean": 0.002033498842479744,
+          "weighted_median": 0.001883611121266858,
+          "weighted_p90": 0.0038743806215724725,
+          "fraction_of_mean_total": 0.10221706440210197
+        },
+        "dimuon": {
+          "weighted_mean": 0.0,
+          "weighted_median": 0.0,
+          "weighted_p90": 0.0,
+          "fraction_of_mean_total": 0.0
+        },
+        "total": {
+          "weighted_mean": 0.01989392724565398,
+          "weighted_median": 0.017433840514517965,
+          "weighted_p90": 0.03239906468538687
+        }
+      }
+    },
+    {
+      "index": 7,
+      "g": 1.7643093106416046e-09,
+      "reference_luminosity_erg_s": 1.4222087256678137e+53,
+      "calculated_luminosity_erg_s": 1.307695969932783e+53,
+      "relative_difference": -0.08051754546876377,
+      "optically_thin_total_luminosity_erg_s": 1.3458150426707028e+53,
+      "total_escape_fraction": 0.9716758458411384,
+      "channels": {
+        "neutrino": {
+          "optically_thin_luminosity_erg_s": 9.150901919253052e+52,
+          "escaped_luminosity_erg_s": 8.876820862576791e+52,
+          "escape_fraction": 0.9700487384637346,
+          "fraction_of_total_escaped": 0.6788138119774944
+        },
+        "compton": {
+          "optically_thin_luminosity_erg_s": 4.3072485074539764e+52,
+          "escaped_luminosity_erg_s": 4.200138836751037e+52,
+          "escape_fraction": 0.9751326930597157,
+          "fraction_of_total_escaped": 0.32118618802250565
+        },
+        "dimuon": {
+          "optically_thin_luminosity_erg_s": 0.0,
+          "escaped_luminosity_erg_s": 0.0,
+          "escape_fraction": 0.0,
+          "fraction_of_total_escaped": 0.0
+        }
+      },
+      "source_weighted_optical_depth": {
+        "neutrino": {
+          "weighted_mean": 0.02591244024542951,
+          "weighted_median": 0.022228396780811503,
+          "weighted_p90": 0.04342476356836543,
+          "fraction_of_mean_total": 0.897782935597898
+        },
+        "compton": {
+          "weighted_mean": 0.0029502605455724467,
+          "weighted_median": 0.0027327989857611357,
+          "weighted_p90": 0.00562106653201578,
+          "fraction_of_mean_total": 0.10221706440210197
+        },
+        "dimuon": {
+          "weighted_mean": 0.0,
+          "weighted_median": 0.0,
+          "weighted_p90": 0.0,
+          "fraction_of_mean_total": 0.0
+        },
+        "total": {
+          "weighted_mean": 0.028862700791001956,
+          "weighted_median": 0.025293533860615974,
+          "weighted_p90": 0.047005525775556764
+        }
+      }
+    },
+    {
+      "index": 8,
+      "g": 2.1251157558698884e-09,
+      "reference_luminosity_erg_s": 2.052224110978683e+53,
+      "calculated_luminosity_erg_s": 1.8729786105117856e+53,
+      "relative_difference": -0.08734206927401178,
+      "optically_thin_total_luminosity_erg_s": 1.9525452559483203e+53,
+      "total_escape_fraction": 0.9592497816917998,
+      "channels": {
+        "neutrino": {
+          "optically_thin_luminosity_erg_s": 1.3276378672829114e+53,
+          "escaped_luminosity_erg_s": 1.2704602310537283e+53,
+          "escape_fraction": 0.9569328070265121,
+          "fraction_of_total_escaped": 0.6783100586004979
+        },
+        "compton": {
+          "optically_thin_luminosity_erg_s": 6.249073886654087e+52,
+          "escaped_luminosity_erg_s": 6.025183794580572e+52,
+          "escape_fraction": 0.9641722763829583,
+          "fraction_of_total_escaped": 0.32168994139950213
+        },
+        "dimuon": {
+          "optically_thin_luminosity_erg_s": 0.0,
+          "escaped_luminosity_erg_s": 0.0,
+          "escape_fraction": 0.0,
+          "fraction_of_total_escaped": 0.0
+        }
+      },
+      "source_weighted_optical_depth": {
+        "neutrino": {
+          "weighted_mean": 0.03759447670524921,
+          "weighted_median": 0.03224956573199049,
+          "weighted_p90": 0.06300183413601187,
+          "fraction_of_mean_total": 0.897782935597898
+        },
+        "compton": {
+          "weighted_mean": 0.004280318654068187,
+          "weighted_median": 0.003964819478105574,
+          "weighted_p90": 0.008155196993991967,
+          "fraction_of_mean_total": 0.10221706440210197
+        },
+        "dimuon": {
+          "weighted_mean": 0.0,
+          "weighted_median": 0.0,
+          "weighted_p90": 0.0,
+          "fraction_of_mean_total": 0.0
+        },
+        "total": {
+          "weighted_mean": 0.041874795359317395,
+          "weighted_median": 0.036696550402429993,
+          "weighted_p90": 0.06819690183748145
+        }
+      }
+    },
+    {
+      "index": 9,
+      "g": 2.559710277322341e-09,
+      "reference_luminosity_erg_s": 2.8932837865575006e+53,
+      "calculated_luminosity_erg_s": 2.6673378545599606e+53,
+      "relative_difference": -0.07809324928557249,
+      "optically_thin_total_luminosity_erg_s": 2.832810676717345e+53,
+      "total_escape_fraction": 0.9415870522102331,
+      "channels": {
+        "neutrino": {
+          "optically_thin_luminosity_erg_s": 1.926176468276862e+53,
+          "escaped_luminosity_erg_s": 1.8073592731471598e+53,
+          "escape_fraction": 0.9383144810008011,
+          "fraction_of_total_escaped": 0.6775891813095142
+        },
+        "compton": {
+          "optically_thin_luminosity_erg_s": 9.066342084404828e+52,
+          "escaped_luminosity_erg_s": 8.599785814128009e+52,
+          "escape_fraction": 0.9485397455850082,
+          "fraction_of_total_escaped": 0.3224108186904858
+        },
+        "dimuon": {
+          "optically_thin_luminosity_erg_s": 0.0,
+          "escaped_luminosity_erg_s": 0.0,
+          "escape_fraction": 0.0,
+          "fraction_of_total_escaped": 0.0
+        }
+      },
+      "source_weighted_optical_depth": {
+        "neutrino": {
+          "weighted_mean": 0.05454318391432472,
+          "weighted_median": 0.04678862825164576,
+          "weighted_p90": 0.09140493304806324,
+          "fraction_of_mean_total": 0.897782935597898
+        },
+        "compton": {
+          "weighted_mean": 0.006210013491906336,
+          "weighted_median": 0.0057522779124417065,
+          "weighted_p90": 0.011831802128495765,
+          "fraction_of_mean_total": 0.102217064402102
+        },
+        "dimuon": {
+          "weighted_mean": 0.0,
+          "weighted_median": 0.0,
+          "weighted_p90": 0.0,
+          "fraction_of_mean_total": 0.0
+        },
+        "total": {
+          "weighted_mean": 0.06075319740623106,
+          "weighted_median": 0.053240445752542054,
+          "weighted_p90": 0.09894209163947568
+        }
+      }
+    },
+    {
+      "index": 10,
+      "g": 3.0831810858922337e-09,
+      "reference_luminosity_erg_s": 4.070510587188928e+53,
+      "calculated_luminosity_erg_s": 3.767585634962058e+53,
+      "relative_difference": -0.0744193991732296,
+      "optically_thin_total_luminosity_erg_s": 4.1099259060329735e+53,
+      "total_escape_fraction": 0.9167040285158442,
+      "channels": {
+        "neutrino": {
+          "optically_thin_luminosity_erg_s": 2.79455405602175e+53,
+          "escaped_luminosity_erg_s": 2.5490100471777673e+53,
+          "escape_fraction": 0.9121348151005058,
+          "fraction_of_total_escaped": 0.676563267341218
+        },
+        "compton": {
+          "optically_thin_luminosity_erg_s": 1.3153718500112233e+53,
+          "escaped_luminosity_erg_s": 1.2185755877842903e+53,
+          "escape_fraction": 0.9264114841547605,
+          "fraction_of_total_escaped": 0.3234367326587819
+        },
+        "dimuon": {
+          "optically_thin_luminosity_erg_s": 0.0,
+          "escaped_luminosity_erg_s": 0.0,
+          "escape_fraction": 0.0,
+          "fraction_of_total_escaped": 0.0
+        }
+      },
+      "source_weighted_optical_depth": {
+        "neutrino": {
+          "weighted_mean": 0.07913287195979157,
+          "weighted_median": 0.06788233217972034,
+          "weighted_p90": 0.13261299294055448,
+          "fraction_of_mean_total": 0.8977829355978981
+        },
+        "compton": {
+          "weighted_mean": 0.009009672103035061,
+          "weighted_median": 0.00834557572285102,
+          "weighted_p90": 0.01716593010702383,
+          "fraction_of_mean_total": 0.10221706440210199
+        },
+        "dimuon": {
+          "weighted_mean": 0.0,
+          "weighted_median": 0.0,
+          "weighted_p90": 0.0,
+          "fraction_of_mean_total": 0.0
+        },
+        "total": {
+          "weighted_mean": 0.08814254406282662,
+          "weighted_median": 0.07724282072414287,
+          "weighted_p90": 0.14354812658973334
+        }
+      }
+    },
+    {
+      "index": 11,
+      "g": 3.7137006897316035e-09,
+      "reference_luminosity_erg_s": 5.672638380236869e+53,
+      "calculated_luminosity_erg_s": 5.25972127901519e+53,
+      "relative_difference": -0.07279101425894818,
+      "optically_thin_total_luminosity_erg_s": 5.96279286208522e+53,
+      "total_escape_fraction": 0.8820902219259447,
+      "channels": {
+        "neutrino": {
+          "optically_thin_luminosity_erg_s": 4.054415422306668e+53,
+          "escaped_luminosity_erg_s": 3.550911305690815e+53,
+          "escape_fraction": 0.8758133875858741,
+          "fraction_of_total_escaped": 0.6751139684640616
+        },
+        "compton": {
+          "optically_thin_luminosity_erg_s": 1.9083774397785522e+53,
+          "escaped_luminosity_erg_s": 1.7088099733243755e+53,
+          "escape_fraction": 0.8954255786647035,
+          "fraction_of_total_escaped": 0.3248860315359384
+        },
+        "dimuon": {
+          "optically_thin_luminosity_erg_s": 0.0,
+          "escaped_luminosity_erg_s": 0.0,
+          "escape_fraction": 0.0,
+          "fraction_of_total_escaped": 0.0
+        }
+      },
+      "source_weighted_optical_depth": {
+        "neutrino": {
+          "weighted_mean": 0.11480813398254076,
+          "weighted_median": 0.09848554330110272,
+          "weighted_p90": 0.19239855554694077,
+          "fraction_of_mean_total": 0.8977829355978982
+        },
+        "compton": {
+          "weighted_mean": 0.013071478594503593,
+          "weighted_median": 0.012107989410991712,
+          "weighted_p90": 0.024904800683381047,
+          "fraction_of_mean_total": 0.102217064402102
+        },
+        "dimuon": {
+          "weighted_mean": 0.0,
+          "weighted_median": 0.0,
+          "weighted_p90": 0.0,
+          "fraction_of_mean_total": 0.0
+        },
+        "total": {
+          "weighted_mean": 0.12787961257704433,
+          "weighted_median": 0.11206599597943026,
+          "weighted_p90": 0.20826354639107217
+        }
+      }
+    },
+    {
+      "index": 12,
+      "g": 4.473167071557425e-09,
+      "reference_luminosity_erg_s": 7.778729935114823e+53,
+      "calculated_luminosity_erg_s": 7.2217627715644645e+53,
+      "relative_difference": -0.07160129843769125,
+      "optically_thin_total_luminosity_erg_s": 8.650997067192213e+53,
+      "total_escape_fraction": 0.8347896451094713,
+      "channels": {
+        "neutrino": {
+          "optically_thin_luminosity_erg_s": 5.882266370609433e+53,
+          "escaped_luminosity_erg_s": 4.8608681832801075e+53,
+          "escape_fraction": 0.8263597526911207,
+          "fraction_of_total_escaped": 0.6730861061262869
+        },
+        "compton": {
+          "optically_thin_luminosity_erg_s": 2.76873069658278e+53,
+          "escaped_luminosity_erg_s": 2.360894588284357e+53,
+          "escape_fraction": 0.8526992499480783,
+          "fraction_of_total_escaped": 0.326913893873713
+        },
+        "dimuon": {
+          "optically_thin_luminosity_erg_s": 0.0,
+          "escaped_luminosity_erg_s": 0.0,
+          "escape_fraction": 0.0,
+          "fraction_of_total_escaped": 0.0
+        }
+      },
+      "source_weighted_optical_depth": {
+        "neutrino": {
+          "weighted_mean": 0.16656705227648,
+          "weighted_median": 0.14288575269420364,
+          "weighted_p90": 0.2791375414618276,
+          "fraction_of_mean_total": 0.8977829355978981
+        },
+        "compton": {
+          "weighted_mean": 0.018964489560580045,
+          "weighted_median": 0.017566630823304064,
+          "weighted_p90": 0.03613262487129087,
+          "fraction_of_mean_total": 0.102217064402102
+        },
+        "dimuon": {
+          "weighted_mean": 0.0,
+          "weighted_median": 0.0,
+          "weighted_p90": 0.0,
+          "fraction_of_mean_total": 0.0
+        },
+        "total": {
+          "weighted_mean": 0.18553154183706003,
+          "weighted_median": 0.1625886769796314,
+          "weighted_p90": 0.3021549416026763
+        }
+      }
+    },
+    {
+      "index": 13,
+      "g": 5.387942899280016e-09,
+      "reference_luminosity_erg_s": 1.023421990907104e+54,
+      "calculated_luminosity_erg_s": 9.686151536745992e+53,
+      "relative_difference": -0.05355253035351237,
+      "optically_thin_total_luminosity_erg_s": 1.2551103047004679e+54,
+      "total_escape_fraction": 0.7717370736636244,
+      "channels": {
+        "neutrino": {
+          "optically_thin_luminosity_erg_s": 8.534152860533947e+53,
+          "escaped_luminosity_erg_s": 6.492462580679371e+53,
+          "escape_fraction": 0.76076239631278,
+          "fraction_of_total_escaped": 0.6702829865968086
+        },
+        "compton": {
+          "optically_thin_luminosity_erg_s": 4.016950186470732e+53,
+          "escaped_luminosity_erg_s": 3.19368895606662e+53,
+          "escape_fraction": 0.7950531641699484,
+          "fraction_of_total_escaped": 0.32971701340319126
+        },
+        "dimuon": {
+          "optically_thin_luminosity_erg_s": 0.0,
+          "escaped_luminosity_erg_s": 0.0,
+          "escape_fraction": 0.0,
+          "fraction_of_total_escaped": 0.0
+        }
+      },
+      "source_weighted_optical_depth": {
+        "neutrino": {
+          "weighted_mean": 0.24166003307136086,
+          "weighted_median": 0.20730255623538638,
+          "weighted_p90": 0.40498037624604555,
+          "fraction_of_mean_total": 0.8977829355978981
+        },
+        "compton": {
+          "weighted_mean": 0.027514199907819253,
+          "weighted_median": 0.02548614823696127,
+          "weighted_p90": 0.0524221999609955,
+          "fraction_of_mean_total": 0.10221706440210199
+        },
+        "dimuon": {
+          "weighted_mean": 0.0,
+          "weighted_median": 0.0,
+          "weighted_p90": 0.0,
+          "fraction_of_mean_total": 0.0
+        },
+        "total": {
+          "weighted_mean": 0.2691742329791801,
+          "weighted_median": 0.23588809742942551,
+          "weighted_p90": 0.4383746496226399
+        }
+      }
+    },
+    {
+      "index": 14,
+      "g": 6.4897983908964e-09,
+      "reference_luminosity_erg_s": 1.3155978611139927e+54,
+      "calculated_luminosity_erg_s": 1.2573887175925153e+54,
+      "relative_difference": -0.044245392336065614,
+      "optically_thin_total_luminosity_erg_s": 1.8209513253441084e+54,
+      "total_escape_fraction": 0.6905119868346312,
+      "channels": {
+        "neutrino": {
+          "optically_thin_luminosity_erg_s": 1.2381602560252419e+54,
+          "escaped_luminosity_erg_s": 8.38006112066412e+53,
+          "escape_fraction": 0.6768155478973215,
+          "fraction_of_total_escaped": 0.6664654297764953
+        },
+        "compton": {
+          "optically_thin_luminosity_erg_s": 5.827910693188667e+53,
+          "escaped_luminosity_erg_s": 4.193826055261033e+53,
+          "escape_fraction": 0.7196105561745378,
+          "fraction_of_total_escaped": 0.3335345702235047
+        },
+        "dimuon": {
+          "optically_thin_luminosity_erg_s": 0.0,
+          "escaped_luminosity_erg_s": 0.0,
+          "escape_fraction": 0.0,
+          "fraction_of_total_escaped": 0.0
+        }
+      },
+      "source_weighted_optical_depth": {
+        "neutrino": {
+          "weighted_mean": 0.35060755684657846,
+          "weighted_median": 0.30076070852922837,
+          "weighted_p90": 0.5875575637470244,
+          "fraction_of_mean_total": 0.897782935597898
+        },
+        "compton": {
+          "weighted_mean": 0.03991841880374257,
+          "weighted_median": 0.03697606117662029,
+          "weighted_p90": 0.07605568541580077,
+          "fraction_of_mean_total": 0.10221706440210196
+        },
+        "dimuon": {
+          "weighted_mean": 0.0,
+          "weighted_median": 0.0,
+          "weighted_p90": 0.0,
+          "fraction_of_mean_total": 0.0
+        },
+        "total": {
+          "weighted_mean": 0.39052597565032104,
+          "weighted_median": 0.34223346110565356,
+          "weighted_p90": 0.636006967864159
+        }
+      }
+    },
+    {
+      "index": 15,
+      "g": 7.81698765963344e-09,
+      "reference_luminosity_erg_s": 1.6112693384409214e+54,
+      "calculated_luminosity_erg_s": 1.5603918137855568e+54,
+      "relative_difference": -0.03157605214817416,
+      "optically_thin_total_luminosity_erg_s": 2.641890291916451e+54,
+      "total_escape_fraction": 0.5906345992337306,
+      "channels": {
+        "neutrino": {
+          "optically_thin_luminosity_erg_s": 1.796359691059689e+54,
+          "escaped_luminosity_erg_s": 1.0319770534969574e+54,
+          "escape_fraction": 0.5744824149823717,
+          "fraction_of_total_escaped": 0.661357643881347
+        },
+        "compton": {
+          "optically_thin_luminosity_erg_s": 8.455306008567622e+53,
+          "escaped_luminosity_erg_s": 5.284147602885992e+53,
+          "escape_fraction": 0.624950486420202,
+          "fraction_of_total_escaped": 0.3386423561186529
+        },
+        "dimuon": {
+          "optically_thin_luminosity_erg_s": 0.0,
+          "escaped_luminosity_erg_s": 0.0,
+          "escape_fraction": 0.0,
+          "fraction_of_total_escaped": 0.0
+        }
+      },
+      "source_weighted_optical_depth": {
+        "neutrino": {
+          "weighted_mean": 0.5086718616877265,
+          "weighted_median": 0.4363525729624481,
+          "weighted_p90": 0.8524459726083075,
+          "fraction_of_mean_total": 0.8977829355978977
+        },
+        "compton": {
+          "weighted_mean": 0.057914828166169476,
+          "weighted_median": 0.05364596828932915,
+          "weighted_p90": 0.110343848376664,
+          "fraction_of_mean_total": 0.10221706440210196
+        },
+        "dimuon": {
+          "weighted_mean": 0.0,
+          "weighted_median": 0.0,
+          "weighted_p90": 0.0,
+          "fraction_of_mean_total": 0.0
+        },
+        "total": {
+          "weighted_mean": 0.5665866898538962,
+          "weighted_median": 0.49652247475265976,
+          "weighted_p90": 0.9227378077632129
+        }
+      }
+    },
+    {
+      "index": 16,
+      "g": 9.415584636282641e-09,
+      "reference_luminosity_erg_s": 1.8222467898580756e+54,
+      "calculated_luminosity_erg_s": 1.821597545696683e+54,
+      "relative_difference": -0.00035628772403728526,
+      "optically_thin_total_luminosity_erg_s": 3.832926659803701e+54,
+      "total_escape_fraction": 0.475249778400397,
+      "channels": {
+        "neutrino": {
+          "optically_thin_luminosity_erg_s": 2.6062077488708858e+54,
+          "escaped_luminosity_erg_s": 1.1925324640853764e+54,
+          "escape_fraction": 0.45757383102019766,
+          "fraction_of_total_escaped": 0.6546629725663601
+        },
+        "compton": {
+          "optically_thin_luminosity_erg_s": 1.226718910932815e+54,
+          "escaped_luminosity_erg_s": 6.290650816113063e+53,
+          "escape_fraction": 0.5128029542912614,
+          "fraction_of_total_escaped": 0.3453370274336398
+        },
+        "dimuon": {
+          "optically_thin_luminosity_erg_s": 0.0,
+          "escaped_luminosity_erg_s": 0.0,
+          "escape_fraction": 0.0,
+          "fraction_of_total_escaped": 0.0
+        }
+      },
+      "source_weighted_optical_depth": {
+        "neutrino": {
+          "weighted_mean": 0.7379950430646143,
+          "weighted_median": 0.6330722419092032,
+          "weighted_p90": 1.2367519213231608,
+          "fraction_of_mean_total": 0.897782935597898
+        },
+        "compton": {
+          "weighted_mean": 0.08402441598550733,
+          "weighted_median": 0.07783103737362018,
+          "weighted_p90": 0.16008987181729198,
+          "fraction_of_mean_total": 0.102217064402102
+        },
+        "dimuon": {
+          "weighted_mean": 0.0,
+          "weighted_median": 0.0,
+          "weighted_p90": 0.0,
+          "fraction_of_mean_total": 0.0
+        },
+        "total": {
+          "weighted_mean": 0.8220194590501216,
+          "weighted_median": 0.7203683803579249,
+          "weighted_p90": 1.3387332374119232
+        }
+      }
+    },
+    {
+      "index": 17,
+      "g": 1.1341108687336194e-08,
+      "reference_luminosity_erg_s": 1.910994581282271e+54,
+      "calculated_luminosity_erg_s": 1.9600739023550867e+54,
+      "relative_difference": 0.02568260609084705,
+      "optically_thin_total_luminosity_erg_s": 5.560923892487673e+54,
+      "total_escape_fraction": 0.35247270781802587,
+      "channels": {
+        "neutrino": {
+          "optically_thin_luminosity_erg_s": 3.7811636448647475e+54,
+          "escaped_luminosity_erg_s": 1.2663888389280381e+54,
+          "escape_fraction": 0.33492039960977066,
+          "fraction_of_total_escaped": 0.6460923934584479
+        },
+        "compton": {
+          "optically_thin_luminosity_erg_s": 1.779760247622926e+54,
+          "escaped_luminosity_erg_s": 6.936850634270485e+53,
+          "escape_fraction": 0.3897632079115962,
+          "fraction_of_total_escaped": 0.353907606541552
+        },
+        "dimuon": {
+          "optically_thin_luminosity_erg_s": 0.0,
+          "escaped_luminosity_erg_s": 0.0,
+          "escape_fraction": 0.0,
+          "fraction_of_total_escaped": 0.0
+        }
+      },
+      "source_weighted_optical_depth": {
+        "neutrino": {
+          "weighted_mean": 1.0707051378138455,
+          "weighted_median": 0.918480020143125,
+          "weighted_p90": 1.794316437225601,
+          "fraction_of_mean_total": 0.897782935597898
+        },
+        "compton": {
+          "weighted_mean": 0.12190511947600392,
+          "weighted_median": 0.11291958175120198,
+          "weighted_p90": 0.2322631430625028,
+          "fraction_of_mean_total": 0.10221706440210196
+        },
+        "dimuon": {
+          "weighted_mean": 0.0,
+          "weighted_median": 0.0,
+          "weighted_p90": 0.0,
+          "fraction_of_mean_total": 0.0
+        },
+        "total": {
+          "weighted_mean": 1.1926102572898494,
+          "weighted_median": 1.0451318517871646,
+          "weighted_p90": 1.9422739609561441
+        }
+      }
+    },
+    {
+      "index": 18,
+      "g": 1.3660409972030494e-08,
+      "reference_luminosity_erg_s": 1.7750616042948693e+54,
+      "calculated_luminosity_erg_s": 1.8960551796580544e+54,
+      "relative_difference": 0.06816302886076397,
+      "optically_thin_total_luminosity_erg_s": 8.067953624665491e+54,
+      "total_escape_fraction": 0.2350106691071452,
+      "channels": {
+        "neutrino": {
+          "optically_thin_luminosity_erg_s": 5.485824572289368e+54,
+          "escaped_luminosity_erg_s": 1.2047655851548754e+54,
+          "escape_fraction": 0.21961431126334713,
+          "fraction_of_total_escaped": 0.6354063943287503
+        },
+        "compton": {
+          "optically_thin_luminosity_erg_s": 2.5821290523761234e+54,
+          "escaped_luminosity_erg_s": 6.912895945031791e+53,
+          "escape_fraction": 0.26772077633650476,
+          "fraction_of_total_escaped": 0.36459360567124965
+        },
+        "dimuon": {
+          "optically_thin_luminosity_erg_s": 0.0,
+          "escaped_luminosity_erg_s": 0.0,
+          "escape_fraction": 0.0,
+          "fraction_of_total_escaped": 0.0
+        }
+      },
+      "source_weighted_optical_depth": {
+        "neutrino": {
+          "weighted_mean": 1.5534108296721894,
+          "weighted_median": 1.3325581056247093,
+          "weighted_p90": 2.60324760478517,
+          "fraction_of_mean_total": 0.8977829355978981
+        },
+        "compton": {
+          "weighted_mean": 0.17686356971552203,
+          "weighted_median": 0.16382708458140272,
+          "weighted_p90": 0.3369742695955217,
+          "fraction_of_mean_total": 0.102217064402102
+        },
+        "dimuon": {
+          "weighted_mean": 0.0,
+          "weighted_median": 0.0,
+          "weighted_p90": 0.0,
+          "fraction_of_mean_total": 0.0
+        },
+        "total": {
+          "weighted_mean": 1.7302743993877112,
+          "weighted_median": 1.5163083464009668,
+          "weighted_p90": 2.8179087767337676
+        }
+      }
+    },
+    {
+      "index": 19,
+      "g": 1.6454004004914003e-08,
+      "reference_luminosity_erg_s": 1.4146008873057794e+54,
+      "calculated_luminosity_erg_s": 1.6010409668891663e+54,
+      "relative_difference": 0.1317969479988641,
+      "optically_thin_total_luminosity_erg_s": 1.1705207681280186e+55,
+      "total_escape_fraction": 0.13678022727009506,
+      "channels": {
+        "neutrino": {
+          "optically_thin_luminosity_erg_s": 7.958984261561053e+54,
+          "escaped_luminosity_erg_s": 9.965897170637774e+53,
+          "escape_fraction": 0.12521569138877892,
+          "fraction_of_total_escaped": 0.6224635956693589
+        },
+        "compton": {
+          "optically_thin_luminosity_erg_s": 3.746223419719132e+54,
+          "escaped_luminosity_erg_s": 6.044512498253888e+53,
+          "escape_fraction": 0.16134949310383273,
+          "fraction_of_total_escaped": 0.37753640433064106
+        },
+        "dimuon": {
+          "optically_thin_luminosity_erg_s": 0.0,
+          "escaped_luminosity_erg_s": 0.0,
+          "escape_fraction": 0.0,
+          "fraction_of_total_escaped": 0.0
+        }
+      },
+      "source_weighted_optical_depth": {
+        "neutrino": {
+          "weighted_mean": 2.253730899006826,
+          "weighted_median": 1.9333117292623543,
+          "weighted_p90": 3.7768627928955167,
+          "fraction_of_mean_total": 0.897782935597898
+        },
+        "compton": {
+          "weighted_mean": 0.2565985020592624,
+          "weighted_median": 0.23768481303379843,
+          "weighted_p90": 0.48889148256932613,
+          "fraction_of_mean_total": 0.10221706440210196
+        },
+        "dimuon": {
+          "weighted_mean": 0.0,
+          "weighted_median": 0.0,
+          "weighted_p90": 0.0,
+          "fraction_of_mean_total": 0.0
+        },
+        "total": {
+          "weighted_mean": 2.5103294010660884,
+          "weighted_median": 2.199901601965113,
+          "weighted_p90": 4.088299089589589
+        }
+      }
+    },
+    {
+      "index": 20,
+      "g": 1.9818912470130955e-08,
+      "reference_luminosity_erg_s": 9.494231795275183e+53,
+      "calculated_luminosity_erg_s": 1.141305738273139e+54,
+      "relative_difference": 0.20210435439454022,
+      "optically_thin_total_luminosity_erg_s": 1.6982263121281674e+55,
+      "total_escape_fraction": 0.0672057505011148,
+      "channels": {
+        "neutrino": {
+          "optically_thin_luminosity_erg_s": 1.154713086587346e+55,
+          "escaped_luminosity_erg_s": 6.930731057915721e+53,
+          "escape_fraction": 0.060021239374699505,
+          "fraction_of_total_escaped": 0.6072633147715802
+        },
+        "compton": {
+          "optically_thin_luminosity_erg_s": 5.435132255408215e+54,
+          "escaped_luminosity_erg_s": 4.482326324815669e+53,
+          "escape_fraction": 0.08246949870181249,
+          "fraction_of_total_escaped": 0.39273668522841965
+        },
+        "dimuon": {
+          "optically_thin_luminosity_erg_s": 0.0,
+          "escaped_luminosity_erg_s": 0.0,
+          "escape_fraction": 0.0,
+          "fraction_of_total_escaped": 0.0
+        }
+      },
+      "source_weighted_optical_depth": {
+        "neutrino": {
+          "weighted_mean": 3.2697797573217167,
+          "weighted_median": 2.8049061046819963,
+          "weighted_p90": 5.479584768453725,
+          "fraction_of_mean_total": 0.897782935597898
+        },
+        "compton": {
+          "weighted_mean": 0.3722807315470497,
+          "weighted_median": 0.3448401894934295,
+          "weighted_p90": 0.7092982901981075,
+          "fraction_of_mean_total": 0.10221706440210199
+        },
+        "dimuon": {
+          "weighted_mean": 0.0,
+          "weighted_median": 0.0,
+          "weighted_p90": 0.0,
+          "fraction_of_mean_total": 0.0
+        },
+        "total": {
+          "weighted_mean": 3.642060488868766,
+          "weighted_median": 3.191682613649677,
+          "weighted_p90": 5.931425801948129
+        }
+      }
+    },
+    {
+      "index": 21,
+      "g": 2.3871938384298948e-08,
+      "reference_luminosity_erg_s": 5.076675014703045e+53,
+      "calculated_luminosity_erg_s": 6.618937331554955e+53,
+      "relative_difference": 0.30379378478732955,
+      "optically_thin_total_luminosity_erg_s": 2.463833159935762e+55,
+      "total_escape_fraction": 0.02686438935551759,
+      "channels": {
+        "neutrino": {
+          "optically_thin_luminosity_erg_s": 1.6752893136959944e+55,
+          "escaped_luminosity_erg_s": 3.905047721913077e+53,
+          "escape_fraction": 0.023309691585734694,
+          "fraction_of_total_escaped": 0.5899810689090907
+        },
+        "compton": {
+          "optically_thin_luminosity_erg_s": 7.885438462397672e+54,
+          "escaped_luminosity_erg_s": 2.7138896096418783e+53,
+          "escape_fraction": 0.034416470594289365,
+          "fraction_of_total_escaped": 0.4100189310909093
+        },
+        "dimuon": {
+          "optically_thin_luminosity_erg_s": 0.0,
+          "escaped_luminosity_erg_s": 0.0,
+          "escape_fraction": 0.0,
+          "fraction_of_total_escaped": 0.0
+        }
+      },
+      "source_weighted_optical_depth": {
+        "neutrino": {
+          "weighted_mean": 4.743885861525822,
+          "weighted_median": 4.0694344575083825,
+          "weighted_p90": 7.949931383571853,
+          "fraction_of_mean_total": 0.8977829355978979
+        },
+        "compton": {
+          "weighted_mean": 0.5401150627805955,
+          "weighted_median": 0.5003035741966059,
+          "weighted_p90": 1.0290693502951347,
+          "fraction_of_mean_total": 0.10221706440210199
+        },
+        "dimuon": {
+          "weighted_mean": 0.0,
+          "weighted_median": 0.0,
+          "weighted_p90": 0.0,
+          "fraction_of_mean_total": 0.0
+        },
+        "total": {
+          "weighted_mean": 5.284000924306418,
+          "weighted_median": 4.630580390458008,
+          "weighted_p90": 8.605474707446072
+        }
+      }
+    },
+    {
+      "index": 22,
+      "g": 2.8753843574456517e-08,
+      "reference_luminosity_erg_s": 2.0855979250328497e+53,
+      "calculated_luminosity_erg_s": 2.997861869202586e+53,
+      "relative_difference": 0.43741122544287503,
+      "optically_thin_total_luminosity_erg_s": 3.574602360612835e+55,
+      "total_escape_fraction": 0.00838656042483178,
+      "channels": {
+        "neutrino": {
+          "optically_thin_luminosity_erg_s": 2.4305595171076003e+55,
+          "escaped_luminosity_erg_s": 1.712053318611064e+53,
+          "escape_fraction": 0.0070438650300916365,
+          "fraction_of_total_escaped": 0.5710914622849053
+        },
+        "compton": {
+          "optically_thin_luminosity_erg_s": 1.1440428435052346e+55,
+          "escaped_luminosity_erg_s": 1.285808550591522e+53,
+          "escape_fraction": 0.011239164318811097,
+          "fraction_of_total_escaped": 0.4289085377150948
+        },
+        "dimuon": {
+          "optically_thin_luminosity_erg_s": 0.0,
+          "escaped_luminosity_erg_s": 0.0,
+          "escape_fraction": 0.0,
+          "fraction_of_total_escaped": 0.0
+        }
+      },
+      "source_weighted_optical_depth": {
+        "neutrino": {
+          "weighted_mean": 6.882570571267976,
+          "weighted_median": 5.904056433166904,
+          "weighted_p90": 11.533996681482659,
+          "fraction_of_mean_total": 0.8977829355978981
+        },
+        "compton": {
+          "weighted_mean": 0.7836149824643176,
+          "weighted_median": 0.7258552918383703,
+          "weighted_p90": 1.4930043919431677,
+          "fraction_of_mean_total": 0.10221706440210197
+        },
+        "dimuon": {
+          "weighted_mean": 0.0,
+          "weighted_median": 0.0,
+          "weighted_p90": 0.0,
+          "fraction_of_mean_total": 0.0
+        },
+        "total": {
+          "weighted_mean": 7.666185553732293,
+          "weighted_median": 6.718183626999429,
+          "weighted_p90": 12.485078415063137
+        }
+      }
+    },
+    {
+      "index": 23,
+      "g": 3.4634117556541197e-08,
+      "reference_luminosity_erg_s": 6.202557246004756e+52,
+      "calculated_luminosity_erg_s": 1.0127118473116984e+53,
+      "relative_difference": 0.632732769961962,
+      "optically_thin_total_luminosity_erg_s": 5.186139323180516e+55,
+      "total_escape_fraction": 0.0019527278081118544,
+      "channels": {
+        "neutrino": {
+          "optically_thin_luminosity_erg_s": 3.526327970879903e+55,
+          "escaped_luminosity_erg_s": 5.592105159117009e+52,
+          "escape_fraction": 0.0015858153879321796,
+          "fraction_of_total_escaped": 0.5521911463721465
+        },
+        "compton": {
+          "optically_thin_luminosity_erg_s": 1.659811352300612e+55,
+          "escaped_luminosity_erg_s": 4.535013313999974e+52,
+          "escape_fraction": 0.0027322462325095774,
+          "fraction_of_total_escaped": 0.4478088536278534
+        },
+        "dimuon": {
+          "optically_thin_luminosity_erg_s": 0.0,
+          "escaped_luminosity_erg_s": 0.0,
+          "escape_fraction": 0.0,
+          "fraction_of_total_escaped": 0.0
+        }
+      },
+      "source_weighted_optical_depth": {
+        "neutrino": {
+          "weighted_mean": 9.985437898636201,
+          "weighted_median": 8.565780510779488,
+          "weighted_p90": 16.73386511528395,
+          "fraction_of_mean_total": 0.8977829355978979
+        },
+        "compton": {
+          "weighted_mean": 1.136891901479884,
+          "weighted_median": 1.0530924260051877,
+          "weighted_p90": 2.1660951360783574,
+          "fraction_of_mean_total": 0.10221706440210197
+        },
+        "dimuon": {
+          "weighted_mean": 0.0,
+          "weighted_median": 0.0,
+          "weighted_p90": 0.0,
+          "fraction_of_mean_total": 0.0
+        },
+        "total": {
+          "weighted_mean": 11.122329800116086,
+          "weighted_median": 9.746940435174997,
+          "weighted_p90": 18.11372275551524
+        }
+      }
+    },
+    {
+      "index": 24,
+      "g": 4.171689650228597e-08,
+      "reference_luminosity_erg_s": 1.26781475907372e+52,
+      "calculated_luminosity_erg_s": 2.437224535455314e+52,
+      "relative_difference": 0.9223822076625598,
+      "optically_thin_total_luminosity_erg_s": 7.524192709325186e+55,
+      "total_escape_fraction": 0.0003239184095371075,
+      "channels": {
+        "neutrino": {
+          "optically_thin_luminosity_erg_s": 5.116093023299696e+55,
+          "escaped_luminosity_erg_s": 1.3196399094512986e+52,
+          "escape_fraction": 0.0002579389982632056,
+          "fraction_of_total_escaped": 0.5414519221573354
+        },
+        "compton": {
+          "optically_thin_luminosity_erg_s": 2.4080996860254894e+55,
+          "escaped_luminosity_erg_s": 1.1175846260040155e+52,
+          "escape_fraction": 0.00046409400428458264,
+          "fraction_of_total_escaped": 0.45854807784266466
+        },
+        "dimuon": {
+          "optically_thin_luminosity_erg_s": 0.0,
+          "escaped_luminosity_erg_s": 0.0,
+          "escape_fraction": 0.0,
+          "fraction_of_total_escaped": 0.0
+        }
+      },
+      "source_weighted_optical_depth": {
+        "neutrino": {
+          "weighted_mean": 14.48714628635571,
+          "weighted_median": 12.427468537301278,
+          "weighted_p90": 24.277948981523735,
+          "fraction_of_mean_total": 0.8977829355978982
+        },
+        "compton": {
+          "weighted_mean": 1.649433851144543,
+          "weighted_median": 1.527855281206452,
+          "weighted_p90": 3.1426300403727563,
+          "fraction_of_mean_total": 0.102217064402102
+        },
+        "dimuon": {
+          "weighted_mean": 0.0,
+          "weighted_median": 0.0,
+          "weighted_p90": 0.0,
+          "fraction_of_mean_total": 0.0
+        },
+        "total": {
+          "weighted_mean": 16.13658013750025,
+          "weighted_median": 14.141127646295953,
+          "weighted_p90": 26.27988416867326
+        }
+      }
+    }
+  ]
+}
