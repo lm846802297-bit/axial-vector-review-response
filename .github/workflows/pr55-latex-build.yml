@@ -86,7 +86,7 @@ jobs:
           fi
           pdfinfo Replies_to_Referee_3_referee_facing_2026-11-04.pdf | tee build/pdfinfo.txt
           pdffonts Replies_to_Referee_3_referee_facing_2026-11-04.pdf | tee build/pdffonts.txt
-          if ! awk 'NR > 2 && $4 != "yes" { bad=1 } END { exit bad }' build/pdffonts.txt; then
+          if ! awk 'NR > 2 && $(NF-4) != "yes" { bad=1 } END { exit bad }' build/pdffonts.txt; then
             echo "At least one PDF font is not embedded"
             exit 1
           fi

@@ -1,4 +1,4 @@
-name: PR55 referee response LaTeX build
+name: Referee response LaTeX build (PR55 and PR56)
 
 on:
   pull_request:
@@ -9,6 +9,9 @@ on:
       - 'Replies_to_Referee_3_neutrino_references.bib'
       - 'overleaf-source/axial-vector-model-building-v6/references.bib'
       - 'JHEP.bst'
+      - 'Replies_to_Referee_3_stellar_references.bib'
+      - 'research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply.pdf'
+      - '.github/workflows/pr55-referee-letter-build.yml'
 
 permissions:
   contents: write
@@ -19,7 +22,7 @@ concurrency:
 
 jobs:
   build-and-inspect:
-    if: github.event.pull_request.head.ref == 'review/response-point-conclusions-20261106'
+    if: github.event.pull_request.head.ref == 'review/response-point-conclusions-20261106' || github.event.pull_request.head.ref == 'codex/major44-axial-cooling-constraints-20261105'
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
@@ -54,7 +57,17 @@ jobs:
         run: |
           set -euo pipefail
           pdftotext -layout Replies_to_Referee_3_referee_facing_2026-11-04.pdf build/reply.txt
+          if grep -Eq '\\[\\?\\]|\\?\\?' build/reply.txt; then
+            echo "Unresolved [ ? ] or ?? placeholder found in extracted PDF text"
+            exit 1
+          fi
           pdfinfo Replies_to_Referee_3_referee_facing_2026-11-04.pdf | tee build/pdfinfo.txt
+          pdffonts Replies_to_Referee_3_referee_facing_2026-11-04.pdf | tee build/pdffonts.txt
+          if ! awk 'NR > 2 && $(NF-4) != "yes" { bad=1 } END { exit bad }' build/pdffonts.txt; then
+            echo "At least one PDF font is not embedded"
+            exit 1
+          fi
+          sha256sum Replies_to_Referee_3_referee_facing_2026-11-04.pdf | tee build/pdf-sha256.txt
           FINAL_LOG=build/Replies_to_Referee_3_referee_facing_2026-11-04.log
           BIB_LOG=build/Replies_to_Referee_3_referee_facing_2026-11-04.blg
           if grep -E "I couldn't open|I didn't find a database entry|Warning--I didn't find" "$BIB_LOG"; then
