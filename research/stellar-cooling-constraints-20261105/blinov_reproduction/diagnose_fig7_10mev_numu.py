@@ -17,7 +17,10 @@ from pathlib import Path
 
 import numpy as np
 
-from reference import evaluate_mass
+try:
+    from .reference import evaluate_mass
+except ImportError:  # direct script execution from this directory
+    from reference import evaluate_mass
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
