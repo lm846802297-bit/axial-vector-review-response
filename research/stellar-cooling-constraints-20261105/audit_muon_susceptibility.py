@@ -35,7 +35,7 @@ def one_charge_susceptibility(temperature, chemical_potential):
     return integral / np.pi**2
 
 
-def significant(value, digits=11):
+def significant(value, digits=8):
     """Stable JSON precision without implying more profile precision."""
     return float(f"{float(value):.{digits}g}")
 
