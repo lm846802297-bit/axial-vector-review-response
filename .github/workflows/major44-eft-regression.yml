@@ -69,6 +69,8 @@ jobs:
           git add research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply.pdf
           git add research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_gev.png
           git add research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_gev.pdf
+          git add research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply_gev.png
+          git add research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply_gev.pdf
           if git diff --cached --quiet; then
             echo "Reply figure assets are already current."
           else
