@@ -93,10 +93,14 @@ jobs:
               # archived a different run_commit_sha concurrently.
               git checkout --theirs -- \
                 research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_literal_scan.json \
-                research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig4_fig7_comparison.json
+                research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig4_fig7_comparison.json \
+                research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_numu_sensitivity.json \
+                research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_opacity_sensitivity.json
               git add \
                 research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_literal_scan.json \
-                research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig4_fig7_comparison.json
+                research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig4_fig7_comparison.json \
+                research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_numu_sensitivity.json \
+                research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_opacity_sensitivity.json
               GIT_EDITOR=true git rebase --continue
             fi
             git push origin "HEAD:${BRANCH}"
