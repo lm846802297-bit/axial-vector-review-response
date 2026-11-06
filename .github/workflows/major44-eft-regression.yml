@@ -7,6 +7,10 @@ on:
     paths:
       - 'research/stellar-cooling-constraints-20261105/*.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/**'
+      - '!research/stellar-cooling-constraints-20261105/blinov_reproduction/diagnose_fig7_10mev_three_layer.py'
+      - '!research/stellar-cooling-constraints-20261105/blinov_reproduction/test_fig7_10mev_three_layer.py'
+      - '!research/stellar-cooling-constraints-20261105/blinov_reproduction/FIG7_10MEV_THREE_LAYER_AUDIT_2026-11-07.md'
+      - '!research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_three_layer.json'
       - 'research/stellar-cooling-constraints-20261105/outputs/vector_audit/**'
       - 'research/stellar-cooling-constraints-20261105/data/**'
       - 'research/stellar-cooling-eft-literature-20261105/*.py'

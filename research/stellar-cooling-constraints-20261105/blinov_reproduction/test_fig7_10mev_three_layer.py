@@ -1,6 +1,9 @@
 import unittest
 import numpy as np
-from diagnose_fig7_10mev_three_layer import channel_reduced_absorptions, weighted_quantile, weighted_tau_summary
+try:
+    from .diagnose_fig7_10mev_three_layer import channel_reduced_absorptions, weighted_quantile, weighted_tau_summary
+except ImportError:
+    from diagnose_fig7_10mev_three_layer import channel_reduced_absorptions, weighted_quantile, weighted_tau_summary
 
 class ThreeLayerDiagnosticTests(unittest.TestCase):
     def test_channel_reduced_opacity_additivity(self):
