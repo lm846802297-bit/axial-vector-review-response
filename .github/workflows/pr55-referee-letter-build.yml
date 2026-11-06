@@ -35,8 +35,8 @@ jobs:
 
       - name: Install TeX and PDF inspection tools
         run: |
-          sudo apt-get update
-          sudo apt-get install -y latexmk texlive-latex-extra texlive-fonts-recommended texlive-science texlive-publishers texlive-bibtex-extra poppler-utils ghostscript python3-pil
+          sudo timeout 600s apt-get update -o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30
+          sudo env DEBIAN_FRONTEND=noninteractive timeout 1500s apt-get install -y --no-install-recommends latexmk texlive-latex-extra texlive-fonts-recommended texlive-science texlive-publishers texlive-bibtex-extra poppler-utils ghostscript python3-pil
 
       - name: Refresh checkout to latest PR branch before compilation
         shell: bash
