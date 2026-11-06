@@ -30,6 +30,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
 
       - name: Install TeX and PDF inspection tools
         run: |
@@ -93,7 +94,7 @@ jobs:
         run: |
           set -euo pipefail
           python3 -m venv build/audit-venv
-          build/audit-venv/bin/pip install --disable-pip-version-check pymupdf
+          build/audit-venv/bin/pip install --disable-pip-version-check --no-deps pymupdf==1.26.7
           build/audit-venv/bin/python research/stellar-cooling-constraints-20261105/audit_reply.py
 
       - name: Render every page and create inspectable contact sheets
