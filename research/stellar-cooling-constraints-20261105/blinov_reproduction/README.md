@@ -69,6 +69,26 @@ The diagnostic output is archived in `outputs/fig7_10mev_numu_sensitivity.json`,
 
 The next controlled test holds the production source fixed and separately rescales the neutrino inverse-decay and Compton opacity components. This identifies which absorption channel controls the high-coupling tail; the rescaled cases are diagnostics, not alternative physical predictions.
 
+### 10 MeV Fig. 7: channel-resolved opacity sensitivity
+
+A second diagnostic holds the production source fixed and rescales only the inverse-process opacity components. It uses the same 25 digitized Fig. 7 couplings and the same quadrature as the baseline. These perturbations intentionally do **not** preserve detailed balance between the modified opacity and the unchanged source; they are localization tests only and must not be interpreted as physical curves or correction factors.
+
+| Opacity-only diagnostic | Mean absolute residual | Maximum residual | High-coupling residual |
+|---|---:|---:|---:|
+| Baseline | 15.73% | 92.24% | +92.24% |
+| Neutrino opacity × 0.5 | 223.60% | 2556.92% | +2556.92% |
+| Neutrino opacity × 2 | 36.14% | 93.63% | -93.63% |
+| Compton opacity × 0.5 | 26.68% | 190.23% | +190.23% |
+| Compton opacity × 2 | 7.85% | 9.12% | +1.20% |
+| All opacity × 0.5 | 326.09% | 4050.12% | +4050.12% |
+| All opacity × 2 | 38.13% | 95.54% | -95.36% |
+
+The strong response to Compton-opacity rescaling shows that the high-coupling tail is sensitive to this contribution in the current implementation. In particular, doubling only the Compton opacity moves the digitized Fig. 7 curve close to the reference. **This does not establish that the Compton opacity is missing a factor of two.** The test deliberately changes absorption without changing production, so it violates the detailed-balance pairing that a physical rate must obey.
+
+The implementation was checked against the literal B.13--B.19 chain: the production expression includes the explicit factor of two for photon spin states and the (1/v_V) factor in B.16; the inverse rate is obtained using B.19; the reduced opacity is then formed as ((1-e^{-\omega/T})\Gamma_{\rm abs}), and the path optical depth includes the additional (1/v_V) in B.2. Thus the diagnostic identifies where the luminosity is sensitive, but it does not yet identify an algebraic omission.
+
+The next step is a matched detailed-balance audit of the Compton forward and inverse phase-space integrals, including the cross-section direction and the B.18 phase-space ratio. Only a correction that preserves the same physical production/absorption pair may be adopted. The saved pointwise results are in `outputs/fig7_10mev_opacity_sensitivity.json`.
+
 ## Comparison ladder
 
 1. Compare independently implemented local neutrino and dimuon production rates with the archived analytic checks in vector_reference.py; do not import that file into the implementation.
