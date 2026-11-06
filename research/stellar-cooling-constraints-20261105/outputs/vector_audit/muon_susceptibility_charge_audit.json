@@ -1,0 +1,92 @@
+{
+  "title": "B.17 charge-conjugate muon susceptibility audit",
+  "profile": "sfho188_digitized.csv",
+  "method": "Independent adaptive quadrature of 2 int d^3p/(2pi)^3 f(1-f) for mu- at +mu_mu and mu+ at -mu_mu; compare their sum with transport.effective_muon_density (100-point Gauss-Legendre).",
+  "interpretation": "The printed B.17 notation does not explicitly state whether the charge-conjugate muon species is included. The current code includes both. This audit quantifies that convention but does not infer the authors' intended convention or change the production implementation.",
+  "points": [
+    {
+      "r_km": 0.0,
+      "T_MeV": 19.26522111,
+      "mu_mu_MeV": 46.67432845,
+      "n_mu_minus_eff_MeV3": 726.00156605,
+      "n_mu_plus_eff_MeV3": 5.8695015783,
+      "n_both_charges_eff_MeV3": 731.87106763,
+      "n_plus_over_n_minus": 0.0080846954783,
+      "n_plus_fraction_of_both": 0.0080198573736,
+      "transport_gauss_total_MeV3": 731.8673508,
+      "transport_relative_difference_vs_adaptive_quad": -5.0785269377e-06
+    },
+    {
+      "r_km": 5.0,
+      "T_MeV": 25.3597481,
+      "mu_mu_MeV": 56.14191412,
+      "n_mu_minus_eff_MeV3": 3453.658958,
+      "n_mu_plus_eff_MeV3": 44.546376931,
+      "n_both_charges_eff_MeV3": 3498.2053349,
+      "n_plus_over_n_minus": 0.012898313781,
+      "n_plus_fraction_of_both": 0.012734065804,
+      "transport_gauss_total_MeV3": 3498.1960667,
+      "transport_relative_difference_vs_adaptive_quad": -2.6494196625e-06
+    },
+    {
+      "r_km": 8.0,
+      "T_MeV": 38.84717118,
+      "mu_mu_MeV": 91.79495143,
+      "n_mu_minus_eff_MeV3": 31201.385987,
+      "n_mu_plus_eff_MeV3": 369.2418568,
+      "n_both_charges_eff_MeV3": 31570.627844,
+      "n_plus_over_n_minus": 0.011834149193,
+      "n_plus_fraction_of_both": 0.01169574006,
+      "transport_gauss_total_MeV3": 31570.57916,
+      "transport_relative_difference_vs_adaptive_quad": -1.5420554128e-06
+    },
+    {
+      "r_km": 10.0,
+      "T_MeV": 33.92744042,
+      "mu_mu_MeV": 102.8436889,
+      "n_mu_minus_eff_MeV3": 29066.133022,
+      "n_mu_plus_eff_MeV3": 97.9368981,
+      "n_both_charges_eff_MeV3": 29164.06992,
+      "n_plus_over_n_minus": 0.0033694505569,
+      "n_plus_fraction_of_both": 0.0033581354855,
+      "transport_gauss_total_MeV3": 29164.010371,
+      "transport_relative_difference_vs_adaptive_quad": -2.0418756664e-06
+    },
+    {
+      "r_km": 15.0,
+      "T_MeV": 13.23141583,
+      "mu_mu_MeV": 62.28271809,
+      "n_mu_minus_eff_MeV3": 304.78750935,
+      "n_mu_plus_eff_MeV3": 0.025445382155,
+      "n_both_charges_eff_MeV3": 304.81295474,
+      "n_plus_over_n_minus": 8.3485646145e-05,
+      "n_plus_fraction_of_both": 8.3478676874e-05,
+      "transport_gauss_total_MeV3": 304.80746293,
+      "transport_relative_difference_vs_adaptive_quad": -1.8016986094e-05
+    },
+    {
+      "r_km": 20.0,
+      "T_MeV": 4.204423026,
+      "mu_mu_MeV": 14.77142402,
+      "n_mu_minus_eff_MeV3": 5.2336737064e-07,
+      "n_mu_plus_eff_MeV3": 4.6471635164e-10,
+      "n_both_charges_eff_MeV3": 5.2383208699e-07,
+      "n_plus_over_n_minus": 0.0008879352778,
+      "n_plus_fraction_of_both": 0.00088714754819,
+      "transport_gauss_total_MeV3": 5.2179594967e-07,
+      "transport_relative_difference_vs_adaptive_quad": -0.0038870038194
+    },
+    {
+      "r_km": 25.0,
+      "T_MeV": 3.033770692,
+      "mu_mu_MeV": 0.0,
+      "n_mu_minus_eff_MeV3": 5.7582034782e-13,
+      "n_mu_plus_eff_MeV3": 5.7582034782e-13,
+      "n_both_charges_eff_MeV3": 1.1516406956e-12,
+      "n_plus_over_n_minus": 1.0,
+      "n_plus_fraction_of_both": 0.5,
+      "transport_gauss_total_MeV3": 1.133178012e-12,
+      "transport_relative_difference_vs_adaptive_quad": -0.016031635284
+    }
+  ]
+}
