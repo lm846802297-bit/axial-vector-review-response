@@ -50,6 +50,25 @@ The comparison is conditional on the reconstructed profile and digitized public 
 
 The scan JSON records the reference-code SHA-256, profile SHA-256, quadrature settings, and GitHub run commit. The comparison JSON records its own code hash and the hashes of the Fig. 4/Fig. 7 digitized inputs and provenance.
 
+## 10 MeV Fig. 7: first controlled profile diagnostic
+
+The first one-factor diagnostic varies only the reconstructed muon-neutrino chemical-potential profile, applying the same modified profile consistently to neutrino-pair production and inverse-decay absorption. It compares scales 0, 0.5, 1, and 1.5 against the 25 digitized Fig. 7 points. This is a sensitivity test only; no scale is selected by fitting the published curve.
+
+The baseline scale-1 calculation gives a 15.73% mean absolute relative residual and a 92.24% maximum residual when evaluated at the exact digitized coupling points. The earlier 15.64% / 91.35% values used interpolation on the scan grid; the small difference is a comparison-grid effect.
+
+| muon-neutrino chemical-potential scale | Mean absolute residual | Maximum residual | High-coupling residual |
+|---:|---:|---:|---:|
+| 0 | 15.12% | 92.14% | +92.14% |
+| 0.5 | 15.29% | 92.17% | +92.17% |
+| 1 (baseline) | 15.73% | 92.24% | +92.24% |
+| 1.5 | 16.36% | 92.35% | +92.35% |
+
+The low-coupling residual changes from -7.82% to -9.91%, while the residual near the reference peak changes from +2.97% to +2.08%. Thus varying this profile input over the tested range does not remove the high-coupling tail discrepancy. The muon-neutrino chemical-potential reconstruction is **not supported as the dominant explanation** for the 10 MeV mismatch.
+
+The diagnostic output is archived in `outputs/fig7_10mev_numu_sensitivity.json`, including all 25 pointwise residuals, the profile hash, Fig. 7 PDF hash, quadrature orders and triggering commit.
+
+The next controlled test holds the production source fixed and separately rescales the neutrino inverse-decay and Compton opacity components. This identifies which absorption channel controls the high-coupling tail; the rescaled cases are diagnostics, not alternative physical predictions.
+
 ## Comparison ladder
 
 1. Compare independently implemented local neutrino and dimuon production rates with the archived analytic checks in vector_reference.py; do not import that file into the implementation.
