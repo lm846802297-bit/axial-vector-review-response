@@ -29,7 +29,7 @@ def effective_muon_density(T,mu,order=100):
     fminus=expit((mu[...,None]-E)/T[...,None])
     fplus=expit((-mu[...,None]-E)/T[...,None])
     # The spin factor 2 cancels the Jacobian dp=pmax*dx/2; this combined prefactor
-    # is already correct, so do not multiply the quadrature result by 2 again.
+    # hence pmax/(2*pi**2) below is the combined prefactor; do not multiply by 2 again.
     return np.sum(w*p*p*(fminus*(1-fminus)+fplus*(1-fplus)),axis=-1)*pmax/(2*np.pi**2)
 
 def angular_columns(r_source,radial_grid,reduced_rate,mass,energies,radius,angular_order=24,path_order=48):
