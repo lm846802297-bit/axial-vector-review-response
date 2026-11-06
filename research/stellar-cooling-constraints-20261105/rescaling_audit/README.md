@@ -24,7 +24,7 @@ python -m unittest discover \
 python research/stellar-cooling-constraints-20261105/rescaling_audit/run.py
 ~~~
 
-The deterministic output is written to rescaling_audit/outputs/rescaling_audit.json (relative to this directory).
+The deterministic output is written to outputs/rescaling_audit.json.
 
 ## Rescaling convention
 

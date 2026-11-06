@@ -47,8 +47,8 @@ The per-mass results are:
 
 | \(m_V\) | Baseline mean absolute relative residual | Baseline maximum | Best \(\kappa\) | Rescaled mean absolute relative residual | Rescaled maximum |
 |---:|---:|---:|---:|---:|---:|
-| 1 MeV | 1.60% | 5.54% | 0.9975 | 1.66% | 3.85% |
-| 10 MeV | 15.64% | 91.35% | 1.06675 | 3.34% | 7.22% |
+| 1 MeV | 1.60% | 5.54% | 0.99725 | 1.67% | 3.79% |
+| 10 MeV | 15.64% | 91.35% | 1.06675 | 3.34% | 7.14% |
 | 200 MeV | 0.71% | 1.59% | 1.00175 | 0.66% | 1.36% |
 
 The 10 MeV pointwise Fig. 7 discrepancy is substantially reduced by a mass-specific horizontal shift. This is useful evidence that part of the difference is curve-position-like. It is not evidence for a universal coupling convention: the 1 and 200 MeV curves prefer values very close to unity, whereas the 10 MeV curve prefers a value about 6.7% higher.
@@ -76,8 +76,8 @@ The 10 MeV Fig. 7 best-fit value, \(\kappa=1.06675\), moves both Fig. 4 boundari
 
 | \(m_V\) | Unscaled lower / upper difference | After mass-specific Fig. 7 rescaling |
 |---:|---:|---:|
-| 1 MeV | +0.81% / -0.86% | +1.07% / -0.59% |
-| 10 MeV | +0.33% / +0.97% | -5.94% / -5.34% |
+| 1 MeV | +0.81% / -0.86% | +1.08% / -0.59% |
+| 10 MeV | +0.33% / +0.97% | -5.95% / -5.35% |
 | 200 MeV | -1.31% / +2.60% | -1.49% / +2.42% |
 
 At 100 MeV no Fig. 7 pointwise reference curve is available, so no mass-specific fit is quoted. Applying the global \(\kappa=1.03\) as a diagnostic would shift its lower/upper boundary differences to approximately -3.78% / -1.96%.
@@ -103,3 +103,8 @@ This is not a like-for-like reproduction test of the scalar Appendix-B prescript
 Implementation and tests: rescaling_audit/README.md.
 
 The generated machine-readable report is rescaling_audit/outputs/rescaling_audit.json. It records SHA-256 hashes for the three input JSON files and the audit script. The dedicated GitHub Actions workflow runs only this post-processing audit; it does not invoke the existing full numerical scan workflow.
+
+
+## Automated verification
+
+The dedicated [Vector coupling rescaling audit workflow](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42302956969) passes. All six regression tests pass, the machine-readable JSON is regenerated, and CI confirms that the three source JSON files, production rates/transport modules, and saved axial scan remain unchanged. The workflow does not invoke the full Major 4.4 numerical scan.
