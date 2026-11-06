@@ -72,18 +72,12 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           BRANCH="${{ github.ref_name }}"
           git fetch origin "$BRANCH"
-          git add research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply.png
-          git add research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply.pdf
-          git add research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_gev.png
-          git add research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_gev.pdf
-          git add research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply_gev.png
-          git add research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply_gev.pdf
           git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_literal_scan.json
           git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig4_fig7_comparison.json
           if git diff --cached --quiet; then
             echo "Reply figure assets are already current."
           else
-            git commit -m "Archive independent Blinov reference scan and refresh reply figures"
+            git commit -m "Archive independent Blinov reference scan and comparison"
             # Plot regeneration may leave unrelated generated files unstaged.
             # Stash those artifacts before rebasing the selected, committed outputs.
             git stash push --include-untracked -m "temporary unselected generated artifacts"
