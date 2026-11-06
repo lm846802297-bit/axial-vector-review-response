@@ -18,7 +18,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: pr55-referee-letter-${{ github.event.pull_request.number }}
+  group: referee-response-pdf-${{ github.event.pull_request.number || github.ref_name }}
   cancel-in-progress: true
 
 jobs:
