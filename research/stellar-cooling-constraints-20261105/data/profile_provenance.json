@@ -1,0 +1,150 @@
+{
+  "generated_date": "2026-11-06",
+  "identity": "Reconstructed SFHo-18.8, t_pb=1 s benchmark; not raw simulation data",
+  "sources": {
+    "SNProfile.pdf": {
+      "arxiv_source_url": "https://arxiv.org/src/2109.03244v3",
+      "archive_member": "figures/SNProfile.pdf",
+      "pdf_sha256": "19ca5ee492dea689a4a9851e999f7d05d0f26be7dfc820e817cc5bc310065c8e"
+    },
+    "SNModelComparison.pdf": {
+      "arxiv_source_url": "https://arxiv.org/src/2510.14469v1",
+      "archive_member": "figures/SNModelComparison.pdf",
+      "pdf_sha256": "5cc8b07dad824b65391fae6229bb9eca138c1cf5ff0348c8aaf712779a2566f2"
+    }
+  },
+  "curve_path_indices": {
+    "caputo": {
+      "T": 0,
+      "mu_mu": 1,
+      "negative_mu_numu": 6,
+      "positive_mu_numu": 7,
+      "n_mu_over_n0": 161
+    },
+    "ferreira": {
+      "T": 1,
+      "mu_mu": 394,
+      "lapse": 610
+    }
+  },
+  "curve_ranges": {
+    "T_caputo": [
+      0.11655454282407385,
+      56.961758004294495
+    ],
+    "mu_mu_caputo": [
+      0.11655454282407385,
+      22.191893657048542
+    ],
+    "minus_mu_numu_caputo": [
+      0.11655454282407385,
+      13.109926940114406
+    ],
+    "plus_mu_numu_caputo": [
+      16.588180120344514,
+      18.42299959173909
+    ],
+    "n_mu_over_n0_caputo": [
+      0.11668109231524974,
+      15.272859379097264
+    ],
+    "T_ferreira": [
+      1.1767037896139157e-08,
+      23.99979893238284
+    ],
+    "mu_mu_ferreira": [
+      3.953724812006895e-07,
+      23.999799610164235
+    ],
+    "lapse_ferreira": [
+      3.953724812006895e-07,
+      23.999799610164235
+    ]
+  },
+  "temperature_overlap_max_relative_difference": 0.0026650842561763955,
+  "lapse_exterior_continuation_schwarzschild_radius_km": 3.844025390169213,
+  "assumptions": [
+    "Caputo top-panel x axis is [0.1,20] km; bottom-panel x axis [0,20] km. Curves encode public PDF vertices beyond clipping frame.",
+    "T used through25km from encoded public Caputo path, including off-frame vertices. No temperature tail fitted.",
+    "mu_mu set0 beyond final encoded point where plotted value drops below1MeV; no effect expected on muon density in cold tail.",
+    "mu_numu set0 in intervals not represented by the |mu_numu|>=1MeV logarithmic plot; use zero-chemical-potential sensitivity check.",
+    "First available core point extended constantly to r=0 (first original plotted point at about0.116km).",
+    "Lapse uses Ferreira SFHo18.8 orange curve through24km, then matched exterior Schwarzschild form through25km.",
+    "Ferreira mu_mu curve disagrees strongly with Caputo despite same profile label. It is retained only as diagnostic, not silently mixed into baseline.",
+    "No permission-restricted Garching raw tables were accessed or redistributed."
+  ],
+  "samples": [
+    {
+      "r_km": 0,
+      "T_MeV": 19.265221107964955,
+      "mu_mu_MeV": 46.674328446827786,
+      "mu_mu_Ferreira_MeV": 254.89033730944777,
+      "n_mu_Fermi_fm3": 9.580878072951222e-05,
+      "n_mu_plotted_fm3": 9.627664904734236e-05,
+      "lapse": 0.7363304266908715
+    },
+    {
+      "r_km": 5,
+      "T_MeV": 25.359748103081337,
+      "mu_mu_MeV": 56.14191412281971,
+      "mu_mu_Ferreira_MeV": 233.3180667313181,
+      "n_mu_Fermi_fm3": 0.000467099676298376,
+      "n_mu_plotted_fm3": 0.00046954309091223315,
+      "lapse": 0.7586815588575593
+    },
+    {
+      "r_km": 8,
+      "T_MeV": 38.847171184804964,
+      "mu_mu_MeV": 91.79495143020412,
+      "mu_mu_Ferreira_MeV": 167.40150980294797,
+      "n_mu_Fermi_fm3": 0.004660747270126143,
+      "n_mu_plotted_fm3": 0.004683944743438265,
+      "lapse": 0.7890707470595809
+    },
+    {
+      "r_km": 10,
+      "T_MeV": 33.92744041961383,
+      "mu_mu_MeV": 102.84368885496772,
+      "mu_mu_Ferreira_MeV": 131.1370448427753,
+      "n_mu_Fermi_fm3": 0.004494302186572365,
+      "n_mu_plotted_fm3": 0.004514859037713406,
+      "lapse": 0.8113558508988766
+    },
+    {
+      "r_km": 15,
+      "T_MeV": 13.231415830420763,
+      "mu_mu_MeV": 62.28271808740729,
+      "mu_mu_Ferreira_MeV": 68.64917389177585,
+      "n_mu_Fermi_fm3": 4.013551887725254e-05,
+      "n_mu_plotted_fm3": 4.0569682573042464e-05,
+      "lapse": 0.8634952836371738
+    },
+    {
+      "r_km": 20,
+      "T_MeV": 4.204423025594307,
+      "mu_mu_MeV": 14.77142401797812,
+      "mu_mu_Ferreira_MeV": 12.414412543662442,
+      "n_mu_Fermi_fm3": 6.811570116770312e-14,
+      "n_mu_plotted_fm3": null,
+      "lapse": 0.898887711672529
+    },
+    {
+      "r_km": 24,
+      "T_MeV": 3.2164262151376666,
+      "mu_mu_MeV": 0.0,
+      "mu_mu_Ferreira_MeV": null,
+      "n_mu_Fermi_fm3": 5.453796967297306e-19,
+      "n_mu_plotted_fm3": null,
+      "lapse": 0.9164236331575131
+    },
+    {
+      "r_km": 25,
+      "T_MeV": 3.0337706922681256,
+      "mu_mu_MeV": 0.0,
+      "mu_mu_Ferreira_MeV": null,
+      "n_mu_Fermi_fm3": 7.049640010075108e-20,
+      "n_mu_plotted_fm3": null,
+      "lapse": 0.9199124873558525
+    }
+  ]
+}
