@@ -30,8 +30,18 @@ def validate_curve(x_values, y_values):
         raise ValueError("A curve requires matching one-dimensional arrays with at least two points")
     if not np.all(np.isfinite(x)) or not np.all(np.isfinite(y)):
         raise ValueError("Curve coordinates must be finite")
-    if np.any(x <= 0.0) or np.any(y <= 0.0) or np.any(np.diff(x) <= 0.0):
-        raise ValueError("Log interpolation requires positive coordinates and strictly increasing x")
+    # Archived high-coupling luminosities can underflow to exact zero. Trim
+    # only a trailing zero tail; an interior zero would make log interpolation
+    # ambiguous and is therefore rejected.
+    positive = np.flatnonzero(y > 0.0)
+    if positive.size == 0:
+        raise ValueError("Curve contains no positive luminosity samples")
+    last_positive = int(positive[-1])
+    if np.any(y[:last_positive + 1] <= 0.0):
+        raise ValueError("Nonpositive luminosity occurs inside the sampled curve")
+    x, y = x[:last_positive + 1], y[:last_positive + 1]
+    if np.any(x <= 0.0) or np.any(np.diff(x) <= 0.0):
+        raise ValueError("Log interpolation requires positive x and strictly increasing x")
     return x, y
 
 def log_interpolate(x_value, x_values, y_values):
