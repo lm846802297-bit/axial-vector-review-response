@@ -36,7 +36,7 @@ def contour_crossings(vertices, mass):
                                       * (y[i + 1] - y[i]) / (x[i + 1] - x[i]))))
     unique = []
     for value in sorted(found):
-        if not unique or not np.isclose(value, unique[-1], rtol=1e-8):
+        if not unique or not np.isclose(value, unique[-1], rtol=1e-8, atol=0.0):
             unique.append(value)
     return unique
 
@@ -62,8 +62,12 @@ def cooling_intervals(couplings, luminosities, threshold):
 
 def log_interpolate(x, y, xnew):
     x, y, xnew = np.asarray(x), np.asarray(y), np.asarray(xnew)
-    order = np.argsort(x)
-    return np.exp(np.interp(np.log(xnew), np.log(x[order]), np.log(y[order])))
+    valid = np.isfinite(x) & np.isfinite(y) & (x > 0.0) & (y > 0.0)
+    if np.count_nonzero(valid) < 2:
+        raise ValueError("Need at least two positive finite scan samples for log interpolation")
+    order = np.argsort(x[valid])
+    return np.exp(np.interp(np.log(xnew), np.log(x[valid][order]),
+                            np.log(y[valid][order])))
 
 
 def compare(scan_path, fig4_path, fig7_path, threshold=4.4e52):
