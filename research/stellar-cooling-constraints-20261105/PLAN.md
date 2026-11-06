@@ -64,3 +64,42 @@ See [POLARIZATION_DETAILED_BALANCE_AUDIT_2026-11-07.md](POLARIZATION_DETAILED_BA
 **Interpretation boundary:** this module implements the scalar Appendix-B prescription literally, including the scalar opacity. It is a reference-reproduction path, not a declaration that scalar summed opacity is the physically correct per-particle attenuation law when the three polarization opacities differ. The original authors' private numerical choices are not inferred. The profile remains the archived reconstructed SFHo-18.8, t=1 s profile; it is not original simulation data.
 
 **Scope freeze:** do not change production rates.py, transport.py, existing vector/axial scans, constraint plots, manuscript source, or referee-response TeX/PDF in this stage. PR #56 remains Open / Draft.
+
+
+## Stage 3: finite-mixing vector–axial extension (2026-11-07)
+
+**Status: model-coupling map and a hard vector-endpoint gate are added; no mixed-current luminosity scan or constraint curve is yet claimed.**
+
+The dedicated module is [finite_mixing/README.md](finite_mixing/README.md). The UV coupling map is implemented in [finite_mixing/model.py](finite_mixing/model.py), with endpoint and chiral-coupling tests.
+
+The required muon-current convention is
+\[
+\mathcal L_{\mu A'} =
+A'_\mu\bar\mu\gamma^\mu
+(g_V^\mu+g_A^\mu\gamma^5)\mu,
+\quad
+g_V^\mu=g_X\sin^2\theta_{\mu R},
+\quad
+g_A^\mu=-g_X\cos^2\theta_{\mu R}.
+\]
+The rates module's axial basis is \(\gamma^\mu(-\gamma^5)\), so its coefficient is \(-g_A^\mu\), not \(g_A^\mu\). The active-neutrino couplings remain \(g_{\nu_\mu}=+g_X\) and \(g_{\nu_\tau}=-g_X\), independent of \(\theta_{\mu R}\).
+
+### P0 prerequisite: pure-vector endpoint
+
+Before any mixed-current cooling curve is accepted, the pure-vector endpoint must reproduce the **published version-of-record** Blinov et al. result. The current audit is not yet a pass:
+
+- The independent scalar Appendix-B path matches the currently archived digitized Fig. 4 boundaries at four masses within 2.60%, but its Fig. 7 pointwise comparison has a 91.35% maximum and 15.64% mean absolute relative residual at 10 MeV.
+- The existing mode-resolved vector solver closes at 259.08–259.14 MeV, whereas the currently archived Fig. 4 digitization reaches about 210.98 MeV.
+- These two paths differ in both the opacity prescription and the semi-Compton treatment; neither a fitted coupling-axis rescaling nor a posteriori factor-of-two opacity change is allowed.
+
+The current Fig. 4/Fig. 7 digitizations originate from the arXiv source archive. The published JHEP version-of-record figures must be independently checked and digitized before final acceptance. The full gate and acceptance targets are recorded in [VECTOR_ENDPOINT_GATE_2026-11-07.md](finite_mixing/VECTOR_ENDPOINT_GATE_2026-11-07.md).
+
+### Execution order
+
+1. Re-extract the published version-of-record Fig. 4 and Fig. 7 reference curves, recording source PDF hashes and digitization provenance.
+2. Resolve the pure-vector local-rate, polarization/opacity, and transport comparison one ingredient at a time. Preserve detailed balance and do not insert fitted rescaling factors.
+3. Require both contour-boundary and full-luminosity-curve agreement before declaring the vector benchmark passed.
+4. Only then implement amplitude-level vector–axial interference in semi-Compton and dimuon channels, and run the three endpoints: pure axial, pure vector, and the UV benchmark \(\theta_{\mu R}=10^{-2}\).
+5. Keep the existing axial scan and all referee-response/manuscript files unchanged until the mixed result passes its own convergence and endpoint tests.
+
+**Disposition:** PR #56 remains Open / Draft. The mixed-current module is deliberately blocked at the vector-validation gate; no mixed constraint curve is presented as a result.

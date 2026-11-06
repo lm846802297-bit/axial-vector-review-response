@@ -1,0 +1,32 @@
+name: Finite-mixing UV coupling-map tests
+
+on:
+  push:
+    branches:
+      - codex/major44-axial-cooling-constraints-20261105
+    paths:
+      - 'research/stellar-cooling-constraints-20261105/finite_mixing/**'
+      - '.github/workflows/finite-mixing-model-map.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test-model-map:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out exact triggering commit
+        uses: actions/checkout@v4
+        with:
+          ref: \${{ github.sha }}
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test UV coupling map and endpoints
+        run: |
+          python -m unittest discover \\
+            -s research/stellar-cooling-constraints-20261105/finite_mixing \\
+            -p 'test_*.py' -v
