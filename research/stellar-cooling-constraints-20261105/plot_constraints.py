@@ -99,12 +99,12 @@ axG.fill_between(
     color='#ece8de', alpha=.6, zorder=-1
 )
 axG.text(
-    1.35e-3, 1.45e-5, 'Fig. 2 overlap\\n(shown portion)',
+    1.35e-3, 1.45e-5, 'Fig. 2 overlap\n(shown portion)',
     fontsize=8, color='#756c5b'
 )
 axG.text(
     2.2e-5, 3e-9,
-    'Excluded by the stated\\nballistic-cooling benchmark',
+    'Excluded by the stated\nballistic-cooling benchmark',
     color='#235d91', fontsize=9
 )
 
@@ -148,14 +148,12 @@ for axis in (axG, fracG):
 
 figG.suptitle('SN1987A: axial-EFT fixed-profile benchmark (GeV)', fontsize=13)
 figG.text(
-    .5, .012,
-    'Same saved scan as the MeV figures; only the mass coordinate is converted: '
-    'm[GeV] = m[MeV]/1000.\\n'
-    'Shading marks the visible overlap with the paper Fig. 2 display window. '
-    'Ballistic cooling only; unshaded regions are not globally allowed.',
-    ha='center', fontsize=7.7
+    .5, .02,
+    'Same saved scan; mass coordinates only are converted: m[GeV] = m[MeV]/1000.\n'
+    'Shading: visible overlap with Fig. 2. Ballistic cooling only; unshaded is not globally allowed.',
+    ha='center', fontsize=7.5
 )
-figG.tight_layout(rect=(0, .08, 1, .95))
+figG.tight_layout(rect=(0, .09, 1, .95))
 figG.savefig(OUT / 'axial_stellar_constraints_gev.pdf')
 figG.savefig(OUT / 'axial_stellar_constraints_gev.png')
 plt.close(figG)
