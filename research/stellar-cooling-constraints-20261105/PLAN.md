@@ -16,7 +16,7 @@ Primary inputs: Liu–Miller1705.01633 vacuum matrix element; Blinov2511.09619 A
 - [x] Extend Major4.4 without removing independent old arguments; update Major2 cross-reference and manuscript synchronization checklist.
 - [x] Compile current response, inspect figures and relevant PDF pages; verify quotations/citations and actual numerical outputs.
 - [x] Audit the actual scientific/layout diff and record preservation/deletion ledger in VALIDATION_AND_REVIEW.md.
-- [x] Independent code/formula audit in the integration pass. It identified the missing factor of two for muon spin degeneracy in the effective target density; the normalization is corrected and all affected scans are regenerated before final acceptance.
+- [x] Independent code/formula audit in the integration pass. The spin-degeneracy factor 2 is already included in the effective target density: the (dp=p_{\max}dx/2) quadrature Jacobian supplies the compensating factor (1/2). An independent quadrature regression test is added to lock this normalization; the existing scan outputs remain unchanged.
 - [ ] Commit, push branch and create PR; final repository metadata records submission.
 
 ## Review focus

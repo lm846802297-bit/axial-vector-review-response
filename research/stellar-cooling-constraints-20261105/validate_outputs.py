@@ -25,8 +25,8 @@ def differences(base, alternate):
 
 def main():
     scans = {n: read(n) for n in ['axial', 'vector', 'endpoint', 'convergence',
-        'refined_fast', 'cutoff', 'sensitivity_half', 'sensitivity_double',
-        'sensitivity_radius20', 'sensitivity_numu0', 'coupling_refinement']}
+        'refined_fast', 'refined_low', 'cutoff', 'sensitivity_half',
+        'sensitivity_double', 'sensitivity_radius20', 'sensitivity_numu0', 'coupling_refinement']}
     base = by_mass(scans['axial']) | by_mass(scans['endpoint'])
     for name, scan in scans.items():
         gs = np.asarray(scan['couplings'])
@@ -38,12 +38,18 @@ def main():
             for key, threshold in [('intervals_4p4e52', 4.4e52), ('intervals_3e52', 3e52)]:
                 assert find_intervals(gs, lum, threshold) == row[key], (name, row['mass_MeV'])
     comparisons = {n: differences(base, by_mass(d)) for n, d in scans.items()
-                   if n not in ['axial', 'vector', 'endpoint']}
+                   if n not in ['axial', 'vector', 'endpoint', 'refined_low']}
+    slow, fast = scans['refined_low'], scans['refined_fast']
+    assert slow['config'] == fast['config'] and slow['couplings'] == fast['couplings']
+    optimization_error = max(float(np.max(np.abs(np.array(a['luminosity_erg_s'])-
+        np.array(b['luminosity_erg_s']))/np.maximum(a['luminosity_erg_s'], 1e40)))
+        for a, b in zip(slow['results'], fast['results']))
+    assert optimization_error < 1e-12
     report = dict(
         baseline_config=scans['axial']['config'], baseline_mass_count=len(scans['axial']['results']),
         plotted_axial_mass_count=len(base), coupling_count=len(scans['axial']['couplings']),
         comparisons=comparisons,
-        muon_spin_degeneracy_factor=2,
+        optimized_column_luminosity_relative_difference_above_1e40=optimization_error,
         endpoint_intervals={str(m):base[m]['intervals_4p4e52'] for m in [250.,255.,260.,265.,270.]},
         largest_surface_blackbody_erg_s=max(r['surface_blackbody_erg_s'] for r in base.values()),
         low_mass_3e52_g_per_mass_MeV=base[.01]['intervals_3e52'][0][0]/.01,

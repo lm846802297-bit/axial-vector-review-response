@@ -28,7 +28,7 @@ def effective_muon_density(T,mu,order=100):
     E=np.sqrt(p*p+M_MU*M_MU)
     fminus=expit((mu[...,None]-E)/T[...,None])
     fplus=expit((-mu[...,None]-E)/T[...,None])
-    return 2*np.sum(w*p*p*(fminus*(1-fminus)+fplus*(1-fplus)),axis=-1)*pmax/(2*np.pi**2)
+    return np.sum(w*p*p*(fminus*(1-fminus)+fplus*(1-fplus)),axis=-1)*pmax/(2*np.pi**2)
 
 def angular_columns(r_source,radial_grid,reduced_rate,mass,energies,radius,angular_order=24,path_order=48):
     """Return unit-coupling tau [source,angle,energy,mode], angular weights."""

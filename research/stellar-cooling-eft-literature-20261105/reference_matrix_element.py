@@ -13,7 +13,7 @@ The code:
 Important frame convention: the T/L split made by this module is defined in the same frame as the supplied kinematics. In particular, mode="T"/"L" in the CM cross-section routine means CM-frame helicity modes. It is not the medium-rest-frame T/L split when the thermal medium moves in the pair CM frame. The thermal-rate prototype therefore uses only mode="all"; a medium-frame T/L emissivity requires polarization projectors built from both q and the medium four-velocity.
 
 Units: masses and energies are in MeV; cross sections are in MeV^{-2}.
-The couplings gV and gA are the A' muon-current couplings, supplied as independent physical couplings. The UV-to-current and Goldstone mapping is handled separately by single_vev_axial_mapping.py; no one-VEV relation is hard-coded here. This is a
+The couplings gV and gA are independent effective muon-current couplings supplied by the caller. This is a
 tree-level vacuum scattering calculation, not a supernova emissivity or
 transport calculation: no thermal distributions, Pauli blocking, in-medium
 effects, or stellar profiles are included.

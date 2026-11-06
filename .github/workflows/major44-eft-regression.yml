@@ -1,4 +1,4 @@
-name: Major 4.4 EFT numerical regression
+name: Major 4.4 EFT numerical validation
 
 on:
   pull_request:
@@ -19,10 +19,10 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  validate-and-rescan:
+  validate:
     if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.ref == 'codex/major44-axial-cooling-constraints-20261105'
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 25
     steps:
       - name: Checkout exact PR branch
         uses: actions/checkout@v4
@@ -43,26 +43,11 @@ jobs:
           python research/stellar-cooling-eft-literature-20261105/check_literature_kernels.py \
             --matrix-script research/stellar-cooling-eft-literature-20261105/reference_matrix_element.py \
             --output research/stellar-cooling-eft-literature-20261105/literature_kernel_validation.json
-      - name: Recompute axial and vector baseline scans
-        run: |
-          python research/stellar-cooling-constraints-20261105/run_scan.py --mass-count 68 --nr 88 --ne 180 --na 24 --ns 64 --nc 40 --gmin 1e-14 --gmax 1e-3 --gcount 301 --output research/stellar-cooling-constraints-20261105/outputs/axial.json
-          python research/stellar-cooling-constraints-20261105/run_scan.py --mass-count 68 --nr 88 --ne 180 --na 24 --ns 64 --nc 40 --gmin 1e-14 --gmax 1e-3 --gcount 301 --current vector --output research/stellar-cooling-constraints-20261105/outputs/vector.json
-          python research/stellar-cooling-constraints-20261105/run_scan.py --masses 250,255,260,265,270 --nr 88 --ne 180 --na 24 --ns 64 --nc 40 --gmin 1e-14 --gmax 1e-3 --gcount 301 --output research/stellar-cooling-constraints-20261105/outputs/endpoint.json
-      - name: Recompute convergence and approximation checks
-        run: |
-          python research/stellar-cooling-constraints-20261105/run_scan.py --masses 0.01,0.1,1,10,100,200,250 --nr 132 --ne 280 --na 40 --ns 96 --nc 64 --gmin 1e-14 --gmax 1e-3 --gcount 301 --output research/stellar-cooling-constraints-20261105/outputs/convergence.json
-          python research/stellar-cooling-constraints-20261105/run_scan.py --masses 0.01,0.1,1,10,100,200,250 --nr 176 --ne 360 --na 56 --ns 144 --nc 80 --gmin 1e-14 --gmax 1e-3 --gcount 301 --output research/stellar-cooling-constraints-20261105/outputs/refined_fast.json
-          python research/stellar-cooling-constraints-20261105/run_scan.py --masses 0.01,1,100,250 --nr 88 --ne 180 --na 24 --ns 64 --nc 40 --emax-offset 1800 --gmin 1e-14 --gmax 1e-3 --gcount 301 --output research/stellar-cooling-constraints-20261105/outputs/cutoff.json
-          python research/stellar-cooling-constraints-20261105/run_scan.py --masses 0.01,0.1,1,10,100,200,250 --nr 88 --ne 180 --na 24 --ns 64 --nc 40 --compton-scale 0.5 --gmin 1e-14 --gmax 1e-3 --gcount 301 --output research/stellar-cooling-constraints-20261105/outputs/sensitivity_half.json
-          python research/stellar-cooling-constraints-20261105/run_scan.py --masses 0.01,0.1,1,10,100,200,250 --nr 88 --ne 180 --na 24 --ns 64 --nc 40 --compton-scale 2 --gmin 1e-14 --gmax 1e-3 --gcount 301 --output research/stellar-cooling-constraints-20261105/outputs/sensitivity_double.json
-          python research/stellar-cooling-constraints-20261105/run_scan.py --masses 0.01,0.1,1,10,100,200,250 --nr 88 --ne 180 --na 24 --ns 64 --nc 40 --radius 20 --gmin 1e-14 --gmax 1e-3 --gcount 301 --output research/stellar-cooling-constraints-20261105/outputs/sensitivity_radius20.json
-          python research/stellar-cooling-constraints-20261105/run_scan.py --masses 0.01,0.1,1,10,100,200,250 --nr 88 --ne 180 --na 24 --ns 64 --nc 40 --zero-numu --gmin 1e-14 --gmax 1e-3 --gcount 301 --output research/stellar-cooling-constraints-20261105/outputs/sensitivity_numu0.json
-          python research/stellar-cooling-constraints-20261105/run_scan.py --masses 1,250,255,260 --nr 88 --ne 180 --na 24 --ns 64 --nc 40 --gmin 1e-14 --gmax 1e-3 --gcount 1201 --output research/stellar-cooling-constraints-20261105/outputs/coupling_refinement.json
-      - name: Validate scans and regenerate figures
+      - name: Validate saved scans and regenerate figures
         run: |
           python research/stellar-cooling-constraints-20261105/validate_outputs.py
           python research/stellar-cooling-constraints-20261105/plot_constraints.py
-      - name: Commit regenerated numerical outputs
+      - name: Commit regenerated validation records and figures
         if: success()
         shell: bash
         run: |
@@ -70,17 +55,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add research/stellar-cooling-eft-literature-20261105/literature_kernel_validation.json
-          git add research/stellar-cooling-constraints-20261105/outputs/axial.json
-          git add research/stellar-cooling-constraints-20261105/outputs/vector.json
-          git add research/stellar-cooling-constraints-20261105/outputs/endpoint.json
-          git add research/stellar-cooling-constraints-20261105/outputs/convergence.json
-          git add research/stellar-cooling-constraints-20261105/outputs/refined_fast.json
-          git add research/stellar-cooling-constraints-20261105/outputs/cutoff.json
-          git add research/stellar-cooling-constraints-20261105/outputs/sensitivity_half.json
-          git add research/stellar-cooling-constraints-20261105/outputs/sensitivity_double.json
-          git add research/stellar-cooling-constraints-20261105/outputs/sensitivity_radius20.json
-          git add research/stellar-cooling-constraints-20261105/outputs/sensitivity_numu0.json
-          git add research/stellar-cooling-constraints-20261105/outputs/coupling_refinement.json
           git add research/stellar-cooling-constraints-20261105/outputs/numerical_validation.json
           git add research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.pdf
           git add research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.png
@@ -89,9 +63,9 @@ jobs:
           git add research/stellar-cooling-constraints-20261105/outputs/luminosity_checks.pdf
           git add research/stellar-cooling-constraints-20261105/outputs/luminosity_checks.png
           if ! git diff --cached --quiet; then
-            git commit -m "Recompute Major 4.4 EFT cooling outputs with spin-degenerate muon density [skip ci]"
+            git commit -m "Validate existing Major 4.4 EFT cooling results [skip ci]"
             BRANCH="${{ github.event.pull_request.head.ref || github.ref_name }}"
             git push origin "HEAD:${BRANCH}"
           else
-            echo "All numerical outputs are already current."
+            echo "Validation outputs are already current."
           fi
