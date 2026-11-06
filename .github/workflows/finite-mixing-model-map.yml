@@ -27,7 +27,4 @@ jobs:
           python-version: '3.12'
       - name: Test UV coupling map and endpoints
         run: |
-          python -m unittest discover \\
-            -s research/stellar-cooling-constraints-20261105/finite_mixing \\
-            -t research/stellar-cooling-constraints-20261105 \\
-            -p 'test_*.py' -v
+          python -m unittest discover -s research/stellar-cooling-constraints-20261105/finite_mixing -t research/stellar-cooling-constraints-20261105 -p 'test_*.py' -v
