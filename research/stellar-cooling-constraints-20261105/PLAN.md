@@ -16,7 +16,7 @@ Primary inputs: Liu–Miller1705.01633 vacuum matrix element; Blinov2511.09619 A
 - [x] Extend Major4.4 without removing independent old arguments; update Major2 cross-reference and manuscript synchronization checklist.
 - [x] Compile current response, inspect figures and relevant PDF pages; verify quotations/citations and actual numerical outputs.
 - [x] Audit the actual scientific/layout diff and record preservation/deletion ledger in VALIDATION_AND_REVIEW.md.
-- [x] Second-pass internal code/formula audit in the integration pass (not a separate independent reviewer). The spin-degeneracy factor 2 is already included in the effective target density: the quadrature Jacobian `dp=p_max(1+x)/2` and `dp=p_max dx/2` gives the compensating factor `1/2`. An independent adaptive-quadrature regression test locks this normalization; the existing scan outputs remain unchanged.
+- [x] Second-pass internal code/formula audit in the integration pass (not a separate independent reviewer). The spin-degeneracy factor 2 is already included in the effective target density: under `p=p_max(1+x)/2`, the Jacobian `dp=p_max dx/2` supplies the compensating factor `1/2`. An independent adaptive-quadrature regression test locks this normalization; the existing scan outputs remain unchanged.
 - [x] Commit and push the research branch; PR #56 remains Open / Draft. Exact-head numerical validation, LaTeX/PDF build, source-preservation audit and 65-page visual review have passed. No merge has been performed; merge awaits the author's explicit decision.
 
 ## Review focus
