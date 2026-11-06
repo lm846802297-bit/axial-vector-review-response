@@ -93,9 +93,9 @@ jobs:
                   ImageDraw.Draw(tile).text((12, 6), f"PDF page {batch_start+local_i+1}", fill="black")
                   sheet.paste(tile, ((local_i%2)*560, (local_i//2)*800))
               buf = io.BytesIO()
-              sheet.crop((0,0,1120,((len(batch)+1)//2)*800)).save(buf, format="PNG", optimize=True)
+              sheet.crop((0,0,1120,((len(batch)+1)//2)*800)).save(buf, format="JPEG", quality=82, optimize=True)
               encoded = base64.b64encode(buf.getvalue()).decode("ascii")
-              svg = f'<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="{((len(batch)+1)//2)*800}" viewBox="0 0 1120 {((len(batch)+1)//2)*800}"><image width="1120" height="{((len(batch)+1)//2)*800}" href="data:image/png;base64,{encoded}"/></svg>'
+              svg = f'<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="{((len(batch)+1)//2)*800}" viewBox="0 0 1120 {((len(batch)+1)//2)*800}"><image width="1120" height="{((len(batch)+1)//2)*800}" href="data:image/jpeg;base64,{encoded}"/></svg>'
               out = Path("build/review") / f"pages-{batch_start+1:02d}-{batch_start+len(batch):02d}.svg"
               out.write_text(svg, encoding="utf-8")
           print(f"Rendered {len(pages)} pages at 150 dpi into {((len(pages)+5)//6)} contact sheets.")
