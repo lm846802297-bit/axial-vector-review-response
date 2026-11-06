@@ -46,7 +46,7 @@ _METRIC = np.array([1.0, -1.0, -1.0, -1.0])
 
 def slash(four_vector):
     """Dirac slash for contravariant four-vector, metric (+---)."""
-    p = np.asarray(four_vector, dtype=float)
+    p = np.asarray(four_vector, dtype=complex)
     return sum(_GAMMA[mu] * _METRIC[mu] * p[mu] for mu in range(4))
 
 
