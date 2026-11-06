@@ -12,7 +12,9 @@ on:
       - 'JHEP.bst'
       - 'Replies_to_Referee_3_stellar_references.bib'
       - 'research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply.pdf'
-      - 'research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply.png' # PNG/PDF are regenerated from the same plotting source
+      - 'research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply.png'
+      - 'research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply_gev.pdf'
+      - 'research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply_gev.png' # PNG/PDF are regenerated from the same plotting source
       - '.github/workflows/pr55-referee-letter-build.yml'
 
 permissions:

@@ -57,7 +57,7 @@ def main():
     fontrefs={font[0] for p in doc for font in p.get_fonts()}
     unembedded=[xref for xref in fontrefs if not doc.extract_font(xref)[3]]
     assert not unembedded
-    dependencies=[ROOT/(NAME+'.tex'),*bibs,ROOT/'JHEP.bst',HERE/'outputs/axial_stellar_constraints_reply.pdf']
+    dependencies=[ROOT/(NAME+'.tex'),*bibs,ROOT/'JHEP.bst',HERE/'outputs/axial_stellar_constraints_reply_gev.pdf']
     report=dict(base_commit=BASE,referee_quotes_unchanged=len(quotes(after)),unchanged_science_blocks=unchanged,
         new_layout_wrappers=after.count('\\resizebox{\\linewidth}{!}{$\\displaystyle{'),
         unique_citation_keys=len(cited),labels=len(labels),environments_balanced=True,
