@@ -42,3 +42,23 @@ See [POLARIZATION_DETAILED_BALANCE_AUDIT_2026-11-07.md](POLARIZATION_DETAILED_BA
 **Supplemental regression work:** added `test_stage1_detailed_balance.py` with (i) a pointwise B.19 test using the actual inverse-Compton matrix elements for L,+,- and both muon charges, (ii) a three-mode opacity-shape test, and (iii) an independent adaptive-quadrature check of the two-charge susceptibility. Added `audit_muon_susceptibility.py` plus the saved `outputs/vector_audit/muon_susceptibility_charge_audit.json`, which quantify the B.17 charge-conjugate convention on the selected profile. The inner-core $\mu^+$ fraction is 0.3–1.3%; it is negligible at larger radii in absolute density. The printed B.17 convention remains unresolved.
 
 **Disposition:** keep the production solver mode-resolved. Do not change the opacity normalization, introduce a factor of 3, or modify scan outputs in Stage 1. The complete 30-test suite, saved scan validation, figure regeneration, and numerical audit reproducibility pass in [GitHub Actions run #49](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42284283285). Stage 2 starts only after the B.2 opacity convention and B.17 charge convention are explicitly addressed. PR #56 remains Draft; manuscript and referee response remain untouched.
+
+
+## Stage 2 reset: independent Blinov scalar reproduction (2026-11-07)
+
+**Purpose:** separate literal reproduction of the reference paper from validation of the existing mode-resolved production solver. No existing scans, audit records, figures, manuscript source, or referee-response files are deleted or overwritten.
+
+**New independent module:** [blinov_reproduction/README.md](blinov_reproduction/README.md).
+
+- [x] Create an isolated implementation that imports neither production rates.py nor transport.py.
+- [x] Transcribe the summed neutrino/dimuon rates, nonrelativistic no-recoil semi-Compton rate, single-species Eq. (33) degeneracy factor, scalar reduced opacity, full chord/direction average, and luminosity integral.
+- [x] Add regression tests for the Fermi-integral rest limit, archived independent decay-rate formula, Compton Thomson limit, Eq. (35) detailed balance, and constant-opacity chord integration.
+- [x] Add a comparison script for digitized Fig. 4 cooling contours and Fig. 7 luminosity curves.
+- [x] Add CI execution and archival of the generated four-mass scan and comparison JSON.
+- [ ] Inspect the new run's actual Fig. 4 and Fig. 7 residuals; do not label reproduction successful from unit tests alone.
+- [ ] Compare the independent scalar reference against the existing mode-resolved solver under matched microphysics and transport inputs, varying one ingredient at a time.
+- [ ] Only after the vector benchmark is understood, resume axial-vector result validation.
+
+**Interpretation boundary:** this module implements the scalar Appendix-B prescription literally, including the scalar opacity. It is a reference-reproduction path, not a declaration that scalar summed opacity is the physically correct per-particle attenuation law when the three polarization opacities differ. The original authors' private numerical choices are not inferred. The profile remains the archived reconstructed SFHo-18.8, t=1 s profile; it is not original simulation data.
+
+**Scope freeze:** do not change production rates.py, transport.py, existing vector/axial scans, constraint plots, manuscript source, or referee-response TeX/PDF in this stage. PR #56 remains Open / Draft.
