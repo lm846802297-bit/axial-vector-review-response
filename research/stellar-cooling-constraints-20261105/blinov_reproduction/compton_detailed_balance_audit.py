@@ -55,7 +55,10 @@ def dirac_adjoint(matrix):
 
 
 def kallen(x, y, z):
-    return x*x + y*y + z*z - 2.0*x*y - 2.0*x*z - 2.0*y*z
+    """Numerically stable factored Källén function for squared masses."""
+    a = math.sqrt(max(y, 0.0))
+    b = math.sqrt(max(z, 0.0))
+    return (x - (a + b)*(a + b)) * (x - (a - b)*(a - b))
 
 
 def two_body_momentum(s, mass_a, mass_b):
