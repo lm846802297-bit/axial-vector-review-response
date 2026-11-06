@@ -25,7 +25,7 @@ g_R^\mu=g_V^\mu+g_A^\mu=-g_X\cos(2\theta_{\mu R}).
 Thus \(\theta_{\mu R}=0\) is the pure-axial endpoint and \(\theta_{\mu R}=\pi/2\) is the pure-vector endpoint. At the adopted UV benchmark \(\theta_{\mu R}=10^{-2}\),
 \[
 |g_V^\mu/g_A^\mu|=\tan^2\theta_{\mu R}
-\simeq 1.00003\times10^{-4}.
+\simeq 1.00006667\times10^{-4}.
 \]
 
 The existing rates module represents its axial basis as \(\gamma^\mu(-\gamma^5)\). In that basis the coefficient is \(-g_A^\mu\). This sign conversion is explicit in model.py and must be preserved when constructing mixed amplitudes.

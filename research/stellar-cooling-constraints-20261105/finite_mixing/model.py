@@ -50,8 +50,13 @@ def muon_couplings(g_x: float, theta_mu_r: float) -> MuonCouplings:
     if not math.isfinite(theta) or not 0.0 <= theta <= math.pi / 2.0:
         raise ValueError("theta_mu_r must be finite and lie in [0, pi/2]")
 
-    s2 = math.sin(theta) ** 2
-    c2 = math.cos(theta) ** 2
+    if theta == 0.0:
+        s2, c2 = 0.0, 1.0
+    elif theta == math.pi / 2.0:
+        s2, c2 = 1.0, 0.0
+    else:
+        s2 = math.sin(theta) ** 2
+        c2 = math.cos(theta) ** 2
     gv = gx * s2
     ga = -gx * c2
     return MuonCouplings(

@@ -29,8 +29,8 @@ class FiniteMixingCouplingTests(unittest.TestCase):
         self.assertAlmostEqual(
             c.abs_vector_to_axial_ratio, math.tan(theta) ** 2, places=15
         )
-        self.assertAlmostEqual(c.abs_vector_to_axial_ratio, 1.0000333344e-4,
-                               delta=1.0e-12)
+        self.assertAlmostEqual(c.abs_vector_to_axial_ratio, 1.0000666704446414e-4,
+                               delta=1.0e-15)
         self.assertAlmostEqual(c.g_left, 0.1, places=15)
 
     def test_neutrino_couplings_are_independent_of_mixing_angle(self):
