@@ -5,7 +5,9 @@ This script does not import the production solver.
 """
 import argparse
 import csv
+import hashlib
 import json
+import os
 from pathlib import Path
 
 import numpy as np
@@ -75,7 +77,21 @@ def compare(scan_path, fig4_path, fig7_path, threshold=4.4e52):
     fig4 = load_vertices(fig4_path)
     fig7 = json.loads(Path(fig7_path).read_text(encoding="utf-8"))
     fig7_points = fig7["reference_vertices"]
-    results = {"threshold_erg_s": threshold, "fig4": [], "fig7": []}
+    results = {
+        "threshold_erg_s": threshold,
+        "run_commit_sha": os.environ.get("GITHUB_SHA"),
+        "comparison_code_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+        "input_sha256": {
+            "scan_json": hashlib.sha256(Path(scan_path).read_bytes()).hexdigest(),
+            "fig4_digitized_vertices": hashlib.sha256(Path(fig4_path).read_bytes()).hexdigest(),
+            "fig4_provenance": hashlib.sha256(
+                (ROOT / "data" / "vector_reference" / "provenance.json").read_bytes()
+            ).hexdigest(),
+            "fig7_digitized_comparison_source": hashlib.sha256(Path(fig7_path).read_bytes()).hexdigest(),
+        },
+        "fig4": [],
+        "fig7": [],
+    }
 
     for row in scan["results"]:
         mass = float(row["mass_MeV"])
