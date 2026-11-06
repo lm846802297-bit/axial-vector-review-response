@@ -32,76 +32,87 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p build/pages
+          mkdir -p build/pages build/review
           export BIBINPUTS="$GITHUB_WORKSPACE/overleaf-source/axial-vector-model-building-v6:$GITHUB_WORKSPACE:"
           export BSTINPUTS="$GITHUB_WORKSPACE:"
-          latexmk -pdf -bibtex -interaction=nonstopmode -file-line-error -halt-on-error -outdir=build Replies_to_Referee_3_referee_facing_2026-11-04.tex 2>&1 | tee build/latexmk.log
+          latexmk -g -pdf -bibtex -interaction=nonstopmode -file-line-error -halt-on-error -outdir=build Replies_to_Referee_3_referee_facing_2026-11-04.tex 2>&1 | tee build/latexmk.log
           test -s build/Replies_to_Referee_3_referee_facing_2026-11-04.pdf
+          test -s build/Replies_to_Referee_3_referee_facing_2026-11-04.bbl
           cp build/Replies_to_Referee_3_referee_facing_2026-11-04.pdf ./Replies_to_Referee_3_referee_facing_2026-11-04.pdf
+          echo "----- BibTeX log -----"
+          cat build/Replies_to_Referee_3_referee_facing_2026-11-04.blg || true
+          echo "----- BBL bibliography items -----"
+          grep -c '\\bibitem' build/Replies_to_Referee_3_referee_facing_2026-11-04.bbl || true
 
-      - name: Validate references and PDF structure
+      - name: Validate final citations, cross-references, and PDF structure
         shell: bash
         run: |
           set -euo pipefail
           pdftotext -layout Replies_to_Referee_3_referee_facing_2026-11-04.pdf build/reply.txt
           pdfinfo Replies_to_Referee_3_referee_facing_2026-11-04.pdf | tee build/pdfinfo.txt
-          if grep -E 'undefined references|Citation .* undefined|There were undefined citations|Label\(s\) may have changed' build/latexmk.log; then
-            echo "Potential unresolved citation/reference warning; inspect build log."
-          fi
-          if grep -q 'Citation .* undefined\|There were undefined citations' build/latexmk.log; then
+          FINAL_LOG=build/Replies_to_Referee_3_referee_facing_2026-11-04.log
+          BIB_LOG=build/Replies_to_Referee_3_referee_facing_2026-11-04.blg
+          if grep -E "I couldn't open|I didn't find a database entry|Warning--I didn't find" "$BIB_LOG"; then
+            echo "BibTeX reports missing or unreadable bibliography entries."
             exit 1
           fi
+          if grep -E "Citation .* undefined|There were undefined references|Reference .* undefined" "$FINAL_LOG"; then
+            echo "Unresolved citations or cross-references remain in the final LaTeX pass."
+            exit 1
+          fi
+          if ! grep -q '\\bibitem' build/Replies_to_Referee_3_referee_facing_2026-11-04.bbl; then
+            echo "The generated bibliography contains no bibitems."
+            exit 1
+          fi
+          if grep -E "Overfull \\hbox|Overfull \\vbox" "$FINAL_LOG"; then
+            echo "Overfull boxes require visual review; see the log."
+          fi
+          echo "Final .log contains no unresolved citation/reference warnings."
+          echo "BibTeX .blg contains no missing-entry/database warnings."
 
-      - name: Render every PDF page and build contact sheet
+      - name: Render every page and create inspectable contact sheets
         run: |
           set -euo pipefail
           pdftoppm -png -r 150 Replies_to_Referee_3_referee_facing_2026-11-04.pdf build/pages/page
           python3 - <<'PY'
           from PIL import Image, ImageDraw
           from pathlib import Path
-          pages = sorted(Path("build/pages").glob("page-*.png"))
+          import base64, io, re
+          pages = sorted(Path("build/pages").glob("page-*.png"),
+                         key=lambda p: int(re.search(r"-(\\d+)\\.png$", p.name).group(1)))
           if not pages:
               raise SystemExit("No PDF pages rendered")
-          thumbs = []
-          for p in pages:
-              im = Image.open(p).convert("RGB")
-              im.thumbnail((420, 594))
-              tile = Image.new("RGB", (440, 624), "white")
-              tile.paste(im, ((440-im.width)//2, 20))
-              ImageDraw.Draw(tile).text((12, 4), p.stem, fill="black")
-              thumbs.append(tile)
-          cols = 3
-          rows = (len(thumbs)+cols-1)//cols
-          sheet = Image.new("RGB", (cols*440, rows*624), (220,220,220))
-          for i, im in enumerate(thumbs):
-              sheet.paste(im, ((i%cols)*440, (i//cols)*624))
-          sheet.save("build/contact-sheet.png")
-          print(f"Rendered {len(pages)} pages at 150 dpi")
+          for batch_start in range(0, len(pages), 6):
+              batch = pages[batch_start:batch_start+6]
+              sheet = Image.new("RGB", (1120, 2400), (225,225,225))
+              for local_i, p in enumerate(batch):
+                  im = Image.open(p).convert("RGB")
+                  im.thumbnail((540, 760))
+                  tile = Image.new("RGB", (560, 800), "white")
+                  tile.paste(im, ((560-im.width)//2, 28))
+                  ImageDraw.Draw(tile).text((12, 6), f"PDF page {batch_start+local_i+1}", fill="black")
+                  sheet.paste(tile, ((local_i%2)*560, (local_i//2)*800))
+              buf = io.BytesIO()
+              sheet.crop((0,0,1120,((len(batch)+1)//2)*800)).save(buf, format="PNG", optimize=True)
+              encoded = base64.b64encode(buf.getvalue()).decode("ascii")
+              svg = f'<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="{((len(batch)+1)//2)*800}" viewBox="0 0 1120 {((len(batch)+1)//2)*800}"><image width="1120" height="{((len(batch)+1)//2)*800}" href="data:image/png;base64,{encoded}"/></svg>'
+              out = Path("build/review") / f"pages-{batch_start+1:02d}-{batch_start+len(batch):02d}.svg"
+              out.write_text(svg, encoding="utf-8")
+          print(f"Rendered {len(pages)} pages at 150 dpi into {((len(pages)+5)//6)} contact sheets.")
           PY
 
-      - name: Commit the freshly compiled PDF to the PR branch
+      - name: Commit the compiled PDF and temporary visual-review sheets
         if: success()
-        env:
-          GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add Replies_to_Referee_3_referee_facing_2026-11-04.pdf
+          mkdir -p pr55-visual-review
+          cp build/review/*.svg pr55-visual-review/
+          git add Replies_to_Referee_3_referee_facing_2026-11-04.pdf pr55-visual-review/
           if git diff --cached --quiet; then
-            echo "Compiled PDF is already current."
+            echo "Compiled PDF and visual-review sheets are already current."
           else
-            git commit -m "Add freshly compiled referee response PDF [skip ci]"
+            git commit -m "Add compiled referee response PDF and page previews [skip ci]"
             git push origin HEAD:${{ github.event.pull_request.head.ref }}
           fi
-
-      - name: Upload build log, PDF, extracted text, and rendered pages
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: pr55-referee-letter-build
-          path: |
-            Replies_to_Referee_3_referee_facing_2026-11-04.pdf
-            build/
-          if-no-files-found: warn
-          retention-days: 14
