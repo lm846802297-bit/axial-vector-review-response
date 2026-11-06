@@ -11,18 +11,18 @@
   "labels": 5,
   "environments_balanced": true,
   "pdf_pages": 65,
-  "pdf_sha256": "56451f2dedf9ecee9ed826785424f934a2c0d21e46456ce8c18665afc962af1a",
+  "pdf_sha256": "686d20c8d1ee5a4ca1eca89ba4838ac0d2984170cadd8cd1e267015374a641a7",
   "pdf_matches_build": true,
   "unresolved_pdf_markers": [],
   "all_fonts_embedded": true,
   "overfull_warnings": [],
   "dependency_sha256": {
-    "Replies_to_Referee_3_referee_facing_2026-11-04.tex": "109933617fdec936f1ffd981e6438e89a9b653d2c7ff799f7cfc8f74eaf6eaab",
+    "Replies_to_Referee_3_referee_facing_2026-11-04.tex": "cf8acc3110f9ccfe344fe69aa92e9f9e310e08afe3bf48a904c3c26e6f0d23f7",
     "overleaf-source/axial-vector-model-building-v6/references.bib": "6bf49fe8cc056f870f395f828e7395fb4ac57d75659769f4bb959ec027dbbe22",
     "Replies_to_Referee_3_neutrino_references.bib": "7156931d0b92e16f7b893d6d04f1b12d2a7062f941046488c8e639919434d250",
     "Replies_to_Referee_3_stellar_references.bib": "6dec703d2ef627d3ecb63e11389e8ef84bb17b6cccadec9b9edb30a2d2d905d4",
     "JHEP.bst": "32c737d743b198bd27f171a01947d44772cc12dc96bac488a60148bf41fad7cd",
-    "research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply.pdf": "ae1425cf4a092129398bd2a2121b8f4b6ae7db56746789d5c3a7284e67571e07"
+    "research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply.pdf": "f826d50ec775aba7cafc9921cd58a20a6f39f1266eaf8261a39de339dbbd87bb"
   },
   "versions": {
     "python": "3.12.3",
