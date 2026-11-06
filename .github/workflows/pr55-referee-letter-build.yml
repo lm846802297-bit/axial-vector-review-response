@@ -150,7 +150,6 @@ jobs:
           fi
           git add Replies_to_Referee_3_referee_facing_2026-11-04.pdf
           git add research/stellar-cooling-constraints-20261105/outputs/reply_audit.json
-          git add -f build/review/pages-*.svg
           if git diff --cached --quiet; then
             echo "Compiled PDF and visual-review sheets are already current."
           else
