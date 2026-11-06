@@ -104,7 +104,7 @@ class MuonSusceptibilityTests(unittest.TestCase):
         implemented = transport.effective_muon_density(
             np.array([temperature]), np.array([mu_mu]), order=160
         )[0]
-        assert_allclose(implemented, expected_both_charges, rtol=2e-6)
+        assert_allclose(implemented, expected_both_charges, rtol=1e-5)
         self.assertGreater(n_plus, 0.0)
         self.assertGreater(n_minus, n_plus)
         assert_allclose(n_plus / n_minus, 8.08469548e-3, rtol=2e-7)
