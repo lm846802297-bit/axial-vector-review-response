@@ -40,7 +40,7 @@ They do not scale with the charged-muon mixing angle. Tau leptons are not includ
 
 A mixed-current calculation is not accepted merely because it approaches the existing axial curve at small angle. Its pure-vector endpoint must first reproduce the published Blinov et al. result with matched inputs. The version of record is JHEP 2026, 155, DOI 10.1007/JHEP06(2026)155; arXiv:2511.09619.
 
-The current state is **BLOCKED**; see VECTOR_ENDPOINT_GATE_2026-11-07.md. In brief:
+The current state is **BLOCKED**; see VECTOR_ENDPOINT_GATE_2026-11-07.md. A one-factor Ferreira-μ_mu profile swap does not solve the 10 MeV full-curve mismatch; it worsens the overall residual. The baseline Caputo μ_mu profile is independently density-anchored, while the exact source simulation profile is not publicly retrievable in the current audit. In brief:
 
 - The archived independent scalar Appendix-B calculation reproduces four digitized Fig. 4 contour points within 2.60%, but does not reproduce the full Fig. 7 luminosity curve at 10 MeV (91.35% maximum and 15.64% mean absolute relative residual).
 - The current mode-resolved vector scan closes at 259.08--259.14 MeV, while the archived digitized Fig. 4 contour ends near 210.98 MeV.

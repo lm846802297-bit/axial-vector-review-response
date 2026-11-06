@@ -108,3 +108,8 @@ The current Fig. 4/Fig. 7 digitizations originate from the arXiv source archive.
 ### Version-of-record figure check
 
 A visual side-by-side check of the published JHEP PDF and arXiv v2 finds no visible changes to Fig. 4 or Fig. 7 (published PDF pp. 16 and 24; arXiv v2 pp. 17 and 26). This does not replace exact path-level re-digitization; the archived vertices remain the arXiv-source extraction. The published text also states that the no-recoil semi-Compton approximation is typically relevant for m_V below the MeV scale, making the 10 MeV tail a priority for controlled Compton/profile comparisons. See [finite_mixing/VECTOR_ENDPOINT_GATE_2026-11-07.md](finite_mixing/VECTOR_ENDPOINT_GATE_2026-11-07.md).
+
+
+### 10 MeV profile-sensitivity result
+
+A one-factor test replacing only the Caputo \(\mu_\mu(r)\) curve with the separate Ferreira curve gives a worse full Fig. 7 residual (mean 42.13%, maximum 65.04%, versus 15.73% and 92.24% for the baseline) and does not resolve the high-coupling tail. The Caputo central \(\mu_\mu\) independently reproduces the plotted muon density to about 0.5%; adding \(m_\mu\) to it is incorrect. The exact s18.8-SFHo-MUONS simulation profile is not publicly accessible from the current Garching archive endpoint (HTTP 401), and the paper does not deposit its simulation data/code. Thus exact point-by-point Fig. 7 reproduction is not currently supportable from the reconstructed profile. See [VECTOR_ENDPOINT_GATE_2026-11-07.md](finite_mixing/VECTOR_ENDPOINT_GATE_2026-11-07.md) and the archived [profile-sensitivity output](../blinov_reproduction/outputs/muon_profile_sensitivity_10mev.json).

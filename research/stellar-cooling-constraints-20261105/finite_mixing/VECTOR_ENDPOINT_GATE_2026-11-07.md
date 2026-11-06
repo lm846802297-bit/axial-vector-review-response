@@ -65,3 +65,21 @@ Two statements in the published paper are relevant to interpreting that mismatch
 Our 10 MeV audit finds a source-weighted opacity split of about 89.8% neutrino inverse decay and 10.2% inverse Compton. A 10% opacity component can still have a large effect after exponentiation in the strong-trapping tail. This does not justify changing its normalization; it identifies the 10 MeV Compton approximation/profile input as a targeted controlled-comparison priority.
 
 The paper's Section 4.5 also explicitly notes order-one differences from earlier literature due to its updated treatment and says previous results are recovered when their methods are replicated. Therefore the acceptance target here is the Blinov version-of-record result itself, not an unspecified older vector curve.
+
+
+## One-factor muon-chemical-potential profile sensitivity (2026-11-07)
+
+A controlled diagnostic changes only \(\mu_\mu(r)\), replacing the baseline Caputo digitization with the separate Ferreira digitization while keeping \(T(r)\), \(\mu_{\nu_\mu}(r)\), lapse, rates, transport, mass, and coupling grid fixed. The full output is archived at [muon_profile_sensitivity_10mev.json](../blinov_reproduction/outputs/muon_profile_sensitivity_10mev.json).
+
+| Metric, 10 MeV | Baseline Caputo \(\mu_\mu\) | Ferreira \(\mu_\mu\) only |
+|---|---:|---:|
+| Mean absolute relative Fig. 7 residual | 15.73% | 42.13% |
+| Maximum absolute relative Fig. 7 residual | 92.24% | 65.04% |
+| \(4.4\times10^{52}\) lower crossing \(g_X\) | \(1.014\times10^{-9}\) | \(8.055\times10^{-10}\) |
+| \(4.4\times10^{52}\) upper crossing \(g_X\) | \(3.862\times10^{-8}\) | \(3.807\times10^{-8}\) |
+
+The alternative curve improves the far-trapping tail but worsens the weak-coupling and peak regions and substantially worsens the full-curve residual. It does not solve the 10 MeV mismatch and is not adopted. The baseline Caputo central \(\mu_\mu\) is independently consistent with the digitized muon number density: the Fermi integral gives \(9.581\times10^{-5}\,\mathrm{fm}^{-3}\), compared with the plotted \(9.628\times10^{-5}\,\mathrm{fm}^{-3}\) (about 0.5%). Adding \(m_\mu\) to this chemical potential would overpredict the central density by about a factor of 88 and is therefore incorrect under this profile convention.
+
+The exact s18.8-SFHo-MUONS source profile is not available in the public material currently accessible to this audit: the Garching archive entry for the radial profiles returns HTTP 401, and the published paper's data-availability statement does not provide associated simulation data/code. Consequently, a full point-by-point Fig. 7 reproduction cannot be claimed from the reconstructed profile alone. The Fig. 4 contour-level agreement remains a useful independent cross-check, but it is not equivalent to reproducing the full luminosity curve.
+
+**Disposition:** retain the Caputo profile as the better independently density-anchored reconstruction; retain Ferreira only as a systematic diagnostic. The 10 MeV full-curve gate remains blocked.
