@@ -28,10 +28,13 @@ g_{\nu_\mu}=+g_X,\quad g_{\nu_\tau}=-g_X.
 ![限制与通道对照](outputs/axial_stellar_constraints.png)
 
 - [横版 PDF](outputs/axial_stellar_constraints.pdf)：独立比较图。
-- [回复信竖排 PDF](outputs/axial_stellar_constraints_reply.pdf)：相同数据，提高在正文栏宽下的可读性。
+- [回复信竖排 PDF（MeV）](outputs/axial_stellar_constraints_reply.pdf)：保留原 MeV 质量轴版本，便于与超新星质量基准对照。
 - [GeV 单位对比版 PDF](outputs/axial_stellar_constraints_gev.pdf) / [PNG](outputs/axial_stellar_constraints_gev.png)：由同一组已保存扫描数据生成，只将质量坐标按 \(m_{A'}[\mathrm{GeV}]=m_{A'}[\mathrm{MeV}]/1000\) 转换；作为 Fig. 2 对照视图新增，不替换原来的 MeV 宽版图或回复信版图。 绘图范围仍覆盖 SN 扫描的 \(10^{-5}\)–\(0.5\) GeV；阴影只标示当前面板与 Fig. 2 展示窗口的可见交集，不代表重画 Fig. 2 的完整质量范围。
+- [回复信竖排 GeV PDF](outputs/axial_stellar_constraints_reply_gev.pdf) / [PNG](outputs/axial_stellar_constraints_reply_gev.png)：与 GeV 宽版使用同一组扫描数据和质量坐标变换，但采用上下两面板竖排，适合正式回复信栏宽；下方面板保留完整的光学薄产生端占比定义。
 
 ![GeV 单位对比版](outputs/axial_stellar_constraints_gev.png)
+
+![GeV 单位回复信竖版](outputs/axial_stellar_constraints_reply_gev.png)
 - [光度随耦合变化](outputs/luminosity_checks.pdf)：显示产生增加与截获抑制。
 - [数值验证摘要](outputs/numerical_validation.json)、[验证与正式自审记录](VALIDATION_AND_REVIEW.md)。
 

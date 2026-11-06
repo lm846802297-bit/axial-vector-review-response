@@ -30,9 +30,10 @@
 - **与 PR #53 的区别：** PR #53 继续研究原论文单 VEV UV 模型的完整恒星冷却匹配；PR #56 是专门支持 Major 4.4 的固定剖面轴矢量 EFT ballistic-cooling benchmark。PR #56 使用原论文的低能电流归一化 \(g_A^\mu=-g_X\)、\(g_V^\mu=0\)、\(g_{\nu_\mu}=+g_X\)、\(g_{\nu_\tau}=-g_X\)，不引入新的 UV 场、不采用双 VEV 映射，也不把 Major 3 的可选 seesaw 带入本计算。
 - **回复信整合：** Major 4.4 增加轴矢量半康普顿、三偏振输运、三通道竞争、冷却带和数值敏感性；Major 2 增加新图交叉引用；Summary 与新恒星物理参考文献同步。正式回复信仍不包含 PR、CI 或内部任务状态。
 - **数值验收：** 19 项单元测试通过；28 个独立振幅对照点的最大相对误差为 \(2.8801\times10^{-12}\)；75 个基准质量点、80 个轴矢量绘图质量点、每点 301 个耦合。冷却带的质量端点位于 255–260 MeV；10 MeV 薄极限半康普顿份额约 91.4%，100 MeV 中微子份额约 99.4%。
-- **PDF 验收：** 65 页 A4；45 个唯一引用键、27 段审稿人原文全部保留；无未解析引用/交叉引用、无未嵌入字体、无 overfull 警告。全文 65 页完成视觉检查；新图位于第 45 页。末页只有最后一条参考文献，但不是空白页；缩小整套参考文献字号未减少页数，因此恢复标准字号。
+- **PDF 验收：** 最新 GeV 竖版图版本重新编译为 65 页 A4；45 个唯一引用键、27 段审稿人原文全部保留；无未解析引用/交叉引用、无未嵌入字体、无 overfull 警告。最新 CI 将全部 65 页以 150 dpi 渲染并通过 PDF 结构审计；新 GeV 回复信 PNG 已单独完成视觉检查。根目录 PDF SHA-256 为 cc998df36c809fd47acf8d714b1c286e1d4d1f7a8f1a56cd4df0cd27540832ea。此前末页只有最后一条参考文献，但不是空白页；缩小整套参考文献字号未减少页数，因此恢复标准字号。
 - **GeV 对比图：** 新增 outputs/axial_stellar_constraints_gev.png/.pdf，完全复用已有扫描数据，只将质量坐标由 MeV 转为 GeV；原宽版 MeV 图和回复信版 MeV 图均保留。阴影只标示当前面板与 Fig. 2 展示窗口的可见交集，不表示重绘 Fig. 2 全部范围。
-- **图形验证：** GitHub Actions Run [42225655771](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42225655771) 通过：19/19 单元测试、28 组独立半康普顿振幅对照（最大相对误差 2.8801e-12）、保存扫描检查、图形生成及 GeV PNG/PDF 自动发布均成功；最终图已完成视觉检查。
+- **GeV 竖版回复信图：** 新增 outputs/axial_stellar_constraints_reply_gev.png/.pdf；与 GeV 宽版使用同一数据和坐标变换，采用上下两面板竖排，并在下方面板保留完整的 “Fraction of optically thin axial luminosity” 纵轴标签。正式回复信 TeX 已切换到新 PDF，根目录回复信 PDF 已重新编译。
+- **图形验证：** GitHub Actions Run [42230567245](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42230567245) 通过：19/19 单元测试、28 组独立半康普顿振幅对照（最大相对误差 2.8801e-12）、保存扫描检查及四类 MeV/GeV 图形再生成和发布均成功；GeV 竖版回复信 PNG 已完成视觉检查。最终 PDF 构建见 Run [42230873049](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42230873049)。
 - **边界：** 这是指定剖面和所列通道下的条件性 ballistic benchmark，不是完整超新星流体模拟、全介质输运、LESN/高能中微子重铸或完整 UV 参数空间排除。论文正文未修改。PR #56 保持 Draft，等待作者审阅与明确合并决定。
 
 ## 2026-11-05 更新：模型范围纠正与研究 PR 替代关系
@@ -269,7 +270,7 @@ Major 4.2 已补充有限轻子混合产生的非零动能混合、四态矢量�
 | PR | 状态 | 当前已知边界 |
 |---|---|---|
 | [#53 原论文单 VEV 轴矢量恒星冷却/半康普顿计算](https://github.com/lm846802297-bit/axial-vector-review-response/pull/53) | Open / Draft；2026-11-05 新建 | 原论文单 VEV 映射与局部振幅/热率已验收；完整介质 T/L opacity 和 SN 输运仍未完成 |
-| [#56 Major 4.4 轴矢量 EFT ballistic-cooling benchmark](https://github.com/lm846802297-bit/axial-vector-review-response/pull/56) | Open / Draft；2026-11-06 更新 | 固定剖面 EFT benchmark、回复信图表、19 项测试、数值审计和 65 页 PDF 验收完成；不是完整 UV 或流体输运分析 |
+| [#56 Major 4.4 轴矢量 EFT ballistic-cooling benchmark](https://github.com/lm846802297-bit/axial-vector-review-response/pull/56) | Open / Draft；2026-11-06 更新 | 固定剖面 EFT benchmark、GeV 竖版回复信图、19 项测试、数值审计和最新 65 页 PDF 构建完成；不是完整 UV 或流体输运分析 |
 | [#52 原论文单 VEV 标量 Belle II 后续研究](https://github.com/lm846802297-bit/axial-vector-review-response/pull/52) | Closed / 未合并；保留研究分支 | 保留来源台账、重铸协议和部分宽度框架；Belle II 补充数据提取、benchmark 复现和 UV 重铸尚未完成 |
 | [#54 Major 3/4.1 回复范围隔离与原论文模型一致性](https://github.com/lm846802297-bit/axial-vector-review-response/pull/54) | 已合并；2026-11-05 | Major 3/4.1 扩展仅限中微子回复论证；跨问题引用已隔离 |
 | [#55 Minor Points 论证扩充与长期写作规范](https://github.com/lm846802297-bit/axial-vector-review-response/pull/55) | 已合并；2026-11-06 | 正式回复信、Minor Points 和写作规范已进入 main |

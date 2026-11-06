@@ -115,3 +115,24 @@ PR #56 保持 Open / Draft，尚未合并，等待作者审阅。论文正文未
 - **自动验证：** GitHub Actions Run [42225655771](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42225655771) 成功。19/19 单元测试通过；28 个独立半康普顿振幅对照的最大相对误差为 \(2.8801\times10^{-12}\)；保存扫描输出检查、全部图形再生成及 GeV PNG/PDF 发布步骤均通过。自动生成图像的提交为 4ec40c9e55c29ff7213a96f85135e9da09829afa。
 
 本次仅新增绘图展示单位和相应文件，不改变 Major 4.4 的物理结论、模型假设或论文正文。
+
+
+## 8. GeV 单位竖版回复信图及 TeX/PDF 更新（2026-11-06）
+
+新增 outputs/axial_stellar_constraints_reply_gev.png 和 outputs/axial_stellar_constraints_reply_gev.pdf，并将正式回复信图像引用切换到该 PDF。
+
+- **数据来源与物理不变性：** 竖版 GeV 图直接复用 axial.json、vector.json 和 endpoint.json 的同一组保存扫描。唯一的质量坐标变换为
+  \[
+  m_{A'}^{\rm GeV}=m_{A'}^{\rm MeV}/1000.
+  \]
+  不重新扫描、不插值，不改变耦合网格、光度、冷却标准、区间端点或通道份额。
+- **版式与坐标：** 采用回复信栏宽的上下两面板竖版布局；上、下两面板的质量横轴均为 GeV。上方面板保留轴矢量冷却带、同输入矢量参考曲线、两个冷却标准和 Fig. 2 可见重叠区。下方面板保留 Compton、中微子和 dimuon 三个产生通道。
+- **纵轴定义：** 下方面板使用完整标签 “Fraction of optically thin axial luminosity”，并对应
+  \[
+  f_i^{\rm thin}=\frac{L_i^{\rm thin}}{\sum_j L_j^{\rm thin}}.
+  \]
+  这是光学薄极限、逃逸衰减之前的产生端通道份额，不是完整传播后的实际逃逸光度比例。
+- **TeX 整合：** Replies_to_Referee_3_referee_facing_2026-11-04.tex 的 Major 4.4 图像引用改为 outputs/axial_stellar_constraints_reply_gev.pdf；图注明确 \(m_{A'}\) 使用 GeV，以便与 Fig. 2 直接比较。图后的代表性质量区间表仍明确标注 MeV；这只是表格采用的质量单位，不改变图的 GeV 轴或任何数值。
+- **自动生成与图像检查：** 数值工作流 Run [42230567245](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42230567245) 通过，重新生成并发布 PNG/PDF；竖版 PNG 已检查，两个 GeV 横轴、完整纵轴标签、图例、Fig. 2 阴影说明和底部注释均清晰可读。生成资产的提交为 91fc26399fee98ba976b10e5a8890775efab276a。
+- **最终回复信 PDF：** LaTeX/BibTeX 构建 Run [42230873049](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42230873049) 成功。PDF 为 65 页 A4；45 个唯一引用键和 27 段审稿人原文保持不变；无未解析引用/交叉引用、未嵌入字体或 overfull 警告；全部页面均由 CI 以 150 dpi 渲染，PDF 结构审计通过。根目录 PDF 与构建产物一致，SHA-256 为 cc998df36c809fd47acf8d714b1c286e1d4d1f7a8f1a56cd4df0cd27540832ea。outputs/reply_audit.json 同时记录了新 GeV 图 PDF 的依赖哈希。
+- **范围：** 本次只调整回复信图的显示单位、版式、TeX 图像引用和 PDF；不修改数值结果、Major 4.4 的物理结论或论文正文。PR #56 仍为 Open / Draft，未合并。
