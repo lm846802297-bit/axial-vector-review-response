@@ -1,0 +1,153 @@
+name: PR55 referee response LaTeX build
+
+on:
+  push:
+    branches:
+      - review/response-point-conclusions-20261106
+    paths:
+      - "Replies_to_Referee_3_referee_facing_2026-11-04.tex"
+      - "Replies_to_Referee_3_neutrino_references.bib"
+      - "overleaf-source/axial-vector-model-building-v6/references.bib"
+      - "JHEP.bst"
+      - ".github/workflows/pr55-latex-build.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pr55-latex-build
+  cancel-in-progress: false
+
+jobs:
+  compile-and-render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out PR #55 branch
+        uses: actions/checkout@v4
+        with:
+          ref: review/response-point-conclusions-20261106
+          fetch-depth: 0
+
+      - name: Install TeX Live and PDF inspection tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            latexmk \
+            texlive-latex-base \
+            texlive-latex-recommended \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            texlive-science \
+            texlive-bibtex-extra \
+            texlive-extra-utils \
+            poppler-utils \
+            ghostscript \
+            python3-pil
+
+      - name: Clean and compile with pdfLaTeX and BibTeX
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/pages
+          export BIBINPUTS="$GITHUB_WORKSPACE/overleaf-source/axial-vector-model-building-v6:$GITHUB_WORKSPACE:"
+          export BSTINPUTS="$GITHUB_WORKSPACE:"
+          latexmk -C -outdir=build Replies_to_Referee_3_referee_facing_2026-11-04.tex
+          latexmk -pdf -bibtex -interaction=nonstopmode -file-line-error -halt-on-error \
+            -outdir=build Replies_to_Referee_3_referee_facing_2026-11-04.tex \
+            2>&1 | tee build/latexmk.stdout.log
+          test -s build/Replies_to_Referee_3_referee_facing_2026-11-04.pdf
+          test -s build/Replies_to_Referee_3_referee_facing_2026-11-04.bbl
+          cp build/Replies_to_Referee_3_referee_facing_2026-11-04.pdf \
+            ./Replies_to_Referee_3_referee_facing_2026-11-04.pdf
+
+      - name: Validate citations, references, and PDF text
+        shell: bash
+        run: |
+          set -euo pipefail
+          LOG=build/Replies_to_Referee_3_referee_facing_2026-11-04.log
+          BLG=build/Replies_to_Referee_3_referee_facing_2026-11-04.blg
+          if grep -Eiq 'Citation .* undefined|Reference .* undefined|There were undefined references' "$LOG"; then
+            echo "Undefined citation/reference detected"
+            grep -Ein 'Citation .* undefined|Reference .* undefined|There were undefined references' "$LOG"
+            exit 1
+          fi
+          if grep -Eiq "I didn't find a database entry|Warning--I didn't find" "$BLG"; then
+            echo "BibTeX reports a missing database entry"
+            cat "$BLG"
+            exit 1
+          fi
+          test "$(grep -c '\\bibitem' build/Replies_to_Referee_3_referee_facing_2026-11-04.bbl)" -gt 0
+          pdftotext -layout Replies_to_Referee_3_referee_facing_2026-11-04.pdf build/reply-extracted.txt
+          test -s build/reply-extracted.txt
+          pdfinfo Replies_to_Referee_3_referee_facing_2026-11-04.pdf | tee build/pdfinfo.txt
+          grep -E 'Pages:|Page size:|File size:' build/pdfinfo.txt
+
+      - name: Render every PDF page and create contact sheet
+        shell: bash
+        run: |
+          set -euo pipefail
+          pdftoppm -png -r 120 Replies_to_Referee_3_referee_facing_2026-11-04.pdf build/pages/page
+          python3 - <<'PY'
+          from pathlib import Path
+          from PIL import Image, ImageDraw
+          pages = sorted(Path("build/pages").glob("page-*.png"))
+          if not pages:
+              raise SystemExit("No PDF pages were rendered")
+          thumbs = []
+          metrics = []
+          for page in pages:
+              image = Image.open(page).convert("RGB")
+              width, height = image.size
+              gray = image.convert("L")
+              # Bounding box of visibly non-white content; useful for spotting
+              # blank pages and grossly displaced/overflowing page content.
+              mask = gray.point(lambda p: 255 if p < 245 else 0)
+              bbox = mask.getbbox()
+              if bbox is None:
+                  raise SystemExit(f"Blank page detected: {page.name}")
+              left, top, right, bottom = bbox
+              metrics.append({
+                  "page": page.name, "width": width, "height": height,
+                  "content_bbox": [left, top, right, bottom],
+                  "edge_clearance_px": [left, top, width-right, height-bottom]
+              })
+              image.thumbnail((480, 680))
+              tile = Image.new("RGB", (500, 715), "white")
+              tile.paste(image, ((500-image.width)//2, 24))
+              ImageDraw.Draw(tile).text((12, 5), page.stem, fill="black")
+              thumbs.append(tile)
+          columns = 3
+          rows = (len(thumbs) + columns - 1) // columns
+          sheet = Image.new("RGB", (columns*500, rows*715), (218, 218, 218))
+          for i, tile in enumerate(thumbs):
+              sheet.paste(tile, ((i % columns)*500, (i // columns)*715))
+          sheet.save("build/contact-sheet.png")
+          Path("build/page-metrics.json").write_text(__import__("json").dumps(metrics, indent=2))
+          print(f"Rendered and checked {len(pages)} pages")
+          PY
+
+      - name: Commit the freshly compiled PDF to the PR branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Replies_to_Referee_3_referee_facing_2026-11-04.pdf
+          if ! git diff --cached --quiet; then
+            git commit -m "Add freshly compiled PR55 referee response PDF [skip ci]"
+            git push origin HEAD:review/response-point-conclusions-20261106
+          else
+            echo "Compiled PDF is byte-identical to the existing repository PDF."
+          fi
+
+      - name: Upload full build logs and page renders
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr55-latex-build-and-page-renders
+          path: |
+            build/
+            Replies_to_Referee_3_referee_facing_2026-11-04.pdf
+          if-no-files-found: warn
+          retention-days: 14
