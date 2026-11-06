@@ -52,6 +52,7 @@ W_L(z)=\frac34(1-z^2),\qquad
 W_+(z)=\frac38(1+z)^2,\qquad
 W_-(z)=\frac38(1-z)^2.
 \]
+They follow from the spin-1 helicity amplitudes: \(W_h=(3/2)|d^1_{h,\Delta\lambda}(\theta)|^2\), with \(|\Delta\lambda|=1\). The sign assignment of the two transverse weights depends on which chiral daughter is called particle 1.
 Each mode is normalized separately:
 \[
 \int_{-1}^{1}dz\,W_h(z)=1,
