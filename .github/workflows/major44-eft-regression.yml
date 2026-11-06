@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: major44-eft-${{ github.event.pull_request.number || github.ref }}
@@ -52,4 +52,24 @@ jobs:
           git diff --exit-code -- \
             research/stellar-cooling-constraints-20261105/outputs/numerical_validation.json
           echo "The independent kernel checker is tolerance-based; its JSON may differ in final floating-point digits across runners."
-
+      - name: Publish regenerated reply figure assets
+        if: success()
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          BRANCH="\${{ github.ref_name }}"
+          git fetch origin "$BRANCH"
+          if [ "$(git rev-parse HEAD)" != "$(git rev-parse FETCH_HEAD)" ]; then
+            echo "Branch advanced during figure generation; refusing to publish stale figures."
+            exit 1
+          fi
+          git add research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply.png
+          git add research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply.pdf
+          if git diff --cached --quiet; then
+            echo "Reply figure assets are already current."
+          else
+            git commit -m "Refresh axial cooling reply figure label"
+            git push origin "HEAD:\${BRANCH}"
+          fi
