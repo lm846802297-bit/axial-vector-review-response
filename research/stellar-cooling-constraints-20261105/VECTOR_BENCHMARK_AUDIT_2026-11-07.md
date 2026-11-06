@@ -1,5 +1,7 @@
 # 矢量基准复现：Blinov et al.（2026-11-07）
 
+> **逐偏振理论推导与代码核查：** B.7–B.19 的模式分解、详细平衡、B.2 光深定义和现有 Python 对照见 [POLARIZATION_DETAILED_BALANCE_AUDIT_2026-11-07.md](POLARIZATION_DETAILED_BALANCE_AUDIT_2026-11-07.md)。本阶段不修改生产代码或输运归一化。
+
 ## 范围与结论
 
 按作者最新指示，仅选择审稿人指定的 [Blinov et al., arXiv:2511.09619v2](https://arxiv.org/abs/2511.09619) 作为矢量基准；不要求复现多篇文献或获取原始超新星数值表。使用现有重建 SFHo-18.8、反弹后 1 s 剖面，核验产生、吸收、偏振和传播的共同计算。数值复现和物理归一化分别判断。
