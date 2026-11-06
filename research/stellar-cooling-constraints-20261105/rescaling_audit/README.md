@@ -37,3 +37,8 @@ L_{\rm calc}(\kappa g_{\rm ref}) \simeq L_{\rm ref}(g_{\rm ref}).
 The search interval is 0.90 <= kappa <= 1.10 with a fixed 0.00025 grid. The objective is the RMS of the logarithmic luminosity ratio. The fit-point set is fixed across all trial values of kappa; no extrapolation is allowed. This prevents the optimizer from improving the score by silently dropping difficult endpoint samples.
 
 A fitted mass-specific kappa is diagnostic only. It is not adopted as a coupling redefinition unless a single physically motivated value also passes the independent Fig. 4 contour-boundary check.
+
+
+## Dedicated CI workflow
+
+The separate Vector coupling rescaling audit workflow runs this directory's regression tests and post-processes the archived JSON curves only. It does not trigger the Major 4.4 full thermal-rate and transport scan workflow, and it does not recalculate B.13.
