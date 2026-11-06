@@ -21,7 +21,7 @@ PR #56 与 PR #53 必须区分：
 
 ## 2. 正式回复信修改与保留审查
 
-以 PR #55 合并后的 main 提交 \`7ef9a4a65fc0f9afd25ed857325760775faf71bd\` 为审计基线。实际修改集中在 Major 2、Major 4.4、Summary 和新增恒星物理参考文献。
+以 PR #55 合并后的 main 提交 `7ef9a4a65fc0f9afd25ed857325760775faf71bd` 为审计基线。实际修改集中在 Major 2、Major 4.4、Summary 和新增恒星物理参考文献。
 
 | 对象 | 修改与处理 | 审查结论 |
 |---|---|---|
@@ -32,7 +32,7 @@ PR #56 与 PR #53 必须区分：
 | Major 1、Major 3–4.3、全部 Minor | 与基线逐段核对 | 科学内容未改 |
 | 审稿人原文 | 逐段核对 | 27 段原始审稿引文全部保留 |
 
-\`audit_reply.py\` 对 Major 1 和 Major 3–4.3、全部 Minor 的源码保留检查通过；27 段引文保持不变。没有将 PR #56 的计算混入 Major 3 的中微子质量机制。
+`audit_reply.py` 对 Major 1 和 Major 3–4.3、全部 Minor 的源码保留检查通过；27 段引文保持不变。没有将 PR #56 的计算混入 Major 3 的中微子质量机制。
 
 ## 3. 缪子自旋简并与积分归一化
 
@@ -47,9 +47,9 @@ f_\eta(E_p)\,[1-f_\eta(E_p)].
 p=\frac{p_{\max}}2(1+x),\qquad
 dp=\frac{p_{\max}}2\,dx.
 \]
-因此自旋简并因子 2 与变量变换 Jacobian 中的 \(1/2\) 正好抵消；代码中出现的 \(p_{\max}\) 系数已经包含这两个因素。**原始 \`transport.py\` 归一化正确，不应再额外乘 2。**
+因此自旋简并因子 2 与变量变换 Jacobian 中的 \(1/2\) 正好抵消；代码中出现的 \(p_{\max}\) 系数已经包含这两个因素。**原始 `transport.py` 归一化正确，不应再额外乘 2。**
 
-新增独立积分回归测试 \`test_effective_muon_density_includes_spin_degeneracy\`，将 Gauss–Legendre 实现与独立自适应积分比较，确认上述归一化。19 项单元测试全部通过。这个核查没有改变原有扫描输出或物理曲线。
+新增独立积分回归测试 `test_effective_muon_density_includes_spin_degeneracy`，将 Gauss–Legendre 实现与独立自适应积分比较，确认上述归一化。19 项单元测试全部通过。这个核查没有改变原有扫描输出或物理曲线。
 
 边界重建比较采用 \(5\times10^{-13}\) 的相对浮点容差；这只用于容忍不同数值运行环境下的末位舍入差，不是物理不确定度或放宽冷却阈值。
 
@@ -72,19 +72,19 @@ dp=\frac{p_{\max}}2\,dx.
 | 中微子化学势 | \(\mu_{\nu_\mu}=0\) 测试点边界变化小于 1% | 不模拟非热中微子谱 |
 | 表层黑体诊断 | 最大表层黑体光度约 \(8.70\times10^{51}\) erg/s，低于 \(4.4\times10^{52}\) erg/s 标准 | 固定剖面下的截获诊断 |
 
-完整逐质量结果、扫描哈希和敏感性数据见 \`outputs/numerical_validation.json\`；独立振幅比较见 \`../stellar-cooling-eft-literature-20261105/literature_kernel_validation.json\`。
+完整逐质量结果、扫描哈希和敏感性数据见 `outputs/numerical_validation.json`；独立振幅比较见 `../stellar-cooling-eft-literature-20261105/literature_kernel_validation.json`。
 
 ## 5. LaTeX、引用与 PDF 视觉验收
 
 - 数值工作流：GitHub Actions Run [42157634239](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42157634239)，通过。
 - 回复信构建工作流：GitHub Actions Run [42157634281](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42157634281)，通过。构建前刷新到最新 PR 分支，PDF 与审计报告来自同一次构建。
 - PDF：65 页 A4，506,847 bytes；SHA-256：
-  \`57c87b7106bb8bc5f70479d7134ab90b9a2e850bf46759ac67f83258c00b26dc\`。
-- \`reply_audit.json\`：45 个唯一引用键；27 段审稿引文不变；标签和环境检查通过；PDF 文本无 \`[?]\`/\`??\`；全部字体嵌入；无 overfull 警告；根目录 PDF 与实际 build 文件哈希一致。
+  `57c87b7106bb8bc5f70479d7134ab90b9a2e850bf46759ac67f83258c00b26dc`。
+- `reply_audit.json`：45 个唯一引用键；27 段审稿引文不变；标签和环境检查通过；PDF 文本无 `[?]`/`??`；全部字体嵌入；无 overfull 警告；根目录 PDF 与实际 build 文件哈希一致。
 - 全部 65 页以 150 dpi 渲染并完成人工缩略图检查。重点检查 Major 4.4 的公式页 43–44、新图第 45 页、讨论页 46 和参考文献页 61–65；没有公式/图表裁切、缺字、页边距溢出或异常空白页。
 - 第 65 页只包含最后一条参考文献，不是空白页。曾试验缩小整个参考文献字号，但没有减少页数，因此恢复标准字号，优先保持引用可读性。
-- LaTeX 日志有一处非阻塞 \`Underfull \\\\hbox\`（badness 1199，源文件第 555–557 行）；无 \`Overfull\`。初次 LaTeX pass 的 citation warnings 经 BibTeX 和后续 pass 消除，最终审计无未解析引用/交叉引用。
-- 视觉检查用的 11 个临时 contact sheets 已在审阅后删除；根目录 PDF、\`reply_audit.json\` 和数值输出保留。
+- LaTeX 日志有一处非阻塞 `Underfull \hbox`（badness 1199，源文件第 555–557 行）；无 `Overfull`。初次 LaTeX pass 的 citation warnings 经 BibTeX 和后续 pass 消除，最终审计无未解析引用/交叉引用。
+- 视觉检查用的 11 个临时 contact sheets 已在审阅后删除；根目录 PDF、`reply_audit.json` 和数值输出保留。
 
 ## 6. 物理限制与结论
 

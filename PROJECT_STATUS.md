@@ -25,7 +25,7 @@
 
 ## 2026-11-06 更新：PR #56 Major 4.4 轴矢量 EFT 恒星冷却 benchmark（Draft）
 
-[PR #56](https://github.com/lm846802297-bit/axial-vector-review-response/pull/56) 保持 Open / Draft，分支为 \`codex/major44-axial-cooling-constraints-20261105\`；**尚未合并**。
+[PR #56](https://github.com/lm846802297-bit/axial-vector-review-response/pull/56) 保持 Open / Draft，分支为 `codex/major44-axial-cooling-constraints-20261105`；**尚未合并**。
 
 - **与 PR #53 的区别：** PR #53 继续研究原论文单 VEV UV 模型的完整恒星冷却匹配；PR #56 是专门支持 Major 4.4 的固定剖面轴矢量 EFT ballistic-cooling benchmark。PR #56 使用原论文的低能电流归一化 \(g_A^\mu=-g_X\)、\(g_V^\mu=0\)、\(g_{\nu_\mu}=+g_X\)、\(g_{\nu_\tau}=-g_X\)，不引入新的 UV 场、不采用双 VEV 映射，也不把 Major 3 的可选 seesaw 带入本计算。
 - **回复信整合：** Major 4.4 增加轴矢量半康普顿、三偏振输运、三通道竞争、冷却带和数值敏感性；Major 2 增加新图交叉引用；Summary 与新恒星物理参考文献同步。正式回复信仍不包含 PR、CI 或内部任务状态。
@@ -41,16 +41,16 @@ PR #50 已于 2026-11-05 Squash Merge 至 main，合并提交为 [51a245b0a36703
 
 - **旧 PR #30：** 已关闭且未合并；其错误采用双 VEV 映射的 PR #51 也已关闭且未合并。现由 [PR #53](https://github.com/lm846802297-bit/axial-vector-review-response/pull/53) 替代。PR #53 从当前 main 创建，严格使用原论文单 VEV 模型 \(m_{A'}=2|g_X|v_s\)、\(G=a_s\)，保留通用电流半康普顿振幅和局部热率计算。六项单 VEV 映射测试通过；介质静止系 T/L opacity、trapping、SN profile 和最终 SN1987A/LESN 曲线仍未完成。
 - **旧 PR #32：** 已关闭且未合并；现由 [PR #52](https://github.com/lm846802297-bit/axial-vector-review-response/pull/52) 替代。PR #52 从当前 main 创建，研究原论文的单 VEV 径向标量，保留 Belle II 来源台账、重铸协议、逐点分类框架和部分宽度计算器。Belle II 逐质量补充数据提取、实验 benchmark 复现、完整宽度/分支比/寿命、产生率、接受度和质量扫描仍未完成。
-- **PR #52：** 已 Closed、未合并；其研究分支 \`research/radial-scalar-original-model-belleii-20261105\` 仍保留，研究成果未合并、未删除。
-- **PR #53：** 保持 Open / Draft；其研究分支 \`research/stellar-cooling-original-uv-model-20261105\` 独立保留。
+- **PR #52：** 已 Closed、未合并；其研究分支 `research/radial-scalar-original-model-belleii-20261105` 仍保留，研究成果未合并、未删除。
+- **PR #53：** 保持 Open / Draft；其研究分支 `research/stellar-cooling-original-uv-model-20261105` 独立保留。
 - PR #52/#53 均不修改论文正文或正式回复信，也不是当前审稿回复的前置条件。PR #56 仅补充正式回复信 Major 4.4 的条件性轴矢量 EFT 冷却论证和图，不修改论文正文，也不引入额外中微子场。旧 PR 的讨论和提交保留作历史溯源，不合并其错误模型范围的提交。
 
-- **PR #54：** 已合并至 \`main\`，合并提交为 [\`0f3816e3e62dd7668fca1d4aee5e8749708f99f2\`](https://github.com/lm846802297-bit/axial-vector-review-response/commit/0f3816e3e62dd7668fca1d4aee5e8749708f99f2)。该 PR 修正正式回复信中 Major 1、2、4.2、4.4 对 Major 3 扩展的跨问题引用，并将中微子完成机制限定为 Major 3/4.1 专门回复内容。
+- **PR #54：** 已合并至 `main`，合并提交为 [`0f3816e3e62dd7668fca1d4aee5e8749708f99f2`](https://github.com/lm846802297-bit/axial-vector-review-response/commit/0f3816e3e62dd7668fca1d4aee5e8749708f99f2)。该 PR 修正正式回复信中 Major 1、2、4.2、4.4 对 Major 3 扩展的跨问题引用，并将中微子完成机制限定为 Major 3/4.1 专门回复内容。
 
 **统一模型边界：** 除 Major Point 3/4.1 的专门中微子回复段落外，所有非中微子审稿回复和专题研究均以原论文 \(S+\mathrm{VLL}\) 单 VEV UV 模型为准。不得将 Major Point 3/4.1 中讨论的可选扩展机制作为原论文已经采用的场内容。
 ## 2026-11-05 更新：PR #53 原论文单 VEV 轴矢量恒星冷却计算（Draft）
 
-[PR #53](https://github.com/lm846802297-bit/axial-vector-review-response/pull/53) 从当前 main 的 \`d3c8c573e0b219dbcb4be62dc57f77fdc04c4f96\` 创建，替代旧 PR #30 及错误采用双 VEV 映射的 PR #51；两者均关闭且未合并。
+[PR #53](https://github.com/lm846802297-bit/axial-vector-review-response/pull/53) 从当前 main 的 `d3c8c573e0b219dbcb4be62dc57f77fdc04c4f96` 创建，替代旧 PR #30 及错误采用双 VEV 映射的 PR #51；两者均关闭且未合并。
 
 - **原论文模型映射：** \(S=(v_s+s+ia_s)/\sqrt2\)、\(Q_X(S)=2\)、\(m_{A'}=2|g_X|v_s\)、\(G=a_s\)。在小 VLL 混合 benchmark 下 \(y_{s\ell\ell}=m_\ell/v_s\)，Goldstone/current 关系为 \(m_\ell/v_s=2|g_A^\ell|m_\ell/m_{A'}\)（\(|g_A^\ell|=|g_X|\)）。
 - **保留的计算：** 显式 Dirac 旋量半康普顿振幅、EM Ward identity、实验室系/CM 截面对照、Klein–Nishina 对照、轴矢量纵向标度、均匀介质局部热产生率及积分阶数/截断扫描。
