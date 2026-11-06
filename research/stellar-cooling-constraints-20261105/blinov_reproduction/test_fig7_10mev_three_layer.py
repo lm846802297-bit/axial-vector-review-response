@@ -32,5 +32,15 @@ class ThreeLayerDiagnosticTests(unittest.TestCase):
         self.assertAlmostEqual(result["neutrino"]["fraction_of_mean_total"],2.0/3.0)
         self.assertAlmostEqual(result["compton"]["fraction_of_mean_total"],1.0/3.0)
 
+
+    def test_weighted_quantile_is_monotone(self):
+        values=np.array([1.0,2.0,3.0,4.0])
+        weights=np.array([1.0,1.0,1.0,1.0])
+        q25=weighted_quantile(values,weights,0.25)
+        q50=weighted_quantile(values,weights,0.50)
+        q75=weighted_quantile(values,weights,0.75)
+        self.assertLessEqual(q25,q50)
+        self.assertLessEqual(q50,q75)
+
 if __name__=="__main__":
     unittest.main(verbosity=2)
