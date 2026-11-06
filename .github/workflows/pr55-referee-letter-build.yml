@@ -155,5 +155,5 @@ jobs:
             echo "Compiled PDF and visual-review sheets are already current."
           else
             git commit -m "Update compiled referee response PDF [skip ci]"
-            git push origin HEAD:${{ github.event.pull_request.head.ref }}
+            git push origin "HEAD:${BRANCH}"
           fi
