@@ -6,7 +6,7 @@
   "reference_sha256": "315ca0d79e20b0ec1c52b5664d58fd7e65f9b30c5c7db56f48db8632ee9c9a5e",
   "muon_mass_MeV": 105.6583755,
   "comparison_count": 28,
-  "maximum_relative_error": 2.8802997677599006e-12,
+  "maximum_relative_error": 2.8800777622282404e-12,
   "comparison_passed": true,
   "points": [
     {
@@ -31,9 +31,9 @@
         },
         {
           "case": "mixed",
-          "spinor": 3961.3120588879956,
+          "spinor": 3961.312058887996,
           "literature": 3961.312058887999,
-          "relative_error": 8.03580078742605e-16
+          "relative_error": 6.887829246365186e-16
         },
         {
           "case": "mixed_sign",
@@ -47,15 +47,15 @@
       "photon_energy_muon_rest_MeV": 30.0,
       "mediator_mass_MeV": 1.0,
       "cos_theta_cm": 0.0,
-      "invariant_sum_residual_MeV2": 4.547473508864641e-13,
-      "axial_to_vector_ratio": 824.0793758905578,
+      "invariant_sum_residual_MeV2": 6.821210263296962e-13,
+      "axial_to_vector_ratio": 824.0793758905575,
       "axial_to_goldstone_ratio": 1.0054720179876824,
       "checks": [
         {
           "case": "vector",
           "spinor": 2.1804294754797486,
-          "literature": 2.1804294754797535,
-          "relative_error": 2.240375743992298e-15
+          "literature": 2.1804294754797544,
+          "relative_error": 2.647716788354533e-15
         },
         {
           "case": "axial",
@@ -99,15 +99,15 @@
         },
         {
           "case": "mixed",
-          "spinor": 37.469749451758034,
-          "literature": 37.469749451758304,
-          "relative_error": 7.205979317701783e-15
-        },
-        {
-          "case": "mixed_sign",
           "spinor": 37.46974945175803,
           "literature": 37.469749451758304,
           "relative_error": 7.395610352378146e-15
+        },
+        {
+          "case": "mixed_sign",
+          "spinor": 37.46974945175802,
+          "literature": 37.469749451758304,
+          "relative_error": 7.58524138705451e-15
         }
       ]
     },
@@ -127,9 +127,9 @@
         },
         {
           "case": "axial",
-          "spinor": 25.877697152420488,
+          "spinor": 25.877697152420485,
           "literature": 25.87769715242055,
-          "relative_error": 2.3339067685920106e-15
+          "relative_error": 2.4711954020385992e-15
         },
         {
           "case": "mixed",
@@ -161,21 +161,21 @@
         },
         {
           "case": "axial",
-          "spinor": 9.90454569706637,
+          "spinor": 9.904545697066371,
           "literature": 9.904545697066366,
-          "relative_error": 3.5869526856267423e-16
+          "relative_error": 5.380429028440112e-16
         },
         {
           "case": "mixed",
-          "spinor": 5.784679030423605,
+          "spinor": 5.7846790304236055,
           "literature": 5.784679030423607,
-          "relative_error": 4.606193783763407e-16
+          "relative_error": 3.070795855842272e-16
         },
         {
           "case": "mixed_sign",
-          "spinor": 5.784679030423606,
+          "spinor": 5.784679030423608,
           "literature": 5.784679030423607,
-          "relative_error": 1.535397927921136e-16
+          "relative_error": 1.5353979279211358e-16
         }
       ]
     },
@@ -183,15 +183,15 @@
       "photon_energy_muon_rest_MeV": 1.0,
       "mediator_mass_MeV": 0.001,
       "cos_theta_cm": 0.0,
-      "invariant_sum_residual_MeV2": -2.7798586756491614e-12,
-      "axial_to_vector_ratio": 1944104.1831063759,
+      "invariant_sum_residual_MeV2": -2.7796366310442363e-12,
+      "axial_to_vector_ratio": 1944104.1831063754,
       "axial_to_goldstone_ratio": 1.000002571340273,
       "checks": [
         {
           "case": "vector",
           "spinor": 2.000352002623567,
-          "literature": 2.0003520026178054,
-          "relative_error": 2.8802997677599006e-12
+          "literature": 2.000352002617806,
+          "relative_error": 2.8800777622282404e-12
         },
         {
           "case": "axial",
@@ -241,9 +241,9 @@
         },
         {
           "case": "mixed_sign",
-          "spinor": 4146.225191389175,
+          "spinor": 4146.225191389174,
           "literature": 4146.225191389126,
-          "relative_error": 1.1845163161358131e-14
+          "relative_error": 1.162580828799965e-14
         }
       ]
     }
