@@ -43,6 +43,12 @@ jobs:
         run: |
           python -m unittest discover -s research/stellar-cooling-constraints-20261105 -p 'test_*.py' -v
           python -m unittest discover -s research/stellar-cooling-constraints-20261105/blinov_reproduction -p 'test_*.py' -v
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py \
+            --masses 1,10,100,200 --nr 40 --ne 100 --na 16 --ns 32 \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_literal_scan.json
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/compare_reference.py \
+            --scan research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_literal_scan.json \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig4_fig7_comparison.json
           python research/stellar-cooling-constraints-20261105/audit_muon_susceptibility.py --check --output research/stellar-cooling-constraints-20261105/outputs/vector_audit/muon_susceptibility_charge_audit.json
           python research/stellar-cooling-eft-literature-20261105/check_literature_kernels.py \
             --matrix-script research/stellar-cooling-eft-literature-20261105/reference_matrix_element.py \
@@ -76,6 +82,8 @@ jobs:
           git add research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_gev.pdf
           git add research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply_gev.png
           git add research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply_gev.pdf
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_literal_scan.json
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig4_fig7_comparison.json
           if git diff --cached --quiet; then
             echo "Reply figure assets are already current."
           else
