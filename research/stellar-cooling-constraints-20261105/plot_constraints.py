@@ -156,4 +156,20 @@ figG.text(
 figG.tight_layout(rect=(0, .09, 1, .95))
 figG.savefig(OUT / 'axial_stellar_constraints_gev.pdf')
 figG.savefig(OUT / 'axial_stellar_constraints_gev.png')
+
+# A vertically stacked GeV version is used in the referee response letter.
+# It is derived from the exact same saved scans and axes as the wide GeV view;
+# only the layout changes. The bottom-panel label explicitly retains the
+# optically-thin production-fraction qualification.
+figG.set_size_inches(6.0, 6.8)
+axG.set_position([0.16, 0.52, 0.80, 0.38])
+fracG.set_position([0.16, 0.10, 0.80, 0.30])
+axG.get_legend().remove()
+axG.legend(loc='lower right', fontsize=8, frameon=False)
+fracG.set_ylabel('Fraction of optically thin\\naxial luminosity', fontsize=9)
+fracG.legend(frameon=False, fontsize=8, loc='lower left', ncol=3)
+figG._suptitle.set_fontsize(11)
+figG.texts[-1].set_fontsize(6.5)
+figG.savefig(OUT / 'axial_stellar_constraints_reply_gev.pdf')
+figG.savefig(OUT / 'axial_stellar_constraints_reply_gev.png')
 plt.close(figG)
