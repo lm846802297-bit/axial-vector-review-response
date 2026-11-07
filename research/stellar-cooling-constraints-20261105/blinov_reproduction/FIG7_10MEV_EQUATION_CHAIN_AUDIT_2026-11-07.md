@@ -70,7 +70,7 @@ The 24–25 km shell is important for trapped particles. Holding the same source
 
 A uniform temperature rescaling is used only as a sensitivity diagnostic, with production and absorption recomputed together (not as a fitted correction). At the high-absorption point, changing the entire reconstructed T(r) profile by -5% moves the Fig. 7 residual from +92.2% to +30.7%; changing it by +5% moves the residual to +174.6%. The weak-coupling residual moves from -9.2% to -26.2% and +11.2%, respectively, while the peak moves from +2.3% to -19.8% and +29.2%.
 
-This large response means the 10 MeV comparison is sensitive to the reconstructed thermal background. A uniform rescaling is not a physical uncertainty model and neither value is adopted. The mismatch cannot be resolved by choosing a temperature normalization to fit Fig. 7; the original simulation profile or a defensible profile uncertainty estimate would be needed to quantify this source of uncertainty.
+This large response means the 10 MeV comparison is sensitive to the reconstructed thermal background. A uniform rescaling is not a physical uncertainty model and neither value is adopted. As a cross-check, the separately digitized Caputo and Ferreira temperature profiles agree to within 0.18% at sampled radii from 1 to 24 km, so the ±5% rescaling is deliberately a stress test, not an uncertainty inferred from those two sources. The mismatch cannot be resolved by choosing a temperature normalization to fit Fig. 7; the original simulation profile or a defensible profile uncertainty estimate would be needed to quantify this source of uncertainty.
 
 ### Separate GR redshift-along-ray diagnostic
 
