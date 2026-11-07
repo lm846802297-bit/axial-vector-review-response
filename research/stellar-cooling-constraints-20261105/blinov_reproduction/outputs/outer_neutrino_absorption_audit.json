@@ -2,7 +2,7 @@
   "title": "Outer 15--25 km neutrino inverse-decay absorption audit",
   "status": "diagnostic_complete_not_a_curve_fit",
   "source": "Blinov et al., arXiv:2511.09619v2, Appendix B, Eqs. (B1)--(B10)",
-  "run_commit_sha": "2bc084ad716728dd063b489eeefb1ff62944b1ce",
+  "run_commit_sha": "4d80af4bd6d2ba18ccfbb0379aa67e4dc1f527d2",
   "profile_sha256": "08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9",
   "quadrature": {
     "nr": 40,
@@ -19,7 +19,7 @@
     "nu_tau_assumption": "mu_nu_tau=0, as in the existing two-flavor implementation",
     "outer_temperature": "Caputo public PDF vector path through 25 km; no fitted tail"
   },
-  "rate_split_max_relative_residual": 4.466609242695801e-16,
+  "rate_split_max_relative_residual": 4.516092467642254e-16,
   "local_kernel_and_cold_limit_checks": [
     {
       "r_km": 15.0,
@@ -28,8 +28,8 @@
       "omega_MeV": 10.1,
       "omega_over_T": 0.762858326498961,
       "mu_numu_over_T": 0.0,
-      "reduced_opacity_over_zeroT_limit_numu": 0.18839210150656924,
-      "reduced_opacity_over_zeroT_limit_nutau": 0.18839210150656924,
+      "reduced_opacity_over_zeroT_limit_numu": 0.18839210150656927,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.18839210150656927,
       "numu_to_zero_mu_ratio": 1.0
     },
     {
@@ -72,8 +72,8 @@
       "omega_MeV": 30.0,
       "omega_over_T": 2.2659158212840427,
       "mu_numu_over_T": 0.0,
-      "reduced_opacity_over_zeroT_limit_numu": 0.4791966545867419,
-      "reduced_opacity_over_zeroT_limit_nutau": 0.4791966545867419,
+      "reduced_opacity_over_zeroT_limit_numu": 0.4791966545867418,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.4791966545867418,
       "numu_to_zero_mu_ratio": 1.0
     },
     {
@@ -116,8 +116,8 @@
       "omega_MeV": 12.0,
       "omega_over_T": 1.6195516795197469,
       "mu_numu_over_T": 0.21243170993972338,
-      "reduced_opacity_over_zeroT_limit_numu": 0.37525216200265804,
-      "reduced_opacity_over_zeroT_limit_nutau": 0.37874022933803564,
+      "reduced_opacity_over_zeroT_limit_numu": 0.3752521620026581,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.3787402293380357,
       "numu_to_zero_mu_ratio": 0.9907903437100567
     },
     {
@@ -402,8 +402,8 @@
       "omega_MeV": 100.0,
       "omega_over_T": 28.15036636749183,
       "mu_numu_over_T": 0.0,
-      "reduced_opacity_over_zeroT_limit_numu": 0.9529803449703784,
-      "reduced_opacity_over_zeroT_limit_nutau": 0.9529803449703784,
+      "reduced_opacity_over_zeroT_limit_numu": 0.9529803449703783,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.9529803449703783,
       "numu_to_zero_mu_ratio": 1.0
     },
     {
@@ -573,9 +573,9 @@
       },
       "nutau": {
         "0-5km": 0.1314986405010716,
-        "5-10km": 0.8930515108532411,
-        "10-15km": 1.7048829390090339,
-        "15-20km": 2.242633827176759,
+        "5-10km": 0.893051510853241,
+        "10-15km": 1.7048829390090336,
+        "15-20km": 2.2426338271767587,
         "20-25km": 2.3339763426983007
       },
       "neutrino_total": {
@@ -591,14 +591,14 @@
         "0-5km": {
           "0-5km": 0.5199651084462754,
           "5-10km": 0.0960150504513975,
-          "10-15km": 0.04848151241903134,
+          "10-15km": 0.048481512419031335,
           "15-20km": 0.018567236616987094,
           "20-25km": 0.01741460175882637
         },
         "5-10km": {
           "0-5km": 1.1134452809215365,
           "5-10km": 1.0447478207443728,
-          "10-15km": 0.5361848951777938,
+          "10-15km": 0.5361848951777937,
           "15-20km": 0.28675802423774155,
           "20-25km": 0.16767672124991112
         },
@@ -607,56 +607,56 @@
           "5-10km": 1.3887631679772539,
           "10-15km": 2.1478060141850093,
           "15-20km": 1.8414104533916558,
-          "20-25km": 1.0450040681383557
+          "20-25km": 1.045004068138356
         },
         "15-20km": {
           "0-5km": 2.3591128433315,
           "5-10km": 1.7599418703065883,
-          "10-15km": 2.6505334254004045,
+          "10-15km": 2.650533425400404,
           "15-20km": 7.942322877839845,
           "20-25km": 7.145342317727254
         },
         "20-25km": {
           "0-5km": 2.686926520282419,
           "5-10km": 1.8490482083189446,
-          "10-15km": 2.7140038876697967,
+          "10-15km": 2.7140038876697963,
           "15-20km": 7.64448985755337,
           "20-25km": 20.434839176084495
         }
       },
       "nutau": {
         "0-5km": {
-          "0-5km": 1.0001576640955503,
+          "0-5km": 1.00015766409555,
           "5-10km": 0.15195842789490377,
-          "10-15km": 0.08611708885296876,
+          "10-15km": 0.08611708885296873,
           "15-20km": 0.051929495615184236,
-          "20-25km": 0.05281470468657307
+          "20-25km": 0.05281470468657306
         },
         "5-10km": {
           "0-5km": 1.3037971465812914,
           "5-10km": 1.1234447292677194,
-          "10-15km": 0.580153470987874,
+          "10-15km": 0.5801534709878738,
           "15-20km": 0.33211191577458554,
           "20-25km": 0.189729071964709
         },
         "10-15km": {
           "0-5km": 1.4742319693472279,
           "5-10km": 1.3931845234697728,
-          "10-15km": 2.1549830676826125,
+          "10-15km": 2.1549830676826116,
           "15-20km": 1.846966277887451,
           "20-25km": 1.049038255341489
         },
         "15-20km": {
           "0-5km": 2.361510669366397,
-          "5-10km": 1.7611369757474509,
-          "10-15km": 2.653151135157842,
-          "15-20km": 7.960862395296879,
+          "5-10km": 1.7611369757474513,
+          "10-15km": 2.653151135157841,
+          "15-20km": 7.960862395296878,
           "20-25km": 7.16736388936196
         },
         "20-25km": {
           "0-5km": 2.686926520282419,
           "5-10km": 1.8490482083189446,
-          "10-15km": 2.7140038876697967,
+          "10-15km": 2.7140038876697963,
           "15-20km": 7.64448985755337,
           "20-25km": 20.434839176084495
         }
@@ -665,35 +665,35 @@
         "0-5km": {
           "0-5km": 1.5201227725418252,
           "5-10km": 0.24797347834630123,
-          "10-15km": 0.13459860127200013,
+          "10-15km": 0.1345986012720001,
           "15-20km": 0.07049673223217133,
           "20-25km": 0.07022930644539943
         },
         "5-10km": {
           "0-5km": 2.4172424275028277,
           "5-10km": 2.168192550012092,
-          "10-15km": 1.1163383661656678,
+          "10-15km": 1.1163383661656676,
           "15-20km": 0.6188699400123271,
           "20-25km": 0.3574057932146201
         },
         "10-15km": {
           "0-5km": 2.942964399743126,
           "5-10km": 2.7819476914470265,
-          "10-15km": 4.302789081867623,
+          "10-15km": 4.302789081867621,
           "15-20km": 3.688376731279106,
-          "20-25km": 2.094042323479845
+          "20-25km": 2.0940423234798446
         },
         "15-20km": {
           "0-5km": 4.720623512697896,
           "5-10km": 3.52107884605404,
-          "10-15km": 5.3036845605582466,
+          "10-15km": 5.303684560558246,
           "15-20km": 15.903185273136724,
           "20-25km": 14.312706207089214
         },
         "20-25km": {
           "0-5km": 5.373853040564838,
           "5-10km": 3.698096416637889,
-          "10-15km": 5.428007775339593,
+          "10-15km": 5.4280077753395926,
           "15-20km": 15.28897971510674,
           "20-25km": 40.86967835216899
         }
@@ -740,7 +740,7 @@
       "warning": "Opacity-only perturbation; not a physical profile variation."
     },
     {
-      "case": "remove_numu_absorption_15-20km",
+      "case": "remove_neutrino_pair_absorption_15-20km",
       "shell_opacity_scales": {
         "15-20km": 0.0
       },
@@ -749,7 +749,7 @@
       "warning": "Opacity-only perturbation; not a physical profile variation."
     },
     {
-      "case": "half_numu_absorption_15-20km",
+      "case": "half_neutrino_pair_absorption_15-20km",
       "shell_opacity_scales": {
         "15-20km": 0.5
       },
@@ -758,7 +758,7 @@
       "warning": "Opacity-only perturbation; not a physical profile variation."
     },
     {
-      "case": "double_numu_absorption_15-20km",
+      "case": "double_neutrino_pair_absorption_15-20km",
       "shell_opacity_scales": {
         "15-20km": 2.0
       },
@@ -767,7 +767,7 @@
       "warning": "Opacity-only perturbation; not a physical profile variation."
     },
     {
-      "case": "remove_numu_absorption_20-25km",
+      "case": "remove_neutrino_pair_absorption_20-25km",
       "shell_opacity_scales": {
         "20-25km": 0.0
       },
@@ -776,7 +776,7 @@
       "warning": "Opacity-only perturbation; not a physical profile variation."
     },
     {
-      "case": "half_numu_absorption_20-25km",
+      "case": "half_neutrino_pair_absorption_20-25km",
       "shell_opacity_scales": {
         "20-25km": 0.5
       },
@@ -785,16 +785,16 @@
       "warning": "Opacity-only perturbation; not a physical profile variation."
     },
     {
-      "case": "double_numu_absorption_20-25km",
+      "case": "double_neutrino_pair_absorption_20-25km",
       "shell_opacity_scales": {
         "20-25km": 2.0
       },
-      "luminosity_erg_s": 6.218296607192418e+51,
-      "relative_to_baseline": -0.7448615621280567,
+      "luminosity_erg_s": 6.21829660719242e+51,
+      "relative_to_baseline": -0.7448615621280565,
       "warning": "Opacity-only perturbation; not a physical profile variation."
     },
     {
-      "case": "remove_numu_absorption_15-25km",
+      "case": "remove_neutrino_pair_absorption_15-25km",
       "shell_opacity_scales": {
         "15-20km": 0.0,
         "20-25km": 0.0
