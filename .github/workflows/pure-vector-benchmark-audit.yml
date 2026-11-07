@@ -1,0 +1,67 @@
+name: Pure-vector Blinov benchmark provenance audit
+
+on:
+  push:
+    branches:
+      - codex/major44-axial-cooling-constraints-20261105
+    paths:
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/build_pure_vector_benchmark.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/compare_reference.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_fig7_refined_scan.json'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_refined_comparison.json'
+      - 'research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv'
+      - 'research/stellar-cooling-constraints-20261105/data/vector_reference/**'
+      - '.github/workflows/pure-vector-benchmark-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pure-vector-benchmark-audit
+  cancel-in-progress: false
+
+jobs:
+  benchmark-audit:
+    if: github.ref_name == 'codex/major44-axial-cooling-constraints-20261105'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out triggering commit
+        uses: actions/checkout@v4
+        with:
+          ref: \${{ github.sha }}
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numerical dependencies
+        run: python -m pip install numpy scipy
+      - name: Validate the archived pure-vector benchmark and provenance
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/build_pure_vector_benchmark.py
+      - name: Commit benchmark audit output
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/pure_vector_literature_benchmark.json
+          if git diff --cached --quiet; then
+            echo "Pure-vector benchmark audit output is already current."
+          else
+            git commit -m "Archive pure-vector Blinov benchmark audit"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin "\${GITHUB_REF_NAME}"
+              git rebase "origin/\${GITHUB_REF_NAME}"
+              if git push origin "HEAD:\${GITHUB_REF_NAME}"; then
+                exit 0
+              fi
+              echo "Push raced with another workflow; retry \${attempt}/5."
+              sleep 2
+            done
+            echo "Could not archive pure-vector benchmark audit after five retries."
+            exit 1
+          fi
