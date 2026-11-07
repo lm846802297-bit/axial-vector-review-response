@@ -128,8 +128,6 @@ def main() -> None:
     # the controlled Ferreira-vs-Caputo comparison.
     T_curve = load_curve(DATA / "T_caputo_vertices.csv")
     caputo_muT = (caputo_mu_curve[0],
-                  np.interp(caputo_mu_curve[0], T_curve[0], T_curve[1]) * 0.0)
-    caputo_muT = (caputo_mu_curve[0],
                   caputo_mu_curve[1] / np.interp(caputo_mu_curve[0], T_curve[0], T_curve[1]))
     ferreira_muT = (ferreira_mu_curve[0],
                     ferreira_mu_curve[1] / np.interp(ferreira_mu_curve[0], T_curve[0], T_curve[1]))
