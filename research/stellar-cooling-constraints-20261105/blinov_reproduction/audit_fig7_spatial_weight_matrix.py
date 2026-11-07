@@ -72,7 +72,10 @@ def build_channel_opacities(state: dict) -> dict:
     # The 10 MeV dimuon channel is kinematically closed. The flavor split is
     # evaluated independently with the same Fermi-pair function used by the
     # frozen local-rate implementation.
-    from .reference import fermi_pair_average
+    try:
+        from .reference import fermi_pair_average
+    except ImportError:
+        from reference import fermi_pair_average
     mu_numu = state["profile"]["mu_numu"][:, None]
     velocity = np.sqrt(1.0 - (MASS_MEV / energies[None, :])**2)
     nu_mu_production = (
