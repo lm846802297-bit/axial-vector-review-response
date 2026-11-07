@@ -1,0 +1,73 @@
+name: Fig. 7 high-resolution convergence audit
+
+on:
+  push:
+    branches:
+      - codex/major44-axial-cooling-constraints-20261105
+    paths:
+      - 'research/stellar-cooling-constraints-20261105/compare_fig7_resolution.py'
+      - '.github/workflows/fig7-highres-convergence.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fig7-highres-convergence
+  cancel-in-progress: false
+
+jobs:
+  convergence:
+    if: github.ref_name == 'codex/major44-axial-cooling-constraints-20261105'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Check out triggering commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy
+      - name: Run high-resolution independent scalar scan
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py \
+            --masses 0.000001,0.00001,0.1,1,10,100,200 \
+            --gmin 2e-11 --gmax 4e-3 --gcount 501 \
+            --nr 88 --ne 180 --na 24 --ns 64 \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_fig7_highres_scan.json
+      - name: Compare high-resolution scan with all six Fig. 7 curves
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/compare_reference.py \
+            --scan research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_fig7_highres_scan.json \
+            --fig7 research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_highres_comparison.json
+      - name: Compare quadrature convergence and independent implementations
+        run: |
+          python research/stellar-cooling-constraints-20261105/compare_fig7_resolution.py \
+            --baseline research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_fig7_six_mass_scan.json \
+            --high research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_fig7_highres_scan.json \
+            --vector research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_resolution_comparison.json
+      - name: Commit high-resolution convergence outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_fig7_highres_scan.json
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_highres_comparison.json
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_resolution_comparison.json
+          if git diff --cached --quiet; then
+            echo "High-resolution convergence outputs are already current."
+          else
+            git commit -m "Archive high-resolution Fig. 7 convergence audit"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
