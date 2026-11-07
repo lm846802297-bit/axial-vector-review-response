@@ -1,0 +1,48 @@
+name: Independent direct collision-integral audit
+
+on:
+  push:
+    branches:
+      - codex/major44-axial-cooling-constraints-20261105
+    paths:
+      - 'research/stellar-cooling-constraints-20261105/rates.py'
+      - 'research/stellar-cooling-constraints-20261105/audit_direct_collision_integrals.py'
+      - 'research/stellar-cooling-constraints-20261105/test_direct_collision_integrals.py'
+      - 'research/stellar-cooling-constraints-20261105/test_stage1_detailed_balance.py'
+      - 'research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv'
+      - '.github/workflows/direct-collision-integrals.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  direct-collision-integrals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out exact triggering commit
+        uses: actions/checkout@v4
+        with:
+          ref: \${{ github.sha }}
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numerical dependencies
+        run: python -m pip install numpy scipy
+      - name: Run repository physics regression suite
+        run: |
+          python -m unittest discover \
+            -s research/stellar-cooling-constraints-20261105 \
+            -p 'test_*.py' -v
+      - name: Run independent adaptive collision-integral audit
+        run: |
+          python research/stellar-cooling-constraints-20261105/audit_direct_collision_integrals.py \
+            --output research/stellar-cooling-constraints-20261105/outputs/direct_collision_integrals_2026-11-07.json
+      - name: Archive direct integral results
+        uses: actions/upload-artifact@v4
+        with:
+          name: direct-collision-integrals-\${{ github.sha }}
+          path: research/stellar-cooling-constraints-20261105/outputs/direct_collision_integrals_2026-11-07.json
+          if-no-files-found: error
