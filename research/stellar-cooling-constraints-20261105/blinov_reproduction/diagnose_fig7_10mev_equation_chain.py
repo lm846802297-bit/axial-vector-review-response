@@ -337,6 +337,42 @@ def run(profile_path, fig7_path, nr=88, ne=180, na=24, ns=64,
                 sum(row[k+"_escaped_erg_s"] for k in channel_sources))
             radial_shells.append(row)
 
+    # Decompose optical depth by the radius of the absorbing material along
+    # each chord. This is distinct from the production-radius shell split above.
+    opacity_path_shells = []
+    path_edges = (0.0, 5.0, 10.0, 15.0, 20.0, 25.0)
+    for channel, rate_key in (
+        ("neutrino", "reduced_neutrino"),
+        ("compton", "reduced_compton"),
+    ):
+        reduced_channel = baseline[rate_key]
+        for lo, hi in zip(path_edges[:-1], path_edges[1:]):
+            mask_path = (
+                (baseline["radial_grid"] >= lo)
+                & ((baseline["radial_grid"] < hi)
+                   if hi < 25.0 else (baseline["radial_grid"] <= hi)))
+            reduced_shell = np.where(
+                mask_path[:, None], reduced_channel, 0.0)
+            shell_columns, shell_angles = scalar_optical_depths(
+                baseline["r"], baseline["radial_grid"], reduced_shell,
+                MASS, baseline["energies"], 25.0,
+                angular_order=na, path_order=ns)
+            source_weights = baseline["source"][:, None, :] * shell_angles[None, :, None]
+            norm = max(float(np.sum(source_weights)), 1e-300)
+            for point, g in zip(
+                ("weak", "reference_peak", "high_absorption"), couplings
+            ):
+                opacity_path_shells.append({
+                    "channel": channel, "absorber_radius_bin_km": [lo, hi],
+                    "point": point, "g": float(g),
+                    "source_weighted_mean_tau_contribution": float(
+                        np.sum(source_weights * (g*g*shell_columns))/norm),
+                    "source_weighted_median_tau_contribution": float(
+                        np.median((g*g*shell_columns).ravel())),
+                    "source_weighted_p90_tau_contribution": float(
+                        np.quantile((g*g*shell_columns).ravel(), 0.90)),
+                })
+
     # Separate radial/energy quadrature and high-energy-cutoff convergence
     # diagnostics for the optically thin source and the escaped luminosity.
     quadrature_sensitivity = []
@@ -475,6 +511,7 @@ def run(profile_path, fig7_path, nr=88, ne=180, na=24, ns=64,
     eq17 = {
         "global_temperature_profile_scale_sensitivity": temperature_sensitivity,
         "radial_shell_source_and_escape_decomposition": radial_shells,
+        "absorber_radius_shell_optical_depth_decomposition": opacity_path_shells,
         "radial_energy_cutoff_quadrature_sensitivity": quadrature_sensitivity,
         "same_source_nodes_boundary_24_vs_25_km": [
             {"g": float(g), "L_R24_same_sources": float(a),
