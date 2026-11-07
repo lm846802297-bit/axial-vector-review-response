@@ -27,10 +27,10 @@ def _mapped_interval(order, lower, upper):
     return (lower + upper)/2 + (upper-lower)*z/2, (upper-lower)*w/2
 
 
-def _muon_radial_rule(temperature, chemical_potential, order):
-    """Composite p rule resolving both a Fermi surface and a thermal tail."""
-    if temperature <= 0 or order < 8:
-        raise ValueError("Require T>0 and radial order>=8")
+def _muon_radial_rule(temperature, chemical_potential, omega, order):
+    """Composite final-muon p rule covering thermal and recoil-shifted support."""
+    if temperature <= 0 or omega <= 0 or order < 8:
+        raise ValueError("Require T>0, omega>0 and radial order>=8")
     # A Fermi surface exists only for a positive chemical potential above
     # the rest mass. A large negative mu_Q describes a dilute antiparticle
     # population and must not be converted into a fictitious p_F.
@@ -38,14 +38,14 @@ def _muon_radial_rule(temperature, chemical_potential, order):
                if chemical_potential > M_MU else 0.0)
     if p_fermi > 0.0:
         edge_lo = max(0.0, p_fermi - 10.0*temperature)
-        edge_hi = p_fermi + 20.0*temperature
+        edge_hi = p_fermi + 2.0*omega + 20.0*temperature
         if edge_lo > 0.0:
             p1, w1 = _mapped_interval(max(4, order//2), 0.0, edge_lo)
         else:
             p1, w1 = np.zeros(0), np.zeros(0)
         p2, w2 = _mapped_interval(order, edge_lo, edge_hi)
         return np.concatenate((p1, p2)), np.concatenate((w1, w2))
-    p_max = max(20.0*temperature, 12.0*np.sqrt(M_MU*temperature))
+    p_max = max(20.0*temperature, 12.0*np.sqrt(M_MU*temperature)) + 2.0*omega
     return _mapped_interval(order, 0.0, p_max)
 
 
@@ -63,10 +63,13 @@ def moving_compton_matrix_elements(
     photon_ward=False,
     vector_mediator_ward=False,
 ):
-    """Return q*, E_mu' and spin-averaged |M_h|^2 for moving initial muons.
+    """Return q*, E_mu' and spin-averaged |M_h|^2 for moving muons.
 
-    The incoming A' momentum is along +z. The initial-muon azimuth is set
-    to zero using axial symmetry. Photon polarizations are e_theta/e_phi.
+    The momentum argument p is the final-muon momentum in the production
+    process gamma+mu(p') -> A'+mu(p); p' = p+k-q is the initial muon.
+    The inverse absorption rate uses the same squared amplitude. The
+    incoming A' momentum is along +z. The final-muon azimuth is set to zero
+    using axial symmetry. Photon polarizations are e_theta/e_phi.
     The trace sums photon polarizations and final muon spin, and averages
     the initial muon spin. Multiply by the explicit two-spin degeneracy
     only in the phase-space integral.
@@ -127,8 +130,10 @@ def moving_compton_matrix_elements(
         raise ArithmeticError("Unexpected Compton propagator denominator sign")
     prop_s = (_slash(p4+k4)+M_MU*_I4)/prop_s_den[..., None, None]
     prop_u = (_slash(p4-q4)+M_MU*_I4)/prop_u_den[..., None, None]
-    spin_out = _slash(pprime4)+M_MU*_I4
-    spin_in = _slash(p4)+M_MU*_I4
+    # Reverse-production convention: p is the final muon and pprime the
+    # initial muon. This ordering is essential for the photon Ward identity.
+    spin_out = _slash(p4)+M_MU*_I4
+    spin_in = _slash(pprime4)+M_MU*_I4
 
     zeros = np.zeros_like(p)
     eps_l_physical = np.stack((np.full_like(p, k_mag/mass), zeros, zeros,
@@ -213,7 +218,7 @@ def moving_muon_compton_rates(
 
     charge_results = {}
     for charge, chemical in (("mu_minus", +mu_mu), ("mu_plus", -mu_mu)):
-        p_nodes, wp = _muon_radial_rule(temperature, chemical, radial_order)
+        p_nodes, wp = _muon_radial_rule(temperature, chemical, omega, radial_order)
         # Flatten the tensor-product quadrature without storing 4D matrices.
         P, CP, CG, PHI = np.meshgrid(p_nodes, c, c, phi, indexing="ij")
         WP, WCP, WCG, WPHI = np.meshgrid(wp, wc, wc, wphi, indexing="ij")
@@ -228,19 +233,19 @@ def moving_muon_compton_rates(
             q, ep_out, msq = moving_compton_matrix_elements(
                 mass, omega, p, cp, cg, ph, g_vector, g_axial, charge=charge
             )
-            ep_in = np.sqrt(p*p+M_MU*M_MU)
-            fi = _fermion((ep_in-chemical)/temperature)
-            ff = _fermion((ep_out-chemical)/temperature)
+            ep_final = np.sqrt(p*p+M_MU*M_MU)
+            f_initial = _fermion((ep_out-chemical)/temperature)
+            f_final = _fermion((ep_final-chemical)/temperature)
             fb = _bose(q, temperature)
-            stat_abs = fi*(1.0-ff)*(1.0+fb)
-            stat_prod = ff*fb*(1.0-fi)
+            stat_abs = f_final*(1.0-f_initial)*(1.0+fb)
+            stat_prod = f_initial*fb*(1.0-f_final)
             k_mag = np.sqrt(max(omega*omega-mass*mass, 0.0))
             sp = np.sqrt(np.maximum(1.0-cp*cp, 0.0))
             pvec = np.stack((p*sp, np.zeros_like(p), p*cp), axis=-1)
             nhat = np.stack((np.sqrt(np.maximum(1.0-cg*cg, 0.0))*np.cos(ph),
                              np.sqrt(np.maximum(1.0-cg*cg, 0.0))*np.sin(ph), cg), axis=-1)
             D = ep_in+omega-np.einsum("...i,...i->...", pvec+np.array([0.0,0.0,k_mag]), nhat)
-            phase = prefactor*qw*(p*p/ep_in)*(q/D)
+            phase = prefactor*qw*(p*p/ep_final)*(q/D)
             total_abs += np.einsum("i,ih,i->h", phase, msq, stat_abs)
             total_prod += np.einsum("i,ih,i->h", phase, msq, stat_prod)
 
