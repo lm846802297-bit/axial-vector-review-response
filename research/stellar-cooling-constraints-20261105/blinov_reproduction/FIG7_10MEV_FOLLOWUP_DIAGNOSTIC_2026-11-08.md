@@ -151,18 +151,22 @@ The outer shell is therefore important even for particles produced in the inner 
 
 ### 3.3 Semi-Compton absorption has a different radial distribution
 
-At high coupling, the source-weighted mean semi-Compton optical-depth contributions by absorber shell are approximately:
+At high coupling, the global source-weighted mean neutrino optical-depth contributions by absorber shell are
 \[
-(0.00843,\ 0.99100,\ 0.64795,\ 9.87\times10^{-4},\ 1.45\times10^{-12})
+(0.21705,\ 1.71884,\ 3.40734,\ 4.46879,\ 4.67504),
 \]
-for the 0–5, 5–10, 10–15, 15–20, and 20–25 km shells, respectively.
+which sum to 14.48706; the outer 15–25 km shells contribute 63.1173% of this mean. The corresponding semi-Compton contributions are
+\[
+(0.008925,\ 0.986431,\ 0.652782,\ 0.001244,\ 1.66\times10^{-12}),
+\]
+which sum to 1.64938. The two channels therefore have distinctly different radial distributions.
 
 Thus:
 - neutrino inverse decay supplies the extended outer 15–25 km opacity;
 - semi-Compton absorption is concentrated mainly at 5–15 km;
 - the outer neutrino opacity must not be mimicked by rescaling the semi-Compton rate.
 
-At \(\omega=10.1\) MeV, the local reduced neutrino opacity in the reconstructed profile rises from approximately \(0.0604\) MeV at the center to \(0.5358\) MeV near 25 km, while the semi-Compton reduced opacity falls to a negligible value at the outer boundary. This is consistent with the reduced neutrino absorption approaching its vacuum-decay limit as the thermal occupation becomes small; it does not mean the outer thermal neutrino density is large.
+At \(\omega=10.1\) MeV, the local reduced neutrino opacity is about 0.057–0.060 MeV over the inner 0–10 km, then reaches 0.1395 MeV near 15 km, 0.4168 MeV near 20 km, and 0.5358 MeV at 25 km. The semi-Compton reduced opacity peaks near 10 km and falls to a negligible value at the outer boundary. This is consistent with the reduced neutrino absorption approaching its vacuum-decay limit as the thermal occupation becomes small; it does not mean the outer thermal neutrino density is large.
 
 ### 3.4 Escaping luminosity is not the same as the optical-depth weighting
 
