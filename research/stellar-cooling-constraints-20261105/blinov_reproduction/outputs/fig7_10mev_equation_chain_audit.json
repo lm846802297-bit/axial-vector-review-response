@@ -6,7 +6,7 @@
   "profile_sha256": "08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9",
   "fig7_sha256": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4",
   "fig7_pdf_sha256": "4d7d1d10bfe2b52992af94df98749fa3adac887c009cbf98515fa12e6c48fdb5",
-  "run_commit_sha": "2e42699c2f31464ecc1dd7f61403ec8e40cb95b7",
+  "run_commit_sha": "5198c9ba57bd1ba159e67d0910720a11b90559ff",
   "quadrature": {
     "radial_order": 88,
     "energy_order": 180,
@@ -145,8 +145,8 @@
         "mu_MeV": -58.61375672,
         "omega_MeV": 30.0,
         "production_direct_angular": 0.02058358775397715,
-        "production_kernel": 0.020583587753977152,
-        "production_relative_residual": 1.6855404380527636e-16,
+        "production_kernel": 0.020583587753977155,
+        "production_relative_residual": 3.371080876105527e-16,
         "detailed_balance_ratio": 1.0000000000000002,
         "detailed_balance_relative_residual": 2.220446049250313e-16
       },
@@ -157,8 +157,8 @@
         "mu_MeV": 0.0,
         "omega_MeV": 30.0,
         "production_direct_angular": 0.0953099494383163,
-        "production_kernel": 0.0953099494383163,
-        "production_relative_residual": 0.0,
+        "production_kernel": 0.09530994943831633,
+        "production_relative_residual": 2.9121383212559626e-16,
         "detailed_balance_ratio": 0.9999999999999999,
         "detailed_balance_relative_residual": 1.1102230246251565e-16
       },
@@ -241,8 +241,8 @@
         "mu_MeV": -47.70863245,
         "omega_MeV": 30.0,
         "production_direct_angular": 0.06177331434920426,
-        "production_kernel": 0.0617733143492043,
-        "production_relative_residual": 6.739700445420519e-16,
+        "production_kernel": 0.06177331434920429,
+        "production_relative_residual": 5.616417037850433e-16,
         "detailed_balance_ratio": 0.9999999999999999,
         "detailed_balance_relative_residual": 1.1102230246251565e-16
       },
@@ -253,8 +253,8 @@
         "mu_MeV": 0.0,
         "omega_MeV": 30.0,
         "production_direct_angular": 0.12400703765401591,
-        "production_kernel": 0.12400703765401583,
-        "production_relative_residual": 6.714677523319596e-16,
+        "production_kernel": 0.12400703765401581,
+        "production_relative_residual": 7.833790443872862e-16,
         "detailed_balance_ratio": 0.9999999999999999,
         "detailed_balance_relative_residual": 1.1102230246251565e-16
       },
@@ -265,8 +265,8 @@
         "mu_MeV": -47.70863245,
         "omega_MeV": 50.0,
         "production_direct_angular": 0.03907444415094119,
-        "production_kernel": 0.03907444415094117,
-        "production_relative_residual": 5.327441544992591e-16,
+        "production_kernel": 0.039074444150941155,
+        "production_relative_residual": 8.879069241654318e-16,
         "detailed_balance_ratio": 1.0,
         "detailed_balance_relative_residual": 0.0
       },
@@ -277,8 +277,8 @@
         "mu_MeV": 0.0,
         "omega_MeV": 50.0,
         "production_direct_angular": 0.06957467290422999,
-        "production_kernel": 0.06957467290422997,
-        "production_relative_residual": 1.9946608770863108e-16,
+        "production_kernel": 0.06957467290422994,
+        "production_relative_residual": 5.983982631258932e-16,
         "detailed_balance_ratio": 1.0,
         "detailed_balance_relative_residual": 0.0
       },
@@ -531,8 +531,8 @@
         "production_direct_angular": 0.0006560068769003353,
         "production_kernel": 0.0006560068769003355,
         "production_relative_residual": 3.3054597769109155e-16,
-        "detailed_balance_ratio": 1.0000000000000002,
-        "detailed_balance_relative_residual": 2.220446049250313e-16
+        "detailed_balance_ratio": 1.0000000000000004,
+        "detailed_balance_relative_residual": 4.440892098500626e-16
       },
       {
         "r_km": 20.0,
@@ -543,8 +543,8 @@
         "production_direct_angular": 0.0006560068769003353,
         "production_kernel": 0.0006560068769003355,
         "production_relative_residual": 3.3054597769109155e-16,
-        "detailed_balance_ratio": 1.0000000000000002,
-        "detailed_balance_relative_residual": 2.220446049250313e-16
+        "detailed_balance_ratio": 1.0000000000000004,
+        "detailed_balance_relative_residual": 4.440892098500626e-16
       },
       {
         "r_km": 20.0,
@@ -601,7 +601,7 @@
         "mu_MeV": 0.0,
         "omega_MeV": 15.0,
         "production_direct_angular": 0.007206301278310011,
-        "production_kernel": 0.007206301278310012,
+        "production_kernel": 0.0072063012783100105,
         "production_relative_residual": 1.2036157031056205e-16,
         "detailed_balance_ratio": 1.0000000000000002,
         "detailed_balance_relative_residual": 2.220446049250313e-16
@@ -613,7 +613,7 @@
         "mu_MeV": 0.0,
         "omega_MeV": 15.0,
         "production_direct_angular": 0.007206301278310011,
-        "production_kernel": 0.007206301278310012,
+        "production_kernel": 0.0072063012783100105,
         "production_relative_residual": 1.2036157031056205e-16,
         "detailed_balance_ratio": 1.0000000000000002,
         "detailed_balance_relative_residual": 2.220446049250313e-16
@@ -675,7 +675,7 @@
     "interpretation": "The finite-difference identity tests F_deg = (T/n_mu) dn_mu/dmu_mu. The Compton reconstruction checks the literal Eq. (31)-(33) algebra in the local kernel."
   },
   "eq20": {
-    "stable_reduced_absorption_max_relative_residual": 3.0562645816881856e-16,
+    "stable_reduced_absorption_max_relative_residual": 3.1261559859531063e-16,
     "identity": "Gamma_red=(1-exp(-omega/T))*Gamma_abs=(exp(omega/T)-1)*Gamma_prod"
   },
   "eq18": {
@@ -695,8 +695,8 @@
       {
         "g": 4.171689650228597e-08,
         "L_path_base": 2.437009490788894e+52,
-        "L_path_2x": 2.4370194971957803e+52,
-        "relative_change": 4.106018841598669e-06
+        "L_path_2x": 2.437019497195781e+52,
+        "relative_change": 4.106018841820713e-06
       }
     ],
     "angular_order_comparison": [
@@ -715,8 +715,8 @@
       {
         "g": 4.171689650228597e-08,
         "L_angle_base": 2.437009490788894e+52,
-        "L_angle_2x": 2.4369211022172163e+52,
-        "relative_change": -3.6269276755707125e-05
+        "L_angle_2x": 2.436921102217217e+52,
+        "relative_change": -3.626927675548508e-05
       }
     ],
     "column_path_max_relative_difference": 0.00158533227516831,
@@ -737,8 +737,8 @@
       {
         "g": 4.171689650228597e-08,
         "L_fixed_local_omega": 2.437009490788894e+52,
-        "L_conserved_Einf": 1.723857750841803e+52,
-        "relative_change": -0.2926339608616928
+        "L_conserved_Einf": 1.7238577508418032e+52,
+        "relative_change": -0.2926339608616927
       }
     ],
     "redshifted_column_max_relative_difference": 149.85459304830496,
@@ -767,9 +767,9 @@
         "temperature_scale": 0.95,
         "point": "high_absorption",
         "g": 4.171689650228597e-08,
-        "calculated_luminosity_erg_s": 1.65726977981422e+52,
+        "calculated_luminosity_erg_s": 1.6572697798142202e+52,
         "reference_luminosity_erg_s": 1.26781475907372e+52,
-        "relative_residual": 0.3071860600716152
+        "relative_residual": 0.3071860600716154
       },
       {
         "temperature_scale": 1.0,
@@ -807,7 +807,7 @@
         "temperature_scale": 1.05,
         "point": "reference_peak",
         "g": 1.1341108687336194e-08,
-        "calculated_luminosity_erg_s": 2.4680780042151126e+54,
+        "calculated_luminosity_erg_s": 2.468078004215113e+54,
         "reference_luminosity_erg_s": 1.910994581282271e+54,
         "relative_residual": 0.29151491500255355
       },
@@ -860,13 +860,13 @@
           10.0,
           15.0
         ],
-        "neutrino_thin_erg_s": 3.063296191316125e+51,
+        "neutrino_thin_erg_s": 3.0632961913161245e+51,
         "neutrino_escaped_erg_s": 3.05590743612659e+51,
         "compton_thin_erg_s": 8.792554996695823e+50,
         "compton_escaped_erg_s": 8.774583371270117e+50,
         "dimuon_thin_erg_s": 0.0,
         "dimuon_escaped_erg_s": 0.0,
-        "total_thin_erg_s": 3.9425516909857076e+51,
+        "total_thin_erg_s": 3.942551690985707e+51,
         "total_escaped_erg_s": 3.933365773253601e+51
       },
       {
@@ -989,13 +989,13 @@
           5.0
         ],
         "neutrino_thin_erg_s": 6.552934178182769e+53,
-        "neutrino_escaped_erg_s": 8.02872208043806e+48,
+        "neutrino_escaped_erg_s": 8.028722080438061e+48,
         "compton_thin_erg_s": 2.6155198577325537e+52,
-        "compton_escaped_erg_s": 5.8899445079109035e+47,
+        "compton_escaped_erg_s": 5.889944507910903e+47,
         "dimuon_thin_erg_s": 0.0,
         "dimuon_escaped_erg_s": 0.0,
         "total_thin_erg_s": 6.814486163956024e+53,
-        "total_escaped_erg_s": 8.61771653122915e+48
+        "total_escaped_erg_s": 8.617716531229151e+48
       },
       {
         "point": "high_absorption",
@@ -1020,14 +1020,14 @@
           10.0,
           15.0
         ],
-        "neutrino_thin_erg_s": 2.3172710576241232e+55,
-        "neutrino_escaped_erg_s": 5.7579506080511944e+51,
+        "neutrino_thin_erg_s": 2.317271057624123e+55,
+        "neutrino_escaped_erg_s": 5.757950608051196e+51,
         "compton_thin_erg_s": 6.65124491525507e+54,
-        "compton_escaped_erg_s": 3.353492097150641e+51,
+        "compton_escaped_erg_s": 3.3534920971506415e+51,
         "dimuon_thin_erg_s": 0.0,
         "dimuon_escaped_erg_s": 0.0,
         "total_thin_erg_s": 2.98239554914963e+55,
-        "total_escaped_erg_s": 9.111442705201835e+51
+        "total_escaped_erg_s": 9.111442705201837e+51
       },
       {
         "point": "high_absorption",
@@ -1055,7 +1055,7 @@
         "neutrino_thin_erg_s": 1.1025443717932037e+53,
         "neutrino_escaped_erg_s": 8.372152855095677e+50,
         "compton_thin_erg_s": 1.7672391292746103e+40,
-        "compton_escaped_erg_s": 5.64295513259661e+34,
+        "compton_escaped_erg_s": 5.642955132596611e+34,
         "dimuon_thin_erg_s": 0.0,
         "dimuon_escaped_erg_s": 0.0,
         "total_thin_erg_s": 1.1025443717933804e+53,
@@ -1081,7 +1081,7 @@
         ],
         "point": "reference_peak",
         "g": 1.1341108687336194e-08,
-        "source_weighted_mean_tau_contribution": 0.01588933711242685
+        "source_weighted_mean_tau_contribution": 0.015889337112426846
       },
       {
         "channel": "neutrino",
@@ -1151,7 +1151,7 @@
         ],
         "point": "high_absorption",
         "g": 4.171689650228597e-08,
-        "source_weighted_mean_tau_contribution": 3.408107670363405
+        "source_weighted_mean_tau_contribution": 3.4081076703634055
       },
       {
         "channel": "neutrino",
@@ -1281,7 +1281,7 @@
         ],
         "point": "weak",
         "g": 4.796429536550025e-10,
-        "source_weighted_mean_tau_contribution": 8.565583152804319e-05
+        "source_weighted_mean_tau_contribution": 8.565583152804318e-05
       },
       {
         "channel": "compton",
@@ -1341,7 +1341,7 @@
         ],
         "point": "weak",
         "g": 4.796429536550025e-10,
-        "source_weighted_mean_tau_contribution": 1.9187028501847453e-16
+        "source_weighted_mean_tau_contribution": 1.918702850184745e-16
       },
       {
         "channel": "compton",
@@ -1520,8 +1520,8 @@
         "mu_numu_MeV": 0.0,
         "omega_MeV": 10.1,
         "omega_over_T": 0.7522099246304941,
-        "numu_reduced_rate_over_polarization_summed_vacuum_width": 0.185824981007104,
-        "nutau_reduced_rate_over_polarization_summed_vacuum_width": 0.185824981007104
+        "numu_reduced_rate_over_polarization_summed_vacuum_width": 0.18582498100710396,
+        "nutau_reduced_rate_over_polarization_summed_vacuum_width": 0.18582498100710396
       },
       {
         "r_km": 14.952240359261438,
@@ -1605,8 +1605,8 @@
         "variant_luminosity_erg_s": 9.897644574034658e+51,
         "relative_luminosity_change": 0.00024298337663086755,
         "baseline_thin_source_erg_s": 9.916356755703992e+51,
-        "variant_thin_source_erg_s": 9.918764400572773e+51,
-        "relative_thin_source_change": 0.00024279530558413143
+        "variant_thin_source_erg_s": 9.918764400572772e+51,
+        "relative_thin_source_change": 0.00024279530558390938
       },
       {
         "variant": "radial_order_x2",
@@ -1616,7 +1616,7 @@
         "variant_luminosity_erg_s": 1.955309756833667e+54,
         "relative_luminosity_change": 0.00032499601105429043,
         "baseline_thin_source_erg_s": 5.544048621166772e+54,
-        "variant_thin_source_erg_s": 5.545394690145922e+54,
+        "variant_thin_source_erg_s": 5.5453946901459213e+54,
         "relative_thin_source_change": 0.00024279530558413143
       },
       {
@@ -1627,7 +1627,7 @@
         "variant_luminosity_erg_s": 2.4390903166699905e+52,
         "relative_luminosity_change": 0.0008538439792546981,
         "baseline_thin_source_erg_s": 7.501359670086484e+55,
-        "variant_thin_source_erg_s": 7.503180964999879e+55,
+        "variant_thin_source_erg_s": 7.503180964999878e+55,
         "relative_thin_source_change": 0.00024279530558413143
       },
       {
@@ -1657,8 +1657,8 @@
         "point": "high_absorption",
         "g": 4.171689650228597e-08,
         "baseline_luminosity_erg_s": 2.437009490788894e+52,
-        "variant_luminosity_erg_s": 2.4337710134852854e+52,
-        "relative_luminosity_change": -0.0013288734885313902,
+        "variant_luminosity_erg_s": 2.433771013485286e+52,
+        "relative_luminosity_change": -0.0013288734885311682,
         "baseline_thin_source_erg_s": 7.501359670086484e+55,
         "variant_thin_source_erg_s": 7.491408145081721e+55,
         "relative_thin_source_change": -0.0013266294968425907
@@ -1668,8 +1668,8 @@
         "point": "weak",
         "g": 4.796429536550025e-10,
         "baseline_luminosity_erg_s": 9.895240195159465e+51,
-        "variant_luminosity_erg_s": 9.896580231781269e+51,
-        "relative_luminosity_change": 0.000135422344013314,
+        "variant_luminosity_erg_s": 9.896580231781266e+51,
+        "relative_luminosity_change": 0.00013542234401309194,
         "baseline_thin_source_erg_s": 9.916356755703992e+51,
         "variant_thin_source_erg_s": 9.917699672367554e+51,
         "relative_thin_source_change": 0.0001354243999731608
@@ -1728,7 +1728,7 @@
         "g": 4.796429536550025e-10,
         "source_weighted_mean_extra_tau_24_25": 0.0001226428872607476,
         "source_weighted_mean_extra_tau_neutrino": 0.00012263136309020254,
-        "source_weighted_mean_extra_tau_compton": 4.916488904386242e-08,
+        "source_weighted_mean_extra_tau_compton": 4.9164889043861694e-08,
         "source_weighted_mean_total_tau_25km": 0.0021314525522968353,
         "source_weighted_mean_tau_neutrino_25km": 0.0019135114546082815,
         "source_weighted_mean_tau_compton_25km": 0.00021794109768855406
@@ -1737,16 +1737,16 @@
         "g": 1.1341108687336194e-08,
         "source_weighted_mean_extra_tau_24_25": 0.06856733241497713,
         "source_weighted_mean_extra_tau_neutrino": 0.0685608894678954,
-        "source_weighted_mean_extra_tau_compton": 2.7487165097872896e-05,
+        "source_weighted_mean_extra_tau_compton": 2.748716509787249e-05,
         "source_weighted_mean_total_tau_25km": 1.1916550477922732,
         "source_weighted_mean_tau_neutrino_25km": 1.0698082776626294,
         "source_weighted_mean_tau_compton_25km": 0.12184677012964343
       },
       {
         "g": 4.171689650228597e-08,
-        "source_weighted_mean_extra_tau_24_25": 0.9277483969014616,
+        "source_weighted_mean_extra_tau_24_25": 0.9277483969014615,
         "source_weighted_mean_extra_tau_neutrino": 0.9276612207839744,
-        "source_weighted_mean_extra_tau_compton": 0.00037191432795695537,
+        "source_weighted_mean_extra_tau_compton": 0.00037191432795694984,
         "source_weighted_mean_total_tau_25km": 16.123655701783285,
         "source_weighted_mean_tau_neutrino_25km": 14.475011344857629,
         "source_weighted_mean_tau_compton_25km": 1.648644356925655
