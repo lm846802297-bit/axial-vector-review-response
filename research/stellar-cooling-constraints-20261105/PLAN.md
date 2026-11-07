@@ -257,3 +257,51 @@ By production-radius bin, the outer 15–25 km shell contributes 59.42%, 58.04%,
 ### Next action
 
 Keep the validated local rates and Eq. (B.2) path/angular integral frozen. Move to the remaining non-transport possibilities in the established order: verify the paper's energy convention along a ray, independently recheck the digitized 10 MeV Fig. 7 tail, and then assess the reconstructed-profile/fixed-background limitation. PR #56 remains Open / Draft; the manuscript and referee-response files remain unchanged.
+
+
+## 2026-11-08 follow-up: energy-frame ambiguity, Fig. 7 vector digitization, and spatial weights
+
+The four requested checks are separated and documented in blinov_reproduction/FIG7_10MEV_FOLLOWUP_DIAGNOSTIC_2026-11-08.md.
+
+### 1. Energy convention — ambiguity identified, two lanes retained
+
+- Appendix-B Eq. (B.2) literally uses the same numerical \(\omega\) along the path.
+- The main-text Eq. (4.2) describes \(\omega\) as energy at spatial infinity.
+- Appendix-B Eq. (B.1), through the lower limit \(m_V/N(r)\), the \(N(r)^2\) prefactor, and the local \(k\), \(T(r)\), and \(v_V\) dependence in Eqs. (B.5)–(B.19), instead uses a local production-frame energy.
+- The paper does not explicitly reconcile this frame convention or display the local-energy remapping in Eq. (B.2).
+
+**Decision:** the fixed-numerical-\(\omega\) path remains the literal Appendix-B equation lane. The conserved-\(E_\infty\) remapping remains a separate partial-GR diagnostic on the same Euclidean chord geometry. It is not a full GR ray-tracing result and cannot be asserted to reproduce the authors' unpublished code.
+
+At the high-absorption point, the conserved-\(E_\infty\) diagnostic lowers the luminosity by 29.2634%, but still leaves a +35.9708% residual relative to the digitized Fig. 7 point. No fit or opacity adjustment is adopted.
+
+### 2. Fig. 7 digitization — native vector path verified
+
+The 10 MeV curve is reconstructed from the native vector drawing in the pinned arXiv v2 PDF, not from screenshot pixels. The audit records 27 line segments, 28 raw vertices, and 25 visible vertices; coordinate round-trip residuals are at floating-point precision. This rules out ordinary raster digitization as a plausible source of the 92% tail discrepancy, while not recovering the authors' original unplotted numerical samples.
+
+### 3. Spatial weights — joint production/absorber matrix completed
+
+The new matrix independently separates production-radius bins from absorber-radius bins using frozen local rates and the validated analytic Eq. (B.2) path integral.
+
+- 97.12% of the optically thin source is produced at 5–15 km.
+- At high coupling, 59.13% and 37.43% of the escaped luminosity originate at 5–10 km and 10–15 km, respectively.
+- The neutrino optical-depth fraction accumulated at 15–25 km is 59.42%, 58.04%, 65.91%, 87.53%, and 95.58% for production radii 0–5, 5–10, 10–15, 15–20, and 20–25 km.
+- Semi-Compton opacity is concentrated at 5–15 km; the extended outer opacity is neutrino inverse decay.
+- The local channel sum closes at \(5.94\times10^{-16}\); exact absorber-shell additivity is below \(1.54\times10^{-14}\).
+
+The outer-shell optical-depth share is not an absorbed-luminosity fraction. No local rate or profile input is altered.
+
+### 4. Fixed-background caveat — physical interpretation only
+
+Blinov et al. explicitly warn that above the \(\lambda_{\rm mfp}(T_{\max})=R_\nu\) line, the vector can modify supernova energy transport and fixed-SM-profile constraints become uncertain. Using their rough Eq. (4.3), \(m_V=10\) MeV and the reconstructed \(T_{\max}=33.92\) MeV gives \(g_{\rm line}\sim1.01\times10^{-8}\), while the high-absorption endpoint is \(4.17\times10^{-8}\). The endpoint is therefore in the paper's fixed-background-caveat region.
+
+This limits the physical interpretation of the high-coupling curve; it does not explain a numerical mismatch between our evaluation and Fig. 7, since Fig. 7 itself is calculated on the prescribed fixed profile.
+
+### Reproducibility
+
+- Report: blinov_reproduction/FIG7_10MEV_FOLLOWUP_DIAGNOSTIC_2026-11-08.md
+- Spatial audit: blinov_reproduction/audit_fig7_spatial_weight_matrix.py
+- Tests: blinov_reproduction/test_fig7_spatial_weight_matrix.py
+- Machine-readable matrix: blinov_reproduction/outputs/fig7_spatial_weight_matrix_2026-11-08.json
+- CI: https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42409199703 (success)
+
+PR #56 remains Open / Draft. No manuscript or referee-response source/PDF is modified.
