@@ -66,6 +66,12 @@ The 24–25 km shell is important for trapped particles. Holding the same source
 
 **The 24 km result is not adopted.** Blinov Appendix B explicitly identifies R_max with the neutrinosphere radius R_nu ≈ 25 km (Eq. B3 discussion). The literal benchmark therefore keeps 25 km. The 24–25 km result documents sensitivity to the outermost reconstructed shell; it does not justify moving the physical boundary.
 
+### Sensitivity to the reconstructed temperature profile
+
+A uniform temperature rescaling is used only as a sensitivity diagnostic, with production and absorption recomputed together (not as a fitted correction). At the high-absorption point, changing the entire reconstructed T(r) profile by -5% moves the Fig. 7 residual from +92.2% to +30.7%; changing it by +5% moves the residual to +174.6%. The weak-coupling residual moves from -9.2% to -26.2% and +11.2%, respectively, while the peak moves from +2.3% to -19.8% and +29.2%.
+
+This large response means the 10 MeV comparison is sensitive to the reconstructed thermal background. A uniform rescaling is not a physical uncertainty model and neither value is adopted. The mismatch cannot be resolved by choosing a temperature normalization to fit Fig. 7; the original simulation profile or a defensible profile uncertainty estimate would be needed to quantify this source of uncertainty.
+
 ### Separate GR redshift-along-ray diagnostic
 
 A second path calculation conserves E_inf = N(r_source)*omega_source and evaluates the local energy along the ray as omega(r') = E_inf/N(r'), including the corresponding local vector speed. Relative to the fixed-local-energy path used in the literal reference implementation, the luminosity changes are:
