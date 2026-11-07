@@ -28,7 +28,7 @@ jobs:
       - name: Check out triggering commit
         uses: actions/checkout@v4
         with:
-          ref: \${{ github.sha }}
+          ref: ${{ github.sha }}
           fetch-depth: 0
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -51,12 +51,12 @@ jobs:
           else
             git commit -m "Archive 10 MeV equation-chain audit"
             for attempt in 1 2 3 4 5; do
-              git fetch origin "\${GITHUB_REF_NAME}"
-              git rebase "origin/\${GITHUB_REF_NAME}"
-              if git push origin "HEAD:\${GITHUB_REF_NAME}"; then
+              git fetch origin "${GITHUB_REF_NAME}"
+              git rebase "origin/${GITHUB_REF_NAME}"
+              if git push origin "HEAD:${GITHUB_REF_NAME}"; then
                 exit 0
               fi
-              echo "Push raced with another workflow; retry \${attempt}/5."
+              echo "Push raced with another workflow; retry ${attempt}/5."
               sleep 2
             done
             exit 1
