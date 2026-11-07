@@ -65,7 +65,9 @@ def dimuon_thermal_integral(
         }
 
     if scale is None:
-        scale = max(temperature, mass)
+        # Typical thermal momentum is O(T) for m<<T and O(sqrt(m*T))
+        # in the nonrelativistic regime m>>T.
+        scale = max(temperature, np.sqrt(mass * temperature))
     momentum, weights = _mapped_legendre(order, float(scale))
     energy = np.hypot(momentum, mass)
     production, absorption = charged_muon_decay_rates_mixed(
