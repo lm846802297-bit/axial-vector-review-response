@@ -10,6 +10,53 @@
     792.0
   ],
   "drawing_count": 286,
+  "fig3_curve": {
+    "drawing_index": 33,
+    "rgb": [
+      0.6999970078468323,
+      0.6999970078468323,
+      0.0
+    ],
+    "path_segments": 126,
+    "deduplicated_visible_vertices": 123,
+    "line_width_pdf_points": 0.6351040005683899,
+    "radius_calibration": {
+      "r0_x": 95.28073120117188,
+      "r20_x": 286.44146728515625
+    },
+    "density_calibration": {
+      "n_1e-7_y": 285.0899658203125,
+      "n_1e-2_y": 186.6345672607422,
+      "n_1e-1_top_frame_y": 166.94435119628906
+    },
+    "samples": [
+      {
+        "r_km": 1,
+        "bollig_fig3_n_mu_fm3": 0.00011069963180992913
+      },
+      {
+        "r_km": 5,
+        "bollig_fig3_n_mu_fm3": 0.0008407445118363139
+      },
+      {
+        "r_km": 8,
+        "bollig_fig3_n_mu_fm3": 0.005370814830014052
+      },
+      {
+        "r_km": 10,
+        "bollig_fig3_n_mu_fm3": 0.0036984048840746657
+      },
+      {
+        "r_km": 12,
+        "bollig_fig3_n_mu_fm3": 0.0014139603292260428
+      },
+      {
+        "r_km": 15,
+        "bollig_fig3_n_mu_fm3": 1.770442831858677e-05
+      }
+    ],
+    "csv": "bollig_fig3_sfho188_muon_density.csv"
+  },
   "fig4_curve": {
     "drawing_index": 193,
     "rgb": [
