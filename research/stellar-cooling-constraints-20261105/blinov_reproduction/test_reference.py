@@ -22,6 +22,20 @@ class BlinovReferenceTests(unittest.TestCase):
         actual = fermi_pair_average(mu, omega, temp, 0.0)
         self.assertAlmostEqual(float(actual), float(expected), places=13)
 
+    def test_fermi_pair_small_energy_over_temperature_is_stable(self):
+        from scipy.integrate import quad
+        from scipy.special import expit
+
+        mass, omega, temperature, chemical = 1e-6, 2e-6, 20.0, 60.0
+        velocity = np.sqrt(1.0-(mass/omega)**2)
+        expected = quad(
+            lambda z: expit((chemical-omega*(1+velocity*z)/2)/temperature)
+                      * expit((-chemical-omega*(1-velocity*z)/2)/temperature),
+            -1.0, 1.0, epsabs=1e-15, epsrel=1e-12
+        )[0]/2.0
+        actual = fermi_pair_average(chemical, omega, temperature, velocity)
+        self.assertAlmostEqual(float(actual/expected), 1.0, delta=1e-10)
+
     def test_decay_rates_match_archived_independent_spin_sum(self):
         points = [
             (1.0, 1.8, 24.0, -40.0, 50.0),
