@@ -157,3 +157,58 @@ A one-factor test replacing only the Caputo \(\mu_\mu(r)\) curve with the separa
 - A failed or unavailable source-data comparison is reported as such; it is not repaired by tuning.
 - PR #56 remains Open / Draft until the pure-vector literature gate is resolved.
 
+## Latest execution update: full Fig. 7 and polarization transport (2026-11-07)
+
+This section supersedes the earlier pending status statements above. It records actual completed runs; it does not authorize a mixed-current scan.
+
+### P0-A — independent local collision integrals: PASS
+
+The direct adaptive-quadrature audit and its repository-wide regression suite passed in [Actions run #42318485267](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42318485267). All 82 physics tests passed. The audit separately integrated neutrino production and absorption and the B.14 no-recoil Compton forward/reverse factors. Maximum relative errors are at the 10^-15 level. The output is archived in \`outputs/direct_collision_integrals_2026-11-07.json\`. This is a local-rate pass only; it is not a full B.13 moving-muon calculation or a transport validation.
+
+### P0-B — six-mass Fig. 7 reproduction: NOT PASSED
+
+All six PDF paths are now digitized and pinned. The published Fig. 7 source states that neutrino inverse decay dominates trapping above the MeV scale, while Compton absorption dominates at lower masses; the B.14 no-recoil approximation is specifically relevant for m_V ≲ MeV. The high-coupling region is also explicitly flagged by the paper as subject to significant fixed-profile/backreaction uncertainties.
+
+The independent scalar Appendix-B scan has been repeated at several resolutions:
+
+| m_V (MeV) | 88/180/24/64 mean/max residual | 132/280/40/96 mean/max residual |
+|---:|---:|---:|
+| 10^-6 | 9.47% / 28.54% | 4.62% / 12.90% |
+| 10^-5 | 9.22% / 29.51% | 4.63% / 13.49% |
+| 0.1 | 3.36% / 18.66% | 2.68% / 15.08% |
+| 1 | 1.32% / 2.13% | 1.47% / 2.34% |
+| 10 | 15.82% / 92.13% | 15.84% / 92.09% |
+| 200 | 0.57% / 1.49% | 0.56% / 1.47% |
+
+The ultralight 10^-6 and 10^-5 MeV scans are not yet converged: the 88/180/24/64 to 132/280/40/96 change on the published Fig. 7 vertices is about 6% mean and 24% maximum. A further 176/360/64/128 scan is running for these two masses. The 0.1 MeV curve is more stable but its maximum residual remains above the provisional 10% criterion. The 10 MeV mismatch is stable under quadrature refinement and remains about 16% mean / 92% maximum. Only 1 and 200 MeV currently meet the full-curve target.
+
+The 10 MeV mismatch is not plausibly fixed by changing the B.14 Compton kernel alone: the paper identifies neutrino inverse decay as the dominant trapping channel above MeV, and the B.14 approximation is primarily relevant below MeV. A fixed-target exact-recoil diagnostic was also run; it worsens the 10 MeV literature residual and is not a substitute for the full moving-muon B.13 integral. Do not launch B.13 merely to fit the curve.
+
+The 10 MeV high-coupling tail is in the regime where the paper itself warns that new-vector backreaction can invalidate a fixed SM stellar profile. The exact s18.8-SFHo-MUONS source profile remains unavailable in the public archive; current comparisons use a reconstructed profile. Therefore no exact point-by-point reproduction claim is justified.
+
+### P0-C — Fig. 4 boundaries: PASS at the current resolution
+
+The 88/180/24/64 scan rechecks the 1, 10, 100, and 200 MeV crossings within 2.82%, below the provisional 3% tolerance. The 200 MeV upper crossing is the limiting point. This is a digitized-contour check using the reconstructed profile, not a validation of all Fig. 7 luminosity curves.
+
+### P1 — polarization transport comparison: quantified, not equivalent
+
+A controlled four-lane comparison uses the same B.14 local Compton kernels and changes the treatment of polarization/opacity:
+
+- \`blinov_literal\`: scalar summed opacity, matching the printed polarization-summed Appendix-B prescription;
+- \`thomson_modes\`: identical B.14 local rates, but propagate each polarization with its own opacity;
+- \`blinov_average\`: arithmetic mean opacity (sum divided by three), retained only as a diagnostic hypothesis;
+- \`exact_recoil_scalar\` and \`exact_modes\`: fixed-target exact-recoil controls, not the full moving-muon B.13 calculation.
+
+The signed comparison is archived in \`outputs/vector_audit/transport_prescription_comparison.json\`. The mode-resolved luminosity is higher than the scalar-summed luminosity at every digitized point. Its mean increase over the scalar-summed prescription is 111%, 157%, 677%, 447%, 558%, and 244% at 10^-6, 10^-5, 0.1, 1, 10, and 200 MeV, respectively; the maximum pointwise increase reaches factors above 100 in some tails. This is the nonlinear distinction between \`sum_h Q_h exp(-tau_h)\` and applying a polarization-summed opacity to every mode. The local mode rates sum to the scalar rates and pass the independent detailed-balance tests; the difference arises in transport, not from a missing local factor.
+
+The arithmetic-average-opacity diagnostic does not reproduce the published curves and is not adopted. No factor of 1/3 or 3 is inserted into the production solver. The literal scalar-summed lane is retained only as the literature-reproduction benchmark; the mode-resolved lane is retained as the physically distinct polarization-resolved result. These lanes must not be conflated.
+
+### Current decision and next actions
+
+1. Finish the ultrafine light-mass convergence run.
+2. Preserve the 10 MeV result as unresolved under the reconstructed profile; investigate only source-supported neutrino-profile and high-coupling transport sensitivities, not arbitrary opacity factors.
+3. Do not run the finite-mixing or axial constraint scan yet. The pure-vector full Fig. 7 gate has not passed, and the two transport prescriptions are demonstrably inequivalent.
+4. If a mixed-current result is eventually requested, report the Blinov-compatible scalar-summed lane and the mode-resolved lane separately, with the same current endpoints and profile in each lane. Do not claim the two are interchangeable.
+
+PR #56 remains Open / Draft. The manuscript and referee-response files remain unchanged.
+
