@@ -1,6 +1,6 @@
 # Independent Blinov vector reproduction
 
-This directory is a deliberately separate implementation of the scalar ballistic-cooling prescription in Blinov et al., arXiv:2511.09619v2, Appendix B, Eqs. (17)--(35).
+This directory is a deliberately separate implementation of the **vector-boson** ballistic-cooling prescription in Blinov et al., arXiv:2511.09619v2, Appendix B, Eqs. (17)--(35). The word scalar below refers only to the paper's mode-summed (scalar) opacity treatment; it does not mean a scalar mediator.
 
 ## Independence boundary
 
@@ -85,9 +85,9 @@ A second diagnostic holds the production source fixed and rescales only the inve
 
 The strong response to Compton-opacity rescaling shows that the high-coupling tail is sensitive to this contribution in the current implementation. In particular, doubling only the Compton opacity moves the digitized Fig. 7 curve close to the reference. **This does not establish that the Compton opacity is missing a factor of two.** The test deliberately changes absorption without changing production, so it violates the detailed-balance pairing that a physical rate must obey.
 
-The implementation was checked against the literal B.13--B.19 chain: the production expression includes the explicit factor of two for photon spin states and the (1/v_V) factor in B.16; the inverse rate is obtained using B.19; the reduced opacity is then formed as ((1-e^{-\omega/T})\Gamma_{\rm abs}), and the path optical depth includes the additional (1/v_V) in B.2. Thus the diagnostic identifies where the luminosity is sensitive, but it does not yet identify an algebraic omission.
+The implementation was checked against the literal Appendix-B chain, Eqs. (29)--(35): the production expression includes the explicit factor of two for photon spin states and the 1/v_V factor in Eq. (32); the inverse rate follows Eq. (35); the reduced opacity is formed as (1-e^{-\omega/T})\Gamma_{\rm abs} in Eq. (20), and the path optical depth includes the additional 1/v_V in Eq. (18). Thus the diagnostic identifies where the luminosity is sensitive, but it does not yet identify an algebraic omission.
 
-The next step is a matched detailed-balance audit of the Compton forward and inverse phase-space integrals, including the cross-section direction and the B.18 phase-space ratio. Only a correction that preserves the same physical production/absorption pair may be adopted. The saved pointwise results are in `outputs/fig7_10mev_opacity_sensitivity.json`.
+The next step is a matched detailed-balance audit of the Compton forward and inverse phase-space integrals, including the cross-section direction and the Eq. (34) forward/reverse phase-space ratio. Only a correction that preserves the same physical production/absorption pair may be adopted. The saved pointwise results are in `outputs/fig7_10mev_opacity_sensitivity.json`.
 
 ### Independent Compton cross-section / detailed-balance audit
 
@@ -98,12 +98,12 @@ The audit validates the following identities:
 1. For unpolarized cross sections,
    `sigma_forward / sigma_reverse = (g_mu g_V)/(g_mu g_gamma) * (p_f/p_i)^2 = 3 r^2/2`,
    with `r=p_f/p_i`. The muon spin factor cancels; the remaining (3/2) is the ratio of the three massive-vector to two photon polarizations.
-2. In the no-recoil limit, (r\to v_V=\sqrt{1-m_V^2/\omega^2}), recovering Blinov B.18.
-3. The B.15 and B.16 rate coefficients agree algebraically when the same phase-space ratio is used: (3r\,\sigma_{\rm reverse}=2\sigma_{\rm forward}/r). In the no-recoil limit this becomes (3v_V\sigma_{\rm reverse}=2\sigma_{\rm forward}/v_V).
-4. The forward and inverse Fermi/Bose occupation factors independently give (Gamma_{\rm abs}/\Gamma_{\rm prod}=e^{\omega_V/T}), recovering B.19; the muon chemical potential cancels.
-5. The independent QED amplitude reproduces the Klein--Nishina total cross section for the massless-photon limit and recovers B.14 in the Thomson/no-recoil limit (within 1% for the selected low-energy test point).
+2. In the no-recoil limit, (r\to v_V=\sqrt{1-m_V^2/\omega^2}), recovering Blinov Eq. (34).
+3. The Eq. (31) and Eq. (32) rate coefficients agree algebraically when the same phase-space ratio is used: (3r\,\sigma_{\rm reverse}=2\sigma_{\rm forward}/r). In the no-recoil limit this becomes (3v_V\sigma_{\rm reverse}=2\sigma_{\rm forward}/v_V).
+4. The forward and inverse Fermi/Bose occupation factors independently give (Gamma_{\rm abs}/\Gamma_{\rm prod}=e^{\omega_V/T}), recovering Eq. (35); the muon chemical potential cancels.
+5. The independent QED amplitude reproduces the Klein--Nishina total cross section for the massless-photon limit and recovers Eq. (30) in the Thomson/no-recoil limit (within 1% for the selected low-energy test point).
 
-The direct numerical forward/reverse cross-section comparison agrees with the exact phase-space prediction to better than (10^{-10}) over the scanned points. The B.15/B.16 coefficient identity has the same numerical accuracy. Thus **B.18, the polarization counting, and the cross-section direction are not the source of the 10 MeV discrepancy in this implementation**.
+The direct numerical forward/reverse cross-section comparison agrees with the exact phase-space prediction to better than (10^{-10}) over the scanned points. The Eq. (31)/(32) coefficient identity has the same numerical accuracy. Thus **Eq. (34), the polarization counting, and the cross-section direction are not the source of the 10 MeV discrepancy in this implementation**.
 
 #### Finite-recoil diagnostic at (m_V=10) MeV
 
@@ -111,9 +111,9 @@ The stationary-muon exact two-body threshold is
 [
 \omega_{\rm th}=m_V+\frac{m_V^2}{2m_\mu}=10.4733\;\mathrm{MeV},
 ]
-whereas the no-recoil threshold used in B.14 is (omega>m_V=10) MeV.
+whereas the no-recoil threshold used in Eq. (30) is (omega>m_V=10) MeV.
 
-| (omega) (MeV) | (r/v_V) | (sigma_{\rm exact}/\sigma_{\rm B14}) | Exact/B.16 rate coefficient |
+| (omega) (MeV) | (r/v_V) | (sigma_{\rm exact}/\sigma_{\rm Eq.(30)}) | Exact/Eq.(32) rate coefficient |
 |---:|---:|---:|---:|
 | 12 | 0.8643 | 0.7287 | 0.8431 |
 | 15 | 0.9425 | 0.7604 | 0.8068 |
@@ -122,19 +122,19 @@ whereas the no-recoil threshold used in B.14 is (omega>m_V=10) MeV.
 | 50 | 0.9901 | 0.5690 | 0.5746 |
 | 100 | 0.9952 | 0.4384 | 0.4405 |
 
-The suppression of the exact vacuum cross section relative to B.14 at (omega\sim 10\)--(100) MeV is primarily the finite-energy/recoil correction to the Thomson-like no-recoil expression; it is not a failure of B.18. At (m_V=10) MeV, the exact threshold also differs visibly from the no-recoil threshold.
+The suppression of the exact vacuum cross section relative to Eq. (30) at (omega\sim 10\)--(100) MeV is primarily the finite-energy/recoil correction to the Thomson-like no-recoil expression; it is not a failure of Eq. (34). At (m_V=10) MeV, the exact threshold also differs visibly from the no-recoil threshold.
 
-**Scope limitation:** these are exact vacuum two-body cross sections for a stationary initial muon. They are not a full supernova thermal rate: thermal muon momentum averaging, Pauli blocking, and the stellar distribution must be included before replacing B.14 in a physical SN calculation. The paper explicitly presents B.14 in its nonrelativistic-muon/no-recoil approximation and notes that semi-Compton production is mainly relevant for (m_V\lesssim\mathrm{MeV}). Therefore the exact-recoil result is recorded as a validity diagnostic, not substituted into the literal Blinov reproduction.
+**Scope limitation:** these are exact vacuum two-body cross sections for a stationary initial muon. They are not a full supernova thermal rate: thermal muon momentum averaging, Pauli blocking, and the stellar distribution must be included before replacing Eq. (30) in a physical SN calculation. The paper explicitly presents B.14 in its nonrelativistic-muon/no-recoil approximation and notes that semi-Compton production is mainly relevant for (m_V\lesssim\mathrm{MeV}). Therefore the exact-recoil result is recorded as a validity diagnostic, not substituted into the literal Blinov reproduction.
 
-The finite-recoil correction lowers the Compton rate relative to the B.16 no-recoil prescription on this stationary-muon slice. Since the existing 10 MeV calculation already lies above the digitized reference at the high-coupling tail, this correction points in the wrong direction to explain the missing opacity. It does **not** justify the artificial factor-two opacity test.
+The finite-recoil correction lowers the Compton rate relative to the Eq. (32) no-recoil prescription on this stationary-muon slice. Since the existing 10 MeV calculation already lies above the digitized reference at the high-coupling tail, this correction points in the wrong direction to explain the missing opacity. It does **not** justify the artificial factor-two opacity test.
 
-The full pointwise scan, cross-section ratios, phase-space residuals, and B.15/B.16 residuals are archived in `outputs/compton_detailed_balance_audit.json`, including the code hash and triggering commit. The test suite also checks the Klein--Nishina limit, B.14 Thomson limit, exact threshold, B.18, and B.19.
+The full pointwise scan, cross-section ratios, phase-space residuals, and B.15/B.16 residuals are archived in `outputs/compton_detailed_balance_audit.json`, including the code hash and triggering commit. The test suite also checks the Klein--Nishina limit, Eq. (30) Thomson limit, exact threshold, Eq. (34), and Eq. (35).
 
 ## Comparison ladder
 
 1. Compare independently implemented local neutrino and dimuon production rates with the archived analytic checks in vector_reference.py; do not import that file into the implementation.
-2. Compare the no-recoil semi-Compton rate with the B.32 cross-section formula and its Thomson limit.
-3. Compare scalar optical depth and angular escape with B.2/B.4, first in constant-opacity test cases.
+2. Compare the no-recoil semi-Compton rate with the Eq. (30) cross-section formula and its Thomson limit.
+3. Compare scalar optical depth and angular escape with Eqs. (18)--(21), first in constant-opacity test cases.
 4. Compare resulting Fig. 7 luminosity curves and Fig. 4 cooling intervals against digitized Blinov reference points.
 5. Only after this reference path is understood, compare it against the existing mode-resolved production solver under deliberately matched inputs.
 
