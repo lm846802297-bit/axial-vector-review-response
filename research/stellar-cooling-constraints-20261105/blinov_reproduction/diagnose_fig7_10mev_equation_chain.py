@@ -405,16 +405,20 @@ def run(profile_path, fig7_path, nr=88, ne=180, na=24, ns=64,
                    if hi < 25.0 else (baseline["radial_grid"] <= hi)))
             reduced_shell = np.where(
                 mask_path[:, None], reduced_flavour, 0.0)
-            shell_columns, _ = scalar_optical_depths(
+            shell_columns, shell_angles = scalar_optical_depths(
                 baseline["r"], baseline["radial_grid"], reduced_shell,
                 MASS, baseline["energies"], 25.0,
                 angular_order=na, path_order=ns)
+            flavour_weights = (
+                baseline["source"][:, None, :]
+                * shell_angles[None, :, None])
+            flavour_norm = max(float(np.sum(flavour_weights)), 1e-300)
             flavour_opacity.append({
                 "flavour": flavour, "absorber_radius_bin_km": [lo, hi],
                 "high_absorption_g": float(couplings[-1]),
                 "source_weighted_mean_tau_contribution": float(
-                    np.sum(source_weights
-                           * (couplings[-1]**2*shell_columns))/source_norm),
+                    np.sum(flavour_weights
+                           * (couplings[-1]**2*shell_columns))/flavour_norm),
             })
 
     for scale_name, outer_scale in (
@@ -435,17 +439,21 @@ def run(profile_path, fig7_path, nr=88, ne=180, na=24, ns=64,
                    if hi < 25.0 else (baseline["radial_grid"] <= hi)))
             reduced_shell = np.where(
                 mask_path[:, None], reduced_variant, 0.0)
-            shell_columns, _ = scalar_optical_depths(
+            shell_columns, shell_angles = scalar_optical_depths(
                 baseline["r"], baseline["radial_grid"], reduced_shell,
                 MASS, baseline["energies"], 25.0,
                 angular_order=na, path_order=ns)
+            variant_weights = (
+                baseline["source"][:, None, :]
+                * shell_angles[None, :, None])
+            variant_norm = max(float(np.sum(variant_weights)), 1e-300)
             outer_mu_sensitivity.append({
                 "scenario": scale_name,
                 "absorber_radius_bin_km": [lo, hi],
                 "high_absorption_g": float(couplings[-1]),
                 "source_weighted_mean_tau_contribution": float(
-                    np.sum(source_weights
-                           * (couplings[-1]**2*shell_columns))/source_norm),
+                    np.sum(variant_weights
+                           * (couplings[-1]**2*shell_columns))/variant_norm),
             })
 
     # Compare the reduced inverse-decay opacity with the vacuum decay
