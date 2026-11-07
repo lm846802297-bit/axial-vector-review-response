@@ -1,0 +1,233 @@
+{
+  "title": "10 MeV Blinov Fig. 7 equation-chain audit",
+  "status": "diagnostic_only_no_physical_rescaling",
+  "source": "Blinov et al., arXiv:2511.09619v2, Appendix B, Eqs. (17)-(35)",
+  "mass_MeV": 10.0,
+  "profile_sha256": "08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9",
+  "fig7_sha256": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4",
+  "fig7_pdf_sha256": "4d7d1d10bfe2b52992af94df98749fa3adac887c009cbf98515fa12e6c48fdb5",
+  "run_commit_sha": "fa79a95d04d0c0a0343951cb461f7c025c32d2cf",
+  "quadrature": {
+    "radial_order": 88,
+    "energy_order": 180,
+    "angular_order": 24,
+    "path_order": 64,
+    "energy_offset_MeV": 1000.0,
+    "radius_km": 25.0
+  },
+  "eq31_33": {
+    "compton_rate_reconstruction_max_relative_residual": 0.0,
+    "eq33_susceptibility_finite_difference": [
+      {
+        "r_km": 0.0,
+        "T_MeV": 19.26522111,
+        "mu_mu_MeV": 46.67432845,
+        "n_mu_MeV3": 736.147300831199,
+        "F_deg": 0.9862177925931473,
+        "T_dn_dmu_finite_difference": 726.0015671619157,
+        "n_F_deg": 726.0015660491487,
+        "relative_residual": 1.5327336014555116e-09
+      },
+      {
+        "r_km": 5.0,
+        "T_MeV": 25.3597481,
+        "mu_mu_MeV": 56.14191412,
+        "n_mu_MeV3": 3588.9629623123747,
+        "F_deg": 0.9622999719526001,
+        "T_dn_dmu_finite_difference": 3453.6589625508896,
+        "n_F_deg": 3453.6589579721185,
+        "relative_residual": 1.3257739389619883e-09
+      },
+      {
+        "r_km": 8.0,
+        "T_MeV": 38.84717118,
+        "mu_mu_MeV": 91.79495143,
+        "n_mu_MeV3": 35810.877597334715,
+        "F_deg": 0.8712823611264114,
+        "T_dn_dmu_finite_difference": 31201.386010325223,
+        "n_F_deg": 31201.385987014703,
+        "relative_residual": 7.470988692984787e-10
+      },
+      {
+        "r_km": 10.0,
+        "T_MeV": 33.92744042,
+        "mu_mu_MeV": 102.8436889,
+        "n_mu_MeV3": 34531.995920723704,
+        "F_deg": 0.8417159867933918,
+        "T_dn_dmu_finite_difference": 29066.13304014172,
+        "n_F_deg": 29066.13302235733,
+        "relative_residual": 6.118595257245038e-10
+      },
+      {
+        "r_km": 15.0,
+        "T_MeV": 13.23141583,
+        "mu_mu_MeV": 62.28271809,
+        "n_mu_MeV3": 308.38148283748205,
+        "F_deg": 0.9883456897260059,
+        "T_dn_dmu_finite_difference": 304.7875098272357,
+        "n_F_deg": 304.78750935373967,
+        "relative_residual": 1.5535282818292263e-09
+      },
+      {
+        "r_km": 20.0,
+        "T_MeV": 4.204423026,
+        "mu_mu_MeV": 14.77142402,
+        "n_mu_MeV3": 5.233673707120294e-07,
+        "F_deg": 0.9999999998604947,
+        "T_dn_dmu_finite_difference": 5.233673755743777e-07,
+        "n_F_deg": 5.233673706390168e-07,
+        "relative_residual": 9.430012441020517e-09
+      },
+      {
+        "r_km": 24.0,
+        "T_MeV": 3.216426215,
+        "mu_mu_MeV": 0.0,
+        "n_mu_MeV3": 4.190427931188157e-12,
+        "F_deg": 0.9999999999999977,
+        "T_dn_dmu_finite_difference": 4.190427998681486e-12,
+        "n_F_deg": 4.1904279311881474e-12,
+        "relative_residual": 1.6106550337120323e-08
+      }
+    ],
+    "source_channel_fractions_optically_thin": {
+      "neutrino": 0.6794724684555442,
+      "compton": 0.3205275315444558,
+      "dimuon": 0.0
+    },
+    "interpretation": "The finite-difference identity tests F_deg = (T/n_mu) dn_mu/dmu_mu. The Compton reconstruction checks the literal Eq. (31)-(33) algebra in the local kernel."
+  },
+  "eq20": {
+    "stable_reduced_absorption_max_relative_residual": 3.1261559859531063e-16,
+    "identity": "Gamma_red=(1-exp(-omega/T))*Gamma_abs=(exp(omega/T)-1)*Gamma_prod"
+  },
+  "eq18": {
+    "path_order_comparison": [
+      {
+        "g": 4.796429536550025e-10,
+        "L_path_base": 9.895240195159465e+51,
+        "L_path_2x": 9.895240246553304e+51,
+        "relative_change": 5.19379406149767e-09
+      },
+      {
+        "g": 1.1341108687336194e-08,
+        "L_path_base": 1.954674495419746e+54,
+        "L_path_2x": 1.9546782456391105e+54,
+        "relative_change": 1.9185902171425795e-06
+      },
+      {
+        "g": 4.171689650228597e-08,
+        "L_path_base": 2.437009490788894e+52,
+        "L_path_2x": 2.437019497195781e+52,
+        "relative_change": 4.106018841820713e-06
+      }
+    ],
+    "angular_order_comparison": [
+      {
+        "g": 4.796429536550025e-10,
+        "L_angle_base": 9.895240195159465e+51,
+        "L_angle_2x": 9.895240300636743e+51,
+        "relative_change": 1.0659395366374724e-08
+      },
+      {
+        "g": 1.1341108687336194e-08,
+        "L_angle_base": 1.954674495419746e+54,
+        "L_angle_2x": 1.9546825251886556e+54,
+        "relative_change": 4.1079826480494575e-06
+      },
+      {
+        "g": 4.171689650228597e-08,
+        "L_angle_base": 2.437009490788894e+52,
+        "L_angle_2x": 2.436921102217217e+52,
+        "relative_change": -3.626927675548508e-05
+      }
+    ],
+    "column_path_max_relative_difference": 0.00158533227516831,
+    "angle_averaged_column_max_relative_difference": 0.0016829112204816022,
+    "interpretation": "Quadrature-only changes; no opacity normalization is altered."
+  },
+  "eq17": {
+    "radius_24_vs_25_km": [
+      {
+        "g": 4.796429536550025e-10,
+        "L_R24": 9.896462076570757e+51,
+        "L_R25": 9.895240195159465e+51,
+        "relative_change_R24_over_R25": 0.0001234817333579663,
+        "thin_R24": 9.916355391199482e+51,
+        "thin_R25": 9.916356755703992e+51
+      },
+      {
+        "g": 1.1341108687336194e-08,
+        "L_R24": 2.056108561343517e+54,
+        "L_R25": 1.954674495419746e+54,
+        "relative_change_R24_over_R25": 0.05189307281670397,
+        "thin_R24": 5.5440478582979563e+54,
+        "thin_R25": 5.544048621166772e+54
+      },
+      {
+        "g": 4.171689650228597e-08,
+        "L_R24": 3.298282306940041e+52,
+        "L_R25": 2.437009490788894e+52,
+        "relative_change_R24_over_R25": 0.3534138128745412,
+        "thin_R24": 7.50135863788894e+55,
+        "thin_R25": 7.501359670086484e+55
+      }
+    ],
+    "omit_lapse_squared_diagnostic_only": [
+      {
+        "g": 4.796429536550025e-10,
+        "L_with_N2_thin": 9.916356755703992e+51,
+        "L_without_N2_thin": 1.5179074159512655e+52,
+        "ratio_without_over_with": 1.5307107775021802
+      },
+      {
+        "g": 1.1341108687336194e-08,
+        "L_with_N2_thin": 5.544048621166772e+54,
+        "L_without_N2_thin": 8.48633497541608e+54,
+        "ratio_without_over_with": 1.5307107775021802
+      },
+      {
+        "g": 4.171689650228597e-08,
+        "L_with_N2_thin": 7.501359670086484e+55,
+        "L_without_N2_thin": 1.148241209292158e+56,
+        "ratio_without_over_with": 1.5307107775021802
+      }
+    ],
+    "energy_measure_jacobian_max_relative_residual": 2.702330061304791e-16,
+    "interpretation": "N(r)^2 is retained as required by the luminosity-at-infinity prescription. Removing it is a diagnostic, not an alternative."
+  },
+  "three_curve_points": [
+    {
+      "point": "weak",
+      "g": 4.796429536550025e-10,
+      "reference_luminosity_erg_s": 1.0893295563998579e+52,
+      "calculated_luminosity_erg_s": 9.895240195159465e+51,
+      "relative_residual": -0.09162106756173971,
+      "thin_luminosity_erg_s": 9.916356755703992e+51,
+      "escape_fraction": 0.9978705323875747
+    },
+    {
+      "point": "reference_peak",
+      "g": 1.1341108687336194e-08,
+      "reference_luminosity_erg_s": 1.910994581282271e+54,
+      "calculated_luminosity_erg_s": 1.954674495419746e+54,
+      "relative_residual": 0.022857162738873837,
+      "thin_luminosity_erg_s": 5.544048621166772e+54,
+      "escape_fraction": 0.35257167261429523
+    },
+    {
+      "point": "high_absorption",
+      "g": 4.171689650228597e-08,
+      "reference_luminosity_erg_s": 1.26781475907372e+52,
+      "calculated_luminosity_erg_s": 2.437009490788894e+52,
+      "relative_residual": 0.9222125892976678,
+      "thin_luminosity_erg_s": 7.501359670086484e+55,
+      "escape_fraction": 0.00032487570226862587
+    }
+  ],
+  "interpretation": [
+    "No coupling-dependent or channel-dependent normalization is fitted.",
+    "The R=24 km comparison removes the 24-25 km exterior-lapse extension but also truncates that outer shell; it is a boundary sensitivity, not a replacement model.",
+    "Path/angular order changes test numerical quadrature only.",
+    "The local Eq. (31)-(33) algebra and Eq. (20) detailed-balance identity can pass while the external Fig. 7 comparison remains discrepant."
+  ]
+}
