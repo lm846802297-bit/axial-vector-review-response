@@ -212,23 +212,25 @@ def run(profile_path, fig7_path, nr=88, ne=180, na=24, ns=64,
             "prescription. Removing it is a diagnostic, not an alternative."
         ),
     }
+    source_idx = np.searchsorted(baseline["radial_grid"], baseline["r"])
+    source_den = np.maximum(
+        baseline["rates"]["production"][source_idx, :], 1e-300)
+    source_channel_fractions = {}
+    for key, rate_key in (
+        ("neutrino", "neutrino_production"),
+        ("compton", "compton_production"),
+        ("dimuon", "dimuon_production"),
+    ):
+        channel_source = (
+            baseline["source"]
+            * baseline["rates"][rate_key][source_idx, :] / source_den)
+        source_channel_fractions[key] = float(
+            np.sum(channel_source) / max(np.sum(baseline["source"]), 1e-300))
     eq31_33 = {
         "compton_rate_reconstruction_max_relative_residual":
             baseline["eq31_residual"],
         "eq33_susceptibility_finite_difference": _eq33_finite_difference(profile_path),
-        "source_channel_fractions_optically_thin": {
-            key: float(np.sum(baseline["source"] * 0.0
-                              + baseline["rates"][rate_key][
-                                  np.searchsorted(baseline["radial_grid"], baseline["r"]), :]
-                              * (baseline["source"] /
-                                 np.maximum(baseline["rates"]["production"][
-                                     np.searchsorted(baseline["radial_grid"], baseline["r"]), :],
-                                     1e-300)))
-            for key, rate_key in (
-                ("neutrino", "neutrino_production"),
-                ("compton", "compton_production"),
-                ("dimuon", "dimuon_production"))
-        },
+        "source_channel_fractions_optically_thin": source_channel_fractions,
         "interpretation": (
             "The finite-difference identity tests F_deg = (T/n_mu) "
             "dn_mu/dmu_mu. The Compton reconstruction checks the literal "
