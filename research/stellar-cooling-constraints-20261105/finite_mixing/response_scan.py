@@ -40,7 +40,24 @@ def compton_scan():
    integrated.append({"mass_MeV":mass,"mediator_energy_MeV":float(e),"energy_over_mass":float(e/mass),
     "integrated_ratio_A_over_V_by_mode":{mode:(float(sa[j,i]/sv[j,i]) if sv[j,i]>0 else None) for i,mode in enumerate(rates.MODES)},
     "integrated_ratio_polarization_sum":float(sa[j].sum()/sv[j].sum())})
- return {"differential":rows,"angular_integrated":integrated,"grid":{"masses_MeV":masses,"energy_over_mass":efactors,"cosines":cosines.tolist(),"theta_muR_mixed_benchmark":1e-2}}
+ # Also integrate the actual finite-mixing current at amplitude level.
+ # The pure V and A curves above are unit-coupling response functions.
+ mixed_integrated=[]
+ c=muon_couplings(1.,1e-2)
+ for mass in masses:
+  energies=np.array([mass*f for f in efactors])
+  _,km=rates.compton_mixed_kernels(mass,energies,c.g_vector,c.g_axial,order=96)
+  sm=km.sum(axis=1)
+  _,kv=rates.compton_kernels(mass,energies,order=96,current="vector")
+  sv=kv.sum(axis=1)
+  for j,e in enumerate(energies):
+   mixed_integrated.append({
+    "mass_MeV":mass,"mediator_energy_MeV":float(e),
+    "mixed_over_vector_by_mode":{mode:(float(sm[j,i]/sv[j,i]) if sv[j,i]>0 else None) for i,mode in enumerate(rates.MODES)},
+    "mixed_over_vector_polarization_sum":float(sm[j].sum()/sv[j].sum())})
+ return {"differential":rows,"angular_integrated":integrated,
+         "finite_mixing_integrated":mixed_integrated,
+         "grid":{"masses_MeV":masses,"energy_over_mass":efactors,"cosines":cosines.tolist(),"theta_muR_mixed_benchmark":1e-2}}
 
 def dimuon_scan():
  threshold=2*rates.M_MU; factors=[1.0001,1.001,1.01,1.05,1.2,1.5,2.,3.,5.]
@@ -50,10 +67,18 @@ def dimuon_scan():
   pa,aa=rates.charged_muon_decay_rates(mass,energy,temp,mu,current="axial",order=96)
   pv,av=rates.charged_muon_decay_rates(mass,energy,temp,mu,current="vector",order=96)
   beta=np.sqrt(1-threshold**2/mass**2)
+  c=muon_couplings(1.,1e-2)
+  pm,am=rates.charged_muon_decay_rates_mixed(mass,energy,temp,mu,c.g_vector,c.g_axial,order=96)
+  incoherent_prod=c.g_vector**2*pv+c.code_axial_minus_gamma5_coefficient**2*pa
+  incoherent_abs=c.g_vector**2*av+c.code_axial_minus_gamma5_coefficient**2*aa
   rows.append({"mass_MeV":float(mass),"mass_over_dimuon_threshold":factor,"beta_mu":float(beta),
    "vacuum_width_ratio_A_over_V":float(beta**2/(1+2*rates.M_MU**2/mass**2)),
    "thermal_production_ratio_A_over_V_by_mode":{mode:(float(pa[i]/pv[i]) if pv[i]>0 else None) for i,mode in enumerate(rates.MODES)},
-   "thermal_absorption_ratio_A_over_V_by_mode":{mode:(float(aa[i]/av[i]) if av[i]>0 else None) for i,mode in enumerate(rates.MODES)}})
+   "thermal_absorption_ratio_A_over_V_by_mode":{mode:(float(aa[i]/av[i]) if av[i]>0 else None) for i,mode in enumerate(rates.MODES)},
+   "finite_mixing_production_over_vector_by_mode":{mode:(float(pm[i]/pv[i]) if pv[i]>0 else None) for i,mode in enumerate(rates.MODES)},
+   "finite_mixing_absorption_over_vector_by_mode":{mode:(float(am[i]/av[i]) if av[i]>0 else None) for i,mode in enumerate(rates.MODES)},
+   "interference_fraction_in_production_by_mode":{mode:(float((pm[i]-incoherent_prod[i])/pm[i]) if pm[i]!=0 else None) for i,mode in enumerate(rates.MODES)},
+   "interference_fraction_in_absorption_by_mode":{mode:(float((am[i]-incoherent_abs[i])/am[i]) if am[i]!=0 else None) for i,mode in enumerate(rates.MODES)}})
  return {"threshold_MeV":threshold,"temperature_MeV":temp,"muon_chemical_potential_MeV":mu,"rows":rows}
 
 def run():
