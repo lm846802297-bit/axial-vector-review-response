@@ -1,5 +1,5 @@
 {
-  "title": "Bollig et al. Fig. 4 public-PDF vector-path inventory",
+  "title": "Bollig et al. Fig. 4 public-PDF vector-path audit",
   "source": "https://arxiv.org/pdf/2005.07141v7",
   "pdf_sha256": "8267f8b1de184163308728c44000425ce58085c1d5bd799d0cbc1e4e8d740d61",
   "page_index": 2,
@@ -10,6 +10,62 @@
     792.0
   ],
   "drawing_count": 286,
+  "fig4_curve": {
+    "drawing_index": 193,
+    "rgb": [
+      0.6999970078468323,
+      0.6999970078468323,
+      0.0
+    ],
+    "path_segments": 219,
+    "deduplicated_vertices": 220,
+    "line_width_pdf_points": 0.6351040005683899,
+    "radius_calibration": {
+      "r1_x": 348.020751953125,
+      "r20_x": 549.4570922851562
+    },
+    "degeneracy_calibration": {
+      "mu_over_T_plus2_y": 187.69357299804688,
+      "mu_over_T_zero_y": 208.44161987304688,
+      "mu_over_T_minus2_y": 229.1908721923828,
+      "mu_over_T_minus4_y": 249.9405059814453
+    },
+    "samples": [
+      {
+        "r_km": 1,
+        "bollig_fig4_mu_mu_over_T": 0.5564222035291909
+      },
+      {
+        "r_km": 5,
+        "bollig_fig4_mu_mu_over_T": 0.28485564064611
+      },
+      {
+        "r_km": 8,
+        "bollig_fig4_mu_mu_over_T": 0.4835912004376622
+      },
+      {
+        "r_km": 10,
+        "bollig_fig4_mu_mu_over_T": 1.3748901940379046
+      },
+      {
+        "r_km": 12,
+        "bollig_fig4_mu_mu_over_T": 2.1439165811368004
+      },
+      {
+        "r_km": 15,
+        "bollig_fig4_mu_mu_over_T": 3.609909841567617
+      },
+      {
+        "r_km": 18,
+        "bollig_fig4_mu_mu_over_T": 2.604507901624218
+      },
+      {
+        "r_km": 20,
+        "bollig_fig4_mu_mu_over_T": 2.01789005645743
+      }
+    ],
+    "csv": "bollig_fig4_sfho188_muon_degeneracy.csv"
+  },
   "drawings": [
     {
       "index": 0,
@@ -12154,6 +12210,7 @@
   ],
   "limitations": [
     "PDF paths are public figure geometry, not original simulation samples.",
-    "Curve-to-model identity requires color/legend and axis calibration checks."
+    "The digitized line is the SFHo-18.8 yellow curve, identified from the legend.",
+    "The curve is a published plotting output; it is not a substitute for the original simulation table."
   ]
 }
