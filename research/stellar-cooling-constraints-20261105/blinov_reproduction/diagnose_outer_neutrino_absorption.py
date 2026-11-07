@@ -331,7 +331,7 @@ def run(profile_path):
             "mass_MeV": MASS_MEV, "coupling_high_absorption": G_HIGH,
             "nu_mu_profile_source": "Caputo Fig. 1; |mu_numu| curves are digitized only while >=1 MeV",
             "outer_mu_numu_baseline": "zero-filled where the public logarithmic plot does not resolve |mu_numu|<1 MeV",
-            "nu_tau_assumption": "mu_nu_tau=0, as in the existing two-flavor implementation",
+            "nu_tau_assumption": "mu_nu_tau=0 baseline; no separate nu_tau chemical-potential curve is present in the public Caputo Fig. 1 reconstruction",
             "outer_temperature": "Caputo public PDF vector path through 25 km; no fitted tail",
         },
         "rate_split_max_relative_residual": state["rate_split_max_relative_residual"],
