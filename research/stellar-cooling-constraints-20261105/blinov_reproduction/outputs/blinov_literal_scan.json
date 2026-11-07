@@ -1,7 +1,7 @@
 {
   "source": "Blinov et al., arXiv:2511.09619v2, Appendix B, Eqs. (17)-(35)",
   "implementation": "independent scalar literal reference; no imports from production rates.py or transport.py",
-  "run_commit_sha": "23fbc19d7ae0e28adce61f1a2e78936ceefb325f",
+  "run_commit_sha": "f1195ec6327259b8d293ac39ed20cf749614b2c1",
   "reference_code_sha256": "dcb3d177cb5f05d46c6e71283e3a77fb4528063a1e018ebaada618b00e766d84",
   "profile_sha256": "08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9",
   "results": [
