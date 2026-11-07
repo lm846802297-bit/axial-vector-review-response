@@ -1,0 +1,95 @@
+{
+  "title": "Moving-muon semi-Compton local-rate validation",
+  "scope": "Fixed mediator energy local rates only; no stellar luminosity or transport.",
+  "units": {
+    "energy_momentum_temperature": "MeV",
+    "rates": "MeV"
+  },
+  "method": {
+    "phase_space": "Exact 2<->2 collision integral with final-state delta eliminated analytically",
+    "angular_quadrature": "Gauss-Legendre in cos(theta_p), cos(theta_gamma); periodic trapezoid in relative azimuth",
+    "charge_species": "mu- and mu+ integrated separately with chemical potentials +mu_mu and -mu_mu",
+    "current": "Coherent vector-axial amplitude; charge-conjugate interference sign retained",
+    "production_absorption": "Independent Fermi/Bose statistical factors on common invariant phase space"
+  },
+  "source_sha256": {
+    "rates.py": "2fc7bc2d3b0d7b98c191755cd2bb87944e4ebe259adc3d3bbc8e0f60dcc57f56",
+    "moving_compton.py": "1cb198837f935a813dea1b70a012550f201057e596d95f5730f6ce3feac85d36",
+    "test_moving_compton.py": "101d58bc081d0e49b2ad54ae786e5fabc22e0482bcff8fd4ec721a645966bbe7",
+    "derivation.md": "750514e356acdc625a0c7ebc168b1896c17dc8c10dad2f1f582da938aaa8d4f5"
+  },
+  "matrix_element_checks": {
+    "stationary_endpoint_relative_residual": {
+      "vector": 0.0,
+      "axial": 0.0
+    },
+    "photon_ward_max_abs": 7.714820164856469e-13,
+    "vector_mediator_ward_max_abs": 1.016350029387782e-12,
+    "charge_conjugation_relative_residual": 0.0
+  },
+  "interference_checks": {
+    "zero_mu_charge_sum_interference_cancellation_relative_residual": 2.9082641994447114e-15,
+    "nonzero_mu_interference_abs_max": 5.791379210667467e-05
+  },
+  "thermal_convergence": {
+    "nondegenerate_muon_gas": {
+      "temperature_MeV": 20.0,
+      "muon_chemical_potential_MeV": 45.0,
+      "coarse_absorption_by_mode": [
+        0.009416855211239725,
+        0.0013350575732657146,
+        0.0012511952858856646
+      ],
+      "fine_absorption_by_mode": [
+        0.009416617175903917,
+        0.0013350362564478412,
+        0.0012511744682846245
+      ],
+      "relative_difference_absorption": 2.5278221612073728e-05,
+      "coarse_detailed_balance_residual": 3.1179637809455685e-15,
+      "fine_detailed_balance_residual": 2.419638516049859e-15,
+      "mu_minus_fraction_by_mode": [
+        0.9886302556690235,
+        0.9893649698509481,
+        0.9878722810459137
+      ],
+      "total_quadrature_points_all_charges_fine": 589824
+    },
+    "degenerate_core_like_gas": {
+      "temperature_MeV": 19.3,
+      "muon_chemical_potential_MeV": 254.9,
+      "coarse_absorption_by_mode": [
+        0.18013506336985666,
+        0.045794336107437404,
+        0.04369840363861696
+      ],
+      "fine_absorption_by_mode": [
+        0.1801248535021102,
+        0.04580557413602152,
+        0.04370939939142167
+      ],
+      "relative_difference_absorption": 0.0002515649484505436,
+      "coarse_detailed_balance_residual": 4.349542289054288e-15,
+      "fine_detailed_balance_residual": 2.1742240483362936e-15,
+      "mu_minus_fraction_by_mode": [
+        0.9999999921128048,
+        0.9999999958661959,
+        0.9999999953702488
+      ],
+      "total_quadrature_points_all_charges_fine": 737280
+    }
+  },
+  "acceptance": {
+    "stationary_endpoint_pass": true,
+    "photon_ward_pass": true,
+    "vector_mediator_ward_pass": true,
+    "charge_conjugation_pass": true,
+    "zero_mu_interference_cancellation_pass": true,
+    "nonzero_mu_interference_retained": true,
+    "quadrature_convergence_pass": true,
+    "detailed_balance_pass": true,
+    "max_stationary_endpoint_relative_residual": 0.0,
+    "max_thermal_quadrature_relative_difference": 0.0002515649484505436,
+    "max_detailed_balance_relative_residual": 4.349542289054288e-15
+  }
+}
