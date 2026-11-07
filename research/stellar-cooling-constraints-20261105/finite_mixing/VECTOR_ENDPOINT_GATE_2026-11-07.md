@@ -83,3 +83,29 @@ The alternative curve improves the far-trapping tail but worsens the weak-coupli
 The exact s18.8-SFHo-MUONS source profile is not available in the public material currently accessible to this audit: the Garching archive entry for the radial profiles returns HTTP 401, and the published paper's data-availability statement does not provide associated simulation data/code. Consequently, a full point-by-point Fig. 7 reproduction cannot be claimed from the reconstructed profile alone. The Fig. 4 contour-level agreement remains a useful independent cross-check, but it is not equivalent to reproducing the full luminosity curve.
 
 **Disposition:** retain the Caputo profile as the better independently density-anchored reconstruction; retain Ferreira only as a systematic diagnostic. The 10 MeV full-curve gate remains blocked.
+
+## Published-version equation-level audit (2026-11-07)
+
+The Springer version-of-record PDF was opened and checked directly (JHEP06(2026)155, published 15 June 2026; DOI 10.1007/JHEP06(2026)155). The relevant source locations are Appendix B, pp. 20--23, Eqs. (B.1)--(B.19), and Fig. 7 on p. 24.
+
+This confirms the following details that the vector gate must reproduce:
+
+1. **Ballistic luminosity and opacity:** Eq. (B.1) integrates the production rate over the local phase space with the lapse/redshift factors and escape-energy threshold. Eq. (B.2) direction-averages the survival probability over the full emission angle; Eq. (B.4) defines the reduced absorption rate as \((1-e^{-\omega/T})\Gamma_{\rm abs}\); Eq. (B.5) includes \(v_V=\sqrt{1-m_V^2/\omega^2}\) in the optical depth.
+2. **Neutrino inverse decay:** Eq. (B.6) explicitly sums over the three initial vector polarizations. Eq. (B.7) therefore contains an explicit factor of 3 because the vacuum width in Eq. (B.8) is averaged over initial vector polarizations. Eq. (B.10) imposes detailed balance. The two active flavors are evaluated separately, with \(\mu_{\nu_\tau}=0\) in their profiles.
+3. **Dimuon inverse decay:** Eqs. (B.11)--(B.12) use the total spin-averaged vacuum width to both muon chiralities and the corresponding threshold factor.
+4. **Semi-Compton:** Eq. (B.13) sums over all external polarizations in the thermal rate. Eqs. (B.14)--(B.18) use the nonrelativistic-muon/no-recoil approximation, include the massive-vector phase-space velocity factors and the two photon spin states, and define the degeneracy factor \(F_{\rm deg}\). Eq. (B.19) fixes absorption by detailed balance.
+5. **Full-curve criterion:** Fig. 7 is the luminosity versus \(\alpha_V\) at fixed masses, not merely the cooling-boundary crossing. The text below Fig. 7 states that neutrino inverse decay dominates trapping above the MeV scale, while semi-Compton absorption is mainly relevant at lower masses.
+
+### Required two-lane validation (do not conflate the lanes)
+
+The published calculation is written in polarization-summed rates and a scalar escape probability. The physical mixed-current extension, by contrast, must preserve mode-resolved production and absorption and propagate each mode with its own opacity. These are distinct implementations unless one proves their equivalence for the observable under the adopted approximations.
+
+Accordingly, the vector gate now has two separate requirements:
+
+- **Lane A — literal paper reproduction:** implement the published Appendix-B summed-rate prescription literally, with the same reconstructed profile and the exact published equations, and reproduce the full Fig. 7 luminosity curves plus Fig. 4 boundaries. This is the external benchmark and must pass the numerical tolerances above. No fitted coupling rescale is allowed.
+- **Lane B — mode-resolved physical transport:** independently verify the per-polarization rates, vacuum widths, detailed balance, and escaped luminosity. Explain quantitatively any difference from Lane A. A Lane-B result is not required to equal a polarization-summed Lane-A result by assumption; any equivalence or discrepancy must be derived.
+
+Only after Lane A reproduces the published pure-vector result and Lane B has a documented, physically consistent transport prescription may the finite-mixing UV benchmark curve be promoted as a validated result. For the mixed case, the same prescription must be used consistently in all three endpoints (pure vector, pure axial, and \(\theta_{\mu R}=10^{-2}\)); the vector endpoint must reduce to the published Lane-A benchmark in the literal-reproduction implementation.
+
+**Current disposition remains BLOCKED.** This source audit does not resolve the 10 MeV Fig. 7 mismatch, does not validate the 259 MeV mode-resolved endpoint, and does not authorize a mixed-current luminosity scan or exclusion curve.
+
