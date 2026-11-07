@@ -39,14 +39,14 @@ jobs:
       - name: Run independent adaptive collision-integral audit
         run: |
           python research/stellar-cooling-constraints-20261105/audit_direct_collision_integrals.py \
-            --output research/stellar-cooling-constraints-20261105/outputs/direct_collision_integrals_2026-11-07.json
+            --output research/stellar-cooling-constraints-20261105/outputs/direct_collision_integrals_outer_radii_2026-11-08.json
       - name: Commit reproducible direct-integral results
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add research/stellar-cooling-constraints-20261105/outputs/direct_collision_integrals_2026-11-07.json
+          git add research/stellar-cooling-constraints-20261105/outputs/direct_collision_integrals_outer_radii_2026-11-08.json
           if git diff --cached --quiet; then
             echo "Direct-integral output is already current."
           else
