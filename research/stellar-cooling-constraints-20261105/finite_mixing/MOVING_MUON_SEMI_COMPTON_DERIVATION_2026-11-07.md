@@ -95,7 +95,7 @@ Rotational invariance about \(\mathbf k\) allows the initial-muon azimuth to be 
 \[
 \boxed{
 \Gamma^{\rm abs/prod}_{h}(\omega)=
-\frac{2}{8\omega(2\pi)^4}
+\frac{2}{16\omega(2\pi)^4}
 \sum_{Q=\pm}
 \int_0^\infty dp\,\frac{p^2}{E_p}
 \int_{-1}^{1}dc_p
