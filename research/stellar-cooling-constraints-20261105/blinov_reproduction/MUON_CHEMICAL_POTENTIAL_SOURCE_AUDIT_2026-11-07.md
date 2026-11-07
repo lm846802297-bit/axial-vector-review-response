@@ -92,7 +92,7 @@ This does not prove that the Ferreira authors used the plotted curve directly in
 
 Bollig Fig. 4 is a direct independent diagnostic because it plots \(\mu_\mu/T\) for the same named simulation profiles. Visual inspection of the SFHo-18.8 curve gives an O(1) degeneracy parameter in the high-muon-density region and a radial trend qualitatively similar to the Caputo reconstruction. In particular, the SFHo-18.8 curve is nowhere near the Ferreira-only value \(\mu_\mu/T\simeq9.2\) at 5 km.
 
-This is a **visual cross-check**, not a new high-precision digitization of Bollig Fig. 4. The exact numeric curve samples have not yet been extracted. The conclusion is limited to the clear inner-core inconsistency visible at the resolution of the published figure.
+This is no longer only a visual cross-check. The SFHo-18.8 yellow vector path in Bollig Fig. 4 is extracted from the original public PDF (drawing path 193, 219 line segments, 220 deduplicated vertices), with the x and y axes calibrated from PDF tick paths. The full pointwise comparison and provenance are archived in the JSON and CSV outputs.
 
 ## 4. Quantitative upstream cross-check against Bollig et al. Figs. 3 and 4
 
