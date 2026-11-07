@@ -89,5 +89,44 @@ class DirectComptonThermalIntegralTests(unittest.TestCase):
         self.assertGreater(plus, 0.0)
 
 
+    def test_muon_susceptibility_matches_independent_density_derivative(self):
+        # n_eff = T * d n_mu / d mu_mu.  Evaluate n_mu itself with a
+        # separate momentum integral, then differentiate it numerically;
+        # this checks the susceptibility normalization and spin factor.
+        from scipy.integrate import quad
+        from scipy.special import expit
+
+        cases = [
+            (19.26522111, 46.67432845),
+            (24.0, 55.0),
+            (27.0, 90.0),
+            (20.0, 120.0),
+        ]
+
+        def number_density(temperature, chemical):
+            def integrand(momentum):
+                energy = math.hypot(momentum, rates.M_MU)
+                occupation = expit((chemical-energy)/temperature)
+                return momentum*momentum*occupation
+            return quad(integrand, 0.0, np.inf, epsabs=1e-12,
+                        epsrel=2e-11, limit=400)[0]/(math.pi**2)
+
+        for temperature, mu_mu in cases:
+            with self.subTest(temperature=temperature, mu_mu=mu_mu):
+                n_minus, n_plus = direct_muon_susceptibility(temperature, mu_mu)
+                step = 1e-3*temperature
+                derivative_minus = temperature*(
+                    number_density(temperature, mu_mu+step)
+                    - number_density(temperature, mu_mu-step)
+                )/(2.0*step)
+                # The positive-muon distribution has chemical potential -mu_mu.
+                derivative_plus = temperature*(
+                    number_density(temperature, -mu_mu+step)
+                    - number_density(temperature, -mu_mu-step)
+                )/(2.0*step)
+                assert_allclose(n_minus, derivative_minus, rtol=3e-7, atol=1e-12)
+                assert_allclose(n_plus, derivative_plus, rtol=3e-7, atol=1e-12)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
