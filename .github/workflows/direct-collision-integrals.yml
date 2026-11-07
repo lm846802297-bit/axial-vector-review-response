@@ -43,6 +43,6 @@ jobs:
       - name: Archive direct integral results
         uses: actions/upload-artifact@v4
         with:
-          name: direct-collision-integrals-\${{ github.sha }}
+          name: direct-collision-integrals-${{ github.sha }}
           path: research/stellar-cooling-constraints-20261105/outputs/direct_collision_integrals_2026-11-07.json
           if-no-files-found: error
