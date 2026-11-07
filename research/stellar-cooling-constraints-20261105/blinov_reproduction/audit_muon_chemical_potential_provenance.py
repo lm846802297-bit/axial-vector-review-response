@@ -146,13 +146,6 @@ def main() -> None:
                 "caputo_mu_mu_over_T": interp_curve(caputo_muT, rr),
                 "ferreira_mu_mu_over_T": interp_curve(ferreira_muT, rr),
             })
-    if bollig_fig4_comparison["caputo_mu_mu_over_T_vs_bollig_fig4"]["max_abs_relative_difference"] > 5e-4:
-        raise AssertionError("Caputo mu_mu/T no longer matches the Bollig Fig. 4 SFHo-18.8 curve")
-    if bollig_fig3_comparison["caputo_n_mu_vs_bollig_fig3"]["mean_abs_relative_difference"] > 0.06:
-        raise AssertionError("Caputo n_mu and Bollig Fig. 3 density differ beyond the audit tolerance")
-    if bollig_fig4_comparison["ferreira_mu_mu_over_T_vs_bollig_fig4"]["mean_abs_relative_difference"] < 0.5:
-        raise AssertionError("The archived Ferreira/Bollig Fig. 4 discrepancy unexpectedly disappeared")
-
     bollig_fig3_comparison = {
         "caputo_n_mu_vs_bollig_fig3": curve_comparison(
             bollig_nmu_curve, caputo_nmu_curve, 0.1, 15.27285938),
@@ -164,6 +157,13 @@ def main() -> None:
             "bollig_n_mu_fm3": interp_curve(bollig_nmu_curve, rr),
             "caputo_n_mu_fm3": interp_curve(caputo_nmu_curve, rr),
         })
+
+    if bollig_fig4_comparison["caputo_mu_mu_over_T_vs_bollig_fig4"]["max_abs_relative_difference"] > 5e-4:
+        raise AssertionError("Caputo mu_mu/T no longer matches the Bollig Fig. 4 SFHo-18.8 curve")
+    if bollig_fig3_comparison["caputo_n_mu_vs_bollig_fig3"]["mean_abs_relative_difference"] > 0.06:
+        raise AssertionError("Caputo n_mu and Bollig Fig. 3 density differ beyond the audit tolerance")
+    if bollig_fig4_comparison["ferreira_mu_mu_over_T_vs_bollig_fig4"]["mean_abs_relative_difference"] < 0.5:
+        raise AssertionError("The archived Ferreira/Bollig Fig. 4 discrepancy unexpectedly disappeared")
 
     delta = [
         {
