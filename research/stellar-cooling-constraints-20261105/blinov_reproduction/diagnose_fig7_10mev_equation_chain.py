@@ -220,6 +220,15 @@ def run(profile_path, fig7_path, nr=88, ne=180, na=24, ns=64,
         profile_path, 25.0, nr, ne, energy_offset)
     l_base, cols_base = _luminosity_for_setup(
         baseline, 25.0, na, ns, couplings)
+    cols_redshift, angle_weights_redshift = _redshifted_optical_depths(
+        baseline, 25.0, na, ns)
+    l_redshift = []
+    for g in couplings:
+        esc_redshift = np.einsum(
+            "rae,a->re", np.exp(-g*g*cols_redshift),
+            angle_weights_redshift)
+        l_redshift.append(float(g*g*np.sum(baseline["source"]*esc_redshift)))
+    l_redshift = np.asarray(l_redshift)
     l_path2, cols_path2 = _luminosity_for_setup(
         baseline, 25.0, na, 2*ns, couplings)
     l_angle2, cols_angle2 = _luminosity_for_setup(
@@ -285,7 +294,21 @@ def run(profile_path, fig7_path, nr=88, ne=180, na=24, ns=64,
         "column_path_max_relative_difference": _relative(cols_path2, cols_base),
         "angle_averaged_column_max_relative_difference":
             _relative(tau_angle_refined, tau_angle_base),
-        "interpretation": "Quadrature-only changes; no opacity normalization is altered.",
+        "gravitational_redshift_along_path": [
+            {"g": float(g), "L_fixed_local_omega": float(a),
+             "L_conserved_Einf": float(b),
+             "relative_change": float(b/a-1.0)}
+            for g, a, b in zip(couplings, l_base, l_redshift)
+        ],
+        "redshifted_column_max_relative_difference":
+            _relative(cols_redshift, cols_base),
+        "redshift_convention": (
+            "Diagnostic: E_inf=N(r_source)*omega_source is conserved; "
+            "the local energy along the path is omega(r')=E_inf/N(r'). "
+            "This tests the gravitational redshift stated in Appendix B; "
+            "the fixed-local-omega result is retained as the literal baseline."
+        ),
+        "interpretation": "Quadrature-only changes and a separate GR redshift diagnostic; no opacity normalization is altered.",
     }
     eq17 = {
         "same_source_nodes_boundary_24_vs_25_km": [
