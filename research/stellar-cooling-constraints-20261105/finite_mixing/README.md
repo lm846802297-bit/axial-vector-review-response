@@ -184,3 +184,18 @@ Gamma_A/Gamma_V = beta_mu^2/(1+2 m_mu^2/m_A'^2). It rises from 1.3332e-4 at m_A'
 
 **What has and has not been validated:** the pure-vector and pure-axial endpoints agree with their existing rate kernels in the 22 passing tests; the mixed-current Ward and detailed-balance tests also pass. This validates internal kernel consistency and the numerical scan execution. It does **not** yet demonstrate that the full pure-vector stellar luminosity curve reproduces Blinov Fig. 7, nor does it justify rescaling the published vector supernova exclusion into an axial or finite-mixing exclusion. The next required physics step is to use these response results to build and independently check the channel-resolved thermal rates before any stellar transport calculation.
 
+
+
+## 11. Full dimuon mediator-momentum thermal integral: first implementation
+
+A new isolated module is added at [thermal_integrals/dimuon.py](thermal_integrals/dimuon.py). It reuses the existing exact mode-resolved `charged_muon_decay_rates_mixed` kernel and integrates over the full mediator momentum magnitude,
+\[
+Q_h=\frac{1}{2\pi^2}\int_0^\infty dk\,k^2\omega\,
+\Gamma^{\rm prod}_{h}(\omega),\qquad
+\omega=\sqrt{k^2+m_{A'}^2}.
+\]
+It also integrates the absorption number rate mode by mode. The semi-infinite momentum range is mapped to a finite interval with Gauss--Legendre quadrature. The channel is exactly zero at and below \(m_{A'}=2m_\mu\).
+
+The new test module checks threshold closure, pointwise production/absorption detailed balance, pure-current nonzero limits, positivity/finite output for a mixed-current benchmark, and quadrature convergence. This is the first implementation of the dimuon momentum integral; it is not yet a validated result until the dedicated Actions run passes and the order-convergence output is inspected.
+
+The moving-muon semi-Compton integral remains a separate next implementation. The stationary-target kernel is not silently promoted to the full thermal result. No transport scan, cooling curve, manuscript edit, or referee-response edit is included.
