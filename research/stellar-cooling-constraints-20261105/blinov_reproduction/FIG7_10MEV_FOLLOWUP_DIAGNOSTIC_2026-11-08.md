@@ -51,6 +51,8 @@ Thus, when reading Eq. (B.1) literally, its integration variable is local at the
 \]
 Equation (B.2), however, does not explicitly display this remapping. The main-text statement that \(\omega\) is the energy at infinity and the Appendix-B local-energy measure are not reconciled by an explicit variable transformation in the paper.
 
+This is not an arXiv-v2-only wording issue: the published JHEP 06 (2026) 155 version retains the same main-text energy-at-infinity statement and the same Appendix-B Eqs. (B.1)–(B.5). Its Data Availability Statement says no associated data will be deposited, and its Code Availability Statement says no associated code will be deposited. Therefore the public record does not allow us to determine whether the authors' numerical implementation follows the literal fixed-\(\omega\) Appendix-B expression or performs an energy remapping not displayed in Eq. (B.2).
+
 **Decision:** preserve two separately labelled lanes:
 - **Literal Appendix-B lane:** fixed numerical \(\omega\) in \(\Gamma_{\rm abs}^{*}(r',\omega)\), as printed in Eq. (B.2).
 - **Conserved-\(E_\infty\) diagnostic:** evaluate \(\omega_{\rm loc}(r')=N(r)\omega_{\rm src}/N(r')\) and the corresponding \(v_V(r')\) along the same geometrical ray.
