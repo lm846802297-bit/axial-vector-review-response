@@ -29,7 +29,7 @@ except ImportError:
     from reference import (
         DEFAULT_PROFILE, M_MU, ALPHA, KM_TO_MEV_INV, MEV2_TO_ERG_S,
         energy_weights, load_profile, local_rates,
-        negative_muon_density_and_degeneracy, radial_rule,
+        negative_muon_density_and_degeneracy, fermi_pair_average, radial_rule,
         scalar_optical_depths,
     )
 
