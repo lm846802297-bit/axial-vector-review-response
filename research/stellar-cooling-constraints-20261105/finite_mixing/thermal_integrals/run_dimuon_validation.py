@@ -109,7 +109,7 @@ def main():
     max_threshold = max(v["relative_deviation"] for v in threshold.values())
 
     payload = {
-        "title": "Dimum thermal emissivity integral: numerical validation",
+        "title": "Dimuon thermal emissivity integral: numerical validation",
         "units": {
             "mass_temperature_momentum": "MeV",
             "differential_rates": "MeV",
@@ -126,6 +126,7 @@ def main():
             "rates.py": sha256(ROOT / "rates.py"),
             "dimuon.py": sha256(HERE / "dimuon.py"),
             "test_dimuon.py": sha256(HERE / "test_dimuon.py"),
+            "run_dimuon_validation.py": sha256(HERE / "run_dimuon_validation.py"),
         },
         "benchmarks": benchmarks,
         "threshold_scan": threshold,
