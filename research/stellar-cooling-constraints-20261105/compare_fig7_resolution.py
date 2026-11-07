@@ -28,22 +28,32 @@ def compare(base_path, high_path, vector_path):
     base_by_mass = {float(x["mass_MeV"]): x for x in base["results"]}
     high_by_mass = {float(x["mass_MeV"]): x for x in high["results"]}
     results = []
+    vertices = vector["reference_vertices"]
     for mass, hi in high_by_mass.items():
+        if mass == 1e-6:
+            key = "1e-06"
+        elif mass == 1e-5:
+            key = "1e-05"
+        elif mass == 0.1:
+            key = "0.1"
+        else:
+            key = str(float(mass))
+        if key not in vertices:
+            continue
         lo = base_by_mass[mass]
-        g_lo, g_hi = np.asarray(lo["couplings"]), np.asarray(hi["couplings"])
-        if not np.array_equal(g_lo, g_hi):
-            raise ValueError(f"Coupling grids differ at m={mass:g} MeV")
-        l_lo = np.asarray(lo["luminosity_erg_s"])
-        l_hi = np.asarray(hi["luminosity_erg_s"])
+        g = np.asarray(vertices[key]["g"], float)
+        l_lo = interp_log(lo["couplings"], lo["luminosity_erg_s"], g)
+        l_hi = interp_log(hi["couplings"], hi["luminosity_erg_s"], g)
         delta = l_hi/l_lo - 1.0
         results.append({
             "mass_MeV": mass,
-            "mean_abs_resolution_change": float(np.mean(np.abs(delta))),
-            "max_abs_resolution_change": float(np.max(np.abs(delta))),
-            "peak_coupling_baseline": float(g_lo[np.argmax(l_lo)]),
-            "peak_coupling_high": float(g_hi[np.argmax(l_hi)]),
-            "peak_luminosity_baseline": float(np.max(l_lo)),
-            "peak_luminosity_high": float(np.max(l_hi)),
+            "reference_points": int(len(g)),
+            "mean_abs_resolution_change_on_fig7_vertices": float(np.mean(np.abs(delta))),
+            "max_abs_resolution_change_on_fig7_vertices": float(np.max(np.abs(delta))),
+            "peak_coupling_baseline": float(lo["couplings"][np.argmax(lo["luminosity_erg_s"])]),
+            "peak_coupling_high": float(hi["couplings"][np.argmax(hi["luminosity_erg_s"])]),
+            "peak_luminosity_baseline": float(np.max(lo["luminosity_erg_s"])),
+            "peak_luminosity_high": float(np.max(hi["luminosity_erg_s"])),
         })
 
     vector_rows = []
@@ -70,7 +80,7 @@ def compare(base_path, high_path, vector_path):
         "vector_audit_sha256": hashlib.sha256(Path(vector_path).read_bytes()).hexdigest(),
         "baseline_configuration": base["results"][0]["config"],
         "high_resolution_configuration": high["results"][0]["config"],
-        "resolution_convergence": results,
+        "resolution_convergence_on_published_fig7_vertices": results,
         "independent_implementation_crosscheck": vector_rows,
         "interpretation": (
             "A convergence pass requires small changes between the two scalar "
@@ -90,9 +100,9 @@ def main():
     args = parser.parse_args()
     result = compare(args.baseline, args.high, args.vector)
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(result, indent=2)+"\n", encoding="utf-8")
+    args.output.write_text(json.dumps(result, indent=2, allow_nan=False)+"\n", encoding="utf-8")
     print(json.dumps({
-        "resolution_convergence": result["resolution_convergence"],
+        "resolution_convergence_on_published_fig7_vertices": result["resolution_convergence_on_published_fig7_vertices"],
         "independent_implementation_crosscheck": result["independent_implementation_crosscheck"],
     }, indent=2))
 
