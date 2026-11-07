@@ -199,8 +199,6 @@ def run(profile_path, fig7_path, nr=88, ne=180, na=24, ns=64,
             "g": float(g),
             "source_weighted_mean_extra_tau_24_25": float(
                 np.average(tau_shell, weights=weights_tau)),
-            "source_weighted_p90_extra_tau_24_25": float(
-                np.quantile(tau_shell.ravel(), 0.90)),
         })
     l24_same_source = np.asarray(l24_same_source)
     l25_same_source = np.asarray(l25_same_source)
