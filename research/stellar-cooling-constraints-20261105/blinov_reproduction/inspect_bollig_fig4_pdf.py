@@ -93,7 +93,7 @@ def main():
     p3=p3[np.argsort(p3[:,0],kind="stable")]
     _,keep3=np.unique(p3[:,0],return_index=True)
     p3=p3[keep3]
-    r3=(p3[:,0]-95.28073120117188)*20.0/(286.44146728515625-95.28073120117188)
+    r3=1.0+(p3[:,0]-95.28073120117188)*19.0/(286.44146728515625-95.28073120117188)
     logn3=-7.0+(285.0899658203125-p3[:,1])*6.0/(285.0899658203125-166.94435119628906)
     n3=10.0**logn3
     curve3=np.column_stack([r3,n3])
@@ -107,7 +107,7 @@ def main():
         "drawing_index":fig3_curve_index,"rgb":fig3_color,
         "path_segments":len(fig3["items"]),"deduplicated_visible_vertices":len(curve3),
         "line_width_pdf_points":float(fig3["width"]),
-        "radius_calibration":{"r0_x":95.28073120117188,"r20_x":286.44146728515625},
+        "radius_calibration":{"r1_x":95.28073120117188,"r20_x":286.44146728515625},
         "density_calibration":{"n_1e-7_y":285.0899658203125,
                                "n_1e-2_y":186.6345672607422,
                                "n_1e-1_top_frame_y":166.94435119628906},
