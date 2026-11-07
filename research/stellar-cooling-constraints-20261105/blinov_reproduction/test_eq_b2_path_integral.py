@@ -109,7 +109,7 @@ class IndependentEqB2PathIntegralTests(unittest.TestCase):
         grid = np.array([0.0, 5.0, 10.0, 15.0, 20.0, 25.0])
         energies = np.array([10.1])
         opacity = (1.0e-17 * np.exp(-grid / 12.0))[:, None]
-        coupling = 2.0e8
+        coupling = 0.5
         adaptive = adaptive_escape_probability(
             17.0, 0, grid, opacity, 10.0, energies, coupling
         )
