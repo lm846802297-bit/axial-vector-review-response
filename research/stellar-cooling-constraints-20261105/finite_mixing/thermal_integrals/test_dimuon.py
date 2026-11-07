@@ -11,7 +11,7 @@ class DimuonThermalIntegralTests(unittest.TestCase):
         for mass in (2*M_MU-1e-6, 2*M_MU):
             out = dimuon_thermal_integral(mass, 30.0, 80.0, 0.2, 0.8)
             np.testing.assert_array_equal(out["Q_by_mode"], np.zeros(3))
-            np.testing.assert_array_equal(out["absorption_number_by_mode"], np.zeros(3))
+            self.assertEqual(out["absorption_spectrum"].shape, (0, 3))
             self.assertEqual(out["momentum"].size, 0)
 
     def test_production_absorption_detailed_balance_pointwise(self):
@@ -30,7 +30,9 @@ class DimuonThermalIntegralTests(unittest.TestCase):
         out = dimuon_thermal_integral(500.0, 35.0, 75.0, 1e-4, 1.0, order=64)
         self.assertTrue(np.all(np.isfinite(out["Q_by_mode"])))
         self.assertTrue(np.all(out["Q_by_mode"] > 0))
-        self.assertTrue(np.all(out["absorption_number_by_mode"] > 0))
+        self.assertTrue(np.all(np.isfinite(out["absorption_spectrum"])))
+        self.assertTrue(np.all(out["absorption_spectrum"] > 0))
+        self.assertNotIn("absorption_number_by_mode", out)
 
 
     def test_near_threshold_vector_axial_ratio_is_stable(self):
