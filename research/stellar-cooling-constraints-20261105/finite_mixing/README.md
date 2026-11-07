@@ -154,3 +154,33 @@ The new regression tests check that the raw angle arrays are preserved and that 
 
 **Important interpretation:** the finite-mixing rates are local microscopic response functions. They do not include the unchanged active-neutrino channel, radial profile integration, reduced opacity, escape probability, or gravitational redshift. They cannot be converted directly into a supernova luminosity or exclusion curve.
 
+## 10. First executed numerical results (2026-11-07)
+
+The dedicated workflow completed successfully after switching the JSON archival method from Actions artifacts (the repository had exhausted its artifact-storage quota) to a deterministic commit on this research branch.
+
+- Workflow: [Run #42329656102](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42329656102)
+- Result: 22/22 finite-mixing and response-scan tests passed; the numerical scan completed and its JSON output was committed.
+- Machine-readable output: [vector_axial_response_scan.json](outputs/vector_axial_response_scan.json)
+
+Representative unit-coupling semi-Compton results (polarization-summed angular-integrated ratio, axial/vector) are:
+
+| m (MeV) | E/m | L ratio | each transverse ratio | polarization-summed ratio |
+|---:|---:|---:|---:|---:|
+| 0.01 | 1.001 | 2.012 | 2.002 | 2.005 |
+| 0.01 | 10 | 39669 | 2.989 | 200.517 |
+| 1 | 1.001 | 2.002 | 1.993 | 1.996 |
+| 1 | 10 | 29256 | 2.885 | 160.742 |
+| 10 | 1.001 | 1.920 | 1.912 | 1.914 |
+| 10 | 10 | 5048 | 2.115 | 40.898 |
+| 100 | 1.001 | 1.420 | 1.418 | 1.419 |
+| 100 | 10 | 62.53 | 1.212 | 2.405 |
+
+The large longitudinal ratios at high E/m arise because the vector current is conserved (its longitudinal amplitude is Ward-suppressed), whereas the axial current is not conserved for a massive muon. This is precisely why a single polarization-independent, kinematics-independent rescaling is not justified by these kernels. The table is a local fixed-muon-rest-frame kernel result; it is not yet a thermal supernova production or transport result.
+
+For the finite-mixing benchmark theta_muR=10^-2, the polarization-summed mixed/vector response is nearly the axial/vector response because |g_V/g_A|=tan^2(theta_muR) is about 10^-4. The scan nevertheless evaluates the full mixed amplitude. The maximum absolute Compton interference fraction in the sampled differential grid is about 1.97e-4.
+
+For dimuon decay, the analytic pure-current vacuum-width ratio is
+Gamma_A/Gamma_V = beta_mu^2/(1+2 m_mu^2/m_A'^2). It rises from 1.3332e-4 at m_A'/(2m_mu)=1.0001 to 0.94118 at m_A'/(2m_mu)=5. The finite-mixing thermal rates show the same threshold dependence to the displayed precision; the mode-resolved interference remains explicitly included and is largest close to threshold (about 3.94e-5 in magnitude for the chosen benchmark).
+
+**What has and has not been validated:** the pure-vector and pure-axial endpoints agree with their existing rate kernels in the 22 passing tests; the mixed-current Ward and detailed-balance tests also pass. This validates internal kernel consistency and the numerical scan execution. It does **not** yet demonstrate that the full pure-vector stellar luminosity curve reproduces Blinov Fig. 7, nor does it justify rescaling the published vector supernova exclusion into an axial or finite-mixing exclusion. The next required physics step is to use these response results to build and independently check the channel-resolved thermal rates before any stellar transport calculation.
+
