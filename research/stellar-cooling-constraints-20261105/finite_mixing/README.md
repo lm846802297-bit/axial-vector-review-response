@@ -1,6 +1,6 @@
 # Finite-mixing vector--axial stellar-cooling constraints
 
-**Status (2026-11-07): UV coupling map and amplitude-level mixed Compton/dimuon kernels are implemented and endpoint-tested. No mixed-current luminosity scan or exclusion curve has been produced; the pure-vector literature gate remains blocked.**
+**Status (2026-11-07): UV coupling map and amplitude-level mixed Compton/dimuon kernels are implemented and endpoint-tested. The published Blinov version-of-record equations have now been audited directly. No mixed-current luminosity scan or exclusion curve has been produced; the pure-vector literature gate remains blocked pending a full Fig. 7 match.**
 
 This module is a separate research line inside PR #56. Its purpose is to calculate the stellar-cooling constraint for the actual UV-model muon current, which contains both vector and axial components for nonzero right-handed mixing.
 
@@ -77,3 +77,13 @@ A close match to a cooling contour alone is not sufficient: the full luminosity 
 The published pure-vector curve is an external benchmark, not a substitute for the mixed-current calculation. The existing axial curve is an internal endpoint, not a proof of the mixed calculation. A mixed curve is a new model-specific result and is not obtained by adding or rescaling the two endpoint curves.
 
 Until the vector-endpoint gate passes, the module is limited to the UV coupling map, local mixed-kernel implementations, endpoint regressions, and validation protocol. PR #56 remains Draft, and no referee-response or manuscript file is changed.
+
+
+## 5. Published-vector validation is a two-lane gate
+
+The direct equation-level audit of the published JHEP version is recorded in [VECTOR_ENDPOINT_GATE_2026-11-07.md](VECTOR_ENDPOINT_GATE_2026-11-07.md). It distinguishes:
+
+- **Lane A, literal reproduction:** reproduce Blinov's polarization-summed Appendix-B rates and scalar escape prescription, including the full Fig. 7 luminosity curves and Fig. 4 boundaries. This is the required external pure-vector benchmark.
+- **Lane B, mode-resolved transport:** retain the physical polarization-resolved rates and propagate each mode with its own opacity. Quantify its relation to Lane A rather than assuming that a polarization sum can be exponentiated as a single-particle opacity.
+
+The two lanes must not be silently mixed. A contour crossing alone is insufficient; the complete luminosity-versus-coupling curves, particularly the 10 MeV trapping tail, must pass the documented tolerance. The finite-mixing UV scan remains on hold until the vector benchmark is reconciled and the transport prescription is fixed. No rescaling factor or fitted opacity normalization is permitted.
