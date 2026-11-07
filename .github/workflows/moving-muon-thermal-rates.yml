@@ -1,9 +1,9 @@
 name: Moving-muon thermal response
 
 on:
-  push:
+  pull_request:
     branches:
-      - research/moving-muon-thermal-rates-20261107
+      - codex/major44-axial-cooling-constraints-20261105
     paths:
       - research/stellar-cooling-constraints-20261105/finite_mixing/moving_muon_compton.py
       - research/stellar-cooling-constraints-20261105/finite_mixing/thermal_dimuon.py
@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - name: Check out research branch
+      - name: Check out research head branch
         uses: actions/checkout@v4
         with:
           ref: research/moving-muon-thermal-rates-20261107
