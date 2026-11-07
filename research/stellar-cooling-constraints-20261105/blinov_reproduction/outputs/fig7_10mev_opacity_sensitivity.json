@@ -5,7 +5,7 @@
   "profile_sha256": "08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9",
   "fig7_input_sha256": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4",
   "fig7_pdf_sha256": "4d7d1d10bfe2b52992af94df98749fa3adac887c009cbf98515fa12e6c48fdb5",
-  "run_commit_sha": "25836da6f7f1fbe29b602138c9bfc117375ed42c",
+  "run_commit_sha": "a54f21adc1032b3e84db72c73ba5354bd7f53e88",
   "quadrature": {
     "radial_order": 40,
     "energy_order": 100,
