@@ -15,7 +15,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: fig7-six-mass-reproduction-\${{ github.ref }}
+  group: fig7-six-mass-reproduction-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -27,7 +27,7 @@ jobs:
       - name: Check out triggering commit
         uses: actions/checkout@v4
         with:
-          ref: \${{ github.sha }}
+          ref: ${{ github.sha }}
           fetch-depth: 0
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -101,6 +101,6 @@ jobs:
             echo "Six-mass Fig. 7 outputs are already current."
           else
             git commit -m "Archive six-mass Blinov Fig. 7 comparison"
-            git pull --rebase origin "\${GITHUB_REF_NAME}"
-            git push origin "HEAD:\${GITHUB_REF_NAME}"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
