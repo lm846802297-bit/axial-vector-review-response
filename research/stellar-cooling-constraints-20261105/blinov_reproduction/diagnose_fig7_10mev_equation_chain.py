@@ -304,6 +304,68 @@ def run(profile_path, fig7_path, nr=88, ne=180, na=24, ns=64,
                 "relative_residual": float(calc_lum/ref_lum-1.0),
             })
 
+    # Radial source/escape decomposition: retain the same local rates and
+    # transport, but integrate their contributions in five fixed radial shells.
+    source_idx = np.searchsorted(baseline["radial_grid"], baseline["r"])
+    total_prod = np.maximum(
+        baseline["rates"]["production"][source_idx, :], 1e-300)
+    channel_sources = {
+        key: baseline["source"] * baseline["rates"][rate_key][source_idx, :]
+        / total_prod
+        for key, rate_key in (
+            ("neutrino", "neutrino_production"),
+            ("compton", "compton_production"),
+            ("dimuon", "dimuon_production"))
+    }
+    radial_shells = []
+    radial_edges = (0.0, 5.0, 10.0, 15.0, 20.0, 25.0)
+    for point, g in zip(("weak", "reference_peak", "high_absorption"), couplings):
+        escape = np.einsum(
+            "rae,a->re", np.exp(-g*g*cols_base),
+            np.polynomial.legendre.leggauss(na)[1]/2.0)
+        for lo, hi in zip(radial_edges[:-1], radial_edges[1:]):
+            mask = (baseline["r"] >= lo) & (baseline["r"] < hi if hi < 25 else baseline["r"] <= hi)
+            row = {"point": point, "g": float(g),
+                   "radial_bin_km": [lo, hi]}
+            for channel, src in channel_sources.items():
+                row[channel+"_thin_erg_s"] = float(g*g*np.sum(src[mask]))
+                row[channel+"_escaped_erg_s"] = float(
+                    g*g*np.sum(src[mask]*escape[mask]))
+            row["total_thin_erg_s"] = float(
+                sum(row[k+"_thin_erg_s"] for k in channel_sources))
+            row["total_escaped_erg_s"] = float(
+                sum(row[k+"_escaped_erg_s"] for k in channel_sources))
+            radial_shells.append(row)
+
+    # Separate radial/energy quadrature and high-energy-cutoff convergence
+    # diagnostics for the optically thin source and the escaped luminosity.
+    quadrature_sensitivity = []
+    variants = (
+        ("radial_order_x2", 2*nr, ne, energy_offset),
+        ("energy_order_x2", nr, 2*ne, energy_offset),
+        ("energy_cutoff_x2", nr, ne, 2.0*energy_offset),
+    )
+    for variant, nrv, nev, eoff in variants:
+        setup = _profile_rate_and_source(
+            profile_path, 25.0, nrv, nev, eoff)
+        lum, _ = _luminosity_for_setup(setup, 25.0, na, ns, couplings)
+        thin = np.array([g*g*np.sum(setup["source"]) for g in couplings])
+        for point, g, l0, lv, thin0, thinv in zip(
+            ("weak", "reference_peak", "high_absorption"),
+            couplings, l_base, lum,
+            np.array([g*g*np.sum(baseline["source"]) for g in couplings]),
+            thin
+        ):
+            quadrature_sensitivity.append({
+                "variant": variant, "point": point, "g": float(g),
+                "baseline_luminosity_erg_s": float(l0),
+                "variant_luminosity_erg_s": float(lv),
+                "relative_luminosity_change": float(lv/l0-1.0),
+                "baseline_thin_source_erg_s": float(thin0),
+                "variant_thin_source_erg_s": float(thinv),
+                "relative_thin_source_change": float(thinv/thin0-1.0),
+            })
+
     l_path2, cols_path2 = _luminosity_for_setup(
         baseline, 25.0, na, 2*ns, couplings)
     l_angle2, cols_angle2 = _luminosity_for_setup(
@@ -412,6 +474,8 @@ def run(profile_path, fig7_path, nr=88, ne=180, na=24, ns=64,
     }
     eq17 = {
         "global_temperature_profile_scale_sensitivity": temperature_sensitivity,
+        "radial_shell_source_and_escape_decomposition": radial_shells,
+        "radial_energy_cutoff_quadrature_sensitivity": quadrature_sensitivity,
         "same_source_nodes_boundary_24_vs_25_km": [
             {"g": float(g), "L_R24_same_sources": float(a),
              "L_R25_same_sources": float(b),
