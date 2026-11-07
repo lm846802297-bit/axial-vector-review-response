@@ -258,17 +258,22 @@ def build_frozen_state(profile_path: Path, radial_order: int = 40,
     if rate_split_residual > 2.0e-11:
         raise AssertionError(f"Flavor split does not reproduce local neutrino rate: {rate_split_residual}")
 
-    lower = MASS_MEV / profile["lapse"]
+    source_index = np.searchsorted(radial_grid, source_radii)
+    if not np.array_equal(radial_grid[source_index], source_radii):
+        raise AssertionError("Source quadrature nodes are not present on the profile grid")
+    source_lapse = profile["lapse"][source_index]
+    source_production = rates["production"][source_index]
+    lower = MASS_MEV / source_lapse
     eweights = energy_weights(energies, lower)
     momentum = np.sqrt(np.maximum(energies**2 - MASS_MEV**2, 0.0))
     geometry = (
         4.0 * np.pi * (source_radii * KM_TO_MEV_INV)**2
-        * radial_weights * KM_TO_MEV_INV * profile["lapse"]**2
+        * radial_weights * KM_TO_MEV_INV * source_lapse**2
     )
     phase_space = momentum * energies**2 / (2.0 * np.pi**2)
     source = (
         geometry[:, None] * eweights * phase_space[None, :]
-        * rates["production"] * MEV2_TO_ERG_S
+        * source_production * MEV2_TO_ERG_S
     )
 
     return {
