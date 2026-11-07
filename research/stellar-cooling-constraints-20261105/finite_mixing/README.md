@@ -194,7 +194,7 @@ Q_h=\frac{1}{2\pi^2}\int_0^\infty dk\,k^2\omega\,
 \Gamma^{\rm prod}_{h}(\omega),\qquad
 \omega=\sqrt{k^2+m_{A'}^2}.
 \]
-It also integrates the absorption number rate mode by mode. The semi-infinite momentum range is mapped to a finite interval with Gauss--Legendre quadrature. The channel is exactly zero at and below \(m_{A'}=2m_\mu\).
+It retains the inverse absorption rate as a differential function of mediator energy and polarization, which is the quantity required by the optical-depth calculation. It does **not** integrate \(\Gamma_{\rm abs}\) over mediator phase space: that integral is not a finite emissivity or a physical total absorption rate. The semi-infinite momentum range for the production emissivity is mapped to a finite interval with Gauss--Legendre quadrature. The channel is exactly zero at and below \(m_{A'}=2m_\mu\).
 
 The new test module checks threshold closure, pointwise production/absorption detailed balance, pure-current nonzero limits, positivity/finite output for a mixed-current benchmark, and quadrature convergence. This is the first implementation of the dimuon momentum integral; it is not yet a validated result until the dedicated Actions run passes and the order-convergence output is inspected.
 
