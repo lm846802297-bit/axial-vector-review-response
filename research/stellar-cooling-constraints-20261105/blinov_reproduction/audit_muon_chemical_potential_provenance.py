@@ -50,6 +50,37 @@ def interp_column(data: dict[str, np.ndarray], column: str, radius: float) -> fl
     return float(np.interp(radius, data["r_km"], data[column]))
 
 
+def load_curve(path: Path) -> tuple[np.ndarray, np.ndarray]:
+    arr = np.genfromtxt(path, delimiter=",", names=True)
+    names = arr.dtype.names or ()
+    if len(names) < 2:
+        raise ValueError(f"Expected two-column curve file: {path}")
+    return np.asarray(arr[names[0]], float), np.asarray(arr[names[1]], float)
+
+
+def interp_curve(curve: tuple[np.ndarray, np.ndarray], radius: float) -> float:
+    return float(np.interp(radius, curve[0], curve[1]))
+
+
+def curve_comparison(reference: tuple[np.ndarray, np.ndarray],
+                     candidate: tuple[np.ndarray, np.ndarray],
+                     lower: float, upper: float,
+                     n_samples: int = 501) -> dict:
+    lo = max(lower, float(reference[0][0]), float(candidate[0][0]))
+    hi = min(upper, float(reference[0][-1]), float(candidate[0][-1]))
+    grid = np.linspace(lo, hi, n_samples)
+    ref = np.interp(grid, reference[0], reference[1])
+    val = np.interp(grid, candidate[0], candidate[1])
+    rel = val / np.maximum(np.abs(ref), 1e-300) - 1.0
+    return {
+        "common_radius_km": [float(lo), float(hi)],
+        "n_uniform_comparison_samples": n_samples,
+        "max_abs_relative_difference": float(np.max(np.abs(rel))),
+        "mean_abs_relative_difference": float(np.mean(np.abs(rel))),
+        "rms_relative_difference": float(np.sqrt(np.mean(rel**2))),
+    }
+
+
 def main() -> None:
     raw = np.genfromtxt(PROFILE, delimiter=",", names=True)
     data = {name: np.asarray(raw[name], dtype=float) for name in raw.dtype.names}
@@ -84,6 +115,51 @@ def main() -> None:
             "ferreira_over_caputo_mu_only_density": n_f_same_t / n_c if n_c > 0 else None,
         })
 
+    # Independent comparison against the upstream Bollig et al. public PDF.
+    # Fig. 4 provides mu_mu/T; Fig. 3 provides n_mu in fm^-3.
+    caputo_mu_curve = load_curve(DATA / "mu_mu_caputo_vertices.csv")
+    ferreira_mu_curve = load_curve(DATA / "mu_mu_ferreira_vertices.csv")
+    bollig_muT_curve = load_curve(HERE / "outputs" / "bollig_fig4_sfho188_muon_degeneracy.csv")
+    caputo_nmu_curve = (np.asarray(ncurve["r_km"], float),
+                        np.asarray(ncurve["value"], float) * N0_FM3)
+    bollig_nmu_curve = load_curve(HERE / "outputs" / "bollig_fig3_sfho188_muon_density.csv")
+
+    # Build mu_mu/T on the source radii, using the same Caputo T(r) for
+    # the controlled Ferreira-vs-Caputo comparison.
+    T_curve = load_curve(DATA / "T_caputo_vertices.csv")
+    caputo_muT = (caputo_mu_curve[0],
+                  np.interp(caputo_mu_curve[0], T_curve[0], T_curve[1]) * 0.0)
+    caputo_muT = (caputo_mu_curve[0],
+                  caputo_mu_curve[1] / np.interp(caputo_mu_curve[0], T_curve[0], T_curve[1]))
+    ferreira_muT = (ferreira_mu_curve[0],
+                    ferreira_mu_curve[1] / np.interp(ferreira_mu_curve[0], T_curve[0], T_curve[1]))
+    bollig_fig4_comparison = {
+        "caputo_mu_mu_over_T_vs_bollig_fig4": curve_comparison(
+            bollig_muT_curve, caputo_muT, 1.0, 20.0),
+        "ferreira_mu_mu_over_T_vs_bollig_fig4": curve_comparison(
+            bollig_muT_curve, ferreira_muT, 1.0, 20.0),
+        "samples": [],
+    }
+    for rr in [1, 5, 8, 10, 12, 15, 18, 20]:
+        if 1.0 <= rr <= 20.0:
+            bollig_fig4_comparison["samples"].append({
+                "r_km": rr,
+                "bollig_mu_mu_over_T": interp_curve(bollig_muT_curve, rr),
+                "caputo_mu_mu_over_T": interp_curve(caputo_muT, rr),
+                "ferreira_mu_mu_over_T": interp_curve(ferreira_muT, rr),
+            })
+    bollig_fig3_comparison = {
+        "caputo_n_mu_vs_bollig_fig3": curve_comparison(
+            bollig_nmu_curve, caputo_nmu_curve, 0.1, 15.27285938),
+        "samples": [],
+    }
+    for rr in [1, 5, 8, 10, 12, 15]:
+        bollig_fig3_comparison["samples"].append({
+            "r_km": rr,
+            "bollig_n_mu_fm3": interp_curve(bollig_nmu_curve, rr),
+            "caputo_n_mu_fm3": interp_curve(caputo_nmu_curve, rr),
+        })
+
     delta = [
         {
             "r_km": row["r_km"],
@@ -114,6 +190,10 @@ def main() -> None:
             "n0_fm3": N0_FM3,
         },
         "temperature_profile_overlap_max_relative_difference": 0.0026650842561763955,
+        "bollig_public_figure_cross_checks": {
+            "fig4_muon_degeneracy": bollig_fig4_comparison,
+            "fig3_muon_density": bollig_fig3_comparison,
+        },
         "sampled_muon_degeneracy_parameters": [
             {
                 "r_km": row["r_km"],
