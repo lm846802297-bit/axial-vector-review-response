@@ -51,7 +51,7 @@ def main():
         points[str(mass)]={'g':g.tolist(),'luminosity_erg_s':light.tolist(),
                            'drawing_index':index,'drawing_color':list(d['color']),
                            'source_item_count':count}
-        for variant in ['blinov_literal','exact_modes']:
+        for variant in ['blinov_literal','exact_recoil_scalar','exact_modes']:
             src,_,columns,angles=build(mass,HERE/'data'/'sfho188_digitized.csv',variant)
             actual=luminosities(src,columns,angles,g)
             for gg,ll,aa in zip(g,light,actual):
@@ -62,6 +62,16 @@ def main():
           'figure':'Blinov et al., JHEP 06 (2026) 155, Fig. 7; visually cross-checked against the version-of-record PDF',
           'reference_vertices':points,'comparison':rows}
     (out/'luminosity_comparison.json').write_text(json.dumps(data,indent=2)+'\n')
-    print({m:max(abs(r['relative_error']) for r in rows if r['mass_MeV']==m and r['variant']=='blinov_literal') for m in [1e-6,1e-5,0.1,1.,10.,200.]})
+    summary={}
+    for mass in [1e-6,1e-5,0.1,1.,10.,200.]:
+        summary[str(mass)]={}
+        for variant in ['blinov_literal','exact_recoil_scalar','exact_modes']:
+            errors=[abs(row['relative_error']) for row in rows
+                    if row['mass_MeV']==mass and row['variant']==variant]
+            summary[str(mass)][variant]={
+                'mean_abs_relative_error':float(np.mean(errors)),
+                'max_abs_relative_error':float(np.max(errors)),
+            }
+    print(summary)
 
 if __name__=='__main__':main()
