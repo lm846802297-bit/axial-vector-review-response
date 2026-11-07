@@ -230,11 +230,11 @@ def opacity_only_shell_tests(state, coupling=G_HIGH):
     cases = [("baseline", {})]
     for shell in ("15-20km", "20-25km"):
         cases.extend([
-            (f"remove_numu_absorption_{shell}", {shell: 0.0}),
-            (f"half_numu_absorption_{shell}", {shell: 0.5}),
-            (f"double_numu_absorption_{shell}", {shell: 2.0}),
+            (f"remove_neutrino_pair_absorption_{shell}", {shell: 0.0}),
+            (f"half_neutrino_pair_absorption_{shell}", {shell: 0.5}),
+            (f"double_neutrino_pair_absorption_{shell}", {shell: 2.0}),
         ])
-    cases.append(("remove_numu_absorption_15-25km",
+    cases.append(("remove_neutrino_pair_absorption_15-25km",
                   {"15-20km": 0.0, "20-25km": 0.0}))
     rows = []
     for label, scales in cases:
