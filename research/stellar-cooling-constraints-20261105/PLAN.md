@@ -212,3 +212,48 @@ The arithmetic-average-opacity diagnostic does not reproduce the published curve
 
 PR #56 remains Open / Draft. The manuscript and referee-response files remain unchanged.
 
+
+
+## Latest execution update: independent Eq. (B.2) path/angular integration (2026-11-08)
+
+This update records the next transport-only validation. It does not change the local collision kernels, profile, chemical potentials, opacity normalization, production source, manuscript, or referee response.
+
+### P0-D — independent path and angular integration: PASS
+
+A separate implementation evaluates Eq. (B.2) in impact-parameter/longitudinal coordinates,
+\[
+b=r\sqrt{1-\mu^2},\quad z_0=r\mu,\quad
+r'(z)=\sqrt{b^2+z^2},\quad
+z_{\rm exit}=\sqrt{R_{\max}^2-b^2}.
+\]
+For the frozen piecewise-linear radial opacity interpolant, the line integral is evaluated analytically on each radial cell. The angular average is independently recomputed at 16, 64, 128, and 256 Gauss-Legendre nodes and checked at selected points by adaptive angular quadrature.
+
+- Six new ray-geometry/path/angular regression tests pass.
+- The full Major 4.4 numerical-validation workflow passes, including repository-wide tests and saved-scan reproducibility.
+- At identical 16 angular nodes, replacing the existing 32-node path quadrature with the analytic path integral changes the integrated luminosity by at most \(4.31\times10^{-5}\) over the 25 Fig. 7 points.
+- The angular luminosity sequence is converged: the maximum 128-to-256 change is \(1.10\times10^{-7}\) over the curve and \(8.20\times10^{-9}\) at the high-coupling endpoint.
+- The high-coupling 10 MeV residual remains \(+92.24691\%\); the mean absolute residual remains \(15.7326\%\).
+
+**Decision:** the approximately 92% high-coupling discrepancy is not caused by the numerical path integral or angular quadrature of the current scalar reference implementation. Do not retune chemical potentials, local rates, or opacity, and do not spend further effort increasing the Eq. (B.2) quadrature order.
+
+### Independent outer-shell result
+
+The exact-boundary path decomposition gives
+\[
+\frac{\langle\tau_{\nu,15-25}\rangle}
+{\langle\tau_{\nu,\mathrm{total}}\rangle}=0.6311733,
+\]
+consistent with the earlier 63.17% estimate. The two flavor contributions remain nearly equal. This is a fraction of the source-weighted mean neutrino optical depth, not a fraction of the luminosity absorbed.
+
+By production-radius bin, the outer 15–25 km shell contributes 59.42%, 58.04%, 65.91%, 87.53%, and 95.58% of the neutrino optical depth for the 0–5, 5–10, 10–15, 15–20, and 20–25 km source bins, respectively. At the high-coupling point, the escaped luminosity is dominated by sources at 5–15 km.
+
+### Archived records
+
+- Detailed report: research/stellar-cooling-constraints-20261105/blinov_reproduction/EQ_B2_INDEPENDENT_PATH_INTEGRAL_AUDIT_2026-11-08.md
+- Independent implementation: research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_eq_b2_path_integral.py
+- Regression tests: research/stellar-cooling-constraints-20261105/blinov_reproduction/test_eq_b2_path_integral.py
+- Machine-readable output: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/eq_b2_independent_path_integral_2026-11-08.json
+
+### Next action
+
+Keep the validated local rates and Eq. (B.2) path/angular integral frozen. Move to the remaining non-transport possibilities in the established order: verify the paper's energy convention along a ray, independently recheck the digitized 10 MeV Fig. 7 tail, and then assess the reconstructed-profile/fixed-background limitation. PR #56 remains Open / Draft; the manuscript and referee-response files remain unchanged.
