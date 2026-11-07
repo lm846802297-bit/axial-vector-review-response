@@ -46,12 +46,6 @@ jobs:
       - name: Run joint production/absorber spatial audit
         run: |
           python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_fig7_spatial_weight_matrix.py
-      - name: Upload machine-readable result
-        uses: actions/upload-artifact@v4
-        with:
-          name: fig7-spatial-weight-matrix
-          path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_spatial_weight_matrix_2026-11-08.json
-          if-no-files-found: error
       - name: Commit machine-readable audit
         shell: bash
         run: |
