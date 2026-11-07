@@ -97,7 +97,7 @@ k^2\omega\,\Gamma^{\rm prod}_{\mu\mu,h}
 \omega=\sqrt{k^2+m_{A'}^2}.
 \]
 
-The inverse absorption rate is integrated over the same mediator momentum grid independently. The local reduced opacity is assembled only after the per-mode rates are validated:
+The inverse absorption rate is retained as a differential function of mediator energy and polarization; it is **not** integrated over mediator phase space. Such an integral is not a finite emissivity and is not the quantity entering optical depth. The local reduced opacity is assembled only after the per-mode rates are validated:
 
 \[
 \Gamma^{\rm red}_{h}=
