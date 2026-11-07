@@ -20,6 +20,124 @@
     "n0_fm3": 0.181
   },
   "temperature_profile_overlap_max_relative_difference": 0.0026650842561763955,
+  "bollig_public_figure_cross_checks": {
+    "fig4_muon_degeneracy": {
+      "caputo_mu_mu_over_T_vs_bollig_fig4": {
+        "common_radius_km": [
+          1.0,
+          20.0
+        ],
+        "n_uniform_comparison_samples": 501,
+        "max_abs_relative_difference": 0.0001613061749139444,
+        "mean_abs_relative_difference": 5.510131960454882e-05,
+        "rms_relative_difference": 6.617698255477208e-05
+      },
+      "ferreira_mu_mu_over_T_vs_bollig_fig4": {
+        "common_radius_km": [
+          1.0,
+          20.0
+        ],
+        "n_uniform_comparison_samples": 501,
+        "max_abs_relative_difference": 4.4613962516921255,
+        "mean_abs_relative_difference": 1.2756813688229236,
+        "rms_relative_difference": 2.0341618163638535
+      },
+      "samples": [
+        {
+          "r_km": 1,
+          "bollig_mu_mu_over_T": 2.4172825884713802,
+          "caputo_mu_mu_over_T": 2.4173096423945903,
+          "ferreira_mu_mu_over_T": 13.201738067958235
+        },
+        {
+          "r_km": 5,
+          "bollig_mu_mu_over_T": 2.213624291297911,
+          "caputo_mu_mu_over_T": 2.2138361573147267,
+          "ferreira_mu_mu_over_T": 9.199886098938228
+        },
+        {
+          "r_km": 8,
+          "bollig_mu_mu_over_T": 2.3626637954256267,
+          "caputo_mu_mu_over_T": 2.362911880891185,
+          "ferreira_mu_mu_over_T": 4.312599048553387
+        },
+        {
+          "r_km": 10,
+          "bollig_mu_mu_over_T": 3.031083474465028,
+          "caputo_mu_mu_over_T": 3.0313228950301876,
+          "ferreira_mu_mu_over_T": 3.8655464024133384
+        },
+        {
+          "r_km": 12,
+          "bollig_mu_mu_over_T": 3.6078061846751264,
+          "caputo_mu_mu_over_T": 3.607833103050725,
+          "ferreira_mu_mu_over_T": 4.229155738497251
+        },
+        {
+          "r_km": 15,
+          "bollig_mu_mu_over_T": 4.707211383036134,
+          "caputo_mu_mu_over_T": 4.707130193917038,
+          "ferreira_mu_mu_over_T": 5.192627021504532
+        },
+        {
+          "r_km": 18,
+          "bollig_mu_mu_over_T": 3.9532214794973144,
+          "caputo_mu_mu_over_T": 3.953451340187905,
+          "ferreira_mu_mu_over_T": 4.462809167248839
+        },
+        {
+          "r_km": 20,
+          "bollig_mu_mu_over_T": 3.51329400813048,
+          "caputo_mu_mu_over_T": 3.5132132817433672,
+          "ferreira_mu_mu_over_T": 2.9499027829433584
+        }
+      ]
+    },
+    "fig3_muon_density": {
+      "caputo_n_mu_vs_bollig_fig3": {
+        "common_radius_km": [
+          0.3176595298,
+          15.27285938
+        ],
+        "n_uniform_comparison_samples": 501,
+        "max_abs_relative_difference": 1.404124937100986,
+        "mean_abs_relative_difference": 0.37774523237883184,
+        "rms_relative_difference": 0.46274228183641003
+      },
+      "samples": [
+        {
+          "r_km": 1,
+          "bollig_n_mu_fm3": 0.00011069963183623846,
+          "caputo_n_mu_fm3": 9.62180974038059e-05
+        },
+        {
+          "r_km": 5,
+          "bollig_n_mu_fm3": 0.000840744511775644,
+          "caputo_n_mu_fm3": 0.00046954309089233646
+        },
+        {
+          "r_km": 8,
+          "bollig_n_mu_fm3": 0.005370814830371206,
+          "caputo_n_mu_fm3": 0.004683944743178675
+        },
+        {
+          "r_km": 10,
+          "bollig_n_mu_fm3": 0.0036984048834108048,
+          "caputo_n_mu_fm3": 0.0045148590442319735
+        },
+        {
+          "r_km": 12,
+          "bollig_n_mu_fm3": 0.0014139603296693167,
+          "caputo_n_mu_fm3": 0.0019543548663027944
+        },
+        {
+          "r_km": 15,
+          "bollig_n_mu_fm3": 1.770442835161362e-05,
+          "caputo_n_mu_fm3": 4.056968293196382e-05
+        }
+      ]
+    }
+  },
   "sampled_muon_degeneracy_parameters": [
     {
       "r_km": 0.0,
