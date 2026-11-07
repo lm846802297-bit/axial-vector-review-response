@@ -2,12 +2,13 @@
 from __future__ import annotations
 import argparse, hashlib, json
 from pathlib import Path
+import sys
 import numpy as np
-import rates
-from finite_mixing.model import muon_couplings
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parent
-
+sys.path.insert(0, str(ROOT))
+import rates
+from finite_mixing.model import muon_couplings
 def stats(values):
  a=np.asarray(values,dtype=float); a=a[np.isfinite(a)]
  if not a.size:return {"n":0,"min":None,"max":None,"mean":None,"max_over_min":None}
