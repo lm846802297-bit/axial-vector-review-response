@@ -1,7 +1,12 @@
 import unittest
+import sys
+from pathlib import Path
 
 import numpy as np
 from scipy.integrate import quad
+
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE.parent))
 
 from blinov_reproduction.audit_eq_b2_path_integral import (
     KM_TO_MEV_INV,
