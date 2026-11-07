@@ -98,6 +98,20 @@ The archived three-layer decomposition gives a weak-coupling residual of \(-8.89
 
 The one-factor opacity stress test shows that changing the neutrino opacity has a much larger effect on the high-coupling tail than changing the semi-Compton opacity. These are diagnostic sensitivities only; neither a rescaled opacity nor a fitted profile is adopted. The channel split itself passes internal sum checks at relative residuals below \(7\times10^{-16}\), but the three-layer audit explicitly reuses the reference detailed-balance prescription and is not an independent microscopic derivation of the inverse rates.
 
+### Absorber-radius decomposition of the optical depth
+
+The path integral is further split by the radius of the **absorbing material** (not the production radius). At the high-absorption point, the source-weighted mean neutrino optical-depth contributions from absorber shells are:
+
+| Absorber shell | Neutrino contribution to mean \\(\\tau\\) | Semi-Compton contribution |
+|---|---:|---:|
+| 0--5 km | 0.215 | 0.0084 |
+| 5--10 km | 1.722 | 0.991 |
+| 10--15 km | 3.408 | 0.648 |
+| 15--20 km | 4.461 | 0.0010 |
+| 20--25 km | 4.676 | negligible |
+
+The sum reproduces the previously quoted total source-weighted mean optical depth within rounding. In this setup the neutrino opacity is distributed broadly through the overlying 5--25 km material, with the largest contributions from 15--25 km. Semi-Compton opacity is concentrated mainly in the 5--15 km region. This identifies where the present model accumulates optical depth, but does not by itself identify which shell is physically mis-modelled. The comparison with Blinov still requires matched radial thermodynamic inputs and the exact transport prescription.
+
 ### Weak-source and strong-transport acceptance checks
 
 The new independent radial/energy/cutoff refinements give the following changes relative to the 88-radial, 180-energy baseline:
