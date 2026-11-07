@@ -194,7 +194,7 @@ def run(profile_path, fig7_path, nr=88, ne=180, na=24, ns=64,
             "rae,a->re", np.exp(-g*g*cols25_same_source), angle_weights25)
         l24_same_source.append(float(g*g*np.sum(source_inner*esc24)))
         l25_same_source.append(float(g*g*np.sum(source_inner*esc25)))
-        weights_tau = source_inner[:, None, :] * angle_weights[None, :, None]
+        weights_tau = source_inner[:, None, :] * angle_weights25[None, :, None]
         tau_shell = g*g*shell_tau_unit
         shell_tau_stats.append({
             "g": float(g),
