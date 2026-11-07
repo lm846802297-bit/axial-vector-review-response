@@ -51,5 +51,23 @@ jobs:
             echo "Direct-integral output is already current."
           else
             git commit -m "Archive independent direct collision-integral audit"
-            git push origin "HEAD:${GITHUB_REF_NAME}"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin "${GITHUB_REF_NAME}"
+              if ! git rebase "origin/${GITHUB_REF_NAME}"; then
+                if git diff --name-only --diff-filter=U | grep -Fxq "research/stellar-cooling-constraints-20261105/outputs/direct_collision_integrals_outer_radii_2026-11-08.json"; then
+                  git checkout --ours -- research/stellar-cooling-constraints-20261105/outputs/direct_collision_integrals_outer_radii_2026-11-08.json
+                  git add research/stellar-cooling-constraints-20261105/outputs/direct_collision_integrals_outer_radii_2026-11-08.json
+                  GIT_EDITOR=true git rebase --continue
+                else
+                  git rebase --abort
+                  echo "Unexpected non-output rebase conflict."
+                  exit 1
+                fi
+              fi
+              if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+                exit 0
+              fi
+              echo "Push raced with another workflow; retry ${attempt}/5."
+            done
+            exit 1
           fi
