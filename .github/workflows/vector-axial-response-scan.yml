@@ -9,7 +9,7 @@ on:
       - '.github/workflows/vector-axial-response-scan.yml'
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
   response-scan:
     runs-on: ubuntu-latest
@@ -17,7 +17,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: codex/major44-axial-cooling-constraints-20261105
+          ref: \${{ github.sha }}
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -31,9 +32,17 @@ jobs:
       - name: Generate local response scan
         run: |
           python research/stellar-cooling-constraints-20261105/finite_mixing/response_scan.py \
-            --output response-scan-output/vector_axial_response_scan.json
-      - uses: actions/upload-artifact@v4
-        with:
-          name: vector-axial-response-scan
-          path: response-scan-output/vector_axial_response_scan.json
-          if-no-files-found: error
+            --output research/stellar-cooling-constraints-20261105/finite_mixing/outputs/vector_axial_response_scan.json
+      - name: Commit reproducible numerical output
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/stellar-cooling-constraints-20261105/finite_mixing/outputs/vector_axial_response_scan.json
+          if git diff --cached --quiet; then
+            echo "Response scan output is already current."
+          else
+            git commit -m "Archive vector-axial local response scan"
+            git push origin "HEAD:\${GITHUB_REF_NAME}"
+          fi
