@@ -31,7 +31,11 @@ def _muon_radial_rule(temperature, chemical_potential, order):
     """Composite p rule resolving both a Fermi surface and a thermal tail."""
     if temperature <= 0 or order < 8:
         raise ValueError("Require T>0 and radial order>=8")
-    p_fermi = np.sqrt(max(chemical_potential**2 - M_MU**2, 0.0))
+    # A Fermi surface exists only for a positive chemical potential above
+    # the rest mass. A large negative mu_Q describes a dilute antiparticle
+    # population and must not be converted into a fictitious p_F.
+    p_fermi = (np.sqrt(chemical_potential**2 - M_MU**2)
+               if chemical_potential > M_MU else 0.0)
     if p_fermi > 0.0:
         edge_lo = max(0.0, p_fermi - 10.0*temperature)
         edge_hi = p_fermi + 20.0*temperature
