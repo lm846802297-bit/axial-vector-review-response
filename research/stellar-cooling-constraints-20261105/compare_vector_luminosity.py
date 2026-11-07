@@ -51,7 +51,7 @@ def main():
         points[str(mass)]={'g':g.tolist(),'luminosity_erg_s':light.tolist(),
                            'drawing_index':index,'drawing_color':list(d['color']),
                            'source_item_count':count}
-        for variant in ['blinov_literal','thomson_modes','exact_recoil_scalar','exact_modes']:
+        for variant in ['blinov_literal','blinov_average','thomson_modes','exact_recoil_scalar','exact_modes']:
             src,_,columns,angles=build(mass,HERE/'data'/'sfho188_digitized.csv',variant)
             actual=luminosities(src,columns,angles,g)
             for gg,ll,aa in zip(g,light,actual):
@@ -77,14 +77,16 @@ def main():
           'figure':'Blinov et al., JHEP 06 (2026) 155, Fig. 7; visually cross-checked against the version-of-record PDF',
           'reference_vertices':points,'comparison':rows,
           'controlled_transport_comparison':{
-              'B14_no_recoil_scalar_vs_mode_resolved':paired_transport_effect('blinov_literal','thomson_modes'),
+              'B14_scalar_sum_vs_polarization_average':paired_transport_effect('blinov_literal','blinov_average'),
+              'B14_scalar_sum_vs_mode_resolved':paired_transport_effect('blinov_literal','thomson_modes'),
+              'B14_polarization_average_vs_mode_resolved':paired_transport_effect('blinov_average','thomson_modes'),
               'fixed_target_exact_recoil_scalar_vs_mode_resolved':paired_transport_effect('exact_recoil_scalar','exact_modes'),
           }}
     (out/'luminosity_comparison.json').write_text(json.dumps(data,indent=2)+'\n')
     summary={}
     for mass in [1e-6,1e-5,0.1,1.,10.,200.]:
         summary[str(mass)]={}
-        for variant in ['blinov_literal','thomson_modes','exact_recoil_scalar','exact_modes']:
+        for variant in ['blinov_literal','blinov_average','thomson_modes','exact_recoil_scalar','exact_modes']:
             errors=[abs(row['relative_error']) for row in rows
                     if row['mass_MeV']==mass and row['variant']==variant]
             summary[str(mass)][variant]={
