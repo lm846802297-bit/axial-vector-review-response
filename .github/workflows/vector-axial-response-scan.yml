@@ -37,6 +37,9 @@ jobs:
         run: |
           python research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/run_dimuon_validation.py \
             --output research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/outputs/dimuon_thermal_integral_validation.json
+      - name: Generate moving-muon semi-Compton validation
+        run: |
+          python research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/run_moving_compton_validation.py
       - name: Commit reproducible numerical output
         shell: bash
         run: |
@@ -45,9 +48,10 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add research/stellar-cooling-constraints-20261105/finite_mixing/outputs/vector_axial_response_scan.json
           git add research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/outputs/dimuon_thermal_integral_validation.json
+          git add research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/outputs/moving_compton_validation.json
           if git diff --cached --quiet; then
             echo "Response scan output is already current."
           else
-            git commit -m "Archive vector-axial local response scan"
+            git commit -m "Archive vector-axial and thermal-integral validation scans"
             git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
