@@ -369,6 +369,83 @@ def run(profile_path, fig7_path, nr=88, ne=180, na=24, ns=64,
                         np.sum(source_weights * (g*g*shell_columns))/norm),
                 })
 
+    # Split the neutrino inverse-decay opacity by flavour and test the
+    # small/uncertain mu_nu_mu tail specifically in the outer PNS shells.
+    omega_grid = baseline["energies"][None, :]
+    temp_grid = baseline["profile"]["T"][:, None]
+    mu_numu_grid = baseline["profile"]["mu_numu"][:, None]
+    velocity_grid = np.sqrt(np.maximum(
+        1.0-(MASS/omega_grid)**2, 0.0))
+    x_grid = omega_grid/temp_grid
+    balance_factor = (
+        -np.expm1(-x_grid)*np.exp(np.minimum(x_grid, 700.0)))
+    prefactor_nu = MASS*MASS/(8.0*np.pi*omega_grid)
+    i_numu = fermi_pair_average(
+        mu_numu_grid, omega_grid, temp_grid, velocity_grid)
+    i_nutau = fermi_pair_average(
+        np.zeros_like(mu_numu_grid), omega_grid, temp_grid, velocity_grid)
+    reduced_numu = balance_factor*prefactor_nu*i_numu
+    reduced_nutau = balance_factor*prefactor_nu*i_nutau
+    flavour_opacity = []
+    outer_mu_sensitivity = []
+    source_weights = (
+        baseline["source"][:, None, :]
+        * np.polynomial.legendre.leggauss(na)[1][None, :, None]/2.0
+    )
+    source_norm = max(float(np.sum(source_weights)), 1e-300)
+    for flavour, reduced_flavour in (
+        ("numu", reduced_numu), ("nutau", reduced_nutau)
+    ):
+        for lo, hi in zip(path_edges[:-1], path_edges[1:]):
+            mask_path = (
+                (baseline["radial_grid"] >= lo)
+                & ((baseline["radial_grid"] < hi)
+                   if hi < 25.0 else (baseline["radial_grid"] <= hi)))
+            reduced_shell = np.where(
+                mask_path[:, None], reduced_flavour, 0.0)
+            shell_columns, _ = scalar_optical_depths(
+                baseline["r"], baseline["radial_grid"], reduced_shell,
+                MASS, baseline["energies"], 25.0,
+                angular_order=na, path_order=ns)
+            flavour_opacity.append({
+                "flavour": flavour, "absorber_radius_bin_km": [lo, hi],
+                "high_absorption_g": float(couplings[-1]),
+                "source_weighted_mean_tau_contribution": float(
+                    np.sum(source_weights
+                           * (couplings[-1]**2*shell_columns))/source_norm),
+            })
+
+    for scale_name, outer_scale in (
+        ("zero_mu_numu_outer_r_ge_15km", 0.0),
+        ("baseline_mu_numu_outer_r_ge_15km", 1.0),
+        ("double_mu_numu_outer_r_ge_15km", 2.0),
+    ):
+        mu_variant = np.where(
+            baseline["radial_grid"][:, None] >= 15.0,
+            outer_scale*mu_numu_grid, mu_numu_grid)
+        i_variant = fermi_pair_average(
+            mu_variant, omega_grid, temp_grid, velocity_grid)
+        reduced_variant = balance_factor*prefactor_nu*i_variant
+        for lo, hi in ((15.0, 20.0), (20.0, 25.0)):
+            mask_path = (
+                (baseline["radial_grid"] >= lo)
+                & ((baseline["radial_grid"] < hi)
+                   if hi < 25.0 else (baseline["radial_grid"] <= hi)))
+            reduced_shell = np.where(
+                mask_path[:, None], reduced_variant, 0.0)
+            shell_columns, _ = scalar_optical_depths(
+                baseline["r"], baseline["radial_grid"], reduced_shell,
+                MASS, baseline["energies"], 25.0,
+                angular_order=na, path_order=ns)
+            outer_mu_sensitivity.append({
+                "scenario": scale_name,
+                "absorber_radius_bin_km": [lo, hi],
+                "high_absorption_g": float(couplings[-1]),
+                "source_weighted_mean_tau_contribution": float(
+                    np.sum(source_weights
+                           * (couplings[-1]**2*shell_columns))/source_norm),
+            })
+
     # Separate radial/energy quadrature and high-energy-cutoff convergence
     # diagnostics for the optically thin source and the escaped luminosity.
     quadrature_sensitivity = []
@@ -508,6 +585,8 @@ def run(profile_path, fig7_path, nr=88, ne=180, na=24, ns=64,
         "global_temperature_profile_scale_sensitivity": temperature_sensitivity,
         "radial_shell_source_and_escape_decomposition": radial_shells,
         "absorber_radius_shell_optical_depth_decomposition": opacity_path_shells,
+        "neutrino_flavour_absorption_by_shell": flavour_opacity,
+        "outer_mu_numu_absorption_sensitivity": outer_mu_sensitivity,
         "radial_energy_cutoff_quadrature_sensitivity": quadrature_sensitivity,
         "same_source_nodes_boundary_24_vs_25_km": [
             {"g": float(g), "L_R24_same_sources": float(a),
