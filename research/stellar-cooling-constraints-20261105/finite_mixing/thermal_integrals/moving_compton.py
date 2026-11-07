@@ -192,9 +192,9 @@ def moving_muon_compton_rates(
     g_vector,
     g_axial,
     *,
-    radial_order=24,
-    angular_order=8,
-    azimuth_order=12,
+    radial_order=32,
+    angular_order=12,
+    azimuth_order=20,
     chunk_size=4096,
 ):
     """Direct moving-muon production and absorption rates at fixed omega.
@@ -249,9 +249,14 @@ def moving_muon_compton_rates(
             total_abs += np.einsum("i,ih,i->h", phase, msq, stat_abs)
             total_prod += np.einsum("i,ih,i->h", phase, msq, stat_prod)
 
+        charge_balance = np.max(
+            np.abs(total_prod-np.exp(-omega/temperature)*total_abs)
+            / np.maximum(np.abs(total_prod), 1e-300)
+        )
         charge_results[charge] = {
             "Gamma_prod_by_mode": total_prod,
             "Gamma_abs_by_mode": total_abs,
+            "max_detailed_balance_relative_residual": float(charge_balance),
             "quadrature_points": int(n_points),
             "radial_nodes": int(len(p_nodes)),
         }
@@ -265,7 +270,7 @@ def moving_muon_compton_rates(
         "Gamma_abs_by_mode": abs_total,
         "charge_contributions": charge_results,
         "max_detailed_balance_relative_residual": float(balance),
-        "total_quadrature_points_per_charge": int(sum(
+        "total_quadrature_points_all_charges": int(sum(
             item["quadrature_points"] for item in charge_results.values()
         )),
     }
