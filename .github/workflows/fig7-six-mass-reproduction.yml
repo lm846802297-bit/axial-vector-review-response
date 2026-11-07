@@ -1,0 +1,106 @@
+name: Blinov Fig. 7 six-mass literal reproduction
+
+on:
+  push:
+    branches:
+      - codex/major44-axial-cooling-constraints-20261105
+    paths:
+      - 'research/stellar-cooling-constraints-20261105/compare_vector_luminosity.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/compare_reference.py'
+      - '.github/workflows/fig7-six-mass-reproduction.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fig7-six-mass-reproduction-\${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  reproduce:
+    if: github.ref_name == 'codex/major44-axial-cooling-constraints-20261105'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Check out triggering commit
+        uses: actions/checkout@v4
+        with:
+          ref: \${{ github.sha }}
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numerical and PDF dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy matplotlib pymupdf
+      - name: Download pinned arXiv v2 source archive
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2 \
+            https://arxiv.org/src/2511.09619v2 \
+            --output /tmp/blinov-2511.09619v2-source.tar
+      - name: Extract the source luminosity PDF
+        run: |
+          python - <<'PY'
+          import tarfile
+          from pathlib import Path
+          archive = "/tmp/blinov-2511.09619v2-source.tar"
+          target = Path("/tmp/luminosity_snapshot_t=1.pdf")
+          with tarfile.open(archive, "r:*") as bundle:
+              matches = [m for m in bundle.getmembers()
+                         if Path(m.name).name == "luminosity_snapshot_t=1.pdf"]
+              if len(matches) != 1:
+                  raise RuntimeError(f"Expected one source PDF, found {len(matches)}")
+              stream = bundle.extractfile(matches[0])
+              if stream is None:
+                  raise RuntimeError("Could not extract luminosity source PDF")
+              target.write_bytes(stream.read())
+          print(f"Extracted {target} ({target.stat().st_size} bytes)")
+          PY
+      - name: Digitize and compare all six published Fig. 7 curves
+        run: |
+          python research/stellar-cooling-constraints-20261105/compare_vector_luminosity.py \
+            --source /tmp/luminosity_snapshot_t=1.pdf
+      - name: Run independent scalar scan at all Fig. 7 masses and Fig. 4 checks
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py \
+            --masses 0.000001,0.00001,0.1,1,10,100,200 \
+            --gmin 2e-11 --gmax 4e-3 --gcount 501 \
+            --nr 40 --ne 100 --na 16 --ns 32 \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_fig7_six_mass_scan.json
+      - name: Compare all six Fig. 7 curves and Fig. 4 boundaries
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/compare_reference.py \
+            --scan research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_fig7_six_mass_scan.json \
+            --fig7 research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_six_mass_comparison.json
+      - name: Print acceptance summary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_six_mass_comparison.json")
+          d=json.loads(p.read_text())
+          print("Fig. 4:", [{k:r.get(k) for k in ("mass_MeV","relative_lower","relative_upper")} for r in d["fig4"]])
+          print("Fig. 7:", [{k:r.get(k) for k in ("mass_MeV","reference_points","mean_abs_relative_difference","max_abs_relative_difference")} for r in d["fig7"]])
+          PY
+      - name: Commit six-mass reference and comparison outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_fig7_six_mass_scan.json
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_six_mass_comparison.json
+          if git diff --cached --quiet; then
+            echo "Six-mass Fig. 7 outputs are already current."
+          else
+            git commit -m "Archive six-mass Blinov Fig. 7 comparison"
+            git pull --rebase origin "\${GITHUB_REF_NAME}"
+            git push origin "HEAD:\${GITHUB_REF_NAME}"
+          fi
