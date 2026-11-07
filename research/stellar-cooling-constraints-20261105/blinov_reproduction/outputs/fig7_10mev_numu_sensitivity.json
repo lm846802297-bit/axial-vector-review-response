@@ -13,7 +13,7 @@
   "profile_sha256": "08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9",
   "fig7_source_sha256": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4",
   "fig7_pdf_sha256": "4d7d1d10bfe2b52992af94df98749fa3adac887c009cbf98515fa12e6c48fdb5",
-  "run_commit_sha": "e08a84d10848bb6f70ad6de117c38d4965d938e0",
+  "run_commit_sha": "3ec40cfd01c51aee10427ab4fe1390c9a497145e",
   "scales": [
     {
       "mu_numu_scale": 0.0,
