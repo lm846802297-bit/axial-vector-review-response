@@ -40,6 +40,9 @@ jobs:
       - name: Generate moving-muon semi-Compton validation
         run: |
           python research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/run_moving_compton_validation.py
+      - name: Generate SFHo local moving-Compton rate map
+        run: |
+          python research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/run_sfho_local_compton_map.py
       - name: Commit reproducible numerical output
         shell: bash
         run: |
@@ -49,6 +52,7 @@ jobs:
           git add research/stellar-cooling-constraints-20261105/finite_mixing/outputs/vector_axial_response_scan.json
           git add research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/outputs/dimuon_thermal_integral_validation.json
           git add research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/outputs/moving_compton_validation.json
+          git add research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/outputs/sfho188_local_compton_rates.json
           if git diff --cached --quiet; then
             echo "Response scan output is already current."
           else
