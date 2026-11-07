@@ -79,13 +79,15 @@ For the full escape integral at this point:
 
 Angular and path quadrature are well converged. Doubling radial order changes the luminosity by about 0.49%, still far below the Fig. 7 high-coupling residual.
 
-The separate direct collision-integral audit validates neutrino production and absorption independently, flavor by flavor and polarization by polarization, at its tested radii and kinematics. The maximum discrepancies between adaptive direct integrals and the production implementation are below \\(4\\times10^{-15}\\), and mode-resolved detailed balance is satisfied to about \\(1.1\\times10^{-15}\\). However, that audit's radial sample stops at 15 km; a dedicated outer-radius extension remains necessary before treating the local kernel as independently checked throughout 15--25 km.
+The direct collision-integral audit has now been extended from its original 0--15 km grid to 0, 5, 8, 10, 15, 17, 18, 20, 22, 24 and 25 km. It covers 132 neutrino cases and 132 B.14 Compton cases (four masses and three \\(\\omega/m_V\\) values at each radius). The maximum relative differences between adaptive direct neutrino production/absorption integrals and the rate implementation are \\(5.24\\times10^{-15}\\) and \\(3.99\\times10^{-15}\\), respectively; mode-resolved neutrino detailed balance is satisfied to \\(1.24\\times10^{-14}\\). B.14 Compton detailed balance and the spin-summed normalization agree to \\(4.17\\times10^{-16}\\) and \\(3.94\\times10^{-16}\\). The local neutrino kernel is therefore independently validated numerically through 25 km on this grid. The full moving-muon B.13 thermal integral remains outside this B.14 audit.
+ 
+The outer Compton source also becomes negligible rapidly: the independently integrated \\(n_{\\mu,\\rm eff}\\) falls from \\(0.172\\,\\mathrm{MeV}^3\\) at 17 km to \\(2.03\\times10^{-3}\\,\\mathrm{MeV}^3\\) at 18 km, \\(5.24\\times10^{-7}\\,\\mathrm{MeV}^3\\) at 20 km, and \\(1.15\\times10^{-12}\\,\\mathrm{MeV}^3\\) at 25 km. Thus the 15--25 km opacity that controls the high-coupling tail is overwhelmingly neutrino inverse decay, not semi-Compton absorption.
 
 ## 6. Disposition and next step
 
 1. Keep the Caputo \\(\\mu_{\\nu_\\mu}\\) profile and \\(\\mu_{\\nu_\\tau}=0\\) as the explicitly labeled baseline. Do not fit either chemical potential to Fig. 7.
 2. The unresolved outer \\(\\mu_{\\nu_\\mu}\\) tail is not a plausible explanation for the large high-coupling mismatch. Even a 10 MeV stress value for \\(\\mu_{\\nu_\\tau}\\) changes the luminosity by only 4.5%.
 3. The outer 15--25 km inverse-decay opacity is physically important because the reduced opacity tends toward the vacuum decay limit as \\(T\\) decreases.
-4. Next, extend the independent adaptive forward/reverse neutrino collision-integral audit from its current outermost test radius of 15 km to 17, 18, 20, 22, 24 and 25 km. Only after that should the outer path integral be compared with an independently implemented transport calculation.
+4. The local neutrino collision kernel is now independently checked through 25 km. The next task is an independent implementation of the full angular/path transport integral, with the outer 15--25 km opacity resolved along rays and compared with the reference escape probability.
 
 No formal manuscript, referee response, or axial-vector exclusion curve is modified.
