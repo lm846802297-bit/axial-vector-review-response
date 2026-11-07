@@ -65,11 +65,12 @@ class MovingComptonMatrixElementTests(unittest.TestCase):
 
     def test_negative_chemical_potential_does_not_create_fake_fermi_surface(self):
         temperature = 20.0
-        p, _ = _muon_radial_rule(temperature, -300.0, 16)
-        thermal_cut = 12.0*np.sqrt(rates.M_MU*temperature)
-        self.assertLess(float(np.max(p)), thermal_cut)
-        p_degenerate, _ = _muon_radial_rule(temperature, +300.0, 16)
-        self.assertGreater(float(np.max(p_degenerate)), thermal_cut)
+        omega = 25.0
+        p_negative, _ = _muon_radial_rule(temperature, -300.0, omega, 16)
+        p_zero, _ = _muon_radial_rule(temperature, 0.0, omega, 16)
+        p_positive, _ = _muon_radial_rule(temperature, +300.0, omega, 16)
+        np.testing.assert_array_equal(p_negative, p_zero)
+        self.assertGreater(float(np.max(p_positive)), float(np.max(p_negative)))
 
 
 class MovingComptonThermalRateTests(unittest.TestCase):
