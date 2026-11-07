@@ -41,7 +41,8 @@ SOURCE_BINS = SHELLS
 
 
 def build_state(profile_path, nr=40, ne=100, na=16, ns=32,
-                mass=MASS_MEV, energy_offset=1000.0, mu_outer=None):
+                mass=MASS_MEV, energy_offset=1000.0, mu_outer=None,
+                mu_nutau_outer=None):
     r, rw = radial_rule(RMAX_KM, nr)
     radial_grid = np.unique(np.r_[0.0, r, RMAX_KM])
     p = load_profile(profile_path, radial_grid)
@@ -65,8 +66,11 @@ def build_state(profile_path, nr=40, ne=100, na=16, ns=32,
     v_grid = velocity[None, :]
     omega_grid = energies[None, :]
     i_numu = fermi_pair_average(mu_grid, omega_grid, temp_grid, v_grid)
+    mu_nutau = np.zeros_like(p["mu_numu"])
+    if mu_nutau_outer is not None:
+        mu_nutau[radial_grid >= 15.0] = float(mu_nutau_outer)
     i_nutau = fermi_pair_average(
-        np.zeros_like(mu_grid), omega_grid, temp_grid, v_grid)
+        mu_nutau[:, None], omega_grid, temp_grid, v_grid)
     nu_numu_prod = prefactor[None, :] * i_numu
     nu_nutau_prod = prefactor[None, :] * i_nutau
     x = omega_grid / temp_grid
@@ -98,6 +102,7 @@ def build_state(profile_path, nr=40, ne=100, na=16, ns=32,
         "r": r, "rw": rw, "radial_grid": radial_grid, "profile": p,
         "energies": energies, "rates": rates, "velocity": velocity,
         "i_numu": i_numu, "i_nutau": i_nutau,
+        "mu_nutau": mu_nutau,
         "nu_numu_prod": nu_numu_prod, "nu_nutau_prod": nu_nutau_prod,
         "nu_numu_red": nu_numu_red, "nu_nutau_red": nu_nutau_red,
         "nu_total_red": nu_total_red, "comp_red": comp_red,
@@ -224,6 +229,37 @@ def muon_neutrino_envelope(profile_path, couplings=(G_HIGH,)):
     return rows
 
 
+def tau_neutrino_outer_profile_envelope(profile_path, coupling=G_HIGH):
+    """Stress-test the unplotted nu_tau chemical potential outside 15 km.
+
+    The public Caputo profile contains mu_nu_mu but no separate mu_nu_tau
+    curve. Zero is the current baseline; nonzero constants are diagnostics,
+    not claims about the underlying Garching simulation.
+    """
+    variants = [("baseline_mu_nutau_zero", 0.0),
+                ("outer_mu_nutau_1MeV", 1.0),
+                ("outer_mu_nutau_2MeV", 2.0),
+                ("outer_mu_nutau_5MeV", 5.0),
+                ("outer_mu_nutau_10MeV", 10.0)]
+    rows = []
+    for label, value in variants:
+        state = build_state(profile_path, mu_nutau_outer=value)
+        lum = luminosity(state, state["total_red"], coupling)
+        tau = optical_depth_decomposition(state, coupling)
+        rows.append({
+            "variant": label,
+            "mu_nutau_override_for_r_ge_15_km_MeV": value,
+            "luminosity_erg_s": lum,
+            "relative_to_baseline": None,
+            "outer_15_25_fraction_of_neutrino_mean_tau":
+                tau["outer_15_25_fraction_of_neutrino_mean_tau"],
+        })
+    base = rows[0]["luminosity_erg_s"]
+    for row in rows:
+        row["relative_to_baseline"] = row["luminosity_erg_s"] / base - 1.0
+    return rows
+
+
 def opacity_only_shell_tests(state, coupling=G_HIGH):
     base = luminosity(state, state["total_red"], coupling)
     masks = shell_masks(state["radial_grid"])
@@ -292,12 +328,14 @@ def run(profile_path):
         "local_kernel_and_cold_limit_checks": local_kernel_table(state),
         "optical_depth_decomposition": decomp,
         "mu_numu_outer_profile_envelope": muon_neutrino_envelope(profile_path),
+        "mu_nutau_outer_profile_stress_test": tau_neutrino_outer_profile_envelope(profile_path),
         "opacity_only_shell_sensitivity": opacity_only_shell_tests(state),
         "quadrature_convergence": quadrature_check(profile_path),
         "interpretation": [
             "The inverse-decay reduced opacity is split into nu_mu and nu_tau channels and summed back to the existing total reduced opacity; the rate identity is checked numerically.",
             "At low outer temperatures the reduced opacity approaches the time-dilated vacuum-decay limit. Therefore a falling T(r) does not make the outer neutrino absorption vanish.",
             "The public Caputo plot resolves |mu_nu_mu| only above about 1 MeV. The zero-filled outer tail is an input convention, not an exact raw-profile statement; constant 1 and 2 MeV outer envelopes quantify its effect with production and absorption recomputed together.",
+            "No separate mu_nu_tau curve is present in the public Caputo profile. The baseline sets mu_nu_tau=0; constant 1, 2, 5 and 10 MeV outer stress tests quantify sensitivity but are not alternative physical profiles.",
             "The absorber-shell optical-depth table is weighted over the actual production source, emitted energies, and isotropic directions. It distinguishes absorber radius from production radius.",
             "Opacity-only shell removal is a diagnostic decomposition and is not a physical alternative prediction.",
             "No arbitrary opacity multiplier or fitted profile is adopted.",
