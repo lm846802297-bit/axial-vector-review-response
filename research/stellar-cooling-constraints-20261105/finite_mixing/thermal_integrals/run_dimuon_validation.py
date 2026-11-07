@@ -127,6 +127,11 @@ def main():
             "dimuon.py": sha256(HERE / "dimuon.py"),
             "test_dimuon.py": sha256(HERE / "test_dimuon.py"),
             "run_dimuon_validation.py": sha256(HERE / "run_dimuon_validation.py"),
+            "moving_compton.py": sha256(HERE / "moving_compton.py"),
+            "test_moving_compton.py": sha256(HERE / "test_moving_compton.py"),
+            "moving_compton_derivation.md": sha256(
+                HERE.parent / "MOVING_MUON_SEMI_COMPTON_DERIVATION_2026-11-07.md"
+            ),
         },
         "benchmarks": benchmarks,
         "threshold_scan": threshold,
