@@ -120,11 +120,11 @@ A one-factor test replacing only the Caputo \(\mu_\mu(r)\) curve with the separa
 
 ### Ordered execution and current evidence
 
-1. **P0-A — run and close the independent forward/reverse rate tests.**
+1. **P0-A — independent forward/reverse rate tests: PASS within the stated approximations.**
    - Run the new adaptive-quadrature neutrino and direct B.14 Compton tests and archive the actual JSON/CI result.
    - Neutrino production and absorption are already evaluated separately in the production implementation; the adaptive reference is an independent numerical cross-check.
    - Keep the B.14 no-recoil Compton test distinct from the full moving-muon B.13 thermal integral.
-   - **Status:** implementation and tests are committed; an actual successful run/result for the new dedicated workflow is not yet recorded. Do not mark this item passed based only on the algebraic detailed-balance identity.
+   - **Status: PASS for the scoped local-rate audit.** GitHub Actions run [#6](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42318485267) completed successfully: all 82 repository physics tests passed, and the independent adaptive audit evaluated 60 neutrino points and 60 B.14 Compton points. Maximum relative errors were: neutrino production vs. production solver `3.91e-15`; neutrino absorption `3.96e-15`; neutrino mode balance `1.07e-15`; Compton mode balance `2.38e-16`; B.14 spin-summed normalization `3.94e-16`. The two-charge susceptibility also passed an independent density-derivative regression. Machine-readable results are committed at `outputs/direct_collision_integrals_2026-11-07.json` (audit run SHA `4ee2375`, archival commit `608b4af`). This closes only the local integral checks; it does not validate the full moving-muon B.13 Compton integral, the 10 MeV Fig. 7 tail, or stellar transport.
 
 2. **P0-B — complete the literal Blinov Fig. 7 comparison.**
    - The existing digitized Fig. 7 reference currently contains only 3 of the 6 curves visible in the published figure: 1, 10, and 200 MeV. The \(10^{-6}\), \(10^{-5}\), and 0.1 MeV curves are not yet represented in outputs/vector_audit/luminosity_comparison.json.
