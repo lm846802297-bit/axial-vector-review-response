@@ -6,7 +6,7 @@
   "profile_sha256": "08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9",
   "fig7_sha256": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4",
   "fig7_pdf_sha256": "4d7d1d10bfe2b52992af94df98749fa3adac887c009cbf98515fa12e6c48fdb5",
-  "run_commit_sha": "7d261631510d16fdb1067da3ba28a607e9c58a93",
+  "run_commit_sha": "fd9fcfccc4afb1763307de142f1a812412d56891",
   "quadrature": {
     "radial_order": 88,
     "energy_order": 180,
@@ -143,7 +143,29 @@
     ],
     "column_path_max_relative_difference": 0.00158533227516831,
     "angle_averaged_column_max_relative_difference": 0.0016829112204816022,
-    "interpretation": "Quadrature-only changes; no opacity normalization is altered."
+    "gravitational_redshift_along_path": [
+      {
+        "g": 4.796429536550025e-10,
+        "L_fixed_local_omega": 9.895240195159465e+51,
+        "L_conserved_Einf": 9.894043346149336e+51,
+        "relative_change": -0.0001209519917175772
+      },
+      {
+        "g": 1.1341108687336194e-08,
+        "L_fixed_local_omega": 1.954674495419746e+54,
+        "L_conserved_Einf": 1.851432730024637e+54,
+        "relative_change": -0.05281788125697062
+      },
+      {
+        "g": 4.171689650228597e-08,
+        "L_fixed_local_omega": 2.437009490788894e+52,
+        "L_conserved_Einf": 1.7238577508418032e+52,
+        "relative_change": -0.2926339608616927
+      }
+    ],
+    "redshifted_column_max_relative_difference": 149.85459304830496,
+    "redshift_convention": "Diagnostic: E_inf=N(r_source)*omega_source is conserved; the local energy along the path is omega(r')=E_inf/N(r'). This tests the gravitational redshift stated in Appendix B; the fixed-local-omega result is retained as the literal baseline.",
+    "interpretation": "Quadrature-only changes and a separate GR redshift diagnostic; no opacity normalization is altered."
   },
   "eq17": {
     "same_source_nodes_boundary_24_vs_25_km": [
