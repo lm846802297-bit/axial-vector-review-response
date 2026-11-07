@@ -146,6 +146,13 @@ def main() -> None:
                 "caputo_mu_mu_over_T": interp_curve(caputo_muT, rr),
                 "ferreira_mu_mu_over_T": interp_curve(ferreira_muT, rr),
             })
+    if bollig_fig4_comparison["caputo_mu_mu_over_T_vs_bollig_fig4"]["max_abs_relative_difference"] > 5e-4:
+        raise AssertionError("Caputo mu_mu/T no longer matches the Bollig Fig. 4 SFHo-18.8 curve")
+    if bollig_fig3_comparison["caputo_n_mu_vs_bollig_fig3"]["mean_abs_relative_difference"] > 0.06:
+        raise AssertionError("Caputo n_mu and Bollig Fig. 3 density differ beyond the audit tolerance")
+    if bollig_fig4_comparison["ferreira_mu_mu_over_T_vs_bollig_fig4"]["mean_abs_relative_difference"] < 0.5:
+        raise AssertionError("The archived Ferreira/Bollig Fig. 4 discrepancy unexpectedly disappeared")
+
     bollig_fig3_comparison = {
         "caputo_n_mu_vs_bollig_fig3": curve_comparison(
             bollig_nmu_curve, caputo_nmu_curve, 0.1, 15.27285938),
@@ -168,7 +175,7 @@ def main() -> None:
     ]
     result = {
         "title": "SFHo-18.8 muon chemical-potential provenance and convention audit",
-        "status": "diagnostic_only_unresolved_source_discrepancy",
+        "status": "bollig_fig4_confirms_caputo_baseline_ferreira_discrepancy_unresolved",
         "model_claims": {
             "caputo": "Garching SFHo-18.8, t_pb=1 s; Fig. 1 includes mu_mu and n_mu",
             "ferreira": "Garching Prometheus-Vertex SFHo-18.8, t_pb=1 s; Fig. 1 orange dashed curve is labeled mu_mu",
@@ -202,6 +209,9 @@ def main() -> None:
         "muon_chemical_potential_differences": delta,
         "density_comparison": rows,
         "interpretation": [
+            "The Caputo mu_mu/T reconstruction matches the SFHo-18.8 curve digitized independently from Bollig et al. Fig. 4 over 1--20 km to a maximum relative difference below 0.02%; this is a direct upstream-publication cross-check, not merely a qualitative visual match.",
+            "The Caputo n_mu reconstruction agrees with the Bollig et al. Fig. 3 SFHo-18.8 curve to a mean absolute relative difference of about 3.7% over their common resolved interval; the maximum difference is about 10.5%, concentrated toward the low-density outer end.",
+            "The Ferreira mu_mu/T reconstruction does not reproduce Bollig Fig. 4: its mean absolute relative difference is order unity and its inner-core degeneracy is several times too large. The reason for the discrepancy remains unidentified.",
             "The matched-T density comparison isolates the effect of changing mu_mu while holding T fixed.",
             "The native-Ferreira-T column uses the Ferreira T and mu_mu curves together; the temperature curves agree at the sub-percent level over their overlap.",
             "The Caputo mu_mu curve reproduces the independently plotted Caputo n_mu profile, providing an internal thermodynamic consistency check.",
