@@ -1,7 +1,7 @@
 # Independent direct forward/reverse collision-integral audit
 
 **Date:** 2026-11-07  
-**Status:** P0 audit implementation added; numerical CI result pending.  
+**Status:** P0 local-rate audit passed on 2026-11-07. The final GitHub Actions run [#6](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42318485267) passed all 82 repository physics tests and generated the archived numerical output. The first run reached the same successful tests and integrals but failed only at artifact upload because GitHub Actions storage quota was exhausted; the workflow was changed to commit the JSON result directly, and the rerun completed successfully.  
 **Scope:** Internal validation only. No production rates, transport, saved cooling curves, manuscript, or referee-response files are changed.
 
 ## 1. Why the priority changes
@@ -77,7 +77,7 @@ This validates B.19 within the stated no-recoil approximation. It does **not** v
 
 These are numerical regression tolerances, not astrophysical uncertainties.
 
-## 5. Updated research order
+## 5. Numerical result and disposition\n\nThe final run covers five profile radii, four mediator masses, and three values of $\\omega/m_V$, giving 60 neutrino points and 60 Compton points. The largest relative errors are:\n\n| Check | Maximum relative error | Acceptance |\n|---|---:|---:|\n| Neutrino production: adaptive reference vs. `rates.neutrino_rates` | $3.91\\times10^{-15}$ | $2\\times10^{-9}$ |\n| Neutrino absorption: adaptive reference vs. `rates.neutrino_rates` | $3.96\\times10^{-15}$ | $2\\times10^{-9}$ |\n| Neutrino detailed balance, mode resolved | $1.07\\times10^{-15}$ | $3\\times10^{-10}$ |\n| B.14 Compton detailed balance, mode resolved | $2.38\\times10^{-16}$ | $3\\times10^{-13}$ |\n| B.14/B.16 spin-summed normalization | $3.94\\times10^{-16}$ | $3\\times10^{-13}$ |\n\nThe independent muon-susceptibility normalization test also passes: $n_{\\rm eff}=T\\,\\partial n/\\partial\\mu$ is checked by finite-differencing a separately integrated number density for both charge species. The repository-wide physics suite passes all 82 tests. The machine-readable run is archived at [direct_collision_integrals_2026-11-07.json](outputs/direct_collision_integrals_2026-11-07.json); it records the input, code, and profile hashes. The audit was run at commit `4ee237596a397fb2d54ba90dad1c39e8d9e436d7` and the result was archived by commit `608b4af1e09cdf72c56cb916617b4b961f6cf801`.\n\n**What this establishes:** the existing neutrino collision terms are independently reproduced to numerical precision on the tested grid, and the B.14 no-recoil Compton forward/reverse factors and polarization-summed normalization are internally consistent. **What it does not establish:** the full moving-muon thermal B.13 Compton integral, the source's unresolved B.17 charge-conjugate convention, the equivalence of polarization-summed and mode-resolved opacity, or the full Fig. 7 luminosity reproduction. Therefore P0-A is closed, but the pure-vector literature gate remains blocked.\n\n## 6. Updated research order
 
 | Priority | Task | Purpose |
 |---|---|---|
@@ -88,7 +88,7 @@ These are numerical regression tolerances, not astrophysical uncertainties.
 | P1 | Escape probability and full Fig. 7 tail comparison | Separate microscopic opacity from transport effects |
 | P2 | Switch to the finite-mixing/axial current | Only after the pure-vector literature gate passes |
 
-## 6. Interpretation and safeguards
+## 7. Interpretation and safeguards
 
 - A successful local detailed-balance test is necessary but not sufficient to validate the full Fig. 7 curve.
 - A successful neutrino rate comparison does not validate Compton or transport.
@@ -97,7 +97,7 @@ These are numerical regression tolerances, not astrophysical uncertainties.
 - The pure-vector Blinov full-curve gate remains mandatory. The finite-mixing scan remains on hold.
 - This work changes internal research records only; it does not modify the referee-facing response, manuscript, or existing constraint figures.
 
-## 7. Reproduction
+## 8. Reproduction
 
 From the repository root:
 ~~~bash
