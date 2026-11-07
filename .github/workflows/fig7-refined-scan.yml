@@ -1,0 +1,81 @@
+name: Fig. 7 refined quadrature scan
+
+on:
+  push:
+    branches:
+      - codex/major44-axial-cooling-constraints-20261105
+    paths:
+      - '.github/workflows/fig7-refined-scan.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fig7-refined-scan
+  cancel-in-progress: false
+
+jobs:
+  refine:
+    if: github.ref_name == 'codex/major44-axial-cooling-constraints-20261105'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check out triggering commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy
+      - name: Run refined independent scalar scan
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py \
+            --masses 0.000001,0.00001,0.1,1,10,200 \
+            --gmin 2e-11 --gmax 4e-3 --gcount 501 \
+            --nr 132 --ne 280 --na 40 --ns 96 \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_fig7_refined_scan.json
+      - name: Compare refined scan with the published Fig. 7 curves
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/compare_reference.py \
+            --scan research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_fig7_refined_scan.json \
+            --fig7 research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_refined_comparison.json
+      - name: Compare high-resolution and refined results
+        run: |
+          python research/stellar-cooling-constraints-20261105/compare_fig7_resolution.py \
+            --baseline research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_fig7_highres_scan.json \
+            --high research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_fig7_refined_scan.json \
+            --vector research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_refined_resolution_comparison.json
+      - name: Commit refined scan outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_fig7_refined_scan.json
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_refined_comparison.json
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_refined_resolution_comparison.json
+          if git diff --cached --quiet; then
+            echo "Refined Fig. 7 scan outputs are already current."
+          else
+            git commit -m "Archive refined Fig. 7 quadrature scan"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin "${GITHUB_REF_NAME}"
+              git rebase "origin/${GITHUB_REF_NAME}"
+              if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+                exit 0
+              fi
+              echo "Push raced with another workflow; retry \${attempt}/5."
+              sleep 2
+            done
+            echo "Could not archive refined scan outputs after five retries."
+            exit 1
+          fi
