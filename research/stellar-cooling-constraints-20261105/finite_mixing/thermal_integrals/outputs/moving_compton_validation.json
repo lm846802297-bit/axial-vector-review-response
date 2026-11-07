@@ -15,14 +15,16 @@
   "source_sha256": {
     "rates.py": "2fc7bc2d3b0d7b98c191755cd2bb87944e4ebe259adc3d3bbc8e0f60dcc57f56",
     "moving_compton.py": "0319b4be8c91a438c648c0b662dbdf15e3565b8f1d3544ad5f6752f1941ca9ef",
-    "test_moving_compton.py": "101d58bc081d0e49b2ad54ae786e5fabc22e0482bcff8fd4ec721a645966bbe7",
-    "derivation.md": "9ccbf2c5840aee9a1e914368ba903d2ce4ab146021dac1d12f067440dd60f7eb"
+    "test_moving_compton.py": "bb63fdcbbd108c464a61b7fabcfa84d3c26a086dca37572910bbf9cd0d671809",
+    "derivation.md": "9ccbf2c5840aee9a1e914368ba903d2ce4ab146021dac1d12f067440dd60f7eb",
+    "run_moving_compton_validation.py": "052bfb5fa6c0fcdfe591f24bd78a28748fa050f628531f61643516f038867f1d"
   },
   "matrix_element_checks": {
     "stationary_endpoint_relative_residual": {
       "vector": 0.0,
       "axial": 0.0
     },
+    "stationary_phase_space_weight_relative_residual": 1.8623192245435626e-16,
     "photon_ward_max_abs": 7.714820164856469e-13,
     "vector_mediator_ward_max_abs": 1.016350029387782e-12,
     "charge_conjugation_relative_residual": 0.0
@@ -64,7 +66,7 @@
         0.02184920181930848
       ],
       "fine_absorption_by_mode": [
-        0.09006242675105508,
+        0.0900624267510551,
         0.02290278706801076,
         0.021854699695710834
       ],
@@ -81,6 +83,7 @@
   },
   "acceptance": {
     "stationary_endpoint_pass": true,
+    "stationary_phase_space_weight_pass": true,
     "photon_ward_pass": true,
     "vector_mediator_ward_pass": true,
     "charge_conjugation_pass": true,
