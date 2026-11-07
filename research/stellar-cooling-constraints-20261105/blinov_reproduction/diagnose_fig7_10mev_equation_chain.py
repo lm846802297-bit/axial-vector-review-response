@@ -58,6 +58,12 @@ def _profile_rate_and_source(profile_path, radius_km, nr, ne, energy_offset):
     x = energies[None, :] / p["T"][:, None]
     # Eq. (20), evaluated in a numerically stable form.
     reduced_direct = -np.expm1(-x) * rates["absorption"]
+    reduced_neutrino = (
+        -np.expm1(-x) * np.exp(np.minimum(x, 700.0))
+        * rates["neutrino_production"])
+    reduced_compton = (
+        -np.expm1(-x) * np.exp(np.minimum(x, 700.0))
+        * rates["compton_production"])
     reduced_from_prod = (
         -np.expm1(-x) * np.exp(np.minimum(x, 700.0))
         * rates["production"])
@@ -102,7 +108,10 @@ def _profile_rate_and_source(profile_path, radius_km, nr, ne, energy_offset):
     return {
         "r": r, "rw": rw, "radial_grid": radial_grid, "profile": p,
         "energies": energies, "rates": rates,
-        "reduced": reduced_direct, "source": source,
+        "reduced": reduced_direct,
+        "reduced_neutrino": reduced_neutrino,
+        "reduced_compton": reduced_compton,
+        "source": source,
         "source_no_lapse2": source_no_lapse2,
         "eq20_residual": eq20_residual,
         "eq31_residual": eq31_residual,
@@ -251,6 +260,18 @@ def run(profile_path, fig7_path, nr=88, ne=180, na=24, ns=64,
         angular_order=na, path_order=ns)
     cols25_same_source = cols_base[inner_mask]
     angle_weights25 = np.polynomial.legendre.leggauss(na)[1] / 2.0
+    cols_nu25, _ = scalar_optical_depths(
+        baseline["r"], baseline["radial_grid"], baseline["reduced_neutrino"],
+        MASS, baseline["energies"], 25.0,
+        angular_order=na, path_order=ns)
+    cols_nu24, _ = scalar_optical_depths(
+        inner_r, baseline["radial_grid"], baseline["reduced_neutrino"],
+        MASS, baseline["energies"], 24.0,
+        angular_order=na, path_order=ns)
+    cols_nu25_inner = cols_nu25[inner_mask]
+    cols_nu24_inner = cols_nu24
+    cols_compton25_inner = np.maximum(cols25_same_source-cols_nu25_inner, 0.0)
+    cols_compton24_inner = np.maximum(cols24_same_source-cols_nu24_inner, 0.0)
     source_inner = baseline["source"][inner_mask]
     shell_tau_unit = np.maximum(cols25_same_source-cols24_same_source, 0.0)
     l24_same_source = []
@@ -265,10 +286,23 @@ def run(profile_path, fig7_path, nr=88, ne=180, na=24, ns=64,
         l25_same_source.append(float(g*g*np.sum(source_inner*esc25)))
         weights_tau = source_inner[:, None, :] * angle_weights25[None, :, None]
         tau_shell = g*g*shell_tau_unit
+        shell_tau_nu = g*g*np.maximum(cols_nu25_inner-cols_nu24_inner, 0.0)
+        shell_tau_compton = g*g*np.maximum(
+            cols_compton25_inner-cols_compton24_inner, 0.0)
         shell_tau_stats.append({
             "g": float(g),
             "source_weighted_mean_extra_tau_24_25": float(
                 np.average(tau_shell, weights=weights_tau)),
+            "source_weighted_mean_extra_tau_neutrino": float(
+                np.average(shell_tau_nu, weights=weights_tau)),
+            "source_weighted_mean_extra_tau_compton": float(
+                np.average(shell_tau_compton, weights=weights_tau)),
+            "source_weighted_mean_total_tau_25km": float(
+                np.average(g*g*cols25_same_source, weights=weights_tau)),
+            "source_weighted_mean_tau_neutrino_25km": float(
+                np.average(g*g*cols_nu25_inner, weights=weights_tau)),
+            "source_weighted_mean_tau_compton_25km": float(
+                np.average(g*g*cols_compton25_inner, weights=weights_tau)),
         })
     l24_same_source = np.asarray(l24_same_source)
     l25_same_source = np.asarray(l25_same_source)
