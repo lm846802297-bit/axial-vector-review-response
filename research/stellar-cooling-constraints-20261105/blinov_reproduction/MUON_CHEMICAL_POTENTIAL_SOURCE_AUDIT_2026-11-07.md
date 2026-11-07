@@ -67,6 +67,27 @@ The main discrepancy is concentrated in the inner core, particularly \(r\lesssim
 
 The source PDF for Ferreira has a linear \(\mu_\mu\) axis with labeled ticks at 50, 100, 150, 200, 250 and 300 MeV. The current extraction uses that linear calibration; the large inner-core values are not caused by mistakenly treating this axis as logarithmic.
 
+### Direct density consistency check
+
+Using the same relativistic single-particle energy \(E=\sqrt{p^2+m_\mu^2}\) and
+\[
+n_{\mu^-}=\frac{1}{\pi^2}\int_0^\infty dp\,p^2
+\left[\exp\left(\frac{E-\mu_\mu}{T}\right)+1\right]^{-1},
+\]
+the digitized Caputo chemical potential reproduces Caputo's independently plotted number-density curve:
+
+| \(r\) (km) | Caputo Fermi integral \(n_\mu\) (fm\(^{-3}\)) | Caputo Fig. 1 \(n_\mu\) (fm\(^{-3}\)) | Relative difference | Ferreira \(\mu_\mu\), same \(T\): predicted \(n_\mu\) (fm\(^{-3}\)) | Ferreira/Caputo density |
+|---:|---:|---:|---:|---:|---:|
+| 0 | \(9.58\times10^{-5}\) | \(9.63\times10^{-5}\) | -0.49% | \(5.90\times10^{-2}\) | 616 |
+| 5 | \(4.67\times10^{-4}\) | \(4.70\times10^{-4}\) | -0.52% | \(4.61\times10^{-2}\) | 98.8 |
+| 8 | \(4.66\times10^{-3}\) | \(4.68\times10^{-3}\) | -0.50% | \(2.08\times10^{-2}\) | 4.46 |
+| 10 | \(4.49\times10^{-3}\) | \(4.51\times10^{-3}\) | -0.46% | \(8.73\times10^{-3}\) | 1.94 |
+| 15 | \(4.01\times10^{-5}\) | \(4.06\times10^{-5}\) | -1.07% | \(6.45\times10^{-5}\) | 1.61 |
+
+This is the strongest internal evidence in the present audit. The Caputo \(\mu_\mu\) curve and its independently plotted \(n_\mu\) curve are mutually consistent under the stated Fermi-Dirac convention. The Ferreira curve, if inserted into that same convention and the same temperature profile, does not reproduce the same model's muon density in the inner core. The mismatch is enormous at 0--5 km and remains a factor of about 2 at 10 km.
+
+This does not prove that the Ferreira authors used the plotted curve directly in every production integral, nor does it identify the origin of the discrepancy. It does show that the plotted Ferreira \(\mu_\mu\) curve cannot be combined with the stated free-muon dispersion and Fermi distribution and simultaneously be interpreted as the same SFHo-18.8 muon density profile, unless an additional energy shift or mean-field contribution is present and documented. No such additional term is specified in the inspected sections.
+
 ## 3. Cross-check against Bollig Fig. 4
 
 Bollig Fig. 4 is a direct independent diagnostic because it plots \(\mu_\mu/T\) for the same named simulation profiles. Visual inspection of the SFHo-18.8 curve gives an O(1) degeneracy parameter in the high-muon-density region and a radial trend qualitatively similar to the Caputo reconstruction. In particular, the SFHo-18.8 curve is nowhere near the Ferreira-only value \(\mu_\mu/T\simeq9.2\) at 5 km.
@@ -78,7 +99,7 @@ This is a **visual cross-check**, not a new high-precision digitization of Bolli
 1. The two later papers use the same Fermi-Dirac sign convention for \(\mu^-\).
 2. A consistent rest-energy shift must shift both the energy argument and chemical potential. It cannot account for the observed radius-dependent difference.
 3. The Ferreira paper's own Fig. 1 identifies the orange dashed curve as SFHo-18.8 and labels the right-hand axis \(\mu_\mu\,[\mathrm{MeV}]\); the digitization follows its linear tick marks.
-4. The Caputo reconstruction can be checked against its own plotted \(n_\mu(r)\), providing an internal thermodynamic consistency test. The numerical density comparison is archived separately by the audit script.
+4. The Caputo reconstruction reproduces its independently plotted \(n_\mu(r)\) to within 1.1% at all checked radii (0, 5, 8, 10 and 15 km). Inserting the Ferreira \(\mu_\mu\) curve into the same distribution at the same Caputo temperature predicts a muon density larger by factors of about 616, 99, 4.46, 1.94 and 1.61 at those radii. The temperature curves agree to 0.27%, so this is not a temperature-profile effect. Exact values are archived in outputs/muon_chemical_potential_provenance_audit.json.
 5. The published figures do not reveal why Ferreira's inner-core \(\mu_\mu\) curve differs from Caputo/Bollig. Possible explanations include a different simulation data version, a variable/plotting mismatch, or a post-processing convention not documented in the paper. None is established by the public material inspected here.
 
 The papers state that the relevant profiles originate from the same named Garching model, but the Garching raw tables are not included in these public articles. The 2026 Ferreira journal record states that the authors do not have permission to share the data. We have not requested or accessed restricted raw simulation tables.
