@@ -74,6 +74,14 @@ def main():
     for r in [1,5,8,10,12,15,18,20]:
         b=float(np.interp(r,radius,degeneracy))
         samples.append({"r_km":r,"bollig_fig4_mu_mu_over_T":b})
+    text_spans=[]
+    for block in page.get_text("dict").get("blocks",[]):
+        for line in block.get("lines",[]):
+            for span in line.get("spans",[]):
+                bbox=span.get("bbox",[0,0,0,0])
+                if bbox[0]>300 and bbox[2]<610 and bbox[1]>145 and bbox[3]<270:
+                    text_spans.append({"text":span.get("text",""),
+                                       "bbox":[float(v) for v in bbox]})
     result={
         "title":"Bollig et al. Fig. 4 public-PDF vector-path audit",
         "source":"https://arxiv.org/pdf/2005.07141v7",
@@ -89,6 +97,7 @@ def main():
                                                 "mu_over_T_minus4_y":249.9405059814453},
                       "samples":samples,"csv":str(csv_path.name)},
         "drawings":rows,
+        "text_spans":text_spans,
         "limitations":["PDF paths are public figure geometry, not original simulation samples.",
                        "The digitized line is the SFHo-18.8 yellow curve, identified from the legend.",
                        "The curve is a published plotting output; it is not a substitute for the original simulation table."],
