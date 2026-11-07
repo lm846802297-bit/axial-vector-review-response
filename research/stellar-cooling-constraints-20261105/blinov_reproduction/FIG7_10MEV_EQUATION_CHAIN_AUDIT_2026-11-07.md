@@ -102,7 +102,7 @@ The one-factor opacity stress test shows that changing the neutrino opacity has 
 
 The path integral is further split by the radius of the **absorbing material** (not the production radius). At the high-absorption point, the source-weighted mean neutrino optical-depth contributions from absorber shells are:
 
-| Absorber shell | Neutrino contribution to mean \\(\\tau\\) | Semi-Compton contribution |
+| Absorber shell | Neutrino contribution to mean \(\tau\) | Semi-Compton contribution |
 |---|---:|---:|
 | 0--5 km | 0.215 | 0.0084 |
 | 5--10 km | 1.722 | 0.991 |
