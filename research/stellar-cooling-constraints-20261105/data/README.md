@@ -49,6 +49,14 @@ Fixed PDF hashes, curve indices, domain endpoints, interpolation choices and num
 6. The lapse curve is encoded through 23.9998 km. Between that radius and 25 km the benchmark uses the exterior form N(r)=sqrt(1-r_s/r), with r_s fixed continuously by the final plotted N. This is an explicit boundary approximation, not a reconstructed metric solution. Restricting the escape radius to 24 km removes this extrapolation and should be included when testing boundary sensitivity.
 7. Values in the CSV are numerical coordinates of the published curves, not simulation precision. Multiple digits permit reproducibility; they do not imply corresponding astrophysical accuracy. The profile-dependent cooling result should be labeled as a reconstructed benchmark.
 
+## Upstream cross-check against Bollig et al.
+
+The public arXiv v7 PDF of Bollig et al. (arXiv:2005.07141) has now been digitized directly from its vector paths for both the SFHo-18.8 muon degeneracy curve (Fig. 4) and muon density curve (Fig. 3). The Caputo reconstruction of \\(\\mu_\\mu/T\\) matches Bollig Fig. 4 over 1--20 km with a maximum relative difference of 0.0161% and a mean of 0.00551%. The Caputo density curve, converted from \\(n_\\mu/n_0\\) to \\(\\mathrm{fm}^{-3}\\), matches Bollig Fig. 3 over the common resolved range with a 3.73% mean absolute relative difference and a 10.45% maximum. These independent upstream checks strongly support Caputo as the SFHo-18.8 baseline.
+
+The Ferreira \\(\\mu_\\mu/T\\) reconstruction differs from Bollig Fig. 4 by a mean absolute relative difference of about 127.6% and a maximum of about 446%. The reason for this discrepancy remains unresolved. Ferreira is retained as a diagnostic only and must not be substituted into the Caputo background.
+
+Digitized upstream curves and provenance are stored in `blinov_reproduction/outputs/bollig_fig4_sfho188_muon_degeneracy.csv`, `blinov_reproduction/outputs/bollig_fig3_sfho188_muon_density.csv`, and `blinov_reproduction/outputs/bollig_fig4_vector_inventory.json`.
+
 ## Independent consistency check and source discrepancy
 
 The two source temperature profiles agree over 0.2–20 km to **0.267% maximum relative difference** after independent vector-coordinate extraction. At r=0, 5, 8, 10 and 15 km, the muon number density obtained by integrating the Fermi distribution using the Caputo temperature and chemical potential agrees with the independently plotted Caputo density at about **0.5–1.1%**. The density normalization itself was given as n0=0.181 fm^-3 and is rounded.
