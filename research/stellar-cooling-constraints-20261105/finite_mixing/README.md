@@ -134,3 +134,23 @@ The scan reuses the existing Dirac-trace and decay-rate routines in the parent r
 
 **Validation status:** source, tests, and CI workflow are committed; the workflow result has not yet been retrieved/verified. Do not describe the numerical scan as passed until the Actions job completes and its JSON artifact is inspected. The scan is a local-kernel comparison only. It does not validate stellar transport, the Blinov pure-vector Fig. 7 benchmark, or an axial exclusion curve.
 
+## 9. Extended mode-resolved response output
+
+The response scan now stores the angle-resolved arrays (not only summary statistics) for each of the three mediator polarizations. It also performs the finite-mixing calculation after angular integration, using the mixed-current amplitude rather than adding the pure-vector and pure-axial rates incoherently.
+
+For the dimuon channel, the scan now records:
+- pure axial/vector thermal production and absorption ratios;
+- finite-mixing production/vector and absorption/vector ratios;
+- the interference fraction in production and absorption, mode by mode;
+- the analytic vacuum-width ratio
+  \\[
+  \\frac{\\Gamma_A}{\\Gamma_V}
+  =\\frac{\\beta_\\mu^2}{1+2m_\\mu^2/m_{A'}^2},
+  \\qquad
+  \\beta_\\mu=\\sqrt{1-\\frac{4m_\\mu^2}{m_{A'}^2}}.
+  \\]
+
+The new regression tests check that the raw angle arrays are preserved and that finite-mixing observables are present for all three polarizations. These tests complement, but do not replace, the existing pure-vector/pure-axial endpoint tests in `test_mixed_rates.py`.
+
+**Important interpretation:** the finite-mixing rates are local microscopic response functions. They do not include the unchanged active-neutrino channel, radial profile integration, reduced opacity, escape probability, or gravitational redshift. They cannot be converted directly into a supernova luminosity or exclusion curve.
+
