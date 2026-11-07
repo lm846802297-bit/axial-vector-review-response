@@ -3,7 +3,7 @@ import unittest
 import numpy as np
 
 from rates import M_MU
-from thermal_integrals.dimuon import dimuon_thermal_integral
+from finite_mixing.thermal_integrals.dimuon import dimuon_thermal_integral
 
 
 class DimuonThermalIntegralTests(unittest.TestCase):
@@ -31,6 +31,40 @@ class DimuonThermalIntegralTests(unittest.TestCase):
         self.assertTrue(np.all(np.isfinite(out["Q_by_mode"])))
         self.assertTrue(np.all(out["Q_by_mode"] > 0))
         self.assertTrue(np.all(out["absorption_number_by_mode"] > 0))
+
+
+    def test_near_threshold_vector_axial_ratio_is_stable(self):
+        # Summing all three polarizations removes the angular-distribution
+        # dependence; the thermal ratio then follows the vacuum-width ratio.
+        for delta in (1e-4, 1e-8, 1e-12):
+            mass = 2*M_MU*(1.0 + delta)
+            vector = dimuon_thermal_integral(
+                mass, 30.0, 80.0, 1.0, 0.0, order=128
+            )
+            axial = dimuon_thermal_integral(
+                mass, 30.0, 80.0, 0.0, 1.0, order=128
+            )
+            beta2 = 1.0 - 4.0*M_MU*M_MU/(mass*mass)
+            expected = beta2/(1.0 + 2.0*M_MU*M_MU/(mass*mass))
+            observed = np.sum(axial["Q_by_mode"])/np.sum(vector["Q_by_mode"])
+            self.assertTrue(np.all(np.isfinite(vector["Q_by_mode"])))
+            self.assertTrue(np.all(np.isfinite(axial["Q_by_mode"])))
+            self.assertTrue(np.all(vector["Q_by_mode"] > 0.0))
+            self.assertTrue(np.all(axial["Q_by_mode"] > 0.0))
+            self.assertAlmostEqual(observed/expected, 1.0, delta=2e-8)
+
+    def test_quadrature_convergence_64_128_and_128_192(self):
+        q64 = dimuon_thermal_integral(
+            300.0, 30.0, 80.0, 0.0, 1.0, order=64
+        )["Q_by_mode"]
+        q128 = dimuon_thermal_integral(
+            300.0, 30.0, 80.0, 0.0, 1.0, order=128
+        )["Q_by_mode"]
+        q192 = dimuon_thermal_integral(
+            300.0, 30.0, 80.0, 0.0, 1.0, order=192
+        )["Q_by_mode"]
+        np.testing.assert_allclose(q64, q128, rtol=3e-3, atol=0.0)
+        np.testing.assert_allclose(q128, q192, rtol=3e-5, atol=0.0)
 
     def test_momentum_quadrature_converges(self):
         lo = dimuon_thermal_integral(300.0, 30.0, 80.0, 0.0, 1.0, order=64)
