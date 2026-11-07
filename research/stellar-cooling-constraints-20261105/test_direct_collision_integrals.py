@@ -7,6 +7,7 @@ import numpy as np
 from numpy.testing import assert_allclose
 
 import rates
+from vector_reference import fermi_pair_average
 from audit_direct_collision_integrals import (
     direct_b14_compton_rates,
     direct_muon_susceptibility,
@@ -33,6 +34,13 @@ class DirectNeutrinoCollisionIntegralTests(unittest.TestCase):
                 )
                 assert_allclose(p_code[0], p_direct, rtol=2e-9, atol=1e-300)
                 assert_allclose(a_code[0], a_direct, rtol=2e-9, atol=1e-14)
+                velocity = math.sqrt(1.0-(mass/energy)**2)
+                b7_total = mass*mass/(8.0*math.pi*energy) * (
+                    fermi_pair_average(chemical, energy, temperature, velocity)
+                    + fermi_pair_average(0.0, energy, temperature, velocity)
+                )
+                self.assertAlmostEqual(float(np.sum(p_direct))/b7_total,
+                                       1.0, delta=2e-10)
 
     def test_detailed_balance_holds_for_each_flavor_and_mode(self):
         cases = [
