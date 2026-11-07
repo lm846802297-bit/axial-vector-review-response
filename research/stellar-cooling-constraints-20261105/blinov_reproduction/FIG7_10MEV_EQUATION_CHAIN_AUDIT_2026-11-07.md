@@ -98,6 +98,22 @@ The archived three-layer decomposition gives a weak-coupling residual of \(-8.89
 
 The one-factor opacity stress test shows that changing the neutrino opacity has a much larger effect on the high-coupling tail than changing the semi-Compton opacity. These are diagnostic sensitivities only; neither a rescaled opacity nor a fitted profile is adopted. The channel split itself passes internal sum checks at relative residuals below \(7\times10^{-16}\), but the three-layer audit explicitly reuses the reference detailed-balance prescription and is not an independent microscopic derivation of the inverse rates.
 
+### Weak-source and strong-transport acceptance checks
+
+The new independent radial/energy/cutoff refinements give the following changes relative to the 88-radial, 180-energy baseline:
+
+| Refinement | Weak luminosity | Peak luminosity | High-absorption luminosity |
+|---|---:|---:|---:|
+| Double radial order | +0.0243% | +0.0325% | +0.0854% |
+| Double energy order | -0.1327% | -0.1325% | -0.1329% |
+| Double energy cutoff (1 to 2 GeV) | +0.0135% | +0.0135% | +0.0136% |
+
+The optically thin source changes by the same amount as the luminosity in each of these tests, as expected when the variation is in the source quadrature/cutoff. These tests show that the present radial and energy integration errors are much smaller than the 8.9% weak-source residual or the 92.2% high-absorption residual. They do not test uncertainties in the reconstructed physical profile.
+
+The radial-shell decomposition also shows where the escaping luminosity originates. At the high-absorption point, approximately 59.1% of the escaped luminosity comes from 5--10 km, 37.4% from 10--15 km, 3.4% from 20--25 km, and less than 0.1% from the remaining shells. The strong-absorption comparison is therefore controlled mainly by the optical depth from the inner 5--15 km production region through the overlying material, not by a large contribution from emission produced at the outer boundary.
+
+At the weak-coupling point the escape fraction is 0.9979, so the -8.89% residual is essentially a source-integral mismatch, not an attenuation effect. At the peak the residual is +2.57%. This separates the remaining benchmark problem into (i) an approximately 9% weak-coupling source normalization difference and (ii) a high-coupling transport/opacity difference.
+
 ## Current 10 MeV residuals
 
 For the literal fixed-local-energy implementation and the digitized 25-point Fig. 7 curve:
