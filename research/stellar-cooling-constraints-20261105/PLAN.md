@@ -268,7 +268,7 @@ The four requested checks are separated and documented in blinov_reproduction/FI
 - Appendix-B Eq. (B.2) literally uses the same numerical \(\omega\) along the path.
 - The main-text Eq. (4.2) describes \(\omega\) as energy at spatial infinity.
 - Appendix-B Eq. (B.1), through the lower limit \(m_V/N(r)\), the \(N(r)^2\) prefactor, and the local \(k\), \(T(r)\), and \(v_V\) dependence in Eqs. (B.5)–(B.19), instead uses a local production-frame energy.
-- The paper does not explicitly reconcile this frame convention or display the local-energy remapping in Eq. (B.2).
+- The published JHEP 06 (2026) 155 version retains the same convention wording and equations. Its Data Availability and Code Availability Statements say no associated data or code will be deposited, so the authors' internal numerical implementation cannot be inspected.
 
 **Decision:** the fixed-numerical-\(\omega\) path remains the literal Appendix-B equation lane. The conserved-\(E_\infty\) remapping remains a separate partial-GR diagnostic on the same Euclidean chord geometry. It is not a full GR ray-tracing result and cannot be asserted to reproduce the authors' unpublished code.
 
