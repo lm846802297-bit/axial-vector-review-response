@@ -123,6 +123,66 @@ def _luminosity_for_setup(setup, radius_km, na, ns, couplings):
     return np.asarray(escape_by_g), cols
 
 
+def _redshifted_optical_depths(setup, radius_km, angular_order, path_order):
+    """Evaluate opacity with conserved E_infinity and local omega=E_inf/N(r')."""
+    source_radii = setup["r"]
+    radial_grid = setup["radial_grid"]
+    energies = setup["energies"]
+    reduced = setup["reduced"]
+    lapse_grid = setup["profile"]["lapse"]
+    source_index = np.searchsorted(radial_grid, source_radii)
+    lapse_source = lapse_grid[source_index]
+
+    angles, angle_weights = np.polynomial.legendre.leggauss(angular_order)
+    angle_weights = angle_weights / 2.0
+    path_x, path_w = np.polynomial.legendre.leggauss(path_order)
+    path_w = path_w / 2.0
+    columns = np.zeros((len(source_radii), len(angles), len(energies)))
+
+    for ia, cosine in enumerate(angles):
+        smax = -cosine*source_radii + np.sqrt(
+            radius_km**2-source_radii**2+source_radii**2*cosine**2)
+        s = smax[:, None]*(1.0+path_x[None, :])/2.0
+        position = np.sqrt(np.maximum(
+            source_radii[:, None]**2+s**2
+            +2.0*source_radii[:, None]*s*cosine, 0.0))
+        path_weights = smax[:, None]*path_w[None, :]
+        lapse_path = np.interp(
+            position.ravel(), radial_grid, lapse_grid).reshape(position.shape)
+
+        for ie, omega_source in enumerate(energies):
+            # E_inf=N(r_source)*omega_source is conserved along the ray.
+            omega_path = omega_source*lapse_source[:, None]/lapse_path
+            velocity_path = np.sqrt(np.maximum(
+                1.0-(MASS/omega_path)**2, 0.0))
+
+            # Bilinear interpolation of Gamma_red(r, omega_local).
+            ir = np.searchsorted(radial_grid, position, side="right")-1
+            ir = np.clip(ir, 0, len(radial_grid)-2)
+            ie_local = np.searchsorted(energies, omega_path, side="right")-1
+            ie_local = np.clip(ie_local, 0, len(energies)-2)
+            r0, r1 = radial_grid[ir], radial_grid[ir+1]
+            e0, e1 = energies[ie_local], energies[ie_local+1]
+            fr = np.divide(position-r0, r1-r0,
+                           out=np.zeros_like(position), where=(r1>r0))
+            fe = np.divide(omega_path-e0, e1-e0,
+                           out=np.zeros_like(omega_path), where=(e1>e0))
+            q00 = reduced[ir, ie_local]
+            q01 = reduced[ir, ie_local+1]
+            q10 = reduced[ir+1, ie_local]
+            q11 = reduced[ir+1, ie_local+1]
+            rate = ((1.0-fr)*(1.0-fe)*q00
+                    +(1.0-fr)*fe*q01
+                    +fr*(1.0-fe)*q10
+                    +fr*fe*q11)
+            integrand = np.divide(
+                rate, velocity_path,
+                out=np.zeros_like(rate), where=velocity_path>0.0)
+            columns[:, ia, ie] = np.sum(path_weights*integrand, axis=1)*KM_TO_MEV_INV
+
+    return columns, angle_weights
+
+
 def _eq33_finite_difference(profile_path):
     data = np.genfromtxt(profile_path, delimiter=",", names=True)
     samples = []
