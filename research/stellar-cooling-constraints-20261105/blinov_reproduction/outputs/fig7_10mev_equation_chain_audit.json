@@ -6,7 +6,7 @@
   "profile_sha256": "08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9",
   "fig7_sha256": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4",
   "fig7_pdf_sha256": "4d7d1d10bfe2b52992af94df98749fa3adac887c009cbf98515fa12e6c48fdb5",
-  "run_commit_sha": "fa79a95d04d0c0a0343951cb461f7c025c32d2cf",
+  "run_commit_sha": "9de16d6ddde72f30fea30ebd2d512b63e5a0b1c1",
   "quadrature": {
     "radial_order": 88,
     "energy_order": 180,
@@ -146,30 +146,44 @@
     "interpretation": "Quadrature-only changes; no opacity normalization is altered."
   },
   "eq17": {
-    "radius_24_vs_25_km": [
+    "same_source_nodes_boundary_24_vs_25_km": [
       {
         "g": 4.796429536550025e-10,
-        "L_R24": 9.896462076570757e+51,
-        "L_R25": 9.895240195159465e+51,
-        "relative_change_R24_over_R25": 0.0001234817333579663,
-        "thin_R24": 9.916355391199482e+51,
-        "thin_R25": 9.916356755703992e+51
+        "L_R24_same_sources": 9.89443725632171e+51,
+        "L_R25_same_sources": 9.893224905383283e+51,
+        "relative_change_R24_over_R25": 0.00012254355379770487,
+        "thin_R24_source_mask": 9.914327297490541e+51,
+        "thin_R25_full": 9.916356755703992e+51
       },
       {
         "g": 1.1341108687336194e-08,
-        "L_R24": 2.056108561343517e+54,
-        "L_R25": 1.954674495419746e+54,
-        "relative_change_R24_over_R25": 0.05189307281670397,
-        "thin_R24": 5.5440478582979563e+54,
-        "thin_R25": 5.544048621166772e+54
+        "L_R24_same_sources": 2.0556237389504263e+54,
+        "L_R25_same_sources": 1.954284989188585e+54,
+        "relative_change_R24_over_R25": 0.05185464265573514,
+        "thin_R24_source_mask": 5.5429139892361976e+54,
+        "thin_R25_full": 5.544048621166772e+54
       },
       {
         "g": 4.171689650228597e-08,
-        "L_R24": 3.298282306940041e+52,
-        "L_R25": 2.437009490788894e+52,
-        "relative_change_R24_over_R25": 0.3534138128745412,
-        "thin_R24": 7.50135863788894e+55,
-        "thin_R25": 7.501359670086484e+55
+        "L_R24_same_sources": 3.2970977269456205e+52,
+        "L_R25_same_sources": 2.3548706142934223e+52,
+        "relative_change_R24_over_R25": 0.4001184213404918,
+        "thin_R24_source_mask": 7.499824459487516e+55,
+        "thin_R25_full": 7.501359670086484e+55
+      }
+    ],
+    "extra_outer_shell_opacity_24_25_km": [
+      {
+        "g": 4.796429536550025e-10,
+        "source_weighted_mean_extra_tau_24_25": 0.0001226428872607476
+      },
+      {
+        "g": 1.1341108687336194e-08,
+        "source_weighted_mean_extra_tau_24_25": 0.06856733241497713
+      },
+      {
+        "g": 4.171689650228597e-08,
+        "source_weighted_mean_extra_tau_24_25": 0.9277483969014615
       }
     ],
     "omit_lapse_squared_diagnostic_only": [
