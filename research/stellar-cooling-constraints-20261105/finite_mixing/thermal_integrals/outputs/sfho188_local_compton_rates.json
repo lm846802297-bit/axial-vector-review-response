@@ -1,0 +1,5819 @@
+{
+  "title": "Moving-muon semi-Compton local rates on reconstructed SFHo-18.8 profile",
+  "scope": "Local-frame muon-photon Compton production and absorption only. No neutrino or dimuon channels, radial integration, optical depth, transport, luminosity, or exclusion curve.",
+  "background_identity": "Reconstructed SFHo-18.8, t_pb=1 s digitized profile; not original simulation tables and not an exact Blinov Fig. 7 background.",
+  "profile_file": "sfho188_digitized.csv",
+  "profile_sha256": "08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9",
+  "profile_provenance_sha256": "270486e2c3e955eee81fb4ca7be9300b4a5767468c144717df2726318c1e4a56",
+  "coupling_convention": {
+    "normalization": "All rates are coefficients multiplying g_X^2",
+    "theta_mu_R": 0.01,
+    "gV_over_gX": 9.99966667111108e-05,
+    "gA_over_gX": -0.9999000033332889,
+    "g_nu_mu_over_gX": 1.0,
+    "g_nu_tau_over_gX": -1.0,
+    "note": "Neutrino couplings are recorded for model bookkeeping; neutrino rates are not included in this Compton-only output."
+  },
+  "units": {
+    "radius": "km",
+    "temperature_chemical_potential_energy": "MeV",
+    "gamma_prod_gamma_abs": "MeV (local inverse-time/rate)"
+  },
+  "polarization_order": [
+    "L",
+    "+",
+    "-"
+  ],
+  "grid": {
+    "radii_km": [
+      0.0,
+      5.0,
+      8.0,
+      10.0,
+      15.0,
+      20.0,
+      24.0
+    ],
+    "masses_MeV": [
+      10.0,
+      100.0,
+      220.0,
+      300.0
+    ],
+    "omega_over_mass": [
+      1.05,
+      1.5,
+      3.0,
+      10.0
+    ],
+    "quadrature": {
+      "radial": 16,
+      "polar_angle": 8,
+      "photon_polar_angle": 8,
+      "relative_azimuth": 12
+    },
+    "points": 112
+  },
+  "acceptance": {
+    "all_rates_finite_and_nonnegative": true,
+    "detailed_balance_max_relative_residual": 3.61672529668681e-14,
+    "detailed_balance_pass": true,
+    "refinement_max_relative_difference": 0.0010783542794290785,
+    "refinement_pass": true
+  },
+  "refinement_checks": [
+    {
+      "radius_km": 0.0,
+      "mass_MeV": 100.0,
+      "omega_over_mass": 1.5,
+      "coarse_absorption_by_mode_MeV": [
+        0.00018708957522178515,
+        0.00016012769157597642,
+        0.0001601124287175475
+      ],
+      "fine_absorption_by_mode_MeV": [
+        0.00018708766150546033,
+        0.00016012380768630762,
+        0.00016010854696906152
+      ],
+      "relative_difference_absorption": 2.4255541539552842e-05,
+      "fine_detailed_balance_relative_residual": 5.968513581311513e-16
+    },
+    {
+      "radius_km": 8.0,
+      "mass_MeV": 100.0,
+      "omega_over_mass": 1.5,
+      "coarse_absorption_by_mode_MeV": [
+        0.00772463238885138,
+        0.006188009216539927,
+        0.006187322363540297
+      ],
+      "fine_absorption_by_mode_MeV": [
+        0.007716311471354837,
+        0.006182449493537823,
+        0.0061817640112105466
+      ],
+      "relative_difference_absorption": 0.0010783542794290785,
+      "fine_detailed_balance_relative_residual": 1.836402996916414e-15
+    },
+    {
+      "radius_km": 10.0,
+      "mass_MeV": 220.0,
+      "omega_over_mass": 1.5,
+      "coarse_absorption_by_mode_MeV": [
+        0.0028896223179250367,
+        0.0032274690158991927,
+        0.003227023434683575
+      ],
+      "fine_absorption_by_mode_MeV": [
+        0.0028880696104250994,
+        0.003225352056941496,
+        0.0032249071849523407
+      ],
+      "relative_difference_absorption": 0.0006563497318503712,
+      "fine_detailed_balance_relative_residual": 9.215523480692524e-16
+    },
+    {
+      "radius_km": 15.0,
+      "mass_MeV": 100.0,
+      "omega_over_mass": 3.0,
+      "coarse_absorption_by_mode_MeV": [
+        6.493930668469917e-05,
+        4.3896479854863074e-05,
+        4.3889185767028977e-05
+      ],
+      "fine_absorption_by_mode_MeV": [
+        6.49012432837388e-05,
+        4.3871438438934234e-05,
+        4.386414949852411e-05
+      ],
+      "relative_difference_absorption": 0.0005864818458710541,
+      "fine_detailed_balance_relative_residual": 1.0112868536930303e-15
+    }
+  ],
+  "pure_current_endpoint_checks": [
+    {
+      "radius_km": 0.0,
+      "temperature_MeV": 19.26522111,
+      "muon_chemical_potential_MeV": 46.67432845,
+      "pure_vector_absorption_by_mode_MeV": [
+        5.8697008919920735e-05,
+        9.896812246147388e-05,
+        9.896812246147388e-05
+      ],
+      "pure_axial_absorption_by_mode_MeV": [
+        0.00018712539606127935,
+        0.0001601485726516338,
+        0.0001601485726516338
+      ],
+      "finite_mixing_absorption_by_mode_MeV": [
+        0.00018708797468761296,
+        0.00016012417707831668,
+        0.00016010891611316355
+      ],
+      "finite_mixing_over_pure_axial_by_mode": [
+        0.9998000198024745,
+        0.999847669118037,
+        0.9997523765724936
+      ]
+    },
+    {
+      "radius_km": 8.0,
+      "temperature_MeV": 38.84717118,
+      "muon_chemical_potential_MeV": 91.79495143,
+      "pure_vector_absorption_by_mode_MeV": [
+        0.0022177265376231467,
+        0.003742583330160097,
+        0.003742583330160097
+      ],
+      "pure_axial_absorption_by_mode_MeV": [
+        0.00771915621040346,
+        0.00618418739018797,
+        0.00618418739018797
+      ],
+      "finite_mixing_absorption_by_mode_MeV": [
+        0.00771761252998392,
+        0.0061832935433247145,
+        0.006182607843072116
+      ],
+      "finite_mixing_over_pure_axial_by_mode": [
+        0.9998000195387341,
+        0.9998554625196717,
+        0.9997445829150714
+      ]
+    },
+    {
+      "radius_km": 15.0,
+      "temperature_MeV": 13.23141583,
+      "muon_chemical_potential_MeV": 62.28271809,
+      "pure_vector_absorption_by_mode_MeV": [
+        2.5892802427973266e-05,
+        4.3335971576817945e-05,
+        4.333597157681795e-05
+      ],
+      "pure_axial_absorption_by_mode_MeV": [
+        7.97389569724881e-05,
+        6.93128227587664e-05,
+        6.93128227587664e-05
+      ],
+      "finite_mixing_absorption_by_mode_MeV": [
+        7.972301076892686e-05,
+        6.930216974788489e-05,
+        6.92957538175287e-05
+      ],
+      "finite_mixing_over_pure_axial_by_mode": [
+        0.9998000199128922,
+        0.9998463053377789,
+        0.9997537404976695
+      ]
+    }
+  ],
+  "local_rates": [
+    {
+      "radius_km": 0.0,
+      "temperature_MeV": 19.26522111,
+      "muon_chemical_potential_MeV": 46.67432845,
+      "lapse": 0.7363304267,
+      "mass_MeV": 10.0,
+      "omega_local_MeV": 10.5,
+      "omega_infinity_MeV": 7.73146948035,
+      "omega_over_mass": 1.05,
+      "gamma_prod_total_by_mode_MeV": [
+        0.0009231152989211061,
+        0.0007894696351488018,
+        0.0007894650646661704
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.0015920499407882165,
+        0.0013615580711983848,
+        0.001361550188719772
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            0.0009156941523871272,
+            0.0007831223438808447,
+            0.0007831177360225774
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.001579251067328086,
+            0.0013506112212229512,
+            0.0013506032742844828
+          ],
+          "detailed_balance_relative_residual": 4.2918284237034334e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            7.4211465339788915e-06,
+            6.34729126795714e-06,
+            6.347328643593011e-06
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.2798873460130535e-05,
+            1.094684997543343e-05,
+            1.0946914435289083e-05
+          ],
+          "detailed_balance_relative_residual": 3.20273171212319e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 4.2573223656303976e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 0.0,
+      "temperature_MeV": 19.26522111,
+      "muon_chemical_potential_MeV": 46.67432845,
+      "lapse": 0.7363304267,
+      "mass_MeV": 10.0,
+      "omega_local_MeV": 15.0,
+      "omega_infinity_MeV": 11.0449564005,
+      "omega_over_mass": 1.5,
+      "gamma_prod_total_by_mode_MeV": [
+        0.0014603261919112012,
+        0.0005141821105730597,
+        0.0005141721018067959
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.003181220603000133,
+        0.0011201105156570202,
+        0.0011200887122451303
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            0.0014485672434937755,
+            0.0005100418017577577,
+            0.000510031710993539
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.0031556045391492385,
+            0.0011110911364395702,
+            0.001111069154400751
+          ],
+          "detailed_balance_relative_residual": 4.464084317001226e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.1758948417425814e-05,
+            4.140308815302022e-06,
+            4.1403908132568964e-06
+          ],
+          "gamma_abs_by_mode_MeV": [
+            2.561606385089446e-05,
+            9.019379217450073e-06,
+            9.019557844379318e-06
+          ],
+          "detailed_balance_relative_residual": 3.8869823462805456e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 4.428137104714199e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 0.0,
+      "temperature_MeV": 19.26522111,
+      "muon_chemical_potential_MeV": 46.67432845,
+      "lapse": 0.7363304267,
+      "mass_MeV": 10.0,
+      "omega_local_MeV": 30.0,
+      "omega_infinity_MeV": 22.089912801,
+      "omega_over_mass": 3.0,
+      "gamma_prod_total_by_mode_MeV": [
+        0.0014357546243036273,
+        0.00014598459918189986,
+        0.0001459780591418755
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.006813465283564546,
+        0.0006927792407030515,
+        0.000692748204525349
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            0.001424169912743774,
+            0.00014480816923713287,
+            0.00014480157557655743
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.00675848929484262,
+            0.000687196417251514,
+            0.0006871651266140611
+          ],
+          "detailed_balance_relative_residual": 3.3496632081950814e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.1584711559853118e-05,
+            1.1764299447669892e-06,
+            1.176483565318085e-06
+          ],
+          "gamma_abs_by_mode_MeV": [
+            5.4975988721925595e-05,
+            5.582823451537456e-06,
+            5.5830779112879116e-06
+          ],
+          "detailed_balance_relative_residual": 4.679452599591746e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 3.322635691492209e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 0.0,
+      "temperature_MeV": 19.26522111,
+      "muon_chemical_potential_MeV": 46.67432845,
+      "lapse": 0.7363304267,
+      "mass_MeV": 10.0,
+      "omega_local_MeV": 100.0,
+      "omega_infinity_MeV": 73.63304267000001,
+      "omega_over_mass": 10.0,
+      "gamma_prod_total_by_mode_MeV": [
+        6.988261617800188e-05,
+        1.5071058652686733e-06,
+        1.5069373742270541e-06
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.012550525220712544,
+        0.0002706677455257092,
+        0.00027063748548132377
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            6.932709882094497e-05,
+            1.4950795126073725e-06,
+            1.4949096584182176e-06
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.012450757424633937,
+            0.0002685078801594158,
+            0.000268477375301392
+          ],
+          "detailed_balance_relative_residual": 2.932300800096587e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            5.555173570569185e-07,
+            1.2026352661300813e-08,
+            1.2027715808836462e-08
+          ],
+          "gamma_abs_by_mode_MeV": [
+            9.976779607860589e-05,
+            2.1598653662933718e-06,
+            2.1601101799317532e-06
+          ],
+          "detailed_balance_relative_residual": 4.951647099947519e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 2.9089910833221553e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 0.0,
+      "temperature_MeV": 19.26522111,
+      "muon_chemical_potential_MeV": 46.67432845,
+      "lapse": 0.7363304267,
+      "mass_MeV": 100.0,
+      "omega_local_MeV": 105.0,
+      "omega_infinity_MeV": 77.3146948035,
+      "omega_over_mass": 1.05,
+      "gamma_prod_total_by_mode_MeV": [
+        8.603966334670326e-07,
+        8.445699212723705e-07,
+        8.445431658929255e-07
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.00020031159325159707,
+        0.00019662692758423862,
+        0.0001966206985818501
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            8.535188021344684e-07,
+            8.378141516897147e-07,
+            8.37787181417311e-07
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.00019871034413142082,
+            0.00019505409603643326,
+            0.00019504781700415243
+          ],
+          "detailed_balance_relative_residual": 1.4886015606265235e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            6.8778313325642044e-09,
+            6.755769582655817e-09,
+            6.755984475614448e-09
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.6012491201762507e-06,
+            1.5728315478053515e-06,
+            1.5728815776976743e-06
+          ],
+          "detailed_balance_relative_residual": 4.6525955455450145e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 1.47670199005972e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 0.0,
+      "temperature_MeV": 19.26522111,
+      "muon_chemical_potential_MeV": 46.67432845,
+      "lapse": 0.7363304267,
+      "mass_MeV": 100.0,
+      "omega_local_MeV": 150.0,
+      "omega_infinity_MeV": 110.449564005,
+      "omega_over_mass": 1.5,
+      "gamma_prod_total_by_mode_MeV": [
+        7.773390237327621e-08,
+        6.653150144506587e-08,
+        6.652515987554965e-08
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.00018708957522178515,
+        0.00016012769157597642,
+        0.0001601124287175475
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            7.71167962963432e-08,
+            6.600193052938333e-08,
+            6.599553799632214e-08
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.0001856043273405483,
+            0.00015885312289178646,
+            0.00015883773737454727
+          ],
+          "detailed_balance_relative_residual": 3.208364287455238e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            6.171060769330142e-10,
+            5.29570915682534e-10,
+            5.29621879227518e-10
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.485247881236853e-06,
+            1.2745686841899547e-06,
+            1.2746913430002256e-06
+          ],
+          "detailed_balance_relative_residual": 5.361675364884256e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 3.18282666427453e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 0.0,
+      "temperature_MeV": 19.26522111,
+      "muon_chemical_potential_MeV": 46.67432845,
+      "lapse": 0.7363304267,
+      "mass_MeV": 100.0,
+      "omega_local_MeV": 300.0,
+      "omega_infinity_MeV": 220.89912801,
+      "omega_over_mass": 3.0,
+      "gamma_prod_total_by_mode_MeV": [
+        2.609176155418748e-11,
+        1.7281148861376506e-11,
+        1.727824958068189e-11
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.00015114077253160032,
+        0.00010010386549477101,
+        0.00010008707093979034
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            2.588513705247206e-11,
+            1.7144083927588952e-11,
+            1.7141161325253575e-11
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.00014994386649869917,
+            9.930989457269968e-05,
+            9.929296492332173e-05
+          ],
+          "detailed_balance_relative_residual": 5.277206987559994e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            2.066245017154181e-13,
+            1.3706493378755204e-13,
+            1.3708825542831395e-13
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.1969060329011495e-06,
+            7.939709220713246e-07,
+            7.941060164686187e-07
+          ],
+          "detailed_balance_relative_residual": 5.70836659591495e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 5.235350972538345e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 0.0,
+      "temperature_MeV": 19.26522111,
+      "muon_chemical_potential_MeV": 46.67432845,
+      "lapse": 0.7363304267,
+      "mass_MeV": 100.0,
+      "omega_local_MeV": 1000.0,
+      "omega_infinity_MeV": 736.3304267000001,
+      "omega_over_mass": 10.0,
+      "gamma_prod_total_by_mode_MeV": [
+        2.502076880671608e-27,
+        1.1704328958382687e-27,
+        1.1701354574330742e-27
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        8.734300023002971e-05,
+        4.085770564451861e-05,
+        4.084732260517498e-05
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            2.482268087556871e-27,
+            1.1611675286042174e-27,
+            1.1608676974181035e-27
+          ],
+          "gamma_abs_by_mode_MeV": [
+            8.665151091771382e-05,
+            4.053426835180128e-05,
+            4.052380178478269e-05
+          ],
+          "detailed_balance_relative_residual": 1.0812939503607093e-14
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.9808793114736936e-29,
+            9.265367234051324e-30,
+            9.267760014970774e-30
+          ],
+          "gamma_abs_by_mode_MeV": [
+            6.914893123158847e-07,
+            3.234372927173331e-07,
+            3.23520820392287e-07
+          ],
+          "detailed_balance_relative_residual": 7.108301933378237e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 1.0880589984326337e-14,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 0.0,
+      "temperature_MeV": 19.26522111,
+      "muon_chemical_potential_MeV": 46.67432845,
+      "lapse": 0.7363304267,
+      "mass_MeV": 220.0,
+      "omega_local_MeV": 231.0,
+      "omega_infinity_MeV": 170.0923285677,
+      "omega_over_mass": 1.05,
+      "gamma_prod_total_by_mode_MeV": [
+        6.689980417943202e-10,
+        6.790550820733842e-10,
+        6.790289152351253e-10
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.00010785520009026184,
+        0.00010947658613902305,
+        0.00010947236754733908
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            6.636928012223362e-10,
+            6.7366955548398e-10,
+            6.736431790711341e-10
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.00010699989447250008,
+            0.00010860833688924393,
+            0.00010860408451015314
+          ],
+          "detailed_balance_relative_residual": 3.06980252399201e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            5.305240571983927e-12,
+            5.38552658940426e-12,
+            5.385736163991106e-12
+          ],
+          "gamma_abs_by_mode_MeV": [
+            8.553056177617615e-07,
+            8.682492497791247e-07,
+            8.682830371859379e-07
+          ],
+          "detailed_balance_relative_residual": 2.5498881882981182e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 3.0454543024379248e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 0.0,
+      "temperature_MeV": 19.26522111,
+      "muon_chemical_potential_MeV": 46.67432845,
+      "lapse": 0.7363304267,
+      "mass_MeV": 220.0,
+      "omega_local_MeV": 330.0,
+      "omega_infinity_MeV": 242.98904081100002,
+      "omega_over_mass": 1.5,
+      "gamma_prod_total_by_mode_MeV": [
+        2.7103262482277083e-12,
+        3.0591470445555706e-12,
+        3.058793683603563e-12
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        7.450537955127358e-05,
+        8.409427160542427e-05,
+        8.408455790698506e-05
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            2.6888469308479477e-12,
+            3.034893365050434e-12,
+            3.034537166792223e-12
+          ],
+          "gamma_abs_by_mode_MeV": [
+            7.39149249169181e-05,
+            8.342755128043505e-05,
+            8.34177595860071e-05
+          ],
+          "detailed_balance_relative_residual": 7.719797832038602e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            2.1479317379760603e-14,
+            2.4253679505136707e-14,
+            2.425651681134037e-14
+          ],
+          "gamma_abs_by_mode_MeV": [
+            5.904546343554744e-07,
+            6.667203249892121e-07,
+            6.667983209779701e-07
+          ],
+          "detailed_balance_relative_residual": 7.024667096805764e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 7.526534653637595e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 0.0,
+      "temperature_MeV": 19.26522111,
+      "muon_chemical_potential_MeV": 46.67432845,
+      "lapse": 0.7363304267,
+      "mass_MeV": 220.0,
+      "omega_local_MeV": 660.0,
+      "omega_infinity_MeV": 485.97808162200005,
+      "omega_over_mass": 3.0,
+      "gamma_prod_total_by_mode_MeV": [
+        4.9606545055538e-20,
+        6.645022324739981e-20,
+        6.643711185067923e-20
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        3.7486172699192796e-05,
+        5.0214433231807576e-05,
+        5.020452534402228e-05
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            4.92131085021632e-20,
+            6.592327993919185e-20,
+            6.591006295276805e-20
+          ],
+          "gamma_abs_by_mode_MeV": [
+            3.71888645401692e-05,
+            4.9816238037361915e-05,
+            4.9806250358616654e-05
+          ],
+          "detailed_balance_relative_residual": 7.303679163732935e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            3.9343655337479855e-22,
+            5.269433082079548e-22,
+            5.270488979111856e-22
+          ],
+          "gamma_abs_by_mode_MeV": [
+            2.9730815902359516e-07,
+            3.9819519444566034e-07,
+            3.9827498540562747e-07
+          ],
+          "detailed_balance_relative_residual": 8.365730520130246e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 7.245761753187929e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 0.0,
+      "temperature_MeV": 19.26522111,
+      "muon_chemical_potential_MeV": 46.67432845,
+      "lapse": 0.7363304267,
+      "mass_MeV": 220.0,
+      "omega_local_MeV": 2200.0,
+      "omega_infinity_MeV": 1619.9269387400002,
+      "omega_over_mass": 10.0,
+      "gamma_prod_total_by_mode_MeV": [
+        2.511435161185013e-55,
+        3.775676356427197e-55,
+        3.774575251121731e-55
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        9.87102775620397e-06,
+        1.484004313101604e-05,
+        1.4835715310333834e-05
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            2.4915259018102297e-55,
+            3.745755998895783e-55,
+            3.744646026922009e-55
+          ],
+          "gamma_abs_by_mode_MeV": [
+            9.792775745189987e-06,
+            1.4722443168957383e-05,
+            1.4718080498429036e-05
+          ],
+          "detailed_balance_relative_residual": 1.4122874482696588e-14
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.99092593747836e-57,
+            2.992035753141426e-57,
+            2.992922419972135e-57
+          ],
+          "gamma_abs_by_mode_MeV": [
+            7.825201101398203e-08,
+            1.1759996205865689e-07,
+            1.176348119047993e-07
+          ],
+          "detailed_balance_relative_residual": 4.918216130152588e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 1.38189618761848e-14,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 0.0,
+      "temperature_MeV": 19.26522111,
+      "muon_chemical_potential_MeV": 46.67432845,
+      "lapse": 0.7363304267,
+      "mass_MeV": 300.0,
+      "omega_local_MeV": 315.0,
+      "omega_infinity_MeV": 231.9440844105,
+      "omega_over_mass": 1.05,
+      "gamma_prod_total_by_mode_MeV": [
+        7.0785420311164326e-12,
+        7.2177271828033216e-12,
+        7.217438091301174e-12
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        8.932354769208676e-05,
+        9.107991383077501e-05,
+        9.107626580856066e-05
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            7.022442923774541e-12,
+            7.1605257038274785e-12,
+            7.160234290052519e-12
+          ],
+          "gamma_abs_by_mode_MeV": [
+            8.86156376071979e-05,
+            9.035809300765972e-05,
+            9.035441568087314e-05
+          ],
+          "detailed_balance_relative_residual": 4.2561203133209365e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            5.609910734189175e-14,
+            5.720147897584292e-14,
+            5.720380124865535e-14
+          ],
+          "gamma_abs_by_mode_MeV": [
+            7.079100848888586e-07,
+            7.218208231152878e-07,
+            7.218501276875254e-07
+          ],
+          "detailed_balance_relative_residual": 5.516143249235942e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 4.22238956067902e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 0.0,
+      "temperature_MeV": 19.26522111,
+      "muon_chemical_potential_MeV": 46.67432845,
+      "lapse": 0.7363304267,
+      "mass_MeV": 300.0,
+      "omega_local_MeV": 450.0,
+      "omega_infinity_MeV": 331.34869201500004,
+      "omega_over_mass": 1.5,
+      "gamma_prod_total_by_mode_MeV": [
+        4.07737811486568e-15,
+        4.832250831003863e-15,
+        4.831672812720497e-15
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        5.684579475112884e-05,
+        6.737004299986708e-05,
+        6.736198441227181e-05
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            4.045059804145674e-15,
+            4.79395059592301e-15,
+            4.7933679316070016e-15
+          ],
+          "gamma_abs_by_mode_MeV": [
+            5.639522087592345e-05,
+            6.683607061835351e-05,
+            6.682794725692306e-05
+          ],
+          "detailed_balance_relative_residual": 6.747509804284568e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            3.2318310720006336e-17,
+            3.8300235080852156e-17,
+            3.8304881113495395e-17
+          ],
+          "gamma_abs_by_mode_MeV": [
+            4.505738752053913e-07,
+            5.339723815135644e-07,
+            5.340371553487554e-07
+          ],
+          "detailed_balance_relative_residual": 5.471015452176412e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 6.694016413717061e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 0.0,
+      "temperature_MeV": 19.26522111,
+      "muon_chemical_potential_MeV": 46.67432845,
+      "lapse": 0.7363304267,
+      "mass_MeV": 300.0,
+      "omega_local_MeV": 900.0,
+      "omega_infinity_MeV": 662.6973840300001,
+      "omega_over_mass": 3.0,
+      "gamma_prod_total_by_mode_MeV": [
+        1.2816053078210491e-25,
+        2.0440554695702597e-25,
+        2.0436406605078163e-25
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        2.4910876442298684e-05,
+        3.9730807084625254e-05,
+        3.972274433922397e-05
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            1.2714457561139608e-25,
+            2.027857781395248e-25,
+            2.0274396328743073e-25
+          ],
+          "gamma_abs_by_mode_MeV": [
+            2.471340274603668e-05,
+            3.941596865011173e-05,
+            3.940784099483726e-05
+          ],
+          "detailed_balance_relative_residual": 3.622956086981788e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.0159551707088391e-27,
+            1.6197688175011756e-27,
+            1.6201027633509028e-27
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.974736962620022e-07,
+            3.1483843451352406e-07,
+            3.149033443867088e-07
+          ],
+          "detailed_balance_relative_residual": 1.3064116970818229e-14
+        }
+      },
+      "total_detailed_balance_relative_residual": 3.594246732542874e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 0.0,
+      "temperature_MeV": 19.26522111,
+      "muon_chemical_potential_MeV": 46.67432845,
+      "lapse": 0.7363304267,
+      "mass_MeV": 300.0,
+      "omega_local_MeV": 3000.0,
+      "omega_infinity_MeV": 2208.9912801,
+      "omega_over_mass": 10.0,
+      "gamma_prod_total_by_mode_MeV": [
+        1.1466249112633816e-73,
+        2.518981583963812e-73,
+        2.5182183761864244e-73
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        4.877572578042976e-06,
+        1.0715374642436089e-05,
+        1.071212806956833e-05
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            1.1374235242043983e-73,
+            2.498781049606543e-73,
+            2.4980116204686655e-73
+          ],
+          "gamma_abs_by_mode_MeV": [
+            4.8384312400535485e-06,
+            1.0629444560615115e-05,
+            1.0626171523001104e-05
+          ],
+          "detailed_balance_relative_residual": 1.760277374281895e-14
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            9.201387058983419e-76,
+            2.0200534357269134e-75,
+            2.020675571775892e-75
+          ],
+          "gamma_abs_by_mode_MeV": [
+            3.9141337989427e-08,
+            8.593008182097397e-08,
+            8.595654656722644e-08
+          ],
+          "detailed_balance_relative_residual": 9.870058560284241e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 1.7461611362736952e-14,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 5.0,
+      "temperature_MeV": 25.3597481,
+      "muon_chemical_potential_MeV": 56.14191412,
+      "lapse": 0.7586815589,
+      "mass_MeV": 10.0,
+      "omega_local_MeV": 10.5,
+      "omega_infinity_MeV": 7.96615636845,
+      "omega_over_mass": 1.05,
+      "gamma_prod_total_by_mode_MeV": [
+        0.006028308224769271,
+        0.005129638343806539,
+        0.005129609345739467
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.00912035181172437,
+        0.007760735619024727,
+        0.007760691747251117
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            0.0059508847559257404,
+            0.0050637420142133965,
+            0.0050637126325295805
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.009003216249306424,
+            0.007661039703258274,
+            0.007660995251102984
+          ],
+          "detailed_balance_relative_residual": 3.9353420350422816e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            7.74234688435312e-05,
+            6.589632959314319e-05,
+            6.589671320988657e-05
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.0001171355624179471,
+            9.969591576645225e-05,
+            9.9696496148133e-05
+          ],
+          "detailed_balance_relative_residual": 3.675927655122414e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 4.0286806444116136e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 5.0,
+      "temperature_MeV": 25.3597481,
+      "muon_chemical_potential_MeV": 56.14191412,
+      "lapse": 0.7586815589,
+      "mass_MeV": 10.0,
+      "omega_local_MeV": 15.0,
+      "omega_infinity_MeV": 11.3802233835,
+      "omega_over_mass": 1.5,
+      "gamma_prod_total_by_mode_MeV": [
+        0.00995465515049824,
+        0.0033988276478297192,
+        0.0033987628747007316
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.017984833531824496,
+        0.006140579309421956,
+        0.006140462285383959
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            0.009826146283885345,
+            0.003354944411139536,
+            0.0033548787760899934
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.017752659685673664,
+            0.006061296532190733,
+            0.006061177950941817
+          ],
+          "detailed_balance_relative_residual": 4.007330170805439e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            0.00012850886661289513,
+            4.3883236690183186e-05,
+            4.388409861073839e-05
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.00023217384615083095,
+            7.928277723122277e-05,
+            7.928433444214236e-05
+          ],
+          "detailed_balance_relative_residual": 2.779429184282542e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 3.955588381553108e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 5.0,
+      "temperature_MeV": 25.3597481,
+      "muon_chemical_potential_MeV": 56.14191412,
+      "lapse": 0.7586815589,
+      "mass_MeV": 10.0,
+      "omega_local_MeV": 30.0,
+      "omega_infinity_MeV": 22.760446767,
+      "omega_over_mass": 3.0,
+      "gamma_prod_total_by_mode_MeV": [
+        0.011157766555087207,
+        0.001092709671547778,
+        0.0010926613899550647
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.036419810008543246,
+        0.0035666885873430827,
+        0.0035665309925032
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            0.011012371979315887,
+            0.0010785372211288271,
+            0.001078488293936814
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.03594523090709665,
+            0.0035204286168494044,
+            0.0035202689147236475
+          ],
+          "detailed_balance_relative_residual": 3.619072958780293e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            0.0001453945757713196,
+            1.4172450418950768e-05,
+            1.417309601825071e-05
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.00047457910144660013,
+            4.6259970493678434e-05,
+            4.626207777955248e-05
+          ],
+          "detailed_balance_relative_residual": 1.9125171378898557e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 3.572129350253998e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 5.0,
+      "temperature_MeV": 25.3597481,
+      "muon_chemical_potential_MeV": 56.14191412,
+      "lapse": 0.7586815589,
+      "mass_MeV": 10.0,
+      "omega_local_MeV": 100.0,
+      "omega_infinity_MeV": 75.86815589,
+      "omega_over_mass": 10.0,
+      "gamma_prod_total_by_mode_MeV": [
+        0.001218652861406293,
+        2.4945716522154275e-05,
+        2.4942896361846817e-05
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.06286583614119268,
+        0.0012868581176568223,
+        0.0012867126359192452
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            0.0012033602823067371,
+            2.46296922273567e-05,
+            2.462683562614517e-05
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.062076948015381765,
+            0.0012705555821583589,
+            0.0012704082205680551
+          ],
+          "detailed_balance_relative_residual": 5.227390045891418e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.5292579099555874e-05,
+            3.160242947975731e-07,
+            3.1606073570164504e-07
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.000788888125810905,
+            1.630253549846351e-05,
+            1.6304415351190028e-05
+          ],
+          "detailed_balance_relative_residual": 1.329323889826641e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 5.0253467797689246e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 5.0,
+      "temperature_MeV": 25.3597481,
+      "muon_chemical_potential_MeV": 56.14191412,
+      "lapse": 0.7586815589,
+      "mass_MeV": 100.0,
+      "omega_local_MeV": 105.0,
+      "omega_infinity_MeV": 79.6615636845,
+      "omega_over_mass": 1.05,
+      "gamma_prod_total_by_mode_MeV": [
+        1.496547716425741e-05,
+        1.4642366048994215e-05,
+        1.4641875192590531e-05
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.0009402687152385545,
+        0.0009199679075935131,
+        0.0009199370674863117
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            1.4774470733453356e-05,
+            1.4455150088579272e-05,
+            1.4454652979156839e-05
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.0009282679370927453,
+            0.0009082052816084268,
+            0.0009081740486291611
+          ],
+          "detailed_balance_relative_residual": 3.0958658334992074e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.9100643080405326e-07,
+            1.8721596041494205e-07,
+            1.8722221343369197e-07
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.2000778145809285e-05,
+            1.1762625985086246e-05,
+            1.1763018857150527e-05
+          ],
+          "detailed_balance_relative_residual": 1.524386243923715e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 2.943154620049108e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 5.0,
+      "temperature_MeV": 25.3597481,
+      "muon_chemical_potential_MeV": 56.14191412,
+      "lapse": 0.7586815589,
+      "mass_MeV": 100.0,
+      "omega_local_MeV": 150.0,
+      "omega_infinity_MeV": 113.802233835,
+      "omega_over_mass": 1.5,
+      "gamma_prod_total_by_mode_MeV": [
+        2.4005215693755083e-06,
+        2.0144372810406755e-06,
+        2.014237023491216e-06
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.0008894215299774119,
+        0.0007463727514070431,
+        0.0007462985536250635
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            2.370604240760519e-06,
+            1.9891193588155964e-06,
+            1.988916569094758e-06
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.0008783368071700666,
+            0.0007369921628680543,
+            0.0007369170268867391
+          ],
+          "detailed_balance_relative_residual": 7.026246850273413e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            2.991732861498937e-08,
+            2.531792222507928e-08,
+            2.5320454396457947e-08
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.1084722807345252e-05,
+            9.3805885389887e-06,
+            9.38152673832446e-06
+          ],
+          "detailed_balance_relative_residual": 5.2274786545233566e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 6.937939324909541e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 5.0,
+      "temperature_MeV": 25.3597481,
+      "muon_chemical_potential_MeV": 56.14191412,
+      "lapse": 0.7586815589,
+      "mass_MeV": 100.0,
+      "omega_local_MeV": 300.0,
+      "omega_infinity_MeV": 227.60446767,
+      "omega_over_mass": 3.0,
+      "gamma_prod_total_by_mode_MeV": [
+        5.229270398912571e-09,
+        3.3806830470871378e-09,
+        3.380104456184816e-09
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.0007178689186540195,
+        0.00046409672826042673,
+        0.00046401729989017064
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            5.164846923688495e-09,
+            3.338780425046799e-09,
+            3.3381945328923964e-09
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.0007090249295375533,
+            0.00045834437895006763,
+            0.0004582639482713562
+          ],
+          "detailed_balance_relative_residual": 4.955856253447954e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            6.442347522407614e-11,
+            4.1902622040338794e-11,
+            4.190992329241947e-11
+          ],
+          "gamma_abs_by_mode_MeV": [
+            8.84398911646615e-06,
+            5.752349310359093e-06,
+            5.753351618814425e-06
+          ],
+          "detailed_balance_relative_residual": 1.696453119875003e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 4.894408579826442e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 5.0,
+      "temperature_MeV": 25.3597481,
+      "muon_chemical_potential_MeV": 56.14191412,
+      "lapse": 0.7586815589,
+      "mass_MeV": 100.0,
+      "omega_local_MeV": 1000.0,
+      "omega_infinity_MeV": 758.6815589,
+      "omega_over_mass": 10.0,
+      "gamma_prod_total_by_mode_MeV": [
+        3.0006537638954732e-21,
+        1.3830094912276465e-21,
+        1.382657484184627e-21
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.00040046330117935207,
+        0.00018457462606428468,
+        0.0001845276476677188
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            2.9636136326407797e-21,
+            1.3659275260640902e-21,
+            1.3655710629436285e-21
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.00039551997402283455,
+            0.00018229488948076503,
+            0.00018224731638196985
+          ],
+          "detailed_balance_relative_residual": 9.363145769379863e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            3.704013125469345e-23,
+            1.708196516355633e-23,
+            1.708642124099842e-23
+          ],
+          "gamma_abs_by_mode_MeV": [
+            4.943327156517502e-06,
+            2.279736583519649e-06,
+            2.2803312857489553e-06
+          ],
+          "detailed_balance_relative_residual": 7.61656707578759e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 9.247498746804571e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 5.0,
+      "temperature_MeV": 25.3597481,
+      "muon_chemical_potential_MeV": 56.14191412,
+      "lapse": 0.7586815589,
+      "mass_MeV": 220.0,
+      "omega_local_MeV": 231.0,
+      "omega_infinity_MeV": 175.2554401059,
+      "omega_over_mass": 1.05,
+      "gamma_prod_total_by_mode_MeV": [
+        5.4648712713079785e-08,
+        5.5464637648469274e-08,
+        5.5462363938199776e-08
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.0004937817739457377,
+        0.0005011541134209329,
+        0.0005011335691732363
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            5.3970601593158415e-08,
+            5.4776025756006146e-08,
+            5.477372387538426e-08
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.00048765465959841356,
+            0.0004949321187034033,
+            0.000494911319920771
+          ],
+          "detailed_balance_relative_residual": 2.0538417939805e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            6.781111199213716e-10,
+            6.886118924631262e-10,
+            6.886400628155205e-10
+          ],
+          "gamma_abs_by_mode_MeV": [
+            6.127114347324123e-06,
+            6.221994717529558e-06,
+            6.222249252465297e-06
+          ],
+          "detailed_balance_relative_residual": 4.804916218302585e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 2.028340577631413e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 5.0,
+      "temperature_MeV": 25.3597481,
+      "muon_chemical_potential_MeV": 56.14191412,
+      "lapse": 0.7586815589,
+      "mass_MeV": 220.0,
+      "omega_local_MeV": 330.0,
+      "omega_infinity_MeV": 250.364914437,
+      "omega_over_mass": 1.5,
+      "gamma_prod_total_by_mode_MeV": [
+        7.642327826645362e-10,
+        8.628223363734151e-10,
+        8.627187800227967e-10
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.00034244444009587035,
+        0.0003866213522683981,
+        0.0003865749497882767
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            7.547902868164818e-10,
+            8.521395837929177e-10,
+            8.520347301687651e-10
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.00033821335988426163,
+            0.00038183452643588615,
+            0.00038178754266153194
+          ],
+          "detailed_balance_relative_residual": 2.602781181908742e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            9.442495848054447e-12,
+            1.0682752580497386e-11,
+            1.0684049854031663e-11
+          ],
+          "gamma_abs_by_mode_MeV": [
+            4.231080211608699e-06,
+            4.786825832511991e-06,
+            4.787407126744784e-06
+          ],
+          "detailed_balance_relative_residual": 8.31681745949212e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 2.5706224587277242e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 5.0,
+      "temperature_MeV": 25.3597481,
+      "muon_chemical_potential_MeV": 56.14191412,
+      "lapse": 0.7586815589,
+      "mass_MeV": 220.0,
+      "omega_local_MeV": 660.0,
+      "omega_infinity_MeV": 500.729828874,
+      "omega_over_mass": 3.0,
+      "gamma_prod_total_by_mode_MeV": [
+        8.601104539772731e-16,
+        1.1538438972759634e-15,
+        1.1536127945898226e-15
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.00017269634193779222,
+        0.0002316732918491773,
+        0.00023162689014771755
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            8.494858816076594e-16,
+            1.139586266048587e-15,
+            1.1393522440712428e-15
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.0001705630987311771,
+            0.0002288105888715769,
+            0.00022876360102340828
+          ],
+          "detailed_balance_relative_residual": 6.03611666180085e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.0624572369613782e-17,
+            1.4257631227376438e-17,
+            1.4260550518579766e-17
+          ],
+          "gamma_abs_by_mode_MeV": [
+            2.1332432066151005e-06,
+            2.8627029776003857e-06,
+            2.86328912430926e-06
+          ],
+          "detailed_balance_relative_residual": 2.0302384535332744e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 5.84690983295133e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 5.0,
+      "temperature_MeV": 25.3597481,
+      "muon_chemical_potential_MeV": 56.14191412,
+      "lapse": 0.7586815589,
+      "mass_MeV": 220.0,
+      "omega_local_MeV": 2200.0,
+      "omega_infinity_MeV": 1669.09942958,
+      "omega_over_mass": 10.0,
+      "gamma_prod_total_by_mode_MeV": [
+        1.120854392874469e-42,
+        1.6856683145100733e-42,
+        1.685177981842898e-42
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        5.312662644148437e-05,
+        7.989786311097788e-05,
+        7.987462216139035e-05
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            1.107176536503907e-42,
+            1.6651079563919594e-42,
+            1.6646114948841954e-42
+          ],
+          "gamma_abs_by_mode_MeV": [
+            5.2478318890977665e-05,
+            7.892333647113225e-05,
+            7.889980502473572e-05
+          ],
+          "detailed_balance_relative_residual": 1.6461006640702334e-14
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.3677856370562053e-44,
+            2.0560358118113825e-44,
+            2.056648695870281e-44
+          ],
+          "gamma_abs_by_mode_MeV": [
+            6.483075505067057e-07,
+            9.74526639845626e-07,
+            9.748171366546263e-07
+          ],
+          "detailed_balance_relative_residual": 1.0009341552057791e-14
+        }
+      },
+      "total_detailed_balance_relative_residual": 1.6260110900281554e-14,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 5.0,
+      "temperature_MeV": 25.3597481,
+      "muon_chemical_potential_MeV": 56.14191412,
+      "lapse": 0.7586815589,
+      "mass_MeV": 300.0,
+      "omega_local_MeV": 315.0,
+      "omega_infinity_MeV": 238.9846910535,
+      "omega_over_mass": 1.05,
+      "gamma_prod_total_by_mode_MeV": [
+        1.6358359533025272e-09,
+        1.6690449117432356e-09,
+        1.6689750339114389e-09
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.00040571774470740674,
+        0.0004139541841226413,
+        0.00041393685312055657
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            1.6156160418963703e-09,
+            1.6484109745769257e-09,
+            1.648340223123065e-09
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.0004007028305668246,
+            0.0004088365838922218,
+            0.00040881903621561486
+          ],
+          "detailed_balance_relative_residual": 7.527072665528647e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            2.021991140615702e-11,
+            2.0633937166310034e-11,
+            2.063481078837389e-11
+          ],
+          "gamma_abs_by_mode_MeV": [
+            5.014914140582144e-06,
+            5.117600230419544e-06,
+            5.117816904941733e-06
+          ],
+          "detailed_balance_relative_residual": 6.8898944235851334e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 7.434017563575429e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 5.0,
+      "temperature_MeV": 25.3597481,
+      "muon_chemical_potential_MeV": 56.14191412,
+      "lapse": 0.7586815589,
+      "mass_MeV": 300.0,
+      "omega_local_MeV": 450.0,
+      "omega_infinity_MeV": 341.406701505,
+      "omega_over_mass": 1.5,
+      "gamma_prod_total_by_mode_MeV": [
+        5.091131539637427e-12,
+        6.064571082495424e-12,
+        6.0638227417700096e-12
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.00025895267075982644,
+        0.00030846519415148336,
+        0.00030842713093744573
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            5.0282576980826415e-12,
+            5.989634583537506e-12,
+            5.988876844984356e-12
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.0002557546883339586,
+            0.00030465366298371355,
+            0.0003046151217634464
+          ],
+          "detailed_balance_relative_residual": 4.45111636108424e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            6.287384155478545e-14,
+            7.493649895791812e-14,
+            7.49458967856539e-14
+          ],
+          "gamma_abs_by_mode_MeV": [
+            3.1979824258678443e-06,
+            3.8115311677698123e-06,
+            3.8120091739993665e-06
+          ],
+          "detailed_balance_relative_residual": 7.427662193726641e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 4.396102729983048e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 5.0,
+      "temperature_MeV": 25.3597481,
+      "muon_chemical_potential_MeV": 56.14191412,
+      "lapse": 0.7586815589,
+      "mass_MeV": 300.0,
+      "omega_local_MeV": 900.0,
+      "omega_infinity_MeV": 682.81340301,
+      "omega_over_mass": 3.0,
+      "gamma_prod_total_by_mode_MeV": [
+        4.315993928760296e-20,
+        6.954518206410072e-20,
+        6.953088245194296e-20
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.00011165880564077608,
+        0.00017991990015561382,
+        0.00017988290571954377
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            4.262582603044546e-20,
+            6.868531279179083e-20,
+            6.867083219693142e-20
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.00011027700461520693,
+            0.00017769533780594195,
+            0.00017765787515067042
+          ],
+          "detailed_balance_relative_residual": 9.99132412900352e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            5.341132571575027e-22,
+            8.598692723098878e-22,
+            8.600502550115456e-22
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.3818010255691507e-06,
+            2.224562349671885e-06,
+            2.225030568873357e-06
+          ],
+          "detailed_balance_relative_residual": 4.225600326024577e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 9.867738168894478e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 5.0,
+      "temperature_MeV": 25.3597481,
+      "muon_chemical_potential_MeV": 56.14191412,
+      "lapse": 0.7586815589,
+      "mass_MeV": 300.0,
+      "omega_local_MeV": 3000.0,
+      "omega_infinity_MeV": 2276.0446767,
+      "omega_over_mass": 10.0,
+      "gamma_prod_total_by_mode_MeV": [
+        9.181489182078287e-57,
+        2.054490717883248e-56,
+        2.053869702424359e-56
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        2.182496906913627e-05,
+        4.883651821771243e-05,
+        4.8821756295204e-05
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            9.06611161896391e-57,
+            2.0287299071077955e-56,
+            2.0281009066511704e-56
+          ],
+          "gamma_abs_by_mode_MeV": [
+            2.1550709447814842e-05,
+            4.822416777300727e-05,
+            4.8209216042151696e-05
+          ],
+          "detailed_balance_relative_residual": 5.021683235401102e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.1537756311437664e-58,
+            2.5760810775452744e-58,
+            2.5768795773188203e-58
+          ],
+          "gamma_abs_by_mode_MeV": [
+            2.742596213214268e-07,
+            6.123504447051606e-07,
+            6.125402530523023e-07
+          ],
+          "detailed_balance_relative_residual": 5.825232943821144e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 5.0689111661601205e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 8.0,
+      "temperature_MeV": 38.84717118,
+      "muon_chemical_potential_MeV": 91.79495143,
+      "lapse": 0.7890707471,
+      "mass_MeV": 10.0,
+      "omega_local_MeV": 10.5,
+      "omega_infinity_MeV": 8.28524284455,
+      "omega_over_mass": 1.05,
+      "gamma_prod_total_by_mode_MeV": [
+        0.08151309215728365,
+        0.06922853182849634,
+        0.0692281649681245
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.10681021825004158,
+        0.09071321425844044,
+        0.09071273354503138
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            0.08051358082301696,
+            0.06838097758797279,
+            0.06838060599839921
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.10550051423893107,
+            0.08960262636374504,
+            0.0896021394534533
+          ],
+          "detailed_balance_relative_residual": 2.0294917842844703e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            0.0009995113342666886,
+            0.0008475542405235507,
+            0.0008475589697252989
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.001309704011110514,
+            0.0011105878946953923,
+            0.001110594091578091
+          ],
+          "detailed_balance_relative_residual": 3.3259530938350408e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 2.004644758994314e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 8.0,
+      "temperature_MeV": 38.84717118,
+      "muon_chemical_potential_MeV": 91.79495143,
+      "lapse": 0.7890707471,
+      "mass_MeV": 10.0,
+      "omega_local_MeV": 15.0,
+      "omega_infinity_MeV": 11.8360612065,
+      "omega_over_mass": 1.5,
+      "gamma_prod_total_by_mode_MeV": [
+        0.13899163087370556,
+        0.04523393450096126,
+        0.04523311921295617
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.20449473376659483,
+        0.06655149907115433,
+        0.06655029955933822
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            0.13724056412078608,
+            0.044665752781562186,
+            0.044664926697575824
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.20191843527153527,
+            0.0657155482393727,
+            0.06571433284371307
+          ],
+          "detailed_balance_relative_residual": 2.8313644811078986e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            0.0017510667529194647,
+            0.0005681817193990787,
+            0.000568192515380346
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.0025762984950595457,
+            0.0008359508317816338,
+            0.0008359667156251534
+          ],
+          "detailed_balance_relative_residual": 3.434753079592079e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 2.7612530916186486e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 8.0,
+      "temperature_MeV": 38.84717118,
+      "muon_chemical_potential_MeV": 91.79495143,
+      "lapse": 0.7890707471,
+      "mass_MeV": 10.0,
+      "omega_local_MeV": 30.0,
+      "omega_infinity_MeV": 23.672122413,
+      "omega_over_mass": 3.0,
+      "gamma_prod_total_by_mode_MeV": [
+        0.16848924167695978,
+        0.015826130132703356,
+        0.015825456770762518
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.36471962341916714,
+        0.03425797495871571,
+        0.03425651736824262
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            0.1662394435434713,
+            0.015620539132891418,
+            0.015619856546028228
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.3598496060824622,
+            0.033812943149660844,
+            0.03381146559049318
+          ],
+          "detailed_balance_relative_residual": 1.836575756415352e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            0.0022497981334884645,
+            0.00020559099981193825,
+            0.00020560022473428946
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.004870017336704928,
+            0.000445031809054866,
+            0.00044505177774943936
+          ],
+          "detailed_balance_relative_residual": 5.2046373799267296e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 1.976784417049771e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 8.0,
+      "temperature_MeV": 38.84717118,
+      "muon_chemical_potential_MeV": 91.79495143,
+      "lapse": 0.7890707471,
+      "mass_MeV": 10.0,
+      "omega_local_MeV": 100.0,
+      "omega_infinity_MeV": 78.90707471,
+      "omega_over_mass": 10.0,
+      "gamma_prod_total_by_mode_MeV": [
+        0.044201859712816115,
+        0.0008369463530357047,
+        0.0008368491595017631
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.5799586883173962,
+        0.010981309661002277,
+        0.010980034415236043
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            0.04366665573083823,
+            0.0008266594612052287,
+            0.0008265610544967046
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.5729364453306346,
+            0.010846338591195999,
+            0.010845047427747927
+          ],
+          "detailed_balance_relative_residual": 2.623404929586667e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            0.0005352039819778888,
+            1.0286891830475988e-05,
+            1.028810500505846e-05
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.007022242986761624,
+            0.0001349710698062775,
+            0.00013498698748811512
+          ],
+          "detailed_balance_relative_residual": 1.823196366422526e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 2.5911531610571455e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 8.0,
+      "temperature_MeV": 38.84717118,
+      "muon_chemical_potential_MeV": 91.79495143,
+      "lapse": 0.7890707471,
+      "mass_MeV": 100.0,
+      "omega_local_MeV": 105.0,
+      "omega_infinity_MeV": 82.8524284455,
+      "omega_over_mass": 1.05,
+      "gamma_prod_total_by_mode_MeV": [
+        0.000511124320677902,
+        0.0004971484849534768,
+        0.0004971298500191587
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.00762747669327232,
+        0.007418916159279975,
+        0.00741863807130518
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            0.0005045712461130547,
+            0.0004907453651461242,
+            0.0004907264997871017
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.007529685565966237,
+            0.007323362797565478,
+            0.00732308127097704
+          ],
+          "detailed_balance_relative_residual": 5.302516198114647e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            6.553074564847265e-06,
+            6.403119807352589e-06,
+            6.4033502320569395e-06
+          ],
+          "gamma_abs_by_mode_MeV": [
+            9.779112730608329e-05,
+            9.555336171449685e-05,
+            9.555680032814014e-05
+          ],
+          "detailed_balance_relative_residual": 5.952584388656718e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 5.234216400131535e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 8.0,
+      "temperature_MeV": 38.84717118,
+      "muon_chemical_potential_MeV": 91.79495143,
+      "lapse": 0.7890707471,
+      "mass_MeV": 100.0,
+      "omega_local_MeV": 150.0,
+      "omega_infinity_MeV": 118.360612065,
+      "omega_over_mass": 1.5,
+      "gamma_prod_total_by_mode_MeV": [
+        0.000162533558973237,
+        0.0001302015565653315,
+        0.00013018710452970055
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.00772463238885138,
+        0.006188009216539927,
+        0.006187322363540297
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            0.0001606496835113286,
+            0.0001286471761971253,
+            0.00012863255820228547
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.007635098599635479,
+            0.00611413513777926,
+            0.006113440397338487
+          ],
+          "detailed_balance_relative_residual": 2.528602838125568e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.8838754619083978e-06,
+            1.5543803682062108e-06,
+            1.5545463274150884e-06
+          ],
+          "gamma_abs_by_mode_MeV": [
+            8.95337892159012e-05,
+            7.387407876066729e-05,
+            7.388196620180965e-05
+          ],
+          "detailed_balance_relative_residual": 4.222778842581255e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 2.3347225198730235e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 8.0,
+      "temperature_MeV": 38.84717118,
+      "muon_chemical_potential_MeV": 91.79495143,
+      "lapse": 0.7890707471,
+      "mass_MeV": 100.0,
+      "omega_local_MeV": 300.0,
+      "omega_infinity_MeV": 236.72122413,
+      "omega_over_mass": 3.0,
+      "gamma_prod_total_by_mode_MeV": [
+        2.930675904184822e-06,
+        1.772996946015074e-06,
+        1.7726690051753186e-06
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.006619685318917116,
+        0.004004769629170406,
+        0.004004028890435243
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            2.8996825825535044e-06,
+            1.7536210496819393e-06,
+            1.7532895734635242e-06
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.006549678930324524,
+            0.00396100418369274,
+            0.00396025545939555
+          ],
+          "detailed_balance_relative_residual": 5.1934399889210105e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            3.099332163131764e-08,
+            1.937589633313469e-08,
+            1.9379431711794485e-08
+          ],
+          "gamma_abs_by_mode_MeV": [
+            7.000638859259233e-05,
+            4.37654454776667e-05,
+            4.377343103969272e-05
+          ],
+          "detailed_balance_relative_residual": 4.697263156919124e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 5.0172062128939544e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 8.0,
+      "temperature_MeV": 38.84717118,
+      "muon_chemical_potential_MeV": 91.79495143,
+      "lapse": 0.7890707471,
+      "mass_MeV": 100.0,
+      "omega_local_MeV": 1000.0,
+      "omega_infinity_MeV": 789.0707471000001,
+      "omega_over_mass": 10.0,
+      "gamma_prod_total_by_mode_MeV": [
+        2.3514410946006772e-14,
+        1.044064688540616e-14,
+        1.0437907685133448e-14
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.0035554884689328486,
+        0.0015786744432807216,
+        0.0015782602634398534
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            2.3265944750565154e-14,
+            1.0329579595579355e-14,
+            1.0326810780328657e-14
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.003517919222786697,
+            0.0015618805516896637,
+            0.0015614618939261723
+          ],
+          "detailed_balance_relative_residual": 3.5262498481172727e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            2.484661954416175e-16,
+            1.1106728982680442e-16,
+            1.1109690480479175e-16
+          ],
+          "gamma_abs_by_mode_MeV": [
+            3.756924614615153e-05,
+            1.679389159105796e-05,
+            1.67983695136812e-05
+          ],
+          "detailed_balance_relative_residual": 7.102549332491519e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 3.623181459212248e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 8.0,
+      "temperature_MeV": 38.84717118,
+      "muon_chemical_potential_MeV": 91.79495143,
+      "lapse": 0.7890707471,
+      "mass_MeV": 220.0,
+      "omega_local_MeV": 231.0,
+      "omega_infinity_MeV": 182.27534258010002,
+      "omega_over_mass": 1.05,
+      "gamma_prod_total_by_mode_MeV": [
+        1.053444629254872e-05,
+        1.0672004401097295e-05,
+        1.0671460085089708e-05
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.004028016749158363,
+        0.00408061432760044,
+        0.004080406199528522
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            1.0415306016320028e-05,
+            1.0550965940151437e-05,
+            1.055041614917346e-05
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.003982461528236313,
+            0.004034333304901874,
+            0.004034123083386047
+          ],
+          "detailed_balance_relative_residual": 4.335353080391579e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.1914027622869206e-07,
+            1.2103846094585787e-07,
+            1.2104393591624783e-07
+          ],
+          "gamma_abs_by_mode_MeV": [
+            4.5555220922049514e-05,
+            4.6281022698565513e-05,
+            4.628311614247523e-05
+          ],
+          "detailed_balance_relative_residual": 5.776503894644985e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 4.286178159972728e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 8.0,
+      "temperature_MeV": 38.84717118,
+      "muon_chemical_potential_MeV": 91.79495143,
+      "lapse": 0.7890707471,
+      "mass_MeV": 220.0,
+      "omega_local_MeV": 330.0,
+      "omega_infinity_MeV": 260.393346543,
+      "omega_over_mass": 1.5,
+      "gamma_prod_total_by_mode_MeV": [
+        5.974819269312889e-07,
+        6.691041805210018e-07,
+        6.690118769836683e-07
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.0029213344440144604,
+        0.0032715250471749956,
+        0.003271073737284639
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            5.910447277711294e-07,
+            6.618051360248952e-07,
+            6.617118766383821e-07
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.002889860334452453,
+            0.0032358370219247815,
+            0.0032353810384953504
+          ],
+          "detailed_balance_relative_residual": 7.679296226154739e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            6.437199160159416e-09,
+            7.299044496106581e-09,
+            7.300000345286217e-09
+          ],
+          "gamma_abs_by_mode_MeV": [
+            3.147410956200741e-05,
+            3.568802525021394e-05,
+            3.5692698789288535e-05
+          ],
+          "detailed_balance_relative_residual": 3.059835647096681e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 7.595525228326207e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 8.0,
+      "temperature_MeV": 38.84717118,
+      "muon_chemical_potential_MeV": 91.79495143,
+      "lapse": 0.7890707471,
+      "mass_MeV": 220.0,
+      "omega_local_MeV": 660.0,
+      "omega_infinity_MeV": 520.786693086,
+      "omega_over_mass": 3.0,
+      "gamma_prod_total_by_mode_MeV": [
+        6.308495743839651e-11,
+        8.421854763125767e-11,
+        8.420056631066102e-11
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.0015081301664653245,
+        0.0020133568669302346,
+        0.0020129269994447765
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            6.241893164306788e-11,
+            8.332368719154396e-11,
+            8.330551467195838e-11
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.001492207930256161,
+            0.0019919640329059502,
+            0.001991529594553288
+          ],
+          "detailed_balance_relative_residual": 6.62603949458091e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            6.66025795328632e-13,
+            8.948604397136968e-13,
+            8.950516387026537e-13
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.592223620916361e-05,
+            2.139283402428419e-05,
+            2.1397404891488774e-05
+          ],
+          "detailed_balance_relative_residual": 8.237168580995112e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 6.5560844149002e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 8.0,
+      "temperature_MeV": 38.84717118,
+      "muon_chemical_potential_MeV": 91.79495143,
+      "lapse": 0.7890707471,
+      "mass_MeV": 220.0,
+      "omega_local_MeV": 2200.0,
+      "omega_infinity_MeV": 1735.95564362,
+      "omega_over_mass": 10.0,
+      "gamma_prod_total_by_mode_MeV": [
+        1.3799701728842806e-28,
+        2.07035075291511e-28,
+        2.069740237707624e-28
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.0005431416096347055,
+        0.0008148680765298218,
+        0.000814627784225671
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            1.3660750274357778e-28,
+            2.0495214182291993e-28,
+            2.04890463964384e-28
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.0005376726279035757,
+            0.0008066698715314633,
+            0.0008064271140282765
+          ],
+          "detailed_balance_relative_residual": 2.625484200919699e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.389514544850276e-30,
+            2.082933468591079e-30,
+            2.0835598063784414e-30
+          ],
+          "gamma_abs_by_mode_MeV": [
+            5.4689817311297735e-06,
+            8.198204998358539e-06,
+            8.200670197394564e-06
+          ],
+          "detailed_balance_relative_residual": 5.884813829344475e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 2.599069793092172e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 8.0,
+      "temperature_MeV": 38.84717118,
+      "muon_chemical_potential_MeV": 91.79495143,
+      "lapse": 0.7890707471,
+      "mass_MeV": 300.0,
+      "omega_local_MeV": 315.0,
+      "omega_infinity_MeV": 248.5572853365,
+      "omega_over_mass": 1.05,
+      "gamma_prod_total_by_mode_MeV": [
+        1.0029969064961053e-06,
+        1.0234905572442633e-06,
+        1.0234385378729123e-06
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.0033332095872470172,
+        0.003401315114501399,
+        0.0034011422411194697
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            9.920588468413703e-07,
+            1.012311433782016e-06,
+            1.0122588965279772e-06
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.0032968596792154873,
+            0.0033641640911432577,
+            0.003363989496707625
+          ],
+          "detailed_balance_relative_residual": 3.137743431719061e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.0938059654734977e-08,
+            1.1179123462247138e-08,
+            1.1179641344935035e-08
+          ],
+          "gamma_abs_by_mode_MeV": [
+            3.634990803152973e-05,
+            3.715102335814124e-05,
+            3.7152744411844605e-05
+          ],
+          "detailed_balance_relative_residual": 3.255555865289229e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 3.1668827008650008e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 8.0,
+      "temperature_MeV": 38.84717118,
+      "muon_chemical_potential_MeV": 91.79495143,
+      "lapse": 0.7890707471,
+      "mass_MeV": 300.0,
+      "omega_local_MeV": 450.0,
+      "omega_infinity_MeV": 355.081836195,
+      "omega_over_mass": 1.5,
+      "gamma_prod_total_by_mode_MeV": [
+        2.024784379094701e-08,
+        2.4265072813393867e-08,
+        2.4261685850079868e-08
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.002173617432341397,
+        0.0026048692299674775,
+        0.0026045056375485634
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            2.0031437630412436e-08,
+            2.4004298760303143e-08,
+            2.4000876729376548e-08
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.0021503861091516,
+            0.002576874988528606,
+            0.002576507631581734
+          ],
+          "detailed_balance_relative_residual": 4.273001139537562e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            2.1640616053457518e-10,
+            2.6077405309072496e-10,
+            2.6080912070331963e-10
+          ],
+          "gamma_abs_by_mode_MeV": [
+            2.3231323189797354e-05,
+            2.7994241438871307e-05,
+            2.799800596682942e-05
+          ],
+          "detailed_balance_relative_residual": 3.7667742084178135e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 4.090722260333492e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 8.0,
+      "temperature_MeV": 38.84717118,
+      "muon_chemical_potential_MeV": 91.79495143,
+      "lapse": 0.7890707471,
+      "mass_MeV": 300.0,
+      "omega_local_MeV": 900.0,
+      "omega_infinity_MeV": 710.16367239,
+      "omega_over_mass": 3.0,
+      "gamma_prod_total_by_mode_MeV": [
+        8.152134926329817e-14,
+        1.3395774708622482e-13,
+        1.3392855171188265e-13
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.0009394637187459556,
+        0.0015437482864272575,
+        0.0015434118347468528
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            8.065322489754696e-14,
+            1.325346021287985e-13,
+            1.3250509434328167e-13
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.0009294593290694737,
+            0.001527347759864577,
+            0.001527007707912997
+          ],
+          "detailed_balance_relative_residual": 5.142625481673018e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            8.681243657512179e-16,
+            1.423144957426307e-15,
+            1.423457368600975e-15
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.0004389676481935e-05,
+            1.6400526562680478e-05,
+            1.6404126833855817e-05
+          ],
+          "detailed_balance_relative_residual": 4.770652588268862e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 5.0879910788007136e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 8.0,
+      "temperature_MeV": 38.84717118,
+      "muon_chemical_potential_MeV": 91.79495143,
+      "lapse": 0.7890707471,
+      "mass_MeV": 300.0,
+      "omega_local_MeV": 3000.0,
+      "omega_infinity_MeV": 2367.2122413,
+      "omega_over_mass": 10.0,
+      "gamma_prod_total_by_mode_MeV": [
+        6.701645389899793e-38,
+        1.5400848545894674e-37,
+        1.539612009495672e-37
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.00023167381800065276,
+        0.0005324025930191089,
+        0.0005322391319258589
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            6.633377719740401e-38,
+            1.5244983560295218e-37,
+            1.5240206325593733e-37
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.00022931382565971633,
+            0.0005270143884505915,
+            0.0005268492409176543
+          ],
+          "detailed_balance_relative_residual": 3.836347539145866e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            6.826767015939174e-40,
+            1.558649855994546e-39,
+            1.559137693629873e-39
+          ],
+          "gamma_abs_by_mode_MeV": [
+            2.359992340936441e-06,
+            5.38820456851748e-06,
+            5.389891008204567e-06
+          ],
+          "detailed_balance_relative_residual": 3.767859727194061e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 3.79749753007049e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 10.0,
+      "temperature_MeV": 33.92744042,
+      "muon_chemical_potential_MeV": 102.8436889,
+      "lapse": 0.8113558509,
+      "mass_MeV": 10.0,
+      "omega_local_MeV": 10.5,
+      "omega_infinity_MeV": 8.519236434449999,
+      "omega_over_mass": 1.05,
+      "gamma_prod_total_by_mode_MeV": [
+        0.06519429687715636,
+        0.05534767563927901,
+        0.05534737204292396
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.08884168759647992,
+        0.07542348248039886,
+        0.0754230687630369
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            0.06496271858586562,
+            0.05515125463091735,
+            0.05515094991872247
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.08852611081761314,
+            0.07515581529633315,
+            0.07515540005839196
+          ],
+          "detailed_balance_relative_residual": 2.138866960612983e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            0.00023157829129073751,
+            0.000196421008361663,
+            0.0001964221242014924
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.00031557677886679227,
+            0.00026766718406571164,
+            0.0002676687046449382
+          ],
+          "detailed_balance_relative_residual": 9.36359074456017e-16
+        }
+      },
+      "total_detailed_balance_relative_residual": 2.1312764267684704e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 10.0,
+      "temperature_MeV": 33.92744042,
+      "muon_chemical_potential_MeV": 102.8436889,
+      "lapse": 0.8113558509,
+      "mass_MeV": 10.0,
+      "omega_local_MeV": 15.0,
+      "omega_infinity_MeV": 12.1703377635,
+      "omega_over_mass": 1.5,
+      "gamma_prod_total_by_mode_MeV": [
+        0.10885734997545884,
+        0.036031170251959635,
+        0.03603050102470554
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.16938230341788063,
+        0.05606458923990549,
+        0.05606354792065763
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            0.10845775288961981,
+            0.03589934871196395,
+            0.035898676944199646
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.1687605293727312,
+            0.055859474600521056,
+            0.05585842932823309
+          ],
+          "detailed_balance_relative_residual": 2.3194495118831214e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            0.00039959708583903766,
+            0.0001318215399956852,
+            0.00013182408050589303
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.0006217740451494375,
+            0.00020511463938443461,
+            0.00020511859242454574
+          ],
+          "detailed_balance_relative_residual": 2.9845622803527077e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 2.3109637090501686e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 10.0,
+      "temperature_MeV": 33.92744042,
+      "muon_chemical_potential_MeV": 102.8436889,
+      "lapse": 0.8113558509,
+      "mass_MeV": 10.0,
+      "omega_local_MeV": 30.0,
+      "omega_infinity_MeV": 24.340675527,
+      "omega_over_mass": 3.0,
+      "gamma_prod_total_by_mode_MeV": [
+        0.12688923146942424,
+        0.012232918246821614,
+        0.01223238582682741
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.3072170543422652,
+        0.02961765207557335,
+        0.029616363010296333
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            0.126391079453484,
+            0.0121864511115374,
+            0.012185916591457487
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.30601095676267115,
+            0.02950514846702892,
+            0.029503854317142766
+          ],
+          "detailed_balance_relative_residual": 3.701224281070063e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            0.0004981520159402517,
+            4.6467135284213974e-05,
+            4.646923536992362e-05
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.0012060975795940795,
+            0.00011250360854443091,
+            0.00011250869315356669
+          ],
+          "detailed_balance_relative_residual": 1.3124031785076876e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 3.687163813659305e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 10.0,
+      "temperature_MeV": 33.92744042,
+      "muon_chemical_potential_MeV": 102.8436889,
+      "lapse": 0.8113558509,
+      "mass_MeV": 10.0,
+      "omega_local_MeV": 100.0,
+      "omega_infinity_MeV": 81.13558508999999,
+      "omega_over_mass": 10.0,
+      "gamma_prod_total_by_mode_MeV": [
+        0.027937483601213984,
+        0.0005357379051140266,
+        0.0005356745773523648
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.5324217615998016,
+        0.010209885874768013,
+        0.010208678998769248
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            0.027841977800129973,
+            0.0005338597737053282,
+            0.0005337962258450949
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.530601648966109,
+            0.010174093172482843,
+            0.010172882101930594
+          ],
+          "detailed_balance_relative_residual": 5.890237037982337e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            9.55058010840123e-05,
+            1.878131408698377e-06,
+            1.8783515072698965e-06
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.001820112633692622,
+            3.579270228517119e-05,
+            3.5796896838655336e-05
+          ],
+          "detailed_balance_relative_residual": 2.0294896539140366e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 5.86958282722409e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 10.0,
+      "temperature_MeV": 33.92744042,
+      "muon_chemical_potential_MeV": 102.8436889,
+      "lapse": 0.8113558509,
+      "mass_MeV": 100.0,
+      "omega_local_MeV": 105.0,
+      "omega_infinity_MeV": 85.19236434449999,
+      "omega_over_mass": 1.05,
+      "gamma_prod_total_by_mode_MeV": [
+        0.00032022361812143995,
+        0.00031122220859292396,
+        0.0003112102934201884
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.007071723933026561,
+        0.006872939459953599,
+        0.006872676328793277
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            0.00031904252603909034,
+            0.0003100670935564069,
+            0.00031005513776816824
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.007045641043841627,
+            0.0068474302401869335,
+            0.00684716621208582
+          ],
+          "detailed_balance_relative_residual": 2.888554883431948e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.1810920823496142e-06,
+            1.155115036517082e-06,
+            1.1551556520201484e-06
+          ],
+          "gamma_abs_by_mode_MeV": [
+            2.6082889184933348e-05,
+            2.5509219766665758e-05,
+            2.55101167074561e-05
+          ],
+          "detailed_balance_relative_residual": 3.1163679280235963e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 2.877900924419593e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 10.0,
+      "temperature_MeV": 33.92744042,
+      "muon_chemical_potential_MeV": 102.8436889,
+      "lapse": 0.8113558509,
+      "mass_MeV": 100.0,
+      "omega_local_MeV": 150.0,
+      "omega_infinity_MeV": 121.703377635,
+      "omega_over_mass": 1.5,
+      "gamma_prod_total_by_mode_MeV": [
+        8.872476988115401e-05,
+        7.100550261446403e-05,
+        7.099749866635803e-05
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.0073815514357324875,
+        0.005907378181659658,
+        0.00590671228469859
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            8.843698549141809e-05,
+            7.076603850458997e-05,
+            7.075800952497672e-05
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.007357608907867022,
+            0.005887455710782416,
+            0.0058867877312985244
+          ],
+          "detailed_balance_relative_residual": 3.2181453121224122e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            2.877843897359206e-07,
+            2.394641098740651e-07,
+            2.3948914138131236e-07
+          ],
+          "gamma_abs_by_mode_MeV": [
+            2.3942527865465703e-05,
+            1.992247087724219e-05,
+            1.9924553400065306e-05
+          ],
+          "detailed_balance_relative_residual": 6.254491477342015e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 3.2077070547341854e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 10.0,
+      "temperature_MeV": 33.92744042,
+      "muon_chemical_potential_MeV": 102.8436889,
+      "lapse": 0.8113558509,
+      "mass_MeV": 100.0,
+      "omega_local_MeV": 300.0,
+      "omega_infinity_MeV": 243.40675527,
+      "omega_over_mass": 3.0,
+      "gamma_prod_total_by_mode_MeV": [
+        9.283359815068623e-07,
+        5.661537661097178e-07,
+        5.660483692463101e-07
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.006425556120819918,
+        0.003918681242158287,
+        0.003917951728841683
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            9.256132988807256e-07,
+            5.644280118499013e-07,
+            5.64322305042421e-07
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.006406710842427256,
+            0.003906736287887317,
+            0.003906004629266565
+          ],
+          "detailed_balance_relative_residual": 3.0019474321172812e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            2.7226826261366764e-09,
+            1.725754259816499e-09,
+            1.7260642038890745e-09
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.8845278392662598e-05,
+            1.1944954270969402e-05,
+            1.1947099575118273e-05
+          ],
+          "detailed_balance_relative_residual": 4.860974126693554e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 2.992793525338195e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 10.0,
+      "temperature_MeV": 33.92744042,
+      "muon_chemical_potential_MeV": 102.8436889,
+      "lapse": 0.8113558509,
+      "mass_MeV": 100.0,
+      "omega_local_MeV": 1000.0,
+      "omega_infinity_MeV": 811.3558509,
+      "omega_over_mass": 10.0,
+      "gamma_prod_total_by_mode_MeV": [
+        5.490155704910213e-16,
+        2.462842858620975e-16,
+        2.4621913145810545e-16
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.0034695231229811213,
+        0.0015564021688150222,
+        0.0015559904232774326
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            5.47395675836079e-16,
+            2.455521468646257e-16,
+            2.4548679874042565e-16
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.0034592861419842267,
+            0.0015517753907826747,
+            0.001551362421023447
+          ],
+          "detailed_balance_relative_residual": 3.8149628781962934e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.6198946549422929e-18,
+            7.321389974718041e-19,
+            7.323327176797931e-19
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.023698099689456e-05,
+            4.6267780323476006e-06,
+            4.62800225398557e-06
+          ],
+          "detailed_balance_relative_residual": 9.861961806559628e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 3.803621987780741e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 10.0,
+      "temperature_MeV": 33.92744042,
+      "muon_chemical_potential_MeV": 102.8436889,
+      "lapse": 0.8113558509,
+      "mass_MeV": 220.0,
+      "omega_local_MeV": 231.0,
+      "omega_infinity_MeV": 187.4232015579,
+      "omega_over_mass": 1.05,
+      "gamma_prod_total_by_mode_MeV": [
+        4.3916905417670935e-06,
+        4.445223144837783e-06,
+        4.444994100397768e-06
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.003977315053850159,
+        0.004025796618304639,
+        0.004025589185223785
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            4.377853372890211e-06,
+            4.431166922212301e-06,
+            4.430937263978325e-06
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.003964783483250345,
+            0.004013066662649316,
+            0.004012858673688683
+          ],
+          "detailed_balance_relative_residual": 1.5292277851386583e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.3837168876882195e-08,
+            1.4056222625481486e-08,
+            1.4056836419443025e-08
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.2531570599814164e-05,
+            1.272995565532306e-05,
+            1.2730511535101065e-05
+          ],
+          "detailed_balance_relative_residual": 5.766852342257583e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 1.3338431924763306e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 10.0,
+      "temperature_MeV": 33.92744042,
+      "muon_chemical_potential_MeV": 102.8436889,
+      "lapse": 0.8113558509,
+      "mass_MeV": 220.0,
+      "omega_local_MeV": 330.0,
+      "omega_infinity_MeV": 267.747430797,
+      "omega_over_mass": 1.5,
+      "gamma_prod_total_by_mode_MeV": [
+        1.7243085901059607e-07,
+        1.9259100104168515e-07,
+        1.9256441211645034e-07
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.0028896223179250367,
+        0.0032274690158991927,
+        0.003227023434683575
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            1.7191431776951797e-07,
+            1.920055787766872e-07,
+            1.9197891519313615e-07
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.002880966041972388,
+            0.003217658421368405,
+            0.0032172115890174743
+          ],
+          "detailed_balance_relative_residual": 5.850889198263326e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            5.165412410780934e-10,
+            5.854222649979655e-10,
+            5.854969233141848e-10
+          ],
+          "gamma_abs_by_mode_MeV": [
+            8.656275952648673e-06,
+            9.810594530787617e-06,
+            9.811845666100572e-06
+          ],
+          "detailed_balance_relative_residual": 8.207090358334712e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 5.833362024848875e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 10.0,
+      "temperature_MeV": 33.92744042,
+      "muon_chemical_potential_MeV": 102.8436889,
+      "lapse": 0.8113558509,
+      "mass_MeV": 220.0,
+      "omega_local_MeV": 660.0,
+      "omega_infinity_MeV": 535.494861594,
+      "omega_over_mass": 3.0,
+      "gamma_prod_total_by_mode_MeV": [
+        5.307776612039747e-12,
+        7.08411655720262e-12,
+        7.0825995542229e-12
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.0014906127057179015,
+        0.001989472225526609,
+        0.0019890461970628235
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            5.292197152085516e-12,
+            7.06318473565106e-12,
+            7.061663326486563e-12
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.0014862374385102872,
+            0.001983593824561542,
+            0.0019831665586841473
+          ],
+          "detailed_balance_relative_residual": 3.660524857554083e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.5579459954231127e-14,
+            2.0931821551559418e-14,
+            2.0936227736337512e-14
+          ],
+          "gamma_abs_by_mode_MeV": [
+            4.375267207614402e-06,
+            5.878400965066951e-06,
+            5.879638378676079e-06
+          ],
+          "detailed_balance_relative_residual": 2.8636213529880563e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 3.76375757306997e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 10.0,
+      "temperature_MeV": 33.92744042,
+      "muon_chemical_potential_MeV": 102.8436889,
+      "lapse": 0.8113558509,
+      "mass_MeV": 220.0,
+      "omega_local_MeV": 2200.0,
+      "omega_infinity_MeV": 1784.9828719799998,
+      "omega_over_mass": 10.0,
+      "gamma_prod_total_by_mode_MeV": [
+        3.6967001210610207e-32,
+        5.554408526649063e-32,
+        5.552750620881853e-32
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.000536193439632096,
+        0.000805647554709137,
+        0.0008054070812688203
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            3.6865812626236917e-32,
+            5.539219530893246e-32,
+            5.537557071894319e-32
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.0005347257345619038,
+            0.0008034444439313735,
+            0.0008032033100607012
+          ],
+          "detailed_balance_relative_residual": 1.870843306513795e-14
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.0118858437328834e-34,
+            1.5188995755817484e-34,
+            1.5193548987533988e-34
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.467705070192244e-06,
+            2.203110777763451e-06,
+            2.2037712081190434e-06
+          ],
+          "detailed_balance_relative_residual": 7.18452585978649e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 1.85091498735693e-14,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 10.0,
+      "temperature_MeV": 33.92744042,
+      "muon_chemical_potential_MeV": 102.8436889,
+      "lapse": 0.8113558509,
+      "mass_MeV": 300.0,
+      "omega_local_MeV": 315.0,
+      "omega_infinity_MeV": 255.57709303349998,
+      "omega_over_mass": 1.05,
+      "gamma_prod_total_by_mode_MeV": [
+        3.094429757339408e-07,
+        3.1550375801187113e-07,
+        3.154878187806889e-07
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.003332701700301959,
+        0.0033979763421157524,
+        0.0033978046765520175
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            3.085059678575822e-07,
+            3.145465776976178e-07,
+            3.145305955497213e-07
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.0033226101228947488,
+            0.0033876675074968974,
+            0.003387495379720032
+          ],
+          "detailed_balance_relative_residual": 9.256739582096903e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            9.370078763585885e-10,
+            9.571803142533281e-10,
+            9.57223230967573e-10
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.0091577407210465e-05,
+            1.0308834618855236e-05,
+            1.03092968319857e-05
+          ],
+          "detailed_balance_relative_residual": 6.1795257371511e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 9.228656338467774e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 10.0,
+      "temperature_MeV": 33.92744042,
+      "muon_chemical_potential_MeV": 102.8436889,
+      "lapse": 0.8113558509,
+      "mass_MeV": 300.0,
+      "omega_local_MeV": 450.0,
+      "omega_infinity_MeV": 365.110132905,
+      "omega_over_mass": 1.5,
+      "gamma_prod_total_by_mode_MeV": [
+        3.765940497038553e-09,
+        4.493403832983687e-09,
+        4.492778496163218e-09
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.002168611516926291,
+        0.0025875202516003467,
+        0.002587160152275372
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            3.754747907836497e-09,
+            4.479966421040134e-09,
+            4.479339321843295e-09
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.0021621662802405565,
+            0.0025797823369090797,
+            0.002579421222722161
+          ],
+          "detailed_balance_relative_residual": 4.6263539630341555e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.1192589202056847e-11,
+            1.3437411943553216e-11,
+            1.3439174319922612e-11
+          ],
+          "gamma_abs_by_mode_MeV": [
+            6.445236685734216e-06,
+            7.737914691267065e-06,
+            7.738929553210544e-06
+          ],
+          "detailed_balance_relative_residual": 7.217218039217137e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 4.612604176107818e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 10.0,
+      "temperature_MeV": 33.92744042,
+      "muon_chemical_potential_MeV": 102.8436889,
+      "lapse": 0.8113558509,
+      "mass_MeV": 300.0,
+      "omega_local_MeV": 900.0,
+      "omega_infinity_MeV": 730.22026581,
+      "omega_over_mass": 3.0,
+      "gamma_prod_total_by_mode_MeV": [
+        2.8115159020837957e-15,
+        4.597729206973773e-15,
+        4.596724888545982e-15
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.0009323031604830157,
+        0.0015246143432906588,
+        0.0015242813096970516
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            2.803149194606638e-15,
+            4.5840955364623325e-15,
+            4.583088268659715e-15
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.0009295287469298113,
+            0.0015200933963888897,
+            0.0015197593847778826
+          ],
+          "detailed_balance_relative_residual": 7.401345323515539e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            8.366707477157667e-18,
+            1.3633670511440538e-17,
+            1.3636619886267407e-17
+          ],
+          "gamma_abs_by_mode_MeV": [
+            2.774413553204404e-06,
+            4.520946901769005e-06,
+            4.521924919168965e-06
+          ],
+          "detailed_balance_relative_residual": 6.327202945316168e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 7.379388531392679e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 10.0,
+      "temperature_MeV": 33.92744042,
+      "muon_chemical_potential_MeV": 102.8436889,
+      "lapse": 0.8113558509,
+      "mass_MeV": 300.0,
+      "omega_local_MeV": 3000.0,
+      "omega_infinity_MeV": 2434.0675527,
+      "omega_over_mass": 10.0,
+      "gamma_prod_total_by_mode_MeV": [
+        8.565548587514936e-43,
+        1.9624240942412166e-42,
+        1.961813871660671e-42
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.00021617753330682398,
+        0.0004952770924833653,
+        0.0004951230843531454
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            8.541098138973757e-43,
+            1.9568729867659978e-42,
+            1.9562610316739863e-42
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.00021556045226410104,
+            0.0004938761025656116,
+            0.0004937216571837069
+          ],
+          "detailed_balance_relative_residual": 8.303828405544916e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            2.445044854117981e-45,
+            5.551107475218673e-45,
+            5.55283998668465e-45
+          ],
+          "gamma_abs_by_mode_MeV": [
+            6.17081042722933e-07,
+            1.4009899177537576e-06,
+            1.4014271694385975e-06
+          ],
+          "detailed_balance_relative_residual": 2.9147048214557585e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 8.442698968279679e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 15.0,
+      "temperature_MeV": 13.23141583,
+      "muon_chemical_potential_MeV": 62.28271809,
+      "lapse": 0.8634952836,
+      "mass_MeV": 10.0,
+      "omega_local_MeV": 10.5,
+      "omega_infinity_MeV": 9.066700477800001,
+      "omega_over_mass": 1.05,
+      "gamma_prod_total_by_mode_MeV": [
+        0.00023533567894566847,
+        0.00020271155140237838,
+        0.00020271035344427075
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.0005203901323910743,
+        0.00044824946027770734,
+        0.00044824681127191056
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            0.00023531600329024179,
+            0.00020269460257235804,
+            0.00020269340451403419
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.000520346624254194,
+            0.00044821198188115625,
+            0.00044820933265375456
+          ],
+          "detailed_balance_relative_residual": 5.348976080819817e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.9675655426687235e-08,
+            1.6948830020325946e-08,
+            1.6948930236550556e-08
+          ],
+          "gamma_abs_by_mode_MeV": [
+            4.350813688025087e-08,
+            3.747839655111306e-08,
+            3.747861815599111e-08
+          ],
+          "detailed_balance_relative_residual": 3.904366786668004e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 5.348528844549491e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 15.0,
+      "temperature_MeV": 13.23141583,
+      "muon_chemical_potential_MeV": 62.28271809,
+      "lapse": 0.8634952836,
+      "mass_MeV": 10.0,
+      "omega_local_MeV": 15.0,
+      "omega_infinity_MeV": 12.952429254,
+      "omega_over_mass": 1.5,
+      "gamma_prod_total_by_mode_MeV": [
+        0.00034144627774021497,
+        0.0001249457418739384,
+        0.00012494326548569015
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.0010608819622648755,
+        0.0003882094855247347,
+        0.0003882017913256899
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            0.0003414176969177442,
+            0.00012493528453308745,
+            0.00012493280793741767
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.0010607931609482332,
+            0.00038817699431014177,
+            0.00038816929946663314
+          ],
+          "detailed_balance_relative_residual": 1.5186993978395734e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            2.858082247077032e-08,
+            1.0457340850945639e-08,
+            1.0457548272480551e-08
+          ],
+          "gamma_abs_by_mode_MeV": [
+            8.880131664227489e-08,
+            3.249121459295725e-08,
+            3.249185905675543e-08
+          ],
+          "detailed_balance_relative_residual": 4.271425567411267e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 1.5185722851680535e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 15.0,
+      "temperature_MeV": 13.23141583,
+      "muon_chemical_potential_MeV": 62.28271809,
+      "lapse": 0.8634952836,
+      "mass_MeV": 10.0,
+      "omega_local_MeV": 30.0,
+      "omega_infinity_MeV": 25.904858508,
+      "omega_over_mass": 3.0,
+      "gamma_prod_total_by_mode_MeV": [
+        0.00025226820304119843,
+        2.7085018910121274e-05,
+        2.708379375964155e-05
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.0024352966931974417,
+        0.00026146797809566456,
+        0.0002614561509812044
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            0.00025224708385368695,
+            2.7082752632799578e-05,
+            2.7081527379760637e-05
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.0024350928169780462,
+            0.000261446100357603,
+            0.0002614342722530771
+          ],
+          "detailed_balance_relative_residual": 5.3727190614143215e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            2.1119187511489744e-08,
+            2.2662773216956485e-09,
+            2.266379880911149e-09
+          ],
+          "gamma_abs_by_mode_MeV": [
+            2.0387621939554728e-07,
+            2.1877738061552182e-08,
+            2.1878728127344594e-08
+          ],
+          "detailed_balance_relative_residual": 3.1023198122788045e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 5.372269272420161e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 15.0,
+      "temperature_MeV": 13.23141583,
+      "muon_chemical_potential_MeV": 62.28271809,
+      "lapse": 0.8634952836,
+      "mass_MeV": 10.0,
+      "omega_local_MeV": 100.0,
+      "omega_infinity_MeV": 86.34952836000001,
+      "omega_over_mass": 10.0,
+      "gamma_prod_total_by_mode_MeV": [
+        2.614854309220297e-06,
+        5.98148257925228e-08,
+        5.98081856989337e-08
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        0.005008934829225954,
+        0.00011457944833094236,
+        0.00011456672877103132
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            2.614638208843369e-06,
+            5.980986691010718e-08,
+            5.98032262669863e-08
+          ],
+          "gamma_abs_by_mode_MeV": [
+            0.005008520873962447,
+            0.0001145699492476634,
+            0.00011455722863508612
+          ],
+          "detailed_balance_relative_residual": 6.195916051455603e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            2.1610037692810636e-10,
+            4.958882415620275e-12,
+            4.9594319473970184e-12
+          ],
+          "gamma_abs_by_mode_MeV": [
+            4.139552635063692e-07,
+            9.499083278962095e-09,
+            9.500135945203008e-09
+          ],
+          "detailed_balance_relative_residual": 5.700809113422791e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 6.1954023858426194e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 15.0,
+      "temperature_MeV": 13.23141583,
+      "muon_chemical_potential_MeV": 62.28271809,
+      "lapse": 0.8634952836,
+      "mass_MeV": 100.0,
+      "omega_local_MeV": 105.0,
+      "omega_infinity_MeV": 90.667004778,
+      "omega_over_mass": 1.05,
+      "gamma_prod_total_by_mode_MeV": [
+        3.0512015023840586e-08,
+        3.002855851383279e-08,
+        3.0027648744766977e-08
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        8.528716304618099e-05,
+        8.393580574766862e-05,
+        8.39332627618121e-05
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            3.0509484382399755e-08,
+            3.002606670580889e-08,
+            3.002515686199382e-08
+          ],
+          "gamma_abs_by_mode_MeV": [
+            8.52800893989962e-05,
+            8.392884064762366e-05,
+            8.392629745282808e-05
+          ],
+          "detailed_balance_relative_residual": 4.7717551035807384e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            2.530641440831941e-12,
+            2.4918080239028985e-12,
+            2.4918827731545965e-12
+          ],
+          "gamma_abs_by_mode_MeV": [
+            7.073647184789846e-09,
+            6.965100044960491e-09,
+            6.9653089840165486e-09
+          ],
+          "detailed_balance_relative_residual": 1.4588086306764677e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 4.7713593381355135e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 15.0,
+      "temperature_MeV": 13.23141583,
+      "muon_chemical_potential_MeV": 62.28271809,
+      "lapse": 0.8634952836,
+      "mass_MeV": 100.0,
+      "omega_local_MeV": 150.0,
+      "omega_infinity_MeV": 129.52429254,
+      "omega_over_mass": 1.5,
+      "gamma_prod_total_by_mode_MeV": [
+        9.508675902359645e-10,
+        8.26588624022144e-10,
+        8.265120998734901e-10
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        7.971992326952991e-05,
+        6.930048132796099e-05,
+        6.929406560896819e-05
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            9.50789018857229e-10,
+            8.265202085731482e-10,
+            8.264436781170246e-10
+          ],
+          "gamma_abs_by_mode_MeV": [
+            7.971333591252216e-05,
+            6.929474543539256e-05,
+            6.92883291875869e-05
+          ],
+          "detailed_balance_relative_residual": 8.264941709885015e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            7.857137873544585e-14,
+            6.841544899578431e-14,
+            6.84217564655118e-14
+          ],
+          "gamma_abs_by_mode_MeV": [
+            6.587357007736965e-09,
+            5.735892568428833e-09,
+            5.736421381281318e-09
+          ],
+          "detailed_balance_relative_residual": 3.694739965029647e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 8.264258767410183e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 15.0,
+      "temperature_MeV": 13.23141583,
+      "muon_chemical_potential_MeV": 62.28271809,
+      "lapse": 0.8634952836,
+      "mass_MeV": 100.0,
+      "omega_local_MeV": 300.0,
+      "omega_infinity_MeV": 259.04858508,
+      "omega_over_mass": 3.0,
+      "gamma_prod_total_by_mode_MeV": [
+        9.238766555957402e-15,
+        6.245051736946244e-15,
+        6.244014023761717e-15
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        6.493930668469917e-05,
+        4.3896479854863074e-05,
+        4.3889185767028977e-05
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            9.238003963160019e-15,
+            6.2445358327063004e-15,
+            6.243498033870729e-15
+          ],
+          "gamma_abs_by_mode_MeV": [
+            6.493394641855923e-05,
+            4.389285356303561e-05,
+            4.388555887316018e-05
+          ],
+          "detailed_balance_relative_residual": 7.856156326599743e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            7.625927973828372e-19,
+            5.159042399439484e-19,
+            5.159898909876744e-19
+          ],
+          "gamma_abs_by_mode_MeV": [
+            5.360266139948496e-09,
+            3.6262918274575946e-09,
+            3.626893868797489e-09
+          ],
+          "detailed_balance_relative_residual": 4.665619370712732e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 8.02627976815361e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 15.0,
+      "temperature_MeV": 13.23141583,
+      "muon_chemical_potential_MeV": 62.28271809,
+      "lapse": 0.8634952836,
+      "mass_MeV": 100.0,
+      "omega_local_MeV": 1000.0,
+      "omega_infinity_MeV": 863.4952836000001,
+      "omega_over_mass": 10.0,
+      "gamma_prod_total_by_mode_MeV": [
+        5.887697647682205e-38,
+        2.7855796201341344e-38,
+        2.784866331930821e-38
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        3.9167364208670655e-05,
+        1.8530810860675744e-05,
+        1.852606577685566e-05
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            5.887212821572193e-38,
+            2.7853502827304574e-38,
+            2.7846369357803685e-38
+          ],
+          "gamma_abs_by_mode_MeV": [
+            3.9164138947802143e-05,
+            1.8529285214802942e-05,
+            1.852453974017537e-05
+          ],
+          "detailed_balance_relative_residual": 1.2747678467449505e-14
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            4.848261100117914e-42,
+            2.293374036771135e-42,
+            2.293961504522218e-42
+          ],
+          "gamma_abs_by_mode_MeV": [
+            3.2252608685129005e-09,
+            1.5256458728020092e-09,
+            1.5260366802915275e-09
+          ],
+          "detailed_balance_relative_residual": 9.726274966580023e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 1.2746628410456066e-14,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 15.0,
+      "temperature_MeV": 13.23141583,
+      "muon_chemical_potential_MeV": 62.28271809,
+      "lapse": 0.8634952836,
+      "mass_MeV": 220.0,
+      "omega_local_MeV": 231.0,
+      "omega_infinity_MeV": 199.4674105116,
+      "omega_over_mass": 1.05,
+      "gamma_prod_total_by_mode_MeV": [
+        1.2509716615935322e-12,
+        1.2693777394027797e-12,
+        1.2693307681273342e-12
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        4.779204182446e-05,
+        4.849522645085168e-05,
+        4.849343196323068e-05
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            1.2508683459148693e-12,
+            1.269272902818985e-12,
+            1.2692259276720681e-12
+          ],
+          "gamma_abs_by_mode_MeV": [
+            4.778809475884103e-05,
+            4.849122128066976e-05,
+            4.848942664514331e-05
+          ],
+          "detailed_balance_relative_residual": 4.614061599640094e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.0331567866282919e-16,
+            1.0483658379453908e-16,
+            1.0484045526601541e-16
+          ],
+          "gamma_abs_by_mode_MeV": [
+            3.947065618965853e-09,
+            4.005170181920632e-09,
+            4.00531808737077e-09
+          ],
+          "detailed_balance_relative_residual": 1.2932552395049753e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 4.454588097066035e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 15.0,
+      "temperature_MeV": 13.23141583,
+      "muon_chemical_potential_MeV": 62.28271809,
+      "lapse": 0.8634952836,
+      "mass_MeV": 220.0,
+      "omega_local_MeV": 330.0,
+      "omega_infinity_MeV": 284.953443588,
+      "omega_over_mass": 1.5,
+      "gamma_prod_total_by_mode_MeV": [
+        4.859923695764103e-16,
+        5.473876341568861e-16,
+        5.473259478696169e-16
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        3.297710067321082e-05,
+        3.7143087523361104e-05,
+        3.713890178911365e-05
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            4.8595223655962e-16,
+            5.473424264707214e-16,
+            5.472807350959456e-16
+          ],
+          "gamma_abs_by_mode_MeV": [
+            3.297437744005355e-05,
+            3.7140019947589994e-05,
+            3.7135833868128846e-05
+          ],
+          "detailed_balance_relative_residual": 4.864789466148776e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            4.013301679028229e-20,
+            4.520768616474879e-20,
+            4.5212773671418595e-20
+          ],
+          "gamma_abs_by_mode_MeV": [
+            2.7232331572743037e-09,
+            3.06757577111183e-09,
+            3.0679209848027042e-09
+          ],
+          "detailed_balance_relative_residual": 9.319149265887869e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 4.864387602093275e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 15.0,
+      "temperature_MeV": 13.23141583,
+      "muon_chemical_potential_MeV": 62.28271809,
+      "lapse": 0.8634952836,
+      "mass_MeV": 220.0,
+      "omega_local_MeV": 660.0,
+      "omega_infinity_MeV": 569.906887176,
+      "omega_over_mass": 3.0,
+      "gamma_prod_total_by_mode_MeV": [
+        3.640908564714247e-27,
+        4.862807134901919e-27,
+        4.8618553445800515e-27
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        1.676392894890866e-05,
+        2.2389947962931153e-05,
+        2.2385565610272072e-05
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            3.6406076013080116e-27,
+            4.862405254459867e-27,
+            4.861453385474423e-27
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.676254321535653e-05,
+            2.2388097574475423e-05,
+            2.2383714859623613e-05
+          ],
+          "detailed_balance_relative_residual": 9.065349811366792e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            3.0096340623599356e-31,
+            4.018804420521253e-31,
+            4.019591056286733e-31
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.3857335521299332e-09,
+            1.8503884557305917e-09,
+            1.8507506484593083e-09
+          ],
+          "detailed_balance_relative_residual": 9.804857946306493e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 8.867543923223382e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 15.0,
+      "temperature_MeV": 13.23141583,
+      "muon_chemical_potential_MeV": 62.28271809,
+      "lapse": 0.8634952836,
+      "mass_MeV": 220.0,
+      "omega_local_MeV": 2200.0,
+      "omega_infinity_MeV": 1899.68962392,
+      "omega_over_mass": 10.0,
+      "gamma_prod_total_by_mode_MeV": [
+        2.3464475667541944e-78,
+        3.5205464147355094e-78,
+        3.5195139778244743e-78
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        3.8103451536262483e-06,
+        5.716938728811981e-06,
+        5.715262176974147e-06
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            2.346252150879678e-78,
+            3.520253318007622e-78,
+            3.5192207951177937e-78
+          ],
+          "gamma_abs_by_mode_MeV": [
+            3.8100278220391485e-06,
+            5.716462775412266e-06,
+            5.714786083955341e-06
+          ],
+          "detailed_balance_relative_residual": 8.990808851620432e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.9541587451621265e-82,
+            2.930967278876173e-82,
+            2.931827066804264e-82
+          ],
+          "gamma_abs_by_mode_MeV": [
+            3.173315870997599e-10,
+            4.759533997152677e-10,
+            4.760930188063301e-10
+          ],
+          "detailed_balance_relative_residual": 2.036575909684434e-14
+        }
+      },
+      "total_detailed_balance_relative_residual": 8.99005989886986e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 15.0,
+      "temperature_MeV": 13.23141583,
+      "muon_chemical_potential_MeV": 62.28271809,
+      "lapse": 0.8634952836,
+      "mass_MeV": 300.0,
+      "omega_local_MeV": 315.0,
+      "omega_infinity_MeV": 272.001014334,
+      "omega_over_mass": 1.05,
+      "gamma_prod_total_by_mode_MeV": [
+        1.8306438369429938e-15,
+        1.8651205524998274e-15,
+        1.8650479974590985e-15
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        3.997994521251831e-05,
+        4.073289189239926e-05,
+        4.073130734247482e-05
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            1.8304926600248746e-15,
+            1.8649665350727904e-15,
+            1.8648939740445974e-15
+          ],
+          "gamma_abs_by_mode_MeV": [
+            3.9976643617318944e-05,
+            4.072952826252738e-05,
+            4.072794358184103e-05
+          ],
+          "detailed_balance_relative_residual": 9.305764789063569e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.5117691811929162e-19,
+            1.5401742703692364e-19,
+            1.5402341450122128e-19
+          ],
+          "gamma_abs_by_mode_MeV": [
+            3.301595199369661e-09,
+            3.3636298718771453e-09,
+            3.3637606337925744e-09
+          ],
+          "detailed_balance_relative_residual": 3.8218730114623274e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 9.304996340103257e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 15.0,
+      "temperature_MeV": 13.23141583,
+      "muon_chemical_potential_MeV": 62.28271809,
+      "lapse": 0.8634952836,
+      "mass_MeV": 300.0,
+      "omega_local_MeV": 450.0,
+      "omega_infinity_MeV": 388.57287762000004,
+      "omega_over_mass": 1.5,
+      "gamma_prod_total_by_mode_MeV": [
+        4.297733378805449e-20,
+        5.063154910816189e-20,
+        5.06256135858514e-20
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        2.5326778402948904e-05,
+        2.9837449451479695e-05,
+        2.9833951615643636e-05
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            4.297378241081834e-20,
+            5.062736586781316e-20,
+            5.062142985543206e-20
+          ],
+          "gamma_abs_by_mode_MeV": [
+            2.5324685556875e-05,
+            2.983498424500967e-05,
+            2.983148612037232e-05
+          ],
+          "detailed_balance_relative_residual": 4.201536894291383e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            3.5513772361467736e-24,
+            4.183240348732791e-24,
+            4.183730419339963e-24
+          ],
+          "gamma_abs_by_mode_MeV": [
+            2.092846073903426e-09,
+            2.4652064700225587e-09,
+            2.4654952713179146e-09
+          ],
+          "detailed_balance_relative_residual": 4.741890380775053e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 4.201189705641738e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 15.0,
+      "temperature_MeV": 13.23141583,
+      "muon_chemical_potential_MeV": 62.28271809,
+      "lapse": 0.8634952836,
+      "mass_MeV": 300.0,
+      "omega_local_MeV": 900.0,
+      "omega_infinity_MeV": 777.1457552400001,
+      "omega_over_mass": 3.0,
+      "gamma_prod_total_by_mode_MeV": [
+        3.3169741957118296e-35,
+        5.242043614364828e-35,
+        5.240983078955097e-35
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        1.1519219535028771e-05,
+        1.8204618921705357e-05,
+        1.820093588424764e-05
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            3.3167006853744865e-35,
+            5.241611481343827e-35,
+            5.240550858486599e-35
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.1518269685727853e-05,
+            1.8203118206039952e-05,
+            1.8199434864893735e-05
+          ],
+          "detailed_balance_relative_residual": 7.138778994679983e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            2.735103373433757e-39,
+            4.3213302100101377e-39,
+            4.322204684987074e-39
+          ],
+          "gamma_abs_by_mode_MeV": [
+            9.498493009174576e-10,
+            1.5007156654040924e-09,
+            1.5010193539058073e-09
+          ],
+          "detailed_balance_relative_residual": 2.8690421436616184e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 6.934242202343503e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 15.0,
+      "temperature_MeV": 13.23141583,
+      "muon_chemical_potential_MeV": 62.28271809,
+      "lapse": 0.8634952836,
+      "mass_MeV": 300.0,
+      "omega_local_MeV": 3000.0,
+      "omega_infinity_MeV": 2590.4858508,
+      "omega_over_mass": 10.0,
+      "gamma_prod_total_by_mode_MeV": [
+        9.56234216522459e-105,
+        2.076350019670189e-104,
+        2.075713627861356e-104
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        2.8151453346999824e-06,
+        6.112756655305808e-06,
+        6.11088312327697e-06
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            9.56154339011183e-105,
+            2.076176635737525e-104,
+            2.0755401907628883e-104
+          ],
+          "gamma_abs_by_mode_MeV": [
+            2.8149101759916546e-06,
+            6.1122462144946366e-06,
+            6.110372525946128e-06
+          ],
+          "detailed_balance_relative_residual": 1.387747234533537e-14
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            7.987751127601645e-109,
+            1.733839326640681e-108,
+            1.7343709846789077e-108
+          ],
+          "gamma_abs_by_mode_MeV": [
+            2.351587083276469e-10,
+            5.104408111709934e-10,
+            5.105973308416069e-10
+          ],
+          "detailed_balance_relative_residual": 3.1958105447532503e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 1.3876313518207054e-14,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 20.0,
+      "temperature_MeV": 4.204423026,
+      "muon_chemical_potential_MeV": 14.77142402,
+      "lapse": 0.8988877117,
+      "mass_MeV": 10.0,
+      "omega_local_MeV": 10.5,
+      "omega_infinity_MeV": 9.43832097285,
+      "omega_over_mass": 1.05,
+      "gamma_prod_total_by_mode_MeV": [
+        4.325917599277885e-14,
+        3.796220706770814e-14,
+        3.796198963364457e-14
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        5.256204575151481e-13,
+        4.612596562297972e-13,
+        4.612570142980105e-13
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            4.322079872085975e-14,
+            3.792852918185134e-14,
+            3.792831155454881e-14
+          ],
+          "gamma_abs_by_mode_MeV": [
+            5.251541546149804e-13,
+            4.608504532025562e-13,
+            4.608478089228203e-13
+          ],
+          "detailed_balance_relative_residual": 5.694587090316034e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            3.8377271919096276e-17,
+            3.367788585680068e-17,
+            3.367807909576033e-17
+          ],
+          "gamma_abs_by_mode_MeV": [
+            4.663029001677173e-16,
+            4.0920302724095866e-16,
+            4.0920537519022044e-16
+          ],
+          "detailed_balance_relative_residual": 5.67292885591374e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 5.689535151340855e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 20.0,
+      "temperature_MeV": 4.204423026,
+      "muon_chemical_potential_MeV": 14.77142402,
+      "lapse": 0.8988877117,
+      "mass_MeV": 10.0,
+      "omega_local_MeV": 15.0,
+      "omega_infinity_MeV": 13.4833156755,
+      "omega_over_mass": 1.5,
+      "gamma_prod_total_by_mode_MeV": [
+        3.293655177758403e-14,
+        1.3281847734584623e-14,
+        1.3281593092710782e-14
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        1.1670733559466284e-12,
+        4.706288233646653e-13,
+        4.706198003877551e-13
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            3.2907332196428495e-14,
+            1.3270065002037045e-14,
+            1.3269810133856755e-14
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.1660379896803348e-12,
+            4.702113141697323e-13,
+            4.702022831738824e-13
+          ],
+          "detailed_balance_relative_residual": 4.042372177287323e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            2.921958115553453e-17,
+            1.1782732547578582e-17,
+            1.1782958854027004e-17
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.0353662662936435e-15,
+            4.1750919493287755e-16,
+            4.1751721387268383e-16
+          ],
+          "detailed_balance_relative_residual": 4.707373002443761e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 3.919998240080341e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 20.0,
+      "temperature_MeV": 4.204423026,
+      "muon_chemical_potential_MeV": 14.77142402,
+      "lapse": 0.8988877117,
+      "mass_MeV": 10.0,
+      "omega_local_MeV": 30.0,
+      "omega_infinity_MeV": 26.966631351,
+      "omega_over_mass": 3.0,
+      "gamma_prod_total_by_mode_MeV": [
+        2.552961769719377e-15,
+        3.159888942040681e-16,
+        3.15975213724226e-16
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        3.205415706468574e-12,
+        3.967453710294658e-13,
+        3.967281942642335e-13
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            2.550696915944892e-15,
+            3.1570857757872143e-16,
+            3.1569488494070307e-16
+          ],
+          "gamma_abs_by_mode_MeV": [
+            3.202572029783832e-12,
+            3.963934145981836e-13,
+            3.963762225675408e-13
+          ],
+          "detailed_balance_relative_residual": 4.372914006497353e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            2.264853774485057e-18,
+            2.8031662534662327e-19,
+            2.803287835229681e-19
+          ],
+          "gamma_abs_by_mode_MeV": [
+            2.843676684742117e-15,
+            3.519564312822033e-16,
+            3.5197169669270797e-16
+          ],
+          "detailed_balance_relative_residual": 5.612343620658598e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 4.21299747492945e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 20.0,
+      "temperature_MeV": 4.204423026,
+      "muon_chemical_potential_MeV": 14.77142402,
+      "lapse": 0.8988877117,
+      "mass_MeV": 10.0,
+      "omega_local_MeV": 100.0,
+      "omega_infinity_MeV": 89.88877117,
+      "omega_over_mass": 10.0,
+      "gamma_prod_total_by_mode_MeV": [
+        3.7705681325052004e-22,
+        9.638005716676798e-24,
+        9.636981187177069e-24
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        8.051441163682114e-12,
+        2.0580409433285305e-13,
+        2.05782217154938e-13
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            3.767223082231629e-22,
+            9.629456293253463e-24,
+            9.628430853229361e-24
+          ],
+          "gamma_abs_by_mode_MeV": [
+            8.044298347395347e-12,
+            2.0562153516071406e-13,
+            2.05599638540017e-13
+          ],
+          "detailed_balance_relative_residual": 6.867324306699113e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            3.345050273571536e-25,
+            8.549423423334987e-27,
+            8.550333947707526e-27
+          ],
+          "gamma_abs_by_mode_MeV": [
+            7.14281628676634e-15,
+            1.8255917213900912e-16,
+            1.8257861492098816e-16
+          ],
+          "detailed_balance_relative_residual": 6.726265592021954e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 6.8612313285134116e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 20.0,
+      "temperature_MeV": 4.204423026,
+      "muon_chemical_potential_MeV": 14.77142402,
+      "lapse": 0.8988877117,
+      "mass_MeV": 100.0,
+      "omega_local_MeV": 105.0,
+      "omega_infinity_MeV": 94.3832097285,
+      "omega_over_mass": 1.05,
+      "gamma_prod_total_by_mode_MeV": [
+        2.1562789598368018e-24,
+        2.1315473308536585e-24,
+        2.131489888344655e-24
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        1.5123249521445823e-13,
+        1.4949792096339724e-13,
+        1.494938921832017e-13
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            2.1543660222446253e-24,
+            2.1296563848707628e-24,
+            2.1295988913111992e-24
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.5109832967714005e-13,
+            1.4936529782667158e-13,
+            1.4936126546600076e-13
+          ],
+          "detailed_balance_relative_residual": 6.7270652216113335e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.9129375921764743e-27,
+            1.890945982895729e-27,
+            1.8909970334554884e-27
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.3416553731817797e-16,
+            1.3262313672564746e-16,
+            1.3262671720093982e-16
+          ],
+          "detailed_balance_relative_residual": 1.2900317559368138e-14
+        }
+      },
+      "total_detailed_balance_relative_residual": 6.893433316066201e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 20.0,
+      "temperature_MeV": 4.204423026,
+      "muon_chemical_potential_MeV": 14.77142402,
+      "lapse": 0.8988877117,
+      "mass_MeV": 100.0,
+      "omega_local_MeV": 150.0,
+      "omega_infinity_MeV": 134.833156755,
+      "omega_over_mass": 1.5,
+      "gamma_prod_total_by_mode_MeV": [
+        4.556496321948501e-29,
+        4.0567604066332046e-29,
+        4.056412886501013e-29
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        1.4217762996288294e-13,
+        1.2658423033593427e-13,
+        1.2657338656798956e-13
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            4.5524540374087043e-29,
+            4.0531617701609736e-29,
+            4.0528139411791584e-29
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.4205149742707126e-13,
+            1.264719410749389e-13,
+            1.2646108766987295e-13
+          ],
+          "detailed_balance_relative_residual": 6.279357998416595e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            4.042284539796724e-32,
+            3.598636472230911e-32,
+            3.598945321854437e-32
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.2613253581166702e-16,
+            1.122892609953832e-16,
+            1.1229889811662385e-16
+          ],
+          "detailed_balance_relative_residual": 2.1295151749589158e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 6.396802718254367e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 20.0,
+      "temperature_MeV": 4.204423026,
+      "muon_chemical_potential_MeV": 14.77142402,
+      "lapse": 0.8988877117,
+      "mass_MeV": 100.0,
+      "omega_local_MeV": 300.0,
+      "omega_infinity_MeV": 269.66631351,
+      "omega_over_mass": 3.0,
+      "gamma_prod_total_by_mode_MeV": [
+        1.18337268571821e-44,
+        8.247218290813815e-45,
+        8.245903857113592e-45
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        1.1521845136110094e-13,
+        8.029860169772325e-14,
+        8.028580378399893e-14
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            1.1823228595416085e-44,
+            8.239902958461585e-45,
+            8.23858735659205e-45
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.151162355944822e-13,
+            8.022737635384064e-14,
+            8.021456706629803e-14
+          ],
+          "detailed_balance_relative_residual": 3.0213991833839513e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.0498261766015917e-47,
+            7.315332352229928e-48,
+            7.316500521541302e-48
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.0221576661875352e-16,
+            7.122534388261151e-17,
+            7.123671770090331e-17
+          ],
+          "detailed_balance_relative_residual": 8.335775416479516e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 3.0187183288549548e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 20.0,
+      "temperature_MeV": 4.204423026,
+      "muon_chemical_potential_MeV": 14.77142402,
+      "lapse": 0.8988877117,
+      "mass_MeV": 100.0,
+      "omega_local_MeV": 1000.0,
+      "omega_infinity_MeV": 898.8877117000001,
+      "omega_over_mass": 10.0,
+      "gamma_prod_total_by_mode_MeV": [
+        2.2522600442745805e-117,
+        1.0832488257488113e-117,
+        1.0829753348625797e-117
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        4.439017343427122e-14,
+        2.134993397840442e-14,
+        2.1344543700357486e-14
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            2.2502619572986398e-117,
+            1.0822880670514717e-117,
+            1.0820143331072143e-117
+          ],
+          "gamma_abs_by_mode_MeV": [
+            4.435079280074969e-14,
+            2.133099822304535e-14,
+            2.1325603154526756e-14
+          ],
+          "detailed_balance_relative_residual": 1.95258652621731e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.9980869759405344e-120,
+            9.607586973395855e-121,
+            9.610017553653883e-121
+          ],
+          "gamma_abs_by_mode_MeV": [
+            3.938063352152897e-17,
+            1.893575535906882e-17,
+            1.8940545830732046e-17
+          ],
+          "detailed_balance_relative_residual": 1.3600703309759293e-14
+        }
+      },
+      "total_detailed_balance_relative_residual": 2.113425959231601e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 20.0,
+      "temperature_MeV": 4.204423026,
+      "muon_chemical_potential_MeV": 14.77142402,
+      "lapse": 0.8988877117,
+      "mass_MeV": 220.0,
+      "omega_local_MeV": 231.0,
+      "omega_infinity_MeV": 207.6430614027,
+      "omega_over_mass": 1.05,
+      "gamma_prod_total_by_mode_MeV": [
+        1.2303416656484277e-37,
+        1.2476609779297336e-37,
+        1.2476189220436665e-37
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        8.934990830835257e-14,
+        9.060767190972027e-14,
+        9.060461772593674e-14
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            1.2292501710564566e-37,
+            1.246554155895272e-37,
+            1.2465120626331126e-37
+          ],
+          "gamma_abs_by_mode_MeV": [
+            8.927064175627634e-14,
+            9.052729224766869e-14,
+            9.052423534955749e-14
+          ],
+          "detailed_balance_relative_residual": 1.2909935536176192e-14
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.0914945919711325e-40,
+            1.1068220344614393e-40,
+            1.1068594105538645e-40
+          ],
+          "gamma_abs_by_mode_MeV": [
+            7.926655207623677e-17,
+            8.037966205157802e-17,
+            8.038237637925076e-17
+          ],
+          "detailed_balance_relative_residual": 1.0869886701095875e-14
+        }
+      },
+      "total_detailed_balance_relative_residual": 1.2898482518519503e-14,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 20.0,
+      "temperature_MeV": 4.204423026,
+      "muon_chemical_potential_MeV": 14.77142402,
+      "lapse": 0.8988877117,
+      "mass_MeV": 220.0,
+      "omega_local_MeV": 330.0,
+      "omega_infinity_MeV": 296.632944861,
+      "omega_over_mass": 1.5,
+      "gamma_prod_total_by_mode_MeV": [
+        5.0204738251366e-48,
+        5.63065350970011e-48,
+        5.630062789094577e-48
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        6.137411592325384e-14,
+        6.883341956645034e-14,
+        6.882619814548767e-14
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            5.016019924092405e-48,
+            5.625658813766941e-48,
+            5.625067568173589e-48
+          ],
+          "gamma_abs_by_mode_MeV": [
+            6.131966802679664e-14,
+            6.877236057921515e-14,
+            6.876513274039941e-14
+          ],
+          "detailed_balance_relative_residual": 8.359701077715016e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            4.453901044195171e-51,
+            4.9946959331678176e-51,
+            4.995220920987936e-51
+          ],
+          "gamma_abs_by_mode_MeV": [
+            5.444789645720244e-17,
+            6.105898723519489e-17,
+            6.106540508826051e-17
+          ],
+          "detailed_balance_relative_residual": 6.89159731422288e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 8.352284789401197e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 20.0,
+      "temperature_MeV": 4.204423026,
+      "muon_chemical_potential_MeV": 14.77142402,
+      "lapse": 0.8988877117,
+      "mass_MeV": 220.0,
+      "omega_local_MeV": 660.0,
+      "omega_infinity_MeV": 593.265889722,
+      "omega_over_mass": 3.0,
+      "gamma_prod_total_by_mode_MeV": [
+        2.1897041259823158e-82,
+        2.912121305023157e-82,
+        2.9115680430441366e-82
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        3.2724010318356634e-14,
+        4.352016626498921e-14,
+        4.351189804715325e-14
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            2.1877615353360576e-82,
+            2.90953831500908e-82,
+            2.9089845613326355e-82
+          ],
+          "gamma_abs_by_mode_MeV": [
+            3.2694979292841264e-14,
+            4.348156479784582e-14,
+            4.3473289231842867e-14
+          ],
+          "detailed_balance_relative_residual": 1.0833441471027872e-14
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.9425906462582863e-85,
+            2.582990014076564e-85,
+            2.583481711500969e-85
+          ],
+          "gamma_abs_by_mode_MeV": [
+            2.903102551536809e-17,
+            3.8601467143390696e-17,
+            3.8608815310387096e-17
+          ],
+          "detailed_balance_relative_residual": 1.6369588872713146e-14
+        }
+      },
+      "total_detailed_balance_relative_residual": 1.0823830609990213e-14,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 20.0,
+      "temperature_MeV": 4.204423026,
+      "muon_chemical_potential_MeV": 14.77142402,
+      "lapse": 0.8988877117,
+      "mass_MeV": 220.0,
+      "omega_local_MeV": 2200.0,
+      "omega_infinity_MeV": 1977.55296574,
+      "omega_over_mass": 10.0,
+      "gamma_prod_total_by_mode_MeV": [
+        9.762022939771118e-242,
+        1.4615755656959003e-241,
+        1.461151262729058e-241
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        1.7290601619708567e-14,
+        2.588758600493549e-14,
+        2.588007070445828e-14
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            9.753362585055328e-242,
+            1.4602793092702588e-241,
+            1.4598546292150137e-241
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.727526230487598e-14,
+            2.586462656958993e-14,
+            2.585710459008176e-14
+          ],
+          "detailed_balance_relative_residual": 2.6460136007124038e-14
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            8.66035471578988e-245,
+            1.2962564256415317e-244,
+            1.2966335140443371e-244
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.533931483258651e-17,
+            2.2959435345559522e-17,
+            2.2966114376523272e-17
+          ],
+          "detailed_balance_relative_residual": 5.914099342030055e-14
+        }
+      },
+      "total_detailed_balance_relative_residual": 2.6550606239408193e-14,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 20.0,
+      "temperature_MeV": 4.204423026,
+      "muon_chemical_potential_MeV": 14.77142402,
+      "lapse": 0.8988877117,
+      "mass_MeV": 300.0,
+      "omega_local_MeV": 315.0,
+      "omega_infinity_MeV": 283.14962918550003,
+      "omega_over_mass": 1.05,
+      "gamma_prod_total_by_mode_MeV": [
+        2.1878658507342686e-46,
+        2.2258933386528877e-46,
+        2.2258131079246753e-46
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        7.548161906728734e-14,
+        7.679357169737821e-14,
+        7.679080372818927e-14
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            2.1859248909092508e-46,
+            2.223918714074953e-46,
+            2.2238384120437342e-46
+          ],
+          "gamma_abs_by_mode_MeV": [
+            7.54146557340063e-14,
+            7.672544692631761e-14,
+            7.67226764971669e-14
+          ],
+          "detailed_balance_relative_residual": 8.569550751937885e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.9409598250179873e-49,
+            1.9746245779345933e-49,
+            1.974695880940983e-49
+          ],
+          "gamma_abs_by_mode_MeV": [
+            6.69633332810352e-17,
+            6.812477106059264e-17,
+            6.81272310223699e-17
+          ],
+          "detailed_balance_relative_residual": 8.61027570850539e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 8.561948570268714e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 20.0,
+      "temperature_MeV": 4.204423026,
+      "muon_chemical_potential_MeV": 14.77142402,
+      "lapse": 0.8988877117,
+      "mass_MeV": 300.0,
+      "omega_local_MeV": 450.0,
+      "omega_infinity_MeV": 404.499470265,
+      "omega_over_mass": 1.5,
+      "gamma_prod_total_by_mode_MeV": [
+        1.7012853860049028e-60,
+        1.9827900390669636e-60,
+        1.9825722836456493e-60
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        5.1686593566483547e-14,
+        6.023896032962846e-14,
+        6.02323447223642e-14
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            1.699776094846148e-60,
+            1.9810312050983492e-60,
+            1.980813256152477e-60
+          ],
+          "gamma_abs_by_mode_MeV": [
+            5.1640739931733164e-14,
+            6.01855253579097e-14,
+            6.01789038711938e-14
+          ],
+          "detailed_balance_relative_residual": 6.138078640194516e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.5092911587545624e-63,
+            1.7588339686145168e-63,
+            1.7590274931722884e-63
+          ],
+          "gamma_abs_by_mode_MeV": [
+            4.5853634750383555e-17,
+            5.343497171875505e-17,
+            5.3440851170400576e-17
+          ],
+          "detailed_balance_relative_residual": 1.472888045573357e-14
+        }
+      },
+      "total_detailed_balance_relative_residual": 5.993255815124975e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 20.0,
+      "temperature_MeV": 4.204423026,
+      "muon_chemical_potential_MeV": 14.77142402,
+      "lapse": 0.8988877117,
+      "mass_MeV": 300.0,
+      "omega_local_MeV": 900.0,
+      "omega_infinity_MeV": 808.99894053,
+      "omega_over_mass": 3.0,
+      "gamma_prod_total_by_mode_MeV": [
+        1.677822958083022e-107,
+        2.6221959093429105e-107,
+        2.6216778560462365e-107
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        1.5486297968092122e-14,
+        2.4202855841949405e-14,
+        2.4198074212471364e-14
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            1.676334481559689e-107,
+            2.6198700946695822e-107,
+            2.6193515809662992e-107
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.5472559336821287e-14,
+            2.418138858351418e-14,
+            2.4176602704485312e-14
+          ],
+          "detailed_balance_relative_residual": 7.275327646847652e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.4884765233328356e-110,
+            2.325814673328323e-110,
+            2.326275079937404e-110
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.3738631270833867e-17,
+            2.1467258435226023e-17,
+            2.147150798605048e-17
+          ],
+          "detailed_balance_relative_residual": 8.509529387670387e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 7.268874634037276e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 20.0,
+      "temperature_MeV": 4.204423026,
+      "muon_chemical_potential_MeV": 14.77142402,
+      "lapse": 0.8988877117,
+      "mass_MeV": 300.0,
+      "omega_local_MeV": 3000.0,
+      "omega_infinity_MeV": 2696.6631351,
+      "omega_over_mass": 10.0,
+      "gamma_prod_total_by_mode_MeV": [
+        1.5e-323,
+        1.33e-322,
+        1.33e-322
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        1.2565560640271679e-14,
+        2.722662284015505e-14,
+        2.7218298370586255e-14
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            1.5e-323,
+            1.33e-322,
+            1.33e-322
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.2554413133959761e-14,
+            2.720247620005669e-14,
+            2.719414433232861e-14
+          ],
+          "detailed_balance_relative_residual": 1.284570679187241e-22
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.1147506311918078e-17,
+            2.414664009835955e-17,
+            2.4154038257644177e-17
+          ],
+          "detailed_balance_relative_residual": 0.0
+        }
+      },
+      "total_detailed_balance_relative_residual": 1.284570679187241e-22,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 24.0,
+      "temperature_MeV": 3.216426215,
+      "muon_chemical_potential_MeV": 0.0,
+      "lapse": 0.9164236332,
+      "mass_MeV": 10.0,
+      "omega_local_MeV": 10.5,
+      "omega_infinity_MeV": 9.6224481486,
+      "omega_over_mass": 1.05,
+      "gamma_prod_total_by_mode_MeV": [
+        3.286002759999046e-19,
+        2.8939185507428315e-19,
+        2.8939185507428315e-19
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        8.598428877974954e-18,
+        7.57246863579074e-18,
+        7.57246863579074e-18
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            1.643001379999523e-19,
+            1.4469633804060443e-19,
+            1.446955170336787e-19
+          ],
+          "gamma_abs_by_mode_MeV": [
+            4.299214438987477e-18,
+            3.786245059471353e-18,
+            3.786223576319387e-18
+          ],
+          "detailed_balance_relative_residual": 3.3275374665093198e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.6430013799995228e-19,
+            1.446955170336787e-19,
+            1.4469633804060446e-19
+          ],
+          "gamma_abs_by_mode_MeV": [
+            4.299214438987477e-18,
+            3.786223576319387e-18,
+            3.786245059471353e-18
+          ],
+          "detailed_balance_relative_residual": 3.161160593183853e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 1.172202268258469e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 24.0,
+      "temperature_MeV": 3.216426215,
+      "muon_chemical_potential_MeV": 0.0,
+      "lapse": 0.9164236332,
+      "mass_MeV": 10.0,
+      "omega_local_MeV": 15.0,
+      "omega_infinity_MeV": 13.746354497999999,
+      "omega_over_mass": 1.5,
+      "gamma_prod_total_by_mode_MeV": [
+        1.8280904585420984e-19,
+        7.503352102301021e-20,
+        7.503352102301021e-20
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        1.9380122137189782e-17,
+        7.954523229496117e-18,
+        7.954523229496119e-18
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            9.140452292710493e-20,
+            3.7517117314581105e-20,
+            3.751640370842911e-20
+          ],
+          "gamma_abs_by_mode_MeV": [
+            9.690061068594893e-18,
+            3.977299440486725e-18,
+            3.977223789009392e-18
+          ],
+          "detailed_balance_relative_residual": 6.8982314586536154e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            9.140452292710492e-20,
+            3.7516403708429114e-20,
+            3.751711731458111e-20
+          ],
+          "gamma_abs_by_mode_MeV": [
+            9.690061068594891e-18,
+            3.977223789009392e-18,
+            3.9772994404867254e-18
+          ],
+          "detailed_balance_relative_residual": 7.058655446064163e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 3.3688716956692762e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 24.0,
+      "temperature_MeV": 3.216426215,
+      "muon_chemical_potential_MeV": 0.0,
+      "lapse": 0.9164236332,
+      "mass_MeV": 10.0,
+      "omega_local_MeV": 30.0,
+      "omega_infinity_MeV": 27.492708995999998,
+      "omega_over_mass": 3.0,
+      "gamma_prod_total_by_mode_MeV": [
+        4.840270625342633e-21,
+        6.120591295257695e-22,
+        6.120591295257695e-22
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        5.439854701745558e-17,
+        6.878773918268972e-18,
+        6.878773918268973e-18
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            2.4201353126713163e-21,
+            3.0603615397761845e-22,
+            3.060229755481511e-22
+          ],
+          "gamma_abs_by_mode_MeV": [
+            2.719927350872779e-17,
+            3.4394610136110244e-18,
+            3.439312904657948e-18
+          ],
+          "detailed_balance_relative_residual": 3.687389748310344e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            2.4201353126713163e-21,
+            3.060229755481511e-22,
+            3.0603615397761845e-22
+          ],
+          "gamma_abs_by_mode_MeV": [
+            2.719927350872779e-17,
+            3.439312904657948e-18,
+            3.4394610136110248e-18
+          ],
+          "detailed_balance_relative_residual": 3.5337485087974125e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 3.2640001557626113e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 24.0,
+      "temperature_MeV": 3.216426215,
+      "muon_chemical_potential_MeV": 0.0,
+      "lapse": 0.9164236332,
+      "mass_MeV": 10.0,
+      "omega_local_MeV": 100.0,
+      "omega_infinity_MeV": 91.64236332,
+      "omega_over_mass": 10.0,
+      "gamma_prod_total_by_mode_MeV": [
+        4.383114734953537e-30,
+        1.1347916845303945e-31,
+        1.1347916845303945e-31
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        1.393718370698194e-16,
+        3.608347290188625e-18,
+        3.608347290188626e-18
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            2.1915573674767687e-30,
+            5.674259219038166e-32,
+            5.673657626265779e-32
+          ],
+          "gamma_abs_by_mode_MeV": [
+            6.96859185349097e-17,
+            1.804269290651087e-18,
+            1.8040779995375386e-18
+          ],
+          "detailed_balance_relative_residual": 8.632002770781022e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            2.1915573674767687e-30,
+            5.67365762626578e-32,
+            5.674259219038166e-32
+          ],
+          "gamma_abs_by_mode_MeV": [
+            6.96859185349097e-17,
+            1.8040779995375386e-18,
+            1.8042692906510872e-18
+          ],
+          "detailed_balance_relative_residual": 8.632002770781022e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 8.632002770781022e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 24.0,
+      "temperature_MeV": 3.216426215,
+      "muon_chemical_potential_MeV": 0.0,
+      "lapse": 0.9164236332,
+      "mass_MeV": 100.0,
+      "omega_local_MeV": 105.0,
+      "omega_infinity_MeV": 96.224481486,
+      "omega_over_mass": 1.05,
+      "gamma_prod_total_by_mode_MeV": [
+        1.7562192005427554e-32,
+        1.7368776399848817e-32,
+        1.7368776399848817e-32
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        2.642959545228401e-18,
+        2.613852152438094e-18,
+        2.613852152438094e-18
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            8.781096002713777e-33,
+            8.684503801131815e-33,
+            8.684272598717004e-33
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.3214797726142006e-18,
+            1.3069434732110886e-18,
+            1.306908679227005e-18
+          ],
+          "detailed_balance_relative_residual": 5.2000938510830995e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            8.781096002713777e-33,
+            8.684272598717004e-33,
+            8.684503801131815e-33
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.3214797726142006e-18,
+            1.306908679227005e-18,
+            1.3069434732110886e-18
+          ],
+          "detailed_balance_relative_residual": 5.2000938510830995e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 5.042448126689189e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 24.0,
+      "temperature_MeV": 3.216426215,
+      "muon_chemical_potential_MeV": 0.0,
+      "lapse": 0.9164236332,
+      "mass_MeV": 100.0,
+      "omega_local_MeV": 150.0,
+      "omega_infinity_MeV": 137.46354498,
+      "omega_over_mass": 1.5,
+      "gamma_prod_total_by_mode_MeV": [
+        1.3881069329356778e-38,
+        1.2389649467048193e-38,
+        1.2389649467048193e-38
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        2.4889215122545345e-18,
+        2.221505012053565e-18,
+        2.2215050120535654e-18
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            6.940534664678389e-39,
+            6.195088254361886e-39,
+            6.194561212686308e-39
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.2444607561272674e-18,
+            1.1107997561821271e-18,
+            1.1107052558714381e-18
+          ],
+          "detailed_balance_relative_residual": 8.848497197659916e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            6.940534664678389e-39,
+            6.194561212686308e-39,
+            6.195088254361886e-39
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.2444607561272673e-18,
+            1.110705255871438e-18,
+            1.1107997561821273e-18
+          ],
+          "detailed_balance_relative_residual": 9.059175702366104e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 5.0560690243410396e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 24.0,
+      "temperature_MeV": 3.216426215,
+      "muon_chemical_potential_MeV": 0.0,
+      "lapse": 0.9164236332,
+      "mass_MeV": 100.0,
+      "omega_local_MeV": 300.0,
+      "omega_infinity_MeV": 274.92708996,
+      "omega_over_mass": 3.0,
+      "gamma_prod_total_by_mode_MeV": [
+        6.316333429777493e-59,
+        4.419390933389886e-59,
+        4.419390933389886e-59
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        2.0306805254813306e-18,
+        1.420819721234978e-18,
+        1.4208197212349782e-18
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            3.1581667148887464e-59,
+            2.2098709290083154e-59,
+            2.209520004381571e-59
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.0153402627406653e-18,
+            7.104662711769836e-19,
+            7.103534500579946e-19
+          ],
+          "detailed_balance_relative_residual": 9.100586367356095e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            3.1581667148887464e-59,
+            2.2095200043815705e-59,
+            2.209870929008315e-59
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.0153402627406653e-18,
+            7.103534500579945e-19,
+            7.104662711769836e-19
+          ],
+          "detailed_balance_relative_residual": 9.100586367356095e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 9.100586367356095e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 24.0,
+      "temperature_MeV": 3.216426215,
+      "muon_chemical_potential_MeV": 0.0,
+      "lapse": 0.9164236332,
+      "mass_MeV": 100.0,
+      "omega_local_MeV": 1000.0,
+      "omega_infinity_MeV": 916.4236331999999,
+      "omega_over_mass": 10.0,
+      "gamma_prod_total_by_mode_MeV": [
+        6.622932574732892e-154,
+        3.205364466630381e-154,
+        3.205364466630381e-154
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        6.997971793945336e-19,
+        3.3868758097237033e-19,
+        3.3868758097237033e-19
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            3.311466287366447e-154,
+            1.6028839393726038e-154,
+            1.6024805272577777e-154
+          ],
+          "gamma_abs_by_mode_MeV": [
+            3.498985896972669e-19,
+            1.693651033001768e-19,
+            1.6932247767219351e-19
+          ],
+          "detailed_balance_relative_residual": 3.600763552113122e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            3.311466287366446e-154,
+            1.6024805272577777e-154,
+            1.6028839393726038e-154
+          ],
+          "gamma_abs_by_mode_MeV": [
+            3.4989858969726675e-19,
+            1.693224776721935e-19,
+            1.693651033001768e-19
+          ],
+          "detailed_balance_relative_residual": 3.400721132551282e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 3.400721132551282e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 24.0,
+      "temperature_MeV": 3.216426215,
+      "muon_chemical_potential_MeV": 0.0,
+      "lapse": 0.9164236332,
+      "mass_MeV": 220.0,
+      "omega_local_MeV": 231.0,
+      "omega_infinity_MeV": 211.6938592692,
+      "omega_over_mass": 1.05,
+      "gamma_prod_total_by_mode_MeV": [
+        1.0059144926613789e-49,
+        1.0199715159151443e-49,
+        1.0199715159151443e-49
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        1.5598649999513564e-18,
+        1.5816631336267713e-18,
+        1.5816631336267713e-18
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            5.029572463306894e-50,
+            5.099942697470276e-50,
+            5.099772461681168e-50
+          ],
+          "gamma_abs_by_mode_MeV": [
+            7.799324999756782e-19,
+            7.908447659894156e-19,
+            7.908183676373558e-19
+          ],
+          "detailed_balance_relative_residual": 8.495762844189048e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            5.029572463306894e-50,
+            5.099772461681168e-50,
+            5.099942697470276e-50
+          ],
+          "gamma_abs_by_mode_MeV": [
+            7.799324999756782e-19,
+            7.908183676373558e-19,
+            7.908447659894156e-19
+          ],
+          "detailed_balance_relative_residual": 8.495762844189048e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 8.495762844189048e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 24.0,
+      "temperature_MeV": 3.216426215,
+      "muon_chemical_potential_MeV": 0.0,
+      "lapse": 0.9164236332,
+      "mass_MeV": 220.0,
+      "omega_local_MeV": 330.0,
+      "omega_infinity_MeV": 302.41979895599997,
+      "omega_over_mass": 1.5,
+      "gamma_prod_total_by_mode_MeV": [
+        3.050950269194942e-63,
+        3.419460625041254e-63,
+        3.419460625041254e-63
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        1.1023749615631178e-18,
+        1.2355258009797368e-18,
+        1.2355258009797372e-18
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            1.525475134597471e-63,
+            1.7098193063369235e-63,
+            1.7096413187043303e-63
+          ],
+          "gamma_abs_by_mode_MeV": [
+            5.511874807815589e-19,
+            6.177950558992198e-19,
+            6.177307450805172e-19
+          ],
+          "detailed_balance_relative_residual": 9.944007989515482e-15
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.525475134597471e-63,
+            1.70964131870433e-63,
+            1.7098193063369235e-63
+          ],
+          "gamma_abs_by_mode_MeV": [
+            5.511874807815589e-19,
+            6.177307450805171e-19,
+            6.177950558992199e-19
+          ],
+          "detailed_balance_relative_residual": 9.786166592856507e-15
+        }
+      },
+      "total_detailed_balance_relative_residual": 8.523879076131227e-15,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 24.0,
+      "temperature_MeV": 3.216426215,
+      "muon_chemical_potential_MeV": 0.0,
+      "lapse": 0.9164236332,
+      "mass_MeV": 220.0,
+      "omega_local_MeV": 660.0,
+      "omega_infinity_MeV": 604.8395979119999,
+      "omega_over_mass": 3.0,
+      "gamma_prod_total_by_mode_MeV": [
+        3.948330192684361e-108,
+        5.248481149086746e-108,
+        5.248481149086746e-108
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        5.154682122709082e-19,
+        6.852074327699472e-19,
+        6.852074327699472e-19
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            1.9741650963421804e-108,
+            2.6244897538888563e-108,
+            2.6239913951978896e-108
+          ],
+          "gamma_abs_by_mode_MeV": [
+            2.577341061354541e-19,
+            3.426362476134901e-19,
+            3.4257118515645715e-19
+          ],
+          "detailed_balance_relative_residual": 1.657122967112933e-14
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.9741650963421804e-108,
+            2.6239913951978896e-108,
+            2.6244897538888563e-108
+          ],
+          "gamma_abs_by_mode_MeV": [
+            2.577341061354541e-19,
+            3.4257118515645715e-19,
+            3.4263624761349006e-19
+          ],
+          "detailed_balance_relative_residual": 1.6427132021815164e-14
+        }
+      },
+      "total_detailed_balance_relative_residual": 1.2249463203759912e-14,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 24.0,
+      "temperature_MeV": 3.216426215,
+      "muon_chemical_potential_MeV": 0.0,
+      "lapse": 0.9164236332,
+      "mass_MeV": 220.0,
+      "omega_local_MeV": 2200.0,
+      "omega_infinity_MeV": 2016.13199304,
+      "omega_over_mass": 10.0,
+      "gamma_prod_total_by_mode_MeV": [
+        3.2644683e-316,
+        4.88683265e-316,
+        4.88683265e-316
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        3.685028285338182e-19,
+        5.516400550613305e-19,
+        5.516400550613306e-19
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            1.63223415e-316,
+            2.44377136e-316,
+            2.4430613e-316
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.8425141426690917e-19,
+            2.75860139620561e-19,
+            2.7577991544076948e-19
+          ],
+          "detailed_balance_relative_residual": 1.6798231958602382e-22
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.63223415e-316,
+            2.4430613e-316,
+            2.44377136e-316
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.8425141426690903e-19,
+            2.7577991544076948e-19,
+            2.7586013962056104e-19
+          ],
+          "detailed_balance_relative_residual": 1.6798231958602382e-22
+        }
+      },
+      "total_detailed_balance_relative_residual": 2.7667676167109806e-22,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 24.0,
+      "temperature_MeV": 3.216426215,
+      "muon_chemical_potential_MeV": 0.0,
+      "lapse": 0.9164236332,
+      "mass_MeV": 300.0,
+      "omega_local_MeV": 315.0,
+      "omega_infinity_MeV": 288.673444458,
+      "omega_over_mass": 1.05,
+      "gamma_prod_total_by_mode_MeV": [
+        3.9609579843779556e-61,
+        4.028947442246056e-61,
+        4.0289474422460554e-61
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        1.3500057544018025e-18,
+        1.3731784716390563e-18,
+        1.3731784716390563e-18
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            1.9804789921889778e-61,
+            2.014509721031845e-61,
+            2.0144377212142103e-61
+          ],
+          "gamma_abs_by_mode_MeV": [
+            6.750028772009011e-19,
+            6.866015055997817e-19,
+            6.865769660392745e-19
+          ],
+          "detailed_balance_relative_residual": 1.0639977175996082e-14
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            1.980478992188978e-61,
+            2.0144377212142106e-61,
+            2.014509721031845e-61
+          ],
+          "gamma_abs_by_mode_MeV": [
+            6.750028772009013e-19,
+            6.865769660392745e-19,
+            6.866015055997817e-19
+          ],
+          "detailed_balance_relative_residual": 1.063997717599608e-14
+        }
+      },
+      "total_detailed_balance_relative_residual": 1.0465551320651883e-14,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 24.0,
+      "temperature_MeV": 3.216426215,
+      "muon_chemical_potential_MeV": 0.0,
+      "lapse": 0.9164236332,
+      "mass_MeV": 300.0,
+      "omega_local_MeV": 450.0,
+      "omega_infinity_MeV": 412.39063494,
+      "omega_over_mass": 1.5,
+      "gamma_prod_total_by_mode_MeV": [
+        1.636295938826259e-79,
+        1.9054329618066314e-79,
+        1.9054329618066314e-79
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        9.432497239868684e-19,
+        1.0983949007346614e-18,
+        1.0983949007346614e-18
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            8.181479694131293e-80,
+            9.527686447736666e-80,
+            9.526643170329649e-80
+          ],
+          "gamma_abs_by_mode_MeV": [
+            4.716248619934342e-19,
+            5.49227520451319e-19,
+            5.491673802833424e-19
+          ],
+          "detailed_balance_relative_residual": 3.66410059414214e-14
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            8.181479694131294e-80,
+            9.526643170329649e-80,
+            9.527686447736666e-80
+          ],
+          "gamma_abs_by_mode_MeV": [
+            4.716248619934342e-19,
+            5.491673802833423e-19,
+            5.49227520451319e-19
+          ],
+          "detailed_balance_relative_residual": 3.6326490868962854e-14
+        }
+      },
+      "total_detailed_balance_relative_residual": 3.61672529668681e-14,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 24.0,
+      "temperature_MeV": 3.216426215,
+      "muon_chemical_potential_MeV": 0.0,
+      "lapse": 0.9164236332,
+      "mass_MeV": 300.0,
+      "omega_local_MeV": 900.0,
+      "omega_infinity_MeV": 824.78126988,
+      "omega_over_mass": 3.0,
+      "gamma_prod_total_by_mode_MeV": [
+        6.856664871328026e-141,
+        1.0670799868862888e-140,
+        1.0670799868862888e-140
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        2.2784662075276404e-19,
+        3.5459013040235736e-19,
+        3.5459013040235736e-19
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            3.428332435664013e-141,
+            5.335923647073603e-141,
+            5.334876221789284e-141
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.1392331037638205e-19,
+            1.773124681453217e-19,
+            1.772776622570357e-19
+          ],
+          "detailed_balance_relative_residual": 1.681680021254898e-14
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            3.428332435664013e-141,
+            5.334876221789284e-141,
+            5.335923647073603e-141
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.1392331037638202e-19,
+            1.772776622570357e-19,
+            1.773124681453217e-19
+          ],
+          "detailed_balance_relative_residual": 1.681680021254898e-14
+        }
+      },
+      "total_detailed_balance_relative_residual": 1.5507922274540685e-14,
+      "quadrature_points_all_charges": 24576
+    },
+    {
+      "radius_km": 24.0,
+      "temperature_MeV": 3.216426215,
+      "muon_chemical_potential_MeV": 0.0,
+      "lapse": 0.9164236332,
+      "mass_MeV": 300.0,
+      "omega_local_MeV": 3000.0,
+      "omega_infinity_MeV": 2749.2708996,
+      "omega_over_mass": 10.0,
+      "gamma_prod_total_by_mode_MeV": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gamma_abs_total_by_mode_MeV": [
+        2.2955047996437737e-19,
+        4.972765663695839e-19,
+        4.972765663695837e-19
+      ],
+      "charge_contributions": {
+        "mu_minus": {
+          "gamma_prod_by_mode_MeV": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.1477523998218868e-19,
+            2.4867636630227085e-19,
+            2.4860020006731296e-19
+          ],
+          "detailed_balance_relative_residual": 0.0
+        },
+        "mu_plus": {
+          "gamma_prod_by_mode_MeV": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "gamma_abs_by_mode_MeV": [
+            1.1477523998218868e-19,
+            2.48600200067313e-19,
+            2.4867636630227075e-19
+          ],
+          "detailed_balance_relative_residual": 0.0
+        }
+      },
+      "total_detailed_balance_relative_residual": 0.0,
+      "quadrature_points_all_charges": 24576
+    }
+  ],
+  "runtime_seconds": 66.1786241531372,
+  "source_sha256": {
+    "moving_compton.py": "0319b4be8c91a438c648c0b662dbdf15e3565b8f1d3544ad5f6752f1941ca9ef",
+    "model.py": "925021a743a21bc39da84e0b034d4fae76c131411f2c39b65b1662eae21bf664",
+    "runner.py": "7a73b9b67bf4baf34236103db214c08fa4ff1420c2367cd5a54c1ac2e60b40f8"
+  }
+}
