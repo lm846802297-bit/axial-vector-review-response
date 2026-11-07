@@ -102,3 +102,22 @@ The implementation and acceptance criteria are recorded in [DIRECT_COLLISION_INT
 
 The existing neutrino production code already evaluates production and absorption with separate Fermi factors; the new work supplies an independent adaptive-quadrature reference. The current Compton production scan still derives production from detailed balance, so the new direct B.14 thermal integral is a distinct cross-check. Neither local test substitutes for the still-required full Blinov pure-vector Fig. 7 validation. No mixed-current luminosity scan is authorized while that vector gate remains blocked.
 
+## 7. Vector-to-axial response mapping: no assumed global rescale
+
+The new derivation and acceptance criterion are recorded in [VECTOR_TO_AXIAL_RESPONSE_MAPPING_2026-11-07.md](VECTOR_TO_AXIAL_RESPONSE_MAPPING_2026-11-07.md).
+
+**No Garching raw profile is required for the analytic or local-kernel response study.** The first task is to compare unit-coupling vector and axial response kernels using the existing amplitude-level code in rates.py. Do not duplicate the Dirac-trace implementation.
+
+A universal coupling rescale is admissible only if the same constant relates production and inverse absorption for every relevant reaction channel, polarization, kinematic point, and thermally integrated response, and if it preserves the UV model's unchanged neutrino current. In this model the active-neutrino couplings remain +gX and -gX as theta_muR varies, while the charged-muon current changes. Therefore a rescaling inferred from muon Compton alone does not generally preserve the neutrino contribution to total emissivity or opacity.
+
+The muon semi-Compton vector and axial traces are not assumed proportional; their ratio must be tested over mediator mass, energy, angle, and L,+,- modes. Above dimuon threshold, the vector and axial widths also have different beta factors (beta versus beta^3), so their ratio is mass dependent.
+
+Execution:
+1. Audit the existing pure vector/axial Compton endpoint kernels, Ward identity, and mixed interference.
+2. Tabulate the mode-resolved unit-coupling Compton response ratio over a kinematic grid.
+3. Compare pure vector and axial dimuon rates above threshold.
+4. Keep neutrino rates fixed at gX and determine whether any common mapping survives the full channel sum.
+5. Only then decide whether a simple rescale is justified or a channel-resolved mixed transport calculation is required.
+
+No axial luminosity or exclusion curve is generated at this stage. The pure-vector Fig. 7 mismatch remains a separate limitation on any final astrophysical exclusion claim.
+
