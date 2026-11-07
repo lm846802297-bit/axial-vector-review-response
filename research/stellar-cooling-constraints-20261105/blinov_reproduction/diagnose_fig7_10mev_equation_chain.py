@@ -84,10 +84,12 @@ def _eqb10_direct_detailed_balance(profile_path):
     return rows
 
 
-def _profile_rate_and_source(profile_path, radius_km, nr, ne, energy_offset):
+def _profile_rate_and_source(profile_path, radius_km, nr, ne, energy_offset,
+                             temperature_scale=1.0):
     r, rw = radial_rule(radius_km, nr)
     radial_grid = np.unique(np.r_[0.0, r, radius_km])
     p = load_profile(profile_path, radial_grid)
+    p["T"] = p["T"] * temperature_scale
     energies = MASS + np.geomspace(1e-5, energy_offset, ne)
     energies = np.unique(np.r_[energies, MASS / p["lapse"]])
     energies = energies[energies > MASS * (1.0 + 1e-10)]
@@ -279,6 +281,29 @@ def run(profile_path, fig7_path, nr=88, ne=180, na=24, ns=64,
             angle_weights_redshift)
         l_redshift.append(float(g*g*np.sum(baseline["source"]*esc_redshift)))
     l_redshift = np.asarray(l_redshift)
+    temperature_sensitivity = []
+    for tscale in (0.95, 1.0, 1.05):
+        if tscale == 1.0:
+            tsetup = baseline
+        else:
+            tsetup = _profile_rate_and_source(
+                profile_path, 25.0, nr, ne, energy_offset,
+                temperature_scale=tscale)
+        t_luminosity, _ = _luminosity_for_setup(
+            tsetup, 25.0, na, ns, couplings)
+        for name, g, ref_lum, calc_lum in zip(
+            ("weak", "reference_peak", "high_absorption"),
+            couplings, reference, t_luminosity
+        ):
+            temperature_sensitivity.append({
+                "temperature_scale": tscale,
+                "point": name,
+                "g": float(g),
+                "calculated_luminosity_erg_s": float(calc_lum),
+                "reference_luminosity_erg_s": float(ref_lum),
+                "relative_residual": float(calc_lum/ref_lum-1.0),
+            })
+
     l_path2, cols_path2 = _luminosity_for_setup(
         baseline, 25.0, na, 2*ns, couplings)
     l_angle2, cols_angle2 = _luminosity_for_setup(
@@ -386,6 +411,7 @@ def run(profile_path, fig7_path, nr=88, ne=180, na=24, ns=64,
         "interpretation": "Quadrature-only changes and a separate GR redshift diagnostic; no opacity normalization is altered.",
     }
     eq17 = {
+        "global_temperature_profile_scale_sensitivity": temperature_sensitivity,
         "same_source_nodes_boundary_24_vs_25_km": [
             {"g": float(g), "L_R24_same_sources": float(a),
              "L_R25_same_sources": float(b),
