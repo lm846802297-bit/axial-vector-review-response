@@ -15,12 +15,14 @@ import os
 from pathlib import Path
 
 import numpy as np
+from scipy.integrate import quad
+from scipy.special import expit
 
 try:
     from .reference import (
         DEFAULT_PROFILE, M_MU, ALPHA, KM_TO_MEV_INV, MEV2_TO_ERG_S,
         energy_weights, load_profile, local_rates,
-        negative_muon_density_and_degeneracy, radial_rule,
+        negative_muon_density_and_degeneracy, fermi_pair_average, radial_rule,
         scalar_optical_depths,
     )
 except ImportError:
@@ -41,6 +43,45 @@ MASS = 10.0
 def _relative(a, b):
     a, b = np.asarray(a, float), np.asarray(b, float)
     return float(np.max(np.abs(a-b) / np.maximum(np.abs(b), 1e-300)))
+
+
+def _eqb10_direct_detailed_balance(profile_path):
+    """Independent angular-integral check of neutrino Eq. (B10)."""
+    data = np.genfromtxt(profile_path, delimiter=",", names=True)
+    rows = []
+    for radius in (0.0, 5.0, 10.0, 15.0, 20.0, 24.0):
+        temperature = float(np.interp(radius, data["r_km"], data["T_MeV"]))
+        mu_numu = float(np.interp(radius, data["r_km"], data["mu_numu_MeV"]))
+        for omega in (10.5, 15.0, 30.0, 50.0):
+            velocity = np.sqrt(1.0-(MASS/omega)**2)
+            for flavour, mu in (("numu", mu_numu), ("nutau", 0.0)):
+                def f1(z):
+                    return expit((mu-omega*(1.0+velocity*z)/2.0)/temperature)
+                def f2(z):
+                    return expit((-mu-omega*(1.0-velocity*z)/2.0)/temperature)
+                prod_direct = 0.5*quad(
+                    lambda z: f1(z)*f2(z), -1.0, 1.0,
+                    epsabs=1e-14, epsrel=2e-11)[0]
+                abs_direct = 0.5*quad(
+                    lambda z: (1.0-f1(z))*(1.0-f2(z)), -1.0, 1.0,
+                    epsabs=1e-14, epsrel=2e-11)[0]
+                prod_kernel = float(fermi_pair_average(
+                    mu, omega, temperature, velocity))
+                rows.append({
+                    "r_km": radius, "flavour": flavour,
+                    "T_MeV": temperature, "mu_MeV": mu,
+                    "omega_MeV": omega,
+                    "production_direct_angular": prod_direct,
+                    "production_kernel": prod_kernel,
+                    "production_relative_residual":
+                        abs(prod_kernel-prod_direct)/max(abs(prod_direct),1e-300),
+                    "detailed_balance_ratio": abs_direct/(
+                        np.exp(omega/temperature)*max(prod_direct,1e-300)),
+                    "detailed_balance_relative_residual": abs(
+                        abs_direct/(np.exp(omega/temperature)
+                                    *max(prod_direct,1e-300))-1.0),
+                })
+    return rows
 
 
 def _profile_rate_and_source(profile_path, radius_km, nr, ne, energy_offset):
@@ -385,6 +426,7 @@ def run(profile_path, fig7_path, nr=88, ne=180, na=24, ns=64,
         "compton_rate_reconstruction_max_relative_residual":
             baseline["eq31_residual"],
         "eq33_susceptibility_finite_difference": _eq33_finite_difference(profile_path),
+        "eqb10_direct_angular_detailed_balance": _eqb10_direct_detailed_balance(profile_path),
         "source_channel_fractions_optically_thin": source_channel_fractions,
         "interpretation": (
             "The finite-difference identity tests F_deg = (T/n_mu) "
