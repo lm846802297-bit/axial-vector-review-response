@@ -6,7 +6,7 @@
   "profile_sha256": "08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9",
   "fig7_sha256": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4",
   "fig7_pdf_sha256": "4d7d1d10bfe2b52992af94df98749fa3adac887c009cbf98515fa12e6c48fdb5",
-  "run_commit_sha": "8e38e2ae4203869cc4009300d101f526abe3c35f",
+  "run_commit_sha": "e3e053b8603198a5b7fa39299dfa8c15ae7053aa",
   "quadrature": {
     "radial_order": 88,
     "energy_order": 180,
@@ -145,8 +145,8 @@
         "mu_MeV": -58.61375672,
         "omega_MeV": 30.0,
         "production_direct_angular": 0.02058358775397715,
-        "production_kernel": 0.020583587753977155,
-        "production_relative_residual": 3.371080876105527e-16,
+        "production_kernel": 0.020583587753977152,
+        "production_relative_residual": 1.6855404380527636e-16,
         "detailed_balance_ratio": 1.0000000000000002,
         "detailed_balance_relative_residual": 2.220446049250313e-16
       },
@@ -157,8 +157,8 @@
         "mu_MeV": 0.0,
         "omega_MeV": 30.0,
         "production_direct_angular": 0.0953099494383163,
-        "production_kernel": 0.09530994943831633,
-        "production_relative_residual": 2.9121383212559626e-16,
+        "production_kernel": 0.0953099494383163,
+        "production_relative_residual": 0.0,
         "detailed_balance_ratio": 0.9999999999999999,
         "detailed_balance_relative_residual": 1.1102230246251565e-16
       },
@@ -241,8 +241,8 @@
         "mu_MeV": -47.70863245,
         "omega_MeV": 30.0,
         "production_direct_angular": 0.06177331434920426,
-        "production_kernel": 0.06177331434920429,
-        "production_relative_residual": 5.616417037850433e-16,
+        "production_kernel": 0.0617733143492043,
+        "production_relative_residual": 6.739700445420519e-16,
         "detailed_balance_ratio": 0.9999999999999999,
         "detailed_balance_relative_residual": 1.1102230246251565e-16
       },
@@ -253,8 +253,8 @@
         "mu_MeV": 0.0,
         "omega_MeV": 30.0,
         "production_direct_angular": 0.12400703765401591,
-        "production_kernel": 0.12400703765401581,
-        "production_relative_residual": 7.833790443872862e-16,
+        "production_kernel": 0.12400703765401583,
+        "production_relative_residual": 6.714677523319596e-16,
         "detailed_balance_ratio": 0.9999999999999999,
         "detailed_balance_relative_residual": 1.1102230246251565e-16
       },
@@ -265,8 +265,8 @@
         "mu_MeV": -47.70863245,
         "omega_MeV": 50.0,
         "production_direct_angular": 0.03907444415094119,
-        "production_kernel": 0.039074444150941155,
-        "production_relative_residual": 8.879069241654318e-16,
+        "production_kernel": 0.03907444415094117,
+        "production_relative_residual": 5.327441544992591e-16,
         "detailed_balance_ratio": 1.0,
         "detailed_balance_relative_residual": 0.0
       },
@@ -277,8 +277,8 @@
         "mu_MeV": 0.0,
         "omega_MeV": 50.0,
         "production_direct_angular": 0.06957467290422999,
-        "production_kernel": 0.06957467290422994,
-        "production_relative_residual": 5.983982631258932e-16,
+        "production_kernel": 0.06957467290422997,
+        "production_relative_residual": 1.9946608770863108e-16,
         "detailed_balance_ratio": 1.0,
         "detailed_balance_relative_residual": 0.0
       },
@@ -531,8 +531,8 @@
         "production_direct_angular": 0.0006560068769003353,
         "production_kernel": 0.0006560068769003355,
         "production_relative_residual": 3.3054597769109155e-16,
-        "detailed_balance_ratio": 1.0000000000000004,
-        "detailed_balance_relative_residual": 4.440892098500626e-16
+        "detailed_balance_ratio": 1.0000000000000002,
+        "detailed_balance_relative_residual": 2.220446049250313e-16
       },
       {
         "r_km": 20.0,
@@ -543,8 +543,8 @@
         "production_direct_angular": 0.0006560068769003353,
         "production_kernel": 0.0006560068769003355,
         "production_relative_residual": 3.3054597769109155e-16,
-        "detailed_balance_ratio": 1.0000000000000004,
-        "detailed_balance_relative_residual": 4.440892098500626e-16
+        "detailed_balance_ratio": 1.0000000000000002,
+        "detailed_balance_relative_residual": 2.220446049250313e-16
       },
       {
         "r_km": 20.0,
@@ -601,7 +601,7 @@
         "mu_MeV": 0.0,
         "omega_MeV": 15.0,
         "production_direct_angular": 0.007206301278310011,
-        "production_kernel": 0.0072063012783100105,
+        "production_kernel": 0.007206301278310012,
         "production_relative_residual": 1.2036157031056205e-16,
         "detailed_balance_ratio": 1.0000000000000002,
         "detailed_balance_relative_residual": 2.220446049250313e-16
@@ -613,7 +613,7 @@
         "mu_MeV": 0.0,
         "omega_MeV": 15.0,
         "production_direct_angular": 0.007206301278310011,
-        "production_kernel": 0.0072063012783100105,
+        "production_kernel": 0.007206301278310012,
         "production_relative_residual": 1.2036157031056205e-16,
         "detailed_balance_ratio": 1.0000000000000002,
         "detailed_balance_relative_residual": 2.220446049250313e-16
@@ -675,7 +675,7 @@
     "interpretation": "The finite-difference identity tests F_deg = (T/n_mu) dn_mu/dmu_mu. The Compton reconstruction checks the literal Eq. (31)-(33) algebra in the local kernel."
   },
   "eq20": {
-    "stable_reduced_absorption_max_relative_residual": 3.1261559859531063e-16,
+    "stable_reduced_absorption_max_relative_residual": 3.0562645816881856e-16,
     "identity": "Gamma_red=(1-exp(-omega/T))*Gamma_abs=(exp(omega/T)-1)*Gamma_prod"
   },
   "eq18": {
@@ -695,8 +695,8 @@
       {
         "g": 4.171689650228597e-08,
         "L_path_base": 2.437009490788894e+52,
-        "L_path_2x": 2.437019497195781e+52,
-        "relative_change": 4.106018841820713e-06
+        "L_path_2x": 2.4370194971957803e+52,
+        "relative_change": 4.106018841598669e-06
       }
     ],
     "angular_order_comparison": [
@@ -715,8 +715,8 @@
       {
         "g": 4.171689650228597e-08,
         "L_angle_base": 2.437009490788894e+52,
-        "L_angle_2x": 2.436921102217217e+52,
-        "relative_change": -3.626927675548508e-05
+        "L_angle_2x": 2.4369211022172163e+52,
+        "relative_change": -3.6269276755707125e-05
       }
     ],
     "column_path_max_relative_difference": 0.00158533227516831,
@@ -737,8 +737,8 @@
       {
         "g": 4.171689650228597e-08,
         "L_fixed_local_omega": 2.437009490788894e+52,
-        "L_conserved_Einf": 1.7238577508418032e+52,
-        "relative_change": -0.2926339608616927
+        "L_conserved_Einf": 1.723857750841803e+52,
+        "relative_change": -0.2926339608616928
       }
     ],
     "redshifted_column_max_relative_difference": 149.85459304830496,
@@ -746,6 +746,80 @@
     "interpretation": "Quadrature-only changes and a separate GR redshift diagnostic; no opacity normalization is altered."
   },
   "eq17": {
+    "global_temperature_profile_scale_sensitivity": [
+      {
+        "temperature_scale": 0.95,
+        "point": "weak",
+        "g": 4.796429536550025e-10,
+        "calculated_luminosity_erg_s": 8.043102628428795e+51,
+        "reference_luminosity_erg_s": 1.0893295563998579e+52,
+        "relative_residual": -0.2616465255004584
+      },
+      {
+        "temperature_scale": 0.95,
+        "point": "reference_peak",
+        "g": 1.1341108687336194e-08,
+        "calculated_luminosity_erg_s": 1.5329757390961813e+54,
+        "reference_luminosity_erg_s": 1.910994581282271e+54,
+        "relative_residual": -0.19781261856453847
+      },
+      {
+        "temperature_scale": 0.95,
+        "point": "high_absorption",
+        "g": 4.171689650228597e-08,
+        "calculated_luminosity_erg_s": 1.65726977981422e+52,
+        "reference_luminosity_erg_s": 1.26781475907372e+52,
+        "relative_residual": 0.3071860600716152
+      },
+      {
+        "temperature_scale": 1.0,
+        "point": "weak",
+        "g": 4.796429536550025e-10,
+        "calculated_luminosity_erg_s": 9.895240195159465e+51,
+        "reference_luminosity_erg_s": 1.0893295563998579e+52,
+        "relative_residual": -0.09162106756173971
+      },
+      {
+        "temperature_scale": 1.0,
+        "point": "reference_peak",
+        "g": 1.1341108687336194e-08,
+        "calculated_luminosity_erg_s": 1.954674495419746e+54,
+        "reference_luminosity_erg_s": 1.910994581282271e+54,
+        "relative_residual": 0.022857162738873837
+      },
+      {
+        "temperature_scale": 1.0,
+        "point": "high_absorption",
+        "g": 4.171689650228597e-08,
+        "calculated_luminosity_erg_s": 2.437009490788894e+52,
+        "reference_luminosity_erg_s": 1.26781475907372e+52,
+        "relative_residual": 0.9222125892976678
+      },
+      {
+        "temperature_scale": 1.05,
+        "point": "weak",
+        "g": 4.796429536550025e-10,
+        "calculated_luminosity_erg_s": 1.2114118702203483e+52,
+        "reference_luminosity_erg_s": 1.0893295563998579e+52,
+        "relative_residual": 0.11207105609432122
+      },
+      {
+        "temperature_scale": 1.05,
+        "point": "reference_peak",
+        "g": 1.1341108687336194e-08,
+        "calculated_luminosity_erg_s": 2.4680780042151126e+54,
+        "reference_luminosity_erg_s": 1.910994581282271e+54,
+        "relative_residual": 0.29151491500255355
+      },
+      {
+        "temperature_scale": 1.05,
+        "point": "high_absorption",
+        "g": 4.171689650228597e-08,
+        "calculated_luminosity_erg_s": 3.481995123005572e+52,
+        "reference_luminosity_erg_s": 1.26781475907372e+52,
+        "relative_residual": 1.7464541630273795
+      }
+    ],
     "same_source_nodes_boundary_24_vs_25_km": [
       {
         "g": 4.796429536550025e-10,
@@ -777,7 +851,7 @@
         "g": 4.796429536550025e-10,
         "source_weighted_mean_extra_tau_24_25": 0.0001226428872607476,
         "source_weighted_mean_extra_tau_neutrino": 0.00012263136309020254,
-        "source_weighted_mean_extra_tau_compton": 4.9164889043861694e-08,
+        "source_weighted_mean_extra_tau_compton": 4.916488904386242e-08,
         "source_weighted_mean_total_tau_25km": 0.0021314525522968353,
         "source_weighted_mean_tau_neutrino_25km": 0.0019135114546082815,
         "source_weighted_mean_tau_compton_25km": 0.00021794109768855406
@@ -786,16 +860,16 @@
         "g": 1.1341108687336194e-08,
         "source_weighted_mean_extra_tau_24_25": 0.06856733241497713,
         "source_weighted_mean_extra_tau_neutrino": 0.0685608894678954,
-        "source_weighted_mean_extra_tau_compton": 2.748716509787249e-05,
+        "source_weighted_mean_extra_tau_compton": 2.7487165097872896e-05,
         "source_weighted_mean_total_tau_25km": 1.1916550477922732,
         "source_weighted_mean_tau_neutrino_25km": 1.0698082776626294,
         "source_weighted_mean_tau_compton_25km": 0.12184677012964343
       },
       {
         "g": 4.171689650228597e-08,
-        "source_weighted_mean_extra_tau_24_25": 0.9277483969014615,
+        "source_weighted_mean_extra_tau_24_25": 0.9277483969014616,
         "source_weighted_mean_extra_tau_neutrino": 0.9276612207839744,
-        "source_weighted_mean_extra_tau_compton": 0.00037191432795694984,
+        "source_weighted_mean_extra_tau_compton": 0.00037191432795695537,
         "source_weighted_mean_total_tau_25km": 16.123655701783285,
         "source_weighted_mean_tau_neutrino_25km": 14.475011344857629,
         "source_weighted_mean_tau_compton_25km": 1.648644356925655
