@@ -214,7 +214,7 @@ def moving_muon_compton_rates(
     c, wc = np.polynomial.legendre.leggauss(angular_order)
     phi = 2.0*np.pi*np.arange(azimuth_order)/azimuth_order
     wphi = np.full(azimuth_order, 2.0*np.pi/azimuth_order)
-    prefactor = 2.0/(8.0*omega*(2.0*np.pi)**4)  # two initial-muon spins
+    prefactor = 2.0/(16.0*omega*(2.0*np.pi)**4)  # two initial-muon spins
 
     charge_results = {}
     for charge, chemical in (("mu_minus", +mu_mu), ("mu_plus", -mu_mu)):
