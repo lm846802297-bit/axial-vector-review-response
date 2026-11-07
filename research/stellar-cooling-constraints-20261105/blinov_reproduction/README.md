@@ -124,11 +124,24 @@ whereas the no-recoil threshold used in Eq. (30) is (omega>m_V=10) MeV.
 
 The suppression of the exact vacuum cross section relative to Eq. (30) at (omega\sim 10\)--(100) MeV is primarily the finite-energy/recoil correction to the Thomson-like no-recoil expression; it is not a failure of Eq. (34). At (m_V=10) MeV, the exact threshold also differs visibly from the no-recoil threshold.
 
-**Scope limitation:** these are exact vacuum two-body cross sections for a stationary initial muon. They are not a full supernova thermal rate: thermal muon momentum averaging, Pauli blocking, and the stellar distribution must be included before replacing Eq. (30) in a physical SN calculation. The paper explicitly presents B.14 in its nonrelativistic-muon/no-recoil approximation and notes that semi-Compton production is mainly relevant for (m_V\lesssim\mathrm{MeV}). Therefore the exact-recoil result is recorded as a validity diagnostic, not substituted into the literal Blinov reproduction.
+**Scope limitation:** these are exact vacuum two-body cross sections for a stationary initial muon. They are not a full supernova thermal rate: thermal muon momentum averaging, Pauli blocking, and the stellar distribution must be included before replacing Eq. (30) in a physical SN calculation. The paper explicitly presents Eq. (30) in its nonrelativistic-muon/no-recoil approximation and notes that semi-Compton production is mainly relevant for (m_V\lesssim\mathrm{MeV}). Therefore the exact-recoil result is recorded as a validity diagnostic, not substituted into the literal Blinov reproduction.
 
 The finite-recoil correction lowers the Compton rate relative to the Eq. (32) no-recoil prescription on this stationary-muon slice. Since the existing 10 MeV calculation already lies above the digitized reference at the high-coupling tail, this correction points in the wrong direction to explain the missing opacity. It does **not** justify the artificial factor-two opacity test.
 
-The full pointwise scan, cross-section ratios, phase-space residuals, and B.15/B.16 residuals are archived in `outputs/compton_detailed_balance_audit.json`, including the code hash and triggering commit. The test suite also checks the Klein--Nishina limit, Eq. (30) Thomson limit, exact threshold, Eq. (34), and Eq. (35).
+The full pointwise scan, cross-section ratios, phase-space residuals, and Eq. (31)/(32) residuals are archived in `outputs/compton_detailed_balance_audit.json`, including the code hash and triggering commit. The test suite also checks the Klein--Nishina limit, Eq. (30) Thomson limit, exact threshold, Eq. (34), and Eq. (35).
+
+
+## 4B pure-vector benchmark audit
+
+The existing literal scan is already the independent pure-vector reference path for Blinov Fig. 7; do not create a second Compton implementation merely to duplicate it. The fast audit builder checks the stored SHA-256 links between the reference implementation, reconstructed SFHo profile, refined scan and digitized Fig. 7 source:
+
+```bash
+python research/stellar-cooling-constraints-20261105/blinov_reproduction/build_pure_vector_benchmark.py
+```
+
+It writes `outputs/pure_vector_literature_benchmark.json`. The audit uses the current arXiv v2 equation numbering: Eq. (29) collision integral, Eq. (30) nonrelativistic/no-recoil cross section, Eqs. (31)--(32) production rate, Eq. (33) degeneracy factor, Eq. (34) forward/reverse cross-section ratio and Eq. (35) detailed balance. Avoid referring to these as “B.13--B.19”; the HTML/PDF version used here numbers them as Eqs. (29)--(35) within Appendix B.
+
+The current refined comparison is **not a full Fig. 7 reproduction pass**. The 10 MeV curve has a large high-absorption-tail residual (about 92%), even though the 1 and 200 MeV curves agree at the percent level and the 10 MeV peak is much closer. The discrepancy must be resolved by matched physical source/opacity checks, not by fitting an opacity multiplier. The audit output records the exact residuals and all source hashes; it does not relabel the benchmark as passed.
 
 ## Comparison ladder
 
