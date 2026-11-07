@@ -184,7 +184,7 @@ The ultralight 10^-6 and 10^-5 MeV scans are not yet converged: the 88/180/24/64
 
 The 10 MeV mismatch is not plausibly fixed by changing the B.14 Compton kernel alone: the paper identifies neutrino inverse decay as the dominant trapping channel above MeV, and the B.14 approximation is primarily relevant below MeV. A fixed-target exact-recoil diagnostic was also run; it worsens the 10 MeV literature residual and is not a substitute for the full moving-muon B.13 integral. Do not launch B.13 merely to fit the curve.
 
-The 10 MeV high-coupling tail is in the regime where the paper itself warns that new-vector backreaction can invalidate a fixed SM stellar profile. The exact s18.8-SFHo-MUONS source profile remains unavailable in the public archive; current comparisons use a reconstructed profile. Therefore no exact point-by-point reproduction claim is justified.
+The 10 MeV high-coupling tail is in the regime where the paper itself warns that new-vector backreaction can invalidate a fixed SM stellar profile. The exact s18.8-SFHo-MUONS source profile has not yet been obtained. A matching provenance lead is now identified in the Garching archive's protected Bollig/Hüdepohl 1D PROMETHEUS-VERTEX collections (radial neutrino moments/spectral data/hydro profiles and hydro radial profiles), but the archive listing alone does not prove that the exact model and t_pb=1 s snapshot are included. The linked directories return HTTP 401 without credentials. An access request and exact model/time confirmation are now P0; see ORIGINAL_SFHO188_PROFILE_ACCESS_2026-11-07.md. Current comparisons remain reconstructed-profile comparisons, not exact reproduction.
 
 ### P0-C — Fig. 4 boundaries: PASS at the current resolution
 
