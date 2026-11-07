@@ -37,3 +37,47 @@ Fig. 4 的 s18.8-SFHo 冷却边界由原版矢量 PDF 路径提取，并非作�
 `vector_reference.py` 提供独立参考率，`test_vector_reference.py` 核验解析结果，`extract_vector_reference.py` 记录公开图的路径与哈希，`run_vector_audit.py` 记录通道光度和诊断切换。输出保存在 `outputs/vector_audit/`。所有结果是内部诊断，不替换审稿回复图。
 
 本轮不更改回复信 TeX/PDF、论文正文、原扫描与图。未完成完整移动缪子热积分或作者代码比对，不把它们和原始剖面设为当前单文献复现的强制前提。文献边界诊断得到定量匹配，但逐偏振归一化对应和 Fig. 7 的 10 MeV 光度差异尚未闭合；不能把本次诊断写成完整物理验证。PR #56 保持 Draft。
+
+## Latest six-mass reproduction and polarization-transport result (2026-11-07)
+
+This section supersedes the earlier three-mass Fig. 7 summary above.
+
+### Six-curve Fig. 7 result
+
+All six vector paths are extracted from the pinned arXiv v2 source PDF member \`luminosity_snapshot_t=1.pdf\`, with source hash and drawing metadata archived. The independent scalar Appendix-B scan has been run at 40/100/16/32, 88/180/24/64, and 132/280/40/96 resolutions.
+
+| m_V (MeV) | 132/280/40/96 mean residual | maximum residual |
+|---:|---:|---:|
+| 10^-6 | 4.62% | 12.90% |
+| 10^-5 | 4.63% | 13.49% |
+| 0.1 | 2.68% | 15.08% |
+| 1 | 1.47% | 2.34% |
+| 10 | 15.84% | 92.09% |
+| 200 | 0.56% | 1.47% |
+
+Only the 1 and 200 MeV full curves pass the provisional 5% mean / 10% maximum criteria. The ultralight curves remain quadrature-sensitive: the 88/180/24/64 to 132/280/40/96 change on source vertices is about 6% mean and 24% maximum. A 176/360/64/128 scan is running for 10^-6 and 10^-5 MeV. The 0.1 MeV curve has a smaller mean residual but a maximum residual above 10%. The 10 MeV discrepancy is stable under quadrature refinement.
+
+### Fig. 4 boundary recheck
+
+At 88/180/24/64, the four 1, 10, 100, and 200 MeV lower/upper boundary deviations are +0.94%/+0.25%, +0.49%/+1.02%, -0.73%/+1.06%, and -1.14%/+2.82%, respectively. The maximum is within the provisional 3% tolerance, with the 200 MeV upper edge closest to the limit. This does not imply that the full Fig. 7 curves pass.
+
+### P1: scalar-summed versus mode-resolved transport
+
+The new [transport prescription output](outputs/vector_audit/transport_prescription_comparison.json) is a controlled comparison with identical B.14 local kernels:
+
+- \`blinov_literal\`: the scalar polarization-summed opacity used as a single attenuation rate;
+- \`thomson_modes\`: the same B.14 local rates, but each polarization is attenuated with its own opacity;
+- \`blinov_average\`: arithmetic average opacity, diagnostic only.
+
+The mode-resolved luminosity is higher than the scalar-summed luminosity at all source vertices. Its mean increase relative to the scalar-summed prescription is 111%, 157%, 677%, 447%, 558%, and 244% for 10^-6, 10^-5, 0.1, 1, 10, and 200 MeV, respectively. The largest pointwise increases exceed two orders of magnitude in some high-trapping tails. The mode rates themselves sum to the scalar local rates and pass the independent rate/detailed-balance tests. The difference therefore arises from applying the nonlinear escape factor before or after polarization summation, not from a missing local factor.
+
+The arithmetic-average-opacity diagnostic does not reproduce the published Fig. 7 curves and is not adopted. The scalar-summed lane remains the literal literature-reproduction prescription; the mode-resolved lane remains a distinct physical transport calculation. No factor of three is silently inserted or removed.
+
+### Interpretation of 10 MeV and scope
+
+The published paper states that neutrino inverse decay dominates trapping above the MeV scale, while semi-Compton absorption is mainly relevant below the MeV scale. Its B.14 no-recoil approximation is specifically motivated for m_V below the MeV scale. The 10 MeV high-coupling mismatch is therefore not assigned to B.14 alone. A fixed-target exact-recoil diagnostic worsens the residual and is not the full moving-muon B.13 integral.
+
+The paper also explicitly warns that the high-coupling region above the dash-dotted lines has significant theoretical uncertainty because the vector can alter the supernova dynamics, making a fixed SM profile unreliable. The exact s18.8-SFHo-MUONS source profile is not publicly available in the current audit. Thus the 10 MeV tail remains unresolved under the reconstructed profile; no fitted rescaling is used.
+
+**Current disposition:** P0-A local integrals pass; P0-C Fig. 4 boundaries pass the provisional tolerance; P0-B full Fig. 7 reproduction remains blocked. The mixed-current scan is not authorized yet. The manuscript and referee-response files remain unchanged; PR #56 remains Draft.
+
