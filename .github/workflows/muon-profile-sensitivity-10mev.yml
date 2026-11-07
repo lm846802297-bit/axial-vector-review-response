@@ -70,6 +70,29 @@ jobs:
           if git diff --cached --quiet; then
             echo "Muon-profile sensitivity output is already current."
           else
-            git commit -m "Archive 10 MeV muon-profile sensitivity audit"
-            git push origin HEAD:codex/major44-axial-cooling-constraints-20261105
+            git commit -m "Archive 10 MeV muon-profile and chemical-potential provenance audits"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin "${GITHUB_REF_NAME}"
+              if ! git rebase "origin/${GITHUB_REF_NAME}"; then
+                if git diff --name-only --diff-filter=U | grep -Fxq "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/muon_chemical_potential_provenance_audit.json"; then
+                  git checkout --theirs -- research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/muon_chemical_potential_provenance_audit.json
+                  git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/muon_chemical_potential_provenance_audit.json
+                  GIT_EDITOR=true git rebase --continue
+                elif git diff --name-only --diff-filter=U | grep -Fxq "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/muon_profile_sensitivity_10mev.json"; then
+                  git checkout --theirs -- research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/muon_profile_sensitivity_10mev.json
+                  git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/muon_profile_sensitivity_10mev.json
+                  GIT_EDITOR=true git rebase --continue
+                else
+                  git rebase --abort
+                  echo "Unexpected non-output rebase conflict."
+                  exit 1
+                fi
+              fi
+              if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+                exit 0
+              fi
+              echo "Push raced with another workflow; retry ${attempt}/5."
+              sleep 2
+            done
+            exit 1
           fi
