@@ -19,7 +19,7 @@
     "run_dimuon_validation.py": "92f5deab5d8eaf425138706cb43941363181fc9b56cc78b5b1c932edb4032b17",
     "moving_compton.py": "297e3a217e7122f21711e4912da85e767244e24efa0af67398520a1daeedd8d6",
     "test_moving_compton.py": "101d58bc081d0e49b2ad54ae786e5fabc22e0482bcff8fd4ec721a645966bbe7",
-    "moving_compton_derivation.md": "037042be0dc02823d90102509b76b1f3ca01c4e388125e70ef6fd1f6e8f1717f"
+    "moving_compton_derivation.md": "750514e356acdc625a0c7ebc168b1896c17dc8c10dad2f1f582da938aaa8d4f5"
   },
   "benchmarks": {
     "m300_T30_mu80_pure_axial": {
