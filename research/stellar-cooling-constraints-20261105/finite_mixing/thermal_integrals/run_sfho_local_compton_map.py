@@ -16,7 +16,7 @@ import time
 import numpy as np
 
 HERE = Path(__file__).resolve().parent
-ROOT = HERE.parents[2]
+ROOT = HERE.parents[1]
 PROFILE = ROOT / "data" / "sfho188_digitized.csv"
 PROVENANCE = ROOT / "data" / "profile_provenance.json"
 sys.path.insert(0, str(ROOT))
