@@ -68,11 +68,6 @@ class DimuonThermalIntegralTests(unittest.TestCase):
         np.testing.assert_allclose(q64, q128, rtol=3e-3, atol=0.0)
         np.testing.assert_allclose(q128, q192, rtol=3e-5, atol=0.0)
 
-    def test_momentum_quadrature_converges(self):
-        lo = dimuon_thermal_integral(300.0, 30.0, 80.0, 0.0, 1.0, order=64)
-        hi = dimuon_thermal_integral(300.0, 30.0, 80.0, 0.0, 1.0, order=128)
-        np.testing.assert_allclose(lo["Q_by_mode"], hi["Q_by_mode"], rtol=3e-3, atol=0.0)
-
 
 if __name__ == "__main__":
     unittest.main()
