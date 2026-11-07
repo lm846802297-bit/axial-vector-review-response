@@ -165,6 +165,13 @@ def run(profile_path, fig7_path, nr=88, ne=180, na=24, ns=64,
     l_angle2, cols_angle2 = _luminosity_for_setup(
         baseline, 25.0, 2*na, ns, couplings)
 
+    # Compare angle-averaged columns because the raw arrays have different
+    # angular axes when the quadrature order changes.
+    tau_angle_base = np.einsum(
+        "rae,a->re", cols_base, np.polynomial.legendre.leggauss(na)[1]/2.0)
+    tau_angle_refined = np.einsum(
+        "rae,a->re", cols_angle2, np.polynomial.legendre.leggauss(2*na)[1]/2.0)
+
     # Independent boundary diagnostic: truncate at the last radius with a
     # directly reconstructed lapse rather than applying the 25 km extension.
     r24 = _profile_rate_and_source(profile_path, 24.0, nr, ne, energy_offset)
@@ -189,7 +196,8 @@ def run(profile_path, fig7_path, nr=88, ne=180, na=24, ns=64,
             for g, a, b in zip(couplings, l_base, l_angle2)
         ],
         "column_path_max_relative_difference": _relative(cols_path2, cols_base),
-        "column_angle_max_relative_difference": _relative(cols_angle2, cols_base),
+        "angle_averaged_column_max_relative_difference":
+            _relative(tau_angle_refined, tau_angle_base),
         "interpretation": "Quadrature-only changes; no opacity normalization is altered.",
     }
     eq17 = {
