@@ -4,9 +4,9 @@
 This extracts only public-paper figure geometry, not simulation data.
 """
 from __future__ import annotations
-import argparse, hashlib, json
+import argparse, csv, hashlib, json
 from pathlib import Path
-import pymupdf
+import pymupdf\nimport numpy as np
 
 def main():
     p=argparse.ArgumentParser()
@@ -42,16 +42,55 @@ def main():
             "first_points":pts[:4],
             "last_points":pts[-4:] if pts else [],
         })
+    # Fig. 4, yellow SFHo-18.8 curve. The color and legend are cross-checked
+    # against the published figure. Axes are calibrated from PDF tick paths:
+    # r=5,10,15,20 km at x=390.4282,443.4384,496.4469,549.4571;
+    # mu_mu/T=+2,0,-2,-4 at y=187.6936,208.4416,229.1909,249.9405.
+    curve_index = 193
+    drawing = page.get_drawings()[curve_index]
+    color = list(drawing["color"]) if drawing.get("color") else None
+    if color is None or max(abs(a-b) for a,b in zip(color,[0.7,0.7,0.0])) > 0.01:
+        raise ValueError(f"Expected yellow SFHo-18.8 curve at path 193, got {color}")
+    points=[]
+    for item in drawing["items"]:
+        if item[0] != "l":
+            raise ValueError(f"Unexpected non-line item in Fig. 4 path: {item[0]}")
+        points.extend([[float(item[1].x),float(item[1].y)],
+                       [float(item[2].x),float(item[2].y)]])
+    pnts=np.asarray(points,dtype=float)
+    pnts=pnts[np.argsort(pnts[:,0],kind="stable")]
+    _,keep=np.unique(pnts[:,0],return_index=True)
+    pnts=pnts[keep]
+    x0,x20=348.020751953125,549.4570922851562
+    y0,y2=208.44161987304688,187.69357299804688
+    radius=1.0+(pnts[:,0]-x0)*19.0/(x20-x0)
+    degeneracy=(y0-pnts[:,1])*2.0/(y0-y2)
+    curve=np.column_stack([radius,degeneracy])
+    csv_path=a.output.with_name("bollig_fig4_sfho188_muon_degeneracy.csv")
+    csv_path.parent.mkdir(parents=True,exist_ok=True)
+    np.savetxt(csv_path,curve,delimiter=",",header="r_km,mu_mu_over_T",comments="",fmt="%.10g")
+    samples=[]
+    for r in [1,5,8,10,12,15,18,20]:
+        b=float(np.interp(r,radius,degeneracy))
+        samples.append({"r_km":r,"bollig_fig4_mu_mu_over_T":b})
     result={
-        "title":"Bollig et al. Fig. 4 public-PDF vector-path inventory",
+        "title":"Bollig et al. Fig. 4 public-PDF vector-path audit",
         "source":"https://arxiv.org/pdf/2005.07141v7",
         "pdf_sha256":hashlib.sha256(raw).hexdigest(),
         "page_index":2,
         "page_rect":[float(page.rect.x0),float(page.rect.y0),float(page.rect.x1),float(page.rect.y1)],
         "drawing_count":len(rows),
+        "fig4_curve":{"drawing_index":curve_index,"rgb":color,"path_segments":len(drawing["items"]),
+                      "deduplicated_vertices":len(curve),"line_width_pdf_points":float(drawing["width"]),
+                      "radius_calibration":{"r1_x":x0,"r20_x":x20},
+                      "degeneracy_calibration":{"mu_over_T_plus2_y":y2,"mu_over_T_zero_y":y0,
+                                                "mu_over_T_minus2_y":229.1908721923828,
+                                                "mu_over_T_minus4_y":249.9405059814453},
+                      "samples":samples,"csv":str(csv_path.name)},
         "drawings":rows,
         "limitations":["PDF paths are public figure geometry, not original simulation samples.",
-                       "Curve-to-model identity requires color/legend and axis calibration checks."],
+                       "The digitized line is the SFHo-18.8 yellow curve, identified from the legend.",
+                       "The curve is a published plotting output; it is not a substitute for the original simulation table."],
     }
     a.output.parent.mkdir(parents=True,exist_ok=True)
     a.output.write_text(json.dumps(result,indent=2)+"\n",encoding="utf-8")
