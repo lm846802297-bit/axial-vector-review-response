@@ -181,6 +181,7 @@ def run(profile_path, fig7_path, nr=88, ne=180, na=24, ns=64,
         MASS, baseline["energies"], 24.0,
         angular_order=na, path_order=ns)
     cols25_same_source = cols_base[inner_mask]
+    angle_weights25 = np.polynomial.legendre.leggauss(na)[1] / 2.0
     source_inner = baseline["source"][inner_mask]
     shell_tau_unit = np.maximum(cols25_same_source-cols24_same_source, 0.0)
     l24_same_source = []
@@ -190,7 +191,7 @@ def run(profile_path, fig7_path, nr=88, ne=180, na=24, ns=64,
         esc24 = np.einsum(
             "rae,a->re", np.exp(-g*g*cols24_same_source), angle_weights24)
         esc25 = np.einsum(
-            "rae,a->re", np.exp(-g*g*cols25_same_source), angle_weights)
+            "rae,a->re", np.exp(-g*g*cols25_same_source), angle_weights25)
         l24_same_source.append(float(g*g*np.sum(source_inner*esc24)))
         l25_same_source.append(float(g*g*np.sum(source_inner*esc25)))
         weights_tau = source_inner[:, None, :] * angle_weights[None, :, None]
