@@ -73,7 +73,7 @@ def _profile_rate_and_source(profile_path, radius_km, nr, ne, energy_offset):
     reconstructed_compton = np.zeros_like(rates["compton_production"])
     mask = velocity > 0.0
     reconstructed_compton[:, mask] = (
-        n_mu[:, None] * f_deg[:, None]
+        n_mu * f_deg
         * (2.0/velocity[mask])[None, :]
         * bose[:, mask] * sigma[mask][None, :])
     eq31_residual = _relative(
