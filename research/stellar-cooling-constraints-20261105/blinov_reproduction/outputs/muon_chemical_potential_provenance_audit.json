@@ -1,0 +1,175 @@
+{
+  "title": "SFHo-18.8 muon chemical-potential provenance and convention audit",
+  "status": "diagnostic_only_unresolved_source_discrepancy",
+  "model_claims": {
+    "caputo": "Garching SFHo-18.8, t_pb=1 s; Fig. 1 includes mu_mu and n_mu",
+    "ferreira": "Garching Prometheus-Vertex SFHo-18.8, t_pb=1 s; Fig. 1 orange dashed curve is labeled mu_mu",
+    "shared_upstream_reference": "Bollig et al., arXiv:2005.07141 / PRL 125, 051104 (2020)"
+  },
+  "distribution_convention": {
+    "negative_muon": "f_mu-(E)=1/[exp((E-mu_mu)/T)+1]",
+    "single_particle_energy": "E=sqrt(p^2+m_mu^2), including the vacuum muon rest mass",
+    "density": "n_mu-=1/pi^2 int_0^infinity dp p^2 f_mu-(E)",
+    "rest_energy_shift_identity": "E_kin=E_total-m_mu and mu_kin=mu_total-m_mu leave E-mu invariant",
+    "conclusion": "A consistent rest-energy zero shift cannot change the occupation or density; a constant shift of mu alone is not a valid convention conversion."
+  },
+  "inputs": {
+    "profile_csv_sha256": "08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9",
+    "caputo_nmu_curve_sha256": "c90b729bb43cad15acdb122c1a8bb466e0b168a0f0d3aaeb457cfbc4dbffe6b1",
+    "muon_mass_MeV": 105.6583755,
+    "n0_fm3": 0.181
+  },
+  "temperature_profile_overlap_max_relative_difference": 0.0026650842561763955,
+  "sampled_muon_degeneracy_parameters": [
+    {
+      "r_km": 0.0,
+      "mu_mu_over_T_caputo": 2.4227247734921016,
+      "mu_mu_over_T_ferreira": 13.230594958896894
+    },
+    {
+      "r_km": 5.0,
+      "mu_mu_over_T_caputo": 2.2138198651902226,
+      "mu_mu_over_T_ferreira": 9.200330609750813
+    },
+    {
+      "r_km": 8.0,
+      "mu_mu_over_T_caputo": 2.3629764701441,
+      "mu_mu_over_T_ferreira": 4.309232943226113
+    },
+    {
+      "r_km": 10.0,
+      "mu_mu_over_T_caputo": 3.0312834574863574,
+      "mu_mu_over_T_ferreira": 3.8652206938279843
+    },
+    {
+      "r_km": 15.0,
+      "mu_mu_over_T_caputo": 4.707184695139311,
+      "mu_mu_over_T_ferreira": 5.188346793118662
+    },
+    {
+      "r_km": 20.0,
+      "mu_mu_over_T_caputo": 3.5133058516362525,
+      "mu_mu_over_T_ferreira": 2.95270301376187
+    }
+  ],
+  "muon_chemical_potential_differences": [
+    {
+      "r_km": 0.0,
+      "delta_mu_ferreira_minus_caputo_MeV": 208.21600885
+    },
+    {
+      "r_km": 5.0,
+      "delta_mu_ferreira_minus_caputo_MeV": 177.17615258
+    },
+    {
+      "r_km": 8.0,
+      "delta_mu_ferreira_minus_caputo_MeV": 75.60655837000002
+    },
+    {
+      "r_km": 10.0,
+      "delta_mu_ferreira_minus_caputo_MeV": 28.29335590000001
+    },
+    {
+      "r_km": 15.0,
+      "delta_mu_ferreira_minus_caputo_MeV": 6.366455799999997
+    },
+    {
+      "r_km": 20.0,
+      "delta_mu_ferreira_minus_caputo_MeV": -2.357011479999999
+    }
+  ],
+  "density_comparison": [
+    {
+      "r_km": 0.0,
+      "T_caputo_MeV": 19.26522111,
+      "T_ferreira_MeV": 19.27000158,
+      "mu_mu_caputo_MeV": 46.67432845,
+      "mu_mu_ferreira_MeV": 254.8903373,
+      "n_mu_caputo_fm3": 9.580878079372892e-05,
+      "n_mu_ferreira_mu_only_fm3": 0.05898539005919818,
+      "n_mu_ferreira_native_T_fm3": 0.058987439119265635,
+      "n_mu_caputo_figure_fm3": 9.62766490461e-05,
+      "mu_mu_over_T_caputo": 2.4227247734921016,
+      "mu_mu_over_T_ferreira": 13.230594958896894,
+      "ferreira_over_caputo_mu_only_density": 615.6574540510071
+    },
+    {
+      "r_km": 5.0,
+      "T_caputo_MeV": 25.3597481,
+      "T_ferreira_MeV": 25.359537,
+      "mu_mu_caputo_MeV": 56.14191412,
+      "mu_mu_ferreira_MeV": 233.3180667,
+      "n_mu_caputo_fm3": 0.0004670996760359583,
+      "n_mu_ferreira_mu_only_fm3": 0.04613473861463692,
+      "n_mu_ferreira_native_T_fm3": 0.04613462918033922,
+      "n_mu_caputo_figure_fm3": 0.00046954309089233646,
+      "mu_mu_over_T_caputo": 2.2138198651902226,
+      "mu_mu_over_T_ferreira": 9.200330609750813,
+      "ferreira_over_caputo_mu_only_density": 98.76850912456075
+    },
+    {
+      "r_km": 8.0,
+      "T_caputo_MeV": 38.84717118,
+      "T_ferreira_MeV": 38.84443835,
+      "mu_mu_caputo_MeV": 91.79495143,
+      "mu_mu_ferreira_MeV": 167.4015098,
+      "n_mu_caputo_fm3": 0.004660747268760058,
+      "n_mu_ferreira_mu_only_fm3": 0.020792257546530777,
+      "n_mu_ferreira_native_T_fm3": 0.020790719261620398,
+      "n_mu_caputo_figure_fm3": 0.0046839447431786755,
+      "mu_mu_over_T_caputo": 2.3629764701441,
+      "mu_mu_over_T_ferreira": 4.309232943226113,
+      "ferreira_over_caputo_mu_only_density": 4.461142462260635
+    },
+    {
+      "r_km": 10.0,
+      "T_caputo_MeV": 33.92744042,
+      "T_ferreira_MeV": 33.91271626,
+      "mu_mu_caputo_MeV": 102.8436889,
+      "mu_mu_ferreira_MeV": 131.1370448,
+      "n_mu_caputo_fm3": 0.004494302191698455,
+      "n_mu_ferreira_mu_only_fm3": 0.008732721624735243,
+      "n_mu_ferreira_native_T_fm3": 0.008727235411023784,
+      "n_mu_caputo_figure_fm3": 0.0045148590442319735,
+      "mu_mu_over_T_caputo": 3.0312834574863574,
+      "mu_mu_over_T_ferreira": 3.8652206938279843,
+      "ferreira_over_caputo_mu_only_density": 1.9430650748998777
+    },
+    {
+      "r_km": 15.0,
+      "T_caputo_MeV": 13.23141583,
+      "T_ferreira_MeV": 13.24147465,
+      "mu_mu_caputo_MeV": 62.28271809,
+      "mu_mu_ferreira_MeV": 68.64917389,
+      "n_mu_caputo_fm3": 4.013551887870917e-05,
+      "n_mu_ferreira_mu_only_fm3": 6.447519249214783e-05,
+      "n_mu_ferreira_native_T_fm3": 6.46937773035712e-05,
+      "n_mu_caputo_figure_fm3": 4.056968293196382e-05,
+      "mu_mu_over_T_caputo": 4.707184695139311,
+      "mu_mu_over_T_ferreira": 5.188346793118662,
+      "ferreira_over_caputo_mu_only_density": 1.6064372479397595
+    },
+    {
+      "r_km": 20.0,
+      "T_caputo_MeV": 4.204423026,
+      "T_ferreira_MeV": 4.206281365,
+      "mu_mu_caputo_MeV": 14.77142402,
+      "mu_mu_ferreira_MeV": 12.41441254,
+      "n_mu_caputo_fm3": 6.811570122997781e-14,
+      "n_mu_ferreira_mu_only_fm3": 3.888485760334608e-14,
+      "n_mu_ferreira_native_T_fm3": 3.929500976996531e-14,
+      "n_mu_caputo_figure_fm3": null,
+      "mu_mu_over_T_caputo": 3.5133058516362525,
+      "mu_mu_over_T_ferreira": 2.95270301376187,
+      "ferreira_over_caputo_mu_only_density": 0.5708648211968022
+    }
+  ],
+  "interpretation": [
+    "The matched-T density comparison isolates the effect of changing mu_mu while holding T fixed.",
+    "The native-Ferreira-T column uses the Ferreira T and mu_mu curves together; the temperature curves agree at the sub-percent level over their overlap.",
+    "The Caputo mu_mu curve reproduces the independently plotted Caputo n_mu profile, providing an internal thermodynamic consistency check.",
+    "The Ferreira mu_mu curve implies a substantially different muon abundance in the inner core. This is not explained by a simple rest-mass convention shift.",
+    "Neither curve is silently substituted for the other. The discrepancy may reflect different source data/version/snapshot or a plotting/input issue; the public figures alone do not decide which.",
+    "No Garching raw archive data were accessed or redistributed."
+  ]
+}
