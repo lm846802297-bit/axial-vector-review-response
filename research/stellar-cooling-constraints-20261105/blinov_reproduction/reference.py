@@ -49,7 +49,11 @@ def fermi_pair_average(mu, omega, temperature, velocity):
     result = (1.0 - mean_f) * inv_bose
     rest = (expit((mu - omega / 2.0) / temperature)
             * expit((-mu - omega / 2.0) / temperature))
-    result = np.where(velocity < 1.0e-7, rest, result)
+    # Besides v -> 0, the antiderivative loses precision when omega/T is
+    # tiny: the Fermi-angle average approaches one and 1-mean_f cancels.
+    # The rest-limit angular average is accurate to O((omega/T)^2) here.
+    result = np.where((velocity < 1.0e-7) | (omega / temperature < 1.0e-3),
+                      rest, result)
     if np.any(result < -1.0e-12):
         raise FloatingPointError("Fermi-pair average became negative")
     return np.maximum(result, 0.0)
