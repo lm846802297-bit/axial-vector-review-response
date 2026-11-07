@@ -2,7 +2,7 @@
   "title": "Outer 15--25 km neutrino inverse-decay absorption audit",
   "status": "diagnostic_complete_not_a_curve_fit",
   "source": "Blinov et al., arXiv:2511.09619v2, Appendix B, Eqs. (B1)--(B10)",
-  "run_commit_sha": "5d1d7d1290e09c48194d8e4ec258b2c949c47518",
+  "run_commit_sha": "8132388137fe5ebcd2821be00943daf59e2523ab",
   "profile_sha256": "08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9",
   "quadrature": {
     "nr": 40,
@@ -16,7 +16,7 @@
     "coupling_high_absorption": 4.171689650228597e-08,
     "nu_mu_profile_source": "Caputo Fig. 1; |mu_numu| curves are digitized only while >=1 MeV",
     "outer_mu_numu_baseline": "zero-filled where the public logarithmic plot does not resolve |mu_numu|<1 MeV",
-    "nu_tau_assumption": "mu_nu_tau=0, as in the existing two-flavor implementation",
+    "nu_tau_assumption": "mu_nu_tau=0 baseline; no separate nu_tau chemical-potential curve is present in the public Caputo Fig. 1 reconstruction",
     "outer_temperature": "Caputo public PDF vector path through 25 km; no fitted tail"
   },
   "rate_split_max_relative_residual": 5.6051443721021175e-16,
