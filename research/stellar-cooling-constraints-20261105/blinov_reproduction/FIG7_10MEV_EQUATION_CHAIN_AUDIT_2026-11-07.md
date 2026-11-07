@@ -98,6 +98,14 @@ The archived three-layer decomposition gives a weak-coupling residual of \(-8.89
 
 The one-factor opacity stress test shows that changing the neutrino opacity has a much larger effect on the high-coupling tail than changing the semi-Compton opacity. These are diagnostic sensitivities only; neither a rescaled opacity nor a fitted profile is adopted. The channel split itself passes internal sum checks at relative residuals below \(7\times10^{-16}\), but the three-layer audit explicitly reuses the reference detailed-balance prescription and is not an independent microscopic derivation of the inverse rates.
 
+### Muon chemical-potential profile: an important unresolved profile input
+
+A separate archived diagnostic substitutes only the Ferreira \\(\\mu_\\mu(r)\\) digitization while holding the Caputo temperature, \\(\\mu_{\\nu_\\mu}\\), lapse, mass, and transport prescription fixed. It changes the 10 MeV luminosity curve substantially: the weak-coupling residual changes from -8.89% to +43.91%, the peak from +2.57% to +33.91%, and the high-absorption residual from +92.24% to +65.04%.
+
+The corresponding digitized \\(\\mu_\\mu\\) profiles differ strongly: the archived Caputo profile ranges up to about 103.5 MeV, whereas the Ferreira-only alternative reaches about 254.9 MeV. The diagnostic explicitly treats the Ferreira curve as an alternative reconstruction, not as the correct profile for the Blinov snapshot. It does not justify replacing the baseline. It does show that the weak-source normalization and trapping curve are sensitive to the muon chemical-potential reconstruction, whereas the \\(\\mu_{\\nu_\\mu}\\) scaling test has little effect on the high tail.
+
+The original simulation profile or a source-specific, internally consistent digitization of all thermodynamic variables is therefore more important than another arbitrary global opacity rescaling. This is a profile-provenance issue, not evidence that the alternative Ferreira profile should be selected.
+
 ### Absorber-radius decomposition of the optical depth
 
 The path integral is further split by the radius of the **absorbing material** (not the production radius). At the high-absorption point, the source-weighted mean neutrino optical-depth contributions from absorber shells are:
