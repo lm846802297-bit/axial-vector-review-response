@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   direct-collision-integrals:
@@ -40,9 +40,16 @@ jobs:
         run: |
           python research/stellar-cooling-constraints-20261105/audit_direct_collision_integrals.py \
             --output research/stellar-cooling-constraints-20261105/outputs/direct_collision_integrals_2026-11-07.json
-      - name: Archive direct integral results
-        uses: actions/upload-artifact@v4
-        with:
-          name: direct-collision-integrals-${{ github.sha }}
-          path: research/stellar-cooling-constraints-20261105/outputs/direct_collision_integrals_2026-11-07.json
-          if-no-files-found: error
+      - name: Commit reproducible direct-integral results
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/stellar-cooling-constraints-20261105/outputs/direct_collision_integrals_2026-11-07.json
+          if git diff --cached --quiet; then
+            echo "Direct-integral output is already current."
+          else
+            git commit -m "Archive independent direct collision-integral audit"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
