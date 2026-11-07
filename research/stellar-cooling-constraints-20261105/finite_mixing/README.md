@@ -121,3 +121,16 @@ Execution:
 
 No axial luminosity or exclusion curve is generated at this stage. The pure-vector Fig. 7 mismatch remains a separate limitation on any final astrophysical exclusion claim.
 
+## 8. First numerical response scan implementation
+
+Added [response_scan.py](response_scan.py), [test_response_scan.py](test_response_scan.py), and the dedicated [GitHub Actions workflow](../../../.github/workflows/vector-axial-response-scan.yml).
+
+The scan reuses the existing Dirac-trace and decay-rate routines in the parent rates.py module. It covers:
+- 5 mediator masses and 5 energy-to-mass ratios for semi-Compton;
+- 19 scattering angles and all three physical mediator polarizations for differential response ratios;
+- angle-integrated v*sigma response ratios for each polarization;
+- the UV finite-mixing benchmark at theta_muR=10^-2, retaining amplitude-level vector--axial interference with the physical g_A convention;
+- 9 dimuon masses from immediately above threshold to 5 times threshold, including mode-resolved thermal production/absorption ratios and the analytic vacuum-width ratio.
+
+**Validation status:** source, tests, and CI workflow are committed; the workflow result has not yet been retrieved/verified. Do not describe the numerical scan as passed until the Actions job completes and its JSON artifact is inspected. The scan is a local-kernel comparison only. It does not validate stellar transport, the Blinov pure-vector Fig. 7 benchmark, or an axial exclusion curve.
+
