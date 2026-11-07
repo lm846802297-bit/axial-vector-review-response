@@ -109,3 +109,19 @@ Only after Lane A reproduces the published pure-vector result and Lane B has a d
 
 **Current disposition remains BLOCKED.** This source audit does not resolve the 10 MeV Fig. 7 mismatch, does not validate the 259 MeV mode-resolved endpoint, and does not authorize a mixed-current luminosity scan or exclusion curve.
 
+## Priority reset: microscopic forward/reverse rates first (2026-11-07)
+
+The 10 MeV three-layer diagnostic reports a source-weighted mean reduced-opacity split of 89.78% neutrino inverse decay and 10.22% inverse Compton. This is specific to the 10 MeV benchmark and its source weighting; it is not assumed to hold at other masses or for every local ray.
+
+The immediate P0 work is therefore:
+
+1. **Neutrino inverse decay:** independently integrate production \(f_1f_2\) and absorption \((1-f_1)(1-f_2)\), using adaptive quadrature separate from the production solver's Gauss--Legendre implementation. Resolve \(\nu_\mu\), \(\nu_\tau\), and each polarization. Compare both rates and verify \(\Gamma_{h,\rm abs}/\Gamma_{h,\rm prod}=e^{\omega/T}\).
+2. **Semi-Compton:** independently integrate forward \(f_\gamma\) and inverse \(1+f_\gamma\) factors in the B.14--B.19 no-recoil approximation, and compare the summed normalization with B.14/B.16. Keep this audit distinct from the full moving-muon B.13 thermal integral. The existing exact-recoil fixed-target collision-integrand test remains a separate pointwise B.19 check.
+3. **P1 local diagnostics:** after both rate audits pass, compare channel-resolved local rates and optical depths at three representative \((r,\omega,m_V)\) points; inspect their radial and energy support.
+4. **P1 transport:** compare the direction-averaged escape probability and the full Fig. 7 high-coupling tail, without reducing the average of exponentials to the exponential of an average optical depth.
+5. **P2 current switch:** only after the pure-vector full-curve benchmark passes, run the pure-axial and finite-mixing cases with the same validated transport prescription.
+
+The adaptive reference and acceptance criteria are recorded in [DIRECT_COLLISION_INTEGRAL_AUDIT_2026-11-07.md](../DIRECT_COLLISION_INTEGRAL_AUDIT_2026-11-07.md). The new tests and workflow are internal validation assets; they do not authorize any production-rate rescaling or mixed-current scan. In particular, the existing neutrino code already evaluates both Fermi products and Pauli-blocking factors separately; the independent adaptive calculation is intended to test that implementation, not to imply that its absorption rate was previously inferred from its production rate.
+
+**Gate remains BLOCKED** until the published pure-vector full Fig. 7 comparison passes. A successful local detailed-balance test is necessary, but not sufficient, for the literature benchmark.
+
