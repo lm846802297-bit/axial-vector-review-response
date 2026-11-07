@@ -465,14 +465,15 @@ def run(profile_path, fig7_path, nr=88, ne=180, na=24, ns=64,
                 0.0, eloc, tloc, vloc))
             pref_loc = MASS*MASS/(8.0*np.pi*eloc)
             vac_one_flavour = MASS*MASS/(24.0*np.pi*eloc)
+            vac_polarization_sum = 3.0*vac_one_flavour
             outer_local_absorption.append({
                 "r_km": float(baseline["radial_grid"][ir]),
                 "T_MeV": tloc, "mu_numu_MeV": muloc,
                 "omega_MeV": eloc, "omega_over_T": xloc,
-                "numu_reduced_rate_over_one_flavour_vacuum_width":
-                    bal*pref_loc*i_mu_loc/vac_one_flavour,
-                "nutau_reduced_rate_over_one_flavour_vacuum_width":
-                    bal*pref_loc*i_tau_loc/vac_one_flavour,
+                "numu_reduced_rate_over_polarization_summed_vacuum_width":
+                    bal*pref_loc*i_mu_loc/vac_polarization_sum,
+                "nutau_reduced_rate_over_polarization_summed_vacuum_width":
+                    bal*pref_loc*i_tau_loc/vac_polarization_sum,
             })
 
     # Separate radial/energy quadrature and high-energy-cutoff convergence
