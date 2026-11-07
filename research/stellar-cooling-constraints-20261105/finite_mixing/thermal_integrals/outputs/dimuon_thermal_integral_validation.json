@@ -16,7 +16,10 @@
     "rates.py": "2fc7bc2d3b0d7b98c191755cd2bb87944e4ebe259adc3d3bbc8e0f60dcc57f56",
     "dimuon.py": "fbb9981f531b3878c115720f78e2c871237951f961cb9e43ea559288d85df280",
     "test_dimuon.py": "a0763895b77dc74d4a9f3be4d8217bbdc35cec8c2d5e9f674fcdacccb54c9f50",
-    "run_dimuon_validation.py": "52bcf35abcc9f43ae54f5a921afbef990cdae31d6475c75de9c986b470fc5155"
+    "run_dimuon_validation.py": "92f5deab5d8eaf425138706cb43941363181fc9b56cc78b5b1c932edb4032b17",
+    "moving_compton.py": "297e3a217e7122f21711e4912da85e767244e24efa0af67398520a1daeedd8d6",
+    "test_moving_compton.py": "101d58bc081d0e49b2ad54ae786e5fabc22e0482bcff8fd4ec721a645966bbe7",
+    "moving_compton_derivation.md": "037042be0dc02823d90102509b76b1f3ca01c4e388125e70ef6fd1f6e8f1717f"
   },
   "benchmarks": {
     "m300_T30_mu80_pure_axial": {
