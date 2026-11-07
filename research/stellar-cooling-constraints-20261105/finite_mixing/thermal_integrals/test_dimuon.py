@@ -55,6 +55,16 @@ class DimuonThermalIntegralTests(unittest.TestCase):
             self.assertTrue(np.all(axial["Q_by_mode"] > 0.0))
             self.assertAlmostEqual(observed/expected, 1.0, delta=2e-8)
 
+
+    def test_nonrelativistic_mass_temperature_hierarchy_converges(self):
+        q64 = dimuon_thermal_integral(
+            3000.0, 10.0, 0.0, 0.0, 1.0, order=64
+        )["Q_by_mode"]
+        q128 = dimuon_thermal_integral(
+            3000.0, 10.0, 0.0, 0.0, 1.0, order=128
+        )["Q_by_mode"]
+        np.testing.assert_allclose(q64, q128, rtol=1e-10, atol=0.0)
+
     def test_quadrature_convergence_64_128_and_128_192(self):
         q64 = dimuon_thermal_integral(
             300.0, 30.0, 80.0, 0.0, 1.0, order=64
@@ -65,8 +75,8 @@ class DimuonThermalIntegralTests(unittest.TestCase):
         q192 = dimuon_thermal_integral(
             300.0, 30.0, 80.0, 0.0, 1.0, order=192
         )["Q_by_mode"]
-        np.testing.assert_allclose(q64, q128, rtol=3e-3, atol=0.0)
-        np.testing.assert_allclose(q128, q192, rtol=3e-5, atol=0.0)
+        np.testing.assert_allclose(q64, q128, rtol=1e-10, atol=0.0)
+        np.testing.assert_allclose(q128, q192, rtol=1e-10, atol=0.0)
 
 
 if __name__ == "__main__":
