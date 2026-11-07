@@ -244,7 +244,7 @@ def moving_muon_compton_rates(
             pvec = np.stack((p*sp, np.zeros_like(p), p*cp), axis=-1)
             nhat = np.stack((np.sqrt(np.maximum(1.0-cg*cg, 0.0))*np.cos(ph),
                              np.sqrt(np.maximum(1.0-cg*cg, 0.0))*np.sin(ph), cg), axis=-1)
-            D = ep_in+omega-np.einsum("...i,...i->...", pvec+np.array([0.0,0.0,k_mag]), nhat)
+            D = ep_final+omega-np.einsum("...i,...i->...", pvec+np.array([0.0,0.0,k_mag]), nhat)
             phase = prefactor*qw*(p*p/ep_final)*(q/D)
             total_abs += np.einsum("i,ih,i->h", phase, msq, stat_abs)
             total_prod += np.einsum("i,ih,i->h", phase, msq, stat_prod)
