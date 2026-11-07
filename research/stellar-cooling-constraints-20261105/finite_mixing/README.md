@@ -87,3 +87,18 @@ The direct equation-level audit of the published JHEP version is recorded in [VE
 - **Lane B, mode-resolved transport:** retain the physical polarization-resolved rates and propagate each mode with its own opacity. Quantify its relation to Lane A rather than assuming that a polarization sum can be exponentiated as a single-particle opacity.
 
 The two lanes must not be silently mixed. A contour crossing alone is insufficient; the complete luminosity-versus-coupling curves, particularly the 10 MeV trapping tail, must pass the documented tolerance. The finite-mixing UV scan remains on hold until the vector benchmark is reconciled and the transport prescription is fixed. No rescaling factor or fitted opacity normalization is permitted.
+
+## 6. Revised priority: independent microscopic rates before transport tuning
+
+The 10 MeV three-layer diagnostic assigns about 89.78% of the source-weighted mean reduced optical depth to neutrino inverse decay and 10.22% to inverse Compton. This is a benchmark-specific weighted decomposition, not a universal fraction.
+
+The next P0 task is therefore an independent forward/reverse collision-integral audit, not a Compton normalization adjustment:
+
+1. Neutrino channel: independently integrate both \(f_1f_2\) and \((1-f_1)(1-f_2)\) with adaptive quadrature, separately for \(\nu_\mu\), \(\nu_\tau\), and each \(L,+,-\) mode. Compare with the existing Gauss--Legendre implementation and test \(\Gamma_{\rm abs}/\Gamma_{\rm prod}=e^{\omega/T}\).
+2. Semi-Compton channel: independently integrate the forward \(f_\gamma\) and inverse \(1+f_\gamma\) thermal factors in the published B.14--B.19 no-recoil approximation, and compare the summed normalization with B.14/B.16. Keep this distinct from the full moving-muon B.13 integral.
+3. Only after both local-rate audits pass, inspect local opacity at representative radii/energies, then the escape probability and full Fig. 7 tail.
+
+The implementation and acceptance criteria are recorded in [DIRECT_COLLISION_INTEGRAL_AUDIT_2026-11-07.md](../DIRECT_COLLISION_INTEGRAL_AUDIT_2026-11-07.md). The independent audit is implemented in [audit_direct_collision_integrals.py](../audit_direct_collision_integrals.py), with regressions in [test_direct_collision_integrals.py](../test_direct_collision_integrals.py). The dedicated workflow archives the JSON output.
+
+The existing neutrino production code already evaluates production and absorption with separate Fermi factors; the new work supplies an independent adaptive-quadrature reference. The current Compton production scan still derives production from detailed balance, so the new direct B.14 thermal integral is a distinct cross-check. Neither local test substitutes for the still-required full Blinov pure-vector Fig. 7 validation. No mixed-current luminosity scan is authorized while that vector gate remains blocked.
+
