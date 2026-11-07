@@ -6,7 +6,8 @@ This extracts only public-paper figure geometry, not simulation data.
 from __future__ import annotations
 import argparse, csv, hashlib, json
 from pathlib import Path
-import pymupdf\nimport numpy as np
+import pymupdf
+import numpy as np
 
 def main():
     p=argparse.ArgumentParser()
