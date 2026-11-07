@@ -32,6 +32,25 @@ class MovingComptonMatrixElementTests(unittest.TestCase):
         )
         np.testing.assert_allclose(axial, axial_ref[0], rtol=2e-12, atol=2e-12)
 
+    def test_stationary_target_phase_space_weight_matches_existing_kernel(self):
+        mass, omega, order = 10.0, 30.0, 32
+        cosines, weights = rates.quadrature(order)
+        zeros = np.zeros_like(cosines)
+        q, _, msq = moving_compton_matrix_elements(
+            mass, omega, zeros, zeros, cosines, zeros, 1.0, 0.0
+        )
+        k = np.sqrt(omega*omega-mass*mass)
+        denominator = rates.M_MU+omega-k*cosines
+        differential_vsigma = (
+            q/(64.0*np.pi**2*rates.M_MU*omega*denominator)
+        )[:, None]*msq
+        integrated = differential_vsigma*(2.0*np.pi*weights)[:, None]
+        _, reference = rates.compton_kernels(
+            mass, [omega], order=order, current="vector"
+        )
+        np.testing.assert_allclose(integrated, reference[0],
+                                   rtol=2e-12, atol=2e-12)
+
     def test_photon_ward_identity_for_both_charge_species(self):
         args = (20.0, 45.0, np.array([25.0, 80.0]),
                 np.array([0.2, -0.4]), np.array([-0.3, 0.7]),
