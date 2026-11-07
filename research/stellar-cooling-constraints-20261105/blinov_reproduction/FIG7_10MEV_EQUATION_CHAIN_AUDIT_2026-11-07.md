@@ -24,6 +24,12 @@ The machine-readable output is outputs/fig7_10mev_equation_chain_audit.json.
 
 This verifies the numerical implementation of the stated degeneracy integral. It does not independently validate the physical accuracy of the nonrelativistic/no-recoil semi-Compton approximation or the reconstructed stellar profile.
 
+### Neutrino inverse decay: Eqs. (B6)–(B10)
+
+Because neutrino coalescence dominates the 10 MeV opacity, the Fermi-pair kernel is also checked independently. At six radii, four energies, and both the \\(\\nu_\\mu\\) and \\(\\nu_\\tau\\) flavours (48 points), the analytic production kernel agrees with direct angular integration to a maximum relative residual of \\(6.41\\times10^{-14}\\). The independently integrated inverse process satisfies Eq. (B10), \\(\\Gamma_{\\rm prod}=e^{-\\omega/T}\\Gamma_{\\rm abs}\\), with maximum relative residual \\(1.0\\times10^{-15}\\).
+
+The high-absorption point is neutrino-opacity dominated: the source-weighted mean optical depth at 25 km is 14.48 from inverse neutrino decay and 1.65 from semi-Compton absorption. The extra 24–25 km shell contributes \\(\\Delta\\tau\\simeq0.928\\), of which 0.928 is neutrino opacity and only \\(3.72\\times10^{-4}\\) is semi-Compton opacity. Thus the large high-coupling residual cannot be attributed primarily to the Compton opacity normalization.
+
 ### Eq. (20): reduced absorption
 
 The stable evaluation
