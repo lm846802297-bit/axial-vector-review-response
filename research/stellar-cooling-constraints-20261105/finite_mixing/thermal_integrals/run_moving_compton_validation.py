@@ -42,6 +42,20 @@ def matrix_element_checks():
         )
         endpoint[current] = max_rel(value, reference[0])
 
+    cosines, weights = rates.quadrature(32)
+    zeros = np.zeros_like(cosines)
+    q, _, msq = moving_compton_matrix_elements(
+        10.0, 30.0, zeros, zeros, cosines, zeros, 1.0, 0.0
+    )
+    k = np.sqrt(30.0*30.0-10.0*10.0)
+    denominator = rates.M_MU+30.0-k*cosines
+    differential = q/(64.0*np.pi**2*rates.M_MU*30.0*denominator)
+    weighted = differential[:, None]*msq*(2.0*np.pi*weights)[:, None]
+    _, reference = rates.compton_kernels(
+        10.0, [30.0], order=32, current="vector"
+    )
+    stationary_weight_residual = max_rel(weighted, reference[0])
+
     args = (
         20.0, 45.0, np.array([25.0, 80.0]), np.array([0.2, -0.4]),
         np.array([-0.3, 0.7]), np.array([0.5, 2.1]), 0.2, -0.8,
@@ -65,6 +79,7 @@ def matrix_element_checks():
     )
     return {
         "stationary_endpoint_relative_residual": endpoint,
+        "stationary_phase_space_weight_relative_residual": stationary_weight_residual,
         "photon_ward_max_abs": photon_ward,
         "vector_mediator_ward_max_abs": float(np.max(np.abs(vector_ward[:, 0]))),
         "charge_conjugation_relative_residual": max_rel(plus, minus_flip),
@@ -150,6 +165,7 @@ def main():
     max_endpoint = max(checks["stationary_endpoint_relative_residual"].values())
     acceptance = {
         "stationary_endpoint_pass": max_endpoint < 2e-12,
+        "stationary_phase_space_weight_pass": checks["stationary_phase_space_weight_relative_residual"] < 2e-12,
         "photon_ward_pass": checks["photon_ward_max_abs"] < 2e-9,
         "vector_mediator_ward_pass": checks["vector_mediator_ward_max_abs"] < 2e-9,
         "charge_conjugation_pass": checks["charge_conjugation_relative_residual"] < 2e-13,
@@ -179,6 +195,7 @@ def main():
             "moving_compton.py": sha256(HERE / "moving_compton.py"),
             "test_moving_compton.py": sha256(HERE / "test_moving_compton.py"),
             "derivation.md": sha256(HERE.parent / "MOVING_MUON_SEMI_COMPTON_DERIVATION_2026-11-07.md"),
+            "run_moving_compton_validation.py": sha256(HERE / "run_moving_compton_validation.py"),
         },
         "matrix_element_checks": checks,
         "interference_checks": interference,
