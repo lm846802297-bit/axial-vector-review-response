@@ -38,10 +38,13 @@ def dimuon_thermal_integral(
     """Integrate the exact 1<->2 dimuon channel over mediator momentum.
 
     Returns per-mode energy emissivity Q_h = integral d^3k/(2pi)^3
-    omega Gamma_prod,h and number absorption integral A_h =
-    integral d^3k/(2pi)^3 Gamma_abs,h, together with the spectral arrays.
+    omega Gamma_prod,h and the differential absorption rate
+    Gamma_abs,h(k). Absorption is intentionally not integrated over
+    mediator phase space: its energy-resolved rate is the quantity used
+    for optical depth, whereas its unweighted phase-space integral is
+    not a finite emissivity or a physical total absorption rate.
 
-    The two charge states and Pauli factors are included by
+    The mu+mu- final state and Pauli factors are included by
     charged_muon_decay_rates_mixed. The channel is exactly closed at and
     below 2*m_mu. The mediator momentum integral is isotropic.
     """
