@@ -387,6 +387,8 @@ def run(profile_path, fig7_path, nr=88, ne=180, na=24, ns=64,
     reduced_numu = balance_factor*prefactor_nu*i_numu
     reduced_nutau = balance_factor*prefactor_nu*i_nutau
     flavour_opacity = []
+    neutrino_flavour_sum_closure = _relative(
+        reduced_numu+reduced_nutau, baseline["reduced_neutrino"])
     outer_mu_sensitivity = []
     source_weights = (
         baseline["source"][:, None, :]
@@ -586,6 +588,7 @@ def run(profile_path, fig7_path, nr=88, ne=180, na=24, ns=64,
         "radial_shell_source_and_escape_decomposition": radial_shells,
         "absorber_radius_shell_optical_depth_decomposition": opacity_path_shells,
         "neutrino_flavour_absorption_by_shell": flavour_opacity,
+        "neutrino_flavour_sum_closure_max_relative_residual": neutrino_flavour_sum_closure,
         "outer_mu_numu_absorption_sensitivity": outer_mu_sensitivity,
         "radial_energy_cutoff_quadrature_sensitivity": quadrature_sensitivity,
         "same_source_nodes_boundary_24_vs_25_km": [
