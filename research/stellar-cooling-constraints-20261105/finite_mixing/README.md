@@ -143,12 +143,12 @@ For the dimuon channel, the scan now records:
 - finite-mixing production/vector and absorption/vector ratios;
 - the interference fraction in production and absorption, mode by mode;
 - the analytic vacuum-width ratio
-  \\[
-  \\frac{\\Gamma_A}{\\Gamma_V}
-  =\\frac{\\beta_\\mu^2}{1+2m_\\mu^2/m_{A'}^2},
-  \\qquad
-  \\beta_\\mu=\\sqrt{1-\\frac{4m_\\mu^2}{m_{A'}^2}}.
-  \\]
+  \[
+  \frac{\Gamma_A}{\Gamma_V}
+  =\frac{\beta_\mu^2}{1+2m_\mu^2/m_{A'}^2},
+  \qquad
+  \beta_\mu=\sqrt{1-\frac{4m_\mu^2}{m_{A'}^2}}.
+  \]
 
 The new regression tests check that the raw angle arrays are preserved and that finite-mixing observables are present for all three polarizations. These tests complement, but do not replace, the existing pure-vector/pure-axial endpoint tests in `test_mixed_rates.py`.
 
