@@ -53,6 +53,12 @@ Equation (B.2), however, does not explicitly display this remapping. The main-te
 
 This is not an arXiv-v2-only wording issue: the published JHEP 06 (2026) 155 version retains the same main-text energy-at-infinity statement and the same Appendix-B Eqs. (B.1)–(B.5). Its Data Availability Statement says no associated data will be deposited, and its Code Availability Statement says no associated code will be deposited. Therefore the public record does not allow us to determine whether the authors' numerical implementation follows the literal fixed-\(\omega\) Appendix-B expression or performs an energy remapping not displayed in Eq. (B.2).
 
+### 1.3 Relation to the cited radiative-transfer derivation
+
+The fixed-energy structure of Eq. (B.2) is not arbitrary: it follows the single-mode radiative-transfer treatment in Caputo, Raffelt, and Vitagliano, JCAP 08 (2022) 045, whose Boltzmann equation and optical-depth construction track a mode with fixed \\(\\omega\\) along a ray in a stationary medium. Separately, Caputo et al., Phys. Rev. D 105, 035022 (2022), Sec. III A 5, explain the gravitational source correction: the energy at infinity is local energy times the lapse, the emission rate receives another lapse, and the distant-observer luminosity of a shell is multiplied by (N(r)^2). This directly supports the (N(r)^2) factor and the escape threshold in Eq. (B.1), but it does not by itself derive an (r')-dependent local-energy remapping inside the attenuation integral.
+
+The most conservative reading is therefore that Blinov et al. combine the fixed-(\\omega\\) attenuation kernel inherited from the cited radiative-transfer prescription with the gravitationally corrected source luminosity and escape threshold. That is the literal baseline implemented here. The main-text phrase “energy at spatial infinity” remains insufficiently reconciled with the local-energy variable in Eq. (B.1); the conserved-(E_\\infty) calculation is retained as a diagnostic of this ambiguity, not as a replacement for the published prescription.
+
 **Decision:** preserve two separately labelled lanes:
 - **Literal Appendix-B lane:** fixed numerical \(\omega\) in \(\Gamma_{\rm abs}^{*}(r',\omega)\), as printed in Eq. (B.2).
 - **Conserved-\(E_\infty\) diagnostic:** evaluate \(\omega_{\rm loc}(r')=N(r)\omega_{\rm src}/N(r')\) and the corresponding \(v_V(r')\) along the same geometrical ray.
