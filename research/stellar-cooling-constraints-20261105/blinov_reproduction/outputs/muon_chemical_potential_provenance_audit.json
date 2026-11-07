@@ -96,43 +96,43 @@
     "fig3_muon_density": {
       "caputo_n_mu_vs_bollig_fig3": {
         "common_radius_km": [
-          0.3176595298,
+          1.301776553,
           15.27285938
         ],
         "n_uniform_comparison_samples": 501,
-        "max_abs_relative_difference": 1.404124937100986,
-        "mean_abs_relative_difference": 0.37774523237883184,
-        "rms_relative_difference": 0.46274228183641003
+        "max_abs_relative_difference": 0.10453891467113863,
+        "mean_abs_relative_difference": 0.03725298061835255,
+        "rms_relative_difference": 0.048318139190185176
       },
       "samples": [
         {
           "r_km": 1,
-          "bollig_n_mu_fm3": 0.00011069963183623846,
+          "bollig_n_mu_fm3": 9.824001942e-05,
           "caputo_n_mu_fm3": 9.62180974038059e-05
         },
         {
           "r_km": 5,
-          "bollig_n_mu_fm3": 0.000840744511775644,
+          "bollig_n_mu_fm3": 0.00046215712421806215,
           "caputo_n_mu_fm3": 0.00046954309089233646
         },
         {
           "r_km": 8,
-          "bollig_n_mu_fm3": 0.005370814830371206,
+          "bollig_n_mu_fm3": 0.004611859456401022,
           "caputo_n_mu_fm3": 0.004683944743178675
         },
         {
           "r_km": 10,
-          "bollig_n_mu_fm3": 0.0036984048834108048,
+          "bollig_n_mu_fm3": 0.00437981811584329,
           "caputo_n_mu_fm3": 0.0045148590442319735
         },
         {
           "r_km": 12,
-          "bollig_n_mu_fm3": 0.0014139603296693167,
+          "bollig_n_mu_fm3": 0.0018310520459374705,
           "caputo_n_mu_fm3": 0.0019543548663027944
         },
         {
           "r_km": 15,
-          "bollig_n_mu_fm3": 1.770442835161362e-05,
+          "bollig_n_mu_fm3": 3.686235051697572e-05,
           "caputo_n_mu_fm3": 4.056968293196382e-05
         }
       ]
