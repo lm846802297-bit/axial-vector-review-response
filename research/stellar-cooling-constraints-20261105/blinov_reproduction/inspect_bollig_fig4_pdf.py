@@ -63,7 +63,7 @@ def main():
     _,keep=np.unique(pnts[:,0],return_index=True)
     pnts=pnts[keep]
     x0,x20=348.020751953125,549.4570922851562
-    y0,y2=208.44161987304688,187.69357299804688
+    y0,y2=236.10794067382812,208.44161987304688
     radius=1.0+(pnts[:,0]-x0)*19.0/(x20-x0)
     degeneracy=(y0-pnts[:,1])*2.0/(y0-y2)
     curve=np.column_stack([radius,degeneracy])
@@ -79,7 +79,7 @@ def main():
         for line in block.get("lines",[]):
             for span in line.get("spans",[]):
                 bbox=span.get("bbox",[0,0,0,0])
-                if bbox[0]>300 and bbox[2]<610 and bbox[1]>145 and bbox[3]<270:
+                if bbox[0]>300 and bbox[2]<610 and bbox[1]>145 and bbox[3]<330:
                     text_spans.append({"text":span.get("text",""),
                                        "bbox":[float(v) for v in bbox]})
     result={
