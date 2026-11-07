@@ -51,27 +51,49 @@ def main():
         points[str(mass)]={'g':g.tolist(),'luminosity_erg_s':light.tolist(),
                            'drawing_index':index,'drawing_color':list(d['color']),
                            'source_item_count':count}
-        for variant in ['blinov_literal','exact_recoil_scalar','exact_modes']:
+        for variant in ['blinov_literal','thomson_modes','exact_recoil_scalar','exact_modes']:
             src,_,columns,angles=build(mass,HERE/'data'/'sfho188_digitized.csv',variant)
             actual=luminosities(src,columns,angles,g)
             for gg,ll,aa in zip(g,light,actual):
                 rows.append({'mass_MeV':mass,'variant':variant,'g':gg,
                              'reference_erg_s':ll,'calculated_erg_s':aa,'relative_error':aa/ll-1})
+    def paired_transport_effect(scalar_variant,mode_variant):
+        scalar={(row['mass_MeV'],row['g']):row['calculated_erg_s']
+                for row in rows if row['variant']==scalar_variant}
+        mode={(row['mass_MeV'],row['g']):row['calculated_erg_s']
+              for row in rows if row['variant']==mode_variant}
+        result={}
+        for mass in [1e-6,1e-5,0.1,1.,10.,200.]:
+            ratios=[mode[(mass,g)]/scalar[(mass,g)]-1.0
+                    for mm,g in scalar if mm==mass and (mm,g) in mode]
+            result[str(mass)]={
+                'mean_abs_luminosity_change':float(np.mean(np.abs(ratios))),
+                'max_abs_luminosity_change':float(np.max(np.abs(ratios))),
+            }
+        return result
+
     data={'source_url':'https://arxiv.org/src/2511.09619v2',
           'archive_member':args.source.name,'pdf_sha256':pdf_sha256,
           'figure':'Blinov et al., JHEP 06 (2026) 155, Fig. 7; visually cross-checked against the version-of-record PDF',
-          'reference_vertices':points,'comparison':rows}
+          'reference_vertices':points,'comparison':rows,
+          'controlled_transport_comparison':{
+              'B14_no_recoil_scalar_vs_mode_resolved':paired_transport_effect('blinov_literal','thomson_modes'),
+              'fixed_target_exact_recoil_scalar_vs_mode_resolved':paired_transport_effect('exact_recoil_scalar','exact_modes'),
+          }}
     (out/'luminosity_comparison.json').write_text(json.dumps(data,indent=2)+'\n')
     summary={}
     for mass in [1e-6,1e-5,0.1,1.,10.,200.]:
         summary[str(mass)]={}
-        for variant in ['blinov_literal','exact_recoil_scalar','exact_modes']:
+        for variant in ['blinov_literal','thomson_modes','exact_recoil_scalar','exact_modes']:
             errors=[abs(row['relative_error']) for row in rows
                     if row['mass_MeV']==mass and row['variant']==variant]
             summary[str(mass)][variant]={
                 'mean_abs_relative_error':float(np.mean(errors)),
                 'max_abs_relative_error':float(np.max(errors)),
             }
-    print(summary)
+    print({
+        'literature_residuals':summary,
+        'controlled_transport_comparison':data['controlled_transport_comparison'],
+    })
 
 if __name__=='__main__':main()
