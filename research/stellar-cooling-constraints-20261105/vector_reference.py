@@ -31,9 +31,12 @@ def fermi_pair_average(chemical, energy, temperature, velocity):
                                - np.logaddexp(0., (sign*mu-emax)/t))
     inverse_bose = np.exp(-e/t)/(-np.expm1(-e/t))
     out = (1-mean_f)*inverse_bose
-    # The antiderivative loses precision at v=0; use the exact rest limit.
+    # The antiderivative loses precision both at v=0 and when E/T is tiny:
+    # then <f1+f2> approaches 1 and 1-mean_f suffers catastrophic cancellation.
+    # At E/T < 1e-3 the exact angular average differs from the rest-limit value
+    # only at O((E/T)^2), below 1e-7 relative; use that controlled limit.
     at_rest = expit((mu-e/2)/t)*expit((-mu-e/2)/t)
-    out = np.where(v < 1e-7, at_rest, out)
+    out = np.where((v < 1e-7) | (e/t < 1e-3), at_rest, out)
     if np.any(out < -1e-13):
         raise FloatingPointError("Negative Fermi-pair integral")
     return np.maximum(out, 0.)
