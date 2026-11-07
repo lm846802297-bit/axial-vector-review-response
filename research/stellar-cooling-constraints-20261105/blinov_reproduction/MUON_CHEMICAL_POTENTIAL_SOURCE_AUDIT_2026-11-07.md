@@ -1,7 +1,7 @@
 # SFHo-18.8 muon chemical-potential source and convention audit
 
 Date: 2026-11-07  
-Status: **public-figure cross-check completed; original profile provenance unresolved**  
+Status: **Caputo baseline quantitatively cross-checked against Bollig Figs. 3 and 4; Ferreira discrepancy unresolved**  
 Scope: Blinov Fig. 7 10 MeV vector reproduction only. This note does not change the baseline profile, rates, transport prescription, or axial-vector results.
 
 ## Executive result
@@ -94,7 +94,53 @@ Bollig Fig. 4 is a direct independent diagnostic because it plots \(\mu_\mu/T\) 
 
 This is a **visual cross-check**, not a new high-precision digitization of Bollig Fig. 4. The exact numeric curve samples have not yet been extracted. The conclusion is limited to the clear inner-core inconsistency visible at the resolution of the published figure.
 
-## 4. What the convention check does and does not establish
+## 4. Quantitative upstream cross-check against Bollig et al. Figs. 3 and 4
+
+The previous version of this audit compared the two later reconstructions and only visually inspected Bollig Fig. 4. The original arXiv v7 PDF has now been digitized directly from its vector paths, so both upstream panels can be compared quantitatively.
+
+### Fig. 4: degeneracy parameter
+
+The yellow SFHo-18.8 curve is extracted from PDF drawing path 193 (219 line segments, 220 deduplicated vertices). Its axes are calibrated from the PDF tick paths. On a uniform 501-point comparison grid over (1le rle20) km:
+
+| Reconstruction | Maximum absolute relative difference from Bollig Fig. 4 | Mean absolute relative difference |
+|---|---:|---:|
+| Caputo (mu_mu(r)/T(r)) | 0.0161% | 0.00551% |
+| Ferreira (mu_mu(r)/T(r)) | 446% | 127.6% |
+
+The pointwise comparison is equally clear:
+
+| (r) (km) | Bollig (mu_mu/T) | Caputo (mu_mu/T) | Ferreira (mu_mu/T) |
+|---:|---:|---:|---:|
+| 1 | 2.4173 | 2.4173 | 13.2017 |
+| 5 | 2.2136 | 2.2138 | 9.1999 |
+| 8 | 2.3627 | 2.3629 | 4.3126 |
+| 10 | 3.0311 | 3.0313 | 3.8655 |
+| 12 | 3.6078 | 3.6078 | 4.2292 |
+| 15 | 4.7072 | 4.7071 | 5.1926 |
+| 18 | 3.9532 | 3.9535 | 4.4628 |
+| 20 | 3.5133 | 3.5132 | 2.9499 |
+
+Thus the Caputo reconstruction is not merely qualitatively compatible with Bollig Fig. 4: it reproduces the plotted SFHo-18.8 degeneracy curve to better than (2	imes10^{-4}) relative accuracy. The Ferreira reconstruction does not. This is the strongest available public-source evidence for selecting Caputo as the baseline.
+
+### Fig. 3: muon number density
+
+The yellow SFHo-18.8 curve is extracted from PDF drawing path 33 (126 line segments, 123 visible deduplicated vertices). The x axis is calibrated over the plotted 1--20 km interval; the y axis is logarithmic in (n_mu,[mathrm{fm}^{-3}]), with the (10^{-7}) to (10^{-1}) calibration fixed by the PDF tick paths.
+
+Over the common resolved interval (1.30le rle15.27) km, the Caputo Fig. 1 density curve (converted from (n_mu/n_0) using (n_0=0.181,mathrm{fm}^{-3})) agrees with Bollig Fig. 3 at a mean absolute relative difference of 3.73% and a maximum of 10.45%. At representative radii:
+
+| (r) (km) | Bollig Fig. 3 (n_mu) ((mathrm{fm}^{-3})) | Caputo Fig. 1 (n_mu) ((mathrm{fm}^{-3})) |
+|---:|---:|---:|
+| 5 | (4.622	imes10^{-4}) | (4.695	imes10^{-4}) |
+| 8 | (4.612	imes10^{-3}) | (4.684	imes10^{-3}) |
+| 10 | (4.380	imes10^{-3}) | (4.515	imes10^{-3}) |
+| 12 | (1.831	imes10^{-3}) | (1.954	imes10^{-3}) |
+| 15 | (3.686	imes10^{-5}) | (4.057	imes10^{-5}) |
+
+The residual grows toward the low-density outer edge, where the logarithmic curves approach the plotting floor and small ordinate differences become large relative errors. This is consistent with the earlier independent Fermi-integral check: the Caputo (mu_mu(r)) and Caputo (n_mu(r)) curves are internally consistent to about 0.5--1.1% at the sampled radii. Together, the two independent upstream comparisons support the Caputo baseline.
+
+The source PDF hash is `8267f8b1de184163308728c44000425ce58085c1d5bd799d0cbc1e4e8d740d61`. The digitized CSVs and full drawing inventory are archived in `outputs/bollig_fig4_sfho188_muon_degeneracy.csv`, `outputs/bollig_fig3_sfho188_muon_density.csv`, and `outputs/bollig_fig4_vector_inventory.json`. These remain digitizations of published plotting paths, not the original simulation tables.
+
+## 5. What the convention check does and does not establish
 
 1. The two later papers use the same Fermi-Dirac sign convention for \(\mu^-\).
 2. A consistent rest-energy shift must shift both the energy argument and chemical potential. It cannot account for the observed radius-dependent difference.
@@ -104,13 +150,13 @@ This is a **visual cross-check**, not a new high-precision digitization of Bolli
 
 The papers state that the relevant profiles originate from the same named Garching model, but the Garching raw tables are not included in these public articles. The 2026 Ferreira journal record states that the authors do not have permission to share the data. We have not requested or accessed restricted raw simulation tables.
 
-## 5. Implication for the Blinov reproduction
+## 6. Implication for the Blinov reproduction
 
 The current vector reproduction should continue using the Caputo \(\mu_\mu(r)\) reconstruction as its reference input, while recording the Ferreira curve as an unresolved external cross-check. The previous Ferreira-only substitution that moved the weak/peak/high-coupling residuals to approximately +43.9%/+33.9%/+65.0% is a sensitivity test, not evidence that this alternative profile is physically correct.
 
 Do not tune the source normalization or opacity to compensate for this discrepancy. Do not combine Caputo \(T(r)\) with Ferreira \(\mu_\mu(r)\) as a nominal model. The next profile task is to quantify the Caputo \(n_\mu\) consistency test and digitize Bollig Fig. 4 at sufficient resolution for a pointwise \(\mu_\mu/T\) comparison. If those public figures still do not resolve the provenance, the remaining uncertainty must be stated rather than guessed.
 
-## 6. Next steps before the outer-neutrino-opacity study
+## 7. Next steps before the outer-neutrino-opacity study
 
 1. Run the automated convention/density audit and archive its JSON output.
 2. Digitize the SFHo-18.8 curve in Bollig Fig. 4, with source-PDF provenance and tick calibration, and compare it pointwise with both reconstructed \(\mu_\mu/T\) profiles.
