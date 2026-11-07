@@ -74,6 +74,46 @@ def main():
     for r in [1,5,8,10,12,15,18,20]:
         b=float(np.interp(r,radius,degeneracy))
         samples.append({"r_km":r,"bollig_fig4_mu_mu_over_T":b})
+    # Fig. 3, yellow SFHo-18.8 muon number-density curve. The axis is
+    # logarithmic in n_mu [fm^-3], with major ticks 1e-7,...,1e-2 and a
+    # top frame at 1e-1. The x axis is linear from 0 to 20 km.
+    fig3_curve_index = 33
+    fig3 = page.get_drawings()[fig3_curve_index]
+    fig3_color = list(fig3["color"]) if fig3.get("color") else None
+    if fig3_color is None or max(abs(a-b) for a,b in zip(fig3_color,[0.7,0.7,0.0])) > 0.01:
+        raise ValueError(f"Expected yellow SFHo-18.8 Fig. 3 curve at path 33, got {fig3_color}")
+    fig3_points=[]
+    for item in fig3["items"]:
+        if item[0] != "l":
+            raise ValueError(f"Unexpected non-line item in Fig. 3 path: {item[0]}")
+        fig3_points.extend([[float(item[1].x),float(item[1].y)],
+                            [float(item[2].x),float(item[2].y)]])
+    p3=np.asarray(fig3_points,dtype=float)
+    p3=p3[(p3[:,0]>=95.28073120117188)&(p3[:,0]<=286.44146728515625)]
+    p3=p3[np.argsort(p3[:,0],kind="stable")]
+    _,keep3=np.unique(p3[:,0],return_index=True)
+    p3=p3[keep3]
+    r3=(p3[:,0]-95.28073120117188)*20.0/(286.44146728515625-95.28073120117188)
+    logn3=-7.0+(285.0899658203125-p3[:,1])*6.0/(285.0899658203125-166.94435119628906)
+    n3=10.0**logn3
+    curve3=np.column_stack([r3,n3])
+    fig3_csv=a.output.with_name("bollig_fig3_sfho188_muon_density.csv")
+    np.savetxt(fig3_csv,curve3,delimiter=",",header="r_km,n_mu_fm3",comments="",fmt="%.10g")
+    fig3_samples=[]
+    for rr in [1,5,8,10,12,15,18,20]:
+        if rr>=r3[0] and rr<=r3[-1]:
+            fig3_samples.append({"r_km":rr,"bollig_fig3_n_mu_fm3":float(np.interp(rr,r3,n3))})
+    fig3_result={
+        "drawing_index":fig3_curve_index,"rgb":fig3_color,
+        "path_segments":len(fig3["items"]),"deduplicated_visible_vertices":len(curve3),
+        "line_width_pdf_points":float(fig3["width"]),
+        "radius_calibration":{"r0_x":95.28073120117188,"r20_x":286.44146728515625},
+        "density_calibration":{"n_1e-7_y":285.0899658203125,
+                               "n_1e-2_y":186.6345672607422,
+                               "n_1e-1_top_frame_y":166.94435119628906},
+        "samples":fig3_samples,"csv":fig3_csv.name
+    }
+
     text_spans=[]
     for block in page.get_text("dict").get("blocks",[]):
         for line in block.get("lines",[]):
@@ -89,6 +129,7 @@ def main():
         "page_index":2,
         "page_rect":[float(page.rect.x0),float(page.rect.y0),float(page.rect.x1),float(page.rect.y1)],
         "drawing_count":len(rows),
+        "fig3_curve":fig3_result,
         "fig4_curve":{"drawing_index":curve_index,"rgb":color,"path_segments":len(drawing["items"]),
                       "deduplicated_vertices":len(curve),"line_width_pdf_points":float(drawing["width"]),
                       "radius_calibration":{"r1_x":x0,"r20_x":x20},
