@@ -158,6 +158,10 @@ The reference path is not used to update the axial plot, referee response, or ma
 
 The targeted Eq. (17)--(20), Eq. (31)--(33) audit is documented in [FIG7_10MEV_EQUATION_CHAIN_AUDIT_2026-11-07.md](FIG7_10MEV_EQUATION_CHAIN_AUDIT_2026-11-07.md), with machine-readable output in `outputs/fig7_10mev_equation_chain_audit.json`.
 
-The local Compton coefficient, Eq. (33) susceptibility identity, Eq. (20) reduced-absorption identity, Eq. (17) energy Jacobian, and Eq. (18) path/angular quadrature checks pass. The 10 MeV Fig. 7 curve still does not pass. A separate conserved-energy redshift-along-ray diagnostic lowers the high-coupling luminosity by about 29%, reducing the high-tail residual from about +92% to about +36%; it is not substituted into the literal reference because the printed Eq. (B2) does not display the local-energy transformation explicitly.
+The local Compton coefficient, Eq. (33) susceptibility identity, Eq. (20) reduced-absorption identity, Eq. (17) energy Jacobian, and Eq. (18) path/angular quadrature checks pass. An independent direct angular integral also verifies the neutrino production kernel and Eq. (B10) detailed balance at 48 points (maximum residuals 6.4e-14 and 1.0e-15). The 10 MeV Fig. 7 curve still does not pass.
+
+At the high-absorption point, the source-weighted mean optical depth at 25 km is about 14.48 from inverse neutrino decay and 1.65 from semi-Compton absorption. The 24--25 km shell adds about 0.928 optical depth, almost entirely from neutrino absorption. This shows that the large high-coupling residual is not primarily a Compton-normalization problem.
+
+A separate conserved-energy redshift-along-ray diagnostic lowers the high-coupling luminosity by about 29%, reducing the high-tail residual from about +92% to about +36%; it is not substituted into the literal reference because the printed Eq. (B2) does not display the local-energy transformation explicitly.
 
 The outer 24--25 km shell contributes a source-weighted mean extra optical depth of about 0.93 at the high-coupling point. The paper explicitly fixes (R_{\max}=R_\nu\simeq25\,\mathrm{km}), so the 24 km truncation is a sensitivity diagnostic only. No opacity factor is fitted or adopted.
