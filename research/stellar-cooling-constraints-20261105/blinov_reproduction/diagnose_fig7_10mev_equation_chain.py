@@ -448,6 +448,33 @@ def run(profile_path, fig7_path, nr=88, ne=180, na=24, ns=64,
                            * (couplings[-1]**2*shell_columns))/source_norm),
             })
 
+    # Compare the reduced inverse-decay opacity with the vacuum decay
+    # width in the outer PNS, where final-state neutrino blocking weakens.
+    outer_local_absorption = []
+    for target_r in (15.0, 20.0, 24.5):
+        ir = int(np.argmin(np.abs(baseline["radial_grid"]-target_r)))
+        tloc = float(baseline["profile"]["T"][ir])
+        muloc = float(baseline["profile"]["mu_numu"][ir])
+        for eloc in (10.1, 20.0, 50.0):
+            vloc = float(np.sqrt(max(1.0-(MASS/eloc)**2, 0.0)))
+            xloc = eloc/tloc
+            bal = -np.expm1(-xloc)*np.exp(min(xloc, 700.0))
+            i_mu_loc = float(fermi_pair_average(
+                muloc, eloc, tloc, vloc))
+            i_tau_loc = float(fermi_pair_average(
+                0.0, eloc, tloc, vloc))
+            pref_loc = MASS*MASS/(8.0*np.pi*eloc)
+            vac_one_flavour = MASS*MASS/(24.0*np.pi*eloc)
+            outer_local_absorption.append({
+                "r_km": float(baseline["radial_grid"][ir]),
+                "T_MeV": tloc, "mu_numu_MeV": muloc,
+                "omega_MeV": eloc, "omega_over_T": xloc,
+                "numu_reduced_rate_over_one_flavour_vacuum_width":
+                    bal*pref_loc*i_mu_loc/vac_one_flavour,
+                "nutau_reduced_rate_over_one_flavour_vacuum_width":
+                    bal*pref_loc*i_tau_loc/vac_one_flavour,
+            })
+
     # Separate radial/energy quadrature and high-energy-cutoff convergence
     # diagnostics for the optically thin source and the escaped luminosity.
     quadrature_sensitivity = []
@@ -590,6 +617,7 @@ def run(profile_path, fig7_path, nr=88, ne=180, na=24, ns=64,
         "neutrino_flavour_absorption_by_shell": flavour_opacity,
         "neutrino_flavour_sum_closure_max_relative_residual": neutrino_flavour_sum_closure,
         "outer_mu_numu_absorption_sensitivity": outer_mu_sensitivity,
+        "outer_neutrino_absorption_vs_vacuum_width": outer_local_absorption,
         "radial_energy_cutoff_quadrature_sensitivity": quadrature_sensitivity,
         "same_source_nodes_boundary_24_vs_25_km": [
             {"g": float(g), "L_R24_same_sources": float(a),
