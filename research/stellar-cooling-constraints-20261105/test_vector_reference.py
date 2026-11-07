@@ -20,6 +20,17 @@ class LiteratureRates(unittest.TestCase):
                            epsabs=1e-18,epsrel=1e-12)[0]/2
             assert_allclose(ref.fermi_pair_average(mu,energy,temp,v),expected,rtol=1e-10)
 
+    def test_fermi_pair_small_energy_over_temperature_is_stable(self):
+        mass, energy, temperature, chemical = 1e-6, 2e-6, 20.0, 60.0
+        velocity = np.sqrt(1.0-(mass/energy)**2)
+        expected = quad(
+            lambda z: expit((chemical-energy*(1+velocity*z)/2)/temperature)
+                      * expit((-chemical-energy*(1-velocity*z)/2)/temperature),
+            -1.0, 1.0, epsabs=1e-15, epsrel=1e-12
+        )[0]/2.0
+        actual = ref.fermi_pair_average(chemical, energy, temperature, velocity)
+        assert_allclose(actual, expected, rtol=1e-10, atol=1e-16)
+
     def test_spin_sums_against_blinov_closed_form(self):
         for mass in [1.,10.,100.,212.,250.,300.]:
             e=mass+np.array([.1,30.,100.,300.])
