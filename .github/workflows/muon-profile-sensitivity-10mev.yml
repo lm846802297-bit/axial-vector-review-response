@@ -7,6 +7,9 @@ on:
     paths:
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/diagnose_muon_profile_sensitivity.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_muon_profile_sensitivity.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_muon_chemical_potential_provenance.py'
+      - 'research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv'
+      - 'research/stellar-cooling-constraints-20261105/data/n_mu_over_n0_caputo_vertices.csv'
       - '.github/workflows/muon-profile-sensitivity-10mev.yml'
   workflow_dispatch:
 
@@ -41,6 +44,9 @@ jobs:
           python -m unittest discover \
             -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
             -p 'test_muon_profile_sensitivity.py' -v
+      - name: Audit chemical-potential convention and density consistency
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_muon_chemical_potential_provenance.py
       - name: Run one-factor muon-profile sensitivity
         run: |
           python research/stellar-cooling-constraints-20261105/blinov_reproduction/diagnose_muon_profile_sensitivity.py
@@ -60,6 +66,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/muon_profile_sensitivity_10mev.json
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/muon_chemical_potential_provenance_audit.json
           if git diff --cached --quiet; then
             echo "Muon-profile sensitivity output is already current."
           else
