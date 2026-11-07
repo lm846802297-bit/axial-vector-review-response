@@ -6,7 +6,7 @@
   "profile_sha256": "08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9",
   "fig7_sha256": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4",
   "fig7_pdf_sha256": "4d7d1d10bfe2b52992af94df98749fa3adac887c009cbf98515fa12e6c48fdb5",
-  "run_commit_sha": "fd9fcfccc4afb1763307de142f1a812412d56891",
+  "run_commit_sha": "8d3f3bb91f1abca52c34be9d4337de174bf15ea6",
   "quadrature": {
     "radial_order": 88,
     "energy_order": 180,
@@ -97,7 +97,7 @@
     "interpretation": "The finite-difference identity tests F_deg = (T/n_mu) dn_mu/dmu_mu. The Compton reconstruction checks the literal Eq. (31)-(33) algebra in the local kernel."
   },
   "eq20": {
-    "stable_reduced_absorption_max_relative_residual": 3.1261559859531063e-16,
+    "stable_reduced_absorption_max_relative_residual": 3.0562645816881856e-16,
     "identity": "Gamma_red=(1-exp(-omega/T))*Gamma_abs=(exp(omega/T)-1)*Gamma_prod"
   },
   "eq18": {
@@ -117,8 +117,8 @@
       {
         "g": 4.171689650228597e-08,
         "L_path_base": 2.437009490788894e+52,
-        "L_path_2x": 2.437019497195781e+52,
-        "relative_change": 4.106018841820713e-06
+        "L_path_2x": 2.4370194971957803e+52,
+        "relative_change": 4.106018841598669e-06
       }
     ],
     "angular_order_comparison": [
@@ -137,8 +137,8 @@
       {
         "g": 4.171689650228597e-08,
         "L_angle_base": 2.437009490788894e+52,
-        "L_angle_2x": 2.436921102217217e+52,
-        "relative_change": -3.626927675548508e-05
+        "L_angle_2x": 2.4369211022172163e+52,
+        "relative_change": -3.6269276755707125e-05
       }
     ],
     "column_path_max_relative_difference": 0.00158533227516831,
@@ -159,8 +159,8 @@
       {
         "g": 4.171689650228597e-08,
         "L_fixed_local_omega": 2.437009490788894e+52,
-        "L_conserved_Einf": 1.7238577508418032e+52,
-        "relative_change": -0.2926339608616927
+        "L_conserved_Einf": 1.723857750841803e+52,
+        "relative_change": -0.2926339608616928
       }
     ],
     "redshifted_column_max_relative_difference": 149.85459304830496,
@@ -197,15 +197,30 @@
     "extra_outer_shell_opacity_24_25_km": [
       {
         "g": 4.796429536550025e-10,
-        "source_weighted_mean_extra_tau_24_25": 0.0001226428872607476
+        "source_weighted_mean_extra_tau_24_25": 0.0001226428872607476,
+        "source_weighted_mean_extra_tau_neutrino": 0.00012263136309020254,
+        "source_weighted_mean_extra_tau_compton": 4.916488904386242e-08,
+        "source_weighted_mean_total_tau_25km": 0.0021314525522968353,
+        "source_weighted_mean_tau_neutrino_25km": 0.0019135114546082815,
+        "source_weighted_mean_tau_compton_25km": 0.00021794109768855406
       },
       {
         "g": 1.1341108687336194e-08,
-        "source_weighted_mean_extra_tau_24_25": 0.06856733241497713
+        "source_weighted_mean_extra_tau_24_25": 0.06856733241497713,
+        "source_weighted_mean_extra_tau_neutrino": 0.0685608894678954,
+        "source_weighted_mean_extra_tau_compton": 2.7487165097872896e-05,
+        "source_weighted_mean_total_tau_25km": 1.1916550477922732,
+        "source_weighted_mean_tau_neutrino_25km": 1.0698082776626294,
+        "source_weighted_mean_tau_compton_25km": 0.12184677012964343
       },
       {
         "g": 4.171689650228597e-08,
-        "source_weighted_mean_extra_tau_24_25": 0.9277483969014615
+        "source_weighted_mean_extra_tau_24_25": 0.9277483969014616,
+        "source_weighted_mean_extra_tau_neutrino": 0.9276612207839744,
+        "source_weighted_mean_extra_tau_compton": 0.00037191432795695537,
+        "source_weighted_mean_total_tau_25km": 16.123655701783285,
+        "source_weighted_mean_tau_neutrino_25km": 14.475011344857629,
+        "source_weighted_mean_tau_compton_25km": 1.648644356925655
       }
     ],
     "omit_lapse_squared_diagnostic_only": [
