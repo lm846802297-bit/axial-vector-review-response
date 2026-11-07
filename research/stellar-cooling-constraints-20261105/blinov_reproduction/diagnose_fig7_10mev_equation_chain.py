@@ -172,15 +172,43 @@ def run(profile_path, fig7_path, nr=88, ne=180, na=24, ns=64,
     tau_angle_refined = np.einsum(
         "rae,a->re", cols_angle2, np.polynomial.legendre.leggauss(2*na)[1]/2.0)
 
-    # Independent boundary diagnostic: truncate at the last radius with a
-    # directly reconstructed lapse rather than applying the 25 km extension.
-    r24 = _profile_rate_and_source(profile_path, 24.0, nr, ne, energy_offset)
-    l24, cols24 = _luminosity_for_setup(
-        r24, 24.0, na, ns, couplings)
+    # Boundary diagnostic with identical source nodes and local rates:
+    # only shorten the outward propagation boundary from 25 to 24 km.
+    inner_mask = baseline["r"] <= 24.0
+    inner_r = baseline["r"][inner_mask]
+    cols24_same_source, angle_weights24 = scalar_optical_depths(
+        inner_r, baseline["radial_grid"], baseline["reduced"],
+        MASS, baseline["energies"], 24.0,
+        angular_order=na, path_order=ns)
+    cols25_same_source = cols_base[inner_mask]
+    source_inner = baseline["source"][inner_mask]
+    shell_tau_unit = np.maximum(cols25_same_source-cols24_same_source, 0.0)
+    l24_same_source = []
+    l25_same_source = []
+    shell_tau_stats = []
+    for g in couplings:
+        esc24 = np.einsum(
+            "rae,a->re", np.exp(-g*g*cols24_same_source), angle_weights24)
+        esc25 = np.einsum(
+            "rae,a->re", np.exp(-g*g*cols25_same_source), angle_weights)
+        l24_same_source.append(float(g*g*np.sum(source_inner*esc24)))
+        l25_same_source.append(float(g*g*np.sum(source_inner*esc25)))
+        weights_tau = source_inner[:, None, :] * angle_weights[None, :, None]
+        tau_shell = g*g*shell_tau_unit
+        shell_tau_stats.append({
+            "g": float(g),
+            "source_weighted_mean_extra_tau_24_25": float(
+                np.average(tau_shell, weights=weights_tau)),
+            "source_weighted_p90_extra_tau_24_25": float(
+                np.quantile(tau_shell.ravel(), 0.90)),
+        })
+    l24_same_source = np.asarray(l24_same_source)
+    l25_same_source = np.asarray(l25_same_source)
 
     # Source-only (optically thin) Eq. (17) diagnostics.
     thin25 = np.array([g*g*np.sum(baseline["source"]) for g in couplings])
-    thin24 = np.array([g*g*np.sum(r24["source"]) for g in couplings])
+    thin24 = np.array([g*g*np.sum(
+        baseline["source"][baseline["r"] <= 24.0]) for g in couplings])
     thin25_no_lapse2 = np.array([
         g*g*np.sum(baseline["source_no_lapse2"]) for g in couplings])
 
@@ -201,12 +229,15 @@ def run(profile_path, fig7_path, nr=88, ne=180, na=24, ns=64,
         "interpretation": "Quadrature-only changes; no opacity normalization is altered.",
     }
     eq17 = {
-        "radius_24_vs_25_km": [
-            {"g": float(g), "L_R24": float(a), "L_R25": float(b),
+        "same_source_nodes_boundary_24_vs_25_km": [
+            {"g": float(g), "L_R24_same_sources": float(a),
+             "L_R25_same_sources": float(b),
              "relative_change_R24_over_R25": float(a/b-1.0),
-             "thin_R24": float(c), "thin_R25": float(d)}
-            for g, a, b, c, d in zip(couplings, l24, l_base, thin24, thin25)
+             "thin_R24_source_mask": float(c), "thin_R25_full": float(d)}
+            for g, a, b, c, d in zip(
+                couplings, l24_same_source, l25_same_source, thin24, thin25)
         ],
+        "extra_outer_shell_opacity_24_25_km": shell_tau_stats,
         "omit_lapse_squared_diagnostic_only": [
             {"g": float(g), "L_with_N2_thin": float(a),
              "L_without_N2_thin": float(b),
