@@ -6,7 +6,7 @@
   "profile_sha256": "08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9",
   "fig7_sha256": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4",
   "fig7_pdf_sha256": "4d7d1d10bfe2b52992af94df98749fa3adac887c009cbf98515fa12e6c48fdb5",
-  "run_commit_sha": "05eb0589c50837799435b0eeee0581b7dbf3068b",
+  "run_commit_sha": "78f2b08672beda752c546ce09c48c2ec43c1ec63",
   "quadrature": {
     "radial_order": 88,
     "energy_order": 180,
@@ -1362,6 +1362,154 @@
         "point": "high_absorption",
         "g": 4.171689650228597e-08,
         "source_weighted_mean_tau_contribution": 1.4514282345657743e-12
+      }
+    ],
+    "neutrino_flavour_absorption_by_shell": [
+      {
+        "flavour": "numu",
+        "absorber_radius_bin_km": [
+          0.0,
+          5.0
+        ],
+        "high_absorption_g": 4.171689650228597e-08,
+        "source_weighted_mean_tau_contribution": 0.08111487754673911
+      },
+      {
+        "flavour": "numu",
+        "absorber_radius_bin_km": [
+          5.0,
+          10.0
+        ],
+        "high_absorption_g": 4.171689650228597e-08,
+        "source_weighted_mean_tau_contribution": 0.8291402438069174
+      },
+      {
+        "flavour": "numu",
+        "absorber_radius_bin_km": [
+          10.0,
+          15.0
+        ],
+        "high_absorption_g": 4.171689650228597e-08,
+        "source_weighted_mean_tau_contribution": 1.7013186286330293
+      },
+      {
+        "flavour": "numu",
+        "absorber_radius_bin_km": [
+          15.0,
+          20.0
+        ],
+        "high_absorption_g": 4.171689650228597e-08,
+        "source_weighted_mean_tau_contribution": 2.229605239289429
+      },
+      {
+        "flavour": "numu",
+        "absorber_radius_bin_km": [
+          20.0,
+          25.0
+        ],
+        "high_absorption_g": 4.171689650228597e-08,
+        "source_weighted_mean_tau_contribution": 2.338139988191637
+      },
+      {
+        "flavour": "nutau",
+        "absorber_radius_bin_km": [
+          0.0,
+          5.0
+        ],
+        "high_absorption_g": 4.171689650228597e-08,
+        "source_weighted_mean_tau_contribution": 0.13387535927135485
+      },
+      {
+        "flavour": "nutau",
+        "absorber_radius_bin_km": [
+          5.0,
+          10.0
+        ],
+        "high_absorption_g": 4.171689650228597e-08,
+        "source_weighted_mean_tau_contribution": 0.8931541783874714
+      },
+      {
+        "flavour": "nutau",
+        "absorber_radius_bin_km": [
+          10.0,
+          15.0
+        ],
+        "high_absorption_g": 4.171689650228597e-08,
+        "source_weighted_mean_tau_contribution": 1.706789041730376
+      },
+      {
+        "flavour": "nutau",
+        "absorber_radius_bin_km": [
+          15.0,
+          20.0
+        ],
+        "high_absorption_g": 4.171689650228597e-08,
+        "source_weighted_mean_tau_contribution": 2.2315922359949827
+      },
+      {
+        "flavour": "nutau",
+        "absorber_radius_bin_km": [
+          20.0,
+          25.0
+        ],
+        "high_absorption_g": 4.171689650228597e-08,
+        "source_weighted_mean_tau_contribution": 2.338139988191637
+      }
+    ],
+    "outer_mu_numu_absorption_sensitivity": [
+      {
+        "scenario": "zero_mu_numu_outer_r_ge_15km",
+        "absorber_radius_bin_km": [
+          15.0,
+          20.0
+        ],
+        "high_absorption_g": 4.171689650228597e-08,
+        "source_weighted_mean_tau_contribution": 2.2315922359949827
+      },
+      {
+        "scenario": "zero_mu_numu_outer_r_ge_15km",
+        "absorber_radius_bin_km": [
+          20.0,
+          25.0
+        ],
+        "high_absorption_g": 4.171689650228597e-08,
+        "source_weighted_mean_tau_contribution": 2.338139988191637
+      },
+      {
+        "scenario": "baseline_mu_numu_outer_r_ge_15km",
+        "absorber_radius_bin_km": [
+          15.0,
+          20.0
+        ],
+        "high_absorption_g": 4.171689650228597e-08,
+        "source_weighted_mean_tau_contribution": 2.229605239289429
+      },
+      {
+        "scenario": "baseline_mu_numu_outer_r_ge_15km",
+        "absorber_radius_bin_km": [
+          20.0,
+          25.0
+        ],
+        "high_absorption_g": 4.171689650228597e-08,
+        "source_weighted_mean_tau_contribution": 2.338139988191637
+      },
+      {
+        "scenario": "double_mu_numu_outer_r_ge_15km",
+        "absorber_radius_bin_km": [
+          15.0,
+          20.0
+        ],
+        "high_absorption_g": 4.171689650228597e-08,
+        "source_weighted_mean_tau_contribution": 2.223723504435379
+      },
+      {
+        "scenario": "double_mu_numu_outer_r_ge_15km",
+        "absorber_radius_bin_km": [
+          20.0,
+          25.0
+        ],
+        "high_absorption_g": 4.171689650228597e-08,
+        "source_weighted_mean_tau_contribution": 2.338139988191637
       }
     ],
     "radial_energy_cutoff_quadrature_sensitivity": [
