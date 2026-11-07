@@ -51,7 +51,17 @@ jobs:
             git commit -m "Archive 10 MeV equation-chain audit"
             for attempt in 1 2 3 4 5; do
               git fetch origin "${GITHUB_REF_NAME}"
-              git rebase "origin/${GITHUB_REF_NAME}"
+              if ! git rebase "origin/${GITHUB_REF_NAME}"; then
+                if git diff --name-only --diff-filter=U | grep -Fxq "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_equation_chain_audit.json"; then
+                  git checkout --theirs -- research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_equation_chain_audit.json
+                  git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_equation_chain_audit.json
+                  GIT_EDITOR=true git rebase --continue
+                else
+                  git rebase --abort
+                  echo "Unexpected non-output rebase conflict."
+                  exit 1
+                fi
+              fi
               if git push origin "HEAD:${GITHUB_REF_NAME}"; then
                 exit 0
               fi
