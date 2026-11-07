@@ -51,6 +51,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/bollig_fig4_vector_inventory.json
           git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/bollig_fig4_sfho188_muon_degeneracy.csv
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/bollig_fig3_sfho188_muon_density.csv
           if git diff --cached --quiet; then
             echo "Bollig Fig. 4 vector inventory is unchanged."
           else
