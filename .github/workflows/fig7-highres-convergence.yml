@@ -68,6 +68,15 @@ jobs:
             echo "High-resolution convergence outputs are already current."
           else
             git commit -m "Archive high-resolution Fig. 7 convergence audit"
-            git pull --rebase origin "${GITHUB_REF_NAME}"
-            git push origin "HEAD:${GITHUB_REF_NAME}"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin "${GITHUB_REF_NAME}"
+              git rebase "origin/${GITHUB_REF_NAME}"
+              if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+                exit 0
+              fi
+              echo "Push raced with another research workflow; retry ${attempt}/5."
+              sleep 2
+            done
+            echo "Could not archive convergence outputs after five retries."
+            exit 1
           fi
