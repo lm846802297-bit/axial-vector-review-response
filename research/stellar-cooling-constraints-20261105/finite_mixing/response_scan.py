@@ -23,7 +23,7 @@ def compton_scan():
    _,a=rates.compton_matrix_elements(mass,[energy],cosines,current="axial")
    _,v=rates.compton_matrix_elements(mass,[energy],cosines,current="vector")
    ratio=np.divide(a[0],v[0],out=np.full_like(a[0],np.nan),where=v[0]>1e-28)
-   _,mixed=rates.compton_mixed_matrix_elements(mass,[energy],cosines,c.g_vector,c.code_axial_minus_gamma5_coefficient)
+   _,mixed=rates.compton_mixed_matrix_elements(mass,[energy],cosines,c.g_vector,c.g_axial)
    incoherent=c.g_vector**2*v+c.code_axial_minus_gamma5_coefficient**2*a
    interference=mixed-incoherent; denom=np.maximum(np.abs(mixed),1e-300)
    rows.append({"mass_MeV":mass,"mediator_energy_MeV":energy,"energy_over_mass":ef,
