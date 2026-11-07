@@ -367,10 +367,6 @@ def run(profile_path, fig7_path, nr=88, ne=180, na=24, ns=64,
                     "point": point, "g": float(g),
                     "source_weighted_mean_tau_contribution": float(
                         np.sum(source_weights * (g*g*shell_columns))/norm),
-                    "source_weighted_median_tau_contribution": float(
-                        np.median((g*g*shell_columns).ravel())),
-                    "source_weighted_p90_tau_contribution": float(
-                        np.quantile((g*g*shell_columns).ravel(), 0.90)),
                 })
 
     # Separate radial/energy quadrature and high-energy-cutoff convergence
