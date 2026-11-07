@@ -55,7 +55,6 @@ def dimuon_thermal_integral(
         empty = np.zeros((0, 3))
         return {
             "Q_by_mode": zeros.copy(),
-            "absorption_number_by_mode": zeros.copy(),
             "momentum": np.zeros(0),
             "energy": np.zeros(0),
             "production_spectrum": empty.copy(),
@@ -71,10 +70,8 @@ def dimuon_thermal_integral(
     )
     phase = weights * momentum**2 / (2.0 * np.pi**2)
     q_by_mode = np.einsum("i,ih,i->h", phase, production, energy)
-    absorption_by_mode = np.einsum("i,ih->h", phase, absorption)
     return {
         "Q_by_mode": q_by_mode,
-        "absorption_number_by_mode": absorption_by_mode,
         "momentum": momentum,
         "energy": energy,
         "production_spectrum": production,
