@@ -1,0 +1,39 @@
+name: Vector-to-axial local response scan
+on:
+  push:
+    branches:
+      - codex/major44-axial-cooling-constraints-20261105
+    paths:
+      - 'research/stellar-cooling-constraints-20261105/finite_mixing/**'
+      - 'research/stellar-cooling-constraints-20261105/rates.py'
+      - '.github/workflows/vector-axial-response-scan.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  response-scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/major44-axial-cooling-constraints-20261105
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install numpy
+      - name: Run finite-mixing and response tests
+        run: |
+          python -m unittest discover \
+            -s research/stellar-cooling-constraints-20261105/finite_mixing \
+            -t research/stellar-cooling-constraints-20261105 \
+            -p 'test_*.py' -v
+      - name: Generate local response scan
+        run: |
+          python research/stellar-cooling-constraints-20261105/finite_mixing/response_scan.py \
+            --output response-scan-output/vector_axial_response_scan.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: vector-axial-response-scan
+          path: response-scan-output/vector_axial_response_scan.json
+          if-no-files-found: error
