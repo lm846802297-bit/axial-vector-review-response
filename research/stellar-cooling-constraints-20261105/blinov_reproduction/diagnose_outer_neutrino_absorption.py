@@ -71,17 +71,27 @@ def build_state(profile_path, nr=40, ne=100, na=16, ns=32,
         mu_nutau[radial_grid >= 15.0] = float(mu_nutau_outer)
     i_nutau = fermi_pair_average(
         mu_nutau[:, None], omega_grid, temp_grid, v_grid)
+    i_nutau_zero = fermi_pair_average(
+        np.zeros_like(mu_grid), omega_grid, temp_grid, v_grid)
     nu_numu_prod = prefactor[None, :] * i_numu
     nu_nutau_prod = prefactor[None, :] * i_nutau
+    nu_nutau_zero_prod = prefactor[None, :] * i_nutau_zero
     x = omega_grid / temp_grid
     db_factor = (-np.expm1(-x)) * np.exp(np.minimum(x, 700.0))
     nu_numu_red = nu_numu_prod * db_factor
     nu_nutau_red = nu_nutau_prod * db_factor
+    nu_nutau_zero_red = nu_nutau_zero_prod * db_factor
     nu_total_red = nu_numu_red + nu_nutau_red
     comp_red = rates["compton_production"] * db_factor
     dimu_red = rates["dimuon_production"] * db_factor
     total_red = nu_total_red + comp_red + dimu_red
-    mismatch = np.max(np.abs(total_red - rates["reduced_absorption"])
+    # local_rates contains the baseline zero-chemical-potential nu_tau
+    # channel. Add only the change induced by the synthetic tau profile.
+    expected_total_red = (
+        rates["reduced_absorption"]
+        + nu_nutau_red - nu_nutau_zero_red
+    )
+    mismatch = np.max(np.abs(total_red - expected_total_red)
                       / np.maximum(np.abs(total_red), 1e-300))
     if mismatch > 2e-11:
         raise AssertionError(f"Split reduced opacity fails total-rate identity: {mismatch}")
