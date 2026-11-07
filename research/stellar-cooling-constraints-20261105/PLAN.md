@@ -113,3 +113,45 @@ A visual side-by-side check of the published JHEP PDF and arXiv v2 finds no visi
 ### 10 MeV profile-sensitivity result
 
 A one-factor test replacing only the Caputo \(\mu_\mu(r)\) curve with the separate Ferreira curve gives a worse full Fig. 7 residual (mean 42.13%, maximum 65.04%, versus 15.73% and 92.24% for the baseline) and does not resolve the high-coupling tail. The Caputo central \(\mu_\mu\) independently reproduces the plotted muon density to about 0.5%; adding \(m_\mu\) to it is incorrect. The exact s18.8-SFHo-MUONS simulation profile is not publicly accessible from the current Garching archive endpoint (HTTP 401), and the paper does not deposit its simulation data/code. Thus exact point-by-point Fig. 7 reproduction is not currently supportable from the reconstructed profile. See [VECTOR_ENDPOINT_GATE_2026-11-07.md](finite_mixing/VECTOR_ENDPOINT_GATE_2026-11-07.md) and the archived [profile-sensitivity output](../blinov_reproduction/outputs/muon_profile_sensitivity_10mev.json).
+
+## Final agreed validation order (2026-11-07)
+
+**Decision:** use Selection 1 as the main project structure and retain only the necessary independent-integral checks from Selection 2 as lower-level validation tools. Do not expand the project into a general-purpose full supernova transport calculation.
+
+### Ordered execution and current evidence
+
+1. **P0-A — run and close the independent forward/reverse rate tests.**
+   - Run the new adaptive-quadrature neutrino and direct B.14 Compton tests and archive the actual JSON/CI result.
+   - Neutrino production and absorption are already evaluated separately in the production implementation; the adaptive reference is an independent numerical cross-check.
+   - Keep the B.14 no-recoil Compton test distinct from the full moving-muon B.13 thermal integral.
+   - **Status:** implementation and tests are committed; an actual successful run/result for the new dedicated workflow is not yet recorded. Do not mark this item passed based only on the algebraic detailed-balance identity.
+
+2. **P0-B — complete the literal Blinov Fig. 7 comparison.**
+   - The existing digitized Fig. 7 reference currently contains only 3 of the 6 curves visible in the published figure: 1, 10, and 200 MeV. The \(10^{-6}\), \(10^{-5}\), and 0.1 MeV curves are not yet represented in outputs/vector_audit/luminosity_comparison.json.
+   - Digitize the missing curves from the published version-of-record PDF, archive the PDF hash, axis calibration, vertices, and extraction script, then rerun the full six-mass comparison.
+   - Existing results for the three digitized masses: 1 MeV mean/max residual 1.60%/5.54%; 10 MeV 15.64%/91.35%; 200 MeV 0.71%/1.59%. The 10 MeV curve fails the provisional full-curve gate (mean <=5%, max <=10%).
+   - The exact s18.8-SFHo-MUONS source profile is not available in the current public source archive; current results use a reconstructed SFHo-18.8 profile. Label all such results as reconstructed-profile comparisons, not exact reproduction of the authors' private run. Resolve the 10 MeV mismatch with controlled one-factor tests; do not fit a rescale or opacity multiplier.
+
+3. **P0-C — Fig. 4 ballistic-cooling boundary comparison.**
+   - Existing four-mass checks (1, 10, 100, 200 MeV) have lower/upper crossing deviations of +0.81%/-0.86%, +0.33%/+0.97%, -0.89%/+0.98%, and -1.31%/+2.60%, respectively.
+   - Thus the current four-point Fig. 4 check satisfies the provisional 3% tolerance. Preserve the qualification that this is a digitized-curve comparison using a reconstructed profile. Do not infer that all Fig. 7 luminosity curves have passed from the contour crossings.
+   - After the six-mass Fig. 7 digitization and 10 MeV discrepancy are addressed, rerun the boundary extraction and compare the full available contour path, not only the four representative masses.
+
+4. **P1 — compare mode-resolved transport with the published polarization-summed prescription.**
+   - Hold all microphysics and profile inputs fixed; change only the opacity/transport prescription.
+   - Compare scalar summed, production-weighted, and per-mode survival probabilities. Do not assume \(\sum_h e^{-\tau_h}=e^{-\sum_h\tau_h}\).
+   - Record differences in escaped luminosity, not merely local opacity.
+
+5. **P2 — finite-mixing/axial extension.**
+   - Start only after the pure-vector Lane-A full Fig. 7 gate passes and the Lane-B mode-resolved transport prescription is documented.
+   - Run pure vector, pure axial, and the UV finite-mixing benchmark using the same profile, phase-space conventions, and transport implementation.
+   - No mixed-current exclusion curve is promoted before endpoint, convergence, and literature checks pass.
+
+### Scope control
+
+- Keep the existing production rates, transport outputs, axial figures, manuscript, and referee-response files unchanged during this validation stage.
+- No arbitrary rescaling of \(g_X\), production, absorption, or opacity.
+- No broad stellar-model scan is required. Use the published benchmark profile and a small number of controlled diagnostics to isolate the mismatch.
+- A failed or unavailable source-data comparison is reported as such; it is not repaired by tuning.
+- PR #56 remains Open / Draft until the pure-vector literature gate is resolved.
+
