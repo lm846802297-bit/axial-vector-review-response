@@ -38,6 +38,22 @@ def build(mass,profile,variant,nr=88,ne=180,na=24,ns=64,nc=40):
         # B.10/B.19; algebraically equivalent but stable at high energy.
         red=prod*np.expm1(e[None,:,None]/t[:,None,None])
         if variant=='blinov_average':red=red/3
+    elif variant=='exact_recoil_scalar':
+        # Same scalar summed-opacity transport as the literal B.14 lane,
+        # but replace only the no-recoil Compton kernel by the exact-recoil
+        # fixed-target kernel. Sum all three polarizations before transport.
+        ca=rates.compton_absorption(
+            rates.compton_kernels(mass,e,nc,'vector'),t,n
+        ).sum(-1,keepdims=True)
+        cp=exponential*ca
+        nu,na_rate=rates.neutrino_rates(
+            mass,e[None,:],t[:,None],p['mu_numu_MeV'][:,None])
+        mm,ma_rate=rates.charged_muon_decay_rates(
+            mass,e[None,:],t[:,None],p['mu_mu_MeV'][:,None],current='vector')
+        nu=nu.sum(-1,keepdims=True);na_rate=na_rate.sum(-1,keepdims=True)
+        mm=mm.sum(-1,keepdims=True);ma_rate=ma_rate.sum(-1,keepdims=True)
+        components=[cp,nu,mm];prod=sum(components)
+        red=-np.expm1(-e[None,:,None]/t[:,None,None])*(ca+na_rate+ma_rate)
     else:
         if variant=='thomson_modes':ca=thomson_absorption_modes(mass,e,t,n)
         else:ca=rates.compton_absorption(rates.compton_kernels(mass,e,nc,'vector'),t,n)
