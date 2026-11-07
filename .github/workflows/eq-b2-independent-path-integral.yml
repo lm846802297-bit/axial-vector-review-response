@@ -1,0 +1,66 @@
+name: Independent Eq. B2 path integral audit
+
+on:
+  push:
+    branches:
+      - codex/major44-axial-cooling-constraints-20261105
+    paths:
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_eq_b2_path_integral.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_eq_b2_path_integral.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_three_layer.json'
+      - 'research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv'
+      - '.github/workflows/eq-b2-independent-path-integral.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: eq-b2-independent-path-integral-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    if: github.ref_name == 'codex/major44-axial-cooling-constraints-20261105'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out exact triggering commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numerical dependencies
+        run: python -m pip install numpy scipy
+      - name: Run independent path-integral regression tests
+        run: |
+          python -m unittest discover \
+            -s research/stellar-cooling-constraints-20261105 \
+            -p 'test_eq_b2_path_integral.py' -v
+      - name: Run independent Eq. B2 path and angular audit
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_eq_b2_path_integral.py
+      - name: Commit machine-readable audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/eq_b2_independent_path_integral_2026-11-08.json
+          if git diff --cached --quiet; then
+            echo "Independent Eq. B2 path audit is unchanged."
+          else
+            git commit -m "Archive independent Eq. B2 path integral audit"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin "${{ github.ref_name }}"
+              git rebase "origin/${{ github.ref_name }}"
+              if git push origin "HEAD:${{ github.ref_name }}"; then exit 0; fi
+              sleep 2
+            done
+            exit 1
+          fi
