@@ -110,10 +110,14 @@ where \(F_Q^{\rm abs}=f_Q(E_p)[1-f_Q(E_{p'})][1+f_B(q_\star)]\) and \(F_Q^{\rm p
 
 ## 4. Matrix element and current conventions
 
-For absorption, the two tree diagrams are
+The implementation evaluates the reverse-production amplitude
+\[
+\gamma(q)+\mu^Q(p')\to A'(k,h)+\mu^Q(p),
+\]
+where \(p\) is the final muon in production (equivalently the initial muon in absorption) and \(p'=p+k-q\). The two tree diagrams are
 \[
 \mathcal M^{Q}_{h\lambda}=
-\bar u(p')
+\bar u(p)
 \left[
 \Gamma^{Q}_{A,h}\,
 \frac{\slashed p+\slashed k+m_\mu}{m_{A'}^2+2p\cdot k}\,
@@ -122,9 +126,9 @@ For absorption, the two tree diagrams are
 \slashed\epsilon_{\gamma,\lambda}\,
 \frac{\slashed p-\slashed q+m_\mu}{-2p\cdot q}\,
 \Gamma^{Q}_{A,h}
-\right]u(p)
+\right]u(p').
 \]
-for the muon-particle line. The physical mediator polarization basis is \(L,+,-\); the photon basis is any two orthonormal transverse vectors to \(\hat{\mathbf n}\). The spin-averaged trace sums over the two photon polarizations and final muon spin.
+Its spin-summed squared amplitude is the time-reversed absorption matrix element at tree level. This ordering is essential: the photon Ward identity is satisfied after the on-shell spin sums with \(p\) as the outgoing muon in production. The physical mediator polarization basis is \(L,+,-\); the photon basis is any two orthonormal transverse vectors to \(\hat{\mathbf n}\). The trace averages over the initial production muon spin and sums over the final muon spin and the two photon polarizations.
 
 The UV convention is
 \[
