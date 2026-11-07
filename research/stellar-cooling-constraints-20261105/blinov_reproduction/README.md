@@ -181,9 +181,9 @@ The outer 24--25 km shell contributes a source-weighted mean extra optical depth
 
 ### 2026-11-08: outer neutrino chemical-potential and opacity audit
 
-The isotropic neutrino-pair kernel is even in the sign of \\(\\mu_{\\nu}\\); reversing the signed Caputo curve exchanges the neutrino/antineutrino energy labels and does not change the polarization-summed rate. A regression test now covers this identity.
+The isotropic neutrino-pair kernel is even in the sign of \(\mu_{\nu}\); reversing the signed Caputo curve exchanges the neutrino/antineutrino energy labels and does not change the polarization-summed rate. A regression test now covers this identity.
 
-The public Caputo reconstruction has no separate \\(\\mu_{\\nu_\\tau}\\) curve, so the current zero-`mu_nutau` baseline is explicitly an assumption. Recomputing production and absorption together, outer \\(\\mu_{\\nu_\\mu}=0,1,2\\) MeV changes the high-coupling luminosity by -0.0128%, +0.0274%, and +0.1470%. Synthetic outer \\(\\mu_{\\nu_\\tau}=1,2,5,10\\) MeV stress tests change it by +0.0517%, +0.2057%, +1.24%, and +4.49%, respectively. These are sensitivity tests, not physical replacement profiles.
+The public Caputo reconstruction has no separate \(\mu_{\nu_\tau}\) curve, so the current zero-`mu_nutau` baseline is explicitly an assumption. Recomputing production and absorption together, outer \(\mu_{\nu_\mu}=0,1,2\) MeV changes the high-coupling luminosity by -0.0128%, +0.0274%, and +0.1470%. Synthetic outer \(\mu_{\nu_\tau}=1,2,5,10\) MeV stress tests change it by +0.0517%, +0.2057%, +1.24%, and +4.49%, respectively. These are sensitivity tests, not physical replacement profiles.
 
 The source-weighted mean neutrino optical depth from absorber shells 15--20 and 20--25 km is 4.483 and 4.668, respectively; together the 15--25 km region contributes 63.17% of the total mean neutrino optical depth at the 10 MeV high-absorption point. This remains important even though the outer temperature is only 3--4 MeV: the reduced opacity approaches the time-dilated vacuum-decay limit as the temperature falls. Angular/path quadrature changes the luminosity by less than 0.005%; doubling radial resolution changes it by about 0.49%.
 
