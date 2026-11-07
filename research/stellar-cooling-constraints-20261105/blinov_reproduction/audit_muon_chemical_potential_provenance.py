@@ -79,6 +79,8 @@ def main() -> None:
             "n_mu_ferreira_mu_only_fm3": n_f_same_t,
             "n_mu_ferreira_native_T_fm3": n_f_native_t,
             "n_mu_caputo_figure_fm3": nplot,
+            "mu_mu_over_T_caputo": mu_c / t_c,
+            "mu_mu_over_T_ferreira": mu_f / t_c if np.isfinite(mu_f) else None,
             "ferreira_over_caputo_mu_only_density": n_f_same_t / n_c if n_c > 0 else None,
         })
 
@@ -112,6 +114,13 @@ def main() -> None:
             "n0_fm3": N0_FM3,
         },
         "temperature_profile_overlap_max_relative_difference": 0.0026650842561763955,
+        "sampled_muon_degeneracy_parameters": [
+            {
+                "r_km": row["r_km"],
+                "mu_mu_over_T_caputo": row["mu_mu_over_T_caputo"],
+                "mu_mu_over_T_ferreira": row["mu_mu_over_T_ferreira"],
+            } for row in rows
+        ],
         "muon_chemical_potential_differences": delta,
         "density_comparison": rows,
         "interpretation": [
