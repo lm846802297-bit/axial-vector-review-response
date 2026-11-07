@@ -28,8 +28,11 @@ def compton_scan():
    incoherent=c.g_vector**2*v+c.code_axial_minus_gamma5_coefficient**2*a
    interference=mixed-incoherent; denom=np.maximum(np.abs(mixed),1e-300)
    rows.append({"mass_MeV":mass,"mediator_energy_MeV":energy,"energy_over_mass":ef,
+    "cosines":cosines.tolist(),
     "differential_ratio_A_over_V_by_mode":{mode:stats(ratio[:,i]) for i,mode in enumerate(rates.MODES)},
-    "mixed_interference_fraction_by_mode":{mode:stats(interference[0,:,i]/denom[0,:,i]) for i,mode in enumerate(rates.MODES)}})
+    "differential_ratio_A_over_V_raw_by_mode":{mode:[(float(x) if np.isfinite(x) else None) for x in ratio[:,i]] for i,mode in enumerate(rates.MODES)},
+    "mixed_interference_fraction_by_mode":{mode:stats(interference[0,:,i]/denom[0,:,i]) for i,mode in enumerate(rates.MODES)},
+    "mixed_interference_fraction_raw_by_mode":{mode:[float(x) for x in interference[0,:,i]/denom[0,:,i]] for i,mode in enumerate(rates.MODES)}})
  integrated=[]
  for mass in masses:
   energies=np.array([mass*f for f in efactors])
