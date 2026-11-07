@@ -11,7 +11,9 @@ from blinov_reproduction.compare_reference import contour_crossings, cooling_int
 from blinov_reproduction.reference import (
     M_MU, compton_production, decay_production, fermi_pair_average,
     negative_muon_density_and_degeneracy, scalar_optical_depths, local_rates,
+    radial_rule, load_profile,
 )
+import transport
 
 
 class BlinovReferenceTests(unittest.TestCase):
@@ -109,6 +111,29 @@ class BlinovReferenceTests(unittest.TestCase):
             np.array([0.0, 1.0, 100.0]),
             np.array([1e-9, 1e-8]))
         np.testing.assert_allclose(values, [1.0, 100.0], rtol=1e-14)
+
+    def test_scalar_chord_integral_matches_independent_basis_transport(self):
+        # Same profile, rate array, angular/path nodes and scalar opacity;
+        # only the interpolation/integration implementation is changed.
+        profile = HERE.parent / "data" / "sfho188_digitized.csv"
+        for mass in (1e-6, 10.0):
+            r, _ = radial_rule(25.0, 40)
+            grid = np.unique(np.r_[0.0, r, 25.0])
+            p = load_profile(profile, grid)
+            energies = mass + np.geomspace(1e-6, 300.0, 60)
+            energies = np.unique(np.r_[energies, mass/p["lapse"]])
+            energies = energies[energies > mass*(1.0+1e-9)]
+            local = local_rates(
+                mass, energies[None, :], p["T"][:, None],
+                p["mu_numu"][:, None], p["mu_mu"][:, None])
+            scalar, angles_scalar = scalar_optical_depths(
+                r, grid, local["reduced_absorption"], mass, energies,
+                25.0, angular_order=12, path_order=24)
+            basis, angles_basis = transport.angular_columns(
+                r, grid, local["reduced_absorption"][..., None], mass,
+                energies, 25.0, angular_order=12, path_order=24)
+            np.testing.assert_allclose(angles_basis, angles_scalar, rtol=0, atol=1e-14)
+            np.testing.assert_allclose(basis[..., 0], scalar, rtol=2e-10, atol=1e-12)
 
     def test_constant_opacity_chord_column(self):
         radius = 10.0
