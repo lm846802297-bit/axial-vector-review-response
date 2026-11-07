@@ -135,7 +135,9 @@ def _relative_error(actual, reference):
 
 def run_audit(profile_path: Path):
     profile = np.genfromtxt(profile_path, delimiter=",", names=True)
-    radii = (0.0, 5.0, 8.0, 10.0, 15.0)
+    # Include the outer opacity-dominant layers identified in the 2026-11-08
+    # transport audit; the previous local-rate grid stopped at 15 km.
+    radii = (0.0, 5.0, 8.0, 10.0, 15.0, 17.0, 18.0, 20.0, 22.0, 24.0, 25.0)
     masses = (1.0, 10.0, 100.0, 200.0)
     energy_factors = (1.05, 1.5, 3.0)
     neutrino_rows = []
