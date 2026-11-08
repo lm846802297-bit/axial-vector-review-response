@@ -241,13 +241,12 @@ def run_audit(
         log_escaped_integral(source, angle_weights, columns, g)
         for g in couplings
     ])
-    calculated_lum = np.exp(
-        np.clip(2.0*np.log(couplings)+log_base, -745.0, 700.0)
-    )
+    log_luminosity = 2.0*np.log(couplings)+log_base
+    calculated_lum = np.exp(np.clip(log_luminosity, -745.0, 700.0))
     indices = {
         "weak_coupling": 0,
         "reference_luminosity_peak": int(np.argmax(reference_lum)),
-        "calculated_luminosity_peak": int(np.argmax(log_base)),
+        "calculated_luminosity_peak": int(np.argmax(log_luminosity)),
         "strong_absorption_endpoint": len(couplings)-1,
     }
     selected_indices = sorted(set(indices.values()))
