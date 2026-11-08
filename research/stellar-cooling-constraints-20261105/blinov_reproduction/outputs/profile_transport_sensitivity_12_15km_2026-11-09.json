@@ -6,7 +6,7 @@
     "energy_order": 100,
     "mass_MeV": 10.0,
     "path_energy_convention": "fixed omega along the B.2 path",
-    "profile_sha256": "6c47d0712d266848d0cb2315c8a9b43cf13d0b39b6986d4239dd3f22cb9ba0bc",
+    "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
     "radial_order": 40,
     "radius_km": 25.0
   },
@@ -23,7 +23,7 @@
         "10_12km": {
           "baseline_B1_source_integral": 1.127622311908787e+70,
           "fixed_baseline_source_escape_probability": 0.0003800048506339487,
-          "fixed_baseline_source_escape_ratio": 1.173088446769869,
+          "fixed_baseline_source_escape_ratio": 1.1730884467698692,
           "own_source_escape_probability": 0.0003800048506339487,
           "variant_B1_source_integral": 1.127622311908787e+70,
           "variant_fraction_of_total_B1": 0.2607967362407307,
@@ -32,8 +32,8 @@
         "12_15km": {
           "baseline_B1_source_integral": 5.931196725409649e+69,
           "fixed_baseline_source_escape_probability": 0.00016132881935121963,
-          "fixed_baseline_source_escape_ratio": 0.4980277851617287,
-          "own_source_escape_probability": 0.00016129350627952648,
+          "fixed_baseline_source_escape_ratio": 0.49802778516172874,
+          "own_source_escape_probability": 0.00016129350627952646,
           "variant_B1_source_integral": 5.933565534508666e+69,
           "variant_fraction_of_total_B1": 0.13723163414981449,
           "variant_to_baseline_ratio": 1.000399381306789
@@ -41,7 +41,7 @@
         "8_10km": {
           "baseline_B1_source_integral": 1.721276200068861e+70,
           "fixed_baseline_source_escape_probability": 0.0004019674893604256,
-          "fixed_baseline_source_escape_ratio": 1.2408878911917733,
+          "fixed_baseline_source_escape_ratio": 1.2408878911917736,
           "own_source_escape_probability": 0.0004019674893604256,
           "variant_B1_source_integral": 1.721276200068861e+70,
           "variant_fraction_of_total_B1": 0.3980971380274688,
@@ -97,21 +97,21 @@
           996.4693280447161,
           996.607838046938,
           996.7696084433035,
-          996.8506430093278,
+          996.8506430093279,
           996.9750733769756,
           997.1506005913614,
           997.2896438220125,
           997.3516228783078,
           997.443599779886,
-          997.5613992848985,
+          997.5613992848986,
           997.6512343945469,
           997.6985782009403,
           997.7862908909922,
-          997.897919311019,
+          997.8979193110191,
           997.9807862912667,
           998.0347449042342,
           998.1512208617135,
-          998.2933071644779,
+          998.293307164478,
           998.3937696548098,
           998.4444040635108,
           998.5329486023084,
@@ -132,7 +132,7 @@
           999.0910161018892,
           999.1021019274451,
           999.1161646252065,
-          999.1266487835072
+          999.1266487835073
         ],
         "radial_measure_MeVminus3": [
           9.297795623163727e+46,
@@ -261,7 +261,7 @@
           33.87596814444643,
           35.29253447281239,
           37.38373073852799,
-          37.744684699267026,
+          37.744684699267054,
           39.17268777153061,
           40.20185050820967,
           42.25841644576657,
@@ -314,7 +314,7 @@
           1133683.0735418843,
           1945927.9962218592,
           3349941.9297051146,
-          5781237.241076985,
+          5781237.241076987,
           9997814.441132193,
           17319851.25215216,
           30047944.73255807,
@@ -323,15 +323,15 @@
       },
       "B1_source_ratio_to_baseline": 1.0000547888705835,
       "channel_closure": {
-        "production_channel_sum_max_relative_residual": 3.798072977690397e-16,
+        "production_channel_sum_max_relative_residual": 4.201021415904703e-16,
         "reduced_absorption_channel_sum_max_relative_residual": 5.942105768596625e-16
       },
       "escape_probability_fixed_baseline_source": 0.00032391395584144034,
       "escape_probability_own_source": 0.00032390020240292766,
-      "escape_probability_ratio_to_baseline": 0.9998914085212772,
+      "escape_probability_ratio_to_baseline": 0.9998914085212774,
       "escaped_source_integral": 1.4004665101490308e+67,
       "escaped_source_integral_ratio_to_baseline": 0.9999461914422565,
-      "fixed_source_escape_ratio_to_baseline": 0.9999338658735866,
+      "fixed_source_escape_ratio_to_baseline": 0.9999338658735867,
       "local_samples": [
         {
           "T_MeV": 38.847171184805,
@@ -360,15 +360,15 @@
           "production_per_g2": {
             "compton": 0.045432907556952735,
             "dimuon": 0.0,
-            "nu_mu": 0.035242105114621815,
-            "nu_tau": 0.037664783824805474
+            "nu_mu": 0.03524210511462181,
+            "nu_tau": 0.03766478382480547
           },
           "radius_km": 8.0,
           "reduced_absorption_per_g2": {
             "compton": 0.03059303873764312,
             "dimuon": 0.0,
-            "nu_mu": 0.0237308846152137,
-            "nu_tau": 0.02536223747407711
+            "nu_mu": 0.023730884615213693,
+            "nu_tau": 0.025362237474077107
           }
         },
         {
@@ -391,60 +391,60 @@
           }
         },
         {
-          "T_MeV": 37.6382254906591,
+          "T_MeV": 37.6382254906592,
           "mu_mu_MeV": 101.268634581918,
           "mu_numu_MeV": -15.7916029162886,
           "omega_local_MeV": 12.0,
           "production_per_g2": {
-            "compton": 0.10951394209312984,
+            "compton": 0.10951394209313078,
             "dimuon": 0.0,
-            "nu_mu": 0.0672094846364092,
-            "nu_tau": 0.07018619000292378
+            "nu_mu": 0.0672094846364106,
+            "nu_tau": 0.07018619000292518
           },
           "radius_km": 9.0,
           "reduced_absorption_per_g2": {
-            "compton": 0.041123615968141965,
+            "compton": 0.041123615968142194,
             "dimuon": 0.0,
-            "nu_mu": 0.025237855407068008,
-            "nu_tau": 0.026355639006153078
+            "nu_mu": 0.025237855407068455,
+            "nu_tau": 0.026355639006153522
           }
         },
         {
-          "T_MeV": 37.6382254906591,
+          "T_MeV": 37.6382254906592,
           "mu_mu_MeV": 101.268634581918,
           "mu_numu_MeV": -15.7916029162886,
           "omega_local_MeV": 20.0,
           "production_per_g2": {
-            "compton": 0.048968825707940214,
+            "compton": 0.04896882570794065,
             "dimuon": 0.0,
-            "nu_mu": 0.0357559000141733,
-            "nu_tau": 0.03730481042462155
+            "nu_mu": 0.035755900014173427,
+            "nu_tau": 0.03730481042462149
           },
           "radius_km": 9.0,
           "reduced_absorption_per_g2": {
-            "compton": 0.034340339107417524,
+            "compton": 0.03434033910741771,
             "dimuon": 0.0,
             "nu_mu": 0.02507451861110342,
-            "nu_tau": 0.026160722087965174
+            "nu_tau": 0.026160722087965042
           }
         },
         {
-          "T_MeV": 37.6382254906591,
+          "T_MeV": 37.6382254906592,
           "mu_mu_MeV": 101.268634581918,
           "mu_numu_MeV": -15.7916029162886,
           "omega_local_MeV": 50.0,
           "production_per_g2": {
-            "compton": 0.011219352319640283,
+            "compton": 0.011219352319640401,
             "dimuon": 0.0,
-            "nu_mu": 0.008591601111703925,
-            "nu_tau": 0.008907030760482182
+            "nu_mu": 0.008591601111703947,
+            "nu_tau": 0.0089070307604822
           },
           "radius_km": 9.0,
           "reduced_absorption_per_g2": {
-            "compton": 0.031135240790725216,
+            "compton": 0.03113524079072539,
             "dimuon": 0.0,
-            "nu_mu": 0.023842870940284443,
-            "nu_tau": 0.02471823145909555
+            "nu_mu": 0.023842870940284387,
+            "nu_tau": 0.024718231459095477
           }
         },
         {
@@ -455,14 +455,14 @@
           "production_per_g2": {
             "compton": 0.08043165806519272,
             "dimuon": 0.0,
-            "nu_mu": 0.06733919017367215,
+            "nu_mu": 0.06733919017367218,
             "nu_tau": 0.06886214850110761
           },
           "radius_km": 10.0,
           "reduced_absorption_per_g2": {
             "compton": 0.03412893231936412,
             "dimuon": 0.0,
-            "nu_mu": 0.028573508481141364,
+            "nu_mu": 0.028573508481141374,
             "nu_tau": 0.0292197333996943
           }
         },
@@ -474,15 +474,15 @@
           "production_per_g2": {
             "compton": 0.0354878820454006,
             "dimuon": 0.0,
-            "nu_mu": 0.035278517127327214,
-            "nu_tau": 0.0360550099966853
+            "nu_mu": 0.03527851712732721,
+            "nu_tau": 0.036055009996685296
           },
           "radius_km": 10.0,
           "reduced_absorption_per_g2": {
             "compton": 0.02849941770998447,
             "dimuon": 0.0,
-            "nu_mu": 0.028331282056063035,
-            "nu_tau": 0.028954863779095976
+            "nu_mu": 0.028331282056063032,
+            "nu_tau": 0.02895486377909597
           }
         },
         {
@@ -626,8 +626,8 @@
           "production_per_g2": {
             "compton": 0.010417763788574806,
             "dimuon": 0.0,
-            "nu_mu": 0.06161084438334484,
-            "nu_tau": 0.06161084438334484
+            "nu_mu": 0.06161084438334485,
+            "nu_tau": 0.06161084438334485
           },
           "radius_km": 13.0,
           "reduced_absorption_per_g2": {
@@ -793,72 +793,72 @@
       "path_shell_optical_depths_8_15km": {
         "10_12km": {
           "mean_tau_per_g2_by_channel_baseline_source_weights": {
-            "compton": 279162179999769.12,
+            "compton": 279162179999769.06,
             "dimuon": 0.0,
-            "nu_mu": 350983590052085.75,
+            "nu_mu": 350983590052085.7,
             "nu_tau": 353784596439444.44
           },
-          "mean_tau_per_g2_total_baseline_source_weights": 983930366491299.4
+          "mean_tau_per_g2_total_baseline_source_weights": 983930366491299.2
         },
         "12_15km": {
           "mean_tau_per_g2_by_channel_baseline_source_weights": {
             "compton": 95743265937761.03,
             "dimuon": 0.0,
-            "nu_mu": 626429926533504.6,
+            "nu_mu": 626429926533504.5,
             "nu_tau": 626475876568452.9
           },
-          "mean_tau_per_g2_total_baseline_source_weights": 1348649069039718.5
+          "mean_tau_per_g2_total_baseline_source_weights": 1348649069039718.2
         },
         "8_10km": {
           "mean_tau_per_g2_by_channel_baseline_source_weights": {
-            "compton": 408295820019672.44,
+            "compton": 408295820019672.4,
             "dimuon": 0.0,
-            "nu_mu": 273892466684528.62,
+            "nu_mu": 273892466684528.6,
             "nu_tau": 280313680219848.97
           },
-          "mean_tau_per_g2_total_baseline_source_weights": 962501966924050.2
+          "mean_tau_per_g2_total_baseline_source_weights": 962501966924050.1
         }
       },
-      "profile_sha256": "861042f9e0a8e114da9d95faeb10297adc16221f740b80b4a3fd895621157d2c",
+      "profile_sha256": "332d510017d150421ce4bdc82d0e05a96c4da99791cc29f7bf1a441ad5eae610",
       "shell_12_15km_mean_tau_per_g2_by_channel_baseline_source_weights": {
         "compton": 95743265937761.03,
         "dimuon": 0.0,
-        "nu_mu": 626429926533504.6,
+        "nu_mu": 626429926533504.5,
         "nu_tau": 626475876568452.9
       },
-      "shell_12_15km_mean_tau_per_g2_total_baseline_source_weights": 1348649069039718.5
+      "shell_12_15km_mean_tau_per_g2_total_baseline_source_weights": 1348649069039718.2
     },
     "B2_diagnostic_Ferreira_mu_mu_8_15km": {
       "B1_source_and_escape_by_emission_radius": {
         "10_12km": {
           "baseline_B1_source_integral": 1.127622311908787e+70,
           "fixed_baseline_source_escape_probability": 0.00029789031818800213,
-          "fixed_baseline_source_escape_ratio": 0.9195979737836701,
+          "fixed_baseline_source_escape_ratio": 0.9195979737836703,
           "own_source_escape_probability": 0.00031584112395184377,
           "variant_B1_source_integral": 1.3439259416108588e+70,
-          "variant_fraction_of_total_B1": 0.24457936587370863,
+          "variant_fraction_of_total_B1": 0.2445793658737086,
           "variant_to_baseline_ratio": 1.1918227649610116
         },
         "12_15km": {
           "baseline_B1_source_integral": 5.931196725409649e+69,
           "fixed_baseline_source_escape_probability": 0.00015274362740460282,
-          "fixed_baseline_source_escape_ratio": 0.4715249932392664,
+          "fixed_baseline_source_escape_ratio": 0.4715249932392665,
           "own_source_escape_probability": 0.00015948211358270202,
           "variant_B1_source_integral": 6.2104400002615975e+69,
-          "variant_fraction_of_total_B1": 0.11302300447002722,
+          "variant_fraction_of_total_B1": 0.11302300447002721,
           "variant_to_baseline_ratio": 1.0470804270672143
         },
         "8_10km": {
           "baseline_B1_source_integral": 1.721276200068861e+70,
-          "fixed_baseline_source_escape_probability": 0.00020398326359534214,
-          "fixed_baseline_source_escape_ratio": 0.6297035668331835,
-          "own_source_escape_probability": 0.00021235307669105062,
+          "fixed_baseline_source_escape_probability": 0.00020398326359534212,
+          "fixed_baseline_source_escape_ratio": 0.6297035668331836,
+          "own_source_escape_probability": 0.0002123530766910506,
           "variant_B1_source_integral": 2.6483717954391954e+70,
-          "variant_fraction_of_total_B1": 0.4819738009893178,
+          "variant_fraction_of_total_B1": 0.48197380098931775,
           "variant_to_baseline_ratio": 1.5386094313819279
         }
       },
-      "B1_source_integral": 5.494845964662491e+70,
+      "B1_source_integral": 5.494845964662492e+70,
       "B1_source_metadata": {
         "energy_lower_bound_MeV": [
           13.577911290600559,
@@ -907,21 +907,21 @@
           996.4693280447161,
           996.607838046938,
           996.7696084433035,
-          996.8506430093278,
+          996.8506430093279,
           996.9750733769756,
           997.1506005913614,
           997.2896438220125,
           997.3516228783078,
           997.443599779886,
-          997.5613992848985,
+          997.5613992848986,
           997.6512343945469,
           997.6985782009403,
           997.7862908909922,
-          997.897919311019,
+          997.8979193110191,
           997.9807862912667,
           998.0347449042342,
           998.1512208617135,
-          998.2933071644779,
+          998.293307164478,
           998.3937696548098,
           998.4444040635108,
           998.5329486023084,
@@ -942,7 +942,7 @@
           999.0910161018892,
           999.1021019274451,
           999.1161646252065,
-          999.1266487835072
+          999.1266487835073
         ],
         "radial_measure_MeVminus3": [
           9.297795623163727e+46,
@@ -1071,7 +1071,7 @@
           33.87596814444643,
           35.29253447281239,
           37.38373073852799,
-          37.744684699267026,
+          37.744684699267054,
           39.17268777153061,
           40.20185050820967,
           42.25841644576657,
@@ -1124,7 +1124,7 @@
           1133683.0735418843,
           1945927.9962218592,
           3349941.9297051146,
-          5781237.241076985,
+          5781237.241076987,
           9997814.441132193,
           17319851.25215216,
           30047944.73255807,
@@ -1133,14 +1133,14 @@
       },
       "B1_source_ratio_to_baseline": 1.2709188113095373,
       "channel_closure": {
-        "production_channel_sum_max_relative_residual": 3.798072977690397e-16,
-        "reduced_absorption_channel_sum_max_relative_residual": 5.082715833128104e-16
+        "production_channel_sum_max_relative_residual": 4.201021415904703e-16,
+        "reduced_absorption_channel_sum_max_relative_residual": 5.33767925173953e-16
       },
-      "escape_probability_fixed_baseline_source": 0.00020076743355019992,
-      "escape_probability_own_source": 0.00021407521491654868,
-      "escape_probability_ratio_to_baseline": 0.6608577783663289,
-      "escaped_source_integral": 1.1763103308184531e+67,
-      "escaped_source_integral_ratio_to_baseline": 0.8398965821259964,
+      "escape_probability_fixed_baseline_source": 0.0002007674335501999,
+      "escape_probability_own_source": 0.00021407521491654863,
+      "escape_probability_ratio_to_baseline": 0.6608577783663288,
+      "escaped_source_integral": 1.1763103308184528e+67,
+      "escaped_source_integral_ratio_to_baseline": 0.8398965821259962,
       "fixed_source_escape_ratio_to_baseline": 0.6197761854683449,
       "local_samples": [
         {
@@ -1170,15 +1170,15 @@
           "production_per_g2": {
             "compton": 0.15314477460423792,
             "dimuon": 0.0,
-            "nu_mu": 0.035242105114621815,
-            "nu_tau": 0.037664783824805474
+            "nu_mu": 0.03524210511462181,
+            "nu_tau": 0.03766478382480547
           },
           "radius_km": 8.0,
           "reduced_absorption_per_g2": {
             "compton": 0.10312269836708018,
             "dimuon": 0.0,
-            "nu_mu": 0.0237308846152137,
-            "nu_tau": 0.02536223747407711
+            "nu_mu": 0.023730884615213693,
+            "nu_tau": 0.025362237474077107
           }
         },
         {
@@ -1201,60 +1201,60 @@
           }
         },
         {
-          "T_MeV": 37.6382254906591,
+          "T_MeV": 37.6382254906592,
           "mu_mu_MeV": 142.404573854579,
           "mu_numu_MeV": -15.7916029162886,
           "omega_local_MeV": 12.0,
           "production_per_g2": {
-            "compton": 0.22247077471334806,
+            "compton": 0.2224707747133497,
             "dimuon": 0.0,
-            "nu_mu": 0.0672094846364092,
-            "nu_tau": 0.07018619000292378
+            "nu_mu": 0.0672094846364106,
+            "nu_tau": 0.07018619000292518
           },
           "radius_km": 9.0,
           "reduced_absorption_per_g2": {
-            "compton": 0.08354007287644417,
+            "compton": 0.08354007287644453,
             "dimuon": 0.0,
-            "nu_mu": 0.025237855407068008,
-            "nu_tau": 0.026355639006153078
+            "nu_mu": 0.025237855407068455,
+            "nu_tau": 0.026355639006153522
           }
         },
         {
-          "T_MeV": 37.6382254906591,
+          "T_MeV": 37.6382254906592,
           "mu_mu_MeV": 142.404573854579,
           "mu_numu_MeV": -15.7916029162886,
           "omega_local_MeV": 20.0,
           "production_per_g2": {
-            "compton": 0.09947712943055309,
+            "compton": 0.09947712943055383,
             "dimuon": 0.0,
-            "nu_mu": 0.0357559000141733,
-            "nu_tau": 0.03730481042462155
+            "nu_mu": 0.035755900014173427,
+            "nu_tau": 0.03730481042462149
           },
           "radius_km": 9.0,
           "reduced_absorption_per_g2": {
-            "compton": 0.06976026704115443,
+            "compton": 0.0697602670411547,
             "dimuon": 0.0,
             "nu_mu": 0.02507451861110342,
-            "nu_tau": 0.026160722087965174
+            "nu_tau": 0.026160722087965042
           }
         },
         {
-          "T_MeV": 37.6382254906591,
+          "T_MeV": 37.6382254906592,
           "mu_mu_MeV": 142.404573854579,
           "mu_numu_MeV": -15.7916029162886,
           "omega_local_MeV": 50.0,
           "production_per_g2": {
-            "compton": 0.022791417737568168,
+            "compton": 0.022791417737568372,
             "dimuon": 0.0,
-            "nu_mu": 0.008591601111703925,
-            "nu_tau": 0.008907030760482182
+            "nu_mu": 0.008591601111703947,
+            "nu_tau": 0.0089070307604822
           },
           "radius_km": 9.0,
           "reduced_absorption_per_g2": {
-            "compton": 0.06324930878398001,
+            "compton": 0.06324930878398026,
             "dimuon": 0.0,
-            "nu_mu": 0.023842870940284443,
-            "nu_tau": 0.02471823145909555
+            "nu_mu": 0.023842870940284387,
+            "nu_tau": 0.024718231459095477
           }
         },
         {
@@ -1265,14 +1265,14 @@
           "production_per_g2": {
             "compton": 0.13907845070137492,
             "dimuon": 0.0,
-            "nu_mu": 0.06733919017367215,
+            "nu_mu": 0.06733919017367218,
             "nu_tau": 0.06886214850110761
           },
           "radius_km": 10.0,
           "reduced_absorption_per_g2": {
             "compton": 0.05901406417883313,
             "dimuon": 0.0,
-            "nu_mu": 0.028573508481141364,
+            "nu_mu": 0.028573508481141374,
             "nu_tau": 0.0292197333996943
           }
         },
@@ -1284,15 +1284,15 @@
           "production_per_g2": {
             "compton": 0.061363892928167366,
             "dimuon": 0.0,
-            "nu_mu": 0.035278517127327214,
-            "nu_tau": 0.0360550099966853
+            "nu_mu": 0.03527851712732721,
+            "nu_tau": 0.036055009996685296
           },
           "radius_km": 10.0,
           "reduced_absorption_per_g2": {
             "compton": 0.049279785551396726,
             "dimuon": 0.0,
-            "nu_mu": 0.028331282056063035,
-            "nu_tau": 0.028954863779095976
+            "nu_mu": 0.028331282056063032,
+            "nu_tau": 0.02895486377909597
           }
         },
         {
@@ -1436,14 +1436,14 @@
           "production_per_g2": {
             "compton": 0.015909692440076072,
             "dimuon": 0.0,
-            "nu_mu": 0.06155827846712066,
-            "nu_tau": 0.06161084438334484
+            "nu_mu": 0.06155827846712067,
+            "nu_tau": 0.06161084438334485
           },
           "radius_km": 13.0,
           "reduced_absorption_per_g2": {
             "compton": 0.011712899646679972,
             "dimuon": 0.0,
-            "nu_mu": 0.04531991682576595,
+            "nu_mu": 0.04531991682576596,
             "nu_tau": 0.045358616461468444
           }
         },
@@ -1608,42 +1608,42 @@
             "nu_mu": 350971187050442.25,
             "nu_tau": 353784596439444.44
           },
-          "mean_tau_per_g2_total_baseline_source_weights": 1164289847872564.5
+          "mean_tau_per_g2_total_baseline_source_weights": 1164289847872564.2
         },
         "12_15km": {
           "mean_tau_per_g2_by_channel_baseline_source_weights": {
             "compton": 147511293964936.88,
             "dimuon": 0.0,
-            "nu_mu": 626118509176838.1,
+            "nu_mu": 626118509176838.0,
             "nu_tau": 626475876568452.9
           },
-          "mean_tau_per_g2_total_baseline_source_weights": 1400105679710228.0
+          "mean_tau_per_g2_total_baseline_source_weights": 1400105679710227.8
         },
         "8_10km": {
           "mean_tau_per_g2_by_channel_baseline_source_weights": {
-            "compton": 887029435976201.8,
+            "compton": 887029435976201.6,
             "dimuon": 0.0,
-            "nu_mu": 273892466684528.62,
+            "nu_mu": 273892466684528.6,
             "nu_tau": 280313680219848.97
           },
-          "mean_tau_per_g2_total_baseline_source_weights": 1441235582880579.2
+          "mean_tau_per_g2_total_baseline_source_weights": 1441235582880579.0
         }
       },
-      "profile_sha256": "daf668f07f36b82dd7405ad81dd89e8cdc46e412ee9ee7cabce51e654bad448e",
+      "profile_sha256": "e7f81277dfc69cfc079bd7b2c1fc0105276fef39791d91d5a837d60bb7fd1e72",
       "shell_12_15km_mean_tau_per_g2_by_channel_baseline_source_weights": {
         "compton": 147511293964936.88,
         "dimuon": 0.0,
-        "nu_mu": 626118509176838.1,
+        "nu_mu": 626118509176838.0,
         "nu_tau": 626475876568452.9
       },
-      "shell_12_15km_mean_tau_per_g2_total_baseline_source_weights": 1400105679710228.0
+      "shell_12_15km_mean_tau_per_g2_total_baseline_source_weights": 1400105679710227.8
     },
     "B_diagnostic_Ferreira_mu_mu_12_15km": {
       "B1_source_and_escape_by_emission_radius": {
         "10_12km": {
           "baseline_B1_source_integral": 1.127622311908787e+70,
           "fixed_baseline_source_escape_probability": 0.00035117414814579315,
-          "fixed_baseline_source_escape_ratio": 1.084087046012241,
+          "fixed_baseline_source_escape_ratio": 1.0840870460122412,
           "own_source_escape_probability": 0.00035117414814579315,
           "variant_B1_source_integral": 1.127622311908787e+70,
           "variant_fraction_of_total_B1": 0.25913733509582404,
@@ -1652,17 +1652,17 @@
         "12_15km": {
           "baseline_B1_source_integral": 5.931196725409649e+69,
           "fixed_baseline_source_escape_probability": 0.00015294929509886092,
-          "fixed_baseline_source_escape_ratio": 0.47215989670327607,
-          "own_source_escape_probability": 0.00015970563745372395,
+          "fixed_baseline_source_escape_ratio": 0.4721598967032761,
+          "own_source_escape_probability": 0.00015970563745372392,
           "variant_B1_source_integral": 6.2104400002615975e+69,
           "variant_fraction_of_total_B1": 0.14272126885428987,
           "variant_to_baseline_ratio": 1.0470804270672143
         },
         "8_10km": {
           "baseline_B1_source_integral": 1.721276200068861e+70,
-          "fixed_baseline_source_escape_probability": 0.00037442327916467123,
-          "fixed_baseline_source_escape_ratio": 1.1558579377526643,
-          "own_source_escape_probability": 0.00037442327916467123,
+          "fixed_baseline_source_escape_probability": 0.0003744232791646713,
+          "fixed_baseline_source_escape_ratio": 1.1558579377526648,
+          "own_source_escape_probability": 0.0003744232791646713,
           "variant_B1_source_integral": 1.721276200068861e+70,
           "variant_fraction_of_total_B1": 0.39556411995312807,
           "variant_to_baseline_ratio": 1.0
@@ -1717,21 +1717,21 @@
           996.4693280447161,
           996.607838046938,
           996.7696084433035,
-          996.8506430093278,
+          996.8506430093279,
           996.9750733769756,
           997.1506005913614,
           997.2896438220125,
           997.3516228783078,
           997.443599779886,
-          997.5613992848985,
+          997.5613992848986,
           997.6512343945469,
           997.6985782009403,
           997.7862908909922,
-          997.897919311019,
+          997.8979193110191,
           997.9807862912667,
           998.0347449042342,
           998.1512208617135,
-          998.2933071644779,
+          998.293307164478,
           998.3937696548098,
           998.4444040635108,
           998.5329486023084,
@@ -1752,7 +1752,7 @@
           999.0910161018892,
           999.1021019274451,
           999.1161646252065,
-          999.1266487835072
+          999.1266487835073
         ],
         "radial_measure_MeVminus3": [
           9.297795623163727e+46,
@@ -1881,7 +1881,7 @@
           33.87596814444643,
           35.29253447281239,
           37.38373073852799,
-          37.744684699267026,
+          37.744684699267054,
           39.17268777153061,
           40.20185050820967,
           42.25841644576657,
@@ -1934,7 +1934,7 @@
           1133683.0735418843,
           1945927.9962218592,
           3349941.9297051146,
-          5781237.241076985,
+          5781237.241076987,
           9997814.441132193,
           17319851.25215216,
           30047944.73255807,
@@ -1943,15 +1943,15 @@
       },
       "B1_source_ratio_to_baseline": 1.0064586984462052,
       "channel_closure": {
-        "production_channel_sum_max_relative_residual": 3.798072977690397e-16,
-        "reduced_absorption_channel_sum_max_relative_residual": 5.082715833128104e-16
+        "production_channel_sum_max_relative_residual": 4.201021415904703e-16,
+        "reduced_absorption_channel_sum_max_relative_residual": 5.33767925173953e-16
       },
-      "escape_probability_fixed_baseline_source": 0.0003022210855823901,
+      "escape_probability_fixed_baseline_source": 0.00030222108558239,
       "escape_probability_own_source": 0.0003022274447363687,
-      "escape_probability_ratio_to_baseline": 0.9329868372089128,
+      "escape_probability_ratio_to_baseline": 0.932986837208913,
       "escaped_source_integral": 1.3151266290127143e+67,
       "escaped_source_integral_ratio_to_baseline": 0.939012717844724,
-      "fixed_source_escape_ratio_to_baseline": 0.9329672062751206,
+      "fixed_source_escape_ratio_to_baseline": 0.9329672062751204,
       "local_samples": [
         {
           "T_MeV": 38.847171184805,
@@ -1980,15 +1980,15 @@
           "production_per_g2": {
             "compton": 0.045432907556952735,
             "dimuon": 0.0,
-            "nu_mu": 0.035242105114621815,
-            "nu_tau": 0.037664783824805474
+            "nu_mu": 0.03524210511462181,
+            "nu_tau": 0.03766478382480547
           },
           "radius_km": 8.0,
           "reduced_absorption_per_g2": {
             "compton": 0.03059303873764312,
             "dimuon": 0.0,
-            "nu_mu": 0.0237308846152137,
-            "nu_tau": 0.02536223747407711
+            "nu_mu": 0.023730884615213693,
+            "nu_tau": 0.025362237474077107
           }
         },
         {
@@ -2011,60 +2011,60 @@
           }
         },
         {
-          "T_MeV": 37.6382254906591,
+          "T_MeV": 37.6382254906592,
           "mu_mu_MeV": 101.268634581918,
           "mu_numu_MeV": -15.7916029162886,
           "omega_local_MeV": 12.0,
           "production_per_g2": {
-            "compton": 0.10951394209312984,
+            "compton": 0.10951394209313078,
             "dimuon": 0.0,
-            "nu_mu": 0.0672094846364092,
-            "nu_tau": 0.07018619000292378
+            "nu_mu": 0.0672094846364106,
+            "nu_tau": 0.07018619000292518
           },
           "radius_km": 9.0,
           "reduced_absorption_per_g2": {
-            "compton": 0.041123615968141965,
+            "compton": 0.041123615968142194,
             "dimuon": 0.0,
-            "nu_mu": 0.025237855407068008,
-            "nu_tau": 0.026355639006153078
+            "nu_mu": 0.025237855407068455,
+            "nu_tau": 0.026355639006153522
           }
         },
         {
-          "T_MeV": 37.6382254906591,
+          "T_MeV": 37.6382254906592,
           "mu_mu_MeV": 101.268634581918,
           "mu_numu_MeV": -15.7916029162886,
           "omega_local_MeV": 20.0,
           "production_per_g2": {
-            "compton": 0.048968825707940214,
+            "compton": 0.04896882570794065,
             "dimuon": 0.0,
-            "nu_mu": 0.0357559000141733,
-            "nu_tau": 0.03730481042462155
+            "nu_mu": 0.035755900014173427,
+            "nu_tau": 0.03730481042462149
           },
           "radius_km": 9.0,
           "reduced_absorption_per_g2": {
-            "compton": 0.034340339107417524,
+            "compton": 0.03434033910741771,
             "dimuon": 0.0,
             "nu_mu": 0.02507451861110342,
-            "nu_tau": 0.026160722087965174
+            "nu_tau": 0.026160722087965042
           }
         },
         {
-          "T_MeV": 37.6382254906591,
+          "T_MeV": 37.6382254906592,
           "mu_mu_MeV": 101.268634581918,
           "mu_numu_MeV": -15.7916029162886,
           "omega_local_MeV": 50.0,
           "production_per_g2": {
-            "compton": 0.011219352319640283,
+            "compton": 0.011219352319640401,
             "dimuon": 0.0,
-            "nu_mu": 0.008591601111703925,
-            "nu_tau": 0.008907030760482182
+            "nu_mu": 0.008591601111703947,
+            "nu_tau": 0.0089070307604822
           },
           "radius_km": 9.0,
           "reduced_absorption_per_g2": {
-            "compton": 0.031135240790725216,
+            "compton": 0.03113524079072539,
             "dimuon": 0.0,
-            "nu_mu": 0.023842870940284443,
-            "nu_tau": 0.02471823145909555
+            "nu_mu": 0.023842870940284387,
+            "nu_tau": 0.024718231459095477
           }
         },
         {
@@ -2075,14 +2075,14 @@
           "production_per_g2": {
             "compton": 0.08043165806519272,
             "dimuon": 0.0,
-            "nu_mu": 0.06733919017367215,
+            "nu_mu": 0.06733919017367218,
             "nu_tau": 0.06886214850110761
           },
           "radius_km": 10.0,
           "reduced_absorption_per_g2": {
             "compton": 0.03412893231936412,
             "dimuon": 0.0,
-            "nu_mu": 0.028573508481141364,
+            "nu_mu": 0.028573508481141374,
             "nu_tau": 0.0292197333996943
           }
         },
@@ -2094,15 +2094,15 @@
           "production_per_g2": {
             "compton": 0.0354878820454006,
             "dimuon": 0.0,
-            "nu_mu": 0.035278517127327214,
-            "nu_tau": 0.0360550099966853
+            "nu_mu": 0.03527851712732721,
+            "nu_tau": 0.036055009996685296
           },
           "radius_km": 10.0,
           "reduced_absorption_per_g2": {
             "compton": 0.02849941770998447,
             "dimuon": 0.0,
-            "nu_mu": 0.028331282056063035,
-            "nu_tau": 0.028954863779095976
+            "nu_mu": 0.028331282056063032,
+            "nu_tau": 0.02895486377909597
           }
         },
         {
@@ -2246,14 +2246,14 @@
           "production_per_g2": {
             "compton": 0.015909692440076072,
             "dimuon": 0.0,
-            "nu_mu": 0.06155827846712066,
-            "nu_tau": 0.06161084438334484
+            "nu_mu": 0.06155827846712067,
+            "nu_tau": 0.06161084438334485
           },
           "radius_km": 13.0,
           "reduced_absorption_per_g2": {
             "compton": 0.011712899646679972,
             "dimuon": 0.0,
-            "nu_mu": 0.04531991682576595,
+            "nu_mu": 0.04531991682576596,
             "nu_tau": 0.045358616461468444
           }
         },
@@ -2413,7 +2413,7 @@
       "path_shell_optical_depths_8_15km": {
         "10_12km": {
           "mean_tau_per_g2_by_channel_baseline_source_weights": {
-            "compton": 280309594808024.9,
+            "compton": 280309594808024.88,
             "dimuon": 0.0,
             "nu_mu": 350971187050442.25,
             "nu_tau": 353784596439444.44
@@ -2422,48 +2422,48 @@
         },
         "12_15km": {
           "mean_tau_per_g2_by_channel_baseline_source_weights": {
-            "compton": 144277636419100.72,
+            "compton": 144277636419100.7,
             "dimuon": 0.0,
-            "nu_mu": 626118509176838.1,
+            "nu_mu": 626118509176838.0,
             "nu_tau": 626475876568452.9
           },
-          "mean_tau_per_g2_total_baseline_source_weights": 1396872022164392.0
+          "mean_tau_per_g2_total_baseline_source_weights": 1396872022164391.8
         },
         "8_10km": {
           "mean_tau_per_g2_by_channel_baseline_source_weights": {
-            "compton": 408295820019672.44,
+            "compton": 408295820019672.4,
             "dimuon": 0.0,
-            "nu_mu": 273892466684528.62,
+            "nu_mu": 273892466684528.6,
             "nu_tau": 280313680219848.97
           },
-          "mean_tau_per_g2_total_baseline_source_weights": 962501966924050.2
+          "mean_tau_per_g2_total_baseline_source_weights": 962501966924050.1
         }
       },
-      "profile_sha256": "e59a2ba8aca4284d513a383e52865d8cc3fce0e2409449c5898423ff304d5eee",
+      "profile_sha256": "3634686a09008f7cd260924be1bfa6ed32e89ee512a1c46bb02c3493c07ab42c",
       "shell_12_15km_mean_tau_per_g2_by_channel_baseline_source_weights": {
-        "compton": 144277636419100.72,
+        "compton": 144277636419100.7,
         "dimuon": 0.0,
-        "nu_mu": 626118509176838.1,
+        "nu_mu": 626118509176838.0,
         "nu_tau": 626475876568452.9
       },
-      "shell_12_15km_mean_tau_per_g2_total_baseline_source_weights": 1396872022164392.0
+      "shell_12_15km_mean_tau_per_g2_total_baseline_source_weights": 1396872022164391.8
     },
     "C_unresolved_mu_numu_at_plot_floor": {
       "B1_source_and_escape_by_emission_radius": {
         "10_12km": {
           "baseline_B1_source_integral": 1.127622311908787e+70,
           "fixed_baseline_source_escape_probability": 0.00038004743657078137,
-          "fixed_baseline_source_escape_ratio": 1.1732199110667323,
+          "fixed_baseline_source_escape_ratio": 1.1732199110667325,
           "own_source_escape_probability": 0.00038004743657078137,
           "variant_B1_source_integral": 1.127622311908787e+70,
-          "variant_fraction_of_total_B1": 0.2608133149643187,
+          "variant_fraction_of_total_B1": 0.26081331496431864,
           "variant_to_baseline_ratio": 1.0
         },
         "12_15km": {
           "baseline_B1_source_integral": 5.931196725409649e+69,
-          "fixed_baseline_source_escape_probability": 0.00016134485936451827,
+          "fixed_baseline_source_escape_probability": 0.00016134485936451825,
           "fixed_baseline_source_escape_ratio": 0.4980773012514714,
-          "own_source_escape_probability": 0.00016135403639715916,
+          "own_source_escape_probability": 0.00016135403639715913,
           "variant_B1_source_integral": 5.930817116154734e+69,
           "variant_fraction_of_total_B1": 0.1371767883781072,
           "variant_to_baseline_ratio": 0.9999359978647667
@@ -2471,14 +2471,14 @@
         "8_10km": {
           "baseline_B1_source_integral": 1.721276200068861e+70,
           "fixed_baseline_source_escape_probability": 0.0004019969989376183,
-          "fixed_baseline_source_escape_ratio": 1.240978988302813,
+          "fixed_baseline_source_escape_ratio": 1.2409789883028133,
           "own_source_escape_probability": 0.0004019969989376183,
           "variant_B1_source_integral": 1.721276200068861e+70,
-          "variant_fraction_of_total_B1": 0.3981224448718246,
+          "variant_fraction_of_total_B1": 0.3981224448718245,
           "variant_to_baseline_ratio": 1.0
         }
       },
-      "B1_source_integral": 4.323484451179399e+70,
+      "B1_source_integral": 4.3234844511793995e+70,
       "B1_source_metadata": {
         "energy_lower_bound_MeV": [
           13.577911290600559,
@@ -2527,21 +2527,21 @@
           996.4693280447161,
           996.607838046938,
           996.7696084433035,
-          996.8506430093278,
+          996.8506430093279,
           996.9750733769756,
           997.1506005913614,
           997.2896438220125,
           997.3516228783078,
           997.443599779886,
-          997.5613992848985,
+          997.5613992848986,
           997.6512343945469,
           997.6985782009403,
           997.7862908909922,
-          997.897919311019,
+          997.8979193110191,
           997.9807862912667,
           998.0347449042342,
           998.1512208617135,
-          998.2933071644779,
+          998.293307164478,
           998.3937696548098,
           998.4444040635108,
           998.5329486023084,
@@ -2562,7 +2562,7 @@
           999.0910161018892,
           999.1021019274451,
           999.1161646252065,
-          999.1266487835072
+          999.1266487835073
         ],
         "radial_measure_MeVminus3": [
           9.297795623163727e+46,
@@ -2691,7 +2691,7 @@
           33.87596814444643,
           35.29253447281239,
           37.38373073852799,
-          37.744684699267026,
+          37.744684699267054,
           39.17268777153061,
           40.20185050820967,
           42.25841644576657,
@@ -2744,7 +2744,7 @@
           1133683.0735418843,
           1945927.9962218592,
           3349941.9297051146,
-          5781237.241076985,
+          5781237.241076987,
           9997814.441132193,
           17319851.25215216,
           30047944.73255807,
@@ -2753,11 +2753,11 @@
       },
       "B1_source_ratio_to_baseline": 0.9999912199077804,
       "channel_closure": {
-        "production_channel_sum_max_relative_residual": 4.012119981780255e-16,
+        "production_channel_sum_max_relative_residual": 4.201021415904703e-16,
         "reduced_absorption_channel_sum_max_relative_residual": 5.948889902092466e-16
       },
-      "escape_probability_fixed_baseline_source": 0.0003239411768810112,
-      "escape_probability_own_source": 0.0003239438633800727,
+      "escape_probability_fixed_baseline_source": 0.00032394117688101115,
+      "escape_probability_own_source": 0.00032394386338007266,
       "escape_probability_ratio_to_baseline": 1.0000261915057,
       "escaped_source_integral": 1.400566256378728e+67,
       "escaped_source_integral_ratio_to_baseline": 1.0000174111835167,
@@ -2790,15 +2790,15 @@
           "production_per_g2": {
             "compton": 0.045432907556952735,
             "dimuon": 0.0,
-            "nu_mu": 0.035242105114621815,
-            "nu_tau": 0.037664783824805474
+            "nu_mu": 0.03524210511462181,
+            "nu_tau": 0.03766478382480547
           },
           "radius_km": 8.0,
           "reduced_absorption_per_g2": {
             "compton": 0.03059303873764312,
             "dimuon": 0.0,
-            "nu_mu": 0.0237308846152137,
-            "nu_tau": 0.02536223747407711
+            "nu_mu": 0.023730884615213693,
+            "nu_tau": 0.025362237474077107
           }
         },
         {
@@ -2821,60 +2821,60 @@
           }
         },
         {
-          "T_MeV": 37.6382254906591,
+          "T_MeV": 37.6382254906592,
           "mu_mu_MeV": 101.268634581918,
           "mu_numu_MeV": -15.7916029162886,
           "omega_local_MeV": 12.0,
           "production_per_g2": {
-            "compton": 0.10951394209312984,
+            "compton": 0.10951394209313078,
             "dimuon": 0.0,
-            "nu_mu": 0.0672094846364092,
-            "nu_tau": 0.07018619000292378
+            "nu_mu": 0.0672094846364106,
+            "nu_tau": 0.07018619000292518
           },
           "radius_km": 9.0,
           "reduced_absorption_per_g2": {
-            "compton": 0.041123615968141965,
+            "compton": 0.041123615968142194,
             "dimuon": 0.0,
-            "nu_mu": 0.025237855407068008,
-            "nu_tau": 0.026355639006153078
+            "nu_mu": 0.025237855407068455,
+            "nu_tau": 0.026355639006153522
           }
         },
         {
-          "T_MeV": 37.6382254906591,
+          "T_MeV": 37.6382254906592,
           "mu_mu_MeV": 101.268634581918,
           "mu_numu_MeV": -15.7916029162886,
           "omega_local_MeV": 20.0,
           "production_per_g2": {
-            "compton": 0.048968825707940214,
+            "compton": 0.04896882570794065,
             "dimuon": 0.0,
-            "nu_mu": 0.0357559000141733,
-            "nu_tau": 0.03730481042462155
+            "nu_mu": 0.035755900014173427,
+            "nu_tau": 0.03730481042462149
           },
           "radius_km": 9.0,
           "reduced_absorption_per_g2": {
-            "compton": 0.034340339107417524,
+            "compton": 0.03434033910741771,
             "dimuon": 0.0,
             "nu_mu": 0.02507451861110342,
-            "nu_tau": 0.026160722087965174
+            "nu_tau": 0.026160722087965042
           }
         },
         {
-          "T_MeV": 37.6382254906591,
+          "T_MeV": 37.6382254906592,
           "mu_mu_MeV": 101.268634581918,
           "mu_numu_MeV": -15.7916029162886,
           "omega_local_MeV": 50.0,
           "production_per_g2": {
-            "compton": 0.011219352319640283,
+            "compton": 0.011219352319640401,
             "dimuon": 0.0,
-            "nu_mu": 0.008591601111703925,
-            "nu_tau": 0.008907030760482182
+            "nu_mu": 0.008591601111703947,
+            "nu_tau": 0.0089070307604822
           },
           "radius_km": 9.0,
           "reduced_absorption_per_g2": {
-            "compton": 0.031135240790725216,
+            "compton": 0.03113524079072539,
             "dimuon": 0.0,
-            "nu_mu": 0.023842870940284443,
-            "nu_tau": 0.02471823145909555
+            "nu_mu": 0.023842870940284387,
+            "nu_tau": 0.024718231459095477
           }
         },
         {
@@ -2885,14 +2885,14 @@
           "production_per_g2": {
             "compton": 0.08043165806519272,
             "dimuon": 0.0,
-            "nu_mu": 0.06733919017367215,
+            "nu_mu": 0.06733919017367218,
             "nu_tau": 0.06886214850110761
           },
           "radius_km": 10.0,
           "reduced_absorption_per_g2": {
             "compton": 0.03412893231936412,
             "dimuon": 0.0,
-            "nu_mu": 0.028573508481141364,
+            "nu_mu": 0.028573508481141374,
             "nu_tau": 0.0292197333996943
           }
         },
@@ -2904,15 +2904,15 @@
           "production_per_g2": {
             "compton": 0.0354878820454006,
             "dimuon": 0.0,
-            "nu_mu": 0.035278517127327214,
-            "nu_tau": 0.0360550099966853
+            "nu_mu": 0.03527851712732721,
+            "nu_tau": 0.036055009996685296
           },
           "radius_km": 10.0,
           "reduced_absorption_per_g2": {
             "compton": 0.02849941770998447,
             "dimuon": 0.0,
-            "nu_mu": 0.028331282056063035,
-            "nu_tau": 0.028954863779095976
+            "nu_mu": 0.028331282056063032,
+            "nu_tau": 0.02895486377909597
           }
         },
         {
@@ -3056,14 +3056,14 @@
           "production_per_g2": {
             "compton": 0.010417763788574806,
             "dimuon": 0.0,
-            "nu_mu": 0.06155827846712066,
-            "nu_tau": 0.06161084438334484
+            "nu_mu": 0.06155827846712067,
+            "nu_tau": 0.06161084438334485
           },
           "radius_km": 13.0,
           "reduced_absorption_per_g2": {
             "compton": 0.007669678232812514,
             "dimuon": 0.0,
-            "nu_mu": 0.04531991682576595,
+            "nu_mu": 0.04531991682576596,
             "nu_tau": 0.045358616461468444
           }
         },
@@ -3223,37 +3223,37 @@
       "path_shell_optical_depths_8_15km": {
         "10_12km": {
           "mean_tau_per_g2_by_channel_baseline_source_weights": {
-            "compton": 279162179999769.12,
+            "compton": 279162179999769.06,
             "dimuon": 0.0,
             "nu_mu": 350971187050442.25,
             "nu_tau": 353784596439444.44
           },
-          "mean_tau_per_g2_total_baseline_source_weights": 983917963489655.9
+          "mean_tau_per_g2_total_baseline_source_weights": 983917963489655.8
         },
         "12_15km": {
           "mean_tau_per_g2_by_channel_baseline_source_weights": {
             "compton": 95743265937761.03,
             "dimuon": 0.0,
-            "nu_mu": 626008118806292.4,
+            "nu_mu": 626008118806292.2,
             "nu_tau": 626475876568452.9
           },
           "mean_tau_per_g2_total_baseline_source_weights": 1348227261312506.2
         },
         "8_10km": {
           "mean_tau_per_g2_by_channel_baseline_source_weights": {
-            "compton": 408295820019672.44,
+            "compton": 408295820019672.4,
             "dimuon": 0.0,
-            "nu_mu": 273892466684528.62,
+            "nu_mu": 273892466684528.6,
             "nu_tau": 280313680219848.97
           },
-          "mean_tau_per_g2_total_baseline_source_weights": 962501966924050.2
+          "mean_tau_per_g2_total_baseline_source_weights": 962501966924050.1
         }
       },
-      "profile_sha256": "cd5b6f9852c9aa15fd08c2bc17b9c11371a50e6465c441ae5770c734f8a83017",
+      "profile_sha256": "72cdec2207d5b79e0ab0383214d2f996182c75f93402668ceba9084c52b3ddab",
       "shell_12_15km_mean_tau_per_g2_by_channel_baseline_source_weights": {
         "compton": 95743265937761.03,
         "dimuon": 0.0,
-        "nu_mu": 626008118806292.4,
+        "nu_mu": 626008118806292.2,
         "nu_tau": 626475876568452.9
       },
       "shell_12_15km_mean_tau_per_g2_total_baseline_source_weights": 1348227261312506.2
@@ -3263,19 +3263,19 @@
         "10_12km": {
           "baseline_B1_source_integral": 1.127622311908787e+70,
           "fixed_baseline_source_escape_probability": 0.00038003913351715175,
-          "fixed_baseline_source_escape_ratio": 1.1731942792457974,
+          "fixed_baseline_source_escape_ratio": 1.1731942792457977,
           "own_source_escape_probability": 0.00038003913351715175,
           "variant_B1_source_integral": 1.127622311908787e+70,
-          "variant_fraction_of_total_B1": 0.2608110249993612,
+          "variant_fraction_of_total_B1": 0.26081102499936115,
           "variant_to_baseline_ratio": 1.0
         },
         "12_15km": {
           "baseline_B1_source_integral": 5.931196725409649e+69,
           "fixed_baseline_source_escape_probability": 0.00016133897182823417,
-          "fixed_baseline_source_escape_ratio": 0.49805912621822307,
+          "fixed_baseline_source_escape_ratio": 0.4980591262182231,
           "own_source_escape_probability": 0.00016133897182823417,
           "variant_B1_source_integral": 5.931196725409649e+69,
-          "variant_fraction_of_total_B1": 0.1371843640454744,
+          "variant_fraction_of_total_B1": 0.13718436404547438,
           "variant_to_baseline_ratio": 1.0
         },
         "8_10km": {
@@ -3284,11 +3284,11 @@
           "fixed_baseline_source_escape_ratio": 1.2409605379626127,
           "own_source_escape_probability": 0.0004019910222196723,
           "variant_B1_source_integral": 1.721276200068861e+70,
-          "variant_fraction_of_total_B1": 0.3981189493200439,
+          "variant_fraction_of_total_B1": 0.3981189493200438,
           "variant_to_baseline_ratio": 1.0
         }
       },
-      "B1_source_integral": 4.3235224121048905e+70,
+      "B1_source_integral": 4.323522412104891e+70,
       "B1_source_metadata": {
         "energy_lower_bound_MeV": [
           13.577911290600559,
@@ -3337,21 +3337,21 @@
           996.4693280447161,
           996.607838046938,
           996.7696084433035,
-          996.8506430093278,
+          996.8506430093279,
           996.9750733769756,
           997.1506005913614,
           997.2896438220125,
           997.3516228783078,
           997.443599779886,
-          997.5613992848985,
+          997.5613992848986,
           997.6512343945469,
           997.6985782009403,
           997.7862908909922,
-          997.897919311019,
+          997.8979193110191,
           997.9807862912667,
           998.0347449042342,
           998.1512208617135,
-          998.2933071644779,
+          998.293307164478,
           998.3937696548098,
           998.4444040635108,
           998.5329486023084,
@@ -3372,7 +3372,7 @@
           999.0910161018892,
           999.1021019274451,
           999.1161646252065,
-          999.1266487835072
+          999.1266487835073
         ],
         "radial_measure_MeVminus3": [
           9.297795623163727e+46,
@@ -3501,7 +3501,7 @@
           33.87596814444643,
           35.29253447281239,
           37.38373073852799,
-          37.744684699267026,
+          37.744684699267054,
           39.17268777153061,
           40.20185050820967,
           42.25841644576657,
@@ -3554,7 +3554,7 @@
           1133683.0735418843,
           1945927.9962218592,
           3349941.9297051146,
-          5781237.241076985,
+          5781237.241076987,
           9997814.441132193,
           17319851.25215216,
           30047944.73255807,
@@ -3563,11 +3563,11 @@
       },
       "B1_source_ratio_to_baseline": 1.0,
       "channel_closure": {
-        "production_channel_sum_max_relative_residual": 4.012119981780255e-16,
+        "production_channel_sum_max_relative_residual": 4.201021415904703e-16,
         "reduced_absorption_channel_sum_max_relative_residual": 5.942105768596625e-16
       },
-      "escape_probability_fixed_baseline_source": 0.00032393537902474656,
-      "escape_probability_own_source": 0.00032393537902474656,
+      "escape_probability_fixed_baseline_source": 0.0003239353790247465,
+      "escape_probability_own_source": 0.0003239353790247465,
       "escape_probability_ratio_to_baseline": 1.0,
       "escaped_source_integral": 1.4005418712871842e+67,
       "escaped_source_integral_ratio_to_baseline": 1.0,
@@ -3600,15 +3600,15 @@
           "production_per_g2": {
             "compton": 0.045432907556952735,
             "dimuon": 0.0,
-            "nu_mu": 0.035242105114621815,
-            "nu_tau": 0.037664783824805474
+            "nu_mu": 0.03524210511462181,
+            "nu_tau": 0.03766478382480547
           },
           "radius_km": 8.0,
           "reduced_absorption_per_g2": {
             "compton": 0.03059303873764312,
             "dimuon": 0.0,
-            "nu_mu": 0.0237308846152137,
-            "nu_tau": 0.02536223747407711
+            "nu_mu": 0.023730884615213693,
+            "nu_tau": 0.025362237474077107
           }
         },
         {
@@ -3631,60 +3631,60 @@
           }
         },
         {
-          "T_MeV": 37.6382254906591,
+          "T_MeV": 37.6382254906592,
           "mu_mu_MeV": 101.268634581918,
           "mu_numu_MeV": -15.7916029162886,
           "omega_local_MeV": 12.0,
           "production_per_g2": {
-            "compton": 0.10951394209312984,
+            "compton": 0.10951394209313078,
             "dimuon": 0.0,
-            "nu_mu": 0.0672094846364092,
-            "nu_tau": 0.07018619000292378
+            "nu_mu": 0.0672094846364106,
+            "nu_tau": 0.07018619000292518
           },
           "radius_km": 9.0,
           "reduced_absorption_per_g2": {
-            "compton": 0.041123615968141965,
+            "compton": 0.041123615968142194,
             "dimuon": 0.0,
-            "nu_mu": 0.025237855407068008,
-            "nu_tau": 0.026355639006153078
+            "nu_mu": 0.025237855407068455,
+            "nu_tau": 0.026355639006153522
           }
         },
         {
-          "T_MeV": 37.6382254906591,
+          "T_MeV": 37.6382254906592,
           "mu_mu_MeV": 101.268634581918,
           "mu_numu_MeV": -15.7916029162886,
           "omega_local_MeV": 20.0,
           "production_per_g2": {
-            "compton": 0.048968825707940214,
+            "compton": 0.04896882570794065,
             "dimuon": 0.0,
-            "nu_mu": 0.0357559000141733,
-            "nu_tau": 0.03730481042462155
+            "nu_mu": 0.035755900014173427,
+            "nu_tau": 0.03730481042462149
           },
           "radius_km": 9.0,
           "reduced_absorption_per_g2": {
-            "compton": 0.034340339107417524,
+            "compton": 0.03434033910741771,
             "dimuon": 0.0,
             "nu_mu": 0.02507451861110342,
-            "nu_tau": 0.026160722087965174
+            "nu_tau": 0.026160722087965042
           }
         },
         {
-          "T_MeV": 37.6382254906591,
+          "T_MeV": 37.6382254906592,
           "mu_mu_MeV": 101.268634581918,
           "mu_numu_MeV": -15.7916029162886,
           "omega_local_MeV": 50.0,
           "production_per_g2": {
-            "compton": 0.011219352319640283,
+            "compton": 0.011219352319640401,
             "dimuon": 0.0,
-            "nu_mu": 0.008591601111703925,
-            "nu_tau": 0.008907030760482182
+            "nu_mu": 0.008591601111703947,
+            "nu_tau": 0.0089070307604822
           },
           "radius_km": 9.0,
           "reduced_absorption_per_g2": {
-            "compton": 0.031135240790725216,
+            "compton": 0.03113524079072539,
             "dimuon": 0.0,
-            "nu_mu": 0.023842870940284443,
-            "nu_tau": 0.02471823145909555
+            "nu_mu": 0.023842870940284387,
+            "nu_tau": 0.024718231459095477
           }
         },
         {
@@ -3695,14 +3695,14 @@
           "production_per_g2": {
             "compton": 0.08043165806519272,
             "dimuon": 0.0,
-            "nu_mu": 0.06733919017367215,
+            "nu_mu": 0.06733919017367218,
             "nu_tau": 0.06886214850110761
           },
           "radius_km": 10.0,
           "reduced_absorption_per_g2": {
             "compton": 0.03412893231936412,
             "dimuon": 0.0,
-            "nu_mu": 0.028573508481141364,
+            "nu_mu": 0.028573508481141374,
             "nu_tau": 0.0292197333996943
           }
         },
@@ -3714,15 +3714,15 @@
           "production_per_g2": {
             "compton": 0.0354878820454006,
             "dimuon": 0.0,
-            "nu_mu": 0.035278517127327214,
-            "nu_tau": 0.0360550099966853
+            "nu_mu": 0.03527851712732721,
+            "nu_tau": 0.036055009996685296
           },
           "radius_km": 10.0,
           "reduced_absorption_per_g2": {
             "compton": 0.02849941770998447,
             "dimuon": 0.0,
-            "nu_mu": 0.028331282056063035,
-            "nu_tau": 0.028954863779095976
+            "nu_mu": 0.028331282056063032,
+            "nu_tau": 0.02895486377909597
           }
         },
         {
@@ -3866,14 +3866,14 @@
           "production_per_g2": {
             "compton": 0.010417763788574806,
             "dimuon": 0.0,
-            "nu_mu": 0.06155827846712066,
-            "nu_tau": 0.06161084438334484
+            "nu_mu": 0.06155827846712067,
+            "nu_tau": 0.06161084438334485
           },
           "radius_km": 13.0,
           "reduced_absorption_per_g2": {
             "compton": 0.007669678232812514,
             "dimuon": 0.0,
-            "nu_mu": 0.04531991682576595,
+            "nu_mu": 0.04531991682576596,
             "nu_tau": 0.045358616461468444
           }
         },
@@ -4033,40 +4033,40 @@
       "path_shell_optical_depths_8_15km": {
         "10_12km": {
           "mean_tau_per_g2_by_channel_baseline_source_weights": {
-            "compton": 279162179999769.12,
+            "compton": 279162179999769.06,
             "dimuon": 0.0,
             "nu_mu": 350971187050442.25,
             "nu_tau": 353784596439444.44
           },
-          "mean_tau_per_g2_total_baseline_source_weights": 983917963489655.9
+          "mean_tau_per_g2_total_baseline_source_weights": 983917963489655.8
         },
         "12_15km": {
           "mean_tau_per_g2_by_channel_baseline_source_weights": {
             "compton": 95743265937761.03,
             "dimuon": 0.0,
-            "nu_mu": 626118509176838.1,
+            "nu_mu": 626118509176838.0,
             "nu_tau": 626475876568452.9
           },
-          "mean_tau_per_g2_total_baseline_source_weights": 1348337651683052.0
+          "mean_tau_per_g2_total_baseline_source_weights": 1348337651683051.8
         },
         "8_10km": {
           "mean_tau_per_g2_by_channel_baseline_source_weights": {
-            "compton": 408295820019672.44,
+            "compton": 408295820019672.4,
             "dimuon": 0.0,
-            "nu_mu": 273892466684528.62,
+            "nu_mu": 273892466684528.6,
             "nu_tau": 280313680219848.97
           },
-          "mean_tau_per_g2_total_baseline_source_weights": 962501966924050.2
+          "mean_tau_per_g2_total_baseline_source_weights": 962501966924050.1
         }
       },
-      "profile_sha256": "6c47d0712d266848d0cb2315c8a9b43cf13d0b39b6986d4239dd3f22cb9ba0bc",
+      "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
       "shell_12_15km_mean_tau_per_g2_by_channel_baseline_source_weights": {
         "compton": 95743265937761.03,
         "dimuon": 0.0,
-        "nu_mu": 626118509176838.1,
+        "nu_mu": 626118509176838.0,
         "nu_tau": 626475876568452.9
       },
-      "shell_12_15km_mean_tau_per_g2_total_baseline_source_weights": 1348337651683052.0
+      "shell_12_15km_mean_tau_per_g2_total_baseline_source_weights": 1348337651683051.8
     }
   },
   "title": "Full B.1+B.2 profile-input sensitivity in the 12--15 km region",

@@ -69,6 +69,7 @@
     "support_boundary_epsilon_km": 1e-06,
     "all_input_pdf_vertices_retained": true,
     "number_of_extra_source_vertices_and_support_knots": 1681,
+    "extra_source_knot_count_semantics": "Raw PDF vertices and support knots before union-grid deduplication; unique final added rows are recorded separately.",
     "final_csv_rows": 1687,
     "unique_added_source_vertices_and_support_knots": 1186,
     "outer_shell_nodes_22_25_km": 222,

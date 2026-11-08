@@ -21,33 +21,33 @@
   "results": [
     {
       "B1_source_ratio": 1.2709188113095373,
-      "baseline_B1_source": 4.3235224121048905e+70,
-      "baseline_Pesc": 0.00032393537902474656,
-      "baseline_profile_sha256": "6c47d0712d266848d0cb2315c8a9b43cf13d0b39b6986d4239dd3f22cb9ba0bc",
-      "escaped_B1_integral_ratio": 0.8398965821259964,
+      "baseline_B1_source": 4.323522412104891e+70,
+      "baseline_Pesc": 0.0003239353790247465,
+      "baseline_profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+      "escaped_B1_integral_ratio": 0.8398965821259962,
       "fixed_source_Pesc_ratio": 0.6197761854683449,
-      "own_source_Pesc_ratio": 0.6608577783663289,
+      "own_source_Pesc_ratio": 0.6608577783663288,
       "path_shells": {
         "10_12km": {
-          "baseline_mean_tau_per_g2": 983917963489655.9,
+          "baseline_mean_tau_per_g2": 983917963489655.8,
           "tau_ratio": 1.1833200440239802,
-          "variant_mean_tau_per_g2": 1164289847872564.5
+          "variant_mean_tau_per_g2": 1164289847872564.2
         },
         "12_15km": {
-          "baseline_mean_tau_per_g2": 1348337651683052.0,
+          "baseline_mean_tau_per_g2": 1348337651683051.8,
           "tau_ratio": 1.0383939645700444,
-          "variant_mean_tau_per_g2": 1400105679710228.0
+          "variant_mean_tau_per_g2": 1400105679710227.8
         },
         "8_10km": {
-          "baseline_mean_tau_per_g2": 962501966924050.2,
-          "tau_ratio": 1.4973845585858478,
-          "variant_mean_tau_per_g2": 1441235582880579.2
+          "baseline_mean_tau_per_g2": 962501966924050.1,
+          "tau_ratio": 1.4973845585858476,
+          "variant_mean_tau_per_g2": 1441235582880579.0
         }
       },
       "radial_order": 40,
       "relative_to_order_120": {
-        "B1_source_ratio": 0.0015667554013591989,
-        "baseline_Pesc": -0.0031690835222454306,
+        "B1_source_ratio": 0.0015667554013589768,
+        "baseline_Pesc": -0.0031690835222457636,
         "fixed_source_Pesc_ratio": -0.006589336493037501
       },
       "source_shells": {
@@ -67,47 +67,47 @@
           "variant_source": 2.6483717954391954e+70
         }
       },
-      "variant_B1_source": 5.494845964662491e+70,
-      "variant_Pesc_fixed_baseline_source": 0.00020076743355019992,
-      "variant_Pesc_own_source": 0.00021407521491654868,
-      "variant_profile_sha256": "daf668f07f36b82dd7405ad81dd89e8cdc46e412ee9ee7cabce51e654bad448e"
+      "variant_B1_source": 5.494845964662492e+70,
+      "variant_Pesc_fixed_baseline_source": 0.0002007674335501999,
+      "variant_Pesc_own_source": 0.00021407521491654863,
+      "variant_profile_sha256": "e7f81277dfc69cfc079bd7b2c1fc0105276fef39791d91d5a837d60bb7fd1e72"
     },
     {
-      "B1_source_ratio": 1.2680805283172343,
-      "baseline_B1_source": 4.331936025987922e+70,
+      "B1_source_ratio": 1.268080528317234,
+      "baseline_B1_source": 4.3319360259879245e+70,
       "baseline_Pesc": 0.0003250711951720196,
-      "baseline_profile_sha256": "6c47d0712d266848d0cb2315c8a9b43cf13d0b39b6986d4239dd3f22cb9ba0bc",
-      "escaped_B1_integral_ratio": 0.8431726815846263,
-      "fixed_source_Pesc_ratio": 0.6231753111158609,
-      "own_source_Pesc_ratio": 0.6649204547786344,
+      "baseline_profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+      "escaped_B1_integral_ratio": 0.8431726815846265,
+      "fixed_source_Pesc_ratio": 0.623175311115861,
+      "own_source_Pesc_ratio": 0.6649204547786347,
       "path_shells": {
         "10_12km": {
           "baseline_mean_tau_per_g2": 982576256966924.1,
-          "tau_ratio": 1.1826039243434354,
-          "variant_mean_tau_per_g2": 1161998537455768.2
+          "tau_ratio": 1.1826039243434359,
+          "variant_mean_tau_per_g2": 1161998537455768.8
         },
         "12_15km": {
-          "baseline_mean_tau_per_g2": 1345173104976894.2,
-          "tau_ratio": 1.0377339965017718,
-          "variant_mean_tau_per_g2": 1395931862214370.0
+          "baseline_mean_tau_per_g2": 1345173104976893.8,
+          "tau_ratio": 1.037733996501772,
+          "variant_mean_tau_per_g2": 1395931862214369.8
         },
         "8_10km": {
-          "baseline_mean_tau_per_g2": 966889586324499.1,
-          "tau_ratio": 1.4936087668120948,
-          "variant_mean_tau_per_g2": 1444154762673591.5
+          "baseline_mean_tau_per_g2": 966889586324498.9,
+          "tau_ratio": 1.4936087668120945,
+          "variant_mean_tau_per_g2": 1444154762673591.0
         }
       },
       "radial_order": 80,
       "relative_to_order_120": {
-        "B1_source_ratio": -0.000669996358245939,
-        "baseline_Pesc": 0.000326109421622478,
-        "fixed_source_Pesc_ratio": -0.0011410347608715732
+        "B1_source_ratio": -0.000669996358246272,
+        "baseline_Pesc": 0.000326109421622256,
+        "fixed_source_Pesc_ratio": -0.0011410347608713511
       },
       "source_shells": {
         "10_12km": {
-          "baseline_source": 1.1276349989068684e+70,
-          "source_ratio": 1.1916958918839926,
-          "variant_source": 1.3437979957419257e+70
+          "baseline_source": 1.1276349989068701e+70,
+          "source_ratio": 1.1916958918839928,
+          "variant_source": 1.343797995741928e+70
         },
         "12_15km": {
           "baseline_source": 5.929291467916907e+69,
@@ -120,34 +120,34 @@
           "variant_source": 2.6477014608801936e+70
         }
       },
-      "variant_B1_source": 5.4932437244712243e+70,
-      "variant_Pesc_fixed_baseline_source": 0.00020257634318612805,
-      "variant_Pesc_own_source": 0.00021614648692921352,
-      "variant_profile_sha256": "daf668f07f36b82dd7405ad81dd89e8cdc46e412ee9ee7cabce51e654bad448e"
+      "variant_B1_source": 5.493243724471226e+70,
+      "variant_Pesc_fixed_baseline_source": 0.0002025763431861281,
+      "variant_Pesc_own_source": 0.00021614648692921363,
+      "variant_profile_sha256": "e7f81277dfc69cfc079bd7b2c1fc0105276fef39791d91d5a837d60bb7fd1e72"
     },
     {
-      "B1_source_ratio": 1.2689307072699716,
-      "baseline_B1_source": 4.328545673323007e+70,
-      "baseline_Pesc": 0.00032496522095176765,
-      "baseline_profile_sha256": "6c47d0712d266848d0cb2315c8a9b43cf13d0b39b6986d4239dd3f22cb9ba0bc",
+      "B1_source_ratio": 1.2689307072699718,
+      "baseline_B1_source": 4.3285456733230065e+70,
+      "baseline_Pesc": 0.0003249652209517677,
+      "baseline_profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
       "escaped_B1_integral_ratio": 0.8445252214558601,
       "fixed_source_Pesc_ratio": 0.6238871880843275,
-      "own_source_Pesc_ratio": 0.6655408499592586,
+      "own_source_Pesc_ratio": 0.6655408499592584,
       "path_shells": {
         "10_12km": {
-          "baseline_mean_tau_per_g2": 983934344077108.2,
-          "tau_ratio": 1.1825827457490568,
+          "baseline_mean_tau_per_g2": 983934344077108.5,
+          "tau_ratio": 1.1825827457490563,
           "variant_mean_tau_per_g2": 1163583778255503.8
         },
         "12_15km": {
-          "baseline_mean_tau_per_g2": 1344645310366212.8,
+          "baseline_mean_tau_per_g2": 1344645310366213.0,
           "tau_ratio": 1.0375710620526404,
-          "variant_mean_tau_per_g2": 1395165062760773.8
+          "variant_mean_tau_per_g2": 1395165062760774.0
         },
         "8_10km": {
-          "baseline_mean_tau_per_g2": 965095799005211.9,
+          "baseline_mean_tau_per_g2": 965095799005212.0,
           "tau_ratio": 1.4969596488661159,
-          "variant_mean_tau_per_g2": 1444709468401005.5
+          "variant_mean_tau_per_g2": 1444709468401005.8
         }
       },
       "radial_order": 120,
@@ -158,8 +158,8 @@
       },
       "source_shells": {
         "10_12km": {
-          "baseline_source": 1.1275199792015458e+70,
-          "source_ratio": 1.1917017874420588,
+          "baseline_source": 1.127519979201546e+70,
+          "source_ratio": 1.1917017874420583,
           "variant_source": 1.343667574591115e+70
         },
         "12_15km": {
@@ -174,9 +174,9 @@
         }
       },
       "variant_B1_source": 5.492624522700139e+70,
-      "variant_Pesc_fixed_baseline_source": 0.0002027416379248005,
+      "variant_Pesc_fixed_baseline_source": 0.00020274163792480054,
       "variant_Pesc_own_source": 0.0002162776293594377,
-      "variant_profile_sha256": "daf668f07f36b82dd7405ad81dd89e8cdc46e412ee9ee7cabce51e654bad448e"
+      "variant_profile_sha256": "e7f81277dfc69cfc079bd7b2c1fc0105276fef39791d91d5a837d60bb7fd1e72"
     }
   ],
   "title": "Radial quadrature convergence of baseline and 8-15 km mu_mu profile diagnostic",
