@@ -9,7 +9,8 @@ sys.path.insert(0, str(HERE))
 
 from audit_fig7_digitization_geometry import (
     ordered_polyline, legacy_polyline, transform_pdf_coordinates,
-    visible_luminosity_mask,
+    visible_luminosity_mask, validate_axis_tick_words,
+
 )
 
 
@@ -59,6 +60,21 @@ class Fig7DigitizationGeometryTests(unittest.TestCase):
             result["g"], np.sqrt(4*np.pi*np.array([1e-22, 1e-6])),
             rtol=2e-14
         )
+
+    def test_embedded_axis_tick_labels_validate_the_log_coordinate_map(self):
+        words = []
+        for exponent in range(-22, -5, 2):
+            x = 54.82951354980469+(exponent+22)/16*(397.99951171875-54.82951354980469)
+            words.append((x-10, 200, x+10, 210, f"10−{abs(exponent)}"))
+        for exponent in (52, 53, 54, 55):
+            y = 195.54043579101562-(exponent-52)/3*(195.54043579101562-20.904434204101562)
+            words.append((0, y-5, 10, y+5, f"10{exponent}"))
+        result = validate_axis_tick_words(words)
+        self.assertLessEqual(
+            result["maximum_absolute_tick_position_residual_pdf_points"], 1e-10
+        )
+        self.assertEqual(len(result["horizontal_ticks"]), 9)
+        self.assertEqual(len(result["vertical_ticks"]), 4)
 
     def test_visible_mask_uses_the_published_luminosity_frame(self):
         transformed = {
