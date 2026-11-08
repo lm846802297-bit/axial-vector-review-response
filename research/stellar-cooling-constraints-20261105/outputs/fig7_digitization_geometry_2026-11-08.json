@@ -95,8 +95,8 @@
   "curves": {
     "0.1": {
       "archived_vertices_max_relative_reconstruction_error": {
-        "g": 2.220446049250313e-16,
-        "luminosity": 2.220446049250313e-16
+        "g": 0.0,
+        "luminosity": 0.0
       },
       "drawing_color": [
         0.1725490242242813,
@@ -217,7 +217,7 @@
     },
     "1.0": {
       "archived_vertices_max_relative_reconstruction_error": {
-        "g": 2.220446049250313e-16,
+        "g": 0.0,
         "luminosity": 0.0
       },
       "drawing_color": [
@@ -258,7 +258,7 @@
           "pdf_y": 95.59747314453125
         },
         {
-          "g": 1.8483179972449683e-07,
+          "g": 1.8483179972449686e-07,
           "luminosity_erg_s": 2.4472590142346477e+53,
           "pdf_x": 214.28224182128906,
           "pdf_y": 114.70259857177734
@@ -334,7 +334,7 @@
     "10.0": {
       "archived_vertices_max_relative_reconstruction_error": {
         "g": 0.0,
-        "luminosity": 2.220446049250313e-16
+        "luminosity": 0.0
       },
       "drawing_color": [
         0.5803921818733215,
@@ -418,7 +418,7 @@
           }
         ],
         "visible_tail_monotonic_in_g": true,
-        "visible_tail_monotonic_in_luminosity": false
+        "visible_tail_monotonic_in_luminosity": true
       },
       "last_eight_visible_points_in_increasing_g": [
         {
@@ -527,8 +527,8 @@
     },
     "1e-05": {
       "archived_vertices_max_relative_reconstruction_error": {
-        "g": 2.220446049250313e-16,
-        "luminosity": 2.220446049250313e-16
+        "g": 0.0,
+        "luminosity": 0.0
       },
       "drawing_color": [
         1.0,
@@ -637,7 +637,7 @@
     },
     "1e-06": {
       "archived_vertices_max_relative_reconstruction_error": {
-        "g": 2.220446049250313e-16,
+        "g": 0.0,
         "luminosity": 1.6431300764452317e-14
       },
       "drawing_color": [
@@ -748,7 +748,7 @@
     "200.0": {
       "archived_vertices_max_relative_reconstruction_error": {
         "g": 0.0,
-        "luminosity": 2.220446049250313e-16
+        "luminosity": 0.0
       },
       "drawing_color": [
         0.5490196347236633,
@@ -759,7 +759,7 @@
       "last_eight_visible_points_in_increasing_g": [
         {
           "g": 4.796429536550025e-10,
-          "luminosity_erg_s": 4.371453703633968e+52,
+          "luminosity_erg_s": 4.3714537036339685e+52,
           "pdf_x": 103.35860443115234,
           "pdf_y": 158.24832153320312
         },
