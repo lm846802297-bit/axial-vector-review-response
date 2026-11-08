@@ -1,3 +1,5 @@
+> **Scope clarification (2026-11-09):** The Fig. 4 result validates the \\(\\mu_\\mu/T\\) profile, not the entire thermodynamic background. A subsequent direct comparison finds that Caputo \\(T(r)\\) also matches Bollig Fig. 1 at below 0.01%, while the absolute density in Bollig Fig. 3 is about 5% lower on average over 5--15 km and about 8.8% lower over 12--15 km than Caputo's curve. Caputo's plotted density is internally consistent with its own relativistic Fermi integral to below 0.54%. The Fig. 3 discrepancy remains unresolved and must not be removed by rescaling. See [the complete density and B.1 source audit](BOLLIG_MUON_DENSITY_AND_B1_SOURCE_AUDIT_2026-11-09.md). The conclusions below concerning Fig. 4 remain valid specifically for \\(\\mu_\\mu/T\\).
+
 # Independent original-source cross-check of the SFHo-18.8 muon degeneracy profile
 
 Date: 2026-11-09  
