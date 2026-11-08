@@ -40,7 +40,6 @@ BASE_ENERGY_ORDER = 12
 BASE_INNER_ORDERS = (12, 8, 8, 8)
 REFINED_ENERGY_ORDER = 16
 REFINED_INNER_ORDERS = (12, 8, 8, 8)
-SOURCE_COMPTON_FRACTION_10MEV = 0.186
 
 
 def sha256(path: Path) -> str:
@@ -462,19 +461,6 @@ def run_case(profile_path: Path, radius: float) -> dict:
         ),
     }
 
-    # A first-order source-budget estimate only: the archived 10 MeV vector
-    # benchmark assigns 18.6% of the optically thin source to semi-Compton.
-    # This is not a replacement for a radial re-integration of the full source.
-    estimated_total_source_shift_pct = (
-        SOURCE_COMPTON_FRACTION_10MEV * vector_vs_stationary * 100.0
-    )
-    estimated_total_shift_vs_b16_pct = (
-        SOURCE_COMPTON_FRACTION_10MEV * vector_vs_b16 * 100.0
-    )
-    estimated_total_shift_vs_b16_no_correction_pct = (
-        SOURCE_COMPTON_FRACTION_10MEV * vector_vs_b16_no * 100.0
-    )
-
     return {
         "local_thermodynamics": point,
         "muon_density_and_B17_degeneracy": thermo,
@@ -531,22 +517,6 @@ def run_case(profile_path: Path, radius: float) -> dict:
             "B13_vector_vs_existing_stationary_exact_fraction": vector_vs_stationary,
             "B13_axial_vs_existing_stationary_exact_fraction": axial_vs_stationary,
             "B13_UV_vs_existing_stationary_exact_fraction": uv_vs_stationary,
-            "archived_10MeV_compton_share_used_for_estimate": SOURCE_COMPTON_FRACTION_10MEV,
-            "estimated_total_thin_source_shift_from_vector_compton_only_pct": (
-                estimated_total_source_shift_pct
-            ),
-            "estimated_total_thin_source_shift_vs_B16_corrected_pct": (
-                estimated_total_shift_vs_b16_pct
-            ),
-            "estimated_total_thin_source_shift_vs_B16_without_parenthesis_correction_pct": (
-                estimated_total_shift_vs_b16_no_correction_pct
-            ),
-            "interpretation": (
-                "The 18.6% channel-share weighting is a first-order estimate "
-                "using the archived 10 MeV optically-thin vector source budget. "
-                "It is not a full radial re-integration and is not applied as "
-                "a correction to any luminosity curve."
-            ),
         },
         "fixed_energy_rate_comparison": fixed_energy,
         "B13_quadrature_convergence": {
@@ -640,7 +610,6 @@ def run(profile_path: Path) -> dict:
             "Local source-rate comparison only; no radial integration or escape probability.",
             "B.14-B.16 is compared only to the pure-vector B.13 rate.",
             "No B.14 vector formula is assigned to the axial or UV mixed-current rates.",
-            "The 18.6% source-share estimate is first order and must not be applied as a luminosity correction.",
             "No coupling, production, absorption, opacity, or profile rescaling is performed.",
             "The full pure-vector Fig. 7 validation gate remains separate and is not passed by this local comparison.",
         ],
@@ -674,7 +643,6 @@ def main():
             "Q_B16_corrected": case["B14_B16_vector_no_recoil"]["Q_B16_with_mass_correction_MeV5"],
             "B13_over_B16_minus_1": case["relative_differences"]["B13_vector_vs_B16_corrected_fraction"],
             "B13_over_stationary_exact_minus_1": case["relative_differences"]["B13_vector_vs_existing_stationary_exact_fraction"],
-            "weighted_total_source_shift_pct": case["relative_differences"]["estimated_total_thin_source_shift_from_vector_compton_only_pct"],
         }, sort_keys=True))
     print(f"Saved {args.output}")
 
