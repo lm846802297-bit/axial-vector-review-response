@@ -201,6 +201,9 @@ def evaluate_profile(profile_path: Path):
             float(np.sum(base_weights * shell_total) / norm),
         "local_samples": local_samples,
         "channel_closure": closure,
+        "_source_array": source,
+        "_columns_array": columns,
+        "_angle_weights_array": angle_weights,
     }
 
 
@@ -236,10 +239,40 @@ def main():
             result["escaped_source_integral"] / baseline["escaped_source_integral"]
         )
 
-    # Compare the shell optical depths with the baseline source weighting.
-    # Reconstruct baseline source weights once, then integrate the shell means
-    # from each result's saved source-weighted value; this is intentionally
-    # not interpreted as a physical correction factor.
+    # Isolate the opacity/transport response with the B.1 source held fixed.
+    baseline_source_array = baseline["_source_array"]
+    baseline_columns = baseline["_columns_array"]
+    angle_weights = baseline["_angle_weights_array"]
+    baseline_weights = baseline_source_array[:, None, :] * angle_weights[None, :, None]
+    baseline_norm = float(np.sum(baseline_weights))
+    shell_index = int(np.where(
+        (b16.SHELL_EDGES_KM[:-1] == 12.0)
+        & (b16.SHELL_EDGES_KM[1:] == 15.0)
+    )[0][0])
+
+    for label, result in results.items():
+        columns = result["_columns_array"]
+        total_columns = np.sum(columns, axis=(0, 1))
+        survival = np.exp(-np.minimum(STRONG_ENDPOINT_G ** 2 * total_columns, 745.0))
+        fixed_source_escape = float(np.sum(baseline_weights * survival) / baseline_norm)
+        result["escape_probability_fixed_baseline_source"] = fixed_source_escape
+        result["fixed_source_escape_ratio_to_baseline"] = (
+            fixed_source_escape / baseline_escape
+        )
+        shell_columns = columns[:, shell_index, :, :, :]
+        result["shell_12_15km_mean_tau_per_g2_by_channel_baseline_source_weights"] = {
+            name: float(np.sum(baseline_weights * shell_columns[ic]) / baseline_norm)
+            for ic, name in enumerate(b16.CHANNELS)
+        }
+        result["shell_12_15km_mean_tau_per_g2_total_baseline_source_weights"] = float(
+            np.sum(baseline_weights * np.sum(shell_columns, axis=0)) / baseline_norm
+        )
+
+    # Remove internal arrays before writing the machine-readable record.
+    for result in results.values():
+        for key in ("_source_array", "_columns_array", "_angle_weights_array"):
+            result.pop(key, None)
+
     payload = {
         "title": "Full B.1+B.2 profile-input sensitivity in the 12--15 km region",
         "benchmark": {
@@ -271,6 +304,7 @@ def main():
             "B1_source_ratio": item["B1_source_ratio_to_baseline"],
             "escape_probability_ratio": item["escape_probability_ratio_to_baseline"],
             "escaped_source_integral_ratio": item["escaped_source_integral_ratio_to_baseline"],
+            "fixed_source_escape_ratio": item["fixed_source_escape_ratio_to_baseline"],
             "tau_12_15_total_per_g2": item["shell_12_15km_mean_tau_per_g2_total_baseline_source_weights"],
         }
         for label, item in results.items()
