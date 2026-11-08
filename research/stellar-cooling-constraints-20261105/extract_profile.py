@@ -112,8 +112,10 @@ def main():
         "plus_mu_numu_caputo", "T_ferreira", "mu_mu_ferreira",
         "lapse_ferreira",
     ):
-        profile_knots.extend(curves[key][0, 0:1])
-        profile_knots.extend(curves[key][-1, 0:1])
+        # Retain every PDF polyline vertex, not just endpoints. This makes
+        # interpolation of the CSV reproduce the digitized piecewise-linear
+        # source curves exactly, including the final steep neutrino segment.
+        profile_knots.extend(curves[key][:, 0])
     # Represent the adopted zero-outside-support convention with a near-step
     # rather than allowing np.interp to taper a branch over the next 0.05 km cell.
     support_epsilon_km = 1.0e-6
@@ -174,6 +176,8 @@ def main():
             "base_uniform_points": 501,
             "base_spacing_km": 0.05,
             "support_boundary_epsilon_km": 1.0e-6,
+            "all_input_pdf_vertices_retained": True,
+            "number_of_extra_source_vertices_and_support_knots": int(len(profile_knots)),
             "exact_source_knots_km": sorted(float(x) for x in profile_knots),
         },
         "assumptions":[
@@ -182,7 +186,7 @@ def main():
             "mu_mu set0 beyond final encoded point where plotted value drops below1MeV; no effect expected on muon density in cold tail.",
             "mu_numu set0 in intervals not represented by the |mu_numu|>=1MeV logarithmic plot; use zero-chemical-potential sensitivity check.",
             "First available core point extended constantly to r=0 (first original plotted point at about0.116km).",
-            "The CSV retains the 501-point 0.05 km base grid and adds exact source-curve endpoints and support-mask knots within 0--25 km. A 1e-6 km near-step preserves the adopted zero-outside-support convention for the muon-neutrino branches and the muon chemical-potential tail, rather than smearing their cutoffs across a full grid cell.",
+            "The CSV retains the 501-point 0.05 km base grid and every input PDF polyline vertex within 0--25 km. A 1e-6 km near-step preserves the adopted zero-outside-support convention for the muon-neutrino branches and the muon chemical-potential tail, rather than smearing their cutoffs across a full grid cell.",
             "Lapse uses Ferreira SFHo18.8 orange curve through24km, then matched exterior Schwarzschild form through25km.",
             "Ferreira mu_mu curve disagrees strongly with Caputo despite same profile label. It is retained only as diagnostic, not silently mixed into baseline.",
             "No permission-restricted Garching raw tables were accessed or redistributed.",
