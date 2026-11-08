@@ -61,7 +61,7 @@ We sincerely thank the referee for the positive assessment of the model-building
 Phenomenology of the \(S\) scalar. The second half of the paper reviews a set of experimental bounds on only an effective theory of the \(A'\) axially coupled to the \(L_{\mu-\tau}\) current. This leaves a major gap between these two parts of the paper: the authors show that their UV theory requires a scalar \(S\) that cannot be arbitrarily decoupled from the low-energy dynamics, e.g. from Eq. (34) which states that \(m_S^2 < 4\pi\left(m_{A'}/(2g_X)\right)^2\).\end{quote}
 
 \noindent {\bf Reply.}
-The scalar \(S\) is not omitted from the UV phenomenology. The manuscript constructs the symmetry-breaking sector, derives the radial-scalar mass and its lepton interactions, and examines the scalar-sector consistency and experimental constraints.
+The radial mode \(s\) is a physical degree of freedom of the UV completion. Its mass and charged-lepton couplings follow from the same symmetry-breaking scale, while the scalar self-coupling determines its tree-level mass:
 
 With the scalar-potential convention
 \[
@@ -92,15 +92,11 @@ v_s\gtrsim1.995\,\mathrm{GeV},
 \qquad
 m_{A'}\gtrsim(3.99\,\mathrm{GeV})\,g_X.
 \]
-This is the theoretical consistency condition checked at each point in Fig.~2. The scalar mass is consequently not an unconstrained parameter: its upper value follows from perturbativity once \((m_{A'},g_X)\) and the scalar benchmark are specified. The mass-dependent scalar searches are discussed separately below.
+This is the pointwise perturbativity condition used for the scalar-suppressed benchmark in Fig.~2. At each plotted point, \(m_s\) must satisfy this upper bound; the low-mass scalar limits and collider searches are discussed separately below.
 
-We summarize selected low-mass constraints relevant to the scalar sector. Direct scalar-mediator limits are expressed in terms of \(y_{s\mu\mu}\), which is related to the UV parameters through
-\[
-y_{s\mu\mu}=\frac{2g_Xm_\mu}{m_{A'}}.
-\]
-Fifth-force and photon-mediated gamma-ray limits instead rely on loop-induced couplings and retain the source-specific assumptions stated below.
+Table~II summarizes selected low-mass constraints on the radial scalar. Direct scalar-mediator results are quoted in their source-level \(y_{s\mu\mu}\) normalization, with the UV relation above providing their conditional mapping to \((m_{A'},g_X)\). Fifth-force and photon-mediated entries instead constrain loop-induced couplings and retain the assumptions of their respective source analyses.
 
-The binary-pulsar entry uses Liu and Tang's scalar-mediator result, whose coupling has the same Yukawa normalization as \(y_{s\mu\mu}\). We quote the \(\mathcal O(10^{-21})\) best-sensitivity point separately from the reported mass interval; it is not a uniform limit across that interval. The \(L_\mu-L_\tau\) vector-mediator result of Dror et al. is a distinct constraint~\cite{Liu:2025zuz,Dror:2019uea}.
+The binary-pulsar row uses Liu and Tang's scalar-mediator analysis, whose coupling has the same Yukawa normalization as \(y_{s\mu\mu}\). Its \(\mathcal O(10^{-21})\) value is the best-sensitivity point, not a uniform limit across the reported mass interval. Dror et al. study a vector mediator, so their result is not transferred as a scalar-Yukawa bound.
 
 \begin{center}
 \small
@@ -109,7 +105,7 @@ The binary-pulsar entry uses Liu and Tang's scalar-mediator result, whose coupli
 Scalar-mass range & Published constraint & Source-reported bound / applicability\\
 \hline
 \(10^{-17}\,\mathrm{eV}\lesssim m_s\lesssim2\times10^{-15}\,\mathrm{eV}\) & Binary-pulsar periastron advance (95\% CL), ultralight scalar~\cite{Liu:2025zuz} & \(\mathcal O(10^{-21})\) at the best-sensitivity point \(m_s\simeq4\times10^{-16}\,\mathrm{eV}\); not a uniform bound over the interval\\
-\(m_s\lesssim30\,\mathrm{meV}\) & Fifth-force tests from the muon-only loop-induced scalar--proton coupling~\cite{Fiorillo:2026wso,Hoskins:1985tn,Kapner:2006si,Blakemore:2021zna} & Mass-dependent source curve; \(\sim30\) meV is the crossover below which it overtakes astrophysical limits; no universal direct \(y_{s\mu\mu}\) limit\\
+\(\text{mass-dependent}\) & Fifth-force tests from the muon-only loop-induced scalar--proton coupling~\cite{Fiorillo:2026wso,Hoskins:1985tn,Kapner:2006si,Blakemore:2021zna} & Mass-dependent source curve; \(\sim30\) meV is the crossover below which it overtakes astrophysical limits; no universal direct \(y_{s\mu\mu}\) limit\\
 \(m_s\lesssim100\,\mathrm{keV}\) & Neutron-star cooling~\cite{Fiorillo:2026wso} & \(\mathcal O(10^{-13})\); Table~1 gives \(7.4\times10^{-14}\) for \(m_s\lesssim1\,\mathrm{keV}\)\\
 \(m_s\lesssim\mathcal O(10)\,\mathrm{MeV}\) & SN~1987A neutrino energy loss, conservative cold-SFHo free-streaming benchmark~\cite{Caputo:2021rux,Fiorillo:2026wso} & \(\lesssim4.2\times10^{-9}\) over the mass range shown in Caputo et al.'s Fig.~2\\
 \(m_s\lesssim\mathcal O(10)\,\mathrm{MeV}\) & SN~1987A \(\gamma\)-ray fluence, cold-SN benchmark~\cite{Caputo:2021rux} & \(g_{\phi\mu}^{\rm source}<1.11\times10^{-10}\sqrt{\mathrm{MeV}/m_s}\); mass dependent and stronger than neutrino cooling for \(m_s\gtrsim0.70\,\mathrm{keV}\)\\
@@ -118,18 +114,16 @@ Scalar-mass range & Published constraint & Source-reported bound / applicability
 \end{tabular}
 \end{center}
 
-These entries describe different observables and source assumptions; they are not combined into a single exclusion band. In Fiorillo et al.'s v2 neutron-star analysis, the scalar sensitivity is mass dependent and extends to approximately \(100\,\mathrm{keV}\), with a characteristic reach of \(\mathcal O(10^{-13})\). The more specific value \(7.4\times10^{-14}\) in Table~1 applies to \(m_s\lesssim1\,\mathrm{keV}\), and should not be extrapolated as a constant bound over the full \(100\,\mathrm{keV}\) interval~\cite{Fiorillo:2026wso}. For SN~1987A neutrino energy loss, Fiorillo et al.'s Table~1 quotes \(4.2\times10^{-9}\) for its conservative cold-SN benchmark at \(m_s\lesssim1\,\mathrm{keV}\). Separately, Caputo et al.'s Fig.~2 displays the mass-dependent SN~1987A neutrino energy-loss boundary out to \(m_s\sim\mathcal O(10)\,\mathrm{MeV}\); over the plotted range, the conservative cold-SFHo free-streaming boundary remains approximately \(4.2\times10^{-9}\). We therefore use the broader mass coverage of the Caputo et al. curve, rather than interpreting the mass label attached to Fiorillo et al.'s tabulated benchmark as a hard endpoint of that curve. This remains a source-specific free-streaming cooling criterion, not a complete trapping or explosion-energy exclusion~\cite{Caputo:2021rux,Fiorillo:2026wso}. Here \(g_{\phi\mu}^{\rm source}\) denotes the scalar--muon Yukawa coupling in Caputo et al.'s source normalization. The SN~1987A gamma-ray fluence is a distinct observable: Caputo et al. give the mass-dependent cold-SN limit \(g_{\phi\mu}^{\rm source}<1.11\times10^{-10}\sqrt{\mathrm{MeV}/m_s}\), which becomes stronger than the neutrino-cooling limit for \(m_s\gtrsim0.70\,\mathrm{keV}\). The diffuse-supernova-\(\gamma\)-ray background is a third, separate observable. For the short-lived scalar branch, its cold-SN benchmark is \(g_{\phi\mu}^{\rm source}\lesssim4.2\times10^{-11}\) using \(n_7^{\rm cc}=0.58\); the long-lived branch is mass dependent. Caputo et al.'s muonic-boson treatment is restricted to \(m_\phi\lesssim10\,\mathrm{MeV}\) for the production and loop approximations used there. These photon-mediated results are quoted in the source's muon-only scalar benchmark and are not presented as a completed \(\mu,\tau\)-matched UV recast~\cite{Caputo:2021rux}.
+These rows are distinct source-level observables, not a combined exclusion. Fiorillo et al.'s v2 analysis gives a mass-dependent neutron-star cooling sensitivity extending to approximately \(100\,\mathrm{keV}\), while the more specific \(7.4\times10^{-14}\) value in Table~1 applies only to \(m_s\lesssim1\,\mathrm{keV}\)~\cite{Fiorillo:2026wso}. For SN~1987A neutrino energy loss, we use the conservative cold-SFHo free-streaming boundary in Caputo et al.'s Fig.~2, which remains approximately \(4.2\times10^{-9}\) over the displayed mass range up to \(\mathcal O(10)\,\mathrm{MeV}\); the mass label in Fiorillo et al.'s Table~1 is not treated as the endpoint of this separate curve~\cite{Caputo:2021rux,Fiorillo:2026wso}. The SN~1987A gamma-ray fluence and diffuse-supernova gamma-ray background are separate photon observables, listed separately in Table~II with their respective mass-dependent and short-lived-branch limits. These supernova entries are source-specific free-streaming benchmarks, not a combined trapping or explosion-energy exclusion. Here \(g_{\phi\mu}^{\rm source}\) denotes the scalar--muon Yukawa coupling in Caputo et al.'s source normalization; their production and loop treatment is restricted to \(m_\phi\lesssim10\,\mathrm{MeV}\)~\cite{Caputo:2021rux}. These photon-mediated entries are quoted in Caputo et al.'s muon-only source normalization and are not a completed \((\mu,\tau)\)-matched UV recast~\cite{Caputo:2021rux}.
 
-The fifth-force entry has a different physical origin from the direct scalar--muon limits. In Fiorillo et al.'s muon-only benchmark, the muon triangle induces a scalar--photon interaction and, in turn, a proton coupling
+Fiorillo et al.'s fifth-force curve is based on a muon-only benchmark in which the muon triangle induces a scalar--photon interaction and an effective proton coupling. In the low-momentum limit and with their coupling normalization,
 \[
 g_{\phi p}^{(\mu)}=\frac{\alpha^2}{4}g_{\phi\mu}.
 \]
-Ordinary-matter fifth-force experiments constrain this loop-induced proton coupling, not a tree-level scalar--muon Yukawa vertex. The mass-dependent source curve is shown in Fig.~1 of Fiorillo et al.; it becomes stronger than the astrophysical limits for \(m_\phi\lesssim30\,\mathrm{meV}\). This \(30\,\mathrm{meV}\) value is the approximate crossover scale quoted in that analysis, not a sharp upper endpoint of fifth-force experimental sensitivity~\cite{Fiorillo:2026wso}. Thus the fifth-force row is not assigned a single, mass-independent value of \(y_{s\mu\mu}\).
+Ordinary-matter fifth-force experiments therefore constrain this loop-induced proton coupling, not the tree-level scalar--muon Yukawa vertex. The curve in Fig.~1 overtakes the astrophysical limits below approximately \(30\,\mathrm{meV}\); this is a crossover scale, not a hard endpoint of experimental sensitivity~\cite{Fiorillo:2026wso}. The fifth-force row is consequently represented by a mass-dependent source curve rather than a universal direct limit on \(y_{s\mu\mu}\).
 
-In our UV construction, the radial scalar couples to both charged leptons,
+In the original one-VEV UV construction, the mass-proportional couplings obey
 \[
-y_{s\mu\mu}=\frac{m_\mu}{v_s},\qquad
-y_{s\tau\tau}=\frac{m_\tau}{v_s},\qquad
 \frac{y_{s\mu\mu}}{m_\mu}
 =\frac{y_{s\tau\tau}}{m_\tau}
 =\frac{1}{v_s}.
@@ -141,21 +135,17 @@ The low-momentum scalar--photon form factor therefore contains both charged-lept
 \frac{y_{s\ell\ell}}{m_\ell}
 F_{1/2}\!\left(\frac{q^2}{4m_\ell^2}\right).
 \]
-In the fifth-force regime \(m_s\lesssim30\,\mathrm{meV}\ll2m_\mu\), both loop form factors are in their low-momentum limit. Since \(Q_\mu^2=Q_\tau^2=1\) and \(y_{s\ell\ell}/m_\ell=1/v_s\), the two contributions have the same sign and add, giving a factor proportional to \(2/v_s\). The opposite \(U(1)_{L_\mu-L_\tau}\) charges do not cancel this electromagnetic amplitude, which depends on the squared electric charges. Consequently, Fiorillo et al.'s fifth-force curve is quoted here as a muon-only source benchmark, not as a direct \(y_{s\mu\mu}\) limit or a complete UV-specific proton-coupling exclusion. A UV translation of this loop-mediated result requires matching both the muon and tau contributions.
+In the fifth-force regime \(m_s\lesssim30\,\mathrm{meV}\ll2m_\mu\), both loop functions are in their low-momentum limit. Since \(Q_\mu^2=Q_\tau^2=1\) and \(y_{s\ell\ell}/m_\ell=1/v_s\), the two contributions have the same sign and add, giving a factor proportional to \(2/v_s\). The opposite \(U(1)_{L_\mu-L_\tau}\) charges do not cancel this electromagnetic amplitude, which depends on squared electric charges. Fiorillo et al.'s curve is therefore retained as a muon-only source benchmark, not as a direct \(y_{s\mu\mu}\) limit or a complete UV-specific proton-coupling exclusion; the latter requires matching both lepton loops.
 
-The source-level scalar--muon constraints are not invalidated wholesale by \(s\to A'A'\). This channel opens only for \(m_s>2m_{A'}\). Where it is open, it must be included in the scalar total width and in the interpretation of observables sensitive to the scalar lifetime, visible branching fractions, cascade topology, or energy deposition. Its existence does not, by itself, remove the source-level constraints listed above.
+When \(m_s>2m_{A'}\), the additional \(s\to A'A'\) channel contributes to the total scalar width and can change visible branching fractions, the lifetime, and the final-state topology. It must therefore be included when translating source limits into UV-specific predictions for observables sensitive to these quantities; Table~II quotes the cited source results in their published coupling normalizations and assumptions.
 
-For a source result that directly constrains the same effective \(y_{s\mu\mu}\) normalization, and for a specified \(m_s\) within that source's mass range, the one-VEV relation gives
+For a direct source limit on the same \(y_{s\mu\mu}\) normalization, at a specified \(m_s\) within the source's mass range, the one-VEV relation above gives
 \[
-y_{s\mu\mu}=\frac{m_\mu}{v_s}=\frac{2g_Xm_\mu}{m_{A'}},
-\qquad
 g_X\lesssim\frac{y_{s\mu\mu}^{\rm lim}(m_s)m_{A'}}{2m_\mu}.
 \]
-This is a conditional conversion, not a model-independent bound on \(g_X\). In particular, the muon-only fifth-force curve cannot be inserted into this relation as though it were a direct scalar--muon limit; the \(\mu\)- and \(\tau\)-loop matching must be performed first. This is the same conditional conversion given in Eq.~(31) of the manuscript, with the source-specific mass dependence of \(y_{s\mu\mu}^{\rm lim}(m_s)\) kept explicit.
+This is a conditional point-by-point conversion, not a model-independent bound on \(g_X\). The fifth-force curve is not inserted into this direct conversion because it constrains a loop-induced proton coupling rather than a direct scalar--muon Yukawa interaction.
 
-The table is a source-anchored summary of selected low-mass constraints on the scalar--muon coupling, not a combined scalar--\(A'\) exclusion map. Collider searches are discussed separately below because their UV interpretation depends on the portal-mixing benchmark, production rate, total width and lifetime, visible branching fractions, and selection efficiency, including \(s\to A'A'\) when kinematically open.
-
-
+Collider searches are discussed separately below because their UV interpretation depends on the portal-mixing benchmark, production rate, total width and lifetime, visible branching fractions, and selection efficiency, including \(s\to A'A'\) when kinematically open.
 
 The intermediate-mass scalar phenomenology is also treated explicitly. BaBar and Belle searched for
 \[
@@ -237,8 +227,7 @@ The scalar contribution to the muon anomalous magnetic moment is included togeth
 \]
 For the reference regime \(m_s\gtrsim10\,\mathrm{GeV}\), the scalar term is below \(0.2\%\) of the pure-axial \(A'\) contribution. For lighter \(s\), the positive scalar term can instead compete with, or partially cancel, the negative axial contribution. Accordingly, the \((g-2)_\mu\) contour in Fig.~2 is evaluated for the stated scalar-suppressed benchmark, rather than being applied to arbitrary scalar masses.
 
-These results show how the scalar sector is connected to the second part of the paper: its mass and couplings follow from the UV construction; its mass range is restricted by the scalar self-coupling; low-mass and B-factory searches constrain the corresponding scalar couplings; and its contribution to \((g-2)_\mu\) is included when assessing the effective-current benchmark. Figure~2 therefore presents the \(A'\) axial-current constraints for the specified, perturbatively consistent scalar benchmark; the scalar mass, couplings, and selected scalar constraints are discussed separately above. The portal benchmark and the associated \(h\)--\(s\) mixing check are addressed separately under Major Point~1.3.
-
+The scalar mass and lepton couplings follow from the UV relations above, while Table~II and the collider discussion summarize selected scalar constraints. Figure~2 presents the \(A'\) axial-current observables for the specified, perturbatively consistent scalar-suppressed benchmark. The Higgs-portal assumption and the \(h\)--\(s\) mixing analysis are addressed separately under Major Point~1.3.
 
 \medskip
 \Needspace{8\baselineskip}
