@@ -49,15 +49,15 @@
       15.272859379097264
     ],
     "T_ferreira": [
-      1.1767037896139157e-08,
+      1.1767037896139157e-8,
       23.99979893238284
     ],
     "mu_mu_ferreira": [
-      3.953724812006895e-07,
+      3.953724812006895e-7,
       23.999799610164235
     ],
     "lapse_ferreira": [
-      3.953724812006895e-07,
+      3.953724812006895e-7,
       23.999799610164235
     ]
   },
@@ -66,7 +66,7 @@
   "profile_grid": {
     "base_uniform_points": 501,
     "base_spacing_km": 0.05,
-    "support_boundary_epsilon_km": 1e-06,
+    "support_boundary_epsilon_km": 0.000001,
     "all_input_pdf_vertices_retained": true,
     "number_of_extra_source_vertices_and_support_knots": 1681,
     "extra_source_knot_count_semantics": "Raw PDF vertices and support knots before union-grid deduplication; unique final added rows are recorded separately.",
@@ -75,12 +75,12 @@
     "outer_shell_nodes_22_25_km": 222,
     "outer_shell_base_grid_nodes_22_25_km": 61,
     "outer_shell_additional_source_nodes_22_25_km": 161,
-    "outer_shell_min_spacing_km": 6.777813936764687e-07,
+    "outer_shell_min_spacing_km": 6.777813936764687e-7,
     "outer_shell_max_spacing_km": 0.05000000000000071,
     "exact_source_knots_km": [
-      1.1767037896139157e-08,
-      3.953724812006895e-07,
-      3.953724812006895e-07,
+      1.1767037896139157e-8,
+      3.953724812006895e-7,
+      3.953724812006895e-7,
       0.007248801449030095,
       0.007557187278289227,
       0.014805682784327446,
@@ -1759,7 +1759,9 @@
       24.8448677416201,
       24.916051063272686,
       24.98860283030404
-    ]
+    ],
+    "profile_csv_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+    "latest_extraction_note": "This is the current serialized CSV fingerprint. The immediately preceding vertex-preserving file fingerprint 6c47d071... differs only by last-digit floating-point serialization in active thermodynamic columns; see PROFILE_VERSION_RECONCILIATION_2026-11-09.md."
   },
   "assumptions": [
     "Caputo top-panel x axis is [0.1,20] km; bottom-panel x axis [0,20] km. Curves encode public PDF vertices beyond clipping frame.",
@@ -1778,8 +1780,8 @@
       "T_MeV": 19.265221107964955,
       "mu_mu_MeV": 46.674328446827786,
       "mu_mu_Ferreira_MeV": 254.89033730944777,
-      "n_mu_Fermi_fm3": 9.580878072951222e-05,
-      "n_mu_plotted_fm3": 9.627664904734236e-05,
+      "n_mu_Fermi_fm3": 0.00009580878072951222,
+      "n_mu_plotted_fm3": 0.00009627664904734236,
       "lapse": 0.7363304266908715
     },
     {
@@ -1814,8 +1816,8 @@
       "T_MeV": 13.231415830420763,
       "mu_mu_MeV": 62.28271808740729,
       "mu_mu_Ferreira_MeV": 68.64917389177585,
-      "n_mu_Fermi_fm3": 4.013551887725254e-05,
-      "n_mu_plotted_fm3": 4.0569682573042464e-05,
+      "n_mu_Fermi_fm3": 0.00004013551887725254,
+      "n_mu_plotted_fm3": 0.000040569682573042464,
       "lapse": 0.8634952836371738
     },
     {
@@ -1830,7 +1832,7 @@
     {
       "r_km": 24,
       "T_MeV": 3.2164262151376666,
-      "mu_mu_MeV": 0.0,
+      "mu_mu_MeV": 0,
       "mu_mu_Ferreira_MeV": null,
       "n_mu_Fermi_fm3": 5.453796967297306e-19,
       "n_mu_plotted_fm3": null,
@@ -1839,7 +1841,7 @@
     {
       "r_km": 25,
       "T_MeV": 3.0337706922681256,
-      "mu_mu_MeV": 0.0,
+      "mu_mu_MeV": 0,
       "mu_mu_Ferreira_MeV": null,
       "n_mu_Fermi_fm3": 7.049640010075108e-20,
       "n_mu_plotted_fm3": null,
