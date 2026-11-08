@@ -178,6 +178,7 @@ def main():
             "support_boundary_epsilon_km": 1.0e-6,
             "all_input_pdf_vertices_retained": True,
             "number_of_extra_source_vertices_and_support_knots": int(len(profile_knots)),
+            "extra_source_knot_count_semantics": "Raw PDF vertices and support knots before union-grid deduplication; unique final added rows are recorded separately.",
             "final_csv_rows": int(len(r)),
             "unique_added_source_vertices_and_support_knots": int(len(r) - len(base_r)),
             "outer_shell_nodes_22_25_km": int(np.count_nonzero((r >= 22.0) & (r <= 25.0))),
