@@ -6,7 +6,7 @@ The Garching raw radial-profile archive requires authorization. No restricted ta
 
 ## Baseline file and columns
 
-sfho188_digitized.csv has 501 uniformly spaced radii from 0 through 25 km:
+sfho188_digitized.csv is a vertex-preserving union grid, not a 501-row file. It contains 501 uniformly spaced base radii from 0 through 25 km plus all retained source-curve vertices and support-boundary knots. The current generated CSV has 1687 rows; 222 lie in 22--25 km, comprising 61 base-grid nodes and 161 additional source/support nodes. The minimum outer-shell spacing is about 6.78e-7 km because of intentional near-step nodes at support boundaries; the maximum spacing remains 0.05 km. These are reconstructed PDF-curve nodes, not raw simulation snapshots:
 
 | Column | Definition | Input |
 |---|---|---|
