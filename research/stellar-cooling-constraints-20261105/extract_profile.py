@@ -178,6 +178,16 @@ def main():
             "support_boundary_epsilon_km": 1.0e-6,
             "all_input_pdf_vertices_retained": True,
             "number_of_extra_source_vertices_and_support_knots": int(len(profile_knots)),
+            "final_csv_rows": int(len(r)),
+            "unique_added_source_vertices_and_support_knots": int(len(r) - len(base_r)),
+            "outer_shell_nodes_22_25_km": int(np.count_nonzero((r >= 22.0) & (r <= 25.0))),
+            "outer_shell_base_grid_nodes_22_25_km": int(np.count_nonzero((base_r >= 22.0) & (base_r <= 25.0))),
+            "outer_shell_additional_source_nodes_22_25_km": int(
+                np.count_nonzero((r >= 22.0) & (r <= 25.0))
+                - np.count_nonzero((base_r >= 22.0) & (base_r <= 25.0))
+            ),
+            "outer_shell_min_spacing_km": float(np.min(np.diff(r[(r >= 22.0) & (r <= 25.0)]))),
+            "outer_shell_max_spacing_km": float(np.max(np.diff(r[(r >= 22.0) & (r <= 25.0)]))),
             "exact_source_knots_km": sorted(float(x) for x in profile_knots),
         },
         "assumptions":[
