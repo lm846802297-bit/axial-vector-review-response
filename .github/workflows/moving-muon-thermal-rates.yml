@@ -20,6 +20,8 @@ on:
       - research/stellar-cooling-constraints-20261105/finite_mixing/thermal_dimuon.py
       - research/stellar-cooling-constraints-20261105/finite_mixing/test_thermal_rates.py
       - research/stellar-cooling-constraints-20261105/finite_mixing/thermal_response_scan.py
+      - research/stellar-cooling-constraints-20261105/finite_mixing/test_b13_b16_comparison.py
+      - research/stellar-cooling-constraints-20261105/finite_mixing/b13_b16_comparison.py
       - .github/workflows/moving-muon-thermal-rates.yml
 
 permissions:
