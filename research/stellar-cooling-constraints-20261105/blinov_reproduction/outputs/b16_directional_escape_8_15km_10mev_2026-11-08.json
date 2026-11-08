@@ -17,11 +17,11 @@
             -0.5
           ],
           "escaped_luminosity_fraction": 0.17875901808218636,
-          "mean_escape_probability": 0.2592030380291341,
-          "source_weighted_mean_tau_inner": 1.2967013439804267,
-          "source_weighted_mean_tau_outer": 0.19445728851188182,
-          "source_weighted_mean_tau_total": 1.491158632492309,
-          "thin_source_fraction": 0.24472842693079422
+          "mean_escape_probability": 0.259203038029134,
+          "source_weighted_mean_tau_inner": 1.2967013439804265,
+          "source_weighted_mean_tau_outer": 0.1944572885118818,
+          "source_weighted_mean_tau_total": 1.4911586324923085,
+          "thin_source_fraction": 0.24472842693079427
         },
         {
           "cos_theta_bin": [
@@ -42,7 +42,7 @@
           ],
           "escaped_luminosity_fraction": 0.2796147386935156,
           "mean_escape_probability": 0.38869965096837644,
-          "source_weighted_mean_tau_inner": 0.8468360473123052,
+          "source_weighted_mean_tau_inner": 0.8468360473123054,
           "source_weighted_mean_tau_outer": 0.20742846234546075,
           "source_weighted_mean_tau_total": 1.054264509657766,
           "thin_source_fraction": 0.25527157306920584
@@ -54,7 +54,7 @@
           ],
           "escaped_luminosity_fraction": 0.3169871739201684,
           "mean_escape_probability": 0.4596357676265672,
-          "source_weighted_mean_tau_inner": 0.6636831850666979,
+          "source_weighted_mean_tau_inner": 0.663683185066698,
           "source_weighted_mean_tau_outer": 0.19445728851188177,
           "source_weighted_mean_tau_total": 0.8581404735785798,
           "thin_source_fraction": 0.24472842693079427
@@ -65,23 +65,23 @@
           "emission_shell": "8-10km",
           "escaped_luminosity_fraction_within_8_15km": 0.5448400192872801,
           "mean_escape_probability": 0.3866232058645256,
-          "mean_tau_inner": 0.8832708573735107,
-          "mean_tau_outer": 0.1621932139736764,
+          "mean_tau_inner": 0.883270857373511,
+          "mean_tau_outer": 0.16219321397367642,
           "mean_tau_total": 1.0454640713471872,
           "thin_source_fraction_within_8_15km": 0.5000778602604958
         },
         {
           "emission_shell": "10-12km",
-          "escaped_luminosity_fraction_within_8_15km": 0.32244912686991295,
-          "mean_escape_probability": 0.3492746181400368,
+          "escaped_luminosity_fraction_within_8_15km": 0.32244912686991306,
+          "mean_escape_probability": 0.34927461814003685,
           "mean_tau_inner": 0.9820428473469008,
-          "mean_tau_outer": 0.2048889613743251,
+          "mean_tau_outer": 0.20488896137432513,
           "mean_tau_total": 1.186931808721226,
           "thin_source_fraction_within_8_15km": 0.32760515311020194
         },
         {
           "emission_shell": "12-15km",
-          "escaped_luminosity_fraction_within_8_15km": 0.13271085384280668,
+          "escaped_luminosity_fraction_within_8_15km": 0.13271085384280665,
           "mean_escape_probability": 0.2732970209182332,
           "mean_tau_inner": 1.2208334397108405,
           "mean_tau_outer": 0.3066889602086615,
@@ -116,12 +116,12 @@
             -1.0,
             -0.5
           ],
-          "escaped_luminosity_fraction": 0.005426410869207681,
+          "escaped_luminosity_fraction": 0.005426410869207683,
           "mean_escape_probability": 7.845699092075055e-06,
-          "source_weighted_mean_tau_inner": 17.544981710197586,
-          "source_weighted_mean_tau_outer": 2.631098969854295,
-          "source_weighted_mean_tau_total": 20.176080680051875,
-          "thin_source_fraction": 0.24472842693079422
+          "source_weighted_mean_tau_inner": 17.54498171019758,
+          "source_weighted_mean_tau_outer": 2.6310989698542944,
+          "source_weighted_mean_tau_total": 20.17608068005187,
+          "thin_source_fraction": 0.24472842693079427
         },
         {
           "cos_theta_bin": [
@@ -144,7 +144,7 @@
           "mean_escape_probability": 0.00028902835668989456,
           "source_weighted_mean_tau_inner": 11.458091742252934,
           "source_weighted_mean_tau_outer": 2.806605079049298,
-          "source_weighted_mean_tau_total": 14.264696821302232,
+          "source_weighted_mean_tau_total": 14.264696821302236,
           "thin_source_fraction": 0.25527157306920584
         },
         {
@@ -155,7 +155,7 @@
           "escaped_luminosity_fraction": 0.7582089147759165,
           "mean_escape_probability": 0.0010962455917255661,
           "source_weighted_mean_tau_inner": 8.979946999682186,
-          "source_weighted_mean_tau_outer": 2.631098969854294,
+          "source_weighted_mean_tau_outer": 2.631098969854295,
           "source_weighted_mean_tau_total": 11.61104596953648,
           "thin_source_fraction": 0.24472842693079427
         }
@@ -172,8 +172,8 @@
         },
         {
           "emission_shell": "10-12km",
-          "escaped_luminosity_fraction_within_8_15km": 0.3529914577574766,
-          "mean_escape_probability": 0.0003812561548925525,
+          "escaped_luminosity_fraction_within_8_15km": 0.35299145775747653,
+          "mean_escape_probability": 0.00038125615489255246,
           "mean_tau_inner": 13.287503614704212,
           "mean_tau_outer": 2.7722444313192405,
           "mean_tau_total": 16.059748046023454,
@@ -181,8 +181,8 @@
         },
         {
           "emission_shell": "12-15km",
-          "escaped_luminosity_fraction_within_8_15km": 0.07831159274758534,
-          "mean_escape_probability": 0.00016080566998574478,
+          "escaped_luminosity_fraction_within_8_15km": 0.07831159274758531,
+          "mean_escape_probability": 0.00016080566998574473,
           "mean_tau_inner": 16.51845312751339,
           "mean_tau_outer": 4.149646503074575,
           "mean_tau_total": 20.668099630587967,
@@ -213,7 +213,7 @@
   "emission_shell_baseline_summary": {
     "10-12km": {
       "source_fraction_within_8_15km": 0.32760515311020194,
-      "source_weighted_mean_tau_inner_per_g2": 7635182316367793.0,
+      "source_weighted_mean_tau_inner_per_g2": 7635182316367795.0,
       "source_weighted_mean_tau_outer_per_g2": 1592969776146243.0,
       "source_weighted_mean_tau_total_per_g2": 9228152092514038.0
     },
@@ -283,7 +283,7 @@
       997.1506005910749,
       997.2896438225453,
       997.3516228783571,
-      997.4435997796613,
+      997.4435997796614,
       997.5613992843896,
       997.6512343946704,
       997.6985782008517,
@@ -294,11 +294,11 @@
       998.1512208622023,
       998.293307165038,
       998.3937696543082,
-      998.4443999954697,
+      998.4443999954698,
       998.5329486026608,
       998.6372133621853,
       998.708234194055,
-      998.7378371598486,
+      998.7378371598487,
       998.7794220607457,
       998.8298472013694,
       998.8658041299482,
@@ -306,7 +306,7 @@
       998.9168255210495,
       998.956687183356,
       998.9854082034074,
-      999.0000608512662,
+      999.0000608512663,
       999.0263663414514,
       999.0587137271386,
       999.0820537530719,
@@ -442,7 +442,7 @@
       33.87596814065855,
       35.29253446728705,
       37.38373073143242,
-      37.744684699267026,
+      37.744684699267054,
       39.1727702689855,
       40.201850518430476,
       42.25841643424829,
@@ -495,7 +495,7 @@
       1133683.0735418843,
       1945927.9962218592,
       3349941.9297051146,
-      5781237.241076985,
+      5781237.241076987,
       9997814.441132193,
       17319851.25215216,
       30047944.73255807,
@@ -516,7 +516,7 @@
   },
   "source_fraction_8_15km_of_total_B1_source": 0.7961172054557711,
   "source_weighted_mean_tau_inner_per_g2": 7571071274192338.0,
-  "source_weighted_mean_tau_outer_per_g2": 1563353022432970.2,
+  "source_weighted_mean_tau_outer_per_g2": 1563353022432970.5,
   "source_weighted_mean_tau_total_per_g2": 9134424296625308.0,
   "title": "B.2 direction-resolved escape probability for 8--15 km sources"
 }
