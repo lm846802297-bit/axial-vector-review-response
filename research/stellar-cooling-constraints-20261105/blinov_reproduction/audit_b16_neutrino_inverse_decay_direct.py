@@ -13,17 +13,19 @@ from __future__ import annotations
 import argparse, hashlib, json
 from pathlib import Path
 import numpy as np
+import sys
 from scipy.special import expit
 from numpy.polynomial.legendre import leggauss
 
 try:
     from .reference import DEFAULT_PROFILE, fermi_pair_average
-    from .. import rates as production_rates
+    import rates as production_rates
 except ImportError:
     from reference import DEFAULT_PROFILE, fermi_pair_average
     import rates as production_rates
 
 HERE=Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE.parent))
 DEFAULT_OUTPUT=HERE/"outputs"/"b16_neutrino_inverse_decay_direct_10mev_2026-11-08.json"
 MASS=10.0
 POLARIZATION_LABELS=("L","+","-")
