@@ -155,10 +155,26 @@ def redshifted_scalar_optical_depths(
         min_energy_ratio = min(min_energy_ratio, float(np.min(ratio)))
         max_energy_ratio = max(max_energy_ratio, float(np.max(ratio)))
 
+        # At the exact Eq. (B.1) lower endpoint, E_infinity=N_source*omega=m.
+        # Such a vector reaches infinity with zero speed and does not escape.
+        # Keep this measure-zero endpoint numerically evaluable, then assign
+        # infinite optical depth (zero escape probability) after the chord.
+        eligible = (
+            source_energies[None, :]*source_lapse[:, None]
+            > mass*(1.0+1.0e-12)
+        )
+        nonescaping_3d = np.broadcast_to(~eligible[:, None, :], omega_local.shape)
+        omega_local = np.where(
+            nonescaping_3d, mass*(1.0+1.0e-9), omega_local
+        )
         velocity = np.sqrt(np.maximum(1.0-(mass/omega_local)**2, 0.0))
-        min_local_velocity = min(min_local_velocity, float(np.min(velocity)))
-        if np.any(velocity <= 0.0):
-            raise FloatingPointError("Path-redshift diagnostic reached v_V=0")
+        eligible_3d = np.broadcast_to(eligible[:, None, :], velocity.shape)
+        if np.any((velocity <= 0.0) & eligible_3d):
+            raise FloatingPointError("A propagating path-redshift mode reached v_V=0")
+        if np.any(eligible_3d):
+            min_local_velocity = min(
+                min_local_velocity, float(np.min(velocity[eligible_3d]))
+            )
 
         neutrino, dimuon = decay_production(
             mass, omega_local, t_path[:, :, None],
@@ -173,12 +189,21 @@ def redshifted_scalar_optical_depths(
         absorption = np.exp(np.minimum(x, 700.0))*production
         reduced_absorption = -np.expm1(-x)*absorption
 
+        inverse_velocity = np.divide(
+            1.0, velocity, out=np.zeros_like(velocity), where=velocity > 0.0
+        )
         columns[:, ia, :] = (
             np.sum(
-                path_weights[:, :, None]*reduced_absorption/velocity,
+                path_weights[:, :, None]*reduced_absorption*inverse_velocity,
                 axis=1
             )*KM_TO_MEV_INV
         )
+
+    nonescaping = (
+        source_energies[None, :]*source_lapse[:, None]
+        <= mass*(1.0+1.0e-12)
+    )
+    columns = np.where(nonescaping[:, None, :], np.inf, columns)
 
     return columns, angle_weights/2.0, {
         "energy_ratio_local_over_source_min": min_energy_ratio,
@@ -299,8 +324,20 @@ def run_mass(
         source_angle_weights = source[:, None, :]*angle_weights[None, :, None]
         tau_fixed = g**2*columns_fixed
         tau_redshift = g**2*columns_redshift
-        mean_tau_fixed = float(np.average(tau_fixed, weights=source_angle_weights))
-        mean_tau_redshift = float(np.average(tau_redshift, weights=source_angle_weights))
+        finite_fixed = np.isfinite(tau_fixed)
+        finite_redshift = np.isfinite(tau_redshift)
+        mean_tau_fixed = float(
+            np.sum(np.where(finite_fixed, tau_fixed, 0.0)*source_angle_weights)
+            / np.sum(source_angle_weights*finite_fixed)
+        )
+        mean_tau_redshift = float(
+            np.sum(np.where(finite_redshift, tau_redshift, 0.0)*source_angle_weights)
+            / np.sum(source_angle_weights*finite_redshift)
+        )
+        nonescaping_weight_fraction = float(
+            np.sum(source_angle_weights*(~finite_redshift))
+            / np.sum(source_angle_weights)
+        )
 
         fixed_rows.append({
             "g": float(g),
@@ -318,7 +355,8 @@ def run_mass(
             "relative_difference": lum_redshift/float(ref_l)-1.0,
             "optically_thin_luminosity_erg_s": thin,
             "escape_fraction": lum_redshift/thin,
-            "source_weighted_mean_tau": mean_tau_redshift,
+            "source_weighted_mean_tau_over_escaping_bins": mean_tau_redshift,
+            "source_weight_fraction_at_infinite_tau": nonescaping_weight_fraction,
             "luminosity_shift_vs_fixed_omega": lum_redshift/lum_fixed-1.0,
         })
 
