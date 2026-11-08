@@ -308,63 +308,6 @@ def redshifted_shell_columns_by_flavour(
     }
 
 
-def _luminosity_removal_summary(
-    source, angle_weights, total_columns, channel_columns, shell_columns,
-    couplings, reference_luminosities, prescription,
-):
-    log_escape = np.asarray([
-        log_escaped_integral(source, angle_weights, total_columns, g)
-        for g in couplings
-    ])
-    log_luminosity = 2.0*np.log(couplings)+log_escape
-    peak_idx = int(np.argmax(log_luminosity))
-    chosen = {
-        "weak_coupling": 0,
-        f"{prescription}_luminosity_peak": peak_idx,
-        "strong_absorption_endpoint": len(couplings)-1,
-    }
-    outer_indices = [
-        i for i, label in enumerate(shell_columns["nu_mu"]["labels"])
-        if float(label.split("-")[0]) >= 15.0
-    ] if "labels" in shell_columns["nu_mu"] else None
-    # The caller passes a separate labels field in shell_columns.
-    if outer_indices is None:
-        raise ValueError("shell_columns must carry labels")
-    outer = {
-        channel: np.sum(shell_columns[channel]["values"][outer_indices], axis=0)
-        for channel in CHANNELS
-    }
-    results = []
-    for idx in sorted(set(chosen.values())):
-        g = float(couplings[idx])
-        row = {
-            "index": idx,
-            "g": g,
-            "reference_luminosity_erg_s": float(reference_luminosities[idx]),
-            "baseline_log10_luminosity_erg_s": float(
-                log_luminosity[idx]/np.log(10.0)
-            ),
-            "remove_all_nu_mu": removal_diagnostic(
-                source, angle_weights, total_columns, channel_columns["nu_mu"], g
-            ),
-            "remove_all_nu_tau": removal_diagnostic(
-                source, angle_weights, total_columns, channel_columns["nu_tau"], g
-            ),
-            "remove_outer_nu_mu": removal_diagnostic(
-                source, angle_weights, total_columns, outer["nu_mu"], g
-            ),
-            "remove_outer_nu_tau": removal_diagnostic(
-                source, angle_weights, total_columns, outer["nu_tau"], g
-            ),
-            "remove_both_outer_neutrino_flavours": removal_diagnostic(
-                source, angle_weights, total_columns,
-                outer["nu_mu"]+outer["nu_tau"], g
-            ),
-        }
-        results.append(row)
-    return {"peak_index": peak_idx, "points": results}
-
-
 def _removal_for_prescription(
     source, angle_weights, total_columns, channel_columns,
     shell_columns, labels, couplings, reference_luminosities, name,
