@@ -229,10 +229,13 @@ def redshifted_shell_columns_by_flavour(
             eligible, omega_local, mass*(1.0+1e-9)
         )
         velocity = np.sqrt(np.maximum(1.0-(mass/omega_eval)**2, 0.0))
-        if np.any((velocity <= 0.0) & eligible):
+        eligible_3d = np.broadcast_to(eligible, velocity.shape)
+        if np.any((velocity <= 0.0) & eligible_3d):
             raise FloatingPointError("Eligible redshifted ray reached zero speed")
-        if np.any(eligible):
-            min_velocity = min(min_velocity, float(np.min(velocity[eligible])))
+        if np.any(eligible_3d):
+            min_velocity = min(
+                min_velocity, float(np.min(velocity[eligible_3d]))
+            )
 
         prefactor = mass**2/(8.0*np.pi*omega_eval)
         beta = omega_eval/t_path[:, :, None]
