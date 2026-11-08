@@ -1,6 +1,5 @@
 # Re-evaluation of the 10 MeV pure-vector Fig. 7 benchmark after profile and B.2 audits
-
-> **Latest extraction refresh:** this B.16 run records profile A SHA-256 `6c47d071...`. The latest regenerated vertex-preserving file is profile B SHA-256 `9fb14e79...`; the active thermodynamic columns differ only at floating-point roundoff (maximum relative change below (3.3\times10^{-14}) in (T), and below (6.4\times10^{-15}) in (mu_\mu); (mu_{\nu_\mu}) and lapse are unchanged). The exact run fingerprint is preserved. See `PROFILE_VERSION_RECONCILIATION_2026-11-09.md`.
+> **Current input fingerprint:** the final B.16 rerun and paired JSON use profile B SHA-256 `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`. The immediately preceding vertex-preserving snapshot A (`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`) gave the same active thermodynamic inputs to floating-point precision; see `PROFILE_VERSION_RECONCILIATION_2026-11-09.md`.
 
 
 Date: 2026-11-09  
@@ -16,7 +15,7 @@ The comparison uses the existing 10 MeV pure-vector reference implementation wit
 
 The profile SHA-256 remains:
 
-6c47d0712d266848d0cb2315c8a9b43cf13d0b39b6986d4239dd3f22cb9ba0bc
+9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c
 
 The new profile audit changes no production input file. It establishes that the Caputo \(T(r)\) and \(\mu_\mu/T\) curves agree with Bollig Figs. 1 and 4 on the dense radial grid at below 0.022% relative, and that Caputo's plotted \(n_\mu\) agrees with its own relativistic Fermi integral to below 0.54%. The absolute density in Bollig Fig. 3 remains lower by about 8.8% on average over 12--15 km. This unresolved figure-level discrepancy is recorded separately; it is not corrected by rescaling.
 
