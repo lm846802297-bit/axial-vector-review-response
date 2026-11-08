@@ -334,36 +334,36 @@
       "rms_relative_difference": 0.005652271470733005
     },
     "Caputo_T_vs_Bollig_Fig1_12_15km": {
-      "count": 22,
-      "max_abs_relative_difference": 9.801023875932735e-05,
-      "max_relative_difference": 9.17590086375597e-05,
-      "mean_abs_relative_difference": 3.921992870122141e-05,
-      "min_relative_difference": -9.801023875932735e-05,
-      "rms_relative_difference": 4.880108032744327e-05
+      "count": 97,
+      "max_abs_relative_difference": 9.802142803816416e-05,
+      "max_relative_difference": 9.226157104635924e-05,
+      "mean_abs_relative_difference": 3.312611170513499e-05,
+      "min_relative_difference": -9.802142803816416e-05,
+      "rms_relative_difference": 4.100530639211652e-05
     },
     "Caputo_T_vs_Bollig_Fig1_5_15km": {
-      "count": 55,
-      "max_abs_relative_difference": 9.894282988764935e-05,
-      "max_relative_difference": 9.894282988764935e-05,
-      "mean_abs_relative_difference": 3.5294816718348365e-05,
-      "min_relative_difference": -9.801023875932735e-05,
-      "rms_relative_difference": 4.298882694511206e-05
+      "count": 533,
+      "max_abs_relative_difference": 9.9002679263549e-05,
+      "max_relative_difference": 9.9002679263549e-05,
+      "mean_abs_relative_difference": 2.664318562178639e-05,
+      "min_relative_difference": -9.802142803816416e-05,
+      "rms_relative_difference": 3.215712161397668e-05
     },
     "Caputo_mu_over_T_vs_Bollig_Fig4_12_15km": {
-      "count": 22,
-      "max_abs_relative_difference": 0.00010552854753176355,
-      "max_relative_difference": 0.00010552854753176355,
-      "mean_abs_relative_difference": 4.913174427012052e-05,
-      "min_relative_difference": -7.915536560521019e-05,
-      "rms_relative_difference": 5.688906243480783e-05
+      "count": 97,
+      "max_abs_relative_difference": 0.00014339979050181917,
+      "max_relative_difference": 0.00010573159504190244,
+      "mean_abs_relative_difference": 5.1777319521944685e-05,
+      "min_relative_difference": -0.00014339979050181917,
+      "rms_relative_difference": 6.190196320572424e-05
     },
     "Caputo_mu_over_T_vs_Bollig_Fig4_5_15km": {
-      "count": 55,
-      "max_abs_relative_difference": 0.00010858785238299085,
-      "max_relative_difference": 0.00010858785238299085,
-      "mean_abs_relative_difference": 4.964158807947831e-05,
-      "min_relative_difference": -9.032442948309072e-05,
-      "rms_relative_difference": 5.817954426045112e-05
+      "count": 533,
+      "max_abs_relative_difference": 0.00021269989412819879,
+      "max_relative_difference": 0.00012967216664061532,
+      "mean_abs_relative_difference": 6.459731123013848e-05,
+      "min_relative_difference": -0.00021269989412819879,
+      "rms_relative_difference": 7.931566232478442e-05
     },
     "Caputo_plotted_vs_Bollig_Fig3_12_15km": {
       "count": 22,
