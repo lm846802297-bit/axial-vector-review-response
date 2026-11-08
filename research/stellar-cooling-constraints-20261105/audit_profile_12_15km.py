@@ -64,7 +64,7 @@ def line_points(drawing):
     return points[np.sort(keep)]
 
 
-def drawing_record(page, index: int, sample_radii=RADII):
+def drawing_record(page, index: int, sample_mapping=None, sample_radii=RADII):
     drawings = page.get_drawings()
     d = drawings[index]
     pts = line_points(d)
@@ -83,26 +83,36 @@ def drawing_record(page, index: int, sample_radii=RADII):
         record["point_count"] = int(len(pts))
         record["x_range_pdf"] = [float(pts[0, 0]), float(pts[-1, 0])]
         record["y_range_pdf"] = [float(np.min(pts[:, 1])), float(np.max(pts[:, 1]))]
-        x0, x1 = FERREIRA_MUMU_PANEL["x0"], FERREIRA_MUMU_PANEL["x1"]
-        y50, y300 = FERREIRA_MUMU_PANEL["y50"], FERREIRA_MUMU_PANEL["y300"]
-        r = (pts[:, 0] - x0) * 20.0 / (x1 - x0)
-        mu = 50.0 + (y50 - pts[:, 1]) * 250.0 / (y50 - y300)
+        if sample_mapping == "ferreira_mu_mu":
+            x0, x1 = FERREIRA_MUMU_PANEL["x0"], FERREIRA_MUMU_PANEL["x1"]
+            y50, y300 = FERREIRA_MUMU_PANEL["y50"], FERREIRA_MUMU_PANEL["y300"]
+            r = (pts[:, 0] - x0) * 20.0 / (x1 - x0)
+            value = 50.0 + (y50 - pts[:, 1]) * 250.0 / (y50 - y300)
+            field = "sample_mu_MeV"
+        elif sample_mapping == "caputo_mu_mu":
+            x0, x1 = CAPUTO_TOP_PANEL["x0"], CAPUTO_TOP_PANEL["x1"]
+            r = 0.1 + (pts[:, 0] - x0) * 19.9 / (x1 - x0)
+            value = 10.0 ** (
+                (215.559 - pts[:, 1]) / ((215.559 - 56.180) / 2.0)
+            )
+            field = "sample_mu_MeV"
+        else:
+            return record
         order = np.argsort(r)
-        r, mu = r[order], mu[order]
+        r, value = r[order], value[order]
         keep = (r >= 0.0) & (r <= 20.0)
-        r, mu = r[keep], mu[keep]
+        r, value = r[keep], value[keep]
         if len(r) > 1:
             ur, ui = np.unique(r, return_index=True)
-            r, mu = ur, mu[ui]
-            record["sample_mu_MeV"] = {
-                f"{rr:g}": float(np.interp(rr, r, mu))
+            r, value = ur, value[ui]
+            record[field] = {
+                f"{rr:g}": float(np.interp(rr, r, value))
                 if r[0] <= rr <= r[-1] else None
                 for rr in sample_radii
             }
     return record
 
-
-def candidate_drawings(page, x0, x1, y0, y1):
+def candidate_drawings(page, x0, x1, y0, y1, sample_mapping=None):
     candidates = []
     for index, d in enumerate(page.get_drawings()):
         pts = line_points(d)
@@ -115,7 +125,7 @@ def candidate_drawings(page, x0, x1, y0, y1):
             continue
         if rect[1] < y0 - 25.0 or rect[3] > y1 + 25.0:
             continue
-        rec = drawing_record(page, index)
+        rec = drawing_record(page, index, sample_mapping=sample_mapping)
         if rec.get("point_count", 0) >= 12:
             candidates.append(rec)
     candidates.sort(key=lambda x: (x["rect"][2] - x["rect"][0], x["point_count"]), reverse=True)
@@ -177,8 +187,10 @@ def run(source_dir: Path, data_dir: Path):
         if actual != expected:
             raise ValueError(f"PDF hash mismatch for {path.name}: {actual}")
 
-    cap_page = pymupdf.open(cap_pdf)[0]
-    fer_page = pymupdf.open(fer_pdf)[0]
+    cap_doc = pymupdf.open(cap_pdf)
+    fer_doc = pymupdf.open(fer_pdf)
+    cap_page = cap_doc[0]
+    fer_page = fer_doc[0]
 
     caputo_indices = {"T": 0, "mu_mu": 1, "minus_mu_numu": 6,
                       "plus_mu_numu": 7, "n_mu_over_n0": 161}
@@ -192,7 +204,8 @@ def run(source_dir: Path, data_dir: Path):
 
     panel = FERREIRA_MUMU_PANEL
     candidates = candidate_drawings(
-        fer_page, panel["x0"], panel["x1"], panel["y300"], panel["y50"]
+        fer_page, panel["x0"], panel["x1"], panel["y300"], panel["y50"],
+        sample_mapping="ferreira_mu_mu"
     )
 
     csv_path = data_dir / "sfho188_digitized.csv"
