@@ -33,7 +33,15 @@ class B16EmissionRadiusEscapeTests(unittest.TestCase):
         self.assertAlmostEqual(
             sum(x["source_fraction"] for x in result["shells"]), 1.0
         )
-        self.assertAlmostEqual(result["mean_emission_radius_km"], 2.0)
+        self.assertAlmostEqual(result["mean_emission_radius_km"], 24.5/13.0)
+
+    def test_zero_total_source_returns_empty_distribution_safely(self):
+        result = source_radial_summary(
+            self.radius, np.zeros_like(self.source), self.edges, self.labels
+        )
+        self.assertEqual(result["total_source_weight"], 0.0)
+        self.assertIsNone(result["mean_emission_radius_km"])
+        self.assertTrue(all(x["source_fraction"] == 0.0 for x in result["shells"]))
 
     def test_emission_shell_escape_probabilities_and_fractions_close(self):
         escape = np.array([
