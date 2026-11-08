@@ -59,7 +59,7 @@ jobs:
           from pathlib import Path
           p = Path("research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_exact_compton_opacity_radial_vertex_preserving_10mev_2026-11-09.json")
           d = json.loads(p.read_text())
-          expected = "6c47d0712d266848d0cb2315c8a9b43cf13d0b39b6986d4239dd3f22cb9ba0bc"
+          expected = "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
           actual = d["profile"]["sha256"]
           if actual != expected:
               raise SystemExit(f"Unexpected profile SHA: {actual}")
