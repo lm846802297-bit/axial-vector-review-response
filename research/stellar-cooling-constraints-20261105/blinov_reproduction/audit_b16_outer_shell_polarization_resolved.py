@@ -58,13 +58,11 @@ def mode_neutrino_rates(mass, energies, temperature, mu_numu, order=48):
     omega = np.asarray(energies, float)[None, :]
     temp = np.asarray(temperature, float)[:, None]
     mu = np.asarray(mu_numu, float)[:, None]
-    p_mu, a_mu = production_rates.neutrino_rates(
+    # rates.neutrino_rates already sums nu_mu and nu_tau internally;
+    # mu_numu is the nu_mu chemical potential and nu_tau is fixed to zero.
+    return production_rates.neutrino_rates(
         mass, omega, temp, mu, order=order
     )
-    p_tau, a_tau = production_rates.neutrino_rates(
-        mass, omega, temp, np.zeros_like(mu), order=order
-    )
-    return p_mu + p_tau, a_mu + a_tau
 
 
 def _source_measure(radius, radial_weights, energies, lapse, mass, production):
