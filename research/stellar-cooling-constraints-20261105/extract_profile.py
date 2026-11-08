@@ -100,7 +100,7 @@ def main():
     out = HERE/"data"
     out.mkdir(exist_ok=True)
     for key, curve in curves.items():
-        np.savetxt(out/(key+"_vertices.csv"),curve,delimiter=",",header="r_km,value",comments="",fmt="%.10g")
+        np.savetxt(out/(key+"_vertices.csv"),curve,delimiter=",",header="r_km,value",comments="",fmt="%.15g")
     base_r=np.linspace(0,25,501)
     # Preserve exact source-curve endpoints. In particular, the negative
     # muon-neutrino branch ends at 13.1099 km and is set to zero immediately
@@ -145,7 +145,7 @@ def main():
     fer_mu=interp(curves["mu_mu_ferreira"],r,right=float("nan"))
     rows=np.column_stack([r,temp,mu,numu,lapse,fer_temp,fer_mu])
     header="r_km,T_MeV,mu_mu_MeV,mu_numu_MeV,lapse,T_Ferreira_MeV,mu_mu_Ferreira_MeV"
-    np.savetxt(out/"sfho188_digitized.csv",rows,delimiter=",",header=header,comments="",fmt="%.10g")
+    np.savetxt(out/"sfho188_digitized.csv",rows,delimiter=",",header=header,comments="",fmt="%.15g")
     samples=[]
     for rr in [0,5,8,10,15,20,24,25]:
         tt=float(interp(curves["T_caputo"],rr))
