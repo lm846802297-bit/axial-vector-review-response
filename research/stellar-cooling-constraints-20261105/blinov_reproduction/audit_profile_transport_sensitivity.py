@@ -74,6 +74,13 @@ def build_variants(profile_path: Path, temp_dir: Path):
     ferreira_mu["mu_mu_MeV"][region] = base["mu_mu_Ferreira_MeV"][region]
     variants["B_diagnostic_Ferreira_mu_mu_12_15km"] = ferreira_mu
 
+    ferreira_mu_source_region = {k: v.copy() for k, v in base.items()}
+    source_region = (r >= 8.0) & (r <= 15.0)
+    ferreira_mu_source_region["mu_mu_MeV"][source_region] = (
+        base["mu_mu_Ferreira_MeV"][source_region]
+    )
+    variants["B2_diagnostic_Ferreira_mu_mu_8_15km"] = ferreira_mu_source_region
+
     floor_envelope = {k: v.copy() for k, v in base.items()}
     floor_envelope["mu_numu_MeV"][unresolved] = -1.0
     variants["C_unresolved_mu_numu_at_plot_floor"] = floor_envelope
@@ -92,6 +99,7 @@ def build_variants(profile_path: Path, temp_dir: Path):
             "baseline": [],
             "A_mu_numu_zero_12_15km": ["mu_numu_MeV"],
             "B_diagnostic_Ferreira_mu_mu_12_15km": ["mu_mu_MeV"],
+            "B2_diagnostic_Ferreira_mu_mu_8_15km": ["mu_mu_MeV"],
             "C_unresolved_mu_numu_at_plot_floor": ["mu_numu_MeV"],
         }[label]
         if changed != expected:
@@ -99,6 +107,11 @@ def build_variants(profile_path: Path, temp_dir: Path):
     return paths, {
         "A_region_km": [12.0, 15.0],
         "B_region_km": [12.0, 15.0],
+        "B2_source_region_km": [8.0, 15.0],
+        "B2_interpretation": (
+            "diagnostic substitution over the dominant B.1 emission region; same-model "
+            "published curve comparison, not an adopted profile"
+        ),
         "C_unresolved_region_km": [FLOOR_RADIUS_KM, 15.0],
         "C_assumed_mu_numu_MeV": -1.0,
         "C_interpretation": (
@@ -290,7 +303,7 @@ def main():
         "results": results,
         "interpretation": [
             "A, B, and C are controlled diagnostics; none is adopted as a replacement stellar background.",
-            "B is not a preferred physical profile; it tests the impact of the alternative plotted mu_mu curve only.",
+            "B and B2 are diagnostic substitutions using the Ferreira Fig. 1 SFHo-18.8 curve; neither is adopted as the baseline.",
             "C uses the plotted 1 MeV resolution floor as a stress-test envelope, not as a measured continuation.",
             "The reported escape probability includes the B.1 source change of each variant.",
             "No empirical rescaling is applied and no axial-vector output is generated.",
