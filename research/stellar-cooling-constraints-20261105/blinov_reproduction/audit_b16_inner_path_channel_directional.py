@@ -363,6 +363,86 @@ def _region_summary(
                 ),
             })
 
+    combined_sensitivity = []
+
+    def append_combined_sensitivity(name, removed, removed_channels, removed_shells, kind):
+        alternative = np.maximum(total_columns - removed, 0.0)
+        alt_log = _log_escaped_integral(
+            source, angle_weights, alternative, coupling, source_mask
+        )
+        delta = alt_log - base_log
+        combined_sensitivity.append({
+            "name": name,
+            "kind": kind,
+            "removed_channels": list(removed_channels),
+            "removed_path_shells": list(removed_shells),
+            "log10_luminosity_enhancement": float(delta / np.log(10.0)),
+            "relative_luminosity_enhancement": (
+                float(np.expm1(delta)) if delta < 700.0 else None
+            ),
+        })
+
+    shell_index = {name: i for i, name in enumerate(shell_labels)}
+    channel_index = {name: i for i, name in enumerate(channel_names)}
+
+    # Remove all channels in one path shell at a time.
+    for ish, shell in enumerate(shell_labels):
+        append_combined_sensitivity(
+            f"all_channels_in_{shell}",
+            np.sum(columns[:, ish], axis=0),
+            channel_names, [shell], "all_channels_in_one_shell"
+        )
+
+    # Remove one complete channel across the full path.
+    for ic, channel in enumerate(channel_names):
+        append_combined_sensitivity(
+            f"{channel}_all_path_shells",
+            np.sum(columns[ic], axis=0),
+            [channel], shell_labels, "one_channel_across_all_shells"
+        )
+
+    # Nonlinear combined removals that distinguish the inner and outer paths.
+    group_shells = {
+        "inner_8_22km": [
+            "8-10km", "10-12km", "12-15km", "15-16.5km",
+            "16.5-18.5km", "18.5-20km", "20-22km"
+        ],
+        "outer_22_25km": ["22-25km"],
+        "full_8_25km": [
+            "8-10km", "10-12km", "12-15km", "15-16.5km",
+            "16.5-18.5km", "18.5-20km", "20-22km", "22-25km"
+        ],
+    }
+    neutrino_channels = [
+        channel_index[name] for name in ("nu_mu", "nu_tau")
+        if name in channel_index
+    ]
+    compton_channels = [channel_index["compton"]] if "compton" in channel_index else []
+
+    for group_name, group_labels in group_shells.items():
+        indices = [shell_index[name] for name in group_labels if name in shell_index]
+        if not indices:
+            continue
+        append_combined_sensitivity(
+            f"all_channels_{group_name}",
+            np.sum(columns[:, indices], axis=(0, 1)),
+            channel_names, group_labels, "all_channels_in_radial_group"
+        )
+        if neutrino_channels:
+            append_combined_sensitivity(
+                f"neutrino_channels_{group_name}",
+                np.sum(columns[neutrino_channels][:, indices], axis=(0, 1)),
+                [channel_names[i] for i in neutrino_channels],
+                group_labels, "neutrino_channels_in_radial_group"
+            )
+        if compton_channels:
+            append_combined_sensitivity(
+                f"compton_{group_name}",
+                np.sum(columns[compton_channels][:, indices], axis=(0, 1)),
+                [channel_names[i] for i in compton_channels],
+                group_labels, "compton_in_radial_group"
+            )
+
     return {
         "region": label,
         "source_fraction_of_total_B1": (
@@ -377,6 +457,7 @@ def _region_summary(
         "path_group_tau": group_rows,
         "emission_shells": emission_rows,
         "leave_one_channel_shell_out": leave_one_out,
+        "combined_leave_one_out": combined_sensitivity,
     }
 
 
