@@ -209,8 +209,10 @@ def run(source_dir: Path, data_dir: Path):
     nplot_curve = read_curve(data_dir / "n_mu_over_n0_caputo_vertices.csv")
     rows = []
     for radius in RADII:
-        row_index = int(round(radius / 0.05))
-        row = csv[row_index]
+        row = {
+            name: float(np.interp(radius, csv["r_km"], csv[name]))
+            for name in csv.dtype.names
+        }
         T = float(row["T_MeV"])
         mc = float(row["mu_mu_MeV"])
         mf = float(row["mu_mu_Ferreira_MeV"])
@@ -241,7 +243,10 @@ def run(source_dir: Path, data_dir: Path):
 
     energy_effects = []
     for radius in RADII:
-        row = csv[int(round(radius / 0.05))]
+        row = {
+            name: float(np.interp(radius, csv["r_km"], csv[name]))
+            for name in csv.dtype.names
+        }
         T, mu = float(row["T_MeV"]), float(row["mu_numu_MeV"])
         if radius <= 13.11:
             current = mu
