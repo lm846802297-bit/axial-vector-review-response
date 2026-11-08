@@ -1,0 +1,1060 @@
+{
+  "curve_path_identity": {
+    "all_candidate_paths_in_Ferreira_mu_mu_panel": [
+      {
+        "color": [
+          0.3684140145778656,
+          0.5067830085754395,
+          0.7098039984703064
+        ],
+        "dashes": "[] 0",
+        "fill": null,
+        "index": 393,
+        "is_all_line_polyline": true,
+        "item_count": 1049,
+        "point_count": 1050,
+        "rect": [
+          378.1990051269531,
+          285.56298828125,
+          689.4140014648438,
+          313.281005859375
+        ],
+        "sample_mu_MeV": {
+          "12": 73.70788169092246,
+          "12.5": 75.67796582190405,
+          "13": 77.62657701226014,
+          "13.1": 78.17449900791324,
+          "13.15": 78.46448690799731,
+          "13.5": 79.00176032672623,
+          "14": 79.97294954936095,
+          "14.5": 80.70939524133863,
+          "15": 80.65825788528262
+        },
+        "type": "s",
+        "width": 2.1784958839416504,
+        "x_range_pdf": [
+          378.1990051269531,
+          689.4140014648438
+        ],
+        "y_range_pdf": [
+          285.56298828125,
+          313.281005859375
+        ]
+      },
+      {
+        "color": [
+          0.5601739883422852,
+          0.6915689706802368,
+          0.19488799571990967
+        ],
+        "dashes": "[ .72 2.88 2.88 2.88 ] 0",
+        "fill": null,
+        "index": 395,
+        "is_all_line_polyline": true,
+        "item_count": 419,
+        "point_count": 420,
+        "rect": [
+          378.1990051269531,
+          175.45700073242188,
+          689.4140014648438,
+          323.281005859375
+        ],
+        "sample_mu_MeV": {
+          "12": 112.6302213826516,
+          "12.5": 106.75505978510319,
+          "13": 100.569333324401,
+          "13.1": 99.25985579315204,
+          "13.15": 98.60511702752754,
+          "13.5": 93.77636954655884,
+          "14": 86.50084500432033,
+          "14.5": 78.66169911756005,
+          "15": 70.08649147602277
+        },
+        "type": "s",
+        "width": 2.1784958839416504,
+        "x_range_pdf": [
+          378.1990051269531,
+          689.4140014648438
+        ],
+        "y_range_pdf": [
+          175.45700073242188,
+          323.281005859375
+        ]
+      },
+      {
+        "color": [
+          0.8807200193405151,
+          0.6110479831695557,
+          0.1420460045337677
+        ],
+        "dashes": "[ 2.88 2.88 ] 0",
+        "fill": null,
+        "index": 394,
+        "is_all_line_polyline": true,
+        "item_count": 399,
+        "point_count": 400,
+        "rect": [
+          378.1990051269531,
+          204.17999267578125,
+          689.4140014648438,
+          322.468994140625
+        ],
+        "sample_mu_MeV": {
+          "12": 109.82637983293735,
+          "12.5": 103.9129649784954,
+          "13": 97.66070915264855,
+          "13.1": 96.37426609678452,
+          "13.15": 95.73104456885251,
+          "13.5": 91.10203170855554,
+          "14": 84.12476116999501,
+          "14.5": 76.63217227934798,
+          "15": 68.64917389177585
+        },
+        "type": "s",
+        "width": 2.1784958839416504,
+        "x_range_pdf": [
+          378.1990051269531,
+          689.4140014648438
+        ],
+        "y_range_pdf": [
+          204.17999267578125,
+          322.468994140625
+        ]
+      }
+    ],
+    "manual_review_required": "Confirm that Ferreira path 394 is the orange dashed SFHo-18.8 mu_mu curve. Do not interpret the alternative mu_mu profile physically until its PDF path identity is confirmed.",
+    "selected_path_details": {
+      "caputo": {
+        "T": {
+          "color": [
+            0.9999849796295166,
+            0.0,
+            0.0
+          ],
+          "dashes": "[] 0",
+          "fill": null,
+          "index": 0,
+          "is_all_line_polyline": true,
+          "item_count": 403,
+          "point_count": 404,
+          "rect": [
+            47.75,
+            88.5469970703125,
+            837.5269775390625,
+            215.5590057373047
+          ],
+          "type": "s",
+          "width": 1.3824000358581543,
+          "x_range_pdf": [
+            47.75,
+            837.5269775390625
+          ],
+          "y_range_pdf": [
+            88.5469970703125,
+            215.5590057373047
+          ]
+        },
+        "minus_mu_numu": {
+          "color": [
+            0.0,
+            0.0,
+            0.9999849796295166
+          ],
+          "dashes": "[ 2.88 2.88 ] 0",
+          "fill": null,
+          "index": 6,
+          "is_all_line_polyline": true,
+          "item_count": 84,
+          "point_count": 85,
+          "rect": [
+            47.75,
+            74.66799926757812,
+            228.2729949951172,
+            215.5590057373047
+          ],
+          "type": "s",
+          "width": 1.3824000358581543,
+          "x_range_pdf": [
+            47.75,
+            228.2729949951172
+          ],
+          "y_range_pdf": [
+            74.66799926757812,
+            215.5590057373047
+          ]
+        },
+        "mu_mu": {
+          "color": [
+            0.0,
+            0.0,
+            0.9999849796295166
+          ],
+          "dashes": "[] 0",
+          "fill": null,
+          "index": 1,
+          "is_all_line_polyline": true,
+          "item_count": 250,
+          "point_count": 251,
+          "rect": [
+            47.75,
+            54.992000579833984,
+            354.4530029296875,
+            215.5590057373047
+          ],
+          "type": "s",
+          "width": 1.3824000358581543,
+          "x_range_pdf": [
+            47.75,
+            354.4530029296875
+          ],
+          "y_range_pdf": [
+            54.992000579833984,
+            215.5590057373047
+          ]
+        },
+        "n_mu_over_n0": {
+          "color": [
+            0.0,
+            0.6666560173034668,
+            0.0
+          ],
+          "dashes": "[] 0",
+          "fill": null,
+          "index": 161,
+          "is_all_line_polyline": true,
+          "item_count": 101,
+          "point_count": 102,
+          "rect": [
+            49.132999420166016,
+            339.8550109863281,
+            258.6520080566406,
+            442.9219970703125
+          ],
+          "type": "s",
+          "width": 1.3824000358581543,
+          "x_range_pdf": [
+            49.132999420166016,
+            258.6520080566406
+          ],
+          "y_range_pdf": [
+            339.8550109863281,
+            442.9219970703125
+          ]
+        },
+        "plus_mu_numu": {
+          "color": [
+            0.0,
+            0.0,
+            0.9999849796295166
+          ],
+          "dashes": "[ 2.88 2.88 ] 0",
+          "fill": null,
+          "index": 7,
+          "is_all_line_polyline": true,
+          "item_count": 40,
+          "point_count": 41,
+          "rect": [
+            276.5979919433594,
+            195.2729949951172,
+            302.0899963378906,
+            215.5590057373047
+          ],
+          "type": "s",
+          "width": 1.3824000358581543,
+          "x_range_pdf": [
+            276.5979919433594,
+            302.0899963378906
+          ],
+          "y_range_pdf": [
+            195.2729949951172,
+            215.5590057373047
+          ]
+        }
+      },
+      "ferreira": {
+        "T": {
+          "color": [
+            0.8807200193405151,
+            0.6110479831695557,
+            0.1420460045337677
+          ],
+          "dashes": "[ 2.88 2.88 ] 0",
+          "fill": null,
+          "index": 1,
+          "is_all_line_polyline": true,
+          "item_count": 463,
+          "point_count": 464,
+          "rect": [
+            62.59000015258789,
+            70.05500030517578,
+            373.80499267578125,
+            164.70700073242188
+          ],
+          "type": "s",
+          "width": 2.1784958839416504,
+          "x_range_pdf": [
+            62.59000015258789,
+            373.80499267578125
+          ],
+          "y_range_pdf": [
+            70.05500030517578,
+            164.70700073242188
+          ]
+        },
+        "lapse_candidate": {
+          "color": [
+            0.8807200193405151,
+            0.6110479831695557,
+            0.1420460045337677
+          ],
+          "dashes": "[ 2.88 2.88 ] 0",
+          "fill": null,
+          "index": 610,
+          "is_all_line_polyline": true,
+          "item_count": 137,
+          "point_count": 138,
+          "rect": [
+            378.1990051269531,
+            333.9960021972656,
+            689.4140014648438,
+            417.3590087890625
+          ],
+          "type": "s",
+          "width": 2.1784958839416504,
+          "x_range_pdf": [
+            378.1990051269531,
+            689.4140014648438
+          ],
+          "y_range_pdf": [
+            333.9960021972656,
+            417.3590087890625
+          ]
+        },
+        "mu_mu_candidate": {
+          "color": [
+            0.8807200193405151,
+            0.6110479831695557,
+            0.1420460045337677
+          ],
+          "dashes": "[ 2.88 2.88 ] 0",
+          "fill": null,
+          "index": 394,
+          "is_all_line_polyline": true,
+          "item_count": 399,
+          "point_count": 400,
+          "rect": [
+            378.1990051269531,
+            204.17999267578125,
+            689.4140014648438,
+            322.468994140625
+          ],
+          "type": "s",
+          "width": 2.1784958839416504,
+          "x_range_pdf": [
+            378.1990051269531,
+            689.4140014648438
+          ],
+          "y_range_pdf": [
+            204.17999267578125,
+            322.468994140625
+          ]
+        }
+      }
+    },
+    "selected_path_indices": {
+      "caputo": {
+        "T": 0,
+        "minus_mu_numu": 6,
+        "mu_mu": 1,
+        "n_mu_over_n0": 161,
+        "plus_mu_numu": 7
+      },
+      "ferreira": {
+        "T": 1,
+        "lapse_candidate": 610,
+        "mu_mu_candidate": 394
+      }
+    }
+  },
+  "interpretation": [
+    "The Caputo mu_mu curve is checked against the independent n_mu curve in the lower panel of the same Fig. 1.",
+    "The Ferreira mu_mu curve is not yet treated as an alternative physical input until its source-PDF path identity is confirmed.",
+    "The neutrino-pair rate is even in mu_numu; the sign of the negative branch does not change the pair rate, while its magnitude does.",
+    "The lapse has no independent Caputo comparison in Fig. 1; this audit checks only the Ferreira curve and interpolation over 12--15 km.",
+    "This audit does not change any opacity, path integral, luminosity, coupling, or axial-vector constraint curve."
+  ],
+  "mu_numu_floor_sensitivity": [
+    {
+      "T_MeV": 25.9827030828611,
+      "alternative_mu_numu_MeV": 0.0,
+      "current_mu_numu_MeV": -4.31407662728133,
+      "effects": [
+        {
+          "omega_MeV": 12.0,
+          "relative_change_for_alternative_mu_numu": 0.00338326941413869
+        },
+        {
+          "omega_MeV": 15.0,
+          "relative_change_for_alternative_mu_numu": 0.003334284062949555
+        },
+        {
+          "omega_MeV": 20.0,
+          "relative_change_for_alternative_mu_numu": 0.0032331602689550376
+        },
+        {
+          "omega_MeV": 30.0,
+          "relative_change_for_alternative_mu_numu": 0.0029755838143641355
+        },
+        {
+          "omega_MeV": 50.0,
+          "relative_change_for_alternative_mu_numu": 0.0023751171625072676
+        },
+        {
+          "omega_MeV": 80.0,
+          "relative_change_for_alternative_mu_numu": 0.0016141001831988522
+        },
+        {
+          "omega_MeV": 100.0,
+          "relative_change_for_alternative_mu_numu": 0.001266860651585544
+        }
+      ],
+      "radius_km": 12.0
+    },
+    {
+      "T_MeV": 23.881959149249,
+      "alternative_mu_numu_MeV": 0.0,
+      "current_mu_numu_MeV": -2.59165549916519,
+      "effects": [
+        {
+          "omega_MeV": 12.0,
+          "relative_change_for_alternative_mu_numu": 0.001441620685632472
+        },
+        {
+          "omega_MeV": 15.0,
+          "relative_change_for_alternative_mu_numu": 0.001417010961741516
+        },
+        {
+          "omega_MeV": 20.0,
+          "relative_change_for_alternative_mu_numu": 0.0013666215192384978
+        },
+        {
+          "omega_MeV": 30.0,
+          "relative_change_for_alternative_mu_numu": 0.0012407646340995004
+        },
+        {
+          "omega_MeV": 50.0,
+          "relative_change_for_alternative_mu_numu": 0.0009608867890378292
+        },
+        {
+          "omega_MeV": 80.0,
+          "relative_change_for_alternative_mu_numu": 0.0006319629338864541
+        },
+        {
+          "omega_MeV": 100.0,
+          "relative_change_for_alternative_mu_numu": 0.0004907052087508301
+        }
+      ],
+      "radius_km": 12.5
+    },
+    {
+      "T_MeV": 21.7507355228106,
+      "alternative_mu_numu_MeV": 0.0,
+      "current_mu_numu_MeV": -1.28673490170554,
+      "effects": [
+        {
+          "omega_MeV": 12.0,
+          "relative_change_for_alternative_mu_numu": 0.0004267783597680097
+        },
+        {
+          "omega_MeV": 15.0,
+          "relative_change_for_alternative_mu_numu": 0.00041805354115620474
+        },
+        {
+          "omega_MeV": 20.0,
+          "relative_change_for_alternative_mu_numu": 0.00040037753589894365
+        },
+        {
+          "omega_MeV": 30.0,
+          "relative_change_for_alternative_mu_numu": 0.00035731754994983156
+        },
+        {
+          "omega_MeV": 50.0,
+          "relative_change_for_alternative_mu_numu": 0.0002669397258145967
+        },
+        {
+          "omega_MeV": 80.0,
+          "relative_change_for_alternative_mu_numu": 0.00016958691839352724
+        },
+        {
+          "omega_MeV": 100.0,
+          "relative_change_for_alternative_mu_numu": 0.0001304216723461149
+        }
+      ],
+      "radius_km": 13.0
+    },
+    {
+      "T_MeV": 21.3185108715997,
+      "alternative_mu_numu_MeV": 0.0,
+      "current_mu_numu_MeV": -1.02897219747435,
+      "effects": [
+        {
+          "omega_MeV": 12.0,
+          "relative_change_for_alternative_mu_numu": 0.0002838262383169088
+        },
+        {
+          "omega_MeV": 15.0,
+          "relative_change_for_alternative_mu_numu": 0.0002777963912972137
+        },
+        {
+          "omega_MeV": 20.0,
+          "relative_change_for_alternative_mu_numu": 0.00026561094218036096
+        },
+        {
+          "omega_MeV": 30.0,
+          "relative_change_for_alternative_mu_numu": 0.00023609965952564593
+        },
+        {
+          "omega_MeV": 50.0,
+          "relative_change_for_alternative_mu_numu": 0.00017497094626572895
+        },
+        {
+          "omega_MeV": 80.0,
+          "relative_change_for_alternative_mu_numu": 0.00011037109809675094
+        },
+        {
+          "omega_MeV": 100.0,
+          "relative_change_for_alternative_mu_numu": 8.473472051262476e-05
+        }
+      ],
+      "radius_km": 13.1
+    },
+    {
+      "T_MeV": 21.1039614050611,
+      "alternative_mu_numu_MeV": 1.0,
+      "current_mu_numu_MeV": 0.0,
+      "effects": [
+        {
+          "omega_MeV": 12.0,
+          "relative_change_for_alternative_mu_numu": -0.0002733311175083797
+        },
+        {
+          "omega_MeV": 15.0,
+          "relative_change_for_alternative_mu_numu": -0.0002674127006808691
+        },
+        {
+          "omega_MeV": 20.0,
+          "relative_change_for_alternative_mu_numu": -0.0002554677163916219
+        },
+        {
+          "omega_MeV": 30.0,
+          "relative_change_for_alternative_mu_numu": -0.00022662452217026008
+        },
+        {
+          "omega_MeV": 50.0,
+          "relative_change_for_alternative_mu_numu": -0.00016727530612481445
+        },
+        {
+          "omega_MeV": 80.0,
+          "relative_change_for_alternative_mu_numu": -0.00010515103399522108
+        },
+        {
+          "omega_MeV": 100.0,
+          "relative_change_for_alternative_mu_numu": -8.06622468330076e-05
+        }
+      ],
+      "radius_km": 13.15
+    },
+    {
+      "T_MeV": 19.6120696335513,
+      "alternative_mu_numu_MeV": 1.0,
+      "current_mu_numu_MeV": 0.0,
+      "effects": [
+        {
+          "omega_MeV": 12.0,
+          "relative_change_for_alternative_mu_numu": -0.0003151940423704591
+        },
+        {
+          "omega_MeV": 15.0,
+          "relative_change_for_alternative_mu_numu": -0.00030735053409591817
+        },
+        {
+          "omega_MeV": 20.0,
+          "relative_change_for_alternative_mu_numu": -0.00029167943999908186
+        },
+        {
+          "omega_MeV": 30.0,
+          "relative_change_for_alternative_mu_numu": -0.0002547078572719963
+        },
+        {
+          "omega_MeV": 50.0,
+          "relative_change_for_alternative_mu_numu": -0.00018240674386760247
+        },
+        {
+          "omega_MeV": 80.0,
+          "relative_change_for_alternative_mu_numu": -0.00011189101166275695
+        },
+        {
+          "omega_MeV": 100.0,
+          "relative_change_for_alternative_mu_numu": -8.539532861240318e-05
+        }
+      ],
+      "radius_km": 13.5
+    },
+    {
+      "T_MeV": 17.4707507569334,
+      "alternative_mu_numu_MeV": 1.0,
+      "current_mu_numu_MeV": 0.0,
+      "effects": [
+        {
+          "omega_MeV": 12.0,
+          "relative_change_for_alternative_mu_numu": -0.0003940942470358477
+        },
+        {
+          "omega_MeV": 15.0,
+          "relative_change_for_alternative_mu_numu": -0.00038191045871216467
+        },
+        {
+          "omega_MeV": 20.0,
+          "relative_change_for_alternative_mu_numu": -0.0003580218836392035
+        },
+        {
+          "omega_MeV": 30.0,
+          "relative_change_for_alternative_mu_numu": -0.0003039923415526502
+        },
+        {
+          "omega_MeV": 50.0,
+          "relative_change_for_alternative_mu_numu": -0.00020719951890657562
+        },
+        {
+          "omega_MeV": 80.0,
+          "relative_change_for_alternative_mu_numu": -0.0001228809741042891
+        },
+        {
+          "omega_MeV": 100.0,
+          "relative_change_for_alternative_mu_numu": -9.332099497261215e-05
+        }
+      ],
+      "radius_km": 14.0
+    },
+    {
+      "T_MeV": 15.3401000467995,
+      "alternative_mu_numu_MeV": 1.0,
+      "current_mu_numu_MeV": 0.0,
+      "effects": [
+        {
+          "omega_MeV": 12.0,
+          "relative_change_for_alternative_mu_numu": -0.0005054873613306032
+        },
+        {
+          "omega_MeV": 15.0,
+          "relative_change_for_alternative_mu_numu": -0.0004856219536572004
+        },
+        {
+          "omega_MeV": 20.0,
+          "relative_change_for_alternative_mu_numu": -0.0004476764454387494
+        },
+        {
+          "omega_MeV": 30.0,
+          "relative_change_for_alternative_mu_numu": -0.0003665543302817653
+        },
+        {
+          "omega_MeV": 50.0,
+          "relative_change_for_alternative_mu_numu": -0.0002361605260309263
+        },
+        {
+          "omega_MeV": 80.0,
+          "relative_change_for_alternative_mu_numu": -0.00013598985397633712
+        },
+        {
+          "omega_MeV": 100.0,
+          "relative_change_for_alternative_mu_numu": -0.00010311986801847528
+        }
+      ],
+      "radius_km": 14.5
+    },
+    {
+      "T_MeV": 13.2314158304208,
+      "alternative_mu_numu_MeV": 1.0,
+      "current_mu_numu_MeV": 0.0,
+      "effects": [
+        {
+          "omega_MeV": 12.0,
+          "relative_change_for_alternative_mu_numu": -0.0006682523575429755
+        },
+        {
+          "omega_MeV": 15.0,
+          "relative_change_for_alternative_mu_numu": -0.0006339859841824058
+        },
+        {
+          "omega_MeV": 20.0,
+          "relative_change_for_alternative_mu_numu": -0.0005709239556214163
+        },
+        {
+          "omega_MeV": 30.0,
+          "relative_change_for_alternative_mu_numu": -0.0004459965195799942
+        },
+        {
+          "omega_MeV": 50.0,
+          "relative_change_for_alternative_mu_numu": -0.00027024738346859145
+        },
+        {
+          "omega_MeV": 80.0,
+          "relative_change_for_alternative_mu_numu": -0.00015230562806511916
+        },
+        {
+          "omega_MeV": 100.0,
+          "relative_change_for_alternative_mu_numu": -0.00011574637243527697
+        }
+      ],
+      "radius_km": 15.0
+    }
+  ],
+  "pointwise_profile_and_density_checks": [
+    {
+      "Caputo_density_to_own_plot_ratio": 0.9945383561162584,
+      "Caputo_fermi_density": {
+        "Fdeg": 0.8716812815454972,
+        "n_mu_Fdeg_MeV3": 13017.934776506216,
+        "n_mu_Fdeg_fm3": 0.0016942702336625681,
+        "n_mu_MeV3": 14934.282807387264,
+        "n_mu_fm3": 0.0019436808722777836
+      },
+      "Caputo_plotted_muon_density_fm3": 0.0019543548625595426,
+      "Ferreira_density_to_Caputo_plot_ratio": 1.6744746073172552,
+      "Ferreira_mu_mu_fermi_density": {
+        "Fdeg": 0.8083096755503708,
+        "n_mu_Fdeg_MeV3": 20324.467574745595,
+        "n_mu_Fdeg_fm3": 0.0026452076322488146,
+        "n_mu_MeV3": 25144.407136914262,
+        "n_mu_fm3": 0.0032725175910429585
+      },
+      "T_Caputo_MeV": 25.9827030828611,
+      "T_Ferreira_MeV": 25.9817710835762,
+      "T_relative_difference": -3.586998942832396e-05,
+      "lapse": 0.833501980722648,
+      "mu_mu_Caputo_MeV": 93.7326796750745,
+      "mu_mu_Ferreira_MeV": 109.826379832937,
+      "mu_mu_over_T_Caputo": 3.607503013683866,
+      "mu_mu_over_T_Ferreira": 4.2269035474365815,
+      "mu_mu_relative_difference": 0.17169785621889305,
+      "mu_numu_MeV": -4.31407662728133,
+      "radius_km": 12.0,
+      "susceptibility_ratio_Ferreira_over_Caputo": 1.5612666620073758
+    },
+    {
+      "Caputo_density_to_own_plot_ratio": 0.9939505579798382,
+      "Caputo_fermi_density": {
+        "Fdeg": 0.8866010526875869,
+        "n_mu_Fdeg_MeV3": 9586.064449633091,
+        "n_mu_Fdeg_fm3": 0.0012476159954569381,
+        "n_mu_MeV3": 10812.15099009244,
+        "n_mu_fm3": 0.0014071898422351216
+      },
+      "Caputo_plotted_muon_density_fm3": 0.0014157543661881679,
+      "Ferreira_density_to_Caputo_plot_ratio": 1.6278573003643708,
+      "Ferreira_mu_mu_fermi_density": {
+        "Fdeg": 0.8316755761025032,
+        "n_mu_Fdeg_MeV3": 14727.112327261426,
+        "n_mu_Fdeg_fm3": 0.0019167178567306284,
+        "n_mu_MeV3": 17707.76099531186,
+        "n_mu_fm3": 0.002304646080522142
+      },
+      "T_Caputo_MeV": 23.881959149249,
+      "T_Ferreira_MeV": 23.8740444901978,
+      "T_relative_difference": -0.0003314074444955163,
+      "lapse": 0.838842453891008,
+      "mu_mu_Caputo_MeV": 90.2165853124713,
+      "mu_mu_Ferreira_MeV": 103.912964978495,
+      "mu_mu_over_T_Caputo": 3.7776040377871714,
+      "mu_mu_over_T_Ferreira": 4.351107224038723,
+      "mu_mu_relative_difference": 0.15181664899625005,
+      "mu_numu_MeV": -2.59165549916519,
+      "radius_km": 12.5,
+      "susceptibility_ratio_Ferreira_over_Caputo": 1.5363043305874193
+    },
+    {
+      "Caputo_density_to_own_plot_ratio": 0.9937600287404742,
+      "Caputo_fermi_density": {
+        "Fdeg": 0.9057439329794942,
+        "n_mu_Fdeg_MeV3": 6531.93265610271,
+        "n_mu_Fdeg_fm3": 0.0008501240217838492,
+        "n_mu_MeV3": 7211.67696328427,
+        "n_mu_fm3": 0.000938592013514592
+      },
+      "Caputo_plotted_muon_density_fm3": 0.0009444855763661535,
+      "Ferreira_density_to_Caputo_plot_ratio": 1.5989549700894898,
+      "Ferreira_mu_mu_fermi_density": {
+        "Fdeg": 0.8596823351354188,
+        "n_mu_Fdeg_MeV3": 9975.369158576415,
+        "n_mu_Fdeg_fm3": 0.001298283585325165,
+        "n_mu_MeV3": 11603.552557591027,
+        "n_mu_fm3": 0.0015101899065084975
+      },
+      "T_Caputo_MeV": 21.7507355228106,
+      "T_Ferreira_MeV": 21.7460684861097,
+      "T_relative_difference": -0.0002145691439265102,
+      "lapse": 0.844072084867583,
+      "mu_mu_Caputo_MeV": 85.9549690481464,
+      "mu_mu_Ferreira_MeV": 97.6607091526486,
+      "mu_mu_over_T_Caputo": 3.951818960696894,
+      "mu_mu_over_T_Ferreira": 4.489995708431519,
+      "mu_mu_relative_difference": 0.13618456540825932,
+      "mu_numu_MeV": -1.28673490170554,
+      "radius_km": 13.0,
+      "susceptibility_ratio_Ferreira_over_Caputo": 1.527169627086792
+    },
+    {
+      "Caputo_density_to_own_plot_ratio": 0.9946961787844283,
+      "Caputo_fermi_density": {
+        "Fdeg": 0.9099146391264359,
+        "n_mu_Fdeg_MeV3": 5985.998795116545,
+        "n_mu_Fdeg_fm3": 0.0007790713159516895,
+        "n_mu_MeV3": 6578.637750969044,
+        "n_mu_fm3": 0.0008562026397329286
+      },
+      "Caputo_plotted_muon_density_fm3": 0.0008607679993093507,
+      "Ferreira_density_to_Caputo_plot_ratio": 1.5948921047151439,
+      "Ferreira_mu_mu_fermi_density": {
+        "Fdeg": 0.8657950950295813,
+        "n_mu_Fdeg_MeV3": 9132.547769134495,
+        "n_mu_Fdeg_fm3": 0.0011885912864358925,
+        "n_mu_MeV3": 10548.162979396951,
+        "n_mu_fm3": 0.0013728320860899338
+      },
+      "T_Caputo_MeV": 21.3185108715997,
+      "T_Ferreira_MeV": 21.3188696116086,
+      "T_relative_difference": 1.682762980318518e-05,
+      "lapse": 0.845107803291676,
+      "mu_mu_Caputo_MeV": 85.0508930026927,
+      "mu_mu_Ferreira_MeV": 96.3742660967845,
+      "mu_mu_over_T_Caputo": 3.989532548260518,
+      "mu_mu_over_T_Ferreira": 4.520684708103759,
+      "mu_mu_relative_difference": 0.13313643977533893,
+      "mu_numu_MeV": -1.02897219747435,
+      "radius_km": 13.1,
+      "susceptibility_ratio_Ferreira_over_Caputo": 1.5256514546218995
+    },
+    {
+      "Caputo_density_to_own_plot_ratio": 0.9935193755001664,
+      "Caputo_fermi_density": {
+        "Fdeg": 0.9120744218469057,
+        "n_mu_Fdeg_MeV3": 5720.398493814529,
+        "n_mu_Fdeg_fm3": 0.0007445037219151961,
+        "n_mu_MeV3": 6271.854967965228,
+        "n_mu_fm3": 0.0008162751899210294
+      },
+      "Caputo_plotted_muon_density_fm3": 0.0008215996688641254,
+      "Ferreira_density_to_Caputo_plot_ratio": 1.5913363408725394,
+      "Ferreira_mu_mu_fermi_density": {
+        "Fdeg": 0.8688871582484559,
+        "n_mu_Fdeg_MeV3": 8728.608712511268,
+        "n_mu_Fdeg_fm3": 0.0011360190519301863,
+        "n_mu_MeV3": 10045.733360942764,
+        "n_mu_fm3": 0.0013074414107123273
+      },
+      "T_Caputo_MeV": 21.1039614050611,
+      "T_Ferreira_MeV": 21.1052701743581,
+      "T_relative_difference": 6.201533787335358e-05,
+      "lapse": 0.845625662503722,
+      "mu_mu_Caputo_MeV": 84.5793768059056,
+      "mu_mu_Ferreira_MeV": 95.7310445688525,
+      "mu_mu_over_T_Caputo": 4.0077488383589435,
+      "mu_mu_over_T_Ferreira": 4.536164691141566,
+      "mu_mu_relative_difference": 0.13184854493002432,
+      "mu_numu_MeV": 0.0,
+      "radius_km": 13.15,
+      "susceptibility_ratio_Ferreira_over_Caputo": 1.5258742414448083
+    },
+    {
+      "Caputo_density_to_own_plot_ratio": 0.9930166244508977,
+      "Caputo_fermi_density": {
+        "Fdeg": 0.9281727522257058,
+        "n_mu_Fdeg_MeV3": 4015.948129539766,
+        "n_mu_Fdeg_fm3": 0.0005226713370919342,
+        "n_mu_MeV3": 4326.724868737796,
+        "n_mu_fm3": 0.0005631185960141556
+      },
+      "Caputo_plotted_muon_density_fm3": 0.0005670787196795823,
+      "Ferreira_density_to_Caputo_plot_ratio": 1.5883484934331333,
+      "Ferreira_mu_mu_fermi_density": {
+        "Fdeg": 0.8915762027962146,
+        "n_mu_Fdeg_MeV3": 6170.31057324591,
+        "n_mu_Fdeg_fm3": 0.0008030592959776434,
+        "n_mu_MeV3": 6920.676610584954,
+        "n_mu_fm3": 0.0009007186300610547
+      },
+      "T_Caputo_MeV": 19.6120696335513,
+      "T_Ferreira_MeV": 19.6106582767578,
+      "T_relative_difference": -7.196368460196053e-05,
+      "lapse": 0.849168811881515,
+      "mu_mu_Caputo_MeV": 80.9883490031887,
+      "mu_mu_Ferreira_MeV": 91.1020317085555,
+      "mu_mu_over_T_Caputo": 4.129515676644248,
+      "mu_mu_over_T_Ferreira": 4.645202337682043,
+      "mu_mu_relative_difference": 0.12487824273302076,
+      "mu_numu_MeV": 0.0,
+      "radius_km": 13.5,
+      "susceptibility_ratio_Ferreira_over_Caputo": 1.5364517603849224
+    },
+    {
+      "Caputo_density_to_own_plot_ratio": 0.9924530050418335,
+      "Caputo_fermi_density": {
+        "Fdeg": 0.9505735848852459,
+        "n_mu_Fdeg_MeV3": 2191.6130319243975,
+        "n_mu_Fdeg_fm3": 0.0002852360829459488,
+        "n_mu_MeV3": 2305.5690445984474,
+        "n_mu_fm3": 0.0003000673356396525
+      },
+      "Caputo_plotted_muon_density_fm3": 0.00030234916325030844,
+      "Ferreira_density_to_Caputo_plot_ratio": 1.5507892814238204,
+      "Ferreira_mu_mu_fermi_density": {
+        "Fdeg": 0.9255796925642783,
+        "n_mu_Fdeg_MeV3": 3334.5312330035554,
+        "n_mu_Fdeg_fm3": 0.00043398565965256105,
+        "n_mu_MeV3": 3602.6408744614755,
+        "n_mu_fm3": 0.0004688798416160392
+      },
+      "T_Caputo_MeV": 17.4707507569334,
+      "T_Ferreira_MeV": 17.4720959589343,
+      "T_relative_difference": 7.699737805303424e-05,
+      "lapse": 0.854115017352254,
+      "mu_mu_Caputo_MeV": 75.8184832676935,
+      "mu_mu_Ferreira_MeV": 84.124761169995,
+      "mu_mu_over_T_Caputo": 4.33973813275336,
+      "mu_mu_over_T_Ferreira": 4.815177226233936,
+      "mu_mu_relative_difference": 0.10955478854640759,
+      "mu_numu_MeV": 0.0,
+      "radius_km": 14.0,
+      "susceptibility_ratio_Ferreira_over_Caputo": 1.5214963519703073
+    },
+    {
+      "Caputo_density_to_own_plot_ratio": 0.9912245713441016,
+      "Caputo_fermi_density": {
+        "Fdeg": 0.9727942809071436,
+        "n_mu_Fdeg_MeV3": 937.336448957423,
+        "n_mu_Fdeg_fm3": 0.00012199333240335634,
+        "n_mu_MeV3": 963.5505341204765,
+        "n_mu_fm3": 0.00012540506744097626
+      },
+      "Caputo_plotted_muon_density_fm3": 0.0001265152933718409,
+      "Ferreira_density_to_Caputo_plot_ratio": 1.583442305074544,
+      "Ferreira_mu_mu_fermi_density": {
+        "Fdeg": 0.9574603876529475,
+        "n_mu_Fdeg_MeV3": 1473.7556953000064,
+        "n_mu_Fdeg_fm3": 0.00019180772135560025,
+        "n_mu_MeV3": 1539.2341179906875,
+        "n_mu_fm3": 0.00020032966776388996
+      },
+      "T_Caputo_MeV": 15.3401000467995,
+      "T_Ferreira_MeV": 15.3426971637339,
+      "T_relative_difference": 0.00016930247693798658,
+      "lapse": 0.858895238140143,
+      "mu_mu_Caputo_MeV": 69.1910250373773,
+      "mu_mu_Ferreira_MeV": 76.632172279348,
+      "mu_mu_over_T_Caputo": 4.510467651859484,
+      "mu_mu_over_T_Ferreira": 4.995545794718349,
+      "mu_mu_relative_difference": 0.10754497766077256,
+      "mu_numu_MeV": 0.0,
+      "radius_km": 14.5,
+      "susceptibility_ratio_Ferreira_over_Caputo": 1.5722803662860114
+    },
+    {
+      "Caputo_density_to_own_plot_ratio": 0.9892983215974623,
+      "Caputo_fermi_density": {
+        "Fdeg": 0.9883456897270819,
+        "n_mu_Fdeg_MeV3": 304.7875093430141,
+        "n_mu_Fdeg_fm3": 3.966776708729304e-05,
+        "n_mu_MeV3": 308.3814828262943,
+        "n_mu_fm3": 4.01355188772531e-05
+      },
+      "Caputo_plotted_muon_density_fm3": 4.0569682573042844e-05,
+      "Ferreira_density_to_Caputo_plot_ratio": 1.5892456736305969,
+      "Ferreira_mu_mu_fermi_density": {
+        "Fdeg": 0.9814486589145808,
+        "n_mu_Fdeg_MeV3": 486.2052498340465,
+        "n_mu_Fdeg_fm3": 6.327909122197805e-05,
+        "n_mu_MeV3": 495.39550074046497,
+        "n_mu_fm3": 6.447519250977496e-05
+      },
+      "T_Caputo_MeV": 13.2314158304208,
+      "T_Ferreira_MeV": 13.2414746503787,
+      "T_relative_difference": 0.0007602224952202865,
+      "lapse": 0.863495283637174,
+      "mu_mu_Caputo_MeV": 62.2827180874073,
+      "mu_mu_Ferreira_MeV": 68.6491738917758,
+      "mu_mu_over_T_Caputo": 4.707184694793657,
+      "mu_mu_over_T_Ferreira": 5.1883467930878675,
+      "mu_mu_relative_difference": 0.10221865711502587,
+      "mu_numu_MeV": 0.0,
+      "radius_km": 15.0,
+      "susceptibility_ratio_Ferreira_over_Caputo": 1.5952269529748386
+    }
+  ],
+  "profile_identity": "public-figure reconstruction at t_pb=1 s; not original Garching raw simulation data",
+  "region_summary": {
+    "T_Caputo_vs_Ferreira_max_abs_relative_difference": 0.001166160242074281,
+    "T_Caputo_vs_Ferreira_mean_abs_relative_difference": 0.00015325966679142756,
+    "lapse_is_monotone_increasing": true,
+    "lapse_max": 0.863495283637174,
+    "lapse_min": 0.833501980722648,
+    "mu_mu_Ferreira_vs_Caputo_max_relative_difference": 0.17169785621889305,
+    "mu_mu_Ferreira_vs_Caputo_mean_relative_difference": 0.1272999360767144,
+    "mu_mu_Ferreira_vs_Caputo_min_relative_difference": 0.09482266004322994,
+    "mu_numu_abs_max_MeV": 4.31407662728133
+  },
+  "resampling_error_against_raw_pdf_polyline": {
+    "T_Caputo": {
+      "at_radius_km": 14.8841784259787,
+      "max_relative_error": 1.2820694731389681e-14,
+      "number_of_tested_segment_midpoints": 22,
+      "raw_polyline_value": 13.7168328850431,
+      "resampled_grid_value": 13.716832885043276
+    },
+    "T_Ferreira": {
+      "at_radius_km": 13.97103530660455,
+      "max_relative_error": 2.0392200631580106e-14,
+      "number_of_tested_segment_midpoints": 6,
+      "raw_polyline_value": 17.5961431550042,
+      "resampled_grid_value": 17.59614315500384
+    },
+    "lapse_Ferreira": {
+      "at_radius_km": 12.481453095689751,
+      "max_relative_error": 6.619137216585467e-16,
+      "number_of_tested_segment_midpoints": 6,
+      "raw_polyline_value": 0.8386463282882914,
+      "resampled_grid_value": 0.838646328288292
+    },
+    "minus_mu_numu_Caputo": {
+      "at_radius_km": 13.02546277918195,
+      "max_relative_error": 4.2550470853994875e-14,
+      "number_of_tested_segment_midpoints": 7,
+      "raw_polyline_value": -1.2211013535136752,
+      "resampled_grid_value": -1.2211013535137272
+    },
+    "mu_mu_Caputo": {
+      "at_radius_km": 14.028632086184249,
+      "max_relative_error": 7.538546158217256e-15,
+      "number_of_tested_segment_midpoints": 22,
+      "raw_polyline_value": 75.4036888118631,
+      "resampled_grid_value": 75.40368881186367
+    },
+    "mu_mu_Ferreira": {
+      "at_radius_km": 12.481453095689751,
+      "max_relative_error": 7.778369281200739e-15,
+      "number_of_tested_segment_midpoints": 6,
+      "raw_polyline_value": 104.137344150556,
+      "resampled_grid_value": 104.1373441505552
+    }
+  },
+  "source_pdfs": {
+    "SNModelComparison.pdf": {
+      "sha256": "5cc8b07dad824b65391fae6229bb9eca138c1cf5ff0348c8aaf712779a2566f2",
+      "source": "https://arxiv.org/src/2510.14469v1"
+    },
+    "SNProfile.pdf": {
+      "sha256": "19ca5ee492dea689a4a9851e999f7d05d0f26be7dfc820e817cc5bc310065c8e",
+      "source": "https://arxiv.org/src/2109.03244v3"
+    }
+  },
+  "title": "SFHo-18.8 profile input audit in the 12--15 km region"
+}
