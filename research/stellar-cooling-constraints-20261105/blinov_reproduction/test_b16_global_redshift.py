@@ -13,7 +13,7 @@ from blinov_reproduction.reference import (
 )
 from blinov_reproduction.audit_b16_global_redshift import (
     eq_b1_source_measure, redshifted_scalar_optical_depths,
-    radial_shell_opacity_decomposition,
+    radial_shell_opacity_decomposition, outer_mu_numu_branch_opacity_sensitivity,
 )
 
 
@@ -124,6 +124,47 @@ class B16GlobalRedshiftAuditTests(unittest.TestCase):
         )
         self.assertAlmostEqual(
             sum(result["channel_fraction_of_mean_tau"].values()), 1.0, places=12
+        )
+
+    def test_outer_mu_numu_zero_branch_is_noop_when_profile_branch_is_already_zero(self):
+        mass = 10.0
+        radius = 25.0
+        r, rw = radial_rule(radius, 8)
+        radial_grid = np.unique(np.r_[0.0, r, radius])
+        profile = {
+            "T": np.full(len(radial_grid), 20.0),
+            "mu_mu": np.full(len(radial_grid), 55.0),
+            "mu_numu": np.zeros(len(radial_grid)),
+            "lapse": np.full(len(radial_grid), 0.80),
+        }
+        energies = np.unique(np.r_[
+            mass+np.geomspace(1e-5, 100.0, 24), mass/0.80
+        ])
+        energies.sort()
+        rates = local_rates(
+            mass, energies[None,:], profile["T"][:,None],
+            profile["mu_numu"][:,None], profile["mu_mu"][:,None]
+        )
+        source_indices = np.searchsorted(radial_grid, r)
+        source, _ = eq_b1_source_measure(
+            r, rw, energies, profile["lapse"][source_indices],
+            mass, rates["production"][source_indices]
+        )
+        columns, angle_weights = scalar_optical_depths(
+            r, radial_grid, rates["reduced_absorption"], mass, energies,
+            radius, angular_order=8, path_order=16
+        )
+        result = outer_mu_numu_branch_opacity_sensitivity(
+            r, radial_grid, profile, rates, mass, energies,
+            radius, source, columns, angle_weights,
+            np.array([1e-8]), np.array([1e53]),
+            angular_order=8, path_order=16
+        )
+        self.assertAlmostEqual(
+            result["mean_absolute_luminosity_shift_vs_baseline"], 0.0, places=12
+        )
+        self.assertAlmostEqual(
+            result["maximum_absolute_luminosity_shift_vs_baseline"], 0.0, places=12
         )
 
     def test_local_redshift_preserves_energy_at_infinity(self):
