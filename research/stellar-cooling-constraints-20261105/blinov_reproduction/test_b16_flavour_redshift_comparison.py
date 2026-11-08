@@ -8,7 +8,8 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
 
 from blinov_reproduction.reference import (
-    radial_rule, load_profile, local_rates, scalar_optical_depths
+    radial_rule, load_profile, local_rates, scalar_optical_depths,
+    redshifted_scalar_optical_depths,
 )
 from blinov_reproduction.audit_b16_flavour_redshift_comparison import (
     _fixed_omega_shell_columns, redshifted_shell_columns_by_flavour,
@@ -61,11 +62,17 @@ class B16FlavourRedshiftComparisonTests(unittest.TestCase):
         )
         summed = sum(result["channel_columns"].values())
         eligible = result["eligible_source_energy_mask"]
-        # Compare against a direct sum of the same redshifted shell channels;
-        # closure and finiteness are checked here without importing the
-        # full global-audit function, which also needs the production figure.
-        self.assertTrue(np.all(np.isfinite(summed[eligible[:, None, :]])))
+        direct, direct_angles, _ = redshifted_scalar_optical_depths(
+            self.r, self.radial_grid, self.profile, self.mass, self.energies,
+            self.radius, 8, 16
+        )
+        eligible_3d = np.broadcast_to(eligible[:, None, :], direct.shape)
+        self.assertTrue(np.all(np.isfinite(summed[eligible_3d])))
         self.assertTrue(np.all(summed >= 0.0))
+        np.testing.assert_allclose(result["angle_weights"], direct_angles, rtol=0, atol=1e-14)
+        np.testing.assert_allclose(
+            summed[eligible_3d], direct[eligible_3d], rtol=3e-10, atol=1e-300
+        )
         np.testing.assert_allclose(
             result["channel_columns"]["nu_mu"],
             result["channel_columns"]["nu_tau"],
@@ -82,7 +89,8 @@ class B16FlavourRedshiftComparisonTests(unittest.TestCase):
         ineligible = ~result["eligible_source_energy_mask"]
         for channel in ("nu_mu", "nu_tau", "compton", "dimuon"):
             values = result["channel_columns"][channel]
-            self.assertTrue(np.all(values[ineligible[:, None, :]] == 0.0))
+            ineligible_3d = np.broadcast_to(ineligible[:, None, :], values.shape)
+            self.assertTrue(np.all(values[ineligible_3d] == 0.0))
 
 
 if __name__ == "__main__":
