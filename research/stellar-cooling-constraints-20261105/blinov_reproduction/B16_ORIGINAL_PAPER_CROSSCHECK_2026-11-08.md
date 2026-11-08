@@ -140,3 +140,45 @@ Primary literature:
 - Blinov et al., https://arxiv.org/abs/2511.09619
 - Caputo, Raffelt and Vitagliano, https://arxiv.org/abs/2109.03244
 - Ferreira, Marsh and Ravensburg, https://arxiv.org/abs/2510.14469
+
+
+### 4.1 Version-of-record and data-availability cross-check
+
+The comparison above has now also been checked against the publisher's version of record, Blinov et al., JHEP 06 (2026) 155, DOI 10.1007/JHEP06(2026)155, published 15 June 2026. The relevant source is the publisher PDF, Appendix B (pp. 20--23), rather than an equation transcription from a secondary paper.
+
+The publisher text confirms the following points directly:
+
+- B.1 contains \(N(r)^2\) and the emission-point threshold \(\omega_{\min}=m_V/N(r)\).
+- B.2 uses the full \(-1\leq\cos\theta\leq1\) angular average, the chord endpoint B.3, the local thermodynamic inputs at \(r'(s)\), and a fixed displayed energy argument \(\omega\) inside \(\Gamma_{\rm abs}^{*}(r'(s),\omega)\), with the explicit \(1/v_V\) factor.
+- B.4 is the stimulated-emission-reduced absorption rate; B.5 defines \(v_V\).
+- B.6 is the neutrino inverse-decay production phase-space integral; B.10 is its detailed-balance relation.
+- B.13--B.18 describe Compton production and the forward/reverse cross-section relation; B.19 is specifically the Compton absorption detailed-balance equation.
+- The authors explicitly identify \(R_{\max}=R_\nu\simeq25\) km.
+- Figure 7 is the \(s18.8\)-SFHo-MUONS, \(t_{\rm pb}=1\) s luminosity benchmark used in this audit.
+
+This confirms the equation mapping, fixed-\(\omega\) path prescription, full angular geometry, and 25 km boundary used in the code. It also confirms that B.19 must not be used as the neutrino inverse-decay detailed-balance equation.
+
+The same publisher PDF states that the article has no associated data deposited with it. Its acknowledgements thank Thomas Janka and Daniel Kresse for providing the supernova profiles. The Garching archive page lists relevant radial neutrino-moment and hydro-profile collections, but explicitly warns that some archives are password protected; the linked PROMETHEUS-VERTEX profile directories relevant to this reconstruction return HTTP 401 without authorization. Consequently, the exact \(s18.8\)-SFHo-MUONS, \(t_{\rm pb}=1\) s numerical snapshot used by the authors is not independently recoverable from the public article or those archive links in the present workflow. We do not substitute another progenitor, EOS, or post-bounce time and call it the same model.
+
+### 4.2 Independent figure-source consistency checks
+
+The public figure reconstructions provide a useful but not exact substitute:
+
+- The Caputo and Ferreira temperature curves agree to a maximum relative difference of \(5.29\times10^{-4}\) over the overlapping 22--24 km outer interval (RMS \(1.99\times10^{-4}\)). Thus the 22--25 km temperature input is independently cross-checked at the figure level.
+- The two curves labeled as the muon chemical potential disagree substantially in the core, even though the model label is SFHo-18.8. In the 22--24 km interval, the baseline Caputo \(\mu_\mu\) reaches at most 5.52 MeV; the corresponding muon density is already exponentially suppressed at \(T\simeq3.0\)--3.6 MeV. The large fractional interpolation difference near the low-value cutoff therefore does not produce a relevant 10 MeV Compton opacity correction.
+- The Caputo \(\mu_{\nu_\mu}\) branches do not resolve the 22--25 km interval above the plot's approximately 1 MeV floor. The baseline zero continuation is explicitly a figure-resolution prescription, not a claim that the raw simulation chemical potential is known to vanish exactly. Setting \(|\mu_{\nu_\mu}|=1\) MeV throughout the outer shell changes the strong-end outer-shell escape factor by only \(4.94\times10^{-4}\) relative.
+- The lapse curve is independently digitized from Ferreira only to approximately 24 km and then continued with a matched Schwarzschild form. Since the published fixed-\(\omega\) B.2 path opacity contains no lapse factor, this uncertainty affects B.1 source weighting, not the local outer-shell inverse-decay opacity. The separate lapse-boundary test finds a negligible B.1/escape impact for the two tested continuations.
+
+These checks make a large *outer-shell interpolation* explanation implausible. They do not establish identity with the exact profile supplied privately to Blinov et al. The remaining raw-background uncertainty is therefore still open.
+
+### 4.3 What can be concluded about the discrepancy
+
+The current evidence supports the following hierarchy:
+
+1. **Equation/algebra error in neutrino inverse decay:** not supported. Independent direct B.6 and inverse-occupation integrals reproduce the analytic production rate, B.10, and B.4 at relative residuals of order \(10^{-14}\)--\(10^{-15}\).
+2. **22--25 km interpolation or chemical-potential floor:** not supported as the origin. Dense-profile evaluation changes the strong-end outer-shell escape factor by \(7.18\times10^{-6}\); the conservative \(|\mu_{\nu_\mu}|=1\) MeV floor test changes it by \(4.94\times10^{-4}\).
+3. **Angular/path geometry convention:** the implementation follows the published B.2/B.3 full angular chord integral, and independent geometry tests pass. The direction-resolved audit shows that the dominant inward/outward selection is accumulated in the inner path, not generated by an incorrect 22--25 km path length.
+4. **Exact stellar background:** remains unresolved because the original raw snapshot is not deposited with the article and the relevant archive endpoints are protected. This is the main remaining literature-reproduction limitation.
+5. **Axial-vector constraint:** remains blocked until the pure-vector Fig. 7 benchmark is reproduced or its residual is traced to a documented difference in the source background or model assumptions.
+
+The appropriate next step is therefore a source/profile-level comparison, not another adjustment to the local inverse-decay formula or the outer-shell interpolation. No opacity rescaling, fit to Fig. 7, or change to the production axial result is justified by the present evidence.
