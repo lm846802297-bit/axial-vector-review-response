@@ -122,7 +122,7 @@ The table gives \(\langle\tau_c/g^2\rangle\), first weighted by the unattenuated
 | Path group | Channel | Source-weighted \(\langle\tau/g^2\rangle\) | Escaped-population-weighted \(\langle\tau/g^2\rangle\) |
 |---|---|---:|---:|
 | 0–8 km | \(\nu_\mu\) inverse decay | \(1.970\times10^{14}\) | \(3.472\times10^{12}\) |
-| 0–8 km | \(\nu_\tau\) inverse decay | \(2.067\times10^{14}\) | \(3.642\times10^{12}\) |
+| 0–8 km | \(\nu_\tau\) inverse decay | \(2.444\times10^{14}\) | \(3.642\times10^{12}\) |
 | 0–8 km | Compton | \(1.313\times10^{14}\) | \(4.141\times10^{12}\) |
 | 8–22 km | \(\nu_\mu\) inverse decay | \(3.090\times10^{15}\) | \(1.072\times10^{15}\) |
 | 8–22 km | \(\nu_\tau\) inverse decay | \(3.101\times10^{15}\) | \(1.072\times10^{15}\) |
