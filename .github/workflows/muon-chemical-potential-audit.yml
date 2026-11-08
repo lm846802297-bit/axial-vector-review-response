@@ -1,0 +1,81 @@
+name: Muon chemical-potential origin and density-consistency audit
+
+on:
+  push:
+    branches:
+      - research/moving-muon-thermal-rates-20261107
+    paths:
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_muon_chemical_potential.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_muon_chemical_potential_audit.py'
+      - 'research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv'
+      - 'research/stellar-cooling-constraints-20261105/data/n_mu_over_n0_caputo_vertices.csv'
+      - '.github/workflows/muon-chemical-potential-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: muon-chemical-potential-audit-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out research head
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy
+      - name: Run chemical-potential convention and inversion tests
+        run: |
+          python -m unittest discover \
+            -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
+            -p 'test_muon_chemical_potential_audit.py' -v
+      - name: Run Caputo-versus-Ferreira density consistency audit
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_muon_chemical_potential.py \
+            --radii 0,5,8,10,12,15 \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/muon_chemical_potential_audit_2026-11-08.json
+      - name: Verify production vector and axial outputs remain unchanged
+        run: |
+          git diff --exit-code -- \
+            research/stellar-cooling-constraints-20261105/rates.py \
+            research/stellar-cooling-constraints-20261105/transport.py \
+            research/stellar-cooling-constraints-20261105/outputs/axial.json \
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.pdf \
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.png
+      - name: Archive reproducible chemical-potential audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/muon_chemical_potential_audit_2026-11-08.json
+          if git diff --cached --quiet; then
+            echo "Muon chemical-potential audit output is already current."
+          else
+            git commit -m "Archive muon chemical-potential density audit"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin "${GITHUB_REF_NAME}"
+              git rebase "origin/${GITHUB_REF_NAME}"
+              if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+                exit 0
+              fi
+              echo "Push raced with another research workflow; retry ${attempt}/5."
+              sleep 2
+            done
+            echo "Could not archive muon chemical-potential audit after five retries."
+            exit 1
+          fi
