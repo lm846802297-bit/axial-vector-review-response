@@ -102,8 +102,8 @@ def _escape_modes(source_modes, columns_modes, angle_weights, coupling,
 
 
 def run(profile_path=DEFAULT_PROFILE, mass=MASS_DEFAULT, radial_order=40,
-        energy_order=100, energy_offset=1000.0, angular_order_per_bin=24,
-        radial_order_outer=96, rate_order=48, direct_order=512):
+        energy_order=100, energy_offset=1000.0, angular_order_per_bin=32,
+        rate_order=48, direct_order=512):
     raw = np.genfromtxt(profile_path, delimiter=",", names=True)
     raw_r = np.asarray(raw["r_km"], float)
     outer_mask = (raw_r >= RADIUS_INNER) & (raw_r <= RADIUS_OUTER)
@@ -117,7 +117,7 @@ def run(profile_path=DEFAULT_PROFILE, mass=MASS_DEFAULT, radial_order=40,
     energies = mass + np.geomspace(
         max(mass * 1.0e-6, 1.0e-6), energy_offset, energy_order
     )
-    energies = np.unique(np.r_[energies, mass / source_profile["lapse"]])
+    energies = np.unique(np.r_[energies, mass / source_profile["lapse"], 12.0, 20.0, 50.0])
     energies = energies[energies > mass * (1.0 + 1.0e-10)]
     energies.sort()
 
@@ -391,7 +391,6 @@ def run(profile_path=DEFAULT_PROFILE, mass=MASS_DEFAULT, radial_order=40,
             "mode_rate_quadrature_order": rate_order,
             "independent_direct_quadrature_order": direct_order,
             "angular_order_per_direction_bin": angular_order_per_bin,
-            "outer_radial_quadrature_order": radial_order_outer,
             "outer_shell_km": [RADIUS_INNER, RADIUS_OUTER],
             "source_region_km": list(SOURCE_RANGE),
             "fixed_omega": True,
@@ -438,14 +437,12 @@ def main():
     parser.add_argument("--ne", type=int, default=100)
     parser.add_argument("--energy-offset", type=float, default=1000.0)
     parser.add_argument("--angle-order", type=int, default=24)
-    parser.add_argument("--outer-radial-order", type=int, default=96)
     parser.add_argument("--rate-order", type=int, default=48)
     parser.add_argument("--direct-order", type=int, default=512)
     args = parser.parse_args()
     result = run(
         args.profile, args.mass, args.nr, args.ne, args.energy_offset,
-        args.angle_order, args.outer_radial_order, args.rate_order,
-        args.direct_order,
+        args.angle_order, args.rate_order, args.direct_order,
     )
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
