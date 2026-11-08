@@ -24,7 +24,7 @@ jobs:
   audit:
     if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
     steps:
       - name: Check out research branch
         uses: actions/checkout@v4
