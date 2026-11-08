@@ -127,7 +127,7 @@ def run(profile_path=DEFAULT_PROFILE,fig7_path=DEFAULT_FIG7,mass=10.0,
     # by the direct radial-coordinate integral.
     inner_columns=np.sum(shell_columns[:-1],axis=0)
     total_columns=inner_columns+outer_columns
-    source_weights=ssel[:,None,None]*angle_weights[None,:,None]
+    source_weights=ssel[:,None,:]*angle_weights[None,:,None]
     full_den=float(np.sum(source_weights))
     if full_den<=0:
         raise ValueError("Selected B.1 source has zero weight")
