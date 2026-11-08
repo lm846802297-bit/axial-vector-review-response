@@ -20,7 +20,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: b13-global-transport-vertex-preserving-\${{ github.ref }}
+  group: b13-global-transport-vertex-preserving-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -32,7 +32,7 @@ jobs:
       - name: Check out research branch
         uses: actions/checkout@v4
         with:
-          ref: \${{ github.sha }}
+          ref: ${{ github.sha }}
           fetch-depth: 0
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -49,14 +49,14 @@ jobs:
             research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b13_global_transport.py
       - name: Run bookkeeping unit tests
         env:
-          PYTHONPATH: \${{ github.workspace }}/research/stellar-cooling-constraints-20261105
+          PYTHONPATH: ${{ github.workspace }}/research/stellar-cooling-constraints-20261105
         run: |
           python -m unittest discover \
             -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
             -p 'test_b13_global_transport.py' -v
       - name: Run full 10 MeV B.13 source-and-opacity replacement
         env:
-          PYTHONPATH: \${{ github.workspace }}/research/stellar-cooling-constraints-20261105
+          PYTHONPATH: ${{ github.workspace }}/research/stellar-cooling-constraints-20261105
         run: |
           python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b13_global_transport.py \
             --mass 10 \
@@ -105,9 +105,9 @@ jobs:
           else
             git commit -m "Archive global B.13 source and opacity transport audit"
             for attempt in 1 2 3 4 5; do
-              git fetch origin "\${GITHUB_REF_NAME}"
-              git rebase "origin/\${GITHUB_REF_NAME}"
-              if git push origin "HEAD:\${GITHUB_REF_NAME}"; then
+              git fetch origin "${GITHUB_REF_NAME}"
+              git rebase "origin/${GITHUB_REF_NAME}"
+              if git push origin "HEAD:${GITHUB_REF_NAME}"; then
                 exit 0
               fi
               echo "Push raced with another research workflow; retry \${attempt}/5."
