@@ -218,7 +218,7 @@ The quadrature errors are therefore much smaller than the physical differences b
 2. Retain the stationary-muon exact-recoil kernel as a separate comparator; its difference from B.13 is current dependent and must not be represented by a universal rescaling.
 3. Use B.14--B.16 only as the vector-current nonrelativistic/no-recoil approximation. At \(m_V=10\) MeV it is outside the mass regime stated in the paper and must not be treated as the exact B.13 target.
 4. The explicit \(m_V^2/(2\omega^2)\) term changes the integrated B.16 emissivity by only 1.56--2.23% at these points. It does not account for the much larger B.13/B.16 difference.
-5. The moving-muon correction to the axial/UV local total source is below 1.5% at the two tested radii. It does not by itself explain the approximately 9% weak-source discrepancy. A radial source-weighted comparison is still required.
+5. The moving-muon correction to the axial/UV local total source is below 1.5% at the two tested radii. The global vector B.13 source-and-opacity integration is now complete: its weak-endpoint Fig. 7 difference is (-28.11\%), compared with (-8.89\%) for B.16. Thus the exact vector B.13 correction does not explain or repair the B.16 weak-source residual. A global axial/UV moving-muon integral has not been performed.
 6. Do not rescale \(g_X\), the local production rate, neutrino couplings, opacity, or the stellar profile to fit Fig. 7.
 7. This report does not pass the pure-vector Fig. 7 transport gate, produce an axial exclusion curve, or validate the high-coupling transport tail.
 8. No code or result from this local comparison is imported into PR #56's transport solver at this stage. No manuscript or referee-response file is modified.
