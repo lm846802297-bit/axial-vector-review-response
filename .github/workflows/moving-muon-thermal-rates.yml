@@ -1,6 +1,7 @@
 name: Moving-muon thermal response
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - research/moving-muon-thermal-rates-20261107
