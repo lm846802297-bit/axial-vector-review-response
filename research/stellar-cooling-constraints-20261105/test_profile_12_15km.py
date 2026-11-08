@@ -26,7 +26,16 @@ class Profile12To15KmTests(unittest.TestCase):
             "T_Ferreira_MeV", "mu_mu_Ferreira_MeV",
         }
         self.assertTrue(required.issubset(set(self.csv.dtype.names)))
-        self.assertEqual(len(self.csv), 501)
+        self.assertGreaterEqual(len(self.csv), 501)
+        base_grid = np.linspace(0.0, 25.0, 501)
+        for radius in base_grid:
+            self.assertLess(float(np.min(np.abs(self.csv["r_km"] - radius))), 1e-11)
+
+    def row_at(self, radius):
+        return {
+            name: float(np.interp(radius, self.csv["r_km"], self.csv[name]))
+            for name in self.csv.dtype.names
+        }
 
     def test_caputo_and_ferreira_temperature_profiles_agree(self):
         rel = np.abs(
@@ -39,7 +48,7 @@ class Profile12To15KmTests(unittest.TestCase):
     def test_caputo_muon_density_matches_independent_plotted_density(self):
         curve = read_curve(DATA / "n_mu_over_n0_caputo_vertices.csv")
         for radius in (12.0, 12.5, 13.0, 13.5, 14.0, 14.5, 15.0):
-            row = self.csv[int(round(radius / 0.05))]
+            row = self.row_at(radius)
             density = density_and_susceptibility(
                 float(row["T_MeV"]), float(row["mu_mu_MeV"])
             )["n_mu_fm3"]
@@ -58,7 +67,7 @@ class Profile12To15KmTests(unittest.TestCase):
         max_zeroing_change = 0.0
         max_hidden_floor_change = 0.0
         for radius in (12.0, 12.5, 13.0, 13.1, 13.15, 13.5, 14.0, 14.5, 15.0):
-            row = self.csv[int(round(radius / 0.05))]
+            row = self.row_at(radius)
             T = float(row["T_MeV"])
             mu = float(row["mu_numu_MeV"])
             if radius <= 13.1:
@@ -85,6 +94,31 @@ class Profile12To15KmTests(unittest.TestCase):
         values = self.csv["lapse"][self.region]
         self.assertTrue(np.all(np.diff(values) > 0.0))
         self.assertTrue(np.all((values > 0.0) & (values < 1.0)))
+
+    def test_exact_muon_neutrino_support_cutoffs_are_preserved(self):
+        negative_end = 13.109926940114406
+        positive_start = 16.588180120344514
+        positive_end = 18.42299959173909
+        at_negative_end = np.interp(
+            negative_end, self.csv["r_km"], self.csv["mu_numu_MeV"]
+        )
+        after_negative_end = np.interp(
+            negative_end + 1.0e-6, self.csv["r_km"], self.csv["mu_numu_MeV"]
+        )
+        before_positive_start = np.interp(
+            positive_start - 1.0e-6, self.csv["r_km"], self.csv["mu_numu_MeV"]
+        )
+        at_positive_start = np.interp(
+            positive_start, self.csv["r_km"], self.csv["mu_numu_MeV"]
+        )
+        after_positive_end = np.interp(
+            positive_end + 1.0e-6, self.csv["r_km"], self.csv["mu_numu_MeV"]
+        )
+        self.assertAlmostEqual(at_negative_end, -1.0, delta=0.002)
+        self.assertAlmostEqual(after_negative_end, 0.0, delta=1e-12)
+        self.assertAlmostEqual(before_positive_start, 0.0, delta=1e-12)
+        self.assertAlmostEqual(at_positive_start, 1.0, delta=0.002)
+        self.assertAlmostEqual(after_positive_end, 0.0, delta=1e-12)
 
     def test_resampling_tracks_the_raw_pdf_polyline(self):
         specs = (
