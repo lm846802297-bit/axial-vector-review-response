@@ -92,7 +92,7 @@ The current vertex-preserving full-path audit gives, for all emission radii, a l
 
 Thus, the 12--15 km shell is a major contributor, but the outer neutrino inverse-decay path remains at least as important to the final escape probability. The literature-defined \(R_{\max}=25\) km remains fixed; the boundary is not extended or tuned to improve agreement.
 
-A separate physical-approximation issue also remains: the full moving-muon/recoil Compton kernel B.13 is not the same approximation as B.14--B.16. The B.14--B.16 implementation closes algebraically, but its physical accuracy at \(m_V=10\) MeV remains unresolved. No B.13 substitution is made in the reference baseline.
+A separate physical-approximation issue is now quantified. The exact moving-muon/recoil kernel B.13 differs substantially from B.14--B.16 at (m_V=10) MeV, where the paper says the non-relativistic/no-recoil approximation is normally used only for (m_V\lesssim) MeV. A global B.13 source-and-opacity replacement has now been completed; it is reported in Section 7 and does not resolve the B.16--Fig. 7 discrepancy. The published B.16 implementation remains unchanged as the Fig. 7 reproduction baseline.
 
 ## 6. Current-profile outer-shell polarization diagnostic
 
@@ -105,13 +105,35 @@ The 22--25 km shell is now evaluated with the same vertex-preserving profile (SH
 
 At the strong endpoint, the ratio is 3.1109. The mode-resolved result agrees with the three-state average-opacity diagnostic to about \(3\times10^{-5}\) relative; the longitudinal/transverse rate splitting itself is typically 8--10% in the sampled outer-shell energy range.
 
-This is a normalization/polarization-prescription issue, not evidence that one of the local angular integrals is wrong. Eq. (B.6) sums over polarization states, Eq. (B.7) includes the explicit factor of three relative to the polarization-averaged vacuum width, and Eq. (B.10) states detailed balance. Eq. (B.2), however, inserts a scalar \(\Gamma_{\rm abs}\) into the ray exponent without spelling out a mode-density-matrix propagation prescription. The repository therefore retains the literal scalar sum as the Fig. 7 reproduction baseline. The mode-resolved calculation is recorded as a separate transport diagnostic, not substituted into the reference curve.
+The paper's scalar prescription is unambiguous for reproducing Fig. 7: Eq. (B.6) sums over polarization states, Eq. (B.7) supplies the factor of three relative to the polarization-averaged vacuum decay width, and Eq. (B.10) fixes detailed balance. The scalar (Gamma_{\rm abs}) in Eq. (B.2) is therefore evaluated with the polarization-summed rate in the published baseline. Propagating each polarization with its own opacity is a separate, more differential transport extension; it is not a correction to the literal published scalar prescription. The repository retains the polarization-summed scalar result for the Fig. 7 reproduction baseline.
 
 The outer-shell mode audit uses a 48-point mode integral and 512-point direct phase-space checks, four direction bins with 32-point angular quadrature, and the current 222-node vertex-preserving outer profile. Its output is \`outputs/b16_outer_shell_polarization_resolved_10mev_2026-11-09.json\`. No production axial curve is changed.
 
 The fixed-\(\omega\) result remains the published Eq. (B.2) baseline. A separate path-redshift-only diagnostic changes the full-curve mean absolute relative difference to 9.22% and its maximum to 36.74%; it is not a full GR ray trace and is not substituted for the fixed-\(\omega\) baseline.
 
-## 7. Final decision
+## 7. Global B.13 exact Compton replacement
+
+The full global comparison now replaces the Compton source and reduced absorption together, while keeping the published scalar, polarization-summed Eq. (B.2) prescription and the neutrino inverse-decay channel unchanged.
+
+| Point | B.16 baseline | B.13 \(\mu^-\), consistent source + opacity |
+|---|---:|---:|
+| Weak endpoint | \(-8.89\%\) | \(-28.11\%\) |
+| Fig. 7 peak | \(+2.57\%\) | \(-16.34\%\) |
+| Strong endpoint | \(+92.24\%\) | \(+131.53\%\) |
+
+The optically thin source decreases to \(0.78898\) of the B.16 value, while the strong-endpoint escape probability increases by a factor \(1.5265\). The latter effect dominates, so the consistent B.13 result is about \(20.4\%\) above the B.16 luminosity at the strong endpoint. The B.13 \(\mu^-+\mu^+\) extension is nearly identical; the positive-muon contribution is only \(0.672\%\) of the B.13 Compton source.
+
+The radial decomposition identifies 5--10 km as the main region of Compton-source suppression and escape enhancement. The global B.13 replacement does not fix the independent B.16--Fig. 7 discrepancy; it increases the strong-endpoint excess. Source-only and opacity-only substitutions are diagnostic counterfactuals and are not treated as physical predictions.
+
+The full report and machine-readable outputs are:
+
+- B13_GLOBAL_TRANSPORT_AUDIT_2026-11-09.md
+- outputs/b13_global_transport_vertex_preserving_10mev_2026-11-09.json
+- outputs/b13_global_transport_summary_vertex_preserving_10mev_2026-11-09.json
+
+The B.16 baseline closes exactly against its archived output before the B.13 replacement. This closure is a code-to-archive check, not a validation of agreement with Fig. 7.
+
+## 8. Final decision
 
 - Keep the current Caputo \(T,\mu_\mu\) working baseline and derive the B.1 one-species \(n_\mu F_{\rm deg}\) from the relativistic Fermi integral.
 - Keep the Bollig Fig. 3 absolute-density discrepancy explicit. Do not rescale the density, source, opacity, or luminosity.
@@ -120,9 +142,9 @@ The fixed-\(\omega\) result remains the published Eq. (B.2) baseline. A separate
 - Do not update or regenerate the axial-vector cooling curve.
 - Do not declare the pure-vector Fig. 7 benchmark validated.
 
-The 12--15 km and 22--25 km inverse-decay shells are now compared with source weighting and direction-resolved paths on the same vertex-preserving profile. The next distinct physical question is the B.13 versus B.14--B.16 Compton approximation at 10 MeV. That comparison must remain separate from the B.2 scalar-versus-mode-resolved normalization diagnostic; neither diagnostic replaces the literal scalar Fig. 7 baseline without a documented convention change. No empirical fit to Fig. 7 is permitted.
+The 12--15 km and 22--25 km inverse-decay shells are now compared with source weighting and direction-resolved paths on the same latest vertex-preserving profile. The B.13 versus B.14--B.16 question is also now tested globally with consistent source and opacity replacement. The next task is a dedicated radial- and energy-grid convergence scan of that B.13 global calculation, followed by a focused comparison of the remaining B.16--Fig. 7 difference in the source-weighted neutrino inverse-decay path contributions and reconstructed background inputs. No empirical fit to Fig. 7 is permitted.
 
-## 8. Reproducibility
+## 9. Reproducibility
 
 - Source/escape separation: B16_FIG7_SOURCE_VS_ESCAPE_DIAGNOSTIC_2026-11-08.md
 - Channel/shell/direction audit on current profile: outputs/b16_inner_path_channel_directional_vertex_preserving_10mev_2026-11-09.json
@@ -130,6 +152,9 @@ The 12--15 km and 22--25 km inverse-decay shells are now compared with source we
 - Outer-shell polarization audit: outputs/b16_outer_shell_polarization_resolved_10mev_2026-11-09.json
 - Dedicated 12--15 km B.2 shell audit: B16_12_15KM_NEUTRINO_INVERSE_DECAY_SHELL_AUDIT_2026-11-09.md
 - Density and B.1 source audit: BOLLIG_MUON_DENSITY_AND_B1_SOURCE_AUDIT_2026-11-09.md
+- Global B.13 exact Compton source-and-opacity audit: B13_GLOBAL_TRANSPORT_AUDIT_2026-11-09.md
+- Global B.13 full machine-readable output: outputs/b13_global_transport_vertex_preserving_10mev_2026-11-09.json
+- Global B.13 compact summary: outputs/b13_global_transport_summary_vertex_preserving_10mev_2026-11-09.json
 - Current opacity sensitivity data: outputs/fig7_10mev_opacity_sensitivity.json
 - Successful profile/B.1 audit: https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42527477573
 - Successful B.2 path audit: https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42504612491
