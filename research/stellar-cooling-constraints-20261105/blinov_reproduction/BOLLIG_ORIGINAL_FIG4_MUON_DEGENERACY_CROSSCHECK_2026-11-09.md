@@ -54,7 +54,7 @@ The results over 97 profile nodes are:
 
 | Comparison with Bollig Fig. 4 | Mean absolute relative difference | Maximum absolute relative difference |
 |---|---:|---:|
-| Caputo reconstruction | \(1.18\times10^{-4}\) (0.0118%) | \(2.80\times10^{-4}\) (0.0280%) |
+| Caputo reconstruction | \(5.18\times10^{-5}\) (0.00518%) | \(1.43\times10^{-4}\) (0.01434%) |
 | Ferreira reconstruction | 12.74% | 17.18% |
 
 Representative values:
@@ -63,17 +63,17 @@ Representative values:
 |---:|---:|---:|---:|
 | 8.0 | 2.3624 | 2.3630 | 4.3095 |
 | 10.0 | 3.0308 | 3.0313 | 3.8669 |
-| 12.0 | 3.6074 | 3.6075 | 4.2271 |
-| 12.5 | 3.7775 | 3.7776 | 4.3525 |
-| 13.0 | 3.9518 | 3.9518 | 4.4910 |
-| 14.0 | 4.3395 | 4.3397 | 4.8148 |
-| 15.0 | 4.7072 | 4.7072 | 5.1844 |
+| 12.0 | 3.6079 | 3.6075 | 4.2271 |
+| 12.5 | 3.7780 | 3.7776 | 4.3525 |
+| 13.0 | 3.9524 | 3.9518 | 4.4910 |
+| 14.0 | 4.3399 | 4.3397 | 4.8148 |
+| 15.0 | 4.7073 | 4.7072 | 5.1844 |
 
 The agreement of the Caputo reconstruction with the original Bollig curve is at the level expected when the same underlying simulation profile is being digitized independently. The Ferreira curve differs visibly and systematically.
 
 ## 4. Interpretation: the baseline profile choice is no longer ambiguous
 
-This comparison establishes the following:
+This comparison establishes the following specifically for the degeneracy parameter (the absolute-density comparison is treated separately in BOLLIG_MUON_DENSITY_AND_B1_SOURCE_AUDIT_2026-11-09.md):
 
 1. The Caputo \(\mu_\mu/T\) profile reproduces the original Bollig SFHo-18.8 degeneracy curve over the interval most relevant to the present transport calculation.
 2. The Ferreira digitization does not reproduce that original Fig. 4 curve.
@@ -81,7 +81,7 @@ This comparison establishes the following:
 4. The Caputo \(T,\mu_\mu\) pair remains the correct baseline reconstruction for the current Bollig SFHo-18.8, \(t_{\rm pb}=1\) s comparison.
 5. The Ferreira curve remains useful as a diagnostic of a distinct published profile representation, but it must not replace the baseline or be used to tune the opacity.
 
-This resolves the profile-choice question for the present benchmark. It does not prove that every radial and thermodynamic variable in the reconstructed profile exactly reproduces the original private Garching tables.
+This resolves the choice of the \\(\\mu_\\mu/T\\) profile for the present benchmark. It does not resolve the absolute-density discrepancy in Bollig Fig. 3. It does not prove that every radial and thermodynamic variable in the reconstructed profile exactly reproduces the original private Garching tables.
 
 ## 5. Consequences for the previous B.1+B.2 sensitivity tests
 
