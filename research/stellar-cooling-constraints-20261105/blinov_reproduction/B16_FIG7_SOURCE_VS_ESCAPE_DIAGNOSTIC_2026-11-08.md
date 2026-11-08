@@ -61,3 +61,27 @@ Do not rescale the opacity or luminosity. The next calculation should isolate th
 - keep the source-side normalization discrepancy as a separate issue.
 
 This is the narrowest next step that can locate the high-coupling discrepancy without modifying the physical model.
+
+
+## 5. High-coupling shell attribution and the 25 km boundary
+
+At the strong endpoint \(g=4.17169\times10^{-8}\), removing one absorption shell at a time while holding the source fixed gives:
+
+| Removed absorption shell | Luminosity enhancement |
+|---|---:|
+| 0--5 km | 1.013 |
+| 5--8 km | 1.214 |
+| 8--10 km | 2.090 |
+| 10--12 km | 2.530 |
+| 12--15 km | 2.943 |
+| 15--16.5 km | 1.588 |
+| 16.5--18.5 km | 1.869 |
+| 18.5--20 km | 1.590 |
+| 20--22 km | 1.844 |
+| 22--25 km | 4.056 |
+
+These are nonlinear leave-one-shell-out sensitivity factors; they are not additive contributions. The outermost 22--25 km shell is the largest individual shell sensitivity at the strong endpoint. Removing all opacity at \(r\geq15\) km raises the luminosity by a factor 114.1, while removing all neutrino opacity raises it by a factor 963.0. Removing all Compton opacity raises it by a factor 2.49.
+
+The 25 km outer boundary is **not an arbitrary numerical truncation**. Blinov et al. explicitly identify \(R_{\max}\) with the neutrinosphere radius \(R_\nu\simeq25\) km: vectors produced inside this radius must survive to beyond it to count as ballistic energy loss. This is stated in Appendix B, in the discussion immediately following Eqs. (B.1)--(B.5), and is consistent with Sec. 4.1, which places the neutrinosphere at approximately 25 km. We therefore do not extend the integration domain beyond 25 km or reinterpret the outermost shell as missing stellar matter.
+
+**Consequence for the next step:** inspect the reconstructed thermodynamic inputs and the exact path integral specifically over 22--25 km, and compare their influence on the strong-coupling escape distribution. The literature-defined \(R_{\max}=25\) km remains fixed. The discrepancy must not be “fixed” by changing this radius without an independent physical justification.
