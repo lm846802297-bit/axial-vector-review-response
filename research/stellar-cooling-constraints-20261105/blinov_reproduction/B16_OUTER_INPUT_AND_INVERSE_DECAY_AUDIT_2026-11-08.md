@@ -5,6 +5,9 @@
 **Benchmark:** \(m_V=10\) MeV, fixed-\(\omega\) Appendix-B prescription, \(R_{\max}=25\) km.  
 **No production axial output or normalization was changed.**
 
+> **Section-level profile provenance:** Section 1 and its paired outer-profile input JSON use the current 1687-row vertex-preserving profile, SHA-256 `6c47d0712d266848d0cb2315c8a9b43cf13d0b39b6986d4239dd3f22cb9ba0bc`. Section 2 and its paired direct B.6 JSON use the historical 501-node uniform profile, SHA-256 `08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9`. The Section-2 algebraic kernel checks remain useful, but their sampled background points are historical. The current-profile 512-point outer-shell mode-resolved phase-space check is documented in `B16_OUTER_SHELL_POLARIZATION_RESOLVED_AUDIT_2026-11-09.md`; the cross-version impact is quantified in `PROFILE_VERSION_RECONCILIATION_2026-11-09.md`.
+
+
 ## 1. Step 1 — outer-shell profile and interpolation
 
 ### 1.1 Provenance and field-by-field inputs
