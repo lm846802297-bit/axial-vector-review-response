@@ -10,7 +10,7 @@ Status: **completed as a separate transport diagnostic.** The literal scalar B.2
 This audit isolates only the 22--25 km path segment. The source is held fixed to the B.1 production distribution from 8--15 km; all opacity inside 22 km is switched off in the reported escape factors.
 
 - \(m_V=10\) MeV.
-- Current profile SHA-256: \`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c\`.
+- Current profile SHA-256: `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`.
 - Full profile: 1687 retained rows; 222 profile nodes in 22--25 km.
 - Source radial quadrature: 40 points.
 - Energy grid: 143 points, including the exact direct-check energies.
@@ -76,7 +76,7 @@ At the strong endpoint:
 =3.11089.
 \]
 
-The mode-resolved result agrees with the average-opacity comparison to about \(3.0\times10^{-5}\) relative. Therefore, the large difference from the literal scalar result is not caused by the 2--10% longitudinal/transverse splitting. It is dominated by the normalization convention: whether the scalar rate in the exponent is the sum over three modes or a per-vector polarization average.
+The mode-resolved result agrees with the average-opacity comparison to about \(3.0\times10^{-5}\) relative. Therefore, the large difference from the literal scalar result is not caused by the 2--10% longitudinal/transverse splitting. It is dominated by comparing two different propagation prescriptions: the published scalar exponent applies the total polarization-summed rate, whereas the mode-resolved extension attenuates each polarization with its own rate. The factor-of-three scale follows from that change; it is not a missing factor in the published equations.
 
 ### Direction bins at the strong endpoint
 
@@ -103,7 +103,7 @@ The repository therefore keeps two objects separate:
 1. **Literal scalar B.2 reference:** the mode-summed scalar rate is used in the exponent, matching the current printed-equation implementation and retained for Fig. 7 reproduction.
 2. **Mode-resolved diagnostic:** each mode is attenuated with its own rate and its production weight. This is a physically informative alternative, but it is not silently substituted for the paper's scalar prescription.
 
-The factor-of-three-scale difference is a convention/transport question that must be resolved from the authors' precise definition or implementation of \(\Gamma_{\rm abs}\). It is not evidence that the local B.2 phase-space integrals fail.
+The factor-of-three-scale difference is expected when the polarization-summed scalar rate used in the published Eq. (B.2) exponent is compared with independent propagation of the three polarization modes. The paper explicitly defines the thermal production rate as a polarization sum in Eq. (B.6), accounts for the difference from the polarization-averaged vacuum width with the factor of three in Eq. (B.7), and imposes detailed balance in Eq. (B.10). Thus the literal scalar, mode-summed implementation is the appropriate Fig. 7 reproduction baseline. The mode-resolved calculation is a separate transport extension, not a correction to the published normalization and not evidence that the local B.2 phase-space integrals fail.
 
 ## 6. Decision
 
@@ -115,10 +115,10 @@ The factor-of-three-scale difference is a convention/transport question that mus
 
 Machine-readable output:
 
-\`outputs/b16_outer_shell_polarization_resolved_10mev_2026-11-09.json\`
+`outputs/b16_outer_shell_polarization_resolved_10mev_2026-11-09.json`
 
 Related records:
 
-- \`B16_INNER_PATH_CHANNEL_DIRECTIONAL_AUDIT_VERTEX_PRESERVING_2026-11-09.md\`
-- \`PROFILE_VERSION_RECONCILIATION_2026-11-09.md\`
-- \`FIG7_VECTOR_BENCHMARK_REEVALUATION_2026-11-09.md\`
+- `B16_INNER_PATH_CHANNEL_DIRECTIONAL_AUDIT_VERTEX_PRESERVING_2026-11-09.md`
+- `PROFILE_VERSION_RECONCILIATION_2026-11-09.md`
+- `FIG7_VECTOR_BENCHMARK_REEVALUATION_2026-11-09.md`
