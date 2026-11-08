@@ -77,7 +77,7 @@ def interpolation_summary(raw_r, raw_values, coarse_r, coarse_values, sample_r):
 
 def radial_shell_columns(
     source_radii, energies, radial_grid, reduced_rate_grid,
-    angular_order=64, radial_order=64,
+    mass=10.0, angular_order=64, radial_order=64,
     shell_inner=SHELL_INNER_KM, shell_outer=SHELL_OUTER_KM,
 ):
     """Integrate B.2 optical-depth columns over one radial shell.
@@ -103,7 +103,7 @@ def radial_shell_columns(
         np.interp(path_r, radial_grid, reduced_rate_grid[:, ie])
         for ie in range(len(energies))
     ])
-    velocity = np.sqrt(np.maximum(1.0-(10.0/energies)**2, 0.0))
+    velocity = np.sqrt(np.maximum(1.0-(mass/energies)**2, 0.0))
     columns = np.zeros((len(source_radii), len(angles), len(energies)))
 
     for ir, r0 in enumerate(source_radii):
@@ -230,11 +230,11 @@ def run(
     selected_source = source[source_mask]
     coarse_outer_columns, angles, angle_weights = radial_shell_columns(
         selected_r, energies, radial_grid, coarse_reduced,
-        angular_order, radial_path_order
+        mass, angular_order, radial_path_order
     )
     dense_outer_columns, _, _ = radial_shell_columns(
         selected_r, energies, outer["r_km"], dense_reduced,
-        angular_order, radial_path_order
+        mass, angular_order, radial_path_order
     )
     rel_columns = np.abs(dense_outer_columns-coarse_outer_columns)/np.maximum(
         dense_outer_columns, 1.0e-300
@@ -290,7 +290,7 @@ def run(
     )
     floor_columns, _, _ = radial_shell_columns(
         selected_r, energies, outer["r_km"], floor_reduced,
-        angular_order, radial_path_order
+        mass, angular_order, radial_path_order
     )
     floor_sensitivity = {}
     for label, coupling in couplings.items():
