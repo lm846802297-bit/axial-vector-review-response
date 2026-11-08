@@ -391,7 +391,7 @@
       "effects": [
         {
           "omega_MeV": 12.0,
-          "relative_change_for_alternative_mu_numu": 0.003383269414138468
+          "relative_change_for_alternative_mu_numu": 0.00338326941413869
         },
         {
           "omega_MeV": 15.0,
@@ -543,7 +543,7 @@
         },
         {
           "omega_MeV": 20.0,
-          "relative_change_for_alternative_mu_numu": -0.00025546771639184396
+          "relative_change_for_alternative_mu_numu": -0.0002554677163916219
         },
         {
           "omega_MeV": 30.0,
