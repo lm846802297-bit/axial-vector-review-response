@@ -148,6 +148,7 @@ def main():
     rows=np.column_stack([r,temp,mu,numu,lapse,fer_temp,fer_mu])
     header="r_km,T_MeV,mu_mu_MeV,mu_numu_MeV,lapse,T_Ferreira_MeV,mu_mu_Ferreira_MeV"
     np.savetxt(out/"sfho188_digitized.csv",rows,delimiter=",",header=header,comments="",fmt="%.15g")
+    profile_csv_sha256 = hashlib.sha256((out/"sfho188_digitized.csv").read_bytes()).hexdigest()
     samples=[]
     for rr in [0,5,8,10,15,20,24,25]:
         tt=float(interp(curves["T_caputo"],rr))
@@ -173,6 +174,7 @@ def main():
         "temperature_overlap_max_relative_difference":float(np.max(abs(t1-t2)/t1)),
         "lapse_exterior_continuation_schwarzschild_radius_km":float(schwarzschild_radius),
         "profile_grid": {
+            "profile_csv_sha256": profile_csv_sha256,
             "base_uniform_points": 501,
             "base_spacing_km": 0.05,
             "support_boundary_epsilon_km": 1.0e-6,
