@@ -32,7 +32,6 @@ HERE = Path(__file__).resolve().parent
 DEFAULT_OUTPUT = HERE / "outputs" / "b16_local_absorption_10mev_2026-11-09.json"
 SAMPLE_RADII_KM = (8.0, 10.0, 12.0, 15.0, 18.5, 20.0, 22.0, 23.0, 24.0, 25.0)
 SAMPLE_ENERGIES_MEV = (12.0, 15.0, 20.0, 30.0, 50.0, 100.0)
-POLARIZATION_WEIGHTS = None
 
 
 def sha256(path: Path) -> str:
@@ -162,6 +161,8 @@ def run(profile_path: Path = DEFAULT_PROFILE, mass: float = 10.0,
         "compton_B16_production_vs_reference": 0.0,
         "compton_B19_detailed_balance": 0.0,
         "compton_B4_reduced_absorption": 0.0,
+        "total_local_production_closure": 0.0,
+        "total_local_absorption_closure": 0.0,
         "total_local_reduced_absorption_closure": 0.0,
     }
 
@@ -192,6 +193,14 @@ def run(profile_path: Path = DEFAULT_PROFILE, mass: float = 10.0,
             p_nu_tau, a_nu_tau = float(np.sum(p_tau)), float(np.sum(a_tau))
             red_nu_mu = (1.0 - np.exp(-x)) * a_nu_mu
             red_nu_tau = (1.0 - np.exp(-x)) * a_nu_tau
+            velocity = np.sqrt(1.0 - (mass / omega) ** 2)
+            analytic_prefactor = mass * mass / (8.0 * np.pi * omega)
+            analytic_nu_mu = analytic_prefactor * float(
+                fermi_pair_average(mu_numu, float(omega), temperature, velocity)
+            )
+            analytic_nu_tau = analytic_prefactor * float(
+                fermi_pair_average(0.0, float(omega), temperature, velocity)
+            )
 
             compton = independent_b14_b16_compton(
                 mass, float(omega), temperature, chi_mu
@@ -209,14 +218,8 @@ def run(profile_path: Path = DEFAULT_PROFILE, mass: float = 10.0,
             )
 
             checks = {
-                "nu_mu_B6_production_vs_reference": relative(
-                    p_nu_mu, float(code["neutrino_production"][ir, ie])
-                    * (p_nu_mu / max(p_nu_mu + p_nu_tau, 1.0e-300))
-                ),
-                "nu_tau_B6_production_vs_reference": relative(
-                    p_nu_tau, float(code["neutrino_production"][ir, ie])
-                    * (p_nu_tau / max(p_nu_mu + p_nu_tau, 1.0e-300))
-                ),
+                "nu_mu_B6_production_vs_analytic": relative(p_nu_mu, analytic_nu_mu),
+                "nu_tau_B6_production_vs_analytic": relative(p_nu_tau, analytic_nu_tau),
                 "nu_mu_B10_detailed_balance": relative(
                     p_nu_mu, np.exp(-x) * a_nu_mu
                 ),
@@ -232,6 +235,12 @@ def run(profile_path: Path = DEFAULT_PROFILE, mass: float = 10.0,
                 ),
                 "compton_B19_detailed_balance": compton["B19_relative_residual"],
                 "compton_B4_reduced_absorption": compton["B4_relative_residual"],
+                "total_local_production_closure": relative(
+                    direct_prod_total, float(code["production"][ir, ie])
+                ),
+                "total_local_absorption_closure": relative(
+                    direct_abs_total, float(code["absorption"][ir, ie])
+                ),
                 "total_local_reduced_absorption_closure": relative(
                     direct_red_total, code_red_total
                 ),
@@ -250,8 +259,10 @@ def run(profile_path: Path = DEFAULT_PROFILE, mass: float = 10.0,
                 "Fdeg_mu_minus_independent": fdeg,
                 "mu_plus_fraction_of_total_susceptibility": float(plus_fraction),
                 "nu_mu_production_direct_MeV": p_nu_mu,
+                "nu_mu_production_analytic_MeV": analytic_nu_mu,
                 "nu_mu_absorption_direct_MeV": a_nu_mu,
                 "nu_tau_production_direct_MeV": p_nu_tau,
+                "nu_tau_production_analytic_MeV": analytic_nu_tau,
                 "nu_tau_absorption_direct_MeV": a_nu_tau,
                 "compton_B16": compton,
                 "code_reference_production": {
