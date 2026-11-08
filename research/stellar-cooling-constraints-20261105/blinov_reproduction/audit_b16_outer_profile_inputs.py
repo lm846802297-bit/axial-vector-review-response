@@ -2,7 +2,7 @@
 
 The audit holds the B.1 source fixed and compares:
   (i) the existing 40-node composite radial interpolation,
-  (ii) direct interpolation of the archived 0.05 km public-figure profile.
+  (ii) direct interpolation of the full vertex-preserving public-figure profile.
 It evaluates the outer-shell optical depth with the same fixed-omega B.2
 prescription and isolates the effect on the source-weighted escape factor.
 
@@ -136,7 +136,7 @@ def run(
              for name in ("r_km", "T_MeV", "mu_mu_MeV", "mu_numu_MeV", "lapse")}
     sample_r = outer["r_km"]
     if len(sample_r) < 20 or not np.isclose(sample_r[0], SHELL_INNER_KM) or not np.isclose(sample_r[-1], SHELL_OUTER_KM):
-        raise ValueError("Expected the archived 0.05 km profile to cover 22--25 km")
+        raise ValueError("Expected the vertex-preserving reconstructed profile to cover 22--25 km")
 
     radius, radial_weights = radial_rule(SHELL_OUTER_KM, radial_order)
     radial_grid = np.unique(np.r_[0.0, radius, SHELL_OUTER_KM])
@@ -159,7 +159,7 @@ def run(
         mass, rates["production"][source_indices]
     )
 
-    # Recompute local rates on the original 0.05 km nodes in the outer shell.
+    # Recompute local rates on every retained source/support node in the full outer-shell profile.
     dense_rates = local_rates(
         mass, energies[None, :], outer["T_MeV"][:, None],
         outer["mu_numu_MeV"][:, None], outer["mu_mu_MeV"][:, None]
