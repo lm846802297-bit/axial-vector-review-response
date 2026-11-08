@@ -1,6 +1,6 @@
 """Inspect the original Bollig et al. SFHo-18.8 Fig. 3/4 vector paths.
 
-This first-stage audit downloads the consolidated arXiv v7 PDF, extracts the
+Updated 2026-11-09: this first-stage audit downloads the consolidated arXiv v7 PDF, extracts the
 muon-density and muon-degeneracy plot geometry from page 3, and archives all
 candidate vector paths with coordinates/colors. It does not modify any
 profile, opacity, transport, luminosity, or axial output.
