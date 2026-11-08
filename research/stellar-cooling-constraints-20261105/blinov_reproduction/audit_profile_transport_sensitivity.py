@@ -174,7 +174,7 @@ def evaluate_profile(profile_path: Path):
         shell_tau_by_channel[name] = float(np.sum(base_weights * tau) / norm)
 
     local_samples = []
-    for radius in (12.0, 13.0, 13.5, 14.0, 15.0):
+    for radius in (8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0):
         sample = {
             key: np.asarray([np.interp(radius, radial_grid, profile[key])])
             for key in ("T", "mu_mu", "mu_numu")
@@ -217,6 +217,7 @@ def evaluate_profile(profile_path: Path):
         "_source_array": source,
         "_columns_array": columns,
         "_angle_weights_array": angle_weights,
+        "_radii_array": radii,
     }
 
 
@@ -272,6 +273,63 @@ def main():
         result["fixed_source_escape_ratio_to_baseline"] = (
             fixed_source_escape / baseline_escape
         )
+
+        # Resolve the dominant emission region into 8--10, 10--12, and 12--15 km.
+        radii = result["_radii_array"]
+        source_array = result["_source_array"]
+        source_shells = {}
+        for name, lo, hi in (("8_10km", 8.0, 10.0),
+                             ("10_12km", 10.0, 12.0),
+                             ("12_15km", 12.0, 15.0)):
+            mask = (radii >= lo) & (radii < hi if hi < 15.0 else radii <= hi)
+            baseline_piece = float(np.sum(baseline_source_array[mask]))
+            variant_piece = float(np.sum(source_array[mask]))
+            source_shells[name] = {
+                "baseline_B1_source_integral": baseline_piece,
+                "variant_B1_source_integral": variant_piece,
+                "variant_to_baseline_ratio": variant_piece / baseline_piece,
+                "variant_fraction_of_total_B1": variant_piece / result["B1_source_integral"],
+            }
+            region_weights = baseline_weights[mask]
+            region_norm = float(np.sum(region_weights))
+            fixed_region_escape = float(
+                np.sum(region_weights * survival[mask]) / region_norm
+            )
+            own_region_weights = source_array[mask, None, :] * angle_weights[None, :, None]
+            own_region_norm = float(np.sum(own_region_weights))
+            own_region_escape = float(
+                np.sum(own_region_weights * survival[mask]) / own_region_norm
+            )
+            source_shells[name]["fixed_baseline_source_escape_probability"] = fixed_region_escape
+            source_shells[name]["own_source_escape_probability"] = own_region_escape
+            source_shells[name]["fixed_baseline_source_escape_ratio"] = (
+                fixed_region_escape / baseline_escape
+            )
+        result["B1_source_and_escape_by_emission_radius"] = source_shells
+
+        # Optical depth accumulated in each sensitive path shell, with a common
+        # baseline B.1 source weighting for an apples-to-apples opacity comparison.
+        path_shells = {}
+        for name, lo, hi in (("8_10km", 8.0, 10.0),
+                             ("10_12km", 10.0, 12.0),
+                             ("12_15km", 12.0, 15.0)):
+            idx = int(np.where(
+                (b16.SHELL_EDGES_KM[:-1] == lo)
+                & (b16.SHELL_EDGES_KM[1:] == hi)
+            )[0][0])
+            shell_columns = columns[:, idx, :, :, :]
+            by_channel = {
+                channel: float(np.sum(baseline_weights * shell_columns[ic]) / baseline_norm)
+                for ic, channel in enumerate(b16.CHANNELS)
+            }
+            path_shells[name] = {
+                "mean_tau_per_g2_by_channel_baseline_source_weights": by_channel,
+                "mean_tau_per_g2_total_baseline_source_weights": float(
+                    np.sum(baseline_weights * np.sum(shell_columns, axis=0)) / baseline_norm
+                ),
+            }
+        result["path_shell_optical_depths_8_15km"] = path_shells
+
         shell_columns = columns[:, shell_index, :, :, :]
         result["shell_12_15km_mean_tau_per_g2_by_channel_baseline_source_weights"] = {
             name: float(np.sum(baseline_weights * shell_columns[ic]) / baseline_norm)
@@ -283,7 +341,7 @@ def main():
 
     # Remove internal arrays before writing the machine-readable record.
     for result in results.values():
-        for key in ("_source_array", "_columns_array", "_angle_weights_array"):
+        for key in ("_source_array", "_columns_array", "_angle_weights_array", "_radii_array"):
             result.pop(key, None)
 
     payload = {
@@ -319,6 +377,8 @@ def main():
             "escaped_source_integral_ratio": item["escaped_source_integral_ratio_to_baseline"],
             "fixed_source_escape_ratio": item["fixed_source_escape_ratio_to_baseline"],
             "tau_12_15_total_per_g2": item["shell_12_15km_mean_tau_per_g2_total_baseline_source_weights"],
+            "B1_source_by_emission_radius": item["B1_source_and_escape_by_emission_radius"],
+            "tau_by_path_shell_8_15km": item["path_shell_optical_depths_8_15km"],
         }
         for label, item in results.items()
     }, indent=2, sort_keys=True))
