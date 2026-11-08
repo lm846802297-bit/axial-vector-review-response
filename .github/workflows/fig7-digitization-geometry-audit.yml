@@ -38,7 +38,7 @@ jobs:
           python -m pip install numpy pymupdf
       - name: Run PDF path and coordinate-transform tests
         run: |
-          python -m unittest research.stellar-cooling-constraints-20261105.test_fig7_digitization_geometry -v
+          python -m unittest discover -s research/stellar-cooling-constraints-20261105 -p 'test_fig7_digitization_geometry.py' -v
       - name: Download the pinned arXiv v2 source archive
         run: |
           set -euo pipefail
