@@ -1,5 +1,8 @@
 # Re-evaluation of the 10 MeV pure-vector Fig. 7 benchmark after profile and B.2 audits
 
+> **Latest extraction refresh:** this B.16 run records profile A SHA-256 `6c47d071...`. The latest regenerated vertex-preserving file is profile B SHA-256 `9fb14e79...`; the active thermodynamic columns differ only at floating-point roundoff (maximum relative change below (3.3\times10^{-14}) in (T), and below (6.4\times10^{-15}) in (mu_\mu); (mu_{\nu_\mu}) and lapse are unchanged). The exact run fingerprint is preserved. See `PROFILE_VERSION_RECONCILIATION_2026-11-09.md`.
+
+
 Date: 2026-11-09  
 Status: **the pure-vector Fig. 7 curve is still not validated. The peak is reproduced at the few-percent level, the weak-end discrepancy is source-side, and the strong-end discrepancy is escape/opacity-side. The 12--15 km neutrino inverse-decay shell is important but is not the only relevant shell. No axial-vector curve is updated.**
 
