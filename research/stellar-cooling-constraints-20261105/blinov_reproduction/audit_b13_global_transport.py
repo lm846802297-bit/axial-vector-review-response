@@ -25,11 +25,10 @@ for item in (ROOT, FINITE_MIXING):
     if str(item) not in sys.path:
         sys.path.insert(0, str(item))
 
-from reference import (  # noqa: E402
-    DEFAULT_PROFILE, KM_TO_MEV_INV, MEV2_TO_ERG_S,
-    radial_rule, load_profile, local_rates, scalar_optical_depths,
+from blinov_reproduction.reference import (  # noqa: E402
+    DEFAULT_PROFILE, radial_rule, load_profile, local_rates, scalar_optical_depths,
 )
-from audit_b16_global_redshift import eq_b1_source_measure  # noqa: E402
+from blinov_reproduction.audit_b16_global_redshift import eq_b1_source_measure  # noqa: E402
 from moving_muon_compton import moving_muon_compton_rates  # noqa: E402
 
 DEFAULT_FIG7 = ROOT / "outputs" / "vector_audit" / "luminosity_comparison.json"
