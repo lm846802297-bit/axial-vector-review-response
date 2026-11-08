@@ -1,4 +1,4 @@
-# Full B.1+B.2 transport sensitivity to the 12--15 km profile inputs
+# Full B.1+B.2 transport sensitivity to the 12--15 km uncertainty and 8--15 km source region
 
 Date: 2026-11-09  
 Benchmark: \(m_V=10\) MeV, \(g=4.17168965\times10^{-8}\), \(R_{\max}=25\) km.  
@@ -51,7 +51,8 @@ The dimuon channel is closed for \(m_V=10\) MeV.
 | Variant | B.1 thin-source ratio | Escape ratio, own source | Escape ratio, fixed baseline source | Escaped B.1 integral ratio |
 |---|---:|---:|---:|---:|
 | A: \(\mu_{\nu_\mu}=0\) in 12--15 km | 1.0000548 | 0.9998914 | 0.9999339 | 0.9999462 |
-| B: diagnostic Ferreira \(\mu_\mu\) | 1.0064587 | 0.9329868 | 0.9329672 | 0.9390127 |
+| B: diagnostic Ferreira \(\mu_\mu\), 12--15 km | 1.0064587 | 0.9329868 | 0.9329672 | 0.9390127 |
+| B2: diagnostic Ferreira \(\mu_\mu\), 8--15 km | 1.2709188 | 0.6608578 | 0.6197762 | 0.8398966 |
 | C: unresolved \(|\mu_{\nu_\mu}|=1\) MeV envelope | 0.9999912 | 1.0000262 | 1.0000179 | 1.0000174 |
 
 The ratios are relative to the baseline at the same \(m_V\), \(g\), and numerical settings.
@@ -83,7 +84,32 @@ The local Compton reduced absorption rises by approximately 19% at 12 km and 52-
 
 **This is not an alternative model choice.** The Ferreira Fig. 1 caption explicitly identifies the dashed orange curve as SFHo-18.8 at 1 s post-bounce, the same named model and snapshot as Caputo Fig. 1; both papers cite the Bollig et al. simulation. The result therefore quantifies the impact of a second published reconstruction of the same nominal background. The origin of the 9.5--17.2% difference in \(\mu_\mu\) remains unresolved, so this curve is not adopted as the baseline.
 
-### 3.3 Variant C: unresolved \(\mu_{\nu_\mu}\) plotting-floor envelope
+### 3.3 Variant B2: same-model \(\mu_\mu\) reconstruction over the full 8--15 km source region
+
+The 12--15 km substitution misses the largest discrepancy between the published curves. Extending the diagnostic replacement over 8--15 km gives:
+
+- B.1 source normalization: \(+27.09\%\);
+- source-weighted escape probability: \(-33.91\%\);
+- fixed-baseline-source escape probability: \(-38.02\%\);
+- escaped B.1 integral: \(-16.01\%\).
+
+The effect is concentrated at smaller radii. At radial order 120, the B.1 source ratios in the emission intervals 8--10, 10--12, and 12--15 km are 1.533, 1.192, and 1.047, respectively.
+
+Using the same baseline source weighting, the path-shell optical-depth ratios are:
+
+| Path shell | Ferreira / Caputo total \(\langle\tau/g^2\rangle\) |
+|---|---:|
+| 8--10 km | 1.497 |
+| 10--12 km | 1.183 |
+| 12--15 km | 1.038 |
+
+The change is entirely in Compton opacity and production. The neutrino inverse-decay channels are unchanged. In the 8--10 km shell, the Compton contribution increases by more than a factor of two; this is the main reason the full 8--15 km substitution has a much larger transport effect than the 12--15 km-only test.
+
+The source and opacity changes partially oppose each other in the escaped B.1 integral: the source grows by about 27%, while the own-source escape probability falls by about 34%. The net escaped B.1 integral is therefore about 16% lower.
+
+This remains a diagnostic substitution between two published reconstructions of the same nominal SFHo-18.8, 1 s post-bounce model. It is not a profile selection.
+
+### 3.4 Variant C: unresolved \(\mu_{\nu_\mu}\) plotting-floor envelope \(\mu_{\nu_\mu}\) plotting-floor envelope
 
 Extending the last resolved magnitude, \(|\mu_{\nu_\mu}|=1\) MeV, over the unresolved 13.109927--15 km interval changes:
 
@@ -104,20 +130,17 @@ The previously identified strong-endpoint target requires approximately
 \simeq 0.520.
 \]
 
-The largest tested profile change is Variant B, which gives
+The 8--15 km diagnostic B2 gives the largest change. At radial order 120,
 
 \[
-\frac{P_{\rm esc}^{B}}{P_{\rm esc}^{\rm base}}
-\simeq 0.933.
+\frac{P_{\rm esc}^{\rm B2, fixed source}}
+     {P_{\rm esc}^{\rm base}}
+=0.62389,
 \]
 
-Thus even this diagnostic alternative leaves the escape probability about
+compared with the target 0.520. It remains about 20% above the required escape probability. The own-source escape ratio is 0.66554, while the escaped B.1 integral ratio is 0.84453 because the B.1 source normalization also increases.
 
-\[
-\frac{0.933}{0.520}\simeq1.79
-\]
-
-times the required value. Variants A and C are smaller by several orders of magnitude relative to the required 48% reduction.
+The narrower 12--15 km variant B gives only 0.933 for the fixed-source escape ratio. Variants A and C remain negligible. Thus the same-model \(\mu_\mu\) discrepancy over 8--15 km is a potentially important contributor to the strong-endpoint difference, but it does not by itself close it.
 
 Consequently:
 
@@ -135,7 +158,7 @@ Consequently:
 
 ## 6. Remaining work
 
-The dominant unresolved input question is now sharply defined: two papers plot different \(\mu_\mu(r)\) curves while both identifying the background as SFHo-18.8 at 1 s post-bounce and citing Bollig et al. The next check is the exact profile-file/version and chemical-potential convention used in each post-processing analysis. The Garching archive lists radial profiles in a protected directory that currently returns HTTP 401, so no raw table has been obtained. Figure digitization remains the only reproducible comparison available without authorized archive access.
+The dominant unresolved input question is now sharply defined: two papers plot different \(\mu_\mu(r)\) curves while both identifying the background as SFHo-18.8 at 1 s post-bounce and citing Bollig et al. The 8--15 km diagnostic shows that this difference materially changes the Compton source and opacity. The next check is the exact profile-file/version and chemical-potential convention used in each post-processing analysis, together with the full 8--15 km muon-density consistency test. The Garching archive lists radial profiles in a protected directory that currently returns HTTP 401, so no raw table has been obtained. Figure digitization remains the only reproducible comparison available without authorized archive access.
 
 The next numerical investigation should therefore focus on the full radial \(\mu_\mu(r)\) and muon-density consistency, not on another scan of the \(\mu_{\nu_\mu}\) floor. In particular, verify that the plotted \(\mu_\mu\), \(T\), and \(n_\mu\) belong to the same profile and chemical-potential convention.
 
@@ -144,6 +167,8 @@ The next numerical investigation should therefore focus on the full radial \(\mu
 - Script: audit_profile_transport_sensitivity.py
 - Machine-readable output: outputs/profile_transport_sensitivity_12_15km_2026-11-09.json
 - Profile input: ../data/sfho188_digitized.csv
+- Radial convergence driver: audit_profile_radial_convergence.py
+- Radial convergence output: outputs/profile_radial_convergence_8_15km_2026-11-09.json
 - Workflow: .github/workflows/profile-12-15km-audit.yml
 
-The workflow runs the profile regression tests, regenerates hash-pinned source-PDF digitizations, executes the full four-profile B.1+B.2 sensitivity calculation, and checks that the production axial files remain unchanged.
+The workflow runs the profile regression tests, regenerates hash-pinned source-PDF digitizations, executes the controlled B.1+B.2 profile variants, checks radial orders 40/80/120, and verifies that the production axial files remain unchanged.
