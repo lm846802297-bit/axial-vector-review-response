@@ -81,6 +81,92 @@
       "width": 0.5
     }
   },
+  "axis_tick_validation": {
+    "horizontal_ticks": [
+      {
+        "expected_pdf_x": 54.82951354980469,
+        "log10_alpha": -22,
+        "pdf_x_center": 54.82746124267578,
+        "residual_pdf_points": -0.00205230712890625
+      },
+      {
+        "expected_pdf_x": 97.72576332092285,
+        "log10_alpha": -20,
+        "pdf_x_center": 97.72371292114258,
+        "residual_pdf_points": -0.0020503997802734375
+      },
+      {
+        "expected_pdf_x": 140.62201309204102,
+        "log10_alpha": -18,
+        "pdf_x_center": 140.6199607849121,
+        "residual_pdf_points": -0.00205230712890625
+      },
+      {
+        "expected_pdf_x": 183.51826286315918,
+        "log10_alpha": -16,
+        "pdf_x_center": 183.51620483398438,
+        "residual_pdf_points": -0.0020580291748046875
+      },
+      {
+        "expected_pdf_x": 226.41451263427734,
+        "log10_alpha": -14,
+        "pdf_x_center": 226.41246032714844,
+        "residual_pdf_points": -0.00205230712890625
+      },
+      {
+        "expected_pdf_x": 269.3107624053955,
+        "log10_alpha": -12,
+        "pdf_x_center": 269.30870819091797,
+        "residual_pdf_points": -0.0020542144775390625
+      },
+      {
+        "expected_pdf_x": 312.2070121765137,
+        "log10_alpha": -10,
+        "pdf_x_center": 312.20497131347656,
+        "residual_pdf_points": -0.002040863037109375
+      },
+      {
+        "expected_pdf_x": 355.10326194763184,
+        "log10_alpha": -8,
+        "pdf_x_center": 355.1022491455078,
+        "residual_pdf_points": -0.0010128021240234375
+      },
+      {
+        "expected_pdf_x": 397.99951171875,
+        "log10_alpha": -6,
+        "pdf_x_center": 397.9984893798828,
+        "residual_pdf_points": -0.0010223388671875
+      }
+    ],
+    "maximum_absolute_tick_position_residual_pdf_points": 0.4934590657552036,
+    "tolerance_pdf_points": 1.0,
+    "vertical_ticks": [
+      {
+        "expected_pdf_y": 195.54043579101562,
+        "log10_luminosity": 52,
+        "pdf_y_center": 196.0338897705078,
+        "residual_pdf_points": 0.4934539794921875
+      },
+      {
+        "expected_pdf_y": 137.32843526204428,
+        "log10_luminosity": 53,
+        "pdf_y_center": 137.82188415527344,
+        "residual_pdf_points": 0.4934488932291572
+      },
+      {
+        "expected_pdf_y": 79.11643473307292,
+        "log10_luminosity": 54,
+        "pdf_y_center": 79.60989379882812,
+        "residual_pdf_points": 0.4934590657552036
+      },
+      {
+        "expected_pdf_y": 20.904434204101562,
+        "log10_luminosity": 55,
+        "pdf_y_center": 21.397888660430908,
+        "residual_pdf_points": 0.4934544563293457
+      }
+    ]
+  },
   "conclusion": "The archived 25-point Fig. 7 vertices are accepted only if their g and luminosity coordinates reconstruct from the pinned PDF paths to the stated numerical tolerance. Path order, duplicate-x segments, visible-frame clipping, and the high-coupling 10 MeV tail are reported explicitly.",
   "coordinate_transform": {
     "alpha_V": "10^[-22+16*(x-X_LEFT)/(X_RIGHT-X_LEFT)]",
