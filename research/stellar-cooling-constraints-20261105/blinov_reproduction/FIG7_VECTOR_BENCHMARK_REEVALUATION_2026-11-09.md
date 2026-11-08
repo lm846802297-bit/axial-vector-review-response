@@ -118,7 +118,7 @@ The fixed-\(\omega\) result remains the published Eq. (B.2) baseline. A separate
 - Do not update or regenerate the axial-vector cooling curve.
 - Do not declare the pure-vector Fig. 7 benchmark validated.
 
-The next narrow transport priority is a source-weighted comparison of the 12--15 km and 22--25 km neutrino inverse-decay shells, including the reconstructed \(T,\mu_{\nu_\mu}\), lapse, and direction-resolved path weights in the outer shell. In parallel, retain the B.13 versus B.14--B.16 Compton comparison as a distinct physical-approximation question. No empirical fit to Fig. 7 is permitted.
+The 12--15 km and 22--25 km inverse-decay shells are now compared with source weighting and direction-resolved paths on the same vertex-preserving profile. The next distinct physical question is the B.13 versus B.14--B.16 Compton approximation at 10 MeV. That comparison must remain separate from the B.2 scalar-versus-mode-resolved normalization diagnostic; neither diagnostic replaces the literal scalar Fig. 7 baseline without a documented convention change. No empirical fit to Fig. 7 is permitted.
 
 ## 8. Reproducibility
 
