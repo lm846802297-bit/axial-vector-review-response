@@ -7,7 +7,7 @@
 
 ## 1. Calculation
 
-The source is restricted to \(8\leq r_{\rm em}\leq15\) km, which contributes 79.23% of the global B.1 source weight in this run. The three emission shells contribute:
+The source is restricted to \(8\leq r_{\rm em}\leq15\) km, which contributes 79.61% of the global B.1 source weight in this run. The three emission shells contribute:
 
 | Emission shell | Fraction of the selected 8--15 km source |
 |---|---:|
