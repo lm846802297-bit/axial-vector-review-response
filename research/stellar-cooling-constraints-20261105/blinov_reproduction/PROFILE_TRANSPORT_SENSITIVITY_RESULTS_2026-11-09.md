@@ -1,3 +1,5 @@
+> **Follow-up resolution (2026-11-09):** The Ferreira \\(\\mu_\\mu\\) substitutions B/B2 below are now explicitly off-baseline sensitivity diagnostics. Direct digitization of Bollig et al. Fig. 4 shows that Caputo's \\(\\mu_\\mu/T\\) agrees with the original SFHo-18.8 curve to a maximum relative difference of \\(2.80\\times10^{-4}\\) over 12--15 km; Ferreira differs by up to 17.18%. The Caputo profile is therefore retained as the source-validated baseline for this benchmark. See [the original Fig. 4 cross-check](BOLLIG_ORIGINAL_FIG4_MUON_DEGENERACY_CROSSCHECK_2026-11-09.md).
+
 # Full B.1+B.2 transport response to 12--15 km profile-input diagnostics
 
 Date: 2026-11-09  
