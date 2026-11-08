@@ -380,6 +380,12 @@ def run_case(profile_path: Path, radius: float) -> dict:
     estimated_total_source_shift_pct = (
         SOURCE_COMPTON_FRACTION_10MEV * vector_vs_stationary * 100.0
     )
+    estimated_total_shift_vs_b16_pct = (
+        SOURCE_COMPTON_FRACTION_10MEV * vector_vs_b16 * 100.0
+    )
+    estimated_total_shift_vs_b16_no_correction_pct = (
+        SOURCE_COMPTON_FRACTION_10MEV * vector_vs_b16_no * 100.0
+    )
 
     return {
         "local_thermodynamics": point,
@@ -426,6 +432,12 @@ def run_case(profile_path: Path, radius: float) -> dict:
             "archived_10MeV_compton_share_used_for_estimate": SOURCE_COMPTON_FRACTION_10MEV,
             "estimated_total_thin_source_shift_from_vector_compton_only_pct": (
                 estimated_total_source_shift_pct
+            ),
+            "estimated_total_thin_source_shift_vs_B16_corrected_pct": (
+                estimated_total_shift_vs_b16_pct
+            ),
+            "estimated_total_thin_source_shift_vs_B16_without_parenthesis_correction_pct": (
+                estimated_total_shift_vs_b16_no_correction_pct
             ),
             "interpretation": (
                 "The 18.6% channel-share weighting is a first-order estimate "
