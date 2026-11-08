@@ -1,5 +1,8 @@
 # Exact moving-muon B.13 versus B.14--B.16 local comparison
 
+> **Convention clarification added 2026-11-09:** this historical local comparison evaluates the B.16 susceptibility with both \(\mu^-\) and \(\mu^+\) contributions. The subsequent audit of Blinov Eq. (B.17) establishes that the published \(n_\mu F_{\rm deg}\) convention is the single negative-muon distribution, not the sum of both charges. Therefore the charge-summed B.13/B.16 ratios below are a two-charge extension, not the final like-for-like B.17 comparison. The current global audit reports both cases separately; use its \(\mu^-\)-only result for the B.17-matched comparison and its \(\mu^-+\mu^+\) result for the charge-summed extension. Historical numbers in this file are retained as originally computed and must not be mixed with the single-species global baseline.
+
+
 **Date:** 2026-11-08  
 **Status:** Numerical run complete; local interpretation recorded.  
 **Scope:** \(m_V=10\) MeV at \(r=0\) and \(12.5\) km in the reconstructed SFHo-18.8 profile. This is a local source audit, not a stellar transport or luminosity calculation.
