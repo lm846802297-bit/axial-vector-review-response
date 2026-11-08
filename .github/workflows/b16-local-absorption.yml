@@ -7,6 +7,8 @@ on:
     paths:
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_local_absorption.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_local_absorption.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_reference.py'
       - '.github/workflows/b16-local-absorption.yml'
   workflow_dispatch:
 
@@ -44,6 +46,9 @@ jobs:
           python -m unittest discover \
             -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
             -p 'test_b16_local_absorption.py' -v
+          python -m unittest discover \
+            -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
+            -p 'test_reference.py' -v
 
       - name: Run B.6--B.10 and B.13--B.19 local audit
         run: |
