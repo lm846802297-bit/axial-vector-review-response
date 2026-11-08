@@ -92,11 +92,11 @@ The current vertex-preserving full-path audit gives, for all emission radii, a l
 
 Thus, the 12--15 km shell is a major contributor, but the outer neutrino inverse-decay path remains at least as important to the final escape probability. The literature-defined \(R_{\max}=25\) km remains fixed; the boundary is not extended or tuned to improve agreement.
 
-A separate physical-approximation issue is now quantified. The exact moving-muon/recoil kernel B.13 differs substantially from B.14--B.16 at (m_V=10) MeV, where the paper says the non-relativistic/no-recoil approximation is normally used only for (m_V\lesssim) MeV. A global B.13 source-and-opacity replacement has now been completed; it is reported in Section 7 and does not resolve the B.16--Fig. 7 discrepancy. The published B.16 implementation remains unchanged as the Fig. 7 reproduction baseline.
+A separate physical-approximation issue is now quantified. The exact moving-muon/recoil kernel B.13 differs substantially from B.14--B.16 at \(m_V=10\) MeV, where the paper says the non-relativistic/no-recoil approximation is normally used only for \(m_V\lesssim\) MeV. A global B.13 source-and-opacity replacement has now been completed; it is reported in Section 7 and does not resolve the B.16--Fig. 7 discrepancy. The published B.16 implementation remains unchanged as the Fig. 7 reproduction baseline.
 
 ## 6. Current-profile outer-shell polarization diagnostic
 
-The 22--25 km shell is now evaluated with the same vertex-preserving profile (SHA-256 \`6c47d071...\`) using direct mode-resolved inverse-decay rates. For the dominant 8--15 km source region, the shell-only escape factors are:
+The 22--25 km shell is now evaluated with the same vertex-preserving profile (SHA-256 `9fb14e79...`) using direct mode-resolved inverse-decay rates. For the dominant 8--15 km source region, the shell-only escape factors are:
 
 | Coupling point | Literal scalar B.2 | Mode-resolved diagnostic |
 |---|---:|---:|
@@ -105,9 +105,9 @@ The 22--25 km shell is now evaluated with the same vertex-preserving profile (SH
 
 At the strong endpoint, the ratio is 3.1109. The mode-resolved result agrees with the three-state average-opacity diagnostic to about \(3\times10^{-5}\) relative; the longitudinal/transverse rate splitting itself is typically 8--10% in the sampled outer-shell energy range.
 
-The paper's scalar prescription is unambiguous for reproducing Fig. 7: Eq. (B.6) sums over polarization states, Eq. (B.7) supplies the factor of three relative to the polarization-averaged vacuum decay width, and Eq. (B.10) fixes detailed balance. The scalar (Gamma_{\rm abs}) in Eq. (B.2) is therefore evaluated with the polarization-summed rate in the published baseline. Propagating each polarization with its own opacity is a separate, more differential transport extension; it is not a correction to the literal published scalar prescription. The repository retains the polarization-summed scalar result for the Fig. 7 reproduction baseline.
+The paper's scalar prescription is unambiguous for reproducing Fig. 7: Eq. (B.6) sums over polarization states, Eq. (B.7) supplies the factor of three relative to the polarization-averaged vacuum decay width, and Eq. (B.10) fixes detailed balance. The scalar \(\Gamma_{\rm abs}\) in Eq. (B.2) is therefore evaluated with the polarization-summed rate in the published baseline. Propagating each polarization with its own opacity is a separate, more differential transport extension; it is not a correction to the literal published scalar prescription. The repository retains the polarization-summed scalar result for the Fig. 7 reproduction baseline.
 
-The outer-shell mode audit uses a 48-point mode integral and 512-point direct phase-space checks, four direction bins with 32-point angular quadrature, and the current 222-node vertex-preserving outer profile. Its output is \`outputs/b16_outer_shell_polarization_resolved_10mev_2026-11-09.json\`. No production axial curve is changed.
+The outer-shell mode audit uses a 48-point mode integral and 512-point direct phase-space checks, four direction bins with 32-point angular quadrature, and the current 222-node vertex-preserving outer profile. Its output is `outputs/b16_outer_shell_polarization_resolved_10mev_2026-11-09.json`. No production axial curve is changed.
 
 The fixed-\(\omega\) result remains the published Eq. (B.2) baseline. A separate path-redshift-only diagnostic changes the full-curve mean absolute relative difference to 9.22% and its maximum to 36.74%; it is not a full GR ray trace and is not substituted for the fixed-\(\omega\) baseline.
 
