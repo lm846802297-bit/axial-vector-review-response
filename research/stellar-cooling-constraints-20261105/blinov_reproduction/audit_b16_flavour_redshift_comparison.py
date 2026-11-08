@@ -17,11 +17,11 @@ import numpy as np
 try:
     from .reference import (
         DEFAULT_PROFILE, KM_TO_MEV_INV, radial_rule, load_profile,
-        local_rates, scalar_optical_depths, redshifted_scalar_optical_depths,
+        local_rates, scalar_optical_depths,
         decay_production, compton_production,
         negative_muon_density_and_degeneracy, fermi_pair_average,
     )
-    from .audit_b16_global_redshift import eq_b1_source_measure
+    from .audit_b16_global_redshift import (eq_b1_source_measure, redshifted_scalar_optical_depths)
     from .audit_b16_neutrino_flavour_opacity import flavour_rate_arrays
     from .audit_b16_shell_luminosity_sensitivity import (
         shell_columns_by_channel, log_escaped_integral, removal_diagnostic,
@@ -30,11 +30,11 @@ try:
 except ImportError:
     from reference import (
         DEFAULT_PROFILE, KM_TO_MEV_INV, radial_rule, load_profile,
-        local_rates, scalar_optical_depths, redshifted_scalar_optical_depths,
+        local_rates, scalar_optical_depths,
         decay_production, compton_production,
         negative_muon_density_and_degeneracy, fermi_pair_average,
     )
-    from audit_b16_global_redshift import eq_b1_source_measure
+    from audit_b16_global_redshift import (eq_b1_source_measure, redshifted_scalar_optical_depths)
     from audit_b16_neutrino_flavour_opacity import flavour_rate_arrays
     from audit_b16_shell_luminosity_sensitivity import (
         shell_columns_by_channel, log_escaped_integral, removal_diagnostic,
