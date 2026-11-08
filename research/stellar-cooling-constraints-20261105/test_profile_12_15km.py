@@ -55,6 +55,23 @@ class Profile12To15KmTests(unittest.TestCase):
             plotted = interp_curve(curve, radius) * 0.181
             self.assertLess(abs(density / plotted - 1.0), 0.02)
 
+    def test_caputo_density_consistency_and_ferreira_same_model_discrepancy(self):
+        curve = read_curve(DATA / "n_mu_over_n0_caputo_vertices.csv")
+        for radius in (8.0, 9.0, 10.0, 12.0, 15.0):
+            row = self.row_at(radius)
+            plotted = interp_curve(curve, radius) * 0.181
+            caputo_density = density_and_susceptibility(
+                float(row["T_MeV"]), float(row["mu_mu_MeV"])
+            )["n_mu_fm3"]
+            ferreira_density = density_and_susceptibility(
+                float(row["T_Ferreira_MeV"]), float(row["mu_mu_Ferreira_MeV"])
+            )["n_mu_fm3"]
+            self.assertLess(abs(caputo_density / plotted - 1.0), 0.02)
+            # The second published curve is not numerically interchangeable:
+            # using its own T and mu_mu implies a much larger density than
+            # the independently plotted Caputo n_mu profile.
+            self.assertGreater(ferreira_density / plotted, 1.5)
+
     def test_caputo_and_ferreira_muon_curves_are_not_silently_identified(self):
         rel = (
             self.csv["mu_mu_Ferreira_MeV"][self.region]
