@@ -1,0 +1,1252 @@
+{
+  "closure": {
+    "angular_weights_match_direct_radial_integral": true,
+    "angular_weights_sum": 1.0,
+    "inner_plus_outer_shape_matches": true,
+    "minimum_outer_column": 119261718464152.0,
+    "minimum_total_column": 407961680892264.5,
+    "negative_columns": 0
+  },
+  "configuration": {
+    "Rmax_km": 25.0,
+    "angular_order": 64,
+    "direction_bins": {
+      "inward_oblique": [
+        -0.8,
+        -0.2
+      ],
+      "inward_radial": [
+        -1.0,
+        -0.8
+      ],
+      "outward_oblique": [
+        0.2,
+        0.8
+      ],
+      "outward_radial": [
+        0.8,
+        1.0
+      ],
+      "tangential": [
+        -0.2,
+        0.2
+      ]
+    },
+    "energy_order": 140,
+    "inner_path_order": 64,
+    "outer_radial_order": 96,
+    "outer_shell_km": [
+      22.0,
+      25.0
+    ],
+    "radial_source_order": 40
+  },
+  "couplings": {
+    "fig7_peak": {
+      "directions": {
+        "inward_oblique": {
+          "cos_theta_range": [
+            -0.8,
+            -0.2
+          ],
+          "full_path_escape_probability": 0.2802216821405471,
+          "full_tau_unattenuated_source_weight": {
+            "maximum": 8.547955304816975,
+            "mean": 1.4103502130685146,
+            "q50": 1.2791067961223965,
+            "q90": 2.153164874837591,
+            "q99": 3.6000804300479334,
+            "weight": 1.0300773707750701e+70
+          },
+          "outer_shell_escape_probability": 0.8249675730594115,
+          "outer_tau_conditioned_on_full_escape": {
+            "maximum": 2.327088245282963,
+            "mean": 0.14770658795900476,
+            "q50": 0.12169557057978242,
+            "q90": 0.2552832079963071,
+            "q99": 0.46788328076042723,
+            "weight": 2.8865001357350218e+69
+          },
+          "outer_tau_unattenuated_source_weight": {
+            "maximum": 2.327088245282963,
+            "mean": 0.20269646031930882,
+            "q50": 0.16026583804239708,
+            "q90": 0.3725897238221963,
+            "q99": 0.813967798125615,
+            "weight": 1.0300773707750701e+70
+          },
+          "source_weight_fraction": 0.30266205873599245
+        },
+        "inward_radial": {
+          "cos_theta_range": [
+            -1.0,
+            -0.8
+          ],
+          "full_path_escape_probability": 0.25510569147997747,
+          "full_tau_unattenuated_source_weight": {
+            "maximum": 8.430852216945663,
+            "mean": 1.5099950434659266,
+            "q50": 1.3842140009003647,
+            "q90": 2.2614883774734844,
+            "q99": 3.6192272587067382,
+            "weight": 3.4215194317239564e+69
+          },
+          "outer_shell_escape_probability": 0.8344441096882914,
+          "outer_tau_conditioned_on_full_escape": {
+            "maximum": 1.970874040364719,
+            "mean": 0.13733640088840132,
+            "q50": 0.11148231134418031,
+            "q90": 0.24262087824612788,
+            "q99": 0.43233944617866527,
+            "weight": 8.728490805421195e+68
+          },
+          "outer_tau_unattenuated_source_weight": {
+            "maximum": 1.970874040364719,
+            "mean": 0.18976527302384125,
+            "q50": 0.15281249431512092,
+            "q90": 0.3348171958613035,
+            "q99": 0.756859702437867,
+            "weight": 3.4215194317239564e+69
+          },
+          "source_weight_fraction": 0.10053265362305522
+        },
+        "outward_oblique": {
+          "cos_theta_range": [
+            0.2,
+            0.8
+          ],
+          "full_path_escape_probability": 0.42271810079566874,
+          "full_tau_unattenuated_source_weight": {
+            "maximum": 7.3052006511940455,
+            "mean": 0.9572462667992357,
+            "q50": 0.8281988142192386,
+            "q90": 1.5667973142057656,
+            "q99": 2.8367881172111655,
+            "weight": 1.0300773707750701e+70
+          },
+          "outer_shell_escape_probability": 0.8249675730594115,
+          "outer_tau_conditioned_on_full_escape": {
+            "maximum": 2.327088245282963,
+            "mean": 0.1549796146927805,
+            "q50": 0.1341093654945082,
+            "q90": 0.26417311229414625,
+            "q99": 0.5038065910834836,
+            "weight": 4.3543234984663354e+69
+          },
+          "outer_tau_unattenuated_source_weight": {
+            "maximum": 2.327088245282963,
+            "mean": 0.2026964603193088,
+            "q50": 0.16026583804239708,
+            "q90": 0.3725897238221963,
+            "q99": 0.813967798125615,
+            "weight": 1.0300773707750701e+70
+          },
+          "source_weight_fraction": 0.30266205873599245
+        },
+        "outward_radial": {
+          "cos_theta_range": [
+            0.8,
+            1.0
+          ],
+          "full_path_escape_probability": 0.4786230959866204,
+          "full_tau_unattenuated_source_weight": {
+            "maximum": 5.293648170619077,
+            "mean": 0.8097906753269967,
+            "q50": 0.6976597611845781,
+            "q90": 1.3328140902383974,
+            "q99": 2.4245520656987267,
+            "weight": 3.4215194317239564e+69
+          },
+          "outer_shell_escape_probability": 0.8344441096882914,
+          "outer_tau_conditioned_on_full_escape": {
+            "maximum": 1.970874040364719,
+            "mean": 0.15005858564581245,
+            "q50": 0.1296014773441008,
+            "q90": 0.24978060696313062,
+            "q99": 0.4867658859180873,
+            "weight": 1.637618223390102e+69
+          },
+          "outer_tau_unattenuated_source_weight": {
+            "maximum": 1.970874040364719,
+            "mean": 0.18976527302384125,
+            "q50": 0.15281249431512092,
+            "q90": 0.3348171958613035,
+            "q99": 0.756859702437867,
+            "weight": 3.4215194317239564e+69
+          },
+          "source_weight_fraction": 0.10053265362305522
+        },
+        "tangential": {
+          "cos_theta_range": [
+            -0.2,
+            0.2
+          ],
+          "full_path_escape_probability": 0.3501278058469389,
+          "full_tau_unattenuated_source_weight": {
+            "maximum": 8.401543596351402,
+            "mean": 1.172090980448149,
+            "q50": 1.0294852310659603,
+            "q90": 1.8703906625919635,
+            "q99": 3.307626858379585,
+            "weight": 6.5893251758588075e+69
+          },
+          "outer_shell_escape_probability": 0.8196716236090048,
+          "outer_tau_conditioned_on_full_escape": {
+            "maximum": 2.362873280280985,
+            "mean": 0.15510388900138095,
+            "q50": 0.13648600965597726,
+            "q90": 0.26627910309075337,
+            "q99": 0.5023699498889448,
+            "weight": 2.307105965835439e+69
+          },
+          "outer_tau_unattenuated_source_weight": {
+            "maximum": 2.362873280280985,
+            "mean": 0.210063960462008,
+            "q50": 0.164568030804701,
+            "q90": 0.3859677494485084,
+            "q99": 0.8556501699571558,
+            "weight": 6.5893251758588075e+69
+          },
+          "source_weight_fraction": 0.19361057528190473
+        }
+      },
+      "emission_shell_direction_joint": {
+        "10-12 km": {
+          "inward_oblique": {
+            "full_escape_probability": 0.2674091923527259,
+            "outer_tau_escape_probability": 0.8206185191653244,
+            "outer_tau_q50_q90_q99": [
+              0.16609746191800537,
+              0.35834091605744983,
+              0.7797682657384121
+            ],
+            "source_weight_fraction": 0.0990159989831109
+          },
+          "inward_radial": {
+            "full_escape_probability": 0.2358525751603298,
+            "outer_tau_escape_probability": 0.8305651233609277,
+            "outer_tau_q50_q90_q99": [
+              0.1548544175633344,
+              0.3319657802428922,
+              0.745416205715582
+            ],
+            "source_weight_fraction": 0.03288929299722004
+          },
+          "outward_oblique": {
+            "full_escape_probability": 0.4231675013368991,
+            "outer_tau_escape_probability": 0.8206185191653245,
+            "outer_tau_q50_q90_q99": [
+              0.16609746191800537,
+              0.35834091605744983,
+              0.7797682657384121
+            ],
+            "source_weight_fraction": 0.09901599898311092
+          },
+          "outward_radial": {
+            "full_escape_probability": 0.4809973042011517,
+            "outer_tau_escape_probability": 0.8305651233609277,
+            "outer_tau_q50_q90_q99": [
+              0.1548544175633344,
+              0.3319657802428922,
+              0.745416205715582
+            ],
+            "source_weight_fraction": 0.03288929299722004
+          },
+          "tangential": {
+            "full_escape_probability": 0.348520130999438,
+            "outer_tau_escape_probability": 0.8151234770779041,
+            "outer_tau_q50_q90_q99": [
+              0.17180551303438463,
+              0.3670698083789786,
+              0.8235257690240589
+            ],
+            "source_weight_fraction": 0.06333976780999424
+          }
+        },
+        "12-15 km": {
+          "inward_oblique": {
+            "full_escape_probability": 0.19338716713490953,
+            "outer_tau_escape_probability": 0.7464310921896453,
+            "outer_tau_q50_q90_q99": [
+              0.25498944781879224,
+              0.5512836354241597,
+              1.11642635753153
+            ],
+            "source_weight_fraction": 0.05181241229168264
+          },
+          "inward_radial": {
+            "full_escape_probability": 0.15478743992613894,
+            "outer_tau_escape_probability": 0.7667662975711754,
+            "outer_tau_q50_q90_q99": [
+              0.22082964404160432,
+              0.49419338542500907,
+              1.0107074102893503
+            ],
+            "source_weight_fraction": 0.017210083484029463
+          },
+          "outward_oblique": {
+            "full_escape_probability": 0.3470822339904556,
+            "outer_tau_escape_probability": 0.7464310921896452,
+            "outer_tau_q50_q90_q99": [
+              0.25498944781879224,
+              0.5512836354241597,
+              1.11642635753153
+            ],
+            "source_weight_fraction": 0.05181241229168264
+          },
+          "outward_radial": {
+            "full_escape_probability": 0.4164818583848417,
+            "outer_tau_escape_probability": 0.7667662975711753,
+            "outer_tau_q50_q90_q99": [
+              0.22082964404160432,
+              0.49419338542500907,
+              1.0107074102893503
+            ],
+            "source_weight_fraction": 0.017210083484029467
+          },
+          "tangential": {
+            "full_escape_probability": 0.26415681594800977,
+            "outer_tau_escape_probability": 0.7345138402724433,
+            "outer_tau_q50_q90_q99": [
+              0.26698514054078387,
+              0.5883721925559504,
+              1.1898146507470193
+            ],
+            "source_weight_fraction": 0.03314399892880585
+          }
+        },
+        "8-10 km": {
+          "inward_oblique": {
+            "full_escape_probability": 0.31820896140877625,
+            "outer_tau_escape_probability": 0.8546038922676854,
+            "outer_tau_q50_q90_q99": [
+              0.13418411690512044,
+              0.29266699389390693,
+              0.6343837840396582
+            ],
+            "source_weight_fraction": 0.15183364746119887
+          },
+          "inward_radial": {
+            "full_escape_probability": 0.3018943794592452,
+            "outer_tau_escape_probability": 0.8600684194227397,
+            "outer_tau_q50_q90_q99": [
+              0.12932599674423956,
+              0.2815274163332095,
+              0.6079466563061895
+            ],
+            "source_weight_fraction": 0.05043327714180572
+          },
+          "outward_oblique": {
+            "full_escape_probability": 0.44823536219457644,
+            "outer_tau_escape_probability": 0.8546038922676854,
+            "outer_tau_q50_q90_q99": [
+              0.13418411690512044,
+              0.29266699389390693,
+              0.6343837840396582
+            ],
+            "source_weight_fraction": 0.15183364746119887
+          },
+          "outward_radial": {
+            "full_escape_probability": 0.49828015405437026,
+            "outer_tau_escape_probability": 0.8600684194227397,
+            "outer_tau_q50_q90_q99": [
+              0.12932599674423956,
+              0.2815274163332095,
+              0.6079466563061895
+            ],
+            "source_weight_fraction": 0.05043327714180571
+          },
+          "tangential": {
+            "full_escape_probability": 0.3805133625530814,
+            "outer_tau_escape_probability": 0.8516972617576295,
+            "outer_tau_q50_q90_q99": [
+              0.1378503691348615,
+              0.29999989613677214,
+              0.6462413362542653
+            ],
+            "source_weight_fraction": 0.09712680854310465
+          }
+        }
+      },
+      "emission_shells": {
+        "10-12 km": {
+          "full_path_escape_probability": 0.3485553675088995,
+          "full_tau_unattenuated_source_weight": {
+            "maximum": 7.094439289786755,
+            "mean": 1.1893909695298968,
+            "q50": 1.077553661260672,
+            "q90": 1.9140829624178872,
+            "q99": 3.1631738305318757,
+            "weight": 1.1134206104571841e+70
+          },
+          "outer_shell_escape_probability": 0.8215545379342251,
+          "outer_tau_conditioned_on_full_escape": {
+            "maximum": 1.899201214670062,
+            "mean": 0.15917820652679254,
+            "q50": 0.13897620482945092,
+            "q90": 0.2656756454975083,
+            "q99": 0.47722565299654623,
+            "weight": 3.88088730069887e+69
+          },
+          "outer_tau_unattenuated_source_weight": {
+            "maximum": 1.899201214670062,
+            "mean": 0.20552494153972906,
+            "q50": 0.1665918201387156,
+            "q90": 0.3603347469486122,
+            "q99": 0.7653129797495998,
+            "weight": 1.1134206104571841e+70
+          },
+          "source_fraction_within_8_15km": 0.32715035177065616
+        },
+        "12-15 km": {
+          "full_path_escape_probability": 0.2721543532213259,
+          "full_tau_unattenuated_source_weight": {
+            "maximum": 8.547955304816975,
+            "mean": 1.5325925292442,
+            "q50": 1.388163104307352,
+            "q90": 2.5130937254277663,
+            "q99": 4.2035860861106045,
+            "weight": 5.82623094404214e+69
+          },
+          "outer_shell_escape_probability": 0.7482124905081264,
+          "outer_tau_conditioned_on_full_escape": {
+            "maximum": 2.362873280280985,
+            "mean": 0.22550843111083405,
+            "q50": 0.1988823778969681,
+            "q90": 0.3751911942751127,
+            "q99": 0.644991102892374,
+            "weight": 1.585634114293864e+69
+          },
+          "outer_tau_unattenuated_source_weight": {
+            "maximum": 2.362873280280985,
+            "mean": 0.30814675065979025,
+            "q50": 0.24874198138383324,
+            "q90": 0.5487300536080906,
+            "q99": 1.1108894948820969,
+            "weight": 5.82623094404214e+69
+          },
+          "source_fraction_within_8_15km": 0.17118899048023
+        },
+        "8-10 km": {
+          "full_path_escape_probability": 0.3860886971303741,
+          "full_tau_unattenuated_source_weight": {
+            "maximum": 6.365908241072426,
+            "mean": 1.047027304055721,
+            "q50": 0.9525766439493254,
+            "q90": 1.6491924961781128,
+            "q99": 2.72694091605882,
+            "weight": 1.7073474406194143e+70
+          },
+          "outer_shell_escape_probability": 0.8551398646938871,
+          "outer_tau_conditioned_on_full_escape": {
+            "maximum": 1.6739894799246178,
+            "mean": 0.1288424906196117,
+            "q50": 0.11255929888913065,
+            "q90": 0.217825640534103,
+            "q99": 0.39598125325546796,
+            "weight": 6.591875488976285e+69
+          },
+          "outer_tau_unattenuated_source_weight": {
+            "maximum": 1.6739894799246178,
+            "mean": 0.16252816274642698,
+            "q50": 0.13315884621032126,
+            "q90": 0.29094721024983355,
+            "q99": 0.632856897241902,
+            "weight": 1.7073474406194143e+70
+          },
+          "source_fraction_within_8_15km": 0.5016606577491138
+        }
+      },
+      "full_path_escape_probability_8_15km": 0.3543053498267675,
+      "full_tau_unattenuated_source_weight": {
+        "maximum": 8.547955304816975,
+        "mean": 1.1767250480072788,
+        "q50": 1.0452586614093555,
+        "q90": 1.9251825393940862,
+        "q99": 3.299357316067886,
+        "weight": 3.403391145480812e+70
+      },
+      "g": 1.1341108687336194e-08,
+      "outer_shell_escape_probability_8_15km": 0.825847623988569,
+      "outer_tau_conditioned_on_full_escape": {
+        "maximum": 2.362873280280985,
+        "mean": 0.15131697953494735,
+        "q50": 0.12977320131915265,
+        "q90": 0.25910279108080975,
+        "q99": 0.4886996443696729,
+        "weight": 1.205839690396902e+70
+      },
+      "outer_tau_unattenuated_source_weight": {
+        "maximum": 2.362873280280985,
+        "mean": 0.20152287311370617,
+        "q50": 0.15913680895639237,
+        "q90": 0.37108574660260885,
+        "q99": 0.8114333974507293,
+        "weight": 3.403391145480812e+70
+      },
+      "selected_8_15km_source_fraction_of_global_B1": 0.7923233149765334
+    },
+    "strong_endpoint": {
+      "directions": {
+        "inward_oblique": {
+          "cos_theta_range": [
+            -0.8,
+            -0.2
+          ],
+          "full_path_escape_probability": 1.3953932711590964e-05,
+          "full_tau_unattenuated_source_weight": {
+            "maximum": 115.65787309376307,
+            "mean": 19.082704593567435,
+            "q50": 17.306919166496694,
+            "q90": 29.13333785257157,
+            "q99": 48.71078879778246,
+            "weight": 1.0300773707750701e+70
+          },
+          "outer_shell_escape_probability": 0.14867770143402734,
+          "outer_tau_conditioned_on_full_escape": {
+            "maximum": 31.486603211326408,
+            "mean": 0.7779110249438684,
+            "q50": 0.7664429843884477,
+            "q90": 1.119245921598413,
+            "q99": 1.5720209523254725,
+            "weight": 1.4373630319527865e+65
+          },
+          "outer_tau_unattenuated_source_weight": {
+            "maximum": 31.486603211326408,
+            "mean": 2.7425788563675186,
+            "q50": 2.168472493898941,
+            "q90": 5.041314964478572,
+            "q99": 11.013368804697777,
+            "weight": 1.0300773707750701e+70
+          },
+          "source_weight_fraction": 0.30266205873599245
+        },
+        "inward_radial": {
+          "cos_theta_range": [
+            -1.0,
+            -0.8
+          ],
+          "full_path_escape_probability": 8.739812323247912e-06,
+          "full_tau_unattenuated_source_weight": {
+            "maximum": 114.07341299857802,
+            "mean": 20.43094621832873,
+            "q50": 18.729069296902733,
+            "q90": 30.599006012286207,
+            "q99": 48.969854433972685,
+            "weight": 3.4215194317239564e+69
+          },
+          "outer_shell_escape_probability": 0.16127360948161623,
+          "outer_tau_conditioned_on_full_escape": {
+            "maximum": 26.666856752964204,
+            "mean": 0.6555619042317197,
+            "q50": 0.6247082337460897,
+            "q90": 0.892467310162142,
+            "q99": 1.2579604601621297,
+            "weight": 2.990343769361323e+64
+          },
+          "outer_tau_unattenuated_source_weight": {
+            "maximum": 26.666856752964204,
+            "mean": 2.5676137839217055,
+            "q50": 2.067625232513786,
+            "q90": 4.5302348184617,
+            "q99": 10.240669293744793,
+            "weight": 3.4215194317239564e+69
+          },
+          "source_weight_fraction": 0.10053265362305522
+        },
+        "outward_oblique": {
+          "cos_theta_range": [
+            0.2,
+            0.8
+          ],
+          "full_path_escape_probability": 0.0005886275471215375,
+          "full_tau_unattenuated_source_weight": {
+            "maximum": 98.84281558703904,
+            "mean": 12.951994166669898,
+            "q50": 11.205921174786104,
+            "q90": 21.19950777327319,
+            "q99": 38.383083246751845,
+            "weight": 1.0300773707750701e+70
+          },
+          "outer_shell_escape_probability": 0.14867770143402734,
+          "outer_tau_conditioned_on_full_escape": {
+            "maximum": 31.486603211326408,
+            "mean": 0.9114216699021689,
+            "q50": 0.9011200690295226,
+            "q90": 1.3210064002029014,
+            "q99": 1.8804136998890892,
+            "weight": 6.06331916104732e+66
+          },
+          "outer_tau_unattenuated_source_weight": {
+            "maximum": 31.486603211326408,
+            "mean": 2.7425788563675186,
+            "q50": 2.168472493898941,
+            "q90": 5.041314964478572,
+            "q99": 11.013368804697777,
+            "weight": 1.0300773707750701e+70
+          },
+          "source_weight_fraction": 0.30266205873599245
+        },
+        "outward_radial": {
+          "cos_theta_range": [
+            0.8,
+            1.0
+          ],
+          "full_path_escape_probability": 0.0014498569488398622,
+          "full_tau_unattenuated_source_weight": {
+            "maximum": 71.62556032265093,
+            "mean": 10.956850360074254,
+            "q50": 9.439666124159581,
+            "q90": 18.03360422573857,
+            "q99": 32.80533474078672,
+            "weight": 3.4215194317239564e+69
+          },
+          "outer_shell_escape_probability": 0.16127360948161623,
+          "outer_tau_conditioned_on_full_escape": {
+            "maximum": 26.666856752964204,
+            "mean": 0.9202030440446688,
+            "q50": 0.8853614786054401,
+            "q90": 1.28110275323171,
+            "q99": 2.043771206219833,
+            "weight": 4.9607137236755935e+66
+          },
+          "outer_tau_unattenuated_source_weight": {
+            "maximum": 26.666856752964204,
+            "mean": 2.567613783921705,
+            "q50": 2.067625232513786,
+            "q90": 4.5302348184617,
+            "q99": 10.240669293744793,
+            "weight": 3.4215194317239564e+69
+          },
+          "source_weight_fraction": 0.10053265362305522
+        },
+        "tangential": {
+          "cos_theta_range": [
+            -0.2,
+            0.2
+          ],
+          "full_path_escape_probability": 0.000109712961591072,
+          "full_tau_unattenuated_source_weight": {
+            "maximum": 113.67685351734931,
+            "mean": 15.858944629088572,
+            "q50": 13.929421476903666,
+            "q90": 25.30726918610773,
+            "q99": 44.75375382606535,
+            "weight": 6.5893251758588075e+69
+          },
+          "outer_shell_escape_probability": 0.14221890705796292,
+          "outer_tau_conditioned_on_full_escape": {
+            "maximum": 31.970791638718485,
+            "mean": 0.8657638337937484,
+            "q50": 0.8103242626670595,
+            "q90": 1.2044753758659743,
+            "q99": 1.7161417440441271,
+            "weight": 7.22934379930081e+65
+          },
+          "outer_tau_unattenuated_source_weight": {
+            "maximum": 31.970791638718485,
+            "mean": 2.842264613503193,
+            "q50": 2.226683194210752,
+            "q90": 5.222325970614881,
+            "q99": 11.577350985187502,
+            "weight": 6.5893251758588075e+69
+          },
+          "source_weight_fraction": 0.19361057528190473
+        }
+      },
+      "emission_shell_direction_joint": {
+        "10-12 km": {
+          "inward_oblique": {
+            "full_escape_probability": 9.891369167913965e-06,
+            "outer_tau_escape_probability": 0.13169826439895552,
+            "outer_tau_q50_q90_q99": [
+              2.2473771196350607,
+              4.848521864675653,
+              10.550632976578019
+            ],
+            "source_weight_fraction": 0.0990159989831109
+          },
+          "inward_radial": {
+            "full_escape_probability": 1.8586579196911154e-06,
+            "outer_tau_escape_probability": 0.14596383282098527,
+            "outer_tau_q50_q90_q99": [
+              2.0952534186106404,
+              4.49165381821408,
+              10.085833377498354
+            ],
+            "source_weight_fraction": 0.03288929299722004
+          },
+          "outward_oblique": {
+            "full_escape_probability": 0.0006343175699301939,
+            "outer_tau_escape_probability": 0.13169826439895552,
+            "outer_tau_q50_q90_q99": [
+              2.2473771196350607,
+              4.848521864675653,
+              10.550632976578019
+            ],
+            "source_weight_fraction": 0.09901599898311092
+          },
+          "outward_radial": {
+            "full_escape_probability": 0.0015864354043272832,
+            "outer_tau_escape_probability": 0.14596383282098527,
+            "outer_tau_q50_q90_q99": [
+              2.0952534186106404,
+              4.49165381821408,
+              10.085833377498354
+            ],
+            "source_weight_fraction": 0.03288929299722004
+          },
+          "tangential": {
+            "full_escape_probability": 0.00011522228875893963,
+            "outer_tau_escape_probability": 0.12434041324084431,
+            "outer_tau_q50_q90_q99": [
+              2.3246097475664302,
+              4.96662790107521,
+              11.14269266587697
+            ],
+            "source_weight_fraction": 0.06333976780999424
+          }
+        },
+        "12-15 km": {
+          "inward_oblique": {
+            "full_escape_probability": 3.023398145884754e-06,
+            "outer_tau_escape_probability": 0.06115130760197276,
+            "outer_tau_q50_q90_q99": [
+              3.4501276790082667,
+              7.459127998554857,
+              15.105775986585904
+            ],
+            "source_weight_fraction": 0.05181241229168264
+          },
+          "inward_radial": {
+            "full_escape_probability": 7.640480830199932e-08,
+            "outer_tau_escape_probability": 0.07465497127250155,
+            "outer_tau_q50_q90_q99": [
+              2.9879293977487182,
+              6.686669948198409,
+              13.67534869166873
+            ],
+            "source_weight_fraction": 0.017210083484029463
+          },
+          "outward_oblique": {
+            "full_escape_probability": 0.0002510957509340394,
+            "outer_tau_escape_probability": 0.06115130760197276,
+            "outer_tau_q50_q90_q99": [
+              3.4501276790082667,
+              7.459127998554857,
+              15.105775986585904
+            ],
+            "source_weight_fraction": 0.05181241229168264
+          },
+          "outward_radial": {
+            "full_escape_probability": 0.0007256181113755415,
+            "outer_tau_escape_probability": 0.07465497127250155,
+            "outer_tau_q50_q90_q99": [
+              2.9879293977487182,
+              6.686669948198409,
+              13.67534869166873
+            ],
+            "source_weight_fraction": 0.017210083484029467
+          },
+          "tangential": {
+            "full_escape_probability": 3.673848359407007e-05,
+            "outer_tau_escape_probability": 0.05428264866329651,
+            "outer_tau_q50_q90_q99": [
+              3.612435067972977,
+              7.960953696164921,
+              16.098754260407926
+            ],
+            "source_weight_fraction": 0.03314399892880585
+          }
+        },
+        "8-10 km": {
+          "inward_oblique": {
+            "full_escape_probability": 2.0333257501532067e-05,
+            "outer_tau_escape_probability": 0.18961849175138842,
+            "outer_tau_q50_q90_q99": [
+              1.8155744866220245,
+              3.9599226752437247,
+              8.583512263553066
+            ],
+            "source_weight_fraction": 0.15183364746119887
+          },
+          "inward_radial": {
+            "full_escape_probability": 1.61835933186908e-05,
+            "outer_tau_escape_probability": 0.20081578952988066,
+            "outer_tau_q50_q90_q99": [
+              1.749841826002615,
+              3.8091989288166412,
+              8.225805437145343
+            ],
+            "source_weight_fraction": 0.05043327714180572
+          },
+          "outward_oblique": {
+            "full_escape_probability": 0.0006740123979133993,
+            "outer_tau_escape_probability": 0.18961849175138842,
+            "outer_tau_q50_q90_q99": [
+              1.8155744866220245,
+              3.9599226752437247,
+              8.583512263553066
+            ],
+            "source_weight_fraction": 0.15183364746119887
+          },
+          "outward_radial": {
+            "full_escape_probability": 0.0016079319831686424,
+            "outer_tau_escape_probability": 0.2008157895298807,
+            "outer_tau_q50_q90_q99": [
+              1.749841826002615,
+              3.8091989288166412,
+              8.225805437145343
+            ],
+            "source_weight_fraction": 0.05043327714180571
+          },
+          "tangential": {
+            "full_escape_probability": 0.00013102228440324114,
+            "outer_tau_escape_probability": 0.1838858676212628,
+            "outer_tau_q50_q90_q99": [
+              1.8651806111273979,
+              4.059140306451546,
+              8.743950546199077
+            ],
+            "source_weight_fraction": 0.09712680854310465
+          }
+        }
+      },
+      "emission_shells": {
+        "10-12 km": {
+          "full_path_escape_probability": 0.00037696127418690927,
+          "full_tau_unattenuated_source_weight": {
+            "maximum": 95.9911148093131,
+            "mean": 16.093021653404872,
+            "q50": 14.579810043645875,
+            "q90": 25.898446641796305,
+            "q99": 42.79923612363828,
+            "weight": 1.1134206104571841e+70
+          },
+          "outer_shell_escape_probability": 0.1331420175012108,
+          "outer_tau_conditioned_on_full_escape": {
+            "maximum": 25.697089565038844,
+            "mean": 0.9781209717968979,
+            "q50": 0.9243484269773383,
+            "q90": 1.3531283600619277,
+            "q99": 1.8784110506184404,
+            "weight": 4.197164520239065e+66
+          },
+          "outer_tau_unattenuated_source_weight": {
+            "maximum": 25.697089565038844,
+            "mean": 2.780849543376739,
+            "q50": 2.254066019882532,
+            "q90": 4.8754993384640954,
+            "q99": 10.35504612886884,
+            "weight": 1.1134206104571841e+70
+          },
+          "source_fraction_within_8_15km": 0.32715035177065616
+        },
+        "12-15 km": {
+          "full_path_escape_probability": 0.00015698117920006212,
+          "full_tau_unattenuated_source_weight": {
+            "maximum": 115.65787309376307,
+            "mean": 20.73670087534113,
+            "q50": 18.782502531447378,
+            "q90": 34.00334522157172,
+            "q99": 56.876505403826314,
+            "weight": 5.82623094404214e+69
+          },
+          "outer_shell_escape_probability": 0.06253658087830347,
+          "outer_tau_conditioned_on_full_escape": {
+            "maximum": 31.970791638718485,
+            "mean": 1.2702040001003034,
+            "q50": 1.2229008614785568,
+            "q90": 1.7826907498400009,
+            "q99": 2.4577843873022363,
+            "weight": 9.146086038876264e+65
+          },
+          "outer_tau_unattenuated_source_weight": {
+            "maximum": 31.970791638718485,
+            "mean": 4.169371096498564,
+            "q50": 3.365596507011515,
+            "q90": 7.4245768303414446,
+            "q99": 15.030859619477052,
+            "weight": 5.82623094404214e+69
+          },
+          "source_fraction_within_8_15km": 0.17118899048023
+        },
+        "8-10 km": {
+          "full_path_escape_probability": 0.0003987960340951456,
+          "full_tau_unattenuated_source_weight": {
+            "maximum": 86.13374558212665,
+            "mean": 14.166774010849178,
+            "q50": 12.88881196370888,
+            "q90": 22.314353506582655,
+            "q99": 36.89679872635624,
+            "weight": 1.7073474406194143e+70
+          },
+          "outer_shell_escape_probability": 0.1907599832138386,
+          "outer_tau_conditioned_on_full_escape": {
+            "maximum": 22.649868410087738,
+            "mean": 0.8197201377818589,
+            "q50": 0.7686196730237828,
+            "q90": 1.1212043382734138,
+            "q99": 1.5722053349106127,
+            "weight": 6.808833881415197e+66
+          },
+          "outer_tau_unattenuated_source_weight": {
+            "maximum": 22.649868410087738,
+            "mean": 2.199082815804593,
+            "q50": 1.8017020898116414,
+            "q90": 3.9366531901607966,
+            "q99": 8.562852763919988,
+            "weight": 1.7073474406194143e+70
+          },
+          "source_fraction_within_8_15km": 0.5016606577491138
+        }
+      },
+      "full_path_escape_probability_8_15km": 0.0003502567438177257,
+      "full_tau_unattenuated_source_weight": {
+        "maximum": 115.65787309376307,
+        "mean": 15.92164575216999,
+        "q50": 14.142843440385585,
+        "q90": 26.04862916141994,
+        "q99": 44.64186301228314,
+        "weight": 3.403391145480812e+70
+      },
+      "g": 4.171689650228597e-08,
+      "outer_shell_escape_probability_8_15km": 0.14995981066088218,
+      "outer_tau_conditioned_on_full_escape": {
+        "maximum": 31.970791638718485,
+        "mean": 0.9100553678915799,
+        "q50": 0.8831092512110842,
+        "q90": 1.3065308103063185,
+        "q99": 1.8754053524709484,
+        "weight": 1.1920607005541888e+67
+      },
+      "outer_tau_unattenuated_source_weight": {
+        "maximum": 31.970791638718485,
+        "mean": 2.7266996671053136,
+        "q50": 2.1531961970429294,
+        "q90": 5.020965442259974,
+        "q99": 10.97907716638522,
+        "weight": 3.403391145480812e+70
+      },
+      "selected_8_15km_source_fraction_of_global_B1": 0.7923233149765334
+    }
+  },
+  "fig7_reference": {
+    "path": "/home/runner/work/axial-vector-review-response/axial-vector-review-response/research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json",
+    "sha256": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4"
+  },
+  "geometry": {
+    "impact_parameter_range_km": [
+      0.3033770104337222,
+      14.78731854454337
+    ],
+    "outer_shell_path_length_formula": "sqrt(25^2-b^2)-sqrt(22^2-b^2)",
+    "outer_shell_path_length_range_km": [
+      3.0002510433446226,
+      3.8686448227865604
+    ]
+  },
+  "mass_MeV": 10.0,
+  "profile": {
+    "path": "/home/runner/work/axial-vector-review-response/axial-vector-review-response/research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv",
+    "radial_nodes": 501,
+    "sha256": "08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9"
+  },
+  "scope": [
+    "B.1 source is held fixed and restricted to emission radii 8--15 km.",
+    "The full fixed-omega B.2 opacity is evaluated on the 0.05 km reconstructed profile.",
+    "The 22--25 km shell is independently integrated in r using ds/dr=r/sqrt(r^2-b^2).",
+    "The final shell's path-mask quadrature is replaced by the direct radial-coordinate result.",
+    "The profile is reconstructed from public figures, not the original raw Garching snapshot.",
+    "No rescaling or axial-current substitution is applied."
+  ],
+  "selected_source": {
+    "global_source_fraction_8_15km": 0.7923233149765334,
+    "radius_range_km": [
+      8.138863688405948,
+      14.791704467391078
+    ],
+    "source_fraction_within_8_15km_by_shell": {
+      "10-12 km": {
+        "source_fraction_within_8_15km": 0.32715035177065616
+      },
+      "12-15 km": {
+        "source_fraction_within_8_15km": 0.17118899048023
+      },
+      "8-10 km": {
+        "source_fraction_within_8_15km": 0.5016606577491138
+      }
+    }
+  },
+  "source_measure": {
+    "energy_lower_bound_MeV": [
+      13.577911289892436,
+      13.52786579121121,
+      13.392157171271514,
+      13.22378913911817,
+      13.143087400811105,
+      13.023253465891175,
+      12.842294019627978,
+      12.708884225126026,
+      12.646395838533683,
+      12.54940223882212,
+      12.436861349144046,
+      12.342118647857529,
+      12.299530976241403,
+      12.20703727752268,
+      12.100472533181202,
+      12.013148985494709,
+      11.958878527967004,
+      11.847329367828499,
+      11.701348120741962,
+      11.605216993557029,
+      11.550758419009144,
+      11.465958491217298,
+      11.358901431390374,
+      11.291052748441047,
+      11.261256745345127,
+      11.2175389867309,
+      11.169438080586358,
+      11.131581483406327,
+      11.115100472577092,
+      11.080777352601432,
+      11.042742107058428,
+      11.012501356299667,
+      10.999368614572766,
+      10.971675220104393,
+      10.940823842455481,
+      10.916257011443788,
+      10.907668969101755,
+      10.89705831785783,
+      10.8826141661346,
+      10.872578934365029
+    ],
+    "energy_weight_row_sums_MeV": [
+      996.4220887101076,
+      996.4721342087888,
+      996.6078428287285,
+      996.7762108608819,
+      996.856912599189,
+      996.9767465341088,
+      997.157705980372,
+      997.2911157748739,
+      997.3536041614663,
+      997.4505977611778,
+      997.563138650856,
+      997.6578813521425,
+      997.7004690237586,
+      997.7929627224773,
+      997.8995274668188,
+      997.9868510145053,
+      998.041121472033,
+      998.1526706321715,
+      998.298651879258,
+      998.394783006443,
+      998.4492415809909,
+      998.5340415087827,
+      998.6410985686096,
+      998.7089472515589,
+      998.7387432546549,
+      998.7824610132691,
+      998.8305619194136,
+      998.8684185165937,
+      998.8848995274229,
+      998.9192226473986,
+      998.9572578929416,
+      998.9874986437003,
+      999.0006313854273,
+      999.0283247798956,
+      999.0591761575445,
+      999.0837429885562,
+      999.0923310308983,
+      999.1029416821422,
+      999.1173858338655,
+      999.127421065635
+    ],
+    "radial_measure_MeVminus3": [
+      9.297795624133536e+46,
+      3.967062089865224e+48,
+      1.668441506965736e+49,
+      1.760812328709554e+49,
+      1.3400969421660736e+49,
+      3.384579864459416e+49,
+      4.766869689883804e+49,
+      3.207671358143545e+49,
+      2.35636475152497e+49,
+      5.079094947831036e+49,
+      6.015408565116652e+49,
+      3.6318090006249964e+49,
+      3.865894319787557e+49,
+      8.133737231483963e+49,
+      9.367306321483089e+49,
+      5.546095940716428e+49,
+      8.893422569658604e+49,
+      1.9233807415956553e+50,
+      2.2934469156211704e+50,
+      1.386339767850813e+50,
+      1.4793803795206126e+50,
+      3.111456447415335e+50,
+      3.587736162873431e+50,
+      2.118878279060724e+50,
+      1.4760291846549157e+50,
+      2.9513703613100637e+50,
+      3.197747469807883e+50,
+      1.8111021879370037e+50,
+      1.8676334755840414e+50,
+      3.7077948739695753e+50,
+      3.983170756136662e+50,
+      2.2419298794863884e+50,
+      2.304749078419452e+50,
+      4.54955978870558e+50,
+      4.853954181328699e+50,
+      2.7182115262822543e+50,
+      1.3851164722218191e+50,
+      2.658463708254916e+50,
+      2.7405405436965026e+50,
+      1.4956078231000204e+50
+    ],
+    "spectral_measure_MeV3": [
+      0.07164505723142932,
+      0.07863039804806636,
+      0.08629681261514145,
+      0.0947107085384972,
+      0.10394496927910277,
+      0.11407958595505116,
+      0.12520235081567474,
+      0.13740961853808542,
+      0.15080714196106204,
+      0.16551098954923749,
+      0.18164855275936187,
+      0.19935965206049203,
+      0.21879775151618677,
+      0.24013129262390712,
+      0.2635451594008054,
+      0.2892422878327101,
+      0.3174454343043643,
+      0.348399119130567,
+      0.3823717631472521,
+      0.41965803732812074,
+      0.4605814477293553,
+      0.5054971806796886,
+      0.5547952362770104,
+      0.6089038817903616,
+      0.6682934607971123,
+      0.7334805988743319,
+      0.8050328526194169,
+      0.8835738559416061,
+      0.9697890262986213,
+      1.0644319042285053,
+      1.168331212742348,
+      1.2823987395931649,
+      1.4076381661067856,
+      1.5451549923545127,
+      1.6961677416971483,
+      1.8620206702343038,
+      2.044198261426724,
+      2.244341856907379,
+      2.4642688663930072,
+      2.7059951194546334,
+      2.971761078751791,
+      3.2640628403961123,
+      3.585689118655341,
+      3.939765771296404,
+      4.32980989824611,
+      4.759796180383348,
+      5.234238972456249,
+      5.75829480021401,
+      6.337891441808585,
+      6.979891843357755,
+      7.692303933088604,
+      8.484551247302244,
+      9.367824577676526,
+      10.355542188058871,
+      11.463956394795838,
+      12.712958727754385,
+      14.127156373021656,
+      15.737321964537431,
+      17.582361310314397,
+      19.712005833900836,
+      22.19052844973278,
+      25.10191894946861,
+      25.5733618049544,
+      25.782498891286323,
+      26.062782186885816,
+      26.28353048667809,
+      26.46185644746621,
+      26.925858612006646,
+      27.568034455399236,
+      28.089669432805312,
+      28.380054482104285,
+      28.55716239545527,
+      28.948984546516815,
+      29.73827754268817,
+      30.384364868354414,
+      30.748566083290967,
+      31.46094554287928,
+      32.46101343346181,
+      32.70458056911395,
+      33.287047741040034,
+      33.87596814065855,
+      35.29253446728705,
+      37.38373073143242,
+      37.744684699267026,
+      39.1727702689855,
+      40.201850518430476,
+      42.25841643424829,
+      43.951748291005245,
+      45.20365697538644,
+      47.653424089832065,
+      48.79939298541328,
+      50.574502425241946,
+      51.70550577449332,
+      52.995161471971024,
+      54.92186373940141,
+      55.97111558331442,
+      57.98044532767936,
+      60.65266356638544,
+      61.53828444593648,
+      62.76945076671069,
+      64.21121041777157,
+      67.49163921134199,
+      71.72612671393323,
+      74.20592711935902,
+      74.7927847504914,
+      76.81950459927353,
+      80.93662948471035,
+      84.53855751542163,
+      85.78419395988371,
+      90.79579808112527,
+      112.89321863434495,
+      142.8409267900571,
+      184.14811203234436,
+      242.1422152258804,
+      325.018207670062,
+      445.5439548165609,
+      623.8565803902517,
+      892.0852648263414,
+      1302.0500874059621,
+      1938.1691394812417,
+      2939.2254674954115,
+      4535.267037757593,
+      7110.4458061125815,
+      11310.453020845389,
+      18226.82584775097,
+      29714.050304520904,
+      48936.49989168014,
+      81313.7868201784,
+      136157.66537004866,
+      229510.6491675225,
+      389074.8073204219,
+      662778.9226224419,
+      1133683.0735418843,
+      1945927.9962218592,
+      3349941.9297051146,
+      5781237.241076985,
+      9997814.441132193,
+      17319851.25215216,
+      30047944.73255807,
+      52193099.99135333
+    ]
+  },
+  "title": "B.16 outer-shell optical depth resolved by emission radius and direction"
+}
