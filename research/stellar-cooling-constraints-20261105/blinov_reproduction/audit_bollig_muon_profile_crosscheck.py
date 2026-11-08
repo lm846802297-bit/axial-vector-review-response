@@ -63,6 +63,28 @@ def main():
                     "bbox": [float(x) for x in span["bbox"]],
                     "size": float(span["size"]),
                 })
+    axis_candidates = []
+    for index, d in enumerate(drawings):
+        rect = [float(v) for v in d["rect"]]
+        if 330.0 <= rect[0] <= 585.0 and 150.0 <= rect[1] <= 315.0:
+            width, height = rect[2] - rect[0], rect[3] - rect[1]
+            if width <= 5.0 or height <= 5.0:
+                items = []
+                for item in d["items"]:
+                    if item[0] == "l":
+                        items.append({
+                            "kind": "l",
+                            "p1": [float(item[1].x), float(item[1].y)],
+                            "p2": [float(item[2].x), float(item[2].y)],
+                        })
+                if items:
+                    axis_candidates.append({
+                        "index": index, "rect": rect,
+                        "color": [float(x) for x in d["color"]] if d.get("color") else None,
+                        "width": float(d["width"]) if d.get("width") is not None else None,
+                        "items": items,
+                    })
+
     candidates = []
     for index, d in enumerate(drawings):
         pts = polyline_points(d)
@@ -97,6 +119,7 @@ def main():
         "page_rect": [float(x) for x in page.rect],
         "page_text": page.get_text("text"),
         "text_spans": text_spans,
+        "fig4_axis_path_candidates": axis_candidates,
         "candidate_vector_paths": candidates,
         "scope": "vector-path extraction only; no physical curve is selected automatically",
     }
