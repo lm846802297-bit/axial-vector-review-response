@@ -108,12 +108,16 @@ def validate_axis_tick_words(words: list) -> dict:
     for word in words:
         label = str(word[4])
         bbox = [float(x) for x in word[:4]]
-        if re.fullmatch(r"10[−-]\d+", label):
+        x_center = (bbox[0]+bbox[2])/2.0
+        y_center = (bbox[1]+bbox[3])/2.0
+        # The standalone PDF also contains a legend with 1 x 10^-6 and
+        # 1 x 10^-5. Keep only tick labels adjacent to the actual axes.
+        if re.fullmatch(r"10[−-]\d+", label) and y_center > 180.0:
             exponent = int(label[2:].replace("−", "-"))
-            x_ticks.append((exponent, (bbox[0]+bbox[2])/2.0))
-        elif re.fullmatch(r"10(?:5[2-5])", label):
+            x_ticks.append((exponent, x_center))
+        elif re.fullmatch(r"10(?:5[2-5])", label) and x_center < 50.0:
             exponent = int(label[2:])
-            y_ticks.append((exponent, (bbox[1]+bbox[3])/2.0))
+            y_ticks.append((exponent, y_center))
 
     x_ticks.sort(key=lambda item: item[0])
     y_ticks.sort(key=lambda item: item[0])
