@@ -48,7 +48,7 @@ def run(profile_path=DEFAULT_PROFILE,fig7_path=DEFAULT_FIG7,mass=10.0,nr=40,ne=1
     energies=np.unique(np.r_[energies,mass/p["lapse"]])
     energies=energies[energies>mass*(1+1e-10)]
     energies.sort()
-    rates=local_rates(mass,energies[None,:],p["T"][:,None],p["mu_numu"][:,None],p["mu_mu"][:,None])
+    source_rates=local_rates(mass,energies[None,:],p["T"][:,None],p["mu_numu"][:,None],p["mu_mu"][:,None])
     n23=float(np.interp(23.0,raw["r_km"],raw["lapse"]))
     n24=float(np.interp(24.0,raw["r_km"],raw["lapse"]))
     n25=float(np.interp(25.0,raw["r_km"],raw["lapse"]))
@@ -60,14 +60,17 @@ def run(profile_path=DEFAULT_PROFILE,fig7_path=DEFAULT_FIG7,mass=10.0,nr=40,ne=1
     }
     # Opacity is lapse-independent in the literal fixed-omega B.2 prescription.
     # Compute it once and use the same columns for all source-weight variants.
-    shell=shell_columns_by_channel(r,np.unique(np.r_[0.0,r,25.0]),p["T"],rates,mass,energies,25.0,na,ns)
+    path_grid=np.unique(np.r_[0.0,r,25.0])
+    path_profile=load_profile(profile_path,path_grid)
+    path_rates=local_rates(mass,energies[None,:],path_profile["T"][:,None],path_profile["mu_numu"][:,None],path_profile["mu_mu"][:,None])
+    shell=shell_columns_by_channel(r,path_grid,path_profile["T"],path_rates,mass,energies,25.0,na,ns)
     fig7=json.loads(Path(fig7_path).read_text())
     vertices=fig7["reference_vertices"][str(float(mass))]
     gvals=np.asarray(vertices["g"],float)
     indices={"weak":0,"peak":17,"strong":24}
     results={}
     for name,lapse in variants.items():
-        source,meta=eq_b1_source_measure(r,rw,energies,lapse,mass,rates["production"])
+        source,meta=eq_b1_source_measure(r,rw,energies,lapse,mass,source_rates["production"])
         points={}
         for tag,idx in indices.items():
             g=float(gvals[idx])
