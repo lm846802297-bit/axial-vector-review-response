@@ -149,6 +149,21 @@ The largest B.13/B.16 Compton-source suppression occurs in the 5--10 km region. 
 
 The radial decomposition therefore explains why a local rate ratio at a single radius cannot predict the global luminosity correction.
 
+At the strong endpoint, the corresponding shell contributions to the escaped luminosity are:
+
+| Emission shell (km) | B.16 escaped luminosity (\(\mathrm{erg\,s^{-1}}\)) | B.13 \(\mu^-\) escaped luminosity (\(\mathrm{erg\,s^{-1}}\)) |
+|---|---:|---:|
+| 0--5 | \(8.58\times10^{48}\) | \(2.31\times10^{49}\) |
+| 5--8 | \(2.37\times10^{51}\) | \(4.56\times10^{51}\) |
+| 8--10 | \(1.20\times10^{52}\) | \(1.51\times10^{52}\) |
+| 10--12 | \(7.46\times10^{51}\) | \(7.25\times10^{51}\) |
+| 12--15 | \(1.67\times10^{51}\) | \(1.58\times10^{51}\) |
+| 15--18 | \(1.15\times10^{49}\) | \(1.15\times10^{49}\) |
+| 18--25 | \(8.18\times10^{50}\) | \(8.18\times10^{50}\) |
+
+The increase in the total strong-endpoint luminosity is dominated by the 5--10 km shells. The 10--15 km shells partially offset this increase, while the 18--25 km contribution is unchanged at the displayed precision.
+
+
 ## 7. Opacity-weighted diagnostics
 
 With the B.16 source distribution held fixed, replacing only the Compton opacity gives
