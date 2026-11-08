@@ -1,0 +1,563 @@
+{
+  "configuration": {
+    "angular_order_per_direction_bin": 32,
+    "energy_grid_size": 143,
+    "energy_offset_MeV": 1000.0,
+    "fixed_omega": true,
+    "independent_direct_quadrature_order": 512,
+    "mode_rate_quadrature_order": 48,
+    "outer_shell_km": [
+      22.0,
+      25.0
+    ],
+    "radial_source_order": 40,
+    "source_region_km": [
+      8.0,
+      15.0
+    ]
+  },
+  "coupling_results": {
+    "fig7_peak": {
+      "direction_bins": [
+        {
+          "cos_theta_bin": [
+            -1.0,
+            -0.5
+          ],
+          "equal_mode_source_escape_factor": 0.9382435890770912,
+          "literal_scalar_escape_factor": 0.8308550781102058,
+          "neutrino_production_weighted_mode_escape_factor": 0.9382174142430232,
+          "polarization_average_opacity_escape_factor": 0.9382401669059857,
+          "unattenuated_source_fraction": 0.24999999999999994
+        },
+        {
+          "cos_theta_bin": [
+            -0.5,
+            0.0
+          ],
+          "equal_mode_source_escape_factor": 0.9344050755066531,
+          "literal_scalar_escape_factor": 0.8214847014632529,
+          "neutrino_production_weighted_mode_escape_factor": 0.934377083764955,
+          "polarization_average_opacity_escape_factor": 0.9344011708572174,
+          "unattenuated_source_fraction": 0.24999999999999994
+        },
+        {
+          "cos_theta_bin": [
+            0.0,
+            0.5
+          ],
+          "equal_mode_source_escape_factor": 0.9344050755066531,
+          "literal_scalar_escape_factor": 0.8214847014632529,
+          "neutrino_production_weighted_mode_escape_factor": 0.934377083764955,
+          "polarization_average_opacity_escape_factor": 0.9344011708572174,
+          "unattenuated_source_fraction": 0.24999999999999994
+        },
+        {
+          "cos_theta_bin": [
+            0.5,
+            1.0
+          ],
+          "equal_mode_source_escape_factor": 0.9382435890770912,
+          "literal_scalar_escape_factor": 0.8308550781102058,
+          "neutrino_production_weighted_mode_escape_factor": 0.9382174142430232,
+          "polarization_average_opacity_escape_factor": 0.9382401669059854,
+          "unattenuated_source_fraction": 0.24999999999999994
+        }
+      ],
+      "equal_mode_source_mode_resolved_escape_factor": 0.9363243322918718,
+      "g": 1.1341108687336194e-08,
+      "literal_scalar_sum_opacity_escape_factor": 0.8261698897867294,
+      "mode_average_opacity_escape_factor": 0.9363206688816015,
+      "mode_resolved_over_literal_scalar_ratio": 1.1332986841794588,
+      "neutrino_only_production_weighted_mode_escape_factor": 0.9311143470310559,
+      "production_weighted_mode_resolved_escape_factor": 0.936297249003989
+    },
+    "strong_endpoint": {
+      "direction_bins": [
+        {
+          "cos_theta_bin": [
+            -1.0,
+            -0.5
+          ],
+          "equal_mode_source_escape_factor": 0.4770205149438186,
+          "literal_scalar_escape_factor": 0.15639416117367147,
+          "neutrino_production_weighted_mode_escape_factor": 0.4768712126776429,
+          "polarization_average_opacity_escape_factor": 0.47688719729818985,
+          "unattenuated_source_fraction": 0.24999999999999994
+        },
+        {
+          "cos_theta_bin": [
+            -0.5,
+            0.0
+          ],
+          "equal_mode_source_escape_factor": 0.45897721353428617,
+          "literal_scalar_escape_factor": 0.14438730932890412,
+          "neutrino_production_weighted_mode_escape_factor": 0.45882722617509714,
+          "polarization_average_opacity_escape_factor": 0.45883943196990323,
+          "unattenuated_source_fraction": 0.24999999999999994
+        },
+        {
+          "cos_theta_bin": [
+            0.0,
+            0.5
+          ],
+          "equal_mode_source_escape_factor": 0.4589772135342861,
+          "literal_scalar_escape_factor": 0.14438730932890412,
+          "neutrino_production_weighted_mode_escape_factor": 0.45882722617509725,
+          "polarization_average_opacity_escape_factor": 0.45883943196990323,
+          "unattenuated_source_fraction": 0.24999999999999994
+        },
+        {
+          "cos_theta_bin": [
+            0.5,
+            1.0
+          ],
+          "equal_mode_source_escape_factor": 0.4770205149438186,
+          "literal_scalar_escape_factor": 0.15639416117367147,
+          "neutrino_production_weighted_mode_escape_factor": 0.4768712126776429,
+          "polarization_average_opacity_escape_factor": 0.47688719729818985,
+          "unattenuated_source_fraction": 0.24999999999999994
+        }
+      ],
+      "equal_mode_source_mode_resolved_escape_factor": 0.46799886423905235,
+      "g": 4.171689650228597e-08,
+      "literal_scalar_sum_opacity_escape_factor": 0.15039073525128782,
+      "mode_average_opacity_escape_factor": 0.4678633146340465,
+      "mode_resolved_over_literal_scalar_ratio": 3.1108912303982086,
+      "neutrino_only_production_weighted_mode_escape_factor": 0.4409517987288883,
+      "production_weighted_mode_resolved_escape_factor": 0.46784921942637003
+    }
+  },
+  "direct_phase_space_samples": [
+    {
+      "max_mode_absorption_relative_residual": 1.6599227712807063e-15,
+      "max_mode_production_relative_residual": 1.3528476016574815e-15,
+      "omega_MeV": 12.0,
+      "r_km": 22.0
+    },
+    {
+      "max_mode_absorption_relative_residual": 4.0730384273697375e-16,
+      "max_mode_production_relative_residual": 5.920927849166676e-16,
+      "omega_MeV": 20.0,
+      "r_km": 22.0
+    },
+    {
+      "max_mode_absorption_relative_residual": 4.441077769397404e-16,
+      "max_mode_production_relative_residual": 1.0132723771936044e-15,
+      "omega_MeV": 50.0,
+      "r_km": 22.0
+    },
+    {
+      "max_mode_absorption_relative_residual": 1.6031414743960504e-15,
+      "max_mode_production_relative_residual": 8.224478618525601e-16,
+      "omega_MeV": 12.0,
+      "r_km": 23.5
+    },
+    {
+      "max_mode_absorption_relative_residual": 7.970706033948634e-16,
+      "max_mode_production_relative_residual": 8.855405042507495e-16,
+      "omega_MeV": 20.0,
+      "r_km": 23.5
+    },
+    {
+      "max_mode_absorption_relative_residual": 8.802773874003786e-16,
+      "max_mode_production_relative_residual": 1.4557014910319826e-15,
+      "omega_MeV": 50.0,
+      "r_km": 23.5
+    },
+    {
+      "max_mode_absorption_relative_residual": 1.199002748297136e-15,
+      "max_mode_production_relative_residual": 8.17202950940994e-16,
+      "omega_MeV": 12.0,
+      "r_km": 25.0
+    },
+    {
+      "max_mode_absorption_relative_residual": 1.16755046304998e-15,
+      "max_mode_production_relative_residual": 1.712481629255567e-15,
+      "omega_MeV": 20.0,
+      "r_km": 25.0
+    },
+    {
+      "max_mode_absorption_relative_residual": 1.0769875408009688e-15,
+      "max_mode_production_relative_residual": 2.489989454136779e-16,
+      "omega_MeV": 50.0,
+      "r_km": 25.0
+    }
+  ],
+  "interpretation": {
+    "average_opacity": "Uses one third of the mode-summed opacity in the exponent; this is a comparison convention, not a replacement for the literal paper baseline.",
+    "literal_scalar": "Uses the sum of L,+,- inverse-decay opacities in the B.2 exponent, matching the repository's literal scalar reference implementation.",
+    "mode_resolved": "Propagates each mode with its own inverse-decay opacity and weights it with the corresponding neutrino production mode. The scalar Compton source is split equally among modes only as a stated diagnostic assumption.",
+    "no_rescaling": "No empirical rescaling, production axial update, or Fig. 7 curve modification is performed.",
+    "scope": "Only the 22--25 km path segment is attenuated. The B.1 source is held fixed, and all opacity inside 22 km is omitted from these escape factors."
+  },
+  "local_outer_mode_samples": [
+    {
+      "longitudinal_over_transverse": 1.0231339408848201,
+      "max_mode_over_min_mode": 1.0231339408848201,
+      "mu_numu_MeV": 0.0,
+      "omega_grid_MeV": 12.0,
+      "omega_over_T": 3.3789595659834752,
+      "omega_target_MeV": 12.0,
+      "r_km": 22.0,
+      "reduced_absorption_modes_per_g2": [
+        0.14872268345369347,
+        0.14535993530336416,
+        0.14535993530336416
+      ]
+    },
+    {
+      "longitudinal_over_transverse": 1.0537733306426253,
+      "max_mode_over_min_mode": 1.0537733306426253,
+      "mu_numu_MeV": 0.0,
+      "omega_grid_MeV": 15.462277217684349,
+      "omega_over_T": 4.35386745971524,
+      "omega_target_MeV": 15.0,
+      "r_km": 22.0,
+      "reduced_absorption_modes_per_g2": [
+        0.1298321252892184,
+        0.12320688094283286,
+        0.12320688094283286
+      ]
+    },
+    {
+      "longitudinal_over_transverse": 1.078340198340482,
+      "max_mode_over_min_mode": 1.078340198340482,
+      "mu_numu_MeV": 0.0,
+      "omega_grid_MeV": 20.0,
+      "omega_over_T": 5.631599276639125,
+      "omega_target_MeV": 20.0,
+      "r_km": 22.0,
+      "reduced_absorption_modes_per_g2": [
+        0.10982974696930257,
+        0.10185073981135612,
+        0.10185073981135613
+      ]
+    },
+    {
+      "longitudinal_over_transverse": 1.0963414747707496,
+      "max_mode_over_min_mode": 1.0963414747707498,
+      "mu_numu_MeV": 0.0,
+      "omega_grid_MeV": 30.0923300256505,
+      "omega_over_T": 8.47339720024196,
+      "omega_target_MeV": 30.0,
+      "r_km": 22.0,
+      "reduced_absorption_modes_per_g2": [
+        0.08004926892611543,
+        0.07301490527196751,
+        0.07301490527196748
+      ]
+    },
+    {
+      "longitudinal_over_transverse": 1.0879864398163401,
+      "max_mode_over_min_mode": 1.0879864398163404,
+      "mu_numu_MeV": 0.0,
+      "omega_grid_MeV": 50.0,
+      "omega_over_T": 14.078998191597814,
+      "omega_target_MeV": 50.0,
+      "r_km": 22.0,
+      "reduced_absorption_modes_per_g2": [
+        0.05099719301969118,
+        0.04687300425205655,
+        0.046873004252056545
+      ]
+    },
+    {
+      "longitudinal_over_transverse": 1.0583148440691719,
+      "max_mode_over_min_mode": 1.058314844069172,
+      "mu_numu_MeV": 0.0,
+      "omega_grid_MeV": 99.02150854450393,
+      "omega_over_T": 27.882472794547166,
+      "omega_target_MeV": 100.0,
+      "r_km": 22.0,
+      "reduced_absorption_modes_per_g2": [
+        0.026489914277274842,
+        0.025030277545217392,
+        0.0250302775452174
+      ]
+    },
+    {
+      "longitudinal_over_transverse": 1.0241259361421142,
+      "max_mode_over_min_mode": 1.0241259361421142,
+      "mu_numu_MeV": 0.0,
+      "omega_grid_MeV": 12.0,
+      "omega_over_T": 3.5460782997768243,
+      "omega_target_MeV": 12.0,
+      "r_km": 23.0,
+      "reduced_absorption_modes_per_g2": [
+        0.15319643153305068,
+        0.1495874932238726,
+        0.14958749322387263
+      ]
+    },
+    {
+      "longitudinal_over_transverse": 1.0551466167275707,
+      "max_mode_over_min_mode": 1.055146616727571,
+      "mu_numu_MeV": 0.0,
+      "omega_grid_MeV": 15.462277217684349,
+      "omega_over_T": 4.5692038088970035,
+      "omega_target_MeV": 15.0,
+      "r_km": 23.0,
+      "reduced_absorption_modes_per_g2": [
+        0.1327890086936364,
+        0.12584886933103945,
+        0.12584886933103942
+      ]
+    },
+    {
+      "longitudinal_over_transverse": 1.0790221463561325,
+      "max_mode_over_min_mode": 1.0790221463561327,
+      "mu_numu_MeV": 0.0,
+      "omega_grid_MeV": 20.0,
+      "omega_over_T": 5.91013049962804,
+      "omega_target_MeV": 20.0,
+      "r_km": 23.0,
+      "reduced_absorption_modes_per_g2": [
+        0.11161446288113845,
+        0.1034403818847106,
+        0.10344038188471062
+      ]
+    },
+    {
+      "longitudinal_over_transverse": 1.095061910519482,
+      "max_mode_over_min_mode": 1.0950619105194823,
+      "mu_numu_MeV": 0.0,
+      "omega_grid_MeV": 30.0923300256505,
+      "omega_over_T": 8.892479874473484,
+      "omega_target_MeV": 30.0,
+      "r_km": 23.0,
+      "reduced_absorption_modes_per_g2": [
+        0.08074316352656084,
+        0.07373388002168517,
+        0.07373388002168518
+      ]
+    },
+    {
+      "longitudinal_over_transverse": 1.0853429351809103,
+      "max_mode_over_min_mode": 1.0853429351809105,
+      "mu_numu_MeV": 0.0,
+      "omega_grid_MeV": 50.0,
+      "omega_over_T": 14.775326249070101,
+      "omega_target_MeV": 50.0,
+      "r_km": 23.0,
+      "reduced_absorption_modes_per_g2": [
+        0.05118101611625315,
+        0.047156538691360286,
+        0.04715653869136031
+      ]
+    },
+    {
+      "longitudinal_over_transverse": 1.0559834138733137,
+      "max_mode_over_min_mode": 1.0559834138733137,
+      "mu_numu_MeV": 0.0,
+      "omega_grid_MeV": 99.02150854450393,
+      "omega_over_T": 29.261501888402563,
+      "omega_target_MeV": 100.0,
+      "r_km": 23.0,
+      "reduced_absorption_modes_per_g2": [
+        0.02651706230552452,
+        0.02511124886731012,
+        0.025111248867310115
+      ]
+    },
+    {
+      "longitudinal_over_transverse": 1.0251068156256093,
+      "max_mode_over_min_mode": 1.0251068156256093,
+      "mu_numu_MeV": 0.0,
+      "omega_grid_MeV": 12.0,
+      "omega_over_T": 3.7308488357431115,
+      "omega_target_MeV": 12.0,
+      "r_km": 24.0,
+      "reduced_absorption_modes_per_g2": [
+        0.15784433834497982,
+        0.1539784302854815,
+        0.1539784302854815
+      ]
+    },
+    {
+      "longitudinal_over_transverse": 1.0563792246728756,
+      "max_mode_over_min_mode": 1.0563792246728758,
+      "mu_numu_MeV": 0.0,
+      "omega_grid_MeV": 15.462277217684349,
+      "omega_over_T": 4.807284912961241,
+      "omega_target_MeV": 15.0,
+      "r_km": 24.0,
+      "reduced_absorption_modes_per_g2": [
+        0.1357952612600551,
+        0.12854783404331546,
+        0.12854783404331552
+      ]
+    },
+    {
+      "longitudinal_over_transverse": 1.079417189610098,
+      "max_mode_over_min_mode": 1.079417189610098,
+      "mu_numu_MeV": 0.0,
+      "omega_grid_MeV": 20.0,
+      "omega_over_T": 6.218081392905186,
+      "omega_target_MeV": 20.0,
+      "r_km": 24.0,
+      "reduced_absorption_modes_per_g2": [
+        0.11339453261094459,
+        0.10505162758423779,
+        0.10505162758423778
+      ]
+    },
+    {
+      "longitudinal_over_transverse": 1.0934449448285273,
+      "max_mode_over_min_mode": 1.0934449448285273,
+      "mu_numu_MeV": 0.0,
+      "omega_grid_MeV": 30.0923300256505,
+      "omega_over_T": 9.35582787008297,
+      "omega_target_MeV": 30.0,
+      "r_km": 24.0,
+      "reduced_absorption_modes_per_g2": [
+        0.08142050289900847,
+        0.07446237077055283,
+        0.07446237077055282
+      ]
+    },
+    {
+      "longitudinal_over_transverse": 1.0825055946491908,
+      "max_mode_over_min_mode": 1.0825055946491908,
+      "mu_numu_MeV": 0.0,
+      "omega_grid_MeV": 50.0,
+      "omega_over_T": 15.545203482262966,
+      "omega_target_MeV": 50.0,
+      "r_km": 24.0,
+      "reduced_absorption_modes_per_g2": [
+        0.05135815121546767,
+        0.04744377439648373,
+        0.047443774396483736
+      ]
+    },
+    {
+      "longitudinal_over_transverse": 1.05359204674069,
+      "max_mode_over_min_mode": 1.0535920467406903,
+      "mu_numu_MeV": 0.0,
+      "omega_grid_MeV": 99.02150854450393,
+      "omega_over_T": 30.78618998889909,
+      "omega_target_MeV": 100.0,
+      "r_km": 24.0,
+      "reduced_absorption_modes_per_g2": [
+        0.0265430551747996,
+        0.025192915281499258,
+        0.025192915281499244
+      ]
+    },
+    {
+      "longitudinal_over_transverse": 1.0261334936014073,
+      "max_mode_over_min_mode": 1.0261334936014075,
+      "mu_numu_MeV": 0.0,
+      "omega_grid_MeV": 12.0,
+      "omega_over_T": 3.9554736389876823,
+      "omega_target_MeV": 12.0,
+      "r_km": 25.0,
+      "reduced_absorption_modes_per_g2": [
+        0.16309278110881884,
+        0.15893914595499098,
+        0.15893914595499092
+      ]
+    },
+    {
+      "longitudinal_over_transverse": 1.0574990783855895,
+      "max_mode_over_min_mode": 1.0574990783855895,
+      "mu_numu_MeV": 0.0,
+      "omega_grid_MeV": 15.462277217684349,
+      "omega_over_T": 5.096719161105854,
+      "omega_target_MeV": 15.0,
+      "r_km": 25.0,
+      "reduced_absorption_modes_per_g2": [
+        0.13911019118368056,
+        0.1315463947222067,
+        0.1315463947222067
+      ]
+    },
+    {
+      "longitudinal_over_transverse": 1.0794550438268902,
+      "max_mode_over_min_mode": 1.0794550438268904,
+      "mu_numu_MeV": 0.0,
+      "omega_grid_MeV": 20.0,
+      "omega_over_T": 6.59245606497947,
+      "omega_target_MeV": 20.0,
+      "r_km": 25.0,
+      "reduced_absorption_modes_per_g2": [
+        0.11531769932499261,
+        0.10682955254548408,
+        0.1068295525454841
+      ]
+    },
+    {
+      "longitudinal_over_transverse": 1.0912694311651285,
+      "max_mode_over_min_mode": 1.0912694311651285,
+      "mu_numu_MeV": 0.0,
+      "omega_grid_MeV": 30.0923300256505,
+      "omega_over_T": 9.919118179348173,
+      "omega_target_MeV": 30.0,
+      "r_km": 25.0,
+      "reduced_absorption_modes_per_g2": [
+        0.0821363218456345,
+        0.07526676684963038,
+        0.07526676684963038
+      ]
+    },
+    {
+      "longitudinal_over_transverse": 1.0791914297919716,
+      "max_mode_over_min_mode": 1.0791914297919716,
+      "mu_numu_MeV": 0.0,
+      "omega_grid_MeV": 50.0,
+      "omega_over_T": 16.481140162448675,
+      "omega_target_MeV": 50.0,
+      "r_km": 25.0,
+      "reduced_absorption_modes_per_g2": [
+        0.051542980087647954,
+        0.04776073888724593,
+        0.047760738887245933
+      ]
+    },
+    {
+      "longitudinal_over_transverse": 1.050920737594901,
+      "max_mode_over_min_mode": 1.0509207375949015,
+      "mu_numu_MeV": 0.0,
+      "omega_grid_MeV": 99.02150854450393,
+      "omega_over_T": 32.639747228381566,
+      "omega_target_MeV": 100.0,
+      "r_km": 25.0,
+      "reduced_absorption_modes_per_g2": [
+        0.026570005980260596,
+        0.025282597468832664,
+        0.025282597468832647
+      ]
+    }
+  ],
+  "mass_MeV": 10.0,
+  "normalization_and_closure": {
+    "direct_512_max_mode_absorption_relative_residual": 1.6599227712807063e-15,
+    "direct_512_max_mode_production_relative_residual": 1.712481629255567e-15,
+    "outer_B10_detailed_balance_max_relative_residual": 3.550102654320581e-14,
+    "outer_mode_production_sum_vs_scalar_neutrino_max_relative_residual": 8.913602585634422e-08,
+    "outer_mode_reduced_absorption_sum_vs_scalar_neutrino_max_relative_residual": 8.91360545443876e-08,
+    "outer_path_mode_sum_plus_compton_vs_scalar_column_max_relative_residual": 2.691499663586229e-08,
+    "outer_scalar_channel_sum_max_relative_residual": 4.89776495054579e-16,
+    "source_mode_sum_max_relative_residual": 8.408000183135737e-08,
+    "source_neutrino_plus_compton_max_relative_residual": 4.030285902872811e-16
+  },
+  "profile": {
+    "identity": "public-figure SFHo-18.8 reconstruction; not raw Garching simulation data",
+    "outer_radial_nodes": 222,
+    "outer_radial_spacing_km": 6.777814007818961e-07,
+    "path": "/home/runner/work/axial-vector-review-response/axial-vector-review-response/research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv",
+    "sha256": "6c47d0712d266848d0cb2315c8a9b43cf13d0b39b6986d4239dd3f22cb9ba0bc"
+  },
+  "source": {
+    "Compton_source_mode_assumption": "split equally among L,+,- only for the full-source mode-resolved diagnostic",
+    "global_B1_source_fraction_from_8_15km": 0.7961256045506344,
+    "neutrino_source_mode_fractions_L_plus_minus": [
+      0.34763760890463485,
+      0.31796450093968187,
+      0.3343978901556823
+    ],
+    "selected_source_compton_fraction": 0.332817385215117,
+    "selected_source_neutrino_fraction": 0.667182614784883
+  },
+  "title": "B.2 outer-shell polarization-resolved inverse-decay transport diagnostic"
+}
