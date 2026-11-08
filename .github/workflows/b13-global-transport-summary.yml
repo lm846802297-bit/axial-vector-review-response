@@ -1,0 +1,58 @@
+name: Compact summary for global B.13 transport audit
+
+on:
+  push:
+    branches:
+      - research/moving-muon-thermal-rates-20261107
+    paths:
+      - '.github/workflows/b13-global-transport-summary.yml'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/summarize_b13_global_transport.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_vertex_preserving_10mev_2026-11-09.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: b13-global-transport-summary-\${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  compact-summary:
+    if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out research branch
+        uses: actions/checkout@v4
+        with:
+          ref: \${{ github.sha }}
+          fetch-depth: 0
+      - name: Build compact summary
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/summarize_b13_global_transport.py \
+            --input research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_vertex_preserving_10mev_2026-11-09.json \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_summary_vertex_preserving_10mev_2026-11-09.json
+      - name: Archive compact summary
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_summary_vertex_preserving_10mev_2026-11-09.json
+          if git diff --cached --quiet; then
+            echo "Compact B.13 summary is already current."
+          else
+            git commit -m "Archive compact global B.13 transport summary"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin "\${GITHUB_REF_NAME}"
+              git rebase "origin/\${GITHUB_REF_NAME}"
+              if git push origin "HEAD:\${GITHUB_REF_NAME}"; then
+                exit 0
+              fi
+              echo "Push raced with another research workflow; retry \${attempt}/5."
+              sleep 2
+            done
+            echo "Could not archive compact B.13 summary after five retries."
+            exit 1
+          fi
