@@ -69,6 +69,11 @@ class Fig7DigitizationGeometryTests(unittest.TestCase):
         for exponent in (52, 53, 54, 55):
             y = 195.54043579101562-(exponent-52)/3*(195.54043579101562-20.904434204101562)
             words.append((0, y-5, 10, y+5, f"10{exponent}"))
+        # Legend entries must not be mistaken for horizontal-axis tick labels.
+        words.extend([
+            (364, 45, 387, 59, "10−6"),
+            (364, 62, 387, 76, "10−5"),
+        ])
         result = validate_axis_tick_words(words)
         self.assertLessEqual(
             result["maximum_absolute_tick_position_residual_pdf_points"], 1e-10
