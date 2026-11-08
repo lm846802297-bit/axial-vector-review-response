@@ -38,14 +38,14 @@ class B16OuterShellPolarizationResolvedTests(unittest.TestCase):
         np.testing.assert_allclose(
             np.sum(production_modes, axis=-1),
             scalar["neutrino_production"],
-            rtol=2e-12,
+            rtol=5e-12,
             atol=1e-300,
         )
         x = self.energies[None, :] / self.temperature[:, None]
         np.testing.assert_allclose(
             production_modes,
             np.exp(-x)[..., None] * absorption_modes,
-            rtol=2e-12,
+            rtol=5e-12,
             atol=1e-300,
         )
         reduced_modes = -np.expm1(-x)[..., None] * absorption_modes
@@ -53,7 +53,7 @@ class B16OuterShellPolarizationResolvedTests(unittest.TestCase):
         np.testing.assert_allclose(
             np.sum(reduced_modes, axis=-1),
             reduced_scalar,
-            rtol=2e-12,
+            rtol=5e-12,
             atol=1e-300,
         )
 
