@@ -342,9 +342,9 @@
                       -1.0,
                       -0.5
                     ],
-                    "escaped_luminosity_fraction": 0.18830000000028596,
-                    "mean_escape_probability": 0.26548405837644995,
-                    "relative_difference_escaped_fraction_vs_reference_order": 1.7047300018020494e-06,
+                    "escaped_luminosity_fraction": 0.188300000000286,
+                    "mean_escape_probability": 0.26548405837645,
+                    "relative_difference_escaped_fraction_vs_reference_order": 1.7047300016546487e-06,
                     "thin_source_fraction": 0.25
                   },
                   {
@@ -442,9 +442,9 @@
                       -1.0,
                       -0.5
                     ],
-                    "escaped_luminosity_fraction": 0.008056512456298024,
+                    "escaped_luminosity_fraction": 0.008056512456298025,
                     "mean_escape_probability": 1.0439157813222091e-05,
-                    "relative_difference_escaped_fraction_vs_reference_order": 0.0001376019830275472,
+                    "relative_difference_escaped_fraction_vs_reference_order": 0.0001376019830269014,
                     "thin_source_fraction": 0.25
                   },
                   {
@@ -452,9 +452,9 @@
                       -0.5,
                       0.0
                     ],
-                    "escaped_luminosity_fraction": 0.02975311527018363,
-                    "mean_escape_probability": 3.8552347237746944e-05,
-                    "relative_difference_escaped_fraction_vs_reference_order": 3.1096408719935713e-06,
+                    "escaped_luminosity_fraction": 0.029753115270183633,
+                    "mean_escape_probability": 3.855234723774694e-05,
+                    "relative_difference_escaped_fraction_vs_reference_order": 3.10964087211018e-06,
                     "thin_source_fraction": 0.25
                   },
                   {
@@ -462,9 +462,9 @@
                       0.0,
                       0.5
                     ],
-                    "escaped_luminosity_fraction": 0.2020301395113555,
+                    "escaped_luminosity_fraction": 0.20203013951135557,
                     "mean_escape_probability": 0.00026177884299522517,
-                    "relative_difference_escaped_fraction_vs_reference_order": 1.0640134721685308e-06,
+                    "relative_difference_escaped_fraction_vs_reference_order": 1.0640134724432977e-06,
                     "thin_source_fraction": 0.25
                   },
                   {
@@ -472,15 +472,15 @@
                       0.5,
                       1.0
                     ],
-                    "escaped_luminosity_fraction": 0.7601602327621626,
+                    "escaped_luminosity_fraction": 0.7601602327621628,
                     "mean_escape_probability": 0.0009849711865009881,
-                    "relative_difference_escaped_fraction_vs_reference_order": 1.0540695083137881e-06,
+                    "relative_difference_escaped_fraction_vs_reference_order": 1.0540695086058908e-06,
                     "thin_source_fraction": 0.25
                   }
                 ],
                 "region": "all_emission_radii",
-                "relative_difference_escape_vs_reference_order": 1.0540683983602907e-06,
-                "source_weighted_escape_probability": 0.00032393538363679564
+                "relative_difference_escape_vs_reference_order": 1.054068398527639e-06,
+                "source_weighted_escape_probability": 0.0003239353836367956
               },
               {
                 "direction_bins": [
@@ -489,9 +489,9 @@
                       -1.0,
                       -0.5
                     ],
-                    "escaped_luminosity_fraction": 0.0055629066916435925,
-                    "mean_escape_probability": 7.862176677301431e-06,
-                    "relative_difference_escaped_fraction_vs_reference_order": 4.8544269970853935e-05,
+                    "escaped_luminosity_fraction": 0.005562906691643592,
+                    "mean_escape_probability": 7.86217667730143e-06,
+                    "relative_difference_escaped_fraction_vs_reference_order": 4.854426997085394e-05,
                     "thin_source_fraction": 0.25
                   },
                   {
@@ -749,7 +749,7 @@
                     ],
                     "escaped_luminosity_fraction": 0.008058175880795675,
                     "mean_escape_probability": 1.0441331715606159e-05,
-                    "relative_difference_escaped_fraction_vs_reference_order": 6.883915588506175e-05,
+                    "relative_difference_escaped_fraction_vs_reference_order": 6.883915588549236e-05,
                     "thin_source_fraction": 0.25
                   },
                   {
@@ -794,9 +794,9 @@
                       -1.0,
                       -0.5
                     ],
-                    "escaped_luminosity_fraction": 0.0055638917414415935,
+                    "escaped_luminosity_fraction": 0.005563891741441593,
                     "mean_escape_probability": 7.863577976320718e-06,
-                    "relative_difference_escaped_fraction_vs_reference_order": 0.00012852179172622997,
+                    "relative_difference_escaped_fraction_vs_reference_order": 0.00012852179172623,
                     "thin_source_fraction": 0.25
                   },
                   {
@@ -1052,8 +1052,8 @@
                       -1.0,
                       -0.5
                     ],
-                    "escaped_luminosity_fraction": 0.00805762120095376,
-                    "mean_escape_probability": 1.0440605464836018e-05,
+                    "escaped_luminosity_fraction": 0.008057621200953756,
+                    "mean_escape_probability": 1.0440605464836015e-05,
                     "relative_difference_escaped_fraction_vs_reference_order": 0.0,
                     "thin_source_fraction": 0.24999999999999997
                   },
@@ -1099,8 +1099,8 @@
                       -1.0,
                       -0.5
                     ],
-                    "escaped_luminosity_fraction": 0.005563176751997737,
-                    "mean_escape_probability": 7.862560635407593e-06,
+                    "escaped_luminosity_fraction": 0.005563176751997736,
+                    "mean_escape_probability": 7.862560635407592e-06,
                     "relative_difference_escaped_fraction_vs_reference_order": 0.0,
                     "thin_source_fraction": 0.25
                   },
@@ -1418,8 +1418,8 @@
     ]
   },
   "internal_closure": {
-    "analytic_total_vs_global_s_quadrature_max_relative_residual": 0.00011917851234129611,
-    "analytic_total_vs_global_s_quadrature_source_weighted_L1_relative_residual_8_15km": 2.0940328115472907e-06,
+    "analytic_total_vs_global_s_quadrature_max_relative_residual": 0.00011917851234115303,
+    "analytic_total_vs_global_s_quadrature_source_weighted_L1_relative_residual_8_15km": 2.094032811546955e-06,
     "angular_weight_sum_residual": 0.0,
     "production_channel_sum_max_relative_residual": 4.012119981780255e-16,
     "reduced_absorption_channel_sum_max_relative_residual": 5.942105768596625e-16
@@ -1765,19 +1765,19 @@
             "direction_bin": "all",
             "legacy_channel": "compton",
             "path_shell": "5-8 km",
-            "source_weighted_L1_relative_difference": 0.2030087920771408
+            "source_weighted_L1_relative_difference": 0.20300879207714084
           },
           {
             "direction_bin": "-1 to -0.5",
             "legacy_channel": "compton",
             "path_shell": "5-8 km",
-            "source_weighted_L1_relative_difference": 0.19697766387065202
+            "source_weighted_L1_relative_difference": 0.196977663870652
           },
           {
             "direction_bin": "-0.5 to 0",
             "legacy_channel": "compton",
             "path_shell": "5-8 km",
-            "source_weighted_L1_relative_difference": 0.28192629860481117
+            "source_weighted_L1_relative_difference": 0.2819262986048111
           },
           {
             "direction_bin": "0 to 0.5",
@@ -2671,19 +2671,19 @@
             "direction_bin": "all",
             "legacy_channel": "compton",
             "path_shell": "5-8 km",
-            "source_weighted_L1_relative_difference": 0.09039387000617981
+            "source_weighted_L1_relative_difference": 0.09039387000617978
           },
           {
             "direction_bin": "-1 to -0.5",
             "legacy_channel": "compton",
             "path_shell": "5-8 km",
-            "source_weighted_L1_relative_difference": 0.09174188907614407
+            "source_weighted_L1_relative_difference": 0.09174188907614404
           },
           {
             "direction_bin": "-0.5 to 0",
             "legacy_channel": "compton",
             "path_shell": "5-8 km",
-            "source_weighted_L1_relative_difference": 0.07275499712682817
+            "source_weighted_L1_relative_difference": 0.07275499712682812
           },
           {
             "direction_bin": "0 to 0.5",
@@ -3577,19 +3577,19 @@
             "direction_bin": "all",
             "legacy_channel": "compton",
             "path_shell": "5-8 km",
-            "source_weighted_L1_relative_difference": 0.05087581312901124
+            "source_weighted_L1_relative_difference": 0.05087581312901129
           },
           {
             "direction_bin": "-1 to -0.5",
             "legacy_channel": "compton",
             "path_shell": "5-8 km",
-            "source_weighted_L1_relative_difference": 0.053136453037413364
+            "source_weighted_L1_relative_difference": 0.05313645303741339
           },
           {
             "direction_bin": "-0.5 to 0",
             "legacy_channel": "compton",
             "path_shell": "5-8 km",
-            "source_weighted_L1_relative_difference": 0.021295267231132203
+            "source_weighted_L1_relative_difference": 0.02129526723113227
           },
           {
             "direction_bin": "0 to 0.5",
@@ -4483,19 +4483,19 @@
             "direction_bin": "all",
             "legacy_channel": "compton",
             "path_shell": "5-8 km",
-            "source_weighted_L1_relative_difference": 0.023037029397391405
+            "source_weighted_L1_relative_difference": 0.023037029397391398
           },
           {
             "direction_bin": "-1 to -0.5",
             "legacy_channel": "compton",
             "path_shell": "5-8 km",
-            "source_weighted_L1_relative_difference": 0.023075948660826025
+            "source_weighted_L1_relative_difference": 0.023075948660826014
           },
           {
             "direction_bin": "-0.5 to 0",
             "legacy_channel": "compton",
             "path_shell": "5-8 km",
-            "source_weighted_L1_relative_difference": 0.022527769583804796
+            "source_weighted_L1_relative_difference": 0.022527769583804782
           },
           {
             "direction_bin": "0 to 0.5",
@@ -5389,19 +5389,19 @@
             "direction_bin": "all",
             "legacy_channel": "compton",
             "path_shell": "5-8 km",
-            "source_weighted_L1_relative_difference": 0.011508449592004904
+            "source_weighted_L1_relative_difference": 0.011508449592004895
           },
           {
             "direction_bin": "-1 to -0.5",
             "legacy_channel": "compton",
             "path_shell": "5-8 km",
-            "source_weighted_L1_relative_difference": 0.011732449971734674
+            "source_weighted_L1_relative_difference": 0.011732449971734667
           },
           {
             "direction_bin": "-0.5 to 0",
             "legacy_channel": "compton",
             "path_shell": "5-8 km",
-            "source_weighted_L1_relative_difference": 0.008577397419957639
+            "source_weighted_L1_relative_difference": 0.008577397419957585
           },
           {
             "direction_bin": "0 to 0.5",
@@ -6373,8 +6373,8 @@
     "fig7_reference_sha256": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4",
     "fig7_source_pdf_sha256": "4d7d1d10bfe2b52992af94df98749fa3adac887c009cbf98515fa12e6c48fdb5",
     "profile_path": "/home/runner/work/axial-vector-review-response/axial-vector-review-response/research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv",
-    "profile_sha256": "6c47d0712d266848d0cb2315c8a9b43cf13d0b39b6986d4239dd3f22cb9ba0bc",
-    "run_commit_sha": "2c98f1fd9021c75ee0952e521e5a829c3bedf01d"
+    "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+    "run_commit_sha": "2588ae20480accf1420f0c95a5ce5278c771b40e"
   },
   "representative_couplings": [
     {
@@ -6472,7 +6472,7 @@
             {
               "channel": "nu_tau",
               "mean_tau_escaped_population_weighted_per_g2": 626160745059100.5,
-              "mean_tau_source_weighted_per_g2": 626475876568452.9,
+              "mean_tau_source_weighted_per_g2": 626475876568453.0,
               "path_shell": "12-15km"
             },
             {
@@ -6489,7 +6489,7 @@
             },
             {
               "channel": "nu_tau",
-              "mean_tau_escaped_population_weighted_per_g2": 401336723621074.06,
+              "mean_tau_escaped_population_weighted_per_g2": 401336723621074.1,
               "mean_tau_source_weighted_per_g2": 401714831791403.3,
               "path_shell": "18.5-20km"
             },
@@ -7028,7 +7028,7 @@
                 {
                   "channel": "nu_mu",
                   "mean_tau_escaped_population_weighted_per_g2": 182097428113460.1,
-                  "mean_tau_source_weighted_per_g2": 182073846722682.78,
+                  "mean_tau_source_weighted_per_g2": 182073846722682.8,
                   "path_shell": "0-5km"
                 },
                 {
@@ -7148,19 +7148,19 @@
                 {
                   "channel": "compton",
                   "mean_tau_escaped_population_weighted_per_g2": 19686206898575.02,
-                  "mean_tau_source_weighted_per_g2": 19683532055435.51,
+                  "mean_tau_source_weighted_per_g2": 19683532055435.516,
                   "path_shell": "0-5km"
                 },
                 {
                   "channel": "compton",
-                  "mean_tau_escaped_population_weighted_per_g2": 452876575816422.75,
+                  "mean_tau_escaped_population_weighted_per_g2": 452876575816422.9,
                   "mean_tau_source_weighted_per_g2": 452826836385390.6,
                   "path_shell": "5-8km"
                 },
                 {
                   "channel": "compton",
                   "mean_tau_escaped_population_weighted_per_g2": 716400976102730.0,
-                  "mean_tau_source_weighted_per_g2": 716467989876470.8,
+                  "mean_tau_source_weighted_per_g2": 716467989876470.9,
                   "path_shell": "8-10km"
                 },
                 {
@@ -7287,7 +7287,7 @@
                 {
                   "channel": "nu_mu",
                   "mean_tau_escaped_population_weighted_per_g2": 125927368059464.84,
-                  "mean_tau_source_weighted_per_g2": 125915697854579.75,
+                  "mean_tau_source_weighted_per_g2": 125915697854579.78,
                   "path_shell": "5-8km"
                 },
                 {
@@ -7298,7 +7298,7 @@
                 },
                 {
                   "channel": "nu_mu",
-                  "mean_tau_escaped_population_weighted_per_g2": 464597811153509.9,
+                  "mean_tau_escaped_population_weighted_per_g2": 464597811153509.94,
                   "mean_tau_source_weighted_per_g2": 464658869038492.75,
                   "path_shell": "10-12km"
                 },
@@ -7346,7 +7346,7 @@
                 },
                 {
                   "channel": "nu_tau",
-                  "mean_tau_escaped_population_weighted_per_g2": 139357930306853.75,
+                  "mean_tau_escaped_population_weighted_per_g2": 139357930306853.77,
                   "mean_tau_source_weighted_per_g2": 139350745413031.27,
                   "path_shell": "5-8km"
                 },
@@ -7436,7 +7436,7 @@
                 },
                 {
                   "channel": "compton",
-                  "mean_tau_escaped_population_weighted_per_g2": 8681311729.788486,
+                  "mean_tau_escaped_population_weighted_per_g2": 8681311729.788488,
                   "mean_tau_source_weighted_per_g2": 8683382843.67406,
                   "path_shell": "16.5-18.5km"
                 },
@@ -7660,7 +7660,7 @@
                 {
                   "channel": "compton",
                   "mean_tau_escaped_population_weighted_per_g2": 37965483976392.875,
-                  "mean_tau_source_weighted_per_g2": 37966661883477.28,
+                  "mean_tau_source_weighted_per_g2": 37966661883477.29,
                   "path_shell": "5-8km"
                 },
                 {
@@ -7792,7 +7792,7 @@
                 },
                 {
                   "channel": "nu_mu",
-                  "mean_tau_escaped_population_weighted_per_g2": 21579925396222.523,
+                  "mean_tau_escaped_population_weighted_per_g2": 21579925396222.527,
                   "mean_tau_source_weighted_per_g2": 21587547070237.805,
                   "path_shell": "5-8km"
                 },
@@ -10423,7 +10423,7 @@
           "channel_shell_tau": [
             {
               "channel": "nu_mu",
-              "mean_tau_escaped_population_weighted_per_g2": 36711627215231.086,
+              "mean_tau_escaped_population_weighted_per_g2": 36711627215231.09,
               "mean_tau_source_weighted_per_g2": 47369806880682.15,
               "path_shell": "0-5km"
             },
@@ -10447,7 +10447,7 @@
             },
             {
               "channel": "nu_mu",
-              "mean_tau_escaped_population_weighted_per_g2": 513622190093700.6,
+              "mean_tau_escaped_population_weighted_per_g2": 513622190093700.75,
               "mean_tau_source_weighted_per_g2": 626118509176838.1,
               "path_shell": "12-15km"
             },
@@ -10495,7 +10495,7 @@
             },
             {
               "channel": "nu_tau",
-              "mean_tau_escaped_population_weighted_per_g2": 233626244341571.7,
+              "mean_tau_escaped_population_weighted_per_g2": 233626244341571.72,
               "mean_tau_source_weighted_per_g2": 280313680219848.97,
               "path_shell": "8-10km"
             },
@@ -10508,7 +10508,7 @@
             {
               "channel": "nu_tau",
               "mean_tau_escaped_population_weighted_per_g2": 513853414158330.6,
-              "mean_tau_source_weighted_per_g2": 626475876568452.9,
+              "mean_tau_source_weighted_per_g2": 626475876568453.0,
               "path_shell": "12-15km"
             },
             {
@@ -10585,7 +10585,7 @@
             },
             {
               "channel": "compton",
-              "mean_tau_escaped_population_weighted_per_g2": 403514.5844269232,
+              "mean_tau_escaped_population_weighted_per_g2": 403514.58442692325,
               "mean_tau_source_weighted_per_g2": 416573.27036988287,
               "path_shell": "18.5-20km"
             },
@@ -11064,12 +11064,12 @@
                 {
                   "channel": "nu_mu",
                   "mean_tau_escaped_population_weighted_per_g2": 187076950037840.4,
-                  "mean_tau_source_weighted_per_g2": 182073846722682.78,
+                  "mean_tau_source_weighted_per_g2": 182073846722682.8,
                   "path_shell": "0-5km"
                 },
                 {
                   "channel": "nu_mu",
-                  "mean_tau_escaped_population_weighted_per_g2": 609201197735883.9,
+                  "mean_tau_escaped_population_weighted_per_g2": 609201197735884.0,
                   "mean_tau_source_weighted_per_g2": 620508758493450.2,
                   "path_shell": "5-8km"
                 },
@@ -11184,7 +11184,7 @@
                 {
                   "channel": "compton",
                   "mean_tau_escaped_population_weighted_per_g2": 20681210936363.17,
-                  "mean_tau_source_weighted_per_g2": 19683532055435.51,
+                  "mean_tau_source_weighted_per_g2": 19683532055435.516,
                   "path_shell": "0-5km"
                 },
                 {
@@ -11196,7 +11196,7 @@
                 {
                   "channel": "compton",
                   "mean_tau_escaped_population_weighted_per_g2": 683916198654326.2,
-                  "mean_tau_source_weighted_per_g2": 716467989876470.8,
+                  "mean_tau_source_weighted_per_g2": 716467989876470.9,
                   "path_shell": "8-10km"
                 },
                 {
@@ -11323,12 +11323,12 @@
                 {
                   "channel": "nu_mu",
                   "mean_tau_escaped_population_weighted_per_g2": 125614113223006.53,
-                  "mean_tau_source_weighted_per_g2": 125915697854579.75,
+                  "mean_tau_source_weighted_per_g2": 125915697854579.78,
                   "path_shell": "5-8km"
                 },
                 {
                   "channel": "nu_mu",
-                  "mean_tau_escaped_population_weighted_per_g2": 343045357323349.8,
+                  "mean_tau_escaped_population_weighted_per_g2": 343045357323349.9,
                   "mean_tau_source_weighted_per_g2": 346337601770886.4,
                   "path_shell": "8-10km"
                 },
@@ -11346,7 +11346,7 @@
                 },
                 {
                   "channel": "nu_mu",
-                  "mean_tau_escaped_population_weighted_per_g2": 303129190794987.3,
+                  "mean_tau_escaped_population_weighted_per_g2": 303129190794987.25,
                   "mean_tau_source_weighted_per_g2": 410261183773301.3,
                   "path_shell": "15-16.5km"
                 },
@@ -11575,7 +11575,7 @@
                 },
                 {
                   "channel": "nu_mu",
-                  "mean_tau_escaped_population_weighted_per_g2": 34971746614322.6,
+                  "mean_tau_escaped_population_weighted_per_g2": 34971746614322.61,
                   "mean_tau_source_weighted_per_g2": 39374377125194.39,
                   "path_shell": "5-8km"
                 },
@@ -11641,7 +11641,7 @@
                 },
                 {
                   "channel": "nu_tau",
-                  "mean_tau_escaped_population_weighted_per_g2": 162296319469999.6,
+                  "mean_tau_escaped_population_weighted_per_g2": 162296319469999.62,
                   "mean_tau_source_weighted_per_g2": 166591334641989.97,
                   "path_shell": "8-10km"
                 },
@@ -11696,12 +11696,12 @@
                 {
                   "channel": "compton",
                   "mean_tau_escaped_population_weighted_per_g2": 36393531846195.75,
-                  "mean_tau_source_weighted_per_g2": 37966661883477.28,
+                  "mean_tau_source_weighted_per_g2": 37966661883477.29,
                   "path_shell": "5-8km"
                 },
                 {
                   "channel": "compton",
-                  "mean_tau_escaped_population_weighted_per_g2": 258414014918014.9,
+                  "mean_tau_escaped_population_weighted_per_g2": 258414014918014.97,
                   "mean_tau_source_weighted_per_g2": 247097625790761.72,
                   "path_shell": "8-10km"
                 },
@@ -11888,7 +11888,7 @@
                 },
                 {
                   "channel": "nu_tau",
-                  "mean_tau_escaped_population_weighted_per_g2": 19602139813064.5,
+                  "mean_tau_escaped_population_weighted_per_g2": 19602139813064.504,
                   "mean_tau_source_weighted_per_g2": 24209445535517.695,
                   "path_shell": "5-8km"
                 },
@@ -11972,7 +11972,7 @@
                 },
                 {
                   "channel": "compton",
-                  "mean_tau_escaped_population_weighted_per_g2": 617936646048.8922,
+                  "mean_tau_escaped_population_weighted_per_g2": 617936646048.8923,
                   "mean_tau_source_weighted_per_g2": 625028460719.5011,
                   "path_shell": "15-16.5km"
                 },
@@ -12391,7 +12391,7 @@
             },
             {
               "channel": "compton",
-              "mean_tau_escaped_population_weighted_per_g2": 138011032505137.66,
+              "mean_tau_escaped_population_weighted_per_g2": 138011032505137.69,
               "mean_tau_source_weighted_per_g2": 163845147040413.38,
               "path_group": "core_0_8km"
             },
@@ -12512,7 +12512,7 @@
             },
             {
               "channel": "nu_mu",
-              "mean_tau_escaped_population_weighted_per_g2": 587137005604314.5,
+              "mean_tau_escaped_population_weighted_per_g2": 587137005604314.4,
               "mean_tau_source_weighted_per_g2": 781666187091411.0,
               "path_shell": "22-25km"
             },
@@ -12572,7 +12572,7 @@
             },
             {
               "channel": "nu_tau",
-              "mean_tau_escaped_population_weighted_per_g2": 587137005604314.5,
+              "mean_tau_escaped_population_weighted_per_g2": 587137005604314.4,
               "mean_tau_source_weighted_per_g2": 781666187091411.0,
               "path_shell": "22-25km"
             },
@@ -12590,7 +12590,7 @@
             },
             {
               "channel": "compton",
-              "mean_tau_escaped_population_weighted_per_g2": 359538458100941.06,
+              "mean_tau_escaped_population_weighted_per_g2": 359538458100941.0,
               "mean_tau_source_weighted_per_g2": 411827914034601.56,
               "path_shell": "8-10km"
             },
@@ -12620,7 +12620,7 @@
             },
             {
               "channel": "compton",
-              "mean_tau_escaped_population_weighted_per_g2": 407973.9658012308,
+              "mean_tau_escaped_population_weighted_per_g2": 407973.96580123086,
               "mean_tau_source_weighted_per_g2": 417244.88993634767,
               "path_shell": "18.5-20km"
             },
@@ -13236,7 +13236,7 @@
                 },
                 {
                   "channel": "compton",
-                  "mean_tau_escaped_population_weighted_per_g2": 331649947642340.3,
+                  "mean_tau_escaped_population_weighted_per_g2": 331649947642340.4,
                   "mean_tau_source_weighted_per_g2": 369204422555319.8,
                   "path_shell": "10-12km"
                 },
@@ -14372,7 +14372,7 @@
           "path_group_tau": [
             {
               "channel": "nu_mu",
-              "mean_tau_escaped_population_weighted_per_g2": 142747808269647.3,
+              "mean_tau_escaped_population_weighted_per_g2": 142747808269647.34,
               "mean_tau_source_weighted_per_g2": 197043129708012.44,
               "path_group": "core_0_8km"
             },
@@ -14420,13 +14420,13 @@
             },
             {
               "channel": "nu_mu",
-              "mean_tau_escaped_population_weighted_per_g2": 587137005604314.5,
+              "mean_tau_escaped_population_weighted_per_g2": 587137005604314.4,
               "mean_tau_source_weighted_per_g2": 781666187091411.0,
               "path_group": "outer_reference_22_25km"
             },
             {
               "channel": "nu_tau",
-              "mean_tau_escaped_population_weighted_per_g2": 587137005604314.5,
+              "mean_tau_escaped_population_weighted_per_g2": 587137005604314.4,
               "mean_tau_source_weighted_per_g2": 781666187091411.0,
               "path_group": "outer_reference_22_25km"
             },
@@ -14465,13 +14465,13 @@
             },
             {
               "channel": "nu_mu",
-              "mean_tau_escaped_population_weighted_per_g2": 9733457377376.664,
+              "mean_tau_escaped_population_weighted_per_g2": 9733457377376.662,
               "mean_tau_source_weighted_per_g2": 201427252339416.97,
               "path_shell": "5-8km"
             },
             {
               "channel": "nu_mu",
-              "mean_tau_escaped_population_weighted_per_g2": 61616340546168.65,
+              "mean_tau_escaped_population_weighted_per_g2": 61616340546168.66,
               "mean_tau_source_weighted_per_g2": 273892466684528.62,
               "path_shell": "8-10km"
             },
@@ -14519,13 +14519,13 @@
             },
             {
               "channel": "nu_tau",
-              "mean_tau_escaped_population_weighted_per_g2": 1440162484823.6494,
+              "mean_tau_escaped_population_weighted_per_g2": 1440162484823.6492,
               "mean_tau_source_weighted_per_g2": 77748308034186.64,
               "path_shell": "0-5km"
             },
             {
               "channel": "nu_tau",
-              "mean_tau_escaped_population_weighted_per_g2": 10041499687821.068,
+              "mean_tau_escaped_population_weighted_per_g2": 10041499687821.066,
               "mean_tau_source_weighted_per_g2": 232026413177752.56,
               "path_shell": "5-8km"
             },
@@ -14544,7 +14544,7 @@
             {
               "channel": "nu_tau",
               "mean_tau_escaped_population_weighted_per_g2": 247583681326367.44,
-              "mean_tau_source_weighted_per_g2": 626475876568452.9,
+              "mean_tau_source_weighted_per_g2": 626475876568453.0,
               "path_shell": "12-15km"
             },
             {
@@ -14579,7 +14579,7 @@
             },
             {
               "channel": "compton",
-              "mean_tau_escaped_population_weighted_per_g2": 224803018923.94376,
+              "mean_tau_escaped_population_weighted_per_g2": 224803018923.94373,
               "mean_tau_source_weighted_per_g2": 5159645505318.263,
               "path_shell": "0-5km"
             },
@@ -15099,73 +15099,73 @@
               "channel_shell_tau": [
                 {
                   "channel": "nu_mu",
-                  "mean_tau_escaped_population_weighted_per_g2": 154768337510338.12,
-                  "mean_tau_source_weighted_per_g2": 182073846722682.78,
+                  "mean_tau_escaped_population_weighted_per_g2": 154768337510338.2,
+                  "mean_tau_source_weighted_per_g2": 182073846722682.8,
                   "path_shell": "0-5km"
                 },
                 {
                   "channel": "nu_mu",
-                  "mean_tau_escaped_population_weighted_per_g2": 430390009100138.8,
+                  "mean_tau_escaped_population_weighted_per_g2": 430390009100138.9,
                   "mean_tau_source_weighted_per_g2": 620508758493450.2,
                   "path_shell": "5-8km"
                 },
                 {
                   "channel": "nu_mu",
-                  "mean_tau_escaped_population_weighted_per_g2": 180574783489218.06,
+                  "mean_tau_escaped_population_weighted_per_g2": 180574783489218.1,
                   "mean_tau_source_weighted_per_g2": 490283875009747.3,
                   "path_shell": "8-10km"
                 },
                 {
                   "channel": "nu_mu",
-                  "mean_tau_escaped_population_weighted_per_g2": 134978059352395.27,
+                  "mean_tau_escaped_population_weighted_per_g2": 134978059352395.33,
                   "mean_tau_source_weighted_per_g2": 437683369165566.6,
                   "path_shell": "10-12km"
                 },
                 {
                   "channel": "nu_mu",
-                  "mean_tau_escaped_population_weighted_per_g2": 195465258189694.9,
+                  "mean_tau_escaped_population_weighted_per_g2": 195465258189695.0,
                   "mean_tau_source_weighted_per_g2": 618802346144956.8,
                   "path_shell": "12-15km"
                 },
                 {
                   "channel": "nu_mu",
-                  "mean_tau_escaped_population_weighted_per_g2": 99478734703310.45,
+                  "mean_tau_escaped_population_weighted_per_g2": 99478734703310.48,
                   "mean_tau_source_weighted_per_g2": 341777407771005.1,
                   "path_shell": "15-16.5km"
                 },
                 {
                   "channel": "nu_mu",
-                  "mean_tau_escaped_population_weighted_per_g2": 133461701596876.53,
+                  "mean_tau_escaped_population_weighted_per_g2": 133461701596876.6,
                   "mean_tau_source_weighted_per_g2": 491562964124360.1,
                   "path_shell": "16.5-18.5km"
                 },
                 {
                   "channel": "nu_mu",
-                  "mean_tau_escaped_population_weighted_per_g2": 100176411305054.23,
+                  "mean_tau_escaped_population_weighted_per_g2": 100176411305054.27,
                   "mean_tau_source_weighted_per_g2": 384725092783959.9,
                   "path_shell": "18.5-20km"
                 },
                 {
                   "channel": "nu_mu",
-                  "mean_tau_escaped_population_weighted_per_g2": 133238588306759.16,
+                  "mean_tau_escaped_population_weighted_per_g2": 133238588306759.22,
                   "mean_tau_source_weighted_per_g2": 519103778972088.75,
                   "path_shell": "20-22km"
                 },
                 {
                   "channel": "nu_mu",
-                  "mean_tau_escaped_population_weighted_per_g2": 198950815485875.34,
+                  "mean_tau_escaped_population_weighted_per_g2": 198950815485875.38,
                   "mean_tau_source_weighted_per_g2": 776812255171024.1,
                   "path_shell": "22-25km"
                 },
                 {
                   "channel": "nu_tau",
-                  "mean_tau_escaped_population_weighted_per_g2": 171937088474267.16,
+                  "mean_tau_escaped_population_weighted_per_g2": 171937088474267.2,
                   "mean_tau_source_weighted_per_g2": 298114211486521.7,
                   "path_shell": "0-5km"
                 },
                 {
                   "channel": "nu_tau",
-                  "mean_tau_escaped_population_weighted_per_g2": 448234382908309.25,
+                  "mean_tau_escaped_population_weighted_per_g2": 448234382908309.44,
                   "mean_tau_source_weighted_per_g2": 722710676205924.1,
                   "path_shell": "5-8km"
                 },
@@ -15177,103 +15177,103 @@
                 },
                 {
                   "channel": "nu_tau",
-                  "mean_tau_escaped_population_weighted_per_g2": 135259546698096.73,
+                  "mean_tau_escaped_population_weighted_per_g2": 135259546698096.78,
                   "mean_tau_source_weighted_per_g2": 441626380827935.44,
                   "path_shell": "10-12km"
                 },
                 {
                   "channel": "nu_tau",
-                  "mean_tau_escaped_population_weighted_per_g2": 195491232491443.06,
+                  "mean_tau_escaped_population_weighted_per_g2": 195491232491443.16,
                   "mean_tau_source_weighted_per_g2": 619211132065312.1,
                   "path_shell": "12-15km"
                 },
                 {
                   "channel": "nu_tau",
-                  "mean_tau_escaped_population_weighted_per_g2": 99481425887812.88,
+                  "mean_tau_escaped_population_weighted_per_g2": 99481425887812.89,
                   "mean_tau_source_weighted_per_g2": 341850613109649.7,
                   "path_shell": "15-16.5km"
                 },
                 {
                   "channel": "nu_tau",
-                  "mean_tau_escaped_population_weighted_per_g2": 133502096365121.22,
+                  "mean_tau_escaped_population_weighted_per_g2": 133502096365121.23,
                   "mean_tau_source_weighted_per_g2": 492672225727501.06,
                   "path_shell": "16.5-18.5km"
                 },
                 {
                   "channel": "nu_tau",
-                  "mean_tau_escaped_population_weighted_per_g2": 100176902723612.75,
+                  "mean_tau_escaped_population_weighted_per_g2": 100176902723612.78,
                   "mean_tau_source_weighted_per_g2": 384738831423014.94,
                   "path_shell": "18.5-20km"
                 },
                 {
                   "channel": "nu_tau",
-                  "mean_tau_escaped_population_weighted_per_g2": 133238588306759.16,
+                  "mean_tau_escaped_population_weighted_per_g2": 133238588306759.22,
                   "mean_tau_source_weighted_per_g2": 519103778972088.75,
                   "path_shell": "20-22km"
                 },
                 {
                   "channel": "nu_tau",
-                  "mean_tau_escaped_population_weighted_per_g2": 198950815485875.34,
+                  "mean_tau_escaped_population_weighted_per_g2": 198950815485875.38,
                   "mean_tau_source_weighted_per_g2": 776812255171024.1,
                   "path_shell": "22-25km"
                 },
                 {
                   "channel": "compton",
-                  "mean_tau_escaped_population_weighted_per_g2": 26738349583228.906,
-                  "mean_tau_source_weighted_per_g2": 19683532055435.51,
+                  "mean_tau_escaped_population_weighted_per_g2": 26738349583228.92,
+                  "mean_tau_source_weighted_per_g2": 19683532055435.516,
                   "path_shell": "0-5km"
                 },
                 {
                   "channel": "compton",
-                  "mean_tau_escaped_population_weighted_per_g2": 518798056224286.94,
+                  "mean_tau_escaped_population_weighted_per_g2": 518798056224287.2,
                   "mean_tau_source_weighted_per_g2": 452826836385390.6,
                   "path_shell": "5-8km"
                 },
                 {
                   "channel": "compton",
-                  "mean_tau_escaped_population_weighted_per_g2": 497277704647045.94,
-                  "mean_tau_source_weighted_per_g2": 716467989876470.8,
+                  "mean_tau_escaped_population_weighted_per_g2": 497277704647046.1,
+                  "mean_tau_source_weighted_per_g2": 716467989876470.9,
                   "path_shell": "8-10km"
                 },
                 {
                   "channel": "compton",
-                  "mean_tau_escaped_population_weighted_per_g2": 223718239420773.4,
+                  "mean_tau_escaped_population_weighted_per_g2": 223718239420773.5,
                   "mean_tau_source_weighted_per_g2": 341855762092649.2,
                   "path_shell": "10-12km"
                 },
                 {
                   "channel": "compton",
-                  "mean_tau_escaped_population_weighted_per_g2": 74785346248667.81,
+                  "mean_tau_escaped_population_weighted_per_g2": 74785346248667.83,
                   "mean_tau_source_weighted_per_g2": 95301671585520.83,
                   "path_shell": "12-15km"
                 },
                 {
                   "channel": "compton",
-                  "mean_tau_escaped_population_weighted_per_g2": 595240849651.8225,
+                  "mean_tau_escaped_population_weighted_per_g2": 595240849651.8226,
                   "mean_tau_source_weighted_per_g2": 659336488275.6171,
                   "path_shell": "15-16.5km"
                 },
                 {
                   "channel": "compton",
-                  "mean_tau_escaped_population_weighted_per_g2": 6996242117.090445,
+                  "mean_tau_escaped_population_weighted_per_g2": 6996242117.090447,
                   "mean_tau_source_weighted_per_g2": 7571358037.194147,
                   "path_shell": "16.5-18.5km"
                 },
                 {
                   "channel": "compton",
-                  "mean_tau_escaped_population_weighted_per_g2": 374165.2640427395,
+                  "mean_tau_escaped_population_weighted_per_g2": 374165.26404273964,
                   "mean_tau_source_weighted_per_g2": 398010.476367823,
                   "path_shell": "18.5-20km"
                 },
                 {
                   "channel": "compton",
-                  "mean_tau_escaped_population_weighted_per_g2": 869.3367673243176,
+                  "mean_tau_escaped_population_weighted_per_g2": 869.3367673243179,
                   "mean_tau_source_weighted_per_g2": 918.0249787453915,
                   "path_shell": "20-22km"
                 },
                 {
                   "channel": "compton",
-                  "mean_tau_escaped_population_weighted_per_g2": 0.7333044797002488,
+                  "mean_tau_escaped_population_weighted_per_g2": 0.7333044797002489,
                   "mean_tau_source_weighted_per_g2": 0.7690565120248507,
                   "path_shell": "22-25km"
                 },
@@ -15342,9 +15342,9 @@
                 -1.0,
                 -0.5
               ],
-              "escaped_luminosity_fraction": 0.00805762120095376,
-              "mean_escape_probability": 1.0440605464836018e-05,
-              "mean_total_tau_escaped_population_weighted_per_g2": 4901579693224049.0,
+              "escaped_luminosity_fraction": 0.008057621200953756,
+              "mean_escape_probability": 1.0440605464836015e-05,
+              "mean_total_tau_escaped_population_weighted_per_g2": 4901579693224051.0,
               "mean_total_tau_source_weighted_per_g2": 1.1589908799063112e+16,
               "thin_source_fraction": 0.24999999999999997
             },
@@ -15359,12 +15359,12 @@
                 {
                   "channel": "nu_mu",
                   "mean_tau_escaped_population_weighted_per_g2": 63228975838204.14,
-                  "mean_tau_source_weighted_per_g2": 125915697854579.75,
+                  "mean_tau_source_weighted_per_g2": 125915697854579.78,
                   "path_shell": "5-8km"
                 },
                 {
                   "channel": "nu_mu",
-                  "mean_tau_escaped_population_weighted_per_g2": 204489198943832.84,
+                  "mean_tau_escaped_population_weighted_per_g2": 204489198943832.8,
                   "mean_tau_source_weighted_per_g2": 346337601770886.4,
                   "path_shell": "8-10km"
                 },
@@ -15418,7 +15418,7 @@
                 },
                 {
                   "channel": "nu_tau",
-                  "mean_tau_escaped_population_weighted_per_g2": 64927168067704.66,
+                  "mean_tau_escaped_population_weighted_per_g2": 64927168067704.65,
                   "mean_tau_source_weighted_per_g2": 139350745413031.27,
                   "path_shell": "5-8km"
                 },
@@ -15478,7 +15478,7 @@
                 },
                 {
                   "channel": "compton",
-                  "mean_tau_escaped_population_weighted_per_g2": 111466850654060.05,
+                  "mean_tau_escaped_population_weighted_per_g2": 111466850654060.06,
                   "mean_tau_source_weighted_per_g2": 124730090671524.81,
                   "path_shell": "5-8km"
                 },
@@ -15490,7 +15490,7 @@
                 },
                 {
                   "channel": "compton",
-                  "mean_tau_escaped_population_weighted_per_g2": 375017958720510.44,
+                  "mean_tau_escaped_population_weighted_per_g2": 375017958720510.4,
                   "mean_tau_source_weighted_per_g2": 371099271145215.94,
                   "path_shell": "10-12km"
                 },
@@ -15520,7 +15520,7 @@
                 },
                 {
                   "channel": "compton",
-                  "mean_tau_escaped_population_weighted_per_g2": 943.5675313449736,
+                  "mean_tau_escaped_population_weighted_per_g2": 943.5675313449735,
                   "mean_tau_source_weighted_per_g2": 994.4925161202083,
                   "path_shell": "20-22km"
                 },
@@ -15617,7 +15617,7 @@
                 },
                 {
                   "channel": "nu_mu",
-                  "mean_tau_escaped_population_weighted_per_g2": 87394432253189.16,
+                  "mean_tau_escaped_population_weighted_per_g2": 87394432253189.17,
                   "mean_tau_source_weighted_per_g2": 163173645053803.34,
                   "path_shell": "8-10km"
                 },
@@ -15725,14 +15725,14 @@
                 },
                 {
                   "channel": "compton",
-                  "mean_tau_escaped_population_weighted_per_g2": 7703609620.743699,
+                  "mean_tau_escaped_population_weighted_per_g2": 7703609620.7437,
                   "mean_tau_source_weighted_per_g2": 189832121054.93192,
                   "path_shell": "0-5km"
                 },
                 {
                   "channel": "compton",
-                  "mean_tau_escaped_population_weighted_per_g2": 15339695917188.895,
-                  "mean_tau_source_weighted_per_g2": 37966661883477.28,
+                  "mean_tau_escaped_population_weighted_per_g2": 15339695917188.898,
+                  "mean_tau_source_weighted_per_g2": 37966661883477.29,
                   "path_shell": "5-8km"
                 },
                 {
@@ -15864,7 +15864,7 @@
                 },
                 {
                   "channel": "nu_mu",
-                  "mean_tau_escaped_population_weighted_per_g2": 3522499062165.457,
+                  "mean_tau_escaped_population_weighted_per_g2": 3522499062165.4575,
                   "mean_tau_source_weighted_per_g2": 21587547070237.805,
                   "path_shell": "5-8km"
                 },
@@ -16415,7 +16415,7 @@
           "path_group_tau": [
             {
               "channel": "nu_mu",
-              "mean_tau_escaped_population_weighted_per_g2": 11028002423631.432,
+              "mean_tau_escaped_population_weighted_per_g2": 11028002423631.43,
               "mean_tau_source_weighted_per_g2": 248797059220099.12,
               "path_group": "core_0_8km"
             },
@@ -16500,7 +16500,7 @@
             },
             {
               "channel": "nu_mu",
-              "mean_tau_escaped_population_weighted_per_g2": 2728942698841.057,
+              "mean_tau_escaped_population_weighted_per_g2": 2728942698841.0566,
               "mean_tau_source_weighted_per_g2": 159566374185652.53,
               "path_shell": "5-8km"
             },
@@ -16554,13 +16554,13 @@
             },
             {
               "channel": "nu_tau",
-              "mean_tau_escaped_population_weighted_per_g2": 820730701397.8021,
+              "mean_tau_escaped_population_weighted_per_g2": 820730701397.802,
               "mean_tau_source_weighted_per_g2": 60968576188404.48,
               "path_shell": "0-5km"
             },
             {
               "channel": "nu_tau",
-              "mean_tau_escaped_population_weighted_per_g2": 2821119524455.708,
+              "mean_tau_escaped_population_weighted_per_g2": 2821119524455.7075,
               "mean_tau_source_weighted_per_g2": 183390104322564.06,
               "path_shell": "5-8km"
             },
@@ -16614,13 +16614,13 @@
             },
             {
               "channel": "compton",
-              "mean_tau_escaped_population_weighted_per_g2": 131340460746.58798,
+              "mean_tau_escaped_population_weighted_per_g2": 131340460746.58797,
               "mean_tau_source_weighted_per_g2": 4073493204374.013,
               "path_shell": "0-5km"
             },
             {
               "channel": "compton",
-              "mean_tau_escaped_population_weighted_per_g2": 4009488232205.4634,
+              "mean_tau_escaped_population_weighted_per_g2": 4009488232205.463,
               "mean_tau_source_weighted_per_g2": 127274987644064.02,
               "path_shell": "5-8km"
             },
@@ -17134,31 +17134,31 @@
               "channel_shell_tau": [
                 {
                   "channel": "nu_mu",
-                  "mean_tau_escaped_population_weighted_per_g2": 132606194134136.23,
+                  "mean_tau_escaped_population_weighted_per_g2": 132606194134136.27,
                   "mean_tau_source_weighted_per_g2": 149491301101712.44,
                   "path_shell": "0-5km"
                 },
                 {
                   "channel": "nu_mu",
-                  "mean_tau_escaped_population_weighted_per_g2": 419341133229290.44,
+                  "mean_tau_escaped_population_weighted_per_g2": 419341133229290.5,
                   "mean_tau_source_weighted_per_g2": 604347038090227.6,
                   "path_shell": "5-8km"
                 },
                 {
                   "channel": "nu_mu",
-                  "mean_tau_escaped_population_weighted_per_g2": 213634588810637.66,
+                  "mean_tau_escaped_population_weighted_per_g2": 213634588810637.7,
                   "mean_tau_source_weighted_per_g2": 551669358620988.1,
                   "path_shell": "8-10km"
                 },
                 {
                   "channel": "nu_mu",
-                  "mean_tau_escaped_population_weighted_per_g2": 139949390404785.02,
+                  "mean_tau_escaped_population_weighted_per_g2": 139949390404785.03,
                   "mean_tau_source_weighted_per_g2": 471408413323627.44,
                   "path_shell": "10-12km"
                 },
                 {
                   "channel": "nu_mu",
-                  "mean_tau_escaped_population_weighted_per_g2": 195540342834388.22,
+                  "mean_tau_escaped_population_weighted_per_g2": 195540342834388.25,
                   "mean_tau_source_weighted_per_g2": 605990887752470.1,
                   "path_shell": "12-15km"
                 },
@@ -17170,13 +17170,13 @@
                 },
                 {
                   "channel": "nu_mu",
-                  "mean_tau_escaped_population_weighted_per_g2": 132104138110925.83,
+                  "mean_tau_escaped_population_weighted_per_g2": 132104138110925.84,
                   "mean_tau_source_weighted_per_g2": 472794393414978.8,
                   "path_shell": "16.5-18.5km"
                 },
                 {
                   "channel": "nu_mu",
-                  "mean_tau_escaped_population_weighted_per_g2": 98972641313596.38,
+                  "mean_tau_escaped_population_weighted_per_g2": 98972641313596.39,
                   "mean_tau_source_weighted_per_g2": 371184363638134.44,
                   "path_shell": "18.5-20km"
                 },
@@ -17188,19 +17188,19 @@
                 },
                 {
                   "channel": "nu_mu",
-                  "mean_tau_escaped_population_weighted_per_g2": 196072051911155.84,
+                  "mean_tau_escaped_population_weighted_per_g2": 196072051911155.88,
                   "mean_tau_source_weighted_per_g2": 756609189131267.9,
                   "path_shell": "22-25km"
                 },
                 {
                   "channel": "nu_tau",
-                  "mean_tau_escaped_population_weighted_per_g2": 146593097390294.9,
+                  "mean_tau_escaped_population_weighted_per_g2": 146593097390294.94,
                   "mean_tau_source_weighted_per_g2": 243348942272831.7,
                   "path_shell": "0-5km"
                 },
                 {
                   "channel": "nu_tau",
-                  "mean_tau_escaped_population_weighted_per_g2": 434891413485177.1,
+                  "mean_tau_escaped_population_weighted_per_g2": 434891413485177.2,
                   "mean_tau_source_weighted_per_g2": 698079181426469.8,
                   "path_shell": "5-8km"
                 },
@@ -17224,7 +17224,7 @@
                 },
                 {
                   "channel": "nu_tau",
-                  "mean_tau_escaped_population_weighted_per_g2": 98743828020630.33,
+                  "mean_tau_escaped_population_weighted_per_g2": 98743828020630.34,
                   "mean_tau_source_weighted_per_g2": 325500421977774.94,
                   "path_shell": "15-16.5km"
                 },
@@ -17236,7 +17236,7 @@
                 },
                 {
                   "channel": "nu_tau",
-                  "mean_tau_escaped_population_weighted_per_g2": 98973117238802.8,
+                  "mean_tau_escaped_population_weighted_per_g2": 98973117238802.78,
                   "mean_tau_source_weighted_per_g2": 371195961510965.6,
                   "path_shell": "18.5-20km"
                 },
@@ -17248,7 +17248,7 @@
                 },
                 {
                   "channel": "nu_tau",
-                  "mean_tau_escaped_population_weighted_per_g2": 196072051911155.84,
+                  "mean_tau_escaped_population_weighted_per_g2": 196072051911155.88,
                   "mean_tau_source_weighted_per_g2": 756609189131267.9,
                   "path_shell": "22-25km"
                 },
@@ -17260,19 +17260,19 @@
                 },
                 {
                   "channel": "compton",
-                  "mean_tau_escaped_population_weighted_per_g2": 555504003279371.94,
+                  "mean_tau_escaped_population_weighted_per_g2": 555504003279372.1,
                   "mean_tau_source_weighted_per_g2": 463477389232487.56,
                   "path_shell": "5-8km"
                 },
                 {
                   "channel": "compton",
-                  "mean_tau_escaped_population_weighted_per_g2": 593164875073027.6,
+                  "mean_tau_escaped_population_weighted_per_g2": 593164875073027.8,
                   "mean_tau_source_weighted_per_g2": 805882120724794.8,
                   "path_shell": "8-10km"
                 },
                 {
                   "channel": "compton",
-                  "mean_tau_escaped_population_weighted_per_g2": 234933604399408.22,
+                  "mean_tau_escaped_population_weighted_per_g2": 234933604399408.28,
                   "mean_tau_source_weighted_per_g2": 369204422555319.8,
                   "path_shell": "10-12km"
                 },
@@ -17290,25 +17290,25 @@
                 },
                 {
                   "channel": "compton",
-                  "mean_tau_escaped_population_weighted_per_g2": 7052911490.53592,
+                  "mean_tau_escaped_population_weighted_per_g2": 7052911490.535918,
                   "mean_tau_source_weighted_per_g2": 7475791155.5968,
                   "path_shell": "16.5-18.5km"
                 },
                 {
                   "channel": "compton",
-                  "mean_tau_escaped_population_weighted_per_g2": 376464.83432488464,
+                  "mean_tau_escaped_population_weighted_per_g2": 376464.8343248847,
                   "mean_tau_source_weighted_per_g2": 395664.0726618217,
                   "path_shell": "18.5-20km"
                 },
                 {
                   "channel": "compton",
-                  "mean_tau_escaped_population_weighted_per_g2": 873.7646365599423,
+                  "mean_tau_escaped_population_weighted_per_g2": 873.7646365599421,
                   "mean_tau_source_weighted_per_g2": 914.3207948411186,
                   "path_shell": "20-22km"
                 },
                 {
                   "channel": "compton",
-                  "mean_tau_escaped_population_weighted_per_g2": 0.7363131940016986,
+                  "mean_tau_escaped_population_weighted_per_g2": 0.7363131940016987,
                   "mean_tau_source_weighted_per_g2": 0.7674121754274592,
                   "path_shell": "22-25km"
                 },
@@ -17377,9 +17377,9 @@
                 -1.0,
                 -0.5
               ],
-              "escaped_luminosity_fraction": 0.005563176751997737,
-              "mean_escape_probability": 7.862560635407593e-06,
-              "mean_total_tau_escaped_population_weighted_per_g2": 5032041146330226.0,
+              "escaped_luminosity_fraction": 0.005563176751997736,
+              "mean_escape_probability": 7.862560635407592e-06,
+              "mean_total_tau_escaped_population_weighted_per_g2": 5032041146330227.0,
               "mean_total_tau_source_weighted_per_g2": 1.1582201282394692e+16,
               "thin_source_fraction": 0.25
             },
@@ -18408,7 +18408,7 @@
           "path_group_tau": [
             {
               "channel": "nu_mu",
-              "mean_tau_escaped_population_weighted_per_g2": 3471476290251.071,
+              "mean_tau_escaped_population_weighted_per_g2": 3471476290251.0703,
               "mean_tau_source_weighted_per_g2": 197043129708012.44,
               "path_group": "core_0_8km"
             },
@@ -18420,7 +18420,7 @@
             },
             {
               "channel": "compton",
-              "mean_tau_escaped_population_weighted_per_g2": 4140828692952.0513,
+              "mean_tau_escaped_population_weighted_per_g2": 4140828692952.051,
               "mean_tau_source_weighted_per_g2": 131348480848438.03,
               "path_group": "core_0_8km"
             },
