@@ -38,6 +38,8 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install numpy scipy
       - name: Run exact-versus-approximate Compton tests
+        env:
+          PYTHONPATH: ${{ github.workspace }}/research/stellar-cooling-constraints-20261105
         run: |
           python -m unittest discover \
             -s research/stellar-cooling-constraints-20261105/finite_mixing \
