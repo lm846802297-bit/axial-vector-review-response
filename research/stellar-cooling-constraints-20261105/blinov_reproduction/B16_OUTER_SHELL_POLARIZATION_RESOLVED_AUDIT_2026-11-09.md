@@ -1,5 +1,8 @@
 # B.2 outer-shell polarization-resolved inverse-decay audit
 
+> **Latest extraction refresh:** this B.16 run records profile A SHA-256 `6c47d071...`. The latest regenerated vertex-preserving file is profile B SHA-256 `9fb14e79...`; the active thermodynamic columns differ only at floating-point roundoff (maximum relative change below (3.3\times10^{-14}) in (T), and below (6.4\times10^{-15}) in (mu_\mu); (mu_{\nu_\mu}) and lapse are unchanged). The exact run fingerprint is preserved. See `PROFILE_VERSION_RECONCILIATION_2026-11-09.md`.
+
+
 Date: 2026-11-09  
 Status: **completed as a separate transport diagnostic.** The literal scalar B.2 implementation remains the Fig. 7 reproduction baseline; the mode-resolved result is not substituted for it.
 
