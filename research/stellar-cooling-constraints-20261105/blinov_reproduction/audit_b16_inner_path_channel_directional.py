@@ -256,6 +256,7 @@ def _channel_shell_rows(columns, channel_names, shell_labels, source_weights, es
 def _region_summary(
     label, source_mask, source, columns, total_columns, channel_names,
     shell_labels, shell_edges, radii, angles, angle_weights, coupling,
+    direction_data,
 ):
     source_region = source[source_mask]
     base_weights = source_region[:, None, :] * angle_weights[None, :, None]
@@ -265,26 +266,38 @@ def _region_summary(
     escaped_norm = float(np.sum(escaped_weights))
     mean_escape = escaped_norm / base_norm if base_norm > 0.0 else None
 
+    direction_columns, direction_angles, direction_weights, direction_bin_ids = direction_data
+    direction_total_columns = np.sum(direction_columns, axis=(0, 1))
+    direction_base_weights = source_region[:, None, :] * direction_weights[None, :, None]
+    direction_survival = np.exp(
+        -coupling * coupling * direction_total_columns[source_mask]
+    )
+    direction_escaped_weights = direction_base_weights * direction_survival
+    direction_base_norm = float(np.sum(direction_base_weights))
+    direction_escaped_norm = float(np.sum(direction_escaped_weights))
+
     channel_shell = _channel_shell_rows(
         columns[:, :, source_mask, :, :], channel_names, shell_labels,
         base_weights, escaped_weights
     )
     direction_rows = []
-    for lo, hi in ANGLE_BINS:
-        angle_mask = (angles >= lo) & (
-            (angles < hi) if hi < 1.0 else (angles <= hi)
-        )
-        w0 = base_weights[:, angle_mask, :]
-        we = escaped_weights[:, angle_mask, :]
-        tau_total = total_columns[source_mask][:, angle_mask, :]
+    for ib, (lo, hi) in enumerate(ANGLE_BINS):
+        angle_mask = direction_bin_ids == ib
+        w0 = direction_base_weights[:, angle_mask, :]
+        we = direction_escaped_weights[:, angle_mask, :]
+        tau_total = direction_total_columns[source_mask][:, angle_mask, :]
+        selected_direction_columns = direction_columns[:, :, source_mask, :, :][:, :, :, angle_mask, :]
         channel_shell_rows = _channel_shell_rows(
-            columns[:, :, source_mask, :, :][:, :, :, angle_mask, :],
-            channel_names, shell_labels, w0, we
+            selected_direction_columns, channel_names, shell_labels, w0, we
         )
         direction_rows.append({
             "cos_theta_bin": [lo, hi],
-            "thin_source_fraction": float(np.sum(w0) / base_norm) if base_norm else 0.0,
-            "escaped_luminosity_fraction": float(np.sum(we) / escaped_norm) if escaped_norm else 0.0,
+            "thin_source_fraction": (
+                float(np.sum(w0) / direction_base_norm) if direction_base_norm else 0.0
+            ),
+            "escaped_luminosity_fraction": (
+                float(np.sum(we) / direction_escaped_norm) if direction_escaped_norm else 0.0
+            ),
             "mean_escape_probability": (
                 float(np.sum(we) / np.sum(w0)) if np.sum(w0) else None
             ),
@@ -356,6 +369,9 @@ def _region_summary(
             float(np.sum(source_region) / np.sum(source)) if np.sum(source) else 0.0
         ),
         "source_weighted_escape_probability": mean_escape,
+        "direction_bin_quadrature_escape_probability": (
+            direction_escaped_norm / direction_base_norm if direction_base_norm else None
+        ),
         "direction_bins": direction_rows,
         "channel_shell_tau": channel_shell,
         "path_group_tau": group_rows,
