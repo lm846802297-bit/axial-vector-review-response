@@ -14,7 +14,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: b16-local-absorption-\${{ github.ref }}
+  group: b16-local-absorption-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -26,7 +26,7 @@ jobs:
       - name: Check out research branch
         uses: actions/checkout@v4
         with:
-          ref: \${{ github.sha }}
+          ref: ${{ github.sha }}
           fetch-depth: 0
 
       - name: Set up Python
@@ -72,12 +72,12 @@ jobs:
           else
             git commit -m "Archive B.16 independent local absorption audit"
             for attempt in 1 2 3 4 5; do
-              git fetch origin "\${GITHUB_REF_NAME}"
-              git rebase "origin/\${GITHUB_REF_NAME}"
-              if git push origin "HEAD:\${GITHUB_REF_NAME}"; then
+              git fetch origin "${GITHUB_REF_NAME}"
+              git rebase "origin/${GITHUB_REF_NAME}"
+              if git push origin "HEAD:${GITHUB_REF_NAME}"; then
                 exit 0
               fi
-              echo "Push raced with another research workflow; retry \${attempt}/5."
+              echo "Push raced with another research workflow; retry ${attempt}/5."
               sleep 2
             done
             echo "Could not archive the local absorption audit after five retries."
