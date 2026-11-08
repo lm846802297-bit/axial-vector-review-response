@@ -479,7 +479,7 @@ def _angular_order_convergence(
     source, radii, radial_grid, reduced, mass, energies, couplings,
     selected_indices, radius_km, base_order, base_columns,
 ):
-    """Check angle-integrated escape and direction bins at n_mu/2, n_mu, 2*n_mu."""
+    """Check the full-angle integral at n_mu/2, n_mu, and 2*n_mu."""
     orders = sorted(set((max(8, base_order // 2), base_order, base_order * 2)))
     source_regions = {
         "all_emission_radii": np.ones(len(radii), dtype=bool),
@@ -489,10 +489,9 @@ def _angular_order_convergence(
     for order in orders:
         if order == base_order:
             columns = base_columns
-            angles, angle_weights = np.polynomial.legendre.leggauss(order)
-            angle_weights = angle_weights / 2.0
+            angle_weights = np.polynomial.legendre.leggauss(order)[1] / 2.0
         else:
-            columns, angles, angle_weights = segmented_radial_columns(
+            columns, _, angle_weights = segmented_radial_columns(
                 radii, radial_grid, reduced, mass, energies,
                 radius_km, order, SHELL_EDGES_KM
             )
@@ -503,18 +502,66 @@ def _angular_order_convergence(
             region_rows = []
             for region_name, source_mask in source_regions.items():
                 w0 = source[source_mask, None, :] * angle_weights[None, :, None]
-                survival = np.exp(-g * g * total_columns[source_mask])
-                we = w0 * survival
+                we = w0 * np.exp(-g * g * total_columns[source_mask])
+                region_rows.append({
+                    "region": region_name,
+                    "source_weighted_escape_probability": (
+                        float(np.sum(we) / np.sum(w0)) if np.sum(w0) else None
+                    ),
+                })
+            coupling_rows.append({"label": label, "g": g, "regions": region_rows})
+        results.append({"angular_order": order, "representative_couplings": coupling_rows})
+
+    reference = results[-1]
+    reference_lookup = {
+        (c["label"], r["region"]): r["source_weighted_escape_probability"]
+        for c in reference["representative_couplings"] for r in c["regions"]
+    }
+    for item in results:
+        for coupling_row in item["representative_couplings"]:
+            for region_row in coupling_row["regions"]:
+                ref = reference_lookup[(coupling_row["label"], region_row["region"])]
+                value = region_row["source_weighted_escape_probability"]
+                region_row["relative_difference_vs_highest_angular_order"] = (
+                    abs(value - ref) / abs(ref) if ref not in (None, 0.0) else None
+                )
+    return {"orders": orders, "reference_order": orders[-1], "results": results}
+
+
+def _direction_bin_quadrature_convergence(
+    source, radii, radial_grid, reduced, mass, energies, couplings,
+    selected_indices, radius_km, per_bin_orders=(8, 16, 32),
+):
+    """Converge each direction bin using a separate mapped Gauss rule."""
+    source_regions = {
+        "all_emission_radii": np.ones(len(radii), dtype=bool),
+        "dominant_8_15km_emission": (radii >= 8.0) & (radii < 15.0),
+    }
+    results = []
+    reference_data = None
+    for per_bin_order in per_bin_orders:
+        columns, angles, weights, bin_ids = direction_binned_radial_columns(
+            radii, radial_grid, reduced, mass, energies,
+            radius_km, per_bin_order, SHELL_EDGES_KM
+        )
+        if per_bin_order == per_bin_orders[-1]:
+            reference_data = (columns, angles, weights, bin_ids)
+        total_columns = np.sum(columns, axis=(0, 1))
+        coupling_rows = []
+        for label, index in selected_indices.items():
+            g = float(couplings[index])
+            region_rows = []
+            for region_name, source_mask in source_regions.items():
+                w0 = source[source_mask, None, :] * weights[None, :, None]
+                we = w0 * np.exp(-g * g * total_columns[source_mask])
                 base_norm = float(np.sum(w0))
                 escaped_norm = float(np.sum(we))
-                direction_rows = []
-                for lo, hi in ANGLE_BINS:
-                    angle_mask = (angles >= lo) & (
-                        (angles < hi) if hi < 1.0 else (angles <= hi)
-                    )
+                bins = []
+                for ib, (lo, hi) in enumerate(ANGLE_BINS):
+                    angle_mask = bin_ids == ib
                     w0_bin = w0[:, angle_mask, :]
                     we_bin = we[:, angle_mask, :]
-                    direction_rows.append({
+                    bins.append({
                         "cos_theta_bin": [lo, hi],
                         "thin_source_fraction": (
                             float(np.sum(w0_bin) / base_norm) if base_norm else 0.0
@@ -532,37 +579,41 @@ def _angular_order_convergence(
                     "source_weighted_escape_probability": (
                         escaped_norm / base_norm if base_norm else None
                     ),
-                    "direction_bins": direction_rows,
+                    "direction_bins": bins,
                 })
-            coupling_rows.append({
-                "label": label,
-                "g": g,
-                "regions": region_rows,
-            })
+            coupling_rows.append({"label": label, "g": g, "regions": region_rows})
         results.append({
-            "angular_order": order,
+            "per_bin_order": per_bin_order,
             "representative_couplings": coupling_rows,
         })
 
     reference = results[-1]
-    reference_lookup = {
-        (c["label"], r["region"]): r["source_weighted_escape_probability"]
-        for c in reference["representative_couplings"]
-        for r in c["regions"]
-    }
+    reference_lookup = {}
+    for c in reference["representative_couplings"]:
+        for r in c["regions"]:
+            reference_lookup[(c["label"], r["region"])] = r
     for item in results:
-        for coupling_row in item["representative_couplings"]:
-            for region_row in coupling_row["regions"]:
-                ref = reference_lookup[(coupling_row["label"], region_row["region"])]
-                value = region_row["source_weighted_escape_probability"]
-                region_row["relative_difference_vs_highest_angular_order"] = (
-                    abs(value - ref) / abs(ref) if ref not in (None, 0.0) else None
+        for c in item["representative_couplings"]:
+            for r in c["regions"]:
+                ref = reference_lookup[(c["label"], r["region"])]
+                ref_escape = ref["source_weighted_escape_probability"]
+                value = r["source_weighted_escape_probability"]
+                r["relative_difference_escape_vs_reference_order"] = (
+                    abs(value - ref_escape) / abs(ref_escape)
+                    if ref_escape not in (None, 0.0) else None
                 )
+                for bin_row, ref_bin in zip(r["direction_bins"], ref["direction_bins"]):
+                    ref_fraction = ref_bin["escaped_luminosity_fraction"]
+                    value_fraction = bin_row["escaped_luminosity_fraction"]
+                    bin_row["relative_difference_escaped_fraction_vs_reference_order"] = (
+                        abs(value_fraction - ref_fraction) / abs(ref_fraction)
+                        if ref_fraction not in (None, 0.0) else None
+                    )
     return {
-        "orders": orders,
-        "reference_order": orders[-1],
+        "per_bin_orders": list(per_bin_orders),
+        "reference_order": per_bin_orders[-1],
         "results": results,
-    }
+    }, reference_data
 
 
 def run_audit(
