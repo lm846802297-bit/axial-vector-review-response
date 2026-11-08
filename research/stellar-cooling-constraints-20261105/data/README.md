@@ -51,7 +51,7 @@ Fixed PDF hashes, curve indices, domain endpoints, interpolation choices and num
 
 ## Independent consistency check and source discrepancy
 
-The two source temperature profiles agree over 0.2–20 km to **0.267% maximum relative difference** after independent vector-coordinate extraction. At r=0, 5, 8, 10 and 15 km, the muon number density obtained by integrating the Fermi distribution using the Caputo temperature and chemical potential agrees with the independently plotted Caputo density at about **0.5–1.1%**. The density normalization itself was given as n0=0.181 fm^-3 and is rounded.
+The two source temperature profiles agree over 0.2–20 km to **0.267% maximum relative difference** after independent vector-coordinate extraction. At r=8, 9, 10, 12 and 15 km, the muon number density obtained by integrating the standard Fermi distribution using the Caputo temperature and chemical potential agrees with the independently plotted Caputo density to within about **0.5–1.1%**. Using the Ferreira temperature and its own plotted muon chemical potential instead predicts **4.44, 2.36, 1.93, 1.67 and 1.59 times** the Caputo plotted density at those radii. The two temperature profiles are nearly identical, so this difference is driven by the chemical-potential curve, not by temperature. The density normalization itself was given as n0=0.181 fm^-3 and is rounded.
 
 However, the orange curve labeled mu_mu in Ferreira Fig. 1 differs strongly from Caputo's muon chemical potential despite the same profile label:
 
