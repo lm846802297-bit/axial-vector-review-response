@@ -184,7 +184,13 @@ Q_{\nu\bar\nu}+Q_{\rm Compton}^{\rm stationary}.
 
 **Conclusion on the approximately 9% weak-coupling source discrepancy:** the moving-muon correction does not explain a 9% discrepancy at either diagnostic radius. For the actual axial/UV current, it changes the local two-channel source by about \(+0.75\%\) at the center and \(+1.45\%\) at 12.5 km. The vector local source changes by \(-0.12\%\) and \(-1.45\%\), respectively. These two radii do not determine the global radial weighting, but they do not support a 9% local correction.
 
-A tempting numerical coincidence must be avoided: multiplying the previously archived 18.6% global vector semi-Compton share by the \(-52\%\) to \(-57\%\) B.13/B.16 difference gives a shift near \(-10\%\). This is **not** a valid explanation of the weak-source residual. It combines a global share with local ratios and applies B.14 outside its stated \(m_V\lesssim\) MeV regime. The direct local source budgets above are the appropriate comparisons at these two radii. A full radial source-weighted integral is required before making a global statement.
+The earlier note's 18.6% global vector semi-Compton share is superseded and must not be used. The archived B.16 global source decomposition gives a Compton fraction of 32.005% at \(m_V=10\) MeV; the current vertex-preserving profile gives 32.005% as well. The direct global B.13 calculation then finds
+\[
+L_{\rm thin}^{\rm B13}/L_{\rm thin}^{\rm B16}=0.78898,
+\]
+with the B.13 \(\mu^-\) Compton source equal to 34.07% of the B.16 Compton source after the full radial and energy weighting. Thus the exact moving-muon kernel lowers the total optically thin source by 21.10%. This result comes from the global B.1 integral, not from multiplying a global channel fraction by the two local emissivity ratios above.
+
+The B.13 source-and-opacity replacement shifts the weak-endpoint Fig. 7 difference from \(-8.89\%\) to \(-28.11\%\). It therefore does not explain or repair the weak-source residual. The earlier 18.6% estimate is not traceable to the current archived B.16 source decomposition and is withdrawn.
 
 ## 8. Quadrature and internal-consistency checks
 
