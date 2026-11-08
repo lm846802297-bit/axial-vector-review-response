@@ -20,9 +20,11 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
+if str(ROOT / "finite_mixing") not in sys.path:
+    sys.path.insert(0, str(ROOT / "finite_mixing"))
 
 from blinov_reproduction.reference import DEFAULT_PROFILE, load_profile, local_rates
-from finite_mixing.moving_muon_compton import moving_muon_compton_rates
+from moving_muon_compton import moving_muon_compton_rates
 
 DEFAULT_OUTPUT = HERE / "outputs" / "b13_exact_compton_opacity_radial_10mev_2026-11-09.json"
 MASS_MEV = 10.0
