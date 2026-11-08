@@ -202,7 +202,7 @@ def run(source_dir: Path, data_dir: Path):
     T_cap = csv["T_MeV"][region]
     T_fer = csv["T_Ferreira_MeV"][region]
     mu_cap = csv["mu_mu_MeV"][region]
-    mu_fer = csv["mu_mu_ferreira_MeV"][region]
+    mu_fer = csv["mu_mu_Ferreira_MeV"][region]
     mu_numu = csv["mu_numu_MeV"][region]
     lapse = csv["lapse"][region]
 
@@ -213,7 +213,7 @@ def run(source_dir: Path, data_dir: Path):
         row = csv[row_index]
         T = float(row["T_MeV"])
         mc = float(row["mu_mu_MeV"])
-        mf = float(row["mu_mu_ferreira_MeV"])
+        mf = float(row["mu_mu_Ferreira_MeV"])
         dc = density_and_susceptibility(T, mc)
         df = density_and_susceptibility(T, mf)
         nplot = interp_curve(nplot_curve, radius) * N0_FM3
@@ -273,7 +273,7 @@ def run(source_dir: Path, data_dir: Path):
         "mu_mu_Caputo": ("mu_mu_caputo_vertices.csv", "mu_mu_MeV", 1.0),
         "minus_mu_numu_Caputo": ("minus_mu_numu_caputo_vertices.csv", "mu_numu_MeV", -1.0),
         "T_Ferreira": ("T_ferreira_vertices.csv", "T_Ferreira_MeV", 1.0),
-        "mu_mu_Ferreira": ("mu_mu_ferreira_vertices.csv", "mu_mu_ferreira_MeV", 1.0),
+        "mu_mu_Ferreira": ("mu_mu_ferreira_vertices.csv", "mu_mu_Ferreira_MeV", 1.0),
         "lapse_Ferreira": ("lapse_ferreira_vertices.csv", "lapse", 1.0),
     }
     resampling = {}
