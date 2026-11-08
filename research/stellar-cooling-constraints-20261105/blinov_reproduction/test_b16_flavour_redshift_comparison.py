@@ -9,6 +9,8 @@ sys.path.insert(0, str(HERE.parent))
 
 from blinov_reproduction.reference import (
     radial_rule, load_profile, local_rates, scalar_optical_depths,
+)
+from blinov_reproduction.audit_b16_global_redshift import (
     redshifted_scalar_optical_depths,
 )
 from blinov_reproduction.audit_b16_flavour_redshift_comparison import (
