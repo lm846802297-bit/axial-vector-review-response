@@ -30,9 +30,9 @@ The baseline lapse is digitized from the Ferreira et al. SFHo-18.8 curve. It inc
 
 No second independent lapse extraction is present in the current provenance package. Thus the lapse is internally smooth, but it is not independently cross-validated against another figure or raw simulation data. The exterior Schwarzschild continuation begins only beyond the plotted 23.9998 km endpoint and is irrelevant to the 12--15 km interval.
 
-## 4. Muon chemical potential: unresolved 9.5--17.2% source discrepancy
+## 4. Muon chemical potential: a confirmed cross-paper discrepancy for the same named model
 
-The baseline \(\mu_\mu(r)\) is taken from Caputo et al. The independent Ferreira curve is explicitly labeled as the muon chemical potential for the same SFHo-18.8 profile, but it is systematically higher over 12--15 km.
+The baseline \(\mu_\mu(r)\) is taken from Caputo et al. The independent Ferreira curve is explicitly labeled as the muon chemical potential for SFHo-18.8. The Ferreira Fig. 1 caption identifies the dashed orange curves as SFHo-18.8, and its model section specifies the same 1 s post-bounce snapshot. Caputo Fig. 1 also identifies SFHo-18.8 at 1 s post-bounce. Both papers cite the same underlying Bollig et al. simulation; the Caputo paper explicitly points to the consolidated post-publication update arXiv:2005.07141v6. Thus the difference is not explained by a different model label or nominal snapshot time. The Ferreira digitization is systematically higher over 12--15 km.
 
 | \(r\) (km) | \(\mu_{\mu,\rm Caputo}\) (MeV) | \(\mu_{\mu,\rm Ferreira}\) (MeV) | Ferreira relative to Caputo |
 |---:|---:|---:|---:|
@@ -48,7 +48,7 @@ The relative discrepancy ranges from 9.48% to 17.17% over the sampled 12--15 km 
 
 The existing provenance check finds that the Caputo \(\mu_\mu\) curve, together with the Caputo temperature, reproduces the independently plotted Caputo muon number density at roughly the 0.5--1.1% level at representative radii. This supports internal consistency of the Caputo pair. It does **not** explain why the Ferreira curve labeled \(\mu_\mu\) differs. The two inputs must not be silently averaged or substituted.
 
-A possible difference in chemical-potential convention, equation of state, or extraction interpretation must be checked against the definitions and source data of both papers. No such explanation is established in this audit.
+The figure captions and references establish a same-model, same-time comparison, but they do not establish that the two plotted curves were generated from identical profile files or identical post-processing conventions. A difference in chemical-potential convention, profile version, data extraction, or a plotting/transcription error remains possible. No explanation is established in this audit. The orange dashed curve identity itself is no longer ambiguous.
 
 ## 5. Muon-neutrino chemical potential: plotting-floor ambiguity at 13.11 km
 
@@ -79,9 +79,9 @@ The 12--15 km temperature, \(\mu_\mu\), and lapse curves are continuous across t
 
 1. **Temperature:** independently cross-checked; the two figure extractions agree to better than 0.12% throughout 12--15 km.
 2. **Lapse:** smooth and correctly interpolated in the interval, but presently supported by only one source extraction.
-3. **Muon chemical potential:** unresolved source discrepancy of roughly 9.5--17.2%; retain Caputo as the baseline because its pair with the Caputo temperature reproduces the plotted Caputo muon density. Do not substitute Ferreira or average the two without resolving the convention.
+3. **Muon chemical potential:** a confirmed 9.5--17.2% discrepancy between two published curves both labeled as SFHo-18.8 at 1 s post-bounce. Retain Caputo as the baseline because its pair with the Caputo temperature reproduces the independently plotted Caputo muon density. Do not substitute or average the Ferreira curve until the underlying profile version and convention are resolved.
 4. **Muon-neutrino chemical potential:** the zero-outside-support assumption is not fixed by the plot. It requires a dedicated sensitivity calculation, especially around 13.11 km and across the 13.11--16.59 km gap.
-5. **Raw profile:** the original Garching profile tables remain unavailable. Figure digitization cannot establish simulation-level precision.
+5. **Raw profile:** both papers point to the Bollig et al. SFHo-18.8 simulation. The Garching archive lists corresponding radial-profile data under a protected directory; the current archive endpoint returns HTTP 401 for that data link. No protected files or credentials are accessed. Figure digitization therefore remains the available reproducible comparison, but it cannot establish simulation-level precision.
 
 ## 8. Required next calculation
 
