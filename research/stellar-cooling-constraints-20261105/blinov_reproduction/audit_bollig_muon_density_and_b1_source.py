@@ -150,6 +150,29 @@ def run(profile_path=DEFAULT_PROFILE, caputo_n_path=DEFAULT_CAPUTO_N,
         return float(10.0 ** ((y_pdf - y0) / dy))
 
     fig4_points = deduplicate(fig4["points"])
+
+    # Fig. 1 provides Bollig's temperature profile for the same SFHo-18.8
+    # model and 1 s post-bounce time. Use its actual PDF vector axes to test
+    # whether the Fig. 3 density residual can be explained by T(r).
+    fig1 = next(x for x in archive["fig1_temperature_vector_paths"] if x["index"] == 0)
+    if fig1["color"] != [0.6999970078468323, 0.6999970078468323, 0.0]:
+        raise AssertionError("Fig. 1 path 0 is not the archived yellow SFHo-18.8 curve")
+    fig1_points = deduplicate(fig1["points"])
+    x1, dx1 = linear_map(
+        [389.2326354980469, 442.6397399902344,
+         496.04840087890625, 549.4555053710938],
+        [5.0, 10.0, 15.0, 20.0],
+    )
+    y1, dy1 = linear_map(
+        [177.6042938232422, 158.30784606933594, 139.01141357421875,
+         119.71297454833984, 100.41653442382812, 81.12008666992188,
+         61.8236],
+        [0.0, 10.0, 20.0, 30.0, 40.0, 50.0, 60.0],
+    )
+    def bollig_temperature(radius):
+        y_pdf = interpolate_curve(fig1_points, x1 + dx1 * radius)
+        return float((y_pdf - y1) / dy1)
+
     # Fig. 4 axis ticks are taken from the actual black PDF vector tick marks,
     # not text bounding boxes (whose glyph tops/left edges are offset from ticks).
     # x ticks 5,10,15,20 km: drawing paths 248,253,258,263.
@@ -208,6 +231,8 @@ def run(profile_path=DEFAULT_PROFILE, caputo_n_path=DEFAULT_CAPUTO_N,
     eta_bollig = np.asarray([bollig_eta(float(r)) for r in common_r])
     eta_caputo = mu_common / t_common
     eta_caputo_vs_bollig = eta_caputo / eta_bollig - 1.0
+    t_bollig = np.asarray([bollig_temperature(float(r)) for r in common_r])
+    t_caputo_vs_bollig = t_common / t_bollig - 1.0
 
     # Verify the archived reference.py implementation against the separately
     # integrated n(mu-) and chi_mu; B.17 uses n_mu*Fdeg = chi_mu.
@@ -295,6 +320,8 @@ def run(profile_path=DEFAULT_PROFILE, caputo_n_path=DEFAULT_CAPUTO_N,
             "Caputo_T_MeV": t,
             "Caputo_mu_mu_MeV": m,
             "Bollig_mu_mu_over_T": bollig_eta(r),
+            "Bollig_Fig1_T_MeV": bollig_temperature(r),
+            "Caputo_T_over_Bollig_Fig1_T_minus_1": t / bollig_temperature(r) - 1.0,
         })
 
     max_b1_closure = max(abs(x["relative_residual"]) for x in compton_checks)
@@ -333,6 +360,15 @@ def run(profile_path=DEFAULT_PROFILE, caputo_n_path=DEFAULT_CAPUTO_N,
             "Caputo_FD_mu_minus_vs_Bollig_Fig3_12_15km": rel_summary(fermi_minus_vs_bollig[shell]),
             "Caputo_mu_over_T_vs_Bollig_Fig4_5_15km": rel_summary(eta_caputo_vs_bollig),
             "Caputo_mu_over_T_vs_Bollig_Fig4_12_15km": rel_summary(eta_caputo_vs_bollig[shell]),
+            "Caputo_T_vs_Bollig_Fig1_5_15km": rel_summary(t_caputo_vs_bollig),
+            "Caputo_T_vs_Bollig_Fig1_12_15km": rel_summary(t_caputo_vs_bollig[shell]),
+            "Bollig_Fig1_T_vs_T_implied_from_Fig3_density_and_Fig4_eta_12_15km": rel_summary(
+                np.asarray([
+                    (x["T_implied_from_Bollig_nmu_MeV"] / bollig_temperature(x["radius_km"]) - 1.0)
+                    for x in implied_temperature
+                    if 12.0 <= x["radius_km"] <= 15.0
+                ], dtype=float)
+            ),
             "reference_py_vs_independent_FD_density_max_abs_relative": max_n_rel,
             "reference_py_vs_independent_FD_susceptibility_max_abs_relative": max_chi_rel,
             "n_mu_Fdeg_equals_susceptibility_max_abs_relative": max_nFdeg_rel,
