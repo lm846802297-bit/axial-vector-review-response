@@ -228,11 +228,20 @@ def run(profile_path=DEFAULT_PROFILE, caputo_n_path=DEFAULT_CAPUTO_N,
     fermi_net_vs_caputo = fermi_net / n_caputo - 1.0
     fermi_total_vs_caputo = fermi_total / n_caputo - 1.0
     fermi_minus_vs_bollig = fermi_minus / n_bollig - 1.0
+    # Compare Fig. 1 and Fig. 4 on the dense thermodynamic-profile grid,
+    # not only on the much sparser n_mu plotting vertices.
+    profile_mask = (profile_r >= 5.0) & (profile_r <= 15.0)
+    profile_r_common = profile_r[profile_mask]
+    profile_t_common = temp[profile_mask]
+    profile_mu_common = mu[profile_mask]
+    eta_bollig_profile = np.asarray([bollig_eta(float(r)) for r in profile_r_common])
+    eta_caputo_profile = profile_mu_common / profile_t_common
+    eta_caputo_vs_bollig = eta_caputo_profile / eta_bollig_profile - 1.0
+    t_bollig_profile = np.asarray([bollig_temperature(float(r)) for r in profile_r_common])
+    t_caputo_vs_bollig = profile_t_common / t_bollig_profile - 1.0
+    # Retain the density-node values for the implied-temperature diagnostic.
     eta_bollig = np.asarray([bollig_eta(float(r)) for r in common_r])
-    eta_caputo = mu_common / t_common
-    eta_caputo_vs_bollig = eta_caputo / eta_bollig - 1.0
     t_bollig = np.asarray([bollig_temperature(float(r)) for r in common_r])
-    t_caputo_vs_bollig = t_common / t_bollig - 1.0
 
     # Verify the archived reference.py implementation against the separately
     # integrated n(mu-) and chi_mu; B.17 uses n_mu*Fdeg = chi_mu.
