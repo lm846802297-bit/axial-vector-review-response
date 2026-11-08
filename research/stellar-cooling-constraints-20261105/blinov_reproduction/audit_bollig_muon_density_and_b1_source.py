@@ -150,15 +150,18 @@ def run(profile_path=DEFAULT_PROFILE, caputo_n_path=DEFAULT_CAPUTO_N,
         return float(10.0 ** ((y_pdf - y0) / dy))
 
     fig4_points = deduplicate(fig4["points"])
-    # Fig. 4 axis ticks: 5,10,15,20 km and degeneracy -4,-2,0,2,4.
+    # Fig. 4 axis ticks are taken from the actual black PDF vector tick marks,
+    # not text bounding boxes (whose glyph tops/left edges are offset from ticks).
+    # x ticks 5,10,15,20 km: drawing paths 248,253,258,263.
+    # y ticks -4,-2,0,2,4: drawing paths 225,229,233,237,241.
     x4, dx4 = linear_map(
-        [388.2213134765625, 439.0228576660156,
-         492.031982421875, 545.0410766601562],
+        [390.42822265625, 443.4383544921875,
+         496.4469299316406, 549.4570922851562],
         [5.0, 10.0, 15.0, 20.0],
     )
     y4, dy4 = linear_map(
-        [287.0054016113281, 259.3401794433594, 231.6749725341797,
-         204.00975036621094, 176.34454345703125],
+        [291.43780517578125, 263.7730712890625, 236.10794067382812,
+         208.44161987304688, 180.77688598632812],
         [-4.0, -2.0, 0.0, 2.0, 4.0],
     )
     def bollig_eta(radius):
@@ -202,6 +205,9 @@ def run(profile_path=DEFAULT_PROFILE, caputo_n_path=DEFAULT_CAPUTO_N,
     fermi_net_vs_caputo = fermi_net / n_caputo - 1.0
     fermi_total_vs_caputo = fermi_total / n_caputo - 1.0
     fermi_minus_vs_bollig = fermi_minus / n_bollig - 1.0
+    eta_bollig = np.asarray([bollig_eta(float(r)) for r in common_r])
+    eta_caputo = mu_common / t_common
+    eta_caputo_vs_bollig = eta_caputo / eta_bollig - 1.0
 
     # Verify the archived reference.py implementation against the separately
     # integrated n(mu-) and chi_mu; B.17 uses n_mu*Fdeg = chi_mu.
@@ -325,6 +331,8 @@ def run(profile_path=DEFAULT_PROFILE, caputo_n_path=DEFAULT_CAPUTO_N,
             "Caputo_FD_total_vs_Caputo_plotted_5_15km": rel_summary(fermi_total_vs_caputo),
             "Caputo_FD_mu_minus_vs_Bollig_Fig3_5_15km": rel_summary(fermi_minus_vs_bollig),
             "Caputo_FD_mu_minus_vs_Bollig_Fig3_12_15km": rel_summary(fermi_minus_vs_bollig[shell]),
+            "Caputo_mu_over_T_vs_Bollig_Fig4_5_15km": rel_summary(eta_caputo_vs_bollig),
+            "Caputo_mu_over_T_vs_Bollig_Fig4_12_15km": rel_summary(eta_caputo_vs_bollig[shell]),
             "reference_py_vs_independent_FD_density_max_abs_relative": max_n_rel,
             "reference_py_vs_independent_FD_susceptibility_max_abs_relative": max_chi_rel,
             "n_mu_Fdeg_equals_susceptibility_max_abs_relative": max_nFdeg_rel,
