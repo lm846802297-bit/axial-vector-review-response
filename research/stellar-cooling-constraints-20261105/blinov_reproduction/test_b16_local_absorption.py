@@ -10,6 +10,7 @@ sys.path.insert(0, str(HERE.parent))
 
 from blinov_reproduction.reference import (
     M_MU, compton_production, fermi_pair_average,
+    negative_muon_density_and_degeneracy,
 )
 from blinov_reproduction.audit_b16_local_absorption import (
     direct_neutrino_modes,
@@ -62,6 +63,17 @@ class B16LocalAbsorptionTests(unittest.TestCase):
         np.testing.assert_allclose(n256, n512, rtol=2e-12)
         np.testing.assert_allclose(chi256, chi512, rtol=2e-12)
         np.testing.assert_allclose(n256 * f256, chi256, rtol=2e-14)
+
+    def test_reference_muon_integral_resolves_dilute_outer_tail(self):
+        for temperature in (3.384020032, 3.216426215, 3.033770692):
+            density, fdeg = negative_muon_density_and_degeneracy(
+                np.array([temperature]), np.array([0.0])
+            )
+            n_ind, chi_ind, _ = independent_muon_density_susceptibility(
+                temperature, 0.0, 256
+            )
+            np.testing.assert_allclose(density[0], n_ind, rtol=3e-9)
+            np.testing.assert_allclose(density[0] * fdeg[0], chi_ind, rtol=3e-9)
 
     def test_B14_B16_direct_rate_matches_reference_compton_kernel(self):
         mass, omega, temperature, mu = 10.0, 15.0, 38.7430643817, 91.8049536968
