@@ -1,0 +1,540 @@
+{
+  "comparisons_to_baseline": {
+    "angular_24": {
+      "max_abs_luminosity_relative_change_at_representative_points": 5.116498919432999e-05,
+      "points": {
+        "0": {
+          "escape_fraction_absolute_change": 3.769236278650112e-08,
+          "g": 4.796429536550025e-10,
+          "luminosity_relative_change_vs_baseline": 3.777282531203241e-08
+        },
+        "17": {
+          "escape_fraction_absolute_change": 5.862187782534889e-06,
+          "g": 1.1341108687336194e-08,
+          "luminosity_relative_change_vs_baseline": 1.6631607646644397e-05
+        },
+        "24": {
+          "escape_fraction_absolute_change": 1.6573281923812182e-08,
+          "g": 4.171689650228597e-08,
+          "luminosity_relative_change_vs_baseline": 5.116498919432999e-05
+        }
+      },
+      "source_mean_radius_relative_change": 0.0,
+      "source_median_radius_absolute_change_km": 0.0,
+      "source_p90_radius_absolute_change_km": 0.0
+    },
+    "combined_60_150_24_48": {
+      "max_abs_luminosity_relative_change_at_representative_points": 0.002936936072239993,
+      "points": {
+        "0": {
+          "escape_fraction_absolute_change": 3.3741083438343367e-07,
+          "g": 4.796429536550025e-10,
+          "luminosity_relative_change_vs_baseline": -0.002936936072239993
+        },
+        "17": {
+          "escape_fraction_absolute_change": 4.345221617479966e-05,
+          "g": 1.1341108687336194e-08,
+          "luminosity_relative_change_vs_baseline": -0.002814357068908091
+        },
+        "24": {
+          "escape_fraction_absolute_change": 5.252343771886903e-07,
+          "g": 4.171689650228597e-08,
+          "luminosity_relative_change_vs_baseline": -0.0013205339174799935
+        }
+      },
+      "source_mean_radius_relative_change": -6.775542767745169e-05,
+      "source_median_radius_absolute_change_km": 0.3212283428814082,
+      "source_p90_radius_absolute_change_km": -0.48184251432211234
+    },
+    "energy_150": {
+      "max_abs_luminosity_relative_change_at_representative_points": 0.0032218621988138185,
+      "points": {
+        "0": {
+          "escape_fraction_absolute_change": 4.8763568738507956e-08,
+          "g": 4.796429536550025e-10,
+          "luminosity_relative_change_vs_baseline": -0.003216776472746208
+        },
+        "17": {
+          "escape_fraction_absolute_change": 1.6127354772188518e-06,
+          "g": 1.1341108687336194e-08,
+          "luminosity_relative_change_vs_baseline": -0.0032122644114039867
+        },
+        "24": {
+          "escape_fraction_absolute_change": -1.6368475347383095e-09,
+          "g": 4.171689650228597e-08,
+          "luminosity_relative_change_vs_baseline": -0.0032218621988138185
+        }
+      },
+      "source_mean_radius_relative_change": -1.7985503480977272e-06,
+      "source_median_radius_absolute_change_km": 0.0,
+      "source_p90_radius_absolute_change_km": 0.0
+    },
+    "path_48": {
+      "max_abs_luminosity_relative_change_at_representative_points": 5.675777571090279e-05,
+      "points": {
+        "0": {
+          "escape_fraction_absolute_change": -9.590458427410908e-10,
+          "g": 4.796429536550025e-10,
+          "luminosity_relative_change_vs_baseline": -9.61093205020802e-10
+        },
+        "17": {
+          "escape_fraction_absolute_change": 9.820655122450006e-07,
+          "g": 1.1341108687336194e-08,
+          "luminosity_relative_change_vs_baseline": 2.786217174977068e-06
+        },
+        "24": {
+          "escape_fraction_absolute_change": 1.8384888437160407e-08,
+          "g": 4.171689650228597e-08,
+          "luminosity_relative_change_vs_baseline": 5.675777571090279e-05
+        }
+      },
+      "source_mean_radius_relative_change": 0.0,
+      "source_median_radius_absolute_change_km": 0.0,
+      "source_p90_radius_absolute_change_km": 0.0
+    },
+    "radial_60": {
+      "max_abs_luminosity_relative_change_at_representative_points": 0.001987832631008768,
+      "points": {
+        "0": {
+          "escape_fraction_absolute_change": 3.3526013532014787e-07,
+          "g": 4.796429536550025e-10,
+          "luminosity_relative_change_vs_baseline": 0.00028078976425316426
+        },
+        "17": {
+          "escape_fraction_absolute_change": 4.9387680841617154e-05,
+          "g": 1.1341108687336194e-08,
+          "luminosity_relative_change_vs_baseline": 0.00042061073531463045
+        },
+        "24": {
+          "escape_fraction_absolute_change": 5.528964078460271e-07,
+          "g": 4.171689650228597e-08,
+          "luminosity_relative_change_vs_baseline": 0.001987832631008768
+        }
+      },
+      "source_mean_radius_relative_change": -6.595655762153818e-05,
+      "source_median_radius_absolute_change_km": 0.3212283428814082,
+      "source_p90_radius_absolute_change_km": -0.48184251432211234
+    }
+  },
+  "configurations": {
+    "angular_24": {
+      "configuration": {
+        "angular_order": 24,
+        "emission_and_absorption_shells_km": [
+          "0-5 km",
+          "5-8 km",
+          "8-10 km",
+          "10-12 km",
+          "12-15 km",
+          "15-16.5 km",
+          "16.5-18.5 km",
+          "18.5-20 km",
+          "20-22 km",
+          "22-25 km"
+        ],
+        "energy_offset_MeV": 1000.0,
+        "energy_order": 100,
+        "path_order": 32,
+        "radial_order": 40,
+        "radius_km": 25.0
+      },
+      "internal_closure": {
+        "absorption_shell_sum_vs_total_column_max_relative_residual": 0.0,
+        "angle_weight_max_absolute_residual": 0.0,
+        "direct_source_weighted_mean_tau": 9272136593617486.0,
+        "emission_absorption_matrix_weighted_mean_tau": 9272136593617486.0,
+        "mean_tau_matrix_relative_residual": 0.0,
+        "shell_columns_vs_direct_chord_max_relative_residual": 6.914075960299124e-16,
+        "source_channel_sum_max_relative_residual": 4.3682015727677863e-16
+      },
+      "points": {
+        "0": {
+          "escape_fraction": 0.9978698677866875,
+          "g": 4.796429536550025e-10,
+          "luminosity_erg_s": 9.925353245326478e+51,
+          "relative_difference_vs_fig7": -0.08885670208665486
+        },
+        "17": {
+          "escape_fraction": 0.3524785700058084,
+          "g": 1.1341108687336194e-08,
+          "luminosity_erg_s": 1.960106501535189e+54,
+          "relative_difference_vs_fig7": 0.025699664841521308
+        },
+        "24": {
+          "escape_fraction": 0.0003239349828190314,
+          "g": 4.171689650228597e-08,
+          "luminosity_erg_s": 2.4373492360223356e+52,
+          "relative_difference_vs_fig7": 0.9224805663274429
+        }
+      },
+      "source_distribution": {
+        "mean_radius_km": 9.834857004381327,
+        "median_radius_km": 9.339981043584856,
+        "p90_radius_km": 12.990028434622715,
+        "shell_fractions": {
+          "0-5 km": 0.00909567136142705,
+          "10-12 km": 0.260812098987004,
+          "12-15 km": 0.13718451784787972,
+          "15-16.5 km": 0.012655698289322169,
+          "16.5-18.5 km": 0.004291757664247981,
+          "18.5-20 km": 0.0012879448107459173,
+          "20-22 km": 0.0007453162947508935,
+          "22-25 km": 0.000727606406606924,
+          "5-8 km": 0.17507879971712773,
+          "8-10 km": 0.39812058862088756
+        }
+      }
+    },
+    "baseline_40_100_16_32": {
+      "configuration": {
+        "angular_order": 16,
+        "emission_and_absorption_shells_km": [
+          "0-5 km",
+          "5-8 km",
+          "8-10 km",
+          "10-12 km",
+          "12-15 km",
+          "15-16.5 km",
+          "16.5-18.5 km",
+          "18.5-20 km",
+          "20-22 km",
+          "22-25 km"
+        ],
+        "energy_offset_MeV": 1000.0,
+        "energy_order": 100,
+        "path_order": 32,
+        "radial_order": 40,
+        "radius_km": 25.0
+      },
+      "internal_closure": {
+        "absorption_shell_sum_vs_total_column_max_relative_residual": 0.0,
+        "angle_weight_max_absolute_residual": 0.0,
+        "direct_source_weighted_mean_tau": 9272300868927090.0,
+        "emission_absorption_matrix_weighted_mean_tau": 9272300868927090.0,
+        "mean_tau_matrix_relative_residual": 0.0,
+        "shell_columns_vs_direct_chord_max_relative_residual": 6.724089930264748e-16,
+        "source_channel_sum_max_relative_residual": 4.3682015727677863e-16
+      },
+      "points": {
+        "0": {
+          "escape_fraction": 0.9978698300943247,
+          "g": 4.796429536550025e-10,
+          "luminosity_erg_s": 9.925352870417857e+51,
+          "relative_difference_vs_fig7": -0.08885673650311032
+        },
+        "17": {
+          "escape_fraction": 0.35247270781802587,
+          "g": 1.1341108687336194e-08,
+          "luminosity_erg_s": 1.9600739023550867e+54,
+          "relative_difference_vs_fig7": 0.02568260609084705
+        },
+        "24": {
+          "escape_fraction": 0.0003239184095371076,
+          "g": 4.171689650228597e-08,
+          "luminosity_erg_s": 2.4372245354553146e+52,
+          "relative_difference_vs_fig7": 0.9223822076625603
+        }
+      },
+      "source_distribution": {
+        "mean_radius_km": 9.834857004381327,
+        "median_radius_km": 9.339981043584856,
+        "p90_radius_km": 12.990028434622715,
+        "shell_fractions": {
+          "0-5 km": 0.00909567136142705,
+          "10-12 km": 0.260812098987004,
+          "12-15 km": 0.13718451784787972,
+          "15-16.5 km": 0.012655698289322169,
+          "16.5-18.5 km": 0.004291757664247981,
+          "18.5-20 km": 0.0012879448107459173,
+          "20-22 km": 0.0007453162947508935,
+          "22-25 km": 0.000727606406606924,
+          "5-8 km": 0.17507879971712773,
+          "8-10 km": 0.39812058862088756
+        }
+      }
+    },
+    "combined_60_150_24_48": {
+      "configuration": {
+        "angular_order": 24,
+        "emission_and_absorption_shells_km": [
+          "0-5 km",
+          "5-8 km",
+          "8-10 km",
+          "10-12 km",
+          "12-15 km",
+          "15-16.5 km",
+          "16.5-18.5 km",
+          "18.5-20 km",
+          "20-22 km",
+          "22-25 km"
+        ],
+        "energy_offset_MeV": 1000.0,
+        "energy_order": 150,
+        "path_order": 48,
+        "radial_order": 60,
+        "radius_km": 25.0
+      },
+      "internal_closure": {
+        "absorption_shell_sum_vs_total_column_max_relative_residual": 0.0,
+        "angle_weight_max_absolute_residual": 0.0,
+        "direct_source_weighted_mean_tau": 9270828931959864.0,
+        "emission_absorption_matrix_weighted_mean_tau": 9270828931959866.0,
+        "mean_tau_matrix_relative_residual": 2.220446049250313e-16,
+        "shell_columns_vs_direct_chord_max_relative_residual": 6.899482600589374e-16,
+        "source_channel_sum_max_relative_residual": 4.295588745589718e-16
+      },
+      "points": {
+        "0": {
+          "escape_fraction": 0.9978701675051591,
+          "g": 4.796429536550025e-10,
+          "luminosity_erg_s": 9.896202743543017e+51,
+          "relative_difference_vs_fig7": -0.09153270602065278
+        },
+        "17": {
+          "escape_fraction": 0.35251616003420067,
+          "g": 1.1341108687336194e-08,
+          "luminosity_erg_s": 1.9545575545124113e+54,
+          "relative_difference_vs_fig7": 0.02279596899793912
+        },
+        "24": {
+          "escape_fraction": 0.0003244436439142963,
+          "g": 4.171689650228597e-08,
+          "luminosity_erg_s": 2.4340060977917315e+52,
+          "relative_difference_vs_fig7": 0.9198436367549818
+        }
+      },
+      "source_distribution": {
+        "mean_radius_km": 9.834190639438848,
+        "median_radius_km": 9.661209386466265,
+        "p90_radius_km": 12.508185920300603,
+        "shell_fractions": {
+          "0-5 km": 0.009089782012687841,
+          "10-12 km": 0.2607826514054605,
+          "12-15 km": 0.13713112573490965,
+          "15-16.5 km": 0.012573175058311794,
+          "16.5-18.5 km": 0.004568474714513662,
+          "18.5-20 km": 0.001079872376901301,
+          "20-22 km": 0.0007448889073537502,
+          "22-25 km": 0.0007263601054017448,
+          "5-8 km": 0.1748859367552302,
+          "8-10 km": 0.39841773292922944
+        }
+      }
+    },
+    "energy_150": {
+      "configuration": {
+        "angular_order": 16,
+        "emission_and_absorption_shells_km": [
+          "0-5 km",
+          "5-8 km",
+          "8-10 km",
+          "10-12 km",
+          "12-15 km",
+          "15-16.5 km",
+          "16.5-18.5 km",
+          "18.5-20 km",
+          "20-22 km",
+          "22-25 km"
+        ],
+        "energy_offset_MeV": 1000.0,
+        "energy_order": 150,
+        "path_order": 32,
+        "radial_order": 40,
+        "radius_km": 25.0
+      },
+      "internal_closure": {
+        "absorption_shell_sum_vs_total_column_max_relative_residual": 0.0,
+        "angle_weight_max_absolute_residual": 0.0,
+        "direct_source_weighted_mean_tau": 9272087477122984.0,
+        "emission_absorption_matrix_weighted_mean_tau": 9272087477122982.0,
+        "mean_tau_matrix_relative_residual": -2.220446049250313e-16,
+        "shell_columns_vs_direct_chord_max_relative_residual": 6.116468908928446e-16,
+        "source_channel_sum_max_relative_residual": 4.932601556002906e-16
+      },
+      "points": {
+        "0": {
+          "escape_fraction": 0.9978698788578935,
+          "g": 4.796429536550025e-10,
+          "luminosity_erg_s": 9.893425228820593e+51,
+          "relative_difference_vs_fig7": -0.09178768071642829
+        },
+        "17": {
+          "escape_fraction": 0.3524743205535031,
+          "g": 1.1341108687336194e-08,
+          "luminosity_erg_s": 1.9537776267148298e+54,
+          "relative_difference_vs_fig7": 0.022387842357905363
+        },
+        "24": {
+          "escape_fraction": 0.00032391677268957285,
+          "g": 4.171689650228597e-08,
+          "luminosity_erg_s": 2.4293721338545094e+52,
+          "relative_difference_vs_fig7": 0.91618855709602
+        }
+      },
+      "source_distribution": {
+        "mean_radius_km": 9.834839315895838,
+        "median_radius_km": 9.339981043584856,
+        "p90_radius_km": 12.990028434622715,
+        "shell_fractions": {
+          "0-5 km": 0.009095625521299189,
+          "10-12 km": 0.2608126074683662,
+          "12-15 km": 0.13718426514784823,
+          "15-16.5 km": 0.012655348679527504,
+          "16.5-18.5 km": 0.004291339549537237,
+          "18.5-20 km": 0.0012876478436567305,
+          "20-22 km": 0.0007450438783032225,
+          "22-25 km": 0.0007272759405412707,
+          "5-8 km": 0.1750791476309743,
+          "8-10 km": 0.3981216983399461
+        }
+      }
+    },
+    "path_48": {
+      "configuration": {
+        "angular_order": 16,
+        "emission_and_absorption_shells_km": [
+          "0-5 km",
+          "5-8 km",
+          "8-10 km",
+          "10-12 km",
+          "12-15 km",
+          "15-16.5 km",
+          "16.5-18.5 km",
+          "18.5-20 km",
+          "20-22 km",
+          "22-25 km"
+        ],
+        "energy_offset_MeV": 1000.0,
+        "energy_order": 100,
+        "path_order": 48,
+        "radial_order": 40,
+        "radius_km": 25.0
+      },
+      "internal_closure": {
+        "absorption_shell_sum_vs_total_column_max_relative_residual": 0.0,
+        "angle_weight_max_absolute_residual": 0.0,
+        "direct_source_weighted_mean_tau": 9272305134769960.0,
+        "emission_absorption_matrix_weighted_mean_tau": 9272305134769960.0,
+        "mean_tau_matrix_relative_residual": 0.0,
+        "shell_columns_vs_direct_chord_max_relative_residual": 6.742466057769946e-16,
+        "source_channel_sum_max_relative_residual": 4.3682015727677863e-16
+      },
+      "points": {
+        "0": {
+          "escape_fraction": 0.9978698291352789,
+          "g": 4.796429536550025e-10,
+          "luminosity_erg_s": 9.925352860878669e+51,
+          "relative_difference_vs_fig7": -0.08885673737880384
+        },
+        "17": {
+          "escape_fraction": 0.3524736898835381,
+          "g": 1.1341108687336194e-08,
+          "luminosity_erg_s": 1.9600793635466576e+54,
+          "relative_difference_vs_fig7": 0.025685463865340097
+        },
+        "24": {
+          "escape_fraction": 0.00032393679442554475,
+          "g": 4.171689650228597e-08,
+          "luminosity_erg_s": 2.437362866898855e+52,
+          "relative_difference_vs_fig7": 0.9224913178007335
+        }
+      },
+      "source_distribution": {
+        "mean_radius_km": 9.834857004381327,
+        "median_radius_km": 9.339981043584856,
+        "p90_radius_km": 12.990028434622715,
+        "shell_fractions": {
+          "0-5 km": 0.00909567136142705,
+          "10-12 km": 0.260812098987004,
+          "12-15 km": 0.13718451784787972,
+          "15-16.5 km": 0.012655698289322169,
+          "16.5-18.5 km": 0.004291757664247981,
+          "18.5-20 km": 0.0012879448107459173,
+          "20-22 km": 0.0007453162947508935,
+          "22-25 km": 0.000727606406606924,
+          "5-8 km": 0.17507879971712773,
+          "8-10 km": 0.39812058862088756
+        }
+      }
+    },
+    "radial_60": {
+      "configuration": {
+        "angular_order": 16,
+        "emission_and_absorption_shells_km": [
+          "0-5 km",
+          "5-8 km",
+          "8-10 km",
+          "10-12 km",
+          "12-15 km",
+          "15-16.5 km",
+          "16.5-18.5 km",
+          "18.5-20 km",
+          "20-22 km",
+          "22-25 km"
+        ],
+        "energy_offset_MeV": 1000.0,
+        "energy_order": 100,
+        "path_order": 32,
+        "radial_order": 60,
+        "radius_km": 25.0
+      },
+      "internal_closure": {
+        "absorption_shell_sum_vs_total_column_max_relative_residual": 0.0,
+        "angle_weight_max_absolute_residual": 0.0,
+        "direct_source_weighted_mean_tau": 9270839196109774.0,
+        "emission_absorption_matrix_weighted_mean_tau": 9270839196109774.0,
+        "mean_tau_matrix_relative_residual": 0.0,
+        "shell_columns_vs_direct_chord_max_relative_residual": 6.61587993813349e-16,
+        "source_channel_sum_max_relative_residual": 5.594479232523235e-16
+      },
+      "points": {
+        "0": {
+          "escape_fraction": 0.99787016535446,
+          "g": 4.796429536550025e-10,
+          "luminosity_erg_s": 9.928139807910471e+51,
+          "relative_difference_vs_fig7": -0.08860089680095218
+        },
+        "17": {
+          "escape_fraction": 0.3525220954988675,
+          "g": 1.1341108687336194e-08,
+          "luminosity_erg_s": 1.9608983304804272e+54,
+          "relative_difference_vs_fig7": 0.02611401920599432
+        },
+        "24": {
+          "escape_fraction": 0.0003244713059449536,
+          "g": 4.171689650228597e-08,
+          "luminosity_erg_s": 2.4420693299159876e+52,
+          "relative_difference_vs_fig7": 0.9262035817442225
+        }
+      },
+      "source_distribution": {
+        "mean_radius_km": 9.834208331068618,
+        "median_radius_km": 9.661209386466265,
+        "p90_radius_km": 12.508185920300603,
+        "shell_fractions": {
+          "0-5 km": 0.009089827840232673,
+          "10-12 km": 0.2607821429909593,
+          "12-15 km": 0.13713137835689698,
+          "15-16.5 km": 0.012573524336581016,
+          "16.5-18.5 km": 0.004568930291516509,
+          "18.5-20 km": 0.001080132176337113,
+          "20-22 km": 0.000745161475607546,
+          "22-25 km": 0.0007266905949114996,
+          "5-8 km": 0.1748855895546022,
+          "8-10 km": 0.398416622382355
+        }
+      }
+    }
+  },
+  "energy_offset_MeV": 1000.0,
+  "fig7_reference_sha256": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4",
+  "mass_MeV": 10.0,
+  "profile_sha256": "08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9",
+  "scope": [
+    "Literal Appendix-B fixed-omega B.1/B.2 prescription.",
+    "One-factor-at-a-time radial, energy, angular, and path quadrature tests plus a combined higher-order test.",
+    "All calculations use the same digitized SFHo-18.8 profile and Fig. 7 digitization.",
+    "No normalization or curve fitting."
+  ],
+  "title": "B.16 fixed-omega quadrature convergence at mV=10 MeV"
+}
