@@ -153,8 +153,8 @@ def run(profile_path: Path = DEFAULT_PROFILE, mass: float = 10.0,
 
     rows = []
     maxima = {
-        "nu_mu_B6_production_vs_reference": 0.0,
-        "nu_tau_B6_production_vs_reference": 0.0,
+        "nu_mu_B6_production_vs_analytic": 0.0,
+        "nu_tau_B6_production_vs_analytic": 0.0,
         "nu_mu_B10_detailed_balance": 0.0,
         "nu_tau_B10_detailed_balance": 0.0,
         "neutrino_B4_reduced_absorption": 0.0,
