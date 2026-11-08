@@ -1243,12 +1243,7 @@
         "B13_axial_vs_existing_stationary_exact_fraction": 0.043497314525430264,
         "B13_vector_vs_B16_corrected_fraction": -0.5209266532449663,
         "B13_vector_vs_B16_without_parenthesis_correction_fraction": -0.5102523463125204,
-        "B13_vector_vs_existing_stationary_exact_fraction": -0.1573676415613734,
-        "archived_10MeV_compton_share_used_for_estimate": 0.186,
-        "estimated_total_thin_source_shift_from_vector_compton_only_pct": -2.927038133041545,
-        "estimated_total_thin_source_shift_vs_B16_corrected_pct": -9.689235750356374,
-        "estimated_total_thin_source_shift_vs_B16_without_parenthesis_correction_pct": -9.490693641412879,
-        "interpretation": "The 18.6% channel-share weighting is a first-order estimate using the archived 10 MeV optically-thin vector source budget. It is not a full radial re-integration and is not applied as a correction to any luminosity curve."
+        "B13_vector_vs_existing_stationary_exact_fraction": -0.1573676415613734
       }
     },
     "12.5": {
@@ -2494,12 +2489,7 @@
         "B13_axial_vs_existing_stationary_exact_fraction": 0.019977323543036274,
         "B13_vector_vs_B16_corrected_fraction": -0.571406265178416,
         "B13_vector_vs_B16_without_parenthesis_correction_fraction": -0.5647073876927733,
-        "B13_vector_vs_existing_stationary_exact_fraction": -0.20020664623373396,
-        "archived_10MeV_compton_share_used_for_estimate": 0.186,
-        "estimated_total_thin_source_shift_from_vector_compton_only_pct": -3.723843619947452,
-        "estimated_total_thin_source_shift_vs_B16_corrected_pct": -10.628156532318538,
-        "estimated_total_thin_source_shift_vs_B16_without_parenthesis_correction_pct": -10.503557411085582,
-        "interpretation": "The 18.6% channel-share weighting is a first-order estimate using the archived 10 MeV optically-thin vector source budget. It is not a full radial re-integration and is not applied as a correction to any luminosity curve."
+        "B13_vector_vs_existing_stationary_exact_fraction": -0.20020664623373396
       }
     }
   },
@@ -2507,7 +2497,7 @@
     "moving_muon_compton.py": "44bc670fd9384f34de56fbecb5371bae18c93c2292aa67e98f4ee304433dbaea",
     "profile": "08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9",
     "rates.py": "2fc7bc2d3b0d7b98c191755cd2bb87944e4ebe259adc3d3bbc8e0f60dcc57f56",
-    "script": "3b9d79508cbd60f61dd8b9c23b98f3416dc6f50f3492cf54681bc24f8ffd73b4"
+    "script": "35aa434145b0ad224d2cd61033c7aea8f26732282801440c23f406cf77fdfc34"
   },
   "configuration": {
     "B14_current": "pure vector only",
@@ -2561,12 +2551,11 @@
     "sha256": "08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9",
     "source": "reconstructed SFHo-18.8 t_pb=1s digitized profile"
   },
-  "run_commit_sha": "66589d464a74bb8a8d8f68ed12148f83392c6d4d",
+  "run_commit_sha": "d619cd3f0f61dd363e4e5c2c0d98159a2051cd85",
   "scope_limits": [
     "Local source-rate comparison only; no radial integration or escape probability.",
     "B.14-B.16 is compared only to the pure-vector B.13 rate.",
     "No B.14 vector formula is assigned to the axial or UV mixed-current rates.",
-    "The 18.6% source-share estimate is first order and must not be applied as a luminosity correction.",
     "No coupling, production, absorption, opacity, or profile rescaling is performed.",
     "The full pure-vector Fig. 7 validation gate remains separate and is not passed by this local comparison."
   ],
