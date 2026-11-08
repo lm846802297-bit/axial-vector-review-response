@@ -50,6 +50,22 @@ The existing provenance check finds that the Caputo \(\mu_\mu\) curve, together 
 
 The figure captions and references establish a same-model, same-time comparison, but they do not establish that the two plotted curves were generated from identical profile files or identical post-processing conventions. A difference in chemical-potential convention, profile version, data extraction, or a plotting/transcription error remains possible. No explanation is established in this audit. The orange dashed curve identity itself is no longer ambiguous.
 
+### Independent muon-density consistency check
+
+Using the standard relativistic Fermi-Dirac number-density integral, the Caputo (T,mu_mu) pair reproduces Caputo's separately plotted (n_mu(r)) to within about 0.5% at 8--12 km and within 1.1% at 15 km. In contrast, using the Ferreira (mu_mu) curve with either temperature curve predicts a substantially larger density:
+
+| (r) (km) | Caputo (n_mu^{\rm Fermi}/n_mu^{\rm plot}) | Ferreira (n_mu^{\rm Fermi}/n_mu^{\rm plot}), using its own (T) |
+|---:|---:|---:|
+| 8 | 0.995 | 4.439 |
+| 9 | 0.995 | 2.357 |
+| 10 | 0.995 | 1.933 |
+| 12 | 0.995 | 1.674 |
+| 15 | 0.989 | 1.595 |
+
+The temperature profiles differ by at most 0.117% in 12--15 km and are similarly close over the overlapping plotted range. Using Ferreira's own temperature therefore does not remove the density discrepancy. If the Ferreira curve is interpreted as the same thermodynamic chemical potential entering the usual (f_{mu^-}(E)=[e^{(E-mu_mu)/T}+1]^{-1}) distribution, it implies 1.6--4.4 times the Caputo plotted muon density over the dominant 8--15 km source region.
+
+This is a stronger consistency warning than the pointwise (mu_mu) difference alone. It supports retaining the Caputo pair as the present baseline, but it does not prove which published curve is correct: the discrepancy could still reflect different profile versions, definitions, or post-processing conventions.
+
 ## 5. Muon-neutrino chemical potential: plotting-floor ambiguity at 13.11 km
 
 The baseline \(\mu_{\nu_\mu}\) is reconstructed from the negative branch in Caputo Fig. 1. In the 12--13.1099 km interval it changes smoothly from about \(-4.31\) MeV to the plot floor \(-1\) MeV:
@@ -80,17 +96,18 @@ The 12--15 km temperature, \(\mu_\mu\), and lapse curves are continuous across t
 1. **Temperature:** independently cross-checked; the two figure extractions agree to better than 0.12% throughout 12--15 km.
 2. **Lapse:** smooth and correctly interpolated in the interval, but presently supported by only one source extraction.
 3. **Muon chemical potential:** a confirmed 9.5--17.2% discrepancy between two published curves both labeled as SFHo-18.8 at 1 s post-bounce. Retain Caputo as the baseline because its pair with the Caputo temperature reproduces the independently plotted Caputo muon density. Do not substitute or average the Ferreira curve until the underlying profile version and convention are resolved.
-4. **Muon-neutrino chemical potential:** the zero-outside-support assumption is not fixed by the plot. It requires a dedicated sensitivity calculation, especially around 13.11 km and across the 13.11--16.59 km gap.
+4. **Muon-neutrino chemical potential:** the zero-outside-support assumption is not fixed by the plot. The full B.1+B.2 stress tests show that zeroing the resolved 12--15 km branch changes the strong-endpoint escape probability by only about 0.011%, while extending the 1 MeV plot-floor envelope changes it by about 0.003%. It is not a plausible explanation for the Fig. 7 discrepancy.
 5. **Raw profile:** both papers point to the Bollig et al. SFHo-18.8 simulation. The Garching archive lists corresponding radial-profile data under a protected directory; the current archive endpoint returns HTTP 401 for that data link. No protected files or credentials are accessed. Figure digitization therefore remains the available reproducible comparison, but it cannot establish simulation-level precision.
 
 ## 8. Required next calculation
 
-Before modifying any opacity or transport code, run a controlled profile-input sensitivity study with all physics kernels and numerical settings fixed:
+Before modifying any opacity or transport code, the controlled B.1+B.2 profile sensitivity has been run with fixed physics kernels and numerical settings. The 8--15 km Ferreira-μμ diagnostic changes the fixed-source escape probability by about 38%, but does not reach the required approximately 48% reduction and increases the B.1 source by about 27%. The remaining task is to resolve the source/convention discrepancy rather than select a curve by whichever better matches Fig. 7:
 
 - Baseline: current Caputo \(T,\mu_\mu,\mu_{\nu_\mu}\) and Ferreira lapse.
 - Variant A: set \(\mu_{\nu_\mu}=0\) throughout 12--15 km, leaving all other inputs unchanged.
-- Variant B: replace only the 12--15 km \(\mu_\mu\) input by the Ferreira digitization, explicitly as a diagnostic rather than a preferred physical profile.
-- Variant C: vary the \(\mu_{\nu_\mu}\) transition over a narrow, documented radial interval, without inventing a new central value outside the plotted information.
+- Variant B: the 12--15 km-only diagnostic substitution is completed; it changes the fixed-source escape probability by about 6.7%.
+- Variant B2: the 8--15 km diagnostic substitution over the dominant source region is completed; it changes the fixed-source escape probability by about 38%, but remains diagnostic-only.
+- Variant C: the 1 MeV plot-floor envelope is completed; its effect is negligible.
 
 For each variant, compare local \(\nu_\mu\) and \(\nu_\tau\) reduced absorption, the optical-depth contribution of the 12--15 km shell, and the strong-endpoint source-weighted escape probability. Do not rescale the vector curve or update the axial curve unless a source-supported profile choice is established.
 
