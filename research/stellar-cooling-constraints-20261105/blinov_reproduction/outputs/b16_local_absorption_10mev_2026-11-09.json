@@ -27,7 +27,7 @@
   },
   "mass_MeV": 10.0,
   "maximum_residuals": {
-    "compton_B16_production_vs_reference": 0.1084554326416474,
+    "compton_B16_production_vs_reference": 4.9081576508231184e-14,
     "compton_B19_detailed_balance": 2.1877403073496466e-16,
     "compton_B4_reduced_absorption": 2.256276862080265e-16,
     "neutrino_B4_reduced_absorption": 2.7243352803680573e-15,
@@ -1544,7 +1544,7 @@
       "Fdeg_mu_minus_independent": 0.9999999998604947,
       "T_MeV": 4.204423026,
       "code_reference_production": {
-        "compton_MeV": 3.756412941496545e-14,
+        "compton_MeV": 3.756412934754484e-14,
         "neutrino_sum_MeV": 0.024061295527960005
       },
       "code_total_reduced_absorption_MeV": 0.3936296173125961,
@@ -1577,7 +1577,7 @@
       "omega_MeV": 12.0,
       "radius_km": 20.0,
       "residuals": {
-        "compton_B16_production_vs_reference": 1.7948196234745333e-09,
+        "compton_B16_production_vs_reference": 6.048108784890564e-15,
         "compton_B19_detailed_balance": 1.6800302180251672e-16,
         "compton_B4_reduced_absorption": 0.0,
         "neutrino_B4_reduced_absorption": 2.82047634577563e-16,
@@ -1594,7 +1594,7 @@
       "Fdeg_mu_minus_independent": 0.9999999998604947,
       "T_MeV": 4.204423026,
       "code_reference_production": {
-        "compton_MeV": 1.6190703226604887e-14,
+        "compton_MeV": 1.6190703197545593e-14,
         "neutrino_sum_MeV": 0.01021425353206236
       },
       "code_total_reduced_absorption_MeV": 0.3517174759541172,
@@ -1627,7 +1627,7 @@
       "omega_MeV": 15.0,
       "radius_km": 20.0,
       "residuals": {
-        "compton_B16_production_vs_reference": 1.7948194507532592e-09,
+        "compton_B16_production_vs_reference": 5.846769437467779e-15,
         "compton_B19_detailed_balance": 0.0,
         "compton_B4_reduced_absorption": 1.8111623322182687e-16,
         "neutrino_B4_reduced_absorption": 4.734864346512095e-16,
@@ -1644,7 +1644,7 @@
       "Fdeg_mu_minus_independent": 0.9999999998604947,
       "T_MeV": 4.204423026,
       "code_reference_production": {
-        "compton_MeV": 4.447435879037492e-15,
+        "compton_MeV": 4.4474358710551735e-15,
         "neutrino_sum_MeV": 0.00255319352175375
       },
       "code_total_reduced_absorption_MeV": 0.2945977407141665,
@@ -1677,7 +1677,7 @@
       "omega_MeV": 20.0,
       "radius_km": 20.0,
       "residuals": {
-        "compton_B16_production_vs_reference": 1.794819504433109e-09,
+        "compton_B16_production_vs_reference": 5.853352499519479e-15,
         "compton_B19_detailed_balance": 0.0,
         "compton_B4_reduced_absorption": 0.0,
         "neutrino_B4_reduced_absorption": 5.652910076307844e-16,
@@ -1694,7 +1694,7 @@
       "Fdeg_mu_minus_independent": 0.9999999998604947,
       "T_MeV": 4.204423026,
       "code_reference_production": {
-        "compton_MeV": 3.837867088511254e-16,
+        "compton_MeV": 3.837867081622998e-16,
         "neutrino_sum_MeV": 0.0001740112286016082
       },
       "code_total_reduced_absorption_MeV": 0.2183088238371294,
@@ -1727,7 +1727,7 @@
       "omega_MeV": 30.0,
       "radius_km": 20.0,
       "residuals": {
-        "compton_B16_production_vs_reference": 1.7948195021617088e-09,
+        "compton_B16_production_vs_reference": 5.909467561735629e-15,
         "compton_B19_detailed_balance": 1.2846668612468836e-16,
         "compton_B4_reduced_absorption": 2.097135332042206e-16,
         "neutrino_B4_reduced_absorption": 6.356952304501765e-16,
@@ -1744,7 +1744,7 @@
       "Fdeg_mu_minus_independent": 0.9999999998604947,
       "T_MeV": 4.204423026,
       "code_reference_production": {
-        "compton_MeV": 3.1839964825887385e-18,
+        "compton_MeV": 3.1839964768740587e-18,
         "neutrino_sum_MeV": 9.704665827033204e-07
       },
       "code_total_reduced_absorption_MeV": 0.1418113622227295,
@@ -1777,7 +1777,7 @@
       "omega_MeV": 50.0,
       "radius_km": 20.0,
       "residuals": {
-        "compton_B16_production_vs_reference": 1.7948194071663035e-09,
+        "compton_B16_production_vs_reference": 5.927806011118732e-15,
         "compton_B19_detailed_balance": 1.2097563287997487e-16,
         "compton_B4_reduced_absorption": 0.0,
         "neutrino_B4_reduced_absorption": 3.9144360763035305e-16,
@@ -1794,7 +1794,7 @@
       "Fdeg_mu_minus_independent": 0.9999999998604947,
       "T_MeV": 4.204423026,
       "code_reference_production": {
-        "compton_MeV": 2.1468518803775898e-23,
+        "compton_MeV": 2.1468518765243907e-23,
         "neutrino_sum_MeV": 3.5176306790804636e-12
       },
       "code_total_reduced_absorption_MeV": 0.07511333955980992,
@@ -1827,7 +1827,7 @@
       "omega_MeV": 100.0,
       "radius_km": 20.0,
       "residuals": {
-        "compton_B16_production_vs_reference": 1.7948194044605556e-09,
+        "compton_B16_production_vs_reference": 5.749204599814314e-15,
         "compton_B19_detailed_balance": 0.0,
         "compton_B4_reduced_absorption": 0.0,
         "neutrino_B4_reduced_absorption": 1.6628216905685464e-15,
@@ -1844,7 +1844,7 @@
       "Fdeg_mu_minus_independent": 0.9999999999998053,
       "T_MeV": 3.551389049,
       "code_reference_production": {
-        "compton_MeV": 2.310335718689618e-17,
+        "compton_MeV": 2.31033581099351e-17,
         "neutrino_sum_MeV": 0.015505963602716059
       },
       "code_total_reduced_absorption_MeV": 0.439442554068329,
@@ -1877,7 +1877,7 @@
       "omega_MeV": 12.0,
       "radius_km": 22.0,
       "residuals": {
-        "compton_B16_production_vs_reference": 3.995258287797592e-08,
+        "compton_B16_production_vs_reference": 5.468512575125278e-15,
         "compton_B19_detailed_balance": 0.0,
         "compton_B4_reduced_absorption": 1.5060243257623823e-16,
         "neutrino_B4_reduced_absorption": 3.7896524164994586e-16,
@@ -1894,7 +1894,7 @@
       "Fdeg_mu_minus_independent": 0.9999999999998053,
       "T_MeV": 3.551389049,
       "code_reference_production": {
-        "compton_MeV": 8.828095232941331e-18,
+        "compton_MeV": 8.828095585646585e-18,
         "neutrino_sum_MeV": 0.005704533342630806
       },
       "code_total_reduced_absorption_MeV": 0.3838331620710538,
@@ -1927,7 +1927,7 @@
       "omega_MeV": 15.0,
       "radius_km": 22.0,
       "residuals": {
-        "compton_B16_production_vs_reference": 3.995258271582396e-08,
+        "compton_B16_production_vs_reference": 5.584874574361798e-15,
         "compton_B19_detailed_balance": 1.7452733044880719e-16,
         "compton_B4_reduced_absorption": 1.6600495408971719e-16,
         "neutrino_B4_reduced_absorption": 1.446231246193937e-16,
@@ -1944,7 +1944,7 @@
       "Fdeg_mu_minus_independent": 0.9999999999998053,
       "T_MeV": 3.551389049,
       "code_reference_production": {
-        "compton_MeV": 1.965975217808268e-18,
+        "compton_MeV": 1.965975296354067e-18,
         "neutrino_sum_MeV": 0.0011273716603855128
       },
       "code_total_reduced_absorption_MeV": 0.3135312265950982,
@@ -1977,7 +1977,7 @@
       "omega_MeV": 20.0,
       "radius_km": 22.0,
       "residuals": {
-        "compton_B16_production_vs_reference": 3.9952582743017e-08,
+        "compton_B16_production_vs_reference": 5.6818586165154995e-15,
         "compton_B19_detailed_balance": 0.0,
         "compton_B4_reduced_absorption": 1.8035106123327294e-16,
         "neutrino_B4_reduced_absorption": 0.0,
@@ -1994,7 +1994,7 @@
       "Fdeg_mu_minus_independent": 0.9999999999998053,
       "T_MeV": 3.551389049,
       "code_reference_production": {
-        "compton_MeV": 1.100410467464569e-19,
+        "compton_MeV": 1.1004105114288156e-19,
         "neutrino_sum_MeV": 4.862047596389811e-05
       },
       "code_total_reduced_absorption_MeV": 0.22666517169566916,
@@ -2027,7 +2027,7 @@
       "omega_MeV": 30.0,
       "radius_km": 22.0,
       "residuals": {
-        "compton_B16_production_vs_reference": 3.9952582908977585e-08,
+        "compton_B16_production_vs_reference": 5.688124799109048e-15,
         "compton_B19_detailed_balance": 2.1877403073496466e-16,
         "compton_B4_reduced_absorption": 0.0,
         "neutrino_B4_reduced_absorption": 3.673556295569071e-16,
@@ -2044,7 +2044,7 @@
       "Fdeg_mu_minus_independent": 0.9999999999998053,
       "T_MeV": 3.551389049,
       "code_reference_production": {
-        "compton_MeV": 3.808978178314085e-22,
+        "compton_MeV": 3.808978330492622e-22,
         "neutrino_sum_MeV": 1.1121600292444614e-07
       },
       "code_total_reduced_absorption_MeV": 0.14474320152427317,
@@ -2077,7 +2077,7 @@
       "omega_MeV": 50.0,
       "radius_km": 22.0,
       "residuals": {
-        "compton_B16_production_vs_reference": 3.9952582648119806e-08,
+        "compton_B16_production_vs_reference": 5.678450801880188e-15,
         "compton_B19_detailed_balance": 1.2344458264956998e-16,
         "compton_B4_reduced_absorption": 1.989166116543452e-16,
         "neutrino_B4_reduced_absorption": 3.8351473952957303e-16,
@@ -2094,7 +2094,7 @@
       "Fdeg_mu_minus_independent": 0.9999999999998053,
       "T_MeV": 3.551389049,
       "code_reference_production": {
-        "compton_MeV": 2.883651780556156e-28,
+        "compton_MeV": 2.8836518957655093e-28,
         "neutrino_sum_MeV": 4.477315873552022e-14
       },
       "code_total_reduced_absorption_MeV": 0.07583683258174467,
@@ -2127,7 +2127,7 @@
       "omega_MeV": 100.0,
       "radius_km": 22.0,
       "residuals": {
-        "compton_B16_production_vs_reference": 3.995258282447882e-08,
+        "compton_B16_production_vs_reference": 5.753598012981175e-15,
         "compton_B19_detailed_balance": 1.5550264899949215e-16,
         "compton_B4_reduced_absorption": 2.018855163059026e-16,
         "neutrino_B4_reduced_absorption": 1.829953511422788e-16,
@@ -2144,7 +2144,7 @@
       "Fdeg_mu_minus_independent": 0.9999999999999905,
       "T_MeV": 3.384020032,
       "code_reference_production": {
-        "compton_MeV": 7.893198995350492e-19,
+        "compton_MeV": 8.749259307317886e-19,
         "neutrino_sum_MeV": 0.013432628987450285
       },
       "code_total_reduced_absorption_MeV": 0.4523714179478329,
@@ -2177,7 +2177,7 @@
       "omega_MeV": 12.0,
       "radius_km": 23.0,
       "residuals": {
-        "compton_B16_production_vs_reference": 0.10845543264164734,
+        "compton_B16_production_vs_reference": 4.622623174318782e-15,
         "compton_B19_detailed_balance": 0.0,
         "compton_B4_reduced_absorption": 0.0,
         "neutrino_B4_reduced_absorption": 1.2271144689707015e-16,
@@ -2185,8 +2185,8 @@
         "nu_mu_B6_production_vs_analytic": 1.2914251391872052e-16,
         "nu_tau_B10_detailed_balance": 3.8742754175616167e-16,
         "nu_tau_B6_production_vs_analytic": 1.2914251391872052e-16,
-        "total_local_absorption_closure": 0.0,
-        "total_local_production_closure": 2.5828502783744103e-16,
+        "total_local_absorption_closure": 1.1917275428689074e-16,
+        "total_local_production_closure": 1.291425139187205e-16,
         "total_local_reduced_absorption_closure": 0.0
       }
     },
@@ -2194,7 +2194,7 @@
       "Fdeg_mu_minus_independent": 0.9999999999999905,
       "T_MeV": 3.384020032,
       "code_reference_production": {
-        "compton_MeV": 2.900261869621707e-19,
+        "compton_MeV": 3.2148110254656183e-19,
         "neutrino_sum_MeV": 0.004721087804519591
       },
       "code_total_reduced_absorption_MeV": 0.39255724064966807,
@@ -2227,7 +2227,7 @@
       "omega_MeV": 15.0,
       "radius_km": 23.0,
       "residuals": {
-        "compton_B16_production_vs_reference": 0.1084554326416474,
+        "compton_B16_production_vs_reference": 4.942412451411018e-15,
         "compton_B19_detailed_balance": 1.4977007428518313e-16,
         "compton_B4_reduced_absorption": 0.0,
         "neutrino_B4_reduced_absorption": 8.484543727593285e-16,
@@ -2244,7 +2244,7 @@
       "Fdeg_mu_minus_independent": 0.9999999999999905,
       "T_MeV": 3.384020032,
       "code_reference_production": {
-        "compton_MeV": 6.03590985519177e-20,
+        "compton_MeV": 6.690537069922609e-20,
         "neutrino_sum_MeV": 0.0008660544523874782
       },
       "code_total_reduced_absorption_MeV": 0.31849522663809426,
@@ -2277,7 +2277,7 @@
       "omega_MeV": 20.0,
       "radius_km": 23.0,
       "residuals": {
-        "compton_B16_production_vs_reference": 0.10845543264164731,
+        "compton_B16_production_vs_reference": 5.037528926981416e-15,
         "compton_B19_detailed_balance": 0.0,
         "compton_B4_reduced_absorption": 0.0,
         "neutrino_B4_reduced_absorption": 6.971677637647633e-16,
@@ -2294,7 +2294,7 @@
       "Fdeg_mu_minus_independent": 0.9999999999999905,
       "T_MeV": 3.384020032,
       "code_reference_production": {
-        "compton_MeV": 2.941607933960474e-21,
+        "compton_MeV": 3.2606412951002754e-21,
         "neutrino_sum_MeV": 3.231707189000828e-05
       },
       "code_total_reduced_absorption_MeV": 0.22881066520149998,
@@ -2327,7 +2327,7 @@
       "omega_MeV": 30.0,
       "radius_km": 23.0,
       "residuals": {
-        "compton_B16_production_vs_reference": 0.1084554326416471,
+        "compton_B16_production_vs_reference": 5.0759832074901115e-15,
         "compton_B19_detailed_balance": 0.0,
         "compton_B4_reduced_absorption": 0.0,
         "neutrino_B4_reduced_absorption": 3.6391103873396265e-16,
@@ -2344,7 +2344,7 @@
       "Fdeg_mu_minus_independent": 0.9999999999999905,
       "T_MeV": 3.384020032,
       "code_reference_production": {
-        "compton_MeV": 7.707359779265899e-24,
+        "compton_MeV": 8.543264818651056e-24,
         "neutrino_sum_MeV": 5.571894333821121e-08
       },
       "code_total_reduced_absorption_MeV": 0.14549409349709522,
@@ -2377,7 +2377,7 @@
       "omega_MeV": 50.0,
       "radius_km": 23.0,
       "residuals": {
-        "compton_B16_production_vs_reference": 0.10845543264164731,
+        "compton_B16_production_vs_reference": 4.987750130872815e-15,
         "compton_B19_detailed_balance": 0.0,
         "compton_B4_reduced_absorption": 1.3813193912077876e-16,
         "neutrino_B4_reduced_absorption": 3.815354279819352e-16,
@@ -2394,7 +2394,7 @@
       "Fdeg_mu_minus_independent": 0.9999999999999905,
       "T_MeV": 3.384020032,
       "code_reference_production": {
-        "compton_MeV": 2.9082296542672202e-30,
+        "compton_MeV": 3.223642959642056e-30,
         "neutrino_sum_MeV": 1.1149496761352015e-14
       },
       "code_total_reduced_absorption_MeV": 0.07602222577422414,
@@ -2427,7 +2427,7 @@
       "omega_MeV": 100.0,
       "radius_km": 23.0,
       "residuals": {
-        "compton_B16_production_vs_reference": 0.10845543264164723,
+        "compton_B16_production_vs_reference": 4.998981754953642e-15,
         "compton_B19_detailed_balance": 0.0,
         "compton_B4_reduced_absorption": 0.0,
         "neutrino_B4_reduced_absorption": 1.2778435998862688e-15,
@@ -2444,7 +2444,7 @@
       "Fdeg_mu_minus_independent": 0.999999999999998,
       "T_MeV": 3.216426215,
       "code_reference_production": {
-        "compton_MeV": 1.2084945482237872e-19,
+        "compton_MeV": 1.3142272284172988e-19,
         "neutrino_sum_MeV": 0.011440670451785859
       },
       "code_total_reduced_absorption_MeV": 0.4658011989271702,
@@ -2477,7 +2477,7 @@
       "omega_MeV": 12.0,
       "radius_km": 24.0,
       "residuals": {
-        "compton_B16_production_vs_reference": 0.08749123473408141,
+        "compton_B16_production_vs_reference": 4.9458825854146814e-15,
         "compton_B19_detailed_balance": 1.8318083649684094e-16,
         "compton_B4_reduced_absorption": 0.0,
         "neutrino_B4_reduced_absorption": 1.0725613464112938e-15,
@@ -2494,7 +2494,7 @@
       "Fdeg_mu_minus_independent": 0.999999999999998,
       "T_MeV": 3.216426215,
       "code_reference_production": {
-        "compton_MeV": 4.2507150584715134e-20,
+        "compton_MeV": 4.622615367439962e-20,
         "neutrino_sum_MeV": 0.0038230615661749416
       },
       "code_total_reduced_absorption_MeV": 0.4014708873424279,
@@ -2527,7 +2527,7 @@
       "omega_MeV": 15.0,
       "radius_km": 24.0,
       "residuals": {
-        "compton_B16_production_vs_reference": 0.08749123473408135,
+        "compton_B16_production_vs_reference": 4.947506178145258e-15,
         "compton_B19_detailed_balance": 1.3019753100382326e-16,
         "compton_B4_reduced_absorption": 0.0,
         "neutrino_B4_reduced_absorption": 1.3826943118769801e-16,
@@ -2544,7 +2544,7 @@
       "Fdeg_mu_minus_independent": 0.999999999999998,
       "T_MeV": 3.216426215,
       "code_reference_production": {
-        "compton_MeV": 8.205312205021675e-21,
+        "compton_MeV": 8.923205101217695e-21,
         "neutrino_sum_MeV": 0.0006460398670673937
       },
       "code_total_reduced_absorption_MeV": 0.3234977877835408,
@@ -2577,7 +2577,7 @@
       "omega_MeV": 20.0,
       "radius_km": 24.0,
       "residuals": {
-        "compton_B16_production_vs_reference": 0.08749123473408142,
+        "compton_B16_production_vs_reference": 5.0586064715038326e-15,
         "compton_B19_detailed_balance": 0.0,
         "compton_B4_reduced_absorption": 1.7241204595672738e-16,
         "neutrino_B4_reduced_absorption": 1.7159669502408328e-16,
@@ -2594,7 +2594,7 @@
       "Fdeg_mu_minus_independent": 0.999999999999998,
       "T_MeV": 3.216426215,
       "code_reference_production": {
-        "compton_MeV": 3.430494034067837e-22,
+        "compton_MeV": 3.73063219285635e-22,
         "neutrino_sum_MeV": 2.0552056169227278e-05
       },
       "code_total_reduced_absorption_MeV": 0.23095868038043726,
@@ -2627,7 +2627,7 @@
       "omega_MeV": 30.0,
       "radius_km": 24.0,
       "residuals": {
-        "compton_B16_production_vs_reference": 0.08749123473408146,
+        "compton_B16_production_vs_reference": 4.789406515794458e-15,
         "compton_B19_detailed_balance": 0.0,
         "compton_B4_reduced_absorption": 0.0,
         "neutrino_B4_reduced_absorption": 2.4035100624847466e-16,
@@ -2644,7 +2644,7 @@
       "Fdeg_mu_minus_independent": 0.999999999999998,
       "T_MeV": 3.216426215,
       "code_reference_production": {
-        "compton_MeV": 6.606306818637769e-25,
+        "compton_MeV": 7.184300759232605e-25,
         "neutrino_sum_MeV": 2.5935050018384562e-08
       },
       "code_total_reduced_absorption_MeV": 0.14624570000905268,
@@ -2677,7 +2677,7 @@
       "omega_MeV": 50.0,
       "radius_km": 24.0,
       "residuals": {
-        "compton_B16_production_vs_reference": 0.08749123473408128,
+        "compton_B16_production_vs_reference": 5.1131209138187956e-15,
         "compton_B19_detailed_balance": 0.0,
         "compton_B4_reduced_absorption": 0.0,
         "neutrino_B4_reduced_absorption": 7.591491746809898e-16,
@@ -2694,7 +2694,7 @@
       "Fdeg_mu_minus_independent": 0.999999999999998,
       "T_MeV": 3.216426215,
       "code_reference_production": {
-        "compton_MeV": 1.1543259531256933e-31,
+        "compton_MeV": 1.255319356050262e-31,
         "neutrino_sum_MeV": 2.3966660426437382e-15
       },
       "code_total_reduced_absorption_MeV": 0.07620784976089369,
@@ -2727,7 +2727,7 @@
       "omega_MeV": 100.0,
       "radius_km": 24.0,
       "residuals": {
-        "compton_B16_production_vs_reference": 0.0874912347340813,
+        "compton_B16_production_vs_reference": 5.2326019828053845e-15,
         "compton_B19_detailed_balance": 0.0,
         "compton_B4_reduced_absorption": 0.0,
         "neutrino_B4_reduced_absorption": 2.549462160643501e-15,
@@ -2744,7 +2744,7 @@
       "Fdeg_mu_minus_independent": 0.9999999999999998,
       "T_MeV": 3.033770692,
       "code_reference_production": {
-        "compton_MeV": 1.2417056152945945e-20,
+        "compton_MeV": 1.320017439453774e-20,
         "neutrino_sum_MeV": 0.00939022086815967
       },
       "code_total_reduced_absorption_MeV": 0.48097107304146314,
@@ -2777,7 +2777,7 @@
       "omega_MeV": 12.0,
       "radius_km": 25.0,
       "residuals": {
-        "compton_B16_production_vs_reference": 0.06306794718053454,
+        "compton_B16_production_vs_reference": 5.2433479519071216e-15,
         "compton_B19_detailed_balance": 0.0,
         "compton_B4_reduced_absorption": 0.0,
         "neutrino_B4_reduced_absorption": 0.0,
@@ -2794,7 +2794,7 @@
       "Fdeg_mu_minus_independent": 0.9999999999999998,
       "T_MeV": 3.033770692,
       "code_reference_production": {
-        "compton_MeV": 4.139778231315655e-21,
+        "compton_MeV": 4.400865546147421e-21,
         "neutrino_sum_MeV": 0.0029514335461576073
       },
       "code_total_reduced_absorption_MeV": 0.41136625754743433,
@@ -2827,7 +2827,7 @@
       "omega_MeV": 15.0,
       "radius_km": 25.0,
       "residuals": {
-        "compton_B16_production_vs_reference": 0.06306794718053448,
+        "compton_B16_production_vs_reference": 5.470315794109018e-15,
         "compton_B19_detailed_balance": 1.7094736856590772e-16,
         "compton_B4_reduced_absorption": 0.0,
         "neutrino_B4_reduced_absorption": 1.3494337518642237e-16,
@@ -2844,7 +2844,7 @@
       "Fdeg_mu_minus_independent": 0.9999999999999998,
       "T_MeV": 3.033770692,
       "code_reference_production": {
-        "compton_MeV": 7.289596184392478e-22,
+        "compton_MeV": 7.74933605151721e-22,
         "neutrino_sum_MeV": 0.0004515373384136352
       },
       "code_total_reduced_absorption_MeV": 0.3289768044240194,
@@ -2877,7 +2877,7 @@
       "omega_MeV": 20.0,
       "radius_km": 25.0,
       "residuals": {
-        "compton_B16_production_vs_reference": 0.06306794718053464,
+        "compton_B16_production_vs_reference": 5.218125191560082e-15,
         "compton_B19_detailed_balance": 0.0,
         "compton_B4_reduced_absorption": 0.0,
         "neutrino_B4_reduced_absorption": 5.062164002271968e-16,
@@ -2894,7 +2894,7 @@
       "Fdeg_mu_minus_independent": 0.9999999999999998,
       "T_MeV": 3.033770692,
       "code_reference_production": {
-        "compton_MeV": 2.5288598135885605e-23,
+        "compton_MeV": 2.688349810738955e-23,
         "neutrino_sum_MeV": 1.1839477544592448e-05
       },
       "code_total_reduced_absorption_MeV": 0.23329822588823607,
@@ -2927,7 +2927,7 @@
       "omega_MeV": 30.0,
       "radius_km": 25.0,
       "residuals": {
-        "compton_B16_production_vs_reference": 0.06306794718053459,
+        "compton_B16_production_vs_reference": 5.465687287637503e-15,
         "compton_B19_detailed_balance": 0.0,
         "compton_B4_reduced_absorption": 0.0,
         "neutrino_B4_reduced_absorption": 1.0707333053631114e-15,
@@ -2944,7 +2944,7 @@
       "Fdeg_mu_minus_independent": 0.9999999999999998,
       "T_MeV": 3.033770692,
       "code_reference_production": {
-        "compton_MeV": 3.3493037105223706e-26,
+        "compton_MeV": 3.560537420029182e-26,
         "neutrino_sum_MeV": 1.0229149545764087e-08
       },
       "code_total_reduced_absorption_MeV": 0.14706445786334163,
@@ -2977,7 +2977,7 @@
       "omega_MeV": 50.0,
       "radius_km": 25.0,
       "residuals": {
-        "compton_B16_production_vs_reference": 0.06306794718053453,
+        "compton_B16_production_vs_reference": 5.158518803447292e-15,
         "compton_B19_detailed_balance": 0.0,
         "compton_B4_reduced_absorption": 1.8811643382127446e-16,
         "neutrino_B4_reduced_absorption": 1.132384099552615e-15,
@@ -2994,7 +2994,7 @@
       "Fdeg_mu_minus_independent": 0.9999999999999998,
       "T_MeV": 3.033770692,
       "code_reference_production": {
-        "compton_MeV": 2.2953671486454232e-33,
+        "compton_MeV": 2.4401312427361396e-33,
         "neutrino_sum_MeV": 3.696702404391328e-16
       },
       "code_total_reduced_absorption_MeV": 0.07641013153457876,
@@ -3027,7 +3027,7 @@
       "omega_MeV": 100.0,
       "radius_km": 25.0,
       "residuals": {
-        "compton_B16_production_vs_reference": 0.06306794718053457,
+        "compton_B16_production_vs_reference": 5.187513460465707e-15,
         "compton_B19_detailed_balance": 1.402030664990739e-16,
         "compton_B4_reduced_absorption": 1.9092414178875613e-16,
         "neutrino_B4_reduced_absorption": 2.7243352803680573e-15,
