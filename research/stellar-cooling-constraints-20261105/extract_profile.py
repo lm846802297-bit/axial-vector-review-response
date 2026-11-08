@@ -118,7 +118,7 @@ def main():
     schwarzschild_radius=lc[-1,0]*(1-lc[-1,1]**2)
     lapse[outside]=np.sqrt(1-schwarzschild_radius/r[outside])
     fer_temp=interp(curves["T_ferreira"],r,right=float("nan"))
-    fer_mu=interp(curves["mu_mu_Ferreira"],r,right=float("nan"))
+    fer_mu=interp(curves["mu_mu_ferreira"],r,right=float("nan"))
     rows=np.column_stack([r,temp,mu,numu,lapse,fer_temp,fer_mu])
     header="r_km,T_MeV,mu_mu_MeV,mu_numu_MeV,lapse,T_Ferreira_MeV,mu_mu_Ferreira_MeV"
     np.savetxt(out/"sfho188_digitized.csv",rows,delimiter=",",header=header,comments="",fmt="%.10g")
@@ -129,7 +129,7 @@ def main():
         nfm=quad(lambda p:p*p*expit(-(np.sqrt(p*p+105.6583755**2)-mm)/tt),0,np.inf)[0]/np.pi**2/197.3269804**3
         nplot=float(interp(curves["n_mu_over_n0_caputo"],rr,right=float("nan")))*.181
         samples.append(dict(r_km=rr,T_MeV=tt,mu_mu_MeV=mm,
-                            mu_mu_Ferreira_MeV=float(interp(curves["mu_mu_Ferreira"],rr,right=float("nan"))),
+                            mu_mu_Ferreira_MeV=float(interp(curves["mu_mu_ferreira"],rr,right=float("nan"))),
                             n_mu_Fermi_fm3=nfm,n_mu_plotted_fm3=nplot,
                             lapse=float(np.interp(rr,r,lapse))))
     overlap=np.linspace(.2,20,400)
