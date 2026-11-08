@@ -265,7 +265,7 @@ def radial_shell_opacity_decomposition(
     )
 
     shell_edges = [
-        0.0, 5.0, 8.0, 10.0, 12.0, 15.0, 18.0, 20.0, 22.0, radius_km
+        0.0, 5.0, 8.0, 10.0, 12.0, 15.0, 16.5, 18.5, 20.0, 22.0, radius_km
     ]
     shell_labels = [
         f"{lo:g}-{hi:g} km"
@@ -380,6 +380,139 @@ def radial_shell_opacity_decomposition(
     }
 
 
+
+def outer_mu_numu_branch_opacity_sensitivity(
+    source_radii, radial_grid, profile, rates, mass, energies,
+    radius_km, source, columns_fixed, angle_weights, couplings,
+    angular_order=16, path_order=32,
+):
+    """Opacity-only sensitivity to the plotted positive mu_nu_mu outer branch.
+
+    For r>=15 km, set mu_nu_mu to zero in the local neutrino absorption
+    kernel. Keep the B.1 source term fixed to the baseline profile. Since the
+    reconstructed profile is already zero outside the 16.6--18.4 km visible
+    positive branch, this isolates that branch's contribution to outer
+    neutrino opacity rather than changing the production normalization.
+    """
+    zero_mu_numu = np.zeros_like(profile["mu_numu"])
+    zero_nu_rates = local_rates(
+        mass, energies[None, :], profile["T"][:, None],
+        zero_mu_numu[:, None], profile["mu_mu"][:, None]
+    )
+    outer = radial_grid >= 15.0
+    neutrino_alt = np.asarray(rates["neutrino_production"], float).copy()
+    neutrino_alt[outer, :] = zero_nu_rates["neutrino_production"][outer, :]
+
+    x = energies[None, :]/profile["T"][:, None]
+    factor = np.expm1(np.minimum(x, 700.0))
+    reduced_alt = np.asarray(rates["reduced_absorption"], float).copy()
+    reduced_alt[outer, :] += (
+        factor[outer, :]
+        * (neutrino_alt[outer, :]
+           - rates["neutrino_production"][outer, :])
+    )
+    rates_alt = dict(rates)
+    rates_alt["neutrino_production"] = neutrino_alt
+    rates_alt["production"] = (
+        neutrino_alt + rates["compton_production"] + rates["dimuon_production"]
+    )
+    rates_alt["reduced_absorption"] = reduced_alt
+
+    columns_alt, angles_alt = scalar_optical_depths(
+        source_radii, radial_grid, reduced_alt, mass, energies,
+        radius_km, angular_order, path_order
+    )
+    angle_residual = float(np.max(np.abs(angles_alt-angle_weights)))
+    if angle_residual > 1.0e-14:
+        raise ArithmeticError("Outer-mu_numu variant changed the angular weights")
+
+    baseline_shells = radial_shell_opacity_decomposition(
+        source_radii, radial_grid, profile["T"], rates, mass, energies,
+        radius_km, source, columns_fixed, angle_weights,
+        angular_order, path_order
+    )
+    variant_shells = radial_shell_opacity_decomposition(
+        source_radii, radial_grid, profile["T"], rates_alt, mass, energies,
+        radius_km, source, columns_alt, angle_weights,
+        angular_order, path_order
+    )
+
+    fig7 = json.loads(DEFAULT_FIG7.read_text(encoding="utf-8"))
+    # The caller's coupling grid is already the digitized Fig. 7 g grid.
+    reference = np.asarray(fig7["reference_vertices"][str(float(mass))]
+                           ["luminosity_erg_s"], float)
+    baseline_lum, variant_lum, rows = [], [], []
+    for g, ref_l in zip(couplings, reference):
+        avg_base = np.einsum(
+            "rae,a->re", np.exp(-g**2*columns_fixed), angle_weights
+        )
+        avg_alt = np.einsum(
+            "rae,a->re", np.exp(-g**2*columns_alt), angle_weights
+        )
+        l_base = float(g**2*np.sum(source*avg_base))
+        l_alt = float(g**2*np.sum(source*avg_alt))
+        baseline_lum.append(l_base)
+        variant_lum.append(l_alt)
+        rows.append({
+            "g": float(g),
+            "baseline_luminosity_erg_s": l_base,
+            "outer_mu_numu_zero_luminosity_erg_s": l_alt,
+            "reference_luminosity_erg_s": float(ref_l),
+            "luminosity_shift_vs_baseline": l_alt/l_base-1.0,
+            "relative_difference_vs_fig7_after_variant": l_alt/float(ref_l)-1.0,
+        })
+
+    baseline_nu = baseline_shells["source_weighted_mean_tau_by_channel"]["neutrino"]
+    variant_nu = variant_shells["source_weighted_mean_tau_by_channel"]["neutrino"]
+    nu_shell_changes = {
+        shell: {
+            "baseline_mean_tau": baseline_nu[shell],
+            "outer_mu_numu_zero_mean_tau": variant_nu[shell],
+            "relative_change": (
+                variant_nu[shell]/baseline_nu[shell]-1.0
+                if baseline_nu[shell] != 0.0 else 0.0
+            ),
+        }
+        for shell in baseline_nu
+    }
+    shifts = np.asarray(variant_lum)/np.asarray(baseline_lum)-1.0
+    profile_outer = profile["mu_numu"][outer]
+    return {
+        "scope": (
+            "Opacity-only sensitivity: mu_numu is set to zero for r>=15 km; "
+            "the source term remains the baseline B.1 source. This isolates "
+            "the visible positive mu_numu branch at about 16.6--18.4 km."
+        ),
+        "outer_profile_mu_numu_range_MeV": [
+            float(np.min(profile_outer)), float(np.max(profile_outer))
+        ],
+        "modified_radial_range_km": [
+            float(np.min(radial_grid[outer])), float(np.max(radial_grid[outer]))
+        ],
+        "mean_absolute_luminosity_shift_vs_baseline": float(np.mean(np.abs(shifts))),
+        "maximum_absolute_luminosity_shift_vs_baseline": float(np.max(np.abs(shifts))),
+        "weak_coupling_luminosity_shift": float(shifts[0]),
+        "reference_peak_luminosity_shift": float(shifts[int(np.argmax(reference))]),
+        "strong_absorption_luminosity_shift": float(shifts[-1]),
+        "neutrino_shell_optical_depth_changes": nu_shell_changes,
+        "baseline_outer_tau_fraction_r_ge_15km": (
+            baseline_shells["fraction_of_mean_tau_accumulated_at_r_ge_15km"]
+        ),
+        "variant_outer_tau_fraction_r_ge_15km": (
+            variant_shells["fraction_of_mean_tau_accumulated_at_r_ge_15km"]
+        ),
+        "baseline_channel_tau_fractions": baseline_shells["channel_fraction_of_mean_tau"],
+        "variant_channel_tau_fractions": variant_shells["channel_fraction_of_mean_tau"],
+        "shell_sum_rule_relative_residual": (
+            variant_shells["shell_sum_rule_relative_residual"]
+        ),
+        "B19_B4_reduced_absorption_channel_sum_relative_residual": (
+            variant_shells["B19_B4_reduced_absorption_channel_sum_relative_residual"]
+        ),
+        "points": rows,
+    }
+
+
 def run_mass(
     mass, profile_path, fig7_path,
     radial_order=40, energy_order=100, angular_order=16, path_order=32,
@@ -430,6 +563,11 @@ def run_mass(
     path_absorption_decomposition = radial_shell_opacity_decomposition(
         r, radial_grid, p["T"], rates, mass, energies,
         radius_km, source, columns_fixed, angle_weights,
+        angular_order, path_order
+    )
+    outer_mu_numu_sensitivity = outer_mu_numu_branch_opacity_sensitivity(
+        r, radial_grid, p, rates, mass, energies,
+        radius_km, source, columns_fixed, angle_weights, couplings,
         angular_order, path_order
     )
 
@@ -549,6 +687,7 @@ def run_mass(
         "source_radial_distribution": radial_summary,
         "source_channel_fractions": channel_source_summary,
         "path_absorption_radial_decomposition": path_absorption_decomposition,
+        "outer_mu_numu_branch_opacity_sensitivity": outer_mu_numu_sensitivity,
         "eq_b2_fixed_omega_baseline": {
             "prescription": (
                 "Gamma_abs_star(r'(s), omega_source)/v_V(omega_source), "
