@@ -305,3 +305,57 @@ This limits the physical interpretation of the high-coupling curve; it does not 
 - CI: https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42409199703 (success)
 
 PR #56 remains Open / Draft. No manuscript or referee-response source/PDF is modified.
+
+## 2026-11-08 status update: profile provenance and the 10 MeV Fig. 7 gate
+
+This section supersedes the earlier pending-status statements above that identify the independent Eq. (B.2) path/angular integral or the outer-neutrino audit as the next unfinished task. The corresponding audits are now complete. This update records the current evidence without changing the frozen production inputs or promoting the vector benchmark to a pass.
+
+### 1. Muon chemical-potential provenance: Caputo baseline retained
+
+- The Caputo SFHo-18.8 reconstruction of \(\mu_\mu/T\) agrees with the digitized Bollig et al. Fig. 4 SFHo-18.8 curve with maximum absolute relative difference 0.0161% and mean 0.00551% over the resolved comparison interval.
+- The Caputo Fig. 1 muon-density curve agrees with Bollig et al. Fig. 3 at 3.73% mean and 10.45% maximum absolute relative difference over the common resolved interval.
+- Using \(E_\mu=\sqrt{p^2+m_\mu^2}\) and the stated Fermi-Dirac convention, the Caputo \(\mu_\mu(r)\) reproduces its independently plotted \(n_\mu(r)\) to about 0.5--1.1% at the checked radii. The Ferreira digitization is inconsistent with the same density/profile comparison in the inner core and is not adopted.
+- The discrepancy is not a constant rest-mass convention shift. Do not add \(m_\mu\) to the Caputo chemical potential, combine Caputo \(T(r)\) with Ferreira \(\mu_\mu(r)\), or choose a profile because it improves a selected Fig. 7 point.
+
+**Frozen choice:** use the Caputo \(T(r)\), \(\mu_\mu(r)\), and public neutrino-profile reconstruction as the baseline, with all unresolved tails explicitly documented.
+
+### 2. Outer-neutrino chemical potentials and opacity
+
+- The public Caputo figure contains \(\mu_{\nu_\mu}(r)\), but no independent \(\mu_{\nu_\tau}(r)\). The baseline \(\mu_{\nu_\tau}=0\) is therefore a stated assumption, not an extracted profile.
+- For the 10 MeV high-absorption benchmark, changing the outer \(r\geq15\,\mathrm{km}\) \(\mu_{\nu_\mu}\) to 0, 1, and 2 MeV changes the luminosity by -0.0128%, +0.0274%, and +0.1470%, respectively. Synthetic outer \(\mu_{\nu_\tau}=1,2,5,10\) MeV stress tests change it by +0.0517%, +0.2057%, +1.2416%, and +4.4865%. These are sensitivity tests, not physical replacement profiles.
+- The independently recomputed outer 15--25 km region contributes 63.1173% of the source-weighted mean neutrino optical depth. This is **not** a fraction of luminosity absorbed.
+- The local neutrino production/absorption integrals have been independently checked through 25 km: maximum direct-vs-code differences are \(5.24\times10^{-15}\) and \(3.99\times10^{-15}\), with mode-resolved detailed balance at \(1.24\times10^{-14}\).
+- The reduced inverse-decay opacity approaches the time-dilated vacuum-decay limit as the temperature decreases. The extended outer opacity is therefore physical within the stated prescription and is not a reason to rescale the local rate.
+
+### 3. Eq. (B.2) path/angular integration: independently converged
+
+- An independent impact-parameter/longitudinal-coordinate implementation evaluates the path integral analytically on each cell of the same piecewise-linear opacity interpolant.
+- Replacing the original 32-point path quadrature changes the integrated luminosity by at most \(4.31\times10^{-5}\) over the 25-point 10 MeV comparison.
+- Increasing the angular order from 128 to 256 changes the luminosity by at most \(1.10\times10^{-7}\) over the curve and \(8.20\times10^{-9}\) at the high-absorption endpoint.
+- The 15--25 km absorber-shell contribution is 63.1173% of the source-weighted mean neutrino optical depth; its value is independently reproduced by the analytic path implementation.
+
+**Decision:** do not spend further effort increasing the existing Eq. (B.2) path or angular quadrature orders for this discrepancy.
+
+### 4. Energy-frame convention and Fig. 7 digitization
+
+- Appendix-B Eq. (B.2) literally carries the same numerical \(\omega\) along the chord. Main-text Eq. (4.2) calls \(\omega\) the energy at infinity, whereas Appendix-B Eq. (B.1), its escape threshold \(m_V/N(r)\), and its local phase-space/thermal factors indicate a local production-frame energy.
+- The published version retains this wording/equation combination and states that no associated data or code will be deposited. The authors' private numerical implementation cannot be inferred from the public record.
+- Keep two separate lanes: (A) fixed-numerical-\(\omega\), the literal Eq. (B.2) benchmark; and (B) conserved-\(E_\infty\) energy remapping, a partial-GR diagnostic on the same Euclidean chord geometry, not a full GR ray trace.
+- At the high-absorption point, lane A gives \(L=2.43733471\times10^{52}\,\mathrm{erg\,s^{-1}}\), versus the digitized Fig. 7 value \(1.26781476\times10^{52}\,\mathrm{erg\,s^{-1}}\), a +92.24691% residual. Lane B lowers the luminosity by 29.2634% but still leaves +35.9708%. Neither lane is a full Fig. 7 reproduction.
+- The 10 MeV Fig. 7 curve is extracted from native vector paths in the pinned arXiv v2 PDF; coordinate round-trip residuals are at or below \(2.22\times10^{-16}\). Ordinary screenshot/raster digitization is not a credible explanation for the mismatch.
+
+### 5. Production/absorber spatial weights and fixed-background caveat
+
+- 97.12% of the optically thin source is produced at 5--15 km.
+- At high coupling, 59.13% and 37.43% of the escaped luminosity originate at 5--10 km and 10--15 km, respectively; the 20--25 km source shell contributes 3.36%.
+- The 15--25 km absorber shell contributes 59.42%, 58.04%, 65.91%, 87.53%, and 95.58% of the neutrino optical depth for source shells 0--5, 5--10, 10--15, 15--20, and 20--25 km, respectively. These are optical-depth fractions, not absorbed-luminosity fractions.
+- The 10 MeV high-coupling point lies above the rough fixed-background warning line quoted by Blinov et al. This limits the physical interpretation of a fixed-SM-profile constraint at that coupling; it does not explain a numerical disagreement between two calculations that both claim to evaluate the same fixed-profile prescription.
+
+### 6. Current decision and next gate
+
+1. Keep the Caputo profile and the literal fixed-\(\omega\) Appendix-B calculation frozen as the reproducible baseline. Keep the conserved-\(E_\infty\) result as a separately labelled diagnostic.
+2. Do not rescale \(g_X\), production, absorption, or opacity; do not tune chemical potentials or the outer radius to fit Fig. 7.
+3. The pure-vector Fig. 7 gate remains **NOT PASSED**. The 10 MeV high-coupling discrepancy remains unresolved; neither the Fig. 4 boundary agreement nor the converged path integral substitutes for a full Fig. 7 match.
+4. The next local-microphysics comparison is isolated in stacked Draft PR #57. Its moving-muon exact-recoil B.13 rates may quantify the optically thin semi-Compton source difference from the no-recoil B.14 approximation, but they do not address the neutrino-dominated outer high-coupling opacity. PR #57's latest workflow run (#42335951721) is in `action_required` with no jobs or artifacts, so its numerical scan is not yet CI-validated. Do not import its results into the PR #56 transport calculation until the workflow has run and the output is independently reviewed.
+5. Keep PR #56 Open / Draft. No manuscript, referee-response TeX/PDF, or axial constraint figure is modified by these audits. Do not claim a validated vector literature reproduction or promote an axial curve on this basis.
+
