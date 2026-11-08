@@ -23,6 +23,22 @@
 
 **下一步：** 独立审查者检查 PR #64 的实际 TeX diff 与删除/合并台账；通过后再进行最新回复信的完整编译和 PDF 视觉检查。PR #64 不自动合并。
 
+
+### 2026-11-09 追加：PR #64 全信防御性措辞审查
+
+作者确认后，对 PR #64 正式回复信完成一次全信防御性措辞审查，目标是删除不增加科学信息的重复免责声明，同时保留必要的物理适用条件。
+
+- **Major 1.3：** 合并局部 Higgs-pole 诊断窗口与非全局扫描说明；以正面措辞说明 scalar-suppressed benchmark 是 \(A'\) effective-current 与 scalar-mediated observables 的现象学分离，且 \(s\) 仍是 UV 物理自由度。CP-even scalar-bubble、soft bubble-plus-contact、fermionic hard subcalculation、mixing-only rate、complex-pole、near-degenerate diagnostics 等不同计算层级的独立限制全部保留。
+- **Major 2：** 将 plotting-window 的非普适性集中说明一次；精简实验覆盖、耦合端点、表格和总结中的重复解释。保留低质量 \((g-2)_\mu\) 渐近式、约 \(0.57\,\mathrm{MeV}\) 交点、天体物理重叠、实验质量覆盖、规范/VLL Yukawa 微扰性和逐点标量条件；Fig. 2 的四种区域解释保留。
+- **Major 3/4.1：** 只精简结尾重复的模型边界说明；可选 \(\sigma+3N_R\) 完成机制与原单 VEV 模型的区分、双 VEV 适用条件、全部矩阵和 seesaw 公式保留。
+- **Major 4.3 / Minor 3–4：** 合并重复的混合角免责声明；保留独立角度条件、矢量/轴矢量比值、LEP 对照、VLL fit 适用性及原有引用。
+- **Major 4.4：** 将防御式结尾改为 neutrino coalescence、charged-muon axial semi-Compton、kinetic-mixing-induced electromagnetic processes 的正面过程分类；详细输运和适用范围限制保留。
+- **Overall Summary：** 改为概括已给出的 seesaw 构造、动能混合、有限矢量效应、Table II 和恒星冷却过程区分；删除泛化的全局排除免责声明。
+- **静态核查：** 本轮 TeX 字符数 \(130{,}069\rightarrow128{,}476\)；72 次引用出现、39 个唯一 citation keys、equation labels 均保持不变；LaTeX 环境栈与花括号检查通过。
+- **验证边界：** 仅完成源码级静态核查；完整 LaTeX/BibTeX 编译、PDF 逐页视觉检查、数值重算、源文献重新核验和全仓库测试未执行。论文正文、图表、BibTeX 和科研脚本未修改。
+
+**删除/合并记录：** 仅合并相同命题、相同适用条件的重复总结；没有删除独立物理结论、公式、数值 benchmark、引用或计算适用范围。详细逐点记录见 [Major 2–4 回复结构审查与修订记录](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-09/Major2-4回复结构审查与修订记录_2026-11-09.md) §7。PR #64 仍待独立 reviewer 检查实际 diff；不自动合并。
+
 ## 2026-11-06 更新：PR #55 Minor Points 论证扩充与长期写作规范
 
 [PR #55](https://github.com/lm846802297-bit/axial-vector-review-response/pull/55) 继续更新正式回复信及其写作规范，当前保持 Open、未合并。工作分支为 review/response-point-conclusions-20261106。
