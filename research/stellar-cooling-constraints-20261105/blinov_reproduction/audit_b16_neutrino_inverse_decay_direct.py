@@ -120,7 +120,7 @@ def run(profile_path=DEFAULT_PROFILE,mass=MASS,orders=(128,256,512)):
             for key,val in (
                 ("mode_production_vs_direct",prod_err),
                 ("mode_absorption_vs_direct",abs_err),
-                ("b19_ratio_residual",float(b19)),
+                ("neutrino_B10_ratio_residual",float(b19)),
                 ("b4_reduced_opacity_residual",float(b4)),
                 ("analytic_I_vs_direct",ierr),
                 ("mode_sum_vs_scalar_I",sumerr),
