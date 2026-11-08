@@ -13,6 +13,7 @@ from blinov_reproduction.reference import (
 )
 from blinov_reproduction.audit_b16_global_redshift import (
     eq_b1_source_measure, redshifted_scalar_optical_depths,
+    radial_shell_opacity_decomposition,
 )
 
 
@@ -82,6 +83,48 @@ class B16GlobalRedshiftAuditTests(unittest.TestCase):
         np.testing.assert_allclose(shifted, fixed, rtol=3e-12, atol=1e-12)
         self.assertAlmostEqual(info["energy_ratio_local_over_source_min"], 1.0, places=14)
         self.assertAlmostEqual(info["energy_ratio_local_over_source_max"], 1.0, places=14)
+
+    def test_radial_shell_opacities_reconstruct_direct_chord_columns(self):
+        mass = 10.0
+        radius = 25.0
+        r, rw = radial_rule(radius, 8)
+        radial_grid = np.unique(np.r_[0.0, r, radius])
+        profile = {
+            "T": np.full(len(radial_grid), 20.0),
+            "mu_mu": np.full(len(radial_grid), 55.0),
+            "mu_numu": np.full(len(radial_grid), -15.0),
+            "lapse": np.full(len(radial_grid), 0.80),
+        }
+        energies = np.unique(np.r_[
+            mass+np.geomspace(1e-5, 100.0, 24), mass/0.80
+        ])
+        energies.sort()
+        rates = local_rates(
+            mass, energies[None,:], profile["T"][:,None],
+            profile["mu_numu"][:,None], profile["mu_mu"][:,None]
+        )
+        source_indices = np.searchsorted(radial_grid, r)
+        source, _ = eq_b1_source_measure(
+            r, rw, energies, profile["lapse"][source_indices],
+            mass, rates["production"][source_indices]
+        )
+        columns, angle_weights = scalar_optical_depths(
+            r, radial_grid, rates["reduced_absorption"], mass, energies,
+            radius, angular_order=8, path_order=16
+        )
+        result = radial_shell_opacity_decomposition(
+            r, radial_grid, profile["T"], rates, mass, energies,
+            radius, source, columns, angle_weights,
+            angular_order=8, path_order=16
+        )
+        self.assertLess(abs(result["shell_sum_rule_relative_residual"]), 2e-10)
+        self.assertLess(
+            result["B19_B4_reduced_absorption_channel_sum_relative_residual"],
+            2e-12
+        )
+        self.assertAlmostEqual(
+            sum(result["channel_fraction_of_mean_tau"].values()), 1.0, places=12
+        )
 
     def test_local_redshift_preserves_energy_at_infinity(self):
         omega_source = 35.0
