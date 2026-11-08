@@ -54,6 +54,51 @@ def main():
     doc = pymupdf.open(pdf)
     page = doc[PAGE_INDEX]
     drawings = page.get_drawings()
+
+    # The original paper's Fig. 1 gives the temperature profile for the same
+    # four models. Extract its yellow SFHo-18.8 path and exact axis ticks too,
+    # so the Fig. 3 density residual can be checked against T(r) directly.
+    page1 = doc[1]
+    page1_drawings = page1.get_drawings()
+    fig1_paths = []
+    fig1_axis_paths = []
+    for index, d in enumerate(page1_drawings):
+        rect = [float(v) for v in d["rect"]]
+        if 320.0 <= rect[0] <= 585.0 and 70.0 <= rect[1] <= 330.0:
+            pts = polyline_points(d)
+            if pts is not None and rect[2] - rect[0] >= 25.0 and rect[3] - rect[1] >= 2.0:
+                fig1_paths.append({
+                    "index": index, "rect": rect,
+                    "color": [float(x) for x in d["color"]] if d.get("color") else None,
+                    "width": float(d["width"]) if d.get("width") is not None else None,
+                    "points": [[float(p[0]), float(p[1])] for p in pts],
+                })
+            width, height = rect[2] - rect[0], rect[3] - rect[1]
+            if width <= 5.0 or height <= 5.0:
+                items = []
+                for item in d["items"]:
+                    if item[0] == "l":
+                        items.append({
+                            "kind": "l",
+                            "p1": [float(item[1].x), float(item[1].y)],
+                            "p2": [float(item[2].x), float(item[2].y)],
+                        })
+                if items:
+                    fig1_axis_paths.append({
+                        "index": index, "rect": rect,
+                        "color": [float(x) for x in d["color"]] if d.get("color") else None,
+                        "width": float(d["width"]) if d.get("width") is not None else None,
+                        "items": items,
+                    })
+    fig1_text_spans = []
+    for block in page1.get_text("dict")["blocks"]:
+        for line in block.get("lines", []):
+            for span in line.get("spans", []):
+                fig1_text_spans.append({
+                    "text": span["text"],
+                    "bbox": [float(x) for x in span["bbox"]],
+                    "size": float(span["size"]),
+                })
     text_spans = []
     for block in page.get_text("dict")["blocks"]:
         for line in block.get("lines", []):
@@ -118,6 +163,12 @@ def main():
         "page_index": PAGE_INDEX,
         "page_rect": [float(x) for x in page.rect],
         "page_text": page.get_text("text"),
+        "fig1_page_index": 1,
+        "fig1_page_rect": [float(x) for x in page1.rect],
+        "fig1_page_text": page1.get_text("text"),
+        "fig1_text_spans": fig1_text_spans,
+        "fig1_temperature_vector_paths": fig1_paths,
+        "fig1_axis_path_candidates": fig1_axis_paths,
         "text_spans": text_spans,
         "fig4_axis_path_candidates": axis_candidates,
         "candidate_vector_paths": candidates,
