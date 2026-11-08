@@ -151,23 +151,18 @@ The radial decomposition therefore explains why a local rate ratio at a single r
 
 ## 7. Opacity-weighted diagnostics
 
-The source-weighted mean Compton optical depth per \(g_X^2\) changes from
+With the B.16 source distribution held fixed, replacing only the Compton opacity gives
 
 \[
-\langle\tau_{\rm C}\rangle_{\rm B16}
-=9.47794\times10^{14}
+\langle\tau_{\rm C}^{\rm B16\ source}\rangle_{\rm B16}
+=9.47794\times10^{14},\qquad
+\langle\tau_{\rm C}^{\rm B16\ source}\rangle_{\rm B13}
+=3.42080\times10^{14}.
 \]
 
-to
+Thus the source-weighted Compton optical depth falls by about \(63.9\%\) at fixed B.16 source weighting. With the B.13 source distribution and B.13 opacity used together, the corresponding mean is \(3.40866\times10^{14}\).
 
-\[
-\langle\tau_{\rm C}\rangle_{\rm B13}
-=3.40866\times10^{14},
-\]
-
-a reduction of about \(64.0\%\).
-
-The corresponding source-weighted mean **total** optical depth changes much less:
+The source-weighted mean **total** optical depth, evaluated with each calculation's own source distribution, changes from
 
 \[
 \langle\tau_{\rm total}\rangle_{\rm B16}
@@ -176,7 +171,7 @@ The corresponding source-weighted mean **total** optical depth changes much less
 =9.08614\times10^{15},
 \]
 
-a reduction of about \(2.01\%\). Neutrino inverse decay remains the dominant contribution to the mean total opacity. Nevertheless, the direction- and energy-dependent escape probability is nonlinear, so a small change in the source-weighted mean total optical depth does not imply a comparably small change in the strong-coupling escape fraction.
+a reduction of about \(2.01\%\). This comparison includes both the opacity change and the changed source weighting. Neutrino inverse decay remains the dominant contribution to the mean total opacity. Nevertheless, the direction- and energy-dependent escape probability is nonlinear, so a small change in the source-weighted mean total optical depth does not imply a comparably small change in the strong-coupling escape fraction.
 
 These mean optical depths are diagnostics only; the luminosity is evaluated with the full angularly averaged exponential, not by exponentiating a mean optical depth.
 
