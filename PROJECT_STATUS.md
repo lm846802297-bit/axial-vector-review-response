@@ -34,7 +34,7 @@
 - **Major 4.3 / Minor 3–4：** 合并重复的混合角免责声明；保留独立角度条件、矢量/轴矢量比值、LEP 对照、VLL fit 适用性及原有引用。
 - **Major 4.4：** 将防御式结尾改为 neutrino coalescence、charged-muon axial semi-Compton、kinetic-mixing-induced electromagnetic processes 的正面过程分类；详细输运和适用范围限制保留。
 - **Overall Summary：** 改为概括已给出的 seesaw 构造、动能混合、有限矢量效应、Table II 和恒星冷却过程区分；删除泛化的全局排除免责声明。
-- **静态核查：** 本轮 TeX 字符数 \(130{,}069\rightarrow128{,}237\)；72 次引用出现、39 个唯一 citation keys、equation labels 均保持不变；LaTeX 环境栈与花括号检查通过。
+- **静态核查：** 本轮 TeX 字符数 \(130{,}069\rightarrow128{,}331\)；72 次引用出现、39 个唯一 citation keys、equation labels 均保持不变；LaTeX 环境栈与花括号检查通过。
 - **验证边界：** 仅完成源码级静态核查；完整 LaTeX/BibTeX 编译、PDF 逐页视觉检查、数值重算、源文献重新核验和全仓库测试未执行。论文正文、图表、BibTeX 和科研脚本未修改。
 
 **删除/合并记录：** 仅合并相同命题、相同适用条件的重复总结；没有删除独立物理结论、公式、数值 benchmark、引用或计算适用范围。详细逐点记录见 [Major 2–4 回复结构审查与修订记录](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-09/Major2-4回复结构审查与修订记录_2026-11-09.md) §7。PR #64 仍待独立 reviewer 检查实际 diff；不自动合并。
