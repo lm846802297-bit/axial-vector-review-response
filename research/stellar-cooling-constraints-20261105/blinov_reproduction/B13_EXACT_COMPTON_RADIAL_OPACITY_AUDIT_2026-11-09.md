@@ -1,6 +1,6 @@
 # Exact B.13 versus B.14--B.16 Compton opacity: radial local audit
 
-> **Historical profile version:** the paired numerical output for this local radial audit uses the 501-node uniform profile, SHA-256 `08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9`. A current-profile rerun is being archived separately using the 1687-row vertex-preserving profile, SHA-256 `6c47d0712d266848d0cb2315c8a9b43cf13d0b39b6986d4239dd3f22cb9ba0bc`. Keep this report as a historical record; do not mix its pointwise values with the current-profile rerun.
+> **Historical profile version:** the paired numerical output for this local radial audit uses the 501-node uniform profile, SHA-256 `08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9`. A current-profile rerun is archived separately using the 1687-row vertex-preserving profile, SHA-256 `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`, in `B13_EXACT_COMPTON_RADIAL_OPACITY_AUDIT_VERTEX_PRESERVING_2026-11-09.md`. Keep this report as a historical record; do not mix its pointwise values with the current-profile rerun.
 
 
 Date: 2026-11-09  
