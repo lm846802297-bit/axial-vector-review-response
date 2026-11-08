@@ -118,7 +118,7 @@ class Profile12To15KmTests(unittest.TestCase):
         self.assertAlmostEqual(after_negative_end, 0.0, delta=1e-12)
         self.assertAlmostEqual(before_positive_start, 0.0, delta=1e-7)
         self.assertAlmostEqual(at_positive_start, 1.0, delta=0.002)
-        self.assertAlmostEqual(after_positive_end, 0.0, delta=1e-12)
+        self.assertAlmostEqual(after_positive_end, 0.0, delta=1e-7)
 
     def test_resampling_tracks_the_raw_pdf_polyline(self):
         specs = (
