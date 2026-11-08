@@ -384,7 +384,7 @@ def radial_shell_opacity_decomposition(
 def outer_mu_numu_branch_opacity_sensitivity(
     source_radii, radial_grid, profile, rates, mass, energies,
     radius_km, source, columns_fixed, angle_weights, couplings,
-    angular_order=16, path_order=32,
+    reference_luminosity, angular_order=16, path_order=32,
 ):
     """Opacity-only sensitivity to the plotted positive mu_nu_mu outer branch.
 
@@ -437,10 +437,9 @@ def outer_mu_numu_branch_opacity_sensitivity(
         angular_order, path_order
     )
 
-    fig7 = json.loads(DEFAULT_FIG7.read_text(encoding="utf-8"))
-    # The caller's coupling grid is already the digitized Fig. 7 g grid.
-    reference = np.asarray(fig7["reference_vertices"][str(float(mass))]
-                           ["luminosity_erg_s"], float)
+    # The caller supplies the reference luminosities paired with the same
+    # digitized Fig. 7 coupling grid.
+    reference = np.asarray(reference_luminosity, float)
     baseline_lum, variant_lum, rows = [], [], []
     for g, ref_l in zip(couplings, reference):
         avg_base = np.einsum(
@@ -568,7 +567,7 @@ def run_mass(
     outer_mu_numu_sensitivity = outer_mu_numu_branch_opacity_sensitivity(
         r, radial_grid, p, rates, mass, energies,
         radius_km, source, columns_fixed, angle_weights, couplings,
-        angular_order, path_order
+        reference_luminosity, angular_order, path_order
     )
 
     channel_sources = {}
