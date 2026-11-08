@@ -1,5 +1,14 @@
 # PROJECT_STATUS — Axial-vector paper revision and referee response
 
+> **2026-11-09 全局 B.13 Compton 核与 Fig. 7 复现状态：** PR #57 仍为 Open / Draft，未合并。最新统一背景为 vertex-preserving profile B，SHA-256 为 9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c。Bollig–Caputo 密度/B.1 源项、12--15 km 与 22--25 km B.2 路径审计均已完成；当前 B.16 纯矢量 Fig. 7 基准在强耦合端仍高出参考值约 92.24%，尚未通过物理复现验收。
+>
+> **B.13 全局替换结果：** 在 10 MeV 纯矢量 benchmark 中，按 Eq. (B.17) 的单负缪子约定，同时替换 B.1 Compton 源项和 B.2 Compton reduced opacity，得到弱端/峰值/强端偏差分别为 \(-28.11\%\)、\(-16.34\%\)、\(+131.53\%\)。B.13 的 optically thin 总源为 B.16 的 78.898%；B.13 负缪子 Compton 源仅为 B.16 Compton 源的 34.07%。正缪子对 B.13 Compton 源的贡献为 0.672%，可作为小修正。源项与吸收项必须同时替换；source-only 和 opacity-only 结果仅为反事实诊断。该修正没有修复 B.16--Fig. 7 的差异，强耦合偏差反而增大。
+>
+> **数值状态：** B.16 同网格归档闭合残差为 0；B.13 详细平衡最大残差约 \(1.5\times10^{-14}\)，最终缪子质量壳残差 \(3.7\times10^{-13}\)。全局 B.13 报告为 research/stellar-cooling-constraints-20261105/blinov_reproduction/B13_GLOBAL_TRANSPORT_AUDIT_2026-11-09.md，完整网格输出和 compact summary 分别位于对应 outputs/b13_global_transport_*_2026-11-09.json。B.13 径向/能量网格收敛扫描（60×100、40×140、60×140）正在 GitHub Actions 中运行；完成前不把 B.13 全局结果标为最终精度预测。
+>
+> **方法边界：** Fig. 7 复现继续采用论文 Eq. (B.2) 的标量、偏振求和吸收率；逐偏振传播保留为独立输运扩展，不替换已发表的标量基准。没有进行经验性源项/吸收率/光度重标度，没有修改生产轴矢量曲线、论文正文或正式回复信。只有纯矢量 benchmark 的公式、背景和网格验收完成后，才解冻轴矢量限制曲线。
+
+
 > **2026-11-07 矢量 benchmark 更新：** 作者指定仅复现 Blinov et al.，采用现有重建剖面，不要求精细恒星模型或原始表作为前置条件。已定量对照该文 Fig. 4，发现偏振求和吸收率与逐偏振单粒子宽度的区别；完整 Fig. 7 中 10 MeV 光度仍有差异。旧“矢量端点 223 MeV”是稀疏采样误读，当前逐偏振计算闭合点约 259.1 MeV。详见 [矢量 benchmark 核查](research/stellar-cooling-constraints-20261105/VECTOR_BENCHMARK_AUDIT_2026-11-07.md)。PR #56 仍为 Draft；这些诊断并不构成最终物理验证。
 
 **状态快照日期：** 2026-11-06（PR #38–#50 已合并；PR #54、#55 已合并；PR #52 Closed / 未合并且保留研究分支；PR #53、#56 Open / Draft）
