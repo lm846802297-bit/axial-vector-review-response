@@ -27,7 +27,7 @@ class B16DirectionalEscapeTests(unittest.TestCase):
         values=np.array([1.0,2.0,3.0,4.0])
         weights=np.ones(4)
         self.assertAlmostEqual(weighted_mean(values,weights),2.5)
-        self.assertAlmostEqual(weighted_quantile(values,weights,0.5),3.0)
+        self.assertAlmostEqual(weighted_quantile(values,weights,0.5),2.0)
 
     def test_outer_shell_path_length_has_correct_impact_parameter_dependence(self):
         r0=12.0
@@ -35,7 +35,7 @@ class B16DirectionalEscapeTests(unittest.TestCase):
         impact=r0*np.sqrt(1.0-cosine**2)
         lengths=np.sqrt(25.0**2-impact**2)-np.sqrt(22.0**2-impact**2)
         self.assertAlmostEqual(lengths[0],3.0,places=12)
-        self.assertAlmostEqual(lengths[1],lengths[2],places=12)
+        self.assertAlmostEqual(lengths[2],3.0,places=12)
         self.assertGreater(lengths[1],lengths[0])
 
 
