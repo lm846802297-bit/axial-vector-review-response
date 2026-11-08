@@ -182,3 +182,43 @@ The current evidence supports the following hierarchy:
 5. **Axial-vector constraint:** remains blocked until the pure-vector Fig. 7 benchmark is reproduced or its residual is traced to a documented difference in the source background or model assumptions.
 
 The appropriate next step is therefore a source/profile-level comparison, not another adjustment to the local inverse-decay formula or the outer-shell interpolation. No opacity rescaling, fit to Fig. 7, or change to the production axial result is justified by the present evidence.
+
+
+### 4.4 Cross-check of the muon chemical-potential reconstruction against the original Bollig figures
+
+A more discriminating check is available than simply comparing two later figure reconstructions. The original Bollig et al. paper, arXiv:2005.07141v7, directly plots both the SFHo-18.8 muon number density (Fig. 3) and the degeneracy parameter \(\mu_\mu/T\) (Fig. 4). Its text states that the latter remains a small \(O(1)\) quantity in the high-muon-density region \(5\lesssim r\lesssim15\) km. The same paper defines the Fermi occupation as \(f_\mu(E)=[\exp((E-\mu_\mu)/T)+1]^{-1}\).
+
+Using the common temperature curve and the two independently digitized \(\mu_\mu(r)\) curves gives:
+
+| \(r\) [km] | \((\mu_\mu/T)_{\rm Caputo}\) | \((\mu_\mu/T)_{\rm Ferreira}\) |
+|---:|---:|---:|
+| 0 | 2.42 | 13.23 |
+| 5 | 2.21 | 9.20 |
+| 8 | 2.36 | 4.31 |
+| 10 | 3.03 | 3.87 |
+| 12 | 3.61 | 4.23 |
+| 15 | 4.71 | 5.19 |
+| 18 | 3.95 | 4.47 |
+| 20 | 3.51 | 2.95 |
+
+The Caputo reconstruction tracks the original Bollig Fig. 4 SFHo-18.8 curve: it is approximately \(2\)--\(3\) in the inner core and rises to a few near 15 km. The Ferreira reconstruction instead gives \(\mu_\mu/T\simeq13.2\) at the center and \(\simeq9.2\) at 5 km, which is incompatible with the original Fig. 4 curve and with the paper's stated mild-degeneracy description.
+
+As a further diagnostic, inserting both digitized curves into the same relativistic Fermi integral
+\[
+n_\mu=\frac{1}{\pi^2}\int_0^\infty dp\,p^2
+\left[\exp\!\left(\frac{\sqrt{p^2+m_\mu^2}-\mu_\mu}{T}\right)+1\right]^{-1}
+\]
+gives the following implied densities:
+
+| \(r\) [km] | \(n_\mu^{\rm Caputo}\) [fm\(^{-3}\)] | \(n_\mu^{\rm Ferreira}\) [fm\(^{-3}\)] | Ratio |
+|---:|---:|---:|---:|
+| 0 | \(9.58\times10^{-5}\) | \(5.90\times10^{-2}\) | 616 |
+| 5 | \(4.67\times10^{-4}\) | \(4.61\times10^{-2}\) | 98.8 |
+| 8 | \(4.66\times10^{-3}\) | \(2.08\times10^{-2}\) | 4.46 |
+| 10 | \(4.49\times10^{-3}\) | \(8.73\times10^{-3}\) | 1.94 |
+| 12 | \(1.94\times10^{-3}\) | \(3.27\times10^{-3}\) | 1.68 |
+| 15 | \(4.01\times10^{-5}\) | \(6.45\times10^{-5}\) | 1.61 |
+
+The Caputo-derived density has the same qualitative radial behavior and scale as the original Bollig Fig. 3 SFHo-18.8 curve: it peaks around 8--10 km at a few \(10^{-3}\,\mathrm{fm}^{-3}\) and is strongly suppressed toward the center and beyond 15 km. The Ferreira-derived density is far above the plotted original profile in the inner core. The density comparison is a diagnostic based on the same ideal relativistic Fermi integral; it is not a replacement for the unavailable raw simulation table.
+
+**Decision:** for the present Blinov reproduction, retain the Caputo \(\mu_\mu(r)\) reconstruction. Do not substitute the Ferreira curve merely because its figure also labels the model SFHo-18.8. The Ferreira figure-level \(\mu_\mu\) curve is not consistent with the original Bollig Fig. 3--4 diagnostics under the common Fermi-distribution convention. The reason for this inter-publication discrepancy is not established; it may involve a different profile version or chemical-potential convention and must remain explicitly unresolved. This finding makes the Caputo baseline substantially better supported than the Ferreira alternative, but still does not turn the digitized profile into the exact raw snapshot used by Blinov et al.
