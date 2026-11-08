@@ -690,6 +690,10 @@ def run_audit(
         "reference_luminosity_peak": int(np.argmax(reference_luminosities)),
         "strong_endpoint": len(couplings) - 1,
     }
+    direction_convergence, direction_data = _direction_bin_quadrature_convergence(
+        source, radii, radial_grid, reduced, mass, energies, couplings,
+        selected_indices, radius_km, (8, 16, 32)
+    )
     selected = []
     for label, index in selected_indices.items():
         g = float(couplings[index])
@@ -697,12 +701,14 @@ def run_audit(
             _region_summary(
                 "all_emission_radii", np.ones(len(radii), dtype=bool),
                 source, columns, total_columns, channel_names, shell_labels,
-                SHELL_EDGES_KM, radii, angles, angle_weights, g
+                SHELL_EDGES_KM, radii, angles, angle_weights, g,
+                direction_data
             ),
             _region_summary(
                 "dominant_8_15km_emission", source_8_15,
                 source, columns, total_columns, channel_names, shell_labels,
-                SHELL_EDGES_KM, radii, angles, angle_weights, g
+                SHELL_EDGES_KM, radii, angles, angle_weights, g,
+                direction_data
             ),
         ]
         selected.append({
@@ -734,6 +740,8 @@ def run_audit(
             "energy_order": energy_order,
             "angular_order": angular_order,
             "angular_order_scan": sorted(set((max(8, angular_order // 2), angular_order, angular_order * 2))),
+            "direction_bin_per_interval_order": 32,
+            "direction_bin_per_interval_order_scan": [8, 16, 32],
             "legacy_path_order": legacy_path_order,
             "direct_path_order": direct_path_order,
             "radius_km": radius_km,
@@ -765,6 +773,7 @@ def run_audit(
         },
         "legacy_masked_shell_vs_analytic_radial_integration": legacy_comparison,
         "angular_order_convergence": angular_convergence,
+        "direction_bin_quadrature_convergence": direction_convergence,
         "representative_couplings": selected,
     }
 
@@ -826,6 +835,26 @@ def main():
                 ),
             }
             for item in result["angular_order_convergence"]["results"]
+        ],
+        "direction_bin_convergence_strong_8_15km": [
+            {
+                "per_bin_order": item["per_bin_order"],
+                "escape_probability": next(
+                    region["source_weighted_escape_probability"]
+                    for coupling in item["representative_couplings"]
+                    if coupling["label"] == "strong_endpoint"
+                    for region in coupling["regions"]
+                    if region["region"] == "dominant_8_15km_emission"
+                ),
+                "direction_bins": next(
+                    region["direction_bins"]
+                    for coupling in item["representative_couplings"]
+                    if coupling["label"] == "strong_endpoint"
+                    for region in coupling["regions"]
+                    if region["region"] == "dominant_8_15km_emission"
+                ),
+            }
+            for item in result["direction_bin_quadrature_convergence"]["results"]
         ],
         "selected": [
             {
