@@ -461,8 +461,8 @@ def outer_mu_numu_branch_opacity_sensitivity(
             "relative_difference_vs_fig7_after_variant": l_alt/float(ref_l)-1.0,
         })
 
-    baseline_nu = baseline_shells["source_weighted_mean_tau_by_channel"]["neutrino"]
-    variant_nu = variant_shells["source_weighted_mean_tau_by_channel"]["neutrino"]
+    baseline_nu = baseline_shells["source_weighted_mean_tau_by_channel_and_shell"]["neutrino"]
+    variant_nu = variant_shells["source_weighted_mean_tau_by_channel_and_shell"]["neutrino"]
     nu_shell_changes = {
         shell: {
             "baseline_mean_tau": baseline_nu[shell],
