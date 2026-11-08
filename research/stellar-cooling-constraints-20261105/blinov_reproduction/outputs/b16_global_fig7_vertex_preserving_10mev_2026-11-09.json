@@ -1,0 +1,1316 @@
+{
+  "paper_reference": {
+    "citation": "Blinov et al., JHEP 06 (2026) 155, arXiv:2511.09619",
+    "equations": "Appendix B, Eqs. (B.1)--(B.5), (B.14)--(B.19)",
+    "published_path_energy_convention": "Eq. (B.2) explicitly evaluates Gamma_abs_star(r'(s), omega) with one fixed omega along the chord. Gravitational source redshift enters Eq. (B.1) through N(r)^2 and omega_min=m_V/N(r)."
+  },
+  "profile_provenance_warning": "The radial profile is reconstructed from public figure paths. It is not the original s18.8-SFHo-MUONS simulation table used by Blinov et al.",
+  "results": [
+    {
+      "code_sha256": {
+        "audit_script": "1dd2ec0d47b5faf1130c320e5cbbf2f019e08e83c51dac9ef7a4b02e23d1e2a2",
+        "fig7_reference": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4",
+        "profile": "6c47d0712d266848d0cb2315c8a9b43cf13d0b39b6986d4239dd3f22cb9ba0bc",
+        "reference_script": "f81468f4305cf57eb86cc0210abc7afc333d434ae70da307ca64a824e486107c"
+      },
+      "configuration": {
+        "angular_order": 16,
+        "couplings_are_g_not_alpha_V": true,
+        "energy_offset_MeV": 1000.0,
+        "energy_order": 100,
+        "path_order": 32,
+        "radial_order": 40,
+        "radius_km": 25.0
+      },
+      "eq_b1_source_measure": {
+        "energy_lower_bound_MeV": [
+          13.577911290600559,
+          13.530671955283841,
+          13.392161953062043,
+          13.230391556696524,
+          13.149356990672183,
+          13.02492662302446,
+          12.849399408638648,
+          12.710356177987537,
+          12.648377121692317,
+          12.556400220114078,
+          12.438600715101451,
+          12.34876560545314,
+          12.301421799059693,
+          12.213709109007905,
+          12.1020806889809,
+          12.019213708733263,
+          11.96525509576573,
+          11.848779138286583,
+          11.706692835522002,
+          11.606230345190129,
+          11.555595936489157,
+          11.467051397691677,
+          11.36278663809121,
+          11.29176580613541,
+          11.262156063272252,
+          11.220577939255067,
+          11.170152798245773,
+          11.134195870212734,
+          11.115805323708273,
+          11.083174479296881,
+          11.04331281661491,
+          11.014591796398543,
+          10.99993914860334,
+          10.97363365815935,
+          10.941286272535288,
+          10.91793884297561,
+          10.908983898110737,
+          10.8978980725549,
+          10.88383537479348,
+          10.8733512164927
+        ],
+        "energy_weight_row_sums_MeV": [
+          996.4220887093995,
+          996.4693280447161,
+          996.607838046938,
+          996.7696084433035,
+          996.8506430093278,
+          996.9750733769756,
+          997.1506005913614,
+          997.2896438220125,
+          997.3516228783078,
+          997.443599779886,
+          997.5613992848985,
+          997.6512343945469,
+          997.6985782009403,
+          997.7862908909922,
+          997.897919311019,
+          997.9807862912667,
+          998.0347449042342,
+          998.1512208617135,
+          998.2933071644779,
+          998.3937696548098,
+          998.4444040635108,
+          998.5329486023084,
+          998.6372133619088,
+          998.7082341938647,
+          998.7378439367278,
+          998.779422060745,
+          998.8298472017543,
+          998.8658041297872,
+          998.8841946762918,
+          998.9168255207032,
+          998.9566871833852,
+          998.9854082036015,
+          999.0000608513967,
+          999.0263663418407,
+          999.0587137274647,
+          999.0820611570243,
+          999.0910161018892,
+          999.1021019274451,
+          999.1161646252065,
+          999.1266487835072
+        ],
+        "radial_measure_MeVminus3": [
+          9.297795623163727e+46,
+          3.965416780190237e+48,
+          1.6684403155021918e+49,
+          1.7590553561466453e+49,
+          1.338819335175564e+49,
+          3.383710367013103e+49,
+          4.761599233626167e+49,
+          3.206928457225006e+49,
+          2.355626591981106e+49,
+          5.07343512396326e+49,
+          6.013726339669415e+49,
+          3.6279002725532855e+49,
+          3.864705975946941e+49,
+          8.124853426931334e+49,
+          9.364816983079544e+49,
+          5.540500391499232e+49,
+          8.883946064460273e+49,
+          1.9229100956407118e+50,
+          2.291353237819435e+50,
+          1.3860976929829907e+50,
+          1.4781420131885597e+50,
+          3.110863379724507e+50,
+          3.585283117864212e+50,
+          2.1186106796823295e+50,
+          1.4757934630932556e+50,
+          2.9497718946575873e+50,
+          3.1973382697709025e+50,
+          1.8102517689531675e+50,
+          1.8673966305164804e+50,
+          3.7061911650479242e+50,
+          3.982759072629381e+50,
+          2.2410789763439293e+50,
+          2.3045100037004997e+50,
+          4.5479360355851245e+50,
+          4.853543888255368e+50,
+          2.7173741481266436e+50,
+          1.3847825786018564e+50,
+          2.6580540198253906e+50,
+          2.739925579583885e+50,
+          1.4953953789049202e+50
+        ],
+        "spectral_measure_MeV3": [
+          0.07164505723142932,
+          0.07863039804806636,
+          0.08629681261514145,
+          0.0947107085384972,
+          0.10394496927910277,
+          0.11407958595505116,
+          0.12520235081567474,
+          0.13740961853808542,
+          0.15080714196106204,
+          0.16551098954923749,
+          0.18164855275936187,
+          0.19935965206049203,
+          0.21879775151618677,
+          0.24013129262390712,
+          0.2635451594008054,
+          0.2892422878327101,
+          0.3174454343043643,
+          0.348399119130567,
+          0.3823717631472521,
+          0.41965803732812074,
+          0.4605814477293553,
+          0.5054971806796886,
+          0.5547952362770104,
+          0.6089038817903616,
+          0.6682934607971123,
+          0.7334805988743319,
+          0.8050328526194169,
+          0.8835738559416061,
+          0.9697890262986213,
+          1.0644319042285053,
+          1.168331212742348,
+          1.2823987395931649,
+          1.4076381661067856,
+          1.5451549923545127,
+          1.6961677416971483,
+          1.8620206702343038,
+          2.044198261426724,
+          2.244341856907379,
+          2.4642688663930072,
+          2.7059951194546334,
+          2.971761078751791,
+          3.2640628403961123,
+          3.585689118655341,
+          3.939765771296404,
+          4.32980989824611,
+          4.759796180383348,
+          5.234238972456249,
+          5.75829480021401,
+          6.337891441808585,
+          6.979891843357755,
+          7.692303933088604,
+          8.484551247302244,
+          9.367824577676526,
+          10.355542188058871,
+          11.463956394795838,
+          12.712958727754385,
+          14.127156373021656,
+          15.737321964537431,
+          17.582361310314397,
+          19.712005833900836,
+          22.19052844973278,
+          25.10191894946861,
+          25.51842320965353,
+          25.573351416956875,
+          25.78249889064689,
+          26.06276962514495,
+          26.28351347686389,
+          26.461709156601746,
+          26.92585860552671,
+          27.568034447675828,
+          28.089669430220695,
+          28.380054478256085,
+          28.55716239545527,
+          28.948984545940046,
+          29.7382775495482,
+          30.38436486503037,
+          30.74856608647811,
+          31.460945535253675,
+          32.46101343347771,
+          32.70458056911395,
+          33.28691301267965,
+          33.87596814444643,
+          35.29253447281239,
+          37.38373073852799,
+          37.744684699267026,
+          39.17268777153061,
+          40.20185050820967,
+          42.25841644576657,
+          43.951748291005245,
+          45.20365698559828,
+          47.65316759599701,
+          48.799392975340226,
+          50.57450242333559,
+          51.70550577449332,
+          52.9951614790068,
+          54.921863737444696,
+          55.971115586060414,
+          57.980445316223566,
+          60.6526635612506,
+          61.53828444593648,
+          62.76945076785734,
+          64.21121043021977,
+          67.49163920451711,
+          71.72612672540252,
+          74.20592711935902,
+          74.79278474597045,
+          76.8195045913458,
+          80.93662947473362,
+          84.53855833298246,
+          85.78347633549485,
+          85.86144924645019,
+          90.79579808112527,
+          112.89321863434495,
+          142.8409267900571,
+          184.14811203234436,
+          242.1422152258804,
+          325.018207670062,
+          445.5439548165609,
+          623.8565803902517,
+          892.0852648263414,
+          1302.0500874059621,
+          1938.1691394812417,
+          2939.2254674954115,
+          4535.267037757593,
+          7110.4458061125815,
+          11310.453020845389,
+          18226.82584775097,
+          29714.050304520904,
+          48936.49989168014,
+          81313.7868201784,
+          136157.66537004866,
+          229510.6491675225,
+          389074.8073204219,
+          662778.9226224419,
+          1133683.0735418843,
+          1945927.9962218592,
+          3349941.9297051146,
+          5781237.241076985,
+          9997814.441132193,
+          17319851.25215216,
+          30047944.73255807,
+          52193099.99135333
+        ]
+      },
+      "eq_b2_fixed_omega_baseline": {
+        "curve_metrics": {
+          "maximum_absolute_relative_difference": 0.9224061933021663,
+          "mean_absolute_relative_difference": 0.15731955830340819,
+          "n_points": 25,
+          "reference_peak_relative_difference": 0.025687774810936315,
+          "relative_differences": [
+            -0.08885298256110519,
+            -0.08735186988114862,
+            -0.08593905707318072,
+            -0.08680956550656616,
+            -0.0891420218945621,
+            -0.08721720902060859,
+            -0.08907692892757746,
+            -0.08051373119016336,
+            -0.0873382708583903,
+            -0.0780893942733012,
+            -0.07441550274119468,
+            -0.07278707380388971,
+            -0.0715973004813436,
+            -0.053548380455852085,
+            -0.04424109970524204,
+            -0.03157156579774578,
+            -0.00035147535696578025,
+            0.025687774810936315,
+            0.06816869963032368,
+            0.1318033075432843,
+            0.20211151672723027,
+            0.30380201127183093,
+            0.43742086212125764,
+            0.6327451626493379,
+            0.9224061933021663
+          ],
+          "strong_absorption_relative_difference": 0.9224061933021663,
+          "weak_coupling_relative_difference": -0.08885298256110519
+        },
+        "points": [
+          {
+            "calculated_luminosity_erg_s": 9.925393763217649e+51,
+            "escape_fraction": 0.9978698323567244,
+            "g": 4.796429536550025e-10,
+            "optically_thin_luminosity_erg_s": 9.946581649608843e+51,
+            "reference_luminosity_erg_s": 1.0893295563998579e+52,
+            "relative_difference": -0.08885298256110519,
+            "source_weighted_mean_tau": 0.002133158818694161
+          },
+          {
+            "calculated_luminosity_erg_s": 1.438621412130087e+52,
+            "escape_fraction": 0.9969114446467966,
+            "g": 5.777315855500023e-10,
+            "optically_thin_luminosity_erg_s": 1.443078439770332e+52,
+            "reference_luminosity_erg_s": 1.5763155203558458e+52,
+            "relative_difference": -0.08735186988114862,
+            "source_weighted_mean_tau": 0.0030948476655641307
+          },
+          {
+            "calculated_luminosity_erg_s": 2.0842880454625184e+52,
+            "escape_fraction": 0.9955231361222043,
+            "g": 6.958799646472595e-10,
+            "optically_thin_luminosity_erg_s": 2.0936610811289713e+52,
+            "reference_luminosity_erg_s": 2.2802506349178829e+52,
+            "relative_difference": -0.08593905707318072,
+            "source_weighted_mean_tau": 0.004490096955814614
+          },
+          {
+            "calculated_luminosity_erg_s": 3.0178400698220107e+52,
+            "escape_fraction": 0.9935134581079208,
+            "g": 8.381898081991092e-10,
+            "optically_thin_luminosity_erg_s": 3.0375432211751644e+52,
+            "reference_luminosity_erg_s": 3.304721508056609e+52,
+            "relative_difference": -0.08680956550656616,
+            "source_weighted_mean_tau": 0.006514360749925864
+          },
+          {
+            "calculated_luminosity_erg_s": 4.365560836418709e+52,
+            "escape_fraction": 0.990607227626521,
+            "g": 1.0096025036803394e-09,
+            "optically_thin_luminosity_erg_s": 4.406954355540614e+52,
+            "reference_luminosity_erg_s": 4.792800789316209e+52,
+            "relative_difference": -0.0891420218945621,
+            "source_weighted_mean_tau": 0.009451220407438966
+          },
+          {
+            "calculated_luminosity_erg_s": 6.306848066017989e+52,
+            "escape_fraction": 0.9864105993764668,
+            "g": 1.2160696842969427e-09,
+            "optically_thin_luminosity_erg_s": 6.393735093686842e+52,
+            "reference_luminosity_erg_s": 6.909473018494258e+52,
+            "relative_difference": -0.08721720902060859,
+            "source_weighted_mean_tau": 0.01371210017667606
+          },
+          {
+            "calculated_luminosity_erg_s": 9.094059707759339e+52,
+            "escape_fraction": 0.9803633711949066,
+            "g": 1.464760112693122e-09,
+            "optically_thin_luminosity_erg_s": 9.27621326434823e+52,
+            "reference_luminosity_erg_s": 9.983345461931242e+52,
+            "relative_difference": -0.08907692892757746,
+            "source_weighted_mean_tau": 0.019893906093567674
+          },
+          {
+            "calculated_luminosity_erg_s": 1.3077013946330905e+53,
+            "escape_fraction": 0.9716758754975346,
+            "g": 1.7643093106416046e-09,
+            "optically_thin_luminosity_erg_s": 1.3458205844243052e+53,
+            "reference_luminosity_erg_s": 1.4222087256678137e+53,
+            "relative_difference": -0.08051373119016336,
+            "source_weighted_mean_tau": 0.02886267010292662
+          },
+          {
+            "calculated_luminosity_erg_s": 1.8729864057119074e+53,
+            "escape_fraction": 0.9592498240514375,
+            "g": 2.1251157558698884e-09,
+            "optically_thin_luminosity_erg_s": 1.952553296075948e+53,
+            "reference_luminosity_erg_s": 2.052224110978683e+53,
+            "relative_difference": -0.0873382708583903,
+            "source_weighted_mean_tau": 0.04187475083621874
+          },
+          {
+            "calculated_luminosity_erg_s": 2.667349008204462e+53,
+            "escape_fraction": 0.9415871122800283,
+            "g": 2.559710277322341e-09,
+            "optically_thin_luminosity_erg_s": 2.8328223415734172e+53,
+            "reference_luminosity_erg_s": 2.8932837865575006e+53,
+            "relative_difference": -0.0780893942733012,
+            "source_weighted_mean_tau": 0.06075313281079654
+          },
+          {
+            "calculated_luminosity_erg_s": 3.767601495429908e+53,
+            "escape_fraction": 0.9167041128055142,
+            "g": 3.0831810858922337e-09,
+            "optically_thin_luminosity_erg_s": 4.109942829752781e+53,
+            "reference_luminosity_erg_s": 4.070510587188928e+53,
+            "relative_difference": -0.07441550274119468,
+            "source_weighted_mean_tau": 0.08814245034585079
+          },
+          {
+            "calculated_luminosity_erg_s": 5.259743631791791e+53,
+            "escape_fraction": 0.8820903383921368,
+            "g": 3.7137006897316035e-09,
+            "optically_thin_luminosity_erg_s": 5.9628174154805795e+53,
+            "reference_luminosity_erg_s": 5.672638380236869e+53,
+            "relative_difference": -0.07278707380388971,
+            "source_weighted_mean_tau": 0.12787947660989374
+          },
+          {
+            "calculated_luminosity_erg_s": 7.221793870587185e+53,
+            "escape_fraction": 0.8347898024874265,
+            "g": 4.473167071557425e-09,
+            "optically_thin_luminosity_erg_s": 8.6510326899878e+53,
+            "reference_luminosity_erg_s": 7.778729935114823e+53,
+            "relative_difference": -0.0715973004813436,
+            "source_weighted_mean_tau": 0.18553134457187775
+          },
+          {
+            "calculated_luminosity_erg_s": 9.686194007711247e+53,
+            "escape_fraction": 0.7717372796720892,
+            "g": 5.387942899280016e-09,
+            "optically_thin_luminosity_erg_s": 1.2551154729530375e+54,
+            "reference_luminosity_erg_s": 1.023421990907104e+54,
+            "relative_difference": -0.053548380455852085,
+            "source_weighted_mean_tau": 0.26917394678146084
+          },
+          {
+            "calculated_luminosity_erg_s": 1.2573943649684456e+54,
+            "escape_fraction": 0.6905122447983917,
+            "g": 6.4897983908964e-09,
+            "optically_thin_luminosity_erg_s": 1.82095882359851e+54,
+            "reference_luminosity_erg_s": 1.3155978611139929e+54,
+            "relative_difference": -0.04424109970524204,
+            "source_weighted_mean_tau": 0.39052556042616543
+          },
+          {
+            "calculated_luminosity_erg_s": 1.5603990425044436e+54,
+            "escape_fraction": 0.590634903328378,
+            "g": 7.81698765963344e-09,
+            "optically_thin_luminosity_erg_s": 2.6419011706067454e+54,
+            "reference_luminosity_erg_s": 1.6112693384409214e+54,
+            "relative_difference": -0.03157156579774578,
+            "source_weighted_mean_tau": 0.566586087434353
+          },
+          {
+            "calculated_luminosity_erg_s": 1.8216063150171305e+54,
+            "escape_fraction": 0.47525010932241846,
+            "g": 9.415584636282641e-09,
+            "optically_thin_luminosity_erg_s": 3.832942442904982e+54,
+            "reference_luminosity_erg_s": 1.8222467898580756e+54,
+            "relative_difference": -0.00035147535696578025,
+            "source_weighted_mean_tau": 0.8220185850433794
+          },
+          {
+            "calculated_luminosity_erg_s": 1.9600837797511697e+54,
+            "escape_fraction": 0.35247303263092317,
+            "g": 1.1341108687336194e-08,
+            "optically_thin_luminosity_erg_s": 5.560946791080004e+54,
+            "reference_luminosity_erg_s": 1.910994581282271e+54,
+            "relative_difference": 0.025687774810936315,
+            "source_weighted_mean_tau": 1.1926089892548966
+          },
+          {
+            "calculated_luminosity_erg_s": 1.8960652456233666e+54,
+            "escape_fraction": 0.23501094903455882,
+            "g": 1.3660409972030494e-08,
+            "optically_thin_luminosity_erg_s": 8.067986846623671e+54,
+            "reference_luminosity_erg_s": 1.7750616042948693e+54,
+            "relative_difference": 0.06816869963032368,
+            "source_weighted_mean_tau": 1.730272559684923
+          },
+          {
+            "calculated_luminosity_erg_s": 1.6010499631063457e+54,
+            "escape_fraction": 0.13678043260542097,
+            "g": 1.6454004004914003e-08,
+            "optically_thin_luminosity_erg_s": 1.1705255880605337e+55,
+            "reference_luminosity_erg_s": 1.4146008873057794e+54,
+            "relative_difference": 0.1318033075432843,
+            "source_weighted_mean_tau": 2.510326731974989
+          },
+          {
+            "calculated_luminosity_erg_s": 1.1413125383578144e+54,
+            "escape_fraction": 0.06720587418570265,
+            "g": 1.9818912470130955e-08,
+            "optically_thin_luminosity_erg_s": 1.6982333050294835e+55,
+            "reference_luminosity_erg_s": 9.494231795275183e+53,
+            "relative_difference": 0.20211151672723027,
+            "source_weighted_mean_tau": 3.642056616472088
+          },
+          {
+            "calculated_luminosity_erg_s": 6.618979094743282e+53,
+            "escape_fraction": 0.026864448238899045,
+            "g": 2.3871938384298948e-08,
+            "optically_thin_luminosity_erg_s": 2.463843305428163e+55,
+            "reference_luminosity_erg_s": 5.076675014703045e+53,
+            "relative_difference": 0.30380201127183093,
+            "source_weighted_mean_tau": 5.283995306127453
+          },
+          {
+            "calculated_luminosity_erg_s": 2.997881967439025e+53,
+            "escape_fraction": 0.008386582115932496,
+            "g": 2.8753843574456517e-08,
+            "optically_thin_luminosity_erg_s": 3.574617079994683e+55,
+            "reference_luminosity_erg_s": 2.0855979250328497e+53,
+            "relative_difference": 0.43742086212125764,
+            "source_weighted_mean_tau": 7.666177402711308
+          },
+          {
+            "calculated_luminosity_erg_s": 1.0127195339469865e+53,
+            "escape_fraction": 0.001952734588702459,
+            "g": 3.4634117556541197e-08,
+            "optically_thin_luminosity_erg_s": 5.186160678497082e+55,
+            "reference_luminosity_erg_s": 6.202557246004756e+52,
+            "relative_difference": 0.6327451626493379,
+            "source_weighted_mean_tau": 11.122317974372637
+          },
+          {
+            "calculated_luminosity_erg_s": 2.437254944803213e+52,
+            "escape_fraction": 0.0003239211172481569,
+            "g": 4.171689650228597e-08,
+            "optically_thin_luminosity_erg_s": 7.524223692202275e+55,
+            "reference_luminosity_erg_s": 1.26781475907372e+52,
+            "relative_difference": 0.9224061933021663,
+            "source_weighted_mean_tau": 16.136562980388362
+          }
+        ],
+        "prescription": "Gamma_abs_star(r'(s), omega_source)/v_V(omega_source), with the same omega argument along the complete chord."
+      },
+      "fig7_reference": {
+        "path": "/home/runner/work/axial-vector-review-response/axial-vector-review-response/research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json",
+        "pdf_sha256": "4d7d1d10bfe2b52992af94df98749fa3adac887c009cbf98515fa12e6c48fdb5",
+        "points": 25,
+        "sha256": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4"
+      },
+      "mass_MeV": 10.0,
+      "outer_mu_numu_branch_opacity_sensitivity": {
+        "B19_B4_reduced_absorption_channel_sum_relative_residual": 5.942105768596625e-16,
+        "baseline_channel_tau_fractions": {
+          "compton": 0.10221791889723691,
+          "dimuon": 0.0,
+          "neutrino": 0.8977820811027631
+        },
+        "baseline_outer_tau_fraction_r_ge_15km": 0.5675733188562986,
+        "maximum_absolute_luminosity_shift_vs_baseline": 0.00012858521424341518,
+        "mean_absolute_luminosity_shift_vs_baseline": 4.180974237933288e-05,
+        "modified_radial_range_km": [
+          15.208295532608922,
+          25.0
+        ],
+        "neutrino_shell_optical_depth_changes": {
+          "0-5 km": {
+            "baseline_mean_tau": 125112078072405.97,
+            "outer_mu_numu_zero_mean_tau": 125112078072405.97,
+            "relative_change": 0.0
+          },
+          "10-12 km": {
+            "baseline_mean_tau": 705367094375635.9,
+            "outer_mu_numu_zero_mean_tau": 705367094375635.9,
+            "relative_change": 0.0
+          },
+          "12-15 km": {
+            "baseline_mean_tau": 1252554278975435.0,
+            "outer_mu_numu_zero_mean_tau": 1252554278975435.0,
+            "relative_change": 0.0
+          },
+          "15-16.5 km": {
+            "baseline_mean_tau": 738602086271637.2,
+            "outer_mu_numu_zero_mean_tau": 738679653544990.8,
+            "relative_change": 0.00010501902823634168
+          },
+          "16.5-18.5 km": {
+            "baseline_mean_tau": 1024887668175869.5,
+            "outer_mu_numu_zero_mean_tau": 1026014185691079.2,
+            "relative_change": 0.0010991619376343742
+          },
+          "18.5-20 km": {
+            "baseline_mean_tau": 819200054108663.0,
+            "outer_mu_numu_zero_mean_tau": 819214947573270.8,
+            "relative_change": 1.8180497587838573e-05
+          },
+          "20-22 km": {
+            "baseline_mean_tau": 1073250380317346.9,
+            "outer_mu_numu_zero_mean_tau": 1073250380317346.9,
+            "relative_change": 0.0
+          },
+          "22-25 km": {
+            "baseline_mean_tau": 1606015163393575.5,
+            "outer_mu_numu_zero_mean_tau": 1606015163393575.5,
+            "relative_change": 0.0
+          },
+          "5-8 km": {
+            "baseline_mean_tau": 439338797109451.44,
+            "outer_mu_numu_zero_mean_tau": 439338797109451.44,
+            "relative_change": 0.0
+          },
+          "8-10 km": {
+            "baseline_mean_tau": 540169118940920.94,
+            "outer_mu_numu_zero_mean_tau": 540169118940920.94,
+            "relative_change": 0.0
+          }
+        },
+        "outer_profile_mu_numu_range_MeV": [
+          0.0,
+          1.692836156857659
+        ],
+        "points": [
+          {
+            "baseline_luminosity_erg_s": 9.925393763217649e+51,
+            "g": 4.796429536550025e-10,
+            "luminosity_shift_vs_baseline": -2.797219226247094e-07,
+            "outer_mu_numu_zero_luminosity_erg_s": 9.925390986867423e+51,
+            "reference_luminosity_erg_s": 1.0893295563998579e+52,
+            "relative_difference_vs_fig7_after_variant": -0.08885323742890072
+          },
+          {
+            "baseline_luminosity_erg_s": 1.438621412130087e+52,
+            "g": 5.777315855500023e-10,
+            "luminosity_shift_vs_baseline": -4.053642124191015e-07,
+            "outer_mu_numu_zero_luminosity_erg_s": 1.4386208289644513e+52,
+            "reference_luminosity_erg_s": 1.5763155203558458e+52,
+            "relative_difference_vs_fig7_after_variant": -0.08735223983603901
+          },
+          {
+            "baseline_luminosity_erg_s": 2.0842880454625184e+52,
+            "g": 6.958799646472595e-10,
+            "luminosity_shift_vs_baseline": -5.871402863899533e-07,
+            "outer_mu_numu_zero_luminosity_erg_s": 2.0842868216930385e+52,
+            "reference_luminosity_erg_s": 2.2802506349178829e+52,
+            "relative_difference_vs_fig7_after_variant": -0.08593959375518445
+          },
+          {
+            "baseline_luminosity_erg_s": 3.0178400698220107e+52,
+            "g": 8.381898081991092e-10,
+            "luminosity_shift_vs_baseline": -8.497991330624899e-07,
+            "outer_mu_numu_zero_luminosity_erg_s": 3.0178375052641357e+52,
+            "reference_luminosity_erg_s": 3.304721508056609e+52,
+            "relative_difference_vs_fig7_after_variant": -0.08681034153500566
+          },
+          {
+            "baseline_luminosity_erg_s": 4.365560836418709e+52,
+            "g": 1.0096025036803394e-09,
+            "luminosity_shift_vs_baseline": -1.2286467677702362e-06,
+            "outer_mu_numu_zero_luminosity_erg_s": 4.3655554726864974e+52,
+            "reference_luminosity_erg_s": 4.792800789316209e+52,
+            "relative_difference_vs_fig7_after_variant": -0.08914314101727283
+          },
+          {
+            "baseline_luminosity_erg_s": 6.306848066017989e+52,
+            "g": 1.2160696842969427e-09,
+            "luminosity_shift_vs_baseline": -1.77366495290876e-06,
+            "outer_mu_numu_zero_luminosity_erg_s": 6.306836879782611e+52,
+            "reference_luminosity_erg_s": 6.909473018494258e+52,
+            "relative_difference_vs_fig7_after_variant": -0.08721882799145453
+          },
+          {
+            "baseline_luminosity_erg_s": 9.094059707759339e+52,
+            "g": 1.464760112693122e-09,
+            "luminosity_shift_vs_baseline": -2.554834920065474e-06,
+            "outer_mu_numu_zero_luminosity_erg_s": 9.094036473938033e+52,
+            "reference_luminosity_erg_s": 9.983345461931242e+52,
+            "relative_difference_vs_fig7_after_variant": -0.08907925618564894
+          },
+          {
+            "baseline_luminosity_erg_s": 1.3077013946330905e+53,
+            "g": 1.7643093106416046e-09,
+            "luminosity_shift_vs_baseline": -3.6685840877348497e-06,
+            "outer_mu_numu_zero_luminosity_erg_s": 1.3076965972205627e+53,
+            "reference_luminosity_erg_s": 1.4222087256678137e+53,
+            "relative_difference_vs_fig7_after_variant": -0.08051710440285798
+          },
+          {
+            "baseline_luminosity_erg_s": 1.8729864057119074e+53,
+            "g": 2.1251157558698884e-09,
+            "luminosity_shift_vs_baseline": -5.244699579298739e-06,
+            "outer_mu_numu_zero_luminosity_erg_s": 1.8729765824608934e+53,
+            "reference_luminosity_erg_s": 2.052224110978683e+53,
+            "relative_difference_vs_fig7_after_variant": -0.08734305749497717
+          },
+          {
+            "baseline_luminosity_erg_s": 2.667349008204462e+53,
+            "g": 2.559710277322341e-09,
+            "luminosity_shift_vs_baseline": -7.452050204914684e-06,
+            "outer_mu_numu_zero_luminosity_erg_s": 2.667329130985739e+53,
+            "reference_luminosity_erg_s": 2.8932837865575006e+53,
+            "relative_difference_vs_fig7_after_variant": -0.07809626439741946
+          },
+          {
+            "baseline_luminosity_erg_s": 3.767601495429908e+53,
+            "g": 3.0831810858922337e-09,
+            "luminosity_shift_vs_baseline": -1.0499468685032376e-05,
+            "outer_mu_numu_zero_luminosity_erg_s": 3.7675619376159893e+53,
+            "reference_luminosity_erg_s": 4.070510587188928e+53,
+            "relative_difference_vs_fig7_after_variant": -0.07442522088663894
+          },
+          {
+            "baseline_luminosity_erg_s": 5.259743631791791e+53,
+            "g": 3.7137006897316035e-09,
+            "luminosity_shift_vs_baseline": -1.4626053015942553e-05,
+            "outer_mu_numu_zero_luminosity_erg_s": 5.259666702502582e+53,
+            "reference_luminosity_erg_s": 5.672638380236869e+53,
+            "relative_difference_vs_fig7_after_variant": -0.07280063526930536
+          },
+          {
+            "baseline_luminosity_erg_s": 7.221793870587185e+53,
+            "g": 4.473167071557425e-09,
+            "luminosity_shift_vs_baseline": -2.0073209262450042e-05,
+            "outer_mu_numu_zero_luminosity_erg_s": 7.221648906007571e+53,
+            "reference_luminosity_erg_s": 7.778729935114823e+53,
+            "relative_difference_vs_fig7_after_variant": -0.07161593650301079
+          },
+          {
+            "baseline_luminosity_erg_s": 9.686194007711247e+53,
+            "g": 5.387942899280016e-09,
+            "luminosity_shift_vs_baseline": -2.7031599666105244e-05,
+            "outer_mu_numu_zero_luminosity_erg_s": 9.685932174392543e+53,
+            "reference_luminosity_erg_s": 1.023421990907104e+54,
+            "relative_difference_vs_fig7_after_variant": -0.05357396455713492
+          },
+          {
+            "baseline_luminosity_erg_s": 1.2573943649684456e+54,
+            "g": 6.4897983908964e-09,
+            "luminosity_shift_vs_baseline": -3.556472521959453e-05,
+            "outer_mu_numu_zero_luminosity_erg_s": 1.2573496460833629e+54,
+            "reference_luminosity_erg_s": 1.3155978611139929e+54,
+            "relative_difference_vs_fig7_after_variant": -0.044275091007907164
+          },
+          {
+            "baseline_luminosity_erg_s": 1.5603990425044436e+54,
+            "g": 7.81698765963344e-09,
+            "luminosity_shift_vs_baseline": -4.5526519036664936e-05,
+            "outer_mu_numu_zero_luminosity_erg_s": 1.5603280029677303e+54,
+            "reference_luminosity_erg_s": 1.6112693384409214e+54,
+            "relative_difference_vs_fig7_after_variant": -0.03161565497329111
+          },
+          {
+            "baseline_luminosity_erg_s": 1.8216063150171305e+54,
+            "g": 9.415584636282641e-09,
+            "luminosity_shift_vs_baseline": -5.6514498494197873e-05,
+            "outer_mu_numu_zero_luminosity_erg_s": 1.8215033678497835e+54,
+            "reference_luminosity_erg_s": 1.8222467898580756e+54,
+            "relative_difference_vs_fig7_after_variant": -0.00040796999200642947
+          },
+          {
+            "baseline_luminosity_erg_s": 1.9600837797511697e+54,
+            "g": 1.1341108687336194e-08,
+            "luminosity_shift_vs_baseline": -6.791170304398797e-05,
+            "outer_mu_numu_zero_luminosity_erg_s": 1.959950667123578e+54,
+            "reference_luminosity_erg_s": 1.910994581282271e+54,
+            "relative_difference_vs_fig7_after_variant": 0.02561811860735763
+          },
+          {
+            "baseline_luminosity_erg_s": 1.8960652456233666e+54,
+            "g": 1.3660409972030494e-08,
+            "luminosity_shift_vs_baseline": -7.904589681795304e-05,
+            "outer_mu_numu_zero_luminosity_erg_s": 1.895915369445601e+54,
+            "reference_luminosity_erg_s": 1.7750616042948693e+54,
+            "relative_difference_vs_fig7_after_variant": 0.06808426527750844
+          },
+          {
+            "baseline_luminosity_erg_s": 1.6010499631063457e+54,
+            "g": 1.6454004004914003e-08,
+            "luminosity_shift_vs_baseline": -8.942415298685003e-05,
+            "outer_mu_numu_zero_luminosity_erg_s": 1.6009067905695053e+54,
+            "reference_luminosity_erg_s": 1.4146008873057794e+54,
+            "relative_difference_vs_fig7_after_variant": 0.1317020969911593
+          },
+          {
+            "baseline_luminosity_erg_s": 1.1413125383578144e+54,
+            "g": 1.9818912470130955e-08,
+            "luminosity_shift_vs_baseline": -9.891244825344092e-05,
+            "outer_mu_numu_zero_luminosity_erg_s": 1.141199648340423e+54,
+            "reference_luminosity_erg_s": 9.494231795275183e+53,
+            "relative_difference_vs_fig7_after_variant": 0.20199261293403703
+          },
+          {
+            "baseline_luminosity_erg_s": 6.618979094743282e+53,
+            "g": 2.3871938384298948e-08,
+            "luminosity_shift_vs_baseline": -0.00010770565903972518,
+            "outer_mu_numu_zero_luminosity_erg_s": 6.618266193237713e+53,
+            "reference_luminosity_erg_s": 5.076675014703045e+53,
+            "relative_difference_vs_fig7_after_variant": 0.30366158441694946
+          },
+          {
+            "baseline_luminosity_erg_s": 2.997881967439025e+53,
+            "g": 2.8753843574456517e-08,
+            "luminosity_shift_vs_baseline": -0.00011604617930760508,
+            "outer_mu_numu_zero_luminosity_erg_s": 2.9975340746906884e+53,
+            "reference_luminosity_erg_s": 2.0855979250328497e+53,
+            "relative_difference_vs_fig7_after_variant": 0.4372540549221513
+          },
+          {
+            "baseline_luminosity_erg_s": 1.0127195339469865e+53,
+            "g": 3.4634117556541197e-08,
+            "luminosity_shift_vs_baseline": -0.0001237317263431681,
+            "outer_mu_numu_zero_luminosity_erg_s": 1.0125942284107498e+53,
+            "reference_luminosity_erg_s": 6.202557246004756e+52,
+            "relative_difference_vs_fig7_after_variant": 0.632543140271685
+          },
+          {
+            "baseline_luminosity_erg_s": 2.437254944803213e+52,
+            "g": 4.171689650228597e-08,
+            "luminosity_shift_vs_baseline": -0.00012858521424341518,
+            "outer_mu_numu_zero_luminosity_erg_s": 2.4369415498539697e+52,
+            "reference_luminosity_erg_s": 1.26781475907372e+52,
+            "relative_difference_vs_fig7_after_variant": 0.9221590002899378
+          }
+        ],
+        "reference_peak_luminosity_shift": -6.791170304398797e-05,
+        "scope": "Opacity-only sensitivity: mu_numu is set to zero for r>=15 km; the source term remains the baseline B.1 source. This isolates the visible positive mu_numu branch at about 16.6--18.4 km.",
+        "shell_sum_rule_relative_residual": 4.440892098500626e-16,
+        "strong_absorption_luminosity_shift": -0.00012858521424341518,
+        "variant_channel_tau_fractions": {
+          "compton": 0.10220448262333683,
+          "dimuon": 0.0,
+          "neutrino": 0.8977955173766631
+        },
+        "variant_outer_tau_fraction_r_ge_15km": 0.5676301601948058,
+        "weak_coupling_luminosity_shift": -2.797219226247094e-07
+      },
+      "path_absorption_radial_decomposition": {
+        "B19_B4_reduced_absorption_channel_sum_relative_residual": 5.942105768596625e-16,
+        "channel_fraction_of_mean_tau": {
+          "compton": 0.10221791889723691,
+          "dimuon": 0.0,
+          "neutrino": 0.8977820811027631
+        },
+        "fraction_of_mean_tau_accumulated_at_r_ge_15km": 0.5675733188562986,
+        "fraction_of_mean_tau_by_shell": {
+          "0-5 km": 0.0140448359610922,
+          "10-12 km": 0.10653215222187229,
+          "12-15 km": 0.14560645708594586,
+          "15-16.5 km": 0.07973693683816062,
+          "16.5-18.5 km": 0.11053312499090161,
+          "18.5-20 km": 0.08834926057045121,
+          "20-22 km": 0.11574813378224869,
+          "22-25 km": 0.1732058626745365,
+          "5-8 km": 0.06496633232529653,
+          "8-10 km": 0.10127690354949458
+        },
+        "path_absorption_shells": [
+          "0-5 km",
+          "5-8 km",
+          "8-10 km",
+          "10-12 km",
+          "12-15 km",
+          "15-16.5 km",
+          "16.5-18.5 km",
+          "18.5-20 km",
+          "20-22 km",
+          "22-25 km"
+        ],
+        "shell_sum_rule_relative_residual": 0.0,
+        "source_weighted_mean_tau_by_channel": {
+          "compton": 947794290473699.0,
+          "dimuon": 0.0,
+          "neutrino": 8324496719740942.0
+        },
+        "source_weighted_mean_tau_by_channel_and_shell": {
+          "compton": {
+            "0-5 km": 5115728149568.517,
+            "10-12 km": 282430022970048.06,
+            "12-15 km": 97551164091784.38,
+            "15-16.5 km": 741996354892.0533,
+            "16.5-18.5 km": 7633008198.597019,
+            "18.5-20 km": 437842.49044368335,
+            "20-22 km": 919.1708197452324,
+            "22-25 km": 0.7655745301279405,
+            "5-8 km": 163047942077012.3,
+            "8-10 km": 398899803383432.75
+          },
+          "dimuon": {
+            "0-5 km": 0.0,
+            "10-12 km": 0.0,
+            "12-15 km": 0.0,
+            "15-16.5 km": 0.0,
+            "16.5-18.5 km": 0.0,
+            "18.5-20 km": 0.0,
+            "20-22 km": 0.0,
+            "22-25 km": 0.0,
+            "5-8 km": 0.0,
+            "8-10 km": 0.0
+          },
+          "neutrino": {
+            "0-5 km": 125112078072405.97,
+            "10-12 km": 705367094375635.9,
+            "12-15 km": 1252554278975435.0,
+            "15-16.5 km": 738602086271637.2,
+            "16.5-18.5 km": 1024887668175869.5,
+            "18.5-20 km": 819200054108663.0,
+            "20-22 km": 1073250380317346.9,
+            "22-25 km": 1606015163393575.5,
+            "5-8 km": 439338797109451.44,
+            "8-10 km": 540169118940920.94
+          }
+        },
+        "source_weighted_mean_tau_by_shell": {
+          "0-5 km": 130227806221974.48,
+          "10-12 km": 987797117345684.0,
+          "12-15 km": 1350105443067219.5,
+          "15-16.5 km": 739344082626529.2,
+          "16.5-18.5 km": 1024895301184068.1,
+          "18.5-20 km": 819200054546505.5,
+          "20-22 km": 1073250380318266.0,
+          "22-25 km": 1606015163393576.2,
+          "5-8 km": 602386739186463.8,
+          "8-10 km": 939068922324353.8
+        },
+        "source_weighted_mean_total_tau_from_direct_chord_columns": 9272291010214640.0,
+        "source_weighted_mean_total_tau_from_shell_sum": 9272291010214640.0,
+        "weighting": "Eq. (B.1) optically thin source weight over emission radius and energy, averaged uniformly over the full Eq. (B.2) direction range"
+      },
+      "path_redshift_only_diagnostic": {
+        "curve_metrics": {
+          "maximum_absolute_relative_difference": 0.36744800013575185,
+          "mean_absolute_relative_difference": 0.09216253301682921,
+          "n_points": 25,
+          "reference_peak_relative_difference": -0.02770419285998682,
+          "relative_differences": [
+            -0.08899068952614664,
+            -0.0875385912023483,
+            -0.08619690661778212,
+            -0.08716973607266387,
+            -0.08964946723386802,
+            -0.08794070033383894,
+            -0.09010918916766453,
+            -0.0820079156738216,
+            -0.08946823728478337,
+            -0.08117996057034704,
+            -0.07886787742763923,
+            -0.07917214814219287,
+            -0.08071585114697233,
+            -0.06673844884269053,
+            -0.06301523618252791,
+            -0.058166378391659834,
+            -0.03836137370196169,
+            -0.02770419285998682,
+            -0.0069571352403082765,
+            0.02587065443510239,
+            0.054892819662183845,
+            0.09868237806881641,
+            0.15261908599617824,
+            0.23460035150349356,
+            0.36744800013575185
+          ],
+          "strong_absorption_relative_difference": 0.36744800013575185,
+          "weak_coupling_relative_difference": -0.08899068952614664
+        },
+        "kinematic_range": {
+          "energy_ratio_local_over_source_max": 1.2264594391388184,
+          "energy_ratio_local_over_source_min": 0.8007075476143833,
+          "minimum_path_vector_speed": 0.39285668851309785,
+          "path_measure": "same Euclidean chord ds as Eq. (B.2); no metric path-length correction"
+        },
+        "maximum_absolute_luminosity_shift_vs_fixed": 0.28867894573994723,
+        "mean_absolute_luminosity_shift_vs_fixed": 0.05431382601395155,
+        "points": [
+          {
+            "calculated_luminosity_erg_s": 9.923893680546231e+51,
+            "escape_fraction": 0.9977190184666604,
+            "g": 4.796429536550025e-10,
+            "luminosity_shift_vs_fixed_omega": -0.00015113583472892156,
+            "optically_thin_luminosity_erg_s": 9.946581649608843e+51,
+            "reference_luminosity_erg_s": 1.0893295563998579e+52,
+            "relative_difference": -0.08899068952614664,
+            "source_weight_fraction_at_infinite_tau": 3.2444242215757816e-05,
+            "source_weighted_mean_tau_over_escaping_bins": 0.0022519346918487932
+          },
+          {
+            "calculated_luminosity_erg_s": 1.4383270804134985e+52,
+            "escape_fraction": 0.9967074836503068,
+            "g": 5.777315855500023e-10,
+            "luminosity_shift_vs_fixed_omega": -0.00020459289296448357,
+            "optically_thin_luminosity_erg_s": 1.443078439770332e+52,
+            "reference_luminosity_erg_s": 1.5763155203558458e+52,
+            "relative_difference": -0.0875385912023483,
+            "source_weight_fraction_at_infinite_tau": 3.2444242215757816e-05,
+            "source_weighted_mean_tau_over_escaping_bins": 0.0032671710905883312
+          },
+          {
+            "calculated_luminosity_erg_s": 2.0837000838747277e+52,
+            "escape_fraction": 0.9952423067209749,
+            "g": 6.958799646472595e-10,
+            "luminosity_shift_vs_fixed_omega": -0.0002820922900127476,
+            "optically_thin_luminosity_erg_s": 2.0936610811289713e+52,
+            "reference_luminosity_erg_s": 2.2802506349178829e+52,
+            "relative_difference": -0.08619690661778212,
+            "source_weight_fraction_at_infinite_tau": 3.2444242215757816e-05,
+            "source_weighted_mean_tau_over_escaping_bins": 0.0047401089013866336
+          },
+          {
+            "calculated_luminosity_erg_s": 3.0166498064056584e+52,
+            "escape_fraction": 0.9931216074148822,
+            "g": 8.381898081991092e-10,
+            "luminosity_shift_vs_fixed_omega": -0.00039440904382403996,
+            "optically_thin_luminosity_erg_s": 3.0375432211751644e+52,
+            "reference_luminosity_erg_s": 3.304721508056609e+52,
+            "relative_difference": -0.08716973607266387,
+            "source_weight_fraction_at_infinite_tau": 3.2444242215757816e-05,
+            "source_weighted_mean_tau_over_escaping_bins": 0.006877085212509654
+          },
+          {
+            "calculated_luminosity_erg_s": 4.3631287519959485e+52,
+            "escape_fraction": 0.9900553534234895,
+            "g": 1.0096025036803394e-09,
+            "luminosity_shift_vs_fixed_omega": -0.0005571069821020957,
+            "optically_thin_luminosity_erg_s": 4.406954355540614e+52,
+            "reference_luminosity_erg_s": 4.792800789316209e+52,
+            "relative_difference": -0.08964946723386802,
+            "source_weight_fraction_at_infinite_tau": 3.2444242215757816e-05,
+            "source_weighted_mean_tau_over_escaping_bins": 0.009977471404988994
+          },
+          {
+            "calculated_luminosity_erg_s": 6.301849122310109e+52,
+            "escape_fraction": 0.9856287490754095,
+            "g": 1.2160696842969427e-09,
+            "luminosity_shift_vs_fixed_omega": -0.0007926215528822889,
+            "optically_thin_luminosity_erg_s": 6.393735093686842e+52,
+            "reference_luminosity_erg_s": 6.909473018494258e+52,
+            "relative_difference": -0.08794070033383894,
+            "source_weight_fraction_at_infinite_tau": 3.2444242215757816e-05,
+            "source_weighted_mean_tau_over_escaping_bins": 0.014475600135983119
+          },
+          {
+            "calculated_luminosity_erg_s": 9.083754297175934e+52,
+            "escape_fraction": 0.9792524210377974,
+            "g": 1.464760112693122e-09,
+            "luminosity_shift_vs_fixed_omega": -0.0011332024326399237,
+            "optically_thin_luminosity_erg_s": 9.27621326434823e+52,
+            "reference_luminosity_erg_s": 9.983345461931242e+52,
+            "relative_difference": -0.09010918916766453,
+            "source_weight_fraction_at_infinite_tau": 3.2444242215757816e-05,
+            "source_weighted_mean_tau_over_escaping_bins": 0.0210016136144574
+          },
+          {
+            "calculated_luminosity_erg_s": 1.3055763524226744e+53,
+            "escape_fraction": 0.9700968818077293,
+            "g": 1.7643093106416046e-09,
+            "luminosity_shift_vs_fixed_omega": -0.0016250209865473764,
+            "optically_thin_luminosity_erg_s": 1.3458205844243052e+53,
+            "reference_luminosity_erg_s": 1.4222087256678137e+53,
+            "relative_difference": -0.0820079156738216,
+            "source_weight_fraction_at_infinite_tau": 3.2444242215757816e-05,
+            "source_weighted_mean_tau_over_escaping_bins": 0.030469765089481723
+          },
+          {
+            "calculated_luminosity_erg_s": 1.8686152372560885e+53,
+            "escape_fraction": 0.9570111305086781,
+            "g": 2.1251157558698884e-09,
+            "luminosity_shift_vs_fixed_omega": -0.002333796146351319,
+            "optically_thin_luminosity_erg_s": 1.952553296075948e+53,
+            "reference_luminosity_erg_s": 2.052224110978683e+53,
+            "relative_difference": -0.08946823728478337,
+            "source_weight_fraction_at_infinite_tau": 3.2444242215757816e-05,
+            "source_weighted_mean_tau_over_escaping_bins": 0.04420636817765479
+          },
+          {
+            "calculated_luminosity_erg_s": 2.6584071228459384e+53,
+            "escape_fraction": 0.9384305834616496,
+            "g": 2.559710277322341e-09,
+            "luminosity_shift_vs_fixed_omega": -0.003352349216776407,
+            "optically_thin_luminosity_erg_s": 2.8328223415734172e+53,
+            "reference_luminosity_erg_s": 2.8932837865575006e+53,
+            "relative_difference": -0.08117996057034704,
+            "source_weight_fraction_at_infinite_tau": 3.2444242215757816e-05,
+            "source_weighted_mean_tau_over_escaping_bins": 0.06413591253317044
+          },
+          {
+            "calculated_luminosity_erg_s": 3.7494780571306034e+53,
+            "escape_fraction": 0.9122944557737656,
+            "g": 3.0831810858922337e-09,
+            "luminosity_shift_vs_fixed_omega": -0.00481033843979739,
+            "optically_thin_luminosity_erg_s": 4.109942829752781e+53,
+            "reference_luminosity_erg_s": 4.070510587188928e+53,
+            "relative_difference": -0.07886787742763923,
+            "source_weight_fraction_at_infinite_tau": 3.2444242215757816e-05,
+            "source_weighted_mean_tau_over_escaping_bins": 0.09305028768551313
+          },
+          {
+            "calculated_luminosity_erg_s": 5.223523414039667e+53,
+            "escape_fraction": 0.8760159921178253,
+            "g": 3.7137006897316035e-09,
+            "luminosity_shift_vs_fixed_omega": -0.006886308589870382,
+            "optically_thin_luminosity_erg_s": 5.9628174154805795e+53,
+            "reference_luminosity_erg_s": 5.672638380236869e+53,
+            "relative_difference": -0.07917214814219287,
+            "source_weight_fraction_at_infinite_tau": 3.2444242215757816e-05,
+            "source_weighted_mean_tau_over_escaping_bins": 0.1349999011932802
+          },
+          {
+            "calculated_luminosity_erg_s": 7.150863127559598e+53,
+            "escape_fraction": 0.8265906954479075,
+            "g": 4.473167071557425e-09,
+            "luminosity_shift_vs_fixed_omega": -0.009821762334767392,
+            "optically_thin_luminosity_erg_s": 8.6510326899878e+53,
+            "reference_luminosity_erg_s": 7.778729935114823e+53,
+            "relative_difference": -0.08071585114697233,
+            "source_weight_fraction_at_infinite_tau": 3.2444242215757816e-05,
+            "source_weighted_mean_tau_over_escaping_bins": 0.19586186813906706
+          },
+          {
+            "calculated_luminosity_erg_s": 9.551203947224657e+53,
+            "escape_fraction": 0.7609820891421704,
+            "g": 5.387942899280016e-09,
+            "luminosity_shift_vs_fixed_omega": -0.013936336643590286,
+            "optically_thin_luminosity_erg_s": 1.2551154729530375e+54,
+            "reference_luminosity_erg_s": 1.023421990907104e+54,
+            "relative_difference": -0.06673844884269053,
+            "source_weight_fraction_at_infinite_tau": 3.2444242215757816e-05,
+            "source_weighted_mean_tau_over_escaping_bins": 0.28416175278974387
+          },
+          {
+            "calculated_luminosity_erg_s": 1.232695151174666e+54,
+            "escape_fraction": 0.6769483939997394,
+            "g": 6.4897983908964e-09,
+            "luminosity_shift_vs_fixed_omega": -0.019643172008647736,
+            "optically_thin_luminosity_erg_s": 1.82095882359851e+54,
+            "reference_luminosity_erg_s": 1.3155978611139929e+54,
+            "relative_difference": -0.06301523618252791,
+            "source_weight_fraction_at_infinite_tau": 3.2444242215757816e-05,
+            "source_weighted_mean_tau_over_escaping_bins": 0.41227031474184034
+          },
+          {
+            "calculated_luminosity_erg_s": 1.5175476364102874e+54,
+            "escape_fraction": 0.5744149907249422,
+            "g": 7.81698765963344e-09,
+            "luminosity_shift_vs_fixed_omega": -0.027461825422155917,
+            "optically_thin_luminosity_erg_s": 2.6419011706067454e+54,
+            "reference_luminosity_erg_s": 1.6112693384409214e+54,
+            "relative_difference": -0.058166378391659834,
+            "source_weight_fraction_at_infinite_tau": 3.2444242215757816e-05,
+            "source_weighted_mean_tau_over_escaping_bins": 0.5981340231353987
+          },
+          {
+            "calculated_luminosity_erg_s": 1.75234289977513e+54,
+            "escape_fraction": 0.457179549622204,
+            "g": 9.415584636282641e-09,
+            "luminosity_shift_vs_fixed_omega": -0.038023262584785944,
+            "optically_thin_luminosity_erg_s": 3.832942442904982e+54,
+            "reference_luminosity_erg_s": 1.8222467898580756e+54,
+            "relative_difference": -0.03836137370196169,
+            "source_weight_fraction_at_infinite_tau": 3.2444242215757816e-05,
+            "source_weighted_mean_tau_over_escaping_bins": 0.8677891926194397
+          },
+          {
+            "calculated_luminosity_erg_s": 1.8580520188480374e+54,
+            "escape_fraction": 0.3341251208928005,
+            "g": 1.1341108687336194e-08,
+            "luminosity_shift_vs_fixed_omega": -0.052054795798618936,
+            "optically_thin_luminosity_erg_s": 5.560946791080004e+54,
+            "reference_luminosity_erg_s": 1.910994581282271e+54,
+            "relative_difference": -0.02770419285998682,
+            "source_weight_fraction_at_infinite_tau": 3.2444242215757816e-05,
+            "source_weighted_mean_tau_over_escaping_bins": 1.2590143467882515
+          },
+          {
+            "calculated_luminosity_erg_s": 1.7627122606539114e+54,
+            "escape_fraction": 0.2184822923194997,
+            "g": 1.3660409972030494e-08,
+            "luminosity_shift_vs_fixed_omega": -0.07033143256924834,
+            "optically_thin_luminosity_erg_s": 8.067986846623671e+54,
+            "reference_luminosity_erg_s": 1.7750616042948693e+54,
+            "relative_difference": -0.0069571352403082765,
+            "source_weight_fraction_at_infinite_tau": 3.2444242215757816e-05,
+            "source_weighted_mean_tau_over_escaping_bins": 1.8266154256126863
+          },
+          {
+            "calculated_luminosity_erg_s": 1.4511975380248563e+54,
+            "escape_fraction": 0.12397828401422419,
+            "g": 1.6454004004914003e-08,
+            "luminosity_shift_vs_fixed_omega": -0.09359634523256644,
+            "optically_thin_luminosity_erg_s": 1.1705255880605337e+55,
+            "reference_luminosity_erg_s": 1.4146008873057794e+54,
+            "relative_difference": 0.02587065443510239,
+            "source_weight_fraction_at_infinite_tau": 3.2444242215757816e-05,
+            "source_weighted_mean_tau_over_escaping_bins": 2.6501035956949957
+          },
+          {
+            "calculated_luminosity_erg_s": 1.0015396949044194e+54,
+            "escape_fraction": 0.05897538883133795,
+            "g": 1.9818912470130955e-08,
+            "luminosity_shift_vs_fixed_omega": -0.12246675538543383,
+            "optically_thin_luminosity_erg_s": 1.6982333050294835e+55,
+            "reference_luminosity_erg_s": 9.494231795275183e+53,
+            "relative_difference": 0.054892819662183845,
+            "source_weight_fraction_at_infinite_tau": 3.2444242215757816e-05,
+            "source_weighted_mean_tau_over_escaping_bins": 3.844849043791162
+          },
+          {
+            "calculated_luminosity_erg_s": 5.577653377836485e+53,
+            "escape_fraction": 0.02263801989983778,
+            "g": 2.3871938384298948e-08,
+            "luminosity_shift_vs_fixed_omega": -0.15732421903761662,
+            "optically_thin_luminosity_erg_s": 2.463843305428163e+55,
+            "reference_luminosity_erg_s": 5.076675014703045e+53,
+            "relative_difference": 0.09868237806881641,
+            "source_weight_fraction_at_infinite_tau": 3.2444242215757816e-05,
+            "source_weighted_mean_tau_over_escaping_bins": 5.578212103643948
+          },
+          {
+            "calculated_luminosity_erg_s": 2.4038999741068892e+53,
+            "escape_fraction": 0.006724916040826575,
+            "g": 2.8753843574456517e-08,
+            "luminosity_shift_vs_fixed_omega": -0.19813388244886487,
+            "optically_thin_luminosity_erg_s": 3.574617079994683e+55,
+            "reference_luminosity_erg_s": 2.0855979250328497e+53,
+            "relative_difference": 0.15261908599617824,
+            "source_weight_fraction_at_infinite_tau": 3.2444242215757816e-05,
+            "source_weighted_mean_tau_over_escaping_bins": 8.093035875125826
+          },
+          {
+            "calculated_luminosity_erg_s": 7.657679356138013e+52,
+            "escape_fraction": 0.001476560374978039,
+            "g": 3.4634117556541197e-08,
+            "luminosity_shift_vs_fixed_omega": -0.24384994073404787,
+            "optically_thin_luminosity_erg_s": 5.186160678497082e+55,
+            "reference_luminosity_erg_s": 6.202557246004756e+52,
+            "relative_difference": 0.23460035150349356,
+            "source_weight_fraction_at_infinite_tau": 3.2444242215757816e-05,
+            "source_weighted_mean_tau_over_escaping_bins": 11.741616930142968
+          },
+          {
+            "calculated_luminosity_erg_s": 1.7336707568379482e+52,
+            "escape_fraction": 0.0002304119106180531,
+            "g": 4.171689650228597e-08,
+            "luminosity_shift_vs_fixed_omega": -0.28867894573994723,
+            "optically_thin_luminosity_erg_s": 7.524223692202275e+55,
+            "reference_luminosity_erg_s": 1.26781475907372e+52,
+            "relative_difference": 0.36744800013575185,
+            "source_weight_fraction_at_infinite_tau": 3.2444242215757816e-05,
+            "source_weighted_mean_tau_over_escaping_bins": 17.035058835883845
+          }
+        ],
+        "prescription": "omega_local(s)=omega_source*N(source)/N(path); update local rates and v_V(s), while retaining the same Euclidean ds and straight chord. This is a sensitivity diagnostic, not the published Eq. (B.2) baseline or a full GR ray trace."
+      },
+      "profile": {
+        "identity": "reconstructed public-figure SFHo-18.8, t_pb=1 s profile; not original Garching raw table",
+        "path": "/home/runner/work/axial-vector-review-response/axial-vector-review-response/research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv",
+        "sha256": "6c47d0712d266848d0cb2315c8a9b43cf13d0b39b6986d4239dd3f22cb9ba0bc"
+      },
+      "reference_axis_conversion": "The digitized Fig. 7 abscissa is alpha_V; the source extraction converts it to g=sqrt(4*pi*alpha_V). Rates and opacity are normalized per g^2 and the scan uses this g.",
+      "run_commit_sha": "a1146b8f2cb3f61efa1fbcb75d87eb228009d4f6",
+      "source_channel_fractions": {
+        "compton": {
+          "fraction": 0.32004993699899165,
+          "thin_source_erg_s_per_g2": 1.3837430756078988e+70
+        },
+        "dimuon": {
+          "fraction": 0.0,
+          "thin_source_erg_s_per_g2": 0.0
+        },
+        "neutrino": {
+          "fraction": 0.6799500630010085,
+          "thin_source_erg_s_per_g2": 2.9397793364969926e+70
+        }
+      },
+      "source_radial_distribution": {
+        "mean_emission_radius_km": 9.834834911065114,
+        "median_emission_radius_km": 9.339981043584856,
+        "p90_emission_radius_km": 12.990028434622715,
+        "shell_fractions": {
+          "0-5 km": 0.009095633889713068,
+          "10-12 km": 0.26081102499936115,
+          "12-15 km": 0.13718436404547438,
+          "15-18 km": 0.016461953500770676,
+          "18-20 km": 0.0017715581236460308,
+          "20-22 km": 0.0007452788356447521,
+          "22-25 km": 0.0007276279525925115,
+          "5-8 km": 0.17508360933275358,
+          "8-10 km": 0.3981189493200438
+        }
+      }
+    }
+  ],
+  "run_commit_sha": "a1146b8f2cb3f61efa1fbcb75d87eb228009d4f6",
+  "scope": [
+    "Pure-vector B.14--B.16 literature benchmark only.",
+    "The baseline is the literal fixed-omega Eq. (B.2) prescription.",
+    "The path-redshift alternative changes only the local energy argument and local vector speed; it retains the Euclidean chord measure and is not a full GR ray-tracing calculation.",
+    "No coupling, production, absorption, opacity, profile, or luminosity rescaling.",
+    "No axial curve, PR #56 file, manuscript, or referee-response file is modified."
+  ],
+  "title": "Global B.16 vector luminosity: radial source weights, Eq. (B.2) fixed-omega baseline, and path-redshift-only sensitivity"
+}
