@@ -64,6 +64,7 @@
   "temperature_overlap_max_relative_difference": 0.0026650842561763955,
   "lapse_exterior_continuation_schwarzschild_radius_km": 3.844025390169213,
   "profile_grid": {
+    "profile_csv_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
     "base_uniform_points": 501,
     "base_spacing_km": 0.05,
     "support_boundary_epsilon_km": 0.000001,
