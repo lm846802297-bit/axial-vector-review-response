@@ -69,6 +69,13 @@
     "support_boundary_epsilon_km": 0.000001,
     "all_input_pdf_vertices_retained": true,
     "number_of_extra_source_vertices_and_support_knots": 1681,
+    "final_csv_rows": 1687,
+    "unique_added_source_vertices_and_support_knots": 1186,
+    "outer_shell_nodes_22_25_km": 222,
+    "outer_shell_base_grid_nodes_22_25_km": 61,
+    "outer_shell_additional_source_nodes_22_25_km": 161,
+    "outer_shell_min_spacing_km": 6.777813936764687e-07,
+    "outer_shell_max_spacing_km": 0.05000000000000071,
     "exact_source_knots_km": [
       1.1767037896139157e-8,
       3.953724812006895e-7,
