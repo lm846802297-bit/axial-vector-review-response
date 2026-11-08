@@ -12,6 +12,10 @@ on:
       - research/stellar-cooling-constraints-20261105/finite_mixing/test_b13_b16_comparison.py
       - research/stellar-cooling-constraints-20261105/finite_mixing/b13_b16_comparison.py
       - .github/workflows/moving-muon-thermal-rates.yml
+concurrency:
+  group: moving-muon-thermal-response-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
@@ -23,7 +27,7 @@ jobs:
       - name: Check out research head branch
         uses: actions/checkout@v4
         with:
-          ref: research/moving-muon-thermal-rates-20261107
+          ref: ${{ github.sha }}
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
