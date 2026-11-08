@@ -26,7 +26,7 @@ from blinov_reproduction.reference import (
     M_MU, fermi_pair_average, negative_muon_density_and_degeneracy,
 )
 
-RADII = (12.0, 12.5, 13.0, 13.1, 13.15, 13.5, 14.0, 14.5, 15.0)
+RADII = (8.0, 9.0, 10.0, 11.0, 12.0, 12.5, 13.0, 13.1, 13.15, 13.5, 14.0, 14.5, 15.0, 16.0, 18.0, 20.0)
 ENERGIES = (12.0, 15.0, 20.0, 30.0, 50.0, 80.0, 100.0)
 N0_FM3 = 0.181
 HBARC_MEV_FM = 197.3269804
@@ -231,6 +231,7 @@ def run(source_dir: Path, data_dir: Path):
         mf = float(row["mu_mu_Ferreira_MeV"])
         dc = density_and_susceptibility(T, mc)
         df = density_and_susceptibility(T, mf)
+        df_own_T = density_and_susceptibility(float(row["T_Ferreira_MeV"]), mf)
         nplot = interp_curve(nplot_curve, radius) * N0_FM3
         rows.append({
             "radius_km": radius,
@@ -245,10 +246,12 @@ def run(source_dir: Path, data_dir: Path):
             "mu_numu_MeV": float(row["mu_numu_MeV"]),
             "lapse": float(row["lapse"]),
             "Caputo_fermi_density": dc,
-            "Ferreira_mu_mu_fermi_density": df,
+            "Ferreira_mu_mu_fermi_density_using_Caputo_T": df,
+            "Ferreira_mu_mu_fermi_density_using_Ferreira_T": df_own_T,
             "Caputo_plotted_muon_density_fm3": nplot,
             "Caputo_density_to_own_plot_ratio": dc["n_mu_fm3"] / nplot,
-            "Ferreira_density_to_Caputo_plot_ratio": df["n_mu_fm3"] / nplot,
+            "Ferreira_density_to_Caputo_plot_ratio_using_Caputo_T": df["n_mu_fm3"] / nplot,
+            "Ferreira_density_to_Caputo_plot_ratio_using_Ferreira_T": df_own_T["n_mu_fm3"] / nplot,
             "susceptibility_ratio_Ferreira_over_Caputo": (
                 df["n_mu_Fdeg_MeV3"] / dc["n_mu_Fdeg_MeV3"]
             ),
@@ -313,9 +316,10 @@ def run(source_dir: Path, data_dir: Path):
             "selected_path_indices": {"caputo": caputo_indices, "ferreira": ferreira_indices},
             "selected_path_details": target_paths,
             "all_candidate_paths_in_Ferreira_mu_mu_panel": candidates,
-            "manual_review_required": (
-                "Confirm that Ferreira path 394 is the orange dashed SFHo-18.8 mu_mu curve. "
-                "Do not interpret the alternative mu_mu profile physically until its PDF path identity is confirmed."
+            "manual_review_status": (
+                "Confirmed 2026-11-09 from Ferreira Fig. 1 caption: path 394 is the orange dashed SFHo-18.8 curve at t=1 s post-bounce. "
+                "The same named model/time is shown in Caputo Fig. 1, and both papers cite Bollig et al. "
+                "The curve identity is confirmed; the numerical mu_mu discrepancy and profile-file/convention origin remain unresolved."
             ),
         },
         "region_summary": {
@@ -334,7 +338,7 @@ def run(source_dir: Path, data_dir: Path):
         "resampling_error_against_raw_pdf_polyline": resampling,
         "interpretation": [
             "The Caputo mu_mu curve is checked against the independent n_mu curve in the lower panel of the same Fig. 1.",
-            "The Ferreira mu_mu curve is not yet treated as an alternative physical input until its source-PDF path identity is confirmed.",
+            "The Ferreira mu_mu curve identity is confirmed by the figure caption, but it remains a diagnostic-only same-model reconstruction until its numerical discrepancy with Caputo is resolved.",
             "The neutrino-pair rate is even in mu_numu; the sign of the negative branch does not change the pair rate, while its magnitude does.",
             "The lapse has no independent Caputo comparison in Fig. 1; this audit checks only the Ferreira curve and interpolation over 12--15 km.",
             "This audit does not change any opacity, path integral, luminosity, coupling, or axial-vector constraint curve.",
