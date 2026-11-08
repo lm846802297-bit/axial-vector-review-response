@@ -17,6 +17,8 @@ import sys
 from scipy.special import expit
 from numpy.polynomial.legendre import leggauss
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
 try:
     from .reference import DEFAULT_PROFILE, fermi_pair_average
     import rates as production_rates
@@ -25,7 +27,6 @@ except ImportError:
     import rates as production_rates
 
 HERE=Path(__file__).resolve().parent
-sys.path.insert(0, str(HERE.parent))
 DEFAULT_OUTPUT=HERE/"outputs"/"b16_neutrino_inverse_decay_direct_10mev_2026-11-08.json"
 MASS=10.0
 POLARIZATION_LABELS=("L","+","-")
