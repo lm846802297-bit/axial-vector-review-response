@@ -237,6 +237,7 @@ def run(
         "final_muon_shell": 0.0,
     }
     computed_points = 0
+    ratio_grid = np.full_like(b13_minus_production, np.nan)
     total_points = int(np.count_nonzero(active_radius_mask)
                        * np.count_nonzero(active_energy_mask))
     ratio_samples = []
@@ -290,7 +291,9 @@ def run(
 
             b16_local = float(rates_b16["compton_production"][ir, ie])
             if b16_local > 1.0e-280:
-                ratio_samples.append(pm / b16_local)
+                ratio_value = pm / b16_local
+                ratio_samples.append(ratio_value)
+                ratio_grid[ir, ie] = ratio_value
 
             computed_points += 1
         print(
@@ -471,6 +474,123 @@ def run(
         ),
     }
 
+    # Source-weighted radial decomposition: this reveals whether the
+    # strongest B.13/B.16 change is concentrated in the dense inner core.
+    source_shell_edges = (0.0, 5.0, 8.0, 10.0, 12.0, 15.0, 18.0, 25.0)
+    strong_g = float(couplings[-1])
+    escape_b16_strong = np.einsum(
+        "rae,a->re", np.exp(-strong_g**2 * columns_b16), angle_weights
+    )
+    escape_b13_minus_strong = np.einsum(
+        "rae,a->re", np.exp(-strong_g**2 * columns_b13_minus), angle_weights
+    )
+    escape_b13_both_strong = np.einsum(
+        "rae,a->re", np.exp(-strong_g**2 * columns_b13_both), angle_weights
+    )
+    radial_source_diagnostics = []
+    for lo, hi in zip(source_shell_edges[:-1], source_shell_edges[1:]):
+        mask = (r >= lo) & ((r < hi) if hi < radius_km else (r <= hi))
+        if not np.any(mask):
+            continue
+        b16_total = float(np.sum(source_b16[mask]))
+        b13m_total = float(np.sum(source_b13_minus[mask]))
+        b13b_total = float(np.sum(source_b13_both[mask]))
+        b16_comp = float(np.sum(source_compton_b16[mask]))
+        b13m_comp = float(np.sum(source_compton_minus[mask]))
+        b13p_comp = float(np.sum(source_compton_plus[mask]))
+        b13b_comp = b13m_comp + b13p_comp
+        b16_escaped = float(np.sum(source_b16[mask] * escape_b16_strong[mask]))
+        b13m_escaped = float(np.sum(source_b13_minus[mask] * escape_b13_minus_strong[mask]))
+        b13b_escaped = float(np.sum(source_b13_both[mask] * escape_b13_both_strong[mask]))
+        radial_source_diagnostics.append({
+            "emission_shell_km": [lo, hi],
+            "B16_total_B1_source_fraction": (
+                b16_total / float(np.sum(source_b16)) if np.sum(source_b16) else 0.0
+            ),
+            "B13_mu_minus_total_B1_source_fraction": (
+                b13m_total / float(np.sum(source_b13_minus))
+                if np.sum(source_b13_minus) else 0.0
+            ),
+            "B13_both_charges_total_B1_source_fraction": (
+                b13b_total / float(np.sum(source_b13_both))
+                if np.sum(source_b13_both) else 0.0
+            ),
+            "B13_mu_minus_over_B16_Compton_source_ratio": (
+                b13m_comp / b16_comp if b16_comp else None
+            ),
+            "B13_both_charges_over_B16_Compton_source_ratio": (
+                b13b_comp / b16_comp if b16_comp else None
+            ),
+            "mu_plus_fraction_of_B13_Compton_source": (
+                b13p_comp / b13b_comp if b13b_comp else 0.0
+            ),
+            "B16_strong_endpoint_escape_fraction_in_shell": (
+                b16_escaped / b16_total if b16_total else None
+            ),
+            "B13_mu_minus_strong_endpoint_escape_fraction_in_shell": (
+                b13m_escaped / b13m_total if b13m_total else None
+            ),
+            "B13_both_charges_strong_endpoint_escape_fraction_in_shell": (
+                b13b_escaped / b13b_total if b13b_total else None
+            ),
+        })
+
+    # Source-weighted mean optical depths isolate the Compton opacity change
+    # from the neutrino inverse-decay opacity. They are diagnostics, not a
+    # replacement for the nonlinear direction-averaged escape integral.
+    columns_b16_compton, _ = scalar_optical_depths(
+        r, radial_grid, reduced_b16_compton,
+        mass, energies, radius_km, angular_order, path_order
+    )
+    columns_b13_minus_compton, _ = scalar_optical_depths(
+        r, radial_grid, b13_minus_reduced,
+        mass, energies, radius_km, angular_order, path_order
+    )
+    columns_b13_both_compton, _ = scalar_optical_depths(
+        r, radial_grid, b13_both_reduced,
+        mass, energies, radius_km, angular_order, path_order
+    )
+
+    def source_weighted_tau(source, columns):
+        average = np.einsum("rae,a->re", columns, angle_weights)
+        return float(np.sum(source * average) / np.sum(source))
+
+    opacity_weighted_diagnostics = {
+        "B16_source_weighted_B16_Compton_tau_per_g2": source_weighted_tau(
+            source_b16, columns_b16_compton
+        ),
+        "B16_source_weighted_B13_mu_minus_Compton_tau_per_g2": source_weighted_tau(
+            source_b16, columns_b13_minus_compton
+        ),
+        "B13_mu_minus_source_weighted_B13_mu_minus_Compton_tau_per_g2": source_weighted_tau(
+            source_b13_minus, columns_b13_minus_compton
+        ),
+        "B13_both_charge_source_weighted_B13_both_charge_Compton_tau_per_g2": source_weighted_tau(
+            source_b13_both, columns_b13_both_compton
+        ),
+        "B16_source_weighted_B16_total_tau_per_g2": source_weighted_tau(
+            source_b16, columns_b16
+        ),
+        "B13_mu_minus_source_weighted_B13_mu_minus_total_tau_per_g2": source_weighted_tau(
+            source_b13_minus, columns_b13_minus
+        ),
+        "B13_both_charge_source_weighted_B13_both_charge_total_tau_per_g2": source_weighted_tau(
+            source_b13_both, columns_b13_both
+        ),
+    }
+
+    radial_rate_ratio_summary = []
+    for ir, radius in enumerate(radial_grid):
+        vals = ratio_grid[ir, np.isfinite(ratio_grid[ir])]
+        if len(vals):
+            radial_rate_ratio_summary.append({
+                "radius_km": float(radius),
+                "energy_node_count": int(len(vals)),
+                "B13_mu_minus_over_B16_production_min": float(np.min(vals)),
+                "B13_mu_minus_over_B16_production_median": float(np.median(vals)),
+                "B13_mu_minus_over_B16_production_max": float(np.max(vals)),
+            })
+
     active_radii = radial_grid[active_radius_mask]
     inactive_radii = radial_grid[~active_radius_mask]
     ratio_array = np.asarray(ratio_samples, float)
@@ -516,7 +636,7 @@ def run(
             "exact_B13_kernel_evaluations": int(computed_points),
             "wall_time_seconds": float(time.time() - started),
         },
-        "active_region_omission_bound": {
+        "inactive_region_omission_diagnostic": {
             "maximum_inactive_local_B16_Compton_fraction_of_total_opacity": (
                 float(np.max(max_fraction_by_radius[~active_radius_mask]))
                 if np.any(~active_radius_mask) else 0.0
@@ -541,13 +661,30 @@ def run(
                 "maximum": float(np.max(ratio_array)) if len(ratio_array) else None,
                 "median": float(np.median(ratio_array)) if len(ratio_array) else None,
             },
-            "B13_mu_plus_fraction_of_exact_Compton_reduced_absorption": (
+            "mu_plus_fraction_of_exact_Compton_reduced_absorption_unweighted_grid_sum": (
                 float(np.sum(b13_plus_reduced) / np.sum(b13_both_reduced))
                 if np.sum(b13_both_reduced) else 0.0
             ),
             "angle_weight_residual": angle_residual,
         },
         "source_channel_fractions": source_channel_summary,
+        "radial_source_diagnostics": radial_source_diagnostics,
+        "opacity_weighted_diagnostics": opacity_weighted_diagnostics,
+        "B13_local_rate_ratio_by_radius": radial_rate_ratio_summary,
+        "local_rate_grid": {
+            "radial_grid_km": radial_grid.tolist(),
+            "energies_MeV": energies.tolist(),
+            "active_radial_mask": active_radius_mask.tolist(),
+            "active_energy_mask": active_energy_mask.tolist(),
+            "B16_Compton_production_per_gX2": rates_b16["compton_production"].tolist(),
+            "B13_mu_minus_Compton_production_per_gX2": b13_minus_production.tolist(),
+            "B13_mu_plus_Compton_production_per_gX2": b13_plus_production.tolist(),
+            "B16_Compton_reduced_absorption_per_gX2": reduced_b16_compton.tolist(),
+            "B13_mu_minus_Compton_reduced_absorption_per_gX2": b13_minus_reduced.tolist(),
+            "B13_mu_plus_Compton_reduced_absorption_per_gX2": b13_plus_reduced.tolist(),
+            "B16_neutrino_production_per_gX2": rates_b16["neutrino_production"].tolist(),
+            "B16_neutrino_reduced_absorption_per_gX2": reduced_nu.tolist(),
+        },
         "variant_results": variant_results,
         "scope": [
             "B.13 exact Compton production and reduced absorption are replaced together in the consistent variants.",
