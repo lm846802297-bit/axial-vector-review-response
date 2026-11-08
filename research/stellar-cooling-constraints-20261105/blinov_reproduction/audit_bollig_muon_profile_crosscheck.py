@@ -54,6 +54,15 @@ def main():
     doc = pymupdf.open(pdf)
     page = doc[PAGE_INDEX]
     drawings = page.get_drawings()
+    text_spans = []
+    for block in page.get_text("dict")["blocks"]:
+        for line in block.get("lines", []):
+            for span in line.get("spans", []):
+                text_spans.append({
+                    "text": span["text"],
+                    "bbox": [float(x) for x in span["bbox"]],
+                    "size": float(span["size"]),
+                })
     candidates = []
     for index, d in enumerate(drawings):
         pts = polyline_points(d)
@@ -87,6 +96,7 @@ def main():
         "page_index": PAGE_INDEX,
         "page_rect": [float(x) for x in page.rect],
         "page_text": page.get_text("text"),
+        "text_spans": text_spans,
         "candidate_vector_paths": candidates,
         "scope": "vector-path extraction only; no physical curve is selected automatically",
     }
