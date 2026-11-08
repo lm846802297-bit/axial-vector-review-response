@@ -1,5 +1,8 @@
 # Exact B.13 versus B.14--B.16 Compton opacity: radial local audit
 
+> **Historical profile version:** the paired numerical output for this local radial audit uses the 501-node uniform profile, SHA-256 `08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9`. A current-profile rerun is being archived separately using the 1687-row vertex-preserving profile, SHA-256 `6c47d0712d266848d0cb2315c8a9b43cf13d0b39b6986d4239dd3f22cb9ba0bc`. Keep this report as a historical record; do not mix its pointwise values with the current-profile rerun.
+
+
 Date: 2026-11-09  
 Benchmark: \(m_V=10\) MeV, pure vector current \(g_V=1,\ g_A=0\), rates per \(g_X^2\).  
 Status: **the exact B.13 local kernel is numerically stable and is systematically smaller than the B.14--B.16 no-recoil approximation in the inner production region. This lowers the local total opacity, so it cannot explain the current strong-coupling escape probability being too large.**
