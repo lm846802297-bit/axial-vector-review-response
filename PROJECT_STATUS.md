@@ -324,3 +324,16 @@ Major 4.2 已补充有限轻子混合产生的非零动能混合、四态矢量�
 - **未完成：** 当前证据明确表明工作尚未闭环。
 
 本文件是项目管理状态快照，不是物理结果的独立证明。物理结论以模型定义、可复核推导、实际计算和原始实验文献为准。
+
+
+### 2026-11-09 追加：PR #64 独立审稿人视角复核
+
+已对 PR #64 当前正式 TeX 与实际 diff 进行独立审稿人视角检查，并对照 referee 原文、AGENTS.md、《审稿回复写作原则》§3.1、§6、§7、正文待同步清单和模型决策登记表。
+
+- **总体结论：** Major 1–4 与当前 Minor 小节均有可识别的直接回答；没有发现系统性过度肯定，也没有发现 Major 1–4 将可选 \(\sigma+3N_R\) 双 VEV 中微子完成机制误用于原论文非中微子问题。
+- **当前主要风险：** 仍是防御性措辞和重复限定偏多，集中在 Major 1.3、Major 2、Major 4.3、Major 4.4、Minor 5、Minor 6.5；Major 1.1 与 Minor 6.3 另有重复的 scalar-search 映射内容。
+- **必须保留的限定：** portal matching 与近简并诊断的不同证据边界、\(\epsilon_{\rm ind}=0\) 与物理动能混合的区别、trident/\((g-2)_\mu\)/dimuon threshold 的过程差异、neutrino-coalescence current-level equality 与完整 SN transport 的区别、各实验的 branching fraction/acceptance/promptness 条件。
+- **实质性范围余项：** Major 1.3 数值扫描为 \(10\)–\(150\) GeV，低于 Benchmark A/B 的完整微扰上限 \(355.4/1579.2\) GeV；Major 4.4 没有完整 axial SN1987A transport/exclusion curve。两者均在回复信中按当前证据范围表述，不应通过修辞夸大为已完成。
+- **下一步：** 先精简同一物理命题的重复否定句和总结句，再复核实际 diff；不新增物理计算、不改论文正文。
+
+详细逐点结论、模型边界核查、实验适用条件和建议修改位置见 [PR #64 独立审稿人视角复核](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-09/PR64独立审稿人视角复核_2026-11-09.md)。PR #64 保持 Open、未合并。
