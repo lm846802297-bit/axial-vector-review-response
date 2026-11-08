@@ -255,27 +255,28 @@ def audit(source_pdf: Path, reference_json: Path) -> dict:
             ],
         }
         if mass == 10.0:
+            high_g_order = np.argsort(ordered_transformed["g"], kind="stable")
+            high_g_order = high_g_order[-10:]
+            visible_tail_g = visible["g"][-8:]
+            visible_tail_l = visible["luminosity_erg_s"][-8:]
             curve_record["high_coupling_tail_audit"] = {
                 "source_path_ordered_high_g_tail": [
                     {
-                        "pdf_x": float(xy[0]),
-                        "pdf_y": float(xy[1]),
-                        "g": float(g),
-                        "luminosity_erg_s": float(l),
-                        "inside_visible_luminosity_frame": bool(keep_i),
+                        "pdf_x": float(ordered[i, 0]),
+                        "pdf_y": float(ordered[i, 1]),
+                        "g": float(ordered_transformed["g"][i]),
+                        "luminosity_erg_s": float(ordered_transformed["luminosity_erg_s"][i]),
+                        "inside_visible_luminosity_frame": bool(
+                            visible_luminosity_mask(ordered_transformed)[i]
+                        ),
                     }
-                    for xy, g, l, keep_i in zip(
-                        ordered[-10:],
-                        ordered_transformed["g"][-10:],
-                        ordered_transformed["luminosity_erg_s"][-10:],
-                        visible_luminosity_mask(ordered_transformed)[-10:],
-                    )
+                    for i in high_g_order
                 ],
                 "visible_tail_monotonic_in_g": bool(
-                    np.all(np.diff(visible["g"]) >= -1e-12)
+                    np.all(np.diff(visible_tail_g) >= -1e-12)
                 ),
                 "visible_tail_monotonic_in_luminosity": bool(
-                    np.all(np.diff(visible["luminosity_erg_s"]) <= 1e-12)
+                    np.all(np.diff(visible_tail_l) <= 1e-12)
                 ),
                 "first_visible_to_last_visible_luminosity_ratio": float(
                     visible["luminosity_erg_s"][-1]/visible["luminosity_erg_s"][0]
