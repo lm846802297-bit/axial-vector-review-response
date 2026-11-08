@@ -3,7 +3,7 @@
 Date: 2026-11-09  
 Benchmark: \(m_V=10\) MeV, \(g=4.17168965\times10^{-8}\), \(R_{\max}=25\) km.  
 Numerics: radial order 40, energy order 100, angular order 32; fixed \(\omega\) along B.2 paths.  
-Status: **the \(\mu_{\nu_\mu}\) plotting-floor assumptions have negligible impact on the strong-endpoint escape probability. The alternative \(\mu_\mu\) digitization produces a visible but insufficient change; it remains a diagnostic-only input pending source-definition confirmation.**
+Status: **the \(\mu_{\nu_\mu}\) plotting-floor assumptions have negligible impact. The second published \(\mu_\mu\) reconstruction for the same nominal SFHo-18.8 snapshot changes the strong-endpoint transport substantially over 8--15 km, but its density consistency is unresolved and it does not fully reproduce the required Fig. 7 escape probability.**
 
 ## 1. Calculation design
 
