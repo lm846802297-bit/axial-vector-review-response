@@ -1,5 +1,8 @@
 # B.2 Inner-Path Opacity: Channel-, Shell-, and Direction-Resolved Audit
 
+> **Historical profile version:** the paired numerical output for this report uses the 501-node uniform profile, SHA-256 `08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9`. The current working input is the 1687-row vertex-preserving profile, SHA-256 `6c47d0712d266848d0cb2315c8a9b43cf13d0b39b6986d4239dd3f22cb9ba0bc`. The current-profile rerun and quantitative old/new comparison are documented in `PROFILE_VERSION_RECONCILIATION_2026-11-09.md`; see also `outputs/b16_inner_path_channel_directional_vertex_preserving_10mev_2026-11-09.json`. Keep this report as a historical record and do not combine its numerical output with current-profile results.
+
+
 **Date:** 2026-11-09  
 **Status:** Numerical audit completed for the 10 MeV pure-vector benchmark. This does **not** certify the full Blinov vector reproduction against the unavailable original Garching background, and it does not authorize an axial-vector update.
 
