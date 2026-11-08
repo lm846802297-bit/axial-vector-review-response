@@ -546,7 +546,7 @@
     "outer_radial_nodes": 222,
     "outer_radial_spacing_km": 6.777814007818961e-07,
     "path": "/home/runner/work/axial-vector-review-response/axial-vector-review-response/research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv",
-    "sha256": "6c47d0712d266848d0cb2315c8a9b43cf13d0b39b6986d4239dd3f22cb9ba0bc"
+    "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
   },
   "source": {
     "Compton_source_mode_assumption": "split equally among L,+,- only for the full-source mode-resolved diagnostic",
