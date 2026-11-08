@@ -96,6 +96,28 @@ The following are energy-integrated local emissivities in MeV\(^5\), in the orde
 
 The UV benchmark is essentially axial at this precision. Its total B.13 emissivity differs from the pure-axial result by about \(-0.0200\%\) at both radii. The vector and axial responses are manifestly not related by a common polarization-independent normalization: the axial response is strongly longitudinal, while the vector response is dominated by the two transverse modes.
 
+### Fixed-energy mode-resolved rates at \\(\\omega=30\\) MeV
+
+These are differential production rates in MeV per \\(g_X^2\\), at the same local thermodynamic points. They make the polarization comparison explicit before the energy integration.
+
+| (r) (km) | Current | \\(\\Gamma_L\\) | \\(\\Gamma_+\\) | \\(\\Gamma_-\\) | Total |
+|---:|---|---:|---:|---:|---:|
+| 0.0 | B.13 vector | (7.5632\\times10^{-6}) | (5.1440\\times10^{-5}) | (5.1440\\times10^{-5}) | (1.1044\\times10^{-4}) |
+| 0.0 | B.13 axial | (1.43343\\times10^{-3}) | (1.45854\\times10^{-4}) | (1.45854\\times10^{-4}) | (1.72513\\times10^{-3}) |
+| 0.0 | B.13 UV | (1.43314\\times10^{-3}) | (1.45828\\times10^{-4}) | (1.45822\\times10^{-4}) | (1.72479\\times10^{-3}) |
+| 12.5 | B.13 vector | (1.41914\\times10^{-4}) | (9.05906\\times10^{-4}) | (9.05906\\times10^{-4}) | (1.95373\\times10^{-3}) |
+| 12.5 | B.13 axial | (2.61174\\times10^{-2}) | (2.61344\\times10^{-3}) | (2.61344\\times10^{-3}) | (3.13443\\times10^{-2}) |
+| 12.5 | B.13 UV | (2.61122\\times10^{-2}) | (2.61298\\times10^{-3}) | (2.61286\\times10^{-3}) | (3.13380\\times10^{-2}) |
+
+The corresponding B.16 vector total and its no-parenthesis-correction counterpart are:
+
+| (r) (km) | B.16 (L) | B.16 (+) | B.16 (-) | B.16 total | No-parenthesis-correction total |
+|---:|---:|---:|---:|---:|---:|
+| 0.0 | (9.46109\\times10^{-6}) | (8.51498\\times10^{-5}) | (8.51498\\times10^{-5}) | (1.79761\\times10^{-4}) | (1.70300\\times10^{-4}) |
+| 12.5 | (1.84902\\times10^{-4}) | (1.66412\\times10^{-3}) | (1.66412\\times10^{-3}) | (3.51313\\times10^{-3}) | (3.32823\\times10^{-3}) |
+
+B.16 is intrinsically a spin-summed total. The listed \\(L,+,-\\) entries are the no-recoil limiting decomposition described in Section 2, not separate published B.16 formulae.
+
 ## 5. B.14--B.16 vector total and the \(m_V^2/(2\omega^2)\) term
 
 | \(r\) (km) | \(Q_{\rm B16}\), correction retained | \(Q_{\rm B16}\), parenthesis correction dropped | Increase from retaining correction |
