@@ -38,7 +38,7 @@ class B16NeutrinoInverseDecayTests(unittest.TestCase):
         i_mu,_=direct_pair_integrals(mu_numu,omega,temperature,v,order=192)
         i_tau,_=direct_pair_integrals(np.zeros_like(mu_numu),omega,temperature,v,order=192)
         direct=mass**2/(8.0*np.pi*omega)*(i_mu+i_tau)
-        _,reference=decay_production(
+        reference,_=decay_production(
             mass,omega,temperature,mu_numu,np.zeros_like(mu_numu)
         )
         np.testing.assert_allclose(direct,reference,rtol=2e-12,atol=1e-300)
