@@ -1,4 +1,4 @@
-name: SFHo-18.8 profile and B.1+B.2 transport sensitivity (8--15 km)
+name: SFHo-18.8 profile and shell-resolved B.1+B.2 sensitivity (8--15 km)
 
 on:
   push:
@@ -24,7 +24,7 @@ jobs:
   audit:
     if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
     runs-on: ubuntu-latest
-    timeout-minutes: 65
+    timeout-minutes: 70
     steps:
       - name: Check out research branch
         uses: actions/checkout@v4
