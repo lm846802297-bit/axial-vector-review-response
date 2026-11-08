@@ -9,12 +9,12 @@
 - Driver: [b13_b16_comparison.py](b13_b16_comparison.py)
 - Regression tests: [test_b13_b16_comparison.py](test_b13_b16_comparison.py)
 - Machine-readable output: [outputs/b13_b16_comparison_2026-11-08.json](outputs/b13_b16_comparison_2026-11-08.json)
-- Successful workflow: [Run #42433794829](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42433794829)
+- Successful workflow: [Run #42434369283](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42434369283)
 - Workflow result: all 36 unit tests passed; the thermal response scan and the B.13--B.16 comparison both completed; the JSON output was committed to this branch.
-- Run-triggering commit: 66589d464a74bb8a8d8f68ed12148f83392c6d4d
-- JSON blob SHA: 0a096d7dfb2f2f2a1d3e625a924f8abfc4e9a406
+- Run-triggering commit: d619cd3f0f61dd363e4e5c2c0d98159a2051cd85
+- JSON blob SHA: b7bea597e17a9b3377c31e9eacb2e1f320d7441c
 - Code SHA-256:
-  - b13_b16_comparison.py: 3b9d79508cbd60f61dd8b9c23b98f3416dc6f50f3492cf54681bc24f8ffd73b4
+  - b13_b16_comparison.py: 35aa434145b0ad224d2cd61033c7aea8f26732282801440c23f406cf77fdfc34
   - moving_muon_compton.py: 44bc670fd9384f34de56fbecb5371bae18c93c2292aa67e98f4ee304433dbaea
   - rates.py: 2fc7bc2d3b0d7b98c191755cd2bb87944e4ebe259adc3d3bbc8e0f60dcc57f56
   - SFHo-18.8 profile: 08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9
