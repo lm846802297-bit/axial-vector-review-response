@@ -324,6 +324,16 @@
         "susceptibility_order_128_to_192_relative_change": -3.885780586188048e-15
       },
       "existing_stationary_muon_exact_recoil": {
+        "UV_theta_muR_1e-2": {
+          "Q_by_mode_MeV5": [
+            417.20151041478135,
+            18.21851465982665,
+            18.217126273370297
+          ],
+          "Q_total_MeV5": 453.6371513479783,
+          "angular_order": 128,
+          "energy_order": 16
+        },
         "axial": {
           "Q_by_mode_MeV5": [
             417.2849604470597,
@@ -1138,6 +1148,67 @@
           }
         }
       },
+      "local_neutrino_source": {
+        "energy_order_64_comparison": {
+          "Q_by_mode_MeV5": [
+            747.6628623988094,
+            620.3933826119089,
+            822.7141295413605
+          ],
+          "Q_total_MeV5": 2190.7703745520785,
+          "angular_order": 96,
+          "energy_order": 64,
+          "max_mode_balance_residual": 4.788142361739527e-15
+        },
+        "energy_order_64_to_96_relative_change": 1.7763568394002505e-15,
+        "local_thin_source_budgets": {
+          "UV_theta_muR_1e-2": {
+            "Q_compton_moving_muon_B13_MeV5": 473.369149167932,
+            "Q_compton_stationary_exact_recoil_MeV5": 453.6371513479783,
+            "Q_neutrino_MeV5": 2190.7703745520826,
+            "Q_total_moving_muon_source_MeV5": 2664.1395237200145,
+            "Q_total_stationary_source_MeV5": 2644.407525900061,
+            "compton_rate_shift_fraction": 0.04349731445345739,
+            "moving_muon_compton_fraction": 0.17768181619367782,
+            "stationary_compton_fraction": 0.17154585551013987,
+            "total_local_thin_source_shift_fraction": 0.007461784020311946
+          },
+          "axial": {
+            "Q_compton_moving_muon_B13_MeV5": 473.4638339070416,
+            "Q_compton_stationary_exact_recoil_MeV5": 453.727889201485,
+            "Q_neutrino_MeV5": 2190.7703745520826,
+            "Q_total_moving_muon_source_MeV5": 2664.234208459124,
+            "Q_total_stationary_source_MeV5": 2644.4982637535677,
+            "compton_rate_shift_fraction": 0.043497314525430264,
+            "moving_muon_compton_fraction": 0.17771104071997942,
+            "stationary_compton_fraction": 0.17157428137520095,
+            "total_local_thin_source_shift_fraction": 0.007463020481451643
+          },
+          "vector": {
+            "Q_compton_moving_muon_B13_MeV5": 13.69748466287626,
+            "Q_compton_stationary_exact_recoil_MeV5": 16.2555882475927,
+            "Q_neutrino_MeV5": 2190.7703745520826,
+            "Q_total_moving_muon_source_MeV5": 2204.467859214959,
+            "Q_total_stationary_source_MeV5": 2207.025962799675,
+            "compton_rate_shift_fraction": -0.1573676415613734,
+            "moving_muon_compton_fraction": 0.006213510714442497,
+            "stationary_compton_fraction": 0.00736538152318427,
+            "total_local_thin_source_shift_fraction": -0.001159072719503107
+          }
+        },
+        "production": {
+          "Q_by_mode_MeV5": [
+            747.6628623988106,
+            620.3933826119102,
+            822.7141295413618
+          ],
+          "Q_total_MeV5": 2190.7703745520826,
+          "angular_order": 96,
+          "energy_order": 96,
+          "max_mode_balance_residual": 4.089664491407052e-15
+        },
+        "scope": "These are local two-channel source budgets at r=0 and 12.5 km; they are not a radial integration of the global weak-coupling luminosity."
+      },
       "local_thermodynamics": {
         "lapse": 0.7363304267,
         "mu_mu_MeV": 46.67432845,
@@ -1168,6 +1239,7 @@
         "x_max": 36.0
       },
       "relative_differences": {
+        "B13_UV_vs_existing_stationary_exact_fraction": 0.04349731445345739,
         "B13_axial_vs_existing_stationary_exact_fraction": 0.043497314525430264,
         "B13_vector_vs_B16_corrected_fraction": -0.5209266532449663,
         "B13_vector_vs_B16_without_parenthesis_correction_fraction": -0.5102523463125204,
@@ -1503,6 +1575,16 @@
         "susceptibility_order_128_to_192_relative_change": -4.218847493575595e-15
       },
       "existing_stationary_muon_exact_recoil": {
+        "UV_theta_muR_1e-2": {
+          "Q_by_mode_MeV5": [
+            15091.226185060279,
+            521.4419395663037,
+            521.3964944001444
+          ],
+          "Q_total_MeV5": 16134.064619026727,
+          "angular_order": 128,
+          "energy_order": 16
+        },
         "axial": {
           "Q_by_mode_MeV5": [
             15094.244782339072,
@@ -2317,6 +2399,67 @@
           }
         }
       },
+      "local_neutrino_source": {
+        "energy_order_64_comparison": {
+          "Q_by_mode_MeV5": [
+            2119.8598581054357,
+            1968.2866949037355,
+            2008.2200990528015
+          ],
+          "Q_total_MeV5": 6096.366652061973,
+          "angular_order": 96,
+          "energy_order": 64,
+          "max_mode_balance_residual": 4.142273740136773e-15
+        },
+        "energy_order_64_to_96_relative_change": 1.3322676295501878e-15,
+        "local_thin_source_budgets": {
+          "UV_theta_muR_1e-2": {
+            "Q_compton_moving_muon_B13_MeV5": 16456.38004693614,
+            "Q_compton_stationary_exact_recoil_MeV5": 16134.064619026727,
+            "Q_neutrino_MeV5": 6096.366652061981,
+            "Q_total_moving_muon_source_MeV5": 22552.746698998122,
+            "Q_total_stationary_source_MeV5": 22230.43127108871,
+            "compton_rate_shift_fraction": 0.019977323478010067,
+            "moving_muon_compton_fraction": 0.7296840720366533,
+            "stationary_compton_fraction": 0.7257648051124193,
+            "total_local_thin_source_shift_fraction": 0.014498838280685655
+          },
+          "axial": {
+            "Q_compton_moving_muon_B13_MeV5": 16459.671703150463,
+            "Q_compton_stationary_exact_recoil_MeV5": 16137.29180367996,
+            "Q_neutrino_MeV5": 6096.366652061981,
+            "Q_total_moving_muon_source_MeV5": 22556.038355212444,
+            "Q_total_stationary_source_MeV5": 22233.65845574194,
+            "compton_rate_shift_fraction": 0.019977323543036274,
+            "moving_muon_compton_fraction": 0.7297235198816205,
+            "stationary_compton_fraction": 0.7258046099701794,
+            "total_local_thin_source_shift_fraction": 0.014499633522401467
+          },
+          "vector": {
+            "Q_compton_moving_muon_B13_MeV5": 381.1134956951688,
+            "Q_compton_stationary_exact_recoil_MeV5": 476.51495714547605,
+            "Q_neutrino_MeV5": 6096.366652061981,
+            "Q_total_moving_muon_source_MeV5": 6477.48014775715,
+            "Q_total_stationary_source_MeV5": 6572.881609207457,
+            "compton_rate_shift_fraction": -0.20020664623373396,
+            "moving_muon_compton_fraction": 0.0588366906577291,
+            "stationary_compton_fraction": 0.07249711549314414,
+            "total_local_thin_source_shift_fraction": -0.01451440435450202
+          }
+        },
+        "production": {
+          "Q_by_mode_MeV5": [
+            2119.8598581054393,
+            1968.2866949037377,
+            2008.220099052804
+          ],
+          "Q_total_MeV5": 6096.366652061981,
+          "angular_order": 96,
+          "energy_order": 96,
+          "max_mode_balance_residual": 3.6062898959735045e-15
+        },
+        "scope": "These are local two-channel source budgets at r=0 and 12.5 km; they are not a radial integration of the global weak-coupling luminosity."
+      },
       "local_thermodynamics": {
         "lapse": 0.8388424539,
         "mu_mu_MeV": 90.21658531,
@@ -2347,6 +2490,7 @@
         "x_max": 36.0
       },
       "relative_differences": {
+        "B13_UV_vs_existing_stationary_exact_fraction": 0.019977323478010067,
         "B13_axial_vs_existing_stationary_exact_fraction": 0.019977323543036274,
         "B13_vector_vs_B16_corrected_fraction": -0.571406265178416,
         "B13_vector_vs_B16_without_parenthesis_correction_fraction": -0.5647073876927733,
@@ -2363,7 +2507,7 @@
     "moving_muon_compton.py": "44bc670fd9384f34de56fbecb5371bae18c93c2292aa67e98f4ee304433dbaea",
     "profile": "08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9",
     "rates.py": "2fc7bc2d3b0d7b98c191755cd2bb87944e4ebe259adc3d3bbc8e0f60dcc57f56",
-    "script": "4be3ae994b8b23c8dcf15cdd0ba17680c8231b4972bc67395848a5e0a490db78"
+    "script": "3b9d79508cbd60f61dd8b9c23b98f3416dc6f50f3492cf54681bc24f8ffd73b4"
   },
   "configuration": {
     "B14_current": "pure vector only",
@@ -2417,7 +2561,7 @@
     "sha256": "08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9",
     "source": "reconstructed SFHo-18.8 t_pb=1s digitized profile"
   },
-  "run_commit_sha": "6c540b9291659c69941f6885c4964a2c2fd27a27",
+  "run_commit_sha": "f8b22150f106d2418e472459df749d5ecf809dfe",
   "scope_limits": [
     "Local source-rate comparison only; no radial integration or escape probability.",
     "B.14-B.16 is compared only to the pure-vector B.13 rate.",
