@@ -590,7 +590,21 @@ def main():
     print(json.dumps({
         "source_fraction_8_15km": result["source_fraction_8_15km_of_total_B1"],
         "internal_closure": result["internal_closure"],
-        "legacy_shell_comparison": result["legacy_masked_shell_vs_analytic_radial_integration"],
+        "legacy_shell_max_L1_by_path_order": [
+            {
+                "path_order": item["path_order"],
+                "max_L1_by_channel": {
+                    channel: max(
+                        (row["source_weighted_L1_relative_difference"]
+                         for row in item["source_weighted_shell_comparisons_for_8_15km_emission"]
+                         if row["legacy_channel"] == channel),
+                        default=0.0
+                    )
+                    for channel in ("neutrino", "compton", "dimuon")
+                },
+            }
+            for item in result["legacy_masked_shell_vs_analytic_radial_integration"]["convergence_by_path_order"]
+        ],
         "selected": [
             {
                 "label": row["label"], "g": row["g"],
