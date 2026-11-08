@@ -421,6 +421,96 @@ def _legacy_shell_comparison(
     }
 
 
+def _angular_order_convergence(
+    source, radii, radial_grid, reduced, mass, energies, couplings,
+    selected_indices, radius_km, base_order, base_columns,
+):
+    """Check angle-integrated escape and direction bins at n_mu/2, n_mu, 2*n_mu."""
+    orders = sorted(set((max(8, base_order // 2), base_order, base_order * 2)))
+    source_regions = {
+        "all_emission_radii": np.ones(len(radii), dtype=bool),
+        "dominant_8_15km_emission": (radii >= 8.0) & (radii < 15.0),
+    }
+    results = []
+    for order in orders:
+        if order == base_order:
+            columns = base_columns
+            angles, angle_weights = np.polynomial.legendre.leggauss(order)
+            angle_weights = angle_weights / 2.0
+        else:
+            columns, angles, angle_weights = segmented_radial_columns(
+                radii, radial_grid, reduced, mass, energies,
+                radius_km, order, SHELL_EDGES_KM
+            )
+        total_columns = np.sum(columns, axis=(0, 1))
+        coupling_rows = []
+        for label, index in selected_indices.items():
+            g = float(couplings[index])
+            region_rows = []
+            for region_name, source_mask in source_regions.items():
+                w0 = source[source_mask, None, :] * angle_weights[None, :, None]
+                survival = np.exp(-g * g * total_columns[source_mask])
+                we = w0 * survival
+                base_norm = float(np.sum(w0))
+                escaped_norm = float(np.sum(we))
+                direction_rows = []
+                for lo, hi in ANGLE_BINS:
+                    angle_mask = (angles >= lo) & (
+                        (angles < hi) if hi < 1.0 else (angles <= hi)
+                    )
+                    w0_bin = w0[:, angle_mask, :]
+                    we_bin = we[:, angle_mask, :]
+                    direction_rows.append({
+                        "cos_theta_bin": [lo, hi],
+                        "thin_source_fraction": (
+                            float(np.sum(w0_bin) / base_norm) if base_norm else 0.0
+                        ),
+                        "escaped_luminosity_fraction": (
+                            float(np.sum(we_bin) / escaped_norm) if escaped_norm else 0.0
+                        ),
+                        "mean_escape_probability": (
+                            float(np.sum(we_bin) / np.sum(w0_bin))
+                            if np.sum(w0_bin) else None
+                        ),
+                    })
+                region_rows.append({
+                    "region": region_name,
+                    "source_weighted_escape_probability": (
+                        escaped_norm / base_norm if base_norm else None
+                    ),
+                    "direction_bins": direction_rows,
+                })
+            coupling_rows.append({
+                "label": label,
+                "g": g,
+                "regions": region_rows,
+            })
+        results.append({
+            "angular_order": order,
+            "representative_couplings": coupling_rows,
+        })
+
+    reference = results[-1]
+    reference_lookup = {
+        (c["label"], r["region"]): r["source_weighted_escape_probability"]
+        for c in reference["representative_couplings"]
+        for r in c["regions"]
+    }
+    for item in results:
+        for coupling_row in item["representative_couplings"]:
+            for region_row in coupling_row["regions"]:
+                ref = reference_lookup[(coupling_row["label"], region_row["region"])]
+                value = region_row["source_weighted_escape_probability"]
+                region_row["relative_difference_vs_highest_angular_order"] = (
+                    abs(value - ref) / abs(ref) if ref not in (None, 0.0) else None
+                )
+    return {
+        "orders": orders,
+        "reference_order": orders[-1],
+        "results": results,
+    }
+
+
 def run_audit(
     profile_path=DEFAULT_PROFILE, fig7_path=DEFAULT_FIG7, mass=10.0,
     radial_order=40, energy_order=100, angular_order=32,
