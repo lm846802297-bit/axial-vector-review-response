@@ -1,0 +1,858 @@
+{
+  "B16_local_source_checks": [
+    {
+      "Fdeg": 0.8712823611249931,
+      "direct_B16_MeV": 0.10122429617815618,
+      "n_mu_Fdeg_MeV3": 31201.38599610922,
+      "n_mu_minus_fm3": 0.0046607472701261496,
+      "n_mu_plus_fm3": 4.813696647250735e-05,
+      "omega_MeV": 12.0,
+      "radius_km": 8.0,
+      "reference_py_B16_MeV": 0.10122429617815618,
+      "relative_residual": 0.0
+    },
+    {
+      "Fdeg": 0.8712823611249931,
+      "direct_B16_MeV": 0.07052564190437816,
+      "n_mu_Fdeg_MeV3": 31201.38599610922,
+      "n_mu_minus_fm3": 0.0046607472701261496,
+      "n_mu_plus_fm3": 4.813696647250735e-05,
+      "omega_MeV": 15.0,
+      "radius_km": 8.0,
+      "reference_py_B16_MeV": 0.07052564190437814,
+      "relative_residual": -2.220446049250313e-16
+    },
+    {
+      "Fdeg": 0.8712823611249931,
+      "direct_B16_MeV": 0.04543290755695273,
+      "n_mu_Fdeg_MeV3": 31201.38599610922,
+      "n_mu_minus_fm3": 0.0046607472701261496,
+      "n_mu_plus_fm3": 4.813696647250735e-05,
+      "omega_MeV": 20.0,
+      "radius_km": 8.0,
+      "reference_py_B16_MeV": 0.045432907556952735,
+      "relative_residual": 2.220446049250313e-16
+    },
+    {
+      "Fdeg": 0.8712823611249931,
+      "direct_B16_MeV": 0.024646605688769037,
+      "n_mu_Fdeg_MeV3": 31201.38599610922,
+      "n_mu_minus_fm3": 0.0046607472701261496,
+      "n_mu_plus_fm3": 4.813696647250735e-05,
+      "omega_MeV": 30.0,
+      "radius_km": 8.0,
+      "reference_py_B16_MeV": 0.024646605688769037,
+      "relative_residual": 0.0
+    },
+    {
+      "Fdeg": 0.8712823611249931,
+      "direct_B16_MeV": 0.010577825456565828,
+      "n_mu_Fdeg_MeV3": 31201.38599610922,
+      "n_mu_minus_fm3": 0.0046607472701261496,
+      "n_mu_plus_fm3": 4.813696647250735e-05,
+      "omega_MeV": 50.0,
+      "radius_km": 8.0,
+      "reference_py_B16_MeV": 0.010577825456565828,
+      "relative_residual": 0.0
+    },
+    {
+      "Fdeg": 0.8712823611249931,
+      "direct_B16_MeV": 0.002254804966915089,
+      "n_mu_Fdeg_MeV3": 31201.38599610922,
+      "n_mu_minus_fm3": 0.0046607472701261496,
+      "n_mu_plus_fm3": 4.813696647250735e-05,
+      "omega_MeV": 100.0,
+      "radius_km": 8.0,
+      "reference_py_B16_MeV": 0.002254804966915089,
+      "relative_residual": 0.0
+    },
+    {
+      "Fdeg": 0.8417159869271719,
+      "direct_B16_MeV": 0.08043165806519272,
+      "n_mu_Fdeg_MeV3": 29066.132993825056,
+      "n_mu_minus_fm3": 0.0044943021865723855,
+      "n_mu_plus_fm3": 1.2753974933186998e-05,
+      "omega_MeV": 12.0,
+      "radius_km": 10.0,
+      "reference_py_B16_MeV": 0.08043165806519272,
+      "relative_residual": 0.0
+    },
+    {
+      "Fdeg": 0.8417159869271719,
+      "direct_B16_MeV": 0.055687398988212185,
+      "n_mu_Fdeg_MeV3": 29066.132993825056,
+      "n_mu_minus_fm3": 0.0044943021865723855,
+      "n_mu_plus_fm3": 1.2753974933186998e-05,
+      "omega_MeV": 15.0,
+      "radius_km": 10.0,
+      "reference_py_B16_MeV": 0.05568739898821217,
+      "relative_residual": -2.220446049250313e-16
+    },
+    {
+      "Fdeg": 0.8417159869271719,
+      "direct_B16_MeV": 0.0354878820454006,
+      "n_mu_Fdeg_MeV3": 29066.132993825056,
+      "n_mu_minus_fm3": 0.0044943021865723855,
+      "n_mu_plus_fm3": 1.2753974933186998e-05,
+      "omega_MeV": 20.0,
+      "radius_km": 10.0,
+      "reference_py_B16_MeV": 0.0354878820454006,
+      "relative_residual": 0.0
+    },
+    {
+      "Fdeg": 0.8417159869271719,
+      "direct_B16_MeV": 0.018815968950073227,
+      "n_mu_Fdeg_MeV3": 29066.132993825056,
+      "n_mu_minus_fm3": 0.0044943021865723855,
+      "n_mu_plus_fm3": 1.2753974933186998e-05,
+      "omega_MeV": 30.0,
+      "radius_km": 10.0,
+      "reference_py_B16_MeV": 0.018815968950073227,
+      "relative_residual": 0.0
+    },
+    {
+      "Fdeg": 0.8417159869271719,
+      "direct_B16_MeV": 0.007677745270169851,
+      "n_mu_Fdeg_MeV3": 29066.132993825056,
+      "n_mu_minus_fm3": 0.0044943021865723855,
+      "n_mu_plus_fm3": 1.2753974933186998e-05,
+      "omega_MeV": 50.0,
+      "radius_km": 10.0,
+      "reference_py_B16_MeV": 0.00767774527016985,
+      "relative_residual": -1.1102230246251565e-16
+    },
+    {
+      "Fdeg": 0.8417159869271719,
+      "direct_B16_MeV": 0.001409902807653366,
+      "n_mu_Fdeg_MeV3": 29066.132993825056,
+      "n_mu_minus_fm3": 0.0044943021865723855,
+      "n_mu_plus_fm3": 1.2753974933186998e-05,
+      "omega_MeV": 100.0,
+      "radius_km": 10.0,
+      "reference_py_B16_MeV": 0.0014099028076533663,
+      "relative_residual": 2.220446049250313e-16
+    },
+    {
+      "Fdeg": 0.8716812815454972,
+      "direct_B16_MeV": 0.026039888390510472,
+      "n_mu_Fdeg_MeV3": 13017.934776506216,
+      "n_mu_minus_fm3": 0.0019436808722777836,
+      "n_mu_plus_fm3": 1.6647766914428697e-06,
+      "omega_MeV": 12.0,
+      "radius_km": 12.0,
+      "reference_py_B16_MeV": 0.026039888390510475,
+      "relative_residual": 2.220446049250313e-16
+    },
+    {
+      "Fdeg": 0.8716812815454972,
+      "direct_B16_MeV": 0.017750336445340808,
+      "n_mu_Fdeg_MeV3": 13017.934776506216,
+      "n_mu_minus_fm3": 0.0019436808722777836,
+      "n_mu_plus_fm3": 1.6647766914428697e-06,
+      "omega_MeV": 15.0,
+      "radius_km": 12.0,
+      "reference_py_B16_MeV": 0.017750336445340808,
+      "relative_residual": 0.0
+    },
+    {
+      "Fdeg": 0.8716812815454972,
+      "direct_B16_MeV": 0.011011040185398604,
+      "n_mu_Fdeg_MeV3": 13017.934776506216,
+      "n_mu_minus_fm3": 0.0019436808722777836,
+      "n_mu_plus_fm3": 1.6647766914428697e-06,
+      "omega_MeV": 20.0,
+      "radius_km": 12.0,
+      "reference_py_B16_MeV": 0.011011040185398606,
+      "relative_residual": 2.220446049250313e-16
+    },
+    {
+      "Fdeg": 0.8716812815454972,
+      "direct_B16_MeV": 0.0055118801893728146,
+      "n_mu_Fdeg_MeV3": 13017.934776506216,
+      "n_mu_minus_fm3": 0.0019436808722777836,
+      "n_mu_plus_fm3": 1.6647766914428697e-06,
+      "omega_MeV": 30.0,
+      "radius_km": 12.0,
+      "reference_py_B16_MeV": 0.0055118801893728146,
+      "relative_residual": 0.0
+    },
+    {
+      "Fdeg": 0.8716812815454972,
+      "direct_B16_MeV": 0.001978005248483983,
+      "n_mu_Fdeg_MeV3": 13017.934776506216,
+      "n_mu_minus_fm3": 0.0019436808722777836,
+      "n_mu_plus_fm3": 1.6647766914428697e-06,
+      "omega_MeV": 50.0,
+      "radius_km": 12.0,
+      "reference_py_B16_MeV": 0.0019780052484839826,
+      "relative_residual": -2.220446049250313e-16
+    },
+    {
+      "Fdeg": 0.8716812815454972,
+      "direct_B16_MeV": 0.0002482461728417077,
+      "n_mu_Fdeg_MeV3": 13017.934776506216,
+      "n_mu_minus_fm3": 0.0019436808722777836,
+      "n_mu_plus_fm3": 1.6647766914428697e-06,
+      "omega_MeV": 100.0,
+      "radius_km": 12.0,
+      "reference_py_B16_MeV": 0.0002482461728417077,
+      "relative_residual": 0.0
+    },
+    {
+      "Fdeg": 0.9883456897270819,
+      "direct_B16_MeV": 0.0002423463080102701,
+      "n_mu_Fdeg_MeV3": 304.7875093430141,
+      "n_mu_minus_fm3": 4.01355188772531e-05,
+      "n_mu_plus_fm3": 3.3116924023708726e-09,
+      "omega_MeV": 12.0,
+      "radius_km": 15.0,
+      "reference_py_B16_MeV": 0.00024234630801027012,
+      "relative_residual": 2.220446049250313e-16
+    },
+    {
+      "Fdeg": 0.9883456897270819,
+      "direct_B16_MeV": 0.00015408982288351398,
+      "n_mu_Fdeg_MeV3": 304.7875093430141,
+      "n_mu_minus_fm3": 4.01355188772531e-05,
+      "n_mu_plus_fm3": 3.3116924023708726e-09,
+      "omega_MeV": 15.0,
+      "radius_km": 15.0,
+      "reference_py_B16_MeV": 0.00015408982288351395,
+      "relative_residual": -2.220446049250313e-16
+    },
+    {
+      "Fdeg": 0.9883456897270819,
+      "direct_B16_MeV": 8.456827989757684e-05,
+      "n_mu_Fdeg_MeV3": 304.7875093430141,
+      "n_mu_minus_fm3": 4.01355188772531e-05,
+      "n_mu_plus_fm3": 3.3116924023708726e-09,
+      "omega_MeV": 20.0,
+      "radius_km": 15.0,
+      "reference_py_B16_MeV": 8.456827989757684e-05,
+      "relative_residual": 0.0
+    },
+    {
+      "Fdeg": 0.9883456897270819,
+      "direct_B16_MeV": 3.2402429832979017e-05,
+      "n_mu_Fdeg_MeV3": 304.7875093430141,
+      "n_mu_minus_fm3": 4.01355188772531e-05,
+      "n_mu_plus_fm3": 3.3116924023708726e-09,
+      "omega_MeV": 30.0,
+      "radius_km": 15.0,
+      "reference_py_B16_MeV": 3.240242983297901e-05,
+      "relative_residual": -2.220446049250313e-16
+    },
+    {
+      "Fdeg": 0.9883456897270819,
+      "direct_B16_MeV": 6.335524054623204e-06,
+      "n_mu_Fdeg_MeV3": 304.7875093430141,
+      "n_mu_minus_fm3": 4.01355188772531e-05,
+      "n_mu_plus_fm3": 3.3116924023708726e-09,
+      "omega_MeV": 50.0,
+      "radius_km": 15.0,
+      "reference_py_B16_MeV": 6.335524054623204e-06,
+      "relative_residual": 0.0
+    },
+    {
+      "Fdeg": 0.9883456897270819,
+      "direct_B16_MeV": 1.3944030611280643e-07,
+      "n_mu_Fdeg_MeV3": 304.7875093430141,
+      "n_mu_minus_fm3": 4.01355188772531e-05,
+      "n_mu_plus_fm3": 3.3116924023708726e-09,
+      "omega_MeV": 100.0,
+      "radius_km": 15.0,
+      "reference_py_B16_MeV": 1.3944030611280645e-07,
+      "relative_residual": 2.220446049250313e-16
+    }
+  ],
+  "axis_calibration": {
+    "Fig3_log10_density_pdf_y0": 147.2533259800502,
+    "Fig3_pdf_dy_per_decade": -19.69087568010605,
+    "Fig3_radius_pdf_dx_per_km": 10.061093750000003,
+    "Fig3_radius_pdf_x0": 85.22010803222645,
+    "Fig4_eta_pdf_y0": 231.6749694824219,
+    "Fig4_pdf_dy_per_eta": -13.832607269287113,
+    "Fig4_radius_pdf_dx_per_km": 10.469368286132816,
+    "Fig4_radius_pdf_x0": 335.21220397949213
+  },
+  "comparison_summary": {
+    "B16_direct_vs_reference_py_max_abs_relative": 2.220446049250313e-16,
+    "Caputo_FD_mu_minus_vs_Bollig_Fig3_12_15km": {
+      "count": 22,
+      "max_abs_relative_difference": 0.09626443609243451,
+      "max_relative_difference": 0.09626443609243451,
+      "mean_abs_relative_difference": 0.08282074907981431,
+      "min_relative_difference": 0.06319050460427844,
+      "rms_relative_difference": 0.08338287997459747
+    },
+    "Caputo_FD_mu_minus_vs_Bollig_Fig3_5_15km": {
+      "count": 55,
+      "max_abs_relative_difference": 0.09626443609243451,
+      "max_relative_difference": 0.09626443609243451,
+      "mean_abs_relative_difference": 0.04572978891570084,
+      "min_relative_difference": 0.007753830317556165,
+      "rms_relative_difference": 0.05635684758903043
+    },
+    "Caputo_FD_mu_minus_vs_Caputo_plotted_12_15km": {
+      "count": 22,
+      "max_abs_relative_difference": 0.0053825906734954465,
+      "max_relative_difference": -0.004145042825300371,
+      "mean_abs_relative_difference": 0.004721939753995061,
+      "min_relative_difference": -0.0053825906734954465,
+      "rms_relative_difference": 0.004731525078083013
+    },
+    "Caputo_FD_mu_minus_vs_Caputo_plotted_5_15km": {
+      "count": 55,
+      "max_abs_relative_difference": 0.0053825906734954465,
+      "max_relative_difference": -0.004145042825300371,
+      "mean_abs_relative_difference": 0.004707711280815709,
+      "min_relative_difference": -0.0053825906734954465,
+      "rms_relative_difference": 0.004713205157976473
+    },
+    "Caputo_FD_net_vs_Caputo_plotted_5_15km": {
+      "count": 55,
+      "max_abs_relative_difference": 0.01862548167067224,
+      "max_relative_difference": -0.004247370427406971,
+      "mean_abs_relative_difference": 0.009901482620444234,
+      "min_relative_difference": -0.01862548167067224,
+      "rms_relative_difference": 0.01138543444236492
+    },
+    "Caputo_FD_total_vs_Caputo_plotted_5_15km": {
+      "count": 55,
+      "max_abs_relative_difference": 0.009760689277351409,
+      "max_relative_difference": 0.009760689277351409,
+      "mean_abs_relative_difference": 0.005073872454895299,
+      "min_relative_difference": -0.005262861266013941,
+      "rms_relative_difference": 0.005652271470733005
+    },
+    "Caputo_plotted_vs_Bollig_Fig3_12_15km": {
+      "count": 22,
+      "max_abs_relative_difference": 0.10177369061919195,
+      "max_relative_difference": 0.10177369061919195,
+      "mean_abs_relative_difference": 0.08795752136337019,
+      "min_relative_difference": 0.06847044942864322,
+      "rms_relative_difference": 0.08848529628664034
+    },
+    "Caputo_plotted_vs_Bollig_Fig3_5_15km": {
+      "count": 55,
+      "max_abs_relative_difference": 0.10177369061919195,
+      "max_relative_difference": 0.10177369061919195,
+      "mean_abs_relative_difference": 0.050676146759733504,
+      "min_relative_difference": 0.01255214759055967,
+      "rms_relative_difference": 0.06052541486622491
+    },
+    "n_mu_Fdeg_equals_susceptibility_max_abs_relative": 2.220446049250313e-16,
+    "reference_py_vs_independent_FD_density_max_abs_relative": 0.0,
+    "reference_py_vs_independent_FD_susceptibility_max_abs_relative": 0.0
+  },
+  "implied_temperature_diagnostic": [
+    {
+      "T_Caputo_MeV": 25.80475044840575,
+      "T_implied_from_Bollig_nmu_MeV": 27.091744705532737,
+      "T_implied_over_T_Caputo": 1.049874315184726,
+      "eta_Bollig": 1.9026739348351247,
+      "radius_km": 5.12608530344786
+    },
+    {
+      "T_Caputo_MeV": 26.351538894742625,
+      "T_implied_from_Bollig_nmu_MeV": 27.701160926885468,
+      "T_implied_over_T_Caputo": 1.0512160613288548,
+      "eta_Bollig": 1.8934028352050314,
+      "radius_km": 5.27133961518606
+    },
+    {
+      "T_Caputo_MeV": 26.94824983549684,
+      "T_implied_from_Bollig_nmu_MeV": 28.346750026538903,
+      "T_implied_over_T_Caputo": 1.0518957705817291,
+      "eta_Bollig": 1.884609452051981,
+      "radius_km": 5.42107917644359
+    },
+    {
+      "T_Caputo_MeV": 27.595921562429282,
+      "T_implied_from_Bollig_nmu_MeV": 29.052804121261417,
+      "T_implied_over_T_Caputo": 1.0527934012109825,
+      "eta_Bollig": 1.8765759287305712,
+      "radius_km": 5.57479734773989
+    },
+    {
+      "T_Caputo_MeV": 28.300199487828454,
+      "T_implied_from_Bollig_nmu_MeV": 29.818707892148545,
+      "T_implied_over_T_Caputo": 1.0536571625572173,
+      "eta_Bollig": 1.869271004641649,
+      "radius_km": 5.73300076855553
+    },
+    {
+      "T_Caputo_MeV": 29.060668214161492,
+      "T_implied_from_Bollig_nmu_MeV": 30.64320642062864,
+      "T_implied_over_T_Caputo": 1.0544563598746144,
+      "eta_Bollig": 1.8620639406395976,
+      "radius_km": 5.89576063332734
+    },
+    {
+      "T_Caputo_MeV": 29.879148996673305,
+      "T_implied_from_Bollig_nmu_MeV": 31.567017777864564,
+      "T_implied_over_T_Caputo": 1.0564898545597528,
+      "eta_Bollig": 1.855433887482054,
+      "radius_km": 6.06307859773989
+    },
+    {
+      "T_Caputo_MeV": 30.75862291918366,
+      "T_implied_from_Bollig_nmu_MeV": 32.535272343498995,
+      "T_implied_over_T_Caputo": 1.0577610196979028,
+      "eta_Bollig": 1.8510743872987083,
+      "radius_km": 6.23517045268306
+    },
+    {
+      "T_Caputo_MeV": 31.688823760008276,
+      "T_implied_from_Bollig_nmu_MeV": 33.56504724594746,
+      "T_implied_over_T_Caputo": 1.0592077351986477,
+      "eta_Bollig": 1.849517952128597,
+      "radius_km": 6.41203730194657
+    },
+    {
+      "T_Caputo_MeV": 32.67030388952864,
+      "T_implied_from_Bollig_nmu_MeV": 34.64244169931007,
+      "T_implied_over_T_Caputo": 1.0603648443690643,
+      "eta_Bollig": 1.849711639758603,
+      "radius_km": 6.59403898097851
+    },
+    {
+      "T_Caputo_MeV": 33.67549520233406,
+      "T_implied_from_Bollig_nmu_MeV": 35.809573827139,
+      "T_implied_over_T_Caputo": 1.0633718557658218,
+      "eta_Bollig": 1.8509315739513528,
+      "radius_km": 6.78110484723692
+    },
+    {
+      "T_Caputo_MeV": 34.69128978210299,
+      "T_implied_from_Bollig_nmu_MeV": 36.950499818779456,
+      "T_implied_over_T_Caputo": 1.0651232643947985,
+      "eta_Bollig": 1.8577077482663338,
+      "radius_km": 6.97352409362793
+    },
+    {
+      "T_Caputo_MeV": 35.707453404878514,
+      "T_implied_from_Bollig_nmu_MeV": 38.098579261457125,
+      "T_implied_over_T_Caputo": 1.0669643345736866,
+      "eta_Bollig": 1.8690860089334478,
+      "radius_km": 7.17129672015155
+    },
+    {
+      "T_Caputo_MeV": 36.67125742686321,
+      "T_implied_from_Bollig_nmu_MeV": 39.235547164846906,
+      "T_implied_over_T_Caputo": 1.0699264197061662,
+      "eta_Bollig": 1.8833295901327987,
+      "radius_km": 7.37478256225586
+    },
+    {
+      "T_Caputo_MeV": 37.56436366368955,
+      "T_implied_from_Bollig_nmu_MeV": 40.31657500503565,
+      "T_implied_over_T_Caputo": 1.0732665503397425,
+      "eta_Bollig": 1.9047464908152136,
+      "radius_km": 7.58412952776308
+    },
+    {
+      "T_Caputo_MeV": 38.308584177745914,
+      "T_implied_from_Bollig_nmu_MeV": 41.27493351770829,
+      "T_implied_over_T_Caputo": 1.0774330193514585,
+      "eta_Bollig": 1.9345963886662467,
+      "radius_km": 7.799189708851
+    },
+    {
+      "T_Caputo_MeV": 38.90199382703821,
+      "T_implied_from_Bollig_nmu_MeV": 42.005699780210534,
+      "T_implied_over_T_Caputo": 1.0797826961510426,
+      "eta_Bollig": 1.9771885452590958,
+      "radius_km": 8.02047195257964
+    },
+    {
+      "T_Caputo_MeV": 39.18731952606442,
+      "T_implied_from_Bollig_nmu_MeV": 42.5108309815436,
+      "T_implied_over_T_Caputo": 1.0848108902490416,
+      "eta_Bollig": 2.0279737615464977,
+      "radius_km": 8.24819149794402
+    },
+    {
+      "T_Caputo_MeV": 39.24967689014997,
+      "T_implied_from_Bollig_nmu_MeV": 42.56967735173893,
+      "T_implied_over_T_Caputo": 1.084586695347348,
+      "eta_Bollig": 2.0934213645779427,
+      "radius_km": 8.4821320021594
+    },
+    {
+      "T_Caputo_MeV": 38.45122613063126,
+      "T_implied_from_Bollig_nmu_MeV": 41.627916706898155,
+      "T_implied_over_T_Caputo": 1.082616106063163,
+      "eta_Bollig": 2.1619855145882787,
+      "radius_km": 8.72287295482777
+    },
+    {
+      "T_Caputo_MeV": 37.742912645155045,
+      "T_implied_from_Bollig_nmu_MeV": 41.18056328600329,
+      "T_implied_over_T_Caputo": 1.0910806930341537,
+      "eta_Bollig": 2.2281555463919007,
+      "radius_km": 8.9704132521594
+    },
+    {
+      "T_Caputo_MeV": 36.84147053417823,
+      "T_implied_from_Bollig_nmu_MeV": 40.140774820966,
+      "T_implied_over_T_Caputo": 1.0895540877969834,
+      "eta_Bollig": 2.327645513804932,
+      "radius_km": 9.22504319085015
+    },
+    {
+      "T_Caputo_MeV": 35.824760800652854,
+      "T_implied_from_Bollig_nmu_MeV": 38.85126353297271,
+      "T_implied_over_T_Caputo": 1.0844807519905255,
+      "eta_Bollig": 2.4344140368038936,
+      "radius_km": 9.48668992077863
+    },
+    {
+      "T_Caputo_MeV": 34.82778444909594,
+      "T_implied_from_Bollig_nmu_MeV": 37.689567539244884,
+      "T_implied_over_T_Caputo": 1.082169541801653,
+      "eta_Bollig": 2.530410258009173,
+      "radius_km": 9.7492042294255
+    },
+    {
+      "T_Caputo_MeV": 33.90562841261119,
+      "T_implied_from_Bollig_nmu_MeV": 36.398939279339764,
+      "T_implied_over_T_Caputo": 1.0735367838161403,
+      "eta_Bollig": 2.623027043053646,
+      "radius_km": 10.0060759650336
+    },
+    {
+      "T_Caputo_MeV": 32.980831052556404,
+      "T_implied_from_Bollig_nmu_MeV": 35.28756813685247,
+      "T_implied_over_T_Caputo": 1.0699417513348946,
+      "eta_Bollig": 2.691837628031595,
+      "radius_km": 10.2569441883652
+    },
+    {
+      "T_Caputo_MeV": 32.040979114711156,
+      "T_implied_from_Bollig_nmu_MeV": 34.2594516928618,
+      "T_implied_over_T_Caputo": 1.0692386012989243,
+      "eta_Bollig": 2.74944433672983,
+      "radius_km": 10.5019534958733
+    },
+    {
+      "T_Caputo_MeV": 31.124658472142407,
+      "T_implied_from_Bollig_nmu_MeV": 33.247778186675106,
+      "T_implied_over_T_Caputo": 1.068213430082549,
+      "eta_Bollig": 2.8090952492130117,
+      "radius_km": 10.7404515478346
+    },
+    {
+      "T_Caputo_MeV": 30.19448617895639,
+      "T_implied_from_Bollig_nmu_MeV": 32.23454359505055,
+      "T_implied_over_T_Caputo": 1.0675639056748034,
+      "eta_Bollig": 2.8698586779451722,
+      "radius_km": 10.9727286409449
+    },
+    {
+      "T_Caputo_MeV": 29.291424687995743,
+      "T_implied_from_Bollig_nmu_MeV": 31.248298244610297,
+      "T_implied_over_T_Caputo": 1.0668070460026657,
+      "eta_Bollig": 2.9323021992846146,
+      "radius_km": 11.198495582298
+    },
+    {
+      "T_Caputo_MeV": 28.392197285057357,
+      "T_implied_from_Bollig_nmu_MeV": 30.253349548750688,
+      "T_implied_over_T_Caputo": 1.0655515402702855,
+      "eta_Bollig": 2.9967811117958107,
+      "radius_km": 11.4180415648001
+    },
+    {
+      "T_Caputo_MeV": 27.51832949200487,
+      "T_implied_from_Bollig_nmu_MeV": 29.27609828688067,
+      "T_implied_over_T_Caputo": 1.063876289997418,
+      "eta_Bollig": 3.0605533228560597,
+      "radius_km": 11.6311491418768
+    },
+    {
+      "T_Caputo_MeV": 26.665631056363548,
+      "T_implied_from_Bollig_nmu_MeV": 28.337648126969327,
+      "T_implied_over_T_Caputo": 1.0627030752458704,
+      "eta_Bollig": 3.1228687127510244,
+      "radius_km": 11.8376737170749
+    },
+    {
+      "T_Caputo_MeV": 25.823843636452274,
+      "T_implied_from_Bollig_nmu_MeV": 27.422501940198742,
+      "T_implied_over_T_Caputo": 1.0619062880898893,
+      "eta_Bollig": 3.183461209448027,
+      "radius_km": 12.0377598868476
+    },
+    {
+      "T_Caputo_MeV": 25.01238363790073,
+      "T_implied_from_Bollig_nmu_MeV": 26.544688072811052,
+      "T_implied_over_T_Caputo": 1.0612618316228148,
+      "eta_Bollig": 3.2440177479708514,
+      "radius_km": 12.2315533514376
+    },
+    {
+      "T_Caputo_MeV": 24.22608318875506,
+      "T_implied_from_Bollig_nmu_MeV": 25.680088680697356,
+      "T_implied_over_T_Caputo": 1.0600181829069752,
+      "eta_Bollig": 3.306044086385326,
+      "radius_km": 12.4189095143919
+    },
+    {
+      "T_Caputo_MeV": 23.457403634985813,
+      "T_implied_from_Bollig_nmu_MeV": 24.8465545763552,
+      "T_implied_over_T_Caputo": 1.0592201491258615,
+      "eta_Bollig": 3.365475376867181,
+      "radius_km": 12.6000436147054
+    },
+    {
+      "T_Caputo_MeV": 22.704513145894175,
+      "T_implied_from_Bollig_nmu_MeV": 24.016057612232103,
+      "T_implied_over_T_Caputo": 1.057765804442061,
+      "eta_Bollig": 3.4258221701231926,
+      "radius_km": 12.7749567561679
+    },
+    {
+      "T_Caputo_MeV": 21.99303134567221,
+      "T_implied_from_Bollig_nmu_MeV": 23.23879361717431,
+      "T_implied_over_T_Caputo": 1.0566435000215302,
+      "eta_Bollig": 3.4827266117261337,
+      "radius_km": 12.9439381316856
+    },
+    {
+      "T_Caputo_MeV": 21.288313769319675,
+      "T_implied_from_Bollig_nmu_MeV": 22.48136183211219,
+      "T_implied_over_T_Caputo": 1.0560423937621548,
+      "eta_Bollig": 3.538972262750739,
+      "radius_km": 13.1069877412584
+    },
+    {
+      "T_Caputo_MeV": 20.614903586257586,
+      "T_implied_from_Bollig_nmu_MeV": 21.754402927425776,
+      "T_implied_over_T_Caputo": 1.0552755115443668,
+      "eta_Bollig": 3.5926858149318868,
+      "radius_km": 13.2641055848863
+    },
+    {
+      "T_Caputo_MeV": 19.972656632390922,
+      "T_implied_from_Bollig_nmu_MeV": 21.033636475280687,
+      "T_implied_over_T_Caputo": 1.0531216183414032,
+      "eta_Bollig": 3.6466611591602636,
+      "radius_km": 13.4155819592652
+    },
+    {
+      "T_Caputo_MeV": 19.351282050733598,
+      "T_implied_from_Bollig_nmu_MeV": 20.35828217000622,
+      "T_implied_over_T_Caputo": 1.0520379020176829,
+      "eta_Bollig": 3.6998128174595153,
+      "radius_km": 13.5610537175779
+    },
+    {
+      "T_Caputo_MeV": 18.75049261552646,
+      "T_implied_from_Bollig_nmu_MeV": 19.75988586972773,
+      "T_implied_over_T_Caputo": 1.0538328925484033,
+      "eta_Bollig": 3.7475124944853984,
+      "radius_km": 13.7015330349957
+    },
+    {
+      "T_Caputo_MeV": 18.170817917832494,
+      "T_implied_from_Bollig_nmu_MeV": 19.136758574951767,
+      "T_implied_over_T_Caputo": 1.0531588980467037,
+      "eta_Bollig": 3.7919203801765473,
+      "radius_km": 13.836588329739
+    },
+    {
+      "T_Caputo_MeV": 17.614455311751705,
+      "T_implied_from_Bollig_nmu_MeV": 18.55533221796661,
+      "T_implied_over_T_Caputo": 1.053415044039834,
+      "eta_Bollig": 3.8440046869310915,
+      "radius_km": 13.9662902443497
+    },
+    {
+      "T_Caputo_MeV": 17.08343694785916,
+      "T_implied_from_Bollig_nmu_MeV": 17.905066312156016,
+      "T_implied_over_T_Caputo": 1.0480950857139917,
+      "eta_Bollig": 3.9017722267124486,
+      "radius_km": 14.0908562254023
+    },
+    {
+      "T_Caputo_MeV": 16.568213006850797,
+      "T_implied_from_Bollig_nmu_MeV": 17.371499204895102,
+      "T_implied_over_T_Caputo": 1.04848357500668,
+      "eta_Bollig": 3.9470316994850925,
+      "radius_km": 14.2107200622559
+    },
+    {
+      "T_Caputo_MeV": 16.076642464169762,
+      "T_implied_from_Bollig_nmu_MeV": 16.797146775513585,
+      "T_implied_over_T_Caputo": 1.0448168398936297,
+      "eta_Bollig": 3.9989412612768347,
+      "radius_km": 14.3259546050319
+    },
+    {
+      "T_Caputo_MeV": 15.609410403494016,
+      "T_implied_from_Bollig_nmu_MeV": 16.308160201326196,
+      "T_implied_over_T_Caputo": 1.0447646502827403,
+      "eta_Bollig": 4.030492340440866,
+      "radius_km": 14.4361978107029
+    },
+    {
+      "T_Caputo_MeV": 15.160864427625993,
+      "T_implied_from_Bollig_nmu_MeV": 15.821238387776347,
+      "T_implied_over_T_Caputo": 1.0435578039301654,
+      "eta_Bollig": 4.068733384596854,
+      "radius_km": 14.5424618544402
+    },
+    {
+      "T_Caputo_MeV": 14.730545178359398,
+      "T_implied_from_Bollig_nmu_MeV": 15.353001903867261,
+      "T_implied_over_T_Caputo": 1.0422561906549332,
+      "eta_Bollig": 4.10790293999821,
+      "radius_km": 14.6438802613152
+    },
+    {
+      "T_Caputo_MeV": 14.314679147580616,
+      "T_implied_from_Bollig_nmu_MeV": 14.9182407324425,
+      "T_implied_over_T_Caputo": 1.0421638220905491,
+      "eta_Bollig": 4.137832035809996,
+      "radius_km": 14.7421870849751
+    },
+    {
+      "T_Caputo_MeV": 13.916728572198066,
+      "T_implied_from_Bollig_nmu_MeV": 14.444168402607959,
+      "T_implied_over_T_Caputo": 1.0378996994641096,
+      "eta_Bollig": 4.170376074804328,
+      "radius_km": 14.8380357689328
+    },
+    {
+      "T_Caputo_MeV": 13.516548417433002,
+      "T_implied_from_Bollig_nmu_MeV": 14.135513179845649,
+      "T_implied_over_T_Caputo": 1.0457931080699816,
+      "eta_Bollig": 4.202494214289155,
+      "radius_km": 14.9304108266477
+    }
+  ],
+  "interpretation": {
+    "B1_muon_density_definition": "One negative-muon species with two spin states, as in Blinov Eq. (B.17); n_mu*Fdeg equals the negative-muon susceptibility integral.",
+    "no_production_changes": true,
+    "profile_status": "Caputo plotted n_mu is checked against the independent negative-muon FD integral. The direct Bollig Fig. 3 density comparison is kept separate and must not be inferred from the Fig. 4 degeneracy-parameter agreement alone."
+  },
+  "selected_radii": [
+    {
+      "Bollig_Fig3_nmu_fm3": 0.0004619110481277107,
+      "Bollig_mu_mu_over_T": 1.9116062485801315,
+      "Caputo_FD_nmu_minus_fm3": 0.0004670996762983728,
+      "Caputo_FD_nmu_net_fm3": 0.00046129914006074087,
+      "Caputo_FD_nmu_plus_fm3": 5.800536237631896e-06,
+      "Caputo_FD_over_plotted_minus_1": -0.00520381336910547,
+      "Caputo_T_MeV": 25.3597481030813,
+      "Caputo_mu_mu_MeV": 56.1419141228197,
+      "Caputo_plotted_nmu_fm3": 0.000469543090912233,
+      "Caputo_plotted_over_Bollig_minus_1": 0.016522754360298597,
+      "radius_km": 5.0
+    },
+    {
+      "Bollig_Fig3_nmu_fm3": 0.004609432122935199,
+      "Bollig_mu_mu_over_T": 1.9726583650311458,
+      "Caputo_FD_nmu_minus_fm3": 0.0046607472701261496,
+      "Caputo_FD_nmu_net_fm3": 0.004612610303653642,
+      "Caputo_FD_nmu_plus_fm3": 4.813696647250735e-05,
+      "Caputo_FD_over_plotted_minus_1": -0.004952550592022487,
+      "Caputo_T_MeV": 38.847171184805,
+      "Caputo_mu_mu_MeV": 91.7949514302041,
+      "Caputo_plotted_nmu_fm3": 0.004683944743438266,
+      "Caputo_plotted_over_Bollig_minus_1": 0.016165249539593862,
+      "radius_km": 8.0
+    },
+    {
+      "Bollig_Fig3_nmu_fm3": 0.004379332616516714,
+      "Bollig_mu_mu_over_T": 2.620825371537357,
+      "Caputo_FD_nmu_minus_fm3": 0.0044943021865723855,
+      "Caputo_FD_nmu_net_fm3": 0.0044815482116391985,
+      "Caputo_FD_nmu_plus_fm3": 1.2753974933186998e-05,
+      "Caputo_FD_over_plotted_minus_1": -0.0045531545878295665,
+      "Caputo_T_MeV": 33.9274404196138,
+      "Caputo_mu_mu_MeV": 102.843688854968,
+      "Caputo_plotted_nmu_fm3": 0.004514859037713354,
+      "Caputo_plotted_over_Bollig_minus_1": 0.030946820683475762,
+      "radius_km": 10.0
+    },
+    {
+      "Bollig_Fig3_nmu_fm3": 0.0018289007028618647,
+      "Bollig_mu_mu_over_T": 3.1718098819794065,
+      "Caputo_FD_nmu_minus_fm3": 0.0019436808722777836,
+      "Caputo_FD_nmu_net_fm3": 0.0019420160955863407,
+      "Caputo_FD_nmu_plus_fm3": 1.6647766914428697e-06,
+      "Caputo_FD_over_plotted_minus_1": -0.005461643883741596,
+      "Caputo_T_MeV": 25.9827030828611,
+      "Caputo_mu_mu_MeV": 93.7326796750745,
+      "Caputo_plotted_nmu_fm3": 0.0019543548625595426,
+      "Caputo_plotted_over_Bollig_minus_1": 0.06859539148372962,
+      "radius_km": 12.0
+    },
+    {
+      "Bollig_Fig3_nmu_fm3": 0.0013142638513012513,
+      "Bollig_mu_mu_over_T": 3.332628450697421,
+      "Caputo_FD_nmu_minus_fm3": 0.0014071898422351216,
+      "Caputo_FD_nmu_net_fm3": 0.0014063497800720613,
+      "Caputo_FD_nmu_plus_fm3": 8.400621630602067e-07,
+      "Caputo_FD_over_plotted_minus_1": -0.006049442020161999,
+      "Caputo_T_MeV": 23.881959149249,
+      "Caputo_mu_mu_MeV": 90.2165853124713,
+      "Caputo_plotted_nmu_fm3": 0.001415754366188168,
+      "Caputo_plotted_over_Bollig_minus_1": 0.07722232851982591,
+      "radius_km": 12.5
+    },
+    {
+      "Bollig_Fig3_nmu_fm3": 0.0008716005469454775,
+      "Bollig_mu_mu_over_T": 3.5018826939755536,
+      "Caputo_FD_nmu_minus_fm3": 0.000938592013514592,
+      "Caputo_FD_nmu_net_fm3": 0.0009382063969296678,
+      "Caputo_FD_nmu_plus_fm3": 3.8561658492427735e-07,
+      "Caputo_FD_over_plotted_minus_1": -0.0062399712595258006,
+      "Caputo_T_MeV": 21.7507355228106,
+      "Caputo_mu_mu_MeV": 85.9549690481464,
+      "Caputo_plotted_nmu_fm3": 0.0009444855763661535,
+      "Caputo_plotted_over_Bollig_minus_1": 0.08362205562640068,
+      "radius_km": 13.0
+    },
+    {
+      "Bollig_Fig3_nmu_fm3": 0.0002757505461767699,
+      "Bollig_mu_mu_over_T": 3.8597618667842073,
+      "Caputo_FD_nmu_minus_fm3": 0.0003000673356396525,
+      "Caputo_FD_nmu_net_fm3": 0.0003000135627774571,
+      "Caputo_FD_nmu_plus_fm3": 5.377286219545829e-08,
+      "Caputo_FD_over_plotted_minus_1": -0.007546994958166464,
+      "Caputo_T_MeV": 17.4707507569334,
+      "Caputo_mu_mu_MeV": 75.8184832676935,
+      "Caputo_plotted_nmu_fm3": 0.00030234916325030844,
+      "Caputo_plotted_over_Bollig_minus_1": 0.09645898237491624,
+      "radius_km": 14.0
+    },
+    {
+      "Bollig_Fig3_nmu_fm3": 3.6602326465557387e-05,
+      "Bollig_mu_mu_over_T": 4.2266691988568,
+      "Caputo_FD_nmu_minus_fm3": 4.01355188772531e-05,
+      "Caputo_FD_nmu_net_fm3": 4.013220718485073e-05,
+      "Caputo_FD_nmu_plus_fm3": 3.3116924023708726e-09,
+      "Caputo_FD_over_plotted_minus_1": -0.010701678402537884,
+      "Caputo_T_MeV": 13.2314158304208,
+      "Caputo_mu_mu_MeV": 62.2827180874073,
+      "Caputo_plotted_nmu_fm3": 4.056968257304285e-05,
+      "Caputo_plotted_over_Bollig_minus_1": 0.10839081803225614,
+      "radius_km": 15.0
+    }
+  ],
+  "source": {
+    "Bollig": "arXiv:2005.07141v7, Fig. 3 and Fig. 4",
+    "Bollig_pdf_sha256": "8267f8b1de184163308728c44000425ce58085c1d5bd799d0cbc1e4e8d740d61",
+    "Caputo": "arXiv:2109.03244v3, Fig. 1",
+    "Caputo_density_source_sha256": "48f0332c00819390c611dc50f1dab658fd88c88538f3c8c63314e8e60a49a4ca",
+    "Caputo_profile_sha256": "6c47d0712d266848d0cb2315c8a9b43cf13d0b39b6986d4239dd3f22cb9ba0bc",
+    "n0_fm3": 0.181,
+    "vector_path_indices": {
+      "Fig3_SFHo18_8": 33,
+      "Fig4_SFHo18_8": 193
+    }
+  }
+}
