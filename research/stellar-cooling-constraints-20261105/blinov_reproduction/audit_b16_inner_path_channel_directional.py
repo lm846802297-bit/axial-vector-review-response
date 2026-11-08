@@ -608,6 +608,11 @@ def run_audit(
             "regions": regions,
         })
 
+    angular_convergence = _angular_order_convergence(
+        source, radii, radial_grid, reduced, mass, energies, couplings,
+        selected_indices, radius_km, angular_order, columns
+    )
+
     return {
         "title": "B.2 inner-path opacity: channel x radial shell x emission direction",
         "mass_MeV": float(mass),
@@ -623,6 +628,7 @@ def run_audit(
             "radial_order": radial_order,
             "energy_order": energy_order,
             "angular_order": angular_order,
+            "angular_order_scan": sorted(set((max(8, angular_order // 2), angular_order, angular_order * 2))),
             "legacy_path_order": legacy_path_order,
             "direct_path_order": direct_path_order,
             "radius_km": radius_km,
@@ -653,6 +659,7 @@ def run_audit(
             "analytic_total_vs_global_s_quadrature_source_weighted_L1_relative_residual_8_15km": direct_source_weighted_residual,
         },
         "legacy_masked_shell_vs_analytic_radial_integration": legacy_comparison,
+        "angular_order_convergence": angular_convergence,
         "representative_couplings": selected,
     }
 
@@ -694,6 +701,26 @@ def main():
                 },
             }
             for item in result["legacy_masked_shell_vs_analytic_radial_integration"]["convergence_by_path_order"]
+        ],
+        "angular_convergence_strong_8_15km": [
+            {
+                "angular_order": item["angular_order"],
+                "escape_probability": next(
+                    region["source_weighted_escape_probability"]
+                    for coupling in item["representative_couplings"]
+                    if coupling["label"] == "strong_endpoint"
+                    for region in coupling["regions"]
+                    if region["region"] == "dominant_8_15km_emission"
+                ),
+                "relative_difference_vs_64": next(
+                    region["relative_difference_vs_highest_angular_order"]
+                    for coupling in item["representative_couplings"]
+                    if coupling["label"] == "strong_endpoint"
+                    for region in coupling["regions"]
+                    if region["region"] == "dominant_8_15km_emission"
+                ),
+            }
+            for item in result["angular_order_convergence"]["results"]
         ],
         "selected": [
             {
