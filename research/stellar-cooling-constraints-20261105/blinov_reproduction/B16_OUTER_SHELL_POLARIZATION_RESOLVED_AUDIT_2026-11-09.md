@@ -1,6 +1,5 @@
 # B.2 outer-shell polarization-resolved inverse-decay audit
-
-> **Latest extraction refresh:** this B.16 run records profile A SHA-256 `6c47d071...`. The latest regenerated vertex-preserving file is profile B SHA-256 `9fb14e79...`; the active thermodynamic columns differ only at floating-point roundoff (maximum relative change below (3.3\times10^{-14}) in (T), and below (6.4\times10^{-15}) in (mu_\mu); (mu_{\nu_\mu}) and lapse are unchanged). The exact run fingerprint is preserved. See `PROFILE_VERSION_RECONCILIATION_2026-11-09.md`.
+> **Current input fingerprint:** the final B.16 rerun and paired JSON use profile B SHA-256 `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`. The immediately preceding vertex-preserving snapshot A (`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`) gave the same active thermodynamic inputs to floating-point precision; see `PROFILE_VERSION_RECONCILIATION_2026-11-09.md`.
 
 
 Date: 2026-11-09  
@@ -11,7 +10,7 @@ Status: **completed as a separate transport diagnostic.** The literal scalar B.2
 This audit isolates only the 22--25 km path segment. The source is held fixed to the B.1 production distribution from 8--15 km; all opacity inside 22 km is switched off in the reported escape factors.
 
 - \(m_V=10\) MeV.
-- Current profile SHA-256: \`6c47d0712d266848d0cb2315c8a9b43cf13d0b39b6986d4239dd3f22cb9ba0bc\`.
+- Current profile SHA-256: \`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c\`.
 - Full profile: 1687 retained rows; 222 profile nodes in 22--25 km.
 - Source radial quadrature: 40 points.
 - Energy grid: 143 points, including the exact direct-check energies.
