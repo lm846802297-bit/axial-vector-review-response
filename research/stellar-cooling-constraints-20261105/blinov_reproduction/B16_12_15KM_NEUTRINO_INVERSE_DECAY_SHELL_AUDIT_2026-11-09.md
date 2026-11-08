@@ -24,7 +24,7 @@ At \(\omega=15\) MeV, the reduced absorption rates per \(g^2\), in the internal 
 
 | Radius | \(\nu_\mu\) inverse decay | \(\nu_\tau\) inverse decay | Compton | Compton fraction |
 |---:|---:|---:|---:|---:|
-| 12 km | 0.037625 | 0.037877 | 0.013867 | 15.51% |
+| 12 km | 0.037625 | 0.037877 | 0.013867 | 15.52% |
 | 15 km | 0.072196 | 0.072196 | \(3.183\times10^{-4}\) | 0.220% |
 
 The neutrino inverse-decay opacity increases outward across this shell. Compton absorption falls rapidly and is already negligible at the outer edge. Thus the 12--15 km shell is not accurately represented by a single, radius-independent Compton/neutrino ratio.
