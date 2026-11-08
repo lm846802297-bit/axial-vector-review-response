@@ -30,10 +30,10 @@ The direct comparisons are:
 
 | Quantity | Interval | Mean absolute relative difference | Maximum absolute relative difference |
 |---|---:|---:|---:|
-| Caputo \(T(r)\) vs. Bollig Fig. 1 | 5--15 km | 0.00353% | 0.00989% |
-| Caputo \(T(r)\) vs. Bollig Fig. 1 | 12--15 km | 0.00392% | 0.00980% |
-| Caputo \(\mu_\mu/T\) vs. Bollig Fig. 4 | 5--15 km | 0.00496% | 0.01086% |
-| Caputo \(\mu_\mu/T\) vs. Bollig Fig. 4 | 12--15 km | 0.00491% | 0.01055% |
+| Caputo \(T(r)\) vs. Bollig Fig. 1 | 5--15 km | 0.00266% | 0.00990% |
+| Caputo \(T(r)\) vs. Bollig Fig. 1 | 12--15 km | 0.00331% | 0.00980% |
+| Caputo \(\mu_\mu/T\) vs. Bollig Fig. 4 | 5--15 km | 0.00646% | 0.02127% |
+| Caputo \(\mu_\mu/T\) vs. Bollig Fig. 4 | 12--15 km | 0.00518% | 0.01434% |
 
 These comparisons independently support the use of the Caputo \(T(r)\) and \(\mu_\mu(r)\) reconstruction as the working thermodynamic baseline for this SFHo-18.8, 1 s benchmark.
 
@@ -99,8 +99,8 @@ The \(\mu^+\) density is small in the relevant shell. At 12 km it is \(1.66\time
 
 The independent comparisons yield a specific tension:
 
-1. Caputo \(T(r)\) agrees with Bollig Fig. 1 to below \(0.01\%\).
-2. Caputo \(\mu_\mu/T\) agrees with Bollig Fig. 4 to below \(0.011\%\).
+1. Caputo \(T(r)\) agrees with Bollig Fig. 1 to below \(0.01\%\) on the dense thermodynamic grid.
+2. Caputo \(\mu_\mu/T\) agrees with Bollig Fig. 4 to below \(0.022\%\) on the dense thermodynamic grid.
 3. Caputo's plotted \(n_\mu\) agrees with the Fermi density implied by its own \(T,\mu_\mu\) to below \(0.54\%\).
 4. Nevertheless, Bollig Fig. 3 gives a density about 5% lower on average over 5--15 km and about 9% lower on average over 12--15 km.
 
