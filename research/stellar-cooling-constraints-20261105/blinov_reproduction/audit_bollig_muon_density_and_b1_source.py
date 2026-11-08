@@ -232,6 +232,7 @@ def run(profile_path=DEFAULT_PROFILE, caputo_n_path=DEFAULT_CAPUTO_N,
     # not only on the much sparser n_mu plotting vertices.
     profile_mask = (profile_r >= 5.0) & (profile_r <= 15.0)
     profile_r_common = profile_r[profile_mask]
+    profile_shell = (profile_r_common >= 12.0) & (profile_r_common <= 15.0)
     profile_t_common = temp[profile_mask]
     profile_mu_common = mu[profile_mask]
     eta_bollig_profile = np.asarray([bollig_eta(float(r)) for r in profile_r_common])
@@ -368,9 +369,9 @@ def run(profile_path=DEFAULT_PROFILE, caputo_n_path=DEFAULT_CAPUTO_N,
             "Caputo_FD_mu_minus_vs_Bollig_Fig3_5_15km": rel_summary(fermi_minus_vs_bollig),
             "Caputo_FD_mu_minus_vs_Bollig_Fig3_12_15km": rel_summary(fermi_minus_vs_bollig[shell]),
             "Caputo_mu_over_T_vs_Bollig_Fig4_5_15km": rel_summary(eta_caputo_vs_bollig),
-            "Caputo_mu_over_T_vs_Bollig_Fig4_12_15km": rel_summary(eta_caputo_vs_bollig[shell]),
+            "Caputo_mu_over_T_vs_Bollig_Fig4_12_15km": rel_summary(eta_caputo_vs_bollig[profile_shell]),
             "Caputo_T_vs_Bollig_Fig1_5_15km": rel_summary(t_caputo_vs_bollig),
-            "Caputo_T_vs_Bollig_Fig1_12_15km": rel_summary(t_caputo_vs_bollig[shell]),
+            "Caputo_T_vs_Bollig_Fig1_12_15km": rel_summary(t_caputo_vs_bollig[profile_shell]),
             "Bollig_Fig1_T_vs_T_implied_from_Fig3_density_and_Fig4_eta_12_15km": rel_summary(
                 np.asarray([
                     (x["T_implied_from_Bollig_nmu_MeV"] / bollig_temperature(x["radius_km"]) - 1.0)
