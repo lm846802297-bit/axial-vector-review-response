@@ -174,10 +174,13 @@ def evaluate_profile(profile_path: Path):
         shell_tau_by_channel[name] = float(np.sum(base_weights * tau) / norm)
 
     local_samples = []
+    _, raw_profile = read_profile(profile_path)
+    raw_radii = raw_profile["r_km"]
     for radius in (8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0):
         sample = {
-            key: np.asarray([np.interp(radius, radial_grid, profile[key])])
-            for key in ("T", "mu_mu", "mu_numu")
+            "T": np.asarray([np.interp(radius, raw_radii, raw_profile["T_MeV"])]),
+            "mu_mu": np.asarray([np.interp(radius, raw_radii, raw_profile["mu_mu_MeV"])]),
+            "mu_numu": np.asarray([np.interp(radius, raw_radii, raw_profile["mu_numu_MeV"])]),
         }
         sample_energies = np.asarray([12.0, 20.0, 50.0])
         local = local_rates(
