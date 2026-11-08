@@ -1,3 +1,5 @@
+> **Follow-up resolution (2026-11-09):** The apparent Caputo--Ferreira \\(\\mu_\\mu\\) ambiguity discussed below is resolved for the present SFHo-18.8, 1 s benchmark by a direct vector-path digitization of Bollig et al. Fig. 4. The Caputo \\(\\mu_\\mu/T\\) curve agrees with the original Bollig curve to a maximum relative difference of \\(2.80\\times10^{-4}\\) over 12--15 km, while the Ferreira digitization differs by up to 17.18%. Retain Caputo as the baseline; Ferreira substitutions are off-baseline sensitivity diagnostics. See [Bollig original Fig. 4 cross-check](BOLLIG_ORIGINAL_FIG4_MUON_DEGENERACY_CROSSCHECK_2026-11-09.md). The historical sections below preserve the sequence of the audit and should be read with this addendum.
+
 # SFHo-18.8 profile-input audit in the sensitive 12--15 km interval
 
 Date: 2026-11-09  
