@@ -229,6 +229,157 @@ def curve_metrics(calculated, reference):
     }
 
 
+
+def radial_shell_opacity_decomposition(
+    source_radii, radial_grid, temperature, rates, mass, energies,
+    radius_km, source, columns_fixed, angle_weights,
+    angular_order=16, path_order=32,
+):
+    """Source-weighted optical-depth decomposition by path-radius shell.
+
+    The source weighting is the full Eq. (B.1) optically thin integrand.
+    Optical-depth contributions use the fixed-omega Eq. (B.2) baseline.
+    """
+    source_radii = np.asarray(source_radii, float)
+    radial_grid = np.asarray(radial_grid, float)
+    temperature = np.asarray(temperature, float)
+    energies = np.asarray(energies, float)
+    source = np.asarray(source, float)
+
+    x = energies[None, :]/temperature[:, None]
+    detailed_balance_factor = np.expm1(np.minimum(x, 700.0))
+    channel_keys = {
+        "neutrino": "neutrino_production",
+        "compton": "compton_production",
+        "dimuon": "dimuon_production",
+    }
+    reduced_channels = {
+        name: detailed_balance_factor*np.asarray(rates[key], float)
+        for name, key in channel_keys.items()
+    }
+    reduced_sum = sum(reduced_channels.values())
+    reference_reduced = np.asarray(rates["reduced_absorption"], float)
+    scale = np.maximum(np.abs(reference_reduced), 1.0e-300)
+    detailed_balance_residual = float(
+        np.max(np.abs(reduced_sum-reference_reduced)/scale)
+    )
+
+    shell_edges = [
+        0.0, 5.0, 8.0, 10.0, 12.0, 15.0, 18.0, 20.0, 22.0, radius_km
+    ]
+    shell_labels = [
+        f"{lo:g}-{hi:g} km"
+        for lo, hi in zip(shell_edges[:-1], shell_edges[1:])
+    ]
+    weighted_tau = {
+        name: np.zeros(len(shell_labels), dtype=float)
+        for name in channel_keys
+    }
+
+    angles, _ = leggauss(angular_order)
+    path_x, path_w = leggauss(path_order)
+    path_w = path_w/2.0
+    r = source_radii[:, None]
+
+    for ia, cosine in enumerate(angles):
+        smax = -cosine*r + np.sqrt(
+            radius_km**2-r**2+r**2*cosine**2
+        )
+        s = smax*(1.0+path_x[None, :])/2.0
+        position = np.sqrt(np.maximum(
+            r**2+s**2+2.0*r*s*cosine, 0.0
+        ))
+        path_weights = smax*path_w[None, :]
+        shell_masks = [
+            (position >= lo) &
+            (position < hi if hi < radius_km else position <= hi)
+            for lo, hi in zip(shell_edges[:-1], shell_edges[1:])
+        ]
+
+        for ie, omega in enumerate(energies):
+            velocity = float(np.sqrt(max(1.0-(mass/omega)**2, 0.0)))
+            if velocity <= 0.0:
+                continue
+            source_energy_weight = source[:, ie]
+            for name, reduced_grid in reduced_channels.items():
+                rate_path = np.interp(
+                    position.ravel(), radial_grid, reduced_grid[:, ie]
+                ).reshape(position.shape)
+                for ish, mask in enumerate(shell_masks):
+                    tau_shell = (
+                        np.sum(path_weights*rate_path*mask, axis=1)
+                        * KM_TO_MEV_INV/velocity
+                    )
+                    weighted_tau[name][ish] += (
+                        angle_weights[ia]
+                        * np.sum(source_energy_weight*tau_shell)
+                    )
+
+    source_norm = float(np.sum(source))
+    mean_tau_by_channel_shell = {
+        name: values/source_norm
+        for name, values in weighted_tau.items()
+    }
+    total_by_shell = sum(mean_tau_by_channel_shell.values())
+    mean_tau_total = float(np.sum(total_by_shell))
+
+    avg_tau_direct = np.einsum("rae,a->re", columns_fixed, angle_weights)
+    mean_tau_direct = float(np.sum(source*avg_tau_direct)/source_norm)
+    sum_rule_residual = (
+        mean_tau_total/mean_tau_direct-1.0 if mean_tau_direct > 0.0 else 0.0
+    )
+
+    channel_totals = {
+        name: float(np.sum(values))
+        for name, values in mean_tau_by_channel_shell.items()
+    }
+    channel_fractions = {
+        name: value/mean_tau_total if mean_tau_total > 0.0 else 0.0
+        for name, value in channel_totals.items()
+    }
+    shell_fractions = {
+        label: float(total_by_shell[i]/mean_tau_total)
+        if mean_tau_total > 0.0 else 0.0
+        for i, label in enumerate(shell_labels)
+    }
+    outer_indices = [
+        i for i, (lo, hi) in enumerate(
+            zip(shell_edges[:-1], shell_edges[1:])
+        ) if lo >= 15.0
+    ]
+    outer_fraction = (
+        float(np.sum(total_by_shell[outer_indices])/mean_tau_total)
+        if mean_tau_total > 0.0 else 0.0
+    )
+
+    return {
+        "weighting": (
+            "Eq. (B.1) optically thin source weight over emission radius and "
+            "energy, averaged uniformly over the full Eq. (B.2) direction range"
+        ),
+        "path_absorption_shells": shell_labels,
+        "source_weighted_mean_tau_by_channel_and_shell": {
+            name: {
+                label: float(values[i])
+                for i, label in enumerate(shell_labels)
+            }
+            for name, values in mean_tau_by_channel_shell.items()
+        },
+        "source_weighted_mean_tau_by_channel": channel_totals,
+        "channel_fraction_of_mean_tau": channel_fractions,
+        "source_weighted_mean_tau_by_shell": {
+            label: float(total_by_shell[i])
+            for i, label in enumerate(shell_labels)
+        },
+        "fraction_of_mean_tau_by_shell": shell_fractions,
+        "fraction_of_mean_tau_accumulated_at_r_ge_15km": outer_fraction,
+        "source_weighted_mean_total_tau_from_shell_sum": mean_tau_total,
+        "source_weighted_mean_total_tau_from_direct_chord_columns": mean_tau_direct,
+        "shell_sum_rule_relative_residual": float(sum_rule_residual),
+        "B19_B4_reduced_absorption_channel_sum_relative_residual": detailed_balance_residual,
+    }
+
+
 def run_mass(
     mass, profile_path, fig7_path,
     radial_order=40, energy_order=100, angular_order=16, path_order=32,
@@ -275,6 +426,11 @@ def run_mass(
     production = rates["production"][source_index]
     source, source_measure = eq_b1_source_measure(
         r, rw, energies, lapse_source, mass, production
+    )
+    path_absorption_decomposition = radial_shell_opacity_decomposition(
+        r, radial_grid, p["T"], rates, mass, energies,
+        radius_km, source, columns_fixed, angle_weights,
+        angular_order, path_order
     )
 
     channel_sources = {}
@@ -392,6 +548,7 @@ def run_mass(
         "eq_b1_source_measure": source_measure,
         "source_radial_distribution": radial_summary,
         "source_channel_fractions": channel_source_summary,
+        "path_absorption_radial_decomposition": path_absorption_decomposition,
         "eq_b2_fixed_omega_baseline": {
             "prescription": (
                 "Gamma_abs_star(r'(s), omega_source)/v_V(omega_source), "
