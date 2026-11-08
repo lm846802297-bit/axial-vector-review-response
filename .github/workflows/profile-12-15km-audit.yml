@@ -8,6 +8,7 @@ on:
       - 'research/stellar-cooling-constraints-20261105/extract_profile.py'
       - 'research/stellar-cooling-constraints-20261105/audit_profile_12_15km.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_profile_transport_sensitivity.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_profile_radial_convergence.py'
       - 'research/stellar-cooling-constraints-20261105/test_profile_12_15km.py'
       - 'research/stellar-cooling-constraints-20261105/data/**'
       - '.github/workflows/profile-12-15km-audit.yml'
@@ -64,6 +65,12 @@ jobs:
             --profile research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv \
             --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/profile_transport_sensitivity_12_15km_2026-11-09.json
 
+      - name: Check radial-quadrature convergence of the 8--15 km profile sensitivity
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_profile_radial_convergence.py \
+            --profile research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/profile_radial_convergence_8_15km_2026-11-09.json
+
       - name: Verify production axial outputs remain unchanged
         run: |
           git diff --exit-code -- \
@@ -91,11 +98,12 @@ jobs:
             research/stellar-cooling-constraints-20261105/data/profile_provenance.json \
             research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv \
             research/stellar-cooling-constraints-20261105/data/profile_12_15km_audit_2026-11-09.json \
-            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/profile_transport_sensitivity_12_15km_2026-11-09.json
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/profile_transport_sensitivity_12_15km_2026-11-09.json \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/profile_radial_convergence_8_15km_2026-11-09.json
           if git diff --cached --quiet; then
             echo "Profile inputs and audit output are already current."
           else
-            git commit -m "Archive 12--15 km SFHo profile input audit"
+            git commit -m "Archive shell-resolved SFHo profile sensitivity and radial convergence"
             for attempt in 1 2 3 4 5; do
               git fetch origin "${GITHUB_REF_NAME}"
               git rebase "origin/${GITHUB_REF_NAME}"
