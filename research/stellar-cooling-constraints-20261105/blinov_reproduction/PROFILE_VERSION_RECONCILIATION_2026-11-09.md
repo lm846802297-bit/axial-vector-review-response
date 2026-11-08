@@ -1,7 +1,7 @@
 # Profile-version reconciliation for the B.1/B.2 vector benchmark
 
 Date: 2026-11-09  
-Status: **the vertex-preserving profile is the current working input. The earlier 501-node and current 1687-row profiles give numerically indistinguishable integrated B.1/B.2 escape and shell-sensitivity results at the 10 MeV benchmark, despite visible local differences near retained support boundaries. The old outputs remain historical records and are not mixed with current-profile outputs.**
+Status: **the latest extraction is the current working input. The earlier 501-node uniform profile and the vertex-preserving profile give numerically indistinguishable integrated B.1/B.2 results at the 10 MeV benchmark, despite visible local differences near retained support boundaries. A subsequent vertex-preserving re-extraction changed only last-digit floating-point serialization in the active thermodynamic columns; B.16 outputs from the immediately preceding fingerprint remain physically equivalent and retain their actual run SHA.**
 
 ## 1. The two profile versions
 
@@ -51,6 +51,26 @@ The uniform grid smears the branch endpoint into the adjacent 0.05 km cell, wher
 
 In 22--25 km, the largest relative \(\mu_\mu\) difference occurs where the old value is small; the maximum absolute difference is 0.663 MeV. The current outer-profile audit separately checks the effect of this reconstructed profile on the B.2 path columns.
 
+
+### 2.1 Latest extraction fingerprint refresh
+
+After the B.16 full-path and Fig. 7 workflows ran on profile A, the profile-extraction workflow regenerated the same vertex-preserving grid as profile B. The CSV SHA changed, but the active B.1/B.2 thermodynamic columns did not undergo a physical update:
+
+| File/column | Changed rows | Maximum absolute difference |
+|---|---:|---:|
+| SFHo \(T(r)\) | 11 | \(1.05\times10^{-13}\) MeV |
+| SFHo \(\mu_\mu(r)\) | 8 | \(1.22\times10^{-13}\) MeV |
+| SFHo \(\mu_{\nu_\mu}(r)\) | 0 | exactly unchanged |
+| SFHo lapse | 0 | exactly unchanged |
+| Caputo \(T(r)\) vertices | 4 | \(1.78\times10^{-15}\) MeV |
+| Caputo \(n_\mu/n_0\) vertices | 1 | \(6.94\times10^{-18}\) |
+
+The SFHo radial coordinates and node count are unchanged. The auxiliary Ferreira comparison columns contain no new finite-value changes; the file-level hash also responds to their serialized representation. Thus profile A and profile B are the same physical reconstructed background to floating-point precision in the fields used by the B.1/B.2 calculations.
+
+The B.16 full-path, fixed-\(\omega\) Fig. 7, and outer-shell mode-resolved outputs retain profile A's exact SHA because that is what those runs actually used. The current B.13 exact-Compton output uses profile B's SHA. These results are physically consistent at the precision of the active inputs, but their distinct file fingerprints are preserved rather than rewritten.
+
+The extraction script now writes \`profile_csv_sha256\` into \`profile_provenance.json\`, and the data README records the latest fingerprint. This makes future extraction refreshes auditable.
+
 ## 3. Full-path B.2 comparison at \(m_V=10\) MeV
 
 The complete channel-by-shell-by-direction audit was rerun with the current vertex-preserving profile. The comparison with the earlier 501-node output is:
@@ -99,7 +119,7 @@ The historical outputs are retained for auditability. They are not deleted or si
 
 ## 5. Decision
 
-1. Use the vertex-preserving 1687-row profile as the current reconstructed background input.
+1. Use the latest vertex-preserving 1687-row profile B as the current reconstructed background input. Preserve profile A's B.16 outputs with their original SHA and interpret them as the same active physical background to floating-point precision.
 2. Keep the 501-row results as a historical comparison.
 3. Do not remove the near-step support-boundary nodes or smooth the \(\mu_{\nu_\mu}\) cutoff.
 4. Do not rescale \(T\), chemical potentials, density, B.1 source, B.2 opacity, or luminosity.
