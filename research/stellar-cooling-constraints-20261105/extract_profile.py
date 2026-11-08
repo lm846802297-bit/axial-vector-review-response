@@ -101,7 +101,22 @@ def main():
     out.mkdir(exist_ok=True)
     for key, curve in curves.items():
         np.savetxt(out/(key+"_vertices.csv"),curve,delimiter=",",header="r_km,value",comments="",fmt="%.10g")
-    r=np.linspace(0,25,501)
+    base_r=np.linspace(0,25,501)
+    # Preserve exact source-curve endpoints. In particular, the negative
+    # muon-neutrino branch ends at 13.1099 km and is set to zero immediately
+    # outside its plotted range. A 0.05 km-only grid would smear that cutoff
+    # over the whole 13.10--13.15 km cell when downstream code uses np.interp.
+    profile_knots = []
+    for key in (
+        "T_caputo", "mu_mu_caputo", "minus_mu_numu_caputo",
+        "plus_mu_numu_caputo", "T_ferreira", "mu_mu_ferreira",
+        "lapse_ferreira",
+    ):
+        profile_knots.extend(curves[key][0, 0:1])
+        profile_knots.extend(curves[key][-1, 0:1])
+    profile_knots = np.asarray(profile_knots, dtype=float)
+    profile_knots = profile_knots[(profile_knots >= 0.0) & (profile_knots <= 25.0)]
+    r=np.unique(np.r_[base_r, profile_knots])
     temp=interp(curves["T_caputo"],r)
     mu=interp(curves["mu_mu_caputo"],r,right=0.)
     numu=np.zeros_like(r)
@@ -146,12 +161,18 @@ def main():
         "curve_ranges":{key:[float(curve[0,0]),float(curve[-1,0])] for key,curve in curves.items()},
         "temperature_overlap_max_relative_difference":float(np.max(abs(t1-t2)/t1)),
         "lapse_exterior_continuation_schwarzschild_radius_km":float(schwarzschild_radius),
+        "profile_grid": {
+            "base_uniform_points": 501,
+            "base_spacing_km": 0.05,
+            "exact_source_knots_km": sorted(float(x) for x in profile_knots),
+        },
         "assumptions":[
             "Caputo top-panel x axis is [0.1,20] km; bottom-panel x axis [0,20] km. Curves encode public PDF vertices beyond clipping frame.",
             "T used through25km from encoded public Caputo path, including off-frame vertices. No temperature tail fitted.",
             "mu_mu set0 beyond final encoded point where plotted value drops below1MeV; no effect expected on muon density in cold tail.",
             "mu_numu set0 in intervals not represented by the |mu_numu|>=1MeV logarithmic plot; use zero-chemical-potential sensitivity check.",
             "First available core point extended constantly to r=0 (first original plotted point at about0.116km).",
+            "The CSV retains the 501-point 0.05 km base grid and adds exact source-curve endpoints within 0--25 km, including the muon-neutrino branch cutoffs; this prevents np.interp from smearing a plotted branch boundary across a full grid cell.",
             "Lapse uses Ferreira SFHo18.8 orange curve through24km, then matched exterior Schwarzschild form through25km.",
             "Ferreira mu_mu curve disagrees strongly with Caputo despite same profile label. It is retained only as diagnostic, not silently mixed into baseline.",
             "No permission-restricted Garching raw tables were accessed or redistributed.",
