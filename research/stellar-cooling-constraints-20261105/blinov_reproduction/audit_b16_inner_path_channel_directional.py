@@ -267,7 +267,7 @@ def _region_summary(
             if a >= lo - 1.0e-12 and b <= hi + 1.0e-12
         ]
         for ic, channel in enumerate(channel_names):
-            tau = np.sum(columns[ic, selected_shells, :, :, :], axis=1)[:, source_mask, :, :]
+            tau = np.sum(columns[ic, selected_shells, :, :, :], axis=0)[source_mask, :, :]
             group_rows.append({
                 "path_group": group_name,
                 "channel": channel,
