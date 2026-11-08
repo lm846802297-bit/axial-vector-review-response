@@ -65,9 +65,3 @@ jobs:
             research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.pdf \
             research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.png
 
-      - name: Upload machine-readable local audit
-        uses: actions/upload-artifact@v4
-        with:
-          name: b16-local-absorption-audit-10mev
-          path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_local_absorption_10mev_2026-11-09.json
-          if-no-files-found: error
