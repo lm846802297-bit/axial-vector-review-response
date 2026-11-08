@@ -25,9 +25,9 @@ The Garching archive access record remains unresolved: the public archive lists 
 
 ### 1.2 Interpolation comparison
 
-The 22--25 km profile is archived at 0.05 km spacing (61 nodes). The existing composite opacity grid contains only 9 nodes in this shell, with maximum spacing 0.680 km.
+The uniform 0.05 km base grid contributes 61 nodes in this shell, but the complete vertex-preserving CSV has 222 nodes in 22--25 km (61 base nodes plus 161 retained PDF/support nodes). The minimum spacing is 6.78e-7 km, reflecting intentional near-step support-boundary knots; the maximum spacing remains 0.05 km. The existing composite opacity grid contains only 9 nodes in this shell, with maximum spacing 0.680 km.
 
-Comparing interpolation from the composite grid against direct interpolation of the archived 0.05 km figure reconstruction gives:
+Comparing interpolation from the composite grid against direct interpolation of the full vertex-preserving public-figure reconstruction gives:
 
 | Field | Maximum absolute error | Maximum relative error where meaningful |
 |---|---:|---:|
