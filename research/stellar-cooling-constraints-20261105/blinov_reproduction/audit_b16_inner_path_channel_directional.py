@@ -156,6 +156,44 @@ def segmented_radial_columns(
     return columns, angles, angle_weights
 
 
+def direction_binned_radial_columns(
+    source_radii, radial_grid, reduced_by_channel, mass, energies,
+    radius_km=25.0, per_bin_order=32, shell_edges=SHELL_EDGES_KM,
+):
+    """Integrate each equal-width direction bin with its own Gauss rule.
+
+    This avoids masking global Gauss-Legendre nodes with discontinuous bin
+    indicators. The returned weights already include the 1/2 angular-average
+    factor, so all four bins together sum to unity.
+    """
+    nodes, weights = np.polynomial.legendre.leggauss(per_bin_order)
+    angle_blocks = []
+    weight_blocks = []
+    bin_blocks = []
+    for ib, (lo, hi) in enumerate(ANGLE_BINS):
+        half = 0.5 * (hi - lo)
+        midpoint = 0.5 * (hi + lo)
+        angle_blocks.append(midpoint + half * nodes)
+        weight_blocks.append(0.5 * half * weights)
+        bin_blocks.append(np.full(per_bin_order, ib, dtype=int))
+    angles = np.concatenate(angle_blocks)
+    angle_weights = np.concatenate(weight_blocks)
+    bin_ids = np.concatenate(bin_blocks)
+
+    names = tuple(reduced_by_channel)
+    columns = np.zeros((
+        len(names), len(shell_edges) - 1, len(source_radii),
+        len(angles), len(energies)
+    ))
+    for ia, cosine in enumerate(angles):
+        for ir, r0 in enumerate(source_radii):
+            columns[:, :, ir, ia, :] = analytic_ray_shell_columns(
+                r0, cosine, radial_grid, reduced_by_channel,
+                mass, energies, radius_km, shell_edges
+            )
+    return columns, angles, angle_weights, bin_ids
+
+
 def reduced_absorption_channels(mass, energies, profile, rates):
     """Build B.4 reduced opacity separately for nu_mu, nu_tau, Compton, dimuon."""
     omega = np.asarray(energies, float)[None, :]
