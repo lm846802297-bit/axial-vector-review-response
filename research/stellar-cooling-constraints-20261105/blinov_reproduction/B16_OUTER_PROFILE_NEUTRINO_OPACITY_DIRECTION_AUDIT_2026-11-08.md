@@ -1,5 +1,8 @@
 # B.16 22--25 km profile, neutrino inverse-decay, and direction-resolved escape audit
 
+> **Historical profile version:** the paired numerical output for this report uses the 501-node uniform profile, SHA-256 `08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9`. The current working input is the 1687-row vertex-preserving profile, SHA-256 `6c47d0712d266848d0cb2315c8a9b43cf13d0b39b6986d4239dd3f22cb9ba0bc`. The current-profile rerun and quantitative old/new comparison are documented in `PROFILE_VERSION_RECONCILIATION_2026-11-09.md`; see also `outputs/b16_inner_path_channel_directional_vertex_preserving_10mev_2026-11-09.json`. Keep this report as a historical record and do not combine its numerical output with current-profile results.
+
+
 **Status:** the first three stages of the 2026-11-08 investigation are complete. The independent literature comparison is partially complete; the original raw Garching profile has not been accessed. No axial-vector constraint curve is updated.
 
 **Benchmark:** pure-vector \(m_V=10\) MeV, fixed-\(\omega\) Appendix-B prescription, \(R_{\max}=R_\nu=25\) km, reconstructed SFHo-18.8 profile at \(t_{\rm pb}=1\) s.
