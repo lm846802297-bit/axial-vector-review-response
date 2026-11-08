@@ -11,6 +11,8 @@ on:
       - research/stellar-cooling-constraints-20261105/finite_mixing/thermal_response_scan.py
       - research/stellar-cooling-constraints-20261105/finite_mixing/test_b13_b16_comparison.py
       - research/stellar-cooling-constraints-20261105/finite_mixing/b13_b16_comparison.py
+      - research/stellar-cooling-constraints-20261105/finite_mixing/b13_b16_mass_scan.py
+      - research/stellar-cooling-constraints-20261105/finite_mixing/test_b13_b16_mass_scan.py
       - .github/workflows/moving-muon-thermal-rates.yml
 concurrency:
   group: moving-muon-thermal-response-${{ github.ref }}
@@ -22,7 +24,7 @@ permissions:
 jobs:
   validate-and-scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 45
     steps:
       - name: Check out research head branch
         uses: actions/checkout@v4
@@ -48,11 +50,16 @@ jobs:
         run: |
           python research/stellar-cooling-constraints-20261105/finite_mixing/b13_b16_comparison.py \
             --output research/stellar-cooling-constraints-20261105/finite_mixing/outputs/b13_b16_comparison_2026-11-08.json
+      - name: Run low-mass vector B.13 vs B.14--B.16 scan
+        run: |
+          python research/stellar-cooling-constraints-20261105/finite_mixing/b13_b16_mass_scan.py \
+            --reference-output research/stellar-cooling-constraints-20261105/finite_mixing/outputs/b13_b16_comparison_2026-11-08.json \
+            --output research/stellar-cooling-constraints-20261105/finite_mixing/outputs/b13_b16_low_mass_scan_2026-11-08.json
       - name: Commit reproducible numerical output
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add research/stellar-cooling-constraints-20261105/finite_mixing/outputs/thermal_response_scan.json research/stellar-cooling-constraints-20261105/finite_mixing/outputs/b13_b16_comparison_2026-11-08.json
+          git add research/stellar-cooling-constraints-20261105/finite_mixing/outputs/thermal_response_scan.json research/stellar-cooling-constraints-20261105/finite_mixing/outputs/b13_b16_comparison_2026-11-08.json research/stellar-cooling-constraints-20261105/finite_mixing/outputs/b13_b16_low_mass_scan_2026-11-08.json
           if ! git diff --cached --quiet; then
             git commit -m "Archive moving-muon thermal response scan"
             git push origin HEAD:research/moving-muon-thermal-rates-20261107
