@@ -6,7 +6,7 @@ Status: **local radial comparison completed and numerically converged at the sam
 ## 1. Input and scope
 
 - \(m_V=10\) MeV.
-- Current profile SHA-256: \`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c\`.
+- Current profile SHA-256: `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`.
 - Profile: 1687-row vertex-preserving reconstruction.
 - Radial samples: 8, 10, 12.5, 15, 18.5, 20, and 22 km.
 - Energy samples: 12, 15, 20, 30, 50, and 80 MeV.
@@ -81,11 +81,11 @@ The B.13/B.16 difference is large enough to justify a separate source-weighted i
 
 Machine-readable current-profile output:
 
-\`outputs/b13_exact_compton_opacity_radial_vertex_preserving_10mev_2026-11-09.json\`
+`outputs/b13_exact_compton_opacity_radial_vertex_preserving_10mev_2026-11-09.json`
 
 Related records:
 
-- \`B16_OUTER_SHELL_POLARIZATION_RESOLVED_AUDIT_2026-11-09.md\`
-- \`B16_INNER_PATH_CHANNEL_DIRECTIONAL_AUDIT_VERTEX_PRESERVING_2026-11-09.md\`
-- \`FIG7_VECTOR_BENCHMARK_REEVALUATION_2026-11-09.md\`
-- \`PROFILE_VERSION_RECONCILIATION_2026-11-09.md\`
+- `B16_OUTER_SHELL_POLARIZATION_RESOLVED_AUDIT_2026-11-09.md`
+- `B16_INNER_PATH_CHANNEL_DIRECTIONAL_AUDIT_VERTEX_PRESERVING_2026-11-09.md`
+- `FIG7_VECTOR_BENCHMARK_REEVALUATION_2026-11-09.md`
+- `PROFILE_VERSION_RECONCILIATION_2026-11-09.md`
