@@ -150,7 +150,7 @@ Keep the following distinctions explicit:
 - Caputo source vector audit: audit_caputo_muon_density_vector.py
 - Machine-readable output: outputs/bollig_muon_density_b1_source_audit_2026-11-09.json
 - Caputo vector inventory: outputs/caputo_muon_density_vector_audit_2026-11-09.json
-- Successful B.1/density audit workflow: https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42526157946
+- Successful B.1/density audit workflow: https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42527477573
 - Successful Caputo vector audit workflow: https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42526643916
 
 Both workflows preserve the production rates, transport, and published axial outputs.
