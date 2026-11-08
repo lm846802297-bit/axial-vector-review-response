@@ -22,6 +22,7 @@ The two charge cases are kept distinct:
 2. **\(\mu^-+\mu^+\):** an additional charge-summed thermal-gas calculation.
 
 The second case is an extension, not the Eq. (B.17) reference convention. The older local comparison report used a two-charge susceptibility and is explicitly marked as such in the file **finite_mixing/B13_B14_LOCAL_COMPARISON_2026-11-08.md**.
+The same-grid B.16 source decomposition gives a Compton fraction of 32.005%; the preceding local report's 18.6% global-share estimate is withdrawn because it cannot be traced to the archived B.1 source decomposition. The direct global B.13 integration reported below supersedes any estimate obtained by multiplying local emissivity ratios by a global channel fraction.
 
 ## 2. Fixed inputs and numerical setup
 
