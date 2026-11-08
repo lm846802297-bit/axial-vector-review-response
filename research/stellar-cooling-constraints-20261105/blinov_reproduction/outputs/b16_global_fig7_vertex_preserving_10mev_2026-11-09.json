@@ -10,7 +10,7 @@
       "code_sha256": {
         "audit_script": "1dd2ec0d47b5faf1130c320e5cbbf2f019e08e83c51dac9ef7a4b02e23d1e2a2",
         "fig7_reference": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4",
-        "profile": "6c47d0712d266848d0cb2315c8a9b43cf13d0b39b6986d4239dd3f22cb9ba0bc",
+        "profile": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
         "reference_script": "f81468f4305cf57eb86cc0210abc7afc333d434ae70da307ca64a824e486107c"
       },
       "configuration": {
@@ -297,7 +297,7 @@
       "eq_b2_fixed_omega_baseline": {
         "curve_metrics": {
           "maximum_absolute_relative_difference": 0.9224061933021663,
-          "mean_absolute_relative_difference": 0.15731955830340819,
+          "mean_absolute_relative_difference": 0.1573195583034082,
           "n_points": 25,
           "reference_peak_relative_difference": 0.025687774810936315,
           "relative_differences": [
@@ -320,7 +320,7 @@
             -0.00035147535696578025,
             0.025687774810936315,
             0.06816869963032368,
-            0.1318033075432843,
+            0.1318033075432845,
             0.20211151672723027,
             0.30380201127183093,
             0.43742086212125764,
@@ -437,7 +437,7 @@
             "optically_thin_luminosity_erg_s": 5.9628174154805795e+53,
             "reference_luminosity_erg_s": 5.672638380236869e+53,
             "relative_difference": -0.07278707380388971,
-            "source_weighted_mean_tau": 0.12787947660989374
+            "source_weighted_mean_tau": 0.12787947660989377
           },
           {
             "calculated_luminosity_erg_s": 7.221793870587185e+53,
@@ -503,12 +503,12 @@
             "source_weighted_mean_tau": 1.730272559684923
           },
           {
-            "calculated_luminosity_erg_s": 1.6010499631063457e+54,
-            "escape_fraction": 0.13678043260542097,
+            "calculated_luminosity_erg_s": 1.601049963106346e+54,
+            "escape_fraction": 0.136780432605421,
             "g": 1.6454004004914003e-08,
             "optically_thin_luminosity_erg_s": 1.1705255880605337e+55,
             "reference_luminosity_erg_s": 1.4146008873057794e+54,
-            "relative_difference": 0.1318033075432843,
+            "relative_difference": 0.1318033075432845,
             "source_weighted_mean_tau": 2.510326731974989
           },
           {
@@ -575,7 +575,7 @@
         },
         "baseline_outer_tau_fraction_r_ge_15km": 0.5675733188562986,
         "maximum_absolute_luminosity_shift_vs_baseline": 0.00012858521424341518,
-        "mean_absolute_luminosity_shift_vs_baseline": 4.180974237933288e-05,
+        "mean_absolute_luminosity_shift_vs_baseline": 4.180974237934176e-05,
         "modified_radial_range_km": [
           15.208295532608922,
           25.0
@@ -627,8 +627,8 @@
             "relative_change": 0.0
           },
           "8-10 km": {
-            "baseline_mean_tau": 540169118940920.94,
-            "outer_mu_numu_zero_mean_tau": 540169118940920.94,
+            "baseline_mean_tau": 540169118940921.1,
+            "outer_mu_numu_zero_mean_tau": 540169118940921.1,
             "relative_change": 0.0
           }
         },
@@ -790,9 +790,9 @@
             "relative_difference_vs_fig7_after_variant": 0.06808426527750844
           },
           {
-            "baseline_luminosity_erg_s": 1.6010499631063457e+54,
+            "baseline_luminosity_erg_s": 1.601049963106346e+54,
             "g": 1.6454004004914003e-08,
-            "luminosity_shift_vs_baseline": -8.942415298685003e-05,
+            "luminosity_shift_vs_baseline": -8.942415298707207e-05,
             "outer_mu_numu_zero_luminosity_erg_s": 1.6009067905695053e+54,
             "reference_luminosity_erg_s": 1.4146008873057794e+54,
             "relative_difference_vs_fig7_after_variant": 0.1317020969911593
@@ -868,7 +868,7 @@
           "20-22 km": 0.11574813378224869,
           "22-25 km": 0.1732058626745365,
           "5-8 km": 0.06496633232529653,
-          "8-10 km": 0.10127690354949458
+          "8-10 km": 0.10127690354949459
         },
         "path_absorption_shells": [
           "0-5 km",
@@ -923,7 +923,7 @@
             "20-22 km": 1073250380317346.9,
             "22-25 km": 1606015163393575.5,
             "5-8 km": 439338797109451.44,
-            "8-10 km": 540169118940920.94
+            "8-10 km": 540169118940921.1
           }
         },
         "source_weighted_mean_tau_by_shell": {
@@ -936,7 +936,7 @@
           "20-22 km": 1073250380318266.0,
           "22-25 km": 1606015163393576.2,
           "5-8 km": 602386739186463.8,
-          "8-10 km": 939068922324353.8
+          "8-10 km": 939068922324353.9
         },
         "source_weighted_mean_total_tau_from_direct_chord_columns": 9272291010214640.0,
         "source_weighted_mean_total_tau_from_shell_sum": 9272291010214640.0,
@@ -956,7 +956,7 @@
             -0.08964946723386802,
             -0.08794070033383894,
             -0.09010918916766453,
-            -0.0820079156738216,
+            -0.08200791567382137,
             -0.08946823728478337,
             -0.08117996057034704,
             -0.07886787742763923,
@@ -1040,7 +1040,7 @@
             "reference_luminosity_erg_s": 4.792800789316209e+52,
             "relative_difference": -0.08964946723386802,
             "source_weight_fraction_at_infinite_tau": 3.2444242215757816e-05,
-            "source_weighted_mean_tau_over_escaping_bins": 0.009977471404988994
+            "source_weighted_mean_tau_over_escaping_bins": 0.009977471404988997
           },
           {
             "calculated_luminosity_erg_s": 6.301849122310109e+52,
@@ -1065,13 +1065,13 @@
             "source_weighted_mean_tau_over_escaping_bins": 0.0210016136144574
           },
           {
-            "calculated_luminosity_erg_s": 1.3055763524226744e+53,
-            "escape_fraction": 0.9700968818077293,
+            "calculated_luminosity_erg_s": 1.3055763524226747e+53,
+            "escape_fraction": 0.9700968818077295,
             "g": 1.7643093106416046e-09,
-            "luminosity_shift_vs_fixed_omega": -0.0016250209865473764,
+            "luminosity_shift_vs_fixed_omega": -0.0016250209865472653,
             "optically_thin_luminosity_erg_s": 1.3458205844243052e+53,
             "reference_luminosity_erg_s": 1.4222087256678137e+53,
-            "relative_difference": -0.0820079156738216,
+            "relative_difference": -0.08200791567382137,
             "source_weight_fraction_at_infinite_tau": 3.2444242215757816e-05,
             "source_weighted_mean_tau_over_escaping_bins": 0.030469765089481723
           },
@@ -1098,10 +1098,10 @@
             "source_weighted_mean_tau_over_escaping_bins": 0.06413591253317044
           },
           {
-            "calculated_luminosity_erg_s": 3.7494780571306034e+53,
+            "calculated_luminosity_erg_s": 3.749478057130604e+53,
             "escape_fraction": 0.9122944557737656,
             "g": 3.0831810858922337e-09,
-            "luminosity_shift_vs_fixed_omega": -0.00481033843979739,
+            "luminosity_shift_vs_fixed_omega": -0.004810338439797279,
             "optically_thin_luminosity_erg_s": 4.109942829752781e+53,
             "reference_luminosity_erg_s": 4.070510587188928e+53,
             "relative_difference": -0.07886787742763923,
@@ -1200,7 +1200,7 @@
             "calculated_luminosity_erg_s": 1.4511975380248563e+54,
             "escape_fraction": 0.12397828401422419,
             "g": 1.6454004004914003e-08,
-            "luminosity_shift_vs_fixed_omega": -0.09359634523256644,
+            "luminosity_shift_vs_fixed_omega": -0.09359634523256666,
             "optically_thin_luminosity_erg_s": 1.1705255880605337e+55,
             "reference_luminosity_erg_s": 1.4146008873057794e+54,
             "relative_difference": 0.02587065443510239,
@@ -1268,10 +1268,10 @@
       "profile": {
         "identity": "reconstructed public-figure SFHo-18.8, t_pb=1 s profile; not original Garching raw table",
         "path": "/home/runner/work/axial-vector-review-response/axial-vector-review-response/research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv",
-        "sha256": "6c47d0712d266848d0cb2315c8a9b43cf13d0b39b6986d4239dd3f22cb9ba0bc"
+        "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
       },
       "reference_axis_conversion": "The digitized Fig. 7 abscissa is alpha_V; the source extraction converts it to g=sqrt(4*pi*alpha_V). Rates and opacity are normalized per g^2 and the scan uses this g.",
-      "run_commit_sha": "a1146b8f2cb3f61efa1fbcb75d87eb228009d4f6",
+      "run_commit_sha": "275e16732027e072db0cb2ee0588d6c34bf434ef",
       "source_channel_fractions": {
         "compton": {
           "fraction": 0.32004993699899165,
@@ -1304,7 +1304,7 @@
       }
     }
   ],
-  "run_commit_sha": "a1146b8f2cb3f61efa1fbcb75d87eb228009d4f6",
+  "run_commit_sha": "275e16732027e072db0cb2ee0588d6c34bf434ef",
   "scope": [
     "Pure-vector B.14--B.16 literature benchmark only.",
     "The baseline is the literal fixed-omega Eq. (B.2) prescription.",
