@@ -9,6 +9,8 @@ on:
       - research/stellar-cooling-constraints-20261105/finite_mixing/thermal_dimuon.py
       - research/stellar-cooling-constraints-20261105/finite_mixing/test_thermal_rates.py
       - research/stellar-cooling-constraints-20261105/finite_mixing/thermal_response_scan.py
+      - research/stellar-cooling-constraints-20261105/finite_mixing/test_b13_b16_comparison.py
+      - research/stellar-cooling-constraints-20261105/finite_mixing/b13_b16_comparison.py
       - .github/workflows/moving-muon-thermal-rates.yml
   pull_request:
     branches:
@@ -48,11 +50,15 @@ jobs:
         run: |
           python research/stellar-cooling-constraints-20261105/finite_mixing/thermal_response_scan.py \
             --output research/stellar-cooling-constraints-20261105/finite_mixing/outputs/thermal_response_scan.json
+      - name: Run exact B.13 vs B.14--B.16 local comparison
+        run: |
+          python research/stellar-cooling-constraints-20261105/finite_mixing/b13_b16_comparison.py \
+            --output research/stellar-cooling-constraints-20261105/finite_mixing/outputs/b13_b16_comparison_2026-11-08.json
       - name: Commit reproducible numerical output
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add research/stellar-cooling-constraints-20261105/finite_mixing/outputs/thermal_response_scan.json
+          git add research/stellar-cooling-constraints-20261105/finite_mixing/outputs/thermal_response_scan.json research/stellar-cooling-constraints-20261105/finite_mixing/outputs/b13_b16_comparison_2026-11-08.json
           if ! git diff --cached --quiet; then
             git commit -m "Archive moving-muon thermal response scan"
             git push origin HEAD:research/moving-muon-thermal-rates-20261107
