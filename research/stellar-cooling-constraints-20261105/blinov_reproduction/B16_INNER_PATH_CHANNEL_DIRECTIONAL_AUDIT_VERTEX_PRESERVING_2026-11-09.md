@@ -11,8 +11,8 @@ Status: **current-profile rerun completed.** This report supersedes the numerica
 - Coupling points: the weak endpoint, Fig. 7 peak, and strong endpoint from the archived Fig. 7 reference.
 - Source weighting: B.1 source, with the dominant emission region reported separately as 8--15 km.
 - Propagation: fixed \(\omega\) along each ray, following the printed B.2 prescription.
-- Current reconstructed profile: \`data/sfho188_digitized.csv\`.
-- Profile SHA-256: \`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c\`.
+- Current reconstructed profile: `data/sfho188_digitized.csv`.
+- Profile SHA-256: `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`.
 - Profile size: 1687 rows, including the 501-point uniform base grid and retained PDF vertices/support-boundary knots.
 - The 22--25 km shell contains 222 retained profile nodes.
 
@@ -83,7 +83,7 @@ The current profile gives zero Compton contribution to the 22--25 km shell at th
 
 ## 5. Comparison with the 501-node profile
 
-The earlier 501-node output and the current 1687-row vertex-preserving output give nearly identical integrated source-weighted escape probabilities and shell-removal factors. The profile-version comparison, including the local \(\mu_{\nu_\mu}\) cutoff difference, is recorded separately in \`PROFILE_VERSION_RECONCILIATION_2026-11-09.md\`.
+The earlier 501-node output and the current 1687-row vertex-preserving output give nearly identical integrated source-weighted escape probabilities and shell-removal factors. The profile-version comparison, including the local \(\mu_{\nu_\mu}\) cutoff difference, is recorded separately in `PROFILE_VERSION_RECONCILIATION_2026-11-09.md`.
 
 The local cutoff difference is retained; no profile smoothing or empirical opacity adjustment is introduced.
 
@@ -91,13 +91,13 @@ The local cutoff difference is retained; no profile smoothing or empirical opaci
 
 Machine-readable current-profile output:
 
-\`outputs/b16_inner_path_channel_directional_vertex_preserving_10mev_2026-11-09.json\`
+`outputs/b16_inner_path_channel_directional_vertex_preserving_10mev_2026-11-09.json`
 
 Related audits:
 
-- \`B16_OUTER_INPUT_AND_INVERSE_DECAY_AUDIT_2026-11-08.md\`
-- \`B16_OUTER_SHELL_POLARIZATION_RESOLVED_AUDIT_2026-11-09.md\`
-- \`PROFILE_VERSION_RECONCILIATION_2026-11-09.md\`
-- \`FIG7_VECTOR_BENCHMARK_REEVALUATION_2026-11-09.md\`
+- `B16_OUTER_INPUT_AND_INVERSE_DECAY_AUDIT_2026-11-08.md`
+- `B16_OUTER_SHELL_POLARIZATION_RESOLVED_AUDIT_2026-11-09.md`
+- `PROFILE_VERSION_RECONCILIATION_2026-11-09.md`
+- `FIG7_VECTOR_BENCHMARK_REEVALUATION_2026-11-09.md`
 
 No axial-vector production curve is regenerated or modified. No empirical rescaling of source, opacity, or luminosity is applied.
