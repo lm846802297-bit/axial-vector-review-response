@@ -87,7 +87,7 @@ def build_variants(profile_path: Path, temp_dir: Path):
     # Guard against accidental multi-parameter changes.
     for label, values in variants.items():
         changed = [name for name in names
-                   if not np.array_equal(values[name], base[name])]
+                   if not np.array_equal(values[name], base[name], equal_nan=True)]
         expected = {
             "baseline": [],
             "A_mu_numu_zero_12_15km": ["mu_numu_MeV"],
