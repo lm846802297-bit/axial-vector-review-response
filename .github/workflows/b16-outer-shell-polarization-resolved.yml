@@ -47,6 +47,19 @@ jobs:
             --mass 10 --nr 40 --ne 100 --angle-order 32 \
             --rate-order 48 --direct-order 512 --energy-offset 1000 \
             --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_outer_shell_polarization_resolved_10mev_2026-11-09.json
+      - name: Verify the latest vertex-preserving profile was used
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path("research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_outer_shell_polarization_resolved_10mev_2026-11-09.json")
+          d = json.loads(p.read_text())
+          expected = "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
+          actual = d["profile"]["sha256"]
+          if actual != expected:
+              raise SystemExit(f"Unexpected profile SHA: {actual}")
+          print(f"Confirmed latest vertex-preserving profile SHA-256: {actual}")
+          PY
       - name: Verify production axial outputs remain unchanged
         run: |
           git diff --exit-code -- \
