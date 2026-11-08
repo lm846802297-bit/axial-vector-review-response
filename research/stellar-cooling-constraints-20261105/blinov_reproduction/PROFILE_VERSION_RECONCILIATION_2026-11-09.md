@@ -9,8 +9,8 @@ The repository contains two distinct generated versions of the reconstructed pub
 
 | Version | SHA-256 | CSV rows | Meaning |
 |---|---|---:|---|
-| Uniform-grid version | \`08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9\` | 501 | 0.05 km uniform base grid |
-| Vertex-preserving version | \`6c47d0712d266848d0cb2315c8a9b43cf13d0b39b6986d4239dd3f22cb9ba0bc\` | 1687 | Uniform base grid plus retained PDF vertices and support-boundary knots |
+| Uniform-grid version | `08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9` | 501 | 0.05 km uniform base grid |
+| Vertex-preserving version | `6c47d0712d266848d0cb2315c8a9b43cf13d0b39b6986d4239dd3f22cb9ba0bc` | 1687 | Uniform base grid plus retained PDF vertices and support-boundary knots |
 
 The current 1687-row file is a union grid:
 \[
@@ -69,7 +69,7 @@ The SFHo radial coordinates and node count are unchanged. The auxiliary Ferreira
 
 The B.16 full-path, fixed-\(\omega\) Fig. 7, and outer-shell mode-resolved outputs retain profile A's exact SHA because that is what those runs actually used. The current B.13 exact-Compton output uses profile B's SHA. These results are physically consistent at the precision of the active inputs, but their distinct file fingerprints are preserved rather than rewritten.
 
-The extraction script now writes \`profile_csv_sha256\` into \`profile_provenance.json\`, and the data README records the latest fingerprint. This makes future extraction refreshes auditable.
+The extraction script now writes `profile_csv_sha256` into `profile_provenance.json`, and the data README records the latest fingerprint. This makes future extraction refreshes auditable.
 
 ## 3. Full-path B.2 comparison at \(m_V=10\) MeV
 
@@ -105,13 +105,13 @@ The integrated B.1/B.2 observables therefore remain stable under the profile-ver
 
 Use the following version assignment:
 
-- **Current vertex-preserving profile, SHA \`6c47d071...\`:**
-  - \`outputs/b16_outer_profile_inputs_10mev_2026-11-08.json\`
-  - \`outputs/b16_directional_escape_8_15km_10mev_2026-11-08.json\`
-  - \`outputs/b16_inner_path_channel_directional_vertex_preserving_10mev_2026-11-09.json\`
-  - \`outputs/b16_outer_shell_polarization_resolved_10mev_2026-11-09.json\`
-- **Historical uniform-grid profile, SHA \`08d7afce...\`:**
-  - \`outputs/b16_inner_path_channel_directional_10mev_2026-11-09.json\`
+- **Current vertex-preserving profile, SHA `6c47d071...`:**
+  - `outputs/b16_outer_profile_inputs_10mev_2026-11-08.json`
+  - `outputs/b16_directional_escape_8_15km_10mev_2026-11-08.json`
+  - `outputs/b16_inner_path_channel_directional_vertex_preserving_10mev_2026-11-09.json`
+  - `outputs/b16_outer_shell_polarization_resolved_10mev_2026-11-09.json`
+- **Historical uniform-grid profile, SHA `08d7afce...`:**
+  - `outputs/b16_inner_path_channel_directional_10mev_2026-11-09.json`
   - the earlier 501-node outer-profile and angular-distribution outputs
   - the earlier local-absorption samples and Fig. 7 re-evaluation report
 
