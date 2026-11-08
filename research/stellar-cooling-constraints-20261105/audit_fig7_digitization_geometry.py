@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 from pathlib import Path
 
 import fitz
@@ -98,6 +99,76 @@ def visible_luminosity_mask(transformed: dict) -> np.ndarray:
         (transformed["luminosity_erg_s"] >= 10.0**LOG10_L_MIN)
         & (transformed["luminosity_erg_s"] <= 10.0**LOG10_L_MAX)
     )
+
+
+def validate_axis_tick_words(words: list) -> dict:
+    """Validate the log-axis coordinate map against labels embedded in the PDF."""
+    x_ticks = []
+    y_ticks = []
+    for word in words:
+        label = str(word[4])
+        bbox = [float(x) for x in word[:4]]
+        if re.fullmatch(r"10[−-]\d+", label):
+            exponent = int(label[2:].replace("−", "-"))
+            x_ticks.append((exponent, (bbox[0]+bbox[2])/2.0))
+        elif re.fullmatch(r"10(?:5[2-5])", label):
+            exponent = int(label[2:])
+            y_ticks.append((exponent, (bbox[1]+bbox[3])/2.0))
+
+    x_ticks.sort(key=lambda item: item[0])
+    y_ticks.sort(key=lambda item: item[0])
+    expected_x_exponents = list(range(-22, -5, 2))
+    expected_y_exponents = [52, 53, 54, 55]
+    if [x[0] for x in x_ticks] != expected_x_exponents:
+        raise ValueError(f"Unexpected horizontal-axis tick labels: {x_ticks}")
+    if [y[0] for y in y_ticks] != expected_y_exponents:
+        raise ValueError(f"Unexpected vertical-axis tick labels: {y_ticks}")
+
+    expected_x_positions = [
+        X_LEFT+(exponent-LOG10_ALPHA_MIN)
+        /(LOG10_ALPHA_MAX-LOG10_ALPHA_MIN)*(X_RIGHT-X_LEFT)
+        for exponent in expected_x_exponents
+    ]
+    expected_y_positions = [
+        Y_BOTTOM-(exponent-LOG10_L_MIN)
+        /(LOG10_L_MAX-LOG10_L_MIN)*(Y_BOTTOM-Y_TOP)
+        for exponent in expected_y_exponents
+    ]
+    x_residuals = [
+        actual-expected
+        for (_, actual), expected in zip(x_ticks, expected_x_positions)
+    ]
+    y_residuals = [
+        actual-expected
+        for (_, actual), expected in zip(y_ticks, expected_y_positions)
+    ]
+    if max(max(abs(x) for x in x_residuals),
+           max(abs(y) for y in y_residuals)) > 1.0:
+        raise ValueError(
+            f"Axis tick labels disagree with the log transform: "
+            f"x={x_residuals}, y={y_residuals}"
+        )
+    return {
+        "horizontal_ticks": [
+            {"log10_alpha": exponent, "pdf_x_center": actual,
+             "expected_pdf_x": expected, "residual_pdf_points": residual}
+            for (exponent, actual), expected, residual in zip(
+                x_ticks, expected_x_positions, x_residuals
+            )
+        ],
+        "vertical_ticks": [
+            {"log10_luminosity": exponent, "pdf_y_center": actual,
+             "expected_pdf_y": expected, "residual_pdf_points": residual}
+            for (exponent, actual), expected, residual in zip(
+                y_ticks, expected_y_positions, y_residuals
+            )
+        ],
+        "maximum_absolute_tick_position_residual_pdf_points": float(
+            max(max(abs(x) for x in x_residuals),
+                max(abs(y) for y in y_residuals))
+        ),
+        "tolerance_pdf_points": 1.0,
+    }
 
 
 def audit(source_pdf: Path, reference_json: Path) -> dict:
@@ -292,6 +363,7 @@ def audit(source_pdf: Path, reference_json: Path) -> dict:
         {"text": str(word[4]), "bbox": [float(x) for x in word[:4]]}
         for word in words
     ]
+    axis_tick_validation = validate_axis_tick_words(words)
     return {
         "title": "Raw PDF drawing geometry audit of Blinov Fig. 7 digitization",
         "source": {
@@ -306,6 +378,7 @@ def audit(source_pdf: Path, reference_json: Path) -> dict:
         "axis_frame": frame,
         "axis_frame_residuals_vs_digitization_constants": frame_residuals,
         "axis_geometry": axis_geometry,
+        "axis_tick_validation": axis_tick_validation,
         "coordinate_transform": {
             "alpha_V": "10^[-22+16*(x-X_LEFT)/(X_RIGHT-X_LEFT)]",
             "g_mu_tau": "sqrt(4*pi*alpha_V)",
@@ -338,6 +411,7 @@ def main():
     print(json.dumps({
         "pdf_sha256": result["source"]["pdf_sha256"],
         "axis_frame": result["axis_frame"],
+        "axis_tick_validation": result["axis_tick_validation"],
         "ten_mev": {
             "source_vertices": ten["ordered_source_vertices"],
             "visible_vertices": ten["visible_vertices_used_in_reference"],
