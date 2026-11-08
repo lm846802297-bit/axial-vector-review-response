@@ -81,7 +81,7 @@ The change is entirely in the Compton channel. Its shell-averaged \(\tau/g^2\) r
 
 The local Compton reduced absorption rises by approximately 19% at 12 km and 52--53% around 13--14 km for the sampled energies. However, Compton is subdominant in the shell's total opacity, so the full source-weighted escape probability changes by only about 6.7%.
 
-**This is not a validated physical alternative profile.** The source-PDF path has the expected orange dashed appearance and radial support, but the chemical-potential convention and its relation to the Caputo profile still require confirmation. The result quantifies sensitivity to that digitized curve; it does not justify replacing the baseline.
+**This is not an alternative model choice.** The Ferreira Fig. 1 caption explicitly identifies the dashed orange curve as SFHo-18.8 at 1 s post-bounce, the same named model and snapshot as Caputo Fig. 1; both papers cite the Bollig et al. simulation. The result therefore quantifies the impact of a second published reconstruction of the same nominal background. The origin of the 9.5--17.2% difference in \(\mu_\mu\) remains unresolved, so this curve is not adopted as the baseline.
 
 ### 3.3 Variant C: unresolved \(\mu_{\nu_\mu}\) plotting-floor envelope
 
@@ -135,7 +135,7 @@ Consequently:
 
 ## 6. Remaining work
 
-The dominant unresolved input question is the \(\mu_\mu\) discrepancy between the public figure reconstructions. Before adopting any alternative, compare the exact definitions, model time, equation-of-state profile, and curve labels in the two source papers. The original Garching profile tables remain the preferred reference; figure digitization cannot replace them.
+The dominant unresolved input question is now sharply defined: two papers plot different \(\mu_\mu(r)\) curves while both identifying the background as SFHo-18.8 at 1 s post-bounce and citing Bollig et al. The next check is the exact profile-file/version and chemical-potential convention used in each post-processing analysis. The Garching archive lists radial profiles in a protected directory that currently returns HTTP 401, so no raw table has been obtained. Figure digitization remains the only reproducible comparison available without authorized archive access.
 
 The next numerical investigation should therefore focus on the full radial \(\mu_\mu(r)\) and muon-density consistency, not on another scan of the \(\mu_{\nu_\mu}\) floor. In particular, verify that the plotted \(\mu_\mu\), \(T\), and \(n_\mu\) belong to the same profile and chemical-potential convention.
 
