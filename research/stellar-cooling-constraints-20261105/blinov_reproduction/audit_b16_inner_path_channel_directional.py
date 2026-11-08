@@ -358,39 +358,66 @@ def _local_rate_samples(mass, profile, radial_grid, radii=(8, 10, 12, 15, 18.5, 
 
 def _legacy_shell_comparison(
     source, source_mask, columns, channel_names, radial_grid, radii,
-    profile, rates, mass, energies, radius_km, angular_order, legacy_path_order,
+    profile, rates, mass, energies, radius_km, angular_order, base_path_order,
 ):
-    legacy = shell_columns_by_channel(
-        radii, radial_grid, profile["T"], rates, mass, energies,
-        radius_km, angular_order, legacy_path_order
-    )
-    legacy_map = {
+    """Convergence audit of the legacy global-s shell mask against analytic columns."""
+    path_orders = sorted(set((
+        max(8, base_path_order // 2),
+        base_path_order,
+        base_path_order * 2,
+        base_path_order * 4,
+        base_path_order * 8,
+    )))
+    analytic_map = {
         "neutrino": columns[channel_names.index("nu_mu")] + columns[channel_names.index("nu_tau")],
         "compton": columns[channel_names.index("compton")],
         "dimuon": columns[channel_names.index("dimuon")],
     }
-    source_weights = source[source_mask, None, :] * legacy["angle_weights"][None, :, None]
-    rows = []
-    for old_name, new_values in legacy_map.items():
-        old_values = legacy["columns_by_channel"][old_name]
-        for ish, shell in enumerate(legacy["shell_labels"]):
-            old = old_values[ish, source_mask, :, :]
-            new = new_values[ish, source_mask, :, :]
-            numerator = float(np.sum(source_weights * np.abs(old - new)))
-            denominator = float(np.sum(source_weights * new))
-            rows.append({
-                "legacy_channel": old_name,
-                "path_shell": shell,
-                "source_weighted_L1_relative_difference": (
-                    numerator / denominator if denominator > 0.0 else 0.0
-                ),
-            })
+    rows_by_order = []
+    for path_order in path_orders:
+        legacy = shell_columns_by_channel(
+            radii, radial_grid, profile["T"], rates, mass, energies,
+            radius_km, angular_order, path_order
+        )
+        source_weights = source[source_mask, None, :] * legacy["angle_weights"][None, :, None]
+        comparisons = []
+        angle_masks = [("all", np.ones(len(legacy["angle_weights"]), dtype=bool))]
+        for lo, hi in ANGLE_BINS:
+            mask = (legacy["angle_weights"] > 0.0)
+            # The angle nodes are reconstructed from the same Gauss-Legendre rule.
+            angle_nodes, _ = np.polynomial.legendre.leggauss(angular_order)
+            mask = (angle_nodes >= lo) & (
+                (angle_nodes < hi) if hi < 1.0 else (angle_nodes <= hi)
+            )
+            angle_masks.append((f"{lo:g} to {hi:g}", mask))
+        for old_name, new_values in analytic_map.items():
+            old_values = legacy["columns_by_channel"][old_name]
+            for ish, shell in enumerate(legacy["shell_labels"]):
+                for angle_label, angle_mask in angle_masks:
+                    weights = source_weights[:, angle_mask, :]
+                    old = old_values[ish, source_mask, :, :][:, angle_mask, :]
+                    new = new_values[ish, source_mask, :, :][:, angle_mask, :]
+                    numerator = float(np.sum(weights * np.abs(old - new)))
+                    denominator = float(np.sum(weights * new))
+                    comparisons.append({
+                        "legacy_channel": old_name,
+                        "path_shell": shell,
+                        "direction_bin": angle_label,
+                        "source_weighted_L1_relative_difference": (
+                            numerator / denominator if denominator > 0.0 else 0.0
+                        ),
+                    })
+        rows_by_order.append({
+            "path_order": path_order,
+            "legacy_shell_sum_to_legacy_direct_max_relative_residual": legacy[
+                "shell_sum_to_direct_column_max_relative_residual"
+            ],
+            "source_weighted_shell_comparisons_for_8_15km_emission": comparisons,
+        })
     return {
-        "legacy_path_quadrature_order": legacy_path_order,
-        "legacy_shell_sum_to_legacy_direct_max_relative_residual": legacy[
-            "shell_sum_to_direct_column_max_relative_residual"
-        ],
-        "source_weighted_shell_comparisons_for_8_15km_emission": rows,
+        "base_path_order": base_path_order,
+        "path_order_scan": path_orders,
+        "convergence_by_path_order": rows_by_order,
     }
 
 
