@@ -1,0 +1,592 @@
+"""Direction- and channel-resolved B.2 opacity audit with exact radial path integration.
+
+The path integral is evaluated analytically on each piecewise-linear radial
+opacity segment. Inward rays traverse b<r<r_em twice and r>r_em once.
+This independently checks the global-s quadrature used by the legacy shell
+audit. The B.1 source and published fixed-omega B.2 convention are unchanged.
+"""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import os
+from pathlib import Path
+
+import numpy as np
+from scipy.special import logsumexp
+
+try:
+    from .reference import (
+        DEFAULT_PROFILE, KM_TO_MEV_INV, radial_rule, load_profile,
+        local_rates, scalar_optical_depths,
+    )
+    from .audit_b16_global_redshift import eq_b1_source_measure
+    from .audit_b16_neutrino_flavour_opacity import flavour_rate_arrays
+    from .audit_b16_shell_luminosity_sensitivity import shell_columns_by_channel
+except ImportError:
+    from reference import (
+        DEFAULT_PROFILE, KM_TO_MEV_INV, radial_rule, load_profile,
+        local_rates, scalar_optical_depths,
+    )
+    from audit_b16_global_redshift import eq_b1_source_measure
+    from audit_b16_neutrino_flavour_opacity import flavour_rate_arrays
+    from audit_b16_shell_luminosity_sensitivity import shell_columns_by_channel
+
+HERE = Path(__file__).resolve().parent
+ROOT = HERE.parent
+DEFAULT_FIG7 = ROOT / "outputs" / "vector_audit" / "luminosity_comparison.json"
+DEFAULT_OUTPUT = HERE / "outputs" / "b16_inner_path_channel_directional_10mev_2026-11-09.json"
+SHELL_EDGES_KM = np.array([0.0, 5.0, 8.0, 10.0, 12.0, 15.0, 16.5, 18.5, 20.0, 22.0, 25.0])
+CHANNELS = ("nu_mu", "nu_tau", "compton", "dimuon")
+ANGLE_BINS = ((-1.0, -0.5), (-0.5, 0.0), (0.0, 0.5), (0.5, 1.0))
+
+
+def sha256(path: Path) -> str:
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def _f1_primitive(radius, impact):
+    """Primitive of r^2/sqrt(r^2-b^2) with its b-dependent constant removed."""
+    radius = float(radius)
+    y = np.sqrt(max(radius * radius - impact * impact, 0.0))
+    if impact < 1.0e-12:
+        return 0.5 * radius * radius
+    return 0.5 * (radius * y + impact * impact * np.log((radius + y) / impact))
+
+
+def analytic_ray_shell_columns(
+    source_radius, cosine, radial_grid, reduced_by_channel,
+    mass, energies, radius_km=25.0, shell_edges=SHELL_EDGES_KM,
+):
+    """Return [channel, path-shell, energy] tau/g^2 for one emission ray.
+
+    Each local opacity is linearly interpolated in radius between radial_grid
+    nodes. The integral of (a+b*r) ds is analytic because
+    ds/dr = r/sqrt(r^2-b^2). For cosine<0, b<r<r_source is traversed twice.
+    """
+    radial_grid = np.asarray(radial_grid, float)
+    energies = np.asarray(energies, float)
+    shell_edges = np.asarray(shell_edges, float)
+    names = tuple(reduced_by_channel)
+    reduced = np.stack([np.asarray(reduced_by_channel[name], float) for name in names])
+    if reduced.ndim != 3 or reduced.shape[1] != len(radial_grid):
+        raise ValueError("reduced_by_channel arrays must have shape (n_radius,n_energy)")
+    if reduced.shape[2] != len(energies):
+        raise ValueError("energy dimension does not match energies")
+    if np.any(np.diff(radial_grid) <= 0.0) or np.any(np.diff(shell_edges) <= 0.0):
+        raise ValueError("radial and shell grids must be strictly increasing")
+    if radial_grid[0] > 0.0 or radial_grid[-1] < radius_km:
+        raise ValueError("radial_grid must cover the complete path")
+    if shell_edges[0] > 0.0 or shell_edges[-1] < radius_km:
+        raise ValueError("shell_edges must cover the complete path")
+    if source_radius < 0.0 or source_radius > radius_km or abs(cosine) > 1.0:
+        raise ValueError("invalid source radius or direction")
+
+    n_channel = len(names)
+    n_shell = len(shell_edges) - 1
+    n_energy = len(energies)
+    result = np.zeros((n_channel, n_shell, n_energy))
+    if source_radius >= radius_km:
+        return result
+
+    impact = source_radius * np.sqrt(max(1.0 - cosine * cosine, 0.0))
+    r_min = impact if cosine < 0.0 else source_radius
+    if r_min >= radius_km:
+        return result
+
+    breaks = [r_min, radius_km]
+    breaks.extend(radial_grid[(radial_grid > r_min) & (radial_grid < radius_km)])
+    breaks.extend(shell_edges[(shell_edges > r_min) & (shell_edges < radius_km)])
+    if cosine < 0.0 and r_min < source_radius < radius_km:
+        breaks.append(source_radius)
+    breaks = np.unique(np.asarray(breaks, float))
+
+    velocity = np.sqrt(np.maximum(1.0 - (mass / energies) ** 2, 0.0))
+    if np.any(velocity <= 0.0):
+        raise ValueError("all energies must be above the mediator mass")
+
+    for r_a, r_b in zip(breaks[:-1], breaks[1:]):
+        if r_b <= r_a:
+            continue
+        r_mid = 0.5 * (r_a + r_b)
+        ir = int(np.searchsorted(radial_grid, r_mid, side="right") - 1)
+        ir = min(max(ir, 0), len(radial_grid) - 2)
+        slope = (reduced[:, ir + 1, :] - reduced[:, ir, :]) / (
+            radial_grid[ir + 1] - radial_grid[ir]
+        )
+        intercept = reduced[:, ir, :] - slope * radial_grid[ir]
+
+        y_a = np.sqrt(max(r_a * r_a - impact * impact, 0.0))
+        y_b = np.sqrt(max(r_b * r_b - impact * impact, 0.0))
+        delta_y = y_b - y_a
+        delta_f1 = _f1_primitive(r_b, impact) - _f1_primitive(r_a, impact)
+        multiplicity = 2.0 if cosine < 0.0 and r_mid < source_radius else 1.0
+        shell = int(np.searchsorted(shell_edges, r_mid, side="right") - 1)
+        shell = min(max(shell, 0), n_shell - 1)
+
+        integral = multiplicity * (
+            intercept * delta_y + slope * delta_f1
+        )
+        scale = max(float(np.max(np.abs(integral))), 1.0)
+        if float(np.min(integral)) < -2.0e-11 * scale:
+            raise ArithmeticError("piecewise-linear positive opacity produced a negative path integral")
+        result[:, shell, :] += np.maximum(integral, 0.0) * KM_TO_MEV_INV / velocity[None, :]
+    return result
+
+
+def segmented_radial_columns(
+    source_radii, radial_grid, reduced_by_channel, mass, energies,
+    radius_km=25.0, angular_order=32, shell_edges=SHELL_EDGES_KM,
+):
+    """Return [channel,shell,source,angle,energy] analytic B.2 columns."""
+    angles, angle_weights = np.polynomial.legendre.leggauss(angular_order)
+    angle_weights = angle_weights / 2.0
+    names = tuple(reduced_by_channel)
+    columns = np.zeros((
+        len(names), len(shell_edges) - 1, len(source_radii),
+        len(angles), len(energies)
+    ))
+    for ia, cosine in enumerate(angles):
+        for ir, r0 in enumerate(source_radii):
+            columns[:, :, ir, ia, :] = analytic_ray_shell_columns(
+                r0, cosine, radial_grid, reduced_by_channel,
+                mass, energies, radius_km, shell_edges
+            )
+    return columns, angles, angle_weights
+
+
+def reduced_absorption_channels(mass, energies, profile, rates):
+    """Build B.4 reduced opacity separately for nu_mu, nu_tau, Compton, dimuon."""
+    omega = np.asarray(energies, float)[None, :]
+    temperature = np.asarray(profile["T"], float)[:, None]
+    detailed_balance = np.expm1(np.minimum(omega / temperature, 700.0))
+    nu_mu, nu_tau = flavour_rate_arrays(mass, energies, profile)
+    production = {
+        "nu_mu": nu_mu,
+        "nu_tau": nu_tau,
+        "compton": np.asarray(rates["compton_production"], float),
+        "dimuon": np.asarray(rates["dimuon_production"], float),
+    }
+    reduced = {name: detailed_balance * value for name, value in production.items()}
+    production_sum = sum(production.values())
+    reduced_sum = sum(reduced.values())
+    production_residual = float(np.max(
+        np.abs(production_sum - rates["production"])
+        / np.maximum(np.abs(rates["production"]), 1.0e-300)
+    ))
+    reduced_residual = float(np.max(
+        np.abs(reduced_sum - rates["reduced_absorption"])
+        / np.maximum(np.abs(rates["reduced_absorption"]), 1.0e-300)
+    ))
+    return production, reduced, {
+        "production_channel_sum_max_relative_residual": production_residual,
+        "reduced_absorption_channel_sum_max_relative_residual": reduced_residual,
+    }
+
+
+def _weighted_mean(values, weights):
+    denominator = float(np.sum(weights))
+    return float(np.sum(values * weights) / denominator) if denominator > 0.0 else None
+
+
+def _log_escaped_integral(source, angle_weights, total_columns, coupling, source_mask):
+    selected = np.asarray(source[source_mask], float)
+    log_source = np.where(selected > 0.0, np.log(selected), -np.inf)[:, None, :]
+    return float(logsumexp(
+        log_source + np.log(angle_weights)[None, :, None]
+        - coupling * coupling * total_columns[source_mask]
+    ))
+
+
+def _channel_shell_rows(columns, channel_names, shell_labels, source_weights, escaped_weights):
+    rows = []
+    for ic, channel in enumerate(channel_names):
+        for ish, shell in enumerate(shell_labels):
+            tau = columns[ic, ish]
+            mean_source = _weighted_mean(tau, source_weights)
+            mean_escaped = _weighted_mean(tau, escaped_weights)
+            rows.append({
+                "channel": channel,
+                "path_shell": shell,
+                "mean_tau_source_weighted_per_g2": mean_source,
+                "mean_tau_escaped_population_weighted_per_g2": mean_escaped,
+            })
+    return rows
+
+
+def _region_summary(
+    label, source_mask, source, columns, total_columns, channel_names,
+    shell_labels, shell_edges, radii, angles, angle_weights, coupling,
+):
+    source_region = source[source_mask]
+    base_weights = source_region[:, None, :] * angle_weights[None, :, None]
+    base_norm = float(np.sum(base_weights))
+    survival = np.exp(-coupling * coupling * total_columns[source_mask])
+    escaped_weights = base_weights * survival
+    escaped_norm = float(np.sum(escaped_weights))
+    mean_escape = escaped_norm / base_norm if base_norm > 0.0 else None
+
+    channel_shell = _channel_shell_rows(
+        columns[:, :, source_mask, :, :], channel_names, shell_labels,
+        base_weights, escaped_weights
+    )
+    direction_rows = []
+    for lo, hi in ANGLE_BINS:
+        angle_mask = (angles >= lo) & (
+            (angles < hi) if hi < 1.0 else (angles <= hi)
+        )
+        w0 = base_weights[:, angle_mask, :]
+        we = escaped_weights[:, angle_mask, :]
+        tau_total = total_columns[source_mask][:, angle_mask, :]
+        channel_shell_rows = _channel_shell_rows(
+            columns[:, :, source_mask, :, :][:, :, :, angle_mask, :],
+            channel_names, shell_labels, w0, we
+        )
+        direction_rows.append({
+            "cos_theta_bin": [lo, hi],
+            "thin_source_fraction": float(np.sum(w0) / base_norm) if base_norm else 0.0,
+            "escaped_luminosity_fraction": float(np.sum(we) / escaped_norm) if escaped_norm else 0.0,
+            "mean_escape_probability": (
+                float(np.sum(we) / np.sum(w0)) if np.sum(w0) else None
+            ),
+            "mean_total_tau_source_weighted_per_g2": _weighted_mean(tau_total, w0),
+            "mean_total_tau_escaped_population_weighted_per_g2": _weighted_mean(tau_total, we),
+            "channel_shell_tau": channel_shell_rows,
+        })
+
+    grouped_shells = {
+        "core_0_8km": (0.0, 8.0),
+        "target_inner_8_22km": (8.0, 22.0),
+        "outer_reference_22_25km": (22.0, 25.0),
+    }
+    group_rows = []
+    for group_name, (lo, hi) in grouped_shells.items():
+        selected_shells = [
+            i for i, (a, b) in enumerate(zip(shell_edges[:-1], shell_edges[1:]))
+            if a >= lo - 1.0e-12 and b <= hi + 1.0e-12
+        ]
+        for ic, channel in enumerate(channel_names):
+            tau = np.sum(columns[ic, selected_shells, :, :, :], axis=1)[:, source_mask, :, :]
+            group_rows.append({
+                "path_group": group_name,
+                "channel": channel,
+                "mean_tau_source_weighted_per_g2": _weighted_mean(tau, base_weights),
+                "mean_tau_escaped_population_weighted_per_g2": _weighted_mean(tau, escaped_weights),
+            })
+
+    emission_rows = []
+    for lo, hi in zip(shell_edges[:-1], shell_edges[1:]):
+        emission_mask = source_mask & (radii >= lo) & (
+            (radii < hi) if hi < shell_edges[-1] else (radii <= hi)
+        )
+        if not np.any(emission_mask):
+            continue
+        w0 = source[emission_mask, None, :] * angle_weights[None, :, None]
+        we = w0 * np.exp(-coupling * coupling * total_columns[emission_mask])
+        thin = float(np.sum(w0))
+        escaped = float(np.sum(we))
+        emission_rows.append({
+            "emission_shell": f"{lo:g}-{hi:g}km",
+            "thin_source_fraction": thin / base_norm if base_norm else 0.0,
+            "escaped_luminosity_fraction": escaped / escaped_norm if escaped_norm else 0.0,
+            "mean_escape_probability": escaped / thin if thin else None,
+        })
+
+    base_log = _log_escaped_integral(source, angle_weights, total_columns, coupling, source_mask)
+    leave_one_out = []
+    for ic, channel in enumerate(channel_names):
+        for ish, shell in enumerate(shell_labels):
+            removed = columns[ic, ish]
+            alternative = np.maximum(total_columns - removed, 0.0)
+            alt_log = _log_escaped_integral(
+                source, angle_weights, alternative, coupling, source_mask
+            )
+            delta = alt_log - base_log
+            leave_one_out.append({
+                "channel": channel,
+                "path_shell": shell,
+                "log10_luminosity_enhancement": float(delta / np.log(10.0)),
+                "relative_luminosity_enhancement": (
+                    float(np.expm1(delta)) if delta < 700.0 else None
+                ),
+            })
+
+    return {
+        "region": label,
+        "source_fraction_of_total_B1": (
+            float(np.sum(source_region) / np.sum(source)) if np.sum(source) else 0.0
+        ),
+        "source_weighted_escape_probability": mean_escape,
+        "direction_bins": direction_rows,
+        "channel_shell_tau": channel_shell,
+        "path_group_tau": group_rows,
+        "emission_shells": emission_rows,
+        "leave_one_channel_shell_out": leave_one_out,
+    }
+
+
+def _local_rate_samples(mass, profile, radial_grid, radii=(8, 10, 12, 15, 18.5, 20, 22), energies=(15, 20, 30)):
+    rows = []
+    energies = np.asarray(energies, float)
+    for radius in radii:
+        sample = {
+            key: np.array([np.interp(radius, radial_grid, profile[key])])
+            for key in ("T", "mu_mu", "mu_numu")
+        }
+        local = local_rates(
+            mass, energies[None, :], sample["T"][:, None],
+            sample["mu_numu"][:, None], sample["mu_mu"][:, None]
+        )
+        production, reduced, _ = reduced_absorption_channels(mass, energies, sample, local)
+        for ie, omega in enumerate(energies):
+            rows.append({
+                "radius_km": float(radius),
+                "omega_local_MeV": float(omega),
+                "T_MeV": float(sample["T"][0]),
+                "mu_mu_MeV": float(sample["mu_mu"][0]),
+                "mu_numu_MeV": float(sample["mu_numu"][0]),
+                "reduced_absorption_per_g2_MeV": {
+                    name: float(reduced[name][0, ie]) for name in CHANNELS
+                },
+                "production_per_g2_MeV": {
+                    name: float(production[name][0, ie]) for name in CHANNELS
+                },
+            })
+    return rows
+
+
+def _legacy_shell_comparison(
+    source, source_mask, columns, channel_names, radial_grid, radii,
+    profile, rates, mass, energies, radius_km, angular_order, legacy_path_order,
+):
+    legacy = shell_columns_by_channel(
+        radii, radial_grid, profile["T"], rates, mass, energies,
+        radius_km, angular_order, legacy_path_order
+    )
+    legacy_map = {
+        "neutrino": columns[channel_names.index("nu_mu")] + columns[channel_names.index("nu_tau")],
+        "compton": columns[channel_names.index("compton")],
+        "dimuon": columns[channel_names.index("dimuon")],
+    }
+    source_weights = source[source_mask, None, :] * legacy["angle_weights"][None, :, None]
+    rows = []
+    for old_name, new_values in legacy_map.items():
+        old_values = legacy["columns_by_channel"][old_name]
+        for ish, shell in enumerate(legacy["shell_labels"]):
+            old = old_values[ish, source_mask, :, :]
+            new = new_values[ish, source_mask, :, :]
+            numerator = float(np.sum(source_weights * np.abs(old - new)))
+            denominator = float(np.sum(source_weights * new))
+            rows.append({
+                "legacy_channel": old_name,
+                "path_shell": shell,
+                "source_weighted_L1_relative_difference": (
+                    numerator / denominator if denominator > 0.0 else 0.0
+                ),
+            })
+    return {
+        "legacy_path_quadrature_order": legacy_path_order,
+        "legacy_shell_sum_to_legacy_direct_max_relative_residual": legacy[
+            "shell_sum_to_direct_column_max_relative_residual"
+        ],
+        "source_weighted_shell_comparisons_for_8_15km_emission": rows,
+    }
+
+
+def run_audit(
+    profile_path=DEFAULT_PROFILE, fig7_path=DEFAULT_FIG7, mass=10.0,
+    radial_order=40, energy_order=100, angular_order=32,
+    legacy_path_order=32, direct_path_order=256,
+    radius_km=25.0, energy_offset=1000.0,
+):
+    fig7 = json.loads(Path(fig7_path).read_text(encoding="utf-8"))
+    vertices = fig7["reference_vertices"][str(float(mass))]
+    couplings = np.asarray(vertices["g"], float)
+    reference_luminosities = np.asarray(vertices["luminosity_erg_s"], float)
+
+    radii, radial_weights = radial_rule(radius_km, radial_order)
+    radial_grid = np.unique(np.r_[0.0, radii, radius_km])
+    profile = load_profile(profile_path, radial_grid)
+    energies = mass + np.geomspace(
+        max(mass * 1.0e-6, 1.0e-6), energy_offset, energy_order
+    )
+    energies = np.unique(np.r_[energies, mass / profile["lapse"]])
+    energies = energies[energies > mass * (1.0 + 1.0e-10)]
+    energies.sort()
+
+    rates = local_rates(
+        mass, energies[None, :], profile["T"][:, None],
+        profile["mu_numu"][:, None], profile["mu_mu"][:, None]
+    )
+    production, reduced, channel_closure = reduced_absorption_channels(
+        mass, energies, profile, rates
+    )
+    columns, angles, angle_weights = segmented_radial_columns(
+        radii, radial_grid, reduced, mass, energies,
+        radius_km, angular_order, SHELL_EDGES_KM
+    )
+    channel_names = list(reduced)
+    shell_labels = [
+        f"{lo:g}-{hi:g}km"
+        for lo, hi in zip(SHELL_EDGES_KM[:-1], SHELL_EDGES_KM[1:])
+    ]
+    total_columns = np.sum(columns, axis=(0, 1))
+
+    source_indices = np.searchsorted(radial_grid, radii)
+    source, source_meta = eq_b1_source_measure(
+        radii, radial_weights, energies, profile["lapse"][source_indices],
+        mass, rates["production"][source_indices]
+    )
+    source_8_15 = (radii >= 8.0) & (radii < 15.0)
+
+    direct_columns, direct_angles = scalar_optical_depths(
+        radii, radial_grid, rates["reduced_absorption"], mass, energies,
+        radius_km, angular_order, direct_path_order
+    )
+    direct_residual = float(np.max(
+        np.abs(total_columns - direct_columns)
+        / np.maximum(np.abs(direct_columns), 1.0e-300)
+    ))
+    direct_source_weighted_residual = float(
+        np.sum(source[source_8_15, None, :] *
+               np.abs(total_columns[source_8_15] - direct_columns[source_8_15]) *
+               angle_weights[None, :, None])
+        / max(float(np.sum(source[source_8_15, None, :] *
+                           direct_columns[source_8_15] *
+                           angle_weights[None, :, None])), 1.0e-300)
+    )
+
+    legacy_comparison = _legacy_shell_comparison(
+        source, source_8_15, columns, channel_names, radial_grid,
+        radii, profile, rates, mass, energies, radius_km,
+        angular_order, legacy_path_order
+    )
+
+    selected_indices = {
+        "weak_endpoint": 0,
+        "reference_luminosity_peak": int(np.argmax(reference_luminosities)),
+        "strong_endpoint": len(couplings) - 1,
+    }
+    selected = []
+    for label, index in selected_indices.items():
+        g = float(couplings[index])
+        regions = [
+            _region_summary(
+                "all_emission_radii", np.ones(len(radii), dtype=bool),
+                source, columns, total_columns, channel_names, shell_labels,
+                SHELL_EDGES_KM, radii, angles, angle_weights, g
+            ),
+            _region_summary(
+                "dominant_8_15km_emission", source_8_15,
+                source, columns, total_columns, channel_names, shell_labels,
+                SHELL_EDGES_KM, radii, angles, angle_weights, g
+            ),
+        ]
+        selected.append({
+            "label": label,
+            "coupling_index": int(index),
+            "g": g,
+            "reference_luminosity_erg_s": float(reference_luminosities[index]),
+            "regions": regions,
+        })
+
+    return {
+        "title": "B.2 inner-path opacity: channel x radial shell x emission direction",
+        "mass_MeV": float(mass),
+        "scope": [
+            "Pure-vector Blinov B.14-B.19 transport baseline at fixed omega.",
+            "B.1 source, reconstructed SFHo-18.8 profile, Rmax=25 km, and all coupling values are held fixed.",
+            "Opacity channels are nu_mu inverse decay, nu_tau inverse decay, Compton, and dimuon.",
+            "The 10 MeV dimuon channel is kinematically closed and is retained as an explicit zero channel.",
+            "The exact moving-muon B.13 local kernel is not substituted into the B.14-B.19 transport baseline.",
+            "No source, coupling, opacity, or luminosity rescaling; no axial-vector curve is generated.",
+        ],
+        "configuration": {
+            "radial_order": radial_order,
+            "energy_order": energy_order,
+            "angular_order": angular_order,
+            "legacy_path_order": legacy_path_order,
+            "direct_path_order": direct_path_order,
+            "radius_km": radius_km,
+            "energy_offset_MeV": energy_offset,
+            "path_energy_convention": "fixed omega along the B.2 path",
+            "shell_edges_km": SHELL_EDGES_KM.tolist(),
+            "direction_bins": [list(x) for x in ANGLE_BINS],
+        },
+        "provenance": {
+            "profile_path": str(profile_path),
+            "profile_sha256": sha256(profile_path),
+            "fig7_reference_path": str(fig7_path),
+            "fig7_reference_sha256": sha256(fig7_path),
+            "fig7_source_pdf_sha256": fig7.get("pdf_sha256"),
+            "run_commit_sha": os.environ.get("GITHUB_SHA"),
+        },
+        "eq_b1_source_measure": source_meta,
+        "source_fraction_8_15km_of_total_B1": float(
+            np.sum(source[source_8_15]) / np.sum(source)
+        ),
+        "local_rate_samples": _local_rate_samples(
+            mass, profile, radial_grid
+        ),
+        "internal_closure": {
+            **channel_closure,
+            "angular_weight_sum_residual": float(abs(np.sum(angle_weights) - 1.0)),
+            "analytic_total_vs_global_s_quadrature_max_relative_residual": direct_residual,
+            "analytic_total_vs_global_s_quadrature_source_weighted_L1_relative_residual_8_15km": direct_source_weighted_residual,
+        },
+        "legacy_masked_shell_vs_analytic_radial_integration": legacy_comparison,
+        "representative_couplings": selected,
+    }
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--profile", type=Path, default=DEFAULT_PROFILE)
+    parser.add_argument("--fig7", type=Path, default=DEFAULT_FIG7)
+    parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument("--mass", type=float, default=10.0)
+    parser.add_argument("--nr", type=int, default=40)
+    parser.add_argument("--ne", type=int, default=100)
+    parser.add_argument("--na", type=int, default=32)
+    parser.add_argument("--legacy-path-order", type=int, default=32)
+    parser.add_argument("--direct-path-order", type=int, default=256)
+    parser.add_argument("--energy-offset", type=float, default=1000.0)
+    args = parser.parse_args()
+    result = run_audit(
+        args.profile, args.fig7, args.mass, args.nr, args.ne, args.na,
+        args.legacy_path_order, args.direct_path_order, 25.0,
+        args.energy_offset
+    )
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    args.output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
+    print(json.dumps({
+        "source_fraction_8_15km": result["source_fraction_8_15km_of_total_B1"],
+        "internal_closure": result["internal_closure"],
+        "legacy_shell_comparison": result["legacy_masked_shell_vs_analytic_radial_integration"],
+        "selected": [
+            {
+                "label": row["label"], "g": row["g"],
+                "regions": [
+                    {
+                        "region": region["region"],
+                        "escape": region["source_weighted_escape_probability"],
+                        "direction_bins": [
+                            {
+                                "cos_theta_bin": item["cos_theta_bin"],
+                                "escaped_fraction": item["escaped_luminosity_fraction"],
+                                "mean_tau_escape_weighted": item[
+                                    "mean_total_tau_escaped_population_weighted_per_g2"
+                                ],
+                            } for item in region["direction_bins"]
+                        ],
+                    } for region in row["regions"]
+                ],
+            } for row in result["representative_couplings"]
+        ],
+    }, indent=2))
+    print(f"Saved {args.output}")
+
+
+if __name__ == "__main__":
+    main()
