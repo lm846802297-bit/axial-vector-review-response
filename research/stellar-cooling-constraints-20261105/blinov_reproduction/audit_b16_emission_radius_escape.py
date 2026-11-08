@@ -83,8 +83,6 @@ def source_radial_summary(radius, source, edges, labels=None):
     source = np.asarray(source, float)
     radial_weight = np.sum(source, axis=1)
     total = float(np.sum(radial_weight))
-    if total <= 0.0:
-        raise ValueError("Source measure must be positive")
     labels = labels or shell_labels(edges)
     masks = shell_masks(radius, edges)
     shells = []
@@ -93,8 +91,16 @@ def source_radial_summary(radius, source, edges, labels=None):
         shells.append({
             "shell": label,
             "source_weight": weight,
-            "source_fraction": weight/total,
+            "source_fraction": weight/total if total else 0.0,
         })
+    if total <= 0.0:
+        return {
+            "total_source_weight": 0.0,
+            "mean_emission_radius_km": None,
+            "median_emission_radius_km": None,
+            "p90_emission_radius_km": None,
+            "shells": shells,
+        }
     return {
         "total_source_weight": total,
         "mean_emission_radius_km": float(np.sum(radius*radial_weight)/total),
@@ -172,15 +178,6 @@ def emission_absorption_tau_matrix(
             )),
         })
     return matrix
-
-
-def _make_source_by_channel(radius, radial_weights, energies, profile, mass, rates):
-    source_indices = np.searchsorted(
-        np.unique(np.r_[0.0, radius, 25.0]), radius
-    )
-    # The caller passes the already interpolated source-profile arrays below;
-    # this helper is retained for direct tests and requires no hidden state.
-    raise NotImplementedError("Use build_source_channels with the supplied radial grid")
 
 
 def build_source_channels(
