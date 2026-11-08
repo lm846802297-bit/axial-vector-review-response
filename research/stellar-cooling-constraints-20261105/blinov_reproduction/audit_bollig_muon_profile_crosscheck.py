@@ -64,7 +64,7 @@ def main():
     fig1_axis_paths = []
     for index, d in enumerate(page1_drawings):
         rect = [float(v) for v in d["rect"]]
-        if 320.0 <= rect[0] <= 585.0 and 70.0 <= rect[1] <= 330.0:
+        if 320.0 <= rect[0] <= 585.0 and 50.0 <= rect[1] <= 330.0:
             pts = polyline_points(d)
             if pts is not None and rect[2] - rect[0] >= 25.0 and rect[3] - rect[1] >= 2.0:
                 fig1_paths.append({
