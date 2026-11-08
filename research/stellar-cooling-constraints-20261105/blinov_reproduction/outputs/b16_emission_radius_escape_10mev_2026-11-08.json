@@ -1,0 +1,3715 @@
+{
+  "configuration": {
+    "angular_order": 16,
+    "emission_and_absorption_shells_km": [
+      "0-5 km",
+      "5-8 km",
+      "8-10 km",
+      "10-12 km",
+      "12-15 km",
+      "15-16.5 km",
+      "16.5-18.5 km",
+      "18.5-20 km",
+      "20-22 km",
+      "22-25 km"
+    ],
+    "energy_offset_MeV": 1000.0,
+    "energy_order": 100,
+    "path_order": 32,
+    "radial_order": 40,
+    "radius_km": 25.0
+  },
+  "eq_b1_source_measure": {
+    "energy_lower_bound_MeV": [
+      13.577938429276124,
+      13.530671924155518,
+      13.392161953449532,
+      13.230391557011666,
+      13.149356990853999,
+      13.024926622554927,
+      12.849399408925107,
+      12.71035617745472,
+      12.64837712164281,
+      12.556400220338618,
+      12.438600715610537,
+      12.348765605329627,
+      12.30142179914826,
+      12.213709108685762,
+      12.102080689069437,
+      12.019213709205907,
+      11.965267209430053,
+      11.84877913779774,
+      11.706692834962132,
+      11.60623034569183,
+      11.555600004530243,
+      11.467051397339226,
+      11.362786637814757,
+      11.29176580594514,
+      11.262162840151335,
+      11.220577939254266,
+      11.170152798630532,
+      11.134195870051816,
+      11.115805323876138,
+      11.083174478950397,
+      11.043312816644033,
+      11.014591796592756,
+      10.999939148733734,
+      10.973633658548657,
+      10.941286272861447,
+      10.917946246928034,
+      10.908984752667122,
+      10.897898703168588,
+      10.883835374825546,
+      10.87335173700195
+    ],
+    "energy_weight_row_sums_MeV": [
+      996.4220615707238,
+      996.4693280758445,
+      996.6078380465506,
+      996.7696084429883,
+      996.8506430091461,
+      996.9750733774451,
+      997.1506005910749,
+      997.2896438225453,
+      997.3516228783571,
+      997.4435997796613,
+      997.5613992843896,
+      997.6512343946704,
+      997.6985782008517,
+      997.7862908913144,
+      997.8979193109305,
+      997.9807862907942,
+      998.0347327905699,
+      998.1512208622023,
+      998.293307165038,
+      998.3937696543082,
+      998.4443999954697,
+      998.5329486026608,
+      998.6372133621853,
+      998.708234194055,
+      998.7378371598486,
+      998.7794220607457,
+      998.8298472013694,
+      998.8658041299482,
+      998.8841946761238,
+      998.9168255210495,
+      998.956687183356,
+      998.9854082034074,
+      999.0000608512662,
+      999.0263663414514,
+      999.0587137271386,
+      999.0820537530719,
+      999.091015247333,
+      999.1021012968315,
+      999.1161646251744,
+      999.1266482629981
+    ],
+    "radial_measure_MeVminus3": [
+      9.297758455576318e+46,
+      3.9654167984357124e+48,
+      1.6684403154056426e+49,
+      1.7590553560628453e+49,
+      1.3388193351385403e+49,
+      3.3837103672570605e+49,
+      4.761599233413861e+49,
+      3.206928457493875e+49,
+      2.355626591999546e+49,
+      5.073435123781807e+49,
+      6.013726339177155e+49,
+      3.6279002726258593e+49,
+      3.864705975891292e+49,
+      8.124853427359927e+49,
+      9.36481698294252e+49,
+      5.540500391063482e+49,
+      8.883928076214108e+49,
+      1.922910095799378e+50,
+      2.2913532380386024e+50,
+      1.3860976928631573e+50,
+      1.4781409724565545e+50,
+      3.1108633799157375e+50,
+      3.58528311803867e+50,
+      2.1186106797537286e+50,
+      1.4757916870097477e+50,
+      2.9497718946580076e+50,
+      3.1973382695506366e+50,
+      1.8102517690054932e+50,
+      1.8673966304600792e+50,
+      3.7061911652796515e+50,
+      3.982759072608373e+50,
+      2.241078976264898e+50,
+      2.3045100036458647e+50,
+      4.5479360352624345e+50,
+      4.853543887966e+50,
+      2.7173704625796316e+50,
+      1.3847823616477085e+50,
+      2.658053712205501e+50,
+      2.7399255795677404e+50,
+      1.4953952357352467e+50
+    ],
+    "spectral_measure_MeV3": [
+      0.07164505723142932,
+      0.07863039804806636,
+      0.08629681261514145,
+      0.0947107085384972,
+      0.10394496927910277,
+      0.11407958595505116,
+      0.12520235081567474,
+      0.13740961853808542,
+      0.15080714196106204,
+      0.16551098954923749,
+      0.18164855275936187,
+      0.19935965206049203,
+      0.21879775151618677,
+      0.24013129262390712,
+      0.2635451594008054,
+      0.2892422878327101,
+      0.3174454343043643,
+      0.348399119130567,
+      0.3823717631472521,
+      0.41965803732812074,
+      0.4605814477293553,
+      0.5054971806796886,
+      0.5547952362770104,
+      0.6089038817903616,
+      0.6682934607971123,
+      0.7334805988743319,
+      0.8050328526194169,
+      0.8835738559416061,
+      0.9697890262986213,
+      1.0644319042285053,
+      1.168331212742348,
+      1.2823987395931649,
+      1.4076381661067856,
+      1.5451549923545127,
+      1.6961677416971483,
+      1.8620206702343038,
+      2.044198261426724,
+      2.244341856907379,
+      2.4642688663930072,
+      2.7059951194546334,
+      2.971761078751791,
+      3.2640628403961123,
+      3.585689118655341,
+      3.939765771296404,
+      4.32980989824611,
+      4.759796180383348,
+      5.234238972456249,
+      5.75829480021401,
+      6.337891441808585,
+      6.979891843357755,
+      7.692303933088604,
+      8.484551247302244,
+      9.367824577676526,
+      10.355542188058871,
+      11.463956394795838,
+      12.712958727754385,
+      14.127156373021656,
+      15.737321964537431,
+      17.582361310314397,
+      19.712005833900836,
+      22.19052844973278,
+      25.10191894946861,
+      25.51842319923967,
+      25.5733618049544,
+      25.782498891286323,
+      26.062782186885816,
+      26.28353048667809,
+      26.46185644746621,
+      26.925858612006646,
+      27.568034455399236,
+      28.089669432805312,
+      28.380054482104285,
+      28.55716239545527,
+      28.948984546516815,
+      29.73827754268817,
+      30.384364868354414,
+      30.748566083290967,
+      31.46094554287928,
+      32.46101343346181,
+      32.70458056911395,
+      33.287047741040034,
+      33.87596814065855,
+      35.29253446728705,
+      37.38373073143242,
+      37.744684699267026,
+      39.1727702689855,
+      40.201850518430476,
+      42.25841643424829,
+      43.951748291005245,
+      45.20365697538644,
+      47.653424089832065,
+      48.79939298541328,
+      50.574502425241946,
+      51.70550577449332,
+      52.995161471971024,
+      54.92186373940141,
+      55.97111558331442,
+      57.98044532767936,
+      60.65266356638544,
+      61.53828444593648,
+      62.76945076671069,
+      64.21121041777157,
+      67.49163921134199,
+      71.72612671393323,
+      74.20592711935902,
+      74.7927847504914,
+      76.81950459927353,
+      80.93662948471035,
+      84.53855751542163,
+      85.78419395988371,
+      85.86144924199601,
+      90.79579808112527,
+      112.89321863434495,
+      142.8409267900571,
+      184.14811203234436,
+      242.1422152258804,
+      325.018207670062,
+      445.5439548165609,
+      623.8565803902517,
+      892.0852648263414,
+      1302.0500874059621,
+      1938.1691394812417,
+      2939.2254674954115,
+      4535.267037757593,
+      7110.4458061125815,
+      11310.453020845389,
+      18226.82584775097,
+      29714.050304520904,
+      48936.49989168014,
+      81313.7868201784,
+      136157.66537004866,
+      229510.6491675225,
+      389074.8073204219,
+      662778.9226224419,
+      1133683.0735418843,
+      1945927.9962218592,
+      3349941.9297051146,
+      5781237.241076985,
+      9997814.441132193,
+      17319851.25215216,
+      30047944.73255807,
+      52193099.99135333
+    ]
+  },
+  "internal_closure": {
+    "absorption_shell_sum_vs_total_column_max_relative_residual": 0.0,
+    "angle_weight_max_absolute_residual": 0.0,
+    "direct_source_weighted_mean_tau": 9272300868927090.0,
+    "emission_absorption_matrix_weighted_mean_tau": 9272300868927090.0,
+    "mean_tau_matrix_relative_residual": 0.0,
+    "shell_columns_vs_direct_chord_max_relative_residual": 6.724089930264748e-16,
+    "source_channel_sum_max_relative_residual": 4.3682015727677863e-16
+  },
+  "mass_MeV": 10.0,
+  "optically_thin_source_radial_distribution": {
+    "mean_emission_radius_km": 9.834857004381327,
+    "median_emission_radius_km": 9.339981043584856,
+    "p90_emission_radius_km": 12.990028434622715,
+    "shells": [
+      {
+        "shell": "0-5 km",
+        "source_fraction": 0.00909567136142705,
+        "source_weight": 3.932517705232982e+68
+      },
+      {
+        "shell": "5-8 km",
+        "source_fraction": 0.17507879971712773,
+        "source_weight": 7.56953997500766e+69
+      },
+      {
+        "shell": "8-10 km",
+        "source_fraction": 0.39812058862088756,
+        "source_weight": 1.7212761998074018e+70
+      },
+      {
+        "shell": "10-12 km",
+        "source_fraction": 0.260812098987004,
+        "source_weight": 1.1276223120317894e+70
+      },
+      {
+        "shell": "12-15 km",
+        "source_fraction": 0.13718451784787972,
+        "source_weight": 5.93117895187449e+69
+      },
+      {
+        "shell": "15-16.5 km",
+        "source_fraction": 0.012655698289322169,
+        "source_weight": 5.471696988295519e+68
+      },
+      {
+        "shell": "16.5-18.5 km",
+        "source_fraction": 0.004291757664247981,
+        "source_weight": 1.8555434041733647e+68
+      },
+      {
+        "shell": "18.5-20 km",
+        "source_fraction": 0.0012879448107459173,
+        "source_weight": 5.5684353252915e+67
+      },
+      {
+        "shell": "20-22 km",
+        "source_fraction": 0.0007453162947508935,
+        "source_weight": 3.2223784354568885e+67
+      },
+      {
+        "shell": "22-25 km",
+        "source_fraction": 0.000727606406606924,
+        "source_weight": 3.145809652443021e+67
+      }
+    ],
+    "total_source_weight": 4.3235046089176164e+70
+  },
+  "optically_thin_source_radial_distribution_by_channel": {
+    "compton": {
+      "mean_emission_radius_km": 9.261624501422341,
+      "median_emission_radius_km": 9.339981043584856,
+      "p90_emission_radius_km": 11.339981043584856,
+      "shells": [
+        {
+          "shell": "0-5 km",
+          "source_fraction": 0.0010876064267455448,
+          "source_weight": 1.504950592883809e+67
+        },
+        {
+          "shell": "5-8 km",
+          "source_fraction": 0.17096040135400006,
+          "source_weight": 2.3656255705222206e+69
+        },
+        {
+          "shell": "8-10 km",
+          "source_fraction": 0.5505740405500226,
+          "source_weight": 7.618442741567635e+69
+        },
+        {
+          "shell": "10-12 km",
+          "source_fraction": 0.240028276521596,
+          "source_weight": 3.321336543964427e+69
+        },
+        {
+          "shell": "12-15 km",
+          "source_fraction": 0.03732007449563946,
+          "source_weight": 5.164080209303581e+68
+        },
+        {
+          "shell": "15-16.5 km",
+          "source_fraction": 2.9592783381299676e-05,
+          "source_weight": 4.0948339214980194e+65
+        },
+        {
+          "shell": "16.5-18.5 km",
+          "source_fraction": 7.867723629028523e-09,
+          "source_weight": 1.0886783168046346e+62
+        },
+        {
+          "shell": "18.5-20 km",
+          "source_fraction": 8.905604644734594e-13,
+          "source_weight": 1.2322927357267046e+58
+        },
+        {
+          "shell": "20-22 km",
+          "source_fraction": 7.362305979641516e-16,
+          "source_weight": 1.0187423020483635e+55
+        },
+        {
+          "shell": "22-25 km",
+          "source_fraction": 2.9848063604842204e-19,
+          "source_weight": 4.1301577403284615e+51
+        }
+      ],
+      "total_source_weight": 1.3837271975185796e+70
+    },
+    "dimuon": {
+      "mean_emission_radius_km": null,
+      "median_emission_radius_km": null,
+      "p90_emission_radius_km": null,
+      "shells": [
+        {
+          "shell": "0-5 km",
+          "source_fraction": 0.0,
+          "source_weight": 0.0
+        },
+        {
+          "shell": "5-8 km",
+          "source_fraction": 0.0,
+          "source_weight": 0.0
+        },
+        {
+          "shell": "8-10 km",
+          "source_fraction": 0.0,
+          "source_weight": 0.0
+        },
+        {
+          "shell": "10-12 km",
+          "source_fraction": 0.0,
+          "source_weight": 0.0
+        },
+        {
+          "shell": "12-15 km",
+          "source_fraction": 0.0,
+          "source_weight": 0.0
+        },
+        {
+          "shell": "15-16.5 km",
+          "source_fraction": 0.0,
+          "source_weight": 0.0
+        },
+        {
+          "shell": "16.5-18.5 km",
+          "source_fraction": 0.0,
+          "source_weight": 0.0
+        },
+        {
+          "shell": "18.5-20 km",
+          "source_fraction": 0.0,
+          "source_weight": 0.0
+        },
+        {
+          "shell": "20-22 km",
+          "source_fraction": 0.0,
+          "source_weight": 0.0
+        },
+        {
+          "shell": "22-25 km",
+          "source_fraction": 0.0,
+          "source_weight": 0.0
+        }
+      ],
+      "total_source_weight": 0.0
+    },
+    "nu_mu": {
+      "mean_emission_radius_km": 10.164114285190715,
+      "median_emission_radius_km": 9.861136311594052,
+      "p90_emission_radius_km": 12.990028434622715,
+      "shells": [
+        {
+          "shell": "0-5 km",
+          "source_fraction": 0.009446954431814912,
+          "source_weight": 1.3646206319704458e+68
+        },
+        {
+          "shell": "5-8 km",
+          "source_fraction": 0.1708864901992526,
+          "source_weight": 2.4684699384764037e+69
+        },
+        {
+          "shell": "8-10 km",
+          "source_fraction": 0.3286253180222981,
+          "source_weight": 4.747020771591919e+69
+        },
+        {
+          "shell": "10-12 km",
+          "source_fraction": 0.27423574637053005,
+          "source_weight": 3.961358766172691e+69
+        },
+        {
+          "shell": "12-15 km",
+          "source_fraction": 0.18734402992150123,
+          "source_weight": 2.7062005046451137e+69
+        },
+        {
+          "shell": "15-16.5 km",
+          "source_fraction": 0.01892547540083766,
+          "source_weight": 2.733801077187011e+68
+        },
+        {
+          "shell": "16.5-18.5 km",
+          "source_fraction": 0.006404260879838014,
+          "source_weight": 9.25100951023554e+67
+        },
+        {
+          "shell": "18.5-20 km",
+          "source_fraction": 0.0019274497809305849,
+          "source_weight": 2.784217662029604e+67
+        },
+        {
+          "shell": "20-22 km",
+          "source_fraction": 0.0011153891978702664,
+          "source_weight": 1.6111892177279348e+67
+        },
+        {
+          "shell": "22-25 km",
+          "source_fraction": 0.001088885795126845,
+          "source_weight": 1.5729048262215106e+67
+        }
+      ],
+      "total_source_weight": 1.4445085363964015e+70
+    },
+    "nu_tau": {
+      "mean_emission_radius_km": 10.047248539680032,
+      "median_emission_radius_km": 9.861136311594052,
+      "p90_emission_radius_km": 12.990028434622715,
+      "shells": [
+        {
+          "shell": "0-5 km",
+          "source_fraction": 0.01616700550909211,
+          "source_weight": 2.417402013974156e+68
+        },
+        {
+          "shell": "5-8 km",
+          "source_fraction": 0.18293997231796963,
+          "source_weight": 2.735444466009036e+69
+        },
+        {
+          "shell": "8-10 km",
+          "source_fraction": 0.32417570952956015,
+          "source_weight": 4.847298484914463e+69
+        },
+        {
+          "shell": "10-12 km",
+          "source_fraction": 0.2670775722643018,
+          "source_weight": 3.993527810180774e+69
+        },
+        {
+          "shell": "12-15 km",
+          "source_fraction": 0.1811427009268982,
+          "source_weight": 2.708570426299018e+69
+        },
+        {
+          "shell": "15-16.5 km",
+          "source_fraction": 0.018283006641077803,
+          "source_weight": 2.733801077187011e+68
+        },
+        {
+          "shell": "16.5-18.5 km",
+          "source_fraction": 0.006222568930754038,
+          "source_weight": 9.304413644714938e+67
+        },
+        {
+          "shell": "18.5-20 km",
+          "source_fraction": 0.0018620180681716508,
+          "source_weight": 2.784217662029604e+67
+        },
+        {
+          "shell": "20-22 km",
+          "source_fraction": 0.0010775247479989816,
+          "source_weight": 1.6111892177279348e+67
+        },
+        {
+          "shell": "22-25 km",
+          "source_fraction": 0.001051921064175658,
+          "source_weight": 1.5729048262215106e+67
+        }
+      ],
+      "total_source_weight": 1.4952688750026348e+70
+    }
+  },
+  "provenance": {
+    "fig7_reference_path": "/home/runner/work/axial-vector-review-response/axial-vector-review-response/research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json",
+    "fig7_reference_sha256": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4",
+    "fig7_source_pdf_sha256": "4d7d1d10bfe2b52992af94df98749fa3adac887c009cbf98515fa12e6c48fdb5",
+    "profile_path": "/home/runner/work/axial-vector-review-response/axial-vector-review-response/research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv",
+    "profile_sha256": "08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9"
+  },
+  "representative_coupling_indices": {
+    "calculated_luminosity_peak": 17,
+    "reference_luminosity_peak": 17,
+    "strong_absorption_endpoint": 24,
+    "weak_coupling": 0
+  },
+  "representative_couplings": [
+    {
+      "calculated_luminosity_erg_s": 9.925352870417857e+51,
+      "emission_shell_escape": [
+        {
+          "emission_shell": "0-5 km",
+          "escaped_luminosity_fraction": 0.009092856483067426,
+          "mean_escape_probability": 0.9975610148261778,
+          "thin_source_fraction": 0.009095671361427051
+        },
+        {
+          "emission_shell": "5-8 km",
+          "escaped_luminosity_fraction": 0.1751131068977868,
+          "mean_escape_probability": 0.9980653654794804,
+          "thin_source_fraction": 0.17507879971712773
+        },
+        {
+          "emission_shell": "8-10 km",
+          "escaped_luminosity_fraction": 0.39822531767383157,
+          "mean_escape_probability": 0.9981323283555403,
+          "thin_source_fraction": 0.39812058862088756
+        },
+        {
+          "emission_shell": "10-12 km",
+          "escaped_luminosity_fraction": 0.2608145881394387,
+          "mean_escape_probability": 0.9978793536176839,
+          "thin_source_fraction": 0.260812098987004
+        },
+        {
+          "emission_shell": "12-15 km",
+          "escaped_luminosity_fraction": 0.1371022154543913,
+          "mean_escape_probability": 0.9972711686951009,
+          "thin_source_fraction": 0.13718451784787972
+        },
+        {
+          "emission_shell": "15-16.5 km",
+          "escaped_luminosity_fraction": 0.012629039223956957,
+          "mean_escape_probability": 0.995767830155775,
+          "thin_source_fraction": 0.01265569828932217
+        },
+        {
+          "emission_shell": "16.5-18.5 km",
+          "escaped_luminosity_fraction": 0.004276451655397285,
+          "mean_escape_probability": 0.994311054029567,
+          "thin_source_fraction": 0.004291757664247981
+        },
+        {
+          "emission_shell": "18.5-20 km",
+          "escaped_luminosity_fraction": 0.001281629205841667,
+          "mean_escape_probability": 0.9929766455881525,
+          "thin_source_fraction": 0.0012879448107459169
+        },
+        {
+          "emission_shell": "20-22 km",
+          "escaped_luminosity_fraction": 0.000741091723955245,
+          "mean_escape_probability": 0.9922137458630196,
+          "thin_source_fraction": 0.0007453162947508935
+        },
+        {
+          "emission_shell": "22-25 km",
+          "escaped_luminosity_fraction": 0.0007237035423329035,
+          "mean_escape_probability": 0.9925172789421715,
+          "thin_source_fraction": 0.000727606406606924
+        }
+      ],
+      "g": 4.796429536550025e-10,
+      "global_escape_fraction": 0.9978698300943247,
+      "index": 0,
+      "mean_tau_by_emission_shell": [
+        {
+          "emission_shell": "0-5 km",
+          "mean_total_tau_per_g2": 1.061649138105573e+16,
+          "source_fraction": 0.009095671361427051
+        },
+        {
+          "emission_shell": "5-8 km",
+          "mean_total_tau_per_g2": 8419052271761561.0,
+          "source_fraction": 0.17507879971712773
+        },
+        {
+          "emission_shell": "8-10 km",
+          "mean_total_tau_per_g2": 8127539811502243.0,
+          "source_fraction": 0.39812058862088756
+        },
+        {
+          "emission_shell": "10-12 km",
+          "mean_total_tau_per_g2": 9230094576149050.0,
+          "source_fraction": 0.260812098987004
+        },
+        {
+          "emission_shell": "12-15 km",
+          "mean_total_tau_per_g2": 1.1882089510024438e+16,
+          "source_fraction": 0.13718451784787972
+        },
+        {
+          "emission_shell": "15-16.5 km",
+          "mean_total_tau_per_g2": 1.8444778627806532e+16,
+          "source_fraction": 0.01265569828932217
+        },
+        {
+          "emission_shell": "16.5-18.5 km",
+          "mean_total_tau_per_g2": 2.4817041606409524e+16,
+          "source_fraction": 0.004291757664247981
+        },
+        {
+          "emission_shell": "18.5-20 km",
+          "mean_total_tau_per_g2": 3.066947896725302e+16,
+          "source_fraction": 0.0012879448107459169
+        },
+        {
+          "emission_shell": "20-22 km",
+          "mean_total_tau_per_g2": 3.4034582336253624e+16,
+          "source_fraction": 0.0007453162947508935
+        },
+        {
+          "emission_shell": "22-25 km",
+          "mean_total_tau_per_g2": 3.275367584021053e+16,
+          "source_fraction": 0.000727606406606924
+        }
+      ],
+      "optically_thin_luminosity_erg_s": 9.94654069206567e+51,
+      "reference_luminosity_erg_s": 1.0893295563998579e+52,
+      "relative_difference_vs_fig7": -0.08885673650311032,
+      "source_channels": {
+        "compton": {
+          "emission_shells": [
+            {
+              "emission_shell": "0-5 km",
+              "escaped_luminosity_fraction": 0.0010871097325759278,
+              "mean_escape_probability": 0.9976796092773378,
+              "thin_source_fraction": 0.001087606426745545
+            },
+            {
+              "emission_shell": "5-8 km",
+              "escaped_luminosity_fraction": 0.1709692030946319,
+              "mean_escape_probability": 0.9981868314338443,
+              "thin_source_fraction": 0.17096040135400006
+            },
+            {
+              "emission_shell": "8-10 km",
+              "escaped_luminosity_fraction": 0.5506157131471474,
+              "mean_escape_probability": 0.998210991572743,
+              "thin_source_fraction": 0.5505740405500226
+            },
+            {
+              "emission_shell": "10-12 km",
+              "escaped_luminosity_fraction": 0.2399975648653531,
+              "mean_escape_probability": 0.9980077317501012,
+              "thin_source_fraction": 0.240028276521596
+            },
+            {
+              "emission_shell": "12-15 km",
+              "escaped_luminosity_fraction": 0.03730086251211717,
+              "mean_escape_probability": 0.9976216136657562,
+              "thin_source_fraction": 0.03732007449563946
+            },
+            {
+              "emission_shell": "15-16.5 km",
+              "escaped_luminosity_fraction": 2.9538805767332683e-05,
+              "mean_escape_probability": 0.9963148315720143,
+              "thin_source_fraction": 2.959278338129968e-05
+            },
+            {
+              "emission_shell": "16.5-18.5 km",
+              "escaped_luminosity_fraction": 7.841520077201466e-09,
+              "mean_escape_probability": 0.9948111407768201,
+              "thin_source_fraction": 7.867723629028523e-09
+            },
+            {
+              "emission_shell": "18.5-20 km",
+              "escaped_luminosity_fraction": 8.864370073008479e-13,
+              "mean_escape_probability": 0.9935138944188564,
+              "thin_source_fraction": 8.905604644734595e-13
+            },
+            {
+              "emission_shell": "20-22 km",
+              "escaped_luminosity_fraction": 7.321861099290235e-16,
+              "mean_escape_probability": 0.9926521791700708,
+              "thin_source_fraction": 7.362305979641516e-16
+            },
+            {
+              "emission_shell": "22-25 km",
+              "escaped_luminosity_fraction": 2.9678994476609836e-19,
+              "mean_escape_probability": 0.9924816799494621,
+              "thin_source_fraction": 2.9848063604842204e-19
+            }
+          ],
+          "escape_fraction": 0.9981354433391852,
+          "escaped_luminosity_erg_s": 3.177430734757596e+51,
+          "fraction_of_total_escaped_luminosity": 0.3201327727327266,
+          "fraction_of_total_thin_source": 0.3200475823859464,
+          "thin_source_luminosity_erg_s": 3.1833663015990556e+51
+        },
+        "dimuon": {
+          "emission_shells": [
+            {
+              "emission_shell": "0-5 km",
+              "escaped_luminosity_fraction": 0.0,
+              "mean_escape_probability": null,
+              "thin_source_fraction": 0.0
+            },
+            {
+              "emission_shell": "5-8 km",
+              "escaped_luminosity_fraction": 0.0,
+              "mean_escape_probability": null,
+              "thin_source_fraction": 0.0
+            },
+            {
+              "emission_shell": "8-10 km",
+              "escaped_luminosity_fraction": 0.0,
+              "mean_escape_probability": null,
+              "thin_source_fraction": 0.0
+            },
+            {
+              "emission_shell": "10-12 km",
+              "escaped_luminosity_fraction": 0.0,
+              "mean_escape_probability": null,
+              "thin_source_fraction": 0.0
+            },
+            {
+              "emission_shell": "12-15 km",
+              "escaped_luminosity_fraction": 0.0,
+              "mean_escape_probability": null,
+              "thin_source_fraction": 0.0
+            },
+            {
+              "emission_shell": "15-16.5 km",
+              "escaped_luminosity_fraction": 0.0,
+              "mean_escape_probability": null,
+              "thin_source_fraction": 0.0
+            },
+            {
+              "emission_shell": "16.5-18.5 km",
+              "escaped_luminosity_fraction": 0.0,
+              "mean_escape_probability": null,
+              "thin_source_fraction": 0.0
+            },
+            {
+              "emission_shell": "18.5-20 km",
+              "escaped_luminosity_fraction": 0.0,
+              "mean_escape_probability": null,
+              "thin_source_fraction": 0.0
+            },
+            {
+              "emission_shell": "20-22 km",
+              "escaped_luminosity_fraction": 0.0,
+              "mean_escape_probability": null,
+              "thin_source_fraction": 0.0
+            },
+            {
+              "emission_shell": "22-25 km",
+              "escaped_luminosity_fraction": 0.0,
+              "mean_escape_probability": null,
+              "thin_source_fraction": 0.0
+            }
+          ],
+          "escape_fraction": 0.0,
+          "escaped_luminosity_erg_s": 0.0,
+          "fraction_of_total_escaped_luminosity": 0.0,
+          "fraction_of_total_thin_source": 0.0,
+          "thin_source_luminosity_erg_s": 0.0
+        },
+        "nu_mu": {
+          "emission_shells": [
+            {
+              "emission_shell": "0-5 km",
+              "escaped_luminosity_fraction": 0.009446411857806375,
+              "mean_escape_probability": 0.9976912443069114,
+              "thin_source_fraction": 0.00944695443181491
+            },
+            {
+              "emission_shell": "5-8 km",
+              "escaped_luminosity_fraction": 0.17093514856634717,
+              "mean_escape_probability": 0.9980326485316717,
+              "thin_source_fraction": 0.1708864901992525
+            },
+            {
+              "emission_shell": "8-10 km",
+              "escaped_luminosity_fraction": 0.32873223836622434,
+              "mean_escape_probability": 0.9980731726027153,
+              "thin_source_fraction": 0.328625318022298
+            },
+            {
+              "emission_shell": "10-12 km",
+              "escaped_luminosity_fraction": 0.2742573500735908,
+              "mean_escape_probability": 0.9978271492340871,
+              "thin_source_fraction": 0.27423574637053
+            },
+            {
+              "emission_shell": "12-15 km",
+              "escaped_luminosity_fraction": 0.18724813055939338,
+              "mean_escape_probability": 0.9972378121652089,
+              "thin_source_fraction": 0.1873440299215012
+            },
+            {
+              "emission_shell": "15-16.5 km",
+              "escaped_luminosity_fraction": 0.018887897000850418,
+              "mean_escape_probability": 0.9957674204917412,
+              "thin_source_fraction": 0.018925475400837655
+            },
+            {
+              "emission_shell": "16.5-18.5 km",
+              "escaped_luminosity_fraction": 0.006382213659358714,
+              "mean_escape_probability": 0.9943137133065009,
+              "thin_source_fraction": 0.0064042608798380125
+            },
+            {
+              "emission_shell": "18.5-20 km",
+              "escaped_luminosity_fraction": 0.0019182314225486279,
+              "mean_escape_probability": 0.9929766455880336,
+              "thin_source_fraction": 0.0019274497809305844
+            },
+            {
+              "emission_shell": "20-22 km",
+              "escaped_luminosity_fraction": 0.0011092018079148116,
+              "mean_escape_probability": 0.9922137458630196,
+              "thin_source_fraction": 0.0011153891978702662
+            },
+            {
+              "emission_shell": "22-25 km",
+              "escaped_luminosity_fraction": 0.0010831766859654495,
+              "mean_escape_probability": 0.9925172789421715,
+              "thin_source_fraction": 0.0010888857951268447
+            }
+          ],
+          "escape_fraction": 0.9977485487465073,
+          "escaped_luminosity_erg_s": 3.3157162281530936e+51,
+          "fraction_of_total_escaped_luminosity": 0.334065324572536,
+          "fraction_of_total_thin_source": 0.3341059318907567,
+          "thin_source_luminosity_erg_s": 3.323198247011933e+51
+        },
+        "nu_tau": {
+          "emission_shells": [
+            {
+              "emission_shell": "0-5 km",
+              "escaped_luminosity_fraction": 0.01616277511267229,
+              "mean_escape_probability": 0.9974801173527218,
+              "thin_source_fraction": 0.016167005509092107
+            },
+            {
+              "emission_shell": "5-8 km",
+              "escaped_luminosity_fraction": 0.1829855633512372,
+              "mean_escape_probability": 0.9979898449679097,
+              "thin_source_fraction": 0.1829399723179696
+            },
+            {
+              "emission_shell": "8-10 km",
+              "escaped_luminosity_fraction": 0.32428144533822795,
+              "mean_escape_probability": 0.9980666262681418,
+              "thin_source_fraction": 0.3241757095295601
+            },
+            {
+              "emission_shell": "10-12 km",
+              "escaped_luminosity_fraction": 0.267099836240024,
+              "mean_escape_probability": 0.9978243679757938,
+              "thin_source_fraction": 0.26707757226430173
+            },
+            {
+              "emission_shell": "12-15 km",
+              "escaped_luminosity_fraction": 0.18105128663045236,
+              "mean_escape_probability": 0.9972376812380891,
+              "thin_source_fraction": 0.18114270092689816
+            },
+            {
+              "emission_shell": "15-16.5 km",
+              "escaped_luminosity_fraction": 0.018246838415032683,
+              "mean_escape_probability": 0.9957674204917412,
+              "thin_source_fraction": 0.0182830066410778
+            },
+            {
+              "emission_shell": "16.5-18.5 km",
+              "escaped_luminosity_fraction": 0.006201159828081575,
+              "mean_escape_probability": 0.9943084094308332,
+              "thin_source_fraction": 0.006222568930754038
+            },
+            {
+              "emission_shell": "18.5-20 km",
+              "escaped_luminosity_fraction": 0.0018531263066664946,
+              "mean_escape_probability": 0.9929766455880336,
+              "thin_source_fraction": 0.0018620180681716506
+            },
+            {
+              "emission_shell": "20-22 km",
+              "escaped_luminosity_fraction": 0.001071555301141912,
+              "mean_escape_probability": 0.9922137458630196,
+              "thin_source_fraction": 0.0010775247479989814
+            },
+            {
+              "emission_shell": "22-25 km",
+              "escaped_luminosity_fraction": 0.001046413476463381,
+              "mean_escape_probability": 0.9925172789421715,
+              "thin_source_fraction": 0.0010519210641756578
+            }
+          ],
+          "escape_fraction": 0.997741194815464,
+          "escaped_luminosity_erg_s": 3.4322059075071667e+51,
+          "fraction_of_total_escaped_luminosity": 0.3458019026947372,
+          "fraction_of_total_thin_source": 0.34584648572329696,
+          "thin_source_luminosity_erg_s": 3.439976143454682e+51
+        }
+      },
+      "source_weighted_mean_escape_probability": 0.9978698300943247
+    },
+    {
+      "calculated_luminosity_erg_s": 1.9600739023550867e+54,
+      "emission_shell_escape": [
+        {
+          "emission_shell": "0-5 km",
+          "escaped_luminosity_fraction": 0.007341564873908308,
+          "mean_escape_probability": 0.28449810331781505,
+          "thin_source_fraction": 0.009095671361427051
+        },
+        {
+          "emission_shell": "5-8 km",
+          "escaped_luminosity_fraction": 0.18382214566340138,
+          "mean_escape_probability": 0.37007501504227025,
+          "thin_source_fraction": 0.17507879971712773
+        },
+        {
+          "emission_shell": "8-10 km",
+          "escaped_luminosity_fraction": 0.4367054584939359,
+          "mean_escape_probability": 0.38663349717099815,
+          "thin_source_fraction": 0.39812058862088756
+        },
+        {
+          "emission_shell": "10-12 km",
+          "escaped_luminosity_fraction": 0.25837313995957356,
+          "mean_escape_probability": 0.3491765935043319,
+          "thin_source_fraction": 0.260812098987004
+        },
+        {
+          "emission_shell": "12-15 km",
+          "escaped_luminosity_fraction": 0.10631856663729564,
+          "mean_escape_probability": 0.2731678010162428,
+          "thin_source_fraction": 0.13718451784787972
+        },
+        {
+          "emission_shell": "15-16.5 km",
+          "escaped_luminosity_fraction": 0.005394816419858799,
+          "mean_escape_probability": 0.1502505439224265,
+          "thin_source_fraction": 0.01265569828932217
+        },
+        {
+          "emission_shell": "16.5-18.5 km",
+          "escaped_luminosity_fraction": 0.00114741028746061,
+          "mean_escape_probability": 0.09423430739544486,
+          "thin_source_fraction": 0.004291757664247981
+        },
+        {
+          "emission_shell": "18.5-20 km",
+          "escaped_luminosity_fraction": 0.0002722826249718396,
+          "mean_escape_probability": 0.07451576598227198,
+          "thin_source_fraction": 0.0012879448107459169
+        },
+        {
+          "emission_shell": "20-22 km",
+          "escaped_luminosity_fraction": 0.00018521859576474712,
+          "mean_escape_probability": 0.08759301312374063,
+          "thin_source_fraction": 0.0007453162947508935
+        },
+        {
+          "emission_shell": "22-25 km",
+          "escaped_luminosity_fraction": 0.00043939644382931135,
+          "mean_escape_probability": 0.2128558145665105,
+          "thin_source_fraction": 0.000727606406606924
+        }
+      ],
+      "g": 1.1341108687336194e-08,
+      "global_escape_fraction": 0.35247270781802587,
+      "index": 17,
+      "mean_tau_by_emission_shell": [
+        {
+          "emission_shell": "0-5 km",
+          "mean_total_tau_per_g2": 1.061649138105573e+16,
+          "source_fraction": 0.009095671361427051
+        },
+        {
+          "emission_shell": "5-8 km",
+          "mean_total_tau_per_g2": 8419052271761561.0,
+          "source_fraction": 0.17507879971712773
+        },
+        {
+          "emission_shell": "8-10 km",
+          "mean_total_tau_per_g2": 8127539811502243.0,
+          "source_fraction": 0.39812058862088756
+        },
+        {
+          "emission_shell": "10-12 km",
+          "mean_total_tau_per_g2": 9230094576149050.0,
+          "source_fraction": 0.260812098987004
+        },
+        {
+          "emission_shell": "12-15 km",
+          "mean_total_tau_per_g2": 1.1882089510024438e+16,
+          "source_fraction": 0.13718451784787972
+        },
+        {
+          "emission_shell": "15-16.5 km",
+          "mean_total_tau_per_g2": 1.8444778627806532e+16,
+          "source_fraction": 0.01265569828932217
+        },
+        {
+          "emission_shell": "16.5-18.5 km",
+          "mean_total_tau_per_g2": 2.4817041606409524e+16,
+          "source_fraction": 0.004291757664247981
+        },
+        {
+          "emission_shell": "18.5-20 km",
+          "mean_total_tau_per_g2": 3.066947896725302e+16,
+          "source_fraction": 0.0012879448107459169
+        },
+        {
+          "emission_shell": "20-22 km",
+          "mean_total_tau_per_g2": 3.4034582336253624e+16,
+          "source_fraction": 0.0007453162947508935
+        },
+        {
+          "emission_shell": "22-25 km",
+          "mean_total_tau_per_g2": 3.275367584021053e+16,
+          "source_fraction": 0.000727606406606924
+        }
+      ],
+      "optically_thin_luminosity_erg_s": 5.560923892487673e+54,
+      "reference_luminosity_erg_s": 1.910994581282271e+54,
+      "relative_difference_vs_fig7": 0.02568260609084705,
+      "source_channels": {
+        "compton": {
+          "emission_shells": [
+            {
+              "emission_shell": "0-5 km",
+              "escaped_luminosity_fraction": 0.0008463946416915828,
+              "mean_escape_probability": 0.3033206522069208,
+              "thin_source_fraction": 0.001087606426745545
+            },
+            {
+              "emission_shell": "5-8 km",
+              "escaped_luminosity_fraction": 0.17254091935167054,
+              "mean_escape_probability": 0.3933665438891393,
+              "thin_source_fraction": 0.17096040135400006
+            },
+            {
+              "emission_shell": "8-10 km",
+              "escaped_luminosity_fraction": 0.5676384020417812,
+              "mean_escape_probability": 0.4018434365205341,
+              "thin_source_fraction": 0.5505740405500226
+            },
+            {
+              "emission_shell": "10-12 km",
+              "escaped_luminosity_fraction": 0.22855692353091867,
+              "mean_escape_probability": 0.37113577198810244,
+              "thin_source_fraction": 0.240028276521596
+            },
+            {
+              "emission_shell": "12-15 km",
+              "escaped_luminosity_fraction": 0.030403125838687612,
+              "mean_escape_probability": 0.3175240140212313,
+              "thin_source_fraction": 0.03732007449563946
+            },
+            {
+              "emission_shell": "15-16.5 km",
+              "escaped_luminosity_fraction": 1.4232334730602865e-05,
+              "mean_escape_probability": 0.1874524734356964,
+              "thin_source_fraction": 2.959278338129968e-05
+            },
+            {
+              "emission_shell": "16.5-18.5 km",
+              "escaped_luminosity_fraction": 2.2603272616912787e-09,
+              "mean_escape_probability": 0.11197551489942315,
+              "thin_source_fraction": 7.867723629028523e-09
+            },
+            {
+              "emission_shell": "18.5-20 km",
+              "escaped_luminosity_fraction": 1.9261940660332666e-13,
+              "mean_escape_probability": 0.08430192088992977,
+              "thin_source_fraction": 8.905604644734595e-13
+            },
+            {
+              "emission_shell": "20-22 km",
+              "escaped_luminosity_fraction": 1.6123755934640148e-16,
+              "mean_escape_probability": 0.08535976165683597,
+              "thin_source_fraction": 7.362305979641516e-16
+            },
+            {
+              "emission_shell": "22-25 km",
+              "escaped_luminosity_fraction": 1.0528546974486315e-19,
+              "mean_escape_probability": 0.13748430376428136,
+              "thin_source_fraction": 2.9848063604842204e-19
+            }
+          ],
+          "escape_fraction": 0.3897632079115962,
+          "escaped_luminosity_erg_s": 6.936850634270485e+53,
+          "fraction_of_total_escaped_luminosity": 0.353907606541552,
+          "fraction_of_total_thin_source": 0.3200475823859464,
+          "thin_source_luminosity_erg_s": 1.779760247622926e+54
+        },
+        "dimuon": {
+          "emission_shells": [
+            {
+              "emission_shell": "0-5 km",
+              "escaped_luminosity_fraction": 0.0,
+              "mean_escape_probability": null,
+              "thin_source_fraction": 0.0
+            },
+            {
+              "emission_shell": "5-8 km",
+              "escaped_luminosity_fraction": 0.0,
+              "mean_escape_probability": null,
+              "thin_source_fraction": 0.0
+            },
+            {
+              "emission_shell": "8-10 km",
+              "escaped_luminosity_fraction": 0.0,
+              "mean_escape_probability": null,
+              "thin_source_fraction": 0.0
+            },
+            {
+              "emission_shell": "10-12 km",
+              "escaped_luminosity_fraction": 0.0,
+              "mean_escape_probability": null,
+              "thin_source_fraction": 0.0
+            },
+            {
+              "emission_shell": "12-15 km",
+              "escaped_luminosity_fraction": 0.0,
+              "mean_escape_probability": null,
+              "thin_source_fraction": 0.0
+            },
+            {
+              "emission_shell": "15-16.5 km",
+              "escaped_luminosity_fraction": 0.0,
+              "mean_escape_probability": null,
+              "thin_source_fraction": 0.0
+            },
+            {
+              "emission_shell": "16.5-18.5 km",
+              "escaped_luminosity_fraction": 0.0,
+              "mean_escape_probability": null,
+              "thin_source_fraction": 0.0
+            },
+            {
+              "emission_shell": "18.5-20 km",
+              "escaped_luminosity_fraction": 0.0,
+              "mean_escape_probability": null,
+              "thin_source_fraction": 0.0
+            },
+            {
+              "emission_shell": "20-22 km",
+              "escaped_luminosity_fraction": 0.0,
+              "mean_escape_probability": null,
+              "thin_source_fraction": 0.0
+            },
+            {
+              "emission_shell": "22-25 km",
+              "escaped_luminosity_fraction": 0.0,
+              "mean_escape_probability": null,
+              "thin_source_fraction": 0.0
+            }
+          ],
+          "escape_fraction": 0.0,
+          "escaped_luminosity_erg_s": 0.0,
+          "fraction_of_total_escaped_luminosity": 0.0,
+          "fraction_of_total_thin_source": 0.0,
+          "thin_source_luminosity_erg_s": 0.0
+        },
+        "nu_mu": {
+          "emission_shells": [
+            {
+              "emission_shell": "0-5 km",
+              "escaped_luminosity_fraction": 0.008483396235742175,
+              "mean_escape_probability": 0.30153160887965913,
+              "thin_source_fraction": 0.00944695443181491
+            },
+            {
+              "emission_shell": "5-8 km",
+              "escaped_luminosity_fraction": 0.18480061962336808,
+              "mean_escape_probability": 0.3631203650845893,
+              "thin_source_fraction": 0.1708864901992525
+            },
+            {
+              "emission_shell": "8-10 km",
+              "escaped_luminosity_fraction": 0.36712482025595444,
+              "mean_escape_probability": 0.37511777248921724,
+              "thin_source_fraction": 0.328625318022298
+            },
+            {
+              "emission_shell": "10-12 km",
+              "escaped_luminosity_fraction": 0.2778605787458864,
+              "mean_escape_probability": 0.3402183901600395,
+              "thin_source_fraction": 0.27423574637053
+            },
+            {
+              "emission_shell": "12-15 km",
+              "escaped_luminosity_fraction": 0.1500558871822018,
+              "mean_escape_probability": 0.26894786074826244,
+              "thin_source_fraction": 0.1873440299215012
+            },
+            {
+              "emission_shell": "15-16.5 km",
+              "escaped_luminosity_fraction": 0.008466957831687596,
+              "mean_escape_probability": 0.1502226823994746,
+              "thin_source_fraction": 0.018925475400837655
+            },
+            {
+              "emission_shell": "16.5-18.5 km",
+              "escaped_luminosity_fraction": 0.0017987780848625191,
+              "mean_escape_probability": 0.0943112468117509,
+              "thin_source_fraction": 0.0064042608798380125
+            },
+            {
+              "emission_shell": "18.5-20 km",
+              "escaped_luminosity_fraction": 0.00042773651655851787,
+              "mean_escape_probability": 0.07451576598010631,
+              "thin_source_fraction": 0.0019274497809305844
+            },
+            {
+              "emission_shell": "20-22 km",
+              "escaped_luminosity_fraction": 0.0002909651579210293,
+              "mean_escape_probability": 0.08759301312374133,
+              "thin_source_fraction": 0.0011153891978702662
+            },
+            {
+              "emission_shell": "22-25 km",
+              "escaped_luminosity_fraction": 0.0006902603658174764,
+              "mean_escape_probability": 0.21285581456651048,
+              "thin_source_fraction": 0.0010888857951268447
+            }
+          ],
+          "escape_fraction": 0.33578006846320185,
+          "escaped_luminosity_erg_s": 6.238584344311054e+53,
+          "fraction_of_total_escaped_luminosity": 0.3182831186525779,
+          "fraction_of_total_thin_source": 0.3341059318907567,
+          "thin_source_luminosity_erg_s": 1.857937659273168e+54
+        },
+        "nu_tau": {
+          "emission_shells": [
+            {
+              "emission_shell": "0-5 km",
+              "escaped_luminosity_fraction": 0.013245194370938332,
+              "mean_escape_probability": 0.27371091377103784,
+              "thin_source_fraction": 0.016167005509092107
+            },
+            {
+              "emission_shell": "5-8 km",
+              "escaped_luminosity_fraction": 0.19505148034747857,
+              "mean_escape_probability": 0.3562082769911452,
+              "thin_source_fraction": 0.1829399723179696
+            },
+            {
+              "emission_shell": "8-10 km",
+              "escaped_luminosity_fraction": 0.36290699093513046,
+              "mean_escape_probability": 0.37400570708064057,
+              "thin_source_fraction": 0.3241757095295601
+            },
+            {
+              "emission_shell": "10-12 km",
+              "escaped_luminosity_fraction": 0.2716420232256348,
+              "mean_escape_probability": 0.339799629975732,
+              "thin_source_fraction": 0.26707757226430173
+            },
+            {
+              "emission_shell": "12-15 km",
+              "escaped_luminosity_fraction": 0.1458116565619442,
+              "mean_escape_probability": 0.26892722466660535,
+              "thin_source_fraction": 0.18114270092689816
+            },
+            {
+              "emission_shell": "15-16.5 km",
+              "escaped_luminosity_fraction": 0.008220907555972361,
+              "mean_escape_probability": 0.1502226823994746,
+              "thin_source_fraction": 0.0182830066410778
+            },
+            {
+              "emission_shell": "16.5-18.5 km",
+              "escaped_luminosity_fraction": 0.001753729479558186,
+              "mean_escape_probability": 0.09415778882653505,
+              "thin_source_fraction": 0.006222568930754038
+            },
+            {
+              "emission_shell": "18.5-20 km",
+              "escaped_luminosity_fraction": 0.00041530646908162846,
+              "mean_escape_probability": 0.07451576598010631,
+              "thin_source_fraction": 0.0018620180681716506
+            },
+            {
+              "emission_shell": "20-22 km",
+              "escaped_luminosity_fraction": 0.00028250969389804066,
+              "mean_escape_probability": 0.08759301312374133,
+              "thin_source_fraction": 0.0010775247479989814
+            },
+            {
+              "emission_shell": "22-25 km",
+              "escaped_luminosity_fraction": 0.000670201360363467,
+              "mean_escape_probability": 0.21285581456651048,
+              "thin_source_fraction": 0.0010519210641756578
+            }
+          ],
+          "escape_fraction": 0.334089914191385,
+          "escaped_luminosity_erg_s": 6.425304044969326e+53,
+          "fraction_of_total_escaped_luminosity": 0.32780927480587,
+          "fraction_of_total_thin_source": 0.345846485723297,
+          "thin_source_luminosity_erg_s": 1.9232259855915793e+54
+        }
+      },
+      "source_weighted_mean_escape_probability": 0.35247270781802587
+    },
+    {
+      "calculated_luminosity_erg_s": 2.4372245354553146e+52,
+      "emission_shell_escape": [
+        {
+          "emission_shell": "0-5 km",
+          "escaped_luminosity_fraction": 0.000352006180529182,
+          "mean_escape_probability": 1.2535774173612557e-05,
+          "thin_source_fraction": 0.009095671361427051
+        },
+        {
+          "emission_shell": "5-8 km",
+          "escaped_luminosity_fraction": 0.0972037163983058,
+          "mean_escape_probability": 0.0001798394395421197,
+          "thin_source_fraction": 0.17507879971712773
+        },
+        {
+          "emission_shell": "8-10 km",
+          "escaped_luminosity_fraction": 0.4940564780744225,
+          "mean_escape_probability": 0.00040197365615714237,
+          "thin_source_fraction": 0.39812058862088756
+        },
+        {
+          "emission_shell": "10-12 km",
+          "escaped_luminosity_fraction": 0.30601470541964293,
+          "mean_escape_probability": 0.0003800582758986057,
+          "thin_source_fraction": 0.260812098987004
+        },
+        {
+          "emission_shell": "12-15 km",
+          "escaped_luminosity_fraction": 0.06832743243676317,
+          "mean_escape_probability": 0.00016133389969859906,
+          "thin_source_fraction": 0.13718451784787972
+        },
+        {
+          "emission_shell": "15-16.5 km",
+          "escaped_luminosity_fraction": 0.0004496816172801513,
+          "mean_escape_probability": 1.1509452180158e-05,
+          "thin_source_fraction": 0.01265569828932217
+        },
+        {
+          "emission_shell": "16.5-18.5 km",
+          "escaped_luminosity_fraction": 2.296886446257039e-05,
+          "mean_escape_probability": 1.7335643406820515e-06,
+          "thin_source_fraction": 0.004291757664247981
+        },
+        {
+          "emission_shell": "18.5-20 km",
+          "escaped_luminosity_fraction": 3.810908033058877e-06,
+          "mean_escape_probability": 9.584442273156865e-07,
+          "thin_source_fraction": 0.0012879448107459169
+        },
+        {
+          "emission_shell": "20-22 km",
+          "escaped_luminosity_fraction": 1.122615272012844e-05,
+          "mean_escape_probability": 4.878945435561764e-06,
+          "thin_source_fraction": 0.0007453162947508935
+        },
+        {
+          "emission_shell": "22-25 km",
+          "escaped_luminosity_fraction": 0.033557973947840436,
+          "mean_escape_probability": 0.014939458269977144,
+          "thin_source_fraction": 0.000727606406606924
+        }
+      ],
+      "g": 4.171689650228597e-08,
+      "global_escape_fraction": 0.0003239184095371076,
+      "index": 24,
+      "mean_tau_by_emission_shell": [
+        {
+          "emission_shell": "0-5 km",
+          "mean_total_tau_per_g2": 1.061649138105573e+16,
+          "source_fraction": 0.009095671361427051
+        },
+        {
+          "emission_shell": "5-8 km",
+          "mean_total_tau_per_g2": 8419052271761561.0,
+          "source_fraction": 0.17507879971712773
+        },
+        {
+          "emission_shell": "8-10 km",
+          "mean_total_tau_per_g2": 8127539811502243.0,
+          "source_fraction": 0.39812058862088756
+        },
+        {
+          "emission_shell": "10-12 km",
+          "mean_total_tau_per_g2": 9230094576149050.0,
+          "source_fraction": 0.260812098987004
+        },
+        {
+          "emission_shell": "12-15 km",
+          "mean_total_tau_per_g2": 1.1882089510024438e+16,
+          "source_fraction": 0.13718451784787972
+        },
+        {
+          "emission_shell": "15-16.5 km",
+          "mean_total_tau_per_g2": 1.8444778627806532e+16,
+          "source_fraction": 0.01265569828932217
+        },
+        {
+          "emission_shell": "16.5-18.5 km",
+          "mean_total_tau_per_g2": 2.4817041606409524e+16,
+          "source_fraction": 0.004291757664247981
+        },
+        {
+          "emission_shell": "18.5-20 km",
+          "mean_total_tau_per_g2": 3.066947896725302e+16,
+          "source_fraction": 0.0012879448107459169
+        },
+        {
+          "emission_shell": "20-22 km",
+          "mean_total_tau_per_g2": 3.4034582336253624e+16,
+          "source_fraction": 0.0007453162947508935
+        },
+        {
+          "emission_shell": "22-25 km",
+          "mean_total_tau_per_g2": 3.275367584021053e+16,
+          "source_fraction": 0.000727606406606924
+        }
+      ],
+      "optically_thin_luminosity_erg_s": 7.524192709325186e+55,
+      "reference_luminosity_erg_s": 1.26781475907372e+52,
+      "relative_difference_vs_fig7": 0.9223822076625603,
+      "source_channels": {
+        "compton": {
+          "emission_shells": [
+            {
+              "emission_shell": "0-5 km",
+              "escaped_luminosity_fraction": 5.160874445952724e-05,
+              "mean_escape_probability": 2.2022036909060474e-05,
+              "thin_source_fraction": 0.001087606426745545
+            },
+            {
+              "emission_shell": "5-8 km",
+              "escaped_luminosity_fraction": 0.09941064736273558,
+              "mean_escape_probability": 0.0002698629918840857,
+              "thin_source_fraction": 0.17096040135400006
+            },
+            {
+              "emission_shell": "8-10 km",
+              "escaped_luminosity_fraction": 0.6000957621752387,
+              "mean_escape_probability": 0.0005058372257142624,
+              "thin_source_fraction": 0.5505740405500226
+            },
+            {
+              "emission_shell": "10-12 km",
+              "escaped_luminosity_fraction": 0.27453547171016557,
+              "mean_escape_probability": 0.0005308135700947886,
+              "thin_source_fraction": 0.240028276521596
+            },
+            {
+              "emission_shell": "12-15 km",
+              "escaped_luminosity_fraction": 0.02590455537929136,
+              "mean_escape_probability": 0.0003221362496634819,
+              "thin_source_fraction": 0.03732007449563946
+            },
+            {
+              "emission_shell": "15-16.5 km",
+              "escaped_luminosity_fraction": 1.9545633737574316e-06,
+              "mean_escape_probability": 3.0652782168786686e-05,
+              "thin_source_fraction": 2.959278338129968e-05
+            },
+            {
+              "emission_shell": "16.5-18.5 km",
+              "escaped_luminosity_fraction": 6.473214790156638e-11,
+              "mean_escape_probability": 3.818360067292964e-06,
+              "thin_source_fraction": 7.867723629028523e-09
+            },
+            {
+              "emission_shell": "18.5-20 km",
+              "escaped_luminosity_fraction": 3.1899595013001133e-15,
+              "mean_escape_probability": 1.662370088862327e-06,
+              "thin_source_fraction": 8.905604644734595e-13
+            },
+            {
+              "emission_shell": "20-22 km",
+              "escaped_luminosity_fraction": 4.819076222852255e-18,
+              "mean_escape_probability": 3.0377770054661932e-06,
+              "thin_source_fraction": 7.362305979641516e-16
+            },
+            {
+              "emission_shell": "22-25 km",
+              "escaped_luminosity_fraction": 2.577438537372035e-19,
+              "mean_escape_probability": 0.0004007542289652359,
+              "thin_source_fraction": 2.9848063604842204e-19
+            }
+          ],
+          "escape_fraction": 0.0004640940042845827,
+          "escaped_luminosity_erg_s": 1.1175846260040157e+52,
+          "fraction_of_total_escaped_luminosity": 0.4585480778426646,
+          "fraction_of_total_thin_source": 0.3200475823859464,
+          "thin_source_luminosity_erg_s": 2.4080996860254894e+55
+        },
+        "dimuon": {
+          "emission_shells": [
+            {
+              "emission_shell": "0-5 km",
+              "escaped_luminosity_fraction": 0.0,
+              "mean_escape_probability": null,
+              "thin_source_fraction": 0.0
+            },
+            {
+              "emission_shell": "5-8 km",
+              "escaped_luminosity_fraction": 0.0,
+              "mean_escape_probability": null,
+              "thin_source_fraction": 0.0
+            },
+            {
+              "emission_shell": "8-10 km",
+              "escaped_luminosity_fraction": 0.0,
+              "mean_escape_probability": null,
+              "thin_source_fraction": 0.0
+            },
+            {
+              "emission_shell": "10-12 km",
+              "escaped_luminosity_fraction": 0.0,
+              "mean_escape_probability": null,
+              "thin_source_fraction": 0.0
+            },
+            {
+              "emission_shell": "12-15 km",
+              "escaped_luminosity_fraction": 0.0,
+              "mean_escape_probability": null,
+              "thin_source_fraction": 0.0
+            },
+            {
+              "emission_shell": "15-16.5 km",
+              "escaped_luminosity_fraction": 0.0,
+              "mean_escape_probability": null,
+              "thin_source_fraction": 0.0
+            },
+            {
+              "emission_shell": "16.5-18.5 km",
+              "escaped_luminosity_fraction": 0.0,
+              "mean_escape_probability": null,
+              "thin_source_fraction": 0.0
+            },
+            {
+              "emission_shell": "18.5-20 km",
+              "escaped_luminosity_fraction": 0.0,
+              "mean_escape_probability": null,
+              "thin_source_fraction": 0.0
+            },
+            {
+              "emission_shell": "20-22 km",
+              "escaped_luminosity_fraction": 0.0,
+              "mean_escape_probability": null,
+              "thin_source_fraction": 0.0
+            },
+            {
+              "emission_shell": "22-25 km",
+              "escaped_luminosity_fraction": 0.0,
+              "mean_escape_probability": null,
+              "thin_source_fraction": 0.0
+            }
+          ],
+          "escape_fraction": 0.0,
+          "escaped_luminosity_erg_s": 0.0,
+          "fraction_of_total_escaped_luminosity": 0.0,
+          "fraction_of_total_thin_source": 0.0,
+          "thin_source_luminosity_erg_s": 0.0
+        },
+        "nu_mu": {
+          "emission_shells": [
+            {
+              "emission_shell": "0-5 km",
+              "escaped_luminosity_fraction": 0.0005611773267013604,
+              "mean_escape_probability": 1.5539539341746643e-05,
+              "thin_source_fraction": 0.00944695443181491
+            },
+            {
+              "emission_shell": "5-8 km",
+              "escaped_luminosity_fraction": 0.0944615321698202,
+              "mean_escape_probability": 0.0001446029325443044,
+              "thin_source_fraction": 0.1708864901992525
+            },
+            {
+              "emission_shell": "8-10 km",
+              "escaped_luminosity_fraction": 0.40402559751857076,
+              "mean_escape_probability": 0.00032161604483526266,
+              "thin_source_fraction": 0.328625318022298
+            },
+            {
+              "emission_shell": "10-12 km",
+              "escaped_luminosity_fraction": 0.33328347878892495,
+              "mean_escape_probability": 0.0003179212568566465,
+              "thin_source_fraction": 0.27423574637053
+            },
+            {
+              "emission_shell": "12-15 km",
+              "escaped_luminosity_fraction": 0.10458094507572432,
+              "mean_escape_probability": 0.00014603015597025232,
+              "thin_source_fraction": 0.1873440299215012
+            },
+            {
+              "emission_shell": "15-16.5 km",
+              "escaped_luminosity_fraction": 0.0008316302567806842,
+              "mean_escape_probability": 1.149511522681088e-05,
+              "thin_source_fraction": 0.018925475400837655
+            },
+            {
+              "emission_shell": "16.5-18.5 km",
+              "escaped_luminosity_fraction": 4.253098781420228e-05,
+              "mean_escape_probability": 1.7372659187190961e-06,
+              "thin_source_fraction": 0.0064042608798380125
+            },
+            {
+              "emission_shell": "18.5-20 km",
+              "escaped_luminosity_fraction": 7.061875755297767e-06,
+              "mean_escape_probability": 9.584442271599078e-07,
+              "thin_source_fraction": 0.0019274497809305844
+            },
+            {
+              "emission_shell": "20-22 km",
+              "escaped_luminosity_fraction": 2.0802836243289115e-05,
+              "mean_escape_probability": 4.878945435562346e-06,
+              "thin_source_fraction": 0.0011153891978702662
+            },
+            {
+              "emission_shell": "22-25 km",
+              "escaped_luminosity_fraction": 0.062185243163664826,
+              "mean_escape_probability": 0.014939458269977144,
+              "thin_source_fraction": 0.0010888857951268447
+            }
+          ],
+          "escape_fraction": 0.0002615952446186379,
+          "escaped_luminosity_erg_s": 6.576183778086141e+51,
+          "fraction_of_total_escaped_luminosity": 0.26982264795137556,
+          "fraction_of_total_thin_source": 0.33410593189075666,
+          "thin_source_luminosity_erg_s": 2.5138774168747285e+55
+        },
+        "nu_tau": {
+          "emission_shells": [
+            {
+              "emission_shell": "0-5 km",
+              "escaped_luminosity_fraction": 0.0006513389921382612,
+              "mean_escape_probability": 1.0249586124260898e-05,
+              "thin_source_fraction": 0.016167005509092107
+            },
+            {
+              "emission_shell": "5-8 km",
+              "escaped_luminosity_fraction": 0.09620205506130301,
+              "mean_escape_probability": 0.0001337841236057722,
+              "thin_source_fraction": 0.1829399723179696
+            },
+            {
+              "emission_shell": "8-10 km",
+              "escaped_luminosity_fraction": 0.4044794640268926,
+              "mean_escape_probability": 0.00031742771602560454,
+              "thin_source_fraction": 0.3241757095295601
+            },
+            {
+              "emission_shell": "10-12 km",
+              "escaped_luminosity_fraction": 0.3320686331240226,
+              "mean_escape_probability": 0.0003163146249654067,
+              "thin_source_fraction": 0.26707757226430173
+            },
+            {
+              "emission_shell": "12-15 km",
+              "escaped_luminosity_fraction": 0.10393077446146465,
+              "mean_escape_probability": 0.0001459661529708242,
+              "thin_source_fraction": 0.18114270092689816
+            },
+            {
+              "emission_shell": "15-16.5 km",
+              "escaped_luminosity_fraction": 0.0008260990228575413,
+              "mean_escape_probability": 1.149511522681088e-05,
+              "thin_source_fraction": 0.0182830066410778
+            },
+            {
+              "emission_shell": "16.5-18.5 km",
+              "escaped_luminosity_fraction": 4.231138584509933e-05,
+              "mean_escape_probability": 1.729881569080204e-06,
+              "thin_source_fraction": 0.006222568930754038
+            },
+            {
+              "emission_shell": "18.5-20 km",
+              "escaped_luminosity_fraction": 7.0149067009370816e-06,
+              "mean_escape_probability": 9.584442271599078e-07,
+              "thin_source_fraction": 0.0018620180681716506
+            },
+            {
+              "emission_shell": "20-22 km",
+              "escaped_luminosity_fraction": 2.0664475051415344e-05,
+              "mean_escape_probability": 4.878945435562346e-06,
+              "thin_source_fraction": 0.0010775247479989814
+            },
+            {
+              "emission_shell": "22-25 km",
+              "escaped_luminosity_fraction": 0.06177164454372373,
+              "mean_escape_probability": 0.014939458269977144,
+              "thin_source_fraction": 0.0010519210641756578
+            }
+          ],
+          "escape_fraction": 0.00025440687159362533,
+          "escaped_luminosity_erg_s": 6.620215316426848e+51,
+          "fraction_of_total_escaped_luminosity": 0.27162927420595984,
+          "fraction_of_total_thin_source": 0.345846485723297,
+          "thin_source_luminosity_erg_s": 2.6022156064249683e+55
+        }
+      },
+      "source_weighted_mean_escape_probability": 0.0003239184095371076
+    }
+  ],
+  "scope": [
+    "Literal fixed-omega scalar Appendix-B B.1/B.2 benchmark.",
+    "The source distribution includes the B.1 lapse-squared factor and local escape-energy lower bound.",
+    "The escape probability is angle averaged after exponentiating the full chord optical depth.",
+    "The opacity matrix separates the shell where a vector is emitted from the shell where it accumulates optical depth.",
+    "No fitted scaling, modified background, source feedback, or axial-production replacement."
+  ],
+  "source_weighted_mean_tau_by_emission_and_absorption_shell": {
+    "compton": [
+      {
+        "emission_shell": "0-5 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 32535000487372.918
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 233158888517858.9
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 313034726216568.9
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 208112424462227.0
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 75111975512763.98
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 572785798423.0969
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 8514288926.171473
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 418106.6685376812
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 869.6672323698532
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 0.7971619856020289
+          }
+        ],
+        "mean_total_tau_per_g2": 862534315703118.1,
+        "source_weight": 3.932517705232983e+68
+      },
+      {
+        "emission_shell": "5-8 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 8555805381792.646
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 317945276389297.3
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 417675960775903.2
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 230564363225085.25
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 79560416651060.23
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 590174759343.9868
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 5526985583.787734
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 524355.009325273
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 867.0854227184401
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 0.7082785845408075
+          }
+        ],
+        "mean_total_tau_per_g2": 1054897524693289.2,
+        "source_weight": 7.56953997500766e+69
+      },
+      {
+        "emission_shell": "8-10 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 5353444744746.286
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 178448510815467.78
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 543421178212528.75
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 274767606933560.3
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 90423711071390.14
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 683102837536.6233
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 7294635265.316308
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 408550.2208491884
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 891.3338932959513
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 0.7009853244803169
+          }
+        ],
+        "mean_total_tau_per_g2": 1093104849659937.5,
+        "source_weight": 1.7212761998074018e+70
+      },
+      {
+        "emission_shell": "10-12 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 3045293857810.8804
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 98028480351225.25
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 297666292945730.6
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 384882660824183.56
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 104565935743717.48
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 725734243887.3165
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 8529389211.805291
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 393837.7961484649
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 873.3493810502434
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 0.7015165600284808
+          }
+        ],
+        "mean_total_tau_per_g2": 888922927750478.8,
+        "source_weight": 1.1276223120317894e+70
+      },
+      {
+        "emission_shell": "12-15 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 2732949622803.1274
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 57269676679181.234
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 193409787962757.0
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 204304299462720.1
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 132631011448918.05
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 1068889688985.0714
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 8481178680.663541
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 456848.25659837166
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 1107.8963819913524
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 0.8892537161989182
+          }
+        ],
+        "mean_total_tau_per_g2": 591425096502002.2,
+        "source_weight": 5.93117895187449e+69
+      },
+      {
+        "emission_shell": "15-16.5 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 1073577676642.6882
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 41585846393274.16
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 131370390270213.33
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 127635036795619.45
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 85312238409077.12
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 1460796146023.692
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 15827851172.693985
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 645645.0911175718
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 1001.8849449457266
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 0.935469566208781
+          }
+        ],
+        "mean_total_tau_per_g2": 388453714188671.06,
+        "source_weight": 5.47169698829552e+68
+      },
+      {
+        "emission_shell": "16.5-18.5 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 935596200247.8217
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 35516544383027.33
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 118525197881681.02
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 118406171698414.4
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 58922548970842.84
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 1162122981791.2383
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 16302625983.721071
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 877972.7945484861
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 1408.257016001051
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 1.2095187220175807
+          }
+        ],
+        "mean_total_tau_per_g2": 333484485621370.6,
+        "source_weight": 1.8555434041733647e+68
+      },
+      {
+        "emission_shell": "18.5-20 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 1293640056541.156
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 39229902764885.78
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 103462337374186.66
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 90185916300391.98
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 60608142074809.02
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 940705429927.5927
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 14272316118.52855
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 1316207.9543534927
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 2320.662003946391
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 1.3038505415441395
+          }
+        ],
+        "mean_total_tau_per_g2": 295734917635390.6,
+        "source_weight": 5.568435325291499e+67
+      },
+      {
+        "emission_shell": "20-22 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 1508769257520.553
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 46068177537177.84
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 52903979798689.73
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 120997494385872.0
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 39935519587881.37
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 671049622762.3403
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 7989773694.580279
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 767902.6205373993
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 3026.2287109445624
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 2.0969731728246788
+          }
+        ],
+        "mean_total_tau_per_g2": 262092980734529.34,
+        "source_weight": 3.2223784354568885e+67
+      },
+      {
+        "emission_shell": "22-25 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 1335608466667.1763
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 35097556324500.246
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 91298688320457.03
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 55303622803656.1
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 42407707493529.39
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 587262004945.5367
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 7182153794.200775
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 490152.431076935
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 1657.3409730491448
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 2.5397637247212432
+          }
+        ],
+        "mean_total_tau_per_g2": 226037628059362.0,
+        "source_weight": 3.145809652443021e+67
+      }
+    ],
+    "dimuon": [
+      {
+        "emission_shell": "0-5 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 0.0
+          }
+        ],
+        "mean_total_tau_per_g2": 0.0,
+        "source_weight": 3.932517705232983e+68
+      },
+      {
+        "emission_shell": "5-8 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 0.0
+          }
+        ],
+        "mean_total_tau_per_g2": 0.0,
+        "source_weight": 7.56953997500766e+69
+      },
+      {
+        "emission_shell": "8-10 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 0.0
+          }
+        ],
+        "mean_total_tau_per_g2": 0.0,
+        "source_weight": 1.7212761998074018e+70
+      },
+      {
+        "emission_shell": "10-12 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 0.0
+          }
+        ],
+        "mean_total_tau_per_g2": 0.0,
+        "source_weight": 1.1276223120317894e+70
+      },
+      {
+        "emission_shell": "12-15 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 0.0
+          }
+        ],
+        "mean_total_tau_per_g2": 0.0,
+        "source_weight": 5.93117895187449e+69
+      },
+      {
+        "emission_shell": "15-16.5 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 0.0
+          }
+        ],
+        "mean_total_tau_per_g2": 0.0,
+        "source_weight": 5.47169698829552e+68
+      },
+      {
+        "emission_shell": "16.5-18.5 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 0.0
+          }
+        ],
+        "mean_total_tau_per_g2": 0.0,
+        "source_weight": 1.8555434041733647e+68
+      },
+      {
+        "emission_shell": "18.5-20 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 0.0
+          }
+        ],
+        "mean_total_tau_per_g2": 0.0,
+        "source_weight": 5.568435325291499e+67
+      },
+      {
+        "emission_shell": "20-22 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 0.0
+          }
+        ],
+        "mean_total_tau_per_g2": 0.0,
+        "source_weight": 3.2223784354568885e+67
+      },
+      {
+        "emission_shell": "22-25 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 0.0
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 0.0
+          }
+        ],
+        "mean_total_tau_per_g2": 0.0,
+        "source_weight": 3.145809652443021e+67
+      }
+    ],
+    "neutrino": [
+      {
+        "emission_shell": "0-5 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 912840856766199.2
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 873039959948156.1
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 470012992190172.5
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 575279142169455.1
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 1133214917954586.0
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 687330920961964.0
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 1124021386856857.0
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 893453964403604.9
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 1203441022994668.0
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 1881321901106948.0
+          }
+        ],
+        "mean_total_tau_per_g2": 9753957065352610.0,
+        "source_weight": 3.932517705232983e+68
+      },
+      {
+        "emission_shell": "5-8 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 208374471866499.9
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 869378695237549.2
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 554937193112235.7
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 551467667988781.8
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 966283554310753.5
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 587213658431162.5
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 771804180553571.8
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 678251645012076.8
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 869484524086995.8
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 1306959156468645.0
+          }
+        ],
+        "mean_total_tau_per_g2": 7364154747068272.0,
+        "source_weight": 7.56953997500766e+69
+      },
+      {
+        "emission_shell": "8-10 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 121768867669524.95
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 443480454479711.6
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 711829929363541.4
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 629781828057584.0
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 1010934589462215.2
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 577871945728010.4
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 808513022557542.6
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 633356768712267.9
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 840622698036036.1
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 1256274857775871.0
+          }
+        ],
+        "mean_total_tau_per_g2": 7034434961842305.0,
+        "source_weight": 1.7212761998074018e+70
+      },
+      {
+        "emission_shell": "10-12 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 81258869924730.97
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 283762137811157.94
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 422258310748536.9
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 991371965134595.9
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 1341165186498627.2
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 715535883139780.2
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 1043560390024083.0
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 811578090239387.5
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 1066722875828883.9
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 1583957939048788.2
+          }
+        ],
+        "mean_total_tau_per_g2": 8341171648398572.0,
+        "source_weight": 1.1276223120317894e+70
+      },
+      {
+        "emission_shell": "12-15 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 72157826335572.75
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 187352385151392.66
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 301105275974684.9
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 632919261232830.4
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 2098863350501544.8
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 1215986429134097.8
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 1556536664898038.2
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 1216194408107252.2
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 1600751826228303.2
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 2408796985958719.0
+          }
+        ],
+        "mean_total_tau_per_g2": 1.1290664413522436e+16,
+        "source_weight": 5.93117895187449e+69
+      },
+      {
+        "emission_shell": "15-16.5 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 38615525770681.74
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 157435779086319.78
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 217247502949224.2
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 394902276786569.2
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 1922311441626455.5
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 2562998192798695.0
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 3061934235335407.5
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 2437920680651237.5
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 2914832505880851.0
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 4348126772732419.0
+          }
+        ],
+        "mean_total_tau_per_g2": 1.805632491361786e+16,
+        "source_weight": 5.47169698829552e+68
+      },
+      {
+        "emission_shell": "16.5-18.5 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 36010499378639.62
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 141859175772130.56
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 182425620106397.3
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 400907163584215.7
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 1318495961190738.5
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 2246911331005404.2
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 5368769138847988.0
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 3833272037616634.0
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 4380299901709022.5
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 6574606291576984.0
+          }
+        ],
+        "mean_total_tau_per_g2": 2.4483557120788156e+16,
+        "source_weight": 1.8555434041733647e+68
+      },
+      {
+        "emission_shell": "18.5-20 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 40994765436238.164
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 130519316793124.58
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 167023781704476.5
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 263444842990065.94
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 1213360399942185.0
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 1559013190554446.8
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 4556127823017734.0
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 6550820752699832.0
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 7049345910824529.0
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 8843093265654998.0
+          }
+        ],
+        "mean_total_tau_per_g2": 3.0373744049617628e+16,
+        "source_weight": 5.568435325291499e+67
+      },
+      {
+        "emission_shell": "20-22 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 44040196226539.12
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 118144895951688.08
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 77215597553879.97
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 352055510191889.44
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 1026956450988341.4
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 1395953282917649.8
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 3321631962978769.0
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 4731404092517559.0
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 1.0531369410922206e+16
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 1.2173717955270574e+16
+          }
+        ],
+        "mean_total_tau_per_g2": 3.3772489355519096e+16,
+        "source_weight": 3.2223784354568885e+67
+      },
+      {
+        "emission_shell": "22-25 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 37439810557182.42
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 83327018440040.72
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 136700903080623.28
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 202262812274147.4
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 771445510554672.2
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 1252630157724688.0
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 2491852741213112.5
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 3291643333592834.5
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 6846896075640142.0
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 1.7413439849073724e+16
+          }
+        ],
+        "mean_total_tau_per_g2": 3.252763821215117e+16,
+        "source_weight": 3.145809652443021e+67
+      }
+    ],
+    "total": [
+      {
+        "emission_shell": "0-5 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 945375857253572.2
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 1106198848466015.1
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 783047718406741.4
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 783391566631682.1
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 1208326893467350.0
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 687903706760387.2
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 1124029901145783.0
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 893453964821711.5
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 1203441022995537.8
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 1881321901106948.5
+          }
+        ],
+        "mean_total_tau_per_g2": 1.0616491381055728e+16,
+        "source_weight": 3.932517705232983e+68
+      },
+      {
+        "emission_shell": "5-8 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 216930277248292.56
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 1187323971626846.5
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 972613153888138.9
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 782032031213867.1
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 1045843970961813.8
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 587803833190506.4
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 771809707539155.4
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 678251645536431.9
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 869484524087862.9
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 1306959156468645.2
+          }
+        ],
+        "mean_total_tau_per_g2": 8419052271761561.0,
+        "source_weight": 7.56953997500766e+69
+      },
+      {
+        "emission_shell": "8-10 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 127122312414271.25
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 621928965295179.4
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 1255251107576070.2
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 904549434991144.4
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 1101358300533605.4
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 578555048565546.9
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 808520317192807.9
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 633356769120818.0
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 840622698036927.5
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 1256274857775871.8
+          }
+        ],
+        "mean_total_tau_per_g2": 8127539811502243.0,
+        "source_weight": 1.7212761998074018e+70
+      },
+      {
+        "emission_shell": "10-12 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 84304163782541.86
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 381790618162383.1
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 719924603694267.6
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 1376254625958779.2
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 1445731122242344.5
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 716261617383667.6
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 1043568919413294.9
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 811578090633225.4
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 1066722875829757.1
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 1583957939048789.2
+          }
+        ],
+        "mean_total_tau_per_g2": 9230094576149050.0,
+        "source_weight": 1.1276223120317894e+70
+      },
+      {
+        "emission_shell": "12-15 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 74890775958375.89
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 244622061830573.9
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 494515063937441.94
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 837223560695550.4
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 2231494361950462.8
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 1217055318823082.8
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 1556545146076719.0
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 1216194408564100.5
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 1600751826229411.0
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 2408796985958719.5
+          }
+        ],
+        "mean_total_tau_per_g2": 1.1882089510024438e+16,
+        "source_weight": 5.93117895187449e+69
+      },
+      {
+        "emission_shell": "15-16.5 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 39689103447324.44
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 199021625479593.94
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 348617893219437.5
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 522537313582188.6
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 2007623680035532.8
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 2564458988944718.5
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 3061950063186581.0
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 2437920681296882.5
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 2914832505881853.0
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 4348126772732420.0
+          }
+        ],
+        "mean_total_tau_per_g2": 1.8444778627806532e+16,
+        "source_weight": 5.47169698829552e+68
+      },
+      {
+        "emission_shell": "16.5-18.5 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 36946095578887.44
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 177375720155157.88
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 300950817988078.3
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 519313335282630.2
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 1377418510161581.2
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 2248073453987195.2
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 5368785441473972.0
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 3833272038494607.0
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 4380299901710430.5
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 6574606291576984.0
+          }
+        ],
+        "mean_total_tau_per_g2": 2.4817041606409524e+16,
+        "source_weight": 1.8555434041733647e+68
+      },
+      {
+        "emission_shell": "18.5-20 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 42288405492779.32
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 169749219558010.38
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 270486119078663.2
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 353630759290457.9
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 1273968542016994.0
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 1559953895984374.5
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 4556142095333854.0
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 6550820754016039.0
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 7049345910826849.0
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 8843093265654998.0
+          }
+        ],
+        "mean_total_tau_per_g2": 3.066947896725302e+16,
+        "source_weight": 5.568435325291499e+67
+      },
+      {
+        "emission_shell": "20-22 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 45548965484059.664
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 164213073488865.9
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 130119577352569.7
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 473053004577761.5
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 1066891970576222.8
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 1396624332540412.2
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 3321639952752464.0
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 4731404093285462.0
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 1.0531369410925234e+16
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 1.2173717955270576e+16
+          }
+        ],
+        "mean_total_tau_per_g2": 3.4034582336253628e+16,
+        "source_weight": 3.2223784354568885e+67
+      },
+      {
+        "emission_shell": "22-25 km",
+        "mean_tau_by_absorption_shell": [
+          {
+            "absorption_shell": "0-5 km",
+            "mean_tau_per_g2": 38775419023849.59
+          },
+          {
+            "absorption_shell": "5-8 km",
+            "mean_tau_per_g2": 118424574764540.95
+          },
+          {
+            "absorption_shell": "8-10 km",
+            "mean_tau_per_g2": 227999591401080.3
+          },
+          {
+            "absorption_shell": "10-12 km",
+            "mean_tau_per_g2": 257566435077803.53
+          },
+          {
+            "absorption_shell": "12-15 km",
+            "mean_tau_per_g2": 813853218048201.5
+          },
+          {
+            "absorption_shell": "15-16.5 km",
+            "mean_tau_per_g2": 1253217419729633.2
+          },
+          {
+            "absorption_shell": "16.5-18.5 km",
+            "mean_tau_per_g2": 2491859923366907.0
+          },
+          {
+            "absorption_shell": "18.5-20 km",
+            "mean_tau_per_g2": 3291643334082986.5
+          },
+          {
+            "absorption_shell": "20-22 km",
+            "mean_tau_per_g2": 6846896075641798.0
+          },
+          {
+            "absorption_shell": "22-25 km",
+            "mean_tau_per_g2": 1.7413439849073724e+16
+          }
+        ],
+        "mean_total_tau_per_g2": 3.2753675840210524e+16,
+        "source_weight": 3.145809652443021e+67
+      }
+    ]
+  },
+  "title": "B.1 source-emission radius and B.2 escape/absorption radial weights"
+}
