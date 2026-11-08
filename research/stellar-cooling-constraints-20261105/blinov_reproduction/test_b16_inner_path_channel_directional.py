@@ -12,6 +12,7 @@ from blinov_reproduction.reference import KM_TO_MEV_INV, local_rates
 from blinov_reproduction.audit_b16_inner_path_channel_directional import (
     SHELL_EDGES_KM,
     analytic_ray_shell_columns,
+    direction_binned_radial_columns,
     reduced_absorption_channels,
 )
 
@@ -121,6 +122,19 @@ class B16InnerPathChannelDirectionalTests(unittest.TestCase):
             self.mass, self.energies, 25.0, self.shell_edges
         )
         np.testing.assert_allclose(outward[:, -1, :], inward[:, -1, :], rtol=3e-13, atol=1e-12)
+
+    def test_equal_width_direction_bins_have_equal_unattenuated_weights(self):
+        reduced = {
+            "nu_mu": np.ones((len(self.radial_grid), len(self.energies))),
+        }
+        _, _, weights, bin_ids = direction_binned_radial_columns(
+            [8.0, 12.0], self.radial_grid, reduced,
+            self.mass, self.energies, 25.0, per_bin_order=4,
+            shell_edges=self.shell_edges
+        )
+        self.assertAlmostEqual(float(np.sum(weights)), 1.0, places=14)
+        for ib in range(4):
+            self.assertAlmostEqual(float(np.sum(weights[bin_ids == ib])), 0.25, places=14)
 
     def test_channel_reduced_absorption_closes_to_reference_total(self):
         profile = {
