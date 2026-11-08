@@ -1,6 +1,5 @@
 # B.16 inner-path channel, shell, and direction audit on the vertex-preserving profile
-
-> **Latest extraction refresh:** this B.16 run records profile A SHA-256 `6c47d071...`. The latest regenerated vertex-preserving file is profile B SHA-256 `9fb14e79...`; the active thermodynamic columns differ only at floating-point roundoff (maximum relative change below (3.3\times10^{-14}) in (T), and below (6.4\times10^{-15}) in (mu_\mu); (mu_{\nu_\mu}) and lapse are unchanged). The exact run fingerprint is preserved. See `PROFILE_VERSION_RECONCILIATION_2026-11-09.md`.
+> **Current input fingerprint:** the final B.16 rerun and paired JSON use profile B SHA-256 `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`. The immediately preceding vertex-preserving snapshot A (`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`) gave the same active thermodynamic inputs to floating-point precision; see `PROFILE_VERSION_RECONCILIATION_2026-11-09.md`.
 
 
 Date: 2026-11-09  
@@ -13,7 +12,7 @@ Status: **current-profile rerun completed.** This report supersedes the numerica
 - Source weighting: B.1 source, with the dominant emission region reported separately as 8--15 km.
 - Propagation: fixed \(\omega\) along each ray, following the printed B.2 prescription.
 - Current reconstructed profile: \`data/sfho188_digitized.csv\`.
-- Profile SHA-256: \`6c47d0712d266848d0cb2315c8a9b43cf13d0b39b6986d4239dd3f22cb9ba0bc\`.
+- Profile SHA-256: \`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c\`.
 - Profile size: 1687 rows, including the 501-point uniform base grid and retained PDF vertices/support-boundary knots.
 - The 22--25 km shell contains 222 retained profile nodes.
 
