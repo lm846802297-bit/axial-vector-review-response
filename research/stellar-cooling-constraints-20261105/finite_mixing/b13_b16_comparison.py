@@ -285,10 +285,15 @@ def b13_thermal_case(
 
 def run_case(profile_path: Path, radius: float) -> dict:
     point = profile_at_radius(profile_path, radius)
+    thermo_coarse = muon_density_and_susceptibility(
+        point["temperature_MeV"], point["mu_mu_MeV"], order=128
+    )
     thermo = muon_density_and_susceptibility(
         point["temperature_MeV"], point["mu_mu_MeV"], order=192
     )
     chi = thermo["n_mu_Fdeg_total_MeV3"]
+    chi_minus = thermo["species"]["mu_minus"]["susceptibility_nFdeg_MeV3"]
+    chi_plus = thermo["species"]["mu_plus"]["susceptibility_nFdeg_MeV3"]
 
     b13_vector = b13_thermal_case(
         MASS_V, point, "vector", BASE_ENERGY_ORDER, BASE_INNER_ORDERS
@@ -301,6 +306,8 @@ def run_case(profile_path: Path, radius: float) -> dict:
     )
     b16 = b14_b16_emissivity(MASS_V, point, chi, energy_order=96)
     b16_coarse = b14_b16_emissivity(MASS_V, point, chi, energy_order=64)
+    b16_minus = b14_b16_emissivity(MASS_V, point, chi_minus, energy_order=96)
+    b16_plus = b14_b16_emissivity(MASS_V, point, chi_plus, energy_order=96)
 
     stationary_vector = stationary_target_exact_emissivity(
         MASS_V, point, chi, "vector", energy_order=16, angular_order=128
@@ -325,11 +332,15 @@ def run_case(profile_path: Path, radius: float) -> dict:
             continue
         b13v = b13_fixed_energy(MASS_V, point, omega, "vector")
         b13a = b13_fixed_energy(MASS_V, point, omega, "axial")
+        b13uv = b13_fixed_energy(MASS_V, point, omega, "uv_theta_1e-2")
         b16omega = b14_b16_rate(MASS_V, omega, point["temperature_MeV"], chi, True)
         b16no = b14_b16_rate(MASS_V, omega, point["temperature_MeV"], chi, False)
+        b16minus = b14_b16_rate(MASS_V, omega, point["temperature_MeV"], chi_minus, True)
+        b16plus = b14_b16_rate(MASS_V, omega, point["temperature_MeV"], chi_plus, True)
         fixed_energy[str(omega)] = {
             "B13_vector": b13v,
             "B13_axial": b13a,
+            "B13_UV_theta_muR_1e-2": b13uv,
             "B13_vector_over_B16_corrected": (
                 b13v["production_total_MeV"] /
                 b16omega["B16_total_with_mass_correction_MeV"]
@@ -340,6 +351,14 @@ def run_case(profile_path: Path, radius: float) -> dict:
             ),
             "B16_B14_with_mass_correction": b16omega,
             "B16_B14_without_parenthesis_correction": b16no,
+            "B16_B14_charge_resolved_with_mass_correction": {
+                "mu_minus": b16minus["B16_total_with_mass_correction_MeV"],
+                "mu_plus": b16plus["B16_total_with_mass_correction_MeV"],
+                "sum": (
+                    b16minus["B16_total_with_mass_correction_MeV"]
+                    + b16plus["B16_total_with_mass_correction_MeV"]
+                ),
+            },
         }
 
     vector_vs_b16 = (
@@ -373,9 +392,20 @@ def run_case(profile_path: Path, radius: float) -> dict:
         "B14_B16_vector_no_recoil": {
             **b16,
             "energy_order_64_comparison": b16_coarse,
+            "mu_minus_only_Q": b16_minus,
+            "mu_plus_only_Q": b16_plus,
+            "charge_resolved_Q_sum_relative_residual": (
+                (b16_minus["Q_B16_with_mass_correction_MeV5"]
+                 + b16_plus["Q_B16_with_mass_correction_MeV5"])
+                / b16["Q_B16_with_mass_correction_MeV5"] - 1.0
+            ),
             "energy_order_64_to_96_relative_change": (
                 b16["Q_B16_with_mass_correction_MeV5"] /
                 b16_coarse["Q_B16_with_mass_correction_MeV5"] - 1.0
+            ),
+            "susceptibility_order_128_comparison": thermo_coarse,
+            "susceptibility_order_128_to_192_relative_change": (
+                chi / thermo_coarse["n_mu_Fdeg_total_MeV3"] - 1.0
             ),
             "susceptibility_order": thermo["quadrature_order"],
         },
