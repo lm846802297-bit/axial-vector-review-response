@@ -278,12 +278,12 @@
   },
   "local_reduced_absorption_interpolation": {
     "compton_reduced_absorption": {
-      "max_relative_error_above_1e-12_of_peak": 1.4075339847367616,
-      "peak_dense_rate": 7.290044413038596e-16,
+      "max_relative_error_above_1e-12_of_peak": 1.3366476694296099,
+      "peak_dense_rate": 7.29004470429474e-16,
       "peak_radius_km": 22.0,
-      "rms_relative_error_above_1e-12_of_peak": 0.42379216592150837
+      "rms_relative_error_above_1e-12_of_peak": 0.3887697350904501
     },
-    "compton_to_neutrino_peak_rate_ratio": 1.3526242918143516e-15,
+    "compton_to_neutrino_peak_rate_ratio": 1.3526243458551933e-15,
     "neutrino_reduced_absorption": {
       "max_relative_error_above_1e-12_of_peak": 0.0008374346852797594,
       "peak_dense_rate": 0.5389556033523578,
@@ -294,7 +294,7 @@
       "max_relative_error_above_1e-12_of_peak": 0.0008374346852794185,
       "peak_dense_rate": 0.5389556033523578,
       "peak_radius_km": 25.0,
-      "rms_relative_error_above_1e-12_of_peak": 0.0002522512623884251
+      "rms_relative_error_above_1e-12_of_peak": 0.0002522512623884287
     }
   },
   "mass_MeV": 10.0,
@@ -319,13 +319,13 @@
     "angular_order": 64,
     "by_emission_shell": [
       {
-        "coarse_source_weighted_mean_tau_per_g2": 1261006710218859.2,
+        "coarse_source_weighted_mean_tau_per_g2": 1261006710218859.5,
         "dense_source_weighted_mean_tau_per_g2": 1261018998211456.5,
         "emission_shell_km": [
           8.0,
           10.0
         ],
-        "relative_change_in_mean_tau": 9.744589380522584e-06,
+        "relative_change_in_mean_tau": 9.744589380300539e-06,
         "source_fraction_within_selected_8_15km": 0.5000778602604958,
         "weighted_95th_percentile_abs_pointwise_tau_change": 1.610628705028424e-05
       },
@@ -370,7 +370,7 @@
     },
     "radial_path_order": 64,
     "relative_change_source_weighted_mean_tau": 1.2337248549654234e-05,
-    "source_weighted_mean_absolute_pointwise_relative_tau_change": 7.5995704061432185e-06,
+    "source_weighted_mean_absolute_pointwise_relative_tau_change": 7.5995704061476044e-06,
     "source_weighted_mean_tau_per_g2_coarse": 1563333619508095.0,
     "source_weighted_mean_tau_per_g2_dense": 1563352906743525.0,
     "weighted_95th_percentile_abs_pointwise_tau_change": 1.9052515251739224e-05
