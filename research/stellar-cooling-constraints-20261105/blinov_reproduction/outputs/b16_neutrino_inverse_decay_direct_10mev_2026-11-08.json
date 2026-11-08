@@ -26,21 +26,22 @@
     ]
   },
   "equation_map": {
-    "B.19": "Gamma_prod=exp(-omega/T)*Gamma_abs for each flavor and each vector polarization",
+    "B.10": "Gamma_prod=exp(-omega/T)*Gamma_abs for each flavor and each vector polarization",
+    "B.19": "Semi-Compton forward/inverse detailed balance, not the neutrino inverse-decay equation; checked separately in test_stage1_detailed_balance.py.",
     "B.4": "Gamma_abs_star=(1-exp(-omega/T))*Gamma_abs",
     "B.6": "three mode angular weights W_L=3(1-z^2)/4, W_+=3(1+z)^2/8, W_-=3(1-z)^2/8",
-    "B.7_to_B.10": "mode-resolved inverse neutrino decay production and blocking rates",
+    "B.6_to_B.10": "mode-resolved inverse neutrino decay production, blocking and detailed balance",
     "fixed_omega": "omega is held fixed along the path; T and mu_nu are local functions of r prime"
   },
   "mass_MeV": 10.0,
   "maximum_mu_sign_and_helicity_swap_residual": 2.325957160747121e-15,
   "maximum_residuals": {
     "analytic_I_vs_direct": 4.190858809494461e-15,
-    "b19_ratio_residual": 6.818809012740285e-15,
     "b4_reduced_opacity_residual": 6.807677848530562e-15,
     "mode_absorption_vs_direct": 4.010523156060792e-12,
     "mode_production_vs_direct": 4.009142545583718e-12,
     "mode_sum_vs_scalar_I": 2.900583852293317e-12,
+    "neutrino_B10_ratio_residual": 6.818809012740285e-15,
     "quadrature_256_vs_512": 5.55209960743431e-15
   },
   "mu_sign_helicity_swap_checks": [
@@ -258,7 +259,6 @@
   "pointwise_samples": [
     {
       "256_vs_512_direct_quadrature_max_relative_change": 2.744404667285625e-15,
-      "B19_detailed_balance_max_relative_residual": 1.2197354076825e-15,
       "B4_reduced_opacity_max_relative_residual": 1.474412900685367e-15,
       "T_MeV": 38.84717118,
       "analytic_I_vs_direct_uniform_angular_average": 2.6967964380811477e-15,
@@ -268,8 +268,8 @@
         0.062288578952706064
       ],
       "code_48point_prod_modes": [
-        0.04551081396966993,
-        0.045256274829584144,
+        0.045510813969669925,
+        0.04525627482958414,
         0.0457355220766882
       ],
       "direct_nu_mu_prod_modes": [
@@ -293,8 +293,9 @@
         0.045735522076688226
       ],
       "expected_prod_over_abs": 0.7342521349124674,
-      "mode_sum_vs_scalar_I_relative_residual": 2.8466712550425515e-15,
+      "mode_sum_vs_scalar_I_relative_residual": 3.0500049161170197e-15,
       "mu_numu_MeV": -20.42793705,
+      "neutrino_B10_detailed_balance_max_relative_residual": 1.2197354076825e-15,
       "omega_MeV": 12.0,
       "omega_over_T": 0.30890280129787306,
       "per_mode_prod_over_abs": [
@@ -309,11 +310,10 @@
         0.016553056876017838
       ],
       "relative_error_abs_max_over_modes": 8.911930913274792e-16,
-      "relative_error_prod_max_over_modes": 1.0672684817221874e-15
+      "relative_error_prod_max_over_modes": 1.2197354076825e-15
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 3.1815803406404145e-15,
-      "B19_detailed_balance_max_relative_residual": 5.965463138700777e-16,
       "B4_reduced_opacity_max_relative_residual": 6.329085294789986e-16,
       "T_MeV": 38.84717118,
       "analytic_I_vs_direct_uniform_angular_average": 2.8148751689153415e-16,
@@ -350,6 +350,7 @@
       "expected_prod_over_abs": 0.6796831796771231,
       "mode_sum_vs_scalar_I_relative_residual": 1.326478672715515e-16,
       "mu_numu_MeV": -20.42793705,
+      "neutrino_B10_detailed_balance_max_relative_residual": 5.965463138700777e-16,
       "omega_MeV": 15.0,
       "omega_over_T": 0.3861285016223413,
       "per_mode_prod_over_abs": [
@@ -368,7 +369,6 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 2.9935918587618117e-15,
-      "B19_detailed_balance_max_relative_residual": 1.9733600978258115e-15,
       "B4_reduced_opacity_max_relative_residual": 1.6746197470564685e-15,
       "T_MeV": 38.84717118,
       "analytic_I_vs_direct_uniform_angular_average": 1.2118023747802236e-15,
@@ -405,6 +405,7 @@
       "expected_prod_over_abs": 0.5975973962627159,
       "mode_sum_vs_scalar_I_relative_residual": 1.1420968314636659e-15,
       "mu_numu_MeV": -20.42793705,
+      "neutrino_B10_detailed_balance_max_relative_residual": 1.9733600978258115e-15,
       "omega_MeV": 20.0,
       "omega_over_T": 0.5148380021631218,
       "per_mode_prod_over_abs": [
@@ -423,7 +424,6 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 3.1121284712670584e-15,
-      "B19_detailed_balance_max_relative_residual": 6.398531254146103e-16,
       "B4_reduced_opacity_max_relative_residual": 2.197587691132788e-16,
       "T_MeV": 38.84717118,
       "analytic_I_vs_direct_uniform_angular_average": 7.071530763074927e-16,
@@ -460,6 +460,7 @@
       "expected_prod_over_abs": 0.4619692247360044,
       "mode_sum_vs_scalar_I_relative_residual": 8.330950910591398e-16,
       "mu_numu_MeV": -20.42793705,
+      "neutrino_B10_detailed_balance_max_relative_residual": 6.398531254146103e-16,
       "omega_MeV": 30.0,
       "omega_over_T": 0.7722570032446826,
       "per_mode_prod_over_abs": [
@@ -478,17 +479,16 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 3.176804041582394e-15,
-      "B19_detailed_balance_max_relative_residual": 9.121457818234427e-16,
       "B4_reduced_opacity_max_relative_residual": 9.27596533209456e-16,
       "T_MeV": 38.84717118,
-      "analytic_I_vs_direct_uniform_angular_average": 1.2389687654448305e-16,
+      "analytic_I_vs_direct_uniform_angular_average": 2.477937530889661e-16,
       "code_48point_abs_modes": [
         0.021757589213080613,
         0.02066643255075537,
-        0.02215006532678412
+        0.022150065326784117
       ],
       "code_48point_prod_modes": [
-        0.006006652593604728,
+        0.006006652593604727,
         0.005705415221596407,
         0.006115004104574874
       ],
@@ -515,6 +515,7 @@
       "expected_prod_over_abs": 0.27607160585574164,
       "mode_sum_vs_scalar_I_relative_residual": 3.892335171548694e-16,
       "mu_numu_MeV": -20.42793705,
+      "neutrino_B10_detailed_balance_max_relative_residual": 9.121457818234427e-16,
       "omega_MeV": 50.0,
       "omega_over_T": 1.2870950054078045,
       "per_mode_prod_over_abs": [
@@ -533,10 +534,9 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 3.1983745257740874e-15,
-      "B19_detailed_balance_max_relative_residual": 9.40698389933555e-16,
       "B4_reduced_opacity_max_relative_residual": 7.450655111074622e-16,
       "T_MeV": 38.84717118,
-      "analytic_I_vs_direct_uniform_angular_average": 3.303015868367085e-16,
+      "analytic_I_vs_direct_uniform_angular_average": 4.954523802550627e-16,
       "code_48point_abs_modes": [
         0.01512224916509358,
         0.013624012894201223,
@@ -568,8 +568,9 @@
         0.001152575970564285
       ],
       "expected_prod_over_abs": 0.07621553155976796,
-      "mode_sum_vs_scalar_I_relative_residual": 5.188365193376271e-16,
+      "mode_sum_vs_scalar_I_relative_residual": 9.07963908840847e-16,
       "mu_numu_MeV": -20.42793705,
+      "neutrino_B10_detailed_balance_max_relative_residual": 9.40698389933555e-16,
       "omega_MeV": 100.0,
       "omega_over_T": 2.574190010815609,
       "per_mode_prod_over_abs": [
@@ -588,10 +589,9 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 3.329263736674858e-15,
-      "B19_detailed_balance_max_relative_residual": 5.284953833808959e-16,
       "B4_reduced_opacity_max_relative_residual": 4.793954557995363e-16,
       "T_MeV": 38.84717118,
-      "analytic_I_vs_direct_uniform_angular_average": 1.3493281418978237e-15,
+      "analytic_I_vs_direct_uniform_angular_average": 1.1994027927980654e-15,
       "code_48point_abs_modes": [
         0.007758100886631364,
         0.006665813381280821,
@@ -625,6 +625,7 @@
       "expected_prod_over_abs": 0.0004427213323584732,
       "mode_sum_vs_scalar_I_relative_residual": 1.4130131259560543e-15,
       "mu_numu_MeV": -20.42793705,
+      "neutrino_B10_detailed_balance_max_relative_residual": 5.284953833808959e-16,
       "omega_MeV": 300.0,
       "omega_over_T": 7.722570032446827,
       "per_mode_prod_over_abs": [
@@ -643,7 +644,6 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 2.7502358869723627e-15,
-      "B19_detailed_balance_max_relative_residual": 9.167452956574542e-16,
       "B4_reduced_opacity_max_relative_residual": 1.0768858539718786e-15,
       "T_MeV": 33.92744042,
       "analytic_I_vs_direct_uniform_angular_average": 3.9190043919200756e-15,
@@ -680,6 +680,7 @@
       "expected_prod_over_abs": 0.7020883690938016,
       "mode_sum_vs_scalar_I_relative_residual": 3.871885121111201e-15,
       "mu_numu_MeV": -10.2178306,
+      "neutrino_B10_detailed_balance_max_relative_residual": 9.167452956574542e-16,
       "omega_MeV": 12.0,
       "omega_over_T": 0.3536960009787853,
       "per_mode_prod_over_abs": [
@@ -698,14 +699,13 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 3.411175145546031e-15,
-      "B19_detailed_balance_max_relative_residual": 9.985954156323418e-16,
       "B4_reduced_opacity_max_relative_residual": 1.0776162008629058e-15,
       "T_MeV": 33.92744042,
       "analytic_I_vs_direct_uniform_angular_average": 2.841172734342592e-16,
       "code_48point_abs_modes": [
         0.053807823664320624,
         0.05341573628243343,
-        0.054060612314390605
+        0.0540606123143906
       ],
       "code_48point_prod_modes": [
         0.03458080905650496,
@@ -735,6 +735,7 @@
       "expected_prod_over_abs": 0.6426725093405908,
       "mode_sum_vs_scalar_I_relative_residual": 0.0,
       "mu_numu_MeV": -10.2178306,
+      "neutrino_B10_detailed_balance_max_relative_residual": 9.985954156323418e-16,
       "omega_MeV": 15.0,
       "omega_over_T": 0.4421200012234816,
       "per_mode_prod_over_abs": [
@@ -753,7 +754,6 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 2.4754102671244317e-15,
-      "B19_detailed_balance_max_relative_residual": 1.4561236865437834e-15,
       "B4_reduced_opacity_max_relative_residual": 1.4505488121395427e-15,
       "T_MeV": 33.92744042,
       "analytic_I_vs_direct_uniform_angular_average": 1.548162987176579e-16,
@@ -765,7 +765,7 @@
       "code_48point_prod_modes": [
         0.02382659511698897,
         0.02353543242183729,
-        0.023971499586189195
+        0.02397149958618919
       ],
       "direct_nu_mu_prod_modes": [
         0.011782808823671852,
@@ -790,6 +790,7 @@
       "expected_prod_over_abs": 0.5546082141503733,
       "mode_sum_vs_scalar_I_relative_residual": 1.9454789868294274e-16,
       "mu_numu_MeV": -10.2178306,
+      "neutrino_B10_detailed_balance_max_relative_residual": 1.4561236865437834e-15,
       "omega_MeV": 20.0,
       "omega_over_T": 0.5894933349646421,
       "per_mode_prod_over_abs": [
@@ -808,18 +809,17 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 3.264795304852811e-15,
-      "B19_detailed_balance_max_relative_residual": 1.0685300487180527e-15,
       "B4_reduced_opacity_max_relative_residual": 9.398505075630225e-16,
       "T_MeV": 33.92744042,
       "analytic_I_vs_direct_uniform_angular_average": 0.0,
       "code_48point_abs_modes": [
         0.0321613937437384,
-        0.031445177956180646,
+        0.03144517795618064,
         0.0323686826617473
       ],
       "code_48point_prod_modes": [
         0.013283554664195197,
-        0.012987737522649976,
+        0.012987737522649973,
         0.013369170781941624
       ],
       "direct_nu_mu_prod_modes": [
@@ -845,6 +845,7 @@
       "expected_prod_over_abs": 0.4130279542621318,
       "mode_sum_vs_scalar_I_relative_residual": 3.500914663570385e-16,
       "mu_numu_MeV": -10.2178306,
+      "neutrino_B10_detailed_balance_max_relative_residual": 1.0685300487180527e-15,
       "omega_MeV": 30.0,
       "omega_over_T": 0.8842400024469632,
       "per_mode_prod_over_abs": [
@@ -858,12 +859,11 @@
         0.01845744043353069,
         0.01899951187980566
       ],
-      "relative_error_abs_max_over_modes": 1.0787613806783756e-15,
+      "relative_error_abs_max_over_modes": 1.1033319502240822e-15,
       "relative_error_prod_max_over_modes": 9.141426853587872e-16
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 2.738105171912944e-15,
-      "B19_detailed_balance_max_relative_residual": 1.2876738505103464e-15,
       "B4_reduced_opacity_max_relative_residual": 1.3391338367061876e-15,
       "T_MeV": 33.92744042,
       "analytic_I_vs_direct_uniform_angular_average": 1.3869825946987742e-16,
@@ -900,6 +900,7 @@
       "expected_prod_over_abs": 0.229068696107503,
       "mode_sum_vs_scalar_I_relative_residual": 2.1786671650812887e-16,
       "mu_numu_MeV": -10.2178306,
+      "neutrino_B10_detailed_balance_max_relative_residual": 1.2876738505103464e-15,
       "omega_MeV": 50.0,
       "omega_over_T": 1.4737333374116053,
       "per_mode_prod_over_abs": [
@@ -918,7 +919,6 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 3.278584640353345e-15,
-      "B19_detailed_balance_max_relative_residual": 1.1081133568844922e-15,
       "B4_reduced_opacity_max_relative_residual": 1.2273087620912273e-15,
       "T_MeV": 33.92744042,
       "analytic_I_vs_direct_uniform_angular_average": 6.690629733167932e-16,
@@ -930,7 +930,7 @@
       "code_48point_prod_modes": [
         0.0008597995652656095,
         0.0007827373730310665,
-        0.0008333718515493737
+        0.0008333718515493736
       ],
       "direct_nu_mu_prod_modes": [
         0.0004272834742804059,
@@ -953,8 +953,9 @@
         0.0008333718515493742
       ],
       "expected_prod_over_abs": 0.05247246753639156,
-      "mode_sum_vs_scalar_I_relative_residual": 7.0064110725366e-16,
+      "mode_sum_vs_scalar_I_relative_residual": 8.75801384067075e-16,
       "mu_numu_MeV": -10.2178306,
+      "neutrino_B10_detailed_balance_max_relative_residual": 1.1081133568844922e-15,
       "omega_MeV": 100.0,
       "omega_over_T": 2.9474666748232106,
       "per_mode_prod_over_abs": [
@@ -973,7 +974,6 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 2.5669625377269365e-15,
-      "B19_detailed_balance_max_relative_residual": 5.999632098897899e-16,
       "B4_reduced_opacity_max_relative_residual": 5.918212155571021e-16,
       "T_MeV": 33.92744042,
       "analytic_I_vs_direct_uniform_angular_average": 1.8932730004725383e-15,
@@ -1010,6 +1010,7 @@
       "expected_prod_over_abs": 0.00014447558531142414,
       "mode_sum_vs_scalar_I_relative_residual": 1.836849169706071e-15,
       "mu_numu_MeV": -10.2178306,
+      "neutrino_B10_detailed_balance_max_relative_residual": 5.999632098897899e-16,
       "omega_MeV": 300.0,
       "omega_over_T": 8.842400024469631,
       "per_mode_prod_over_abs": [
@@ -1028,10 +1029,9 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 2.5755268592295204e-15,
-      "B19_detailed_balance_max_relative_residual": 6.46070741507035e-16,
       "B4_reduced_opacity_max_relative_residual": 8.211990361285981e-16,
       "T_MeV": 25.98270308,
-      "analytic_I_vs_direct_uniform_angular_average": 2.8480910937014915e-16,
+      "analytic_I_vs_direct_uniform_angular_average": 4.272136640552236e-16,
       "code_48point_abs_modes": [
         0.06841025206318435,
         0.06817846340804874,
@@ -1065,6 +1065,7 @@
       "expected_prod_over_abs": 0.6301195524167916,
       "mode_sum_vs_scalar_I_relative_residual": 4.294820187229021e-16,
       "mu_numu_MeV": -4.314076627,
+      "neutrino_B10_detailed_balance_max_relative_residual": 6.46070741507035e-16,
       "omega_MeV": 12.0,
       "omega_over_T": 0.4618457118588602,
       "per_mode_prod_over_abs": [
@@ -1083,10 +1084,9 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 3.0110023277883466e-15,
-      "B19_detailed_balance_max_relative_residual": 1.29894560637029e-15,
       "B4_reduced_opacity_max_relative_residual": 1.3855679642448317e-15,
       "T_MeV": 25.98270308,
-      "analytic_I_vs_direct_uniform_angular_average": 9.14154506527717e-16,
+      "analytic_I_vs_direct_uniform_angular_average": 1.066513590949003e-15,
       "code_48point_abs_modes": [
         0.0574683193891955,
         0.057091550454353976,
@@ -1120,6 +1120,7 @@
       "expected_prod_over_abs": 0.5614081264533757,
       "mode_sum_vs_scalar_I_relative_residual": 5.74380216390696e-16,
       "mu_numu_MeV": -4.314076627,
+      "neutrino_B10_detailed_balance_max_relative_residual": 1.29894560637029e-15,
       "omega_MeV": 15.0,
       "omega_over_T": 0.5773071398235753,
       "per_mode_prod_over_abs": [
@@ -1138,13 +1139,12 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 2.5743270417913346e-15,
-      "B19_detailed_balance_max_relative_residual": 9.64140526247078e-16,
       "B4_reduced_opacity_max_relative_residual": 8.317213773069981e-16,
       "T_MeV": 25.98270308,
       "analytic_I_vs_direct_uniform_angular_average": 0.0,
       "code_48point_abs_modes": [
         0.04655985177017551,
-        0.04601124384427854,
+        0.04601124384427855,
         0.0466193525000121
       ],
       "code_48point_prod_modes": [
@@ -1175,6 +1175,7 @@
       "expected_prod_over_abs": 0.4631321459968562,
       "mode_sum_vs_scalar_I_relative_residual": 0.0,
       "mu_numu_MeV": -4.314076627,
+      "neutrino_B10_detailed_balance_max_relative_residual": 9.64140526247078e-16,
       "omega_MeV": 20.0,
       "omega_over_T": 0.7697428530981003,
       "per_mode_prod_over_abs": [
@@ -1193,10 +1194,9 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 4.3201248267886344e-15,
-      "B19_detailed_balance_max_relative_residual": 9.257410343118501e-16,
       "B4_reduced_opacity_max_relative_residual": 8.52118283785241e-16,
       "T_MeV": 25.98270308,
-      "analytic_I_vs_direct_uniform_angular_average": 2.2021578785642745e-16,
+      "analytic_I_vs_direct_uniform_angular_average": 4.404315757128549e-16,
       "code_48point_abs_modes": [
         0.035672586681686394,
         0.03484560283972545,
@@ -1227,9 +1227,10 @@
         0.010982605200059451,
         0.011206781309357514
       ],
-      "expected_prod_over_abs": 0.3151790844478895,
-      "mode_sum_vs_scalar_I_relative_residual": 0.0,
+      "expected_prod_over_abs": 0.31517908444788945,
+      "mode_sum_vs_scalar_I_relative_residual": 2.0754849040027233e-16,
       "mu_numu_MeV": -4.314076627,
+      "neutrino_B10_detailed_balance_max_relative_residual": 7.714508619265418e-16,
       "omega_MeV": 30.0,
       "omega_over_T": 1.1546142796471506,
       "per_mode_prod_over_abs": [
@@ -1248,10 +1249,9 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 2.886487145925195e-15,
-      "B19_detailed_balance_max_relative_residual": 4.527752565239129e-16,
       "B4_reduced_opacity_max_relative_residual": 3.0955059645915174e-16,
       "T_MeV": 25.98270308,
-      "analytic_I_vs_direct_uniform_angular_average": 1.927773932304011e-16,
+      "analytic_I_vs_direct_uniform_angular_average": 0.0,
       "code_48point_abs_modes": [
         0.026761574950050118,
         0.025482465872220517,
@@ -1283,8 +1283,9 @@
         0.0038313124469185507
       ],
       "expected_prod_over_abs": 0.14596956575367542,
-      "mode_sum_vs_scalar_I_relative_residual": 4.54221031763114e-16,
+      "mode_sum_vs_scalar_I_relative_residual": 1.514070105877047e-16,
       "mu_numu_MeV": -4.314076627,
+      "neutrino_B10_detailed_balance_max_relative_residual": 4.527752565239129e-16,
       "omega_MeV": 50.0,
       "omega_over_T": 1.9243571327452509,
       "per_mode_prod_over_abs": [
@@ -1303,7 +1304,6 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 4.100939603410318e-15,
-      "B19_detailed_balance_max_relative_residual": 8.201879206820636e-16,
       "B4_reduced_opacity_max_relative_residual": 7.618689679725134e-16,
       "T_MeV": 25.98270308,
       "analytic_I_vs_direct_uniform_angular_average": 9.794868654588382e-16,
@@ -1340,6 +1340,7 @@
       "expected_prod_over_abs": 0.02130711412631657,
       "mode_sum_vs_scalar_I_relative_residual": 9.61608981504118e-16,
       "mu_numu_MeV": -4.314076627,
+      "neutrino_B10_detailed_balance_max_relative_residual": 8.201879206820636e-16,
       "omega_MeV": 100.0,
       "omega_over_T": 3.8487142654905018,
       "per_mode_prod_over_abs": [
@@ -1358,7 +1359,6 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 3.951209751455723e-15,
-      "B19_detailed_balance_max_relative_residual": 1.8385052133153582e-16,
       "B4_reduced_opacity_max_relative_residual": 2.331056978994145e-16,
       "T_MeV": 25.98270308,
       "analytic_I_vs_direct_uniform_angular_average": 1.9904172469925145e-15,
@@ -1395,6 +1395,7 @@
       "expected_prod_over_abs": 9.673283058295434e-06,
       "mode_sum_vs_scalar_I_relative_residual": 1.9931693139827167e-15,
       "mu_numu_MeV": -4.314076627,
+      "neutrino_B10_detailed_balance_max_relative_residual": 1.8385052133153582e-16,
       "omega_MeV": 300.0,
       "omega_over_T": 11.546142796471505,
       "per_mode_prod_over_abs": [
@@ -1413,17 +1414,16 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 3.3369604031482098e-15,
-      "B19_detailed_balance_max_relative_residual": 1.877040226770868e-15,
       "B4_reduced_opacity_max_relative_residual": 2.1184885780460327e-15,
       "T_MeV": 13.23141583,
-      "analytic_I_vs_direct_uniform_angular_average": 3.695467187428871e-16,
+      "analytic_I_vs_direct_uniform_angular_average": 0.0,
       "code_48point_abs_modes": [
         0.0824014630424626,
         0.08215675849484007,
         0.08215675849484005
       ],
       "code_48point_prod_modes": [
-        0.033270488423468615,
+        0.03327048842346861,
         0.033171686296440246,
         0.03317168629644021
       ],
@@ -1448,8 +1448,9 @@
         0.033171686296440295
       ],
       "expected_prod_over_abs": 0.40376089446766117,
-      "mode_sum_vs_scalar_I_relative_residual": 1.3931583081130417e-16,
+      "mode_sum_vs_scalar_I_relative_residual": 2.7863166162260834e-16,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 1.877040226770868e-15,
       "omega_MeV": 12.0,
       "omega_over_T": 0.9069324216076732,
       "per_mode_prod_over_abs": [
@@ -1468,7 +1469,6 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 4.378199697407793e-15,
-      "B19_detailed_balance_max_relative_residual": 1.056806823512226e-15,
       "B4_reduced_opacity_max_relative_residual": 1.146431099312424e-15,
       "T_MeV": 13.23141583,
       "analytic_I_vs_direct_uniform_angular_average": 4.294918255231255e-16,
@@ -1479,7 +1479,7 @@
       ],
       "code_48point_prod_modes": [
         0.022980669809608157,
-        0.022793880339632245,
+        0.02279388033963224,
         0.022793880339632252
       ],
       "direct_nu_mu_prod_modes": [
@@ -1505,6 +1505,7 @@
       "expected_prod_over_abs": 0.3218513367983576,
       "mode_sum_vs_scalar_I_relative_residual": 2.0239325457604808e-16,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 1.056806823512226e-15,
       "omega_MeV": 15.0,
       "omega_over_T": 1.1336655270095914,
       "per_mode_prod_over_abs": [
@@ -1523,14 +1524,13 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 2.3481076129883765e-15,
-      "B19_detailed_balance_max_relative_residual": 1.1956647502279462e-15,
       "B4_reduced_opacity_max_relative_residual": 1.2030356483948496e-15,
       "T_MeV": 13.23141583,
       "analytic_I_vs_direct_uniform_angular_average": 4.203010572864745e-16,
       "code_48point_abs_modes": [
         0.06028986914559919,
         0.059200164887300476,
-        0.05920016488730051
+        0.0592001648873005
       ],
       "code_48point_prod_modes": [
         0.0132979521018814,
@@ -1560,6 +1560,7 @@
       "expected_prod_over_abs": 0.22056694251180126,
       "mode_sum_vs_scalar_I_relative_residual": 3.5211059036458973e-16,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 1.1956647502279462e-15,
       "omega_MeV": 20.0,
       "omega_over_T": 1.5115540360127886,
       "per_mode_prod_over_abs": [
@@ -1578,7 +1579,6 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 2.5856277873268827e-15,
-      "B19_detailed_balance_max_relative_residual": 3.590238272385709e-16,
       "B4_reduced_opacity_max_relative_residual": 3.3190696742566145e-16,
       "T_MeV": 13.23141583,
       "analytic_I_vs_direct_uniform_angular_average": 2.505003122664839e-16,
@@ -1590,7 +1590,7 @@
       "code_48point_prod_modes": [
         0.005031824817785044,
         0.004831778128263573,
-        0.004831778128263574
+        0.0048317781282635735
       ],
       "direct_nu_mu_prod_modes": [
         0.002515912408892525,
@@ -1613,8 +1613,9 @@
         0.00483177812826358
       ],
       "expected_prod_over_abs": 0.1035882829988898,
-      "mode_sum_vs_scalar_I_relative_residual": 3.541364733322506e-16,
+      "mode_sum_vs_scalar_I_relative_residual": 4.721819644430008e-16,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 3.590238272385709e-16,
       "omega_MeV": 30.0,
       "omega_over_T": 2.267331054019183,
       "per_mode_prod_over_abs": [
@@ -1629,14 +1630,13 @@
         0.04181228226527884
       ],
       "relative_error_abs_max_over_modes": 1.4876264727733428e-15,
-      "relative_error_prod_max_over_modes": 1.2565833953349967e-15
+      "relative_error_prod_max_over_modes": 1.436095308954282e-15
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 2.8164298627503863e-15,
-      "B19_detailed_balance_max_relative_residual": 1.2459579136246628e-15,
       "B4_reduced_opacity_max_relative_residual": 1.035857085705847e-15,
       "T_MeV": 13.23141583,
-      "analytic_I_vs_direct_uniform_angular_average": 8.008506965998562e-16,
+      "analytic_I_vs_direct_uniform_angular_average": 6.864434542284481e-16,
       "code_48point_abs_modes": [
         0.03706661744542061,
         0.03427664859614776,
@@ -1670,6 +1670,7 @@
       "expected_prod_over_abs": 0.022848150861112325,
       "mode_sum_vs_scalar_I_relative_residual": 8.985523803787052e-16,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 1.2459579136246628e-15,
       "omega_MeV": 50.0,
       "omega_over_T": 3.7788850900319715,
       "per_mode_prod_over_abs": [
@@ -1688,7 +1689,6 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 4.17743074022534e-15,
-      "B19_detailed_balance_max_relative_residual": 7.754572673110613e-16,
       "B4_reduced_opacity_max_relative_residual": 6.636004966831943e-16,
       "T_MeV": 13.23141583,
       "analytic_I_vs_direct_uniform_angular_average": 1.1415170560441458e-15,
@@ -1699,7 +1699,7 @@
       ],
       "code_48point_prod_modes": [
         1.2165845467139109e-05,
-        1.0923012562528844e-05,
+        1.0923012562528842e-05,
         1.0923012562528844e-05
       ],
       "direct_nu_mu_prod_modes": [
@@ -1725,6 +1725,7 @@
       "expected_prod_over_abs": 0.0005220379977721479,
       "mode_sum_vs_scalar_I_relative_residual": 1.1953938657385773e-15,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 7.754572673110613e-16,
       "omega_MeV": 100.0,
       "omega_over_T": 7.557770180063943,
       "per_mode_prod_over_abs": [
@@ -1743,10 +1744,9 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 3.267246799910453e-15,
-      "B19_detailed_balance_max_relative_residual": 1.050104445558251e-15,
       "B4_reduced_opacity_max_relative_residual": 1.0694179118352243e-15,
       "T_MeV": 13.23141583,
-      "analytic_I_vs_direct_uniform_angular_average": 2.321735579458555e-15,
+      "analytic_I_vs_direct_uniform_angular_average": 2.515213544413435e-15,
       "code_48point_abs_modes": [
         0.00868924629507613,
         0.008110596694825554,
@@ -1780,6 +1780,7 @@
       "expected_prod_over_abs": 1.422677116159317e-10,
       "mode_sum_vs_scalar_I_relative_residual": 2.051422717501412e-15,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 1.050104445558251e-15,
       "omega_MeV": 300.0,
       "omega_over_T": 22.673310540191828,
       "per_mode_prod_over_abs": [
@@ -1798,7 +1799,6 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 3.427588120081488e-15,
-      "B19_detailed_balance_max_relative_residual": 1.5819637477299175e-15,
       "B4_reduced_opacity_max_relative_residual": 1.502408045028882e-15,
       "T_MeV": 5.349455433,
       "analytic_I_vs_direct_uniform_angular_average": 2.353195333335737e-16,
@@ -1835,6 +1835,7 @@
       "expected_prod_over_abs": 0.10611636674999643,
       "mode_sum_vs_scalar_I_relative_residual": 5.322802443601921e-16,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 1.5819637477299175e-15,
       "omega_MeV": 12.0,
       "omega_over_T": 2.2432189874830573,
       "per_mode_prod_over_abs": [
@@ -1853,7 +1854,6 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 2.0815225563990372e-15,
-      "B19_detailed_balance_max_relative_residual": 1.345830830542564e-15,
       "B4_reduced_opacity_max_relative_residual": 1.3882640797835021e-15,
       "T_MeV": 5.349455433,
       "analytic_I_vs_direct_uniform_angular_average": 0.0,
@@ -1890,6 +1890,7 @@
       "expected_prod_over_abs": 0.06056587069836177,
       "mode_sum_vs_scalar_I_relative_residual": 5.322123803919317e-16,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 1.345830830542564e-15,
       "omega_MeV": 15.0,
       "omega_over_T": 2.8040237343538217,
       "per_mode_prod_over_abs": [
@@ -1908,18 +1909,17 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 2.9170957741355698e-15,
-      "B19_detailed_balance_max_relative_residual": 8.266767494483775e-16,
       "B4_reduced_opacity_max_relative_residual": 9.667973622141546e-16,
       "T_MeV": 5.349455433,
       "analytic_I_vs_direct_uniform_angular_average": 8.591706665488146e-16,
       "code_48point_abs_modes": [
-        0.09375768641060205,
+        0.09375768641060203,
         0.08822477903359316,
         0.08822477903359321
       ],
       "code_48point_prod_modes": [
         0.0022300306670050033,
-        0.0020984302233422554,
+        0.0020984302233422545,
         0.002098430223342254
       ],
       "direct_nu_mu_prod_modes": [
@@ -1943,8 +1943,9 @@
         0.0020984302233422536
       ],
       "expected_prod_over_abs": 0.02378504368419262,
-      "mode_sum_vs_scalar_I_relative_residual": 8.097492762628799e-16,
+      "mode_sum_vs_scalar_I_relative_residual": 1.0796657016838398e-15,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 8.266767494483775e-16,
       "omega_MeV": 20.0,
       "omega_over_T": 3.738698312471762,
       "per_mode_prod_over_abs": [
@@ -1958,12 +1959,11 @@
         0.08612634881025087,
         0.08612634881025094
       ],
-      "relative_error_abs_max_over_modes": 5.920704035736598e-16,
+      "relative_error_abs_max_over_modes": 7.400880044670748e-16,
       "relative_error_prod_max_over_modes": 7.778922064361519e-16
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 2.449509086744185e-15,
-      "B19_detailed_balance_max_relative_residual": 1.117735535126256e-15,
       "B4_reduced_opacity_max_relative_residual": 1.0534913461889702e-15,
       "T_MeV": 5.349455433,
       "analytic_I_vs_direct_uniform_angular_average": 7.663321772035073e-16,
@@ -2000,6 +2000,7 @@
       "expected_prod_over_abs": 0.003668224693450677,
       "mode_sum_vs_scalar_I_relative_residual": 1.0111514860070435e-15,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 1.117735535126256e-15,
       "omega_MeV": 30.0,
       "omega_over_T": 5.608047468707643,
       "per_mode_prod_over_abs": [
@@ -2018,7 +2019,6 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 4.5885066389242634e-15,
-      "B19_detailed_balance_max_relative_residual": 1.3235907879457134e-15,
       "B4_reduced_opacity_max_relative_residual": 1.2614794873406154e-15,
       "T_MeV": 5.349455433,
       "analytic_I_vs_direct_uniform_angular_average": 9.04368433091176e-16,
@@ -2028,7 +2028,7 @@
         0.04400863866358099
       ],
       "code_48point_prod_modes": [
-        4.245773041186279e-06,
+        4.245773041186278e-06,
         3.83970463515665e-06,
         3.839704635156651e-06
       ],
@@ -2053,8 +2053,9 @@
         3.839704635156646e-06
       ],
       "expected_prod_over_abs": 8.72488845771584e-05,
-      "mode_sum_vs_scalar_I_relative_residual": 9.944050289382118e-16,
+      "mode_sum_vs_scalar_I_relative_residual": 1.2785207514919866e-15,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 1.3235907879457134e-15,
       "omega_MeV": 50.0,
       "omega_over_T": 9.346745781179406,
       "per_mode_prod_over_abs": [
@@ -2073,7 +2074,6 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 3.8045098717452325e-15,
-      "B19_detailed_balance_max_relative_residual": 2.099039929238749e-15,
       "B4_reduced_opacity_max_relative_residual": 2.0255095890960452e-15,
       "T_MeV": 5.349455433,
       "analytic_I_vs_direct_uniform_angular_average": 5.854946243894412e-16,
@@ -2110,6 +2110,7 @@
       "expected_prod_over_abs": 7.61236785995831e-09,
       "mode_sum_vs_scalar_I_relative_residual": 3.6787712213963655e-16,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 2.099039929238749e-15,
       "omega_MeV": 100.0,
       "omega_over_T": 18.693491562358812,
       "per_mode_prod_over_abs": [
@@ -2128,7 +2129,6 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 2.7674567700570212e-15,
-      "B19_detailed_balance_max_relative_residual": 5.719728651552209e-16,
       "B4_reduced_opacity_max_relative_residual": 6.100485169534926e-16,
       "T_MeV": 5.349455433,
       "analytic_I_vs_direct_uniform_angular_average": 2.1340503362586212e-15,
@@ -2165,6 +2165,7 @@
       "expected_prod_over_abs": 4.41122592243701e-25,
       "mode_sum_vs_scalar_I_relative_residual": 3.896884174166397e-15,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 5.719728651552209e-16,
       "omega_MeV": 300.0,
       "omega_over_T": 56.08047468707643,
       "per_mode_prod_over_abs": [
@@ -2183,7 +2184,6 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 5.55209960743431e-15,
-      "B19_detailed_balance_max_relative_residual": 6.406268777808819e-16,
       "B4_reduced_opacity_max_relative_residual": 6.265509281421001e-16,
       "T_MeV": 4.204423026,
       "analytic_I_vs_direct_uniform_angular_average": 3.8248122838112685e-16,
@@ -2220,6 +2220,7 @@
       "expected_prod_over_abs": 0.05760550394636009,
       "mode_sum_vs_scalar_I_relative_residual": 5.767681042647108e-16,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 6.406268777808819e-16,
       "omega_MeV": 12.0,
       "omega_over_T": 2.8541371612210367,
       "per_mode_prod_over_abs": [
@@ -2238,7 +2239,6 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 3.465424844479707e-15,
-      "B19_detailed_balance_max_relative_residual": 9.90121384137059e-16,
       "B4_reduced_opacity_max_relative_residual": 1.0351508108496735e-15,
       "T_MeV": 4.204423026,
       "analytic_I_vs_direct_uniform_angular_average": 5.405971473737611e-16,
@@ -2275,6 +2275,7 @@
       "expected_prod_over_abs": 0.02822149234215766,
       "mode_sum_vs_scalar_I_relative_residual": 8.491680133705027e-16,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 9.90121384137059e-16,
       "omega_MeV": 15.0,
       "omega_over_T": 3.5676714515262957,
       "per_mode_prod_over_abs": [
@@ -2293,10 +2294,9 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 3.282077936810232e-15,
-      "B19_detailed_balance_max_relative_residual": 9.136855582543688e-16,
       "B4_reduced_opacity_max_relative_residual": 1.01358704738635e-15,
       "T_MeV": 4.204423026,
-      "analytic_I_vs_direct_uniform_angular_average": 8.110131892086912e-16,
+      "analytic_I_vs_direct_uniform_angular_average": 9.461820540768065e-16,
       "code_48point_abs_modes": [
         0.1038050576185333,
         0.09667293830843675,
@@ -2330,6 +2330,7 @@
       "expected_prod_over_abs": 0.008592244639322165,
       "mode_sum_vs_scalar_I_relative_residual": 1.1890074360184772e-15,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 9.136855582543688e-16,
       "omega_MeV": 20.0,
       "omega_over_T": 4.756895268701728,
       "per_mode_prod_over_abs": [
@@ -2348,8 +2349,7 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 3.734559240350699e-15,
-      "B19_detailed_balance_max_relative_residual": 1.3272704059780859e-15,
-      "B4_reduced_opacity_max_relative_residual": 1.1818270122004629e-15,
+      "B4_reduced_opacity_max_relative_residual": 1.3787981809005401e-15,
       "T_MeV": 4.204423026,
       "analytic_I_vs_direct_uniform_angular_average": 1.3221839107643676e-15,
       "code_48point_abs_modes": [
@@ -2385,6 +2385,7 @@
       "expected_prod_over_abs": 0.0007964526300184635,
       "mode_sum_vs_scalar_I_relative_residual": 1.869193467338379e-15,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 1.3272704059780859e-15,
       "omega_MeV": 30.0,
       "omega_over_T": 7.1353429030525914,
       "per_mode_prod_over_abs": [
@@ -2403,14 +2404,13 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 4.313218490392693e-15,
-      "B19_detailed_balance_max_relative_residual": 1.013520072034572e-15,
       "B4_reduced_opacity_max_relative_residual": 1.2121338331489126e-15,
       "T_MeV": 4.204423026,
-      "analytic_I_vs_direct_uniform_angular_average": 6.945601369482241e-16,
+      "analytic_I_vs_direct_uniform_angular_average": 9.72384191727514e-16,
       "code_48point_abs_modes": [
         0.050219260049353315,
         0.0457965363197467,
-        0.04579653631974671
+        0.04579653631974669
       ],
       "code_48point_prod_modes": [
         3.436662578064922e-07,
@@ -2440,6 +2440,7 @@
       "expected_prod_over_abs": 6.8433158407501765e-06,
       "mode_sum_vs_scalar_I_relative_residual": 1.09101251185643e-15,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 1.013520072034572e-15,
       "omega_MeV": 50.0,
       "omega_over_T": 11.89223817175432,
       "per_mode_prod_over_abs": [
@@ -2458,7 +2459,6 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 2.4762026097317295e-15,
-      "B19_detailed_balance_max_relative_residual": 3.301603479642306e-15,
       "B4_reduced_opacity_max_relative_residual": 3.1875659668477305e-15,
       "T_MeV": 4.204423026,
       "analytic_I_vs_direct_uniform_angular_average": 5.84776974760513e-16,
@@ -2469,7 +2469,7 @@
       ],
       "code_48point_prod_modes": [
         1.2233352247281835e-12,
-        1.1471477271761386e-12,
+        1.1471477271761384e-12,
         1.147147727176139e-12
       ],
       "direct_nu_mu_prod_modes": [
@@ -2495,6 +2495,7 @@
       "expected_prod_over_abs": 4.68309716962623e-11,
       "mode_sum_vs_scalar_I_relative_residual": 6.88924142961034e-16,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 3.301603479642306e-15,
       "omega_MeV": 100.0,
       "omega_over_T": 23.78447634350864,
       "per_mode_prod_over_abs": [
@@ -2513,7 +2514,6 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 1.3209785035417915e-15,
-      "B19_detailed_balance_max_relative_residual": 1.887112147916845e-15,
       "B4_reduced_opacity_max_relative_residual": 1.7690058957185392e-15,
       "T_MeV": 4.204423026,
       "analytic_I_vs_direct_uniform_angular_average": 2.8255146130717096e-15,
@@ -2550,6 +2550,7 @@
       "expected_prod_over_abs": 1.0270687305190855e-31,
       "mode_sum_vs_scalar_I_relative_residual": 7.912137487125951e-14,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 1.887112147916845e-15,
       "omega_MeV": 300.0,
       "omega_over_T": 71.35342903052592,
       "per_mode_prod_over_abs": [
@@ -2568,10 +2569,9 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 3.2130130542095207e-15,
-      "B19_detailed_balance_max_relative_residual": 1.183741651550876e-15,
       "B4_reduced_opacity_max_relative_residual": 1.1456626844478047e-15,
       "T_MeV": 3.551389049,
-      "analytic_I_vs_direct_uniform_angular_average": 1.483782966632825e-16,
+      "analytic_I_vs_direct_uniform_angular_average": 2.96756593326565e-16,
       "code_48point_abs_modes": [
         0.15397044222540562,
         0.15048903772281932,
@@ -2605,6 +2605,7 @@
       "expected_prod_over_abs": 0.034082897295926166,
       "mode_sum_vs_scalar_I_relative_residual": 4.474984000795536e-16,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 1.183741651550876e-15,
       "omega_MeV": 12.0,
       "omega_over_T": 3.37895956608273,
       "per_mode_prod_over_abs": [
@@ -2623,10 +2624,9 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 3.753317686376452e-15,
-      "B19_detailed_balance_max_relative_residual": 8.116476385242332e-16,
-      "B4_reduced_opacity_max_relative_residual": 6.617262193201192e-16,
+      "B4_reduced_opacity_max_relative_residual": 8.823016257601585e-16,
       "T_MeV": 3.551389049,
-      "analytic_I_vs_direct_uniform_angular_average": 3.2265545022588084e-16,
+      "analytic_I_vs_direct_uniform_angular_average": 4.839831753388213e-16,
       "code_48point_abs_modes": [
         0.13413225571848902,
         0.12770271984759726,
@@ -2660,6 +2660,7 @@
       "expected_prod_over_abs": 0.014644367951534613,
       "mode_sum_vs_scalar_I_relative_residual": 9.122867928633005e-16,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 8.116476385242332e-16,
       "omega_MeV": 15.0,
       "omega_over_T": 4.223699457603413,
       "per_mode_prod_over_abs": [
@@ -2678,7 +2679,6 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 3.0199285184405936e-15,
-      "B19_detailed_balance_max_relative_residual": 1.036162373766173e-15,
       "B4_reduced_opacity_max_relative_residual": 9.53792921226584e-16,
       "T_MeV": 3.551389049,
       "analytic_I_vs_direct_uniform_angular_average": 1.0714239038270944e-15,
@@ -2715,6 +2715,7 @@
       "expected_prod_over_abs": 0.003582840788829032,
       "mode_sum_vs_scalar_I_relative_residual": 1.3463909860574775e-15,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 1.036162373766173e-15,
       "omega_MeV": 20.0,
       "omega_over_T": 5.63159927680455,
       "per_mode_prod_over_abs": [
@@ -2733,10 +2734,9 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 2.952194278805956e-15,
-      "B19_detailed_balance_max_relative_residual": 3.020735664706642e-15,
       "B4_reduced_opacity_max_relative_residual": 2.8436117945520486e-15,
       "T_MeV": 3.551389049,
-      "analytic_I_vs_direct_uniform_angular_average": 1.0351373928095385e-15,
+      "analytic_I_vs_direct_uniform_angular_average": 1.1830141632109012e-15,
       "code_48point_abs_modes": [
         0.08027223497313338,
         0.07322077859924941,
@@ -2770,6 +2770,7 @@
       "expected_prod_over_abs": 0.00021445751269993409,
       "mode_sum_vs_scalar_I_relative_residual": 1.533076299247366e-15,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 3.020735664706642e-15,
       "omega_MeV": 30.0,
       "omega_over_T": 8.447398915206826,
       "per_mode_prod_over_abs": [
@@ -2788,7 +2789,6 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 4.559725699246527e-15,
-      "B19_detailed_balance_max_relative_residual": 7.349510711192671e-16,
       "B4_reduced_opacity_max_relative_residual": 5.921441575682035e-16,
       "T_MeV": 3.551389049,
       "analytic_I_vs_direct_uniform_angular_average": 1.8182115474263276e-15,
@@ -2798,7 +2798,7 @@
         0.0468730402679354
       ],
       "code_48point_prod_modes": [
-        3.918459663943786e-08,
+        3.918459663943787e-08,
         3.6015703142504013e-08,
         3.6015703142504013e-08
       ],
@@ -2823,8 +2823,9 @@
         3.6015703142504027e-08
       ],
       "expected_prod_over_abs": 7.68367123972144e-07,
-      "mode_sum_vs_scalar_I_relative_residual": 2.3800333500277797e-15,
+      "mode_sum_vs_scalar_I_relative_residual": 2.1420300150250016e-15,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 7.349510711192671e-16,
       "omega_MeV": 50.0,
       "omega_over_T": 14.078998192011376,
       "per_mode_prod_over_abs": [
@@ -2839,11 +2840,10 @@
         0.0468730042522323
       ],
       "relative_error_abs_max_over_modes": 8.882155538761502e-16,
-      "relative_error_prod_max_over_modes": 5.066361888051697e-16
+      "relative_error_prod_max_over_modes": 3.6747553555963353e-16
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 2.240867848393335e-15,
-      "B19_detailed_balance_max_relative_residual": 6.465260906900019e-16,
       "B4_reduced_opacity_max_relative_residual": 6.994749739205088e-16,
       "T_MeV": 3.551389049,
       "analytic_I_vs_direct_uniform_angular_average": 2.333061337008555e-15,
@@ -2880,6 +2880,7 @@
       "expected_prod_over_abs": 5.903880372012242e-13,
       "mode_sum_vs_scalar_I_relative_residual": 2.25523949437552e-15,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 6.465260906900019e-16,
       "omega_MeV": 100.0,
       "omega_over_T": 28.157996384022752,
       "per_mode_prod_over_abs": [
@@ -2898,7 +2899,6 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 1.7954989433575165e-15,
-      "B19_detailed_balance_max_relative_residual": 7.34551784736249e-16,
       "B4_reduced_opacity_max_relative_residual": 6.027757881529622e-16,
       "T_MeV": 3.551389049,
       "analytic_I_vs_direct_uniform_angular_average": 3.0940524606579828e-15,
@@ -2935,6 +2935,7 @@
       "expected_prod_over_abs": 2.057844938216453e-37,
       "mode_sum_vs_scalar_I_relative_residual": 3.704631226525567e-13,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 7.34551784736249e-16,
       "omega_MeV": 300.0,
       "omega_over_T": 84.47398915206826,
       "per_mode_prod_over_abs": [
@@ -2953,7 +2954,6 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 4.576115635996857e-15,
-      "B19_detailed_balance_max_relative_residual": 9.53357424166012e-16,
       "B4_reduced_opacity_max_relative_residual": 7.247055388939068e-16,
       "T_MeV": 3.384020032,
       "analytic_I_vs_direct_uniform_angular_average": 3.425611575579712e-16,
@@ -2963,7 +2963,7 @@
         0.1540293151712762
       ],
       "code_48point_prod_modes": [
-        0.00454898507108791,
+        0.004548985071087909,
         0.004441821958181185,
         0.004441821958181185
       ],
@@ -2990,6 +2990,7 @@
       "expected_prod_over_abs": 0.028837510270314497,
       "mode_sum_vs_scalar_I_relative_residual": 3.874275417561615e-16,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 9.53357424166012e-16,
       "omega_MeV": 12.0,
       "omega_over_T": 3.546078299337916,
       "per_mode_prod_over_abs": [
@@ -3004,14 +3005,13 @@
         0.14958749321309509
       ],
       "relative_error_abs_max_over_modes": 7.038068354731e-16,
-      "relative_error_prod_max_over_modes": 1.1440289089992143e-15
+      "relative_error_prod_max_over_modes": 1.3347003938324167e-15
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 2.9319778990003925e-15,
-      "B19_detailed_balance_max_relative_residual": 1.5418355254324786e-15,
       "B4_reduced_opacity_max_relative_residual": 1.2946300052819573e-15,
       "T_MeV": 3.384020032,
-      "analytic_I_vs_direct_uniform_angular_average": 1.9493375787599725e-16,
+      "analytic_I_vs_direct_uniform_angular_average": 0.0,
       "code_48point_abs_modes": [
         0.13691626855734318,
         0.1301810299484221,
@@ -3042,9 +3042,10 @@
         0.0015470163581806555,
         0.001547016358180655
       ],
-      "expected_prod_over_abs": 0.011883577498146884,
-      "mode_sum_vs_scalar_I_relative_residual": 3.6744147700793055e-16,
+      "expected_prod_over_abs": 0.011883577498146882,
+      "mode_sum_vs_scalar_I_relative_residual": 1.8372073850396532e-16,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 1.6820023913808857e-15,
       "omega_MeV": 15.0,
       "omega_over_T": 4.432597874172395,
       "per_mode_prod_over_abs": [
@@ -3063,7 +3064,6 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 4.822600614248933e-15,
-      "B19_detailed_balance_max_relative_residual": 9.636468269997568e-16,
       "B4_reduced_opacity_max_relative_residual": 9.391353056558948e-16,
       "T_MeV": 3.384020032,
       "analytic_I_vs_direct_uniform_angular_average": 9.962198946402809e-16,
@@ -3100,6 +3100,7 @@
       "expected_prod_over_abs": 0.0027118329730838817,
       "mode_sum_vs_scalar_I_relative_residual": 1.0015094727558083e-15,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 9.636468269997568e-16,
       "omega_MeV": 20.0,
       "omega_over_T": 5.910130498896526,
       "per_mode_prod_over_abs": [
@@ -3118,10 +3119,9 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 4.296680350706846e-15,
-      "B19_detailed_balance_max_relative_residual": 1.2979390248400702e-15,
       "B4_reduced_opacity_max_relative_residual": 1.3140383122944976e-15,
       "T_MeV": 3.384020032,
-      "analytic_I_vs_direct_uniform_angular_average": 5.561951114715058e-16,
+      "analytic_I_vs_direct_uniform_angular_average": 6.67434133765807e-16,
       "code_48point_abs_modes": [
         0.08096565727497887,
         0.07393866249920535,
@@ -3129,7 +3129,7 @@
       ],
       "code_48point_prod_modes": [
         1.1433922687003552e-05,
-        1.0441574601502347e-05,
+        1.0441574601502345e-05,
         1.0441574601502347e-05
       ],
       "direct_nu_mu_prod_modes": [
@@ -3155,6 +3155,7 @@
       "expected_prod_over_abs": 0.00014121941415446294,
       "mode_sum_vs_scalar_I_relative_residual": 1.0484030856968624e-15,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 1.2979390248400702e-15,
       "omega_MeV": 30.0,
       "omega_over_T": 8.86519574834479,
       "per_mode_prod_over_abs": [
@@ -3173,7 +3174,6 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 3.882592055483219e-15,
-      "B19_detailed_balance_max_relative_residual": 9.160747516597496e-16,
       "B4_reduced_opacity_max_relative_residual": 8.828757279359268e-16,
       "T_MeV": 3.384020032,
       "analytic_I_vs_direct_uniform_angular_average": 1.2097275400480218e-15,
@@ -3183,7 +3183,7 @@
         0.04715655674988495
       ],
       "code_48point_prod_modes": [
-        1.9600466715890184e-08,
+        1.960046671589018e-08,
         1.8059238311160464e-08,
         1.805923831116047e-08
       ],
@@ -3208,8 +3208,9 @@
         1.8059238311160464e-08
       ],
       "expected_prod_over_abs": 3.829634637436612e-07,
-      "mode_sum_vs_scalar_I_relative_residual": 1.6627061292887994e-15,
+      "mode_sum_vs_scalar_I_relative_residual": 1.781470852809428e-15,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 9.160747516597496e-16,
       "omega_MeV": 50.0,
       "omega_over_T": 14.775326247241317,
       "per_mode_prod_over_abs": [
@@ -3224,14 +3225,13 @@
         0.04715653869064665
       ],
       "relative_error_abs_max_over_modes": 9.490284174126507e-16,
-      "relative_error_prod_max_over_modes": 6.752334009536034e-16
+      "relative_error_prod_max_over_modes": 8.440417511920042e-16
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 2.4577119118534412e-15,
-      "B19_detailed_balance_max_relative_residual": 1.6384746079022942e-15,
       "B4_reduced_opacity_max_relative_residual": 1.453171649310718e-15,
       "T_MeV": 3.384020032,
-      "analytic_I_vs_direct_uniform_angular_average": 1.0810269786933486e-15,
+      "analytic_I_vs_direct_uniform_angular_average": 9.008558155777905e-16,
       "code_48point_abs_modes": [
         0.026262497269058053,
         0.02487986425258854,
@@ -3265,6 +3265,7 @@
       "expected_prod_over_abs": 1.4666101456254253e-13,
       "mode_sum_vs_scalar_I_relative_residual": 9.905427042569889e-16,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 1.6384746079022942e-15,
       "omega_MeV": 100.0,
       "omega_over_T": 29.550652494482634,
       "per_mode_prod_over_abs": [
@@ -3283,7 +3284,6 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 4.0257210373061205e-15,
-      "B19_detailed_balance_max_relative_residual": 2.0128605186530603e-15,
       "B4_reduced_opacity_max_relative_residual": 1.964284982263101e-15,
       "T_MeV": 3.384020032,
       "analytic_I_vs_direct_uniform_angular_average": 6.302384101420132e-16,
@@ -3320,6 +3320,7 @@
       "expected_prod_over_abs": 3.1545982278996685e-39,
       "mode_sum_vs_scalar_I_relative_residual": 1.219774400358808e-12,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 2.0128605186530603e-15,
       "omega_MeV": 300.0,
       "omega_over_T": 88.6519574834479,
       "per_mode_prod_over_abs": [
@@ -3338,10 +3339,9 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 4.4745603807949626e-15,
-      "B19_detailed_balance_max_relative_residual": 2.866813964553e-15,
       "B4_reduced_opacity_max_relative_residual": 2.7038438660051933e-15,
       "T_MeV": 3.216426215,
-      "analytic_I_vs_direct_uniform_angular_average": 2.011025907257666e-16,
+      "analytic_I_vs_direct_uniform_angular_average": 0.0,
       "code_48point_abs_modes": [
         0.16172119624852024,
         0.15776033656521787,
@@ -3375,6 +3375,7 @@
       "expected_prod_over_abs": 0.02397247849748351,
       "mode_sum_vs_scalar_I_relative_residual": 0.0,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 2.866813964553e-15,
       "omega_MeV": 12.0,
       "omega_over_T": 3.7308488359028007,
       "per_mode_prod_over_abs": [
@@ -3393,10 +3394,9 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 4.111174689434009e-15,
-      "B19_detailed_balance_max_relative_residual": 8.658179172650975e-16,
       "B4_reduced_opacity_max_relative_residual": 6.332060022034746e-16,
       "T_MeV": 3.216426215,
-      "analytic_I_vs_direct_uniform_angular_average": 7.221694218633726e-16,
+      "analytic_I_vs_direct_uniform_angular_average": 4.814462812422485e-16,
       "code_48point_abs_modes": [
         0.13978905673576814,
         0.13275244608641726,
@@ -3427,9 +3427,10 @@
         0.0012522288472733714,
         0.0012522288472733717
       ],
-      "expected_prod_over_abs": 0.00943281185537037,
-      "mode_sum_vs_scalar_I_relative_residual": 1.2478191827052367e-15,
+      "expected_prod_over_abs": 0.009432811855370368,
+      "mode_sum_vs_scalar_I_relative_residual": 9.075048601492633e-16,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 8.222349378868018e-16,
       "omega_MeV": 15.0,
       "omega_over_T": 4.6635610448785005,
       "per_mode_prod_over_abs": [
@@ -3448,7 +3449,6 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 3.351414882807258e-15,
-      "B19_detailed_balance_max_relative_residual": 7.751946072895518e-16,
       "B4_reduced_opacity_max_relative_residual": 9.247311715905833e-16,
       "T_MeV": 3.216426215,
       "analytic_I_vs_direct_uniform_angular_average": 8.012948295838181e-16,
@@ -3485,6 +3485,7 @@
       "expected_prod_over_abs": 0.0019930654603232314,
       "mode_sum_vs_scalar_I_relative_residual": 8.391139833266686e-16,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 7.751946072895518e-16,
       "omega_MeV": 20.0,
       "omega_over_T": 6.218081393171334,
       "per_mode_prod_over_abs": [
@@ -3503,14 +3504,13 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 4.314146878644049e-15,
-      "B19_detailed_balance_max_relative_residual": 1.0493870785890929e-15,
       "B4_reduced_opacity_max_relative_residual": 1.0199652630932111e-15,
       "T_MeV": 3.216426215,
-      "analytic_I_vs_direct_uniform_angular_average": 1.3993420223682971e-15,
+      "analytic_I_vs_direct_uniform_angular_average": 1.5742597751643344e-15,
       "code_48point_abs_modes": [
         0.08164409065796555,
         0.07466757088932029,
-        0.07466757088932031
+        0.07466757088932029
       ],
       "code_48point_prod_modes": [
         7.264522959000286e-06,
@@ -3540,6 +3540,7 @@
       "expected_prod_over_abs": 8.897793949881578e-05,
       "mode_sum_vs_scalar_I_relative_residual": 1.9782731777992736e-15,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 1.0493870785890929e-15,
       "omega_MeV": 30.0,
       "omega_over_T": 9.327122089757001,
       "per_mode_prod_over_abs": [
@@ -3553,12 +3554,11 @@
         0.07466092712271517,
         0.07466092712271509
       ],
-      "relative_error_abs_max_over_modes": 1.4868878301543262e-15,
+      "relative_error_abs_max_over_modes": 1.1151658726157447e-15,
       "relative_error_prod_max_over_modes": 3.824786439377785e-16
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 5.085984214447947e-15,
-      "B19_detailed_balance_max_relative_residual": 3.0879189873433962e-15,
       "B4_reduced_opacity_max_relative_residual": 2.972374633290135e-15,
       "T_MeV": 3.216426215,
       "analytic_I_vs_direct_uniform_angular_average": 2.761418870370602e-15,
@@ -3568,7 +3568,7 @@
         0.04744378281034734
       ],
       "code_48point_prod_modes": [
-        9.107797497951449e-09,
+        9.107797497951447e-09,
         8.413626260216515e-09,
         8.413626260216515e-09
       ],
@@ -3595,6 +3595,7 @@
       "expected_prod_over_abs": 1.7733885794582008e-07,
       "mode_sum_vs_scalar_I_relative_residual": 3.3170085904801852e-15,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 3.0879189873433962e-15,
       "omega_MeV": 50.0,
       "omega_over_T": 15.545203482928335,
       "per_mode_prod_over_abs": [
@@ -3613,7 +3614,6 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 5.248093924883298e-15,
-      "B19_detailed_balance_max_relative_residual": 3.1404895048215872e-15,
       "B4_reduced_opacity_max_relative_residual": 3.1970011552345487e-15,
       "T_MeV": 3.216426215,
       "analytic_I_vs_direct_uniform_angular_average": 4.190858809494461e-15,
@@ -3650,6 +3650,7 @@
       "expected_prod_over_abs": 3.144907053752775e-14,
       "mode_sum_vs_scalar_I_relative_residual": 3.949791374441942e-15,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 3.1404895048215872e-15,
       "omega_MeV": 100.0,
       "omega_over_T": 31.09040696585667,
       "per_mode_prod_over_abs": [
@@ -3668,10 +3669,9 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 3.7692472613821884e-15,
-      "B19_detailed_balance_max_relative_residual": 5.2189577465291835e-15,
-      "B4_reduced_opacity_max_relative_residual": 5.302954521448103e-15,
+      "B4_reduced_opacity_max_relative_residual": 5.212290609131259e-15,
       "T_MeV": 3.216426215,
-      "analytic_I_vs_direct_uniform_angular_average": 2.4948469535987007e-15,
+      "analytic_I_vs_direct_uniform_angular_average": 2.6611700838386135e-15,
       "code_48point_abs_modes": [
         0.00883234688548268,
         0.008653164943685497,
@@ -3705,6 +3705,7 @@
       "expected_prod_over_abs": 3.1104515705542996e-41,
       "mode_sum_vs_scalar_I_relative_residual": 2.4022835119751395e-12,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 5.2189577465291835e-15,
       "omega_MeV": 300.0,
       "omega_over_T": 93.27122089757002,
       "per_mode_prod_over_abs": [
@@ -3723,13 +3724,12 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 4.9032177071579326e-15,
-      "B19_detailed_balance_max_relative_residual": 1.5373587520320913e-15,
       "B4_reduced_opacity_max_relative_residual": 1.5716718435101589e-15,
       "T_MeV": 3.033770692,
-      "analytic_I_vs_direct_uniform_angular_average": 6.125384322149533e-16,
+      "analytic_I_vs_direct_uniform_angular_average": 3.6752305932897184e-16,
       "code_48point_abs_modes": [
         0.1662769169670795,
-        0.16204218847127158,
+        0.16204218847127153,
         0.1620421884712715
       ],
       "code_48point_prod_modes": [
@@ -3760,6 +3760,7 @@
       "expected_prod_over_abs": 0.019149596399201843,
       "mode_sum_vs_scalar_I_relative_residual": 5.542117167421167e-16,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 1.5373587520320913e-15,
       "omega_MeV": 12.0,
       "omega_over_T": 3.955473639337274,
       "per_mode_prod_over_abs": [
@@ -3778,7 +3779,6 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 2.1285552848988425e-15,
-      "B19_detailed_balance_max_relative_residual": 1.2771331709393055e-15,
       "B4_reduced_opacity_max_relative_residual": 1.3683502874300501e-15,
       "T_MeV": 3.033770692,
       "analytic_I_vs_direct_uniform_angular_average": 9.354431051266525e-16,
@@ -3815,6 +3815,7 @@
       "expected_prod_over_abs": 0.007123600101089808,
       "mode_sum_vs_scalar_I_relative_residual": 1.6163296528044118e-15,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 1.2771331709393055e-15,
       "omega_MeV": 15.0,
       "omega_over_T": 4.944342049171592,
       "per_mode_prod_over_abs": [
@@ -3833,7 +3834,6 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 3.082466934383512e-15,
-      "B19_detailed_balance_max_relative_residual": 1.0274889781278373e-15,
       "B4_reduced_opacity_max_relative_residual": 8.424076722044357e-16,
       "T_MeV": 3.033770692,
       "analytic_I_vs_direct_uniform_angular_average": 7.643050546750939e-16,
@@ -3870,6 +3870,7 @@
       "expected_prod_over_abs": 0.0013706693722765994,
       "mode_sum_vs_scalar_I_relative_residual": 9.604540579475272e-16,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 1.0274889781278373e-15,
       "omega_MeV": 20.0,
       "omega_over_T": 6.592456065562123,
       "per_mode_prod_over_abs": [
@@ -3888,10 +3889,9 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 2.634603203197786e-15,
-      "B19_detailed_balance_max_relative_residual": 1.7692737440471532e-15,
       "B4_reduced_opacity_max_relative_residual": 1.8388490802727566e-15,
       "T_MeV": 3.033770692,
-      "analytic_I_vs_direct_uniform_angular_average": 2.1254684819017008e-15,
+      "analytic_I_vs_direct_uniform_angular_average": 2.4291068364590873e-15,
       "code_48point_abs_modes": [
         0.08236247287220061,
         0.07547379624678986,
@@ -3925,6 +3925,7 @@
       "expected_prod_over_abs": 5.074567840024673e-05,
       "mode_sum_vs_scalar_I_relative_residual": 2.4324654612652137e-15,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 1.7692737440471532e-15,
       "omega_MeV": 30.0,
       "omega_over_T": 9.888684098343184,
       "per_mode_prod_over_abs": [
@@ -3943,12 +3944,11 @@
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 5.30672834747326e-15,
-      "B19_detailed_balance_max_relative_residual": 2.365489984852388e-15,
       "B4_reduced_opacity_max_relative_residual": 2.3245516097129414e-15,
       "T_MeV": 3.033770692,
-      "analytic_I_vs_direct_uniform_angular_average": 8.236845589783389e-16,
+      "analytic_I_vs_direct_uniform_angular_average": 1.0296056987229239e-15,
       "code_48point_abs_modes": [
-        0.05154298367301325,
+        0.05154298367301324,
         0.04776074220973882,
         0.04776074220973883
       ],
@@ -3980,6 +3980,7 @@
       "expected_prod_over_abs": 6.955554715861625e-08,
       "mode_sum_vs_scalar_I_relative_residual": 1.132110594720742e-15,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 2.365489984852388e-15,
       "omega_MeV": 50.0,
       "omega_over_T": 16.48114016390531,
       "per_mode_prod_over_abs": [
@@ -3993,12 +3994,11 @@
         0.04776073888771427,
         0.04776073888771425
       ],
-      "relative_error_abs_max_over_modes": 6.731172129971467e-16,
+      "relative_error_abs_max_over_modes": 8.077406555965761e-16,
       "relative_error_prod_max_over_modes": 1.4939936746436135e-15
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 2.9046367385475217e-15,
-      "B19_detailed_balance_max_relative_residual": 3.4582896378652833e-15,
       "B4_reduced_opacity_max_relative_residual": 3.3242756053954205e-15,
       "T_MeV": 3.033770692,
       "analytic_I_vs_direct_uniform_angular_average": 1.6981501179095257e-16,
@@ -4008,7 +4008,7 @@
         0.025048081666797513
       ],
       "code_48point_prod_modes": [
-        1.2730629769120743e-16,
+        1.273062976912074e-16,
         1.211819713739626e-16,
         1.211819713739626e-16
       ],
@@ -4033,8 +4033,9 @@
         1.2118197137396263e-16
       ],
       "expected_prod_over_abs": 4.8379741405344896e-15,
-      "mode_sum_vs_scalar_I_relative_residual": 4.001171951337904e-16,
+      "mode_sum_vs_scalar_I_relative_residual": 5.334895935117205e-16,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 3.4582896378652833e-15,
       "omega_MeV": 100.0,
       "omega_over_T": 32.96228032781062,
       "per_mode_prod_over_abs": [
@@ -4049,11 +4050,10 @@
         0.02504808166679737
       ],
       "relative_error_abs_max_over_modes": 1.2466033520232767e-15,
-      "relative_error_prod_max_over_modes": 1.742782043128513e-15
+      "relative_error_prod_max_over_modes": 1.9364244923650145e-15
     },
     {
       "256_vs_512_direct_quadrature_max_relative_change": 2.0219268786948875e-15,
-      "B19_detailed_balance_max_relative_residual": 6.818809012740285e-15,
       "B4_reduced_opacity_max_relative_residual": 6.807677848530562e-15,
       "T_MeV": 3.033770692,
       "analytic_I_vs_direct_uniform_angular_average": 3.209563786407963e-15,
@@ -4090,6 +4090,7 @@
       "expected_prod_over_abs": 1.1323759266282735e-43,
       "mode_sum_vs_scalar_I_relative_residual": 2.900583852293317e-12,
       "mu_numu_MeV": 0.0,
+      "neutrino_B10_detailed_balance_max_relative_residual": 6.818809012740285e-15,
       "omega_MeV": 300.0,
       "omega_over_T": 98.88684098343185,
       "per_mode_prod_over_abs": [
