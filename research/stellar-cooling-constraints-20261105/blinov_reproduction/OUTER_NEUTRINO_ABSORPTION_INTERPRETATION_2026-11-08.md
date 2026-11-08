@@ -37,6 +37,73 @@ The first term is \(\nu_\mu\bar\nu_\mu\); the second is \(\nu_\tau\bar\nu_\tau\)
 
 This explains why zeroing the outer \(\mu_{\nu_\mu}\) branch barely changes the luminosity: it changes only one flavor's occupation factor, while the tau-flavor inverse-decay channel remains.
 
+
+## 2a. Flavor-resolved numerical result
+
+The separate flavor integration reproduces the summed neutrino rate to a maximum relative residual of (2.81\times10^{-16}), and the sum of the two flavor-resolved path columns agrees with the direct total-neutrino column to (5.45\times10^{-16}).
+
+| Contribution | Source-weighted mean optical depth |
+|---|---:|
+| (
+u_muar
+u_mu) | (4.1264\times10^{15}) |
+| (
+u_	auar
+u_	au) | (4.1982\times10^{15}) |
+| Both flavors | (8.3245\times10^{15}) |
+
+For (r\geq15) km, the two flavors contribute almost exactly equally:
+[
+\langle\tau_{\nu_\mu}^{\rm outer}\rangle_Q
+=2.6304\times10^{15},\qquad
+\langle\tau_{\nu_\tau}^{\rm outer}\rangle_Q
+=2.6316\times10^{15}.
+]
+Together they account for 56.75% of the all-channel source-weighted mean optical depth.
+
+The outer flavor equality is also visible locally. At (r=18.5) km, (mu_{
+u_\mu}/T=0.079); at (r\geq20) km the reconstructed profile has (mu_{
+u_\mu}=0). The muon- and tau-neutrino reduced absorption rates are therefore equal to better than 0.1% at and beyond 18.5 km for the representative energies tested.
+
+## 2b. Flavor-specific luminosity-removal test
+
+The following factors are (L_{\rm without\ selected\ opacity}/L_{\rm baseline}), with the B.1 source held fixed:
+
+| Coupling point | Remove outer (
+u_mu) opacity | Remove outer (
+u_	au) opacity | Remove both outer neutrino flavors |
+|---|---:|---:|---:|
+| Luminosity peak, (g=1.1341\times10^{-8}) | 1.301 | 1.301 | 1.756 |
+| Strong-absorption endpoint, (g=4.1717\times10^{-8}) | 5.329 | 5.331 | 113.90 |
+
+Removing either flavor throughout the entire star gives factors 1.537 and 1.547 at the luminosity peak, respectively. The two flavors are therefore comparably important; the small outer (mu_{
+u_\mu}) branch does not suppress the outer (
+u_mu) opacity relative to the (
+u_	au) opacity.
+
+## 2c. Approach to the unblocked decay rate
+
+For (mu_{\nu}=0), the reduced absorption divided by the per-(g^2) vacuum-decay scale (m_V^2/(8\pi\omega)) is
+[
+\mathcal R(\omega,r)
+=\left(e^{\omega/T(r)}-1\right)
+I\left(0,\omega/T(r),v_V\right).
+]
+It approaches unity in the Maxwell--Boltzmann/low-temperature limit. At (omega=20) MeV, the tau-flavor values are:
+
+| Radius | (T) (MeV) | (omega/T) | (mathcal R) |
+|---:|---:|---:|---:|
+| 8 km | 38.74 | 0.516 | 0.128 |
+| 10 km | 33.92 | 0.590 | 0.146 |
+| 12 km | 25.98 | 0.770 | 0.188 |
+| 15 km | 13.24 | 1.511 | 0.350 |
+| 18.5 km | 5.36 | 3.730 | 0.662 |
+| 20 km | 4.21 | 4.753 | 0.740 |
+| 22 km | 3.55 | 5.630 | 0.788 |
+| 25 km | 3.03 | 6.592 | 0.827 |
+
+The opacity per unit length becomes progressively less Pauli-blocked outward and approaches its vacuum-decay scale. This is the physical origin of the outer-shell contribution in the fixed-(\omega) baseline.
+
 ## 3. Why cold outer layers can remain opaque
 
 For either neutrino flavor, detailed balance gives
