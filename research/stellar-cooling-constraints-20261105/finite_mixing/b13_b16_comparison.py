@@ -207,9 +207,22 @@ def stationary_target_exact_emissivity(
 ) -> dict:
     """Existing muon-at-rest exact-recoil kernel with the same B.17 chi."""
     omega, phase = energy_grid(mass, point["temperature_MeV"], energy_order)
-    eg, kernels = rates.compton_kernels(
-        mass, omega, order=angular_order, current=current
-    )
+    if current == "vector":
+        eg, kernels = rates.compton_kernels(
+            mass, omega, order=angular_order, current="vector"
+        )
+    elif current == "axial":
+        eg, kernels = rates.compton_kernels(
+            mass, omega, order=angular_order, current="axial"
+        )
+    elif current == "uv_theta_1e-2":
+        theta = 1.0e-2
+        eg, kernels = rates.compton_mixed_kernels(
+            mass, omega, math.sin(theta)**2, -math.cos(theta)**2,
+            order=angular_order
+        )
+    else:
+        raise ValueError(f"Unknown current {current}")
     gamma_abs = rates.compton_absorption(
         (eg, kernels), point["temperature_MeV"], susceptibility
     )
@@ -220,6 +233,55 @@ def stationary_target_exact_emissivity(
         "Q_total_MeV5": float(np.sum(q_mode)),
         "energy_order": int(energy_order),
         "angular_order": int(angular_order),
+    }
+
+
+def neutrino_emissivity(
+    mass: float, point: dict, energy_order: int = 96, angular_order: int = 96
+) -> dict:
+    """Local nu_mu+nu_tau coalescence source, with unchanged neutrino currents."""
+    omega, phase = energy_grid(mass, point["temperature_MeV"], energy_order)
+    production, absorption = rates.neutrino_rates(
+        mass, omega, point["temperature_MeV"], point["mu_numu_MeV"],
+        order=angular_order
+    )
+    q_mode = np.einsum("i,ih->h", phase, production)
+    return {
+        "Q_by_mode_MeV5": q_mode.tolist(),
+        "Q_total_MeV5": float(np.sum(q_mode)),
+        "max_mode_balance_residual": float(np.max(
+            np.abs(production-np.exp(-omega/point["temperature_MeV"])[:,None]*absorption)
+            / np.maximum(np.abs(production),1e-300)
+        )),
+        "energy_order": int(energy_order),
+        "angular_order": int(angular_order),
+    }
+
+
+def local_source_budget(q_compton_exact: float, q_compton_stationary: float,
+                        q_neutrino: float) -> dict:
+    """Compare local thin sources without introducing a global radial weight."""
+    stationary_total = q_compton_stationary + q_neutrino
+    exact_total = q_compton_exact + q_neutrino
+    return {
+        "Q_neutrino_MeV5": q_neutrino,
+        "Q_compton_stationary_exact_recoil_MeV5": q_compton_stationary,
+        "Q_compton_moving_muon_B13_MeV5": q_compton_exact,
+        "Q_total_stationary_source_MeV5": stationary_total,
+        "Q_total_moving_muon_source_MeV5": exact_total,
+        "stationary_compton_fraction": (
+            q_compton_stationary/stationary_total if stationary_total else 0.0
+        ),
+        "moving_muon_compton_fraction": (
+            q_compton_exact/exact_total if exact_total else 0.0
+        ),
+        "compton_rate_shift_fraction": (
+            q_compton_exact/q_compton_stationary-1.0
+            if q_compton_stationary else None
+        ),
+        "total_local_thin_source_shift_fraction": (
+            exact_total/stationary_total-1.0 if stationary_total else None
+        ),
     }
 
 
@@ -315,8 +377,17 @@ def run_case(profile_path: Path, radius: float) -> dict:
     stationary_axial = stationary_target_exact_emissivity(
         MASS_V, point, chi, "axial", energy_order=16, angular_order=128
     )
+    stationary_uv = stationary_target_exact_emissivity(
+        MASS_V, point, chi, "uv_theta_1e-2", energy_order=16, angular_order=128
+    )
     stationary_vector_coarse = stationary_target_exact_emissivity(
         MASS_V, point, chi, "vector", energy_order=16, angular_order=64
+    )
+    neutrino = neutrino_emissivity(
+        MASS_V, point, energy_order=96, angular_order=96
+    )
+    neutrino_coarse = neutrino_emissivity(
+        MASS_V, point, energy_order=64, angular_order=96
     )
 
     energy_refined = b13_thermal_case(
@@ -373,6 +444,23 @@ def run_case(profile_path: Path, radius: float) -> dict:
     axial_vs_stationary = (
         b13_axial["Q_total_MeV5"] / stationary_axial["Q_total_MeV5"] - 1.0
     )
+    uv_vs_stationary = (
+        b13_uv["Q_total_MeV5"] / stationary_uv["Q_total_MeV5"] - 1.0
+    )
+    local_budgets = {
+        "vector": local_source_budget(
+            b13_vector["Q_total_MeV5"], stationary_vector["Q_total_MeV5"],
+            neutrino["Q_total_MeV5"]
+        ),
+        "axial": local_source_budget(
+            b13_axial["Q_total_MeV5"], stationary_axial["Q_total_MeV5"],
+            neutrino["Q_total_MeV5"]
+        ),
+        "UV_theta_muR_1e-2": local_source_budget(
+            b13_uv["Q_total_MeV5"], stationary_uv["Q_total_MeV5"],
+            neutrino["Q_total_MeV5"]
+        ),
+    }
 
     # A first-order source-budget estimate only: the archived 10 MeV vector
     # benchmark assigns 18.6% of the optically thin source to semi-Compton.
@@ -418,10 +506,23 @@ def run_case(profile_path: Path, radius: float) -> dict:
         "existing_stationary_muon_exact_recoil": {
             "vector": stationary_vector,
             "axial": stationary_axial,
+            "UV_theta_muR_1e-2": stationary_uv,
             "vector_angular_order_64_comparison": stationary_vector_coarse,
             "vector_angular_order_64_to_128_relative_change": (
                 stationary_vector["Q_total_MeV5"] /
                 stationary_vector_coarse["Q_total_MeV5"] - 1.0
+            ),
+        },
+        "local_neutrino_source": {
+            "production": neutrino,
+            "energy_order_64_comparison": neutrino_coarse,
+            "energy_order_64_to_96_relative_change": (
+                neutrino["Q_total_MeV5"]/neutrino_coarse["Q_total_MeV5"]-1.0
+            ),
+            "local_thin_source_budgets": local_budgets,
+            "scope": (
+                "These are local two-channel source budgets at r=0 and 12.5 km; "
+                "they are not a radial integration of the global weak-coupling luminosity."
             ),
         },
         "relative_differences": {
@@ -429,6 +530,7 @@ def run_case(profile_path: Path, radius: float) -> dict:
             "B13_vector_vs_B16_without_parenthesis_correction_fraction": vector_vs_b16_no,
             "B13_vector_vs_existing_stationary_exact_fraction": vector_vs_stationary,
             "B13_axial_vs_existing_stationary_exact_fraction": axial_vs_stationary,
+            "B13_UV_vs_existing_stationary_exact_fraction": uv_vs_stationary,
             "archived_10MeV_compton_share_used_for_estimate": SOURCE_COMPTON_FRACTION_10MEV,
             "estimated_total_thin_source_shift_from_vector_compton_only_pct": (
                 estimated_total_source_shift_pct
