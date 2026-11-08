@@ -61,8 +61,8 @@ Representative values:
 
 | \(r\) (km) | Bollig Fig. 4 \(\mu_\mu/T\) | Caputo \(\mu_\mu/T\) | Ferreira \(\mu_\mu/T\) |
 |---:|---:|---:|---:|
-| 8.0 | 2.3624 | 2.3630 | 4.3095 |
-| 10.0 | 3.0308 | 3.0313 | 3.8669 |
+| 8.0 | 2.3627 | 2.3630 | 4.3095 |
+| 10.0 | 3.0312 | 3.0313 | 3.8669 |
 | 12.0 | 3.6079 | 3.6075 | 4.2271 |
 | 12.5 | 3.7780 | 3.7776 | 4.3525 |
 | 13.0 | 3.9524 | 3.9518 | 4.4910 |
@@ -71,7 +71,7 @@ Representative values:
 
 The agreement of the Caputo reconstruction with the original Bollig curve is at the level expected when the same underlying simulation profile is being digitized independently. The Ferreira curve differs visibly and systematically.
 
-## 4. Interpretation: the baseline profile choice is no longer ambiguous
+## 4. Interpretation: the degeneracy-parameter baseline is identified
 
 This comparison establishes the following specifically for the degeneracy parameter (the absolute-density comparison is treated separately in BOLLIG_MUON_DENSITY_AND_B1_SOURCE_AUDIT_2026-11-09.md):
 
