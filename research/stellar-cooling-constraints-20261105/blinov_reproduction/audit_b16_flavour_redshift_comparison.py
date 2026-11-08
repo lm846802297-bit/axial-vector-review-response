@@ -484,10 +484,12 @@ def run_audit(
         np.abs(fixed_sum-total_fixed)
         / np.maximum(np.abs(total_fixed), 1.0e-300)
     ))
-    redshift_closure = float(np.max(
-        np.abs(redshift_sum[eligible[:, None, :]]-total_redshift[eligible[:, None, :]])
-        / np.maximum(np.abs(total_redshift[eligible[:, None, :]]), 1.0e-300)
-    ))
+    eligible_3d = np.broadcast_to(eligible[:, None, :], total_redshift.shape)
+    redshift_relative_residual = (
+        np.abs(redshift_sum-total_redshift)
+        / np.maximum(np.abs(total_redshift), 1.0e-300)
+    )
+    redshift_closure = float(np.max(redshift_relative_residual[eligible_3d]))
     # Flavor sum is separately checked against the direct neutrino component.
     fixed_nu_mu, fixed_nu_tau = flavour_rate_arrays(mass, energies, profile)
     fixed_nu_total = fixed_rates["neutrino_production"]
