@@ -6,6 +6,7 @@ from scalar_potential_counterterm_map import (
     potential_mass_counterterm,
     potential_tadpoles_per_vev,
     solve_potential_counterterms,
+    plan_c_scale_dependence,
 )
 
 
@@ -72,6 +73,34 @@ class ScalarPotentialCountertermMapTests(unittest.TestCase):
         result = leading_eft5_derivatives(246.22, 70.886458, by_flavour)
         for item in result["flavours"].values():
             self.assertLess(item["mass_relative_difference"], 2e-15)
+
+    def test_plan_c_scale_residual_is_twice_eft5_mixed_uv_pole(self):
+        cases = (
+            (70.886458, {
+                "mu": {"ml_GeV": 0.1056583755},
+                "tau": {"ml_GeV": 1.77686},
+            }),
+            (315.0, {
+                "mu": {"ml_GeV": 0.1056583755},
+                "tau": {"ml_GeV": 1.77686},
+            }),
+        )
+        for vs, by_flavour in cases:
+            result = plan_c_scale_dependence(
+                246.22, vs, 125.25**2, by_flavour, mu_reference=20000.0
+            )
+            self.assertLess(result["relative_identity_residual"], 2e-14)
+            self.assertLess(result["relative_finite_difference_residual"], 2e-7)
+            self.assertAlmostEqual(
+                result["total_d_dlnmu_GeV2"],
+                2.0*result["leading_EFT5_PiB_hs_local_UV_coefficient_GeV2"],
+                places=15,
+            )
+            self.assertAlmostEqual(
+                result["required_dimension8_counterterm_contribution_d_dlnmu_GeV2"],
+                -result["total_d_dlnmu_GeV2"],
+                places=15,
+            )
 
     def test_dimension8_coefficient_has_correct_mass_dimension_and_scaling(self):
         by_a = {
