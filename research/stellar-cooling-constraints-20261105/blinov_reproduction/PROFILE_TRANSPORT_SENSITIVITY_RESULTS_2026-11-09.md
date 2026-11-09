@@ -113,3 +113,15 @@ Even if B2 were adopted purely as a diagnostic envelope, it does not remove the 
 - \`data/profile_12_15km_audit_2026-11-09.json\`
 
 The profile and transport scripts are \`audit_profile_12_15km.py\`, \`audit_profile_transport_sensitivity.py\`, and \`audit_profile_radial_convergence.py\`. The production axial files are unchanged.
+
+
+## 2026-11-10 provenance qualification: Ferreira curve is not an uncertainty band
+
+The new full 5--15 km comparison in `FERREIRA_CAPUTO_MUON_PROFILE_PROVENANCE_AUDIT_2026-11-10.md` changes how the Ferreira-profile transport result must be interpreted:
+
+- The Caputo and Ferreira temperature curves agree to a radius-weighted mean relative difference of 0.0168%.
+- Their \\(\eta_\mu=\mu_\mu/T\\) profiles differ by a radius-weighted mean of 77.26% over 5--15 km, with a maximum pointwise difference of 315.59% near 5 km.
+- The original Bollig Fig. 4 direct comparison in the 12--15 km shell agrees with Caputo at 0.00518% mean absolute relative difference (0.01434% maximum), whereas Ferreira differs by 12.74% (17.18% maximum).
+- The difference is not a constant additive (m_\mu) rest-mass shift and is not explained by a temperature mismatch.
+
+Consequently, the previously reported Ferreira substitution remains a useful **stress diagnostic only**. It must not be presented as a statistically meaningful profile uncertainty, averaged with the Caputo curve, or used to define the baseline envelope. The Caputo \\(T,\mu_\mu\\) reconstruction remains the working SFHo-18.8, 1 s baseline because it is the one that reproduces the original Bollig degeneracy curve and is consistent with the plotted muon density. The raw Garching profile is still required to certify the complete thermodynamic input.
