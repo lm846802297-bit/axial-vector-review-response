@@ -101,6 +101,44 @@ The previously archived global 210--510 MeV result is consistent with this chann
 
 **Interpretation:** the energy convention is a material physical transport sensitivity, and its effect is neutrino-opacity dominated. It is not a numerical path-integration error and it does not justify replacing the printed fixed-\(\omega\) prescription.
 
+
+## 4.1 Source-weighted global Shapley attribution of the path-redshift effect
+
+The preceding 36-ray channel comparison is a local diagnostic. To determine the channel responsible for the *global* high-energy luminosity shift, a second calculation was performed with the same high-order Eq. (B.1) source measure and the archived B.2 quadrature configuration:
+- 200 independent source-radius nodes;
+- 640 opacity radial nodes;
+- 842 energy nodes in the full integration grid, with 10 nodes in the 210--510 MeV band;
+- 32 angular nodes and 64 path nodes.
+
+Four counterfactual transport calculations were evaluated with identical B.1 source weights:
+\(L_{00}\): fixed-\(\omega\) neutrino and Compton opacity;
+\(L_{10}\): redshifted neutrino opacity, fixed-\(\omega\) Compton opacity;
+\(L_{01}\): fixed-\(\omega\) neutrino opacity, redshifted Compton opacity;
+\(L_{11}\): both channels redshifted.
+The channel contributions are assigned with the two-player Shapley decomposition, so the nonlinear cross term is shared symmetrically.
+
+| Counterfactual | 210--510 MeV escaped luminosity (erg/s) |
+|---|---:|
+| \(L_{00}\): both fixed | \(1.70178483\times10^{52}\) |
+| \(L_{10}\): neutrino redshift only | \(1.22372442\times10^{52}\) |
+| \(L_{01}\): Compton redshift only | \(1.70170496\times10^{52}\) |
+| \(L_{11}\): both redshifted | \(1.22367050\times10^{52}\) |
+
+The source normalization is \(4.1685932062\times10^{69}\) erg/s per \(g^2\), agreeing with the archived high-energy source measure at relative residual \(1.88\times10^{-11}\). The fixed-\(\omega\) band luminosity agrees with the archived result at \(2.84\times10^{-6}\) relative residual; the bilinear path-redshift result agrees at \(4.09\times10^{-7}\).
+
+| Shapley contribution | Luminosity change (erg/s) | Fraction of total change |
+|---|---:|---:|
+| Neutrino inverse decay | \(-4.78047434\times10^{51}\) | **99.9860%** |
+| Semi-Compton | \(-6.68950648\times10^{47}\) | **0.0140%** |
+| Total | \(-4.78114329\times10^{51}\) | 100% |
+
+This is the source-weighted global result, not an unweighted average over selected rays. It establishes that the global 28.0949% high-energy-band luminosity reduction in the bilinear path-redshift branch is almost entirely caused by neutrino inverse-decay opacity. The semi-Compton contribution is negligible.
+
+A separate calculation evaluates the local opacity kernels directly at \(\omega_{\rm local}(s)\), rather than bilinearly interpolating in local energy. It gives \(L_{11}=1.22981457\times10^{52}\) erg/s, about 0.502% above the bilinear result, while the fixed-\(\omega\) result is unchanged. Its Shapley fractions are 99.9864% neutrino and 0.0136% Compton. Thus the interpolation choice changes the redshift-only luminosity at the half-percent level but does not change the channel attribution.
+
+The path-redshift calculation remains a sensitivity analysis, not the published fixed-\(\omega\) Eq. (B.2) benchmark. It is not used to adjust the Fig. 7 curve.
+
+
 ## 5. Boundary and published-equation interpretation
 
 The version-of-record paper, Blinov et al., JHEP 06 (2026) 155, Eq. (B.2) explicitly writes the same \(\omega\) in \(\Gamma_{\rm abs}^{*}(r'(s),\omega)\) and \(v_V(\omega)\) along the chord. The path-redshift branch is retained only as a separately labelled physical sensitivity. The paper identifies \(R_{\max}\) with the neutrinosphere \(R_\nu\simeq25\) km; the 25 km endpoint is therefore the published escape boundary, not an arbitrary numerical truncation. See [Blinov et al., JHEP 06 (2026) 155](https://doi.org/10.1007/JHEP06(2026)155), Appendix B and the paragraph following Eq. (B.2).
