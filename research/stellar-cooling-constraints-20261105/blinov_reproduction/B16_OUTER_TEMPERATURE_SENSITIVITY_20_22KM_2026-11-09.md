@@ -28,8 +28,8 @@ The independent Bollig Fig. 1 and Fig. 4 vector-path audit validates Caputo T(r)
 | Quantity | Baseline value |
 |---|---:|
 | B.1 thin-source fraction emitted in 20--22 km | 0.0745279% |
-| B.2 path-tau fraction in 20--22 km, all emission radii | 11.5748% |
-| B.2 path-tau fraction in 20--22 km, 8--15 km emission | 11.446% |
+| B.2 path-tau fraction in 20--22 km, all emission radii | 12.8927% |
+| B.2 path-tau fraction in 20--22 km, 8--15 km emission | 12.7585% |
 
 ## Interpretation
 
