@@ -240,6 +240,58 @@ def run(profile_path=DEFAULT_PROFILE, caputo_n_path=DEFAULT_CAPUTO_N,
     eta_caputo_vs_bollig = eta_caputo_profile / eta_bollig_profile - 1.0
     t_bollig_profile = np.asarray([bollig_temperature(float(r)) for r in profile_r_common])
     t_caputo_vs_bollig = profile_t_common / t_bollig_profile - 1.0
+
+    # New outer-shell audit: compare 15--20 km directly with the original
+    # Bollig Fig. 1, 3, and 4 vector paths. The Caputo plotted n_mu curve ends
+    # near 15.27 km, so beyond that radius the density comparison is made
+    # using an independent relativistic Fermi integral of the Caputo T,mu
+    # fields, and separately of Bollig's own Fig. 1 T and Fig. 4 eta.
+    outer_mask = (profile_r >= 15.0) & (profile_r <= 20.0)
+    outer_r = profile_r[outer_mask]
+    outer_t_caputo = temp[outer_mask]
+    outer_mu_caputo = mu[outer_mask]
+    outer_t_bollig = np.asarray([bollig_temperature(float(r)) for r in outer_r])
+    outer_eta_bollig = np.asarray([bollig_eta(float(r)) for r in outer_r])
+    outer_eta_caputo = outer_mu_caputo / outer_t_caputo
+    outer_n_bollig = np.asarray([bollig_n(float(r)) for r in outer_r])
+    outer_n_caputo_fd = []
+    outer_n_bollig_fd = []
+    for tc, mc, tb, eb in zip(
+        outer_t_caputo, outer_mu_caputo, outer_t_bollig, outer_eta_bollig
+    ):
+        outer_n_caputo_fd.append(fermi_density_fm3(float(tc), float(mc))[0])
+        outer_n_bollig_fd.append(fermi_density_fm3(float(tb), float(eb * tb))[0])
+    outer_n_caputo_fd = np.asarray(outer_n_caputo_fd)
+    outer_n_bollig_fd = np.asarray(outer_n_bollig_fd)
+    outer_t_relative = outer_t_caputo / outer_t_bollig - 1.0
+    outer_eta_relative = outer_eta_caputo / outer_eta_bollig - 1.0
+    outer_caputo_fd_vs_bollig_fig3 = outer_n_caputo_fd / outer_n_bollig - 1.0
+    outer_bollig_fd_vs_bollig_fig3 = outer_n_bollig_fd / outer_n_bollig - 1.0
+    outer_selected = []
+    for r in (15.0, 16.0, 17.0, 18.0, 19.0, 20.0):
+        t_c = float(np.interp(r, profile_r, temp))
+        mu_c = float(np.interp(r, profile_r, mu))
+        t_b = bollig_temperature(r)
+        eta_b = bollig_eta(r)
+        n_b = bollig_n(r)
+        n_c_fd = fermi_density_fm3(t_c, mu_c)[0]
+        n_b_fd = fermi_density_fm3(t_b, eta_b * t_b)[0]
+        outer_selected.append({
+            "radius_km": r,
+            "T_Caputo_MeV": t_c,
+            "T_Bollig_Fig1_MeV": t_b,
+            "T_Caputo_over_Bollig_minus_1": t_c / t_b - 1.0,
+            "mu_mu_Caputo_MeV": mu_c,
+            "eta_Caputo": mu_c / t_c,
+            "eta_Bollig_Fig4": eta_b,
+            "eta_Caputo_over_Bollig_minus_1": (mu_c / t_c) / eta_b - 1.0,
+            "n_Bollig_Fig3_fm3": n_b,
+            "n_FD_from_Caputo_T_mu_fm3": n_c_fd,
+            "n_FD_from_Bollig_T_eta_fm3": n_b_fd,
+            "Caputo_FD_over_Bollig_Fig3_minus_1": n_c_fd / n_b - 1.0,
+            "Bollig_FD_over_Bollig_Fig3_minus_1": n_b_fd / n_b - 1.0,
+        })
+
     # Retain the density-node values for the implied-temperature diagnostic.
     eta_bollig = np.asarray([bollig_eta(float(r)) for r in common_r])
     t_bollig = np.asarray([bollig_temperature(float(r)) for r in common_r])
@@ -372,6 +424,10 @@ def run(profile_path=DEFAULT_PROFILE, caputo_n_path=DEFAULT_CAPUTO_N,
             "Caputo_mu_over_T_vs_Bollig_Fig4_12_15km": rel_summary(eta_caputo_vs_bollig[profile_shell]),
             "Caputo_T_vs_Bollig_Fig1_5_15km": rel_summary(t_caputo_vs_bollig),
             "Caputo_T_vs_Bollig_Fig1_12_15km": rel_summary(t_caputo_vs_bollig[profile_shell]),
+            "Caputo_T_vs_Bollig_Fig1_15_20km": rel_summary(outer_t_relative),
+            "Caputo_mu_over_T_vs_Bollig_Fig4_15_20km": rel_summary(outer_eta_relative),
+            "Caputo_FD_mu_minus_from_T_mu_vs_Bollig_Fig3_15_20km": rel_summary(outer_caputo_fd_vs_bollig_fig3),
+            "Bollig_FD_mu_minus_from_Fig1_T_Fig4_eta_vs_Bollig_Fig3_15_20km": rel_summary(outer_bollig_fd_vs_bollig_fig3),
             "Bollig_Fig1_T_vs_T_implied_from_Fig3_density_and_Fig4_eta_12_15km": rel_summary(
                 np.asarray([
                     (x["T_implied_from_Bollig_nmu_MeV"] / bollig_temperature(x["radius_km"]) - 1.0)
@@ -385,6 +441,8 @@ def run(profile_path=DEFAULT_PROFILE, caputo_n_path=DEFAULT_CAPUTO_N,
             "B16_direct_vs_reference_py_max_abs_relative": max_b1_closure,
         },
         "selected_radii": selected,
+        "outer_15_20km_selected_radii": outer_selected,
+        "outer_15_20km_node_count": int(len(outer_r)),
         "implied_temperature_diagnostic": implied_temperature,
         "B16_local_source_checks": compton_checks,
         "interpretation": {
