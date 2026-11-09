@@ -21,9 +21,11 @@ The 22--25 km shell is outside the original Bollig Fig. 1 and Fig. 4 frames. The
 
 | T scale in 22--25 km | Weak L_escaped / baseline | Peak L_escaped / baseline | Strong L_escaped / baseline | Strong P_escape / baseline |
 |---:|---:|---:|---:|---:|
+| 0.7 | 99.9369% | 99.6646% | 96.3809% | 96.4409% |
 | 0.9 | 99.9701% | 99.8807% | 98.1867% | 98.2158% |
 | 1.0 | 100% | 100% | 100% | 100% |
 | 1.1 | 100.041% | 100.13% | 102.769% | 102.727% |
+| 1.3 | 100.164% | 100.429% | 112.474% | 112.291% |
 
 ## Baseline diagnostics
 
