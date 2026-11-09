@@ -1086,7 +1086,7 @@
     "The audit uses the same reconstructed public-figure stellar profile as the global calculation, not the raw Garching simulation table.",
     "The fixed-omega Appendix-B energy prescription is retained."
   ],
-  "run_commit_sha": "8caddf3276dc0acdddc2526e14d3c1bc25b7fd60",
+  "run_commit_sha": "6e8e2d8ca9fed7afb30ad146f5ef508b2d7dba38",
   "code_sha256": "97d87aee11bcd12c2497763c5e1cd385d3ae451bdbd37302d24e13a5813db3c8",
-  "elapsed_seconds": 18.902794122695923
+  "elapsed_seconds": 16.6156485080719
 }
