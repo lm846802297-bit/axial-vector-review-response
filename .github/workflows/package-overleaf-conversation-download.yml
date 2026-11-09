@@ -1,9 +1,9 @@
 name: Package Overleaf reply letter for conversation delivery
 
 on:
-  push:
+  pull_request:
     branches:
-      - overleaf-package-2026-11-09
+      - main
 
 permissions:
   contents: read
