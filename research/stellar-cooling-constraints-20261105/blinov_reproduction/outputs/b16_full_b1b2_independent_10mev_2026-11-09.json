@@ -17,14 +17,14 @@
       "The literal fixed-omega Eq. (B.2) convention."
     ]
   },
-  "run_commit_sha": "6e8e2d8ca9fed7afb30ad146f5ef508b2d7dba38",
+  "run_commit_sha": "cb726d6e2df03ea89a42fe4868074b8f85c93bd8",
   "code_sha256": "85bb5bc4a3dfc8a5060a297eab32d795a96ebf737bc3b0d3e05fe5938e45d771",
   "profile": {
     "path": "sfho188_digitized.csv",
     "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
   },
   "baseline_reference_sha256": "cf5363afa65808cdf335c6250ef791ba1058d1b01117ee974de215fedef12108",
-  "independent_b1_output_sha256": "ba50a65297a37b4b1621c243ce5eee4c4a515fe15dee4c0e94e42e13a12d3c6f",
+  "independent_b1_output_sha256": "9c97738ff109e01c8bc832d7efe3e4c6c3cc9a6bbe0a55bc89e2bd0f86c7a2ca",
   "independent_b2_output_sha256": "71c6f3439cdef9080406109110c07c56aa3bf4573641da0ebe58f32710875a38",
   "fig7_reference_sha256": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4",
   "configuration": {
@@ -664,7 +664,7 @@
     "archived_b16_thin_source_erg_s_per_g2": 4.323522412104892e+70,
     "relative_difference_vs_archived_b16_thin_source": -0.004451556902100973
   },
-  "elapsed_seconds": 12.63259243965149,
+  "elapsed_seconds": 9.990557193756104,
   "limitations": [
     "The radial profile is reconstructed from public figures, not the original Garching simulation table.",
     "The local production and absorption kernels are shared and are not independently re-derived by this end-to-end integration.",
