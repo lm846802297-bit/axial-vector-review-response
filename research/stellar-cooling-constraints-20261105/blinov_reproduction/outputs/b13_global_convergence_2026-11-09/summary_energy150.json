@@ -229,10 +229,10 @@
   "archived_B16_baseline": {
     "max_relative_reproduction_residual": 0.0,
     "path": "/home/runner/work/_temp/b16_energy150.json",
-    "sha256": "6b12062f44cf891b4fd6ef2cdc4b67c754819463d5eac51bb503d0162cb970be"
+    "sha256": "ce547bbe7a50effce1ea00be45bfe79a03c7e4be8a7405492fa759e0387b1185"
   },
   "code_sha256": {
-    "archived_B16_baseline": "6b12062f44cf891b4fd6ef2cdc4b67c754819463d5eac51bb503d0162cb970be",
+    "archived_B16_baseline": "ce547bbe7a50effce1ea00be45bfe79a03c7e4be8a7405492fa759e0387b1185",
     "audit_script": "5e44c96feb67b50731d1f8c8607254b172a37b7bcb1c6676186b6d77dfa66ac1",
     "fig7_reference": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4",
     "moving_muon_kernel": "44bc670fd9384f34de56fbecb5371bae18c93c2292aa67e98f4ee304433dbaea",
@@ -315,7 +315,7 @@
     "path_order": 32,
     "radial_order": 40,
     "radius_km": 25.0,
-    "wall_time_seconds": 539.3134589195251
+    "wall_time_seconds": 519.9440317153931
   },
   "fig7_reference": {
     "path": "/home/runner/work/axial-vector-review-response/axial-vector-review-response/research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json",
@@ -364,7 +364,7 @@
     "energy_max_MeV": 1010.0,
     "energy_min_MeV": 10.00001,
     "energy_node_count": 192,
-    "full_grid_sha256": "505196f051fe5f66599bf38432fab2cf0db8ee892c9858eb804df8d486d990dc",
+    "full_grid_sha256": "d1003e55360168504adf800f5e375a718b90a782d95a424513f6974d47236520",
     "inactive_radial_node_count": 15,
     "inactive_radial_nodes_km": [
       19.339981043584856,
@@ -508,7 +508,7 @@
       "mu_plus_fraction_of_B13_Compton_source": 0.0004297112894745641
     }
   ],
-  "run_commit_sha": "e2e82bb003c98fde4c781e5535d3a8344c2616c8",
+  "run_commit_sha": "e8cf8cfbd1c791582aceb9ffaa6c390cd014c7b8",
   "scope": [
     "B.13 exact Compton production and reduced absorption are replaced together in the consistent variants.",
     "B.13 mu-minus-only and mu-minus-plus-mu-plus cases are reported separately.",
@@ -537,7 +537,7 @@
   },
   "summary_source": {
     "path": "/home/runner/work/_temp/full_energy150.json",
-    "sha256": "505196f051fe5f66599bf38432fab2cf0db8ee892c9858eb804df8d486d990dc"
+    "sha256": "d1003e55360168504adf800f5e375a718b90a782d95a424513f6974d47236520"
   },
   "title": "Global B.13 exact moving-muon Compton replacement in the 10 MeV vector B.1/B.2 benchmark",
   "variant_results": {
