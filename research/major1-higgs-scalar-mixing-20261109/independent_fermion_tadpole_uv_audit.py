@@ -190,7 +190,9 @@ def run_audit(reference_json: Path) -> dict:
             "independent SVD singular values and 50-digit mpmath differentiation"
         ),
         "divergent_potential_convention": (
-            "V_1^div = -(Delta_UV/(16 pi^2)) sum_flavours Tr[(Mdagger M)^2]"
+            "V_1^div = +(Delta_UV/(16 pi^2)) sum_flavours Tr[(Mdagger M)^2]; "
+            "the listed one-point 1PI pole is -dV_1^div/dphi and the listed "
+            "mass-matrix counterterm pole is -d2V_1^div/dphi_a dphi_b"
         ),
         "benchmarks": out,
         "global_checks": {
@@ -199,7 +201,7 @@ def run_audit(reference_json: Path) -> dict:
             "max_relative_difference_analytic_vs_mpmath_derivatives": max_symbolic_rel,
         },
         "interpretation_limits": [
-            "The first derivatives are the VLL-sector one-loop tadpole UV-pole coefficients only.",
+            "The listed first-derivative coefficients are VLL-sector one-point 1PI UV poles, -dV_1^div/dphi, only.",
             "They do not by themselves select a tadpole or VEV-renormalization prescription.",
             "The second derivatives reproduce the VLL-sector local mass UV poles; they are not finite pole-mass shifts.",
             "No gauge, Goldstone, ghost, scalar, top-quark, or non-VLL contributions are included.",
