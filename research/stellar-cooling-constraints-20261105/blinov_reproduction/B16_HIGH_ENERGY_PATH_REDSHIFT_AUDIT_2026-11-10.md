@@ -67,11 +67,15 @@ The path-redshift variant is nevertheless not the published baseline. The paper'
 
 The global 10 MeV path-redshift diagnostic previously reduced the strong-endpoint Fig. 7 residual from +92.24% to +36.74%, but did not close it. This energy-resolved result shows that the convention shift acts directly on the high-energy tail that carries most of the escaped luminosity; it does not demonstrate which convention the unpublished numerical code used.
 
-## 6. Decision
+## 6. Equation-level decision (clarified against the published PDF)
 
-1. Retain fixed-`omega` B.2 as the published-equation reproduction baseline.
-2. Keep path-redshift as a separate physical sensitivity, not as an empirical correction.
+The published B.2 equation explicitly writes \`Gamma_abs^*(r'(s), omega)\` and \`v_V(omega)\` along the full chord. It does not insert a path-dependent lapse ratio into the energy argument. Therefore fixed-\`omega\` is not an unresolved ambiguity of the displayed equation: it is the literal published-equation baseline.
+
+The path-redshift branch is retained only as a counterfactual transport sensitivity. It changes the local energy argument and velocity, while retaining a Euclidean chord; it is not a full GR ray trace and must not be used to tune or replace the Fig. 7 reproduction baseline.
+
+1. Retain fixed-\`omega\` B.2 as the published-equation reproduction baseline.
+2. Keep path-redshift as a separately labelled physical alternative only.
 3. Do not adjust the outer temperature, opacity normalization, energy cutoff, or coupling to force agreement.
-4. The remaining order-one difference cannot be assigned to numerical integration; the key unresolved physical inputs are the exact same-snapshot stellar profile and the interpretation of B.2 in the unpublished implementation.
+4. The remaining order-one difference is not explained by the inspected equation-to-code implementation or numerical integration. The principal unresolved input is the exact same-snapshot stellar profile; the article states that its data and code are not deposited.
 
 No production axial-vector result or constraint curve is modified.
