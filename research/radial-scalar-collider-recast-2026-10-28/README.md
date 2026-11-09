@@ -65,7 +65,7 @@ Key diagnostics:
 
 These are scalar-sector diagnostics for the declared collider benchmark, not a detector-level Belle II exclusion and not a complete perturbativity assessment of every coupling in the UV theory. The identical-flavour exchange contribution in the double-virtual four-body channel is bounded using a Cauchy--Schwarz upper bound rather than explicitly integrated.
 
-See SCAN_RUN_RECORD_2026-11-09.md for the complete width-scan run configuration, counts, environment, hashes, and interpretation limits. See BOUNDED_WIDTH_RECAST_2026-11-09.md for the current Belle II pointwise results and their conditional scope.
+See SCAN_RUN_RECORD_2026-11-09.md for the complete width-scan run configuration, counts, environment, hashes, and interpretation limits. See BOUNDED_WIDTH_RECAST_2026-11-09.md for the current Belle II pointwise results and their conditional scope. See BELLEII_RESPONSE_INPUT_AUDIT_2026-11-09.md for the published signal-shape, resolution, efficiency, and lifetime-input audit.
 
 ## 5. Remaining work and acceptance gates
 
@@ -100,3 +100,10 @@ Current conditional narrow/prompt results:
 - Finite-width-sensitive, width-interval-crossing, lifetime-sensitive, and perturbatively inconsistent points remain separately classified.
 
 The former 1,852-point count from the 2026-11-05 narrow/prompt report is superseded. The current result is still a conditional reinterpretation of published scalar coupling limits, not a detector-level recast or a new CLs result. Full details and limitations are in BOUNDED_WIDTH_RECAST_2026-11-09.md.
+
+
+## 8. Detector-response input audit
+
+The prompt/narrow mapping uses the published scalar-specific coupling limits, which already fold in the experiment's prompt signal efficiency. The papers also describe their signal fit functions and quote mass-resolution information, but do not provide the full numerical Crystal-Ball tail parameters or a lifetime-dependent efficiency map needed for a validated finite-width/displaced recast.
+
+The 5 mm transverse-DCA comparison remains a geometry proxy only. The prompt efficiency curves can be digitized as a separate supporting input, but they cannot replace the missing response-shape parameters or lifetime-dependent acceptance. See BELLEII_RESPONSE_INPUT_AUDIT_2026-11-09.md.
