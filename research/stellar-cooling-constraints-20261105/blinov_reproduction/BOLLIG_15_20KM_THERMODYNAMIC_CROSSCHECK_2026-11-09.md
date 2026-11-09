@@ -85,7 +85,7 @@ No density correction, opacity correction, or luminosity rescaling is justified.
 
 The B.1 implementation uses the one-negative-muon susceptibility convention in Blinov Eq. (B.17); the independent Fermi-integral closure remains at floating-point precision. This source-kernel algebraic closure does not resolve the profile-level Fig. 3 density discrepancy.
 
-## 6. Impact of the Fig. 3 density residual on the current B.1/B.2 benchmark
+## 6. Historical impact estimate using the older profile (superseded)
 
 The published-figure density tension is real, but it must not be translated directly into a 10% correction to the Compton rate. In the one-species convention used by the B.17 degeneracy factor,
 
@@ -97,7 +97,7 @@ n_{\mu^-}F_{\rm deg}
 
 At fixed T and mu_mu, a different normalization assigned to n_mu is compensated by the corresponding inverse change in F_deg. The product entering the Compton source/absorption is the susceptibility, which is fixed by T and mu_mu. Thus the Fig. 3 residual alone does not justify rescaling n_mu F_deg or the Compton kernel. If the discrepancy instead reflects a genuinely different underlying profile, its T, mu_mu, and F_deg must be supplied consistently before a rate correction can be defined.
 
-The current 10 MeV B.16 baseline also strongly suppresses the global importance of this outer interval:
+The older 10 MeV B.16 audit used profile SHA-256 08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9 and found the following source/path weights:
 - B.1 thin-source fraction from 15--18 km: 0.0036791%;
 - B.1 thin-source fraction from 18--20 km: 0.0000931%;
 - combined B.1 source fraction from 15--20 km: 0.0037722%;
@@ -109,7 +109,32 @@ Consequently, the Fig. 3 mismatch remains an unresolved source-profile consisten
 
 The source and path fractions above are taken from the archived 10 MeV fixed-omega B.16 global audit (profile SHA-256 08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9). The separate 15--20 km profile comparison uses the vertex-preserving profile SHA-256 recorded in Section 1; the two profile fingerprints are not silently treated as identical.
 
-## 7. Reproducibility and files
+## 7. Current vertex-preserving B.1/B.2 impact assessment
+
+The current global B.16 benchmark is archived separately in `outputs/b16_global_fig7_vertex_preserving_10mev_2026-11-09.json`, with profile SHA-256 `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`. Its channel composition differs substantially from the older profile audit; all current impact statements below use this vertex-preserving result.
+
+For the current profile:
+- B.1 source fractions in 15--18 km and 18--20 km are 1.6462% and 0.1772%, respectively (1.8234% combined, all source channels).
+- B.2 total source-weighted mean optical-depth fraction in 15--20 km is 27.8619%.
+- However, the 15--20 km B.2 optical depth is overwhelmingly neutrino inverse decay: 27.8538% of the total mean optical depth.
+- The Compton opacity contribution from 15--20 km is only 0.0080846% of the total mean optical depth.
+- In the density-comparison region 15--16.5 km, the Compton contribution is 0.0080023% of the total mean optical depth; the neutrino contribution in this shell is independent of the muon number-density discrepancy.
+
+Thus the large 15--20 km total path contribution must not be attributed to the Fig. 3 muon-density residual. It is almost entirely the neutrino inverse-decay channel. The density mismatch can affect only the muon-Compton component.
+
+At fixed T and mu_mu, the one-species B.17 relation is
+\[
+n_{\mu^-}F_{\rm deg}
+=\frac{1}{\pi^2}\int_0^\infty dp\,p^2 f_{\mu^-}(1-f_{\mu^-})
+\equiv\chi_\mu(T,\mu_\mu).
+\]
+A change in the normalization assigned to n_mu is compensated by the inverse change in F_deg when the latter is consistently defined from the same distribution. The product entering the Compton source and absorption is therefore fixed by T and mu_mu. The published Fig. 3 residual alone does not justify a 10% rescaling of the Compton kernel.
+
+As a deliberately conservative diagnostic, a hypothetical 10% change in all 15--16.5 km Compton opacity would change the total source-weighted mean optical depth by only 0.0008002% relative. At the strong endpoint, the baseline source-weighted mean optical depth is 16.1366; the corresponding absolute mean-optical-depth shift is approximately 1.29e-4. This is an attenuation-scale estimate, not a new transport run. A self-consistent alternative profile would have to change T, mu_mu, and F_deg consistently; no such replacement is supported by the public plots.
+
+The current-profile conclusion is therefore narrower and better grounded: the Fig. 3 absolute-density mismatch remains an unresolved profile-level consistency issue, but the large 15--20 km B.2 contribution is not caused by it. No empirical density, source, opacity, or luminosity correction is applied.
+
+## 8. Reproducibility and files
 
 - Workflow: [Run 42557233565](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42557233565)
 - Script: `audit_bollig_muon_density_and_b1_source.py`
