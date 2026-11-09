@@ -14,8 +14,8 @@
     "The local neutrino inverse-decay and muon-Compton production kernels are shared with the Appendix-B reference implementation.",
     "The single negative-muon density convention printed in Eq. (B.17) is retained."
   ],
-  "run_commit_sha": "1d7a3c3b9ea23f18f48f39e888018ceb81c864c2",
-  "code_sha256": "739ef03be758826f64296dca69d5c60f4be36b2d2c7efcd90798fb67a1e05fbc",
+  "run_commit_sha": "5493a1457b005bfbefa3cf0bda82d1962b477cd6",
+  "code_sha256": "af97a7089c1260945a4a4981d2819227b191ce72116316ef583793bb8350e01b",
   "profile": {
     "path": "sfho188_digitized.csv",
     "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
@@ -1725,7 +1725,7 @@
     "dimuon_channel_expected_closed_for_10MeV": true,
     "dimuon_channel_value": 0.0
   },
-  "elapsed_seconds": 2.217327833175659,
+  "elapsed_seconds": 2.2048697471618652,
   "limitations": [
     "The escape factor is set to one; this validates the B.1 optically-thin source, not the full B.1+B.2 luminosity.",
     "The profile is reconstructed from public figures and is not the original Garching simulation table.",
