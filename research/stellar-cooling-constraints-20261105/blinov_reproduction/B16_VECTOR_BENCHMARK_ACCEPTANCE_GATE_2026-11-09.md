@@ -96,12 +96,14 @@ The source-level convention and implementation ambiguity is documented in:
 4. Dense local collision-kernel checks on the full integration grid.
 5. Caputo-versus-Ferreira \\(\mu_\mu/T\\) adjudication against Bollig Fig. 4.
 6. Current-profile redshift-only diagnostic and archival.
+7. Source-weighted muon-velocity diagnostic for the B.14 non-relativistic approximation; workflow #42572394290 passes and the JSON is archived.
 
 ### Still unresolved
 
 1. The true same-snapshot thermodynamic continuation over 20--25 km.
-2. The exact unpublished numerical choice between the formal Compton integral B.13 and its reduced B.14--B.16 prescription; this can be investigated by comparing the published formulas across the Fig. 7 mass range.
-3. A same-snapshot spatial metric (A(r)) or enclosed mass (M(r)) only if a separate full-GR extension is pursued.
+2. The exact unpublished numerical choice between the formal Compton integral B.13 and its reduced B.14--B.16 prescription; the 0.1 and 1 MeV global comparison is now running on the current profile.
+3. The control of the non-relativistic/no-recoil muon approximation in B.14. The source-weighted B.17 susceptibility diagnostic gives mean muon speed 0.761 and 93.2% of the susceptibility weight at v_mu>0.5 in the low-mass Compton source region; this motivates, but does not replace, the full B.13 rate comparison.
+4. A same-snapshot spatial metric A(r) or enclosed mass M(r) only if a separate full-GR extension is pursued.
 
 The Garching radial-profile endpoint remains access-protected. This limits raw-profile precision and any optional full-GR extension, but it does not prevent the method-level checks of the published B.1--B.5 prescription using the reconstructed profile.
 
