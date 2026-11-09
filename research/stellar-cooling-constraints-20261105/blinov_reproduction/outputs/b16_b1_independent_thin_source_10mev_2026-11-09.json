@@ -14,8 +14,8 @@
     "The local neutrino inverse-decay and muon-Compton production kernels are shared with the Appendix-B reference implementation.",
     "The single negative-muon density convention printed in Eq. (B.17) is retained."
   ],
-  "run_commit_sha": "5e89dcd5964c7d887ba2dd70d3a22d73542169cc",
-  "code_sha256": "29682e1e6e53be41f0d46649b41b982223513c479698b469c91a6de9348e85da",
+  "run_commit_sha": "1d7a3c3b9ea23f18f48f39e888018ceb81c864c2",
+  "code_sha256": "739ef03be758826f64296dca69d5c60f4be36b2d2c7efcd90798fb67a1e05fbc",
   "profile": {
     "path": "sfho188_digitized.csv",
     "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
@@ -188,6 +188,234 @@
       }
     }
   ],
+  "same_radial_grid_independent_energy_check": {
+    "purpose": "Reproduce the archived 40-node radial quadrature nodes and weights, while replacing the archived energy grid/energy_weights with direct log-energy Gauss integration.",
+    "number_of_radial_nodes": 40,
+    "result": {
+      "total_erg_s_per_g2": 4.2986407671107883e+70,
+      "channels_erg_s_per_g2": {
+        "neutrino": 2.922855334047174e+70,
+        "dimuon": 0.0,
+        "compton": 1.3757854330636144e+70
+      },
+      "channel_fractions": {
+        "neutrino": 0.6799487308663128,
+        "dimuon": 0.0,
+        "compton": 0.32005126913368714
+      },
+      "radial_contributions_erg_s_per_g2": {
+        "neutrino": [
+          4.923163668750481e+65,
+          2.234258020403138e+67,
+          1.3121632357235746e+68,
+          2.21971090802395e+68,
+          2.2113884892760513e+68,
+          8.629048351040418e+68,
+          2.137887748473482e+69,
+          1.952139599036124e+69,
+          1.5298369205460766e+69,
+          3.2105760503359752e+69,
+          3.1732691993875246e+69,
+          1.6254696421463434e+69,
+          1.5822788917621084e+69,
+          2.7657514085162284e+69,
+          2.4262618317865252e+69,
+          1.1348415814658119e+69,
+          1.5336097261299745e+69,
+          2.155537595669547e+69,
+          1.2906594540172235e+69,
+          4.0379287089521237e+68,
+          2.839204799640854e+68,
+          2.5960347484021677e+68,
+          1.2453037234862644e+68,
+          3.912589206042583e+67,
+          2.078815866321437e+67,
+          2.818169413484639e+67,
+          1.9194701273738705e+67,
+          7.960394396665475e+66,
+          7.09820571932362e+66,
+          1.1086837951159085e+67,
+          9.316359631912822e+66,
+          4.51495263635278e+66,
+          4.3282889293255644e+66,
+          7.677413153813818e+66,
+          6.997048248700781e+66,
+          3.4440072436359486e+66,
+          1.6628609112064876e+66,
+          2.955237061672452e+66,
+          2.781666052555117e+66,
+          1.4067801047990511e+66
+        ],
+        "dimuon": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "compton": [
+          6.3560606644997395e+63,
+          3.1504903828699725e+65,
+          3.1922039815522462e+66,
+          1.144914477609714e+67,
+          1.7403423642992347e+67,
+          1.348371592855344e+68,
+          8.427068737462267e+68,
+          1.357223242357846e+69,
+          1.256031596743348e+69,
+          2.78345361261936e+69,
+          2.4646040270311907e+69,
+          1.070546883994608e+69,
+          9.351481334163371e+68,
+          1.2991363920340099e+69,
+          7.989811216338245e+68,
+          2.689681653768874e+68,
+          2.8265340393863536e+68,
+          1.9762101666012816e+68,
+          3.1313271411664826e+67,
+          1.8560463248355725e+66,
+          3.8901230389393676e+65,
+          1.8086065983653018e+64,
+          1.0716137288187922e+62,
+          9.223649440458211e+59,
+          9.625425311289195e+58,
+          1.1785710562164506e+58,
+          4.264464139444743e+56,
+          2.3297788222946482e+55,
+          7.71734701019327e+54,
+          2.1635577122580537e+54,
+          2.2223105740119914e+53,
+          1.5865977556494725e+52,
+          2.8901812963702022e+51,
+          1.0107126196916989e+51,
+          2.9828206519255955e+50,
+          5.795376307627745e+49,
+          1.891040920675023e+49,
+          1.9181415315011089e+49,
+          9.270535066201514e+48,
+          2.6738886657346446e+48
+        ]
+      },
+      "shell_contributions_erg_s_per_g2": {
+        "0-5 km": {
+          "neutrino": 3.760223109456589e+68,
+          "dimuon": 0.0,
+          "compton": 1.4962753856600884e+67,
+          "total": 3.909850648022598e+68
+        },
+        "5-8 km": {
+          "neutrino": 5.1740710315412526e+69,
+          "dimuon": 0.0,
+          "compton": 2.3521706990325996e+69,
+          "total": 7.526241730573851e+69
+        },
+        "8-10 km": {
+          "neutrino": 9.539151812415919e+69,
+          "dimuon": 0.0,
+          "compton": 7.574636120388506e+69,
+          "total": 1.7113787932804427e+70
+        },
+        "10-12 km": {
+          "neutrino": 7.909133713530674e+69,
+          "dimuon": 0.0,
+          "compton": 3.302233812461059e+69,
+          "total": 1.1211367525991733e+70
+        },
+        "12-15 km": {
+          "neutrino": 5.3835996467119576e+69,
+          "dimuon": 0.0,
+          "compton": 5.134437383352639e+68,
+          "total": 5.897043385047222e+69
+        },
+        "15-18 km": {
+          "neutrino": 7.071802192133544e+68,
+          "dimuon": 0.0,
+          "compton": 4.072064536154157e+65,
+          "total": 7.075874256669698e+68
+        },
+        "18-20 km": {
+          "neutrino": 7.612494846846494e+67,
+          "dimuon": 0.0,
+          "compton": 1.0848970787722387e+59,
+          "total": 7.612494857695465e+67
+        },
+        "20-22 km": {
+          "neutrino": 3.20163559387483e+67,
+          "dimuon": 0.0,
+          "compton": 1.0119001757409017e+55,
+          "total": 3.201635593875842e+67
+        },
+        "22-25 km": {
+          "neutrino": 3.125330170570922e+67,
+          "dimuon": 0.0,
+          "compton": 4.307165992584436e+51,
+          "total": 3.1253301705709225e+67
+        }
+      },
+      "number_of_radial_nodes": 40,
+      "number_of_energy_nodes_per_radius": 960,
+      "energy_panels": 240,
+      "energy_gauss_order": 4,
+      "energy_upper_MeV": 2010.0
+    },
+    "comparison_with_archived": {
+      "neutrino": {
+        "direct_energy_integral_erg_s_per_g2": 2.922855334047174e+70,
+        "archived_erg_s_per_g2": 2.9397793364969926e+70,
+        "relative_difference": -0.005756895505628412
+      },
+      "dimuon": {
+        "direct_energy_integral_erg_s_per_g2": 0.0,
+        "archived_erg_s_per_g2": 0.0,
+        "relative_difference": 0.0
+      },
+      "compton": {
+        "direct_energy_integral_erg_s_per_g2": 1.3757854330636144e+70,
+        "archived_erg_s_per_g2": 1.3837430756078988e+70,
+        "relative_difference": -0.005750809297302872
+      },
+      "total": {
+        "direct_energy_integral_erg_s_per_g2": 4.2986407671107883e+70,
+        "archived_erg_s_per_g2": 4.323522412104892e+70,
+        "relative_difference": -0.005754947615037254
+      }
+    }
+  },
   "final_independent_b1_source": {
     "total_erg_s_per_g2": 4.304368168932088e+70,
     "channels_erg_s_per_g2": {
@@ -1479,7 +1707,7 @@
     "dimuon": {
       "independent_erg_s_per_g2": 0.0,
       "archived_erg_s_per_g2": 0.0,
-      "relative_difference": NaN
+      "relative_difference": 0.0
     },
     "compton": {
       "independent_erg_s_per_g2": 1.3803538885385007e+70,
@@ -1497,7 +1725,7 @@
     "dimuon_channel_expected_closed_for_10MeV": true,
     "dimuon_channel_value": 0.0
   },
-  "elapsed_seconds": 2.166560411453247,
+  "elapsed_seconds": 2.217327833175659,
   "limitations": [
     "The escape factor is set to one; this validates the B.1 optically-thin source, not the full B.1+B.2 luminosity.",
     "The profile is reconstructed from public figures and is not the original Garching simulation table.",
