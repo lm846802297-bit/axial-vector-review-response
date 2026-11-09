@@ -77,17 +77,18 @@ class ScalarPotentialCountertermMapTests(unittest.TestCase):
     def test_plan_c_scale_residual_is_twice_eft5_mixed_uv_pole(self):
         cases = (
             (70.886458, {
-                "mu": {"ml_GeV": 0.1056583755},
-                "tau": {"ml_GeV": 1.77686},
+                "mu": {"ml_GeV": 0.1056583755, "y": 1.14873979560807, "lambda": 0.2107927407099522},
+                "tau": {"ml_GeV": 1.77686, "y": 1.14873979560807, "lambda": 3.544907703581773},
             }),
             (315.0, {
-                "mu": {"ml_GeV": 0.1056583755},
-                "tau": {"ml_GeV": 1.77686},
+                "mu": {"ml_GeV": 0.1056583755, "y": 1.14873979560807, "lambda": 0.04743603416203466},
+                "tau": {"ml_GeV": 1.77686, "y": 1.14873979560807, "lambda": 0.7977331779169075},
             }),
         )
         for vs, by_flavour in cases:
             result = plan_c_scale_dependence(
-                246.22, vs, 125.25**2, by_flavour, mu_reference=20000.0
+                246.22, vs, 125.25**2, by_flavour,
+                mu_reference=20000.0, mu_low=125.25,
             )
             self.assertLess(result["relative_identity_residual"], 2e-14)
             self.assertLess(result["relative_finite_difference_residual"], 2e-7)
@@ -96,11 +97,14 @@ class ScalarPotentialCountertermMapTests(unittest.TestCase):
                 2.0*result["leading_EFT5_PiB_hs_local_UV_coefficient_GeV2"],
                 places=15,
             )
+            running = result["dimension8_running"]
+            self.assertLess(running["relative_residual_after_O8_running"], 2e-8)
             self.assertAlmostEqual(
-                result["required_dimension8_counterterm_contribution_d_dlnmu_GeV2"],
-                -result["total_d_dlnmu_GeV2"],
-                places=15,
+                running["delta_PiB_from_O8_running_GeV2"],
+                -running["delta_PiB_soft_plus_hard_GeV2"][0],
+                places=14,
             )
+            self.assertEqual(running["finite_matching_value_c8_at_M_E"], "not determined")
 
     def test_dimension8_coefficient_has_correct_mass_dimension_and_scaling(self):
         by_a = {
