@@ -43,6 +43,7 @@ The output is accepted only if all of the following hold:
 - The luminosity and thin-source closure residuals are each below \(2\times10^{-10}\).
 - The angular quadrature weights sum to one within \(10^{-14}\).
 - For each region, the emission-radius, energy, four-bin direction, and eight-bin direction partitions each sum to one for both the thin source and escaped luminosity, within \(2\times10^{-10}\).
+- The complete radius-energy-direction joint table (not merely its top-ranked cells) sums to the regional thin source and escaped luminosity within \\(2\\times10^{-10}\\), and its global fractions reproduce the region's global source and escaped-luminosity fractions.
 - The 8--15 km region contributes between 75% and 85% of the global B.1 source.
 - The production axial-vector source, transport, JSON, PDF, and PNG files remain unchanged.
 
