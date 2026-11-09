@@ -132,3 +132,16 @@ No source, coupling, opacity, luminosity, production rate, or axial-vector curve
 - Current-profile machine-readable input: outputs/b16_inner_path_channel_directional_vertex_preserving_10mev_2026-11-09.json
 - Path and direction implementation: audit_b16_inner_path_channel_directional.py
 - Related current-profile reports: B16_INNER_PATH_CHANNEL_DIRECTIONAL_AUDIT_VERTEX_PRESERVING_2026-11-09.md and B16_COMBINED_CHANNEL_SHELL_SENSITIVITY_2026-11-09.md.
+
+
+## 8. Original-source support audit for the 15--22 km path
+
+The independent Bollig original-PDF vector-path audit establishes that Caputo T(r) and mu_mu/T reproduce Bollig Figs. 1 and 4 throughout 15--20 km: mean absolute relative differences are 0.004295% and 0.004684%, with maxima 0.016280% and 0.015474%, respectively.
+
+The original Bollig Fig. 1 and Fig. 4 plotting frames terminate at 20 km. Consequently, the 20--22 km portion of the current reconstructed profile has no direct Bollig-figure temperature support; only the single endpoint at 20 km is available for the degeneracy parameter. No extrapolation is used. The 20--22 km shell contributes 12.81% of the source-weighted neutrino inverse-decay path optical depth for the dominant 8--15 km emission region, so its reconstructed temperature cannot simply be ignored.
+
+A self-consistent B.1+B.2 sensitivity test varies only T(r) in 20--22 km by +/-10% and recomputes the full source and opacity. The test is a stress diagnostic, not a statistical uncertainty band or a profile correction. Its result is archived separately in B16_OUTER_TEMPERATURE_SENSITIVITY_20_22KM_2026-11-09.md.
+
+Bollig et al. describe the high-muon-density region relevant to their axion production as approximately 5--15 km and report an axion sphere no farther out than about 18 km. These are statements about their axion-muon processes, not a direct proof that the vector neutrino inverse-decay opacity vanishes outside 18 km. The current vector B.2 path integral must therefore retain the independently computed 20--22 km contribution unless a model-specific calculation establishes otherwise.
+
+No rate, source, opacity, coupling, luminosity, or axial-vector curve is rescaled.
