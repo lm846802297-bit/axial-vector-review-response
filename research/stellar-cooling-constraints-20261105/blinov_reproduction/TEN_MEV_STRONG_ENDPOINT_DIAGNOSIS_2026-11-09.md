@@ -291,3 +291,31 @@ No further automatic retries are scheduled in this workflow until runner provisi
 - High-order \(200/640/200/32/64\) energy-resolved phase-space output: **not yet produced**.
 - No new physical inference is drawn from the unexecuted high-order binning.
 - The archived high-order integrated B.16 baseline and the previously completed lower-order directional/path diagnostics remain unchanged.
+
+
+## 14. A useful selection-effect diagnostic from the accepted baseline
+
+The archived high-order B.16 strong-endpoint point also provides
+\[
+\langle\tau\rangle_{\rm source}=16.1287,\qquad
+P_{\rm esc}=\langle e^{-\tau}\rangle_{\rm source}
+=3.25177\times10^{-4}.
+\]
+Defining an effective optical depth by the *integrated* escape probability gives
+\[
+\tau_{\rm eff}\equiv-\ln P_{\rm esc}=8.03114,
+\]
+which is about 8.10 smaller than the source-weighted mean optical depth. This is expected from the convexity of \(e^{-\tau}\):
+\[
+-\ln\langle e^{-\tau}\rangle_{\rm source}
+\leq \langle\tau\rangle_{\rm source}.
+\]
+The difference is a quantitative indication that the escaping luminosity is selected from the low-opacity tail of the source-weighted phase space. A single mean optical depth cannot represent the escape process.
+
+The already archived lower-order directional audit further resolves this selection. The \(8\text{--}15\) km emission region contributes 86.836% of the total escaped luminosity; within that region, the \(\cos\theta>0.5\) bin contributes 76.679% of its escaped luminosity. Their intersection therefore contributes approximately
+\[
+0.868358\times0.766786=0.665845,
+\]
+or **66.58% of the total escaped luminosity**. This fraction is from the lower-order directional/path diagnostic, not the not-yet-executed high-order energy-resolved calculation.
+
+These results strengthen the motivation for the next phase-space calculation: the relevant population is not simply “all particles emitted in the core,” but the subset emitted in the dominant core region and directed sufficiently outward to survive the full chord.
