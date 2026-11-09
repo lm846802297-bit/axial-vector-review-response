@@ -15,6 +15,17 @@
 - **独立审查边界：** 已完成一次独立视角的第二遍 reviewer-style diff 审计，结论为无阻断项。该审计是本轮复核记录，不冒称第三方 GitHub reviewer 的正式批准。PR #67 已由 Draft 转为 Ready for review，并于 2026-11-09 Squash merge 至 main；合并提交为 `144bf8ab444a328587d8bfa82ea375355dd2b40b`。
 
 **合并结论：** PR #67 已成功合并；正式回复信 TeX、58 页 PDF、项目状态记录和完整修改/审查清单均进入 main。论文正文、bibliography、图表和科研脚本未修改。
+## 2026-11-09 更新：回复信文献库单文件化（独立 PR）
+
+- 正式回复信 `Replies_to_Referee_3_referee_facing_2026-11-04.tex` 的文献调用统一为 `\\bibliography{references}`。
+- 新增仓库根目录 `references.bib`，合并原论文文献库中的 166 条记录，以及回复信专用的 2+2 条补充记录；共 169 条，169 个 citation keys 唯一。
+- 正式回复信的 41 个实际引用键均在合并文献库中找到；未发现缺失或重复键。
+- 删除不再单独调用的 `Replies_to_Referee_3_neutrino_references.bib` 和 `Replies_to_Referee_3_additional_references.bib`。原论文目录 `overleaf-source/axial-vector-model-building-v6/references.bib` 保持原样，论文正文及历史版本不受影响。
+- 根目录现有 `JHEP.bst` 继续作为回复信的文献样式文件。
+- **后续约定：** 独立回复信/Overleaf 项目默认维护单一 `references.bib`；只有在确有独立文献体系时才拆分。论文正文继续使用其项目目录下自己的 `references.bib`。
+
+**当前状态：** 本项整理在独立分支和 PR 中进行；不直接改动 main，合并后再更新为已完成。
+
 
 ## 2026-11-09 更新：PR #64 已合并
 
