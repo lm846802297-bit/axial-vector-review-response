@@ -250,7 +250,19 @@ A matched comparison reconstructs the archived 40 radial nodes and weights, but 
 
 This validates only the optically-thin source integral with O=1. The full B.1 luminosity, including the escape factor O(r,omega), remains to be evaluated with the independent B.2 implementation on matched radial and energy nodes. Full report: [B16_INDEPENDENT_B1_THIN_SOURCE_AUDIT_2026-11-09.md](B16_INDEPENDENT_B1_THIN_SOURCE_AUDIT_2026-11-09.md); machine-readable result: [b16_b1_independent_thin_source_10mev_2026-11-09.json](outputs/b16_b1_independent_thin_source_10mev_2026-11-09.json).
 
-## 19. Current decision
+## 19. Full independent B.1+B.2 luminosity integration: completed
+
+The independently integrated optically-thin B.1 source and the analytic B.2 chord propagation have now been combined into a full 10 MeV vector luminosity calculation. For each source radius, the exact lower energy limit m_V/N(r) is inserted; local production and reduced absorption are evaluated at the new energy nodes; the optical depth is integrated analytically on a 202-node radial opacity grid; and the angular escape average is evaluated at 16 Gauss-Legendre directions for all 25 Fig. 7 couplings.
+
+Workflow [42564417076](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42564417076) passes, including unit tests, full integration, source closure, radial stability, finite-JSON validation, and unchanged-production-output checks.
+
+The final 200-source-node result has a 4.30427601e70 erg/s per g^2 optically-thin source, agreeing with the independent 400-node B.1 source audit to -0.002141%. Doubling the source radial nodes from 100 to 200 changes the full luminosity curve by at most 0.19867% over the 25 coupling points.
+
+The full independent curve agrees with archived B.16 to a maximum absolute relative difference of 0.4451% and a mean absolute relative difference of 0.3975%. Against Fig. 7, it remains -9.2908% at the weak endpoint, +2.1522% at the reference peak, and +92.0542% at the strong endpoint. Thus the independent end-to-end implementation reproduces the archived calculation to sub-percent accuracy but does not remove the order-one strong-coupling mismatch with Fig. 7.
+
+Full report: [B16_FULL_INDEPENDENT_B1B2_LUMINOSITY_AUDIT_2026-11-09.md](B16_FULL_INDEPENDENT_B1B2_LUMINOSITY_AUDIT_2026-11-09.md); machine-readable result: [b16_full_b1b2_independent_10mev_2026-11-09.json](outputs/b16_full_b1b2_independent_10mev_2026-11-09.json).
+
+## 20. Current decision
 
 - Radial, energy, angular, and path global quadrature: passed the stated project-level luminosity-stability targets at the tested resolutions.
 - Same-grid B.16 closure: passed for all four global B.13 configurations with zero residual.
@@ -258,6 +270,7 @@ This validates only the optically-thin source integral with O=1. The full B.1 lu
 - Local B.13 collision-kernel quadrature: sampled-point high-order validation passes at the three representative points, with a maximum 20-to-24 order change of 0.03016% against the audit-specific 0.1% screening target. The full continuous r-omega domain is not certified.
 - B.16 neutrino inverse-decay radial path: current-profile shell, angle, and leave-one-out synthesis is documented in B16_NEUTRINO_INVERSE_DECAY_RADIAL_PATH_SYNTHESIS_2026-11-09.md. The 8-22 km path group dominates collectively, while 22-25 km remains individually important.
 - Independent B.2 propagation: analytic path integration, path-order convergence, and three independent angular-integration methods pass; the fixed-profile B.2 numerical implementation is not the source of the order-one Fig. 7 mismatch.
-- Independent B.1 thin source: radial and logarithmic-energy quadratures pass; the optically-thin source differs from the archived source by -0.4430%, with energy and radial effects separated by the matched-40-node test. Full B.1+B.2 recombination remains pending.
+- Independent B.1 thin source: radial and logarithmic-energy quadratures pass; the optically-thin source differs from the archived source by -0.4430%, with energy and radial effects separated by the matched-40-node test.
+- Full independent B.1+B.2: the 25-point luminosity curve reproduces archived B.16 to 0.4451% maximum relative difference; the Fig. 7 strong-endpoint residual remains +92.0542%. The end-to-end numerical integration is therefore validated at the sub-percent level for the adopted inputs.
 - Fig. 7 mismatch: persists after numerical convergence and must be investigated as a separate physical/reproduction issue.
 - Axial-vector production curve: remains frozen.
