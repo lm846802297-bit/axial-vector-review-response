@@ -117,7 +117,21 @@ def value_at(points, radius, x0, dx, y0, dy, curve_support):
 def summarize(rows, bkey, ckey, threshold=0.0):
     valid = [x for x in rows if x[bkey] is not None and x[ckey] is not None]
     if not valid:
-        return {"count": 0, "radial_range_km": None}
+        return {
+            "count": 0,
+            "radial_range_km": None,
+            "mean_absolute_difference": None,
+            "rms_difference": None,
+            "maximum_absolute_difference": None,
+            "minimum_signed_difference": None,
+            "maximum_signed_difference": None,
+            "relative_denominator_threshold": float(threshold),
+            "relative_count": 0,
+            "mean_absolute_relative_difference": None,
+            "maximum_absolute_relative_difference": None,
+            "minimum_relative_difference": None,
+            "maximum_relative_difference": None,
+        }
     b = np.asarray([x[bkey] for x in valid], float)
     c = np.asarray([x[ckey] for x in valid], float)
     delta = c-b
