@@ -25,7 +25,7 @@ concurrency:
 jobs:
   phase-space-audit:
     if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     timeout-minutes: 180
     steps:
       - name: Check out research branch
