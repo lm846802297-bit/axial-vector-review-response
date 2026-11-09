@@ -54,6 +54,24 @@ This is a Euclidean straight-chord path. The formula has:
 
 The reduced absorption rate in B.4 contains the thermal factor 1 - exp[-omega/T(r')]. Thus, in a literal reading of Appendix B, the same omega is passed to the local opacity kernel at every point along the chord. This is the fixed-omega prescription used by the current B.16 reproduction baseline.
 
+## 2.1 Independent source of the B.2 angular escape prescription
+
+Blinov's B.2 is also directly traceable to Caputo, Raffelt and Vitagliano, arXiv:2204.11862, Eq. (4.22). That equation writes the source-perspective luminosity as a volume integral of the local emissivity multiplied by the angle-averaged transmittance,
+```
+T_omega(r) = (1/2) ∫_{-1}^{+1} d(cos beta)
+             exp[-∫_0^∞ ds / lambda_omega(r'(s))],
+r'(s) = sqrt(r² + s² + 2 r s cos(beta)).
+```
+Using (1/\lambda_\omega=\Gamma^*_\mathrm{abs}/v_V) gives the same structure as Blinov B.2. Blinov replaces the infinite path endpoint by the finite neutrinosphere boundary (R_{\max}\simeq25\) km, as stated explicitly in its Appendix-B discussion.
+
+Caputo et al. Eq. (4.23) further identifies the angle-averaged transmittance as the relevant quantity in the strong-trapping regime; Eq. (4.24) reduces it in the plane-parallel limit to (T(\tau)=\tfrac12 E_2(\tau)). This is an important check: the correct strong-absorption escape factor is an angular average of exponentials, not (e^{-\langle\tau\rangle}), and not the outward-radial ray alone.
+
+Blinov itself emphasizes that full angular averaging matters and that outward-radial-only approximations can shift the luminosity by factors of a few. Thus the current B.2 implementation must retain the complete angular average, finite chord to (R_{\max}\), and (1/v_V) factor; it must not be simplified to a radial optical depth.
+
+Sources:
+- Caputo, Raffelt and Vitagliano, *Radiative transfer in stars by feebly interacting bosons*, arXiv:2204.11862, Eqs. (4.22)--(4.24): https://arxiv.org/abs/2204.11862
+- Blinov et al., JHEP 06 (2026) 155, Appendix B discussion preceding Eq. (B.6): https://doi.org/10.1007/JHEP06(2026)155
+
 ## 3. The notation issue that remains
 
 The main text, Sec. 4.1, describes omega as the energy at spatial infinity. The B.1 source integral instead has the local-energy threshold mV/N(r) and the local phase-space measure multiplied by N(r)^2. Those statements cannot all refer to the same untransformed integration variable.
