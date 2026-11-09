@@ -30,7 +30,7 @@ except ImportError:
 
 HERE = Path(__file__).resolve().parent
 DEFAULT_OUTPUT = HERE / "outputs" / "b16_local_absorption_10mev_2026-11-09.json"
-SAMPLE_RADII_KM = (8.0, 10.0, 12.0, 15.0, 18.5, 20.0, 22.0, 23.0, 24.0, 25.0)
+SAMPLE_RADII_KM = (8.0, 10.0, 12.0, 15.0, 16.75, 17.5, 18.25, 18.5, 19.0, 20.0, 20.5, 21.5, 22.0, 23.0, 24.0, 25.0)
 SAMPLE_ENERGIES_MEV = (12.0, 15.0, 20.0, 30.0, 50.0, 100.0)
 
 
