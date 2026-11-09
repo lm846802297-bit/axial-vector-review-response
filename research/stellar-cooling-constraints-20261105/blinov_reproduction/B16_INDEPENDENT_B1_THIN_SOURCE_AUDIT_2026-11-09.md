@@ -212,7 +212,7 @@ Not established:
 1. The escape factor \(\mathcal O(r,\omega)\) is not included in this audit. The full B.1 luminosity is not yet independently recomputed.
 2. The local production kernels are shared and are not re-derived here.
 3. The reconstructed profile is not the original Garching s18.8-SFHo-MUONS simulation table.
-4. The negative-muon species convention and the source-energy interpretation are retained as in the archived Appendix-B reference; this audit does not revisit those physical choices.
+4. The negative-muon species convention is retained as in the archived Appendix-B reference. The B.1 local-source-energy versus E_infinity variable choice is now separately verified by the exact Jacobian test below; the remaining path-energy question belongs to B.2.
 
 The sub-percent B.1 source-quadrature difference is much too small to account for the order-one strong-coupling Fig. 7 luminosity mismatch. The next step is to combine this independently integrated source with the independently validated analytic B.2 escape factor on the same radial and energy quadrature nodes, and compare the complete luminosity curve against both the archived B.16 result and the digitized Fig. 7 vertices. No empirical rescaling is justified.
 
@@ -224,3 +224,35 @@ The sub-percent B.1 source-quadrature difference is much too small to account fo
 - Workflow: \`.github/workflows/b16-b1-independent-source.yml\`
 - Machine-readable result: \`outputs/b16_b1_independent_thin_source_10mev_2026-11-09.json\`
 - The workflow checks that the production axial-vector outputs remain unchanged.
+
+
+## 12. Independent local-energy versus energy-at-infinity B.1 integration
+
+The main text describes the energy at infinity, while B.1 is printed in the local source-energy variable. These are exactly equivalent under
+```
+E_infinity = N(r) * omega_local,
+d omega_local = d E_infinity / N(r),
+k_local = sqrt(E_infinity^2 - N(r)^2 mV^2) / N(r).
+```
+Consequently,
+```
+N(r)^2 * k_local * omega_local^2 * d omega_local
+ = [E_infinity^2 * sqrt(E_infinity^2 - N(r)^2 mV^2)
+    / N(r)^2] * d E_infinity.
+```
+The lower limit transforms from omega_local=mV/N(r) to E_infinity=mV, and the local collision rate is evaluated at omega_local=E_infinity/N(r).
+
+The B.1 audit now computes the full source independently in both variables, using separate logarithmic Gauss-Legendre grids. For the current 10 MeV profile-B benchmark, the two integrations agree channel by channel at stored precision:
+
+| Channel | Local-energy variable [erg/s per g^2] | E_infinity variable [erg/s per g^2] | Relative difference |
+|---|---:|---:|---:|
+| Neutrino inverse decay | 2.924014280393587e70 | 2.924014280393587e70 | 0 |
+| Muon-Compton | 1.3803538885385007e70 | 1.3803538885385007e70 | 0 |
+| Dimuon inverse decay | 0 | 0 | 0 |
+| **Total** | **4.304368168932088e70** | **4.304368168932088e70** | **0** |
+
+This resolves the B.1 energy-variable issue: the local-energy lower limit and N(r)^2 prefactor are exactly consistent with the main-text energy-at-infinity description after the change of variables. It does **not** resolve whether B.2's path opacity uses fixed local omega or an implicitly redshifted local energy.
+
+Reproducibility:
+- Successful workflow with the explicit variable-equivalence acceptance check: [Run #42573725261](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42573725261)
+- Updated machine-readable result: `outputs/b16_b1_independent_thin_source_10mev_2026-11-09.json`
