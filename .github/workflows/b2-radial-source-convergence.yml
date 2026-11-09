@@ -62,7 +62,8 @@ jobs:
           import json
           from pathlib import Path
           mass=float("${{ matrix.mass }}")
-          p=Path(f"research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b2_radial_source_convergence_{mass}mev_2026-11-09.json")
+          mass_tag="${{ matrix.mass }}"
+          p=Path(f"research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b2_radial_source_convergence_{mass_tag}mev_2026-11-09.json")
           d=json.loads(p.read_text())
           assert d["mass_MeV"]==mass
           assert d["profile_sha256"]=="9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
