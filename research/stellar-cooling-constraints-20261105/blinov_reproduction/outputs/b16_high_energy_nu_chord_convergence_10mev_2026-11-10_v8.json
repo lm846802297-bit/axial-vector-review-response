@@ -1,0 +1,123 @@
+{
+  "result": {
+    "title": "High-energy neutrino B.2 chord convergence",
+    "status": "direct_V8_cross_runtime_targeted_ray_calculation",
+    "mass_MeV": 10,
+    "coupling": 4.171689650228597e-8,
+    "channel": "neutrino inverse decay only",
+    "energy_convention": "fixed omega along the full Eq. (B.2) chord",
+    "configuration": {
+      "energies_MeV": [
+        110,
+        210,
+        510
+      ],
+      "source_radii_km": [
+        8,
+        10,
+        12.5
+      ],
+      "cos_theta": [
+        -0.25,
+        0.25,
+        0.75,
+        0.95
+      ],
+      "opacity_orders": [
+        320,
+        640,
+        1280
+      ],
+      "opacity_grid_node_counts": [
+        322,
+        642,
+        1282
+      ],
+      "path_orders": [
+        32,
+        64,
+        128,
+        256
+      ],
+      "ray_count": 36
+    },
+    "maximum_absolute_relative_refinement": {
+      "path32_to64_at_opacity640": 0.000019869660135118927,
+      "path64_to128_at_opacity640": 0.000010169485555211466,
+      "path128_to256_at_opacity640": 0.000002822190167894867,
+      "opacity320_to640_at_path256": 0.000004575382155591612,
+      "opacity640_to1280_at_path256": 9.350172174293903e-7
+    },
+    "representative_outward_rays": [
+      {
+        "r_km": 8,
+        "cos_theta": 0.75,
+        "energy_MeV": 210,
+        "tau_path32_at640": 5.544915816456417,
+        "tau_path64_at640": 5.544913105013351,
+        "tau_path128_at640": 5.544903592345991,
+        "tau_path256_at640": 5.544904896840464,
+        "tau_path256_at320": 5.544902567186178,
+        "tau_path256_at1280": 5.544904903479976
+      },
+      {
+        "r_km": 10,
+        "cos_theta": 0.75,
+        "energy_MeV": 210,
+        "tau_path32_at640": 5.114199691379733,
+        "tau_path64_at640": 5.114223618395338,
+        "tau_path128_at640": 5.114221548070091,
+        "tau_path256_at640": 5.114222256796478,
+        "tau_path256_at320": 5.114217115584895,
+        "tau_path256_at1280": 5.114223532397589
+      },
+      {
+        "r_km": 12.5,
+        "cos_theta": 0.75,
+        "energy_MeV": 210,
+        "tau_path32_at640": 4.496598046365601,
+        "tau_path64_at640": 4.49660961611145,
+        "tau_path128_at640": 4.496603579564651,
+        "tau_path256_at640": 4.496605915473285,
+        "tau_path256_at320": 4.496597874195498,
+        "tau_path256_at1280": 4.496606950780553
+      },
+      {
+        "r_km": 8,
+        "cos_theta": 0.95,
+        "energy_MeV": 510,
+        "tau_path32_at640": 2.282434203169253,
+        "tau_path64_at640": 2.2824413386340616,
+        "tau_path128_at640": 2.2824395547177696,
+        "tau_path256_at640": 2.2824404721904403,
+        "tau_path256_at320": 2.282439702468351,
+        "tau_path256_at1280": 2.282440664382429
+      },
+      {
+        "r_km": 12.5,
+        "cos_theta": 0.95,
+        "energy_MeV": 110,
+        "tau_path32_at640": 7.392703005291635,
+        "tau_path64_at640": 7.392750771693361,
+        "tau_path128_at640": 7.392761550781172,
+        "tau_path256_at640": 7.39274068700221,
+        "tau_path256_at320": 7.392721548082631,
+        "tau_path256_at1280": 7.3927436828985185
+      }
+    ],
+    "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+    "fig7_sha256": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4",
+    "execution": {
+      "engine": "OpenAI Code Mode V8 JavaScript IEEE-754 binary64",
+      "note": "Direct V8 calculation of the same fixed-omega B.2 neutrino reduced-opacity integral; the accompanying Python script is the repository reproduction implementation and was not executed in this V8 session.",
+      "grid_prescription": "Composite Gauss-Legendre radial grids with interfaces 0,5,8,10,12,15,18,20,22,24,25 km; linear radial interpolation along the Euclidean chord."
+    },
+    "interpretation": [
+      "All tested high-energy neutrino optical depths are stable under both path-order and opacity-grid refinement.",
+      "The path32-to64 maximum relative change is below 0.0020%; the opacity640-to1280 maximum is below 0.00010%.",
+      "This is a targeted 36-ray convergence audit, not a new global luminosity calculation.",
+      "No empirical rescaling, profile modification, or axial-vector curve update is performed."
+    ]
+  },
+  "run_commit_sha": "7b4bc00745c858a8b93849719b78c2ef9e4bb65f"
+}
