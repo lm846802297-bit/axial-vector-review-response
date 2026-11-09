@@ -1,0 +1,95 @@
+# Bollig original-source thermodynamic cross-check, 15--20 km (2026-11-09)
+
+## Executive result
+
+The Caputo SFHo-18.8 reconstruction agrees with the original Bollig Fig. 1 temperature and Fig. 4 muon degeneracy parameter throughout 15--20 km. Across 294 profile nodes, the mean absolute relative differences are 0.00431% for T and 0.00468% for mu_mu/T; the maximum absolute differences are 0.01628% and 0.01547%, respectively.
+
+The independent absolute-density comparison remains in tension. Where Bollig Fig. 3 is above its lower plotting floor, 90 nodes through r=16.6031 km show that the relativistic Fermi density reconstructed from the published Fig. 1 and Fig. 4 curves exceeds the Fig. 3 curve by 10.38% on average, with a maximum of 12.11%. The same discrepancy is obtained using Caputo T and mu_mu. Fig. 3 reaches its 10^-7 fm^-3 lower plotting floor at r=16.6466 km; beyond that radius it is censored and cannot be treated as a pointwise density measurement.
+
+This is a published-figure-level inconsistency among the three profile quantities. It is not resolved by changing T or mu_mu, because those two quantities independently match Bollig's original figures.
+
+## 1. Source and numerical method
+
+Source: Bollig et al., arXiv:2005.07141v7, Figs. 1, 3, and 4; Caputo et al., arXiv:2109.03244v3, Fig. 1.
+
+The calculation uses the archived original Bollig PDF vector paths:
+- Fig. 1 yellow SFHo-18.8 temperature curve;
+- Fig. 3 yellow SFHo-18.8 absolute muon-density curve;
+- Fig. 4 yellow SFHo-18.8 mu_mu/T curve.
+
+The PDF vector axes are calibrated from the tick marks. At each profile node in 15--20 km, the Caputo T and mu_mu are compared to Bollig Fig. 1 and Fig. 4. The negative-muon density is then evaluated with the full relativistic Fermi--Dirac integral, including two spin states:
+\[
+n_{\mu^-}=\frac{1}{\pi^2}\int_0^\infty dp\,
+\frac{p^2}{\exp[(\sqrt{p^2+m_\mu^2}-\mu_\mu)/T]+1}.
+\]
+The same integral is also evaluated using T from Bollig Fig. 1 and mu_mu=eta T from Bollig Fig. 4. No empirical rescaling is applied.
+
+## 2. Temperature and degeneracy parameter
+
+| Comparison | Nodes | Mean absolute relative difference | Maximum absolute relative difference |
+|---|---:|---:|---:|
+| Caputo T vs Bollig Fig. 1, 15--20 km | 294 | 0.004309% | 0.016280% |
+| Caputo mu_mu/T vs Bollig Fig. 4, 15--20 km | 294 | 0.004684% | 0.015474% |
+
+The agreement is maintained throughout the interval, not merely at the 15 km boundary. This independently supports the Caputo thermodynamic reconstruction for T and mu_mu/T in the 15--20 km interval.
+
+## 3. Absolute density and the Fig. 3 plotting floor
+
+The Fig. 3 logarithmic density axis has a lower plotting limit of 10^-7 fm^-3. The extracted yellow curve reaches this floor at approximately 16.6466 km. Points at the floor are therefore censored/upper-limit information, not measurements of the true density.
+
+Of 294 profile nodes in 15--20 km:
+- 90 nodes are above the Fig. 3 floor and can be used for a direct density comparison;
+- 204 nodes are at the floor and are excluded from density residual summaries;
+- the last node above the floor is at 16.603079 km;
+- the first floor-censored node is at 16.646591 km.
+
+For the 90 uncensored nodes, the density reconstructed from Caputo T,mu_mu is higher than Bollig Fig. 3 by:
+- mean absolute relative difference: 10.402%;
+- maximum absolute relative difference: 12.019%.
+
+Using Bollig's own Fig. 1 T and Fig. 4 eta gives:
+- mean absolute relative difference: 10.385%;
+- maximum absolute relative difference: 12.108%.
+
+The agreement between these two independently constructed Fermi densities shows that the residual is not caused by a mismatch between the Caputo and Bollig T or mu_mu/T curves.
+
+Representative values:
+
+| r (km) | Bollig Fig. 3 n_mu (fm^-3) | Fermi density from Bollig Fig. 1+4 (fm^-3) | Relative difference |
+|---:|---:|---:|---:|
+| 15.00 | 3.6602e-5 | 4.0123e-5 | +9.62% |
+| 15.25 | 1.7582e-5 | 1.9338e-5 | +9.99% |
+| 15.50 | 7.7473e-6 | 8.4916e-6 | +9.61% |
+| 15.75 | 3.1394e-6 | 3.4687e-6 | +10.49% |
+| 16.00 | 1.2165e-6 | 1.3444e-6 | +10.51% |
+| 16.25 | 4.5398e-7 | 5.0184e-7 | +10.54% |
+| 16.50 | 1.6452e-7 | 1.8195e-7 | +10.60% |
+
+At 16.75--20 km, the extracted Fig. 3 curve is pinned to the 10^-7 fm^-3 lower plotting boundary while the Fermi-integral density falls below that value. The resulting apparent order-one residual is a plotting-floor artifact and is not a physical density discrepancy. No direct Fig. 3 pointwise density conclusion is made in this censored region.
+
+## 4. Interpretation
+
+The present comparison establishes:
+1. The Caputo T(r) curve reproduces Bollig Fig. 1 in 15--20 km to better than 0.017%.
+2. The Caputo mu_mu/T curve reproduces Bollig Fig. 4 in 15--20 km to better than 0.016%.
+3. The Fermi density implied by those two published curves is about 10% above Bollig Fig. 3 until the latter reaches its plotting floor.
+4. The Fig. 3 lower plotting floor prevents a pointwise density comparison beyond approximately 16.65 km.
+
+The density residual is not removed by changing the B.1 density convention from n_mu- to n_mu- - n_mu+, since the positive-muon population is negligible in this degenerate outer shell. The discrepancy is also not a constant normalization factor established by the data; it remains a source-level inconsistency whose origin is not identified by the public plots.
+
+The original Garching simulation tables remain unavailable. Possible differences in profile version, density definition, and figure data processing cannot be distinguished using the three published plots alone.
+
+## 5. Consequences for B.1 and B.2
+
+No density correction, opacity correction, or luminosity rescaling is justified. The baseline Caputo T and mu_mu fields remain the best-matched thermodynamic input for the Bollig SFHo-18.8 benchmark. The Fig. 3 density residual must remain an explicit systematic uncertainty/limitation of the public-profile reconstruction.
+
+The B.1 implementation uses the one-negative-muon susceptibility convention in Blinov Eq. (B.17); the independent Fermi-integral closure remains at floating-point precision. This source-kernel algebraic closure does not resolve the profile-level Fig. 3 density discrepancy.
+
+## 6. Reproducibility and files
+
+- Workflow: [Run 42557233565](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42557233565)
+- Script: `audit_bollig_muon_density_and_b1_source.py`
+- Machine-readable output: `outputs/bollig_muon_density_b1_source_audit_2026-11-09.json`
+- Original vector paths: `outputs/bollig_fig3_fig4_vector_paths_2026-11-09.json`
+
+The audit does not modify production rates, transport, the vector Fig. 7 comparison, or the axial-vector constraint outputs.
