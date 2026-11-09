@@ -45,6 +45,14 @@ def interpolate(rows, key: str, radius: float) -> float:
     return rows[lo][key] * (1.0 - fraction) + rows[hi][key] * fraction
 
 
+def radial_trapezoid_mean(values: list[float], radii: list[float]) -> float:
+    integral = sum(
+        (radii[i + 1] - radii[i]) * (values[i] + values[i + 1]) / 2.0
+        for i in range(len(radii) - 1)
+    )
+    return integral / (radii[-1] - radii[0])
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--input", type=Path, default=DEFAULT_INPUT)
@@ -57,13 +65,16 @@ def main() -> None:
 
     window = [row for row in rows if 5.0 <= row["r_km"] <= 15.0]
     relative_eta = []
+    signed_eta = []
     eta_ratios = []
     relative_temperature = []
     for row in window:
         eta_caputo = row["mu_mu_MeV"] / row["T_MeV"]
         eta_ferreira = row["mu_mu_Ferreira_MeV"] / row["T_Ferreira_MeV"]
-        relative_eta.append(abs(eta_ferreira / eta_caputo - 1.0))
-        eta_ratios.append(eta_ferreira / eta_caputo)
+        eta_ratio = eta_ferreira / eta_caputo
+        relative_eta.append(abs(eta_ratio - 1.0))
+        signed_eta.append(eta_ratio - 1.0)
+        eta_ratios.append(eta_ratio)
         relative_temperature.append(abs(row["T_Ferreira_MeV"] / row["T_MeV"] - 1.0))
 
     samples = []
@@ -93,12 +104,15 @@ def main() -> None:
         "radial_window_km": [5.0, 15.0],
         "n_profile_nodes_inclusive": len(window),
         "statistics": {
-            "eta_relative_difference_mean": sum(relative_eta) / len(relative_eta),
+            "eta_relative_difference_node_mean": sum(relative_eta) / len(relative_eta),
+            "eta_relative_difference_radial_trapezoid_mean": radial_trapezoid_mean(relative_eta, [row["r_km"] for row in window]),
+            "eta_signed_difference_radial_trapezoid_mean": radial_trapezoid_mean(signed_eta, [row["r_km"] for row in window]),
             "eta_relative_difference_median": median(relative_eta),
             "eta_relative_difference_max": max(relative_eta),
             "eta_ratio_min": min(eta_ratios),
             "eta_ratio_max": max(eta_ratios),
-            "temperature_relative_difference_mean": sum(relative_temperature) / len(relative_temperature),
+            "temperature_relative_difference_node_mean": sum(relative_temperature) / len(relative_temperature),
+            "temperature_relative_difference_radial_trapezoid_mean": radial_trapezoid_mean(relative_temperature, [row["r_km"] for row in window]),
             "temperature_relative_difference_max": max(relative_temperature),
         },
         "samples": samples,
