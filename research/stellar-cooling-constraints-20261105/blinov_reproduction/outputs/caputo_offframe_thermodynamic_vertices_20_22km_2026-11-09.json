@@ -1,7 +1,165 @@
 {
   "clipping_paths": [
     {
-      "inspection_error": "'rect'"
+      "extended_drawing_index": 1,
+      "item_kinds": [
+        "re"
+      ],
+      "keys": [
+        "closePath",
+        "even_odd",
+        "items",
+        "layer",
+        "level",
+        "scissor",
+        "type"
+      ],
+      "level": 1,
+      "rect_pdf": [
+        47.0,
+        87.0,
+        325.0,
+        217.0
+      ],
+      "seqno": null
+    },
+    {
+      "extended_drawing_index": 3,
+      "item_kinds": [
+        "re"
+      ],
+      "keys": [
+        "closePath",
+        "even_odd",
+        "items",
+        "layer",
+        "level",
+        "scissor",
+        "type"
+      ],
+      "level": 1,
+      "rect_pdf": [
+        47.0,
+        54.0,
+        325.0,
+        217.0
+      ],
+      "seqno": null
+    },
+    {
+      "extended_drawing_index": 5,
+      "item_kinds": [
+        "re"
+      ],
+      "keys": [
+        "closePath",
+        "even_odd",
+        "items",
+        "layer",
+        "level",
+        "scissor",
+        "type"
+      ],
+      "level": 1,
+      "rect_pdf": [
+        47.0,
+        23.0,
+        325.0,
+        217.0
+      ],
+      "seqno": null
+    },
+    {
+      "extended_drawing_index": 7,
+      "item_kinds": [
+        "re"
+      ],
+      "keys": [
+        "closePath",
+        "even_odd",
+        "items",
+        "layer",
+        "level",
+        "scissor",
+        "type"
+      ],
+      "level": 1,
+      "rect_pdf": [
+        47.0,
+        77.0,
+        325.0,
+        217.0
+      ],
+      "seqno": null
+    },
+    {
+      "extended_drawing_index": 67,
+      "item_kinds": [
+        "re"
+      ],
+      "keys": [
+        "closePath",
+        "even_odd",
+        "items",
+        "layer",
+        "level",
+        "scissor",
+        "type"
+      ],
+      "level": 1,
+      "rect_pdf": [
+        40.0,
+        211.0,
+        44.0,
+        219.0
+      ],
+      "seqno": null
+    },
+    {
+      "extended_drawing_index": 164,
+      "item_kinds": [
+        "re"
+      ],
+      "keys": [
+        "closePath",
+        "even_odd",
+        "items",
+        "layer",
+        "level",
+        "scissor",
+        "type"
+      ],
+      "level": 1,
+      "rect_pdf": [
+        48.0,
+        264.0,
+        324.0,
+        444.0
+      ],
+      "seqno": null
+    },
+    {
+      "extended_drawing_index": 167,
+      "item_kinds": [
+        "re"
+      ],
+      "keys": [
+        "closePath",
+        "even_odd",
+        "items",
+        "layer",
+        "level",
+        "scissor",
+        "type"
+      ],
+      "level": 1,
+      "rect_pdf": [
+        48.0,
+        291.0,
+        324.0,
+        444.0
+      ],
+      "seqno": null
     }
   ],
   "curves": {
@@ -13,7 +171,7 @@
       ],
       "committed_csv_sha256": "e6a840720d86ec55bd41f661c9bb305318dd29d98fcc38a7e3a8dee2058060e6",
       "csv_vs_pdf_vertex_max_abs_relative_difference": 1.354472090042691e-14,
-      "csv_vs_pdf_vertex_mean_abs_relative_difference": 2.7524737164964278e-15,
+      "csv_vs_pdf_vertex_mean_abs_relative_difference": 2.7502752550615263e-15,
       "drawing_index": 0,
       "drawing_rect_pdf": [
         47.75,
@@ -82,7 +240,7 @@
       ],
       "committed_csv_sha256": "1cacfd7f3d4a7b70a92f645dc0dc00e0586293ff90c97dd0025a76c085929c83",
       "csv_vs_pdf_vertex_max_abs_relative_difference": 9.012790513907021e-13,
-      "csv_vs_pdf_vertex_mean_abs_relative_difference": 1.1740940225358628e-14,
+      "csv_vs_pdf_vertex_mean_abs_relative_difference": 1.173872862570798e-14,
       "drawing_index": 1,
       "drawing_rect_pdf": [
         47.75,
