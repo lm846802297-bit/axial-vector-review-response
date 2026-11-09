@@ -1,0 +1,100 @@
+{
+  "status": "PASS",
+  "potential_convention": "V=-mu_H2 HdaggerH-mu_S2 SdaggerS+lambda_H(HdaggerH)^2+lambda_S(SdaggerS)^2+lambda_HS(HdaggerH)(SdaggerS); H0=(vh+h)/sqrt(2), S=(vs+s)/sqrt(2), L contains -V",
+  "tree_mass_matrix": {
+    "hh": "-mu_H2 + 3 lambda_H vh^2 + (lambda_HS/2) vs^2",
+    "ss": "-mu_S2 + 3 lambda_S vs^2 + (lambda_HS/2) vh^2",
+    "hs": "lambda_HS vh vs"
+  },
+  "general_counterterm_map": {
+    "hh": "-dmu_H2 + 3 vh^2 dlambda_H + 6 lambda_H vh dvh + (vs^2/2) dlambda_HS + lambda_HS vs dvs",
+    "ss": "-dmu_S2 + 3 vs^2 dlambda_S + 6 lambda_S vs dvs + (vh^2/2) dlambda_HS + lambda_HS vh dvh",
+    "hs": "vh vs dlambda_HS + lambda_HS (vs dvh + vh dvs)"
+  },
+  "tadpole_map_at_tree_stationarity": {
+    "delta_T_h_over_vh": "-dmu_H2 + vh^2 dlambda_H + 2 lambda_H vh dvh + (vs^2/2) dlambda_HS + lambda_HS vs dvs",
+    "delta_T_s_over_vs": "-dmu_S2 + vs^2 dlambda_S + 2 lambda_S vs dvs + (vh^2/2) dlambda_HS + lambda_HS vh dvh",
+    "identity_hh": "delta_M_hh^2 - delta_T_h/vh = 2 vh^2 dlambda_H + 4 lambda_H vh dvh",
+    "identity_ss": "delta_M_ss^2 - delta_T_s/vs = 2 vs^2 dlambda_S + 4 lambda_S vs dvs"
+  },
+  "non_uniqueness": "The three two-point matrix entries do not determine all quadratic, quartic, VEV, and tadpole counterterms. A tadpole/VEV prescription and the corresponding one-point functions are required before assigning unique renormalized potential-parameter counterterms.",
+  "benchmarks": {
+    "A_open_AA": {
+      "vs_GeV": 70.886458,
+      "mass_matrix_counterterm_pole_coefficient_GeV2": [
+        [
+          -13374386.09800963,
+          4.3377057531570926e-05
+        ],
+        [
+          4.3377057531570926e-05,
+          -63902155.30209777
+        ]
+      ],
+      "fixed_vev_bookkeeping_basis": {
+        "basis_label": "fixed_vev_quadratic_diagonal_plus_portal_offdiagonal",
+        "delta_lambda_H": 0.0,
+        "delta_lambda_S": 0.0,
+        "delta_lambda_HS": 2.4852694715038743e-09,
+        "delta_mu_H2_GeV2": 13374386.098015873,
+        "delta_mu_S2_GeV2": 63902155.3021731,
+        "delta_vh_GeV": 0.0,
+        "delta_vs_GeV": 0.0,
+        "reconstructed_mass_matrix_counterterm_GeV2": [
+          [
+            -13374386.09800963,
+            4.3377057531570926e-05
+          ],
+          [
+            4.3377057531570926e-05,
+            -63902155.30209777
+          ]
+        ],
+        "max_reconstruction_residual_GeV2": 0.0,
+        "warning": "This is one bookkeeping decomposition of the two-point UV pole. It does not fix the tadpole counterterms or define a VEV scheme."
+      },
+      "tadpole_and_vev_scheme_status": "not_fixed_by_the_two_point_subcalculation"
+    },
+    "B_closed_AA": {
+      "vs_GeV": 315.0,
+      "mass_matrix_counterterm_pole_coefficient_GeV2": [
+        [
+          -13374386.09800963,
+          9.761415940628152e-06
+        ],
+        [
+          9.761415940628152e-06,
+          -3236092.6837118976
+        ]
+      ],
+      "fixed_vev_bookkeeping_basis": {
+        "basis_label": "fixed_vev_quadratic_diagonal_plus_portal_offdiagonal",
+        "delta_lambda_H": 0.0,
+        "delta_lambda_S": 0.0,
+        "delta_lambda_HS": 1.258574528216236e-10,
+        "delta_mu_H2_GeV2": 13374386.098015873,
+        "delta_mu_S2_GeV2": 3236092.6837157127,
+        "delta_vh_GeV": 0.0,
+        "delta_vs_GeV": 0.0,
+        "reconstructed_mass_matrix_counterterm_GeV2": [
+          [
+            -13374386.09800963,
+            9.761415940628152e-06
+          ],
+          [
+            9.761415940628152e-06,
+            -3236092.6837118976
+          ]
+        ],
+        "max_reconstruction_residual_GeV2": 0.0,
+        "warning": "This is one bookkeeping decomposition of the two-point UV pole. It does not fix the tadpole counterterms or define a VEV scheme."
+      },
+      "tadpole_and_vev_scheme_status": "not_fixed_by_the_two_point_subcalculation"
+    }
+  },
+  "scope": [
+    "The matrix entries are UV-pole counterterm coefficients proportional to Delta_UV, not finite mass shifts.",
+    "The fixed-VEV decomposition is an algebraic example only, not a claim that this is the chosen MS-bar tadpole or VEV scheme.",
+    "No tadpole diagrams, VEV renormalization, complete scalar-potential beta functions, or gauge-complete self-energies are included."
+  ]
+}
