@@ -83,15 +83,31 @@ Primary source: Blinov, Fox, Kelly, Plestid and Zhou, *L_mu-L_tau gauge bosons i
 
 ### 6.1 Energy notation across the main text and Appendix B
 
-The published main text, Sec. 4.1, immediately below Eq. (4.2), describes \\(\\omega\\) as the energy carried by the vector at spatial infinity. Appendix B uses the same symbol in a different-looking way:
+The published main text, Sec. 4.1, describes omega as the energy carried by the vector at spatial infinity. Appendix B.1 is printed in the local source-energy variable because it contains the lapse-squared factor N(r)^2 and the local escape threshold omega_min=mV/N(r).
 
-- Eq. (B.1) contains \\(N(r)^2\\) and the local escape threshold \\(\\omega_{\\min}=m_V/N(r)\\). With the local phase-space measure and local production rate appearing in that equation, this identifies the integration variable as the energy measured locally at the production point.
-- Eq. (B.2) inserts the same \\(\\omega\\) into \\(\\Gamma^*_{\\rm abs}(r'(s),\\omega)\\) all along the chord.
+These are not different physical prescriptions. With
+```
+E_infinity = N(r) * omega_local,
+d omega_local = d E_infinity / N(r),
+k_local = sqrt(E_infinity^2 - N(r)^2 mV^2) / N(r),
+```
+the B.1 measure transforms exactly:
+```
+N(r)^2 * k_local * omega_local^2 * d omega_local
+ = [E_infinity^2 * sqrt(E_infinity^2 - N(r)^2 mV^2)
+    / N(r)^2] * d E_infinity.
+```
+The lower limit becomes E_infinity=mV and the local production kernel is evaluated at E_infinity/N(r).
+
+This change of variable has now been checked numerically with two independent logarithmic Gauss-Legendre energy grids. At 10 MeV, the local-energy and E_infinity integrations give exactly the same neutrino, Compton, and total B.1 source values at stored precision. GitHub Actions [Run #42573725261](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42573725261) passes the explicit equivalence check. Therefore, the B.1 energy-variable issue is resolved.
+
+The remaining question is confined to B.2:
+- Eq. (B.2) inserts the same omega into Gamma_abs*(r'(s),omega) all along the chord.
 - Eqs. (B.4) and (B.5) use that same energy in the local thermal factor and vector speed.
 
-Thus the source-energy interpretation implied by Appendix B.1, the fixed energy argument printed in B.2, and the phrase “energy ... at spatial infinity” in Sec. 4.1 are not all the same convention unless an implicit conversion is supplied. The article does not write that conversion explicitly in B.2.
+The literal Appendix-B.2 expression therefore fixes the same omega along the Euclidean chord. If omega is instead interpreted as the conserved energy at infinity, an implicit local conversion E_infinity/N(r') would be needed inside the local thermal factor and speed. The article does not write that conversion explicitly in B.2, and the numerical code is not public.
 
-For the reproduction task, the code therefore retains the literal Appendix-B prescription as one clearly defined branch. The redshift-only diagnostic remains a distinct physically motivated alternative; it is not substituted into the published-form baseline and is not called full GR.
+For reproduction, retain the literal fixed-omega B.2 expression as the published-form baseline. Keep the path-redshift-only calculation as a separate sensitivity branch; do not substitute it into the baseline without evidence that the authors did so.
 
 ### 6.2 Compton prescription: formal rate versus approximate reduction
 
@@ -148,3 +164,15 @@ GitHub Actions [Run #42568420651](https://github.com/lm846802297-bit/axial-vecto
 A second, simultaneously queued duplicate run (#42568424558) also completed its numerical calculation and tests, but its archive step encountered an add/add conflict because the first run had already archived the same dated output. The successful first run and its committed JSON are the authoritative record; the duplicate archive conflict does not indicate a numerical failure.
 
 This closes the profile-provenance gap for the redshift-only sensitivity result. It does not change the interpretation: the path-redshift result remains a diagnostic with Euclidean path measure, not full GR, and the fixed-\(\omega\) Appendix-B branch remains the paper-reproduction baseline.
+
+
+## 8. B.1 energy-variable issue resolved; B.2 remains isolated
+
+The independent B.1 audit now includes a second full source integration in E_infinity rather than omega_local. The local-energy and E_infinity versions agree channel by channel at stored precision:
+- neutrino inverse decay: 2.924014280393587e70 erg/s/g^2;
+- muon-Compton: 1.3803538885385007e70 erg/s/g^2;
+- total: 4.304368168932088e70 erg/s/g^2.
+
+The exact equivalence is archived in `outputs/b16_b1_independent_thin_source_10mev_2026-11-09.json`; the acceptance workflow is [Run #42573725261](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42573725261).
+
+This means the Sec. 4.1 versus B.1 notation is not a physical ambiguity: it is an exact variable transformation. The only remaining energy-convention question is whether B.2's fixed omega is literal or implicitly redshifted along the path. The reproduction baseline remains the literal B.2 expression.
