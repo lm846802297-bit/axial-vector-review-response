@@ -74,6 +74,9 @@ def compact_run(result, label, orders, reference_variants):
             "escape_fraction_shift_vs_original_40x100x16x32": shift_summary(
                 item["points"], base["points"], "escape_fraction"
             ),
+            "thin_luminosity_shift_vs_original_40x100x16x32": shift_summary(
+                item["points"], base["points"], "optically_thin_luminosity_erg_s"
+            ),
             "thin_luminosity_erg_s": [p["optically_thin_luminosity_erg_s"] for p in item["points"]],
             "escape_fraction": [p["escape_fraction"] for p in item["points"]],
             "luminosity_erg_s": [p["calculated_luminosity_erg_s"] for p in item["points"]],
@@ -190,6 +193,8 @@ def main():
             )
             if result["profile"]["sha256"] != ref_profile:
                 raise RuntimeError(f"{label}: profile fingerprint changed")
+            if result["archived_B16_baseline"]["max_relative_reproduction_residual"] > 2.0e-10:
+                raise ArithmeticError(f"{label}: same-grid B.16 closure failed")
             compact = compact_run(result, label, orders, ref_variants)
             results.append(compact)
             by_label[label] = compact
@@ -228,6 +233,8 @@ def main():
             refined_orders=(20, 12, 12, 12),
             active_opacity_fraction_threshold=args.active_threshold,
         )
+        if kernel_order_result["archived_B16_baseline"]["max_relative_reproduction_residual"] > 2.0e-10:
+            raise ArithmeticError("Kernel-order run: same-grid B.16 closure failed")
         kernel_order_compact = compact_run(
             kernel_order_result,
             "kernel_16x10x10x10",
@@ -269,10 +276,13 @@ def main():
             "passed": thin_ok and escape_ok and peak_ok and strong_ok,
         }
 
-    kernel_shift = kernel_order_compact["variants"][variant]["luminosity_shift_vs_original_40x100x16x32"]
+    kernel_variant = kernel_order_compact["variants"][variant]
+    kernel_shift = kernel_variant["luminosity_shift_vs_original_40x100x16x32"]
+    kernel_thin_shift = kernel_variant["thin_luminosity_shift_vs_original_40x100x16x32"]
+    kernel_escape_shift = kernel_variant["escape_fraction_shift_vs_original_40x100x16x32"]
     kernel_acceptance = {
-        "Lthin_max_change_below_1pct": kernel_order_compact["variants"][variant]["thin_luminosity_ratio_vs_B16"] is not None
-            and kernel_order_compact["variants"][variant]["luminosity_shift_vs_original_40x100x16x32"]["maximum_absolute_relative_shift"] < 0.01,
+        "Lthin_max_change_below_1pct": kernel_thin_shift["maximum_absolute_relative_shift"] < 0.01,
+        "Pesc_max_change_below_1pct": kernel_escape_shift["maximum_absolute_relative_shift"] < 0.01,
         "peak_Ltotal_change_below_1pct": abs(kernel_shift["reference_peak_relative_shift"]) < 0.01,
         "strong_endpoint_Ltotal_change_below_2pct": abs(kernel_shift["strong_endpoint_relative_shift"]) < 0.02,
     }
