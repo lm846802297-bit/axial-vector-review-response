@@ -1,4 +1,4 @@
-ifrom reference import (
+ifrom blinov_reproduction.reference import (
     ALPHA,
     M_MU,
     compton_production,
