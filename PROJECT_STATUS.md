@@ -17,14 +17,14 @@
 **合并结论：** PR #67 已成功合并；正式回复信 TeX、58 页 PDF、项目状态记录和完整修改/审查清单均进入 main。论文正文、bibliography、图表和科研脚本未修改。
 ## 2026-11-09 更新：回复信文献库单文件化（独立 PR）
 
-- 正式回复信 `Replies_to_Referee_3_referee_facing_2026-11-04.tex` 的文献调用统一为 `\\bibliography{references}`。
+- 正式回复信 `Replies_to_Referee_3_referee_facing_2026-11-04.tex` 的文献调用统一为 `\bibliography{references}`。
 - 新增仓库根目录 `references.bib`，合并原论文文献库中的 166 条记录，以及回复信专用的 2+2 条补充记录；共 168 条实际文献记录，168 个 citation keys 唯一；已排除两项 REVTeX 专用 `@CONTROL` 控制条目。
 - 正式回复信的 41 个实际引用键均在合并文献库中找到；未发现缺失或重复键。
 - 删除不再单独调用的 `Replies_to_Referee_3_neutrino_references.bib` 和 `Replies_to_Referee_3_additional_references.bib`。原论文目录 `overleaf-source/axial-vector-model-building-v6/references.bib` 保持原样，论文正文及历史版本不受影响。
 - 根目录现有 `JHEP.bst` 继续作为回复信的文献样式文件。
 - **后续约定：** 独立回复信/Overleaf 项目默认维护单一 `references.bib`；只有在确有独立文献体系时才拆分。论文正文继续使用其项目目录下自己的 `references.bib`。
 
-**构建验收：** GitHub Actions [Run #133](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42565134337) 成功。LaTeX/BibTeX 编译通过；BibTeX 无 missing-entry/database warning（`warning$ -- 0`）；最终 LaTeX 日志无未解析引用/交叉引用；PDF 字体全部嵌入，无 Overfull 警告，保留一处轻微 Underfull `\\hbox`。PDF 为 58 页 A4、444,658 bytes；所有页面均已由工作流渲染。新 PDF SHA-256：`a58f2fcf38ddc8d7aa6a3dff6f1ccd3f5a258534778f130ba497632c5334c38b`。
+**构建验收：** GitHub Actions [Run #133](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42565134337) 成功。LaTeX/BibTeX 编译通过；BibTeX 无 missing-entry/database warning（`warning$ -- 0`）；最终 LaTeX 日志无未解析引用/交叉引用；PDF 字体全部嵌入，无 Overfull 警告，保留一处轻微 Underfull `\hbox`。PDF 为 58 页 A4、444,658 bytes；所有页面均已由工作流渲染。新 PDF SHA-256：`a58f2fcf38ddc8d7aa6a3dff6f1ccd3f5a258534778f130ba497632c5334c38b`。
 **工作流清理：** 为本次 PR 临时增加的分支白名单和 `references.bib` 触发路径已恢复；PR 最终 diff 不包含 workflow 修改。
 **当前状态：** PR #70 保持 Open；单文件文献库源码、更新后的 58 页 PDF 和状态记录均已提交到 PR 分支，等待最终审查与合并。
 
@@ -96,7 +96,7 @@ PR #64 在独立审查基础上精简 Major 1.3、2、3、4.2–4.4 和 Minor 5�
 - **长期规范：** 在审稿回复写作原则新增强制 §2.2「论证充分性原则：从结论陈述到可复核的物理论证」，并同步 §5、§6、§6.1、§7。覆盖物理原因、公式来源、benchmark/近似/数值意义、实验适用性映射和多子问题逐项回答；强调不机械增加篇幅。
 - **内部记录：** Minor Points 论证扩充与复核记录、全信结尾修订审查记录均已写入 2026-11-06 目录。
 - **静态验收：** 78 次引用出现、39 个唯一 citation keys 全部解析；LaTeX 环境配对、花括号、标签和交叉引用检查通过；Minor 6.3 与 main 原段落逐字一致。
-- **完整 LaTeX/PDF 验收：** 已通过 GitHub Actions Run [#3](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42146091113) 对 PR 分支源码完成 `latexmk -g -pdf -bibtex` 编译；最终 PDF 为 59 页 A4，根目录文件为 [Replies_to_Referee_3_referee_facing_2026-11-04.pdf](Replies_to_Referee_3_referee_facing_2026-11-04.pdf)，生成提交为 `8c21ff02a216e636e1655ddb0d1c38488ec6714b`。最终 LaTeX `.log` 无未解析引用/交叉引用，BibTeX `.blg` 无缺失条目或数据库错误；59 页均以 150 dpi 渲染并完成人工页面预览检查。未发现公式/表格裁切、缺字、溢出页边距、空白页或异常分页。仅有一处非阻塞 `Underfull \\hbox`（badness 1199，TeX 第 555–557 行），未发现 `Overfull`。
+- **完整 LaTeX/PDF 验收：** 已通过 GitHub Actions Run [#3](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42146091113) 对 PR 分支源码完成 `latexmk -g -pdf -bibtex` 编译；最终 PDF 为 59 页 A4，根目录文件为 [Replies_to_Referee_3_referee_facing_2026-11-04.pdf](Replies_to_Referee_3_referee_facing_2026-11-04.pdf)，生成提交为 `8c21ff02a216e636e1655ddb0d1c38488ec6714b`。最终 LaTeX `.log` 无未解析引用/交叉引用，BibTeX `.blg` 无缺失条目或数据库错误；59 页均以 150 dpi 渲染并完成人工页面预览检查。未发现公式/表格裁切、缺字、溢出页边距、空白页或异常分页。仅有一处非阻塞 `Underfull \hbox`（badness 1199，TeX 第 555–557 行），未发现 `Overfull`。
 - **本轮未涉及：** 论文正文、图表和 BibTeX 数据库均未修改；完整数值脚本 clean-environment 重跑、detector-level collider 模拟和全仓库测试套件仍未执行。Actions 仅用于正式回复信编译、引用检查和页面渲染。
 
 **下一步：** 作者审阅 PR #55 的实际 TeX diff 与已编译 PDF，再决定是否合并。仅用于视觉检查的临时页面预览文件已在审阅后清理。PR #55 保持 Open、未合并。
