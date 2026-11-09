@@ -35,7 +35,9 @@ try:
         local_rates,
     )
     from .audit_b16_b1_independent import (
-        radial_state,
+        read_profile_direct,
+        interpolate_profile,
+        composite_gauss,
         log_energy_rule,
         sha256,
     )
@@ -52,7 +54,9 @@ except ImportError:
         local_rates,
     )
     from audit_b16_b1_independent import (
-        radial_state,
+        read_profile_direct,
+        interpolate_profile,
+        composite_gauss,
         log_energy_rule,
         sha256,
     )
@@ -159,16 +163,11 @@ def run(profile_path: Path = DEFAULT_PROFILE, output_path: Path = DEFAULT_OUTPUT
             f"Unexpected profile SHA-256 {profile_sha}; expected {EXPECTED_PROFILE_SHA256}"
         )
 
-    state = radial_state(
-        __import__("audit_b16_b1_independent").read_profile_direct(profile_path),
-        RADIUS_KM,
-        RADIAL_PANELS,
-        RADIAL_ORDER,
-    )
-    radii = np.asarray(state["radii_km"], float)
+    profile_table = read_profile_direct(profile_path)
+    radial_edges = np.linspace(0.0, RADIUS_KM, RADIAL_PANELS + 1)
+    radii, _ = composite_gauss(radial_edges, RADIAL_ORDER)
+    profile = interpolate_profile(profile_table, radii)
     nr = len(radii)
-    z512, _ = leggauss(NEUTRINO_ANGULAR_ORDER)
-    del z512
 
     residuals = {
         key: [] for key in (
@@ -198,12 +197,12 @@ def run(profile_path: Path = DEFAULT_PROFILE, output_path: Path = DEFAULT_OUTPUT
     channel_max_by_radius = []
 
     for ir, radius in enumerate(radii):
-        temperature = float(state["T"][ir])
-        mu_mu = float(state["mu_mu"][ir])
-        mu_numu = float(state["mu_numu"][ir])
+        temperature = float(profile["T"][ir])
+        mu_mu = float(profile["mu_mu"][ir])
+        mu_numu = float(profile["mu_numu"][ir])
         omega, _ = log_energy_rule(
             MASS_MEV,
-            MASS_MEV / float(state["lapse"][ir]),
+            MASS_MEV / float(profile["lapse"][ir]),
             ENERGY_OFFSET_MEV,
             ENERGY_PANELS,
             ENERGY_ORDER,
