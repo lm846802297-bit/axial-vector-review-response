@@ -72,8 +72,8 @@ jobs:
                   "angular_order": 16,
                   "path_order": 32,
               }
-              assert list(map(int, result["opacity_grid_orders"])) == [40, 80, 120, 160, 240, 320]
-              assert len(result["configurations"]) == 6
+              assert list(map(int, result["opacity_grid_orders"])) == [40, 80, 120, 160, 240, 320, 480, 640]
+              assert len(result["configurations"]) == 8
               assert all(x["profile_sha256"] == d["profile_sha256"] for x in result["configurations"].values())
           print(json.dumps({
               str(x["mass_MeV"]): {
