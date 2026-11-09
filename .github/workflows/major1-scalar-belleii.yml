@@ -12,6 +12,7 @@ on:
       - "research/radial-scalar-collider-recast-2026-10-28/belleii_resolution_promptness.py"
       - "research/radial-scalar-collider-recast-2026-10-28/narrow_prompt_benchmark_recast.py"
       - "research/radial-scalar-collider-recast-2026-10-28/test_*.py"
+      - ".github/workflows/major1-scalar-belleii.yml"
   workflow_dispatch:
 
 permissions:
