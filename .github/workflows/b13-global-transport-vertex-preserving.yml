@@ -61,19 +61,19 @@ jobs:
         env:
           PYTHONPATH: ${{ github.workspace }}/research/stellar-cooling-constraints-20261105
         run: |
-          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b13_global_transport.py \\
-            --baseline research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_redshift_audit_2026-11-09.json \\
-            --mass 0.1 --nr 40 --ne 100 --na 16 --ns 32 --energy-offset 1000 \\
-            --kernel-orders 12,8,8,8 --refined-orders 16,10,10,10 --active-threshold 1e-8 \\
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b13_global_transport.py \
+            --baseline research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_redshift_audit_2026-11-09.json \
+            --mass 0.1 --nr 40 --ne 100 --na 16 --ns 32 --energy-offset 1000 \
+            --kernel-orders 12,8,8,8 --refined-orders 16,10,10,10 --active-threshold 1e-8 \
             --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_vertex_preserving_0p1mev_2026-11-09.json
       - name: Run full 1 MeV B.13 source-and-opacity replacement
         env:
           PYTHONPATH: ${{ github.workspace }}/research/stellar-cooling-constraints-20261105
         run: |
-          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b13_global_transport.py \\
-            --baseline research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_redshift_audit_2026-11-09.json \\
-            --mass 1 --nr 40 --ne 100 --na 16 --ns 32 --energy-offset 1000 \\
-            --kernel-orders 12,8,8,8 --refined-orders 16,10,10,10 --active-threshold 1e-8 \\
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b13_global_transport.py \
+            --baseline research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_redshift_audit_2026-11-09.json \
+            --mass 1 --nr 40 --ne 100 --na 16 --ns 32 --energy-offset 1000 \
+            --kernel-orders 12,8,8,8 --refined-orders 16,10,10,10 --active-threshold 1e-8 \
             --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_vertex_preserving_1mev_2026-11-09.json
       - name: Run full 10 MeV B.13 source-and-opacity replacement
         env:
@@ -129,9 +129,9 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add \\
-            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_vertex_preserving_0p1mev_2026-11-09.json \\
-            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_vertex_preserving_1mev_2026-11-09.json \\
+          git add \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_vertex_preserving_0p1mev_2026-11-09.json \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_vertex_preserving_1mev_2026-11-09.json \
             research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_vertex_preserving_10mev_2026-11-09.json
           if git diff --cached --quiet; then
             echo "Global B.13 transport output is already current."
