@@ -9,17 +9,19 @@ test_mixed_hs_local_uv_pole_vanishes (test_independent_fermion_tadpole_uv_audit.
 test_trace_invariant_matches_independent_svd_spectrum (test_independent_fermion_tadpole_uv_audit.IndependentFermionTadpoleUVTests.test_trace_invariant_matches_independent_svd_spectrum) ... ok
 
 ----------------------------------------------------------------------
-Ran 9 tests in 2.129s
+Ran 9 tests in 1.070s
 
 OK
 test_c5_normalization_reproduces_seesaw_masses (test_scalar_potential_counterterm_map.ScalarPotentialCountertermMapTests.test_c5_normalization_reproduces_seesaw_masses) ... ok
 test_counterterm_potential_derivatives_reconstruct_target_matrix (test_scalar_potential_counterterm_map.ScalarPotentialCountertermMapTests.test_counterterm_potential_derivatives_reconstruct_target_matrix) ... ok
 test_dimension8_coefficient_has_correct_mass_dimension_and_scaling (test_scalar_potential_counterterm_map.ScalarPotentialCountertermMapTests.test_dimension8_coefficient_has_correct_mass_dimension_and_scaling) ... ok
+test_exact_heavy_eigenvalue_cw_matches_dimension8_background_expansion (test_scalar_potential_counterterm_map.ScalarPotentialCountertermMapTests.test_exact_heavy_eigenvalue_cw_matches_dimension8_background_expansion) ... ok
+test_finite_heavy_cw_matching_coefficients_and_c8_running (test_scalar_potential_counterterm_map.ScalarPotentialCountertermMapTests.test_finite_heavy_cw_matching_coefficients_and_c8_running) ... ok
 test_full_theory_potential_counterterms_cancel_tadpoles_and_local_poles (test_scalar_potential_counterterm_map.ScalarPotentialCountertermMapTests.test_full_theory_potential_counterterms_cancel_tadpoles_and_local_poles) ... ok
 test_leading_eft5_contact_completes_mixed_two_point_uv_pole (test_scalar_potential_counterterm_map.ScalarPotentialCountertermMapTests.test_leading_eft5_contact_completes_mixed_two_point_uv_pole) ... ok
 test_plan_c_scale_residual_is_twice_eft5_mixed_uv_pole (test_scalar_potential_counterterm_map.ScalarPotentialCountertermMapTests.test_plan_c_scale_residual_is_twice_eft5_mixed_uv_pole) ... ok
 
 ----------------------------------------------------------------------
-Ran 6 tests in 0.002s
+Ran 8 tests in 0.018s
 
 OK
