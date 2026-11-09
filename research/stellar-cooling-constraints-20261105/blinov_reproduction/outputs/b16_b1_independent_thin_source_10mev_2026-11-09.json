@@ -14,14 +14,14 @@
     "The local neutrino inverse-decay and muon-Compton production kernels are shared with the Appendix-B reference implementation.",
     "The single negative-muon density convention printed in Eq. (B.17) is retained."
   ],
-  "run_commit_sha": "a85671ed17d08fba4e26b7c3b5cb42c187a154d7",
-  "code_sha256": "af97a7089c1260945a4a4981d2819227b191ce72116316ef583793bb8350e01b",
+  "run_commit_sha": "759443555066aa1c39043499d052336592cd1c3a",
+  "code_sha256": "390e9648ab0dc047c9e5c5bbf6aced92e9f496c3f677cb5ce431e4b375554cf5",
   "profile": {
     "path": "sfho188_digitized.csv",
     "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
     "number_of_profile_rows": 1687
   },
-  "baseline_reference_sha256": "2a4e1e31db3ec82d532d1ee4f8bbadf5bded34cd74353e3ebbf6dbf431eba4ac",
+  "baseline_reference_sha256": "cf5363afa65808cdf335c6250ef791ba1058d1b01117ee974de215fedef12108",
   "configuration": {
     "mass_MeV": 10.0,
     "radius_km": 25.0,
@@ -1698,6 +1698,45 @@
     "energy_gauss_order": 4,
     "energy_upper_MeV": 2010.0
   },
+  "equivalent_infinity_energy_variable_source": {
+    "total_erg_s_per_g2": 4.304368168932088e+70,
+    "channels_erg_s_per_g2": {
+      "neutrino": 2.924014280393587e+70,
+      "dimuon": 0.0,
+      "compton": 1.3803538885385007e+70
+    },
+    "channel_fractions": {
+      "neutrino": 0.6793132384674785,
+      "dimuon": 0.0,
+      "compton": 0.3206867615325215
+    },
+    "number_of_radial_nodes": 400,
+    "number_of_energy_nodes_per_radius": 960,
+    "energy_variable": "E_infinity = N(r) * omega_local",
+    "energy_upper_local_MeV": 2010.0
+  },
+  "local_vs_infinity_energy_variable_comparison": {
+    "neutrino": {
+      "local_energy_integral_erg_s_per_g2": 2.924014280393587e+70,
+      "infinity_energy_integral_erg_s_per_g2": 2.924014280393587e+70,
+      "relative_difference": 0.0
+    },
+    "dimuon": {
+      "local_energy_integral_erg_s_per_g2": 0.0,
+      "infinity_energy_integral_erg_s_per_g2": 0.0,
+      "relative_difference": 0.0
+    },
+    "compton": {
+      "local_energy_integral_erg_s_per_g2": 1.3803538885385007e+70,
+      "infinity_energy_integral_erg_s_per_g2": 1.3803538885385007e+70,
+      "relative_difference": 0.0
+    },
+    "total": {
+      "local_energy_integral_erg_s_per_g2": 4.304368168932088e+70,
+      "infinity_energy_integral_erg_s_per_g2": 4.304368168932088e+70,
+      "relative_difference": 0.0
+    }
+  },
   "comparison_with_archived_b16_b1": {
     "neutrino": {
       "independent_erg_s_per_g2": 2.924014280393587e+70,
@@ -1725,13 +1764,13 @@
     "dimuon_channel_expected_closed_for_10MeV": true,
     "dimuon_channel_value": 0.0
   },
-  "elapsed_seconds": 4.4178242683410645,
+  "elapsed_seconds": 4.262819766998291,
   "limitations": [
     "The escape factor is set to one; this validates the B.1 optically-thin source, not the full B.1+B.2 luminosity.",
     "The profile is reconstructed from public figures and is not the original Garching simulation table.",
     "The local production kernels are shared and are not independently re-derived in this audit.",
     "The single negative-muon density convention is retained; this audit does not revisit the physical species-counting convention.",
-    "The source-energy variable follows the literal Appendix-B lower limit and N(r)^2 prefactor; this audit does not resolve the main-text versus Appendix-B energy-language issue."
+    "The local-energy and E_infinity forms are compared by an exact change of variables; this tests B.1 measure/Jacobian consistency but does not resolve the B.2 path-energy convention."
   ],
   "production_axial_outputs_modified": false
 }
