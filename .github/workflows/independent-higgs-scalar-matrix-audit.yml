@@ -57,18 +57,18 @@ jobs:
             --reference-json research/major1-higgs-scalar-mixing-20261109/fermion_sector_matrix_audit.json \
             --output research/major1-higgs-scalar-mixing-20261109/independent_fermion_sector_matrix_audit.json
 
+      - name: Independently derive fermion-sector tadpole and local mass UV poles
+        run: |
+          python research/major1-higgs-scalar-mixing-20261109/independent_fermion_tadpole_uv_audit.py \
+            --reference-json research/major1-higgs-scalar-mixing-20261109/independent_fermion_sector_matrix_audit.json \
+            --output research/major1-higgs-scalar-mixing-20261109/independent_fermion_tadpole_uv_audit.json
+
       - name: Map local UV poles onto scalar-potential counterterms
         run: |
           python research/major1-higgs-scalar-mixing-20261109/scalar_potential_counterterm_map.py \
             --tadpole-json research/major1-higgs-scalar-mixing-20261109/independent_fermion_tadpole_uv_audit.json \
             --matrix-json research/major1-higgs-scalar-mixing-20261109/independent_fermion_sector_matrix_audit.json \
             --output research/major1-higgs-scalar-mixing-20261109/scalar_potential_counterterm_map.json
-
-      - name: Independently derive fermion-sector tadpole and local mass UV poles
-        run: |
-          python research/major1-higgs-scalar-mixing-20261109/independent_fermion_tadpole_uv_audit.py \
-            --reference-json research/major1-higgs-scalar-mixing-20261109/independent_fermion_sector_matrix_audit.json \
-            --output research/major1-higgs-scalar-mixing-20261109/independent_fermion_tadpole_uv_audit.json
 
       - name: Hash independent validation records
         run: |
