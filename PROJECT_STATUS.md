@@ -24,7 +24,9 @@
 - 根目录现有 `JHEP.bst` 继续作为回复信的文献样式文件。
 - **后续约定：** 独立回复信/Overleaf 项目默认维护单一 `references.bib`；只有在确有独立文献体系时才拆分。论文正文继续使用其项目目录下自己的 `references.bib`。
 
-**当前状态：** 本项整理在独立分支和 PR 中进行；不直接改动 main，合并后再更新为已完成。
+**构建验收：** GitHub Actions [Run #133](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42565134337) 成功。LaTeX/BibTeX 编译通过；BibTeX 无 missing-entry/database warning（`warning$ -- 0`）；最终 LaTeX 日志无未解析引用/交叉引用；PDF 字体全部嵌入，无 Overfull 警告，保留一处轻微 Underfull `\\hbox`。PDF 为 58 页 A4、444,658 bytes；所有页面均已由工作流渲染。新 PDF SHA-256：`a58f2fcf38ddc8d7aa6a3dff6f1ccd3f5a258534778f130ba497632c5334c38b`。
+**工作流清理：** 为本次 PR 临时增加的分支白名单和 `references.bib` 触发路径已恢复；PR 最终 diff 不包含 workflow 修改。
+**当前状态：** PR #70 保持 Open；单文件文献库源码、更新后的 58 页 PDF 和状态记录均已提交到 PR 分支，等待最终审查与合并。
 
 
 ## 2026-11-09 更新：PR #64 已合并
