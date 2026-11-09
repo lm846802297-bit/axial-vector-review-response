@@ -42,14 +42,14 @@ The optically thin B.13/B.16 source ratio changes from \(0.7889823\) on the orig
 
 The original-grid global summary allows the final luminosity ratio to be factorized exactly:
 
-[
-rac{L_{mathrm{B13}}}{L_{mathrm{B16}}}
+\[
+\frac{L_{\mathrm{B13}}}{L_{\mathrm{B16}}}
 =
-rac{L_{mathrm{thin,B13}}}{L_{mathrm{thin,B16}}}
-rac{f_{mathrm{esc,B13}}}{f_{mathrm{esc,B16}}}.
-]
+\frac{L_{\mathrm{thin,B13}}}{L_{\mathrm{thin,B16}}}
+\frac{f_{\mathrm{esc,B13}}}{f_{\mathrm{esc,B16}}}.
+\]
 
-The B.13/B.16 optically thin source ratio is coupling-independent and equals (0.7889823) for the (mu^-)-only comparison. The endpoint decomposition is:
+The B.13/B.16 optically thin source ratio is coupling-independent and equals \(0.7889823\) for the \(\mu^-\)-only comparison. The endpoint decomposition is:
 
 | Point | Thin-source ratio B.13/B.16 | Escape-fraction ratio B.13/B.16 | Final luminosity ratio B.13/B.16 |
 |---|---:|---:|---:|
@@ -57,11 +57,26 @@ The B.13/B.16 optically thin source ratio is coupling-independent and equals (0.
 | Fig. 7 reference peak | 0.788982 | 1.033801 | 0.815650 |
 | Strong endpoint | 0.788982 | 1.526494 | 1.204376 |
 
-Thus the weak-coupling B.13 reduction is almost entirely a source-normalization effect. At the strong endpoint, the lower B.13 thin source is more than compensated by the larger escape fraction. This is consistent with the lower exact B.13 Compton opacity relative to the B.16 approximate Compton opacity; it is not a universal multiplicative rescaling of the luminosity curve.
+Across all 25 stored coupling points, the optically thin ratio remains constant to the reported numerical precision, whereas the escape-fraction ratio rises monotonically from approximately 1 at weak coupling to 1.5265 at the strong endpoint. The B.13 luminosity therefore crosses the B.16 luminosity between the two stored points
 
-The B.16 fixed-(omega) baseline itself differs from digitized Fig. 7 by (-8.89%) at the weak endpoint, (+2.57%) at the reference peak, and (+92.24%) at the strong endpoint. The corresponding B.13 differences are (-28.11%), (-16.34%), and (+131.53%). Consequently, the full B.13-to-Fig. 7 discrepancy must not be attributed to the B.13 collision-kernel replacement: the B.16 reference already contains a large strong-endpoint mismatch.
+\[
+g=2.8754\times10^{-8}
+\quad\text{and}\quad
+g=3.4634\times10^{-8}.
+\]
 
-This establishes two separate validation questions for subsequent work: (i) why the fixed-(omega) B.16 baseline departs from Fig. 7 in the strong-absorption tail, and (ii) what additional change the exact B.13 Compton source and opacity produce relative to that internally matched B.16 baseline. The first question remains distinct from the numerical quadrature convergence test and must not be hidden by tuning the B.13 result.
+A log-linear interpolation of these two sampled luminosity ratios places the crossing near \(g\simeq2.95\times10^{-8}\). This is only a diagnostic interpolation between existing grid points, not a new physical boundary or a fit to Fig. 7. At the crossing, the escape-fraction ratio compensates the fixed source ratio, requiring approximately
+
+\[
+\frac{f_{\mathrm{esc,B13}}}{f_{\mathrm{esc,B16}}}
+\simeq \frac{1}{0.7889823}=1.26746.
+\]
+
+Thus the weak-coupling B.13 reduction is almost entirely a source-normalization effect. At strong coupling, the lower B.13 thin source is more than compensated by the larger escape fraction. This is consistent with the lower exact B.13 Compton opacity relative to the B.16 approximate Compton opacity; it is not a universal multiplicative rescaling of the luminosity curve.
+
+The B.16 fixed-\(\omega\) baseline itself differs from digitized Fig. 7 by \(-8.89\%\) at the weak endpoint, \(+2.57\%\) at the reference peak, and \(+92.24\%\) at the strong endpoint. The corresponding B.13 differences are \(-28.11\%\), \(-16.34\%\), and \(+131.53\%\). Consequently, the full B.13-to-Fig. 7 discrepancy must not be attributed to the B.13 collision-kernel replacement: the B.16 reference already contains a large strong-endpoint mismatch.
+
+This establishes two separate validation questions for subsequent work: (i) why the fixed-\(\omega\) B.16 baseline departs from Fig. 7 in the strong-absorption tail, and (ii) what additional change the exact B.13 Compton source and opacity produce relative to that internally matched B.16 baseline. The first question remains distinct from the numerical quadrature convergence test and must not be hidden by tuning the B.13 result.
 
 ## 3. Angular and path quadrature: in progress
 
