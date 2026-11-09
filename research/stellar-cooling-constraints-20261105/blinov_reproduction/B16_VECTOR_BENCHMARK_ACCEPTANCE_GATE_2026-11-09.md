@@ -100,12 +100,14 @@ The source-level convention and implementation ambiguity is documented in:
 8. B.1 source/background audit to the limit of public figure data: B.17's one-\(\mu^-\)-species \(n_\mu F_{\rm deg}\) product is independently checked; the Fig. 3 density discrepancy is not explained by the \(\mu^+\) fraction and is not a permitted standalone normalization; the density-only source-weighted estimate is about 1% over 5--15 km.
 9. Strong-endpoint emission-radius decomposition: 8--15 km supplies 79.61% of the thin source and 86.84% of the escaped luminosity; 22--25 km emission supplies 0.073% and 3.36%, respectively. Fig. 7 itself contains no radius-resolved reference distribution.
 10. The 10 MeV global B.13 source-plus-opacity alternative and its radial/energy/angular/path convergence scans. The combined \(60\times140\times24\times48\) grid changes the B.13 luminosity curve by at most 0.2732% relative to \(40\times100\times16\times32\); the strong-endpoint residual changes from \(+131.53\%\) to approximately \(+131.12\%\). The full artifact upload hit the Actions storage quota, so the compact recovered scan summary is the archived numerical record. B.13 is a separate moving-muon alternative, not the operational Fig. 7 benchmark. The 0.1 and 1 MeV global outputs remain baseline-grid comparisons and are not described here as independently grid-converged.
+11. P1 high-energy B.2 propagation audit: direct \(s\)-coordinate integration agrees with the analytic radial primitive at \(\leq8.3\times10^{-14}\) for four-point path quadrature across 108 rays; Simpson/Gauss angular averages agree below \(6\times10^{-7}\); using all 1687 retained profile vertices rather than the 642-node opacity grid changes sampled total optical depths by at most \(1.87\times10^{-5}\). A separate 36-ray fixed-\(\omega\)/path-redshift comparison shows that the redshift sensitivity is carried by neutrino inverse-decay opacity, with negligible semi-Compton change. See [B16_P1_B2_HIGH_ENERGY_PROPAGATION_AUDIT_2026-11-10.md](B16_P1_B2_HIGH_ENERGY_PROPAGATION_AUDIT_2026-11-10.md).
+
 
 ### Still unresolved
 
 1. The exact same-snapshot Garching thermodynamic profile remains unavailable. The public-figure reconstruction is internally consistent for the validated \(T\) and \(\mu_\mu/T\) ranges, but the Bollig Fig. 3 absolute-density tension remains unresolved at the raw-profile level. The 20--25 km continuation is also not directly validated by the original Bollig Fig. 1/Fig. 4 frames.
 2. The unpublished Fig. 7 numerical code is unavailable. The text supports B.14 in the low-mass Compton regime, but does not identify the Compton implementation for every plotted mass point. B.16 remains the adopted equation-level reproduction benchmark; B.13 remains a separately completed alternative.
-3. The B.2 path-energy convention remains a paper-level ambiguity: the literal fixed-\(\omega\) expression is the reproduction baseline, while path redshift is a separate diagnostic.
+3. The displayed B.2 equation uses fixed \(\omega\), which remains the literal reproduction baseline. The path-redshift alternative is a separately quantified physical sensitivity; the unpublished numerical code is unavailable, so its exact implementation cannot be independently inferred.
 4. The B.16 physical reproduction still fails at the 10 MeV strong endpoint: \(+92.2406\%\) for fixed \(\omega\). The path-redshift-only diagnostic gives \(+36.7448\%\), but is not the literal published baseline.
 5. The scalar versus polarization-resolved interpretation of the B.2 absorption rate remains a separate transport-prescription question; the mode-resolved result is not silently substituted for the published scalar baseline.
 6. A same-snapshot spatial metric \(A(r)\) or enclosed mass \(M(r)\) is needed only for an optional full-GR extension, not for the published Euclidean-chord B.2 approximation.
@@ -121,7 +123,7 @@ The protected Garching endpoint limits raw-profile precision. This does not prev
 - **Axial-vector recalculation:** frozen.
 - **PR #57:** keep Open / Draft; do not merge as a validated reproduction.
 
-The next action is P1: independently evaluate the B.2 path integral and angular average over the dominant 8--22 km path region, while retaining the 22--25 km contribution and the fixed-\(\omega\) prescription. The B.13 global alternative and its 10 MeV quadrature-convergence study are complete and are not a prerequisite for this work. Keep the unresolved Fig. 3 density tension explicit; do not use it as a source normalization, and do not apply empirical rescaling, profile swapping, or opacity tuning.
+The P1 high-energy B.2 numerical propagation audit is now complete for the targeted 210--510 MeV rays: direct path-coordinate integration, angular integration, and the 642-node versus 1687-vertex opacity-interpolation checks all pass at substantially sub-percent precision. The path-redshift alternative is channel-resolved and is found to act almost entirely through neutrino inverse-decay opacity, but it remains separate from the literal fixed-\(\omega\) Eq. (B.2) baseline. Do not repeat generic path/angle quadrature refinements. The next useful step is a source/profile provenance and equation-to-code reconciliation; keep the Fig. 3 density tension explicit and do not rescale the source or opacity.
 
 
 ## 7. Official data and metric-source availability
@@ -154,3 +156,15 @@ This qualification does not change any numerical result. The current B.16 fixed-
 The B.13 convergence scans are complete as a separate alternative-kernel study. Their residuals (+131.53% at the 10 MeV strong endpoint) are not evidence that the published Fig. 7 baseline itself fails because B.13 is not the operational benchmark adopted here.
 
 No source, opacity, profile, coupling, luminosity, or axial-vector production result is changed by this wording adjudication.
+
+
+## 8. P1 high-energy B.2 propagation audit (2026-11-10)
+
+The direct calculation is archived in [B16_P1_B2_HIGH_ENERGY_PROPAGATION_AUDIT_2026-11-10.md](B16_P1_B2_HIGH_ENERGY_PROPAGATION_AUDIT_2026-11-10.md), with its machine-readable output in \`outputs/b16_p1_b2_high_energy_propagation_audit_2026-11-10.json\`.
+
+The key results are:
+- Direct \(s\)-coordinate integration and the analytic radial primitive agree to \(8.3\times10^{-14}\) or better with four Gauss points per profile segment, including central, near-central, tangent, inward, and outward rays.
+- The 642-node opacity interpolation grid agrees with an opacity table evaluated at all 1687 retained profile vertices: the maximum sampled change in total optical depth is \(1.87\times10^{-5}\), and the maximum sampled angular escape-average change is \(2.18\times10^{-5}\).
+- In a separate 36-ray path-redshift diagnostic, the neutrino inverse-decay optical depth changes by a mean \(+4.98\%\) over the selected rays, while the semi-Compton optical depth changes by a mean \(+2.56\times10^{-6}\). These are unweighted ray diagnostics, not global source-weighted averages.
+
+The P1 numerical propagation checks do not explain the \(+92.2406\%\) fixed-\(\omega\) strong-endpoint mismatch. The path-redshift branch remains a physical sensitivity and is not substituted for the displayed Eq. (B.2) baseline. No source, opacity, or axial-vector result is modified.
