@@ -110,7 +110,7 @@ y_{s\ell\ell}=\frac{m_\ell}{v_s}
 \xi=\frac{v_h}{v_s},
 \qquad \ell=\mu,\tau.
 \]
-At fixed \((m_{A'},g_X)\), this Yukawa coupling is independent of \(m_s\); changing \(m_s\) changes the scalar self-coupling and the kinematically open decay channels, not the mass-proportional Yukawa normalization. In the minimal benchmark with negligible Higgs--scalar mixing, the radial scalar has no direct tree-level Yukawa coupling to electrons; the mixing-induced electron coupling and its loop corrections are neglected in this comparison. We therefore use the \(s\to\mu^+\mu^-\) channel for the \(m_s=1\,\mathrm{GeV}\) Belle comparison and do not directly apply the experimental \(s\to e^+e^-\) limits to this benchmark.
+At fixed \((m_{A'},g_X)\), this Yukawa coupling is independent of \(m_s\); changing \(m_s\) changes the scalar self-coupling and the kinematically open decay channels, not the mass-proportional Yukawa normalization. In the minimal benchmark, the radial scalar has no direct tree-level Yukawa coupling to electrons. The electron coupling induced by Higgs--scalar mixing, together with loop corrections to it, is neglected in this comparison. We therefore use the \(s\to\mu^+\mu^-\) channel for the \(m_s=1\,\mathrm{GeV}\) Belle comparison and do not directly apply the experimental \(s\to e^+e^-\) limits to this benchmark.
 
 For \(m_s>2m_{A'}\), the gauge completion predicts the two-vector partial width
 \[
@@ -162,9 +162,7 @@ y_{s\mu\mu}=\frac{2g_Xm_\mu}{m_{A'}}.
 \]
 The entries probe different observables. In particular, fifth-force and photon-mediated gamma-ray interpretations involve loop-induced couplings and the source-specific assumptions discussed below.
 
-\noindent\textbf{Binary-pulsar constraint.}
-
-The binary-pulsar entry uses Liu and Tang's scalar-mediator result, whose coupling has the same Yukawa normalization as \(y_{s\mu\mu}\). We quote the \(\mathcal O(10^{-21})\) best-sensitivity point separately from the reported mass interval; it is not a uniform limit across that interval. The \(L_\mu-L_\tau\) vector-mediator result of Dror et al. is a distinct constraint~\cite{Liu:2025zuz,Dror:2019uea}.
+\noindent\textbf{Summary of selected low-mass constraints.}
 
 \begin{center}
 \small
@@ -194,6 +192,10 @@ Scalar-mass range & Published constraint & Source-reported bound / applicability
 \end{center}
 
 The entries refer to distinct observables and source assumptions and are not combined into a single exclusion band.
+
+\noindent\textbf{Binary-pulsar constraint.}
+
+The binary-pulsar entry uses Liu and Tang's scalar-mediator result, whose coupling has the same Yukawa normalization as \(y_{s\mu\mu}\). We quote the \(\mathcal O(10^{-21})\) best-sensitivity point separately from the reported mass interval; it is not a uniform limit across that interval. The \(L_\mu-L_\tau\) vector-mediator result of Dror et al. is a distinct constraint~\cite{Liu:2025zuz,Dror:2019uea}.
 
 \Needspace{7\baselineskip}
 \noindent\textbf{Neutron-star and supernova neutrino cooling.}
@@ -296,24 +298,73 @@ We agree that a vanishing Higgs-portal coupling is not enforced by the gauge sym
 
 Generic singlet--Higgs mixing is constrained by the \(125\) GeV Higgs signal strengths and direct searches for additional scalar states; representative analyses are cited above. For the original one-singlet \(S+\mathrm{VLL}\) UV model considered here, we complement these general results with the model-specific VLL threshold matching and the finite-momentum \(h\)-\(s\) self-energy, evaluated using the full charged-lepton/VLL mass-eigenstate matrices as detailed below.
 
-In the \(\overline{\mathrm{MS}}\) scheme, with \(\mathcal L\supset -V\) and \(V\supset\lambda_{HS}(H^\dagger H)(S^\dagger S)\), the zero-momentum effective-potential matching for the vector-like-lepton (VLL) sector gives
+In the \(\overline{\mathrm{MS}}\) scheme, with \(\mathcal L\supset -V\) and \(V\supset\lambda_{HS}(H^\dagger H)(S^\dagger S)\), this threshold follows from the fermionic Coleman--Weinberg effective potential~\cite{ColemanWeinberg:1973,Jackiw:1974}. For constant neutral Higgs and singlet backgrounds, the charged-lepton/VLL mass matrix for each flavour is
 \[
-\lambda_{HS}^{\mathrm{EFT}}(\mu_R)
-=\lambda_{HS}^{\mathrm{UV}}(\mu_R)
--\sum_{\ell=\mu,\tau}
-\frac{|y_\ell|^2|\lambda_\ell|^2}{8\pi^2}
-+\cdots,
+\mathcal M_\ell(H,S)=
+\begin{pmatrix}
+0&y_\ell H^0\\
+\lambda_\ell S_\ell&M_E
+\end{pmatrix},
+\qquad
+S_\mu=S,\quad S_\tau=S^*,
 \]
-where \(y_\ell\) and \(\lambda_\ell\) are the Yukawa couplings in the VLL interaction. This is a conditional zero-momentum threshold relation; it does not determine the finite-momentum off-diagonal self-energy or a physical scalar mixing angle.
-
-To make the portal assumption explicit, we have evaluated the leading VLL threshold at the matching scale \(\mu_M=M_E\),
+where \(H^0\) is the neutral Higgs background. Defining
+\[
+X_\ell=|y_\ell|^2H^\dagger H,\qquad
+Z_\ell=|\lambda_\ell|^2S^\dagger S,
+\]
+the two eigenvalues of \(\mathcal M_\ell^\dagger\mathcal M_\ell\) are
+\[
+m_{\ell,\pm}^2
+=\frac12\left[
+M_E^2+X_\ell+Z_\ell
+\pm\sqrt{(M_E^2+X_\ell+Z_\ell)^2-4X_\ell Z_\ell}
+\right].
+\]
+The one-loop contribution of these two Dirac mass eigenstates is
+\[
+V_{1,\ell}^{F}
+=-\frac{1}{16\pi^2}\sum_{a=\pm}
+m_{\ell,a}^4
+\left[
+\ln\!\left(\frac{m_{\ell,a}^2}{\mu_R^2}\right)-\frac32
+\right],
+\]
+where the factor of four Dirac degrees of freedom is included. In the matching expansion \(X_\ell,Z_\ell\ll M_E^2\),
+\[
+m_{\ell,+}^2
+=M_E^2+X_\ell+Z_\ell-\frac{X_\ell Z_\ell}{M_E^2}
++\mathcal O(M_E^{-4}\Phi^6),
+\qquad
+m_{\ell,-}^2
+=\frac{X_\ell Z_\ell}{M_E^2}
++\mathcal O(M_E^{-4}\Phi^6),
+\]
+with \(\Phi\) denoting the background scalar fields. To display the mixed term explicitly, set \(f(t)=t^2[\ln(t/\mu_R^2)-3/2]\). The coefficient of \(X_\ell Z_\ell\) in the heavy-eigenstate contribution is
+\[
+-\frac{f'(M_E^2)}{M_E^2}X_\ell Z_\ell
++f''(M_E^2)X_\ell Z_\ell
+=2X_\ell Z_\ell,
+\]
+so the logarithms cancel. The light-eigenstate contribution starts at order \(X_\ell^2Z_\ell^2/M_E^4\) and does not contribute to the dimension-four portal coefficient. Thus
+\[
+\left.\Delta V_{\mathrm{VLL}}^{(1)}\right|_{(H^\dagger H)(S^\dagger S)}
+=-\frac{1}{8\pi^2}\sum_{\ell=\mu,\tau}X_\ell Z_\ell
+=-\frac{1}{8\pi^2}\sum_{\ell=\mu,\tau}
+|y_\ell|^2|\lambda_\ell|^2
+(H^\dagger H)(S^\dagger S),
+\]
+which gives the finite one-loop threshold
 \[
 \Delta\lambda_{HS}^{E}
-=-\frac{1}{8\pi^2}\sum_{\ell=\mu,\tau}|y_\ell|^2|\lambda_\ell|^2,
-\qquad
+=-\frac{1}{8\pi^2}\sum_{\ell=\mu,\tau}|y_\ell|^2|\lambda_\ell|^2.
+\]
+At this order the mixed quartic coefficient is independent of \(M_E\) and \(\mu_R\); the \(M_E\)-dependence first appears in higher-dimensional terms. This is a zero-external-momentum matching coefficient, not an RG beta-function contribution. At the matching scale \(\mu_M=M_E\), the coupling relation is
+\[
 \lambda_{HS}^{\mathrm{EFT}}(\mu_M)
 =\lambda_{HS}^{\mathrm{UV}}(\mu_M)+\Delta\lambda_{HS}^{E}.
 \]
+The finite-momentum \(h\)-\(s\) self-energy and the associated mixing diagnostics are evaluated separately below.
 We use \(\lambda_{HS}^{\mathrm{EFT}}(M_E)=0\) as an explicit small-portal reference condition, which requires a nonzero UV portal \(\lambda_{HS}^{\mathrm{UV}}=-\Delta\lambda_{HS}^{E}\). This condition is a benchmark choice, not a symmetry prediction. In the leading charged-lepton/VLL mass-mixing approximation,
 \[
 \theta_{\ell L}\simeq\frac{y_\ell v_h}{\sqrt2M_E},
@@ -1460,7 +1511,7 @@ The intermediate-mass range refers specifically to the direct BaBar and Belle se
 e^+e^-\to\tau^+\tau^-s,\qquad
 s\to e^+e^-\ \text{or}\ \mu^+\mu^-,
 \]
-which cover approximately \(0.04\,\mathrm{GeV}\lesssim m_s\lesssim6.5\text{--}7\,\mathrm{GeV}\)~\cite{BaBar:2020jma,Belle:2022gbl}. These searches provide direct experimental coverage of the intermediate-mass scalar region. For the present minimal UV benchmark with negligible portal mixing, the tree-level radial-scalar Yukawa couplings are \(y_{s\ell\ell}=m_\ell/v_s\) for \(\ell=\mu,\tau\). Accordingly, the UV translation uses the dimuon channel above threshold; the generic low-mass \(s\to e^+e^-\) search channel is not treated as a direct constraint on this benchmark. In the mass-proportional benchmark, the Belle limit \(\xi^{\rm lim}=0.483\) at \(m_s=1\,\mathrm{GeV}\)~\cite{Belle:2022gbl} gives
+which cover approximately \(0.04\,\mathrm{GeV}\lesssim m_s\lesssim6.5\text{--}7\,\mathrm{GeV}\)~\cite{BaBar:2020jma,Belle:2022gbl}. These searches provide direct experimental coverage of the intermediate-mass scalar region. For the present minimal UV benchmark with negligible Higgs--scalar mixing, the radial scalar has tree-level Yukawa couplings \(y_{s\ell\ell}=m_\ell/v_s\) for \(\ell=\mu,\tau\), but no direct tree-level Yukawa coupling to electrons. The electron coupling induced by Higgs--scalar mixing, together with loop corrections to it, is neglected in this comparison. Accordingly, the UV translation uses the dimuon channel above threshold; the generic low-mass \(s\to e^+e^-\) search channel is not treated as a direct constraint on this benchmark. In the mass-proportional benchmark, the Belle limit \(\xi^{\rm lim}=0.483\) at \(m_s=1\,\mathrm{GeV}\)~\cite{Belle:2022gbl} gives
 \[
 v_s>\frac{v_h}{0.483}\simeq509\,\mathrm{GeV},
 \qquad
@@ -1597,5 +1648,5 @@ The response also quantifies the momentum-dependent kinetic mixing and compares 
 \noindent Rundong Fang, Jinhui Guo, Ming Li, Jia Liu, Xiao-Ping Wang, Yiheng Xiong
 
 \bibliographystyle{JHEP}
-\bibliography{overleaf-source/axial-vector-model-building-v6/references,Replies_to_Referee_3_neutrino_references}
+\bibliography{overleaf-source/axial-vector-model-building-v6/references,Replies_to_Referee_3_neutrino_references,Replies_to_Referee_3_additional_references}
 \end{document}
