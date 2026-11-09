@@ -1,15 +1,18 @@
-## 2026-11-09 更新：PR #72 Major Point 3 选择性恢复（编译待验收）
+## 2026-11-09 最终更新：PR #72 Major Point 3 选择性恢复与重新编译（构建通过）
 
-- Major Point 3 继续采用两部分结构：原始单 VEV \(S\)-only 模型，以及可选的 \(\sigma+3N_R\) type-I seesaw 完成机制。原模型的残余 \(Z_2\)、Weinberg 算符选择规则、\(M_\nu^{(S)}\) 分块纹理和 \(U_{\rm PMNS}=\operatorname{diag}(1,U_{23})\) 结论保留。
-- 扩展部分保留 \(m_D\)、\(M_R\)、完整 \(6\times6\) 质量矩阵、type-I seesaw、轻/重 Takagi 对角化和解析逆构造；不加入数值 benchmark 或全局扫描。
-- 本轮恢复新增右手中微子的线性与立方 \(U(1)_X\) anomaly cancellation 求和公式，并逐项核对 Dirac Yukawa、四个标量辅助 Majorana 项及两个裸 Majorana 项的规范电荷。
-- 恢复双单态 seesaw 的具体文献对应：Borah et al. 的 Table I、Eq. (4)、其后展示的 \(M_R,M_D\) 矩阵及 Eq. (8)；He et al. 的 Sec. II、Eqs. (1)--(5)。纠正旧记录中将 Borah et al. 的 Eq. (7) 误列为中微子质量矩阵依据的问题；该式实际给出带电轻子质量矩阵。
+- Major Point 3 保持两部分结构：原始单 VEV \(S\)-only 模型，以及可选的 \(\sigma+3N_R\) type-I seesaw 完成机制。原模型的残余 \(Z_2\)、Weinberg 算符选择规则、\(M_\nu^{(S)}\) 分块纹理和 \(U_{\rm PMNS}=\operatorname{diag}(1,U_{23})\) 结论保留。
+- 扩展部分给出新增场及电荷、三个 Dirac Yukawa 项、四个标量辅助 Majorana 项、两个裸 Majorana 项、\(m_D\)、\(M_R\)、完整 \(6\times6\) 质量矩阵、type-I seesaw、轻/重 Takagi 对角化和解析逆构造；不加入数值 benchmark 或全局扫描。
+- 显式写出新增右手中微子的线性与立方 \(U(1)_X\) anomaly cancellation 求和，并逐项展示 Dirac Yukawa 与 Majorana 项的规范电荷抵消。
+- 恢复双单态 seesaw 的具体文献对应：Borah et al. 的 Table I、Eq. (4)、其后展示的 \(M_R,M_D\) 矩阵及 Eq. (8)；He et al. 的 Sec. II、Eqs. (1)--(5)。修正旧记录中将 Borah et al. 的 Eq. (7) 误列为中微子质量矩阵依据的问题；该式实际给出带电轻子质量矩阵。
 - 恢复 Asai et al. 单电荷一标量模型的 \((M_\nu^{-1})_{\mu\mu}=(M_\nu^{-1})_{\tau\tau}=0\) two-zero-minor 结构，并说明现有电荷二标量 \(S\) 允许 \(M_R\) 的两个对角项，因此该预测不适用于当前双单态构造。
 - 恢复双 VEV 关系 \(m_{A'}^2=g_X^2(4v_s^2+v_\sigma^2)\)、\(r_\sigma=v_\sigma^2/(4v_s^2)\) 及 \(v_s=m_{A'}/[2g_X\sqrt{1+r_\sigma}]\)。同时说明 \(r_\sigma\to0\) 会恢复残余 \(Z_2\)，因此不是完整 PMNS 混合的扩展极限。
 - 恢复含 \(\kappa S^\dagger\sigma^2+\mathrm{h.c.}\) 的可重整化扩展标量势，并说明该项固定两个 singlet VEV 的相对相位。未将 \(m_s^2=2\lambda_Sv_s^2\) 当作扩展模型的一般质量关系；未加入 \(y_{s\ell\ell}\) 的扩展标量唯象映射、标量质量对角化或新实验扫描。
-- Major Point 4.1 继续引用 Major Point 3 的结论与方程，不重复 seesaw 推导。原论文正文、原论文 bibliography、图表和科研计算均不修改；所有非中微子现象学仍以原始单 VEV \(S+\mathrm{VLL}\) 模型为基准。
-- 英文写作参照用户原论文 axial_vector_model_building-v6.pdf：采用直接陈述、模型定义先行、方程紧接物理结论的组织方式，避免泛化解释和无关免责声明。
-- **当前构建状态：** 本轮 TeX 已更新，正式 PDF 尚待重新编译和结构检查。为触发 PR #72 构建而临时加入的 Actions 分支白名单仍在 PR 分支中；构建结束后恢复 workflow 至 main 原样，确保最终 PR diff 不保留临时 workflow 修改。
+- Major Point 4.1 引用 Major Point 3 的结论与方程，不重复 seesaw 推导。原论文正文、原论文 bibliography、图表和科研计算均不修改；所有非中微子现象学仍以原始单 VEV \(S+\mathrm{VLL}\) 模型为基准。
+- 英文写作参照用户原论文 axial_vector_model_building-v6.pdf，采用直接陈述、模型定义先行、方程紧接物理结论的组织方式。
+
+**最终构建：** GitHub Actions [Run #152](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42573218957) 成功。58 页 A4 PDF，441,891 bytes；SHA-256：7d5f3dbb4b959dcb43268a1ebe5ec2cb046cb7502d33244b1e3864b53a6fbc23。LaTeX/BibTeX、PDF 结构、字体嵌入、引用与交叉引用检查均通过；BibTeX missing-entry/database warnings 为 0，无 Overfull box，保留一处原有 Underfull \hbox（badness 1199，源码第 609--611 行）。58 页均以 150 dpi 渲染，生成 10 份联系表。
+**工作流清理：** 临时分支白名单已恢复为 main 原样；最终 PR diff 不包含 workflow 修改。
+**当前状态：** PR #72 保持 Open、未合并；最终 PDF 已提交到 PR 分支。
 
 # PROJECT_STATUS — Axial-vector paper revision and referee response
 
