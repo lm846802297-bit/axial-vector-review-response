@@ -32,7 +32,7 @@ from blinov_reproduction.audit_b16_global_redshift import eq_b1_source_measure  
 from moving_muon_compton import moving_muon_compton_rates  # noqa: E402
 
 DEFAULT_FIG7 = ROOT / "outputs" / "vector_audit" / "luminosity_comparison.json"
-DEFAULT_BASELINE = HERE / "outputs" / "b16_global_fig7_vertex_preserving_10mev_2026-11-09.json"
+DEFAULT_BASELINE = HERE / "outputs" / "b16_global_redshift_audit_2026-11-09.json"
 DEFAULT_OUTPUT = HERE / "outputs" / "b13_global_transport_vertex_preserving_10mev_2026-11-09.json"
 MASS_MEV = 10.0
 BASE_ORDERS = (12, 8, 8, 8)
@@ -116,6 +116,22 @@ def _relative_residual(a, b):
     return float(abs(a - b) / max(abs(a), abs(b), 1.0e-300))
 
 
+
+def _select_archived_baseline_result(archived, mass):
+    """Select the B.16 baseline matching mass from a multi-mass archive."""
+    results = archived.get("results", [])
+    matches = [
+        item for item in results
+        if np.isclose(float(item.get("mass_MeV", np.nan)),
+                      float(mass), rtol=0.0, atol=1.0e-12)
+    ]
+    if len(matches) != 1:
+        raise ValueError(
+            f"Expected exactly one archived B.16 result for {mass} MeV; "
+            f"found {len(matches)}"
+        )
+    return matches[0]
+
 def run(
     profile_path=DEFAULT_PROFILE,
     fig7_path=DEFAULT_FIG7,
@@ -171,7 +187,7 @@ def run(
 
     # Reproduce the archived B.16 calculation before introducing B.13.
     archived = json.loads(Path(baseline_path).read_text(encoding="utf-8"))
-    archived_result = archived["results"][0]
+    archived_result = _select_archived_baseline_result(archived, mass)
     if float(archived_result["mass_MeV"]) != float(mass):
         raise ValueError("Archived B.16 baseline has a different mediator mass")
     if archived_result["profile"]["sha256"] != sha256(profile_path):
@@ -595,7 +611,7 @@ def run(
     inactive_radii = radial_grid[~active_radius_mask]
     ratio_array = np.asarray(ratio_samples, float)
     output = {
-        "title": "Global B.13 exact moving-muon Compton replacement in the 10 MeV vector B.1/B.2 benchmark",
+        "title": f"Global B.13 exact moving-muon Compton replacement in the {mass:g} MeV vector B.1/B.2 benchmark",
         "mass_MeV": float(mass),
         "profile": {
             "path": str(profile_path),
