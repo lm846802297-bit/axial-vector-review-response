@@ -21,7 +21,7 @@ permissions:
   actions: read
 
 concurrency:
-  group: b13-global-convergence-${{ github.ref }}
+  group: b13-global-grid-scan-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
