@@ -1,8 +1,9 @@
 """Inspect the original Bollig et al. SFHo-18.8 Fig. 3/4 vector paths.
 
-Updated 2026-11-09: this first-stage audit downloads the consolidated arXiv v7 PDF, extracts the
-muon-density and muon-degeneracy plot geometry from page 3, and archives all
-candidate vector paths with coordinates/colors. It does not modify any
+Updated 2026-11-10: archive the full candidate vector inventory so the
+Caputo/Bollig muon-degeneracy comparison can be extended from 12--15 km to the
+full 5--15 km high-muon-density region. Keep curve identification explicit;
+this extractor does not silently select a physical curve or modify any
 profile, opacity, transport, luminosity, or axial output.
 """
 from __future__ import annotations
