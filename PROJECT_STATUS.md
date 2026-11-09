@@ -1,7 +1,7 @@
 ## 2026-11-10 update: RC-001 derivative-operator interface added to PR #69
 
 - Added [RC001_UPSTREAM_INTERFACE.md](research/major1-higgs-scalar-mixing-20261109/RC001_UPSTREAM_INTERFACE.md) to the existing PR #69 branch. No new PR was opened.
-- The interface pins high-energy-theory-research PR #11 at head commit \`df9c007e8d4bd1716beae3b14591e12b6a551a8d\` and maps the RC-001 charged-lepton/VLL/Higgs/singlet interactions to the original one-VEV axial \(S+\mathrm{VLL}\) model.
+- The interface pins high-energy-theory-research PR #11 at head commit df9c007e8d4bd1716beae3b14591e12b6a551a8d and maps the RC-001 charged-lepton/VLL/Higgs/singlet interactions to the original one-VEV axial \(S+\mathrm{VLL}\) model.
 - The interface keeps the upstream repository as the sole source for calculation scripts and validation artifacts. It distinguishes the fermionic QLD8 derivative operator, the bosonic Higgs higher-derivative source, and PR #69's scalar-potential \(O_8^{\rm pot}=(H^\dagger H)^2(S^\dagger S)^2\).
 - It records two coefficient-level convention checks before transfer: the opposite displayed signs in the original manuscript's Eq. (5-d) and the RC-001 Schur-complement convention for \(C_{5,\ell}\), and the opposite sign conventions displayed for the SM covariant derivative. These are internal audit items; no manuscript or formal reply edit is made.
 - The upstream non-Abelian IBP/EOM result is treated as a restricted algebraic mapping, not a complete dimension-eight basis or a new scalar self-energy contribution. The latest workflow on the pinned upstream head has no successful CI status; the reported failed run has no retrievable step/log detail.
