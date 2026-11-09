@@ -26,14 +26,14 @@
     {
       "B13_both_charge_metrics_vs_fig7": {
         "maximum_absolute_relative_difference": 1.318371244887948,
-        "mean_absolute_relative_difference": 0.30226947935445847,
+        "mean_absolute_relative_difference": 0.3022694793544585,
         "reference_peak_relative_difference": -0.1625913287834636,
         "strong_endpoint_relative_difference": 1.318371244887948,
         "weak_endpoint_relative_difference": -0.2803412179422715
       },
       "B13_both_charge_shift_vs_40x100": {
         "maximum_absolute_relative_shift_vs_40x100": 0.001064818159406844,
-        "mean_absolute_relative_shift_vs_40x100": 0.00019305707468208588,
+        "mean_absolute_relative_shift_vs_40x100": 0.00019305707468209477,
         "reference_peak_relative_shift_vs_40x100": 0.00015947669106264328,
         "strong_endpoint_relative_shift_vs_40x100": 0.001064818159406844,
         "weak_endpoint_relative_shift_vs_40x100": 0.00010713958108654609
@@ -58,7 +58,7 @@
         "B13_mu_minus_over_B16_mu_minus_production_ratio": {
           "maximum": 0.8194300484838272,
           "median": 0.5323961471750036,
-          "minimum": 0.09935789286378213
+          "minimum": 0.09935789286378212
         },
         "angle_weight_residual": 0.0,
         "maximum_residuals": {
@@ -92,10 +92,10 @@
       },
       "B16_baseline_closure_residual": 0.0,
       "B16_metrics_vs_fig7": {
-        "maximum_absolute_relative_difference": 0.9262999837610466,
-        "mean_absolute_relative_difference": 0.15752330094274045,
+        "maximum_absolute_relative_difference": 0.926299983761047,
+        "mean_absolute_relative_difference": 0.15752330094274047,
         "reference_peak_relative_difference": 0.026150896674468127,
-        "strong_endpoint_relative_difference": 0.9262999837610466,
+        "strong_endpoint_relative_difference": 0.926299983761047,
         "weak_endpoint_relative_difference": -0.0885718384901224
       },
       "active_energy_node_count": 98,
@@ -106,7 +106,7 @@
         "radial_order": 60
       },
       "exact_B13_kernel_evaluations": 3822,
-      "wall_time_seconds": 660.1959280967712
+      "wall_time_seconds": 442.78196382522583
     },
     {
       "B13_both_charge_metrics_vs_fig7": {
@@ -118,7 +118,7 @@
       },
       "B13_both_charge_shift_vs_40x100": {
         "maximum_absolute_relative_shift_vs_40x100": 0.0028410370375514526,
-        "mean_absolute_relative_shift_vs_40x100": 0.002836583229683809,
+        "mean_absolute_relative_shift_vs_40x100": 0.0028365832296838134,
         "reference_peak_relative_shift_vs_40x100": -0.002834126807619186,
         "strong_endpoint_relative_shift_vs_40x100": -0.0028410370375514526,
         "weak_endpoint_relative_shift_vs_40x100": -0.0028387254613511104
@@ -132,13 +132,13 @@
       },
       "B13_mu_minus_shift_vs_40x100": {
         "maximum_absolute_relative_shift_vs_40x100": 0.002841039110090371,
-        "mean_absolute_relative_shift_vs_40x100": 0.0028365842248578234,
+        "mean_absolute_relative_shift_vs_40x100": 0.002836584224857832,
         "reference_peak_relative_shift_vs_40x100": -0.00283412682705686,
         "strong_endpoint_relative_shift_vs_40x100": -0.002841039110090371,
         "weak_endpoint_relative_shift_vs_40x100": -0.0028387273374101962
       },
       "B13_mu_minus_strong_escape_fraction": 0.0004944623630206026,
-      "B13_mu_minus_thin_source_ratio_vs_B16": 0.7889817522183349,
+      "B13_mu_minus_thin_source_ratio_vs_B16": 0.7889817522183351,
       "B13_numerical_validation": {
         "B13_mu_minus_over_B16_mu_minus_production_ratio": {
           "maximum": 0.8233730350692408,
@@ -150,10 +150,10 @@
           "final_muon_shell": 3.7117270388590294e-13,
           "mu_minus_absorption_vs_production": 1.3734379829952775e-14,
           "mu_minus_mode_detailed_balance": 1.3869832828132552e-14,
-          "mu_plus_absorption_vs_production": 2.1045104467629005e-14,
+          "mu_plus_absorption_vs_production": 2.1438470906276274e-14,
           "mu_plus_mode_detailed_balance": 2.1651740477952865e-14
         },
-        "mu_plus_fraction_of_exact_Compton_reduced_absorption_unweighted_grid_sum": 0.0019172413843986803,
+        "mu_plus_fraction_of_exact_Compton_reduced_absorption_unweighted_grid_sum": 0.0019172413843986812,
         "refinement_checks": [
           {
             "mu_minus_relative_refinement_change": 0.0020604649798785543,
@@ -191,12 +191,12 @@
         "radial_order": 40
       },
       "exact_B13_kernel_evaluations": 2538,
-      "wall_time_seconds": 397.2429893016815
+      "wall_time_seconds": 259.9298083782196
     },
     {
       "B13_both_charge_metrics_vs_fig7": {
         "maximum_absolute_relative_difference": 1.3117838706701588,
-        "mean_absolute_relative_difference": 0.3031138827579079,
+        "mean_absolute_relative_difference": 0.30311388275790796,
         "reference_peak_relative_difference": -0.16496465041358543,
         "strong_endpoint_relative_difference": 1.3117838706701588,
         "weak_endpoint_relative_difference": -0.28238413575895915
@@ -209,17 +209,17 @@
         "weak_endpoint_relative_shift_vs_40x100": -0.0027318957297934876
       },
       "B13_mu_minus_metrics_vs_fig7": {
-        "maximum_absolute_relative_difference": 1.3111759028531869,
-        "mean_absolute_relative_difference": 0.30352624035057674,
+        "maximum_absolute_relative_difference": 1.3111759028531873,
+        "mean_absolute_relative_difference": 0.3035262403505768,
         "reference_peak_relative_difference": -0.1656356366879056,
-        "strong_endpoint_relative_difference": 1.3111759028531869,
+        "strong_endpoint_relative_difference": 1.3111759028531873,
         "weak_endpoint_relative_difference": -0.2830541174378095
       },
       "B13_mu_minus_shift_vs_40x100": {
         "maximum_absolute_relative_shift_vs_40x100": 0.002731613022686097,
-        "mean_absolute_relative_shift_vs_40x100": 0.002644248487719283,
+        "mean_absolute_relative_shift_vs_40x100": 0.0026442484877192874,
         "reference_peak_relative_shift_vs_40x100": -0.002675289123060809,
-        "strong_endpoint_relative_shift_vs_40x100": -0.0017814353051801568,
+        "strong_endpoint_relative_shift_vs_40x100": -0.0017814353051799348,
         "weak_endpoint_relative_shift_vs_40x100": -0.002731613022686097
       },
       "B13_mu_minus_strong_escape_fraction": 0.0004949346930554131,
@@ -228,7 +228,7 @@
         "B13_mu_minus_over_B16_mu_minus_production_ratio": {
           "maximum": 0.8194300484838272,
           "median": 0.5239242903412028,
-          "minimum": 0.09935789286378213
+          "minimum": 0.09935789286378212
         },
         "angle_weight_residual": 0.0,
         "maximum_residuals": {
@@ -238,7 +238,7 @@
           "mu_plus_absorption_vs_production": 1.6864150772155603e-14,
           "mu_plus_mode_detailed_balance": 1.686748409599529e-14
         },
-        "mu_plus_fraction_of_exact_Compton_reduced_absorption_unweighted_grid_sum": 0.002260947124148697,
+        "mu_plus_fraction_of_exact_Compton_reduced_absorption_unweighted_grid_sum": 0.0022609471241486967,
         "refinement_checks": [
           {
             "mu_minus_relative_refinement_change": 0.0020694913662458567,
@@ -276,7 +276,7 @@
         "radial_order": 60
       },
       "exact_B13_kernel_evaluations": 4446,
-      "wall_time_seconds": 691.7630355358124
+      "wall_time_seconds": 454.55692315101624
     }
   ],
   "mass_MeV": 10.0,
