@@ -380,6 +380,47 @@ def finite_heavy_potential_matching(by_flavour: dict) -> dict:
     }
 
 
+def finite_potential_hs_mass_contributions(coefficients: dict, vh: float, vs: float) -> dict:
+    """Evaluate the mixed second derivative of the matched potential at a VEV.
+
+    The result is a local curvature contribution in the fixed background-field
+    basis. It is not a physical mixing angle and depends on the finite portal
+    renormalization condition.
+    """
+    terms = {
+        "dimension4_portal_GeV2":
+            float(coefficients["delta_lambda_HS_finite_at_mu_ME"])*vh*vs,
+        "dimension6_H2S_GeV2":
+            float(coefficients["c_(HdagH)^2(SdagS)_GeVminus2"])*vh**3*vs,
+        "dimension6_HS2_GeV2":
+            float(coefficients["c_(HdagH)(SdagS)^2_GeVminus2"])*vh*vs**3,
+        "dimension8_H3S_GeV2":
+            0.75*float(coefficients["c_(HdagH)^3(SdagS)_GeVminus4"])*vh**5*vs,
+        "dimension8_H2S2_GeV2":
+            float(coefficients["c_(HdagH)^2(SdagS)^2_GeVminus4"])*vh**3*vs**3,
+        "dimension8_HS3_GeV2":
+            0.75*float(coefficients["c_(HdagH)(SdagS)^3_GeVminus4"])*vh*vs**5,
+    }
+    terms["dimension6_sum_GeV2"] = (
+        terms["dimension6_H2S_GeV2"] + terms["dimension6_HS2_GeV2"]
+    )
+    terms["dimension8_sum_GeV2"] = (
+        terms["dimension8_H3S_GeV2"]
+        + terms["dimension8_H2S2_GeV2"]
+        + terms["dimension8_HS3_GeV2"]
+    )
+    terms["higher_dimensional_sum_GeV2"] = (
+        terms["dimension6_sum_GeV2"] + terms["dimension8_sum_GeV2"]
+    )
+    terms["total_including_portal_GeV2"] = (
+        terms["dimension4_portal_GeV2"] + terms["higher_dimensional_sum_GeV2"]
+    )
+    terms["additional_delta_lambda_HS_for_zero_local_hs_curvature"] = (
+        -terms["higher_dimensional_sum_GeV2"]/(vh*vs)
+    )
+    return terms
+
+
 def run_mapping(tadpole_json: Path, matrix_json: Path) -> dict:
     tadpole = json.loads(tadpole_json.read_text(encoding="utf-8"))
     matrix = json.loads(matrix_json.read_text(encoding="utf-8"))
@@ -402,6 +443,11 @@ def run_mapping(tadpole_json: Path, matrix_json: Path) -> dict:
         )
         finite_hard = finite_heavy_potential_matching(
             t["couplings_and_invariants"]["by_flavour"]
+        )
+        finite_hard["local_hs_mass_contribution_at_benchmark_vev_GeV2"] = (
+            finite_potential_hs_mass_contributions(
+                finite_hard["finite_potential_wilson_coefficients_at_mu_ME"], VH, vs
+            )
         )
         plan_c_scale = plan_c_scale_dependence(
             VH, vs, 125.25**2, t["couplings_and_invariants"]["by_flavour"],
