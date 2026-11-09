@@ -17,7 +17,7 @@
       "The literal fixed-omega Eq. (B.2) convention."
     ]
   },
-  "run_commit_sha": "d77f8d9c4e4996aaaad453f8e65248fda2ef84b9",
+  "run_commit_sha": "e8cf8cfbd1c791582aceb9ffaa6c390cd014c7b8",
   "code_sha256": "85bb5bc4a3dfc8a5060a297eab32d795a96ebf737bc3b0d3e05fe5938e45d771",
   "profile": {
     "path": "sfho188_digitized.csv",
@@ -664,7 +664,7 @@
     "archived_b16_thin_source_erg_s_per_g2": 4.323522412104892e+70,
     "relative_difference_vs_archived_b16_thin_source": -0.004451556902100973
   },
-  "elapsed_seconds": 9.304359912872314,
+  "elapsed_seconds": 9.358743906021118,
   "limitations": [
     "The radial profile is reconstructed from public figures, not the original Garching simulation table.",
     "The local production and absorption kernels are shared and are not independently re-derived by this end-to-end integration.",
