@@ -145,20 +145,56 @@ def run():
 
     # Extended extraction exposes PDF clipping paths and their frame rectangles.
     clips = []
+    extended_types = {}
     try:
         extended = page.get_drawings(extended=True)
         for i,d in enumerate(extended):
-            if d.get("type") == "clip":
-                rect = [float(x) for x in d["rect"]]
-                if rect[0] < 400 and rect[2] > 250 and rect[1] < 250 and rect[3] > 150:
-                    clips.append({
-                        "extended_drawing_index": i,
-                        "rect_pdf": rect,
-                        "level": d.get("level"),
-                        "seqno": d.get("seqno"),
-                    })
+            kind = d.get("type", "unknown")
+            extended_types[kind] = extended_types.get(kind, 0) + 1
+            if kind != "clip":
+                continue
+            rect_obj = d.get("rect") or d.get("scissor")
+            rect = None
+            if rect_obj is not None:
+                try:
+                    rect = [float(x) for x in rect_obj]
+                except TypeError:
+                    rect = None
+            coords = []
+            for item in d.get("items", []):
+                if item[0] == "l":
+                    coords.extend([
+                        (float(item[1].x),float(item[1].y)),
+                        (float(item[2].x),float(item[2].y)),
+                    ])
+                elif item[0] == "re":
+                    q = item[1]
+                    coords.extend([
+                        (float(q.x0),float(q.y0)),(float(q.x1),float(q.y1))
+                    ])
+                elif item[0] == "qu":
+                    q = item[1]
+                    for name in ("ul","ur","ll","lr"):
+                        pt = getattr(q,name,None)
+                        if pt is not None:
+                            coords.append((float(pt.x),float(pt.y)))
+            if rect is None and coords:
+                rect = [
+                    min(x for x,y in coords), min(y for x,y in coords),
+                    max(x for x,y in coords), max(y for x,y in coords),
+                ]
+            clips.append({
+                "extended_drawing_index": i,
+                "rect_pdf": rect,
+                "keys": sorted(d.keys()),
+                "item_kinds": [x[0] for x in d.get("items", [])],
+                "level": d.get("level"),
+                "seqno": d.get("seqno"),
+            })
     except Exception as exc:
         clips = [{"inspection_error": str(exc)}]
+    if not clips:
+        clips = [{"note":"No clip objects returned by get_drawings(extended=True)","extended_type_counts":extended_types}]
 
     return {
         "source": "Caputo et al., arXiv:2109.03244v3, figures/SNProfile.pdf",
