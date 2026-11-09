@@ -84,3 +84,18 @@ The P1 follow-up now includes a global Shapley decomposition over the full B.1 s
 The Shapley attribution of the global luminosity change is 99.9860% from neutrino inverse decay and 0.0140% from semi-Compton absorption. This is source weighted and supersedes the 36-ray unweighted channel sample as the global attribution. The direct local-rate evaluation cross-check changes the redshifted band luminosity by about 0.50% relative to bilinear local-energy interpolation, but retains the same greater-than-99.98% neutrino attribution. The fixed-\(\omega\) B.2 baseline is unchanged.
 
 See [B16_P1_B2_HIGH_ENERGY_PROPAGATION_AUDIT_2026-11-10.md](B16_P1_B2_HIGH_ENERGY_PROPAGATION_AUDIT_2026-11-10.md) and its machine-readable JSON result.
+
+
+## P1-B.2 thermodynamic interpolation and input sensitivity (2026-11-10)
+
+The follow-up audit is archived in [B16_P1B2_THERMODYNAMIC_INTERPOLATION_AND_INPUT_SENSITIVITY_2026-11-10.md](B16_P1B2_THERMODYNAMIC_INTERPOLATION_AND_INPUT_SENSITIVITY_2026-11-10.md), with machine-readable results in \`outputs/b16_p1b2_thermodynamic_interpolation_input_sensitivity_2026-11-10.json\` and the reproduction script \`audit_b16_p1b2_thermodynamic_input_sensitivity.py\`.
+
+The 642-node precomputed-opacity interpolation and direct local-kernel recomputation from the 1687-vertex thermodynamic profile agree in total optical depth to \(9.07\times10^{-6}\) or better on the 36-ray high-energy sample. The larger Compton-only relative difference is at most \(1.43\times10^{-3}\), but is subdominant in total \(\tau\) on those rays.
+
+A source-frozen global B.2 sensitivity calculation in the 210--510 MeV band finds:
+- \(\pm10\%\) \(\mu_{\nu_\mu}\) changes the escaped luminosity by less than \(0.03\%\);
+- \(\pm10\%\) \(T\) at fixed \(\mu_\mu\) changes it by \(+16.29\%/-15.33\%\);
+- \(\pm10\%\) \(\mu_\mu\) at fixed \(T\) changes it by \(+19.95\%/-18.91\%\);
+- correlated \(\pm10\%\) \(T,\mu_\mu\) variations at fixed \(\mu_\mu/T\) change it by \(+37.05\%/-32.36\%\).
+
+These broad variations are stress tests, not inferred uncertainties. The actual baseline \(T\) and \(\mu_\mu/T\) match Bollig Figs. 1 and 4 over 5--15 km to maximum relative residuals \(9.90\times10^{-5}\) and \(2.127\times10^{-4}\), respectively. The remaining B.2 normalization issue is the relation between the polarization-summed production rate and the scalar absorption rate in the optical-depth exponent; it is not resolved by these thermodynamic tests.
