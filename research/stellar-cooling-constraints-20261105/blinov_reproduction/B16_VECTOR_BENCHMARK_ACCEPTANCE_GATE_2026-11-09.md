@@ -15,7 +15,7 @@ No axial-vector curve is recalculated or updated. PR #57 remains Open / Draft.
 | B.1+B.2 end-to-end | Independent source and path modules reproduce the stored B.16 calculation with mean absolute difference 0.3975% and maximum 0.4451% | 25 Fig. 7 coupling points; radial refinement changes the curve by at most 0.1987% | Internal reproduction pass |
 | Local collision kernels | Full 64,000-point radius--energy grid checked | B.6, B.10, B.17 and B.16 residuals at or below the archived (10^{-13}) scale; angular-order and sign checks pass | Numerical pass |
 | Fig. 7 physical comparison | Strong-endpoint residual remains +92.2406% for the fixed-\(\omega\) B.16 working benchmark | Current profile B; 25 coupling points | **Not passed** |
-| Energy/GR convention | Current-profile path-redshift diagnostic archived; full GR metric unavailable | Run #42568420651; no same-snapshot (A(r)) or (M(r)) | Partial |
+| Energy/GR convention | Published lapse-only source prescription and Euclidean-chord path reconstructed; full-GR extension remains unavailable | B.1--B.5 plus Caputo et al. arXiv:2201.09890 Supplemental C | Published-method prescription understood; Sec. 4.1/B.1 notation ambiguity remains |
 | Stellar-background fidelity | Caputo (T(r)) and (mu_\mu/T) supported by direct Bollig figure comparisons; outer profile remains figure-derived | Original Bollig Figs. 1, 3 and 4 cross-checks; 20--25 km continuation not fully source-validated | Partial |
 
 ## 2. Current 10 MeV Fig. 7 residuals
@@ -66,11 +66,11 @@ The original Bollig figure paths do not fully resolve the 20--25 km continuation
 
 These tests quantify sensitivity; they do not establish the true outer profile. No profile is adjusted to improve Fig. 7 agreement.
 
-### 3.4 Lapse and spatial metric
+### 3.4 Lapse and spatial geometry
 
-The lapse (N(r)) has an independent visual cross-check over 0--20 km against the SFHo-18.8 profile slide in Zuowei Liu's 2026-10-31 presentation (slide 65). This is not a machine-precision metric table. The same-snapshot spatial metric (A(r)) or enclosed mass (M(r)) is not available in the public-figure reconstruction.
+The lapse (N(r)) has an independent visual cross-check over 0--20 km against the SFHo-18.8 profile slide in Zuowei Liu's 2026-10-31 presentation (slide 65). This is not a machine-precision metric table.
 
-A full GR ray calculation therefore cannot be completed from the current public inputs. No (A(r)) is inferred from (N(r)) alone.
+The important distinction is that Blinov's published Appendix-B baseline uses N(r) in B.1 but uses Euclidean straight chords in B.2; it does not require A(r) or M(r). The absence of A(r) limits a full-GR extension, not reproduction of the published approximation. See [B16_PUBLISHED_GRAVITY_AND_ENERGY_PRESCRIPTION_RECONSTRUCTION_2026-11-09.md](B16_PUBLISHED_GRAVITY_AND_ENERGY_PRESCRIPTION_RECONSTRUCTION_2026-11-09.md).
 
 ## 4. Published-prescription boundary
 
@@ -100,10 +100,10 @@ The source-level convention and implementation ambiguity is documented in:
 ### Still unresolved
 
 1. The true same-snapshot thermodynamic continuation over 20--25 km.
-2. The same-snapshot spatial metric (A(r)) or enclosed mass (M(r)), if a full GR extension is required.
-3. The exact unpublished numerical choice between the formal Compton integral B.13 and its reduced B.14--B.16 prescription.
+2. The exact unpublished numerical choice between the formal Compton integral B.13 and its reduced B.14--B.16 prescription; this can be investigated by comparing the published formulas across the Fig. 7 mass range.
+3. A same-snapshot spatial metric (A(r)) or enclosed mass (M(r)) only if a separate full-GR extension is pursued.
 
-The Garching radial-profile endpoint remains access-protected. The project does not request or bypass restricted access. Without an authorized same-snapshot table or author-provided implementation details, these items remain explicit input/provenance limitations.
+The Garching radial-profile endpoint remains access-protected. This limits raw-profile precision and any optional full-GR extension, but it does not prevent the method-level checks of the published B.1--B.5 prescription using the reconstructed profile.
 
 ## 6. Final gate decision
 
