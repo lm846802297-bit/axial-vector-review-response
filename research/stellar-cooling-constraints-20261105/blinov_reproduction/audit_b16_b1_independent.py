@@ -162,15 +162,13 @@ def integrate_one_radius(
     }
 
 
-def radial_state(
+def radial_state_from_edges(
     table: dict[str, np.ndarray],
-    radius_km: float,
-    radial_panels: int,
+    edges: np.ndarray,
     radial_order: int,
 ) -> dict[str, np.ndarray]:
-    """Independent equal-width radial quadrature, unrelated to radial_rule."""
-    edges = np.linspace(0.0, radius_km, int(radial_panels) + 1)
-    radii, weights_km = composite_gauss(edges, radial_order)
+    """Build a radial quadrature state on an explicitly supplied partition."""
+    radii, weights_km = composite_gauss(np.asarray(edges, float), radial_order)
     profile = interpolate_profile(table, radii)
     n_mu, f_deg = negative_muon_density_and_degeneracy(
         profile["T"], profile["mu_mu"]
@@ -192,6 +190,17 @@ def radial_state(
         "n_mu": np.asarray(n_mu, float),
         "F_deg": np.asarray(f_deg, float),
     }
+
+
+def radial_state(
+    table: dict[str, np.ndarray],
+    radius_km: float,
+    radial_panels: int,
+    radial_order: int,
+) -> dict[str, np.ndarray]:
+    """Independent equal-width radial quadrature, unrelated to radial_rule."""
+    edges = np.linspace(0.0, radius_km, int(radial_panels) + 1)
+    return radial_state_from_edges(table, edges, radial_order)
 
 
 def integrate_source(
@@ -254,8 +263,10 @@ def integrate_source(
     }
 
 
-def relative_difference(a: float, b: float) -> float:
-    return float(a / b - 1.0) if b != 0.0 else float("nan")
+def relative_difference(a: float, b: float):
+    if b == 0.0:
+        return 0.0 if a == 0.0 else None
+    return float(a / b - 1.0)
 
 
 def convergence_entry(label: str, result: dict, reference: dict) -> dict:
@@ -343,6 +354,38 @@ def run(
     final = integrate_source(
         final_state, mass_mev, 240, energy_order, 2000.0
     )
+
+    # E. Match the archived 40-node radial rule exactly, but replace its
+    # energy-grid/energy_weights integration with the independent direct
+    # log-energy Gauss integral. This separates radial-rule and energy-rule
+    # contributions to any B.1 source residual.
+    archived_radial_edges = np.array(
+        [0., 5., 8., 10., 12., 15., 18., 20., 22., 24., radius_km]
+    )
+    archived_radial_state = radial_state_from_edges(
+        table, archived_radial_edges, radial_order=4
+    )
+    same_radial_direct_energy = integrate_source(
+        archived_radial_state, mass_mev, 240, energy_order, 2000.0
+    )
+    same_radial_comparison = {
+        name: {
+            "direct_energy_integral_erg_s_per_g2": same_radial_direct_energy["channels_erg_s_per_g2"][name],
+            "archived_erg_s_per_g2": baseline_channels[name],
+            "relative_difference": relative_difference(
+                same_radial_direct_energy["channels_erg_s_per_g2"][name],
+                baseline_channels[name],
+            ),
+        }
+        for name in ("neutrino", "dimuon", "compton")
+    }
+    same_radial_comparison["total"] = {
+        "direct_energy_integral_erg_s_per_g2": same_radial_direct_energy["total_erg_s_per_g2"],
+        "archived_erg_s_per_g2": baseline_total,
+        "relative_difference": relative_difference(
+            same_radial_direct_energy["total_erg_s_per_g2"], baseline_total
+        ),
+    }
 
     radial_reference = radial_results[-1]["result"]
     energy_reference = energy_results[-1]["result"]
@@ -458,6 +501,12 @@ def run(
         "radial_convergence": radial_summary,
         "energy_convergence": energy_summary,
         "high_energy_tail_convergence": tail_summary,
+        "same_radial_grid_independent_energy_check": {
+            "purpose": "Reproduce the archived 40-node radial quadrature nodes and weights, while replacing the archived energy grid/energy_weights with direct log-energy Gauss integration.",
+            "number_of_radial_nodes": int(len(archived_radial_state["radii_km"])),
+            "result": same_radial_direct_energy,
+            "comparison_with_archived": same_radial_comparison,
+        },
         "final_independent_b1_source": final,
         "comparison_with_archived_b16_b1": final_comparison,
         "closure": {
