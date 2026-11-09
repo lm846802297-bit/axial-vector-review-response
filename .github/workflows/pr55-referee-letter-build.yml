@@ -22,7 +22,7 @@ concurrency:
 
 jobs:
   build-and-inspect:
-    if: github.event.pull_request.head.ref == 'review/response-point-conclusions-20261106' || github.event.pull_request.head.ref == 'codex/major44-axial-cooling-constraints-20261105' || github.event.pull_request.head.ref == 'review/major1-scalar-opening-focus-20261108' || github.event.pull_request.head.ref == 'review/major1-remove-defensive-model-framing-20261108' || github.event.pull_request.head.ref == 'review/major1-streamline-low-mass-constraints-intro-20261108'
+    if: github.event.pull_request.head.ref == 'review/response-point-conclusions-20261106' || github.event.pull_request.head.ref == 'codex/major44-axial-cooling-constraints-20261105' || github.event.pull_request.head.ref == 'review/major1-scalar-opening-focus-20261108' || github.event.pull_request.head.ref == 'review/major1-remove-defensive-model-framing-20261108' || github.event.pull_request.head.ref == 'review/major1-streamline-low-mass-constraints-intro-20261108' || github.event.pull_request.head.ref == 'review/referee-response-style-20261109'
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
@@ -118,6 +118,17 @@ jobs:
               out.write_text(svg, encoding="utf-8")
           print(f"Rendered {len(pages)} pages at 150 dpi into {((len(pages)+5)//6)} contact sheets.")
           PY
+
+      - name: Upload full-page renders and contact sheets for visual inspection
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr67-referee-response-visual-review
+          path: |
+            build/pages/*.png
+            build/review/*.svg
+          if-no-files-found: error
+          retention-days: 1
 
       - name: Commit the compiled PDF
         if: success()
