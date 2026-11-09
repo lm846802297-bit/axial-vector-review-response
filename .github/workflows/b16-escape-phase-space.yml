@@ -47,9 +47,7 @@ jobs:
           python -m pip install numpy scipy
       - name: Run phase-space binning regression tests
         run: |
-          python -m unittest discover \\
-            -s research/stellar-cooling-constraints-20261105/blinov_reproduction \\
-            -p 'test_b16_escape_phase_space.py' -v
+          python -m unittest discover -s research/stellar-cooling-constraints-20261105/blinov_reproduction -p 'test_b16_escape_phase_space.py' -v
       - name: Compile targeted diagnostic
         run: |
           python -m py_compile \
