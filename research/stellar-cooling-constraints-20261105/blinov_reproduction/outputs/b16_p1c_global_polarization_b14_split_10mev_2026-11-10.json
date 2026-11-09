@@ -1,0 +1,127 @@
+{
+  "title": "P1-C polarization normalization and global mode-resolved transport diagnostic",
+  "date": "2026-11-10",
+  "benchmark": {
+    "mass_MeV": 10,
+    "coupling": 4.171689650228597e-8,
+    "profile_git_blob_sha": "e41df78c8035540760fbcb7ef592cd830171822e",
+    "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+    "energy_band_MeV": [
+      210,
+      510
+    ]
+  },
+  "equation_normalization": {
+    "mode_production_rate": "Gamma_prod,h = m_V^2/(24 pi omega) integral_{-1}^{1} dz W_h(z) f_nu(E1) f_antinu(E2), per g^2",
+    "polarization_weights": {
+      "L": "3/4 (1-z^2)",
+      "plus": "3/8 (1+z)^2",
+      "minus": "3/8 (1-z)^2"
+    },
+    "sum_identity": "W_L+W_++W_-=3/2; each W_h integrates to 1 over z in [-1,1]",
+    "scalar_sum": "sum_h Gamma_prod,h = m_V^2/(8 pi omega) times the unweighted pair average; agrees with scalar B.7 normalization",
+    "detailed_balance": "Gamma_prod,h = exp(-omega/T) Gamma_abs,h; Gamma_star,h=(1-exp(-omega/T))Gamma_abs,h=(exp(omega/T)-1)Gamma_prod,h",
+    "B2_literal_mapping": "The B.6--B.10 equation chain carries the polarization sum through production, absorption, and detailed balance. The scalar Gamma_abs entering the literal B.2 chain is the polarization-summed rate, not the per-mode average.",
+    "physical_transport": "Mode-resolved escaped luminosity is proportional to sum_h source_h <exp(-tau_h)>; it is not equal to exp(-sum_h tau_h), nor generally exp(-sum_h tau_h/3)."
+  },
+  "calculation": {
+    "engine": "Direct V8 binary64 calculation, not GitHub Actions",
+    "source_radial_nodes": 200,
+    "opacity_radial_nodes": 642,
+    "total_energy_nodes": 842,
+    "band_energy_nodes": 10,
+    "band_energy_nodes_MeV": [
+      217.292177959537,
+      237.39657523579274,
+      259.4508135230317,
+      283.64399970746723,
+      310.18358135755926,
+      339.2971255097149,
+      371.23426997094305,
+      406.26886387014787,
+      444.7013158125027,
+      486.86116977144746
+    ],
+    "angular_nodes": 32,
+    "path_nodes": 64,
+    "neutrino_mode_angular_nodes": 64,
+    "susceptibility_momentum_nodes": 128,
+    "propagation": "fixed omega, Euclidean chord to 25 km",
+    "compton_mode_decomposition": "B.14 no-recoil Thomson-limit inverse cross sections: w_L=(m_V^2/omega^2)/(2+m_V^2/omega^2), w_+=w_-=1/(2+m_V^2/omega^2); same weights for source and opacity"
+  },
+  "source_closure": {
+    "source_per_g2": 4.168593206235335e+69,
+    "thin_band_luminosity_erg_s": 7.25460047985254e+54,
+    "neutrino_fraction": 0.4987642023557974,
+    "semi_compton_fraction": 0.5012357976442033,
+    "relative_source_residual_vs_scalar_archive": 2.220446049250313e-16
+  },
+  "results": {
+    "literal_scalar_sum": {
+      "luminosity_erg_s": 1.7017848288465714e+52,
+      "escape_fraction": 0.0023458008936160777,
+      "relative_residual_vs_archived": -6.661338147750939e-16
+    },
+    "mode_resolved_B14_compton_weights": {
+      "luminosity_erg_s": 6.615828776106393e+53,
+      "escape_fraction": 0.09119494304999783,
+      "ratio_to_literal_scalar": 38.8758241580426,
+      "mode_luminosity_fractions": {
+        "L": 0.27410191826109787,
+        "plus": 0.3634345615431063,
+        "minus": 0.3624635201958046
+      }
+    },
+    "mode_resolved_equal_compton_split_diagnostic": {
+      "luminosity_erg_s": 6.975075473046466e+53,
+      "escape_fraction": 0.0961469276277533,
+      "ratio_to_literal_scalar": 40.986823685424454
+    },
+    "average_opacity_diagnostic": {
+      "luminosity_erg_s": 6.972998231677061e+53,
+      "escape_fraction": 0.09611829419197454,
+      "ratio_to_literal_scalar": 40.97461743388082
+    }
+  },
+  "mean_tau_per_g2_source_weighted": {
+    "neutrino_modes": {
+      "L": 1186828204382971,
+      "plus": 1087173701282969.2,
+      "minus": 1122979422858435.2
+    },
+    "semi_compton_modes_B14": {
+      "L": 823708091911.949,
+      "plus": 518912550998996.4,
+      "minus": 518912550998996.4
+    }
+  },
+  "compton_mode_weights": {
+    "210_MeV": {
+      "L": 0.0011325028312570782,
+      "plus": 0.4994337485843715,
+      "minus": 0.4994337485843715
+    },
+    "300_MeV": {
+      "L": 0.0005552470849528039,
+      "plus": 0.49972237645752354,
+      "minus": 0.49972237645752354
+    },
+    "510_MeV": {
+      "L": 0.00019219680953296174,
+      "plus": 0.4999039015952335,
+      "minus": 0.4999039015952335
+    }
+  },
+  "conclusions": [
+    "The literal scalar B.2 implementation is consistent with the polarization-summed B.6--B.10 production/absorption/detailed-balance chain; no extra factor of three is to be inserted or removed.",
+    "The B.14 no-recoil Compton mode weights are almost entirely transverse in the 210--510 MeV band.",
+    "The B.14-weighted mode-resolved result is 38.9 times the literal scalar result, increasing escape and moving in the wrong direction for explaining the current over-bright strong-endpoint result.",
+    "The older equal-third Compton split changes the mode-resolved luminosity by about 5.1%, but does not change the qualitative conclusion.",
+    "The scalar baseline remains unchanged; mode-resolved transport is a distinct physical extension."
+  ],
+  "limitations": [
+    "This global mode-resolved result is restricted to the 210--510 MeV band, not a complete re-integration of all Fig. 7 energies.",
+    "The B.14 Compton mode weights use the no-recoil Thomson-limit inverse-cross-section ratios, not a full recoil-resolved kernel.",
+    "The mode-resolved result is a diagnostic transport model, not evidence that the unpublished Fig. 7 code used mode-resolved propagation."
+  ]
+}
