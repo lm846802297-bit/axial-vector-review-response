@@ -47,6 +47,7 @@
             "couplings_are_g_not_alpha_V": true,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_order": 40,
             "path_order": 32,
             "radial_order": 40,
             "radius_km": 25.0
@@ -655,6 +656,7 @@
             "couplings_are_g_not_alpha_V": true,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_order": 40,
             "path_order": 32,
             "radial_order": 40,
             "radius_km": 25.0
@@ -1263,6 +1265,7 @@
             "couplings_are_g_not_alpha_V": true,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_order": 40,
             "path_order": 32,
             "radial_order": 40,
             "radius_km": 25.0
@@ -1871,6 +1874,7 @@
             "couplings_are_g_not_alpha_V": true,
             "energy_offset_MeV": 1000.0,
             "energy_order": 140,
+            "opacity_order": 60,
             "path_order": 48,
             "radial_order": 60,
             "radius_km": 25.0
@@ -2479,6 +2483,7 @@
             "couplings_are_g_not_alpha_V": true,
             "energy_offset_MeV": 1000.0,
             "energy_order": 150,
+            "opacity_order": 40,
             "path_order": 32,
             "radial_order": 40,
             "radius_km": 25.0
@@ -3087,6 +3092,7 @@
             "couplings_are_g_not_alpha_V": true,
             "energy_offset_MeV": 1000.0,
             "energy_order": 200,
+            "opacity_order": 40,
             "path_order": 32,
             "radial_order": 40,
             "radius_km": 25.0
@@ -3695,6 +3701,7 @@
             "couplings_are_g_not_alpha_V": true,
             "energy_offset_MeV": 1000.0,
             "energy_order": 200,
+            "opacity_order": 80,
             "path_order": 64,
             "radial_order": 80,
             "radius_km": 25.0
@@ -4303,6 +4310,7 @@
             "couplings_are_g_not_alpha_V": true,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_order": 40,
             "path_order": 48,
             "radial_order": 40,
             "radius_km": 25.0
@@ -4911,6 +4919,7 @@
             "couplings_are_g_not_alpha_V": true,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_order": 40,
             "path_order": 64,
             "radial_order": 40,
             "radius_km": 25.0
@@ -5519,6 +5528,7 @@
             "couplings_are_g_not_alpha_V": true,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_order": 60,
             "path_order": 32,
             "radial_order": 60,
             "radius_km": 25.0
@@ -6127,6 +6137,7 @@
             "couplings_are_g_not_alpha_V": true,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_order": 80,
             "path_order": 32,
             "radial_order": 80,
             "radius_km": 25.0
@@ -6906,6 +6917,7 @@
             "couplings_are_g_not_alpha_V": true,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_order": 40,
             "path_order": 32,
             "radial_order": 40,
             "radius_km": 25.0
@@ -7434,6 +7446,7 @@
             "couplings_are_g_not_alpha_V": true,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_order": 40,
             "path_order": 32,
             "radial_order": 40,
             "radius_km": 25.0
@@ -7962,6 +7975,7 @@
             "couplings_are_g_not_alpha_V": true,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_order": 40,
             "path_order": 32,
             "radial_order": 40,
             "radius_km": 25.0
@@ -8490,6 +8504,7 @@
             "couplings_are_g_not_alpha_V": true,
             "energy_offset_MeV": 1000.0,
             "energy_order": 140,
+            "opacity_order": 60,
             "path_order": 48,
             "radial_order": 60,
             "radius_km": 25.0
@@ -9018,6 +9033,7 @@
             "couplings_are_g_not_alpha_V": true,
             "energy_offset_MeV": 1000.0,
             "energy_order": 150,
+            "opacity_order": 40,
             "path_order": 32,
             "radial_order": 40,
             "radius_km": 25.0
@@ -9546,6 +9562,7 @@
             "couplings_are_g_not_alpha_V": true,
             "energy_offset_MeV": 1000.0,
             "energy_order": 200,
+            "opacity_order": 40,
             "path_order": 32,
             "radial_order": 40,
             "radius_km": 25.0
@@ -10074,6 +10091,7 @@
             "couplings_are_g_not_alpha_V": true,
             "energy_offset_MeV": 1000.0,
             "energy_order": 200,
+            "opacity_order": 80,
             "path_order": 64,
             "radial_order": 80,
             "radius_km": 25.0
@@ -10602,6 +10620,7 @@
             "couplings_are_g_not_alpha_V": true,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_order": 40,
             "path_order": 48,
             "radial_order": 40,
             "radius_km": 25.0
@@ -11130,6 +11149,7 @@
             "couplings_are_g_not_alpha_V": true,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_order": 40,
             "path_order": 64,
             "radial_order": 40,
             "radius_km": 25.0
@@ -11658,6 +11678,7 @@
             "couplings_are_g_not_alpha_V": true,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_order": 60,
             "path_order": 32,
             "radial_order": 60,
             "radius_km": 25.0
@@ -12186,6 +12207,7 @@
             "couplings_are_g_not_alpha_V": true,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_order": 80,
             "path_order": 32,
             "radial_order": 80,
             "radius_km": 25.0
@@ -12885,6 +12907,7 @@
             "couplings_are_g_not_alpha_V": true,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_order": 40,
             "path_order": 32,
             "radial_order": 40,
             "radius_km": 25.0
@@ -13357,6 +13380,7 @@
             "couplings_are_g_not_alpha_V": true,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_order": 40,
             "path_order": 32,
             "radial_order": 40,
             "radius_km": 25.0
@@ -13829,6 +13853,7 @@
             "couplings_are_g_not_alpha_V": true,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_order": 40,
             "path_order": 32,
             "radial_order": 40,
             "radius_km": 25.0
@@ -14301,6 +14326,7 @@
             "couplings_are_g_not_alpha_V": true,
             "energy_offset_MeV": 1000.0,
             "energy_order": 140,
+            "opacity_order": 60,
             "path_order": 48,
             "radial_order": 60,
             "radius_km": 25.0
@@ -14773,6 +14799,7 @@
             "couplings_are_g_not_alpha_V": true,
             "energy_offset_MeV": 1000.0,
             "energy_order": 150,
+            "opacity_order": 40,
             "path_order": 32,
             "radial_order": 40,
             "radius_km": 25.0
@@ -15245,6 +15272,7 @@
             "couplings_are_g_not_alpha_V": true,
             "energy_offset_MeV": 1000.0,
             "energy_order": 200,
+            "opacity_order": 40,
             "path_order": 32,
             "radial_order": 40,
             "radius_km": 25.0
@@ -15717,6 +15745,7 @@
             "couplings_are_g_not_alpha_V": true,
             "energy_offset_MeV": 1000.0,
             "energy_order": 200,
+            "opacity_order": 80,
             "path_order": 64,
             "radial_order": 80,
             "radius_km": 25.0
@@ -16189,6 +16218,7 @@
             "couplings_are_g_not_alpha_V": true,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_order": 40,
             "path_order": 48,
             "radial_order": 40,
             "radius_km": 25.0
@@ -16661,6 +16691,7 @@
             "couplings_are_g_not_alpha_V": true,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_order": 40,
             "path_order": 64,
             "radial_order": 40,
             "radius_km": 25.0
@@ -17133,6 +17164,7 @@
             "couplings_are_g_not_alpha_V": true,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_order": 60,
             "path_order": 32,
             "radial_order": 60,
             "radius_km": 25.0
@@ -17605,6 +17637,7 @@
             "couplings_are_g_not_alpha_V": true,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_order": 80,
             "path_order": 32,
             "radial_order": 80,
             "radius_km": 25.0
