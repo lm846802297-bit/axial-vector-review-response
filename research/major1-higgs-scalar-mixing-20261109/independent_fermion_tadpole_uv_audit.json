@@ -1,0 +1,158 @@
+{
+  "status": "PASS",
+  "method": "closed-form Tr[(Mdagger M)^2] and its derivatives, checked against independent SVD singular values and 50-digit mpmath differentiation",
+  "divergent_potential_convention": "V_1^div = -(Delta_UV/(16 pi^2)) sum_flavours Tr[(Mdagger M)^2]",
+  "benchmarks": {
+    "A_open_AA": {
+      "vs_GeV": 70.886458,
+      "couplings_and_invariants": {
+        "sum": {
+          "F": 3.200893513580388e+17,
+          "F_h": 519912273576.47626,
+          "F_s": 715204443204.932,
+          "F_hh": 2111998398.3185194,
+          "F_hs": 0.0,
+          "F_ss": 10091023891.362673
+        },
+        "by_flavour": {
+          "mu": {
+            "ml_GeV": 0.1056583755,
+            "y": 1.14873979560807,
+            "lambda": 0.21079274070995216,
+            "Tr_MdagM_squared_GeV4": 1.6003209090955094e+17,
+            "dF_dh_GeV3": 259956136788.23813,
+            "dF_ds_GeV3": 2519791958.9097605,
+            "d2F_dh2_GeV2": 1055999199.1592597,
+            "d2F_dhds_GeV2": 0.0,
+            "d2F_ds2_GeV2": 35546893.391379125,
+            "svd_trace_relative_difference": 3.999197888139346e-16
+          },
+          "tau": {
+            "ml_GeV": 1.77686,
+            "y": 1.14873979560807,
+            "lambda": 3.5449077035817727,
+            "Tr_MdagM_squared_GeV4": 1.6005726044848784e+17,
+            "dF_dh_GeV3": 259956136788.23813,
+            "dF_ds_GeV3": 712684651246.0222,
+            "d2F_dh2_GeV2": 1055999199.1592597,
+            "d2F_dhds_GeV2": 0.0,
+            "d2F_ds2_GeV2": 10055476997.971294,
+            "svd_trace_relative_difference": 3.9985690009106144e-16
+          }
+        }
+      },
+      "comparison_to_exact_mass_eigenstate_uv_local_sums": {
+        "independent_effective_potential_derivatives_GeV2": {
+          "hh": 2111998398.3185194,
+          "hs": 0.0,
+          "ss": 10091023891.362673
+        },
+        "exact_mass_eigenstate_uv_local_coefficients_GeV2": {
+          "hh": 2111998398.3185186,
+          "hs": 1.9685514482112908e-10,
+          "ss": 10091023891.362669
+        },
+        "errors": {
+          "hh_relative": 3.386630112381444e-16,
+          "hs_absolute_GeV2": 1.9685514482112908e-10,
+          "ss_relative": 3.7802876166908687e-16
+        }
+      },
+      "fermion_loop_tadpole_pole_coefficients": {
+        "T_h_loop_pole_coefficient_GeV3": -3292382934.3092194,
+        "T_s_loop_pole_coefficient_GeV3": -4529085045.736428
+      },
+      "fermion_loop_local_mass_pole_coefficients": {
+        "hh_loop_local_pole_coefficient_GeV2": -13374386.098022122,
+        "hs_loop_local_pole_coefficient_GeV2": -0.0,
+        "ss_loop_local_pole_coefficient_GeV2": -63902155.302248456
+      },
+      "symbolic_derivative_check": {
+        "mpmath_dps": 50,
+        "derivative_components_checked": 10,
+        "max_relative_difference": 2.277854125845317e-51
+      }
+    },
+    "B_closed_AA": {
+      "vs_GeV": 315.0,
+      "couplings_and_invariants": {
+        "sum": {
+          "F": 3.200893513580388e+17,
+          "F_h": 519912273576.47626,
+          "F_s": 160947014998.92,
+          "F_hh": 2111998398.3185194,
+          "F_hs": 0.0,
+          "F_ss": 511023273.49714106
+        },
+        "by_flavour": {
+          "mu": {
+            "ml_GeV": 0.1056583755,
+            "y": 1.14873979560807,
+            "lambda": 0.04743603416203465,
+            "Tr_MdagM_squared_GeV4": 1.6003209090955094e+17,
+            "dF_dh_GeV3": 259956136788.23813,
+            "dF_ds_GeV3": 567044847.1872839,
+            "d2F_dh2_GeV2": 1055999199.1592597,
+            "d2F_dhds_GeV2": 0.0,
+            "d2F_ds2_GeV2": 1800143.3768346212,
+            "svd_trace_relative_difference": 3.999197888139346e-16
+          },
+          "tau": {
+            "ml_GeV": 1.77686,
+            "y": 1.14873979560807,
+            "lambda": 0.7977331779169073,
+            "Tr_MdagM_squared_GeV4": 1.6005726044848784e+17,
+            "dF_dh_GeV3": 259956136788.23813,
+            "dF_ds_GeV3": 160379970151.73273,
+            "d2F_dh2_GeV2": 1055999199.1592597,
+            "d2F_dhds_GeV2": 0.0,
+            "d2F_ds2_GeV2": 509223130.12030643,
+            "svd_trace_relative_difference": 3.9985690009106144e-16
+          }
+        }
+      },
+      "comparison_to_exact_mass_eigenstate_uv_local_sums": {
+        "independent_effective_potential_derivatives_GeV2": {
+          "hh": 2111998398.3185194,
+          "hs": 0.0,
+          "ss": 511023273.49714106
+        },
+        "exact_mass_eigenstate_uv_local_coefficients_GeV2": {
+          "hh": 2111998398.3185186,
+          "hs": 1.7016808180774716e-11,
+          "ss": 511023273.4971412
+        },
+        "errors": {
+          "hh_relative": 3.386630112381444e-16,
+          "hs_absolute_GeV2": 1.7016808180774716e-11,
+          "ss_relative": 2.3327565638054673e-16
+        }
+      },
+      "fermion_loop_tadpole_pole_coefficients": {
+        "T_h_loop_pole_coefficient_GeV3": -3292382934.3092194,
+        "T_s_loop_pole_coefficient_GeV3": -1019208878.9619792
+      },
+      "fermion_loop_local_mass_pole_coefficients": {
+        "hh_loop_local_pole_coefficient_GeV2": -13374386.098022122,
+        "hs_loop_local_pole_coefficient_GeV2": -0.0,
+        "ss_loop_local_pole_coefficient_GeV2": -3236092.683719527
+      },
+      "symbolic_derivative_check": {
+        "mpmath_dps": 50,
+        "derivative_components_checked": 10,
+        "max_relative_difference": 0.0
+      }
+    }
+  },
+  "global_checks": {
+    "max_relative_difference_effective_potential_vs_self_energy_local_uv": 3.7802876166908687e-16,
+    "max_relative_difference_closed_form_vs_svd": 3.999197888139346e-16,
+    "max_relative_difference_analytic_vs_mpmath_derivatives": 2.277854125845317e-51
+  },
+  "interpretation_limits": [
+    "The first derivatives are the VLL-sector one-loop tadpole UV-pole coefficients only.",
+    "They do not by themselves select a tadpole or VEV-renormalization prescription.",
+    "The second derivatives reproduce the VLL-sector local mass UV poles; they are not finite pole-mass shifts.",
+    "No gauge, Goldstone, ghost, scalar, top-quark, or non-VLL contributions are included."
+  ]
+}
