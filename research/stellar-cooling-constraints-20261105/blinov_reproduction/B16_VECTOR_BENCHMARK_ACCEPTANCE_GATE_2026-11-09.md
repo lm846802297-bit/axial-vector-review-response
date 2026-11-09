@@ -131,3 +131,22 @@ Detailed endpoint and source audit:
 
 
 Three-mass B.13 source/opacity and local convergence audit: [B13_THREE_MASS_SOURCE_OPACITY_AND_CONVERGENCE_AUDIT_2026-11-09.md](B13_THREE_MASS_SOURCE_OPACITY_AND_CONVERGENCE_AUDIT_2026-11-09.md).
+
+
+## 7. Source-language qualification: what the published text does and does not prove (2026-11-10)
+
+A cross-check against the version-of-record wording requires a narrower statement than the earlier categorical wording in the separate method note.
+
+The paragraph following Fig. 7 explicitly invokes Eq. (B.14) for the **low-mass Compton absorption regime** and its mass-independent (m_V\to0) behavior. This is direct evidence that the authors use the B.14 approximation to interpret that low-mass regime. It does not, by itself, explicitly state that every Fig. 7 mass point is evaluated with B.14--B.19, nor does it expose the unpublished numerical implementation line by line.
+
+For (m_V=10\,\mathrm{MeV}), the paper states that inverse neutrino decay dominates trapping above the MeV scale. This makes the B.14--B.19 implementation the natural operational benchmark for the published calculation, while the exact B.13 kernel is a controlled relativistic correction study. Nevertheless, because the code is unavailable and the text does not explicitly label the Compton implementation for each Fig. 7 mass, the strongest defensible provenance statement is:
+
+- B.14--B.19 is the adopted equation-level reproduction prescription for the published Appendix-B approximation and the operational Fig. 7 benchmark;
+- B.13 is the general phase-space expression and its global replacement is an alternative calculation, not a required Fig. 7 convergence target;
+- the article does not let us prove the exact code path used at every plotted mass point.
+
+This qualification does not change any numerical result. The current B.16 fixed-ω benchmark remains the correct working branch to compare with Fig. 7 under the adopted reading. Its +92.24% strong-endpoint residual remains a failed physical reproduction against the digitized curve, despite sub-percent internal numerical closure. It must not be presented as an accepted reproduction.
+
+The B.13 convergence scans are complete as a separate alternative-kernel study. Their residuals (+131.53% at the 10 MeV strong endpoint) are not evidence that the published Fig. 7 baseline itself fails because B.13 is not the operational benchmark adopted here.
+
+No source, opacity, profile, coupling, luminosity, or axial-vector production result is changed by this wording adjudication.
