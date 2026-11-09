@@ -196,7 +196,21 @@ All independent local formula checks pass: maximum total production, absorption,
 
 This validates the current-profile local implementation of the printed Appendix-B reference formulae at the sampled points. It does not validate the physical accuracy of the B.14--B.16 no-recoil approximation, the global B.1/B.2 integration, or the Fig. 7 reproduction. Full report: [B16_LOCAL_ABSORPTION_VERTEX_PRESERVING_2026-11-09.md](B16_LOCAL_ABSORPTION_VERTEX_PRESERVING_2026-11-09.md); workflow [42558231626](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42558231626).
 
-## 14. Current decision
+## 14. Exact moving-muon B.13 global alternative: completed
+
+The current-profile global B.13 calculation consistently replaces both the Compton source and Compton reduced-absorption terms while retaining the published fixed-omega path prescription. It uses profile SHA-256 9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c and first reproduces the archived B.16 baseline on the same grids with zero residual.
+
+For the like-for-like one-negative-muon case:
+- B.16 reference implementation: weak -8.885%, peak +2.569%, strong +92.241% relative to Fig. 7.
+- Consistent B.13 source-plus-opacity replacement: weak -28.109%, peak -16.340%, strong +131.530%.
+- The optically thin source falls to 78.898% of B.16.
+- At the strong endpoint, the escape probability rises from 3.23921e-4 to 4.94463e-4, but the source suppression dominates; the resulting luminosity is 131.53% above Fig. 7.
+
+Thus the exact moving-muon B.13 replacement does not repair the Fig. 7 mismatch at 10 MeV; it worsens the strong-endpoint discrepancy. It remains a separate alternative physical calculation outside the regime where the paper motivates the B.14--B.16 no-recoil approximation. It is not substituted for the paper-faithful B.16 reference curve.
+
+Full report: [B13_GLOBAL_TRANSPORT_AUDIT_2026-11-09.md](B13_GLOBAL_TRANSPORT_AUDIT_2026-11-09.md).
+
+## 15. Current decision
 
 - Radial, energy, angular, and path global quadrature: passed the stated project-level luminosity-stability targets at the tested resolutions.
 - Same-grid B.16 closure: passed for all four global B.13 configurations with zero residual.
