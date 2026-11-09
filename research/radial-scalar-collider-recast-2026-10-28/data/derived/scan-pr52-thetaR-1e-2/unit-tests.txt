@@ -58,6 +58,6 @@ test_original_field_content_does_not_add_electron_yukawa (test_scan_original_uv_
 test_two_virtual_region_has_diagonal_and_exchange_bound (test_scan_original_uv_widths.OriginalUVWidthScanTests.test_two_virtual_region_has_diagonal_and_exchange_bound) ... ok
 
 ----------------------------------------------------------------------
-Ran 58 tests in 0.331s
+Ran 58 tests in 0.171s
 
 OK
