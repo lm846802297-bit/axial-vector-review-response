@@ -77,3 +77,17 @@ The 10 MeV B.13 calculation remains a stress test outside the paper's stated (m_
 ## 5. Decision
 
 Do not assume B.14--B.16 is automatically accurate simply because (m_V\lesssim1\) MeV. Complete the global B.13 versus B.16 comparison at 0.1 and 1 MeV, retaining separate source-only and opacity-only diagnostics but using the consistent source-plus-opacity replacement for the physical comparison. No empirical correction is applied and no axial-vector curve is updated.
+
+
+## 6. Reproducibility and validation
+
+The diagnostic is independently scripted and archived:
+
+- Calculation: `audit_b13_nonrelativistic_muon.py`
+- Unit tests: `test_b13_nonrelativistic_muon.py`
+- Machine-readable output: `outputs/b13_nonrelativistic_muon_diagnostic_2026-11-09.json`
+- Successful workflow: [Run #42572394290](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42572394290)
+
+The archived output records the exact profile SHA-256 and the maximum absolute difference between the leading (r^2N^2(n_\mu F_{\rm deg})T^4) shell weights and the full B.16 0.1 MeV source shell fractions. That difference is 0.00172 in fraction units, confirming that the leading low-mass radial weight identifies the source region accurately enough for this approximation-control diagnostic.
+
+The numerical tests check the integration helper, positivity of the susceptibility, physical velocity bounds, and shell-weight normalization. The full B.13 global comparison at 0.1 and 1 MeV remains a separate calculation and is not replaced by this distribution diagnostic.
