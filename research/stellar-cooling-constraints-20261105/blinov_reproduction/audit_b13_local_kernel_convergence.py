@@ -96,7 +96,7 @@ def compare_species(a: dict, b: dict):
     }
 
 
-def run(profile_path: Path, output_path: Path):
+def run(profile_path: Path, output_path: Path, mass_mev: float = MASS_MEV):
     cache = {}
     def evaluate(radius: float, omega: float, orders: tuple[int, int, int, int]):
         key = (radius, omega, tuple(orders))
@@ -106,7 +106,7 @@ def run(profile_path: Path, output_path: Path):
         temperature = float(local["T"][0])
         mu_mu = float(local["mu_mu"][0])
         result = moving_muon_compton_rates(
-            MASS_MEV, omega, temperature, mu_mu,
+            mass_mev, omega, temperature, mu_mu,
             g_vector=1.0, g_axial=0.0, orders=tuple(orders)
         )
         row = {
@@ -212,7 +212,7 @@ def run(profile_path: Path, output_path: Path):
     result = {
         "title": "B.13 exact moving-muon local collision-kernel quadrature convergence",
         "status": "diagnostic_run_completed_no_predeclared_local_tolerance",
-        "mass_MeV": MASS_MEV,
+        "mass_MeV": float(mass_mev),
         "current": "pure vector, g_V=1, g_A=0, rates per g_X^2",
         "profile": {
             "path": str(profile_path),
@@ -288,8 +288,9 @@ def main():
         "--output", type=Path,
         default=HERE / "outputs" / "b13_local_kernel_quadrature_convergence_10mev_2026-11-09.json"
     )
+    parser.add_argument("--mass", type=float, default=MASS_MEV)
     args = parser.parse_args()
-    run(args.profile, args.output)
+    run(args.profile, args.output, args.mass)
 
 
 if __name__ == "__main__":
