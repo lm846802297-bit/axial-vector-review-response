@@ -131,4 +131,21 @@ This is the coefficient of the UV pole, not a finite physical wave-function fact
 
 The local mass-pole coefficients are also recorded in the JSON output. Their conversion to renormalized scalar-potential parameters requires the VEV/tadpole and mass-renormalization conditions; they are not quoted as physical mass shifts.
 
-The new fifth test checks the field-counterterm coefficients for both benchmarks. GitHub Actions run 42564492356 passes all five tests. The complete gauge-fixed matching and remaining EFT contact/tadpole terms are still open.
+The new fifth test checks the field-counterterm coefficients for both benchmarks. GitHub Actions run 42564492356 passes all five tests. The 2026-11-09 follow-up now validates the leading EFT5 bubble-plus-contact local pole, the (O_8) running, and the retained Plan-C scale cancellation at Benchmarks A/B. Other same-order soft/counterterm sectors and the complete gauge-fixed matching remain open.
+
+
+## 8. RC-001 cross-reconciliation, (C_5) sign, and contact no-double-counting audit
+
+The (O_8=(H^dagger H)^2(S^dagger S)^2) operator and its (C_5^4) soft-potential pole were already derived in RC-001 §§262.5, 264.4, and 10.9. PR #69 supplies an independent Benchmark A/B reconstruction and connects the leading EFT5 mixed local pole to the Plan-C scale derivative and (O_8) running. The result is an independent cross-check and a benchmark-level extension, not a first discovery of the operator.
+
+The EFT coefficient is aligned with the active RC-001 convention
+[
+mathcal L_{mathrm{EFT5}}supset-C_{5,ell}mathcal O_{5,ell}+mathrm{h.c.},
+qquad
+C_{5,ell}=-y_elllambda_ell/M_E.
+]
+The signed mass parameter follows the mass-matrix Schur complement; the positive physical mass used in the determinant is (|m_ell|). The (O_8) pole, running, and quoted scalar-potential numbers depend on (|C_5|^4), so they are unchanged by this sign alignment.
+
+A source-code audit of the archived 2026-10-27 `higgs_portal_planC_lite.py` confirms that `pi_soft_planb` already adds its explicit bubble and contact-tadpole pieces. The new Plan-C scale-check routine also includes `bubble + contact + hard`. Consequently, the contact is not an omitted finite term to be appended again to the Plan-C soft self-energy. The bubble-only statement in the UV audit refers instead to the separate archived exact-SVD light-light subtraction.
+
+The finite heavy-eigenstate Coleman--Weinberg coefficient (c_8(M_E)) is established only in the restricted VLL scalar-potential/(overline{mathrm{MS}}) basis. The full dimension-eight hard/soft Wilson vector, derivative-operator/EOM/source completion, remaining gauge/scalar sectors, and physical pole calculation remain open.
