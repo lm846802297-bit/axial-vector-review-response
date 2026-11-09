@@ -101,6 +101,7 @@ The source-level convention and implementation ambiguity is documented in:
 9. Strong-endpoint emission-radius decomposition: 8--15 km supplies 79.61% of the thin source and 86.84% of the escaped luminosity; 22--25 km emission supplies 0.073% and 3.36%, respectively. Fig. 7 itself contains no radius-resolved reference distribution.
 10. The 10 MeV global B.13 source-plus-opacity alternative and its radial/energy/angular/path convergence scans. The combined \(60\times140\times24\times48\) grid changes the B.13 luminosity curve by at most 0.2732% relative to \(40\times100\times16\times32\); the strong-endpoint residual changes from \(+131.53\%\) to approximately \(+131.12\%\). The full artifact upload hit the Actions storage quota, so the compact recovered scan summary is the archived numerical record. B.13 is a separate moving-muon alternative, not the operational Fig. 7 benchmark. The 0.1 and 1 MeV global outputs remain baseline-grid comparisons and are not described here as independently grid-converged.
 11. P1 high-energy B.2 propagation audit: direct \(s\)-coordinate integration agrees with the analytic radial primitive at \(\leq8.3\times10^{-14}\) for four-point path quadrature across 108 rays; Simpson/Gauss angular averages agree below \(6\times10^{-7}\); using all 1687 retained profile vertices rather than the 642-node opacity grid changes sampled total optical depths by at most \(1.87\times10^{-5}\). A separate 36-ray fixed-\(\omega\)/path-redshift comparison shows that the redshift sensitivity is carried by neutrino inverse-decay opacity, with negligible semi-Compton change. See [B16_P1_B2_HIGH_ENERGY_PROPAGATION_AUDIT_2026-11-10.md](B16_P1_B2_HIGH_ENERGY_PROPAGATION_AUDIT_2026-11-10.md).
+12. Source-weighted global Shapley attribution of the 210--510 MeV path-redshift sensitivity: 99.9860% of the global luminosity change is due to neutrino inverse-decay opacity and 0.0140% to semi-Compton opacity. The four counterfactual luminosities reproduce the archived fixed-\(\omega\) and bilinear-redshift band results at \(2.84\times10^{-6}\) and \(4.09\times10^{-7}\) relative residuals, respectively. A direct local-rate evaluation differs from the bilinear redshift result by 0.50% but preserves the channel attribution.
 
 
 ### Still unresolved
@@ -123,7 +124,7 @@ The protected Garching endpoint limits raw-profile precision. This does not prev
 - **Axial-vector recalculation:** frozen.
 - **PR #57:** keep Open / Draft; do not merge as a validated reproduction.
 
-The P1 high-energy B.2 numerical propagation audit is now complete for the targeted 210--510 MeV rays: direct path-coordinate integration, angular integration, and the 642-node versus 1687-vertex opacity-interpolation checks all pass at substantially sub-percent precision. The path-redshift alternative is channel-resolved and is found to act almost entirely through neutrino inverse-decay opacity, but it remains separate from the literal fixed-\(\omega\) Eq. (B.2) baseline. Do not repeat generic path/angle quadrature refinements. The next useful step is a source/profile provenance and equation-to-code reconciliation; keep the Fig. 3 density tension explicit and do not rescale the source or opacity.
+The P1 high-energy B.2 numerical propagation audit is complete for the targeted 210--510 MeV rays and now includes the source-weighted global path-redshift Shapley decomposition. Direct path-coordinate integration, angular integration, and the 642-node versus 1687-vertex opacity-interpolation checks pass at substantially sub-percent precision. The global Shapley result assigns 99.9860% of the path-redshift-induced high-energy luminosity change to neutrino inverse decay and 0.0140% to semi-Compton opacity. The path-redshift alternative remains separate from the literal fixed-\(\omega\) Eq. (B.2) baseline. Do not repeat generic path/angle quadrature refinements. The next useful step is source/profile provenance, keeping the Fig. 3 density tension explicit and avoiding source or opacity rescaling.
 
 
 ## 7. Official data and metric-source availability
@@ -168,3 +169,8 @@ The key results are:
 - In a separate 36-ray path-redshift diagnostic, the neutrino inverse-decay optical depth changes by a mean \(+4.98\%\) over the selected rays, while the semi-Compton optical depth changes by a mean \(+2.56\times10^{-6}\). These are unweighted ray diagnostics, not global source-weighted averages.
 
 The P1 numerical propagation checks do not explain the \(+92.2406\%\) fixed-\(\omega\) strong-endpoint mismatch. The path-redshift branch remains a physical sensitivity and is not substituted for the displayed Eq. (B.2) baseline. No source, opacity, or axial-vector result is modified.
+
+
+### Global channel attribution addendum
+
+The source-weighted 210--510 MeV Shapley decomposition is archived in the P1 report and JSON output. It confirms that the path-redshift effect is a neutrino inverse-decay opacity effect, not a Compton opacity effect. This is a separate physical sensitivity and does not alter the fixed-\(\omega\) Fig. 7 baseline.
