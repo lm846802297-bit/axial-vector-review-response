@@ -42,7 +42,8 @@
           2111998398.3165467,
           0.0
         ],
-        "MS_field_counterterm_pole_coefficient_full_minus_light": -0.016712307066340585
+        "MS_field_counterterm_pole_coefficient_full_minus_light": -0.016712307066340585,
+        "MS_mass_counterterm_pole_coefficient_full_minus_light_GeV2": -13374386.09800963
       },
       "hs": {
         "Pi_RC_mh2_GeV2": [
@@ -81,7 +82,8 @@
           -0.006849830366718379,
           0.0
         ],
-        "MS_field_counterterm_pole_coefficient_full_minus_light": 2.2983060235058655e-06
+        "MS_field_counterterm_pole_coefficient_full_minus_light": 2.2983060235058655e-06,
+        "MS_mass_counterterm_pole_coefficient_full_minus_light_GeV2": 4.3377057531570926e-05
       },
       "ss": {
         "Pi_RC_mh2_GeV2": [
@@ -120,7 +122,8 @@
           10091023891.338877,
           0.0
         ],
-        "MS_field_counterterm_pole_coefficient_full_minus_light": -0.07985086735189964
+        "MS_field_counterterm_pole_coefficient_full_minus_light": -0.07985086735189964,
+        "MS_mass_counterterm_pole_coefficient_full_minus_light_GeV2": -63902155.30209777
       },
       "absorptive_matrix_PiRC_GeV2": [
         [
@@ -185,7 +188,8 @@
           2111998398.3165467,
           0.0
         ],
-        "MS_field_counterterm_pole_coefficient_full_minus_light": -0.016712307066340585
+        "MS_field_counterterm_pole_coefficient_full_minus_light": -0.016712307066340585,
+        "MS_mass_counterterm_pole_coefficient_full_minus_light_GeV2": -13374386.09800963
       },
       "hs": {
         "Pi_RC_mh2_GeV2": [
@@ -224,7 +228,8 @@
           -0.0015414610196557987,
           0.0
         ],
-        "MS_field_counterterm_pole_coefficient_full_minus_light": 5.172024552583988e-07
+        "MS_field_counterterm_pole_coefficient_full_minus_light": 5.172024552583988e-07,
+        "MS_mass_counterterm_pole_coefficient_full_minus_light_GeV2": 9.761415940628152e-06
       },
       "ss": {
         "Pi_RC_mh2_GeV2": [
@@ -263,7 +268,8 @@
           511023273.4959363,
           0.0
         ],
-        "MS_field_counterterm_pole_coefficient_full_minus_light": -0.004043757309967427
+        "MS_field_counterterm_pole_coefficient_full_minus_light": -0.004043757309967427,
+        "MS_mass_counterterm_pole_coefficient_full_minus_light_GeV2": -3236092.6837118976
       },
       "absorptive_matrix_PiRC_GeV2": [
         [
