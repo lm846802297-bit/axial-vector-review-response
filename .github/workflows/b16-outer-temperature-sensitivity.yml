@@ -38,7 +38,7 @@ jobs:
           python -m pip install numpy scipy
       - name: Run self-consistent B.1 and B.2 temperature sensitivity
         run: |
-          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_outer_temperature_sensitivity.py --mass 10 --nr 40 --ne 100 --na 16 --ns 32
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_outer_temperature_sensitivity.py --mass 10 --nr 40 --ne 100 --na 32 --ns 32
       - name: Verify production axial outputs remain unchanged
         run: |
           git diff --exit-code -- research/stellar-cooling-constraints-20261105/rates.py research/stellar-cooling-constraints-20261105/transport.py research/stellar-cooling-constraints-20261105/outputs/axial.json research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.pdf research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.png
