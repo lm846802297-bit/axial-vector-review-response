@@ -50,7 +50,9 @@ jobs:
           d = json.loads(p.read_text())
           assert d["profile_sha256"] == "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
           assert set(d["scenarios"]) == {"mu_numu_minus_3MeV", "mu_numu_minus_1MeV", "baseline_zero", "mu_numu_plus_1MeV", "mu_numu_plus_3MeV"}
-          assert abs(d["scenarios"]["baseline_zero"]["B2_neutrino_path_tau_fraction_20_22km_8_15km_emission"] - 0.0) >= 0.0
+          baseline = d["scenarios"]["baseline_zero"]
+          assert abs(baseline["B1_source_fraction_emitted_in_22_25km"] - 0.0007276) < 0.0001
+          assert abs(baseline["B2_neutrino_path_tau_fraction_22_25km_8_15km_emission"] - 0.191084) < 0.003
           for a,b in [("mu_numu_minus_1MeV","mu_numu_plus_1MeV"),("mu_numu_minus_3MeV","mu_numu_plus_3MeV")]:
               for point in ("weak_endpoint","reference_peak","strong_endpoint"):
                   x=d["scenarios"][a]["points"][point]["L_escaped_erg_s"]
