@@ -1,0 +1,9 @@
+test_chiral_coefficients_reproduce_explicit_dirac_trace (test_independent_fermion_sector_matrix_audit.IndependentFermionMatrixAuditTests.test_chiral_coefficients_reproduce_explicit_dirac_trace) ... ok
+test_heavy_equal_mass_b0_is_real_below_threshold (test_independent_fermion_sector_matrix_audit.IndependentFermionMatrixAuditTests.test_heavy_equal_mass_b0_is_real_below_threshold) ... ok
+test_light_pair_b0_has_positive_absorptive_part_above_threshold (test_independent_fermion_sector_matrix_audit.IndependentFermionMatrixAuditTests.test_light_pair_b0_has_positive_absorptive_part_above_threshold) ... ok
+test_zero_momentum_equal_mass_b0_closed_form (test_independent_fermion_sector_matrix_audit.IndependentFermionMatrixAuditTests.test_zero_momentum_equal_mass_b0_closed_form) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.035s
+
+OK
