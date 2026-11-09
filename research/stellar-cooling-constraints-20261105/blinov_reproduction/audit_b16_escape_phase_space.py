@@ -222,6 +222,9 @@ def region_summary(name, region_mask, r, energies, angles, angle_weights,
         "energy_bins": energy_bins,
         "direction_bins_4": direction_bins_4,
         "direction_bins_8": direction_bins_8,
+        # Keep every non-empty cell so independent marginal reconstruction
+        # and joint-partition closure can be checked from the archived JSON.
+        "joint_radius_energy_direction_bins": joint,
         "top_joint_radius_energy_direction_bins": joint[:80],
         "joint_bin_count_nonempty": len(joint),
     }
