@@ -253,13 +253,13 @@ A matching coefficient in one of these conventions is not transferred by copying
 | \(O_8^{\rm pot}=(H^\dagger H)^2(S^\dagger S)^2\) | PR #69 benchmark reconstruction and RC-001 cross-reconciliation | Already tracked in PR #69; restricted scalar-potential result only |
 | Three-column off-shell QLD8 amplitude projection | Pinned RC-001 §5J and exact polynomial projection record | Upstream algebraic result; not a complete operator basis |
 | \(\mathcal O_P,\mathcal O_Q\) IBP relation | Pinned RC-001 §5K | Action-level identity for the declared representatives |
-| Electroweak non-Abelian commutator/current map | Pinned RC-001 §5M and SymPy audit text | Restricted Higgs-current algebra; full current basis open |
+| Electroweak non-Abelian commutator/current map | Pinned RC-001 §5M and exact-rational audit | Restricted Higgs-current commutator map plus complete leading-renormalizable light-field currents; fermion EOM/Fierz reduction remains open |
 | Gauge-current expansion into all leading-renormalizable light matter currents | [RC-001-QLD-total-current-expansion.md](https://github.com/lm846802297-bit/high-energy-theory-research/blob/b5ee392787d9a16fd1b2206f1adfdd952b4789f3/research/RC-001-QLD-total-current-expansion.md) and exact-rational bookkeeping audit | Completed for the displayed restricted gauge-EOM representatives; fermion EOM/Fierz basis reduction remains open |
 | Axial Higgs-source flavor/charge map | [RC-001-QLD-Higgs-source-EOM-model-map.md](https://github.com/lm846802297-bit/high-energy-theory-research/blob/b5ee392787d9a16fd1b2206f1adfdd952b4789f3/research/RC-001-QLD-Higgs-source-EOM-model-map.md) and exact charge audit | Source inventory and power counting established; no Fierz or final basis reduction |
 | Fermion EOM/Fierz reduction and complete Green-basis map | Not completed | Open |
 | Mixed-background hard amplitudes and same-order EFT soft graphs | Not completed | Open |
 | Full counterterm closure and finite renormalized dimension-eight Wilson vector | Not completed | Open |
-| C5 Schur-complement and (D/F/ℑ) convention audit | [C5_GAUGE_CONVENTION_AUDIT_2026-11-10.md](C5_GAUGE_CONVENTION_AUDIT_2026-11-10.md), exact-rational test suite | Algebraic sign and field-variable map established; no loop calculation |
+| C5 Schur-complement and (D/F/curvature) convention audit | [C5_GAUGE_CONVENTION_AUDIT_2026-11-10.md](C5_GAUGE_CONVENTION_AUDIT_2026-11-10.md), exact-rational test suite | Algebraic sign and field-variable map established; no loop calculation |
 | Independent FeynArts/FeynCalc diagram validation | Not completed in the pinned record | Open |
 | Physical \(h\)-\(s\) poles and observables | Requires the full PR #69 propagator programme | Open; not implied by QLD8 algebra |
 
