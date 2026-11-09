@@ -10,7 +10,7 @@
 
 > **物理输入边界：** Caputo 的 T(r) 与 mu_mu/T 在 5--20 km 与 Bollig Figs. 1、4 的直接矢量曲线交叉吻合；原始 Fig. 4 明确支持 Caputo 而非 Ferreira 的 mu_mu/T digitization。Caputo 的绝对 n_mu 与其自身 Fermi 积分一致，但 Bollig Fig. 3 的密度在 5--15 km 平均低约 5%，12--15 km 低约 8.8%；B.17 使用的是同一 T, mu_mu 分布决定的 susceptibility n_mu F_deg，不得按 Fig. 3 密度比直接重标度。20--25 km 的部分热力学输入仍属图像外延或未分辨分支。lapse N(r) 在 0--20 km 还得到 Zuowei Liu 2026-10-31 会议报告 slide 65 的独立视觉交叉支持，但这不是机器精度验证，也没有给出 A(r) 或 M(r)。完整 GR 传播仍缺少同一快照的 A(r) 或 M(r)。不从 lapse 单独拟合空间度规，不调整背景或 opacity 来拟合 Fig. 7。
 
-> **方法边界：** Fig. 7 工作基准继续采用 Appendix B.2 字面给出的标量、偏振求和吸收率；逐偏振传播、路径红移和 B.13 精确移动缪子计算保留为独立诊断。没有进行经验性源项/吸收率/光度重标度，没有修改生产轴矢量曲线、论文正文或正式回复信。只有纯矢量基准通过独立物理验收后，才解冻轴矢量限制曲线。
+> **方法边界：** Fig. 7 工作基准继续采用 Appendix B.2 字面给出的标量、偏振求和吸收率；逐偏振传播、路径红移和 B.13 精确移动缪子计算保留为独立诊断。没有进行经验性源项/吸收率/光度重标度，没有修改生产轴矢量曲线、论文正文或正式回复信。只有纯矢量基准通过独立物理验收后，才解冻轴矢量限制曲线。最终验收结论见 [B16_VECTOR_BENCHMARK_ACCEPTANCE_GATE_2026-11-09.md](research/stellar-cooling-constraints-20261105/blinov_reproduction/B16_VECTOR_BENCHMARK_ACCEPTANCE_GATE_2026-11-09.md)：数值模块通过，但 Fig. 7 物理复现未通过；PR #57 保持 Open / Draft。 Fig. 7 工作基准继续采用 Appendix B.2 字面给出的标量、偏振求和吸收率；逐偏振传播、路径红移和 B.13 精确移动缪子计算保留为独立诊断。没有进行经验性源项/吸收率/光度重标度，没有修改生产轴矢量曲线、论文正文或正式回复信。只有纯矢量基准通过独立物理验收后，才解冻轴矢量限制曲线。
 
 > **2026-11-07 矢量 benchmark 更新：** 作者指定仅复现 Blinov et al.，采用现有重建剖面，不要求精细恒星模型或原始表作为前置条件。已定量对照该文 Fig. 4，发现偏振求和吸收率与逐偏振单粒子宽度的区别；完整 Fig. 7 中 10 MeV 光度仍有差异。旧“矢量端点 223 MeV”是稀疏采样误读，当前逐偏振计算闭合点约 259.1 MeV。详见 [矢量 benchmark 核查](research/stellar-cooling-constraints-20261105/VECTOR_BENCHMARK_AUDIT_2026-11-07.md)。PR #56 仍为 Draft；这些诊断并不构成最终物理验证。
 
