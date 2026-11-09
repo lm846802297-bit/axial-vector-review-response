@@ -119,7 +119,15 @@ For a +/-10% temperature stress:
 
 The same-grid channel, shell, direct-chord, and source-weighted mean-optical-depth closure checks pass at floating-point precision. The 20--22 km temperature variation is therefore not a plausible explanation for the order-one strong-coupling mismatch at the tested +/-10% level. This is not a statistical uncertainty estimate and does not certify the true Garching background. Full details are in [B16_OUTER_TEMPERATURE_SENSITIVITY_20_22KM_2026-11-09.md](B16_OUTER_TEMPERATURE_SENSITIVITY_20_22KM_2026-11-09.md).
 
-## 7. Current decision
+## 7. 20--22 km muon-neutrino figure-floor sensitivity: completed
+
+The baseline profile has mu_numu=0 at all 176 retained nodes in 20--22 km because no branch is resolved there above the approximately 1 MeV figure floor. A self-consistent B.1+B.2 rerun assigns mu_numu=+1 MeV and -1 MeV throughout this shell, keeping T, mu_mu, lapse, and all other inputs fixed. The global quadrature is N_r=40, N_E=100, N_omega=32, N_s=32.
+
+At the strong endpoint, either sign changes the escaped luminosity by only +0.00915% and the escape probability by +0.00936% relative to the zero baseline. At the reference luminosity peak, the escaped luminosity changes by +0.00481%. The +1 MeV and -1 MeV results agree exactly at the stored precision, as expected from charge-conjugation symmetry of the pair phase-space integral under symmetric angular integration. Numerical closure residuals remain at floating-point precision.
+
+The unresolved 1 MeV chemical-potential floor in 20--22 km is therefore not a plausible explanation for the order-one strong-coupling Fig. 7 mismatch. This is a figure-floor stress test, not a measurement of the true mu_numu profile. Full results are in [B16_OUTER_NUMU_FLOOR_SENSITIVITY_20_22KM_2026-11-09.md](B16_OUTER_NUMU_FLOOR_SENSITIVITY_20_22KM_2026-11-09.md) and [Actions run 42555233650](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42555233650).
+
+## 8. Current decision
 
 - Radial, energy, angular, and path global quadrature: passed the stated project-level luminosity-stability targets at the tested resolutions.
 - Same-grid B.16 closure: passed for all four global B.13 configurations with zero residual.
