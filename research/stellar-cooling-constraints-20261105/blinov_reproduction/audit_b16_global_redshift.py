@@ -38,7 +38,7 @@ except ImportError:
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 DEFAULT_FIG7 = ROOT / "outputs" / "vector_audit" / "luminosity_comparison.json"
-DEFAULT_OUTPUT = HERE / "outputs" / "b16_global_redshift_audit_2026-11-08.json"
+DEFAULT_OUTPUT = HERE / "outputs" / "b16_global_redshift_audit_2026-11-09.json"
 
 
 def sha256(path: Path) -> str:
