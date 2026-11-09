@@ -36,6 +36,7 @@ CONFIGS = (
     ("path48", 40, 100, 16, 48),
     ("path64", 40, 100, 16, 64),
     ("combined_60x140x24x48", 60, 140, 24, 48),
+    ("fine_80x200x32x64", 80, 200, 32, 64),
 )
 
 
@@ -152,8 +153,8 @@ def run_mass_audit(mass: float, profile_path: Path, fig7_path: Path) -> dict:
         "energy_150_to_200": compare_pair(results["energy150"], results["energy200"]),
         "angular_24_to_32": compare_pair(results["angle24"], results["angle32"]),
         "path_48_to_64": compare_pair(results["path48"], results["path64"]),
-        "combined_to_finest_available": compare_pair(
-            results["combined_60x140x24x48"], results["radial80"]
+        "combined_to_fine_80x200x32x64": compare_pair(
+            results["combined_60x140x24x48"], results["fine_80x200x32x64"]
         ),
     }
 
