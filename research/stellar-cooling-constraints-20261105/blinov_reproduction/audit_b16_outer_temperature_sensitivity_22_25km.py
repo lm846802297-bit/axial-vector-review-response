@@ -23,7 +23,7 @@ DEFAULT_JSON = HERE / "outputs" / "b16_outer_temperature_sensitivity_22_25km_10m
 DEFAULT_MD = HERE / "B16_OUTER_TEMPERATURE_SENSITIVITY_22_25KM_2026-11-09.md"
 EXPECTED_PROFILE_SHA256 = "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
 R_MIN, R_MAX = 22.0, 25.0
-SCALES = (0.9, 1.0, 1.1)
+SCALES = (0.7, 0.9, 1.0, 1.1, 1.3)
 POINTS = {"weak_endpoint": 0, "reference_peak": 17, "strong_endpoint": 24}
 EMISSION_SHELLS_8_15 = {"8-10 km", "10-12 km", "12-15 km"}
 
@@ -177,7 +177,7 @@ def make_report(data):
         "| T scale in 22--25 km | Weak L_escaped / baseline | Peak L_escaped / baseline | Strong L_escaped / baseline | Strong P_escape / baseline |",
         "|---:|---:|---:|---:|---:|",
     ]
-    for scale in (0.9,1.0,1.1):
+    for scale in (0.7,0.9,1.0,1.1,1.3):
         if scale==1.0:
             lines.append("| 1.0 | 100% | 100% | 100% | 100% |")
         else:
