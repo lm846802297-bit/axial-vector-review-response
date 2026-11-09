@@ -215,7 +215,7 @@ so the finite \(O_8=(H^\dagger H)^2(S^\dagger S)^2\) matching boundary is no lon
 - Benchmark A: \(-3.80925598\times10^{-17}\,\mathrm{GeV}^{-4}\);
 - Benchmark B: \(-9.76902113\times10^{-20}\,\mathrm{GeV}^{-4}\).
 
-A high-precision test compares the exact heavy eigenvalue Coleman--Weinberg expression with the dimension-eight background expansion and verifies the expected fifth-order remainder. The latest test suite now contains 17 tests once the independent matrix/tadpole and scalar-potential groups are combined.
+A high-precision test compares the exact heavy eigenvalue Coleman--Weinberg expression with the dimension-eight background expansion and verifies the expected fifth-order remainder. The latest test suite now contains 18 tests: 9 independent matrix/tadpole tests and 9 scalar-potential/EFT5/finite-matching/scale-running tests.
 
 The derivative-operator basis, finite tadpole/VEV prescription, and gauge/Goldstone/ghost/scalar contributions remain outside this finite-potential matching result.
 
