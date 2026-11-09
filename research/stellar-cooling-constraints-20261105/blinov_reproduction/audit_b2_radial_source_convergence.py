@@ -30,7 +30,7 @@ def summarize(x):
                 "strong_pct":float(d[-1]*100),
                 "weak_pct":float(d[0]*100)}
     return {
-      "radial_order":x["configuration"]["radial_order"],
+      "radial_order":x["configuration"]["radial_order"],\n      "opacity_order":x["configuration"]["opacity_order"],
       "actual_radial_node_count":len(x["eq_b1_source_measure"]["radial_measure_MeVminus3"]),
       "thin_luminosity_erg_s_at_first_coupling":float(thin[0]),
       "fixed_vs_fig7":x["eq_b2_fixed_omega_baseline"]["curve_metrics"],
@@ -58,7 +58,7 @@ def main():
     rows=[]
     for n in orders:
       print(f"Running B.2 radial order {n}, m={a.mass:g} MeV",flush=True)
-      raw=run_mass(a.mass,a.profile,a.fig7,n,100,16,32,25.0,1000.0)
+      raw=run_mass(a.mass,a.profile,a.fig7,n,100,16,32,25.0,1000.0,opacity_order=640)
       rows.append(summarize(raw))
     for i in range(1,len(rows)):
       prev,cur=rows[i-1],rows[i]
@@ -72,7 +72,7 @@ def main():
         "strong_pct":float((cur["redshifted_luminosity"][-1]/prev["redshifted_luminosity"][-1]-1)*100)}
       }
     out={"date":"2026-11-09","mass_MeV":a.mass,"profile_sha256":ph,
-         "fixed_quadratures":{"energy_order":100,"angular_order":16,"path_order":32},
+         "fixed_quadratures":{"energy_order":100,"angular_order":16,"path_order":32,"opacity_order":640},
          "radial_orders":rows,
          "acceptance_target":{"max_abs_luminosity_change_pct":1.0,
            "note":"Project numerical screening target; not a physical uncertainty."}}
