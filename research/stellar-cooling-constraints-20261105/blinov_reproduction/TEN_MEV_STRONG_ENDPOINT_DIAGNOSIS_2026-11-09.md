@@ -334,3 +334,22 @@ Thus the new CPU/memory/disk preflight itself did not execute. The same zero-ste
 **Execution decision:** do not submit more empty GitHub Actions retries. Keep the fixed calculation and acceptance criteria unchanged. The next execution must be either (i) after the repository's GitHub-hosted runner provisioning is restored, or (ii) on a local checkout of this exact research branch. A successful run must still pass the baseline grid hashes, luminosity closure, source closure, and phase-space partition tests before its JSON is accepted.
 
 No high-order energy-resolved physical result is available as of this update.
+
+
+## 16. 2026-11-10: complete joint-bin closure added; latest workflow still has no runner
+
+The joint radius-energy-direction table is now retained in full as \`joint_radius_energy_direction_bins\`, rather than retaining only the top 80 cells. The workflow's acceptance step now:
+- checks the escape-probability residual against the archived high-order B.16 baseline;
+- checks full joint-table regional source and escaped-luminosity normalization;
+- checks that the joint table's global subregion fractions reproduce the corresponding global B.1 source and escaped luminosity;
+- independently reconstructs the radius, energy, and four-bin direction marginals from the joint table and compares them with the stored one-dimensional partitions.
+
+This closes an output-audit gap: the complete JSON can now be used to independently verify its marginal distributions rather than relying on the top-ranked subset.
+
+The push-triggered run [#42666123613](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42666123613), associated with the workflow-validation update, again failed before any job step:
+- job created;
+- \`steps=null\`;
+- \`logs_url=null\`;
+- elapsed time about four seconds.
+
+The stricter validation code therefore has not run, and the physical phase-space calculation has not started. This is still an Actions runner-provisioning failure, not evidence of a code or numerical failure. No further automatic retries are warranted until runner provisioning is restored or the exact branch is run locally.
