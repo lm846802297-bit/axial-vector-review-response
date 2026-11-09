@@ -89,8 +89,9 @@ The workflow conclusion is nevertheless failure because the final artifact uploa
 ## 4. Current decision
 
 - Radial, energy, angular, and path global quadrature: passed the stated project-level luminosity-stability targets at the tested resolutions.
-- Same-grid B.16 closure: passed for all four configurations with zero residual.
-- Artifact archival: partial only; full JSON upload failed because the Actions storage quota was exhausted.
-- Local B.13 collision-kernel quadrature: not certified by this global audit; remains a separate validation.
+- Same-grid B.16 closure: passed for all four global B.13 configurations with zero residual.
+- Global convergence artifact archival: partial only; the original full JSON upload failed because the Actions storage quota was exhausted. The compact log-recovered summary is explicitly labelled and archived.
+- Local B.13 collision-kernel quadrature: sampled-point high-order validation passes at the three representative points, with a maximum 20-to-24 order change of 0.03016% against the audit-specific 0.1% screening target. The full continuous r-omega domain is not certified.
+- B.16 neutrino inverse-decay radial path: current-profile shell, angle, and leave-one-out synthesis is documented in B16_NEUTRINO_INVERSE_DECAY_RADIAL_PATH_SYNTHESIS_2026-11-09.md. The 8-22 km path group dominates collectively, while 22-25 km remains individually important.
 - Fig. 7 mismatch: persists after numerical convergence and must be investigated as a separate physical/reproduction issue.
 - Axial-vector production curve: remains frozen.
