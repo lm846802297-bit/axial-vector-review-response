@@ -133,3 +133,16 @@ The official Garching archive index lists the Bollig/Hüdepohl radial hydro and 
 A recent independent study, Wang and Zhang, arXiv:2610.35379 (2026), likewise states that its SFHo-18.8 radial simulation quantities are obtained from the corresponding simulations and that full profile data are available from the same Garching archive. It does not supply a separate public copy of the raw snapshot.
 
 Thus the current public-figure reconstruction cannot be upgraded to a same-snapshot full-GR metric by downloading the listed TOV solver or by substituting another public simulation. A generic static TOV solver is not a reconstruction of a time-dependent PNS snapshot. No lapse-only inference of (A(r)), synthetic TOV replacement, or cross-snapshot splice is adopted. See [B16_PUBLIC_PROFILE_AND_METRIC_SOURCE_AVAILABILITY_AUDIT_2026-11-09.md](B16_PUBLIC_PROFILE_AND_METRIC_SOURCE_AVAILABILITY_AUDIT_2026-11-09.md).
+
+
+## 8. Correction: full GR metric is not required for the published Fig. 7 prescription
+
+This section supersedes the earlier implication that the missing same-snapshot (A(r)) is a mandatory input to reproduce Blinov et al.'s Fig. 7.
+
+The cited gravitational-redshift treatment, Caputo et al., arXiv:2201.09890, Supplemental Material C, explicitly interprets the Garching pseudo-Newtonian model with flat spatial coordinates and distant-observer time. It applies the lapse to the emitted particle energy, uses the local escape threshold (E_{m loc}>m_V/N(r)), and multiplies the source luminosity by (N(r)^2). This is precisely the structure of Blinov's B.1.
+
+Blinov's B.2 then explicitly uses the Euclidean chord (r'(s)=\sqrt{r^2+s^2+2rs\cos\theta}) and contains no (A(r)), proper spatial path factor, or geodesic bending. Therefore, the literal published Appendix-B calculation does not require (A(r)) or (M(r)). Their absence limits a **full-GR extension**, not reproduction of the paper's stated approximation.
+
+The remaining energy-convention ambiguity is between the Sec. 4.1 description of (omega) as energy at infinity and the B.1 local-energy threshold/phase-space structure, together with B.2's fixed-(omega) path kernel. The reproduction baseline continues to follow B.1--B.5 literally; the path-redshift-only calculation remains a separate diagnostic.
+
+The corrected method reconstruction is documented in [B16_PUBLISHED_GRAVITY_AND_ENERGY_PRESCRIPTION_RECONSTRUCTION_2026-11-09.md](B16_PUBLISHED_GRAVITY_AND_ENERGY_PRESCRIPTION_RECONSTRUCTION_2026-11-09.md). Do not block the B.13/B.16, strong-absorption, or outer-neutrino-opacity audits on access to (A(r)).
