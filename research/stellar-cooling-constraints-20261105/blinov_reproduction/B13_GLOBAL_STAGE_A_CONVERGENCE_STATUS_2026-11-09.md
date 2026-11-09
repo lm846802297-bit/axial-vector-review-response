@@ -224,7 +224,19 @@ The repository keeps the literal Appendix-B fixed-omega prescription as the Fig.
 
 A complete GR path calculation would also require a consistent spatial metric/path element, not just the lapse. The public profile has no independently tabulated A(r) or enclosed-mass profile for the full path. No baseline is changed. Full report: [B16_ENERGY_VARIABLE_AND_PATH_REDSHIFT_CONVENTION_AUDIT_2026-11-09.md](B16_ENERGY_VARIABLE_AND_PATH_REDSHIFT_CONVENTION_AUDIT_2026-11-09.md).
 
-## 17. Current decision
+## 17. Independent analytic B.2 propagation implementation: completed
+
+A second B.2 implementation now computes the chord integral analytically for the piecewise-linear radial opacity table. It uses z=s+r cos(theta), b=r sqrt(1-cos^2(theta)), splits each ray at all radial interpolation knots and the inward-ray turning point, and integrates A+B sqrt(b^2+z^2) exactly on each segment. The direction average is checked independently with Gauss-Legendre, composite Simpson, and adaptive QUADPACK. It shares only the local collision kernel, B.1 source measure, profile, and Fig. 7 reference with the baseline; it does not use the existing B.2 path integrator to generate its optical-depth columns.
+
+Workflow [42562585233](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42562585233) passes, including the analytic-path unit tests, full 10 MeV calculation, baseline closure, and unchanged-production-output check.
+
+The reconstructed original B.16 calculation reproduces the archived result to a maximum relative difference of 1.11e-16. At path order 128, the existing path quadrature differs from the analytic integral by at most 0.07193% pointwise, 0.01152% at the 99th percentile, and 0.001329% in source-weighted RMS; its maximum luminosity shift against the analytic 16-angle result is 0.0001396%. The Simpson-256 angular average differs from 27 adaptive QUADPACK checks by at most 1.146e-6 relative.
+
+The final analytic-path/Simpson-256 luminosity curve differs from archived B.16 by at most 4.521e-5 relative (0.00452%). Its Fig. 7 residuals are -8.8853% at the weak endpoint, +2.5694% at the reference peak, and +92.2493% at the strong endpoint. Therefore the fixed-profile B.2 numerical path and angular integration is independently validated and cannot explain the order-one strong-endpoint discrepancy. This conclusion is conditional on the shared profile, local opacity, B.1 source measure, and literal fixed-omega Euclidean-chord prescription; it does not validate those physical inputs or resolve the energy-convention issue.
+
+Full report: [B16_INDEPENDENT_ANALYTIC_PATH_INTEGRATION_AUDIT_2026-11-09.md](B16_INDEPENDENT_ANALYTIC_PATH_INTEGRATION_AUDIT_2026-11-09.md); machine-readable result: [b16_path_independent_analytic_10mev_2026-11-09.json](outputs/b16_path_independent_analytic_10mev_2026-11-09.json).
+
+## 18. Current decision
 
 - Radial, energy, angular, and path global quadrature: passed the stated project-level luminosity-stability targets at the tested resolutions.
 - Same-grid B.16 closure: passed for all four global B.13 configurations with zero residual.
