@@ -319,3 +319,18 @@ The already archived lower-order directional audit further resolves this selecti
 or **66.58% of the total escaped luminosity**. This fraction is from the lower-order directional/path diagnostic, not the not-yet-executed high-order energy-resolved calculation.
 
 These results strengthen the motivation for the next phase-space calculation: the relevant population is not simply “all particles emitted in the core,” but the subset emitted in the dominant core region and directed sufficiently outward to survive the full chord.
+
+
+## 15. One deliberate rerun after runner preflight update
+
+After adding a resource-reporting preflight and switching the job to \`ubuntu-22.04\`, one deliberate push-triggered run was made against commit \`13c0ad34717def2ef8efa93289e95c2f4c6222dc\`. Run [#42663539198](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42663539198) again created the job but failed before runner provisioning:
+- \`steps=null\`;
+- \`logs_url=null\`;
+- no runner ID/name;
+- elapsed time approximately four seconds.
+
+Thus the new CPU/memory/disk preflight itself did not execute. The same zero-step failure pattern is present across the recent attempts, including the prior \`ubuntu-latest\` and \`ubuntu-22.04\` configurations. No Python command, unit test, quadrature, or phase-space binning ran in these attempts.
+
+**Execution decision:** do not submit more empty GitHub Actions retries. Keep the fixed calculation and acceptance criteria unchanged. The next execution must be either (i) after the repository's GitHub-hosted runner provisioning is restored, or (ii) on a local checkout of this exact research branch. A successful run must still pass the baseline grid hashes, luminosity closure, source closure, and phase-space partition tests before its JSON is accepted.
+
+No high-order energy-resolved physical result is available as of this update.
