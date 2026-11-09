@@ -1,100 +1,374 @@
 {
   "status": "PASS",
-  "potential_convention": "V=-mu_H2 HdaggerH-mu_S2 SdaggerS+lambda_H(HdaggerH)^2+lambda_S(SdaggerS)^2+lambda_HS(HdaggerH)(SdaggerS); H0=(vh+h)/sqrt(2), S=(vs+s)/sqrt(2), L contains -V",
-  "tree_mass_matrix": {
-    "hh": "-mu_H2 + 3 lambda_H vh^2 + (lambda_HS/2) vs^2",
-    "ss": "-mu_S2 + 3 lambda_S vs^2 + (lambda_HS/2) vh^2",
-    "hs": "lambda_HS vh vs"
+  "UV_convention": {
+    "Delta_UV": "1/epsilon - gamma_E + ln(4 pi)",
+    "inverse_propagator": "Gamma_inv = p^2 I - M_loc^2 + Pi_RC",
+    "fermion_determinant": "V1_div = + Delta_UV Tr[(Mdagger M)^2]/(16 pi^2)",
+    "potential_counterterm": "delta V = - Delta_UV Tr[(Mdagger M)^2]/(16 pi^2)",
+    "Pi_RC_loop_local": "-F_ab Delta_UV/(16 pi^2)",
+    "Pi_RC_loop_p2": "+C_ab p^2 Delta_UV/(16 pi^2)",
+    "field_counterterm": "delta Z_ab = -C_ab Delta_UV/(16 pi^2)"
   },
-  "general_counterterm_map": {
-    "hh": "-dmu_H2 + 3 vh^2 dlambda_H + 6 lambda_H vh dvh + (vs^2/2) dlambda_HS + lambda_HS vs dvs",
-    "ss": "-dmu_S2 + 3 vs^2 dlambda_S + 6 lambda_S vs dvs + (vh^2/2) dlambda_HS + lambda_HS vh dvh",
-    "hs": "vh vs dlambda_HS + lambda_HS (vs dvh + vh dvs)"
+  "renormalizable_potential_counterterm_basis": {
+    "delta_V": "-delta_mu_H2 HdaggerH - delta_mu_S2 SdaggerS + delta_lambda_H(HdaggerH)^2 + delta_lambda_S(SdaggerS)^2 + delta_lambda_HS(HdaggerH)(SdaggerS)",
+    "delta_mu_H2": "+2 M_E^2 sum_l |y_l|^2/(16 pi^2)",
+    "delta_mu_S2": "+2 M_E^2 sum_l |lambda_l|^2/(16 pi^2)",
+    "delta_lambda_H": "-sum_l |y_l|^4/(16 pi^2)",
+    "delta_lambda_S": "-sum_l |lambda_l|^4/(16 pi^2)",
+    "delta_lambda_HS": "0 at this one-loop VLL determinant order"
   },
-  "tadpole_map_at_tree_stationarity": {
-    "delta_T_h_over_vh": "-dmu_H2 + vh^2 dlambda_H + 2 lambda_H vh dvh + (vs^2/2) dlambda_HS + lambda_HS vs dvs",
-    "delta_T_s_over_vs": "-dmu_S2 + vs^2 dlambda_S + 2 lambda_S vs dvs + (vh^2/2) dlambda_HS + lambda_HS vh dvh",
-    "identity_hh": "delta_M_hh^2 - delta_T_h/vh = 2 vh^2 dlambda_H + 4 lambda_H vh dvh",
-    "identity_ss": "delta_M_ss^2 - delta_T_s/vs = 2 vs^2 dlambda_S + 4 lambda_S vs dvs"
+  "EFT_dimension8_counterterm_basis": {
+    "operator": "(Hdagger H)^2 (Sdagger S)^2",
+    "coefficient": "-sum_l |C5_l|^4/(16 pi^2)",
+    "C5_definition": "C5_l = y_l lambda_l/M_E; m_l(h,s)=C5_l(v_h+h)(v_s+s)/2",
+    "reason": "The light determinant of the dimension-five mass operator generates a dimension-eight scalar operator; its h-s contact contribution is required in the EFT two-point UV pole."
   },
-  "non_uniqueness": "The three two-point matrix entries do not determine all quadratic, quartic, VEV, and tadpole counterterms. A tadpole/VEV prescription and the corresponding one-point functions are required before assigning unique renormalized potential-parameter counterterms.",
   "benchmarks": {
     "A_open_AA": {
       "vs_GeV": 70.886458,
-      "mass_matrix_counterterm_pole_coefficient_GeV2": [
-        [
-          -13374386.09800963,
-          4.3377057531570926e-05
+      "full_theory_VLL_potential_counterterms": {
+        "delta_mu_H2_GeV2": 13370374.985526461,
+        "delta_mu_S2_GeV2": 63887080.44396132,
+        "delta_lambda_H": -0.022054485649901395,
+        "delta_lambda_S": -1.0000125046700834,
+        "delta_lambda_HS": -0.0,
+        "potential_counterterm_tadpoles_per_vev_GeV2": [
+          -13371712.023025014,
+          -63892105.3967237
         ],
-        [
-          4.3377057531570926e-05,
-          -63902155.30209777
-        ]
-      ],
-      "fixed_vev_bookkeeping_basis": {
-        "basis_label": "fixed_vev_quadratic_diagonal_plus_portal_offdiagonal",
-        "delta_lambda_H": 0.0,
-        "delta_lambda_S": 0.0,
-        "delta_lambda_HS": 2.4852694715038743e-09,
-        "delta_mu_H2_GeV2": 13374386.098015873,
-        "delta_mu_S2_GeV2": 63902155.3021731,
-        "delta_vh_GeV": 0.0,
-        "delta_vs_GeV": 0.0,
-        "reconstructed_mass_matrix_counterterm_GeV2": [
+        "potential_counterterm_mass_matrix_GeV2": [
           [
-            -13374386.09800963,
-            4.3377057531570926e-05
+            -13374386.098022122,
+            -0.0
           ],
           [
-            4.3377057531570926e-05,
-            -63902155.30209777
+            -0.0,
+            -63902155.30224845
           ]
         ],
-        "max_reconstruction_residual_GeV2": 0.0,
-        "warning": "This is one bookkeeping decomposition of the two-point UV pole. It does not fix the tadpole counterterms or define a VEV scheme."
+        "loop_1PI_tadpole_pole_coefficients_GeV3": [
+          -3292382934.3092194,
+          -4529085045.736428
+        ],
+        "loop_Pi_RC_local_pole_coefficients_GeV2": [
+          [
+            -13374386.098022122,
+            -0.0
+          ],
+          [
+            -0.0,
+            -63902155.302248456
+          ]
+        ],
+        "tadpole_cancellation_residual_GeV2": [
+          -4.76837158203125e-07,
+          0.0
+        ],
+        "mass_cancellation_residual_GeV2": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -7.450580596923828e-09
+          ]
+        ]
       },
-      "tadpole_and_vev_scheme_status": "not_fixed_by_the_two_point_subcalculation"
+      "full_theory_VLL_field_counterterms": {
+        "delta_Z_HH": -0.016712968731908077,
+        "delta_Z_HS": -6.879200210989065e-22,
+        "delta_Z_SS": -0.07985885055495164,
+        "full_theory_p2_UV_coefficients_C": {
+          "hh": 2.6392062360273405,
+          "hs": 1.0863197548536402e-19,
+          "ss": 12.610804206449409
+        },
+        "p2_cancellation_residual": {
+          "hh": 0.0,
+          "hs": 0.0,
+          "ss": 0.0
+        }
+      },
+      "leading_EFT5_light_loop_and_dimension8_counterterm": {
+        "flavours": {
+          "mu": {
+            "C5_GeVminus1": 1.2107300493940768e-05,
+            "kappa_neutral_mass_operator_GeVminus1": 6.053650246970384e-06,
+            "m_EFT5_at_vev_GeV": 0.1056583755,
+            "input_light_mass_GeV": 0.1056583755,
+            "mass_relative_difference": 0.0,
+            "F_derivatives": {
+              "F": 0.00012462802606601117,
+              "F_h": 2.0246612958494218e-06,
+              "F_s": 7.032543567969564e-06,
+              "F_hh": 2.4668929768289603e-08,
+              "F_hs": 1.1424812879489179e-07,
+              "F_ss": 2.976256861911296e-07
+            }
+          },
+          "tau": {
+            "C5_GeVminus1": 0.00020360882754309992,
+            "kappa_neutral_mass_operator_GeVminus1": 0.00010180441377154996,
+            "m_EFT5_at_vev_GeV": 1.77686,
+            "input_light_mass_GeV": 1.77686,
+            "mass_relative_difference": 0.0,
+            "F_derivatives": {
+              "F": 9.968110489487948,
+              "F_h": 0.16193827454289575,
+              "F_s": 0.5624832031803845,
+              "F_hh": 0.001973092452394961,
+              "F_hs": 0.009137896242066193,
+              "F_ss": 0.02380496440577061
+            }
+          }
+        },
+        "sum_derivatives_GeV": {
+          "F": 9.968235117514014,
+          "F_h": 0.1619402992041916,
+          "F_s": 0.5624902357239524,
+          "F_hh": 0.0019731171213247293,
+          "F_hs": 0.009138010490194987,
+          "F_ss": 0.0238052620314568
+        },
+        "bubble_local_UV_coefficients_GeV2": {
+          "hh": 0.0019731171213247293,
+          "hs": 0.006853507867646241,
+          "ss": 0.023805262031456803
+        },
+        "dimension5_contact_local_UV_coefficients_GeV2": {
+          "hh": 0.0,
+          "hs": 0.0022845026225487472,
+          "ss": 0.0
+        },
+        "complete_leading_EFT5_local_UV_coefficients_GeV2": {
+          "hh": 0.0019731171213247293,
+          "hs": 0.009138010490194989,
+          "ss": 0.023805262031456803
+        },
+        "one_loop_EFT_1PI_tadpole_pole_coefficients_GeV3": {
+          "h": -0.0010254989246726888,
+          "s": -0.003562011029425528
+        },
+        "one_loop_EFT_Pi_RC_local_pole_coefficients_GeV2": {
+          "hh": -1.2494910137348985e-05,
+          "hs": -5.786712743766597e-05,
+          "ss": -0.00015074858287145035
+        },
+        "dimension8_operator": "(Hdagger H)^2 (Sdagger S)^2",
+        "dimension8_potential_counterterm_coefficient_GeVminus4": -1.0883588525689463e-17,
+        "dimension8_potential_loop_pole_coefficient_GeVminus4": 1.0883588525689463e-17,
+        "dimension8_operator_coefficient_sum_C5_fourth_GeVminus4": 1.718667411404646e-15
+      },
+      "comparison_to_archived_exact_light_bubble": {
+        "exact_mass_eigenstate_light_bubble_local_UV_coefficients_GeV2": {
+          "hh": 0.001972016882158648,
+          "hs": 0.006849830563573524,
+          "ss": 0.023792990401942674
+        },
+        "leading_EFT5_bubble_local_UV_coefficients_GeV2": {
+          "hh": 0.0019731171213247293,
+          "hs": 0.006853507867646241,
+          "ss": 0.023805262031456803
+        },
+        "difference_exact_bubble_minus_leading_EFT5_GeV2": {
+          "hh": -1.1002391660814431e-06,
+          "hs": -3.6773040727171996e-06,
+          "ss": -1.2271629514129523e-05
+        },
+        "interpretation": "The difference includes finite-M_E power corrections because the archived light-state vertices are exact-SVD quantities, whereas the EFT5 values use only the leading dimension-five operator."
+      },
+      "previous_bubble_only_matching_subtraction_not_complete": {
+        "hh": {
+          "Pi_RC_local_pole_coefficient_full_minus_light_bubble_GeV2": -13374386.09800963,
+          "delta_Z_matching_counterterm_pole_coefficient": -0.016712307066340585
+        },
+        "hs": {
+          "Pi_RC_local_pole_coefficient_full_minus_light_bubble_GeV2": 4.3377057531570926e-05,
+          "delta_Z_matching_counterterm_pole_coefficient": 2.2983060235058655e-06
+        },
+        "ss": {
+          "Pi_RC_local_pole_coefficient_full_minus_light_bubble_GeV2": -63902155.30209777,
+          "delta_Z_matching_counterterm_pole_coefficient": -0.07985086735189964
+        }
+      }
     },
     "B_closed_AA": {
       "vs_GeV": 315.0,
-      "mass_matrix_counterterm_pole_coefficient_GeV2": [
-        [
-          -13374386.09800963,
-          9.761415940628152e-06
+      "full_theory_VLL_potential_counterterms": {
+        "delta_mu_H2_GeV2": 13370374.985526461,
+        "delta_mu_S2_GeV2": 3235329.272244899,
+        "delta_lambda_H": -0.022054485649901395,
+        "delta_lambda_S": -0.002564580413632791,
+        "delta_lambda_HS": -0.0,
+        "potential_counterterm_tadpoles_per_vev_GeV2": [
+          -13371712.023025014,
+          -3235583.7427364415
         ],
-        [
-          9.761415940628152e-06,
-          -3236092.6837118976
-        ]
-      ],
-      "fixed_vev_bookkeeping_basis": {
-        "basis_label": "fixed_vev_quadratic_diagonal_plus_portal_offdiagonal",
-        "delta_lambda_H": 0.0,
-        "delta_lambda_S": 0.0,
-        "delta_lambda_HS": 1.258574528216236e-10,
-        "delta_mu_H2_GeV2": 13374386.098015873,
-        "delta_mu_S2_GeV2": 3236092.6837157127,
-        "delta_vh_GeV": 0.0,
-        "delta_vs_GeV": 0.0,
-        "reconstructed_mass_matrix_counterterm_GeV2": [
+        "potential_counterterm_mass_matrix_GeV2": [
           [
-            -13374386.09800963,
-            9.761415940628152e-06
+            -13374386.098022122,
+            -0.0
           ],
           [
-            9.761415940628152e-06,
-            -3236092.6837118976
+            -0.0,
+            -3236092.683719527
           ]
         ],
-        "max_reconstruction_residual_GeV2": 0.0,
-        "warning": "This is one bookkeeping decomposition of the two-point UV pole. It does not fix the tadpole counterterms or define a VEV scheme."
+        "loop_1PI_tadpole_pole_coefficients_GeV3": [
+          -3292382934.3092194,
+          -1019208878.9619792
+        ],
+        "loop_Pi_RC_local_pole_coefficients_GeV2": [
+          [
+            -13374386.098022122,
+            -0.0
+          ],
+          [
+            -0.0,
+            -3236092.683719527
+          ]
+        ],
+        "tadpole_cancellation_residual_GeV2": [
+          -4.76837158203125e-07,
+          -1.1920928955078125e-07
+        ],
+        "mass_cancellation_residual_GeV2": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ]
       },
-      "tadpole_and_vev_scheme_status": "not_fixed_by_the_two_point_subcalculation"
+      "full_theory_VLL_field_counterterms": {
+        "delta_Z_HH": -0.016712968731908077,
+        "delta_Z_HS": 3.3524367499946708e-25,
+        "delta_Z_SS": -0.004044161590306126,
+        "full_theory_p2_UV_coefficients_C": {
+          "hh": 2.6392062360273405,
+          "hs": -5.293955920339377e-23,
+          "ss": 0.6386284004864301
+        },
+        "p2_cancellation_residual": {
+          "hh": 0.0,
+          "hs": 0.0,
+          "ss": 0.0
+        }
+      },
+      "leading_EFT5_light_loop_and_dimension8_counterterm": {
+        "flavours": {
+          "mu": {
+            "C5_GeVminus1": 2.724583009387656e-06,
+            "kappa_neutral_mass_operator_GeVminus1": 1.362291504693828e-06,
+            "m_EFT5_at_vev_GeV": 0.1056583755,
+            "input_light_mass_GeV": 0.1056583755,
+            "mass_relative_difference": 0.0,
+            "F_derivatives": {
+              "F": 0.00012462802606601117,
+              "F_h": 2.0246612958494218e-06,
+              "F_s": 1.582578108774745e-06,
+              "F_hh": 2.4668929768289603e-08,
+              "F_hs": 2.5709984709199006e-08,
+              "F_ss": 1.507217246452138e-08
+            }
+          },
+          "tau": {
+            "C5_GeVminus1": 4.5819392387502213e-05,
+            "kappa_neutral_mass_operator_GeVminus1": 2.2909696193751107e-05,
+            "m_EFT5_at_vev_GeV": 1.7768600000000003,
+            "input_light_mass_GeV": 1.77686,
+            "mass_relative_difference": 1.2496460324675624e-16,
+            "F_derivatives": {
+              "F": 9.968110489487954,
+              "F_h": 0.16193827454289583,
+              "F_s": 0.12657918081889466,
+              "F_hh": 0.001973092452394962,
+              "F_hs": 0.0020563590418145503,
+              "F_ss": 0.0012055160077989965
+            }
+          }
+        },
+        "sum_derivatives_GeV": {
+          "F": 9.96823511751402,
+          "F_h": 0.16194029920419167,
+          "F_s": 0.12658076339700344,
+          "F_hh": 0.00197311712132473,
+          "F_hs": 0.0020563847517992596,
+          "F_ss": 0.001205531079971461
+        },
+        "bubble_local_UV_coefficients_GeV2": {
+          "hh": 0.00197311712132473,
+          "hs": 0.0015422885638494447,
+          "ss": 0.0012055310799714612
+        },
+        "dimension5_contact_local_UV_coefficients_GeV2": {
+          "hh": 0.0,
+          "hs": 0.0005140961879498149,
+          "ss": 0.0
+        },
+        "complete_leading_EFT5_local_UV_coefficients_GeV2": {
+          "hh": 0.00197311712132473,
+          "hs": 0.0020563847517992596,
+          "ss": 0.0012055310799714612
+        },
+        "one_loop_EFT_1PI_tadpole_pole_coefficients_GeV3": {
+          "h": -0.0010254989246726895,
+          "s": -0.0008015820483584433
+        },
+        "one_loop_EFT_Pi_RC_local_pole_coefficients_GeV2": {
+          "hh": -1.249491013734899e-05,
+          "hs": -1.3022208567272248e-05,
+          "ss": -7.634114746270889e-06
+        },
+        "dimension8_operator": "(Hdagger H)^2 (Sdagger S)^2",
+        "dimension8_potential_counterterm_coefficient_GeVminus4": -2.7911488938993914e-20,
+        "dimension8_potential_loop_pole_coefficient_GeVminus4": 2.7911488938993914e-20,
+        "dimension8_operator_coefficient_sum_C5_fourth_GeVminus4": 4.407605665172021e-18
+      },
+      "comparison_to_archived_exact_light_bubble": {
+        "exact_mass_eigenstate_light_bubble_local_UV_coefficients_GeV2": {
+          "hh": 0.0019720168821586487,
+          "hs": 0.0015414610366726068,
+          "ss": 0.0012049096278420272
+        },
+        "leading_EFT5_bubble_local_UV_coefficients_GeV2": {
+          "hh": 0.00197311712132473,
+          "hs": 0.0015422885638494447,
+          "ss": 0.0012055310799714612
+        },
+        "difference_exact_bubble_minus_leading_EFT5_GeV2": {
+          "hh": -1.1002391660814431e-06,
+          "hs": -8.275271768378931e-07,
+          "ss": -6.214521294340639e-07
+        },
+        "interpretation": "The difference includes finite-M_E power corrections because the archived light-state vertices are exact-SVD quantities, whereas the EFT5 values use only the leading dimension-five operator."
+      },
+      "previous_bubble_only_matching_subtraction_not_complete": {
+        "hh": {
+          "Pi_RC_local_pole_coefficient_full_minus_light_bubble_GeV2": -13374386.09800963,
+          "delta_Z_matching_counterterm_pole_coefficient": -0.016712307066340585
+        },
+        "hs": {
+          "Pi_RC_local_pole_coefficient_full_minus_light_bubble_GeV2": 9.761415940628152e-06,
+          "delta_Z_matching_counterterm_pole_coefficient": 5.172024552583988e-07
+        },
+        "ss": {
+          "Pi_RC_local_pole_coefficient_full_minus_light_bubble_GeV2": -3236092.6837118976,
+          "delta_Z_matching_counterterm_pole_coefficient": -0.004043757309967427
+        }
+      }
     }
   },
   "scope": [
-    "The matrix entries are UV-pole counterterm coefficients proportional to Delta_UV, not finite mass shifts.",
-    "The fixed-VEV decomposition is an algebraic example only, not a claim that this is the chosen MS-bar tadpole or VEV scheme.",
-    "No tadpole diagrams, VEV renormalization, complete scalar-potential beta functions, or gauge-complete self-energies are included."
+    "Only the original mu/tau plus VLL fermion sector is included.",
+    "All listed coefficients multiply Delta_UV and are not finite mass shifts or physical pole corrections.",
+    "The full-theory renormalizable potential poles and the EFT dimension-eight pole are separate operator-basis statements; they must not be combined as if the EFT had only renormalizable scalar operators.",
+    "The archived light-light two-point bubble alone is not the complete EFT subtraction; the dimension-five contact and dimension-eight counterterm are required.",
+    "Finite tadpole conditions, VEV definition, gauge/Goldstone/ghost/scalar contributions, and the complete finite UV-EFT matching remain open.",
+    "The finite portal threshold at M_E is distinct from the vanishing full-theory one-loop divergent lambda_HS pole."
   ]
 }
