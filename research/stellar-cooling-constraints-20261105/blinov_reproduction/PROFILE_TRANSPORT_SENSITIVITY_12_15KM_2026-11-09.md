@@ -3,7 +3,7 @@
 Date: 2026-11-09  
 Benchmark: \(m_V=10\) MeV, \(g=4.17168965\times10^{-8}\), \(R_{\max}=25\) km.  
 Numerics: radial order 40, energy order 100, angular order 32; fixed \(\omega\) along B.2 paths.  
-Status: **the \(\mu_{\nu_\mu}\) plotting-floor assumptions have negligible impact. The second published \(\mu_\mu\) reconstruction for the same nominal SFHo-18.8 snapshot changes the strong-endpoint transport substantially over 8--15 km, but its density consistency is unresolved and it does not fully reproduce the required Fig. 7 escape probability.**
+Status: **the muon-neutrino plotting-floor assumptions have negligible impact. A direct comparison with Bollig Fig. 4 selects the Caputo muon-degeneracy curve for the current SFHo-18.8, 1 s benchmark; the Ferreira substitution is an off-baseline sensitivity diagnostic, not a candidate correction.**
 
 ## 1. Calculation design
 
@@ -82,9 +82,9 @@ The change is entirely in the Compton channel. Its shell-averaged \(\tau/g^2\) r
 
 The local Compton reduced absorption rises by approximately 19% at 12 km and 52--53% around 13--14 km for the sampled energies. However, Compton is subdominant in the shell's total opacity, so the full source-weighted escape probability changes by only about 6.7%.
 
-**This is not an alternative model choice.** The Ferreira Fig. 1 caption explicitly identifies the dashed orange curve as SFHo-18.8 at 1 s post-bounce, the same named model and snapshot as Caputo Fig. 1; both papers cite the Bollig et al. simulation. The result therefore quantifies the impact of a second published reconstruction of the same nominal background. The origin of the 9.5--17.2% difference in \(\mu_\mu\) remains unresolved, so this curve is not adopted as the baseline.
+**This is an off-baseline diagnostic, not an alternative profile candidate.** Although the Ferreira Fig. 1 caption identifies its dashed orange curve as SFHo-18.8 at 1 s post-bounce, a direct comparison with the original Bollig Fig. 4 gives a different result: the Caputo mu_mu/T reconstruction agrees with Bollig at the 10^-4 relative level, whereas the Ferreira digitization differs by 12.74% on average and up to 17.18% in the directly compared 12--15 km interval. The original Fig. 4 therefore selects Caputo for the present benchmark. The Ferreira substitution quantifies sensitivity to a curve that fails this direct source cross-check and must not be used as a physical correction. See [BOLLIG_ORIGINAL_FIG4_MUON_DEGENERACY_CROSSCHECK_2026-11-09.md](BOLLIG_ORIGINAL_FIG4_MUON_DEGENERACY_CROSSCHECK_2026-11-09.md).
 
-### 3.3 Variant B2: same-model \(\mu_\mu\) reconstruction over the full 8--15 km source region
+### 3.3 Variant B2: Ferreira off-baseline \(\mu_\mu\) reconstruction over the full 8--15 km source region
 
 The 12--15 km substitution misses the largest discrepancy between the published curves. Extending the diagnostic replacement over 8--15 km gives:
 
@@ -140,27 +140,32 @@ The 8--15 km diagnostic B2 gives the largest change. At radial order 120,
 
 compared with the target 0.520. It remains about 20% above the required escape probability. The own-source escape ratio is 0.66554, while the escaped B.1 integral ratio is 0.84453 because the B.1 source normalization also increases.
 
-The narrower 12--15 km variant B gives only 0.933 for the fixed-source escape ratio. Variants A and C remain negligible. Thus the same-model \(\mu_\mu\) discrepancy over 8--15 km is a potentially important contributor to the strong-endpoint difference, but it does not by itself close it.
+The narrower 12--15 km variant B gives only 0.933 for the fixed-source escape ratio. Variants A and C remain negligible. The large response is a valid numerical sensitivity to the Ferreira substitution, but it is not evidence for a physical correction to the Caputo baseline: the direct original-source Fig. 4 comparison rejects the Ferreira mu_mu/T curve for this benchmark. It therefore cannot be used to explain or tune the Fig. 7 discrepancy.
 
 Consequently:
 
-1. The \(\mu_{\nu_\mu}\) support/floor ambiguity in 12--15 km cannot explain the strong-endpoint mismatch.
-2. The tested \(\mu_\mu\) alternative can move the result in the required direction, but its full effect is only about a 6.7% reduction in escape probability and its physical provenance is not yet established.
-3. None of these profile variations closes the discrepancy. They do not justify changing the opacity normalization or applying a global correction.
+1. The muon-neutrino support/floor ambiguity in 12--15 km cannot explain the strong-endpoint mismatch.
+2. The Ferreira substitution can move the result in the required direction, but it fails the direct Bollig Fig. 4 source comparison and is not an admissible baseline correction.
+3. None of the tested profile variations closes the discrepancy. They do not justify changing the opacity normalization or applying a global correction.
 
 ## 5. Decisions
 
-- Keep the Caputo \(\mu_\mu\) profile as the current baseline; do not average it with the Ferreira digitization.
-- Keep the current \(\mu_{\nu_\mu}\) zero-outside-support convention, but label it as a figure-resolution assumption rather than a physical boundary condition.
+- Keep the Caputo mu_mu profile as the baseline; the direct Bollig Fig. 4 comparison supports it over the Ferreira digitization. Do not average or switch between the two.
+- Retain the Ferreira substitution only as a labeled off-baseline sensitivity diagnostic.
+- Keep the current muon-neutrino zero-outside-support convention, but label it as a figure-resolution assumption rather than a physical boundary condition.
 - Record the floor-envelope result as a quantified uncertainty check.
-- Do not alter B.1 normalization, B.2 opacity, \(R_{\max}\), the fixed-\(\omega\) convention, or the production axial-vector calculation.
+- Do not alter B.1 normalization, B.2 opacity, R_max, the fixed-omega convention, or the production axial-vector calculation.
 - Keep the vector benchmark and axial-vector curve frozen pending the remaining independent source/background comparison.
 
 ## 6. Remaining work
 
-The dominant unresolved input question is now sharply defined: two papers plot different \(\mu_\mu(r)\) curves while both identifying the background as SFHo-18.8 at 1 s post-bounce and citing Bollig et al. The 8--15 km diagnostic shows that this difference materially changes the Compton source and opacity. The next check is the exact profile-file/version and chemical-potential convention used in each post-processing analysis, together with the full 8--15 km muon-density consistency test. The Garching archive lists radial profiles in a protected directory that currently returns HTTP 401, so no raw table has been obtained. Figure digitization remains the only reproducible comparison available without authorized archive access.
+The direct Bollig Fig. 4 comparison resolves the mu_mu/T choice for the current benchmark in favor of Caputo. The Ferreira transport substitutions remain useful only as stress tests and are not adopted. The remaining input issues are:
 
-The next numerical investigation should therefore focus on the full radial \(\mu_\mu(r)\) and muon-density consistency, not on another scan of the \(\mu_{\nu_\mu}\) floor. In particular, verify that the plotted \(\mu_\mu\), \(T\), and \(n_\mu\) belong to the same profile and chemical-potential convention.
+1. **Absolute muon density:** Caputo's plotted n_mu is internally consistent with its own relativistic Fermi integral, but Bollig Fig. 3 is about 5% lower on average over 5--15 km and about 8.8% lower over 12--15 km. This is a published-curve tension, not a reason to rescale B.1: the printed B.17 Compton factor is the susceptibility n_mu F_deg, which is fixed by the same T, mu_mu distribution.
+2. **Outer thermodynamic profile:** 20--25 km is not fully covered by the original Bollig Fig. 1/4 plotting frames. The 20--22 km temperature stress test at +/-10% changes the strong-endpoint luminosity by only about +/-0.15%; the broader 22--25 km +/-30% stress test changes it by roughly -3.6% to +12.5%. The muon-neutrino floor tests in 20--22 km remain negligible.
+3. **Metric input:** the current lapse reconstruction is not accompanied by the same-snapshot A(r) or enclosed mass M(r), so full GR propagation is not available from the public-figure reconstruction alone.
+
+The Garching archive lists relevant radial profiles behind an access-protected endpoint. No raw table has been obtained; the current comparison therefore remains a published-figure reconstruction. Do not use the rejected Ferreira mu_mu/T curve, density rescaling, or any opacity normalization change to force agreement with Fig. 7.
 
 ## 7. Reproducibility
 
