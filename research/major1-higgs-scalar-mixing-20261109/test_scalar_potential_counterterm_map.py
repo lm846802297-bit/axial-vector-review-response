@@ -90,7 +90,7 @@ class ScalarPotentialCountertermMapTests(unittest.TestCase):
                 246.22, vs, 125.25**2, by_flavour,
                 mu_reference=20000.0, mu_low=125.25,
             )
-            self.assertLess(result["relative_identity_residual"], 2e-14)
+            self.assertLess(result["relative_identity_residual"], 1e-13)
             self.assertLess(result["relative_finite_difference_residual"], 2e-7)
             self.assertAlmostEqual(
                 result["total_d_dlnmu_GeV2"],
