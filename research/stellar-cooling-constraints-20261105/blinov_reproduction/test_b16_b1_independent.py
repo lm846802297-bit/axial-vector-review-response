@@ -61,13 +61,13 @@ class IndependentB1QuadratureTests(unittest.TestCase):
         energy_inf = np.array([10.2, 15.0, 40.0, 100.0, 300.0])
         omega_local = energy_inf / lapse
         local_k = np.sqrt(omega_local**2-mass**2)
-        local_measure_times_lapse2 = lapse**2 * local_k * omega_local**2
+        local_measure_with_jacobian = lapse * local_k * omega_local**2
         infinity_measure = (
             np.sqrt(energy_inf**2-(lapse*mass)**2)
             * energy_inf**2 / lapse**2
         )
         np.testing.assert_allclose(
-            local_measure_times_lapse2, infinity_measure, rtol=2e-14, atol=0.0
+            local_measure_with_jacobian, infinity_measure, rtol=2e-14, atol=0.0
         )
 
     def test_invalid_threshold_and_upper_bound_are_rejected(self):
