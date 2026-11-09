@@ -8,7 +8,7 @@ on:
       - '.github/workflows/export-overleaf-reply.yml'
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   package:
@@ -52,10 +52,12 @@ jobs:
           EOF
           (cd dist && zip -r ../Overleaf_Reply_Letter_PR72_2026-11-09.zip main.tex references.bib JHEP.bst README_Overleaf.md reference_pdf)
 
-      - name: Upload Overleaf bundle
-        uses: actions/upload-artifact@v4
-        with:
-          name: Overleaf-Reply-Letter-PR72-2026-11-09
-          path: Overleaf_Reply_Letter_PR72_2026-11-09.zip
-          if-no-files-found: error
-          retention-days: 30
+      - name: Commit Overleaf bundle to the export branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Overleaf_Reply_Letter_PR72_2026-11-09.zip
+          git commit -m "Add Overleaf import bundle for merged PR #72"
+          git push origin HEAD:${{ github.ref_name }}
