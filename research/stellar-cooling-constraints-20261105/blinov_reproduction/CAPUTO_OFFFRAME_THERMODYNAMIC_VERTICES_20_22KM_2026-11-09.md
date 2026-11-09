@@ -7,6 +7,8 @@ Date: 2026-11-09
 - Source PDF: https://arxiv.org/src/2109.03244v3
 - SHA-256: 19ca5ee492dea689a4a9851e999f7d05d0f26be7dfc820e817cc5bc310065c8e
 - The existing extraction map defines the visible top-panel radial frame as 0.1--20 km.
+- Top-panel PDF clip rectangles: [[47.0, 87.0, 325.0, 217.0], [47.0, 54.0, 325.0, 217.0], [47.0, 23.0, 325.0, 217.0], [47.0, 77.0, 325.0, 217.0], [40.0, 211.0, 44.0, 219.0]]. Their common right edge is x_pdf=325.
+- T vector path x extent: 47.75--837.5269775390625; mu_mu vector path x extent: 47.75--354.4530029296875. Both extend beyond the clip boundary.
 - The T and mu_mu PDF drawing paths continue beyond the visible right edge; the 20--22 km segment is encoded off-frame vector data.
 
 ## Off-frame path audit
