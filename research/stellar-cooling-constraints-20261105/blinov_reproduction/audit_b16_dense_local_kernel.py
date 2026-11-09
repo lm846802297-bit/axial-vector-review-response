@@ -251,22 +251,23 @@ def run(profile_path: Path = DEFAULT_PROFILE, output_path: Path = DEFAULT_OUTPUT
         # Compare the direct angular integral against the closed B.6 expression.
         comparisons = {
             "nu_mu_B6_production": rel_max(
-            nu_mu_prod,
-            _analytic_neutrino_rate(MASS_MEV, omega, temperature, mu_numu),
-        )
-        comparisons["nu_tau_B6_production"] = rel_max(
-            nu_tau_prod,
-            _analytic_neutrino_rate(MASS_MEV, omega, temperature, 0.0),
-        )
-        comparisons["nu_mu_B10_absorption"] = rel_max(
-            nu_mu_abs, np.exp(x) * nu_mu_prod
-        )
-        comparisons["nu_tau_B10_absorption"] = rel_max(
-            nu_tau_abs, np.exp(x) * nu_tau_prod
-        )
-        comparisons["neutrino_B4_reduced_absorption"] = rel_max(
-            nu_red_direct, np.expm1(x) * nu_prod_direct
-        )
+                nu_mu_prod,
+                _analytic_neutrino_rate(MASS_MEV, omega, temperature, mu_numu),
+            ),
+            "nu_tau_B6_production": rel_max(
+                nu_tau_prod,
+                _analytic_neutrino_rate(MASS_MEV, omega, temperature, 0.0),
+            ),
+            "nu_mu_B10_absorption": rel_max(
+                nu_mu_abs, np.exp(x) * nu_mu_prod
+            ),
+            "nu_tau_B10_absorption": rel_max(
+                nu_tau_abs, np.exp(x) * nu_tau_prod
+            ),
+            "neutrino_B4_reduced_absorption": rel_max(
+                nu_red_direct, np.expm1(x) * nu_prod_direct
+            ),
+        }
         comparisons["muon_B17_density"] = abs(n_mu_direct / n_mu_ref - 1.0)
         comparisons["muon_B17_susceptibility"] = abs(chi_direct / chi_ref - 1.0)
         comparisons["muon_B17_degeneracy_factor"] = abs(fdeg_direct / fdeg_ref - 1.0)
