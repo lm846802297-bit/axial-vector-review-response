@@ -83,3 +83,36 @@ No empirical rescaling is applied. No axial-vector curve or production output is
   - `outputs/b13_local_kernel_quadrature_convergence_10mev_2026-11-09.json`
 - Global three-mass compact archive workflow: [Run #42574536735](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42574536735)
 - Exact-kernel local convergence workflows: [Run #42575922722](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42575922722), [Run #42575916846](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42575916846)
+
+
+## 7. Completed three-mass global rerun and current convergence status (2026-11-09)
+
+The full three-mass B.13 global transport workflow completed successfully in [Run #42583278359](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42583278359). The archived outputs are:
+
+- `outputs/b13_global_transport_vertex_preserving_0p1mev_2026-11-09.json`
+- `outputs/b13_global_transport_vertex_preserving_1mev_2026-11-09.json`
+- `outputs/b13_global_transport_vertex_preserving_10mev_2026-11-09.json`
+
+For each mass, the same-grid B.16 reproduction residual is exactly zero against the archived B.16 baseline. This is an internal closure test, not a claim that the B.16 curve itself agrees with Fig. 7 at every coupling.
+
+The completed global run uses the baseline quadratures (radial, energy, angular, path) = (40, 100, 16, 32). Its B.13 local detailed-balance residuals are at the (10^{-14}) level, and the final-muon mass-shell residuals are below (4	imes10^{-13}). The inactive-region replacement omission contributes less than (2.2	imes10^{-3}) of the total B.1 source even at 10 MeV; its source-weighted optical-depth contribution is below (2.4	imes10^{-12}). The inactive-node approximation is therefore negligible for the present global comparison.
+
+The charge-summed and mu-minus-only variants are also close: adding the positive-muon branch changes the optically thin B.13/B.16 luminosity ratio by about 0.68%, 0.64%, and 0.09% at 0.1, 1, and 10 MeV, respectively. The positive-muon contribution is a sub-percent correction to the B.13 Compton source in this benchmark.
+
+The global B.13 source fractions are:
+| (m_{A'}) | Compton source fraction | Neutrino source fraction |
+|---:|---:|---:|
+| 0.1 MeV | 99.94% | 0.06% |
+| 1 MeV | 94.01% | 5.99% |
+| 10 MeV | 13.82% | 86.18% |
+
+This explains why the 10 MeV stress test is qualitatively different: neutrino inverse decay dominates the source, whereas the 0.1 and 1 MeV benchmarks remain Compton dominated.
+
+The baseline-grid B.13 run is not the final global convergence result. The independent 10 MeV convergence checks are still running:
+
+- [B.13 matrix grid scan, Run #42585823966](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42585823966): radial, energy, angular, and path-order variations.
+- [B.13 orthogonal and combined quadrature audit, Run #42585105281](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42585105281): angular-only, path-only, joint-ray, and combined high-order checks.
+
+These two workflows now use separate concurrency groups and no longer cancel one another. They are 10 MeV convergence diagnostics; the 0.1 and 1 MeV B.13 global curves in the three-mass archive still use the baseline (40,100,16,32) grid and must not be described as independently grid-converged.
+
+No empirical rescaling is applied, and no axial-vector production result or constraint curve is modified.
