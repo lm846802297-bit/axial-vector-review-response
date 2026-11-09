@@ -162,7 +162,15 @@ The 8--12 km shell contributes 65.893% of the B.1 thin source and 15.9324% of th
 
 Full results: [B16_INNER_NUMU_BRANCH_SENSITIVITY_8_12KM_2026-11-09.md](B16_INNER_NUMU_BRANCH_SENSITIVITY_8_12KM_2026-11-09.md); machine-readable output: [b16_inner_numu_branch_sensitivity_8_12km_10mev_2026-11-09.json](outputs/b16_inner_numu_branch_sensitivity_8_12km_10mev_2026-11-09.json).
 
-## 11. Current decision
+## 11. Physical impact of the 15--20 km Fig. 3 density mismatch: assessed
+
+The direct Bollig Fig. 3 comparison identifies a roughly 10% density residual through the last uncensored point at 16.603 km. This does not imply a 10% change in the B.1 Compton kernel: in the adopted one-negative-muon convention, the rate depends on n_mu F_deg = chi_mu(T,mu_mu). At fixed T and mu_mu, the normalization change in n_mu is compensated by the inverse change in F_deg. No empirical density or opacity rescaling is justified.
+
+The current 10 MeV B.16 baseline assigns only 0.0037722% of the B.1 thin source to 15--20 km (0.0036791% in 15--18 km and 0.0000931% in 18--20 km). The same interval contributes 0.087305% of the source-weighted mean B.2 optical depth. A hypothetical 10% change in all 15--20 km opacity therefore corresponds to only 0.00873% of the total mean optical depth; at the strong endpoint this is an attenuation-scale effect below 0.02%. This is a conservative shell-weight estimate, not a new transport run; the direct Fig. 3 density curve is uncensored only through 16.603 km.
+
+The absolute-density mismatch remains explicitly unresolved at the profile level, but it is not a plausible explanation for the order-one strong-coupling Fig. 7 mismatch in this benchmark. Details and assumptions are in [BOLLIG_15_20KM_THERMODYNAMIC_CROSSCHECK_2026-11-09.md](BOLLIG_15_20KM_THERMODYNAMIC_CROSSCHECK_2026-11-09.md).
+
+## 12. Current decision
 
 - Radial, energy, angular, and path global quadrature: passed the stated project-level luminosity-stability targets at the tested resolutions.
 - Same-grid B.16 closure: passed for all four global B.13 configurations with zero residual.
