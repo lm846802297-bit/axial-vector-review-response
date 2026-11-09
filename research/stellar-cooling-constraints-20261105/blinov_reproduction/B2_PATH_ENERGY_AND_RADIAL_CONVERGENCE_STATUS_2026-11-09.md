@@ -1,0 +1,70 @@
+# B.2 path-energy and radial convergence status (2026-11-09)
+
+## Executive summary
+
+The three-mass B.2 path-energy audit completed successfully on the vertex-preserving reconstructed SFHo-18.8 profile (SHA-256 `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`). It compares the literal fixed-`omega` Eq. (B.2) implementation with a separate redshift-only diagnostic,
+`omega_local(s)=omega_source N(r_source)/N(r(s))`, while keeping the Euclidean chord and path measure unchanged.
+
+The energy-convention effect is coupling dependent and grows toward strong absorption. On the highest tested grid (80 radial, 200 energy, 32 angular, 64 path nodes), the redshift-only luminosity at the strong-coupling endpoint shifts relative to fixed-`omega` by approximately:
+- 0.1 MeV: -5.64%;
+- 1 MeV: -11.55%;
+- 10 MeV: -28.85%.
+
+These are sensitivity results, not evidence that the authors' unpublished code used the redshifted prescription. They are not full-GR ray tracing.
+
+## 1. Fixed-omega versus path-redshift comparison
+
+| mV | Fixed-omega strong-end residual vs Fig. 7 | Redshift-only strong-end residual vs Fig. 7 | Redshift-only shift vs fixed-omega |
+|---:|---:|---:|---:|
+| 0.1 MeV | -20.25% | -24.75% | -5.64% |
+| 1 MeV | -5.34% | -16.17% | -11.55% |
+| 10 MeV | +92.46% | +36.93% | -28.85% |
+
+The 0.1 and 1 MeV absolute luminosity curves do not yet pass the full radial-grid convergence gate below, so their residuals are provisional. The relative path-redshift shift is much more stable across the tested grids: at the strong endpoint it changes from -5.06% to -5.29% at 0.1 MeV, from -11.43% to -11.55% at 1 MeV, and from -28.87% to -28.85% at 10 MeV when comparing the original 40x100x16x32 grid with the 80x200x32x64 grid.
+
+The 10 MeV global quadrature scan passes all tested one-factor and combined-grid criteria. It is retained as a transport stress test, not as the primary low-mass Compton benchmark.
+
+## 2. What has converged and what has not
+
+The B.2 path-energy scan varies radial, energy, angular, and path orders independently, and also tests a combined fine grid. Energy refinement 150 to 200, angular refinement 24 to 32, and path refinement 48 to 64 each change the luminosity by less than 1% for all three masses.
+
+The radial 60 to 80 comparison is the limiting dimension:
+| mV | Maximum luminosity change, radial 60 to 80 |
+|---:|---:|
+| 0.1 MeV | 7.63% |
+| 1 MeV | 1.87% |
+| 10 MeV | 0.36% |
+
+The combined 80x200x32x64 grid therefore fails the 1% global criterion at 0.1 and 1 MeV, while passing at 10 MeV. This is why the low-mass path-energy curves must not yet be treated as converged.
+
+## 3. Opacity interpolation is a separate numerical dimension
+
+An independent audit fixes the B.1 source quadrature and varies only the radial grid used to tabulate/interpolate the B.2 absorption rate.
+
+For 0.1 MeV, the maximum luminosity change falls from 1.74% (160 to 240 opacity nodes) to 0.436% (240 to 320), 0.403% (320 to 480), and 0.158% (480 to 640). For 1 MeV, 80 to 120 nodes already gives 0.765%, with subsequent changes below 0.55%. For 10 MeV, all tested transitions pass the 1% threshold.
+
+This opacity-grid convergence does not remove the separate source-radial quadrature sensitivity. The two must not be conflated.
+
+## 4. Follow-up radial-source convergence
+
+A dedicated follow-up audit now varies the B.1 source radial quadrature over orders 80, 100, 120, 160, and 200 while holding the B.2 opacity interpolation grid fixed at 640 nodes, and holding energy/angular/path quadratures at 100/16/32. This decouples source radial integration from opacity interpolation and is running for 0.1 and 1 MeV.
+
+The audit is designed to identify the minimum radial order at which both the fixed-`omega` and redshift-only luminosity curves stabilize to the project 1% numerical target. This target is a numerical screening criterion, not a physical uncertainty estimate.
+
+## 5. Interpretation and guardrails
+
+1. Keep literal fixed-`omega` B.2 as the paper-faithful baseline.
+2. Keep the path-redshift-only branch as a distinct sensitivity test.
+3. Do not call the redshift-only result a full-GR transport calculation: the spatial metric factor and corresponding ray geometry are not included.
+4. Do not apply an empirical opacity or luminosity rescaling.
+5. Do not update the axial-vector constraint curve until the pure-vector reference benchmark and the relevant global numerical convergence checks pass.
+
+## 6. Reproducibility
+
+- Three-mass path-energy scan: [Run #42579746452](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42579746452)
+- Isolated opacity interpolation scan: [Run #42581429474](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42581429474)
+- High-order source radial scan (0.1 and 1 MeV): [Run #42583044995](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42583044995) initially exposed a metadata bug; corrected rerun: [Run #42583135559](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42583135559), with a further decoupled 640-node opacity-grid run queued at [Run #42583311584](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42583311584).
+- Machine-readable path-energy results: `outputs/b2_path_energy_convergence_2026-11-09.json`
+- Machine-readable opacity-grid results: `outputs/b2_opacity_interpolation_convergence_2026-11-09.json`
+
+The failed initial radial workflow is retained as a transparent debugging record; its numerical calculation reached the summary step but stopped on a metadata-key mismatch, which has been corrected in the subsequent workflow revision.
