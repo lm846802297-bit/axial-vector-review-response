@@ -1,16 +1,15 @@
-## 2026-11-09 更新：Major Point 3 两部分结构修订（独立 PR）
+## 2026-11-09 更新：PR #72 Major Point 3 选择性恢复（编译待验收）
 
-- 正式回复信将 Major Point 3 明确分为两个部分：**原始单 VEV \(S\)-only 模型**与**可选的 \(\sigma+3N_R\) type-I seesaw 扩展**。
-- 第一部分保留原模型的残余 \(Z_2\)、Weinberg 算符选择规则、\(M_\nu^{(S)}\) 分块纹理及 \(U_{\rm PMNS}=\operatorname{diag}(1,U_{23})\)；明确其不能产生电子味混合，也没有在原可重整化 UV 拉氏量中指定中微子质量生成机制。
-- 第二部分给出新增场及电荷、Dirac Yukawa 项、全部六个 Majorana 质量项、\(m_D\)、\(M_R\)、完整 \(6\times6\) 质量矩阵、type-I seesaw、轻/重 Majorana 质量的 Takagi 对角化及 \(U_{\rm PMNS}=U_L^\dagger U_\nu\)。用解析逆构造说明该纹理可以容纳一般非奇异的三味质量矩阵；不加入数值 benchmark，也不声称完成数值拟合或扩展模型的全局约束分析。
-- Major Point 4.1 改为引用 Major 3.1/3.2 的结论与方程，不重复 seesaw 推导，并纠正“原模型预测单位 PMNS”的过强表述。
-- 保留原有审稿人引文与文献引用。原论文正文、原论文 bibliography、图表和科研计算均不修改；扩展模型仍仅作为中微子扇区的可选完成机制。非中微子现象学继续以原始单 VEV \(S+\mathrm{VLL}\) 模型为基准。
-- 写作依据：对照原论文 PDF 的 Abstract、Introduction 和 Model Setup，采用其直接的物理陈述、先给场内容/对称性再给质量矩阵与对角化关系的组织方式；不把回复信写成模型扫描报告。
-
-**构建验收：** GitHub Actions [Run #140](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42569795558) 成功。LaTeX/BibTeX 编译、引用与交叉引用检查、PDF 结构检查和逐页渲染全部通过。PDF 为 57 页 A4、438,063 bytes；字体全部嵌入；SHA-256：`98b5a191bcbdaaaf151b36ef4c8aad2cc02c310324852e92021e8e378e73cd32`。BibTeX 无缺失条目/数据库警告，最终 LaTeX 日志无未解析引用或交叉引用，无 Overfull box；保留一处 Underfull `\hbox`（badness 1199，源码第 609–611 行，位于本次 Major 3 修改范围之外）。
-**页面渲染：** 57 页均以 150 dpi 渲染，生成 10 份联系表；本次构建未执行逐页人工高分辨率视觉签核。
-**工作流清理：** 为触发本次构建而临时加入的分支白名单已恢复为 main 原样；最终 PR diff 不包含 workflow 修改。
-**当前状态：** PR #72 保持 Open，尚未合并；编译后的 57 页 PDF 已提交到该 PR 分支。
+- Major Point 3 继续采用两部分结构：原始单 VEV \(S\)-only 模型，以及可选的 \(\sigma+3N_R\) type-I seesaw 完成机制。原模型的残余 \(Z_2\)、Weinberg 算符选择规则、\(M_\nu^{(S)}\) 分块纹理和 \(U_{\rm PMNS}=\operatorname{diag}(1,U_{23})\) 结论保留。
+- 扩展部分保留 \(m_D\)、\(M_R\)、完整 \(6\times6\) 质量矩阵、type-I seesaw、轻/重 Takagi 对角化和解析逆构造；不加入数值 benchmark 或全局扫描。
+- 本轮恢复新增右手中微子的线性与立方 \(U(1)_X\) anomaly cancellation 求和公式，并逐项核对 Dirac Yukawa、四个标量辅助 Majorana 项及两个裸 Majorana 项的规范电荷。
+- 恢复双单态 seesaw 的具体文献对应：Borah et al. 的 Table I、Eq. (4)、其后展示的 \(M_R,M_D\) 矩阵及 Eq. (8)；He et al. 的 Sec. II、Eqs. (1)--(5)。纠正旧记录中将 Borah et al. 的 Eq. (7) 误列为中微子质量矩阵依据的问题；该式实际给出带电轻子质量矩阵。
+- 恢复 Asai et al. 单电荷一标量模型的 \((M_\nu^{-1})_{\mu\mu}=(M_\nu^{-1})_{\tau\tau}=0\) two-zero-minor 结构，并说明现有电荷二标量 \(S\) 允许 \(M_R\) 的两个对角项，因此该预测不适用于当前双单态构造。
+- 恢复双 VEV 关系 \(m_{A'}^2=g_X^2(4v_s^2+v_\sigma^2)\)、\(r_\sigma=v_\sigma^2/(4v_s^2)\) 及 \(v_s=m_{A'}/[2g_X\sqrt{1+r_\sigma}]\)。同时说明 \(r_\sigma\to0\) 会恢复残余 \(Z_2\)，因此不是完整 PMNS 混合的扩展极限。
+- 恢复含 \(\kappa S^\dagger\sigma^2+\mathrm{h.c.}\) 的可重整化扩展标量势，并说明该项固定两个 singlet VEV 的相对相位。未将 \(m_s^2=2\lambda_Sv_s^2\) 当作扩展模型的一般质量关系；未加入 \(y_{s\ell\ell}\) 的扩展标量唯象映射、标量质量对角化或新实验扫描。
+- Major Point 4.1 继续引用 Major Point 3 的结论与方程，不重复 seesaw 推导。原论文正文、原论文 bibliography、图表和科研计算均不修改；所有非中微子现象学仍以原始单 VEV \(S+\mathrm{VLL}\) 模型为基准。
+- 英文写作参照用户原论文 axial_vector_model_building-v6.pdf：采用直接陈述、模型定义先行、方程紧接物理结论的组织方式，避免泛化解释和无关免责声明。
+- **当前构建状态：** 本轮 TeX 已更新，正式 PDF 尚待重新编译和结构检查。为触发 PR #72 构建而临时加入的 Actions 分支白名单仍在 PR 分支中；构建结束后恢复 workflow 至 main 原样，确保最终 PR diff 不保留临时 workflow 修改。
 
 # PROJECT_STATUS — Axial-vector paper revision and referee response
 
