@@ -53,7 +53,7 @@ The paper is not treated as a direct reproduction of Blinov et al.'s Fig. 7: its
 
 The archive's TOV-solver listing does not close the metric-data gap because the solver itself is not currently accessible without authorization. More importantly, a generic TOV solver is not a substitute for the metric of a time-dependent proto-neutron-star snapshot.
 
-A same-snapshot reconstruction of `A(r) = [1 - 2 G M(r)/r]^{-1/2}`would require a justified enclosed-mass/energy-density profile, and a full ray calculation would also require a consistent treatment of the time-dependent hydrodynamic state and the relevant metric convention. The current public-figure reconstruction does not provide those inputs with sufficient provenance.
+A same-snapshot reconstruction of `A(r) = [1 - 2 G M(r)/r]^{-1/2}` would require a justified enclosed-mass/energy-density profile, and a full ray calculation would also require a consistent treatment of the time-dependent hydrodynamic state and the relevant metric convention. The current public-figure reconstruction does not provide those inputs with sufficient provenance.
 
 No `A(r)` is inferred from the lapse `N(r)` alone. No static-TOV approximation is promoted to a same-snapshot GR result.
 
