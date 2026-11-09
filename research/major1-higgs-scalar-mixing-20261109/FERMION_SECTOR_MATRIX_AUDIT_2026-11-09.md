@@ -101,3 +101,30 @@ Other Higgs decay channels, the \(s\to A'A'\) channel where open, and the remain
 The accompanying script diagonalizes the original charged-lepton/VLL mass matrices by SVD, includes all four internal mass-state pairs, reproduces the previously archived \(\Pi_{hs}\) absorptive and hard-momentum values, checks the positive-semidefinite absorptive matrix, checks the vanishing off-diagonal \(p^2\) UV coefficient and nonzero diagonal coefficients, and verifies that all hard momentum differences are real below the heavy thresholds.
 
 This is not a complete gauge-independent self-energy matrix. It omits top, \(W\), \(Z\), \(A'\), Goldstone, ghost and scalar loops, the complete same-order EFT soft/counterterm set, and the full tadpole/VEV prescription. No complex poles, residues, line shapes, signal strengths, or exclusions are claimed.
+
+
+## 8. EFT light-loop UV subtraction and matching counterterms
+
+The exact light-light bubble coefficients are now recorded separately from the full mass-eigenstate coefficients. The full-theory off-diagonal derivative pole cancels, but the EFT light-light bubble has a nonzero \(hs\) derivative pole. Consequently, the full-minus-light matching requires a derivative counterterm.
+
+With
+\[
+\Gamma_{\mathrm{inv}}=p^2 I-\mathcal M_{\mathrm{loc}}^2+\Pi_{\mathrm{RC}},
+\qquad
+\Delta_{\mathrm{UV}}=\frac1\epsilon-\gamma_E+\ln4\pi,
+\]
+the field-counterterm coefficient is
+\[
+\frac{\delta Z_{ab}^{\mathrm{match}}}{\Delta_{\mathrm{UV}}}
+=-\frac{C_{ab}^{\mathrm{full}}-C_{ab}^{\mathrm{light}}}{16\pi^2}.
+\]
+
+| Entry | Benchmark A | Benchmark B |
+|---|---:|---:|
+| \(hh\) | \(-0.0167123071\) | \(-0.0167123071\) |
+| \(hs\) | \(+2.2983060\times10^{-6}\) | \(+5.1720246\times10^{-7}\) |
+| \(ss\) | \(-0.0798508674\) | \(-0.00404375731\) |
+
+The \(hs\) coefficient is the counterterm for the EFT light-bubble subtraction, not a physical mixing angle or a contradiction of the full-theory cancellation. The JSON output also records the local mass-pole coefficients; these require mapping to the scalar-potential parameter counterterms together with the tadpole/VEV prescription.
+
+The fifth automated test validates these field-counterterm coefficients for both benchmarks. GitHub Actions run 42564492356 passes all five tests. This remains a fermion-sector matching subcalculation, not a complete UV--EFT matching result.

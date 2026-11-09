@@ -69,7 +69,7 @@ This is a theoretical perturbativity criterion, not an experimental exclusion. T
 - **Exact mass-eigenstate calculation:** the archived 2026-10-27 record under the repository's referee-response research directory, together with its Python implementation and validation output.
 - **Plan-C-lite matching and pole diagnostics:** the archived 2026-10-27 Plan-C-lite matching and complex-pole report.
 - **P2-lite scalar-loop subset:** the archived 2026-11-05 CP-even radial-scalar bubble report.
-- **New 2026-11-09 fermion-sector matrix audit:** FERMION_SECTOR_MATRIX_AUDIT_2026-11-09.md, with its exact-basis script, four regression/consistency tests, CI JSON output, and SHA-256 manifest.
+- **New 2026-11-09 fermion-sector matrix audit:** FERMION_SECTOR_MATRIX_AUDIT_2026-11-09.md, with its exact-basis script, five regression/consistency tests, CI JSON output, and SHA-256 manifest.
 
 These records are subcalculations, not a complete physical pole prediction. The CP-even bubble subset is not a gauge-complete two-loop correction; the bubble-plus-contact EFT soft contribution is not the complete same-order soft/counterterm set; and an eigenvector-composition diagnostic is not a physical mixing angle, pole residue, signal strength, or exclusion.
 
@@ -139,6 +139,33 @@ The finite hard momentum differences in the Plan-B convention are:
 
 The off-diagonal entry reproduces the archived exact-basis calculation. The diagonal derivative UV coefficients are nonzero, while the off-diagonal coefficient cancels. The light \(\mu,\tau\) absorptive matrix is positive semidefinite and rank one to numerical precision, providing an optical-theorem cross-check.
 
-The calculation is archived in fermion_sector_matrix_audit.py, test_fermion_sector_matrix_audit.py, fermion_sector_matrix_audit.json, and fermion_sector_matrix_tests.txt. GitHub Actions run 42563731784 passed all four tests and archived the numerical output.
+The calculation is archived in fermion_sector_matrix_audit.py, test_fermion_sector_matrix_audit.py, fermion_sector_matrix_audit.json, and fermion_sector_matrix_tests.txt. GitHub Actions run 42564492356 passed all five tests and archived the numerical output.
 
 This remains a fermion-sector subcalculation. The diagonal counterterms, remaining SM/gauge/scalar sectors, complete EFT soft matching, tadpole/VEV prescription, and physical complex poles are not yet complete. The explicit \(\mu,\tau\) absorptive contributions must not be double-counted through externally inserted fixed widths.
+
+
+## 8. EFT light-loop UV subtraction and matching counterterms
+
+The matrix audit now also computes the UV coefficients of the exact light-light bubble that is subtracted in the EFT comparison. This distinction matters: the full-theory off-diagonal \(p^2\) pole cancels, but the light EFT bubble has a nonzero off-diagonal \(p^2\) pole.
+
+Define \(C_{ab}^{\rm full}=\sum_{ij}C_{ab}^{ij}\) and \(C_{ab}^{\rm light}\) from the light-light state only. In the adopted inverse-propagator convention, the counterterm coefficient for the full-minus-light bubble difference is
+\[
+\delta Z_{ab}^{\rm match}
+=-\frac{C_{ab}^{\rm full}-C_{ab}^{\rm light}}{16\pi^2}\,\Delta_{\rm UV},
+\qquad
+\Delta_{\rm UV}=\frac1\epsilon-\gamma_E+\ln4\pi.
+\]
+
+The coefficients multiplying \(\Delta_{\rm UV}\) are:
+
+| Entry | Benchmark A | Benchmark B |
+|---|---:|---:|
+| \(\delta Z_{hh}^{\rm match}/\Delta_{\rm UV}\) | \(-0.0167123071\) | \(-0.0167123071\) |
+| \(\delta Z_{hs}^{\rm match}/\Delta_{\rm UV}\) | \(+2.2983060\times10^{-6}\) | \(+5.1720246\times10^{-7}\) |
+| \(\delta Z_{ss}^{\rm match}/\Delta_{\rm UV}\) | \(-0.0798508674\) | \(-0.00404375731\) |
+
+Thus the EFT derivative operator requires a nonzero \(hs\) counterterm even though the full-theory \(hs\) derivative pole cancels. This is a matching statement, not a physical mixing angle.
+
+The code also records the full-minus-light local mass-pole coefficients. They are not interpreted as physical mass shifts: they must be mapped onto the renormalized scalar-potential parameters together with the VEV/tadpole prescription. The bubble subtraction alone is not the complete EFT counterterm ledger.
+
+The new fifth test checks these matching field-counterterm coefficients against the two benchmark values. GitHub Actions run 42564492356 passes all five tests.

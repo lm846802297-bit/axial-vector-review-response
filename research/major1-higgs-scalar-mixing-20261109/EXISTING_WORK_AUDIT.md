@@ -5,7 +5,7 @@
 
 ## 1. Executive assessment
 
-The merged PR #49 contains substantial one-loop and selected higher-order work. A new 2026-11-09 exact-basis calculation now evaluates all three independent \(hh,hs,ss\) entries of the original \(\mu,\tau+\mathrm{VLL}\) fermion sector and passes four automated tests. It still does not close the complete same-order UV--EFT matching or produce a complete physical \(h\)-\(s\) pole/residue/lineshape prediction. The near-degenerate region therefore remains unclassified.
+The merged PR #49 contains substantial one-loop and selected higher-order work. A new 2026-11-09 exact-basis calculation now evaluates all three independent \(hh,hs,ss\) entries of the original \(\mu,\tau+\mathrm{VLL}\) fermion sector and passes five automated tests. It still does not close the complete same-order UV--EFT matching or produce a complete physical \(h\)-\(s\) pole/residue/lineshape prediction. The near-degenerate region therefore remains unclassified.
 
 The new matrix calculation is a fermion-sector subcalculation, not a complete physical pole result.
 
@@ -96,6 +96,39 @@ to numerical precision. This is a rank-one common-cut result for the mass-propor
 
 **No-double-counting rule:** if these explicit \(\mu,\tau\) loops are included in a future propagator, subtract their contributions from any externally supplied fixed diagonal widths. In particular, do not retain the full \(4.07\) MeV SM Higgs width and also add the explicit \(\mu,\tau\) absorptive loops; likewise do not add the direct \(s\to\mu\mu,\tau\tau\) widths twice.
 
-**Validation:** GitHub Actions run 42563731784 passed four tests covering reproduction of the previous \(hs\) result, absorptive-matrix positivity/rank, diagonal-versus-off-diagonal UV derivative structure, and reality of the hard momentum differences below heavy thresholds. The JSON output and SHA-256 manifest are committed on the PR branch.
+**Validation:** GitHub Actions run 42563731784 passed five tests covering reproduction of the previous \(hs\) result, absorptive-matrix positivity/rank, diagonal-versus-off-diagonal UV derivative structure, and reality of the hard momentum differences below heavy thresholds. The JSON output and SHA-256 manifest are committed on the PR branch.
 
 **Remaining limitation:** this calculation omits top, \(W,Z,A'\), Goldstone, ghost and scalar loops, diagonal counterterms, the complete same-order EFT soft/counterterm set, and tadpole/VEV renormalization. It does not determine physical poles, residues, line shapes, signal strengths, or exclusions.
+
+
+## 8. EFT light-loop UV subtraction and matching field counterterms
+
+The exact light-light bubble coefficients are now separated from the full mass-eigenstate coefficients. This exposes a point that is easy to miss if one inspects only the full-theory off-diagonal sum:
+
+\[
+C_{hs}^{\rm full}\simeq0,\qquad
+C_{hs}^{\rm light}\ne0,\qquad
+C_{hs}^{\rm full}-C_{hs}^{\rm light}=-C_{hs}^{\rm light}.
+\]
+
+Therefore the full-minus-light EFT matching has a nonzero derivative pole. With
+\[
+\Gamma_{\mathrm{inv}}=p^2 I-\mathcal M_{\mathrm{loc}}^2+\Pi_{\mathrm{RC}},
+\]
+the field counterterm coefficient is
+\[
+\frac{\delta Z_{ab}^{\mathrm{match}}}{\Delta_{\mathrm{UV}}}
+=-\frac{C_{ab}^{\mathrm{full}}-C_{ab}^{\mathrm{light}}}{16\pi^2}.
+\]
+
+| Entry | Benchmark A | Benchmark B |
+|---|---:|---:|
+| \(hh\) | \(-0.0167123071\) | \(-0.0167123071\) |
+| \(hs\) | \(+2.2983060\times10^{-6}\) | \(+5.1720246\times10^{-7}\) |
+| \(ss\) | \(-0.0798508674\) | \(-0.00404375731\) |
+
+This is the coefficient of the UV pole, not a finite physical wave-function factor. In particular, the \(hs\) entry is the counterterm needed to renormalize the EFT light-bubble subtraction; it does not contradict the cancellation of the full-theory \(hs\) derivative pole.
+
+The local mass-pole coefficients are also recorded in the JSON output. Their conversion to renormalized scalar-potential parameters requires the VEV/tadpole and mass-renormalization conditions; they are not quoted as physical mass shifts.
+
+The new fifth test checks the field-counterterm coefficients for both benchmarks. GitHub Actions run 42564492356 passes all five tests. The complete gauge-fixed matching and remaining EFT contact/tadpole terms are still open.
