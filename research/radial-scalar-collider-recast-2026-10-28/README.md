@@ -2,7 +2,7 @@
 
 **Scope:** independent collider-phenomenology workstream for the radial scalar \(s\) in the original single-VEV \(U(1)_{L_\mu-L_\tau}\) model.  
 **Benchmark:** historical PR #52 width benchmark, with \(\theta_{\mu R}=\theta_{\tau R}=10^{-2}\), negligible Higgs-portal mixing as an explicit benchmark assumption, and decoupled VLLs.  
-**Status:** the 73,728-point width scan has been regenerated with the double-virtual four-body update; 58 unit tests pass. A detector-level Belle II recast and complete scalar-mass classification are not yet complete.
+**Status:** the 73,728-point width scan and bounded-width pointwise Belle II reinterpretation have been regenerated; 60 unit tests pass. The narrow/prompt conditional classification is archived; detector-level efficiencies and finite-width/lifetime-dependent recasting remain open.
 
 ## 1. Scope and independence
 
@@ -38,7 +38,7 @@ The portal and VLL assumptions are not silently varied between scan points. Any 
 
 ## 3. Existing experimental inputs
 
-The official Belle II four-muon and tau-pair numerical supplements, their manifest, hashes, source-table audits, and benchmark reconstructions are retained in the Belle II data and audit files.
+The Belle II four-muon supplementary numerical table and the tau-pair arXiv ancillary limits.csv file, their manifest, hashes, source-table audits, and benchmark reconstructions are retained in the Belle II data and audit files. The four-muon source has 2,317 tabulated rows versus 2,315 fits quoted in the paper; the discrepancy remains unresolved. The tau ancillary table has 2,384 raw rows, including three exact duplicate mass rows, leaving 2,381 unique masses.
 
 Known source-data issues remain visible:
 - the four-muon supplement contains 2,317 rows while the paper reports 2,315 fits; the discrepancy is unresolved and the raw file is unchanged;
@@ -53,7 +53,7 @@ The historical PR #52 benchmark has been regenerated using the current double-vi
 - 73,728 points: \(48\times48\times32\);
 - three-body quadrature order 192;
 - four-body quadrature order 128;
-- all 58 unit tests pass;
+- all 60 unit tests pass;
 - compressed CSV, JSON summary, SHA-256 sums, source hashes, environment, and test output are archived.
 
 Key diagnostics:
@@ -65,7 +65,7 @@ Key diagnostics:
 
 These are scalar-sector diagnostics for the declared collider benchmark, not a detector-level Belle II exclusion and not a complete perturbativity assessment of every coupling in the UV theory. The identical-flavour exchange contribution in the double-virtual four-body channel is bounded using a Cauchy--Schwarz upper bound rather than explicitly integrated.
 
-See SCAN_RUN_RECORD_2026-11-09.md for the complete run configuration, counts, environment, hashes, and interpretation limits.
+See SCAN_RUN_RECORD_2026-11-09.md for the complete width-scan run configuration, counts, environment, hashes, and interpretation limits. See BOUNDED_WIDTH_RECAST_2026-11-09.md for the current Belle II pointwise results and their conditional scope.
 
 ## 5. Remaining work and acceptance gates
 
@@ -74,7 +74,7 @@ See SCAN_RUN_RECORD_2026-11-09.md for the complete run configuration, counts, en
 3. Establish the actual mass-dependent detector response and production-times-efficiency inputs. Synthetic Crystal Ball tests validate numerical code only; they are not validation of the Belle II response.
 4. Validate prompt, displaced, and long-lived regimes against the published selections. A DCA requirement is not converted into a decay-radius cut, and a detector efficiency is not invented.
 5. Perform narrow-prompt and finite-width interpretations separately. A coupling-limit rescaling alone is not a detector-level recast.
-6. Classify each benchmark point as theoretically inconsistent, excluded by an evaluated search, passes the constraints actually evaluated, or unclassified.
+6. The narrow/prompt grid classification is archived. Continue with finite-width convolution and lifetime-dependent acceptance before classifying the remaining points.
 7. Keep points unclassified whenever production, width, branching fraction, lifetime, response, or acceptance inputs required by the search are unavailable.
 
 ## 6. Explicit claim boundary
@@ -88,3 +88,15 @@ This PR does not claim:
 - a universal allowed scalar-mass interval.
 
 The manuscript and formal referee response remain unchanged.
+
+## 7. Current Belle II pointwise result (2026-11-09)
+
+The regenerated 73,728-point scan is now propagated through the published scalar coupling limits using the full branching-fraction and total-width intervals. The four-muon width/resolution endpoints were corrected so that the lower ratio uses the lower total-width bound and the largest resolution, while the upper ratio uses the upper total-width bound and the smallest resolution.
+
+Current conditional narrow/prompt results:
+- Four-muon: 2,746 grid points are above the observed 90% CL limit using the conservative lower branching-fraction endpoint; they occupy 35 discrete scalar-mass grid values spanning 0.212--3.444 GeV. Every such point has \(\Gamma/\sigma<0.1\) over the full interval and a maximum-kinematic mean-flight upper bound below 0.21 mm.
+- Four-muon: 39,534 points are evaluated but not excluded by this channel; the largest conservative observed signal-strength ratio in this class is 0.999912.
+- Tau-pair: no grid point is excluded in the evaluated narrow/prompt subset. 11,337 points are evaluated but not excluded; their largest conservative observed signal-strength ratio is 0.1353.
+- Finite-width-sensitive, width-interval-crossing, lifetime-sensitive, and perturbatively inconsistent points remain separately classified.
+
+The former 1,852-point count from the 2026-11-05 narrow/prompt report is superseded. The current result is still a conditional reinterpretation of published scalar coupling limits, not a detector-level recast or a new CLs result. Full details and limitations are in BOUNDED_WIDTH_RECAST_2026-11-09.md.
