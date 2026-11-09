@@ -242,7 +242,7 @@ def run(
     energy_order=100,
     angular_orders=(16, 32, 64),
     simpson_subintervals=(128, 256),
-    path_orders=(8, 16, 32, 64),
+    path_orders=(8, 16, 32, 64, 128),
     radius_km=25.0,
     energy_offset=1000.0,
 ):
@@ -385,7 +385,7 @@ def run(
         ir = int(np.argmin(np.abs(r - target_r)))
         for target_e in (20.0, 50.0, 100.0):
             ie = int(np.argmin(np.abs(energies - target_e)))
-            for target_g in (1.0e-8, 4.171689650228597e-8, 8.781010975339069e-8):
+            for target_g in (1.0e-8, 2.0e-8, 4.171689650228597e-8):
                 ig = int(np.argmin(np.abs(couplings - target_g)))
                 adaptive_value, adaptive_error = adaptive_angular_escape(
                     float(r[ir]), ie, float(couplings[ig]), radial_grid,
@@ -522,7 +522,7 @@ def main():
     parser.add_argument("--energy-offset", type=float, default=1000.0)
     parser.add_argument("--angular-orders", default="16,32,64")
     parser.add_argument("--simpson-subintervals", default="128,256")
-    parser.add_argument("--path-orders", default="8,16,32,64")
+    parser.add_argument("--path-orders", default="8,16,32,64,128")
     args = parser.parse_args()
     result = run(
         args.profile, args.fig7, args.baseline, args.output, args.mass,
