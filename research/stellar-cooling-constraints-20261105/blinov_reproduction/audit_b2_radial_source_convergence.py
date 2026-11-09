@@ -31,8 +31,8 @@ def summarize(x):
                 "weak_pct":float(d[0]*100)}
     return {
       "radial_order":x["configuration"]["radial_order"],
-      "actual_radial_node_count":x["eq_b1_source_measure"]["radial_node_count"],
-      "thin_luminosity_erg_s_per_g2":float(np.sum(thin)),
+      "actual_radial_node_count":len(x["eq_b1_source_measure"]["radial_measure_MeVminus3"]),
+      "thin_luminosity_erg_s_at_first_coupling":float(thin[0]),
       "fixed_vs_fig7":x["eq_b2_fixed_omega_baseline"]["curve_metrics"],
       "redshifted_vs_fig7":x["path_redshift_only_diagnostic"]["curve_metrics"],
       "source_mean_radius_km":x["source_radial_distribution"]["mean_emission_radius_km"],
