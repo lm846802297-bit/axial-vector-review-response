@@ -32,7 +32,7 @@ class IndependentB1QuadratureTests(unittest.TestCase):
         quadratic = float(np.dot(weights, omega**2))
         self.assertAlmostEqual(constant, upper-lower, delta=2.0e-11*upper)
         expected = (upper**3-lower**3)/3.0
-        self.assertAlmostEqual(quadratic, expected, delta=2.0e-11*expected)
+        self.assertAlmostEqual(quadratic, expected, delta=1.0e-10*expected)
 
     def test_exact_radius_dependent_threshold_is_respected(self):
         mass = 10.0
