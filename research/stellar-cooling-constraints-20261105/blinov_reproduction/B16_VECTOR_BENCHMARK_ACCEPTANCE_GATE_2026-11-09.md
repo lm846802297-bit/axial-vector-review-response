@@ -102,9 +102,9 @@ The source-level convention and implementation ambiguity is documented in:
 ### Still unresolved
 
 1. The true same-snapshot thermodynamic continuation over 20--25 km.
-2. The exact unpublished numerical choice between the formal Compton integral B.13 and its reduced B.14--B.16 prescription; the 0.1 MeV global run has completed, while 1 and 10 MeV are still running.
+2. Whether the unpublished Fig. 7 calculation uses B.13 or B.14--B.16. Global B.13 source-plus-opacity replacements are now archived at 0.1, 1, and 10 MeV. The exact kernel passes the sampled 0.1% local convergence screen at all three masses, but global B.1+B.2 quadrature convergence remains to be demonstrated.
 3. The B.2 path-energy convention: the B.1 source variable ambiguity is resolved by the exact E_infinity=N omega_loc Jacobian, but the path opacity still has no explicit lapse conversion in the printed thermal factor.
-4. The control of the non-relativistic/no-recoil muon approximation in B.14. The source-weighted B.17 susceptibility diagnostic gives mean muon speed 0.761 and 93.2% of the susceptibility weight at v_mu>0.5 in the low-mass Compton source region; this motivates, but does not replace, the full B.13 rate comparison.
+4. The global impact of the non-relativistic/no-recoil muon approximation in B.14. The B.13/B.16 source and reduced-opacity ratios are about 0.34 and 0.35 in the dominant 5--12 km region at 0.1 and 1 MeV. The local exact kernel passes the sampled convergence screen; full global quadrature refinement remains.
 5. A same-snapshot spatial metric A(r) or enclosed mass M(r) only if a separate full-GR extension is pursued.
 
 The Garching radial-profile endpoint remains access-protected. This limits raw-profile precision and any optional full-GR extension, but it does not prevent the method-level checks of the published B.1--B.5 prescription using the reconstructed profile.
@@ -117,7 +117,7 @@ The Garching radial-profile endpoint remains access-protected. This limits raw-p
 - **Axial-vector recalculation:** frozen.
 - **PR #57:** keep Open / Draft; do not merge as a validated reproduction.
 
-The next action is to finish the method-level B.13 versus B.16 comparison at 0.1, 1, and 10 MeV, then continue the B.2 path-energy and 10 MeV neutrino-opacity diagnostics using the current reconstructed profile. Raw Garching data would improve input fidelity but are not a prerequisite for these checks. No empirical rescaling, profile swapping, or opacity tuning is permitted.
+The next action is to converge the full global B.13 B.1+B.2 curves at 0.1 and 1 MeV, then continue the B.2 path-energy and outer-neutrino-opacity diagnostics using the current reconstructed profile. Raw Garching data would improve input fidelity but are not a prerequisite for these checks. No empirical rescaling, profile swapping, or opacity tuning is permitted.
 
 
 ## 7. Official data and metric-source availability
@@ -128,3 +128,6 @@ Consequently, the exact same-snapshot hydro table remains unavailable through th
 
 Detailed endpoint and source audit:
 [B16_PUBLIC_PROFILE_AND_METRIC_SOURCE_AVAILABILITY_AUDIT_2026-11-09.md](B16_PUBLIC_PROFILE_AND_METRIC_SOURCE_AVAILABILITY_AUDIT_2026-11-09.md).
+
+
+Three-mass B.13 source/opacity and local convergence audit: [B13_THREE_MASS_SOURCE_OPACITY_AND_CONVERGENCE_AUDIT_2026-11-09.md](B13_THREE_MASS_SOURCE_OPACITY_AND_CONVERGENCE_AUDIT_2026-11-09.md).
