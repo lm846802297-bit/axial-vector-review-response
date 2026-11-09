@@ -154,3 +154,14 @@ The version-of-record paper, Blinov et al., JHEP 06 (2026) 155, Eq. (B.2) explic
 **P1 numerical propagation audit: complete for the targeted high-energy B.2 path, angle, and opacity-interpolation checks.** Further generic increases of path or angle quadrature order are not justified. The remaining reproduction limitation is physical/input-level: the public-figure stellar profile is not the original Garching snapshot, and the unpublished implementation cannot be inspected.
 
 No opacity, source normalization, profile, coupling, vector curve, or axial-vector result is modified. No empirical rescaling is applied.
+
+
+## 7. P1-B thermodynamic-input follow-up (2026-11-10)
+
+The local-field interpolation and source-frozen high-energy sensitivity tests are archived in [B16_P1B2_THERMODYNAMIC_INTERPOLATION_AND_INPUT_SENSITIVITY_2026-11-10.md](B16_P1B2_THERMODYNAMIC_INTERPOLATION_AND_INPUT_SENSITIVITY_2026-11-10.md).
+
+The main numerical result is that evaluating the local B.16 kernel directly from linearly interpolated \(T,\mu_{\nu_\mu},\mu_\mu\) at the path nodes, rather than interpolating the precomputed 642-node opacity table, changes the sampled total optical depth by at most \(9.07\times10^{-6}\). Thus the previous vertex-preserving opacity test is not hiding a nonlinear-kernel interpolation effect.
+
+The source-frozen 210--510 MeV global calculation also shows that the inner semi-Compton opacity is sensitive to broad \(T,\mu_\mu\) variations, while the \(\mu_{\nu_\mu}\) sensitivity is below \(0.03\%\) for \(\pm10\%\) changes. The \(T,\mu_\mu/T\) inputs are independently anchored to Bollig Figs. 1 and 4 at the \(10^{-4}\) relative scale. These results do not support a profile correction or opacity rescaling and do not explain the \(+92.2406\%\) fixed-\(\omega\) strong-endpoint residual.
+
+The next unresolved B.2 issue is the normalization map between polarization-summed production, per-polarization inverse absorption, and the scalar absorption rate in the B.2 exponent. This must be derived from B.6--B.10 before any alternative opacity convention is considered.
