@@ -1,5 +1,17 @@
 # PROJECT_STATUS — Axial-vector paper revision and referee response
 
+## 2026-11-09 更新：PR #67 回复信写作风格统一（Draft）
+
+[PR #67](https://github.com/lm846802297-bit/axial-vector-review-response/pull/67) 已从 PR #66 合并后的 main（基线 \`d3b234efbce270cd92b7ea55e31e02680114fc3a\`）创建，分支为 \`review/referee-response-style-20261109\`，当前 Open / Draft。
+
+- **检索与清单：** 已完整读取原论文 \`main-v6.tex\`、当前正式回复信、长期《审稿回复写作原则》、正文待同步清单、DEC-15、PR #64/65 修订台账及相关会议记录；建立 [回复信写作风格全面检索与修改清单](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-09/回复信写作风格全面检索与修改清单_2026-11-09.md)。
+- **回复信修改：** 依 S-01–S-11 统一开头、少量论文元叙述、Major 4.1 首段、Minor 5 collider 段落和 Summary。改动仅涉及英文表达和段落组织；没有修改论文正文、bibliography、图表或科研脚本。
+- **内容保留：** 27 个审稿人 quote block、137 个 display-math block、74 次引用、4 个 equation labels 及交叉引用均与 main 基线一致；LaTeX 环境 begin/end 计数一致，花括号平衡。没有删除独立科学结论、公式、数值或适用条件。
+- **验证边界：** 已完成源码级静态检查和实际 diff 对照；未执行完整 LaTeX/BibTeX 编译、PDF 视觉检查、数值复算、脚本测试或 CI。独立 reviewer review 尚待执行。
+- **模型边界：** 非中微子问题继续使用原论文单 VEV \(S+\mathrm{VLL}\) 模型；可选 \(\sigma+3N_R\) seesaw 仍仅限 Major 3/4.1。
+- **独立性：** PR #67 不影响仍开放的 PR #53、#56、#57；尤其 PR #57 的四组 B.13 积分计算与归档流程保持不变。
+
+
 ## 2026-11-09 更新：PR #64 已合并
 
 [PR #64](https://github.com/lm846802297-bit/axial-vector-review-response/pull/64) 已 squash merge 至 main，合并提交 `1e487bbdf79906489eb85651d05ddf830949acf0`。正式回复信结构、第二轮措辞精简和标量约束表分隔线均已进入 main；论文正文未修改。合并前独立审查记录覆盖科学论证及随后纯排版 diff，本地对相同回复信源码完整编译生成 56 页 PDF；只对表格和部分页面放大检查、全页缩略图巡检，未进行全 PDF 逐页高分辨率验收。GitHub 构建项为 SKIPPED，未做数值复算或新文献核验。仓库根目录历史 PDF 不应视为与此次 TeX 同步；后续需生成并核验正式交付版本。
@@ -18,7 +30,7 @@ Major 1.3 的 10–150 GeV 诊断不是全微扰质量范围扫描，Major 4.4 �
 
 PR #64 在独立审查基础上精简 Major 1.3、2、3、4.2–4.4 和 Minor 5、6.5 的重复措辞，保留各项计算和科学适用条件；Minor 6.3 的 Belle 数值为直接回答审稿问题而保留。逐项对照见 [第二轮措辞修订台账](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-09/PR64第二轮措辞修订与保留台账_2026-11-09.md)。本地完整 LaTeX/BibTeX 编译生成 56 页 PDF；逐页视觉检查、CI 和数值复算未执行。作者修改者自查不替代独立 review。Major 1.3 全微扰区间扫描和 Major 4.4 完整 SN 输运曲线仍未完成；论文正文未修改。
 
-**状态快照日期：** 2026-11-09（PR #38–#50、#54–#55、#60–#61、#63 已合并；PR #53/#56/#57 Open / Draft；PR #52/#62 Closed / 未合并；PR #64 已合并）
+**状态快照日期：** 2026-11-09（PR #38–#50、#54–#55、#60–#61、#63–#66 已合并；PR #53/#56/#57 Open / Draft；PR #52/#62 Closed / 未合并；PR #67 Open / Draft）
 
 **本状态快照的初始核验基线：** 243b0e62d9c3912525d1144971a1e81c2af84db7（PR #36 合并前）  
 **项目启动机制合并提交：** [9b4e17519230e9eef65b34b643d3a1f8c19f46a2](https://github.com/lm846802297-bit/axial-vector-review-response/commit/9b4e17519230e9eef65b34b643d3a1f8c19f46a2)  
