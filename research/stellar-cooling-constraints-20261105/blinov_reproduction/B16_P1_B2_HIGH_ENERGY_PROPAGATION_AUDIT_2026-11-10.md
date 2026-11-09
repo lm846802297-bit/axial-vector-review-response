@@ -1,11 +1,11 @@
 # P1 B.2 high-energy propagation audit (2026-11-10)
 
 **PR:** #57  
-**Branch:** \`research/moving-muon-thermal-rates-20261107\`  
+**Branch:** `research/moving-muon-thermal-rates-20261107`  
 **Benchmark:** \(m_V=10\) MeV, \(g=4.171689650228597\times10^{-8}\)  
 **Profile:** vertex-preserving SFHo-18.8 reconstruction, SHA-256  
-\`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c\`  
-**Machine-readable result:** \`outputs/b16_p1_b2_high_energy_propagation_audit_2026-11-10.json\`
+`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`  
+**Machine-readable result:** `outputs/b16_p1_b2_high_energy_propagation_audit_2026-11-10.json`
 
 ## 1. Scope and acceptance question
 
