@@ -1,3 +1,14 @@
+## 2026-11-10 update: RC-001 derivative-operator interface added to PR #69
+
+- Added [RC001_UPSTREAM_INTERFACE.md](research/major1-higgs-scalar-mixing-20261109/RC001_UPSTREAM_INTERFACE.md) to the existing PR #69 branch. No new PR was opened.
+- The interface pins high-energy-theory-research PR #11 at head commit \`df9c007e8d4bd1716beae3b14591e12b6a551a8d\` and maps the RC-001 charged-lepton/VLL/Higgs/singlet interactions to the original one-VEV axial \(S+\mathrm{VLL}\) model.
+- The interface keeps the upstream repository as the sole source for calculation scripts and validation artifacts. It distinguishes the fermionic QLD8 derivative operator, the bosonic Higgs higher-derivative source, and PR #69's scalar-potential \(O_8^{\rm pot}=(H^\dagger H)^2(S^\dagger S)^2\).
+- It records two coefficient-level convention checks before transfer: the opposite displayed signs in the original manuscript's Eq. (5-d) and the RC-001 Schur-complement convention for \(C_{5,\ell}\), and the opposite sign conventions displayed for the SM covariant derivative. These are internal audit items; no manuscript or formal reply edit is made.
+- The upstream non-Abelian IBP/EOM result is treated as a restricted algebraic mapping, not a complete dimension-eight basis or a new scalar self-energy contribution. The latest workflow on the pinned upstream head has no successful CI status; the reported failed run has no retrievable step/log detail.
+- PR #69 remains Open / Draft. Its scalar self-energy benchmarks, finite \(O_8^{\rm pot}\) matching, and physical-pole limitations are unchanged. This interface does not promote QLD8 coefficients into \(\Pi_{hh}\), \(\Pi_{hs}\), or \(\Pi_{ss}\).
+
+**Current repository status correction:** PR #72 was merged on 2026-11-09 (merge time 06:46 UTC); the older 2026-11-09 status snapshot below that still labels PR #72 Open is superseded by this entry. PR #69 remains the active Higgs–radial-scalar research branch for this interface.
+
 # PROJECT_STATUS — Axial-vector paper revision and referee response
 
 ## 2026-11-09 更新：PR #64 已合并
