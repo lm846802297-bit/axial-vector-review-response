@@ -163,6 +163,7 @@
       "planC_scale_dependence_and_dimension8_running_check": {
         "evaluation": "s=m_h^2, leading EFT5 soft bubble+contact plus Plan-C hard derivative",
         "mu_reference_GeV": 20000.0,
+        "mu_low_GeV": 125.25,
         "soft_d_dlnmu_GeV2": -0.07201966985094525,
         "hard_derivative_d_dlnmu_GeV2": 0.07213540410582059,
         "total_d_dlnmu_GeV2": 0.0001157342548753354,
@@ -175,8 +176,24 @@
           0.0
         ],
         "relative_finite_difference_residual": 5.3469547389263314e-08,
+        "dimension8_running": {
+          "sum_abs_C5_fourth_GeVminus4": 1.718667411404646e-15,
+          "loop_induced_beta_c8_GeVminus4": -2.1767177051378926e-17,
+          "delta_c8_from_mu_reference_to_mu_low_GeVminus4": 1.1042871612500945e-16,
+          "delta_PiB_from_O8_running_GeV2": 0.000587140222519479,
+          "delta_PiB_soft_plus_hard_GeV2": [
+            -0.0005871402225193778,
+            0.0
+          ],
+          "residual_after_O8_running_GeV2": [
+            1.0115606269289756e-16,
+            0.0
+          ],
+          "relative_residual_after_O8_running": 1.7228603800782705e-13,
+          "finite_matching_value_c8_at_M_E": "not determined"
+        },
         "required_dimension8_counterterm_contribution_d_dlnmu_GeV2": -0.0001157342548753354,
-        "interpretation": "The remaining scale dependence is local and equals twice the EFT5 mixed UV-pole coefficient. It is canceled by the running of the dimension-eight operator counterterm. This fixes the required scale derivative, not the finite matching value of its Wilson coefficient."
+        "interpretation": "The Plan-C finite soft expression already includes the EFT5 contact tadpole. The remaining scale dependence is the running of O8=(Hdagger H)^2(Sdagger S)^2. Its loop-induced running cancels the benchmark scale residual; the finite hard matching value c8(M_E) remains unknown."
       },
       "comparison_to_archived_exact_light_bubble": {
         "exact_mass_eigenstate_light_bubble_local_UV_coefficients_GeV2": {
@@ -350,6 +367,7 @@
       "planC_scale_dependence_and_dimension8_running_check": {
         "evaluation": "s=m_h^2, leading EFT5 soft bubble+contact plus Plan-C hard derivative",
         "mu_reference_GeV": 20000.0,
+        "mu_low_GeV": 125.25,
         "soft_d_dlnmu_GeV2": -0.016207045403374275,
         "hard_derivative_d_dlnmu_GeV2": 0.01623308982050882,
         "total_d_dlnmu_GeV2": 2.6044417134545028e-05,
@@ -362,8 +380,24 @@
           0.0
         ],
         "relative_finite_difference_residual": 3.3657252534013274e-08,
+        "dimension8_running": {
+          "sum_abs_C5_fourth_GeVminus4": 4.407605665172021e-18,
+          "loop_induced_beta_c8_GeVminus4": -5.582297787798783e-20,
+          "delta_c8_from_mu_reference_to_mu_low_GeVminus4": 2.831997811563024e-19,
+          "delta_PiB_from_O8_running_GeV2": 0.00013212790705948482,
+          "delta_PiB_soft_plus_hard_GeV2": [
+            -0.00013212790705946498,
+            0.0
+          ],
+          "residual_after_O8_running_GeV2": [
+            1.984089975648473e-17,
+            0.0
+          ],
+          "relative_residual_after_O8_running": 1.5016433846602303e-13,
+          "finite_matching_value_c8_at_M_E": "not determined"
+        },
         "required_dimension8_counterterm_contribution_d_dlnmu_GeV2": -2.6044417134545028e-05,
-        "interpretation": "The remaining scale dependence is local and equals twice the EFT5 mixed UV-pole coefficient. It is canceled by the running of the dimension-eight operator counterterm. This fixes the required scale derivative, not the finite matching value of its Wilson coefficient."
+        "interpretation": "The Plan-C finite soft expression already includes the EFT5 contact tadpole. The remaining scale dependence is the running of O8=(Hdagger H)^2(Sdagger S)^2. Its loop-induced running cancels the benchmark scale residual; the finite hard matching value c8(M_E) remains unknown."
       },
       "comparison_to_archived_exact_light_bubble": {
         "exact_mass_eigenstate_light_bubble_local_UV_coefficients_GeV2": {
