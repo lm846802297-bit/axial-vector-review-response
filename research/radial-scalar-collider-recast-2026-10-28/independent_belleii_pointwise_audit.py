@@ -96,7 +96,7 @@ def load_fourmu_limits(path: Path) -> tuple[list[float], list[float], list[float
 
 def load_tau_limits(path: Path) -> tuple[list[float], list[float], list[float], dict]:
     with path.open(newline="", encoding="utf-8-sig") as stream:
-        rows = list(csv.DictReader(stream))
+        rows = [{key.strip(): (value or "").strip() for key, value in row.items()} for row in csv.DictReader(stream)]
     masses = [float(row["m [GeV/c^2]"]) for row in rows]
     observed = [float(row["xi_UL_obs"]) for row in rows]
     expected = [float(row["xi_UL_exp"]) for row in rows]
