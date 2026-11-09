@@ -26,7 +26,7 @@ class IndependentFermionMatrixAuditTests(unittest.TestCase):
     def test_light_pair_b0_has_positive_absorptive_part_above_threshold(self):
         actual = b0_feynman_parameter(125.25**2, 0.1056583755, 0.1056583755)
         self.assertGreater(actual.imag, 0.0)
-        self.assertAlmostEqual(actual.imag, math.pi * (1.0 - math.sqrt(1.0 - 4.0 * 0.1056583755**2 / 125.25**2)), places=10)
+        self.assertAlmostEqual(actual.imag, math.pi * math.sqrt(1.0 - 4.0 * 0.1056583755**2 / 125.25**2), places=10)
 
     def test_chiral_coefficients_reproduce_explicit_dirac_trace(self):
         identity = np.eye(2, dtype=complex)
