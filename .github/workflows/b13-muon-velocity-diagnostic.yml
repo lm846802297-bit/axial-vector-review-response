@@ -35,7 +35,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install numerical dependency
-        run: python -m pip install numpy
+        run: python -m pip install numpy scipy
       - name: Compile and test diagnostic
         run: |
           python -m py_compile research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b13_nonrelativistic_muon.py
