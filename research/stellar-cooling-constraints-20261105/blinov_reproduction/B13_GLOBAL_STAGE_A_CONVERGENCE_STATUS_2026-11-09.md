@@ -63,7 +63,7 @@ The B.16 fixed-(omega) baseline itself differs from digitized Fig. 7 by (-8.89%)
 
 This establishes two separate validation questions for subsequent work: (i) why the fixed-(omega) B.16 baseline departs from Fig. 7 in the strong-absorption tail, and (ii) what additional change the exact B.13 Compton source and opacity produce relative to that internally matched B.16 baseline. The first question remains distinct from the numerical quadrature convergence test and must not be hidden by tuning the B.13 result.
 
-## 2. Angular and path quadrature: in progress
+## 3. Angular and path quadrature: in progress
 
 The final audit varies angular and path quadrature independently, then checks their joint effect and the fully refined grid. The four targeted configurations are:
 
@@ -76,7 +76,7 @@ For every B.13 run, the B.16 comparison calculation is regenerated on the identi
 
 The first four-configuration attempt was cancelled when the validation check was corrected. The current immutable-commit run is [GitHub Actions run 42542328275](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42542328275); it contains the corrected validation of all four scan labels and the exact output variant names. Earlier trial runs are not used as accepted convergence results.
 
-## 3. Current decision
+## 4. Current decision
 
 - Radial and energy quadrature: passed at the tested resolutions.
 - Angular and path quadrature: not yet accepted; same-grid B.16 closure and B.13 luminosity/escape-fraction shifts remain to be checked.
