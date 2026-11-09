@@ -19,17 +19,17 @@ The independent Bollig Fig. 1 and Fig. 4 vector-path audit validates Caputo T(r)
 
 | T scale in 20--22 km | Weak L_escaped / baseline | Peak L_escaped / baseline | Strong L_escaped / baseline | Strong P_escape / baseline |
 |---:|---:|---:|---:|---:|
-| 0.9 | 99.9713% | 99.9135% | 99.8507% | 99.8792% |
+| 0.9 | 99.9713% | 99.9133% | 99.8507% | 99.8792% |
 | 1.0 | 100% | 100% | 100% | 100% |
-| 1.1 | 100.038% | 100.091% | 100.151% | 100.113% |
+| 1.1 | 100.038% | 100.091% | 100.151% | 100.112% |
 
 ## Baseline diagnostics
 
 | Quantity | Baseline value |
 |---|---:|
 | B.1 thin-source fraction emitted in 20--22 km | 0.0745279% |
-| B.2 path-tau fraction in 20--22 km, all emission radii | 12.8927% |
-| B.2 path-tau fraction in 20--22 km, 8--15 km emission | 12.7585% |
+| B.2 path-tau fraction in 20--22 km, all emission radii | 12.8945% |
+| B.2 path-tau fraction in 20--22 km, 8--15 km emission | 12.719% |
 
 ## Interpretation
 

@@ -2,47 +2,47 @@
   "comparisons_to_baseline": {
     "T_scale_0.9": {
       "reference_peak": {
-        "Fig7_relative_difference_shift": -0.0008869717751496253,
-        "escape_probability_ratio_vs_baseline": 0.9994202148742183,
-        "escaped_luminosity_ratio_vs_baseline": 0.9991352419352828,
+        "Fig7_relative_difference_shift": -0.0008888601624983394,
+        "escape_probability_ratio_vs_baseline": 0.9994183858576501,
+        "escaped_luminosity_ratio_vs_baseline": 0.9991334134402373,
         "thin_source_ratio_vs_baseline": 0.9997148617421439
       },
       "strong_endpoint": {
-        "Fig7_relative_difference_shift": -0.002870330251405928,
-        "escape_probability_ratio_vs_baseline": 0.9987917012348934,
-        "escaped_luminosity_ratio_vs_baseline": 0.9985069075092421,
+        "Fig7_relative_difference_shift": -0.002869525957681862,
+        "escape_probability_ratio_vs_baseline": 0.9987922009221777,
+        "escaped_luminosity_ratio_vs_baseline": 0.9985074070540463,
         "thin_source_ratio_vs_baseline": 0.9997148617421439
       },
       "weak_endpoint": {
-        "Fig7_relative_difference_shift": -0.00026160815284281824,
-        "escape_probability_ratio_vs_baseline": 0.9999980181084875,
-        "escaped_luminosity_ratio_vs_baseline": 0.9997128804157445,
+        "Fig7_relative_difference_shift": -0.00026162039185662067,
+        "escape_probability_ratio_vs_baseline": 0.9999980046837679,
+        "escaped_luminosity_ratio_vs_baseline": 0.9997128669948528,
         "thin_source_ratio_vs_baseline": 0.9997148617421439
       }
     },
     "T_scale_1.1": {
       "reference_peak": {
-        "Fig7_relative_difference_shift": 0.0009330677557009004,
-        "escape_probability_ratio_vs_baseline": 1.0005274532854795,
-        "escaped_luminosity_ratio_vs_baseline": 1.0009096995972997,
+        "Fig7_relative_difference_shift": 0.0009349712420243517,
+        "escape_probability_ratio_vs_baseline": 1.0005292951441038,
+        "escaped_luminosity_ratio_vs_baseline": 1.0009115421595964,
         "thin_source_ratio_vs_baseline": 1.0003820448010348
       },
       "strong_endpoint": {
-        "Fig7_relative_difference_shift": 0.002898568968111803,
-        "escape_probability_ratio_vs_baseline": 1.0011253070280215,
-        "escaped_luminosity_ratio_vs_baseline": 1.001507781746756,
+        "Fig7_relative_difference_shift": 0.002897759741161021,
+        "escape_probability_ratio_vs_baseline": 1.0011248043104966,
+        "escaped_luminosity_ratio_vs_baseline": 1.0015072788371706,
         "thin_source_ratio_vs_baseline": 1.0003820448010348
       },
       "weak_endpoint": {
-        "Fig7_relative_difference_shift": 0.000349612765035201,
-        "escape_probability_ratio_vs_baseline": 1.000001660770329,
-        "escaped_luminosity_ratio_vs_baseline": 1.0003837062058525,
+        "Fig7_relative_difference_shift": 0.00034962496643764496,
+        "escape_probability_ratio_vs_baseline": 1.000001674140917,
+        "escaped_luminosity_ratio_vs_baseline": 1.0003837195815484,
         "thin_source_ratio_vs_baseline": 1.0003820448010348
       }
     }
   },
   "configuration": {
-    "angular_order": 16,
+    "angular_order": 32,
     "energy_offset_MeV": 1000.0,
     "energy_order": 100,
     "path_order": 32,
@@ -67,29 +67,29 @@
   "scenarios": {
     "T_scale_0.9": {
       "B1_source_fraction_emitted_in_20_22km": 0.00046027181889323263,
-      "B2_path_tau_fraction_20_22km_8_15km_emission": 0.12891834622466267,
-      "B2_path_tau_fraction_20_22km_all_emission_radii": 0.13022548012500884,
+      "B2_path_tau_fraction_20_22km_8_15km_emission": 0.12852384475741244,
+      "B2_path_tau_fraction_20_22km_all_emission_radii": 0.13024694063498066,
       "internal_closure": {
         "absorption_shell_sum_vs_total_column_max_relative_residual": 0.0,
         "angle_weight_max_absolute_residual": 0.0,
-        "direct_source_weighted_mean_tau": 9280919475664950.0,
-        "emission_absorption_matrix_weighted_mean_tau": 9280919475664950.0,
+        "direct_source_weighted_mean_tau": 9280801567927320.0,
+        "emission_absorption_matrix_weighted_mean_tau": 9280801567927320.0,
         "mean_tau_matrix_relative_residual": 0.0,
-        "shell_columns_vs_direct_chord_max_relative_residual": 6.480418525071777e-16,
+        "shell_columns_vs_direct_chord_max_relative_residual": 6.527374589038751e-16,
         "source_channel_sum_max_relative_residual": 4.3650406414630212e-16
       },
       "points": {
         "reference_peak": {
           "L_Fig7_erg_s": 1.910994581282271e+54,
-          "L_escaped_erg_s": 1.9583887814951085e+54,
+          "L_escaped_erg_s": 1.9584136690973724e+54,
           "L_thin_erg_s": 5.559361152399965e+54,
-          "P_escape": 0.35226867400936457,
+          "P_escape": 0.352273150711198,
           "g": 1.1341108687336194e-08,
           "index": 17,
-          "relative_difference_vs_Fig7": 0.02480080303578669,
+          "relative_difference_vs_Fig7": 0.02481382641246599,
           "source_channels": {
             "compton": {
-              "escaped_luminosity_fraction": 0.3540204012580663,
+              "escaped_luminosity_fraction": 0.35402071806906454,
               "thin_source_fraction": 0.32014122150916047
             },
             "dimuon": {
@@ -97,26 +97,26 @@
               "thin_source_fraction": 0.0
             },
             "nu_mu": {
-              "escaped_luminosity_fraction": 0.31822838368238193,
+              "escaped_luminosity_fraction": 0.3182281940589317,
               "thin_source_fraction": 0.33405749200230644
             },
             "nu_tau": {
-              "escaped_luminosity_fraction": 0.32775121505955185,
+              "escaped_luminosity_fraction": 0.3277510878720039,
               "thin_source_fraction": 0.3458012864885331
             }
           }
         },
         "strong_endpoint": {
           "L_Fig7_erg_s": 1.26781475907372e+52,
-          "L_escaped_erg_s": 2.433615897747065e+52,
+          "L_escaped_erg_s": 2.4337494536379493e+52,
           "L_thin_erg_s": 7.522078248166961e+55,
-          "P_escape": 0.000323529723762194,
+          "P_escape": 0.0003235474789471945,
           "g": 4.171689650228597e-08,
           "index": 24,
-          "relative_difference_vs_Fig7": 0.9195358630507604,
+          "relative_difference_vs_Fig7": 0.9196412064299322,
           "source_channels": {
             "compton": {
-              "escaped_luminosity_fraction": 0.4586277572587007,
+              "escaped_luminosity_fraction": 0.4586303506904425,
               "thin_source_fraction": 0.3201412215091605
             },
             "dimuon": {
@@ -124,26 +124,26 @@
               "thin_source_fraction": 0.0
             },
             "nu_mu": {
-              "escaped_luminosity_fraction": 0.2697831136331313,
+              "escaped_luminosity_fraction": 0.2697817899952046,
               "thin_source_fraction": 0.33405749200230644
             },
             "nu_tau": {
-              "escaped_luminosity_fraction": 0.2715891291081679,
+              "escaped_luminosity_fraction": 0.27158785931435286,
               "thin_source_fraction": 0.34580128648853314
             }
           }
         },
         "weak_endpoint": {
           "L_Fig7_erg_s": 1.0893295563998579e+52,
-          "L_escaped_erg_s": 9.922543988286781e+51,
+          "L_escaped_erg_s": 9.922544257427559e+51,
           "L_thin_erg_s": 9.94374549864565e+51,
-          "P_escape": 0.9978678546869731,
+          "P_escape": 0.9978678817533112,
           "g": 4.796429536550025e-10,
           "index": 0,
-          "relative_difference_vs_Fig7": -0.089114590713948,
+          "relative_difference_vs_Fig7": -0.08911456600693657,
           "source_channels": {
             "compton": {
-              "escaped_luminosity_fraction": 0.32022643710361604,
+              "escaped_luminosity_fraction": 0.3202264382541951,
               "thin_source_fraction": 0.32014122150916047
             },
             "dimuon": {
@@ -151,11 +151,11 @@
               "thin_source_fraction": 0.0
             },
             "nu_mu": {
-              "escaped_luminosity_fraction": 0.33401688608735214,
+              "escaped_luminosity_fraction": 0.33401688543329805,
               "thin_source_fraction": 0.33405749200230644
             },
             "nu_tau": {
-              "escaped_luminosity_fraction": 0.3457566768090319,
+              "escaped_luminosity_fraction": 0.3457566763125066,
               "thin_source_fraction": 0.3458012864885331
             }
           }
@@ -176,29 +176,29 @@
     },
     "T_scale_1": {
       "B1_source_fraction_emitted_in_20_22km": 0.0007452788356447521,
-      "B2_path_tau_fraction_20_22km_8_15km_emission": 0.12758462222267755,
-      "B2_path_tau_fraction_20_22km_all_emission_radii": 0.1289267587519389,
+      "B2_path_tau_fraction_20_22km_8_15km_emission": 0.12719048706575126,
+      "B2_path_tau_fraction_20_22km_all_emission_radii": 0.12894457265789672,
       "internal_closure": {
         "absorption_shell_sum_vs_total_column_max_relative_residual": 0.0,
         "angle_weight_max_absolute_residual": 0.0,
-        "direct_source_weighted_mean_tau": 9272291010214640.0,
-        "emission_absorption_matrix_weighted_mean_tau": 9272291010214640.0,
+        "direct_source_weighted_mean_tau": 9272114550254984.0,
+        "emission_absorption_matrix_weighted_mean_tau": 9272114550254984.0,
         "mean_tau_matrix_relative_residual": 0.0,
-        "shell_columns_vs_direct_chord_max_relative_residual": 6.282582642108645e-16,
+        "shell_columns_vs_direct_chord_max_relative_residual": 6.607908314175328e-16,
         "source_channel_sum_max_relative_residual": 4.3650406414630212e-16
       },
       "points": {
         "reference_peak": {
           "L_Fig7_erg_s": 1.910994581282271e+54,
-          "L_escaped_erg_s": 1.9600837797511697e+54,
+          "L_escaped_erg_s": 1.9601122760514245e+54,
           "L_thin_erg_s": 5.560946791080004e+54,
-          "P_escape": 0.35247303263092317,
+          "P_escape": 0.3524781569921741,
           "g": 1.1341108687336194e-08,
           "index": 17,
-          "relative_difference_vs_Fig7": 0.025687774810936315,
+          "relative_difference_vs_Fig7": 0.02570268657496433,
           "source_channels": {
             "compton": {
-              "escaped_luminosity_fraction": 0.3539098656675756,
+              "escaped_luminosity_fraction": 0.3539098703465172,
               "thin_source_fraction": 0.32004993699899165
             },
             "dimuon": {
@@ -206,26 +206,26 @@
               "thin_source_fraction": 0.0
             },
             "nu_mu": {
-              "escaped_luminosity_fraction": 0.31828204711286834,
+              "escaped_luminosity_fraction": 0.31828202087424784,
               "thin_source_fraction": 0.33410480855994107
             },
             "nu_tau": {
-              "escaped_luminosity_fraction": 0.3278080872195559,
+              "escaped_luminosity_fraction": 0.32780810877923516,
               "thin_source_fraction": 0.3458452544410673
             }
           }
         },
         "strong_endpoint": {
           "L_Fig7_erg_s": 1.26781475907372e+52,
-          "L_escaped_erg_s": 2.437254944803213e+52,
+          "L_escaped_erg_s": 2.4373874809986437e+52,
           "L_thin_erg_s": 7.524223692202275e+55,
-          "P_escape": 0.0003239211172481569,
+          "P_escape": 0.0003239387318487924,
           "g": 4.171689650228597e-08,
           "index": 24,
-          "relative_difference_vs_Fig7": 0.9224061933021663,
+          "relative_difference_vs_Fig7": 0.922510732387614,
           "source_channels": {
             "compton": {
-              "escaped_luminosity_fraction": 0.4585465305891471,
+              "escaped_luminosity_fraction": 0.4585491748291456,
               "thin_source_fraction": 0.32004993699899165
             },
             "dimuon": {
@@ -233,26 +233,26 @@
               "thin_source_fraction": 0.0
             },
             "nu_mu": {
-              "escaped_luminosity_fraction": 0.2698234397013181,
+              "escaped_luminosity_fraction": 0.26982209014951863,
               "thin_source_fraction": 0.33410480855994107
             },
             "nu_tau": {
-              "escaped_luminosity_fraction": 0.27163002970953465,
+              "escaped_luminosity_fraction": 0.27162873502133567,
               "thin_source_fraction": 0.3458452544410673
             }
           }
         },
         "weak_endpoint": {
           "L_Fig7_erg_s": 1.0893295563998579e+52,
-          "L_escaped_erg_s": 9.925393763217649e+51,
+          "L_escaped_erg_s": 9.925394165681621e+51,
           "L_thin_erg_s": 9.946581649608843e+51,
-          "P_escape": 0.9978698323567244,
+          "P_escape": 0.997869872819266,
           "g": 4.796429536550025e-10,
           "index": 0,
-          "relative_difference_vs_Fig7": -0.08885298256110519,
+          "relative_difference_vs_Fig7": -0.08885294561507995,
           "source_channels": {
             "compton": {
-              "escaped_luminosity_fraction": 0.32013512705946606,
+              "escaped_luminosity_fraction": 0.32013512585742715,
               "thin_source_fraction": 0.3200499369989916
             },
             "dimuon": {
@@ -260,11 +260,11 @@
               "thin_source_fraction": 0.0
             },
             "nu_mu": {
-              "escaped_luminosity_fraction": 0.3340642014259075,
+              "escaped_luminosity_fraction": 0.33406420201165676,
               "thin_source_fraction": 0.334104808559941
             },
             "nu_tau": {
-              "escaped_luminosity_fraction": 0.3458006715146265,
+              "escaped_luminosity_fraction": 0.3458006721309161,
               "thin_source_fraction": 0.3458452544410673
             }
           }
@@ -285,29 +285,29 @@
     },
     "T_scale_1.1": {
       "B1_source_fraction_emitted_in_20_22km": 0.001126893113024274,
-      "B2_path_tau_fraction_20_22km_8_15km_emission": 0.12626299932163196,
-      "B2_path_tau_fraction_20_22km_all_emission_radii": 0.1276740951286967,
+      "B2_path_tau_fraction_20_22km_8_15km_emission": 0.1258692161861056,
+      "B2_path_tau_fraction_20_22km_all_emission_radii": 0.12768801748036548,
       "internal_closure": {
         "absorption_shell_sum_vs_total_column_max_relative_residual": 0.0,
         "angle_weight_max_absolute_residual": 0.0,
-        "direct_source_weighted_mean_tau": 9265063236004802.0,
-        "emission_absorption_matrix_weighted_mean_tau": 9265063236004802.0,
+        "direct_source_weighted_mean_tau": 9264828463316254.0,
+        "emission_absorption_matrix_weighted_mean_tau": 9264828463316254.0,
         "mean_tau_matrix_relative_residual": 0.0,
-        "shell_columns_vs_direct_chord_max_relative_residual": 6.19159410977511e-16,
+        "shell_columns_vs_direct_chord_max_relative_residual": 6.5076477535351675e-16,
         "source_channel_sum_max_relative_residual": 4.3650406414630212e-16
       },
       "points": {
         "reference_peak": {
           "L_Fig7_erg_s": 1.910994581282271e+54,
-          "L_escaped_erg_s": 1.9618668671762832e+54,
+          "L_escaped_erg_s": 1.961899001028588e+54,
           "L_thin_erg_s": 5.563071321890367e+54,
-          "P_escape": 0.3526589456900273,
+          "P_escape": 0.3526647219690727,
           "g": 1.1341108687336194e-08,
           "index": 17,
-          "relative_difference_vs_Fig7": 0.026620842566637215,
+          "relative_difference_vs_Fig7": 0.02663765781698868,
           "source_channels": {
             "compton": {
-              "escaped_luminosity_fraction": 0.3537839124607036,
+              "escaped_luminosity_fraction": 0.3537836022483507,
               "thin_source_fraction": 0.3199277102805752
             },
             "dimuon": {
@@ -315,26 +315,26 @@
               "thin_source_fraction": 0.0
             },
             "nu_mu": {
-              "escaped_luminosity_fraction": 0.3183436267435951,
+              "escaped_luminosity_fraction": 0.3183437653260431,
               "thin_source_fraction": 0.3341681637508245
             },
             "nu_tau": {
-              "escaped_luminosity_fraction": 0.32787246079570137,
+              "escaped_luminosity_fraction": 0.32787263242560616,
               "thin_source_fraction": 0.3459041259686003
             }
           }
         },
         "strong_endpoint": {
           "L_Fig7_erg_s": 1.26781475907372e+52,
-          "L_escaped_erg_s": 2.440929793321178e+52,
+          "L_escaped_erg_s": 2.4410613035667373e+52,
           "L_thin_erg_s": 7.527098282745705e+55,
-          "P_escape": 0.0003242856279579208,
+          "P_escape": 0.00032430309953071273,
           "g": 4.171689650228597e-08,
           "index": 24,
-          "relative_difference_vs_Fig7": 0.9253047622702781,
+          "relative_difference_vs_Fig7": 0.9254084921287751,
           "source_channels": {
             "compton": {
-              "escaped_luminosity_fraction": 0.45846008481470707,
+              "escaped_luminosity_fraction": 0.45846277997363644,
               "thin_source_fraction": 0.31992771028057515
             },
             "dimuon": {
@@ -342,26 +342,26 @@
               "thin_source_fraction": 0.0
             },
             "nu_mu": {
-              "escaped_luminosity_fraction": 0.26986638474807906,
+              "escaped_luminosity_fraction": 0.2698650092265104,
               "thin_source_fraction": 0.3341681637508245
             },
             "nu_tau": {
-              "escaped_luminosity_fraction": 0.2716735304372139,
+              "escaped_luminosity_fraction": 0.27167221079985315,
               "thin_source_fraction": 0.34590412596860026
             }
           }
         },
         "weak_endpoint": {
           "L_Fig7_erg_s": 1.0893295563998579e+52,
-          "L_escaped_erg_s": 9.929202198400125e+51,
+          "L_escaped_erg_s": 9.92920273377758e+51,
           "L_thin_erg_s": 9.950381689416144e+51,
-          "P_escape": 0.9978714895893344,
+          "P_escape": 0.9978715433940498,
           "g": 4.796429536550025e-10,
           "index": 0,
-          "relative_difference_vs_Fig7": -0.08850336979606999,
+          "relative_difference_vs_Fig7": -0.0885033206486423,
           "source_channels": {
             "compton": {
-              "escaped_luminosity_fraction": 0.3200129633495894,
+              "escaped_luminosity_fraction": 0.3200129597850532,
               "thin_source_fraction": 0.3199277102805752
             },
             "dimuon": {
@@ -369,11 +369,11 @@
               "thin_source_fraction": 0.0
             },
             "nu_mu": {
-              "escaped_luminosity_fraction": 0.3341275093635224,
+              "escaped_luminosity_fraction": 0.3341275111939992,
               "thin_source_fraction": 0.3341681637508245
             },
             "nu_tau": {
-              "escaped_luminosity_fraction": 0.34585952728688807,
+              "escaped_luminosity_fraction": 0.34585952902094763,
               "thin_source_fraction": 0.34590412596860026
             }
           }
