@@ -214,14 +214,14 @@ and the corresponding leading MS mixing term is
 \]
 This is the running induced by the dimension-five fermion operator. The finite matching boundary in the VLL scalar-potential sector is obtained independently from the heavy-eigenstate Coleman--Weinberg expansion in Sec. 5.
 
-The Plan-C finite soft expression already contains the dimension-five contact-tadpole contribution. This is confirmed directly from the archived implementation: in \`higgs_portal_planC_lite.py\` (main-branch blob SHA \`df139e099853246501d2fbf9957dbba890014d14\`), \`pi_soft_planb\` computes separate \`bubble\` and \`contact\` terms and adds them as \`pieces[name] = bubble + contact\`. The new \`plan_c_soft_plus_hard\` implementation in \`scalar_potential_counterterm_map.py\` independently retains the same structure, \`bubble + contact + hard\`. Therefore the contact tadpole must **not** be added a second time to the Plan-C finite soft function. The new result completes its UV-pole assignment and identifies the \(O_8\) running responsible for the remaining scale dependence; it does not discover an omitted finite contact in the Plan-C numerical code.
+The Plan-C finite soft expression already contains the dimension-five contact-tadpole contribution. This is confirmed directly from the archived implementation: in `higgs_portal_planC_lite.py` (main-branch blob SHA `df139e099853246501d2fbf9957dbba890014d14`), `pi_soft_planb` computes separate `bubble` and `contact` terms and adds them as `pieces[name] = bubble + contact`. The new `plan_c_soft_plus_hard` implementation in `scalar_potential_counterterm_map.py` independently retains the same structure, `bubble + contact + hard`. Therefore the contact tadpole must **not** be added a second time to the Plan-C finite soft function. The new result completes its UV-pole assignment and identifies the \(O_8\) running responsible for the remaining scale dependence; it does not discover an omitted finite contact in the Plan-C numerical code.
 
 Combining the already contact-complete Plan-C soft term with the Plan-C hard derivative, the residual scale derivative at \(s=m_h^2\) is
 \[
 \frac{d\Pi_{hs}^{\rm soft+hard}}{d\ln\mu}
 =2\,\Pi_{hs,\mathrm{EFT5},B}^{\rm UV},
 \]
-where the right-hand side is the leading-EFT5 mixed local UV coefficient in the adopted Plan-B convention. The \(O_8\) running contributes the opposite derivative.
+where \(\Pi_{hs,\mathrm{EFT5},B}^{\mathrm{UV}}\) denotes the coefficient of the **Plan-B loop UV pole**, not the counterterm. With \(\Pi_B=-\Pi_{\mathrm{RC}}\), the corresponding RC-convention loop pole has the opposite sign; its local counterterm cancels it. The \(O_8\) running contributes the opposite Plan-B scale derivative.
 
 ### Numerical scale-cancellation check
 
