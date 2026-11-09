@@ -61,10 +61,21 @@ jobs:
           d = json.loads(p.read_text())
           assert len(d["scans"]) == 4
           assert d["reference"]["profile_sha256"] == "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
+          expected_labels = {
+              "angular_only_24x32",
+              "path_only_16x48",
+              "joint_ray_24x48",
+              "combined_60x140_24x48",
+          }
+          assert {scan["label"] for scan in d["scans"]} == expected_labels
+          expected_variants = {
+              "B13_mu_minus_consistent_source_and_opacity",
+              "B13_both_charges_consistent_source_and_opacity",
+          }
           for scan in d["scans"]:
               assert scan["B16_baseline_reproduction_residual"] < 2e-10
-              assert set(scan["variants"]) == {"B13_mu_minus_consistent", "B13_mu_minus_plus_mu_plus_consistent"}
-          print("All four scans retain the fixed profile and close against the archived B.16 baseline.")
+              assert set(scan["variants"]) == expected_variants
+          print("All four scans retain the fixed profile, exact expected variants, and same-grid B.16 closure.")
           PY
           git diff --exit-code -- \
             research/stellar-cooling-constraints-20261105/rates.py \
