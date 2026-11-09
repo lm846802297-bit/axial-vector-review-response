@@ -28,6 +28,28 @@ class IndependentFermionMatrixAuditTests(unittest.TestCase):
         self.assertGreater(actual.imag, 0.0)
         self.assertAlmostEqual(actual.imag, math.pi * math.sqrt(1.0 - 4.0 * 0.1056583755**2 / 125.25**2), places=10)
 
+    def test_full_minus_light_local_mass_counterterm_coefficients(self):
+        expected = {
+            "A_open_AA": {
+                "hh": -13374386.09800963,
+                "hs": 4.33770200548787e-05,
+                "ss": -63902155.30209779,
+            },
+            "B_closed_AA": {
+                "hh": -13374386.09800963,
+                "hs": 9.761407305064081e-06,
+                "ss": -3236092.6837118976,
+            },
+        }
+        for label, _, _ in BENCHMARKS:
+            got = self.audit["benchmarks"][label]
+            for entry in ("hh", "hs", "ss"):
+                self.assertAlmostEqual(
+                    got[entry]["MS_mass_counterterm_pole_coefficient_full_minus_light_GeV2"],
+                    expected[label][entry],
+                    delta=2e-10 * max(1.0, abs(expected[label][entry])),
+                )
+
     def test_chiral_coefficients_reproduce_explicit_dirac_trace(self):
         identity = np.eye(2, dtype=complex)
         zero = np.zeros((2, 2), dtype=complex)
