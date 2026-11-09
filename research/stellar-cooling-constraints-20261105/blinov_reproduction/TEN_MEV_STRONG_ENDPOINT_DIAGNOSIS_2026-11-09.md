@@ -138,3 +138,112 @@ The B.13 convergence matrix and the independent B.16 quadrature matrix show the 
 The 10 MeV strong-end excess is not resolved. The evidence points to the outer-shell neutrino inverse-decay opacity and its energy/radial integration as the first places to isolate. The already-tested angular/path quadratures, inner \(\mu_{\nu_\mu}\) branch, and outer \(\mu_{\nu_\mu}\) continuation are not leading explanations.
 
 No empirical rescaling is applied. No axial-vector production output or formal constraint curve is changed.
+
+
+## 9. Reconciliation with the completed high-order baseline and existing phase-space audit
+
+The current vertex-preserving profile has SHA-256
+\`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c\`.
+The high-order independent-grid result at the strong endpoint is
+\[
+L_{\rm B.16}=2.43963596\times10^{52}\ {\rm erg\,s^{-1}},
+\qquad
+P_{\rm esc}=3.2517740\times10^{-4},
+\]
+with a \(+92.4284\%\) difference from Fig. 7. The corresponding effective-log ratio is
+\[
+\ln(L_{\rm B.16}/L_{\rm Fig.7})=0.65455.
+\]
+
+The vertex-preserving emission-radius/direction/path audit was run at the lower configuration
+\[
+(N_r,N_E,N_\theta,N_s)=(40,100,32,256)
+\]
+with analytic piecewise-linear chord integration. It is not the same high-order grid, but its integrated escape probability agrees with the high-order result at the sub-percent level:
+\[
+P_{\rm esc}^{\rm directional}=3.2393538\times10^{-4},
+\qquad
+P_{\rm esc}^{\rm high\ order}=3.2517740\times10^{-4}.
+\]
+The relative difference is about \(0.38\%\). Thus the phase-space interpretation below is already cross-checked against the high-order *integrated* luminosity, although the individual bins have not yet been recomputed on the 200/640/200/32/64 grid.
+
+### 9.1 Where the escaping luminosity comes from
+
+For all emission radii, the B.1 source-weighted escape probability is \(3.23935\times10^{-4}\). The directional distribution of the escaped luminosity is:
+
+| \(\cos\theta\) | Fraction of escaped luminosity |
+|---|---:|
+| \([-1,-0.5]\) | 0.806% |
+| \([-0.5,0]\) | 2.975% |
+| \([0,0.5]\) | 20.203% |
+| \([0.5,1]\) | 76.016% |
+
+The escaping population is therefore strongly biased toward outward directions. Backward-emitted vectors traverse more of the dense inner core and are exponentially suppressed.
+
+The emission-shell decomposition is:
+
+| Emission shell | Fraction of total thin B.1 source | Fraction of escaped luminosity |
+|---|---:|---:|
+| 5--8 km | 17.508% | 9.723% |
+| 8--10 km | 39.812% | 49.405% |
+| 10--12 km | 26.081% | 30.598% |
+| 12--15 km | 13.718% | 6.833% |
+| 22--25 km | 0.0728% | 3.357% |
+
+The 8--15 km region supplies 79.611% of the thin source and 86.836% of the escaped luminosity. Within that region, the escaped-luminosity direction fractions are 0.556%, 2.786%, 19.979%, and 76.679% in the four direction bins above.
+
+This is a more informative description than the source-weighted mean optical depth alone: the escaping luminosity is dominated by a restricted subset of source radii and outward trajectories.
+
+### 9.2 Which path shells matter
+
+The leave-one-shell-out tests are nonlinear counterfactuals, not additive optical-depth contributions. Their ranking depends on the emission region.
+
+For all emission radii:
+- removing all opacity in 22--25 km increases the luminosity by a factor 4.073;
+- removing all opacity in 12--15 km increases it by a factor 2.926.
+
+For the dominant 8--15 km emission region:
+- removing all opacity in 12--15 km increases the luminosity by a factor 3.047;
+- removing all opacity in 22--25 km increases it by a factor 2.627.
+
+The outer shell is important, but it is not the unique controlling region. The 12--15 km path shell is at least as influential for the dominant core-emission population. The neutrino inverse-decay channels dominate the source-weighted mean optical depth (about 89.8%); Compton contributes about 10.2%.
+
+**Interpretation:** the existing C-stage calculation already establishes that the high-coupling escaping population is selected jointly by emission radius, direction, and the entire inner-plus-outer path. It does not support attributing the 92% discrepancy to the 22--25 km shell alone.
+
+## 10. One-parameter numerical convergence checks already available
+
+The following tests use the current vertex-preserving profile. They are isolated one-parameter comparisons, not a single combined error estimate.
+
+| Numerical dimension | Comparison | Change at 10 MeV strong endpoint |
+|---|---|---:|
+| Energy quadrature | \(N_E=150\to200\) | 0.1121% |
+| Opacity interpolation grid | \(N_{\rm opacity}=480\to640\) | 0.001525% |
+| Path quadrature | \(N_s=48\to64\) | 0.001075% |
+| B.1 source radial grid | \(N_r=160\to200\), with opacity grid fixed at 640 | 0.0609% |
+
+The energy and path comparisons keep their other grid identities fixed. The radial comparison explicitly keeps the 642-node opacity grid and 742-node energy grid fixed. The opacity comparison uses its own fixed source/energy configuration. These checks are not all performed at the final high-order configuration, but they show that the tested one-dimensional numerical refinements are far below the 92.4% discrepancy.
+
+The earlier 0.1 and 1 MeV points are not being expanded in this stage.
+
+## 11. High-order phase-space binning: execution status
+
+A dedicated post-processing script has been added:
+\`audit_b16_escape_phase_space.py\`.
+It reconstructs the exact 10 MeV high-order source and opacity grids, checks their SHA-256 identities against the archived 200/640/200/32/64 baseline, and bins the same \(S_{\rm B.1}e^{-g^2\tau}\) weights by emission radius, energy, and direction. It introduces no new physical approximation.
+
+The corresponding workflow is
+\`.github/workflows/b16-escape-phase-space.yml\`.
+The first run and subsequent retries ended before any workflow step was executed; the Actions job returned no step records. Therefore **no high-order phase-space-bin result is accepted yet**. The script is staged for execution when a runner is allocated. The already completed lower-order phase-space audit remains the only source of the numerical bin fractions in §9.1.
+
+## 12. Updated decision and next action
+
+The combined evidence now supports the following:
+
+1. The \(+92.4\%\) strong-end discrepancy is not explained by the tested energy, opacity-grid, path, or source-radial quadrature errors.
+2. The outer 22--25 km shell matters, but the 12--15 km path shell and the inner 8--22 km trajectory are also important.
+3. Escaped luminosity is strongly outward-direction biased; the full angular average is dominated by a small subset of rays.
+4. The current profile remains a public-figure reconstruction, not the raw Garching simulation profile. This is still a systematic limitation, not a numerical error estimate.
+
+The next calculation remains the high-order energy-resolved escape decomposition. It should establish which energy bins, in combination with the already identified outward directions and emission shells, dominate the residual. Only after that should we decide whether a new physical input or a different propagation prescription is required.
+
+No opacity rescaling is applied, no \(R_{\max}=25\) km change is made, and no axial-vector production result or constraint curve is updated.
