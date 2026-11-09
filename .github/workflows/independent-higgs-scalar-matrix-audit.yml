@@ -19,7 +19,7 @@ permissions:
 
 concurrency:
   group: independent-higgs-scalar-matrix-audit
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   independent-fermion-matrix:
