@@ -198,7 +198,7 @@ and the corresponding leading MS mixing term is
 =-\frac{2}{16\pi^2}\sum_\ell |C_{5,\ell}|^4 .
 }
 \]
-This is the running induced by the dimension-five fermion operator; it does not determine the finite matching value \(c_8(M_E)\).
+This is the running induced by the dimension-five fermion operator. The finite matching boundary in the VLL scalar-potential sector is obtained independently from the heavy-eigenstate Coleman--Weinberg expansion in Sec. 5.
 
 The Plan-C finite soft expression already contains the dimension-five contact-tadpole contribution. Combining it with the Plan-C hard derivative, the residual scale derivative at \(s=m_h^2\) is
 \[
@@ -348,7 +348,7 @@ Not established:
 - a finite tadpole condition or a physical VEV-renormalization prescription;
 - the complete EFT operator basis beyond the scalar-potential operators through dimension eight, including derivative operators and the remaining gauge/scalar sectors;
 - gauge, Goldstone, ghost, scalar, and remaining SM contributions;
-- the finite hard matching value (c_8(M_E)) and complete finite UV–EFT matching; the leading Plan-C soft-plus-hard scale dependence is canceled by the leading (O_8) running at the two stated benchmarks, but this is not the complete gauge/scalar-sector matching;
+- complete finite UV–EFT matching beyond the VLL scalar-potential subsector: the finite heavy-VLL scalar-potential coefficients through dimension eight and the leading Plan-C scale cancellation are fixed, but derivative operators and the gauge/scalar sectors remain open;
 - the gauge-complete propagator, complex poles, residues, or near-degenerate observables.
 
 The finite portal threshold at \(M_E\) remains distinct from the vanishing full-theory divergent \(\lambda_{HS}\) pole. No manuscript or formal referee-response file is modified by this research record.
