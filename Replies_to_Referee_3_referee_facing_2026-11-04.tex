@@ -800,7 +800,7 @@ Perhaps a full model would require right-handed neutrinos. These would now be ch
 \end{quote}
 
 \noindent {\bf Reply.}
-The residual \(Z_2\) is removed by introducing a complex SM-singlet scalar \(\sigma\) with \(Q_X(\sigma)=+1\), together with three SM-singlet right-handed neutrinos,
+The residual \(Z_2\) is removed by introducing a complex SM-singlet scalar \(\sigma\) with \(Q_X(\sigma)=+1\) and \(\langle\sigma\rangle\ne0\), together with three SM-singlet right-handed neutrinos,
 \[
 Q_X(N_{Re},N_{R\mu},N_{R\tau})=(0,+1,-1).
 \]
@@ -861,7 +861,12 @@ For \(\|m_DM_R^{-1}\|\ll1\), block diagonalization gives the type-I seesaw mass 
 \begin{equation}\label{eq:reply-neutrino-seesaw}
 M_\nu\simeq-m_DM_R^{-1}m_D^T.
 \end{equation}
-The heavy-neutrino masses are the Takagi values of \(M_R\), up to corrections of order \(m_D^2/M_R^2\). The light-neutrino mass matrix is diagonalized by
+Let \(U_N\) denote the Takagi matrix of \(M_R\),
+\[
+U_N^T M_R U_N=\widehat M_N,\qquad
+\widehat M_N=\operatorname{diag}(M_1,M_2,M_3).
+\]
+The \(M_i\) are the leading heavy-neutrino masses in the seesaw limit, with light--heavy mixing \(\Theta\simeq m_D M_R^{-1}\). The light-neutrino mass matrix is diagonalized by
 \begin{equation}\label{eq:reply-neutrino-diagonalization}
 U_\nu^T M_\nu U_\nu
 =\widehat m_\nu,\qquad
@@ -869,7 +874,7 @@ U_\nu^T M_\nu U_\nu
 \end{equation}
 and the observable mixing matrix is
 \[
-U_{\rm PMNS}=U_L^\dagger U_\nu,
+U_{\rm PMNS}=U_L^\dagger U_\nu+\mathcal O(\Theta^2),
 \]
 where \(U_L\) is the left-handed charged-lepton rotation. Integrating out the heavy \(N_R\) fields generates the low-energy Weinberg operator, so the light states are Majorana neutrinos without requiring light right-handed neutrinos.
 
