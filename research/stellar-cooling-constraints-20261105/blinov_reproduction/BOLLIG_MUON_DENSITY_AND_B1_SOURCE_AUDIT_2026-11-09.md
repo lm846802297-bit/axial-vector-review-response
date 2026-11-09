@@ -127,6 +127,27 @@ The independent audit verifies:
 
 The B.1 Compton source is therefore not changed. The density convention and degeneracy factor are consistent with the published formula.
 
+### 6.1 Consequence for the weak-coupling Fig. 7 source mismatch
+
+The weak-coupling B.16 calculation has \(P_{\rm esc}\simeq0.9979\), so its \(-8.89\%\) luminosity difference from Fig. 7 is effectively a thin-source normalization difference. The absolute-density discrepancy in Bollig Fig. 3 should not be identified directly with that source mismatch.
+
+The reason is that the B.1 Compton factor is the product
+
+\[
+n_\mu F_{\rm deg}
+=\frac{1}{\pi^2}\int dp\,p^2 f_{\mu^-}(1-f_{\mu^-}),
+\]
+
+not \(n_\mu\) by itself. When \(F_{\rm deg}\) is defined consistently from the same Fermi distribution, the product is the susceptibility integral fixed by \(T\) and \(\mu_\mu\). It is not obtained by multiplying the plotted absolute density by an independently fixed degeneracy factor. The independently checked Caputo \(T,\mu_\mu/T\) inputs therefore determine the working B.1 susceptibility; substituting the lower Bollig Fig. 3 density as a standalone normalization would break that definition.
+
+As a scale comparison only, the B.16 Compton source is about \(32.0\%\) of the total B.1 source. Even an unjustified uniform \(8.8\%\) reduction of the entire Compton source would change the total optically thin source by only about \(2.8\%\). Moreover, the measured \(8.8\%\) density difference is an average over 12--15 km, not a demonstrated uniform correction to the full Compton source. It cannot account for the full \(8.89\%\) weak-end deficit on its own.
+
+Therefore:
+
+- retain the Fermi-integrated \(n_\mu F_{\rm deg}\) source;
+- do not rescale the B.1 Compton source using the Bollig Fig. 3 density ratio;
+- keep the weak-end source-normalization mismatch as unresolved pending a separate audit of the remaining B.1 source inputs and the Fig. 7 digitized reference.
+
 ## 7. Baseline-input freeze decision
 
 Freeze the following as the current internally consistent working inputs:
