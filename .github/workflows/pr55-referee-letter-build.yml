@@ -130,7 +130,7 @@ jobs:
                   im.save(buf, format="JPEG", quality=76, optimize=True)
                   lines.append(p.name + "|" + base64.b64encode(buf.getvalue()).decode("ascii"))
               target = preview_dir / f"pages-{batch_start+1:03d}-{min(batch_start+3, len(pages)):03d}.b64.txt"
-              target.write_text("\\n".join(lines) + "\\n", encoding="utf-8")
+              target.write_text("\n".join(lines) + "\n", encoding="utf-8")
           print(f"Prepared {len(pages)} individual page renders in {((len(pages)+2)//3)} batches.")
           PY
 
