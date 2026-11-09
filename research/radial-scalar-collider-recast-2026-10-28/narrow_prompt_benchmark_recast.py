@@ -172,6 +172,43 @@ def _width_and_lifetime_status(row, channel):
     }
 
 
+def _record_classification_details(details, rec):
+    """Accumulate mass coverage and conservative diagnostic extrema by class."""
+    name = rec["classification"]
+    bucket = details.setdefault(name, {
+        "count": 0,
+        "masses_GeV": [],
+        "max_signal_strength_ratio_observed_min": None,
+        "max_signal_strength_ratio_observed_max": None,
+        "max_width_ratio_upper": None,
+        "max_flight_length_proxy_upper_m": None,
+    })
+    bucket["count"] += 1
+    bucket["masses_GeV"].append(float(rec["ms_GeV"]))
+    for source, target in (
+        ("signal_strength_ratio_observed_min", "max_signal_strength_ratio_observed_min"),
+        ("signal_strength_ratio_observed_max", "max_signal_strength_ratio_observed_max"),
+        ("width_ratio_max", "max_width_ratio_upper"),
+        ("flight_length_proxy_max_m", "max_flight_length_proxy_upper_m"),
+    ):
+        value = rec.get(source)
+        if value is not None:
+            bucket[target] = value if bucket[target] is None else max(bucket[target], value)
+
+
+def _finalize_classification_details(details):
+    finalized = {}
+    for name, bucket in details.items():
+        masses = bucket.pop("masses_GeV")
+        finalized[name] = {
+            **bucket,
+            "unique_mass_points": len(set(masses)),
+            "mass_min_GeV": min(masses),
+            "mass_max_GeV": max(masses),
+        }
+    return finalized
+
+
 def evaluate_row(row, channel, limits):
     mass = _number(row, "ms_GeV")
     limit_interval = _limit_interval(mass, limits)
@@ -275,6 +312,7 @@ def main():
         "tautau": args.output_dir / "belleii_tautau_bounded_width_uv_recast.csv",
     }
     counts = {ch: Counter() for ch in output_paths}
+    classification_details = {ch: {} for ch in output_paths}
     input_rows = 0
     with _open_scan(args.scan) as sf:
         reader = csv.DictReader(sf)
@@ -287,6 +325,7 @@ def main():
                 if 0.212 <= mass <= 9.0:
                     rec = evaluate_row(row, "fourmu", fourmu_limits)
                     counts["fourmu"][rec["classification"]] += 1
+                    _record_classification_details(classification_details["fourmu"], rec)
                     if writers["fourmu"] is None:
                         writers["fourmu"] = csv.DictWriter(f4, fieldnames=list(rec))
                         writers["fourmu"].writeheader()
@@ -294,6 +333,7 @@ def main():
                 if 3.6 <= mass <= 10.0:
                     rec = evaluate_row(row, "tautau", tau_limits)
                     counts["tautau"][rec["classification"]] += 1
+                    _record_classification_details(classification_details["tautau"], rec)
                     if writers["tautau"] is None:
                         writers["tautau"] = csv.DictWriter(ft, fieldnames=list(rec))
                         writers["tautau"].writeheader()
@@ -316,6 +356,10 @@ def main():
             "tautau": "xi_UV^2 * BR_UV(tautau) / (xi_UL^2 * BR_Belle(tautau)); xi_UV=246 GeV/vs",
         },
         "classification_counts": {ch: dict(c) for ch, c in counts.items()},
+        "classification_details": {
+            ch: _finalize_classification_details(details)
+            for ch, details in classification_details.items()
+        },
         "limitations": [
             "The double-virtual four-body contribution uses a diagonal-pairing spectral calculation and a Cauchy-Schwarz upper bound on identical-flavour exchange; it is not an exact exclusive four-body calculation.",
             "A point is excluded only if the lower signal-strength endpoint exceeds the observed published limit and the entire width/flight intervals pass the narrow/prompt proxies.",

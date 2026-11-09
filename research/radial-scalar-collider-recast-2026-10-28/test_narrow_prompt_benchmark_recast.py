@@ -9,6 +9,8 @@ from narrow_prompt_benchmark_recast import (
     _open_scan,
     evaluate_row,
     tau_reference_branching_fraction,
+    _record_classification_details,
+    _finalize_classification_details,
 )
 
 
@@ -91,6 +93,33 @@ class BoundedWidthRecastTests(unittest.TestCase):
         self.assertGreater(br, 0.0)
         self.assertLess(br, 1.0)
         self.assertAlmostEqual(br, 0.9649, places=3)
+
+    def test_classification_summary_reports_mass_span_and_diagnostic_extrema(self):
+        details = {}
+        _record_classification_details(details, {
+            "classification": "excluded",
+            "ms_GeV": 0.212,
+            "signal_strength_ratio_observed_min": 2.0,
+            "signal_strength_ratio_observed_max": 3.0,
+            "width_ratio_max": 0.08,
+            "flight_length_proxy_max_m": 0.001,
+        })
+        _record_classification_details(details, {
+            "classification": "excluded",
+            "ms_GeV": 0.5,
+            "signal_strength_ratio_observed_min": 4.0,
+            "signal_strength_ratio_observed_max": 5.0,
+            "width_ratio_max": 0.09,
+            "flight_length_proxy_max_m": 0.002,
+        })
+        out = _finalize_classification_details(details)["excluded"]
+        self.assertEqual(out["count"], 2)
+        self.assertEqual(out["unique_mass_points"], 2)
+        self.assertAlmostEqual(out["mass_min_GeV"], 0.212)
+        self.assertAlmostEqual(out["mass_max_GeV"], 0.5)
+        self.assertEqual(out["max_signal_strength_ratio_observed_min"], 4.0)
+        self.assertEqual(out["max_width_ratio_upper"], 0.09)
+        self.assertEqual(out["max_flight_length_proxy_upper_m"], 0.002)
 
     def test_gzip_scan_reader(self):
         with tempfile.TemporaryDirectory() as tmp:
