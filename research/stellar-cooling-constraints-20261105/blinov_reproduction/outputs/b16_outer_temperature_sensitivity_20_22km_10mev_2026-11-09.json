@@ -1,0 +1,406 @@
+{
+  "comparisons_to_baseline": {
+    "T_scale_0.9": {
+      "reference_peak": {
+        "Fig7_relative_difference_shift": -0.0008869717751496253,
+        "escape_probability_ratio_vs_baseline": 0.9994202148742183,
+        "escaped_luminosity_ratio_vs_baseline": 0.9991352419352828,
+        "thin_source_ratio_vs_baseline": 0.9997148617421439
+      },
+      "strong_endpoint": {
+        "Fig7_relative_difference_shift": -0.002870330251405928,
+        "escape_probability_ratio_vs_baseline": 0.9987917012348935,
+        "escaped_luminosity_ratio_vs_baseline": 0.9985069075092421,
+        "thin_source_ratio_vs_baseline": 0.9997148617421439
+      },
+      "weak_endpoint": {
+        "Fig7_relative_difference_shift": -0.00026160815284281824,
+        "escape_probability_ratio_vs_baseline": 0.9999980181084875,
+        "escaped_luminosity_ratio_vs_baseline": 0.9997128804157445,
+        "thin_source_ratio_vs_baseline": 0.9997148617421439
+      }
+    },
+    "T_scale_1.1": {
+      "reference_peak": {
+        "Fig7_relative_difference_shift": 0.0009330677557013445,
+        "escape_probability_ratio_vs_baseline": 1.00052745328548,
+        "escaped_luminosity_ratio_vs_baseline": 1.0009096995973001,
+        "thin_source_ratio_vs_baseline": 1.0003820448010348
+      },
+      "strong_endpoint": {
+        "Fig7_relative_difference_shift": 0.0028985689681122473,
+        "escape_probability_ratio_vs_baseline": 1.0011253070280217,
+        "escaped_luminosity_ratio_vs_baseline": 1.0015077817467561,
+        "thin_source_ratio_vs_baseline": 1.0003820448010348
+      },
+      "weak_endpoint": {
+        "Fig7_relative_difference_shift": 0.000349612765035201,
+        "escape_probability_ratio_vs_baseline": 1.000001660770329,
+        "escaped_luminosity_ratio_vs_baseline": 1.0003837062058525,
+        "thin_source_ratio_vs_baseline": 1.0003820448010348
+      }
+    }
+  },
+  "configuration": {
+    "angular_order": 16,
+    "energy_offset_MeV": 1000.0,
+    "energy_order": 100,
+    "path_order": 32,
+    "radial_order": 40,
+    "radius_km": 25.0
+  },
+  "fig7_reference_sha256": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4",
+  "interpretation_limits": [
+    "The +/-10% variations are stress tests, not statistical uncertainty intervals.",
+    "Each scenario recomputes the complete B.1 source and B.2 opacity; no source or opacity is rescaled.",
+    "The original Bollig Figs. 1 and 4 stop at 20 km, so the 20--22 km Caputo temperature input has no direct original-Bollig-figure cross-check.",
+    "The profile remains a public-figure reconstruction, not the raw Garching simulation snapshot.",
+    "Production axial-vector files and constraints are not modified."
+  ],
+  "mass_MeV": 10.0,
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "scales": [
+    0.9,
+    1.0,
+    1.1
+  ],
+  "scenarios": {
+    "T_scale_0.9": {
+      "B1_source_fraction_emitted_in_20_22km": 0.00046027181889323263,
+      "B2_path_tau_fraction_20_22km_8_15km_emission": 0.11567577056382414,
+      "B2_path_tau_fraction_20_22km_all_emission_radii": 0.11692366681821703,
+      "internal_closure": {
+        "absorption_shell_sum_vs_total_column_max_relative_residual": 0.0,
+        "angle_weight_max_absolute_residual": 0.0,
+        "direct_source_weighted_mean_tau": 9280919475664948.0,
+        "emission_absorption_matrix_weighted_mean_tau": 9280919475664950.0,
+        "mean_tau_matrix_relative_residual": 2.220446049250313e-16,
+        "shell_columns_vs_direct_chord_max_relative_residual": 6.54143379171848e-16,
+        "source_channel_sum_max_relative_residual": 4.3650406414630212e-16
+      },
+      "points": {
+        "reference_peak": {
+          "L_Fig7_erg_s": 1.910994581282271e+54,
+          "L_escaped_erg_s": 1.9583887814951085e+54,
+          "L_thin_erg_s": 5.559361152399965e+54,
+          "P_escape": 0.35226867400936457,
+          "g": 1.1341108687336194e-08,
+          "index": 17,
+          "relative_difference_vs_Fig7": 0.02480080303578669,
+          "source_channels": {
+            "compton": {
+              "escaped_luminosity_fraction": 0.3540204012580663,
+              "thin_source_fraction": 0.32014122150916047
+            },
+            "dimuon": {
+              "escaped_luminosity_fraction": 0.0,
+              "thin_source_fraction": 0.0
+            },
+            "nu_mu": {
+              "escaped_luminosity_fraction": 0.31822838368238193,
+              "thin_source_fraction": 0.33405749200230644
+            },
+            "nu_tau": {
+              "escaped_luminosity_fraction": 0.32775121505955185,
+              "thin_source_fraction": 0.3458012864885331
+            }
+          }
+        },
+        "strong_endpoint": {
+          "L_Fig7_erg_s": 1.26781475907372e+52,
+          "L_escaped_erg_s": 2.4336158977470643e+52,
+          "L_thin_erg_s": 7.522078248166961e+55,
+          "P_escape": 0.0003235297237621939,
+          "g": 4.171689650228597e-08,
+          "index": 24,
+          "relative_difference_vs_Fig7": 0.91953586305076,
+          "source_channels": {
+            "compton": {
+              "escaped_luminosity_fraction": 0.4586277572587008,
+              "thin_source_fraction": 0.3201412215091605
+            },
+            "dimuon": {
+              "escaped_luminosity_fraction": 0.0,
+              "thin_source_fraction": 0.0
+            },
+            "nu_mu": {
+              "escaped_luminosity_fraction": 0.26978311363313134,
+              "thin_source_fraction": 0.33405749200230644
+            },
+            "nu_tau": {
+              "escaped_luminosity_fraction": 0.27158912910816796,
+              "thin_source_fraction": 0.34580128648853314
+            }
+          }
+        },
+        "weak_endpoint": {
+          "L_Fig7_erg_s": 1.0893295563998579e+52,
+          "L_escaped_erg_s": 9.922543988286781e+51,
+          "L_thin_erg_s": 9.94374549864565e+51,
+          "P_escape": 0.9978678546869731,
+          "g": 4.796429536550025e-10,
+          "index": 0,
+          "relative_difference_vs_Fig7": -0.089114590713948,
+          "source_channels": {
+            "compton": {
+              "escaped_luminosity_fraction": 0.32022643710361604,
+              "thin_source_fraction": 0.32014122150916047
+            },
+            "dimuon": {
+              "escaped_luminosity_fraction": 0.0,
+              "thin_source_fraction": 0.0
+            },
+            "nu_mu": {
+              "escaped_luminosity_fraction": 0.33401688608735214,
+              "thin_source_fraction": 0.33405749200230644
+            },
+            "nu_tau": {
+              "escaped_luminosity_fraction": 0.3457566768090319,
+              "thin_source_fraction": 0.3458012864885331
+            }
+          }
+        }
+      },
+      "profile_transform": {
+        "node_count": 176,
+        "original_T_range_MeV": [
+          3.55138904910432,
+          4.20442302559431
+        ],
+        "scale": 0.9,
+        "support_km": [
+          20.0,
+          22.0
+        ]
+      }
+    },
+    "T_scale_1": {
+      "B1_source_fraction_emitted_in_20_22km": 0.0007452788356447521,
+      "B2_path_tau_fraction_20_22km_8_15km_emission": 0.11446030788676827,
+      "B2_path_tau_fraction_20_22km_all_emission_radii": 0.11574813378224869,
+      "internal_closure": {
+        "absorption_shell_sum_vs_total_column_max_relative_residual": 0.0,
+        "angle_weight_max_absolute_residual": 0.0,
+        "direct_source_weighted_mean_tau": 9272291010214640.0,
+        "emission_absorption_matrix_weighted_mean_tau": 9272291010214640.0,
+        "mean_tau_matrix_relative_residual": 0.0,
+        "shell_columns_vs_direct_chord_max_relative_residual": 6.54143379171848e-16,
+        "source_channel_sum_max_relative_residual": 4.3650406414630212e-16
+      },
+      "points": {
+        "reference_peak": {
+          "L_Fig7_erg_s": 1.910994581282271e+54,
+          "L_escaped_erg_s": 1.9600837797511697e+54,
+          "L_thin_erg_s": 5.560946791080004e+54,
+          "P_escape": 0.35247303263092317,
+          "g": 1.1341108687336194e-08,
+          "index": 17,
+          "relative_difference_vs_Fig7": 0.025687774810936315,
+          "source_channels": {
+            "compton": {
+              "escaped_luminosity_fraction": 0.3539098656675756,
+              "thin_source_fraction": 0.32004993699899165
+            },
+            "dimuon": {
+              "escaped_luminosity_fraction": 0.0,
+              "thin_source_fraction": 0.0
+            },
+            "nu_mu": {
+              "escaped_luminosity_fraction": 0.31828204711286834,
+              "thin_source_fraction": 0.33410480855994107
+            },
+            "nu_tau": {
+              "escaped_luminosity_fraction": 0.32780808721955595,
+              "thin_source_fraction": 0.3458452544410673
+            }
+          }
+        },
+        "strong_endpoint": {
+          "L_Fig7_erg_s": 1.26781475907372e+52,
+          "L_escaped_erg_s": 2.4372549448032125e+52,
+          "L_thin_erg_s": 7.524223692202275e+55,
+          "P_escape": 0.0003239211172481568,
+          "g": 4.171689650228597e-08,
+          "index": 24,
+          "relative_difference_vs_Fig7": 0.9224061933021659,
+          "source_channels": {
+            "compton": {
+              "escaped_luminosity_fraction": 0.45854653058914724,
+              "thin_source_fraction": 0.32004993699899165
+            },
+            "dimuon": {
+              "escaped_luminosity_fraction": 0.0,
+              "thin_source_fraction": 0.0
+            },
+            "nu_mu": {
+              "escaped_luminosity_fraction": 0.26982343970131817,
+              "thin_source_fraction": 0.33410480855994107
+            },
+            "nu_tau": {
+              "escaped_luminosity_fraction": 0.2716300297095347,
+              "thin_source_fraction": 0.3458452544410673
+            }
+          }
+        },
+        "weak_endpoint": {
+          "L_Fig7_erg_s": 1.0893295563998579e+52,
+          "L_escaped_erg_s": 9.925393763217649e+51,
+          "L_thin_erg_s": 9.946581649608843e+51,
+          "P_escape": 0.9978698323567244,
+          "g": 4.796429536550025e-10,
+          "index": 0,
+          "relative_difference_vs_Fig7": -0.08885298256110519,
+          "source_channels": {
+            "compton": {
+              "escaped_luminosity_fraction": 0.32013512705946606,
+              "thin_source_fraction": 0.3200499369989916
+            },
+            "dimuon": {
+              "escaped_luminosity_fraction": 0.0,
+              "thin_source_fraction": 0.0
+            },
+            "nu_mu": {
+              "escaped_luminosity_fraction": 0.3340642014259075,
+              "thin_source_fraction": 0.334104808559941
+            },
+            "nu_tau": {
+              "escaped_luminosity_fraction": 0.3458006715146265,
+              "thin_source_fraction": 0.3458452544410673
+            }
+          }
+        }
+      },
+      "profile_transform": {
+        "node_count": 176,
+        "original_T_range_MeV": [
+          3.55138904910432,
+          4.20442302559431
+        ],
+        "scale": 1.0,
+        "support_km": [
+          20.0,
+          22.0
+        ]
+      }
+    },
+    "T_scale_1.1": {
+      "B1_source_fraction_emitted_in_20_22km": 0.001126893113024274,
+      "B2_path_tau_fraction_20_22km_8_15km_emission": 0.11325626600758328,
+      "B2_path_tau_fraction_20_22km_all_emission_radii": 0.11461708228594668,
+      "internal_closure": {
+        "absorption_shell_sum_vs_total_column_max_relative_residual": 0.0,
+        "angle_weight_max_absolute_residual": 0.0,
+        "direct_source_weighted_mean_tau": 9265063236004802.0,
+        "emission_absorption_matrix_weighted_mean_tau": 9265063236004802.0,
+        "mean_tau_matrix_relative_residual": 0.0,
+        "shell_columns_vs_direct_chord_max_relative_residual": 6.54143379171848e-16,
+        "source_channel_sum_max_relative_residual": 4.3650406414630212e-16
+      },
+      "points": {
+        "reference_peak": {
+          "L_Fig7_erg_s": 1.910994581282271e+54,
+          "L_escaped_erg_s": 1.961866867176284e+54,
+          "L_thin_erg_s": 5.563071321890367e+54,
+          "P_escape": 0.3526589456900274,
+          "g": 1.1341108687336194e-08,
+          "index": 17,
+          "relative_difference_vs_Fig7": 0.02662084256663766,
+          "source_channels": {
+            "compton": {
+              "escaped_luminosity_fraction": 0.3537839124607034,
+              "thin_source_fraction": 0.3199277102805752
+            },
+            "dimuon": {
+              "escaped_luminosity_fraction": 0.0,
+              "thin_source_fraction": 0.0
+            },
+            "nu_mu": {
+              "escaped_luminosity_fraction": 0.318343626743595,
+              "thin_source_fraction": 0.3341681637508245
+            },
+            "nu_tau": {
+              "escaped_luminosity_fraction": 0.32787246079570126,
+              "thin_source_fraction": 0.3459041259686003
+            }
+          }
+        },
+        "strong_endpoint": {
+          "L_Fig7_erg_s": 1.26781475907372e+52,
+          "L_escaped_erg_s": 2.440929793321178e+52,
+          "L_thin_erg_s": 7.527098282745705e+55,
+          "P_escape": 0.0003242856279579208,
+          "g": 4.171689650228597e-08,
+          "index": 24,
+          "relative_difference_vs_Fig7": 0.9253047622702781,
+          "source_channels": {
+            "compton": {
+              "escaped_luminosity_fraction": 0.4584600848147071,
+              "thin_source_fraction": 0.31992771028057515
+            },
+            "dimuon": {
+              "escaped_luminosity_fraction": 0.0,
+              "thin_source_fraction": 0.0
+            },
+            "nu_mu": {
+              "escaped_luminosity_fraction": 0.26986638474807906,
+              "thin_source_fraction": 0.3341681637508245
+            },
+            "nu_tau": {
+              "escaped_luminosity_fraction": 0.2716735304372139,
+              "thin_source_fraction": 0.34590412596860026
+            }
+          }
+        },
+        "weak_endpoint": {
+          "L_Fig7_erg_s": 1.0893295563998579e+52,
+          "L_escaped_erg_s": 9.929202198400125e+51,
+          "L_thin_erg_s": 9.950381689416144e+51,
+          "P_escape": 0.9978714895893344,
+          "g": 4.796429536550025e-10,
+          "index": 0,
+          "relative_difference_vs_Fig7": -0.08850336979606999,
+          "source_channels": {
+            "compton": {
+              "escaped_luminosity_fraction": 0.3200129633495894,
+              "thin_source_fraction": 0.3199277102805752
+            },
+            "dimuon": {
+              "escaped_luminosity_fraction": 0.0,
+              "thin_source_fraction": 0.0
+            },
+            "nu_mu": {
+              "escaped_luminosity_fraction": 0.3341275093635224,
+              "thin_source_fraction": 0.3341681637508245
+            },
+            "nu_tau": {
+              "escaped_luminosity_fraction": 0.34585952728688807,
+              "thin_source_fraction": 0.34590412596860026
+            }
+          }
+        }
+      },
+      "profile_transform": {
+        "node_count": 176,
+        "original_T_range_MeV": [
+          3.55138904910432,
+          4.20442302559431
+        ],
+        "scale": 1.1,
+        "support_km": [
+          20.0,
+          22.0
+        ]
+      }
+    }
+  },
+  "title": "B.16 sensitivity to T(r) in the Bollig-figure-unsupported 20--22 km shell",
+  "unchanged_fields": [
+    "r_km",
+    "mu_mu_MeV",
+    "mu_numu_MeV",
+    "lapse",
+    "T_Ferreira_MeV",
+    "mu_mu_Ferreira_MeV"
+  ],
+  "varied_field": "T_MeV only, for 20 <= r_km <= 22"
+}
