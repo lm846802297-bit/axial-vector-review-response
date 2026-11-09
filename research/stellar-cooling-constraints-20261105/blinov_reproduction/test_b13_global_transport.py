@@ -18,6 +18,30 @@ class B13GlobalTransportTests(unittest.TestCase):
         self.reference = np.array([0.1, 0.2])
         self.angle_weights = np.array([0.25, 0.75])
 
+
+    def test_archived_baseline_selects_matching_mass(self):
+        archived = {
+            "results": [
+                {"mass_MeV": 0.1, "tag": "low"},
+                {"mass_MeV": 1.0, "tag": "intermediate"},
+                {"mass_MeV": 10.0, "tag": "high"},
+            ]
+        }
+        selected = audit._select_archived_baseline_result(archived, 1.0)
+        self.assertEqual(selected["tag"], "intermediate")
+
+    def test_archived_baseline_rejects_missing_or_duplicate_mass(self):
+        with self.assertRaises(ValueError):
+            audit._select_archived_baseline_result(
+                {"results": [{"mass_MeV": 0.1}]}, 1.0
+            )
+        with self.assertRaises(ValueError):
+            audit._select_archived_baseline_result(
+                {"results": [
+                    {"mass_MeV": 1.0}, {"mass_MeV": 1.0}
+                ]}, 1.0
+            )
+
     def test_zero_opacity_gives_unit_escape_probability(self):
         columns = np.zeros((2, 2, 2))
         result = audit._luminosity_curve(
