@@ -50,8 +50,7 @@
         "redshift128_to256": 0.0000028562425580247464
       },
       "max_abs_opacity_grid_refinement": {
-        "fixed640_to1280": 9.350172174293903e-7,
-        "redshift640_to1280": 0.000001021
+        "fixed640_to1280": 9.350172174293903e-7
       },
       "local_energy_min_over_source_by_emission_radius": {
         "8 km": 0.8577684,
@@ -66,9 +65,10 @@
         "source_energy_MeV": 110,
         "tau_fixed_omega": 11.002373938453449,
         "tau_conserved_E_infinity": 11.9616375225492,
-        "redshift_to_fixed_tau_ratio": 0.8577686060259422,
-        "local_energy_min_over_source": 0.8577684,
-        "escape_probability_redshift_over_fixed": 0.38317495823446923
+        "redshift_to_fixed_tau_ratio": 1.087186964328045,
+        "local_energy_min_over_source": 0.8577686060259422,
+        "escape_probability_redshift_over_fixed": 0.38317495823446923,
+        "local_energy_max_over_source": 0.9999983140009246
       },
       {
         "emission_radius_km": 8,
@@ -76,9 +76,10 @@
         "source_energy_MeV": 210,
         "tau_fixed_omega": 6.441672562449448,
         "tau_conserved_E_infinity": 7.005961209929873,
-        "redshift_to_fixed_tau_ratio": 0.8577686060259422,
-        "local_energy_min_over_source": 0.8577684,
-        "escape_probability_redshift_over_fixed": 0.5687645950155515
+        "redshift_to_fixed_tau_ratio": 1.0875997098594923,
+        "local_energy_min_over_source": 0.8577686060259422,
+        "escape_probability_redshift_over_fixed": 0.5687645950155515,
+        "local_energy_max_over_source": 0.9999983140009246
       },
       {
         "emission_radius_km": 8,
@@ -86,9 +87,10 @@
         "source_energy_MeV": 510,
         "tau_fixed_omega": 2.853035058781471,
         "tau_conserved_E_infinity": 3.104614108599094,
-        "redshift_to_fixed_tau_ratio": 0.8577686060259421,
-        "local_energy_min_over_source": 0.8577684,
-        "escape_probability_redshift_over_fixed": 0.7775719882563685
+        "redshift_to_fixed_tau_ratio": 1.088179445619947,
+        "local_energy_min_over_source": 0.8577686060259422,
+        "escape_probability_redshift_over_fixed": 0.7775719882563685,
+        "local_energy_max_over_source": 0.9999983140009246
       },
       {
         "emission_radius_km": 8,
@@ -96,9 +98,10 @@
         "source_energy_MeV": 110,
         "tau_fixed_omega": 9.618224598387277,
         "tau_conserved_E_infinity": 10.52297806475923,
-        "redshift_to_fixed_tau_ratio": 0.8577684221925816,
-        "local_energy_min_over_source": 0.8577684,
-        "escape_probability_redshift_over_fixed": 0.40464163057645214
+        "redshift_to_fixed_tau_ratio": 1.0940665771647353,
+        "local_energy_min_over_source": 0.8577684221925816,
+        "escape_probability_redshift_over_fixed": 0.40464163057645214,
+        "local_energy_max_over_source": 0.9999957175536042
       },
       {
         "emission_radius_km": 8,
@@ -106,9 +109,10 @@
         "source_energy_MeV": 210,
         "tau_fixed_omega": 5.544906060666136,
         "tau_conserved_E_infinity": 6.073112748333328,
-        "redshift_to_fixed_tau_ratio": 0.8577684221925816,
-        "local_energy_min_over_source": 0.8577684,
-        "escape_probability_redshift_over_fixed": 0.5896614692633603
+        "redshift_to_fixed_tau_ratio": 1.0952598081713463,
+        "local_energy_min_over_source": 0.8577684221925816,
+        "escape_probability_redshift_over_fixed": 0.5896614692633603,
+        "local_energy_max_over_source": 0.9999957175536042
       },
       {
         "emission_radius_km": 8,
@@ -116,9 +120,10 @@
         "source_energy_MeV": 510,
         "tau_fixed_omega": 2.431225297150809,
         "tau_conserved_E_infinity": 2.6654512159281927,
-        "redshift_to_fixed_tau_ratio": 0.8577684221925816,
-        "local_energy_min_over_source": 0.8577684,
-        "escape_probability_redshift_over_fixed": 0.7911830525954219
+        "redshift_to_fixed_tau_ratio": 1.0963406883976885,
+        "local_energy_min_over_source": 0.8577684221925816,
+        "escape_probability_redshift_over_fixed": 0.7911830525954219,
+        "local_energy_max_over_source": 0.9999957175536042
       },
       {
         "emission_radius_km": 8,
@@ -126,9 +131,10 @@
         "source_energy_MeV": 110,
         "tau_fixed_omega": 9.094078722086937,
         "tau_conserved_E_infinity": 9.968543216747255,
-        "redshift_to_fixed_tau_ratio": 0.8577683654828355,
-        "local_energy_min_over_source": 0.8577684,
-        "escape_probability_redshift_over_fixed": 0.4170853112975481
+        "redshift_to_fixed_tau_ratio": 1.0961575681697686,
+        "local_energy_min_over_source": 0.8577683654828355,
+        "escape_probability_redshift_over_fixed": 0.4170853112975481,
+        "local_energy_max_over_source": 0.9999949166031232
       },
       {
         "emission_radius_km": 8,
@@ -136,9 +142,10 @@
         "source_energy_MeV": 210,
         "tau_fixed_omega": 5.220086963004935,
         "tau_conserved_E_infinity": 5.729072346292782,
-        "redshift_to_fixed_tau_ratio": 0.8577683654828356,
-        "local_energy_min_over_source": 0.8577684,
-        "escape_probability_redshift_over_fixed": 0.6011051608558725
+        "redshift_to_fixed_tau_ratio": 1.0975051540127698,
+        "local_energy_min_over_source": 0.8577683654828355,
+        "escape_probability_redshift_over_fixed": 0.6011051608558725,
+        "local_energy_max_over_source": 0.9999949166031232
       },
       {
         "emission_radius_km": 8,
@@ -146,9 +153,10 @@
         "source_energy_MeV": 510,
         "tau_fixed_omega": 2.2824406458589257,
         "tau_conserved_E_infinity": 2.5076783621054304,
-        "redshift_to_fixed_tau_ratio": 0.8577683654828355,
-        "local_energy_min_over_source": 0.8577684,
-        "escape_probability_redshift_over_fixed": 0.7983264210409748
+        "redshift_to_fixed_tau_ratio": 1.0986828361364653,
+        "local_energy_min_over_source": 0.8577683654828355,
+        "escape_probability_redshift_over_fixed": 0.7983264210409748,
+        "local_energy_max_over_source": 0.9999949166031232
       },
       {
         "emission_radius_km": 10,
@@ -156,9 +164,10 @@
         "source_energy_MeV": 110,
         "tau_fixed_omega": 10.879427768168256,
         "tau_conserved_E_infinity": 11.639610422553615,
-        "redshift_to_fixed_tau_ratio": 0.8819937658564764,
-        "local_energy_min_over_source": 0.8819936,
-        "escape_probability_redshift_over_fixed": 0.4675810134869456
+        "redshift_to_fixed_tau_ratio": 1.0698734042437004,
+        "local_energy_min_over_source": 0.8819937658564764,
+        "escape_probability_redshift_over_fixed": 0.4675810134869456,
+        "local_energy_max_over_source": 0.9999984384826907
       },
       {
         "emission_radius_km": 10,
@@ -166,9 +175,10 @@
         "source_energy_MeV": 210,
         "tau_fixed_omega": 6.234439726869096,
         "tau_conserved_E_infinity": 6.672133942480023,
-        "redshift_to_fixed_tau_ratio": 0.8819937658564763,
-        "local_energy_min_over_source": 0.8819936,
-        "escape_probability_redshift_over_fixed": 0.645523143580935
+        "redshift_to_fixed_tau_ratio": 1.0702058620800452,
+        "local_energy_min_over_source": 0.8819937658564764,
+        "escape_probability_redshift_over_fixed": 0.645523143580935,
+        "local_energy_max_over_source": 0.9999984384826907
       },
       {
         "emission_radius_km": 10,
@@ -176,9 +186,10 @@
         "source_energy_MeV": 510,
         "tau_fixed_omega": 2.719393543504806,
         "tau_conserved_E_infinity": 2.911414688330065,
-        "redshift_to_fixed_tau_ratio": 0.8819937658564762,
-        "local_energy_min_over_source": 0.8819936,
-        "escape_probability_redshift_over_fixed": 0.8252894177066608
+        "redshift_to_fixed_tau_ratio": 1.0706117528608157,
+        "local_energy_min_over_source": 0.8819937658564764,
+        "escape_probability_redshift_over_fixed": 0.8252894177066608,
+        "local_energy_max_over_source": 0.9999984384826907
       },
       {
         "emission_radius_km": 10,
@@ -186,9 +197,10 @@
         "source_energy_MeV": 110,
         "tau_fixed_omega": 9.055250179535808,
         "tau_conserved_E_infinity": 9.74729647018925,
-        "redshift_to_fixed_tau_ratio": 0.8819935595412652,
-        "local_energy_min_over_source": 0.8819936,
-        "escape_probability_redshift_over_fixed": 0.5005507480541148
+        "redshift_to_fixed_tau_ratio": 1.0764248670033894,
+        "local_energy_min_over_source": 0.8819935595412652,
+        "escape_probability_redshift_over_fixed": 0.5005507480541148,
+        "local_energy_max_over_source": 0.9999962138833401
       },
       {
         "emission_radius_km": 10,
@@ -196,9 +208,10 @@
         "source_energy_MeV": 210,
         "tau_fixed_omega": 5.114223306357522,
         "tau_conserved_E_infinity": 5.509491731592354,
-        "redshift_to_fixed_tau_ratio": 0.8819935595412652,
-        "local_energy_min_over_source": 0.8819936,
-        "escape_probability_redshift_over_fixed": 0.6734992307939922
+        "redshift_to_fixed_tau_ratio": 1.077288065373186,
+        "local_energy_min_over_source": 0.8819935595412652,
+        "escape_probability_redshift_over_fixed": 0.6734992307939922,
+        "local_energy_max_over_source": 0.9999962138833401
       },
       {
         "emission_radius_km": 10,
@@ -206,9 +219,10 @@
         "source_energy_MeV": 510,
         "tau_fixed_omega": 2.210752935999389,
         "tau_conserved_E_infinity": 2.3832687220279425,
-        "redshift_to_fixed_tau_ratio": 0.8819935595412651,
-        "local_energy_min_over_source": 0.8819936,
-        "escape_probability_redshift_over_fixed": 0.8415450040534537
+        "redshift_to_fixed_tau_ratio": 1.078034855555022,
+        "local_energy_min_over_source": 0.8819935595412652,
+        "escape_probability_redshift_over_fixed": 0.8415450040534537,
+        "local_energy_max_over_source": 0.9999962138833401
       },
       {
         "emission_radius_km": 10,
@@ -216,9 +230,10 @@
         "source_energy_MeV": 110,
         "tau_fixed_omega": 8.40417431647902,
         "tau_conserved_E_infinity": 9.061616203490615,
-        "redshift_to_fixed_tau_ratio": 0.8819935008519757,
-        "local_energy_min_over_source": 0.8819936,
-        "escape_probability_redshift_over_fixed": 0.5181751911690807
+        "redshift_to_fixed_tau_ratio": 1.0782280164896716,
+        "local_energy_min_over_source": 0.8819935008519757,
+        "escape_probability_redshift_over_fixed": 0.5181751911690807,
+        "local_energy_max_over_source": 0.999995581071596
       },
       {
         "emission_radius_km": 10,
@@ -226,9 +241,10 @@
         "source_energy_MeV": 210,
         "tau_fixed_omega": 4.729554551203447,
         "tau_conserved_E_infinity": 5.1040417818971155,
-        "redshift_to_fixed_tau_ratio": 0.8819935008519757,
-        "local_energy_min_over_source": 0.8819936,
-        "escape_probability_redshift_over_fixed": 0.687641790008449
+        "redshift_to_fixed_tau_ratio": 1.0791802328611222,
+        "local_energy_min_over_source": 0.8819935008519757,
+        "escape_probability_redshift_over_fixed": 0.687641790008449,
+        "local_energy_max_over_source": 0.999995581071596
       },
       {
         "emission_radius_km": 10,
@@ -236,9 +252,10 @@
         "source_energy_MeV": 510,
         "tau_fixed_omega": 2.0399690874900873,
         "tau_conserved_E_infinity": 2.2031382774687414,
-        "redshift_to_fixed_tau_ratio": 0.8819935008519756,
-        "local_energy_min_over_source": 0.8819936,
-        "escape_probability_redshift_over_fixed": 0.8494474582587516
+        "redshift_to_fixed_tau_ratio": 1.0799861090931588,
+        "local_energy_min_over_source": 0.8819935008519757,
+        "escape_probability_redshift_over_fixed": 0.8494474582587516,
+        "local_energy_max_over_source": 0.999995581071596
       },
       {
         "emission_radius_km": 12.5,
@@ -246,9 +263,10 @@
         "source_energy_MeV": 110,
         "tau_fixed_omega": 10.552046673173013,
         "tau_conserved_E_infinity": 11.073142827548212,
-        "redshift_to_fixed_tau_ratio": 0.9118732107171897,
-        "local_energy_min_over_source": 0.911873,
-        "escape_probability_redshift_over_fixed": 0.5938692187143152
+        "redshift_to_fixed_tau_ratio": 1.0493834201567747,
+        "local_energy_min_over_source": 0.9118732107171897,
+        "escape_probability_redshift_over_fixed": 0.5938692187143152,
+        "local_energy_max_over_source": 0.9999987013900948
       },
       {
         "emission_radius_km": 12.5,
@@ -256,9 +274,10 @@
         "source_energy_MeV": 210,
         "tau_fixed_omega": 5.870212160129227,
         "tau_conserved_E_infinity": 6.16198530917652,
-        "redshift_to_fixed_tau_ratio": 0.9118732107171896,
-        "local_energy_min_over_source": 0.911873,
-        "escape_probability_redshift_over_fixed": 0.7469379603435071
+        "redshift_to_fixed_tau_ratio": 1.0497040210963806,
+        "local_energy_min_over_source": 0.9118732107171897,
+        "escape_probability_redshift_over_fixed": 0.7469379603435071,
+        "local_energy_max_over_source": 0.9999987013900948
       },
       {
         "emission_radius_km": 12.5,
@@ -266,9 +285,10 @@
         "source_energy_MeV": 510,
         "tau_fixed_omega": 2.5121420681195974,
         "tau_conserved_E_infinity": 2.6378301528636583,
-        "redshift_to_fixed_tau_ratio": 0.9118732107171899,
-        "local_energy_min_over_source": 0.911873,
-        "escape_probability_redshift_over_fixed": 0.8818898787951005
+        "redshift_to_fixed_tau_ratio": 1.0500322359706915,
+        "local_energy_min_over_source": 0.9118732107171897,
+        "escape_probability_redshift_over_fixed": 0.8818898787951005,
+        "local_energy_max_over_source": 0.9999987013900948
       },
       {
         "emission_radius_km": 12.5,
@@ -276,9 +296,10 @@
         "source_energy_MeV": 110,
         "tau_fixed_omega": 8.165585148600423,
         "tau_conserved_E_infinity": 8.613195735119978,
-        "redshift_to_fixed_tau_ratio": 0.911872993024785,
-        "local_energy_min_over_source": 0.911873,
-        "escape_probability_redshift_over_fixed": 0.6391535305775523
+        "redshift_to_fixed_tau_ratio": 1.0548167189948752,
+        "local_energy_min_over_source": 0.911872993024785,
+        "escape_probability_redshift_over_fixed": 0.6391535305775523,
+        "local_energy_max_over_source": 0.9999970459358949
       },
       {
         "emission_radius_km": 12.5,
@@ -286,9 +307,10 @@
         "source_energy_MeV": 210,
         "tau_fixed_omega": 4.496607346678564,
         "tau_conserved_E_infinity": 4.7457097451683365,
-        "redshift_to_fixed_tau_ratio": 0.9118729930247848,
-        "local_energy_min_over_source": 0.911873,
-        "escape_probability_redshift_over_fixed": 0.7795001496597531
+        "redshift_to_fixed_tau_ratio": 1.0553978542675675,
+        "local_energy_min_over_source": 0.911872993024785,
+        "escape_probability_redshift_over_fixed": 0.7795001496597531,
+        "local_energy_max_over_source": 0.9999970459358949
       },
       {
         "emission_radius_km": 12.5,
@@ -296,9 +318,10 @@
         "source_energy_MeV": 510,
         "tau_fixed_omega": 1.9126207426560484,
         "tau_conserved_E_infinity": 2.0195408751548496,
-        "redshift_to_fixed_tau_ratio": 0.9118729930247849,
-        "local_energy_min_over_source": 0.911873,
-        "escape_probability_redshift_over_fixed": 0.8985974388564123
+        "redshift_to_fixed_tau_ratio": 1.0559024223225362,
+        "local_energy_min_over_source": 0.911872993024785,
+        "escape_probability_redshift_over_fixed": 0.8985974388564123,
+        "local_energy_max_over_source": 0.9999970459358949
       },
       {
         "emission_radius_km": 12.5,
@@ -306,9 +329,10 @@
         "source_energy_MeV": 110,
         "tau_fixed_omega": 7.392741938186164,
         "tau_conserved_E_infinity": 7.807631338917606,
-        "redshift_to_fixed_tau_ratio": 0.9118729378807925,
-        "local_energy_min_over_source": 0.911873,
-        "escape_probability_redshift_over_fixed": 0.6604133178958841
+        "redshift_to_fixed_tau_ratio": 1.056121179962794,
+        "local_energy_min_over_source": 0.9118729378807925,
+        "escape_probability_redshift_over_fixed": 0.6604133178958841,
+        "local_energy_max_over_source": 0.9999966265931035
       },
       {
         "emission_radius_km": 12.5,
@@ -316,9 +340,10 @@
         "source_energy_MeV": 210,
         "tau_fixed_omega": 4.062453033385494,
         "tau_conserved_E_infinity": 4.292964791602976,
-        "redshift_to_fixed_tau_ratio": 0.9118729378807925,
-        "local_energy_min_over_source": 0.911873,
-        "escape_probability_redshift_over_fixed": 0.7941270974282159
+        "redshift_to_fixed_tau_ratio": 1.056742011864044,
+        "local_energy_min_over_source": 0.9118729378807925,
+        "escape_probability_redshift_over_fixed": 0.7941270974282159,
+        "local_energy_max_over_source": 0.9999966265931035
       },
       {
         "emission_radius_km": 12.5,
@@ -326,9 +351,10 @@
         "source_energy_MeV": 510,
         "tau_fixed_omega": 1.7257668686407321,
         "tau_conserved_E_infinity": 1.8246113779326298,
-        "redshift_to_fixed_tau_ratio": 0.9118729378807925,
-        "local_energy_min_over_source": 0.911873,
-        "escape_probability_redshift_over_fixed": 0.905883553548379
+        "redshift_to_fixed_tau_ratio": 1.0572757022330315,
+        "local_energy_min_over_source": 0.9118729378807925,
+        "escape_probability_redshift_over_fixed": 0.905883553548379,
+        "local_energy_max_over_source": 0.9999966265931035
       }
     ],
     "global_context_from_archived_B2_audit": {
