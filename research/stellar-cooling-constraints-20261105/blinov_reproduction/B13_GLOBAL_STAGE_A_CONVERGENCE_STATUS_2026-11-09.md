@@ -86,6 +86,12 @@ The maximum B.13 luminosity shift on the combined grid is 0.2732%; the peak and 
 
 The workflow conclusion is nevertheless failure because the final artifact upload hit the GitHub Actions artifact-storage quota. The full JSON was generated on the runner but was not uploaded, and no full JSON archive exists in the branch. A compact summary reconstructed from the job's printed per-scan JSON blocks is archived at [b13_global_convergence_vertex_preserving_10mev_2026-11-09_log_recovered_summary.json](outputs/b13_global_convergence_vertex_preserving_10mev_2026-11-09_log_recovered_summary.json). The audit report is [B13_GLOBAL_ANGULAR_PATH_CONVERGENCE_AUDIT_2026-11-09.md](B13_GLOBAL_ANGULAR_PATH_CONVERGENCE_AUDIT_2026-11-09.md). This recovered summary is explicitly not the original full JSON; its omitted arrays and detailed diagnostics require a fresh run or a later successful upload.
 
+## 4. Positive muon-neutrino branch sensitivity: completed
+
+The current-profile B.16 sensitivity run [42552214391](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42552214391) varies only the positive Caputo Fig. 1 mu_numu branch over 16.588180--18.4229996 km, containing 98 retained nodes. The B.1 source and B.2 opacity are recomputed consistently for branch scales 0, 0.9, 1.0, and 1.1. All channel, shell, direct-chord, mean-optical-depth, and angular-weight closure checks pass at floating-point precision.
+
+Removing the entire positive branch changes the strong-endpoint escape probability by -0.01409% and escaped luminosity by -0.01286%. +/-10% variations change the strong-endpoint escape probability by less than 0.003%. The branch cannot explain the order-one strong-coupling Fig. 7 discrepancy. See [B16_NUMU_POSITIVE_BRANCH_SENSITIVITY_2026-11-09.md](B16_NUMU_POSITIVE_BRANCH_SENSITIVITY_2026-11-09.md). This does not certify the complete 15--22 km thermodynamic profile.
+
 ## 4. Current decision
 
 - Radial, energy, angular, and path global quadrature: passed the stated project-level luminosity-stability targets at the tested resolutions.
