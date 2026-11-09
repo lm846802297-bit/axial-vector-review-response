@@ -117,14 +117,14 @@ The Garching radial-profile endpoint remains access-protected. This limits raw-p
 - **Axial-vector recalculation:** frozen.
 - **PR #57:** keep Open / Draft; do not merge as a validated reproduction.
 
-The next action is not another integration-code patch. It is either to obtain genuinely new, independently sourced physical input or to record the present result as a non-reproduction with quantified limitations. No empirical rescaling, profile swapping, or opacity tuning is permitted.
+The next action is to finish the method-level B.13 versus B.16 comparison at 0.1, 1, and 10 MeV, then continue the B.2 path-energy and 10 MeV neutrino-opacity diagnostics using the current reconstructed profile. Raw Garching data would improve input fidelity but are not a prerequisite for these checks. No empirical rescaling, profile swapping, or opacity tuning is permitted.
 
 
 ## 7. Official data and metric-source availability
 
 The official Garching archive index lists the relevant Bollig/Hüdepohl radial hydro and neutrino profiles and separately lists Robert Bollig's Python TOV solver (2020). Direct checks of the radial-profile and TOV-solver endpoints return HTTP 401 Unauthorized; the archive index states that some collections are password protected. A recent independent SFHo-18.8 analysis, arXiv:2610.35379, also points to this same archive for its full simulation profiles rather than providing an independent raw-data mirror.
 
-Consequently, the exact same-snapshot hydro table and spatial metric remain unavailable through the checked unauthenticated endpoints. The current lapse comparison is visual only; it does not supply (A(r)) or (M(r)). Do not infer (A(r)) from the lapse alone, use a generic TOV solver as a substitute for the time-dependent snapshot, or splice another progenitor/time profile.
+Consequently, the exact same-snapshot hydro table remains unavailable through the checked unauthenticated endpoints. The spatial metric A(r) or M(r) is also unavailable, but this is a limitation only for a full-GR extension: the published B.1--B.2 reproduction prescription uses the lapse in the source term and Euclidean chords in the path integral. Do not infer A(r) from the lapse alone, use a generic TOV solver as a substitute for the time-dependent snapshot, or splice another progenitor/time profile.
 
 Detailed endpoint and source audit:
 [B16_PUBLIC_PROFILE_AND_METRIC_SOURCE_AVAILABILITY_AUDIT_2026-11-09.md](B16_PUBLIC_PROFILE_AND_METRIC_SOURCE_AVAILABILITY_AUDIT_2026-11-09.md).
