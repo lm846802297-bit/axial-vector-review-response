@@ -63,6 +63,18 @@ Grouped by path region:
 
 The same grouping for all emission radii gives source-weighted fractions 6.71%, 73.97%, and 19.32%, respectively. The conclusion is therefore not an artifact of restricting the source to 8--15 km.
 
+A finer grouping makes the radial distribution more transparent:
+
+| Path segment | Source-weighted fraction | Escaped-population-weighted fraction |
+|---|---:|---:|
+| 0--8 km | 5.39% | 0.27% |
+| 8--15 km | 31.93% | 33.81% |
+| 15--22 km | 43.61% | 46.38% |
+| 22--25 km | 19.07% | 19.54% |
+
+Thus the largest *combined path segment* is 15--22 km, not 22--25 km. The 15--22 km segment alone contributes more than twice the source-weighted neutrino optical depth of the outer 22--25 km shell. This is the most direct reason to inspect the 15--22 km thermodynamic profile and path interpolation next.
+
+
 ## 3. Directional escape distribution
 
 The direction cosine is measured relative to the local outward radial direction: negative values are initially inward-going rays and positive values are outward-going rays.
