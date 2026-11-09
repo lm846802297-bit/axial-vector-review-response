@@ -85,7 +85,31 @@ No density correction, opacity correction, or luminosity rescaling is justified.
 
 The B.1 implementation uses the one-negative-muon susceptibility convention in Blinov Eq. (B.17); the independent Fermi-integral closure remains at floating-point precision. This source-kernel algebraic closure does not resolve the profile-level Fig. 3 density discrepancy.
 
-## 6. Reproducibility and files
+## 6. Impact of the Fig. 3 density residual on the current B.1/B.2 benchmark
+
+The published-figure density tension is real, but it must not be translated directly into a 10% correction to the Compton rate. In the one-species convention used by the B.17 degeneracy factor,
+
+\[
+n_{\mu^-}F_{\rm deg}
+=\frac{1}{\pi^2}\int_0^\infty dp\,p^2 f_{\mu^-}(1-f_{\mu^-})
+\equiv \chi_\mu(T,\mu_\mu).
+\]
+
+At fixed T and mu_mu, a different normalization assigned to n_mu is compensated by the corresponding inverse change in F_deg. The product entering the Compton source/absorption is the susceptibility, which is fixed by T and mu_mu. Thus the Fig. 3 residual alone does not justify rescaling n_mu F_deg or the Compton kernel. If the discrepancy instead reflects a genuinely different underlying profile, its T, mu_mu, and F_deg must be supplied consistently before a rate correction can be defined.
+
+The current 10 MeV B.16 baseline also strongly suppresses the global importance of this outer interval:
+- B.1 thin-source fraction from 15--18 km: 0.0036791%;
+- B.1 thin-source fraction from 18--20 km: 0.0000931%;
+- combined B.1 source fraction from 15--20 km: 0.0037722%;
+- B.2 source-weighted mean optical-depth fraction accumulated in 15--20 km: 0.087305%.
+
+As a conservative scale estimate, a 10% change in all 15--20 km opacity would change the total source-weighted mean optical depth by only about 0.00873% relative. At the strong endpoint, where the baseline source-weighted mean optical depth is about 1.76, this corresponds to an absolute mean-optical-depth shift of order 1.5e-4 and a sub-0.02% attenuation-scale effect. This is an estimate based on the shell-weight decomposition, not a new transport run; the affected density-supported region ends earlier, at 16.603 km, so the all-15--20 km estimate is conservative.
+
+Consequently, the Fig. 3 mismatch remains an unresolved source-profile consistency issue worth documenting, but it is not a plausible explanation for the order-one strong-coupling Fig. 7 discrepancy in the current B.1/B.2 benchmark. No empirical correction is applied.
+
+The source and path fractions above are taken from the archived 10 MeV fixed-omega B.16 global audit (profile SHA-256 08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9). The separate 15--20 km profile comparison uses the vertex-preserving profile SHA-256 recorded in Section 1; the two profile fingerprints are not silently treated as identical.
+
+## 7. Reproducibility and files
 
 - Workflow: [Run 42557233565](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42557233565)
 - Script: `audit_bollig_muon_density_and_b1_source.py`
