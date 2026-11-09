@@ -68,4 +68,5 @@ jobs:
             exit 0
           fi
           git commit -m "Archive independent fermion matrix validation [audit-output]"
-          git push origin "HEAD:\${GITHUB_REF_NAME}"
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"
