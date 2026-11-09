@@ -312,3 +312,17 @@ Full report: [B16_GR_ENERGY_AND_RAY_PROPAGATION_REQUIREMENTS_2026-11-09.md](B16_
 - Full GR energy/path treatment: the required same-snapshot spatial metric A(r) or enclosed mass M(r) is absent from the public-figure reconstruction; the relevant Garching hydro-profile endpoint is access-protected (401). Do not call the redshift-only diagnostic full GR.
 - Original profile fidelity: T and mu_mu/T are independently cross-checked against Bollig over 0--20 km, but the raw profile, absolute-density figure tension, and outer 20--25 km continuation remain unresolved at simulation-data precision. These two remaining physical-input issues share the same raw-profile/metric data dependency.
 - Axial-vector production curve: remains frozen.
+
+
+## 23. Remaining validation count and order
+
+The numerical implementation stage is complete for the adopted B.16 fixed-omega prescription: independent B.1 source integration, independent analytic B.2 propagation, full B.1+B.2 recombination, and dense local-kernel closure over 64,000 global nodes all pass.
+
+Two major physical-input validations remain:
+1. **Same-snapshot GR metric and energy convention.** Requires (N(r)) and (A(r)), or (N(r)) and enclosed mass (M(r)), plus a consistent local thermodynamic profile. The currently listed Garching hydro-profile endpoint is access-protected; without authorized data, full GR ray tracing cannot be completed.
+2. **Raw stellar-profile fidelity.** Requires the same-snapshot radial thermodynamic/hydrodynamic table to resolve the figure-derived 20--25 km continuation and absolute-density tension. This is the same external data dependency as item 1.
+
+One separate, optional physical-approximation study remains:
+3. **No-recoil B.14--B.16 versus exact moving-muon B.13.** This is not required to reproduce the published B.16 Fig. 7 benchmark, because the benchmark itself uses the B.16 approximation. It is required only if making a separate claim about the physical accuracy of that approximation.
+
+After the two mandatory input checks are either completed with authorized data or explicitly classified as unavailable, perform one final vector-reference acceptance review. Do not rescale opacity, source normalization, or luminosity to force agreement with Fig. 7.
