@@ -33,6 +33,7 @@ try:
         KM_TO_MEV_INV,
         negative_muon_density_and_degeneracy,
         local_rates,
+        fermi_pair_average,
     )
     from .audit_b16_b1_independent import (
         read_profile_direct,
@@ -52,6 +53,7 @@ except ImportError:
         KM_TO_MEV_INV,
         negative_muon_density_and_degeneracy,
         local_rates,
+        fermi_pair_average,
     )
     from audit_b16_b1_independent import (
         read_profile_direct,
@@ -246,19 +248,9 @@ def run(profile_path: Path = DEFAULT_PROFILE, output_path: Path = DEFAULT_OUTPUT
             MASS_MEV, omega, temperature, -mu_numu, NEUTRINO_ANGULAR_ORDER
         )
 
+        # Compare the direct angular integral against the closed B.6 expression.
         comparisons = {
             "nu_mu_B6_production": rel_max(
-                nu_mu_prod, rates["neutrino_production"] * 0.0 + nu_mu_prod
-            ),
-            "nu_tau_B6_production": rel_max(
-                nu_tau_prod, rates["neutrino_production"] * 0.0 + nu_tau_prod
-            ),
-        }
-        # The total neutrino production in local_rates is compared with the sum
-        # of the two independent flavor integrals. The per-flavor analytic
-        # decomposition is also reconstructed using the closed fermi_pair_average.
-        from_formula_nu = np.asarray(rates["neutrino_production"], float)
-        comparisons["nu_mu_B6_production"] = rel_max(
             nu_mu_prod,
             _analytic_neutrino_rate(MASS_MEV, omega, temperature, mu_numu),
         )
@@ -404,7 +396,6 @@ def run(profile_path: Path = DEFAULT_PROFILE, output_path: Path = DEFAULT_OUTPUT
 
 
 def _analytic_neutrino_rate(mass_mev, omega, temperature, chemical_potential):
-    from reference import fermi_pair_average
     omega = np.asarray(omega, float)
     velocity = np.sqrt(np.maximum(1.0 - (mass_mev / omega)**2, 0.0))
     return (
