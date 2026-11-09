@@ -243,5 +243,6 @@ Full report: [B16_INDEPENDENT_ANALYTIC_PATH_INTEGRATION_AUDIT_2026-11-09.md](B16
 - Global convergence artifact archival: partial only; the original full JSON upload failed because the Actions storage quota was exhausted. The compact log-recovered summary is explicitly labelled and archived.
 - Local B.13 collision-kernel quadrature: sampled-point high-order validation passes at the three representative points, with a maximum 20-to-24 order change of 0.03016% against the audit-specific 0.1% screening target. The full continuous r-omega domain is not certified.
 - B.16 neutrino inverse-decay radial path: current-profile shell, angle, and leave-one-out synthesis is documented in B16_NEUTRINO_INVERSE_DECAY_RADIAL_PATH_SYNTHESIS_2026-11-09.md. The 8-22 km path group dominates collectively, while 22-25 km remains individually important.
+- Independent B.2 propagation: analytic path integration, path-order convergence, and three independent angular-integration methods pass; the fixed-profile B.2 numerical implementation is not the source of the order-one Fig. 7 mismatch.
 - Fig. 7 mismatch: persists after numerical convergence and must be investigated as a separate physical/reproduction issue.
 - Axial-vector production curve: remains frozen.
