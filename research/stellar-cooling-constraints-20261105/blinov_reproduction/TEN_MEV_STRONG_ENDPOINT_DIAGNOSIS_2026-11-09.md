@@ -12,13 +12,13 @@ g=4.171689650228597\times10^{-8},
 \]
 the high-order fixed-\(\omega\) B.16 result is
 \[
-L_{\rm B16}=2.4374\times10^{52}\ {\rm erg\,s^{-1}},
+L_{\rm B16}=2.4396\times10^{52}\ {\rm erg\,s^{-1}},
 \qquad
 L_{\rm Fig.7}=1.2678\times10^{52}\ {\rm erg\,s^{-1}},
 \]
-or \(+92.25\%\).
+or \(+92.43\%\).
 
-The corresponding optically thin luminosity is \(7.5242\times10^{55}\,\mathrm{erg\,s^{-1}}\), and the escape fraction is \(3.2394\times10^{-4}\). The discrepancy is therefore an escape/opacity issue at this endpoint, not simply a normalization difference in the optically thin source.
+The corresponding optically thin luminosity is \(7.5025\times10^{55}\,\mathrm{erg\,s^{-1}}\), and the escape fraction is \(3.2518\times10^{-4}\). The discrepancy is therefore an escape/opacity issue at this endpoint, not simply a normalization difference in the optically thin source.
 
 The reference is the digitized published Fig. 7 curve from the formal JHEP article, not an analytic fit.
 
@@ -81,7 +81,7 @@ It therefore cannot be used as a correction to the published scalar B.2 baseline
 
 ### 4.4 Path-energy redshift diagnostic
 
-The high-order path-redshift-only diagnostic changes the strong-end luminosity by \(-28.85\%\), reducing the Fig. 7 residual from \(+92.25\%\) to \(+36.91\%\). It evaluates
+The high-order path-redshift-only diagnostic changes the strong-end luminosity by \(-28.85\%\), reducing the Fig. 7 residual from \(+92.43\%\) to \(+36.91\%\). It evaluates
 \[
 \omega_{\rm loc}(s)=\omega_{\rm source}\frac{N(r_{\rm source})}{N(r(s))}
 \]
