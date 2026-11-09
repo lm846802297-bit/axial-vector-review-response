@@ -160,6 +160,24 @@
         "dimension8_potential_loop_pole_coefficient_GeVminus4": 1.0883588525689463e-17,
         "dimension8_operator_coefficient_sum_C5_fourth_GeVminus4": 1.718667411404646e-15
       },
+      "planC_scale_dependence_and_dimension8_running_check": {
+        "evaluation": "s=m_h^2, leading EFT5 soft bubble+contact plus Plan-C hard derivative",
+        "mu_reference_GeV": 20000.0,
+        "soft_d_dlnmu_GeV2": -0.07201966985094525,
+        "hard_derivative_d_dlnmu_GeV2": 0.07213540410582059,
+        "total_d_dlnmu_GeV2": 0.0001157342548753354,
+        "leading_EFT5_PiB_hs_local_UV_coefficient_GeV2": 5.786712743766597e-05,
+        "twice_leading_EFT5_PiB_hs_local_UV_coefficient_GeV2": 0.00011573425487533194,
+        "identity_residual_GeV2": 3.4558944247975454e-18,
+        "relative_identity_residual": 2.986060115494851e-14,
+        "finite_difference_d_dlnmu_GeV2": [
+          0.00011573426106359362,
+          0.0
+        ],
+        "relative_finite_difference_residual": 5.3469547389263314e-08,
+        "required_dimension8_counterterm_contribution_d_dlnmu_GeV2": -0.0001157342548753354,
+        "interpretation": "The remaining scale dependence is local and equals twice the EFT5 mixed UV-pole coefficient. It is canceled by the running of the dimension-eight operator counterterm. This fixes the required scale derivative, not the finite matching value of its Wilson coefficient."
+      },
       "comparison_to_archived_exact_light_bubble": {
         "exact_mass_eigenstate_light_bubble_local_UV_coefficients_GeV2": {
           "hh": 0.001972016882158648,
@@ -328,6 +346,24 @@
         "dimension8_potential_counterterm_coefficient_GeVminus4": -2.7911488938993914e-20,
         "dimension8_potential_loop_pole_coefficient_GeVminus4": 2.7911488938993914e-20,
         "dimension8_operator_coefficient_sum_C5_fourth_GeVminus4": 4.407605665172021e-18
+      },
+      "planC_scale_dependence_and_dimension8_running_check": {
+        "evaluation": "s=m_h^2, leading EFT5 soft bubble+contact plus Plan-C hard derivative",
+        "mu_reference_GeV": 20000.0,
+        "soft_d_dlnmu_GeV2": -0.016207045403374275,
+        "hard_derivative_d_dlnmu_GeV2": 0.01623308982050882,
+        "total_d_dlnmu_GeV2": 2.6044417134545028e-05,
+        "leading_EFT5_PiB_hs_local_UV_coefficient_GeV2": 1.302220856727224e-05,
+        "twice_leading_EFT5_PiB_hs_local_UV_coefficient_GeV2": 2.604441713454448e-05,
+        "identity_residual_GeV2": 5.488773498207866e-19,
+        "relative_identity_residual": 2.107466436992217e-14,
+        "finite_difference_d_dlnmu_GeV2": [
+          2.6044418011128553e-05,
+          0.0
+        ],
+        "relative_finite_difference_residual": 3.3657252534013274e-08,
+        "required_dimension8_counterterm_contribution_d_dlnmu_GeV2": -2.6044417134545028e-05,
+        "interpretation": "The remaining scale dependence is local and equals twice the EFT5 mixed UV-pole coefficient. It is canceled by the running of the dimension-eight operator counterterm. This fixes the required scale derivative, not the finite matching value of its Wilson coefficient."
       },
       "comparison_to_archived_exact_light_bubble": {
         "exact_mass_eigenstate_light_bubble_local_UV_coefficients_GeV2": {
