@@ -45,12 +45,19 @@
           "configuration": {
             "angular_order": 24,
             "couplings_are_g_not_alpha_V": true,
+            "energy_grid_sha256": "3fb6d332a94e565729eecf183120a4fa81a1f4a9f1450f8764eb7e572c185e79",
+            "energy_node_count": 142,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_grid_sha256": "e065fe6588861f1b35d9287f0b09eaef4757042176317580c7f77c59bb47f6f0",
             "opacity_order": 40,
+            "opacity_radial_node_count": 42,
             "path_order": 32,
             "radial_order": 40,
-            "radius_km": 25.0
+            "radius_km": 25.0,
+            "source_grid_mode": "union",
+            "source_grid_sha256": "76dbf71b90707eaa507eec882421124a37767c2dcd82155e7bcd5dccadd15885",
+            "source_radial_node_count": 40
           },
           "couplings_g": [
             1.0096025036803394e-09,
@@ -654,12 +661,19 @@
           "configuration": {
             "angular_order": 32,
             "couplings_are_g_not_alpha_V": true,
+            "energy_grid_sha256": "3fb6d332a94e565729eecf183120a4fa81a1f4a9f1450f8764eb7e572c185e79",
+            "energy_node_count": 142,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_grid_sha256": "e065fe6588861f1b35d9287f0b09eaef4757042176317580c7f77c59bb47f6f0",
             "opacity_order": 40,
+            "opacity_radial_node_count": 42,
             "path_order": 32,
             "radial_order": 40,
-            "radius_km": 25.0
+            "radius_km": 25.0,
+            "source_grid_mode": "union",
+            "source_grid_sha256": "76dbf71b90707eaa507eec882421124a37767c2dcd82155e7bcd5dccadd15885",
+            "source_radial_node_count": 40
           },
           "couplings_g": [
             1.0096025036803394e-09,
@@ -1263,12 +1277,19 @@
           "configuration": {
             "angular_order": 16,
             "couplings_are_g_not_alpha_V": true,
+            "energy_grid_sha256": "3fb6d332a94e565729eecf183120a4fa81a1f4a9f1450f8764eb7e572c185e79",
+            "energy_node_count": 142,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_grid_sha256": "e065fe6588861f1b35d9287f0b09eaef4757042176317580c7f77c59bb47f6f0",
             "opacity_order": 40,
+            "opacity_radial_node_count": 42,
             "path_order": 32,
             "radial_order": 40,
-            "radius_km": 25.0
+            "radius_km": 25.0,
+            "source_grid_mode": "union",
+            "source_grid_sha256": "76dbf71b90707eaa507eec882421124a37767c2dcd82155e7bcd5dccadd15885",
+            "source_radial_node_count": 40
           },
           "couplings_g": [
             1.0096025036803394e-09,
@@ -1872,12 +1893,19 @@
           "configuration": {
             "angular_order": 24,
             "couplings_are_g_not_alpha_V": true,
+            "energy_grid_sha256": "057964323616c71d1d7c315f41339443ca88085b59093b337190b9706ba1a988",
+            "energy_node_count": 202,
             "energy_offset_MeV": 1000.0,
             "energy_order": 140,
+            "opacity_grid_sha256": "a0f19576075eece12000ce65bd752dbfe9f5cd80cae591dc285c97c9356ffae9",
             "opacity_order": 60,
+            "opacity_radial_node_count": 62,
             "path_order": 48,
             "radial_order": 60,
-            "radius_km": 25.0
+            "radius_km": 25.0,
+            "source_grid_mode": "union",
+            "source_grid_sha256": "81ff9546fc37fb6c500ae9b56f08087ad981b4b33cc2d9e9cafc4321ccbb2e1d",
+            "source_radial_node_count": 60
           },
           "couplings_g": [
             1.0096025036803394e-09,
@@ -2481,12 +2509,19 @@
           "configuration": {
             "angular_order": 16,
             "couplings_are_g_not_alpha_V": true,
+            "energy_grid_sha256": "f0c459b2a6cfc486e54d07e316968d08b720f77c8a9872862ee93540c4b9f0ac",
+            "energy_node_count": 192,
             "energy_offset_MeV": 1000.0,
             "energy_order": 150,
+            "opacity_grid_sha256": "e065fe6588861f1b35d9287f0b09eaef4757042176317580c7f77c59bb47f6f0",
             "opacity_order": 40,
+            "opacity_radial_node_count": 42,
             "path_order": 32,
             "radial_order": 40,
-            "radius_km": 25.0
+            "radius_km": 25.0,
+            "source_grid_mode": "union",
+            "source_grid_sha256": "76dbf71b90707eaa507eec882421124a37767c2dcd82155e7bcd5dccadd15885",
+            "source_radial_node_count": 40
           },
           "couplings_g": [
             1.0096025036803394e-09,
@@ -3090,12 +3125,19 @@
           "configuration": {
             "angular_order": 16,
             "couplings_are_g_not_alpha_V": true,
+            "energy_grid_sha256": "e2ed36dff35b246bc05063a5bd126406ff6f37ad43690ec1e35a24a833cc3a2c",
+            "energy_node_count": 242,
             "energy_offset_MeV": 1000.0,
             "energy_order": 200,
+            "opacity_grid_sha256": "e065fe6588861f1b35d9287f0b09eaef4757042176317580c7f77c59bb47f6f0",
             "opacity_order": 40,
+            "opacity_radial_node_count": 42,
             "path_order": 32,
             "radial_order": 40,
-            "radius_km": 25.0
+            "radius_km": 25.0,
+            "source_grid_mode": "union",
+            "source_grid_sha256": "76dbf71b90707eaa507eec882421124a37767c2dcd82155e7bcd5dccadd15885",
+            "source_radial_node_count": 40
           },
           "couplings_g": [
             1.0096025036803394e-09,
@@ -3699,12 +3741,19 @@
           "configuration": {
             "angular_order": 32,
             "couplings_are_g_not_alpha_V": true,
+            "energy_grid_sha256": "697038b0a9ed42dc4aaa83010f9ca946a938f9a8e0dc466eee592409c8acd4ee",
+            "energy_node_count": 282,
             "energy_offset_MeV": 1000.0,
             "energy_order": 200,
+            "opacity_grid_sha256": "62107e317c536fa9cae5a610f7c4c2f1bd454d3ea65419d761fc39aa7e15636d",
             "opacity_order": 80,
+            "opacity_radial_node_count": 82,
             "path_order": 64,
             "radial_order": 80,
-            "radius_km": 25.0
+            "radius_km": 25.0,
+            "source_grid_mode": "union",
+            "source_grid_sha256": "5ee0ec08cc9a579ac245702b4cccf19213286310a980889602c9a27e12e0101b",
+            "source_radial_node_count": 80
           },
           "couplings_g": [
             1.0096025036803394e-09,
@@ -4308,12 +4357,19 @@
           "configuration": {
             "angular_order": 16,
             "couplings_are_g_not_alpha_V": true,
+            "energy_grid_sha256": "3fb6d332a94e565729eecf183120a4fa81a1f4a9f1450f8764eb7e572c185e79",
+            "energy_node_count": 142,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_grid_sha256": "e065fe6588861f1b35d9287f0b09eaef4757042176317580c7f77c59bb47f6f0",
             "opacity_order": 40,
+            "opacity_radial_node_count": 42,
             "path_order": 48,
             "radial_order": 40,
-            "radius_km": 25.0
+            "radius_km": 25.0,
+            "source_grid_mode": "union",
+            "source_grid_sha256": "76dbf71b90707eaa507eec882421124a37767c2dcd82155e7bcd5dccadd15885",
+            "source_radial_node_count": 40
           },
           "couplings_g": [
             1.0096025036803394e-09,
@@ -4917,12 +4973,19 @@
           "configuration": {
             "angular_order": 16,
             "couplings_are_g_not_alpha_V": true,
+            "energy_grid_sha256": "3fb6d332a94e565729eecf183120a4fa81a1f4a9f1450f8764eb7e572c185e79",
+            "energy_node_count": 142,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_grid_sha256": "e065fe6588861f1b35d9287f0b09eaef4757042176317580c7f77c59bb47f6f0",
             "opacity_order": 40,
+            "opacity_radial_node_count": 42,
             "path_order": 64,
             "radial_order": 40,
-            "radius_km": 25.0
+            "radius_km": 25.0,
+            "source_grid_mode": "union",
+            "source_grid_sha256": "76dbf71b90707eaa507eec882421124a37767c2dcd82155e7bcd5dccadd15885",
+            "source_radial_node_count": 40
           },
           "couplings_g": [
             1.0096025036803394e-09,
@@ -5526,12 +5589,19 @@
           "configuration": {
             "angular_order": 16,
             "couplings_are_g_not_alpha_V": true,
+            "energy_grid_sha256": "f9529786cb262bdf55548b2504e728658478dc6b0f2a87424233df20d5461467",
+            "energy_node_count": 162,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_grid_sha256": "a0f19576075eece12000ce65bd752dbfe9f5cd80cae591dc285c97c9356ffae9",
             "opacity_order": 60,
+            "opacity_radial_node_count": 62,
             "path_order": 32,
             "radial_order": 60,
-            "radius_km": 25.0
+            "radius_km": 25.0,
+            "source_grid_mode": "union",
+            "source_grid_sha256": "81ff9546fc37fb6c500ae9b56f08087ad981b4b33cc2d9e9cafc4321ccbb2e1d",
+            "source_radial_node_count": 60
           },
           "couplings_g": [
             1.0096025036803394e-09,
@@ -6135,12 +6205,19 @@
           "configuration": {
             "angular_order": 16,
             "couplings_are_g_not_alpha_V": true,
+            "energy_grid_sha256": "b59bd6591a8fa90e2704cb5dc8d23f531c99b13d2a5f8fc84701db57f731cc62",
+            "energy_node_count": 182,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_grid_sha256": "62107e317c536fa9cae5a610f7c4c2f1bd454d3ea65419d761fc39aa7e15636d",
             "opacity_order": 80,
+            "opacity_radial_node_count": 82,
             "path_order": 32,
             "radial_order": 80,
-            "radius_km": 25.0
+            "radius_km": 25.0,
+            "source_grid_mode": "union",
+            "source_grid_sha256": "5ee0ec08cc9a579ac245702b4cccf19213286310a980889602c9a27e12e0101b",
+            "source_radial_node_count": 80
           },
           "couplings_g": [
             1.0096025036803394e-09,
@@ -6915,12 +6992,19 @@
           "configuration": {
             "angular_order": 24,
             "couplings_are_g_not_alpha_V": true,
+            "energy_grid_sha256": "d9ee4e81dd697b59e805a9024a7e058b4fa27c39080f35e808e1438e6006da79",
+            "energy_node_count": 142,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_grid_sha256": "e065fe6588861f1b35d9287f0b09eaef4757042176317580c7f77c59bb47f6f0",
             "opacity_order": 40,
+            "opacity_radial_node_count": 42,
             "path_order": 32,
             "radial_order": 40,
-            "radius_km": 25.0
+            "radius_km": 25.0,
+            "source_grid_mode": "union",
+            "source_grid_sha256": "76dbf71b90707eaa507eec882421124a37767c2dcd82155e7bcd5dccadd15885",
+            "source_radial_node_count": 40
           },
           "couplings_g": [
             8.381898081991092e-10,
@@ -7444,12 +7528,19 @@
           "configuration": {
             "angular_order": 32,
             "couplings_are_g_not_alpha_V": true,
+            "energy_grid_sha256": "d9ee4e81dd697b59e805a9024a7e058b4fa27c39080f35e808e1438e6006da79",
+            "energy_node_count": 142,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_grid_sha256": "e065fe6588861f1b35d9287f0b09eaef4757042176317580c7f77c59bb47f6f0",
             "opacity_order": 40,
+            "opacity_radial_node_count": 42,
             "path_order": 32,
             "radial_order": 40,
-            "radius_km": 25.0
+            "radius_km": 25.0,
+            "source_grid_mode": "union",
+            "source_grid_sha256": "76dbf71b90707eaa507eec882421124a37767c2dcd82155e7bcd5dccadd15885",
+            "source_radial_node_count": 40
           },
           "couplings_g": [
             8.381898081991092e-10,
@@ -7973,12 +8064,19 @@
           "configuration": {
             "angular_order": 16,
             "couplings_are_g_not_alpha_V": true,
+            "energy_grid_sha256": "d9ee4e81dd697b59e805a9024a7e058b4fa27c39080f35e808e1438e6006da79",
+            "energy_node_count": 142,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_grid_sha256": "e065fe6588861f1b35d9287f0b09eaef4757042176317580c7f77c59bb47f6f0",
             "opacity_order": 40,
+            "opacity_radial_node_count": 42,
             "path_order": 32,
             "radial_order": 40,
-            "radius_km": 25.0
+            "radius_km": 25.0,
+            "source_grid_mode": "union",
+            "source_grid_sha256": "76dbf71b90707eaa507eec882421124a37767c2dcd82155e7bcd5dccadd15885",
+            "source_radial_node_count": 40
           },
           "couplings_g": [
             8.381898081991092e-10,
@@ -8502,12 +8600,19 @@
           "configuration": {
             "angular_order": 24,
             "couplings_are_g_not_alpha_V": true,
+            "energy_grid_sha256": "3c944f1d1a79bbc9935f483dbd10e6a64eaa8816980ba4dceffbcc0745e2fd9a",
+            "energy_node_count": 202,
             "energy_offset_MeV": 1000.0,
             "energy_order": 140,
+            "opacity_grid_sha256": "a0f19576075eece12000ce65bd752dbfe9f5cd80cae591dc285c97c9356ffae9",
             "opacity_order": 60,
+            "opacity_radial_node_count": 62,
             "path_order": 48,
             "radial_order": 60,
-            "radius_km": 25.0
+            "radius_km": 25.0,
+            "source_grid_mode": "union",
+            "source_grid_sha256": "81ff9546fc37fb6c500ae9b56f08087ad981b4b33cc2d9e9cafc4321ccbb2e1d",
+            "source_radial_node_count": 60
           },
           "couplings_g": [
             8.381898081991092e-10,
@@ -9031,12 +9136,19 @@
           "configuration": {
             "angular_order": 16,
             "couplings_are_g_not_alpha_V": true,
+            "energy_grid_sha256": "24d0b1f929353e55e7c7dfeec43536b272f8fd1720c20d582f40ba2173959d9b",
+            "energy_node_count": 192,
             "energy_offset_MeV": 1000.0,
             "energy_order": 150,
+            "opacity_grid_sha256": "e065fe6588861f1b35d9287f0b09eaef4757042176317580c7f77c59bb47f6f0",
             "opacity_order": 40,
+            "opacity_radial_node_count": 42,
             "path_order": 32,
             "radial_order": 40,
-            "radius_km": 25.0
+            "radius_km": 25.0,
+            "source_grid_mode": "union",
+            "source_grid_sha256": "76dbf71b90707eaa507eec882421124a37767c2dcd82155e7bcd5dccadd15885",
+            "source_radial_node_count": 40
           },
           "couplings_g": [
             8.381898081991092e-10,
@@ -9560,12 +9672,19 @@
           "configuration": {
             "angular_order": 16,
             "couplings_are_g_not_alpha_V": true,
+            "energy_grid_sha256": "34e9394850372b23620790390c33deb4ed1a681621245e930429bd86de0eed9c",
+            "energy_node_count": 242,
             "energy_offset_MeV": 1000.0,
             "energy_order": 200,
+            "opacity_grid_sha256": "e065fe6588861f1b35d9287f0b09eaef4757042176317580c7f77c59bb47f6f0",
             "opacity_order": 40,
+            "opacity_radial_node_count": 42,
             "path_order": 32,
             "radial_order": 40,
-            "radius_km": 25.0
+            "radius_km": 25.0,
+            "source_grid_mode": "union",
+            "source_grid_sha256": "76dbf71b90707eaa507eec882421124a37767c2dcd82155e7bcd5dccadd15885",
+            "source_radial_node_count": 40
           },
           "couplings_g": [
             8.381898081991092e-10,
@@ -10089,12 +10208,19 @@
           "configuration": {
             "angular_order": 32,
             "couplings_are_g_not_alpha_V": true,
+            "energy_grid_sha256": "b3de604f8a3f21d6dc852ae92385e31befbe2fd9b21c59b8d3e16732ae673120",
+            "energy_node_count": 282,
             "energy_offset_MeV": 1000.0,
             "energy_order": 200,
+            "opacity_grid_sha256": "62107e317c536fa9cae5a610f7c4c2f1bd454d3ea65419d761fc39aa7e15636d",
             "opacity_order": 80,
+            "opacity_radial_node_count": 82,
             "path_order": 64,
             "radial_order": 80,
-            "radius_km": 25.0
+            "radius_km": 25.0,
+            "source_grid_mode": "union",
+            "source_grid_sha256": "5ee0ec08cc9a579ac245702b4cccf19213286310a980889602c9a27e12e0101b",
+            "source_radial_node_count": 80
           },
           "couplings_g": [
             8.381898081991092e-10,
@@ -10618,12 +10744,19 @@
           "configuration": {
             "angular_order": 16,
             "couplings_are_g_not_alpha_V": true,
+            "energy_grid_sha256": "d9ee4e81dd697b59e805a9024a7e058b4fa27c39080f35e808e1438e6006da79",
+            "energy_node_count": 142,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_grid_sha256": "e065fe6588861f1b35d9287f0b09eaef4757042176317580c7f77c59bb47f6f0",
             "opacity_order": 40,
+            "opacity_radial_node_count": 42,
             "path_order": 48,
             "radial_order": 40,
-            "radius_km": 25.0
+            "radius_km": 25.0,
+            "source_grid_mode": "union",
+            "source_grid_sha256": "76dbf71b90707eaa507eec882421124a37767c2dcd82155e7bcd5dccadd15885",
+            "source_radial_node_count": 40
           },
           "couplings_g": [
             8.381898081991092e-10,
@@ -11147,12 +11280,19 @@
           "configuration": {
             "angular_order": 16,
             "couplings_are_g_not_alpha_V": true,
+            "energy_grid_sha256": "d9ee4e81dd697b59e805a9024a7e058b4fa27c39080f35e808e1438e6006da79",
+            "energy_node_count": 142,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_grid_sha256": "e065fe6588861f1b35d9287f0b09eaef4757042176317580c7f77c59bb47f6f0",
             "opacity_order": 40,
+            "opacity_radial_node_count": 42,
             "path_order": 64,
             "radial_order": 40,
-            "radius_km": 25.0
+            "radius_km": 25.0,
+            "source_grid_mode": "union",
+            "source_grid_sha256": "76dbf71b90707eaa507eec882421124a37767c2dcd82155e7bcd5dccadd15885",
+            "source_radial_node_count": 40
           },
           "couplings_g": [
             8.381898081991092e-10,
@@ -11676,12 +11816,19 @@
           "configuration": {
             "angular_order": 16,
             "couplings_are_g_not_alpha_V": true,
+            "energy_grid_sha256": "5385835803833f6009b03edda4ea484bc7193b437058448cbfe9d710c953fcf1",
+            "energy_node_count": 162,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_grid_sha256": "a0f19576075eece12000ce65bd752dbfe9f5cd80cae591dc285c97c9356ffae9",
             "opacity_order": 60,
+            "opacity_radial_node_count": 62,
             "path_order": 32,
             "radial_order": 60,
-            "radius_km": 25.0
+            "radius_km": 25.0,
+            "source_grid_mode": "union",
+            "source_grid_sha256": "81ff9546fc37fb6c500ae9b56f08087ad981b4b33cc2d9e9cafc4321ccbb2e1d",
+            "source_radial_node_count": 60
           },
           "couplings_g": [
             8.381898081991092e-10,
@@ -12205,12 +12352,19 @@
           "configuration": {
             "angular_order": 16,
             "couplings_are_g_not_alpha_V": true,
+            "energy_grid_sha256": "8db7257ee46d32f5e4e6b829054aef9424f60af21ade12020e712a296a48a4b8",
+            "energy_node_count": 182,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_grid_sha256": "62107e317c536fa9cae5a610f7c4c2f1bd454d3ea65419d761fc39aa7e15636d",
             "opacity_order": 80,
+            "opacity_radial_node_count": 82,
             "path_order": 32,
             "radial_order": 80,
-            "radius_km": 25.0
+            "radius_km": 25.0,
+            "source_grid_mode": "union",
+            "source_grid_sha256": "5ee0ec08cc9a579ac245702b4cccf19213286310a980889602c9a27e12e0101b",
+            "source_radial_node_count": 80
           },
           "couplings_g": [
             8.381898081991092e-10,
@@ -12905,12 +13059,19 @@
           "configuration": {
             "angular_order": 24,
             "couplings_are_g_not_alpha_V": true,
+            "energy_grid_sha256": "32b4ec06c9bd4f73d9fe5c6bb6ae6d74c8e4551bdc088e7c61c36ea2a1f009aa",
+            "energy_node_count": 142,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_grid_sha256": "e065fe6588861f1b35d9287f0b09eaef4757042176317580c7f77c59bb47f6f0",
             "opacity_order": 40,
+            "opacity_radial_node_count": 42,
             "path_order": 32,
             "radial_order": 40,
-            "radius_km": 25.0
+            "radius_km": 25.0,
+            "source_grid_mode": "union",
+            "source_grid_sha256": "76dbf71b90707eaa507eec882421124a37767c2dcd82155e7bcd5dccadd15885",
+            "source_radial_node_count": 40
           },
           "couplings_g": [
             4.796429536550025e-10,
@@ -13378,12 +13539,19 @@
           "configuration": {
             "angular_order": 32,
             "couplings_are_g_not_alpha_V": true,
+            "energy_grid_sha256": "32b4ec06c9bd4f73d9fe5c6bb6ae6d74c8e4551bdc088e7c61c36ea2a1f009aa",
+            "energy_node_count": 142,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_grid_sha256": "e065fe6588861f1b35d9287f0b09eaef4757042176317580c7f77c59bb47f6f0",
             "opacity_order": 40,
+            "opacity_radial_node_count": 42,
             "path_order": 32,
             "radial_order": 40,
-            "radius_km": 25.0
+            "radius_km": 25.0,
+            "source_grid_mode": "union",
+            "source_grid_sha256": "76dbf71b90707eaa507eec882421124a37767c2dcd82155e7bcd5dccadd15885",
+            "source_radial_node_count": 40
           },
           "couplings_g": [
             4.796429536550025e-10,
@@ -13851,12 +14019,19 @@
           "configuration": {
             "angular_order": 16,
             "couplings_are_g_not_alpha_V": true,
+            "energy_grid_sha256": "32b4ec06c9bd4f73d9fe5c6bb6ae6d74c8e4551bdc088e7c61c36ea2a1f009aa",
+            "energy_node_count": 142,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_grid_sha256": "e065fe6588861f1b35d9287f0b09eaef4757042176317580c7f77c59bb47f6f0",
             "opacity_order": 40,
+            "opacity_radial_node_count": 42,
             "path_order": 32,
             "radial_order": 40,
-            "radius_km": 25.0
+            "radius_km": 25.0,
+            "source_grid_mode": "union",
+            "source_grid_sha256": "76dbf71b90707eaa507eec882421124a37767c2dcd82155e7bcd5dccadd15885",
+            "source_radial_node_count": 40
           },
           "couplings_g": [
             4.796429536550025e-10,
@@ -14324,12 +14499,19 @@
           "configuration": {
             "angular_order": 24,
             "couplings_are_g_not_alpha_V": true,
+            "energy_grid_sha256": "0053b5e40225110ad3bfbf5303207a605fd2a0f5216ba2a0753851fd68117b2b",
+            "energy_node_count": 202,
             "energy_offset_MeV": 1000.0,
             "energy_order": 140,
+            "opacity_grid_sha256": "a0f19576075eece12000ce65bd752dbfe9f5cd80cae591dc285c97c9356ffae9",
             "opacity_order": 60,
+            "opacity_radial_node_count": 62,
             "path_order": 48,
             "radial_order": 60,
-            "radius_km": 25.0
+            "radius_km": 25.0,
+            "source_grid_mode": "union",
+            "source_grid_sha256": "81ff9546fc37fb6c500ae9b56f08087ad981b4b33cc2d9e9cafc4321ccbb2e1d",
+            "source_radial_node_count": 60
           },
           "couplings_g": [
             4.796429536550025e-10,
@@ -14797,12 +14979,19 @@
           "configuration": {
             "angular_order": 16,
             "couplings_are_g_not_alpha_V": true,
+            "energy_grid_sha256": "b67756809f6bb45a38c4e1191132092185593ee8221bf0640ac3fd5f639ad0df",
+            "energy_node_count": 192,
             "energy_offset_MeV": 1000.0,
             "energy_order": 150,
+            "opacity_grid_sha256": "e065fe6588861f1b35d9287f0b09eaef4757042176317580c7f77c59bb47f6f0",
             "opacity_order": 40,
+            "opacity_radial_node_count": 42,
             "path_order": 32,
             "radial_order": 40,
-            "radius_km": 25.0
+            "radius_km": 25.0,
+            "source_grid_mode": "union",
+            "source_grid_sha256": "76dbf71b90707eaa507eec882421124a37767c2dcd82155e7bcd5dccadd15885",
+            "source_radial_node_count": 40
           },
           "couplings_g": [
             4.796429536550025e-10,
@@ -15270,12 +15459,19 @@
           "configuration": {
             "angular_order": 16,
             "couplings_are_g_not_alpha_V": true,
+            "energy_grid_sha256": "b284733133fae4a3dc2abc709cc8a87e8cbef83b7792f081a9e2ef61b0180eb2",
+            "energy_node_count": 242,
             "energy_offset_MeV": 1000.0,
             "energy_order": 200,
+            "opacity_grid_sha256": "e065fe6588861f1b35d9287f0b09eaef4757042176317580c7f77c59bb47f6f0",
             "opacity_order": 40,
+            "opacity_radial_node_count": 42,
             "path_order": 32,
             "radial_order": 40,
-            "radius_km": 25.0
+            "radius_km": 25.0,
+            "source_grid_mode": "union",
+            "source_grid_sha256": "76dbf71b90707eaa507eec882421124a37767c2dcd82155e7bcd5dccadd15885",
+            "source_radial_node_count": 40
           },
           "couplings_g": [
             4.796429536550025e-10,
@@ -15743,12 +15939,19 @@
           "configuration": {
             "angular_order": 32,
             "couplings_are_g_not_alpha_V": true,
+            "energy_grid_sha256": "0c399ef9775a83034ad5b5809edbfa0aec40b59c184973e56336eaba23a43c97",
+            "energy_node_count": 282,
             "energy_offset_MeV": 1000.0,
             "energy_order": 200,
+            "opacity_grid_sha256": "62107e317c536fa9cae5a610f7c4c2f1bd454d3ea65419d761fc39aa7e15636d",
             "opacity_order": 80,
+            "opacity_radial_node_count": 82,
             "path_order": 64,
             "radial_order": 80,
-            "radius_km": 25.0
+            "radius_km": 25.0,
+            "source_grid_mode": "union",
+            "source_grid_sha256": "5ee0ec08cc9a579ac245702b4cccf19213286310a980889602c9a27e12e0101b",
+            "source_radial_node_count": 80
           },
           "couplings_g": [
             4.796429536550025e-10,
@@ -16216,12 +16419,19 @@
           "configuration": {
             "angular_order": 16,
             "couplings_are_g_not_alpha_V": true,
+            "energy_grid_sha256": "32b4ec06c9bd4f73d9fe5c6bb6ae6d74c8e4551bdc088e7c61c36ea2a1f009aa",
+            "energy_node_count": 142,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_grid_sha256": "e065fe6588861f1b35d9287f0b09eaef4757042176317580c7f77c59bb47f6f0",
             "opacity_order": 40,
+            "opacity_radial_node_count": 42,
             "path_order": 48,
             "radial_order": 40,
-            "radius_km": 25.0
+            "radius_km": 25.0,
+            "source_grid_mode": "union",
+            "source_grid_sha256": "76dbf71b90707eaa507eec882421124a37767c2dcd82155e7bcd5dccadd15885",
+            "source_radial_node_count": 40
           },
           "couplings_g": [
             4.796429536550025e-10,
@@ -16689,12 +16899,19 @@
           "configuration": {
             "angular_order": 16,
             "couplings_are_g_not_alpha_V": true,
+            "energy_grid_sha256": "32b4ec06c9bd4f73d9fe5c6bb6ae6d74c8e4551bdc088e7c61c36ea2a1f009aa",
+            "energy_node_count": 142,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_grid_sha256": "e065fe6588861f1b35d9287f0b09eaef4757042176317580c7f77c59bb47f6f0",
             "opacity_order": 40,
+            "opacity_radial_node_count": 42,
             "path_order": 64,
             "radial_order": 40,
-            "radius_km": 25.0
+            "radius_km": 25.0,
+            "source_grid_mode": "union",
+            "source_grid_sha256": "76dbf71b90707eaa507eec882421124a37767c2dcd82155e7bcd5dccadd15885",
+            "source_radial_node_count": 40
           },
           "couplings_g": [
             4.796429536550025e-10,
@@ -17162,12 +17379,19 @@
           "configuration": {
             "angular_order": 16,
             "couplings_are_g_not_alpha_V": true,
+            "energy_grid_sha256": "43d3606ca4f413d42e9c6b50bb0ce336ddeae4867fd03e884a179ef3c1316654",
+            "energy_node_count": 162,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_grid_sha256": "a0f19576075eece12000ce65bd752dbfe9f5cd80cae591dc285c97c9356ffae9",
             "opacity_order": 60,
+            "opacity_radial_node_count": 62,
             "path_order": 32,
             "radial_order": 60,
-            "radius_km": 25.0
+            "radius_km": 25.0,
+            "source_grid_mode": "union",
+            "source_grid_sha256": "81ff9546fc37fb6c500ae9b56f08087ad981b4b33cc2d9e9cafc4321ccbb2e1d",
+            "source_radial_node_count": 60
           },
           "couplings_g": [
             4.796429536550025e-10,
@@ -17635,12 +17859,19 @@
           "configuration": {
             "angular_order": 16,
             "couplings_are_g_not_alpha_V": true,
+            "energy_grid_sha256": "4e267e97fdeb8d91520d9e35c582f6bb1569e2333c2d896948470edb84f02b27",
+            "energy_node_count": 182,
             "energy_offset_MeV": 1000.0,
             "energy_order": 100,
+            "opacity_grid_sha256": "62107e317c536fa9cae5a610f7c4c2f1bd454d3ea65419d761fc39aa7e15636d",
             "opacity_order": 80,
+            "opacity_radial_node_count": 82,
             "path_order": 32,
             "radial_order": 80,
-            "radius_km": 25.0
+            "radius_km": 25.0,
+            "source_grid_mode": "union",
+            "source_grid_sha256": "5ee0ec08cc9a579ac245702b4cccf19213286310a980889602c9a27e12e0101b",
+            "source_radial_node_count": 80
           },
           "couplings_g": [
             4.796429536550025e-10,
