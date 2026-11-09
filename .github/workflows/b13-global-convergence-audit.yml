@@ -20,7 +20,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: b13-global-convergence-\${{ github.ref }}
+  group: b13-global-convergence-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -32,7 +32,7 @@ jobs:
       - name: Check out research branch
         uses: actions/checkout@v4
         with:
-          ref: \${{ github.sha }}
+          ref: research/moving-muon-thermal-rates-20261107
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -48,7 +48,7 @@ jobs:
             research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b13_global_transport.py
       - name: Run orthogonal and combined quadrature scans
         env:
-          PYTHONPATH: \${{ github.workspace }}/research/stellar-cooling-constraints-20261105
+          PYTHONPATH: ${{ github.workspace }}/research/stellar-cooling-constraints-20261105
         run: |
           python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b13_global_convergence.py
       - name: Validate convergence output and unchanged production axial files
