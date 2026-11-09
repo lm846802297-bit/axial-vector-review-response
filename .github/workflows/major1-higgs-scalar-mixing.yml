@@ -1,4 +1,4 @@
-name: Higgs-scalar fermion-sector matrix audit
+name: Higgs-scalar research audit suite
 
 on:
   push:
@@ -7,6 +7,8 @@ on:
     paths:
       - "research/major1-higgs-scalar-mixing-20261109/fermion_sector_matrix_audit.py"
       - "research/major1-higgs-scalar-mixing-20261109/test_fermion_sector_matrix_audit.py"
+      - "research/major1-higgs-scalar-mixing-20261109/c5_gauge_convention_audit.py"
+      - "research/major1-higgs-scalar-mixing-20261109/test_c5_gauge_convention_audit.py"
       - ".github/workflows/major1-higgs-scalar-mixing.yml"
   workflow_dispatch:
 
@@ -32,19 +34,22 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install numpy==2.3.5 scipy==1.17.0
-      - name: Run matrix-audit tests
+      - name: Run research audit tests
         run: |
           set -o pipefail
           python -m unittest discover -s research/major1-higgs-scalar-mixing-20261109 -p "test_*.py" -v 2>&1 | tee research/major1-higgs-scalar-mixing-20261109/fermion_sector_matrix_tests.txt
+      - name: Run and archive the C5/gauge convention audit
+        run: |
+          python research/major1-higgs-scalar-mixing-20261109/c5_gauge_convention_audit.py > research/major1-higgs-scalar-mixing-20261109/c5_gauge_convention_audit.json
       - name: Run and archive the matrix audit
         run: |
           python research/major1-higgs-scalar-mixing-20261109/fermion_sector_matrix_audit.py > research/major1-higgs-scalar-mixing-20261109/fermion_sector_matrix_audit.json
-          sha256sum research/major1-higgs-scalar-mixing-20261109/fermion_sector_matrix_audit.py research/major1-higgs-scalar-mixing-20261109/test_fermion_sector_matrix_audit.py research/major1-higgs-scalar-mixing-20261109/fermion_sector_matrix_audit.json research/major1-higgs-scalar-mixing-20261109/fermion_sector_matrix_tests.txt > research/major1-higgs-scalar-mixing-20261109/FERMION_MATRIX_SHA256SUMS.txt
+          sha256sum research/major1-higgs-scalar-mixing-20261109/fermion_sector_matrix_audit.py research/major1-higgs-scalar-mixing-20261109/test_fermion_sector_matrix_audit.py research/major1-higgs-scalar-mixing-20261109/fermion_sector_matrix_audit.json research/major1-higgs-scalar-mixing-20261109/c5_gauge_convention_audit.py research/major1-higgs-scalar-mixing-20261109/test_c5_gauge_convention_audit.py research/major1-higgs-scalar-mixing-20261109/c5_gauge_convention_audit.json research/major1-higgs-scalar-mixing-20261109/fermion_sector_matrix_tests.txt > research/major1-higgs-scalar-mixing-20261109/FERMION_MATRIX_SHA256SUMS.txt
       - name: Commit reproducible audit output
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add research/major1-higgs-scalar-mixing-20261109/fermion_sector_matrix_audit.json research/major1-higgs-scalar-mixing-20261109/fermion_sector_matrix_tests.txt research/major1-higgs-scalar-mixing-20261109/FERMION_MATRIX_SHA256SUMS.txt
+          git add research/major1-higgs-scalar-mixing-20261109/fermion_sector_matrix_audit.json research/major1-higgs-scalar-mixing-20261109/c5_gauge_convention_audit.json research/major1-higgs-scalar-mixing-20261109/fermion_sector_matrix_tests.txt research/major1-higgs-scalar-mixing-20261109/FERMION_MATRIX_SHA256SUMS.txt
           if git diff --cached --quiet; then
             echo "No new matrix-audit output to commit."
             exit 0
