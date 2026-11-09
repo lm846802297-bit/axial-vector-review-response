@@ -9,7 +9,7 @@ test_mixed_hs_local_uv_pole_vanishes (test_independent_fermion_tadpole_uv_audit.
 test_trace_invariant_matches_independent_svd_spectrum (test_independent_fermion_tadpole_uv_audit.IndependentFermionTadpoleUVTests.test_trace_invariant_matches_independent_svd_spectrum) ... ok
 
 ----------------------------------------------------------------------
-Ran 9 tests in 1.412s
+Ran 9 tests in 1.524s
 
 OK
 test_c5_normalization_reproduces_seesaw_masses (test_scalar_potential_counterterm_map.ScalarPotentialCountertermMapTests.test_c5_normalization_reproduces_seesaw_masses) ... ok
@@ -23,6 +23,6 @@ test_leading_eft5_contact_completes_mixed_two_point_uv_pole (test_scalar_potenti
 test_plan_c_scale_residual_is_twice_eft5_mixed_uv_pole (test_scalar_potential_counterterm_map.ScalarPotentialCountertermMapTests.test_plan_c_scale_residual_is_twice_eft5_mixed_uv_pole) ... ok
 
 ----------------------------------------------------------------------
-Ran 9 tests in 0.022s
+Ran 9 tests in 0.021s
 
 OK

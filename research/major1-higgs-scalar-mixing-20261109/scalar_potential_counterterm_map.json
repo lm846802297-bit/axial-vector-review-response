@@ -20,7 +20,7 @@
   "EFT_dimension8_counterterm_basis": {
     "operator": "(Hdagger H)^2 (Sdagger S)^2",
     "coefficient": "-sum_l |C5_l|^4/(16 pi^2)",
-    "C5_definition": "C5_l = y_l lambda_l/M_E; m_l(h,s)=C5_l(v_h+h)(v_s+s)/2",
+    "C5_definition": "L_EFT5=-C5_l O5+h.c.; C5_l=-y_l lambda_l/M_E; m_l(h,s)=C5_l(v_h+h)(v_s+s)/2; physical mass=|m_l|",
     "reason": "The light determinant of the dimension-five mass operator generates a dimension-eight scalar operator; its h-s contact contribution is required in the EFT two-point UV pole."
   },
   "benchmarks": {
@@ -93,8 +93,9 @@
       "leading_EFT5_light_loop_and_dimension8_counterterm": {
         "flavours": {
           "mu": {
-            "C5_GeVminus1": 1.2107300493940768e-05,
-            "kappa_neutral_mass_operator_GeVminus1": 6.053650246970384e-06,
+            "C5_GeVminus1": -1.2107300493940768e-05,
+            "kappa_neutral_mass_operator_GeVminus1": -6.053650246970384e-06,
+            "m_EFT5_mass_parameter_at_vev_GeV": -0.1056583755,
             "m_EFT5_at_vev_GeV": 0.1056583755,
             "input_light_mass_GeV": 0.1056583755,
             "mass_relative_difference": 0.0,
@@ -108,8 +109,9 @@
             }
           },
           "tau": {
-            "C5_GeVminus1": 0.00020360882754309992,
-            "kappa_neutral_mass_operator_GeVminus1": 0.00010180441377154996,
+            "C5_GeVminus1": -0.00020360882754309992,
+            "kappa_neutral_mass_operator_GeVminus1": -0.00010180441377154996,
+            "m_EFT5_mass_parameter_at_vev_GeV": -1.77686,
             "m_EFT5_at_vev_GeV": 1.77686,
             "input_light_mass_GeV": 1.77686,
             "mass_relative_difference": 0.0,
@@ -359,8 +361,9 @@
       "leading_EFT5_light_loop_and_dimension8_counterterm": {
         "flavours": {
           "mu": {
-            "C5_GeVminus1": 2.724583009387656e-06,
-            "kappa_neutral_mass_operator_GeVminus1": 1.362291504693828e-06,
+            "C5_GeVminus1": -2.724583009387656e-06,
+            "kappa_neutral_mass_operator_GeVminus1": -1.362291504693828e-06,
+            "m_EFT5_mass_parameter_at_vev_GeV": -0.1056583755,
             "m_EFT5_at_vev_GeV": 0.1056583755,
             "input_light_mass_GeV": 0.1056583755,
             "mass_relative_difference": 0.0,
@@ -374,8 +377,9 @@
             }
           },
           "tau": {
-            "C5_GeVminus1": 4.5819392387502213e-05,
-            "kappa_neutral_mass_operator_GeVminus1": 2.2909696193751107e-05,
+            "C5_GeVminus1": -4.5819392387502213e-05,
+            "kappa_neutral_mass_operator_GeVminus1": -2.2909696193751107e-05,
+            "m_EFT5_mass_parameter_at_vev_GeV": -1.7768600000000003,
             "m_EFT5_at_vev_GeV": 1.7768600000000003,
             "input_light_mass_GeV": 1.77686,
             "mass_relative_difference": 1.2496460324675624e-16,
