@@ -148,7 +148,21 @@ The Fig. 3 absolute-density curve reaches its lower plotting floor of 10^-7 fm^-
 
 This confirms that the published-figure-level absolute-density tension persists through the last uncensored Fig. 3 segment, while T and mu_mu/T remain independently matched. It does not identify the origin of the discrepancy. No density normalization, B.1 source, B.2 opacity, luminosity, or axial-vector output is rescaled. Full details: [BOLLIG_15_20KM_THERMODYNAMIC_CROSSCHECK_2026-11-09.md](BOLLIG_15_20KM_THERMODYNAMIC_CROSSCHECK_2026-11-09.md); workflow [42557233565](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42557233565).
 
-## 10. Current decision
+## 10. Inner 8--12 km negative muon-neutrino branch sensitivity: completed
+
+The self-consistent B.1+B.2 sensitivity audit [42557144227](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42557144227) varies only the resolved negative Caputo mu_numu branch in 8--12 km. The branch spans -20.43 to -4.31 MeV over 270 profile nodes. It is tested at zero, +/-10% magnitude variations, and a sign flip. Every scenario recomputes the full source and opacity on the 40x100x32x32 grid.
+
+At the strong endpoint:
+- Removing the entire branch changes escaped luminosity by -0.02228% and escape probability by -0.32761%.
+- A 10% reduction changes escaped luminosity by -0.00423% and escape probability by -0.06177%.
+- A 10% increase changes escaped luminosity by +0.00468% and escape probability by +0.06801%.
+- Sign reversal leaves the integrated result unchanged at the stored precision.
+
+The 8--12 km shell contributes 65.893% of the B.1 thin source and 15.9324% of the neutrino path optical depth for 8--15 km emission. The resolved negative branch is therefore a real input in an important region, but even its complete removal changes the strong-endpoint escaped luminosity by only about 0.0223%. The sign-flip equality is a charge-conjugation/symmetric-integration diagnostic, not evidence that the physical sign is irrelevant to every differential observable.
+
+Full results: [B16_INNER_NUMU_BRANCH_SENSITIVITY_8_12KM_2026-11-09.md](B16_INNER_NUMU_BRANCH_SENSITIVITY_8_12KM_2026-11-09.md); machine-readable output: [b16_inner_numu_branch_sensitivity_8_12km_10mev_2026-11-09.json](outputs/b16_inner_numu_branch_sensitivity_8_12km_10mev_2026-11-09.json).
+
+## 11. Current decision
 
 - Radial, energy, angular, and path global quadrature: passed the stated project-level luminosity-stability targets at the tested resolutions.
 - Same-grid B.16 closure: passed for all four global B.13 configurations with zero residual.
