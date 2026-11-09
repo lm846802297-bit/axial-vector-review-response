@@ -1,0 +1,111 @@
+name: B.2 isolated radial opacity-interpolation convergence
+
+on:
+  push:
+    branches:
+      - research/moving-muon-thermal-rates-20261107
+    paths:
+      - '.github/workflows/b2-opacity-interpolation-convergence.yml'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b2_opacity_interpolation_convergence.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_global_redshift.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py'
+      - 'research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: b2-opacity-interpolation-convergence-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Check out research branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy
+      - name: Compile isolated opacity interpolation audit
+        run: |
+          python -m py_compile \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b2_opacity_interpolation_convergence.py \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_global_redshift.py
+      - name: Run B.2 path and redshift regression tests
+        env:
+          PYTHONPATH: ${{ github.workspace }}/research/stellar-cooling-constraints-20261105
+        run: |
+          python -m unittest discover -s research/stellar-cooling-constraints-20261105/blinov_reproduction -p 'test_b16_global_redshift.py' -v
+      - name: Run three-mass isolated opacity-grid refinement
+        env:
+          PYTHONPATH: ${{ github.workspace }}/research/stellar-cooling-constraints-20261105
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b2_opacity_interpolation_convergence.py \
+            --masses 0.1,1,10 \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b2_opacity_interpolation_convergence_2026-11-09.json \
+            --report research/stellar-cooling-constraints-20261105/blinov_reproduction/B2_OPACITY_INTERPOLATION_CONVERGENCE_2026-11-09.md
+      - name: Verify fixed source quadrature and production isolation
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path("research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b2_opacity_interpolation_convergence_2026-11-09.json")
+          d = json.loads(p.read_text())
+          assert d["profile_sha256"] == "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
+          assert [x["mass_MeV"] for x in d["results"]] == [0.1, 1.0, 10.0]
+          for result in d["results"]:
+              assert result["fixed_quadratures"] == {
+                  "source_radial_order": 40,
+                  "energy_order": 100,
+                  "angular_order": 16,
+                  "path_order": 32,
+              }
+              assert list(map(int, result["opacity_grid_orders"])) == [40, 80, 120, 160, 240, 320]
+              assert len(result["configurations"]) == 6
+              assert all(x["profile_sha256"] == d["profile_sha256"] for x in result["configurations"].values())
+          print(json.dumps({
+              str(x["mass_MeV"]): {
+                  "overall_passed": x["overall_passed"],
+                  "acceptance": x["acceptance"],
+              } for x in d["results"]
+          }, indent=2))
+          PY
+          git diff --exit-code -- \
+            research/stellar-cooling-constraints-20261105/rates.py \
+            research/stellar-cooling-constraints-20261105/transport.py \
+            research/stellar-cooling-constraints-20261105/outputs/axial.json \
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.pdf \
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.png
+      - name: Archive opacity interpolation audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b2_opacity_interpolation_convergence_2026-11-09.json \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/B2_OPACITY_INTERPOLATION_CONVERGENCE_2026-11-09.md
+          git commit -m "Archive isolated B.2 opacity interpolation convergence"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin "${GITHUB_REF_NAME}"
+            if ! git rebase "origin/${GITHUB_REF_NAME}"; then
+              git rebase --abort || true
+              sleep 2
+              continue
+            fi
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then exit 0; fi
+            sleep 2
+          done
+          exit 1
