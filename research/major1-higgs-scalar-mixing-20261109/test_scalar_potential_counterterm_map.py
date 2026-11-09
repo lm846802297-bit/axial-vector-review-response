@@ -2,6 +2,7 @@ import unittest
 
 from scalar_potential_counterterm_map import (
     LOOP,
+    finite_heavy_potential_matching,
     leading_eft5_derivatives,
     potential_mass_counterterm,
     potential_tadpoles_per_vev,
@@ -105,6 +106,66 @@ class ScalarPotentialCountertermMapTests(unittest.TestCase):
                 places=14,
             )
             self.assertEqual(running["finite_matching_value_c8_at_M_E"], "not determined")
+
+    def test_finite_heavy_cw_matching_coefficients_and_c8_running(self):
+        by_flavour = {
+            "mu": {"y": 1.14873979560807, "lambda": 0.21079274070995216},
+            "tau": {"y": 1.14873979560807, "lambda": 3.5449077035817727},
+        }
+        result = finite_heavy_potential_matching(by_flavour)
+        coeff = result["finite_potential_wilson_coefficients_at_mu_ME"]
+        c8 = result["O8_matching_and_running"]
+        c5_fourth = result["dimensionless_coupling_invariants"]["c5_fourth"]
+        self.assertAlmostEqual(coeff["delta_lambda_HS_finite_at_mu_ME"],
+                               -2.0*LOOP*sum(
+                                   abs(v["y"])**2*abs(v["lambda"])**2
+                                   for v in by_flavour.values()), places=15)
+        self.assertAlmostEqual(c8["UV_pole_residue_GeVminus4"],
+                               -LOOP*c5_fourth, places=30)
+        self.assertAlmostEqual(c8["finite_matching_coefficient_c8_at_mu_ME_GeVminus4"],
+                               -3.5*LOOP*c5_fourth, places=30)
+        self.assertAlmostEqual(c8["loop_induced_beta_c8_GeVminus4"],
+                               -2.0*LOOP*c5_fourth, places=30)
+        self.assertAlmostEqual(
+            coeff["c_(HdagH)^2(SdagS)^2_GeVminus4"],
+            c8["finite_matching_coefficient_c8_at_mu_ME_GeVminus4"], places=30
+        )
+        self.assertGreater(coeff["c_(HdagH)^2(SdagS)_GeVminus2"], 0.0)
+        self.assertGreater(coeff["c_(HdagH)(SdagS)^2_GeVminus2"], 0.0)
+        self.assertLess(coeff["c_(HdagH)^3(SdagS)_GeVminus4"], 0.0)
+        self.assertLess(coeff["c_(HdagH)(SdagS)^3_GeVminus4"], 0.0)
+
+    def test_exact_heavy_eigenvalue_cw_matches_dimension8_background_expansion(self):
+        import mpmath as mp
+        mp.mp.dps = 70
+
+        def exact_heavy_cw(x, y):
+            total = 1 + x + y
+            heavy = (total + mp.sqrt(total**2 - 4*x*y))/2
+            return heavy**2*(mp.log(heavy)-mp.mpf(3)/2)
+
+        def truncated_expansion(x, y):
+            u = x+y
+            p = x*y
+            return (
+                -mp.mpf(3)/2 - 2*u + 2*p
+                + (u**3/3 - 2*p*u)
+                + (-u**4/12 + p*u**2 + 2*p**2)
+            )
+
+        x0, y0 = mp.mpf("0.4"), mp.mpf("0.6")
+        scale_large, scale_small = mp.mpf("0.04"), mp.mpf("0.02")
+        err_large = abs(
+            exact_heavy_cw(scale_large*x0, scale_large*y0)
+            - truncated_expansion(scale_large*x0, scale_large*y0)
+        )
+        err_small = abs(
+            exact_heavy_cw(scale_small*x0, scale_small*y0)
+            - truncated_expansion(scale_small*x0, scale_small*y0)
+        )
+        # The first omitted terms have total degree five in X,Y.
+        self.assertLess(err_small/err_large, mp.mpf("0.04"))
+        self.assertGreater(err_small/err_large, mp.mpf("0.02"))
 
     def test_dimension8_coefficient_has_correct_mass_dimension_and_scaling(self):
         by_a = {
