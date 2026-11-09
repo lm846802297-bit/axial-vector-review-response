@@ -47,7 +47,7 @@ $$
 | Mean relative difference in (T(r)) | 0.0144% |
 | Maximum relative difference in (T(r)) | 0.1263% |
 
-The temperature curves are nearly identical. The large discrepancy is specifically in the chemical-potential curve.
+The temperature curves are nearly identical. The large discrepancy is specifically in the chemical-potential curve. The 77.26% radial-weighted mean is obtained by trapezoidal integration over 5--15 km; the 82.98% node mean is an unweighted diagnostic and should not be interpreted as a radial average.
 
 ### Representative points
 
