@@ -88,7 +88,7 @@ def main() -> None:
     result = {
         "title": "Caputo versus Ferreira SFHo-18.8 muon chemical-potential profile comparison",
         "status": "profile_provenance_diagnostic_only",
-        "input_csv": str(args.input),
+        "input_csv": str(args.input.resolve().relative_to(ROOT.parent.parent.resolve())) if args.input.resolve().is_relative_to(ROOT.parent.parent.resolve()) else str(args.input),
         "input_sha256": sha256(args.input),
         "radial_window_km": [5.0, 15.0],
         "n_profile_nodes_inclusive": len(window),
