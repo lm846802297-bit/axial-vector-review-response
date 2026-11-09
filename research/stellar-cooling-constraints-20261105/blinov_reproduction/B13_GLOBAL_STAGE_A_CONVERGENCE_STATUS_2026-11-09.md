@@ -188,7 +188,15 @@ At the strong endpoint, the fixed-omega B.2 baseline has \(L/L_{\rm Fig.7}-1=+92
 
 Full channel and shell decomposition: [B16_VERTEX_PRESERVING_GLOBAL_CHANNEL_DECOMPOSITION_2026-11-09.md](B16_VERTEX_PRESERVING_GLOBAL_CHANNEL_DECOMPOSITION_2026-11-09.md).
 
-## 13. Current decision
+## 13. Independent local absorption audit on current profile: completed
+
+The B.6--B.10 and B.13--B.19 local audit was rerun on profile SHA-256 9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c. It samples 16 radii and six energies (96 points), explicitly including the positive mu_numu branch at 16.75, 17.5, and 18.25 km and the 20--22 km shell at 20.5 and 21.5 km.
+
+All independent local formula checks pass: maximum total production, absorption, and reduced-absorption closure residuals are 3.024e-14, 3.035e-14, and 3.048e-14. The separate maximum residuals for nu_mu/nu_tau B.6 production, B.10 detailed balance, neutrino B.4, Compton B.16 production, B.19, and Compton B.4 are all at or below 4.903e-14. The production axial-vector outputs remain unchanged.
+
+This validates the current-profile local implementation of the printed Appendix-B reference formulae at the sampled points. It does not validate the physical accuracy of the B.14--B.16 no-recoil approximation, the global B.1/B.2 integration, or the Fig. 7 reproduction. Full report: [B16_LOCAL_ABSORPTION_VERTEX_PRESERVING_2026-11-09.md](B16_LOCAL_ABSORPTION_VERTEX_PRESERVING_2026-11-09.md); workflow [42558231626](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42558231626).
+
+## 14. Current decision
 
 - Radial, energy, angular, and path global quadrature: passed the stated project-level luminosity-stability targets at the tested resolutions.
 - Same-grid B.16 closure: passed for all four global B.13 configurations with zero residual.
