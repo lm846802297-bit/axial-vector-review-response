@@ -41,6 +41,20 @@ class OriginalUVWidthScanTests(unittest.TestCase):
         self.assertGreaterEqual(p["ctau_s_upper_bound_m"],
                                 p["ctau_s_lower_bound_m"])
 
+    def test_fourmu_and_tau_width_resolution_intervals_are_ordered(self):
+        # Lower endpoint uses the smallest width and the largest resolution;
+        # upper endpoint uses the largest width and the smallest resolution.
+        for mA in (0.5, 2.1, 5.0):
+            p = evaluate_scan_point(4.0, mA, 0.1, 1e-2, 1e-2, 64)
+            self.assertLessEqual(
+                p["fourmu_Gamma_over_sigma_lower_bound"],
+                p["fourmu_Gamma_over_sigma_upper_bound"],
+            )
+            self.assertLessEqual(
+                p["tau_Gamma_over_sigma_lower_bound"],
+                p["tau_Gamma_over_sigma_upper_bound"],
+            )
+
     def test_lambdaS_criterion_is_not_mistaken_for_full_perturbativity(self):
         p = evaluate_scan_point(0.212, 0.05, 0.1, 1e-2, 1e-2, 64)
         self.assertTrue(p["passes_lambdaS_le_4pi"])

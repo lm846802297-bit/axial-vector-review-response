@@ -156,8 +156,8 @@ def evaluate_scan_point(
             "fourmu_Gamma_MR_upper_GeV": fourmu_upper["Gamma_MR_GeV"],
             "fourmu_sigma_MR_min_GeV": fourmu_lower["sigma_MR_min_GeV"],
             "fourmu_sigma_MR_max_GeV": fourmu_lower["sigma_MR_max_GeV"],
-            "fourmu_Gamma_over_sigma_lower_bound": fourmu_lower["Gamma_over_sigma_upper_resolution"],
-            "fourmu_Gamma_over_sigma_upper_bound": fourmu_upper["Gamma_over_sigma_lower_resolution"],
+            "fourmu_Gamma_over_sigma_lower_bound": fourmu_lower["Gamma_over_sigma_lower_resolution"],
+            "fourmu_Gamma_over_sigma_upper_bound": fourmu_upper["Gamma_over_sigma_upper_resolution"],
             "fourmu_mass_in_published_scan": not (3.07 <= ms <= 3.12),
         }
     else:
