@@ -298,24 +298,67 @@ We agree that a vanishing Higgs-portal coupling is not enforced by the gauge sym
 
 Generic singlet--Higgs mixing is constrained by the \(125\) GeV Higgs signal strengths and direct searches for additional scalar states; representative analyses are cited above. For the original one-singlet \(S+\mathrm{VLL}\) UV model considered here, we complement these general results with the model-specific VLL threshold matching and the finite-momentum \(h\)-\(s\) self-energy, evaluated using the full charged-lepton/VLL mass-eigenstate matrices as detailed below.
 
-In the \(\overline{\mathrm{MS}}\) scheme, with \(\mathcal L\supset -V\) and \(V\supset\lambda_{HS}(H^\dagger H)(S^\dagger S)\), the zero-momentum effective-potential matching for the vector-like-lepton (VLL) sector gives
+In the \(\overline{\mathrm{MS}}\) scheme, with \(\mathcal L\supset -V\) and \(V\supset\lambda_{HS}(H^\dagger H)(S^\dagger S)\), this threshold follows from the fermionic Coleman--Weinberg effective potential~\cite{ColemanWeinberg:1973,Jackiw:1974}. For constant neutral Higgs and singlet backgrounds, the charged-lepton/VLL mass matrix for each flavour is
 \[
-\lambda_{HS}^{\mathrm{EFT}}(\mu_R)
-=\lambda_{HS}^{\mathrm{UV}}(\mu_R)
--\sum_{\ell=\mu,\tau}
-\frac{|y_\ell|^2|\lambda_\ell|^2}{8\pi^2}
-+\cdots,
+\mathcal M_\ell(H,S)=
+\begin{pmatrix}
+0&y_\ell H^0\\
+\lambda_\ell S_\ell&M_E
+\end{pmatrix},
+\qquad
+S_\mu=S,\quad S_\tau=S^*,
 \]
-where \(y_\ell\) and \(\lambda_\ell\) are the Yukawa couplings in the VLL interaction. This relation fixes the zero-momentum VLL threshold contribution; the finite-momentum \(h\)-\(s\) self-energy and the associated mixing diagnostics are evaluated separately below.
-
-To make the portal assumption explicit, we have evaluated the leading VLL threshold at the matching scale \(\mu_M=M_E\),
+where \(H^0\) is the neutral Higgs background. Defining
+\[
+X_\ell=|y_\ell|^2H^\dagger H,\qquad
+Z_\ell=|\lambda_\ell|^2S^\dagger S,
+\]
+the two eigenvalues of \(\mathcal M_\ell^\dagger\mathcal M_\ell\) are
+\[
+m_{\ell,\pm}^2
+=\frac12\left[
+M_E^2+X_\ell+Z_\ell
+\pm\sqrt{(M_E^2+X_\ell+Z_\ell)^2-4X_\ell Z_\ell}
+\right].
+\]
+The one-loop contribution of these two Dirac mass eigenstates is
+\[
+V_{1,\ell}^{F}
+=-\frac{1}{16\pi^2}\sum_{a=\pm}
+m_{\ell,a}^4
+\left[
+\ln\!\left(\frac{m_{\ell,a}^2}{\mu_R^2}\right)-\frac32
+\right],
+\]
+where the factor of four Dirac degrees of freedom is included. In the matching expansion \(X_\ell,Z_\ell\ll M_E^2\),
+\[
+m_{\ell,+}^2
+=M_E^2+X_\ell+Z_\ell-\frac{X_\ell Z_\ell}{M_E^2}
++\mathcal O(M_E^{-4}\Phi^6),
+\qquad
+m_{\ell,-}^2
+=\frac{X_\ell Z_\ell}{M_E^2}
++\mathcal O(M_E^{-4}\Phi^6),
+\]
+with \(\Phi\) denoting the background scalar fields. The term proportional to \(X_\ell Z_\ell\) in the heavy-eigenstate Coleman--Weinberg function is \(+2X_\ell Z_\ell\); the light-eigenstate contribution starts at order \(X_\ell^2Z_\ell^2/M_E^4\) and therefore does not contribute to the dimension-four portal coefficient. Thus
+\[
+\left.\Delta V_{\mathrm{VLL}}^{(1)}\right|_{(H^\dagger H)(S^\dagger S)}
+=-\frac{1}{8\pi^2}\sum_{\ell=\mu,\tau}X_\ell Z_\ell
+=-\frac{1}{8\pi^2}\sum_{\ell=\mu,\tau}
+|y_\ell|^2|\lambda_\ell|^2
+(H^\dagger H)(S^\dagger S),
+\]
+which gives the finite one-loop threshold
 \[
 \Delta\lambda_{HS}^{E}
-=-\frac{1}{8\pi^2}\sum_{\ell=\mu,\tau}|y_\ell|^2|\lambda_\ell|^2,
-\qquad
+=-\frac{1}{8\pi^2}\sum_{\ell=\mu,\tau}|y_\ell|^2|\lambda_\ell|^2.
+\]
+At this order the mixed quartic coefficient is independent of \(M_E\) and \(\mu_R\); the \(M_E\)-dependence first appears in higher-dimensional terms. This is a zero-external-momentum matching coefficient, not an RG beta-function contribution. At the matching scale \(\mu_M=M_E\), the coupling relation is
+\[
 \lambda_{HS}^{\mathrm{EFT}}(\mu_M)
 =\lambda_{HS}^{\mathrm{UV}}(\mu_M)+\Delta\lambda_{HS}^{E}.
 \]
+The finite-momentum \(h\)-\(s\) self-energy and the associated mixing diagnostics are evaluated separately below.
 We use \(\lambda_{HS}^{\mathrm{EFT}}(M_E)=0\) as an explicit small-portal reference condition, which requires a nonzero UV portal \(\lambda_{HS}^{\mathrm{UV}}=-\Delta\lambda_{HS}^{E}\). This condition is a benchmark choice, not a symmetry prediction. In the leading charged-lepton/VLL mass-mixing approximation,
 \[
 \theta_{\ell L}\simeq\frac{y_\ell v_h}{\sqrt2M_E},
@@ -1599,5 +1642,5 @@ The response also quantifies the momentum-dependent kinetic mixing and compares 
 \noindent Rundong Fang, Jinhui Guo, Ming Li, Jia Liu, Xiao-Ping Wang, Yiheng Xiong
 
 \bibliographystyle{JHEP}
-\bibliography{overleaf-source/axial-vector-model-building-v6/references,Replies_to_Referee_3_neutrino_references}
+\bibliography{overleaf-source/axial-vector-model-building-v6/references,Replies_to_Referee_3_neutrino_references,Replies_to_Referee_3_additional_references}
 \end{document}
