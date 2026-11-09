@@ -30,7 +30,7 @@ jobs:
   global-b13-transport:
     if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 180
     steps:
       - name: Check out research branch
         uses: actions/checkout@v4
