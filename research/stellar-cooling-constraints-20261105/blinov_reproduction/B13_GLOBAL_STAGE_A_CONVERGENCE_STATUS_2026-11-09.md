@@ -78,24 +78,19 @@ The B.16 fixed-\(\omega\) baseline itself differs from digitized Fig. 7 by \(-8.
 
 This establishes two separate validation questions for subsequent work: (i) why the fixed-\(\omega\) B.16 baseline departs from Fig. 7 in the strong-absorption tail, and (ii) what additional change the exact B.13 Compton source and opacity produce relative to that internally matched B.16 baseline. The first question remains distinct from the numerical quadrature convergence test and must not be hidden by tuning the B.13 result.
 
-## 3. Angular and path quadrature: in progress
+## 3. Angular and path quadrature: completed
 
-The final audit varies angular and path quadrature independently, then checks their joint effect and the fully refined grid. The four targeted configurations are:
+The completed Actions run [42542328275](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42542328275) performed all four configurations: angular-only, path-only, joint angular/path, and combined radial-energy-angular-path refinement. The workflow's structural validation passed: all four labels and both B.13 variants are present, the fixed profile SHA256 matches, every same-grid B.16 closure residual is zero, and the production axial files remain unchanged.
 
-- \(40\times100\times24\times32\): angular-only refinement;
-- \(40\times100\times16\times48\): path-only refinement;
-- \(40\times100\times24\times48\): joint angular/path refinement;
-- \(60\times140\times24\times48\): combined radial, energy, angular, and path refinement.
+The maximum B.13 luminosity shift on the combined grid is 0.2732%; the peak and strong-endpoint shifts are 0.2680% and 0.1842%, below the project targets of 1%, 1%, and 2%. The maximum escape-fraction shift is 0.0895%; no separate escape-fraction acceptance threshold was predeclared. The independent stage-A thin-source ratio changes from 0.7889822588 to 0.7888232697, a 0.0201% decrease.
 
-For every B.13 run, the B.16 comparison calculation is regenerated on the identical grid. A run is interpreted only after the same-grid B.16 closure check passes. The initial workflow attempts exposed a malformed checkout reference and, separately, a mismatch caused by reusing the original-grid B.16 baseline on refined grids. Both implementation issues were corrected. The final workflow checks out the immutable event commit SHA and has separate angular-only and path-only scans, so the two quadrature effects can be distinguished.
-
-The first four-configuration attempt was cancelled when the validation check was corrected. The current immutable-commit run is [GitHub Actions run 42542328275](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42542328275), checked out at commit `7214134a9a42f736b6fe2e707b28b51e3f6274a9`. It contains the corrected validation of all four scan labels and the exact output variant names. Its JSON is configured to upload as a 90-day workflow artifact; after the run passes, that artifact is to be committed to this research branch so the numerical record is retained with the code. Earlier trial runs are not used as accepted convergence results. The run-commit and current-branch Git blob hashes have also been compared for the workflow, convergence script, transport implementation, B.13 summary input, B.16 reference output, and vertex-preserving profile CSV; all six are identical. The documentation-only commits made while the job runs therefore do not change its numerical inputs or implementation.
+The workflow conclusion is nevertheless failure because the final artifact upload hit the GitHub Actions artifact-storage quota. The full JSON was generated on the runner but was not uploaded, and no full JSON archive exists in the branch. A compact summary reconstructed from the job's printed per-scan JSON blocks is archived at [b13_global_convergence_vertex_preserving_10mev_2026-11-09_log_recovered_summary.json](outputs/b13_global_convergence_vertex_preserving_10mev_2026-11-09_log_recovered_summary.json). The audit report is [B13_GLOBAL_ANGULAR_PATH_CONVERGENCE_AUDIT_2026-11-09.md](B13_GLOBAL_ANGULAR_PATH_CONVERGENCE_AUDIT_2026-11-09.md). This recovered summary is explicitly not the original full JSON; its omitted arrays and detailed diagnostics require a fresh run or a later successful upload.
 
 ## 4. Current decision
 
-- Radial and energy quadrature: passed at the tested resolutions.
-- Angular and path quadrature: not yet accepted; same-grid B.16 closure and B.13 luminosity/escape-fraction shifts remain to be checked.
-- Local B.13 collision-kernel quadrature: outside this stage-A audit; reserved for the subsequent local-kernel convergence stage.
+- Radial, energy, angular, and path global quadrature: passed the stated project-level luminosity-stability targets at the tested resolutions.
+- Same-grid B.16 closure: passed for all four configurations with zero residual.
+- Artifact archival: partial only; full JSON upload failed because the Actions storage quota was exhausted.
+- Local B.13 collision-kernel quadrature: not certified by this global audit; remains a separate validation.
+- Fig. 7 mismatch: persists after numerical convergence and must be investigated as a separate physical/reproduction issue.
 - Axial-vector production curve: remains frozen.
-
-The stage-A audit is not complete until the angular/path scan and the combined refinement have produced archived JSON outputs and passed their same-grid closure checks.
