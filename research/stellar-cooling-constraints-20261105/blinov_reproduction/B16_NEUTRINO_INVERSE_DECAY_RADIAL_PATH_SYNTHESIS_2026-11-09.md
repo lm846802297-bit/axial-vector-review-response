@@ -145,3 +145,6 @@ A self-consistent B.1+B.2 sensitivity test varies only T(r) in 20--22 km by +/-1
 Bollig et al. describe the high-muon-density region relevant to their axion production as approximately 5--15 km and report an axion sphere no farther out than about 18 km. These are statements about their axion-muon processes, not a direct proof that the vector neutrino inverse-decay opacity vanishes outside 18 km. The current vector B.2 path integral must therefore retain the independently computed 20--22 km contribution unless a model-specific calculation establishes otherwise.
 
 No rate, source, opacity, coupling, luminosity, or axial-vector curve is rescaled.
+
+
+The unresolved mu_numu figure-floor convention in 20--22 km was also tested by assigning +/-1 MeV throughout the shell and recomputing the complete B.1 source and B.2 opacity. Either sign changes the strong-endpoint escaped luminosity by only +0.00915% and the escape probability by +0.00936%; the two signs agree exactly at stored precision. Thus the unresolved 1 MeV floor in this shell is not a plausible explanation for the large Fig. 7 mismatch. This is a stress test, not a reconstructed measurement of mu_numu. See B16_OUTER_NUMU_FLOOR_SENSITIVITY_20_22KM_2026-11-09.md.
