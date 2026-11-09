@@ -33,13 +33,13 @@ This is not a claim that the full Fig. 7 calculation is reproduced: the reconstr
 ## 2. B.1 source normalization
 
 The code implements the published source measure as
-[
+$
 dL_{\rm thin}=
 4\pi(r\,\mathrm{MeV})^2dr\,N(r)^2
 \frac{k\omega^2}{2\pi^2}
 \Gamma_{\rm prod}(r,\omega)d\omega,
 \qquad k=\sqrt{\omega^2-m_V^2}.
-]
+$
 
 The conversion from km to natural units is applied to both (r) and (dr). The factor (N^2) is applied at the emission radius. The radius-dependent threshold (m_V/N(r)) is inserted in the energy integration. The coupling is factored outside the local rates: local kernels are per (g^2), and the luminosity is multiplied by (g^2) once.
 
@@ -48,14 +48,16 @@ The archived implementation uses a piecewise-linear energy integral on a common 
 ## 3. B.2 propagation and the fixed-energy convention
 
 The literal optical-depth implementation is
-[
+$
 \tau(r,\omega,c_\theta)=
 \frac{1}{v_V(\omega)}
 \int_0^{s_{\max}}ds\,
 \Gamma^*_{\rm abs}(r'(s),\omega),
 \quad
 r'(s)=\sqrt{r^2+s^2+2rsc_\theta}.
-]
+$
+
+The numerical B.4 identity was also evaluated over the 10 MeV reconstructed-profile energy grid. The maximum sampled \(\omega/T\) is 332.919, so the implementation's protective exponential cap at 700 is never activated. The relative residual between \((1-e^{-\omega/T})e^{\omega/T}\) and \(e^{\omega/T}-1\) is (4.44\times10^{-16}).
 
 The reference implementation uses:
 - the B.3 chord endpoint;
@@ -71,10 +73,10 @@ The independent analytic chord integrator integrates the piecewise-linear radial
 The paper's printed B.2 uses (Gamma^*_{\rm abs}(r'(s),\omega)) and (v_V(\omega)), with no (N(r)/N(r'(s))) factor. The fixed-(omega) code is therefore the equation-level reproduction baseline.
 
 The alternative
-[
+$
 \omega_{\rm loc}(s)=\omega_{\rm source}
 \frac{N(r_{\rm source})}{N(r'(s))}
-]
+$
 is a separate propagation prescription. It changes both the local thermal kernel and vector speed. The existing path-redshift calculation keeps the Euclidean chord and does not include proper spatial metric factors or ray bending; it is not a full GR transport solution. Its numerical effect is important, but it must not be used to tune the published-equation baseline.
 
 The article's discussion of gravitational effects in B.1 (the (N^2) luminosity factor and the threshold (m_V/N(r))) does not insert a path-dependent lapse factor into the displayed B.2 integrand.
@@ -82,17 +84,17 @@ The article's discussion of gravitational effects in B.1 (the (N^2) luminosity f
 ## 4. Local neutrino inverse-decay normalization
 
 For one active flavour, the paper writes
-[
+$
 \Gamma_{\nu\bar\nu\to V}^{\rm prod}
 =\frac{m_V}{\omega}\,3\Gamma_{V\to\nu\bar\nu}
 I(\mu_\nu/T,\omega/T,v_V),
 \qquad
 \Gamma_{V\to\nu\bar\nu}=\frac{\alpha_Vm_V}{6}.
-]
+$
 With (\alpha_V=g^2/(4\pi)), the rate per (g^2) is
-[
+$
 \frac{m_V^2}{8\pi\omega}I.
-]
+$
 The implementation sums the two active channels using (\mu_{\nu_\mu}(r)) and (\mu_{\nu_\tau}=0), as specified in the paper for the simulation data used. The local B.7--B.10 audit independently compares the closed form, direct angular phase-space integration, and detailed balance. No missing factor of three or two-flavour normalization error is indicated.
 
 At (m_V=10\) MeV, the inverse dimuon-decay channel is kinematically closed.
@@ -100,12 +102,12 @@ At (m_V=10\) MeV, the inverse dimuon-decay channel is kinematically closed.
 ## 5. Reference Compton rate and the separate B.13 calculation
 
 The Fig. 7 reference implementation uses B.14--B.16:
-[
+$
 \Gamma_{\mu\gamma\to\mu V}^{\rm prod}
 =n_\mu F_{\rm deg}\,
 \frac{2}{v_V}\,
 \frac{\sigma_{\mu\gamma\to\mu V}}{e^{\omega/T}-1}.
-]
+$
 The code's cross section contains the B.14 factor (v_V), which cancels the explicit (1/v_V) in the rate as required. The cross section is evaluated per (g^2) using (\alpha_V/g^2=1/(4\pi)); the global luminosity applies (g^2) once. The B.17 density integral includes the spin factor 2 and uses the single (\mu^-) distribution in the like-for-like reference case.
 
 The full B.13 moving-muon calculation is a different, more complete local-kernel prescription. It replaces both Compton production and absorption together and must remain separate from the B.14--B.16 reproduction baseline. Its current 10 MeV global result is (+131.53\%) at the strong endpoint, compared with (+92.24\%) for B.16. It does not repair the Fig. 7 discrepancy.
@@ -115,9 +117,9 @@ The separate polarization-resolved transport diagnostic also must not be confuse
 ## 6. Coupling and Fig. 7 reference
 
 The digitized Fig. 7 vertices store (g). The corresponding horizontal-axis variable is
-[
+$
 \alpha_V=\frac{g^2}{4\pi}.
-]
+$
 The 25-point 10 MeV vertex sequence is monotonic in (\alpha_V). The source-PDF vector-path audit reconstructs the visible vertices with zero relative residual in the stored (g) and luminosity values. The final visible reference point is (1.2678147591\times10^{52}\,\mathrm{erg\,s^{-1}}) at (g=4.1716896502\times10^{-8}); the next source-PDF vertex lies below the plotted luminosity range and is correctly excluded.
 
 Thus the existing strong-endpoint mismatch is not explained by a curve-label swap, path-order error, or visible-tail digitization error.
