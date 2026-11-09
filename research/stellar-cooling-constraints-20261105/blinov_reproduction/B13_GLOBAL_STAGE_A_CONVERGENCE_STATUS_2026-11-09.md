@@ -216,7 +216,15 @@ A separate public visualization is identified in Zuowei Liu's 31 October 2026 pr
 
 This is qualitative visual corroboration, not precision digitization or access to the original Garching lapse table. It validates the radial trend and normalization of the lapse profile through 20 km; the 20--22 km continuation remains outside the plotted range. No lapse values are modified. Full report: [BOLLIG_LAPSE_PROFILE_VISUAL_CROSSCHECK_2026-11-09.md](BOLLIG_LAPSE_PROFILE_VISUAL_CROSSCHECK_2026-11-09.md).
 
-## 16. Current decision
+## 16. B.1 local-energy / B.2 path-redshift convention audit: completed
+
+The B.1 lower integration limit m_V/N(r) and N(r)^2 luminosity prefactor imply that the energy integrated at the production point is local. The literal B.2 exponent then uses the same omega at every path point, which holds the local-energy argument fixed along the chord. The main-text description of omega as energy at spatial infinity is not transparently consistent with that Appendix-B notation.
+
+The repository keeps the literal Appendix-B fixed-omega prescription as the Fig. 7 reproduction baseline. A separate path-redshift-only diagnostic uses omega_loc(s)=omega_source*N_source/N(r(s)) while retaining Euclidean straight chords. At the strong endpoint it shifts the luminosity by -28.8679% relative to fixed omega, reducing the Fig. 7 residual from +92.2406% to +36.7448%; the weak and peak residuals become -8.8991% and -2.7704%. It does not close the discrepancy and is not a full GR ray trace.
+
+A complete GR path calculation would also require a consistent spatial metric/path element, not just the lapse. The public profile has no independently tabulated A(r) or enclosed-mass profile for the full path. No baseline is changed. Full report: [B16_ENERGY_VARIABLE_AND_PATH_REDSHIFT_CONVENTION_AUDIT_2026-11-09.md](B16_ENERGY_VARIABLE_AND_PATH_REDSHIFT_CONVENTION_AUDIT_2026-11-09.md).
+
+## 17. Current decision
 
 - Radial, energy, angular, and path global quadrature: passed the stated project-level luminosity-stability targets at the tested resolutions.
 - Same-grid B.16 closure: passed for all four global B.13 configurations with zero residual.
