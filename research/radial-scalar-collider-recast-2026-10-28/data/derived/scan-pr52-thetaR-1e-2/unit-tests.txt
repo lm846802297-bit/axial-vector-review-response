@@ -15,6 +15,7 @@ test_tau_convolution_uses_40_sigma_total_fit_window (test_finite_width_line_shap
 test_tautau_observable_is_recoil_mass (test_finite_width_line_shape.FiniteWidthLineShapeTests.test_tautau_observable_is_recoil_mass) ... ok
 test_two_component_mixture_normalization (test_finite_width_line_shape.FiniteWidthLineShapeTests.test_two_component_mixture_normalization) ... ok
 test_branching_interval_straddling_limit_is_not_called_excluded (test_narrow_prompt_benchmark_recast.BoundedWidthRecastTests.test_branching_interval_straddling_limit_is_not_called_excluded) ... ok
+test_classification_summary_reports_mass_span_and_diagnostic_extrema (test_narrow_prompt_benchmark_recast.BoundedWidthRecastTests.test_classification_summary_reports_mass_span_and_diagnostic_extrema) ... ok
 test_flight_interval_controls_prompt_proxy (test_narrow_prompt_benchmark_recast.BoundedWidthRecastTests.test_flight_interval_controls_prompt_proxy) ... ok
 test_fourmu_exclusion_uses_conservative_minimum_branching_fraction (test_narrow_prompt_benchmark_recast.BoundedWidthRecastTests.test_fourmu_exclusion_uses_conservative_minimum_branching_fraction) ... ok
 test_gzip_scan_reader (test_narrow_prompt_benchmark_recast.BoundedWidthRecastTests.test_gzip_scan_reader) ... ok
@@ -59,6 +60,6 @@ test_original_field_content_does_not_add_electron_yukawa (test_scan_original_uv_
 test_two_virtual_region_has_diagonal_and_exchange_bound (test_scan_original_uv_widths.OriginalUVWidthScanTests.test_two_virtual_region_has_diagonal_and_exchange_bound) ... ok
 
 ----------------------------------------------------------------------
-Ran 59 tests in 0.214s
+Ran 60 tests in 0.161s
 
 OK

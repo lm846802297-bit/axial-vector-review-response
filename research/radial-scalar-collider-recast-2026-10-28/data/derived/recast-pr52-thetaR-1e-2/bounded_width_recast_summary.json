@@ -43,6 +43,142 @@
       "unclassified_outside_numerical_limit_grid": 1319
     }
   },
+  "classification_details": {
+    "fourmu": {
+      "evaluated_not_excluded_by_this_channel_conditional": {
+        "count": 39534,
+        "max_signal_strength_ratio_observed_min": 0.9999121685868378,
+        "max_signal_strength_ratio_observed_max": 0.9999121685868378,
+        "max_width_ratio_upper": 0.09998988452804404,
+        "max_flight_length_proxy_upper_m": 0.004997298837918152,
+        "unique_mass_points": 46,
+        "mass_min_GeV": 0.212,
+        "mass_max_GeV": 8.48750903116088
+      },
+      "finite_width_sensitive": {
+        "count": 8673,
+        "max_signal_strength_ratio_observed_min": 2392.7051484844924,
+        "max_signal_strength_ratio_observed_max": 2392.7051484844924,
+        "max_width_ratio_upper": 862.4460176515934,
+        "max_flight_length_proxy_upper_m": 3.1441398634732106e-10,
+        "unique_mass_points": 46,
+        "mass_min_GeV": 0.212,
+        "mass_max_GeV": 8.48750903116088
+      },
+      "theoretically_inconsistent_scalar_yukawa": {
+        "count": 1734,
+        "max_signal_strength_ratio_observed_min": null,
+        "max_signal_strength_ratio_observed_max": null,
+        "max_width_ratio_upper": null,
+        "max_flight_length_proxy_upper_m": null,
+        "unique_mass_points": 30,
+        "mass_min_GeV": 0.212,
+        "mass_max_GeV": 2.2857158749950854
+      },
+      "theoretically_inconsistent_scalar_quartic": {
+        "count": 4948,
+        "max_signal_strength_ratio_observed_min": null,
+        "max_signal_strength_ratio_observed_max": null,
+        "max_width_ratio_upper": null,
+        "max_flight_length_proxy_upper_m": null,
+        "unique_mass_points": 46,
+        "mass_min_GeV": 0.212,
+        "mass_max_GeV": 8.48750903116088
+      },
+      "width_interval_straddles_narrow_threshold": {
+        "count": 933,
+        "max_signal_strength_ratio_observed_min": 728.8051602830778,
+        "max_signal_strength_ratio_observed_max": 728.8051602830778,
+        "max_width_ratio_upper": 0.19975181126448463,
+        "max_flight_length_proxy_upper_m": 3.987585426102357e-10,
+        "unique_mass_points": 46,
+        "mass_min_GeV": 0.212,
+        "mass_max_GeV": 8.48750903116088
+      },
+      "lifetime_sensitive": {
+        "count": 12088,
+        "max_signal_strength_ratio_observed_min": 0.04602276813934888,
+        "max_signal_strength_ratio_observed_max": 0.04602276813934892,
+        "max_width_ratio_upper": 8.065411604246259e-09,
+        "max_flight_length_proxy_upper_m": 328778530.9770378,
+        "unique_mass_points": 46,
+        "mass_min_GeV": 0.212,
+        "mass_max_GeV": 8.48750903116088
+      },
+      "excluded_under_published_narrow_prompt_benchmark_conditional": {
+        "count": 2746,
+        "max_signal_strength_ratio_observed_min": 5013.92626594916,
+        "max_signal_strength_ratio_observed_max": 5013.92626594916,
+        "max_width_ratio_upper": 0.09978753086175547,
+        "max_flight_length_proxy_upper_m": 0.00020922141379335794,
+        "unique_mass_points": 35,
+        "mass_min_GeV": 0.212,
+        "mass_max_GeV": 3.444067234657897
+      }
+    },
+    "tautau": {
+      "evaluated_not_excluded_by_this_channel_conditional": {
+        "count": 11337,
+        "max_signal_strength_ratio_observed_min": 0.13526564380822229,
+        "max_signal_strength_ratio_observed_max": 0.13526564380822229,
+        "max_width_ratio_upper": 0.0999939399320801,
+        "max_flight_length_proxy_upper_m": 0.004978874750814357,
+        "unique_mass_points": 12,
+        "mass_min_GeV": 3.73836323023915,
+        "mass_max_GeV": 9.212767787782825
+      },
+      "width_interval_straddles_narrow_threshold": {
+        "count": 891,
+        "max_signal_strength_ratio_observed_min": 0.041416651255200554,
+        "max_signal_strength_ratio_observed_max": 0.041416651255200554,
+        "max_width_ratio_upper": 0.9976511903817833,
+        "max_flight_length_proxy_upper_m": 1.599832429191474e-12,
+        "unique_mass_points": 11,
+        "mass_min_GeV": 3.73836323023915,
+        "mass_max_GeV": 9.212767787782825
+      },
+      "finite_width_sensitive": {
+        "count": 3286,
+        "max_signal_strength_ratio_observed_min": 2.729942347261066,
+        "max_signal_strength_ratio_observed_max": 2.729942347261066,
+        "max_width_ratio_upper": 2554.375219744826,
+        "max_flight_length_proxy_upper_m": 1.8103819819374922e-13,
+        "unique_mass_points": 12,
+        "mass_min_GeV": 3.73836323023915,
+        "mass_max_GeV": 9.212767787782825
+      },
+      "theoretically_inconsistent_scalar_quartic": {
+        "count": 2414,
+        "max_signal_strength_ratio_observed_min": null,
+        "max_signal_strength_ratio_observed_max": null,
+        "max_width_ratio_upper": null,
+        "max_flight_length_proxy_upper_m": null,
+        "unique_mass_points": 13,
+        "mass_min_GeV": 3.73836323023915,
+        "mass_max_GeV": 10.0
+      },
+      "lifetime_sensitive": {
+        "count": 721,
+        "max_signal_strength_ratio_observed_min": 5.0614938449007525e-11,
+        "max_signal_strength_ratio_observed_max": 5.0614938449007525e-11,
+        "max_width_ratio_upper": 2.8428665654226075e-11,
+        "max_flight_length_proxy_upper_m": 54.391112060838395,
+        "unique_mass_points": 12,
+        "mass_min_GeV": 3.73836323023915,
+        "mass_max_GeV": 9.212767787782825
+      },
+      "unclassified_outside_numerical_limit_grid": {
+        "count": 1319,
+        "max_signal_strength_ratio_observed_min": null,
+        "max_signal_strength_ratio_observed_max": null,
+        "max_width_ratio_upper": null,
+        "max_flight_length_proxy_upper_m": null,
+        "unique_mass_points": 1,
+        "mass_min_GeV": 10.0,
+        "mass_max_GeV": 10.0
+      }
+    }
+  },
   "limitations": [
     "The double-virtual four-body contribution uses a diagonal-pairing spectral calculation and a Cauchy-Schwarz upper bound on identical-flavour exchange; it is not an exact exclusive four-body calculation.",
     "A point is excluded only if the lower signal-strength endpoint exceeds the observed published limit and the entire width/flight intervals pass the narrow/prompt proxies.",
