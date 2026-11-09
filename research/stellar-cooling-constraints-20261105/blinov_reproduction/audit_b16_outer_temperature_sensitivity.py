@@ -61,7 +61,9 @@ def transform_profile(source, destination, scale):
 
 
 def path_tau_fraction(result, emission_shells=None):
-    matrix = result["source_weighted_mean_tau_by_emission_and_absorption_shell"]["total"]
+    # The target quantity is the neutrino inverse-decay path optical depth.
+    # Do not include Compton opacity in this denominator.
+    matrix = result["source_weighted_mean_tau_by_emission_and_absorption_shell"]["neutrino"]
     numerator = 0.0
     denominator = 0.0
     for row in matrix:
