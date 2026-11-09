@@ -1,8 +1,8 @@
 # PROJECT_STATUS — Axial-vector paper revision and referee response
 
-## 2026-11-09 最终更新：PR #67 回复信写作风格统一（Ready for review，待合并）
+## 2026-11-09 最终更新：PR #67 回复信写作风格统一（已 Squash merge）
 
-[PR #67](https://github.com/lm846802297-bit/axial-vector-review-response/pull/67) 从 PR #66 合并后的 main 基线 `d3b234efbce270cd92b7ea55e31e02680114fc3a` 创建，分支为 `review/referee-response-style-20261109`。本节记录最终编译、视觉检查、独立审稿人视角 diff 复核及合并前状态。
+[PR #67](https://github.com/lm846802297-bit/axial-vector-review-response/pull/67) 从 PR #66 合并后的 main 基线 `d3b234efbce270cd92b7ea55e31e02680114fc3a` 创建，分支为 `review/referee-response-style-20261109`。本节记录最终编译、视觉检查、独立审稿人视角 diff 复核及最终合并状态。
 
 - **检索与写作依据：** 已核对原论文 `main-v6.tex`、正式回复信、长期写作规范、正文待同步清单、DEC-15 及 PR #64/#65 修订台账。英文科研文体以原论文 Abstract、Introduction、Model Setup 和 Conclusion 为直接参照；未将模型生成的中文材料误作个人英文写作样本。
 - **回复信内容：** S-01–S-20 的语言与段落组织修订均保留。非中微子问题继续采用原论文单 VEV `S+\mathrm{VLL}` 模型；可选 `\sigma+3N_R` seesaw 仅用于 Major Points 3/4.1。未修改论文正文、bibliography、图表、科研脚本、物理推导或实验结论。
@@ -12,9 +12,9 @@
 - **参数窗口复核：** Major Point 2 和 Minor Point 1 均明确写出 Fig. 2 的显示范围 `10^{-6}\leq g_X\leq1`，即上限为 `10^0=1`，与原图一致。动能混合部分的 `g_X=0.1` 是数值表的参考归一化；正文明确说明 Fig. 2 延伸至 `g_X=1` 时相应估计放大十倍，两者不矛盾。
 - **独立审稿人视角 diff 复核：** 对 PR base 至当前 head 的实际 diff 逐项复核。27/27 个 reviewer quote block、137/137 个 `\[...\]` 显示公式块、4/4 个 equation 环境、48 条 citation commands（74 次 citation-key 出现、41 个唯一 keys）、4 个 equation labels 及 4 个 ref/eqref 均保持一致。LaTeX 花括号净计数为 0；除 Table II 有意将一个 `center` 环境替换为局部分组外，其余环境 begin/end 计数不变。表格内容经间距规范化后完全一致；Minor Point 5 的宽度公式仅移动位置，没有改变公式或数值。未发现物理结论、公式、benchmark、适用条件或引用被误删，也未发现新增的未经支持的物理主张。
 - **清理：** 10 份临时联系表已从分支删除；临时构建触发注释已删除；临时 workflow allowlist 已从 main 工作流恢复；PR 仍仅包含 4 个预期文件（PROJECT_STATUS、正式 PDF、正式 TeX、修改清单）。
-- **独立审查边界：** 已完成一次独立视角的第二遍 reviewer-style diff 审计，结论为无阻断项。该审计是本轮复核记录，不冒称第三方 GitHub reviewer 的正式批准；下一步将 PR 转为 Ready for review，并按作者指示 Squash merge。
+- **独立审查边界：** 已完成一次独立视角的第二遍 reviewer-style diff 审计，结论为无阻断项。该审计是本轮复核记录，不冒称第三方 GitHub reviewer 的正式批准。PR #67 已由 Draft 转为 Ready for review，并于 2026-11-09 Squash merge 至 main；合并提交为 `144bf8ab444a328587d8bfa82ea375355dd2b40b`。
 
-**合并前结论：** 回复信内容和最终 PDF 可接受；保留 Table II 的轻量排版优化，不再扩大正文修改范围。
+**合并结论：** PR #67 已成功合并；正式回复信 TeX、58 页 PDF、项目状态记录和完整修改/审查清单均进入 main。论文正文、bibliography、图表和科研脚本未修改。
 
 ## 2026-11-09 更新：PR #64 已合并
 
@@ -34,7 +34,7 @@ Major 1.3 的 10–150 GeV 诊断不是全微扰质量范围扫描，Major 4.4 �
 
 PR #64 在独立审查基础上精简 Major 1.3、2、3、4.2–4.4 和 Minor 5、6.5 的重复措辞，保留各项计算和科学适用条件；Minor 6.3 的 Belle 数值为直接回答审稿问题而保留。逐项对照见 [第二轮措辞修订台账](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-09/PR64第二轮措辞修订与保留台账_2026-11-09.md)。本地完整 LaTeX/BibTeX 编译生成 56 页 PDF；逐页视觉检查、CI 和数值复算未执行。作者修改者自查不替代独立 review。Major 1.3 全微扰区间扫描和 Major 4.4 完整 SN 输运曲线仍未完成；论文正文未修改。
 
-**状态快照日期：** 2026-11-09（PR #38–#50、#54–#55、#60–#61、#63–#66 已合并；PR #53/#56/#57 Open / Draft；PR #52/#62 Closed / 未合并；PR #67 Open / Ready for review）
+**状态快照日期：** 2026-11-09（PR #38–#50、#54–#55、#60–#61、#63–#66 已合并；PR #53/#56/#57 Open / Draft；PR #52/#62 Closed / 未合并；PR #67 Merged（Squash merge））
 
 **本状态快照的初始核验基线：** 243b0e62d9c3912525d1144971a1e81c2af84db7（PR #36 合并前）  
 **项目启动机制合并提交：** [9b4e17519230e9eef65b34b643d3a1f8c19f46a2](https://github.com/lm846802297-bit/axial-vector-review-response/commit/9b4e17519230e9eef65b34b643d3a1f8c19f46a2)  
