@@ -236,7 +236,21 @@ The final analytic-path/Simpson-256 luminosity curve differs from archived B.16 
 
 Full report: [B16_INDEPENDENT_ANALYTIC_PATH_INTEGRATION_AUDIT_2026-11-09.md](B16_INDEPENDENT_ANALYTIC_PATH_INTEGRATION_AUDIT_2026-11-09.md); machine-readable result: [b16_path_independent_analytic_10mev_2026-11-09.json](outputs/b16_path_independent_analytic_10mev_2026-11-09.json).
 
-## 18. Current decision
+## 18. Independent B.1 optically-thin source integration: completed
+
+The B.1 source integral with the escape factor set to one has now been independently evaluated using equal-width composite radial Gauss--Legendre quadrature and logarithmic-energy Gauss--Legendre quadrature in x=log(omega-m_V). The exact radius-dependent lower limit omega_min=m_V/N(r) is inserted at every radial node. The implementation evaluates the local production kernels directly at its new energy nodes and does not call eq_b1_source_measure, energy_weights, radial_rule, load_profile, or any B.2 path integrator.
+
+Workflow [42563868176](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42563868176) passes, including four quadrature unit tests, the full 10 MeV source integration, channel closure, finite-JSON validation, and the unchanged-production-axial-output check.
+
+The final 400-radial-node, 960-energy-node-per-radius source is 4.30436817e70 erg/s per g^2: 67.9313% neutrino inverse decay and 32.0687% muon-Compton; dimuon inverse decay is kinematically closed. The archived B.16 source is 4.32352241e70 erg/s per g^2, so the independent result is lower by 0.4430%.
+
+The radial integral changes by only 0.002141% between 200 and 400 radial nodes. At 200 radial nodes, energy results are stable to the displayed precision from 80 to 240 logarithmic panels. Increasing the energy upper offset from 1000 to 4000 MeV changes the source by only 2.575e-9 relative.
+
+A matched comparison reconstructs the archived 40 radial nodes and weights, but replaces the old energy grid/energy_weights with direct logarithmic-energy integration. At fixed 40 radial nodes, the independent energy integral is lower by 0.5755%. Refining the radial integral from 40 to 400 nodes then raises the source by 0.1332%, leaving the net -0.4430% difference against the archived B.1 source. Thus the discrepancy is sub-percent and is not large enough to explain the order-one strong-coupling Fig. 7 mismatch.
+
+This validates only the optically-thin source integral with O=1. The full B.1 luminosity, including the escape factor O(r,omega), remains to be evaluated with the independent B.2 implementation on matched radial and energy nodes. Full report: [B16_INDEPENDENT_B1_THIN_SOURCE_AUDIT_2026-11-09.md](B16_INDEPENDENT_B1_THIN_SOURCE_AUDIT_2026-11-09.md); machine-readable result: [b16_b1_independent_thin_source_10mev_2026-11-09.json](outputs/b16_b1_independent_thin_source_10mev_2026-11-09.json).
+
+## 19. Current decision
 
 - Radial, energy, angular, and path global quadrature: passed the stated project-level luminosity-stability targets at the tested resolutions.
 - Same-grid B.16 closure: passed for all four global B.13 configurations with zero residual.
@@ -244,5 +258,6 @@ Full report: [B16_INDEPENDENT_ANALYTIC_PATH_INTEGRATION_AUDIT_2026-11-09.md](B16
 - Local B.13 collision-kernel quadrature: sampled-point high-order validation passes at the three representative points, with a maximum 20-to-24 order change of 0.03016% against the audit-specific 0.1% screening target. The full continuous r-omega domain is not certified.
 - B.16 neutrino inverse-decay radial path: current-profile shell, angle, and leave-one-out synthesis is documented in B16_NEUTRINO_INVERSE_DECAY_RADIAL_PATH_SYNTHESIS_2026-11-09.md. The 8-22 km path group dominates collectively, while 22-25 km remains individually important.
 - Independent B.2 propagation: analytic path integration, path-order convergence, and three independent angular-integration methods pass; the fixed-profile B.2 numerical implementation is not the source of the order-one Fig. 7 mismatch.
+- Independent B.1 thin source: radial and logarithmic-energy quadratures pass; the optically-thin source differs from the archived source by -0.4430%, with energy and radial effects separated by the matched-40-node test. Full B.1+B.2 recombination remains pending.
 - Fig. 7 mismatch: persists after numerical convergence and must be investigated as a separate physical/reproduction issue.
 - Axial-vector production curve: remains frozen.
