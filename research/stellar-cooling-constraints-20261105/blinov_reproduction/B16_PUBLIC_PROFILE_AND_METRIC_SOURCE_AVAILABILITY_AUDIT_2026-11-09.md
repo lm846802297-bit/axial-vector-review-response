@@ -59,13 +59,13 @@ A(r)=\left(1-\frac{2GM(r)}{r}\right)^{-1/2}
 ]
 would require a justified enclosed-mass/energy-density profile, and a full ray calculation would also require a consistent treatment of the time-dependent hydrodynamic state and the relevant metric convention. The current public-figure reconstruction does not provide those inputs with sufficient provenance.
 
-No (A(r)) is inferred from the lapse (N(r)) alone. No static-TOV approximation is promoted to a same-snapshot GR result.
+No `A(r)` is inferred from the lapse `N(r)` alone. No static-TOV approximation is promoted to a same-snapshot GR result.
 
 ## 5. Decision and next action
 
 1. The public unauthenticated search for the exact Bollig/Hüdepohl radial profile tables and the listed Bollig TOV solver is exhausted for the endpoints identified in the official index.
 2. The current SFHo-18.8, 1 s background remains a published-figure reconstruction, not the raw simulation table.
-3. The lapse cross-check remains visual and does not validate (A(r)) or (M(r)).
+3. The lapse cross-check remains visual and does not validate `A(r)` or `M(r)`.
 4. The only legitimate route to exact same-snapshot data is authorized archive access or a data transfer explicitly authorized by the archive/data owners.
 5. If such access is not pursued, the metric and outer-profile limitations remain explicit. Do not construct a synthetic TOV star, splice another progenitor/time snapshot, or tune a profile to reduce the Fig. 7 residual.
 
