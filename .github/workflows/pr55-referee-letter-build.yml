@@ -6,7 +6,6 @@ on:
     types: [opened, synchronize, reopened]
     paths:
       - 'Replies_to_Referee_3_referee_facing_2026-11-04.tex'
-      - 'references.bib'
       - 'Replies_to_Referee_3_neutrino_references.bib'
       - 'overleaf-source/axial-vector-model-building-v6/references.bib'
       - 'JHEP.bst'
@@ -23,7 +22,7 @@ concurrency:
 
 jobs:
   build-and-inspect:
-    if: github.event.pull_request.head.ref == 'review/response-point-conclusions-20261106' || github.event.pull_request.head.ref == 'codex/major44-axial-cooling-constraints-20261105' || github.event.pull_request.head.ref == 'review/major1-scalar-opening-focus-20261108' || github.event.pull_request.head.ref == 'review/major1-remove-defensive-model-framing-20261108' || github.event.pull_request.head.ref == 'review/major1-streamline-low-mass-constraints-intro-20261108' || github.event.pull_request.head.ref == 'chore/single-bibliography-reply-letter-20261109'
+    if: github.event.pull_request.head.ref == 'review/response-point-conclusions-20261106' || github.event.pull_request.head.ref == 'codex/major44-axial-cooling-constraints-20261105' || github.event.pull_request.head.ref == 'review/major1-scalar-opening-focus-20261108' || github.event.pull_request.head.ref == 'review/major1-remove-defensive-model-framing-20261108' || github.event.pull_request.head.ref == 'review/major1-streamline-low-mass-constraints-intro-20261108'
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
