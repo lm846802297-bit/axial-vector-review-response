@@ -2,7 +2,7 @@
 
 **Scope:** independent theoretical workstream for the Higgs--radial-scalar two-point function in the original one-VEV \(S+\mathrm{VLL}\) model.  
 **Baseline:** merged PR #49 and the archived calculations listed below.  
-**Status:** one-loop VLL matching and selected self-energy subsets exist; complete same-order UV--EFT matching, physical complex poles/residues, and a gauge-consistent near-degenerate observable remain open.
+**Status:** the exact mass-eigenstate mu/tau+VLL fermion contribution to all three independent self-energy entries has now been evaluated and CI-validated; complete same-order UV--EFT matching, the full gauge-complete propagator, physical complex poles/residues, and near-degenerate observables remain open.
 
 ## 1. Independence and scope lock
 
@@ -69,6 +69,7 @@ This is a theoretical perturbativity criterion, not an experimental exclusion. T
 - **Exact mass-eigenstate calculation:** the archived 2026-10-27 record under the repository's referee-response research directory, together with its Python implementation and validation output.
 - **Plan-C-lite matching and pole diagnostics:** the archived 2026-10-27 Plan-C-lite matching and complex-pole report.
 - **P2-lite scalar-loop subset:** the archived 2026-11-05 CP-even radial-scalar bubble report.
+- **New 2026-11-09 fermion-sector matrix audit:** FERMION_SECTOR_MATRIX_AUDIT_2026-11-09.md, with its exact-basis script, four regression/consistency tests, CI JSON output, and SHA-256 manifest.
 
 These records are subcalculations, not a complete physical pole prediction. The CP-even bubble subset is not a gauge-complete two-loop correction; the bubble-plus-contact EFT soft contribution is not the complete same-order soft/counterterm set; and an eigenvector-composition diagnostic is not a physical mixing angle, pole residue, signal strength, or exclusion.
 
@@ -123,3 +124,21 @@ A physical mixing result is accepted only when:
 - all benchmark assumptions and unassessed regions are explicit.
 
 No full scalar-mass allowed/excluded interval is claimed until the relevant theoretical and experimental observables are independently validated.
+
+## 7. New progress: complete fermion-sector matrix subcalculation (2026-11-09)
+
+The exact mass-eigenstate fermion formula has been extended from the off-diagonal \(hs\) entry to all three independent entries \(hh,hs,ss\), including heavy-heavy, heavy-light, light-heavy, and light-light internal states for both \(\mu\) and \(\tau\).
+
+The finite hard momentum differences in the Plan-B convention are:
+
+| Entry | Benchmark A | Benchmark B |
+|---|---:|---:|
+| \(\Delta\Pi_{hh,\mathrm{hard}}^B\) | \(-131.023925\) | \(-131.023925\) |
+| \(\Delta\Pi_{hs,\mathrm{hard}}^B\) | \(+0.024030444\) | \(+0.005407724\) |
+| \(\Delta\Pi_{ss,\mathrm{hard}}^B\) | \(-626.010390\) | \(-31.702024\) |
+
+The off-diagonal entry reproduces the archived exact-basis calculation. The diagonal derivative UV coefficients are nonzero, while the off-diagonal coefficient cancels. The light \(\mu,\tau\) absorptive matrix is positive semidefinite and rank one to numerical precision, providing an optical-theorem cross-check.
+
+The calculation is archived in fermion_sector_matrix_audit.py, test_fermion_sector_matrix_audit.py, fermion_sector_matrix_audit.json, and fermion_sector_matrix_tests.txt. GitHub Actions run 42563731784 passed all four tests and archived the numerical output.
+
+This remains a fermion-sector subcalculation. The diagonal counterterms, remaining SM/gauge/scalar sectors, complete EFT soft matching, tadpole/VEV prescription, and physical complex poles are not yet complete. The explicit \(\mu,\tau\) absorptive contributions must not be double-counted through externally inserted fixed widths.

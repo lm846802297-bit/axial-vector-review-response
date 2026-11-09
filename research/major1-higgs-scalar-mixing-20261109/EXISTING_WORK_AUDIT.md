@@ -5,9 +5,9 @@
 
 ## 1. Executive assessment
 
-The merged PR #49 contains substantial one-loop and selected higher-order work. It does not yet close the complete same-order UV--EFT matching or produce a complete physical \(h\)-\(s\) pole/residue/lineshape prediction. The near-degenerate region therefore remains unclassified by the present calculation.
+The merged PR #49 contains substantial one-loop and selected higher-order work. A new 2026-11-09 exact-basis calculation now evaluates all three independent \(hh,hs,ss\) entries of the original \(\mu,\tau+\mathrm{VLL}\) fermion sector and passes four automated tests. It still does not close the complete same-order UV--EFT matching or produce a complete physical \(h\)-\(s\) pole/residue/lineshape prediction. The near-degenerate region therefore remains unclassified.
 
-No new physical result is claimed by this audit.
+The new matrix calculation is a fermion-sector subcalculation, not a complete physical pole result.
 
 ## 2. Evidence ledger
 
@@ -64,3 +64,38 @@ These values are not physical mixing angles, pole residues, signal strengths, or
 7. Extend the scan over the declared perturbative \(m_s\) domain for Benchmarks A and B.
 
 The Belle II collider reinterpretation is explicitly outside this workstream and is tracked independently in PR #68.
+
+## 7. New 2026-11-09 result: exact-basis fermion self-energy matrix
+
+The exact mass-eigenstate calculation has been generalized to \(hh,hs,ss\). It uses the same original \(2\times2\) charged-lepton/VLL mass matrices, exact SVD rotations, all four internal mass-state pairings, and the same finite \(A_0/B_0\) convention as the archived off-diagonal calculation.
+
+The finite hard momentum differences at \(p^2=m_h^2\), in the Plan-B convention, are:
+
+| Entry | Benchmark A | Benchmark B |
+|---|---:|---:|
+| \(\Delta\Pi_{hh,\mathrm{hard}}^B\) | \(-131.023924966\) | \(-131.023924966\) |
+| \(\Delta\Pi_{hs,\mathrm{hard}}^B\) | \(+0.024030443986\) | \(+0.005407723995\) |
+| \(\Delta\Pi_{ss,\mathrm{hard}}^B\) | \(-626.010389903\) | \(-31.702023714\) |
+
+The sums \(\sum_{ij}C_{ab}^{ij}\) multiplying the \(p^2\) UV pole are:
+
+| Entry | Benchmark A | Benchmark B |
+|---|---:|---:|
+| \(hh\) | \(2.639206236\) | \(2.639206236\) |
+| \(hs\) | numerically zero | numerically zero |
+| \(ss\) | \(12.610804206\) | \(0.638628400\) |
+
+Thus the off-diagonal derivative divergence cancels, but the diagonal wave-function divergences do not. This makes diagonal field renormalization an explicit requirement for the physical propagator rather than an optional refinement.
+
+The absorptive matrices from the explicit \(\mu,\tau\) cuts are positive semidefinite and saturate
+\[
+|\operatorname{Im}\Pi_{hs}|^2
+=\operatorname{Im}\Pi_{hh}\operatorname{Im}\Pi_{ss}
+\]
+to numerical precision. This is a rank-one common-cut result for the mass-proportional light-state couplings.
+
+**No-double-counting rule:** if these explicit \(\mu,\tau\) loops are included in a future propagator, subtract their contributions from any externally supplied fixed diagonal widths. In particular, do not retain the full \(4.07\) MeV SM Higgs width and also add the explicit \(\mu,\tau\) absorptive loops; likewise do not add the direct \(s\to\mu\mu,\tau\tau\) widths twice.
+
+**Validation:** GitHub Actions run 42563731784 passed four tests covering reproduction of the previous \(hs\) result, absorptive-matrix positivity/rank, diagonal-versus-off-diagonal UV derivative structure, and reality of the hard momentum differences below heavy thresholds. The JSON output and SHA-256 manifest are committed on the PR branch.
+
+**Remaining limitation:** this calculation omits top, \(W,Z,A'\), Goldstone, ghost and scalar loops, diagonal counterterms, the complete same-order EFT soft/counterterm set, and tadpole/VEV renormalization. It does not determine physical poles, residues, line shapes, signal strengths, or exclusions.
