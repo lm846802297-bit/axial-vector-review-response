@@ -127,8 +127,22 @@ A Python/NumPy/SciPy reproduction script is added at \`audit_b16_channel_resolve
 
 No profile, source normalization, opacity prescription, coupling, axial-vector result, or constraint curve is changed. No empirical rescaling is applied.
 
-## 8. Decision and next calculation
+## 8. Follow-up checks and current decision
 
-The local analytic neutrino-pair kernel is not the source of the high-energy discrepancy at the tested points: direct angular integration reproduces Eq. (B.25) to machine precision. The energy-resolved result also shows that neutrino inverse decay remains the larger opacity contribution in the dominant \(210\text{--}510\) MeV escape bin and dominates the global luminosity suppression.
+The follow-up calculations have now closed the numerical checks proposed above:
 
-The next targeted calculation should therefore be an independent **high-energy neutrino B.2 chord-convergence audit** at \(r_{\rm em}=8\text{--}12\) km, outward directions, and \(\omega=110\text{--}510\) MeV. Vary path quadrature and opacity interpolation separately, retaining the same fixed-\(\omega\) prescription and without changing the physical input. Only after that check should the residual strong-endpoint discrepancy be assigned to a physical background or propagation convention.
+1. **Local neutrino kernel:** the published B.7--B.10 expressions, the analytic Fermi-pair average, direct angular phase-space integration, and detailed balance agree at machine precision. See B16_NEUTRINO_B7_B10_LOCAL_KERNEL_AUDIT_2026-11-10.md.
+2. **High-energy B.2 chord:** the targeted 36-ray test varies path order 32--256 and opacity radial order 320--1280. The largest path refinement is below (2.0\times10^{-5}); the final radial refinement is below (9.4\times10^{-7}). See B16_HIGH_ENERGY_NU_CHORD_CONVERGENCE_2026-11-10.md.
+3. **Outer temperature:** holding the B.1 source fixed, a broad (pm30\%) stress in 22--25 km changes the 210--510 MeV escaped luminosity by only (-0.385\%) to (+0.387\%). A (pm10\%) stress in 20--22 km changes it by about (pm0.10\%). See B16_HIGH_ENERGY_OUTER_TEMPERATURE_SENSITIVITY_2026-11-10.md.
+4. **B.2 path-energy convention:** the path-redshift variant, with the same B.1 source and Euclidean chord, lowers the 210--510 MeV escaped luminosity by (28.09\%). The 210--300 and 300--510 MeV sub-bands change by (-30.66\%) and (-24.77\%), respectively. It remains a sensitivity diagnostic, not the printed fixed-`omega` baseline. See B16_HIGH_ENERGY_PATH_REDSHIFT_AUDIT_2026-11-10.md.
+
+The high-energy neutrino local kernel and chord quadrature are therefore not plausible explanations for the (+92.4\%) fixed-`omega` strong-endpoint mismatch. The uncertain 22--25 km temperature continuation also has a sub-percent effect on the dominant high-energy band. The path-energy convention is materially important, but the path-redshift variant does not close the global discrepancy and is not the literal printed B.2 prescription.
+
+### Current decision
+
+- Keep the fixed-`omega`, polarization-summed scalar B.2 calculation as the equation-level Fig. 7 baseline.
+- Keep path-redshift and mode-resolved propagation as separate physical diagnostics.
+- Do not rescale source or opacity and do not update the axial-vector curve.
+- The remaining limitation is physical/reproduction-level: the exact same-snapshot Garching thermodynamic profile is unavailable through the public archive endpoint, and the unpublished numerical implementation's B.2 energy interpretation cannot be established from the paper alone.
+
+The next useful action is a final source/provenance and equation-to-code reconciliation of the original Fig. 7 benchmark, not another increase in quadrature order. If no authorized same-snapshot profile becomes available, the residual mismatch must remain an explicitly documented reproduction limitation rather than being tuned away.
