@@ -4,12 +4,12 @@
 
 [PR #67](https://github.com/lm846802297-bit/axial-vector-review-response/pull/67) 已从 PR #66 合并后的 main（基线 `d3b234efbce270cd92b7ea55e31e02680114fc3a`）创建，分支为 `review/referee-response-style-20261109`，当前 Open / Draft。
 
-- **检索与清单：** 已核对原论文 `main-v6.tex`、正式回复信、长期《审稿回复写作原则》、正文待同步清单、DEC-15、PR #64/65 修订台账及相关会议记录。Writing Style 连接器本轮已成功检索；返回的中文讲义为模型生成材料，不作为用户原创英文样本，原论文仍是本次学术文体的直接参照。
-- **回复信修改：** 完成 S-01–S-11 首轮修订及 S-12–S-15 二次精修，重点调整开头、标量参数关系、有限矢量效应的区分和恒星冷却 Summary；仅修改英文表达与段落组织，没有修改论文正文、bibliography、图表或科研脚本。
-- **内容保留：** 二次修改前后审稿人 quote block、display-math delimiter、citation command 序列、equation labels、交叉引用和 LaTeX 环境序列均保持不变；没有删除或改动独立科学结论、公式、数值 benchmark 或适用条件。
-- **验证边界：** 已完成源码级静态不变量检查、花括号平衡和 LaTeX 环境栈检查；未执行完整 LaTeX/BibTeX 编译、PDF 视觉检查、数值复算、脚本测试或 CI。独立 reviewer review 尚待执行。
+- **检索与清单：** 已核对原论文 main-v6.tex、正式回复信、长期写作规范、正文待同步清单、DEC-15 及 PR #64/#65 修订台账。Writing Style 后续检索返回一份上传的早期 referee-response 文档，但其体裁不是论文正文，因此不作为本轮论文文体样本；英文论文风格直接依据 main-v6.tex 的 Abstract、Introduction、Model Setup 和 Conclusion。
+- **回复信修改：** 已完成 S-01–S-11 首轮修订、S-12–S-17 二次精修，以及 S-18–S-20 第三轮精修。第三轮明确区分 Table II 中直接 Yukawa 限制、第五力圈诱导耦合和光子介导超新星源假设；将标量质量称为未混合树级质量参数；并把 Minor Point 5 的 A' 总宽度输入移到 chiral amplitudes 之前。修改仅涉及回复信语言和段落顺序，不改论文正文、bibliography、图表、模型或数值计算。
+- **内容保留：** 27 个审稿人 quote block、137 个 display-math block、48 条 citation commands、公式标签、交叉引用和 LaTeX 环境序列均保持不变。Minor Point 5 的两个部分宽度、总宽度及 0.199 GeV / 0.60 GeV benchmark 数值均保留；Summary 的条件性 UV 映射复用 Major 1.1 已有关系。没有删除独立科学结论、计算证据或适用条件。
+- **验证边界：** 已完成当前第三轮 TeX 的源码级静态不变量检查、花括号平衡和环境栈检查；未执行完整 LaTeX/BibTeX 编译、PDF 视觉检查、数值复算、脚本测试或 CI。独立 reviewer review 尚待执行。
 - **模型边界：** 非中微子问题继续使用原论文单 VEV \(S+\mathrm{VLL}\) 模型；可选 \(\sigma+3N_R\) seesaw 仍仅限 Major 3/4.1。
-- **二次精修：** S-12–S-15 已落实到回复信；S-16 更新连接器检索记录，S-17 恢复与 main 一致的历史 Markdown 排版。静态不变量检查通过，未改变任何 display-math 公式、引用、标签、审稿人引文或 LaTeX 环境结构。
+- **二次及第三轮精修：** S-12–S-17 已统一开头和 Summary 的论文式物理叙述；S-18–S-20 修正 Summary 中 Table II 的耦合对象概括、标明未混合树级标量质量参数，并将 Minor Point 5 的总宽度放在传播子振幅之前。第三轮静态核查确认审稿人引文、显示公式、引用、标签和环境序列未改变。
 - **独立性：** PR #67 不影响仍开放的 PR #53、#56、#57；尤其 PR #57 的四组 B.13 积分计算与归档流程保持不变。
 
 
