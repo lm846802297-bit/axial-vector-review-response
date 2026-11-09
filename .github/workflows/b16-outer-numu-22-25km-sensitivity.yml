@@ -1,0 +1,85 @@
+name: B.16 outer 22-25 km muon-neutrino chemical-potential sensitivity
+
+on:
+  push:
+    branches:
+      - research/moving-muon-thermal-rates-20261107
+    paths:
+      - '.github/workflows/b16-outer-numu-22-25km-sensitivity.yml'
+      - 'research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv'
+      - 'research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_outer_numu_sensitivity_22_25km.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: b16-outer-numu-22-25km-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  sensitivity:
+    if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out research branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numerical dependencies
+        run: python -m pip install numpy scipy
+      - name: Compile diagnostic
+        run: python -m py_compile research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_outer_numu_sensitivity_22_25km.py
+      - name: Run complete B.1+B.2 outer-shell stress test
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_outer_numu_sensitivity_22_25km.py \
+            --mass 10 --nr 40 --ne 100 --na 32 --ns 32 --radius 25 --energy-offset 1000
+      - name: Verify profile identity, closure, and sign symmetry
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path("research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_outer_numu_sensitivity_22_25km_10mev_2026-11-09.json")
+          d = json.loads(p.read_text())
+          assert d["profile_sha256"] == "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
+          assert set(d["scenarios"]) == {"mu_numu_minus_3MeV", "mu_numu_minus_1MeV", "baseline_zero", "mu_numu_plus_1MeV", "mu_numu_plus_3MeV"}
+          assert abs(d["scenarios"]["baseline_zero"]["B2_neutrino_path_tau_fraction_20_22km_8_15km_emission"] - 0.0) >= 0.0
+          for a,b in [("mu_numu_minus_1MeV","mu_numu_plus_1MeV"),("mu_numu_minus_3MeV","mu_numu_plus_3MeV")]:
+              for point in ("weak_endpoint","reference_peak","strong_endpoint"):
+                  x=d["scenarios"][a]["points"][point]["L_escaped_erg_s"]
+                  y=d["scenarios"][b]["points"][point]["L_escaped_erg_s"]
+                  assert abs(x/y-1.0) < 1e-10, (a,b,point,x/y)
+          print(json.dumps(d["comparisons_to_baseline"], indent=2))
+          PY
+      - name: Archive outer-shell chemical-potential sensitivity
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_outer_numu_sensitivity_22_25km_10mev_2026-11-09.json \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/B16_OUTER_NUMU_SENSITIVITY_22_25KM_2026-11-09.md
+          if git diff --cached --quiet; then
+            echo "Outer-shell chemical-potential sensitivity is already current."
+          else
+            git commit -m "Archive 22-25 km muon-neutrino sensitivity"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin "${GITHUB_REF_NAME}"
+              git rebase "origin/${GITHUB_REF_NAME}"
+              if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+                exit 0
+              fi
+              echo "Push raced with another research workflow; retry ${attempt}/5."
+              sleep 2
+            done
+            echo "Could not archive outer-shell sensitivity after five retries."
+            exit 1
+          fi
