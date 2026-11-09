@@ -90,3 +90,31 @@ The corrected implementation separates the grids explicitly:
 The JSON serialization is corrected. The replacement run is [Run #42585236139](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42585236139), currently running on commit `799de095c74e344cb77ffc41fd722738d1343dad`.
 
 Until that run passes its numerical and isolation checks, no B.1 source-radial convergence conclusion is drawn. The earlier 0.1 and 1 MeV outputs are excluded. No axial-vector production result or constraint curve is modified.
+
+
+## 8. First accepted independent source-radial result and filename correction (2026-11-09)
+
+Run #42585236139 produced the first accepted independent-grid result for 0.1 MeV. The 0.1 MeV job completed the calculation, passed all grid-isolation and production-file checks, and archived its JSON output:
+
+`outputs/b2_radial_source_convergence_0.1mev_2026-11-09.json`.
+
+The recorded grid identities are:
+- Source radial nodes: 80, 100, 120, 160, and 200; all five source-grid hashes differ.
+- Fixed B.2 opacity grid: 642 nodes, identical SHA-256 across all five source orders.
+- Fixed energy grid: 742 nodes, identical SHA-256 across all five source orders. The configured energy order is 100, with the fixed opacity-grid lapse-threshold nodes added to that base grid.
+- Profile SHA-256 remains `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`.
+
+The maximum absolute luminosity changes between adjacent source-radial orders are:
+
+| Source order transition | Fixed-omega | Path-redshift diagnostic |
+|---|---:|---:|
+| 80 to 100 | 0.7466% | 0.7465% |
+| 100 to 120 | 0.1978% | 0.1976% |
+| 120 to 160 | 0.1556% | 0.1550% |
+| 160 to 200 | 0.1437% | 0.1437% |
+
+Thus the 0.1 MeV B.1 source-radial integral passes the project's 1% adjacent-grid screening criterion on the fixed opacity and energy grids. This is a source-radial convergence result only: energy/angular/path orders remain 100/16/32 in this isolation scan, so its Fig. 7 residuals are not substituted for the separate higher-order global B.2 result.
+
+The 1 MeV numerical calculation in Run #42585236139 also completed and printed the same grid-isolation metadata, but its validation step looked for `..._1.0mev_...` while the run step had written `..._1mev_...`. This is a workflow filename-normalization error; it is not a numerical or physics failure. The 1 MeV JSON was therefore not archived or accepted.
+
+The validation now uses the same matrix mass string as the calculation and archive steps. The corrected replacement workflow is [Run #42586195530](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42586195530), currently running both mass points so each receives the same end-to-end validation.
