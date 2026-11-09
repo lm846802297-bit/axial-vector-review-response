@@ -241,7 +241,7 @@ def build_report(input_dir: Path, output_dir: Path, report_path: Path, aggregate
     lines += [
         "",
         "## 6. Closure and decision", "",
-        "Every grid point must reproduce its own same-grid B.16 baseline with maximum relative residual below 2e-10. B.13 detailed-balance, absorption/production, and final muon-shell residuals must remain below 1e-10. Full per-grid local-rate arrays and matching B.16 files are retained as workflow artifacts; compact summaries and this report are committed to the research branch.", "",
+        "Every grid point must reproduce its own same-grid B.16 baseline with maximum relative residual below 2e-10. B.13 detailed-balance, absorption/production, and final muon-shell residuals must remain below 1e-10. Each job commits its compact numerical summary directly to the research branch. Full local-rate arrays and matching B.16 files are generated in the job workspace but are not persisted; the exact configurations and scripts allow them to be regenerated.", "",
         "No empirical source, opacity, coupling, or luminosity rescaling is applied. No axial-vector curve is regenerated or modified. If a finest-step criterion fails, Phase A remains open and only the failed quadrature dimension is refined.", "",
         "## 7. Reproducibility", "",
         "- Aggregate JSON: outputs/b13_global_convergence_summary_2026-11-09.json",
