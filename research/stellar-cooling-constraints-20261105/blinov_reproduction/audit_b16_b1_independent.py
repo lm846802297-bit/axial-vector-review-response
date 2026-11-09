@@ -126,6 +126,112 @@ def log_energy_rule(
     return omega, omega_weights
 
 
+
+
+def log_infinity_energy_rule(
+    mass_mev: float,
+    lapse: float,
+    local_upper_mev: float,
+    panels: int,
+    order: int,
+) -> tuple[np.ndarray, np.ndarray]:
+    """Quadrature in x=log(E_infinity/m), with E_infinity >= m_V.
+
+    The local source-energy upper bound is mapped to E_infinity,max=N*omega_loc,max.
+    """
+    if lapse <= 0.0 or local_upper_mev <= mass_mev:
+        raise ValueError("Invalid lapse or local source-energy upper bound")
+    emax_inf = lapse * local_upper_mev
+    if emax_inf <= mass_mev:
+        raise ValueError("No escaping-energy interval at this lapse")
+    xmax = np.log(emax_inf / mass_mev)
+    x_edges = np.linspace(0.0, xmax, int(panels) + 1)
+    x_nodes, x_weights = composite_gauss(x_edges, order)
+    energy_inf = mass_mev * np.exp(x_nodes)
+    # dE_infinity = E_infinity dx
+    weights_inf = x_weights * energy_inf
+    return energy_inf, weights_inf
+
+
+def integrate_one_radius_infinity(
+    mass_mev: float,
+    temperature_mev: float,
+    mu_numu_mev: float,
+    mu_mu_mev: float,
+    lapse: float,
+    n_mu: float,
+    f_deg: float,
+    energy_panels: int,
+    energy_order: int,
+    energy_offset_mev: float,
+) -> dict[str, float]:
+    """B.1 source integral after changing variable to E_infinity=N*omega_loc."""
+    local_upper = mass_mev + energy_offset_mev
+    energy_inf, d_energy_inf = log_infinity_energy_rule(
+        mass_mev, lapse, local_upper, energy_panels, energy_order
+    )
+    omega_local = energy_inf / lapse
+    phase_space_global = (
+        np.sqrt(np.maximum(energy_inf**2 - (lapse * mass_mev)**2, 0.0))
+        * energy_inf**2
+        / (2.0 * np.pi**2 * lapse**2)
+    )
+    nu_rate, dimuon_rate = decay_production(
+        mass_mev, omega_local, temperature_mev, mu_numu_mev, mu_mu_mev
+    )
+    compton_rate = compton_production(
+        mass_mev, omega_local, temperature_mev, n_mu, f_deg
+    )
+    common = d_energy_inf * phase_space_global
+    return {
+        "neutrino": float(np.dot(common, nu_rate)),
+        "dimuon": float(np.dot(common, dimuon_rate)),
+        "compton": float(np.dot(common, compton_rate)),
+    }
+
+
+def integrate_source_infinity(
+    state: dict[str, np.ndarray],
+    mass_mev: float,
+    energy_panels: int,
+    energy_order: int,
+    energy_offset_mev: float,
+) -> dict:
+    """Integrate B.1 using E_infinity as the quadrature variable."""
+    names = ("neutrino", "dimuon", "compton")
+    radial_contributions = {name: np.zeros(len(state["radii_km"])) for name in names}
+    for i in range(len(state["radii_km"])):
+        lapse = float(state["lapse"][i])
+        spectral = integrate_one_radius_infinity(
+            mass_mev,
+            float(state["T"][i]),
+            float(state["mu_numu"][i]),
+            float(state["mu_mu"][i]),
+            lapse,
+            float(state["n_mu"][i]),
+            float(state["F_deg"][i]),
+            energy_panels,
+            energy_order,
+            energy_offset_mev,
+        )
+        # radial_prefactor contains N^2; the transformed spectral measure
+        # already contains the compensating 1/N^2.
+        radial_prefactor = state["radial_prefactor"][i] / lapse**2
+        for name in names:
+            radial_contributions[name][i] = radial_prefactor * spectral[name]
+    totals = {name: float(np.sum(radial_contributions[name])) for name in names}
+    total = float(sum(totals.values()))
+    fractions = {name: (value / total if total > 0.0 else 0.0) for name, value in totals.items()}
+    return {
+        "total_erg_s_per_g2": total,
+        "channels_erg_s_per_g2": totals,
+        "channel_fractions": fractions,
+        "number_of_radial_nodes": int(len(state["radii_km"])),
+        "number_of_energy_nodes_per_radius": int(energy_panels * energy_order),
+        "energy_variable": "E_infinity = N(r) * omega_local",
+        "energy_upper_local_MeV": float(mass_mev + energy_offset_mev),
+    }
+
 def integrate_one_radius(
     mass_mev: float,
     temperature_mev: float,
@@ -355,6 +461,31 @@ def run(
         final_state, mass_mev, 240, energy_order, 2000.0
     )
 
+    # F. Re-express the same B.1 integral in the conserved energy at infinity.
+    # This is a variable transformation only: the local collision kernels,
+    # profile, escape condition, and local upper cutoff are unchanged.
+    final_infinity = integrate_source_infinity(
+        final_state, mass_mev, 240, energy_order, 2000.0
+    )
+    energy_variable_comparison = {
+        name: {
+            "local_energy_integral_erg_s_per_g2": final["channels_erg_s_per_g2"][name],
+            "infinity_energy_integral_erg_s_per_g2": final_infinity["channels_erg_s_per_g2"][name],
+            "relative_difference": relative_difference(
+                final_infinity["channels_erg_s_per_g2"][name],
+                final["channels_erg_s_per_g2"][name],
+            ),
+        }
+        for name in ("neutrino", "dimuon", "compton")
+    }
+    energy_variable_comparison["total"] = {
+        "local_energy_integral_erg_s_per_g2": final["total_erg_s_per_g2"],
+        "infinity_energy_integral_erg_s_per_g2": final_infinity["total_erg_s_per_g2"],
+        "relative_difference": relative_difference(
+            final_infinity["total_erg_s_per_g2"], final["total_erg_s_per_g2"]
+        ),
+    }
+
     # E. Match the archived 40-node radial rule exactly, but replace its
     # energy-grid/energy_weights integration with the independent direct
     # log-energy Gauss integral. This separates radial-rule and energy-rule
@@ -508,6 +639,8 @@ def run(
             "comparison_with_archived": same_radial_comparison,
         },
         "final_independent_b1_source": final,
+        "equivalent_infinity_energy_variable_source": final_infinity,
+        "local_vs_infinity_energy_variable_comparison": energy_variable_comparison,
         "comparison_with_archived_b16_b1": final_comparison,
         "closure": {
             "sum_of_channels_relative_difference": relative_difference(
@@ -522,7 +655,7 @@ def run(
             "The profile is reconstructed from public figures and is not the original Garching simulation table.",
             "The local production kernels are shared and are not independently re-derived in this audit.",
             "The single negative-muon density convention is retained; this audit does not revisit the physical species-counting convention.",
-            "The source-energy variable follows the literal Appendix-B lower limit and N(r)^2 prefactor; this audit does not resolve the main-text versus Appendix-B energy-language issue.",
+            "The local-energy and E_infinity forms are compared by an exact change of variables; this tests B.1 measure/Jacobian consistency but does not resolve the B.2 path-energy convention.",
         ],
         "production_axial_outputs_modified": False,
     }
@@ -558,6 +691,7 @@ def main():
             "channel_fractions": result["final_independent_b1_source"]["channel_fractions"],
         },
         "comparison_with_archived": result["comparison_with_archived_b16_b1"],
+        "local_vs_infinity_energy_variable_comparison": result["local_vs_infinity_energy_variable_comparison"],
         "elapsed_seconds": result["elapsed_seconds"],
     }, indent=2), flush=True)
 
