@@ -9,12 +9,15 @@
   ],
   "n_profile_nodes_inclusive": 533,
   "statistics": {
-    "eta_relative_difference_mean": 0.8298163560244268,
+    "eta_relative_difference_node_mean": 0.8298163560244268,
+    "eta_relative_difference_radial_trapezoid_mean": 0.7726224139687241,
+    "eta_signed_difference_radial_trapezoid_mean": 0.7726224139687241,
     "eta_relative_difference_median": 0.5266579663792659,
     "eta_relative_difference_max": 3.1558969368911542,
     "eta_ratio_min": 1.0935474085325758,
     "eta_ratio_max": 4.155896936891154,
-    "temperature_relative_difference_mean": 0.00014438580568881132,
+    "temperature_relative_difference_node_mean": 0.00014438580568881132,
+    "temperature_relative_difference_radial_trapezoid_mean": 0.00016816453759982018,
     "temperature_relative_difference_max": 0.001262983555275321
   },
   "samples": [
