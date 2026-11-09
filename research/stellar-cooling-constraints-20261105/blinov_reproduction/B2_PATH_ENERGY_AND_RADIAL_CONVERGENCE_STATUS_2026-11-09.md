@@ -63,8 +63,8 @@ The audit is designed to identify the minimum radial order at which both the fix
 
 - Three-mass path-energy scan: [Run #42579746452](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42579746452)
 - Isolated opacity interpolation scan: [Run #42581429474](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42581429474)
-- High-order source radial scan (0.1 and 1 MeV): [Run #42583044995](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42583044995) initially exposed a metadata bug; corrected rerun: [Run #42583135559](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42583135559), with a further decoupled 640-node opacity-grid run queued at [Run #42583311584](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42583311584).
+- High-order source radial scan (0.1 and 1 MeV): initial CI attempts exposed and fixed a metadata-key issue and then a literal line-break syntax issue. The current decoupled run [#42583529538](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42583529538) holds the opacity interpolation grid at 640 nodes while refining the B.1 source radial order from 80 to 200; at the time of this report update, its two mass jobs are running.
 - Machine-readable path-energy results: `outputs/b2_path_energy_convergence_2026-11-09.json`
 - Machine-readable opacity-grid results: `outputs/b2_opacity_interpolation_convergence_2026-11-09.json`
 
-The failed initial radial workflow is retained as a transparent debugging record; its numerical calculation reached the summary step but stopped on a metadata-key mismatch, which has been corrected in the subsequent workflow revision.
+The failed initial radial workflow attempts are retained as transparent debugging records. They failed before producing scientific results (first a metadata-key mismatch, then a syntax issue); the current run uses the corrected script and decoupled opacity grid.
