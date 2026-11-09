@@ -29,7 +29,7 @@ DEFAULT_OUTPUT = HERE / "outputs" / "b13_global_convergence_vertex_preserving_10
 def compact_run(result: dict, label: str, orders: dict) -> dict:
     variants = result["variant_results"]
     selected = {}
-    for key in ("B13_mu_minus_consistent", "B13_mu_minus_plus_mu_plus_consistent"):
+    for key in ("B13_mu_minus_consistent_source_and_opacity", "B13_both_charges_consistent_source_and_opacity"):
         if key not in variants:
             raise KeyError(f"Missing expected result variant: {key}")
         item = variants[key]
@@ -109,7 +109,7 @@ def main():
             results.append(compact_run(result, label, orders))
 
     baseline = {}
-    for key in ("B13_mu_minus_consistent", "B13_mu_minus_plus_mu_plus_consistent"):
+    for key in ("B13_mu_minus_consistent_source_and_opacity", "B13_both_charges_consistent_source_and_opacity"):
         baseline[key] = {
             "metrics_vs_fig7": ref_variants[key]["metrics_vs_fig7"],
             "thin_luminosity_ratio_vs_B16": ref_variants[key]["thin_luminosity_ratio_vs_B16"],
