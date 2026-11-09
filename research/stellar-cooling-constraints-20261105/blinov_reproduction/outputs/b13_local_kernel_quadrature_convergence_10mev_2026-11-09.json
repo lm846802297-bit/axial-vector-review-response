@@ -1,0 +1,1343 @@
+{
+  "configuration": {
+    "charge_species": [
+      "mu_minus",
+      "mu_plus"
+    ],
+    "dimension_isolation_base_orders": [
+      20,
+      12,
+      12,
+      12
+    ],
+    "dimension_isolation_point_r_km_omega_MeV": [
+      8.0,
+      15.0
+    ],
+    "dimension_isolation_variants": {
+      "all_dimensions_together": [
+        24,
+        14,
+        14,
+        14
+      ],
+      "kinetic_energy_only": [
+        24,
+        12,
+        12,
+        12
+      ],
+      "muon_polar_angle_only": [
+        20,
+        14,
+        12,
+        12
+      ],
+      "photon_polar_angle_only": [
+        20,
+        12,
+        14,
+        12
+      ],
+      "relative_photon_azimuth_only": [
+        20,
+        12,
+        12,
+        14
+      ]
+    },
+    "order_ladder": [
+      [
+        12,
+        8,
+        8,
+        8
+      ],
+      [
+        16,
+        10,
+        10,
+        10
+      ],
+      [
+        20,
+        12,
+        12,
+        12
+      ],
+      [
+        24,
+        14,
+        14,
+        14
+      ]
+    ],
+    "polarization_modes": [
+      "L",
+      "+",
+      "-"
+    ],
+    "sample_points_r_km_omega_MeV": [
+      [
+        8.0,
+        15.0
+      ],
+      [
+        12.5,
+        20.0
+      ],
+      [
+        15.0,
+        30.0
+      ]
+    ]
+  },
+  "current": "pure vector, g_V=1, g_A=0, rates per g_X^2",
+  "dimension_isolation": [
+    {
+      "base_orders": [
+        20,
+        12,
+        12,
+        12
+      ],
+      "final_muon_shell_relative_error": 1.2089997641937663e-13,
+      "maximum_relative_change": 1.9905464090817838e-08,
+      "per_charge": {
+        "mu_minus": {
+          "absorption_modes_MeV": 1.9905464049851225e-08,
+          "maximum_over_production_absorption_and_reduced_absorption": 1.9905464090817838e-08,
+          "production_modes_MeV": 1.9905464090817838e-08,
+          "reduced_absorption_modes_MeV": 1.9905463962923797e-08
+        },
+        "mu_plus": {
+          "absorption_modes_MeV": 5.047984750605641e-10,
+          "maximum_over_production_absorption_and_reduced_absorption": 5.047985042655484e-10,
+          "production_modes_MeV": 5.047985042655484e-10,
+          "reduced_absorption_modes_MeV": 5.047984130902417e-10
+        }
+      },
+      "variation": "kinetic_energy_only",
+      "varied_orders": [
+        24,
+        12,
+        12,
+        12
+      ]
+    },
+    {
+      "base_orders": [
+        20,
+        12,
+        12,
+        12
+      ],
+      "final_muon_shell_relative_error": 1.2089997641937663e-13,
+      "maximum_relative_change": 0.0004630551927067645,
+      "per_charge": {
+        "mu_minus": {
+          "absorption_modes_MeV": 0.0004630551927067645,
+          "maximum_over_production_absorption_and_reduced_absorption": 0.0004630551927067645,
+          "production_modes_MeV": 0.0004630551927065812,
+          "reduced_absorption_modes_MeV": 0.00046305519270674756
+        },
+        "mu_plus": {
+          "absorption_modes_MeV": 0.00034929719622868373,
+          "maximum_over_production_absorption_and_reduced_absorption": 0.00034929719622868373,
+          "production_modes_MeV": 0.0003492971962283759,
+          "reduced_absorption_modes_MeV": 0.00034929719622868346
+        }
+      },
+      "variation": "muon_polar_angle_only",
+      "varied_orders": [
+        20,
+        14,
+        12,
+        12
+      ]
+    },
+    {
+      "base_orders": [
+        20,
+        12,
+        12,
+        12
+      ],
+      "final_muon_shell_relative_error": 1.626120976637977e-13,
+      "maximum_relative_change": 0.0004850959831158019,
+      "per_charge": {
+        "mu_minus": {
+          "absorption_modes_MeV": 0.0004850959831158019,
+          "maximum_over_production_absorption_and_reduced_absorption": 0.0004850959831158019,
+          "production_modes_MeV": 0.0004850959831157107,
+          "reduced_absorption_modes_MeV": 0.00048509598311572485
+        },
+        "mu_plus": {
+          "absorption_modes_MeV": 0.00036379759741815267,
+          "maximum_over_production_absorption_and_reduced_absorption": 0.00036379759741815267,
+          "production_modes_MeV": 0.00036379759741812177,
+          "reduced_absorption_modes_MeV": 0.0003637975974180548
+        }
+      },
+      "variation": "photon_polar_angle_only",
+      "varied_orders": [
+        20,
+        12,
+        14,
+        12
+      ]
+    },
+    {
+      "base_orders": [
+        20,
+        12,
+        12,
+        12
+      ],
+      "final_muon_shell_relative_error": 1.626120976637977e-13,
+      "maximum_relative_change": 8.07326175058355e-05,
+      "per_charge": {
+        "mu_minus": {
+          "absorption_modes_MeV": 8.073261750577367e-05,
+          "maximum_over_production_absorption_and_reduced_absorption": 8.07326175058355e-05,
+          "production_modes_MeV": 8.07326175058355e-05,
+          "reduced_absorption_modes_MeV": 8.073261750564247e-05
+        },
+        "mu_plus": {
+          "absorption_modes_MeV": 6.160876711961788e-05,
+          "maximum_over_production_absorption_and_reduced_absorption": 6.160876711970392e-05,
+          "production_modes_MeV": 6.160876711965932e-05,
+          "reduced_absorption_modes_MeV": 6.160876711970392e-05
+        }
+      },
+      "variation": "relative_photon_azimuth_only",
+      "varied_orders": [
+        20,
+        12,
+        12,
+        14
+      ]
+    },
+    {
+      "base_orders": [
+        20,
+        12,
+        12,
+        12
+      ],
+      "final_muon_shell_relative_error": 1.626120976637977e-13,
+      "maximum_relative_change": 0.00030160395473683983,
+      "per_charge": {
+        "mu_minus": {
+          "absorption_modes_MeV": 0.00030160395473669726,
+          "maximum_over_production_absorption_and_reduced_absorption": 0.00030160395473683983,
+          "production_modes_MeV": 0.00030160395473683983,
+          "reduced_absorption_modes_MeV": 0.0003016039547366653
+        },
+        "mu_plus": {
+          "absorption_modes_MeV": 0.00022745774988849326,
+          "maximum_over_production_absorption_and_reduced_absorption": 0.00022745774988884568,
+          "production_modes_MeV": 0.00022745774988884568,
+          "reduced_absorption_modes_MeV": 0.00022745774988839883
+        }
+      },
+      "variation": "all_dimensions_together",
+      "varied_orders": [
+        24,
+        14,
+        14,
+        14
+      ]
+    }
+  ],
+  "mass_MeV": 10.0,
+  "pointwise_results": [
+    {
+      "highest_order_assessment": {
+        "orders_16x10x10x10_to_20x12x12x12_max_relative_change": 0.0008907695031827804,
+        "orders_20x12x12x12_to_24x14x14x14_max_relative_change": 0.00030160395473683983
+      },
+      "mu_minus_chemical_potential_MeV": 91.7949514302041,
+      "omega_MeV": 15.0,
+      "order_ladder": [
+        {
+          "charges": {
+            "mu_minus": {
+              "absorption_modes_MeV": [
+                0.010042379960033375,
+                0.01838754201446394,
+                0.018387542014463954
+              ],
+              "absorption_sum_MeV": 0.046817463988961264,
+              "maximum_matrix_element": 1.100856835938449,
+              "minimum_matrix_element_before_roundoff_clip": 5.786501798700606e-05,
+              "mode_detailed_balance_max_relative_residual": 2.776067686556524e-16,
+              "production_modes_MeV": [
+                0.006825636743087298,
+                0.012497703023434437,
+                0.01249770302343445
+              ],
+              "production_sum_MeV": 0.031821042789956185,
+              "reduced_absorption_modes_MeV": [
+                0.0032167432169460763,
+                0.005889838991029503,
+                0.005889838991029507
+              ],
+              "reduced_absorption_sum_MeV": 0.014996421199005086
+            },
+            "mu_plus": {
+              "absorption_modes_MeV": [
+                0.00012985926249602675,
+                0.00024349493577695576,
+                0.00024349493577695592
+              ],
+              "absorption_sum_MeV": 0.0006168491340499384,
+              "maximum_matrix_element": 1.100856835938449,
+              "minimum_matrix_element_before_roundoff_clip": 5.786501798700606e-05,
+              "mode_detailed_balance_max_relative_residual": 4.606404654488058e-16,
+              "production_modes_MeV": [
+                8.826315644804115e-05,
+                0.0001654994121920625,
+                0.00016549941219206262
+              ],
+              "production_sum_MeV": 0.00041926198083216623,
+              "reduced_absorption_modes_MeV": [
+                4.159610604798564e-05,
+                7.79955235848933e-05,
+                7.799552358489335e-05
+              ],
+              "reduced_absorption_sum_MeV": 0.00019758715321777228
+            }
+          },
+          "final_muon_shell_relative_error": 1.2089997641937663e-13,
+          "mu_minus_chemical_potential_MeV": 91.7949514302041,
+          "omega_MeV": 15.0,
+          "orders": [
+            12,
+            8,
+            8,
+            8
+          ],
+          "radius_km": 8.0,
+          "temperature_MeV": 38.847171184805,
+          "x_max": 36.0
+        },
+        {
+          "charges": {
+            "mu_minus": {
+              "absorption_modes_MeV": [
+                0.010015964632116795,
+                0.018352171211187884,
+                0.01835217121118788
+              ],
+              "absorption_sum_MeV": 0.04672030705449256,
+              "maximum_matrix_element": 1.3426746743305493,
+              "minimum_matrix_element_before_roundoff_clip": 2.6159034117787003e-05,
+              "mode_detailed_balance_max_relative_residual": 2.781418102204477e-16,
+              "production_modes_MeV": [
+                0.006807682689015886,
+                0.012473662083394883,
+                0.01247366208339488
+              ],
+              "production_sum_MeV": 0.03175500685580565,
+              "reduced_absorption_modes_MeV": [
+                0.003208281943100909,
+                0.005878509127792999,
+                0.005878509127792997
+              ],
+              "reduced_absorption_sum_MeV": 0.014965300198686905
+            },
+            "mu_plus": {
+              "absorption_modes_MeV": [
+                0.00012959090682279875,
+                0.00024313591238003113,
+                0.00024313591238003107
+              ],
+              "absorption_sum_MeV": 0.0006158627315828609,
+              "maximum_matrix_element": 1.3426746743305493,
+              "minimum_matrix_element_before_roundoff_clip": 2.6159034117787003e-05,
+              "mode_detailed_balance_max_relative_residual": 3.0772957036151464e-16,
+              "production_modes_MeV": [
+                8.808075961076837e-05,
+                0.00016525539002805055,
+                0.00016525539002805052
+              ],
+              "production_sum_MeV": 0.0004185915396668694,
+              "reduced_absorption_modes_MeV": [
+                4.1510147212030354e-05,
+                7.788052235198054e-05,
+                7.788052235198052e-05
+              ],
+              "reduced_absorption_sum_MeV": 0.0001972711919159914
+            }
+          },
+          "final_muon_shell_relative_error": 1.2089997641937663e-13,
+          "mu_minus_chemical_potential_MeV": 91.7949514302041,
+          "omega_MeV": 15.0,
+          "orders": [
+            16,
+            10,
+            10,
+            10
+          ],
+          "radius_km": 8.0,
+          "temperature_MeV": 38.847171184805,
+          "x_max": 36.0
+        },
+        {
+          "charges": {
+            "mu_minus": {
+              "absorption_modes_MeV": [
+                0.010007042716277548,
+                0.018350300978571946,
+                0.018350300978571953
+              ],
+              "absorption_sum_MeV": 0.04670764467342145,
+              "maximum_matrix_element": 1.4294175618539209,
+              "minimum_matrix_element_before_roundoff_clip": 2.6026707876486487e-05,
+              "mode_detailed_balance_max_relative_residual": 1.3908507898905932e-16,
+              "production_modes_MeV": [
+                0.006801618612889165,
+                0.01247239091774369,
+                0.01247239091774369
+              ],
+              "production_sum_MeV": 0.031746400448376545,
+              "reduced_absorption_modes_MeV": [
+                0.0032054241033883826,
+                0.005877910060828258,
+                0.00587791006082826
+              ],
+              "reduced_absorption_sum_MeV": 0.014961244225044901
+            },
+            "mu_plus": {
+              "absorption_modes_MeV": [
+                0.00012950153359811236,
+                0.0002431123991564485,
+                0.0002431123991564486
+              ],
+              "absorption_sum_MeV": 0.0006157263319110095,
+              "maximum_matrix_element": 1.4294175618539209,
+              "minimum_matrix_element_before_roundoff_clip": 2.6026707876486487e-05,
+              "mode_detailed_balance_max_relative_residual": 1.640350480588853e-16,
+              "production_modes_MeV": [
+                8.802001413323266e-05,
+                0.00016523940848548076,
+                0.0001652394084854808
+              ],
+              "production_sum_MeV": 0.00041849883110419415,
+              "reduced_absorption_modes_MeV": [
+                4.1481519464879706e-05,
+                7.787299067096777e-05,
+                7.78729906709678e-05
+              ],
+              "reduced_absorption_sum_MeV": 0.00019722750080681528
+            }
+          },
+          "final_muon_shell_relative_error": 1.2937275104714967e-13,
+          "mu_minus_chemical_potential_MeV": 91.7949514302041,
+          "omega_MeV": 15.0,
+          "orders": [
+            20,
+            12,
+            12,
+            12
+          ],
+          "radius_km": 8.0,
+          "temperature_MeV": 38.847171184805,
+          "x_max": 36.0
+        },
+        {
+          "charges": {
+            "mu_minus": {
+              "absorption_modes_MeV": [
+                0.0100040245526191,
+                0.018350795565814645,
+                0.01835079556581464
+              ],
+              "absorption_sum_MeV": 0.046705615684248386,
+              "maximum_matrix_element": 1.4624770346682923,
+              "minimum_matrix_element_before_roundoff_clip": 2.658391893574164e-05,
+              "mode_detailed_balance_max_relative_residual": 2.551226306626267e-16,
+              "production_modes_MeV": [
+                0.006799567217816906,
+                0.012472727080373447,
+                0.012472727080373447
+              ],
+              "production_sum_MeV": 0.031745021378563804,
+              "reduced_absorption_modes_MeV": [
+                0.0032044573348021924,
+                0.005878068485441195,
+                0.005878068485441194
+              ],
+              "reduced_absorption_sum_MeV": 0.014960594305684582
+            },
+            "mu_plus": {
+              "absorption_modes_MeV": [
+                0.00012947207747067302,
+                0.000243114815593556,
+                0.000243114815593556
+              ],
+              "absorption_sum_MeV": 0.000615701708657785,
+              "maximum_matrix_element": 1.4624770346682923,
+              "minimum_matrix_element_before_roundoff_clip": 2.658391893574164e-05,
+              "mode_detailed_balance_max_relative_residual": 3.0801200427460506e-16,
+              "production_modes_MeV": [
+                8.799999329887273e-05,
+                0.0001652410508971375,
+                0.0001652410508971375
+              ],
+              "production_sum_MeV": 0.00041848209509314773,
+              "reduced_absorption_modes_MeV": [
+                4.147208417180027e-05,
+                7.787376469641848e-05,
+                7.787376469641848e-05
+              ],
+              "reduced_absorption_sum_MeV": 0.00019721961356463725
+            }
+          },
+          "final_muon_shell_relative_error": 1.626120976637977e-13,
+          "mu_minus_chemical_potential_MeV": 91.7949514302041,
+          "omega_MeV": 15.0,
+          "orders": [
+            24,
+            14,
+            14,
+            14
+          ],
+          "radius_km": 8.0,
+          "temperature_MeV": 38.847171184805,
+          "x_max": 36.0
+        }
+      ],
+      "radius_km": 8.0,
+      "successive_refinement": [
+        {
+          "from_orders": [
+            12,
+            8,
+            8,
+            8
+          ],
+          "maximum_relative_change": 0.0026303852295678203,
+          "per_charge": {
+            "mu_minus": {
+              "absorption_modes_MeV": 0.0026303852295677965,
+              "maximum_over_production_absorption_and_reduced_absorption": 0.0026303852295678203,
+              "production_modes_MeV": 0.002630385229567785,
+              "reduced_absorption_modes_MeV": 0.0026303852295678203
+            },
+            "mu_plus": {
+              "absorption_modes_MeV": 0.002066511607026982,
+              "maximum_over_production_absorption_and_reduced_absorption": 0.002066511607027701,
+              "production_modes_MeV": 0.002066511607027701,
+              "reduced_absorption_modes_MeV": 0.00206651160702692
+            }
+          },
+          "to_orders": [
+            16,
+            10,
+            10,
+            10
+          ]
+        },
+        {
+          "from_orders": [
+            16,
+            10,
+            10,
+            10
+          ],
+          "maximum_relative_change": 0.0008907695031827804,
+          "per_charge": {
+            "mu_minus": {
+              "absorption_modes_MeV": 0.0008907695031827557,
+              "maximum_over_production_absorption_and_reduced_absorption": 0.0008907695031827804,
+              "production_modes_MeV": 0.0008907695031827441,
+              "reduced_absorption_modes_MeV": 0.0008907695031827804
+            },
+            "mu_plus": {
+              "absorption_modes_MeV": 0.0006896566038279157,
+              "maximum_over_production_absorption_and_reduced_absorption": 0.0006896566038279762,
+              "production_modes_MeV": 0.0006896566038275027,
+              "reduced_absorption_modes_MeV": 0.0006896566038279762
+            }
+          },
+          "to_orders": [
+            20,
+            12,
+            12,
+            12
+          ]
+        },
+        {
+          "from_orders": [
+            20,
+            12,
+            12,
+            12
+          ],
+          "maximum_relative_change": 0.00030160395473683983,
+          "per_charge": {
+            "mu_minus": {
+              "absorption_modes_MeV": 0.00030160395473669726,
+              "maximum_over_production_absorption_and_reduced_absorption": 0.00030160395473683983,
+              "production_modes_MeV": 0.00030160395473683983,
+              "reduced_absorption_modes_MeV": 0.0003016039547366653
+            },
+            "mu_plus": {
+              "absorption_modes_MeV": 0.00022745774988849326,
+              "maximum_over_production_absorption_and_reduced_absorption": 0.00022745774988884568,
+              "production_modes_MeV": 0.00022745774988884568,
+              "reduced_absorption_modes_MeV": 0.00022745774988839883
+            }
+          },
+          "to_orders": [
+            24,
+            14,
+            14,
+            14
+          ]
+        }
+      ],
+      "temperature_MeV": 38.847171184805
+    },
+    {
+      "highest_order_assessment": {
+        "orders_16x10x10x10_to_20x12x12x12_max_relative_change": 0.0001588728425793934,
+        "orders_20x12x12x12_to_24x14x14x14_max_relative_change": 3.0429869319587425e-05
+      },
+      "mu_minus_chemical_potential_MeV": 90.2165853124713,
+      "omega_MeV": 20.0,
+      "order_ladder": [
+        {
+          "charges": {
+            "mu_minus": {
+              "absorption_modes_MeV": [
+                0.001336931716222956,
+                0.004155056181655855,
+                0.004155056181655857
+              ],
+              "absorption_sum_MeV": 0.009647044079534667,
+              "maximum_matrix_element": 1.186861999518031,
+              "minimum_matrix_element_before_roundoff_clip": 0.00020140960308941762,
+              "mode_detailed_balance_max_relative_residual": 1.2057693823194492e-16,
+              "production_modes_MeV": [
+                0.0005786398545442178,
+                0.0017983574444391764,
+                0.0017983574444391766
+              ],
+              "production_sum_MeV": 0.004175354743422571,
+              "reduced_absorption_modes_MeV": [
+                0.0007582918616787381,
+                0.002356698737216679,
+                0.00235669873721668
+              ],
+              "reduced_absorption_sum_MeV": 0.005471689336112097
+            },
+            "mu_plus": {
+              "absorption_modes_MeV": [
+                9.333996929307509e-07,
+                2.984745989216907e-06,
+                2.984745989216908e-06
+              ],
+              "absorption_sum_MeV": 6.902891671364567e-06,
+              "maximum_matrix_element": 1.186861999518031,
+              "minimum_matrix_element_before_roundoff_clip": 0.00020140960308941762,
+              "mode_detailed_balance_max_relative_residual": 2.620858331821934e-16,
+              "production_modes_MeV": [
+                4.0398642353623104e-07,
+                1.2918333555069067e-06,
+                1.291833355506907e-06
+              ],
+              "production_sum_MeV": 2.9876531345500444e-06,
+              "reduced_absorption_modes_MeV": [
+                5.294132693945199e-07,
+                1.6929126337100007e-06,
+                1.6929126337100011e-06
+              ],
+              "reduced_absorption_sum_MeV": 3.9152385368145215e-06
+            }
+          },
+          "final_muon_shell_relative_error": 5.6376538869412824e-14,
+          "mu_minus_chemical_potential_MeV": 90.2165853124713,
+          "omega_MeV": 20.0,
+          "orders": [
+            12,
+            8,
+            8,
+            8
+          ],
+          "radius_km": 12.5,
+          "temperature_MeV": 23.881959149249,
+          "x_max": 36.0
+        },
+        {
+          "charges": {
+            "mu_minus": {
+              "absorption_modes_MeV": [
+                0.0013360305703262062,
+                0.004154513887965585,
+                0.004154513887965584
+              ],
+              "absorption_sum_MeV": 0.009645058346257375,
+              "maximum_matrix_element": 1.3104072519681504,
+              "minimum_matrix_element_before_roundoff_clip": 5.57536500643115e-05,
+              "mode_detailed_balance_max_relative_residual": 1.2059267728458951e-16,
+              "production_modes_MeV": [
+                0.0005782498279450347,
+                0.0017981227333179945,
+                0.0017981227333179943
+              ],
+              "production_sum_MeV": 0.004174495294581023,
+              "reduced_absorption_modes_MeV": [
+                0.0007577807423811715,
+                0.0023563911546475905,
+                0.00235639115464759
+              ],
+              "reduced_absorption_sum_MeV": 0.005470563051676352
+            },
+            "mu_plus": {
+              "absorption_modes_MeV": [
+                9.329242259631134e-07,
+                2.984574360397636e-06,
+                2.984574360397636e-06
+              ],
+              "absorption_sum_MeV": 6.902072946758386e-06,
+              "maximum_matrix_element": 1.3104072519681504,
+              "minimum_matrix_element_before_roundoff_clip": 5.57536500643115e-05,
+              "mode_detailed_balance_max_relative_residual": 7.866582174813145e-16,
+              "production_modes_MeV": [
+                4.0378063581075755e-07,
+                1.2917590725246014e-06,
+                1.2917590725246014e-06
+              ],
+              "production_sum_MeV": 2.9872987808599604e-06,
+              "reduced_absorption_modes_MeV": [
+                5.291435901523555e-07,
+                1.692815287873034e-06,
+                1.692815287873034e-06
+              ],
+              "reduced_absorption_sum_MeV": 3.914774165898424e-06
+            }
+          },
+          "final_muon_shell_relative_error": 3.7475733930534537e-14,
+          "mu_minus_chemical_potential_MeV": 90.2165853124713,
+          "omega_MeV": 20.0,
+          "orders": [
+            16,
+            10,
+            10,
+            10
+          ],
+          "radius_km": 12.5,
+          "temperature_MeV": 23.881959149249,
+          "x_max": 36.0
+        },
+        {
+          "charges": {
+            "mu_minus": {
+              "absorption_modes_MeV": [
+                0.0013358183113517256,
+                0.0041549225800792235,
+                0.0041549225800792235
+              ],
+              "absorption_sum_MeV": 0.009645663471510173,
+              "maximum_matrix_element": 1.3509682113275099,
+              "minimum_matrix_element_before_roundoff_clip": 2.592948705999813e-05,
+              "mode_detailed_balance_max_relative_residual": 1.875269818912757e-16,
+              "production_modes_MeV": [
+                0.0005781579597511482,
+                0.0017982996200971168,
+                0.0017982996200971168
+              ],
+              "production_sum_MeV": 0.004174757199945382,
+              "reduced_absorption_modes_MeV": [
+                0.0007576603516005775,
+                0.002356622959982107,
+                0.002356622959982107
+              ],
+              "reduced_absorption_sum_MeV": 0.005470906271564791
+            },
+            "mu_plus": {
+              "absorption_modes_MeV": [
+                9.328048251005584e-07,
+                2.984801120876743e-06,
+                2.984801120876743e-06
+              ],
+              "absorption_sum_MeV": 6.902407066854045e-06,
+              "maximum_matrix_element": 1.3509682113275099,
+              "minimum_matrix_element_before_roundoff_clip": 2.592948705999813e-05,
+              "mode_detailed_balance_max_relative_residual": 1.3112648521483985e-16,
+              "production_modes_MeV": [
+                4.0372895770565876e-07,
+                1.2918572171411555e-06,
+                1.2918572171411555e-06
+              ],
+              "production_sum_MeV": 2.98744339198797e-06,
+              "reduced_absorption_modes_MeV": [
+                5.290758673948996e-07,
+                1.6929439037355876e-06,
+                1.6929439037355876e-06
+              ],
+              "reduced_absorption_sum_MeV": 3.914963674866075e-06
+            }
+          },
+          "final_muon_shell_relative_error": 6.680456918051809e-14,
+          "mu_minus_chemical_potential_MeV": 90.2165853124713,
+          "omega_MeV": 20.0,
+          "orders": [
+            20,
+            12,
+            12,
+            12
+          ],
+          "radius_km": 12.5,
+          "temperature_MeV": 23.881959149249,
+          "x_max": 36.0
+        },
+        {
+          "charges": {
+            "mu_minus": {
+              "absorption_modes_MeV": [
+                0.0013357776625750769,
+                0.0041549317249615,
+                0.0041549317249615
+              ],
+              "absorption_sum_MeV": 0.009645641112498077,
+              "maximum_matrix_element": 1.3668555238310471,
+              "minimum_matrix_element_before_roundoff_clip": 1.389546413710172e-05,
+              "mode_detailed_balance_max_relative_residual": 1.875326884864794e-16,
+              "production_modes_MeV": [
+                0.0005781403664799869,
+                0.001798303578110294,
+                0.001798303578110294
+              ],
+              "production_sum_MeV": 0.004174747522700575,
+              "reduced_absorption_modes_MeV": [
+                0.0007576372960950899,
+                0.002356628146851206,
+                0.002356628146851206
+              ],
+              "reduced_absorption_sum_MeV": 0.005470893589797502
+            },
+            "mu_plus": {
+              "absorption_modes_MeV": [
+                9.327820299091242e-07,
+                2.984801708627463e-06,
+                2.9848017086274634e-06
+              ],
+              "absorption_sum_MeV": 6.90238544716405e-06,
+              "maximum_matrix_element": 1.3668555238310471,
+              "minimum_matrix_element_before_roundoff_clip": 1.389546413710172e-05,
+              "mode_detailed_balance_max_relative_residual": 3.2783529372375063e-16,
+              "production_modes_MeV": [
+                4.037190916772778e-07,
+                1.291857471526617e-06,
+                1.291857471526617e-06
+              ],
+              "production_sum_MeV": 2.9874340347305117e-06,
+              "reduced_absorption_modes_MeV": [
+                5.290629382318464e-07,
+                1.6929442371008465e-06,
+                1.6929442371008467e-06
+              ],
+              "reduced_absorption_sum_MeV": 3.9149514124335396e-06
+            }
+          },
+          "final_muon_shell_relative_error": 4.5948508558307565e-14,
+          "mu_minus_chemical_potential_MeV": 90.2165853124713,
+          "omega_MeV": 20.0,
+          "orders": [
+            24,
+            14,
+            14,
+            14
+          ],
+          "radius_km": 12.5,
+          "temperature_MeV": 23.881959149249,
+          "x_max": 36.0
+        }
+      ],
+      "radius_km": 12.5,
+      "successive_refinement": [
+        {
+          "from_orders": [
+            12,
+            8,
+            8,
+            8
+          ],
+          "maximum_relative_change": 0.0006740403311664711,
+          "per_charge": {
+            "mu_minus": {
+              "absorption_modes_MeV": 0.0006740403311663687,
+              "maximum_over_production_absorption_and_reduced_absorption": 0.0006740403311664711,
+              "production_modes_MeV": 0.0006740403311664711,
+              "reduced_absorption_modes_MeV": 0.0006740403311662907
+            },
+            "mu_plus": {
+              "absorption_modes_MeV": 0.000509392676297758,
+              "maximum_over_production_absorption_and_reduced_absorption": 0.0005093926762987778,
+              "production_modes_MeV": 0.0005093926762987778,
+              "reduced_absorption_modes_MeV": 0.0005093926762977798
+            }
+          },
+          "to_orders": [
+            16,
+            10,
+            10,
+            10
+          ]
+        },
+        {
+          "from_orders": [
+            16,
+            10,
+            10,
+            10
+          ],
+          "maximum_relative_change": 0.0001588728425793934,
+          "per_charge": {
+            "mu_minus": {
+              "absorption_modes_MeV": 0.00015887284257933734,
+              "maximum_over_production_absorption_and_reduced_absorption": 0.0001588728425793934,
+              "production_modes_MeV": 0.00015887284257907637,
+              "reduced_absorption_modes_MeV": 0.0001588728425793934
+            },
+            "mu_plus": {
+              "absorption_modes_MeV": 0.00012798559543433918,
+              "maximum_over_production_absorption_and_reduced_absorption": 0.00012798559543433918,
+              "production_modes_MeV": 0.0001279855954335865,
+              "reduced_absorption_modes_MeV": 0.00012798559543421328
+            }
+          },
+          "to_orders": [
+            20,
+            12,
+            12,
+            12
+          ]
+        },
+        {
+          "from_orders": [
+            20,
+            12,
+            12,
+            12
+          ],
+          "maximum_relative_change": 3.0429869319587425e-05,
+          "per_charge": {
+            "mu_minus": {
+              "absorption_modes_MeV": 3.042986931925636e-05,
+              "maximum_over_production_absorption_and_reduced_absorption": 3.0429869319587425e-05,
+              "production_modes_MeV": 3.0429869319587425e-05,
+              "reduced_absorption_modes_MeV": 3.0429869319289923e-05
+            },
+            "mu_plus": {
+              "absorption_modes_MeV": 2.443725720624397e-05,
+              "maximum_over_production_absorption_and_reduced_absorption": 2.4437257206351134e-05,
+              "production_modes_MeV": 2.443725720597241e-05,
+              "reduced_absorption_modes_MeV": 2.4437257206351134e-05
+            }
+          },
+          "to_orders": [
+            24,
+            14,
+            14,
+            14
+          ]
+        }
+      ],
+      "temperature_MeV": 23.881959149249
+    },
+    {
+      "highest_order_assessment": {
+        "orders_16x10x10x10_to_20x12x12x12_max_relative_change": 2.921612986148513e-06,
+        "orders_20x12x12x12_to_24x14x14x14_max_relative_change": 3.7625100125247876e-06
+      },
+      "mu_minus_chemical_potential_MeV": 62.2827180874073,
+      "omega_MeV": 30.0,
+      "order_ladder": [
+        {
+          "charges": {
+            "mu_minus": {
+              "absorption_modes_MeV": [
+                1.334948123289686e-05,
+                9.457112574475132e-05,
+                9.457112574475132e-05
+              ],
+              "absorption_sum_MeV": 0.0002024917327223995,
+              "maximum_matrix_element": 1.2172204514581961,
+              "minimum_matrix_element_before_roundoff_clip": 3.302686320614057e-05,
+              "mode_detailed_balance_max_relative_residual": 5.18778967554236e-16,
+              "production_modes_MeV": [
+                1.3828498399414034e-06,
+                9.796460537877296e-06,
+                9.796460537877296e-06
+              ],
+              "production_sum_MeV": 2.0975770915695994e-05,
+              "reduced_absorption_modes_MeV": [
+                1.1966631392955457e-05,
+                8.477466520687403e-05,
+                8.477466520687403e-05
+              ],
+              "reduced_absorption_sum_MeV": 0.0001815159618067035
+            },
+            "mu_plus": {
+              "absorption_modes_MeV": [
+                1.1139516594592046e-09,
+                7.91270333656382e-09,
+                7.91270333656382e-09
+              ],
+              "absorption_sum_MeV": 1.6939358332586847e-08,
+              "maximum_matrix_element": 1.2172204514581961,
+              "minimum_matrix_element_before_roundoff_clip": 3.302686320614057e-05,
+              "mode_detailed_balance_max_relative_residual": 1.513756733095526e-15,
+              "production_modes_MeV": [
+                1.1539233975546363e-10,
+                8.196633525733361e-10,
+                8.196633525733361e-10
+              ],
+              "production_sum_MeV": 1.754719044902136e-09,
+              "reduced_absorption_modes_MeV": [
+                9.98559319703741e-10,
+                7.093039983990484e-09,
+                7.093039983990484e-09
+              ],
+              "reduced_absorption_sum_MeV": 1.518463928768471e-08
+            }
+          },
+          "final_muon_shell_relative_error": 1.661967330832401e-14,
+          "mu_minus_chemical_potential_MeV": 62.2827180874073,
+          "omega_MeV": 30.0,
+          "orders": [
+            12,
+            8,
+            8,
+            8
+          ],
+          "radius_km": 15.0,
+          "temperature_MeV": 13.2314158304208,
+          "x_max": 36.0
+        },
+        {
+          "charges": {
+            "mu_minus": {
+              "absorption_modes_MeV": [
+                1.3347941636405217e-05,
+                9.458785314600219e-05,
+                9.458785314600219e-05
+              ],
+              "absorption_sum_MeV": 0.0002025236479284096,
+              "maximum_matrix_element": 1.272783731350978,
+              "minimum_matrix_element_before_roundoff_clip": 2.879577510696712e-05,
+              "mode_detailed_balance_max_relative_residual": 6.125977112018207e-16,
+              "production_modes_MeV": [
+                1.3826903557843108e-06,
+                9.798193300652035e-06,
+                9.798193300652035e-06
+              ],
+              "production_sum_MeV": 2.0979076957088383e-05,
+              "reduced_absorption_modes_MeV": [
+                1.1965251280620906e-05,
+                8.478965984535016e-05,
+                8.478965984535016e-05
+              ],
+              "reduced_absorption_sum_MeV": 0.00018154457097132123
+            },
+            "mu_plus": {
+              "absorption_modes_MeV": [
+                1.1138342369149573e-09,
+                7.914139733515842e-09,
+                7.914139733515842e-09
+              ],
+              "absorption_sum_MeV": 1.6942113703946643e-08,
+              "maximum_matrix_element": 1.272783731350978,
+              "minimum_matrix_element_before_roundoff_clip": 2.879577510696712e-05,
+              "mode_detailed_balance_max_relative_residual": 2.5224699832683214e-16,
+              "production_modes_MeV": [
+                1.1538017615571894e-10,
+                8.19812146467313e-10,
+                8.198121464673128e-10
+              ],
+              "production_sum_MeV": 1.7550044690903446e-09,
+              "reduced_absorption_modes_MeV": [
+                9.984540607592384e-10,
+                7.0943275870485295e-09,
+                7.0943275870485295e-09
+              ],
+              "reduced_absorption_sum_MeV": 1.5187109234856296e-08
+            }
+          },
+          "final_muon_shell_relative_error": 2.1833688463876644e-14,
+          "mu_minus_chemical_potential_MeV": 62.2827180874073,
+          "omega_MeV": 30.0,
+          "orders": [
+            16,
+            10,
+            10,
+            10
+          ],
+          "radius_km": 15.0,
+          "temperature_MeV": 13.2314158304208,
+          "x_max": 36.0
+        },
+        {
+          "charges": {
+            "mu_minus": {
+              "absorption_modes_MeV": [
+                1.3347902638885593e-05,
+                9.458785905050645e-05,
+                9.458785905050645e-05
+              ],
+              "absorption_sum_MeV": 0.0002025236207398985,
+              "maximum_matrix_element": 1.291758860381601,
+              "minimum_matrix_element_before_roundoff_clip": 1.337911427183575e-05,
+              "mode_detailed_balance_max_relative_residual": 4.594496257353585e-16,
+              "production_modes_MeV": [
+                1.3826863160982118e-06,
+                9.798193912289492e-06,
+                9.798193912289492e-06
+              ],
+              "production_sum_MeV": 2.0979074140677196e-05,
+              "reduced_absorption_modes_MeV": [
+                1.1965216322787382e-05,
+                8.478966513821696e-05,
+                8.478966513821696e-05
+              ],
+              "reduced_absorption_sum_MeV": 0.0001815445465992213
+            },
+            "mu_plus": {
+              "absorption_modes_MeV": [
+                1.113831234360301e-09,
+                7.914143391948652e-09,
+                7.914143391948652e-09
+              ],
+              "absorption_sum_MeV": 1.6942118018257608e-08,
+              "maximum_matrix_element": 1.291758860381601,
+              "minimum_matrix_element_before_roundoff_clip": 1.337911427183575e-05,
+              "mode_detailed_balance_max_relative_residual": 3.783703225827473e-16,
+              "production_modes_MeV": [
+                1.1537986512623748e-10,
+                8.19812525438086e-10,
+                8.198125254380859e-10
+              ],
+              "production_sum_MeV": 1.7550049160024094e-09,
+              "reduced_absorption_modes_MeV": [
+                9.984513692340635e-10,
+                7.0943308665105665e-09,
+                7.0943308665105665e-09
+              ],
+              "reduced_absorption_sum_MeV": 1.5187113102255196e-08
+            }
+          },
+          "final_muon_shell_relative_error": 3.030646309164967e-14,
+          "mu_minus_chemical_potential_MeV": 62.2827180874073,
+          "omega_MeV": 30.0,
+          "orders": [
+            20,
+            12,
+            12,
+            12
+          ],
+          "radius_km": 15.0,
+          "temperature_MeV": 13.2314158304208,
+          "x_max": 36.0
+        },
+        {
+          "charges": {
+            "mu_minus": {
+              "absorption_modes_MeV": [
+                1.334790403098719e-05,
+                9.458750425812199e-05,
+                9.458750425812199e-05
+              ],
+              "absorption_sum_MeV": 0.00020252291254723115,
+              "maximum_matrix_element": 1.3000131761364555,
+              "minimum_matrix_element_before_roundoff_clip": 7.480070644818551e-06,
+              "mode_detailed_balance_max_relative_residual": 1.7289637906933545e-16,
+              "production_modes_MeV": [
+                1.3826864603036267e-06,
+                9.798157159955566e-06,
+                9.798157159955566e-06
+              ],
+              "production_sum_MeV": 2.097900078021476e-05,
+              "reduced_absorption_modes_MeV": [
+                1.1965217570683564e-05,
+                8.478934709816643e-05,
+                8.478934709816643e-05
+              ],
+              "reduced_absorption_sum_MeV": 0.00018154391176701643
+            },
+            "mu_plus": {
+              "absorption_modes_MeV": [
+                1.1138313315537328e-09,
+                7.9141136149049e-09,
+                7.9141136149049e-09
+              ],
+              "absorption_sum_MeV": 1.6942058561363534e-08,
+              "maximum_matrix_element": 1.3000131761364555,
+              "minimum_matrix_element_before_roundoff_clip": 7.480070644818551e-06,
+              "mode_detailed_balance_max_relative_residual": 2.5224783080682056e-16,
+              "production_modes_MeV": [
+                1.1537987519433819e-10,
+                8.198094408852506e-10,
+                8.198094408852506e-10
+              ],
+              "production_sum_MeV": 1.7549987569648395e-09,
+              "reduced_absorption_modes_MeV": [
+                9.984514563593946e-10,
+                7.09430417401965e-09,
+                7.09430417401965e-09
+              ],
+              "reduced_absorption_sum_MeV": 1.5187059804398693e-08
+            }
+          },
+          "final_muon_shell_relative_error": 2.509244793609704e-14,
+          "mu_minus_chemical_potential_MeV": 62.2827180874073,
+          "omega_MeV": 30.0,
+          "orders": [
+            24,
+            14,
+            14,
+            14
+          ],
+          "radius_km": 15.0,
+          "temperature_MeV": 13.2314158304208,
+          "x_max": 36.0
+        }
+      ],
+      "radius_km": 15.0,
+      "successive_refinement": [
+        {
+          "from_orders": [
+            12,
+            8,
+            8,
+            8
+          ],
+          "maximum_relative_change": 0.0001815304948180479,
+          "per_charge": {
+            "mu_minus": {
+              "absorption_modes_MeV": 0.0001768764104174341,
+              "maximum_over_production_absorption_and_reduced_absorption": 0.00017687641041776997,
+              "production_modes_MeV": 0.00017687641041776997,
+              "reduced_absorption_modes_MeV": 0.00017687641041743524
+            },
+            "mu_plus": {
+              "absorption_modes_MeV": 0.00018153049481630369,
+              "maximum_over_production_absorption_and_reduced_absorption": 0.0001815304948180479,
+              "production_modes_MeV": 0.0001815304948180479,
+              "reduced_absorption_modes_MeV": 0.00018153049481629165
+            }
+          },
+          "to_orders": [
+            16,
+            10,
+            10,
+            10
+          ]
+        },
+        {
+          "from_orders": [
+            16,
+            10,
+            10,
+            10
+          ],
+          "maximum_relative_change": 2.921612986148513e-06,
+          "per_charge": {
+            "mu_minus": {
+              "absorption_modes_MeV": 2.921612986148513e-06,
+              "maximum_over_production_absorption_and_reduced_absorption": 2.921612986148513e-06,
+              "production_modes_MeV": 2.9216129859092087e-06,
+              "reduced_absorption_modes_MeV": 2.921612986087678e-06
+            },
+            "mu_plus": {
+              "absorption_modes_MeV": 2.69569255167687e-06,
+              "maximum_over_production_absorption_and_reduced_absorption": 2.6956925517310797e-06,
+              "production_modes_MeV": 2.695692551543818e-06,
+              "reduced_absorption_modes_MeV": 2.6956925517310797e-06
+            }
+          },
+          "to_orders": [
+            20,
+            12,
+            12,
+            12
+          ]
+        },
+        {
+          "from_orders": [
+            20,
+            12,
+            12,
+            12
+          ],
+          "maximum_relative_change": 3.7625100125247876e-06,
+          "per_charge": {
+            "mu_minus": {
+              "absorption_modes_MeV": 3.7509294324347604e-06,
+              "maximum_over_production_absorption_and_reduced_absorption": 3.7509294324347604e-06,
+              "production_modes_MeV": 3.750929431921961e-06,
+              "reduced_absorption_modes_MeV": 3.7509294323541614e-06
+            },
+            "mu_plus": {
+              "absorption_modes_MeV": 3.7625100124714288e-06,
+              "maximum_over_production_absorption_and_reduced_absorption": 3.7625100125247876e-06,
+              "production_modes_MeV": 3.7625100125247876e-06,
+              "reduced_absorption_modes_MeV": 3.7625100124215385e-06
+            }
+          },
+          "to_orders": [
+            24,
+            14,
+            14,
+            14
+          ]
+        }
+      ],
+      "temperature_MeV": 13.2314158304208
+    }
+  ],
+  "profile": {
+    "expected_vertex_preserving_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+    "identity": "1687-row vertex-preserving reconstruction of public-figure SFHo-18.8 profile; not raw Garching simulation data",
+    "matches_expected_profile": true,
+    "path": "/home/runner/work/axial-vector-review-response/axial-vector-review-response/research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv",
+    "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
+  },
+  "quadrature_definition": [
+    "muon kinetic-energy variable x=(E_mu-m_mu)/T with t=sqrt(x)",
+    "cos(theta_mu), the angle of the initial muon relative to the mediator",
+    "cos(theta_gamma), the photon polar angle",
+    "relative photon azimuth phi_gamma in [0,2pi]"
+  ],
+  "scope": [
+    "Local B.13 collision-kernel quadrature only; no global B.1/B.2 integration.",
+    "Production and absorption are computed independently from the same exact phase-space kernel and retained by charge and polarization.",
+    "The mu-minus and mu-plus contributions are evaluated separately.",
+    "No density, source, opacity, coupling, luminosity, or rate rescaling.",
+    "The published B.14--B.16 vector reference baseline is not modified.",
+    "No production axial-vector output or constraint curve is changed."
+  ],
+  "source_sha256": {
+    "audit_script": "24a41fdf533d81ca56fb21f3dda01c4b3d2af71cf14bd490727a77d79a160dd8",
+    "moving_muon_compton_py": "44bc670fd9384f34de56fbecb5371bae18c93c2292aa67e98f4ee304433dbaea",
+    "rates_py": "2fc7bc2d3b0d7b98c191755cd2bb87944e4ebe259adc3d3bbc8e0f60dcc57f56",
+    "reference_py": "f81468f4305cf57eb86cc0210abc7afc333d434ae70da307ca64a824e486107c"
+  },
+  "status": "diagnostic_run_completed_no_predeclared_local_tolerance",
+  "summary": {
+    "local_kernel_convergence_certified": true,
+    "local_kernel_convergence_screening_target": 0.001,
+    "maximum_16_to_20_refinement_change": 0.0008907695031827804,
+    "maximum_20_to_24_refinement_change": 0.00030160395473683983,
+    "maximum_final_muon_shell_relative_error": 1.626120976637977e-13,
+    "maximum_mode_detailed_balance_relative_residual": 1.513756733095526e-15,
+    "note": "A 0.1% local screening target is adopted explicitly for this audit. If the highest-order ladder fails it, increase the relevant quadrature dimensions before treating the local kernel as converged.",
+    "screening_target_is_project_diagnostic_not_literature_bound": true,
+    "screening_target_passed": true
+  },
+  "title": "B.13 exact moving-muon local collision-kernel quadrature convergence"
+}
