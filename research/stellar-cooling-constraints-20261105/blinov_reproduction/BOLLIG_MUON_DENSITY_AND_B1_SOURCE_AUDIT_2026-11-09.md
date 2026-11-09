@@ -161,7 +161,7 @@ A fresh, independent composite-Simpson integration was run directly from the fro
 | 12 | \(1.943681\times10^{-3}\) | 0.871681 | 0.0857% |
 | 15 | \(4.013552\times10^{-5}\) | 0.988346 | 0.00825% |
 
-The positive-muon fraction falls below \(0.086\%\) over 12--15 km. Consequently, interpreting the plotted quantity as net density rather than negative-muon density cannot explain the 6.3--10.8% Fig. 3 discrepancy in that interval. The charge-conjugate convention can produce a percent-level distinction only toward the inner 5--8 km region.
+The positive-muon fraction falls below \(0.086\%\) over 12--15 km. Consequently, interpreting the plotted quantity as net density rather than negative-muon density cannot explain the discrepancy: over 12--15 km the plotted-density comparison is 6.85--10.84%, while the Fermi-reconstructed negative-muon-density comparison is 6.32--9.63%. The charge-conjugate convention can produce a percent-level distinction only toward the inner 5--8 km region.
 
 The channel-resolved B.1 output further sharpens the source-weighting argument. Compton accounts for \(32.0048\%\) of the total thin source, but the 12--15 km shell contains only \(3.7320\%\) of the Compton source. Thus this shell's Compton contribution is \(1.1944\%\) of the total B.1 source. Applying the mean 8.8% Fig. 3 density offset to that component alone would shift the total source by only about \(0.105\%\); even using the 10.84% endpoint offset gives about \(0.130\%\). These are density-only sensitivity estimates, not B.17-consistent replacements.
 
