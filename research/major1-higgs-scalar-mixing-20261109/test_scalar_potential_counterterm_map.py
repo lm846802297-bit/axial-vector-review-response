@@ -74,6 +74,16 @@ class ScalarPotentialCountertermMapTests(unittest.TestCase):
         }
         result = leading_eft5_derivatives(246.22, 70.886458, by_flavour)
         for item in result["flavours"].values():
+            self.assertLess(item["C5_GeVminus1"], 0.0)
+            self.assertLess(item["kappa_neutral_mass_operator_GeVminus1"], 0.0)
+            self.assertAlmostEqual(
+                item["m_EFT5_mass_parameter_at_vev_GeV"],
+                -item["input_light_mass_GeV"], places=14,
+            )
+            self.assertAlmostEqual(
+                item["m_EFT5_at_vev_GeV"],
+                item["input_light_mass_GeV"], places=14,
+            )
             self.assertLess(item["mass_relative_difference"], 2e-15)
 
     def test_plan_c_scale_residual_is_twice_eft5_mixed_uv_pole(self):
