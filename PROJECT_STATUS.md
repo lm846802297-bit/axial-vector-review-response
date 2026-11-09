@@ -2,9 +2,9 @@
 
 ## 2026-11-09 更新：PR #67 回复信写作风格统一（Draft）
 
-[PR #67](https://github.com/lm846802297-bit/axial-vector-review-response/pull/67) 已从 PR #66 合并后的 main（基线 \`d3b234efbce270cd92b7ea55e31e02680114fc3a\`）创建，分支为 \`review/referee-response-style-20261109\`，当前 Open / Draft。
+[PR #67](https://github.com/lm846802297-bit/axial-vector-review-response/pull/67) 已从 PR #66 合并后的 main（基线 `d3b234efbce270cd92b7ea55e31e02680114fc3a`）创建，分支为 `review/referee-response-style-20261109`，当前 Open / Draft。
 
-- **检索与清单：** 已完整读取原论文 \`main-v6.tex\`、当前正式回复信、长期《审稿回复写作原则》、正文待同步清单、DEC-15、PR #64/65 修订台账及相关会议记录；建立 [回复信写作风格全面检索与修改清单](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-09/回复信写作风格全面检索与修改清单_2026-11-09.md)。
+- **检索与清单：** 已完整读取原论文 `main-v6.tex`、当前正式回复信、长期《审稿回复写作原则》、正文待同步清单、DEC-15、PR #64/65 修订台账及相关会议记录；建立 [回复信写作风格全面检索与修改清单](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-09/回复信写作风格全面检索与修改清单_2026-11-09.md)。
 - **回复信修改：** 依 S-01–S-11 统一开头、少量论文元叙述、Major 4.1 首段、Minor 5 collider 段落和 Summary。改动仅涉及英文表达和段落组织；没有修改论文正文、bibliography、图表或科研脚本。
 - **内容保留：** 27 个审稿人 quote block、137 个 display-math block、74 次引用、4 个 equation labels 及交叉引用均与 main 基线一致；LaTeX 环境 begin/end 计数一致，花括号平衡。没有删除独立科学结论、公式、数值或适用条件。
 - **验证边界：** 已完成源码级静态检查和实际 diff 对照；未执行完整 LaTeX/BibTeX 编译、PDF 视觉检查、数值复算、脚本测试或 CI。独立 reviewer review 尚待执行。
@@ -40,7 +40,7 @@ PR #64 在独立审查基础上精简 Major 1.3、2、3、4.2–4.4 和 Minor 5�
 
 ## 2026-11-09 更新：Major Points 2–4 回复结构调整（PR #64）
 
-[PR #64](https://github.com/lm846802297-bit/axial-vector-review-response/pull/64) 从当前 \`main\` 的 \`b5115cee164561c881ef58e44c2bc1bb77d6c6f1\` 创建，工作分支为 \`review/major-response-structure-20261109\`，合并前为 Open。目标是统一落实“总体回复简洁、具体子回复提供充分物理依据、公式和定量结果”的组织原则。
+[PR #64](https://github.com/lm846802297-bit/axial-vector-review-response/pull/64) 从当前 `main` 的 `b5115cee164561c881ef58e44c2bc1bb77d6c6f1` 创建，工作分支为 `review/major-response-structure-20261109`，合并前为 Open。目标是统一落实“总体回复简洁、具体子回复提供充分物理依据、公式和定量结果”的组织原则。
 
 - **Major 2：** 总体 Reply 压缩为显示窗口及其非普适边界的说明；原有实验覆盖、低/高质量端理由、规范与 Yukawa 微扰性、标量质量条件和 Fig. 2 区域解释均保留，并增加主题导航。
 - **Major 3：** 将结尾的总体审稿人 quote 移至开头，合并重复的总体回复；3.1/3.2 的残余对称性、Weinberg 算符、质量矩阵、type-I seesaw、逆重构、PMNS、异常与双 VEV 适用范围推导均保留。
@@ -92,16 +92,16 @@ PR #50 已于 2026-11-05 Squash Merge 至 main，合并提交为 [51a245b0a36703
 
 - **旧 PR #30：** 已关闭且未合并；其错误采用双 VEV 映射的 PR #51 也已关闭且未合并。现由 [PR #53](https://github.com/lm846802297-bit/axial-vector-review-response/pull/53) 替代。PR #53 从当前 main 创建，严格使用原论文单 VEV 模型 \(m_{A'}=2|g_X|v_s\)、\(G=a_s\)，保留通用电流半康普顿振幅和局部热率计算。六项单 VEV 映射测试通过；介质静止系 T/L opacity、trapping、SN profile 和最终 SN1987A/LESN 曲线仍未完成。
 - **旧 PR #32：** 已关闭且未合并；现由 [PR #52](https://github.com/lm846802297-bit/axial-vector-review-response/pull/52) 替代。PR #52 从当前 main 创建，研究原论文的单 VEV 径向标量，保留 Belle II 来源台账、重铸协议、逐点分类框架和部分宽度计算器。Belle II 逐质量补充数据提取、实验 benchmark 复现、完整宽度/分支比/寿命、产生率、接受度和质量扫描仍未完成。
-- **PR #52：** 已 Closed、未合并；其研究分支 \`research/radial-scalar-original-model-belleii-20261105\` 仍保留，研究成果未合并、未删除。
-- **PR #53：** 保持 Open / Draft；其研究分支 \`research/stellar-cooling-original-uv-model-20261105\` 独立保留。
+- **PR #52：** 已 Closed、未合并；其研究分支 `research/radial-scalar-original-model-belleii-20261105` 仍保留，研究成果未合并、未删除。
+- **PR #53：** 保持 Open / Draft；其研究分支 `research/stellar-cooling-original-uv-model-20261105` 独立保留。
 - PR #52/#53 均不修改论文正文或正式回复信，也不是当前审稿回复的前置条件。旧 PR 的讨论和提交保留作历史溯源，不合并其错误模型范围的提交。
 
-- **PR #54：** 已合并至 \`main\`，合并提交为 [\`0f3816e3e62dd7668fca1d4aee5e8749708f99f2\`](https://github.com/lm846802297-bit/axial-vector-review-response/commit/0f3816e3e62dd7668fca1d4aee5e8749708f99f2)。该 PR 修正正式回复信中 Major 1、2、4.2、4.4 对 Major 3 扩展的跨问题引用，并将中微子完成机制限定为 Major 3/4.1 专门回复内容。
+- **PR #54：** 已合并至 `main`，合并提交为 [`0f3816e3e62dd7668fca1d4aee5e8749708f99f2`](https://github.com/lm846802297-bit/axial-vector-review-response/commit/0f3816e3e62dd7668fca1d4aee5e8749708f99f2)。该 PR 修正正式回复信中 Major 1、2、4.2、4.4 对 Major 3 扩展的跨问题引用，并将中微子完成机制限定为 Major 3/4.1 专门回复内容。
 
 **统一模型边界：** 除 Major Point 3/4.1 的专门中微子回复段落外，所有非中微子审稿回复和专题研究均以原论文 \(S+\mathrm{VLL}\) 单 VEV UV 模型为准。不得将 Major Point 3/4.1 中讨论的可选扩展机制作为原论文已经采用的场内容。
 ## 2026-11-05 更新：PR #53 原论文单 VEV 轴矢量恒星冷却计算（Draft）
 
-[PR #53](https://github.com/lm846802297-bit/axial-vector-review-response/pull/53) 从当前 main 的 \`d3c8c573e0b219dbcb4be62dc57f77fdc04c4f96\` 创建，替代旧 PR #30 及错误采用双 VEV 映射的 PR #51；两者均关闭且未合并。
+[PR #53](https://github.com/lm846802297-bit/axial-vector-review-response/pull/53) 从当前 main 的 `d3c8c573e0b219dbcb4be62dc57f77fdc04c4f96` 创建，替代旧 PR #30 及错误采用双 VEV 映射的 PR #51；两者均关闭且未合并。
 
 - **原论文模型映射：** \(S=(v_s+s+ia_s)/\sqrt2\)、\(Q_X(S)=2\)、\(m_{A'}=2|g_X|v_s\)、\(G=a_s\)。在小 VLL 混合 benchmark 下 \(y_{s\ell\ell}=m_\ell/v_s\)，Goldstone/current 关系为 \(m_\ell/v_s=2|g_A^\ell|m_\ell/m_{A'}\)（\(|g_A^\ell|=|g_X|\)）。
 - **保留的计算：** 显式 Dirac 旋量半康普顿振幅、EM Ward identity、实验室系/CM 截面对照、Klein–Nishina 对照、轴矢量纵向标度、均匀介质局部热产生率及积分阶数/截断扫描。
