@@ -33,10 +33,18 @@ jobs:
         with:
           ref: ${{ github.sha }}
           fetch-depth: 0
-      - name: Verify runner provisioning
+      - name: Verify runner provisioning and resources
         run: |
           echo "Runner: $(uname -a)"
+          echo "CPU cores: $(nproc)"
+          echo "Memory:"
+          free -h
+          echo "Disk:"
+          df -h .
+          echo "Python:"
           python3 --version
+          echo "Checked-out commit:"
+          git rev-parse HEAD
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
