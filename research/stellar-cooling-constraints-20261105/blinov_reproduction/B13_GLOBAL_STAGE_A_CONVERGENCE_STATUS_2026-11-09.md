@@ -92,7 +92,21 @@ The current-profile B.16 sensitivity run [42552214391](https://github.com/lm8468
 
 Removing the entire positive branch changes the strong-endpoint escape probability by -0.01409% and escaped luminosity by -0.01286%. +/-10% variations change the strong-endpoint escape probability by less than 0.003%. The branch cannot explain the order-one strong-coupling Fig. 7 discrepancy. See [B16_NUMU_POSITIVE_BRANCH_SENSITIVITY_2026-11-09.md](B16_NUMU_POSITIVE_BRANCH_SENSITIVITY_2026-11-09.md). This does not certify the complete 15--22 km thermodynamic profile.
 
-## 4. Current decision
+## 5. Bollig original-source thermodynamic profile audit: completed
+
+The independent original-PDF comparison now extends through the full 15--20 km plotting interval. On the 1687-node Caputo reconstruction, the mean (maximum) absolute relative differences are:
+
+- Fig. 1 temperature: 0.004295% (0.016280%).
+- Fig. 4 mu_mu/T: 0.004684% (0.015474%).
+- Derived mu_mu from T times mu_mu/T: 0.005112% (0.021238%); this is a combined cross-check, not an independent third observable.
+
+The original Bollig Fig. 1 and Fig. 4 plotting frames both end at 20 km. The 20--22 km interval has no direct original-figure temperature support and only the endpoint at 20 km for mu_mu/T. No extrapolation is used. The 20--22 km Caputo temperature input therefore remains a public-figure reconstruction without an independent Bollig-figure cross-check.
+
+This unsupported interval is not negligible in the B.16 path integral: the 20--22 km shell contributes 12.81% of the source-weighted nu_mu+nu_tau inverse-decay path optical depth for the dominant 8--15 km emission region. The self-consistent 20--22 km temperature stress test is running in [Actions run 42554204045](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42554204045). Its +/-10% variations are diagnostic stress tests, not statistical uncertainty intervals.
+
+The full source-curve coverage and pointwise comparisons are recorded in [BOLLIG_OUTER_THERMODYNAMIC_PROFILE_15_22KM_2026-11-09.md](BOLLIG_OUTER_THERMODYNAMIC_PROFILE_15_22KM_2026-11-09.md). The machine-readable result is [bollig_outer_thermodynamic_profile_15_22km_2026-11-09.json](outputs/bollig_outer_thermodynamic_profile_15_22km_2026-11-09.json).
+
+## 6. Current decision
 
 - Radial, energy, angular, and path global quadrature: passed the stated project-level luminosity-stability targets at the tested resolutions.
 - Same-grid B.16 closure: passed for all four global B.13 configurations with zero residual.
