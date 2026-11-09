@@ -1,0 +1,124 @@
+name: B.16 high-order 10 MeV escaping phase-space decomposition
+
+on:
+  push:
+    branches:
+      - research/moving-muon-thermal-rates-20261107
+    paths:
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_escape_phase_space.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_global_redshift.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py'
+      - 'research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv'
+      - 'research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_high_order_independent_grid_10mev_2026-11-09.json'
+      - '.github/workflows/b16-escape-phase-space.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: b16-escape-phase-space-\${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  phase-space-audit:
+    if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - name: Check out research branch
+        uses: actions/checkout@v4
+        with:
+          ref: \${{ github.sha }}
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy
+      - name: Compile targeted diagnostic
+        run: |
+          python -m py_compile \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_escape_phase_space.py
+      - name: Run high-order 10 MeV escape phase-space decomposition
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_escape_phase_space.py \
+            --mass 10 --nr 200 --opacity-order 640 --ne 200 \
+            --na 32 --ns 64 --energy-offset 1000 \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-10.json
+      - name: Validate baseline closure and phase-space normalization
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path("research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-10.json")
+          d = json.loads(p.read_text())
+          assert d["mass_MeV"] == 10.0
+          assert abs(d["closure"]["luminosity_relative_residual_vs_high_order_baseline"]) < 2e-10
+          assert abs(d["closure"]["thin_luminosity_relative_residual_vs_high_order_baseline"]) < 2e-10
+          assert abs(d["configuration"]["direction_weight_sum"] - 1.0) < 1e-14
+          for region in d["regions"]:
+              for key in ("emission_radius_bins", "energy_bins", "direction_bins_4", "direction_bins_8"):
+                  rows = region[key]
+                  thin_sum = sum(x["thin_source_fraction_within_region"] for x in rows)
+                  esc_sum = sum(x["escaped_luminosity_fraction_within_region"] for x in rows)
+                  assert abs(thin_sum - 1.0) < 2e-10, (region["region"], key, thin_sum)
+                  assert abs(esc_sum - 1.0) < 2e-10, (region["region"], key, esc_sum)
+              joint = region["top_joint_radius_energy_direction_bins"]
+              assert len(joint) > 0
+              assert all(x["escaped_luminosity_fraction_within_region"] >= 0 for x in joint)
+          core = next(x for x in d["regions"] if x["region"] == "dominant_8_15km_emission")
+          assert 0.75 < core["source_fraction_of_global_B1"] < 0.85
+          print(json.dumps({
+              "luminosity": d["calculated_luminosity_erg_s"],
+              "reference": d["reference_luminosity_erg_s"],
+              "relative_difference": d["relative_difference_vs_fig7"],
+              "escape_probability": d["escape_probability"],
+              "closure": d["closure"],
+              "regions": [{
+                  "region": x["region"],
+                  "source_fraction": x["source_fraction_of_global_B1"],
+                  "escaped_fraction": x["escaped_luminosity_fraction_of_global"],
+                  "P_escape": x["source_weighted_escape_probability"],
+                  "top_joint_bins": x["top_joint_radius_energy_direction_bins"][:8]
+              } for x in d["regions"]]
+          }, indent=2))
+          PY
+          git diff --exit-code -- \
+            research/stellar-cooling-constraints-20261105/rates.py \
+            research/stellar-cooling-constraints-20261105/transport.py \
+            research/stellar-cooling-constraints-20261105/outputs/axial.json \
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.pdf \
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.png
+      - name: Archive phase-space result
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-10.json
+          if git diff --cached --quiet; then
+            echo "Identical phase-space result is already archived."
+            exit 0
+          fi
+          git commit -m "Archive high-order 10 MeV escape phase-space decomposition"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin "\${GITHUB_REF_NAME}"
+            if ! git rebase "origin/\${GITHUB_REF_NAME}"; then
+              git rebase --abort || true
+              echo "Rebase raced with another research workflow; retry \${attempt}/5."
+              sleep 2
+              continue
+            fi
+            if git push origin "HEAD:\${GITHUB_REF_NAME}"; then
+              exit 0
+            fi
+            echo "Push raced with another research workflow; retry \${attempt}/5."
+            sleep 2
+          done
+          echo "Could not archive phase-space result after five retries."
+          exit 1
