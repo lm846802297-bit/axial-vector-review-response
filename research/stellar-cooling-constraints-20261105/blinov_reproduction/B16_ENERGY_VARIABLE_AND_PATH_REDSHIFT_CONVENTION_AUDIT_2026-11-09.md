@@ -51,10 +51,10 @@ For the current vertex-preserving profile (SHA-256 `9fb14e796d6e7731f21993632af4
 
 | Quantity | Fixed-\(\omega\) Appendix-B baseline | Path-redshift-only diagnostic |
 |---|---:|---:|
-| Weak endpoint difference vs Fig. 7 | -8.885% | -8.89% |
-| Reference peak difference vs Fig. 7 | +2.569% | -2.77% |
-| Strong endpoint difference vs Fig. 7 | +92.241% | +36.745% |
-| Strong-endpoint luminosity shift relative to fixed-\(\omega\) | 0 | -28.868% |
+| Weak endpoint difference vs Fig. 7 | -8.8853% | -8.8991% |
+| Reference peak difference vs Fig. 7 | +2.5688% | -2.7704% |
+| Strong endpoint difference vs Fig. 7 | +92.2406% | +36.7448% |
+| Strong-endpoint luminosity shift relative to fixed-\(\omega\) | 0 | -28.8679% |
 
 The redshift-only variant reduces the strong-endpoint discrepancy but does not reproduce Fig. 7. It also changes the peak residual, so it cannot be described as a uniform normalization correction.
 
