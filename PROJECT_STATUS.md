@@ -1,3 +1,14 @@
+## 2026-11-09 更新：Major Point 3 两部分结构修订（独立 PR）
+
+- 正式回复信将 Major Point 3 明确分为两个部分：**原始单 VEV \(S\)-only 模型**与**可选的 \(\sigma+3N_R\) type-I seesaw 扩展**。
+- 第一部分保留原模型的残余 \(Z_2\)、Weinberg 算符选择规则、\(M_\nu^{(S)}\) 分块纹理及 \(U_{\rm PMNS}=\operatorname{diag}(1,U_{23})\)；明确其不能产生电子味混合，也没有在原可重整化 UV 拉氏量中指定中微子质量生成机制。
+- 第二部分给出新增场及电荷、Dirac Yukawa 项、全部六个 Majorana 质量项、\(m_D\)、\(M_R\)、完整 \(6\times6\) 质量矩阵、type-I seesaw、轻/重 Majorana 质量的 Takagi 对角化及 \(U_{\rm PMNS}=U_L^\dagger U_\nu\)。用解析逆构造说明该纹理可以容纳一般非奇异的三味质量矩阵；不加入数值 benchmark，也不声称完成数值拟合或扩展模型的全局约束分析。
+- Major Point 4.1 改为引用 Major 3.1/3.2 的结论与方程，不重复 seesaw 推导，并纠正“原模型预测单位 PMNS”的过强表述。
+- 保留原有审稿人引文与文献引用。原论文正文、原论文 bibliography、图表和科研计算均不修改；扩展模型仍仅作为中微子扇区的可选完成机制。非中微子现象学继续以原始单 VEV \(S+\mathrm{VLL}\) 模型为基准。
+- 写作依据：对照原论文 PDF 的 Abstract、Introduction 和 Model Setup，采用其直接的物理陈述、先给场内容/对称性再给质量矩阵与对角化关系的组织方式；不把回复信写成模型扫描报告。
+
+**本 PR 的验收项目：** 核对审稿人原文引文逐字保留、所有新旧 equation labels 唯一、所有引用键可解析、原论文源码无改动，并对更新后的回复信执行 LaTeX/BibTeX 编译。
+
 # PROJECT_STATUS — Axial-vector paper revision and referee response
 
 ## 2026-11-09 最终更新：PR #67 回复信写作风格统一（已 Squash merge）
