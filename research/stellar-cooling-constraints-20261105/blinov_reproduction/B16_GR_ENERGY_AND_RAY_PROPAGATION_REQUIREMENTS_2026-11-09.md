@@ -146,3 +146,16 @@ Blinov's B.2 then explicitly uses the Euclidean chord (r'(s)=\sqrt{r^2+s^2+2rs\c
 The remaining energy-convention ambiguity is between the Sec. 4.1 description of (omega) as energy at infinity and the B.1 local-energy threshold/phase-space structure, together with B.2's fixed-(omega) path kernel. The reproduction baseline continues to follow B.1--B.5 literally; the path-redshift-only calculation remains a separate diagnostic.
 
 The corrected method reconstruction is documented in [B16_PUBLISHED_GRAVITY_AND_ENERGY_PRESCRIPTION_RECONSTRUCTION_2026-11-09.md](B16_PUBLISHED_GRAVITY_AND_ENERGY_PRESCRIPTION_RECONSTRUCTION_2026-11-09.md). Do not block the B.13/B.16, strong-absorption, or outer-neutrino-opacity audits on access to (A(r)).
+
+
+## 9. B.1 energy-variable equivalence is now independently verified
+
+The local-energy variable in B.1 and the conserved energy at infinity are related by (E_\infty=N(r)\omega_{\rm loc}). The exact Jacobian transforms the B.1 measure into
+```
+[E_infinity^2 * sqrt(E_infinity^2 - N(r)^2 mV^2) / N(r)^2] dE_infinity,
+```
+with lower limit (E_\infty=m_V) and the local production rate evaluated at (E_\infty/N(r)).
+
+An independent numerical integration using separate logarithmic quadrature grids gives identical B.1 neutrino, Compton, and total source integrals in the local-energy and E-infinity variables at stored precision. GitHub Actions [Run #42573725261](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42573725261) passes the explicit equivalence check.
+
+Thus the B.1 energy-variable issue is resolved by a change of variables. The remaining convention question is confined to B.2: whether the fixed omega in the path opacity is literal or shorthand for a locally redshifted energy. This does not alter the conclusion that A(r) is not needed for the paper's Euclidean-chord B.2 prescription.
