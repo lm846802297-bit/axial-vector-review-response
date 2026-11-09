@@ -1,3 +1,11 @@
+## 2026-11-10 update: model-specific Higgs-source and flavor-charge census
+
+- Upstream RC-001 now records the complete leading-renormalizable Higgs EOM source for the original flavor-diagonal axial model and the dimension-five \(C_5\) source at higher order. See [RC-001-QLD-Higgs-source-EOM-model-map.md](https://github.com/lm846802297-bit/high-energy-theory-research/blob/b5ee392787d9a16fd1b2206f1adfdd952b4789f3/research/RC-001-QLD-Higgs-source-EOM-model-map.md).
+- The charged-lepton \(U(1)_X\) Yukawa charge matrix shows that diagonal \(\mu,\tau\) renormalizable Yukawas are forbidden, but \(\bar L_\mu H\tau_R\) and \(\bar L_\tau H\mu_R\) are gauge-allowed. The original block-diagonal model sets these off-diagonal entries to zero by its flavor-diagonal assumption. They must not be called gauge-forbidden.
+- The source map includes quark and electron renormalizable sources, explicit \(C_5\) axial sources, the leading fermion EOMs, and the \(M_E^{-5}\)/\(M_E^{-6}\) suppression of dimension-five source insertions in the \(O(M_E^{-4})\) operators. It does not perform Fierz reduction or claim a nonredundant fermionic dimension-eight basis.
+- The exact charge and power-counting audit passed locally. The latest upstream Candidate schema validation run 42724054652 failed with an empty job-step list and no retrievable log; no upstream CI pass is claimed.
+- Next step: reduce the source/current operators with fermion EOM and Fierz identities while retaining gamma-traceless derivative components and evanescent terms.
+
 ## 2026-11-10 update: C5 sign, gauge conventions, and QLD8 total currents
 
 - The original v6 UV mass matrix has the heavy-block Schur complement \(m_{\ell,\mathrm{Schur}}=-y_\ell\lambda_\ell v_hv_s/(2M_{E_\ell})\). With the displayed EFT convention \(\mathcal L_5=-C_{5,\ell}S_\ell\bar L_\ell H\ell_R+\mathrm{h.c.}\), the coefficient is \(C_{5,\ell}=-y_\ell\lambda_\ell/M_{E_\ell}\).
