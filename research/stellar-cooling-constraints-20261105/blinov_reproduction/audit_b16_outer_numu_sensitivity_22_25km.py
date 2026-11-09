@@ -100,7 +100,7 @@ def run(profile_path=DEFAULT_PROFILE, fig7_path=DEFAULT_FIG7,
             by_index = {int(p["index"]): p for p in result["representative_couplings"]}
             source_shells = result["optically_thin_source_radial_distribution"]["shells"]
             source_fraction = next(
-                (float(x["source_fraction"]) for x in source_shells if x["shell"] == "20-22 km"),
+                (float(x["source_fraction"]) for x in source_shells if x["shell"] == "22-25 km"),
                 None,
             )
             scenarios[name] = {
@@ -127,12 +127,14 @@ def run(profile_path=DEFAULT_PROFILE, fig7_path=DEFAULT_FIG7,
             }
     sign_symmetry = {}
     for label in POINTS:
-        minus = scenarios["mu_numu_minus_1MeV"]["points"][label]
-        plus = scenarios["mu_numu_plus_1MeV"]["points"][label]
-        sign_symmetry[label] = {
-            "escaped_luminosity_plus_over_minus": plus["L_escaped_erg_s"]/minus["L_escaped_erg_s"],
-            "escape_probability_plus_over_minus": plus["P_escape"]/minus["P_escape"],
-        }
+        sign_symmetry[label] = {}
+        for suffix in ("1MeV", "3MeV"):
+            minus = scenarios[f"mu_numu_minus_{suffix}"]["points"][label]
+            plus = scenarios[f"mu_numu_plus_{suffix}"]["points"][label]
+            sign_symmetry[label][suffix] = {
+                "escaped_luminosity_plus_over_minus": plus["L_escaped_erg_s"]/minus["L_escaped_erg_s"],
+                "escape_probability_plus_over_minus": plus["P_escape"]/minus["P_escape"],
+            }
     return {
         "title": "B.16 sensitivity to the unresolved mu_numu continuation in 22--25 km",
         "mass_MeV": mass,
@@ -145,7 +147,7 @@ def run(profile_path=DEFAULT_PROFILE, fig7_path=DEFAULT_FIG7,
             "path_order": ns, "radius_km": radius, "energy_offset_MeV": energy_offset,
         },
         "interpretation_limits": [
-            "The +/-1 MeV assignments are figure-resolution-floor stress tests, not measured chemical-potential profiles.",
+            "The +/-1 and +/-3 MeV assignments are stress tests, not measured chemical-potential profiles.",
             "Each scenario recomputes the complete B.1 source and B.2 opacity; no source or opacity is rescaled.",
             "The original Bollig Fig. 1 and Fig. 4 plotting frames stop at 20 km; the 22--25 km chemical-potential continuation is not independently verified by those figures.",
             "The baseline profile sets mu_numu=0 in this interval because no resolved branch is available there.",
