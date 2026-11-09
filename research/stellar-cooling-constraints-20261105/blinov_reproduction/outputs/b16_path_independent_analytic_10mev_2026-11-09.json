@@ -2,14 +2,14 @@
   "source": "Blinov et al., JHEP 06 (2026) 155, arXiv:2511.09619, Appendix B, Eqs. (B.1)--(B.5)",
   "method": "Independent exact-in-path integration of piecewise-linear radial reduced opacity; z=s+r*cos(theta); split at every radial knot; analytic primitive for A+B*sqrt(b^2+z^2); angular average checked with Gauss-Legendre, composite Simpson, and adaptive QUADPACK.",
   "shared_inputs": "Local collision kernel, reconstructed profile, B.1 source measure, energy grid, and Fig. 7 vertices are held identical to the archived B.16 baseline. No existing B.2 path integrator generates the new tau.",
-  "run_commit_sha": "e8cf8cfbd1c791582aceb9ffaa6c390cd014c7b8",
+  "run_commit_sha": "cb726d6e2df03ea89a42fe4868074b8f85c93bd8",
   "code_sha256": "15e7aca16e69d50b57ea265d456b0c302d50a7042a0ed7aaaff8a57860408527",
   "profile": {
     "path": "sfho188_digitized.csv",
     "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
   },
   "fig7_reference_sha256": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4",
-  "archived_b16_baseline_sha256": "2a4e1e31db3ec82d532d1ee4f8bbadf5bded34cd74353e3ebbf6dbf431eba4ac",
+  "archived_b16_baseline_sha256": "cf5363afa65808cdf335c6250ef791ba1058d1b01117ee974de215fedef12108",
   "configuration": {
     "mass_MeV": 10.0,
     "radial_order": 40,
@@ -1052,7 +1052,7 @@
     },
     "maximum_absolute_luminosity_shift_vs_archived": 4.5206465186131695e-05
   },
-  "elapsed_seconds": 20.85610318183899,
+  "elapsed_seconds": 22.184803247451782,
   "limitations": [
     "The path integral is exact only for the piecewise-linear interpolation of the supplied radial reduced-opacity table.",
     "The calculation retains the Euclidean straight-chord geometry of Eq. (B.2); it is not full GR ray tracing.",
