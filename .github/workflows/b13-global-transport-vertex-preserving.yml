@@ -13,7 +13,10 @@ on:
       - 'research/stellar-cooling-constraints-20261105/finite_mixing/moving_muon_compton.py'
       - 'research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv'
       - 'research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_redshift_audit_2026-11-09.json'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_fig7_vertex_preserving_10mev_2026-11-09.json'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_vertex_preserving_0p1mev_2026-11-09.json'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_vertex_preserving_1mev_2026-11-09.json'
   workflow_dispatch:
 
 permissions:
@@ -54,6 +57,24 @@ jobs:
           python -m unittest discover \
             -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
             -p 'test_b13_global_transport.py' -v
+      - name: Run full 0.1 MeV B.13 source-and-opacity replacement
+        env:
+          PYTHONPATH: ${{ github.workspace }}/research/stellar-cooling-constraints-20261105
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b13_global_transport.py \\
+            --baseline research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_redshift_audit_2026-11-09.json \\
+            --mass 0.1 --nr 40 --ne 100 --na 16 --ns 32 --energy-offset 1000 \\
+            --kernel-orders 12,8,8,8 --refined-orders 16,10,10,10 --active-threshold 1e-8 \\
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_vertex_preserving_0p1mev_2026-11-09.json
+      - name: Run full 1 MeV B.13 source-and-opacity replacement
+        env:
+          PYTHONPATH: ${{ github.workspace }}/research/stellar-cooling-constraints-20261105
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b13_global_transport.py \\
+            --baseline research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_redshift_audit_2026-11-09.json \\
+            --mass 1 --nr 40 --ne 100 --na 16 --ns 32 --energy-offset 1000 \\
+            --kernel-orders 12,8,8,8 --refined-orders 16,10,10,10 --active-threshold 1e-8 \\
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_vertex_preserving_1mev_2026-11-09.json
       - name: Run full 10 MeV B.13 source-and-opacity replacement
         env:
           PYTHONPATH: ${{ github.workspace }}/research/stellar-cooling-constraints-20261105
@@ -69,21 +90,30 @@ jobs:
             --refined-orders 16,10,10,10 \
             --active-threshold 1e-8 \
             --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_vertex_preserving_10mev_2026-11-09.json
-      - name: Verify latest profile and baseline closure
+      - name: Verify all masses, profile identity, and B.16 closure
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
-          p = Path("research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_vertex_preserving_10mev_2026-11-09.json")
-          d = json.loads(p.read_text())
+          root = Path("research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs")
           expected = "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
-          if d["profile"]["sha256"] != expected:
-              raise SystemExit(f"Unexpected profile SHA: {d['profile']['sha256']}")
-          residual = d["archived_B16_baseline"]["max_relative_reproduction_residual"]
-          if residual > 2e-10:
-              raise SystemExit(f"B.16 baseline closure failed: {residual}")
-          print("Profile SHA and B.16 baseline closure verified.")
-          print(json.dumps(d["variant_results"], indent=2))
+          files = {
+              0.1: root / "b13_global_transport_vertex_preserving_0p1mev_2026-11-09.json",
+              1.0: root / "b13_global_transport_vertex_preserving_1mev_2026-11-09.json",
+              10.0: root / "b13_global_transport_vertex_preserving_10mev_2026-11-09.json",
+          }
+          for mass, path in files.items():
+              data = json.loads(path.read_text())
+              if float(data["mass_MeV"]) != mass:
+                  raise SystemExit(f"Wrong mass in {path}: {data['mass_MeV']}")
+              if data["profile"]["sha256"] != expected:
+                  raise SystemExit(f"Unexpected profile SHA in {path}: {data['profile']['sha256']}")
+              residual = data["archived_B16_baseline"]["max_relative_reproduction_residual"]
+              if residual > 2e-10:
+                  raise SystemExit(f"B.16 baseline closure failed at {mass} MeV: {residual}")
+              print(f"{mass:g} MeV: profile and B.16 closure verified; "
+                    f"strong B.13 residual = "
+                    f"{data['variant_results']['B13_mu_minus_consistent_source_and_opacity']['metrics_vs_fig7']['strong_endpoint_relative_difference']:+.6%}")
           PY
       - name: Verify production axial outputs remain unchanged
         run: |
@@ -99,7 +129,10 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_vertex_preserving_10mev_2026-11-09.json
+          git add \\
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_vertex_preserving_0p1mev_2026-11-09.json \\
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_vertex_preserving_1mev_2026-11-09.json \\
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_vertex_preserving_10mev_2026-11-09.json
           if git diff --cached --quiet; then
             echo "Global B.13 transport output is already current."
           else
