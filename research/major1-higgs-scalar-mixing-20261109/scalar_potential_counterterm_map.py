@@ -182,6 +182,90 @@ def leading_eft5_derivatives(vh: float, vs: float, by_flavour: dict) -> dict:
     }
 
 
+def plan_c_soft_plus_hard(
+    vh: float, vs: float, s: float, mu: float, by_flavour: dict,
+) -> complex:
+    """Plan-C-lite finite soft bubble+contact plus hard derivative term.
+
+    This reproduces the published Plan-C-lite convention only for the
+    leading mass-proportional EFT5 light-lepton terms and the recorded
+    derivative hard coefficient. It is used here to audit scale dependence,
+    not to promote the subset to a complete matching result.
+    """
+    total = 0.0j
+    for item in by_flavour.values():
+        mass = float(item["ml_GeV"])
+        m2 = mass*mass
+        m4 = m2*m2
+        beta = math.sqrt(max(0.0, 1.0 - 4.0*m2/s))
+        log_ratio = math.log(m2/(mu*mu))
+        a0 = m2*(1.0-log_ratio)
+        b0 = complex(
+            -log_ratio + 2.0 - beta*math.log((1.0+beta)/(1.0-beta)),
+            math.pi*beta,
+        )
+        product = m2/(vh*vs)
+        bubble = product*(4.0*a0 + 2.0*(4.0*m2-s)*b0)*LOOP
+        contact = 4.0*m4/(vh*vs)*(1.0-log_ratio)*LOOP
+        q = 2.0*m2/(vh*vs)
+        hard = -q*s*LOOP*(math.log(ME*ME/(mu*mu))-2.0/3.0)
+        total += bubble + contact + hard
+    return total
+
+
+def plan_c_scale_dependence(
+    vh: float, vs: float, s: float, by_flavour: dict,
+    mu_reference: float = ME, finite_difference_step: float = 1.0e-5,
+) -> dict:
+    """Check that the leftover Plan-C scale dependence is exactly EFT5 O8.
+
+    The bubble and hard derivative cancel their momentum-dependent scale
+    logarithms. The remaining local term equals twice the leading-EFT5
+    mixed Pi_B UV-pole coefficient; the dimension-eight Wilson coefficient
+    must supply the opposite running. The finite matching value of that
+    Wilson coefficient is not determined here.
+    """
+    sum_m4 = sum(float(item["ml_GeV"])**4 for item in by_flavour.values())
+    soft_derivative = 0.0
+    hard_derivative = 0.0
+    for item in by_flavour.values():
+        mass = float(item["ml_GeV"])
+        m2 = mass*mass
+        m4 = m2*m2
+        soft_derivative += (32.0*m4 - 4.0*m2*s)/(vh*vs)*LOOP
+        hard_derivative += (4.0*m2*s)/(vh*vs)*LOOP
+    total_derivative = soft_derivative + hard_derivative
+    eft5_pi_b_uv = 16.0*sum_m4/(vh*vs)*LOOP
+    eps = finite_difference_step
+    plus = plan_c_soft_plus_hard(
+        vh, vs, s, mu_reference*math.exp(eps), by_flavour
+    )
+    minus = plan_c_soft_plus_hard(
+        vh, vs, s, mu_reference*math.exp(-eps), by_flavour
+    )
+    numerical_derivative = (plus-minus)/(2.0*eps)
+    identity_residual = total_derivative - 2.0*eft5_pi_b_uv
+    return {
+        "evaluation": "s=m_h^2, leading EFT5 soft bubble+contact plus Plan-C hard derivative",
+        "mu_reference_GeV": mu_reference,
+        "soft_d_dlnmu_GeV2": soft_derivative,
+        "hard_derivative_d_dlnmu_GeV2": hard_derivative,
+        "total_d_dlnmu_GeV2": total_derivative,
+        "leading_EFT5_PiB_hs_local_UV_coefficient_GeV2": eft5_pi_b_uv,
+        "twice_leading_EFT5_PiB_hs_local_UV_coefficient_GeV2": 2.0*eft5_pi_b_uv,
+        "identity_residual_GeV2": identity_residual,
+        "relative_identity_residual": abs(identity_residual)/max(abs(total_derivative),1e-300),
+        "finite_difference_d_dlnmu_GeV2": [numerical_derivative.real,numerical_derivative.imag],
+        "relative_finite_difference_residual": abs(numerical_derivative.real-total_derivative)/max(abs(total_derivative),1e-300),
+        "required_dimension8_counterterm_contribution_d_dlnmu_GeV2": -total_derivative,
+        "interpretation": (
+            "The remaining scale dependence is local and equals twice the EFT5 mixed UV-pole coefficient. "
+            "It is canceled by the running of the dimension-eight operator counterterm. "
+            "This fixes the required scale derivative, not the finite matching value of its Wilson coefficient."
+        ),
+    }
+
+
 def run_mapping(tadpole_json: Path, matrix_json: Path) -> dict:
     tadpole = json.loads(tadpole_json.read_text(encoding="utf-8"))
     matrix = json.loads(matrix_json.read_text(encoding="utf-8"))
@@ -201,6 +285,9 @@ def run_mapping(tadpole_json: Path, matrix_json: Path) -> dict:
         )
         eft = leading_eft5_derivatives(
             VH, vs, t["couplings_and_invariants"]["by_flavour"]
+        )
+        plan_c_scale = plan_c_scale_dependence(
+            VH, vs, 125.25**2, t["couplings_and_invariants"]["by_flavour"]
         )
 
         full_c = {
@@ -247,6 +334,7 @@ def run_mapping(tadpole_json: Path, matrix_json: Path) -> dict:
                 },
             },
             "leading_EFT5_light_loop_and_dimension8_counterterm": eft,
+            "planC_scale_dependence_and_dimension8_running_check": plan_c_scale,
             "comparison_to_archived_exact_light_bubble": {
                 "exact_mass_eigenstate_light_bubble_local_UV_coefficients_GeV2": bubble_local,
                 "leading_EFT5_bubble_local_UV_coefficients_GeV2": eft["bubble_local_UV_coefficients_GeV2"],
