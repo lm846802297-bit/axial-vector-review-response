@@ -187,7 +187,11 @@ def build_report(input_dir: Path, output_dir: Path, report_path: Path, aggregate
     aggregate_path.write_text(json.dumps(aggregate, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     output_dir.mkdir(parents=True, exist_ok=True)
     for path in sorted(input_dir.glob("summary_*.json")):
-        shutil.copy2(path, output_dir / path.name)
+        destination = output_dir / path.name
+        # input_dir and output_dir may intentionally be identical in CI.
+        if path.resolve() == destination.resolve():
+            continue
+        shutil.copy2(path, destination)
 
     lines = [
         "# Global B.13 exact-Compton transport convergence audit", "",
