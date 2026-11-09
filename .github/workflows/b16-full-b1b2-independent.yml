@@ -73,7 +73,7 @@ jobs:
           assert len(d["couplings"]) == 25
           assert len(d["final_200_node_result"]["luminosity_erg_s"]) == 25
           assert d["final_200_node_result"]["number_of_source_radial_nodes"] == 200
-          assert d["final_200_node_result"]["number_of_energy_nodes_per_source_radius"] == 320
+          assert d["final_200_node_result"]["energy_nodes_per_source_radius"] == 320
           assert abs(d["source_closure"]["relative_difference_vs_independent_b1_400_node"]) < 0.01
           assert abs(d["radial_convergence"]["maximum_absolute_luminosity_shift"]) < 0.01
           assert d["production_axial_outputs_modified"] is False
