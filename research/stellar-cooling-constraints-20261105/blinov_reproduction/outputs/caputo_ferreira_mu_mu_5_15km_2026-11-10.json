@@ -26,7 +26,7 @@
       "mu_mu_ferreira_MeV": 254.890337309448,
       "eta_caputo": 2.422724773583356,
       "eta_ferreira": 13.227312738634115,
-      "eta_ratio_ferreira_over_caputo": 5.46,
+      "eta_ratio_ferreira_over_caputo": 5.459684435830539,
       "delta_mu_MeV": 208.21600886262019,
       "delta_mu_after_subtracting_mmu_MeV": 102.55763336262018
     },
@@ -50,7 +50,7 @@
       "mu_mu_ferreira_MeV": 167.401509802948,
       "eta_caputo": 2.3629764698570774,
       "eta_ferreira": 4.30953611145638,
-      "eta_ratio_ferreira_over_caputo": 1.8237,
+      "eta_ratio_ferreira_over_caputo": 1.8237744499068322,
       "delta_mu_MeV": 75.6065583727439,
       "delta_mu_after_subtracting_mmu_MeV": -30.0518171272561
     },
@@ -62,7 +62,7 @@
       "mu_mu_ferreira_MeV": 131.137044842775,
       "eta_caputo": 3.0312834561935595,
       "eta_ferreira": 3.8668988897161958,
-      "eta_ratio_ferreira_over_caputo": 1.2759,
+      "eta_ratio_ferreira_over_caputo": 1.2756639046128448,
       "delta_mu_MeV": 28.293355987807004,
       "delta_mu_after_subtracting_mmu_MeV": -77.365019512193
     },
@@ -74,7 +74,7 @@
       "mu_mu_ferreira_MeV": 109.826379832937,
       "eta_caputo": 3.607503013683866,
       "eta_ferreira": 4.2270551718609095,
-      "eta_ratio_ferreira_over_caputo": 1.1718,
+      "eta_ratio_ferreira_over_caputo": 1.1717398865162352,
       "delta_mu_MeV": 16.0937001578625,
       "delta_mu_after_subtracting_mmu_MeV": -89.5646753421375
     },
@@ -86,7 +86,7 @@
       "mu_mu_ferreira_MeV": 103.912964978495,
       "eta_caputo": 3.7776040377871714,
       "eta_ferreira": 4.352549691408993,
-      "eta_ratio_ferreira_over_caputo": 1.1522,
+      "eta_ratio_ferreira_over_caputo": 1.1521984961554126,
       "delta_mu_MeV": 13.696379666023702,
       "delta_mu_after_subtracting_mmu_MeV": -91.9619958339763
     },
@@ -98,7 +98,7 @@
       "mu_mu_ferreira_MeV": 97.6607091526486,
       "eta_caputo": 3.951818960696894,
       "eta_ferreira": 4.490959329730308,
-      "eta_ratio_ferreira_over_caputo": 1.1365,
+      "eta_ratio_ferreira_over_caputo": 1.1364284078788716,
       "delta_mu_MeV": 11.705740104502198,
       "delta_mu_after_subtracting_mmu_MeV": -93.95263539549781
     },
@@ -110,7 +110,7 @@
       "mu_mu_ferreira_MeV": 84.124761169995,
       "eta_caputo": 4.33973813275336,
       "eta_ferreira": 4.814806498757699,
-      "eta_ratio_ferreira_over_caputo": 1.1095,
+      "eta_ratio_ferreira_over_caputo": 1.1094693623144791,
       "delta_mu_MeV": 8.306277902301503,
       "delta_mu_after_subtracting_mmu_MeV": -97.3520975976985
     },
@@ -122,7 +122,7 @@
       "mu_mu_ferreira_MeV": 68.6491738917758,
       "eta_caputo": 4.707184694793657,
       "eta_ferreira": 5.184405491408954,
-      "eta_ratio_ferreira_over_caputo": 1.1013,
+      "eta_ratio_ferreira_over_caputo": 1.1013813622276438,
       "delta_mu_MeV": 6.366455804368506,
       "delta_mu_after_subtracting_mmu_MeV": -99.29191969563149
     },
@@ -134,7 +134,7 @@
       "mu_mu_ferreira_MeV": 12.4144125436624,
       "eta_caputo": 3.5133058514943576,
       "eta_ferreira": 2.9513985078247114,
-      "eta_ratio_ferreira_over_caputo": 0.84,
+      "eta_ratio_ferreira_over_caputo": 0.8400630723822,
       "delta_mu_MeV": -2.3570114743156996,
       "delta_mu_after_subtracting_mmu_MeV": -108.0153869743157
     }
