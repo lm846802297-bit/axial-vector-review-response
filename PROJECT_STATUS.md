@@ -8,7 +8,7 @@
 
 > **正式版本文献边界：** JHEP 06 (2026) 155 的 Sec. 4.1 将 \\(\\omega\\) 描述为无穷远能量，而 Appendix B.1 的 \\(N(r)^2\\) 与 \\(m_V/N(r)\\) 下限对应源点局域能量；B.2 沿路径固定同一 \\(\\omega\\)。此外，论文给出完整 Compton 相空间式 B.13 及近似表达式 B.14--B.16，但 Fig. 7 文字没有明确指出数值实现采用哪一种，且文章未提供配套数据或代码。当前 B.16 仍是工作基准，不能据此声称已确认作者未公开代码的具体实现。详见 [能量与 Compton 处方文献复核](research/stellar-cooling-constraints-20261105/blinov_reproduction/B16_ENERGY_VARIABLE_AND_PATH_REDSHIFT_CONVENTION_AUDIT_2026-11-09.md)。
 
-> **物理输入边界：** 公开图像重建不是原始 Garching 同一快照表。15--20 km 的温度和 \\(\\mu_\\mu/T\\) 与 Bollig 原图高度一致，但绝对密度图存在约 10% 的可见区间差异；20--25 km 的部分热力学输入属于图像外延或未分辨分支。完整 GR 传播仍缺少同一快照的 \\(A(r)\\) 或 \\(M(r)\\)。不从 lapse 单独拟合空间度规，不调整背景或 opacity 来拟合 Fig. 7。
+> **物理输入边界：** Caputo 的 T(r) 与 mu_mu/T 在 5--20 km 与 Bollig Figs. 1、4 的直接矢量曲线交叉吻合；原始 Fig. 4 明确支持 Caputo 而非 Ferreira 的 mu_mu/T digitization。Caputo 的绝对 n_mu 与其自身 Fermi 积分一致，但 Bollig Fig. 3 的密度在 5--15 km 平均低约 5%，12--15 km 低约 8.8%；B.17 使用的是同一 T, mu_mu 分布决定的 susceptibility n_mu F_deg，不得按 Fig. 3 密度比直接重标度。20--25 km 的部分热力学输入仍属图像外延或未分辨分支。完整 GR 传播仍缺少同一快照的 A(r) 或 M(r)。不从 lapse 单独拟合空间度规，不调整背景或 opacity 来拟合 Fig. 7。
 
 > **方法边界：** Fig. 7 工作基准继续采用 Appendix B.2 字面给出的标量、偏振求和吸收率；逐偏振传播、路径红移和 B.13 精确移动缪子计算保留为独立诊断。没有进行经验性源项/吸收率/光度重标度，没有修改生产轴矢量曲线、论文正文或正式回复信。只有纯矢量基准通过独立物理验收后，才解冻轴矢量限制曲线。
 
