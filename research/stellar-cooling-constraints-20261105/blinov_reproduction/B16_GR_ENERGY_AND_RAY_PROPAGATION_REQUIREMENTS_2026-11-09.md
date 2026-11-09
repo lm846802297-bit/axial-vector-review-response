@@ -124,3 +124,12 @@ The new independent full B.1+B.2 calculation validates the literal fixed-\(\omeg
 The remaining profile-fidelity limitation is linked to the same data dependency: the 20--25 km thermodynamic continuation and the absolute density discrepancy cannot be resolved to raw-simulation precision using the currently public figure paths alone.
 
 No source, opacity, coupling, luminosity, vector reference curve, or production axial-vector constraint is changed.
+
+
+## 7. Official archive and TOV-solver availability check (2026-11-09)
+
+The official Garching archive index lists the Bollig/Hüdepohl radial hydro and neutrino-profile collections, and separately lists a Python TOV solver by Robert Bollig (2020). Direct checks of the two radial-profile endpoints and the TOV-solver directory all return HTTP 401 Unauthorized. The archive index itself states that some data collections are password protected and directs users to contact the archive responsible person.
+
+A recent independent study, Wang and Zhang, arXiv:2610.35379 (2026), likewise states that its SFHo-18.8 radial simulation quantities are obtained from the corresponding simulations and that full profile data are available from the same Garching archive. It does not supply a separate public copy of the raw snapshot.
+
+Thus the current public-figure reconstruction cannot be upgraded to a same-snapshot full-GR metric by downloading the listed TOV solver or by substituting another public simulation. A generic static TOV solver is not a reconstruction of a time-dependent PNS snapshot. No lapse-only inference of (A(r)), synthetic TOV replacement, or cross-snapshot splice is adopted. See [B16_PUBLIC_PROFILE_AND_METRIC_SOURCE_AVAILABILITY_AUDIT_2026-11-09.md](B16_PUBLIC_PROFILE_AND_METRIC_SOURCE_AVAILABILITY_AUDIT_2026-11-09.md).
