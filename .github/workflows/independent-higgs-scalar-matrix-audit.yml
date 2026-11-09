@@ -7,6 +7,8 @@ on:
     paths:
       - "research/major1-higgs-scalar-mixing-20261109/independent_fermion_sector_matrix_audit.py"
       - "research/major1-higgs-scalar-mixing-20261109/test_independent_fermion_sector_matrix_audit.py"
+      - "research/major1-higgs-scalar-mixing-20261109/scalar_potential_counterterm_map.py"
+      - "research/major1-higgs-scalar-mixing-20261109/test_scalar_potential_counterterm_map.py"
       - ".github/workflows/independent-higgs-scalar-matrix-audit.yml"
   workflow_dispatch:
 
@@ -41,18 +43,33 @@ jobs:
           python -m unittest discover -s research/major1-higgs-scalar-mixing-20261109 \
             -p "test_independent_*.py" -v 2>&1 | tee research/major1-higgs-scalar-mixing-20261109/independent_fermion_sector_tests.txt
 
+      - name: Test scalar-potential counterterm map
+        run: |
+          set -o pipefail
+          python -m unittest discover -s research/major1-higgs-scalar-mixing-20261109 \
+            -p "test_scalar_potential_counterterm_map.py" -v 2>&1 | tee -a research/major1-higgs-scalar-mixing-20261109/independent_fermion_sector_tests.txt
+
       - name: Recompute the full fermion-sector matrix independently
         run: |
           python research/major1-higgs-scalar-mixing-20261109/independent_fermion_sector_matrix_audit.py \
             --reference-json research/major1-higgs-scalar-mixing-20261109/fermion_sector_matrix_audit.json \
             --output research/major1-higgs-scalar-mixing-20261109/independent_fermion_sector_matrix_audit.json
 
+      - name: Map local UV poles onto scalar-potential counterterms
+        run: |
+          python research/major1-higgs-scalar-mixing-20261109/scalar_potential_counterterm_map.py \
+            --independent-json research/major1-higgs-scalar-mixing-20261109/independent_fermion_sector_matrix_audit.json \
+            --output research/major1-higgs-scalar-mixing-20261109/scalar_potential_counterterm_map.json
+
       - name: Hash independent validation records
         run: |
           sha256sum \
             research/major1-higgs-scalar-mixing-20261109/independent_fermion_sector_matrix_audit.py \
             research/major1-higgs-scalar-mixing-20261109/test_independent_fermion_sector_matrix_audit.py \
+            research/major1-higgs-scalar-mixing-20261109/scalar_potential_counterterm_map.py \
+            research/major1-higgs-scalar-mixing-20261109/test_scalar_potential_counterterm_map.py \
             research/major1-higgs-scalar-mixing-20261109/independent_fermion_sector_matrix_audit.json \
+            research/major1-higgs-scalar-mixing-20261109/scalar_potential_counterterm_map.json \
             research/major1-higgs-scalar-mixing-20261109/independent_fermion_sector_tests.txt \
             > research/major1-higgs-scalar-mixing-20261109/INDEPENDENT_FERMION_AUDIT_SHA256SUMS.txt
 
@@ -61,6 +78,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+actions@users.noreply.github.com"
           git add research/major1-higgs-scalar-mixing-20261109/independent_fermion_sector_matrix_audit.json \
+            research/major1-higgs-scalar-mixing-20261109/scalar_potential_counterterm_map.json \
             research/major1-higgs-scalar-mixing-20261109/independent_fermion_sector_tests.txt \
             research/major1-higgs-scalar-mixing-20261109/INDEPENDENT_FERMION_AUDIT_SHA256SUMS.txt
           if git diff --cached --quiet; then
