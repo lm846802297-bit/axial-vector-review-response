@@ -109,7 +109,16 @@ The paper's scalar prescription is unambiguous for reproducing Fig. 7: Eq. (B.6)
 
 The outer-shell mode audit uses a 48-point mode integral and 512-point direct phase-space checks, four direction bins with 32-point angular quadrature, and the current 222-node vertex-preserving outer profile. Its output is `outputs/b16_outer_shell_polarization_resolved_10mev_2026-11-09.json`. No production axial curve is changed.
 
-The fixed-\(\omega\) result remains the published Eq. (B.2) baseline. A separate path-redshift-only diagnostic changes the full-curve mean absolute relative difference to 9.22% and its maximum to 36.74%; it is not a full GR ray trace and is not substituted for the fixed-\(\omega\) baseline.
+The fixed-\(\omega\) result remains the published Eq. (B.2) baseline. A separate path-redshift-only diagnostic changes the full-curve mean absolute relative difference to 9.22% and its maximum to 36.74%; it is not a full GR ray trace and is not substituted for the fixed-\(\omega\) baseline. At the strong endpoint, the fixed-\(\omega\) luminosity is \(2.43725\times10^{52}\,\mathrm{erg\,s^{-1}}\), while the redshift-only diagnostic gives \(1.73367\times10^{52}\,\mathrm{erg\,s^{-1}}\), compared with \(1.26781\times10^{52}\,\mathrm{erg\,s^{-1}}\) in Fig. 7. The corresponding required-to-calculated escape-probability ratios are 0.52018 and 0.73129, or effective residual optical depths
+
+\[
+\Delta\tau_{\mathrm{eff}}^{\mathrm{fixed}\ \omega}=0.65358,
+\qquad
+\Delta\tau_{\mathrm{eff}}^{\mathrm{redshift\ only}}=0.31295.
+\]
+
+Thus this energy-redshift sensitivity test reduces the residual effective optical-depth gap by about \(52.1\%\), but it still leaves the calculated strong-end luminosity \(36.7\%\) above Fig. 7. This is not evidence that the redshift-only prescription is the correct transport model: it retains the Euclidean chord path measure and omits metric path-length and ray-bending effects. It identifies energy variation along the path as a quantitatively important hypothesis that requires an independently justified transport treatment.
+
 
 ## 7. Global B.13 exact Compton replacement
 
