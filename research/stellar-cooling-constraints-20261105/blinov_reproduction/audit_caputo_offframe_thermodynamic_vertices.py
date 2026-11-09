@@ -232,6 +232,8 @@ def make_report(d):
         f"- Source PDF: {d['source_url']}",
         f"- SHA-256: {d['source_pdf_sha256']}",
         "- The existing extraction map defines the visible top-panel radial frame as 0.1--20 km.",
+        f"- Top-panel PDF clip rectangles: {[x['rect_pdf'] for x in d['clipping_paths'] if x.get('rect_pdf') and x['rect_pdf'][0] < 60 and x['rect_pdf'][2] <= 330 and x['rect_pdf'][3] < 230]}. Their common right edge is x_pdf=325.",
+        f"- T vector path x extent: {d['curves']['T']['drawing_rect_pdf'][0]}--{d['curves']['T']['drawing_rect_pdf'][2]}; mu_mu vector path x extent: {d['curves']['mu_mu']['drawing_rect_pdf'][0]}--{d['curves']['mu_mu']['drawing_rect_pdf'][2]}. Both extend beyond the clip boundary.",
         "- The T and mu_mu PDF drawing paths continue beyond the visible right edge; the 20--22 km segment is encoded off-frame vector data.",
         "",
         "## Off-frame path audit",
