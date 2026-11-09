@@ -1,0 +1,81 @@
+name: Global B.13 quadrature convergence audit
+
+on:
+  push:
+    branches:
+      - research/moving-muon-thermal-rates-20261107
+    paths:
+      - '.github/workflows/b13-global-convergence-audit.yml'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b13_global_convergence.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b13_global_transport.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_global_redshift.py'
+      - 'research/stellar-cooling-constraints-20261105/finite_mixing/moving_muon_compton.py'
+      - 'research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_summary_vertex_preserving_10mev_2026-11-09.json'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_fig7_vertex_preserving_10mev_2026-11-09.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: b13-global-convergence-\${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  convergence:
+    if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - name: Check out research branch
+        uses: actions/checkout@v4
+        with:
+          ref: \${{ github.sha }}
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy
+      - name: Compile convergence audit
+        run: |
+          python -m py_compile \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b13_global_convergence.py \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b13_global_transport.py
+      - name: Run orthogonal and combined quadrature scans
+        env:
+          PYTHONPATH: \${{ github.workspace }}/research/stellar-cooling-constraints-20261105
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b13_global_convergence.py
+      - name: Validate convergence output and unchanged production axial files
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root = Path("research/stellar-cooling-constraints-20261105")
+          p = root / "blinov_reproduction/outputs/b13_global_convergence_vertex_preserving_10mev_2026-11-09.json"
+          d = json.loads(p.read_text())
+          assert len(d["scans"]) == 4
+          assert d["reference"]["profile_sha256"] == "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
+          for scan in d["scans"]:
+              assert scan["B16_baseline_reproduction_residual"] < 2e-10
+              assert set(scan["variants"]) == {"B13_mu_minus_consistent", "B13_mu_minus_plus_mu_plus_consistent"}
+          print("All four scans retain the fixed profile and close against the archived B.16 baseline.")
+          PY
+          git diff --exit-code -- \
+            research/stellar-cooling-constraints-20261105/rates.py \
+            research/stellar-cooling-constraints-20261105/transport.py \
+            research/stellar-cooling-constraints-20261105/outputs/axial.json \
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.pdf \
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.png
+      - name: Upload convergence results
+        uses: actions/upload-artifact@v4
+        with:
+          name: b13-global-convergence-10mev
+          path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_convergence_vertex_preserving_10mev_2026-11-09.json
+          if-no-files-found: error
+          retention-days: 90
