@@ -1,67 +1,93 @@
 import unittest
 
 from scalar_potential_counterterm_map import (
-    fixed_vev_bookkeeping_basis,
-    linearized_mass_counterterm,
-    linearized_tadpole_counterterms_per_vev,
-    potential_mass_matrix,
-    potential_tadpole_brackets,
+    LOOP,
+    leading_eft5_derivatives,
+    potential_mass_counterterm,
+    potential_tadpoles_per_vev,
+    solve_potential_counterterms,
 )
 
 
 class ScalarPotentialCountertermMapTests(unittest.TestCase):
-    def test_tree_mass_matrix_matches_potential_second_derivatives(self):
-        vh, vs = 246.22, 70.886458
-        mu_h2, mu_s2 = 7800.0, 1200.0
-        lh, ls, lhs = 0.129, 0.2, 0.03
-        matrix = potential_mass_matrix(vh, vs, mu_h2, mu_s2, lh, ls, lhs)
-        self.assertAlmostEqual(matrix[0][1], lhs * vh * vs, places=10)
-        self.assertAlmostEqual(matrix[1][0], matrix[0][1], places=12)
+    def test_full_theory_potential_counterterms_cancel_tadpoles_and_local_poles(self):
+        cases = (
+            (70.886458, 519912273576.47626, 715204443204.932,
+             2111998398.3185194, 0.0, 10091023891.362673),
+            (315.0, 519912273576.47626, 160947014998.92,
+             2111998398.3185194, 0.0, 511023273.49714106),
+        )
+        for vs, fh, fs, fhh, fhs, fss in cases:
+            result = solve_potential_counterterms(246.22, vs, fh, fs, fhh, fhs, fss)
+            self.assertLess(max(abs(x) for x in result["tadpole_cancellation_residual_GeV2"]), 2e-6)
+            mass_res = result["mass_cancellation_residual_GeV2"]
+            self.assertLess(max(abs(x) for row in mass_res for x in row), 2e-8)
+            self.assertAlmostEqual(result["delta_lambda_HS"], 0.0, places=20)
 
-    def test_fixed_vev_basis_reconstructs_all_three_pole_entries(self):
-        examples = (
-            ([[ -13374386.09800963, 4.33770200548787e-05],
-              [4.33770200548787e-05, -63902155.30209779]], 70.886458),
-            ([[-13374386.09800963, 9.761407305064081e-06],
-              [9.761407305064081e-06, -3236092.6837118976]], 315.0),
+    def test_counterterm_potential_derivatives_reconstruct_target_matrix(self):
+        result = solve_potential_counterterms(
+            246.22, 70.886458,
+            519912273576.47626, 715204443204.932,
+            2111998398.3185194, 0.0, 10091023891.362673,
         )
-        for matrix, vs in examples:
-            result = fixed_vev_bookkeeping_basis(matrix, 246.22, vs)
-            self.assertLess(result["max_reconstruction_residual_GeV2"], 2e-8)
-            self.assertAlmostEqual(
-                result["delta_lambda_HS"],
-                matrix[0][1] / (246.22 * vs),
-                places=18,
-            )
+        p = result
+        tad = potential_tadpoles_per_vev(
+            246.22, 70.886458,
+            p["delta_mu_H2_GeV2"], p["delta_mu_S2_GeV2"],
+            p["delta_lambda_H"], p["delta_lambda_S"], p["delta_lambda_HS"],
+        )
+        mass = potential_mass_counterterm(
+            246.22, 70.886458,
+            p["delta_mu_H2_GeV2"], p["delta_mu_S2_GeV2"],
+            p["delta_lambda_H"], p["delta_lambda_S"], p["delta_lambda_HS"],
+        )
+        self.assertAlmostEqual(tad[0], p["loop_1PI_tadpole_pole_coefficients_GeV3"][0]/246.22, places=7)
+        self.assertAlmostEqual(tad[1], p["loop_1PI_tadpole_pole_coefficients_GeV3"][1]/70.886458, places=7)
+        self.assertAlmostEqual(mass[0][0], p["loop_Pi_RC_local_pole_coefficients_GeV2"][0][0], places=7)
+        self.assertAlmostEqual(mass[1][1], p["loop_Pi_RC_local_pole_coefficients_GeV2"][1][1], places=7)
 
-    def test_counterterm_and_tadpole_maps_obey_stationary_point_identity(self):
-        vh, vs = 246.22, 70.886458
-        lh, ls, lhs = 0.129, 0.22, 0.04
-        params = dict(
-            vh=vh, vs=vs, lam_h=lh, lam_s=ls, lam_hs=lhs,
-            dmu_h2=1.3, dmu_s2=-2.1, dlam_h=0.004,
-            dlam_s=-0.003, dlam_hs=0.002, dvh=0.01, dvs=-0.02,
-        )
-        dm = linearized_mass_counterterm(**params)
-        dt_h, dt_s = linearized_tadpole_counterterms_per_vev(**params)
-        self.assertAlmostEqual(
-            dm[0][0] - dt_h,
-            2 * vh**2 * params["dlam_h"] + 4 * lh * vh * params["dvh"],
-            places=8,
-        )
-        self.assertAlmostEqual(
-            dm[1][1] - dt_s,
-            2 * vs**2 * params["dlam_s"] + 4 * ls * vs * params["dvs"],
-            places=8,
-        )
+    def test_leading_eft5_contact_completes_mixed_two_point_uv_pole(self):
+        by_flavour = {
+            "mu": {"y": 1.14873979560807, "lambda": 0.2107927407099522, "ml_GeV": 0.1056583755},
+            "tau": {"y": 1.14873979560807, "lambda": 3.544907703581773, "ml_GeV": 1.77686},
+        }
+        result = leading_eft5_derivatives(246.22, 70.886458, by_flavour)
+        total = result["sum_derivatives_GeV"]
+        bubble = result["bubble_local_UV_coefficients_GeV2"]
+        contact = result["dimension5_contact_local_UV_coefficients_GeV2"]
+        complete = result["complete_leading_EFT5_local_UV_coefficients_GeV2"]
+        self.assertAlmostEqual(complete["hh"], total["F_hh"], places=14)
+        self.assertAlmostEqual(complete["hs"], total["F_hs"], places=14)
+        self.assertAlmostEqual(complete["ss"], total["F_ss"], places=14)
+        self.assertAlmostEqual(contact["hs"], 4*total["F"]/(246.22*70.886458), places=18)
+        self.assertGreater(contact["hs"], 0.0)
+        self.assertEqual(contact["hh"], 0.0)
+        self.assertEqual(contact["ss"], 0.0)
 
-    def test_tadpole_stationarity_reference(self):
-        vh, vs, lh, ls, lhs = 246.22, 70.886458, 0.129, 0.22, 0.04
-        mu_h2 = lh * vh**2 + 0.5 * lhs * vs**2
-        mu_s2 = ls * vs**2 + 0.5 * lhs * vh**2
-        th, ts = potential_tadpole_brackets(vh, vs, mu_h2, mu_s2, lh, ls, lhs)
-        self.assertAlmostEqual(th, 0.0, places=10)
-        self.assertAlmostEqual(ts, 0.0, places=10)
+    def test_c5_normalization_reproduces_seesaw_masses(self):
+        by_flavour = {
+            "mu": {"y": 1.14873979560807, "lambda": 0.2107927407099522, "ml_GeV": 0.1056583755},
+            "tau": {"y": 1.14873979560807, "lambda": 3.544907703581773, "ml_GeV": 1.77686},
+        }
+        result = leading_eft5_derivatives(246.22, 70.886458, by_flavour)
+        for item in result["flavours"].values():
+            self.assertLess(item["mass_relative_difference"], 2e-15)
+
+    def test_dimension8_coefficient_has_correct_mass_dimension_and_scaling(self):
+        by_a = {
+            "mu": {"y": 1.14873979560807, "lambda": 0.2107927407099522, "ml_GeV": 0.1056583755},
+            "tau": {"y": 1.14873979560807, "lambda": 3.544907703581773, "ml_GeV": 1.77686},
+        }
+        by_b = {
+            "mu": {"y": 1.14873979560807, "lambda": 0.04743603416203466, "ml_GeV": 0.1056583755},
+            "tau": {"y": 1.14873979560807, "lambda": 0.7977331779169075, "ml_GeV": 1.77686},
+        }
+        a = leading_eft5_derivatives(246.22, 70.886458, by_a)
+        b = leading_eft5_derivatives(246.22, 315.0, by_b)
+        self.assertLess(a["dimension8_potential_counterterm_coefficient_GeVminus4"], 0.0)
+        self.assertLess(b["dimension8_potential_counterterm_coefficient_GeVminus4"], 0.0)
+        self.assertLess(abs(a["dimension8_potential_counterterm_coefficient_GeVminus4"]), 1e-15)
+        self.assertLess(abs(b["dimension8_potential_counterterm_coefficient_GeVminus4"]), 1e-18)
 
 
 if __name__ == "__main__":
