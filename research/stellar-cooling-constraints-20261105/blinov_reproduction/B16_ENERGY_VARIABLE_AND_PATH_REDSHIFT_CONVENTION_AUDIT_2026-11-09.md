@@ -120,3 +120,31 @@ These are different physical prescriptions, not interchangeable numerical refine
 3. Do not state that the published Fig. 7 code is known to use B.16 unless independent implementation evidence becomes available.
 4. Do not infer a full GR result from the redshift-only diagnostic.
 5. Do not alter the production axial-vector curve or use empirical rescaling to improve the vector comparison.
+
+
+## 7. Current-profile rerun and machine-readable archive (2026-11-09)
+
+The path-redshift diagnostic has now been rerun on the exact vertex-preserving profile B used by the current B.16 benchmark. The archived JSON records profile SHA-256:
+
+`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`.
+
+Configuration is unchanged from the prior diagnostic: (N_r=40), (N_\omega=100), (N_\theta=16), (N_s=32), (R_{\max}=25\) km; masses (m_V=0.1,1,10\) MeV. The 10 MeV result is:
+
+| Fig. 7 point | Fixed-\(\omega\) baseline | Path-redshift-only |
+|---|---:|---:|
+| Weak endpoint | -8.8853% | -8.8991% |
+| Reference peak | +2.5688% | -2.7704% |
+| Strong endpoint | +92.2406% | +36.7448% |
+| Strong-endpoint shift relative to fixed-\(\omega\) | 0 | -28.8679% |
+
+At the strong endpoint, the fixed-\(\omega\) escape fraction is (3.23921\times10^{-4}), while the path-redshift-only value is (2.30412\times10^{-4}). The optically thin source is held fixed between the two prescriptions.
+
+The current-profile output is archived at:
+
+`outputs/b16_global_redshift_audit_2026-11-09.json`
+
+GitHub Actions [Run #42568420651](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42568420651) passed the global-integral regression tests, the three-mass radial-weight/fixed-energy/path-redshift calculation, the production-output immutability check, and the archive step.
+
+A second, simultaneously queued duplicate run (#42568424558) also completed its numerical calculation and tests, but its archive step encountered an add/add conflict because the first run had already archived the same dated output. The successful first run and its committed JSON are the authoritative record; the duplicate archive conflict does not indicate a numerical failure.
+
+This closes the profile-provenance gap for the redshift-only sensitivity result. It does not change the interpretation: the path-redshift result remains a diagnostic with Euclidean path measure, not full GR, and the fixed-\(\omega\) Appendix-B branch remains the paper-reproduction baseline.
