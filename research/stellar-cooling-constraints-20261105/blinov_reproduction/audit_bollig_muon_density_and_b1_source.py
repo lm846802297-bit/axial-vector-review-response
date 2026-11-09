@@ -265,10 +265,16 @@ def run(profile_path=DEFAULT_PROFILE, caputo_n_path=DEFAULT_CAPUTO_N,
     outer_n_bollig_fd = np.asarray(outer_n_bollig_fd)
     outer_t_relative = outer_t_caputo / outer_t_bollig - 1.0
     outer_eta_relative = outer_eta_caputo / outer_eta_bollig - 1.0
+    # Fig. 3's lower plotting limit is 10^-7 fm^-3. Once the yellow
+    # curve reaches this floor, the plotted value is censored and must not be
+    # treated as a physical density measurement. Use only points clearly
+    # above the floor for direct density residuals.
+    fig3_lower_density_floor_fm3 = 1.0e-7
+    outer_density_valid = outer_n_bollig > fig3_lower_density_floor_fm3 * (1.0 + 1.0e-6)
     outer_caputo_fd_vs_bollig_fig3 = outer_n_caputo_fd / outer_n_bollig - 1.0
     outer_bollig_fd_vs_bollig_fig3 = outer_n_bollig_fd / outer_n_bollig - 1.0
     outer_selected = []
-    for r in (15.0, 16.0, 17.0, 18.0, 19.0, 20.0):
+    for r in (15.0, 15.25, 15.5, 15.75, 16.0, 16.25, 16.5, 16.75, 17.0, 18.0, 19.0, 20.0):
         t_c = float(np.interp(r, profile_r, temp))
         mu_c = float(np.interp(r, profile_r, mu))
         t_b = bollig_temperature(r)
@@ -286,10 +292,16 @@ def run(profile_path=DEFAULT_PROFILE, caputo_n_path=DEFAULT_CAPUTO_N,
             "eta_Bollig_Fig4": eta_b,
             "eta_Caputo_over_Bollig_minus_1": (mu_c / t_c) / eta_b - 1.0,
             "n_Bollig_Fig3_fm3": n_b,
+            "Fig3_lower_plot_floor_fm3": 1.0e-7,
+            "Fig3_density_is_floor_censored": n_b <= 1.0e-7 * (1.0 + 1.0e-6),
             "n_FD_from_Caputo_T_mu_fm3": n_c_fd,
             "n_FD_from_Bollig_T_eta_fm3": n_b_fd,
-            "Caputo_FD_over_Bollig_Fig3_minus_1": n_c_fd / n_b - 1.0,
-            "Bollig_FD_over_Bollig_Fig3_minus_1": n_b_fd / n_b - 1.0,
+            "Caputo_FD_over_Bollig_Fig3_minus_1": (
+                n_c_fd / n_b - 1.0 if n_b > 1.0e-7 * (1.0 + 1.0e-6) else None
+            ),
+            "Bollig_FD_over_Bollig_Fig3_minus_1": (
+                n_b_fd / n_b - 1.0 if n_b > 1.0e-7 * (1.0 + 1.0e-6) else None
+            ),
         })
 
     # Retain the density-node values for the implied-temperature diagnostic.
@@ -426,8 +438,8 @@ def run(profile_path=DEFAULT_PROFILE, caputo_n_path=DEFAULT_CAPUTO_N,
             "Caputo_T_vs_Bollig_Fig1_12_15km": rel_summary(t_caputo_vs_bollig[profile_shell]),
             "Caputo_T_vs_Bollig_Fig1_15_20km": rel_summary(outer_t_relative),
             "Caputo_mu_over_T_vs_Bollig_Fig4_15_20km": rel_summary(outer_eta_relative),
-            "Caputo_FD_mu_minus_from_T_mu_vs_Bollig_Fig3_15_20km": rel_summary(outer_caputo_fd_vs_bollig_fig3),
-            "Bollig_FD_mu_minus_from_Fig1_T_Fig4_eta_vs_Bollig_Fig3_15_20km": rel_summary(outer_bollig_fd_vs_bollig_fig3),
+            "Caputo_FD_mu_minus_from_T_mu_vs_Bollig_Fig3_15_20km_above_plot_floor": rel_summary(outer_caputo_fd_vs_bollig_fig3[outer_density_valid]),
+            "Bollig_FD_mu_minus_from_Fig1_T_Fig4_eta_vs_Bollig_Fig3_15_20km_above_plot_floor": rel_summary(outer_bollig_fd_vs_bollig_fig3[outer_density_valid]),
             "Bollig_Fig1_T_vs_T_implied_from_Fig3_density_and_Fig4_eta_12_15km": rel_summary(
                 np.asarray([
                     (x["T_implied_from_Bollig_nmu_MeV"] / bollig_temperature(x["radius_km"]) - 1.0)
@@ -443,6 +455,20 @@ def run(profile_path=DEFAULT_PROFILE, caputo_n_path=DEFAULT_CAPUTO_N,
         "selected_radii": selected,
         "outer_15_20km_selected_radii": outer_selected,
         "outer_15_20km_node_count": int(len(outer_r)),
+        "outer_15_20km_fig3_density_diagnostic": {
+            "lower_plot_floor_fm3": fig3_lower_density_floor_fm3,
+            "above_floor_node_count": int(np.count_nonzero(outer_density_valid)),
+            "floor_censored_node_count": int(np.count_nonzero(~outer_density_valid)),
+            "last_radius_above_floor_km": (
+                float(outer_r[np.where(outer_density_valid)[0][-1]])
+                if np.any(outer_density_valid) else None
+            ),
+            "first_radius_at_floor_km": (
+                float(outer_r[np.where(~outer_density_valid)[0][0]])
+                if np.any(~outer_density_valid) else None
+            ),
+            "interpretation": "Values at the lower plotting floor are upper-limit/censored, not point measurements; excluded from density residual summaries."
+        },
         "implied_temperature_diagnostic": implied_temperature,
         "B16_local_source_checks": compton_checks,
         "interpretation": {
