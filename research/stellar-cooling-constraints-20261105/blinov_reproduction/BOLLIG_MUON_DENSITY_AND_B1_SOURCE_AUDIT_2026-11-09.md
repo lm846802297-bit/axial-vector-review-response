@@ -148,6 +148,27 @@ Therefore:
 - do not rescale the B.1 Compton source using the Bollig Fig. 3 density ratio;
 - keep the weak-end source-normalization mismatch as unresolved pending a separate audit of the remaining B.1 source inputs and the Fig. 7 digitized reference.
 
+
+### 6.2 Charge-conjugate convention and source-weighted size of the density tension (2026-11-10)
+
+A fresh, independent composite-Simpson integration was run directly from the frozen profile at \(r=5,8,10,12,15\) km. It uses \(p\in[0,1000]\) MeV, 20,000 equal subintervals, \(E_\mu=\sqrt{p^2+m_\mu^2}\), and \((\hbar c)=197.3269804\) MeV fm. The reconstructed \(n_{\mu^-}\) and \(n_{\mu^-}F_{\rm deg}\) agree with the archived independent Fermi-integral values at these points to a maximum relative difference below \(8.3\times10^{-9}\).
+
+| \(r\) (km) | \(n_{\mu^-}\) (fm\(^{-3}\)) | \(F_{\rm deg}\) | \(n_{\mu^+}/n_{\mu^-}\) |
+|---:|---:|---:|---:|
+| 5 | \(4.670997\times10^{-4}\) | 0.962300 | 1.242% |
+| 8 | \(4.660747\times10^{-3}\) | 0.871282 | 1.033% |
+| 10 | \(4.494302\times10^{-3}\) | 0.841716 | 0.284% |
+| 12 | \(1.943681\times10^{-3}\) | 0.871681 | 0.0857% |
+| 15 | \(4.013552\times10^{-5}\) | 0.988346 | 0.00825% |
+
+The positive-muon fraction falls below \(0.086\%\) over 12--15 km. Consequently, interpreting the plotted quantity as net density rather than negative-muon density cannot explain the 6.3--10.8% Fig. 3 discrepancy in that interval. The charge-conjugate convention can produce a percent-level distinction only toward the inner 5--8 km region.
+
+The channel-resolved B.1 output further sharpens the source-weighting argument. Compton accounts for \(32.0048\%\) of the total thin source, but the 12--15 km shell contains only \(3.7320\%\) of the Compton source. Thus this shell's Compton contribution is \(1.1944\%\) of the total B.1 source. Applying the mean 8.8% Fig. 3 density offset to that component alone would shift the total source by only about \(0.105\%\); even using the 10.84% endpoint offset gives about \(0.130\%\). These are density-only sensitivity estimates, not B.17-consistent replacements.
+
+Across 5--15 km, a piecewise-linear interpolation of the digitized density residuals, weighted by the actual B.1 Compton shell fractions, gives an illustrative total-source shift of about \(0.96\%\) if \(n_\mu\) alone is replaced while \(F_{\rm deg}\) is artificially held fixed. This is not a physical prescription: B.17 requires the product \(n_\mu F_{\rm deg}\) to be evaluated from the same Fermi distribution. The estimate only quantifies why the plotted-density tension cannot account for the \(-8.885\%\) weak-endpoint B.1/B.16 luminosity deficit.
+
+The original Fig. 3 density discrepancy therefore remains a genuine figure-level provenance tension, but neither a net-versus-negative-muon convention nor a standalone density normalization provides a justified correction to the B.1 source.
+
 ## 7. Baseline-input freeze decision
 
 Freeze the following as the current internally consistent working inputs:
