@@ -515,7 +515,7 @@ def outer_mu_numu_branch_opacity_sensitivity(
 def run_mass(
     mass, profile_path, fig7_path,
     radial_order=40, energy_order=100, angular_order=16, path_order=32,
-    radius_km=25.0, energy_offset=1000.0,
+    radius_km=25.0, energy_offset=1000.0, opacity_order=None,
 ):
     fig7 = json.loads(Path(fig7_path).read_text(encoding="utf-8"))
     key = str(float(mass))
@@ -526,7 +526,11 @@ def run_mass(
     reference_luminosity = np.asarray(vertices["luminosity_erg_s"], float)
 
     r, rw = radial_rule(radius_km, radial_order)
-    radial_grid = np.unique(np.r_[0.0, r, radius_km])
+    opacity_order = radial_order if opacity_order is None else int(opacity_order)
+    if opacity_order < 8:
+        raise ValueError("opacity_order must be >= 8")
+    opacity_r, _ = radial_rule(radius_km, opacity_order)
+    radial_grid = np.unique(np.r_[0.0, r, opacity_r, radius_km])
     p = load_profile(profile_path, radial_grid)
     energies = mass+np.geomspace(
         max(mass*1.0e-6, 1.0e-6), energy_offset, energy_order
@@ -664,6 +668,7 @@ def run_mass(
         ),
         "configuration": {
             "radial_order": radial_order,
+            "opacity_order": opacity_order,
             "energy_order": energy_order,
             "angular_order": angular_order,
             "path_order": path_order,
