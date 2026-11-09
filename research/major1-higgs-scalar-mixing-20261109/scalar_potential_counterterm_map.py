@@ -296,6 +296,90 @@ def plan_c_scale_dependence(
     }
 
 
+def finite_heavy_potential_matching(by_flavour: dict) -> dict:
+    """Finite heavy-eigenstate CW matching onto the scalar potential at mu=M_E.
+
+    Define X_l=|y_l|^2 HdaggerH and Y_l=|lambda_l|^2 SdaggerS.
+    The heavy singular-value squared is the larger eigenvalue of Mdagger M.
+    Expanding its Dirac Coleman-Weinberg determinant through dimension eight
+    gives the complete VLL-induced scalar-potential operator set through
+    (HdaggerH,SdaggerS)^4. The dimension-eight O8 coefficient is finite and
+    fixes the MS boundary value at mu=M_E in this field/operator basis.
+    """
+    sums = {
+        key: 0.0 for key in (
+            "xy", "x3", "x2y", "xy2", "y3",
+            "x4", "x3y", "x2y2", "xy3", "y4", "c5_fourth",
+        )
+    }
+    for item in by_flavour.values():
+        y2 = abs(float(item["y"]))**2
+        lam2 = abs(float(item["lambda"]))**2
+        sums["xy"] += y2*lam2
+        sums["x3"] += y2**3
+        sums["x2y"] += y2**2*lam2
+        sums["xy2"] += y2*lam2**2
+        sums["y3"] += lam2**3
+        sums["x4"] += y2**4
+        sums["x3y"] += y2**3*lam2
+        sums["x2y2"] += y2**2*lam2**2
+        sums["xy3"] += y2*lam2**3
+        sums["y4"] += lam2**4
+        sums["c5_fourth"] += (abs(float(item["y"])*float(item["lambda"]))/ME)**4
+
+    m2 = ME**2
+    m4 = ME**4
+    coeff = {
+        "delta_lambda_H_finite_at_mu_ME": 0.0,
+        "delta_lambda_S_finite_at_mu_ME": 0.0,
+        "delta_lambda_HS_finite_at_mu_ME": -2.0*LOOP*sums["xy"],
+        "c_(HdagH)^3_GeVminus2": -LOOP*sums["x3"]/(3.0*m2),
+        "c_(HdagH)^2(SdagS)_GeVminus2": LOOP*sums["x2y"]/m2,
+        "c_(HdagH)(SdagS)^2_GeVminus2": LOOP*sums["xy2"]/m2,
+        "c_(SdagS)^3_GeVminus2": -LOOP*sums["y3"]/(3.0*m2),
+        "c_(HdagH)^4_GeVminus4": LOOP*sums["x4"]/(12.0*m4),
+        "c_(HdagH)^3(SdagS)_GeVminus4": -(2.0/3.0)*LOOP*sums["x3y"]/m4,
+        "c_(HdagH)^2(SdagS)^2_GeVminus4": -(7.0/2.0)*LOOP*sums["x2y2"]/m4,
+        "c_(HdagH)(SdagS)^3_GeVminus4": -(2.0/3.0)*LOOP*sums["xy3"]/m4,
+        "c_(SdagS)^4_GeVminus4": LOOP*sums["y4"]/(12.0*m4),
+    }
+    c8_pole = -LOOP*sums["c5_fourth"]
+    c8_beta = -2.0*LOOP*sums["c5_fourth"]
+    c8_match = -(7.0/2.0)*LOOP*sums["c5_fourth"]
+    return {
+        "matching_scale_GeV": ME,
+        "renormalization_scheme": "MSbar",
+        "matching_sector": "heavy mu/tau-associated VLL eigenstates only",
+        "background_invariants": "X_l=|y_l|^2 HdaggerH; Y_l=|lambda_l|^2 SdaggerS",
+        "heavy_CW_expansion_at_mu_ME": (
+            "V_H=-1/(16 pi^2) sum_l[-3/2 M_E^4-2 M_E^2(X_l+Y_l)+2 X_l Y_l"
+            "+((X_l+Y_l)^3/3-2 X_l Y_l(X_l+Y_l))/M_E^2"
+            "+(-(X_l+Y_l)^4/12+X_l Y_l(X_l+Y_l)^2+2 X_l^2 Y_l^2)/M_E^4"
+            "+ O(fields^10)]"
+        ),
+        "dimensionless_coupling_invariants": sums,
+        "finite_potential_wilson_coefficients_at_mu_ME": coeff,
+        "O8_matching_and_running": {
+            "operator": "(HdaggerH)^2(SdaggerS)^2",
+            "UV_pole_residue_GeVminus4": c8_pole,
+            "finite_matching_coefficient_c8_at_mu_ME_GeVminus4": c8_match,
+            "loop_induced_beta_c8_GeVminus4": c8_beta,
+            "finite_matching_to_pole_residue_ratio": 3.5,
+            "general_scale_dependence": (
+                "c8(mu)=-[sum_l |C5_l|^4/(16 pi^2)]"
+                "[7/2-ln(M_E^2/mu^2)]"
+            ),
+            "consistency": "d c8(mu)/d ln(mu)=beta_c8=-2 sum_l |C5_l|^4/(16 pi^2)",
+        },
+        "scope": [
+            "The expansion is the finite heavy-eigenstate Coleman-Weinberg contribution in the specified MSbar scalar-background basis.",
+            "The light-eigenstate determinant is matched to the leading dimension-five EFT loop separately and is not included in these hard Wilson coefficients.",
+            "This closes the VLL fermion-sector scalar-potential matching through dimension eight, not the full derivative-operator or gauge/scalar EFT basis.",
+            "The finite portal threshold is distinct from the vanishing divergent renormalizable portal pole.",
+        ],
+    }
+
+
 def run_mapping(tadpole_json: Path, matrix_json: Path) -> dict:
     tadpole = json.loads(tadpole_json.read_text(encoding="utf-8"))
     matrix = json.loads(matrix_json.read_text(encoding="utf-8"))
@@ -315,6 +399,9 @@ def run_mapping(tadpole_json: Path, matrix_json: Path) -> dict:
         )
         eft = leading_eft5_derivatives(
             VH, vs, t["couplings_and_invariants"]["by_flavour"]
+        )
+        finite_hard = finite_heavy_potential_matching(
+            t["couplings_and_invariants"]["by_flavour"]
         )
         plan_c_scale = plan_c_scale_dependence(
             VH, vs, 125.25**2, t["couplings_and_invariants"]["by_flavour"],
@@ -365,6 +452,7 @@ def run_mapping(tadpole_json: Path, matrix_json: Path) -> dict:
                 },
             },
             "leading_EFT5_light_loop_and_dimension8_counterterm": eft,
+            "finite_heavy_VLL_potential_matching_through_dimension8": finite_hard,
             "planC_scale_dependence_and_dimension8_running_check": plan_c_scale,
             "comparison_to_archived_exact_light_bubble": {
                 "exact_mass_eigenstate_light_bubble_local_UV_coefficients_GeV2": bubble_local,
