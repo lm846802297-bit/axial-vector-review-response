@@ -68,3 +68,25 @@ The audit is designed to identify the minimum radial order at which both the fix
 - Machine-readable opacity-grid results: `outputs/b2_opacity_interpolation_convergence_2026-11-09.json`
 
 The failed initial radial workflow attempts are retained as transparent debugging records. They failed before producing scientific results (first a metadata-key mismatch, then a syntax issue); the current run uses the corrected script and decoupled opacity grid.
+
+
+## 7. Method correction and replacement run (2026-11-09)
+
+The first high-order source-radial attempt, Run #42583529538, is **not accepted as a convergence result**.
+
+Two independent issues were identified:
+
+1. The output writer appended a literal backslash-n sequence to the JSON payload. The numerical calculation step completed, but the validation step failed with `JSONDecodeError: Extra data`. This is a serialization failure, not a physics or quadrature failure.
+2. The first implementation formed the interpolation grid as `unique([0, source_r, opacity_r, R])`. Consequently, changing the B.1 source-radial order also changed the B.2 opacity interpolation grid. Because the energy grid additionally included `m_A'/N(r_i)` at every point of that combined grid, it changed the energy nodes as well. That implementation did not isolate the B.1 radial quadrature and its output is not used as scientific evidence.
+
+The corrected implementation separates the grids explicitly:
+
+- The B.1 source radii and weights are generated from the variable source order (80, 100, 120, 160, 200). Source-local rates are evaluated directly at these nodes.
+- The B.2 opacity profile and rates are evaluated on the fixed opacity grid generated with order 640, including only the fixed grid and the two radial endpoints. Source nodes are not inserted into this interpolation grid.
+- The energy grid is constructed from the fixed opacity-grid lapse values and the base energy order 100. Its actual node count and SHA-256 are recorded; both must remain identical across the five source-radial orders.
+- The path integrals are evaluated for each source radius against the same fixed opacity grid. The path-redshift diagnostic receives the source lapse evaluated at the source node, rather than assuming that the source node belongs to the opacity grid.
+- The workflow checks that the source-grid hashes vary, while the opacity-grid and energy-grid hashes remain identical. It also retains the fixed profile SHA-256 and verifies that the production axial-vector files are unchanged.
+
+The JSON serialization is corrected. The replacement run is [Run #42585236139](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42585236139), currently running on commit `799de095c74e344cb77ffc41fd722738d1343dad`.
+
+Until that run passes its numerical and isolation checks, no B.1 source-radial convergence conclusion is drawn. The earlier 0.1 and 1 MeV outputs are excluded. No axial-vector production result or constraint curve is modified.
