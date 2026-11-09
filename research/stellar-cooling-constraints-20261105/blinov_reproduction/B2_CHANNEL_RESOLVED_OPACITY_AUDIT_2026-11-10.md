@@ -31,7 +31,7 @@ The direct V8 double-precision calculation uses the same reconstructed SFHo-18.8
 
 In the 210--510 MeV band, the source-weighted optical depth is 0.7658 (76.58%) neutrino inverse decay and 0.2342 (23.42%) semi-Compton. Neutrino inverse decay is the larger opacity contribution, while semi-Compton remains substantial.
 
-The 210--510 MeV band contains NaN% of the total optically-thin source and NaN% of the total escaping luminosity. Its mean escape probability is 2.3458e-3.
+The 210--510 MeV band contains 9.670% of the total optically-thin source and 69.756% of the total escaping luminosity. Its mean escape probability is 2.3458e-3.
 
 ## Where the high-energy optical depth accumulates
 
@@ -54,7 +54,7 @@ This separates the channels spatially:
 
 - Semi-Compton opacity is concentrated in the inner region, principally 5--15 km. Its contribution becomes negligible outside 15--18 km.
 - Neutrino inverse-decay opacity persists through the outer 15--25 km layers and supplies most of the high-energy optical depth.
-- The next targeted audit should therefore prioritize the outer-layer neutrino inverse-decay kernel and its radial interpolation/path integration, rather than rescaling the Compton opacity.
+- The targeted outer-layer neutrino inverse-decay kernel, radial interpolation, and path integration have now been checked in the P1 follow-up. No percent-level numerical propagation discrepancy is found; see B16_P1_B2_HIGH_ENERGY_PROPAGATION_AUDIT_2026-11-10.md.
 
 ## Numerical checks
 
@@ -67,6 +67,11 @@ This separates the channels spatially:
 
 ## Interpretation and next step
 
-The 92.4% excess over the digitized Fig. 7 luminosity is not explained by a dominant semi-Compton opacity omission in the high-energy band: the computed \\(\tau_\nu\\) contribution is about 3.27 times the semi-Compton contribution. Outer-layer neutrino inverse-decay opacity is the priority for an independent formula and interpolation audit.
+The 92.4% excess over the digitized Fig. 7 luminosity is not explained by a dominant semi-Compton opacity omission in the high-energy band: the computed \\(\tau_\nu\\) contribution is about 3.27 times the semi-Compton contribution. The P1 follow-up finds that direct path integration, angular integration, and profile-vertex-preserving opacity interpolation are numerically stable. The remaining high-energy path-redshift sensitivity is carried almost entirely by neutrino inverse-decay opacity and remains a separate physical diagnostic.
 
 This does not yet identify the origin of the Fig. 7 discrepancy. In particular, it does not validate the reconstructed stellar profile against original simulation data, nor establish that fixed-`omega` path-energy treatment is the unique convention used in the paper. No opacity, source normalization, energy cutoff, vector baseline, or axial-vector curve is changed.
+
+
+## P1 follow-up (2026-11-10)
+
+The targeted high-energy B.2 path, angle, and opacity-interpolation checks are archived in [B16_P1_B2_HIGH_ENERGY_PROPAGATION_AUDIT_2026-11-10.md](B16_P1_B2_HIGH_ENERGY_PROPAGATION_AUDIT_2026-11-10.md). Direct path-coordinate integration agrees with the analytic radial primitive at the \(10^{-13}\) level; using all 1687 profile vertices instead of the 642-node opacity grid changes the sampled total optical depth by at most \(1.87\times10^{-5}\). A separate 36-ray channel-resolved path-redshift diagnostic finds that the redshift sensitivity is carried by neutrino inverse decay, while the semi-Compton opacity is nearly unchanged. These are targeted diagnostics, not a new global Fig. 7 calculation. The fixed-\(\omega\) B.2 baseline is retained.
