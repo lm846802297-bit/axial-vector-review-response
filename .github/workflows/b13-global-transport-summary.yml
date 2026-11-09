@@ -7,6 +7,8 @@ on:
     paths:
       - '.github/workflows/b13-global-transport-summary.yml'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/summarize_b13_global_transport.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_vertex_preserving_0p1mev_2026-11-09.json'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_vertex_preserving_1mev_2026-11-09.json'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_vertex_preserving_10mev_2026-11-09.json'
   workflow_dispatch:
 
@@ -28,8 +30,14 @@ jobs:
         with:
           ref: ${{ github.sha }}
           fetch-depth: 0
-      - name: Build compact summary
+      - name: Build compact summaries for 0.1, 1, and 10 MeV
         run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/summarize_b13_global_transport.py \
+            --input research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_vertex_preserving_0p1mev_2026-11-09.json \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_summary_vertex_preserving_0p1mev_2026-11-09.json
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/summarize_b13_global_transport.py \
+            --input research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_vertex_preserving_1mev_2026-11-09.json \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_summary_vertex_preserving_1mev_2026-11-09.json
           python research/stellar-cooling-constraints-20261105/blinov_reproduction/summarize_b13_global_transport.py \
             --input research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_vertex_preserving_10mev_2026-11-09.json \
             --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_summary_vertex_preserving_10mev_2026-11-09.json
@@ -39,7 +47,10 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_summary_vertex_preserving_10mev_2026-11-09.json
+          git add \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_summary_vertex_preserving_0p1mev_2026-11-09.json \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_summary_vertex_preserving_1mev_2026-11-09.json \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_summary_vertex_preserving_10mev_2026-11-09.json
           if git diff --cached --quiet; then
             echo "Compact B.13 summary is already current."
           else
