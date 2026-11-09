@@ -8,7 +8,7 @@
   "results": [
     {
       "code_sha256": {
-        "audit_script": "2f7b05f42fd4c9702786e8f3707e117734396e209716a292e0f50c73eb17f473",
+        "audit_script": "6906904226506d16b561b77faac26209c034d79e6c31b3e434e402220871079b",
         "fig7_reference": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4",
         "profile": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
         "reference_script": "f81468f4305cf57eb86cc0210abc7afc333d434ae70da307ca64a824e486107c"
@@ -18,6 +18,7 @@
         "couplings_are_g_not_alpha_V": true,
         "energy_offset_MeV": 1000.0,
         "energy_order": 100,
+        "opacity_order": 40,
         "path_order": 32,
         "radial_order": 40,
         "radius_km": 25.0
@@ -1271,7 +1272,7 @@
         "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
       },
       "reference_axis_conversion": "The digitized Fig. 7 abscissa is alpha_V; the source extraction converts it to g=sqrt(4*pi*alpha_V). Rates and opacity are normalized per g^2 and the scan uses this g.",
-      "run_commit_sha": "e8cf8cfbd1c791582aceb9ffaa6c390cd014c7b8",
+      "run_commit_sha": "cb726d6e2df03ea89a42fe4868074b8f85c93bd8",
       "source_channel_fractions": {
         "compton": {
           "fraction": 0.32004993699899165,
@@ -1304,7 +1305,7 @@
       }
     }
   ],
-  "run_commit_sha": "e8cf8cfbd1c791582aceb9ffaa6c390cd014c7b8",
+  "run_commit_sha": "cb726d6e2df03ea89a42fe4868074b8f85c93bd8",
   "scope": [
     "Pure-vector B.14--B.16 literature benchmark only.",
     "The baseline is the literal fixed-omega Eq. (B.2) prescription.",
