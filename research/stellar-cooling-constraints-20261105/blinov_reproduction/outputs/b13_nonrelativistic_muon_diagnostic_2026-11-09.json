@@ -22,25 +22,25 @@
   "muon_mass_MeV": 105.6583755,
   "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
   "radial_weight": "r^2 * lapse^2 * (n_mu F_deg) * T^4; leading low-mass B.16 source weight",
-  "run_commit_sha": "130d7b8e412a0243b35a07c8ae479e2c4dcc416c",
+  "run_commit_sha": "0b0789467db88586e1a7ede67d205f936760dbc8",
   "shells": {
     "0-5 km": {
-      "fraction_p_gt_m_chi": 0.41242949610122065,
-      "fraction_v_gt_0p5_chi": 0.794358255689947,
-      "mean_v_chi": 0.641514671878868,
-      "source_weight_fraction": 0.001093673286995325
+      "fraction_p_gt_m_chi": 0.41242949610122076,
+      "fraction_v_gt_0p5_chi": 0.7943582556899473,
+      "mean_v_chi": 0.6415146718788682,
+      "source_weight_fraction": 0.0010936732869953247
     },
     "10-12 km": {
-      "fraction_p_gt_m_chi": 0.6651327343876865,
+      "fraction_p_gt_m_chi": 0.6651327343876866,
       "fraction_v_gt_0p5_chi": 0.9185383799575906,
       "mean_v_chi": 0.7391527491095733,
       "source_weight_fraction": 0.23944847518336265
     },
     "12-15 km": {
-      "fraction_p_gt_m_chi": 0.4624082475537015,
-      "fraction_v_gt_0p5_chi": 0.8333649290636969,
+      "fraction_p_gt_m_chi": 0.46240824755370147,
+      "fraction_v_gt_0p5_chi": 0.8333649290636967,
       "mean_v_chi": 0.6628633713910304,
-      "source_weight_fraction": 0.03739765926967617
+      "source_weight_fraction": 0.03739765926967618
     },
     "15-18 km": {
       "fraction_p_gt_m_chi": 0.1004578516913791,
@@ -51,7 +51,7 @@
     "18-20 km": {
       "fraction_p_gt_m_chi": 0.0023554012694254533,
       "fraction_v_gt_0p5_chi": 0.1448916748449794,
-      "mean_v_chi": 0.3537350012163528,
+      "mean_v_chi": 0.35373500121635276,
       "source_weight_fraction": 1.012843124279304e-11
     },
     "20-22 km": {
@@ -74,7 +74,7 @@
     },
     "8-10 km": {
       "fraction_p_gt_m_chi": 0.7593324065285134,
-      "fraction_v_gt_0p5_chi": 0.9456750482598116,
+      "fraction_v_gt_0p5_chi": 0.9456750482598117,
       "mean_v_chi": 0.7787270934945135,
       "source_weight_fraction": 0.5518817624844164
     }
