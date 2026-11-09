@@ -28,22 +28,25 @@ The upstream source is pinned to the exact PR head inspected for this interface:
 | Pull request | [PR #11 — RC-001 UV–EFT matching](https://github.com/lm846802297-bit/high-energy-theory-research/pull/11) |
 | PR state at inspection | Open / Draft; not merged |
 | Branch | research/rc001-dim8-full-matching-20261109 |
-| Exact head commit | [df9c007e8d4bd1716beae3b14591e12b6a551a8d](https://github.com/lm846802297-bit/high-energy-theory-research/commit/df9c007e8d4bd1716beae3b14591e12b6a551a8d) |
+| Exact head commit | [c2f60efb4983ea09ea6cf227fa3d45911428dcd8](https://github.com/lm846802297-bit/high-energy-theory-research/commit/c2f60efb4983ea09ea6cf227fa3d45911428dcd8) |
 
 Relevant upstream files at that pinned commit:
 
 | Upstream artifact | Role in this interface |
 |---|---|
-| [research/RC-001-vll-higgs-singlet-uv-eft.md](https://github.com/lm846802297-bit/high-energy-theory-research/blob/df9c007e8d4bd1716beae3b14591e12b6a551a8d/research/RC-001-vll-higgs-singlet-uv-eft.md) | Master record: UV model, EFT conventions, matching scope, and unresolved verification gates |
-| [research/RC-001-QLD-UV-one-background-triangle.md](https://github.com/lm846802297-bit/high-energy-theory-research/blob/df9c007e8d4bd1716beae3b14591e12b6a551a8d/research/RC-001-QLD-UV-one-background-triangle.md) | One-background hard form factors, off-shell amplitude projection, and IBP/EOM discussion |
-| [research/RC-001-QLD-nonabelian-IBP-EOM-completion.md](https://github.com/lm846802297-bit/high-energy-theory-research/blob/df9c007e8d4bd1716beae3b14591e12b6a551a8d/research/RC-001-QLD-nonabelian-IBP-EOM-completion.md) | Restricted electroweak non-Abelian IBP/commutator/current representatives |
-| [research/RC-001-portal-boundary-b1b3-reconciliation.md](https://github.com/lm846802297-bit/high-energy-theory-research/blob/df9c007e8d4bd1716beae3b14591e12b6a551a8d/research/RC-001-portal-boundary-b1b3-reconciliation.md) | Tree-level (C_{5,ell}) Schur-complement sign and convention record |
-| [calculations/RC-001-QLD-dim8-form-factor-projection.py](https://github.com/lm846802297-bit/high-energy-theory-research/blob/df9c007e8d4bd1716beae3b14591e12b6a551a8d/calculations/RC-001-QLD-dim8-form-factor-projection.py) | Exact polynomial projection implementation |
-| [calculations/RC-001-QLD-nonabelian-IBP-EOM-audit.py](https://github.com/lm846802297-bit/high-energy-theory-research/blob/df9c007e8d4bd1716beae3b14591e12b6a551a8d/calculations/RC-001-QLD-nonabelian-IBP-EOM-audit.py) | Symbolic SU(2) matrix and algebra audit |
-| [validation/RC-001-QLD-dim8-form-factor-projection.txt](https://github.com/lm846802297-bit/high-energy-theory-research/blob/df9c007e8d4bd1716beae3b14591e12b6a551a8d/validation/RC-001-QLD-dim8-form-factor-projection.txt) | Recorded projection output |
-| [validation/RC-001-QLD-nonabelian-IBP-EOM-audit.txt](https://github.com/lm846802297-bit/high-energy-theory-research/blob/df9c007e8d4bd1716beae3b14591e12b6a551a8d/validation/RC-001-QLD-nonabelian-IBP-EOM-audit.txt) | Recorded algebra-audit output |
+| [research/RC-001-vll-higgs-singlet-uv-eft.md](https://github.com/lm846802297-bit/high-energy-theory-research/blob/c2f60efb4983ea09ea6cf227fa3d45911428dcd8/research/RC-001-vll-higgs-singlet-uv-eft.md) | Master record: UV model, EFT conventions, matching scope, and unresolved verification gates |
+| [research/RC-001-QLD-UV-one-background-triangle.md](https://github.com/lm846802297-bit/high-energy-theory-research/blob/c2f60efb4983ea09ea6cf227fa3d45911428dcd8/research/RC-001-QLD-UV-one-background-triangle.md) | One-background hard form factors, off-shell amplitude projection, and IBP/EOM discussion |
+| [research/RC-001-QLD-nonabelian-IBP-EOM-completion.md](https://github.com/lm846802297-bit/high-energy-theory-research/blob/c2f60efb4983ea09ea6cf227fa3d45911428dcd8/research/RC-001-QLD-nonabelian-IBP-EOM-completion.md) | Restricted electroweak non-Abelian IBP/commutator/current representatives |
+| [research/RC-001-QLD-total-current-expansion.md](https://github.com/lm846802297-bit/high-energy-theory-research/blob/c2f60efb4983ea09ea6cf227fa3d45911428dcd8/research/RC-001-QLD-total-current-expansion.md) | Complete leading-renormalizable (J_Y), (J_2^a), and normalized axial (J_X) currents for the original one-VEV model |
+| [calculations/RC-001-QLD-total-current-expansion-audit.py](https://github.com/lm846802297-bit/high-energy-theory-research/blob/c2f60efb4983ea09ea6cf227fa3d45911428dcd8/calculations/RC-001-QLD-total-current-expansion-audit.py) | Exact-rational charge/current bookkeeping audit |
+| [validation/RC-001-QLD-total-current-expansion-audit.txt](https://github.com/lm846802297-bit/high-energy-theory-research/blob/c2f60efb4983ea09ea6cf227fa3d45911428dcd8/validation/RC-001-QLD-total-current-expansion-audit.txt) | Recorded current-expansion checks |
+| [research/RC-001-portal-boundary-b1b3-reconciliation.md](https://github.com/lm846802297-bit/high-energy-theory-research/blob/c2f60efb4983ea09ea6cf227fa3d45911428dcd8/research/RC-001-portal-boundary-b1b3-reconciliation.md) | Tree-level (C_{5,ell}) Schur-complement sign and convention record |
+| [calculations/RC-001-QLD-dim8-form-factor-projection.py](https://github.com/lm846802297-bit/high-energy-theory-research/blob/c2f60efb4983ea09ea6cf227fa3d45911428dcd8/calculations/RC-001-QLD-dim8-form-factor-projection.py) | Exact polynomial projection implementation |
+| [calculations/RC-001-QLD-nonabelian-IBP-EOM-audit.py](https://github.com/lm846802297-bit/high-energy-theory-research/blob/c2f60efb4983ea09ea6cf227fa3d45911428dcd8/calculations/RC-001-QLD-nonabelian-IBP-EOM-audit.py) | Symbolic SU(2) matrix and algebra audit |
+| [validation/RC-001-QLD-dim8-form-factor-projection.txt](https://github.com/lm846802297-bit/high-energy-theory-research/blob/c2f60efb4983ea09ea6cf227fa3d45911428dcd8/validation/RC-001-QLD-dim8-form-factor-projection.txt) | Recorded projection output |
+| [validation/RC-001-QLD-nonabelian-IBP-EOM-audit.txt](https://github.com/lm846802297-bit/high-energy-theory-research/blob/c2f60efb4983ea09ea6cf227fa3d45911428dcd8/validation/RC-001-QLD-nonabelian-IBP-EOM-audit.txt) | Recorded algebra-audit output |
 
-**Validation status at the pinned revision:** the upstream validation text records exact symbolic/algebraic checks for the declared projection and restricted non-Abelian identities. These checks do not establish a complete nonredundant dimension-eight SMEFT basis, a complete matter-current reduction, full UV–EFT counterterm closure, or an independent FeynArts/FeynCalc diagram calculation. The latest workflow run associated with the pinned head was reported as failed, but its job-step details and logs were not retrievable; the commit has no successful combined status to cite. Accordingly, this interface does not describe the pinned upstream PR as CI-passing or fully validated.
+**Validation status at the pinned revision:** the upstream validation text records exact symbolic/algebraic checks for the declared projection and restricted non-Abelian identities. These checks do not establish a complete nonredundant dimension-eight SMEFT basis, a complete matter-current reduction, full UV–EFT counterterm closure, or an independent FeynArts/FeynCalc diagram calculation. The latest workflow run associated with the updated pinned upstream head is Candidate schema validation run 42722897749, which failed. Its job-step list was empty and the log download returned 404, so the failure cannot be attributed to the new current-expansion script or note. The exact-rational current bookkeeping was independently executed in the local calculation environment and passed; no upstream CI pass is claimed. Accordingly, this interface does not describe the pinned upstream PR as CI-passing or fully validated.
 
 The commit pin is immutable provenance, not an assertion that PR #11 has been merged. If the upstream head changes, update this interface only after inspecting the new diff, source files, and validation evidence.
 
@@ -248,7 +251,7 @@ A matching coefficient in one of these conventions is not transferred by copying
 | Three-column off-shell QLD8 amplitude projection | Pinned RC-001 §5J and exact polynomial projection record | Upstream algebraic result; not a complete operator basis |
 | \(\mathcal O_P,\mathcal O_Q\) IBP relation | Pinned RC-001 §5K | Action-level identity for the declared representatives |
 | Electroweak non-Abelian commutator/current map | Pinned RC-001 §5M and SymPy audit text | Restricted Higgs-current algebra; full current basis open |
-| Gauge-current expansion into all light matter currents | Not completed in the pinned record | Open |
+| Gauge-current expansion into all leading-renormalizable light matter currents | [RC-001-QLD-total-current-expansion.md](https://github.com/lm846802297-bit/high-energy-theory-research/blob/c2f60efb4983ea09ea6cf227fa3d45911428dcd8/research/RC-001-QLD-total-current-expansion.md) and exact-rational bookkeeping audit | Completed for the displayed restricted gauge-EOM representatives; fermion EOM/Fierz basis reduction remains open |
 | Fermion EOM/Fierz reduction and complete Green-basis map | Not completed | Open |
 | Mixed-background hard amplitudes and same-order EFT soft graphs | Not completed | Open |
 | Full counterterm closure and finite renormalized dimension-eight Wilson vector | Not completed | Open |
@@ -267,11 +270,11 @@ A matching coefficient in one of these conventions is not transferred by copying
 
 ## 9. Immediate follow-up
 
-The two convention gates are now resolved at the algebraic level. The next coordination tasks are:
+The leading-renormalizable gauge-EOM current expansion is now complete for the displayed restricted commutator representatives. The next coordination tasks are:
 
-1. Expand the upstream gauge-EOM currents into the complete light-field current basis of the original one-VEV axial model, keeping the heavy VLLs integrated out and the minimal neutrino content unchanged.
-2. Complete the fermion-EOM/Fierz reduction of the generated QLD8 source/current operators, with all Yukawa-allowed and \(U(1)_X\)-forbidden entries treated explicitly.
-3. Complete the mixed-background hard amplitudes and same-order EFT soft/counterterm matching in the upstream calculation repository.
-4. Only after the above, map the final derivative-operator representatives into the axial model and determine whether any contribute to the PR #69 \(hh,hs,ss\) two-point functions or remain independent current/three-point information.
+1. Complete the fermion-EOM/Fierz reduction of the generated QLD8 source/current operators, with all Yukawa-allowed and \(U(1)_X\)-forbidden entries treated explicitly.
+2. Complete the remaining mixed-background hard amplitudes and same-order EFT soft/counterterm matching in the upstream calculation repository.
+3. Assemble the final derivative-operator basis only after the preceding reductions and matching are complete.
+4. Map the accepted derivative operators into the axial model and determine whether any contribute to the PR #69 \(hh,hs,ss\) two-point functions or remain independent current/three-point information.
 
 Until a model-specific same-order diagram/counterterm map demonstrates a contribution to the scalar two-point functions, QLD8 remains a related UV–EFT derivative-matching sector and is not an additional numerical correction to the current PR #69 scalar self-energy or pole diagnostics.
