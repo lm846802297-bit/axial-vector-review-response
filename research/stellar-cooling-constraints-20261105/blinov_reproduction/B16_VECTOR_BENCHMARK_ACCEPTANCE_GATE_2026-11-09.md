@@ -97,6 +97,7 @@ The source-level convention and implementation ambiguity is documented in:
 5. Caputo-versus-Ferreira \\(\mu_\mu/T\\) adjudication against Bollig Fig. 4.
 6. Current-profile redshift-only diagnostic and archival.
 7. Source-weighted muon-velocity diagnostic for the B.14 non-relativistic approximation; workflow #42572394290 passes and the JSON is archived.
+8. 22--25 km muon-neutrino chemical-potential stress test at ±1 and ±3 MeV; workflow #42572982267 passes. The strong-endpoint luminosity changes by only +0.0172% and +0.1505%, respectively.
 
 ### Still unresolved
 
