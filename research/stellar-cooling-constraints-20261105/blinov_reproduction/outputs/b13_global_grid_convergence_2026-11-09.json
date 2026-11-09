@@ -1,0 +1,285 @@
+{
+  "baseline_configuration": {
+    "energy_order": 100,
+    "radial_order": 40,
+    "source": "/home/runner/work/axial-vector-review-response/axial-vector-review-response/research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_summary_vertex_preserving_10mev_2026-11-09.json"
+  },
+  "convergence_criterion": {
+    "combined_60x140_maximum_relative_shift": 0.002731613022686097,
+    "combined_grid_meets_one_percent_target": true,
+    "target_maximum_relative_luminosity_shift": 0.01
+  },
+  "decision": "The 60x140 combined grid meets the 1% luminosity-stability target.",
+  "fixed_configuration": {
+    "B13_kernel_orders": [
+      12,
+      8,
+      8,
+      8
+    ],
+    "active_opacity_fraction_threshold": 1e-08,
+    "angular_order": 16,
+    "energy_offset_MeV": 1000.0,
+    "path_order": 32
+  },
+  "grid_results": [
+    {
+      "B13_both_charge_metrics_vs_fig7": {
+        "maximum_absolute_relative_difference": 1.318371244887948,
+        "mean_absolute_relative_difference": 0.30226947935445847,
+        "reference_peak_relative_difference": -0.1625913287834636,
+        "strong_endpoint_relative_difference": 1.318371244887948,
+        "weak_endpoint_relative_difference": -0.2803412179422715
+      },
+      "B13_both_charge_shift_vs_40x100": {
+        "maximum_absolute_relative_shift_vs_40x100": 0.001064818159406844,
+        "mean_absolute_relative_shift_vs_40x100": 0.00019305707468208588,
+        "reference_peak_relative_shift_vs_40x100": 0.00015947669106264328,
+        "strong_endpoint_relative_shift_vs_40x100": 0.001064818159406844,
+        "weak_endpoint_relative_shift_vs_40x100": 0.00010713958108654609
+      },
+      "B13_mu_minus_metrics_vs_fig7": {
+        "maximum_absolute_relative_difference": 1.3177615497402044,
+        "mean_absolute_relative_difference": 0.3026830097333722,
+        "reference_peak_relative_difference": -0.16326422210588254,
+        "strong_endpoint_relative_difference": 1.3177615497402044,
+        "weak_endpoint_relative_difference": -0.28101310557732284
+      },
+      "B13_mu_minus_shift_vs_40x100": {
+        "maximum_absolute_relative_shift_vs_40x100": 0.0010629673969380082,
+        "mean_absolute_relative_shift_vs_40x100": 0.00019290287611100075,
+        "reference_peak_relative_shift_vs_40x100": 0.00015928827067779316,
+        "strong_endpoint_relative_shift_vs_40x100": 0.0010629673969380082,
+        "weak_endpoint_relative_shift_vs_40x100": 0.00010742497922677785
+      },
+      "B13_mu_minus_strong_escape_fraction": 0.000494935983467378,
+      "B13_mu_minus_thin_source_ratio_vs_B16": 0.7888237774316303,
+      "B13_numerical_validation": {
+        "B13_mu_minus_over_B16_mu_minus_production_ratio": {
+          "maximum": 0.8194300484838272,
+          "median": 0.5323961471750036,
+          "minimum": 0.09935789286378213
+        },
+        "angle_weight_residual": 0.0,
+        "maximum_residuals": {
+          "final_muon_shell": 3.7117270388590294e-13,
+          "mu_minus_absorption_vs_production": 1.9433135716191458e-14,
+          "mu_minus_mode_detailed_balance": 2.1607187788602333e-14,
+          "mu_plus_absorption_vs_production": 1.6864150772155603e-14,
+          "mu_plus_mode_detailed_balance": 1.686748409599529e-14
+        },
+        "mu_plus_fraction_of_exact_Compton_reduced_absorption_unweighted_grid_sum": 0.0025767145353082534,
+        "refinement_checks": [
+          {
+            "mu_minus_relative_refinement_change": 0.0020694913662458567,
+            "mu_plus_relative_refinement_change": 0.0015942873493274984,
+            "omega_MeV": 15.0,
+            "radius_km": 8.0
+          },
+          {
+            "mu_minus_relative_refinement_change": 0.00020581962902579143,
+            "mu_plus_relative_refinement_change": 0.00011858591009102097,
+            "omega_MeV": 20.0,
+            "radius_km": 12.5
+          },
+          {
+            "mu_minus_relative_refinement_change": 0.0001576419548152495,
+            "mu_plus_relative_refinement_change": 0.00016266954467530876,
+            "omega_MeV": 30.0,
+            "radius_km": 15.0
+          }
+        ]
+      },
+      "B16_baseline_closure_residual": 0.0,
+      "B16_metrics_vs_fig7": {
+        "maximum_absolute_relative_difference": 0.9262999837610466,
+        "mean_absolute_relative_difference": 0.15752330094274045,
+        "reference_peak_relative_difference": 0.026150896674468127,
+        "strong_endpoint_relative_difference": 0.9262999837610466,
+        "weak_endpoint_relative_difference": -0.0885718384901224
+      },
+      "active_energy_node_count": 98,
+      "active_radial_node_count": 39,
+      "configuration": {
+        "energy_order": 100,
+        "name": "radial_60_energy_100",
+        "radial_order": 60
+      },
+      "exact_B13_kernel_evaluations": 3822,
+      "wall_time_seconds": 660.1959280967712
+    },
+    {
+      "B13_both_charge_metrics_vs_fig7": {
+        "maximum_absolute_relative_difference": 1.309325654421615,
+        "mean_absolute_relative_difference": 0.3030204066689257,
+        "reference_peak_relative_difference": -0.16509779858793328,
+        "strong_endpoint_relative_difference": 1.309325654421615,
+        "weak_endpoint_relative_difference": -0.2824610084773487
+      },
+      "B13_both_charge_shift_vs_40x100": {
+        "maximum_absolute_relative_shift_vs_40x100": 0.0028410370375514526,
+        "mean_absolute_relative_shift_vs_40x100": 0.002836583229683809,
+        "reference_peak_relative_shift_vs_40x100": -0.002834126807619186,
+        "strong_endpoint_relative_shift_vs_40x100": -0.0028410370375514526,
+        "weak_endpoint_relative_shift_vs_40x100": -0.0028387254613511104
+      },
+      "B13_mu_minus_metrics_vs_fig7": {
+        "maximum_absolute_relative_difference": 1.3087226016753744,
+        "mean_absolute_relative_difference": 0.30343325574762764,
+        "reference_peak_relative_difference": -0.16576852071085146,
+        "strong_endpoint_relative_difference": 1.3087226016753744,
+        "weak_endpoint_relative_difference": -0.2831311229539851
+      },
+      "B13_mu_minus_shift_vs_40x100": {
+        "maximum_absolute_relative_shift_vs_40x100": 0.002841039110090371,
+        "mean_absolute_relative_shift_vs_40x100": 0.0028365842248578234,
+        "reference_peak_relative_shift_vs_40x100": -0.00283412682705686,
+        "strong_endpoint_relative_shift_vs_40x100": -0.002841039110090371,
+        "weak_endpoint_relative_shift_vs_40x100": -0.0028387273374101962
+      },
+      "B13_mu_minus_strong_escape_fraction": 0.0004944623630206026,
+      "B13_mu_minus_thin_source_ratio_vs_B16": 0.7889817522183349,
+      "B13_numerical_validation": {
+        "B13_mu_minus_over_B16_mu_minus_production_ratio": {
+          "maximum": 0.8233730350692408,
+          "median": 0.5172859228794979,
+          "minimum": 0.09950395342236056
+        },
+        "angle_weight_residual": 0.0,
+        "maximum_residuals": {
+          "final_muon_shell": 3.7117270388590294e-13,
+          "mu_minus_absorption_vs_production": 1.3734379829952775e-14,
+          "mu_minus_mode_detailed_balance": 1.3869832828132552e-14,
+          "mu_plus_absorption_vs_production": 2.1045104467629005e-14,
+          "mu_plus_mode_detailed_balance": 2.1651740477952865e-14
+        },
+        "mu_plus_fraction_of_exact_Compton_reduced_absorption_unweighted_grid_sum": 0.0019172413843986803,
+        "refinement_checks": [
+          {
+            "mu_minus_relative_refinement_change": 0.0020604649798785543,
+            "mu_plus_relative_refinement_change": 0.0015867339961060513,
+            "omega_MeV": 15.0,
+            "radius_km": 8.0
+          },
+          {
+            "mu_minus_relative_refinement_change": 0.00020528728453201802,
+            "mu_plus_relative_refinement_change": 0.00011801543398282701,
+            "omega_MeV": 20.0,
+            "radius_km": 12.5
+          },
+          {
+            "mu_minus_relative_refinement_change": 0.0001578267172078394,
+            "mu_plus_relative_refinement_change": 0.00016275678921449084,
+            "omega_MeV": 30.0,
+            "radius_km": 15.0
+          }
+        ]
+      },
+      "B16_baseline_closure_residual": 0.0,
+      "B16_metrics_vs_fig7": {
+        "maximum_absolute_relative_difference": 0.916941831239122,
+        "mean_absolute_relative_difference": 0.1578947243049287,
+        "reference_peak_relative_difference": 0.022780845718057385,
+        "strong_endpoint_relative_difference": 0.916941831239122,
+        "weak_endpoint_relative_difference": -0.09143890312055447
+      },
+      "active_energy_node_count": 94,
+      "active_radial_node_count": 27,
+      "configuration": {
+        "energy_order": 140,
+        "name": "radial_40_energy_140",
+        "radial_order": 40
+      },
+      "exact_B13_kernel_evaluations": 2538,
+      "wall_time_seconds": 397.2429893016815
+    },
+    {
+      "B13_both_charge_metrics_vs_fig7": {
+        "maximum_absolute_relative_difference": 1.3117838706701588,
+        "mean_absolute_relative_difference": 0.3031138827579079,
+        "reference_peak_relative_difference": -0.16496465041358543,
+        "strong_endpoint_relative_difference": 1.3117838706701588,
+        "weak_endpoint_relative_difference": -0.28238413575895915
+      },
+      "B13_both_charge_shift_vs_40x100": {
+        "maximum_absolute_relative_shift_vs_40x100": 0.0027318957297934876,
+        "mean_absolute_relative_shift_vs_40x100": 0.0026440937228932528,
+        "reference_peak_relative_shift_vs_40x100": -0.002675101217181286,
+        "strong_endpoint_relative_shift_vs_40x100": -0.0017795876224625529,
+        "weak_endpoint_relative_shift_vs_40x100": -0.0027318957297934876
+      },
+      "B13_mu_minus_metrics_vs_fig7": {
+        "maximum_absolute_relative_difference": 1.3111759028531869,
+        "mean_absolute_relative_difference": 0.30352624035057674,
+        "reference_peak_relative_difference": -0.1656356366879056,
+        "strong_endpoint_relative_difference": 1.3111759028531869,
+        "weak_endpoint_relative_difference": -0.2830541174378095
+      },
+      "B13_mu_minus_shift_vs_40x100": {
+        "maximum_absolute_relative_shift_vs_40x100": 0.002731613022686097,
+        "mean_absolute_relative_shift_vs_40x100": 0.002644248487719283,
+        "reference_peak_relative_shift_vs_40x100": -0.002675289123060809,
+        "strong_endpoint_relative_shift_vs_40x100": -0.0017814353051801568,
+        "weak_endpoint_relative_shift_vs_40x100": -0.002731613022686097
+      },
+      "B13_mu_minus_strong_escape_fraction": 0.0004949346930554131,
+      "B13_mu_minus_thin_source_ratio_vs_B16": 0.7888232696829346,
+      "B13_numerical_validation": {
+        "B13_mu_minus_over_B16_mu_minus_production_ratio": {
+          "maximum": 0.8194300484838272,
+          "median": 0.5239242903412028,
+          "minimum": 0.09935789286378213
+        },
+        "angle_weight_residual": 0.0,
+        "maximum_residuals": {
+          "final_muon_shell": 3.7117270388590294e-13,
+          "mu_minus_absorption_vs_production": 1.9433135716191458e-14,
+          "mu_minus_mode_detailed_balance": 2.1607187788602333e-14,
+          "mu_plus_absorption_vs_production": 1.6864150772155603e-14,
+          "mu_plus_mode_detailed_balance": 1.686748409599529e-14
+        },
+        "mu_plus_fraction_of_exact_Compton_reduced_absorption_unweighted_grid_sum": 0.002260947124148697,
+        "refinement_checks": [
+          {
+            "mu_minus_relative_refinement_change": 0.0020694913662458567,
+            "mu_plus_relative_refinement_change": 0.0015942873493274984,
+            "omega_MeV": 15.0,
+            "radius_km": 8.0
+          },
+          {
+            "mu_minus_relative_refinement_change": 0.00020581962902579143,
+            "mu_plus_relative_refinement_change": 0.00011858591009102097,
+            "omega_MeV": 20.0,
+            "radius_km": 12.5
+          },
+          {
+            "mu_minus_relative_refinement_change": 0.0001576419548152495,
+            "mu_plus_relative_refinement_change": 0.00016266954467530876,
+            "omega_MeV": 30.0,
+            "radius_km": 15.0
+          }
+        ]
+      },
+      "B16_baseline_closure_residual": 0.0,
+      "B16_metrics_vs_fig7": {
+        "maximum_absolute_relative_difference": 0.9208237731592537,
+        "mean_absolute_relative_difference": 0.15809287660049026,
+        "reference_peak_relative_difference": 0.023242655873826124,
+        "strong_endpoint_relative_difference": 0.9208237731592537,
+        "weak_endpoint_relative_difference": -0.09115856071781425
+      },
+      "active_energy_node_count": 114,
+      "active_radial_node_count": 39,
+      "configuration": {
+        "energy_order": 140,
+        "name": "radial_60_energy_140",
+        "radial_order": 60
+      },
+      "exact_B13_kernel_evaluations": 4446,
+      "wall_time_seconds": 691.7630355358124
+    }
+  ],
+  "mass_MeV": 10.0,
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "title": "Radial and energy grid convergence scan for global B.13 exact Compton transport"
+}
