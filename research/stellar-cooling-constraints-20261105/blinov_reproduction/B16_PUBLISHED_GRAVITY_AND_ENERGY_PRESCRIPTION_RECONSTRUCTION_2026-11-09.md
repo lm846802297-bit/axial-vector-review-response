@@ -114,7 +114,7 @@ The safe reproduction rule is:
 
 The mismatch is now isolated to the path-energy interpretation in B.2, not the B.1 source integral.
 
-## 4. Consequence for the role of A(r)
+## 5. Consequence for the role of A(r)
 
 A full static-GR extension would require A(r), or an enclosed-mass profile M(r), to calculate proper path lengths and curved geodesics. That is a legitimate additional study, but **it is not needed to reproduce the approximation that Blinov actually writes in Appendix B**.
 
@@ -124,7 +124,7 @@ Accordingly:
 - the 20--25 km thermodynamic continuation remains important because the published B.2 integral extends to Rmax = 25 km and the current neutrino inverse-decay path audit finds a non-negligible outer-shell contribution;
 - no synthetic A(r), TOV replacement, or cross-snapshot splice is introduced.
 
-## 5. Reconciliation with existing diagnostics
+## 6. Reconciliation with existing diagnostics
 
 The current-profile fixed-omega baseline remains the paper-faithful calculation. The path-redshift-only variant is retained as a separate physical sensitivity test. At 10 MeV it reduces the strong-endpoint residual from +92.2406% to +36.7448%, but this does not make it the published B.2 prescription.
 
@@ -137,7 +137,7 @@ These results are recorded in:
 - `B16_ENERGY_VARIABLE_AND_PATH_REDSHIFT_CONVENTION_AUDIT_2026-11-09.md`
 - `B16_NEUTRINO_INVERSE_DECAY_RADIAL_PATH_SYNTHESIS_2026-11-09.md`
 
-## 6. Revised project decision
+## 7. Revised project decision
 
 Do not wait for A(r) to continue reproducing Fig. 7. The next checks should reconstruct and stress-test the published algorithms using the current profile:
 
