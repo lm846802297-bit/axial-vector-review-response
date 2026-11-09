@@ -45,6 +45,12 @@ def sha256(path: Path) -> str:
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
+def float_array_sha256(values) -> str:
+    """Stable SHA-256 for a one-dimensional little-endian float64 grid."""
+    array = np.asarray(values, dtype="<f8")
+    return hashlib.sha256(array.tobytes()).hexdigest()
+
+
 def weighted_quantile(values, weights, q):
     values = np.asarray(values, float).ravel()
     weights = np.asarray(weights, float).ravel()
@@ -89,7 +95,7 @@ def eq_b1_source_measure(r, rw, energies, lapse, mass, production):
 
 def redshifted_scalar_optical_depths(
     source_radii, radial_grid, profile, mass, source_energies,
-    radius_km, angular_order=16, path_order=32,
+    radius_km, angular_order=16, path_order=32, source_lapse=None,
 ):
     """Diagnostic alternative: omega_loc(s)=omega_source*N_source/N(path).
 
@@ -106,8 +112,12 @@ def redshifted_scalar_optical_depths(
     path_x, path_w = leggauss(path_order)
     path_w = path_w/2.0
 
-    source_indices = np.searchsorted(radial_grid, source_radii)
-    source_lapse = profile["lapse"][source_indices]
+    if source_lapse is None:
+        source_lapse = np.interp(source_radii, radial_grid, profile["lapse"])
+    else:
+        source_lapse = np.asarray(source_lapse, float)
+        if source_lapse.shape != source_radii.shape:
+            raise ValueError("source_lapse must match source_radii")
 
     # The B.17 susceptibility is computed once on the radial grid and
     # interpolated along the chord. compton_production only uses n_mu*F_deg.
@@ -516,6 +526,7 @@ def run_mass(
     mass, profile_path, fig7_path,
     radial_order=40, energy_order=100, angular_order=16, path_order=32,
     radius_km=25.0, energy_offset=1000.0, opacity_order=None,
+    separate_source_grid=False,
 ):
     fig7 = json.loads(Path(fig7_path).read_text(encoding="utf-8"))
     key = str(float(mass))
@@ -530,7 +541,17 @@ def run_mass(
     if opacity_order < 8:
         raise ValueError("opacity_order must be >= 8")
     opacity_r, _ = radial_rule(radius_km, opacity_order)
-    radial_grid = np.unique(np.r_[0.0, r, opacity_r, radius_km])
+
+    # In the decoupled audit, the opacity interpolation grid is independent
+    # of the B.1 source quadrature. The energy grid is then built from this
+    # fixed opacity profile only, so neither grid changes when source_order
+    # is varied. Source rates are evaluated separately at the B.1 nodes.
+    if separate_source_grid:
+        radial_grid = np.unique(np.r_[0.0, opacity_r, radius_km])
+        source_profile = load_profile(profile_path, r)
+    else:
+        radial_grid = np.unique(np.r_[0.0, r, opacity_r, radius_km])
+        source_profile = None
     p = load_profile(profile_path, radial_grid)
     energies = mass+np.geomspace(
         max(mass*1.0e-6, 1.0e-6), energy_offset, energy_order
@@ -543,6 +564,21 @@ def run_mass(
         mass, energies[None, :], p["T"][:, None],
         p["mu_numu"][:, None], p["mu_mu"][:, None]
     )
+    if separate_source_grid:
+        source_rates = local_rates(
+            mass, energies[None, :], source_profile["T"][:, None],
+            source_profile["mu_numu"][:, None],
+            source_profile["mu_mu"][:, None]
+        )
+        lapse_source = source_profile["lapse"]
+        production_source = source_rates["production"]
+        source_index = None
+    else:
+        source_rates = None
+        source_index = np.searchsorted(radial_grid, r)
+        lapse_source = p["lapse"][source_index]
+        production_source = rates["production"][source_index]
+
     columns_fixed, angle_weights = scalar_optical_depths(
         r, radial_grid, rates["reduced_absorption"], mass, energies,
         radius_km, angular_order, path_order
@@ -550,18 +586,16 @@ def run_mass(
     columns_redshift, redshift_angles, redshift_info = (
         redshifted_scalar_optical_depths(
             r, radial_grid, p, mass, energies,
-            radius_km, angular_order, path_order
+            radius_km, angular_order, path_order,
+            source_lapse=lapse_source
         )
     )
     angle_residual = float(np.max(np.abs(angle_weights-redshift_angles)))
     if angle_residual > 1.0e-14:
         raise ArithmeticError("Fixed and redshifted angle weights differ")
 
-    source_index = np.searchsorted(radial_grid, r)
-    lapse_source = p["lapse"][source_index]
-    production = rates["production"][source_index]
     source, source_measure = eq_b1_source_measure(
-        r, rw, energies, lapse_source, mass, production
+        r, rw, energies, lapse_source, mass, production_source
     )
     path_absorption_decomposition = radial_shell_opacity_decomposition(
         r, radial_grid, p["T"], rates, mass, energies,
@@ -580,9 +614,12 @@ def run_mass(
         ("compton", "compton_production"),
         ("dimuon", "dimuon_production"),
     ):
+        channel_production = (
+            source_rates[rate_key] if separate_source_grid
+            else rates[rate_key][source_index]
+        )
         channel_source, _ = eq_b1_source_measure(
-            r, rw, energies, lapse_source, mass,
-            rates[rate_key][source_index]
+            r, rw, energies, lapse_source, mass, channel_production
         )
         channel_sources[channel] = channel_source
 
@@ -670,6 +707,13 @@ def run_mass(
             "radial_order": radial_order,
             "opacity_order": opacity_order,
             "energy_order": energy_order,
+            "source_grid_mode": "independent" if separate_source_grid else "union",
+            "source_radial_node_count": int(len(r)),
+            "opacity_radial_node_count": int(len(radial_grid)),
+            "energy_node_count": int(len(energies)),
+            "source_grid_sha256": float_array_sha256(r),
+            "opacity_grid_sha256": float_array_sha256(radial_grid),
+            "energy_grid_sha256": float_array_sha256(energies),
             "angular_order": angular_order,
             "path_order": path_order,
             "radius_km": radius_km,
