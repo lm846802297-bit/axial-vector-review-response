@@ -1,0 +1,240 @@
+{
+  "result": {
+    "title": "10 MeV channel-resolved B.1 source and B.2 opacity decomposition",
+    "status": "direct_V8_cross_runtime_calculation_with_python_reproduction_script_added",
+    "mass_MeV": 10,
+    "coupling": 4.171689650228597e-8,
+    "fig7_reference_luminosity_erg_s": 1.26781475907372e+52,
+    "integrated": {
+      "optically_thin_luminosity_erg_s": 7.502476933640995e+55,
+      "calculated_luminosity_erg_s": 2.439635957358782e+52,
+      "relative_difference_vs_fig7": 0.9242842378181559,
+      "escape_probability": 0.0003251774019350183,
+      "source_channel_fractions": {
+        "neutrino": 0.6792586784506778,
+        "compton": 0.3207413215493223
+      },
+      "escaped_luminosity_channel_fractions": {
+        "neutrino": 0.5411025153828586,
+        "compton": 0.45889748461757085
+      },
+      "escaped_luminosity_by_source_channel_erg_s": {
+        "neutrino": 1.3200931531453053e+52,
+        "compton": 1.1195428042145242e+52
+      }
+    },
+    "opacity_decomposition": {
+      "mean_tau_source_weighted": {
+        "neutrino": 14.4806780629621,
+        "compton": 1.6480386059732104,
+        "total": 16.12871666893531
+      },
+      "mean_tau_escape_weighted": {
+        "neutrino": 4.5442628711278035,
+        "compton": 0.7500970655584661,
+        "total": 5.294359936686269
+      },
+      "source_weighted_mean_tau_channel_fractions": {
+        "neutrino": 0.8978,
+        "compton": 0.1022
+      },
+      "counterfactual_luminosity_erg_s": {
+        "both_opacities": 2.439635957358782e+52,
+        "neutrino_opacity_only": 6.07379829028557e+52,
+        "compton_opacity_only": 2.348134585564618e+55,
+        "optically_thin": 7.502476933640995e+55
+      },
+      "shapley_attribution_of_total_luminosity_suppression_erg_s": {
+        "neutrino": 4.921049042478984e+55,
+        "compton": 2.578988255204652e+55
+      },
+      "shapley_fraction_of_suppression": {
+        "neutrino": 0.6561366093471075,
+        "compton": 0.34386339065289245
+      }
+    },
+    "core_8_15km": {
+      "source_fraction": 0.7965218699409873,
+      "escaped_fraction": 0.8685505624272921,
+      "source_channel_fractions": {
+        "neutrino": 0.6662639404321858,
+        "compton": 0.3337360595678785
+      },
+      "escaped_channel_fractions": {
+        "neutrino": 0.5235822913573234,
+        "compton": 0.4764177086426966
+      }
+    },
+    "high_energy_bins": [
+      {
+        "bin": "60-110 MeV",
+        "source_fraction_of_global": 0.3592481029868694,
+        "escaped_fraction_of_global": 0.009634128199429872,
+        "source_channel_fractions": {
+          "neutrino": 0.7152729992123743,
+          "compton": 0.2847270007876256
+        },
+        "escaped_channel_fractions": {
+          "neutrino": 0.7967002917858482,
+          "compton": 0.2032997082141517
+        },
+        "escape_probability": 0.000008720437913945025,
+        "mean_tau_source_weighted": {
+          "neutrino": 14.518728322569682,
+          "compton": 1.6157183116437832,
+          "total": 16.13444663421372
+        },
+        "mean_tau_escape_weighted": {
+          "neutrino": 9.020953667943575,
+          "compton": 0.2953811803257237,
+          "total": 9.316334848269257
+        }
+      },
+      {
+        "bin": "110-210 MeV",
+        "source_fraction_of_global": 0.33611037463426047,
+        "escaped_fraction_of_global": 0.24674461312374527,
+        "source_channel_fractions": {
+          "neutrino": 0.6179032310634128,
+          "compton": 0.38209676893658717
+        },
+        "escaped_channel_fractions": {
+          "neutrino": 0.6393368211700263,
+          "compton": 0.3606631788299737
+        },
+        "escape_probability": 0.00023871852311714524,
+        "mean_tau_source_weighted": {
+          "neutrino": 9.352248005555706,
+          "compton": 1.7257458367654734,
+          "total": 11.077993842321195
+        },
+        "mean_tau_escape_weighted": {
+          "neutrino": 6.192688149221024,
+          "compton": 0.5686599836217562,
+          "total": 6.7613481328427625
+        }
+      },
+      {
+        "bin": "210-510 MeV",
+        "source_fraction_of_global": 0.09669607176610405,
+        "escaped_fraction_of_global": 0.697556872664461,
+        "source_channel_fractions": {
+          "neutrino": 0.49876420234641455,
+          "compton": 0.5012357976535855
+        },
+        "escaped_channel_fractions": {
+          "neutrino": 0.4839747077360493,
+          "compton": 0.5160252922639507
+        },
+        "escape_probability": 0.002345800893583566,
+        "mean_tau_source_weighted": {
+          "neutrino": 5.9117647505379605,
+          "compton": 1.8075599569158483,
+          "total": 7.719324707454014
+        },
+        "mean_tau_escape_weighted": {
+          "neutrino": 4.107156587288796,
+          "compton": 0.8509574820778749,
+          "total": 4.958114069366703
+        },
+        "counterfactual_luminosity_erg_s": {
+          "both_opacities": 1.7017848288549602e+52,
+          "neutrino_opacity_only": 4.6499938984561857e+52,
+          "compton_opacity_only": 1.6768662314866744e+54,
+          "optically_thin": 7.25460047998893e+54
+        },
+        "opacity_loss_shapley_erg_s": {
+          "neutrino": 4.4339744621012474e+54,
+          "compton": 2.8036081695991342e+54
+        }
+      },
+      {
+        "bin": "510-1010 MeV",
+        "source_fraction_of_global": 0.00021363952903823282,
+        "escaped_fraction_of_global": 0.011704469939750977,
+        "source_channel_fractions": {
+          "neutrino": 0.3198484034679809,
+          "compton": 0.6801515965320191
+        },
+        "escaped_channel_fractions": {
+          "neutrino": 0.31748806089894793,
+          "compton": 0.6825119391010521
+        },
+        "escape_probability": 0.017815191519887374,
+        "mean_tau_source_weighted": {
+          "neutrino": 2.881742985735479,
+          "compton": 1.8773053883396822,
+          "total": 4.759048374075194
+        },
+        "mean_tau_escape_weighted": {
+          "neutrino": 2.3199028081914945,
+          "compton": 1.1400776586044878,
+          "total": 3.4599804667960044
+        }
+      }
+    ],
+    "neutrino_pair_average_independent_angular_check": {
+      "method": "Direct 1/2 integral dcos(theta) f(E1,mu) f(E2,-mu), independent of the analytic antiderivative",
+      "radii_km": [
+        8,
+        10,
+        12.5,
+        15
+      ],
+      "energies_MeV": [
+        60,
+        110,
+        210,
+        510,
+        1010
+      ],
+      "species": [
+        "mu_numu",
+        "mu_zero"
+      ],
+      "orders": [
+        128,
+        256,
+        512,
+        1024
+      ],
+      "maximum_absolute_relative_residual_by_order": {
+        "128": 2.886579864025407e-15,
+        "256": 3.1086244689504383e-15,
+        "512": 2.6645352591003757e-15,
+        "1024": 3.1086244689504383e-15
+      }
+    },
+    "execution": {
+      "engine": "OpenAI Code Mode V8 JavaScript IEEE-754 binary64",
+      "source_radial_nodes": 200,
+      "opacity_radial_nodes": 642,
+      "energy_nodes": 842,
+      "angular_nodes": 32,
+      "path_nodes": 64,
+      "muon_susceptibility_quadrature_nodes": 512,
+      "elapsed_seconds": 78.489,
+      "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+      "fig7_sha256": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4",
+      "comparison_to_archived_B16_baseline": {
+        "luminosity_relative_residual": -9.224843111610426e-13,
+        "thin_luminosity_relative_residual": -8.737455203799982e-14,
+        "escape_probability_absolute_residual": -2.7159264420761886e-16
+      },
+      "grid_identity": "Same quadrature prescription and node counts; V8-generated nodes are not bitwise-identical to NumPy-generated nodes."
+    },
+    "references": {
+      "python_reproduction_script": "audit_b16_channel_resolved_energy.py",
+      "exact_B13_global_comparison": "B13_GLOBAL_TRANSPORT_AUDIT_2026-11-09.md",
+      "exact_B13_grid_convergence": "B13_GLOBAL_STAGE_A_CONVERGENCE_STATUS_2026-11-09.md"
+    },
+    "interpretation": [
+      "Source-channel fractions use each B.1 channel multiplied by the same total B.2 survival factor.",
+      "Opacity-only counterfactuals hold the total B.1 source fixed; they are diagnostics, not alternative physical models.",
+      "Shapley attribution symmetrizes the order dependence of removing neutrino and Compton opacity.",
+      "The analytic neutrino pair average agrees with an independent direct angular integral to approximately 3e-15 at the tested high energies.",
+      "No empirical rescaling, profile modification, or axial-vector curve update is performed."
+    ]
+  },
+  "run_commit_sha": "334dd77496a1c49d00c1f34e1fed8d9f33d8e755"
+}
