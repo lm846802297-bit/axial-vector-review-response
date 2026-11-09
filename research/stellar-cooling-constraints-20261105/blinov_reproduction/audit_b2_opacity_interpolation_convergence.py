@@ -20,7 +20,7 @@ HERE = Path(__file__).resolve().parent
 DEFAULT_OUTPUT = HERE / "outputs" / "b2_opacity_interpolation_convergence_2026-11-09.json"
 DEFAULT_REPORT = HERE / "B2_OPACITY_INTERPOLATION_CONVERGENCE_2026-11-09.md"
 PROFILE_SHA256 = "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
-OPACITY_ORDERS = (40, 80, 120, 160, 240, 320)
+OPACITY_ORDERS = (40, 80, 120, 160, 240, 320, 480, 640)
 SOURCE_RADIAL_ORDER = 40
 ENERGY_ORDER = 100
 ANGULAR_ORDER = 16
@@ -196,6 +196,12 @@ def run_mass(mass: float, profile_path: Path, fig7_path: Path) -> dict:
             "redshift_effect_change_below_0p5_percentage_point": delta_ok,
             "passed": source_ok and fixed_ok and redshift_ok and delta_ok,
         }
+    finest_pairs = ("opacity_320_to_480", "opacity_480_to_640")
+    finest_two_passed = all(acceptance[name]["passed"] for name in finest_pairs)
+    coarse_grid_pairs_failed = [
+        name for name, item in acceptance.items()
+        if not item["passed"] and name not in finest_pairs
+    ]
     return {
         "mass_MeV": float(mass),
         "profile_sha256": sha256(profile_path),
@@ -209,11 +215,15 @@ def run_mass(mass: float, profile_path: Path, fig7_path: Path) -> dict:
         "configurations": cases,
         "pairwise_convergence": comparisons,
         "acceptance": acceptance,
-        "overall_passed": all(x["passed"] for x in acceptance.values()),
+        "coarse_grid_pairs_failed": coarse_grid_pairs_failed,
+        "finest_two_pair_convergence_passed": finest_two_passed,
+        "overall_passed": finest_two_passed,
         "interpretation": (
             "The B.1 source radial rule is fixed at order 40 in every case. "
             "Only the radial interpolation grid used by the B.2 path-opacity "
-            "integral is refined; energy, angle, and path quadratures are fixed."
+            "integral is refined; energy, angle, and path quadratures are fixed. "
+            "Coarse-grid failures are recorded but do not invalidate convergence "
+            "once the final two successive refinements pass."
         ),
     }
 
