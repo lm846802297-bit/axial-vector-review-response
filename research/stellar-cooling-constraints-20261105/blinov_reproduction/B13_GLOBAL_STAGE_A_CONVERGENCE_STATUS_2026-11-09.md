@@ -49,7 +49,7 @@ The final audit varies angular and path quadrature independently, then checks th
 
 For every B.13 run, the B.16 comparison calculation is regenerated on the identical grid. A run is interpreted only after the same-grid B.16 closure check passes. The initial workflow attempts exposed a malformed checkout reference and, separately, a mismatch caused by reusing the original-grid B.16 baseline on refined grids. Both implementation issues were corrected. The final workflow checks out the immutable event commit SHA and has separate angular-only and path-only scans, so the two quadrature effects can be distinguished.
 
-The final four-configuration audit is queued at [GitHub Actions run 42541978797](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42541978797). Earlier trial runs are not used as accepted convergence results.
+The first four-configuration attempt was cancelled when the validation check was corrected. The current immutable-commit run is [GitHub Actions run 42542328275](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42542328275); it contains the corrected validation of all four scan labels and the exact output variant names. Earlier trial runs are not used as accepted convergence results.
 
 ## 3. Current decision
 
