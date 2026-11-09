@@ -397,3 +397,57 @@ Not established:
 - the gauge-complete propagator, complex poles, residues, or near-degenerate observables.
 
 The finite portal threshold at \(M_E\) remains distinct from the vanishing full-theory divergent \(\lambda_{HS}\) pole. No manuscript or formal referee-response file is modified by this research record.
+
+
+## 7. Finite heavy-VLL potential matching through dimension eight
+
+The same scalar-background calculation also isolates the heavy-eigenstate Coleman–Weinberg contribution at \(\mu=M_E=20\) TeV. In the \(\overline{\mathrm{MS}}\) scheme, define
+\[
+X_\ell=|y_\ell|^2H^\dagger H,\qquad
+Y_\ell=|\lambda_\ell|^2S^\dagger S.
+\]
+The heavy-eigenstate contribution is expanded as
+\[
+\begin{aligned}
+V_H^{(1)}=-\frac{1}{16\pi^2}\sum_\ell\Bigg[
+&-\frac32M_E^4-2M_E^2(X_\ell+Y_\ell)+2X_\ell Y_\ell\\
+&+\frac{(X_\ell+Y_\ell)^3/3-2X_\ell Y_\ell(X_\ell+Y_\ell)}{M_E^2}\\
+&+\frac{-(X_\ell+Y_\ell)^4/12
++X_\ell Y_\ell(X_\ell+Y_\ell)^2+2X_\ell^2Y_\ell^2}{M_E^4}
++\mathcal O(\text{fields}^{10})\Bigg].
+\end{aligned}
+\]
+This gives a finite, scheme- and matching-scale-specific portal threshold and higher-dimensional scalar-potential Wilson coefficients. It does not contradict the vanishing divergent renormalizable portal pole in Section 2: a zero UV pole does not imply a zero finite threshold.
+
+| Heavy-sector finite Wilson coefficient at \(\mu=M_E\) | Benchmark A | Benchmark B |
+|---|---:|---:|
+| \(\Delta\lambda_{HS}^{\rm hard}\) | \(-0.21076398\) | \(-0.01067338\) |
+| \(c_{(H^\dagger H)^2(S^\dagger S)}\) [GeV\(^{-2}\)] | \(+3.47656\times10^{-10}\) | \(+1.76058\times10^{-11}\) |
+| \(c_{(H^\dagger H)(S^\dagger S)^2}\) [GeV\(^{-2}\)] | \(+3.29905\times10^{-9}\) | \(+8.46057\times10^{-12}\) |
+| \(c_{(H^\dagger H)^2(S^\dagger S)^2}^{\rm hard}\) [GeV\(^{-4}\)] | \(-3.80926\times10^{-17}\) | \(-9.76902\times10^{-20}\) |
+
+At the benchmark VEVs, the dimension-six terms shift the local \(hs\) curvature by \(+0.65720\) GeV\(^2\) (A) and \(+0.14789\) GeV\(^2\) (B); the dimension-eight terms contribute \(-2.62158\times10^{-4}\) GeV\(^2\) (A) and \(-5.89951\times10^{-5}\) GeV\(^2\) (B). These are small compared with the hard dimension-four portal contributions, \(-3678.60\) GeV\(^2\) (A) and \(-827.82\) GeV\(^2\) (B), in this selected matching benchmark.
+
+The quoted hard Wilson coefficients are the heavy VLL contribution in the specified \(\overline{\mathrm{MS}}\) scalar-background basis. They are not the complete gauge-, scalar-, Goldstone-, ghost-, and derivative-operator EFT matching coefficients.
+
+## 8. Plan-C scale-dependence check and the role of \(O_8\) running
+
+At \(s=m_h^2\), the scale derivative of the Plan-C hard-plus-soft expression is not zero if the dimension-eight EFT operator is omitted. The residual is precisely the leading \(O_8\) running contribution within the retained VLL/EFT5 sector.
+
+| Scale-derivative diagnostic | Benchmark A [GeV\(^2\)] | Benchmark B [GeV\(^2\)] |
+|---|---:|---:|
+| Soft derivative \(d\Pi_{hs}^{\rm soft}/d\ln\mu\) | \(-7.20197\times10^{-2}\) | \(-1.62070\times10^{-2}\) |
+| Hard derivative \(d\Pi_{hs}^{\rm hard}/d\ln\mu\) | \(+7.21354\times10^{-2}\) | \(+1.62331\times10^{-2}\) |
+| Residual before \(O_8\) running | \(+1.15734\times10^{-4}\) | \(+2.60444\times10^{-5}\) |
+| Residual after \(O_8\) running | \(1.01\times10^{-16}\) | \(1.98\times10^{-17}\) |
+| Relative residual after \(O_8\) running | \(1.72\times10^{-13}\) | \(1.50\times10^{-13}\) |
+
+The leading coefficient obeys
+\[
+\beta_{c_8}=\frac{dc_8}{d\ln\mu}
+=-\frac{2}{16\pi^2}\sum_\ell|C_{5,\ell}|^4.
+\]
+The corresponding \(O_8\) running cancels the soft-plus-hard scale residual to the numerical precision shown. The analytic scale-derivative identity has relative residuals below \(3.0\times10^{-14}\), and an independent finite-difference check has relative residuals below \(5.4\times10^{-8}\).
+
+**Matching-scope distinction:** the finite heavy-VLL coefficient of \(O_8\) in Section 7 is calculated. The complete EFT boundary coefficient \(c_8(M_E)\), after all hard/soft subtractions and all other UV sectors/operators are consistently included, is not yet established. The running check verifies the cancellation of the retained scale dependence; it does not by itself establish the complete finite matching condition or a physical scalar pole.
+
