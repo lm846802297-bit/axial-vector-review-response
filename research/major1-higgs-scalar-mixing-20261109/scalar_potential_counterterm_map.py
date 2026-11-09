@@ -1,202 +1,317 @@
 #!/usr/bin/env python3
-"""Map the fermion-sector local UV pole matrix onto scalar-potential parameters.
+"""Gauge-invariant VLL potential poles and leading EFT dimension-eight audit.
 
-The output is an algebraic counterterm ledger, not a choice of tadpole or VEV
-renormalization scheme. It displays the general parameter map and one
-fixed-VEV bookkeeping basis that reconstructs the three local matrix poles.
+The full-theory fermion determinant is evaluated in the unbroken scalar
+backgrounds. Its UV pole is mapped onto the renormalizable scalar potential.
+The leading dimension-five EFT mass operator is then treated separately:
+its one-loop light-fermion determinant generates a dimension-eight scalar
+operator, and its mixed h-s contact contribution is kept explicitly.
+
+All reported coefficients multiply Delta_UV = 1/epsilon - gamma_E + ln(4 pi).
+This is a VLL-sector UV-pole audit, not a complete gauge-independent
+renormalization or a complete UV-EFT matching calculation.
 """
 from __future__ import annotations
 
 import argparse
 import json
+import math
 from pathlib import Path
 
 VH = 246.22
-BENCHMARK_VS = {"A_open_AA": 70.886458, "B_closed_AA": 315.0}
+ME = 20_000.0
+LOOP = 1.0 / (16.0 * math.pi**2)
+BENCHMARKS = {
+    "A_open_AA": 70.886458,
+    "B_closed_AA": 315.0,
+}
 
 
-def potential_mass_matrix(
-    vh: float, vs: float, mu_h2: float, mu_s2: float,
-    lam_h: float, lam_s: float, lam_hs: float,
+def potential_tadpoles_per_vev(
+    vh: float, vs: float, dmu_h2: float, dmu_s2: float,
+    dlam_h: float, dlam_s: float, dlam_hs: float,
+) -> tuple[float, float]:
+    """Derivatives of the potential counterterm divided by the VEVs."""
+    return (
+        -dmu_h2 + vh**2*dlam_h + 0.5*vs**2*dlam_hs,
+        -dmu_s2 + vs**2*dlam_s + 0.5*vh**2*dlam_hs,
+    )
+
+
+def potential_mass_counterterm(
+    vh: float, vs: float, dmu_h2: float, dmu_s2: float,
+    dlam_h: float, dlam_s: float, dlam_hs: float,
 ) -> list[list[float]]:
-    """H0=(vh+h)/sqrt(2), S=(vs+s)/sqrt(2), L contains -V."""
+    """Second derivatives of the potential counterterm at the vacuum."""
     return [
-        [
-            -mu_h2 + 3.0 * lam_h * vh**2 + 0.5 * lam_hs * vs**2,
-            lam_hs * vh * vs,
-        ],
-        [
-            lam_hs * vh * vs,
-            -mu_s2 + 3.0 * lam_s * vs**2 + 0.5 * lam_hs * vh**2,
-        ],
+        [-dmu_h2 + 3.0*vh**2*dlam_h + 0.5*vs**2*dlam_hs,
+         vh*vs*dlam_hs],
+        [vh*vs*dlam_hs,
+         -dmu_s2 + 3.0*vs**2*dlam_s + 0.5*vh**2*dlam_hs],
     ]
 
 
-def potential_tadpole_brackets(
-    vh: float, vs: float, mu_h2: float, mu_s2: float,
-    lam_h: float, lam_s: float, lam_hs: float,
-) -> tuple[float, float]:
-    """Tree tadpoles divided by their VEVs."""
-    return (
-        -mu_h2 + lam_h * vh**2 + 0.5 * lam_hs * vs**2,
-        -mu_s2 + lam_s * vs**2 + 0.5 * lam_hs * vh**2,
-    )
-
-
-def linearized_mass_counterterm(
-    vh: float, vs: float, lam_h: float, lam_s: float, lam_hs: float,
-    dmu_h2: float, dmu_s2: float,
-    dlam_h: float, dlam_s: float, dlam_hs: float,
-    dvh: float = 0.0, dvs: float = 0.0,
-) -> list[list[float]]:
-    """First-order variation of the tree scalar mass matrix."""
-    dhh = (
-        -dmu_h2 + 3.0 * vh**2 * dlam_h + 6.0 * lam_h * vh * dvh
-        + 0.5 * vs**2 * dlam_hs + lam_hs * vs * dvs
-    )
-    dss = (
-        -dmu_s2 + 3.0 * vs**2 * dlam_s + 6.0 * lam_s * vs * dvs
-        + 0.5 * vh**2 * dlam_hs + lam_hs * vh * dvh
-    )
-    dhs = vh * vs * dlam_hs + lam_hs * (vs * dvh + vh * dvs)
-    return [[dhh, dhs], [dhs, dss]]
-
-
-def linearized_tadpole_counterterms_per_vev(
-    vh: float, vs: float, lam_h: float, lam_s: float, lam_hs: float,
-    dmu_h2: float, dmu_s2: float,
-    dlam_h: float, dlam_s: float, dlam_hs: float,
-    dvh: float = 0.0, dvs: float = 0.0,
-) -> tuple[float, float]:
-    """Parameter-induced delta T_h/vh and delta T_s/vs at a tree stationary point."""
-    dh = (
-        -dmu_h2 + vh**2 * dlam_h + 2.0 * lam_h * vh * dvh
-        + 0.5 * vs**2 * dlam_hs + lam_hs * vs * dvs
-    )
-    ds = (
-        -dmu_s2 + vs**2 * dlam_s + 2.0 * lam_s * vs * dvs
-        + 0.5 * vh**2 * dlam_hs + lam_hs * vh * dvh
-    )
-    return dh, ds
-
-
-def fixed_vev_bookkeeping_basis(
-    delta_matrix: list[list[float]], vh: float, vs: float,
+def solve_potential_counterterms(
+    vh: float, vs: float,
+    F_h: float, F_s: float, F_hh: float, F_hs: float, F_ss: float,
 ) -> dict:
-    """One exact algebraic decomposition; not a selected renormalization scheme.
+    """Solve the five gauge-invariant potential counterterms from V1^div.
 
-    Set delta-lambda_H=delta-lambda_S=delta-vh=delta-vs=0. The off-diagonal
-    entry fixes delta-lambda_HS, and the two diagonal entries are absorbed
-    into the quadratic potential parameters mu_H^2 and mu_S^2.
+    V1^div = +Delta_UV F/(16 pi^2), while the potential counterterm is
+    delta V = -Delta_UV F/(16 pi^2). Therefore the potential counterterm
+    derivatives equal the corresponding loop 1PI pole coefficients in the
+    convention Gamma_inv = p^2 I - M_loc^2 + Pi_RC.
     """
-    dhh = float(delta_matrix[0][0])
-    dhs = float(delta_matrix[0][1])
-    dss = float(delta_matrix[1][1])
-    dlam_hs = dhs / (vh * vs)
-    dmu_h2 = -dhh + 0.5 * vs**2 * dlam_hs
-    dmu_s2 = -dss + 0.5 * vh**2 * dlam_hs
-    reconstructed = linearized_mass_counterterm(
-        vh, vs, lam_h=0.0, lam_s=0.0, lam_hs=0.0,
-        dmu_h2=dmu_h2, dmu_s2=dmu_s2,
-        dlam_h=0.0, dlam_s=0.0, dlam_hs=dlam_hs,
+    t_h_loop_1pi = -LOOP * F_h
+    t_s_loop_1pi = -LOOP * F_s
+    pi_hh_loop = -LOOP * F_hh
+    pi_hs_loop = -LOOP * F_hs
+    pi_ss_loop = -LOOP * F_ss
+
+    t_h_over_vh = t_h_loop_1pi / vh
+    t_s_over_vs = t_s_loop_1pi / vs
+
+    dlam_hs = pi_hs_loop / (vh * vs)
+    dlam_h = (pi_hh_loop - t_h_over_vh) / (2.0 * vh**2)
+    dlam_s = (pi_ss_loop - t_s_over_vs) / (2.0 * vs**2)
+    dmu_h2 = vh**2*dlam_h + 0.5*vs**2*dlam_hs - t_h_over_vh
+    dmu_s2 = vs**2*dlam_s + 0.5*vh**2*dlam_hs - t_s_over_vs
+
+    tad_ct = potential_tadpoles_per_vev(
+        vh, vs, dmu_h2, dmu_s2, dlam_h, dlam_s, dlam_hs
     )
-    residual = max(
-        abs(reconstructed[0][0] - dhh),
-        abs(reconstructed[0][1] - dhs),
-        abs(reconstructed[1][1] - dss),
+    mass_ct = potential_mass_counterterm(
+        vh, vs, dmu_h2, dmu_s2, dlam_h, dlam_s, dlam_hs
     )
     return {
-        "basis_label": "fixed_vev_quadratic_diagonal_plus_portal_offdiagonal",
-        "delta_lambda_H": 0.0,
-        "delta_lambda_S": 0.0,
-        "delta_lambda_HS": dlam_hs,
         "delta_mu_H2_GeV2": dmu_h2,
         "delta_mu_S2_GeV2": dmu_s2,
-        "delta_vh_GeV": 0.0,
-        "delta_vs_GeV": 0.0,
-        "reconstructed_mass_matrix_counterterm_GeV2": reconstructed,
-        "max_reconstruction_residual_GeV2": residual,
-        "warning": (
-            "This is one bookkeeping decomposition of the two-point UV pole. "
-            "It does not fix the tadpole counterterms or define a VEV scheme."
-        ),
+        "delta_lambda_H": dlam_h,
+        "delta_lambda_S": dlam_s,
+        "delta_lambda_HS": dlam_hs,
+        "potential_counterterm_tadpoles_per_vev_GeV2": list(tad_ct),
+        "potential_counterterm_mass_matrix_GeV2": mass_ct,
+        "loop_1PI_tadpole_pole_coefficients_GeV3": [
+            t_h_loop_1pi, t_s_loop_1pi
+        ],
+        "loop_Pi_RC_local_pole_coefficients_GeV2": [
+            [pi_hh_loop, pi_hs_loop],
+            [pi_hs_loop, pi_ss_loop],
+        ],
+        "tadpole_cancellation_residual_GeV2": [
+            t_h_loop_1pi - vh*tad_ct[0],
+            t_s_loop_1pi - vs*tad_ct[1],
+        ],
+        "mass_cancellation_residual_GeV2": [
+            [pi_hh_loop-mass_ct[0][0], pi_hs_loop-mass_ct[0][1]],
+            [pi_hs_loop-mass_ct[1][0], pi_ss_loop-mass_ct[1][1]],
+        ],
     }
 
 
-def run_mapping(independent_json: Path) -> dict:
-    independent = json.loads(independent_json.read_text(encoding="utf-8"))
+def leading_eft5_derivatives(vh: float, vs: float, by_flavour: dict) -> dict:
+    """Derivatives of F_EFT = sum |C5|^4 (Hdag H)^2(Sdag S)^2.
+
+    With H0=phi_h/sqrt(2), S=phi_s/sqrt(2), the neutral light mass is
+    m_l(phi_h,phi_s)=C5 phi_h phi_s/2=y lambda phi_h phi_s/(2 M_E).
+    """
+    total = {k: 0.0 for k in ("F", "F_h", "F_s", "F_hh", "F_hs", "F_ss")}
+    flavours = {}
+    sum_c5_fourth = 0.0
+    for name, item in by_flavour.items():
+        y = float(item["y"])
+        lam = float(item["lambda"])
+        c5 = y * lam / ME
+        kappa = 0.5 * c5
+        mass = kappa * vh * vs
+        f = mass**4
+        values = {
+            "F": f,
+            "F_h": 4.0*f/vh,
+            "F_s": 4.0*f/vs,
+            "F_hh": 12.0*f/vh**2,
+            "F_hs": 16.0*f/(vh*vs),
+            "F_ss": 12.0*f/vs**2,
+        }
+        for key, value in values.items():
+            total[key] += value
+        sum_c5_fourth += abs(c5)**4
+        flavours[name] = {
+            "C5_GeVminus1": c5,
+            "kappa_neutral_mass_operator_GeVminus1": kappa,
+            "m_EFT5_at_vev_GeV": mass,
+            "input_light_mass_GeV": float(item["ml_GeV"]),
+            "mass_relative_difference": abs(mass-float(item["ml_GeV"])) / float(item["ml_GeV"]),
+            "F_derivatives": values,
+        }
+
+    bubble = {
+        "hh": 12.0*total["F"] / vh**2,
+        "hs": 12.0*total["F"] / (vh*vs),
+        "ss": 12.0*total["F"] / vs**2,
+    }
+    contact = {
+        "hh": 0.0,
+        "hs": 4.0*total["F"] / (vh*vs),
+        "ss": 0.0,
+    }
+    total_local = {
+        "hh": bubble["hh"] + contact["hh"],
+        "hs": bubble["hs"] + contact["hs"],
+        "ss": bubble["ss"] + contact["ss"],
+    }
+    return {
+        "flavours": flavours,
+        "sum_derivatives_GeV": total,
+        "bubble_local_UV_coefficients_GeV2": bubble,
+        "dimension5_contact_local_UV_coefficients_GeV2": contact,
+        "complete_leading_EFT5_local_UV_coefficients_GeV2": total_local,
+        "one_loop_EFT_1PI_tadpole_pole_coefficients_GeV3": {
+            "h": -LOOP*total["F_h"],
+            "s": -LOOP*total["F_s"],
+        },
+        "one_loop_EFT_Pi_RC_local_pole_coefficients_GeV2": {
+            "hh": -LOOP*total_local["hh"],
+            "hs": -LOOP*total_local["hs"],
+            "ss": -LOOP*total_local["ss"],
+        },
+        "dimension8_operator": "(Hdagger H)^2 (Sdagger S)^2",
+        "dimension8_potential_counterterm_coefficient_GeVminus4": -LOOP*sum_c5_fourth,
+        "dimension8_potential_loop_pole_coefficient_GeVminus4": LOOP*sum_c5_fourth,
+        "dimension8_operator_coefficient_sum_C5_fourth_GeVminus4": sum_c5_fourth,
+    }
+
+
+def run_mapping(tadpole_json: Path, matrix_json: Path) -> dict:
+    tadpole = json.loads(tadpole_json.read_text(encoding="utf-8"))
+    matrix = json.loads(matrix_json.read_text(encoding="utf-8"))
     benchmarks = {}
-    for label, vs in BENCHMARK_VS.items():
-        data = independent["benchmarks"][label]
-        matrix = [
-            [
-                data["hh"]["MS_mass_counterterm_pole_coefficient_full_minus_light_GeV2"],
-                data["hs"]["MS_mass_counterterm_pole_coefficient_full_minus_light_GeV2"],
-            ],
-            [
-                data["hs"]["MS_mass_counterterm_pole_coefficient_full_minus_light_GeV2"],
-                data["ss"]["MS_mass_counterterm_pole_coefficient_full_minus_light_GeV2"],
-            ],
-        ]
-        basis = fixed_vev_bookkeeping_basis(matrix, VH, vs)
+
+    for label, vs_expected in BENCHMARKS.items():
+        t = tadpole["benchmarks"][label]
+        m = matrix["benchmarks"][label]
+        vs = float(t["vs_GeV"])
+        if abs(vs-vs_expected) > 1e-9:
+            raise AssertionError(f"{label}: unexpected v_s={vs}")
+
+        inv = t["couplings_and_invariants"]["sum"]
+        pot = solve_potential_counterterms(
+            VH, vs,
+            inv["F_h"], inv["F_s"], inv["F_hh"], inv["F_hs"], inv["F_ss"],
+        )
+        eft = leading_eft5_derivatives(
+            VH, vs, t["couplings_and_invariants"]["by_flavour"]
+        )
+
+        full_c = {
+            "hh": float(m["hh"]["UV_p2_coefficient_sum_C"][0]),
+            "hs": float(m["hs"]["UV_p2_coefficient_sum_C"][0]),
+            "ss": float(m["ss"]["UV_p2_coefficient_sum_C"][0]),
+        }
+        full_field_ct = {k: -LOOP*v for k, v in full_c.items()}
+        bubble_local = {
+            "hh": float(m["hh"]["light_light_UV_local_coefficient"][0]),
+            "hs": float(m["hs"]["light_light_UV_local_coefficient"][0]),
+            "ss": float(m["ss"]["light_light_UV_local_coefficient"][0]),
+        }
+        eft_bubble_vs_leading = {
+            key: bubble_local[key] - eft["bubble_local_UV_coefficients_GeV2"][key]
+            for key in ("hh", "hs", "ss")
+        }
+
+        # These are retained as the exact-basis light-bubble-only subtraction
+        # from the earlier audit. They are not the complete EFT subtraction:
+        # the dimension-five contact and its higher-dimensional counterterm
+        # must also be included.
+        bubble_only_matching = {}
+        for key in ("hh", "hs", "ss"):
+            entry = m[key]
+            delta_local = float(entry["full_minus_light_UV_local_coefficient"][0])
+            delta_c = float(entry["full_minus_light_UV_p2_coefficient_C"][0])
+            bubble_only_matching[key] = {
+                "Pi_RC_local_pole_coefficient_full_minus_light_bubble_GeV2": -LOOP*delta_local,
+                "delta_Z_matching_counterterm_pole_coefficient": -LOOP*delta_c,
+            }
+
         benchmarks[label] = {
             "vs_GeV": vs,
-            "mass_matrix_counterterm_pole_coefficient_GeV2": matrix,
-            "fixed_vev_bookkeeping_basis": basis,
-            "tadpole_and_vev_scheme_status": "not_fixed_by_the_two_point_subcalculation",
+            "full_theory_VLL_potential_counterterms": pot,
+            "full_theory_VLL_field_counterterms": {
+                "delta_Z_HH": full_field_ct["hh"],
+                "delta_Z_HS": full_field_ct["hs"],
+                "delta_Z_SS": full_field_ct["ss"],
+                "full_theory_p2_UV_coefficients_C": full_c,
+                "p2_cancellation_residual": {
+                    key: LOOP*full_c[key] + full_field_ct[key]
+                    for key in ("hh", "hs", "ss")
+                },
+            },
+            "leading_EFT5_light_loop_and_dimension8_counterterm": eft,
+            "comparison_to_archived_exact_light_bubble": {
+                "exact_mass_eigenstate_light_bubble_local_UV_coefficients_GeV2": bubble_local,
+                "leading_EFT5_bubble_local_UV_coefficients_GeV2": eft["bubble_local_UV_coefficients_GeV2"],
+                "difference_exact_bubble_minus_leading_EFT5_GeV2": eft_bubble_vs_leading,
+                "interpretation": (
+                    "The difference includes finite-M_E power corrections because the archived "
+                    "light-state vertices are exact-SVD quantities, whereas the EFT5 values use "
+                    "only the leading dimension-five operator."
+                ),
+            },
+            "previous_bubble_only_matching_subtraction_not_complete": bubble_only_matching,
         }
 
     return {
         "status": "PASS",
-        "potential_convention": (
-            "V=-mu_H2 HdaggerH-mu_S2 SdaggerS+lambda_H(HdaggerH)^2"
-            "+lambda_S(SdaggerS)^2+lambda_HS(HdaggerH)(SdaggerS); "
-            "H0=(vh+h)/sqrt(2), S=(vs+s)/sqrt(2), L contains -V"
-        ),
-        "tree_mass_matrix": {
-            "hh": "-mu_H2 + 3 lambda_H vh^2 + (lambda_HS/2) vs^2",
-            "ss": "-mu_S2 + 3 lambda_S vs^2 + (lambda_HS/2) vh^2",
-            "hs": "lambda_HS vh vs",
+        "UV_convention": {
+            "Delta_UV": "1/epsilon - gamma_E + ln(4 pi)",
+            "inverse_propagator": "Gamma_inv = p^2 I - M_loc^2 + Pi_RC",
+            "fermion_determinant": "V1_div = + Delta_UV Tr[(Mdagger M)^2]/(16 pi^2)",
+            "potential_counterterm": "delta V = - Delta_UV Tr[(Mdagger M)^2]/(16 pi^2)",
+            "Pi_RC_loop_local": "-F_ab Delta_UV/(16 pi^2)",
+            "Pi_RC_loop_p2": "+C_ab p^2 Delta_UV/(16 pi^2)",
+            "field_counterterm": "delta Z_ab = -C_ab Delta_UV/(16 pi^2)",
         },
-        "general_counterterm_map": {
-            "hh": "-dmu_H2 + 3 vh^2 dlambda_H + 6 lambda_H vh dvh + (vs^2/2) dlambda_HS + lambda_HS vs dvs",
-            "ss": "-dmu_S2 + 3 vs^2 dlambda_S + 6 lambda_S vs dvs + (vh^2/2) dlambda_HS + lambda_HS vh dvh",
-            "hs": "vh vs dlambda_HS + lambda_HS (vs dvh + vh dvs)",
+        "renormalizable_potential_counterterm_basis": {
+            "delta_V": "-delta_mu_H2 HdaggerH - delta_mu_S2 SdaggerS + delta_lambda_H(HdaggerH)^2 + delta_lambda_S(SdaggerS)^2 + delta_lambda_HS(HdaggerH)(SdaggerS)",
+            "delta_mu_H2": "+2 M_E^2 sum_l |y_l|^2/(16 pi^2)",
+            "delta_mu_S2": "+2 M_E^2 sum_l |lambda_l|^2/(16 pi^2)",
+            "delta_lambda_H": "-sum_l |y_l|^4/(16 pi^2)",
+            "delta_lambda_S": "-sum_l |lambda_l|^4/(16 pi^2)",
+            "delta_lambda_HS": "0 at this one-loop VLL determinant order",
         },
-        "tadpole_map_at_tree_stationarity": {
-            "delta_T_h_over_vh": "-dmu_H2 + vh^2 dlambda_H + 2 lambda_H vh dvh + (vs^2/2) dlambda_HS + lambda_HS vs dvs",
-            "delta_T_s_over_vs": "-dmu_S2 + vs^2 dlambda_S + 2 lambda_S vs dvs + (vh^2/2) dlambda_HS + lambda_HS vh dvh",
-            "identity_hh": "delta_M_hh^2 - delta_T_h/vh = 2 vh^2 dlambda_H + 4 lambda_H vh dvh",
-            "identity_ss": "delta_M_ss^2 - delta_T_s/vs = 2 vs^2 dlambda_S + 4 lambda_S vs dvs",
+        "EFT_dimension8_counterterm_basis": {
+            "operator": "(Hdagger H)^2 (Sdagger S)^2",
+            "coefficient": "-sum_l |C5_l|^4/(16 pi^2)",
+            "C5_definition": "C5_l = y_l lambda_l/M_E; m_l(h,s)=C5_l(v_h+h)(v_s+s)/2",
+            "reason": "The light determinant of the dimension-five mass operator generates a dimension-eight scalar operator; its h-s contact contribution is required in the EFT two-point UV pole.",
         },
-        "non_uniqueness": (
-            "The three two-point matrix entries do not determine all quadratic, "
-            "quartic, VEV, and tadpole counterterms. A tadpole/VEV prescription "
-            "and the corresponding one-point functions are required before "
-            "assigning unique renormalized potential-parameter counterterms."
-        ),
         "benchmarks": benchmarks,
         "scope": [
-            "The matrix entries are UV-pole counterterm coefficients proportional to Delta_UV, not finite mass shifts.",
-            "The fixed-VEV decomposition is an algebraic example only, not a claim that this is the chosen MS-bar tadpole or VEV scheme.",
-            "No tadpole diagrams, VEV renormalization, complete scalar-potential beta functions, or gauge-complete self-energies are included.",
+            "Only the original mu/tau plus VLL fermion sector is included.",
+            "All listed coefficients multiply Delta_UV and are not finite mass shifts or physical pole corrections.",
+            "The full-theory renormalizable potential poles and the EFT dimension-eight pole are separate operator-basis statements; they must not be combined as if the EFT had only renormalizable scalar operators.",
+            "The archived light-light two-point bubble alone is not the complete EFT subtraction; the dimension-five contact and dimension-eight counterterm are required.",
+            "Finite tadpole conditions, VEV definition, gauge/Goldstone/ghost/scalar contributions, and the complete finite UV-EFT matching remain open.",
+            "The finite portal threshold at M_E is distinct from the vanishing full-theory one-loop divergent lambda_HS pole.",
         ],
     }
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--independent-json", type=Path, required=True)
+    parser.add_argument("--tadpole-json", type=Path, required=True)
+    parser.add_argument("--matrix-json", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
-    result = run_mapping(args.independent_json)
+    result = run_mapping(args.tadpole_json, args.matrix_json)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({
-        k: {
-            "mass_matrix_counterterm_pole_coefficient_GeV2": v["mass_matrix_counterterm_pole_coefficient_GeV2"],
-            "fixed_vev_bookkeeping_basis": v["fixed_vev_bookkeeping_basis"],
-        } for k, v in result["benchmarks"].items()
+        label: {
+            "potential": data["full_theory_VLL_potential_counterterms"],
+            "field": data["full_theory_VLL_field_counterterms"],
+            "EFT5": data["leading_EFT5_light_loop_and_dimension8_counterterm"],
+        } for label, data in result["benchmarks"].items()
     }, indent=2))
 
 
