@@ -247,3 +247,47 @@ The combined evidence now supports the following:
 The next calculation remains the high-order energy-resolved escape decomposition. It should establish which energy bins, in combination with the already identified outward directions and emission shells, dominate the residual. Only after that should we decide whether a new physical input or a different propagation prescription is required.
 
 No opacity rescaling is applied, no \(R_{\max}=25\) km change is made, and no axial-vector production result or constraint curve is updated.
+
+
+## 13. 2026-11-10 implementation audit: subregion mask correction and Actions execution block
+
+A static audit of the new phase-space post-processing script found an implementation error before accepting any binned result. The emission-radius bins applied the selected emission-region mask, but the energy and direction bins initially summed over all emission radii. For the \(8\text{--}15\) km subset, this would mix in emission from outside that region and would fail the intended within-region normalization.
+
+The script is corrected so that energy and direction partitions first restrict all three arrays to the selected emission-radius mask:
+\[
+W_{\rm base},\quad W_{\rm esc},\quad \tau
+\quad\longrightarrow\quad
+(W_{\rm base},W_{\rm esc},\tau)\big|_{r\in\mathcal R}.
+\]
+The global fractions remain normalized to the all-radius source and escaped luminosity, while the within-region fractions are normalized to the selected region.
+
+A regression test file, \`test_b16_escape_phase_space.py\`, now checks:
+- energy-bin source and escaped-luminosity fractions sum to unity within a selected emission region;
+- direction-bin fractions obey the same condition;
+- the summed global fractions recover the selected region's fraction of the total source and total escaped luminosity;
+- the all-radius case reproduces the global partition.
+
+The corrected binning logic was independently exercised on a synthetic nonuniform phase-space array: both the energy and direction partitions sum to exactly 1.0 within the selected region, and their global fractions reproduce the region's total source and escaped-luminosity fractions. This synthetic check is not a substitute for executing the committed unit-test file or the physical high-order calculation.
+
+### Actions execution status
+
+The workflow was adjusted to use \`ubuntu-22.04\` and now begins with an explicit runner-provisioning preflight. The latest run, \`42659698357\`, still terminates after approximately five seconds with:
+- one job created;
+- zero job steps;
+- no job log URL;
+- zero billable execution time.
+
+The previous \`ubuntu-latest\` attempts show the same pre-step failure. This is upstream of checkout, Python installation, regression tests, and the numerical code. It is therefore not evidence of a Python or quadrature failure.
+
+The repository is private. GitHub's billing documentation states that standard GitHub-hosted runner usage in private repositories draws on the account's included monthly compute usage, with additional usage subject to billing and configured spending limits. The available repository connection does not expose the owner's current Actions allowance or billing stop setting, so quota exhaustion is **not confirmed**. The account owner should check GitHub **Settings → Billing and licensing → Usage** for Actions/compute usage and the configured budget, and the repository's **Settings → Actions → General** for Actions availability and policy restrictions.
+
+No further automatic retries are scheduled in this workflow until runner provisioning is restored. This avoids generating repeated zero-step runs.
+
+### Acceptance status
+
+- Corrected subregion masking: committed.
+- Synthetic normalization check: passed.
+- Dedicated regression test file: committed, not yet executed on GitHub Actions.
+- High-order \(200/640/200/32/64\) energy-resolved phase-space output: **not yet produced**.
+- No new physical inference is drawn from the unexecuted high-order binning.
+- The archived high-order integrated B.16 baseline and the previously completed lower-order directional/path diagnostics remain unchanged.
