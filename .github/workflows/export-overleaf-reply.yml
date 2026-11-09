@@ -1,0 +1,65 @@
+name: Export Overleaf referee-response package
+
+on:
+  push:
+    branches:
+      - review/major3-two-block-neutrino-response-20261109
+    paths:
+      - '.github/workflows/export-overleaf-reply.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout merged referee-response source
+        uses: actions/checkout@v4
+
+      - name: Assemble Overleaf import bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist/reference_pdf
+          cp Replies_to_Referee_3_referee_facing_2026-11-04.tex dist/main.tex
+          cp references.bib dist/references.bib
+          cp JHEP.bst dist/JHEP.bst
+          cp Replies_to_Referee_3_referee_facing_2026-11-04.pdf dist/reference_pdf/
+          cat > dist/README_Overleaf.md <<'EOF'
+          # Overleaf import instructions
+
+          This archive is the referee-response project source at the merged PR #72 revision.
+
+          ## Files
+          - `main.tex`: complete referee-response source (renamed from the repository's formal referee-facing TeX filename).
+          - `references.bib`: the root bibliography used by the referee-response source; it includes the Borah and He neutrino-sector references.
+          - `JHEP.bst`: bibliography style required by `\bibliographystyle{JHEP}`.
+          - `reference_pdf/`: the compiled 58-page PDF for visual comparison; it is not an input dependency.
+
+          ## Overleaf settings
+          - Main document: `main.tex`
+          - Compiler: pdfLaTeX
+          - Bibliography tool: BibTeX
+
+          The source uses `\bibliography{references}` and `\bibliographystyle{JHEP}`. No external figure or input files are referenced by `main.tex`.
+
+          ## Provenance
+          - Repository: `lm846802297-bit/axial-vector-review-response`
+          - Merged PR: #72
+          - Main merge commit: `9ca627c9df7b016af35f11a05fd2a37998d46c60`
+          - Validated PDF SHA-256: `7d5f3dbb4b959dcb43268a1ebe5ec2cb046cb7502d33244b1e3864b53a6fbc23`
+          EOF
+          rm -f Overleaf_Reply_Letter_PR72_2026-11-09.zip
+          (cd dist && zip -r ../Overleaf_Reply_Letter_PR72_2026-11-09.zip main.tex references.bib JHEP.bst README_Overleaf.md reference_pdf)
+          unzip -t Overleaf_Reply_Letter_PR72_2026-11-09.zip
+
+      - name: Commit Overleaf bundle to the export branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Overleaf_Reply_Letter_PR72_2026-11-09.zip
+          git commit -m "Refresh Overleaf import bundle for merged PR #72"
+          git push origin HEAD:${{ github.ref_name }}
