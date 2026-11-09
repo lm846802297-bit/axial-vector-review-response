@@ -100,7 +100,7 @@ The independent original-PDF comparison now extends through the full 15--20 km p
 - Fig. 4 mu_mu/T: 0.004684% (0.015474%).
 - Derived mu_mu from T times mu_mu/T: 0.005112% (0.021238%); this is a combined cross-check, not an independent third observable.
 
-The original Bollig Fig. 1 and Fig. 4 plotting frames both end at 20 km. The 20--22 km interval has no direct original-figure temperature support and only the endpoint at 20 km for mu_mu/T. No extrapolation is used. The 20--22 km Caputo temperature input therefore remains a public-figure reconstruction without an independent Bollig-figure cross-check.
+The original Bollig Fig. 1 and Fig. 4 plotting frames both end at 20 km. The 20--22 km interval has no direct original-figure temperature support and only the endpoint at 20 km for mu_mu/T. No Bollig curve is extrapolated. A separate Caputo source-PDF audit identifies clip rectangles ending at x_pdf=325, while the underlying T and mu_mu drawing paths continue outside the visible frame. There are 45 T vertices and 48 mu_mu vertices in 20--22 km; the T path continues with 57 vertices through 22--25 km, while the mu_mu path reaches the 1 MeV plotting floor at 22.1919 km and has no further encoded continuation. The committed vertex CSVs reproduce these PDF vertices with maximum relative residuals below 10^-12. These are encoded off-frame PDF vectors, not visible plot data or raw Garching tables. Thus the Caputo continuation has a traceable PDF origin but no independent Bollig cross-check beyond 20 km.
 
 This unsupported interval is not negligible in the B.16 path integral: the 20--22 km shell contributes 12.81% of the source-weighted nu_mu+nu_tau inverse-decay path optical depth for the dominant 8--15 km emission region. The self-consistent 20--22 km temperature stress test is complete; see Section 6 and [Actions run 42554811330](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42554811330). Its +/-10% variations are diagnostic stress tests, not statistical uncertainty intervals.
 
@@ -127,7 +127,20 @@ At the strong endpoint, either sign changes the escaped luminosity by only +0.00
 
 The unresolved 1 MeV chemical-potential floor in 20--22 km is therefore not a plausible explanation for the order-one strong-coupling Fig. 7 mismatch. This is a figure-floor stress test, not a measurement of the true mu_numu profile. Full results are in [B16_OUTER_NUMU_FLOOR_SENSITIVITY_20_22KM_2026-11-09.md](B16_OUTER_NUMU_FLOOR_SENSITIVITY_20_22KM_2026-11-09.md) and [Actions run 42555233650](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42555233650).
 
-## 8. Current decision
+## 8. 22--25 km temperature sensitivity: completed
+
+The Caputo source-PDF audit confirms 57 encoded off-frame T(r) vertices in 22--25 km, spanning 3.0363--3.5509 MeV. The original Bollig Fig. 1 and Fig. 4 frames end at 20 km, so this interval has no independent Bollig-figure cross-check. The mu_mu path terminates at 22.1919 km at the 1 MeV plotting floor; the current profile sets mu_mu=0 beyond that point. The 22--25 km B.2 path is therefore dominated by neutrino inverse-decay opacity.
+
+A self-consistent B.1+B.2 temperature stress test varies only T(r) across the 222 retained 22--25 km nodes, with N_r=40, N_E=100, N_omega=32, N_s=32. The baseline B.1 thin-source fraction emitted in this shell is 0.07276%, while the independent full path-matrix calculation assigns 19.1084% of the neutrino inverse-decay path optical depth for 8--15 km emission (19.3314% for all emission radii), consistent with the earlier direction-resolved 19.07% result.
+
+At the strong endpoint:
+- +/-10% T stress changes escaped luminosity by -1.8133% / +2.7688% and escape probability by -1.7842% / +2.7268%.
+- Broad +/-30% T stress changes escaped luminosity by -3.6191% / +12.4742% and escape probability by -3.5591% / +12.2910%.
+- The Fig. 7 discrepancy moves from +92.25% at baseline to +85.29% for T scaled by 0.7 and +116.23% for T scaled by 1.3; it remains order-one.
+
+The B.1 source contribution remains below 0.24% even in the +30% case, so the response is primarily B.2 propagation. The +/-30% cases are deliberately broad stress tests, not statistical uncertainty intervals or proposed profile corrections. Full results are in [B16_OUTER_TEMPERATURE_SENSITIVITY_22_25KM_2026-11-09.md](B16_OUTER_TEMPERATURE_SENSITIVITY_22_25KM_2026-11-09.md) and [Actions run 42556526873](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42556526873).
+
+## 9. Current decision
 
 - Radial, energy, angular, and path global quadrature: passed the stated project-level luminosity-stability targets at the tested resolutions.
 - Same-grid B.16 closure: passed for all four global B.13 configurations with zero residual.
