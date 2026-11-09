@@ -30,7 +30,8 @@ def summarize(x):
                 "strong_pct":float(d[-1]*100),
                 "weak_pct":float(d[0]*100)}
     return {
-      "radial_order":x["configuration"]["radial_order"],\n      "opacity_order":x["configuration"]["opacity_order"],
+      "radial_order":x["configuration"]["radial_order"],
+      "opacity_order":x["configuration"]["opacity_order"],
       "actual_radial_node_count":len(x["eq_b1_source_measure"]["radial_measure_MeVminus3"]),
       "thin_luminosity_erg_s_at_first_coupling":float(thin[0]),
       "fixed_vs_fig7":x["eq_b2_fixed_omega_baseline"]["curve_metrics"],
