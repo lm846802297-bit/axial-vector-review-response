@@ -67,6 +67,13 @@ jobs:
           assert d["mass_MeV"]==mass
           assert d["profile_sha256"]=="9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
           assert [x["radial_order"] for x in d["radial_orders"]]==[80,100,120,160,200]
+          assert d["grid_isolation"]["source_radial_grid_varied"] is True
+          assert d["grid_isolation"]["opacity_grid_fixed"] is True
+          assert d["grid_isolation"]["energy_grid_fixed"] is True
+          assert all(x["source_grid_mode"]=="independent" for x in d["radial_orders"])
+          assert len({x["opacity_grid_sha256"] for x in d["radial_orders"]})==1
+          assert len({x["energy_grid_sha256"] for x in d["radial_orders"]})==1
+          assert len({x["source_grid_sha256"] for x in d["radial_orders"]})==5
           git_files=[
             "research/stellar-cooling-constraints-20261105/rates.py",
             "research/stellar-cooling-constraints-20261105/transport.py",
