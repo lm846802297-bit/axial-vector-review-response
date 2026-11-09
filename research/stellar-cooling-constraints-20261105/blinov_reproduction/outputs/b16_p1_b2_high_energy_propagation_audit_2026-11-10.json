@@ -272,5 +272,80 @@
     "The 36-ray redshift channel statistics are unweighted diagnostic samples, not global source-weighted averages.",
     "The 60-ray vertex-preserving comparison and 108-ray direct-s check are targeted high-energy diagnostics, not a full re-integration of the 25-point Fig. 7 curve.",
     "The stellar profile is reconstructed from public figures; it is not the original Garching snapshot."
-  ]
+  ],
+  "global_source_weighted_channel_shapley": {
+    "configuration": {
+      "mass_MeV": 10,
+      "coupling": 4.171689650228597e-8,
+      "source_radial_order": 200,
+      "opacity_radial_order": 640,
+      "energy_order": 200,
+      "total_energy_nodes": 842,
+      "band_energy_nodes": 10,
+      "angular_order": 32,
+      "path_order": 64,
+      "radius_km": 25,
+      "energy_band_MeV": [
+        210,
+        510
+      ],
+      "source_measure": "Eq. (B.1), independent source radial grid, same source weights in all four transport counterfactuals",
+      "path_redshift_interpolation": "bilinear in radius and local energy, matching the archived high-order path-redshift implementation"
+    },
+    "energy_nodes_MeV": [
+      217.29217795953696,
+      237.39657523579274,
+      259.4508135230317,
+      283.6439997074672,
+      310.18358135755915,
+      339.29712550971476,
+      371.234269970943,
+      406.2688638701478,
+      444.7013158125026,
+      486.86116977144746
+    ],
+    "source_per_g2": {
+      "total": 4.168593206235335e+69,
+      "neutrino": 2.0791450654537646e+69,
+      "compton": 2.0894481407815782e+69
+    },
+    "thin_band_luminosity_erg_s": 7.25460047985254e+54,
+    "luminosity_erg_s": {
+      "fixed_both": 1.7017848288465932e+52,
+      "redshift_neutrino_only": 1.223724420107633e+52,
+      "redshift_compton_only": 1.7017049585887518e+52,
+      "redshift_both": 1.2236705002358703e+52
+    },
+    "escape_probability": {
+      "fixed_both": 0.0023458008936161076,
+      "redshift_neutrino_only": 0.001686825378607902,
+      "redshift_compton_only": 0.002345690797604531,
+      "redshift_both": 0.0016867510535338854
+    },
+    "shapley_delta_luminosity_erg_s": {
+      "total": -4.7811432861072296e+51,
+      "neutrino": -4.7804743354592094e+51,
+      "compton": -6.6895064802012255e+47
+    },
+    "shapley_fraction_of_total_change": {
+      "neutrino": 0.999860085630572,
+      "compton": 0.00013991436942789828
+    },
+    "relative_luminosity_change_redshift_both_vs_fixed": -0.2809487548051367,
+    "validation": {
+      "source_per_g2_relative_residual_vs_archived": -1.87942994500645e-11,
+      "fixed_band_luminosity_relative_residual_vs_archived": 0.00000283752693830408,
+      "bilinear_redshift_band_luminosity_relative_residual_vs_archived": 4.087996521295878e-7
+    },
+    "direct_local_rate_crosscheck": {
+      "method": "same source/path quadrature, but evaluate the local absorption kernels directly at omega_local(s) instead of bilinear interpolation in local energy",
+      "luminosity_redshift_both_erg_s": 1.2298145732425637e+52,
+      "relative_change_vs_fixed": -0.27733838473804806,
+      "relative_difference_vs_bilinear_result": 0.0050214299954756125,
+      "shapley_fraction_neutrino": 0.9998637655316338,
+      "shapley_fraction_compton": 0.0001362344683661906,
+      "interpretation": "A roughly 0.50% difference in the redshift-only branch is associated with the local-energy interpolation choice; the fixed-omega result is unchanged and both methods assign more than 99.98% of the redshift-induced luminosity shift to neutrino inverse decay."
+    },
+    "interpretation": "This is a source-weighted global Shapley attribution for the 210--510 MeV band, not the unweighted 36-ray diagnostic. It shows that the path-redshift sensitivity is overwhelmingly due to neutrino inverse-decay opacity; semi-Compton contributes about 0.014% of the global luminosity change."
+  }
 }
