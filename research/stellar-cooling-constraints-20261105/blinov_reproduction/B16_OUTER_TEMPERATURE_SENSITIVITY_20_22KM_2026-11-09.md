@@ -5,7 +5,7 @@ Benchmark: 10 MeV pure-vector B.16 reference, fixed-omega B.2.
 
 ## Motivation
 
-The independent Bollig Fig. 1 and Fig. 4 vector-path audit validates Caputo T(r) and mu_mu/T through 20 km, but the original Bollig plotting frame ends at 20 km. The current 20--22 km profile is therefore not independently cross-checked against those original figures. The B.16 radial-path synthesis assigns 12.81% of the source-weighted neutrino inverse-decay path optical depth to this shell for the dominant 8--15 km emission region.
+The independent Bollig Fig. 1 and Fig. 4 vector-path audit validates Caputo T(r) and mu_mu/T through 20 km, but the original Bollig plotting frame ends at 20 km. The current 20--22 km profile is therefore not independently cross-checked against those original figures. The earlier channel-shell-directional synthesis reports a 12.81% neutrino inverse-decay path-tau fraction in this shell for 8--15 km emission; this independent self-consistent B.1+B.2 rerun at angular order 32 gives 12.719%. The 0.09 percentage-point difference is retained as a small pipeline-level cross-check difference and is not averaged away.
 
 ## Controlled variation
 
@@ -14,6 +14,7 @@ The independent Bollig Fig. 1 and Fig. 4 vector-path audit validates Caputo T(r)
 - mu_mu, mu_numu, lapse, radial grid, energy grid, angular quadrature, path quadrature, couplings, and Fig. 7 reference remain fixed.
 - Scales 0.9 and 1.1 are stress tests, not statistical uncertainty intervals.
 - Every scenario recomputes the complete B.1 source and B.2 opacity.
+- Global quadrature: N_r=40, N_E=100, N_omega=32, N_s=32.
 
 ## Results
 
