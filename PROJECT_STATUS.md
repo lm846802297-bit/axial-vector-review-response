@@ -7,7 +7,7 @@
 - 保留原有审稿人引文与文献引用。原论文正文、原论文 bibliography、图表和科研计算均不修改；扩展模型仍仅作为中微子扇区的可选完成机制。非中微子现象学继续以原始单 VEV \(S+\mathrm{VLL}\) 模型为基准。
 - 写作依据：对照原论文 PDF 的 Abstract、Introduction 和 Model Setup，采用其直接的物理陈述、先给场内容/对称性再给质量矩阵与对角化关系的组织方式；不把回复信写成模型扫描报告。
 
-**构建验收：** GitHub Actions [Run #140](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42569795558) 成功。LaTeX/BibTeX 编译、引用与交叉引用检查、PDF 结构检查和逐页渲染全部通过。PDF 为 57 页 A4、438,063 bytes；字体全部嵌入；SHA-256：`98b5a191bcbdaaaf151b36ef4c8aad2cc02c310324852e92021e8e378e73cd32`。BibTeX 无缺失条目/数据库警告，最终 LaTeX 日志无未解析引用或交叉引用，无 Overfull box；保留一处 Underfull `\\hbox`（badness 1199，源码第 609–611 行，位于本次 Major 3 修改范围之外）。
+**构建验收：** GitHub Actions [Run #140](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42569795558) 成功。LaTeX/BibTeX 编译、引用与交叉引用检查、PDF 结构检查和逐页渲染全部通过。PDF 为 57 页 A4、438,063 bytes；字体全部嵌入；SHA-256：`98b5a191bcbdaaaf151b36ef4c8aad2cc02c310324852e92021e8e378e73cd32`。BibTeX 无缺失条目/数据库警告，最终 LaTeX 日志无未解析引用或交叉引用，无 Overfull box；保留一处 Underfull `\hbox`（badness 1199，源码第 609–611 行，位于本次 Major 3 修改范围之外）。
 **页面渲染：** 57 页均以 150 dpi 渲染，生成 10 份联系表；本次构建未执行逐页人工高分辨率视觉签核。
 **工作流清理：** 为触发本次构建而临时加入的分支白名单已恢复为 main 原样；最终 PR diff 不包含 workflow 修改。
 **当前状态：** PR #72 保持 Open，尚未合并；编译后的 57 页 PDF 已提交到该 PR 分支。
