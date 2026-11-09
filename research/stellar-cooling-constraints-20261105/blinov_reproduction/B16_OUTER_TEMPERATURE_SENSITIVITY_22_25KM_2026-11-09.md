@@ -13,7 +13,7 @@ The 22--25 km shell is outside the original Bollig Fig. 1 and Fig. 4 frames. The
 - Off-frame baseline temperature range: [3.03377069226813, 3.55138904910432]
 - Varied nodes: 222
 - Only T_MeV is varied, and only for 22 <= r <= 25 km; mu_mu, mu_numu, lapse, radial grid, energy grid, angular quadrature, path quadrature, couplings, and Fig. 7 reference are fixed.
-- Scales 0.9 and 1.1 are stress tests, not statistical uncertainty intervals.
+- Scales 0.9 and 1.1 are +/-10% stress tests; 0.7 and 1.3 are deliberately broad +/-30% stress tests. None is a statistical uncertainty interval.
 - Every scenario recomputes the complete B.1 source and B.2 opacity.
 - Global quadrature: N_r=40, N_E=100, N_omega=32, N_s=32.
 
