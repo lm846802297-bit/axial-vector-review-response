@@ -76,6 +76,7 @@ jobs:
           assert d["mass_MeV"] == 10.0
           assert abs(d["closure"]["luminosity_relative_residual_vs_high_order_baseline"]) < 2e-10
           assert abs(d["closure"]["thin_luminosity_relative_residual_vs_high_order_baseline"]) < 2e-10
+          assert abs(d["closure"]["escape_probability_absolute_residual_vs_high_order_baseline"]) < 2e-13
           assert abs(d["configuration"]["direction_weight_sum"] - 1.0) < 1e-14
           for region in d["regions"]:
               for key in ("emission_radius_bins", "energy_bins", "direction_bins_4", "direction_bins_8"):
@@ -96,6 +97,24 @@ jobs:
               joint_esc_global = sum(x["escaped_luminosity_fraction_of_global"] for x in joint)
               assert abs(joint_thin_global - region["source_fraction_of_global_B1"]) < 2e-10
               assert abs(joint_esc_global - region["escaped_luminosity_fraction_of_global"]) < 2e-10
+              # Independently reconstruct all one-dimensional marginals from
+              # the complete joint table and compare with the stored partitions.
+              for axis, field, key in (
+                  ("emission_shell", "emission_radius_bins", "bin"),
+                  ("energy_bin", "energy_bins", "bin"),
+                  ("direction_bin", "direction_bins_4", "bin"),
+              ):
+                  for observable in (
+                      "thin_source_fraction_within_region",
+                      "escaped_luminosity_fraction_within_region",
+                  ):
+                      marginal = {}
+                      for cell in joint:
+                          marginal[cell[axis]] = marginal.get(cell[axis], 0.0) + cell[observable]
+                      expected = {row[key]: row[observable] for row in region[field]}
+                      assert marginal.keys() == expected.keys(), (region["region"], field, marginal.keys(), expected.keys())
+                      for bin_name, value in expected.items():
+                          assert abs(marginal[bin_name] - value) < 2e-10, (region["region"], field, bin_name, marginal[bin_name], value)
           core = next(x for x in d["regions"] if x["region"] == "dominant_8_15km_emission")
           assert 0.75 < core["source_fraction_of_global_B1"] < 0.85
           print(json.dumps({
