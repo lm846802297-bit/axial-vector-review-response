@@ -140,7 +140,15 @@ At the strong endpoint:
 
 The B.1 source contribution remains below 0.24% even in the +30% case, so the response is primarily B.2 propagation. The +/-30% cases are deliberately broad stress tests, not statistical uncertainty intervals or proposed profile corrections. Full results are in [B16_OUTER_TEMPERATURE_SENSITIVITY_22_25KM_2026-11-09.md](B16_OUTER_TEMPERATURE_SENSITIVITY_22_25KM_2026-11-09.md) and [Actions run 42556526873](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42556526873).
 
-## 9. Current decision
+## 9. Bollig Fig. 3 density comparison and plotting-floor treatment: completed
+
+The extended original-PDF audit covers 15--20 km. Caputo T and mu_mu/T continue to reproduce Bollig Figs. 1 and 4 with mean absolute relative differences of 0.00431% and 0.00468%, respectively (294 profile nodes each). The maximum absolute differences are 0.01628% and 0.01547%.
+
+The Fig. 3 absolute-density curve reaches its lower plotting floor of 10^-7 fm^-3 at r=16.646591 km. Of 294 nodes in 15--20 km, 90 remain above the floor (last at 16.603079 km) and 204 are censored. Only the 90 uncensored nodes are used for a density comparison. On those nodes, the Fermi density reconstructed from Caputo T,mu_mu is 10.402% higher on average than Bollig Fig. 3 (maximum 12.019%); using Bollig Fig. 1 T and Fig. 4 eta gives 10.385% mean and 12.108% maximum. The 17--20 km floor-clipped values are not treated as physical density measurements.
+
+This confirms that the published-figure-level absolute-density tension persists through the last uncensored Fig. 3 segment, while T and mu_mu/T remain independently matched. It does not identify the origin of the discrepancy. No density normalization, B.1 source, B.2 opacity, luminosity, or axial-vector output is rescaled. Full details: [BOLLIG_15_20KM_THERMODYNAMIC_CROSSCHECK_2026-11-09.md](BOLLIG_15_20KM_THERMODYNAMIC_CROSSCHECK_2026-11-09.md); workflow [42557233565](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42557233565).
+
+## 10. Current decision
 
 - Radial, energy, angular, and path global quadrature: passed the stated project-level luminosity-stability targets at the tested resolutions.
 - Same-grid B.16 closure: passed for all four global B.13 configurations with zero residual.
