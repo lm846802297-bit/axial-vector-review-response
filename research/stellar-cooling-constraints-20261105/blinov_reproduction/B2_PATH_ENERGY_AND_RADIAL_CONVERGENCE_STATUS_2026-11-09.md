@@ -118,3 +118,29 @@ Thus the 0.1 MeV B.1 source-radial integral passes the project's 1% adjacent-gri
 The 1 MeV numerical calculation in Run #42585236139 also completed and printed the same grid-isolation metadata, but its validation step looked for `..._1.0mev_...` while the run step had written `..._1mev_...`. This is a workflow filename-normalization error; it is not a numerical or physics failure. The 1 MeV JSON was therefore not archived or accepted.
 
 The validation now uses the same matrix mass string as the calculation and archive steps. The corrected replacement workflow is [Run #42586195530](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42586195530), currently running both mass points so each receives the same end-to-end validation.
+
+
+## 9. Published Fig. 7 method determination and primary high-order B.16 run (2026-11-09)
+
+The formal JHEP version is now checked directly: [Blinov et al., JHEP 06 (2026) 155](https://doi.org/10.1007/JHEP06(2026)155), especially Appendix B, Eqs. (B.13)--(B.19), and the paragraph immediately following Fig. 7.
+
+The published Fig. 7 Compton baseline is the non-relativistic-muon/no-recoil prescription encoded by Eqs. (B.14)--(B.19). The full moving-muon phase-space integral in Eq. (B.13) is the general expression; the text following Fig. 7 explicitly identifies the low-mass Compton absorption behavior with Eq. (B.14). The repository's `reference.py::compton_production` implements the B.16 structure, while `local_rates` applies detailed balance as in Eq. (B.19). The B.13 global calculation is therefore retained as a separate relativistic correction study, not as the pass/fail baseline for Fig. 7.
+
+The full method audit is archived in:
+`FIG7_COMPTON_BASELINE_METHOD_AUDIT_2026-11-09.md`.
+
+The primary high-order B.16 calculation is now running in [Run #42588622451](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42588622451). It evaluates the published B.14--B.19 kernel with:
+- B.1 source radial order 200;
+- B.2 opacity interpolation order 640, on a grid independent of the source nodes;
+- base energy order 200;
+- angular order 32;
+- path order 64;
+- masses 0.1, 1, and 10 MeV.
+
+This is the first high-order global B.16 run in which the source radial grid, opacity interpolation grid, and energy grid are separated by construction. It is the appropriate calculation to compare with the published Fig. 7 before drawing conclusions about the reconstructed profile or the path-redshift diagnostic.
+
+The published Fig. 7 contains six masses ((10^{-6},10^{-5},0.1,1,10,200\) MeV). The present high-order run covers the three representative masses already used for the source/opacity audits; the remaining three masses are a subsequent extension after this baseline passes.
+
+The published article does not provide an associated code/data archive. The profile in this repository remains a reconstruction from public figure paths rather than the original Garching simulation table. This limits exact digit-by-digit reproduction, but does not prevent an equation-level reproduction of the published B.14--B.19 method.
+
+No empirical rescaling is introduced. No axial-vector production result or constraint curve is modified.
