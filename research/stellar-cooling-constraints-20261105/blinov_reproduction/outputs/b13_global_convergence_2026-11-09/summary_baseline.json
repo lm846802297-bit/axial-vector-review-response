@@ -229,11 +229,11 @@
   "archived_B16_baseline": {
     "max_relative_reproduction_residual": 0.0,
     "path": "/home/runner/work/_temp/b16_baseline.json",
-    "sha256": "cf5363afa65808cdf335c6250ef791ba1058d1b01117ee974de215fedef12108"
+    "sha256": "990b84b4609672f009cb210c9e57b099c3843a029c88035de009dc9fe232d9e2"
   },
   "code_sha256": {
-    "archived_B16_baseline": "cf5363afa65808cdf335c6250ef791ba1058d1b01117ee974de215fedef12108",
-    "audit_script": "5e44c96feb67b50731d1f8c8607254b172a37b7bcb1c6676186b6d77dfa66ac1",
+    "archived_B16_baseline": "990b84b4609672f009cb210c9e57b099c3843a029c88035de009dc9fe232d9e2",
+    "audit_script": "9439a20aef89feaf4be8769bca97ef624b6a35d8cc7abae30bc315702211d0ec",
     "fig7_reference": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4",
     "moving_muon_kernel": "44bc670fd9384f34de56fbecb5371bae18c93c2292aa67e98f4ee304433dbaea",
     "profile": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
@@ -315,7 +315,7 @@
     "path_order": 32,
     "radial_order": 40,
     "radius_km": 25.0,
-    "wall_time_seconds": 295.9326722621918
+    "wall_time_seconds": 332.72738909721375
   },
   "fig7_reference": {
     "path": "/home/runner/work/axial-vector-review-response/axial-vector-review-response/research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json",
@@ -364,7 +364,7 @@
     "energy_max_MeV": 1010.0,
     "energy_min_MeV": 10.00001,
     "energy_node_count": 142,
-    "full_grid_sha256": "9cd8010aef45ac187d1063a00ab548ca60dfb962b0c9541bd986bc633735561a",
+    "full_grid_sha256": "5b0fd6041732e0b8070c2e1c1a0ca9c718d0a2d492449c7fa8ebdf73b5558cdf",
     "inactive_radial_node_count": 15,
     "inactive_radial_nodes_km": [
       19.339981043584856,
@@ -508,7 +508,7 @@
       "mu_plus_fraction_of_B13_Compton_source": 0.0004297117772473105
     }
   ],
-  "run_commit_sha": "e8cf8cfbd1c791582aceb9ffaa6c390cd014c7b8",
+  "run_commit_sha": "45db84cff23f731f7642e04321332e2a00d6d1d6",
   "scope": [
     "B.13 exact Compton production and reduced absorption are replaced together in the consistent variants.",
     "B.13 mu-minus-only and mu-minus-plus-mu-plus cases are reported separately.",
@@ -537,7 +537,7 @@
   },
   "summary_source": {
     "path": "/home/runner/work/_temp/full_baseline.json",
-    "sha256": "9cd8010aef45ac187d1063a00ab548ca60dfb962b0c9541bd986bc633735561a"
+    "sha256": "5b0fd6041732e0b8070c2e1c1a0ca9c718d0a2d492449c7fa8ebdf73b5558cdf"
   },
   "title": "Global B.13 exact moving-muon Compton replacement in the 10 MeV vector B.1/B.2 benchmark",
   "variant_results": {
