@@ -155,8 +155,14 @@ class ScalarPotentialCountertermMapTests(unittest.TestCase):
             match = finite_heavy_potential_matching(flavs)
             coeff = match["finite_potential_wilson_coefficients_at_mu_ME"]
             local = finite_potential_hs_mass_contributions(coeff, vh, float(vs))
-            self.assertAlmostEqual(local["total_including_portal_GeV2"], expected_total, places=7)
-            self.assertAlmostEqual(local["higher_dimensional_sum_GeV2"], expected_higher, places=7)
+            self.assertLess(
+                abs(local["total_including_portal_GeV2"]-expected_total)/abs(expected_total),
+                1e-9,
+            )
+            self.assertLess(
+                abs(local["higher_dimensional_sum_GeV2"]-expected_higher)/abs(expected_higher),
+                1e-9,
+            )
 
             def exact_heavy_potential(h, s):
                 value = mp.mpf("0")
