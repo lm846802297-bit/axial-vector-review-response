@@ -112,8 +112,11 @@ def solve_potential_counterterms(
 def leading_eft5_derivatives(vh: float, vs: float, by_flavour: dict) -> dict:
     """Derivatives of F_EFT = sum |C5|^4 (Hdag H)^2(Sdag S)^2.
 
-    With H0=phi_h/sqrt(2), S=phi_s/sqrt(2), the neutral light mass is
-    m_l(phi_h,phi_s)=C5 phi_h phi_s/2=y lambda phi_h phi_s/(2 M_E).
+    With H0=phi_h/sqrt(2), S=phi_s/sqrt(2), and the RC-001 convention
+    L_EFT5 = -C5 O5 + h.c., tree-level matching gives
+    C5 = -y lambda/M_E and m_l(phi_h,phi_s)=C5 phi_h phi_s/2.
+    The signed mass parameter is negative for positive y, lambda, M_E;
+    the positive physical mass used in the determinant is |m_l|.
     """
     total = {k: 0.0 for k in ("F", "F_h", "F_s", "F_hh", "F_hs", "F_ss")}
     flavours = {}
@@ -121,9 +124,10 @@ def leading_eft5_derivatives(vh: float, vs: float, by_flavour: dict) -> dict:
     for name, item in by_flavour.items():
         y = float(item["y"])
         lam = float(item["lambda"])
-        c5 = y * lam / ME
+        c5 = -y * lam / ME
         kappa = 0.5 * c5
-        mass = kappa * vh * vs
+        mass_parameter = kappa * vh * vs
+        mass = abs(mass_parameter)
         f = mass**4
         values = {
             "F": f,
@@ -139,6 +143,7 @@ def leading_eft5_derivatives(vh: float, vs: float, by_flavour: dict) -> dict:
         flavours[name] = {
             "C5_GeVminus1": c5,
             "kappa_neutral_mass_operator_GeVminus1": kappa,
+            "m_EFT5_mass_parameter_at_vev_GeV": mass_parameter,
             "m_EFT5_at_vev_GeV": mass,
             "input_light_mass_GeV": float(item["ml_GeV"]),
             "mass_relative_difference": abs(mass-float(item["ml_GeV"])) / float(item["ml_GeV"]),
@@ -535,7 +540,7 @@ def run_mapping(tadpole_json: Path, matrix_json: Path) -> dict:
         "EFT_dimension8_counterterm_basis": {
             "operator": "(Hdagger H)^2 (Sdagger S)^2",
             "coefficient": "-sum_l |C5_l|^4/(16 pi^2)",
-            "C5_definition": "C5_l = y_l lambda_l/M_E; m_l(h,s)=C5_l(v_h+h)(v_s+s)/2",
+            "C5_definition": "L_EFT5=-C5_l O5+h.c.; C5_l=-y_l lambda_l/M_E; m_l(h,s)=C5_l(v_h+h)(v_s+s)/2; physical mass=|m_l|",
             "reason": "The light determinant of the dimension-five mass operator generates a dimension-eight scalar operator; its h-s contact contribution is required in the EFT two-point UV pole.",
         },
         "benchmarks": benchmarks,
