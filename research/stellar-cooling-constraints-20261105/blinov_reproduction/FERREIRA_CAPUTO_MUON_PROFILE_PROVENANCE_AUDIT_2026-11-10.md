@@ -33,9 +33,9 @@ Thus the published model label, snapshot time, and sign convention are not obvio
 ## 2. Full 5--15 km comparison
 
 The comparison uses all 533 nodes of the existing 1687-row reconstructed profile CSV satisfying (5\le r\le15\) km. Define
-[
+$$
 \eta_\mu(r)=\frac{\mu_\mu(r)}{T(r)}.
-]
+$$
 
 | Statistic | Result |
 |---|---:|
