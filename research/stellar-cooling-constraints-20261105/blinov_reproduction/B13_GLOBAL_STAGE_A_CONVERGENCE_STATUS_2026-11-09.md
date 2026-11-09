@@ -262,7 +262,28 @@ The full independent curve agrees with archived B.16 to a maximum absolute relat
 
 Full report: [B16_FULL_INDEPENDENT_B1B2_LUMINOSITY_AUDIT_2026-11-09.md](B16_FULL_INDEPENDENT_B1B2_LUMINOSITY_AUDIT_2026-11-09.md); machine-readable result: [b16_full_b1b2_independent_10mev_2026-11-09.json](outputs/b16_full_b1b2_independent_10mev_2026-11-09.json).
 
-## 20. Current decision
+## 20. Dense local B.6--B.10 and B.14--B.19 audit: completed
+
+The local production and absorption kernels used by the full independent B.1+B.2 calculation have now been independently checked on the exact global quadrature grid: 200 source radii times 320 exact-threshold energy nodes per radius, or 64,000 (r,omega) points.
+
+At each radial node, neutrino B.6 production and inverse-occupation absorption are reconstructed from direct two-body angular phase-space integrals for nu_mu and nu_tau separately. The one-species B.17 negative-muon density and susceptibility are independently evaluated with the transformed momentum integral. Compton B.14--B.19 production, absorption, and reduced opacity are reconstructed from that susceptibility.
+
+Workflow [42565336032](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42565336032) passes, including unit tests, the full 64,000-point audit, finite-output validation, and the unchanged-production-axial-output check.
+
+Maximum residuals over the full grid:
+- neutrino B.6 production: 6.31e-14;
+- neutrino B.10 absorption: 6.00e-14;
+- B.17 muon susceptibility: 2.65e-13;
+- Compton B.16 production: 2.66e-13;
+- total production/absorption/reduced absorption: 2.30e-13.
+
+The 256-to-512 direct neutrino angular quadrature change is at most 1.20e-14. The nu_mu pair-production rate is invariant under mu_nu_mu -> -mu_nu_mu to 3.96e-15, as expected from exchanging the two initial-state energies in the symmetric angular integral.
+
+This closes the local algebraic/numerical coverage gap for the B.16 vector baseline on the actual B.1+B.2 integration grid. It does not validate the physical no-recoil B.14--B.16 approximation against exact moving-muon B.13, nor the reconstructed stellar profile or the energy/GR propagation convention.
+
+Full report: [B16_DENSE_LOCAL_KERNEL_AUDIT_2026-11-09.md](B16_DENSE_LOCAL_KERNEL_AUDIT_2026-11-09.md); machine-readable result: [b16_dense_local_kernel_audit_10mev_2026-11-09.json](outputs/b16_dense_local_kernel_audit_10mev_2026-11-09.json).
+
+## 21. Current decision
 
 - Radial, energy, angular, and path global quadrature: passed the stated project-level luminosity-stability targets at the tested resolutions.
 - Same-grid B.16 closure: passed for all four global B.13 configurations with zero residual.
@@ -272,5 +293,6 @@ Full report: [B16_FULL_INDEPENDENT_B1B2_LUMINOSITY_AUDIT_2026-11-09.md](B16_FULL
 - Independent B.2 propagation: analytic path integration, path-order convergence, and three independent angular-integration methods pass; the fixed-profile B.2 numerical implementation is not the source of the order-one Fig. 7 mismatch.
 - Independent B.1 thin source: radial and logarithmic-energy quadratures pass; the optically-thin source differs from the archived source by -0.4430%, with energy and radial effects separated by the matched-40-node test.
 - Full independent B.1+B.2: the 25-point luminosity curve reproduces archived B.16 to 0.4451% maximum relative difference; the Fig. 7 strong-endpoint residual remains +92.0542%. The end-to-end numerical integration is therefore validated at the sub-percent level for the adopted inputs.
+- Dense local B.6--B.10 and B.14--B.19 audit: 64,000 actual global (r,omega) nodes pass independent phase-space/susceptibility checks with maximum residuals below 2.7e-13. The local B.16 formula implementation is validated over the full integration grid; the physical no-recoil approximation remains a separate issue.
 - Fig. 7 mismatch: persists after numerical convergence and must be investigated as a separate physical/reproduction issue.
 - Axial-vector production curve: remains frozen.
