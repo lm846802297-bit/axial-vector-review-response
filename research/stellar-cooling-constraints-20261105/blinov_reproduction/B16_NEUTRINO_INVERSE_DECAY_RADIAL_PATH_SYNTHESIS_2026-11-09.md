@@ -148,3 +148,12 @@ No rate, source, opacity, coupling, luminosity, or axial-vector curve is rescale
 
 
 The unresolved mu_numu figure-floor convention in 20--22 km was also tested by assigning +/-1 MeV throughout the shell and recomputing the complete B.1 source and B.2 opacity. Either sign changes the strong-endpoint escaped luminosity by only +0.00915% and the escape probability by +0.00936%; the two signs agree exactly at stored precision. Thus the unresolved 1 MeV floor in this shell is not a plausible explanation for the large Fig. 7 mismatch. This is a stress test, not a reconstructed measurement of mu_numu. See B16_OUTER_NUMU_FLOOR_SENSITIVITY_20_22KM_2026-11-09.md.
+
+
+## 9. 22--25 km off-frame temperature and source-support audit
+
+The Caputo source PDF contains 57 T(r) vector vertices in 22--25 km, with T=3.0363--3.5509 MeV. These are encoded off-frame vertices: the top-panel clip boundary ends at x_pdf=325, corresponding to the visible 20 km boundary. The mu_mu path has only six vertices between 22 and 22.1919 km and terminates at the 1 MeV plotting floor; the baseline profile sets mu_mu=0 beyond it. The original Bollig Figs. 1 and 4 do not validate any of these outer-shell values.
+
+The 22--25 km shell contributes 19.1084% of the neutrino inverse-decay path optical depth for 8--15 km emission in the independent full B.1+B.2 path-matrix calculation, consistent with the earlier 19.07% direction-resolved synthesis. The B.1 source emitted in this shell is only 0.07276%.
+
+A self-consistent temperature-only stress test of the 222 nodes, with N_r=40, N_E=100, N_omega=32, N_s=32, finds that at the strong endpoint +/-10% T changes escaped luminosity by -1.8133% / +2.7688%; a broad +/-30% stress changes it by -3.6191% / +12.4742%. The corresponding Fig. 7 discrepancy remains +85.29% to +116.23%, compared with +92.25% at baseline. The response is dominated by B.2 propagation rather than B.1 emission. These variations are stress tests, not statistical uncertainty estimates, and no profile or luminosity rescaling is applied. See B16_OUTER_TEMPERATURE_SENSITIVITY_22_25KM_2026-11-09.md and CAPUTO_OFFFRAME_THERMODYNAMIC_VERTICES_20_22KM_2026-11-09.md.
