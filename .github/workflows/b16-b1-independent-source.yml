@@ -71,7 +71,7 @@ jobs:
           matched = d["same_radial_grid_independent_energy_check"]
           assert matched["number_of_radial_nodes"] == 40
           assert matched["comparison_with_archived"]["total"]["relative_difference"] is not None
-          assert d["comparison_with_archived_b16_b1"]["dimuon"]["relative_difference"] is None
+          assert d["comparison_with_archived_b16_b1"]["dimuon"]["relative_difference"] == 0.0
           import math
           def check_finite(value):
               if isinstance(value, float):
