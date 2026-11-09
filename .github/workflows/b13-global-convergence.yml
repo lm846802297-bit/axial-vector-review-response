@@ -22,7 +22,7 @@ permissions:
 
 concurrency:
   group: b13-global-convergence-${{ github.ref }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   convergence:
@@ -151,16 +151,37 @@ jobs:
             research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.pdf \
             research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.png
 
-      - name: Archive full grid and matching baseline as workflow artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: b13-convergence-${{ matrix.case }}
-          path: |
-            ${{ runner.temp }}/full_${{ matrix.case }}.json
-            ${{ runner.temp }}/summary_${{ matrix.case }}.json
-            ${{ runner.temp }}/b16_${{ matrix.case }}.json
-          if-no-files-found: error
-          retention-days: 90
+      - name: Commit compact per-grid summary directly to the research branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          result_dir=research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_convergence_2026-11-09
+          mkdir -p "$result_dir"
+          cp "$RUNNER_TEMP/summary_${{ matrix.case }}.json" "$result_dir/summary_${{ matrix.case }}.json"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$result_dir/summary_${{ matrix.case }}.json"
+          if git diff --cached --quiet; then
+            echo "Summary for ${{ matrix.case }} is already current."
+            exit 0
+          fi
+          git commit -m "Archive B.13 convergence result: ${{ matrix.case }}"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin "${GITHUB_REF_NAME}"
+            if ! git rebase "origin/${GITHUB_REF_NAME}"; then
+              git rebase --abort || true
+              echo "Rebase raced with another matrix job; retry ${attempt}/5."
+              sleep 2
+              continue
+            fi
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              exit 0
+            fi
+            echo "Push raced with another matrix job; retry ${attempt}/5."
+            sleep 2
+          done
+          echo "Could not archive the ${{ matrix.case }} summary after five retries."
+          exit 1
 
   aggregate:
     if: needs.convergence.result == 'success' && github.ref_name == 'research/moving-muon-thermal-rates-20261107'
@@ -171,20 +192,13 @@ jobs:
       - name: Check out research branch
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.sha }}
+          ref: ${{ github.ref_name }}
           fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-
-      - name: Download all per-grid results
-        uses: actions/download-artifact@v4
-        with:
-          path: ${{ runner.temp }}/b13-convergence-artifacts
-          pattern: b13-convergence-*
-          merge-multiple: true
 
       - name: Compile aggregator
         run: |
@@ -194,7 +208,7 @@ jobs:
       - name: Build convergence report and durable summaries
         run: |
           python research/stellar-cooling-constraints-20261105/blinov_reproduction/summarize_b13_convergence.py \
-            --input-dir "$RUNNER_TEMP/b13-convergence-artifacts" \
+            --input-dir research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_convergence_2026-11-09 \
             --output-dir research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_convergence_2026-11-09 \
             --report research/stellar-cooling-constraints-20261105/blinov_reproduction/B13_GLOBAL_TRANSPORT_CONVERGENCE_AUDIT_2026-11-09.md \
             --aggregate research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_convergence_summary_2026-11-09.json
