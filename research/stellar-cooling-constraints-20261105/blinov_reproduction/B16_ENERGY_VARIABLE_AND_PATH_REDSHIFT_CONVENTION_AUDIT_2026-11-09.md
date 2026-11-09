@@ -75,3 +75,48 @@ the proper path element and ray geometry depend on the spatial metric function \
 5. If a full GR extension is pursued later, obtain a consistent metric (at minimum \(N(r)\) and \(A(r)\), or \(N(r)\) and enclosed mass) from the same SFHo-18.8 snapshot before changing the transport model.
 
 No production axial-vector curve, source normalization, absorption rate, or referee-response text is changed by this audit.
+
+
+## 6. Version-of-record source adjudication (2026-11-09)
+
+Primary source: Blinov, Fox, Kelly, Plestid and Zhou, *L_mu-L_tau gauge bosons in beam dumps and supernovae*, JHEP 06 (2026) 155, DOI [10.1007/JHEP06(2026)155](https://doi.org/10.1007/JHEP06(2026)155), arXiv:2511.09619. This check uses the published version of record (published 15 June 2026), rather than relying only on the preprint.
+
+### 6.1 Energy notation across the main text and Appendix B
+
+The published main text, Sec. 4.1, immediately below Eq. (4.2), describes \\(\\omega\\) as the energy carried by the vector at spatial infinity. Appendix B uses the same symbol in a different-looking way:
+
+- Eq. (B.1) contains \\(N(r)^2\\) and the local escape threshold \\(\\omega_{\\min}=m_V/N(r)\\). With the local phase-space measure and local production rate appearing in that equation, this identifies the integration variable as the energy measured locally at the production point.
+- Eq. (B.2) inserts the same \\(\\omega\\) into \\(\\Gamma^*_{\\rm abs}(r'(s),\\omega)\\) all along the chord.
+- Eqs. (B.4) and (B.5) use that same energy in the local thermal factor and vector speed.
+
+Thus the source-energy interpretation implied by Appendix B.1, the fixed energy argument printed in B.2, and the phrase “energy ... at spatial infinity” in Sec. 4.1 are not all the same convention unless an implicit conversion is supplied. The article does not write that conversion explicitly in B.2.
+
+For the reproduction task, the code therefore retains the literal Appendix-B prescription as one clearly defined branch. The redshift-only diagnostic remains a distinct physically motivated alternative; it is not substituted into the published-form baseline and is not called full GR.
+
+### 6.2 Compton prescription: formal rate versus approximate reduction
+
+The version of record presents Eq. (B.13) as the thermal phase-space integral for \\(\\mu\\gamma\\to\\mu V\\). It then discusses the non-relativistic-muon/no-recoil approximation, gives the approximate cross section in Eq. (B.14), and derives the compact thermal-rate expressions in Eqs. (B.15)--(B.16).
+
+The Fig. 7 discussion says that the luminosity is evaluated using Eq. (B.1) and the physics inputs described in Appendix B, but it does not separately identify the numerical Compton implementation as either the full Eq. (B.13) integral or the reduced Eq. (B.16) expression. The formal presentation of B.13 and the subsequent approximate reduction therefore need to be distinguished when describing what is directly established by the article.
+
+Current project convention: retain the B.16 closed-form calculation as the operational historical benchmark, and retain the exact moving-muon B.13 calculation as a separate alternative. This is a controlled comparison, not proof that the unpublished Fig. 7 code used B.16. No choice is made by fitting either branch to Fig. 7.
+
+The article's data-availability and code-availability statements say that no associated data and no associated code are deposited. The original numerical implementation therefore cannot be inspected from the publication itself.
+
+### 6.3 Reproduction consequence
+
+For the current vertex-preserving profile B at 10 MeV:
+
+- literal fixed-\\(\\omega\\), B.16 working benchmark: strong-endpoint residual \\( +92.24\\% \\);
+- path-redshift-only diagnostic with the same Euclidean chord measure: strong-endpoint residual \\( +36.74\\% \\);
+- consistent global B.13 source-and-opacity replacement: strong-endpoint residual \\( +131.53\\% \\).
+
+These are different physical prescriptions, not interchangeable numerical refinements. None reproduces Fig. 7. The B.13 result remains a separate diagnostic and is not promoted to a final precision prediction until its dedicated global convergence output is fully archived.
+
+### 6.4 Decision
+
+1. Preserve the literal fixed-\\(\\omega\\) Appendix-B calculation and its B.16 working Compton implementation for continuity with the current benchmark.
+2. Keep the redshift-only and B.13 calculations separate, with their assumptions visible.
+3. Do not state that the published Fig. 7 code is known to use B.16 unless independent implementation evidence becomes available.
+4. Do not infer a full GR result from the redshift-only diagnostic.
+5. Do not alter the production axial-vector curve or use empirical rescaling to improve the vector comparison.
