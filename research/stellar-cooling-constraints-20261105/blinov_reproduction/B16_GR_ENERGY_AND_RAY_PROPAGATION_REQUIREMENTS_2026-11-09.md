@@ -105,11 +105,11 @@ No attempt is made to bypass the access restriction, reuse another person's acce
 
 ## 5. Existing energy-convention diagnostic
 
-The earlier path-redshift-only diagnostic changes
+The path-redshift-only diagnostic changes
 \[
 \omega_{\rm loc}(r')=\omega_s\frac{N(r_s)}{N(r')}
 \]
-inside the opacity kernel while retaining Euclidean straight chords. At 10 MeV it reduces the strong-endpoint discrepancy against Fig. 7 from approximately \(+92.24\%\) to \(+36.74\%\) in the earlier vertex-preserving calculation. It does not reproduce the reference curve and is not a full GR result.
+inside the opacity kernel while retaining Euclidean straight chords. It has now been rerun and archived on the current vertex-preserving profile B (SHA-256 `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`). At 10 MeV it reduces the strong-endpoint discrepancy against Fig. 7 from \(+92.2406\%\) to \(+36.7448\%\); the 25-point weak/peak/strong residuals and the machine-readable output are recorded in [B16_ENERGY_VARIABLE_AND_PATH_REDSHIFT_CONVENTION_AUDIT_2026-11-09.md](B16_ENERGY_VARIABLE_AND_PATH_REDSHIFT_CONVENTION_AUDIT_2026-11-09.md) and `outputs/b16_global_redshift_audit_2026-11-09.json`. GitHub Actions [Run #42568420651](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42568420651) passed. It does not reproduce the reference curve and is not a full GR result.
 
 The new independent full B.1+B.2 calculation validates the literal fixed-\(\omega\) implementation against the archived B.16 result to better than 0.45%. The dense local-kernel audit independently closes the local production and absorption formulae on all 64,000 global radius--energy nodes. These checks establish that the remaining difference is not an integration-code error within the adopted fixed-\(\omega\) prescription.
 
