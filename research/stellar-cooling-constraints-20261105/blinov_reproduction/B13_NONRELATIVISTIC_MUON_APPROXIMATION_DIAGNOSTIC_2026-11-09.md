@@ -20,7 +20,7 @@ These are diagnostics of the equilibrium muon distribution, not a direct calcula
 
 ## 1. Method
 
-The profile uses the same (T(r)) and (mu_\mu(r)) that enter the B.13 and B.17 calculations. At each radial point the distribution is
+The profile uses the same `T(r)` and (mu_\mu(r)) that enter the B.13 and B.17 calculations. At each radial point the distribution is
 ```
 f_mu(p,r) = 1/[exp((sqrt(p²+m_mu²)-mu_mu(r))/T(r))+1].
 ```
@@ -30,7 +30,7 @@ The susceptibility-weighted speed is
   [∫ dp p² f_mu(1-f_mu) p/sqrt(p²+m_mu²)]
   / [∫ dp p² f_mu(1-f_mu)].
 ```
-The corresponding fractions with (p>m_\mu) and (v_\mu>0.5) use the same (p^2 f(1-f)) weight.
+The corresponding fractions with (p>m_\mu) and (v_\mu>0.5) use the same `p^2 f(1-f)` weight.
 
 To estimate the radii that matter for the low-mass Compton source, the radial weighting is the leading (m_V/T\to0) B.16 form,
 ```
