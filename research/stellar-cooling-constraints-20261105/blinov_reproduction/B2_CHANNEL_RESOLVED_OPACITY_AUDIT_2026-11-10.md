@@ -75,3 +75,12 @@ This does not yet identify the origin of the Fig. 7 discrepancy. In particular, 
 ## P1 follow-up (2026-11-10)
 
 The targeted high-energy B.2 path, angle, and opacity-interpolation checks are archived in [B16_P1_B2_HIGH_ENERGY_PROPAGATION_AUDIT_2026-11-10.md](B16_P1_B2_HIGH_ENERGY_PROPAGATION_AUDIT_2026-11-10.md). Direct path-coordinate integration agrees with the analytic radial primitive at the \(10^{-13}\) level; using all 1687 profile vertices instead of the 642-node opacity grid changes the sampled total optical depth by at most \(1.87\times10^{-5}\). A separate 36-ray channel-resolved path-redshift diagnostic finds that the redshift sensitivity is carried by neutrino inverse decay, while the semi-Compton opacity is nearly unchanged. These are targeted diagnostics, not a new global Fig. 7 calculation. The fixed-\(\omega\) B.2 baseline is retained.
+
+
+## Source-weighted global path-redshift channel attribution (2026-11-10)
+
+The P1 follow-up now includes a global Shapley decomposition over the full B.1 source measure in the 210--510 MeV band. The four fixed/redshift counterfactuals give \(L_{00}=1.70178483\times10^{52}\), \(L_{10}=1.22372442\times10^{52}\), \(L_{01}=1.70170496\times10^{52}\), and \(L_{11}=1.22367050\times10^{52}\) erg/s.
+
+The Shapley attribution of the global luminosity change is 99.9860% from neutrino inverse decay and 0.0140% from semi-Compton absorption. This is source weighted and supersedes the 36-ray unweighted channel sample as the global attribution. The direct local-rate evaluation cross-check changes the redshifted band luminosity by about 0.50% relative to bilinear local-energy interpolation, but retains the same greater-than-99.98% neutrino attribution. The fixed-\(\omega\) B.2 baseline is unchanged.
+
+See [B16_P1_B2_HIGH_ENERGY_PROPAGATION_AUDIT_2026-11-10.md](B16_P1_B2_HIGH_ENERGY_PROPAGATION_AUDIT_2026-11-10.md) and its machine-readable JSON result.
