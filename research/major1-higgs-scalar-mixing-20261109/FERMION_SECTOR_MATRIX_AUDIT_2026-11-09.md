@@ -128,3 +128,34 @@ the field-counterterm coefficient is
 The \(hs\) coefficient is the counterterm for the EFT light-bubble subtraction, not a physical mixing angle or a contradiction of the full-theory cancellation. The JSON output also records the local mass-pole coefficients; these require mapping to the scalar-potential parameter counterterms together with the tadpole/VEV prescription.
 
 The fifth automated test validates these field-counterterm coefficients for both benchmarks. GitHub Actions run 42564492356 passes all five tests. This remains a fermion-sector matching subcalculation, not a complete UV--EFT matching result.
+
+
+## 9. Full-theory tadpole/potential counterterms and leading EFT5 contact completion
+
+The independent VLL effective-potential audit and scalar-potential counterterm map are archived in:
+
+- TADPOLE_VEV_AND_EFT_DIM8_UV_AUDIT_2026-11-09.md
+- independent_fermion_tadpole_uv_audit.py
+- scalar_potential_counterterm_map.py
+- test_scalar_potential_counterterm_map.py
+- scalar_potential_counterterm_map.json
+
+The full-theory invariant is
+\[
+F=\sum_{\ell=\mu,\tau}\operatorname{Tr}[(\mathcal M_\ell^\dagger\mathcal M_\ell)^2]
+=\sum_\ell\left[
+M_E^4+M_E^2|y_\ell|^2\phi_h^2+\frac{|y_\ell|^4}{4}\phi_h^4
++M_E^2|\lambda_\ell|^2\phi_s^2+\frac{|\lambda_\ell|^4}{4}\phi_s^4
+\right].
+\]
+It has no mixed \(\phi_h^2\phi_s^2\) term. Therefore the VLL determinant gives \(\delta\lambda_{HS}=0\) as a divergent full-theory potential counterterm at this order. This does not set the finite portal threshold to zero.
+
+The leading EFT5 mass function \(m_\ell=C_{5,\ell}\phi_h\phi_s/2\) generates
+\[
+V_{1,\mathrm{EFT5}}^{\mathrm{div}}
+=\frac{\Delta_{\mathrm{UV}}}{16\pi^2}
+\sum_\ell |C_{5,\ell}|^4(H^\dagger H)^2(S^\dagger S)^2.
+\]
+The mixed \(hs\) two-point UV pole contains both the light bubble and the second-derivative contact term. Consequently, the earlier light-bubble-only local subtraction is not the complete EFT local UV subtraction. The dimension-eight operator counterterm and contact contribution are now explicit.
+
+The fixed numerical pole coefficients and the perturbative-control caveat for Benchmark A are given in the separate audit report. Finite tadpole/VEV conditions and the complete gauge/Goldstone/ghost/scalar matching remain open.
