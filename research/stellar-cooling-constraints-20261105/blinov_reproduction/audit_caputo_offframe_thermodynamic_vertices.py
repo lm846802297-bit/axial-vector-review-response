@@ -91,6 +91,9 @@ def summarize_curve(name, drawing, csv_path, pdf_hash):
     selected_v = values[selected]
     if not len(selected_r):
         raise RuntimeError(f"No off-frame {name} vertices in 20--22 km")
+    outer = (radius >= 22.0) & (radius <= 25.0)
+    outer_r = radius[outer]
+    outer_v = values[outer]
 
     csv_curve = read_csv(csv_path)
     csv_interp = np.interp(radius, csv_curve[:, 0], csv_curve[:, 1])
@@ -123,6 +126,9 @@ def summarize_curve(name, drawing, csv_path, pdf_hash):
         "off_frame_vertex_count_r_gt_20": int(np.count_nonzero(radius>20.0)),
         "off_frame_20_22_vertex_count": int(np.count_nonzero(selected)),
         "off_frame_20_22_value_range": [float(selected_v.min()),float(selected_v.max())],
+        "off_frame_22_25_vertex_count": int(len(outer_r)),
+        "off_frame_22_25_value_range": [float(outer_v.min()),float(outer_v.max())] if len(outer_v) else None,
+        "off_frame_22_25_radius_support_km": [float(outer_r.min()),float(outer_r.max())] if len(outer_r) else None,
         "off_frame_20_22_max_abs_adjacent_slope_per_km": float(np.max(np.abs(slopes))) if len(slopes) else None,
         "off_frame_20_22_continuity_gaps_in_original_item_order": continuity_gaps,
         "committed_csv_sha256": sha256(csv_path),
@@ -248,6 +254,15 @@ def make_report(d):
             f"| {name} | {x['point_count']} | {x['off_frame_20_22_vertex_count']} | {x['off_frame_20_22_value_range']} | {100*x['csv_vs_pdf_vertex_max_abs_relative_difference']:.4g}% | {x['off_frame_20_22_continuity_gaps_in_original_item_order']} |"
         )
     lines.extend([
+        "",
+        "## 22--25 km encoded vector support",
+        "",
+        "| Curve | 22--25 km vertices | Value range | Radius support |",
+        "|---|---:|---:|---:|",
+        f"| T | {d['curves']['T']['off_frame_22_25_vertex_count']} | {d['curves']['T']['off_frame_22_25_value_range']} | {d['curves']['T']['off_frame_22_25_radius_support_km']} |",
+        f"| mu_mu | {d['curves']['mu_mu']['off_frame_22_25_vertex_count']} | {d['curves']['mu_mu']['off_frame_22_25_value_range']} | {d['curves']['mu_mu']['off_frame_22_25_radius_support_km']} |",
+        "",
+        "The T path continues through 25 km in the off-frame PDF drawing. The mu_mu path terminates at 22.1919 km when it reaches the 1 MeV plotting floor; the profile sets mu_mu to zero beyond that endpoint. No mu_mu continuation is inferred from the missing path.",
         "",
         "## Selected off-frame values",
         "",
