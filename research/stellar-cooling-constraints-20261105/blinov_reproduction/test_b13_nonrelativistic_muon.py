@@ -1,15 +1,15 @@
-ifrom blinov_reproduction.reference import (
-    ALPHA,
-    M_MU,
-    compton_production,
-    negative_muon_density_and_degeneracy,
-)
-mport unittest
+import unittest
 import numpy as np
 
 from audit_b13_nonrelativistic_muon import (
     integrate_range,
     muon_susceptibility_moments,
+)
+from reference import (
+    ALPHA,
+    M_MU,
+    compton_production,
+    negative_muon_density_and_degeneracy,
 )
 
 
