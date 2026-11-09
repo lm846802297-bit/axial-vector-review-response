@@ -210,7 +210,13 @@ Thus the exact moving-muon B.13 replacement does not repair the Fig. 7 mismatch 
 
 Full report: [B13_GLOBAL_TRANSPORT_AUDIT_2026-11-09.md](B13_GLOBAL_TRANSPORT_AUDIT_2026-11-09.md).
 
-## 15. Current decision
+## 15. Independent SFHo-18.8 lapse-profile cross-check: completed qualitatively
+
+A separate public visualization is identified in Zuowei Liu's 31 October 2026 presentation, slide 65, which plots the lapse factor versus radius for the SFHo-18.8 core and explicitly cites Bollig et al. (arXiv:2005.07141) and the Garching core-collapse supernova archive. The black lapse curve visually agrees with the current profile values over 0--20 km. Representative read-offs at 0, 5, 10, 15, and 20 km are approximately 0.735, 0.760, 0.810, 0.865, and 0.900; the current profile gives 0.73633, 0.75868, 0.81136, 0.86350, and 0.89889. The differences are within a few 10^-3, comparable to the rasterized slide read-off resolution.
+
+This is qualitative visual corroboration, not precision digitization or access to the original Garching lapse table. It validates the radial trend and normalization of the lapse profile through 20 km; the 20--22 km continuation remains outside the plotted range. No lapse values are modified. Full report: [BOLLIG_LAPSE_PROFILE_VISUAL_CROSSCHECK_2026-11-09.md](BOLLIG_LAPSE_PROFILE_VISUAL_CROSSCHECK_2026-11-09.md).
+
+## 16. Current decision
 
 - Radial, energy, angular, and path global quadrature: passed the stated project-level luminosity-stability targets at the tested resolutions.
 - Same-grid B.16 closure: passed for all four global B.13 configurations with zero residual.
