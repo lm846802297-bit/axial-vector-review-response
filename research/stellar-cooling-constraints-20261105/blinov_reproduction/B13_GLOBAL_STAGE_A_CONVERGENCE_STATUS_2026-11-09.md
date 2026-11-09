@@ -102,11 +102,24 @@ The independent original-PDF comparison now extends through the full 15--20 km p
 
 The original Bollig Fig. 1 and Fig. 4 plotting frames both end at 20 km. The 20--22 km interval has no direct original-figure temperature support and only the endpoint at 20 km for mu_mu/T. No extrapolation is used. The 20--22 km Caputo temperature input therefore remains a public-figure reconstruction without an independent Bollig-figure cross-check.
 
-This unsupported interval is not negligible in the B.16 path integral: the 20--22 km shell contributes 12.81% of the source-weighted nu_mu+nu_tau inverse-decay path optical depth for the dominant 8--15 km emission region. The self-consistent 20--22 km temperature stress test is running in [Actions run 42554204045](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42554204045). Its +/-10% variations are diagnostic stress tests, not statistical uncertainty intervals.
+This unsupported interval is not negligible in the B.16 path integral: the 20--22 km shell contributes 12.81% of the source-weighted nu_mu+nu_tau inverse-decay path optical depth for the dominant 8--15 km emission region. The self-consistent 20--22 km temperature stress test is complete; see Section 6 and [Actions run 42554811330](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42554811330). Its +/-10% variations are diagnostic stress tests, not statistical uncertainty intervals.
 
 The full source-curve coverage and pointwise comparisons are recorded in [BOLLIG_OUTER_THERMODYNAMIC_PROFILE_15_22KM_2026-11-09.md](BOLLIG_OUTER_THERMODYNAMIC_PROFILE_15_22KM_2026-11-09.md). The machine-readable result is [bollig_outer_thermodynamic_profile_15_22km_2026-11-09.json](outputs/bollig_outer_thermodynamic_profile_15_22km_2026-11-09.json).
 
-## 6. Current decision
+## 6. 20--22 km temperature sensitivity: completed
+
+The self-consistent B.1+B.2 stress test varies only T(r) in the 20--22 km shell, using the same 10 MeV pure-vector reference and the N_r=40, N_E=100, N_omega=32, N_s=32 grid. The 176 affected profile nodes have baseline temperatures from 3.5514 to 4.2044 MeV. All other profile fields, including mu_mu, mu_numu, and lapse, remain unchanged.
+
+At baseline, the B.1 thin-source fraction emitted in 20--22 km is only 0.07453%. The independent full B.1+B.2 path-matrix recomputation gives a 12.719% share of the neutrino inverse-decay path optical depth for 8--15 km emission (12.8945% for all emission radii). The earlier channel-shell-directional synthesis gives 12.81% for the 8--15 km subset; the 0.09 percentage-point difference is retained as a small cross-pipeline diagnostic difference, not averaged away.
+
+For a +/-10% temperature stress:
+- Strong-endpoint escaped luminosity changes by -0.1493% / +0.1507%.
+- Strong-endpoint escape probability changes by -0.1208% / +0.1125%.
+- The strong-endpoint Fig. 7 discrepancy remains approximately +91.96% to +92.54%, compared with +92.25% at baseline.
+
+The same-grid channel, shell, direct-chord, and source-weighted mean-optical-depth closure checks pass at floating-point precision. The 20--22 km temperature variation is therefore not a plausible explanation for the order-one strong-coupling mismatch at the tested +/-10% level. This is not a statistical uncertainty estimate and does not certify the true Garching background. Full details are in [B16_OUTER_TEMPERATURE_SENSITIVITY_20_22KM_2026-11-09.md](B16_OUTER_TEMPERATURE_SENSITIVITY_20_22KM_2026-11-09.md).
+
+## 7. Current decision
 
 - Radial, energy, angular, and path global quadrature: passed the stated project-level luminosity-stability targets at the tested resolutions.
 - Same-grid B.16 closure: passed for all four global B.13 configurations with zero residual.
