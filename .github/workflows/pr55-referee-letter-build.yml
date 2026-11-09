@@ -22,7 +22,7 @@ concurrency:
 
 jobs:
   build-and-inspect:
-    if: github.event.pull_request.head.ref == 'review/response-point-conclusions-20261106' || github.event.pull_request.head.ref == 'codex/major44-axial-cooling-constraints-20261105' || github.event.pull_request.head.ref == 'review/major1-scalar-opening-focus-20261108' || github.event.pull_request.head.ref == 'review/major1-remove-defensive-model-framing-20261108' || github.event.pull_request.head.ref == 'review/major1-streamline-low-mass-constraints-intro-20261108' || github.event.pull_request.head.ref == 'review/referee-response-style-20261109'
+    if: github.event.pull_request.head.ref == 'review/response-point-conclusions-20261106' || github.event.pull_request.head.ref == 'codex/major44-axial-cooling-constraints-20261105' || github.event.pull_request.head.ref == 'review/major1-scalar-opening-focus-20261108' || github.event.pull_request.head.ref == 'review/major1-remove-defensive-model-framing-20261108' || github.event.pull_request.head.ref == 'review/major1-streamline-low-mass-constraints-intro-20261108'
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
@@ -117,21 +117,6 @@ jobs:
               out = Path("build/review") / f"pages-{batch_start+1:02d}-{batch_start+len(batch):02d}.svg"
               out.write_text(svg, encoding="utf-8")
           print(f"Rendered {len(pages)} pages at 150 dpi into {((len(pages)+5)//6)} contact sheets.")
-          # Store compact, individually inspectable page renders as temporary text files.
-          # This avoids the exhausted GitHub Actions artifact quota.
-          preview_dir = Path("build/review-pages")
-          preview_dir.mkdir(parents=True, exist_ok=True)
-          for batch_start in range(0, len(pages), 3):
-              lines = []
-              for p in pages[batch_start:batch_start+3]:
-                  im = Image.open(p).convert("RGB")
-                  im.thumbnail((1240, 1754))
-                  buf = io.BytesIO()
-                  im.save(buf, format="JPEG", quality=76, optimize=True)
-                  lines.append(p.name + "|" + base64.b64encode(buf.getvalue()).decode("ascii"))
-              target = preview_dir / f"pages-{batch_start+1:03d}-{min(batch_start+3, len(pages)):03d}.b64.txt"
-              target.write_text("\n".join(lines) + "\n", encoding="utf-8")
-          print(f"Prepared {len(pages)} individual page renders in {((len(pages)+2)//3)} batches.")
           PY
 
       - name: Commit the compiled PDF
@@ -140,10 +125,10 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add Replies_to_Referee_3_referee_facing_2026-11-04.pdf build/review-pages/*.b64.txt
+          git add Replies_to_Referee_3_referee_facing_2026-11-04.pdf
           if git diff --cached --quiet; then
             echo "Compiled PDF and visual-review sheets are already current."
           else
-            git commit -m "Publish referee response PDF and temporary page-review renders [skip ci]"
+            git commit -m "Update compiled referee response PDF [skip ci]"
             git push origin HEAD:${{ github.event.pull_request.head.ref }}
           fi
