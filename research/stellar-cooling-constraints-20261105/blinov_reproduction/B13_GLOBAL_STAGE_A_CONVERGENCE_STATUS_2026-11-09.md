@@ -40,14 +40,16 @@ The optically thin B.13/B.16 source ratio changes from \(0.7889823\) on the orig
 
 ## 2. Angular and path quadrature: in progress
 
-The next audit varies the angular and path quadrature orders while regenerating the B.16 comparison calculation on the same grid for every B.13 run. The current targeted configurations are:
+The final audit varies angular and path quadrature independently, then checks their joint effect and the fully refined grid. The four targeted configurations are:
 
-- \(40\times100\times24\times48\): angular/path refinement at fixed radial and energy grids;
+- \(40\times100\times24\times32\): angular-only refinement;
+- \(40\times100\times16\times48\): path-only refinement;
+- \(40\times100\times24\times48\): joint angular/path refinement;
 - \(60\times140\times24\times48\): combined radial, energy, angular, and path refinement.
 
-The run must pass the B.16 same-grid closure check before its B.13 result is interpreted. The first two attempts of the new workflow failed before computation because the checkout ref was malformed; a subsequent checkout fix succeeded. A further implementation issue (using the \(40\times100\times16\times32\) B.16 baseline for a different grid) was identified and corrected by regenerating the B.16 baseline on each matching grid.
+For every B.13 run, the B.16 comparison calculation is regenerated on the identical grid. A run is interpreted only after the same-grid B.16 closure check passes. The initial workflow attempts exposed a malformed checkout reference and, separately, a mismatch caused by reusing the original-grid B.16 baseline on refined grids. Both implementation issues were corrected. The final workflow checks out the immutable event commit SHA and has separate angular-only and path-only scans, so the two quadrature effects can be distinguished.
 
-The latest corrected run is tracked at [GitHub Actions run 42541492019](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42541492019); a follow-up run with the corrected result-count validation is queued as [run 42541508076](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42541508076). Neither is treated as a completed numerical result in this report.
+The final four-configuration audit is queued at [GitHub Actions run 42541978797](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42541978797). Earlier trial runs are not used as accepted convergence results.
 
 ## 3. Current decision
 
