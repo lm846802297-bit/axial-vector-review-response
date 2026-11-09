@@ -33,7 +33,25 @@
         "UV_local_coefficient_sum": [
           2111998398.3185186,
           0.0
-        ]
+        ],
+        "light_light_UV_p2_coefficient_C": [
+          0.00010448603835134661,
+          0.0
+        ],
+        "light_light_UV_local_coefficient": [
+          0.001972016882158648,
+          0.0
+        ],
+        "full_minus_light_UV_p2_coefficient_C": [
+          2.6391017499889893,
+          0.0
+        ],
+        "full_minus_light_UV_local_coefficient": [
+          2111998398.3165467,
+          0.0
+        ],
+        "MS_field_counterterm_pole_coefficient_full_minus_light": -0.016712307066340585,
+        "MS_mass_counterterm_pole_coefficient_full_minus_light_GeV2": -13374386.09800963
       },
       "hs": {
         "Pi_RC_mh2_GeV2": [
@@ -63,7 +81,25 @@
         "UV_local_coefficient_sum": [
           6.114937160584326e-09,
           0.0
-        ]
+        ],
+        "light_light_UV_p2_coefficient_C": [
+          0.00036293393991429837,
+          0.0
+        ],
+        "light_light_UV_local_coefficient": [
+          0.0068498305635735154,
+          0.0
+        ],
+        "full_minus_light_UV_p2_coefficient_C": [
+          -0.00036293393991429837,
+          0.0
+        ],
+        "full_minus_light_UV_local_coefficient": [
+          -0.006849824448636355,
+          0.0
+        ],
+        "MS_field_counterterm_pole_coefficient_full_minus_light": 2.2983060235058633e-06,
+        "MS_mass_counterterm_pole_coefficient_full_minus_light_GeV2": 4.33770200548787e-05
       },
       "ss": {
         "Pi_RC_mh2_GeV2": [
@@ -93,7 +129,25 @@
         "UV_local_coefficient_sum": [
           10091023891.362673,
           0.0
-        ]
+        ],
+        "light_light_UV_p2_coefficient_C": [
+          0.0012606568956289564,
+          0.0
+        ],
+        "light_light_UV_local_coefficient": [
+          0.02379299040194261,
+          0.0
+        ],
+        "full_minus_light_UV_p2_coefficient_C": [
+          12.609543549553782,
+          0.0
+        ],
+        "full_minus_light_UV_local_coefficient": [
+          10091023891.33888,
+          0.0
+        ],
+        "MS_field_counterterm_pole_coefficient_full_minus_light": -0.07985086735189965,
+        "MS_mass_counterterm_pole_coefficient_full_minus_light_GeV2": -63902155.30209779
       },
       "absorptive_matrix_PiRC_GeV2": [
         [
@@ -150,7 +204,25 @@
         "UV_local_coefficient_sum": [
           2111998398.3185186,
           0.0
-        ]
+        ],
+        "light_light_UV_p2_coefficient_C": [
+          0.00010448603835134664,
+          0.0
+        ],
+        "light_light_UV_local_coefficient": [
+          0.0019720168821586487,
+          0.0
+        ],
+        "full_minus_light_UV_p2_coefficient_C": [
+          2.6391017499889893,
+          0.0
+        ],
+        "full_minus_light_UV_local_coefficient": [
+          2111998398.3165467,
+          0.0
+        ],
+        "MS_field_counterterm_pole_coefficient_full_minus_light": -0.016712307066340585,
+        "MS_mass_counterterm_pole_coefficient_full_minus_light_GeV2": -13374386.09800963
       },
       "hs": {
         "Pi_RC_mh2_GeV2": [
@@ -180,7 +252,25 @@
         "UV_local_coefficient_sum": [
           1.3806904247000745e-09,
           0.0
-        ]
+        ],
+        "light_light_UV_p2_coefficient_C": [
+          8.167333805876013e-05,
+          0.0
+        ],
+        "light_light_UV_local_coefficient": [
+          0.0015414610366726049,
+          0.0
+        ],
+        "full_minus_light_UV_p2_coefficient_C": [
+          -8.167333805876015e-05,
+          0.0
+        ],
+        "full_minus_light_UV_local_coefficient": [
+          -0.0015414596559821803,
+          0.0
+        ],
+        "MS_field_counterterm_pole_coefficient_full_minus_light": 5.172024552583982e-07,
+        "MS_mass_counterterm_pole_coefficient_full_minus_light_GeV2": 9.761407305064081e-06
       },
       "ss": {
         "Pi_RC_mh2_GeV2": [
@@ -210,7 +300,25 @@
         "UV_local_coefficient_sum": [
           511023273.4971412,
           0.0
-        ]
+        ],
+        "light_light_UV_p2_coefficient_C": [
+          6.384139216164891e-05,
+          0.0
+        ],
+        "light_light_UV_local_coefficient": [
+          0.0012049096278420243,
+          0.0
+        ],
+        "full_minus_light_UV_p2_coefficient_C": [
+          0.6385645590942685,
+          0.0
+        ],
+        "full_minus_light_UV_local_coefficient": [
+          511023273.4959363,
+          0.0
+        ],
+        "MS_field_counterterm_pole_coefficient_full_minus_light": -0.004043757309967427,
+        "MS_mass_counterterm_pole_coefficient_full_minus_light_GeV2": -3236092.6837118976
       },
       "absorptive_matrix_PiRC_GeV2": [
         [
