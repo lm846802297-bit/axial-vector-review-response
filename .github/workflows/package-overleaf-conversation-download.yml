@@ -1,0 +1,25 @@
+name: Package Overleaf reply letter for conversation delivery
+
+on:
+  push:
+    branches:
+      - overleaf-package-2026-11-09
+
+permissions:
+  contents: read
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out package
+        uses: actions/checkout@v4
+        with:
+          ref: overleaf-package-2026-11-09
+      - name: Upload ZIP as a downloadable artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Overleaf_Reply_Letter_with_PDF_2026-11-09
+          path: Overleaf_Reply_Letter_with_PDF_2026-11-09.zip
+          if-no-files-found: error
+          retention-days: 1
