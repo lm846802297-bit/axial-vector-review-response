@@ -84,7 +84,9 @@ def _axis_bins(axis, edges, names, region_mask, r, energies, angles,
             mask = (values >= lo) & (values < hi if i < len(edges) - 2 else values <= hi)
             if not np.any(mask):
                 continue
-            b, e, t = base[:, :, mask], escaped[:, :, mask], tau[:, :, mask]
+            b, e, t = (base[region_mask][:, :, mask],
+                        escaped[region_mask][:, :, mask],
+                        tau[region_mask][:, :, mask])
             rows.append({"bin": names[i], **_bin_record(
                 b, e, t, total_thin, total_escaped, region_thin,
                 region_escaped, total_escaped, g
@@ -95,7 +97,9 @@ def _axis_bins(axis, edges, names, region_mask, r, energies, angles,
             mask = (values >= lo) & (values < hi if i < len(edges) - 2 else values <= hi)
             if not np.any(mask):
                 continue
-            b, e, t = base[:, mask, :], escaped[:, mask, :], tau[:, mask, :]
+            b, e, t = (base[region_mask][:, mask, :],
+                        escaped[region_mask][:, mask, :],
+                        tau[region_mask][:, mask, :])
             rows.append({"bin": names[i], **_bin_record(
                 b, e, t, total_thin, total_escaped, region_thin,
                 region_escaped, total_escaped, g
