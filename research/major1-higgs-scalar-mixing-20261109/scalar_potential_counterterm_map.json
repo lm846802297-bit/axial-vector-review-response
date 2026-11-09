@@ -207,7 +207,20 @@
           "The light-eigenstate determinant is matched to the leading dimension-five EFT loop separately and is not included in these hard Wilson coefficients.",
           "This closes the VLL fermion-sector scalar-potential matching through dimension eight, not the full derivative-operator or gauge/scalar EFT basis.",
           "The finite portal threshold is distinct from the vanishing divergent renormalizable portal pole."
-        ]
+        ],
+        "local_hs_mass_contribution_at_benchmark_vev_GeV2": {
+          "dimension4_portal_GeV2": -3678.6035615575383,
+          "dimension6_H2S_GeV2": 0.3678603561557538,
+          "dimension6_HS2_GeV2": 0.28933563718832983,
+          "dimension8_H3S_GeV2": -3.678603561557537e-05,
+          "dimension8_H2S2_GeV2": -0.00020253494603183087,
+          "dimension8_HS3_GeV2": -2.2837204886362547e-05,
+          "dimension6_sum_GeV2": 0.6571959933440836,
+          "dimension8_sum_GeV2": -0.0002621581865337688,
+          "higher_dimensional_sum_GeV2": 0.6569338351575499,
+          "total_including_portal_GeV2": -3677.946627722381,
+          "additional_delta_lambda_HS_for_zero_local_hs_curvature": -3.763873573320937e-05
+        }
       },
       "planC_scale_dependence_and_dimension8_running_check": {
         "evaluation": "s=m_h^2, leading EFT5 soft bubble+contact plus Plan-C hard derivative",
@@ -460,7 +473,20 @@
           "The light-eigenstate determinant is matched to the leading dimension-five EFT loop separately and is not included in these hard Wilson coefficients.",
           "This closes the VLL fermion-sector scalar-potential matching through dimension eight, not the full derivative-operator or gauge/scalar EFT basis.",
           "The finite portal threshold is distinct from the vanishing divergent renormalizable portal pole."
-        ]
+        ],
+        "local_hs_mass_contribution_at_benchmark_vev_GeV2": {
+          "dimension4_portal_GeV2": -827.8196090952347,
+          "dimension6_H2S_GeV2": 0.08278196090952343,
+          "dimension6_HS2_GeV2": 0.06511104283636124,
+          "dimension8_H3S_GeV2": -8.278196090952345e-06,
+          "dimension8_H2S2_GeV2": -4.557772998545286e-05,
+          "dimension8_HS3_GeV2": -5.139201793696934e-06,
+          "dimension6_sum_GeV2": 0.14789300374588465,
+          "dimension8_sum_GeV2": -5.8995127870102134e-05,
+          "higher_dimensional_sum_GeV2": 0.14783400861801455,
+          "total_including_portal_GeV2": -827.6717750866167,
+          "additional_delta_lambda_HS_for_zero_local_hs_curvature": -1.9060771386283082e-06
+        }
       },
       "planC_scale_dependence_and_dimension8_running_check": {
         "evaluation": "s=m_h^2, leading EFT5 soft bubble+contact plus Plan-C hard derivative",
