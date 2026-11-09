@@ -61,8 +61,27 @@ Consequently, the \(+92.4\%\) B.16 strong-endpoint difference is not explained b
 
 No profile, source term, coupling, opacity prescription, or axial-vector result is modified. No empirical rescaling is applied.
 
-## 5. Next physics question
+## 5. Energy-convention question resolved against the printed equations
 
-The numerical quadrature is no longer the leading suspect for the high-energy neutrino optical depth. The remaining large sensitivity is the physical propagation-energy convention: the existing global redshift-only diagnostic changes the 10 MeV strong-endpoint luminosity by about \(-28.85\%\) relative to fixed-\(\omega\), while retaining the Euclidean chord. That is not a full-GR ray trace and is not a replacement for the printed fixed-\(\omega\) baseline.
+The paper's Eq. (B.1) integrates over the **local energy at the production point**. Its lower limit \(\omega_{\min}=m_V/N(r)\) is the gravitational escape condition \(E_\infty=N(r)\omega\ge m_V\), not the local kinematic threshold. The prefactor \(N(r)^2\) accounts for the redshift of the emitted energy and the time-dilation factor in the luminosity measured by a distant observer. The paper states these points explicitly in its gravitational-effects discussion.
 
-The next useful step is to resolve the energy convention directly against the published B.2 definitions and then compare the high-energy neutrino optical depth under fixed-\(\omega\) and conserved-\(E_\infty\) propagation, without mixing the two into one result.
+The displayed Eq. (B.2), however, writes the local reduced-absorption rate as \(\Gamma_{\rm abs}^*(r'(s),\omega)\) and the speed as \(v_V(\omega)\), with the same \(\omega\) along the chord. It does not display an \(s\)-dependent \(\omega_{\rm local}(s)\) or an additional lapse ratio in the path integrand. Thus the fixed-\(\omega\) calculation remains the literal equation-level reproduction baseline.
+
+The conserved-\(E_\infty\) variant tested separately,
+\[
+\omega_{\rm local}(s)=\omega_{\rm source}\frac{N(r_{\rm source})}{N(r'(s))},
+\]
+is a useful propagation sensitivity, but it is **not** the printed Eq. (B.2) prescription and is not a full GR ray trace. On the 27 selected high-energy neutrino rays it increases \(\tau_\nu\) by \(4.94\%\text{--}9.87\%\); the previously archived global redshift-only test lowers the 10 MeV strong-endpoint luminosity by about \(28.85\%\), but still leaves it \(36.93\%\) above Fig. 7.
+
+## 6. Current conclusion and next calculation
+
+The following are now independently checked:
+
+1. local neutrino pair average: direct angular integration;
+2. local neutrino kernel: published Eq. (B.9), Eq. (B.7) normalization, and Eq. (B.10) detailed balance;
+3. high-energy neutrino B.2 chord integral: path-order and radial-opacity-grid convergence;
+4. fixed-\(\omega\) versus conserved-\(E_\infty\) path sensitivity, with the two conventions kept separate.
+
+The \(+92.4\%\) B.16 strong-endpoint difference is therefore not explained by a local neutrino-kernel error or by under-resolved high-energy neutrino chord integration. The redshift-only path variant is material but does not close the discrepancy and must not be silently substituted for the printed baseline.
+
+The next calculation should test the **high-energy B.1 source measure and reconstructed local thermodynamic inputs** separately: first verify the \(\omega\)-integration measure and \(m_V/N(r)\) escape threshold against Eq. (B.1), then quantify the sensitivity of the \(210\text{--}510\) MeV source and escape contribution to the reconstructed \(T(r)\), \(\mu_{\nu_\mu}(r)\), and lapse profiles. Keep the published fixed-\(\omega\) B.2 path prescription as the baseline throughout.
