@@ -18,7 +18,7 @@
 ## 2026-11-09 更新：回复信文献库单文件化（独立 PR）
 
 - 正式回复信 `Replies_to_Referee_3_referee_facing_2026-11-04.tex` 的文献调用统一为 `\\bibliography{references}`。
-- 新增仓库根目录 `references.bib`，合并原论文文献库中的 166 条记录，以及回复信专用的 2+2 条补充记录；共 169 条，169 个 citation keys 唯一。
+- 新增仓库根目录 `references.bib`，合并原论文文献库中的 166 条记录，以及回复信专用的 2+2 条补充记录；共 168 条实际文献记录，168 个 citation keys 唯一；已排除两项 REVTeX 专用 `@CONTROL` 控制条目。
 - 正式回复信的 41 个实际引用键均在合并文献库中找到；未发现缺失或重复键。
 - 删除不再单独调用的 `Replies_to_Referee_3_neutrino_references.bib` 和 `Replies_to_Referee_3_additional_references.bib`。原论文目录 `overleaf-source/axial-vector-model-building-v6/references.bib` 保持原样，论文正文及历史版本不受影响。
 - 根目录现有 `JHEP.bst` 继续作为回复信的文献样式文件。
