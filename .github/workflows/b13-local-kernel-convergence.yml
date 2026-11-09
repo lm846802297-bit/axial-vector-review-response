@@ -1,0 +1,55 @@
+name: B.13 local moving-muon kernel quadrature convergence
+
+on:
+  push:
+    branches:
+      - research/moving-muon-thermal-rates-20261107
+    paths:
+      - '.github/workflows/b13-local-kernel-convergence.yml'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b13_local_kernel_convergence.py'
+      - 'research/stellar-cooling-constraints-20261105/finite_mixing/moving_muon_compton.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py'
+      - 'research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: b13-local-kernel-convergence-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  local-kernel-audit:
+    if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Check out research head
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy
+
+      - name: Run exact moving-muon kernel regression tests
+        run: |
+          export PYTHONPATH="research/stellar-cooling-constraints-20261105:research/stellar-cooling-constraints-20261105/finite_mixing"
+          python -m unittest discover \
+            -s research/stellar-cooling-constraints-20261105/finite_mixing \
+            -p 'test_thermal_rates.py' -v
+
+      - name: Run high-order local B.13 kernel convergence audit
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b13_local_kernel_convergence.py \
+            --mass 10 \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_local_kernel_quadrature_convergence_10mev_2026-11-09.json
