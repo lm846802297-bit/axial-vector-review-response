@@ -74,3 +74,41 @@ These means are diagnostics only. The luminosity is determined by the nonlinear 
 5. Do not modify the axial-vector production curve until the pure-vector Fig. 7 benchmark is understood.
 
 No empirical correction is applied, and no raw Garching data are required to perform these method-level checks.
+
+
+## 6. Analytic cancellation in the B.16 reduced Compton opacity
+
+Combining the printed B.16 production rate, B.19 detailed balance, and B.4 reduced absorption gives a useful exact simplification within the B.14--B.16 approximation:
+
+```
+Gamma_prod = (1/vV) n_mu Fdeg [2/(exp(omega/T)-1)] sigma(mu gamma -> mu V)
+Gamma_abs  = exp(omega/T) Gamma_prod
+Gamma_abs* = (1-exp(-omega/T)) Gamma_abs
+           = (exp(omega/T)-1) Gamma_prod
+           = (2 n_mu Fdeg / vV) sigma(mu gamma -> mu V).
+```
+
+Using the B.14 cross section,
+```
+sigma(mu gamma -> mu V)
+ = [8 pi alpha alphaV/(3 m_mu^2)]
+   [1 + mV^2/(2 omega^2)] vV,
+```
+therefore
+```
+Gamma_abs*
+ = [16 pi alpha alphaV/(3 m_mu^2)]
+   (n_mu Fdeg) [1 + mV^2/(2 omega^2)].
+```
+
+The explicit Bose factor and the explicit thermal factor cancel in the reduced Compton absorption rate. Temperature and chemical potential remain through the susceptibility (n_\mu F_{\rm deg}). The optical-depth integrand in B.2 still contains the additional (1/v_V), so the path opacity is proportional to
+```
+Gamma_abs*/vV ∝ (n_mu Fdeg) [1 + mV^2/(2 omega^2)] / vV.
+```
+
+This clarifies the interpretation of the path-redshift test:
+- it does not change a residual Bose enhancement in the reduced Compton opacity, because that factor cancels analytically;
+- it changes the explicit finite-mass term and the B.2 (1/v_V) factor through the local energy;
+- these changes are small for most of the low-mass thermal support but can be amplified by the nonlinear exponential escape probability near strong trapping.
+
+The exact B.13 calculation does not inherit this cancellation in the same reduced closed form; its recoil and moving-muon phase space must be evaluated directly. This is another reason to keep the B.13-versus-B.16 global scan separate from the redshift-only diagnostic.
