@@ -83,12 +83,17 @@ jobs:
                   for item in value:
                       check_finite(item)
           check_finite(d)
+          energy_equivalence = d["local_vs_infinity_energy_variable_comparison"]
+          for channel in ("neutrino", "dimuon", "compton", "total"):
+              residual = energy_equivalence[channel]["relative_difference"]
+              assert residual is not None and abs(residual) < 5e-4, (channel, residual)
           assert d["production_axial_outputs_modified"] is False
           print(json.dumps({
               "radial": d["radial_convergence"],
               "energy": d["energy_convergence"],
               "tail": d["high_energy_tail_convergence"],
               "final": d["comparison_with_archived_b16_b1"],
+              "local_vs_infinity_energy_variable": d["local_vs_infinity_energy_variable_comparison"],
           }, indent=2))
           PY
 
