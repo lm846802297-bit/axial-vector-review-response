@@ -116,3 +116,12 @@ The baseline-grid B.13 run is not the final global convergence result. The indep
 These two workflows now use separate concurrency groups and no longer cancel one another. They are 10 MeV convergence diagnostics; the 0.1 and 1 MeV B.13 global curves in the three-mass archive still use the baseline (40,100,16,32) grid and must not be described as independently grid-converged.
 
 No empirical rescaling is applied, and no axial-vector production result or constraint curve is modified.
+
+
+## 8. Reinterpretation relative to the published Fig. 7 baseline
+
+The formal JHEP version of Blinov et al. is now checked directly. The published Fig. 7 Compton baseline is the non-relativistic-muon/no-recoil prescription in Eqs. (B.14)--(B.19), as indicated by the paragraph immediately following Fig. 7. The full moving-muon phase-space integral in Eq. (B.13) is a more general alternative, not the baseline that the B.13 global run is required to reproduce.
+
+Accordingly, the B.13/B.16 luminosity differences archived here are interpreted as the relativistic moving-muon correction to the published approximation. They are not a failure of the B.16 Fig. 7 reproduction and must not be removed by rescaling.
+
+The method determination, equation-to-code mapping, profile caveat, and revised calculation priority are documented in `FIG7_COMPTON_BASELINE_METHOD_AUDIT_2026-11-09.md`. The primary high-order B.16 independent-grid run is [Run #42588622451](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42588622451).
