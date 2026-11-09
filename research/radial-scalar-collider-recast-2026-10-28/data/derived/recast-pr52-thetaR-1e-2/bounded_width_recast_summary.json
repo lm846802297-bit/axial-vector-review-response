@@ -59,7 +59,7 @@
         "count": 8673,
         "max_signal_strength_ratio_observed_min": 2392.7051484844924,
         "max_signal_strength_ratio_observed_max": 2392.7051484844924,
-        "max_width_ratio_upper": 862.4460176515934,
+        "max_width_ratio_upper": 862.4460176515935,
         "max_flight_length_proxy_upper_m": 3.1441398634732106e-10,
         "unique_mass_points": 46,
         "mass_min_GeV": 0.212,
@@ -73,7 +73,7 @@
         "max_flight_length_proxy_upper_m": null,
         "unique_mass_points": 30,
         "mass_min_GeV": 0.212,
-        "mass_max_GeV": 2.2857158749950854
+        "mass_max_GeV": 2.285715874995086
       },
       "theoretically_inconsistent_scalar_quartic": {
         "count": 4948,
@@ -107,8 +107,8 @@
       },
       "excluded_under_published_narrow_prompt_benchmark_conditional": {
         "count": 2746,
-        "max_signal_strength_ratio_observed_min": 5013.92626594916,
-        "max_signal_strength_ratio_observed_max": 5013.92626594916,
+        "max_signal_strength_ratio_observed_min": 5013.926265949072,
+        "max_signal_strength_ratio_observed_max": 5013.926265949072,
         "max_width_ratio_upper": 0.09978753086175547,
         "max_flight_length_proxy_upper_m": 0.00020922141379335794,
         "unique_mass_points": 35,
@@ -131,7 +131,7 @@
         "count": 891,
         "max_signal_strength_ratio_observed_min": 0.041416651255200554,
         "max_signal_strength_ratio_observed_max": 0.041416651255200554,
-        "max_width_ratio_upper": 0.9976511903817833,
+        "max_width_ratio_upper": 0.9976511903817838,
         "max_flight_length_proxy_upper_m": 1.599832429191474e-12,
         "unique_mass_points": 11,
         "mass_min_GeV": 3.73836323023915,
