@@ -283,7 +283,21 @@ This closes the local algebraic/numerical coverage gap for the B.16 vector basel
 
 Full report: [B16_DENSE_LOCAL_KERNEL_AUDIT_2026-11-09.md](B16_DENSE_LOCAL_KERNEL_AUDIT_2026-11-09.md); machine-readable result: [b16_dense_local_kernel_audit_10mev_2026-11-09.json](outputs/b16_dense_local_kernel_audit_10mev_2026-11-09.json).
 
-## 21. Current decision
+## 21. Full GR energy/path requirements and same-snapshot data availability: audited
+
+A full GR continuation of B.2 has been derived for a static spherical metric ds^2=-N(r)^2dt^2+A(r)^2dr^2+r^2dOmega^2. The local energy follows the conserved Killing energy, omega_loc(r')=E_infinity/N(r'), while the proper path element and geodesic bending require A(r) or an enclosed-mass profile M(r). The optical-depth integrand on an outward radial segment is
+[
+d\tau=dr'\,A(r')\frac{\omega_{\rm loc}(r')}{p_{\hat r}(r')}
+\Gamma_{\rm abs}^*(r',\omega_{\rm loc}(r')).
+]
+
+The current public-figure profile supplies a reconstructed lapse N(r), but no same-snapshot A(r), enclosed mass M(r), or complete hydro profile. The Garching archive explicitly states that some archives are password protected; the listed Bollig/Hüdepohl hydro-profile endpoint returns HTTP 401 Unauthorized. No access restriction is bypassed and no substitute model is introduced.
+
+The path-redshift-only diagnostic remains a partial sensitivity test, not full GR. It changes the local energy argument but retains Euclidean straight chords. The literal fixed-omega B.2 remains the reproducibility baseline.
+
+Full report: [B16_GR_ENERGY_AND_RAY_PROPAGATION_REQUIREMENTS_2026-11-09.md](B16_GR_ENERGY_AND_RAY_PROPAGATION_REQUIREMENTS_2026-11-09.md).
+
+## 22. Current decision
 
 - Radial, energy, angular, and path global quadrature: passed the stated project-level luminosity-stability targets at the tested resolutions.
 - Same-grid B.16 closure: passed for all four global B.13 configurations with zero residual.
@@ -295,4 +309,6 @@ Full report: [B16_DENSE_LOCAL_KERNEL_AUDIT_2026-11-09.md](B16_DENSE_LOCAL_KERNEL
 - Full independent B.1+B.2: the 25-point luminosity curve reproduces archived B.16 to 0.4451% maximum relative difference; the Fig. 7 strong-endpoint residual remains +92.0542%. The end-to-end numerical integration is therefore validated at the sub-percent level for the adopted inputs.
 - Dense local B.6--B.10 and B.14--B.19 audit: 64,000 actual global (r,omega) nodes pass independent phase-space/susceptibility checks with maximum residuals below 2.7e-13. The local B.16 formula implementation is validated over the full integration grid; the physical no-recoil approximation remains a separate issue.
 - Fig. 7 mismatch: persists after numerical convergence and must be investigated as a separate physical/reproduction issue.
+- Full GR energy/path treatment: the required same-snapshot spatial metric A(r) or enclosed mass M(r) is absent from the public-figure reconstruction; the relevant Garching hydro-profile endpoint is access-protected (401). Do not call the redshift-only diagnostic full GR.
+- Original profile fidelity: T and mu_mu/T are independently cross-checked against Bollig over 0--20 km, but the raw profile, absolute-density figure tension, and outer 20--25 km continuation remain unresolved at simulation-data precision. These two remaining physical-input issues share the same raw-profile/metric data dependency.
 - Axial-vector production curve: remains frozen.
