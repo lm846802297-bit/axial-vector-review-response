@@ -112,11 +112,24 @@ def light_light_entry_plan_b(vs,ml,p2,a,b):
     kernel=2.0*a0bar(mass)+(2.0*mass*mass-p2)*b0
     return (cab*kernel+2.0*mass*mass*dab*b0)/(16.0*pi*pi)
 
+def light_light_uv_coefficients(vs,ml,a,b):
+    """UV coefficients of the exact light-light loop removed in EFT matching."""
+    masses,gh,gs=mass_eigenstate_data(vs,ml)
+    ga=gh if a=="h" else gs
+    gb=gh if b=="h" else gs
+    mass=float(masses[1])
+    cab=ga[1,1]*np.conj(gb[1,1])+np.conj(ga[1,1])*gb[1,1]
+    dab=ga[1,1]*gb[1,1]+np.conj(ga[1,1])*np.conj(gb[1,1])
+    uv_p2=cab
+    uv_local=cab*4.0*mass*mass+2.0*mass*mass*dab
+    return uv_p2,uv_local
+
 def run_benchmark(label,vs,m_a):
     entries={}
     for a,b in PAIRS:
         full0=fullh=light0=lighth=0.0j
         uv_p2=uv_local=0.0j
+        light_uv_p2=light_uv_local=0.0j
         for ml in LEPTONS.values():
             p0,p2_coeff,local_coeff=one_flavor_entry(vs,ml,0.0,a,b)
             ph,_,_=one_flavor_entry(vs,ml,MH*MH,a,b)
@@ -126,9 +139,14 @@ def run_benchmark(label,vs,m_a):
             uv_local+=local_coeff
             light0+=light_light_entry_plan_b(vs,ml,0.0,a,b)
             lighth+=light_light_entry_plan_b(vs,ml,MH*MH,a,b)
+            light_c,light_local=light_light_uv_coefficients(vs,ml,a,b)
+            light_uv_p2+=light_c
+            light_uv_local+=light_local
         full_diff_plan_b=-(fullh-full0)
         light_diff_plan_b=lighth-light0
         hard_diff_plan_b=full_diff_plan_b-light_diff_plan_b
+        hard_uv_p2=uv_p2-light_uv_p2
+        hard_uv_local=uv_local-light_uv_local
         entries[a+b]={
             "Pi_RC_mh2_GeV2":[float(fullh.real),float(fullh.imag)],
             "Pi_RC_0_GeV2":[float(full0.real),float(full0.imag)],
@@ -137,6 +155,12 @@ def run_benchmark(label,vs,m_a):
             "hard_momentum_difference_PiB_GeV2":[float(hard_diff_plan_b.real),float(hard_diff_plan_b.imag)],
             "UV_p2_coefficient_sum_C":[float(uv_p2.real),float(uv_p2.imag)],
             "UV_local_coefficient_sum":[float(uv_local.real),float(uv_local.imag)],
+            "light_light_UV_p2_coefficient_C":[float(light_uv_p2.real),float(light_uv_p2.imag)],
+            "light_light_UV_local_coefficient":[float(light_uv_local.real),float(light_uv_local.imag)],
+            "full_minus_light_UV_p2_coefficient_C":[float(hard_uv_p2.real),float(hard_uv_p2.imag)],
+            "full_minus_light_UV_local_coefficient":[float(hard_uv_local.real),float(hard_uv_local.imag)],
+            "MS_field_counterterm_pole_coefficient_full_minus_light":float(-hard_uv_p2.real/(16.0*pi*pi)),
+            "MS_mass_counterterm_pole_coefficient_full_minus_light_GeV2":float(-hard_uv_local.real/(16.0*pi*pi)),
         }
     absorptive=np.array([
         [entries["hh"]["Pi_RC_mh2_GeV2"][1],entries["hs"]["Pi_RC_mh2_GeV2"][1]],

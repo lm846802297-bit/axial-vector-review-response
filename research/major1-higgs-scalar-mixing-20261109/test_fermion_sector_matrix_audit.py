@@ -26,6 +26,27 @@ class FermionSectorMatrixAuditTests(unittest.TestCase):
             self.assertGreater(abs(result["ss"]["UV_p2_coefficient_sum_C"][0]),0.1)
             self.assertLess(abs(result["hs"]["UV_p2_coefficient_sum_C"][0]),1e-12)
 
+    def test_full_minus_light_field_counterterm_coefficients(self):
+        expected = {
+            "A_open_AA": {
+                "hh": -0.016712307066340585,
+                "hs": 2.2983060235058633e-06,
+                "ss": -0.07985086735189965,
+            },
+            "B_closed_AA": {
+                "hh": -0.016712307066340585,
+                "hs": 5.172024552583982e-07,
+                "ss": -0.004043757309967427,
+            },
+        }
+        for label,vs,ma in BENCHMARKS:
+            result=run_benchmark(label,vs,ma)
+            for entry in ("hh","hs","ss"):
+                self.assertAlmostEqual(
+                    result[entry]["MS_field_counterterm_pole_coefficient_full_minus_light"],
+                    expected[label][entry], places=10
+                )
+
     def test_hard_fermion_momentum_differences_are_real_below_heavy_threshold(self):
         for label,vs,ma in BENCHMARKS:
             result=run_benchmark(label,vs,ma)
