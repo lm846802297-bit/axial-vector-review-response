@@ -199,6 +199,8 @@ def calculate_benchmark(label: str, vs: float, m_a: float) -> dict:
             ],
             "MS_field_counterterm_pole_coefficient_full_minus_light":
                 -delta_c.real / (16.0 * math.pi**2),
+            "MS_mass_counterterm_pole_coefficient_full_minus_light_GeV2":
+                -delta_local.real / (16.0 * math.pi**2),
         }
 
     absorptive = np.array([
@@ -247,6 +249,10 @@ def compare_with_reference(independent: dict, reference: dict) -> dict:
             expected_z = ref[entry]["MS_field_counterterm_pole_coefficient_full_minus_light"]
             if abs(actual_z - expected_z) > 2e-10 * max(1.0, abs(expected_z)):
                 raise AssertionError(f"{label} {entry} field counterterm mismatch")
+            actual_m = got[entry]["MS_mass_counterterm_pole_coefficient_full_minus_light_GeV2"]
+            expected_m = ref[entry]["MS_mass_counterterm_pole_coefficient_full_minus_light_GeV2"]
+            if abs(actual_m - expected_m) > 2e-10 * max(1.0, abs(expected_m)):
+                raise AssertionError(f"{label} {entry} local mass counterterm mismatch")
         for field in ("absorptive_matrix_PiRC_GeV2", "absorptive_eigenvalues_GeV2"):
             got_values = np.asarray(got[field], dtype=float)
             ref_values = np.asarray(ref[field], dtype=float)
