@@ -786,9 +786,9 @@
       "fig7_blob_sha": "372e8bc335c3815d725cadbbf88308cf454a6547",
       "baseline_blob_sha": "7c92e605bad15f24ff7041938af5cbd9df6bb031",
       "node_counts_match": true,
-      "source_luminosity_relative_residual_vs_baseline": null,
-      "escaped_luminosity_relative_residual_vs_baseline": null,
-      "escape_probability_absolute_residual": null,
+      "source_luminosity_relative_residual_vs_baseline": -8.737455203799982e-14,
+      "escaped_luminosity_relative_residual_vs_baseline": -9.227063557659676e-13,
+      "escape_probability_absolute_residual": -2.7164685431624314e-16,
       "channel_opacity_additivity_exact_by_construction": true,
       "path_shell_label_audit": "Corrected labels to match the radial edges used for path-node binning; optical-depth values unchanged."
     },
