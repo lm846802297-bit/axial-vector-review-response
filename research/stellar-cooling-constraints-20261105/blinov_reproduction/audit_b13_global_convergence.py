@@ -91,7 +91,9 @@ def main():
     ref_variants = reference["variant_results"]
     ref_profile = reference["profile"]["sha256"]
     scans = [
-        ("ray_24x48", 40, 100, 24, 48),
+        ("angular_only_24x32", 40, 100, 24, 32),
+        ("path_only_16x48", 40, 100, 16, 48),
+        ("joint_ray_24x48", 40, 100, 24, 48),
         ("combined_60x140_24x48", 60, 140, 24, 48),
     ]
     results = []
