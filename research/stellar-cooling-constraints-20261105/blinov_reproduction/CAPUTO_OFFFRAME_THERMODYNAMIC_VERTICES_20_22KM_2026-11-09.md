@@ -19,6 +19,15 @@ Date: 2026-11-09
 | T | 404 | 45 | [3.5593029764985356, 4.198857323941706] | 1.354e-12% | 0 |
 | mu_mu | 251 | 48 | [6.106781624100045, 14.745120038474239] | 9.013e-11% | 0 |
 
+## 22--25 km encoded vector support
+
+| Curve | 22--25 km vertices | Value range | Radius support |
+|---|---:|---:|---:|
+| T | 57 | [3.0363167972208394, 3.550879664714822] | [22.00266819309305, 24.98860283030404] |
+| mu_mu | 6 | [0.9999998342236912, 5.482209250053703] | [22.00266819309305, 22.191893657048542] |
+
+The T path continues through 25 km in the off-frame PDF drawing. The mu_mu path terminates at 22.1919 km when it reaches the 1 MeV plotting floor; the profile sets mu_mu to zero beyond that endpoint. No mu_mu continuation is inferred from the missing path.
+
 ## Selected off-frame values
 
 | r (km) | T (MeV) | mu_mu (MeV) |

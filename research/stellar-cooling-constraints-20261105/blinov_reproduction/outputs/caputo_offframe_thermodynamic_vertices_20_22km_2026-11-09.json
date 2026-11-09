@@ -190,6 +190,15 @@
         4.198857323941706
       ],
       "off_frame_20_22_vertex_count": 45,
+      "off_frame_22_25_radius_support_km": [
+        22.00266819309305,
+        24.98860283030404
+      ],
+      "off_frame_22_25_value_range": [
+        3.0363167972208394,
+        3.550879664714822
+      ],
+      "off_frame_22_25_vertex_count": 57,
       "off_frame_vertex_count_r_gt_20": 208,
       "point_count": 404,
       "radius_support_km": [
@@ -259,6 +268,15 @@
         14.745120038474239
       ],
       "off_frame_20_22_vertex_count": 48,
+      "off_frame_22_25_radius_support_km": [
+        22.00266819309305,
+        22.191893657048542
+      ],
+      "off_frame_22_25_value_range": [
+        0.9999998342236912,
+        5.482209250053703
+      ],
+      "off_frame_22_25_vertex_count": 6,
       "off_frame_vertex_count_r_gt_20": 54,
       "point_count": 251,
       "radius_support_km": [
