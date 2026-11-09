@@ -215,17 +215,21 @@ def plan_c_soft_plus_hard(
 
 def plan_c_scale_dependence(
     vh: float, vs: float, s: float, by_flavour: dict,
-    mu_reference: float = ME, finite_difference_step: float = 1.0e-5,
+    mu_reference: float = ME, mu_low: float = 125.25,
+    finite_difference_step: float = 1.0e-5,
 ) -> dict:
-    """Check that the leftover Plan-C scale dependence is exactly EFT5 O8.
+    """Check Plan-C scale cancellation including the EFT5 O8 running.
 
-    The bubble and hard derivative cancel their momentum-dependent scale
-    logarithms. The remaining local term equals twice the leading-EFT5
-    mixed Pi_B UV-pole coefficient; the dimension-eight Wilson coefficient
-    must supply the opposite running. The finite matching value of that
-    Wilson coefficient is not determined here.
+    The finite Plan-C soft function already contains the dimension-five
+    contact tadpole. The new UV-pole audit identifies the O8 counterterm
+    whose running cancels the remaining local scale dependence. Its finite
+    matching value at M_E is not calculated here.
     """
     sum_m4 = sum(float(item["ml_GeV"])**4 for item in by_flavour.values())
+    sum_c5_fourth = sum(
+        abs(float(item["y"])*float(item["lambda"])/ME)**4
+        for item in by_flavour.values()
+    )
     soft_derivative = 0.0
     hard_derivative = 0.0
     for item in by_flavour.values():
@@ -244,10 +248,26 @@ def plan_c_scale_dependence(
         vh, vs, s, mu_reference*math.exp(-eps), by_flavour
     )
     numerical_derivative = (plus-minus)/(2.0*eps)
+
+    # In the Plan-B convention Pi_B receives +c8 v_h^3 v_s^3 from
+    # V_EFT += c8 (Hdagger H)^2(Sdagger S)^2. The loop-induced part of
+    # beta_c8 is fixed by requiring the O8 term to cancel the residual.
+    beta_c8_loop = -2.0*LOOP*sum_c5_fourth
+    delta_c8_running = beta_c8_loop*math.log(mu_low/mu_reference)
+    delta_pi_ct_running = delta_c8_running*vh**3*vs**3
+    pi_at_reference = plan_c_soft_plus_hard(
+        vh, vs, s, mu_reference, by_flavour
+    )
+    pi_at_low = plan_c_soft_plus_hard(
+        vh, vs, s, mu_low, by_flavour
+    )
+    delta_pi_soft_hard = pi_at_low-pi_at_reference
+    residual_after_o8_running = delta_pi_soft_hard+delta_pi_ct_running
     identity_residual = total_derivative - 2.0*eft5_pi_b_uv
     return {
         "evaluation": "s=m_h^2, leading EFT5 soft bubble+contact plus Plan-C hard derivative",
         "mu_reference_GeV": mu_reference,
+        "mu_low_GeV": mu_low,
         "soft_d_dlnmu_GeV2": soft_derivative,
         "hard_derivative_d_dlnmu_GeV2": hard_derivative,
         "total_d_dlnmu_GeV2": total_derivative,
@@ -257,11 +277,21 @@ def plan_c_scale_dependence(
         "relative_identity_residual": abs(identity_residual)/max(abs(total_derivative),1e-300),
         "finite_difference_d_dlnmu_GeV2": [numerical_derivative.real,numerical_derivative.imag],
         "relative_finite_difference_residual": abs(numerical_derivative.real-total_derivative)/max(abs(total_derivative),1e-300),
+        "dimension8_running": {
+            "sum_abs_C5_fourth_GeVminus4": sum_c5_fourth,
+            "loop_induced_beta_c8_GeVminus4": beta_c8_loop,
+            "delta_c8_from_mu_reference_to_mu_low_GeVminus4": delta_c8_running,
+            "delta_PiB_from_O8_running_GeV2": delta_pi_ct_running,
+            "delta_PiB_soft_plus_hard_GeV2": [delta_pi_soft_hard.real,delta_pi_soft_hard.imag],
+            "residual_after_O8_running_GeV2": [residual_after_o8_running.real,residual_after_o8_running.imag],
+            "relative_residual_after_O8_running": abs(residual_after_o8_running)/max(abs(delta_pi_soft_hard),1e-300),
+            "finite_matching_value_c8_at_M_E": "not determined",
+        },
         "required_dimension8_counterterm_contribution_d_dlnmu_GeV2": -total_derivative,
         "interpretation": (
-            "The remaining scale dependence is local and equals twice the EFT5 mixed UV-pole coefficient. "
-            "It is canceled by the running of the dimension-eight operator counterterm. "
-            "This fixes the required scale derivative, not the finite matching value of its Wilson coefficient."
+            "The Plan-C finite soft expression already includes the EFT5 contact tadpole. "
+            "The remaining scale dependence is the running of O8=(Hdagger H)^2(Sdagger S)^2. "
+            "Its loop-induced running cancels the benchmark scale residual; the finite hard matching value c8(M_E) remains unknown."
         ),
     }
 
@@ -287,7 +317,8 @@ def run_mapping(tadpole_json: Path, matrix_json: Path) -> dict:
             VH, vs, t["couplings_and_invariants"]["by_flavour"]
         )
         plan_c_scale = plan_c_scale_dependence(
-            VH, vs, 125.25**2, t["couplings_and_invariants"]["by_flavour"]
+            VH, vs, 125.25**2, t["couplings_and_invariants"]["by_flavour"],
+            mu_reference=ME, mu_low=125.25,
         )
 
         full_c = {
