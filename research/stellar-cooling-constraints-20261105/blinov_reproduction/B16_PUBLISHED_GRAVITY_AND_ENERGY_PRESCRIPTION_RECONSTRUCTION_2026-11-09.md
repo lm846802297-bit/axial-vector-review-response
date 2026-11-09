@@ -9,7 +9,7 @@ Purpose: distinguish the literal published Fig. 7 prescription from a full-GR ex
 
 The cited gravitational-redshift treatment, Caputo et al., arXiv:2201.09890, explicitly states that the Garching pseudo-Newtonian model is treated with flat spatial coordinates and distant-observer time; the lapse redshifts the emitted particle energy and multiplies the source luminosity by lapse squared. This explains the structure of Blinov's B.1.
 
-The remaining ambiguity is narrower: Sec. 4.1 describes omega as energy at spatial infinity, whereas the Appendix-B.1 lower limit and source measure identify omega as the local energy at emission. B.2 then keeps the same omega along the Euclidean chord. The literal Appendix-B formula is the reproduction target; the path-redshift-only calculation is a separate sensitivity extension.
+The B.1 energy-variable difference is reconciled by an exact change of variables: its printed omega is local energy at emission, while the main-text energy-at-infinity variable is E_infinity=N(r) omega. An independent numerical integration in both variables agrees channel by channel at stored precision. The remaining convention question is in B.2: whether the fixed omega in the path opacity is intended literally as printed or is shorthand for a locally redshifted energy. The literal Appendix-B formula remains the reproduction target; the path-redshift-only calculation is a separate sensitivity extension.
 
 ## 1. Direct reconstruction of B.1
 
@@ -72,17 +72,47 @@ Sources:
 - Caputo, Raffelt and Vitagliano, *Radiative transfer in stars by feebly interacting bosons*, arXiv:2204.11862, Eqs. (4.22)--(4.24): https://arxiv.org/abs/2204.11862
 - Blinov et al., JHEP 06 (2026) 155, Appendix B discussion preceding Eq. (B.6): https://doi.org/10.1007/JHEP06(2026)155
 
-## 3. The notation issue that remains
+## 3. B.1 local-energy and infinity-energy variables are exactly equivalent
 
-The main text, Sec. 4.1, describes omega as the energy at spatial infinity. The B.1 source integral instead has the local-energy threshold mV/N(r) and the local phase-space measure multiplied by N(r)^2. Those statements cannot all refer to the same untransformed integration variable.
+The main text, Sec. 4.1, describes the emitted energy at infinity. The B.1 source integral is printed in the local source-energy variable omega_loc, as shown by its lower limit mV/N(r), its local momentum k_loc, and its N(r)^2 prefactor.
+
+Set
+```
+E_infinity = N(r) * omega_loc,
+d omega_loc = d E_infinity / N(r),
+k_loc = sqrt(E_infinity^2 - N(r)^2 mV^2) / N(r).
+```
+Then the B.1 energy measure transforms as
+```
+N(r)^2 * k_loc * omega_loc^2 * d omega_loc
+ = [E_infinity^2 * sqrt(E_infinity^2 - N(r)^2 mV^2)
+    / N(r)^2] * d E_infinity.
+```
+The lower limit transforms from omega_loc = mV/N(r) to E_infinity = mV. The local production rate must be evaluated at omega_loc = E_infinity/N(r).
+
+This is an exact change of integration variable, not a different physical prescription. The independent B.1 audit now evaluates both forms with separate logarithmic Gauss-Legendre grids. For the 10 MeV current-profile benchmark, the local-energy and E_infinity forms agree channel by channel at stored precision:
+- neutrino inverse decay: 2.924014280393587e70 erg/s/g^2 in both forms;
+- Compton: 1.3803538885385007e70 erg/s/g^2 in both forms;
+- total: 4.304368168932088e70 erg/s/g^2 in both forms.
+
+Thus the Sec. 4.1 energy-at-infinity language can be reconciled with the B.1 local-energy integral by the Jacobian above. The B.1 source-energy convention is no longer an unresolved physical ambiguity.
+
+## 4. The remaining path-energy convention question is in B.2
+
+The printed B.2 opacity uses the same omega in
+```
+tau = ∫ ds Gamma_abs*(r'(s),omega) / vV(omega),
+Gamma_abs* = (1-exp[-omega/T(r')]) Gamma_abs.
+```
+The question is whether this is intended literally as a fixed local energy along the Euclidean chord, or whether omega is the conserved energy at infinity and the local collision kernel implicitly evaluates omega_loc(r')=E_infinity/N(r'). The printed thermal factor and velocity use omega without an explicit lapse conversion, while Sec. 4.1 describes omega at infinity. The numerical code is not public, so this cannot be resolved from an unpublished implementation.
 
 The safe reproduction rule is:
 
-1. implement B.1 exactly as printed, interpreting its integration variable as the local source energy, as required by the mV/N(r) threshold and the cited lapse-squared prescription;
+1. implement B.1 in the local-energy form exactly as printed, or in its exactly equivalent E_infinity form with the transformed measure above;
 2. implement B.2 exactly as printed, keeping the same omega in the path opacity and in vV;
 3. retain the path-redshift-only alternative separately, with omega_loc(r') = omega_source N(r_source)/N(r'), and do not substitute it for the published baseline without evidence that the authors used it.
 
-The article does not provide the numerical code, so the exact unpublished implementation cannot be inferred beyond the printed prescription. The mismatch between the Sec. 4.1 description and Appendix-B notation should be reported as a paper-level convention ambiguity, not resolved by silently changing the equations.
+The mismatch is now isolated to the path-energy interpretation in B.2, not the B.1 source integral.
 
 ## 4. Consequence for the role of A(r)
 
