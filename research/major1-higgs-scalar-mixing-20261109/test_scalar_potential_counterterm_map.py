@@ -3,6 +3,7 @@ import unittest
 from scalar_potential_counterterm_map import (
     LOOP,
     finite_heavy_potential_matching,
+    finite_potential_hs_mass_contributions,
     leading_eft5_derivatives,
     potential_mass_counterterm,
     potential_tadpoles_per_vev,
@@ -134,6 +135,43 @@ class ScalarPotentialCountertermMapTests(unittest.TestCase):
         self.assertGreater(coeff["c_(HdagH)(SdagS)^2_GeVminus2"], 0.0)
         self.assertLess(coeff["c_(HdagH)^3(SdagS)_GeVminus4"], 0.0)
         self.assertLess(coeff["c_(HdagH)(SdagS)^3_GeVminus4"], 0.0)
+
+    def test_finite_potential_hs_curvature_matches_exact_heavy_cw(self):
+        import mpmath as mp
+        mp.mp.dps = 60
+        cases = (
+            (mp.mpf("70.886458"), {
+                "mu": {"y": 1.14873979560807, "lambda": 0.21079274070995216},
+                "tau": {"y": 1.14873979560807, "lambda": 3.5449077035817727},
+            }, 246.22, -3677.9466276134013, 0.65693383515755),
+            (mp.mpf("315.0"), {
+                "mu": {"y": 1.14873979560807, "lambda": 0.04743603416203465},
+                "tau": {"y": 1.14873979560807, "lambda": 0.7977331779169073},
+            }, 246.22, -827.6717750620922, 0.147834008618015),
+        )
+        me = mp.mpf("20000")
+        loop = 1/(16*mp.pi**2)
+        for vs, flavs, vh, expected_total, expected_higher in cases:
+            match = finite_heavy_potential_matching(flavs)
+            coeff = match["finite_potential_wilson_coefficients_at_mu_ME"]
+            local = finite_potential_hs_mass_contributions(coeff, vh, float(vs))
+            self.assertAlmostEqual(local["total_including_portal_GeV2"], expected_total, places=7)
+            self.assertAlmostEqual(local["higher_dimensional_sum_GeV2"], expected_higher, places=7)
+
+            def exact_heavy_potential(h, s):
+                value = mp.mpf("0")
+                for item in flavs.values():
+                    y = mp.mpf(str(item["y"]))
+                    lam = mp.mpf(str(item["lambda"]))
+                    x = y**2*h**2/2
+                    yy = lam**2*s**2/2
+                    total = me**2+x+yy
+                    zplus = (total+mp.sqrt(total**2-4*x*yy))/2
+                    value += -loop*zplus**2*(mp.log(zplus/me**2)-mp.mpf(3)/2)
+                return value
+
+            exact_mixed = mp.diff(lambda h: mp.diff(lambda s: exact_heavy_potential(h,s), vs), mp.mpf(str(vh)))
+            self.assertLess(abs(exact_mixed-mp.mpf(str(local["total_including_portal_GeV2"])))/abs(exact_mixed), mp.mpf("1e-9"))
 
     def test_exact_heavy_eigenvalue_cw_matches_dimension8_background_expansion(self):
         import mpmath as mp
