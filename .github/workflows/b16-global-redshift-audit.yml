@@ -7,6 +7,9 @@ on:
     paths:
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_global_redshift.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_global_redshift.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py'
+      - 'research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv'
+      - 'research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json'
       - '.github/workflows/b16-global-redshift-audit.yml'
   workflow_dispatch:
 
@@ -46,7 +49,7 @@ jobs:
           python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_global_redshift.py \
             --masses 0.1,1,10 \
             --nr 40 --ne 100 --na 16 --ns 32 \
-            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_redshift_audit_2026-11-08.json
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_redshift_audit_2026-11-09.json
       - name: Verify PR #56 production outputs remain unchanged
         run: |
           git diff --exit-code -- \
@@ -61,7 +64,7 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_redshift_audit_2026-11-08.json
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_redshift_audit_2026-11-09.json
           if git diff --cached --quiet; then
             echo "B.16 global redshift audit output is already current."
           else
