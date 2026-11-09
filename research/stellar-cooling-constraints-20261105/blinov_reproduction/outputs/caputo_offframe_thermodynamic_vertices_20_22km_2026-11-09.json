@@ -1,0 +1,174 @@
+{
+  "clipping_paths": [
+    {
+      "inspection_error": "'rect'"
+    }
+  ],
+  "curves": {
+    "T": {
+      "color": [
+        0.9999849796295166,
+        0.0,
+        0.0
+      ],
+      "committed_csv_sha256": "e6a840720d86ec55bd41f661c9bb305318dd29d98fcc38a7e3a8dee2058060e6",
+      "csv_vs_pdf_vertex_max_abs_relative_difference": 1.354472090042691e-14,
+      "csv_vs_pdf_vertex_mean_abs_relative_difference": 2.7524737164964278e-15,
+      "drawing_index": 0,
+      "drawing_rect_pdf": [
+        47.75,
+        88.5469970703125,
+        837.5269775390625,
+        215.5590057373047
+      ],
+      "item_count": 403,
+      "item_kinds": [
+        "l"
+      ],
+      "off_frame_20_22_continuity_gaps_in_original_item_order": 0,
+      "off_frame_20_22_max_abs_adjacent_slope_per_km": 0.5988041377834411,
+      "off_frame_20_22_value_range": [
+        3.5593029764985356,
+        4.198857323941706
+      ],
+      "off_frame_20_22_vertex_count": 45,
+      "off_frame_vertex_count_r_gt_20": 208,
+      "point_count": 404,
+      "radius_support_km": [
+        0.11655454282407385,
+        56.961758004294495
+      ],
+      "sample_values": [
+        {
+          "r_km": 19.5,
+          "value": 4.50430391445091
+        },
+        {
+          "r_km": 20.0,
+          "value": 4.204423025594307
+        },
+        {
+          "r_km": 20.5,
+          "value": 3.9732831966903057
+        },
+        {
+          "r_km": 21.0,
+          "value": 3.793739369398038
+        },
+        {
+          "r_km": 21.5,
+          "value": 3.6594855725690887
+        },
+        {
+          "r_km": 22.0,
+          "value": 3.55138904910432
+        },
+        {
+          "r_km": 22.19,
+          "value": 3.5155788776791392
+        },
+        {
+          "r_km": 22.5,
+          "value": 3.471515727011071
+        }
+      ],
+      "visible_frame_radius_max_km": 20.0
+    },
+    "mu_mu": {
+      "color": [
+        0.0,
+        0.0,
+        0.9999849796295166
+      ],
+      "committed_csv_sha256": "1cacfd7f3d4a7b70a92f645dc0dc00e0586293ff90c97dd0025a76c085929c83",
+      "csv_vs_pdf_vertex_max_abs_relative_difference": 9.012790513907021e-13,
+      "csv_vs_pdf_vertex_mean_abs_relative_difference": 1.1740940225358628e-14,
+      "drawing_index": 1,
+      "drawing_rect_pdf": [
+        47.75,
+        54.992000579833984,
+        354.4530029296875,
+        215.5590057373047
+      ],
+      "item_count": 250,
+      "item_kinds": [
+        "l"
+      ],
+      "off_frame_20_22_continuity_gaps_in_original_item_order": 0,
+      "off_frame_20_22_max_abs_adjacent_slope_per_km": 12.576684007758002,
+      "off_frame_20_22_value_range": [
+        6.106781624100045,
+        14.745120038474239
+      ],
+      "off_frame_20_22_vertex_count": 48,
+      "off_frame_vertex_count_r_gt_20": 54,
+      "point_count": 251,
+      "radius_support_km": [
+        0.11655454282407385,
+        22.191893657048542
+      ],
+      "sample_values": [
+        {
+          "r_km": 19.5,
+          "value": 16.077463960979145
+        },
+        {
+          "r_km": 20.0,
+          "value": 14.77142401797812
+        },
+        {
+          "r_km": 20.5,
+          "value": 13.519248033404269
+        },
+        {
+          "r_km": 21.0,
+          "value": 12.140970585475124
+        },
+        {
+          "r_km": 21.5,
+          "value": 10.122891954952108
+        },
+        {
+          "r_km": 22.0,
+          "value": 5.519979123189131
+        },
+        {
+          "r_km": 22.19,
+          "value": 1.1183211607064063
+        },
+        {
+          "r_km": 22.5,
+          "value": null
+        }
+      ],
+      "visible_frame_radius_max_km": 20.0
+    }
+  },
+  "drawing_count": 370,
+  "interpretation": [
+    "The 20--22 km T and mu_mu vertices are present in the original Caputo PDF drawing paths, but lie beyond the visible top-panel x-frame ending at 20 km.",
+    "The off-frame coordinates are encoded PDF vector-path data, not values read from the visible plotted axes.",
+    "They are not raw Garching simulation tables and are not independently cross-checked by Bollig Figs. 1 and 4.",
+    "The committed T_caputo_vertices.csv and mu_mu_caputo_vertices.csv reproduce the PDF path vertices under the existing mapping; this verifies extraction consistency, not the physical provenance of off-frame data.",
+    "No profile, source, opacity, transport, luminosity, or axial-vector output is modified."
+  ],
+  "mapping": {
+    "radius_km": "0.1 + (x_pdf - 47.52)*19.9/(324.0 - 47.52)",
+    "value": "10**((215.559 - y_pdf)/(215.559 - 56.180)*2)",
+    "visible_frame_right_edge_x_pdf": 324.0
+  },
+  "page_index": 0,
+  "page_rect": [
+    0.0,
+    0.0,
+    360.0,
+    492.0
+  ],
+  "source": "Caputo et al., arXiv:2109.03244v3, figures/SNProfile.pdf",
+  "source_pdf_sha256": "19ca5ee492dea689a4a9851e999f7d05d0f26be7dfc820e817cc5bc310065c8e",
+  "source_url": "https://arxiv.org/src/2109.03244v3",
+  "visible_top_panel_radius_range_km": [
+    0.1,
+    20.0
+  ]
+}
