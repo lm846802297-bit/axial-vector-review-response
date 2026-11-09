@@ -2,8 +2,8 @@
   "source": "Blinov et al., JHEP 06 (2026) 155, arXiv:2511.09619, Appendix B, Eqs. (B.1)--(B.5)",
   "method": "Independent exact-in-path integration of piecewise-linear radial reduced opacity; z=s+r*cos(theta); split at every radial knot; analytic primitive for A+B*sqrt(b^2+z^2); angular average checked with Gauss-Legendre, composite Simpson, and adaptive QUADPACK.",
   "shared_inputs": "Local collision kernel, reconstructed profile, B.1 source measure, energy grid, and Fig. 7 vertices are held identical to the archived B.16 baseline. No existing B.2 path integrator generates the new tau.",
-  "run_commit_sha": "aebdf325366d547fb2181b3339ab4604aad9a596",
-  "code_sha256": "7fdfdaea52c5feb20b0b42b6da526dbe600b3d9f79b78a041e7b74f2fe29ec57",
+  "run_commit_sha": "30e90bd0b62182d7f8f6734f4fb6217d0e22f19b",
+  "code_sha256": "15e7aca16e69d50b57ea265d456b0c302d50a7042a0ed7aaaff8a57860408527",
   "profile": {
     "path": "sfho188_digitized.csv",
     "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
@@ -661,11 +661,11 @@
       {
         "source_radius_km": 8.138863688405948,
         "energy_MeV": 19.54548456661835,
-        "coupling": 4.171689650228597e-08,
-        "quadpack_escape_average": 4.069614437487215e-17,
-        "quadpack_abs_error": 2.7577613345896376e-23,
-        "simpson_escape_average": 4.069614272925156e-17,
-        "relative_difference": -4.043676893328296e-08
+        "coupling": 1.9818912470130955e-08,
+        "quadpack_escape_average": 0.00010703697405112032,
+        "quadpack_abs_error": 7.777629801381637e-12,
+        "simpson_escape_average": 0.00010703698808146052,
+        "relative_difference": 1.3107938001688524e-07
       },
       {
         "source_radius_km": 8.138863688405948,
@@ -688,11 +688,11 @@
       {
         "source_radius_km": 8.138863688405948,
         "energy_MeV": 52.29242874389507,
-        "coupling": 4.171689650228597e-08,
-        "quadpack_escape_average": 4.81519613021313e-09,
-        "quadpack_abs_error": 7.121995188444597e-14,
-        "simpson_escape_average": 4.815192761171761e-09,
-        "relative_difference": -6.996685654181434e-07
+        "coupling": 1.9818912470130955e-08,
+        "quadpack_escape_average": 0.008841022640145873,
+        "quadpack_abs_error": 1.0425558759607928e-10,
+        "simpson_escape_average": 0.008841023540301455,
+        "relative_difference": 1.018157762544547e-07
       },
       {
         "source_radius_km": 8.138863688405948,
@@ -715,11 +715,11 @@
       {
         "source_radius_km": 8.138863688405948,
         "energy_MeV": 99.02150854450393,
-        "coupling": 4.171689650228597e-08,
-        "quadpack_escape_average": 3.188563660229389e-06,
-        "quadpack_abs_error": 4.1018054505604965e-12,
-        "simpson_escape_average": 3.188563654429286e-06,
-        "relative_difference": -1.8190331463330267e-09
+        "coupling": 1.9818912470130955e-08,
+        "quadpack_escape_average": 0.04188912532064291,
+        "quadpack_abs_error": 6.108950806261923e-10,
+        "simpson_escape_average": 0.04188912976438431,
+        "relative_difference": 1.0608341360907048e-07
       },
       {
         "source_radius_km": 8.138863688405948,
@@ -742,11 +742,11 @@
       {
         "source_radius_km": 11.861136311594052,
         "energy_MeV": 19.54548456661835,
-        "coupling": 4.171689650228597e-08,
-        "quadpack_escape_average": 6.695475254208293e-16,
-        "quadpack_abs_error": 1.7190025388755376e-22,
-        "simpson_escape_average": 6.695478502427724e-16,
-        "relative_difference": 4.851365000835273e-07
+        "coupling": 1.9818912470130955e-08,
+        "quadpack_escape_average": 0.00013326317613133594,
+        "quadpack_abs_error": 9.536047392617878e-12,
+        "simpson_escape_average": 0.00013326317608827986,
+        "relative_difference": -3.2309055431056777e-10
       },
       {
         "source_radius_km": 11.861136311594052,
@@ -769,11 +769,11 @@
       {
         "source_radius_km": 11.861136311594052,
         "energy_MeV": 52.29242874389507,
-        "coupling": 4.171689650228597e-08,
-        "quadpack_escape_average": 4.855949288180486e-08,
-        "quadpack_abs_error": 1.2696350765529107e-15,
-        "simpson_escape_average": 4.8559492713135914e-08,
-        "relative_difference": -3.4734494169796903e-09
+        "coupling": 1.9818912470130955e-08,
+        "quadpack_escape_average": 0.011628149882645026,
+        "quadpack_abs_error": 2.0366439639850651e-10,
+        "simpson_escape_average": 0.01162815031575608,
+        "relative_difference": 3.7246772555121765e-08
       },
       {
         "source_radius_km": 11.861136311594052,
@@ -796,11 +796,11 @@
       {
         "source_radius_km": 11.861136311594052,
         "energy_MeV": 99.02150854450393,
-        "coupling": 4.171689650228597e-08,
-        "quadpack_escape_average": 2.670180892284047e-05,
-        "quadpack_abs_error": 1.591029433426477e-13,
-        "simpson_escape_average": 2.6701806214074142e-05,
-        "relative_difference": -1.0144504947184885e-07
+        "coupling": 1.9818912470130955e-08,
+        "quadpack_escape_average": 0.05783946043859777,
+        "quadpack_abs_error": 8.058090720656198e-10,
+        "simpson_escape_average": 0.057839462919023296,
+        "relative_difference": 4.288465871304936e-08
       },
       {
         "source_radius_km": 11.861136311594052,
@@ -823,11 +823,11 @@
       {
         "source_radius_km": 14.791704467391078,
         "energy_MeV": 19.54548456661835,
-        "coupling": 4.171689650228597e-08,
-        "quadpack_escape_average": 1.178045467737138e-14,
-        "quadpack_abs_error": 2.162938999533594e-19,
-        "simpson_escape_average": 1.1780468177711704e-14,
-        "relative_difference": 1.1459948443537371e-06
+        "coupling": 1.9818912470130955e-08,
+        "quadpack_escape_average": 0.00019127688403841793,
+        "quadpack_abs_error": 3.1466548930294408e-12,
+        "simpson_escape_average": 0.000191276895090881,
+        "relative_difference": 5.778253409083334e-08
       },
       {
         "source_radius_km": 14.791704467391078,
@@ -850,11 +850,11 @@
       {
         "source_radius_km": 14.791704467391078,
         "energy_MeV": 52.29242874389507,
-        "coupling": 4.171689650228597e-08,
-        "quadpack_escape_average": 3.9755708274476385e-07,
-        "quadpack_abs_error": 7.050308996109438e-15,
-        "simpson_escape_average": 3.97557096847144e-07,
-        "relative_difference": 3.547259175284978e-08
+        "coupling": 1.9818912470130955e-08,
+        "quadpack_escape_average": 0.01566823542547014,
+        "quadpack_abs_error": 1.8963922446268988e-10,
+        "simpson_escape_average": 0.015668236913027548,
+        "relative_difference": 9.494096597784107e-08
       },
       {
         "source_radius_km": 14.791704467391078,
@@ -877,11 +877,11 @@
       {
         "source_radius_km": 14.791704467391078,
         "energy_MeV": 99.02150854450393,
-        "coupling": 4.171689650228597e-08,
-        "quadpack_escape_average": 0.00012794630059718152,
-        "quadpack_abs_error": 7.929774338440284e-12,
-        "simpson_escape_average": 0.00012794630086575496,
-        "relative_difference": 2.0991106630674494e-09
+        "coupling": 1.9818912470130955e-08,
+        "quadpack_escape_average": 0.07572333863518874,
+        "quadpack_abs_error": 5.242509759639802e-10,
+        "simpson_escape_average": 0.07572334689633202,
+        "relative_difference": 1.0909639525102932e-07
       },
       {
         "source_radius_km": 14.791704467391078,
@@ -1041,7 +1041,7 @@
     },
     "maximum_absolute_luminosity_shift_vs_archived": 4.5206465186131695e-05
   },
-  "elapsed_seconds": 15.0827956199646,
+  "elapsed_seconds": 27.375048875808716,
   "limitations": [
     "The path integral is exact only for the piecewise-linear interpolation of the supplied radial reduced-opacity table.",
     "The calculation retains the Euclidean straight-chord geometry of Eq. (B.2); it is not full GR ray tracing.",
