@@ -15,7 +15,7 @@ No axial-vector curve is recalculated or updated. PR #57 remains Open / Draft.
 | B.1+B.2 end-to-end | Independent source and path modules reproduce the stored B.16 calculation with mean absolute difference 0.3975% and maximum 0.4451% | 25 Fig. 7 coupling points; radial refinement changes the curve by at most 0.1987% | Internal reproduction pass |
 | Local collision kernels | Full 64,000-point radius--energy grid checked | B.6, B.10, B.17 and B.16 residuals at or below the archived (10^{-13}) scale; angular-order and sign checks pass | Numerical pass |
 | Fig. 7 physical comparison | Strong-endpoint residual remains +92.2406% for the fixed-\(\omega\) B.16 working benchmark | Current profile B; 25 coupling points | **Not passed** |
-| Energy/GR convention | Published lapse-only source prescription and Euclidean-chord path reconstructed; full-GR extension remains unavailable | B.1--B.5 plus Caputo et al. arXiv:2201.09890 Supplemental C | Published-method prescription understood; Sec. 4.1/B.1 notation ambiguity remains |
+| Energy/GR convention | B.1 local-energy and E_infinity forms shown numerically equivalent; B.2 path-energy interpretation remains isolated | Independent local-vs-infinity B.1 quadrature and B.2 literal/path-redshift comparison | B.1 resolved; B.2 implementation convention remains a paper-level ambiguity |
 | Stellar-background fidelity | Caputo (T(r)) and (mu_\mu/T) supported by direct Bollig figure comparisons; outer profile remains figure-derived | Original Bollig Figs. 1, 3 and 4 cross-checks; 20--25 km continuation not fully source-validated | Partial |
 
 ## 2. Current 10 MeV Fig. 7 residuals
@@ -102,9 +102,10 @@ The source-level convention and implementation ambiguity is documented in:
 ### Still unresolved
 
 1. The true same-snapshot thermodynamic continuation over 20--25 km.
-2. The exact unpublished numerical choice between the formal Compton integral B.13 and its reduced B.14--B.16 prescription; the 0.1 and 1 MeV global comparison is now running on the current profile.
-3. The control of the non-relativistic/no-recoil muon approximation in B.14. The source-weighted B.17 susceptibility diagnostic gives mean muon speed 0.761 and 93.2% of the susceptibility weight at v_mu>0.5 in the low-mass Compton source region; this motivates, but does not replace, the full B.13 rate comparison.
-4. A same-snapshot spatial metric A(r) or enclosed mass M(r) only if a separate full-GR extension is pursued.
+2. The exact unpublished numerical choice between the formal Compton integral B.13 and its reduced B.14--B.16 prescription; the 0.1 MeV global run has completed, while 1 and 10 MeV are still running.
+3. The B.2 path-energy convention: the B.1 source variable ambiguity is resolved by the exact E_infinity=N omega_loc Jacobian, but the path opacity still has no explicit lapse conversion in the printed thermal factor.
+4. The control of the non-relativistic/no-recoil muon approximation in B.14. The source-weighted B.17 susceptibility diagnostic gives mean muon speed 0.761 and 93.2% of the susceptibility weight at v_mu>0.5 in the low-mass Compton source region; this motivates, but does not replace, the full B.13 rate comparison.
+5. A same-snapshot spatial metric A(r) or enclosed mass M(r) only if a separate full-GR extension is pursued.
 
 The Garching radial-profile endpoint remains access-protected. This limits raw-profile precision and any optional full-GR extension, but it does not prevent the method-level checks of the published B.1--B.5 prescription using the reconstructed profile.
 
