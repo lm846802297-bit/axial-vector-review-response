@@ -1,0 +1,95 @@
+name: B.2 high-order radial-source convergence
+
+on:
+  push:
+    branches:
+      - research/moving-muon-thermal-rates-20261107
+    paths:
+      - '.github/workflows/b2-radial-source-convergence.yml'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b2_radial_source_convergence.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_global_redshift.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py'
+      - 'research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: b2-radial-source-convergence-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  radial:
+    if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
+    name: B.2 radial convergence - ${{ matrix.mass }} MeV
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        mass: [0.1, 1.0]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy
+      - name: Compile audit and regression tests
+        env:
+          PYTHONPATH: ${{ github.workspace }}/research/stellar-cooling-constraints-20261105
+        run: |
+          python -m py_compile research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b2_radial_source_convergence.py
+          python -m unittest discover -s research/stellar-cooling-constraints-20261105/blinov_reproduction -p 'test_b16_global_redshift.py' -v
+      - name: Run high-order radial convergence
+        env:
+          PYTHONPATH: ${{ github.workspace }}/research/stellar-cooling-constraints-20261105
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b2_radial_source_convergence.py \
+            --mass ${{ matrix.mass }} \
+            --orders 80,100,120,160,200 \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b2_radial_source_convergence_${{ matrix.mass }}mev_2026-11-09.json
+      - name: Validate profile and production isolation
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          mass=float("${{ matrix.mass }}")
+          p=Path(f"research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b2_radial_source_convergence_{mass}mev_2026-11-09.json")
+          d=json.loads(p.read_text())
+          assert d["mass_MeV"]==mass
+          assert d["profile_sha256"]=="9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
+          assert [x["radial_order"] for x in d["radial_orders"]]==[80,100,120,160,200]
+          git_files=[
+            "research/stellar-cooling-constraints-20261105/rates.py",
+            "research/stellar-cooling-constraints-20261105/transport.py",
+            "research/stellar-cooling-constraints-20261105/outputs/axial.json",
+            "research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.pdf",
+            "research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.png"]
+          print(json.dumps({"mass_MeV":mass,"radial_orders":[
+            {"n":x["radial_order"],"change":x["luminosity_vs_previous_order"]}
+            for x in d["radial_orders"]]},indent=2))
+          PY
+          git diff --exit-code -- research/stellar-cooling-constraints-20261105/rates.py research/stellar-cooling-constraints-20261105/transport.py research/stellar-cooling-constraints-20261105/outputs/axial.json research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.pdf research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.png
+      - name: Archive radial convergence result
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b2_radial_source_convergence_${{ matrix.mass }}mev_2026-11-09.json
+          git commit -m "Archive B.2 high-order radial convergence at ${{ matrix.mass }} MeV"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin "${GITHUB_REF_NAME}"
+            if ! git rebase "origin/${GITHUB_REF_NAME}"; then git rebase --abort || true; sleep 2; continue; fi
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then exit 0; fi
+            sleep 2
+          done
+          exit 1
