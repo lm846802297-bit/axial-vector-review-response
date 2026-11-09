@@ -67,7 +67,7 @@ def transform_profile(source, destination, scale):
         "baseline_mu_numu_range_MeV":[min(original),max(original)],
         "baseline_mu_numu_over_T_range":[min(ratios),max(ratios)],
         "scale":scale,
-        "assigned_mu_numu_range_MeV":[min(original)*scale,max(original)*scale],
+        "assigned_mu_numu_range_MeV":[min(x*scale for x in original),max(x*scale for x in original)],
     }
 
 
