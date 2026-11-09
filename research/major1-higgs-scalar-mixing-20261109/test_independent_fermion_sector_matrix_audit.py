@@ -4,9 +4,11 @@ import unittest
 import numpy as np
 
 from independent_fermion_sector_matrix_audit import (
+    BENCHMARKS,
     ME,
     MU_R,
     b0_feynman_parameter,
+    calculate_benchmark,
 )
 
 
@@ -41,8 +43,8 @@ class IndependentFermionMatrixAuditTests(unittest.TestCase):
                 "ss": -3236092.6837118976,
             },
         }
-        for label, _, _ in BENCHMARKS:
-            got = self.audit["benchmarks"][label]
+        for label, vs, m_a in BENCHMARKS:
+            got = calculate_benchmark(label, vs, m_a)
             for entry in ("hh", "hs", "ss"):
                 self.assertAlmostEqual(
                     got[entry]["MS_mass_counterterm_pole_coefficient_full_minus_light_GeV2"],
