@@ -162,13 +162,19 @@ The 8--12 km shell contributes 65.893% of the B.1 thin source and 15.9324% of th
 
 Full results: [B16_INNER_NUMU_BRANCH_SENSITIVITY_8_12KM_2026-11-09.md](B16_INNER_NUMU_BRANCH_SENSITIVITY_8_12KM_2026-11-09.md); machine-readable output: [b16_inner_numu_branch_sensitivity_8_12km_10mev_2026-11-09.json](outputs/b16_inner_numu_branch_sensitivity_8_12km_10mev_2026-11-09.json).
 
-## 11. Physical impact of the 15--20 km Fig. 3 density mismatch: assessed
+## 11. Physical impact of the 15--20 km Fig. 3 density mismatch: current-profile assessment
 
-The direct Bollig Fig. 3 comparison identifies a roughly 10% density residual through the last uncensored point at 16.603 km. This does not imply a 10% change in the B.1 Compton kernel: in the adopted one-negative-muon convention, the rate depends on n_mu F_deg = chi_mu(T,mu_mu). At fixed T and mu_mu, the normalization change in n_mu is compensated by the inverse change in F_deg. No empirical density or opacity rescaling is justified.
+The older 0.0873% outer-shell opacity estimate used profile SHA-256 08d7afce... and is superseded for the current calculation. The current vertex-preserving B.16 benchmark uses profile SHA-256 9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c and has a different B.2 channel decomposition.
 
-The current 10 MeV B.16 baseline assigns only 0.0037722% of the B.1 thin source to 15--20 km (0.0036791% in 15--18 km and 0.0000931% in 18--20 km). The same interval contributes 0.087305% of the source-weighted mean B.2 optical depth. A hypothetical 10% change in all 15--20 km opacity therefore corresponds to only 0.00873% of the total mean optical depth; at the strong endpoint this is an attenuation-scale effect below 0.02%. This is a conservative shell-weight estimate, not a new transport run; the direct Fig. 3 density curve is uncensored only through 16.603 km.
+In the current benchmark:
+- The total B.2 optical-depth fraction accumulated in 15--20 km is 27.8619%.
+- Of this, 27.8538 percentage points come from neutrino inverse decay.
+- The muon-Compton opacity contribution from 15--20 km is only 0.0080846% of the total mean optical depth.
+- The Compton contribution in the density-comparison interval 15--16.5 km is 0.0080023% of the total mean optical depth.
 
-The absolute-density mismatch remains explicitly unresolved at the profile level, but it is not a plausible explanation for the order-one strong-coupling Fig. 7 mismatch in this benchmark. Details and assumptions are in [BOLLIG_15_20KM_THERMODYNAMIC_CROSSCHECK_2026-11-09.md](BOLLIG_15_20KM_THERMODYNAMIC_CROSSCHECK_2026-11-09.md).
+Therefore, the large 15--20 km total path contribution is not caused by the Fig. 3 density mismatch; it is almost entirely the neutrino inverse-decay channel. The density discrepancy can affect only the muon-Compton component. Moreover, at fixed T and mu_mu, the one-species B.17 product n_mu F_deg equals the susceptibility integral chi_mu(T,mu_mu), so a consistent change in n_mu normalization is compensated by F_deg. A hypothetical 10% change in all 15--16.5 km Compton opacity would shift the total source-weighted mean optical depth by only 0.0008002% (absolute mean-tau shift about 1.29e-4 at the strong endpoint). This is a conservative sensitivity scale, not a new transport run.
+
+The density mismatch remains an unresolved published-profile consistency issue, but it is not a plausible explanation for the order-one strong-coupling Fig. 7 mismatch in the current vertex-preserving B.16 benchmark. No empirical rescaling is applied. Full detail: [BOLLIG_15_20KM_THERMODYNAMIC_CROSSCHECK_2026-11-09.md](BOLLIG_15_20KM_THERMODYNAMIC_CROSSCHECK_2026-11-09.md).
 
 ## 12. Current decision
 
