@@ -37,6 +37,7 @@ Relevant upstream files at that pinned commit:
 | [research/RC-001-vll-higgs-singlet-uv-eft.md](https://github.com/lm846802297-bit/high-energy-theory-research/blob/df9c007e8d4bd1716beae3b14591e12b6a551a8d/research/RC-001-vll-higgs-singlet-uv-eft.md) | Master record: UV model, EFT conventions, matching scope, and unresolved verification gates |
 | [research/RC-001-QLD-UV-one-background-triangle.md](https://github.com/lm846802297-bit/high-energy-theory-research/blob/df9c007e8d4bd1716beae3b14591e12b6a551a8d/research/RC-001-QLD-UV-one-background-triangle.md) | One-background hard form factors, off-shell amplitude projection, and IBP/EOM discussion |
 | [research/RC-001-QLD-nonabelian-IBP-EOM-completion.md](https://github.com/lm846802297-bit/high-energy-theory-research/blob/df9c007e8d4bd1716beae3b14591e12b6a551a8d/research/RC-001-QLD-nonabelian-IBP-EOM-completion.md) | Restricted electroweak non-Abelian IBP/commutator/current representatives |
+| [research/RC-001-portal-boundary-b1b3-reconciliation.md](https://github.com/lm846802297-bit/high-energy-theory-research/blob/df9c007e8d4bd1716beae3b14591e12b6a551a8d/research/RC-001-portal-boundary-b1b3-reconciliation.md) | Tree-level (C_{5,ell}) Schur-complement sign and convention record |
 | [calculations/RC-001-QLD-dim8-form-factor-projection.py](https://github.com/lm846802297-bit/high-energy-theory-research/blob/df9c007e8d4bd1716beae3b14591e12b6a551a8d/calculations/RC-001-QLD-dim8-form-factor-projection.py) | Exact polynomial projection implementation |
 | [calculations/RC-001-QLD-nonabelian-IBP-EOM-audit.py](https://github.com/lm846802297-bit/high-energy-theory-research/blob/df9c007e8d4bd1716beae3b14591e12b6a551a8d/calculations/RC-001-QLD-nonabelian-IBP-EOM-audit.py) | Symbolic SU(2) matrix and algebra audit |
 | [validation/RC-001-QLD-dim8-form-factor-projection.txt](https://github.com/lm846802297-bit/high-energy-theory-research/blob/df9c007e8d4bd1716beae3b14591e12b6a551a8d/validation/RC-001-QLD-dim8-form-factor-projection.txt) | Recorded projection output |
@@ -169,7 +170,7 @@ m_{\ell,\mathrm{signed}}^{\rm Schur}
 \]
 at leading order.
 
-The archived manuscript Eq. (5-d), under the same displayed operator orientation, writes
+The archived manuscript [Eq. (5-d)](../../overleaf-source/axial-vector-model-building-v6/main-v6.tex), under the same displayed operator orientation, writes
 \[
 \mathcal L_{\rm 5-d}
 =-\frac{c_\ell}{\Lambda}\mathcal O_{5,\ell}+\mathrm{h.c.},
