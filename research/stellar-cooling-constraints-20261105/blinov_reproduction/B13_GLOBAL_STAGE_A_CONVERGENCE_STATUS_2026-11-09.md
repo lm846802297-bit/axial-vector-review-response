@@ -176,7 +176,19 @@ Therefore, the large 15--20 km total path contribution is not caused by the Fig.
 
 The density mismatch remains an unresolved published-profile consistency issue, but it is not a plausible explanation for the order-one strong-coupling Fig. 7 mismatch in the current vertex-preserving B.16 benchmark. No empirical rescaling is applied. Full detail: [BOLLIG_15_20KM_THERMODYNAMIC_CROSSCHECK_2026-11-09.md](BOLLIG_15_20KM_THERMODYNAMIC_CROSSCHECK_2026-11-09.md).
 
-## 12. Current decision
+## 12. Current vertex-preserving B.16 global channel decomposition: completed
+
+The full current-profile B.16 result is [b16_global_fig7_vertex_preserving_10mev_2026-11-09.json](outputs/b16_global_fig7_vertex_preserving_10mev_2026-11-09.json), with profile SHA-256 9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c. It must be distinguished from older B.16 audits using profile SHA-256 08d7afce....
+
+Current B.1 thin-source channel fractions are 32.0050% Compton and 67.9950% neutrino inverse decay. Current B.2 source-weighted mean optical-depth fractions are 10.2218% Compton and 89.7782% neutrino inverse decay.
+
+The 15--20 km shell contributes 27.8619% of the total B.2 mean optical depth, but 27.8538 percentage points are neutrino inverse decay. Its Compton contribution is only 0.0080846% of total mean optical depth. In the density-comparison shell 15--16.5 km, the Compton contribution is 0.0080023% of total mean optical depth. Thus the large outer-shell path contribution is not caused by the Fig. 3 muon-density residual. The older-profile estimate of 0.0873% for the full 15--20 km shell is superseded and must not be used for the current vertex-preserving benchmark.
+
+At the strong endpoint, the fixed-omega B.2 baseline has \(L/L_{\rm Fig.7}-1=+92.2406\%\). The separately labeled path-redshift-only diagnostic shifts the luminosity by -28.8679% relative to fixed omega and leaves a +36.7448% discrepancy from Fig. 7. This alternative retains Euclidean straight chords and is not full GR ray tracing; Eq. (B.2) fixed omega remains the paper-faithful baseline. The redshift diagnostic therefore demonstrates sensitivity but does not solve the reproduction discrepancy.
+
+Full channel and shell decomposition: [B16_VERTEX_PRESERVING_GLOBAL_CHANNEL_DECOMPOSITION_2026-11-09.md](B16_VERTEX_PRESERVING_GLOBAL_CHANNEL_DECOMPOSITION_2026-11-09.md).
+
+## 13. Current decision
 
 - Radial, energy, angular, and path global quadrature: passed the stated project-level luminosity-stability targets at the tested resolutions.
 - Same-grid B.16 closure: passed for all four global B.13 configurations with zero residual.
