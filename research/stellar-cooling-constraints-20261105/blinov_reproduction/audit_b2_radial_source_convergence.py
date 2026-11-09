@@ -78,7 +78,7 @@ def main():
          "acceptance_target":{"max_abs_luminosity_change_pct":1.0,
            "note":"Project numerical screening target; not a physical uncertainty."}}
     a.output.parent.mkdir(parents=True,exist_ok=True)
-    a.output.write_text(json.dumps(out,indent=2,sort_keys=True)+"\\n")
+    a.output.write_text(json.dumps(out,indent=2,sort_keys=True)+"\n")
     print(json.dumps({"mass_MeV":a.mass,"orders":[
       {"radial_order":r["radial_order"],"change":r["luminosity_vs_previous_order"]}
       for r in rows]},indent=2),flush=True)
