@@ -8,7 +8,7 @@ from audit_b16_p1iii_eos_nucleon_distribution import (
     HBARC_MEV_FM,
     NucleonEOSState,
     aggregate_profile_rows,
-    candidate_state_from_hs_spp,
+    state_from_hs_spp,
     degeneracy_factor,
     degeneracy_factor_from_density_derivative,
     kinetic_energy_mev,
@@ -154,7 +154,7 @@ class TestGarchingEOSNucleonDistribution(unittest.TestCase):
             mstar = 690.0 if species == "n" else 688.706667
             sigma_v = 115.0 if species == "n" else 104.0
             mu_nonrel = 35.0 if species == "n" else 20.0
-            state = candidate_state_from_hs_spp(
+            state = state_from_hs_spp(
                 species, 5.0, mstar, sigma_v, mu_nonrel
             )
             p = np.linspace(0.0, 800.0, 101)
