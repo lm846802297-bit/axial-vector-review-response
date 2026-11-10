@@ -57,7 +57,7 @@ Benchmark A/B trajectories and zero-crossing diagnostics have been recomputed.
 
 Acceptance:
 - Independent analytic tensor/group-theory audit: PASS.
-- Nine dedicated B5-1d regression tests: companion test file.
+- Ten dedicated B5-1d regression tests: companion test file.
 - External PyR@TE/SARAH execution: NOT YET RUN.
 - Higher-loop and matching-input uncertainty: OPEN.
 
