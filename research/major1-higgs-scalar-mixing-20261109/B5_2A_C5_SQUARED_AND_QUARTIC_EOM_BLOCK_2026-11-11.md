@@ -18,18 +18,28 @@ and
 \frac{c_{\partial HS}}{M_E^2}
 \partial_\mu(H^\dagger H)\partial^\mu(S^\dagger S).
 \]
-The current operators retained in this sub-block are
+For flavor-resolved matching, the singlet in the dimension-five operator is
+\[
+S_\mu=S,\qquad S_\tau=S^\ast,\qquad
+\eta_\mu=+1,\quad \eta_\tau=-1.
+\]
+Define \(J_{S_\ell}^\mu=S_\ell^\dagger i\overleftrightarrow D^\mu S_\ell\)
+and the common-\(S\) current \(J_S^\mu=S^\dagger i\overleftrightarrow D^\mu S\).
+Then
+\[
+J_{S_\ell}^\mu=\eta_\ell J_S^\mu.
+\]
+The current operators retained below are expressed in the **common-\(S\) basis**:
 \[
 \begin{aligned}
-O_{LS}&=(S^\dagger i\overleftrightarrow D_\mu S)
-(\bar L_\ell\gamma^\mu L_\ell),\\
+O_{LS}&=J_{S,\mu}(\bar L_\ell\gamma^\mu L_\ell),\\
 O_{He}&=(H^\dagger i\overleftrightarrow D_\mu H)
 (\bar\ell_R\gamma^\mu\ell_R),\\
-O_{Se}&=(S^\dagger i\overleftrightarrow D_\mu S)
-(\bar\ell_R\gamma^\mu\ell_R),
+O_{Se}&=J_{S,\mu}(\bar\ell_R\gamma^\mu\ell_R).
 \end{aligned}
 \]
-together with
+Equivalently, flavor-specific \(S_\ell\)-current coefficients acquire a factor
+\(\eta_\ell\) when expressed in this common basis. The four-fermion operators are
 \[
 O_{4f}^{S}=(\bar L_\ell\ell_R)(\bar\ell_R L_\ell),\qquad
 O_{4f}^{V}=(\bar L_\ell\gamma_\mu L_\ell)
@@ -48,12 +58,12 @@ Define
 The previously derived hard coefficients are
 \[
 \begin{aligned}
-C_{LS,\ell}^{\rm hard}(\mu)
-&=\kappa_\ell\left(\frac{L_E}{4}-\frac38\right),\\
+C_{LS,\ell}^{\rm hard,common}(\mu)
+&=\eta_\ell\kappa_\ell\left(\frac{L_E}{4}-\frac38\right),\\
 C_{He,\ell}^{\rm hard}(\mu)
 &=-\kappa_\ell\left(\frac{L_E}{4}-\frac38\right),\\
-C_{Se,\ell}^{\rm hard}(\mu)
-&=-2\kappa_\ell\left(\frac{L_E}{4}-\frac38\right),\\
+C_{Se,\ell}^{\rm hard,common}(\mu)
+&=-2\eta_\ell\kappa_\ell\left(\frac{L_E}{4}-\frac38\right),\\
 C_{4f,\ell}^{S,\rm hard}(\mu)
 &=\kappa_\ell(L_E-2),
 \end{aligned}
@@ -74,9 +84,9 @@ C_{4f,\ell}^{V,\rm hard}(\mu)
 At \(\mu=M_E\), \(L_E=0\), hence
 \[
 \boxed{
-(C_{LS},C_{He},C_{Se},C_{4f}^{S},C_{4f}^{V})_\ell
+(C_{LS},C_{He},C_{Se},C_{4f}^{S},C_{4f}^{V})_\ell^{\rm common}
 =\kappa_\ell
-\left(-\frac38,+\frac38,+\frac34,-2,+1\right).
+\left(-\eta_\ell\frac38,+\frac38,+\eta_\ell\frac34,-2,+1\right).
 }
 \tag{1}
 \]
@@ -85,7 +95,7 @@ The scale-log derivatives of these displayed hard terms, at fixed \(\kappa_\ell\
 \frac{d}{d\ln\mu}
 (C_{LS},C_{He},C_{Se},C_{4f}^{S},C_{4f}^{V})_\ell^{\rm hard}
 =\kappa_\ell
-\left(-\frac12,+\frac12,+1,-2,+1\right).
+\left(-\eta_\ell\frac12,+\frac12,+\eta_\ell,-2,+1\right).
 \tag{2}
 \]
 Equation (2) is recorded as the derivative of the hard matching terms. It is not promoted to the complete EFT beta vector until the corresponding EFT counterterms, all other same-order insertions, and the common operator basis are combined.
@@ -108,13 +118,13 @@ Summing the two flavors, the finite hard coefficients at \(\mu=M_E\) are:
 
 | Coefficient [GeV\(^{-2}\)] | A | B |
 |---|---:|---:|
-| \(C_{LS}^{\rm hard}\) | \(-9.87956\times10^{-11}\) | \(-5.00315\times10^{-12}\) |
+| \(C_{LS}^{\rm hard,common}\) | \(+9.80994\times10^{-11}\) | \(+4.96789\times10^{-12}\) |
 | \(C_{He}^{\rm hard}\) | \(+9.87956\times10^{-11}\) | \(+5.00315\times10^{-12}\) |
-| \(C_{Se}^{\rm hard}\) | \(+1.97591\times10^{-10}\) | \(+1.00063\times10^{-11}\) |
+| \(C_{Se}^{\rm hard,common}\) | \(-1.96199\times10^{-10}\) | \(-9.93578\times10^{-12}\) |
 | \(C_{4f}^{S,\rm hard}\) | \(-5.26910\times10^{-10}\) | \(-2.66834\times10^{-11}\) |
 | \(C_{4f}^{V,\rm hard}\) | \(+2.63455\times10^{-10}\) | \(+1.33417\times10^{-11}\) |
 
-These numbers are the Yukawa-box hard subset. They are not the full Wilson coefficients after gauge matching and common-basis EOM/source reduction.
+These numbers are the Yukawa-box hard subset. The (O_{LS}) and (O_{Se}) sums use the common-(S) basis and include the (eta_ell) orientation factor. They are not the full Wilson coefficients after gauge matching and common-basis EOM/source reduction.
 
 ## 4. Recheck of the \(c_{\partial HS}\) inhomogeneous source
 
