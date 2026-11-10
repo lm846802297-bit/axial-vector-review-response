@@ -397,33 +397,33 @@ Twelve check groups passed: ten fixture-side checks, one combined
 manifest/downloader/audit-provenance check, and one source-consistency check.
 The numerical results are:
 
-- 224 fixture rows cover the stated (8\times4\times7) grid.
+- 224 fixture rows cover the stated \(8\times4\times7\) grid.
 - The maximum filling-factor identity residual is
-  (7.57\times10^{-8}), below the (10^{-6}) test tolerance.
+  \(7.57\times10^{-8}\), below the \(10^{-6}\) test tolerance.
 - The sampled acceptance domain contains 208/224 cells. The maximum neutron
-  residual is (6.1345\times10^{-4}); for protons with
-  (X_p\ge10^{-6}), it is (8.8578\times10^{-5}).
+  residual is \(6.1345\times10^{-4}\); for protons with
+  \(X_p\ge10^{-6}\), it is \(8.8578\times10^{-5}\).
 - The eight lowest-density cells have a reconstructed neutron-density spread
-  (4.8615\times10^{-4}); the three higher-density groups retain the
+  \(4.8615\times10^{-4}\); the three higher-density groups retain the
   distinct transitional/near-closure behaviour documented above.
 - Across 448 species-states, 1024-vs-2048 gives
-  (max|\Delta F^{\rm deg}|=4.7117\times10^{-8}) and maximum relative
-  density difference (1.0115\times10^{-8}).
+  \(\max|\Delta F^{\rm deg}|=4.7117\times10^{-8}\) and maximum relative
+  density difference \(1.0115\times10^{-8}\).
 - Recomputing all 448 states at 1024 nodes against the committed fixture gives
-  maximum absolute (F^{\rm deg}) difference (4.995\times10^{-11}) and
-  maximum relative density difference (4.680\times10^{-10}).
+  maximum absolute \(F^{\rm deg}\) difference \(4.995\times10^{-11}\) and
+  maximum relative density difference \(4.680\times10^{-10}\).
 - The maximum effective-mass-splitting residual is
-  (6.70\times10^{-5}\) MeV, below the (10^{-4}\) MeV regression threshold.
+  \(6.70\times10^{-5}\) MeV, below the \(10^{-4}\) MeV regression threshold.
 - The five-entry manifest, downloader table and JSON provenance agree on names
   and digests; total archive size is 322,921,457 bytes.
 
-The raw-table regression test now calls `closure_cell(..., order=1024)`,
+The raw-table regression test now calls closure_cell with order=1024,
 matching the fixture-generation and audit defaults.
 
 **Remaining execution boundary.** The current execution environment can inspect
 the authenticated GitHub release metadata and asset SHA-256 digests, but cannot
 retrieve the 322.9 MB binary release attachments into the numerical runtime.
-Therefore the four `SFHO_TABLES_DIR`-dependent tests and the post-follow-up
+Therefore the four SFHO_TABLES_DIR-dependent tests and the post-follow-up
 Python unittest suite remain unexecuted. No Python test pass or CI pass is
 claimed. The raw-table checks require the extracted EOS, SPP and composition
 files; once these are available to the runtime, run the complete 17-test suite
