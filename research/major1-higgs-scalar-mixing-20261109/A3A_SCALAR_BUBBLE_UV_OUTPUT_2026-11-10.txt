@@ -15,3 +15,10 @@ Scalar-potential portal counterterm pole in the adopted convention:
 
 PASS: symbolic symmetry-factor sum.
 LIMIT: this is only the scalar-potential contribution; the full portal counterterm and UV-EFT matching are not closed.
+
+
+Independent effective-potential cross-check (O(4) x O(2) real scalar components):
+  [Tr M_scalar^4]_(H^2 S^2) = 2 lambda_HS (3 lambda_H + lambda_HS + 2 lambda_S)
+  delta_lambda_HS^(scalar) = lambda_HS (6 lambda_H + 2 lambda_HS + 4 lambda_S)/(16 pi^2 epsbar)
+  Linear-in-lambda_HS term agrees with the A3a bubble pole.
+  The additional 2 lambda_HS^2 term is beyond the adopted lambda_HS=O(hbar), O(hbar^2) truncation.
