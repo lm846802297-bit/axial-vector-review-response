@@ -122,3 +122,14 @@ A follow-up check of Lai, Leung, and Lin (2024), the work cited for the \(R_{\ma
 Consequently, the 26--30 km rows above are **one-sided opacity-only diagnostics**, not self-consistent alternative luminosity predictions. They quantify the sensitivity to extra trapping optical depth, but must not be used as a correction to the paper's result. The inward scan is also source-frozen by design; in the selected 210--510 MeV band, the source fraction outside 15 km is below \(10^{-6}\), so this distinction is negligible for the inward results shown.
 
 Reference: K.-C. Lai, C. S. J. Leung, and G.-L. Lin, Phys. Rev. D 110, 103023 (2024), arXiv:2401.16023, especially the discussion of matching the production and attenuation regions.
+
+
+## 9. P1-F follow-up: energy-dependent daughter-neutrino decoupling
+
+The follow-up is completed at the literature and kinematic level in \`B16_P1F_ENERGY_DEPENDENT_NEUTRINOSPHERE_AND_HIGH_ENERGY_DAUGHTERS_2026-11-10.md\`.
+
+For \(m_V=10\) MeV and \(\omega=210\)--\(510\) MeV, the two daughter neutrinos have pair-mean energies \(105\)--\(255\) MeV. Supernova neutrino decoupling is energy- and flavor-dependent; for heavy-flavor states the transport sphere and energy sphere are distinct. Therefore a fixed \(R_\nu\simeq25\) km, usually understood as an effective neutrinosphere radius, is not demonstrated to be the correct energy-loss boundary for this high-energy daughter population.
+
+A deliberately conditional band-only proxy illustrates the scale: the 25-to-30 km P1-D extension suppresses the 210--510 MeV band by \(70.94\%\). If all other energy bins are held fixed, the resulting total-luminosity proxy lies \(2.79\%\) below Fig. 7. This is **not** a full re-integration and does not justify selecting \(R_{\max}=30\) km.
+
+The exact energy-dependent boundary cannot be computed from the current public-figure CSV: same-snapshot baryon density, composition, neutrino moments, and heavy-flavor energy-dependent opacities are missing; the relevant Garching archive endpoints require authorization. Retain \(R_{\max}=25\) km as the literal paper baseline and do not alter the production or axial-vector outputs.
