@@ -91,3 +91,10 @@ The calculation is accepted as a complete \(O(\hbar^2)\) correction only after A
 ## 7. Scope lock
 
 This workstream is Higgs–radial-singlet mixing. No dedicated \(h\to A'A'\) search recast is part of the present stage. Exotic decays may enter later only as physical observables computed from the completed propagator and vertices; they do not replace the self-energy/matching calculation.
+
+
+## Correction from A2 gauge-basis vertex derivation (supersedes rows above)
+
+The earlier table's suggestion of one-loop (hs) vector bubbles with "portal/mixing-induced (sVV)" or "portal-induced (hA'A')" is not a valid gauge-basis 1PI diagram at the stated order. In the original gauge basis, (H) is SM-charged and (S) is SM-neutral, while (H) is (U(1)_X)-neutral and (S) is (U(1)_X)-charged. Therefore the tree kinetic terms give (hWW,hZZ) and (sA'A'), but no (sWW,sZZ,hA'A'). The corresponding ghost couplings are (har c_Wc_W,har c_Zc_Z) and (sar c_Xc_X), with no common ghost species. Thus vector and ghost loops contribute to diagonal (hh) and (ss) entries, not to a one-loop (hs) bubble in this gauge basis. Rotating to mixed physical scalar fields and adding such vertices while retaining the full (h,s) propagator would double count the mixing.
+
+At the next combined order, the one-loop-topology (hs) diagrams are the scalar/Goldstone bubbles listed in `A2_SCALAR_GAUGE_GHOST_VERTEX_LEDGER_2026-11-10.md), plus the complete tadpole, VEV, portal and field-counterterm set. The common scalar-bubble UV coupling combination is proportional to (lambda_{HS}vv_S(6lambda_H+4lambda_S)), before counterterms. This correction is essential for the subsequent A3 calculation.
