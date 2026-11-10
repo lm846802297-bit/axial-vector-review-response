@@ -30,13 +30,13 @@ Benchmark B: gX=0.100000000000, lambda_mu=0.047436034162, lambda_tau=0.797733177
 EXACT COMPLEX-SINGLET YUKAWA MATRIX RESULT:
 16 pi^2 beta_lambda_mu = lambda_mu*(2 lambda_mu^2 + lambda_tau^2 - 6 gY^2 - 6 gX^2)
 16 pi^2 beta_lambda_tau = lambda_tau*(2 lambda_tau^2 + lambda_mu^2 - 6 gY^2 - 6 gX^2)
-The real-scalar/Weyl matrix audit passes exactly. The earlier compact form
+The real-scalar/Weyl singlet and Higgs-doublet matrix audits pass exactly. The earlier compact form
 2 lambda_l^2 + (lambda_mu^2+lambda_tau^2) double-counted the same-flavor
 contribution and is superseded.
 
-Corrected instantaneous Yukawa betas at ME:
-Benchmark A: beta_lambda_mu=+1.576952016e-02, beta_lambda_tau=+5.462938129e-01.
-Benchmark B: beta_lambda_mu=-6.936049896e-05, beta_lambda_tau=+2.036989871e-03.
+Corrected instantaneous VLL Higgs-Yukawa and singlet-Yukawa betas at ME:
+Benchmark A: beta_y_mu=+1.539e-02 (from the full coupled RHS), beta_y_tau=+1.539e-02; beta_lambda_mu=+1.576952016e-02, beta_lambda_tau=+5.462938129e-01.
+Benchmark B: beta_y_mu=+1.539e-02 (from the full coupled RHS), beta_y_tau=+1.539e-02; beta_lambda_mu=-6.936049896e-05, beta_lambda_tau=+2.036989871e-03.
 
 At ms=100 GeV, consistent instantaneous quartic/portal betas at ME:
 Benchmark A:
@@ -103,7 +103,7 @@ pure CW quartic finite threshold at mu=ME: 0
 mixed CW portal coefficient at mu=ME: 2
 U(1)X one-loop gauge coefficient bX: 8
 hypercharge one-loop coefficient above ME bY: 19/2
-exact real-scalar/Weyl complex-singlet Yukawa matrix projection: PASS
+exact real-scalar/Weyl complex-singlet and Higgs-doublet Yukawa matrix projections: PASS (6 tests)
 
 LIMITS:
 - one-loop SM running below ME, top-dominant.
