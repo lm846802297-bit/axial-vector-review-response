@@ -113,3 +113,12 @@ These are conditional extensions: they represent the case in which neutrino daug
 ## References
 
 N. Blinov, P. J. Fox, K. J. Kelly, R. Plestid, and T. Zhou, “\(L_\mu-L_\tau\) gauge bosons in beam dumps and supernovae,” arXiv:2511.09619, Appendix B, especially Eqs. (B.1)--(B.5) and the discussion of \(R_{\max}=R_\nu\simeq25\) km.
+
+
+## 8. Consistency qualification for the outward extension
+
+A follow-up check of Lai, Leung, and Lin (2024), the work cited for the \(R_{\max}=R_\nu\) prescription, makes an important qualification explicit: the production and attenuation regions must be treated consistently. If the attenuation radius is extended from \(R_\nu\) to the gain radius \(R_{\rm gain}\sim100\) km, the BSM-boson production region must be extended to the same domain. Their calculation finds that this consistent extension changes the luminosity little because the relevant particle densities fall rapidly outside the neutrinosphere.
+
+Consequently, the 26--30 km rows above are **one-sided opacity-only diagnostics**, not self-consistent alternative luminosity predictions. They quantify the sensitivity to extra trapping optical depth, but must not be used as a correction to the paper's result. The inward scan is also source-frozen by design; in the selected 210--510 MeV band, the source fraction outside 15 km is below \(10^{-6}\), so this distinction is negligible for the inward results shown.
+
+Reference: K.-C. Lai, C. S. J. Leung, and G.-L. Lin, Phys. Rev. D 110, 103023 (2024), arXiv:2401.16023, especially the discussion of matching the production and attenuation regions.
