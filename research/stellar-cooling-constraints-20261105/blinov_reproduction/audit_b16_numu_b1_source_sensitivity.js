@@ -115,6 +115,7 @@ function evaluate(order,ne,rows,interp,reference) {
     return out;
   });
   const variants={
+    baseline:{muMuScale:1,shellOnly:false,muTauFactor:0},
     global_minus10:{muMuScale:0.9,shellOnly:false,muTauFactor:0},
     global_plus10:{muMuScale:1.1,shellOnly:false,muTauFactor:0},
     global_minus30:{muMuScale:0.7,shellOnly:false,muTauFactor:0},
@@ -160,11 +161,7 @@ function evaluate(order,ne,rows,interp,reference) {
       shell_source_fractions:Object.fromEntries(Object.entries(shells).map(([k,x])=>[k,x/total]))
     };
   }
-  const base=results.global_minus10.total_source_erg_s_per_g2; // overwritten below with explicit baseline
-  const baselineSource=(()=> {
-    const x=results.global_sign_flip.total_source_erg_s_per_g2;
-    return x;
-  })();
+  const baselineSource=results.baseline.total_source_erg_s_per_g2;
   for(const v of Object.values(results))v.relative_total_source_vs_baseline=v.total_source_erg_s_per_g2/baselineSource-1;
   return {radial_order:order,radial_nodes:r.length,base_energy_nodes:ne,energy_nodes:nE,results};
 }
