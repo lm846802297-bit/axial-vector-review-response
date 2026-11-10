@@ -38,6 +38,9 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.10"
+      - name: Hash the exact PyR@TE model input
+        run: |
+          sha256sum research/major1-higgs-scalar-mixing-20261109/b5_1d_pyrate3_model.model > research/major1-higgs-scalar-mixing-20261109/pyrate3_model_input.sha256
       - name: Fetch pinned PyR@TE 3 source
         run: |
           git clone --no-tags https://github.com/LSartore/pyrate.git "$RUNNER_TEMP/pyrate3"
@@ -64,7 +67,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: b5-1d-pyrate3-one-loop-output
-          path: research/major1-higgs-scalar-mixing-20261109/pyrate3_results/**
+          path: |
+            research/major1-higgs-scalar-mixing-20261109/pyrate3_results/**
+            research/major1-higgs-scalar-mixing-20261109/pyrate3_model_input.sha256
           if-no-files-found: warn
           retention-days: 30
   fermion-sector-matrix:
