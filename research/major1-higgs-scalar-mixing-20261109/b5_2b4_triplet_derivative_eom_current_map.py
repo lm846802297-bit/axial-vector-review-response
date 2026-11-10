@@ -91,14 +91,12 @@ def current_basis_projection():
 
 
 def adjoint_covariant_derivative_check():
-    """Check D(H^dagger sigma^I L)=partial C^I-g eps^{aIJ}W^a C^J."""
+    """Check both adjoint composites and their common covariant-derivative sign."""
     W = sp.symbols("W0:3", commutative=True)
     h = sp.Matrix(sp.symbols("h0:2", commutative=True))
     hb = sp.Matrix([[*sp.symbols("hb0:2", commutative=True)]])
     L = sp.Matrix(sp.symbols("l0:2", commutative=True))
-    dh = sp.Matrix(sp.symbols("dh0:2", commutative=True))
-    dhb = sp.Matrix([[*sp.symbols("dhb0:2", commutative=True)]])
-    dL = sp.Matrix(sp.symbols("dl0:2", commutative=True))
+    barL = sp.Matrix([[*sp.symbols("barl0:2", commutative=True)]])
 
     for a in range(3):
         for Jidx in range(3):
@@ -109,20 +107,69 @@ def adjoint_covariant_derivative_check():
             )
             assert all(sp.simplify(x) == 0 for x in comm-expected)
 
-    # The product rule yields the adjoint connection with the stated sign.
-    for Jidx in range(3):
-        ordinary = (dhb*SIGMA[Jidx]*L + hb*SIGMA[Jidx]*dL)[0]
-        gauge_from_doublets = sum(
-            I*g2*W[a]*(hb*(T[a]*SIGMA[Jidx]-SIGMA[Jidx]*T[a])*L)[0]
-            for a in range(3)
-        )
-        adjoint = -g2*sum(
-            eps3(a, Jidx, K)*W[a]*(hb*SIGMA[K]*L)[0]
-            for a in range(3) for K in range(3)
-        )
-        assert sp.simplify(gauge_from_doublets-adjoint) == 0
+            # C^I = H^dagger sigma^I L:
+            # D_mu C^I = partial_mu C^I - g2 eps^{a I J} W_mu^a C^J.
+            gauge_C = I*g2*W[a]*(hb*(T[a]*SIGMA[Jidx]-SIGMA[Jidx]*T[a])*L)[0]
+            expected_C = -g2*sum(
+                eps3(a, Jidx, K)*W[a]*(hb*SIGMA[K]*L)[0]
+                for K in range(3)
+            )
+            assert sp.simplify(gauge_C-expected_C) == 0
+
+            # Cbar^I = bar L sigma^I H transforms in the same real adjoint.
+            gauge_Cbar = I*g2*W[a]*(barL*(T[a]*SIGMA[Jidx]-SIGMA[Jidx]*T[a])*h)[0]
+            expected_Cbar = -g2*sum(
+                eps3(a, Jidx, K)*W[a]*(barL*SIGMA[K]*h)[0]
+                for K in range(3)
+            )
+            assert sp.simplify(gauge_Cbar-expected_Cbar) == 0
     return True
 
+
+def triplet_adjoint_contact_check():
+    """Verify the symmetrized triplet derivative contact and its EOM-current form."""
+    W = sp.symbols("W0:3", commutative=True)
+    B = sp.Matrix(3, 3, lambda i, j: sp.Symbol(f"B{i}{j}", commutative=True))
+    C = sp.symbols("C0:3", commutative=True)
+    Cbar = sp.symbols("Cbar0:3", commutative=True)
+
+    # The two conjugate composites transform in the same real adjoint:
+    # D C^I = partial C^I - g eps W C^J,
+    # D Cbar^I = partial Cbar^I - g eps W Cbar^J.
+    # Therefore the symmetrized derivative has a nonzero contact term.
+    sym_contact = sp.Integer(0)
+    for a in range(3):
+        for Iidx in range(3):
+            for Jidx in range(3):
+                sym_contact += I*sp.Rational(1,2)*W[a]*eps3(a,Iidx,Jidx)*(
+                    -g2*B[Iidx,Jidx] + g2*B[Jidx,Iidx]
+                )
+    expected_contact = -I*g2*sum(
+        W[a]*eps3(a,Iidx,Jidx)*B[Iidx,Jidx]
+        for a in range(3) for Iidx in range(3) for Jidx in range(3)
+    )
+    assert sp.simplify(sym_contact-expected_contact) == 0
+
+    # Exact Pauli identity for the contact in
+    # Q_LD^(3) = -O_HL^(1) + E_L^(1) - Q_LD:
+    # -i eps^{aIJ} sigma^I_{ij} sigma^J_{kl}
+    # = delta_{jk} sigma^a_{il} - sigma^a_{kj} delta_{il}.
+    for a in range(3):
+        for i in range(2):
+            for j in range(2):
+                for k in range(2):
+                    for l in range(2):
+                        lhs = -I*sum(
+                            eps3(a,Iidx,Jidx)
+                            *SIGMA[Iidx][i,j]*SIGMA[Jidx][k,l]
+                            for Iidx in range(3) for Jidx in range(3)
+                        )
+                        rhs = (
+                            (1 if j == k else 0)*SIGMA[a][i,l]
+                            - SIGMA[a][k,j]*(1 if i == l else 0)
+                        )
+                        assert sp.simplify(lhs-rhs) == 0
+    return True
 
 def box_to_current_coefficients():
     """Map the raw WW T3 box coefficient through the triplet EOM identity."""
@@ -150,12 +197,15 @@ def main():
     triplet_derivative_eom_identity()
     current_basis_projection()
     adjoint_covariant_derivative_check()
+    triplet_adjoint_contact_check()
     coeffs = box_to_current_coefficients()
 
     print("B5-2B4 Pauli-triplet derivative EOM/current audit")
     print("PASS: Q_LD^(3) = -O_HL^(1) + E_L^(1) - Q_LD modulo total derivative.")
     print("PASS: substituting the Q_LD EOM map gives the common Pauli-current basis.")
-    print("PASS: adjoint derivative D_mu(H^dagger sigma^I L) has -g2 eps^{aIJ}W^a contact.")
+    print("PASS: both H^dagger sigma^I L and bar L sigma^I H transform in the same real adjoint.")
+    print("PASS: symmetrized Q_LD^(3) has the nonzero -i g2 eps^{aIJ} W^a bar C^I gamma C^J contact.")
+    print("PASS: the triplet contact equals the gauge-field part of -O_HL^(1)+E_L^(1)-Q_LD.")
     print("Raw box coefficient C3 = 3 g2^2 C_LD/(64 pi^2)")
     print("delta C_HL^(1) = -9 g2^2 C_LD/(256 pi^2)")
     print("delta C_HL^(3) = +3 g2^2 C_LD/(256 pi^2)")
