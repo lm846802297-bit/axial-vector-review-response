@@ -51,7 +51,7 @@ f_N(1-f_N)=T\left(\frac{\partial f_N}{\partial\nu_N}\right)_{T,m_N^*},
 F_{NN}^{\rm deg}
 =
 \frac{T}{n'_N}
-\left(\frac{\partial n_N}{\partial\nu_N}\right)_{T,m_N^*}.
+\left(\frac{\partial n'_N}{\partial\nu_N}\right)_{T,m_N^*}.
 \]
 The derivative check holds \(T,m_N^*,U_N\) fixed; it is not a derivative along a self-consistent EOS trajectory.
 
@@ -97,7 +97,19 @@ The CSV reader requires the filling factor xi as well as an explicit dMdt_weight
 - **test_b16_p1iii_eos_nucleon_distribution.py**: unit tests for the dispersion, occupation bounds, common \(U_N,\mu_N^*\) shift invariance, vacuum-mass limit, derivative identity, dilute limit, quadrature convergence, and the two global weighting formulas.
 - **.github/workflows/b16-p1iii-eos-degeneracy.yml**: independent CI validation only; it does not commit or modify production outputs.
 
-The CSV interface requires T_MeV, rho_g_cm3, dMdt_weight, xi, and for each species n,p: mstar_n_MeV, U_n_MeV, mu_star_n_MeV, mstar_p_MeV, U_p_MeV, and mu_star_p_MeV. Optional free-nucleon density columns n_n_target_fm3 and n_p_target_fm3 are interpreted per total volume and are compared with xi*n'_N. The filling factor cancels in Fdeg but not in density closure or the later dynamic response normalization.
+The CSV interface requires T_MeV, rho_g_cm3, dMdt_weight, xi, and for each species n,p: mstar_n_MeV, U_n_MeV, mu_star_n_MeV, mstar_p_MeV, U_p_MeV, and mu_star_p_MeV. A candidate adapter is also provided for the Hempel SFHo single-particle fields mstar_N, SigmaV_N^tot, and mu_N^nonrel. Optional free-nucleon density columns n_n_target_fm3 and n_p_target_fm3 are interpreted per total volume and are compared with xi*n'_N. The filling factor cancels in Fdeg but not in density closure or the later dynamic response normalization.
+
+The candidate Hempel-table mapping follows from the RMF quasiparticle energy
+\[
+E_N(p)=\sqrt{p^2+m_N^{*2}}+\Sigma_{V,N}^{\rm tot}
+\]
+and the Hempel convention \(\mu_N^{\rm nonrel}=\mu_N-m_N\):
+\[
+U_N=m_N^*-m_N+\Sigma_{V,N}^{\rm tot},
+\qquad
+\mu_N^*=\mu_N^{\rm nonrel}.
+\]
+This mapping is implemented as an explicitly named candidate adapter, not silently assumed to be identical to the Garching \(U_N\) until the density-closure test against the tabulated free-nucleon fractions is passed. The Hempel filling factor \(\xi=V'/V\) is carried separately.
 
 The implementation checks the SFHo effective-mass splitting \(m_n^*-m_p^*=1.2933\) MeV and reports the maximum residual. It does not impose this relation by modifying input data.
 
