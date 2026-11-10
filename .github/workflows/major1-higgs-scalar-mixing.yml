@@ -52,14 +52,19 @@ jobs:
             -m "$GITHUB_WORKSPACE/research/major1-higgs-scalar-mixing-20261109/b5_1d_pyrate3_model.model" \
             -l 1 -gi -py -tex -no-math \
             -res "$GITHUB_WORKSPACE/research/major1-higgs-scalar-mixing-20261109/pyrate3_results"
+      - name: Collect PyR@TE 3 log files
+        if: always()
+        run: |
+          mkdir -p research/major1-higgs-scalar-mixing-20261109/pyrate3_results/log
+          if [ -d "$RUNNER_TEMP/pyrate3/log" ]; then
+            cp -a "$RUNNER_TEMP/pyrate3/log/." research/major1-higgs-scalar-mixing-20261109/pyrate3_results/log/
+          fi
       - name: Archive PyR@TE 3 output
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: b5-1d-pyrate3-one-loop-output
-          path: |
-            research/major1-higgs-scalar-mixing-20261109/pyrate3_results/**
-            $RUNNER_TEMP/pyrate3/log/**
+          path: research/major1-higgs-scalar-mixing-20261109/pyrate3_results/**
           if-no-files-found: warn
           retention-days: 30
   fermion-sector-matrix:
