@@ -71,7 +71,7 @@
     }
   ],
   "checks": {
-    "max_derivative_identity_abs_residual": 8.669837070485187e-11,
+    "max_derivative_identity_abs_residual": 8.666817263858206e-11,
     "max_256_vs_512_quadrature_abs_difference": 6.591949208711867e-16,
     "vacuum_mass_limit_max_occupation_abs_residual": 0.0,
     "dilute_limit_Fdeg": 1.0,
