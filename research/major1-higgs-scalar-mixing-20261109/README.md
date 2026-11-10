@@ -529,3 +529,15 @@ Added \`A4B_GENERAL_XI_ON_SHELL_CUT_CANCELLATION_2026-11-10.md\`, the phase-spac
 For A at \(m_s=100,125.25,150\) GeV and B at \(m_s=150,200\) GeV, six gauge choices \(\xi_X=0.25,0.5,1,2,4,10\) were checked. The maximum relative variation of the complete on-shell absorptive coefficient is \(8.61\\times10^{-16}\). It equals the physical three-polarization \(s\\to A'A'\) width in every open case. The component cuts can vary strongly and open/close with \(\xi_X\), while their sum remains invariant.
 
 This establishes general-\(\xi_X\) independence of the one-loop on-shell absorptive part. It does not establish gauge independence of the full complex pole; the real part, tadpole/counterterm closure, fermion matching and electroweak \(hh\) sector remain open.
+
+
+## 2026-11-10 — A4c general-\(R_{\xi_X}\) \(ss\) UV pole and field renormalization
+
+Added \`A4C_GENERAL_XI_SS_UV_AND_FIELD_RENORM_2026-11-10.md\`, the symbolic audit script, and output. The large-momentum expansion of the mixed \(A'a\) loop gives the momentum pole \((3-\xi_X)p_E^2\) and the zero-momentum local pole \(-2\xi_X^2m_X^2\). Combining the vector seagull/bubble, mixed loop and ghost bubble cancels all \(\xi_X^2m_X^2\) terms.
+
+The complete bosonic singlet-sector UV pole is
+\[
+16\pi^2\Pi_{ss,E}^{\rm bos,UV}
+=\frac{-g_A^2(3-\xi_X)p_E^2-9g_A^2m_X^2-\xi_X\lambda_Sm_X^2-26\lambda_S^2v_S^2}{\\bar\\epsilon}.
+\]
+The resulting diagonal field-counterterm coefficient is \(\delta Z_s^X=g_A^2(3-\xi_X)/(16\pi^2\\bar\\epsilon)\), matching the scalar-QED covariant-gauge coefficient. At \(\xi_X=1\), the result reduces to A4a. The local mass poles still require the common tadpole/VEV and parameter-renormalization prescription.
