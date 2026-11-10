@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""B5-1b SM-input sub-block: one-loop SM running to M_E=20 TeV.
+"""SUPERSEDED diagnostic: SM-only running to M_E with the earlier input set.
 
-This deliberately runs only the SM gauge/top/Higgs subsystem. It does NOT
-claim a coupled UV VLL running result; the model-specific VLL beta functions
-must be derived and validated before that evolution is integrated.
+Retained for provenance. The coupled B5-1b calculation must use
+b5_1b_sm_threshold_and_uv_rge.py and the PDG-2025 matching inputs.
+"""
 """
 import numpy as np
 from scipy.integrate import solve_ivp
