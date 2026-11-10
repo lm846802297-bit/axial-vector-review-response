@@ -35,7 +35,6 @@ on:
       - "research/major1-higgs-scalar-mixing-20261109/b5_2b4_triplet_derivative_eom_current_map.py"
       - "research/major1-higgs-scalar-mixing-20261109/test_b5_2b4_triplet_derivative_eom_current_map.py"
       - "research/major1-higgs-scalar-mixing-20261109/B5_2B4_TRIPLET_DERIVATIVE_EOM_CURRENT_MAP_2026-11-11.md"
-      - "research/major1-higgs-scalar-mixing-20261109/B5_2B4_TRIPLET_DERIVATIVE_EOM_CURRENT_MAP_OUTPUT_2026-11-11.txt"
       - ".github/workflows/major1-higgs-scalar-mixing.yml"
   workflow_dispatch:
 
