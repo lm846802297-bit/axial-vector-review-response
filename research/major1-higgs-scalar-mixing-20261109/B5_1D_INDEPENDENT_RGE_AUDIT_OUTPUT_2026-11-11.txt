@@ -7,7 +7,7 @@ Scope:
 - External-field gauge Casimirs.
 - Pure gauge quartic sources from field-dependent vector masses.
 - VLL field-dependent fermion determinant and mixed-box coefficient.
-- Independent 12-component beta-vector comparison against the production RHS is covered by the companion nine-test unittest module.
+- Independent 12-component beta-vector comparison against the production RHS is covered by the companion ten-test unittest module.
 
 Gauge traces:
 sum_Y2_Weyl = 14
@@ -25,6 +25,8 @@ Scalar-only quartic tensor:
 16 pi^2 beta_lambdaS|scalar = 20 lambda_S^2 + 2 lambda_HS^2
 16 pi^2 beta_lambdaHS|scalar = lambda_HS (12 lambda_H + 8 lambda_S + 4 lambda_HS)
 
+PyR@TE model-input charge check:
+Yu, Yd, Ye, y_mu, y_tau, lambda_mu, lambda_tau: (Y,X)=(0,0) for all seven monomials.
 Yukawa matrix projections:
 16 pi^2 beta_lambda_mu|Y = lambda_mu (2 lambda_mu^2 + lambda_tau^2)
 16 pi^2 beta_lambda_tau|Y = lambda_tau (2 lambda_tau^2 + lambda_mu^2)
