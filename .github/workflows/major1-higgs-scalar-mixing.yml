@@ -14,6 +14,8 @@ on:
       - "research/major1-higgs-scalar-mixing-20261109/test_b5_1b_complex_singlet_yukawa_beta_audit.py"
       - "research/major1-higgs-scalar-mixing-20261109/b5_1d_independent_rge_audit.py"
       - "research/major1-higgs-scalar-mixing-20261109/test_b5_1d_independent_rge_audit.py"
+      - "research/major1-higgs-scalar-mixing-20261109/b5_1d_pyrate3_model.model"
+      - "research/major1-higgs-scalar-mixing-20261109/B5_1D_PYRATE3_MODEL_INPUT_NOTES_2026-11-11.md"
       - ".github/workflows/major1-higgs-scalar-mixing.yml"
   workflow_dispatch:
 
@@ -25,6 +27,41 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+
+  pyrate3-crosscheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check out the exact research branch
+        uses: actions/checkout@v4
+      - name: Set up Python for PyR@TE 3
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - name: Fetch pinned PyR@TE 3 source
+        run: |
+          git clone --no-tags https://github.com/LSartore/pyrate.git "$RUNNER_TEMP/pyrate3"
+          git -C "$RUNNER_TEMP/pyrate3" checkout 04b219c2016f3fc4f2371d72607edc26a7e06364
+      - name: Install pinned PyR@TE dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install PyYAML==6.0.2 sympy==1.13.3 h5py==3.12.1 numpy==1.26.4 scipy==1.14.1 matplotlib==3.9.2
+      - name: Run PyR@TE 3 one-loop gauge-invariance and RGE calculation
+        run: |
+          python "$RUNNER_TEMP/pyrate3/pyR@TE.py" \
+            -m "$GITHUB_WORKSPACE/research/major1-higgs-scalar-mixing-20261109/b5_1d_pyrate3_model.model" \
+            -l 1 -gi -py -tex -no-math \
+            -res "$GITHUB_WORKSPACE/research/major1-higgs-scalar-mixing-20261109/pyrate3_results"
+      - name: Archive PyR@TE 3 output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: b5-1d-pyrate3-one-loop-output
+          path: |
+            research/major1-higgs-scalar-mixing-20261109/pyrate3_results/**
+            $RUNNER_TEMP/pyrate3/log/**
+          if-no-files-found: warn
+          retention-days: 30
   fermion-sector-matrix:
     runs-on: ubuntu-latest
     timeout-minutes: 30
