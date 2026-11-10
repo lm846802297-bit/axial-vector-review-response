@@ -40,11 +40,20 @@ jobs:
           echo "Verified all three original ZIPs; total bytes:"
           du -cb raw/*.zip | tail -n 1
 
-      - name: Transfer verified ZIPs as a short-lived workflow artifact
+      - name: Bundle audit source tree for local reproduction
+        shell: bash
+        run: |
+          set -euo pipefail
+          tar -czf sfho-frdm-audit-source.tar.gz \
+            -C research/stellar-cooling-constraints-20261105/blinov_reproduction .
+
+      - name: Transfer verified ZIPs and source as a short-lived workflow artifact
         uses: actions/upload-artifact@v4
         with:
-          name: sfho-frdm-raw-zips-20261111
-          path: raw/*.zip
+          name: sfho-frdm-raw-and-source-20261111
+          path: |
+            raw/*.zip
+            sfho-frdm-audit-source.tar.gz
           if-no-files-found: error
           compression-level: 0
           retention-days: 1
