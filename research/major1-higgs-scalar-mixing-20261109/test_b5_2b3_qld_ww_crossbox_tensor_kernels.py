@@ -4,7 +4,7 @@ import sympy as sp
 
 from b5_2b3_qld_ww_crossbox_tensor_kernels import (
     canonical_lorentz_kernels,
-    weak_tensor_weighted_conditional_sum,
+    weak_tensor_weighted_oriented_sum,
     DeltaUV, L, M2,
 )
 
@@ -24,11 +24,11 @@ class TestB52B3QLDWWKernels(unittest.TestCase):
     def test_SS_equals_FS_for_declared_numerator(self):
         self.assertEqual(sp.simplify(self.k["A_SS"]-self.k["A_FS"]), 0)
 
-    def test_all_cross_box_UV_poles_cancel_conditionally(self):
-        _, pole = weak_tensor_weighted_conditional_sum(self.k)
+    def test_all_cross_box_UV_poles_cancel_after_oriented_sum(self):
+        _, pole = weak_tensor_weighted_oriented_sum(self.k)
         self.assertEqual(pole, 0)
 
-    def test_conditional_finite_T3_coefficient(self):
+    def test_oriented_finite_T3_coefficient(self):
         coeff, _ = weak_tensor_weighted_conditional_sum(self.k)
         self.assertEqual(sp.simplify(coeff-sp.Rational(3,4)/M2), 0)
 
