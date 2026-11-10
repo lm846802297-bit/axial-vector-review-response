@@ -27,7 +27,36 @@
         "sha256": "0dafcd272ff8b8f4b1ba4c05210ea8020dd9a92820b6b0b54165faead4871da7"
       }
     },
-    "version_note": "The four SFHo/FRDM archives are v1.03 data (2012-07-09); manual_v1.04 of 2012-12-19 only added the IUFSU table, so manual and data versions are consistent."
+    "version_note": "The four SFHo/FRDM archives are v1.03 data (2012-07-09); manual_v1.04 of 2012-12-19 only added the IUFSU table, so manual and data versions are consistent.",
+    "vendored_split_archive": {
+      "manifest_path": "data/sfho-frdm-v1.03/MANIFEST.sha256",
+      "manifest_sha256": "9a0df67eae005097c65225d69e527f02d88de380ab17ff5ac347bd79ac70207b",
+      "parts": [
+        {
+          "name": "sfho_frdm_bin.zip.part-00",
+          "bytes": 62914560,
+          "sha256": "d1aca066ec3322f9307410808618af72494f079277a09ab32746cb6f85f1dbbc"
+        },
+        {
+          "name": "sfho_frdm_bin.zip.part-01",
+          "bytes": 62914560,
+          "sha256": "3c892d0599ccc08f74f0c1aadf8632932f4ec3f0ec7bee550be984cc1a83bb52"
+        },
+        {
+          "name": "sfho_frdm_bin.zip.part-02",
+          "bytes": 35262951,
+          "sha256": "f38763d8ba31c79da7186a792535220509359c22299cd881dc4b83591d6e1528"
+        }
+      ],
+      "part_total_bytes": 161092071,
+      "reconstructed_archive_sha256": "45479eaf46e1aa9b1ca3502baf4aaeea60ff0021a21d621f10a75eafb8b8949c",
+      "reconstructed_archive_byte_identical": true,
+      "manual": {
+        "name": "manual_v1.04.pdf",
+        "bytes": 213440,
+        "sha256": "0994abc5073853d35dd10ed6a0313be5c701ee7c47c268f2faa77f36bb4b5478"
+      }
+    }
   },
   "grid": {
     "entries": {
@@ -7680,6 +7709,28 @@
         "F1024": 0.0005643845962641323,
         "F2048": 0.0005643374789167545
       }
+    }
+  },
+  "execution_validation": {
+    "runtime_tests": {
+      "distribution_kernel": 15,
+      "fixture": 10,
+      "official_table": 5,
+      "archive_manifest_and_split": 4,
+      "total": 34,
+      "result": "34/34 passed with SFHO_TABLES_DIR set; no table-dependent test skipped"
+    },
+    "reassembly": {
+      "command": "python reassemble_sfho_frdm_archives.py --data-dir data/sfho-frdm-v1.03 --dest reassembled",
+      "result": "all archives verified",
+      "reconstructed_bin_bytes": 161092071,
+      "reconstructed_bin_sha256": "45479eaf46e1aa9b1ca3502baf4aaeea60ff0021a21d621f10a75eafb8b8949c"
+    },
+    "fixture_regeneration_comparison": {
+      "rows": 224,
+      "maximum_relative_difference_density_and_ratio_columns": 5e-8,
+      "maximum_absolute_difference_Fdeg": 1.2e-10,
+      "interpretation": "Differences are quadrature-rounding-level; table inputs and cell indices match."
     }
   }
 }
