@@ -1,0 +1,14 @@
+B5-2B3R exact Q_LD pure-WW cross-box routing
+Momentum assignment: p_barL=0, p_H=P, p_Hdag=0, p_L=-P.
+Heavy momentum: q_E=k-P; W momentum k flows left-to-right.
+PASS: each of the four cross-pair denominators and numerator reductions is distinct.
+A01 = 2(d-2)/d K
+A02 = -J + 2K/d
+A05 = (1+2/d) J
+A06 = -4J/d
+PASS: SU(2) tensor weights are (-,+,+,-) T3/4.
+Weighted hard triplet coefficient before epsilon expansion:
+  (6J/d - 2(d-3)K/d)/4
+PASS: O(eps)*Delta_UV terms retained.
+Hard triplet coefficient = (3 Delta_UV/8 - 3 L/8 + 11/16)/M_E^2
+SCOPE: one fixed external ordering and one-W exchange; no LSZ, operator counterterms, or full Ward sum.
