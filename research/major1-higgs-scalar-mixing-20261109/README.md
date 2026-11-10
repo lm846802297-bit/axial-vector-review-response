@@ -520,3 +520,12 @@ Added \`A4A_U1X_SS_SELF_ENERGY_2026-11-10.md\`, the SymPy/numerical audit script
 The Feynman-gauge expression reduces to \(A_E/B_E\) functions. The general-\(\xi\) longitudinal-vector/ghost tadpole cancellation and the \(p_E^2=0,\lambda_S=0\) unphysical-sector cancellation are verified algebraically. The Feynman-gauge absorptive part at \(p^2=m_s^2\) reproduces the physical \(s\to A'A'\) width exactly. At the open-channel benchmark points the relative numerical residual is below \(3\\times10^{-16}\).
 
 The bosonic singlet-sector Feynman-gauge UV pole is recorded, including the \(p_E^2\) field-renormalization divergence. No scheme-dependent real finite part or physical pole is claimed: the common tadpole/subtraction scheme, full UV--EFT matching counterterms, general-\(\xi\) on-shell reduction, and electroweak \(hh\) sector remain open.
+
+
+## 2026-11-10 — A4b explicit general-\(R_\xi\) on-shell cut cancellation
+
+Added \`A4B_GENERAL_XI_ON_SHELL_CUT_CANCELLATION_2026-11-10.md\`, the phase-space audit script, and output. The massive-vector propagator is decomposed into transverse and longitudinal poles with their correct \(\xi_X\)-dependent residue weights. The vector-vector, mixed vector-Goldstone, Goldstone and complex-ghost two-body cuts are evaluated separately using the exact CM kinematics and projector traces.
+
+For A at \(m_s=100,125.25,150\) GeV and B at \(m_s=150,200\) GeV, six gauge choices \(\xi_X=0.25,0.5,1,2,4,10\) were checked. The maximum relative variation of the complete on-shell absorptive coefficient is \(8.61\\times10^{-16}\). It equals the physical three-polarization \(s\\to A'A'\) width in every open case. The component cuts can vary strongly and open/close with \(\xi_X\), while their sum remains invariant.
+
+This establishes general-\(\xi_X\) independence of the one-loop on-shell absorptive part. It does not establish gauge independence of the full complex pole; the real part, tadpole/counterterm closure, fermion matching and electroweak \(hh\) sector remain open.
