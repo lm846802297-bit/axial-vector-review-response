@@ -1,0 +1,486 @@
+{
+  "title": "P1-IIIa relativistic finite-temperature free-Fermi-gas dynamic density response",
+  "date": "2026-11-10",
+  "scope": "Scalar density response only; not yet the complete vector/axial weak collision kernel.",
+  "literature_basis": "Reddy, Prakash & Lattimer, PRD 58, 013009 (1998), Eqs. (14), (16), (17). The relativistic dispersion is an explicit extension of their free-gas phase-space integral.",
+  "benchmark": {
+    "T_MeV": 3.03,
+    "Yp": 0.1,
+    "nB_over_n0": [
+      0.001,
+      0.01,
+      0.1
+    ],
+    "n0_fm3": 0.16,
+    "dispersion": "sqrt(p^2+M^2), U=0, m*=M",
+    "Yp_status": "Illustrative fixed-composition benchmark, not extracted from SFHo-18.8."
+  },
+  "definition": "S_N(q0,q)=2 int d3p/(2pi)^3 2pi delta(q0+E_p-E_{p+q}) f(p)[1-f(p+q)]",
+  "units": "S_N: MeV^2; integral dq0/(2pi) S_N: MeV^3",
+  "thermodynamics": [
+    {
+      "nB_over_n0": 0.001,
+      "species": "n",
+      "n_species_fm3": 0.000144,
+      "mu_minus_M_MeV": -8.618440109268022,
+      "pF_MeV": 31.9973712964099,
+      "fugacity_exp_mu_minus_M_over_T": 0.058170921887426334
+    },
+    {
+      "nB_over_n0": 0.001,
+      "species": "p",
+      "n_species_fm3": 0.000016,
+      "mu_minus_M_MeV": -15.323857566386323,
+      "pF_MeV": 15.382731667737927,
+      "fugacity_exp_mu_minus_M_over_T": 0.006362214726685373
+    },
+    {
+      "nB_over_n0": 0.01,
+      "species": "n",
+      "n_species_fm3": 0.00144,
+      "mu_minus_M_MeV": -1.0986445409477028,
+      "pF_MeV": 68.93624671081595,
+      "fugacity_exp_mu_minus_M_over_T": 0.6958724079191517
+    },
+    {
+      "nB_over_n0": 0.01,
+      "species": "p",
+      "n_species_fm3": 0.00016,
+      "mu_minus_M_MeV": -8.286069732792157,
+      "pF_MeV": 33.1410907324266,
+      "fugacity_exp_mu_minus_M_over_T": 0.06491500504393215
+    },
+    {
+      "nB_over_n0": 0.1,
+      "species": "n",
+      "n_species_fm3": 0.0144,
+      "mu_minus_M_MeV": 10.919645944138892,
+      "pF_MeV": 148.51864131437821,
+      "fugacity_exp_mu_minus_M_over_T": 36.739172115070616
+    },
+    {
+      "nB_over_n0": 0.1,
+      "species": "p",
+      "n_species_fm3": 0.0016,
+      "mu_minus_M_MeV": -0.705334294853742,
+      "pF_MeV": 71.40031553943403,
+      "fugacity_exp_mu_minus_M_over_T": 0.7923250175444864
+    }
+  ],
+  "pauli_blocking_at_stationary_recoil_line": [
+    {
+      "nB_over_n0": 0.001,
+      "species": "n",
+      "q_MeV": 30,
+      "q0_stationary_recoil_MeV": 0.4788228201337006,
+      "Pauli_suppression_ratio": 0.97625887198257
+    },
+    {
+      "nB_over_n0": 0.001,
+      "species": "n",
+      "q_MeV": 100,
+      "q0_stationary_recoil_MeV": 5.306623429298156,
+      "Pauli_suppression_ratio": 0.9950495421849218
+    },
+    {
+      "nB_over_n0": 0.001,
+      "species": "n",
+      "q_MeV": 200,
+      "q0_stationary_recoil_MeV": 21.050621110018028,
+      "Pauli_suppression_ratio": 0.9999723990786614
+    },
+    {
+      "nB_over_n0": 0.001,
+      "species": "n",
+      "q_MeV": 300,
+      "q0_stationary_recoil_MeV": 46.73229286928108,
+      "Pauli_suppression_ratio": 0.9999999942460651
+    },
+    {
+      "nB_over_n0": 0.001,
+      "species": "n",
+      "q_MeV": 500,
+      "q0_stationary_recoil_MeV": 124.75745315928191,
+      "Pauli_suppression_ratio": 1
+    },
+    {
+      "nB_over_n0": 0.001,
+      "species": "p",
+      "q_MeV": 30,
+      "q0_stationary_recoil_MeV": 0.4794825018694837,
+      "Pauli_suppression_ratio": 0.9973058416448353
+    },
+    {
+      "nB_over_n0": 0.001,
+      "species": "p",
+      "q_MeV": 100,
+      "q0_stationary_recoil_MeV": 5.313897015769157,
+      "Pauli_suppression_ratio": 0.9994520374027405
+    },
+    {
+      "nB_over_n0": 0.001,
+      "species": "p",
+      "q_MeV": 200,
+      "q0_stationary_recoil_MeV": 21.079000555766697,
+      "Pauli_suppression_ratio": 0.9999969839207078
+    },
+    {
+      "nB_over_n0": 0.001,
+      "species": "p",
+      "q_MeV": 300,
+      "q0_stationary_recoil_MeV": 46.793651483871145,
+      "Pauli_suppression_ratio": 0.9999999993780683
+    },
+    {
+      "nB_over_n0": 0.001,
+      "species": "p",
+      "q_MeV": 500,
+      "q0_stationary_recoil_MeV": 124.90922818266733,
+      "Pauli_suppression_ratio": 1
+    },
+    {
+      "nB_over_n0": 0.01,
+      "species": "n",
+      "q_MeV": 30,
+      "q0_stationary_recoil_MeV": 0.4788228201337006,
+      "Pauli_suppression_ratio": 0.8017961234846172
+    },
+    {
+      "nB_over_n0": 0.01,
+      "species": "n",
+      "q_MeV": 100,
+      "q0_stationary_recoil_MeV": 5.306623429298156,
+      "Pauli_suppression_ratio": 0.9489988205390301
+    },
+    {
+      "nB_over_n0": 0.01,
+      "species": "n",
+      "q_MeV": 200,
+      "q0_stationary_recoil_MeV": 21.050621110018028,
+      "Pauli_suppression_ratio": 0.9996961470056591
+    },
+    {
+      "nB_over_n0": 0.01,
+      "species": "n",
+      "q_MeV": 300,
+      "q0_stationary_recoil_MeV": 46.73229286928108,
+      "Pauli_suppression_ratio": 0.9999999366310727
+    },
+    {
+      "nB_over_n0": 0.01,
+      "species": "n",
+      "q_MeV": 500,
+      "q0_stationary_recoil_MeV": 124.75745315928191,
+      "Pauli_suppression_ratio": 1
+    },
+    {
+      "nB_over_n0": 0.01,
+      "species": "p",
+      "q_MeV": 30,
+      "q0_stationary_recoil_MeV": 0.4794825018694837,
+      "Pauli_suppression_ratio": 0.9736366646977774
+    },
+    {
+      "nB_over_n0": 0.01,
+      "species": "p",
+      "q_MeV": 100,
+      "q0_stationary_recoil_MeV": 5.313897015769157,
+      "Pauli_suppression_ratio": 0.9944989116285604
+    },
+    {
+      "nB_over_n0": 0.01,
+      "species": "p",
+      "q_MeV": 200,
+      "q0_stationary_recoil_MeV": 21.079000555766697,
+      "Pauli_suppression_ratio": 0.9999695193244525
+    },
+    {
+      "nB_over_n0": 0.01,
+      "species": "p",
+      "q_MeV": 300,
+      "q0_stationary_recoil_MeV": 46.793651483871145,
+      "Pauli_suppression_ratio": 0.9999999937144862
+    },
+    {
+      "nB_over_n0": 0.01,
+      "species": "p",
+      "q_MeV": 500,
+      "q0_stationary_recoil_MeV": 124.90922818266733,
+      "Pauli_suppression_ratio": 1
+    },
+    {
+      "nB_over_n0": 0.1,
+      "species": "n",
+      "q_MeV": 30,
+      "q0_stationary_recoil_MeV": 0.4788228201337006,
+      "Pauli_suppression_ratio": 0.29188042177923196
+    },
+    {
+      "nB_over_n0": 0.1,
+      "species": "n",
+      "q_MeV": 100,
+      "q0_stationary_recoil_MeV": 5.306623429298156,
+      "Pauli_suppression_ratio": 0.5467306803402903
+    },
+    {
+      "nB_over_n0": 0.1,
+      "species": "n",
+      "q_MeV": 200,
+      "q0_stationary_recoil_MeV": 21.050621110018028,
+      "Pauli_suppression_ratio": 0.9914691828137253
+    },
+    {
+      "nB_over_n0": 0.1,
+      "species": "n",
+      "q_MeV": 300,
+      "q0_stationary_recoil_MeV": 46.73229286928108,
+      "Pauli_suppression_ratio": 0.9999981886530458
+    },
+    {
+      "nB_over_n0": 0.1,
+      "species": "n",
+      "q_MeV": 500,
+      "q0_stationary_recoil_MeV": 124.75745315928191,
+      "Pauli_suppression_ratio": 1
+    },
+    {
+      "nB_over_n0": 0.1,
+      "species": "p",
+      "q_MeV": 30,
+      "q0_stationary_recoil_MeV": 0.4794825018694837,
+      "Pauli_suppression_ratio": 0.783942867435967
+    },
+    {
+      "nB_over_n0": 0.1,
+      "species": "p",
+      "q_MeV": 100,
+      "q0_stationary_recoil_MeV": 5.313897015769157,
+      "Pauli_suppression_ratio": 0.9431677272326804
+    },
+    {
+      "nB_over_n0": 0.1,
+      "species": "p",
+      "q_MeV": 200,
+      "q0_stationary_recoil_MeV": 21.079000555766697,
+      "Pauli_suppression_ratio": 0.9996607060091358
+    },
+    {
+      "nB_over_n0": 0.1,
+      "species": "p",
+      "q_MeV": 300,
+      "q0_stationary_recoil_MeV": 46.793651483871145,
+      "Pauli_suppression_ratio": 0.9999999300020734
+    },
+    {
+      "nB_over_n0": 0.1,
+      "species": "p",
+      "q_MeV": 500,
+      "q0_stationary_recoil_MeV": 124.90922818266733,
+      "Pauli_suppression_ratio": 1
+    }
+  ],
+  "response_spectrum_moments": [
+    {
+      "mean_q0_MeV": 0.48376950443490807,
+      "sigma_q0_MeV": 1.7109690788098788,
+      "upscatter_response_fraction": 0.38821709636354285,
+      "sum_rule_relative_residual": -3.774758283725532e-15,
+      "nB_over_n0": 0.001,
+      "species": "n",
+      "q_MeV": 30,
+      "q0_stationary_recoil_MeV": 0.4788228201337006
+    },
+    {
+      "mean_q0_MeV": 5.308408630466418,
+      "sigma_q0_MeV": 5.644231803713693,
+      "upscatter_response_fraction": 0.1735119827479202,
+      "sum_rule_relative_residual": -4.3298697960381105e-15,
+      "nB_over_n0": 0.001,
+      "species": "n",
+      "q_MeV": 100,
+      "q0_stationary_recoil_MeV": 5.306623429298156
+    },
+    {
+      "mean_q0_MeV": 20.899562300468286,
+      "sigma_q0_MeV": 11.115831503422282,
+      "upscatter_response_fraction": 0.030956418491886507,
+      "sum_rule_relative_residual": -4.107825191113079e-15,
+      "nB_over_n0": 0.001,
+      "species": "n",
+      "q_MeV": 200,
+      "q0_stationary_recoil_MeV": 21.050621110018028
+    },
+    {
+      "mean_q0_MeV": 123.92528551595593,
+      "sigma_q0_MeV": 25.165874578089518,
+      "upscatter_response_fraction": 0.0000017534730672612047,
+      "sum_rule_relative_residual": -3.3306690738754696e-15,
+      "nB_over_n0": 0.001,
+      "species": "n",
+      "q_MeV": 500,
+      "q0_stationary_recoil_MeV": 124.75745315928191
+    },
+    {
+      "mean_q0_MeV": 0.47662769955546935,
+      "sigma_q0_MeV": 1.698821117049102,
+      "upscatter_response_fraction": 0.3891703246719177,
+      "sum_rule_relative_residual": -2.220446049250313e-15,
+      "nB_over_n0": 0.001,
+      "species": "p",
+      "q_MeV": 30,
+      "q0_stationary_recoil_MeV": 0.4794825018694837
+    },
+    {
+      "mean_q0_MeV": 5.276616046570564,
+      "sigma_q0_MeV": 5.631122246539793,
+      "upscatter_response_fraction": 0.17429966819427192,
+      "sum_rule_relative_residual": -1.6653345369377348e-15,
+      "nB_over_n0": 0.001,
+      "species": "p",
+      "q_MeV": 100,
+      "q0_stationary_recoil_MeV": 5.313897015769157
+    },
+    {
+      "mean_q0_MeV": 20.91728879013868,
+      "sigma_q0_MeV": 11.0831640452709,
+      "upscatter_response_fraction": 0.03064990191439361,
+      "sum_rule_relative_residual": -1.887379141862766e-15,
+      "nB_over_n0": 0.001,
+      "species": "p",
+      "q_MeV": 200,
+      "q0_stationary_recoil_MeV": 21.079000555766697
+    },
+    {
+      "mean_q0_MeV": 124.08263114048738,
+      "sigma_q0_MeV": 25.064445271667864,
+      "upscatter_response_fraction": 0.0000016971287985851957,
+      "sum_rule_relative_residual": -1.1102230246251565e-15,
+      "nB_over_n0": 0.001,
+      "species": "p",
+      "q_MeV": 500,
+      "q0_stationary_recoil_MeV": 124.90922818266733
+    },
+    {
+      "mean_q0_MeV": 1.2124928289683015,
+      "sigma_q0_MeV": 2.632997515976993,
+      "upscatter_response_fraction": 0.3166849129697132,
+      "sum_rule_relative_residual": -1.887379141862766e-15,
+      "nB_over_n0": 0.1,
+      "species": "n",
+      "q_MeV": 30,
+      "q0_stationary_recoil_MeV": 0.4788228201337006
+    },
+    {
+      "mean_q0_MeV": 9.155502858099142,
+      "sigma_q0_MeV": 6.749315670865139,
+      "upscatter_response_fraction": 0.09846489429801585,
+      "sum_rule_relative_residual": -1.7319479184152442e-14,
+      "nB_over_n0": 0.1,
+      "species": "n",
+      "q_MeV": 100,
+      "q0_stationary_recoil_MeV": 5.306623429298156
+    },
+    {
+      "mean_q0_MeV": 24.112563380360925,
+      "sigma_q0_MeV": 13.404778653337834,
+      "upscatter_response_fraction": 0.03006031110237157,
+      "sum_rule_relative_residual": 3.3306690738754696e-15,
+      "nB_over_n0": 0.1,
+      "species": "n",
+      "q_MeV": 200,
+      "q0_stationary_recoil_MeV": 21.050621110018028
+    },
+    {
+      "mean_q0_MeV": 123.18864923962957,
+      "sigma_q0_MeV": 34.572382724556824,
+      "upscatter_response_fraction": 0.000011053809122308986,
+      "sum_rule_relative_residual": -4.801714581503802e-13,
+      "nB_over_n0": 0.1,
+      "species": "n",
+      "q_MeV": 500,
+      "q0_stationary_recoil_MeV": 124.75745315928191
+    },
+    {
+      "mean_q0_MeV": 0.5716720871638471,
+      "sigma_q0_MeV": 1.8534440871463762,
+      "upscatter_response_fraction": 0.3772075963484705,
+      "sum_rule_relative_residual": -2.4424906541753444e-15,
+      "nB_over_n0": 0.1,
+      "species": "p",
+      "q_MeV": 30,
+      "q0_stationary_recoil_MeV": 0.4794825018694837
+    },
+    {
+      "mean_q0_MeV": 5.766040536178208,
+      "sigma_q0_MeV": 5.828902189831095,
+      "upscatter_response_fraction": 0.16247361990580567,
+      "sum_rule_relative_residual": -1.7763568394002505e-15,
+      "nB_over_n0": 0.1,
+      "species": "p",
+      "q_MeV": 100,
+      "q0_stationary_recoil_MeV": 5.313897015769157
+    },
+    {
+      "mean_q0_MeV": 21.075167010822177,
+      "sigma_q0_MeV": 11.539011600674682,
+      "upscatter_response_fraction": 0.032999515996315974,
+      "sum_rule_relative_residual": -2.4424906541753444e-15,
+      "nB_over_n0": 0.1,
+      "species": "p",
+      "q_MeV": 200,
+      "q0_stationary_recoil_MeV": 21.079000555766697
+    },
+    {
+      "mean_q0_MeV": 123.9925826348495,
+      "sigma_q0_MeV": 26.395767656889003,
+      "upscatter_response_fraction": 0.000002113451792535012,
+      "sum_rule_relative_residual": -1.6653345369377348e-15,
+      "nB_over_n0": 0.1,
+      "species": "p",
+      "q_MeV": 500,
+      "q0_stationary_recoil_MeV": 124.90922818266733
+    }
+  ],
+  "nonrelativistic_limit_checks_low_density_neutron": [
+    {
+      "q_MeV": 5,
+      "relativistic_over_NR_minus1": 0.0066693569662545915
+    },
+    {
+      "q_MeV": 30,
+      "relativistic_over_NR_minus1": 0.007153551091192867
+    },
+    {
+      "q_MeV": 100,
+      "relativistic_over_NR_minus1": 0.012249059047888089
+    },
+    {
+      "q_MeV": 200,
+      "relativistic_over_NR_minus1": 0.02925645717225911
+    },
+    {
+      "q_MeV": 300,
+      "relativistic_over_NR_minus1": 0.058856459034130726
+    },
+    {
+      "q_MeV": 500,
+      "relativistic_over_NR_minus1": 0.187944429452507
+    }
+  ],
+  "validation": {
+    "density_equation_max_relative_residual": 6.419864639894968e-12,
+    "detailed_balance_max_relative_residual": 7.831002513114527e-11,
+    "static_sum_rule_max_relative_residual": 4.801714581503802e-13,
+    "300_vs_900_node_max_relative_difference": 4.285460875053104e-14,
+    "relativistic_vs_NR_max_difference_q_le_30_MeV": 0.007153551091192867,
+    "relativistic_vs_NR_difference_q_500_MeV": 0.187944429452507
+  },
+  "limitations": [
+    "No weak-current tensor or leptonic contraction yet.",
+    "No weak magnetism or finite nucleon form factors in this scalar response.",
+    "No mean fields, effective masses, RPA, NN correlations, or other baryons.",
+    "No neutrino final-state blocking.",
+    "The response-spectrum upscattering fraction is not a final neutrino energy-gain probability.",
+    "Yp=0.10 is illustrative and must be replaced by a same-snapshot SFHo-18.8 composition profile."
+  ]
+}
