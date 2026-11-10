@@ -1,0 +1,67 @@
+Independent B5-1d one-loop RGE audit: PASS
+
+Scope:
+- Full active Weyl and complex-scalar gauge spectrum.
+- Six-real-scalar quartic tensor for H (4 real components) and S (2 real components).
+- Real-scalar/Weyl Yukawa matrices for both VLL Yukawa sectors.
+- External-field gauge Casimirs.
+- Pure gauge quartic sources from field-dependent vector masses.
+- VLL field-dependent fermion determinant and mixed-box coefficient.
+- Independent 12-component beta-vector comparison against the production RHS is covered by the companion nine-test unittest module.
+
+Gauge traces:
+sum_Y2_Weyl = 14
+sum_X2_Weyl = 10
+Tr_YX_Weyl = 0
+sum_T2_Weyl = 6
+sum_T3_Weyl = 6
+bY = 19/2
+b2 = -19/6
+b3 = -7
+bX = 8
+
+Scalar-only quartic tensor:
+16 pi^2 beta_lambdaH|scalar = 24 lambda_H^2 + lambda_HS^2
+16 pi^2 beta_lambdaS|scalar = 20 lambda_S^2 + 2 lambda_HS^2
+16 pi^2 beta_lambdaHS|scalar = lambda_HS (12 lambda_H + 8 lambda_S + 4 lambda_HS)
+
+Yukawa matrix projections:
+16 pi^2 beta_lambda_mu|Y = lambda_mu (2 lambda_mu^2 + lambda_tau^2)
+16 pi^2 beta_lambda_tau|Y = lambda_tau (2 lambda_tau^2 + lambda_mu^2)
+16 pi^2 beta_y_mu|VLL = y_mu (5 y_mu^2/2 + y_tau^2)
+16 pi^2 beta_y_tau|VLL = y_tau (5 y_tau^2/2 + y_mu^2)
+
+Gauge-linear coefficients:
+yt:       -17/12 gY^2 -9/4 g2^2 -8 g3^2
+y_mu,tau: -15/4 gY^2 -9/4 g2^2 -6 gX^2
+lambda:   -6 gY^2 -6 gX^2
+lambda_H: -3 gY^2 -9 g2^2
+lambda_S: -48 gX^2
+lambda_HS:-3/2 gY^2 -9/2 g2^2 -24 gX^2
+
+Pure gauge quartic sources:
+16 pi^2 beta_lambdaH|g^4 = 9/8 g2^4 + 3/4 g2^2 gY^2 + 3/8 gY^4
+16 pi^2 beta_lambdaS|g^4 = 96 gX^4
+beta_lambdaHS|g^4 = 0
+
+VLL determinant:
+[Tr((M^dagger M)^2)]_(h^2 s^2) = 0
+Pure h^4 and s^4 coefficients are nonzero.
+
+Important correction:
+The production implementation previously used
+16 pi^2 beta_lambdaH|scalar = 24 lambda_H^2 + 2 lambda_HS^2.
+The exact six-real-scalar tensor gives a coefficient of 1, not 2.
+The production RHS and quartic decomposition have been corrected, and the
+Benchmark A/B trajectories and zero-crossing diagnostics have been recomputed.
+
+Acceptance:
+- Independent analytic tensor/group-theory audit: PASS.
+- Nine dedicated B5-1d regression tests: companion test file.
+- External PyR@TE/SARAH execution: NOT YET RUN.
+- Higher-loop and matching-input uncertainty: OPEN.
+
+The analytic audit assumes the common VLL threshold, diagonal Abelian kinetic
+boundary chi(M_E)=0, and the stated top-dominance approximation in the
+numerical 12-coupling system. It does not replace the external-generator
+cross-check or the EFT running below M_E.
