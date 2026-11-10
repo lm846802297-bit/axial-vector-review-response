@@ -405,3 +405,6 @@ On upstream head \`f417c7360bcc162b4da7ecb4b99bd874525234fa\`, the QLD8 audit [#
 ## 2026-11-10 upstream QLD8 interface refresh
 
 Upstream PR #11 is now pinned at [\`f417c7360bcc162b4da7ecb4b99bd874525234fa\`](https://github.com/lm846802297-bit/high-energy-theory-research/commit/f417c7360bcc162b4da7ecb4b99bd874525234fa). Its P1.5a–P1.5b update fixes the common cross-source graph phase and relative signs, gives the exact D-dimensional TT tensor sum, and independently checks the transverse-metric coefficient for symbolic D. This is a provenance/interface update only: it does not change the PR #69 scalar two-point diagrams or coefficients. The full direct-pairing cross-source counterterm, physical/evanescent \(Z\) block, external-gluon completion, and EOM/IBP reduction remain open upstream.
+
+
+- **QLD8 P1.6a:** upstream PR #11 is pinned at `ba13cf736d0c1b1bbfef732acfb4f1785162ae88`; the two same-bilinear exchange UV poles are computed, while external-leg terms and the complete QCD renormalization remain open. No result is imported into the scalar two-point calculation.
