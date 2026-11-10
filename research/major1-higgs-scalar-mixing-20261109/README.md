@@ -277,7 +277,7 @@ The upstream [\(d^\dagger d\) QCD routing record](https://github.com/lm846802297
 
 The accompanying [exact symbolic audit](https://github.com/lm846802297-bit/high-energy-theory-research/blob/a8bdc9dfee34880618864e36476baa85c864309d/calculations/RC-001-QLD8-QCD-momentum-routing-audit.py) passes locally. This closes the insertion-momentum routing algebra only; no Dirac loop numerator, tensor integral, UV pole, or counterterm matrix is yet computed. The work remains a four-fermion/current-sector calculation and does not add a contribution to PR #69 \(hh,hs,ss\).
 
-The latest upstream QLD8 workflow run on the pinned head, #42739327386, failed with an empty job-step list; log retrieval returned 404. The cause is unknown; no CI pass is claimed.
+The latest upstream QLD8 workflow run on the pinned head, #42742415643, failed with an empty job-step list; log retrieval returned 404. The cause is unknown; no CI pass is claimed.
 
 
 ## 2026-11-10 update: QLD8 P1.1c direct \(RL\) tensor evanescent
@@ -288,7 +288,7 @@ E_{T;RL}^{\rm dir}=(\bar Q\sigma^{\mu\nu}P_Rd)(\bar d\sigma_{\mu\nu}P_LQ),
 \]
 which vanishes in four dimensions because the two chiral tensor representations have opposite duality. The corresponding d-dimensional two-gamma chain contains \(D\,P_R\otimes P_L+E_{T;RL}^{\rm dir}\); its \(O(\epsilon)\) scalar coefficient must be retained in a UV-pole calculation.
 
-The exact 4D matrix check has been added to the upstream basis audit. The direct tensor seed is not eliminated using the scalar–vector \(E_{RL;V}\) structure, which belongs to a different Lorentz sector. The direct-pairing rank-three seed and crossed rank-three channel are also distinct. No loop coefficient or UV pole is claimed. The latest upstream CI run #42739327386 failed with an empty job-step list and unavailable logs; the cause is unknown, and no CI pass is claimed.
+The exact 4D matrix check has been added to the upstream basis audit. The direct tensor seed is not eliminated using the scalar–vector \(E_{RL;V}\) structure, which belongs to a different Lorentz sector. The direct-pairing rank-three seed and crossed rank-three channel are also distinct. No loop coefficient or UV pole is claimed. The latest upstream CI run #42742415643 failed with an empty job-step list and unavailable logs; the cause is unknown, and no CI pass is claimed.
 
 
 ## 2026-11-10 update: QLD8 P1.2 d-dimensional Fierz projection
