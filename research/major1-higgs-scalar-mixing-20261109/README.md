@@ -680,3 +680,16 @@ and still satisfies \(\beta_c=\Delta\lambda_{HS}^{E}/2\) in the declared normali
 The one-\(Q_{LD}\) or one-\(Q_{RD}\) insertion plus scalar-quartic hard/soft kernel is also evaluated as an off-shell EOM block, keeping the two \(Q_{LD}+\lambda_H\) weak-index tensors separate. In the minimal model the ordinary renormalizable muon/tau Yukawa source functions vanish, so these redundant EOM coefficients do not create an independent on-shell source at this order. They remain part of the off-shell counterterm/field-redefinition ledger.
 
 B5-2 remains open: gauge corrections to \(Q_{LD},Q_{RD}\) and current operators, the multiplicative \(c_{\partial HS}\) anomalous dimension, complete operator mixing, and common EOM/source projection have not been calculated. The closure matrix was updated to distinguish this evaluated sub-block from full EFT-RGE closure.
+
+
+## 2026-11-11 — B5-1b SM running-input sub-block
+
+Added B5_1B_SM_RUNNING_INPUTS_20TEV_2026-11-11.md, b5_1b_sm_running_20tev.py, and B5_1B_SM_RUNNING_OUTPUT_2026-11-11.txt.
+
+A declared one-loop \(\overline{\rm MS}\) SM-only input set was evolved to \(M_E=20\) TeV. The resulting values are \(g_Y=0.36865960\), \(g_2=0.62370335\), \(g_3=0.92908277\), \(y_t=0.77069903\), and \(\lambda_H=0.05807254\). Bottom/tau/electron Yukawas are neglected in this first diagnostic.
+
+The top-only SM remainder is \(D_{\rm SM}=1.60947075\). Inserting it into the earlier B5-1 benchmark decomposition while holding the old scalar subtotal fixed gives diagnostic instantaneous values \(\beta_{\lambda_{HS}}^A=6.25612\times10^{-2}\) and \(\beta_{\lambda_{HS}}^B=6.86230\times10^{-4}\).
+
+**Consistency warning:** the earlier scalar benchmark subtotal used the electroweak tree proxy \(\lambda_H=m_h^2/(2v_h^2)=0.12938\), whereas the one-loop SM-only running gives \(\lambda_H(20\,{\rm TeV})=0.05807\). These must not be mixed in a final matching-scale beta. The fully consistent value also requires the UV running of \(\lambda_S\), VLL Yukawas and \(g_X\), plus a common matching prescription. Therefore the two diagnostic beta values are not final UV matching-scale predictions.
+
+The full coupled VLL beta functions have not yet been integrated. Derive and validate them before running Benchmark A, which starts at \(\lambda_\tau=\sqrt{4\pi}\). The VLLs must be decoupled at \(M_E\); the UV beta is not to be continued below threshold.
