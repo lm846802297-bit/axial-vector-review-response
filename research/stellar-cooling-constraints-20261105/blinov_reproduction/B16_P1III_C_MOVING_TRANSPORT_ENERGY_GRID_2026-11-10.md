@@ -4,24 +4,24 @@ Date: 2026-11-10
 PR: #57  
 Branch: \`research/moving-muon-thermal-rates-20261107\`
 
-## 1. Scope and status
+## 1. Scope
 
-This stage extends the P1-IIIb finite-temperature moving-nucleon collision kernel from a single \(E_\nu=100\) MeV integrated benchmark to
+This stage extends the P1-IIIb finite-temperature moving-nucleon collision kernel from one integrated \(E_\nu=100\) MeV benchmark to
 \[
 E_\nu=50,\ 100,\ 150,\ 255,\ 500\ {\rm MeV},
 \]
-for \(\nu n,\bar\nu n,\nu p,\bar\nu p\).
+for all four channels \(\nu n,\bar\nu n,\nu p,\bar\nu p\).
 
 The thermodynamic point is held fixed:
 \[
 T=3.03\ {\rm MeV},\qquad Y_p=0.10,\qquad n_B/n_0=10^{-3}.
 \]
-This is an illustrative ideal-gas point, not a reconstructed SFHo-18.8 radial snapshot.
+It is an illustrative ideal-gas point, not a reconstructed SFHo-18.8 radial snapshot.
 
-The calculation integrates the moving-nucleon differential collision kernel over outgoing neutrino energy and scattering angle. It reports four moments:
+The calculation integrates the moving-nucleon differential collision kernel over outgoing neutrino energy and scattering angle. The four moments are
 \[
 \sigma_{\rm tot},\quad
-\sigma_{\rm tr}=\int d\Omega\,(1-\cos\theta)\frac{d\sigma}{d\Omega},
+\sigma_{\rm tr}=\int d\Omega(1-\cos\theta)\frac{d\sigma}{d\Omega},
 \]
 \[
 \sigma_{\rm mom}=\int d\Omega dE'\left(1-\frac{E'}{E}\cos\theta\right)
@@ -31,17 +31,17 @@ The calculation integrates the moving-nucleon differential collision kernel over
 \sigma_{\rm loss}=\int d\Omega dE'\left(1-\frac{E'}{E}\right)
 \frac{1}{n_N}\frac{d\Gamma}{dE'd\Omega}.
 \]
-The last quantity is the **net** energy-transfer moment: upscattering events contribute negatively.
+The last is a **net** energy-transfer moment; upscattering events contribute negatively.
 
 ## 2. Energy-window treatment
 
-A fixed \(E'\) half-window is inefficient: the thermal broadening scales approximately as
+A fixed outgoing-energy half-window is inefficient because thermal broadening scales approximately as
 \[
 \Delta E'\sim q\sqrt{T/M_N}.
 \]
-It over-resolves the forward region and can under-resolve the recoil peak when a wide interval is integrated with a fixed Gauss order.
+It over-resolves the forward region and can under-resolve the recoil peak when a wide interval is integrated at fixed Gauss order.
 
-We therefore use an angle-dependent window centered on the stationary recoil energy:
+We use an angle-dependent window centered on the stationary recoil energy:
 \[
 E'_0=\frac{E}{1+(E/M_N)(1-\cos\theta)},\qquad
 \Delta E'=\max\left[0.5\ {\rm MeV},\ 7q\sqrt{T/M_N}\right],
@@ -56,7 +56,7 @@ Baseline quadrature:
 
 ## 3. Results
 
-All cross sections are in units of \(10^{-40}\ {\rm cm}^2\). Ratios are moving finite-\(T\) divided by stationary Horowitz.
+The table gives dimensionless ratios of the moving finite-\(T\) moments to the stationary Horowitz moments. Column order is total, angular transport, momentum transfer, and net energy loss.
 
 | \(E_\nu\) (MeV) | Channel | Total | Angular transport | Momentum transfer | Net energy loss |
 |---:|:---:|---:|---:|---:|---:|
@@ -85,13 +85,11 @@ All cross sections are in units of \(10^{-40}\ {\rm cm}^2\). Ratios are moving f
 
 ### 4.1 Total scattering is close to the stationary result
 
-Across this benchmark grid, the total cross-section ratios remain within approximately \(0.1\%\)–\(1.7\%\) of unity. The angular and momentum-transfer moments differ by a few percent or less.
+Across this benchmark grid, total cross-section ratios range from \(1.00006\) to \(1.01640\). Angular and momentum-transfer moments differ by at most about \(2.8\%\).
 
-This is consistent with the P1-IIIb conclusion: a stationary-target approximation can describe the total scattering rate rather well at this dilute outer-layer point.
+This is consistent with P1-IIIb: a stationary-target approximation can describe the total scattering rate rather well at this dilute outer-layer test point.
 
-### 4.2 Net energy transfer is much more sensitive at low incident energy
-
-The net energy-loss ratios show a clear energy dependence:
+### 4.2 Net energy transfer is substantially more sensitive at low incident energy
 
 | \(E_\nu\) (MeV) | \(\nu n\) | \(\bar\nu n\) | \(\nu p\) | \(\bar\nu p\) |
 |---:|---:|---:|---:|---:|
@@ -103,9 +101,9 @@ The net energy-loss ratios show a clear energy dependence:
 
 At 50 MeV the net energy-loss moment is about 32%–33% below the stationary-target result. At 100 MeV the reduction is about 14%; by 500 MeV it is about 2%.
 
-This trend is physically expected: at lower incident energy the thermal motion of nucleons is more important relative to stationary-target recoil, so upscattering offsets a larger fraction of the recoil energy loss. As \(E_\nu\) increases, the recoil contribution dominates and the stationary-target energy-transfer moment becomes a better approximation.
+This is physically expected: at lower incident energy, thermal nucleon motion is more important relative to stationary-target recoil, so upscattering offsets a larger fraction of the recoil energy loss. As \(E_\nu\) increases, recoil dominates and the stationary-target energy-transfer moment becomes a better approximation.
 
-The result does **not** mean the total opacity changes by 30%. It is specifically a net energy-exchange moment.
+This does **not** mean the total opacity changes by 30%. It is specifically a net energy-exchange moment.
 
 ## 5. Numerical checks
 
@@ -113,7 +111,7 @@ Selected higher-order checks use \((N_s,N_{E'},N_p,N_\phi)=(12,32,24,8)\), compa
 \[
 2.49\times10^{-4}.
 \]
-The checks include neutron-neutrino points at all five incident energies and proton-antineutrino points at 50, 100, 255, and 500 MeV, plus the 500 MeV antineutrino-neutron point. This is a spot-check, not a claim that every grid point has been recomputed at the highest order.
+Checks include neutron-neutrino points at all five incident energies and proton-antineutrino points at 50, 100, 255, and 500 MeV, plus the 500 MeV antineutrino-neutron point. This is a spot-check, not a claim that every grid point has been recomputed at the highest order.
 
 The outgoing-energy window was varied from \(5q\sqrt{T/M}\) to \(9q\sqrt{T/M}\) for neutron-neutrino points at 50, 100, 255, and 500 MeV. The largest relative change among the four moments is
 \[
@@ -145,6 +143,6 @@ The fixed \(Y_p=0.10\), \(T=3.03\) MeV, \(n_B/n_0=10^{-3}\) point is only a cont
 
 ## 7. Next stage
 
-P1-IIId should now reconstruct co-located \(n_B(r)\), \(Y_p(r)\), and \(T(r)\) from a single public stellar snapshot, with explicit provenance and digitization uncertainties. Only after that should this local kernel be evaluated radially.
+P1-IIId should reconstruct co-located \(n_B(r)\), \(Y_p(r)\), and \(T(r)\) from a single public stellar snapshot, with explicit provenance and digitization uncertainties. Only after that should this local kernel be evaluated radially.
 
 The original Blinov B.2 convention, pure-vector Fig. 7 benchmark, and axial cooling curves remain untouched. No use of \(e^{-\tau_{\rm therm}}\) as a final escape probability is permitted.
