@@ -451,3 +451,10 @@ Added `COHERENT_TWO_POLE_SPECTRAL_AREA_2026-11-10.md` with a reproducible integr
 Added `BENCHMARK_A_CMS_VECTOR_CASCADE_2026-11-10.md`. Using the exact-momentum matched A benchmark pole residue, the isolated-pole estimate gives (mathcal B(h_1\to A'A')\simeq7.67\times10^{-4}), and the pure-axial (A') widths give (mathcal B(A'A'\to\mu\mu\tau\tau)\simeq0.20584). Thus ((\sigma/\sigma_{SM})\mathcal B(h_1\to A'A'\to\mu\mu\tau\tau)\simeq1.58\times10^{-4}).
 
 This is comparable in order of magnitude to the 2026 CMS-SUS-23-005 model-independent (H\to aa\to\mu\mu\tau\tau) sensitivity envelope ((5\times10^{-5}) to (2.7\times10^{-4}) for (m_a=3.6\)--21 GeV). It is not a direct exclusion: CMS generates a pseudoscalar, whereas our (A') is a longitudinally polarized spin-1 state ((F_L\simeq0.999667) at this benchmark), and the 10 GeV point is in the (Upsilon)-background region. A vector-specific detector recast is required.
+
+
+## 2026-11-10 — perturbative-order and gauge-completion map
+
+Added `PERTURBATIVE_ORDER_AND_GAUGE_COMPLETION_2026-11-10.md`. It makes explicit that the retained negligible-EFT-portal benchmark counts the UV portal as (O(\hbar)): the exact fermion (hh,hs,ss) matrix is the leading new-physics (O(\hbar)) sector, while scalar/Goldstone/vector/ghost one-loop graphs containing a portal-induced vertex are (O(\hbar^2)) in this combined counting. It records the associated tadpole, VEV, field and mass counterterms and the no-double-counting rules.
+
+This closes the order-classification/census step, not the loop calculation itself. The next work is to derive a common (R_\xi)-gauge-fixed Lagrangian and ghost action, machine-generate the complete vertex ledger, then calculate the complete (O(\hbar^2)) (hh,hs,ss) set and verify UV and gauge-parameter cancellation. No (h\to A'A') recast is part of this stage.
