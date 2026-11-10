@@ -148,7 +148,7 @@ Do not update the literal B.2 \(R_{\max}=25\) km baseline, the pure-vector Fig. 
 
 ## References
 
-1. S. Reddy, M. Prakash, and J. M. Lattimer, “Effects of Strong and Electromagnetic Correlations on Neutrino Interactions in Dense Matter,” Phys. Rev. D 59, 000000 (1999), https://arxiv.org/abs/astro-ph/9811294.
+1. S. Reddy, M. Prakash, J. M. Lattimer, and J. A. Pons, “Effects of Strong and Electromagnetic Correlations on Neutrino Interactions in Dense Matter,” Phys. Rev. C 59, 2888–2918 (1999), https://doi.org/10.1103/PhysRevC.59.2888.
 2. C. J. Horowitz et al., “Neutrino-nucleon scattering in supernova matter from the virial expansion,” Phys. Rev. C 95, 025801 (2017), https://arxiv.org/abs/1611.05140.
 3. P. F. Bedaque, S. Reddy, S. Sen, and N. C. Warrington, “Neutrino-nucleon scattering in the neutrino-sphere,” Phys. Rev. C 98, 015802 (2018), https://arxiv.org/abs/1801.07077.
 4. C. J. Horowitz, “Weak magnetism for antineutrinos in supernovae,” Phys. Rev. D 65, 043001 (2002), https://arxiv.org/abs/astro-ph/0109209.
