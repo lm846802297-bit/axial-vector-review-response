@@ -594,3 +594,6 @@ The A3a scalar-only linear portal beta contribution was also translated from its
 This is not the complete portal beta function. Gauge/Yukawa terms, the full same-order EFT soft set, the remaining Wilson-vector anomalous dimensions, and common EOM/source/tadpole closure remain open. The archived 0.1421% Plan-C-lite scale residual is not explained by this restricted leading-log identity and remains a separate diagnostic.
 
 A branch-local GitHub Actions attempt was made, but GitHub created a failed job with runner_id=0, no steps, and no retrievable logs; this is not a script failure and not a CI pass. The temporary workflow was removed to avoid leaving a known failing check in the Draft PR. The symbolic/numeric equations were evaluated directly in the local Python/SymPy analysis environment; a clean exact-script CI rerun remains pending.
+
+
+A fixed-physical-mass factor-two diagnostic was added at \(\mu=10,20,40\) TeV with \(M_E=20\) TeV held fixed. The hard and soft derivative pieces shift oppositely, while their sum is unchanged for the restricted RC-001 leading-log sector: \(4.140843561227\times10^{-5}\) (A) and \(9.318404228173\times10^{-6}\) (B). This is not the final full-model matching-scale uncertainty test. The corresponding table and the derivative-only \(m_h^2\) projections are recorded in the A5b note and output.
