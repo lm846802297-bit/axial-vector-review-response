@@ -1,0 +1,24 @@
+{
+  "source_archive_sha256": "2e4a1280460bce9a5f7596d3dfd1d3e0f4752f2e1706e85d3a2c20b5f9dbbd8e",
+  "pdf_sha256": {
+    "figures/SNProfile.pdf": "19ca5ee492dea689a4a9851e999f7d05d0f26be7dfc820e817cc5bc310065c8e",
+    "figures/ScreeningPlot.pdf": "39d66c37dd67d73fbe1b3afe2f5e2a532e0e040e9d220e66ec389abb5daf17ab"
+  },
+  "fig1_density_paths": {"nB_over_n0": 158, "np_over_n0": 159, "ne_over_n0": 160, "nmu_over_n0": 161},
+  "fig4_abundance_paths": {"Yp": 0, "one_minus_Yn": 1, "Ye_plus_Ymu": 2},
+  "fig1_vertices": {"nB_over_n0": 198, "np_over_n0": 186, "ne_over_n0": 198, "nmu_over_n0": 102},
+  "fig4_vertices": {"Yp": 379, "one_minus_Yn": 376, "Ye_plus_Ymu": 372},
+  "cross_figure_validation": {
+    "Yp_Fig4_vs_np_over_nB_Fig1": {"rms_relative": 0.00032020453909325353, "max_abs_relative": 0.000849559346442104},
+    "Ye_plus_Ymu_Fig4_vs_(ne+nmu)_over_nB_Fig1": {"rms_relative": 0.0010740411338583705, "max_abs_relative": 0.0026429868587817926},
+    "cluster_charge_absolute_difference_Fig1_vs_Fig4": {"rms": 0.0001615099676461903, "max_abs": 0.0004125666982914833}
+  },
+  "interpretation": {
+    "Yn": "free-neutron abundance per baryon",
+    "Yp": "free-proton abundance per baryon",
+    "Xcluster": "1-Yn-Yp, total baryon mass fraction in nuclei/clusters",
+    "Ycluster_charge": "Ye+Ymu-Yp, cluster positive charge per baryon",
+    "warning": "Do not infer n_n_free=nB-n_p_free; use n_n_free=Yn*nB."
+  },
+  "grid": {"r_km": [0.2, 15.2], "step_km": 0.05}
+}
