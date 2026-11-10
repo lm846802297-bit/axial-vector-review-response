@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exact one-loop Yukawa-matrix audit for one complex singlet S.
+"""Exact one-loop Yukawa-matrix audits for the singlet and Higgs-doublet sectors.
 
 The muon Yukawa couples to S and the tau Yukawa to S*. The two real
 components of S therefore have opposite phases in the tau block.
