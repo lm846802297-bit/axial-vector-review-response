@@ -277,4 +277,4 @@ The upstream [\(d^\dagger d\) QCD routing record](https://github.com/lm846802297
 
 The accompanying [exact symbolic audit](https://github.com/lm846802297-bit/high-energy-theory-research/blob/127ff399cfa648c7dee75dc60aff143bd001422b/calculations/RC-001-QLD8-QCD-momentum-routing-audit.py) passes locally. This closes the insertion-momentum routing algebra only; no Dirac loop numerator, tensor integral, UV pole, or counterterm matrix is yet computed. The work remains a four-fermion/current-sector calculation and does not add a contribution to PR #69 \(hh,hs,ss\).
 
-The latest upstream QLD8 workflow run on the pinned head, #42738848137, failed with an empty job-step list; log retrieval returned 404. The cause is unknown; no CI pass is claimed.
+The latest upstream QLD8 workflow run on the pinned head, #42739327386, failed with an empty job-step list; log retrieval returned 404. The cause is unknown; no CI pass is claimed.
