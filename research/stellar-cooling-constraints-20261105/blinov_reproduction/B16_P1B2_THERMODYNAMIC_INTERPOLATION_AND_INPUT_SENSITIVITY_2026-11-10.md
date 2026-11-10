@@ -121,4 +121,4 @@ The normalization-only follow-up described in §6 has since been addressed by th
 
 The separate B.1 source sensitivity to \(\mu_{\nu_\mu}\) and the \(\mu_{\nu_\tau}=0\) assumption is now completed in \`B16_P1E2_B1_NEUTRINO_CHEMICAL_POTENTIAL_SOURCE_SENSITIVITY_2026-11-10.md\`. Its broad source-only stresses change the total B.1 source by at most about \(1.17\%\), and do not explain the weak-end deficit.
 
-The next non-duplicative source-side task is the interior lapse sensitivity in the dominant 8--15 km emission region, as specified in the updated P1-E report.
+The interior lapse sensitivity has since been completed in `B16_P1E3_INTERIOR_LAPSE_B1_SOURCE_SENSITIVITY_2026-11-10.md`. The complete P1-E source/provenance sequence is closed. The consolidated decision is in `B16_FIG7_FINAL_REPRODUCTION_ACCEPTANCE_2026-11-10.md`: the literal fixed-omega baseline remains unmodified and the Fig. 7 reproduction is not passed.
