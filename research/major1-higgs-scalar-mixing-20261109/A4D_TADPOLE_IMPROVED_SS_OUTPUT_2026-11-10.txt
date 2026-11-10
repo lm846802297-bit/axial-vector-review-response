@@ -1,0 +1,25 @@
+A4d tadpole-improved zero-momentum ss-kernel audit
+
+Exact identity:
+  16 pi^2 [Pi_ss,E(0) - T_s^(1)/v_S] =
+    -2(d-1) g_A^2 m_X^2 B_E(0;m_X^2,m_X^2)
+    -2 lambda_S^2 v_S^2 B_E(0;xi_X m_X^2,xi_X m_X^2)
+    -18 lambda_S^2 v_S^2 B_E(0;m_s^2,m_s^2)
+
+Cancellations:
+  PASS: vector transverse seagull cancels against transverse vector tadpole.
+  PASS: Goldstone seagull cancels against Goldstone tadpole.
+  PASS: radial scalar seagull cancels against radial scalar tadpole.
+  PASS: longitudinal vector + mixed A'a + ghost sector cancels exactly.
+  PASS: identity holds for arbitrary xi_X.
+
+UV pole:
+  16 pi^2 [Pi_ss,E(0)-T_s^(1)/v_S]^UV =
+    [-2(d-1) g_A^2 m_X^2 -20 lambda_S^2 v_S^2]/epsbar
+
+At d=4:
+  [-6 g_A^2 m_X^2 -20 lambda_S^2 v_S^2]/epsbar
+
+LIMIT:
+  p_E^2=0 tadpole-improved identity only.
+  It does not imply gauge independence at nonzero momentum or determine the complex pole.
