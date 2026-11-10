@@ -220,6 +220,10 @@ def main():
 
     for bname in ("A", "B"):
         print(f"\nBENCHMARK {bname}")
+        p0 = initial_uv(bname, 100.0, sm)
+        dy0 = uv_rhs(0.0, np.array([p0[k] for k in KEYS]))
+        print(f"  beta_lambda_mu={dy0[7]:+.9e} "
+              f"beta_lambda_tau={dy0[8]:+.9e}")
         for ms in (10.0, 50.0, 100.0, 150.0):
             p = initial_uv(bname, ms, sm)
             bHS, bH, bS = beta_decomposition(p)
