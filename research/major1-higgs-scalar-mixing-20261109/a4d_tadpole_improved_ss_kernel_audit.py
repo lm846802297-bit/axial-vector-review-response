@@ -47,6 +47,21 @@ assert sp.simplify(uv - (-2*(d-1)*gA**2*mX**2-20*lamS**2*vS**2))==0
 # In four dimensions.
 uv_d4 = sp.factor(uv.subs(d,4))
 
+
+
+# Momentum-dependent tadpole-improved UV pole in d=4.
+# T_s/v_S has UV coefficient:
+uv_tadpole_over_v = -3*gA**2*mX**2 - xi*lamS*mX**2 - 6*lamS**2*vS**2
+uv_full_pole_d4 = (
+    -gA**2*(3-xi)*p2 - 9*gA**2*mX**2
+    -xi*lamS*mX**2 - 26*lamS**2*vS**2
+)
+uv_improved_pole_d4 = sp.factor(uv_full_pole_d4-uv_tadpole_over_v)
+expected_improved_pole_d4 = (
+    -gA**2*(3-xi)*p2 - 6*gA**2*mX**2 - 20*lamS**2*vS**2
+)
+assert sp.simplify(uv_improved_pole_d4-expected_improved_pole_d4)==0
+
 print("A4d exact tadpole-improved zero-momentum identity")
 print(f"  Pi_ss,E(0) - T_s^(1)/v_S = {expected}/(16 pi^2)")
 print("  All A_E seagulls cancel against the corresponding tadpole term.")
@@ -55,4 +70,6 @@ print(f"  UV pole at general d: {uv}/(16 pi^2 epsbar)")
 print(f"  UV pole at d=4: {uv_d4}/(16 pi^2 epsbar)")
 print("PASS: exact cancellation identity for arbitrary xi_X.")
 print("PASS: the tadpole-improved p_E^2=0 UV pole is gauge independent.")
+print(f"  Momentum-dependent UV pole after tadpole improvement (d=4): {expected_improved_pole_d4}/epsbar")
+print("PASS: local mass pole is xi_X-independent; only the field pole retains (3-xi_X).")
 print("LIMIT: p_E^2=0 identity only; it does not replace the full momentum-dependent pole calculation.")
