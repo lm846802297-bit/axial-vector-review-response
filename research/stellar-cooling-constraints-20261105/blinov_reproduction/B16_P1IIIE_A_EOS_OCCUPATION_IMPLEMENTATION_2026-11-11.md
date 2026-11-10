@@ -132,7 +132,7 @@ A deterministic synthetic test fixture (not Garching profile data) was evaluated
 - A dilute Boltzmann state gives \(F^{\rm deg}\to1\).
 - Shifting \(U_N\) and \(\mu_N^*\) by the same constant leaves the distribution unchanged.
 
-The exact numerical residuals are archived in outputs/p1iii_eos_kernel_self_test_2026-11-11.json. These checks validate the implementation, not the four published Garching averages.
+The exact numerical residuals are archived in outputs/p1iii_eos_kernel_self_test_2026-11-11.json. The unit tests also verify the Hempel total-energy mapping and the filling-factor density closure \(\xi n'_N=X_N n_B\) on deterministic fixtures. These checks validate the implementation, not the four published Garching averages.
 
 ## 6. Validation boundary
 
