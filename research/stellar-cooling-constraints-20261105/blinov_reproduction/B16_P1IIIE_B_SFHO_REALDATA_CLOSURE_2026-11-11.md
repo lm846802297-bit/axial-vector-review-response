@@ -274,8 +274,8 @@ but that statement is not used to remove any of the 16 cells from the audit.
   SFHO_TABLES_DIR and are skipped when the raw archives are absent. The workflow
   exercises the fixture path without the 400 MB binaries. It has a verified pass:
   run 42922595906 on head `5dd24ac` concluded `success` in 23 s, running this
-  module as `Ran 14 tests ... OK (skipped=1)` (the four official-table tests skip
-  without `SFHO_TABLES_DIR`) and the deterministic self-test assertion block.
+  module as `Ran 14 tests ... OK (skipped=1)` (the official-table test class is
+  skipped as one unit without `SFHO_TABLES_DIR`) and the deterministic self-test assertion block.
   Locally, with the unpacked v1.03 tables, the same module reports
   `Ran 19 tests ... OK`.
 - **`sfho_frdm_v1.03_download.py`** and **`sfho_frdm_v1.03_manifest.sha256`** —
