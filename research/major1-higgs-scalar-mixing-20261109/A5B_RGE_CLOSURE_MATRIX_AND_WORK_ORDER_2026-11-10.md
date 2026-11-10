@@ -1,6 +1,6 @@
 # A5b — EFT/portal RGE closure matrix and calculation order
 
-**Date:** 2026-11-10  
+**Date:** 2026-11-11 (updated after B5-1)
 **Purpose:** separate the beta-function entries already supported by the RC-001/A3/A4 work from the missing entries required for a full matched \(h-s\) pole calculation. This is a work ledger, not a claim that the full RGE system has been computed.
 
 ## 1. Closure matrix
@@ -10,7 +10,7 @@
 | UV \(\lambda_{HS}\): scalar loops | Linear portal pole \(\propto\lambda_{HS}(6\lambda_H+4\lambda_S)\); portal-squared term if ordinary tree-level counting is used | A3a scalar/Goldstone bubble and effective-potential cross-check | **Partial: scalar-only** | O(\(\hbar^2\)) because \(\lambda_{HS}^{UV}=O(\hbar)\); needed for matching-scale evolution |
 | UV \(\lambda_{HS}\): gauge loops | \(SU(2)_L\), \(U(1)_Y\), \(U(1)_X\), and any kinetic-mixing contributions in one gauge convention | A3a gauge-basis diagram census; A4 \(U(1)_X\) diagonal \(ss\) subcalculation | **Open** | O(\(\hbar^2\)); required for the full UV portal beta and gauge-independent pole |
 | UV \(\lambda_{HS}\): Yukawa loops | SM Yukawa multiplicative terms, VLL \(y_\ell,\lambda_\ell\) multiplicative terms, and any additive mixed term | VLL determinant gives zero additive \(|y_\ell|^2|\lambda_\ell|^2\) UV pole at this one-loop order; finite threshold is nonzero | **Partial** | Distinguish finite matching from UV running; full multiplicative terms still needed |
-| EFT dimension-four \(\lambda_{HS}\) | Additive \(C_5C_5^\ast\) pole at \(M_E^{-2}\), plus ordinary EFT running | RC-001 bubble/contact pole is proportional to \(p^2\); no \(M_E^{-2}\) quartic pole in this sector | **Fixed-sector result** | Matched EFT portal remains zero in this restricted strict-dimension-six sector; not a full EFT beta statement |
+| UV \\(\\lambda_{HS}\\): complete one-loop beta | Sum scalar, gauge, SM Yukawa and VLL Yukawa terms in the same \\(\\overline{\\rm MS}\\) convention | B5-1 Eq. (1); benchmark A/B decomposition | **Analytically derived** | Fully numerical \\(M_E\\)-scale value awaits fixed running SM inputs; coupled UV evolution remains open |\n| EFT dimension-four \(\lambda_{HS}\) | Additive \(C_5C_5^\ast\) pole at \(M_E^{-2}\), plus ordinary EFT running | RC-001 bubble/contact pole is proportional to \(p^2\); no \(M_E^{-2}\) quartic pole in this sector | **Fixed-sector result** | Matched EFT portal remains zero in this restricted strict-dimension-six sector; not a full EFT beta statement |
 | EFT \(c_{\partial HS}\): inhomogeneous term | \(C_5C_5^\ast\) soft pole and beta contribution | RC-001 counterterm ledger and A5b derivation | **Derived** | Directly controls the leading mixed-derivative self-energy and hard/soft log cancellation |
 | EFT \(c_{\partial HS}\): multiplicative/mixing terms | Gauge/scalar/Yukawa anomalous dimensions and mixing with the complete dimension-six basis | RC-001 gauge attachment atlas and soft-topology census; not a complete anomalous-dimension matrix | **Open** | Required for a complete higher-order RGE and scale uncertainty |
 | EFT \(C_5\) | One-loop gauge/scalar/fermion vertex and external-leg renormalization | SFT-23/SFT-24 topology census identifies the required scalar and gauge sets | **Open** | Not needed to state the one-loop inhomogeneous \(C_5^2\) term; needed for next-order running and full matching |
@@ -44,7 +44,7 @@ The one-loop inhomogeneous \(C_5C_5^\ast\) contribution to \(\beta_{c_{\partial 
 
 ## 3. Ordered work plan
 
-**B5-1 — UV portal beta closure.** Derive the full one-loop \(\beta_{\lambda_{HS}}^{UV}\) from the actual gauge-fixed model: scalar, electroweak gauge, \(U(1)_X\), kinetic-mixing, SM Yukawa, and VLL Yukawa contributions. Keep the VLL additive mixed-quartic pole separate from the finite threshold. Use one common \(\overline{\rm MS}\) convention and verify the scalar subset against A3a.
+**B5-1 — UV portal beta closure (analytic result passed).** The full one-loop \(\overline{\rm MS}\) beta is recorded in `B5_1_FULL_UV_PORTAL_BETA_FUNCTION_2026-11-11.md`: scalar, \(SU(2)_L\), hypercharge, \(U(1)_X\), SM Yukawa, and VLL Yukawa terms are included. The additive VLL \(|y_\ell|^2|\lambda_\ell|^2\) pole is exactly zero, while the multiplicative VLL wavefunction terms are nonzero. The result assumes \(\chi(M_E)=0\) and the common VLL threshold; a numerical \(D_{\rm SM}(M_E)\) and coupled running of all UV couplings remain to be fixed.
 
 **B5-2 — EFT operator running at the retained order.** Extend the known inhomogeneous \(C_5C_5^\ast\) term to the complete set of one-loop contributions that can renormalize or mix into \(c_{\partial HS}\) at the declared combined order. Keep \(C_5\), \(Q_{LD}\), \(Q_{RD}\), current operators and EOM/source terms in a common basis. Do not include dimension-eight insertions in a strict \(M_E^{-2}\) result.
 
@@ -57,6 +57,6 @@ The one-loop inhomogeneous \(C_5C_5^\ast\) contribution to \(\beta_{c_{\partial 
 ## 4. Current acceptance decision
 
 - The \(C_5C_5^\ast\) derivative-operator pole, its inhomogeneous beta contribution, and the restricted hard/soft leading-log cancellation are derived.
-- The A3a scalar-only linear portal beta is derived and benchmarked over the current \(m_s\) interval.
-- The full UV portal beta, complete EFT anomalous-dimension matrix, common tadpole/field scheme, and full-model matching-scale variation are **not** complete.
+- The complete one-loop UV portal beta is analytically derived for the common-threshold \\(\\chi(M_E)=0\\) boundary; benchmark A/B contributions are evaluated, while the fully numerical SM remainder and coupled running await a fixed \\(M_E\\)-scale input scheme.
+- The complete EFT anomalous-dimension matrix, common tadpole/field scheme, and full-model matching-scale variation are **not** complete.
 - The archived \(0.1421\%\) Plan-C-lite residual remains open; the restricted leading-log cancellation does not by itself explain it.
