@@ -108,3 +108,8 @@ These are conditional extensions: they represent the case in which neutrino daug
 - Profile: \`data/sfho188_digitized.csv\`
 
 **P1-D boundary sensitivity is complete for the 210--510 MeV band and the \(m_V=10\) MeV strong-endpoint benchmark.** The paper-faithful boundary remains 25 km. The next useful question is whether the original neutrino transport model supports an energy-dependent \(R_\nu(\omega)\) or a different effective trapping surface; without such evidence, no alternative boundary is adopted.
+
+
+## References
+
+N. Blinov, P. J. Fox, K. J. Kelly, R. Plestid, and T. Zhou, “\(L_\mu-L_\tau\) gauge bosons in beam dumps and supernovae,” arXiv:2511.09619, Appendix B, especially Eqs. (B.1)--(B.5) and the discussion of \(R_{\max}=R_\nu\simeq25\) km.
