@@ -60,3 +60,29 @@ OPEN: complete O(hbar^2) UV-EFT portal matching and all diagonal counterterms.
 OPEN: dimension-eight hard matching; q_l*m_l^2 pole is O(M_E^-4), not beta_lambda_HS.
 PASS: restricted C5*C5* derivative-operator RGE block and leading-log cancellation.
 LIMIT: not the complete model EFT RGE or physical scalar pole calculation.
+
+
+FIXED-PHYSICAL-MASS FACTOR-TWO SCALE CHECK
+M_E is held fixed at 20 TeV. Hard and soft terms are evaluated at the same common scale mu.
+H' and S' are derivative coefficients; H'+S' is invariant.
+
+Benchmark A:
+  mu=10 TeV: H'=+1.654515624882e-06, S'=+3.975391998738e-05,
+             H'+S'=+4.140843561227e-05
+  mu=20 TeV: H'=-1.532751483982e-06, S'=+4.294118709625e-05,
+             H'+S'=+4.140843561227e-05
+  mu=40 TeV: H'=-4.720018592847e-06, S'=+4.612845420511e-05,
+             H'+S'=+4.140843561227e-05
+  m_h^2(H'+S')=+6.495974216946e-01 GeV^2
+
+Benchmark B:
+  mu=10 TeV: H'=+3.723261979477e-07, S'=+8.946078030226e-06,
+             H'+S'=+9.318404228173e-06
+  mu=20 TeV: H'=-3.449248371230e-07, S'=+9.663329065296e-06,
+             H'+S'=+9.318404228173e-06
+  mu=40 TeV: H'=-1.062175872194e-06, S'=+1.038058010037e-05,
+             H'+S'=+9.318404228173e-06
+  m_h^2(H'+S')=+1.461830487297e-01 GeV^2
+
+PASS: H'+S' is independent of mu for the restricted leading-log expression.
+LIMIT: fixed-sector identity only; not the complete full-model matching-scale uncertainty test.
