@@ -125,7 +125,9 @@ The protected Garching endpoint limits raw-profile precision. This does not prev
 - **Axial-vector recalculation:** frozen.
 - **PR #57:** keep Open / Draft; do not merge as a validated reproduction.
 
-The P1-B.2 thermodynamic interpolation and source-frozen input-sensitivity audit is now complete. Direct local-kernel evaluation versus the 642-node opacity table changes the sampled total optical depth by at most \(9.07\times10^{-6}\). The high-energy band is sensitive to the 8--15 km semi-Compton opacity under deliberately broad \(T,\mu_\mu\) stress tests, but the baseline \(T\) and \(\mu_\mu/T\) inputs are independently anchored to Bollig Figs. 1 and 4 at the \(10^{-4}\) relative scale; \(\mu_{\nu_\mu}\) variations change the high-energy escape luminosity by less than \(0.03\%\). Do not repeat generic radial/path interpolation or broad profile stress tests. The next targeted B.2 audit is the normalization map between polarization-summed production, per-polarization inverse absorption, and the scalar \(\Gamma_{\rm abs}\) used in the optical-depth exponent. Derive this from B.6--B.10 without fitting Fig. 7 or inserting a factor of three by hand. Keep the literal fixed-\(\omega\) scalar baseline and all axial-vector outputs unchanged.
+The P1-B.2 thermodynamic interpolation audit and the subsequent P1-C polarization-normalization audit are complete. The scalar Appendix-B normalization is retained as the literal baseline; the mode-resolved diagnostic is not substituted and no factor-of-three rescaling is authorized. P1-D has quantified the source-frozen 25--30 km boundary sensitivity. P1-E1--E3 have completed the outer-lapse, neutrino-chemical-potential, and interior-lapse source tests. P1-F has derived the high-energy daughter-neutrino spectrum and identified the energy-dependent heavy-flavor energy sphere as the relevant missing physics. P1-G has used the same-snapshot public Caputo Fig. 1 density curve through 20 km to estimate a transport-only outer-tail envelope: the central radial \(\tau_{\nu N}=2/3\) radius is about 24.6 km at 255 MeV and 26.2 km at 500 MeV. The smooth central-tail 25--30 km reprocessing fraction is only 8.91% on an unweighted radial/node average, so the full P1-D 30 km vacuum-opacity extension remains an extreme upper bound.
+
+Do not repeat generic radial/path interpolation, broad profile stress tests, or full-opacity boundary scans. The actual heavy-flavor energy sphere cannot be computed without same-snapshot energy-changing neutrino collision kernels and moments. Retain the literal \(R_{\max}=25\) km, fixed-\(\omega\), scalar B.2 baseline; keep all axial-vector outputs unchanged.
 
 
 ## 7. Official data and metric-source availability
@@ -175,3 +177,20 @@ The P1 numerical propagation checks do not explain the \(+92.2406\%\) fixed-\(\o
 ### Global channel attribution addendum
 
 The source-weighted 210--510 MeV Shapley decomposition is archived in the P1 report and JSON output. It confirms that the path-redshift effect is a neutrino inverse-decay opacity effect, not a Compton opacity effect. This is a separate physical sensitivity and does not alter the fixed-\(\omega\) Fig. 7 baseline.
+
+
+## 9. P1-C through P1-G closure update (2026-11-10)
+
+The follow-up sequence is now complete at the scope supported by public information:
+
+- **P1-C:** polarization-summed production/absorption normalization reconciled with the scalar Appendix-B prescription. No manual factor-of-three correction is allowed.
+- **P1-D:** \(R_{\max}\) sensitivity evaluated at 15, 18.5, 20, 22, 24, 25, 26, 27.5, and 30 km, with source frozen at the literal 25 km baseline.
+- **P1-E1--E3:** outer lapse, \(\mu_{\nu_\mu}\)/\(\mu_{\nu_\tau}=0\), and interior lapse source sensitivities completed.
+- **P1-F:** boosted vector-decay daughter energies and energy-/flavor-dependent heavy-flavor decoupling reviewed.
+- **P1-G:** the same SFHo-18.8, 1 s public baryon-density figure used to estimate a transport-only neutrino optical-depth envelope. This suggests a central 255 MeV transport radius near 24.6 km and 500 MeV near 26.2 km, but does not determine the energy sphere.
+
+The P1-D 30 km sharp-boundary luminosity proxy nearly matches the Fig. 7 strong point only when the entire 210--510 MeV band is assigned full extra vacuum opacity. P1-G instead finds a central smooth radial 25--30 km reprocessing fraction of about 8.91% across the ten vector-energy nodes. The P1-D extension is therefore an extreme conditional upper bound, not a physical correction.
+
+The exact heavy-flavor energy sphere remains uncomputed because the raw same-snapshot composition, energy-changing collision kernels, and neutrino moments are unavailable. The current public figure provides \(n_B(r)\) only through 20 km; the 20--25 km tail in P1-G is extrapolated. Do not select a new boundary, fit Fig. 7, or update the axial-vector curve.
+
+**Final decision remains unchanged:** the literal fixed-\(\omega\), scalar B.2 benchmark is not a successful Fig. 7 reproduction at 10 MeV; PR #57 stays Draft/Open, and axial-vector recalculation remains frozen.
