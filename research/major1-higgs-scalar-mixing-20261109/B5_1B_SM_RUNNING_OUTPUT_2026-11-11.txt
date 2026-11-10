@@ -1,0 +1,20 @@
+B5-1b SM-only one-loop running to M_E=20 TeV
+Inputs: gY(MZ)=0.3575, g2(MZ)=0.65171, g3(mt)=1.1645,
+yt(mt)=0.93587, lambdaH(mt)=0.1262825, mt=173.15 GeV.
+
+gY(20 TeV)=0.368659598102
+g2(20 TeV)=0.623703350085
+g3(20 TeV)=0.929082767666
+yt(20 TeV)=0.770699034515
+lambdaH(20 TeV)=0.058072537958
+T_SM(top-only)=1.782928294
+D_SM(top-only)=1.609470751825
+
+Diagnostic only, holding the previous B5-1 scalar subtotal fixed:
+beta_lambdaHS_A=+6.256122375425e-02
+beta_lambdaHS_B=+6.862298345349e-04
+
+IMPORTANT: The earlier scalar benchmark used lambdaH=mh^2/(2vh^2)=0.12938.
+The consistent SM-only running value at 20 TeV is 0.05807. Do not mix
+these in a final matching-scale beta. The fully coupled VLL model running
+and EFT evolution below M_E remain open.
