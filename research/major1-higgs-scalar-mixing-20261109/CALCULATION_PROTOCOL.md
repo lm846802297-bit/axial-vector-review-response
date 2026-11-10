@@ -4,7 +4,8 @@
 
 Before adding diagrams, record in a benchmark card:
 - scalar-potential sign convention and field/VEV normalization;
-- renormalization scheme and scale;
+- renormalization scheme and scale hierarchy, with separate entries for \(M_E\), the physical heavy singular values, matching scale \(\mu_M\), hard-loop subtraction scale \(\mu_R^{\rm hard}\), and low-energy EFT scale \(\mu_{\rm EFT}\);
+- whether the portal boundary is imposed at one central \(\mu_M\) and then RG-evolved, rather than reset when \(\mu_M\) is varied;
 - gauge-fixing parameter and gauge choice;
 - tadpole and VEV-renormalization prescription;
 - field-renormalization matrix and mixing counterterm convention;
