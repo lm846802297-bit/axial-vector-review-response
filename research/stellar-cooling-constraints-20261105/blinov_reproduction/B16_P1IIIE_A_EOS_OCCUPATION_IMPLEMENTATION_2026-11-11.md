@@ -31,9 +31,9 @@ It defines
 f_N(p)=\operatorname{expit}\!\left(\frac{\nu_N-K_N(p)}{T}\right).
 \]
 
-The number density, including the two spin states, is
+The momentum integral gives the local density per available nucleon volume V', denoted n'_N, including the two spin states. In the excluded-volume EOS, the density per total volume is n_N=xi*n'_N, where xi=V'/V is the nucleon filling factor. Thus
 \[
-n_N=\frac{1}{\pi^2(\hbar c)^3}\int_0^\infty dp\,p^2f_N(p).
+n'_N=\frac{1}{\pi^2(\hbar c)^3}\int_0^\infty dp\,p^2f_N(p),\qquad n_N=\xi n'_N.
 \]
 The recoil-free static blocking factor is
 \[
@@ -50,7 +50,7 @@ f_N(1-f_N)=T\left(\frac{\partial f_N}{\partial\nu_N}\right)_{T,m_N^*},
 \qquad
 F_{NN}^{\rm deg}
 =
-\frac{T}{n_N}
+\frac{T}{n'_N}
 \left(\frac{\partial n_N}{\partial\nu_N}\right)_{T,m_N^*}.
 \]
 The derivative check holds \(T,m_N^*,U_N\) fixed; it is not a derivative along a self-consistent EOS trajectory.
@@ -89,7 +89,7 @@ For SFHo-18.8, the published targets are:
 
 These are global, time-integrated targets. They are not local values and cannot be reproduced from the \(t_{\rm pb}=1\) s Fig. 1/Fig. 12 snapshot alone.
 
-The CSV reader therefore requires an explicit dMdt_weight column representing the cell measure \(\Delta M\,\Delta t\) (or its equivalent quadrature weight). It does not silently replace the mass-time integration by an equal-weight average over rows.
+The CSV reader requires the filling factor xi as well as an explicit dMdt_weight column representing the cell measure \(\Delta M\,\Delta t\) (or its equivalent quadrature weight). It does not silently replace the mass-time integration by an equal-weight average over rows.
 
 ## 4. Code and tests
 
@@ -97,7 +97,7 @@ The CSV reader therefore requires an explicit dMdt_weight column representing th
 - **test_b16_p1iii_eos_nucleon_distribution.py**: unit tests for the dispersion, occupation bounds, common \(U_N,\mu_N^*\) shift invariance, vacuum-mass limit, derivative identity, dilute limit, quadrature convergence, and the two global weighting formulas.
 - **.github/workflows/b16-p1iii-eos-degeneracy.yml**: independent CI validation only; it does not commit or modify production outputs.
 
-The CSV interface requires T_MeV, rho_g_cm3, dMdt_weight, and for each species n,p: mstar_n_MeV, U_n_MeV, mu_star_n_MeV, mstar_p_MeV, U_p_MeV, and mu_star_p_MeV. Optional free-nucleon density columns n_n_target_fm3 and n_p_target_fm3 provide a local density-closure test.
+The CSV interface requires T_MeV, rho_g_cm3, dMdt_weight, xi, and for each species n,p: mstar_n_MeV, U_n_MeV, mu_star_n_MeV, mstar_p_MeV, U_p_MeV, and mu_star_p_MeV. Optional free-nucleon density columns n_n_target_fm3 and n_p_target_fm3 are interpreted per total volume and are compared with xi*n'_N. The filling factor cancels in Fdeg but not in density closure or the later dynamic response normalization.
 
 The implementation checks the SFHo effective-mass splitting \(m_n^*-m_p^*=1.2933\) MeV and reports the maximum residual. It does not impose this relation by modifying input data.
 
@@ -105,7 +105,7 @@ The implementation checks the SFHo effective-mass splitting \(m_n^*-m_p^*=1.2933
 
 A deterministic synthetic test fixture (not Garching profile data) was evaluated directly:
 - Four local states cover neutron/proton species and two temperature scales.
-- The direct \(f(1-f)\) integral agrees with the independent finite-difference density derivative.
+- The direct \(f(1-f)\) integral agrees with the independent finite-difference derivative of the available-volume density \(n'_N\).
 - The 256- and 512-node quadratures agree.
 - The vacuum-mass mapping reproduces the existing total-chemical-potential occupation.
 - A dilute Boltzmann state gives \(F^{\rm deg}\to1\).
