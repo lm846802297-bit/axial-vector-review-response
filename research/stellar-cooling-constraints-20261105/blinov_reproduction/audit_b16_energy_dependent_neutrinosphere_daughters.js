@@ -100,7 +100,7 @@ function main(){
    derivation:"E1,2 = omega/2 (1 +/- beta z), beta=sqrt(1-mV^2/omega^2), z=cos(theta*) in the vector rest frame",
    energy_range:"[omega(1-beta)/2, omega(1+beta)/2]",
    pair_mean_daughter_energy:"(E1+E2)/2=omega/2 event by event",
-   angular_weights:modes.longitudinal.toString(),
+   polarization_weights:{L:"3/4(1-z^2)",plus:"3/8(1+z)^2",minus:"3/8(1-z)^2"},
    polarization_weights:{L:"3/4(1-z^2)",plus:"3/8(1+z)^2",minus:"3/8(1-z)^2"},
    note:"Energy fractions are evaluated mode by mode. The equal-polarization average is a kinematic reference only; the actual production density matrix is channel- and phase-space-dependent.",
    representative_points:kinematics
