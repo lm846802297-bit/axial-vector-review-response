@@ -43,7 +43,11 @@ DEFAULT_OUTPUT = HERE / "outputs" / "b16_smooth_daughter_reprocessing_b2_10mev_2
 MASS = 10.0
 COUPLING = 4.171689650228597e-8
 RMAX_BASE = 25.0
-RMAX_TESTS = (27.5, 30.0)
+RUN_CASES = {
+    "low": (("equal", 30.0),),
+    "central": (("equal", 27.5), ("equal", 30.0), ("L", 30.0), ("T", 30.0)),
+    "high": (("equal", 30.0), ("L", 30.0), ("T", 30.0)),
+}
 TAILS = {
     "low": {"nB20_over_n0": 0.5e-3, "H_km": 0.9},
     "central": {"nB20_over_n0": 1.0e-3, "H_km": 1.2},
@@ -222,32 +226,31 @@ def run(
     smooth_results = {}
     for tail_name, tail in TAILS.items():
         smooth_results[tail_name] = {}
-        for weighting in ("L", "T", "equal"):
+        for weighting, radius in RUN_CASES[tail_name]:
             pair_table = pair_escape_table(
                 band_energies, pair_radii, tail, weighting, daughter_order
             )
-            for radius in RMAX_TESTS:
-                extra, extra_weights = smooth_extra_columns(
-                    source_r, band_energies, pair_table, pair_radii, radius,
-                    angular_order, path_order,
-                )
-                # The base and outer angular quadratures are identical.
-                if not np.allclose(extra_weights, angle_weights, rtol=0.0, atol=1e-15):
-                    raise ArithmeticError("Angular weights do not match the B.2 baseline")
-                smooth_columns = base_columns + extra
-                band_lum = luminosity(source, smooth_columns, coupling, angle_weights)
-                full_proxy = (
-                    phase["calculated_luminosity_erg_s"]
-                    - baseline_band + band_lum
-                )
-                smooth_results[tail_name][f"{weighting}_Rmax_{radius:g}_km"] = {
-                    "band_luminosity_erg_s": band_lum,
-                    "relative_band_change_vs_Rmax25": band_lum / baseline_band - 1.0,
-                    "band_only_total_proxy_erg_s": full_proxy,
-                    "proxy_residual_vs_Fig7": (
-                        full_proxy / phase["reference_luminosity_erg_s"] - 1.0
-                    ),
-                }
+            extra, extra_weights = smooth_extra_columns(
+                source_r, band_energies, pair_table, pair_radii, radius,
+                angular_order, path_order,
+            )
+            # The base and outer angular quadratures are identical.
+            if not np.allclose(extra_weights, angle_weights, rtol=0.0, atol=1e-15):
+                raise ArithmeticError("Angular weights do not match the B.2 baseline")
+            smooth_columns = base_columns + extra
+            band_lum = luminosity(source, smooth_columns, coupling, angle_weights)
+            full_proxy = (
+                phase["calculated_luminosity_erg_s"]
+                - baseline_band + band_lum
+            )
+            smooth_results[tail_name][f"{weighting}_Rmax_{radius:g}_km"] = {
+                "band_luminosity_erg_s": band_lum,
+                "relative_band_change_vs_Rmax25": band_lum / baseline_band - 1.0,
+                "band_only_total_proxy_erg_s": full_proxy,
+                "proxy_residual_vs_Fig7": (
+                    full_proxy / phase["reference_luminosity_erg_s"] - 1.0
+                ),
+            }
 
     source_total = float(np.sum(source))
     source_outside_15 = float(
@@ -307,6 +310,13 @@ def run(
         "sharp_Rmax30_conditional": {
             "band_luminosity_erg_s": sharp30_band,
             "relative_band_change_vs_Rmax25": sharp30_band / baseline_band - 1.0,
+            "band_only_total_proxy_erg_s": (
+                phase["calculated_luminosity_erg_s"] - baseline_band + sharp30_band
+            ),
+            "proxy_residual_vs_Fig7": (
+                (phase["calculated_luminosity_erg_s"] - baseline_band + sharp30_band)
+                / phase["reference_luminosity_erg_s"] - 1.0
+            ),
             "note": "Full vacuum-limit opacity over 25--30 km; extreme sharp-boundary diagnostic only.",
         },
         "smooth_results": smooth_results,
