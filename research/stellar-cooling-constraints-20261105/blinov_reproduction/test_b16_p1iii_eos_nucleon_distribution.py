@@ -126,6 +126,11 @@ class TestGarchingEOSNucleonDistribution(unittest.TestCase):
                 row[f"n_{species}_target_fm3"] = (
                     row["xi"] * number_density_fm3(state, order=128)
                 )
+            row["nB_fm3"] = (
+                row["n_n_target_fm3"]
+                + row["n_p_target_fm3"]
+                + (1.0 - row["xi"]) * 0.1583
+            )
         result = aggregate_profile_rows(rows, order=128)
         local = result["local_rows"]
         for species in ("p", "n"):
@@ -211,6 +216,22 @@ class TestGarchingEOSNucleonDistribution(unittest.TestCase):
         )
         self.assertAlmostEqual(
             nu, reference.effective_chemical_potential_mev, places=8
+        )
+
+    def test_xi_can_be_inferred_from_profile_composition(self):
+        row = {
+            "T_MeV": 4.0, "rho_g_cm3": 1.0e14, "dMdt_weight": 1.0,
+            "mstar_n_MeV": 700.0, "U_n_MeV": -30.0, "mu_star_n_MeV": 50.0,
+            "mstar_p_MeV": 700.0 - 1.293333, "U_p_MeV": -20.0,
+            "mu_star_p_MeV": 35.0, "nB_fm3": 0.15,
+            "n_n_target_fm3": 0.12, "n_p_target_fm3": 0.01,
+        }
+        result = aggregate_profile_rows([row], order=128)
+        expected = 1.0 - (0.15 - 0.12 - 0.01) / 0.1583
+        self.assertAlmostEqual(result["local_rows"][0]["xi"], expected, places=14)
+        self.assertEqual(
+            result["local_rows"][0]["xi_source"],
+            "global_density_composition",
         )
 
     def test_invalid_state_is_rejected(self):
