@@ -1,265 +1,198 @@
-# B5-2B3 — \(Q_{LD}\) pure-\(WW\) cross-box numerator and hard-master audit
+# B5-2B3R — exact external-momentum routing for \(Q_{LD}\) pure-\(WW\) cross boxes
 
 **Date:** 2026-11-11  
-**Gauge:** Feynman gauge, \(d=4-2\epsilon\).  
-**Status:** the four cross-vertex box numerator families have been reduced in a declared canonical routing, and the required hard scalar masters have been evaluated. The weak-tensor-weighted result below is explicitly **conditional** on the still-unverified relative Feynman-rule orientations and multiplicities. It is not yet a Wilson coefficient.
+**Parent:** B5-2B, strict dimension-six EFT gauge matching.  
+**Status:** the earlier common-numerator diagnostic is superseded. The four cross-vertex pairings are now reduced with their own external-momentum routing, propagator denominators, and \(O(P)\) numerator terms. The resulting coefficient is still only the hard four-cross-box subset; external-field terms, counterterms, EFT subtraction and the summed Ward identity remain open.
 
-## 1. Reduce the six attachment classes before integrating
+## 1. Fixed external Green function and routing
 
-The tree-level \(Q_{LD}\) exchange has external lines \(\bar L,L,H^\dagger,H\). The six \(WW\) pair contractions are fixed in the upstream exact SU(2) audit:
-
-| Pair | Line pair | Weak tensor |
-|---|---|---:|
-| LD-W-01 | \(\bar L-L\) | \(-T_3/4\) |
-| LD-W-02 | \(\bar L-H^\dagger\) | \(+T_3/4\) |
-| LD-W-03 | \(\bar L-H\) | \(-3T_0/4\) |
-| LD-W-04 | \(L-H^\dagger\) | \(-3T_0/4\) |
-| LD-W-05 | \(L-H\) | \(+T_3/4\) |
-| LD-W-06 | \(H^\dagger-H\) | \(-T_3/4\) |
-
-Here
+Use the ordered amplitude
 \[
-T_0=\delta_{ij}\delta_{kl},\qquad
-T_3=\sigma^I_{ij}\sigma^I_{kl}=2T_x-T_0.
+\bar L_i(p_1),\quad H_j(p_2),\quad H_k^\dagger(p_3),\quad L_l(p_4),
+\]
+with all momenta incoming and
+\[
+p_1=0,\qquad p_2=P,\qquad p_3=0,\qquad p_4=-P.
+\]
+The left Yukawa vertex contains \((\bar L,H)\), the right conjugate Yukawa vertex contains \((H^\dagger,L)\). Let the \(W\) momentum \(k\) flow from the left Yukawa vertex to the right. The heavy propagator momentum is
+\[
+q_E=k-P.
 \]
 
-The same-vertex pairs LD-W-03 and LD-W-04 are pure light-field Yukawa-vertex corrections. The upstream UV–EFT subtraction ledger proves that their complete gauge-covariant subfamilies, including the corresponding EFT insertion/contact set, reproduce the same \(O(M_E^{-2})\) tree kernel and cancel in the hard difference. They must remain in the Ward/contact bookkeeping, but they do not supply a new hard coefficient at this order.
-
-Thus the hard \(WW\) box problem is restricted to four cross-vertex pairs:
+For the four cross-vertex pairings, the momenta of the light internal lines are fixed by momentum conservation:
 \[
-\boxed{\mathrm{LD-W-01,\ LD-W-02,\ LD-W-05,\ LD-W-06}.}
+q_{\bar L}=-k,\qquad q_{H^\dagger}=k,\qquad
+q_H=P-k,\qquad q_L=k-P.
 \]
-There is no \(WEE\) vertex and no heavy-\(E\) \(WW\) self-energy or heavy-containing Yukawa-vertex correction, because \(E\) is an \(SU(2)_L\) singlet.
-
-## 2. Scalar hard masters
-
-Use the upstream normalization
+The scalar-gauge vertices follow from
 \[
-\int_k\equiv \mu_R^{2\epsilon}
-\int\frac{d^dk}{i\pi^{d/2}},
+\mathcal L\supset
+ig_2W_\mu^a H^\dagger T^a
+\overleftrightarrow{\partial^\mu}H.
+\]
+For the stated all-incoming convention, the \(H\) vertex at the left end contributes \(2P-k\), while the \(H^\dagger\) vertex at the right end contributes \(-k\).
+
+The manual Wick-contraction census for this fixed external ordering has one \(W\)-exchange graph for each unordered pair of distinct external lines. The two same-Yukawa-vertex pairs are LD-W-03/04 and belong to the light-only UV/EFT subfamily; the four cross-vertex pairs below are the hard box subset. This is a fixed Green-function count, not an enumeration of other crossed external channels or a FeynArts-generated diagram list.
+
+## 2. Exact per-pair numerator and denominator audit
+
+The exact weak tensors from the SU(2) projection are
+\[
+\begin{array}{c|rrrr}
+\text{pair}&\text{LD-W-01}&\text{LD-W-02}&\text{LD-W-05}&\text{LD-W-06}\\ \hline
+T_3\text{ coefficient}&-\frac14&+\frac14&+\frac14&-\frac14
+\end{array}
+\]
+
+Unlike the earlier common-routing diagnostic, the four Lorentz numerators are not identical. Their denominators and numerators are:
+
+| Pair | Internal lines | Denominator | Numerator |
+|---|---|---|---|
+| LD-W-01: \(\bar L-L\) | \(q_{\bar L}=-k,\ q_L=q_E=k-P\) | \(k^4(k-P)^2[(k-P)^2-M_E^2]\) | \(\gamma^\mu(-\slashed k)\slashed{(k-P)}\slashed{(k-P)}\gamma_\mu\) |
+| LD-W-02: \(\bar L-H^\dagger\) | \(q_{\bar L}=-k,\ q_{H^\dagger}=k\) | \(k^6[(k-P)^2-M_E^2]\) | \(\gamma^\mu(-\slashed k)\slashed{(k-P)}(-k_\mu)\) |
+| LD-W-05: \(H-L\) | \(q_H=P-k,\ q_L=q_E=k-P\) | \(k^2(k-P)^4[(k-P)^2-M_E^2]\) | \((2P-k)_\mu\slashed{(k-P)}\slashed{(k-P)}\gamma^\mu\) |
+| LD-W-06: \(H^\dagger-H\) | \(q_H=P-k,\ q_{H^\dagger}=k\) | \(k^4(k-P)^2[(k-P)^2-M_E^2]\) | \(-(2P-k)\cdot k\,\slashed{(k-P)}\) |
+
+The numerator signs in this table include the internal momentum directions and the \(H/H^\dagger\) scalar-vertex momentum factors. The exact SU(2) tensor signs are listed separately in the preceding table, so they are not counted twice.
+
+## 3. Hard scalar masters
+
+Use
+\[
+J(M_E)=\int_k\frac{1}{(k^2)^2(k^2-M_E^2)},
 \qquad
-L=\ln\frac{M_E^2}{\mu_R^2}.
+K(M_E)=\int_k\frac{1}{k^2(k^2-M_E^2)^2},
 \]
-
-The representative box master is
-\[
-J(M_E)=\int_k\frac{1}{(k^2)^2(k^2-M_E^2)}.
-\]
-Its full and soft parts retain separate UV and IR poles:
-\[
-J_{\rm full}=\frac{\Delta_{\rm IR}+1-L}{M_E^2},
-\qquad
-J_{\rm soft}=\frac{-\Delta_{\rm UV}+\Delta_{\rm IR}}{M_E^2}.
-\]
-Therefore
-\[
-\boxed{J_{\rm hard}=\frac{\Delta_{\rm UV}+1-L}{M_E^2}.}
-\]
-
-The denominator expansion also produces
-\[
-K(M_E)=\int_k\frac{1}{k^2(k^2-M_E^2)^2}.
-\]
-Feynman parametrization gives
-\[
-K(M_E)=
-\frac{\Gamma(1+\epsilon)}{\epsilon-1}
-\frac{1}{M_E^2}
-\left(\frac{\mu_R^2}{M_E^2}\right)^\epsilon
-=-\frac{1}{M_E^2}+O(\epsilon).
-\]
-Its soft expansion is proportional to the scaleless integral \(\int_k1/k^2\), so it has no logarithmic UV/IR pole at \(\epsilon=0\). For the hard numerator coefficients needed here,
-\[
-\boxed{K_{\rm hard}=-\frac{1}{M_E^2}.}
-\]
-
-The tensor reductions are
-\[
-\int_k\frac{k_\mu k_\nu}{(k^2)^3(k^2-M_E^2)}
-=\frac{g_{\mu\nu}}{d}J(M_E),
-\]
-\[
-\int_k\frac{k_\mu k_\nu}{(k^2)^2(k^2-M_E^2)^2}
-=\frac{g_{\mu\nu}}{d}K(M_E).
-\]
-The second relation is the source of the \(K\) master when the heavy propagator denominator is expanded to first order in the external momentum.
-
-## 3. Canonical numerator routing
-
-For the numerator audit, take a common routing with gauge momentum \(k\), heavy momentum \(P-k\), and common denominator
-\[
-(k^2)^3\big[(P-k)^2-M_E^2\big].
-\]
-\(P\) is the soft momentum whose \(\slashed P\) coefficient matches the derivative structure in \(Q_{LD}\). The following are explicitly defined numerator representatives; their overall diagram signs are not included.
-
-### 3.1 Fermion–fermion pair: LD-W-01
-
-Define
-\[
-N_{FF}=
-\gamma^\mu\slashed k(\slashed P-\slashed k)
-\slashed k\gamma_\mu.
-\]
-Expand
-\[
-\frac{1}{(P-k)^2-M_E^2}
-=
-\frac{1}{k^2-M_E^2}
-+\frac{2k\cdot P}{(k^2-M_E^2)^2}
-+O(P^2).
-\]
-Using
-\[
-\langle k_\mu k_\nu\rangle
-=\frac{g_{\mu\nu}}{d}k^2
-\]
-and
-\[
-\gamma^\mu\gamma^\alpha\gamma_\mu=(2-d)\gamma^\alpha,
-\]
-the coefficient of \(\slashed P\) is
+with the same \(\overline{\mathrm{MS}}\) normalization and \(L=\ln(M_E^2/\mu_R^2)\) as B5-2B3. Their hard parts are
 \[
 \boxed{
-A_{FF}(d)=
-\frac{(d-2)^2}{d}J
-+\frac{2(d-2)}{d}K.
+J_{\rm hard}=\frac{\Delta_{\rm UV}+1-L}{M_E^2},
+\qquad
+K_{\rm hard}=-\frac{1}{M_E^2}.
 }
 \]
 
-### 3.2 Fermion–scalar pair: LD-W-02 and LD-W-05
+## 4. Pair-by-pair Lorentz reduction
 
-For the canonical scalar momentum numerator \(k_\mu\), define
+Retain \(d=4-2\epsilon\) until after multiplying the UV pole.
+
+### LD-W-01: fermion–fermion
+
+The numerator contains
 \[
-N_{FS}=\gamma^\mu\slashed k
-(\slashed P-\slashed k)k_\mu.
+\gamma^\mu(-\slashed k)\slashed{(k-P)}\slashed{(k-P)}\gamma_\mu
+= (d-2)(k-P)^2\slashed k.
 \]
-Contracting \(k_\mu\gamma^\mu=\slashed k\) gives
-\[
-N_{FS}=k^2(\slashed P-\slashed k).
-\]
-The same first-order expansion yields
+The \((k-P)^2\) cancels the corresponding light-fermion denominator. Expanding the remaining heavy denominator to first order in \(P\) gives
 \[
 \boxed{
-A_{FS}(d)=J-\frac{2}{d}K.
+A_{01}=\frac{2(d-2)}{d}K.
 }
 \]
-The two mixed pairs have this same canonical Lorentz kernel before their individual scalar-flow and fermion-arrow signs are assigned.
 
-### 3.3 Scalar–scalar pair: LD-W-06
+### LD-W-02: fermion–scalar
 
-For the canonical product of scalar momentum numerators \(+k^2\), define
+The scalar vertex contributes \(-k_\mu\). Contracting the Lorentz numerator gives
 \[
-N_{SS}=k^2(\slashed P-\slashed k).
+\gamma^\mu(-\slashed k)\slashed{(k-P)}(-k_\mu)
+=k^2\slashed{(k-P)}.
 \]
-It is algebraically identical to the reduced \(N_{FS}\), hence
+After canceling \(k^2\), the direct \(-\slashed P\) term gives \(-J\), and expanding the heavy propagator gives \(+2K/d\):
 \[
-\boxed{A_{SS}(d)=A_{FS}(d)}
+\boxed{
+A_{02}=-J+\frac{2}{d}K.
+}
 \]
-for this canonical routing. The sign of the actual scalar-vertex product must still be obtained from the oriented \(H/H^\dagger\) Feynman rules; it is not contained in this equality.
 
-## 4. Retain \(O(\epsilon)\) before multiplying the UV pole
+### LD-W-05: scalar–fermion
+
+The scalar vertex contributes \(2P-k\), while the two adjacent fermion/heavy momenta are both \(k-P\):
+\[
+(2P-k)_\mu\slashed{(k-P)}\slashed{(k-P)}\gamma^\mu
+=(k-P)^2(2\slashed P-\slashed k).
+\]
+After canceling the light denominator, shift \(q=k-P\) and expand \(1/(q+P)^2\). The direct \(\slashed P\) term gives \(J\), and the tensor term gives \(+2J/d\):
+\[
+\boxed{
+A_{05}=\left(1+\frac{2}{d}\right)J.
+}
+\]
+
+### LD-W-06: scalar–scalar
+
+The two scalar vertices give
+\[
+-(2P-k)\cdot k
+=(k-P)^2+O(P^2).
+\]
+This cancels the corresponding light-scalar denominator. Shifting \(q=k-P\) and expanding \(1/(q+P)^4\) gives
+\[
+\boxed{
+A_{06}=-\frac{4}{d}J.
+}
+\]
+
+## 5. Weak-tensor sum and the \(O(\epsilon)\) finite term
+
+The four-box tensor-weighted coefficient is
+\[
+\begin{aligned}
+A_{WW}^{\rm box}
+&=\frac14(-A_{01}+A_{02}+A_{05}-A_{06})\\
+&=\boxed{
+\frac14\left[
+\frac{6}{d}J-\frac{2(d-3)}{d}K
+\right].
+}
+\end{aligned}
+\]
 
 At \(d=4-2\epsilon\),
 \[
-\frac{(d-2)^2}{d}
-=1-\frac32\epsilon+O(\epsilon^2),
+\frac{6}{d}=\frac32+\frac34\epsilon+O(\epsilon^2),
 \qquad
-\frac{2(d-2)}{d}
-=1-\frac12\epsilon+O(\epsilon^2),
+-\frac{2(d-3)}{d}
+=-\frac12+\frac34\epsilon+O(\epsilon^2).
 \]
-\[
-\frac{2}{d}
-=\frac12+\frac14\epsilon+O(\epsilon^2).
-\]
-
-Substituting \(J_{\rm hard}\) and \(K_{\rm hard}\), and retaining the \(O(\epsilon)\) coefficient multiplying the UV pole in \(J\), gives
+The \(O(\epsilon)\) term multiplying the UV pole in \(J\) contributes \(+3/16\) to the finite coefficient. Substituting the hard masters gives
 \[
 \boxed{
-A_{FF}^{\rm hard}
+A_{WW,\rm hard}^{\rm box}
 =\frac{1}{M_E^2}
-\left(\Delta_{\rm UV}-L-\frac32\right),
+\left(
+\frac38\Delta_{\rm UV}
+-\frac38L
++\frac{11}{16}
+\right).
 }
 \]
-\[
-\boxed{
-A_{FS}^{\rm hard}=A_{SS}^{\rm hard}
-=\frac{1}{M_E^2}
-\left(\Delta_{\rm UV}-L+\frac32\right).
-}
-\]
-The difference between the fermion–fermion and fermion–scalar/scalar–scalar canonical kernels is finite:
-\[
-\boxed{
-A_{FS}^{\rm hard}-A_{FF}^{\rm hard}
-=\frac{3}{M_E^2}.
-}
-\]
-In particular, replacing \(d\) by four before the UV-pole multiplication would miss the \(-3/2\) finite shift in \(A_{FF}\).
 
-## 5. Oriented numerator signs and the cross-box subset
+If one sets \(d=4\) before multiplying the UV pole, the finite constant is incorrectly \(1/2\), rather than \(11/16\). The difference \(3/16\) is precisely the retained \(O(\epsilon)\times1/\epsilon\) contribution.
 
-Fix the external field ordering to
+With the same common amplitude convention as the tree-level \(Q_{LD}\) exchange, the raw four-box tensor is proportional to
 \[
-\bar L_i(p_1),\ H_j(p_2),\ H_k^\dagger(p_3),\ L_l(p_4),
-\]
-with \(p_1=p_3=0\), \(p_2=P\), \(p_4=-P\) for the projector, and let the gauge momentum \(k\) flow from the left Yukawa vertex to the right one. The heavy momentum along the \(E_R\to\bar E_R\) arrow is \(P-k\).
-
-Use the Feynman rules following from
-\[
-\mathcal L_W=
-g_2\bar L\gamma^\mu T^I L\,W_\mu^I
-+i g_2 H^\dagger T^I\overleftrightarrow{\partial^\mu}H\,W_\mu^I.
-\]
-For this routing, the internal fermion propagator momentum is \(-k\) on each fermion-attached line, and each scalar gauge vertex contributes \(-k_\mu\). The four numerator chains are then:
-
-| Pair | Internal numerator factors | Reduced numerator | Relative numerator sign |
-|---|---|---|---:|
-| LD-W-01 | \(\gamma^\mu(-\slashed k)\slashed{(P-k)}(-\slashed k)\gamma_\mu\) | \(N_{FF}\) | \(+\) |
-| LD-W-02 | \(\gamma^\mu(-\slashed k)\slashed{(P-k)}(-k_\mu)\) | \(N_{FS}\) | \(+\) |
-| LD-W-05 | \((-k_\mu)\slashed{(P-k)}(-\slashed k)\gamma^\mu\) | \(N_{FS}\) | \(+\) |
-| LD-W-06 | \((-k_\mu)(-k_\nu)g^{\mu\nu}\slashed{(P-k)}\) | \(N_{SS}\) | \(+\) |
-
-The two Yukawa vertices, two gauge vertices, internal matter propagators, heavy propagator and Feynman-gauge \(W\) propagator have the same net \(i\)-factor in all four topologies. Reversing the gauge momentum is the same graph under \(k\mapsto-k\); for the fixed ordered external amplitude there is one exchange contraction per unordered line pair. The hermitian-conjugate external amplitude is the complex conjugate and is not an additional factor of two in this Green function.
-
-Combining the four oriented numerator chains with the exact weak tensors gives
-\[
-\begin{aligned}
-\mathcal A_{\rm box}^{WW,\rm hard}
-&\propto
--\frac14 A_{FF}^{\rm hard}T_3
-+\frac14 A_{FS}^{\rm hard}T_3
-+\frac14 A_{FS}^{\rm hard}T_3
--\frac14 A_{SS}^{\rm hard}T_3\\
-&=\frac14(A_{FS}^{\rm hard}-A_{FF}^{\rm hard})T_3\\
-&=\boxed{\frac{3}{4M_E^2}T_3.}
-\end{aligned}
-\]
-The UV pole and matching logarithm cancel in this four-box tensor sum. Restoring the common coupling and loop factor, the raw amputated amplitude subset in this convention is
-\[
-\boxed{
 \Gamma_{\rm box}^{WW,\rm hard}
-=-i\,\frac{|y_\ell|^2g_2^2}{16\pi^2}
-\frac{3}{4M_E^2}\,
-T_3\,\slashed P
-}
+\propto
+-i\frac{|y_\ell|^2g_2^2}{16\pi^2}
+\frac{1}{M_E^2}
+\left(
+\frac38\Delta_{\rm UV}
+-\frac38L+\frac{11}{16}
+\right)T_3\slashed P.
 \]
-with the tree amplitude convention
-\[
-\Gamma_{\rm tree}
-=-i\,\frac{|y_\ell|^2}{M_E^2}\,
-T_0\,\slashed P.
-\]
-Equivalently, the coefficient of this **raw \(T_3\) amplitude tensor only** is \(+3|y_\ell|^2g_2^2/(64\pi^2M_E^2)\).
+The UV pole and matching logarithm do **not** cancel inside the four-box subset. They must be combined with the EFT operator counterterm and the remaining UV/EFT amplitude organization.
 
-This is a completed canonical cross-box numerator/hard-integral sub-block under the stated momentum and Feynman-rule conventions. It is **not** yet the final \(C_{HL}^{(3)}\), \(C_{LD}\), or any other nonredundant Wilson coefficient: the tensor still has to be embedded in the complete gauge-covariant operator basis, combined with external-field/parameter/operator counterterms, and checked against the summed Ward/Slavnov–Taylor identity. No FeynArts/FeynCalc diagram-package reproduction has been performed.
+## 6. Superseded diagnostic and remaining boundary
 
-## 6. Required completion before coefficient promotion
+The earlier file b5_2b3_qld_ww_crossbox_tensor_kernels.py used a common numerator/denominator family for all four pairs. That simplification omitted the distinct external-momentum shifts in LD-W-01, LD-W-05 and LD-W-06. Its \(+3/(4M_E^2)\) result is therefore a historical algebraic diagnostic and is **superseded** by this exact-routing calculation. It must not be used as the \(WW\) matching coefficient.
 
-**Completed for this cross-box sub-block:** the all-incoming momentum/fermion-arrow convention, scalar \(H/H^\dagger\) vertex momenta, fermion propagator numerators, and common oriented numerator sign are fixed for LD-W-01/02/05/06. For the fixed ordered \(\bar L H H^\dagger L\) Green function there is one exchange contraction per unordered pair; reversing \(k\) is the same graph, and the hermitian-conjugate external amplitude is not an extra factor of two. This is a manual fixed-ordering count, not a FeynArts/FeynCalc graph-package reproduction.
+The new companion b5_2b3_qld_ww_exact_routing.py and its regression tests check the four distinct numerator reductions, the weak-tensor-weighted sum, and the \(O(\epsilon)\) finite term. The symbolic checks are local algebra checks, not a FeynArts/FeynCalc reproduction.
 
-**Still required:**
-1. Add the external \(L,H\) LSZ/self-energy pieces and the \(g_2,y_\ell,C_{LD}\) parameter/operator counterterms exactly once.
-2. Verify the summed weak Ward/Slavnov–Taylor identity. There is no direct \(W\) contact at the \(Q_{LD}\) derivative insertion, but the external-doublet attachments are mandatory.
-3. Complete the common UV–EFT amplitude with the same nonexceptional external momenta or shared IR regulator, then project \(T_0,T_3\) and the EOM/current structures.
+Still required for the complete \(WW\) matching:
+1. UV/EFT subtraction of the full set with a shared nonexceptional IR prescription.
+2. External \(L,H\) LSZ/self-energy terms and the \(C_{LD}\) parameter/operator counterterms exactly once.
+3. The EFT operator-counterterm matrix in the common Pauli-current/EOM basis.
+4. The one-\(W\) form-factor/contact comparison and the summed Ward/Slavnov–Taylor identity.
+5. Independent diagram-level validation of the fixed-routing graph count and signs.
 
-The companion script b5_2b3_qld_ww_crossbox_tensor_kernels.py reproduces the scalar-master and canonical numerator algebra. Its six regression tests validate this kernel layer only. No complete \(WW\) Wilson coefficient, anomalous dimension, or Ward-identity closure is claimed.
+No complete \(C_{HL}^{(1,3)}\) Wilson coefficient or anomalous dimension is claimed.
