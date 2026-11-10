@@ -59,8 +59,8 @@ Potential: {
     },
 
     ScalarMasses: {
-        mu_H : Hbar[i] H[i],
-        mu_S : Sbar S
+        mu_H : -Hbar[i] H[i],
+        mu_S : -Sbar S
     }
 }
 
