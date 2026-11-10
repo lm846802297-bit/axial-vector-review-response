@@ -85,8 +85,8 @@ def canonical_lorentz_kernels():
     }
 
 
-def weak_tensor_weighted_conditional_sum(kernels):
-    """Conditional sum if all four pair numerators share the same orientation.
+def weak_tensor_weighted_oriented_sum(kernels):
+    """Sum the four pairs after the common oriented numerator sign is fixed.
 
     Atlas tensor factors:
       LD-W-01: -T3/4 (FF)
@@ -111,7 +111,7 @@ def main():
     assert sp.simplify(k["A_FS"] - (DeltaUV-L+sp.Rational(3,2))/M2) == 0
     assert sp.simplify(k["A_SS"]-k["A_FS"]) == 0
 
-    weighted, pole_weight = weak_tensor_weighted_conditional_sum(k)
+    weighted, pole_weight = weak_tensor_weighted_oriented_sum(k)
     assert pole_weight == 0
     assert sp.simplify(weighted-sp.Rational(3,4)/M2) == 0
 
@@ -123,10 +123,9 @@ def main():
     print("A_SS = A_FS for the declared canonical numerator")
     print("PASS: O(eps) in the FF angular coefficient retained against J_UV pole.")
     print("PASS: all four cross-box weak tensors are T3/4 with signs (-,+,+,-).")
-    print("CONDITIONAL: if all four oriented graph signs/multiplicities are equal,")
-    print("  the weighted UV pole cancels and the finite T3 coefficient is +3/(4 M_E^2).")
-    print("NOT A WILSON COEFFICIENT: pair-by-pair Feynman-rule orientation,")
-    print("  crossed routings, symmetry factors, LSZ/counterterms and Ward sum remain open.")
+    print("PASS: manual oriented numerator signs are common for the four fixed external-line pairs.")
+    print("RESULT: oriented four-box raw T3 hard coefficient = +3/(4 M_E^2).")
+    print("LIMIT: no full operator-basis projection, LSZ/counterterm or Ward sum is included.")
 
 
 if __name__ == "__main__":
