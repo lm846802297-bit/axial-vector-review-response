@@ -641,3 +641,16 @@ The complete one-loop UV system above \(M_E\) is now implemented for \(g_Y,g_2,g
 These are provisional one-loop stability/perturbativity diagnostics, not final vacuum-lifetime claims. The correct threshold rule is now explicit: use the EFT below \(M_E\) and the full UV system above \(M_E\). Independent SARAH/PyR@TE or diagrammatic RGE validation, two-loop running, and B5-2 EFT operator evolution remain open.
 
 The B5-1 note was amended to label its old tree-level-\(\lambda_H\) numerical table as illustrative only and to direct matching-scale numerical work to B5-1b.
+
+
+### B5-1b RGE coefficient correction — complex-singlet Yukawa (2026-11-11)
+
+A follow-up check against the general complex-scalar/Weyl RG formula of Jack and Osborn, arXiv:1312.0428, Sec. 5, Eqs. (5.4), (5.8), and (5.10), identified that the first B5-1b draft had imported the Higgs-doublet \(3/2\) self coefficient into the singlet Yukawa beta. For a Yukawa coupling to the single complex scalar \(S\), the correct one-loop term is
+\[
+16\pi^2\beta_{\lambda_\ell}
+=\lambda_\ell\left[2\lambda_\ell^2+\sum_{k=\mu,\tau}\lambda_k^2
+-6g_Y^2-6g_X^2\right].
+\]
+The Higgs-doublet \(y_\ell\) beta retains the SM-like \(3/2\) coefficient. The B5-1 portal beta and the scalar-quartic beta functions are unchanged. The B5-1b script, note, and output have been corrected and the coupled trajectories recomputed.
+
+The corrected values are \(\beta_{\lambda_\tau}(M_E)=0.828389\) (A) and \(0.00525178\) (B). The formal Benchmark-A \(\lambda_S\) zero for \(m_s=100\) GeV moves to \(30.98\) TeV; for Benchmark B, the \(\lambda_H\) zero remains near \(57.90\) TeV. Benchmark A remains outside the strict adopted Yukawa perturbativity bound immediately above \(M_E\), since it starts at \(\lambda_\tau=\sqrt{4\pi}\). The correction and its derivation are recorded in the B5-1b note.
