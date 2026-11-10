@@ -67,15 +67,16 @@ def state_from_hs_spp(
     temperature_mev: float,
     effective_mass_mev: float,
     total_vector_self_energy_mev: float,
-    chemical_potential_nonrel_mev: float,
+    chemical_potential_total_nonrel_mev: float,
 ) -> NucleonEOSState:
     """Map Hempel SFHo single-particle table fields to the Fiorillo convention.
 
     Hempel convention, from Hempel (2015), Eqs. (95)-(99):
-      E_N(p) = sqrt(p^2 + m_star^2) + Sigma_V,N^tot
-      mu_N^nonrel = mu_N - m_N
+      Sigma_V,N^tot = Sigma_V,N^R + W_N
+      E_N^tot(p) = sqrt(p^2 + m_star^2) + Sigma_V,N^tot
+      mu_N^tot,nonrel = mu_N^tot - m_N
 
-    Then U_N = m_star - m_N + Sigma_V,N^tot and mu_N^* = mu_N^tot - m_N = mu_N^nonrel.
+    Then U_N = m_star - m_N + Sigma_V,N^tot and mu_N^* = mu_N^tot - m_N. The W_N shift appears in both total quantities and cancels in E_N^tot - mu_N^tot.
     The excluded-volume filling factor xi remains a separate input; it is
     never absorbed into U_N or mu_N^*.
     """
@@ -93,7 +94,7 @@ def state_from_hs_spp(
         temperature_mev=temperature_mev,
         effective_mass_mev=effective_mass_mev,
         scalar_potential_mev=potential,
-        chemical_potential_star_mev=chemical_potential_nonrel_mev,
+        chemical_potential_star_mev=chemical_potential_total_nonrel_mev,
     )
 
 
@@ -455,6 +456,30 @@ def self_test_payload():
     dilute_state = NucleonEOSState("n", 10.0, 700.0, 25.0, -975.0)
     dilute_fdeg = degeneracy_factor(dilute_state, order=512)
 
+    mapping_residuals = []
+    for species, vacuum_mass in (
+        ("n", NEUTRON_MASS_MEV),
+        ("p", PROTON_MASS_MEV),
+    ):
+        mstar = 690.0 if species == "n" else 690.0 - MASS_SPLITTING_MEV
+        sigma_v = 115.0 if species == "n" else 104.0
+        mu_nonrel = 35.0 if species == "n" else 20.0
+        mapped = state_from_hs_spp(
+            species, 5.0, mstar, sigma_v, mu_nonrel
+        )
+        p_test = np.linspace(0.0, 800.0, 101)
+        lhs = (
+            mapped.scalar_potential_mev
+            + kinetic_energy_mev(p_test, mstar)
+            - mapped.chemical_potential_star_mev
+        )
+        rhs = (
+            np.sqrt(p_test*p_test + mstar*mstar)
+            + sigma_v
+            - (mu_nonrel + vacuum_mass)
+        )
+        mapping_residuals.append(float(np.max(np.abs(lhs-rhs))))
+
     shifted_state = NucleonEOSState("n", 5.0, 650.0, 103.0, 193.0)
     reference_state = NucleonEOSState("n", 5.0, 650.0, -20.0, 70.0)
     potential_shift_residual = abs(
@@ -478,7 +503,7 @@ def self_test_payload():
             ),
             "vacuum_mass_limit_max_occupation_abs_residual": vacuum_residual,
             "dilute_limit_Fdeg": dilute_fdeg,
-            "common_U_mu_shift_Fdeg_abs_residual": potential_shift_residual,
+            "common_U_mu_shift_Fdeg_abs_residual": potential_shift_residual,\n            "Hempel_RMF_mapping_max_abs_residual_MeV": max(mapping_residuals),
         },
         "published_global_targets_not_tested_without_profiles": TABLE_TARGETS,
     }
