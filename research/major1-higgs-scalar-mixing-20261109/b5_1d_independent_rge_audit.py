@@ -140,6 +140,48 @@ def fermion_box_coefficients():
             "pure_s4":sp.expand(tr).coeff(s,4)}
 
 
+
+
+def model_yukawa_charge_sums():
+    """Check every Yukawa monomial in the pinned PyR@TE model input."""
+    q = {
+        "Q": (sp.Rational(1,6), 0),
+        "uR": (sp.Rational(2,3), 0),
+        "dR": (sp.Rational(-1,3), 0),
+        "Le": (sp.Rational(-1,2), 0),
+        "Lmu": (sp.Rational(-1,2), 1),
+        "Ltau": (sp.Rational(-1,2), -1),
+        "eR": (-1, 0),
+        "muR": (-1, -1),
+        "tauR": (-1, 1),
+        "EmuL": (-1, 1),
+        "EmuR": (-1, 1),
+        "EtauL": (-1, -1),
+        "EtauR": (-1, -1),
+        "H": (sp.Rational(1,2), 0),
+        "Htilde": (sp.Rational(-1,2), 0),
+        "S": (0, 2),
+        "Sbar": (0, -2),
+    }
+    # A barred fermion carries the opposite Abelian charges.
+    terms = {
+        "Yu": ("Q","Htilde","uR"),
+        "Yd": ("Q","H","dR"),
+        "Ye": ("Le","H","eR"),
+        "y_mu": ("Lmu","H","EmuR"),
+        "y_tau": ("Ltau","H","EtauR"),
+        "lambda_mu": ("EmuL","S","muR"),
+        "lambda_tau": ("EtauL","Sbar","tauR"),
+    }
+    sums={}
+    for name,(left,scalar,right) in terms.items():
+        sums[name]=(
+            sp.simplify(-q[left][0]+q[scalar][0]+q[right][0]),
+            sp.simplify(-q[left][1]+q[scalar][1]+q[right][1]),
+        )
+    return sums
+
+
 def independent_beta_vector(state):
     (gY,g2,g3,gX,yt,ymu,ytau,lmu,ltau,lH,lS,lHS)=state
     f=1/(16*sp.pi**2); TSM=3*yt**2; TVH=ymu**2+ytau**2; TVS=lmu**2+ltau**2
@@ -167,6 +209,8 @@ def main():
     g=gauge_spectrum_sums(); s=scalar_quartic_tensor_coefficients()
     y=yukawa_matrix_coefficients(); c=gauge_casimirs()
     q=gauge_quartic_sources(); b=fermion_box_coefficients()
+    charge_sums=model_yukawa_charge_sums()
+    assert all(pair==(0,0) for pair in charge_sums.values())
     assert (g["bY"],g["b2"],g["b3"],g["bX"],g["TrYX"]) == (
         sp.Rational(19,2),-sp.Rational(19,6),-7,8,0)
     lH,lS,lHS=sp.symbols("lambda_H lambda_S lambda_HS")
@@ -193,6 +237,7 @@ def main():
     print("Scalar tensor:", {k:str(v) for k,v in s.items()})
     print("Yukawa matrices:", {k:str(v) for k,v in y.items()})
     print("Gauge quartic sources:", {k:str(v) for k,v in q.items()})
+    print("PyR@TE model Yukawa Abelian charge sums:", {k:str(v) for k,v in charge_sums.items()})
     print("VLL mixed h^2 s^2 box coefficient:", b["mixed_h2s2"])
 
 
