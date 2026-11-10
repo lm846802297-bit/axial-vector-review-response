@@ -22,15 +22,17 @@ def calculate(name, ms=100.0):
     lamS=ms**2/(2.0*vs**2)
     CLD=y*y/ME**2
     result={}
-    for flavor,mass in (("mu",MMU),("tau",MTAU)):
+    for flavor,mass,eta in (("mu",MMU,+1),("tau",MTAU,-1)):
         lam=math.sqrt(2.0)*mass/(THETA*vs)
         CRD=lam*lam/ME**2
         C5=-y*lam/ME
         kappa=C5*C5/(16.0*PI**2)
+        # O_LS and O_Se use the common-S basis. S_mu=S, S_tau=S*.
+        # Hence J_(S_l)=eta_l J_S with eta_mu=+1 and eta_tau=-1.
         currents={
-          "CLS":-3.0*kappa/8.0,
+          "CLS_commonS":eta*(-3.0*kappa/8.0),
           "CHe":+3.0*kappa/8.0,
-          "CSe":+3.0*kappa/4.0,
+          "CSe_commonS":eta*(+3.0*kappa/4.0),
           "C4f_scalar":-2.0*kappa,
           "C4f_vector":+kappa,
         }
@@ -42,7 +44,7 @@ def calculate(name, ms=100.0):
         }
         eom_finite={k:0.75*v for k,v in eom_slope.items()}
         result[flavor]={
-          "lambda":lam,"CRD":CRD,"C5":C5,"kappa":kappa,
+          "eta":eta,"lambda":lam,"CRD":CRD,"C5":C5,"kappa":kappa,
           "currents":currents,"eom_slope":eom_slope,
           "eom_finite_at_mu_ME":eom_finite,
         }
@@ -92,7 +94,8 @@ def main():
         print(f"Delta lambdaHS^E={delta_portal:+.12e}")
         print(f"beta_c - DeltaPortal/2={beta_c-delta_portal/2:.3e}")
     print("\nSymbolic hard-log derivative checks:",symbolic_checks())
-    print("PASS: C5C5* hard coefficients, Fierz relation, and EOM subblock.")
+    print("Current-basis orientation: eta_mu=+1, eta_tau=-1; tau S* currents flip in the common-S basis.")
+    print("PASS: C5C5* hard coefficients, Fierz relation, and EOM subblock with flavor orientation.")
     print("LIMIT: no gauge-corrected operator anomalous-dimension matrix.")
 
 
