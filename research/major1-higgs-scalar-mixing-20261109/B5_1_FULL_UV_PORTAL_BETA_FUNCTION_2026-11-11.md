@@ -319,11 +319,13 @@ Our expression extends this common part by the gauged-singlet term \(-24g_X^2\) 
 5. The one-loop \(\operatorname{Tr}(YX)\) kinetic-mixing source vanishes for the complete common-threshold spectrum.
 6. Both benchmarks are evaluated without inventing the still-unfixed running SM inputs at \(20\) TeV.
 
+**B5-1b update (2026-11-11):** the numerical benchmark table in §6 is an algebraic illustration using the tree-level weak-scale value \(\lambda_H=m_h^2/(2v_h^2)\) and \(m_s=125.25\) GeV. It is **not** the correctly RG-matched \(20\) TeV numerical beta evaluation. The matched SM inputs and the one-loop running to \(M_E\), together with the corrected numerical \(\beta_{\lambda_{HS}}(M_E)\), are recorded in `B5_1B_SM_THRESHOLD_AND_COUPLED_UV_RGE_2026-11-11.md`. Use B5-1b for numerical work at the matching scale. Also, the full UV RGE is used only above \(M_E\); below \(M_E\), the EFT RGE must be used.
+
 **Still open:**
-- Fix \(g_2(20\,{\rm TeV})\), \(g_Y(20\,{\rm TeV})\), and the full SM Yukawa trace in the same input scheme; then produce a fully numerical \(\beta_{\lambda_{HS}}(M_E)\).
-- Derive/evaluate the coupled one-loop running of \(y_\ell,\lambda_\ell,g_X,\lambda_H,\lambda_S\) before integrating over the large interval \(M_E\to m_h\).
+- Independently validate the model-specific gauge, VLL Yukawa, and scalar-quartic beta functions with SARAH/PyR@TE or a diagrammatic calculation.
+- Upgrade the SM running below \(M_E\) to a consistent two-loop cross-check and propagate the top-mass/matching-input uncertainty.
 - Derive the EFT beta below \(M_E\) in the common operator basis; Eq. (1) is UV-only.
 - Complete B5-2 Wilson-operator mixing and B5-3 tadpole/field closure before the full \(\mu_M\) stability test.
 - Keep the \(0.1421\%\) Plan-C-lite residual as a separate exact-mass hard/soft diagnostic; Eq. (1) does not explain it.
 
-**Conclusion:** the missing one-loop UV portal beta is now explicit. The dominant new contribution is the VLL Yukawa wavefunction term, not an additive mixed-quartic pole. The next step is to fix the running SM inputs and derive the coupled UV running needed for a controlled numerical evolution; only then should the result be inserted into the complete UV–EFT matching calculation.
+**Conclusion:** the complete one-loop UV portal beta is analytically explicit. B5-1b provides a first-pass \(20\) TeV input and coupled UV-running evaluation. The next step is to validate the full RGE system independently and derive the EFT running below \(M_E\) before attempting the full UV–EFT matching-scale cancellation.
