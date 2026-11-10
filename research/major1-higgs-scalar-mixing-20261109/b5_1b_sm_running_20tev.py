@@ -4,7 +4,6 @@
 Retained for provenance. The coupled B5-1b calculation must use
 b5_1b_sm_threshold_and_uv_rge.py and the PDG-2025 matching inputs.
 """
-"""
 import numpy as np
 from scipy.integrate import solve_ivp
 
