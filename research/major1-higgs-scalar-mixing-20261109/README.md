@@ -654,3 +654,29 @@ A follow-up check against the general complex-scalar/Weyl RG formula of Jack and
 The Higgs-doublet \(y_\ell\) beta retains the SM-like \(3/2\) coefficient. The B5-1 portal beta and the scalar-quartic beta functions are unchanged. The B5-1b script, note, and output have been corrected and the coupled trajectories recomputed.
 
 The corrected values are \(\beta_{\lambda_\tau}(M_E)=0.828389\) (A) and \(0.00525178\) (B). The formal Benchmark-A \(\lambda_S\) zero for \(m_s=100\) GeV moves to \(30.98\) TeV; for Benchmark B, the \(\lambda_H\) zero remains near \(57.90\) TeV. Benchmark A remains outside the strict adopted Yukawa perturbativity bound immediately above \(M_E\), since it starts at \(\lambda_\tau=\sqrt{4\pi}\). The correction and its derivation are recorded in the B5-1b note.
+
+
+## 2026-11-11 — B5-2A \(C_5C_5^\ast\) matching and quartic-EOM subblock
+
+Added B5_2A_C5_SQUARED_AND_QUARTIC_EOM_BLOCK_2026-11-11.md, b5_2a_c5_squared_operator_block.py, and B5_2A_C5_SQUARED_AND_QUARTIC_EOM_OUTPUT_2026-11-11.txt.
+
+The Yukawa-box \(C_5C_5^\ast\) hard matching subset is now evaluated numerically for A/B:
+\[
+(C_{LS},C_{He},C_{Se},C_{4f}^{S},C_{4f}^{V})_\ell
+=\frac{|C_{5,\ell}|^2}{16\pi^2}
+\left(-\frac38,+\frac38,+\frac34,-2,+1\right)
+\quad(\mu=M_E).
+\]
+The scalar-to-vector four-fermion coefficient uses the declared chiral Fierz convention. Summed over flavors, the vector-current coefficient is \(2.63455\times10^{-10}\ {\rm GeV}^{-2}\) (A) and \(1.33417\times10^{-11}\ {\rm GeV}^{-2}\) (B).
+
+The direct scalar derivative source remains
+\[
+\beta_{c_{\partial HS}}^{C_5C_5^\ast}
+=-0.1053819882\quad(A),\qquad
+=-0.00533668824\quad(B),
+\]
+and still satisfies \(\beta_c=\Delta\lambda_{HS}^{E}/2\) in the declared normalization.
+
+The one-\(Q_{LD}\) or one-\(Q_{RD}\) insertion plus scalar-quartic hard/soft kernel is also evaluated as an off-shell EOM block, keeping the two \(Q_{LD}+\lambda_H\) weak-index tensors separate. In the minimal model the ordinary renormalizable muon/tau Yukawa source functions vanish, so these redundant EOM coefficients do not create an independent on-shell source at this order. They remain part of the off-shell counterterm/field-redefinition ledger.
+
+B5-2 remains open: gauge corrections to \(Q_{LD},Q_{RD}\) and current operators, the multiplicative \(c_{\partial HS}\) anomalous dimension, complete operator mixing, and common EOM/source projection have not been calculated. The closure matrix was updated to distinguish this evaluated sub-block from full EFT-RGE closure.
