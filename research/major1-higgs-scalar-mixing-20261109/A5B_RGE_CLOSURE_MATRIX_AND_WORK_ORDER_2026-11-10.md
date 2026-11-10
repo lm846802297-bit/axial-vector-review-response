@@ -1,6 +1,6 @@
 # A5b — EFT/portal RGE closure matrix and calculation order
 
-**Date:** 2026-11-11 (updated after B5-1)
+**Date:** 2026-11-11 (updated after B5-1 and B5-1b)
 **Purpose:** separate the beta-function entries already supported by the RC-001/A3/A4 work from the missing entries required for a full matched \(h-s\) pole calculation. This is a work ledger, not a claim that the full RGE system has been computed.
 
 ## 1. Closure matrix
@@ -47,6 +47,8 @@ The one-loop inhomogeneous \(C_5C_5^\ast\) contribution to \(\beta_{c_{\partial 
 
 **B5-1 — UV portal beta closure (analytic result passed).** The full one-loop \(\overline{\rm MS}\) beta is recorded in `B5_1_FULL_UV_PORTAL_BETA_FUNCTION_2026-11-11.md`: scalar, \(SU(2)_L\), hypercharge, \(U(1)_X\), SM Yukawa, and VLL Yukawa terms are included. The additive VLL \(|y_\ell|^2|\lambda_\ell|^2\) pole is exactly zero, while the multiplicative VLL wavefunction terms are nonzero. The result assumes \(\chi(M_E)=0\) and the common VLL threshold; a numerical \(D_{\rm SM}(M_E)\) and coupled running of all UV couplings remain to be fixed.
 
+**B5-1b — threshold input and coupled UV running (first pass complete).** The PDG-2025-based weak-scale inputs are matched to \(\overline{\rm MS}\), run with one-loop SM RGEs to \(M_E=20\) TeV, and then used to initialize the full one-loop UV system. The coupled UV run is only used above \(M_E\); the EFT must be used below \(M_E\). The one-loop diagnostic finds that Benchmark A saturates the adopted \(\lambda_\tau^2\le4\pi\) bound at the threshold, while Benchmark B remains perturbative to \(2M_E\) but its \(\lambda_H\) crosses zero near \(58\) TeV. These are provisional one-loop stability/perturbativity diagnostics, not final vacuum-lifetime claims. Independent RGE-generator and two-loop checks remain required.
+
 **B5-2 — EFT operator running at the retained order.** Extend the known inhomogeneous \(C_5C_5^\ast\) term to the complete set of one-loop contributions that can renormalize or mix into \(c_{\partial HS}\) at the declared combined order. Keep \(C_5\), \(Q_{LD}\), \(Q_{RD}\), current operators and EOM/source terms in a common basis. Do not include dimension-eight insertions in a strict \(M_E^{-2}\) result.
 
 **B5-3 — Common tadpole and field scheme.** Fix the VEV/tadpole prescription, \(h,s\) field-renormalization convention, and diagonal mass inputs. Combine A3b, A4c/A4d and the fermion sector without double counting tadpole or SM-width contributions.
@@ -58,6 +60,6 @@ The one-loop inhomogeneous \(C_5C_5^\ast\) contribution to \(\beta_{c_{\partial 
 ## 4. Current acceptance decision
 
 - The \(C_5C_5^\ast\) derivative-operator pole, its inhomogeneous beta contribution, and the restricted hard/soft leading-log cancellation are derived.
-- The complete one-loop UV portal beta is analytically derived for the common-threshold \\(\\chi(M_E)=0\\) boundary; benchmark A/B contributions are evaluated, while the fully numerical SM remainder and coupled running await a fixed \\(M_E\\)-scale input scheme.
+- The complete one-loop UV portal beta is analytically derived at the common-threshold \\(\\chi(M_E)=0\\) boundary. B5-1b now fixes a PDG-2025-based SM input scheme, runs to \\(M_E\\), and evaluates the coupled one-loop UV system upward; this is a first-pass result pending independent RGE-generator and higher-order checks.
 - The complete EFT anomalous-dimension matrix, common tadpole/field scheme, and full-model matching-scale variation are **not** complete.
 - The archived \(0.1421\%\) Plan-C-lite residual remains open; the restricted leading-log cancellation does not by itself explain it.
