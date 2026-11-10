@@ -1,0 +1,17 @@
+A3a scalar-bubble UV audit
+Individual symmetry-weighted coefficients:
+  hh:       3 lambda_H lambda_HS v v_S
+  ss:       3 lambda_S lambda_HS v v_S
+  G+G-:     2 lambda_H lambda_HS v v_S
+  G0G0:     1 lambda_H lambda_HS v v_S
+  aa:       1 lambda_S lambda_HS v v_S
+
+Sum:
+  lambda_HS v v_S (6 lambda_H + 4 lambda_S)
+
+Scalar-potential portal counterterm pole in the adopted convention:
+  delta_lambda_HS = lambda_HS (6 lambda_H + 4 lambda_S)/(16 pi^2 epsbar)
+  [plus terms of order lambda_HS^2 and gauge/Yukawa contributions not included here]
+
+PASS: symbolic symmetry-factor sum.
+LIMIT: this is only the scalar-potential contribution; the full portal counterterm and UV-EFT matching are not closed.
