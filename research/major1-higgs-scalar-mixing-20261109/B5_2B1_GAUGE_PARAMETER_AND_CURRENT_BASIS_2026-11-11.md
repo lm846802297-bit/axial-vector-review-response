@@ -151,7 +151,22 @@ J_H^{(3)I\mu}&=H^\dagger i\sigma^I\overleftrightarrow D^\mu H,
 J_L^{(3)I\mu}&=\bar L_\ell\sigma^I\gamma^\mu L_\ell.
 \end{aligned}
 \]
-Here \(\sigma^I\) are Pauli matrices, not \(SU(2)\) generators \(\sigma^I/2\).
+Here \(\sigma^I\) are Pauli matrices, not \(SU(2)\) generators \(\sigma^I/2\). Define
+\[
+O_{HL}^{(1)}=J_H^{(1)}\!\cdot J_L^{(1)},\qquad
+O_{HL}^{(3)}=J_H^{(3)I}\!\cdot J_L^{(3)I},
+\]
+and the redundant EOM structures
+\[
+E_L^{(1)}=(H^\dagger H)
+(\bar L_\ell i\overleftrightarrow{\slashed D}L_\ell),\qquad
+E_L^{(3)}=(H^\dagger\sigma^I H)
+(\bar L_\ell\sigma^I i\overleftrightarrow{\slashed D}L_\ell),
+\]
+\[
+E_{R,\ell}=(S_\ell^\dagger S_\ell)
+(\bar\ell_R i\overleftrightarrow{\slashed D}\ell_R).
+\]
 
 Symmetrizing the composite-fermion kinetic form,
 \[
