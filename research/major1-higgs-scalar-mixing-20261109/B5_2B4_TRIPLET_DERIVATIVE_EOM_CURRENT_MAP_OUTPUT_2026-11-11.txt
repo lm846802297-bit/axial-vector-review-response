@@ -1,3 +1,6 @@
+LOCAL SYMBOLIC REPRODUCTION (independent SymPy evaluation; not CI-generated).
+GitHub Actions run 42904392663 failed before runner steps; no CI execution is claimed.
+
 B5-2B4 Pauli-triplet derivative EOM/current audit
 PASS: full weak-index Pauli reduction, including total derivative.
 PASS: Q_LD EOM substitution gives (-3 O_HL1 + O_HL3 + 3 E_L1 - E_L3)/4.
