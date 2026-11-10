@@ -373,11 +373,29 @@ def aggregate_profile_rows(
         temperature = float(row["T_MeV"])
         rho = float(row["rho_g_cm3"])
         cell_measure = float(row["dMdt_weight"])
-        xi = float(row["xi"])
-        if temperature <= 0.0 or rho <= 0.0 or cell_measure <= 0.0 or not (0.0 < xi <= 1.0):
+        if temperature <= 0.0 or rho <= 0.0 or cell_measure <= 0.0:
             raise ValueError(
                 f"non-positive T/rho/dMdt_weight in profile row {index}"
             )
+        if "xi" in row and row["xi"] not in ("", None):
+            xi = float(row["xi"])
+            xi_source = "single_particle_table"
+        elif all(
+            key in row and row[key] not in ("", None)
+            for key in ("nB_fm3", "n_n_target_fm3", "n_p_target_fm3")
+        ):
+            xi = infer_filling_factor_from_global_densities(
+                float(row["nB_fm3"]),
+                float(row["n_n_target_fm3"]),
+                float(row["n_p_target_fm3"]),
+            )
+            xi_source = "global_density_composition"
+        else:
+            raise ValueError(
+                "profile row requires xi or nB_fm3 plus both free-nucleon target densities"
+            )
+        if not (0.0 < xi <= 1.0):
+            raise ValueError(f"filling factor xi={xi} outside (0,1] in row {index}")
 
         local = {
             "row": index,
@@ -386,6 +404,7 @@ def aggregate_profile_rows(
             "dMdt_weight": cell_measure,
             "Fdeg": {},
             "xi": xi,
+            "xi_source": xi_source,
             "nprime_fm3": {},
             "n_actual_fm3": {},
             "mu_eff_MeV": {},
@@ -431,6 +450,18 @@ def aggregate_profile_rows(
             for kind, weight in weights.items():
                 sums[kind][species]["weighted_F"] += weight * fdeg
                 sums[kind][species]["weight"] += weight
+
+        if all(
+            key in row and row[key] not in ("", None)
+            for key in ("nB_fm3", "n_n_target_fm3", "n_p_target_fm3")
+        ):
+            xi_from_composition = infer_filling_factor_from_global_densities(
+                float(row["nB_fm3"]),
+                float(row["n_n_target_fm3"]),
+                float(row["n_p_target_fm3"]),
+            )
+            local["xi_from_composition"] = xi_from_composition
+            local["xi_composition_abs_residual"] = abs(xi - xi_from_composition)
 
         mass_split_residuals.append(
             abs(
@@ -498,7 +529,6 @@ def load_profile_csv(path: Path):
             "T_MeV",
             "rho_g_cm3",
             "dMdt_weight",
-            "xi",
             "mstar_n_MeV",
             "U_n_MeV",
             "mu_star_n_MeV",
@@ -511,6 +541,15 @@ def load_profile_csv(path: Path):
             raise ValueError(
                 "profile CSV is missing required columns: "
                 + ", ".join(sorted(missing))
+            )
+        fields = set(reader.fieldnames or [])
+        has_xi = "xi" in fields
+        has_composition = {
+            "nB_fm3", "n_n_target_fm3", "n_p_target_fm3"
+        }.issubset(fields)
+        if not (has_xi or has_composition):
+            raise ValueError(
+                "profile CSV requires xi or nB_fm3 with n_n_target_fm3 and n_p_target_fm3"
             )
         return list(reader)
 
