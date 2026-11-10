@@ -56,20 +56,25 @@ def calculate(name, ms=100.0):
 
 
 def symbolic_checks():
-    k=sp.symbols("k", real=True)
+    k,eta=sp.symbols("k eta", real=True)
     # Hard-log derivatives use d ln(M^2/mu^2)/d ln(mu)=-2.
     L=sp.symbols("L", real=True)
     hard={
-      "CLS":k*(L/sp.Integer(4)-sp.Rational(3,8)),
+      "CLS_commonS":eta*k*(L/sp.Integer(4)-sp.Rational(3,8)),
       "CHe":-k*(L/sp.Integer(4)-sp.Rational(3,8)),
-      "CSe":-2*k*(L/sp.Integer(4)-sp.Rational(3,8)),
+      "CSe_commonS":-2*eta*k*(L/sp.Integer(4)-sp.Rational(3,8)),
       "C4fS":k*(L-2),
       "C4fV":-k*(L-2)/2,
     }
     deriv={n:sp.simplify(-2*sp.diff(v,L)) for n,v in hard.items()}
-    expected={"CLS":-k/2,"CHe":k/2,"CSe":k,
+    expected={"CLS_commonS":-eta*k/2,"CHe":k/2,"CSe_commonS":eta*k,
               "C4fS":-2*k,"C4fV":k}
     assert all(sp.simplify(deriv[n]-expected[n])==0 for n in deriv)
+    # The conjugate complex scalar reverses the Hermitian current exactly.
+    s,sbar,ds,dsbar=sp.symbols("s sbar ds dsbar", commutative=True)
+    j_s=sp.I*(sbar*ds-dsbar*s)
+    j_sbar=sp.I*(s*dsbar-ds*sbar)
+    assert sp.simplify(j_sbar+j_s)==0
     assert sp.simplify(-sp.Rational(1,2)*(-2*k)-k)==0 # scalar-to-vector Fierz coefficient
     return deriv
 
