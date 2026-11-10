@@ -98,3 +98,28 @@ This workstream is Higgs–radial-singlet mixing. No dedicated \(h\to A'A'\) sea
 The earlier table's suggestion of one-loop (hs) vector bubbles with "portal/mixing-induced (sVV)" or "portal-induced (hA'A')" is not a valid gauge-basis 1PI diagram at the stated order. In the original gauge basis, (H) is SM-charged and (S) is SM-neutral, while (H) is (U(1)_X)-neutral and (S) is (U(1)_X)-charged. Therefore the tree kinetic terms give (hWW,hZZ) and (sA'A'), but no (sWW,sZZ,hA'A'). The corresponding ghost couplings are (har c_Wc_W,har c_Zc_Z) and (sar c_Xc_X), with no common ghost species. Thus vector and ghost loops contribute to diagonal (hh) and (ss) entries, not to a one-loop (hs) bubble in this gauge basis. Rotating to mixed physical scalar fields and adding such vertices while retaining the full (h,s) propagator would double count the mixing.
 
 At the next combined order, the one-loop-topology (hs) diagrams are the scalar/Goldstone bubbles listed in `A2_SCALAR_GAUGE_GHOST_VERTEX_LEDGER_2026-11-10.md), plus the complete tadpole, VEV, portal and field-counterterm set. The common scalar-bubble UV coupling combination is proportional to (lambda_{HS}vv_S(6lambda_H+4lambda_S)), before counterterms. This correction is essential for the subsequent A3 calculation.
+
+
+## 8. A4 progress — \(U(1)_X\) diagonal \(ss\) sector (2026-11-10)
+
+The following \(ss\) subcalculation is now independently recorded:
+- A4a: complete general-\(R_{\xi_X}\) vector/Goldstone/ghost integral kernel, radial-scalar loop, Feynman-gauge \(A_E/B_E\) reduction, and optical-theorem check;
+- A4b: explicit general-\(\xi_X\) Cutkosky decomposition; the on-shell absorptive sum is gauge independent for six \(\xi_X\) values at five open benchmark points, with maximum relative residual \(8.61\\times10^{-16}\);
+- A4c: general-\(\xi_X\) UV pole and diagonal field counterterm, including the \((3-\xi_X)\) scalar-QED wave-function coefficient;
+- A4d: exact tadpole-improved zero-momentum identity and the momentum-dependent tadpole-improved UV pole.
+
+The on-shell absorptive part reproduces the physical \(s\\to A'A'\) width. The tadpole-improved local mass UV pole is gauge independent, while the field-renormalization pole retains the expected gauge dependence. These checks validate the \(U(1)_X\) bosonic \(ss\) subcalculation; they do not constitute a complete complex-pole calculation.
+
+## 9. Next acceptance sequence
+
+The remaining work should proceed in this order:
+
+**A5a — Freeze the common renormalization prescription.** Use one declared tadpole/VEV prescription, one \(\overline{\\rm MS}\) scale consistent with the existing \(M_E=20\) TeV fermion matching, and a common \(h,s\) field-renormalization convention. Do not quote finite real self-energy numbers before this is fixed.
+
+**A5b — Close the \(ss\) UV--EFT matching.** Combine the exact fermion \(ss\) entry, the A4 bosonic kernel, the VLL hard threshold, the EFT light subtraction/contact terms, and the A3b tadpole/VEV/field counterterms. Verify the complete UV pole and matching-scale cancellation.
+
+**A5c — Define the \(hh\) input consistently.** The pure-SM \(hh\) pole contribution may be absorbed into the measured Higgs pole input, but then the corresponding SM self-energy and absorptive channels must be subtracted from any explicit loop/width input. Do not add the full SM width on top of explicit \(\mu,\tau\) cuts.
+
+**A5d — Assemble the renormalized \(2\\times2\) inverse propagator.** Only after A5a–A5c should the determinant, complex poles and residues be computed. The final gauge test must compare the pole positions, not only the absorptive cut or a zero-momentum curvature.
+
+The present A4 results remain intermediate bosonic subcalculations. No finite physical mass shift, mixing angle, pole residue, or exclusion is inferred.
