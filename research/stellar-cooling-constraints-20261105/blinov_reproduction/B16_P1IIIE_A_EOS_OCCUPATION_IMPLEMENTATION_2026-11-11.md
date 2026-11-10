@@ -8,7 +8,10 @@ Branch: research/moving-muon-thermal-rates-20261107
 
 This stage implements the local nucleon occupation and static degeneracy factor consistent with the Garching SFHo EOS. It is deliberately separate from the existing vacuum-mass ideal-Fermi-gas branch.
 
-Primary sources: D. F. G. Fiorillo et al., arXiv:2509.13322v2; M. Hempel, Phys. Rev. C 91, 055807 (2015), arXiv:1410.6337; and the Hempel SFHo EOS table manual v1.04., *Axion-photon conversion in transient compact stars: Systematics, constraints, and opportunities*, JCAP 03 (2026) 053, arXiv:2509.13322v2 ([HTML](https://arxiv.org/html/2509.13322), [DOI](https://doi.org/10.1088/1475-7516/2026/03/053)):
+Primary sources:
+- D. F. G. Fiorillo et al., *Axion-photon conversion in transient compact stars: Systematics, constraints, and opportunities*, JCAP 03 (2026) 053, [arXiv:2509.13322v2](https://arxiv.org/html/2509.13322).
+- M. Hempel, *Nucleon self-energies for supernova equations of state*, Phys. Rev. C 91, 055807 (2015), [arXiv:1410.6337](https://arxiv.org/abs/1410.6337), especially Eqs. (91)-(99) and (107).
+- Hempel SFHo EOS table manual v1.04, [official PDF](https://astro.physik.unibas.ch/fileadmin/user_upload/astro_physik/People/Subpage_Hempel/eos/v1.0/manual_v1.04.pdf) and [official EOS data page](https://astro.physik.unibas.ch/en/people/matthias-hempel/equations-of-state/).
 - Sec. 4.2: Garching model provenance and archive availability.
 - Sec. 4.3, Eqs. (41)-(42): recoil-free degeneracy factor and the two space-time weighting prescriptions.
 - Appendix C.1, Eqs. (81)-(82): EOS-consistent nucleon occupation and SFHo kinetic dispersion.
@@ -109,7 +112,7 @@ U_N=m_N^*-m_N+\Sigma_{V,N}^{\rm tot},
 \qquad
 \mu_N^*=\mu_N^{\rm nonrel}.
 \]
-This mapping is implemented as an explicitly named candidate adapter, not silently assumed to be identical to the Garching \(U_N\) until the density-closure test against the tabulated free-nucleon fractions is passed. The Hempel filling factor \(\xi=V'/V\) is carried separately.
+This mapping is exact for the Hempel total-self-energy/total-chemical-potential convention: Eq. (95) includes the nucleus-interaction term \(W_N\) in \(\Sigma_{V,N}^{\rm tot}\), Eqs. (96)-(97) use the corresponding total energy and chemical potential, and Eq. (98) shows the \(W_N\) cancellation in the occupation. It is therefore the correct translation for the Hempel SFHo tables. Its equivalence to the specific Garching profile version still requires EOS-version matching and local density closure. The Hempel filling factor \(\xi=V'/V\) is carried separately.
 
 For excluded-volume matter, the Hempel convention distinguishes the local density in the available nucleon volume from the density per total volume:
 \[
