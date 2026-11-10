@@ -489,3 +489,11 @@ The symmetry-weighted UV pole is
 (6\lambda_H+4\lambda_S),
 ]
 which matches the scalar-potential portal counterterm contribution in the stated convention. Gauge/Yukawa pieces, higher powers of the portal, tadpole/VEV and field renormalization, and full UV--EFT matching are not included. The finite Goldstone terms are gauge dependent and are not a physical mixing prediction.
+
+
+A3a was extended with an independent (O(4)\times O(2)) effective-potential check. It gives
+[
+[\mathrm{Tr}{\cal M}_{\rm scal}^4]_{H^2S^2}
+=2\lambda_{HS}(3\lambda_H+\lambda_{HS}+2\lambda_S),
+]
+and the scalar-only portal counterterm includes the additional (2\lambda_{HS}^2) term. Its part linear in (lambda_{HS}) agrees with the bubble UV pole; the portal-squared term is beyond the adopted (lambda_{HS}=O(\hbar)), (O(\hbar^2)) truncation. The audit script/output were updated.
