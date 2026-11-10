@@ -14,6 +14,7 @@ import numpy as np
 import sympy as sp
 from scipy.integrate import solve_ivp
 from scipy.optimize import brentq
+from b5_1b_complex_singlet_yukawa_beta_audit import derive_yukawa_beta
 
 PI = math.pi
 MT = 172.56
@@ -92,9 +93,9 @@ def initial_uv(benchmark, ms, sm_at_ME):
     }
 
 
-# For the complex singlet Yukawa, the one-loop Weyl result is
-# beta_lambda_l = lambda_l*(2 lambda_l^2 + sum_k lambda_k^2 - gauge terms).
-# The Higgs-doublet Yukawa retains the SM 3/2 self coefficient.
+# For one complex S with the muon coupling to S and tau coupling to S*,
+# the explicit real-scalar/Weyl matrix projection gives 2*self + other flavor.
+# Do not use 2*lambda_l^2 + (lambda_mu^2 + lambda_tau^2): that double-counts self.
 def uv_rhs(t, y):
     gY, g2, g3, gX, yt, ymu, ytau, lmu, ltau, lH, lS, lHS = y
     fac = 1.0/(16.0*PI**2)
@@ -112,8 +113,8 @@ def uv_rhs(t, y):
              -(9.0/4.0)*g2**2-6.0*gX**2),
         ytau*((3.0/2.0)*ytau**2+TSM+TVH-(15.0/4.0)*gY**2
               -(9.0/4.0)*g2**2-6.0*gX**2),
-        lmu*(2.0*lmu**2+TVS-6.0*gY**2-6.0*gX**2),
-        ltau*(2.0*ltau**2+TVS-6.0*gY**2-6.0*gX**2),
+        lmu*(2.0*lmu**2+ltau**2-6.0*gY**2-6.0*gX**2),
+        ltau*(2.0*ltau**2+lmu**2-6.0*gY**2-6.0*gX**2),
         24.0*lH**2+2.0*lHS**2
         +lH*(12.0*yt**2+4.0*TVH-9.0*g2**2-3.0*gY**2)
         -6.0*yt**4-2.0*(ymu**4+ytau**4)
@@ -195,7 +196,10 @@ def symbolic_checks():
     assert mixed == 2
     assert bX == 8
     assert bY == sp.Rational(19, 2)
-    return pure, mixed, bX, bY
+    lm, lt, beta_lm, beta_lt = derive_yukawa_beta()
+    assert sp.simplify(beta_lm-lm*(2*lm**2+lt**2)) == 0
+    assert sp.simplify(beta_lt-lt*(2*lt**2+lm**2)) == 0
+    return pure, mixed, bX, bY, beta_lm, beta_lt
 
 
 def main():

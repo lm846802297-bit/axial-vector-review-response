@@ -3,7 +3,7 @@
 **Date:** 2026-11-11  
 **Model:** original \(U(1)_{L_\mu-L_\tau}\) model with one complex \(S\) and two VLL Dirac fermions; no neutrino-sector extension.  
 **Common threshold:** \(M_E=20\) TeV.  
-**Status:** a reproducible one-loop leading-log numerical pass is complete. The result is provisional pending an independent automated RGE-generator cross-check and a higher-order uncertainty study.
+**Status:** a reproducible one-loop leading-log numerical pass is complete. The complex-singlet Yukawa beta has now been re-derived with an exact real-scalar/Weyl matrix audit and the coupled trajectories have been recomputed. The complete model-specific RGE remains provisional pending an independent automated RGE-generator cross-check and a higher-order uncertainty study.
 
 ## 1. Threshold logic: UV and EFT must be run on opposite sides
 
@@ -180,12 +180,16 @@ Then
 \frac32y_\ell^2+T_H
 -\frac{15}{4}g_Y^2-\frac94g_2^2-6g_X^2
 \right],\\
-16\pi^2\beta_{\lambda_\ell}
-&=\lambda_\ell\left[
-2\lambda_\ell^2+T_S
+16\pi^2\beta_{\lambda_\mu}
+&=\lambda_\mu\left[
+2\lambda_\mu^2+\lambda_\tau^2
 -6g_Y^2-6g_X^2
-\right],
-\qquad \ell=\mu,\tau.
+\right],\\
+16\pi^2\beta_{\lambda_\tau}
+&=\lambda_\tau\left[
+2\lambda_\tau^2+\lambda_\mu^2
+-6g_Y^2-6g_X^2
+\right].
 \end{aligned}
 \]
 The \(y_\ell\) and \(\lambda_\ell\) sectors connect different chiral VLL components. The mass-independent one-loop beta functions therefore have no \(y_\ell\lambda_\ell\) cross term. The scalar-wavefunction traces do couple the two flavors within each of the \(H\) and \(S\) sectors.
@@ -228,31 +232,62 @@ This is the leading unmixed radial-mass relation, not a pole-mass inversion. It 
 
 
 
-### 5.4 Explicit correction to the first B5-1b draft
+### 5.4 Explicit correction and exact matrix derivation
 
-The first numerical draft used \(3\lambda_\ell^2/2+T_S\) in \(\beta_{\lambda_\ell}\), by importing the Higgs-doublet charged-lepton coefficient. That is not the correct coefficient for a Yukawa coupling to the single complex singlet \(S\).
+The first numerical draft implemented
+\[
+\beta_{\lambda_\ell}\propto
+\lambda_\ell\left(2\lambda_\ell^2+
+\lambda_\mu^2+\lambda_\tau^2\right),
+\]
+which counts the same-flavor contribution in the scalar trace in addition to the two external-fermion contribution. This overcounts the self-coupling by one power of \(\lambda_\ell^2\). The explicit flavor-expanded equations in §5.2 are the corrected result; the earlier compact expression must not be reused.
 
-For a complex scalar coupled to Weyl fermions, Jack and Osborn write
+For an independent projection, write
 \[
-\beta_{y_i}=\widetilde\beta_{y_i}
-+\gamma_\chi y_i+y_i\gamma_\psi+y_j\gamma_\phi{}^j{}_i,
+S=\frac{\phi_1+i\phi_2}{\sqrt2},\qquad
+\Psi=(E_{\mu L},\mu_R^c,E_{\tau L},\tau_R^c)^T.
 \]
-with \(\widetilde\beta_{y_i}^{(1)}=0\) and
+The two symmetric Weyl Yukawa matrices are
 \[
-\gamma_\chi^{(1)}=\frac12 y_j\bar y_j,\qquad
-\gamma_\psi^{(1)}=\frac12\bar y_jy_j,\qquad
-\gamma_\phi{}^j{}_i=\operatorname{tr}(\bar y^j y_i).
+Y_1=\frac1{\sqrt2}
+\begin{pmatrix}
+0&\lambda_\mu&0&0\\
+\lambda_\mu&0&0&0\\
+0&0&0&\lambda_\tau\\
+0&0&\lambda_\tau&0
+\end{pmatrix},
+\qquad
+Y_2=\frac{i}{\sqrt2}
+\begin{pmatrix}
+0&\lambda_\mu&0&0\\
+\lambda_\mu&0&0&0\\
+0&0&0&-\lambda_\tau\\
+0&0&-\lambda_\tau&0
+\end{pmatrix}.
 \]
-For the present singlet Yukawas this gives
+The relative sign in the tau block follows from its coupling to \(S^\ast\).
+
+Substituting these matrices into the general one-loop Weyl Yukawa tensor formula gives, before gauge terms,
 \[
-16\pi^2\beta_{\lambda_\mu}
-=\lambda_\mu(2\lambda_\mu^2+\lambda_\tau^2-6g_Y^2-6g_X^2),
+16\pi^2\beta_{\lambda_\mu}^{Y}
+=\lambda_\mu(2\lambda_\mu^2+\lambda_\tau^2),
+\qquad
+16\pi^2\beta_{\lambda_\tau}^{Y}
+=\lambda_\tau(2\lambda_\tau^2+\lambda_\mu^2).
 \]
+The exact SymPy implementation and four regression tests are archived in
+b5_1b_complex_singlet_yukawa_beta_audit.py and
+test_b5_1b_complex_singlet_yukawa_beta_audit.py.
+
+The same result follows from the complex-scalar/Weyl anomalous-dimension decomposition of Jack and Osborn. The scalar trace contributes \(\lambda_\mu^2+\lambda_\tau^2\), while the two external Weyl legs for a given flavor contribute one additional \(\lambda_\ell^2\) in total. Hence the net coefficient is \(2\lambda_\ell^2+\lambda_{\ell'}^2\), not \(2\lambda_\ell^2+T_S\) with \(T_S\) containing the same flavor again.
+
+The gauge contribution is
 \[
-16\pi^2\beta_{\lambda_\tau}
-=\lambda_\tau(2\lambda_\tau^2+\lambda_\mu^2-6g_Y^2-6g_X^2).
+-3g_Y^2(Y_{E_L}^2+Y_{\ell_R}^2)
+-3g_X^2(X_{E_L}^2+X_{\ell_R}^2)
+=-6g_Y^2-6g_X^2.
 \]
-The Higgs-doublet Yukawa \(y_\ell\) retains the SM-like \(3/2\) fermion/vertex coefficient plus the Higgs trace. The B5-1 portal beta and the quartic beta functions are unchanged; only the running of \(\lambda_\mu,\lambda_\tau\) and the trajectories that depend on them are updated. All numerical values in §§7.1–7.2 and the companion output have been recomputed with this corrected coefficient.
+The Higgs-doublet Yukawa \(y_\ell\) retains the SM-like \(3/2\) self/vertex coefficient plus the Higgs trace. The B5-1 portal beta and scalar-quartic beta functions are unchanged at the matching point; only the \(\lambda_\mu,\lambda_\tau\) trajectories and subsequent coupled evolution are changed.
 
 ## 6. Numerical beta functions at \(M_E=20\) TeV
 
@@ -295,6 +330,52 @@ The SM-only one-loop value at \(M_E\) is
 \]
 The new VLL Yukawa boxes therefore make the Higgs quartic run substantially more negative immediately above the threshold.
 
+### 6.1 Consistent portal beta and the meaning of the low-scale coupling
+
+For \(m_s=100\) GeV, using the same PDG-2025-derived \(M_E\) inputs for every coupling, the instantaneous portal beta decomposes as follows:
+\[
+\begin{array}{c|rr}
+\text{contribution to }\beta_{\lambda_{HS}}&A&B\\\hline
+\text{scalar linear}&1.15736648\times10^{-2}&7.53121755\times10^{-5}\\
+\text{portal squared}&1.12520857\times10^{-3}&2.88565177\times10^{-6}\\
+\text{SM gauge/Yukawa}&2.11248346\times10^{-3}&1.06979056\times10^{-4}\\
+\text{VLL Yukawa}&4.07077213\times10^{-2}&4.43097334\times10^{-4}\\
+U(1)_X\text{ gauge}&-1.59368085\times10^{-4}&-1.62215871\times10^{-5}\\\hline
+\text{total}&5.53597100\times10^{-2}&6.12052630\times10^{-4}
+\end{array}
+\]
+These values supersede the earlier diagnostic \(6.25612\times10^{-2}\) (A) and \(6.86230\times10^{-4}\) (B), which combined the older scalar subtotal evaluated with the tree-level proxy \(\lambda_H=0.12938\) and a separately run SM remainder.
+
+The upward UV integration gives
+\[
+\begin{array}{c|rr}
+&A&B\\\hline
+\lambda_{HS}^{\rm UV}(M_E)&0.2107639764&0.01067337649\\
+\lambda_{HS}^{\rm UV}(2M_E)&0.2498328855&0.01109932167\\
+\text{relative shift}&18.5368\%&3.99073\%
+\end{array}
+\]
+The A trajectory is outside the strict Yukawa perturbativity domain immediately above \(M_E\), so its shift is only a formal diagnostic. B remains perturbative over this factor-two interval. For B, holding the \(M_E\) beta fixed would give \(0.01109761904\) at \(2M_E\), compared with \(0.01109932167\) from the synchronized coupled evolution; the difference is \(1.53\times10^{-2}\%\) relative to the frozen-beta estimate.
+
+These are **UV running results above the VLL threshold**, not an evolution from \(M_E\) down to \(m_h\). The matching condition is
+\[
+\lambda_{HS}^{\rm UV}(M_E)=-\Delta\lambda_{HS}^{E},
+\qquad
+\lambda_{HS}^{\rm EFT}(M_E)=0.
+\]
+The finite threshold difference between the UV and EFT portal parameters is not RG running. Below \(M_E\), the \(C_5C_5^\ast\) pole in the currently established strict-dimension-six sub-block is proportional to external momentum and renormalizes
+\[
+\frac{c_{\partial HS}}{M_E^2}
+\partial_\mu(H^\dagger H)\partial^\mu(S^\dagger S),
+\]
+with
+\[
+\left.\beta_{c_{\partial HS}}\right|_{C_5C_5^\ast}
+=-\frac{M_E^2}{16\pi^2}\sum_\ell |C_{5,\ell}|^2
+=-0.1053819882\ (A),\quad -0.00533668824\ (B).
+\]
+This is a derivative-operator beta, not \(\beta_{\lambda_{HS}}\). The full EFT anomalous-dimension matrix, multiplicative \(c_{\partial HS}\) running, and common EOM/VEV projection remain open. Consequently, a complete numerical \(\lambda_{HS}(m_h)\) or physical low-scale mixed two-point function is not yet established; the UV beta must not be extrapolated below \(M_E\).
+
 ## 7. Coupled UV running: perturbativity and quartic-stability diagnostics
 
 The full coupled system was integrated upward from \(M_E\). The following are formal one-loop diagnostics, not a final vacuum-lifetime calculation.
@@ -309,16 +390,16 @@ At the matching point,
 \]
 Thus Benchmark A already saturates the adopted Yukawa perturbativity condition \(\lambda_\tau^2\le4\pi\). Moreover,
 \[
-\beta_{\lambda_\tau}(M_E)=+0.82839,
+\beta_{\lambda_\tau}(M_E)=+0.5462938,
 \]
-so the coupling grows immediately above \(M_E\). At \(1.05M_E\), the one-loop trajectory already gives \(\lambda_\tau\simeq3.586\), above the adopted bound. Consequently, no finite upward UV interval is perturbative under the strict \(\lambda_\tau^2\le4\pi\) criterion.
+so the coupling grows immediately above \(M_E\). At \(1.05M_E\), the corrected one-loop trajectory gives \(\lambda_\tau\simeq3.57187\). It exceeds the adopted bound by 1% at approximately \(21.3199\) TeV; the strict \(\lambda_\tau^2\le4\pi\) condition is nevertheless saturated already at \(M_E\). Consequently, no finite upward UV interval is perturbative under the strict \(\lambda_\tau^2\le4\pi\) criterion.
 
 The formal one-loop \(\lambda_S\) zero-crossing scales are:
 \[
 \begin{array}{c|rrrr}
 m_s\,[{\rm GeV}]&10&50&100&150\\\hline
 \mu(\lambda_S=0)\,[{\rm TeV}]
-&20.10&22.55&30.98&48.57
+&20.0997&22.6016&32.0518&57.3856
 \end{array}
 \]
 Because the Yukawa perturbativity boundary is saturated at \(M_E\), these later zero crossings are diagnostic only and must not be interpreted as controlled predictions.
@@ -328,7 +409,7 @@ Because the Yukawa perturbativity boundary is saturated at \(M_E\), these later 
 Benchmark B has
 \[
 \lambda_\tau(M_E)=0.7977332,\qquad
-\beta_{\lambda_\tau}(M_E)=+0.00525178.
+\beta_{\lambda_\tau}(M_E)=+0.00203699.
 \]
 Its \(\lambda_S\) remains positive throughout the upward scan to \(70\) TeV for \(m_s=50,100,150\) GeV. For the very low \(m_s=10\) GeV point, the small initial \(\lambda_S\) is driven through zero at approximately \(22.09\) TeV.
 
@@ -340,10 +421,10 @@ The corresponding Benchmark-A formal crossing is approximately \(58.6\) TeV, but
 
 At \(2M_E=40\) TeV, Benchmark B with \(m_s=100\) GeV gives
 \[
-\lambda_H\simeq0.02200,\quad
-\lambda_S\simeq0.04751,\quad
-\lambda_{HS}\simeq0.01110,\quad
-\lambda_\tau\simeq0.80140.
+\lambda_H\simeq0.0220013,\quad
+\lambda_S\simeq0.0475232,\quad
+\lambda_{HS}\simeq0.0110993,\quad
+\lambda_\tau\simeq0.799138.
 \]
 Thus B remains perturbative and has positive quartics over this factor-two upward interval in the present one-loop diagnostic.
 
@@ -361,15 +442,16 @@ The robust first-pass observations are:
 
 ## 8. Symbolic and numerical checks
 
-The companion script checks:
+The companion script and the dedicated exact-matrix module check:
 1. NNLO weak-scale matching interpolants and the one-loop SM evolution to \(M_E\).
 2. The one-loop gauge coefficients \(b_Y=19/2\) and \(b_X=8\).
 3. The zero one-loop Abelian kinetic-mixing trace \(\operatorname{Tr}(YX)=0\).
+4. The complex-singlet Yukawa beta by direct substitution of the two real-scalar Weyl matrices into the general one-loop tensor formula.
 5. The Coleman–Weinberg pure-quartic finite threshold \(f''(M_E^2)/2=0\) at \(\mu=M_E\).
 6. The mixed finite portal coefficient \(-f'(M_E^2)/M_E^2+f''(M_E^2)=2\).
 7. The coupled UV evolution and the tabulated zero crossings.
 
-The equations are derived from the stated chiral spectrum and standard one-loop gauge/Yukawa/scalar renormalization formulae. The complex-singlet Yukawa self coefficient has now been independently checked against the general complex-scalar/Weyl formula of Jack and Osborn. An independent SARAH/PyR@TE or full diagrammatic cross-check of the *complete model-specific* RGE system has not yet been run. This is a required acceptance gate before promoting the running to a final model-level conclusion.
+The exact matrix audit passes algebraically and is covered by four regression tests. It is independent of the coupled integrator. An independent SARAH/PyR@TE or full diagrammatic cross-check of the *complete model-specific* RGE system has not yet been run. This remains a required acceptance gate before promoting the running to a final model-level conclusion.
 
 ## 9. B5-1b acceptance and next work
 

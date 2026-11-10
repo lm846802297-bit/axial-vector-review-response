@@ -1,3 +1,6 @@
+SUPERSEDED INPUT SET — retained for provenance only.
+Use B5_1B_SM_THRESHOLD_AND_UV_RGE_OUTPUT_2026-11-11.txt for the current PDG-2025 matched coupled UV run. Do not mix the values below with that run.
+
 B5-1b SM-only one-loop running to M_E=20 TeV
 Inputs: gY(MZ)=0.3575, g2(MZ)=0.65171, g3(mt)=1.1645,
 yt(mt)=0.93587, lambdaH(mt)=0.1262825, mt=173.15 GeV.

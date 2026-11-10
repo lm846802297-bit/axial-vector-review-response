@@ -1,8 +1,12 @@
 B5-1b one-loop threshold and UV-RGE audit
-Date: 2026-11-11; corrected complex-singlet Yukawa coefficient.
-PDG 2025 central inputs: Mt=172.56 GeV, MH=125.20 GeV, MW=80.369 GeV, alpha_s(MZ)=0.1180.
+Date: 2026-11-11; corrected exact real-scalar/Weyl complex-singlet Yukawa beta.
+Model: original U(1)_{L_mu-L_tau} model; one complex S; two VLL Dirac fermions.
+Common VLL threshold: ME=20 TeV. UV equations are used only above ME.
 
-NNLO weak-scale matching interpolants:
+PDG 2025 central inputs:
+Mt=172.56 GeV, MH=125.20 GeV, MW=80.369 GeV, alpha_s(MZ)=0.1180.
+
+NNLO weak-scale MSbar matching interpolants:
 lambdaH(Mt)=0.1261742000
 yt(Mt)=0.9328032000
 g2(Mt)=0.6476409429
@@ -23,23 +27,30 @@ y_mu=y_tau=1.148739795608
 Benchmark A: gX=0.070535334125, lambda_mu=0.210792740710, lambda_tau=3.544907703582
 Benchmark B: gX=0.100000000000, lambda_mu=0.047436034162, lambda_tau=0.797733177917
 
-Corrected complex-singlet Yukawa beta:
-16 pi^2 beta_lambda_l = lambda_l * [2 lambda_l^2 + (lambda_mu^2+lambda_tau^2) - 6 gY^2 - 6 gX^2].
-The 2 coefficient follows from the complex-scalar/Weyl one-loop anomalous dimensions; do not import the Higgs-doublet 3/2 coefficient.
+EXACT COMPLEX-SINGLET YUKAWA MATRIX RESULT:
+16 pi^2 beta_lambda_mu = lambda_mu*(2 lambda_mu^2 + lambda_tau^2 - 6 gY^2 - 6 gX^2)
+16 pi^2 beta_lambda_tau = lambda_tau*(2 lambda_tau^2 + lambda_mu^2 - 6 gY^2 - 6 gX^2)
+The real-scalar/Weyl matrix audit passes exactly. The earlier compact form
+2 lambda_l^2 + (lambda_mu^2+lambda_tau^2) double-counted the same-flavor
+contribution and is superseded.
 
-At ME:
-Benchmark A: beta_lambda_mu=+1.582883279e-02, beta_lambda_tau=+8.283886051e-01.
-Benchmark B: beta_lambda_mu=-6.868456325e-05, beta_lambda_tau=+5.251784517e-03.
-Benchmark A lambda_tau(ME)=sqrt(4 pi)=3.5449077; it exceeds the adopted bound by 1% at mu=20.8610 TeV (1.04305 ME). At 1.05 ME, lambda_tau=3.58603968.
+Corrected instantaneous Yukawa betas at ME:
+Benchmark A: beta_lambda_mu=+1.576952016e-02, beta_lambda_tau=+5.462938129e-01.
+Benchmark B: beta_lambda_mu=-6.936049896e-05, beta_lambda_tau=+2.036989871e-03.
 
-At ms=100 GeV:
+At ms=100 GeV, consistent instantaneous quartic/portal betas at ME:
 Benchmark A:
 lambdaS=0.9950466720
 beta_lambdaH=-0.04967266409
 beta_lambdaS=-1.55769912752
 beta_lambdaHS=+0.05535971002
 beta_lambdaS pieces: scalar=+0.12596249866, Yukawa_wave=+0.31785313391, Yukawa_box=-2.00002500934, gauge_linear=-0.00150479873, gauge_quartic=+0.00001504799
-formal one-loop zero scales: lambdaS=30.978439 TeV, lambdaH=58.674424 TeV
+beta_lambdaHS pieces:
+  scalar_linear=+0.01157366480
+  portal_squared=+0.00112520857
+  SM=+0.00211248346
+  VLL_Yukawa=+0.04070772128
+  U1X_gauge=-0.00015936808
 
 Benchmark B:
 lambdaS=0.05039052658
@@ -47,36 +58,58 @@ beta_lambdaH=-0.05023382555
 beta_lambdaS=-0.00408335031
 beta_lambdaHS=+0.00061205263
 beta_lambdaS pieces: scalar=+0.00032303692, Yukawa_wave=+0.00081514973, Yukawa_box=-0.00512916083, gauge_linear=-0.00015316883, gauge_quartic=+0.00006079271
-formal one-loop zero scales: lambdaS beyond 70 TeV, lambdaH=57.900881 TeV
+beta_lambdaHS pieces:
+  scalar_linear=+0.00007531218
+  portal_squared=+0.00000288565
+  SM=+0.00010697906
+  VLL_Yukawa=+0.00044309733
+  U1X_gauge=-0.00001622159
 
-Formal lambdaS zero scales [TeV] across ms=10,50,100,150:
-A: 20.099627, 22.548468, 30.978439, 48.569584
-B: 22.089798, >70, >70, >70
-lambdaH zero scales:
-A: 58.623822, 58.635208, 58.674424, 58.756023
-B: 57.900876, 57.900878, 57.900881, 57.900887
+Corrected formal lambdaS zero scales [TeV], ms=10,50,100,150:
+A: 20.099706, 22.601574, 32.051809, 57.385611
+B: 22.091580, >70, >70, >70
+
+lambdaH zero scales [TeV]:
+A: 58.615989, 58.627179, 58.665704, 58.745877
+B: 57.900877, 57.900878, 57.900881, 57.900887
 
 At 2 ME=40 TeV, ms=100 GeV:
-A: lambdaH=0.0224758478, lambdaS=-0.9957232274, lambdaHS=0.2514006924, lambda_tau=4.3149740588
-B: lambdaH=0.0220012612, lambdaS=0.0475044514, lambdaHS=0.0110994944, lambda_tau=0.8013962613
+A (formal, outside strict perturbativity): lambdaH=0.0224736814, lambdaS=-0.6845099906, lambdaHS=0.2498328855, lambda_tau=3.9994127838
+B: lambdaH=0.0220012611, lambdaS=0.0475231980, lambdaHS=0.0110993217, lambda_tau=0.7991379730
 
-SM-only beta_lambdaH(ME)=-0.01008797785.
-Full beta_lambdaH(ME): A=-0.04967266409, B=-0.05023382555.
-Dominant VLL box term: -2*(y_mu^4+y_tau^4)/(16pi^2)=-0.05728629254.
+Benchmark A:
+lambda_tau(ME)=sqrt(4 pi), so strict lambda_tau^2<=4 pi is saturated at ME.
+beta_lambda_tau(ME)=0.5462938>0; no finite upward strict-perturbative interval.
+The 1%-above-bound diagnostic is reached at mu=21.319919 TeV.
+
+Benchmark B:
+The one-loop trajectory remains perturbative to 40 TeV for ms=50,100,150 GeV.
+lambdaH crosses zero near 57.90088 TeV. This is a quartic-stability diagnostic,
+not a vacuum-lifetime result.
+
+PORTAL MATCHING AND SCALE INTERPRETATION:
+lambdaHS^UV(ME)=0.2107639764 (A), 0.01067337649 (B).
+lambdaHS^EFT(ME)=0 by the declared finite-threshold matching condition.
+The UV portal at 2 ME is 0.2498328855 (A, formal) and 0.01109932167 (B).
+The B synchronized result differs from the fixed-beta estimate by 0.0153%.
+This is UV evolution above ME only; it is not an ME-to-mh UV extrapolation.
+The strict-dimension-six C5 C5* sub-block induces beta_c_partialHS=-0.1053819882 (A),
+-0.00533668824 (B), for the derivative operator, not the renormalizable portal.
+The full EFT anomalous-dimension matrix and EOM/VEV projection remain open;
+no final lambdaHS(mh) is claimed.
 
 Symbolic checks:
 pure CW quartic finite threshold at mu=ME: 0
 mixed CW portal coefficient at mu=ME: 2
 U(1)X one-loop gauge coefficient bX: 8
 hypercharge one-loop coefficient above ME bY: 19/2
-Complex-scalar/Weyl one-loop Yukawa anomalous-dimension projection:
-beta_lambda_mu=lambda_mu*(2 lambda_mu^2+lambda_tau^2+gauge terms)
-beta_lambda_tau=lambda_tau*(2 lambda_tau^2+lambda_mu^2+gauge terms)
+exact real-scalar/Weyl complex-singlet Yukawa matrix projection: PASS
 
 LIMITS:
 - one-loop SM running below ME, top-dominant.
 - one-loop UV running above ME.
 - no two-loop RGE or parametric uncertainty propagation.
-- no independent SARAH/PyR@TE cross-check yet.
+- no independent SARAH/PyR@TE cross-check of the full model-specific RGE system.
 - lambdaS=ms^2/(2vS^2) is a leading unmixed diagnostic relation, not a physical pole inversion.
 - Benchmark A upward trajectory is outside the adopted strict perturbativity bound immediately above ME.
+- the EFT RGE below ME is incomplete; do not extrapolate the UV system to mh.

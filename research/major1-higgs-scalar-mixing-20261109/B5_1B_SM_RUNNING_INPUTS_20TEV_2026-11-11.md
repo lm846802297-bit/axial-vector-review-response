@@ -1,3 +1,5 @@
+> **Superseded for the coupled B5-1b calculation.** This earlier approximate input set is retained for provenance only. The current coupled run uses the PDG-2025 matching inputs and values in [B5_1B_SM_THRESHOLD_AND_COUPLED_UV_RGE_2026-11-11.md](B5_1B_SM_THRESHOLD_AND_COUPLED_UV_RGE_2026-11-11.md). Do not combine the two input schemes or reuse the old diagnostic portal beta values.
+
 # B5-1b — SM running-input sub-block at \(M_E=20\) TeV
 
 **Date:** 2026-11-11  
