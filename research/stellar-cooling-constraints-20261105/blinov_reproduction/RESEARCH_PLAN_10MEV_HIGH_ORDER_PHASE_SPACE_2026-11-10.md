@@ -229,3 +229,12 @@ The official Garching archive index has now been checked directly. It lists a Bo
 This establishes a legitimate route to request the relevant data, but does not prove that every archive file is the exact \(s18.8\)-SFHo-MUONS snapshot used in the Blinov benchmark. The model identifier, \(t_{\rm pb}=1\) s timestamp, frame convention, and field definitions must be confirmed by the data provider.
 
 **P1-H stop/go gate:** do not attempt a full energy-dependent daughter-pair reprocessing integral until the provider confirms the same snapshot and supplies the required heavy-flavor energy-/angle-dependent neutrino distributions and energy-changing collision kernels. The public-density P1-G transport envelope is not an energy-sphere calculation. Keep \(R_{\max}=25\) km as the literal fixed-\(\omega\) B.2 baseline, keep PR #57 Draft/Open, and do not update the axial-vector curve.
+
+
+### P1-H smooth B.2 daughter reprocessing (2026-11-10)
+
+P1-H has completed a full B.2 source-radius/energy/angle/path integration for the 210--510 MeV band with the P1-G transport-only daughter reprocessing factor. The central equal-mode tail changes the band by \(-4.14\%\); the high-density tail by \(-10.60\%\); the low-density tail by \(-0.33\%\). The band-only total proxies remain \(+86.87\%\), \(+78.21\%\), and \(+91.98\%\) above Fig. 7. The sharp full-opacity \(R_{\max}=30\) km extension, by comparison, suppresses the band by \(70.94\%\) and gives a near-match that is not reproduced by the smooth model.
+
+The direct V8 calculation closes to the archived P1-C/P1-D band results at \(10^{-11}\)--\(10^{-12}\). A Python reproduction script is archived but has not yet been independently rerun. The smooth model remains a transport-only diagnostic, not a full heavy-flavor energy-sphere calculation.
+
+**Final stopping point:** no further numerical quadrature or boundary fitting is justified with the public inputs. Retain \(R_{\max}=25\) km and the literal scalar B.2 baseline. The strong-endpoint discrepancy remains unresolved by the available public data. Keep PR #57 Draft/Open and keep the axial-vector curve frozen.
