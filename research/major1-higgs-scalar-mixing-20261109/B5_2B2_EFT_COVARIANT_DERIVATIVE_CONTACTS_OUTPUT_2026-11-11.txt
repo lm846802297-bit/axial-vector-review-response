@@ -1,0 +1,44 @@
+B5-2B2 EFT covariant-derivative contact audit
+Date: 2026-11-11
+Convention: D_mu = partial_mu - i gY Y B_mu - i gX X A'_mu - i g2 T^I W^I_mu
+eta_mu=+1; eta_tau=-1; Q_X(S_l)=2 eta_l Q_l.
+
+Composite charges:
+Psi_L = H^dagger L_l: (Y,X,SU2)=(-1, eta_l Q_l, singlet)
+Psi_R = S_l l_R:      (Y,X,SU2)=(-1, eta_l Q_l, singlet)
+
+Operator-insertion contact terms:
+Q_LD,l superset -gY B_mu J_L,l^mu + eta_l Q_l gX A'_mu J_L,l^mu
+Q_RD,l superset -gY B_mu J_R,l^mu + eta_l Q_l gX A'_mu J_R,l^mu
+
+J_L,l^mu = (bar L_l H) gamma^mu (H^dagger L_l)
+J_R,l^mu = (S_l^dagger S_l)(bar l_R gamma^mu l_R)
+
+Contact coefficient table:
+mu:  B=-gY, A'=+Q_l gX, W=0
+tau: B=-gY, A'=-Q_l gX, W=0
+
+Weak product-rule check:
+(D_mu H)^dagger L_l |_W = +i g2 H^dagger T^I W_mu^I L_l
+H^dagger D_mu L_l |_W = -i g2 H^dagger T^I W_mu^I L_l
+sum = 0
+
+Interpretation:
+- No direct W contact at the Q_LD derivative insertion because H^dagger L_l is an SU(2) singlet.
+- This does not remove W attachments to the individual L_l and H matter lines in Q_LD loop amplitudes.
+- Q_RD has no W sector because S_l and l_R are both weak singlets.
+- The B and A' contact vertices are required EFT insertions in the UV-EFT subtraction.
+- The tau A' contact flips sign through eta_tau=-1.
+- Mixed B-A' propagator contractions remain conditional on the kinetic-mixing boundary and convention.
+
+Exact symbolic reproduction:
+PASS: both composite hypercharges are -1.
+PASS: both composite X charges are eta_l Q_l for eta_l=+1 and -1.
+PASS: Q_LD and Q_RD have identical Abelian contact coefficients.
+PASS: B contact is flavor independent.
+PASS: A' contact flips sign between mu and tau.
+PASS: direct W terms cancel in D_mu(H^dagger L_l).
+
+Scope:
+No gauge-loop integral, UV/IR pole separation, finite matching coefficient,
+complete Ward identity, or full operator anomalous-dimension matrix is claimed.
