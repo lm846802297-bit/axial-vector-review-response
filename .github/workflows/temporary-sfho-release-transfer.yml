@@ -1,4 +1,4 @@
-name: Temporary SFHo private Release asset transfer
+name: Temporary SFHo manual transfer
 
 on:
   push:
@@ -11,14 +11,14 @@ permissions:
 jobs:
   transfer:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 10
     steps:
-      - name: Checkout current PR source and vendored data
+      - name: Checkout current PR manifest
         uses: actions/checkout@v4
         with:
           ref: research/moving-muon-thermal-rates-20261107
 
-      - name: Download authenticated private Release assets and verify
+      - name: Download and verify original manual
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
@@ -27,54 +27,18 @@ jobs:
           mkdir -p raw
           gh release download sfho-frdm-v1.03-data \
             --repo "$GITHUB_REPOSITORY" \
-            --pattern 'sfho_frdm_bin.zip' \
-            --pattern 'sfho_frdm_spp.zip' \
-            --pattern 'sfho_frdm_comp.zip' \
             --pattern 'manual_v1.04.pdf' \
             --dir raw
-
           manifest='research/stellar-cooling-constraints-20261105/blinov_reproduction/sfho_frdm_v1.03_manifest.sha256'
-          grep -E ' (sfho_frdm_bin\.zip|sfho_frdm_spp\.zip|sfho_frdm_comp\.zip|manual_v1\.04\.pdf) \
+          grep -E ' (manual_v1\.04\.pdf)$' "$manifest" \
             | (cd raw && sha256sum -c -)
-
-          test "$(stat -c %s raw/sfho_frdm_bin.zip)" = 161092071
-          test "$(stat -c %s raw/sfho_frdm_spp.zip)" = 28240340
-          test "$(stat -c %s raw/sfho_frdm_comp.zip)" = 45332354
           test "$(stat -c %s raw/manual_v1.04.pdf)" = 213440
-          echo "Verified three original ZIPs and the manual; total bytes:"
-          du -cb raw/*.zip | tail -n 1
 
-      - name: Transfer verified manual as a short-lived workflow artifact
+      - name: Transfer verified manual
         uses: actions/upload-artifact@v4
         with:
           name: sfho-frdm-manual-20261111
           path: raw/manual_v1.04.pdf
-          if-no-files-found: error
-          compression-level: 0
-          retention-days: 1
- "$manifest" \
-            | (cd raw && sha256sum -c -)
-
-          test "$(stat -c %s raw/sfho_frdm_bin.zip)" = 161092071
-          test "$(stat -c %s raw/sfho_frdm_spp.zip)" = 28240340
-          test "$(stat -c %s raw/sfho_frdm_comp.zip)" = 45332354
-          echo "Verified all three original ZIPs; total bytes:"
-          du -cb raw/*.zip | tail -n 1
-
-      - name: Bundle audit source tree for local reproduction
-        shell: bash
-        run: |
-          set -euo pipefail
-          tar -czf sfho-frdm-audit-source.tar.gz \
-            -C research/stellar-cooling-constraints-20261105/blinov_reproduction .
-
-      - name: Transfer verified ZIPs and source as a short-lived workflow artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: sfho-frdm-raw-and-source-20261111
-          path: |
-            raw/*.zip
-            sfho-frdm-audit-source.tar.gz
           if-no-files-found: error
           compression-level: 0
           retention-days: 1
