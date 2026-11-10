@@ -113,3 +113,12 @@ Proceed to a normalization-only derivation:
 5. retain the literal published scalar baseline until the normalization map is established independently of Fig. 7.
 
 The existing mode-resolved calculation is a diagnostic input to this derivation, not a substitute for it.
+
+
+## 7. Superseding status update (2026-11-10)
+
+The normalization-only follow-up described in §6 has since been addressed by the independent P1-C audit, \`B16_P1C_POLARIZATION_NORMALIZATION_AND_GLOBAL_MODE_TRANSPORT_2026-11-10.md\`. That audit explicitly distinguishes the polarization-summed production/absorption relation in the scalar Appendix-B prescription from the per-mode rates used in the diagnostic transport calculation. No factor-of-three rescaling is authorized for the literal Fig. 7 reproduction baseline.
+
+The separate B.1 source sensitivity to \(\mu_{\nu_\mu}\) and the \(\mu_{\nu_\tau}=0\) assumption is now completed in \`B16_P1E2_B1_NEUTRINO_CHEMICAL_POTENTIAL_SOURCE_SENSITIVITY_2026-11-10.md\`. Its broad source-only stresses change the total B.1 source by at most about \(1.17\%\), and do not explain the weak-end deficit.
+
+The next non-duplicative source-side task is the interior lapse sensitivity in the dominant 8--15 km emission region, as specified in the updated P1-E report.
