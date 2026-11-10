@@ -247,6 +247,6 @@ The companion script and six regression tests check:
 5. Equality of that contact with the gauge-field part of the EOM/current identity.
 6. The four-box-to-current coefficient factors and Pauli/generator normalization.
 
-The exact symbolic identities pass in the independent local algebra checks. The repository regression suite is wired into the research workflow; its CI result is tracked separately.
+The exact symbolic identities pass in independent local SymPy checks. The six regression tests are wired into the research workflow. The latest GitHub Actions run (42904392663) failed before any runner step started (`runner_id=0`, empty step lists); therefore CI has not executed these tests and no CI pass is claimed.
 
 **Still outside this sub-block:** external \(L,H\) LSZ/self-energy contributions; parameter and operator counterterms; the complete EFT insertion set; the summed weak Ward/Slavnov–Taylor identity; \(BB\), \(BA'\), and \(A'A'\) gauge sectors; and the full common-basis anomalous-dimension matrix. The displayed coefficients must not be used as final phenomenological Wilson coefficients until those pieces are combined.
