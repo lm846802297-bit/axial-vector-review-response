@@ -29,7 +29,9 @@ Grid (manual Secs. 2-4)::
 SFHo-specific caveat: the field equations have no solution above
 ``nB = 1.905 fm^-3``, so the extended thermodynamic and composition payloads have no physical
 solution for Fortran k >= 309; the composition module returns immediately (``if (k.ge.309)
-return``).  Never average closure residuals over those entries.
+return``). The SPP file still carries nominal coordinate columns at those indices;
+its remaining properties are not physical solutions. Never interpret the entire
+SPP row as an all-zero record, and never average closure residuals over those entries.
 """
 from __future__ import annotations
 

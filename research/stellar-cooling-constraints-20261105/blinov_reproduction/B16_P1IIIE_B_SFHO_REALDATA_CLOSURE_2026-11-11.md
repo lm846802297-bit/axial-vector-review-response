@@ -148,17 +148,57 @@ inference raise. That is a printing artifact of a cell with no bound baryons, so
 (\(n_n+n_p>n_B\) beyond \(10^{-10}\)). The existing unit test for the rejection
 path is unchanged and passes.
 
+The Hempel-to-Fiorillo occupation mapping is written explicitly to avoid
+overloading the symbol \(\mu_N^*\). Fiorillo's kinetic-energy convention is
+
+\[
+f_N(p)=\left[
+\exp\left(\frac{U_N+K_N(p)-\mu_{N,F}^*}{T}\right)+1
+\right]^{-1},
+\qquad K_N(p)=\sqrt{p^2+m_N^{*2}}-m_N^*.
+\]
+
+The Hempel single-particle table supplies
+
+\[
+U_N=m_N^*-m_N+\Sigma_{V,N}^{\rm tot},
+\qquad \mu_{N,F}^*=\mu_N^{\rm nonrel}.
+\]
+
+Consequently,
+
+\[
+\nu_N=\mu_{N,F}^*-U_N
+=\mu_N^{\rm nonrel}+m_N-m_N^*-\Sigma_{V,N}^{\rm tot}.
+\]
+
+In the equivalent relativistic-dispersion convention,
+
+\[
+f_N(p)=\left[
+\exp\left(\frac{\sqrt{p^2+m_N^{*2}}-\widetilde\mu_N}{T}\right)+1
+\right]^{-1},
+\qquad
+\widetilde\mu_N=\mu_N^{\rm nonrel}+m_N-\Sigma_{V,N}^{\rm tot}.
+\]
+
+Thus \(\widetilde\mu_N\) is not Fiorillo's \(\mu_{N,F}^*\), and the
+quantity approaching the low-density floor is \(\nu_N/T\), not
+\(\mu_N^{\rm nonrel}/T\).
+
 ## 6. Local density closure on the published grid
 
 The audited grid is \(T\in\{0.1,0.251,0.631,1.585,3.981,10,25.119,63.096\}\)
 MeV, \(Y_p\in\{0.1,0.2,0.3,0.4\}\), and
 \(n_B\in\{1.10\times10^{-12},10^{-10},10^{-8},10^{-6},10^{-4},10^{-2},1\}\)
-fm\(^{-3}\), i.e. 224 cells. For each cell the tables supply
+fm\(^{-3}\), i.e. 224 cells. The following validity classification applies
+only to these sampled cells; it is not a continuous-domain guarantee. For each
+cell the tables supply
 \(m_N^*\), \(\Sigma_{V,N}^{\rm tot}\), \(\mu_N^{\rm nonrel}\) and \(\xi\); the
 occupation integral of P1-IIIe-A is evaluated with 1024-node quadrature and
 compared with \(X_N n_B\).
 
-**Validity domain.** All cells with
+**Validated subset of this sampled grid.** All cells with
 
 \[
 T\le25.2\ {\rm MeV}\quad\text{or}\quad n_B\ge9.9\times10^{-5}\ {\rm fm}^{-3}
@@ -215,13 +255,15 @@ but that statement is not used to remove any of the 16 cells from the audit.
 - **`audit_b16_p1iii_eos_sfho_realdata_closure.py`** — loads the archives,
   reproduces the whole-table audit of Sec. 4, runs the closure grid of Sec. 6,
   and writes both the JSON record and a 224-row profile-format fixture.
-- **`test_b16_p1iii_eos_sfho_realdata.py`** — 17 tests. Ten fixture-only tests, four official-table tests and three archive-manifest tests run from the
-  committed fixture alone (grid coverage, \(\xi\) identity, domain closure,
-  frozen-density corner, \(F^{\rm deg}\in(0,1]\), and an end-to-end pass through
-  `load_profile_csv` + `aggregate_profile_rows`); three whole-table tests run
-  only when `SFHO_TABLES_DIR` points at an extracted copy, otherwise the class
-  is skipped. CI therefore exercises the fixture path and does not need the
-  400 MB binaries.
+- **`test_b16_p1iii_eos_sfho_realdata.py`** — 17 tests: 10 fixture-only tests, four official-table tests and three offline
+  archive-manifest tests. The fixture-only tests cover grid membership, the
+  excluded-volume identity, closure-domain classification, the low-density
+  regimes, 1024/2048 quadrature convergence, effective-mass splitting and the
+  end-to-end profile-kernel path. The four official-table tests require
+  SFHO_TABLES_DIR and are skipped when the raw archives are absent. The workflow
+  is configured to exercise the fixture path without the 400 MB binaries, but
+  no CI pass is claimed for this commit because the Actions job is blocked before
+  runner allocation by the repository account billing/limit condition.
 - **`sfho_frdm_v1.03_download.py`** and **`sfho_frdm_v1.03_manifest.sha256`** —
   the reproducible, checksum-verified fetch path for the five published files
   (Sec. 2); `--dest`, `--verify-only`, `--check-urls`, `--only`, `--no-skip`.
@@ -297,8 +339,8 @@ python -m unittest test_b16_p1iii_eos_sfho_realdata -v
 - Composition layer 1 (a proton-side chemical potential that is neither
   \(\mu_p\) nor \(\mu_p-\mu_e\)) and layer 3 remain unidentified; neither is used.
 - The quadrature is a fixed-node Gauss-Legendre rule with a \(45T\) kinetic
-  tail; the P1-IIIe-A convergence test bounds its error at the \(10^{-10}\) level
-  for the states used here.
+  tail; the P1-IIIe-A synthetic-state convergence test is not a real-EOS convergence
+  guarantee. Real EOS states are now checked at 1024 against 2048 nodes in Sec. 6.
 
 ## 10. Next stage
 
@@ -318,7 +360,7 @@ dynamic response (P1-IIIe-C) is:
    normalization.
 
 
-## 9. Follow-up numerical and provenance corrections
+## 11. Follow-up numerical and provenance corrections
 
 The 224-row fixture and audit JSON are regenerated at 1024-node quadrature.
 Across all 448 species-states, the 1024-to-2048 comparison gives a maximum

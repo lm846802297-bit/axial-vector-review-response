@@ -14,8 +14,8 @@ xi * 2/(2*pi)^3 Int d^3p f_N = X_N n_B can be re-checked on any machine without
 the 400 MB binary tables.  The whole-table tests run only when
 ``SFHO_TABLES_DIR`` points at an extracted copy of the archives.
 
-Validity domain (established by ``audit_b16_p1iii_eos_sfho_realdata_closure.py``
-and documented in ``B16_P1IIIE_B_SFHO_REALDATA_CLOSURE_2026-11-11.md``):
+Sample-grid validity classification (established by ``audit_b16_p1iii_eos_sfho_realdata_closure.py``
+and documented in ``B16_P1IIIE_B_SFHO_REALDATA_CLOSURE_2026-11-11.md``; not a continuous-domain theorem):
 
   T <= 25.2 MeV   OR   nB >= 9.9e-5 fm^-3
 
