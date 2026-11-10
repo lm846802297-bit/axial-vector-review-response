@@ -385,3 +385,8 @@ Artifacts:
 - [Validation output](https://github.com/lm846802297-bit/high-energy-theory-research/blob/6d89fd6a024c0e7715056d6996c88b1a06a3dd12/validation/RC-001-QLD8-cross-source-tensor-integral-audit.txt)
 
 The tensor is not yet reduced into the D-dimensional physical/evanescent operator basis. The complete graph phase, external-gluon gauge completion, EOM/IBP quotient, and full QCD \(Z\) matrix remain open.
+
+
+### Latest CI metadata
+
+On upstream head \`6d89fd6a024c0e7715056d6996c88b1a06a3dd12\`, the QLD8 audit [#42755580467](https://github.com/lm846802297-bit/high-energy-theory-research/actions/runs/42755580467), chiral-Fierz audit [#42755580434](https://github.com/lm846802297-bit/high-energy-theory-research/actions/runs/42755580434), and candidate-schema validation [#42755580456](https://github.com/lm846802297-bit/high-energy-theory-research/actions/runs/42755580456) report failure. Each job response exposes \`steps=null\` and \`logs_url=null\); the cause is unknown. Local symbolic checks passed, but CI is not reported as passing.
