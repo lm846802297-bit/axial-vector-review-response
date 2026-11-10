@@ -28,7 +28,7 @@ The upstream source is pinned to the exact PR head inspected for this interface:
 | Pull request | [PR #11 — RC-001 UV–EFT matching](https://github.com/lm846802297-bit/high-energy-theory-research/pull/11) |
 | PR state at inspection | Open / Draft; not merged |
 | Branch | research/rc001-dim8-full-matching-20261109 |
-| Exact head commit | [61244f3b79f37bb8baa1bd2be0279d0daaf71017](https://github.com/lm846802297-bit/high-energy-theory-research/commit/61244f3b79f37bb8baa1bd2be0279d0daaf71017) |
+| Exact head commit | [ba13cf736d0c1b1bbfef732acfb4f1785162ae88](https://github.com/lm846802297-bit/high-energy-theory-research/commit/ba13cf736d0c1b1bbfef732acfb4f1785162ae88) |
 
 Relevant upstream files at that pinned commit:
 
@@ -427,3 +427,10 @@ The local exact audit passes the compact D-dimensional tensor identity, symmetry
 ## 2026-11-10 P1.5c interface update
 
 The upstream QLD8 cross-source calculation is now pinned at [61244f3b79f37bb8baa1bd2be0279d0daaf71017](https://github.com/lm846802297-bit/high-energy-theory-research/commit/61244f3b79f37bb8baa1bd2be0279d0daaf71017). P1.5c merges the SS, TS, ST and TT raw direct-pairing kernels, retains exact D and O(epsilon) coefficients, and identifies the tree-singlet cross-source projection as direct-octet. This remains an operator-renormalization interface result only; it does not enter the PR #69 scalar two-point coefficients. Nonexceptional off-shell/R* subtraction, gauge completion, EOM/IBP, and the complete QCD Z block remain open. No CI pass is claimed for the upstream commit.
+
+
+## 2026-11-10 update: QLD8 P1.6a same-bilinear exchange poles
+
+The upstream pin is now [ba13cf736d0c1b1bbfef732acfb4f1785162ae88](https://github.com/lm846802297-bit/high-energy-theory-research/commit/ba13cf736d0c1b1bbfef732acfb4f1785162ae88). P1.6a computes the two same-bilinear QCD exchange graphs in the direct pairing. The scalar UV pole and direct SU(3) color block are recorded upstream in [the P1.6a derivation](https://github.com/lm846802297-bit/high-energy-theory-research/blob/ba13cf736d0c1b1bbfef732acfb4f1785162ae88/research/RC-001-QLD8-P1.6a-same-bilinear-UV-poles.md), with [symbolic audit](https://github.com/lm846802297-bit/high-energy-theory-research/blob/ba13cf736d0c1b1bbfef732acfb4f1785162ae88/calculations/RC-001-QLD8-P1.6a-same-bilinear-UV-audit.py) and [validation output](https://github.com/lm846802297-bit/high-energy-theory-research/blob/ba13cf736d0c1b1bbfef732acfb4f1785162ae88/validation/RC-001-QLD8-P1.6a-same-bilinear-UV-audit.txt).
+
+The key correction is that the same-bilinear antisymmetric numerator proportional to D-4 has a UV-finite tensor integral under nonexceptional off-shell subtraction. It does not generate a UV-pole-induced finite local term in these graphs. This remains a four-fermion/current-sector result only; no contribution is imported into the PR #69 hh, hs, ss scalar two-point calculation. External-leg counterterms, gauge completion, full QCD Z matrix and finite matching remain open. Upstream PR #11 remains Open/Draft. Local symbolic checks pass; the latest associated GitHub Actions runs report failure with no job-step details, so no CI pass is claimed.
