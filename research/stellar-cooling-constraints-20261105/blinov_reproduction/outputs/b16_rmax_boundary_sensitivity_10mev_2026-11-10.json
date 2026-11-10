@@ -167,5 +167,6 @@
     "The B.1 source is frozen at its 25 km baseline. Its fraction outside inward Rmax=15 km is below 1e-6 in this band.",
     "The outward continuation is conditional on neutrino daughters remaining trapped beyond 25 km and uses the vacuum-limit two-flavour inverse-decay opacity with zero Compton opacity; it is not a reconstructed thermodynamic profile.",
     "The profile is a public-figure reconstruction, not the original Garching snapshot."
-  ]
+  ],
+  "outward_extension_consistency_note": "Lai et al. (2024) require production and attenuation regions to be treated consistently. The Rmax>25 km rows are one-sided opacity-only diagnostics with the B.1 source frozen at 25 km, not self-consistent alternative luminosity predictions."
 }
