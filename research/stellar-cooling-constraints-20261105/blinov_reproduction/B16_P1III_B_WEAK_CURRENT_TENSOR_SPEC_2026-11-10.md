@@ -140,4 +140,4 @@ This stage does not yet include RPA, NN correlations, in-medium vertex correctio
 
 ## 8. Next executable task
 
-Implement the tensor trace and its azimuthal average in a standalone local-kernel module. First compare the \(p\to0\) limit pointwise against the existing Horowitz differential kernel. Only after that test passes should the finite-\(T\), finite-density integrations be enabled. Keep this code and its validation outputs separate from the production B.2 path until acceptance.
+The stationary-target trace, moving-nucleon local collision kernel, and a first energy/angle-integrated transport-moment benchmark are now implemented and checked against the cold/dilute Horowitz limit. The remaining task is to expand these local moments over the relevant incident-energy and angular domain, then replace the illustrative composition with co-located EOS-consistent (n_B(r),Y_p(r),T(r)). Only after those checks should the kernel be connected to radial B.2 propagation. Keep this code and its validation outputs separate from the production B.2 path until acceptance.
