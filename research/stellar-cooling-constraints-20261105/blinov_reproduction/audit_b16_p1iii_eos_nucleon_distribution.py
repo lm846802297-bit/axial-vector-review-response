@@ -525,24 +525,36 @@ def aggregate_profile_rows(
 def load_profile_csv(path: Path):
     with path.open("r", newline="", encoding="utf-8") as stream:
         reader = csv.DictReader(stream)
-        required = {
+        fields = set(reader.fieldnames or [])
+        required_common = {
             "T_MeV",
             "rho_g_cm3",
             "dMdt_weight",
             "mstar_n_MeV",
-            "U_n_MeV",
-            "mu_star_n_MeV",
             "mstar_p_MeV",
-            "U_p_MeV",
-            "mu_star_p_MeV",
         }
-        missing = required.difference(reader.fieldnames or [])
+        missing = required_common.difference(fields)
         if missing:
             raise ValueError(
                 "profile CSV is missing required columns: "
                 + ", ".join(sorted(missing))
             )
-        fields = set(reader.fieldnames or [])
+
+        direct_fields = {
+            "U_n_MeV", "mu_star_n_MeV", "U_p_MeV", "mu_star_p_MeV"
+        }
+        hs_fields = {
+            "SigmaV_n_MeV", "mu_nonrel_n_MeV",
+            "SigmaV_p_MeV", "mu_nonrel_p_MeV",
+        }
+        use_direct = direct_fields.issubset(fields)
+        use_hs = hs_fields.issubset(fields)
+        if not (use_direct or use_hs):
+            raise ValueError(
+                "profile CSV requires either direct U_N/mu_star_N columns "
+                "or Hempel SigmaV_N/mu_nonrel_N columns"
+            )
+
         has_xi = "xi" in fields
         has_composition = {
             "nB_fm3", "n_n_target_fm3", "n_p_target_fm3"
@@ -551,7 +563,27 @@ def load_profile_csv(path: Path):
             raise ValueError(
                 "profile CSV requires xi or nB_fm3 with n_n_target_fm3 and n_p_target_fm3"
             )
-        return list(reader)
+
+        rows = list(reader)
+        if use_hs and not use_direct:
+            for row in rows:
+                for species in ("n", "p"):
+                    state = state_from_hs_spp(
+                        species=species,
+                        temperature_mev=float(row["T_MeV"]),
+                        effective_mass_mev=float(row[f"mstar_{species}_MeV"]),
+                        total_vector_self_energy_mev=float(
+                            row[f"SigmaV_{species}_MeV"]
+                        ),
+                        chemical_potential_total_nonrel_mev=float(
+                            row[f"mu_nonrel_{species}_MeV"]
+                        ),
+                    )
+                    row[f"U_{species}_MeV"] = state.scalar_potential_mev
+                    row[f"mu_star_{species}_MeV"] = (
+                        state.chemical_potential_star_mev
+                    )
+        return rows
 
 
 def self_test_payload():
