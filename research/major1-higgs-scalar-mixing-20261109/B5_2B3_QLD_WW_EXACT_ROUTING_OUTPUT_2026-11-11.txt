@@ -1,3 +1,6 @@
+LOCAL SYMBOLIC REPRODUCTION (independent SymPy evaluation; not CI-generated).
+GitHub Actions run 42904392663 failed before runner steps; no CI execution is claimed.
+
 B5-2B3R exact Q_LD pure-WW cross-box routing
 Momentum assignment: p_barL=0, p_H=P, p_Hdag=0, p_L=-P.
 Heavy momentum: q_E=k-P; W momentum k flows left-to-right.
