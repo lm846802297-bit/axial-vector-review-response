@@ -1,6 +1,6 @@
 # B5-1d PyR@TE 3 model-input preparation
 
-**Status:** model file prepared and its syntax has been checked with the pinned PyR@TE 3 input preprocessor; the full PyR@TE model/gauge-invariance/RGE execution has not yet completed.
+**Status:** model file prepared; its syntax has been checked by reproducing the pinned commit's Inputs.parseFile preprocessing and loading the resulting mapping with PyYAML. The full PyR@TE model/gauge-invariance/RGE execution has not yet completed.
 
 ## Purpose
 
