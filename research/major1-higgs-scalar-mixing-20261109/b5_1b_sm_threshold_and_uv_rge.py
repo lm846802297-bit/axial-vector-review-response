@@ -92,6 +92,9 @@ def initial_uv(benchmark, ms, sm_at_ME):
     }
 
 
+# For the complex singlet Yukawa, the one-loop Weyl result is
+# beta_lambda_l = lambda_l*(2 lambda_l^2 + sum_k lambda_k^2 - gauge terms).
+# The Higgs-doublet Yukawa retains the SM 3/2 self coefficient.
 def uv_rhs(t, y):
     gY, g2, g3, gX, yt, ymu, ytau, lmu, ltau, lH, lS, lHS = y
     fac = 1.0/(16.0*PI**2)
@@ -109,8 +112,8 @@ def uv_rhs(t, y):
              -(9.0/4.0)*g2**2-6.0*gX**2),
         ytau*((3.0/2.0)*ytau**2+TSM+TVH-(15.0/4.0)*gY**2
               -(9.0/4.0)*g2**2-6.0*gX**2),
-        lmu*((3.0/2.0)*lmu**2+TVS-6.0*gY**2-6.0*gX**2),
-        ltau*((3.0/2.0)*ltau**2+TVS-6.0*gY**2-6.0*gX**2),
+        lmu*(2.0*lmu**2+TVS-6.0*gY**2-6.0*gX**2),
+        ltau*(2.0*ltau**2+TVS-6.0*gY**2-6.0*gX**2),
         24.0*lH**2+2.0*lHS**2
         +lH*(12.0*yt**2+4.0*TVH-9.0*g2**2-3.0*gY**2)
         -6.0*yt**4-2.0*(ymu**4+ytau**4)
