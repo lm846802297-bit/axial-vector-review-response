@@ -238,3 +238,17 @@ P1-H has completed a full B.2 source-radius/energy/angle/path integration for th
 The direct V8 calculation closes to the archived P1-C/P1-D band results at \(10^{-11}\)--\(10^{-12}\). A Python reproduction script is archived but has not yet been independently rerun. The smooth model remains a transport-only diagnostic, not a full heavy-flavor energy-sphere calculation.
 
 **Final stopping point:** no further numerical quadrature or boundary fitting is justified with the public inputs. Retain \(R_{\max}=25\) km and the literal scalar B.2 baseline. The strong-endpoint discrepancy remains unresolved by the available public data. Keep PR #57 Draft/Open and keep the axial-vector curve frozen.
+
+
+### P1-I literature-guided energy-exchange depth (2026-11-10)
+
+P1-I establishes a route forward without the raw Garching transport arrays. It combines the same-snapshot public SFHo-18.8 thermodynamic profile with the energy-thermalization-depth formalism of Keil, Raffelt, and Janka (2003), the nucleon bremsstrahlung/inelastic-scattering kernel of Hannestad and Raffelt (1998), and the recoil effective opacity used by Müller and Janka (2015).
+
+A recoil-only pilot using
+\[
+\kappa_{E,\rm recoil}/\kappa_T=|E-3T|/m_N,\qquad
+\tau_{\rm therm}=\int dr\,\sqrt{\kappa_E(\kappa_T+\kappa_E)}
+\]
+places the central-tail thermalization radii at approximately 21.0, 22.3, 24.0, and 26.1 km for 100, 150, 255, and 500 MeV daughters. These are preliminary recoil-only energy-sphere diagnostics, not daughter escape probabilities. Inelastic \(NN\) scattering and inverse bremsstrahlung must still be included, and the high-energy extrapolation above the 197 MeV upper energy group in the cited FMT implementation requires an explicit uncertainty treatment.
+
+**Next go/no-go:** digitize \(n_B(r)\) and \(n_p(r)\) from Caputo et al. Fig. 1 through 20 km; implement the recoil and \(NN\) energy-exchange kernels; then solve the energy-angle redistribution problem for the nonthermal daughters. Do not use \(e^{-\tau_{\rm therm}}\) as an exact escape probability, fit \(R_{\max}\), or alter the literal B.2 baseline. See \`B16_P1I_LITERATURE_GUIDED_NEUTRINO_THERMALIZATION_2026-11-10.md\`.
