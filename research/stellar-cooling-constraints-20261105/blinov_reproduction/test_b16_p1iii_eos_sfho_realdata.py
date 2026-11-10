@@ -169,9 +169,9 @@ class TestRealDataClosureFixture(unittest.TestCase):
         self.assertLess(max(proton), CLOSURE_TOLERANCE)
         self.assertEqual(len(proton), 145)
 
-    def test_outside_the_domain_the_free_density_freezes(self) -> None:
-        # At T = 63.096 MeV and nB <= 1e-10 fm^-3 the reconstructed free-nucleon
-        # density is constant to 5e-4 while the target density drops by 10x;
+    def test_lowest_density_cells_show_free_density_plateau(self) -> None:
+        # At T = 63.096 MeV, the eight cells at nB <= 1e-10 fm^-3 show a
+        # density plateau to 5e-4 while the target density changes by 100x;
         # the closure residual therefore diverges like 1/(X_n n_B).
         floor = [
             row
@@ -348,7 +348,7 @@ class TestOfficialTablesWhenAvailable(unittest.TestCase):
         for key in ((0, 10, 1), (40, 20, 200), (60, 30, 250), (70, 20, 300)):
             with self.subTest(cell=key):
                 record = closure_cell(
-                    self.extended, self.single_particle, *key, order=512
+                    self.extended, self.single_particle, *key, order=1024
                 )
                 self.assertIn("ratio_n", record)
                 expected = indexed[key]
