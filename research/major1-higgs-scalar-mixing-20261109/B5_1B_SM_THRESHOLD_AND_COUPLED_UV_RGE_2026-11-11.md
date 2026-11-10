@@ -275,9 +275,22 @@ Substituting these matrices into the general one-loop Weyl Yukawa tensor formula
 16\pi^2\beta_{\lambda_\tau}^{Y}
 =\lambda_\tau(2\lambda_\tau^2+\lambda_\mu^2).
 \]
-The exact SymPy implementation and four regression tests are archived in
+The exact SymPy implementation and six regression tests are archived in
 b5_1b_complex_singlet_yukawa_beta_audit.py and
 test_b5_1b_complex_singlet_yukawa_beta_audit.py.
+
+Applying the same Weyl tensor formula to the four real components of (H), in the
+basis ((\nu_{\mu L},\mu_L,E_{\mu R}^c,\nu_{\tau L},\tau_L,E_{\tau R}^c)),
+gives the VLL-only parts
+[
+16\pi^2\beta_{y_\mu}^{\rm VLL}
+=y_\mu\left(\frac52y_\mu^2+y_\tau^2\right),\qquad
+16\pi^2\beta_{y_\tau}^{\rm VLL}
+=y_\tau\left(\frac52y_\tau^2+y_\mu^2\right).
+]
+Adding the SM top trace (3y_t^2) and the gauge terms reproduces the
+(\frac32y_\ell^2+T_H) structure in §5.2. This independently checks the
+Higgs-doublet VLL Yukawa self coefficient and its cross-flavor trace.
 
 The same result follows from the complex-scalar/Weyl anomalous-dimension decomposition of Jack and Osborn. The scalar trace contributes \(\lambda_\mu^2+\lambda_\tau^2\), while the two external Weyl legs for a given flavor contribute one additional \(\lambda_\ell^2\) in total. Hence the net coefficient is \(2\lambda_\ell^2+\lambda_{\ell'}^2\), not \(2\lambda_\ell^2+T_S\) with \(T_S\) containing the same flavor again.
 
@@ -451,7 +464,7 @@ The companion script and the dedicated exact-matrix module check:
 6. The mixed finite portal coefficient \(-f'(M_E^2)/M_E^2+f''(M_E^2)=2\).
 7. The coupled UV evolution and the tabulated zero crossings.
 
-The exact matrix audit passes algebraically and is covered by four regression tests. It is independent of the coupled integrator. An independent SARAH/PyR@TE or full diagrammatic cross-check of the *complete model-specific* RGE system has not yet been run. This remains a required acceptance gate before promoting the running to a final model-level conclusion.
+The exact singlet and Higgs-doublet matrix audits pass algebraically and are covered by six regression tests. They are independent of the coupled integrator. An independent SARAH/PyR@TE or full diagrammatic cross-check of the *complete model-specific* RGE system has not yet been run. This remains a required acceptance gate before promoting the running to a final model-level conclusion.
 
 ## 9. B5-1b acceptance and next work
 
