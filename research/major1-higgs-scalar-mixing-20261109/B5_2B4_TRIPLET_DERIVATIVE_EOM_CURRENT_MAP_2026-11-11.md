@@ -171,42 +171,58 @@ Therefore the triplet contact vertex must be retained in any EFT Ward-identity c
 
 ## 5. Wilson-coefficient contribution from the B5-2B3 box subset
 
-B5-2B3 gives the raw hard four-box amplitude
+B5-2B3R gives the raw hard four-box tensor coefficient
 \[
-\Gamma_{WW,\rm box}^{\rm hard}
-=-i\frac{|y_\ell|^2g_2^2}{16\pi^2}
-\frac{3}{4M_E^2}T_3\slashed P.
+A_{WW,\rm hard}^{\rm box}
+=\frac{1}{M_E^2}
+\left(\frac38\Delta_{\rm UV}-\frac38L+\frac{11}{16}\right),
+\qquad L=\ln\frac{M_E^2}{\mu_R^2}.
 \]
-With \(C_{LD}=|y_\ell|^2/M_E^2\), the coefficient of the Pauli-triplet derivative structure is
+With \(C_{LD}=|y_\ell|^2/M_E^2\), the coefficient of the Pauli-triplet derivative structure is therefore
 \[
 \boxed{
 C_3^{WW,\rm box}
-=\frac34\frac{g_2^2}{16\pi^2}C_{LD}.
+=\left(\frac38\Delta_{\rm UV}-\frac38L+\frac{11}{16}\right)
+\frac{g_2^2}{16\pi^2}C_{LD}.
 }
 \]
+The \(O(\epsilon)\) angular terms have been retained against the UV pole. The earlier \(+3/(4M_E^2)\) result from the common-numerator diagnostic is superseded and must not be used.
 
-Using the EOM projection in Section 3 gives the following contribution to the current basis:
+Using the EOM projection in Section 3 gives the following four-box-only current-basis terms:
 \[
 \boxed{
 \Delta C_{HL}^{(1)}\big|_{WW,\rm box}
-=-\frac{9}{16}\frac{g_2^2}{16\pi^2}C_{LD},
+=-\left(\frac{9}{32}\Delta_{\rm UV}
+-\frac{9}{32}L+\frac{33}{64}\right)
+\frac{g_2^2}{16\pi^2}C_{LD},
 }
 \]
 \[
 \boxed{
 \Delta C_{HL}^{(3)}\big|_{WW,\rm box}
-=+\frac{3}{16}\frac{g_2^2}{16\pi^2}C_{LD}.
+=+\left(\frac{3}{32}\Delta_{\rm UV}
+-\frac{3}{32}L+\frac{11}{64}\right)
+\frac{g_2^2}{16\pi^2}C_{LD}.
 }
 \]
 The accompanying redundant source coefficients are
 \[
-\Delta C_{E_L^{(1)}}=+\frac{9}{16}\frac{g_2^2}{16\pi^2}C_{LD},
+\Delta C_{E_L^{(1)}}=+\frac34C_3^{WW,\rm box},
 \qquad
-\Delta C_{E_L^{(3)}}=-\frac{3}{16}\frac{g_2^2}{16\pi^2}C_{LD}.
+\Delta C_{E_L^{(3)}}=-\frac14C_3^{WW,\rm box}.
 \]
 
-These are the EOM/current-basis images of the four-cross-box subset only. They are not the complete \(C_{HL}^{(1,3)}\) matching coefficients.
+At the matching scale \(L=0\), after separating the displayed \(\overline{\rm MS}\) pole, the finite four-box-only pieces are
+\[
+\Delta C_{HL}^{(1)}\big|_{\rm finite}
+=-\frac{33}{64}\frac{g_2^2}{16\pi^2}C_{LD},
+\qquad
+\Delta C_{HL}^{(3)}\big|_{\rm finite}
+=+\frac{11}{64}\frac{g_2^2}{16\pi^2}C_{LD}
+\]
+in the Pauli-current normalization.
 
+These remain the EOM/current-basis images of the four-cross-box subset only. The UV pole and matching logarithm must be combined with the EFT operator counterterm and the remaining UV/EFT amplitude organization; these are not the complete \(C_{HL}^{(1,3)}\) matching coefficients.
 ### Pauli versus generator normalization
 
 If the triplet currents are instead defined with \(T^I=\sigma^I/2\), then
@@ -216,7 +232,8 @@ O_{HL}^{(3)}[T]=\frac14O_{HL}^{(3)}[\sigma].
 The coefficient multiplying the generator-normalized operator is therefore four times the coefficient displayed above:
 \[
 \Delta C_{HL}^{(3)}[T]
-=+\frac34\frac{g_2^2}{16\pi^2}C_{LD}.
+=+\left(\frac38\Delta_{\rm UV}-\frac38L+\frac{11}{16}\right)
+\frac{g_2^2}{16\pi^2}C_{LD}.
 \]
 This is a convention conversion, not an additional physical contribution.
 
