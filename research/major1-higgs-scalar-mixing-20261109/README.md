@@ -541,3 +541,15 @@ The complete bosonic singlet-sector UV pole is
 =\frac{-g_A^2(3-\xi_X)p_E^2-9g_A^2m_X^2-\xi_X\lambda_Sm_X^2-26\lambda_S^2v_S^2}{\\bar\\epsilon}.
 \]
 The resulting diagonal field-counterterm coefficient is \(\delta Z_s^X=g_A^2(3-\xi_X)/(16\pi^2\\bar\\epsilon)\), matching the scalar-QED covariant-gauge coefficient. At \(\xi_X=1\), the result reduces to A4a. The local mass poles still require the common tadpole/VEV and parameter-renormalization prescription.
+
+
+## 2026-11-10 — A4d tadpole-improved zero-momentum \(ss\) kernel
+
+Added \`A4D_TADPOLE_IMPROVED_SS_KERNEL_2026-11-10.md\`, the symbolic audit script, and output. An exact \(p_E^2=0\) identity is obtained for \(\Pi_{ss,E}(0)-T_s^{(1)}/v_S\): all vector, Goldstone and radial-scalar seagulls cancel against the corresponding tadpole/VEV terms, while the longitudinal-vector, mixed \(A'a\), and ghost sector cancels identically for arbitrary \(\xi_X\).
+
+The remaining kernel contains only the transverse-vector bubble and the Goldstone/radial scalar bubbles. Its UV pole is
+\[
+16\pi^2[\Pi_{ss,E}(0)-T_s^{(1)}/v_S]_{\rm UV}
+=-[2(d-1)g_A^2m_X^2+20\lambda_S^2v_S^2]/\\bar\\epsilon,
+\]
+or \(-[6g_A^2m_X^2+20\lambda_S^2v_S^2]/\\bar\\epsilon\) in four dimensions. This is an exact zero-momentum identity, not a claim of gauge independence at nonzero momentum or of a physical pole.
