@@ -29,7 +29,7 @@ class TestB52B3QLDWWKernels(unittest.TestCase):
         self.assertEqual(pole, 0)
 
     def test_oriented_finite_T3_coefficient(self):
-        coeff, _ = weak_tensor_weighted_conditional_sum(self.k)
+        coeff, _ = weak_tensor_weighted_oriented_sum(self.k)
         self.assertEqual(sp.simplify(coeff-sp.Rational(3,4)/M2), 0)
 
     def test_FF_Oepsilon_term_changes_finite_part(self):
