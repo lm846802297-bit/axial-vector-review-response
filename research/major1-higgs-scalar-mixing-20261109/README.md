@@ -597,3 +597,6 @@ A branch-local GitHub Actions attempt was made, but GitHub created a failed job 
 
 
 A fixed-physical-mass factor-two diagnostic was added at \(\mu=10,20,40\) TeV with \(M_E=20\) TeV held fixed. The hard and soft derivative pieces shift oppositely, while their sum is unchanged for the restricted RC-001 leading-log sector: \(4.140843561227\times10^{-5}\) (A) and \(9.318404228173\times10^{-6}\) (B). This is not the final full-model matching-scale uncertainty test. The corresponding table and the derivative-only \(m_h^2\) projections are recorded in the A5b note and output.
+
+
+Added A5B_RGE_CLOSURE_MATRIX_AND_WORK_ORDER_2026-11-10.md to distinguish the UV portal beta, EFT derivative-operator running, \(C_5/Q_{LD}/Q_{RD}\) and current-operator mixing, tadpole/field renormalization, and the separate dimension-eight branch. It records the accepted intermediate result and orders the remaining work before a full \(\mu_M\) stability test.
