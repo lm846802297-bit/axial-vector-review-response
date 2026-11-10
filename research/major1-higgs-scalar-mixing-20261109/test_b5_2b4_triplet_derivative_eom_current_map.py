@@ -8,7 +8,7 @@ from b5_2b4_triplet_derivative_eom_current_map import (
     adjoint_covariant_derivative_check,
     triplet_adjoint_contact_check,
     box_to_current_coefficients,
-    g2, C_LD,
+    g2, C_LD, DeltaUV, L,
 )
 
 
@@ -30,11 +30,14 @@ class TestB52B4TripletDerivativeMap(unittest.TestCase):
     def test_box_to_current_coefficients(self):
         c = box_to_current_coefficients()
         base = g2**2*C_LD/(16*sp.pi**2)
-        self.assertEqual(sp.simplify(c["C3"]-sp.Rational(3,4)*base), 0)
-        self.assertEqual(sp.simplify(c["delta_C_HL1"]+sp.Rational(9,16)*base), 0)
-        self.assertEqual(sp.simplify(c["delta_C_HL3"]-sp.Rational(3,16)*base), 0)
-        self.assertEqual(sp.simplify(c["delta_E1"]-sp.Rational(9,16)*base), 0)
-        self.assertEqual(sp.simplify(c["delta_E3"]+sp.Rational(3,16)*base), 0)
+        c3 = (sp.Rational(3,8)*DeltaUV-sp.Rational(3,8)*L+sp.Rational(11,16))*base
+        hl1 = -(sp.Rational(9,32)*DeltaUV-sp.Rational(9,32)*L+sp.Rational(33,64))*base
+        hl3 = (sp.Rational(3,32)*DeltaUV-sp.Rational(3,32)*L+sp.Rational(11,64))*base
+        self.assertEqual(sp.simplify(c["C3"]-c3), 0)
+        self.assertEqual(sp.simplify(c["delta_C_HL1"]-hl1), 0)
+        self.assertEqual(sp.simplify(c["delta_C_HL3"]-hl3), 0)
+        self.assertEqual(sp.simplify(c["delta_E1"]+hl1), 0)
+        self.assertEqual(sp.simplify(c["delta_E3"]+hl3), 0)
 
     def test_pauli_vs_generator_normalization(self):
         # O_HL^(3)[T] = O_HL^(3)[sigma]/4, hence C[T] = 4 C[sigma].
