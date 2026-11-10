@@ -1,0 +1,63 @@
+{
+  "source": "Caputo, Raffelt, Vitagliano, arXiv:2109.03244v3, Fig. 1 lower panel",
+  "source_archive_sha256": "2e4a1280460bce9a5f7596d3dfd1d3e0f4752f2e1706e85d3a2c20b5f9dbbd8e",
+  "source_pdf_member": "figures/SNProfile.pdf",
+  "source_pdf_sha256": "19ca5ee492dea689a4a9851e999f7d05d0f26be7dfc820e817cc5bc310065c8e",
+  "normalization_n0_fm3": 0.181,
+  "coordinate_transform": {
+    "radius_km": "(x_pt-47.52)*20/(324.0-47.52)",
+    "density": "10**(-4+(442.918-y_pt)/41.4718)",
+    "visible_radius_range_km": [
+      0,
+      20
+    ]
+  },
+  "vector_paths": {
+    "nB_over_n0": {
+      "path_index": 158,
+      "stroke": "#0000FF",
+      "unique_vertices": 245,
+      "r_range_km": [
+        0.1166810923,
+        22.1252168549
+      ],
+      "off_plot_vertices": 47
+    },
+    "np_over_n0": {
+      "path_index": 159,
+      "stroke": "#FF0000",
+      "unique_vertices": 186,
+      "r_range_km": [
+        0.1166810923,
+        19.311124837
+      ],
+      "off_plot_vertices": 0
+    },
+    "ne_over_n0": {
+      "path_index": 160,
+      "stroke": "#FF00FF",
+      "unique_vertices": 198,
+      "r_range_km": [
+        0.1166810923,
+        19.9864013107
+      ],
+      "off_plot_vertices": 0
+    },
+    "nmu_over_n0": {
+      "path_index": 161,
+      "stroke": "#00AA00",
+      "unique_vertices": 102,
+      "r_range_km": [
+        0.1166810923,
+        15.2728593791
+      ],
+      "off_plot_vertices": 0
+    }
+  },
+  "raw_vertices_archive": "outputs/caputo_density_pdf_vertices_2026-11-11.csv.gz",
+  "caveats": [
+    "Public figure digitization, not raw Garching tables.",
+    "The 47 nB vertices beyond 20 km are outside the plotted x range and must not be used as physical extrapolation.",
+    "Do not infer free-nucleon densities from total densities without composition closure."
+  ]
+}

@@ -1,6 +1,6 @@
 # P1-IIId: Public SFHo-18.8 snapshot and nucleon-composition provenance audit
 
-Date: 2026-11-10  
+Date: 2026-11-11  
 PR: #57  
 Branch: research/moving-muon-thermal-rates-20261107
 
@@ -26,9 +26,15 @@ The current repository reconstruction is based on the vector drawing paths of th
 - \(\mu_{\nu_\mu}(r)\) branches: paths 6 and 7;
 - \(n_\mu(r)/n_0\): path 161.
 
-**Important gap:** the existing extraction script and profile provenance record do not yet digitize the \(n_B(r)\), \(n_p(r)\), or \(n_e(r)\) paths from the lower panel. Those curves must not be reconstructed from visual guesses or inferred from \(n_\mu\).
+The source tarball has now been unpacked and its `figures/SNProfile.pdf` member checked against the repository's pinned SHA-256. The exact lower-panel paths are:
+- \(n_B(r)/n_0\): path 158 (blue; 245 unique vertices);
+- \(n_p(r)/n_0\): path 159 (red; 186 unique vertices);
+- \(n_e(r)/n_0\): path 160 (magenta; 198 unique vertices);
+- \(n_\\mu(r)/n_0\): path 161 (green; 102 unique vertices).
 
-The immediate task is to identify the exact vector-path indices for \(n_B,n_p,n_e\) from the source PDF, record their axis calibration and source vertices, and add them to the provenance record. The existing source-PDF SHA-256 must remain unchanged.
+The extracted original PDF vertices and axis calibration are recorded in `outputs/caputo_density_pdf_vertices_2026-11-11.csv.gz` and `outputs/caputo_density_curve_provenance_2026-11-11.json`. The standalone reproducible extractor is `extract_caputo_density_curves.py`; it regenerates the expanded `outputs/caputo_density_curves_vertices_2026-11-11.csv`. The focused audit is `B16_P1IIID_CAPUTO_DENSITY_EXTRACTION_2026-11-11.md`.
+
+One clipping issue is material: the encoded blue \(n_B\) path has 47 vertices beyond the visible \(r=20\) km plot boundary. They are retained and flagged in the raw vertex record but are not accepted as plotted data or a physical outer-profile extrapolation. The original PDF checksum is unchanged.
 
 ## 3. Independent public density plot: Esseili and Kribs Fig. 12
 
@@ -73,7 +79,7 @@ The distinction is especially important for the 15–20 km region, where the pub
 
 ## 6. P1-IIId execution order
 
-1. Extend the Caputo vector-PDF extraction to \(n_B,n_p,n_e\), retaining all original PDF vertices and recording the exact path indices.
+1. **Complete:** extract Caputo \(n_B,n_p,n_e\) (and retain \(n_\\mu\)) from the exact PDF paths, with source vertices, calibration, checksum, and plot-boundary flags.
 2. Independently digitize the SFHo-18.8 \(n_n,n_p,T\) curves in Esseili–Kribs Fig. 12.
 3. Compare the two public reconstructions over their common radius range and adjudicate whether they represent the same numerical profile and species conventions.
 4. Digitize the SFHoY \(Y_n,Y_p,Y_\Lambda\) composition as a separate EOS-variant diagnostic; do not merge it with the baseline.

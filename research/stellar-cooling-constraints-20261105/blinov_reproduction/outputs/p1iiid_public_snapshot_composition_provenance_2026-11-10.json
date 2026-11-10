@@ -1,6 +1,6 @@
 {
   "title": "P1-IIId public SFHo-18.8 profile and composition provenance audit",
-  "date": "2026-11-10",
+  "date": "2026-11-11",
   "primary_source": {
     "citation": "A. Caputo, G. Raffelt, and E. Vitagliano, Phys. Rev. D 105, 035022 (2022), arXiv:2109.03244v3, Fig. 1",
     "model": "Garching muonic SFHo-18.8",
@@ -11,14 +11,59 @@
       "mu_mu": 1,
       "negative_mu_numu": 6,
       "positive_mu_numu": 7,
+      "n_B_over_n0": 158,
+      "n_p_over_n0": 159,
+      "n_e_over_n0": 160,
       "n_mu_over_n0": 161
     },
-    "not_yet_digitized": [
-      "n_B",
-      "n_p",
-      "n_e"
-    ],
-    "status": "Primary baseline source; density curves must be extracted from exact vector paths before radial kernel use."
+    "status": "Caputo PDF density curves extracted from the checksum-pinned arXiv source. These are plotted total densities, not raw Garching tables or free-nucleon composition.",
+    "source_archive_sha256": "2e4a1280460bce9a5f7596d3dfd1d3e0f4752f2e1706e85d3a2c20b5f9dbbd8e",
+    "source_pdf_member": "figures/SNProfile.pdf",
+    "source_pdf_sha256": "19ca5ee492dea689a4a9851e999f7d05d0f26be7dfc820e817cc5bc310065c8e",
+    "density_curve_details": {
+      "nB_over_n0": {
+        "path_index": 158,
+        "stroke": "#0000FF",
+        "unique_vertices": 245,
+        "r_range_km": [
+          0.1166810923,
+          22.1252168549
+        ],
+        "off_plot_vertices": 47
+      },
+      "np_over_n0": {
+        "path_index": 159,
+        "stroke": "#FF0000",
+        "unique_vertices": 186,
+        "r_range_km": [
+          0.1166810923,
+          19.311124837
+        ],
+        "off_plot_vertices": 0
+      },
+      "ne_over_n0": {
+        "path_index": 160,
+        "stroke": "#FF00FF",
+        "unique_vertices": 198,
+        "r_range_km": [
+          0.1166810923,
+          19.9864013107
+        ],
+        "off_plot_vertices": 0
+      },
+      "nmu_over_n0": {
+        "path_index": 161,
+        "stroke": "#00AA00",
+        "unique_vertices": 102,
+        "r_range_km": [
+          0.1166810923,
+          15.2728593791
+        ],
+        "off_plot_vertices": 0
+      }
+    },
+    "density_curve_raw_vertices": "outputs/caputo_density_pdf_vertices_2026-11-11.csv.gz",
+    "density_curve_extractor": "extract_caputo_density_curves.py"
   },
   "independent_public_density_source": {
     "citation": "H. Esseili and G. D. Kribs, Phys. Rev. D 114, 016023 (2026), Fig. 12",
@@ -66,7 +111,7 @@
     "closure_warning": "Do not infer n_n_free=n_B-n_p_free without species-definition and composition closure."
   },
   "next_steps": [
-    "Extract Caputo n_B,n_p,n_e vector paths with exact path indices and source vertices.",
+    "Complete: extract Caputo n_B,n_p,n_e and retain all PDF vertices, source checksum, axis calibration, and plot-boundary flags.",
     "Digitize Esseili-Kribs Fig. 12 n_n,n_p,T and compare against Caputo over common radii.",
     "Digitize SFHoY Y_n,Y_p,Y_Lambda separately as an EOS-variant sensitivity.",
     "Establish a radial free-nucleon validity mask and quantify non-free baryon fractions.",
