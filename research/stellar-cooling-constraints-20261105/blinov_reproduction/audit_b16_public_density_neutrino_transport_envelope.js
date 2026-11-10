@@ -75,6 +75,9 @@ function pairEscapeRadius(omega,tail,target){
  return(lo+hi)/2;
 }
 function main(){
+ const modeNorms=Object.fromEntries(Object.entries(modes).map(([name,W])=>[name,q.x.reduce((s,z,i)=>s+q.w[i]*W(z),0)]));
+ const sumIdentityMaxAbs=Math.max(...q.x.map(z=>Math.abs(modes.L(z)+modes.plus(z)+modes.minus(z)-1.5)));
+ if(Object.values(modeNorms).some(x=>Math.abs(x-1)>1e-12)||sumIdentityMaxAbs>1e-12)throw new Error("Polarization-weight normalization failed");
  const p1c=JSON.parse(fs.readFileSync(inputPath,"utf8"));
  const nodes=p1c.calculation.band_energy_nodes_MeV;
  if(!Array.isArray(nodes)||nodes.length!==10)throw new Error("Expected ten P1-C band energy nodes");
@@ -99,6 +102,7 @@ function main(){
   transport_tau_2_3:{},
   pair_escape_at_radii:{},
   pair_escape_transition_radii:{},
+  validation:{gauss_legendre_order:256,polarization_weight_integrals:modeNorms,polarization_sum_identity_max_abs:sumIdentityMaxAbs,all_values_finite:true},
   limitations:[
    "This estimates a radial neutrino-nucleon transport optical depth, not the heavy-flavor energy sphere. Transport and energy spheres are distinct.",
    "It assumes the same simple scattering opacity for neutrinos and antineutrinos and does not include degeneracy, correlations, recoil, weak magnetism, pair absorption/emission, or angular transport.",
