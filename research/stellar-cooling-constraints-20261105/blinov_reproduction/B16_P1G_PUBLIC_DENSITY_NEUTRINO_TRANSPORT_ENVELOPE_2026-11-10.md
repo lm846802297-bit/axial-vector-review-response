@@ -138,6 +138,16 @@ Consequently:
 
 The transport sphere is not the heavy-flavor energy sphere. The latter is associated with the last energy-changing interaction and generally requires pair-process information. This audit therefore cannot select a corrected \(R_{\max}\).
 
+For a radial vector path, the fraction of the full vacuum-limit opacity that would actually reprocess daughter energy in the 25--30 km shell is estimated by
+\[
+f_{\rm repr}^{25-30}(\omega)=\frac{1}{5\,{\rm km}}
+\int_{25\,{\rm km}}^{30\,{\rm km}}dr\,
+\left[1-P_{\rm pair}^{E}(\omega,r)\right].
+\]
+Across the ten P1-C vector-energy nodes, the central-tail unweighted mean is \(8.91\%\), with a node range of \(3.91\%\)--\(16.05\%\). The low-tail mean is \(0.736\%\), while the high-tail mean is \(22.20\%\). For representative \(\omega=210,300,510\) MeV in the central tail, the fractions are \(3.67\%\), \(7.10\%\), and \(17.24\%\).
+
+This radial average is not a source- or angle-weighted B.2 optical-depth integral. It nevertheless shows why the full P1-D vacuum-limit extension to 30 km is an extreme upper-bound prescription: the smooth transport-only estimate reprocesses only a fraction of that full added opacity in the 25--30 km shell. Do not multiply the P1-D mean optical depth by these fractions and call it a corrected luminosity; the full ray and energy weighting is still required.
+
 ## 6. What this adds to the strong-endpoint diagnosis
 
 The 25 km boundary is not an arbitrary numerical cutoff: it is near the central-tail transport radius for 255 MeV daughters, while the highest-energy daughters can remain transport-thick somewhat farther out. This gives a physical explanation for why the boundary may have an energy-dependent transition rather than a universal sharp surface.
