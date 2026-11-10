@@ -476,3 +476,16 @@ A normalization error in the first A1 draft was corrected: since (m_X=2g_Xv_S), 
 A2 also corrected the earlier diagram census. In the gauge basis, (h) couples to (W,Z) and electroweak ghosts, while (s) couples to (A') and the (X) ghost. There is no common vector or ghost species, hence no one-loop (hs) vector/ghost bubble. These sectors contribute to diagonal (hh) and (ss) entries. The next-combined-order one-loop-topology (hs) subset consists of scalar/Goldstone bubbles; its pre-counterterm UV coupling combination is proportional to (\lambda_{HS}vv_S(6\lambda_H+4\lambda_S)).
 
 The full component expansion of non-Abelian ghost-vector/off-diagonal entries, PV integration, tadpole/counterterm closure, and gauge-parameter cancellation remain open. No complete physical self-energy or pole is claimed.
+
+
+## 2026-11-10 — A3a mixed scalar-bubble kernel
+
+Added `A3A_MIXED_SCALAR_BUBBLE_KERNEL_2026-11-10.md`, its SymPy UV-pole audit script, and output. The gauge-basis one-loop-topology (hs) scalar kernel is written in terms of five (B_0) functions: internal (hh), (ss), (G^+G^-), (G^0G^0), and (aa). The CP-even (hh/ss) terms are identified as the already archived P2-lite subset; the new contribution is the three Goldstone terms with their (R_\xi)-dependent masses.
+
+The symmetry-weighted UV pole is
+[
+\Pi_{hs}^{\rm scalar,UV}=
+\frac{\lambda_{HS}vv_S}{16\pi^2\bar\epsilon}
+(6\lambda_H+4\lambda_S),
+]
+which matches the scalar-potential portal counterterm contribution in the stated convention. Gauge/Yukawa pieces, higher powers of the portal, tadpole/VEV and field renormalization, and full UV--EFT matching are not included. The finite Goldstone terms are gauge dependent and are not a physical mixing prediction.
