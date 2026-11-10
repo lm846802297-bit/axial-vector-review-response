@@ -1,0 +1,82 @@
+{
+  "title": "P1-IIId public SFHo-18.8 profile and composition provenance audit",
+  "date": "2026-11-10",
+  "primary_source": {
+    "citation": "A. Caputo, G. Raffelt, and E. Vitagliano, Phys. Rev. D 105, 035022 (2022), arXiv:2109.03244v3, Fig. 1",
+    "model": "Garching muonic SFHo-18.8",
+    "time": "t_pb=1 s",
+    "normalization_n0_fm3": 0.181,
+    "current_digitized_paths": {
+      "T": 0,
+      "mu_mu": 1,
+      "negative_mu_numu": 6,
+      "positive_mu_numu": 7,
+      "n_mu_over_n0": 161
+    },
+    "not_yet_digitized": [
+      "n_B",
+      "n_p",
+      "n_e"
+    ],
+    "status": "Primary baseline source; density curves must be extracted from exact vector paths before radial kernel use."
+  },
+  "independent_public_density_source": {
+    "citation": "H. Esseili and G. D. Kribs, Phys. Rev. D 114, 016023 (2026), Fig. 12",
+    "model": "Includes SFHo-18.8 among four representative models",
+    "time": "1 s after core collapse",
+    "normalization_n0_fm3": 0.181,
+    "plotted_species": [
+      "n",
+      "p",
+      "e",
+      "mu",
+      "neutrino species"
+    ],
+    "status": "Independent cross-check candidate; do not merge until T, n_p, and n_n+n_p versus Caputo n_B are compared."
+  },
+  "alternative_composition_source": {
+    "citation": "Phenomenology of Light Particles on Earth and in the Sky, Fig. 8.1",
+    "model_input": "18.8 solar-mass simulation input from Ref. 186",
+    "eos": "SFHoY with hyperons, postprocessed using CompOSE",
+    "input_thermodynamics": [
+      "baryonic energy density",
+      "temperature",
+      "Y_l=Y_e+Y_mu"
+    ],
+    "plotted_composition": [
+      "Y_n",
+      "Y_p",
+      "Y_Lambda"
+    ],
+    "omitted_components": [
+      "deuterium",
+      "tritium"
+    ],
+    "status": "Separate EOS-composition sensitivity diagnostic, not baseline SFHo composition."
+  },
+  "physics_scope": {
+    "current_kernel": "free neutron and free proton scattering only",
+    "omitted_targets": [
+      "deuterium",
+      "tritium",
+      "alpha particles",
+      "heavy nuclei",
+      "hyperons"
+    ],
+    "closure_warning": "Do not infer n_n_free=n_B-n_p_free without species-definition and composition closure."
+  },
+  "next_steps": [
+    "Extract Caputo n_B,n_p,n_e vector paths with exact path indices and source vertices.",
+    "Digitize Esseili-Kribs Fig. 12 n_n,n_p,T and compare against Caputo over common radii.",
+    "Digitize SFHoY Y_n,Y_p,Y_Lambda separately as an EOS-variant sensitivity.",
+    "Establish a radial free-nucleon validity mask and quantify non-free baryon fractions.",
+    "Only then construct radial free-nucleon densities and integrate the P1-IIIb kernel."
+  ],
+  "no_changes_to": [
+    "B.2 opacity",
+    "transport sphere",
+    "escape probability",
+    "pure-vector Fig. 7",
+    "axial cooling curve"
+  ]
+}
