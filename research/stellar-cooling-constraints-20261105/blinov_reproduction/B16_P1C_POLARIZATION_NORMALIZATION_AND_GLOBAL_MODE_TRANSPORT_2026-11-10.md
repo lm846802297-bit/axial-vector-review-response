@@ -121,3 +121,15 @@ The large difference between scalar and mode-resolved luminosities is caused by 
 ## 5. Next targeted B.2 check
 
 The next useful physical sensitivity is the outer boundary \(R_{\max}=R_\nu\simeq25\) km. Quantify how the source-frozen high-energy escape integral changes when the absorbing/trapping boundary is moved inward within the reconstructed profile, and separately estimate the extra optical depth that would accrue if the neutrino-trapping boundary were farther out. Keep \(R_\nu=25\) km as the literal paper baseline; do not treat an extended-boundary stress test as a replacement without independent evidence for the energy-dependent neutrinosphere.
+
+
+## Follow-up: P1-D outer-boundary audit completed (2026-11-10)
+
+The targeted \(R_{\max}\) sensitivity requested above has now been calculated and archived in [B16_P1D_RMAX_BOUNDARY_SENSITIVITY_2026-11-10.md](B16_P1D_RMAX_BOUNDARY_SENSITIVITY_2026-11-10.md), with a reproducibility script and machine-readable output.
+
+For the source-frozen 210--510 MeV band at the 10 MeV strong-endpoint point:
+- \(R_{\max}=24\) km raises the escaped band luminosity by 28.84% relative to 25 km;
+- \(R_{\max}=22\) km raises it by 116.06%;
+- a conditional vacuum-limit neutrino-opacity extension to 26 km lowers it by 22.42%.
+
+The 25 km paper prescription remains the baseline. The extension is conditional on continued neutrino trapping and is not adopted as a replacement. The next unresolved issue is the provenance/physical definition of the effective neutrinosphere radius for the exact SFHo-18.8 snapshot, not another increase in path quadrature order.
