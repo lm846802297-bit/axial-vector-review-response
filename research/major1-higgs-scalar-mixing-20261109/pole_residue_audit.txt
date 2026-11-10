@@ -1,0 +1,10 @@
+Plan-C-lite pole-residue audit
+A, m_s=100 GeV: R_hh(Higgs-like)=1.000000005-7.33e-10i; R_hh(s-like)=2.26e-9+9.98e-10i; sum=1.000000008+2.65e-10i.
+A, m_s=125.25 GeV: R_hh(Higgs-like)=1.000000750+3.87e-7i; R_hh(s-like)=-7.43e-7-3.86e-7i; sum=1.000000008+2.61e-10i.
+A, m_s=150 GeV: R_hh(Higgs-like)=1.000000002-4.92e-9i; R_hh(s-like)=5.49e-9+5.18e-9i; sum=1.000000008+2.58e-10i.
+B, m_s=100 GeV: R_hh(Higgs-like)=1.000000007-1.16e-10i; R_hh(s-like)=1.09e-10+6.18e-11i; sum=1.000000007-5.40e-11i.
+B, m_s=125.25 GeV: R_hh(narrow pole)=-0.035431982-0.024341992i; R_hh(broad pole)=1.035431989+0.024341992i; sum=1.000000007-5.82e-11i.
+B, m_s=150 GeV: R_hh(Higgs-like)=1.000000007-2.59e-10i; R_hh(s-like)=3.31e-10+2.05e-10i; sum=1.000000007-5.44e-11i.
+PASS: six two-pole root pairs; determinant residuals below 1e-7 GeV^4.
+PASS: sum of h-channel residues is unity to numerical precision for this approximate kernel.
+LIMIT: complex residues are not probabilities or signal strengths; no detector response or gauge-complete pole calculation.
