@@ -572,3 +572,25 @@ The 20 TeV value is the inherited PR #49 / Plan-C-lite benchmark, not a unique p
 For the hard VLL matching, \(\mu_R^{\rm hard}=M_E\) removes \(\ln(M_E^2/\mu_R^2)\). The low-energy EFT should subsequently be RG-evolved to \(\mu_{\rm EFT}\sim m_h\); 20 TeV is not to be used indiscriminately for all low-energy loops. The archived Plan-C-lite partial hard+soft comparison changes the real \(\Pi_{hs}\) by 0.1421% between \(\mu_R=M_E\) and \(m_h\), but this is not a complete RG/matching-scale closure because the same-order EFT soft/counterterm set remains open.
 
 The A5a plan and calculation protocol now explicitly separate these scales. A factor-two matching-scale variation is deferred until the full EFT beta functions and matching counterterms are available; the portal boundary must be evolved, not reset to zero at every varied scale.
+
+
+## 2026-11-10 — A5b first RGE block: \(C_5C_5^\ast\) derivative-operator running
+
+Added A5B_RESTRICTED_EFT_RGE_AND_HARD_SOFT_SCALE_CANCELLATION_2026-11-10.md, its SymPy/numerical audit script, and the recorded output. The existing RC-001 EFT bubble-plus-contact pole gives
+\[
+\delta c_{\partial HS}
+=-\frac{M_E^2}{32\pi^2}\sum_\ell |C_{5,\ell}|^2\Delta_{\rm UV},
+\qquad
+\left.\beta_{c_{\partial HS}}\right|_{C_5C_5^\ast}
+=-\frac{M_E^2}{16\pi^2}\sum_\ell |C_{5,\ell}|^2.
+\]
+For the current normalization with \(M_*=M_E\), this equals \(\Delta\lambda_{HS}^{E}/2\). The hard logarithm and the displayed soft-bubble logarithm cancel analytically at leading \(O(M_E^{-2})\); benchmark A/B numerical checks reproduce the corresponding leading-log shifts.
+
+The A3a scalar-only linear portal beta contribution was also translated from its pole residue:
+\[
+\left.\beta_{\lambda_{HS}}\right|_{\rm scalar,linear}
+=\frac{\lambda_{HS}}{16\pi^2}(12\lambda_H+8\lambda_S).
+\]
+This is not the complete portal beta function. Gauge/Yukawa terms, the full same-order EFT soft set, the remaining Wilson-vector anomalous dimensions, and common EOM/source/tadpole closure remain open. The archived 0.1421% Plan-C-lite scale residual is not explained by this restricted leading-log identity and remains a separate diagnostic.
+
+The independent GitHub Actions audit is configured in .github/workflows/a5b-restricted-eft-rge-audit.yml; it checks the exact committed script and uploads its output/hash as an artifact. No CI pass is claimed until a run is observed.
