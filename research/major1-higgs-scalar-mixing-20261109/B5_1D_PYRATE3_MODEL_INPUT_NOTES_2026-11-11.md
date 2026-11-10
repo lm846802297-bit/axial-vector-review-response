@@ -1,6 +1,6 @@
 # B5-1d PyR@TE 3 model-input preparation
 
-**Status:** model file prepared; PyR@TE execution has not yet been completed in the current runtime.
+**Status:** model file prepared and its syntax has been checked with the pinned PyR@TE 3 input preprocessor; the full PyR@TE model/gauge-invariance/RGE execution has not yet completed.
 
 ## Purpose
 
