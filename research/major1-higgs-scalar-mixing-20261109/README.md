@@ -413,3 +413,8 @@ Upstream PR #11 is now pinned at [\`f417c7360bcc162b4da7ecb4b99bd874525234fa\`](
 ## 2026-11-10 Major Point 1 portal/Higgs-constraint audit
 
 The finite VLL portal threshold is not symmetry-forbidden and is numerically sizable at the two reference points: Delta lambda_HS^hard = -0.21076398 (A) and -0.01067338 (B). The negligible-portal reference condition cancels this threshold and is a conditional matching/tuning benchmark, not a prediction. The residual dimension-six/eight local mixed curvatures are +0.656934 GeV^2 (A) and +0.147834 GeV^2 (B), but the near-degenerate region requires a full complex-pole treatment. Benchmark A also has the exotic channel h_1 -> A'A' open; its width is approximately 3.744 GeV times sin^2(theta), so the simple no-exotic Higgs signal-strength mapping is not applicable there. See [MAJOR1_PORTAL_THRESHOLD_AND_HIGGS_CONSTRAINT_2026-11-10.md](MAJOR1_PORTAL_THRESHOLD_AND_HIGGS_CONSTRAINT_2026-11-10.md) and its reproducible numerical audit.
+
+
+## 2026-11-10 — UV scalar-potential and diagram-census freeze
+
+Added `UV_SCALAR_POTENTIAL_AND_DIAGRAM_CENSUS_2026-11-10.md`. The current manuscript states the portal and mixing relation but does not display the complete renormalizable scalar potential or tadpole equations. The new record supplies the unique one-Higgs-doublet/one-complex-singlet CP-conserving renormalizable potential, its tadpole conditions, CP-even mass matrix, cubic and Goldstone vertices, and the (sA'A') vertices. It also fixes the combined loop counting implied by the conditional zero-EFT-portal matching and inventories the missing gauge, Goldstone, tadpole, counterterm and two-loop sectors. This is a calculation-scope freeze, not a claim that the physical pole calculation is complete.
