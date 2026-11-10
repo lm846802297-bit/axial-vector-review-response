@@ -1,0 +1,50 @@
+name: Temporary SFHo private Release asset transfer
+
+on:
+  push:
+    branches:
+      - transfer/sfho-frdm-release-transfer-20261111
+
+permissions:
+  contents: read
+
+jobs:
+  transfer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout audit manifest
+        uses: actions/checkout@v4
+
+      - name: Download authenticated private Release assets and verify
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p raw
+          gh release download sfho-frdm-v1.03-data \
+            --repo "$GITHUB_REPOSITORY" \
+            --pattern 'sfho_frdm_bin.zip' \
+            --pattern 'sfho_frdm_spp.zip' \
+            --pattern 'sfho_frdm_comp.zip' \
+            --dir raw
+
+          manifest='research/stellar-cooling-constraints-20261105/blinov_reproduction/sfho_frdm_v1.03_manifest.sha256'
+          grep -E ' (sfho_frdm_bin\.zip|sfho_frdm_spp\.zip|sfho_frdm_comp\.zip)$' "$manifest" \
+            | (cd raw && sha256sum -c -)
+
+          test "$(stat -c %s raw/sfho_frdm_bin.zip)" = 161092071
+          test "$(stat -c %s raw/sfho_frdm_spp.zip)" = 28240340
+          test "$(stat -c %s raw/sfho_frdm_comp.zip)" = 45332354
+          echo "Verified all three original ZIPs; total bytes:"
+          du -cb raw/*.zip | tail -n 1
+
+      - name: Transfer verified ZIPs as a short-lived workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sfho-frdm-raw-zips-20261111
+          path: raw/*.zip
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 1
