@@ -307,6 +307,6 @@ Next tasks:
 1. Start the QCD one-loop pilot in the (d^\dagger d) sector with generic nonexceptional four-fermion momenta, both color contractions, all derivative placements, and the covariant-derivative contact vertices.
 2. Add the same-chirality (d^\dagger u) QCD block to test scalar/tensor mixing and the weak-(\epsilon) contraction.
 3. Derive the actual generated d-dimensional gamma-string set from the explicit numerators; do not assume the rank-3/rank-4 seeds alone close it.
-4. Extend to (SU(2)_L), hypercharge, Yukawa, and background-gauge blocks, then calculate the full physical/evanescent/EOM counterterm matrix.
+4. Extend to \\(SU(2)_L\\), hypercharge, Yukawa, and background-gauge blocks, then calculate the full physical/evanescent/EOM counterterm matrix.
 5. Match the resulting operator set against all same-order EFT soft insertions and counterterms in the same NDR scheme.
-6. Complete the finite UV-minus-EFT Wilson vector before testing any contribution to PR #69 (hh,hs,ss).
+6. Complete the finite UV-minus-EFT Wilson vector before testing any contribution to PR #69 \\(hh,hs,ss\\).
