@@ -241,6 +241,18 @@ B &+2.8127216713\times10^{-12}&-7.9547277894\times10^{-10}
 \]
 These are tree-level EOM-basis coefficients. They must be kept distinct from the one-loop \(C_5C_5^\ast\) hard-current coefficients in B5-2A, although both contribute to the same common operator \(O_{Se}\).
 
+For bookkeeping, adding only these two already-derived pieces gives the following **known subset** of \(C_{Se}^{\rm common}\) at \(\mu=M_E\):
+\[
+\begin{array}{c|rr}
+ & \mu:\ C_{RD}^{\rm tree}/2+C_5C_5^\ast\ {\rm hard}
+ & \tau:\ \eta_\tau C_{RD}^{\rm tree}/2+C_5C_5^\ast\ {\rm hard}\\ \hline
+A&+5.6238177881\times10^{-11}&-1.5904858308\times10^{-8}\\
+B&+2.8479783683\times10^{-12}&-8.0544381270\times10^{-10}
+\end{array}
+\quad{\rm GeV}^{-2}.
+\]
+This is not the complete \(O_{Se}\) Wilson coefficient: the missing one-loop gauge matching and the remaining common-basis counterterm/mixing contributions have not been added.
+
 ## 4. Perturbative-order and matching boundary
 
 The present block contains:
