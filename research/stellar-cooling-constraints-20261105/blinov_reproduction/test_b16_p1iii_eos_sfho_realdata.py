@@ -433,6 +433,44 @@ class ArchiveManifestTests(unittest.TestCase):
                 self.assertEqual(len(digest), 64)
                 self.assertEqual(manifest[name], digest)
 
+    def test_vendored_parts_cover_the_split_archive(self) -> None:
+        """The 161 MB archive is stored as ordered pieces; keep the layout exact.
+
+        Only sizes and names are checked here: hashing 161 MB on every test run
+        would be wasteful, and ``reassemble_sfho_frdm_archives.py --verify-only``
+        is the tool that does the full check.
+        """
+
+        data_dir = HERE / "data" / "sfho-frdm-v1.03"
+        manifest = {
+            name: digest
+            for digest, name in (
+                line.split(None, 1)
+                for line in (data_dir / "MANIFEST.sha256")
+                .read_text(encoding="utf-8")
+                .splitlines()
+                if line.strip()
+            )
+        }
+        self.assertEqual(len(manifest), 7)
+        parts = sorted(data_dir.glob("sfho_frdm_bin.zip.part-*"))
+        self.assertEqual(
+            [part.name for part in parts],
+            [f"sfho_frdm_bin.zip.part-{index:02d}" for index in range(3)],
+        )
+        self.assertEqual(sum(part.stat().st_size for part in parts), 161_092_071)
+        for part in parts:
+            with self.subTest(part=part.name):
+                self.assertIn(part.name, manifest)
+                self.assertEqual(len(manifest[part.name]), 64)
+        for name in ("sfho_frdm_spp.zip", "sfho_frdm_comp.zip", "manual_v1.04.pdf"):
+            with self.subTest(file=name):
+                self.assertIn(name, manifest)
+                self.assertEqual(
+                    (data_dir / name).stat().st_size,
+                    self._downloader_files()[name][0],
+                )
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
