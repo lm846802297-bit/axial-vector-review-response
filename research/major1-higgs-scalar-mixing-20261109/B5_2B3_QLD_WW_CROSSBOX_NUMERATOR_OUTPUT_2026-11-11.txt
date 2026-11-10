@@ -44,19 +44,29 @@ A_FS = (Delta_UV - L + 3/2)/M_E^2
 A_SS = (Delta_UV - L + 3/2)/M_E^2
 A_FS - A_FF = 3/M_E^2
 
-Conditional common-orientation/unit-multiplicity tensor sum:
+Oriented numerator sign audit:
+LD-W-01: gamma^mu(-slash k)slash(P-k)(-slash k)gamma_mu = N_FF
+LD-W-02: gamma^mu(-slash k)slash(P-k)(-k_mu) = N_FS
+LD-W-05: (-k_mu)slash(P-k)(-slash k)gamma^mu = N_FS
+LD-W-06: (-k_mu)(-k_nu)g^munu slash(P-k) = N_SS
+All four canonical numerator signs are positive in the declared all-incoming routing. The common Feynman-rule i-factor is the same in FF, FS and SS.
+
+Fixed oriented tensor sum:
 (-A_FF + A_FS + A_FS - A_SS) T3/4
 = +3 T3/(4 M_E^2)
-The UV pole cancels in this conditional sum.
+The UV pole and matching logarithm cancel in this four-box subset.
+Raw amplitude subset:
+Gamma_box = -i |y|^2 g2^2/(16 pi^2) * 3/(4 M_E^2) * T3 slash(P).
 
-CRITICAL LIMIT:
-The common sign and unit-multiplicity assumption for the four oriented Feynman graphs has NOT been established. Pair-specific fermion-arrow and scalar-flow signs, crossed routings, LSZ/parameter/operator counterterms, and the summed Ward identity remain open. The conditional +3/4 is not a Wilson coefficient and must not be used in phenomenological results.
+Scope limit:
+This is the oriented four-cross-box hard sub-block for the fixed external ordering. It is not the final nonredundant Wilson coefficient. The EOM/current-basis projection, external L/H LSZ terms, parameter/operator counterterms, and the summed Ward identity remain open. No FeynArts/FeynCalc diagram-package reproduction is claimed.
 
 Local exact algebra:
 PASS: J and K hard-master expansions.
 PASS: FF, FS, SS angular numerator reductions.
 PASS: O(eps) FF numerator term retained against Delta_UV.
-PASS: six SU(2) tensor factors and four cross-box group sum.
+PASS: oriented numerator sign table in the declared routing.
+PASS: six SU(2) tensor factors and four-cross-box tensor sum.
 PASS: six regression tests (local symbolic reproduction).
 
 No complete WW Wilson coefficient, anomalous dimension, or Ward-identity closure is claimed.
