@@ -129,6 +129,39 @@ def numeric_benchmarks():
         })
     return out
 
+def scale_variation_diagnostic():
+    """Vary the common subtraction/matching scale at fixed physical M_E."""
+    rows = []
+    for name, p in BENCHMARKS.items():
+        vs = p["vS"]
+        flavors = ((M_MU, 2*M_MU**2/(VH*vs)),
+                   (M_TAU, 2*M_TAU**2/(VH*vs)))
+        target = sum(
+            q/(16*pi**2)*(log(ME**2/m**2)-2.0/3.0)
+            for m, q in flavors
+        )
+        for muM in (ME/2.0, ME, 2.0*ME):
+            hard = sum(
+                q/(16*pi**2)*(log(ME**2/muM**2)-2.0/3.0)
+                for _, q in flavors
+            )
+            soft = sum(
+                q/(16*pi**2)*log(muM**2/m**2)
+                for m, q in flavors
+            )
+            total = hard+soft
+            assert abs(total-target) < 2e-16
+            rows.append({
+                "benchmark": name,
+                "muM_GeV": muM,
+                "hard_derivative": hard,
+                "soft_derivative": soft,
+                "sum_derivative": total,
+                "reference_sum": target,
+                "Pi_at_mh_GeV2": total*MH**2,
+            })
+    return rows
+
 def scalar_portal_diagnostic():
     lamH = MH**2/(2*VH**2)
     rows = []
@@ -184,6 +217,17 @@ def main():
         print(
             f"  leading-log self-energy shift at p^2=m_h^2="
             f"{row['leading_log_Pi_shift_GeV2']:+.12e} GeV^2"
+        )
+
+    print("\nFIXED-MASS FACTOR-TWO MATCHING/SUBTRACTION-SCALE DIAGNOSTIC")
+    print("M_E is held fixed; hard and soft terms are evaluated at the same mu.")
+    for row in scale_variation_diagnostic():
+        print(
+            f"{row['benchmark']} mu={row['muM_GeV']/1000.0:.1f} TeV: "
+            f"hard={row['hard_derivative']:+.12e}, "
+            f"soft={row['soft_derivative']:+.12e}, "
+            f"sum={row['sum_derivative']:+.12e}, "
+            f"Pi(m_h)={row['Pi_at_mh_GeV2']:+.12e} GeV^2"
         )
 
     print("\nSCALAR-ONLY PORTAL RUNNING DIAGNOSTIC")
