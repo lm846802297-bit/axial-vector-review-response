@@ -57,13 +57,19 @@ def canonical_lorentz_kernels():
     A_FS = finite_uv_expansion(A_FS_raw)
     A_SS = finite_uv_expansion(A_SS_raw)
 
-    # Independently check the exact d-dependent angular coefficients.
-    assert sp.simplify(c_ff_J.subs(d, 4-2*eps)
-                       - (1-sp.Rational(3,2)*eps)) .subs(eps, 0) == 0
-    assert sp.simplify(c_ff_K.subs(d, 4-2*eps)
-                       - (1-sp.Rational(1,2)*eps)) .subs(eps, 0) == 0
-    assert sp.simplify(c_fs_K.subs(d, 4-2*eps)
-                       + (sp.Rational(1,2)+eps/4)) .subs(eps, 0) == 0
+    # Independently check the exact d-dependent angular coefficients through O(eps).
+    assert sp.simplify(
+        sp.series(c_ff_J, eps, 0, 2).removeO()
+        - (1-sp.Rational(3,2)*eps)
+    ) == 0
+    assert sp.simplify(
+        sp.series(c_ff_K, eps, 0, 2).removeO()
+        - (1-sp.Rational(1,2)*eps)
+    ) == 0
+    assert sp.simplify(
+        sp.series(c_fs_K, eps, 0, 2).removeO()
+        + (sp.Rational(1,2)+eps/4)
+    ) == 0
     assert sp.simplify(c_ss_J-c_fs_J) == 0
     assert sp.simplify(c_ss_K-c_fs_K) == 0
 
