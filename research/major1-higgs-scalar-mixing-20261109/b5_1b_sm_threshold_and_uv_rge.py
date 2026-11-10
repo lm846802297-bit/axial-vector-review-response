@@ -14,7 +14,10 @@ import numpy as np
 import sympy as sp
 from scipy.integrate import solve_ivp
 from scipy.optimize import brentq
-from b5_1b_complex_singlet_yukawa_beta_audit import derive_yukawa_beta
+from b5_1b_complex_singlet_yukawa_beta_audit import (
+    derive_yukawa_beta,
+    derive_higgs_doublet_vll_yukawa_beta,
+)
 
 PI = math.pi
 MT = 172.56
@@ -199,7 +202,10 @@ def symbolic_checks():
     lm, lt, beta_lm, beta_lt = derive_yukawa_beta()
     assert sp.simplify(beta_lm-lm*(2*lm**2+lt**2)) == 0
     assert sp.simplify(beta_lt-lt*(2*lt**2+lm**2)) == 0
-    return pure, mixed, bX, bY, beta_lm, beta_lt
+    ym, yt, beta_ym, beta_yt = derive_higgs_doublet_vll_yukawa_beta()
+    assert sp.simplify(beta_ym-ym*(sp.Rational(5,2)*ym**2+yt**2)) == 0
+    assert sp.simplify(beta_yt-yt*(sp.Rational(5,2)*yt**2+ym**2)) == 0
+    return pure, mixed, bX, bY, beta_lm, beta_lt, beta_ym, beta_yt
 
 
 def main():
@@ -222,6 +228,7 @@ def main():
         print(f"\nBENCHMARK {bname}")
         p0 = initial_uv(bname, 100.0, sm)
         dy0 = uv_rhs(0.0, np.array([p0[k] for k in KEYS]))
+        print(f"  beta_y_mu={dy0[5]:+.9e} beta_y_tau={dy0[6]:+.9e}")
         print(f"  beta_lambda_mu={dy0[7]:+.9e} "
               f"beta_lambda_tau={dy0[8]:+.9e}")
         for ms in (10.0, 50.0, 100.0, 150.0):
@@ -255,7 +262,7 @@ def main():
                   f"mu={ME*math.exp(root):.6f} GeV")
             break
 
-    print("\nSYMBOLIC CHECKS (pure CW quartic, mixed CW portal, bX, bY, singlet Yukawa matrix):",
+    print("\nSYMBOLIC CHECKS (CW thresholds, bX/bY, Higgs and singlet VLL Yukawa matrices):",
           symbolic_checks())
     print("PASS: threshold evolution and one-loop coupled UV system completed.")
     print("LIMIT: one-loop leading-log only; independent RGE-generator and "
