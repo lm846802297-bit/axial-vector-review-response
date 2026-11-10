@@ -80,11 +80,9 @@
   "composition_checks": {
     "max_relative_free_neutron_deviation": 4.440892098500626e-16,
     "max_relative_free_proton_deviation": 4.440892098500626e-16,
-    "fraction_of_cells_with_nuclei": 0.7368605387731071,
     "unique_nuclei": 8140,
     "max_A": 339,
-    "physical_cells": 1521828,
-    "cells_with_nuclei": 1121375
+    "nuclei_fraction_note": "The audit code now computes this statistic over the 308 physical density rows only. The updated whole-table value is intentionally not asserted in this fixture-based follow-up because the raw composition archive was not re-read here."
   },
   "single_particle_checks": {
     "columns": [

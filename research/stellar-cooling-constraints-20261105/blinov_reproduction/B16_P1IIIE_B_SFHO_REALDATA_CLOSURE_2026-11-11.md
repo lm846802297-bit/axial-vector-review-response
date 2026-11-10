@@ -114,10 +114,12 @@ check used in the reader.
 | minimum entropy | \(1.35\times10^{-3}\,k_B\) |
 | minimum pressure | \(3.18\times10^{-12}\) MeV fm\(^{-3}\) |
 | composition \(n_n\) vs \(X_n n_B(\hbar c)^3\) | \(\max|{\rm rel}|=4.44\times10^{-16}\) |
-| cells containing nuclei (physical 308-row grid only) | 0.73686 |
+
 | nuclide table | 8140 nuclides, \(2\le A\le339\) |
 | SPP \(T\) and \(n_B\) vs extended table | \(\max|{\rm rel}|=3.61\times10^{-7}\) (ASCII rounding) |
 | SPP ranges | \(\xi\in[0.5206,1]\), \(m_n^*\in[165.72,939.565]\), \(m_p^*\in[164.43,938.272]\), \(\Sigma_{V,n}^{\rm tot}\in[-2.4\times10^{-8},2517.714]\), \(\Sigma_{V,p}^{\rm tot}\in[-5.08,2517.714]\) MeV |
+
+The nuclei-containing-cell fraction is now computed with the 308-row physical mask in the audit code. Its updated whole-table numerical value is not claimed here because the raw composition archive was not re-read during this follow-up.
 
 The composition-table free-nucleon densities reproduce the extended-table mass
 fractions to machine precision, so the two archives are mutually consistent and
