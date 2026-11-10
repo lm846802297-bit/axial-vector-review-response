@@ -8,6 +8,8 @@ from audit_b16_p1iii_eos_nucleon_distribution import (
     HBARC_MEV_FM,
     NucleonEOSState,
     aggregate_profile_rows,
+    infer_filling_factor_from_global_densities,
+    solve_effective_chemical_potential_from_density,
     state_from_hs_spp,
     degeneracy_factor,
     degeneracy_factor_from_density_derivative,
@@ -187,6 +189,29 @@ class TestGarchingEOSNucleonDistribution(unittest.TestCase):
                 - (mu_nonrel + m_vac)
             )
             np.testing.assert_allclose(lhs, rhs, rtol=0.0, atol=5e-13)
+
+    def test_filling_factor_from_global_composition(self):
+        n_b = 0.15
+        n_n = 0.12
+        n_p = 0.01
+        expected = 1.0 - (n_b - n_n - n_p) / 0.1583
+        self.assertAlmostEqual(
+            infer_filling_factor_from_global_densities(n_b, n_n, n_p),
+            expected,
+            places=14,
+        )
+        with self.assertRaises(ValueError):
+            infer_filling_factor_from_global_densities(0.10, 0.08, 0.03)
+
+    def test_effective_chemical_potential_density_inversion(self):
+        reference = NucleonEOSState("n", 8.0, 650.0, -25.0, 30.0)
+        nprime = number_density_fm3(reference, order=512)
+        nu = solve_effective_chemical_potential_from_density(
+            "n", 8.0, 650.0, nprime, order=512
+        )
+        self.assertAlmostEqual(
+            nu, reference.effective_chemical_potential_mev, places=8
+        )
 
     def test_invalid_state_is_rejected(self):
         with self.assertRaises(ValueError):
