@@ -179,3 +179,17 @@ The public Fig. 1 supplies only the density read-off to 20 km. The present expon
 2. G. G. Raffelt, H.-T. Janka, and D. F. G. Fiorillo, “Neutrinos from core-collapse supernovae,” 2025 review manuscript, p. 5, discussion of neutrino mean free paths and heavy-flavor transport/energy spheres.
 3. N. Blinov et al., “\(L_\mu-L_\tau\) gauge bosons in beam dumps and supernovae,” JHEP 06 (2026) 155, arXiv:2511.09619, Appendix B.
 4. K.-C. Lai, C. S. J. Leung, and G.-L. Lin, Phys. Rev. D 110, 103023 (2024), arXiv:2401.16023.
+
+
+## 9. P1-H full B.2 band propagation follow-up
+
+P1-H has now inserted the P1-G daughter-energy survival proxy into the actual B.2 vector-ray integral, rather than using only the radial shell average. The literal B.1 source and scalar B.2 opacity inside 25 km are held fixed; only the outer \(V\to\nu\bar\nu\) opacity is multiplied by \(1-P_{\rm pair}^{E}(\omega,r)\).
+
+The full 210--510 MeV band changes by:
+- \(-4.14\%\) for the central equal-polarization tail;
+- \(-10.60\%\) for the high-density equal-polarization tail;
+- \(-0.33\%\) for the low-density equal-polarization tail.
+
+The band-only total proxies remain \(+86.87\%\), \(+78.21\%\), and \(+91.98\%\) above Fig. 7, respectively. This contrasts with the \(-70.94\%\) band change from the sharp full-opacity 30 km extension. The sharp-boundary near-match is therefore not reproduced by the smooth transport-only model.
+
+The B.1 source, \(R_{\max}=25\) B.2 band, and sharp \(R_{\max}=30\) band close to the archived P1-C/P1-D results at \(1.9\times10^{-11}\), \(5.0\times10^{-12}\), and \(5.5\times10^{-12}\). The full energy-sphere calculation remains unavailable, but the public-density smooth transport estimate does not explain the strong-endpoint discrepancy. See \`B16_P1H_SMOOTH_DAUGHTER_REPROCESSING_B2_2026-11-10.md\`.
