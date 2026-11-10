@@ -465,3 +465,14 @@ This closes the order-classification/census step, not the loop calculation itsel
 Added `RXI_GAUGE_FIXING_A1_2026-11-10.md`. It fixes the charged/neutral electroweak and (U(1)_X) gauge-fixing functions, Goldstone masses, and cancellation of the gauge--Goldstone quadratic mixings. It defines the full Faddeev--Popov operator as the functional derivative of the gauge-fixing map under the nonlinear gauge transformations. The field-dependent ghost vertices are intentionally deferred to A2, rather than assigning an unverified sign/coefficient.
 
 A1 is a Lagrangian setup step only. It does not yet provide the full ghost vertex expansion, loop integrals, or gauge-independent self-energies.
+
+
+## 2026-11-10 — A2 gauge-basis scalar/ghost vertex ledger
+
+Added `A2_SCALAR_GAUGE_GHOST_VERTEX_LEDGER_2026-11-10.md`, the SymPy audit script, and its output. The symbolic audit checks all nonzero cubic and quartic derivatives of the original (H,S) potential, the (hWW,hZZ,sA'A') and quartic gauge-boson vertices, and the radial scalar dependence of the FP operators.
+
+A normalization error in the first A1 draft was corrected: since (m_X=2g_Xv_S), the (sar c_Xc_X) coefficient is (-\xi_Xm_X^2/v_S=-2\xi_Xm_Xg_X), not (-\xi_Xm_Xg_X). A1's scalar gauge-transformation signs were aligned with the (D_\mu=\partial_\mu+ig_AT^AA_\mu^A) convention.
+
+A2 also corrected the earlier diagram census. In the gauge basis, (h) couples to (W,Z) and electroweak ghosts, while (s) couples to (A') and the (X) ghost. There is no common vector or ghost species, hence no one-loop (hs) vector/ghost bubble. These sectors contribute to diagonal (hh) and (ss) entries. The next-combined-order one-loop-topology (hs) subset consists of scalar/Goldstone bubbles; its pre-counterterm UV coupling combination is proportional to (\lambda_{HS}vv_S(6\lambda_H+4\lambda_S)).
+
+The full component expansion of non-Abelian ghost-vector/off-diagonal entries, PV integration, tadpole/counterterm closure, and gauge-parameter cancellation remain open. No complete physical self-energy or pole is claimed.
