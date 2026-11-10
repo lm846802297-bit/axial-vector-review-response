@@ -21,6 +21,8 @@ from scipy.special import expit
 
 HBARC_MEV_FM = 197.3269804
 MASS_SPLITTING_MEV = 1.2933
+NEUTRON_MASS_MEV = 939.565346
+PROTON_MASS_MEV = 938.272013
 TABLE_TARGETS = {
     "T3": {"p": 0.80, "n": 0.48},
     "rhoT52": {"p": 0.77, "n": 0.42},
@@ -58,6 +60,41 @@ class NucleonEOSState:
     def effective_chemical_potential_mev(self) -> float:
         # U and mu_star enter the occupation only through this difference.
         return self.chemical_potential_star_mev - self.scalar_potential_mev
+
+
+def candidate_state_from_hs_spp(
+    species: str,
+    temperature_mev: float,
+    effective_mass_mev: float,
+    total_vector_self_energy_mev: float,
+    chemical_potential_nonrel_mev: float,
+) -> NucleonEOSState:
+    """Map Hempel SFHo single-particle table fields to the Fiorillo convention.
+
+    Assumption to be tested against the Garching tabulated U_N:
+      E_N(p) = sqrt(p^2 + m_star^2) + Sigma_V,N^tot
+      mu_N^nonrel = mu_N - m_N
+
+    Then U_N = m_star - m_N + Sigma_V,N^tot and mu_N^* = mu_N^nonrel.
+    The excluded-volume filling factor xi remains a separate input; it is
+    never absorbed into U_N or mu_N^*.
+    """
+    if species == "n":
+        vacuum_mass = NEUTRON_MASS_MEV
+    elif species == "p":
+        vacuum_mass = PROTON_MASS_MEV
+    else:
+        raise ValueError("species must be 'n' or 'p'")
+    potential = (
+        effective_mass_mev - vacuum_mass + total_vector_self_energy_mev
+    )
+    return NucleonEOSState(
+        species=species,
+        temperature_mev=temperature_mev,
+        effective_mass_mev=effective_mass_mev,
+        scalar_potential_mev=potential,
+        chemical_potential_star_mev=chemical_potential_nonrel_mev,
+    )
 
 
 @lru_cache(maxsize=16)
@@ -110,8 +147,8 @@ def phase_space_integrals(
     """Return (n_prime, n_prime_blocked) in MeV^3, including spin degeneracy g_s=2.
     n_prime is the nucleon density per available volume V', not per total volume V.
 
-    n = 2 int d^3p/(2 pi)^3 f(p)
-    n_blocked = 2 int d^3p/(2 pi)^3 f(p) [1-f(p)]
+    n_prime = 2 int d^3p/(2 pi)^3 f(p)
+    n_prime_blocked = 2 int d^3p/(2 pi)^3 f(p) [1-f(p)]
     """
     p, wp = _momentum_quadrature(state, order, tail_T)
     f = occupation(p, state)
@@ -145,7 +182,7 @@ def degeneracy_factor_from_density_derivative(
     tail_T: float = 45.0,
     step_fraction: float = 2.0e-4,
 ) -> float:
-    """Independent finite-difference check of F = T/n * partial n/partial nu.
+    """Independent finite-difference check of F = T/n_prime * partial n_prime/partial nu.
 
     The derivative is taken at fixed T, m_star, and U. Since nu=mu_star-U,
     varying mu_star at fixed U is equivalent to varying nu.
