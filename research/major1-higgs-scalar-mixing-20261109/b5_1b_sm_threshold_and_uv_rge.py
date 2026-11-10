@@ -255,7 +255,7 @@ def main():
                   f"mu={ME*math.exp(root):.6f} GeV")
             break
 
-    print("\nSYMBOLIC CHECKS (pure CW quartic, mixed CW portal, bX, bY):",
+    print("\nSYMBOLIC CHECKS (pure CW quartic, mixed CW portal, bX, bY, singlet Yukawa matrix):",
           symbolic_checks())
     print("PASS: threshold evolution and one-loop coupled UV system completed.")
     print("LIMIT: one-loop leading-log only; independent RGE-generator and "
