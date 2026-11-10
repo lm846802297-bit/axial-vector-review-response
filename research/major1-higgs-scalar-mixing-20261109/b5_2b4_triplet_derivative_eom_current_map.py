@@ -5,6 +5,7 @@ import sympy as sp
 I = sp.I
 g2 = sp.symbols("g2", real=True)
 C_LD = sp.symbols("C_LD", real=True)
+DeltaUV, L = sp.symbols("DeltaUV L", real=True)
 eps3 = sp.LeviCivita
 
 SIGMA = (
@@ -173,17 +174,28 @@ def triplet_adjoint_contact_check():
 
 def box_to_current_coefficients():
     """Map the raw WW T3 box coefficient through the triplet EOM identity."""
-    # C3 = (3/4) * g2^2/(16 pi^2) * C_LD.
-    C3 = sp.Rational(3, 4)*g2**2*C_LD/(16*sp.pi**2)
+    # Exact-routing B5-2B3R coefficient, before the full EFT counterterm sum.
+    base = g2**2*C_LD/(16*sp.pi**2)
+    C3 = (
+        sp.Rational(3,8)*DeltaUV
+        -sp.Rational(3,8)*L
+        +sp.Rational(11,16)
+    )*base
     delta_C_HL1 = -sp.Rational(3,4)*C3
     delta_C_HL3 = +sp.Rational(1,4)*C3
     delta_E1 = +sp.Rational(3,4)*C3
     delta_E3 = -sp.Rational(1,4)*C3
 
-    assert sp.simplify(delta_C_HL1 + sp.Rational(9,16)*g2**2*C_LD/(16*sp.pi**2)) == 0
-    assert sp.simplify(delta_C_HL3 - sp.Rational(3,16)*g2**2*C_LD/(16*sp.pi**2)) == 0
-    assert sp.simplify(delta_E1 - sp.Rational(9,16)*g2**2*C_LD/(16*sp.pi**2)) == 0
-    assert sp.simplify(delta_E3 + sp.Rational(3,16)*g2**2*C_LD/(16*sp.pi**2)) == 0
+    expected_HL1 = -(
+        sp.Rational(9,32)*DeltaUV-sp.Rational(9,32)*L+sp.Rational(33,64)
+    )*base
+    expected_HL3 = (
+        sp.Rational(3,32)*DeltaUV-sp.Rational(3,32)*L+sp.Rational(11,64)
+    )*base
+    assert sp.simplify(delta_C_HL1-expected_HL1) == 0
+    assert sp.simplify(delta_C_HL3-expected_HL3) == 0
+    assert sp.simplify(delta_E1+expected_HL1) == 0
+    assert sp.simplify(delta_E3+expected_HL3) == 0
     return {
         "C3": C3,
         "delta_C_HL1": delta_C_HL1,
@@ -206,10 +218,10 @@ def main():
     print("PASS: both H^dagger sigma^I L and bar L sigma^I H transform in the same real adjoint.")
     print("PASS: symmetrized Q_LD^(3) has the nonzero -i g2 eps^{aIJ} W^a bar C^I gamma C^J contact.")
     print("PASS: the triplet contact equals the gauge-field part of -O_HL^(1)+E_L^(1)-Q_LD.")
-    print("Raw box coefficient C3 = 3 g2^2 C_LD/(64 pi^2)")
-    print("delta C_HL^(1) = -9 g2^2 C_LD/(256 pi^2)")
-    print("delta C_HL^(3) = +3 g2^2 C_LD/(256 pi^2)")
-    print("EOM-source companions: delta E_L^(1)=+9/4 C3; delta E_L^(3)=-1/4 C3.")
+    print("Exact-routing box coefficient C3 = (3 Delta_UV/8 - 3 L/8 + 11/16) g2^2 C_LD/(16 pi^2)")
+    print("delta C_HL^(1) = (-9 Delta_UV/32 + 9 L/32 - 33/64) g2^2 C_LD/(16 pi^2)")
+    print("delta C_HL^(3) = (+3 Delta_UV/32 - 3 L/32 + 11/64) g2^2 C_LD/(16 pi^2) [Pauli normalization]")
+    print("EOM-source companions: delta E_L^(1)=+3/4 C3; delta E_L^(3)=-1/4 C3.")
     print("LIMIT: these are the four-cross-box subset only; LSZ, counterterms and Ward completion remain open.")
 
 
