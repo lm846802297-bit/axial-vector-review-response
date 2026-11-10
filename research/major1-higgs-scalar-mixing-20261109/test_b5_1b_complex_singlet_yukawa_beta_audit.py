@@ -20,7 +20,7 @@ class ComplexSingletYukawaBetaTests(unittest.TestCase):
 
     def test_flavor_exchange_symmetry(self):
         lm, lt, beta_mu, beta_tau = derive_yukawa_beta()
-        self.assertEqual(sp.simplify(beta_mu.subs({lm: lt, lt: lm})-beta_tau), 0)
+        self.assertEqual(sp.simplify(beta_mu.subs({lm: lt, lt: lm}, simultaneous=True)-beta_tau), 0)
 
 
 if __name__ == "__main__":
