@@ -64,5 +64,5 @@ The one-loop inhomogeneous \(C_5C_5^\ast\) contribution to \(\beta_{c_{\partial 
 
 - The \(C_5C_5^\ast\) derivative-operator pole, its inhomogeneous beta contribution, and the restricted hard/soft leading-log cancellation are derived.
 - The complete one-loop UV portal beta is analytically derived at the common-threshold \(\chi(M_E)=0\) boundary. B5-1b now fixes a PDG-2025-based SM input scheme, runs to \(M_E\), and evaluates the coupled one-loop UV system upward; this is a first-pass result pending independent RGE-generator and higher-order checks.
-- The complete EFT anomalous-dimension matrix and multiplicative (c_{\partial HS}) running remain open. B5-2A has closed only the (C_5C_5^\ast) hard current/4-fermion matching subblock and the quartic EOM kernel.
+- The complete EFT anomalous-dimension matrix and multiplicative \(c_{\partial HS}\) running remain open. B5-2A has closed only the \(C_5C_5^\ast\) hard current/4-fermion matching subblock and the quartic EOM kernel.
 - The archived \(0.1421\%\) Plan-C-lite residual remains open; the restricted leading-log cancellation does not by itself explain it.
