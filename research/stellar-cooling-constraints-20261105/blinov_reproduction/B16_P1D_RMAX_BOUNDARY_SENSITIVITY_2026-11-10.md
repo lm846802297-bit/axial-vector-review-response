@@ -145,3 +145,9 @@ The exact energy sphere still requires same-snapshot energy-changing collision k
 
 
 The additional radial-only diagnostic in P1-G finds that the central-tail reprocessing fraction averaged over the 25--30 km shell is \(8.91\%\) across the ten vector-energy nodes (node range \(3.91\%\)--\(16.05\%\)); the low/high tail means are \(0.736\%\) and \(22.20\%\). This is not a source- or angle-weighted B.2 integral, but it confirms that the full vacuum-limit P1-D extension is an extreme upper bound rather than a smooth physical prediction.
+
+## 11. P1-H smooth B.2 integration result
+
+P1-H replaces the full outer vacuum-limit opacity with the transport-only smooth factor \(1-P_{\rm pair}^{E}(\omega,r)\) and performs the full source-radius, energy, angular, and vector-chord integration in the 210--510 MeV band. The central equal-polarization tail changes the band by only \(-4.14\%\); the high-density tail by \(-10.60\%\); the low-density tail by \(-0.33\%\). The corresponding band-only total proxies remain \(+86.87\%\), \(+78.21\%\), and \(+91.98\%\) above Fig. 7.
+
+Thus the sharp \(R_{\max}=30\) km extension, which suppresses the band by \(70.94\%\), is an extreme upper-bound prescription. Its apparent near-match to Fig. 7 is not reproduced by the smooth public-density transport model. The strong-endpoint discrepancy remains unresolved. See \`B16_P1H_SMOOTH_DAUGHTER_REPROCESSING_B2_2026-11-10.md\`.
