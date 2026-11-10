@@ -99,7 +99,13 @@ The \(g_X^2\) terms cancel in the \(C_{LD}\) parameter-only combination because 
 
 ### 2.1 Gauge-only running implied by these poles
 
-For the dimensionful Wilson coefficients in the four-dimensional limit, twice the simple-pole residue gives the gauge part of the parameter-induced beta function:
+Both \(C_5\) and \(C_{LD/RD}\) contain two UV Yukawa factors. In \(d=4-2\epsilon\), write the corresponding bare matching coefficient as
+\[
+C_0=\mu^{2\epsilon}Z_C C,\qquad
+Z_C=1+\frac{z_C}{16\pi^2\epsilon}+\cdots .
+\]
+Differentiating at fixed bare parameters gives the four-dimensional anomalous part
+\(\left.\beta_C/C\right|_{\rm gauge}=2z_C/(16\pi^2)\). The formulas below are for the dimensionful Wilson coefficients; canonical scaling is not included. If dimensionless coefficients \(\widetilde C_5=\mu C_5\) and \(\widetilde C_6=\mu^2C_6\) are used instead, their beta functions also contain the corresponding \(+1\) and \(+2\) canonical terms.
 \[
 \boxed{
 16\pi^2\frac{\left.\beta_{C_{5,\ell}}\right|_{\rm param,g}}{C_{5,\ell}}
