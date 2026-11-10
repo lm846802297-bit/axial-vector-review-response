@@ -21,12 +21,12 @@ and documented in ``B16_P1IIIE_B_SFHO_REALDATA_CLOSURE_2026-11-11.md``):
 
 Inside that domain the closure residual stays below 1e-3 for both species
 (audited maxima: 6.13e-4 neutron, 8.86e-5 proton for X_p >= 1e-6).
-Outside it, at T = 63.096 MeV with nB <= 1e-4 fm^-3 (16 of 224 cells), the
-tabulated single-particle state saturates: mu*_N/T sticks at -14.891 and the
-reconstructed free-nucleon density freezes at 9.19e-8 fm^-3, so the residual
-grows like 1/(X_N n_B) up to ~1.4e5.  That corner is a resolution limit of the
-table, not a convention error, and it is asserted below instead of being skipped
-silently.
+Outside it, 16 cells remain at T = 63.096 MeV and nB = 1.10e-12, 1e-10,
+1e-8, or 1e-6 fm^-3 (four Yp values at each density). All have X_n+X_p=1,
+but they do not all share the same chemical-potential floor: only the eight
+lowest-density cells show the clear n'_n plateau; the 1e-8 cells are transitional,
+and the 1e-6 cells are much closer to density closure while still outside the
+1e-3 acceptance threshold. The tests keep these regimes distinct.
 """
 
 from __future__ import annotations
@@ -37,9 +37,15 @@ import tempfile
 import unittest
 from pathlib import Path
 
+import numpy as np
+
 from audit_b16_p1iii_eos_nucleon_distribution import (
+    HBARC_MEV_FM,
+    MASS_SPLITTING_MEV,
     aggregate_profile_rows,
     load_profile_csv,
+    phase_space_integrals,
+    state_from_hs_spp,
 )
 
 HERE = Path(__file__).resolve().parent
@@ -104,8 +110,8 @@ class TestRealDataClosureFixture(unittest.TestCase):
         )
 
     def test_floor_cells_are_pure_nucleon_matter(self) -> None:
-        # The corner that fails is not cluster-dominated matter: the neutron
-        # fraction is exactly 0.8 and X_n + X_p = 1 there.
+        # The lowest two density rows are nucleon-only, but their composition
+        # follows the four tabulated Yp values rather than a fixed (0.8, 0.2).
         floor = [
             row
             for row in self.rows
@@ -114,7 +120,11 @@ class TestRealDataClosureFixture(unittest.TestCase):
         ]
         self.assertEqual(len(floor), 8)
         for row in floor:
-            self.assertGreater(_float(row, "X_n") + _float(row, "X_p"), 0.99)
+            self.assertAlmostEqual(
+                _float(row, "X_n") + _float(row, "X_p"), 1.0, delta=1e-8
+            )
+            self.assertAlmostEqual(_float(row, "X_p"), _float(row, "Yp_tot"), delta=1e-8)
+            self.assertAlmostEqual(_float(row, "X_n"), 1.0 - _float(row, "Yp_tot"), delta=1e-8)
 
     def test_xi_equals_the_excluded_volume_identity(self) -> None:
         # xi = 1 - (nB - X_n nB - X_p nB)/n0, i.e. the SPP filling factor is the
@@ -174,6 +184,14 @@ class TestRealDataClosureFixture(unittest.TestCase):
         spread = (max(densities) - min(densities)) / min(densities)
         self.assertLess(spread, FLOOR_FREEZE_TOLERANCE)
         for row in floor:
+            state = state_from_hs_spp(
+                "n", _float(row, "T_MeV"), _float(row, "mstar_n_MeV"),
+                _float(row, "SigmaV_n_MeV"), _float(row, "mu_nonrel_n_MeV")
+            )
+            self.assertLess(
+                abs(state.effective_chemical_potential_mev / _float(row, "T_MeV") + 14.891),
+                5e-4,
+            )
             self.assertGreater(
                 abs(_float(row, "ratio_n") - 1.0), FLOOR_MINIMUM_RATIO
             )
@@ -188,6 +206,64 @@ class TestRealDataClosureFixture(unittest.TestCase):
         self.assertLess(min(_float(row, "Fdeg_n") for row in self.rows), 1e-3)
         self.assertLess(min(_float(row, "Fdeg_p") for row in self.rows), 1e-3)
 
+    def test_outside_domain_has_three_distinct_regimes(self) -> None:
+        outside = [row for row in self.rows if not _in_validity_domain(row)]
+        self.assertEqual(len(outside), 16)
+        by_k = {
+            k: [row for row in outside if int(_float(row, "k_index")) == k]
+            for k in (1, 50, 100, 150)
+        }
+        self.assertTrue(all(len(group) == 4 for group in by_k.values()))
+        for row in outside:
+            self.assertAlmostEqual(
+                _float(row, "X_n") + _float(row, "X_p"), 1.0, delta=1e-8
+            )
+            self.assertAlmostEqual(
+                _float(row, "X_p"), _float(row, "Yp_tot"), delta=1e-8
+            )
+        for k in (1, 50):
+            self.assertGreater(min(_float(r, "ratio_n") for r in by_k[k]), 1e2)
+            self.assertGreater(min(_float(r, "ratio_p") for r in by_k[k]), 1e2)
+        self.assertTrue(all(10.0 < _float(r, "ratio_n") < 16.0 for r in by_k[100]))
+        self.assertTrue(all(20.0 < _float(r, "ratio_p") < 100.0 for r in by_k[100]))
+        self.assertTrue(all(1.0 < _float(r, "ratio_n") < 1.03 for r in by_k[150]))
+        self.assertTrue(all(1.05 < _float(r, "ratio_p") < 1.57 for r in by_k[150]))
+
+    def test_real_eos_quadrature_converges_1024_to_2048(self) -> None:
+        # The old 512-node rule under-resolved the narrow f(1-f) shell at
+        # T=0.1 MeV and high density. The fixture now stores 1024-node values.
+        for row in self.rows:
+            for species in ("n", "p"):
+                state = state_from_hs_spp(
+                    species,
+                    _float(row, "T_MeV"),
+                    _float(row, f"mstar_{species}_MeV"),
+                    _float(row, f"SigmaV_{species}_MeV"),
+                    _float(row, f"mu_nonrel_{species}_MeV"),
+                )
+                n1024, blocked1024 = phase_space_integrals(state, order=1024)
+                n2048, blocked2048 = phase_space_integrals(state, order=2048)
+                f1024 = blocked1024 / n1024
+                f2048 = blocked2048 / n2048
+                nprime1024 = n1024 / HBARC_MEV_FM**3
+                self.assertLess(abs(f1024 - _float(row, f"Fdeg_{species}")), 5e-10)
+                self.assertLess(abs(f1024 - f2048), 1e-7)
+                self.assertLess(abs(n1024 / n2048 - 1.0), 2e-8)
+                self.assertLess(
+                    abs(nprime1024 / _float(row, f"nprime_{species}_fm3") - 1.0),
+                    2e-9,
+                )
+
+    def test_effective_mass_splitting_matches_the_sfho_table(self) -> None:
+        residuals = [
+            abs(
+                (_float(row, "mstar_n_MeV") - _float(row, "mstar_p_MeV"))
+                - MASS_SPLITTING_MEV
+            )
+            for row in self.rows
+        ]
+        self.assertLess(max(residuals), 1e-4)
+
     def test_kernel_reproduces_the_closure_from_the_fixture_csv(self) -> None:
         # End-to-end: the committed CSV goes through the profile loader and the
         # kernel's own ensemble aggregation, without any table access.
@@ -199,7 +275,7 @@ class TestRealDataClosureFixture(unittest.TestCase):
                 writer.writeheader()
                 writer.writerows(inside)
             payload = aggregate_profile_rows(
-                load_profile_csv(filtered), order=256
+                load_profile_csv(filtered), order=1024
             )
         self.assertEqual(len(payload["local_rows"]), 208)
         residuals = payload["max_relative_density_closure_residual"]
@@ -248,6 +324,17 @@ class TestOfficialTablesWhenAvailable(unittest.TestCase):
         stored = self.extended.entry("nB_fm3")
         self.assertTrue((stored[:, :, 308:] == 0.0).all())
         self.assertTrue((stored[:, :, :308] > 0.0).all())
+
+    def test_spp_proton_fraction_and_density_match_extended_table(self) -> None:
+        from sfho_eos_tables import NB_PHYSICAL
+
+        spp_yp = self.single_particle.column("Yp_tot")[:, :, :NB_PHYSICAL]
+        ext_yp = self.extended.entry("Yp_tot")[:, 1:, :NB_PHYSICAL]
+        self.assertLess(float(np.abs(spp_yp - ext_yp).max()), 1e-8)
+
+        spp_nb = self.single_particle.column("nB_fm3")[:, :, :NB_PHYSICAL]
+        ext_nb = self.extended.entry("nB_fm3")[:, 1:, :NB_PHYSICAL]
+        self.assertLess(float(np.abs(spp_nb / ext_nb - 1.0).max()), 1e-7)
 
     def test_audited_cells_are_reproducible_from_the_tables(self) -> None:
         from audit_b16_p1iii_eos_sfho_realdata_closure import closure_cell
@@ -339,6 +426,7 @@ class ArchiveManifestTests(unittest.TestCase):
         )["provenance"]
         archives = provenance["archive_sha256"]
         manifest = self._manifest()
+        self.assertEqual(set(archives), set(manifest))
         for name, digest in archives.items():
             with self.subTest(archive=name):
                 self.assertEqual(len(digest), 64)

@@ -27,8 +27,8 @@ Grid (manual Secs. 2-4)::
     nB  = 1e-12 * 10**(0.04*(k-1)) fm^-3     k = 1..326  (1e-12 .. 10)
 
 SFHo-specific caveat: the field equations have no solution above
-``nB = 1.905 fm^-3``, so every k >= 309 entry of every table is exactly
-zero and the composition module returns immediately (``if (k.ge.309)
+``nB = 1.905 fm^-3``, so the extended thermodynamic and composition payloads have no physical
+solution for Fortran k >= 309; the composition module returns immediately (``if (k.ge.309)
 return``).  Never average closure residuals over those entries.
 """
 from __future__ import annotations
@@ -41,9 +41,12 @@ from pathlib import Path
 import numpy as np
 
 HQC_MEV_FM = 197.3269631
+# Hempel's EOS-internal conversion used for the composition-table MeV^3
+# columns. The occupation kernel separately uses its physical HBARC_MEV_FM.
 HQC3_MEV3 = HQC_MEV_FM**3
-NEUTRON_MASS_MEV = 939.565379
-PROTON_MASS_MEV = 938.272046
+# Vacuum masses used by the Hempel-to-Fiorillo occupation mapping.
+NEUTRON_MASS_MEV = 939.565346
+PROTON_MASS_MEV = 938.272013
 AMU_MEV = 931.49432
 # nb0 = 0.15824150805 * hqc^3 is the saturation density used by the
 # distributed Hempel/Lattimer-Swesty excluded-volume module.

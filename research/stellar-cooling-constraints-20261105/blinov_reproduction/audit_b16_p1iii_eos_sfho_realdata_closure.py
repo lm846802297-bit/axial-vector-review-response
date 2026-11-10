@@ -77,6 +77,9 @@ TABLE_FILES = {
 # SHA-256 of the official archives the tables were extracted from.  Recorded
 # so a reviewer can confirm the audited files are the published v1.03 data.
 ARCHIVE_SHA256 = {
+    "manual_v1.04.pdf": (
+        "0994abc5073853d35dd10ed6a0313be5c701ee7c47c268f2faa77f36bb4b5478"
+    ),
     "sfho_frdm_bin.zip": (
         "45479eaf46e1aa9b1ca3502baf4aaeea60ff0021a21d621f10a75eafb8b8949c"
     ),
@@ -146,7 +149,7 @@ def locate_tables(root: Path) -> dict[str, Path]:
 
 
 def closure_cell(ext: ExtendedEOS, spp: SPPTable, i: int, j: int, k: int,
-                 order: int = 512) -> dict:
+                 order: int = 1024) -> dict:
     """One local closure test; ``j`` is the extended-table Yp index (0..60)."""
     temperature = float(ext.temperature[i])
     nb = float(ext.nb[k])
@@ -250,7 +253,7 @@ def _summary(values: list[float]) -> dict:
 
 
 def audit(ext: ExtendedEOS, spp: SPPTable, comp: Composition,
-          order: int = 512) -> dict:
+          order: int = 1024) -> dict:
     nominal_nb = ext.nb
     nominal_ye = ext.ye
     stored_nb = ext.entry("nB_fm3")
@@ -280,6 +283,14 @@ def audit(ext: ExtendedEOS, spp: SPPTable, comp: Composition,
     spp_mstar_p = spp.column("mstar_p_MeV")
     spp_sigma_n = spp.column("SigmaV_n_tot_MeV")
     spp_sigma_p = spp.column("SigmaV_p_tot_MeV")
+    spp_yp = spp.column("Yp_tot")
+    spp_nb = spp.column("nB_fm3")
+    dev_spp_yp_vs_extended = np.abs(
+        spp_yp[:, :, physical] - stored_yp[:, 1:, physical]
+    )
+    dev_spp_nb_vs_extended = np.abs(
+        spp_nb[:, :, physical] / stored_nb[:, 1:, physical] - 1.0
+    )
 
     nn_comp = comp.comp[..., 6]
     np_comp = comp.comp[..., 7]
@@ -392,7 +403,11 @@ def audit(ext: ExtendedEOS, spp: SPPTable, comp: Composition,
             "max_relative_free_neutron_deviation": float(dev_nn.max()),
             "max_relative_free_proton_deviation": float(dev_np.max()),
             "fraction_of_cells_with_nuclei": float(
-                np.mean(comp.comp[..., 4] != 1.0)
+                np.mean(comp.comp[:, :, physical, 4] != 1.0)
+            ),
+            "physical_cells": int(comp.comp[:, :, physical, 4].size),
+            "cells_with_nuclei": int(
+                np.count_nonzero(comp.comp[:, :, physical, 4] != 1.0)
             ),
             "unique_nuclei": int(comp.az.shape[0]),
             "max_A": int(comp.az[:, 0].max()),
@@ -403,7 +418,16 @@ def audit(ext: ExtendedEOS, spp: SPPTable, comp: Composition,
                 np.abs(spp.temperature / ext.temperature - 1.0).max()
             ),
             "max_relative_baryon_density_deviation": float(
-                np.abs(spp.column("nB_fm3") / ext.nb[None, None, :] - 1.0).max()
+                np.abs(spp_nb / ext.nb[None, None, :] - 1.0).max()
+            ),
+            "max_absolute_Yp_deviation_vs_extended": float(
+                dev_spp_yp_vs_extended.max()
+            ),
+            "max_relative_nB_deviation_vs_extended": float(
+                dev_spp_nb_vs_extended.max()
+            ),
+            "max_absolute_Yp_grid_deviation": float(
+                np.abs(spp.ye - ext.ye[1:]).max()
             ),
             "xi_range": [float(spp_xi[:, :, physical].min()),
             float(spp_xi[:, :, physical].max())],
@@ -418,8 +442,16 @@ def audit(ext: ExtendedEOS, spp: SPPTable, comp: Composition,
         },
         "closure": {
             "definition": (
-                "xi * nprime_N(T, mstar_N, mu_nonrel_N - SigmaV_N) "
-                "== X_N * nB, with xi from the single-particle table"
+                "xi * nprime_N(T,mstar_N,nu_N) == X_N*nB, where "
+                "nu_N = mu_nonrel_N - (mstar_N - m_N + SigmaV_N_tot); "
+                "equivalently the relativistic exponent is "
+                "[sqrt(p^2+mstar_N^2)-mu_tilde_N]/T with "
+                "mu_tilde_N = mu_nonrel_N + m_N - SigmaV_N_tot. "
+                "xi is taken directly from the single-particle table."
+            ),
+            "validity_scope": (
+                "The stated validity domain is an empirical subset of the "
+                "224 sampled audit cells, not a proof over the continuous EOS grid."
             ),
             "quadrature_order": order,
             "grid": {
@@ -483,13 +515,13 @@ def audit(ext: ExtendedEOS, spp: SPPTable, comp: Composition,
     }
 
 
-def fixture_rows(ext: ExtendedEOS, spp: SPPTable) -> list[dict]:
+def fixture_rows(ext: ExtendedEOS, spp: SPPTable, order: int = 1024) -> list[dict]:
     """Profile-format rows in Hempel single-particle columns (real values)."""
     rows = []
     for i in CLOSURE_T:
         for j in CLOSURE_Y:
             for k in CLOSURE_K:
-                row = closure_cell(ext, spp, i, j, k)
+                row = closure_cell(ext, spp, i, j, k, order=order)
                 if "ratio_n" not in row:
                     continue
                 nb = row["nB_fm3"]
@@ -556,7 +588,7 @@ def main() -> int:
         default=HERE / "outputs" / f"p1iii_eos_sfho_realdata_closure_{DATE}.json",
     )
     parser.add_argument("--fixture", type=Path)
-    parser.add_argument("--order", type=int, default=512)
+    parser.add_argument("--order", type=int, default=1024)
     args = parser.parse_args()
 
     paths = locate_tables(args.tables_dir)
@@ -575,7 +607,7 @@ def main() -> int:
     )
 
     if args.fixture:
-        write_fixture(args.fixture, fixture_rows(ext, spp))
+        write_fixture(args.fixture, fixture_rows(ext, spp, order=args.order))
 
     print(json.dumps(
         {

@@ -50,7 +50,7 @@ SHA-256 of every file, and renames `<name>.part` only after both match;
 verification that this work actually relies on was run on 2026-11-11 against the
 local copies: `--verify-only` reports `OK` for all five files, and `--check-urls`
 reports HTTP 200 with a `Content-Length` equal to the recorded byte count for all
-five URLs, so the published objects are unchanged since the download. A real
+five URLs, this verifies endpoint reachability and advertised size, not the remote content hash. A real
 fetch of the smallest file (`--only manual`) was also exercised end to end. An
 offline test (`ArchiveManifestTests`) keeps the manifest and the downloader's
 `FILES` table in agreement, because a truncated hash is otherwise silent.
@@ -114,7 +114,7 @@ check used in the reader.
 | minimum entropy | \(1.35\times10^{-3}\,k_B\) |
 | minimum pressure | \(3.18\times10^{-12}\) MeV fm\(^{-3}\) |
 | composition \(n_n\) vs \(X_n n_B(\hbar c)^3\) | \(\max|{\rm rel}|=4.44\times10^{-16}\) |
-| cells containing nuclei | 0.75139 |
+| cells containing nuclei (physical 308-row grid only) | 0.73686 |
 | nuclide table | 8140 nuclides, \(2\le A\le339\) |
 | SPP \(T\) and \(n_B\) vs extended table | \(\max|{\rm rel}|=3.61\times10^{-7}\) (ASCII rounding) |
 | SPP ranges | \(\xi\in[0.5206,1]\), \(m_n^*\in[165.72,939.565]\), \(m_p^*\in[164.43,938.272]\), \(\Sigma_{V,n}^{\rm tot}\in[-2.4\times10^{-8},2517.714]\), \(\Sigma_{V,p}^{\rm tot}\in[-5.08,2517.714]\) MeV |
@@ -155,7 +155,7 @@ MeV, \(Y_p\in\{0.1,0.2,0.3,0.4\}\), and
 \(n_B\in\{1.10\times10^{-12},10^{-10},10^{-8},10^{-6},10^{-4},10^{-2},1\}\)
 fm\(^{-3}\), i.e. 224 cells. For each cell the tables supply
 \(m_N^*\), \(\Sigma_{V,N}^{\rm tot}\), \(\mu_N^{\rm nonrel}\) and \(\xi\); the
-occupation integral of P1-IIIe-A is evaluated with 512-node quadrature and
+occupation integral of P1-IIIe-A is evaluated with 1024-node quadrature and
 compared with \(X_N n_B\).
 
 **Validity domain.** All cells with
@@ -175,26 +175,37 @@ The proton restriction avoids ratios of denormal densities
 (\(X_p\sim10^{-81}\) in the most dilute cold cells, where both sides of the
 identity are meaningless but numerically still agree).
 
-**The 16 excluded cells** are all at \(T=63.096\) MeV with
-\(n_B\le10^{-4}\) fm\(^{-3}\), and they are not a cluster effect: \(X_n=0.8\),
-\(X_p=0.2\), so \(X_{\rm free}=1\). There the single-particle state saturates:
+**The 16 cells outside the sampled acceptance domain** are all at
+\(T=63.096\) MeV, with four \(Y_p\) values at each of
+\(n_B=1.10\times10^{-12},10^{-10},10^{-8},10^{-6}\) fm\(^{-3}\).
+They are all nucleon-only in composition,
+\(X_n+X_p=1\), with \(X_n\simeq1-Y_p\) and \(X_p\simeq Y_p\);
+they are not all the fixed \((X_n,X_p)=(0.8,0.2)\) case.
 
-| \(n_B\) [fm\(^{-3}\)] | \(\nu_n/T\) | reconstructed \(n'_n\) | \(X_n n_B\) | ratio |
-|---:|---:|---:|---:|---:|
-| \(1.10\times10^{-12}\) | \(-14.891\) | \(9.19\times10^{-8}\) | \(8.8\times10^{-13}\) | \(1.05\times10^{5}\) |
-| \(10^{-10}\) | \(-14.891\) | \(9.20\times10^{-8}\) | \(8.0\times10^{-11}\) | \(1.15\times10^{3}\) |
-| \(10^{-8}\) | \(-14.85\) | \(9.60\times10^{-8}\) | \(8.0\times10^{-9}\) | \(1.20\times10^{1}\) |
-| \(10^{-6}\) | \(-12.71\) | \(8.10\times10^{-7}\) | \(8.0\times10^{-7}\) | \(1.01\) |
+| \(n_B\) [fm\(^{-3}\)] | behaviour | neutron ratio range | proton ratio range |
+|---:|---|---:|---:|
+| \(1.10\times10^{-12}\) | clear density plateau | \(9.31\times10^4\)--\(1.40\times10^5\) | \(2.13\times10^5\)--\(8.54\times10^5\) |
+| \(10^{-10}\) | clear density plateau | \(1.02\times10^3\)--\(1.53\times10^3\) | \(2.34\times10^3\)--\(9.36\times10^3\) |
+| \(10^{-8}\) | transition region | \(10.72\)--\(15.83\) | \(23.91\)--\(94.14\) |
+| \(10^{-6}\) | closer to closure, still outside \(10^{-3}\) | \(1.010\)--\(1.023\) | \(1.052\)--\(1.562\) |
 
-The reconstructed density is constant to \(4.9\times10^{-4}\) across two decades
-of \(n_B\) while the target density falls by \(10^{2}\). In other words the
-tabulated \(\mu_N^{\rm nonrel}\) at this temperature stops responding below
-\(n_B\sim10^{-8}\) fm\(^{-3}\); the table carries no resolution there rather
-than a wrong normalization. Those cells are also physically remote: at
-\(T=63\) MeV and \(n_B=10^{-6}\) fm\(^{-3}\) the dilution is
-\(n_B/T^3\approx4\times10^{-10}\). The test suite asserts this frozen-density
-behaviour and the large residual explicitly, so the excluded corner cannot
-silently change.
+Only the eight lowest-density cells show the clear chemical-potential floor:
+for neutrons \(\nu_n/T\simeq-14.891\), with
+\(n'_n\simeq9.19\times10^{-8}\) fm\(^{-3}\). The four
+\(10^{-8}\) cells are transitional, and the four \(10^{-6}\) cells
+already respond appreciably to density. The neutron ratio reaches
+\(1.40\times10^5\); the proton ratio reaches
+\(8.54\times10^5\). Thus the old description of all 16 cells as frozen at
+\(\nu_N/T=-14.891\) was too broad.
+
+For context, the dimensionless natural-unit dilution is
+\[
+\frac{n_B}{T^3}\bigg|_{\rm natural}
+=\frac{n_B(\hbar c)^3}{T^3}.
+\]
+At \(T=63.096\) MeV and \(n_B=10^{-6}\) fm\(^{-3}\), this is
+\(3.06\times10^{-5}\), not \(4\times10^{-10}\). The corner is baryon-dilute,
+but that statement is not used to remove any of the 16 cells from the audit.
 
 ## 7. Code and tests
 
@@ -204,7 +215,7 @@ silently change.
 - **`audit_b16_p1iii_eos_sfho_realdata_closure.py`** — loads the archives,
   reproduces the whole-table audit of Sec. 4, runs the closure grid of Sec. 6,
   and writes both the JSON record and a 224-row profile-format fixture.
-- **`test_b16_p1iii_eos_sfho_realdata.py`** — 10 tests. Seven run from the
+- **`test_b16_p1iii_eos_sfho_realdata.py`** — 17 tests. Ten fixture-only tests, four official-table tests and three archive-manifest tests run from the
   committed fixture alone (grid coverage, \(\xi\) identity, domain closure,
   frozen-density corner, \(F^{\rm deg}\in(0,1]\), and an end-to-end pass through
   `load_profile_csv` + `aggregate_profile_rows`); three whole-table tests run
@@ -305,3 +316,24 @@ dynamic response (P1-IIIe-C) is:
 4. only then insert the EOS quasiparticle dispersion into the dynamic weak
    response, keeping the single filling factor \(\xi\) as the volume
    normalization.
+
+
+## 9. Follow-up numerical and provenance corrections
+
+The 224-row fixture and audit JSON are regenerated at 1024-node quadrature.
+Across all 448 species-states, the 1024-to-2048 comparison gives a maximum
+absolute Fdeg difference of 4.72e-8 and a maximum relative density difference
+of 1.02e-8. The previous 512-node rule differed by up to 2.73% in Fdeg for a
+cold, dense neutron state.
+
+The five-object archive manifest, downloader table and audit provenance now
+have exactly the same filename set, including manual_v1.04.pdf. The Release
+tag sfho-frdm-v1.03-data points to commit e68eae8; its five GitHub asset
+SHA-256 digests match the manifest.
+
+The two hbar-c values are retained with distinct roles: 197.3269631 MeV fm
+is the Hempel EOS-internal conversion used for the composition-table MeV^3
+cross-check, whereas 197.3269804 MeV fm is the phase-space kernel's physical
+unit conversion. The raw-table test now checks the actual SPP Yp and density
+columns against the corresponding Extended EOS entries. Those two tests
+require SFHO_TABLES_DIR and are not inferred from the 224-row fixture.

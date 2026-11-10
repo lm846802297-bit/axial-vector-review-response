@@ -131,7 +131,7 @@ def check_urls(entries: tuple = FILES) -> int:
             print(f"FAIL     {url}: {exc}")
             failures += 1
             continue
-        matches = length is not None and int(length) == entry["bytes"]
+        matches = status == 200 and length is not None and int(length) == entry["bytes"]
         print(f"{'OK' if matches else 'LENGTH'}   {status} {length} {url}")
         failures += 0 if matches else 1
     return 1 if failures else 0
@@ -204,7 +204,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--check-urls",
         action="store_true",
-        help="HEAD every archive URL and compare Content-Length, do not download",
+        help="HEAD every archive URL; check HTTP 200 and Content-Length only (no remote hash)",
     )
     parser.add_argument(
         "--only",
