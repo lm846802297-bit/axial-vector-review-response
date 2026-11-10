@@ -387,10 +387,9 @@ Artifacts:
 The tensor is not yet reduced into the D-dimensional physical/evanescent operator basis. The complete graph phase, external-gluon gauge completion, EOM/IBP quotient, and full QCD \(Z\) matrix remain open.
 
 
-### Latest CI metadata
+### Historical CI metadata for the prior upstream head
 
-On upstream head \`085a7416874d5928f7b2d108a8c5f54edebf469d\`, the QLD8 audit [#42755580467](https://github.com/lm846802297-bit/high-energy-theory-research/actions/runs/42755580467), chiral-Fierz audit [#42755580434](https://github.com/lm846802297-bit/high-energy-theory-research/actions/runs/42755580434), and candidate-schema validation [#42755580456](https://github.com/lm846802297-bit/high-energy-theory-research/actions/runs/42755580456) report failure. Each job response exposes \`steps=null\` and \`logs_url=null\); the cause is unknown. Local symbolic checks passed, but CI is not reported as passing.
-
+On the prior upstream head \`6d89fd6a024c0e7715056d6996c88b1a06a3dd12\`, the QLD8 audit [#42755580467](https://github.com/lm846802297-bit/high-energy-theory-research/actions/runs/42755580467), chiral-Fierz audit [#42755580434](https://github.com/lm846802297-bit/high-energy-theory-research/actions/runs/42755580434), and candidate-schema validation [#42755580456](https://github.com/lm846802297-bit/high-energy-theory-research/actions/runs/42755580456) report failure. Each job response exposes \`steps=null\` and \`logs_url=null\`; the cause is unknown. These are historical runs on the previous head, not runs on the current pinned commit. The later upstream commit \`085a7416874d5928f7b2d108a8c5f54edebf469d\` has no associated workflow runs or status checks yet; no CI pass is claimed.
 
 ## 2026-11-10 update: QLD8 P1.5a signed graphs and P1.5b TT contraction
 
