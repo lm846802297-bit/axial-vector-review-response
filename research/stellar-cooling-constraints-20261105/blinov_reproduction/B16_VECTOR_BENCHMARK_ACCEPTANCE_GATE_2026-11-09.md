@@ -194,3 +194,14 @@ The P1-D 30 km sharp-boundary luminosity proxy nearly matches the Fig. 7 strong 
 The exact heavy-flavor energy sphere remains uncomputed because the raw same-snapshot composition, energy-changing collision kernels, and neutrino moments are unavailable. The current public figure provides \(n_B(r)\) only through 20 km; the 20--25 km tail in P1-G is extrapolated. Do not select a new boundary, fit Fig. 7, or update the axial-vector curve.
 
 **Final decision remains unchanged:** the literal fixed-\(\omega\), scalar B.2 benchmark is not a successful Fig. 7 reproduction at 10 MeV; PR #57 stays Draft/Open, and axial-vector recalculation remains frozen.
+
+
+## 10. P1-H smooth daughter-reprocessing B.2 integration (2026-11-10)
+
+P1-H has now inserted the P1-G energy-weighted daughter survival proxy into the full B.2 ray integral for the 210--510 MeV band. The B.1 source and scalar opacity inside 25 km are frozen; only the outer \(V\to\nu\bar\nu\) opacity is multiplied by \(1-P_{\rm pair}^{E}(\omega,r)\).
+
+The central equal-mode density tail changes the band by \(-4.14\%\), the high-density tail by \(-10.60\%\), and the low-density tail by \(-0.33\%\). The band-only total proxies remain \(+86.87\%\), \(+78.21\%\), and \(+91.98\%\) above Fig. 7. By contrast, the sharp full-opacity \(R_{\max}=30\) km extension suppresses the band by \(70.94\%\) and gives a spurious near-match.
+
+The B.1 source, literal \(R_{\max}=25\) band, and sharp \(R_{\max}=30\) band close to the P1-C/P1-D archived results at \(1.9\times10^{-11}\), \(5.0\times10^{-12}\), and \(5.5\times10^{-12}\). The direct V8 computation is archived; the Python implementation is added for repository reproduction but has not yet been independently rerun.
+
+**Updated decision:** the smooth public-density transport model does not explain the strong-endpoint discrepancy. The exact energy sphere remains unavailable without same-snapshot energy-changing neutrino collision kernels and moments. Retain the literal 25 km baseline, keep PR #57 Draft/Open, and do not update the axial-vector constraint curve.
