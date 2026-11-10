@@ -265,19 +265,19 @@ but that statement is not used to remove any of the 16 cells from the audit.
 - **`audit_b16_p1iii_eos_sfho_realdata_closure.py`** — loads the archives,
   reproduces the whole-table audit of Sec. 4, runs the closure grid of Sec. 6,
   and writes both the JSON record and a 224-row profile-format fixture.
-- **`test_b16_p1iii_eos_sfho_realdata.py`** — 18 tests: 10 fixture-only tests, four official-table tests and four offline
+- **`test_b16_p1iii_eos_sfho_realdata.py`** — 19 tests: 10 fixture-only tests, five official-table tests and four offline
   archive-manifest tests; the fourth locks the vendored split layout
   (three pieces, sizes summing to 161 092 071 bytes, seven manifest entries). The fixture-only tests cover grid membership, the
   excluded-volume identity, closure-domain classification, the low-density
   regimes, 1024/2048 quadrature convergence, effective-mass splitting and the
-  end-to-end profile-kernel path. The four official-table tests require
+  end-to-end profile-kernel path. The five official-table tests require
   SFHO_TABLES_DIR and are skipped when the raw archives are absent. The workflow
   exercises the fixture path without the 400 MB binaries. It has a verified pass:
   run 42922595906 on head `5dd24ac` concluded `success` in 23 s, running this
   module as `Ran 14 tests ... OK (skipped=1)` (the four official-table tests skip
   without `SFHO_TABLES_DIR`) and the deterministic self-test assertion block.
   Locally, with the unpacked v1.03 tables, the same module reports
-  `Ran 18 tests ... OK`.
+  `Ran 19 tests ... OK`.
 - **`sfho_frdm_v1.03_download.py`** and **`sfho_frdm_v1.03_manifest.sha256`** —
   the reproducible, checksum-verified fetch path for the five published files
   (Sec. 2); `--dest`, `--verify-only`, `--check-urls`, `--only`, `--no-skip`.
@@ -450,14 +450,14 @@ retrieve the 322.9 MB binary release attachments into the numerical runtime.
 Therefore the four SFHO_TABLES_DIR-dependent tests and the post-follow-up
 Python unittest suite remain unexecuted. No Python test pass or CI pass is
 claimed. The raw-table checks require the extracted EOS, SPP and composition
-files; once these are available to the runtime, run the complete 18-test suite
+files; once these are available to the runtime, run the complete 19-test suite
 and the whole-table audit before treating P1-IIIe-B as fully accepted.
 
 **Update after the vendored-archive commit (2026-11-11, later the same day).** The
 execution boundary above no longer binds this checkout: the published archives are
 committed to the repository, the unpacked v1.03 tables are available to the local
 runtime, and both suites have been run at `5dd24ac` with `SFHO_TABLES_DIR` set -
-P1-IIIe-A `Ran 15 tests ... OK` and P1-IIIe-B `Ran 18 tests ... OK`. CI run
+P1-IIIe-A `Ran 15 tests ... OK` and P1-IIIe-B `Ran 19 tests ... OK`. CI run
 42922595906 on the same head concluded `success`, executing the fixture path as
 `Ran 14 tests ... OK (skipped=1)` plus the self-test assertions. What remains open
 is the physical input rather than the execution path: no Garching
@@ -565,9 +565,9 @@ occupation closure.
 ### Execution and acceptance boundary
 
 The local run of the complete P1-IIIe-A and P1-IIIe-B test modules passes
-**33/33 tests**: 15 distribution-kernel tests, 10 fixture tests, five
+**34/34 tests**: 15 distribution-kernel tests, 10 fixture tests, five
 official-table tests (including the Coulomb-input semantic regression), and
-three offline archive-manifest tests. No raw-table test was skipped.
+four offline archive-manifest tests. No raw-table test was skipped.
 
 The 224-cell phase-space audit was regenerated from the extracted tables.
 The 1024-to-2048-node checks over its 448 species states pass; the committed
