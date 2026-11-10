@@ -18,11 +18,13 @@ from pathlib import Path
 import numpy as np
 from numpy.polynomial.legendre import leggauss
 from scipy.special import expit
+from scipy.optimize import brentq
 
 HBARC_MEV_FM = 197.3269804
 NEUTRON_MASS_MEV = 939.565346
 PROTON_MASS_MEV = 938.272013
 MASS_SPLITTING_MEV = NEUTRON_MASS_MEV - PROTON_MASS_MEV
+SFHO_SATURATION_DENSITY_FM3 = 0.1583
 TABLE_TARGETS = {
     "T3": {"p": 0.80, "n": 0.48},
     "rhoT52": {"p": 0.77, "n": 0.42},
@@ -213,6 +215,113 @@ def degeneracy_factor_from_density_derivative(
         state.temperature_mev
         * (n_plus - n_minus)
         / (2.0 * h * n0)
+    )
+
+
+def infer_filling_factor_from_global_densities(
+    n_baryon_fm3: float,
+    n_neutron_free_fm3: float,
+    n_proton_free_fm3: float,
+    saturation_density_fm3: float = SFHO_SATURATION_DENSITY_FM3,
+) -> float:
+    """Infer xi=V'/V from global free-nucleon densities in the HS model.
+
+    Inputs n_n and n_p are per total volume, not per available volume.
+    Hempel's excluded-volume prescription gives
+      xi = 1 - (n_B - n_n - n_p) / n_0,
+    where n_B-n_n-n_p is the baryon density bound in nuclei.
+    """
+    values = (
+        n_baryon_fm3,
+        n_neutron_free_fm3,
+        n_proton_free_fm3,
+        saturation_density_fm3,
+    )
+    if not all(math.isfinite(float(value)) for value in values):
+        raise ValueError("composition contains a non-finite density")
+    if n_baryon_fm3 <= 0.0 or saturation_density_fm3 <= 0.0:
+        raise ValueError("baryon and saturation densities must be positive")
+    if n_neutron_free_fm3 < 0.0 or n_proton_free_fm3 < 0.0:
+        raise ValueError("free nucleon densities must be non-negative")
+    n_bound = n_baryon_fm3 - n_neutron_free_fm3 - n_proton_free_fm3
+    if n_bound < -1.0e-10:
+        raise ValueError("free neutron+proton density exceeds total baryon density")
+    xi = 1.0 - n_bound / saturation_density_fm3
+    if not (0.0 < xi <= 1.0):
+        raise ValueError(
+            f"inferred filling factor xi={xi} is outside the physical interval (0,1]"
+        )
+    return xi
+
+
+def solve_effective_chemical_potential_from_density(
+    species: str,
+    temperature_mev: float,
+    effective_mass_mev: float,
+    density_per_available_volume_fm3: float,
+    order: int = 512,
+    tail_T: float = 45.0,
+) -> float:
+    """Invert n'_N(T,m_star,nu) to obtain nu=mu_star-U in MeV.
+
+    This determines the occupation relevant to Fdeg and same-species elastic
+    response without separately knowing U_N and mu_N^*. The input density is
+    per available nucleon volume V', not per total volume V.
+    """
+    if species not in ("n", "p"):
+        raise ValueError("species must be 'n' or 'p'")
+    if temperature_mev <= 0.0 or effective_mass_mev <= 0.0:
+        raise ValueError("temperature and effective mass must be positive")
+    if density_per_available_volume_fm3 <= 0.0:
+        raise ValueError("available-volume density must be positive")
+
+    def residual(nu):
+        state = NucleonEOSState(
+            species, temperature_mev, effective_mass_mev, 0.0, nu
+        )
+        return (
+            number_density_fm3(state, order, tail_T)
+            - density_per_available_volume_fm3
+        )
+
+    lo = -max(100.0 * temperature_mev, 200.0)
+    hi = max(100.0 * temperature_mev, 200.0)
+    for _ in range(60):
+        if residual(lo) < 0.0:
+            break
+        lo *= 2.0
+    else:
+        raise ArithmeticError("failed to bracket low effective chemical potential")
+    for _ in range(60):
+        if residual(hi) > 0.0:
+            break
+        hi *= 2.0
+    else:
+        raise ArithmeticError("failed to bracket high effective chemical potential")
+    return float(
+        brentq(residual, lo, hi, xtol=1.0e-10, rtol=1.0e-12, maxiter=200)
+    )
+
+
+def state_from_available_volume_density(
+    species: str,
+    temperature_mev: float,
+    effective_mass_mev: float,
+    density_per_available_volume_fm3: float,
+    order: int = 512,
+    tail_T: float = 45.0,
+) -> NucleonEOSState:
+    """Construct an equivalent local occupation with U_N=0 and mu_star=nu."""
+    nu = solve_effective_chemical_potential_from_density(
+        species,
+        temperature_mev,
+        effective_mass_mev,
+        density_per_available_volume_fm3,
+        order,
+        tail_T,
+    )
+    return NucleonEOSState(
+        species, temperature_mev, effective_mass_mev, 0.0, nu
     )
 
 
@@ -480,6 +589,18 @@ def self_test_payload():
         )
         mapping_residuals.append(float(np.max(np.abs(lhs-rhs))))
 
+    inversion_reference = NucleonEOSState("n", 8.0, 650.0, -25.0, 30.0)
+    inversion_density = number_density_fm3(inversion_reference, order=512)
+    inversion_nu = solve_effective_chemical_potential_from_density(
+        "n", 8.0, 650.0, inversion_density, order=512
+    )
+    inversion_residual = abs(
+        inversion_nu - inversion_reference.effective_chemical_potential_mev
+    )
+    inferred_xi = infer_filling_factor_from_global_densities(
+        0.15, 0.12, 0.01
+    )
+
     shifted_state = NucleonEOSState("n", 5.0, 650.0, 103.0, 193.0)
     reference_state = NucleonEOSState("n", 5.0, 650.0, -20.0, 70.0)
     potential_shift_residual = abs(
@@ -503,7 +624,7 @@ def self_test_payload():
             ),
             "vacuum_mass_limit_max_occupation_abs_residual": vacuum_residual,
             "dilute_limit_Fdeg": dilute_fdeg,
-            "common_U_mu_shift_Fdeg_abs_residual": potential_shift_residual,\n            "Hempel_RMF_mapping_max_abs_residual_MeV": max(mapping_residuals),
+            "common_U_mu_shift_Fdeg_abs_residual": potential_shift_residual,\n            "Hempel_RMF_mapping_max_abs_residual_MeV": max(mapping_residuals),\n            "density_inversion_nu_abs_residual_MeV": inversion_residual,\n            "composition_inferred_xi_fixture": inferred_xi,
         },
         "published_global_targets_not_tested_without_profiles": TABLE_TARGETS,
     }
