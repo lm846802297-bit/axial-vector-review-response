@@ -92,7 +92,34 @@ The collision kernel is proportional to \(G_F^2 L_{\mu\nu}W_N^{\mu\nu}\), togeth
 
 Keep VV, AA, VA, weak-magnetism, and finite-\(Q^2\) contributions. Do not discard \(W^{0i}\), spatial longitudinal/transverse pieces, or antisymmetric components before contraction.
 
-## 4. Required validation ladder
+## 4. Local moving-nucleon collision-rate normalization
+
+For an incident neutrino of energy \(E\) and outgoing neutrino energy/angle \((E',\Omega')\), the invariant collision rate is
+\[
+\frac{d\Gamma_N}{dE'\,d\Omega'}=
+\frac{G_F^2E'}{64\pi^2E}
+\int\frac{d^3p}{(2\pi)^3}
+\frac{f_N(E_p)[1-f_N(E_{p'})]}{E_pE_{p'}}
+\delta(E+E_p-E'-E_{p'})
+L_{\mu\nu}H_N^{\mu\nu}.
+\]
+Here \(f_N\) is the occupation per spin state and \(H=\tfrac12\mathrm{Tr}[\cdots]\). The factor from summing the two occupied initial nucleon spin states is already combined with the \(G_F^2/2\) from the squared weak amplitude; do not multiply this expression by another factor of 2.
+
+Using the exact energy delta function to integrate the initial nucleon polar angle, and defining the azimuthal average relative to the neutrino scattering plane, gives
+\[
+\boxed{
+\frac{d\Gamma_N}{dE'\,d\Omega'}=
+\frac{G_F^2E'}{256\pi^4E q}
+\int_{p_{\min}}^\infty dp\,\frac{p}{E_p}
+f_N(E_p)[1-f_N(E_p+q_0)]
+\overline{L_{\mu\nu}H_N^{\mu\nu}}
+}.
+\]
+This expression is the local moving-nucleon kernel used in the P1-IIIb benchmark. Its normalization is checked by integrating over \(E'\), dividing by the species number density, and recovering the stationary-target Horowitz \(d\sigma/d\Omega\) in the dilute/cold limit.
+
+The benchmark implementation retains the full azimuthal dependence of the moving initial nucleon in the Dirac trace. It does not replace the moving tensor by a scalar response times a stationary-target matrix element.
+
+## 5. Required validation ladder
 
 1. **Gamma algebra:** verify Hermiticity/conjugation of the vertex and tensor symmetry properties numerically for generic on-shell momenta.
 2. **Stationary target:** take a dilute, cold, zero-momentum target limit and reproduce Horowitz's \(d\sigma/d\cos\theta\) for \(\nu n,\bar\nu n,\nu p,\bar\nu p\), including recoil, weak magnetism, and the same form factors.
@@ -103,14 +130,14 @@ Keep VV, AA, VA, weak-magnetism, and finite-\(Q^2\) contributions. Do not discar
 
 Acceptance target for the stationary-target differential kernel is a relative residual below \(10^{-3}\) over the supported angular/energy grid, followed by a tighter convergence study for integrated moments. Any failure must be resolved before the kernel is used in B.2.
 
-## 5. Benchmark separation
+## 6. Benchmark separation
 
 The P1-IIIa choice \(T=3.03\) MeV, \(Y_p=0.10\), and \(n_B/n_0=10^{-3},10^{-2},10^{-1}\) is an illustrative ideal-gas benchmark only. It is not an extracted SFHo-18.8 radial snapshot. EOS-consistent application requires co-located \(n_B(r),Y_p(r),T(r)\), and, if used, \(m_N^*(r)\), \(U_N(r)\), and chemical potentials from one and the same stellar model.
 
-## 6. Explicit exclusions
+## 7. Explicit exclusions
 
 This stage does not yet include RPA, NN correlations, in-medium vertex corrections, additional baryons, neutrino final-state blocking, general-relativistic path transport, or a solution of the Boltzmann equation. In particular, \(e^{-\tau_{\rm therm}}\) is not to be used as an escape probability.
 
-## 7. Next executable task
+## 8. Next executable task
 
 Implement the tensor trace and its azimuthal average in a standalone local-kernel module. First compare the \(p\to0\) limit pointwise against the existing Horowitz differential kernel. Only after that test passes should the finite-\(T\), finite-density integrations be enabled. Keep this code and its validation outputs separate from the production B.2 path until acceptance.
