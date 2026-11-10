@@ -32,6 +32,8 @@ on:
       - "research/major1-higgs-scalar-mixing-20261109/test_b5_2b3_qld_ww_crossbox_tensor_kernels.py"
       - "research/major1-higgs-scalar-mixing-20261109/B5_2B3_QLD_WW_CROSSBOX_NUMERATOR_AUDIT_2026-11-11.md"
       - "research/major1-higgs-scalar-mixing-20261109/B5_2B3_QLD_WW_CROSSBOX_NUMERATOR_OUTPUT_2026-11-11.txt"
+      - "research/major1-higgs-scalar-mixing-20261109/b5_2b3_qld_ww_exact_routing.py"
+      - "research/major1-higgs-scalar-mixing-20261109/test_b5_2b3_qld_ww_exact_routing.py"
       - "research/major1-higgs-scalar-mixing-20261109/b5_2b4_triplet_derivative_eom_current_map.py"
       - "research/major1-higgs-scalar-mixing-20261109/test_b5_2b4_triplet_derivative_eom_current_map.py"
       - "research/major1-higgs-scalar-mixing-20261109/B5_2B4_TRIPLET_DERIVATIVE_EOM_CURRENT_MAP_2026-11-11.md"
@@ -128,11 +130,15 @@ jobs:
         run: |
           python research/major1-higgs-scalar-mixing-20261109/b5_2b4_triplet_derivative_eom_current_map.py > research/major1-higgs-scalar-mixing-20261109/B5_2B4_TRIPLET_DERIVATIVE_EOM_CURRENT_MAP_OUTPUT_2026-11-11.txt
           sha256sum research/major1-higgs-scalar-mixing-20261109/b5_2b4_triplet_derivative_eom_current_map.py research/major1-higgs-scalar-mixing-20261109/test_b5_2b4_triplet_derivative_eom_current_map.py research/major1-higgs-scalar-mixing-20261109/B5_2B4_TRIPLET_DERIVATIVE_EOM_CURRENT_MAP_OUTPUT_2026-11-11.txt > research/major1-higgs-scalar-mixing-20261109/B5_2B4_TRIPLET_DERIVATIVE_EOM_CURRENT_MAP_SHA256SUMS.txt
+      - name: Run and archive the exact-routing B5-2B3R WW box audit
+        run: |
+          python research/major1-higgs-scalar-mixing-20261109/b5_2b3_qld_ww_exact_routing.py > research/major1-higgs-scalar-mixing-20261109/B5_2B3_QLD_WW_EXACT_ROUTING_OUTPUT_2026-11-11.txt
+          sha256sum research/major1-higgs-scalar-mixing-20261109/b5_2b3_qld_ww_exact_routing.py research/major1-higgs-scalar-mixing-20261109/test_b5_2b3_qld_ww_exact_routing.py research/major1-higgs-scalar-mixing-20261109/B5_2B3_QLD_WW_EXACT_ROUTING_OUTPUT_2026-11-11.txt > research/major1-higgs-scalar-mixing-20261109/B5_2B3_QLD_WW_EXACT_ROUTING_SHA256SUMS.txt
       - name: Commit reproducible audit output
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add research/major1-higgs-scalar-mixing-20261109/fermion_sector_matrix_audit.json research/major1-higgs-scalar-mixing-20261109/c5_gauge_convention_audit.json research/major1-higgs-scalar-mixing-20261109/fermion_sector_matrix_tests.txt research/major1-higgs-scalar-mixing-20261109/FERMION_MATRIX_SHA256SUMS.txt research/major1-higgs-scalar-mixing-20261109/B5_1B_SM_THRESHOLD_AND_UV_RGE_RAW_OUTPUT.txt research/major1-higgs-scalar-mixing-20261109/B5_1B_RGE_SHA256SUMS.txt research/major1-higgs-scalar-mixing-20261109/B5_1D_INDEPENDENT_RGE_AUDIT_OUTPUT_2026-11-11.txt research/major1-higgs-scalar-mixing-20261109/B5_1D_INDEPENDENT_RGE_SHA256SUMS.txt research/major1-higgs-scalar-mixing-20261109/B5_2B4_TRIPLET_DERIVATIVE_EOM_CURRENT_MAP_OUTPUT_2026-11-11.txt research/major1-higgs-scalar-mixing-20261109/B5_2B4_TRIPLET_DERIVATIVE_EOM_CURRENT_MAP_SHA256SUMS.txt
+          git add research/major1-higgs-scalar-mixing-20261109/fermion_sector_matrix_audit.json research/major1-higgs-scalar-mixing-20261109/c5_gauge_convention_audit.json research/major1-higgs-scalar-mixing-20261109/fermion_sector_matrix_tests.txt research/major1-higgs-scalar-mixing-20261109/FERMION_MATRIX_SHA256SUMS.txt research/major1-higgs-scalar-mixing-20261109/B5_1B_SM_THRESHOLD_AND_UV_RGE_RAW_OUTPUT.txt research/major1-higgs-scalar-mixing-20261109/B5_1B_RGE_SHA256SUMS.txt research/major1-higgs-scalar-mixing-20261109/B5_1D_INDEPENDENT_RGE_AUDIT_OUTPUT_2026-11-11.txt research/major1-higgs-scalar-mixing-20261109/B5_1D_INDEPENDENT_RGE_SHA256SUMS.txt research/major1-higgs-scalar-mixing-20261109/B5_2B4_TRIPLET_DERIVATIVE_EOM_CURRENT_MAP_OUTPUT_2026-11-11.txt research/major1-higgs-scalar-mixing-20261109/B5_2B4_TRIPLET_DERIVATIVE_EOM_CURRENT_MAP_SHA256SUMS.txt research/major1-higgs-scalar-mixing-20261109/B5_2B3_QLD_WW_EXACT_ROUTING_OUTPUT_2026-11-11.txt research/major1-higgs-scalar-mixing-20261109/B5_2B3_QLD_WW_EXACT_ROUTING_SHA256SUMS.txt
           if git diff --cached --quiet; then
             echo "No new matrix-audit output to commit."
             exit 0
