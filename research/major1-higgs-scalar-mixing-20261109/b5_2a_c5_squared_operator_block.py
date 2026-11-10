@@ -68,7 +68,7 @@ def symbolic_checks():
     expected={"CLS":-k/2,"CHe":k/2,"CSe":k,
               "C4fS":-2*k,"C4fV":k}
     assert all(sp.simplify(deriv[n]-expected[n])==0 for n in deriv)
-    assert sp.simplify((-2*k)/(-sp.Rational(1,2))-4*k)==0 # Fierz factor check
+    assert sp.simplify(-sp.Rational(1,2)*(-2*k)-k)==0 # scalar-to-vector Fierz coefficient
     return deriv
 
 
