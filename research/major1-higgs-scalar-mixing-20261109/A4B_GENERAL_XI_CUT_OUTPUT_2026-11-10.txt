@@ -1,0 +1,35 @@
+A4b general-R_xi on-shell cut audit
+Gauge values: xi_X = 0.25, 0.5, 1, 2, 4, 10
+Test points: A (100, 125.25, 150) GeV; B (150, 200) GeV
+Definition: Im Pi_ss,E(-m_s^2-i0) = C_total/(16 pi).
+
+Maximum relative difference of C_total(xi) from the physical vector expression:
+  A, m_s=100 GeV:    5.82e-16
+  A, m_s=125.25 GeV: 6.17e-16
+  A, m_s=150 GeV:    5.93e-16
+  B, m_s=150 GeV:    8.61e-16
+  B, m_s=200 GeV:    4.03e-16
+  Global maximum:    8.61e-16
+
+Benchmark A, m_s=125.25 GeV; cut coefficients in GeV^2:
+xi       C_VV          C_Aa          C_ghost       C_aa          C_total
+0.25    -12.062290     852.572410      0.123984  -24409.886444  -23569.252341
+0.50    -12.790441     774.504977      0.494342  -24331.461219  -23569.252341
+1.00    -15.716463     618.347058      1.964558  -24173.847494  -23569.252341
+2.00    -27.413260     305.902352      7.754745  -23855.496178  -23569.252341
+4.00    -73.905733    -319.825489     30.174051  -23205.695170  -23569.252341
+10.00  -391.983166   -2212.272953    171.774102  -21136.770324  -23569.252341
+
+Benchmark B, m_s=150 GeV; cut coefficients in GeV^2:
+xi       C_VV          C_Aa          C_ghost       C_aa          C_total
+0.25   -615.778364    1997.546408      9.004908   -2315.112511    -924.339558
+0.50   -627.249648    1723.243797     31.930105   -2052.263812    -924.339558
+1.00   -689.128133    1062.796534     86.141017   -1384.148976    -924.339558
+2.00   -924.339558       0.000000      0.000000       0.000000    -924.339558
+4.00   -924.339558       0.000000      0.000000       0.000000    -924.339558
+10.00  -924.339558       0.000000      0.000000       0.000000    -924.339558
+
+PASS: explicit phase-space cut sum is xi_X-independent at all open benchmark points.
+PASS: general-xi cut-derived width equals the direct physical s -> A'A' width.
+PASS: xi=1 individual cut coefficients reproduce the A4a Feynman-gauge reduction.
+LIMIT: absorptive on-shell check only; no real finite part or complex pole is calculated.
