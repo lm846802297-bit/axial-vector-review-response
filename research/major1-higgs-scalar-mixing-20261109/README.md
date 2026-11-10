@@ -458,3 +458,10 @@ This is comparable in order of magnitude to the 2026 CMS-SUS-23-005 model-indepe
 Added `PERTURBATIVE_ORDER_AND_GAUGE_COMPLETION_2026-11-10.md`. It makes explicit that the retained negligible-EFT-portal benchmark counts the UV portal as (O(\hbar)): the exact fermion (hh,hs,ss) matrix is the leading new-physics (O(\hbar)) sector, while scalar/Goldstone/vector/ghost one-loop graphs containing a portal-induced vertex are (O(\hbar^2)) in this combined counting. It records the associated tadpole, VEV, field and mass counterterms and the no-double-counting rules.
 
 This closes the order-classification/census step, not the loop calculation itself. The next work is to derive a common (R_\xi)-gauge-fixed Lagrangian and ghost action, machine-generate the complete vertex ledger, then calculate the complete (O(\hbar^2)) (hh,hs,ss) set and verify UV and gauge-parameter cancellation. No (h\to A'A') recast is part of this stage.
+
+
+## 2026-11-10 — A1 (R_\xi) gauge-fixing derivation
+
+Added `RXI_GAUGE_FIXING_A1_2026-11-10.md`. It fixes the charged/neutral electroweak and (U(1)_X) gauge-fixing functions, Goldstone masses, and cancellation of the gauge--Goldstone quadratic mixings. It defines the full Faddeev--Popov operator as the functional derivative of the gauge-fixing map under the nonlinear gauge transformations. The field-dependent ghost vertices are intentionally deferred to A2, rather than assigning an unverified sign/coefficient.
+
+A1 is a Lagrangian setup step only. It does not yet provide the full ghost vertex expansion, loop integrals, or gauge-independent self-energies.
