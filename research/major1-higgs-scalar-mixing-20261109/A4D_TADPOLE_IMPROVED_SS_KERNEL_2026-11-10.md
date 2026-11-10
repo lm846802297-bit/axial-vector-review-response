@@ -101,3 +101,29 @@ A4d provides a direct algebraic bridge between the one-point and two-point funct
 - the remaining zero-momentum UV pole is independent of \(\xi_X\).
 
 This does not imply that \(\Pi_{ss}(p^2)\) is gauge independent at nonzero momentum, nor does it determine the physical complex pole. The full momentum dependence, common finite renormalization conditions, exact fermion matching, and electroweak \(hh\) sector are still required.
+
+
+## 5. Momentum-dependent tadpole-improved UV pole
+
+The same A4c general-\(\xi_X\) pole and the A4a tadpole give, in four dimensions,
+\[
+16\pi^2\left[\Pi_{ss,E}(p_E^2)-\frac{T_s^{(1)}}{v_S}\right]_{\rm UV}
+=
+\frac1{\bar\epsilon}
+\left[-g_A^2(3-\xi_X)p_E^2
+-6g_A^2m_X^2-20\lambda_S^2v_S^2\right].
+\]
+Thus the **local mass pole is \(\xi_X\)-independent at arbitrary external momentum**; only the diagonal field-renormalization pole retains the expected \((3-\xi_X)\) dependence.
+
+In Feynman gauge the full tadpole-improved bosonic kernel has the compact form
+\[
+\boxed{\begin{aligned}
+16\pi^2\widehat\Pi_{ss,E}^{\xi_X=1}(p_E^2)
+={}&-\left[2g_A^2p_E^2+2(d-1)g_A^2m_X^2
++2\lambda_S^2v_S^2\right]
+{\cal B}_E(p_E^2;m_X^2,m_X^2)\\
+&-18\lambda_S^2v_S^2
+{\cal B}_E(p_E^2;m_s^2,m_s^2),
+\end{aligned}}
+\]
+where \(\widehat\Pi\equiv\Pi-T_s^{(1)}/v_S\). This is a one-loop tadpole-improved kernel, not yet the fully renormalized physical inverse propagator.
