@@ -593,4 +593,4 @@ The A3a scalar-only linear portal beta contribution was also translated from its
 \]
 This is not the complete portal beta function. Gauge/Yukawa terms, the full same-order EFT soft set, the remaining Wilson-vector anomalous dimensions, and common EOM/source/tadpole closure remain open. The archived 0.1421% Plan-C-lite scale residual is not explained by this restricted leading-log identity and remains a separate diagnostic.
 
-The independent GitHub Actions audit is configured in .github/workflows/a5b-restricted-eft-rge-audit.yml; it checks the exact committed script and uploads its output/hash as an artifact. No CI pass is claimed until a run is observed.
+A branch-local GitHub Actions attempt was made, but GitHub created a failed job with runner_id=0, no steps, and no retrievable logs; this is not a script failure and not a CI pass. The temporary workflow was removed to avoid leaving a known failing check in the Draft PR. The symbolic/numeric equations were evaluated directly in the local Python/SymPy analysis environment; a clean exact-script CI rerun remains pending.
