@@ -7,6 +7,12 @@ on:
     paths:
       - "research/major1-higgs-scalar-mixing-20261109/a5b_dim6_derivative_rge_audit.py"
       - ".github/workflows/a5b-restricted-eft-rge-audit.yml"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "research/major1-higgs-scalar-mixing-20261109/a5b_dim6_derivative_rge_audit.py"
+      - ".github/workflows/a5b-restricted-eft-rge-audit.yml"
   workflow_dispatch:
 
 permissions:
