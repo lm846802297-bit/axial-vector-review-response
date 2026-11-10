@@ -62,7 +62,7 @@ class NucleonEOSState:
         return self.chemical_potential_star_mev - self.scalar_potential_mev
 
 
-def candidate_state_from_hs_spp(
+def state_from_hs_spp(
     species: str,
     temperature_mev: float,
     effective_mass_mev: float,
@@ -71,11 +71,11 @@ def candidate_state_from_hs_spp(
 ) -> NucleonEOSState:
     """Map Hempel SFHo single-particle table fields to the Fiorillo convention.
 
-    Assumption to be tested against the Garching tabulated U_N:
+    Hempel convention, from Hempel (2015), Eqs. (95)-(99):
       E_N(p) = sqrt(p^2 + m_star^2) + Sigma_V,N^tot
       mu_N^nonrel = mu_N - m_N
 
-    Then U_N = m_star - m_N + Sigma_V,N^tot and mu_N^* = mu_N^nonrel.
+    Then U_N = m_star - m_N + Sigma_V,N^tot and mu_N^* = mu_N^tot - m_N = mu_N^nonrel.
     The excluded-volume filling factor xi remains a separate input; it is
     never absorbed into U_N or mu_N^*.
     """
