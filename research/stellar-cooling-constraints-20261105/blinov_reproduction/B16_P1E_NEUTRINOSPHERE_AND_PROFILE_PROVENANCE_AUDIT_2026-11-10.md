@@ -137,17 +137,22 @@ The pure-vector Fig. 7 physical reproduction therefore remains **not passed**. T
 
 ## 8. Next action
 
-The outer-lapse task P1-E1 and the B.1 neutrino-chemical-potential source test P1-E2 are complete. Do not repeat either test or expand the mass scan.
+The current-profile source/provenance sequence P1-E1--P1-E3 is complete:
+- P1-E1 tested the 24--25 km lapse continuation in full B.1+B.2;
+- P1-E2 tested \(\mu_{\nu_\mu}(r)\) and the \(\mu_{\nu_\tau}=0\) assumption in B.1;
+- P1-E3 tested the interior lapse normalization in the dominant 8--15 km and 5--15 km source regions.
 
-The next source-side calculation is an interior lapse sensitivity test over the dominant 8--15 km emission region:
-1. vary only \(N(r)\) in 8--15 km, keeping the thermodynamic fields and all other profile inputs fixed;
-2. recompute the exact B.1 \(N^2\) measure and the radius-dependent threshold \(\omega_{\min}=m_V/N(r)\);
-3. test \(\pm1\%\), \(\pm3\%\), and \(\pm5\%\) lapse stresses, separately for the 8--15 km shell and the full 5--15 km source region;
-4. compare the source response with the available figure-level lapse cross-check and the approximately \(9.03\%\) weak-end source deficit.
+None identifies a supported profile adjustment that explains the weak-end source deficit. The interior lapse would need a \(+4.97\%\) to \(+6.03\%\) shift, while the independent public lapse visualization differs from the current profile only at the few-\(10^{-3}\) absolute read-off level. The neutrino chemical-potential tests change the total B.1 source by at most about \(1.17\%\).
 
-These are sensitivity diagnostics, not alternative physical profiles. Do not fit the lapse to Fig. 7 or change the baseline without an independent source for a corrected metric.
+Do not continue broad profile stress scans or fit any input to Fig. 7. Without the original same-snapshot Garching table, further profile variation would be arbitrary.
 
-No production code, source normalization, opacity, coupling, profile, Fig. 7 curve, or axial-vector result is modified by P1-E1 or P1-E2.
+The remaining work belongs to the pure-vector reproduction status rather than the P1-E profile audit:
+1. preserve the literal fixed-\(\omega\) B.2 prescription as the published-equation baseline;
+2. keep the path-redshift alternative as a separate sensitivity result;
+3. consolidate the residuals and all completed numerical/provenance checks into a final Fig. 7 acceptance report;
+4. do not update the axial-vector constraint curve or merge the research PR as a validated reproduction while the \(+92.26\%\) strong-endpoint residual remains.
+
+No production code, source normalization, opacity, coupling, profile, Fig. 7 curve, or axial-vector result is modified by P1-E1--P1-E3.
 
 ## References
 
