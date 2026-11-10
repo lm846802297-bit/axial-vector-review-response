@@ -63,9 +63,9 @@ class TestGarchingEOSNucleonDistribution(unittest.TestCase):
     def test_direct_degeneracy_equals_density_derivative(self):
         states = (
             NucleonEOSState("n", 3.03, 650.0, -45.0, 38.0),
-            NucleonEOSState("p", 3.03, 648.7067, -40.0, 25.0),
+            NucleonEOSState("p", 3.03, 648.706667, -40.0, 25.0),
             NucleonEOSState("n", 12.0, 700.0, -25.0, 18.0),
-            NucleonEOSState("p", 12.0, 698.7067, -20.0, 8.0),
+            NucleonEOSState("p", 12.0, 698.706667, -20.0, 8.0),
         )
         for state in states:
             direct = degeneracy_factor(state, order=512)
@@ -101,14 +101,14 @@ class TestGarchingEOSNucleonDistribution(unittest.TestCase):
                 "T_MeV": 4.0, "rho_g_cm3": 1.0e14, "dMdt_weight": 2.0, "xi": 0.82,
                 "mstar_n_MeV": 700.0, "U_n_MeV": -30.0,
                 "mu_star_n_MeV": 50.0,
-                "mstar_p_MeV": 698.7067, "U_p_MeV": -20.0,
+                "mstar_p_MeV": 698.706667, "U_p_MeV": -20.0,
                 "mu_star_p_MeV": 35.0,
             },
             {
                 "T_MeV": 8.0, "rho_g_cm3": 2.0e14, "dMdt_weight": 1.0, "xi": 0.73,
                 "mstar_n_MeV": 650.0, "U_n_MeV": -25.0,
                 "mu_star_n_MeV": 30.0,
-                "mstar_p_MeV": 648.7067, "U_p_MeV": -15.0,
+                "mstar_p_MeV": 648.706667, "U_p_MeV": -15.0,
                 "mu_star_p_MeV": 18.0,
             },
         ]
@@ -151,7 +151,7 @@ class TestGarchingEOSNucleonDistribution(unittest.TestCase):
 
     def test_hs_spp_mapping_reproduces_rmF_single_particle_energy(self):
         for species, m_vac in (("n", 939.565346), ("p", 938.272013)):
-            mstar = 690.0 if species == "n" else 688.7067
+            mstar = 690.0 if species == "n" else 688.706667
             sigma_v = 115.0 if species == "n" else 104.0
             mu_nonrel = 35.0 if species == "n" else 20.0
             state = candidate_state_from_hs_spp(
