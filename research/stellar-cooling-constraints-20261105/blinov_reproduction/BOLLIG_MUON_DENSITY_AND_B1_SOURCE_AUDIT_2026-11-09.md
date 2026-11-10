@@ -196,3 +196,16 @@ Keep the following distinctions explicit:
 - Successful Caputo vector audit workflow: https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42526643916
 
 Both workflows preserve the production rates, transport, and published axial outputs.
+
+
+## 7. Current-profile B.1 source-input closure update (2026-11-10)
+
+The subsequent P1-E source-side tests have now checked two additional profile inputs that were not covered by the original density audit:
+
+1. **Neutrino chemical potentials:** \`B16_P1E2_B1_NEUTRINO_CHEMICAL_POTENTIAL_SOURCE_SENSITIVITY_2026-11-10.md\` varies \(\mu_{\nu_\mu}\) in the B.1 production kernel. Global \(\pm10\%\) and \(\pm30\%\) stresses change the total B.1 source by at most \(0.66\%\); setting \(\mu_{\nu_\mu}=0\) changes it by \(+1.17\%\). The diagnostic \(\mu_{\nu_\tau}=\mu_{\nu_\mu}\) alternative changes the source by \(-1.17\%\).
+2. **Interior lapse:** \`B16_P1E3_INTERIOR_LAPSE_B1_SOURCE_SENSITIVITY_2026-11-10.md\` finds that matching the weak Fig. 7 source would require a \(+4.97\%\) lapse rescaling over 5--15 km or \(+6.03\%\) over 8--15 km. The independent public lapse visualization agrees with the current profile to a few \(10^{-3}\) in absolute lapse, so this is not supported by the available cross-check.
+3. **Outer lapse:** P1-E1 finds that the 24--25 km continuation changes the full strong-point B.1+B.2 luminosity by at most \(0.0262\%\).
+
+The B.1 weak-end source residual remains about \(-9.03\%\) for the current 1687-row profile. The source-side tests above do not justify changing \(n_\mu F_{\rm deg}\), \(\mu_{\nu_\mu}\), \(\mu_{\nu_\tau}\), or the lapse. The original Garching table and the paper's numerical implementation remain unavailable, so the residual stays an explicit reproduction limitation rather than a fitted correction.
+
+No B.1 source, opacity, profile, Fig. 7 digitization, or axial-vector output is changed by this status update.
