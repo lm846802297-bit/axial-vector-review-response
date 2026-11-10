@@ -334,7 +334,8 @@ class TestOfficialTablesWhenAvailable(unittest.TestCase):
 
         spp_nb = self.single_particle.column("nB_fm3")[:, :, :NB_PHYSICAL]
         ext_nb = self.extended.entry("nB_fm3")[:, 1:, :NB_PHYSICAL]
-        self.assertLess(float(np.abs(spp_nb / ext_nb - 1.0).max()), 1e-7)
+        # The SPP ASCII density column is rounded; the full-table audit found O(4e-7) relative differences.
+        self.assertLess(float(np.abs(spp_nb / ext_nb - 1.0).max()), 1e-6)
 
     def test_audited_cells_are_reproducible_from_the_tables(self) -> None:
         from audit_b16_p1iii_eos_sfho_realdata_closure import closure_cell
