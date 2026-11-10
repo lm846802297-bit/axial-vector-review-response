@@ -191,6 +191,29 @@ The corresponding leading-log contribution to the mixed inverse kernel at \(p^2=
 \]
 These are scale-evolution contributions to the derivative operator, not new independent threshold corrections.
 
+### 4.1 Explicit factor-two scale check at fixed physical \(M_E\)
+
+To make the cancellation visible numerically, hold the physical heavy mass fixed at \(M_E=20\) TeV and evaluate the hard and soft logarithms at a common scale \(\mu=10,20,40\) TeV. Define the derivative coefficients
+\[
+H'(\mu)=\sum_\ell\frac{q_\ell}{16\pi^2}
+\left[\ln\frac{M_E^2}{\mu^2}-\frac23\right],
+\qquad
+S'(\mu)=\sum_\ell\frac{q_\ell}{16\pi^2}
+\ln\frac{\mu^2}{m_\ell^2}.
+\]
+The sum is constant to numerical precision:
+
+| Benchmark | \(\mu\) [TeV] | \(H'(\mu)\) | \(S'(\mu)\) | \(H'+S'\) |
+|---|---:|---:|---:|---:|
+| A | 10 | \(+1.65452\times10^{-6}\) | \(+3.97539\times10^{-5}\) | \(4.14084\times10^{-5}\) |
+| A | 20 | \(-1.53275\times10^{-6}\) | \(+4.29412\times10^{-5}\) | \(4.14084\times10^{-5}\) |
+| A | 40 | \(-4.72002\times10^{-6}\) | \(+4.61285\times10^{-5}\) | \(4.14084\times10^{-5}\) |
+| B | 10 | \(+3.72326\times10^{-7}\) | \(+8.94608\times10^{-6}\) | \(9.31840\times10^{-6}\) |
+| B | 20 | \(-3.44925\times10^{-7}\) | \(+9.66333\times10^{-6}\) | \(9.31840\times10^{-6}\) |
+| B | 40 | \(-1.06218\times10^{-6}\) | \(+1.03806\times10^{-5}\) | \(9.31840\times10^{-6}\) |
+
+Multiplying the invariant sum by \(m_h^2\) gives \(+0.6495974\ {\rm GeV}^2\) (A) and \(+0.1461830\ {\rm GeV}^2\) (B) for this derivative-only projection. These are not full self-energies or physical pole shifts. The check is a fixed-sector matching/subtraction-scale identity, **not** the final full-model factor-two \(\mu_M\) uncertainty test.
+
 ## 5. Portal running: what is and is not established
 
 ### 5.1 VLL contribution
