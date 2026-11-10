@@ -620,3 +620,24 @@ The \(4\lambda_{HS}^2\) term is retained in the ordinary full one-loop MS expres
 Benchmark A/B decompositions are recorded over \(m_s=10\)–150 GeV. At the illustrative \(m_s=125.25\) GeV point, the known subtotal excluding the still-unfixed SM running remainder is \(+6.04131\times10^{-2}\) (A) and \(+5.77446\times10^{-4}\) (B), including the full one-loop portal-squared term. The numerical SM remainder is kept symbolic until \(g_2,g_Y,Y_{u,d,e}\) at \(20\) TeV are fixed in one input scheme. Benchmark A has \(\lambda_\tau=\sqrt{4\pi}\), so higher-loop running should be monitored.
 
 B5-1 is analytically derived for \(\chi(M_E)=0\) and the common VLL threshold. This does not yet provide the EFT beta below \(M_E\), coupled UV running, or full UV–EFT scale cancellation. The closure matrix/work order was updated accordingly.
+
+
+## 2026-11-11 — B5-1b SM threshold input and coupled UV RGE
+
+Added B5_1B_SM_THRESHOLD_AND_COUPLED_UV_RGE_2026-11-11.md, b5_1b_sm_threshold_and_uv_rge.py, and B5_1B_SM_THRESHOLD_AND_UV_RGE_OUTPUT_2026-11-11.txt.
+
+PDG-2025 central values are inserted into the NNLO weak-scale \(\overline{\rm MS}\) matching interpolants of Buttazzo et al. The SM is then run at one loop to the common VLL threshold \(M_E=20\) TeV, giving
+\[
+(g_Y,g_2,g_3,y_t,\lambda_H)_{M_E}
+=(0.3678266,0.6232068,0.9292987,0.7674037,0.0592606).
+\]
+The top-dominant SM trace gives \(D_{\rm SM}(M_E)=1.5827658\). This replaces the earlier B5-1 illustrative numerical decomposition that used the tree-level weak-scale \(\lambda_H=m_h^2/(2v_h^2)\); the analytic B5-1 beta expression itself is unchanged.
+
+The complete one-loop UV system above \(M_E\) is now implemented for \(g_Y,g_2,g_3,g_X\), \(y_t,y_{\mu,\tau}\), \(\lambda_{\mu,\tau}\), and \(\lambda_H,\lambda_S,\lambda_{HS}\). The first-pass diagnostic finds:
+- Benchmark A saturates \(\lambda_\tau^2=4\pi\) at \(M_E\), and \(\beta_{\lambda_\tau}>0\); it has no upward headroom under the adopted strict perturbativity bound.
+- Benchmark A has a strongly negative \(\beta_{\lambda_S}\), dominated by \(-2\lambda_\tau^4/(16\pi^2)\).
+- Benchmark B remains perturbative and has positive quartics to \(2M_E\) for the \(m_s=50,100,150\) GeV diagnostic points, but \(\lambda_H\) crosses zero near \(57.9\) TeV in the one-loop upward run.
+
+These are provisional one-loop stability/perturbativity diagnostics, not final vacuum-lifetime claims. The correct threshold rule is now explicit: use the EFT below \(M_E\) and the full UV system above \(M_E\). Independent SARAH/PyR@TE or diagrammatic RGE validation, two-loop running, and B5-2 EFT operator evolution remain open.
+
+The B5-1 note was amended to label its old tree-level-\(\lambda_H\) numerical table as illustrative only and to direct matching-scale numerical work to B5-1b.
