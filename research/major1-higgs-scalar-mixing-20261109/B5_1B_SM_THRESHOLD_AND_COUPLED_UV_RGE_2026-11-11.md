@@ -3,7 +3,7 @@
 **Date:** 2026-11-11  
 **Model:** original \(U(1)_{L_\mu-L_\tau}\) model with one complex \(S\) and two VLL Dirac fermions; no neutrino-sector extension.  
 **Common threshold:** \(M_E=20\) TeV.  
-**Status:** a reproducible one-loop leading-log numerical pass is complete. The complex-singlet Yukawa beta has now been re-derived with an exact real-scalar/Weyl matrix audit and the coupled trajectories have been recomputed. The complete model-specific RGE remains provisional pending an independent automated RGE-generator cross-check and a higher-order uncertainty study.
+**Status:** the one-loop leading-log system has been re-derived and numerically recomputed. The complex-singlet and Higgs-doublet Yukawa tensors, full gauge traces, and scalar-quartic tensor have independent analytic audits. The scalar-tensor audit corrected the portal-squared coefficient in \(\beta_{\lambda_H}\) from 2 to 1. The external PyR@TE/SARAH execution and higher-order uncertainty study remain open.
 
 ## 1. Threshold logic: UV and EFT must be run on opposite sides
 
@@ -200,7 +200,7 @@ With \(V\supset\lambda_H(H^\dagger H)^2+\lambda_S(S^\dagger S)^2+\lambda_{HS}(H^
 \[
 \begin{aligned}
 16\pi^2\beta_{\lambda_H}
-={}&24\lambda_H^2+2\lambda_{HS}^2\\
+={}&24\lambda_H^2+\lambda_{HS}^2\\
 &+\lambda_H\left[12y_t^2+4(y_\mu^2+y_\tau^2)
 -9g_2^2-3g_Y^2\right]\\
 &-6y_t^4-2(y_\mu^4+y_\tau^4)\\
@@ -300,7 +300,81 @@ The gauge contribution is
 -3g_X^2(X_{E_L}^2+X_{\ell_R}^2)
 =-6g_Y^2-6g_X^2.
 \]
-The Higgs-doublet Yukawa \(y_\ell\) retains the SM-like \(3/2\) self/vertex coefficient plus the Higgs trace. The B5-1 portal beta and scalar-quartic beta functions are unchanged at the matching point; only the \(\lambda_\mu,\lambda_\tau\) trajectories and subsequent coupled evolution are changed.
+The Higgs-doublet Yukawa \(y_\ell\) retains the SM-like \(3/2\) self/vertex coefficient plus the Higgs trace. The Yukawa-coefficient correction leaves the instantaneous \(\beta_{\lambda_{HS}}\) and \(\beta_{\lambda_S}\) unchanged at the matching point. A separate B5-1d scalar-tensor audit below corrects the \(\lambda_{HS}^2\) coefficient in \(\beta_{\lambda_H}\); the coupled trajectories are recomputed with both corrections.
+
+### 5.5 Independent scalar-tensor and gauge-spectrum audit
+
+Write the four real Higgs components as \(h_a\), \(a=1,\ldots,4\), and the two real singlet components as \(s_i\), \(i=1,2\). With the normalization in the model potential,
+\[
+V_4=\frac{\lambda_H}{4}(h_a h_a)^2
++\frac{\lambda_S}{4}(s_i s_i)^2
++\frac{\lambda_{HS}}{4}(h_a h_a)(s_i s_i).
+\]
+Define the real-field quartic tensor by
+\[
+V_4=\frac1{4!}\Lambda_{ABCD}\Phi_A\Phi_B\Phi_C\Phi_D.
+\]
+The scalar-only one-loop tensor contraction is
+\[
+(16\pi^2\beta_\Lambda)_{ABCD}
+=\Lambda_{ABEF}\Lambda_{EFCD}
++\Lambda_{ACEF}\Lambda_{EFBD}
++\Lambda_{ADEF}\Lambda_{EFBC}.
+\]
+Projecting onto \(hhhh\), \(ssss\), and \(hhss\) gives
+\[
+\boxed{\begin{aligned}
+16\pi^2\beta_{\lambda_H}^{\rm scalar}
+&=24\lambda_H^2+\lambda_{HS}^2,\\
+16\pi^2\beta_{\lambda_S}^{\rm scalar}
+&=20\lambda_S^2+2\lambda_{HS}^2,\\
+16\pi^2\beta_{\lambda_{HS}}^{\rm scalar}
+&=\lambda_{HS}(12\lambda_H+8\lambda_S+4\lambda_{HS}).
+\end{aligned}}
+\]
+This exact six-real-scalar contraction is independent of the production RGE integrator. In particular, the complex singlet has two real components, so its contribution to \(\beta_{\lambda_H}\) is \(\lambda_{HS}^2\), not \(2\lambda_{HS}^2\). The same coefficient is obtained in published complex-singlet extensions with the same portal normalization.
+
+The gauge spectrum was separately summed in a left-handed Weyl basis. Including all three SM generations, the two non-universal lepton families, both VLL Dirac fermions, the Higgs doublet, and the complex \(S\), the exact traces are
+\[
+\sum_{\rm Weyl}Y^2=14,\qquad
+\sum_{\rm Weyl}X^2=10,\qquad
+\operatorname{Tr}_{\rm Weyl}(YX)=0,
+\]
+\[
+\sum_{\rm Weyl}T_2=6,\qquad
+\sum_{\rm Weyl}T_3=6.
+\]
+They give
+\[
+b_Y=\frac{19}{2},\qquad b_2=-\frac{19}{6},
+\qquad b_3=-7,\qquad b_X=8.
+\]
+The external-field Casimir sums reproduce the gauge-linear coefficients
+\[
+\begin{array}{c|rrrr}
+&y_t&y_{\mu,\tau}&\lambda_{\mu,\tau}&\lambda_{HS}\\\hline
+g_Y^2&-\frac{17}{12}&-\frac{15}{4}&-6&-\frac32\\
+g_2^2&-\frac94&-\frac94&0&-\frac92\\
+g_3^2&-8&0&0&0\\
+g_X^2&0&-6&-6&-24
+\end{array}
+\]
+where the \(\lambda_{HS}\) column denotes the coefficient inside
+\(\beta_{\lambda_{HS}}/\lambda_{HS}\).
+
+Finally, the vector mass eigenvalues in neutral \(H\) and \(S\) backgrounds give
+\[
+16\pi^2\beta_{\lambda_H}^{g^4}
+=\frac98g_2^4+\frac34g_2^2g_Y^2+\frac38g_Y^4,
+\qquad
+16\pi^2\beta_{\lambda_S}^{g^4}=96g_X^4,
+\qquad
+\beta_{\lambda_{HS}}^{g^4}=0.
+\]
+The VLL field-dependent mass matrix independently gives a vanishing \(h^2s^2\) coefficient in \(\operatorname{Tr}[(\mathcal M^\dagger\mathcal M)^2]\), while retaining the pure \(h^4\) and \(s^4\) boxes. Thus the mixed portal has no additive VLL Yukawa box, but the two pure quartics do.
+
+The full independent symbolic implementation is archived in
+b5_1d_independent_rge_audit.py; its nine regression tests also compare the resulting 12-component beta vector and the quartic decomposition against the production implementation at both benchmarks and at a generic point. This is an analytic tensor/group-theory cross-check, not yet an execution of PyR@TE or SARAH.
 
 ## 6. Numerical beta functions at \(M_E=20\) TeV
 
@@ -317,20 +391,20 @@ The table below uses the same \(m_s\) diagnostic grid for both benchmarks. The b
 
 | \(m_s\) [GeV] | Benchmark | \(\lambda_S(M_E)\) | \(\beta_{\lambda_S}(M_E)\) | \(\beta_{\lambda_H}(M_E)\) | \(\beta_{\lambda_{HS}}(M_E)\) |
 |---:|:---:|---:|---:|---:|---:|
-| 10 | A | 0.0099505 | -1.99627 | -0.0496727 | +0.0448414 |
-| 50 | A | 0.248762 | -1.91252 | -0.0496727 | +0.0473913 |
-| 100 | A | 0.995047 | -1.55770 | -0.0496727 | +0.0553597 |
-| 150 | A | 2.23886 | -0.652827 | -0.0496727 | +0.0686404 |
-| 10 | B | 0.00050391 | -0.00506027 | -0.0502338 | +0.000585078 |
-| 50 | B | 0.0125976 | -0.00488133 | -0.0502338 | +0.000591617 |
-| 100 | B | 0.0503905 | -0.00408335 | -0.0502338 | +0.000612053 |
-| 150 | B | 0.113379 | -0.00194940 | -0.0502338 | +0.000646112 |
+| 10 | A | 0.0099505 | -1.99627 | -0.0499540 | +0.0448414 |
+| 50 | A | 0.248762 | -1.91252 | -0.0499540 | +0.0473913 |
+| 100 | A | 0.995047 | -1.55770 | -0.0499540 | +0.0553597 |
+| 150 | A | 2.23886 | -0.652827 | -0.0499540 | +0.0686404 |
+| 10 | B | 0.00050391 | -0.00506027 | -0.0502345 | +0.000585078 |
+| 50 | B | 0.0125976 | -0.00488133 | -0.0502345 | +0.000591617 |
+| 100 | B | 0.0503905 | -0.00408335 | -0.0502345 | +0.000612053 |
+| 150 | B | 0.113379 | -0.00194940 | -0.0502345 | +0.000646112 |
 
 At \(m_s=100\) GeV, the decomposition of \(\beta_{\lambda_H}\) is
 \[
 \begin{array}{c|rr}
 \text{contribution}&A&B\\\hline
-\text{scalar}&+1.09634\times10^{-3}&+5.35175\times10^{-4}\\
+\text{scalar}&+8.15034\times10^{-4}&+5.34453\times10^{-4}\\
 \text{Yukawa wavefunction}&+6.61369\times10^{-3}&+6.61369\times10^{-3}\\
 \text{Yukawa boxes}&-5.72863\times10^{-2}&-5.72863\times10^{-2}\\
 \text{gauge linear}&-1.46407\times10^{-3}&-1.46407\times10^{-3}\\
@@ -364,11 +438,11 @@ The upward UV integration gives
 \begin{array}{c|rr}
 &A&B\\\hline
 \lambda_{HS}^{\rm UV}(M_E)&0.2107639764&0.01067337649\\
-\lambda_{HS}^{\rm UV}(2M_E)&0.2498328855&0.01109932167\\
-\text{relative shift}&18.5368\%&3.99073\%
+\lambda_{HS}^{\rm UV}(2M_E)&0.2498314017&0.01109932152\\
+\text{relative shift}&18.5361\%&3.99072\%
 \end{array}
 \]
-The A trajectory is outside the strict Yukawa perturbativity domain immediately above \(M_E\), so its shift is only a formal diagnostic. B remains perturbative over this factor-two interval. For B, holding the \(M_E\) beta fixed would give \(0.01109761904\) at \(2M_E\), compared with \(0.01109932167\) from the synchronized coupled evolution; the difference is \(1.53\times10^{-2}\%\) relative to the frozen-beta estimate.
+The A trajectory is outside the strict Yukawa perturbativity domain immediately above \(M_E\), so its shift is only a formal diagnostic. B remains perturbative over this factor-two interval. For B, holding the \(M_E\) beta fixed would give \(0.01109761904\) at \(2M_E\), compared with \(0.01109932152\) from the synchronized coupled evolution; the difference is \(1.5341\times10^{-2}\%\) relative to the frozen-beta estimate.
 
 These are **UV running results above the VLL threshold**, not an evolution from \(M_E\) down to \(m_h\). The matching condition is
 \[
@@ -428,13 +502,13 @@ Its \(\lambda_S\) remains positive throughout the upward scan to \(70\) TeV for 
 
 However, the Higgs quartic crosses zero at
 \[
-\mu(\lambda_H=0)\simeq57.90\ {\rm TeV}.
+\mu(\lambda_H=0)\simeq57.9001\ {\rm TeV}.
 \]
-The corresponding Benchmark-A formal crossing is approximately \(58.6\) TeV, but is outside the strict perturbative domain already at the threshold.
+The corresponding Benchmark-A formal crossing is approximately \(58.27\) TeV, but is outside the strict perturbative domain already at the threshold.
 
 At \(2M_E=40\) TeV, Benchmark B with \(m_s=100\) GeV gives
 \[
-\lambda_H\simeq0.0220013,\quad
+\lambda_H\simeq0.0220007,\quad
 \lambda_S\simeq0.0475232,\quad
 \lambda_{HS}\simeq0.0110993,\quad
 \lambda_\tau\simeq0.799138.
@@ -455,31 +529,32 @@ The robust first-pass observations are:
 
 ## 8. Symbolic and numerical checks
 
-The companion script and the dedicated exact-matrix module check:
+The companion scripts and independent tensor audit check:
 1. NNLO weak-scale matching interpolants and the one-loop SM evolution to \(M_E\).
-2. The one-loop gauge coefficients \(b_Y=19/2\) and \(b_X=8\).
-3. The zero one-loop Abelian kinetic-mixing trace \(\operatorname{Tr}(YX)=0\).
-4. The complex-singlet Yukawa beta by direct substitution of the two real-scalar Weyl matrices into the general one-loop tensor formula.
-5. The Coleman–Weinberg pure-quartic finite threshold \(f''(M_E^2)/2=0\) at \(\mu=M_E\).
-6. The mixed finite portal coefficient \(-f'(M_E^2)/M_E^2+f''(M_E^2)=2\).
-7. The coupled UV evolution and the tabulated zero crossings.
+2. Complete one-loop gauge coefficients \(b_Y=19/2\), \(b_2=-19/6\), \(b_3=-7\), and \(b_X=8\), including \(\operatorname{Tr}(YX)=0\).
+3. The six-real-scalar quartic tensor contractions for all three quartics.
+4. The singlet and Higgs-doublet Weyl Yukawa matrices and all external-field gauge Casimirs.
+5. Pure gauge quartic sources from the field-dependent vector mass eigenvalues.
+6. The VLL fermion determinant: zero mixed \(h^2s^2\) box and nonzero pure quartic boxes.
+7. The Coleman–Weinberg finite-threshold identities and the coupled UV evolution.
 
-The exact singlet and Higgs-doublet matrix audits pass algebraically and are covered by six regression tests. They are independent of the coupled integrator. An independent SARAH/PyR@TE or full diagrammatic cross-check of the *complete model-specific* RGE system has not yet been run. This remains a required acceptance gate before promoting the running to a final model-level conclusion.
+The singlet/Higgs Yukawa, scalar-tensor, gauge-spectrum, Casimir, gauge-quartic, and fermion-box audits pass algebraically. Nine new B5-1d regression tests compare the independent 12-component beta vector and quartic decomposition against the production implementation. This validates the one-loop analytic system at the stated top-dominance and \(\chi=0\) assumptions. An external PyR@TE/SARAH execution or full diagrammatic calculation has not yet been run; higher-loop and input uncertainties also remain open.
 
 ## 9. B5-1b acceptance and next work
 
-**B5-1b first-pass numerical calculation is complete; final RGE acceptance remains provisional.**
+**B5-1b numerical pass and B5-1d independent analytic one-loop audit are complete; external-generator and higher-order acceptance remain open.**
 
 Completed:
 - PDG 2025 central inputs fixed.
 - NNLO weak-scale matching values obtained.
 - SM-only one-loop running to \(M_E\) performed.
 - Full one-loop UV beta system for gauge, top/VLL Yukawas, and all three quartics implemented.
-- Benchmark A/B beta decompositions and upward running diagnostics generated.
+- Independent analytic gauge, Yukawa, scalar-tensor, and fermion-box derivations agree with the 12-component production beta vector.
+- Corrected \(\beta_{\lambda_H}^{\rm scalar}\supset+\lambda_{HS}^2\) and recomputed Benchmark A/B beta decompositions and upward running diagnostics.
 - The threshold-side logic has been corrected: UV running above \(M_E\), EFT running below \(M_E\).
 
 Still required:
-1. Independent RGE-generator/diagrammatic validation of the model-specific VLL Yukawa and scalar-quartic beta functions.
+1. Execute the prepared independent PyR@TE/SARAH model or complete diagrammatic calculation; the analytic tensor/group-theory cross-check is now passed.
 2. A two-loop SM running cross-check below \(M_E\), and a quantified top-mass/matching-input uncertainty.
 3. B5-2: derive the EFT running below \(M_E\), including the complete retained operator basis and mixing.
 4. B5-3: close the common tadpole, VEV, and \(h,s\) field-renormalization scheme.
