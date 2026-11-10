@@ -277,7 +277,7 @@ The upstream [\(d^\dagger d\) QCD routing record](https://github.com/lm846802297
 
 The accompanying [exact symbolic audit](https://github.com/lm846802297-bit/high-energy-theory-research/blob/37fe49825fbb7b01ccd5dfffef1708c596aa95ac/calculations/RC-001-QLD8-QCD-momentum-routing-audit.py) passes locally. This closes the insertion-momentum routing algebra only; no Dirac loop numerator, tensor integral, UV pole, or counterterm matrix is yet computed. The work remains a four-fermion/current-sector calculation and does not add a contribution to PR #69 \(hh,hs,ss\).
 
-The latest upstream QLD8 workflow run on the pinned head, #42745444081, failed with an empty job-step list; log retrieval returned 404. The cause is unknown; no CI pass is claimed.
+The latest upstream QLD8 workflow run on the pinned head, #42745464322, failed with an empty job-step list; log retrieval returned 404. The cause is unknown; no CI pass is claimed.
 
 
 ## 2026-11-10 update: QLD8 P1.1c direct \(RL\) tensor evanescent
@@ -288,7 +288,7 @@ E_{T;RL}^{\rm dir}=(\bar Q\sigma^{\mu\nu}P_Rd)(\bar d\sigma_{\mu\nu}P_LQ),
 \]
 which vanishes in four dimensions because the two chiral tensor representations have opposite duality. The corresponding d-dimensional two-gamma chain contains \(D\,P_R\otimes P_L+E_{T;RL}^{\rm dir}\); its \(O(\epsilon)\) scalar coefficient must be retained in a UV-pole calculation.
 
-The exact 4D matrix check has been added to the upstream basis audit. The direct tensor seed is not eliminated using the scalar–vector \(E_{RL;V}\) structure, which belongs to a different Lorentz sector. The direct-pairing rank-three seed and crossed rank-three channel are also distinct. No loop coefficient or UV pole is claimed. The latest upstream CI run #42745444081 failed with an empty job-step list and unavailable logs; the cause is unknown, and no CI pass is claimed.
+The exact 4D matrix check has been added to the upstream basis audit. The direct tensor seed is not eliminated using the scalar–vector \(E_{RL;V}\) structure, which belongs to a different Lorentz sector. The direct-pairing rank-three seed and crossed rank-three channel are also distinct. No loop coefficient or UV pole is claimed. The latest upstream CI run #42745464322 failed with an empty job-step list and unavailable logs; the cause is unknown, and no CI pass is claimed.
 
 
 ## 2026-11-10 update: QLD8 P1.2 d-dimensional Fierz projection
@@ -308,7 +308,7 @@ while the rank-five projection has \(f_5=-1/(3\epsilon)+O(1)\). This is a Gram-p
 
 The scalar–vector \(E_{RL;V}^{\mu,rs}\) is a different Lorentz sector and is not the direct tensor's Fierz image. The direct-pairing \(E_{3;RL}^{\rm dir}\) is also distinct from crossed \(X_3^{RL}\). The full finite evanescent basis remains open until explicit one-loop numerators determine the gamma-rank closure.
 
-The companion [symbolic audit](https://github.com/lm846802297-bit/high-energy-theory-research/blob/37fe49825fbb7b01ccd5dfffef1708c596aa95ac/calculations/RC-001-QLD8-ddim-Fierz-projection-audit.py) passes locally. The latest upstream QLD8 workflow run [#42745444081](https://github.com/lm846802297-bit/high-energy-theory-research/actions/runs/42745444081) again failed with an empty job-step list and unavailable logs; the cause is unknown, and no CI pass is claimed.
+The companion [symbolic audit](https://github.com/lm846802297-bit/high-energy-theory-research/blob/37fe49825fbb7b01ccd5dfffef1708c596aa95ac/calculations/RC-001-QLD8-ddim-Fierz-projection-audit.py) passes locally. The latest upstream QLD8 workflow run [#42745464322](https://github.com/lm846802297-bit/high-energy-theory-research/actions/runs/42745464322) again failed with an empty job-step list and unavailable logs; the cause is unknown, and no CI pass is claimed.
 
 
 ## 2026-11-10 update: QLD8 P1.3 direct-pairing QCD basis and numerator skeleton
@@ -323,7 +323,7 @@ The upstream [six-topology open-line numerator note](https://github.com/lm846802
 
 The exact 4D gamma audit passes 64/64 cross-chain Lorentz-index assignments and 16/16 same-bilinear contractions. In the direct pairing, the one-gluon Feynman-gauge chains generate gamma rank at most two on each bilinear. The direct tensor and mixed rank-two\(\otimes\)scalar structures must be retained. This is not a claim that the crossed odd-rank basis closes; the P1.2 Gram obstruction is avoided by keeping the UV calculation in the direct pairing.
 
-The four external-leg self-energy/wavefunction contributions remain necessary. Overall graph signs, complete \(D\)-dimensional integrands, UV poles, and the \(Z\) matrix have not yet been calculated. The latest upstream QLD8 workflow run [#42745444081](https://github.com/lm846802297-bit/high-energy-theory-research/actions/runs/42745444081) reports failure with an empty job-step list and unavailable logs; the cause is unknown, and no CI pass is claimed.
+The four external-leg self-energy/wavefunction contributions remain necessary. Overall graph signs, complete \(D\)-dimensional integrands, UV poles, and the \(Z\) matrix have not yet been calculated. The latest upstream QLD8 workflow run [#42745464322](https://github.com/lm846802297-bit/high-energy-theory-research/actions/runs/42745464322) reports failure with an empty job-step list and unavailable logs; the cause is unknown, and no CI pass is claimed.
 
 
 ## 2026-11-10 update: QLD8 P1.4a Yukawa-weighted source renormalization
@@ -334,4 +334,4 @@ Z_{J_d}^{(s)}=Z_{Y_d}Z_S=1+O(g_s^4).
 \]
 Thus the two within-source scalar-current vertex corrections plus the four external-leg wavefunction terms are canceled by the \(Y_d^\dagger Y_d\) counterterm when the SM Yukawa is renormalized inside the source. This is a factorized-source identity, not the full four-fermion \(Z\) matrix.
 
-The four cross-source exchanges remain as the non-factorizing QCD mixing problem. The latest upstream QLD8 workflow run [#42745444081](https://github.com/lm846802297-bit/high-energy-theory-research/actions/runs/42745444081) again has an empty job-step list and unavailable logs; its cause is unknown, and no CI pass is claimed.
+The four cross-source exchanges remain as the non-factorizing QCD mixing problem. The latest upstream QLD8 workflow run [#42745464322](https://github.com/lm846802297-bit/high-energy-theory-research/actions/runs/42745464322) again has an empty job-step list and unavailable logs; its cause is unknown, and no CI pass is claimed.
