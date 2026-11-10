@@ -132,10 +132,10 @@ def box_to_current_coefficients():
     delta_E1 = +sp.Rational(3,4)*C3
     delta_E3 = -sp.Rational(1,4)*C3
 
-    assert sp.simplify(delta_C_HL1 + sp.Rational(9,4)*g2**2*C_LD/(16*sp.pi**2)) == 0
-    assert sp.simplify(delta_C_HL3 - sp.Rational(3,4)*g2**2*C_LD/(16*sp.pi**2)) == 0
-    assert sp.simplify(delta_E1 - sp.Rational(9,4)*g2**2*C_LD/(16*sp.pi**2)) == 0
-    assert sp.simplify(delta_E3 + sp.Rational(3,4)*g2**2*C_LD/(16*sp.pi**2)) == 0
+    assert sp.simplify(delta_C_HL1 + sp.Rational(9,16)*g2**2*C_LD/(16*sp.pi**2)) == 0
+    assert sp.simplify(delta_C_HL3 - sp.Rational(3,16)*g2**2*C_LD/(16*sp.pi**2)) == 0
+    assert sp.simplify(delta_E1 - sp.Rational(9,16)*g2**2*C_LD/(16*sp.pi**2)) == 0
+    assert sp.simplify(delta_E3 + sp.Rational(3,16)*g2**2*C_LD/(16*sp.pi**2)) == 0
     return {
         "C3": C3,
         "delta_C_HL1": delta_C_HL1,
