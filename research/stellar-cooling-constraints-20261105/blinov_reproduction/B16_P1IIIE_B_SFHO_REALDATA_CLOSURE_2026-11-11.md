@@ -101,11 +101,14 @@ check used in the reader.
   `read(10) az, mass, bind, comp` with \(8140\times2\) int32 nuclide ids,
   8140 nuclear masses and binding energies (MeV), and `comp(81,61,326,8)`.
   Layer 0 is \(\mu_n^{\rm nonrel}\), layer 2 approximately but not exactly
-  \(\xi\), layer 3 is the Coulomb-type term of the module, layer 4 is the
-  "no nuclei" flag (\(\approx1.0\)), layer 5 is \(n_e=Y_p^{\rm tot}n_B\)
-  [MeV\(^3\)], and layers 6-7 are the free neutron and proton densities
-  [MeV\(^3\)]. Layer 1 is a proton-side chemical potential whose precise
-  definition remains open; it is not used here.
+  \(\xi\), and layer 3 is the Coulomb-type term of the module. Layer 4 is a
+  nuclear-suppression switch: it equals 1 when no nuclei are present and is
+  fractional in the transition region. Layer 5 is the electron-density input
+  passed to the Fortran routine sub_coulomb(ne) [MeV\(^3\)]; it is not
+  globally equal to \(Y_p^{\rm tot}n_B\), and is zero when the no-nuclei switch
+  equals 1. Layers 6-7 are the free neutron and proton densities [MeV\(^3\)].
+  Layer 1 is a proton-side chemical potential whose precise definition remains
+  open; it is not used here.
 
 ## 4. Whole-table audit (restricted to the 308 physical density rows)
 
