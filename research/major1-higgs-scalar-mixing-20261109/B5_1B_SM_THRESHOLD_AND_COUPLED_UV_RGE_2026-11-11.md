@@ -265,7 +265,7 @@ Y_2=\frac{i}{\sqrt2}
 0&0&-\lambda_\tau&0
 \end{pmatrix}.
 \]
-The relative sign in the tau block follows from its coupling to \(S^\ast\).
+The relative sign in the tau block follows from \(S_\mu=S\) and \(S_\tau=S^\ast\) in the four-component Lagrangian. Taking the hermitian-conjugate two-component convention flips both \(Y_2\) blocks together and leaves the beta functions unchanged.
 
 Substituting these matrices into the general one-loop Weyl Yukawa tensor formula gives, before gauge terms,
 \[
