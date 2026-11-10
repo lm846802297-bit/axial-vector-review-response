@@ -511,3 +511,12 @@ This is counterterm algebra, not a chosen renormalization scheme. The tadpole pr
 Added \`A3C_GOLDSTONE_GAUGE_PARAMETER_DIAGNOSTIC_2026-11-10.md\`, the numerical script, and output. At \(p^2=m_h^2\), the A3a Goldstone subset has gauge-dependent absorptive thresholds. In Feynman gauge, the \(aa\) Goldstone cut is open for A (\(m_X=10\) GeV) but closed for B (\(m_X=63\) GeV); at \(\xi=0.5\), the charged Goldstone cut opens in both and the B \(aa\) cut also opens. At \(\xi=40\), all these cuts close.
 
 This is an explicit demonstration that the Goldstone-only \(\Pi_{hs}\) finite part is not physical. The physical poles require the complete \(hh,hs,ss\) matrix, including diagonal vector/Goldstone/ghost terms and the matching counterterms. The calculation does not claim the cancellation; it identifies a necessary gauge-parameter acceptance test.
+
+
+## 2026-11-10 — A4a complete \(U(1)_X\) one-loop \(ss\) kernel
+
+Added \`A4A_U1X_SS_SELF_ENERGY_2026-11-10.md\`, the SymPy/numerical audit script, and output. The general-\(R_\xi\) Euclidean integral representation includes the \(A'A'\) bubble and seagull, mixed \(A'a\) derivative bubble, Goldstone bubble and seagull, and complex \(U(1)_X\) ghost bubble. The radial \(s\)-loop bubble and quartic tadpole are added separately.
+
+The Feynman-gauge expression reduces to \(A_E/B_E\) functions. The general-\(\xi\) longitudinal-vector/ghost tadpole cancellation and the \(p_E^2=0,\lambda_S=0\) unphysical-sector cancellation are verified algebraically. The Feynman-gauge absorptive part at \(p^2=m_s^2\) reproduces the physical \(s\to A'A'\) width exactly. At the open-channel benchmark points the relative numerical residual is below \(3\\times10^{-16}\).
+
+The bosonic singlet-sector Feynman-gauge UV pole is recorded, including the \(p_E^2\) field-renormalization divergence. No scheme-dependent real finite part or physical pole is claimed: the common tadpole/subtraction scheme, full UV--EFT matching counterterms, general-\(\xi\) on-shell reduction, and electroweak \(hh\) sector remain open.
