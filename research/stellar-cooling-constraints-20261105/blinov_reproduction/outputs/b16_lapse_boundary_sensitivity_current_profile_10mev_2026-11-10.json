@@ -1,0 +1,177 @@
+{
+  "title": "Current-profile B.1+B.2 lapse-continuation sensitivity at mV=10 MeV",
+  "date": "2026-11-10",
+  "profile": {
+    "path": "research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv",
+    "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+    "rows": 1687
+  },
+  "method": {
+    "implementation": "Independent V8 numerical implementation of the Appendix-B local kernels and the existing B.1/B.2 quadrature prescription; implementation archived as audit_b16_lapse_boundary_current_profile.js",
+    "fixed_omega_B2": true,
+    "radial_rule": "Composite Gauss-Legendre over [0,5,8,10,12,15,18,20,22,24,25] km",
+    "energy_rule": "Global logarithmic grid from m+1e-5 to m+2000 MeV, with exact threshold knots m/N(r) for all three lapse variants and piecewise-linear energy weights",
+    "susceptibility": "96-point Gauss-Legendre after p=40 t/(1-t), t in [0,1], for integral p^2 f_mu(1-f_mu)/pi^2",
+    "B2_quadrature": "16-point angular and 32-point chord Gauss-Legendre; piecewise-linear radial interpolation",
+    "channels": "At mV=10 MeV, neutrino inverse decay plus muon Compton; dimuon channel closed",
+    "energy_offset_MeV": 2000
+  },
+  "lapse_nodes": {
+    "N23": 0.912658387754292,
+    "N24": 0.916423633157513,
+    "N25_baseline": 0.919912487355853,
+    "matched_Schwarzschild_radius_km": 3.8440253883002864
+  },
+  "couplings": {
+    "weak": 4.796429536550025e-10,
+    "peak": 1.1341108687336194e-8,
+    "strong": 4.171689650228597e-8
+  },
+  "resolution_checks": {
+    "lower": {
+      "radial_order_parameter": 100,
+      "radial_nodes": 100,
+      "base_log_energy_nodes": 160,
+      "energy_nodes_after_threshold_union": 271,
+      "opacity_nodes": 102,
+      "angular_order": 16,
+      "path_order": 32,
+      "baseline": {
+        "thin_source_erg_s_per_g2": 4.3141376439750344e+70,
+        "luminosity_erg_s": [
+          9.903857575437419e+51,
+          1.956486766027285e+54,
+          2.439677481803753e+52
+        ],
+        "relative_to_fig7": [
+          -0.09082999563797467,
+          0.023805501695608466,
+          0.92431699058797
+        ],
+        "relative_to_archived_independent": [
+          0.002290974731793405,
+          0.002235678041121014,
+          0.001965812724142868
+        ]
+      },
+      "freeze_at_N24": {
+        "relative_thin_source_vs_baseline": -0.0000011605734053787842,
+        "relative_luminosity_vs_baseline": [
+          -0.0000011520310103652065,
+          -0.0000011503863377448909,
+          -0.0002618122653040844
+        ]
+      },
+      "linear_extrapolation_of_23_24_slope": {
+        "relative_thin_source_vs_baseline": 7.389740797059119e-8,
+        "relative_luminosity_vs_baseline": [
+          7.335460039392672e-8,
+          7.595701401186261e-8,
+          0.00001934079779205
+        ]
+      }
+    },
+    "higher": {
+      "radial_order_parameter": 200,
+      "radial_nodes": 200,
+      "base_log_energy_nodes": 320,
+      "energy_nodes_after_threshold_union": 541,
+      "opacity_nodes": 202,
+      "angular_order": 16,
+      "path_order": 32,
+      "baseline": {
+        "thin_source_erg_s_per_g2": 4.307447398683539e+70,
+        "source_fraction_r_ge_22": 0.0007255140288784528,
+        "source_fraction_r_ge_24": 0.00020453734902873993,
+        "luminosity_erg_s": [
+          9.888501268694952e+51,
+          1.9536393485159693e+54,
+          2.437500202751174e+52
+        ],
+        "escape_fraction": [
+          0.9978708899295379,
+          0.35262523303381493,
+          0.0003251626796869045
+        ],
+        "relative_to_fig7": [
+          -0.09223969820706857,
+          0.02231548307430775,
+          0.9225996426576071
+        ],
+        "relative_to_archived_independent": [
+          0.000736884566829854,
+          0.0007770515532381506,
+          0.0010716128998973229
+        ]
+      },
+      "freeze_at_N24": {
+        "thin_source_erg_s_per_g2": 4.307442398917468e+70,
+        "relative_thin_source_vs_baseline": -0.000001160725972559895,
+        "luminosity_erg_s": [
+          9.888489875379707e+51,
+          1.9536371012757203e+54,
+          2.43686160481148e+52
+        ],
+        "escape_fraction": [
+          0.9978708984591563,
+          0.3526252367158925,
+          0.0003250778680080838
+        ],
+        "relative_luminosity_vs_baseline": [
+          -0.0000011521781648760054,
+          -0.0000011502840842059214,
+          -0.0002619888765439397
+        ],
+        "relative_escape_fraction_vs_baseline": [
+          8.547817786919154e-9,
+          1.0441900455404607e-8,
+          -0.0002608284531321759
+        ]
+      },
+      "linear_extrapolation_of_23_24_slope": {
+        "thin_source_erg_s_per_g2": 4.3074477170299676e+70,
+        "relative_thin_source_vs_baseline": 7.39060512788825e-8,
+        "luminosity_erg_s": [
+          9.888501994144073e+51,
+          1.953639496899002e+54,
+          2.437547387039039e+52
+        ],
+        "escape_fraction": [
+          0.9978708893875422,
+          0.35262523375530713,
+          0.00032516895004190726
+        ],
+        "relative_luminosity_vs_baseline": [
+          7.336289908899118e-8,
+          7.595211104494126e-8,
+          0.00001935765494759397
+        ],
+        "relative_escape_fraction_vs_baseline": [
+          -5.431520788690136e-10,
+          2.046059544014156e-9,
+          0.000019283747473064494
+        ]
+      }
+    },
+    "higher_vs_lower_baseline_relative_change": {
+      "thin_source": -0.0015507723312534472,
+      "luminosity_weak": -0.0015505379217641835,
+      "luminosity_peak": -0.0014553727429996721,
+      "luminosity_strong": -0.0008924454436366469
+    }
+  },
+  "conclusion": {
+    "largest_full_luminosity_change_from_tested_lapse_variants_at_strong_point": 0.0002619888765439397,
+    "largest_full_luminosity_change_percent": 0.02619888765439397,
+    "strong_endpoint_residual_vs_fig7_baseline": 0.9225996426576071,
+    "strong_endpoint_residual_percent": 92.25996426576071,
+    "interpretation": "The 24--25 km lapse continuation cannot explain the strong-endpoint Fig. 7 discrepancy. The full fixed-omega B.1+B.2 luminosity changes by at most 0.0262% across the two diagnostic alternatives, compared with a 92.26% baseline residual."
+  },
+  "limitations": [
+    "The freeze and linear lapse profiles are diagnostic brackets, not alternative physical supernova metrics.",
+    "The calculation uses a reconstructed public-figure profile, not the original Garching simulation table.",
+    "The higher-resolution result is cross-checked against the archived independent 200-source-node B.1+B.2 result; the remaining difference is about 0.07--0.11% at the three selected couplings.",
+    "The coarse-to-fine comparison changes radial and energy resolution together; it is a joint refinement check, not a separate one-dimensional convergence scan."
+  ],
+  "production_axial_outputs_modified": false
+}
