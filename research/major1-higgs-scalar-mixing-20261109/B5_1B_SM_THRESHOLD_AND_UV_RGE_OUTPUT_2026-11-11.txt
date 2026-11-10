@@ -1,5 +1,5 @@
 B5-1b one-loop threshold and UV-RGE audit
-Date: 2026-11-11
+Date: 2026-11-11; corrected complex-singlet Yukawa coefficient.
 PDG 2025 central inputs: Mt=172.56 GeV, MH=125.20 GeV, MW=80.369 GeV, alpha_s(MZ)=0.1180.
 
 NNLO weak-scale matching interpolants:
@@ -23,6 +23,15 @@ y_mu=y_tau=1.148739795608
 Benchmark A: gX=0.070535334125, lambda_mu=0.210792740710, lambda_tau=3.544907703582
 Benchmark B: gX=0.100000000000, lambda_mu=0.047436034162, lambda_tau=0.797733177917
 
+Corrected complex-singlet Yukawa beta:
+16 pi^2 beta_lambda_l = lambda_l * [2 lambda_l^2 + (lambda_mu^2+lambda_tau^2) - 6 gY^2 - 6 gX^2].
+The 2 coefficient follows from the complex-scalar/Weyl one-loop anomalous dimensions; do not import the Higgs-doublet 3/2 coefficient.
+
+At ME:
+Benchmark A: beta_lambda_mu=+1.582883279e-02, beta_lambda_tau=+8.283886051e-01.
+Benchmark B: beta_lambda_mu=-6.868456325e-05, beta_lambda_tau=+5.251784517e-03.
+Benchmark A lambda_tau(ME)=sqrt(4 pi)=3.5449077; it exceeds the adopted bound by 1% at mu=20.8610 TeV (1.04305 ME). At 1.05 ME, lambda_tau=3.58603968.
+
 At ms=100 GeV:
 Benchmark A:
 lambdaS=0.9950466720
@@ -30,7 +39,7 @@ beta_lambdaH=-0.04967266409
 beta_lambdaS=-1.55769912752
 beta_lambdaHS=+0.05535971002
 beta_lambdaS pieces: scalar=+0.12596249866, Yukawa_wave=+0.31785313391, Yukawa_box=-2.00002500934, gauge_linear=-0.00150479873, gauge_quartic=+0.00001504799
-formal one-loop zero scales: lambdaS=31.490038 TeV, lambdaH=58.669793 TeV
+formal one-loop zero scales: lambdaS=30.978439 TeV, lambdaH=58.674424 TeV
 
 Benchmark B:
 lambdaS=0.05039052658
@@ -40,22 +49,29 @@ beta_lambdaHS=+0.00061205263
 beta_lambdaS pieces: scalar=+0.00032303692, Yukawa_wave=+0.00081514973, Yukawa_box=-0.00512916083, gauge_linear=-0.00015316883, gauge_quartic=+0.00006079271
 formal one-loop zero scales: lambdaS beyond 70 TeV, lambdaH=57.900881 TeV
 
-At 2 ME=40 TeV, ms=100 GeV:
-A: lambdaH=0.0224747264, lambdaS=-0.8281643555, lambdaHS=0.2505797034, lambda_tau=4.1482184628
-B: lambdaH=0.0220012612, lambdaS=0.0475138519, lambdaHS=0.0110994079, lambda_tau=0.8002647274
+Formal lambdaS zero scales [TeV] across ms=10,50,100,150:
+A: 20.099627, 22.548468, 30.978439, 48.569584
+B: 22.089798, >70, >70, >70
+lambdaH zero scales:
+A: 58.623822, 58.635208, 58.674424, 58.756023
+B: 57.900876, 57.900878, 57.900881, 57.900887
 
-A lambda_tau at ME equals sqrt(4pi)=3.5449077 and beta_lambda_tau(ME)=+0.6873412.
-At 1.05 ME, lambda_tau exceeds the adopted sqrt(4pi) boundary by about 1%.
+At 2 ME=40 TeV, ms=100 GeV:
+A: lambdaH=0.0224758478, lambdaS=-0.9957232274, lambdaHS=0.2514006924, lambda_tau=4.3149740588
+B: lambdaH=0.0220012612, lambdaS=0.0475044514, lambdaHS=0.0110994944, lambda_tau=0.8013962613
 
 SM-only beta_lambdaH(ME)=-0.01008797785.
 Full beta_lambdaH(ME): A=-0.04967266409, B=-0.05023382555.
-The dominant VLL box term is -2*(y_mu^4+y_tau^4)/(16pi^2)=-0.05728629254.
+Dominant VLL box term: -2*(y_mu^4+y_tau^4)/(16pi^2)=-0.05728629254.
 
 Symbolic checks:
 pure CW quartic finite threshold at mu=ME: 0
 mixed CW portal coefficient at mu=ME: 2
 U(1)X one-loop gauge coefficient bX: 8
 hypercharge one-loop coefficient above ME bY: 19/2
+Complex-scalar/Weyl one-loop Yukawa anomalous-dimension projection:
+beta_lambda_mu=lambda_mu*(2 lambda_mu^2+lambda_tau^2+gauge terms)
+beta_lambda_tau=lambda_tau*(2 lambda_tau^2+lambda_mu^2+gauge terms)
 
 LIMITS:
 - one-loop SM running below ME, top-dominant.
