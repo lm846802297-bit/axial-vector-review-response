@@ -44,7 +44,7 @@ Consequently,
 =(-1,\eta_\ell Q_\ell,\mathbf1).
 }
 \]
-The equality of these composite charges is the reason that the two EFT insertion contact vertices have the same Abelian coefficients.
+The equality of these composite charges is the reason that the two EFT insertion contact vertices have the same Abelian coefficients. This is consistent with the charge assignment in the upstream RC-001 dimension-six gauge atlas, §5, and the one-gauge-field form-factor atlas, §3; the present B5-2B2 record makes the flavor-resolved contact coefficients explicit for the axial model.
 
 ## 2. Direct derivation of the contact terms
 
