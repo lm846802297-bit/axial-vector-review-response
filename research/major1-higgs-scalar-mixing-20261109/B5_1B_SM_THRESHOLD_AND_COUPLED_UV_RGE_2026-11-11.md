@@ -363,3 +363,14 @@ Still required:
 5. B5-4: only then perform the factor-two matching-scale comparison, using EFT running for \(M_E/2\) and UV running for \(2M_E\).
 
 **Decision:** Benchmark B is the better-controlled reference for the next matching-scale study. Benchmark A should remain in the comparison as a perturbativity-boundary diagnostic, not be silently treated as an equally controlled UV trajectory.
+
+
+## 10. Input references
+
+1. Particle Data Group, 2025 Review of Particle Physics:
+   - Top-quark mass listing: https://pdg.lbl.gov/2025/listings/rpp2025-list-t-quark.pdf
+   - Higgs-boson mass listing: https://pdg.lbl.gov/2025/listings/rpp2025-list-higgs-boson.pdf
+   - QCD review and \(\alpha_s(M_Z)=0.1180\pm0.0009\): https://pdg.lbl.gov/2025/reviews/rpp2025-rev-qcd.pdf
+   - Electroweak review and \(M_W=80.369\pm0.013\) GeV (the average excluding CDF II): https://pdg.lbl.gov/2025/reviews/rpp2025-rev-standard-model.pdf
+2. D. Buttazzo et al., *Investigating the near-criticality of the Higgs boson*, arXiv:1307.3536. The weak-scale \(\overline{\rm MS}\) matching interpolants for \(\lambda_H,y_t,g_2,g_Y,g_3\) are used with the PDG-2025 central inputs inserted.
+3. The one-loop UV beta conventions and the portal matching boundary are inherited from B5-1 and the upstream RC-001 portal-threshold audit; they are not redefined in this note.
