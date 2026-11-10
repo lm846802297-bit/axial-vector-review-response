@@ -63,7 +63,7 @@ def canonical_lorentz_kernels():
     assert sp.simplify(c_ff_K.subs(d, 4-2*eps)
                        - (1-sp.Rational(1,2)*eps)) .subs(eps, 0) == 0
     assert sp.simplify(c_fs_K.subs(d, 4-2*eps)
-                       - (sp.Rational(1,2)+eps/4)) .subs(eps, 0) == 0
+                       + (sp.Rational(1,2)+eps/4)) .subs(eps, 0) == 0
     assert sp.simplify(c_ss_J-c_fs_J) == 0
     assert sp.simplify(c_ss_K-c_fs_K) == 0
 
