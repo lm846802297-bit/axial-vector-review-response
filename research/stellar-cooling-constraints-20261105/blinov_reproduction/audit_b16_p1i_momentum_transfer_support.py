@@ -221,6 +221,16 @@ def build_payload() -> dict:
 
 def main() -> None:
     payload = build_payload()
+    columns = [
+        "E_MeV", "target", "species", "qcut_MeV",
+        "fraction_total", "fraction_angular_transport", "fraction_energy_loss",
+    ]
+    payload["columns"] = columns
+    payload["rows"] = [
+        [row[column] for column in columns]
+        for row in payload["rows"]
+    ]
+
     output = (
         Path(__file__).resolve().parent
         / "outputs"
@@ -233,7 +243,7 @@ def main() -> None:
         "validation": payload["validation"],
         "E500_neutron_rows": [
             row for row in payload["rows"]
-            if row["E_MeV"] == 500.0 and row["target"] == "n"
+            if row[0] == 500.0 and row[1] == "n"
         ],
     }, indent=2))
 
