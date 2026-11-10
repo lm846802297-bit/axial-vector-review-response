@@ -104,7 +104,8 @@ def adjoint_covariant_derivative_check():
         for Jidx in range(3):
             comm = T[a]*SIGMA[Jidx] - SIGMA[Jidx]*T[a]
             expected = I*sum(
-                eps3(a, Jidx, K)*SIGMA[K] for K in range(3)
+                (eps3(a, Jidx, K)*SIGMA[K] for K in range(3)),
+                sp.zeros(2, 2)
             )
             assert all(sp.simplify(x) == 0 for x in comm-expected)
 
