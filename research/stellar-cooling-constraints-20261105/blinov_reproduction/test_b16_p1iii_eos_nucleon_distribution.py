@@ -112,6 +112,18 @@ class TestGarchingEOSNucleonDistribution(unittest.TestCase):
                 "mu_star_p_MeV": 18.0,
             },
         ]
+        for row in rows:
+            for species in ("n", "p"):
+                state = NucleonEOSState(
+                    species,
+                    row["T_MeV"],
+                    row[f"mstar_{species}_MeV"],
+                    row[f"U_{species}_MeV"],
+                    row[f"mu_star_{species}_MeV"],
+                )
+                row[f"n_{species}_target_fm3"] = (
+                    row["xi"] * number_density_fm3(state, order=128)
+                )
         result = aggregate_profile_rows(rows, order=128)
         local = result["local_rows"]
         for species in ("p", "n"):
@@ -140,6 +152,12 @@ class TestGarchingEOSNucleonDistribution(unittest.TestCase):
             )
         self.assertLess(
             result["max_effective_mass_splitting_residual_MeV"], 1e-10
+        )
+        self.assertLess(
+            result["max_relative_density_closure_residual"]["n"], 1e-12
+        )
+        self.assertLess(
+            result["max_relative_density_closure_residual"]["p"], 1e-12
         )
         for source_row, local_row in zip(rows, local):
             for species in ("p", "n"):
