@@ -111,7 +111,7 @@ U_N=m_N^*-m_N+\Sigma_{V,N}^{\rm tot},
 \]
 This mapping is implemented as an explicitly named candidate adapter, not silently assumed to be identical to the Garching \(U_N\) until the density-closure test against the tabulated free-nucleon fractions is passed. The Hempel filling factor \(\xi=V'/V\) is carried separately.
 
-The implementation checks the SFHo effective-mass splitting \(m_n^*-m_p^*=1.2933\) MeV and reports the maximum residual. It does not impose this relation by modifying input data.
+The implementation checks the SFHo effective-mass splitting \(m_n^*-m_p^*=m_n-m_p=1.293333\) MeV (quoted as 1.2933 MeV in Fiorillo et al.) and reports the maximum residual. It does not impose this relation by modifying input data.
 
 ## 5. Numerical software self-test
 
