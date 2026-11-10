@@ -56,6 +56,42 @@ def derive_yukawa_beta():
     return lam_mu, lam_tau, beta_mu, beta_tau
 
 
+def derive_higgs_doublet_vll_yukawa_beta():
+    """Project the two VLL Higgs Yukawas onto the four real components of H."""
+    y_mu, y_tau = sp.symbols("y_mu y_tau", real=True)
+    sqrt2 = sp.sqrt(2)
+
+    # Weyl basis: (nu_mu, mu_L, E_muR^c, nu_tau, tau_L, E_tauR^c).
+    # H has two complex components H+ and H0, each represented by two reals.
+    ys = []
+    for component in range(2):
+        y_real = sp.zeros(6)
+        y_imag = sp.zeros(6)
+        for base, y in ((0, y_mu), (3, y_tau)):
+            left_index = base + component
+            right_conjugate_index = base + 2
+            y_real[left_index, right_conjugate_index] = y_real[right_conjugate_index, left_index] = y/sqrt2
+            y_imag[left_index, right_conjugate_index] = y_imag[right_conjugate_index, left_index] = sp.I*y/sqrt2
+        ys.extend((y_real, y_imag))
+
+    beta_matrices = []
+    for i, yi in enumerate(ys):
+        beta_i = sp.zeros(6)
+        yi_dag = yi.conjugate().T
+        for yj in ys:
+            yj_dag = yj.conjugate().T
+            beta_i += sp.Rational(1, 2)*(yj*yj_dag*yi + yi*yj_dag*yj)
+            beta_i += 2*yj*yi_dag*yj
+            trace_pair = sp.trace(yi*yj_dag) + sp.trace(yj*yi_dag)
+            beta_i += sp.Rational(1, 2)*trace_pair*yj
+        beta_matrices.append(beta_i.applyfunc(sp.simplify))
+
+    # The third real component is Re(H0); multiply back by sqrt(2).
+    beta_y_mu = sp.factor(sqrt2*beta_matrices[2][1, 2])
+    beta_y_tau = sp.factor(sqrt2*beta_matrices[2][4, 5])
+    return y_mu, y_tau, beta_y_mu, beta_y_tau
+
+
 def main():
     lam_mu, lam_tau, beta_mu, beta_tau = derive_yukawa_beta()
     expected_mu = lam_mu*(2*lam_mu**2+lam_tau**2)
@@ -65,7 +101,14 @@ def main():
     print("Exact real-scalar/Weyl Yukawa matrix audit: PASS")
     print(f"16 pi^2 beta_lambda_mu = {sp.factor(beta_mu)}")
     print(f"16 pi^2 beta_lambda_tau = {sp.factor(beta_tau)}")
-    print("Gauge contribution to each flavor: -6 gY^2 - 6 gX^2")
+    y_mu, y_tau, beta_y_mu, beta_y_tau = derive_higgs_doublet_vll_yukawa_beta()
+    expected_y_mu = y_mu*(sp.Rational(5, 2)*y_mu**2+y_tau**2)
+    expected_y_tau = y_tau*(sp.Rational(5, 2)*y_tau**2+y_mu**2)
+    assert sp.simplify(beta_y_mu-expected_y_mu) == 0
+    assert sp.simplify(beta_y_tau-expected_y_tau) == 0
+    print(f"16 pi^2 beta_y_mu [VLL Yukawa part] = {sp.factor(beta_y_mu)}")
+    print(f"16 pi^2 beta_y_tau [VLL Yukawa part] = {sp.factor(beta_y_tau)}")
+    print("Gauge contribution to each singlet Yukawa: -6 gY^2 - 6 gX^2")
 
 
 if __name__ == "__main__":
