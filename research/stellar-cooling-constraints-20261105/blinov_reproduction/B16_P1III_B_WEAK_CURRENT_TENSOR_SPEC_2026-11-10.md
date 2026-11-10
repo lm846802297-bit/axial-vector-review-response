@@ -53,16 +53,42 @@ with
 \left|\frac{\partial(E_p-E_{p'})}{\partial\cos\theta_{pq}}\right|
 =\frac{pq}{E_{p'}}.
 \]
-After azimuthal averaging, the tensor reduces to a one-dimensional integral over \(p\ge p_{\min}\). Unlike the scalar response, the tensor integrand retains the angular dependence of \(p^\mu\), so each tensor component must be evaluated with the kinematically fixed \(\cos\theta_{pq}\). It is not permissible to set \(\mathbf p=0\) inside this integral.
+Define the azimuthal average
+\[
+\overline H_N^{\mu\nu}(p;q_0,q)=
+\frac{1}{2\pi}\int_0^{2\pi}d\phi\,H_N^{\mu\nu}(p,p').
+\]
+With the explicit spin-degeneracy factor 2 and \(H=\tfrac12\operatorname{Tr}[\cdots]\), the angular reduction is
+\[
+\boxed{
+W_N^{\mu\nu}(q_0,q)=
+\frac{1}{4\pi q}\int_{p_{\min}}^\infty dp\,
+\frac{p}{E_p}f_N(E_p)[1-f_N(E_p+q_0)]
+\overline H_N^{\mu\nu}(p;q_0,q)
+}.
+\]
+The prefactor is \(1/(4\pi q)\), not \(1/(8\pi q)\): the latter would omit the explicit nucleon spin degeneracy with the spin-averaged trace convention above. The stationary-target Horowitz limit fixes this normalization independently.
+Unlike the scalar response, the tensor integrand retains the angular dependence of \(p^\mu\), so each component must be evaluated at the kinematically fixed \(\cos\theta_{pq}\) and azimuthally averaged relative to the neutrino scattering plane. It is not permissible to set \(\mathbf p=0\) inside this integral.
 
 ## 3. Leptonic contraction
 
-For neutrinos, use
+For neutrinos, define the lower-index tensor directly by
 \[
-L_{\mu\nu}=8[k'_\mu k_\nu+k'_\nu k_\mu
--g_{\mu\nu}(k\cdot k')+i\epsilon_{\mu\nu\alpha\beta}k'^\alpha k^\beta],
+L^{(\nu)}_{\mu\nu}=
+\operatorname{Tr}[\slashed k'\gamma_\mu(1-\gamma^5)
+\slashed k\gamma_\nu(1-\gamma^5)].
 \]
-with the sign of the antisymmetric term reversed for antineutrinos, subject to the chosen \(\epsilon^{0123}\) convention. The collision kernel is proportional to \(G_F^2 L_{\mu\nu}W_N^{\mu\nu}\), together with the explicitly documented external-state and phase-space normalization.
+For antineutrinos, swap \(k\) and \(k'\) in this trace. This reverses the antisymmetric VA contribution without relying on an implicit epsilon-tensor sign convention.
+In the stationary-target convention used in the audit,
+\[
+L_{\mu\nu}H_N^{\mu\nu}
+=32M_N^2E_\nu^2\,\mathcal B_{\rm Horowitz},
+\qquad
+\frac{d\sigma}{d\Omega}
+=\frac{G_F^2\eta^2}{128\pi^2M_N^2}
+L_{\mu\nu}H_N^{\mu\nu}.
+\]
+The collision kernel is proportional to \(G_F^2 L_{\mu\nu}W_N^{\mu\nu}\), together with the explicitly documented external-state and phase-space normalization.
 
 Keep VV, AA, VA, weak-magnetism, and finite-\(Q^2\) contributions. Do not discard \(W^{0i}\), spatial longitudinal/transverse pieces, or antisymmetric components before contraction.
 
