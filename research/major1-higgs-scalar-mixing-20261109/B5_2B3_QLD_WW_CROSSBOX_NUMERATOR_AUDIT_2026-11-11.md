@@ -255,12 +255,11 @@ This is a completed canonical cross-box numerator/hard-integral sub-block under 
 
 ## 6. Required completion before coefficient promotion
 
-Still required:
-1. Fix the all-incoming/outgoing momentum and fermion-arrow convention separately for LD-W-01, 02, 05 and 06.
-2. Derive the scalar \(H/H^\dagger\) gauge-vertex momentum factors and the fermion propagator numerators in the same convention.
-3. Establish whether the four pair classes have equal or different overall signs and whether additional crossed routings occur.
-4. Add the external \(L,H\) LSZ/self-energy pieces and the \(g_2,y_\ell,C_{LD}\) parameter/operator counterterms exactly once.
-5. Verify the summed weak Ward/Slavnov–Taylor identity. There is no direct \(W\) contact at the \(Q_{LD}\) derivative insertion, but the external-doublet attachments are mandatory.
-6. Perform the UV–EFT subtraction with the same nonexceptional external momenta or shared IR regulator, then project \(T_0,T_3\) and the EOM/current structures.
+**Completed for this cross-box sub-block:** the all-incoming momentum/fermion-arrow convention, scalar \(H/H^\dagger\) vertex momenta, fermion propagator numerators, and common oriented numerator sign are fixed for LD-W-01/02/05/06. For the fixed ordered \(\bar L H H^\dagger L\) Green function there is one exchange contraction per unordered pair; reversing \(k\) is the same graph, and the hermitian-conjugate external amplitude is not an extra factor of two. This is a manual fixed-ordering count, not a FeynArts/FeynCalc graph-package reproduction.
+
+**Still required:**
+1. Add the external \(L,H\) LSZ/self-energy pieces and the \(g_2,y_\ell,C_{LD}\) parameter/operator counterterms exactly once.
+2. Verify the summed weak Ward/Slavnov–Taylor identity. There is no direct \(W\) contact at the \(Q_{LD}\) derivative insertion, but the external-doublet attachments are mandatory.
+3. Complete the common UV–EFT amplitude with the same nonexceptional external momenta or shared IR regulator, then project \(T_0,T_3\) and the EOM/current structures.
 
 The companion script b5_2b3_qld_ww_crossbox_tensor_kernels.py reproduces the scalar-master and canonical numerator algebra. Its six regression tests validate this kernel layer only. No complete \(WW\) Wilson coefficient, anomalous dimension, or Ward-identity closure is claimed.
