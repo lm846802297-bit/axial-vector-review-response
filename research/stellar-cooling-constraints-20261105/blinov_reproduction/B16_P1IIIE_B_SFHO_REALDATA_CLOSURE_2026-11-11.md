@@ -292,15 +292,17 @@ python -m unittest test_b16_p1iii_eos_sfho_realdata -v
    at three more. The module therefore failed to import at all
    (`SyntaxError: unexpected character after line continuation character`), so
    every test that imports it failed at collection. Both files are repaired and
-   the 15 P1-IIIe-A tests now pass locally. The workflow was likewise invalid
+   the pre-follow-up e68eae8 tree had 15 P1-IIIe-A local tests passing. The
+   follow-up changes the quadrature and adds regression tests, so this historical
+   result does not certify the current tree. The workflow was likewise invalid
    YAML at that line. Both defects are real, but they are **not** the cause of the
    observed 3-second failure runs, whose job API reports no steps: the check-run
    annotation on the first run of this commit reads "The job was not started
    because recent account payments have failed or your spending limit needs to be
    increased", and no runner is ever assigned. That is an account-level billing
    condition, independent of these files and not repairable inside the
-   repository. No CI result is claimed for this commit; the local evidence above
-   stands on its own.
+   repository. No CI result is claimed for the current follow-up; the earlier local
+   evidence applies only to the pre-follow-up e68eae8 tree.
 2. **Density-row masking off by one.** Whole-table statistics previously ranged
    over all 326 rows, so the zero rows at \(k\ge309\) produced spurious maxima
    (relative density deviation 1.0, \(\sum X\) residual 1.0, minimum entropy 0).
@@ -312,9 +314,9 @@ python -m unittest test_b16_p1iii_eos_sfho_realdata -v
    value was internally invalid rather than merely wrong; the audit script and its
    JSON were regenerated with the value computed from the archive itself, and
    `sfho_frdm_v1.03_download.py --verify-only` now reproduces all five hashes.
-   `ArchiveManifestTests` checks the length and the agreement of every hash
-   offline, so a repetition of this class of typo is caught by the test suite
-   rather than by a human reading the JSON.
+   `ArchiveManifestTests` checks full SHA-256 length, downloader/manifest/audit
+   agreement, and exact filename-set equality offline, so truncated hashes and
+   missing manifest entries are caught by tests rather than manual inspection.
 5. **Line endings.** The generated fixture is written with `lineterminator="\n"`
    so it is byte-identical on Windows and in CI; without it the CSV module emits
    CRLF and every row of a committed fixture shows up as rewritten.
@@ -344,8 +346,8 @@ python -m unittest test_b16_p1iii_eos_sfho_realdata -v
 
 ## 10. Next stage
 
-P1-IIIe-B is complete as a data and closure stage. The remaining work toward the
-dynamic response (P1-IIIe-C) is:
+P1-IIIe-B now has a reproducible real-table data and sampled-grid closure implementation. The post-follow-up Python suite and the four raw-table checks still require execution.
+The remaining work toward the dynamic response (P1-IIIe-C) is:
 
 1. assemble a local \(T\), \(n_B\), \(Y_p^{\rm tot}\) profile (Garching, or an
    explicitly labelled reconstruction) and interpolate these tables onto it;
