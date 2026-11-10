@@ -561,3 +561,14 @@ A4d was extended to arbitrary external momentum. After the tadpole term is inclu
 =\frac{-g_A^2(3-\xi_X)p_E^2-6g_A^2m_X^2-20\lambda_S^2v_S^2}{\\bar\\epsilon}.
 \]
 Only the field-renormalization pole retains the \((3-\xi_X)\) dependence. In Feynman gauge the full tadpole-improved bosonic kernel reduces to two \(B_E\) functions (vector/Goldstone and radial-scalar thresholds); this is still an intermediate kernel, not a physical pole.
+
+
+## 2026-11-10 — A5a provenance and suitability of the 20 TeV VLL matching scale
+
+Added \`A5A_SCALE_PROVENANCE_AND_MATCHING_SCALE_AUDIT_2026-11-10.md\`, its numerical audit script, and output. The note distinguishes the UV mass parameter \(M_E\), physical heavy singular values, matching scale \(\mu_M\), hard-loop subtraction scale \(\mu_R^{\rm hard}\), and low-energy EFT scale \(\mu_{\rm EFT}\).
+
+The 20 TeV value is the inherited PR #49 / Plan-C-lite benchmark, not a unique prediction. Under the conditional \(\theta_{\tau L},\theta_{\tau R}\le10^{-2}\) assumption and \(m_\tau\simeq\theta_{\tau L}\theta_{\tau R}M_E\), the lower consistency scale is 17.7686 TeV; at 20 TeV, \(\theta_{\tau R}=8.8843\times10^{-3}\). The exact SVD heavy thresholds are 20.001003 and 20.001789 TeV, with negligible logarithms relative to 20 TeV. Thus one common \(\mu_M=20\) TeV is appropriate for this degenerate benchmark.
+
+For the hard VLL matching, \(\mu_R^{\rm hard}=M_E\) removes \(\ln(M_E^2/\mu_R^2)\). The low-energy EFT should subsequently be RG-evolved to \(\mu_{\rm EFT}\sim m_h\); 20 TeV is not to be used indiscriminately for all low-energy loops. The archived Plan-C-lite partial hard+soft comparison changes the real \(\Pi_{hs}\) by 0.1421% between \(\mu_R=M_E\) and \(m_h\), but this is not a complete RG/matching-scale closure because the same-order EFT soft/counterterm set remains open.
+
+The A5a plan and calculation protocol now explicitly separate these scales. A factor-two matching-scale variation is deferred until the full EFT beta functions and matching counterterms are available; the portal boundary must be evolved, not reset to zero at every varied scale.
