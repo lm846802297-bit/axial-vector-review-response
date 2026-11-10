@@ -24,11 +24,11 @@ class TestB52B3QLDWWKernels(unittest.TestCase):
     def test_SS_equals_FS_for_declared_numerator(self):
         self.assertEqual(sp.simplify(self.k["A_SS"]-self.k["A_FS"]), 0)
 
-    def test_all_cross_box_UV_poles_cancel_after_oriented_sum(self):
+    def test_historical_ansatz_UV_pole_cancellation(self):
         _, pole = weak_tensor_weighted_oriented_sum(self.k)
         self.assertEqual(pole, 0)
 
-    def test_oriented_finite_T3_coefficient(self):
+    def test_historical_ansatz_finite_T3_coefficient(self):
         coeff, _ = weak_tensor_weighted_oriented_sum(self.k)
         self.assertEqual(sp.simplify(coeff-sp.Rational(3,4)/M2), 0)
 
