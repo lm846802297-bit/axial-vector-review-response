@@ -220,3 +220,12 @@ Caputo et al. Fig. 1 provides the same SFHo-18.8, \(t_{\rm pb}=1\) s baryon-dens
 This narrows the boundary uncertainty: 25 km is plausible for much of the daughter-pair energy, while a smooth transition for the highest-energy tail may extend beyond 25 km. The transport estimate is not the heavy-flavor energy sphere and cannot select a new \(R_{\max}\). The full 30 km P1-D extension remains an extreme sharp-boundary diagnostic, not a physical prediction.
 
 The remaining actionable calculation would require energy-changing heavy-flavor neutrino collision kernels and moments for the same snapshot. Without those inputs, no further parameter scan is justified. Keep the literal 25 km baseline and classify the remaining Fig. 7 discrepancy as unresolved by the available data.
+
+
+### P1-H official archive access verification and stopping gate (2026-11-10)
+
+The official Garching archive index has now been checked directly. It lists a Bollig/Hüdepohl collection with neutrino signals, radial neutrino moments/spectral data, and hydro profiles. The relevant radial-neutrino and hydro endpoints return HTTP 401 Unauthorized; the public index explicitly says that some collections are password protected and that access should be requested from the archive contact. See \`B16_P1H_GARCHING_ARCHIVE_ACCESS_AND_DATA_REQUIREMENTS_2026-11-10.md\`.
+
+This establishes a legitimate route to request the relevant data, but does not prove that every archive file is the exact \(s18.8\)-SFHo-MUONS snapshot used in the Blinov benchmark. The model identifier, \(t_{\rm pb}=1\) s timestamp, frame convention, and field definitions must be confirmed by the data provider.
+
+**P1-H stop/go gate:** do not attempt a full energy-dependent daughter-pair reprocessing integral until the provider confirms the same snapshot and supplies the required heavy-flavor energy-/angle-dependent neutrino distributions and energy-changing collision kernels. The public-density P1-G transport envelope is not an energy-sphere calculation. Keep \(R_{\max}=25\) km as the literal fixed-\(\omega\) B.2 baseline, keep PR #57 Draft/Open, and do not update the axial-vector curve.
