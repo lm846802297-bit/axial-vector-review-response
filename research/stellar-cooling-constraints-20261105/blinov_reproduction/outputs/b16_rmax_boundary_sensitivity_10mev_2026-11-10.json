@@ -1,0 +1,171 @@
+{
+  "title": "P1-D source-frozen Rmax boundary sensitivity of the 10 MeV B.16 high-energy band",
+  "date": "2026-11-10",
+  "benchmark": {
+    "mass_MeV": 10,
+    "coupling": 4.171689650228597e-8,
+    "energy_band_MeV": [
+      210,
+      510
+    ],
+    "energy_nodes_MeV": [
+      217.292177959537,
+      237.396575235793,
+      259.450813523032,
+      283.643999707467,
+      310.183581357559,
+      339.297125509715,
+      371.234269970943,
+      406.268863870148,
+      444.701315812503,
+      486.861169771447
+    ],
+    "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+    "profile_git_blob_sha": "e41df78c8035540760fbcb7ef592cd830171822e"
+  },
+  "configuration": {
+    "source_radial_nodes": 200,
+    "opacity_radial_nodes": 642,
+    "full_energy_nodes": 842,
+    "band_energy_nodes": 10,
+    "angular_nodes": 32,
+    "path_orders": [
+      64,
+      128
+    ],
+    "propagation": "fixed omega; scalar polarization-summed opacity; Euclidean chord; source frozen at Rmax=25 km",
+    "inward_boundary": "opacity is retained only along ray segments inside r<=Rmax; B.1 source remains fixed",
+    "outward_extension": "two-flavour vacuum-limit neutrino inverse-decay opacity mV^2/(4 pi omega) per g^2 outside 25 km; zero Compton opacity"
+  },
+  "baseline_closure": {
+    "thin_band_luminosity_erg_s": 7.254600479852544e+54,
+    "reference_thin_band_luminosity_erg_s": 7.25460047985254e+54,
+    "thin_source_relative_residual": 5.551115123125783e-16,
+    "Rmax25_path64_luminosity_erg_s": 1.7017848288465618e+52,
+    "reference_Rmax25_luminosity_erg_s": 1.7017848288465714e+52,
+    "Rmax25_path64_relative_residual": -5.662137425588298e-15,
+    "Rmax25_path128_luminosity_erg_s": 1.7017723712099952e+52,
+    "Rmax25_path128_relative_residual": -0.000007320335894123175
+  },
+  "boundary_scan": [
+    {
+      "Rmax_km": 15,
+      "luminosity_path64_erg_s": 2.538937888654678e+53,
+      "luminosity_path128_erg_s": 2.5389345588087836e+53,
+      "relative_change_path128_vs64": -0.0000013115113643991094,
+      "relative_change_vs_Rmax25": 13.919265030559172,
+      "escape_fraction": 0.03499762524078078,
+      "source_fraction_outside_Rmax": 9.690321806448068e-7
+    },
+    {
+      "Rmax_km": 18.5,
+      "luminosity_path64_erg_s": 9.422829424310952e+52,
+      "luminosity_path128_erg_s": 9.422804862019003e+52,
+      "relative_change_path128_vs64": -0.0000026066790390633088,
+      "relative_change_vs_Rmax25": 4.537027516397309,
+      "escape_fraction": 0.012988764095941612,
+      "source_fraction_outside_Rmax": 1.732322916611449e-17
+    },
+    {
+      "Rmax_km": 20,
+      "luminosity_path64_erg_s": 6.258490959093971e+52,
+      "luminosity_path128_erg_s": 6.258503716889352e+52,
+      "relative_change_path128_vs64": 0.000002038477879828804,
+      "relative_change_vs_Rmax25": 2.677604155947156,
+      "escape_fraction": 0.008626927115387036,
+      "source_fraction_outside_Rmax": 6.645995179639416e-22
+    },
+    {
+      "Rmax_km": 22,
+      "luminosity_path64_erg_s": 3.6768687852748616e+52,
+      "luminosity_path128_erg_s": 3.6768537891778826e+52,
+      "relative_change_path128_vs64": -0.0000040784966379714405,
+      "relative_change_vs_Rmax25": 1.1605955835009731,
+      "escape_fraction": 0.0050683270505195305,
+      "source_fraction_outside_Rmax": 1.2492337146474145e-25
+    },
+    {
+      "Rmax_km": 24,
+      "luminosity_path64_erg_s": 2.19251647629732e+52,
+      "luminosity_path128_erg_s": 2.1925170795925236e+52,
+      "relative_change_path128_vs64": 2.7516108103142756e-7,
+      "relative_change_vs_Rmax25": 0.2883629229338909,
+      "escape_fraction": 0.0030222428959201415,
+      "source_fraction_outside_Rmax": 1.938856057081708e-28
+    },
+    {
+      "Rmax_km": 25,
+      "luminosity_path64_erg_s": 1.7017848288465618e+52,
+      "luminosity_path128_erg_s": 1.7017723712099952e+52,
+      "relative_change_path128_vs64": -0.000007320335894123175,
+      "relative_change_vs_Rmax25": 0,
+      "escape_fraction": 0.002345800893616063,
+      "source_fraction_outside_Rmax": 0
+    },
+    {
+      "Rmax_km": 26,
+      "luminosity_path64_erg_s": 1.3202943313481733e+52,
+      "luminosity_path128_erg_s": 1.320284333890206e+52,
+      "relative_change_path128_vs64": -0.000007572143369771744,
+      "relative_change_vs_Rmax25": -0.224170818209117,
+      "escape_fraction": 0.0018199407879384826,
+      "source_fraction_outside_Rmax": 0
+    },
+    {
+      "Rmax_km": 27.5,
+      "luminosity_path64_erg_s": 9.080689351765614e+51,
+      "luminosity_path128_erg_s": 9.080617115123048e+51,
+      "relative_change_path128_vs64": -0.00000795497343519802,
+      "relative_change_vs_Rmax25": -0.4664020269871435,
+      "escape_fraction": 0.0012517146019252858,
+      "source_fraction_outside_Rmax": 0
+    },
+    {
+      "Rmax_km": 30,
+      "luminosity_path64_erg_s": 4.94603293305852e+51,
+      "luminosity_path128_erg_s": 4.945990376983933e+51,
+      "relative_change_path128_vs64": -0.000008604082334939811,
+      "relative_change_vs_Rmax25": -0.7093620269014373,
+      "escape_fraction": 0.0006817788170133736,
+      "source_fraction_outside_Rmax": 0
+    }
+  ],
+  "outer_vacuum_limit": {
+    "profile_boundary_km": 25,
+    "T25_MeV": 3.03377069226813,
+    "mu_numu25_MeV": 0,
+    "mu_mu25_MeV": 0,
+    "local_two_flavour_reduced_neutrino_opacity_over_vacuum": {
+      "min": 0.9811497241230782,
+      "max": 0.9914648391097163
+    },
+    "conditional_extension_extra_tau": [
+      {
+        "Rmax_km": 26,
+        "source_weighted_mean_extra_tau": 0.28957909186502273
+      },
+      {
+        "Rmax_km": 27.5,
+        "source_weighted_mean_extra_tau": 0.7220875449155177
+      },
+      {
+        "Rmax_km": 30,
+        "source_weighted_mean_extra_tau": 1.4388833142173818
+      }
+    ]
+  },
+  "conclusions": [
+    "The source-frozen B.1 thin-band luminosity and the Rmax=25 km high-energy B.2 luminosity reproduce the archived P1-C baseline at floating-point precision.",
+    "For the selected 210--510 MeV band, less than 1e-6 of the B.1 source lies outside 15 km; the inward boundary response is therefore an opacity-support effect, not source truncation.",
+    "Moving Rmax inward from 25 to 24 km increases the high-energy escaped luminosity by 28.84%; moving it to 22 km increases it by 116.06%.",
+    "Extending the trapping boundary from 25 to 26 km with the conditional vacuum-limit neutrino opacity decreases the band luminosity by 22.42%; extensions to 27.5 and 30 km decrease it by 46.64% and 70.94%.",
+    "The 64-to-128 path-order change is below 8.7e-6 at all tested boundaries.",
+    "The literal Rmax=25 km paper prescription remains the baseline; no boundary is selected by fitting Fig. 7."
+  ],
+  "limitations": [
+    "Only the 210--510 MeV band at the 10 MeV strong-endpoint coupling is calculated; this is not a full 25-point Fig. 7 rerun.",
+    "The B.1 source is frozen at its 25 km baseline. Its fraction outside inward Rmax=15 km is below 1e-6 in this band.",
+    "The outward continuation is conditional on neutrino daughters remaining trapped beyond 25 km and uses the vacuum-limit two-flavour inverse-decay opacity with zero Compton opacity; it is not a reconstructed thermodynamic profile.",
+    "The profile is a public-figure reconstruction, not the original Garching snapshot."
+  ]
+}
