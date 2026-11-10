@@ -444,3 +444,10 @@ The approximate complex poles and residues were recomputed using this exact-mome
 ## 2026-11-10 — coherent two-pole spectral-area diagnostic
 
 Added `COHERENT_TWO_POLE_SPECTRAL_AREA_2026-11-10.md` with a reproducible integration of the coherent (D_{hh}) amplitude over 124.5--126.0 GeV. In the selected Plan-C-lite kernel, the integrated h-channel spectral-area ratios at exact degeneracy are 0.99934 (A) and 0.98777 (B); the corresponding non-degenerate 100 and 150 GeV checks are within about (3.1\times10^{-5}) of unity. This demonstrates that a sharp pointwise two-pole interference structure need not imply a comparably large integrated rate change. It is only a theory-level area proxy with fixed widths and constant vertices, not a detector-level signal strength or experimental likelihood.
+
+
+## 2026-11-10 — Benchmark-A vector cascade and CMS search applicability
+
+Added `BENCHMARK_A_CMS_VECTOR_CASCADE_2026-11-10.md`. Using the exact-momentum matched A benchmark pole residue, the isolated-pole estimate gives (mathcal B(h_1\to A'A')\simeq7.67\times10^{-4}), and the pure-axial (A') widths give (mathcal B(A'A'\to\mu\mu\tau\tau)\simeq0.20584). Thus ((\sigma/\sigma_{SM})\mathcal B(h_1\to A'A'\to\mu\mu\tau\tau)\simeq1.58\times10^{-4}).
+
+This is comparable in order of magnitude to the 2026 CMS-SUS-23-005 model-independent (H\to aa\to\mu\mu\tau\tau) sensitivity envelope ((5\times10^{-5}) to (2.7\times10^{-4}) for (m_a=3.6\)--21 GeV). It is not a direct exclusion: CMS generates a pseudoscalar, whereas our (A') is a longitudinally polarized spin-1 state ((F_L\simeq0.999667) at this benchmark), and the 10 GeV point is in the (Upsilon)-background region. A vector-specific detector recast is required.
