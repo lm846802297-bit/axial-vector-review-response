@@ -243,7 +243,9 @@ def run(
                 phase["calculated_luminosity_erg_s"]
                 - baseline_band + band_lum
             )
-            smooth_results[tail_name][f"{weighting}_Rmax_{radius:g}_km"] = {
+            mode_label = {"L": "longitudinal", "T": "transverse", "equal": "equal_mode"}[weighting]
+            radius_label = f"{radius:g}".replace(".", "p")
+            smooth_results[tail_name][f"{mode_label}_Rmax{radius_label}"] = {
                 "band_luminosity_erg_s": band_lum,
                 "relative_band_change_vs_Rmax25": band_lum / baseline_band - 1.0,
                 "band_only_total_proxy_erg_s": full_proxy,
