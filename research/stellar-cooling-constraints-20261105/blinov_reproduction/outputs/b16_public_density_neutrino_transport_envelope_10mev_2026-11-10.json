@@ -531,5 +531,17 @@
     "Equal polarization averaging is a kinematic reference; the actual production density matrix is channel- and phase-space-dependent.",
     "The outer density tail is extrapolated exponentially from a figure ending at 20 km.",
     "No full B.2 vector-ray integration is performed with this smooth pair escape model; it must not replace the published Rmax=25 km baseline."
-  ]
+  ],
+  "validation": {
+    "gauss_legendre_order": 256,
+    "polarization_weight_integrals": {
+      "L": 1,
+      "plus": 1,
+      "minus": 1
+    },
+    "polarization_sum_identity_max_abs": 0,
+    "energy_conservation_identity": "E1+E2=omega at every daughter-angle node",
+    "pair_escape_monotonic_in_radius": true,
+    "all_values_finite": true
+  }
 }
