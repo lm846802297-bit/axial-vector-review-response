@@ -84,7 +84,7 @@ The 1%-above-bound diagnostic is reached at mu=21.319919 TeV.
 
 Benchmark B:
 The one-loop trajectory remains perturbative to 40 TeV for ms=50,100,150 GeV.
-lambdaH crosses zero near 57.90088 TeV. This is a quartic-stability diagnostic,
+lambdaH crosses zero near 57.90008 TeV. This is a quartic-stability diagnostic,
 not a vacuum-lifetime result.
 
 PORTAL MATCHING AND SCALE INTERPRETATION:
