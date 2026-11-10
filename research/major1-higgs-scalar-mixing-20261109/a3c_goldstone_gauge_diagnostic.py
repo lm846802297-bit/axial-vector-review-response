@@ -44,7 +44,7 @@ def main():
     assert beta_goldstone(0.5,mW)>0.0
     assert beta_goldstone(0.5,63.0)>0.0
     # A common xi=40 closes all these cuts at p^2=m_h^2.
-    assert all(beta_goldstone(40.0,m)>0.0 is False for m in (mW,mZ,10.0,63.0))
+    assert all(beta_goldstone(40.0,m)==0.0 for m in (mW,mZ,10.0,63.0))
     print("PASS: gauge-dependent threshold locations and absorptive coefficients.")
     print("LIMIT: Goldstone subset only; its imaginary part is not a physical width.")
 if __name__=="__main__": main()
