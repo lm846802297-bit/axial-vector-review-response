@@ -284,3 +284,11 @@ It does **not** yet explain the remaining \(0.1421\%\) residual in the archived 
 7. Dimension-eight hard/soft closure separately; do not mix its \(O(M_E^{-4})\) pole into the strict dimension-six RGE.
 
 **Conclusion:** the first inhomogeneous EFT running block is now explicit and numerically checked. The result supports the use of \(20\) TeV as the hard matching scale, but it does not yet justify a full-model matching-scale uncertainty or a physical scalar pole. The next calculation should close the missing anomalous dimensions and portal/tadpole counterterms, not simply widen the scale scan.
+
+
+## 8. Reproducibility status
+
+The symbolic identities and numerical tables in this note were evaluated directly in the local Python/SymPy analysis environment. The committed script is the reproducibility implementation of those checks, but it has **not yet been executed as an exact clean-file run** in this session. Three branch-local GitHub Actions attempts created failed jobs with no runner allocation, no steps, and no retrievable logs; the temporary workflow was removed rather than leave a failing check in the Draft PR. Therefore:
+- the analytic/numeric calculation in this note is recorded as locally evaluated;
+- no exact-script CI pass is claimed;
+- a clean execution of the committed script remains a reproducibility task.
