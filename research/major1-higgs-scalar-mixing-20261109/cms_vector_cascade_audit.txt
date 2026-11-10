@@ -1,0 +1,15 @@
+Benchmark-A vector cascade audit
+BR(A'->mumu)=0.354874605
+BR(A'->tautau)=0.290012955
+BR(A'->nunu)=0.355112440
+BR(A'A'->mumu tautau)=0.205836466
+R_hs/R_hh=-2.41310618e-4 + 8.81280605e-4 i
+|R_hs/R_hh|=9.13721138e-4
+pole singlet fraction=8.34885622e-7
+Gamma(h1->A'A')=3.12554098e-6 GeV
+BR(h1->A'A')=7.66850667e-4
+sigma/sigma_SM * BR(h1->A'A'->mumu tautau) ~= 1.57845831e-4
+longitudinal A' fraction=0.999666590
+
+PASS: branching fractions sum to unity and vector polarization fraction is consistent.
+LIMIT: isolated-pole estimate; no vector-specific detector simulation or CMS likelihood recast.
