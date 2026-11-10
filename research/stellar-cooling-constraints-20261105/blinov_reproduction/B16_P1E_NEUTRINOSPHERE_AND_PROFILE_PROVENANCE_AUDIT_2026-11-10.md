@@ -137,16 +137,17 @@ The pure-vector Fig. 7 physical reproduction therefore remains **not passed**. T
 
 ## 8. Next action
 
-The current-profile lapse-continuation task P1-E1 is complete. Do not repeat it or expand the mass scan.
+The outer-lapse task P1-E1 and the B.1 neutrino-chemical-potential source test P1-E2 are complete. Do not repeat either test or expand the mass scan.
 
-The next unresolved calculation is the B.2 normalization map between:
-1. the polarization-summed production rate used in B.1;
-2. the inverse-decay and semi-Compton absorption rates entering detailed balance;
-3. the scalar absorption rate used in the exponent of the B.2 survival probability.
+The next source-side calculation is an interior lapse sensitivity test over the dominant 8--15 km emission region:
+1. vary only \(N(r)\) in 8--15 km, keeping the thermodynamic fields and all other profile inputs fixed;
+2. recompute the exact B.1 \(N^2\) measure and the radius-dependent threshold \(\omega_{\min}=m_V/N(r)\);
+3. test \(\pm1\%\), \(\pm3\%\), and \(\pm5\%\) lapse stresses, separately for the 8--15 km shell and the full 5--15 km source region;
+4. compare the source response with the available figure-level lapse cross-check and the approximately \(9.03\%\) weak-end source deficit.
 
-Derive this relation directly from Blinov et al. Eqs. (B.6)--(B.10), keeping polarization sums and averages explicit. Then compare the resulting scalar opacity with the current implementation channel by channel. Do not apply a factor-of-two correction or change the baseline unless the derivation identifies a definite mismatch and an independent closure test confirms it.
+These are sensitivity diagnostics, not alternative physical profiles. Do not fit the lapse to Fig. 7 or change the baseline without an independent source for a corrected metric.
 
-No production code, source normalization, opacity, coupling, profile, Fig. 7 curve, or axial-vector result is modified by the lapse audit.
+No production code, source normalization, opacity, coupling, profile, Fig. 7 curve, or axial-vector result is modified by P1-E1 or P1-E2.
 
 ## References
 
