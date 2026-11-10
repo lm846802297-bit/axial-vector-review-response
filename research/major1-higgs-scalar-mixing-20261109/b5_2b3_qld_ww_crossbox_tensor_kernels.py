@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""B5-2B3: canonical Lorentz-kernel audit for Q_LD W-cross boxes.
+"""Historical B5-2B3 common-numerator diagnostic; superseded by exact_routing.py.
 
-This evaluates a declared numerator/routing family and its hard-region scalar
-masters. It deliberately does NOT assign the final oriented Feynman-rule signs
-or graph multiplicities to the four atlas pairs.
+This checks only an earlier common-numerator ansatz. It is not the physical
+per-pair routing for the four Q_LD W-cross boxes; its +3/4 finite result must
+not be used as a matching coefficient.
 """
 import sympy as sp
 
@@ -86,7 +86,7 @@ def canonical_lorentz_kernels():
 
 
 def weak_tensor_weighted_oriented_sum(kernels):
-    """Sum the four pairs after the common oriented numerator sign is fixed.
+    """Historical weighted sum for the superseded common-numerator ansatz.
 
     Atlas tensor factors:
       LD-W-01: -T3/4 (FF)
@@ -115,17 +115,10 @@ def main():
     assert pole_weight == 0
     assert sp.simplify(weighted-sp.Rational(3,4)/M2) == 0
 
-    print("B5-2B3 canonical Q_LD W-cross-box numerator audit")
-    print("J_hard = (Delta_UV + 1 - L)/M_E^2")
-    print("K_hard = -1/M_E^2")
-    print("A_FF = (Delta_UV - L - 3/2)/M_E^2")
-    print("A_FS = (Delta_UV - L + 3/2)/M_E^2")
-    print("A_SS = A_FS for the declared canonical numerator")
-    print("PASS: O(eps) in the FF angular coefficient retained against J_UV pole.")
-    print("PASS: all four cross-box weak tensors are T3/4 with signs (-,+,+,-).")
-    print("PASS: manual oriented numerator signs are common for the four fixed external-line pairs.")
-    print("RESULT: oriented four-box raw T3 hard coefficient = +3/(4 M_E^2).")
-    print("LIMIT: no full operator-basis projection, LSZ/counterterm or Ward sum is included.")
+    print("HISTORICAL B5-2B3 common-numerator diagnostic")
+    print("PASS: algebraic identities for the declared common-numerator ansatz.")
+    print("SUPERSEDED: exact per-pair external-momentum routing is in b5_2b3_qld_ww_exact_routing.py.")
+    print("DO NOT USE: the historical +3/(4 M_E^2) finite candidate is not the exact four-box sum.")
 
 
 if __name__ == "__main__":
