@@ -1,5 +1,8 @@
+import csv
 import math
+import tempfile
 import unittest
+from pathlib import Path
 
 import numpy as np
 from scipy.special import expit
@@ -9,6 +12,7 @@ from audit_b16_p1iii_eos_nucleon_distribution import (
     NucleonEOSState,
     aggregate_profile_rows,
     infer_filling_factor_from_global_densities,
+    load_profile_csv,
     solve_effective_chemical_potential_from_density,
     state_from_hs_spp,
     degeneracy_factor,
@@ -173,6 +177,9 @@ class TestGarchingEOSNucleonDistribution(unittest.TestCase):
                     source_row["xi"] * local_row["nprime_fm3"][species],
                     places=14,
                 )
+            self.assertLess(
+                local_row["xi_composition_abs_residual"], 1e-12
+            )
 
     def test_hs_spp_mapping_reproduces_rmF_single_particle_energy(self):
         for species, m_vac in (("n", 939.565346), ("p", 938.272013)):
@@ -216,6 +223,40 @@ class TestGarchingEOSNucleonDistribution(unittest.TestCase):
         )
         self.assertAlmostEqual(
             nu, reference.effective_chemical_potential_mev, places=8
+        )
+
+    def test_hs_spp_csv_is_converted_to_fiorillo_columns(self):
+        row = {
+            "T_MeV": 5.0,
+            "rho_g_cm3": 1.0e14,
+            "dMdt_weight": 1.0,
+            "xi": 0.9,
+            "mstar_n_MeV": 700.0,
+            "SigmaV_n_MeV": 120.0,
+            "mu_nonrel_n_MeV": 40.0,
+            "mstar_p_MeV": 700.0 - 1.293333,
+            "SigmaV_p_MeV": 110.0,
+            "mu_nonrel_p_MeV": 20.0,
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "hs_profile.csv"
+            with path.open("w", newline="", encoding="utf-8") as stream:
+                writer = csv.DictWriter(stream, fieldnames=list(row))
+                writer.writeheader()
+                writer.writerow(row)
+            converted = load_profile_csv(path)[0]
+        self.assertAlmostEqual(
+            float(converted["U_n_MeV"]),
+            700.0 - 939.565346 + 120.0,
+            places=12,
+        )
+        self.assertAlmostEqual(
+            float(converted["mu_star_n_MeV"]), 40.0, places=12
+        )
+        self.assertAlmostEqual(
+            float(converted["U_p_MeV"]),
+            (700.0 - 1.293333) - 938.272013 + 110.0,
+            places=12,
         )
 
     def test_xi_can_be_inferred_from_profile_composition(self):
