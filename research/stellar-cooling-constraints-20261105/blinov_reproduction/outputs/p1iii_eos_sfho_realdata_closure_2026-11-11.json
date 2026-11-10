@@ -82,7 +82,44 @@
     "max_relative_free_proton_deviation": 4.440892098500626e-16,
     "unique_nuclei": 8140,
     "max_A": 339,
-    "nuclei_fraction_note": "The audit code now computes this statistic over the 308 physical density rows only. The updated whole-table value is intentionally not asserted in this fixture-based follow-up because the raw composition archive was not re-read here."
+    "fraction_of_cells_with_nuclei": 0.7368605387731071,
+    "physical_cells": 1521828,
+    "cells_with_nuclei": 1121375,
+    "coulomb_electron_input": {
+      "python_layer_index": 5,
+      "fortran_layer_number": 6,
+      "meaning": "Electron-density input passed to sub_coulomb(ne); not a globally valid Yp_tot*nB column.",
+      "no_nuclei_switch_python_layer_index": 4,
+      "no_nuclei_flag_eq_1_cells": 400453,
+      "coulomb_ne_zero_fraction_in_no_nuclei_cells": 1,
+      "nuclei_cells": 1121375,
+      "coulomb_ne_positive_fraction_in_nuclei_cells": 1,
+      "ratio_to_global_Yp_nB_in_nuclei_cells": {
+        "min": 0.6918309628165954,
+        "max": 1.0000000099999844,
+        "max_absolute_relative_deviation": 0.3081690371834046,
+        "cells_with_absolute_relative_deviation_gt_1e_minus_4": 8331,
+        "affected_fortran_density_indices": [
+          266,
+          280
+        ]
+      },
+      "inferred_ne_over_Ye_density_grid_alignment": {
+        "fraction_within_1e_minus_7_dex": 0.995769479433731,
+        "max_absolute_log10_residual_dex": 0.019999999999360085,
+        "effective_density_index_minus_current_index_min": -4,
+        "median": 0,
+        "max": 0,
+        "interpretation": "Observed grid alignment; exact phase-local meaning is not inferred from this identity alone."
+      }
+    },
+    "full_physical_grid_xi_identity": {
+      "grid": "81 temperatures x 60 nonzero Yp blocks x 308 physical density rows",
+      "cells": 1496880,
+      "max_absolute_residual": 7.974971094615313e-8,
+      "median_absolute_residual": 2.315814207065614e-11,
+      "definition": "xi = 1 - (nB - X_n*nB - X_p*nB)/n0; n0=0.15824150805 fm^-3"
+    }
   },
   "single_particle_checks": {
     "columns": [
@@ -115,7 +152,15 @@
     "SigmaV_p_MeV_range": [
       -5.076209,
       2517.714
-    ]
+    ],
+    "max_absolute_Yp_deviation_vs_extended": 8.870473133804069e-9,
+    "max_relative_nB_deviation_vs_extended": 3.714984324609816e-7,
+    "max_absolute_Yp_grid_deviation": 0,
+    "effective_mass_splitting_MeV_range": [
+      1.2931999999999562,
+      1.2934000000000765
+    ],
+    "max_absolute_deviation_from_1p2933_MeV": 0.00010000000007659438
   },
   "closure": {
     "definition": "xi * nprime_N(T,mstar_N,nu_N) == X_N*nB, where nu_N = mu_nonrel_N - (mstar_N - m_N + SigmaV_N_tot); equivalently the relativistic exponent is [sqrt(p^2+mstar_N^2)-mu_tilde_N]/T with mu_tilde_N = mu_nonrel_N + m_N - SigmaV_N_tot. xi is taken directly from the single-particle table.",
