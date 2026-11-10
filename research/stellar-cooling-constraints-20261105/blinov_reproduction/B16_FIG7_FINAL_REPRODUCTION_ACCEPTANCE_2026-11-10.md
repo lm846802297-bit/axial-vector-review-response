@@ -92,6 +92,16 @@ The published B.1 source uses the lapse-squared factor and the local-energy thre
 
 The missing spatial metric \(A(r)\) is therefore not required to reproduce the paper's printed approximation. It would be required for a separate full-GR transport extension.
 
+### 6.1 Energy-dependent daughter-neutrino decoupling
+
+The fixed \(R_{\max}=R_\nu\simeq25\) km prescription is retained literally, but P1-F identifies an unresolved physical limitation: the neutrinosphere is energy- and flavor-dependent, and for heavy-flavor neutrinos the transport sphere and energy sphere are distinct. The 210--510 MeV vector band produces \(\nu_\mu,\bar\nu_\mu,\nu_\tau,\bar\nu_\tau\) daughters with pair-mean energies \(105\)--\(255\) MeV. A thermal-average 25 km radius is not demonstrated to be the energy-loss boundary for this daughter population.
+
+The P1-D conditional outward-boundary scan shows that extending the 210--510 MeV trapping region from 25 to 30 km with the vacuum-limit neutrino-decay opacity suppresses that band by \(70.94\%\). In a separate V8 cross-runtime phase-space diagnostic, the band carries \(69.76\%\) of the escaped luminosity; replacing only that band by its 30 km conditional value while holding all other energy bins fixed gives a total-luminosity proxy \(2.79\%\) below Fig. 7. This is a band-only arithmetic diagnostic, not a full re-integration or a physical prediction for \(R_{\max}=30\) km. The V8 input is not strict NumPy-grid acceptance because its generated grid hashes differ, despite the reported integral closure.
+
+The comparison shows that an energy-dependent daughter-neutrino energy sphere could be a decisive physical uncertainty. It does **not** justify changing \(R_{\max}\): the required same-snapshot baryon density, composition, neutrino moments, and energy-dependent heavy-flavor opacities are not present in the reconstructed CSV, and the relevant Garching archive endpoints require authorization.
+
+The physically relevant extension is an energy-weighted \(\nu\bar\nu\)-pair escape/reprocessing probability, not an arbitrary fitted sharp radius. The P1-F report documents the kinematics, the conditional band-only proxy, the required transport input, and the stopping decision.
+
 ## 7. Remaining limitation and acceptance decision
 
 The original Garching \(s18.8\)-SFHo-MUONS numerical profile and the authors' numerical implementation are not available in the public repository. The current 1687-row input is a reconstruction from published figures and public visualizations. Its provenance has been cross-checked, but it is not the raw simulation table.
