@@ -16,6 +16,14 @@ on:
       - "research/major1-higgs-scalar-mixing-20261109/test_b5_1d_independent_rge_audit.py"
       - "research/major1-higgs-scalar-mixing-20261109/b5_1d_pyrate3_model.model"
       - "research/major1-higgs-scalar-mixing-20261109/B5_1D_PYRATE3_MODEL_INPUT_NOTES_2026-11-11.md"
+      - "research/major1-higgs-scalar-mixing-20261109/b5_2a_c5_squared_operator_block.py"
+      - "research/major1-higgs-scalar-mixing-20261109/test_b5_2a_c5_squared_operator_block.py"
+      - "research/major1-higgs-scalar-mixing-20261109/B5_2A_C5_SQUARED_AND_QUARTIC_EOM_BLOCK_2026-11-11.md"
+      - "research/major1-higgs-scalar-mixing-20261109/B5_2A_C5_SQUARED_AND_QUARTIC_EOM_OUTPUT_2026-11-11.txt"
+      - "research/major1-higgs-scalar-mixing-20261109/b5_2b_gauge_current_subblock.py"
+      - "research/major1-higgs-scalar-mixing-20261109/test_b5_2b_gauge_current_subblock.py"
+      - "research/major1-higgs-scalar-mixing-20261109/B5_2B1_GAUGE_PARAMETER_AND_CURRENT_BASIS_2026-11-11.md"
+      - "research/major1-higgs-scalar-mixing-20261109/B5_2B1_GAUGE_PARAMETER_AND_CURRENT_BASIS_OUTPUT_2026-11-11.txt"
       - ".github/workflows/major1-higgs-scalar-mixing.yml"
   workflow_dispatch:
 
