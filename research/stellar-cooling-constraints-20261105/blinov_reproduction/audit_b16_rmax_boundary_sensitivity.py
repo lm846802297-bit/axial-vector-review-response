@@ -20,16 +20,12 @@ try:
     from .reference import (
         DEFAULT_PROFILE, KM_TO_MEV_INV, radial_rule, load_profile, local_rates,
     )
-    from .audit_b16_global_redshift import (
-        eq_b1_source_measure, float_array_sha256,
-    )
+    from .audit_b16_global_redshift import eq_b1_source_measure
 except ImportError:
     from reference import (
         DEFAULT_PROFILE, KM_TO_MEV_INV, radial_rule, load_profile, local_rates,
     )
-    from audit_b16_global_redshift import (
-        eq_b1_source_measure, float_array_sha256,
-    )
+    from audit_b16_global_redshift import eq_b1_source_measure
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
@@ -283,6 +279,18 @@ def run(
     baseline128 = float(
         baseline["path_order_results"][str(path_orders[-1])]["luminosity_erg_s"]
     )
+    thin_residual = thin_luminosity / expected_thin - 1.0
+    baseline_residual = baseline64 / expected_escape - 1.0
+    max_path_change = max(
+        abs(row["relative_change_refined_vs_primary"])
+        for row in boundary_rows
+    )
+    if abs(thin_residual) > 1.0e-10:
+        raise ArithmeticError("B.1 high-energy source does not close to P1-C")
+    if abs(baseline_residual) > 1.0e-8:
+        raise ArithmeticError("Rmax=25 km B.2 result does not close to P1-C")
+    if max_path_change > 2.0e-5:
+        raise ArithmeticError("Path-order 64/128 convergence failed")
     return {
         "title": "P1-D source-frozen Rmax boundary sensitivity of the 10 MeV B.16 high-energy band",
         "date": "2026-11-10",
@@ -311,14 +319,15 @@ def run(
         "baseline_closure": {
             "thin_band_luminosity_erg_s": thin_luminosity,
             "reference_thin_band_luminosity_erg_s": expected_thin,
-            "thin_source_relative_residual": thin_luminosity / expected_thin - 1.0,
+            "thin_source_relative_residual": thin_residual,
             "Rmax25_path64_luminosity_erg_s": baseline64,
             "reference_Rmax25_luminosity_erg_s": expected_escape,
-            "Rmax25_path64_relative_residual": baseline64 / expected_escape - 1.0,
+            "Rmax25_path64_relative_residual": baseline_residual,
             "Rmax25_path128_luminosity_erg_s": baseline128,
             "Rmax25_path128_relative_residual": baseline128 / expected_escape - 1.0,
         },
         "boundary_scan": boundary_rows,
+        "max_absolute_path_order_change": max_path_change,
         "outer_vacuum_limit": {
             "profile_boundary_km": opacity_r25,
             "T25_MeV": T25,
