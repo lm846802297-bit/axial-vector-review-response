@@ -553,3 +553,11 @@ The remaining kernel contains only the transverse-vector bubble and the Goldston
 =-[2(d-1)g_A^2m_X^2+20\lambda_S^2v_S^2]/\\bar\\epsilon,
 \]
 or \(-[6g_A^2m_X^2+20\lambda_S^2v_S^2]/\\bar\\epsilon\) in four dimensions. This is an exact zero-momentum identity, not a claim of gauge independence at nonzero momentum or of a physical pole.
+
+
+A4d was extended to arbitrary external momentum. After the tadpole term is included, the local mass pole is \(\xi_X\)-independent:
+\[
+16\pi^2[\Pi_{ss,E}(p_E^2)-T_s^{(1)}/v_S]_{\rm UV}
+=\frac{-g_A^2(3-\xi_X)p_E^2-6g_A^2m_X^2-20\lambda_S^2v_S^2}{\\bar\\epsilon}.
+\]
+Only the field-renormalization pole retains the \((3-\xi_X)\) dependence. In Feynman gauge the full tadpole-improved bosonic kernel reduces to two \(B_E\) functions (vector/Goldstone and radial-scalar thresholds); this is still an intermediate kernel, not a physical pole.
