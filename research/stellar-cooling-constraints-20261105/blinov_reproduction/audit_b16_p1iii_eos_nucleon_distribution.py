@@ -107,7 +107,8 @@ def _momentum_quadrature(
 def phase_space_integrals(
     state: NucleonEOSState, order: int = 512, tail_T: float = 45.0
 ):
-    """Return (n, n_blocked) in MeV^3, including spin degeneracy g_s=2.
+    """Return (n_prime, n_prime_blocked) in MeV^3, including spin degeneracy g_s=2.
+    n_prime is the nucleon density per available volume V', not per total volume V.
 
     n = 2 int d^3p/(2 pi)^3 f(p)
     n_blocked = 2 int d^3p/(2 pi)^3 f(p) [1-f(p)]
@@ -123,6 +124,7 @@ def phase_space_integrals(
 def number_density_fm3(
     state: NucleonEOSState, order: int = 512, tail_T: float = 45.0
 ) -> float:
+    """Return n'_N in fm^-3, i.e. density per nucleon-available volume V'."""
     number_mev3, _ = phase_space_integrals(state, order, tail_T)
     return number_mev3 / HBARC_MEV_FM**3
 
@@ -192,13 +194,15 @@ def aggregate_profile_rows(
     """Compute local Fdeg and Fiorillo's two dM dt weighted averages.
 
     Required CSV columns:
-      T_MeV, rho_g_cm3, dMdt_weight,
+      T_MeV, rho_g_cm3, dMdt_weight, xi,
       mstar_n_MeV, U_n_MeV, mu_star_n_MeV,
       mstar_p_MeV, U_p_MeV, mu_star_p_MeV.
 
     Optional columns:
       n_n_target_fm3, n_p_target_fm3.
 
+    xi=V'/V is the nucleon filling factor. The momentum integral gives n'_N
+    per available volume V'; the density per total volume is n_N=xi*n'_N.
     dMdt_weight is the cell measure Delta M * Delta t (or the equivalent
     quadrature measure in mass coordinate and time). It is not silently
     replaced by equal row weights. The published averages omit lapse/redshift.
@@ -222,7 +226,8 @@ def aggregate_profile_rows(
         temperature = float(row["T_MeV"])
         rho = float(row["rho_g_cm3"])
         cell_measure = float(row["dMdt_weight"])
-        if temperature <= 0.0 or rho <= 0.0 or cell_measure <= 0.0:
+        xi = float(row["xi"])
+        if temperature <= 0.0 or rho <= 0.0 or cell_measure <= 0.0 or not (0.0 < xi <= 1.0):
             raise ValueError(
                 f"non-positive T/rho/dMdt_weight in profile row {index}"
             )
@@ -233,7 +238,9 @@ def aggregate_profile_rows(
             "rho_g_cm3": rho,
             "dMdt_weight": cell_measure,
             "Fdeg": {},
-            "density_fm3": {},
+            "xi": xi,
+            "nprime_fm3": {},
+            "n_actual_fm3": {},
             "mu_eff_MeV": {},
         }
         states = {}
@@ -247,10 +254,12 @@ def aggregate_profile_rows(
                 raise ArithmeticError(
                     f"zero {species} density in profile row {index}"
                 )
-            density = number_mev3 / HBARC_MEV_FM**3
+            density_prime = number_mev3 / HBARC_MEV_FM**3
+            density_actual = xi * density_prime
             fdeg = blocked_mev3 / number_mev3
             local["Fdeg"][species] = fdeg
-            local["density_fm3"][species] = density
+            local["nprime_fm3"][species] = density_prime
+            local["n_actual_fm3"][species] = density_actual
             local["mu_eff_MeV"][species] = (
                 state.effective_chemical_potential_mev
             )
@@ -262,7 +271,7 @@ def aggregate_profile_rows(
                     raise ValueError(
                         f"non-positive {target_key} in profile row {index}"
                     )
-                residual = abs(density / target_density - 1.0)
+                residual = abs(density_actual / target_density - 1.0)
                 density_residuals[species].append(residual)
                 local.setdefault(
                     "density_closure_relative_residual", {}
@@ -342,6 +351,7 @@ def load_profile_csv(path: Path):
             "T_MeV",
             "rho_g_cm3",
             "dMdt_weight",
+            "xi",
             "mstar_n_MeV",
             "U_n_MeV",
             "mu_star_n_MeV",
@@ -381,7 +391,7 @@ def self_test_payload():
                 "U_MeV": state.scalar_potential_mev,
                 "mu_star_MeV": state.chemical_potential_star_mev,
                 "mu_eff_MeV": state.effective_chemical_potential_mev,
-                "n_fm3": number_density_fm3(state, order=512),
+                "nprime_fm3": number_density_fm3(state, order=512),
                 "Fdeg_direct": direct,
                 "Fdeg_from_density_derivative": derivative,
                 "derivative_identity_abs_residual": abs(direct - derivative),
