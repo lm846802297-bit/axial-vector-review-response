@@ -133,3 +133,12 @@ For \(m_V=10\) MeV and \(\omega=210\)--\(510\) MeV, the two daughter neutrinos h
 A deliberately conditional band-only proxy illustrates the scale: the 25-to-30 km P1-D extension suppresses the 210--510 MeV band by \(70.94\%\). If all other energy bins are held fixed, the resulting total-luminosity proxy lies \(2.79\%\) below Fig. 7. This is **not** a full re-integration and does not justify selecting \(R_{\max}=30\) km.
 
 The exact energy-dependent boundary cannot be computed from the current public-figure CSV: same-snapshot baryon density, composition, neutrino moments, and heavy-flavor energy-dependent opacities are missing; the relevant Garching archive endpoints require authorization. Retain \(R_{\max}=25\) km as the literal paper baseline and do not alter the production or axial-vector outputs.
+
+
+## 10. P1-G public-density transport envelope
+
+P1-G, \`B16_P1G_PUBLIC_DENSITY_NEUTRINO_TRANSPORT_ENVELOPE_2026-11-10.md\`, uses Caputo et al. Fig. 1 for the same SFHo-18.8, 1 s \(n_B(r)\) profile through 20 km and the published approximate \(\nu N\) mean-free-path scaling. Under the central exponential-tail read-off, the radial transport radii for 100, 150, 255, and 500 MeV daughters are approximately 22.4, 23.3, 24.6, and 26.2 km. The figure-read-off stress envelope gives about 22.6--27.8 km for the 255--500 MeV tail.
+
+This is a transport-only estimate, not the heavy-flavor energy sphere. The energy-weighted daughter-pair escape proxy transitions smoothly through 25--30 km. Thus 25 km is plausible for much of the pair energy, while the highest-energy daughters can remain partially transport-thick beyond 25 km. The full 30 km sharp-boundary P1-D extension remains an extreme conditional opacity diagnostic and is not promoted to a physical prediction.
+
+The exact energy sphere still requires same-snapshot energy-changing collision kernels and neutrino moments, which are not available in the public reconstruction. Retain the literal 25 km baseline.
