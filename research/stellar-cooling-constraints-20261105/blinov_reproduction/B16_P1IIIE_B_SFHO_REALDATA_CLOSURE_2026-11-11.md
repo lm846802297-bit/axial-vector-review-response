@@ -450,7 +450,7 @@ retrieve the 322.9 MB binary release attachments into the numerical runtime.
 Therefore the four SFHO_TABLES_DIR-dependent tests and the post-follow-up
 Python unittest suite remain unexecuted. No Python test pass or CI pass is
 claimed. The raw-table checks require the extracted EOS, SPP and composition
-files; once these are available to the runtime, run the complete 17-test suite
+files; once these are available to the runtime, run the complete 18-test suite
 and the whole-table audit before treating P1-IIIe-B as fully accepted.
 
 **Update after the vendored-archive commit (2026-11-11, later the same day).** The
@@ -463,3 +463,125 @@ P1-IIIe-A `Ran 15 tests ... OK` and P1-IIIe-B `Ran 18 tests ... OK`. CI run
 is the physical input rather than the execution path: no Garching
 stellar-evolution profile has been obtained, so the global degeneracy averages are
 still exercised on synthetic weights only.
+
+
+## 13. Independent raw-table execution acceptance (2026-11-11)
+
+The three original archives were downloaded from the public Release into the
+numerical runtime through a short-lived Actions artifact. The archive SHA-256
+values were recomputed locally and match the five-entry repository manifest
+for each transferred object:
+
+| Archive | Bytes | SHA-256 |
+|---|---:|---|
+| \`sfho_frdm_bin.zip\` | 161,092,071 | \`45479eaf46e1aa9b1ca3502baf4aaeea60ff0021a21d621f10a75eafb8b8949c\` |
+| \`sfho_frdm_spp.zip\` | 28,240,340 | \`fc0a5f8ea1154880a4285d2b126d40b521af244d338fb06e4ef5a81defbd5769\` |
+| \`sfho_frdm_comp.zip\` | 45,332,354 | \`0d80c5e0355c755b61fd200b7de7b1e30d46a4931697bd1fbd05766f099ca8ca\` |
+
+The extracted table hashes are:
+
+| Table | Bytes | SHA-256 |
+|---|---:|---|
+| \`sfho_frdm_eos_v1.03.bin\` | 231,950,312 | \`f1ea9c3e04502ca35d7fc64facce575f8553293085ea26e07732389b80d32cb4\` |
+| \`sfho_frdm_spp_v1.03.tab\` | 155,283,075 | \`118bd3c986283d958fab88a8e81fe49b64ca3b5137ff4bcdc05f97064cc1219e\` |
+| \`sfho_frdm_comp_v1.03.bin\` | 103,284,392 | \`0dafcd272ff8b8f4b1ba4c05210ea8020dd9a92820b6b0b54165faead4871da7\` |
+
+Both binary files are single-record little-endian Fortran sequential files.
+The extended-table record markers are 231,950,304 bytes and the composition
+record markers are 103,284,384 bytes; in both files the leading marker, trailing
+marker, and actual payload length agree exactly. The SPP parser reads 81
+temperature blocks, each containing 60 proton-fraction blocks by 326 density
+rows, with seven numeric columns; the source file has 1,589,463 text lines.
+
+The three decoded shapes are exactly:
+
+- extended EOS: \`(81, 61, 326, 18)\`;
+- SPP: \`(81, 60, 326, 7)\`;
+- composition: \`(81, 61, 326, 8)\`.
+
+The physical density mask is 308 rows. Thus the physical cell counts are
+1,521,828 for the extended and composition tables and 1,496,880 for the SPP
+table. The extended and composition payloads are exactly zero for Fortran
+\(k\ge309\); the nominal SPP coordinate columns continue beyond that boundary
+and are not interpreted as physical solutions.
+
+The full-table checks were rerun from the extracted archives:
+
+| Check | Recomputed result |
+|---|---:|
+| Extended \(n_B\) vs nominal grid, maximum relative deviation | \(9.99999\times10^{-9}\) |
+| Extended \(Y_p^{\rm tot}\) vs nominal \(Y_e\), maximum absolute deviation | \(8.87047\times10^{-9}\) |
+| Mass-fraction closure \(\sum_i X_i=1\), maximum absolute residual | \(7.45537\times10^{-12}\) |
+| \(F-(E-TS)\), maximum relative residual | \(6.79532\times10^{-15}\) |
+| Composition free-neutron density vs \(X_n n_B\), maximum relative deviation | \(4.44\times10^{-16}\) |
+| Composition free-proton density vs \(X_p n_B\), maximum relative deviation | \(4.44\times10^{-16}\) |
+| SPP \(n_B\) vs extended \(n_B\), maximum relative deviation | \(3.71499\times10^{-7}\) |
+| SPP \(Y_p^{\rm tot}\) vs extended \(Y_p^{\rm tot}\), maximum absolute deviation | \(8.87047\times10^{-9}\) |
+
+The SPP-to-extended density difference is consistent with the printed ASCII
+precision. The full physical-grid filling-factor identity was also evaluated
+independently on all 1,496,880 SPP cells:
+\[
+\xi_{\rm SPP}\stackrel{?}{=}
+1-\frac{n_B-X_n n_B-X_p n_B}{n_0}.
+\]
+Its maximum absolute residual is \(7.97497\times10^{-8}\), with median
+\(2.31581\times10^{-11}\). This is a full-grid identity check, distinct from
+the 224-cell phase-space closure sample.
+
+### Correction: the composition electron-density input is not global \(Y_p n_B\)
+
+The raw-table read exposed a semantic issue that was not visible in the earlier
+free-neutron/free-proton checks. In the official Fortran module,
+\(\texttt{comp(i,j,k,6)}\) is passed to \(\texttt{sub_coulomb(ne)}\), whose
+argument is documented as the electron number density used by the Coulomb
+correction. This is Python array layer \(\texttt{comp[...,5]}\). It must not be
+identified indiscriminately with the volume-averaged charge density
+\(Y_p^{\rm tot}n_B\).
+
+Over the 1,521,828 physical composition cells:
+
+- the nuclear-suppression switch \(\texttt{comp[...,4]}\) equals 1 in
+  400,453 cells, and the Coulomb input \(\texttt{comp[...,5]}\) is exactly zero
+  in all of them;
+- the remaining 1,121,375 cells have a positive Coulomb input;
+- in those nuclei-containing cells,
+  \(n_e^{\rm Coulomb}/(Y_p^{\rm tot}n_B)\) ranges from 0.691831 to
+  1.00000001; 8,331 cells differ from the global charge-density value by more
+  than \(10^{-4}\), with the affected Fortran density indices \(k=266\ldots280\);
+- \(n_e^{\rm Coulomb}/Y_e\) lies on a nominal density-grid point to within
+  \(10^{-7}\) dex for 99.5769% of nuclei-containing cells. The inferred density
+  index never exceeds the current table index and is at most four bins lower.
+
+This pattern is consistent with a phase/coexistence-specific Coulomb background
+rather than a globally averaged electron-density column, but the exact physical
+mapping is not inferred from this numerical identity alone. The parser and
+report therefore label this field as the **Coulomb electron-density input**.
+The global charge density remains \(Y_p^{\rm tot}n_B\), derived from the
+extended EOS charge-neutrality convention. The free-neutron and free-proton
+layers remain the independently validated composition inputs used in the
+occupation closure.
+
+### Execution and acceptance boundary
+
+The local run of the complete P1-IIIe-A and P1-IIIe-B test modules passes
+**33/33 tests**: 15 distribution-kernel tests, 10 fixture tests, five
+official-table tests (including the Coulomb-input semantic regression), and
+three offline archive-manifest tests. No raw-table test was skipped.
+
+The 224-cell phase-space audit was regenerated from the extracted tables.
+The 1024-to-2048-node checks over its 448 species states pass; the committed
+fixture and this runtime's regenerated fixture differ only at the small
+quadrature-rounding level (maximum relative difference below \(5\times10^{-8}\)
+for the density/ratio columns and maximum absolute \(F^{\rm deg}\) difference
+below \(1.2\times10^{-10}\)).
+
+This acceptance establishes the binary/ASCII parsing, table dimensions,
+grid alignment, thermodynamic identities, composition free-\(n,p\) closure,
+and the sampled occupation-kernel closure. It does **not** establish the
+Fiorillo Table 1 weighted averages \(F_{pp}^{\rm deg}=(0.80,0.77)\) and
+\(F_{nn}^{\rm deg}=(0.48,0.42)\): those require the Garching profile and the
+same mass/time weights, which are not contained in these EOS tables. It also
+does not claim a phase-space closure proof over every one of the 1.5 million
+physical EOS cells. No B.2 transport, pure-vector Fig. 7, or axial-vector
+constraint curve is changed by this validation.
