@@ -92,7 +92,7 @@ For SFHo-18.8, the published targets are:
 
 These are global, time-integrated targets. They are not local values and cannot be reproduced from the \(t_{\rm pb}=1\) s Fig. 1/Fig. 12 snapshot alone.
 
-The CSV reader requires the filling factor xi as well as an explicit dMdt_weight column representing the cell measure \(\Delta M\,\Delta t\) (or its equivalent quadrature weight). It does not silently replace the mass-time integration by an equal-weight average over rows.
+The CSV reader accepts either the filling factor xi from the single-particle table or infers it from nB, n_n, and n_p using the HS excluded-volume relation. It also requires an explicit dMdt_weight column representing the cell measure \(\Delta M\,\Delta t\) (or its equivalent quadrature weight). It does not silently replace the mass-time integration by an equal-weight average over rows.
 
 ## 4. Code and tests
 
