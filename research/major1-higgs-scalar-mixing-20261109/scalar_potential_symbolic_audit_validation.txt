@@ -1,0 +1,7 @@
+UV scalar potential symbolic audit
+PASS: both tadpole equations.
+PASS: CP-even mass matrix and off-diagonal portal entry.
+PASS: hhh, sss, hhs, hss cubic vertices.
+PASS: electroweak and U(1)_X Goldstone cubic vertices.
+PASS: hhss portal quartic.
+LIMIT: tree-level potential algebra only; no loop renormalization or physical pole claim.
