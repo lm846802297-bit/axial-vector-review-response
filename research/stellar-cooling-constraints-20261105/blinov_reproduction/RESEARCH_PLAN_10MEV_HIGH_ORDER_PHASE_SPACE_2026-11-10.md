@@ -211,3 +211,12 @@ The new P1-F result is that the 210--510 MeV vector band produces daughter pairs
 The exact energy-dependent daughter-pair escape/reprocessing probability cannot be computed from the current CSV because same-snapshot baryon density, composition, neutrino angular moments, and energy-dependent heavy-flavor opacities are unavailable. The corresponding Garching archive endpoints require authorized access.
 
 **Stopping decision:** do not repeat numerical quadrature, expand the mass scan, fit \(R_{\max}\), or alter the B.2 opacity. Retain \(R_{\max}=25\) km as the literal paper baseline. Classify the remaining strong-endpoint discrepancy as unresolved by the available public data, with energy-dependent heavy-flavor neutrino energy decoupling identified as the leading unclosed physical boundary issue. Keep PR #57 Draft/Open and do not update the axial-vector constraint curve.
+
+
+### P1-G public-density transport envelope (2026-11-10)
+
+Caputo et al. Fig. 1 provides the same SFHo-18.8, \(t_{\rm pb}=1\) s baryon-density profile through 20 km. A figure-level exponential-tail model combined with the published \(\nu N\) mean-free-path scaling gives central radial transport radii of about 22.4 km at 100 MeV, 24.6 km at 255 MeV, and 26.2 km at 500 MeV. Across the broad read-off envelope, the high-energy tail reaches roughly 22.6--27.8 km.
+
+This narrows the boundary uncertainty: 25 km is plausible for much of the daughter-pair energy, while a smooth transition for the highest-energy tail may extend beyond 25 km. The transport estimate is not the heavy-flavor energy sphere and cannot select a new \(R_{\max}\). The full 30 km P1-D extension remains an extreme sharp-boundary diagnostic, not a physical prediction.
+
+The remaining actionable calculation would require energy-changing heavy-flavor neutrino collision kernels and moments for the same snapshot. Without those inputs, no further parameter scan is justified. Keep the literal 25 km baseline and classify the remaining Fig. 7 discrepancy as unresolved by the available data.
