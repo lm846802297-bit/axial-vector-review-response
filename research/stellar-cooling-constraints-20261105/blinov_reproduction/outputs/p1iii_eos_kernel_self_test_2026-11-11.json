@@ -75,7 +75,7 @@
     "max_256_vs_512_quadrature_abs_difference": 6.591949208711867e-16,
     "vacuum_mass_limit_max_occupation_abs_residual": 0.0,
     "dilute_limit_Fdeg": 1.0,
-    "common_U_mu_shift_Fdeg_abs_residual": 0.0
+    "common_U_mu_shift_Fdeg_abs_residual": 0.0,\n    "Hempel_RMF_mapping_max_abs_residual_MeV": 2.2737367544323206e-13
   },
   "published_global_targets_not_tested_without_profiles": {
     "T3": {
