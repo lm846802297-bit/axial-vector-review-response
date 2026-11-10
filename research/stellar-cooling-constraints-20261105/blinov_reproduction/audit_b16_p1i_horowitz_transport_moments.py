@@ -286,19 +286,75 @@ def build_payload():
 
 
 def main():
-    payload = build_payload()
+    full = build_payload()
+
+    rows = []
+    for row in full["rows"]:
+        rows.append({
+            "E_MeV": row["E_MeV"],
+            "target": row["target"],
+            "species": row["species"],
+            "sigma_tr_1e-40_cm2": round(row["sigma_tr_1e-40_cm2"], 6),
+            "mean_energy_loss_fraction": round(row["mean_energy_loss_fraction"], 6),
+            "form_factor_ratio": round(row["form_factor_ratio"], 6),
+            "relative_to_E2_scaling": round(row["relative_to_E2_scaling"], 6),
+            "antinu_over_nu": round(row["antinu_over_nu"], 6),
+        })
+
+    mj_comparison = []
+    for row in full["muller_janka_A31_comparison"]:
+        exact_mean_loss = {
+            channel: round(values["exact_stationary_target_mean_loss"], 6)
+            for channel, values in row["channels"].items()
+        }
+        mj_comparison.append({
+            "E_MeV": row["E_MeV"],
+            "T_outer_MeV": row["T_outer_MeV"],
+            "alpha_MJ_A31": round(row["alpha_MJ_A31"], 6),
+            "exact_mean_loss": exact_mean_loss,
+        })
+
+    quadrature_max = max(
+        abs(delta)
+        for values in full["validation"]["quadrature_convergence_relative_to_order_1024"].values()
+        for delta in values.values()
+    )
+    summary = {
+        "title": "Horowitz exact free-nucleon recoil/weak-magnetism moment summary",
+        "date": "2026-11-10",
+        "reference": "Horowitz, PRD 65, 043001 (2002), Eqs. (12)-(17), (30)-(43), Table I, Appendix II",
+        "cross_section_units": "10^-40 cm^2 for sigma_tr_1e-40_cm2",
+        "target_masses_MeV": MASS,
+        "T_outer_MeV": OUTER_T_MEV,
+        "rows": rows,
+        "muller_janka_A31_comparison": mj_comparison,
+        "analytic_identity": "sigma_energy_loss/sigma_momentum_transfer = E/(M+E) for a stationary target",
+        "validation": {
+            "Horowitz_pointlike_Rt_vs_Eqs_37_42_max_relative_residual": float(
+                f"{full['validation']['Horowitz_pointlike_Rt_vs_Eqs_37_42_max_relative_residual']:.3g}"
+            ),
+            "energy_momentum_identity_max_relative_residual": float(
+                f"{full['validation']['energy_momentum_identity_max_relative_residual']:.3g}"
+            ),
+            "quadrature_convergence_max_relative_difference_at_64_to_1024_nodes": float(
+                f"{quadrature_max:.3g}"
+            ),
+        },
+        "limitations": full["limitations"],
+    }
+
     output = (
         Path(__file__).resolve().parent
         / "outputs"
         / "p1i_horowitz_transport_summary_2026-11-10.json"
     )
     output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    output.write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({
         "output": str(output),
-        "validation": payload["validation"],
+        "validation": summary["validation"],
         "sample_500MeV_neutron": [
-            row for row in payload["rows"]
+            row for row in summary["rows"]
             if row["E_MeV"] == 500.0 and row["target"] == "n"
         ],
     }, indent=2))
