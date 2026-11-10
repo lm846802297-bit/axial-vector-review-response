@@ -144,11 +144,13 @@ This is a proposed physical extension, not a change to the literal published B.2
 
 ## 8. Missing inputs and stopping decision
 
-The current public-figure CSV contains \(r,T,\mu_\mu,\mu_{\nu_\mu}\), and the lapse. It does not contain:
-- the same-snapshot baryon density and composition needed for neutrino-nucleon opacities;
-- energy- and flavor-dependent \(\nu_\mu,\bar\nu_\mu,\nu_\tau,\bar\nu_\tau\) transport opacities;
-- the neutrino angular moments and distribution functions needed to distinguish transport from energy decoupling;
-- a raw profile beyond 25 km.
+The current public-figure CSV contains \(r,T,\mu_\mu,\mu_{\nu_\mu}\), and the lapse. Caputo et al. Fig. 1 additionally gives a figure-level \(n_B(r)\) read-off for the same SFHo-18.8, 1 s snapshot, but only through 20 km. P1-G uses that plot to construct an explicitly approximate exponential outer tail; it is not a raw density table.
+
+The inputs still missing for a genuine energy-sphere calculation are:
+- the raw same-snapshot baryon-density profile and composition beyond 20 km;
+- energy- and flavor-dependent \(\nu_\mu,\bar\nu_\mu,\nu_\tau,\bar\nu_\tau\) collision opacities;
+- neutrino angular moments and distribution functions needed to distinguish transport from energy decoupling;
+- the energy-changing pair-process opacity that determines the heavy-flavor energy sphere.
 
 The official Garching archive lists radial neutrino moments/spectra and hydro profiles, but the relevant endpoints return HTTP 401 without authorization. No access control is bypassed and no substitute snapshot is spliced into the benchmark.
 
@@ -174,3 +176,12 @@ The phase-space input is a direct V8 cross-runtime check. Its node counts and in
 2. K.-C. Lai, C. S. J. Leung, and G.-L. Lin, “SN1987A constraints to BSM models with extra neutral bosons near the trapping regime,” Phys. Rev. D 110, 103023 (2024), arXiv:2401.16023.
 3. G. G. Raffelt, H.-T. Janka, and D. F. G. Fiorillo, “Neutrinos from core-collapse supernovae,” 2025 review manuscript, Sec. 2.2.
 4. B. Müller, “Neutrino Emission as Diagnostics of Core-Collapse Supernovae,” Annu. Rev. Nucl. Part. Sci. 69, 253--278 (2019), DOI: 10.1146/annurev-nucl-101918-023434.
+
+
+## 10. Public-density follow-up
+
+P1-G, \`B16_P1G_PUBLIC_DENSITY_NEUTRINO_TRANSPORT_ENVELOPE_2026-11-10.md\`, uses Caputo et al. Fig. 1 for the same SFHo-18.8, 1 s baryon-density profile through 20 km. A figure-level exponential-tail estimate gives a central radial transport radius of about 22.4 km at 100 MeV, 24.6 km at 255 MeV, and 26.2 km at 500 MeV. The broad figure-read-off envelope spans roughly 22.6--27.8 km for the 255--500 MeV high-energy tail.
+
+The transport-only pair-energy escape proxy rises smoothly across 25--30 km. This makes \(R_{\max}=25\) km plausible for much of the pair energy, while allowing the high-energy tail to remain partially transport-thick outside 25 km. It does not establish the energy sphere; the full energy-changing collision terms remain unavailable. The P1-D sharp 30 km extension is therefore an extreme conditional bound, not a preferred boundary.
+
+P1-G narrows the boundary uncertainty but does not select a new \(R_{\max}\) or alter the literal B.2 baseline.
