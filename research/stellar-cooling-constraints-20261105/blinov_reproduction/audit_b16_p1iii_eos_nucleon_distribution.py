@@ -20,9 +20,9 @@ from numpy.polynomial.legendre import leggauss
 from scipy.special import expit
 
 HBARC_MEV_FM = 197.3269804
-MASS_SPLITTING_MEV = 1.2933
 NEUTRON_MASS_MEV = 939.565346
 PROTON_MASS_MEV = 938.272013
+MASS_SPLITTING_MEV = NEUTRON_MASS_MEV - PROTON_MASS_MEV
 TABLE_TARGETS = {
     "T3": {"p": 0.80, "n": 0.48},
     "rhoT52": {"p": 0.77, "n": 0.42},
@@ -409,9 +409,9 @@ def self_test_payload():
     """Deterministic software fixtures only; these are not Garching data."""
     states = (
         NucleonEOSState("n", 3.03, 650.0, -45.0, 38.0),
-        NucleonEOSState("p", 3.03, 648.7067, -40.0, 25.0),
+        NucleonEOSState("p", 3.03, 648.706667, -40.0, 25.0),
         NucleonEOSState("n", 12.0, 700.0, -25.0, 18.0),
-        NucleonEOSState("p", 12.0, 698.7067, -20.0, 8.0),
+        NucleonEOSState("p", 12.0, 698.706667, -20.0, 8.0),
     )
     cases = []
     for state in states:
