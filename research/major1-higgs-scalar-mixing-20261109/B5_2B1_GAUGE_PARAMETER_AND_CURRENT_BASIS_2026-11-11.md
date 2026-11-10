@@ -253,6 +253,17 @@ B&+2.8479783683\times10^{-12}&-8.0544381270\times10^{-10}
 \]
 This is not the complete \(O_{Se}\) Wilson coefficient: the missing one-loop gauge matching and the remaining common-basis counterterm/mixing contributions have not been added.
 
+Since \(C_{HL}^{(1,3)}=-C_{LD}/4\) and \(C_{Se,\ell}^{\rm tree,common}=\eta_\ell C_{RD,\ell}/2\), their parameter-induced gauge running is inherited directly:
+\[
+16\pi^2\frac{\left.\beta_{C_{HL}^{(1)}}\right|_{\rm param,g}}{C_{HL}^{(1)}}
+=
+16\pi^2\frac{\left.\beta_{C_{HL}^{(3)}}\right|_{\rm param,g}}{C_{HL}^{(3)}}
+=+\frac92g_Y^2-\frac92g_2^2,
+\qquad
+\left.\beta_{C_{Se,\ell}^{\rm tree,common}}\right|_{\rm param,g}=0.
+\]
+These are still only the UV parameter-induced pieces, not the full current-operator anomalous dimensions.
+
 ## 4. Perturbative-order and matching boundary
 
 The present block contains:
