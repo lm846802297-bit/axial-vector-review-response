@@ -337,6 +337,28 @@ class TestOfficialTablesWhenAvailable(unittest.TestCase):
         # The SPP ASCII density column is rounded; the full-table audit found O(4e-7) relative differences.
         self.assertLess(float(np.abs(spp_nb / ext_nb - 1.0).max()), 1e-6)
 
+    def test_coulomb_electron_input_is_not_global_charge_density(self) -> None:
+        from sfho_eos_tables import HQC_MEV_FM, NB_PHYSICAL
+
+        # Python layer 5 (Fortran comp(...,6)) is passed to sub_coulomb(ne).
+        # It is not the global charge density Yp_tot*nB throughout the table.
+        comp = self.composition.comp[:, :, :NB_PHYSICAL, :]
+        no_nuclei = comp[:, :, :, 4] == 1.0
+        ne_coulomb = comp[:, :, :, 5]
+        self.assertTrue((ne_coulomb[no_nuclei] == 0.0).all())
+
+        ye = self.extended.entry("Yp_tot")[:, :, :NB_PHYSICAL]
+        nb = self.extended.entry("nB_fm3")[:, :, :NB_PHYSICAL]
+        global_ne = ye * nb * HQC_MEV_FM**3
+        nuclei_cells = ~no_nuclei
+        self.assertTrue((ne_coulomb[nuclei_cells] > 0.0).all())
+        relative = np.abs(
+            ne_coulomb[nuclei_cells] / global_ne[nuclei_cells] - 1.0
+        )
+        # Protect against relabelling the Coulomb input as a global electron
+        # density. Its phase/coexistence interpretation is kept separate.
+        self.assertGreater(float(relative.max()), 0.1)
+
     def test_audited_cells_are_reproducible_from_the_tables(self) -> None:
         from audit_b16_p1iii_eos_sfho_realdata_closure import closure_cell
 
