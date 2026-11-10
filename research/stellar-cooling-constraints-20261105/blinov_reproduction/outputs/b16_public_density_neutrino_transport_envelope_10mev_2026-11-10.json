@@ -543,5 +543,40 @@
     "energy_conservation_identity": "E1+E2=omega at every daughter-angle node",
     "pair_escape_monotonic_in_radius": true,
     "all_values_finite": true
+  },
+  "smooth_reprocessing_fraction_25_30": {
+    "low": {
+      "min_over_10_vector_nodes": 0.0029264112414694385,
+      "max_over_10_vector_nodes": 0.014387444299987878,
+      "unweighted_mean_over_10_vector_nodes": 0.0073569347504380475,
+      "representative_omega": {
+        "210": 0.0027340720301550735,
+        "300": 0.005553441761045566,
+        "510": 0.01574665731864092
+      },
+      "interpretation": "Radial path average of 1-P_pair^E over 25-30 km; not a source- or angle-weighted B.2 opacity integral."
+    },
+    "central": {
+      "min_over_10_vector_nodes": 0.039140601579431084,
+      "max_over_10_vector_nodes": 0.16054434914333138,
+      "unweighted_mean_over_10_vector_nodes": 0.08909002472255105,
+      "representative_omega": {
+        "210": 0.03669090970460175,
+        "300": 0.07103004666008352,
+        "510": 0.17235551032247332
+      },
+      "interpretation": "Radial path average of 1-P_pair^E over 25-30 km; not a source- or angle-weighted B.2 opacity integral."
+    },
+    "high": {
+      "min_over_10_vector_nodes": 0.1131140647956913,
+      "max_over_10_vector_nodes": 0.3569471476717464,
+      "unweighted_mean_over_10_vector_nodes": 0.22203478597046516,
+      "representative_omega": {
+        "210": 0.10670825542347345,
+        "300": 0.18978269057988487,
+        "510": 0.37536532752070695
+      },
+      "interpretation": "Radial path average of 1-P_pair^E over 25-30 km; not a source- or angle-weighted B.2 opacity integral."
+    }
   }
 }
