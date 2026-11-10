@@ -102,6 +102,14 @@ The comparison shows that an energy-dependent daughter-neutrino energy sphere co
 
 The physically relevant extension is an energy-weighted \(\nu\bar\nu\)-pair escape/reprocessing probability, not an arbitrary fitted sharp radius. The P1-F report documents the kinematics, the conditional band-only proxy, the required transport input, and the stopping decision.
 
+### 6.2 Public-density transport envelope
+
+P1-G uses Caputo et al. Fig. 1, which gives the same SFHo-18.8, \(t_{\rm pb}=1\) s baryon-density profile through 20 km, together with the published approximate \(\nu N\) mean-free-path scaling. A figure-level exponential-tail estimate gives central radial transport radii of about 22.4, 23.3, 24.6, and 26.2 km for daughter energies 100, 150, 255, and 500 MeV. The broad figure-read-off envelope gives about 22.6--27.8 km for the 255--500 MeV tail.
+
+In the central tail model, the equal-polarization pair-energy survival proxy over the ten 210--510 MeV vector nodes ranges from 0.470 to 0.843 at 25 km, 0.898 to 0.978 at 27.5 km, and 0.986 to 0.997 at 30 km. This is a transport-only estimate, not the heavy-flavor energy sphere; the full energy-changing collision kernels are missing.
+
+The public-density estimate therefore makes \(R_{\max}=25\) km plausible for much of the daughter-pair energy, while allowing partial reprocessing of the highest-energy tail outside 25 km. It does not support treating 30 km as a uniquely determined boundary. The P1-D 30 km result remains an extreme sharp-boundary sensitivity test, not a physical prediction. The leading boundary uncertainty is now narrowed to a smooth, energy-dependent transition around roughly 25--28 km in the figure-level transport estimate, with the actual energy sphere still unresolved.
+
 ## 7. Remaining limitation and acceptance decision
 
 The original Garching \(s18.8\)-SFHo-MUONS numerical profile and the authors' numerical implementation are not available in the public repository. The current 1687-row input is a reconstruction from published figures and public visualizations. Its provenance has been cross-checked, but it is not the raw simulation table.
