@@ -423,3 +423,12 @@ Added `UV_SCALAR_POTENTIAL_AND_DIAGRAM_CENSUS_2026-11-10.md`. The current manusc
 ## 2026-11-10 — scalar-potential symbolic validation
 
 Added `scalar_potential_symbolic_audit.py` and `scalar_potential_symbolic_audit_validation.txt`. The SymPy audit was executed locally and verifies both tadpole equations, the CP-even mass matrix, the (hhh,sss,hhs,hss) cubic derivatives, the electroweak and (U(1)_X) Goldstone cubic derivatives, and the (hhss) portal quartic. This is a tree-level algebra validation only; it does not close loop counterterms or establish physical poles.
+
+
+## 2026-11-10 — direct scalar-width and complex-pole-residue audits
+
+Added `SINGLET_SCALAR_DIRECT_WIDTH_AUDIT_2026-11-10.md` with an independently evaluated tree-level width subset for (s\to A'A',\mu^+\mu^-,\tau^+\tau^-). At the tree-level perturbativity ceiling (m_s=\sqrt{8\pi}v_s), the direct-width ratio approaches (\Gamma_s/m_s\simeq1/4) in both benchmarks, showing that the formal perturbativity endpoint is not a narrow-resonance regime. The script and numerical output are archived alongside it.
+
+Added `PLAN_C_LITE_COMPLEX_POLE_RESIDUES_2026-11-10.md` and its numerical audit. For the inherited Plan-C-lite approximate propagator, the complex pole residue matrix is computed from the derivative of the determinant. At exact degeneracy in Benchmark B, the two Higgs-channel residues are approximately (-0.035432-0.024342i) and (1.035432+0.024342i), summing to one. These are complex residues, not probabilities or signal strengths; they demonstrate the need for a coherent two-pole amplitude. All results retain the existing fixed-width, selected-matching-kernel limitations.
+
+The scalar-potential SymPy audit was executed locally and passed its tadpole, mass-matrix, cubic, Goldstone and quartic checks. None of these additions claims a complete gauge-independent pole or LHC likelihood.
