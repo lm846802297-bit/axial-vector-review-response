@@ -1,0 +1,44 @@
+B5-2A C5C5* and QLD/QRD quartic-EOM audit
+Date: 2026-11-11
+M_E=20 TeV; theta_L=1e-2; v_h=246.22 GeV; m_s=100 GeV for lambdaS EOM diagnostic.
+All Wilson coefficients below are in GeV^-2 unless noted.
+
+Benchmark A:
+y=1.14873979561
+C_LD=3.299007795034e-09
+lambdaS(ms=100)=0.9950466720
+mu: lambda=0.210792740710 CRD=1.110839488400e-10 C5=-1.210730049394e-05 kappa=9.282712817902e-13
+  CLS=-3.481017306713e-13 CHe=+3.481017306713e-13 CSe=+6.962034613426e-13 C4f_scalar=-1.856542563580e-12 C4f_vector=+9.282712817902e-13
+  QLD+lambdaHS slope=4.403114683961e-12; QLD+lambdaH each tensor=2.476050484784e-12; QRD+lambdaHS=1.482613551341e-13; QRD+lambdaS=2.799851673840e-12
+tau: lambda=3.544907703582 CRD=3.141592656728e-08 C5=-2.036088275431e-04 kappa=2.625266992015e-10
+  CLS=-9.844751220055e-11 CHe=+9.844751220055e-11 CSe=+1.968950244011e-10 C4f_scalar=-5.250533984029e-10 C4f_vector=+2.625266992015e-10
+  QLD+lambdaHS slope=4.403114683961e-12; QLD+lambdaH each tensor=2.476050484784e-12; QRD+lambdaHS=4.193016087651e-11; QRD+lambdaS=7.918329831009e-10
+sum kappa=2.634549704833e-10
+beta_c(C5C5*)=-1.053819881933e-01
+Delta lambdaHS^E=-2.107639763866e-01
+beta_c - DeltaPortal/2=0.000e+00
+
+Benchmark B:
+y=1.14873979561
+C_LD=3.299007795034e-09
+lambdaS(ms=100)=0.05039052658
+mu: lambda=0.0474360341620 CRD=5.625443342554e-12 C5=-2.724583009388e-06 kappa=4.700892934362e-14
+  CLS=-1.762834850386e-14 CHe=+1.762834850386e-14 CSe=+3.525669700771e-14 C4f_scalar=-9.401785868723e-14 C4f_vector=+4.700892934362e-14
+  QLD+lambdaHS slope=2.229797593973e-13; QLD+lambdaH each tensor=2.476050484784e-12; QRD+lambdaHS=3.802234129044e-16; QRD+lambdaS=7.180354975819e-15
+tau: lambda=0.797733177917 CRD=1.590945557874e-09 C5=-4.581939238750e-05 kappa=1.329471168145e-11
+  CLS=-4.985516880545e-12 CHe=+4.985516880545e-12 CSe=+9.971033761091e-12 C4f_scalar=-2.658942336291e-11 C4f_vector=+1.329471168145e-11
+  QLD+lambdaHS slope=2.229797593973e-13; QLD+lambdaH each tensor=2.476050484784e-12; QRD+lambdaHS=1.075319246723e-13; QRD+lambdaS=2.030693966166e-12
+sum kappa=1.334172061080e-11
+beta_c(C5C5*)=-5.336688244319e-03
+Delta lambdaHS^E=-1.067337648864e-02
+beta_c - DeltaPortal/2=0.000e+00
+
+Symbolic checks:
+d/dlnmu(CLS,CHe,CSe,C4fS,C4fV) =
+(-k/2,+k/2,+k,-2k,+k)
+PASS: hard-log derivatives, Fierz normalization, beta_c threshold identity.
+
+LIMIT:
+- These are the Yukawa-box and scalar-quartic EOM subblocks only.
+- EOM coefficients are redundant off-shell operators; no physical source is claimed.
+- No gauge-corrected QLD/QRD/current anomalous-dimension matrix has been calculated.
