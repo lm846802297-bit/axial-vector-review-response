@@ -27,17 +27,17 @@
     {
       "species": "p",
       "T_MeV": 3.03,
-      "mstar_MeV": 648.7067,
+      "mstar_MeV": 648.706667,
       "U_MeV": -40.0,
       "mu_star_MeV": 25.0,
       "mu_eff_MeV": 65.0,
-      "nprime_fm3": 0.11623915022941612,
-      "Fdeg_direct": 0.07297178497474446,
-      "Fdeg_from_density_derivative": 0.07297178497561933,
-      "derivative_identity_abs_residual": 8.748696211924312e-13,
-      "Fdeg_order_256": 0.07297178497474464,
+      "nprime_fm3": 0.11623914178724888,
+      "Fdeg_direct": 0.07297178513447286,
+      "Fdeg_from_density_derivative": 0.07297178513550717,
+      "derivative_identity_abs_residual": 1.0343115253164115e-12,
+      "Fdeg_order_256": 0.07297178513447285,
       "Fdeg_order_512": 0.07297178497474446,
-      "quadrature_abs_difference_256_512": 1.8041124150158794e-16
+      "quadrature_abs_difference_256_512": 1.3877787807814457e-17
     },
     {
       "species": "n",
@@ -57,15 +57,15 @@
     {
       "species": "p",
       "T_MeV": 12.0,
-      "mstar_MeV": 698.7067,
+      "mstar_MeV": 698.706667,
       "U_MeV": -20.0,
       "mu_star_MeV": 8.0,
       "mu_eff_MeV": 28.0,
-      "nprime_fm3": 0.044454626287014014,
-      "Fdeg_direct": 0.48786136776401356,
-      "Fdeg_from_density_derivative": 0.4878613676773152,
-      "derivative_identity_abs_residual": 8.669837070485187e-11,
-      "Fdeg_order_256": 0.48786136776401345,
+      "nprime_fm3": 0.04445462323974619,
+      "Fdeg_direct": 0.4878613681243141,
+      "Fdeg_from_density_derivative": 0.4878613680376459,
+      "derivative_identity_abs_residual": 8.666817263858206e-11,
+      "Fdeg_order_256": 0.4878613681243142,
       "Fdeg_order_512": 0.48786136776401356,
       "quadrature_abs_difference_256_512": 1.1102230246251565e-16
     }
