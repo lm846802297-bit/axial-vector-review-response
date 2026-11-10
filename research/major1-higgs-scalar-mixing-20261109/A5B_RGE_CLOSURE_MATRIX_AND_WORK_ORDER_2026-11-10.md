@@ -1,0 +1,62 @@
+# A5b — EFT/portal RGE closure matrix and calculation order
+
+**Date:** 2026-11-10  
+**Purpose:** separate the beta-function entries already supported by the RC-001/A3/A4 work from the missing entries required for a full matched \(h-s\) pole calculation. This is a work ledger, not a claim that the full RGE system has been computed.
+
+## 1. Closure matrix
+
+| Sector / parameter | Required RGE or counterterm information | Current evidence | Status | Relevance to the current \(h-s\) calculation |
+|---|---|---|---|---|
+| UV \(\lambda_{HS}\): scalar loops | Linear portal pole \(\propto\lambda_{HS}(6\lambda_H+4\lambda_S)\); portal-squared term if ordinary tree-level counting is used | A3a scalar/Goldstone bubble and effective-potential cross-check | **Partial: scalar-only** | O(\(\hbar^2\)) because \(\lambda_{HS}^{UV}=O(\hbar)\); needed for matching-scale evolution |
+| UV \(\lambda_{HS}\): gauge loops | \(SU(2)_L\), \(U(1)_Y\), \(U(1)_X\), and any kinetic-mixing contributions in one gauge convention | A3a gauge-basis diagram census; A4 \(U(1)_X\) diagonal \(ss\) subcalculation | **Open** | O(\(\hbar^2\)); required for the full UV portal beta and gauge-independent pole |
+| UV \(\lambda_{HS}\): Yukawa loops | SM Yukawa multiplicative terms, VLL \(y_\ell,\lambda_\ell\) multiplicative terms, and any additive mixed term | VLL determinant gives zero additive \(|y_\ell|^2|\lambda_\ell|^2\) UV pole at this one-loop order; finite threshold is nonzero | **Partial** | Distinguish finite matching from UV running; full multiplicative terms still needed |
+| EFT dimension-four \(\lambda_{HS}\) | Additive \(C_5C_5^\ast\) pole at \(M_E^{-2}\), plus ordinary EFT running | RC-001 bubble/contact pole is proportional to \(p^2\); no \(M_E^{-2}\) quartic pole in this sector | **Fixed-sector result** | Matched EFT portal remains zero in this restricted strict-dimension-six sector; not a full EFT beta statement |
+| EFT \(c_{\partial HS}\): inhomogeneous term | \(C_5C_5^\ast\) soft pole and beta contribution | RC-001 counterterm ledger and A5b derivation | **Derived** | Directly controls the leading mixed-derivative self-energy and hard/soft log cancellation |
+| EFT \(c_{\partial HS}\): multiplicative/mixing terms | Gauge/scalar/Yukawa anomalous dimensions and mixing with the complete dimension-six basis | RC-001 gauge attachment atlas and soft-topology census; not a complete anomalous-dimension matrix | **Open** | Required for a complete higher-order RGE and scale uncertainty |
+| EFT \(C_5\) | One-loop gauge/scalar/fermion vertex and external-leg renormalization | SFT-23/SFT-24 topology census identifies the required scalar and gauge sets | **Open** | Not needed to state the one-loop inhomogeneous \(C_5^2\) term; needed for next-order running and full matching |
+| EFT \(Q_{LD},Q_{RD}\) | Gauge corrections, quartic insertions, external-leg terms, EOM/source projection | Analytic kernels and gauge attachment atlas exist; complete counterterm and common-basis projection remain open | **Partial** | Needed for the complete Wilson vector; their mixing into the scalar sector must be checked at the retained order |
+| EFT current operators | Gauge-current form factors, mixed \(B-A'\) terms, EOM reductions and kinetic-mixing boundary | Bosonic current/source pieces exist; full fermionic current matching and kinetic-mixing boundary remain open | **Partial** | Needed for complete gauge-covariant EFT and possible mixing into scalar sources |
+| \(h,s\) diagonal fields and VEVs | \(\delta Z_{hh},\delta Z_{ss}\), \(\delta v,\delta v_s\), tadpole scheme and mass counterterms | A3b algebra; A4c \(U(1)_X\) \(ss\) field pole; A4d tadpole-improved \(ss\) kernel | **Partial** | Required before finite pole shifts; \(hh\) electroweak and common scheme closure remain open |
+| Dimension-eight \(X^2Y^2\) | \(C_5^4\) soft pole, full hard matching, higher-dimensional tree-level insertions and EOM/source companions | RC-001 constant-pole audit and counterterm ledger | **Subset only** | Separate \(O(M_E^{-4})\) calculation; do not import into strict dimension six |
+
+## 2. Important distinctions
+
+### 2.1 Finite threshold versus beta-function pole
+
+The VLL one-loop determinant has no mixed \(h^2s^2\) UV-pole coefficient:
+\[
+[\operatorname{Tr}({\cal M}^\dagger{\cal M})^2]_{h^2s^2}=0.
+\]
+Nevertheless, the finite hard threshold is
+\[
+\Delta\lambda_{HS}^{E}
+=-\frac{1}{8\pi^2}\sum_\ell|y_\ell|^2|\lambda_\ell|^2.
+\]
+The absence of this additive UV pole does not set the full \(\beta_{\lambda_{HS}}\) to zero. Scalar, gauge, and multiplicative Yukawa terms remain.
+
+### 2.2 Dimension-six derivative pole versus dimension-eight potential pole
+
+The \(s=p^2\) pole from the \(C_5C_5^\ast\) bubble is \(O(M_E^{-2})\) and renormalizes \(c_{\partial HS}\). The constant broken-phase pole is proportional to \(q_\ell m_\ell^2\sim O(M_E^{-4})\) and belongs to the \(X^2Y^2\) dimension-eight sector. It must not be reinterpreted as a dimension-four portal beta.
+
+### 2.3 A complete Wilson vector is not automatically required for every intermediate identity
+
+The one-loop inhomogeneous \(C_5C_5^\ast\) contribution to \(\beta_{c_{\partial HS}}\) is a valid restricted result without pretending that the entire dimension-six Wilson vector is complete. Conversely, the restricted result cannot be used to claim a complete model-level scale uncertainty or a physical complex pole.
+
+## 3. Ordered work plan
+
+**B5-1 — UV portal beta closure.** Derive the full one-loop \(\beta_{\lambda_{HS}}^{UV}\) from the actual gauge-fixed model: scalar, electroweak gauge, \(U(1)_X\), kinetic-mixing, SM Yukawa, and VLL Yukawa contributions. Keep the VLL additive mixed-quartic pole separate from the finite threshold. Use one common \(\overline{\rm MS}\) convention and verify the scalar subset against A3a.
+
+**B5-2 — EFT operator running at the retained order.** Extend the known inhomogeneous \(C_5C_5^\ast\) term to the complete set of one-loop contributions that can renormalize or mix into \(c_{\partial HS}\) at the declared combined order. Keep \(C_5\), \(Q_{LD}\), \(Q_{RD}\), current operators and EOM/source terms in a common basis. Do not include dimension-eight insertions in a strict \(M_E^{-2}\) result.
+
+**B5-3 — Common tadpole and field scheme.** Fix the VEV/tadpole prescription, \(h,s\) field-renormalization convention, and diagonal mass inputs. Combine A3b, A4c/A4d and the fermion sector without double counting tadpole or SM-width contributions.
+
+**B5-4 — UV--EFT matching-scale cancellation.** Match the UV portal and derivative coefficients at \(\mu_M\), evolve them consistently, and verify cancellation of \(\mu_M\) dependence in the full retained \(h-s\) inverse propagator. Vary \(\mu_M\in[M_E/2,2M_E]\) only after B5-1 through B5-3 pass.
+
+**B5-5 — Dimension-eight branch.** Only after the strict dimension-six closure is stable, complete the \(O(M_E^{-4})\) hard/soft matching, including \(X^2Y^2\), higher-dimensional tree-level EFT insertions and their EOM/source companions.
+
+## 4. Current acceptance decision
+
+- The \(C_5C_5^\ast\) derivative-operator pole, its inhomogeneous beta contribution, and the restricted hard/soft leading-log cancellation are derived.
+- The A3a scalar-only linear portal beta is derived and benchmarked over the current \(m_s\) interval.
+- The full UV portal beta, complete EFT anomalous-dimension matrix, common tadpole/field scheme, and full-model matching-scale variation are **not** complete.
+- The archived \(0.1421\%\) Plan-C-lite residual remains open; the restricted leading-log cancellation does not by itself explain it.
