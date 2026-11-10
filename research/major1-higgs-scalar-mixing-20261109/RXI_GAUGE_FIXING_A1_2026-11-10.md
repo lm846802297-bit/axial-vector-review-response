@@ -17,13 +17,13 @@ m_X=m_{A'}=2g_Xv_s.
 \]
 The neutral SM fields are \(Z_\mu=c_W W_\mu^3-s_W B_\mu\) and \(A_\mu=s_W W_\mu^3+c_WB_\mu\). The singlet \(S\) is neutral under the SM group and \(H\) is neutral under \(U(1)_X\). This note uses a diagonal gauge-kinetic basis at the reference scale; any radiatively generated hypercharge--\(X\) kinetic mixing is a separate insertion and must be included consistently if retained.
 
-Use the gauge transformations whose infinitesimal parameters are normalized so that the linear scalar shifts are
+Choose \(\delta A_\mu^A=+\partial_\mu\alpha^A+\cdots\) and \(\delta\Phi=-i\alpha^Ag_AT^A\Phi\). Normalize the broken-generator parameters so that
 \[
-\delta G^\pm=m_W\alpha^\pm+\cdots,\quad
-\delta G^0=m_Z\alpha_Z+\cdots,\quad
-\delta a=m_X\alpha_X+\cdots.
+\delta G^\pm=-m_W\alpha^\pm+\cdots,\quad
+\delta G^0=-m_Z\alpha_Z+\cdots,\quad
+\delta a=-m_X\alpha_X+\cdots.
 \]
-The ellipses denote the nonlinear transformations needed for the ghost vertices.
+For the nonlinear radial terms, \(\delta G_W^a=-m_W(1+h/v)\alpha_W^a+\cdots\), \(\delta G^0=-m_Z(1+h/v)\alpha_Z+\cdots\), and \(\delta a=-m_X(1+s/v_S)\alpha_X\).
 
 ## 2. Linear \(R_\xi\) gauge-fixing functions
 
