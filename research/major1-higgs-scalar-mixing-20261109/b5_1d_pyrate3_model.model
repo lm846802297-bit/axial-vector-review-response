@@ -1,0 +1,94 @@
+# YAML 1.1
+---
+Author: axial-vector review-response research audit
+Date: 11.11.2026
+Name: U1_Lmu_minus_Ltau_VLL_HiggsSinglet
+# PyR@TE 3 independent one-loop RGE cross-check model.
+# Gauge ordering is important: U1Y is first and U1X is second.
+Groups: {U1Y: U1, U1X: U1, SU2L: SU2, SU3c: SU3}
+
+Fermions: {
+    Q:      {Gen: 3, Qnb: {U1Y: 1/6, U1X: 0, SU2L: 2, SU3c: 3}},
+    uR:     {Gen: 3, Qnb: {U1Y: 2/3, U1X: 0, SU3c: 3}},
+    dR:     {Gen: 3, Qnb: {U1Y: -1/3, U1X: 0, SU3c: 3}},
+
+    Le:     {Qnb: {U1Y: -1/2, U1X: 0, SU2L: 2}},
+    Lmu:    {Qnb: {U1Y: -1/2, U1X: 1, SU2L: 2}},
+    Ltau:   {Qnb: {U1Y: -1/2, U1X: -1, SU2L: 2}},
+    eR:     {Qnb: {U1Y: -1, U1X: 0}},
+    muR:    {Qnb: {U1Y: -1, U1X: -1}},
+    tauR:   {Qnb: {U1Y: -1, U1X: 1}},
+
+    EmuL:   {Qnb: {U1Y: -1, U1X: 1}},
+    EmuR:   {Qnb: {U1Y: -1, U1X: 1}},
+    EtauL:  {Qnb: {U1Y: -1, U1X: -1}},
+    EtauR:  {Qnb: {U1Y: -1, U1X: -1}}
+}
+
+RealScalars: {
+}
+
+ComplexScalars: {
+    H: {RealFields: [hPi, hSigma], Norm: 1/sqrt(2),
+        Qnb: {U1Y: 1/2, U1X: 0, SU2L: 2}},
+    S: {RealFields: [sR, sI], Norm: 1/sqrt(2),
+        Qnb: {U1Y: 0, U1X: 2}}
+}
+
+Potential: {
+    Definitions: {
+        Htilde[i] : Eps[i,j]*Hbar[j]
+    },
+
+    Yukawas: {
+        Yu         : Qbar[i,a] Htilde[i] uR[a],
+        Yd         : Qbar[i,a] H[i] dR[a],
+        Ye         : Lebar[i] H[i] eR,
+
+        y_mu       : Lmubar[i] H[i] EmuR,
+        y_tau      : Ltaubar[i] H[i] EtauR,
+
+        lambda_mu  : EmuLbar S muR,
+        lambda_tau : EtauLbar Sbar tauR
+    },
+
+    QuarticTerms: {
+        lambda_H  : (Hbar[i] H[i])**2,
+        lambda_S  : (Sbar S)**2,
+        lambda_HS : Hbar[i] H[i] Sbar S
+    },
+
+    ScalarMasses: {
+        mu_H : Hbar[i] H[i],
+        mu_S : Sbar S
+    }
+}
+
+Substitutions: {
+    g_U1Y : gY,
+    g_U1X : gX,
+    g_SU2L : g2,
+    g_SU3c : g3,
+    g_12 : gYX,
+
+    # Top-dominance benchmark used in the numerical B5-1b integration.
+    Yu : [0, 0, 'yt'],
+    Yd : 0,
+    Ye : 0
+}
+
+Latex: {
+    Htilde : \tilde{H},
+    hPi : h_\Pi,
+    hSigma : h_\Sigma,
+    sR : s_R,
+    sI : s_I,
+    y_mu : y_\mu,
+    y_tau : y_\tau,
+    lambda_mu : \lambda_\mu,
+    lambda_tau : \lambda_\tau,
+    lambda_H : \lambda_H,
+    lambda_S : \lambda_S,
+    lambda_HS : \lambda_{HS},
+    gYX : g_{YX}
+}
