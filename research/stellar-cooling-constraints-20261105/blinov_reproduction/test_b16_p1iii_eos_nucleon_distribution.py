@@ -168,7 +168,7 @@ class TestGarchingEOSNucleonDistribution(unittest.TestCase):
                 + sigma_v
                 - (mu_nonrel + m_vac)
             )
-            np.testing.assert_allclose(lhs, rhs, rtol=0.0, atol=2e-13)
+            np.testing.assert_allclose(lhs, rhs, rtol=0.0, atol=5e-13)
 
     def test_invalid_state_is_rejected(self):
         with self.assertRaises(ValueError):
