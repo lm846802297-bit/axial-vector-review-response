@@ -8,6 +8,7 @@ from audit_b16_p1iii_eos_nucleon_distribution import (
     HBARC_MEV_FM,
     NucleonEOSState,
     aggregate_profile_rows,
+    candidate_state_from_hs_spp,
     degeneracy_factor,
     degeneracy_factor_from_density_derivative,
     kinetic_energy_mev,
@@ -147,6 +148,27 @@ class TestGarchingEOSNucleonDistribution(unittest.TestCase):
                     source_row["xi"] * local_row["nprime_fm3"][species],
                     places=14,
                 )
+
+    def test_hs_spp_mapping_reproduces_rmF_single_particle_energy(self):
+        for species, m_vac in (("n", 939.565346), ("p", 938.272013)):
+            mstar = 690.0 if species == "n" else 688.7067
+            sigma_v = 115.0 if species == "n" else 104.0
+            mu_nonrel = 35.0 if species == "n" else 20.0
+            state = candidate_state_from_hs_spp(
+                species, 5.0, mstar, sigma_v, mu_nonrel
+            )
+            p = np.linspace(0.0, 800.0, 101)
+            lhs = (
+                state.scalar_potential_mev
+                + kinetic_energy_mev(p, mstar)
+                - state.chemical_potential_star_mev
+            )
+            rhs = (
+                np.sqrt(p*p + mstar*mstar)
+                + sigma_v
+                - (mu_nonrel + m_vac)
+            )
+            np.testing.assert_allclose(lhs, rhs, rtol=0.0, atol=2e-13)
 
     def test_invalid_state_is_rejected(self):
         with self.assertRaises(ValueError):
