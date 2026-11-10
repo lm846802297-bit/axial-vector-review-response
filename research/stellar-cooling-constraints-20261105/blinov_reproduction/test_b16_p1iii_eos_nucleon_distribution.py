@@ -97,14 +97,14 @@ class TestGarchingEOSNucleonDistribution(unittest.TestCase):
     def test_profile_weightings_use_cell_measure_and_correct_powers(self):
         rows = [
             {
-                "T_MeV": 4.0, "rho_g_cm3": 1.0e14, "dMdt_weight": 2.0,
+                "T_MeV": 4.0, "rho_g_cm3": 1.0e14, "dMdt_weight": 2.0, "xi": 0.82,
                 "mstar_n_MeV": 700.0, "U_n_MeV": -30.0,
                 "mu_star_n_MeV": 50.0,
                 "mstar_p_MeV": 698.7067, "U_p_MeV": -20.0,
                 "mu_star_p_MeV": 35.0,
             },
             {
-                "T_MeV": 8.0, "rho_g_cm3": 2.0e14, "dMdt_weight": 1.0,
+                "T_MeV": 8.0, "rho_g_cm3": 2.0e14, "dMdt_weight": 1.0, "xi": 0.73,
                 "mstar_n_MeV": 650.0, "U_n_MeV": -25.0,
                 "mu_star_n_MeV": 30.0,
                 "mstar_p_MeV": 648.7067, "U_p_MeV": -15.0,
@@ -140,6 +140,13 @@ class TestGarchingEOSNucleonDistribution(unittest.TestCase):
         self.assertLess(
             result["max_effective_mass_splitting_residual_MeV"], 1e-10
         )
+        for source_row, local_row in zip(rows, local):
+            for species in ("p", "n"):
+                self.assertAlmostEqual(
+                    local_row["n_actual_fm3"][species],
+                    source_row["xi"] * local_row["nprime_fm3"][species],
+                    places=14,
+                )
 
     def test_invalid_state_is_rejected(self):
         with self.assertRaises(ValueError):
