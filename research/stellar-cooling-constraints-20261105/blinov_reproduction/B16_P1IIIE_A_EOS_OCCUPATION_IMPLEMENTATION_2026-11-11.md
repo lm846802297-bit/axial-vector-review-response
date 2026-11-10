@@ -2,13 +2,13 @@
 
 Date: 2026-11-11  
 PR: #57  
-Branch: \`research/moving-muon-thermal-rates-20261107\`
+Branch: research/moving-muon-thermal-rates-20261107
 
 ## 1. Scope
 
 This stage implements the local nucleon occupation and static degeneracy factor consistent with the Garching SFHo EOS. It is deliberately separate from the existing vacuum-mass ideal-Fermi-gas branch.
 
-Primary source: D. F. G. Fiorillo et al., *Axion-photon conversion in transient compact stars: Systematics, constraints, and opportunities*, JCAP 03 (2026) 053, arXiv:2509.13322v2:
+Primary source: D. F. G. Fiorillo et al., *Axion-photon conversion in transient compact stars: Systematics, constraints, and opportunities*, JCAP 03 (2026) 053, arXiv:2509.13322v2 ([HTML](https://arxiv.org/html/2509.13322), [DOI](https://doi.org/10.1088/1475-7516/2026/03/053)):
 - Sec. 4.2: Garching model provenance and archive availability.
 - Sec. 4.3, Eqs. (41)-(42): recoil-free degeneracy factor and the two space-time weighting prescriptions.
 - Appendix C.1, Eqs. (81)-(82): EOS-consistent nucleon occupation and SFHo kinetic dispersion.
@@ -89,16 +89,15 @@ For SFHo-18.8, the published targets are:
 
 These are global, time-integrated targets. They are not local values and cannot be reproduced from the \(t_{\rm pb}=1\) s Fig. 1/Fig. 12 snapshot alone.
 
-The CSV reader therefore requires an explicit \`dMdt_weight\` column representing the cell measure \(\Delta M\,\Delta t\) (or its equivalent quadrature weight). It does not silently replace the mass-time integration by an equal-weight average over rows.
+The CSV reader therefore requires an explicit dMdt_weight column representing the cell measure \(\Delta M\,\Delta t\) (or its equivalent quadrature weight). It does not silently replace the mass-time integration by an equal-weight average over rows.
 
 ## 4. Code and tests
 
-- \`audit_b16_p1iii_eos_nucleon_distribution.py\`: EOS occupation, density, static degeneracy factor, profile-weighted averages, and CSV interface.
-- \`test_b16_p1iii_eos_nucleon_distribution.py\`: unit tests for the dispersion, occupation bounds, common \(U_N,\mu_N^*\) shift invariance, vacuum-mass limit, derivative identity, dilute limit, quadrature convergence, and the two global weighting formulas.
-- \`.github/workflows/b16-p1iii-eos-degeneracy.yml\`: independent CI validation only; it does not commit or modify production outputs.
+- **audit_b16_p1iii_eos_nucleon_distribution.py**: EOS occupation, density, static degeneracy factor, profile-weighted averages, and CSV interface.
+- **test_b16_p1iii_eos_nucleon_distribution.py**: unit tests for the dispersion, occupation bounds, common \(U_N,\mu_N^*\) shift invariance, vacuum-mass limit, derivative identity, dilute limit, quadrature convergence, and the two global weighting formulas.
+- **.github/workflows/b16-p1iii-eos-degeneracy.yml**: independent CI validation only; it does not commit or modify production outputs.
 
-The CSV interface requires:
-\`T_MeV\`, \`rho_g_cm3\`, \`dMdt_weight\`, and for each species \(n,p\), \`mstar_n_MeV\`, \`U_n_MeV\`, \`mu_star_n_MeV\`, \`mstar_p_MeV\`, \`U_p_MeV\), and \`mu_star_p_MeV\`. Optional free-nucleon density columns \`n_n_target_fm3\` and \`n_p_target_fm3\` provide a local density-closure test.
+The CSV interface requires T_MeV, rho_g_cm3, dMdt_weight, and for each species n,p: mstar_n_MeV, U_n_MeV, mu_star_n_MeV, mstar_p_MeV, U_p_MeV, and mu_star_p_MeV. Optional free-nucleon density columns n_n_target_fm3 and n_p_target_fm3 provide a local density-closure test.
 
 The implementation checks the SFHo effective-mass splitting \(m_n^*-m_p^*=1.2933\) MeV and reports the maximum residual. It does not impose this relation by modifying input data.
 
@@ -112,7 +111,7 @@ A deterministic synthetic test fixture (not Garching profile data) was evaluated
 - A dilute Boltzmann state gives \(F^{\rm deg}\to1\).
 - Shifting \(U_N\) and \(\mu_N^*\) by the same constant leaves the distribution unchanged.
 
-The exact numerical residuals are archived in \`outputs/p1iii_eos_kernel_self_test_2026-11-11.json\`. These checks validate the implementation, not the four published Garching averages.
+The exact numerical residuals are archived in outputs/p1iii_eos_kernel_self_test_2026-11-11.json. These checks validate the implementation, not the four published Garching averages.
 
 ## 6. Validation boundary
 
