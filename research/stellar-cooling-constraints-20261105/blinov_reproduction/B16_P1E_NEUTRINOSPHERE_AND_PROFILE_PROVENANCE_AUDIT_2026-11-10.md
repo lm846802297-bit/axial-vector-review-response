@@ -78,7 +78,32 @@ r_s=24\,{\rm km}\,[1-N(24\,{\rm km})^2]
 \]
 This corresponds to an effective exterior mass parameter of about \(1.30\,M_\odot\). It is a continuation convention, not an independently verified enclosed-mass profile. No spatial metric \(A(r)\) is inferred from \(N(r)\).
 
-An earlier lapse-continuation sensitivity run on the 501-row profile found that freezing or linearly continuing the 24--25 km lapse changed the B.1 source by only \\(O(10^{-6})\\) and the strong-point escape fraction by at most \\(2.5\\times10^{-4}\\) relative. That run used the older profile SHA \\`08d7afce...\\`; it is a useful scale diagnostic but is not a strict numerical acceptance result for the current 1687-row profile. The current independent B.1 source audit (profile SHA \\`9fb14e...\\`, 400 radial nodes) gives a directly summed 24--25 km source fraction of \\(2.04549\\times10^{-4}\\), i.e. 0.02045%. Since freezing (N) at (N(24,{m km})) changes the (N^2) factor at 25 km by only about 0.76%, the geometry-only contribution to the total thin-source change is at the (1.6\\times10^{-6}) scale. This is a conservative scale estimate, not a substitute for re-evaluating the exact energy-threshold contribution and escaped luminosity on the current profile. The strict current-profile B.1+B.2 lapse-variant rerun remains pending.
+### Current-profile B.1+B.2 lapse-variant calculation
+
+The earlier 501-row diagnostic is superseded by a current-profile calculation using the active 1687-row profile, SHA-256 \`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c\`. The calculation evaluates the complete fixed-\(\omega\) B.1+B.2 luminosity at the weak, peak, and strong 10 MeV Fig. 7 coupling points. The B.2 opacity is held fixed across the lapse variants, as required by the printed fixed-\(\omega\) prescription; only the B.1 \(N^2\) radial measure and exact lower threshold \(\omega_{\min}=m_V/N(r)\) change.
+
+The higher-resolution run uses 200 source-radius Gauss nodes, 541 global energy nodes (320 logarithmic base nodes plus the threshold union for all variants), 202 opacity-radius nodes, 16 angular nodes, and 32 chord nodes. The muon susceptibility is evaluated with a 96-point Gauss-Legendre integral after the transformation \(p=40t/(1-t)\). A 100-radius/271-energy run provides a joint coarse-to-fine stability check.
+
+The matched Schwarzschild baseline has \(N(23)=0.91265839\), \(N(24)=0.91642363\), and \(N(25)=0.91991249\). Its high-resolution results are:
+
+| Fig. 7 point | \(g\) | \(L_{\rm calc}\) (erg/s) | Relative to Fig. 7 |
+|---|---:|---:|---:|
+| Weak | \(4.79643\times10^{-10}\) | \(9.88850\times10^{51}\) | \(-9.2240\%\) |
+| Peak | \(1.13411\times10^{-8}\) | \(1.95364\times10^{54}\) | \(+2.2315\%\) |
+| Strong | \(4.17169\times10^{-8}\) | \(2.43750\times10^{52}\) | \(+92.2600\%\) |
+
+The current-profile lapse variants give the following relative changes in the *full escaped luminosity* compared with the matched Schwarzschild baseline:
+
+| Diagnostic lapse continuation | Thin B.1 source | Weak \(L\) | Peak \(L\) | Strong \(L\) |
+|---|---:|---:|---:|---:|
+| Freeze \(N(r>24\,{\rm km})=N(24\,{\rm km})\) | \(-1.1607\times10^{-6}\) | \(-1.1522\times10^{-6}\) | \(-1.1503\times10^{-6}\) | \(-2.6199\times10^{-4}\) |
+| Linear continuation of the 23--24 km slope | \(+7.3906\times10^{-8}\) | \(+7.3363\times10^{-8}\) | \(+7.5952\times10^{-8}\) | \(+1.9358\times10^{-5}\) |
+
+Thus the largest tested change in the strong-point luminosity is \(2.62\times10^{-4}\), or \(0.0262\%\). The corresponding strong-endpoint residual remains \(+92.26\%\). The 24--25 km lapse continuation is therefore quantitatively excluded as an explanation of the order-one Fig. 7 mismatch.
+
+The high-resolution baseline differs from the archived independent 200-source-node B.1+B.2 result by \(0.0737\%\), \(0.0777\%\), and \(0.1072\%\) at the weak, peak, and strong points, respectively. The joint coarse-to-fine refinement changes the baseline luminosities by \(-0.1551\%\), \(-0.1455\%\), and \(-0.0892\%\), respectively. The variant-to-baseline shifts are stable between the two resolutions: the strong-point freeze shift is \(-2.6181\times10^{-4}\) at lower resolution and \(-2.6199\times10^{-4}\) at higher resolution; the linear-continuation shift is \(+1.9341\times10^{-5}\) and \(+1.9358\times10^{-5}\).
+
+The independent implementation is archived in \`audit_b16_lapse_boundary_current_profile.js\`, with machine-readable results in \`outputs/b16_lapse_boundary_sensitivity_current_profile_10mev_2026-11-10.json\`. This is a cross-runtime V8 calculation, not a bitwise-identical NumPy-grid acceptance run. The freeze and linear profiles are diagnostic brackets, not physical replacements for the matched Schwarzschild continuation.
 
 ## 6. Physical anchor for \(R_{\max}\simeq25\) km
 
@@ -99,27 +124,29 @@ These statements support the *approximate fixed 25 km convention* used in the re
 
 ## 7. Consequence for the Fig. 7 discrepancy
 
-The provenance audit supports the following differentiated conclusions:
+The provenance and current-profile sensitivity audits support the following differentiated conclusions:
 
-1. \(T(r)\) and \(\mu_\mu/T\) in the principal 5--20 km region are strongly anchored to the original Bollig figures. Their measured figure-level differences are far too small to explain a \(+92.24\%\) strong-endpoint mismatch through ordinary interpolation or digitization errors.
-2. The lapse has independent visual support through 20 km, a published-figure input through 24 km, and an explicit Schwarzschild continuation from 24 to 25 km. Its last-kilometre continuation has a very small B.1 source weight; the older sensitivity test also indicates a negligible source effect, subject to the profile-hash caveat above.
-3. \(\mu_{\nu_\mu}(r)\) has weaker independent provenance, but its tested influence on the high-energy escape luminosity is below \(0.03\%\) for \(\pm10\%\) changes.
+1. \(T(r)\) and \(\mu_\mu/T\) in the principal 5--20 km region are strongly anchored to the original Bollig figures. Their measured figure-level differences are too small to explain the strong-endpoint mismatch through ordinary interpolation or digitization errors.
+2. The 24--25 km lapse continuation has now been tested in the complete B.1+B.2 luminosity on the current 1687-row profile. The largest tested change is \(0.0262\%\) at the strong point, compared with the \(+92.26\%\) baseline residual. This input is not a viable explanation.
+3. \(\mu_{\nu_\mu}(r)\) has weaker independent provenance, but its tested influence on the 210--510 MeV escaped luminosity is below \(0.03\%\) for \(\pm10\%\) changes.
 4. The absolute muon-density tension and the outer 20--25 km profile limitations remain real source-level limitations. They are not evidence for an arbitrary opacity correction.
 5. The \(R_{\max}=25\) km convention is physically motivated and consistent with the \(T\simeq3\) MeV criterion, but remains an effective, energy-averaged boundary rather than an exact energy-/flavour-resolved neutrinosphere.
-6. The 25 km choice is not selected by fitting Fig. 7. Its sensitivity is already quantified separately in P1-D; no alternative boundary is adopted.
+6. The 25 km choice is not selected by fitting Fig. 7. Its sensitivity is quantified separately in P1-D; no alternative boundary is adopted.
 
-The pure-vector Fig. 7 physical reproduction therefore remains **not passed**. This audit narrows the plausible background explanations but does not resolve the strong-endpoint discrepancy.
+The pure-vector Fig. 7 physical reproduction therefore remains **not passed**. The current-profile lapse ambiguity has been tested and is far too small to account for the remaining strong-endpoint discrepancy.
 
 ## 8. Next action
 
-Do not repeat broad \(T,\mu_\mu,\mu_{\nu_\mu}\) stress tests, generic interpolation refinements, or the already completed P1-C normalization analysis.
+The current-profile lapse-continuation task P1-E1 is complete. Do not repeat it or expand the mass scan.
 
-The remaining source-level work is:
-1. rerun the existing 24--25 km lapse-continuation sensitivity on the current 1687-row profile hash, so the result is tied to the exact active benchmark;
-2. retain the \(\mu_{\nu_\mu}\) profile limitation explicitly; do not synthesize a replacement from a different simulation;
-3. keep the 25 km baseline fixed unless a same-snapshot, flavour-/energy-resolved neutrinosphere or an explicit alternative prescription is independently documented.
+The next unresolved calculation is the B.2 normalization map between:
+1. the polarization-summed production rate used in B.1;
+2. the inverse-decay and semi-Compton absorption rates entering detailed balance;
+3. the scalar absorption rate used in the exponent of the B.2 survival probability.
 
-No production code, source normalization, opacity, coupling, profile, Fig. 7 curve, or axial-vector result is modified.
+Derive this relation directly from Blinov et al. Eqs. (B.6)--(B.10), keeping polarization sums and averages explicit. Then compare the resulting scalar opacity with the current implementation channel by channel. Do not apply a factor-of-two correction or change the baseline unless the derivation identifies a definite mismatch and an independent closure test confirms it.
+
+No production code, source normalization, opacity, coupling, profile, Fig. 7 curve, or axial-vector result is modified by the lapse audit.
 
 ## References
 
