@@ -142,3 +142,6 @@ P1-G, \`B16_P1G_PUBLIC_DENSITY_NEUTRINO_TRANSPORT_ENVELOPE_2026-11-10.md\`, uses
 This is a transport-only estimate, not the heavy-flavor energy sphere. The energy-weighted daughter-pair escape proxy transitions smoothly through 25--30 km. Thus 25 km is plausible for much of the pair energy, while the highest-energy daughters can remain partially transport-thick beyond 25 km. The full 30 km sharp-boundary P1-D extension remains an extreme conditional opacity diagnostic and is not promoted to a physical prediction.
 
 The exact energy sphere still requires same-snapshot energy-changing collision kernels and neutrino moments, which are not available in the public reconstruction. Retain the literal 25 km baseline.
+
+
+The additional radial-only diagnostic in P1-G finds that the central-tail reprocessing fraction averaged over the 25--30 km shell is \(8.91\%\) across the ten vector-energy nodes (node range \(3.91\%\)--\(16.05\%\)); the low/high tail means are \(0.736\%\) and \(22.20\%\). This is not a source- or angle-weighted B.2 integral, but it confirms that the full vacuum-limit P1-D extension is an extreme upper bound rather than a smooth physical prediction.
