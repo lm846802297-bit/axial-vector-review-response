@@ -40,6 +40,11 @@ A: C_Se,tau^tree=-1.570796328364e-08
 B: C_Se,mu^tree=+2.812721671277e-12
 B: C_Se,tau^tree=-7.954727789368e-10
 
+Known tree + C5C5* hard subset for C_Se_commonS [GeV^-2]:
+A mu=+5.623817788136e-11; A tau=-1.590485830804e-08
+B mu=+2.847978368285e-12; B tau=-8.054438126978e-10
+These are partial sums only; gauge matching and full operator mixing are absent.
+
 B5-2A corrected C5C5* common-S hard sums [GeV^-2]:
 A: CLS=+9.809941046989e-11; CHe=+9.879561393123e-11; CSe=-1.961988209398e-10
 B: CLS=+4.967888532040e-12; CHe=+5.003145229048e-12; CSe=-9.935777064080e-12
