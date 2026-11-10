@@ -504,3 +504,10 @@ and the scalar-only portal counterterm includes the additional (2\lambda_{HS}^2)
 Added `A3B_TADPOLE_VEV_FIELD_COUNTERTERMS_2026-11-10.md`, its SymPy audit script, and output. It derives the linearized (h,s) tadpole counterterms, parameter/VEV contributions to all three CP-even mass entries, and the general nonsymmetric (2\times2) field-renormalization contribution to (\Gamma_{hs}^{\rm inv}(p^2)). The symmetric zero-tree-portal limit is also given explicitly.
 
 This is counterterm algebra, not a chosen renormalization scheme. The tadpole prescription, finite VEV conditions, field-renormalization convention, and actual common-scale UV/EFT counterterm coefficients remain to be fixed before the mixed self-energy can be called renormalized.
+
+
+## 2026-11-10 — A3c \(R_\xi\) Goldstone-cut diagnostic
+
+Added \`A3C_GOLDSTONE_GAUGE_PARAMETER_DIAGNOSTIC_2026-11-10.md\`, the numerical script, and output. At \(p^2=m_h^2\), the A3a Goldstone subset has gauge-dependent absorptive thresholds. In Feynman gauge, the \(aa\) Goldstone cut is open for A (\(m_X=10\) GeV) but closed for B (\(m_X=63\) GeV); at \(\xi=0.5\), the charged Goldstone cut opens in both and the B \(aa\) cut also opens. At \(\xi=40\), all these cuts close.
+
+This is an explicit demonstration that the Goldstone-only \(\Pi_{hs}\) finite part is not physical. The physical poles require the complete \(hh,hs,ss\) matrix, including diagonal vector/Goldstone/ghost terms and the matching counterterms. The calculation does not claim the cancellation; it identifies a necessary gauge-parameter acceptance test.
