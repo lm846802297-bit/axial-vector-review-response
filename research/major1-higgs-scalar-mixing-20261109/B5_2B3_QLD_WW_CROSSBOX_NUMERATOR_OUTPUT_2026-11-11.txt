@@ -1,72 +1,8 @@
-B5-2B3 QLD pure-WW cross-box numerator audit
-Date: 2026-11-11
-Gauge: Feynman gauge; d=4-2 eps.
-Scope: canonical Lorentz numerators and hard scalar masters only.
+HISTORICAL B5-2B3 COMMON-NUMERATOR DIAGNOSTIC — SUPERSEDED
 
-SU(2) attachment tensors:
-LD-W-01 (Lbar-L):       -T3/4
-LD-W-02 (Lbar-Hbar):    +T3/4
-LD-W-03 (Lbar-H):       -3 T0/4  [same-vertex light-only; hard difference cancels]
-LD-W-04 (L-Hbar):       -3 T0/4  [same-vertex light-only; hard difference cancels]
-LD-W-05 (L-H):          +T3/4
-LD-W-06 (Hbar-H):       -T3/4
+The earlier +3/(4 M_E^2) candidate used one common numerator/denominator family for all four cross-box pairs.
+That ansatz omitted the distinct external-momentum shifts in LD-W-01, LD-W-05 and LD-W-06.
 
-Only the four cross-vertex classes LD-W-01,02,05,06 remain in the hard box calculation.
-No WEE vertex or heavy-E WW self-energy/vertex exists because E is an SU(2) singlet.
-
-Hard scalar masters:
-J_full = (Delta_IR + 1 - L)/M_E^2
-J_soft = (-Delta_UV + Delta_IR)/M_E^2
-J_hard = (Delta_UV + 1 - L)/M_E^2
-
-K = int_k 1/[k^2 (k^2-M_E^2)^2]
-  = Gamma(1+eps)/(eps-1) * (mu_R^2/M_E^2)^eps / M_E^2
-K_hard = -1/M_E^2 + O(eps)
-
-Canonical numerator representatives:
-N_FF = gamma^mu slash(k) (slash(P)-slash(k)) slash(k) gamma_mu
-N_FS = gamma^mu slash(k) (slash(P)-slash(k)) k_mu
-N_SS = k^2 (slash(P)-slash(k))
-
-d-dimensional Lorentz coefficients:
-A_FF = [(d-2)^2/d] J + [2(d-2)/d] K
-A_FS = J - (2/d) K
-A_SS = A_FS
-
-Epsilon expansions:
-(d-2)^2/d = 1 - 3 eps/2 + O(eps^2)
-2(d-2)/d = 1 - eps/2 + O(eps^2)
-2/d = 1/2 + eps/4 + O(eps^2)
-
-Hard kernels after retaining O(eps) times UV pole:
-A_FF = (Delta_UV - L - 3/2)/M_E^2
-A_FS = (Delta_UV - L + 3/2)/M_E^2
-A_SS = (Delta_UV - L + 3/2)/M_E^2
-A_FS - A_FF = 3/M_E^2
-
-Oriented numerator sign audit:
-LD-W-01: gamma^mu(-slash k)slash(P-k)(-slash k)gamma_mu = N_FF
-LD-W-02: gamma^mu(-slash k)slash(P-k)(-k_mu) = N_FS
-LD-W-05: (-k_mu)slash(P-k)(-slash k)gamma^mu = N_FS
-LD-W-06: (-k_mu)(-k_nu)g^munu slash(P-k) = N_SS
-All four canonical numerator signs are positive in the declared all-incoming routing. The common Feynman-rule i-factor is the same in FF, FS and SS.
-
-Fixed oriented tensor sum:
-(-A_FF + A_FS + A_FS - A_SS) T3/4
-= +3 T3/(4 M_E^2)
-The UV pole and matching logarithm cancel in this four-box subset.
-Raw amplitude subset:
-Gamma_box = -i |y|^2 g2^2/(16 pi^2) * 3/(4 M_E^2) * T3 slash(P).
-
-Scope limit:
-This is the oriented four-cross-box hard sub-block for the fixed external ordering. It is not the final nonredundant Wilson coefficient. The EOM/current-basis projection, external L/H LSZ terms, parameter/operator counterterms, and the summed Ward identity remain open. No FeynArts/FeynCalc diagram-package reproduction is claimed.
-
-Local exact algebra:
-PASS: J and K hard-master expansions.
-PASS: FF, FS, SS angular numerator reductions.
-PASS: O(eps) FF numerator term retained against Delta_UV.
-PASS: oriented numerator sign table in the declared routing.
-PASS: six SU(2) tensor factors and four-cross-box tensor sum.
-PASS: six regression tests (local symbolic reproduction).
-
-No complete WW Wilson coefficient, anomalous dimension, or Ward-identity closure is claimed.
+Do not use the old +3/4 finite coefficient as the exact four-box result.
+Use B5_2B3_QLD_WW_CROSSBOX_NUMERATOR_AUDIT_2026-11-11.md and
+b5_2b3_qld_ww_exact_routing.py instead.
