@@ -42,6 +42,19 @@ Sources:
 The full hashes and the per-file hashes of the extracted tables are written into
 `outputs/p1iii_eos_sfho_realdata_closure_2026-11-11.json` (`provenance`).
 
+**Reproducible acquisition.** The archives are not committed (323 MB in total,
+GitHub rejects files above 100 MB). `sfho_frdm_v1.03_download.py` fetches them
+from the published URLs with the standard library only, verifies the size and the
+SHA-256 of every file, and renames `<name>.part` only after both match;
+`sfho_frdm_v1.03_manifest.sha256` is the same list in `sha256sum -c` form. The
+verification that this work actually relies on was run on 2026-11-11 against the
+local copies: `--verify-only` reports `OK` for all five files, and `--check-urls`
+reports HTTP 200 with a `Content-Length` equal to the recorded byte count for all
+five URLs, so the published objects are unchanged since the download. A real
+fetch of the smallest file (`--only manual`) was also exercised end to end. An
+offline test (`ArchiveManifestTests`) keeps the manifest and the downloader's
+`FILES` table in agreement, because a truncated hash is otherwise silent.
+
 The archive name (`v1.0` directory) and the table names (`v1.03`) differ from the
 manual version (`v1.04`); this is not a version mismatch. The official version
 history states that v1.03 (2012-07-09) uploaded the SFHo and SFHx tables, and
@@ -198,12 +211,16 @@ silently change.
   only when `SFHO_TABLES_DIR` points at an extracted copy, otherwise the class
   is skipped. CI therefore exercises the fixture path and does not need the
   400 MB binaries.
+- **`sfho_frdm_v1.03_download.py`** and **`sfho_frdm_v1.03_manifest.sha256`** —
+  the reproducible, checksum-verified fetch path for the five published files
+  (Sec. 2); `--dest`, `--verify-only`, `--check-urls`, `--only`, `--no-skip`.
 - **`outputs/p1iii_eos_sfho_realdata_fixture.csv`** — 224 rows of real
   table values in the P1-IIIe-A Hempel column layout
   (`mstar_N`, `SigmaV_N`, `mu_nonrel_N`, `xi`, `X_N`, targets, and the audited
   `nprime`, `ratio`, `Fdeg` columns).
 - **`.github/workflows/b16-p1iii-eos-degeneracy.yml`** — now also triggers on
-  the three new files and runs the new test module.
+  the three new files plus the downloader and its manifest, and runs the new test
+  module.
 
 Reproduction:
 
@@ -237,6 +254,17 @@ python -m unittest test_b16_p1iii_eos_sfho_realdata -v
    They are now masked with `NB_PHYSICAL`, and the reported maxima are the ones
    in Sec. 4.
 3. **\(\xi\) rounding clamp** described in Sec. 5.
+4. **Truncated archive hash in the provenance record.** The SHA-256 of
+   `sfho_frdm_bin.zip` was hand-transcribed 62 characters long, so the recorded
+   value was internally invalid rather than merely wrong; the audit script and its
+   JSON were regenerated with the value computed from the archive itself, and
+   `sfho_frdm_v1.03_download.py --verify-only` now reproduces all five hashes.
+   `ArchiveManifestTests` checks the length and the agreement of every hash
+   offline, so a repetition of this class of typo is caught by the test suite
+   rather than by a human reading the JSON.
+5. **Line endings.** The generated fixture is written with `lineterminator="\n"`
+   so it is byte-identical on Windows and in CI; without it the CSV module emits
+   CRLF and every row of a committed fixture shows up as rewritten.
 
 ## 9. Validation boundary
 

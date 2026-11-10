@@ -78,7 +78,7 @@ TABLE_FILES = {
 # so a reviewer can confirm the audited files are the published v1.03 data.
 ARCHIVE_SHA256 = {
     "sfho_frdm_bin.zip": (
-        "45479eaf46e1aa9b1ca3502baf4aae60ff0021a21d621f10a75eafb8b8949c"
+        "45479eaf46e1aa9b1ca3502baf4aaeea60ff0021a21d621f10a75eafb8b8949c"
     ),
     "sfho_frdm_spp.zip": (
         "fc0a5f8ea1154880a4285d2b126d40b521af244d338fb06e4ef5a81defbd5769"
@@ -536,7 +536,9 @@ def _format_fixture_value(value) -> str:
 def write_fixture(path: Path, rows: list[dict]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="", encoding="utf-8") as stream:
-        writer = csv.DictWriter(stream, fieldnames=list(FIXTURE_COLUMNS))
+        writer = csv.DictWriter(
+            stream, fieldnames=list(FIXTURE_COLUMNS), lineterminator="\n"
+        )
         writer.writeheader()
         for row in rows:
             writer.writerow(
@@ -568,7 +570,9 @@ def main() -> int:
 
     payload = audit(ext, spp, comp, order=args.order)
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    args.output.write_text(
+        json.dumps(payload, indent=2) + "\n", encoding="utf-8", newline="\n"
+    )
 
     if args.fixture:
         write_fixture(args.fixture, fixture_rows(ext, spp))

@@ -12,6 +12,8 @@ on:
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_sfho_realdata_closure.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_p1iii_eos_sfho_realdata.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/p1iii_eos_sfho_realdata_fixture.csv'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/sfho_frdm_v1.03_download.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/sfho_frdm_v1.03_manifest.sha256'
   workflow_dispatch:
 
 permissions:

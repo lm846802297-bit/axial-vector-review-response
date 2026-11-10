@@ -275,5 +275,75 @@ class TestOfficialTablesWhenAvailable(unittest.TestCase):
                 )
 
 
+class ArchiveManifestTests(unittest.TestCase):
+    """The published archives are fetched, not committed: keep the record honest.
+
+    A truncated SHA-256 is internally invalid rather than merely wrong, and it
+    survives review because nobody re-counts 64 hex characters.  These tests tie
+    the checksum manifest, the downloader's ``FILES`` table and the audit record
+    together offline, so a transcription slip fails here instead of at download
+    time on a user's machine.
+    """
+
+    MANIFEST = HERE / "sfho_frdm_v1.03_manifest.sha256"
+    DOWNLOADER = HERE / "sfho_frdm_v1.03_download.py"
+    AUDIT_JSON = HERE / "outputs" / "p1iii_eos_sfho_realdata_closure_2026-11-11.json"
+
+    def _manifest(self) -> dict[str, str]:
+        entries: dict[str, str] = {}
+        for line in self.MANIFEST.read_text(encoding="utf-8").splitlines():
+            if not line.strip():
+                continue
+            digest, name = line.split()
+            self.assertNotIn(name, entries, f"duplicate manifest entry {name}")
+            entries[name] = digest
+        return entries
+
+    def _downloader_files(self) -> dict[str, tuple[int, str]]:
+        import importlib.util
+
+        spec = importlib.util.spec_from_file_location(
+            "_sfho_frdm_download", self.DOWNLOADER
+        )
+        module = importlib.util.module_from_spec(spec)
+        assert spec.loader is not None
+        spec.loader.exec_module(module)
+        return {
+            entry["name"]: (int(entry["bytes"]), entry["sha256"])
+            for entry in module.FILES
+        }
+
+    def test_every_manifest_hash_is_a_full_sha256(self) -> None:
+        manifest = self._manifest()
+        self.assertEqual(len(manifest), 5)
+        for name, digest in manifest.items():
+            with self.subTest(archive=name):
+                self.assertEqual(len(digest), 64)
+                self.assertRegex(digest, r"^[0-9a-f]{64}$")
+
+    def test_downloader_table_matches_the_manifest(self) -> None:
+        manifest = self._manifest()
+        files = self._downloader_files()
+        self.assertEqual(set(files), set(manifest))
+        for name, digest in manifest.items():
+            with self.subTest(archive=name):
+                size, recorded = files[name]
+                self.assertGreater(size, 0)
+                self.assertEqual(recorded, digest)
+
+    def test_manifest_matches_the_audit_record(self) -> None:
+        import json
+
+        provenance = json.loads(
+            self.AUDIT_JSON.read_text(encoding="utf-8")
+        )["provenance"]
+        archives = provenance["archive_sha256"]
+        manifest = self._manifest()
+        for name, digest in archives.items():
+            with self.subTest(archive=name):
+                self.assertEqual(len(digest), 64)
+                self.assertEqual(manifest[name], digest)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
