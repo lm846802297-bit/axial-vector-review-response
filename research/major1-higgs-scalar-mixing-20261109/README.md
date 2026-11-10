@@ -497,3 +497,10 @@ A3a was extended with an independent (O(4)\times O(2)) effective-potential check
 =2\lambda_{HS}(3\lambda_H+\lambda_{HS}+2\lambda_S),
 ]
 and the scalar-only portal counterterm includes the additional (2\lambda_{HS}^2) term. Its part linear in (lambda_{HS}) agrees with the bubble UV pole; the portal-squared term is beyond the adopted (lambda_{HS}=O(\hbar)), (O(\hbar^2)) truncation. The audit script/output were updated.
+
+
+## 2026-11-10 — A3b tadpole/VEV and mixed field-counterterm matrix
+
+Added `A3B_TADPOLE_VEV_FIELD_COUNTERTERMS_2026-11-10.md`, its SymPy audit script, and output. It derives the linearized (h,s) tadpole counterterms, parameter/VEV contributions to all three CP-even mass entries, and the general nonsymmetric (2\times2) field-renormalization contribution to (\Gamma_{hs}^{\rm inv}(p^2)). The symmetric zero-tree-portal limit is also given explicitly.
+
+This is counterterm algebra, not a chosen renormalization scheme. The tadpole prescription, finite VEV conditions, field-renormalization convention, and actual common-scale UV/EFT counterterm coefficients remain to be fixed before the mixed self-energy can be called renormalized.
