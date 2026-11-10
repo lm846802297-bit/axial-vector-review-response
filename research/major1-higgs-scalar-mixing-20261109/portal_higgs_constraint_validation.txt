@@ -1,0 +1,7 @@
+Major Point 1 portal/mixing audit
+PASS: portal threshold times v_h v_s reproduces the recorded local curvatures.
+PASS: approximate one-sided ATLAS inclusive-rate bound is propagated consistently under the no-exotic single-pole assumption.
+PASS: uncompensated portal diagnostic intervals and residual-curvature resonance windows are finite and positive.
+PASS: h -> A'A' is open for Benchmark A and closed for Benchmark B.
+PASS: Benchmark-A h -> A'A' width coefficient is independently evaluated from the vector-boson phase-space formula.
+LIMIT: no full complex-pole solution, detector-level likelihood, or model-specific ATLAS recast.

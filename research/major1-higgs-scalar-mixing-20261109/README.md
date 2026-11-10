@@ -408,3 +408,8 @@ Upstream PR #11 is now pinned at [\`f417c7360bcc162b4da7ecb4b99bd874525234fa\`](
 
 
 - **QLD8 P1.6a:** upstream PR #11 is pinned at `ba13cf736d0c1b1bbfef732acfb4f1785162ae88`; the two same-bilinear exchange UV poles are computed, while external-leg terms and the complete QCD renormalization remain open. No result is imported into the scalar two-point calculation.
+
+
+## 2026-11-10 Major Point 1 portal/Higgs-constraint audit
+
+The finite VLL portal threshold is not symmetry-forbidden and is numerically sizable at the two reference points: Delta lambda_HS^hard = -0.21076398 (A) and -0.01067338 (B). The negligible-portal reference condition cancels this threshold and is a conditional matching/tuning benchmark, not a prediction. The residual dimension-six/eight local mixed curvatures are +0.656934 GeV^2 (A) and +0.147834 GeV^2 (B), but the near-degenerate region requires a full complex-pole treatment. Benchmark A also has the exotic channel h_1 -> A'A' open; its width is approximately 3.744 GeV times sin^2(theta), so the simple no-exotic Higgs signal-strength mapping is not applicable there. See [MAJOR1_PORTAL_THRESHOLD_AND_HIGGS_CONSTRAINT_2026-11-10.md](MAJOR1_PORTAL_THRESHOLD_AND_HIGGS_CONSTRAINT_2026-11-10.md) and its reproducible numerical audit.
