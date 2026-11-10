@@ -42,8 +42,13 @@ Sources:
 The full hashes and the per-file hashes of the extracted tables are written into
 `outputs/p1iii_eos_sfho_realdata_closure_2026-11-11.json` (`provenance`).
 
-**Reproducible acquisition.** The archives are not committed (323 MB in total,
-GitHub rejects files above 100 MB). `sfho_frdm_v1.03_download.py` fetches them
+**Reproducible acquisition.** The two small archives and the manual are committed
+under `data/sfho-frdm-v1.03/`, and the 161 092 071-byte extended table is
+committed as three ordered pieces of at most 60 MiB, because GitHub rejects
+single files above 100 MB; `reassemble_sfho_frdm_archives.py` rebuilds it and
+checks the whole-archive digest, and `data/sfho-frdm-v1.03/README.md` records
+the layout. `sfho_frdm_shen98format.zip` (88 043 252 bytes) remains
+Release-only, since it is a cross-validation format the analysis does not read. `sfho_frdm_v1.03_download.py` fetches them
 from the published URLs with the standard library only, verifies the size and the
 SHA-256 of every file, and renames `<name>.part` only after both match;
 `sfho_frdm_v1.03_manifest.sha256` is the same list in `sha256sum -c` form. The
@@ -257,15 +262,19 @@ but that statement is not used to remove any of the 16 cells from the audit.
 - **`audit_b16_p1iii_eos_sfho_realdata_closure.py`** — loads the archives,
   reproduces the whole-table audit of Sec. 4, runs the closure grid of Sec. 6,
   and writes both the JSON record and a 224-row profile-format fixture.
-- **`test_b16_p1iii_eos_sfho_realdata.py`** — 17 tests: 10 fixture-only tests, four official-table tests and three offline
-  archive-manifest tests. The fixture-only tests cover grid membership, the
+- **`test_b16_p1iii_eos_sfho_realdata.py`** — 18 tests: 10 fixture-only tests, four official-table tests and four offline
+  archive-manifest tests; the fourth locks the vendored split layout
+  (three pieces, sizes summing to 161 092 071 bytes, seven manifest entries). The fixture-only tests cover grid membership, the
   excluded-volume identity, closure-domain classification, the low-density
   regimes, 1024/2048 quadrature convergence, effective-mass splitting and the
   end-to-end profile-kernel path. The four official-table tests require
   SFHO_TABLES_DIR and are skipped when the raw archives are absent. The workflow
-  is configured to exercise the fixture path without the 400 MB binaries, but
-  no CI pass is claimed for this commit because the Actions job is blocked before
-  runner allocation by the repository account billing/limit condition.
+  exercises the fixture path without the 400 MB binaries. It has a verified pass:
+  run 42922595906 on head `5dd24ac` concluded `success` in 23 s, running this
+  module as `Ran 14 tests ... OK (skipped=1)` (the four official-table tests skip
+  without `SFHO_TABLES_DIR`) and the deterministic self-test assertion block.
+  Locally, with the unpacked v1.03 tables, the same module reports
+  `Ran 18 tests ... OK`.
 - **`sfho_frdm_v1.03_download.py`** and **`sfho_frdm_v1.03_manifest.sha256`** —
   the reproducible, checksum-verified fetch path for the five published files
   (Sec. 2); `--dest`, `--verify-only`, `--check-urls`, `--only`, `--no-skip`.
@@ -303,8 +312,12 @@ python -m unittest test_b16_p1iii_eos_sfho_realdata -v
    because recent account payments have failed or your spending limit needs to be
    increased", and no runner is ever assigned. That is an account-level billing
    condition, independent of these files and not repairable inside the
-   repository. No CI result is claimed for the current follow-up; the earlier local
-   evidence applies only to the pre-follow-up e68eae8 tree.
+   repository. No CI result was claimed for the current follow-up at the time of writing; the
+   earlier local evidence applies only to the pre-follow-up e68eae8 tree. The
+   condition cleared later the same day and the workflow then passed on head
+   `5dd24ac` (run 42922595906); the failures at `edb0f2e`, `d7adb11` and
+   `b1393ef` were the same startup failure, with no runner assigned and no steps
+   executed.
 2. **Density-row masking off by one.** Whole-table statistics previously ranged
    over all 326 rows, so the zero rows at \(k\ge309\) produced spurious maxima
    (relative density deviation 1.0, \(\sum X\) residual 1.0, minimum entropy 0).
@@ -322,6 +335,14 @@ python -m unittest test_b16_p1iii_eos_sfho_realdata -v
 5. **Line endings.** The generated fixture is written with `lineterminator="\n"`
    so it is byte-identical on Windows and in CI; without it the CSV module emits
    CRLF and every row of a committed fixture shows up as rewritten.
+6. **The data were carried by reference only.** The archives lived in a private
+   Release, so a reader could not reproduce a run from a clone. The two small
+   archives and the manual are now committed as published, and the extended
+   table is committed as three ordered pieces with a `sha256sum`-compatible
+   manifest and a reassembly tool that takes its sizes and hashes from the
+   downloader's `FILES` table instead of a second hand-maintained copy. A round
+   trip was verified: the rebuilt archive is byte-identical to the published one
+   (sha256 `45479eaf...b8949c`) and `--verify-only` then accepts it.
 
 ## 9. Validation boundary
 
@@ -428,3 +449,14 @@ Python unittest suite remain unexecuted. No Python test pass or CI pass is
 claimed. The raw-table checks require the extracted EOS, SPP and composition
 files; once these are available to the runtime, run the complete 17-test suite
 and the whole-table audit before treating P1-IIIe-B as fully accepted.
+
+**Update after the vendored-archive commit (2026-11-11, later the same day).** The
+execution boundary above no longer binds this checkout: the published archives are
+committed to the repository, the unpacked v1.03 tables are available to the local
+runtime, and both suites have been run at `5dd24ac` with `SFHO_TABLES_DIR` set -
+P1-IIIe-A `Ran 15 tests ... OK` and P1-IIIe-B `Ran 18 tests ... OK`. CI run
+42922595906 on the same head concluded `success`, executing the fixture path as
+`Ran 14 tests ... OK (skipped=1)` plus the self-test assertions. What remains open
+is the physical input rather than the execution path: no Garching
+stellar-evolution profile has been obtained, so the global degeneracy averages are
+still exercised on synthetic weights only.
