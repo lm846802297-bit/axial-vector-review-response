@@ -600,3 +600,23 @@ A fixed-physical-mass factor-two diagnostic was added at \(\mu=10,20,40\) TeV wi
 
 
 Added A5B_RGE_CLOSURE_MATRIX_AND_WORK_ORDER_2026-11-10.md to distinguish the UV portal beta, EFT derivative-operator running, \(C_5/Q_{LD}/Q_{RD}\) and current-operator mixing, tadpole/field renormalization, and the separate dimension-eight branch. It records the accepted intermediate result and orders the remaining work before a full \(\mu_M\) stability test.
+
+
+## 2026-11-11 — B5-1 complete one-loop UV portal beta
+
+Added B5_1_FULL_UV_PORTAL_BETA_FUNCTION_2026-11-11.md, b5_1_uv_portal_beta_audit.py, and B5_1_UV_PORTAL_BETA_AUDIT_OUTPUT_2026-11-11.txt.
+
+For the original one-complex-singlet/two-VLL model, with \(Q_S=2\) and diagonal Abelian kinetic terms at the common threshold, the one-loop UV result is
+\[
+16\pi^2\beta_{\lambda_{HS}}^{UV}
+=\lambda_{HS}^{UV}\left[
+12\lambda_H+8\lambda_S+4\lambda_{HS}^{UV}
+-\frac92g_2^2-\frac32g_Y^2-24g_X^2
++2\left(\mathcal T_H^{SM}+\sum_\ell|y_\ell|^2+\sum_\ell|\lambda_\ell|^2\right)
+\right].
+\]
+The \(4\lambda_{HS}^2\) term is retained in the ordinary full one-loop MS expression and dropped in the strict \(\lambda_{HS}=O(\hbar)\), \(O(\hbar^2)\) combined truncation. The additive VLL \(|y_\ell|^2|\lambda_\ell|^2\) UV-pole coefficient is exactly zero from the field-dependent fermion determinant; the multiplicative VLL Yukawa wavefunction terms are nonzero. The complete chiral spectrum also gives \(\operatorname{Tr}(YX)=0\) at the common threshold.
+
+Benchmark A/B decompositions are recorded over \(m_s=10\)–150 GeV. At the illustrative \(m_s=125.25\) GeV point, the known subtotal excluding the still-unfixed SM running remainder is \(+6.04131\times10^{-2}\) (A) and \(+5.77446\times10^{-4}\) (B), including the full one-loop portal-squared term. The numerical SM remainder is kept symbolic until \(g_2,g_Y,Y_{u,d,e}\) at \(20\) TeV are fixed in one input scheme. Benchmark A has \(\lambda_\tau=\sqrt{4\pi}\), so higher-loop running should be monitored.
+
+B5-1 is analytically derived for \(\chi(M_E)=0\) and the common VLL threshold. This does not yet provide the EFT beta below \(M_E\), coupled UV running, or full UV–EFT scale cancellation. The closure matrix/work order was updated accordingly.
