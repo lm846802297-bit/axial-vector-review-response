@@ -191,3 +191,23 @@ After Stage D/E, classify the discrepancy into one of four evidence-based catego
 The current \(+92.43\%\) difference remains an unresolved reproduction discrepancy until one of these categories is supported. It is not evidence by itself that the published calculation is wrong.
 
 Throughout, preserve the pure-vector benchmark as the validation gate. Do not update the axial-vector limit curve before the vector benchmark is independently accepted.
+
+
+## 9. Status update after P1-D/P1-F (2026-11-10)
+
+Stage D and the targeted follow-ups are complete at the scope supported by the public reconstruction:
+
+- high-energy source/escape phase-space partition and closure;
+- channel-resolved opacity and source/escape decomposition;
+- path quadrature, angular quadrature, and opacity-grid interpolation;
+- fixed-\(\omega\) versus path-redshift diagnostic;
+- scalar polarization normalization and separate mode-resolved diagnostic;
+- \(R_{\max}\) inward/outward conditional sensitivity;
+- source-side \(\mu_{\nu_\mu}\), \(\mu_{\nu_\tau}=0\), and lapse sensitivity;
+- energy-dependent daughter-neutrino kinematics and the physical meaning of the \(R_\nu\simeq25\) km boundary.
+
+The new P1-F result is that the 210--510 MeV vector band produces daughter pairs with mean daughter energies of 105--255 MeV. The neutrino decoupling region is energy- and flavor-dependent, and heavy-flavor transport and energy spheres differ. The 25-to-30 km P1-D conditional extension suppresses the dominant high-energy band by 70.94%; a band-only total-luminosity proxy would lie 2.79% below Fig. 7 if all other bins were held fixed. This is not a self-consistent full luminosity result and does not authorize changing \(R_{\max}\).
+
+The exact energy-dependent daughter-pair escape/reprocessing probability cannot be computed from the current CSV because same-snapshot baryon density, composition, neutrino angular moments, and energy-dependent heavy-flavor opacities are unavailable. The corresponding Garching archive endpoints require authorized access.
+
+**Stopping decision:** do not repeat numerical quadrature, expand the mass scan, fit \(R_{\max}\), or alter the B.2 opacity. Retain \(R_{\max}=25\) km as the literal paper baseline. Classify the remaining strong-endpoint discrepancy as unresolved by the available public data, with energy-dependent heavy-flavor neutrino energy decoupling identified as the leading unclosed physical boundary issue. Keep PR #57 Draft/Open and do not update the axial-vector constraint curve.
