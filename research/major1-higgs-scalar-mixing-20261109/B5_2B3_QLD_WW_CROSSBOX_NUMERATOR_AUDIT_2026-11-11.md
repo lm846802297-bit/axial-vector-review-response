@@ -196,28 +196,62 @@ A_{FS}^{\rm hard}-A_{FF}^{\rm hard}
 \]
 In particular, replacing \(d\) by four before the UV-pole multiplication would miss the \(-3/2\) finite shift in \(A_{FF}\).
 
-## 5. Conditional weak-tensor sum — diagnostic only
+## 5. Oriented numerator signs and the cross-box subset
 
-If, and only if, the four oriented diagrams carry a common overall sign and unit multiplicity in the canonical routing above, their tensor-weighted sum would be
+Fix the external field ordering to
+\[
+\bar L_i(p_1),\ H_j(p_2),\ H_k^\dagger(p_3),\ L_l(p_4),
+\]
+with \(p_1=p_3=0\), \(p_2=P\), \(p_4=-P\) for the projector, and let the gauge momentum \(k\) flow from the left Yukawa vertex to the right one. The heavy momentum along the \(E_R\to\bar E_R\) arrow is \(P-k\).
+
+Use the Feynman rules following from
+\[
+\mathcal L_W=
+g_2\bar L\gamma^\mu T^I L\,W_\mu^I
++i g_2 H^\dagger T^I\overleftrightarrow{\partial^\mu}H\,W_\mu^I.
+\]
+For this routing, the internal fermion propagator momentum is \(-k\) on each fermion-attached line, and each scalar gauge vertex contributes \(-k_\mu\). The four numerator chains are then:
+
+| Pair | Internal numerator factors | Reduced numerator | Relative numerator sign |
+|---|---|---|---:|
+| LD-W-01 | \(\gamma^\mu(-\slashed k)\slashed{(P-k)}(-\slashed k)\gamma_\mu\) | \(N_{FF}\) | \(+\) |
+| LD-W-02 | \(\gamma^\mu(-\slashed k)\slashed{(P-k)}(-k_\mu)\) | \(N_{FS}\) | \(+\) |
+| LD-W-05 | \((-k_\mu)\slashed{(P-k)}(-\slashed k)\gamma^\mu\) | \(N_{FS}\) | \(+\) |
+| LD-W-06 | \((-k_\mu)(-k_\nu)g^{\mu\nu}\slashed{(P-k)}\) | \(N_{SS}\) | \(+\) |
+
+The two Yukawa vertices, two gauge vertices, internal matter propagators, heavy propagator and Feynman-gauge \(W\) propagator have the same net \(i\)-factor in all four topologies. Reversing the gauge momentum is the same graph under \(k\mapsto-k\); for the fixed ordered external amplitude there is one exchange contraction per unordered line pair. The hermitian-conjugate external amplitude is the complex conjugate and is not an additional factor of two in this Green function.
+
+Combining the four oriented numerator chains with the exact weak tensors gives
 \[
 \begin{aligned}
-\mathcal A_{\rm box}^{\rm conditional}
+\mathcal A_{\rm box}^{WW,\rm hard}
 &\propto
--\frac14 A_{FF}T_3
-+\frac14 A_{FS}T_3
-+\frac14 A_{FS}T_3
--\frac14 A_{SS}T_3\\
-&=\frac14(A_{FS}-A_{FF})T_3\\
+-\frac14 A_{FF}^{\rm hard}T_3
++\frac14 A_{FS}^{\rm hard}T_3
++\frac14 A_{FS}^{\rm hard}T_3
+-\frac14 A_{SS}^{\rm hard}T_3\\
+&=\frac14(A_{FS}^{\rm hard}-A_{FF}^{\rm hard})T_3\\
 &=\boxed{\frac{3}{4M_E^2}T_3.}
 \end{aligned}
 \]
-The \(1/\epsilon_{\rm UV}\) pole cancels in this conditional combination. Restoring the common coupling factor, its magnitude would be proportional to
+The UV pole and matching logarithm cancel in this four-box tensor sum. Restoring the common coupling and loop factor, the raw amputated amplitude subset in this convention is
 \[
-\frac{|y_\ell|^2g_2^2}{16\pi^2}
-\frac{3}{4M_E^2}T_3\slashed P.
+\boxed{
+\Gamma_{\rm box}^{WW,\rm hard}
+=-i\,\frac{|y_\ell|^2g_2^2}{16\pi^2}
+\frac{3}{4M_E^2}\,
+T_3\,\slashed P
+}
 \]
+with the tree amplitude convention
+\[
+\Gamma_{\rm tree}
+=-i\,\frac{|y_\ell|^2}{M_E^2}\,
+T_0\,\slashed P.
+\]
+Equivalently, the coefficient of this **raw \(T_3\) amplitude tensor only** is \(+3|y_\ell|^2g_2^2/(64\pi^2M_E^2)\).
 
-**This is not a promoted matching result.** The common-sign/unit-multiplicity hypothesis has not yet been established. The actual pair-specific signs must be derived from the complete oriented fermion and scalar Feynman rules, including the momentum flow through each conjugate external leg. Crossed routings and any graph multiplicities must be enumerated before this conditional expression can be accepted or rejected.
+This is a completed canonical cross-box numerator/hard-integral sub-block under the stated momentum and Feynman-rule conventions. It is **not** yet the final \(C_{HL}^{(3)}\), \(C_{LD}\), or any other nonredundant Wilson coefficient: the tensor still has to be embedded in the complete gauge-covariant operator basis, combined with external-field/parameter/operator counterterms, and checked against the summed Ward/Slavnov–Taylor identity. No FeynArts/FeynCalc diagram-package reproduction has been performed.
 
 ## 6. Required completion before coefficient promotion
 
