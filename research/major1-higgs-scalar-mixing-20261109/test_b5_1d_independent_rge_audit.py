@@ -11,7 +11,7 @@ import b5_1b_sm_threshold_and_uv_rge as production
 from b5_1d_independent_rge_audit import (
     gauge_spectrum_sums, scalar_quartic_tensor_coefficients,
     yukawa_matrix_coefficients, gauge_casimirs, gauge_quartic_sources,
-    fermion_box_coefficients, independent_beta_vector,
+    fermion_box_coefficients, independent_beta_vector, model_yukawa_charge_sums,
 )
 
 
@@ -54,6 +54,11 @@ class IndependentB5OneLoopRGETests(unittest.TestCase):
              sp.Rational(3,8)*gY**4)),0)
         self.assertEqual(sp.simplify(q["betaS_gauge4"]-96*gX**4),0)
         self.assertEqual(q["betaHS_gauge4"],0)
+
+    def test_pyrate3_model_yukawa_charge_invariance(self):
+        sums=model_yukawa_charge_sums()
+        self.assertEqual(len(sums),7)
+        self.assertTrue(all(pair==(0,0) for pair in sums.values()))
 
     def test_vll_mixed_fermion_box_vanishes(self):
         b=fermion_box_coefficients()
