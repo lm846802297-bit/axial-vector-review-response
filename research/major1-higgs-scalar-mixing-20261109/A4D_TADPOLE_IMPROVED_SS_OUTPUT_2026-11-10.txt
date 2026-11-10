@@ -23,3 +23,17 @@ At d=4:
 LIMIT:
   p_E^2=0 tadpole-improved identity only.
   It does not imply gauge independence at nonzero momentum or determine the complex pole.
+
+
+Momentum-dependent tadpole-improved UV pole, d=4:
+  16 pi^2 [Pi_ss,E(p_E^2)-T_s^(1)/v_S]^UV =
+    [-g_A^2(3-xi_X) p_E^2 -6 g_A^2 m_X^2 -20 lambda_S^2 v_S^2]/epsbar
+  PASS: local mass pole is xi_X-independent at arbitrary p_E^2.
+  PASS: only the diagonal field pole retains the (3-xi_X) dependence.
+
+Feynman-gauge tadpole-improved kernel:
+  16 pi^2 Pi_hat_ss,E(p_E^2) =
+    -[2 g_A^2 p_E^2 + 2(d-1)g_A^2 m_X^2 + 2 lambda_S^2 v_S^2]
+       B_E(p_E^2;m_X^2,m_X^2)
+    -18 lambda_S^2 v_S^2 B_E(p_E^2;m_s^2,m_s^2)
+  where Pi_hat = Pi - T_s^(1)/v_S.
