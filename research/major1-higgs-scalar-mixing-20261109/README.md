@@ -432,3 +432,10 @@ Added `SINGLET_SCALAR_DIRECT_WIDTH_AUDIT_2026-11-10.md` with an independently ev
 Added `PLAN_C_LITE_COMPLEX_POLE_RESIDUES_2026-11-10.md` and its numerical audit. For the inherited Plan-C-lite approximate propagator, the complex pole residue matrix is computed from the derivative of the determinant. At exact degeneracy in Benchmark B, the two Higgs-channel residues are approximately (-0.035432-0.024342i) and (1.035432+0.024342i), summing to one. These are complex residues, not probabilities or signal strengths; they demonstrate the need for a coherent two-pole amplitude. All results retain the existing fixed-width, selected-matching-kernel limitations.
 
 The scalar-potential SymPy audit was executed locally and passed its tadpole, mass-matrix, cubic, Goldstone and quartic checks. None of these additions claims a complete gauge-independent pole or LHC likelihood.
+
+
+## 2026-11-10 — exact-momentum fermion-sector hard matching and poles
+
+Added `EXACT_MOMENTUM_FERMION_MATCHED_POLES_2026-11-10.md` and its reproducibility script/output. The full-minus-light mass-eigenstate hard momentum remainder is now evaluated from the Feynman-parameter (B_0) functions at complex (s), with the second-sheet continuation for the open (mu,	au) cuts. At (s=m_h^2), it reproduces the archived hard coefficients (0.0240304439859) GeV² (A) and (0.00540772399471) GeV² (B). The matched off-diagonal kernel uses the exact SVD light-state couplings rather than the leading mass-proportional approximation.
+
+The approximate complex poles and residues were recomputed using this exact-momentum fermion hard remainder. The qualitative near-degenerate pattern is stable: A has a broad singlet pole from (A'A'), while B has overlapping poles with complex Higgs-channel residues. This remains a fermion-sector matched subset with fixed diagonal widths and incomplete EFT counterterm/gauge completion; no physical Higgs likelihood or exclusion is claimed.
