@@ -74,6 +74,14 @@ function pairEscapeRadius(omega,tail,target){
  }
  return(lo+hi)/2;
 }
+function shellReprocessingFraction(omega,tail){
+ let integral=0;
+ for(let i=0;i<q.x.length;i++){
+  const radius=27.5+2.5*q.x[i];
+  integral+=q.w[i]*(1-pairEscape(omega,radius,tail).equal_mode_average);
+ }
+ return integral/2;
+}
 function main(){
  const modeNorms=Object.fromEntries(Object.entries(modes).map(([name,W])=>[name,q.x.reduce((s,z,i)=>s+q.w[i]*W(z),0)]));
  const sumIdentityMaxAbs=Math.max(...q.x.map(z=>Math.abs(modes.L(z)+modes.plus(z)+modes.minus(z)-1.5)));
@@ -101,6 +109,7 @@ function main(){
   },
   transport_tau_2_3:{},
   pair_escape_at_radii:{},
+  smooth_reprocessing_fraction_25_30:{},
   pair_escape_transition_radii:{},
   validation:{gauss_legendre_order:256,polarization_weight_integrals:modeNorms,polarization_sum_identity_max_abs:sumIdentityMaxAbs,all_values_finite:true},
   limitations:[
@@ -123,6 +132,14 @@ function main(){
     values_at_210_300_510:Object.fromEntries(REPRESENTATIVE_OMEGAS.map(w=>[String(w),pairEscape(w,r,tail)]))
    };
   }
+  const shellFractions=nodes.map(omega=>shellReprocessingFraction(omega,tail));
+  result.smooth_reprocessing_fraction_25_30[name]={
+   min_over_10_vector_nodes:Math.min(...shellFractions),
+   max_over_10_vector_nodes:Math.max(...shellFractions),
+   unweighted_mean_over_10_vector_nodes:shellFractions.reduce((a,b)=>a+b,0)/shellFractions.length,
+   representative_omega:Object.fromEntries(REPRESENTATIVE_OMEGAS.map(w=>[String(w),shellReprocessingFraction(w,tail)])),
+   interpretation:"Radial path average of 1-P_pair^E over 25-30 km; not a source- or angle-weighted B.2 opacity integral."
+  };
   result.pair_escape_transition_radii[name]={};
   for(const omega of REPRESENTATIVE_OMEGAS){
    result.pair_escape_transition_radii[name][String(omega)]={
