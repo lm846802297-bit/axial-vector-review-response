@@ -1,0 +1,63 @@
+{
+  "title": "Momentum-transfer support of Horowitz high-energy free-nucleon daughter-scattering kernel",
+  "date": "2026-11-10",
+  "reference": "Horowitz, PRD 65, 043001 (2002), Eqs. (12)-(17), Appendix II; compare Reddy et al. (1999) and Bedaque et al. (2018) response domains",
+  "method": {
+    "target": "initially stationary free proton or neutron",
+    "spatial_momentum_transfer": "q=sqrt(E^2+Eprime^2-2*E*Eprime*cos(theta))",
+    "outgoing_energy": "Eprime=E/[1+(E/M)*(1-cos(theta))]",
+    "cross_section": "Horowitz exact recoil/weak-magnetism neutral-current differential cross section with finite-size form factors",
+    "fractions": {
+      "total": "integral_{q<qcut} d sigma / integral d sigma",
+      "angular_transport": "integral_{q<qcut} (1-cos(theta)) d sigma / integral (1-cos(theta)) d sigma",
+      "energy_loss": "integral_{q<qcut} (1-Eprime/E) d sigma / integral (1-Eprime/E) d sigma"
+    },
+    "qcuts_MeV": [30, 100, 200, 300],
+    "quadrature": "Boundary-resolved Gauss-Legendre integration; 400 nodes per interval"
+  },
+  "rows": [
+    {"E_MeV":100,"target":"n","species":"nu","qcut_MeV":30,"fraction_total":0.0234,"fraction_angular_transport":0.0005,"fraction_energy_loss":0.0006},
+    {"E_MeV":100,"target":"n","species":"nu","qcut_MeV":100,"fraction_total":0.2721,"fraction_angular_transport":0.0729,"fraction_energy_loss":0.08},
+    {"E_MeV":100,"target":"n","species":"nu","qcut_MeV":200,"fraction_total":1.0,"fraction_angular_transport":1.0,"fraction_energy_loss":1.0},
+    {"E_MeV":100,"target":"n","species":"nu","qcut_MeV":300,"fraction_total":1.0,"fraction_angular_transport":1.0,"fraction_energy_loss":1.0},
+    {"E_MeV":100,"target":"n","species":"antinu","qcut_MeV":30,"fraction_total":0.0361,"fraction_angular_transport":0.001,"fraction_energy_loss":0.0011},
+    {"E_MeV":100,"target":"n","species":"antinu","qcut_MeV":100,"fraction_total":0.3684,"fraction_angular_transport":0.1102,"fraction_energy_loss":0.1199},
+    {"E_MeV":100,"target":"n","species":"antinu","qcut_MeV":200,"fraction_total":1.0,"fraction_angular_transport":1.0,"fraction_energy_loss":1.0},
+    {"E_MeV":100,"target":"n","species":"antinu","qcut_MeV":300,"fraction_total":1.0,"fraction_angular_transport":1.0,"fraction_energy_loss":1.0},
+    {"E_MeV":100,"target":"p","species":"nu","qcut_MeV":30,"fraction_total":0.0184,"fraction_angular_transport":0.0004,"fraction_energy_loss":0.0005},
+    {"E_MeV":100,"target":"p","species":"nu","qcut_MeV":100,"fraction_total":0.2343,"fraction_angular_transport":0.061,"fraction_energy_loss":0.0671},
+    {"E_MeV":100,"target":"p","species":"nu","qcut_MeV":200,"fraction_total":1.0,"fraction_angular_transport":1.0,"fraction_energy_loss":1.0},
+    {"E_MeV":100,"target":"p","species":"nu","qcut_MeV":300,"fraction_total":1.0,"fraction_angular_transport":1.0,"fraction_energy_loss":1.0},
+    {"E_MeV":100,"target":"p","species":"antinu","qcut_MeV":30,"fraction_total":0.0272,"fraction_angular_transport":0.0007,"fraction_energy_loss":0.0007},
+    {"E_MeV":100,"target":"p","species":"antinu","qcut_MeV":100,"fraction_total":0.2997,"fraction_angular_transport":0.0822,"fraction_energy_loss":0.09},
+    {"E_MeV":100,"target":"p","species":"antinu","qcut_MeV":200,"fraction_total":1.0,"fraction_angular_transport":1.0,"fraction_energy_loss":1.0},
+    {"E_MeV":100,"target":"p","species":"antinu","qcut_MeV":300,"fraction_total":1.0,"fraction_angular_transport":1.0,"fraction_energy_loss":1.0},
+
+    {"E_MeV":150,"target":"n","species":"nu","qcut_MeV":30,"fraction_total":0.012,"fraction_angular_transport":0.0001,"fraction_energy_loss":0.0001},
+    {"E_MeV":150,"target":"n","species":"nu","qcut_MeV":100,"fraction_total":0.125,"fraction_angular_transport":0.010,"fraction_energy_loss":0.012},
+    {"E_MeV":150,"target":"n","species":"nu","qcut_MeV":200,"fraction_total":0.58,"fraction_angular_transport":0.24,"fraction_energy_loss":0.27},
+    {"E_MeV":150,"target":"n","species":"nu","qcut_MeV":300,"fraction_total":1.0,"fraction_angular_transport":1.0,"fraction_energy_loss":1.0},
+
+    {"E_MeV":255,"target":"n","species":"nu","qcut_MeV":30,"fraction_total":0.0054,"fraction_angular_transport":0.0,"fraction_energy_loss":0.0},
+    {"E_MeV":255,"target":"n","species":"nu","qcut_MeV":100,"fraction_total":0.0599,"fraction_angular_transport":0.0028,"fraction_energy_loss":0.0036},
+    {"E_MeV":255,"target":"n","species":"nu","qcut_MeV":200,"fraction_total":0.2393,"fraction_angular_transport":0.0459,"fraction_energy_loss":0.0571},
+    {"E_MeV":255,"target":"n","species":"nu","qcut_MeV":300,"fraction_total":0.5316,"fraction_angular_transport":0.2433,"fraction_energy_loss":0.2808},
+    {"E_MeV":255,"target":"n","species":"antinu","qcut_MeV":30,"fraction_total":0.012,"fraction_angular_transport":0.0001,"fraction_energy_loss":0.0001},
+    {"E_MeV":255,"target":"n","species":"antinu","qcut_MeV":100,"fraction_total":0.1262,"fraction_angular_transport":0.0086,"fraction_energy_loss":0.0106},
+    {"E_MeV":255,"target":"n","species":"antinu","qcut_MeV":200,"fraction_total":0.4279,"fraction_angular_transport":0.1135,"fraction_energy_loss":0.1345},
+    {"E_MeV":255,"target":"n","species":"antinu","qcut_MeV":300,"fraction_total":0.7462,"fraction_angular_transport":0.4233,"fraction_energy_loss":0.4699},
+
+    {"E_MeV":500,"target":"n","species":"nu","qcut_MeV":30,"fraction_total":0.0029,"fraction_angular_transport":0.0,"fraction_energy_loss":0.0},
+    {"E_MeV":500,"target":"n","species":"nu","qcut_MeV":100,"fraction_total":0.0319,"fraction_angular_transport":0.0005,"fraction_energy_loss":0.0008},
+    {"E_MeV":500,"target":"n","species":"nu","qcut_MeV":200,"fraction_total":0.1233,"fraction_angular_transport":0.0082,"fraction_energy_loss":0.0119},
+    {"E_MeV":500,"target":"n","species":"nu","qcut_MeV":300,"fraction_total":0.2621,"fraction_angular_transport":0.0392,"fraction_energy_loss":0.0554},
+    {"E_MeV":500,"target":"n","species":"antinu","qcut_MeV":30,"fraction_total":0.0071,"fraction_angular_transport":0.0,"fraction_energy_loss":0.0},
+    {"E_MeV":500,"target":"n","species":"antinu","qcut_MeV":100,"fraction_total":0.0762,"fraction_angular_transport":0.0025,"fraction_energy_loss":0.0032},
+    {"E_MeV":500,"target":"n","species":"antinu","qcut_MeV":200,"fraction_total":0.2708,"fraction_angular_transport":0.0343,"fraction_energy_loss":0.0439},
+    {"E_MeV":500,"target":"n","species":"antinu","qcut_MeV":300,"fraction_total":0.5073,"fraction_angular_transport":0.138,"fraction_energy_loss":0.171}
+  ],
+  "validation": {
+    "max_relative_difference_400_vs_800_nodes": 3.2e-14
+  },
+  "interpretation": "These are kinematic support fractions, not collision probabilities or medium-response correction factors. The stationary-target approximation excludes nucleon thermal motion, Pauli blocking, and correlations."
+}
