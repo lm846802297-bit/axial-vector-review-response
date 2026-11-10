@@ -16,7 +16,9 @@ def derive_yukawa_beta():
     sqrt2 = sp.sqrt(2)
 
     # Weyl basis: (E_muL, mu_R^c, E_tauL, tau_R^c).
-    # S=(phi_1+i phi_2)/sqrt(2); mu couples to S, tau to S*.
+    # Choose the overall real-scalar phase so the mu block carries +i
+    # and the tau block -i. Taking the hermitian-conjugate convention flips
+    # both signs; only their relative sign, fixed by S_mu=S and S_tau=S*, matters.
     y1 = sp.zeros(4)
     y2 = sp.zeros(4)
     y1[0, 1] = y1[1, 0] = lam_mu/sqrt2
