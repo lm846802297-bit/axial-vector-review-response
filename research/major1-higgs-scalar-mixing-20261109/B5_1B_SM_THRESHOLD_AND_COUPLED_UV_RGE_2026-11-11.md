@@ -374,7 +374,7 @@ Finally, the vector mass eigenvalues in neutral \(H\) and \(S\) backgrounds give
 The VLL field-dependent mass matrix independently gives a vanishing \(h^2s^2\) coefficient in \(\operatorname{Tr}[(\mathcal M^\dagger\mathcal M)^2]\), while retaining the pure \(h^4\) and \(s^4\) boxes. Thus the mixed portal has no additive VLL Yukawa box, but the two pure quartics do.
 
 The full independent symbolic implementation is archived in
-b5_1d_independent_rge_audit.py; its nine regression tests also compare the resulting 12-component beta vector and the quartic decomposition against the production implementation at both benchmarks and at a generic point. This is an analytic tensor/group-theory cross-check, not yet an execution of PyR@TE or SARAH.
+b5_1d_independent_rge_audit.py; its ten regression tests also compare the resulting 12-component beta vector and the quartic decomposition against the production implementation at both benchmarks and at a generic point. This is an analytic tensor/group-theory cross-check, not yet an execution of PyR@TE or SARAH.
 
 ## 6. Numerical beta functions at \(M_E=20\) TeV
 
@@ -538,7 +538,7 @@ The companion scripts and independent tensor audit check:
 6. The VLL fermion determinant: zero mixed \(h^2s^2\) box and nonzero pure quartic boxes.
 7. The Coleman–Weinberg finite-threshold identities and the coupled UV evolution.
 
-The singlet/Higgs Yukawa, scalar-tensor, gauge-spectrum, Casimir, gauge-quartic, and fermion-box audits pass algebraically. Nine new B5-1d regression tests compare the independent 12-component beta vector and quartic decomposition against the production implementation. This validates the one-loop analytic system at the stated top-dominance and \(\chi=0\) assumptions. An external PyR@TE/SARAH execution or full diagrammatic calculation has not yet been run; higher-loop and input uncertainties also remain open.
+The singlet/Higgs Yukawa, scalar-tensor, gauge-spectrum, Casimir, gauge-quartic, and fermion-box audits pass algebraically. Ten new B5-1d regression tests compare the independent 12-component beta vector and quartic decomposition against the production implementation. This validates the one-loop analytic system at the stated top-dominance and \(\chi=0\) assumptions. An external PyR@TE/SARAH execution or full diagrammatic calculation has not yet been run; higher-loop and input uncertainties also remain open.
 
 ## 9. B5-1b acceptance and next work
 
