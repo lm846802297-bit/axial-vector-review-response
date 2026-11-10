@@ -8,6 +8,10 @@ on:
       - '.github/workflows/b16-p1iii-eos-degeneracy.yml'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_nucleon_distribution.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_p1iii_eos_nucleon_distribution.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/sfho_eos_tables.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_sfho_realdata_closure.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_p1iii_eos_sfho_realdata.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/p1iii_eos_sfho_realdata_fixture.csv'
   workflow_dispatch:
 
 permissions:
@@ -40,6 +44,11 @@ jobs:
           python -m unittest discover \
             -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
             -p 'test_b16_p1iii_eos_nucleon_distribution.py' -v
+      - name: Run SFHo real-table closure tests
+        run: |
+          python -m unittest discover \
+            -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
+            -p 'test_b16_p1iii_eos_sfho_realdata.py' -v
       - name: Run deterministic software self-test
         run: |
           python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_nucleon_distribution.py \
@@ -56,6 +65,9 @@ jobs:
           assert checks['max_256_vs_512_quadrature_abs_difference'] < 1e-10
           assert checks['vacuum_mass_limit_max_occupation_abs_residual'] < 1e-14
           assert abs(checks['dilute_limit_Fdeg'] - 1.0) < 1e-12
-          assert checks['common_U_mu_shift_Fdeg_abs_residual'] < 1e-14\n          assert checks['Hempel_RMF_mapping_max_abs_residual_MeV'] < 5e-13\n          assert checks['density_inversion_nu_abs_residual_MeV'] < 1e-8\n          assert 0.0 < checks['composition_inferred_xi_fixture'] <= 1.0
+          assert checks['common_U_mu_shift_Fdeg_abs_residual'] < 1e-14
+          assert checks['Hempel_RMF_mapping_max_abs_residual_MeV'] < 5e-13
+          assert checks['density_inversion_nu_abs_residual_MeV'] < 1e-8
+          assert 0.0 < checks['composition_inferred_xi_fixture'] <= 1.0
           print(json.dumps(checks, indent=2))
           PY

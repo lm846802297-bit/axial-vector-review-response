@@ -247,6 +247,12 @@ def infer_filling_factor_from_global_densities(
     if n_bound < -1.0e-10:
         raise ValueError("free neutron+proton density exceeds total baryon density")
     xi = 1.0 - n_bound / saturation_density_fm3
+    # The distributed Hempel tables print X_n and X_p with limited precision,
+    # so a few cells round to xi = 1 + a handful of ulps (12 of 224 in the
+    # audited SFHo/FRDM grid).  That is a printing artifact of a cell with no
+    # bound baryons, not a physical filling factor above unity.
+    if 1.0 < xi <= 1.0 + 1.0e-12:
+        xi = 1.0
     if not (0.0 < xi <= 1.0):
         raise ValueError(
             f"inferred filling factor xi={xi} is outside the physical interval (0,1]"
@@ -695,7 +701,10 @@ def self_test_payload():
             ),
             "vacuum_mass_limit_max_occupation_abs_residual": vacuum_residual,
             "dilute_limit_Fdeg": dilute_fdeg,
-            "common_U_mu_shift_Fdeg_abs_residual": potential_shift_residual,\n            "Hempel_RMF_mapping_max_abs_residual_MeV": max(mapping_residuals),\n            "density_inversion_nu_abs_residual_MeV": inversion_residual,\n            "composition_inferred_xi_fixture": inferred_xi,
+            "common_U_mu_shift_Fdeg_abs_residual": potential_shift_residual,
+            "Hempel_RMF_mapping_max_abs_residual_MeV": max(mapping_residuals),
+            "density_inversion_nu_abs_residual_MeV": inversion_residual,
+            "composition_inferred_xi_fixture": inferred_xi,
         },
         "published_global_targets_not_tested_without_profiles": TABLE_TARGETS,
     }
