@@ -1,0 +1,21 @@
+A3c R_xi Goldstone absorptive-part diagnostic
+Input: m_h=125.25 GeV; v=246.22 GeV; lambda_H=m_h^2/(2v^2)
+Illustrative m_s=m_h, lambda_S=m_h^2/(2v_S^2).
+Observable printed: Im Pi_hs^Goldstone(m_h^2)/(lambda_HS v v_S).
+
+xi      Benchmark A       Benchmark B
+0.5     0.0330178880      0.00326699645
+1.0     0.0306563505      0
+2.0     0.0302526296      0
+4.0     0.0294285767      0
+10.0    0.0268048452      0
+40.0    0                 0
+
+Thresholds:
+  xi_W^thr = 0.607...
+  xi_Z^thr = 0.472...
+  xi_X^thr(A) = 39.22...
+  xi_X^thr(B) = 0.988...
+
+PASS: Goldstone cut threshold and coefficient calculations.
+LIMIT: Goldstone-only absorptive part is gauge dependent and not a physical width; complete 2x2 pole calculation is required.
