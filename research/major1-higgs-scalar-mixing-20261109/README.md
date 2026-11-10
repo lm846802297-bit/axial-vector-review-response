@@ -418,3 +418,8 @@ The finite VLL portal threshold is not symmetry-forbidden and is numerically siz
 ## 2026-11-10 — UV scalar-potential and diagram-census freeze
 
 Added `UV_SCALAR_POTENTIAL_AND_DIAGRAM_CENSUS_2026-11-10.md`. The current manuscript states the portal and mixing relation but does not display the complete renormalizable scalar potential or tadpole equations. The new record supplies the unique one-Higgs-doublet/one-complex-singlet CP-conserving renormalizable potential, its tadpole conditions, CP-even mass matrix, cubic and Goldstone vertices, and the (sA'A') vertices. It also fixes the combined loop counting implied by the conditional zero-EFT-portal matching and inventories the missing gauge, Goldstone, tadpole, counterterm and two-loop sectors. This is a calculation-scope freeze, not a claim that the physical pole calculation is complete.
+
+
+## 2026-11-10 — scalar-potential symbolic validation
+
+Added `scalar_potential_symbolic_audit.py` and `scalar_potential_symbolic_audit_validation.txt`. The SymPy audit was executed locally and verifies both tadpole equations, the CP-even mass matrix, the (hhh,sss,hhs,hss) cubic derivatives, the electroweak and (U(1)_X) Goldstone cubic derivatives, and the (hhss) portal quartic. This is a tree-level algebra validation only; it does not close loop counterterms or establish physical poles.
