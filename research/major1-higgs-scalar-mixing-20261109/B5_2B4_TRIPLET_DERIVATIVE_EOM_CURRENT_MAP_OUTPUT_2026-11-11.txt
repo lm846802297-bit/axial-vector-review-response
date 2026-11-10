@@ -1,0 +1,11 @@
+B5-2B4 Pauli-triplet derivative EOM/current audit
+PASS: Q_LD^(3) = -O_HL^(1) + E_L^(1) - Q_LD modulo total derivative.
+PASS: substituting the Q_LD EOM map gives the common Pauli-current basis.
+PASS: both H^dagger sigma^I L and bar L sigma^I H transform in the same real adjoint.
+PASS: symmetrized Q_LD^(3) has the nonzero -i g2 eps^{aIJ} W^a bar C^I gamma C^J contact.
+PASS: the triplet contact equals the gauge-field part of -O_HL^(1)+E_L^(1)-Q_LD.
+Raw box coefficient C3 = 3 g2^2 C_LD/(64 pi^2)
+delta C_HL^(1) = -9 g2^2 C_LD/(256 pi^2)
+delta C_HL^(3) = +3 g2^2 C_LD/(256 pi^2)
+EOM-source companions: delta E_L^(1)=+9/4 C3; delta E_L^(3)=-1/4 C3.
+LIMIT: these are the four-cross-box subset only; LSZ, counterterms and Ward completion remain open.
