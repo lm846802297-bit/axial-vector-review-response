@@ -254,6 +254,19 @@ This is still only the scalar contribution. The complete UV portal beta function
 
 For orientation only, setting \(m_s=m_h\) gives \(\lambda_S=m_h^2/(2v_s^2)\), and the scalar-only linear beta contributions are \(+1.8740\times10^{-2}\) (A) and \(+1.4768\times10^{-4}\) (B). These values are not generic benchmark predictions because \(\lambda_S\) changes with \(m_s\).
 
+The dependence over the currently used diagnostic interval \(m_s\in[10,150]\) GeV is:
+
+| \(m_s\) [GeV] | A: \(\beta_{\lambda_{HS}}^{\rm scalar,linear}\) | A: \(\Delta\lambda_{HS}\) over \(\ln2\) | B: \(\beta_{\lambda_{HS}}^{\rm scalar,linear}\) | B: \(\Delta\lambda_{HS}\) over \(\ln2\) |
+|---:|---:|---:|---:|---:|
+| 10 | \(2.1785\times10^{-3}\) | \(1.5100\times10^{-3}\) | \(1.0521\times10^{-4}\) | \(7.2928\times10^{-5}\) |
+| 50 | \(4.7284\times10^{-3}\) | \(3.2774\times10^{-3}\) | \(1.1175\times10^{-4}\) | \(7.7461\times10^{-5}\) |
+| 100 | \(1.2697\times10^{-2}\) | \(8.8007\times10^{-3}\) | \(1.3219\times10^{-4}\) | \(9.1625\times10^{-5}\) |
+| 125.25 | \(1.8740\times10^{-2}\) | \(1.2989\times10^{-2}\) | \(1.4768\times10^{-4}\) | \(1.0237\times10^{-4}\) |
+| 150 | \(2.5977\times10^{-2}\) | \(1.8006\times10^{-2}\) | \(1.6625\times10^{-4}\) | \(1.1523\times10^{-4}\) |
+
+Here \(\Delta\lambda_{HS}=\beta_{\lambda_{HS}}^{\rm scalar,linear}\ln2\) is only the scalar-sector linearized drift over one factor-two scale change, with the couplings held fixed inside the leading-log estimate. It is **not** the total matching-scale variation. In benchmark A this partial term alone can reach an \(8.5\%\) shift relative to the UV portal boundary at the upper end of the scalar-mass interval; in B it stays near \(0.7\%\)–\(1.1\%\). This reinforces why the full gauge/Yukawa portal beta and the common matching prescription must be completed before assigning a scale uncertainty.
+
+
 ## 6. Reconciliation with the archived 0.1421% scale residual
 
 The previous Plan-C-lite archive reports a change of \(0.1421\%\) in the real part of the selected hard-plus-soft \(\Pi_{hs}\) between \(\mu_R=M_E\) and \(\mu_R=m_h\):
