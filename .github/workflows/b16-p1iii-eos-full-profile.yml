@@ -1,0 +1,184 @@
+name: P1-IIIe-C full radial SFHo EOS mapping
+
+on:
+  push:
+    branches:
+      - research/moving-muon-thermal-rates-20261107
+    paths:
+      - '.github/workflows/b16-p1iii-eos-full-profile.yml'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/extract_caputo_composition_abundances.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/build_caputo_sfho_full_profile.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/map_caputo_sfho_eos_full_profile.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_caputo_sfho_full_profile.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/sfho_eos_tables.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_nucleon_distribution.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/map_caputo_sfho_eos_profile.py'
+      - 'research/stellar-cooling-constraints-20261105/data/T_caputo_vertices.csv'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/sfho_frdm_v1.03_manifest.sha256'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: b16-p1iii-eos-full-profile-\${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  full-radial-map:
+    if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Check out the exact triggering commit
+        uses: actions/checkout@v4
+        with:
+          ref: \${{ github.sha }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install numerical and PDF dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy pandas pymupdf
+
+      - name: Download and verify the Caputo arXiv source archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          archive="$RUNNER_TEMP/arxiv-2109.03244v3.tar.gz"
+          curl --location --fail --retry 3 --retry-delay 2 \
+            --output "$archive" \
+            "https://arxiv.org/src/2109.03244v3"
+          echo "2e4a1280460bce9a5f7596d3dfd1d3e0f4752f2e1706e85d3a2c20b5f9dbbd8e  $archive" \
+            | sha256sum --check -
+
+      - name: Download and verify official SFHo/FRDM v1.03 tables
+        env:
+          GH_TOKEN: \${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          export SFHO_TABLES_DIR="$RUNNER_TEMP/sfho_tables"
+          echo "SFHO_TABLES_DIR=$SFHO_TABLES_DIR" >> "$GITHUB_ENV"
+          mkdir -p "$RUNNER_TEMP/sfho_raw" "$SFHO_TABLES_DIR"
+          gh release download sfho-frdm-v1.03-data \
+            --repo "$GITHUB_REPOSITORY" \
+            --pattern 'sfho_frdm_bin.zip' \
+            --pattern 'sfho_frdm_spp.zip' \
+            --pattern 'sfho_frdm_comp.zip' \
+            --dir "$RUNNER_TEMP/sfho_raw"
+          manifest='research/stellar-cooling-constraints-20261105/blinov_reproduction/sfho_frdm_v1.03_manifest.sha256'
+          grep -E ' (sfho_frdm_bin\.zip|sfho_frdm_spp\.zip|sfho_frdm_comp\.zip)$' "$manifest" \
+            | (cd "$RUNNER_TEMP/sfho_raw" && sha256sum --check -)
+          unzip -j -o "$RUNNER_TEMP/sfho_raw/sfho_frdm_bin.zip" \
+            '*/sfho_frdm_eos_v1.03.bin' -d "$SFHO_TABLES_DIR"
+          unzip -j -o "$RUNNER_TEMP/sfho_raw/sfho_frdm_spp.zip" \
+            'sfho_frdm_spp_v1.03.tab' -d "$SFHO_TABLES_DIR"
+          unzip -j -o "$RUNNER_TEMP/sfho_raw/sfho_frdm_comp.zip" \
+            '*/sfho_frdm_comp_v1.03.bin' -d "$SFHO_TABLES_DIR"
+          test -s "$SFHO_TABLES_DIR/sfho_frdm_eos_v1.03.bin"
+          test -s "$SFHO_TABLES_DIR/sfho_frdm_spp_v1.03.tab"
+          test -s "$SFHO_TABLES_DIR/sfho_frdm_comp_v1.03.bin"
+
+      - name: Test the full-profile builder and interpolation-bound helpers
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest test_caputo_sfho_full_profile -v
+
+      - name: Extract native Caputo Fig. 1 and Fig. 4 vector paths
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: |
+          set -euo pipefail
+          python extract_caputo_composition_abundances.py \
+            "$RUNNER_TEMP/arxiv-2109.03244v3.tar.gz" \
+            --step-km 0.05 \
+            --outdir "$RUNNER_TEMP/caputo_extraction"
+
+      - name: Build the dense 0.05-km thermodynamic and composition profile
+        run: |
+          set -euo pipefail
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/build_caputo_sfho_full_profile.py \
+            --temperature-csv research/stellar-cooling-constraints-20261105/data/T_caputo_vertices.csv \
+            --composition-csv "$RUNNER_TEMP/caputo_extraction/caputo_composition_profiles_2026-11-11.csv" \
+            --profile-csv "$RUNNER_TEMP/caputo_profile_full_0p05km_2026-11-11.csv" \
+            --provenance-json "$RUNNER_TEMP/caputo_profile_full_0p05km_provenance_2026-11-11.json" \
+            --step-km 0.05
+
+      - name: Map the full profile onto the physical SFHo EOS grid
+        run: |
+          set -euo pipefail
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/map_caputo_sfho_eos_full_profile.py \
+            --profile "$RUNNER_TEMP/caputo_profile_full_0p05km_2026-11-11.csv" \
+            --tables-dir "$SFHO_TABLES_DIR" \
+            --outdir "$RUNNER_TEMP/caputo_sfho_eos_full_profile"
+
+      - name: Enforce C1 radial, boundary, composition, and filling-factor gates
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          root = Path(os.environ["RUNNER_TEMP"])
+          extracted = json.loads((root / "caputo_extraction" / "caputo_composition_closure_2026-11-11.json").read_text())
+          provenance = json.loads((root / "caputo_profile_full_0p05km_provenance_2026-11-11.json").read_text())
+          mapped = json.loads((root / "caputo_sfho_eos_full_profile" / "caputo_sfho_eos_profile_full_0p05km_2026-11-11.json").read_text())
+          assert extracted["source_archive_sha256"] == "2e4a1280460bce9a5f7596d3dfd1d3e0f4752f2e1706e85d3a2c20b5f9dbbd8e"
+          assert provenance["radial_grid_km"]["step"] == 0.05
+          assert mapped["number_of_profile_points"] >= 250
+          assert mapped["radial_grid_km"]["max_abs_step_deviation_from_0p05"] < 1e-8
+          assert all(mapped["acceptance"].values()), json.dumps(mapped["acceptance"], indent=2)
+          assert mapped["composition_closure"]["Xn_max_abs"] < 5e-3
+          assert mapped["composition_closure"]["Xp_max_abs"] < 5e-3
+          assert mapped["composition_closure"]["Xcluster_max_abs"] < 5e-3
+          assert mapped["filling_factor_closure"]["xi_max_abs"] < 5e-3
+          print(json.dumps({
+              "source_grid": extracted["grid"],
+              "profile_grid": mapped["radial_grid_km"],
+              "composition_closure": mapped["composition_closure"],
+              "filling_factor_closure": mapped["filling_factor_closure"],
+              "domain_margins": mapped["interpolation"]["domain_margins"],
+              "acceptance": mapped["acceptance"],
+          }, indent=2))
+          PY
+
+      - name: Archive reproducible full-profile inputs and EOS mapping
+        shell: bash
+        run: |
+          set -euo pipefail
+          out='research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs'
+          cp "$RUNNER_TEMP/caputo_extraction/caputo_composition_profiles_2026-11-11.csv" "$out/"
+          cp "$RUNNER_TEMP/caputo_extraction/caputo_composition_closure_2026-11-11.json" "$out/"
+          cp "$RUNNER_TEMP/caputo_profile_full_0p05km_2026-11-11.csv" "$out/"
+          cp "$RUNNER_TEMP/caputo_profile_full_0p05km_provenance_2026-11-11.json" "$out/"
+          cp "$RUNNER_TEMP/caputo_sfho_eos_full_profile/caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv" "$out/"
+          cp "$RUNNER_TEMP/caputo_sfho_eos_full_profile/caputo_sfho_eos_profile_full_0p05km_2026-11-11.json" "$out/"
+          cp "$RUNNER_TEMP/caputo_sfho_eos_full_profile/B16_P1IIIE_C_FULL_RADIAL_SFHO_EOS_MAPPING_2026-11-11.md" \
+            'research/stellar-cooling-constraints-20261105/blinov_reproduction/'
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$out/caputo_composition_profiles_2026-11-11.csv" \
+            "$out/caputo_composition_closure_2026-11-11.json" \
+            "$out/caputo_profile_full_0p05km_2026-11-11.csv" \
+            "$out/caputo_profile_full_0p05km_provenance_2026-11-11.json" \
+            "$out/caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv" \
+            "$out/caputo_sfho_eos_profile_full_0p05km_2026-11-11.json" \
+            'research/stellar-cooling-constraints-20261105/blinov_reproduction/B16_P1IIIE_C_FULL_RADIAL_SFHO_EOS_MAPPING_2026-11-11.md'
+          if git diff --cached --quiet; then
+            echo "Full-profile C1 outputs are already current."
+            exit 0
+          fi
+          git commit -m "Archive full radial Caputo SFHo EOS mapping"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin "$GITHUB_REF_NAME"
+            git rebase "origin/$GITHUB_REF_NAME"
+            if git push origin "HEAD:$GITHUB_REF_NAME"; then
+              exit 0
+            fi
+            echo "Push raced with another research workflow; retry $attempt/5."
+          done
+          echo "Could not archive the full-profile C1 results after five retries."
+          exit 1
