@@ -1,14 +1,6 @@
 name: Fig. 12 native-vector extraction and cross-check
 
 on:
-  push:
-    branches:
-      - research/moving-muon-thermal-rates-20261107
-    paths:
-      - "research/stellar-cooling-constraints-20261105/blinov_reproduction/extract_esseili_kribs_fig12_vector.py"
-      - "research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_esseili_kribs_fig12_crosscheck.py"
-      - "research/stellar-cooling-constraints-20261105/blinov_reproduction/B16_P1IIID_FIG12_VECTOR_EXTRACTION_CROSSCHECK_2026-11-11.md"
-      - ".github/workflows/fig12-vector-extraction.yml"
   workflow_dispatch:
 
 permissions:
