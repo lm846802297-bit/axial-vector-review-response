@@ -117,7 +117,7 @@ def tau_from_kappa(r_km, kappa_mev):
     return tau
 
 
-def merge_shards(shard_dir, profile, c2, output_dir, source_commit="local"):
+def merge_shards(shard_dir, profile, c2, output_dir, profile_path, c2_path, source_commit="local"):
     shard_files = sorted(Path(shard_dir).glob("rates_shard_*.csv"))
     if not shard_files:
         raise FileNotFoundError(f"no rate shards in {shard_dir}")
@@ -174,10 +174,10 @@ def merge_shards(shard_dir, profile, c2, output_dir, source_commit="local"):
 
     # Pin the three numerical inputs to the audited PR snapshot.
     profile_blob = require_blob_sha(
-        PROFILE, "9ff7818b0679992c0a9ba402330ec7f0d1f3041b", "C1 profile"
+        profile_path, "9ff7818b0679992c0a9ba402330ec7f0d1f3041b", "C1 profile"
     )
     c2_blob = require_blob_sha(
-        C2, "c472040a4551e68ffadbf7addf9402663f99e7e3", "C2 occupation"
+        c2_path, "c472040a4551e68ffadbf7addf9402663f99e7e3", "C2 occupation"
     )
     if not C4C2_REFERENCE.is_file():
         raise FileNotFoundError(f"required C4-C2 regression reference is missing: {C4C2_REFERENCE}")
@@ -311,11 +311,16 @@ def main():
     p.add_argument("--output-dir", type=Path)
     p.add_argument("--source-commit", default=os.environ.get("GITHUB_SHA", "local"))
     a = p.parse_args()
+    # Pin the actual files passed on the command line before parsing or computing.
+    # This prevents a custom --profile path from silently being reported with
+    # the default profile's provenance in the merged acceptance record.
+    require_blob_sha(a.profile, "9ff7818b0679992c0a9ba402330ec7f0d1f3041b", "C1 profile")
+    require_blob_sha(a.c2_reference, "c472040a4551e68ffadbf7addf9402663f99e7e3", "C2 occupation")
     profile, c2 = load_profile(a.profile), load_c2_reference(a.c2_reference)
     if a.merge_dir:
         if not a.output_dir:
             p.error("--output-dir is required with --merge-dir")
-        s = merge_shards(a.merge_dir, profile, c2, a.output_dir, a.source_commit)
+        s = merge_shards(a.merge_dir, profile, c2, a.output_dir, a.profile, a.c2_reference, a.source_commit)
         print(json.dumps({"overall_pass": s["overall_pass"], "maxima": s["maxima"], "acceptance": s["acceptance"]}, indent=2))
     else:
         if a.shard_index is None or a.output_csv is None:
