@@ -205,8 +205,26 @@ def write_csv(path: Path, records: list[dict]) -> None:
     with path.open("w", newline="", encoding="utf-8") as stream:
         writer = csv.DictWriter(stream, fieldnames=OUTPUT_COLUMNS, lineterminator="\n")
         writer.writeheader()
+        aliases = {
+            "r_km": "r_km",
+            "T_MeV": "T_MeV",
+            "Fnn_direct": "n_F_direct",
+            "Fnn_density_derivative": "n_F_density_derivative",
+            "Fnn_abs_difference": "n_abs_difference",
+            "Fnn_relative_difference": "n_relative_difference",
+            "Fnn_C2_reference": "n_C2_reference",
+            "Fnn_direct_vs_C2_abs_difference": "n_direct_vs_C2_abs_difference",
+            "Fnn_h_MeV": "n_h_MeV",
+            "Fpp_direct": "p_F_direct",
+            "Fpp_density_derivative": "p_F_density_derivative",
+            "Fpp_abs_difference": "p_abs_difference",
+            "Fpp_relative_difference": "p_relative_difference",
+            "Fpp_C2_reference": "p_C2_reference",
+            "Fpp_direct_vs_C2_abs_difference": "p_direct_vs_C2_abs_difference",
+            "Fpp_h_MeV": "p_h_MeV",
+        }
         writer.writerows({
-            key: f"{row[key]:.16g}" for key in OUTPUT_COLUMNS
+            key: f"{row[aliases[key]]:.16g}" for key in OUTPUT_COLUMNS
         } for row in records)
 
 
