@@ -203,8 +203,8 @@
   },
   "interpretation": [
     "At h/T=1e-2 to 1e-3, the maximum residual falls by approximately 100 when h is reduced by 10, consistent with O(h^2) central-difference truncation error.",
-    "The shared working step is h/T=3e-5; it keeps both species below 1e-8 relative error over the full radial profile.",
-    "For smaller steps (1e-5 and 3e-6), the residual rises again, consistent with cancellation/roundoff in n'(nu+h)-n'(nu-h).",
+    "The common working step h/T=3e-5 keeps both species below 1e-8 relative error over the full radial profile in both the direct JavaScript calculation and the independent NumPy/SciPy Python CI reconstruction.",
+    "At 3e-6, and depending on the quadrature backend already at 1e-5, the residual begins to rise again; this is consistent with cancellation/roundoff in n'(nu+h)-n'(nu-h). The precise roundoff floor is implementation-dependent.",
     "The step scan does not alter the primary C2 occupation or Fdeg values; it only validates the numerical derivative method."
   ],
   "acceptance": {
@@ -215,5 +215,12 @@
     "all_direct_factors_in_unit_interval": true,
     "all_density_derivatives_positive": true
   },
-  "overall_pass": true
+  "overall_pass": true,
+  "cross_runtime_validation": {
+    "javascript_direct_scan_selected_step_max_relative": 3.193448929518616e-10,
+    "python_ci_selected_step_max_relative": 1.5355545298868736e-10,
+    "javascript_direct_scan_at_1e_5_max_relative": 9.73915690608526e-10,
+    "python_ci_at_1e_5_max_relative": 8.555596777657272e-11,
+    "interpretation": "The minimum observed residual at 1e-5 versus 3e-5 depends on the quadrature backend. The common h/T=3e-5 setting is retained because it is stable in both independent implementations and stays comfortably below 1e-8."
+  }
 }
