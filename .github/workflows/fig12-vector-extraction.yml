@@ -36,45 +36,10 @@ jobs:
           curl --location --fail --retry 3 --retry-delay 2 -H "User-Agent: axial-vector-review-response/1.0" \
             "https://scoap3-prod-backend.s3.cern.ch/media/harvested_files/10.1103/718s-7k7v/718s-7k7v.pdf" \
             --output aps_fig12_source.pdf
-          sha256sum aps_fig12_source.pdf
-          python - <<'PY'
-          import fitz, json
-          p = "aps_fig12_source.pdf"
-          doc = fitz.open(p)
-          page = doc[14]
-          print("pages", len(doc), "page15_drawings", len(page.get_drawings()))
-          targets = {
-              "T": (1.0, 0.5097887, 0.0196078),
-              "n": (0.0, 0.5097887, 0.7842985),
-              "p": (0.2, 0.7293965, 1.0),
-          }
-          inventory = {}
-          for name, color in targets.items():
-              found = []
-              for i, d in enumerate(page.get_drawings()):
-                  c = d.get("color")
-                  if c and max(abs(a-b) for a,b in zip(c,color)) < 0.003:
-                      r = d["rect"]
-                      found.append({"index": i, "rect": [r.x0,r.y0,r.x1,r.y1],
-                                    "width": d["width"], "items": len(d["items"])})
-              inventory[name] = found
-              print(name, found)
-          page.get_pixmap(matrix=fitz.Matrix(2,2), alpha=False).save("page15_scoap3.png")
-          open("scoap3_path_inventory.json","w").write(json.dumps(inventory,indent=2))
-          PY
-
-      - name: Upload the inspected SCOAP3 source and page render
-        uses: actions/upload-artifact@v4
-        with:
-          name: scoap3-fig12-source-inspection
-          path: |
-            research/stellar-cooling-constraints-20261105/blinov_reproduction/aps_fig12_source.pdf
-            research/stellar-cooling-constraints-20261105/blinov_reproduction/page15_scoap3.png
-            research/stellar-cooling-constraints-20261105/blinov_reproduction/scoap3_path_inventory.json
-          retention-days: 1
+          echo "c3b92fe6cf2a8bd3fec84925e2baababfe0c707327a68135013f953ed3d87d43  aps_fig12_source.pdf" \
+            | sha256sum --check -
 
       - name: Extract native vector paths and perform profile cross-checks
-        if: false
         run: |
           set -euo pipefail
           python extract_esseili_kribs_fig12_vector.py aps_fig12_source.pdf --outdir outputs
@@ -82,7 +47,6 @@ jobs:
           rm aps_fig12_source.pdf
 
       - name: Commit reproducible vector and cross-check products
-        if: false
         shell: bash
         run: |
           set -euo pipefail
