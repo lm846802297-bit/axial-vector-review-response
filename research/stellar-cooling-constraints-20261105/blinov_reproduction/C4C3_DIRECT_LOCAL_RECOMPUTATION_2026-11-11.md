@@ -94,3 +94,23 @@ diagnostic. It does not include gravitational redshift, energy redistribution,
 angular transport, or a full escape-probability calculation. C4-D remains
 responsible for the distinct transport and energy-transfer moments. No PR #56
 transport baseline, manuscript result, or axial cooling limit is modified.
+
+## Separating composition from per-target response
+
+The neutron/proton opacity ratio can be decomposed as
+`kappa_n/kappa_p = nprime_n/nprime_p * (sigma_n/sigma_p)`
+because the common `xi_SPP` factor cancels. At the four anchor radii:
+
+| Radius (km) | (n'_n/n'_p) | (sigma_n/sigma_p), neutrino | (kappa_n/kappa_p), neutrino | (sigma_n/sigma_p), antineutrino |
+|---:|---:|---:|---:|---:|
+| 0.20 | 3.6027 | 0.6054 | 2.1812 | 0.5720 |
+| 5.00 | 3.6436 | 0.6963 | 2.5370 | 0.6467 |
+| 10.00 | 5.2832 | 0.9714 | 5.1319 | 0.9003 |
+| 15.20 | 25.1766 | 0.9875 | 24.8619 | 0.9337 |
+
+Thus, in the inner region the effective per-target proton response is larger
+than the neutron response, partially compensating for the neutron-rich
+composition. Toward the outer radius the per-target responses approach one
+another, so the opacity ratio approaches the available neutron/proton
+density ratio. This is why the opacity ratio must not be interpreted as a
+composition ratio alone.
