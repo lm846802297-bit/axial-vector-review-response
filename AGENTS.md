@@ -74,3 +74,35 @@ Do not claim CI, compilation, or tests passed unless the exact current commit ha
 - v5.6/v5.7 manuals: task map and technical reference; neither is a substitute for current project status.
 
 Do not merge these file roles or copy internal workflow content into the referee-facing letter.
+
+## 5. Numerical calculation result submission and reproducibility
+
+The following rules are mandatory for numerical research, phenomenology, data processing, and computational validation carried out for this project.
+
+### 5.1 Commit completed research results to GitHub
+
+- A completed calculation that is used to support a scientific statement, comparison, figure, benchmark, parameter limit, or a declared research milestone must be committed to the project GitHub repository. Do not leave the only copy on a local machine, in a temporary workspace, chat attachment, or expiring CI artifact.
+- Submit the actual result files in their native, directly usable formats (for example CSV, JSON/JSONL, TXT, ROOT, HDF5, or the native format required by the calculation). **Do not package calculation outputs into a newly created ZIP/TAR archive as a substitute for committing the extracted files.** If an upstream archive is supplied, extract it first and commit the required extracted files; preserve their meaningful filenames and directory structure. Compression is not required for routine result submission.
+- Place results under the relevant research topic directory. Use a dated, task-specific subdirectory when this avoids collisions or preserves a stable historical snapshot. Do not scatter one calculation across unrelated directories or create duplicate competing “authoritative” copies.
+- Commit the calculation script or exact source revision needed to reproduce the result. If the script already exists in repository history, record its repository path and immutable commit/blob SHA rather than copying an identical source file without reason.
+- Include the necessary inputs, or identify their immutable repository/source locations and record their SHA-256 checksums. Record the calculation settings and conventions that affect interpretation: units, parameter values, physical approximations, grids/quadrature, boundary conditions, and random seeds where applicable.
+- Include a concise README or run record stating the purpose, input provenance, exact command or entry point, relevant software/runtime versions, output-file descriptions, and the validation performed. Preserve useful machine-readable outputs and the logs/checkpoints needed to resume or audit a long calculation; omit disposable caches, temporary build products, and unrelated scratch files.
+- Add a SHA-256 manifest for submitted data files when practical, and especially for multi-file datasets or externally sourced inputs. Do not alter line endings, precision, column ordering, units, or source data silently during transfer; document any deliberate transformation.
+
+### 5.2 Large, external, or restricted data
+
+- Prefer directly committed, uncompressed files when their size and licensing permit. If a file exceeds GitHub's normal size limits or the repository's agreed storage policy, do not silently omit it or replace it with an opaque archive. Use Git LFS or another repository-approved durable storage location, and commit a manifest containing the exact filename, immutable retrieval location, byte size, format, and SHA-256 checksum.
+- For externally hosted, licensed, or otherwise non-redistributable inputs, do not commit a prohibited copy. Record the original citation/source, version or release identifier, retrieval instructions, file identity, and checksum so that an authorized researcher can obtain and verify the same input.
+- Never commit credentials, access tokens, private keys, personal data, or unrelated machine-specific configuration.
+
+### 5.3 Submission and verification workflow
+
+1. Finish the calculation locally and retain the exact output produced by the run.
+2. Check file completeness, row/record counts, units, numerical finiteness, and the calculation-specific validation criteria. Record failed or incomplete checks explicitly; do not label a partial run as complete.
+3. Organize the uncompressed deliverables and add the README/run record, provenance, and checksum manifest.
+4. Commit to the appropriate task branch and submit through the relevant pull request. Do not push research changes directly to `main` unless the author explicitly instructs otherwise.
+5. After the push, inspect the actual PR diff and retrieve the committed files from GitHub. Compare the remote file contents or Git blob identities against the local submission; verify the expected paths, file count, and checksums before reporting that the upload is complete.
+6. Report repository submission status separately from scientific validation status. A successful commit, checksum match, or passing CI job does not by itself establish that the physical calculation is correct or that the research task is complete.
+
+These rules apply to all future calculations in this repository, not only to the stellar-cooling work or the current PR.
+
