@@ -6,7 +6,7 @@
   "temperature_csv": "research/stellar-cooling-constraints-20261105/data/T_caputo_vertices.csv",
   "temperature_csv_sha256": "e6a840720d86ec55bd41f661c9bb305318dd29d98fcc38a7e3a8dee2058060e6",
   "composition_profile_csv": "/home/runner/work/_temp/caputo_extraction/caputo_composition_profiles_2026-11-11.csv",
-  "composition_profile_csv_sha256": "5a040aae58e693151577a0834d89136e17e992f243fadbbf61640a72c5ae62d9",
+  "composition_profile_csv_sha256": "a5677e1e657a6fa65b63b5fc403bf804365dd33a45ba166efd5f7c73543b6be4",
   "normalization_n0_fm3": 0.181,
   "eos_Yp_coordinate": "Yp_tot=Ye+Ymu; free-proton abundance Yp is not the EOS coordinate",
   "radial_grid_km": {

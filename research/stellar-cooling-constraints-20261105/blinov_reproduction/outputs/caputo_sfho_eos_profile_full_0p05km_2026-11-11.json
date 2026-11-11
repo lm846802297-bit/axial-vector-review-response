@@ -57,9 +57,9 @@
         },
         "log10_nB_fm3": {
           "table_min": -12.0,
-          "table_max": 0.28000000000000114,
+          "table_max": 0.2800000000000011,
           "profile_min": -1.614658940001752,
-          "profile_max": -0.451422702448165,
+          "profile_max": -0.45142270244816507,
           "lower_margin": 10.385341059998249,
           "upper_margin": 0.7314227024481661,
           "within_bounds": true
@@ -86,9 +86,9 @@
         },
         "log10_nB_fm3": {
           "table_min": -12.0,
-          "table_max": 0.28000000000000114,
+          "table_max": 0.2800000000000011,
           "profile_min": -1.614658940001752,
-          "profile_max": -0.451422702448165,
+          "profile_max": -0.45142270244816507,
           "lower_margin": 10.385341059998249,
           "upper_margin": 0.7314227024481661,
           "within_bounds": true
@@ -97,19 +97,19 @@
     }
   },
   "composition_closure": {
-    "Xn_rms_abs": 2.1883292295061256e-05,
+    "Xn_rms_abs": 2.1883292295058055e-05,
     "Xn_max_abs": 0.0002532388898657256,
-    "Xp_rms_abs": 1.5241491418353969e-05,
+    "Xp_rms_abs": 1.5241491418354126e-05,
     "Xp_max_abs": 0.00018399191856610653,
-    "Xcluster_rms_abs": 3.666223417227463e-05,
+    "Xcluster_rms_abs": 3.666223417227149e-05,
     "Xcluster_max_abs": 0.00043723080806879746,
-    "cluster_charge_rms_abs": 1.5241491427085472e-05,
+    "cluster_charge_rms_abs": 1.5241491427085628e-05,
     "cluster_charge_max_abs": 0.00018399191860110327,
     "EOS_cluster_components_max_abs_residual": 3.3306690738754696e-16,
     "minimum_individual_cluster_fraction": 0.0
   },
   "filling_factor_closure": {
-    "xi_rms_abs": 6.471542615726638e-05,
+    "xi_rms_abs": 6.471542615726728e-05,
     "xi_max_abs": 0.0004383100375939808,
     "xi_SPP_range": [
       0.9707042448119567,
@@ -163,5 +163,5 @@
     "No Fermi integral, dynamic response, opacity, luminosity, transport, or cooling curve is calculated or modified in this C1 stage."
   ],
   "mapped_csv": "caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv",
-  "mapped_csv_sha256": "bba5da1197244f7bc0534bbb4c4e3822610b9a7349bb53a61b00e4b6e1a3fc7b"
+  "mapped_csv_sha256": "97d6a88a95d0a636ac359ae981b1b06ec33b88b0f106bfb88d203cb0f9fbbc59"
 }
