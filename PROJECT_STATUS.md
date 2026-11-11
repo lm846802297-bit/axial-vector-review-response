@@ -382,9 +382,10 @@ APS SHA-256 d660eb39..., SCOAP3 mirror SHA-256 c3b92fe6...). The E-K temperature
 Caputo profile at 55 radii with 0.071% RMS relative residual and with Bollig
 Fig. 1 at 391 radii with 0.095% RMS. At ten common radii from 1 to 15 km, the
 E-K n,p curves agree with Caputo reconstructed free-neutron/free-proton
-profiles at 0.58% RMS each. The density-axis top two printed labels have an
-apparent one-decade inconsistency; both mappings remain archived, and the
-corrected mapping is supported by the same-model comparison. The sum n+p
+profiles at 0.58% RMS each. The upper two density-axis glyphs are visually ambiguous vector outlines, not
+extractable text spans; both mappings remain archived, and equal log spacing
+plus the same-model comparison selects the corrected mapping without claiming
+a definitive typesetting error. The sum n+p
 tracks Caputo n_B(1-X_cluster), not total n_B.
 
 This is a cross-publication check of the same Garching SFHo-18.8 model lineage,
