@@ -7715,10 +7715,10 @@
     "runtime_tests": {
       "distribution_kernel": 15,
       "fixture": 10,
-      "official_table": 5,
+      "official_table": 6,
       "archive_manifest_and_split": 4,
-      "total": 34,
-      "result": "34/34 passed with SFHO_TABLES_DIR set; no table-dependent test skipped"
+      "total": 35,
+      "result": "35/35 passed with SFHO_TABLES_DIR set; no table-dependent test skipped"
     },
     "reassembly": {
       "command": "python reassemble_sfho_frdm_archives.py --data-dir data/sfho-frdm-v1.03 --dest reassembled",
