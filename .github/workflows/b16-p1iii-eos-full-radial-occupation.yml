@@ -31,7 +31,7 @@ jobs:
       - name: Check out the exact research commit
         uses: actions/checkout@v4
         with:
-          ref: \${{ github.sha }}
+          ref: ${{ github.sha }}
           fetch-depth: 1
 
       - name: Set up Python
@@ -50,8 +50,8 @@ jobs:
 
       - name: Recompute all 301 radii independently in Python
         env:
-          C2_JSON: \${{ runner.temp }}/c2.json
-          C2_CSV: \${{ runner.temp }}/c2.csv
+          C2_JSON: ${{ runner.temp }}/c2.json
+          C2_CSV: ${{ runner.temp }}/c2.csv
         run: |
           set -euo pipefail
           python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_full_radial_occupation.py \\
@@ -61,8 +61,8 @@ jobs:
 
       - name: Compare CI reconstruction with committed direct result
         env:
-          C2_JSON: \${{ runner.temp }}/c2.json
-          C2_CSV: \${{ runner.temp }}/c2.csv
+          C2_JSON: ${{ runner.temp }}/c2.json
+          C2_CSV: ${{ runner.temp }}/c2.csv
         run: |
           python - <<'PY'
           import csv, json, math, os
