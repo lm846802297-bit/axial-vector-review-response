@@ -54,32 +54,62 @@ from the Caputo figure is not by itself proof of a missing nuclear-cluster compo
 
 ## 5. Status and restrictions
 
-- Source pages and captions are verified.
-- The APS PDF page 15 render is available for visual inspection.
-- No numerical Fig. 12 density digitization or pointwise residual is claimed yet.
-- No raw Garching profile data have been obtained.
-- No B.2 opacity, vector Fig. 7 result, or axial cooling curve is modified.
+- The Caputo and Esseili–Kribs figure sources, captions, and shared
+  SFHo-18.8 model lineage are verified.
+- The Esseili–Kribs Fig. 12 temperature, neutron, and proton paths are now
+  extracted from the checksum-pinned SCOAP3 copy of the published APS PDF.
+- The extraction and cross-check workflow passed GitHub Actions Run
+  [#42955259591](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42955259591).
+- The source PDF is a published-figure source, not raw Garching simulation
+  data. No byte-identical original profile snapshot has been obtained.
+- No B.2 opacity, vector Fig. 7 result, escape probability, or axial cooling
+  curve is modified by this figure-level audit.
 
-## 6. Next steps
+## 6. Completed numerical comparison
 
-1. Digitize Fig. 12 \(T,n_n,n_p\) from the published PDF with explicit pixel uncertainty.
-2. Compare its SFHo-18.8 temperature curve against the existing Caputo \(T(r)\) vertices.
-3. Compare the two proton curves and determine whether their figure-level normalizations agree.
-4. Compare \(n_n+n_p\) with Caputo \(n_B\) only as a diagnostic of the free/bound baryon partition.
-5. Seek the archive variable definitions or original Garching data documentation to identify the exact species conventions.
-6. Keep the free-nucleon collision kernel restricted to radii/compositions where its input densities are physically defined.
+The completed native-vector comparison is documented in
+[B16_P1IIID_FIG12_VECTOR_EXTRACTION_CROSSCHECK_2026-11-11.md](B16_P1IIID_FIG12_VECTOR_EXTRACTION_CROSSCHECK_2026-11-11.md).
 
+- \(T_{\rm EK}(r)\) vs Caputo Fig. 1: 55 common radii, RMS relative residual
+  0.0707%, maximum absolute residual 0.218%.
+- \(T_{\rm EK}(r)\) vs Bollig Fig. 1: 391 radii from 0.5 to 20 km, RMS
+  relative residual 0.0953%, maximum absolute residual 0.277%.
+- \(n_p^{\rm EK}(r)\) vs Caputo reconstructed free-proton density: ten radii
+  from 1 to 15 km, RMS relative residual 0.586%.
+- \(n_n^{\rm EK}(r)\) vs Caputo reconstructed free-neutron density: the same
+  ten radii, RMS relative residual 0.580%.
+- \(n_n^{\rm EK}+n_p^{\rm EK}\) vs Caputo free baryons
+  \((1-X_{\rm cluster})n_B\): RMS relative residual 0.574%.
+- The apparent deficit relative to total \(n_B\) is explained by the cluster
+  baryon fraction \(X_{\rm cluster}=1-Y_n-Y_p\), which rises from zero in the
+  inner comparison region to 8.85% at 15 km.
 
+The upper two density-axis glyphs are visually ambiguous vector outlines and
+are not exposed as PDF text spans. Both axis mappings are archived; equal
+logarithmic spacing anchored by the lower three ticks and the Caputo
+free-nucleon comparison select the calibration with upper values \(1\) and
+\(10^{-1}\). This is not asserted to be a definitive typesetting error.
 
-## 7. Follow-up status: Fig. 12 numerical extraction completed
+This is a cross-publication figure-level consistency test within a shared
+Garching SFHo-18.8 model lineage, not an independent hydrodynamic simulation
+validation. The sub-percent residuals are below the figure line-width
+uncertainty and should not be interpreted as raw-profile precision.
 
-The planned Fig. 12 extraction and pointwise comparison in §§5–6 are completed
-in [B16_P1IIID_FIG12_VECTOR_EXTRACTION_CROSSCHECK_2026-11-11.md](B16_P1IIID_FIG12_VECTOR_EXTRACTION_CROSSCHECK_2026-11-11.md).
-The extracted curves are native PDF vector paths. The temperature curve agrees
-with the Caputo profile and Bollig Fig. 1 at sub-percent figure-reading
-precision; the right-panel n,p curves agree with Caputo reconstructed
-free-neutron and free-proton densities at the ten common radii from 1 to 15 km,
-provided the right-panel density-axis top-two labels are interpreted as a
-one-decade printing inconsistency. This remains a cross-publication figure
-check of the same Garching SFHo-18.8 lineage, not an independent simulation
-validation.
+## 7. Next research stage
+
+P1-IIId is complete at the published-figure level. The next useful task is to
+connect the validated free-nucleon profiles to the P1-IIIe real-EOS occupation
+calculation:
+
+1. Map \(T(r)\), \(n_n^{\rm free}(r)\), and \(n_p^{\rm free}(r)\) onto the
+   authenticated SFHo EOS tables.
+2. Compute local neutron/proton chemical potentials and occupation/degen-
+   eracy factors on the radial profile, keeping free nucleons distinct from
+   cluster-bound baryons.
+3. Quantify the radial support and size of the cluster fraction in the
+   8–15 km region before using a free-\(nn,np,pp\) kernel there.
+4. Keep the cluster response as a separate uncertainty/contribution; do not
+   rescale the free-nucleon kernel to absorb it.
+5. Only after the local profile-to-EOS mapping closes should these inputs be
+   used in any revised B.2 transport or axial cooling calculation.
+
