@@ -397,3 +397,14 @@ The reproducible Fig. 12 vector workflow completed successfully in Run
 using the checksum-pinned SCOAP3 copy because APS direct download returns HTTP
 403 to hosted runners. The reproducible extraction and cross-check scripts and their workflow are in
 `research/stellar-cooling-constraints-20261105/blinov_reproduction/`.
+
+
+**P1-IIId source-version clarification (2026-11-11):** The reproducible
+native-vector extraction is tied to the checksum-verified SCOAP3 copy of the
+published APS PDF (SHA-256 `c3b92fe6cf2a8bd3fec84925e2baababfe0c707327a68135013f953ed3d87d43`,
+2,749,668 bytes), validated in GitHub Actions Run
+[#42953625693](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42953625693).
+The arXiv v3 PDF is not used for path indexing: although its text/version
+matches the published paper, its internal vector-object ordering differs, so
+published-PDF path indices 25/181/182 do not identify the corresponding curves
+in that file. Numerical cross-checks below remain based on the SCOAP3 source.
