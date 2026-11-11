@@ -584,6 +584,14 @@ official-table tests (including the conditional NSE-neutron-input and
 Coulomb-input semantic regressions), and four offline archive-manifest tests.
 No raw-table test was skipped.
 
+The same 35-test suite is now reproducible in GitHub Actions. Run
+[#42953524476](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42953524476)
+downloaded the three original Release ZIPs, verified all three SHA-256 entries,
+extracted the EOS/SPP/composition files, and completed 15/15 distribution-kernel
+tests plus 20/20 real-table/fixture/archive tests. No table-dependent test was
+skipped in this CI run.
+
+
 The 224-cell phase-space audit was regenerated from the extracted tables.
 The 1024-to-2048-node checks over its 448 species states pass; the committed
 fixture and this runtime's regenerated fixture differ only at the small
