@@ -406,16 +406,16 @@ def analyze(
     conv = [row["gamma"] for row in convergence]
     conv_rel = max(abs(conv[-1]/value-1.0) for value in conv[:-1])
     acceptance = {
-        "mstar_equals_M_recovers_P1IIIb_below_1e_10": recovery_max < 1e-10,
-        "cold_dilute_Horowitz_limit_below_1e_3": cold_max < 1e-3,
-        "EOS_local_grid_has_16_cases": len(local) == 16,
-        "local_detailed_balance_below_1e_10": max(db_residuals) < 1e-10,
-        "all_local_rates_and_cross_sections_nonnegative": all(
+        "mstar_equals_M_recovers_P1IIIb_below_1e_10": bool(recovery_max < 1e-10),
+        "cold_dilute_Horowitz_limit_below_1e_3": bool(cold_max < 1e-3),
+        "EOS_local_grid_has_16_cases": bool(len(local) == 16),
+        "local_detailed_balance_below_1e_10": bool(max(db_residuals) < 1e-10),
+        "all_local_rates_and_cross_sections_nonnegative": bool(all(
             row["gamma_available_volume"] >= 0.0
             and row["sigma_per_target_MeV_minus2"] >= 0.0
             for row in local
-        ),
-        "core_local_quadrature_convergence_below_1_percent": conv_rel < 1e-2,
+        )),
+        "core_local_quadrature_convergence_below_1_percent": bool(conv_rel < 1e-2),
     }
     summary = {
         "title": "P1-IIIe-C4B2 EOS-effective-mass moving-nucleon collision kernel",
@@ -446,16 +446,16 @@ def analyze(
             "cold_Horowitz_cases": len(cold),
         },
         "maxima": {
-            "mstar_equals_M_P1IIIb_recovery_residual": recovery_max,
-            "cold_dilute_Horowitz_relative_residual": cold_max,
-            "local_detailed_balance_residual": max(db_residuals),
-            "core_local_quadrature_convergence_relative_difference": conv_rel,
+            "mstar_equals_M_P1IIIb_recovery_residual": float(recovery_max),
+            "cold_dilute_Horowitz_relative_residual": float(cold_max),
+            "local_detailed_balance_residual": float(max(db_residuals)),
+            "core_local_quadrature_convergence_relative_difference": float(conv_rel),
         },
         "legacy_recovery": legacy_recovery,
         "cold_dilute_Horowitz": cold,
         "core_local_quadrature_convergence": convergence,
         "acceptance": acceptance,
-        "overall_pass": all(acceptance.values()),
+        "overall_pass": bool(all(acceptance.values())),
         "interpretation": [
             "The new kernel reproduces the existing P1-IIIb moving-nucleon implementation when m*_N=M_N and nu=mu-M_N.",
             "The cold/dilute limit is normalized to the vacuum Horowitz differential cross section.",
