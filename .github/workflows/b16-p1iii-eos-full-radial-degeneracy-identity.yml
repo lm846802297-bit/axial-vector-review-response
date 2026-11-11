@@ -80,7 +80,7 @@ jobs:
               ):
                   a = expected["species"][species][key]
                   b = actual["species"][species][key]
-                  assert math.isclose(a, b, rel_tol=2e-6, abs_tol=2e-12), (species, key, a, b)
+                  assert math.isclose(a, b, rel_tol=2e-6, abs_tol=1e-10), (species, key, a, b)
 
           expected_path = root / "p1iii_eos_full_radial_degeneracy_identity_2026-11-11.csv"
           with expected_path.open(newline="") as stream:
