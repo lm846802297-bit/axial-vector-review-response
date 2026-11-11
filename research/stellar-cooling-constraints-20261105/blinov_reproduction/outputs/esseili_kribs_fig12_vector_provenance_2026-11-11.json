@@ -42,20 +42,22 @@
     "density_alternative_literal_top_tick": "10 times the candidate density"
   },
   "density_axis_label_issue": {
-    "printed_labels_top_to_bottom": [
+    "visual_reading_of_upper_tick_glyphs": [
       "10",
       "1",
       "10^-2",
       "10^-3",
       "10^-4"
     ],
+    "axis_tick_labels_are_extractable_text": false,
+    "axis_tick_text_spans_found_in_right_margin": 0,
     "equal_tick_spacing_pdf_points": [
       25.56,
       25.6,
       25.61,
       25.61
     ],
-    "interpretation": "Equal log spacing and the lower three labels imply actual tick values 1, 10^-1, 10^-2, 10^-3, 10^-4. The top two printed labels appear one decade too high. Both transforms are retained."
+    "interpretation": "The right-panel tick labels are not exposed as PDF text spans in the margin; they are vector glyphs. At the available raster resolution the upper two glyphs are visually ambiguous. Equal log spacing anchored by the lower three labels implies top-to-bottom tick values 1, 10^-1, 10^-2, 10^-3, 10^-4. A literal reading of the upper glyphs as 10 and 1 gives a density scale ten times larger and fails the same-model Caputo free-nucleon cross-check. Both mappings are retained; the corrected mapping is selected as a physically cross-validated calibration, not as proof of a typesetting error."
   },
   "normalization_n0_fm3": 0.181,
   "curves": {
