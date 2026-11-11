@@ -11,6 +11,14 @@ on:
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/sfho_eos_tables.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_sfho_realdata_closure.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_p1iii_eos_sfho_realdata.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/build_caputo_profile_key_radii.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/map_caputo_sfho_eos_profile.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/caputo_profile_key_radii_2026-11-11.csv'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/caputo_sfho_eos_profile_key_radii_2026-11-11.csv'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/caputo_sfho_eos_profile_key_radii_2026-11-11.json'
+      - 'research/stellar-cooling-constraints-20261105/data/T_caputo_vertices.csv'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/caputo_composition_key_radii_2026-11-11.csv'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/B16_P1IIIE_C_CAPUTO_PROFILE_TO_SFHO_EOS_2026-11-11.md'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/p1iii_eos_sfho_realdata_fixture.csv'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/sfho_frdm_v1.03_download.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/sfho_frdm_v1.03_manifest.sha256'
@@ -81,6 +89,45 @@ jobs:
           python -m unittest discover \
             -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
             -p 'test_b16_p1iii_eos_sfho_realdata.py' -v
+
+      - name: Rebuild Caputo key-radius profile from audited figure inputs
+        run: |
+          set -euo pipefail
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/build_caputo_profile_key_radii.py --temperature-csv research/stellar-cooling-constraints-20261105/data/T_caputo_vertices.csv --composition-csv research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/caputo_composition_key_radii_2026-11-11.csv --profile-csv "$RUNNER_TEMP/caputo_profile_key_radii.csv" --provenance-json "$RUNNER_TEMP/caputo_profile_key_radii_provenance.json"
+          cmp "$RUNNER_TEMP/caputo_profile_key_radii.csv" research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/caputo_profile_key_radii_2026-11-11.csv
+
+      - name: Map Caputo key radii onto the SFHo EOS and validate local occupations
+        run: |
+          set -euo pipefail
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/map_caputo_sfho_eos_profile.py --profile "$RUNNER_TEMP/caputo_profile_key_radii.csv" --tables-dir "$SFHO_TABLES_DIR" --outdir "$RUNNER_TEMP/caputo_sfho_eos_profile"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          p = Path(os.environ["RUNNER_TEMP"]) / "caputo_sfho_eos_profile" / "caputo_sfho_eos_profile_key_radii_2026-11-11.json"
+          d = json.loads(p.read_text())
+          c = d["composition_closure"]
+          w = d["wrong_EOS_Yp_coordinate_diagnostic"]
+          x = d["filling_factor_closure"]
+          n = d["occupation_density_closure"]
+          f = d["local_degeneracy_factors"]
+          q = d["quadrature"]
+          assert d["number_of_key_radii"] == 10
+          assert c["Xn_EOS_minus_Yn_Caputo_max_abs"] < 3e-5
+          assert c["Xp_EOS_minus_Yp_Caputo_max_abs"] < 2e-5
+          assert c["Xcluster_EOS_minus_Caputo_max_abs"] < 3e-5
+          assert x["xi_SPP_minus_Caputo_inferred_max_abs"] < 2e-4
+          assert n["neutron_rel_residual_max_abs"] < 2e-3
+          assert n["proton_rel_residual_max_abs"] < 7e-3
+          assert n["max_abs_delta_nu_n_MeV"] < 0.12
+          assert n["max_abs_delta_nu_p_MeV"] < 0.18
+          assert w["Xn_max_abs_error"] > 0.05
+          assert w["Xcluster_max_abs_error"] > 0.04
+          assert f["Fnn_EOS_vs_density_matched_max_abs_difference"] < 4e-4
+          assert f["Fpp_EOS_vs_density_matched_max_abs_difference"] < 4e-4
+          assert q["max_abs_n_relative_change_2048_vs_512"] < 1e-10
+          assert q["max_abs_F_change_2048_vs_512"] < 1e-10
+          print(json.dumps({"composition_closure": c, "wrong_coordinate": w, "filling_factor": x, "density_closure": n, "local_degeneracy": f, "quadrature": q}, indent=2))
+          PY
 
       - name: Run deterministic software self-test
         run: |
