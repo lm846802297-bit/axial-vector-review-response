@@ -11,12 +11,12 @@
   "normalization_n0_fm3": 0.181,
   "temperature_vs_caputo": {
     "count": 55,
-    "rms_relative": 0.0007072912518990389,
-    "mean_abs_relative": 0.0004804431820317635,
-    "p95_abs_relative": 0.0017453649346029108,
-    "max_abs_relative": 0.0021824248736247442,
-    "min_relative": -0.0021824248736247442,
-    "max_relative": 0.0010780247745598714,
+    "rms_relative": 0.0007072912518986065,
+    "mean_abs_relative": 0.00048044318203148694,
+    "p95_abs_relative": 0.0017453649346024778,
+    "max_abs_relative": 0.002182424873623967,
+    "min_relative": -0.002182424873623967,
+    "max_relative": 0.0010780247745607596,
     "radius_km": [
       5.12608530344786,
       14.9304108266477
@@ -24,12 +24,12 @@
   },
   "temperature_vs_bollig_fig1": {
     "count": 391,
-    "rms_relative": 0.0009532667401363109,
-    "mean_abs_relative": 0.0006851219291712709,
-    "p95_abs_relative": 0.002117892812609934,
-    "max_abs_relative": 0.0027691256430044664,
-    "min_relative": -0.002321552002454874,
-    "max_relative": 0.0027691256430044664,
+    "rms_relative": 0.0009532667401360351,
+    "mean_abs_relative": 0.0006851219291710429,
+    "p95_abs_relative": 0.0021178928126106,
+    "max_abs_relative": 0.00276912564300269,
+    "min_relative": -0.0023215520024554293,
+    "max_relative": 0.00276912564300269,
     "radius_km": [
       0.5,
       20.0
@@ -39,39 +39,39 @@
   "density_vs_caputo_free_nucleons_corrected_axis": {
     "neutron": {
       "count": 10,
-      "rms_relative": 0.005798774689798536,
-      "mean_abs_relative": 0.005437047947927387,
-      "p95_abs_relative": 0.008173150074036163,
-      "max_abs_relative": 0.009762630826026353,
-      "min_relative": -0.009762630826026353,
-      "max_relative": -0.0011367003970361722
+      "rms_relative": 0.005798774689798149,
+      "mean_abs_relative": 0.005437047947926943,
+      "p95_abs_relative": 0.00817315007403582,
+      "max_abs_relative": 0.009762630826025909,
+      "min_relative": -0.009762630826025909,
+      "max_relative": -0.001136700397035506
     },
     "proton": {
       "count": 10,
-      "rms_relative": 0.005864723188632209,
-      "mean_abs_relative": 0.00574293127666714,
-      "p95_abs_relative": 0.007655964975719779,
-      "max_abs_relative": 0.008531654764447505,
-      "min_relative": -0.008531654764447505,
-      "max_relative": -0.004393221221978272
+      "rms_relative": 0.005864723188631187,
+      "mean_abs_relative": 0.005742931276666063,
+      "p95_abs_relative": 0.00765596497571828,
+      "max_abs_relative": 0.008531654764445507,
+      "min_relative": -0.008531654764445507,
+      "max_relative": -0.004393221221974386
     },
     "sum_vs_caputo_free_baryons": {
       "count": 10,
-      "rms_relative": 0.005741832476268996,
-      "mean_abs_relative": 0.005453008535599102,
-      "p95_abs_relative": 0.00789693628889622,
-      "max_abs_relative": 0.009385922435922067,
-      "min_relative": -0.009385922435922067,
-      "max_relative": -0.0016398093656073698
+      "rms_relative": 0.005741832476268548,
+      "mean_abs_relative": 0.005453008535598591,
+      "p95_abs_relative": 0.007896936288895925,
+      "max_abs_relative": 0.009385922435921623,
+      "min_relative": -0.009385922435921623,
+      "max_relative": -0.0016398093656065926
     },
     "sum_vs_caputo_total_baryons": {
       "count": 10,
-      "rms_relative": 0.053247357753151675,
-      "mean_abs_relative": 0.041500780830752336,
-      "p95_abs_relative": 0.08796505299510107,
-      "max_abs_relative": 0.09294589356177385,
-      "min_relative": -0.09294589356177385,
-      "max_relative": -0.004396004379479623
+      "rms_relative": 0.053247357753151085,
+      "mean_abs_relative": 0.04150078083075185,
+      "p95_abs_relative": 0.08796505299509987,
+      "max_abs_relative": 0.0929458935617723,
+      "min_relative": -0.0929458935617723,
+      "max_relative": -0.004396004379479401
     },
     "radii_km": [
       1.0,
@@ -81,21 +81,21 @@
   "density_vs_caputo_free_nucleons_literal_top_two_labels": {
     "neutron": {
       "count": 10,
-      "rms_relative": 8.945652237157635,
-      "mean_abs_relative": 8.945629520520727,
-      "p95_abs_relative": 8.975484530740138,
-      "max_abs_relative": 8.988632996029638,
-      "min_relative": 8.902373691739738,
-      "max_relative": 8.988632996029638
+      "rms_relative": 8.945652237157638,
+      "mean_abs_relative": 8.94562952052073,
+      "p95_abs_relative": 8.975484530740145,
+      "max_abs_relative": 8.988632996029645,
+      "min_relative": 8.902373691739742,
+      "max_relative": 8.988632996029645
     },
     "proton": {
       "count": 10,
-      "rms_relative": 8.942578591659558,
-      "mean_abs_relative": 8.94257068723333,
-      "p95_abs_relative": 8.955548470914751,
-      "max_abs_relative": 8.956067787780217,
-      "min_relative": 8.914683452355526,
-      "max_relative": 8.956067787780217
+      "rms_relative": 8.942578591659569,
+      "mean_abs_relative": 8.942570687233339,
+      "p95_abs_relative": 8.955548470914774,
+      "max_abs_relative": 8.956067787780256,
+      "min_relative": 8.914683452355545,
+      "max_relative": 8.956067787780256
     }
   },
   "density_crosscheck_points": 10,
@@ -119,8 +119,8 @@
   },
   "digitization_uncertainty": {
     "curve_stroke_width_pt": 1.0709999799728394,
-    "radius_half_stroke_km": 0.05423806835097852,
-    "temperature_half_stroke_MeV": 0.2772149138636137,
+    "radius_half_stroke_km": 0.054238068350978524,
+    "temperature_half_stroke_MeV": 0.2772149138636136,
     "density_half_stroke_decades": 0.02091796835884452
   },
   "interpretation": [
