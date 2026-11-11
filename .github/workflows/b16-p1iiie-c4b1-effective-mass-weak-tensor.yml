@@ -29,7 +29,7 @@ jobs:
       - name: Check out the exact research commit
         uses: actions/checkout@v4
         with:
-          ref: \${{ github.sha }}
+          ref: ${{ github.sha }}
           fetch-depth: 1
 
       - name: Set up Python
@@ -48,7 +48,7 @@ jobs:
 
       - name: Recompute effective-mass Ward and tensor checks
         env:
-          C4B1_DIR: \${{ runner.temp }}/c4b1
+          C4B1_DIR: ${{ runner.temp }}/c4b1
         run: |
           set -euo pipefail
           mkdir -p "$C4B1_DIR"
@@ -56,7 +56,7 @@ jobs:
 
       - name: Validate C4-B1 numerical acceptance
         env:
-          C4B1_DIR: \${{ runner.temp }}/c4b1
+          C4B1_DIR: ${{ runner.temp }}/c4b1
         run: |
           python - <<'PY'
           import json, os
@@ -80,6 +80,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: c4b1-effective-mass-weak-tensor
-          path: \${{ runner.temp }}/c4b1/
+          path: ${{ runner.temp }}/c4b1/
           if-no-files-found: error
           retention-days: 90
