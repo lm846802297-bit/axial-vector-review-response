@@ -1,3 +1,4 @@
+import json
 import unittest
 from pathlib import Path
 
@@ -55,6 +56,10 @@ class TestC4B2EOSCollisionKernel(unittest.TestCase):
         )
         self.assertTrue(self.summary["overall_pass"])
         self.assertTrue(all(self.summary["acceptance"].values()))
+
+    def test_summary_is_strict_json_serializable(self):
+        self.assertTrue(all(type(value) is bool for value in self.summary["acceptance"].values()))
+        json.dumps(self.summary, allow_nan=False)
 
 
 if __name__ == "__main__":
