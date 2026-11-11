@@ -375,8 +375,8 @@ precision. The composition layer-0 NSE neutron-side input is now documented as
 conditional: it is zero and unused in the 400,453 no-nuclei cells and is not
 interchangeable with the Extended EOS thermodynamic chemical potential.
 
-P1-IIId Fig. 12 has been extracted from native APS PDF vector paths (page 15,
-PDF SHA-256 d660eb39...). The E-K temperature profile agrees with the archived
+P1-IIId Fig. 12 has been extracted from native APS/SCOAP3 PDF vector paths (page 15;
+APS SHA-256 d660eb39..., SCOAP3 mirror SHA-256 c3b92fe6...). The E-K temperature profile agrees with the archived
 Caputo profile at 55 radii with 0.071% RMS relative residual and with Bollig
 Fig. 1 at 391 radii with 0.095% RMS. At ten common radii from 1 to 15 km, the
 E-K n,p curves agree with Caputo reconstructed free-neutron/free-proton
