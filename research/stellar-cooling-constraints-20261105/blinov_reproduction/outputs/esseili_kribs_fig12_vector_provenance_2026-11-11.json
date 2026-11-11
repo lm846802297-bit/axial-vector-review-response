@@ -1,0 +1,122 @@
+{
+  "source": "Esseili & Kribs, Phys. Rev. D 114, 016023 (2026), DOI 10.1103/718s-7k7v, APS published PDF",
+  "source_urls": [
+    "https://journals.aps.org/prd/pdf/10.1103/718s-7k7v",
+    "https://scoap3-prod-backend.s3.cern.ch/media/harvested_files/10.1103/718s-7k7v/718s-7k7v.pdf"
+  ],
+  "source_pdf_sha256": "c3b92fe6cf2a8bd3fec84925e2baababfe0c707327a68135013f953ed3d87d43",
+  "source_pdf_bytes": 2749668,
+  "pdf_page_index_zero_based": 14,
+  "printed_page": 15,
+  "path_indices": {
+    "T_SFHo18p8": 25,
+    "n": 181,
+    "p": 182
+  },
+  "plot_frames_pdf_points": {
+    "T_SFHo18p8": [
+      79.77400207519531,
+      48.8079833984375,
+      294.02099609375,
+      166.64398193359375
+    ],
+    "n": [
+      338.89697265625,
+      48.8079833984375,
+      553.1439819335938,
+      166.64398193359375
+    ],
+    "p": [
+      338.89697265625,
+      48.8079833984375,
+      553.1439819335938,
+      166.64398193359375
+    ]
+  },
+  "axis_calibration": {
+    "radius_left": "(x_pdf - 76.814010620)/9.872998962",
+    "radius_right": "(x_pdf - 335.936508179)/9.873139038",
+    "temperature": "(y_pdf - 170.506339518)/-1.931714216",
+    "density_candidate": "log10(n/n0) = -4 + (166.643982 - y_pdf)/25.6; n0=0.181 fm^-3",
+    "density_alternative_literal_top_tick": "10 times the candidate density"
+  },
+  "density_axis_label_issue": {
+    "printed_labels_top_to_bottom": [
+      "10",
+      "1",
+      "10^-2",
+      "10^-3",
+      "10^-4"
+    ],
+    "equal_tick_spacing_pdf_points": [
+      25.56,
+      25.6,
+      25.61,
+      25.61
+    ],
+    "interpretation": "Equal log spacing and the lower three labels imply actual tick values 1, 10^-1, 10^-2, 10^-3, 10^-4. The top two printed labels appear one decade too high. Both transforms are retained."
+  },
+  "normalization_n0_fm3": 0.181,
+  "curves": {
+    "T_SFHo18p8": {
+      "path_index": 25,
+      "stroke_rgb": [
+        1.0,
+        0.5097886919975281,
+        0.019607843831181526
+      ],
+      "point_count_after_bezier_flattening_and_clipping": 386,
+      "visible_radius_km": [
+        0.29980672198489317,
+        22.000102127102938
+      ],
+      "peak_T_MeV": 39.22233871753525,
+      "peak_radius_km": 8.380531829361315
+    },
+    "n": {
+      "path_index": 181,
+      "stroke_rgb": [
+        0.0,
+        0.5097886919975281,
+        0.7842984795570374
+      ],
+      "point_count_after_bezier_flattening_and_clipping": 337,
+      "visible_radius_km": [
+        0.2998503784985858,
+        21.915876341658787
+      ],
+      "visible_n_over_n0_corrected": [
+        0.0001,
+        1.5204971397530478
+      ]
+    },
+    "p": {
+      "path_index": 182,
+      "stroke_rgb": [
+        0.20000000298023224,
+        0.7293965220451355,
+        1.0
+      ],
+      "point_count_after_bezier_flattening_and_clipping": 473,
+      "visible_radius_km": [
+        0.2998503784985858,
+        19.297861710118813
+      ],
+      "visible_n_over_n0_corrected": [
+        0.0001,
+        0.4226079866215081
+      ]
+    }
+  },
+  "digitization_uncertainty_estimate": {
+    "curve_stroke_width_pt": 1.0709999799728394,
+    "radius_half_stroke_km": 0.054238068350978524,
+    "temperature_half_stroke_MeV": 0.2772149138636136,
+    "density_half_stroke_decades": 0.02091796835884452
+  },
+  "caveats": [
+    "These are published-figure vector paths, not raw Garching profile data.",
+    "The right-panel density axis has a top-two-tick label inconsistency; both literal and cross-checked corrected transforms are archived.",
+    "The n and p paths are compared with Caputo reconstructed free-neutron and free-proton curves from the same Garching SFHo-18.8 model lineage."
+  ]
+}
