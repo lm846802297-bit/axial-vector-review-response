@@ -190,27 +190,9 @@ def _local_cases(
             window_upper = min(upper, stationary_center+LOCAL_WINDOW_HALF_WIDTH)
             if window_upper <= window_lower:
                 raise ArithmeticError("the legacy 60 MeV window misses the allowed support")
-            full_rates = {
-                order: integrate_outgoing_energy(
-                    lower, upper, INCIDENT_ENERGY, COS_THETA,
-                    target, antinu, temperature, nu, mstar,
-                    order_ep=order,
-                )
-                for order in EPRIME_ORDERS
-            }
-            window_rate = integrate_outgoing_energy(
-                window_lower, window_upper, INCIDENT_ENERGY, COS_THETA,
-                target, antinu, temperature, nu, mstar,
-                order_ep=EPRIME_ORDERS[-1],
-            )
-            full = full_rates[EPRIME_ORDERS[-1]]
-            if full <= 0.0:
-                raise ArithmeticError("non-positive full-support local rate")
-            nprime_mev3 = nprime_fm3*HBARC**3
             support_records.append({
                 "r_km": row["r_km"],
                 "species": target,
-                "antinu": antinu,
                 "mstar_MeV": mstar,
                 "T_MeV": temperature,
                 "nu_MeV": nu,
@@ -220,37 +202,54 @@ def _local_cases(
                 "Eprime_support_width_MeV": upper-lower,
                 "support_root_max_relative_residual": root_residual,
             })
-            local_records.append({
-                "r_km": row["r_km"],
-                "species": target,
-                "antinu": antinu,
-                "E_MeV": INCIDENT_ENERGY,
-                "cos_theta": COS_THETA,
-                "T_MeV": temperature,
-                "mstar_MeV": mstar,
-                "nu_MeV": nu,
-                "eta_nu_over_T": nu/temperature,
-                "theta_T_over_mstar": temperature/mstar,
-                "X_free": row[f"X_{target}"],
-                "xi_SPP": xi,
-                "nprime_fm3": nprime_fm3,
-                "Eprime_support_min_MeV": lower,
-                "Eprime_support_max_MeV": upper,
-                "Eprime_support_width_MeV": upper-lower,
-                "Eprime_window_min_MeV": window_lower,
-                "Eprime_window_max_MeV": window_upper,
-                "gamma_full_order32": full_rates[32],
-                "gamma_full_order48": full_rates[48],
-                "gamma_full_order72": full,
-                "relative_convergence_32_to_72": abs(full/full_rates[32]-1.0),
-                "relative_convergence_48_to_72": abs(full/full_rates[48]-1.0),
-                "gamma_legacy_60MeV_window": window_rate,
-                "legacy_window_fraction_of_full_support": window_rate/full,
-                "sigma_full_support_per_target_MeV_minus2": full/nprime_mev3,
-                "xi_times_gamma_full_support": xi*full,
-            })
+            nprime_mev3 = nprime_fm3*HBARC**3
+            for antinu in ANTINU_VALUES:
+                full_rates = {
+                    order: integrate_outgoing_energy(
+                        lower, upper, INCIDENT_ENERGY, COS_THETA,
+                        target, antinu, temperature, nu, mstar,
+                        order_ep=order,
+                    )
+                    for order in EPRIME_ORDERS
+                }
+                window_rate = integrate_outgoing_energy(
+                    window_lower, window_upper, INCIDENT_ENERGY, COS_THETA,
+                    target, antinu, temperature, nu, mstar,
+                    order_ep=EPRIME_ORDERS[-1],
+                )
+                full = full_rates[EPRIME_ORDERS[-1]]
+                if full <= 0.0:
+                    raise ArithmeticError("non-positive full-support local rate")
+                local_records.append({
+                    "r_km": row["r_km"],
+                    "species": target,
+                    "antinu": antinu,
+                    "E_MeV": INCIDENT_ENERGY,
+                    "cos_theta": COS_THETA,
+                    "T_MeV": temperature,
+                    "mstar_MeV": mstar,
+                    "nu_MeV": nu,
+                    "eta_nu_over_T": nu/temperature,
+                    "theta_T_over_mstar": temperature/mstar,
+                    "X_free": row[f"X_{target}"],
+                    "xi_SPP": xi,
+                    "nprime_fm3": nprime_fm3,
+                    "Eprime_support_min_MeV": lower,
+                    "Eprime_support_max_MeV": upper,
+                    "Eprime_support_width_MeV": upper-lower,
+                    "Eprime_window_min_MeV": window_lower,
+                    "Eprime_window_max_MeV": window_upper,
+                    "gamma_full_order32": full_rates[32],
+                    "gamma_full_order48": full_rates[48],
+                    "gamma_full_order72": full,
+                    "relative_convergence_32_to_72": abs(full/full_rates[32]-1.0),
+                    "relative_convergence_48_to_72": abs(full/full_rates[48]-1.0),
+                    "gamma_legacy_60MeV_window": window_rate,
+                    "legacy_window_fraction_of_full_support": window_rate/full,
+                    "sigma_full_support_per_target_MeV_minus2": full/nprime_mev3,
+                    "xi_times_gamma_full_support": xi*full,
+                })
     return local_records, support_records
-
 
 def _cold_horowitz_cases() -> list[dict]:
     records = []
@@ -309,7 +308,7 @@ def analyze(
     max_window_fraction = max(row["legacy_window_fraction_of_full_support"] for row in local)
     acceptance = {
         "sixteen_local_EOS_cases": bool(len(local) == 16),
-        "sixteen_support_intervals": bool(len(support) == 16),
+        "eight_unique_support_intervals": bool(len(support) == 8),
         "four_cold_Horowitz_cases": bool(len(cold) == 4),
         "support_roots_relative_residual_below_1e_7": bool(max_root < 1e-7),
         "cold_dilute_full_support_Horowitz_below_1e_3": bool(max_horowitz < 1e-3),
