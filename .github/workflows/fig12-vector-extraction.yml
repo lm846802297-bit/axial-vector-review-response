@@ -1,6 +1,14 @@
 name: Fig. 12 native-vector extraction and cross-check
 
 on:
+  push:
+    branches:
+      - research/moving-muon-thermal-rates-20261107
+    paths:
+      - "research/stellar-cooling-constraints-20261105/blinov_reproduction/extract_esseili_kribs_fig12_vector.py"
+      - "research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_esseili_kribs_fig12_crosscheck.py"
+      - "research/stellar-cooling-constraints-20261105/blinov_reproduction/B16_P1IIID_FIG12_VECTOR_EXTRACTION_CROSSCHECK_2026-11-11.md"
+      - ".github/workflows/fig12-vector-extraction.yml"
   workflow_dispatch:
 
 permissions:
@@ -21,14 +29,15 @@ jobs:
       - name: Install numerical dependencies
         run: python -m pip install --disable-pip-version-check pymupdf numpy
 
-      - name: Download and fingerprint pinned arXiv v3 (published-version match)
+      - name: Download and verify the SCOAP3 copy of the published APS PDF
         shell: bash
         run: |
           set -euo pipefail
           curl --location --fail --retry 3 --retry-delay 2 -H "User-Agent: axial-vector-review-response/1.0" \
-            "https://arxiv.org/pdf/2512.10916v3" \
+            "https://scoap3-prod-backend.s3.cern.ch/media/harvested_files/10.1103/718s-7k7v/718s-7k7v.pdf" \
             --output aps_fig12_source.pdf
-          sha256sum aps_fig12_source.pdf | tee source_pdf.sha256
+          echo "c3b92fe6cf2a8bd3fec84925e2baababfe0c707327a68135013f953ed3d87d43  aps_fig12_source.pdf" \
+            | sha256sum --check -
 
       - name: Extract native vector paths and perform profile cross-checks
         run: |
