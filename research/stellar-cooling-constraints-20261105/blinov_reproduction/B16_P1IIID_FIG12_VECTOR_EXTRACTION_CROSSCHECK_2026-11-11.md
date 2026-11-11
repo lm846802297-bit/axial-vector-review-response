@@ -127,6 +127,12 @@ baryons bound in nuclei. The reconstructed values of \(X_{\rm cluster}\) are
 obtained from the Caputo \(Y_n,Y_p\) profiles, not introduced as an independent
 fit parameter.
 
+Caputo's own cross-figure closure independently checks this reconstruction:
+the Fig. 4 (Y_p) curve agrees with the Fig. 1 ratio (n_p/n_B) at 0.0320%
+RMS relative difference and 0.0850% maximum absolute relative difference.
+Thus the free-proton density used here is consistent with Caputo's direct
+Fig. 1 proton-density path, rather than being only an abundance-based proxy.
+
 With the equal-spacing density-axis calibration:
 
 | Comparison | RMS relative residual | Maximum absolute relative residual |
