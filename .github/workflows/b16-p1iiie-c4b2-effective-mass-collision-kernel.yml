@@ -71,7 +71,8 @@ jobs:
           assert len(summary["legacy_recovery"]) == 4
           assert len(summary["cold_dilute_Horowitz"]) == 4
           assert len(summary["core_local_quadrature_convergence"]) == 3
-          assert len(list(csv.DictReader((root / "eos_local_rates.csv").open()))) == 32
+          assert summary["provenance"]["local_cases"] == 16
+          assert len(list(csv.DictReader((root / "eos_local_rates.csv").open()))) == 16
           assert len(list(csv.DictReader((root / "legacy_recovery.csv").open()))) == 4
           assert len(list(csv.DictReader((root / "cold_horowitz.csv").open()))) == 4
           print(json.dumps(summary["maxima"], indent=2))
