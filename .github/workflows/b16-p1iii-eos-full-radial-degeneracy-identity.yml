@@ -72,24 +72,32 @@ jobs:
           assert expected["overall_pass"] and actual["overall_pass"]
           assert all(actual["acceptance"].values())
           for species in ("n", "p"):
-              for key in (
-                  "rms_relative_difference",
-                  "max_abs_relative_difference",
-                  "max_abs_absolute_difference",
-                  "max_abs_direct_vs_C2_reference",
-              ):
-                  a = expected["species"][species][key]
-                  b = actual["species"][species][key]
-                  assert math.isclose(a, b, rel_tol=2e-6, abs_tol=1e-10), (species, key, a, b)
+              for a, b in zip(expected["species"][species]["Fdeg_range"], actual["species"][species]["Fdeg_range"]):
+                  assert math.isclose(a, b, rel_tol=1e-12, abs_tol=1e-12)
+              assert actual["species"][species]["max_abs_relative_difference"] < 1e-8
+              assert actual["species"][species]["max_abs_direct_vs_C2_reference"] < 5e-12
 
           expected_path = root / "p1iii_eos_full_radial_degeneracy_identity_2026-11-11.csv"
+          c2_path = root / "p1iii_eos_full_radial_occupation_2026-11-11.csv"
           with expected_path.open(newline="") as stream:
               expected_rows = list(csv.DictReader(stream))
           with Path(os.environ["C3_CSV"]).open(newline="") as stream:
               actual_rows = list(csv.DictReader(stream))
-          assert len(expected_rows) == len(actual_rows) == 301
-          for key in expected_rows[0]:
-              error = max(abs(float(a[key])-float(b[key])) for a, b in zip(expected_rows, actual_rows))
-              assert error < 1e-8, (key, error)
-          print("C3-A independent Python reconstruction matches the committed 301-point result.")
+          with c2_path.open(newline="") as stream:
+              c2_rows = list(csv.DictReader(stream))
+          assert len(expected_rows) == len(actual_rows) == len(c2_rows) == 301
+          for expected_row, actual_row, c2_row in zip(expected_rows, actual_rows, c2_rows):
+              assert abs(float(expected_row["r_km"])-float(actual_row["r_km"])) < 1e-12
+              for key in ("Fnn_direct", "Fpp_direct"):
+                  assert abs(float(expected_row[key])-float(actual_row[key])) < 1e-11, key
+              for species, direct_key, derivative_key, ref_key in (
+                  ("n", "Fnn_direct", "Fnn_density_derivative", "Fnn_deg"),
+                  ("p", "Fpp_direct", "Fpp_density_derivative", "Fpp_deg"),
+              ):
+                  direct = float(actual_row[direct_key])
+                  derivative = float(actual_row[derivative_key])
+                  c2_value = float(c2_row[ref_key])
+                  assert abs(direct-c2_value) < 5e-12, (species, actual_row["r_km"])
+                  assert abs((derivative-direct)/direct) < 1e-8, (species, actual_row["r_km"])
+          print("C3-A independent Python reconstruction validates all 301 radii and both derivative identities.")
           PY
