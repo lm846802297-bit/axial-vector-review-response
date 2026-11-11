@@ -68,9 +68,9 @@ jobs:
         with:
           name: scoap3-fig12-source-inspection
           path: |
-            aps_fig12_source.pdf
-            page15_scoap3.png
-            scoap3_path_inventory.json
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/aps_fig12_source.pdf
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/page15_scoap3.png
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/scoap3_path_inventory.json
           retention-days: 1
 
       - name: Extract native vector paths and perform profile cross-checks
