@@ -57,9 +57,9 @@ paths. Temperature is calibrated from the 10–60 MeV horizontal ticks. The
 right-panel radius is independently calibrated from its own tick paths.
 
 The right-panel density ticks are equally spaced by 25.56, 25.60, 25.61, and
-25.61 PDF points. The lower three labels identify (10^{-2}), (10^{-3}), and
-(10^{-4}). Equal spacing on a logarithmic axis therefore implies the upper
-two values (10^{-1}) and (10^0=1). The upper two glyphs are visually
+25.61 PDF points. The lower three labels identify \(10^{-2}\), \(10^{-3}\), and
+\(10^{-4}\). Equal spacing on a logarithmic axis therefore implies the upper
+two values \(10^{-1}\) and \(10^0=1\). The upper two glyphs are visually
 ambiguous at the available raster resolution; importantly, the native PDF
 does not expose them as text spans. The extraction records zero text spans in
 the right-axis margin and retains the vector-glyph provenance. We therefore
@@ -67,10 +67,10 @@ do not claim that the paper definitely contains a typesetting error.
 
 Both candidate calibrations are retained in the raw CSV:
 
-[
-log_{10}(n/n_0)=-4+rac{166.643982-y_{m PDF}}{25.6},
-qquad n_0=0.181;mathrm{fm}^{-3},
-]
+\[
+\log_{10}(n/n_0)=-4+\frac{166.643982-y_{\rm PDF}}{25.6},
+\qquad n_0=0.181\;\mathrm{fm}^{-3},
+\]
 
 and the literal upper-glyph reading, exactly ten times larger. The physically
 cross-validated calibration is selected because it agrees with Caputo's
@@ -105,34 +105,59 @@ qualitative-only temperature comparison in
 
 The right-panel curves are compared with Caputo's reconstructed free-nucleon
 profiles at the ten common radii 1, 5, 8, 9, 10, 11, 12, 13, 14, and 15 km.
-Caputo's free densities are reconstructed as
+Caputo Fig. 4 defines \(Y_j\) as number fractions per baryon and discusses
+cluster mass fractions \(X_j\), with \(\sum_j X_j=1\). For free protons and
+neutrons, \(Y_p=X_p\) and \(Y_n=X_n\). Therefore the total nuclear-cluster
+mass fraction is
 
 \[
-n_n^{\rm free}=Y_n n_B,\qquad n_p^{\rm free}=Y_p n_B,
+X_{\rm cluster}=1-Y_n-Y_p,
 \]
 
-using the Fig. 4 abundances; \`n_B - n_p\` is not used as a neutron density.
+and the free-nucleon densities are
 
-With the corrected candidate density-axis transform:
+\[
+n_n^{\rm free}=Y_n n_B,\qquad
+n_p^{\rm free}=Y_p n_B,\qquad
+n_n^{\rm free}+n_p^{\rm free}=(1-X_{\rm cluster})n_B.
+\]
+
+This is why \(n_B-n_p\) is not used as a neutron density: it would include
+baryons bound in nuclei. The reconstructed values of \(X_{\rm cluster}\) are
+obtained from the Caputo \(Y_n,Y_p\) profiles, not introduced as an independent
+fit parameter.
+
+With the equal-spacing density-axis calibration:
 
 | Comparison | RMS relative residual | Maximum absolute relative residual |
 |---|---:|---:|
-| E–K \`n\` vs Caputo free neutron | **0.580%** | 0.976% |
-| E–K \`p\` vs Caputo free proton | **0.586%** | 0.853% |
-| E–K \`n+p\` vs Caputo free baryons \`n_B(1-X_cluster)\` | **0.574%** | 0.939% |
+| E–K \(n\) vs Caputo free neutron | **0.580%** | 0.976% |
+| E–K \(p\) vs Caputo free proton | **0.586%** | 0.853% |
+| E–K \(n+p\) vs Caputo free baryons \((1-X_{\rm cluster})n_B\) | **0.574%** | 0.939% |
 
-By contrast, the literal top-two labels shift both E–K density curves by a
-factor of ten. Their RMS relative residuals against the Caputo free-nucleon
-curves are approximately 895% for both species. The corrected interpretation
-is therefore strongly preferred by the same-model cross-publication check.
+By contrast, the literal upper-glyph reading shifts both E–K density curves by
+a factor of ten. Their RMS relative residuals against the Caputo free-nucleon
+curves are approximately 895% for both species. The equal-spacing
+calibration is therefore strongly preferred by the same-model cross-publication
+check.
 
-The sum of the E–K \`n\` and \`p\` curves does **not** follow total Caputo \`n_B\` in
-the outer region. The residual relative to total baryons grows from about
-0.44% at 8 km to 9.29% at 15 km. This is not a defect: it follows the Caputo
-cluster baryon fraction, which grows from zero in the inner region to 8.85% at
-15 km. Thus the E–K \`n,p\` curves are consistent with **free neutron and free
-proton densities**, not with a partition of all baryons into only two free
-species.
+The sum of the E–K \(n\) and \(p\) curves does **not** follow total Caputo
+\(n_B\) in the outer region. The distinction is quantitatively accounted for
+by the cluster mass fraction:
+
+| \(r\) [km] | \(X_{\rm cluster}\) | E–K \(n+p\) vs total \(n_B\) | E–K \(n+p\) vs free baryons |
+|---:|---:|---:|---:|
+| 8 | 0.00% | −0.44% | −0.44% |
+| 10 | 2.20% | −2.72% | −0.53% |
+| 12 | 5.68% | −6.57% | −0.94% |
+| 15 | 8.85% | −9.29% | −0.49% |
+
+Thus the apparent deficit relative to total baryons is not evidence that the
+E–K profile and Caputo background are different simulations. It is primarily
+the baryon fraction bound in clusters, with the remaining sub-percent
+difference consistent with figure digitization. The E–K \(n,p\) curves are
+consistent with **free neutron and free proton densities**, not with a
+partition of all baryons into only two free species.
 
 The density comparison is limited to 1–15 km, where the Caputo Fig. 4
 abundance curves have common support. The E–K proton path itself terminates at
