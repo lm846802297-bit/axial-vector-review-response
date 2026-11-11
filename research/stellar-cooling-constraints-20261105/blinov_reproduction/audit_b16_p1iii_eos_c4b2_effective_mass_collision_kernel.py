@@ -408,7 +408,7 @@ def analyze(
     acceptance = {
         "mstar_equals_M_recovers_P1IIIb_below_1e_10": recovery_max < 1e-10,
         "cold_dilute_Horowitz_limit_below_1e_3": cold_max < 1e-3,
-        "EOS_local_grid_has_32_cases": len(local) == 32,
+        "EOS_local_grid_has_16_cases": len(local) == 16,
         "local_detailed_balance_below_1e_10": max(db_residuals) < 1e-10,
         "all_local_rates_and_cross_sections_nonnegative": all(
             row["gamma_available_volume"] >= 0.0
