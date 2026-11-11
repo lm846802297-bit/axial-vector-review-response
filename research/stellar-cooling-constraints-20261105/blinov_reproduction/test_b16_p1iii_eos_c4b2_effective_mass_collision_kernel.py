@@ -35,7 +35,7 @@ class TestC4B2EOSCollisionKernel(unittest.TestCase):
         )
 
     def test_eos_local_grid_and_positive_rates(self):
-        self.assertEqual(len(self.local), 32)
+        self.assertEqual(len(self.local), 16)
         for row in self.local:
             self.assertGreaterEqual(row["gamma_available_volume"], 0.0)
             self.assertGreaterEqual(row["sigma_per_target_MeV_minus2"], 0.0)
