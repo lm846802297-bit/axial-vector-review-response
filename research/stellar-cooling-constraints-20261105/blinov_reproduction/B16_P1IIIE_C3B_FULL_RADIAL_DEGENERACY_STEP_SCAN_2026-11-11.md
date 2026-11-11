@@ -38,22 +38,23 @@ At \(h/T=10^{-2}\rightarrow10^{-3}\), reducing the step by a factor of ten reduc
 \]
 This is the expected \(O(h^2)\) central-difference truncation regime.
 
-At the smallest steps, the residual starts increasing again. This is consistent with floating-point cancellation in the subtraction \(n'(\nu+h)-n'(\nu-h)\), rather than a failure of the thermodynamic identity.
+At \(3\times10^{-6}\), and depending on the quadrature backend already at \(10^{-5}\), the residual begins to rise again. This is consistent with floating-point cancellation in the subtraction \(n'(\nu+h)-n'(\nu-h)\), rather than a failure of the thermodynamic identity. The location of the roundoff floor is implementation-dependent.
 
 ## 4. Selected shared step
 
-The minimax choice across the two species and all radii in this scan is
+The common working step retained for C3 is
 \[
 \boxed{h/T=3.0\times10^{-5}}.
 \]
-It gives
+In the direct JavaScript scan it gives a worst-case relative residual of
 \[
-\max_{r,N=n,p}
-\left|\frac{F_{NN,\rm FD}^{\rm deg}(r)-F_{NN,\rm direct}^{\rm deg}(r)}
-{F_{NN,\rm direct}^{\rm deg}(r)}\right|
-=3.19\times10^{-10}.
+3.19\times10^{-10},
 \]
-The neutron-only minimum is at \(h/T=10^{-4}\), while the proton-only minimum is at \(3\times10^{-5}\); the shared choice minimizes the worst-case error across both species. The \(3\times10^{-5}\) setting is therefore retained for the common C3 derivative prescription.
+while the independent NumPy/SciPy Python CI reconstruction gives
+\[
+1.54\times10^{-10}.
+\]
+The exact smallest residual at \(10^{-5}\) versus \(3\times10^{-5}\) depends on the quadrature backend: the JavaScript calculation favors \(3\times10^{-5}\), while the Python reconstruction has a slightly smaller roundoff residual at \(10^{-5}\). We therefore retain \(3\times10^{-5}\) as the conservative common setting already used in C3-A; it is stable in both independent implementations and remains far below the \(10^{-8}\) acceptance threshold.
 
 ## 5. Acceptance and interpretation
 
