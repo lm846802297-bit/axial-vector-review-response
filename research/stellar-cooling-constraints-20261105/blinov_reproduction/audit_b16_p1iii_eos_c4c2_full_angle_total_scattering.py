@@ -328,7 +328,7 @@ def analyze(
     }
     if not summary["overall_pass"]:
         raise AssertionError(f"C4-C2 acceptance failed: {acceptance}")
-    return local, cold, angle_local, angle_cold, summary
+    return local, cold, angle_local, kernel_order, angle_cold, summary
 
 
 def _write_csv(path: Path, rows: list[dict]) -> None:
@@ -353,57 +353,55 @@ def main() -> None:
     args = parser.parse_args()
     profile = load_profile(args.profile)
     c2 = load_c2_reference(args.c2_reference)
-    local, cold, angle_local, angle_cold, summary = analyze(profile, c2)
+    local, cold, angle_local, kernel_order, angle_cold, summary = analyze(profile, c2)
     args.output_json.parent.mkdir(parents=True, exist_ok=True)
     args.output_json.write_text(
         json.dumps(summary, indent=2, allow_nan=False)+"\n", encoding="utf-8"
     )
-    for path, rows in (
-        (args.output_local_csv, local),
-        (args.output_cold_csv, cold),
-        (args.output_angle_csv, angle_local+angle_cold),
-        (args.output_kernel_order_csv, angle_local[:0]+[
-            {
-                "r_km": row["r_km"],
-                "species": row["species"],
-                "antinu": row["antinu"],
-                "relative_kernel_order_difference": row["relative_kernel_order_difference"],
-                "max_support_root_residual": row["max_support_root_residual"],
-            }
-            for row in angle_local[:0]
-        ]),
-    ):
-        _write_csv(path, rows)
-    # Write the two dedicated kernel-order records with their own schema.
-    _write_csv(args.output_kernel_order_csv, [
-        {
+    _write_csv(args.output_local_csv, local)
+    _write_csv(args.output_cold_csv, cold)
+
+    angle_columns = (
+        "kind", "r_km", "species", "antinu", "n_cos_low", "n_cos_high",
+        "rate_or_sigma_low", "rate_or_sigma_high", "relative_difference",
+    )
+    angle_rows = []
+    for row in angle_local:
+        angle_rows.append({
+            "kind": "EOS_local",
             "r_km": row["r_km"],
             "species": row["species"],
             "antinu": row["antinu"],
-            "gamma_p36_phi12": row["gamma_p36_phi12"],
-            "gamma_p48_phi16": row["gamma_p48_phi16"],
-            "relative_kernel_order_difference": row["relative_kernel_order_difference"],
-            "max_support_root_residual": row["max_support_root_residual"],
-        }
-        for row in angle_local[:0]
-    ] + [
-        {
-            "r_km": row["r_km"],
+            "n_cos_low": 8,
+            "n_cos_high": 12,
+            "rate_or_sigma_low": row["gamma_cos8"],
+            "rate_or_sigma_high": row["gamma_cos12"],
+            "relative_difference": row["relative_cos8_to_cos12_difference"],
+        })
+    for row in angle_cold:
+        angle_rows.append({
+            "kind": "Horowitz",
+            "r_km": "",
             "species": row["species"],
             "antinu": row["antinu"],
-            "gamma_p36_phi12": row["gamma_p36_phi12"],
-            "gamma_p48_phi16": row["gamma_p48_phi16"],
-            "relative_kernel_order_difference": row["relative_kernel_order_difference"],
-            "max_support_root_residual": row["max_support_root_residual"],
-        }
-        for row in angle_local[:0]
-    ])
+            "n_cos_low": 16,
+            "n_cos_high": 32,
+            "rate_or_sigma_low": row["sigma_Horowitz_cos16"],
+            "rate_or_sigma_high": row["sigma_Horowitz_cos32"],
+            "relative_difference": row["relative_cos16_to_cos32_difference"],
+        })
+    args.output_angle_csv.parent.mkdir(parents=True, exist_ok=True)
+    with args.output_angle_csv.open("w", newline="", encoding="utf-8") as stream:
+        writer = csv.DictWriter(stream, fieldnames=angle_columns, lineterminator="\n")
+        writer.writeheader()
+        writer.writerows(angle_rows)
+    _write_csv(args.output_kernel_order_csv, kernel_order)
+
     print(json.dumps({
         "overall_pass": summary["overall_pass"],
         "maxima": summary["maxima"],
         "acceptance": summary["acceptance"],
     }, indent=2))
-
 
 if __name__ == "__main__":
     main()
