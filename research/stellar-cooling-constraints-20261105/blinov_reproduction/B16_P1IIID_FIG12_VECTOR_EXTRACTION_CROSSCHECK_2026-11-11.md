@@ -6,7 +6,7 @@ Branch: \`research/moving-muon-thermal-rates-20261107\`
 
 ## 1. Result and scope
 
-The pinned arXiv v3 PDF (which the authors state matches the published version) is used as the reproducible source for native PDF-vector extraction. Its SHA-256 is computed and archived by the workflow. The
+The checksum-pinned SCOAP3 copy of the published APS PDF is used as the reproducible source for native PDF-vector extraction. Its exact SHA-256 is checked by CI. The
 SFHo-18.8 temperature path and the right-panel neutron/proton paths are
 identified by stroke color and exact path index, flattened from cubic Bézier
 segments, clipped to the plotted frame, and calibrated against the PDF tick
@@ -20,33 +20,35 @@ does not replace access to the raw Garching profile.
 ## 2. Source and native vector provenance
 
 - Paper: Esseili & Kribs, *Phys. Rev. D* 114, 016023 (2026), DOI
-  \`10.1103/718s-7k7v\`.
-- Source: APS published PDF, page index 14 (printed page 15), SHA-256
-  \`d660eb390271b41c5c0c20ccd52cc57df891a78d30067a78f84bb6c228225a92\`.
-- PDF size: 2,769,776 bytes.
-- Reproducible open-access mirror: [SCOAP3 record 109482](https://repo.scoap3.org/records/109482),
-  PDF SHA-256
-  `c3b92fe6cf2a8bd3fec84925e2baababfe0c707327a68135013f953ed3d87d43`,
-  2,749,668 bytes. The APS endpoint returned HTTP 403 from the hosted runner;
-  the SCOAP3 copy downloads successfully. It retains the same page-15 path
-  indices and curve point counts, and the extracted cross-check metrics agree
-  with the local APS-copy extraction to better than (10^{-8}).
-- Native paths: temperature \`25\` (orange), neutron \`181\` (blue), proton \`182\`
-  (cyan). The script verifies the stroke RGB values before extraction.
+  `10.1103/718s-7k7v`.
+- Source used for the archived extraction: the SCOAP3 open-access copy of the
+  published APS PDF, [SCOAP3 record 109482](https://repo.scoap3.org/records/109482).
+- Exact PDF SHA-256:
+  `c3b92fe6cf2a8bd3fec84925e2baababfe0c707327a68135013f953ed3d87d43`;
+  size: 2,749,668 bytes. GitHub Actions verifies this checksum before
+  extraction.
+- Native PDF page index 14 (printed page 15); native paths: temperature
+  `25` (orange), neutron `181` (blue), proton `182` (cyan). The script
+  verifies the expected stroke RGB values before extraction.
 - Flattened/clipped point counts: 386 temperature, 337 neutron, 473 proton.
 - Visible radial supports: temperature 0.300–22.000 km, neutron
   0.300–21.916 km, proton 0.300–19.298 km.
+- The arXiv v3 PDF is useful as a textual/version cross-check (the arXiv
+  record says v3 matches the published version), but it is not substituted
+  for this vector extraction: its PDF-internal path ordering/stroke grouping
+  differs, and the published-PDF path indices 25/181/182 do not identify the
+  same curves there.
 
 The reproducible products are:
 
-- \`extract_esseili_kribs_fig12_vector.py\`;
-- \`audit_esseili_kribs_fig12_crosscheck.py\`;
-- \`outputs/esseili_kribs_fig12_vector_vertices_2026-11-11.csv\`;
-- \`outputs/esseili_kribs_fig12_vector_provenance_2026-11-11.json\`;
-- \`outputs/esseili_kribs_fig12_caputo_temperature_crosscheck_2026-11-11.csv\`;
-- \`outputs/esseili_kribs_fig12_bollig_temperature_crosscheck_2026-11-11.csv\`;
-- \`outputs/esseili_kribs_fig12_caputo_density_crosscheck_2026-11-11.csv\`;
-- \`outputs/esseili_kribs_fig12_crosscheck_summary_2026-11-11.json\`.
+- `extract_esseili_kribs_fig12_vector.py`;
+- `audit_esseili_kribs_fig12_crosscheck.py`;
+- `outputs/esseili_kribs_fig12_vector_vertices_2026-11-11.csv`;
+- `outputs/esseili_kribs_fig12_vector_provenance_2026-11-11.json`;
+- `outputs/esseili_kribs_fig12_caputo_temperature_crosscheck_2026-11-11.csv`;
+- `outputs/esseili_kribs_fig12_bollig_temperature_crosscheck_2026-11-11.csv`;
+- `outputs/esseili_kribs_fig12_caputo_density_crosscheck_2026-11-11.csv`;
+- `outputs/esseili_kribs_fig12_crosscheck_summary_2026-11-11.json`.
 
 ## 3. Axis calibration and the right-panel density-label issue
 
