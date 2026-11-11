@@ -33,7 +33,7 @@ jobs:
       - name: Check out the exact research commit
         uses: actions/checkout@v4
         with:
-          ref: \${{ github.sha }}
+          ref: ${{ github.sha }}
           fetch-depth: 1
 
       - name: Set up Python
@@ -52,18 +52,18 @@ jobs:
 
       - name: Recompute EOS dynamic response and sum rules
         env:
-          C4A_JSON: \${{ runner.temp }}/c4a.json
-          C4A_RESPONSE_CSV: \${{ runner.temp }}/c4a_response.csv
-          C4A_SUMRULE_CSV: \${{ runner.temp }}/c4a_sumrule.csv
+          C4A_JSON: ${{ runner.temp }}/c4a.json
+          C4A_RESPONSE_CSV: ${{ runner.temp }}/c4a_response.csv
+          C4A_SUMRULE_CSV: ${{ runner.temp }}/c4a_sumrule.csv
         run: |
           set -euo pipefail
           python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_c4a_dynamic_scalar_response.py --profile research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv --c2-reference research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/p1iii_eos_full_radial_occupation_2026-11-11.csv --output-json "$C4A_JSON" --output-response-csv "$C4A_RESPONSE_CSV" --output-sumrule-csv "$C4A_SUMRULE_CSV"
 
       - name: Validate independent Python reconstruction
         env:
-          C4A_JSON: \${{ runner.temp }}/c4a.json
-          C4A_RESPONSE_CSV: \${{ runner.temp }}/c4a_response.csv
-          C4A_SUMRULE_CSV: \${{ runner.temp }}/c4a_sumrule.csv
+          C4A_JSON: ${{ runner.temp }}/c4a.json
+          C4A_RESPONSE_CSV: ${{ runner.temp }}/c4a_response.csv
+          C4A_SUMRULE_CSV: ${{ runner.temp }}/c4a_sumrule.csv
         run: |
           python - <<'PY'
           import csv, json, math, os
