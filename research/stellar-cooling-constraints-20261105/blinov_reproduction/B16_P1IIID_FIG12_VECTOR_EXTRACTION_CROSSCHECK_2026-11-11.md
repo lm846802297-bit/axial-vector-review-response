@@ -50,30 +50,34 @@ The reproducible products are:
 - `outputs/esseili_kribs_fig12_caputo_density_crosscheck_2026-11-11.csv`;
 - `outputs/esseili_kribs_fig12_crosscheck_summary_2026-11-11.json`.
 
-## 3. Axis calibration and the right-panel density-label issue
+## 3. Axis calibration and the right-panel density-axis ambiguity
 
 The left-panel radius is calibrated from its native 5, 10, 15, and 20 km tick
 paths. Temperature is calibrated from the 10–60 MeV horizontal ticks. The
 right-panel radius is independently calibrated from its own tick paths.
 
 The right-panel density ticks are equally spaced by 25.56, 25.60, 25.61, and
-25.61 PDF points. The printed labels from top to bottom are \`10\`, \`1\`,
-\`10^-2\`, \`10^-3\`, and \`10^-4\`. Equal spacing on a logarithmic axis requires
-one decade per interval. Anchoring the bottom tick at \`10^-4\` therefore implies
-actual tick values \`1\`, \`10^-1\`, \`10^-2\`, \`10^-3\`, \`10^-4\`; the top two
-printed labels are each one decade too high. Both mappings are retained in the
-raw CSV:
+25.61 PDF points. The lower three labels identify (10^{-2}), (10^{-3}), and
+(10^{-4}). Equal spacing on a logarithmic axis therefore implies the upper
+two values (10^{-1}) and (10^0=1). The upper two glyphs are visually
+ambiguous at the available raster resolution; importantly, the native PDF
+does not expose them as text spans. The extraction records zero text spans in
+the right-axis margin and retains the vector-glyph provenance. We therefore
+do not claim that the paper definitely contains a typesetting error.
 
-\[
-\log_{10}(n/n_0)=-4+\frac{166.643982-y_{\rm PDF}}{25.6},
-\qquad n_0=0.181\;\mathrm{fm}^{-3},
-\]
+Both candidate calibrations are retained in the raw CSV:
 
-and the literal-label alternative, exactly ten times larger. The corrected
-mapping is not silently assumed: it is selected for the cross-check only
-because it agrees with Caputo's independently reconstructed free-neutron and
-free-proton curves, whereas the literal mapping misses them by nearly a factor
-of ten.
+[
+log_{10}(n/n_0)=-4+rac{166.643982-y_{m PDF}}{25.6},
+qquad n_0=0.181;mathrm{fm}^{-3},
+]
+
+and the literal upper-glyph reading, exactly ten times larger. The physically
+cross-validated calibration is selected because it agrees with Caputo's
+independently reconstructed free-neutron and free-proton curves; the literal
+alternative misses them by nearly a factor of ten. This is a calibration
+decision supported by the same-model comparison, not a claim about the
+authors' intended typography.
 
 ## 4. Temperature comparison
 
@@ -149,9 +153,10 @@ sub-percent agreement of the underlying raw hydrodynamic profiles.
 
 ## 7. Consequences for the EOS/transport work
 
-1. The Fig. 12 density-axis top-two labels contain an apparent one-decade
-   inconsistency. Keep both transforms in the archived raw data; use the
-   corrected candidate only for figure-level comparisons and state why.
+1. The upper two Fig. 12 density-axis glyphs are visually ambiguous and are
+   not extractable as PDF text spans. Keep both transforms in the archived raw
+   data; use the equal-spacing calibration supported by Caputo for numerical
+   comparisons, without claiming a definitive typesetting error.
 2. The E–K neutron/proton curves are consistent with Caputo free-nucleon
    densities and with the cluster-corrected baryon sum. They should not be
    substituted for total \`n_B\`.
