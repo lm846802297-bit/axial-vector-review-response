@@ -11,7 +11,7 @@ class TestC4C3RadialScattering(unittest.TestCase):
     def test_git_blob_sha_uses_nul_terminated_header(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "fixture.txt"
-            path.write_bytes(b"test\\n")
+            path.write_bytes(b"test\n")
             self.assertEqual(
                 git_blob_sha(path),
                 "9daeafb9864cf43055ae93beb0afd6c7d144bfa4",
