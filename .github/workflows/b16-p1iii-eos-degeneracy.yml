@@ -35,14 +35,17 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: ${{ github.sha }}
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+
       - name: Install numerical dependencies
         run: |
           python -m pip install --upgrade pip
           python -m pip install numpy scipy
+
       - name: Download, hash-check, and extract official SFHo v1.03 tables
         env:
           GH_TOKEN: ${{ github.token }}
@@ -57,38 +60,7 @@ jobs:
             --pattern 'sfho_frdm_comp.zip' \
             --dir raw
           manifest='research/stellar-cooling-constraints-20261105/blinov_reproduction/sfho_frdm_v1.03_manifest.sha256'
-          grep -E ' (sfho_frdm_bin\\.zip|sfho_frdm_spp\\.zip|sfho_frdm_comp\\.zip)        run: |
-          python -m unittest discover \
-            -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
-            -p 'test_b16_p1iii_eos_nucleon_distribution.py' -v
-      - name: Run SFHo real-table closure tests
-        run: |
-          python -m unittest discover \
-            -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
-            -p 'test_b16_p1iii_eos_sfho_realdata.py' -v
-      - name: Run deterministic software self-test
-        run: |
-          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_nucleon_distribution.py \
-            --self-test \
-            --output /tmp/p1iii_eos_kernel_self_test.json
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          data = json.loads(Path('/tmp/p1iii_eos_kernel_self_test.json').read_text())
-          assert data['software_test_only'] is True
-          assert data['not_garching_profile_data'] is True
-          checks = data['checks']
-          assert checks['max_derivative_identity_abs_residual'] < 2e-9
-          assert checks['max_256_vs_512_quadrature_abs_difference'] < 1e-10
-          assert checks['vacuum_mass_limit_max_occupation_abs_residual'] < 1e-14
-          assert abs(checks['dilute_limit_Fdeg'] - 1.0) < 1e-12
-          assert checks['common_U_mu_shift_Fdeg_abs_residual'] < 1e-14
-          assert checks['Hempel_RMF_mapping_max_abs_residual_MeV'] < 5e-13
-          assert checks['density_inversion_nu_abs_residual_MeV'] < 1e-8
-          assert 0.0 < checks['composition_inferred_xi_fixture'] <= 1.0
-          print(json.dumps(checks, indent=2))
-          PY
- "$manifest" \
+          grep -E ' (sfho_frdm_bin\.zip|sfho_frdm_spp\.zip|sfho_frdm_comp\.zip)$' "$manifest" \
             | (cd raw && sha256sum --check -)
           unzip -j -o raw/sfho_frdm_bin.zip '*/sfho_frdm_eos_v1.03.bin' -d "$SFHO_TABLES_DIR"
           unzip -j -o raw/sfho_frdm_spp.zip 'sfho_frdm_spp_v1.03.tab' -d "$SFHO_TABLES_DIR"
@@ -103,11 +75,13 @@ jobs:
           python -m unittest discover \
             -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
             -p 'test_b16_p1iii_eos_nucleon_distribution.py' -v
+
       - name: Run SFHo real-table closure tests
         run: |
           python -m unittest discover \
             -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
             -p 'test_b16_p1iii_eos_sfho_realdata.py' -v
+
       - name: Run deterministic software self-test
         run: |
           python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_nucleon_distribution.py \
