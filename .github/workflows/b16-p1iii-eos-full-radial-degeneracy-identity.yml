@@ -32,7 +32,7 @@ jobs:
       - name: Check out the exact research commit
         uses: actions/checkout@v4
         with:
-          ref: \${{ github.sha }}
+          ref: ${{ github.sha }}
           fetch-depth: 1
 
       - name: Set up Python
@@ -51,16 +51,16 @@ jobs:
 
       - name: Recompute C3-A at all 301 radii
         env:
-          C3_JSON: \${{ runner.temp }}/c3a.json
-          C3_CSV: \${{ runner.temp }}/c3a.csv
+          C3_JSON: ${{ runner.temp }}/c3a.json
+          C3_CSV: ${{ runner.temp }}/c3a.csv
         run: |
           set -euo pipefail
           python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_full_radial_degeneracy_identity.py --profile research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv --c2-reference research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/p1iii_eos_full_radial_occupation_2026-11-11.csv --output-json "$C3_JSON" --output-csv "$C3_CSV"
 
       - name: Compare independent Python reconstruction with committed C3-A results
         env:
-          C3_JSON: \${{ runner.temp }}/c3a.json
-          C3_CSV: \${{ runner.temp }}/c3a.csv
+          C3_JSON: ${{ runner.temp }}/c3a.json
+          C3_CSV: ${{ runner.temp }}/c3a.csv
         run: |
           python - <<'PY'
           import csv, json, math, os
