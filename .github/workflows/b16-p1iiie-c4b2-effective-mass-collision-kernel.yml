@@ -31,7 +31,7 @@ jobs:
       - name: Check out the exact research commit
         uses: actions/checkout@v4
         with:
-          ref: \${{ github.sha }}
+          ref: ${{ github.sha }}
           fetch-depth: 1
 
       - name: Set up Python
@@ -50,7 +50,7 @@ jobs:
 
       - name: Recompute EOS effective-mass collision kernel
         env:
-          C4B2_DIR: \${{ runner.temp }}/c4b2
+          C4B2_DIR: ${{ runner.temp }}/c4b2
         run: |
           set -euo pipefail
           mkdir -p "$C4B2_DIR"
@@ -58,7 +58,7 @@ jobs:
 
       - name: Validate C4-B2 numerical acceptance
         env:
-          C4B2_DIR: \${{ runner.temp }}/c4b2
+          C4B2_DIR: ${{ runner.temp }}/c4b2
         run: |
           python - <<'PY'
           import csv, json, os
@@ -81,6 +81,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: c4b2-eos-effective-mass-collision-kernel
-          path: \${{ runner.temp }}/c4b2/
+          path: ${{ runner.temp }}/c4b2/
           if-no-files-found: error
           retention-days: 90
