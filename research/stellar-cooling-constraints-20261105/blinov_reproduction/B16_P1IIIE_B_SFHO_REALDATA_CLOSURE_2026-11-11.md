@@ -127,7 +127,7 @@ check used in the reader.
 | SPP \(T\) and \(n_B\) vs extended table | \(\max|{\rm rel}|=3.61\times10^{-7}\) (ASCII rounding) |
 | SPP ranges | \(\xi\in[0.5206,1]\), \(m_n^*\in[165.72,939.565]\), \(m_p^*\in[164.43,938.272]\), \(\Sigma_{V,n}^{\rm tot}\in[-2.4\times10^{-8},2517.714]\), \(\Sigma_{V,p}^{\rm tot}\in[-5.08,2517.714]\) MeV |
 
-The nuclei-containing-cell fraction is now computed with the 308-row physical mask in the audit code. Its updated whole-table numerical value is not claimed here because the raw composition archive was not re-read during this follow-up.
+The raw composition archive was re-read. Over the 1,521,828 physical composition cells, 1,121,375 (73.6861%) are nuclei-containing under the module's layer-4 switch; 400,453 (26.3139%) have the no-nuclei switch set to 1.
 
 The composition-table free-nucleon densities reproduce the extended-table mass
 fractions to machine precision, so the two archives are mutually consistent and
@@ -529,6 +529,20 @@ Its maximum absolute residual is \(7.97497\times10^{-8}\), with median
 \(2.31581\times10^{-11}\). This is a full-grid identity check, distinct from
 the 224-cell phase-space closure sample.
 
+### Correction: the composition neutron-side NSE input is not a global chemical-potential column
+
+The Fortran composition module uses \\texttt{comp(i,j,k,1)} as the neutron-side
+chemical-potential input in the nuclear-abundance exponent. This is Python
+layer \\texttt{comp[...,0]}. The same Fortran routine skips the nuclear-abundance
+calculation when layer 4 (the nuclear-suppression switch) equals 1. In those
+400,453 no-nuclei cells, layer 0 is exactly zero and must not be read as a
+physical \\(\\mu_n^{\\rm nonrel}\\). In the 1,121,375 nuclei-containing cells it
+usually tracks the Extended EOS neutron chemical potential, but the difference
+has median \\(2.37\\times10^{-9}\\) MeV and reaches \\(6.56\\) MeV. It is therefore
+not an interchangeable copy of the thermodynamic chemical-potential column
+and is not used in the Fiorillo occupation mapping. The parser documentation
+and a raw-table regression test now encode this conditional meaning.
+
 ### Correction: the composition electron-density input is not global \(Y_p n_B\)
 
 The raw-table read exposed a semantic issue that was not visible in the earlier
@@ -565,9 +579,10 @@ occupation closure.
 ### Execution and acceptance boundary
 
 The local run of the complete P1-IIIe-A and P1-IIIe-B test modules passes
-**34/34 tests**: 15 distribution-kernel tests, 10 fixture tests, five
-official-table tests (including the Coulomb-input semantic regression), and
-four offline archive-manifest tests. No raw-table test was skipped.
+**35/35 tests**: 15 distribution-kernel tests, 10 fixture tests, six
+official-table tests (including the conditional NSE-neutron-input and
+Coulomb-input semantic regressions), and four offline archive-manifest tests.
+No raw-table test was skipped.
 
 The 224-cell phase-space audit was regenerated from the extracted tables.
 The 1024-to-2048-node checks over its 448 species states pass; the committed
