@@ -1,0 +1,95 @@
+name: P1-IIIe-C3A full-radial degeneracy identity
+
+on:
+  push:
+    branches:
+      - research/moving-muon-thermal-rates-20261107
+    paths:
+      - '.github/workflows/b16-p1iii-eos-full-radial-degeneracy-identity.yml'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_nucleon_distribution.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_full_radial_occupation.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_full_radial_degeneracy_identity.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_p1iii_eos_full_radial_degeneracy_identity.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/p1iii_eos_full_radial_occupation_2026-11-11.csv'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/p1iii_eos_full_radial_degeneracy_identity_2026-11-11.json'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/p1iii_eos_full_radial_degeneracy_identity_2026-11-11.csv'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: p1iii-eos-full-radial-degeneracy-identity
+  cancel-in-progress: false
+
+jobs:
+  full-radial-degeneracy-identity:
+    if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out the exact research commit
+        uses: actions/checkout@v4
+        with:
+          ref: \${{ github.sha }}
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy
+
+      - name: Run C3-A unit tests over the full profile
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest test_b16_p1iii_eos_full_radial_degeneracy_identity -v
+
+      - name: Recompute C3-A at all 301 radii
+        env:
+          C3_JSON: \${{ runner.temp }}/c3a.json
+          C3_CSV: \${{ runner.temp }}/c3a.csv
+        run: |
+          set -euo pipefail
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_full_radial_degeneracy_identity.py --profile research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv --c2-reference research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/p1iii_eos_full_radial_occupation_2026-11-11.csv --output-json "$C3_JSON" --output-csv "$C3_CSV"
+
+      - name: Compare independent Python reconstruction with committed C3-A results
+        env:
+          C3_JSON: \${{ runner.temp }}/c3a.json
+          C3_CSV: \${{ runner.temp }}/c3a.csv
+        run: |
+          python - <<'PY'
+          import csv, json, math, os
+          from pathlib import Path
+
+          root = Path("research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs")
+          expected = json.loads((root / "p1iii_eos_full_radial_degeneracy_identity_2026-11-11.json").read_text())
+          actual = json.loads(Path(os.environ["C3_JSON"]).read_text())
+          assert expected["overall_pass"] and actual["overall_pass"]
+          assert all(actual["acceptance"].values())
+          for species in ("n", "p"):
+              for key in (
+                  "rms_relative_difference",
+                  "max_abs_relative_difference",
+                  "max_abs_absolute_difference",
+                  "max_abs_direct_vs_C2_reference",
+              ):
+                  a = expected["species"][species][key]
+                  b = actual["species"][species][key]
+                  assert math.isclose(a, b, rel_tol=2e-6, abs_tol=2e-12), (species, key, a, b)
+
+          expected_path = root / "p1iii_eos_full_radial_degeneracy_identity_2026-11-11.csv"
+          with expected_path.open(newline="") as stream:
+              expected_rows = list(csv.DictReader(stream))
+          with Path(os.environ["C3_CSV"]).open(newline="") as stream:
+              actual_rows = list(csv.DictReader(stream))
+          assert len(expected_rows) == len(actual_rows) == 301
+          for key in expected_rows[0]:
+              error = max(abs(float(a[key])-float(b[key])) for a, b in zip(expected_rows, actual_rows))
+              assert error < 1e-8, (key, error)
+          print("C3-A independent Python reconstruction matches the committed 301-point result.")
+          PY
