@@ -360,3 +360,35 @@ Stage A has confirmed the research branch, PR #57 status, archived profile/Fig. 
 The high-order phase-space script now archives the full non-empty radius-energy-direction joint table. The workflow additionally checks escape-probability closure against the archived baseline and independently reconstructs all radius, energy, and four-bin direction marginals from the full joint table. This prevents the top-80 display subset from being mistaken for a complete partition.
 
 The latest push-triggered workflow, [Run #42666123613](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42666123613), again failed before runner allocation: job exists, but \`steps=null\` and \`logs_url=null\`. Thus neither regression tests nor the high-order physical calculation executed. Do not interpret this as a numerical failure and do not trigger more empty runs. The next valid execution route is a local checkout of this exact branch or GitHub Actions after hosted-runner provisioning is restored.
+
+
+## 2026-11-11 update: SFHo real-table and Fig. 12 cross-check
+
+P1-IIIe-A/B now has an authenticated local raw-data run and a full local test
+execution. The current combined suite passes **35/35** with SFHO_TABLES_DIR set;
+all five official archive hashes and the extracted-table hashes are verified.
+The decoded physical SPP grid contains 1,496,880 cells; the excluded-volume
+identity has maximum residual 7.975e-8. The composition table has 1,521,828
+physical cells, of which 1,121,375 (73.6861%) are nuclei-containing. Its free
+neutron/proton densities reproduce X_n n_B and X_p n_B to 4.44e-16 relative
+precision. The composition layer-0 NSE neutron-side input is now documented as
+conditional: it is zero and unused in the 400,453 no-nuclei cells and is not
+interchangeable with the Extended EOS thermodynamic chemical potential.
+
+P1-IIId Fig. 12 has been extracted from native APS PDF vector paths (page 15,
+PDF SHA-256 d660eb39...). The E-K temperature profile agrees with the archived
+Caputo profile at 55 radii with 0.071% RMS relative residual and with Bollig
+Fig. 1 at 391 radii with 0.095% RMS. At ten common radii from 1 to 15 km, the
+E-K n,p curves agree with Caputo reconstructed free-neutron/free-proton
+profiles at 0.58% RMS each. The density-axis top two printed labels have an
+apparent one-decade inconsistency; both mappings remain archived, and the
+corrected mapping is supported by the same-model comparison. The sum n+p
+tracks Caputo n_B(1-X_cluster), not total n_B.
+
+This is a cross-publication check of the same Garching SFHo-18.8 model lineage,
+not an independent hydrodynamic simulation validation. No raw Garching profile
+has been obtained, and no B.2 opacity, pure-vector Fig. 7 result, or axial
+cooling curve is changed. Fiorillo Table 1 weighted F_NN averages remain open
+because their original space-time weights are not contained in the EOS tables.
+The reproducible extraction and cross-check scripts and their workflow are in
+`research/stellar-cooling-constraints-20261105/blinov_reproduction/`.
