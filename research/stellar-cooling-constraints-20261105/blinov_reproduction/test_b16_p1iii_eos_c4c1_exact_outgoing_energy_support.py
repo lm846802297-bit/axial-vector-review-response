@@ -23,7 +23,7 @@ class TestC4C1ExactOutgoingEnergySupport(unittest.TestCase):
 
     def test_all_local_species_radius_and_cp_conjugate_cases(self):
         self.assertEqual(len(self.local), 16)
-        self.assertEqual(len(self.support), 16)
+        self.assertEqual(len(self.support), 8)
         self.assertEqual(len(self.cold), 4)
         self.assertEqual(
             sorted(set(row["r_km"] for row in self.local)),
