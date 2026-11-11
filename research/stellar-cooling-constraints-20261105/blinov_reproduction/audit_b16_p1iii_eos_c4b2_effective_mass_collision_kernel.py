@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import argparse
+import csv
+import hashlib
 import importlib.util
 import json
 import math
@@ -13,7 +15,6 @@ from numpy.polynomial.legendre import leggauss
 from scipy.special import expit
 
 from audit_b16_p1iii_eos_full_radial_occupation import load_profile
-from audit_b16_p1iii_eos_full_radial_occupation import load_c2_reference
 
 HERE = Path(__file__).resolve().parent
 OLD_PATH = HERE/"audit_b16_p1iii_b_moving_fermi_gas_collision_kernel.py"
@@ -32,6 +33,19 @@ INCIDENT_ENERGY = 100.0
 COS_THETA = -0.5
 LOCAL_HALF_WINDOW = 60.0
 TAIL_T = 45.0
+EXPECTED_C2_GIT_BLOB_SHA = "c472040a4551e68ffadbf7addf9402663f99e7e3"
+
+
+def load_c2_reference(path: Path) -> list[dict[str, float]]:
+    data = path.read_bytes()
+    digest = hashlib.sha1(f"blob {len(data)}\\0".encode("ascii")+data).hexdigest()
+    if digest != EXPECTED_C2_GIT_BLOB_SHA:
+        raise ValueError(f"C2 occupation CSV Git blob SHA mismatch: {digest}")
+    with path.open("r", newline="", encoding="utf-8") as stream:
+        rows = list(csv.DictReader(stream))
+    if len(rows) != 301:
+        raise ValueError(f"expected 301 C2 rows, found {len(rows)}")
+    return [{key: float(value) for key, value in row.items()} for row in rows]
 
 
 def pmax_eos(mstar: float, nu: float, temperature: float) -> float:
