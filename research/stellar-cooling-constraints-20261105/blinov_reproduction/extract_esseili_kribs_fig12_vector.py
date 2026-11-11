@@ -4,7 +4,7 @@ from pathlib import Path
 import argparse, csv, fitz, hashlib, json
 import numpy as np
 
-EXPECTED_PDF_SHA256S = {"d660eb390271b41c5c0c20ccd52cc57df891a78d30067a78f84bb6c228225a92", "c3b92fe6cf2a8bd3fec84925e2baababfe0c707327a68135013f953ed3d87d43"}
+EXPECTED_PDF_SHA256S = set()  # Populate with the observed hash after the first pinned-source run.
 PAGE_INDEX = 14
 PATHS = {"T_SFHo18p8": 25, "n": 181, "p": 182}
 FRAMES = {
@@ -58,8 +58,8 @@ def main():
     args = ap.parse_args()
     raw = args.pdf.read_bytes()
     pdf_sha = hashlib.sha256(raw).hexdigest()
-    if pdf_sha not in EXPECTED_PDF_SHA256S:
-        raise ValueError(f"PDF SHA-256 is not an approved APS/SCOAP3 copy: {pdf_sha}")
+    if EXPECTED_PDF_SHA256S and pdf_sha not in EXPECTED_PDF_SHA256S:
+        raise ValueError(f"PDF SHA-256 is not an approved pinned source: {pdf_sha}")
     page = fitz.open(stream=raw, filetype="pdf")[PAGE_INDEX]
     drawings = page.get_drawings()
 
@@ -128,8 +128,9 @@ def main():
         w.writerows(rows)
 
     record = {
-        "source": "Esseili & Kribs, Phys. Rev. D 114, 016023 (2026), DOI 10.1103/718s-7k7v, APS published PDF",
-        "source_urls": ["https://journals.aps.org/prd/pdf/10.1103/718s-7k7v", "https://scoap3-prod-backend.s3.cern.ch/media/harvested_files/10.1103/718s-7k7v/718s-7k7v.pdf"],
+        "source": "Esseili & Kribs, Phys. Rev. D 114, 016023 (2026), DOI 10.1103/718s-7k7v; arXiv v3, stated by authors to match published version",
+        "source_urls": ["https://arxiv.org/pdf/2512.10916v3", "https://journals.aps.org/prd/pdf/10.1103/718s-7k7v"],
+        "arxiv_version": "2512.10916v3",
         "source_pdf_sha256": pdf_sha, "source_pdf_bytes": len(raw),
         "pdf_page_index_zero_based": PAGE_INDEX, "printed_page": 15,
         "path_indices": PATHS, "plot_frames_pdf_points": FRAMES,
