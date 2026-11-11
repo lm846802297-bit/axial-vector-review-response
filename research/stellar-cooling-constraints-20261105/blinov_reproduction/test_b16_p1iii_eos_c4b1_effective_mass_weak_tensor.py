@@ -41,7 +41,7 @@ class TestC4B1EffectiveMassWeakTensor(unittest.TestCase):
             self.assertLess(row["relative_HVA_difference"], 1e-12)
 
     def test_neutrino_antineutrino_va_sign_structure(self):
-        self.assertEqual(len(self.summary["provenance"]["va_sign_cases"]), 8)
+        self.assertEqual(len(self.summary["provenance"]["VA_sign_cases"]), 8)
         self.assertLess(
             self.summary["maxima"]["neutrino_antineutrino_VA_sign_residual"],
             1e-10,
