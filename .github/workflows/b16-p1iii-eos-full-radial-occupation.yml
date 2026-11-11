@@ -1,0 +1,107 @@
+name: P1-IIIe-C2 full-radial EOS nucleon occupations
+
+on:
+  push:
+    branches:
+      - research/moving-muon-thermal-rates-20261107
+    paths:
+      - '.github/workflows/b16-p1iii-eos-full-radial-occupation.yml'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_full_radial_occupation.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_p1iii_eos_full_radial_occupation.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_nucleon_distribution.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/caputo_sfho_eos_profile_full_0p05km_2026-11-11.json'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/p1iii_eos_full_radial_occupation_2026-11-11.json'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/p1iii_eos_full_radial_occupation_2026-11-11.csv'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: p1iii-eos-full-radial-occupation
+  cancel-in-progress: false
+
+jobs:
+  full-radial-occupation:
+    if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out the exact research commit
+        uses: actions/checkout@v4
+        with:
+          ref: \${{ github.sha }}
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy
+
+      - name: Run C2 occupation unit tests
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest test_b16_p1iii_eos_full_radial_occupation -v
+
+      - name: Recompute all 301 radii independently in Python
+        env:
+          C2_JSON: \${{ runner.temp }}/c2.json
+          C2_CSV: \${{ runner.temp }}/c2.csv
+        run: |
+          set -euo pipefail
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_full_radial_occupation.py \\
+            --profile research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv \\
+            --output-json "$C2_JSON" \\
+            --output-csv "$C2_CSV"
+
+      - name: Compare CI reconstruction with committed direct result
+        env:
+          C2_JSON: \${{ runner.temp }}/c2.json
+          C2_CSV: \${{ runner.temp }}/c2.csv
+        run: |
+          python - <<'PY'
+          import csv, json, math, os
+          from pathlib import Path
+
+          root = Path("research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs")
+          expected = json.loads((root / "p1iii_eos_full_radial_occupation_2026-11-11.json").read_text())
+          actual = json.loads(Path(os.environ["C2_JSON"]).read_text())
+          assert actual["overall_pass"] is True
+          assert all(actual["acceptance"].values())
+
+          checks = {
+              "density": ("rms_relative", "max_abs_relative", "max_abs_density_fm3"),
+              "chemical_potential": ("max_abs_delta_nu_MeV",),
+              "Fdeg": ("max_abs_delta_Fdeg",),
+              "quadrature": (
+                  "quadrature_max_relative_n_change_2048_vs_512",
+                  "quadrature_max_abs_F_change_2048_vs_512",
+              ),
+          }
+          for species in ("n", "p"):
+              for section, keys in checks.items():
+                  for key in keys:
+                      a = expected["species"][species][section][key]
+                      b = actual["species"][species][section][key]
+                      assert math.isclose(a, b, rel_tol=2e-8, abs_tol=2e-12), (species, section, key, a, b)
+
+          with (root / "p1iii_eos_full_radial_occupation_2026-11-11.csv").open(newline="") as stream:
+              expected_rows = list(csv.DictReader(stream))
+          with Path(os.environ["C2_CSV"]).open(newline="") as stream:
+              actual_rows = list(csv.DictReader(stream))
+          assert len(expected_rows) == len(actual_rows) == 301
+          columns = (
+              "r_km", "nprime_n_fm3", "nprime_p_fm3",
+              "density_rel_residual_n", "density_rel_residual_p",
+              "Fnn_deg", "Fpp_deg", "delta_nu_n_MeV", "delta_nu_p_MeV",
+          )
+          for key in columns:
+              error = max(abs(float(a[key])-float(b[key])) for a, b in zip(expected_rows, actual_rows))
+              assert error < 1e-9, (key, error)
+          print("C2 independent Python reconstruction matches the committed 301-point result.")
+          PY
