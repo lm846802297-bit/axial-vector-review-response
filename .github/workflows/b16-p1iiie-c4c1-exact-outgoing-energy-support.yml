@@ -32,7 +32,7 @@ jobs:
       - name: Check out the exact research commit
         uses: actions/checkout@v4
         with:
-          ref: \${{ github.sha }}
+          ref: ${{ github.sha }}
           fetch-depth: 1
 
       - name: Set up Python
@@ -51,7 +51,7 @@ jobs:
 
       - name: Recompute exact outgoing-energy support and full Eprime integrals
         env:
-          C4C1_DIR: \${{ runner.temp }}/c4c1
+          C4C1_DIR: ${{ runner.temp }}/c4c1
         run: |
           set -euo pipefail
           mkdir -p "$C4C1_DIR"
@@ -59,7 +59,7 @@ jobs:
 
       - name: Validate C4-C1 numerical outputs
         env:
-          C4C1_DIR: \${{ runner.temp }}/c4c1
+          C4C1_DIR: ${{ runner.temp }}/c4c1
         run: |
           python - <<'PY'
           import csv, json, math, os
@@ -90,6 +90,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: c4c1-exact-outgoing-energy-support
-          path: \${{ runner.temp }}/c4c1/
+          path: ${{ runner.temp }}/c4c1/
           if-no-files-found: error
           retention-days: 90
