@@ -228,7 +228,7 @@ def analyze_profile(
         "interpretation": [
             "At h/T=1e-2 to 1e-3, the maximum residual falls by approximately 100 when h is reduced by 10, consistent with O(h^2) central-difference truncation error.",
             "The shared working step is h/T=3e-5; it keeps both species below 1e-8 relative error over the full radial profile.",
-            "For smaller steps (1e-5 and 3e-6), the residual rises again, consistent with cancellation/roundoff in n'(nu+h)-n'(nu-h).",
+            "At 3e-6, and depending on the quadrature backend already at 1e-5, the residual begins to rise again; this is consistent with cancellation/roundoff in n'(nu+h)-n'(nu-h). The precise roundoff floor is implementation-dependent.",
             "The step scan does not alter the primary C2 occupation or Fdeg values; it only validates the numerical derivative method.",
         ],
     }
