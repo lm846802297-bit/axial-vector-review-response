@@ -123,7 +123,7 @@ C4-A acceptance:
 
 **C4-A direct numerical status: PASS.** Independent Python CI also passes:
 
-- GitHub Actions Run #7: https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42999848393
+- GitHub Actions workflow run #2: https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42999848393
 - 5/5 unit tests passed.
 - All 13,440 q0-resolved response points and 56 sum-rule records were independently recomputed.
 - Dynamic/static closure, detailed balance, and the q-to-zero susceptibility checks passed.
