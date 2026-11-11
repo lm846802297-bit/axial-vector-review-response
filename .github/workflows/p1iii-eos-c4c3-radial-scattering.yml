@@ -1,0 +1,122 @@
+name: P1-IIIe C4-C3 radial EOS scattering
+
+on:
+  push:
+    branches:
+      - research/moving-muon-thermal-rates-20261107
+    paths:
+      - ".github/workflows/p1iii-eos-c4c3-radial-scattering.yml"
+      - "research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_c4c3_radial_scattering.py"
+      - "research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_c4b2_effective_mass_collision_kernel.py"
+      - "research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_c4c1_exact_outgoing_energy_support.py"
+      - "research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_full_radial_occupation.py"
+      - "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv"
+      - "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/p1iii_eos_full_radial_occupation_2026-11-11.csv"
+      - "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/p1iiie_c4c2_full_angle_total_rates_2026-11-11.csv"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: p1iii-eos-c4c3-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  radial-rate-shards:
+    name: C4-C3 rate shard ${{ matrix.shard }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: ${{ fromJson('[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39]') }}
+    steps:
+      - name: Check out exact research commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install numerical dependencies
+        run: python -m pip install --upgrade numpy scipy
+      - name: Run C4-C3 unit tests
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest -v test_b16_p1iii_eos_c4c3_radial_scattering.py
+      - name: Compute radial rate shard
+        env:
+          SHARD_INDEX: ${{ matrix.shard }}
+        run: |
+          set -euo pipefail
+          ROOT=research/stellar-cooling-constraints-20261105/blinov_reproduction
+          mkdir -p /tmp/c4c3
+          python "$ROOT/audit_b16_p1iii_eos_c4c3_radial_scattering.py" \
+            --shard-index "$SHARD_INDEX" --shard-count 40 \
+            --output-csv "/tmp/c4c3/rates_shard_${SHARD_INDEX}.csv"
+      - name: Upload radial rate shard
+        uses: actions/upload-artifact@v4
+        with:
+          name: c4c3-rate-shard-${{ matrix.shard }}
+          path: /tmp/c4c3/rates_shard_${{ matrix.shard }}.csv
+          if-no-files-found: error
+          retention-days: 90
+
+  merge-and-validate:
+    name: Merge 301-point radial profile and validate optical depth
+    needs: radial-rate-shards
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out exact research commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install numerical dependencies
+        run: python -m pip install --upgrade numpy scipy
+      - name: Download all rate shards
+        uses: actions/download-artifact@v4
+        with:
+          pattern: c4c3-rate-shard-*
+          path: /tmp/c4c3/shards
+          merge-multiple: true
+      - name: Merge, enforce provenance, and validate radial convergence
+        run: |
+          set -euo pipefail
+          ROOT=research/stellar-cooling-constraints-20261105/blinov_reproduction
+          python "$ROOT/audit_b16_p1iii_eos_c4c3_radial_scattering.py" \
+            --merge-dir /tmp/c4c3/shards \
+            --output-dir /tmp/c4c3/final \
+            --source-commit "${GITHUB_SHA}"
+          python - <<'PY'
+          import csv, json
+          from pathlib import Path
+          root = Path("/tmp/c4c3/final")
+          summary = json.loads((root / "summary.json").read_text())
+          assert summary["overall_pass"]
+          assert all(summary["acceptance"].values())
+          for name, expected in (
+              ("radial_rates_301x4.csv", 1204),
+              ("radial_opacity_tau_0p05km.csv", 301),
+              ("radial_tau_grid_convergence.csv", 12),
+          ):
+              with (root / name).open(newline="") as stream:
+                  rows = list(csv.DictReader(stream))
+              assert len(rows) == expected, (name, len(rows), expected)
+          print(json.dumps({
+              "overall_pass": summary["overall_pass"],
+              "maxima": summary["maxima"],
+              "acceptance": summary["acceptance"],
+          }, indent=2))
+          PY
+      - name: Upload C4-C3 validated outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: c4c3-301-point-radial-scattering
+          path: /tmp/c4c3/final/
+          if-no-files-found: error
+          retention-days: 90
