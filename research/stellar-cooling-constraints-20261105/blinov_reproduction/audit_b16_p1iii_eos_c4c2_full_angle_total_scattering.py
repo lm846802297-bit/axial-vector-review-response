@@ -247,7 +247,7 @@ def _cold_horowitz_cases() -> tuple[list[dict], list[dict]]:
 def analyze(
     profile: list[dict[str, float]],
     c2: list[dict[str, float]],
-) -> tuple[list[dict], list[dict], list[dict], list[dict], dict]:
+) -> tuple[list[dict], list[dict], list[dict], list[dict], list[dict], dict]:
     if len(profile) != 301 or len(c2) != 301:
         raise ValueError("C4-C2 requires the 301-point C1/C2 profile")
     local, angle_local, kernel_order = _local_cases(profile, c2)
