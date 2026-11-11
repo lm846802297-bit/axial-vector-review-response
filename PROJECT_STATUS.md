@@ -365,8 +365,10 @@ The latest push-triggered workflow, [Run #42666123613](https://github.com/lm8468
 ## 2026-11-11 update: SFHo real-table and Fig. 12 cross-check
 
 P1-IIIe-A/B now has an authenticated local raw-data run and a full local test
-execution. The current combined suite passes **35/35** with SFHO_TABLES_DIR set;
-all five official archive hashes and the extracted-table hashes are verified.
+execution. The current combined suite passes **35/35** locally and in GitHub Actions. Run
+[#42953524476](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42953524476)
+downloaded the three original Release ZIPs, verified their SHA-256 values,
+extracted the tables, and passed 15/15 plus 20/20 tests with zero skips.
 The decoded physical SPP grid contains 1,496,880 cells; the excluded-volume
 identity has maximum residual 7.975e-8. The composition table has 1,521,828
 physical cells, of which 1,121,375 (73.6861%) are nuclei-containing. Its free
@@ -390,5 +392,8 @@ not an independent hydrodynamic simulation validation. No raw Garching profile
 has been obtained, and no B.2 opacity, pure-vector Fig. 7 result, or axial
 cooling curve is changed. Fiorillo Table 1 weighted F_NN averages remain open
 because their original space-time weights are not contained in the EOS tables.
-The reproducible extraction and cross-check scripts and their workflow are in
+The reproducible Fig. 12 vector workflow completed successfully in Run
+[#42952924997](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42952924997),
+using the checksum-pinned SCOAP3 copy because APS direct download returns HTTP
+403 to hosted runners. The reproducible extraction and cross-check scripts and their workflow are in
 `research/stellar-cooling-constraints-20261105/blinov_reproduction/`.
