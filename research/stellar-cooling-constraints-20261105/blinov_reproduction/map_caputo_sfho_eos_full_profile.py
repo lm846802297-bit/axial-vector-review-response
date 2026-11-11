@@ -319,7 +319,7 @@ def write_report(summary: dict, path: Path) -> None:
     for table, axes in bounds.items():
         for axis, item in axes.items():
             lines.append(
-                f"| {table}: {axis} | {item['table_min']:.8g}--{item['table_max']:.8g} | "
+                f"| {table}: {axis} | {item['table_min']:.8g} to {item['table_max']:.8g} | "
                 f"{item['profile_min']:.8g}--{item['profile_max']:.8g} | "
                 f"{item['lower_margin']:.8g} | {item['upper_margin']:.8g} |"
             )
