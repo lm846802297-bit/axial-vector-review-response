@@ -6,7 +6,7 @@ Branch: \`research/moving-muon-thermal-rates-20261107\`
 
 ## 1. Result and scope
 
-The published APS PDF has now been extracted at the native PDF-vector level. The
+The pinned arXiv v3 PDF (which the authors state matches the published version) is used as the reproducible source for native PDF-vector extraction. Its SHA-256 is computed and archived by the workflow. The
 SFHo-18.8 temperature path and the right-panel neutron/proton paths are
 identified by stroke color and exact path index, flattened from cubic Bézier
 segments, clipped to the plotted frame, and calibrated against the PDF tick
