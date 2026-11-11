@@ -409,3 +409,23 @@ The arXiv v3 PDF is not used for path indexing: although its text/version
 matches the published paper, its internal vector-object ordering differs, so
 published-PDF path indices 25/181/182 do not identify the corresponding curves
 in that file. Numerical cross-checks below remain based on the SCOAP3 source.
+
+
+**P1-IIId completion / P1-IIIe handoff (2026-11-11):** The final Fig. 12
+native-vector extraction, PDF-axis glyph audit, and Caputo/Bollig pointwise
+cross-check passed in GitHub Actions
+[#42955259591](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42955259591).
+The E–K temperature profile has 0.0707% RMS residual against Caputo Fig. 1
+(55 common radii) and 0.0953% against Bollig Fig. 1 (391 radii). At ten radii
+from 1 to 15 km, E–K free-neutron and free-proton densities agree with Caputo
+reconstructions at 0.580% and 0.586% RMS; their sum agrees with
+\((1-X_{\rm cluster})n_B\) at 0.574% RMS. Caputo's own Fig. 1/Fig. 4 closure
+supports the free-proton reconstruction. The cluster fraction is
+\(X_{\rm cluster}=1-Y_n-Y_p\), rising to 8.85% at 15 km. This is a
+cross-publication consistency check of the same Garching SFHo-18.8 lineage,
+not independent hydrodynamic validation. Next: map the validated
+\(T,n_n^{\rm free},n_p^{\rm free}\) profiles onto the authenticated SFHo EOS
+tables and calculate local nucleon chemical potentials/occupation factors,
+keeping cluster-bound baryons separate. No B.2 opacity, vector Fig. 7 result,
+or axial cooling curve is changed.
+
