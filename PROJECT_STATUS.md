@@ -429,3 +429,46 @@ tables and calculate local nucleon chemical potentials/occupation factors,
 keeping cluster-bound baryons separate. No B.2 opacity, vector Fig. 7 result,
 or axial cooling curve is changed.
 
+
+
+## 2026-11-11: P1-IIIe-C local Caputo-to-SFHo EOS key-radius mapping
+
+A first local mapping is complete at ten audited Caputo SFHo-18.8 radii from
+1 to 15 km, using the official SFHo/FRDM v1.03 EOS files whose extracted
+SHA-256 hashes are recorded in the new P1-IIIe-C JSON. The EOS interpolation
+coordinate is the total proton fraction \(Y_p^{\rm tot}=Y_e+Y_\mu\), not the
+free-proton abundance \(Y_p\). The wrong-coordinate test fails at the
+few-percent composition level, while the correct coordinate reproduces
+Caputo \(X_n,X_p,X_{\rm cluster}\) at maximum absolute differences
+\(2.02\times10^{-5}\), \(1.67\times10^{-5}\), and \(2.67\times10^{-5}\).
+
+The SPP filling factor agrees with the value inferred from Caputo densities
+to \(1.74\times10^{-4}\) maximum absolute difference. Direct Fermi-integral
+density closure is 0.177% maximum for neutrons and 0.603% for protons.
+The chemical-potential correction needed for exact density closure is below
+0.18 MeV; the resulting change in \(F_{NN}^{\rm deg}\) is below
+\(3.7\times10^{-4}\). The 2048-point quadrature is converged against 512
+points at better than \(2\times10^{-13}\) in density.
+
+Local static factors span \(F_{nn}^{\rm deg}=0.242\)--0.731 and
+\(F_{pp}^{\rm deg}=0.460\)--0.983. Relative to a vacuum-mass ideal gas at the
+same local free-nucleon densities, the EOS effective masses lower these
+factors by up to 31.6% (neutrons) and 26.6% (protons) in the inner core.
+These are snapshot-local static factors, not Fiorillo Table 1 mass-time
+weighted averages; no dynamic response, opacity, transport, or cooling curve
+is changed.
+
+The reproducible profile builder, mapping script, input CSV, detailed output,
+and report are in
+\`research/stellar-cooling-constraints-20261105/blinov_reproduction/\`:
+\`build_caputo_profile_key_radii.py\`,
+\`map_caputo_sfho_eos_profile.py\`,
+\`outputs/caputo_profile_key_radii_2026-11-11.csv\`,
+\`outputs/caputo_sfho_eos_profile_key_radii_2026-11-11.csv\`,
+\`outputs/caputo_sfho_eos_profile_key_radii_2026-11-11.json\`, and
+\`B16_P1IIIE_C_CAPUTO_PROFILE_TO_SFHO_EOS_2026-11-11.md\`.
+
+The independent GitHub Actions profile-map validation is running. Next is to
+extend the same mapping from ten key radii to the full 0.05-km Caputo
+composition profile, retaining clusters as a separate component.
+
