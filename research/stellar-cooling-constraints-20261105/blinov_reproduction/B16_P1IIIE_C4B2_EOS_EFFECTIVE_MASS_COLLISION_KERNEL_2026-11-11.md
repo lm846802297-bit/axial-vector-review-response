@@ -156,7 +156,9 @@ C4-B2 establishes a consistent minimal quasiparticle embedding of the EOS effect
 4. the available-volume density and \(\xi_{\rm SPP}\) are kept distinct;
 5. the vacuum-mass, cold/dilute, detailed-balance, and quadrature limits pass.
 
-Two limitations remain before interpreting this as a physical local opacity. First, the current result is differential in the outgoing angle and uses a finite \(E_\nu'\) window; it is not integrated over the full outgoing phase space. Second, the minimal quasiparticle treatment does not include RPA, NN correlations, or in-medium vertex corrections.
+Two limitations remain before interpreting this as a physical local opacity. First, the current result is differential in the outgoing angle and uses a finite \\(E_\\nu'\\) window; it is not integrated over the full outgoing phase space. Second, the minimal quasiparticle treatment does not include RPA, NN correlations, or in-medium vertex corrections.
+
+The subsequent C4-C1 full-support audit quantifies the first limitation: the legacy \\(\\pm60\\) MeV window captures only 75.05%--99.30% of the full outgoing-energy integral in the selected local cases, with the largest deficit in the 10 km neutron-neutrino benchmark. Accordingly, the C4-B2 numbers are retained as finite-window kernel diagnostics only; the full-support C4-C1 values supersede them for this benchmark. They are not used as total rates or radial opacities.
 
 ## 8. Next stage: C4-C
 
