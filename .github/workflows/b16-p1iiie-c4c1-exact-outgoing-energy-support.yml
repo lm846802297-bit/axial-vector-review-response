@@ -1,0 +1,95 @@
+name: P1-IIIe-C4C1 exact outgoing-energy support
+
+on:
+  push:
+    branches:
+      - research/moving-muon-thermal-rates-20261107
+    paths:
+      - '.github/workflows/b16-p1iiie-c4c1-exact-outgoing-energy-support.yml'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_b_stationary_dirac_trace.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_b_moving_fermi_gas_collision_kernel.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_full_radial_occupation.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_c4b2_effective_mass_collision_kernel.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_c4c1_exact_outgoing_energy_support.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_p1iii_eos_c4c1_exact_outgoing_energy_support.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/p1iii_eos_full_radial_occupation_2026-11-11.csv'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: p1iiie-c4c1-exact-outgoing-energy-support
+  cancel-in-progress: false
+
+jobs:
+  exact-outgoing-energy-support:
+    if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Check out the exact research commit
+        uses: actions/checkout@v4
+        with:
+          ref: \${{ github.sha }}
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy
+
+      - name: Run C4-C1 unit tests
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest test_b16_p1iii_eos_c4c1_exact_outgoing_energy_support -v
+
+      - name: Recompute exact outgoing-energy support and full Eprime integrals
+        env:
+          C4C1_DIR: \${{ runner.temp }}/c4c1
+        run: |
+          set -euo pipefail
+          mkdir -p "$C4C1_DIR"
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_c4c1_exact_outgoing_energy_support.py --profile research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv --c2-reference research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/p1iii_eos_full_radial_occupation_2026-11-11.csv --output-json "$C4C1_DIR/summary.json" --output-local-csv "$C4C1_DIR/local_full_support.csv" --output-support-csv "$C4C1_DIR/support_roots.csv" --output-cold-csv "$C4C1_DIR/cold_horowitz.csv"
+
+      - name: Validate C4-C1 numerical outputs
+        env:
+          C4C1_DIR: \${{ runner.temp }}/c4c1
+        run: |
+          python - <<'PY'
+          import csv, json, math, os
+          from pathlib import Path
+
+          root = Path(os.environ["C4C1_DIR"])
+          summary = json.loads((root / "summary.json").read_text())
+          assert summary["overall_pass"]
+          assert all(summary["acceptance"].values())
+          assert summary["provenance"]["local_cases"] == 16
+          assert summary["provenance"]["cold_Horowitz_cases"] == 4
+          assert summary["maxima"]["support_root_relative_residual"] < 1e-7
+          assert summary["maxima"]["cold_dilute_Horowitz_relative_residual"] < 1e-3
+          assert summary["maxima"]["Eprime_48_to_72_relative_difference"] < 1e-2
+          assert summary["maxima"]["Eprime_32_to_72_relative_difference"] < 2e-2
+          for name, count in (("local_full_support.csv", 16), ("support_roots.csv", 16), ("cold_horowitz.csv", 4)):
+              with (root / name).open(newline="") as stream:
+                  rows = list(csv.DictReader(stream))
+              assert len(rows) == count, (name, len(rows))
+          print(json.dumps({
+              "maxima": summary["maxima"],
+              "legacy_60MeV_window_fraction": summary["legacy_60MeV_window_fraction"],
+              "acceptance": summary["acceptance"],
+          }, indent=2))
+          PY
+
+      - name: Upload C4-C1 numerical outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: c4c1-exact-outgoing-energy-support
+          path: \${{ runner.temp }}/c4c1/
+          if-no-files-found: error
+          retention-days: 90
