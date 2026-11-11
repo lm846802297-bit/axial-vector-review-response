@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """C4-C3: 301-point radial EOS total-scattering rates and flat-space optical depth."""
 from __future__ import annotations
-import argparse, csv, json, math, os
+import argparse, csv, hashlib, json, math, os
 from pathlib import Path
 import numpy as np
 
@@ -25,6 +25,19 @@ ANTINU = ("False", "True")
 def read_csv(path):
     with Path(path).open(newline="", encoding="utf-8") as f:
         return list(csv.DictReader(f))
+
+
+def git_blob_sha(path):
+    data = Path(path).read_bytes()
+    header = f"blob {len(data)}\\0".encode("ascii")
+    return hashlib.sha1(header + data).hexdigest()
+
+
+def require_blob_sha(path, expected, label):
+    actual = git_blob_sha(path)
+    if actual != expected:
+        raise ValueError(f"{label} Git blob SHA mismatch: expected {expected}, got {actual}")
+    return actual
 
 
 def write_csv(path, rows):
@@ -159,17 +172,43 @@ def merge_shards(shard_dir, profile, c2, output_dir, source_commit="local"):
             row[f"tau_total_{anti}_0p05"] = tau[f"total_{anti}"][i]
         radial.append(row)
 
-    # C4-C2 regression: the four previously computed radii must reproduce exactly.
-    ref_path = C4C2_REFERENCE
-    refs = read_csv(ref_path) if ref_path.exists() else []
-    if refs and len(refs) != 16:
-        raise ValueError("C4-C2 reference table must contain 16 rows")
+    # Pin the three numerical inputs to the audited PR snapshot.
+    profile_blob = require_blob_sha(
+        PROFILE, "9ff7818b0679992c0a9ba402330ec7f0d1f3041b", "C1 profile"
+    )
+    c2_blob = require_blob_sha(
+        C2, "c472040a4551e68ffadbf7addf9402663f99e7e3", "C2 occupation"
+    )
+    if not C4C2_REFERENCE.is_file():
+        raise FileNotFoundError(f"required C4-C2 regression reference is missing: {C4C2_REFERENCE}")
+    c4c2_blob = require_blob_sha(
+        C4C2_REFERENCE, "881b6459e8d9a1ac867b0f4dc47ac168d454e488", "C4-C2 total-rate reference"
+    )
+    refs = read_csv(C4C2_REFERENCE)
+    if len(refs) != 16:
+        raise ValueError(f"C4-C2 reference table must contain 16 rows, found {len(refs)}")
+    expected_ref_keys = {
+        (round(float(profile[i]["r_km"]), 8), species, anti)
+        for i in (0, 96, 196, 300)
+        for species in SPECIES
+        for anti in ANTINU
+    }
+    observed_ref_keys = {
+        (round(float(x["r_km"]), 8), x["species"], x["antinu"]) for x in refs
+    }
+    if observed_ref_keys != expected_ref_keys:
+        raise ValueError("C4-C2 reference table has missing, duplicate, or unexpected radius/species/sign cases")
     index_by_r = {round(float(profile[i]["r_km"]), 8): i for i in (0, 96, 196, 300)}
     c4c2_max = 0.0
     for ref in refs:
+        if abs(float(ref["E_MeV"]) - INCIDENT_ENERGY) > 1e-12:
+            raise ValueError("C4-C2 reference incident energy differs from the C4-C3 baseline")
         i = index_by_r[round(float(ref["r_km"]), 8)]
         actual = rate[(i, ref["species"], ref["antinu"])]["gamma_available_volume_MeV"]
-        c4c2_max = max(c4c2_max, abs(actual / float(ref["gamma_total_available_volume_MeV"]) - 1.0))
+        reference = float(ref["gamma_total_available_volume_MeV"])
+        if not math.isfinite(reference) or reference <= 0.0:
+            raise ValueError("C4-C2 reference rate must be finite and positive")
+        c4c2_max = max(c4c2_max, abs(actual / reference - 1.0))
 
     convergence = []
     common = np.arange(0, 301, 10, dtype=int)  # 0.50-km nodes common to all three grids.
@@ -211,7 +250,7 @@ def merge_shards(shard_dir, profile, c2, output_dir, source_commit="local"):
         "tau_nonnegative_and_radially_monotone": monotone,
         "0p10km_radial_integral_within_1_percent": grid10 < 1e-2,
         "0p25km_radial_integral_within_1_percent": grid25 < 1e-2,
-        "C4C2_four_radius_local_rate_reproduction_below_1e_8": (not refs) or c4c2_max < 1e-8,
+        "C4C2_four_radius_local_rate_reproduction_below_1e_8": c4c2_max < 1e-8,
     }
     summary = {
         "title": "P1-IIIe-C4C3 301-point radial total scattering and flat-space optical depth",
