@@ -38,7 +38,7 @@ jobs:
             --output aps_fig12_source.pdf
           sha256sum aps_fig12_source.pdf
           python - <<'PY'
-          import fitz, hashlib
+          import fitz, json
           p = "aps_fig12_source.pdf"
           doc = fitz.open(p)
           page = doc[14]
@@ -48,19 +48,33 @@ jobs:
               "n": (0.0, 0.5097887, 0.7842985),
               "p": (0.2, 0.7293965, 1.0),
           }
+          inventory = {}
           for name, color in targets.items():
               found = []
               for i, d in enumerate(page.get_drawings()):
                   c = d.get("color")
                   if c and max(abs(a-b) for a,b in zip(c,color)) < 0.003:
                       r = d["rect"]
-                      found.append((i, tuple(round(v,3) for v in (r.x0,r.y0,r.x1,r.y1)), d["width"], len(d["items"])))
+                      found.append({"index": i, "rect": [r.x0,r.y0,r.x1,r.y1],
+                                    "width": d["width"], "items": len(d["items"])})
+              inventory[name] = found
               print(name, found)
+          page.get_pixmap(matrix=fitz.Matrix(2,2), alpha=False).save("page15_scoap3.png")
+          open("scoap3_path_inventory.json","w").write(json.dumps(inventory,indent=2))
           PY
-          echo "SCOAP3 inspection complete; extraction is intentionally paused until its digest/path inventory is pinned."
-          exit 0
+
+      - name: Upload the inspected SCOAP3 source and page render
+        uses: actions/upload-artifact@v4
+        with:
+          name: scoap3-fig12-source-inspection
+          path: |
+            aps_fig12_source.pdf
+            page15_scoap3.png
+            scoap3_path_inventory.json
+          retention-days: 1
 
       - name: Extract native vector paths and perform profile cross-checks
+        if: false
         run: |
           set -euo pipefail
           python extract_esseili_kribs_fig12_vector.py aps_fig12_source.pdf --outdir outputs
@@ -68,6 +82,7 @@ jobs:
           rm aps_fig12_source.pdf
 
       - name: Commit reproducible vector and cross-check products
+        if: false
         shell: bash
         run: |
           set -euo pipefail
