@@ -32,7 +32,7 @@ jobs:
       - name: Check out the exact research commit
         uses: actions/checkout@v4
         with:
-          ref: \${{ github.sha }}
+          ref: ${{ github.sha }}
           fetch-depth: 1
 
       - name: Set up Python
@@ -51,16 +51,16 @@ jobs:
 
       - name: Recompute all 5418 species-radius-step combinations
         env:
-          C3B_JSON: \${{ runner.temp }}/c3b.json
-          C3B_CSV: \${{ runner.temp }}/c3b.csv
+          C3B_JSON: ${{ runner.temp }}/c3b.json
+          C3B_CSV: ${{ runner.temp }}/c3b.csv
         run: |
           set -euo pipefail
           python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_full_radial_degeneracy_step_scan.py --profile research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv --c2-reference research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/p1iii_eos_full_radial_occupation_2026-11-11.csv --output-json "$C3B_JSON" --output-csv "$C3B_CSV"
 
       - name: Validate independent Python step scan
         env:
-          C3B_JSON: \${{ runner.temp }}/c3b.json
-          C3B_CSV: \${{ runner.temp }}/c3b.csv
+          C3B_JSON: ${{ runner.temp }}/c3b.json
+          C3B_CSV: ${{ runner.temp }}/c3b.csv
         run: |
           python - <<'PY'
           import csv, json, math, os
