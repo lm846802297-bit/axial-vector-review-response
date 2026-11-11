@@ -7,6 +7,7 @@ on:
     paths:
       - ".github/workflows/p1iii-eos-c4c3-radial-scattering.yml"
       - "research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_c4c3_radial_scattering.py"
+      - "research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_p1iii_eos_c4c3_radial_scattering.py"
       - "research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_c4b2_effective_mass_collision_kernel.py"
       - "research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_c4c1_exact_outgoing_energy_support.py"
       - "research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_c4c2_full_angle_total_scattering.py"
