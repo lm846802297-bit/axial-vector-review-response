@@ -1,9 +1,22 @@
 import unittest
+import tempfile
+from pathlib import Path
 import numpy as np
-from audit_b16_p1iii_eos_c4c3_radial_scattering import KM_TO_MEV_INV, shard_indices, tau_from_kappa
+from audit_b16_p1iii_eos_c4c3_radial_scattering import (
+    KM_TO_MEV_INV, git_blob_sha, shard_indices, tau_from_kappa,
+)
 
 
 class TestC4C3RadialScattering(unittest.TestCase):
+    def test_git_blob_sha_uses_nul_terminated_header(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "fixture.txt"
+            path.write_bytes(b"test\\n")
+            self.assertEqual(
+                git_blob_sha(path),
+                "9daeafb9864cf43055ae93beb0afd6c7d144bfa4",
+            )
+
     def test_km_to_natural_length_conversion(self):
         self.assertAlmostEqual(KM_TO_MEV_INV, 5.067730716e15, delta=1e7)
 
