@@ -28,15 +28,15 @@
   },
   "cross_figure_validation": {
     "Yp_Fig4_vs_np_over_nB_Fig1": {
-      "rms_relative": 0.0003202045390932544,
+      "rms_relative": 0.00032020453909325353,
       "max_abs_relative": 0.000849559346442104
     },
     "Ye_plus_Ymu_Fig4_vs_(ne+nmu)_over_nB_Fig1": {
-      "rms_relative": 0.0010740411338583794,
+      "rms_relative": 0.0010740411338583705,
       "max_abs_relative": 0.0026429868587817926
     },
     "cluster_charge_absolute_difference": {
-      "rms": 0.00016150996764619142,
+      "rms": 0.0001615099676461903,
       "max_abs": 0.0004125666982914833
     }
   },

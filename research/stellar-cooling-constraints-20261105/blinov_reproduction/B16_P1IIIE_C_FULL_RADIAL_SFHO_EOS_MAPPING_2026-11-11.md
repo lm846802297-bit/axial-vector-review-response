@@ -16,12 +16,12 @@ Trilinear interpolation is performed in (log10 T, Yp_tot, log10 nB) with bounds_
 
 | Table axis | Table range | Profile range | Lower margin | Upper margin |
 |---|---:|---:|---:|---:|
-| extended_eos: log10_T_MeV | -1--2.2 | 1.0935743--1.5937413 | 2.0935743 | 0.60625865 |
-| extended_eos: Yp_tot | 0--0.6 | 0.069491825--0.21822336 | 0.069491825 | 0.38177664 |
-| extended_eos: log10_nB_fm3 | -12--0.28 | -1.6146589---0.4514227 | 10.385341 | 0.7314227 |
-| single_particle: log10_T_MeV | -1--2.1999999 | 1.0935743--1.5937413 | 2.0935743 | 0.6062586 |
-| single_particle: Yp_tot | 0.01--0.6 | 0.069491825--0.21822336 | 0.059491825 | 0.38177664 |
-| single_particle: log10_nB_fm3 | -12--0.28 | -1.6146589---0.4514227 | 10.385341 | 0.7314227 |
+| extended_eos: log10_T_MeV | -1 to 2.2 | 1.0935743--1.5937413 | 2.0935743 | 0.60625865 |
+| extended_eos: Yp_tot | 0 to 0.6 | 0.069491825--0.21822336 | 0.069491825 | 0.38177664 |
+| extended_eos: log10_nB_fm3 | -12 to 0.28 | -1.6146589---0.4514227 | 10.385341 | 0.7314227 |
+| single_particle: log10_T_MeV | -1 to 2.1999999 | 1.0935743--1.5937413 | 2.0935743 | 0.6062586 |
+| single_particle: Yp_tot | 0.01 to 0.6 | 0.069491825--0.21822336 | 0.059491825 | 0.38177664 |
+| single_particle: log10_nB_fm3 | -12 to 0.28 | -1.6146589---0.4514227 | 10.385341 | 0.7314227 |
 
 ## Composition closure
 
