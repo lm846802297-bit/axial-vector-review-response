@@ -76,6 +76,23 @@ def main():
     t_ticks = np.arange(10., 61., 10.)
     ysl, yil = np.polyfit(t_ticks, t_tick_y, 1)
 
+    # Preserve the exact PDF text objects around the right-panel logarithmic
+    # y-axis. This distinguishes printed glyphs/superscripts from an OCR-based
+    # reading of the rasterized figure.
+    right_panel_axis_text_spans = []
+    for block in page.get_text("dict")["blocks"]:
+        for line in block.get("lines", []):
+            for span in line.get("spans", []):
+                x0, y0, x1, y1 = map(float, span["bbox"])
+                if 548.0 <= x0 <= 620.0 and 45.0 <= y0 <= 180.0:
+                    right_panel_axis_text_spans.append({
+                        "text": span["text"],
+                        "bbox_pdf_points": [x0, y0, x1, y1],
+                        "font": span["font"],
+                        "font_size_pt": float(span["size"]),
+                    })
+    right_panel_axis_text_spans.sort(key=lambda x: (x["bbox_pdf_points"][1], x["bbox_pdf_points"][0]))
+
     rows, meta = [], {}
     for name, path_index in PATHS.items():
         d = drawings[path_index]
@@ -146,6 +163,7 @@ def main():
             "interpretation": "Equal log spacing and the lower three labels imply actual tick values 1, 10^-1, 10^-2, 10^-3, 10^-4. The top two printed labels appear one decade too high. Both transforms are retained.",
         },
         "normalization_n0_fm3": 0.181, "curves": meta,
+        "right_panel_axis_text_spans": right_panel_axis_text_spans,
         "digitization_uncertainty_estimate": {
             "curve_stroke_width_pt": float(drawings[PATHS["n"]]["width"]),
             "radius_half_stroke_km": float(drawings[PATHS["n"]]["width"] / 2 / xsr),
