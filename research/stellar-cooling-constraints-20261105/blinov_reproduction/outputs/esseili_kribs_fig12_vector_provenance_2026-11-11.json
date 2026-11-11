@@ -1,10 +1,10 @@
 {
-  "source": "Esseili & Kribs, Phys. Rev. D 114, 016023 (2026), DOI 10.1103/718s-7k7v; arXiv v3, stated by authors to match published version",
+  "source": "Esseili & Kribs, Phys. Rev. D 114, 016023 (2026), DOI 10.1103/718s-7k7v; checksum-pinned SCOAP3 copy of the published APS PDF",
   "source_urls": [
-    "https://arxiv.org/pdf/2512.10916v3",
+    "https://repo.scoap3.org/records/109482",
+    "https://scoap3-prod-backend.s3.cern.ch/media/harvested_files/10.1103/718s-7k7v/718s-7k7v.pdf",
     "https://journals.aps.org/prd/pdf/10.1103/718s-7k7v"
   ],
-  "arxiv_version": "2512.10916v3",
   "source_pdf_sha256": "c3b92fe6cf2a8bd3fec84925e2baababfe0c707327a68135013f953ed3d87d43",
   "source_pdf_bytes": 2749668,
   "pdf_page_index_zero_based": 14,
