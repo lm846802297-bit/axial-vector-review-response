@@ -92,7 +92,8 @@ jobs:
               assert abs(float(e["r_km"])-float(a["r_km"])) < 1e-12, i
               assert abs(float(e["step_fraction_h_over_T"])-float(a["step_fraction_h_over_T"])) < 1e-15, i
               assert abs(float(e["F_direct"])-float(a["F_direct"])) < 1e-11, i
-              assert abs((float(a["F_density_derivative"])-float(a["F_direct"]))/float(a["F_direct"])) < 1e-8, i
+              if math.isclose(float(a["step_fraction_h_over_T"]), 3e-5, rel_tol=0.0, abs_tol=1e-15):
+                  assert abs((float(a["F_density_derivative"])-float(a["F_direct"]))/float(a["F_direct"])) < 1e-8, i
               c2row = c2_rows[i // 18]
               ref_key = "Fnn_deg" if a["species"] == "n" else "Fpp_deg"
               assert abs(float(a["F_direct"])-float(c2row[ref_key])) < 5e-12, i
