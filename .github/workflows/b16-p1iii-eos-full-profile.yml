@@ -21,7 +21,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: b16-p1iii-eos-full-profile-\${{ github.ref }}
+  group: b16-p1iii-eos-full-profile
   cancel-in-progress: false
 
 jobs:
@@ -30,10 +30,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
-      - name: Check out the exact triggering commit
+      - name: Check out the research branch
         uses: actions/checkout@v4
         with:
-          ref: \${{ github.sha }}
+          ref: research/moving-muon-thermal-rates-20261107
           fetch-depth: 0
 
       - name: Set up Python
@@ -59,7 +59,7 @@ jobs:
 
       - name: Download and verify official SFHo/FRDM v1.03 tables
         env:
-          GH_TOKEN: \${{ github.token }}
+          GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
           set -euo pipefail
@@ -173,9 +173,9 @@ jobs:
           fi
           git commit -m "Archive full radial Caputo SFHo EOS mapping"
           for attempt in 1 2 3 4 5; do
-            git fetch origin "$GITHUB_REF_NAME"
-            git rebase "origin/$GITHUB_REF_NAME"
-            if git push origin "HEAD:$GITHUB_REF_NAME"; then
+            git fetch origin research/moving-muon-thermal-rates-20261107
+            git rebase origin/research/moving-muon-thermal-rates-20261107
+            if git push origin HEAD:research/moving-muon-thermal-rates-20261107; then
               exit 0
             fi
             echo "Push raced with another research workflow; retry $attempt/5."
