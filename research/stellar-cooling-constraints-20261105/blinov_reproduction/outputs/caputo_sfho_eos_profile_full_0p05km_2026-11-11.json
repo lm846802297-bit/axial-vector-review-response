@@ -1,0 +1,167 @@
+{
+  "scope": "full 0.05-km digitized Caputo SFHo-18.8 t_pb=1 s published-figure snapshot; not raw time-dependent Garching simulation data",
+  "profile_csv": "caputo_profile_full_0p05km_2026-11-11.csv",
+  "profile_csv_sha256": "cf4a74f00982acd4b1aaff026d64e8a0cba72231437ae727fa150f5b94e85a03",
+  "number_of_profile_points": 301,
+  "radial_grid_km": {
+    "min": 0.2,
+    "max": 15.2,
+    "median_step": 0.04999999999999988,
+    "min_step": 0.049999999999998934,
+    "max_step": 0.05000000000000071,
+    "max_abs_step_deviation_from_0p05": 1.0685896612017132e-15
+  },
+  "source": {
+    "paper": "Caputo, Raffelt, Vitagliano, arXiv:2109.03244v3",
+    "archive_sha256": "2e4a1280460bce9a5f7596d3dfd1d3e0f4752f2e1706e85d3a2c20b5f9dbbd8e",
+    "temperature": "Fig. 1 upper panel native vector path",
+    "baryon_density": "Fig. 1 lower panel nB native vector path",
+    "composition": "Fig. 4 upper panel Yn, Yp, Ye+Ymu native vector paths",
+    "n0_caputo_fm3": 0.181,
+    "eos_coordinate": "Yp_tot=Ye+Ymu, not free-proton Yp"
+  },
+  "eos_tables_sha256": {
+    "sfho_frdm_eos_v1.03.bin": "f1ea9c3e04502ca35d7fc64facce575f8553293085ea26e07732389b80d32cb4",
+    "sfho_frdm_spp_v1.03.tab": "118bd3c986283d958fab88a8e81fe49b64ca3b5137ff4bcdc05f97064cc1219e",
+    "sfho_frdm_comp_v1.03.bin": "0dafcd272ff8b8f4b1ba4c05210ea8020dd9a92820b6b0b54165faead4871da7"
+  },
+  "interpolation": {
+    "method": "trilinear RegularGridInterpolator",
+    "axes": [
+      "log10(T_MeV)",
+      "Yp_tot",
+      "log10(nB_fm3)"
+    ],
+    "physical_density_rows": 308,
+    "bounds_error": true,
+    "extrapolation": false,
+    "domain_margins": {
+      "extended_eos": {
+        "log10_T_MeV": {
+          "table_min": -1.0,
+          "table_max": 2.2,
+          "profile_min": 1.0935743336501764,
+          "profile_max": 1.5937413463401846,
+          "lower_margin": 2.093574333650176,
+          "upper_margin": 0.6062586536598156,
+          "within_bounds": true
+        },
+        "Yp_tot": {
+          "table_min": 0.0,
+          "table_max": 0.6,
+          "profile_min": 0.0694918246065,
+          "profile_max": 0.218223360909,
+          "lower_margin": 0.0694918246065,
+          "upper_margin": 0.381776639091,
+          "within_bounds": true
+        },
+        "log10_nB_fm3": {
+          "table_min": -12.0,
+          "table_max": 0.2800000000000011,
+          "profile_min": -1.614658940001752,
+          "profile_max": -0.45142270244816507,
+          "lower_margin": 10.385341059998249,
+          "upper_margin": 0.7314227024481661,
+          "within_bounds": true
+        }
+      },
+      "single_particle": {
+        "log10_T_MeV": {
+          "table_min": -1.0,
+          "table_max": 2.1999999472615537,
+          "profile_min": 1.0935743336501764,
+          "profile_max": 1.5937413463401846,
+          "lower_margin": 2.093574333650176,
+          "upper_margin": 0.6062586009213691,
+          "within_bounds": true
+        },
+        "Yp_tot": {
+          "table_min": 0.01,
+          "table_max": 0.6,
+          "profile_min": 0.0694918246065,
+          "profile_max": 0.218223360909,
+          "lower_margin": 0.059491824606499995,
+          "upper_margin": 0.381776639091,
+          "within_bounds": true
+        },
+        "log10_nB_fm3": {
+          "table_min": -12.0,
+          "table_max": 0.2800000000000011,
+          "profile_min": -1.614658940001752,
+          "profile_max": -0.45142270244816507,
+          "lower_margin": 10.385341059998249,
+          "upper_margin": 0.7314227024481661,
+          "within_bounds": true
+        }
+      }
+    }
+  },
+  "composition_closure": {
+    "Xn_rms_abs": 2.1883292295058055e-05,
+    "Xn_max_abs": 0.0002532388898657256,
+    "Xp_rms_abs": 1.5241491418354126e-05,
+    "Xp_max_abs": 0.00018399191856610653,
+    "Xcluster_rms_abs": 3.666223417227149e-05,
+    "Xcluster_max_abs": 0.00043723080806879746,
+    "cluster_charge_rms_abs": 1.5241491427085628e-05,
+    "cluster_charge_max_abs": 0.00018399191860110327,
+    "EOS_cluster_components_max_abs_residual": 3.3306690738754696e-16,
+    "minimum_individual_cluster_fraction": 0.0
+  },
+  "filling_factor_closure": {
+    "xi_rms_abs": 6.471542615726728e-05,
+    "xi_max_abs": 0.0004383100375939808,
+    "xi_SPP_range": [
+      0.9707042448119567,
+      1.0000000000000002
+    ]
+  },
+  "free_nucleon_and_cluster_densities_fm3": {
+    "neutron_range": [
+      0.021258282507282046,
+      0.27679279803263124
+    ],
+    "proton_range": [
+      0.0008480885995205657,
+      0.07696880776990334
+    ],
+    "cluster_baryon_range": [
+      0.0,
+      0.0046410304927566905
+    ]
+  },
+  "acceptance": {
+    "all_profile_points_inside_both_table_domains": true,
+    "max_composition_abs_residual_below_5e-3": true,
+    "max_xi_abs_residual_below_5e-3": true,
+    "EOS_cluster_component_closure_below_1e-8": true,
+    "all_cluster_components_nonnegative_with_1e-8_tolerance": true,
+    "radial_grid_is_0p05_km": true
+  },
+  "handoff_fields": [
+    "mstar_n_MeV",
+    "mstar_p_MeV",
+    "SigmaV_n_tot_MeV",
+    "SigmaV_p_tot_MeV",
+    "mu_n_nonrel_MeV",
+    "mu_p_nonrel_MeV",
+    "U_n_MeV",
+    "U_p_MeV",
+    "xi_SPP",
+    "X_n",
+    "X_p",
+    "X_d",
+    "X_t",
+    "X_h",
+    "X_alpha",
+    "X_A"
+  ],
+  "interpretation": [
+    "The EOS is evaluated at total proton/charge fraction Ye+Ymu; free Yp is retained only as a composition closure target.",
+    "Free neutron, free proton, and cluster baryon densities remain separate; n_n+n_p is not set equal to nB.",
+    "This is a radial interpolation of published figure paths at t_pb=1 s, not a raw Garching time-history profile.",
+    "No Fermi integral, dynamic response, opacity, luminosity, transport, or cooling curve is calculated or modified in this C1 stage."
+  ],
+  "mapped_csv": "caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv",
+  "mapped_csv_sha256": "97d6a88a95d0a636ac359ae981b1b06ec33b88b0f106bfb88d203cb0f9fbbc59"
+}
