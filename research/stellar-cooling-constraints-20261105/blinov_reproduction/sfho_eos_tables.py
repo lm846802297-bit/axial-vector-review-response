@@ -289,8 +289,12 @@ class Composition:
     companion audit script:
 
     ==== ==========================================================
-    0    mu_n_nonrel [MeV] (matches the extended table to 1e-4 MeV)
-    1    proton-side chemical potential, not mu_p and not mu_p - mu_e
+    0    neutron-side NSE chemical-potential input [MeV], used in the
+         nuclear-abundance exponent. It is set to zero and unused when the
+         nuclear-suppression switch in layer 4 equals 1. On nuclei-containing
+         cells it usually tracks, but is not identical to, extended mu_n.
+    1    proton-side chemical-potential input to the NSE abundance exponent;
+         not mu_p and not mu_p - mu_e
     2    close to, but not exactly, the SPP filling factor xi
     3    Coulomb-type term / nb0 (order MeV)
     4    nuclear-suppression switch: 1.0 means no nuclei; fractional values
