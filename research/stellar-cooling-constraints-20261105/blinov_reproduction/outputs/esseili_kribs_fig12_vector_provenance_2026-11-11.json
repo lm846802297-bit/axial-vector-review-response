@@ -1,9 +1,10 @@
 {
-  "source": "Esseili & Kribs, Phys. Rev. D 114, 016023 (2026), DOI 10.1103/718s-7k7v, APS published PDF",
+  "source": "Esseili & Kribs, Phys. Rev. D 114, 016023 (2026), DOI 10.1103/718s-7k7v; arXiv v3, stated by authors to match published version",
   "source_urls": [
-    "https://journals.aps.org/prd/pdf/10.1103/718s-7k7v",
-    "https://scoap3-prod-backend.s3.cern.ch/media/harvested_files/10.1103/718s-7k7v/718s-7k7v.pdf"
+    "https://arxiv.org/pdf/2512.10916v3",
+    "https://journals.aps.org/prd/pdf/10.1103/718s-7k7v"
   ],
+  "arxiv_version": "2512.10916v3",
   "source_pdf_sha256": "c3b92fe6cf2a8bd3fec84925e2baababfe0c707327a68135013f953ed3d87d43",
   "source_pdf_bytes": 2749668,
   "pdf_page_index_zero_based": 14,
@@ -67,11 +68,11 @@
       ],
       "point_count_after_bezier_flattening_and_clipping": 386,
       "visible_radius_km": [
-        0.29980672198489317,
-        22.000102127102938
+        0.2998067219848959,
+        22.00010212710293
       ],
-      "peak_T_MeV": 39.22233871753525,
-      "peak_radius_km": 8.380531829361315
+      "peak_T_MeV": 39.22233871753524,
+      "peak_radius_km": 8.380531829361313
     },
     "n": {
       "path_index": 181,
@@ -82,8 +83,8 @@
       ],
       "point_count_after_bezier_flattening_and_clipping": 337,
       "visible_radius_km": [
-        0.2998503784985858,
-        21.915876341658787
+        0.29985037849858576,
+        21.915876341658784
       ],
       "visible_n_over_n0_corrected": [
         0.0001,
@@ -99,8 +100,8 @@
       ],
       "point_count_after_bezier_flattening_and_clipping": 473,
       "visible_radius_km": [
-        0.2998503784985858,
-        19.297861710118813
+        0.29985037849858576,
+        19.29786171011881
       ],
       "visible_n_over_n0_corrected": [
         0.0001,
@@ -110,8 +111,8 @@
   },
   "digitization_uncertainty_estimate": {
     "curve_stroke_width_pt": 1.0709999799728394,
-    "radius_half_stroke_km": 0.054238068350978524,
-    "temperature_half_stroke_MeV": 0.2772149138636136,
+    "radius_half_stroke_km": 0.05423806835097852,
+    "temperature_half_stroke_MeV": 0.2772149138636137,
     "density_half_stroke_decades": 0.02091796835884452
   },
   "caveats": [
