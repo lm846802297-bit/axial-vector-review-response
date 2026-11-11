@@ -24,6 +24,13 @@ does not replace access to the raw Garching profile.
 - Source: APS published PDF, page index 14 (printed page 15), SHA-256
   \`d660eb390271b41c5c0c20ccd52cc57df891a78d30067a78f84bb6c228225a92\`.
 - PDF size: 2,769,776 bytes.
+- Reproducible open-access mirror: [SCOAP3 record 109482](https://repo.scoap3.org/records/109482),
+  PDF SHA-256
+  `c3b92fe6cf2a8bd3fec84925e2baababfe0c707327a68135013f953ed3d87d43`,
+  2,749,668 bytes. The APS endpoint returned HTTP 403 from the hosted runner;
+  the SCOAP3 copy downloads successfully. It retains the same page-15 path
+  indices and curve point counts, and the extracted cross-check metrics agree
+  with the local APS-copy extraction to better than (10^{-8}).
 - Native paths: temperature \`25\` (orange), neutron \`181\` (blue), proton \`182\`
   (cyan). The script verifies the stroke RGB values before extraction.
 - Flattened/clipped point counts: 386 temperature, 337 neutron, 473 proton.
