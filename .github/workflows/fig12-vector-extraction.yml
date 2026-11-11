@@ -29,12 +29,12 @@ jobs:
       - name: Install numerical dependencies
         run: python -m pip install --disable-pip-version-check pymupdf numpy
 
-      - name: Download and verify the APS published PDF
+      - name: Download and verify the SCOAP3 open-access copy of the APS published PDF
         shell: bash
         run: |
           set -euo pipefail
-          curl --location --fail --retry 3 --retry-delay 2 \
-            "https://journals.aps.org/prd/pdf/10.1103/718s-7k7v" \
+          curl --location --fail --retry 3 --retry-delay 2 -H "User-Agent: axial-vector-review-response/1.0" \
+            "https://scoap3-prod-backend.s3.cern.ch/media/harvested_files/10.1103/718s-7k7v/718s-7k7v.pdf" \
             --output aps_fig12_source.pdf
           echo "d660eb390271b41c5c0c20ccd52cc57df891a78d30067a78f84bb6c228225a92  aps_fig12_source.pdf" \
             | sha256sum --check -
