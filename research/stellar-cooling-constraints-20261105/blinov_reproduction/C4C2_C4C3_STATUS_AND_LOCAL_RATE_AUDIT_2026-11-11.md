@@ -79,3 +79,23 @@ actual Actions run, successful merge acceptance, and inspection of the
 archived 301-point outputs. The diagnostic remains separate from the Blinov
 pure-vector Fig. 7 transport gate and does not update PR #56, manuscript files,
 or axial cooling limits.
+
+## Execution update
+
+The C4-C3 workflow has now been triggered by the regression-test update:
+
+- Actions run: https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43039883023
+- Run number: 4
+- Trigger: push
+- Head: `c56389d8510a8040f9b974dffb504013a45ec655`
+- Initial observed state: `pending`; no jobs had yet been allocated at the time of this update.
+
+The Git blob NUL-byte encoding fix is additionally covered by a regression test
+using the canonical Git blob SHA-1 of the byte sequence `test\n`.
+The test fixture was corrected to contain an actual newline byte. The test
+and workflow trigger updates are commits `4cbbba371f967c8edcf97ac78e30b7978c8afc28`,
+`5439166606c25b9c99670dd21ea0942643f6ecd7`, and
+`c56389d8510a8040f9b974dffb504013a45ec655`.
+
+The workflow is running/pending; this addendum does not claim a test pass or
+C4-C3 numerical completion.
