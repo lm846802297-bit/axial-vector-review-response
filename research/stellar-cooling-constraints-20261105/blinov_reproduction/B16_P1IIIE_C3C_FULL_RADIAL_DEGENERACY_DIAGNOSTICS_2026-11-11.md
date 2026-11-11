@@ -158,7 +158,13 @@ C3-C acceptance:
 - the NR shifts are finite and negative at every radial point;
 - the Spearman correlation with \(\eta_N\) is below \(-0.999\) for both species.
 
-**C3-C direct numerical status: PASS.** The independent Python CI reconstruction is tracked separately.
+**C3-C direct numerical status: PASS.** Independent Python CI also passes:
+
+- GitHub Actions Run #6: https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42998186301
+- 5/5 unit tests passed.
+- All 602 species-radius records were independently recomputed.
+- The committed JSON/CSV invariants and both dispersion comparisons were validated.
+
 
 This result does not establish the accuracy of a nonrelativistic approximation for dynamic \(W_N^{\mu\nu}(q_0,q;r)\), B.1 production, B.2 absorption, or transport. Those involve momentum/energy transfer, recoil, and response kinematics beyond the static occupation ratio.
 
