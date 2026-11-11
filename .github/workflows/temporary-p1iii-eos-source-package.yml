@@ -1,0 +1,45 @@
+name: Temporary P1-IIIe latest source package
+on:
+  push:
+    branches:
+      - transfer/p1iii-eos-latest-source-20261111
+    paths:
+      - .github/workflows/temporary-p1iii-eos-source-package.yml
+permissions:
+  contents: read
+  actions: write
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout latest research branch snapshot
+        uses: actions/checkout@v4
+        with:
+          ref: transfer/p1iii-eos-latest-source-20261111
+      - name: Package current P1-IIIe sources and EOS provenance assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd research/stellar-cooling-constraints-20261105/blinov_reproduction
+          tar -czf "$GITHUB_WORKSPACE/p1iii-eos-latest-source-20261111.tar.gz" \
+            audit_b16_p1iii_eos_nucleon_distribution.py \
+            audit_b16_p1iii_eos_sfho_realdata_closure.py \
+            sfho_eos_tables.py \
+            test_b16_p1iii_eos_nucleon_distribution.py \
+            test_b16_p1iii_eos_sfho_realdata.py \
+            sfho_frdm_v1.03_download.py \
+            sfho_frdm_v1.03_manifest.sha256 \
+            reassemble_sfho_frdm_archives.py \
+            B16_P1IIIE_A_EOS_OCCUPATION_IMPLEMENTATION_2026-11-11.md \
+            B16_P1IIIE_B_SFHO_REALDATA_CLOSURE_2026-11-11.md \
+            B16_P1IIIE_GARCHING_EOS_NUCLEON_DISTRIBUTIONS_2026-11-11.md \
+            outputs/p1iii_eos_sfho_realdata_fixture.csv \
+            outputs/p1iii_eos_sfho_realdata_closure_2026-11-11.json \
+            data/sfho-frdm-v1.03
+      - name: Upload one-day source snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: p1iii-eos-latest-source-20261111
+          path: p1iii-eos-latest-source-20261111.tar.gz
+          compression-level: 0
+          retention-days: 1
