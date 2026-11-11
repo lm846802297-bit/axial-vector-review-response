@@ -33,7 +33,7 @@ jobs:
       - name: Check out the exact research commit
         uses: actions/checkout@v4
         with:
-          ref: \${{ github.sha }}
+          ref: ${{ github.sha }}
           fetch-depth: 1
 
       - name: Set up Python
@@ -52,7 +52,7 @@ jobs:
 
       - name: Recompute full-angle EOS total scattering rates
         env:
-          C4C2_DIR: \${{ runner.temp }}/c4c2
+          C4C2_DIR: ${{ runner.temp }}/c4c2
         run: |
           set -euo pipefail
           mkdir -p "$C4C2_DIR"
@@ -60,7 +60,7 @@ jobs:
 
       - name: Validate C4-C2 numerical outputs
         env:
-          C4C2_DIR: \${{ runner.temp }}/c4c2
+          C4C2_DIR: ${{ runner.temp }}/c4c2
         run: |
           python - <<'PY'
           import csv, json, os
@@ -90,6 +90,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: c4c2-full-angle-total-scattering
-          path: \${{ runner.temp }}/c4c2/
+          path: ${{ runner.temp }}/c4c2/
           if-no-files-found: error
           retention-days: 90
