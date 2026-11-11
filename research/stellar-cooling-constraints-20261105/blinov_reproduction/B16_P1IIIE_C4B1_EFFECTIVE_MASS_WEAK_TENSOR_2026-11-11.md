@@ -81,6 +81,28 @@ Required checks:
 4. exact recovery of the existing P1-IIIb tensor when \(m_N^*=M_N\);
 5. the expected neutrino/antineutrino VA sign structure.
 
+### 4.1 Numerical results and independent CI
+
+The effective-mass Ward scan contains 288 on-shell configurations; the vacuum-mass recovery contains 40 stationary-target cases; the neutrino/antineutrino interference check contains eight EOS-state cases.
+
+| Diagnostic | Maximum residual |
+|---|---:|
+| Vector Ward identity | (3.01	imes10^{-15}) |
+| Tensor hermiticity | (2.42	imes10^{-16}) |
+| (m_N^*=M_N) recovery of P1-IIIb | (6.61	imes10^{-16}) |
+| Neutrino/antineutrino VA sign structure | (2.61	imes10^{-16}) |
+
+All are far below their acceptance thresholds. In particular, the vacuum-mass limit reproduces the existing P1-IIIb tensor component by component, while the mixed-mass quasiparticle tensor preserves the vector Ward identity.
+
+**C4-B1 status: PASS.** Independent GitHub Actions workflow run #5:
+https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43001802164
+
+- 5/5 unit tests passed.
+- 288 effective-mass Ward cases passed.
+- 40 vacuum-mass recovery cases passed.
+- Eight VA sign-structure cases passed.
+- The numerical CSV outputs are retained in the workflow artifact `c4b1-effective-mass-weak-tensor` (artifact ID 13846825852); the summary JSON is also committed under `outputs/`.
+
 ## 5. Scope boundary and next stage
 
 C4-B1 does not yet integrate over the initial Fermi sea, compute \(d\Gamma/(dE'd\Omega')\), or produce a cross section/opacity. It does not modify the existing P1-IIIb code or the production B.2 calculation.
