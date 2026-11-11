@@ -69,3 +69,17 @@ from the Caputo figure is not by itself proof of a missing nuclear-cluster compo
 5. Seek the archive variable definitions or original Garching data documentation to identify the exact species conventions.
 6. Keep the free-nucleon collision kernel restricted to radii/compositions where its input densities are physically defined.
 
+
+
+## 7. Follow-up status: Fig. 12 numerical extraction completed
+
+The planned Fig. 12 extraction and pointwise comparison in §§5–6 are completed
+in [B16_P1IIID_FIG12_VECTOR_EXTRACTION_CROSSCHECK_2026-11-11.md](B16_P1IIID_FIG12_VECTOR_EXTRACTION_CROSSCHECK_2026-11-11.md).
+The extracted curves are native PDF vector paths. The temperature curve agrees
+with the Caputo profile and Bollig Fig. 1 at sub-percent figure-reading
+precision; the right-panel n,p curves agree with Caputo reconstructed
+free-neutron and free-proton densities at the ten common radii from 1 to 15 km,
+provided the right-panel density-axis top-two labels are interpreted as a
+one-decade printing inconsistency. This remains a cross-publication figure
+check of the same Garching SFHo-18.8 lineage, not an independent simulation
+validation.
