@@ -125,6 +125,31 @@ No B.2 opacity, Fig. 7 vector benchmark, escape probability, or axial cooling cu
 
 ## 7. Fig. 12 comparison status and next action
 
-The SFHo-18.8 temperature curve in Esseili–Kribs Fig. 12 is visually consistent with Caputo Fig. 1: the Caputo maximum is \(39.25\) MeV at \(r=8.48\) km, while the published orange curve peaks near 40 MeV around 8–9 km. The \(n,p\) curves are also consistent in overall shape with the Caputo reconstructed free-neutron/free-proton profiles at figure-reading precision.
+The point-by-point Esseili–Kribs Fig. 12 extraction and comparison are now
+complete. The results are archived in
+[B16_P1IIID_FIG12_VECTOR_EXTRACTION_CROSSCHECK_2026-11-11.md](B16_P1IIID_FIG12_VECTOR_EXTRACTION_CROSSCHECK_2026-11-11.md)
+and independently rerun in GitHub Actions Run
+[#42955259591](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42955259591).
 
-A point-by-point E–K residual is **not** reported yet: the official APS PDF page is available for visual inspection, but its vector paths have not yet been extracted into a local reproducible data file. The next task is to digitize E–K Fig. 12 \(T,n,p\) with an explicit axis calibration and uncertainty, then compare against the Caputo reconstructed profiles. Since both publications use the same Garching SFHo-18.8 reference model, this is a cross-publication consistency test rather than an independent simulation test.
+The temperature curve agrees with Caputo Fig. 1 at 55 radii with 0.0707% RMS
+relative residual, and with Bollig Fig. 1 at 391 radii with 0.0953% RMS.
+At ten common radii from 1 to 15 km, the E–K \(n,p\) curves agree with Caputo
+reconstructed free-neutron/free-proton profiles at 0.580% and 0.586% RMS,
+respectively. Their sum agrees with the cluster-corrected free-baryon density
+\((1-X_{\rm cl})n_B\) at 0.574% RMS.
+
+This confirms that the difference between \(n_n^{\rm EK}+n_p^{\rm EK}\) and
+total \(n_B\) is primarily the baryon fraction bound in clusters, not a
+different simulation or an incorrect density normalization. The upper two
+density-axis glyphs remain visually ambiguous; the corrected logarithmic
+calibration is selected by equal tick spacing and the same-model composition
+cross-check, without claiming a definite typesetting error.
+
+The next task is no longer figure digitization. It is to map the validated
+\(T(r),n_n^{\rm free}(r),n_p^{\rm free}(r)\) profiles onto the authenticated
+SFHo EOS tables, calculate local nucleon chemical potentials and occupation
+factors, and quantify the cluster fraction over the 8–15 km region. The
+free-nucleon \(nn,np,pp\) kernel must remain distinct from any cluster
+response. No B.2 opacity, Fig. 7 vector benchmark, escape probability, or
+axial cooling curve is changed at this stage.
+
