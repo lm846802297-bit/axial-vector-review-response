@@ -136,7 +136,7 @@ jobs:
           assert mapped["composition_closure"]["Xcluster_max_abs"] < 5e-3
           assert mapped["filling_factor_closure"]["xi_max_abs"] < 5e-3
           print(json.dumps({
-              "source_grid": extracted["grid"],
+              "source_grid": {"r_km": extracted["r_grid_km"], "step_km": extracted["step_km"]},
               "profile_grid": mapped["radial_grid_km"],
               "composition_closure": mapped["composition_closure"],
               "filling_factor_closure": mapped["filling_factor_closure"],
