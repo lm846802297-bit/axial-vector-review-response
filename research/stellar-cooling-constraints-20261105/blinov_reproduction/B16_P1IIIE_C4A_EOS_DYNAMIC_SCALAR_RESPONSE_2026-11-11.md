@@ -121,7 +121,13 @@ C4-A acceptance:
 - the direct \(q_0=0\) blocked integral reproduces the C2 value within \(5\times10^{-12}\);
 - the response is nonnegative on the sampled kinematic domain.
 
-**C4-A direct numerical status: PASS.** Independent Python CI is tracked separately.
+**C4-A direct numerical status: PASS.** Independent Python CI also passes:
+
+- GitHub Actions Run #7: https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42999848393
+- 5/5 unit tests passed.
+- All 13,440 q0-resolved response points and 56 sum-rule records were independently recomputed.
+- Dynamic/static closure, detailed balance, and the q-to-zero susceptibility checks passed.
+
 
 ## 6. Interpretation and scope boundary
 
