@@ -92,6 +92,14 @@ def main():
                         "font_size_pt": float(span["size"]),
                     })
     right_panel_axis_text_spans.sort(key=lambda x: (x["bbox_pdf_points"][1], x["bbox_pdf_points"][0]))
+    top_page_text_words = [
+        {
+            "text": str(word[4]),
+            "bbox_pdf_points": [float(v) for v in word[:4]],
+        }
+        for word in page.get_text("words")
+        if float(word[1]) < 190.0
+    ]
 
     rows, meta = [], {}
     for name, path_index in PATHS.items():
@@ -164,6 +172,7 @@ def main():
         },
         "normalization_n0_fm3": 0.181, "curves": meta,
         "right_panel_axis_text_spans": right_panel_axis_text_spans,
+        "top_page_text_words": top_page_text_words,
         "digitization_uncertainty_estimate": {
             "curve_stroke_width_pt": float(drawings[PATHS["n"]]["width"]),
             "radius_half_stroke_km": float(drawings[PATHS["n"]]["width"] / 2 / xsr),
