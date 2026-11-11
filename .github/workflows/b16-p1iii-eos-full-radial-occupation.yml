@@ -54,9 +54,9 @@ jobs:
           C2_CSV: ${{ runner.temp }}/c2.csv
         run: |
           set -euo pipefail
-          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_full_radial_occupation.py \\
-            --profile research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv \\
-            --output-json "$C2_JSON" \\
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_full_radial_occupation.py \
+            --profile research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv \
+            --output-json "$C2_JSON" \
             --output-csv "$C2_CSV"
 
       - name: Compare CI reconstruction with committed direct result
