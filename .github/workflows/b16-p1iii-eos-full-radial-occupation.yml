@@ -74,21 +74,21 @@ jobs:
           assert actual["overall_pass"] is True
           assert all(actual["acceptance"].values())
 
-          checks = {
-              "density": ("rms_relative", "max_abs_relative", "max_abs_density_fm3"),
-              "chemical_potential": ("max_abs_delta_nu_MeV",),
-              "Fdeg": ("max_abs_delta_Fdeg",),
-              "quadrature": (
+          density_keys = ("rms_relative", "max_abs_relative", "max_abs_density_fm3")
+          for species in ("n", "p"):
+              for key in density_keys:
+                  a = expected["species"][species]["density"][key]
+                  b = actual["species"][species]["density"][key]
+                  assert math.isclose(a, b, rel_tol=2e-8, abs_tol=2e-12), (species, key, a, b)
+              for key in (
+                  "max_abs_delta_nu_MeV",
+                  "max_abs_delta_Fdeg",
                   "quadrature_max_relative_n_change_2048_vs_512",
                   "quadrature_max_abs_F_change_2048_vs_512",
-              ),
-          }
-          for species in ("n", "p"):
-              for section, keys in checks.items():
-                  for key in keys:
-                      a = expected["species"][species][section][key]
-                      b = actual["species"][species][section][key]
-                      assert math.isclose(a, b, rel_tol=2e-8, abs_tol=2e-12), (species, section, key, a, b)
+              ):
+                  a = expected["species"][species][key]
+                  b = actual["species"][species][key]
+                  assert math.isclose(a, b, rel_tol=2e-8, abs_tol=2e-12), (species, key, a, b)
 
           with (root / "p1iii_eos_full_radial_occupation_2026-11-11.csv").open(newline="") as stream:
               expected_rows = list(csv.DictReader(stream))
