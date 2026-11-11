@@ -38,7 +38,7 @@ EXPECTED_C2_GIT_BLOB_SHA = "c472040a4551e68ffadbf7addf9402663f99e7e3"
 
 def load_c2_reference(path: Path) -> list[dict[str, float]]:
     data = path.read_bytes()
-    digest = hashlib.sha1(f"blob {len(data)}\\0".encode("ascii")+data).hexdigest()
+    digest = hashlib.sha1(f"blob {len(data)}\0".encode("ascii")+data).hexdigest()
     if digest != EXPECTED_C2_GIT_BLOB_SHA:
         raise ValueError(f"C2 occupation CSV Git blob SHA mismatch: {digest}")
     with path.open("r", newline="", encoding="utf-8") as stream:
