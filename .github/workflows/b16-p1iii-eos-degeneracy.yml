@@ -28,8 +28,6 @@ jobs:
     if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    env:
-      SFHO_TABLES_DIR: ${{ runner.temp }}/sfho_tables
     steps:
       - name: Check out research branch
         uses: actions/checkout@v4
@@ -52,6 +50,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          export SFHO_TABLES_DIR="$RUNNER_TEMP/sfho_tables"
+          echo "SFHO_TABLES_DIR=$SFHO_TABLES_DIR" >> "$GITHUB_ENV"
           mkdir -p raw "$SFHO_TABLES_DIR"
           gh release download sfho-frdm-v1.03-data \
             --repo "$GITHUB_REPOSITORY" \
