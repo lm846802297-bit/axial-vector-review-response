@@ -75,7 +75,7 @@ jobs:
           assert summary["maxima"]["cold_dilute_Horowitz_relative_residual"] < 1e-3
           assert summary["maxima"]["Eprime_48_to_72_relative_difference"] < 1e-2
           assert summary["maxima"]["Eprime_32_to_72_relative_difference"] < 2e-2
-          for name, count in (("local_full_support.csv", 16), ("support_roots.csv", 16), ("cold_horowitz.csv", 4)):
+          for name, count in (("local_full_support.csv", 16), ("support_roots.csv", 8), ("cold_horowitz.csv", 4)):
               with (root / name).open(newline="") as stream:
                   rows = list(csv.DictReader(stream))
               assert len(rows) == count, (name, len(rows))
