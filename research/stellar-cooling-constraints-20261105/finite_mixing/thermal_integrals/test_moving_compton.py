@@ -10,7 +10,76 @@ from finite_mixing.thermal_integrals.moving_compton import (
 )
 
 
+_METRIC = np.diag([1.0, -1.0, -1.0, -1.0])
+
+
+def _boost_four_vector(vector, beta):
+    beta = np.asarray(beta, dtype=float)
+    beta2 = float(np.dot(beta, beta))
+    if beta2 == 0.0:
+        return np.asarray(vector, dtype=float).copy()
+    gamma = 1.0 / np.sqrt(1.0 - beta2)
+    bp = float(np.dot(beta, vector[1:]))
+    energy = gamma * (vector[0] - bp)
+    spatial = vector[1:] + (((gamma - 1.0) * bp / beta2) - gamma * vector[0]) * beta
+    return np.concatenate(([energy], spatial))
+
+
+def _medium_longitudinal_polarization(q, u, mass):
+    q_dot_u = float(q @ _METRIC @ u)
+    return (q_dot_u * q - mass * mass * u) / (
+        mass * np.sqrt(q_dot_u * q_dot_u - mass * mass)
+    )
+
+
 class MovingComptonMatrixElementTests(unittest.TestCase):
+    def test_medium_frame_projectors_are_boost_covariant(self):
+        mass, omega = 0.7, 3.2
+        momentum = np.sqrt(omega * omega - mass * mass)
+        q = np.array([omega, 0.0, 0.0, momentum])
+        u = np.array([1.0, 0.0, 0.0, 0.0])
+        eps_l = _medium_longitudinal_polarization(q, u, mass)
+        eps_x = np.array([0.0, 1.0, 0.0, 0.0])
+        eps_y = np.array([0.0, 0.0, 1.0, 0.0])
+
+        beta = np.array([0.31, -0.17, 0.22])
+        q_boosted = _boost_four_vector(q, beta)
+        u_boosted = _boost_four_vector(u, beta)
+        eps_l_boosted = _boost_four_vector(eps_l, beta)
+        eps_x_boosted = _boost_four_vector(eps_x, beta)
+        eps_y_boosted = _boost_four_vector(eps_y, beta)
+        eps_l_covariant = _medium_longitudinal_polarization(
+            q_boosted, u_boosted, mass
+        )
+
+        np.testing.assert_allclose(
+            eps_l_covariant, eps_l_boosted, rtol=2e-13, atol=2e-13
+        )
+        total = -_METRIC + np.outer(q_boosted, q_boosted) / (mass * mass)
+        p_t_covariant = total - np.outer(eps_l_covariant, eps_l_covariant)
+        p_t_boosted = (
+            np.outer(eps_x_boosted, eps_x_boosted)
+            + np.outer(eps_y_boosted, eps_y_boosted)
+        )
+        np.testing.assert_allclose(
+            p_t_covariant, p_t_boosted, rtol=2e-12, atol=2e-12
+        )
+        self.assertAlmostEqual(
+            float(q_boosted @ _METRIC @ eps_l_covariant), 0.0, delta=2e-13
+        )
+        self.assertAlmostEqual(
+            float(eps_l_covariant @ _METRIC @ eps_l_covariant),
+            -1.0, delta=2e-13
+        )
+        self.assertLess(
+            float(np.max(np.abs(q_boosted @ _METRIC @ p_t_covariant))),
+            2e-12,
+        )
+        self.assertLess(
+            float(np.max(np.abs(u_boosted @ _METRIC @ p_t_covariant))),
+            2e-12,
+        )
+
     def test_stationary_muon_endpoint_matches_existing_vector_and_axial_kernels(self):
         mass, omega = 10.0, 30.0
         cosines = np.array([-0.7, 0.1, 0.8])
@@ -115,6 +184,17 @@ class MovingComptonThermalRateTests(unittest.TestCase):
         self.assertTrue(np.all(
             out["charge_contributions"]["mu_plus"]["Gamma_abs_by_mode"] > 0.0
         ))
+
+    def test_pure_axial_mode_resolved_rates_are_positive_and_balance(self):
+        out = self._run(0.0, -1.0, mu_mu=45.0)
+        expected = np.exp(-25.0/20.0)*out["Gamma_abs_by_mode"]
+        np.testing.assert_allclose(out["Gamma_prod_by_mode"], expected,
+                                   rtol=3e-10, atol=1e-300)
+        self.assertTrue(np.all(out["Gamma_abs_by_mode"] > 0.0))
+        self.assertTrue(np.all(out["Gamma_prod_by_mode"] > 0.0))
+        self.assertGreater(float(out["Gamma_abs_by_mode"][0]), 0.0)
+        self.assertGreater(float(np.sum(out["Gamma_abs_by_mode"][1:])), 0.0)
+        self.assertLess(out["max_detailed_balance_relative_residual"], 3e-10)
 
     def test_charge_summed_interference_cancels_at_zero_muon_chemical_potential(self):
         gv, ga = 0.2, -0.8
