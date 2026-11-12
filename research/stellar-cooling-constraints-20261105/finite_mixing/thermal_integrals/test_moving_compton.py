@@ -340,17 +340,17 @@ class MovingComptonThermalRateTests(unittest.TestCase):
             out["charge_contributions"]["mu_plus"]["Gamma_abs_by_mode"] > 0.0
         ))
 
-    def test_unpolarized_normalization_matches_paper_eq_61(self):
+    def test_unpolarized_normalization_matches_paper_eq_5_12(self):
         out = self._run(0.15, -0.85, mu_mu=45.0)
         normalization = out["unpolarized_normalization"]
         self.assertEqual(normalization["initial_photon_polarization_average"], 2)
         self.assertEqual(normalization["initial_vector_polarization_average"], 3)
         self.assertAlmostEqual(
             normalization["Gamma_abs_over_Gamma_prod"],
-            normalization["Eq_61_expected_ratio"],
+            normalization["Eq_5_12_expected_ratio"],
             delta=3e-10,
         )
-        self.assertLess(normalization["Eq_61_relative_residual"], 3e-10)
+        self.assertLess(normalization["Eq_5_12_relative_residual"], 3e-10)
 
     def test_pure_axial_mode_resolved_rates_are_positive_and_balance(self):
         out = self._run(0.0, -1.0, mu_mu=45.0)
@@ -371,10 +371,10 @@ class MovingComptonThermalRateTests(unittest.TestCase):
             radial_order=8,angular_order=4,azimuth_order=4,chunk_size=64
         )
         normalization = out["unpolarized_normalization"]
-        self.assertGreater(normalization["Eq_61_expected_log_ratio"],700.0)
-        self.assertIsNone(normalization["Eq_61_expected_ratio"])
-        self.assertTrue(normalization["Eq_61_underflow_limited"])
-        self.assertIsNone(normalization["Eq_61_relative_residual"])
+        self.assertGreater(normalization["Eq_5_12_expected_log_ratio"],700.0)
+        self.assertIsNone(normalization["Eq_5_12_expected_ratio"])
+        self.assertTrue(normalization["Eq_5_12_underflow_limited"])
+        self.assertIsNone(normalization["Eq_5_12_relative_residual"])
         self.assertTrue(np.isfinite(out["max_detailed_balance_relative_residual"]))
 
     def test_charge_summed_interference_cancels_at_zero_muon_chemical_potential(self):
