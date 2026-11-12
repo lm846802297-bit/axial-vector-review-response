@@ -1,7 +1,7 @@
 """Regression tests for the direct vector-current P_L projection."""
 import unittest
 
-from audit_vector_longitudinal_projector import M_MU, build_audit
+from .audit_vector_longitudinal_projector import M_MU, build_audit
 
 
 class DirectLongitudinalProjectorTests(unittest.TestCase):
