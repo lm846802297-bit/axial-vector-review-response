@@ -68,8 +68,13 @@ def compton_case(mass, point, couplings, energy_order=12, orders=(12,8,8,8)):
         ).tolist(),
         "charge_resolved_mixed_Q_by_mode_MeV5":
             results["uv_theta_1e-2"]["emissivity_by_charge_and_mode_MeV5"],
+        "mode_order": ["L", "+", "-"],
+        "polarization_basis": "medium rest frame; A' momentum along +z",
         "max_detailed_balance_relative_error": max(
             r["max_detailed_balance_relative_error"] for r in results.values()
+        ),
+        "max_Eq_5_12_relative_residual": max(
+            r["max_Eq_5_12_relative_residual"] for r in results.values()
         ),
         "max_final_muon_shell_relative_error": max(
             r["max_final_muon_shell_relative_error"] for r in results.values()
