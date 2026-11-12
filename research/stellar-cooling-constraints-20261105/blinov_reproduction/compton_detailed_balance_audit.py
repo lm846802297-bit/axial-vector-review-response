@@ -7,9 +7,9 @@ reference.py and production rates.py / transport.py.
 It checks:
   * the exact phase-space/spin-degeneracy relation for forward and reverse
     unpolarized cross sections;
-  * the Blinov B.18 no-recoil limit (3/2) v_V^2;
-  * the equivalence of the B.15 and B.16 algebraic rate coefficients;
-  * B.19 from Fermi/Bose occupation factors;
+  * the Blinov Eq. (34) forward/reverse ratio (3/2) v_V^2;
+  * the equivalence of the Eqs. (31) and (32) algebraic rate coefficients;
+  * Eq. (35) from Fermi/Bose occupation factors;
   * the Thomson/Klein-Nishina normalization of the underlying QED amplitude.
 
 The exact-rest-muon cross section is a vacuum two-body diagnostic. It is NOT a
@@ -193,7 +193,7 @@ def exact_cross_section(
 
 
 def sigma_forward_B14(m_mu, m_v, omega, alpha=ALPHA_DEFAULT, g_v=1.0):
-    """Blinov B.14 forward cross section in the no-recoil approximation."""
+    """Blinov Eq. (30) forward cross section in the no-recoil approximation."""
     if omega <= m_v:
         return 0.0
     alpha_v = g_v*g_v/(4.0*math.pi)
@@ -272,7 +272,7 @@ def klein_nishina_total(omega, m_mu, alpha=ALPHA_DEFAULT):
 
 def audit_point(m_mu, m_v, omega, alpha=ALPHA_DEFAULT, g_v=1.0,
                 angle_order=96):
-    """Compare exact forward/reverse cross sections with B.14/B.18."""
+    """Compare exact forward/reverse cross sections with Eqs. (30)/(34)."""
     e = math.sqrt(4.0*math.pi*alpha)
     e_v = inverse_vector_energy_same_s(m_mu, m_v, omega)
     s_forward = exact_cross_section(
@@ -335,10 +335,10 @@ def run_audit(
                     m_mu, m_v, omega, alpha, g_v, angle_order
                 ))
     return {
-        "source": "Independent tree-level QED x vector-current Compton amplitude; comparison with Blinov et al. arXiv:2511.09619v2 B.14--B.19",
+        "source": "Independent tree-level QED x vector-current Compton amplitude; comparison with Blinov et al. arXiv:2511.09619v2 Eqs. (30)--(35)",
         "interpretation": (
             "Exact two-body vacuum cross sections with a stationary initial muon. "
-            "The B.18 ratio is checked directly; the no-recoil formula is not "
+            "The Eq. (34) ratio is checked directly; the no-recoil formula is not "
             "replaced in the supernova calculation. Thermal muon averaging and "
             "Pauli blocking are outside this audit."
         ),

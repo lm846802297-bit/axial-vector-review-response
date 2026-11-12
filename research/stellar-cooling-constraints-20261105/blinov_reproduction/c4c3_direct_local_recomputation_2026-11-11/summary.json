@@ -1,0 +1,104 @@
+{
+  "title": "C4-C3 direct local recomputation: 301-point EOS total scattering",
+  "status": "PASS",
+  "computation": "Direct local recomputation using the exact C4-B2/C4-C1/C4-C2 source snapshots and fixed quadrature settings; no GitHub Actions execution used.",
+  "source_inputs": {
+    "source_bundle_commit": "780e0c0",
+    "c4b2_git_blob_sha": "97a2706e978cd22f7ebc08c1f87ce6abd97ad0a7",
+    "c4c1_git_blob_sha": "8f7291be8738e0273353a8c30039c6be1ed8e6a9",
+    "c4c2_git_blob_sha": "2912788345e482e52308e02e6cbbc87c734a18b0",
+    "profile_git_blob_sha": "9ff7818b0679992c0a9ba402330ec7f0d1f3041b",
+    "c2_occupation_git_blob_sha": "c472040a4551e68ffadbf7addf9402663f99e7e3",
+    "c4c2_reference_git_blob_sha": "881b6459e8d9a1ac867b0f4dc47ac168d454e488"
+  },
+  "physics_setup": {
+    "incident_local_energy_MeV": 100.0,
+    "radial_points": 301,
+    "radial_range_km": [
+      0.2,
+      15.2
+    ],
+    "species": [
+      "n",
+      "p"
+    ],
+    "incoming_states": [
+      "nu",
+      "antinu"
+    ],
+    "quadrature": {
+      "cosine": 8,
+      "outgoing_energy": 48,
+      "initial_momentum": 36,
+      "azimuth": 12,
+      "support_scan_points": 10001
+    },
+    "opacity": "kappa_N = xi_SPP * Gamma_N_available; xi_SPP applied exactly once",
+    "tau": "flat-space, fixed-local-energy radial integral to 15.2 km"
+  },
+  "direct_local_recomputation": {
+    "radial_points": 301,
+    "local_cases": 1204,
+    "four_anchor_original_kernel_cases": 16,
+    "max_anchor_relative_difference_vs_C4C2": 5.551115123125783e-16,
+    "max_anchor_relative_difference_vs_301_local": 2.220446049250313e-16,
+    "max_full_1204_relative_difference_vs_archived": 5.551115123125783e-16,
+    "max_full_1204_opacity_relative_difference_vs_archived": 5.551115123125783e-16,
+    "max_support_root_relative_residual": 1.3591094670306613e-13,
+    "all_rates_positive": true
+  },
+  "density_closure": {
+    "max_abs_neutron_relative_residual": 0.0021542420497866477,
+    "max_abs_proton_relative_residual": 0.007630321904956938,
+    "criterion": "< 1%"
+  },
+  "optical_depth": {
+    "tau_inner_r_0p2km": {
+      "nu_neutron": 22099.167995305088,
+      "nu_proton": 6503.850083914896,
+      "nu_total": 28603.018079219957,
+      "antinu_neutron": 13328.766526470814,
+      "antinu_proton": 4239.855752820311,
+      "antinu_total": 17568.622279291118
+    },
+    "max_0p10km_common_node_difference_over_tau_inner": 1.2964673200910515e-05,
+    "max_0p25km_common_node_difference_over_tau_inner": 0.00012279469882198925,
+    "nonnegative_and_monotone": true
+  },
+  "acceptance": {
+    "301_radial_points": true,
+    "1204_local_species_sign_cases": true,
+    "all_local_rates_positive": true,
+    "C2_neutron_density_closure_below_1_percent": true,
+    "C2_proton_density_closure_below_1_percent": true,
+    "support_root_residual_below_1e_7": true,
+    "tau_nonnegative_and_radially_monotone": true,
+    "0p10km_radial_integral_within_1_percent": true,
+    "0p25km_radial_integral_within_1_percent": true,
+    "C4C2_four_radius_local_rate_reproduction_below_1e_8": true,
+    "full_1204_rate_reproduction_vs_archived_below_1e_8": true
+  },
+  "overall_pass": true,
+  "interpretation": [
+    "Fixed-local-energy, flat-space radial scattering optical-depth diagnostic only.",
+    "Not a redshifted transport optical depth, a full escape probability, or a transport solution.",
+    "Neutrino and antineutrino incoming states are kept separate.",
+    "Total scattering, angular transport, and energy-transfer moments remain distinct."
+  ],
+  "radial_composition_diagnostics": {
+    "nu_over_antinu_ratio_min": 1.553287808295313,
+    "nu_over_antinu_ratio_min_radius_km": 0.35,
+    "nu_over_antinu_ratio_max": 1.6868728693438688,
+    "nu_over_antinu_ratio_max_radius_km": 8.25,
+    "neutron_over_proton_opacity_ratio_nu_inner": 2.1811660472023977,
+    "neutron_over_proton_opacity_ratio_nu_outer": 24.861918368189404,
+    "neutrino_total_opacity_peak_radius_km": 7.35,
+    "neutrino_total_opacity_peak_MeV": 5.96936890203314e-13,
+    "antineutrino_total_opacity_peak_radius_km": 7.3,
+    "antineutrino_total_opacity_peak_MeV": 3.5591577656884163e-13,
+    "mean_free_path_total_neutrino_inner_m": 0.5780646654695198,
+    "mean_free_path_total_neutrino_outer_m": 2.647913972366168,
+    "mean_free_path_total_antineutrino_inner_m": 0.8979036081349325,
+    "mean_free_path_total_antineutrino_outer_m": 4.246108083755027
+  }
+}

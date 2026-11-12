@@ -68,8 +68,13 @@ def compton_case(mass, point, couplings, energy_order=12, orders=(12,8,8,8)):
         ).tolist(),
         "charge_resolved_mixed_Q_by_mode_MeV5":
             results["uv_theta_1e-2"]["emissivity_by_charge_and_mode_MeV5"],
+        "mode_order": ["L", "+", "-"],
+        "polarization_basis": "medium rest frame; A' momentum along +z",
         "max_detailed_balance_relative_error": max(
             r["max_detailed_balance_relative_error"] for r in results.values()
+        ),
+        "max_Eq_5_12_relative_residual": max(
+            r["max_Eq_5_12_relative_residual"] for r in results.values()
         ),
         "max_final_muon_shell_relative_error": max(
             r["max_final_muon_shell_relative_error"] for r in results.values()
@@ -196,6 +201,11 @@ def main():
 
     output = {
         "title": "Local thermal vector/axial response; no stellar transport",
+        "mode_order": ["L", "+", "-"],
+        "polarization_basis": (
+            "Medium rest frame; A' momentum along +z; L is the longitudinal "
+            "polarization and +/- are circular transverse polarizations."
+        ),
         "profile": {
             "source": "reconstructed SFHo-18.8 t_pb=1s digitized profile",
             "sha256": sha256(profile),

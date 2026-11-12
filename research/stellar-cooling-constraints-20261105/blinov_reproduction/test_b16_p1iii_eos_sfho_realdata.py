@@ -359,6 +359,28 @@ class TestOfficialTablesWhenAvailable(unittest.TestCase):
         # density. Its phase/coexistence interpretation is kept separate.
         self.assertGreater(float(relative.max()), 0.1)
 
+    def test_nse_neutron_chemical_input_is_conditional(self) -> None:
+        from sfho_eos_tables import NB_PHYSICAL
+
+        comp = self.composition.comp[:, :, :NB_PHYSICAL, :]
+        no_nuclei = comp[:, :, :, 4] == 1.0
+        nuclei = ~no_nuclei
+        nse_mu_n = comp[:, :, :, 0]
+        ext_mu_n = self.extended.entry("mu_n_nonrel_MeV")[:, :, :NB_PHYSICAL]
+
+        # The Fortran module uses layer 0 in the NSE nuclear abundance
+        # exponent, but skips that exponent when the layer-4 switch is 1.
+        # In those no-nuclei cells the stored zero is not a physical mu_n.
+        self.assertEqual(int(no_nuclei.sum()), 400453)
+        self.assertEqual(int(nuclei.sum()), 1121375)
+        self.assertTrue((nse_mu_n[no_nuclei] == 0.0).all())
+
+        # Even in nuclei-containing cells this auxiliary NSE input is not an
+        # interchangeable copy of the extended-table thermodynamic mu_n.
+        residual = np.abs(nse_mu_n[nuclei] - ext_mu_n[nuclei])
+        self.assertLess(float(np.median(residual)), 1e-5)
+        self.assertGreater(float(residual.max()), 6.5)
+
     def test_audited_cells_are_reproducible_from_the_tables(self) -> None:
         from audit_b16_p1iii_eos_sfho_realdata_closure import closure_cell
 

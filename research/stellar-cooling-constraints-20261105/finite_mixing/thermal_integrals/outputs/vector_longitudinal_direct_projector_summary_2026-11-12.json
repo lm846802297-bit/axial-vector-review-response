@@ -1,0 +1,59 @@
+{
+  "title": "Direct longitudinal-projector audit of vector semi-Compton production",
+  "source": "arXiv:2610.35379v1, Appendix B Eqs. (B.1)-(B.4), medium projector (A.15)",
+  "scope": "Exact two-body gamma+mu -> mu+Z' kinematics in the initial-muon rest frame; direct rank-one P_L projection; no thermal rate or stellar transport.",
+  "benchmark_grid": {
+    "Egamma_MeV": [0.05, 0.1, 0.5, 1.0],
+    "m_over_Egamma": [0.001, 0.01, 0.1],
+    "cos_theta": [-0.7, 0.2, 0.8],
+    "n_cases": 36
+  },
+  "projector_method": {
+    "physical_epsilon_L": "(|q|/m, omega*qhat/m)",
+    "stable_ward_equivalent": "epsilon_L-q/m=(-m/(omega+|q|), m*qhat/(omega+|q|))",
+    "identity": "q_mu M^mu=0 for the conserved vector current; shift is exact at amplitude level.",
+    "axial_caveat": "Do not apply the Ward shift to the axial component."
+  },
+  "acceptance_summary": {
+    "max_physical_vs_Ward_rel": 3.262753409671859e-07,
+    "max_trace_vs_spinor_rel": 8.369194226531818e-11,
+    "max_correct_qWard_rel_amplitude": 1.3330362067649738e-14,
+    "min_literal_B1b_wrong_u_qWard_rel_amplitude": 0.017397645042540523,
+    "max_literal_B1b_wrong_u_qWard_rel_amplitude": 1.0595660032309064,
+    "max_abs_B2_relative_residual": 0.0001833645642104198,
+    "max_abs_B4_relative_residual": 2.4647677456579586e-05,
+    "max_abs_B3_relative_residual": 0.06003268430334341,
+    "max_B3_abs_error_E_le_0p1_x_le_0p01": 0.005331570877725733,
+    "max_L_over_T_x2_shape_error_E_le_0p1_x_le_0p01": 0.0007774066694619663,
+    "B2_scaled_residual_range_x_le_0p01": [1.2194051111065332, 1.937531571600499],
+    "all_direct_longitudinal_rates_positive": true,
+    "n_cases": 36
+  },
+  "small_x_recoil_laws": {
+    "B2_relative_residual": "(B2_paper/T_exact)-1 ~= 2*x^2*(Egamma/m_mu)/(1+cos(theta)^2)",
+    "B3_relative_residual": "(B3_paper/L_direct)-1 ~= -2*(Egamma/m_mu)/(1-cos(theta)^2)",
+    "max_relative_fit_error_x_0p001_E_le_0p1": {
+      "B2": 0.001537584970400907,
+      "B3": 0.0009207807924478395
+    },
+    "interpretation": "The B.2 residual is O(x^2 E_gamma/m_mu), the same mass order as the physical longitudinal signal. Subtracting B.2 from B.4 amplifies it into an O(E_gamma/m_mu) relative bias in B.3."
+  },
+  "high_precision_recheck": {
+    "available": true,
+    "digits": 80,
+    "Egamma_MeV": 0.1,
+    "m_over_Egamma_to_B3_minus_direct_PL": [
+      {"x": 0.1, "relative_residuals_by_cos_theta": [-0.008647105422148905, -0.004586608504543051, -0.012218226681795553]},
+      {"x": 0.01, "relative_residuals_by_cos_theta": [-0.003758454940140477, -0.001998278412831853, -0.005331579845143035]},
+      {"x": 0.001, "relative_residuals_by_cos_theta": [-0.003709566863861519, -0.0019723947208958046, -0.005262713118564894]}
+    ],
+    "note": "High-precision B.2/B.4 subtraction does not remove the residual."
+  },
+  "B3_residual_scaling_at_x_0p001": [
+    {"Egamma_MeV": 0.05, "mean_B3_minus_direct_PL": -0.0018246515968874943, "min_B3_minus_direct_PL": -0.0026314388131037925, "max_B3_minus_direct_PL": -0.0009863576398637663, "mean_B2_relative_residual": 7.077340195375351e-10, "mean_B4_relative_residual": -3.534209961723415e-13},
+    {"Egamma_MeV": 0.1, "mean_B3_minus_direct_PL": -0.0036482683158204354, "min_B3_minus_direct_PL": -0.005262801911337767, "max_B3_minus_direct_PL": -0.001972258392847981, "mean_B2_relative_residual": 1.416003980736491e-09, "mean_B4_relative_residual": -2.744841391214929e-13},
+    {"Egamma_MeV": 0.5, "mean_B3_minus_direct_PL": -0.0182460968515535, "min_B3_minus_direct_PL": -0.026390187626400774, "max_B3_minus_direct_PL": -0.009866491684196399, "mean_B2_relative_residual": 7.1046792893270094e-09, "mean_B4_relative_residual": 2.137290344705889e-12},
+    {"Egamma_MeV": 1.0, "mean_B3_minus_direct_PL": -0.03644280463785684, "min_B3_minus_direct_PL": -0.052974936402691464, "max_B3_minus_direct_PL": -0.019725231095237716, "mean_B2_relative_residual": 1.426924571094427e-08, "mean_B4_relative_residual": 3.7419326896307816e-11}
+  ],
+  "claim_boundary": "The numerical leading recoil laws pass the stated small-x, low-energy tests. A full symbolic finite-recoil derivation remains pending; no global thermal or transport rate is established."
+}

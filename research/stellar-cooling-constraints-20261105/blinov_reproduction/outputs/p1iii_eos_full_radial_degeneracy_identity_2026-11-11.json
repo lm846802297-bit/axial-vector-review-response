@@ -1,0 +1,79 @@
+{
+  "title": "P1-IIIe-C3A full-radial degeneracy-factor derivative identity",
+  "date": "2026-11-11",
+  "status": "PASS: direct blocked integral agrees with finite-difference density derivative at all 301 radii",
+  "scope": "301-point t_pb=1 s Caputo SFHo-18.8 published-figure snapshot; local static degeneracy identity only; not a time-space weighted core average.",
+  "provenance": {
+    "C1_profile_git_blob_sha": "9ff7818b0679992c0a9ba402330ec7f0d1f3041b",
+    "C2_occupation_csv_git_blob_sha": "c472040a4551e68ffadbf7addf9402663f99e7e3",
+    "C1_profile_sha256": "97d6a88a95d0a636ac359ae981b1b06ec33b88b0f106bfb88d203cb0f9fbbc59",
+    "radial_points": 301,
+    "radial_range_km": [
+      0.2,
+      15.2
+    ],
+    "radial_step_km": 0.05,
+    "snapshot_time_post_bounce_s": 1
+  },
+  "convention": {
+    "F_direct": "integral p^2 f(1-f) / integral p^2 f",
+    "F_density_derivative": "T/n' * [n'(nu+h)-n'(nu-h)]/(2h)",
+    "fixed_parameters": [
+      "T",
+      "m_N*",
+      "U_N",
+      "xi_SPP"
+    ],
+    "varied_parameter": "mu_N^nonrel by +/-h at fixed U_N, hence nu_N by +/-h",
+    "step_fraction_h_over_T": 0.00003,
+    "quadrature_order": 2048,
+    "tail_T": 45,
+    "spin_degeneracy": 2
+  },
+  "species": {
+    "n": {
+      "Fdeg_range": [
+        0.2398909249958173,
+        0.7341914152441519
+      ],
+      "rms_relative_difference": 7.820499287581657e-11,
+      "max_abs_relative_difference": 3.193448929518616e-10,
+      "max_signed_relative_difference": -3.193448929518616e-10,
+      "max_abs_relative_at_km": 0.45,
+      "max_abs_absolute_difference": 9.086620345044594e-11,
+      "max_abs_absolute_difference_at_km": 12.75,
+      "max_abs_direct_vs_C2_reference": 4.440892098500626e-16,
+      "direct_vs_C2_at_km": 9.7
+    },
+    "p": {
+      "Fdeg_range": [
+        0.45850876202685187,
+        0.9852716690900956
+      ],
+      "rms_relative_difference": 8.795248742120724e-11,
+      "max_abs_relative_difference": 1.9786561744095658e-10,
+      "max_signed_relative_difference": 1.9786561744095658e-10,
+      "max_abs_relative_at_km": 14.4,
+      "max_abs_absolute_difference": 1.9318535660062253e-10,
+      "max_abs_absolute_difference_at_km": 14.4,
+      "max_abs_direct_vs_C2_reference": 6.661338147750939e-16,
+      "direct_vs_C2_at_km": 13.7
+    }
+  },
+  "acceptance": {
+    "points_301": true,
+    "uniform_grid_0p05km": true,
+    "neutron_derivative_identity_below_1e_8": true,
+    "proton_derivative_identity_below_1e_8": true,
+    "direct_integral_matches_C2_archive_below_5e_12": true,
+    "all_factors_between_zero_and_one": true
+  },
+  "overall_pass": true,
+  "interpretation": [
+    "The direct blocked integral and the thermodynamic density derivative are evaluated by independent numerical routes.",
+    "The derivative is taken at fixed T, m_N*, U_N and xi; only mu_N^nonrel, equivalently nu_N, is varied.",
+    "xi cancels in Fdeg because it multiplies both n' and its derivative at fixed xi.",
+    "The result is a local identity check at one t_pb=1 s snapshot; it is not the global weighted degeneracy factor in Fiorillo Table 1.",
+    "No dynamic response, B.2 opacity, transport, luminosity, Fig. 7 benchmark, manuscript, or axial cooling curve is modified."
+  ]
+}
