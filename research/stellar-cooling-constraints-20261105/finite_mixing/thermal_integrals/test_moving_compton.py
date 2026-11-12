@@ -122,6 +122,21 @@ class MovingComptonMatrixElementTests(unittest.TestCase):
                 p_in,k_gamma,p_out,q_vector,photon_pols,eps
             ) for eps in vector_pols
         ])
+        # Match the independently assembled covariant spin trace to the
+        # production kernel before testing its Lorentz transformation. The
+        # linear (T1,T2) sum equals the circular (+,-) sum.
+        _, _, kernel_modes = moving_compton_matrix_elements(
+            mass,omega,np.array([p_magnitude]),np.array([cos_mu]),
+            np.array([cos_gamma]),np.array([phi_gamma]),0.0,1.0
+        )
+        np.testing.assert_allclose(
+            rates.E2*original[0],kernel_modes[0,0],rtol=3e-11,atol=3e-10
+        )
+        np.testing.assert_allclose(
+            rates.E2*(original[1]+original[2]),
+            kernel_modes[0,1]+kernel_modes[0,2],
+            rtol=3e-11,atol=3e-10
+        )
 
         beta = np.array([0.31,-0.17,0.22])
         boosted = [
