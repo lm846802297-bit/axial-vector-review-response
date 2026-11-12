@@ -2555,7 +2555,7 @@
     "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
     "source": "reconstructed SFHo-18.8 t_pb=1s digitized profile"
   },
-  "run_commit_sha": "3f7ce66f210edf966d8bb3b7d20f7716b28135e8",
+  "run_commit_sha": "c611005c6cb343f8a53b282e14d15a8b6468b541",
   "scope_limits": [
     "Local source-rate comparison only; no radial integration or escape probability.",
     "B.14-B.16 is the published nonrelativistic-muon, negligible-recoil Thomson-limit approximation; its difference from the exact B.13 kernel is retained as a physical approximation diagnostic.",
