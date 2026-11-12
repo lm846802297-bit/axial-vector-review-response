@@ -19,7 +19,7 @@ permissions:
 
 concurrency:
   group: c4c4-b-full-radial-${{ github.ref }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   tests:
