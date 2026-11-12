@@ -1,4 +1,24 @@
-# 2026-11-12 live status: post-merge numerical validation and active-branch synchronization
+# 2026-11-13 live status: branch audit and research integration
+
+> This live section supersedes older dated entries below wherever they report earlier main SHAs, PR states, branch counts, or active-branch inventories. Historical records remain intact.
+
+## Current repository and PR state
+
+- Main baseline for this audit: \`4fdb7ea3b0e85412525322b6b3d584365a852363\`.
+- PR #84 is **Closed / Merged**: C4-C4-B full-radial energy-dependence results, native outputs, provenance, and checksums.
+- PR #85 is **Closed / Merged**: separately scoped two-VEV axial microphysics benchmark. This does not change the original one-VEV model.
+- PR #82 was closed as superseded by #84; PR #83 was closed as a duplicate of already-merged PR #77.
+- No open PRs remained after these integrations.
+- PRs #53, #56, #68, #69, #72, #73, #79, #80, and #81 are already merged. Their branches may still report large \`ahead_by\` counts because of squash-merge ancestry; do not treat those counts as unmerged content.
+
+## Branch audit and scientific status
+
+See [research/BRANCH_INTEGRATION_AUDIT_2026-11-13.md](research/BRANCH_INTEGRATION_AUDIT_2026-11-13.md) for the all-branch comparison, merged-workstream map, intentionally unpromoted historical/preliminary branches, and the reasons not to merge their stale histories.
+
+The pure-vector Blinov Fig. 7 reproduction remains **not passed** at the 10 MeV strong-absorption end. The new C4-C4-B archive is a fixed-local-energy, flat-space total-scattering diagnostic, not a complete transport result or SN1987A exclusion. The two-VEV archive is an alternative model extension and must remain separate from the original one-VEV paper model.
+
+---
+
 
 > This live section supersedes older dated entries below wherever they report an earlier main SHA, PR state, validation run, or branch count. Historical records remain intact.
 
