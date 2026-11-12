@@ -87,7 +87,7 @@ No empirical source, opacity, coupling, or luminosity rescaling is applied. No a
 - Full local-rate arrays and matched B.16 files: associated GitHub Actions workflow artifacts.
 - Scripts: audit_b16_global_redshift.py, audit_b13_global_transport.py, summarize_b13_global_transport.py, summarize_b13_convergence.py.
 
-## 4. Companion 0.1 MeV scan: not converged
+## Companion 0.1 MeV scan: not converged
 
 The companion 0.1 MeV vertex-preserving scan is archived separately in `outputs/b13_global_convergence_vertex_preserving_0p1mev_2026-11-09.json`. It records `overall_passed=false` and `overall_grid_passed=false`. The angular (24 to 32), energy (150 to 200), and path (48 to 64) refinements pass their stated criteria, but the radial 60 to 80 refinement does not:
 
