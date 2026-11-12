@@ -7,6 +7,7 @@ on:
     paths:
       - 'research/stellar-cooling-constraints-20261105/*.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/**'
+      - '!research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/**'
       - '!research/stellar-cooling-constraints-20261105/blinov_reproduction/diagnose_fig7_10mev_three_layer.py'
       - '!research/stellar-cooling-constraints-20261105/blinov_reproduction/test_fig7_10mev_three_layer.py'
       - '!research/stellar-cooling-constraints-20261105/blinov_reproduction/FIG7_10MEV_THREE_LAYER_AUDIT_2026-11-07.md'
@@ -22,7 +23,8 @@ permissions:
 
 concurrency:
   group: major44-eft-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: false
+  # A newer commit supersedes a queued or running validation of an older branch head.
+  cancel-in-progress: true
 
 jobs:
   validate:
