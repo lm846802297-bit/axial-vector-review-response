@@ -168,14 +168,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add \
-            research/stellar-cooling-constraints-20261105/finite_mixing/outputs/compileall.log \
-            research/stellar-cooling-constraints-20261105/finite_mixing/outputs/reference_matrix_element_checks.log \
-            research/stellar-cooling-constraints-20261105/finite_mixing/outputs/unittest.log \
-            research/stellar-cooling-constraints-20261105/finite_mixing/outputs/thermal_response_scan.log \
-            research/stellar-cooling-constraints-20261105/finite_mixing/outputs/b13_b16_comparison_2026-11-12.log \
-            research/stellar-cooling-constraints-20261105/finite_mixing/outputs/b13_b16_low_mass_scan_2026-11-12.log \
-            research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/outputs/moving_compton_validation.log \
-            research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/outputs/vector_semicompton_polarization_audit.log \
             research/stellar-cooling-constraints-20261105/finite_mixing/outputs/thermal_response_scan.json \
             research/stellar-cooling-constraints-20261105/finite_mixing/outputs/b13_b16_comparison_2026-11-12.json \
             research/stellar-cooling-constraints-20261105/finite_mixing/outputs/b13_b16_low_mass_scan_2026-11-12.json \
