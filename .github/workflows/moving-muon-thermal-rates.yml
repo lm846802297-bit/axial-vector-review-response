@@ -22,7 +22,8 @@ on:
 
 concurrency:
   group: moving-muon-thermal-response-${{ github.ref }}
-  cancel-in-progress: false
+  # Only the latest branch head should publish numerical outputs.
+  cancel-in-progress: true
 
 permissions:
   contents: write
