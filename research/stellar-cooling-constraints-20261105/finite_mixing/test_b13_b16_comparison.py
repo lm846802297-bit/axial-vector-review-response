@@ -3,6 +3,8 @@ import unittest
 
 import numpy as np
 
+import rates
+from finite_mixing.moving_muon_compton import moving_muon_compton_rates
 from finite_mixing.b13_b16_comparison import (
     b14_b16_rate,
     muon_density_and_susceptibility,
@@ -50,6 +52,48 @@ class B13B16ComparisonTests(unittest.TestCase):
         self.assertGreater(b["v_V"], a["v_V"])
         self.assertGreater(a["B16_total_with_mass_correction_MeV"], 0.0)
         self.assertGreater(b["B16_total_with_mass_correction_MeV"], 0.0)
+
+    def test_exact_b13_reduces_to_b14_b16_in_nonrelativistic_thomson_limit(self):
+        # Controlled limit: T, omega << m_mu, a susceptibility-weighted
+        # muon velocity well below unity, and m_V/omega=0.1. In this regime
+        # the exact moving-muon phase-space integral must approach the
+        # nonrelativistic/no-recoil B.14--B.16 expression.
+        temperature = 0.5
+        mu_mu = rates.M_MU + 0.05
+        mass = 0.05
+        omega = 0.5
+        thermo = muon_density_and_susceptibility(
+            temperature, mu_mu, order=192
+        )
+        exact = moving_muon_compton_rates(
+            mass, omega, temperature, mu_mu,
+            g_vector=1.0, g_axial=0.0,
+            orders=(24, 12, 12, 16),
+        )
+        approximate = b14_b16_rate(
+            mass, omega, temperature,
+            thermo["n_mu_Fdeg_total_MeV3"],
+            include_mass_correction=True,
+        )
+        exact_modes = np.asarray(exact["production"], dtype=float)
+        approximate_modes = np.asarray(
+            approximate["B16_mode_rates_with_mass_correction_MeV"],
+            dtype=float,
+        )
+        transverse_ratios = exact_modes[1:]/approximate_modes[1:]
+        total_ratio = np.sum(exact_modes)/approximate[
+            "B16_total_with_mass_correction_MeV"
+        ]
+        self.assertTrue(np.all(np.isfinite(transverse_ratios)))
+        self.assertTrue(np.all(exact_modes >= 0.0))
+        self.assertLess(
+            float(np.max(np.abs(transverse_ratios-1.0))), 0.05,
+            msg=f"Exact/B.16 transverse-mode ratios: {transverse_ratios}",
+        )
+        self.assertLess(
+            abs(total_ratio-1.0), 0.05,
+            msg=f"Exact/B.16 total-rate ratio: {total_ratio}",
+        )
 
     def test_b17_charge_resolved_susceptibilities_are_positive_and_normalized(self):
         result = muon_density_and_susceptibility(19.26522111, 46.67432845, order=128)
