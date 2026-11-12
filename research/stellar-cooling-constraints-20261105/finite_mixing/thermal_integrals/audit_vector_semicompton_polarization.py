@@ -445,7 +445,7 @@ def build_audit(mass=0.001, photon_energy=0.1):
             "conserved_vector_longitudinal_suppression_pass": (
                 sigma_l_reference / sigma_t_reference < 1e-3
             ),
-            "positive_exact_cross_sections_pass": (
+            "positive_exact_cross_sections_pass": bool(
                 sigma_t_reference > 0.0 and sigma_l_reference > 0.0
                 and np.all(exact_t_dcos >= 0.0)
                 and np.all(exact_l_dcos >= 0.0)
@@ -484,7 +484,7 @@ def main():
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(payload, indent=2) + "\n")
     print(json.dumps(payload["acceptance"], indent=2))
-    print(json.dumps(payload["printed_formula_comparison"], indent=2))
+    print(json.dumps(payload["printed_Eq5_9_comparison"], indent=2))
     if not all(payload["acceptance"].values()):
         raise SystemExit("Exact vector-current physical acceptance checks failed")
 
