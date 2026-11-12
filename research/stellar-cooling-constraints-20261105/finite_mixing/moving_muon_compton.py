@@ -201,27 +201,27 @@ def moving_muon_compton_rates(
     absorption = charge_results["mu_minus"]["absorption"]+charge_results["mu_plus"]["absorption"]
     gamma_prod_unpolarized = float(np.sum(production)/2.0)
     gamma_abs_unpolarized = float(np.sum(absorption)/3.0)
-    # Eq. (61) can imply an exponentially large absorption/production
+    # Eq. (5.12) can imply an exponentially large absorption/production
     # ratio in the cold-dilute limit. Keep the diagnostic in log space so a
     # perfectly valid absorption kernel is not rejected by exp(E/T) overflow
     # or production underflow.
-    log_eq_61_expected = math.log(2.0/3.0) + energy/temperature
-    log_eq_61_ratio = None
-    eq_61_ratio = None
-    eq_61_expected = None
-    eq_61_relative_residual = None
+    log_eq_5_12_expected = math.log(2.0/3.0) + energy/temperature
+    log_eq_5_12_ratio = None
+    eq_5_12_ratio = None
+    eq_5_12_expected = None
+    eq_5_12_relative_residual = None
     log_float_max = math.log(sys.float_info.max)
-    if log_eq_61_expected <= log_float_max:
-        eq_61_expected = math.exp(log_eq_61_expected)
+    if log_eq_5_12_expected <= log_float_max:
+        eq_5_12_expected = math.exp(log_eq_5_12_expected)
     if gamma_abs_unpolarized > 0.0 and gamma_prod_unpolarized > 0.0:
-        log_eq_61_ratio = (
+        log_eq_5_12_ratio = (
             math.log(gamma_abs_unpolarized) - math.log(gamma_prod_unpolarized)
         )
-        if log_eq_61_ratio <= log_float_max:
-            eq_61_ratio = math.exp(log_eq_61_ratio)
-        log_residual = log_eq_61_ratio - log_eq_61_expected
+        if log_eq_5_12_ratio <= log_float_max:
+            eq_5_12_ratio = math.exp(log_eq_5_12_ratio)
+        log_residual = log_eq_5_12_ratio - log_eq_5_12_expected
         if log_residual <= log_float_max:
-            eq_61_relative_residual = abs(math.expm1(log_residual))
+            eq_5_12_relative_residual = abs(math.expm1(log_residual))
     return {
         "production": production, "absorption": absorption,
         "mode_order": ["L", "+", "-"],
@@ -231,13 +231,13 @@ def moving_muon_compton_rates(
             "initial_vector_polarization_average": 3,
             "Gamma_prod_unpolarized": gamma_prod_unpolarized,
             "Gamma_abs_unpolarized": gamma_abs_unpolarized,
-            "Gamma_abs_over_Gamma_prod": eq_61_ratio,
-            "Gamma_abs_over_Gamma_prod_log": log_eq_61_ratio,
-            "Eq_61_expected_ratio": eq_61_expected,
-            "Eq_61_expected_log_ratio": log_eq_61_expected,
-            "Eq_61_relative_residual": eq_61_relative_residual,
-            "Eq_61_relative_residual_status": (
-                "computed" if eq_61_relative_residual is not None
+            "Gamma_abs_over_Gamma_prod": eq_5_12_ratio,
+            "Gamma_abs_over_Gamma_prod_log": log_eq_5_12_ratio,
+            "Eq_5_12_expected_ratio": eq_5_12_expected,
+            "Eq_5_12_expected_log_ratio": log_eq_5_12_expected,
+            "Eq_5_12_relative_residual": eq_5_12_relative_residual,
+            "Eq_5_12_relative_residual_status": (
+                "computed" if eq_5_12_relative_residual is not None
                 else "unavailable_in_float_domain"
             ),
         },
@@ -358,9 +358,9 @@ def thermal_compton_emissivity(
     rel = np.abs(production-balance)/np.maximum(np.abs(production),1e-300)
     prod_unpolarized = np.sum(production, axis=1)/2.0
     abs_unpolarized = np.sum(absorption, axis=1)/3.0
-    eq_61_expected = (2.0/3.0)*np.exp(omega/temperature)
-    eq_61_ratio = abs_unpolarized/np.maximum(prod_unpolarized,1e-300)
-    eq_61_residual = np.abs(eq_61_ratio-eq_61_expected)/eq_61_expected
+    eq_5_12_expected = (2.0/3.0)*np.exp(omega/temperature)
+    eq_5_12_ratio = abs_unpolarized/np.maximum(prod_unpolarized,1e-300)
+    eq_5_12_residual = np.abs(eq_5_12_ratio-eq_5_12_expected)/eq_5_12_expected
     return {
         "mass_MeV": mass, "temperature_MeV": temperature,
         "mode_order": ["L", "+", "-"],
@@ -375,8 +375,8 @@ def thermal_compton_emissivity(
         "absorption_MeV": absorption.tolist(),
         "unpolarized_production_MeV": prod_unpolarized.tolist(),
         "unpolarized_absorption_MeV": abs_unpolarized.tolist(),
-        "Eq_61_absorption_to_production_ratio": eq_61_ratio.tolist(),
-        "max_Eq_61_relative_residual": float(np.max(eq_61_residual)),
+        "Eq_5_12_absorption_to_production_ratio": eq_5_12_ratio.tolist(),
+        "max_Eq_5_12_relative_residual": float(np.max(eq_5_12_residual)),
         "production_by_charge_MeV": {
             k:v.tolist() for k,v in charge_production.items()
         },
