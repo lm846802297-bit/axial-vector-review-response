@@ -1,0 +1,21 @@
+{
+  "source": "Caputo, Raffelt, Vitagliano, arXiv:2109.03244v3",
+  "source_archive_sha256": "2e4a1280460bce9a5f7596d3dfd1d3e0f4752f2e1706e85d3a2c20b5f9dbbd8e",
+  "temperature_source": "Fig. 1 upper-panel T(r), linearly interpolated from native PDF vector vertices",
+  "composition_source": "Fig. 1 lower-panel nB and Fig. 4 upper-panel Yn, Yp, Ye+Ymu, extracted from native PDF vector paths",
+  "temperature_csv": "research/stellar-cooling-constraints-20261105/data/T_caputo_vertices.csv",
+  "temperature_csv_sha256": "e6a840720d86ec55bd41f661c9bb305318dd29d98fcc38a7e3a8dee2058060e6",
+  "composition_profile_csv": "/home/runner/work/_temp/caputo_extraction/caputo_composition_profiles_2026-11-11.csv",
+  "composition_profile_csv_sha256": "a5677e1e657a6fa65b63b5fc403bf804365dd33a45ba166efd5f7c73543b6be4",
+  "normalization_n0_fm3": 0.181,
+  "eos_Yp_coordinate": "Yp_tot=Ye+Ymu; free-proton abundance Yp is not the EOS coordinate",
+  "radial_grid_km": {
+    "min": 0.2,
+    "max": 15.199999999999996,
+    "step": 0.05,
+    "points": 301
+  },
+  "profile_csv": "/home/runner/work/_temp/caputo_profile_full_0p05km_2026-11-11.csv",
+  "profile_csv_sha256": "cf4a74f00982acd4b1aaff026d64e8a0cba72231437ae727fa150f5b94e85a03",
+  "scope": "digitized published t_pb=1 s snapshot; not raw time-dependent Garching profile data"
+}

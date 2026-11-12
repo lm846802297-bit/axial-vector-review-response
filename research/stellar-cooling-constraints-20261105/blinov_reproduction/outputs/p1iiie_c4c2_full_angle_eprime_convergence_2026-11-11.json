@@ -1,0 +1,30 @@
+{
+  "title": "C4-C2 full-angle outgoing-energy quadrature convergence",
+  "source_commit": "780e0c0bfd745ec41cb7b840c7ba4f8226bb723d",
+  "input_profile_git_blob_sha": "9ff7818b0679992c0a9ba402330ec7f0d1f3041b",
+  "input_c2_git_blob_sha": "c472040a4551e68ffadbf7addf9402663f99e7e3",
+  "profile_indices": [0, 96, 196, 300],
+  "radii_km": [0.2, 5.0, 10.0, 15.2],
+  "cases": 16,
+  "incident_energy_MeV": 100.0,
+  "quadrature": {
+    "cosine": 8,
+    "initial_momentum": 36,
+    "azimuth": 12,
+    "outgoing_energy_orders": [48, 72],
+    "support_scan_points": 10001
+  },
+  "maxima": {
+    "full_angle_Eprime_48_to_72_relative_difference": 2.089747299571787e-05,
+    "support_root_relative_residual": 1.0317349103132463e-13
+  },
+  "acceptance": {
+    "all_16_radius_species_sign_cases_present": true,
+    "all_full_angle_rates_positive": true,
+    "Eprime_48_to_72_below_1_percent": true,
+    "support_root_below_1e_7": true
+  },
+  "overall_pass": true,
+  "elapsed_seconds": 503.8617672920227,
+  "interpretation": "The 48-versus-72 outgoing-energy comparison is performed inside the full outgoing-angle integral. At each angular node the exact kinematic support roots are solved once and reused for both energy orders. The existing C4-C2 collision kernel and C1/C2 EOS inputs are reused unchanged."
+}

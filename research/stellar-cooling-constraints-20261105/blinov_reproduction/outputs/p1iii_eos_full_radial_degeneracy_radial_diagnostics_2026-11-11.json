@@ -1,0 +1,312 @@
+{
+  "title": "P1-IIIe-C3C full-radial degeneracy-factor physical diagnostics",
+  "date": "2026-11-11",
+  "status": "PASS: dimensionless dependence and relativistic-dispersion comparison quantified",
+  "scope": "301-point t_pb=1 s Caputo SFHo-18.8 published-figure snapshot; local static quasiparticle occupations only; not a time-space weighted core average.",
+  "provenance": {
+    "profile": "outputs/caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv",
+    "profile_git_blob_sha": "9ff7818b0679992c0a9ba402330ec7f0d1f3041b",
+    "C2_occupation": "outputs/p1iii_eos_full_radial_occupation_2026-11-11.csv",
+    "C2_occupation_git_blob_sha": "c472040a4551e68ffadbf7addf9402663f99e7e3",
+    "radial_points": 301,
+    "radial_range_km": [
+      0.2,
+      15.2
+    ],
+    "radial_step_km": 0.05,
+    "snapshot_time_post_bounce_s": 1
+  },
+  "dimensionless_form": {
+    "eta": "nu_N/T",
+    "theta": "T/m_N*",
+    "momentum_substitution": "p=sqrt(2*m_N* T)*y",
+    "K_rel_over_T": "(sqrt(1+2*theta*y^2)-1)/theta",
+    "exact_statement": "Fdeg_rel = F(eta,theta); xi_SPP and X_N do not enter explicitly in the ratio.",
+    "nonrelativistic_limit": "theta->0 gives K/T=y^2 and Fdeg_NR=F_NR(eta)."
+  },
+  "numerical_method": {
+    "relativistic_quadrature_order": 2048,
+    "nonrelativistic_root_quadrature_order": 512,
+    "nonrelativistic_final_quadrature_order": 2048,
+    "kinetic_energy_tail_T": 45,
+    "NR_comparison_A": "same T, m*, and nu as relativistic EOS state; density is not constrained to match",
+    "NR_comparison_B": "same T, m*, and n' as relativistic EOS state; solve nu_NR before evaluating Fdeg",
+    "density_convention": "per available volume V'; xi_SPP cancels in the Fdeg ratio"
+  },
+  "composition_closure_max_abs": 8.999467837611519e-13,
+  "species": {
+    "n": {
+      "ranges": {
+        "eta_nu_over_T": [
+          0.44373372709716674,
+          6.595978037916293
+        ],
+        "T_over_mstar": [
+          0.013798724648106072,
+          0.05537177295978078
+        ],
+        "mstar_MeV": [
+          541.149594596,
+          898.949686325
+        ],
+        "T_MeV": [
+          12.4043591941,
+          39.2411156669
+        ],
+        "X_free": [
+          0.781776639087,
+          0.875361300009
+        ],
+        "Xcluster_EOS": [
+          0,
+          0.0897226887872
+        ],
+        "Fdeg_relativistic": [
+          0.23989092499581813,
+          0.7341914152441542
+        ],
+        "Fdeg_nonrel_fixed_nu": [
+          0.2186030892693737,
+          0.7308106340284108
+        ],
+        "Fdeg_nonrel_density_matched": [
+          0.19433642651470462,
+          0.7249577335782283
+        ]
+      },
+      "correlations": {
+        "Fdeg_vs_eta": {
+          "pearson_r": -0.9880668379265263,
+          "spearman_rho": -0.9999955996567732
+        },
+        "Fdeg_vs_T_over_mstar": {
+          "pearson_r": -0.14721273029974763,
+          "spearman_rho": -0.3086651558821588
+        },
+        "Fdeg_vs_X_free": {
+          "pearson_r": 0.8365146986394583,
+          "spearman_rho": 0.987377364890576
+        },
+        "Fdeg_vs_Xcluster": {
+          "pearson_r": 0.6958329041599655,
+          "spearman_rho": 0.8404897933392345
+        },
+        "eta_vs_T_over_mstar": {
+          "pearson_r": 0.07068308024900985,
+          "spearman_rho": 0.30867571670590305
+        }
+      },
+      "linear_regression_R2": {
+        "eta_only": 0.976276076210123,
+        "eta_and_T_over_mstar": 0.9822927361486515,
+        "eta_and_X_free": 0.9872599488302651
+      },
+      "nonrelativistic_fixed_nu": {
+        "max_abs_relative_shift": 0.08875983499879042,
+        "at_r_km": 0.2,
+        "rms_relative_shift": 0.051054555310158664,
+        "mean_signed_relative_shift": -0.04113484613896711,
+        "all_points_nonrel_below_rel": true
+      },
+      "nonrelativistic_density_matched": {
+        "max_abs_relative_shift": 0.18991466243741323,
+        "at_r_km": 0.2,
+        "rms_relative_shift": 0.11436395271546211,
+        "mean_signed_relative_shift": -0.09556569978361036,
+        "max_abs_mu_shift_MeV": 17.179169989636634,
+        "rms_mu_shift_MeV": 10.205581727978974,
+        "max_abs_density_match_residual": 5.88418203051333e-15,
+        "all_points_nonrel_below_rel": true
+      },
+      "max_abs_C2_reproduction_difference": 6.994405055138486e-15,
+      "sample_points": [
+        {
+          "r_km": 0.2,
+          "eta_nu_over_T": 6.595978037916293,
+          "theta_T_over_mstar": 0.03559061788354218,
+          "X_free": 0.782667838907,
+          "Xcluster_EOS": 0,
+          "Fdeg_rel": 0.23989623994359766,
+          "Fdeg_NR_fixed_nu": 0.2186030892693737,
+          "Fdeg_NR_density_matched": 0.19433642651470462,
+          "delta_nu_NR_minus_rel_MeV": 17.179169989636634
+        },
+        {
+          "r_km": 5,
+          "eta_nu_over_T": 3.9651843683497763,
+          "theta_T_over_mstar": 0.04277612683099099,
+          "X_free": 0.784494345816,
+          "Xcluster_EOS": 0,
+          "Fdeg_rel": 0.3608087807557122,
+          "Fdeg_NR_fixed_nu": 0.3379824599703224,
+          "Fdeg_NR_density_matched": 0.308594732927361,
+          "delta_nu_NR_minus_rel_MeV": 12.14532210250313
+        },
+        {
+          "r_km": 10,
+          "eta_nu_over_T": 0.8253087700755034,
+          "theta_T_over_mstar": 0.0446841318504947,
+          "X_free": 0.822025299504,
+          "Xcluster_EOS": 0.0219733898487,
+          "Fdeg_rel": 0.6892341226769619,
+          "Fdeg_NR_fixed_nu": 0.6767205756555388,
+          "Fdeg_NR_density_matched": 0.6551003009283067,
+          "delta_nu_NR_minus_rel_MeV": 5.147029934990378
+        },
+        {
+          "r_km": 15.2,
+          "eta_nu_over_T": 0.44373372709716674,
+          "theta_T_over_mstar": 0.013798724648106072,
+          "X_free": 0.875361300009,
+          "Xcluster_EOS": 0.0897226887872,
+          "Fdeg_rel": 0.7341914152441542,
+          "Fdeg_NR_fixed_nu": 0.7308106340284108,
+          "Fdeg_NR_density_matched": 0.7249577335782283,
+          "delta_nu_NR_minus_rel_MeV": 0.5183777009366102
+        }
+      ]
+    },
+    "p": {
+      "ranges": {
+        "eta_nu_over_T": [
+          -3.1340636872391583,
+          2.6982668834780528
+        ],
+        "T_over_mstar": [
+          0.013818605201470362,
+          0.055474036061102905
+        ],
+        "mstar_MeV": [
+          539.856217257,
+          897.656385232
+        ],
+        "T_MeV": [
+          12.4043591941,
+          39.2411156669
+        ],
+        "X_free": [
+          0.0349160112042,
+          0.218223360913
+        ],
+        "Xcluster_EOS": [
+          0,
+          0.0897226887872
+        ],
+        "Fdeg_relativistic": [
+          0.4585087620268532,
+          0.9852716690900959
+        ],
+        "Fdeg_nonrel_fixed_nu": [
+          0.4416620591073689,
+          0.9850817162119816
+        ],
+        "Fdeg_nonrel_density_matched": [
+          0.41785095796924215,
+          0.9846963761237892
+        ]
+      },
+      "correlations": {
+        "Fdeg_vs_eta": {
+          "pearson_r": -0.9861321968953228,
+          "spearman_rho": -1
+        },
+        "Fdeg_vs_T_over_mstar": {
+          "pearson_r": -0.16145062668463658,
+          "spearman_rho": -0.3094933004774372
+        },
+        "Fdeg_vs_X_free": {
+          "pearson_r": -0.7809350771139664,
+          "spearman_rho": -0.9889988952940558
+        },
+        "Fdeg_vs_Xcluster": {
+          "pearson_r": 0.7079809211639396,
+          "spearman_rho": 0.8404897933392345
+        },
+        "eta_vs_T_over_mstar": {
+          "pearson_r": 0.3142023601624055,
+          "spearman_rho": 0.3094933004774372
+        }
+      },
+      "linear_regression_R2": {
+        "eta_only": 0.9724567097535937,
+        "eta_and_T_over_mstar": 0.9968897219624799,
+        "eta_and_X_free": 0.9958577952040868
+      },
+      "nonrelativistic_fixed_nu": {
+        "max_abs_relative_shift": 0.03674237945860163,
+        "at_r_km": 0.2,
+        "rms_relative_shift": 0.01958475849686342,
+        "mean_signed_relative_shift": -0.014335124117306636,
+        "all_points_nonrel_below_rel": true
+      },
+      "nonrelativistic_density_matched": {
+        "max_abs_relative_shift": 0.08867399584226456,
+        "at_r_km": 0.2,
+        "rms_relative_shift": 0.04921390242241904,
+        "mean_signed_relative_shift": -0.03708141288399138,
+        "max_abs_mu_shift_MeV": 4.919085351530942,
+        "rms_mu_shift_MeV": 3.7739236367822593,
+        "max_abs_density_match_residual": 5.88418203051333e-15,
+        "all_points_nonrel_below_rel": true
+      },
+      "max_abs_C2_reproduction_difference": 5.773159728050814e-15,
+      "sample_points": [
+        {
+          "r_km": 0.2,
+          "eta_nu_over_T": 2.6982668834780528,
+          "theta_T_over_mstar": 0.0356758852143242,
+          "X_free": 0.217332161093,
+          "Xcluster_EOS": 0,
+          "Fdeg_rel": 0.4585087620268532,
+          "Fdeg_NR_fixed_nu": 0.4416620591073689,
+          "Fdeg_NR_density_matched": 0.41785095796924215,
+          "delta_nu_NR_minus_rel_MeV": 4.79336792116159
+        },
+        {
+          "r_km": 5,
+          "eta_nu_over_T": 1.2674629130354362,
+          "theta_T_over_mstar": 0.042869650798970975,
+          "X_free": 0.215505654184,
+          "Xcluster_EOS": 0,
+          "Fdeg_rel": 0.6284866733348848,
+          "Fdeg_NR_fixed_nu": 0.614234533983861,
+          "Fdeg_NR_density_matched": 0.5908110576374712,
+          "delta_nu_NR_minus_rel_MeV": 4.329233278499153
+        },
+        {
+          "r_km": 10,
+          "eta_nu_over_T": -1.2129796345593342,
+          "theta_T_over_mstar": 0.044760375103895314,
+          "X_free": 0.156001310647,
+          "Xcluster_EOS": 0.0219733898487,
+          "Fdeg_rel": 0.9167919160740917,
+          "Fdeg_NR_fixed_nu": 0.9133638018679869,
+          "Fdeg_NR_density_matched": 0.9063809945217767,
+          "delta_nu_NR_minus_rel_MeV": 3.2013233774698904
+        },
+        {
+          "r_km": 15.2,
+          "eta_nu_over_T": -3.1340636872391583,
+          "theta_T_over_mstar": 0.013818605201470362,
+          "X_free": 0.0349160112042,
+          "Xcluster_EOS": 0.0897226887872,
+          "Fdeg_rel": 0.9852716690900959,
+          "Fdeg_NR_fixed_nu": 0.9850817162119816,
+          "Fdeg_NR_density_matched": 0.9846963761237892,
+          "delta_nu_NR_minus_rel_MeV": 0.32651423539366675
+        }
+      ]
+    }
+  },
+  "acceptance": {
+    "points_301": true,
+    "uniform_0p05km_grid": true,
+    "relativistic_Fdeg_reproduces_C2": true,
+    "composition_closure_below_1e_8": true,
+    "NR_density_match_below_1e_8": true,
+    "all_Fdeg_values_in_0_1": true,
+    "NR_corrections_finite_and_negative": true,
+    "Fdeg_monotonic_with_eta_on_snapshot": true
+  },
+  "overall_pass": true
+}

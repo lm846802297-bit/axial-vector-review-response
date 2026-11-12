@@ -1,0 +1,138 @@
+{
+  "title": "P1-IIIe-C2 full-radial EOS-consistent nucleon Fermi distributions",
+  "date": "2026-11-11",
+  "status": "PASS: sub-percent local density closure",
+  "scope": "301-point t_pb=1 s Caputo SFHo-18.8 published-figure snapshot; not raw time-dependent Garching simulation data and not a mass-time weighted core average.",
+  "provenance": {
+    "input_profile": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv",
+    "input_profile_sha256": "97d6a88a95d0a636ac359ae981b1b06ec33b88b0f106bfb88d203cb0f9fbbc59",
+    "input_profile_git_blob_sha": "9ff7818b0679992c0a9ba402330ec7f0d1f3041b",
+    "source_archive_sha256": "2e4a1280460bce9a5f7596d3dfd1d3e0f4752f2e1706e85d3a2c20b5f9dbbd8e",
+    "eos_tables_sha256": {
+      "sfho_frdm_eos_v1.03.bin": "f1ea9c3e04502ca35d7fc64facce575f8553293085ea26e07732389b80d32cb4",
+      "sfho_frdm_spp_v1.03.tab": "118bd3c986283d958fab88a8e81fe49b64ca3b5137ff4bcdc05f97064cc1219e",
+      "sfho_frdm_comp_v1.03.bin": "0dafcd272ff8b8f4b1ba4c05210ea8020dd9a92820b6b0b54165faead4871da7"
+    },
+    "eos_coordinate": "Yp_tot=Ye+Ymu",
+    "radial_points": 301,
+    "radial_range_km": [
+      0.2,
+      15.2
+    ],
+    "radial_step_km": 0.05,
+    "snapshot_time_post_bounce_s": 1
+  },
+  "convention": {
+    "mu_F_star": "mu_N^nonrel",
+    "U_N": "m_N^*-m_N+SigmaV_N^tot",
+    "nu_N": "mu_N^nonrel-U_N",
+    "K_N": "sqrt(p^2+m_N*^2)-m_N*",
+    "density_per_available_volume": "1/[pi^2*(hbar*c)^3] integral dp p^2 f",
+    "total_volume_density": "xi_SPP*n_N'",
+    "EOS_target": "X_N^EOS*n_B",
+    "spin_degeneracy": 2,
+    "hbarc_MeV_fm": 197.3269804
+  },
+  "numerical_method": {
+    "quadrature": "Gauss-Legendre; Kmax=max(nu,0)+45T",
+    "orders": [
+      512,
+      1024,
+      2048
+    ],
+    "density_matched": "diagnostic only; target n'_N=X_N*nB/xi"
+  },
+  "species": {
+    "n": {
+      "density": {
+        "rms_relative": 0.0011262180348891252,
+        "max_abs_relative": 0.0021542420497867587,
+        "max_abs_relative_at_km": 15.15,
+        "max_abs_density_fm3": 0.00040120003296639783,
+        "max_abs_density_at_km": 1.45,
+        "rms_abs_density_fm3": 0.00018975680145820432,
+        "max_abs_vs_caputo": 0.0021985007122832245
+      },
+      "nprime_range": [
+        0.021517707191493225,
+        0.27713706298675655
+      ],
+      "actual_range": [
+        0.02122130301348204,
+        0.27713706298675655
+      ],
+      "Fdeg_range": [
+        0.23989092499581727,
+        0.7341914152441519
+      ],
+      "Fdeg_matched_range": [
+        0.2400497052179763,
+        0.7338639406768723
+      ],
+      "max_abs_delta_nu_MeV": 0.11662924880104697,
+      "delta_nu_at_km": 1.45,
+      "max_abs_delta_Fdeg": 0.0004060090117479209,
+      "delta_Fdeg_at_km": 15.15,
+      "quadrature_max_relative_n_change_2048_vs_512": 6.106226635438361e-15,
+      "quadrature_max_abs_F_change_2048_vs_512": 6.5503158452884236e-15
+    },
+    "p": {
+      "density": {
+        "rms_relative": 0.003009899639979659,
+        "max_abs_relative": 0.007630321904957271,
+        "max_abs_relative_at_km": 14.85,
+        "max_abs_density_fm3": 0.0001479484569015671,
+        "max_abs_density_at_km": 7.7,
+        "rms_abs_density_fm3": 0.00006100730077478511,
+        "max_abs_vs_caputo": 0.007643366524706874
+      },
+      "nprime_range": [
+        0.0008546708908685109,
+        0.07703705283385318
+      ],
+      "actual_range": [
+        0.000842897888260774,
+        0.07703705283385318
+      ],
+      "Fdeg_range": [
+        0.4585087620268518,
+        0.9852716690900956
+      ],
+      "Fdeg_matched_range": [
+        0.4586881510023604,
+        0.9851849900269138
+      ],
+      "max_abs_delta_nu_MeV": 0.1832114523333388,
+      "delta_nu_at_km": 8.8,
+      "max_abs_delta_Fdeg": 0.00044527533042182377,
+      "delta_Fdeg_at_km": 7.7,
+      "quadrature_max_relative_n_change_2048_vs_512": 5.329070518200751e-15,
+      "quadrature_max_abs_F_change_2048_vs_512": 4.9960036108132044e-15
+    }
+  },
+  "thresholds": {
+    "max_abs_relative_density_residual": 0.01,
+    "max_abs_delta_nu_n_MeV": 0.12,
+    "max_abs_delta_nu_p_MeV": 0.2,
+    "max_abs_delta_Fdeg": 0.0005,
+    "max_abs_quadrature_change": 1e-10
+  },
+  "acceptance": {
+    "points_301": true,
+    "uniform_grid_0p05km": true,
+    "neutron_density_closure_below_1pct": true,
+    "proton_density_closure_below_1pct": true,
+    "neutron_delta_nu_below_0p12MeV": true,
+    "proton_delta_nu_below_0p20MeV": true,
+    "density_matched_Fdeg_shift_below_5e_4": true,
+    "quadrature_2048_vs512_below_1e_10": true
+  },
+  "interpretation": [
+    "Primary occupations use tabulated Hempel/Fiorillo chemical potentials without density refitting.",
+    "Density-matched chemical potentials are diagnostics only and do not replace the EOS baseline.",
+    "The largest relative proton residual occurs in the outer low-free-proton-abundance region and remains below 1%.",
+    "Local Fdeg ranges are static t_pb=1 s snapshot diagnostics, not Fiorillo Table 1 space-time weighted averages.",
+    "No dynamic response, B.2 opacity, transport, luminosity, Fig. 7 benchmark, manuscript, or axial cooling curve is modified."
+  ],
+  "overall_pass": true
+}

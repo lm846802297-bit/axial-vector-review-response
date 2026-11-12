@@ -194,3 +194,177 @@ Other differences to isolate include: (i) use of reconstructed plotted curves ra
 6. Only after the above checks, overlay the digitized published curves and quantify the residual differences in \(g_{\mu\tau}(m_{Z'})\) and the high-mass endpoint. If the matched-input calculation still fails, treat it as a code/physics error and fix it before retaining the curve.
 
 **Disposition:** PR #56 remains Open / Draft. The dashed curve is retained in the research output as a provisional diagnostic, but the referee-facing caption now explicitly says it is not a validated published-bound reproduction. The PR is not ready to merge until the vector benchmark discrepancy and the muon-profile convention discrepancy are resolved, or the unvalidated dashed curve is removed from the referee-facing figure.
+
+## 11. 2026-11-08 update: profile provenance and the 10 MeV Fig. 7 follow-up
+
+This addendum supersedes the profile-provenance uncertainty and the first item in the required validation sequence in Section 10. It records the completed public-source checks and the remaining pure-vector gate. It does not alter the production solver, axial scan, manuscript, or referee-response files.
+
+### 11.1 Muon chemical-potential provenance: public-source cross-check completed
+
+The Caputo reconstruction is now independently checked against both upstream Bollig et al. plots for the named SFHo-18.8 model:
+
+- The digitized Caputo \(\mu_\mu/T\) profile agrees with Bollig Fig. 4 with maximum absolute relative difference 0.0161% and mean 0.00551% over the resolved interval.
+- The Caputo Fig. 1 \(n_\mu\) profile agrees with Bollig Fig. 3 with 3.73% mean and 10.45% maximum absolute relative difference over the common resolved interval.
+- Evaluating the Fermi integral with \(E_\mu=\sqrt{p^2+m_\mu^2}\) and the stated \(\mu^-\) convention reproduces the Caputo \(n_\mu\) curve to approximately 0.5--1.1% at the checked radii.
+- The Ferreira digitization does not reproduce the same Bollig/Caputo density and degeneracy profiles in the inner core. The difference is not a constant rest-mass convention shift. The Ferreira curve remains an alternative source-level discrepancy and is not adopted.
+
+**Updated decision:** retain the Caputo chemical-potential profile. Do not add \(m_\mu\), combine the Caputo temperature with the Ferreira chemical potential, or tune the profile to improve the 10 MeV curve. This closes the public-figure definition/provenance comparison; it does not provide the original Garching simulation table.
+
+### 11.2 Outer-neutrino profile and absorption audit
+
+The public Caputo profile contains \(\mu_{\nu_\mu}(r)\) but no separately plotted \(\mu_{\nu_\tau}(r)\). The baseline \(\mu_{\nu_\tau}=0\) remains an explicit assumption. At the 10 MeV high-absorption point:
+
+- Replacing the unresolved outer \(r\geq15\,\mathrm{km}\) \(\mu_{\nu_\mu}\) tail by 0, 1, or 2 MeV changes the luminosity by -0.0128%, +0.0274%, or +0.1470%.
+- Synthetic outer \(\mu_{\nu_\tau}=1,2,5,10\) MeV stress tests change the luminosity by +0.0517%, +0.2057%, +1.2416%, or +4.4865%. These are sensitivity tests, not inferred physical profiles.
+- The 15--25 km absorber region contributes 63.1173% of the source-weighted mean neutrino optical depth. This is not a fraction of the luminosity absorbed.
+- Independent direct production/absorption integrations through 25 km agree with the local implementation to \(5.24\times10^{-15}\) and \(3.99\times10^{-15}\); mode-resolved detailed balance is satisfied to \(1.24\times10^{-14}\).
+
+The outer opacity is physically important within the stated reduced-opacity prescription; it is not evidence for an incorrect local-rate normalization.
+
+### 11.3 Path/angular integration and energy convention
+
+The independent impact-parameter/longitudinal-coordinate evaluation of Eq. (B.2) gives:
+
+- Maximum luminosity change of \(4.31\times10^{-5}\) when replacing the original path quadrature by the analytic integral of the same piecewise-linear opacity interpolant.
+- Maximum luminosity change of \(1.10\times10^{-7}\) over the 25-point curve when increasing angular order from 128 to 256; the high-absorption endpoint changes by \(8.20\times10^{-9}\).
+
+The path/angular numerical integration is therefore converged for the frozen local rates and profile. Further quadrature refinement is not a useful route to the remaining 10 MeV discrepancy.
+
+A genuine energy-frame ambiguity remains in the public paper: main-text Eq. (4.2) describes \(\omega\) as energy at infinity; Appendix-B Eq. (B.1) uses a local production-frame measure and escape threshold; Eq. (B.2) carries the same numerical \(\omega\) along the chord. The published version retains this equation/wording combination and provides no associated code or data. Accordingly:
+
+- Keep fixed numerical \(\omega\) as the literal Eq. (B.2) lane.
+- Keep conserved-\(E_\infty\) remapping as a separate partial-GR diagnostic on the same Euclidean chord, not a full GR ray trace.
+- Do not claim either lane reproduces the authors' unavailable internal implementation.
+
+At the 10 MeV high-absorption point, the literal lane gives \(L=2.43733471\times10^{52}\,\mathrm{erg\,s^{-1}}\), versus the digitized Fig. 7 value \(1.26781476\times10^{52}\,\mathrm{erg\,s^{-1}}\), a +92.24691% residual. The conserved-\(E_\infty\) diagnostic lowers the luminosity by 29.2634% but still leaves a +35.9708% residual.
+
+### 11.4 Fig. 7 digitization, spatial weights, and fixed-background interpretation
+
+The 10 MeV Fig. 7 curve is extracted from native vector paths in the pinned arXiv v2 PDF, with coordinate round-trip residuals at or below \(2.22\times10^{-16}\). Ordinary screenshot/raster digitization is not a credible explanation for the remaining discrepancy.
+
+The joint production/absorber-radius audit finds that 97.12% of the optically thin source is produced at 5--15 km. At high coupling, 59.13% and 37.43% of the escaped luminosity originate at 5--10 km and 10--15 km, respectively. The 15--25 km absorber shell contributes 59.42%, 58.04%, 65.91%, 87.53%, and 95.58% of the neutrino optical depth for source shells 0--5, 5--10, 10--15, 15--20, and 20--25 km. These are optical-depth shares, not absorbed-luminosity shares.
+
+The high-coupling endpoint is above the rough fixed-background warning line quoted by Blinov et al. This limits the physical interpretation of that fixed-profile region, but it does not explain a numerical mismatch between two evaluations of the same fixed-profile prescription.
+
+### 11.5 Updated gate and disposition
+
+1. The public muon-profile provenance check is complete; the Caputo baseline is retained. The exact raw Garching profile remains unavailable from the public material used here.
+2. The outer-neutrino local kernel and the Eq. (B.2) path/angular integral are independently checked. Do not rescale opacity, production, \(g_X\), chemical potentials, or the outer radius.
+3. The pure-vector Fig. 7 gate remains **NOT PASSED**. The 10 MeV high-absorption residual remains unresolved under the literal equation lane; Fig. 4 boundary agreement and path convergence do not substitute for a full Fig. 7 match.
+4. The full moving-muon B.13 local-rate implementation is isolated in stacked Draft PR #57. It may quantify the optically thin semi-Compton source difference from the no-recoil B.14 approximation, but it does not address the neutrino-dominated outer high-coupling opacity. Its latest workflow run (#42335951721) is in `action_required` with no jobs or artifacts; its numerical output is not yet CI-validated and must not be imported into the PR #56 transport solver.
+5. PR #56 remains Open / Draft. No manuscript, referee-response TeX/PDF, or axial constraint figure is changed by this addendum. No validated vector literature reproduction or new axial exclusion curve is claimed.
+
+
+
+
+## 12. 2026-11-12 continuation: local moving-muon acceptance and document corrections
+
+This addendum records the latest archived workflow results. It does not promote a local-rate comparison to a stellar-luminosity or literature-reproduction pass.
+
+### 12.1 Workflow status at the recorded checkpoint
+
+The complete workflow batch triggered by commit `3f7ce66f210edf966d8bb3b7d20f7716b28135e8` completed successfully for:
+
+- Moving-muon thermal response: Run [43164221127](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43164221127).
+- Vector-to-axial local response scan: Run [43164221273](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43164221273).
+- Finite-mixing UV coupling-map tests: Run [43164221246](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43164221246).
+
+The Major 4.4 EFT numerical validation workflow, Run [43164221257](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43164221257), had completed the C4C3 direct-recomputation SHA-256 manifest check and the SFHo/FRDM release-manifest reconstruction check. Its research-level rate/transport/kernel test step was still running at the checkpoint; the Blinov/EOS regression, saved-scan validation, figure regeneration, and reproducibility stages were therefore not yet accepted.
+
+The three successful workflows validate their own scoped software and numerical acceptance criteria. They do not establish the pure-vector Blinov Fig. 7 gate, a global transport result, or a new SN1987A exclusion curve.
+
+### 12.2 Moving-muon local-rate acceptance
+
+The archived `moving_compton_validation.json` reports:
+
+- Photon and vector-mediator Ward checks: pass.
+- Charge-conjugation and zero-chemical-potential interference checks: pass.
+- Nonzero-chemical-potential vector--axial interference retained: pass.
+- Mode-resolved positivity and detailed balance: pass.
+- Unpolarized inverse-rate normalization: pass, with maximum relative residual `3.11e-15`.
+- Maximum detailed-balance residual: `4.35e-15`.
+- Maximum thermal quadrature refinement difference: `2.52e-4`.
+
+The separate SFHo-18.8 local Compton map reports finite nonnegative rates, maximum detailed-balance residual `3.92e-14`, and maximum refinement difference `1.08e-3`. Its scope is local production/absorption only: it does not include radial integration, opacity, transport, luminosity, or an exclusion curve.
+
+The local B.13 versus B.14--B.16 comparison is documented separately in `finite_mixing/B13_B16_APPROXIMATION_REGIME_AUDIT_2026-11-12.md`. At the 10 MeV reference point it finds (Q_{\rm B13}/Q_{\rm B16}=0.4791) at the center and (0.4286) at 12.5 km. The factorized comparison separates the moving-muon correction from the stationary-target exact-Compton versus Thomson-limit approximation. This is a local source comparison, not a reason to rescale either rate and not a global Fig. 7 diagnosis.
+
+PR #57 has since been merged into the PR #56 research branch (not into `main`). Its moving-muon work is therefore now present in PR #56's branch; it remains a local-rate module and has not been substituted into the independent Blinov transport implementation.
+
+### 12.3 Vector-current polarization audit: reference labels and interpretation
+
+The machine-readable audit currently identifies the integrated low-energy expressions as arXiv:2610.35379v1, Eqs. (5.9a,b), and the printed angular expressions as Appendix B, Eqs. (B.6a,b). These are the equation labels to use when discussing this audit. Any earlier conversational reference to Eqs. (58) or (106) was incorrect and must not be propagated into project documents.
+
+The archived direct-spinor calculation and crossed-trace calculation agree at the stated benchmark, and the exact conserved-vector result has the expected transverse Thomson limit and suppressed longitudinal mode. The audit also finds that the printed integrated T/L hierarchy is opposite to that exact result, while the printed Appendix-B angular expressions develop negative regions on the paper-stated \,\(\cos\theta\in[-1,1]\) interval. Separately, the direct trace audit of Appendix-B Eqs. (B.2)--(B.4) reproduces the reference spin sums at the sampled points to approximately the (10^{-5}) level for the transverse/total pieces and about (1.2\%\) for the longitudinal difference.
+
+These findings warrant a source-level equation audit before making a claim about a typographical or derivational error in the paper. They do not authorize replacing the published formulas in the transport benchmark. The vector Fig. 7 gate remains **NOT PASSED**.
+
+### 12.4 Branch synchronization
+
+At this checkpoint, the following active research PRs were each confirmed to be zero commits behind `main`:
+
+| PR | Branch | State | Behind `main` |
+|---:|---|---|---:|
+| #53 | `research/stellar-cooling-original-uv-model-20261105` | Open / Draft | 0 |
+| #56 | `codex/major44-axial-cooling-constraints-20261105` | Open / Draft | 0 |
+| #68 | `research/major1-scalar-pole-belleii-20261109` | Open / Draft | 0 |
+| #69 | `research/major1-higgs-scalar-mixing-20261109` | Open / Draft | 0 |
+
+Before this documentation addendum, PR #56's branch HEAD was `44720ab5d4efe81096b2151948d84c17dfb69b5e`; the addendum itself is committed as `3e60bdf012019fe222bb18fa238cc78f97ccd49c`. All four branches retain their independent research commits. No branch was merged into `main` as part of this continuation.
+
+### 12.5 Next documentation actions
+
+1. Once Run #43164221257 finishes, record each test stage separately; do not summarize a partially completed run as a pass.
+2. Keep the B.13/B.16 approximation-regime note and the vector polarization source audit as separate documents, because they answer different questions.
+3. Completed the source-level derivation audit for arXiv:2610.35379v1 Eqs. (5.9), (B.1)–(B.6), and (A.15). See [WANG_ZHANG_SEMICOMPTON_POLARIZATION_AUDIT_2026-11-12.md](finite_mixing/WANG_ZHANG_SEMICOMPTON_POLARIZATION_AUDIT_2026-11-12.md). The origin of the residual coefficient and angular-distribution discrepancy remains open; do not silently swap labels or coefficients.
+4. Keep the Fig. 7 pure-vector literature gate and the global axial transport calculation blocked until their own evidence is complete.
+
+No manuscript-body, referee-response TeX/PDF, or published axial constraint figure was changed by this addendum.
+
+
+### 12.6 Source-level semi-Compton polarization audit: arXiv:2610.35379v1
+
+The detailed derivation is archived in [WANG_ZHANG_SEMICOMPTON_POLARIZATION_AUDIT_2026-11-12.md](finite_mixing/WANG_ZHANG_SEMICOMPTON_POLARIZATION_AUDIT_2026-11-12.md).
+
+The audit establishes the following:
+
+- The original PDF labels are (5.9a,b), (B.1a,b), (B.2)–(B.6a,b), and (A.15). The continuous equation numbers in the HTML conversion are not the PDF labels.
+- The printed (B.6a,b) expressions integrate to (5.9a,b) after the common final-state velocity factor beta is restored. This is an algebraic closure check, not a physical validation.
+- The printed transverse differential expression is negative for c < -x^2/2, where x=m_Z'/E_gamma. The printed longitudinal expression is negative for c > c_L=1+x^2/2-x*sqrt(1+x^2/4). Their sum is nonnegative, but the individual physical-polarization components are not.
+- The correctly ordered crossed Compton amplitude obeys both vector and photon Ward identities. The printed (B.1b) appears to retain the s-channel gamma-matrix ordering in the u-channel; this is an apparent source-level ordering issue and must be checked against the authors' trace derivation.
+- With the physical projectors and a conserved vector current, the independent soft-muon limit gives d sigma_T/dc = C0 beta (1+c^2) and d sigma_L/dc = C0 beta x^2 (1-c^2), to leading order in E_gamma/m_mu and x. Thus the physical hierarchy is T=O(1), L=O(m_Z'^2/E_gamma^2).
+- Comparing the integrated expressions shows sigma_L(paper)=sigma_T(vector), but sigma_T(paper)=(3/2) sigma_L(vector). This is not a pure T/L label swap. The angular functions also differ, so no common normalization or angular reversal resolves the discrepancy.
+- Generic-angle checks of the paper's (B.2) and (B.4) spin sums against the explicit trace agree with the expected common factor 4 from initial-state spin/polarization averaging. The subtraction (B.3) is more numerically sensitive and is to be checked by direct P_L contraction/high-precision arithmetic.
+
+**Interpretation boundary:** this audit establishes an inconsistency between the printed mode-resolved formulas and the conserved-vector-current soft limit. It does not identify the exact algebraic step responsible, establish a corrected full finite-mass cross section, or pass the pure-vector Blinov Fig. 7 gate. Do not modify production code, opacity normalization, the manuscript, referee response, or published constraint figures on this basis.
+
+The direct P_L projection and explicit-spinor/trace cross-check are complete. Remaining P0 theory work is to derive the leading finite-recoil correction to B.2/B.4 symbolically, verify the observed B.2/B.3 asymptotic laws, and trace the exact phase-space Jacobian, beta factor, and initial-state averages into (B.6). The source discrepancy is not yet fully classified.
+
+
+### 12.7 Direct \(P_L\) projection and recoil-order diagnosis
+
+The direct longitudinal-projector calculation is archived in [audit_vector_longitudinal_projector.py](finite_mixing/thermal_integrals/audit_vector_longitudinal_projector.py), its tests in [test_vector_longitudinal_projector.py](finite_mixing/thermal_integrals/test_vector_longitudinal_projector.py), and its numerical summary in [vector_longitudinal_direct_projector_summary_2026-11-12.json](finite_mixing/thermal_integrals/outputs/vector_longitudinal_direct_projector_summary_2026-11-12.json).
+
+The calculation evaluates the rank-one longitudinal projection at amplitude level using the exact vector-Ward-equivalent polarization
+\[
+\widetilde\epsilon_L^\mu
+=\epsilon_L^\mu-q^\mu/m_{Z'}
+=\frac{m_{Z'}}{\omega+|\mathbf q|}(-1,\hat{\mathbf q}).
+\]
+It is exact for the conserved pure-vector current and is not used for the axial component.
+
+Across 36 exact-kinematics points, the maximum physical-versus-Ward polarization difference is \(3.27\times10^{-7}\), the independent trace-versus-explicit-spinor difference is \(8.37\times10^{-11}\), and the correct crossed-amplitude Ward residual is \(1.34\times10^{-14}\). The literal \(u\)-channel order printed in (B.1b) gives a nonzero normalized Ward residual; the crossed \(\gamma^\nu S_u\gamma^\mu\) order satisfies the identity.
+
+The direct P_L comparison shows that B.3 is systematically below the direct longitudinal result. The residual remains after an 80-digit evaluation of B.2/B.4, so it is not merely double-precision cancellation. In the small-\(x\), soft-muon regime, the scan resolves
+\[
+\frac{B_2^{\rm paper}}{T_{\rm exact}}-1
+\simeq \frac{2x^2(E_\gamma/m_\mu)}{1+\cos^2\theta},
+\qquad
+\frac{B_3^{\rm paper}}{L_{\rm direct}}-1
+\simeq-\frac{2(E_\gamma/m_\mu)}{1-\cos^2\theta}.
+\]
+At \(x=10^{-3}\) and \(E_\gamma\le0.1\) MeV, the maximum relative deviations from these leading laws are 0.154% and 0.0921%. These are numerical asymptotic fits, not yet a symbolic proof.
+
+**Interpretation:** an \(O(x^2 E_\gamma/m_\mu)\) residual in the transverse B.2 expression is of the same \(x\)-order as the physical longitudinal signal. Subtracting B.2 from B.4 therefore induces an \(O(E_\gamma/m_\mu)\) relative bias in B.3. The direct longitudinal kernel should be used for independent physical checks; do not replace the published transport benchmark until the source-level expansion and phase-space derivation are complete.
+
+No production kernel, opacity, thermal integral, transport curve, manuscript, referee response, or published figure is changed by this audit.

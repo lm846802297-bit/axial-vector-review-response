@@ -1,0 +1,23 @@
+{
+  "status": "completed",
+  "overall_pass": true,
+  "execution": "local Python only; no GitHub Actions",
+  "completed_radial_points": 301,
+  "total_radial_points": 301,
+  "completed_local_cases": 1204,
+  "original_unaccelerated_anchor_cases": 16,
+  "max_anchor_relative_difference_vs_C4C2": 5.551115123125783e-16,
+  "max_anchor_relative_difference_vs_full_301_run": 2.220446049250313e-16,
+  "max_full_1204_relative_difference_vs_archived": 5.551115123125783e-16,
+  "max_support_root_relative_residual": 1.3591094670306613e-13,
+  "elapsed_seconds": 493.6,
+  "quadrature": {
+    "cosine": 8,
+    "Eprime": 48,
+    "initial_momentum": 36,
+    "azimuth": 12,
+    "support_scan_points": 10001
+  },
+  "numba_acceleration": "Only the innermost Dirac-matrix contraction was JIT-compiled; representative phase-space contractions and all 16 original-kernel anchors were cross-checked.",
+  "process_exit_code": 0
+}

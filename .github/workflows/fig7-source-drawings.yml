@@ -6,6 +6,8 @@ on:
       - codex/major44-axial-cooling-constraints-20261105
     paths:
       - 'research/stellar-cooling-constraints-20261105/inspect_fig7_source_pdf.py'
+      - 'research/stellar-cooling-constraints-20261105/audit_fig7_digitization.py'
+      - 'research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json'
       - '.github/workflows/fig7-source-drawings.yml'
   workflow_dispatch:
 
@@ -31,8 +33,8 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Install PDF inspection dependency
-        run: python -m pip install pymupdf
+      - name: Install PDF inspection and numerical dependencies
+        run: python -m pip install pymupdf numpy
       - name: Download pinned arXiv v2 source archive
         run: |
           set -euo pipefail
@@ -45,16 +47,20 @@ jobs:
           python research/stellar-cooling-constraints-20261105/inspect_fig7_source_pdf.py \
             --archive /tmp/blinov-2511.09619v2-source.tar \
             --output research/stellar-cooling-constraints-20261105/outputs/fig7_source_drawings_2026-11-07.json
-      - name: Commit source drawing metadata
+      - name: Verify all six Fig. 7 curves against the raw PDF vector paths
+        run: |
+          python research/stellar-cooling-constraints-20261105/audit_fig7_digitization.py
+      - name: Commit source drawing metadata and digitization audit
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add research/stellar-cooling-constraints-20261105/outputs/fig7_source_drawings_2026-11-07.json
+          git add research/stellar-cooling-constraints-20261105/outputs/fig7_digitization_audit_2026-11-07.json
           if git diff --cached --quiet; then
             echo "Fig. 7 source drawing metadata is already current."
           else
-            git commit -m "Archive pinned Fig. 7 source drawing metadata"
+            git commit -m "Archive pinned Fig. 7 vector-path digitization audit"
             git push origin "HEAD:${GITHUB_REF_NAME}"
           fi

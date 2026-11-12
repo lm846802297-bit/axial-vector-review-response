@@ -59,3 +59,15 @@ The exact PDF page render is sufficient to guide a coarse manual digitization, b
 - per-point uncertainty and curve-label assignment.
 
 Until that data product exists, do not claim numerical cross-validation and do not feed Fig. 12 digitized values into the B.2 production calculation.
+
+
+## 6. Superseded by native-vector extraction (2026-11-11)
+
+The qualitative-only status in §§2–5 is superseded by
+[B16_P1IIID_FIG12_VECTOR_EXTRACTION_CROSSCHECK_2026-11-11.md](B16_P1IIID_FIG12_VECTOR_EXTRACTION_CROSSCHECK_2026-11-11.md).
+The native APS PDF vector paths are now extracted with a checksum-pinned script,
+and the temperature and density curves have numerical cross-publication
+comparisons. The limitations remain: these are published-figure paths, not raw
+Garching profile data; the right-panel density axis has a top-two-label
+inconsistency; and the comparison is within a shared Garching model lineage,
+not between independent simulations.

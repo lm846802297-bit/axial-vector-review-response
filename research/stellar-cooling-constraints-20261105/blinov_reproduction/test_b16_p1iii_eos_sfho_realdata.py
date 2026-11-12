@@ -337,6 +337,50 @@ class TestOfficialTablesWhenAvailable(unittest.TestCase):
         # The SPP ASCII density column is rounded; the full-table audit found O(4e-7) relative differences.
         self.assertLess(float(np.abs(spp_nb / ext_nb - 1.0).max()), 1e-6)
 
+    def test_coulomb_electron_input_is_not_global_charge_density(self) -> None:
+        from sfho_eos_tables import HQC_MEV_FM, NB_PHYSICAL
+
+        # Python layer 5 (Fortran comp(...,6)) is passed to sub_coulomb(ne).
+        # It is not the global charge density Yp_tot*nB throughout the table.
+        comp = self.composition.comp[:, :, :NB_PHYSICAL, :]
+        no_nuclei = comp[:, :, :, 4] == 1.0
+        ne_coulomb = comp[:, :, :, 5]
+        self.assertTrue((ne_coulomb[no_nuclei] == 0.0).all())
+
+        ye = self.extended.entry("Yp_tot")[:, :, :NB_PHYSICAL]
+        nb = self.extended.entry("nB_fm3")[:, :, :NB_PHYSICAL]
+        global_ne = ye * nb * HQC_MEV_FM**3
+        nuclei_cells = ~no_nuclei
+        self.assertTrue((ne_coulomb[nuclei_cells] > 0.0).all())
+        relative = np.abs(
+            ne_coulomb[nuclei_cells] / global_ne[nuclei_cells] - 1.0
+        )
+        # Protect against relabelling the Coulomb input as a global electron
+        # density. Its phase/coexistence interpretation is kept separate.
+        self.assertGreater(float(relative.max()), 0.1)
+
+    def test_nse_neutron_chemical_input_is_conditional(self) -> None:
+        from sfho_eos_tables import NB_PHYSICAL
+
+        comp = self.composition.comp[:, :, :NB_PHYSICAL, :]
+        no_nuclei = comp[:, :, :, 4] == 1.0
+        nuclei = ~no_nuclei
+        nse_mu_n = comp[:, :, :, 0]
+        ext_mu_n = self.extended.entry("mu_n_nonrel_MeV")[:, :, :NB_PHYSICAL]
+
+        # The Fortran module uses layer 0 in the NSE nuclear abundance
+        # exponent, but skips that exponent when the layer-4 switch is 1.
+        # In those no-nuclei cells the stored zero is not a physical mu_n.
+        self.assertEqual(int(no_nuclei.sum()), 400453)
+        self.assertEqual(int(nuclei.sum()), 1121375)
+        self.assertTrue((nse_mu_n[no_nuclei] == 0.0).all())
+
+        # Even in nuclei-containing cells this auxiliary NSE input is not an
+        # interchangeable copy of the extended-table thermodynamic mu_n.
+        residual = np.abs(nse_mu_n[nuclei] - ext_mu_n[nuclei])
+        self.assertLess(float(np.median(residual)), 1e-5)
+        self.assertGreater(float(residual.max()), 6.5)
+
     def test_audited_cells_are_reproducible_from_the_tables(self) -> None:
         from audit_b16_p1iii_eos_sfho_realdata_closure import closure_cell
 
@@ -432,6 +476,44 @@ class ArchiveManifestTests(unittest.TestCase):
             with self.subTest(archive=name):
                 self.assertEqual(len(digest), 64)
                 self.assertEqual(manifest[name], digest)
+
+    def test_vendored_parts_cover_the_split_archive(self) -> None:
+        """The 161 MB archive is stored as ordered pieces; keep the layout exact.
+
+        Only sizes and names are checked here: hashing 161 MB on every test run
+        would be wasteful, and ``reassemble_sfho_frdm_archives.py --verify-only``
+        is the tool that does the full check.
+        """
+
+        data_dir = HERE / "data" / "sfho-frdm-v1.03"
+        manifest = {
+            name: digest
+            for digest, name in (
+                line.split(None, 1)
+                for line in (data_dir / "MANIFEST.sha256")
+                .read_text(encoding="utf-8")
+                .splitlines()
+                if line.strip()
+            )
+        }
+        self.assertEqual(len(manifest), 7)
+        parts = sorted(data_dir.glob("sfho_frdm_bin.zip.part-*"))
+        self.assertEqual(
+            [part.name for part in parts],
+            [f"sfho_frdm_bin.zip.part-{index:02d}" for index in range(3)],
+        )
+        self.assertEqual(sum(part.stat().st_size for part in parts), 161_092_071)
+        for part in parts:
+            with self.subTest(part=part.name):
+                self.assertIn(part.name, manifest)
+                self.assertEqual(len(manifest[part.name]), 64)
+        for name in ("sfho_frdm_spp.zip", "sfho_frdm_comp.zip", "manual_v1.04.pdf"):
+            with self.subTest(file=name):
+                self.assertIn(name, manifest)
+                self.assertEqual(
+                    (data_dir / name).stat().st_size,
+                    self._downloader_files()[name][0],
+                )
 
 
 if __name__ == "__main__":

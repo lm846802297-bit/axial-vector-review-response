@@ -1,8 +1,8 @@
 {
-  "source": "Independent tree-level QED x vector-current Compton amplitude; comparison with Blinov et al. arXiv:2511.09619v2 B.14--B.19",
-  "interpretation": "Exact two-body vacuum cross sections with a stationary initial muon. The B.18 ratio is checked directly; the no-recoil formula is not replaced in the supernova calculation. Thermal muon averaging and Pauli blocking are outside this audit.",
-  "run_commit_sha": "b179c875742743457313066e1434df989f21c2ba",
-  "reference_code_sha256": "ae714327674a3737a3b5be98ccd9f79f2dd134b55313dab35455a86de0c9e417",
+  "source": "Independent tree-level QED x vector-current Compton amplitude; comparison with Blinov et al. arXiv:2511.09619v2 Eqs. (30)--(35)",
+  "interpretation": "Exact two-body vacuum cross sections with a stationary initial muon. The Eq. (34) ratio is checked directly; the no-recoil formula is not replaced in the supernova calculation. Thermal muon averaging and Pauli blocking are outside this audit.",
+  "run_commit_sha": "fdb4a26ce5c06f75ed71cc67b79c01a6055bbbc2",
+  "reference_code_sha256": "0f11fca089540a42ba53a1b130dce9acd856eb448febaab5a6d8715991398b83",
   "m_mu_MeV": 105.6583755,
   "alpha": 0.0072973525692838015,
   "gV": 1.0,
