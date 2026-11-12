@@ -474,13 +474,27 @@ def build_audit(mass=0.001, photon_energy=0.1):
     }
     return payload
 
+def json_native(value):
+    """Recursively convert NumPy scalars/arrays to standard JSON-native values."""
+
+    if isinstance(value, np.generic):
+        return value.item()
+    if isinstance(value, np.ndarray):
+        return value.tolist()
+    if isinstance(value, dict):
+        return {str(key): json_native(item) for key, item in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [json_native(item) for item in value]
+    return value
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--mass", type=float, default=0.001)
     parser.add_argument("--photon-energy", type=float, default=0.1)
     parser.add_argument("--output", type=Path, default=HERE / "outputs" / "vector_semicompton_polarization_audit.json")
     args = parser.parse_args()
-    payload = build_audit(args.mass, args.photon_energy)
+    payload = json_native(build_audit(args.mass, args.photon_energy))
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(payload, indent=2) + "\n")
     print(json.dumps(payload["acceptance"], indent=2))
