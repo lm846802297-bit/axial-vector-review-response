@@ -2,7 +2,7 @@
 
 Date: 2026-11-13  
 Branch: `research/c4c4-energy-dependence-20261112`  
-Status: design fixed; full-radial calculation not yet executed.
+Status: calculation executed and archived; numerical-integrity, stratified quadrature, and radial-grid checks pass. Physical interpretation remains a fixed-local-energy, flat-space scattering diagnostic only.
 
 ## 1. Objective
 
@@ -77,7 +77,7 @@ Compare the 0.05 km result with 0.10 km and 0.25 km subsampled grids at common n
 
 ## 7. Separate source and data records
 
-The source-code commit contains the calculation driver, tests, workflow, and this research record. The numerical output is archived in a later, separate data commit.
+The source-code commit contains the calculation driver, tests, workflow, and this research record. The numerical output is archived separately under outputs/c4c4_energy_dependence_radial_2026-11-13/. The archive README, summary, provenance, and SHA-256 manifest record the executed run.
 
 Planned output directory:
 
@@ -95,10 +95,19 @@ Planned files:
 - `SOURCE_PROVENANCE.md`
 - `SHA256SUMS.txt`
 
-The source-code and data commits remain on this research branch. No merge to `main` is part of this stage.
+The source-code and data commits are staged together for review in this PR. The merge decision concerns archival of this bounded diagnostic only; it does not promote the result to a full transport solution or literature-reproduction acceptance.
 
 ## 8. Interpretation boundary
 
 The local incident energy is held fixed at each sampled radius. The resulting optical depth is therefore a flat-space, fixed-local-energy diagnostic. It does not include gravitational redshift, energy redistribution, angular transport, escape probabilities, hydrodynamic feedback, or the full Blinov Fig. 7 luminosity calculation.
 
 Numerical-integrity and quadrature checks do not constitute physical acceptance. Any interpretation of the energy dependence must remain conditional on the stated EOS profile, kernel, energy convention, and radial domain.
+
+
+## 9. Executed result and acceptance summary
+
+The archived run contains 7,224 local-rate rows: 6,020 newly computed rows at 10, 20, 40, 60, and 150 MeV, plus 1,204 reused 100-MeV rows from the byte-pinned C4-C3 baseline. The 96 C4-C4-A anchor rates reproduce to a maximum relative difference of \(3.33\times10^{-16}\).
+
+The 340 stratified high-order cases pass the 1% combined-quadrature criterion; the maximum recorded relative difference is \(8.31\times10^{-5}\). The 0.10-km and 0.25-km radial-grid comparisons pass the 1% criterion, with maximum relative differences \(1.34\times10^{-5}\) and \(1.28\times10^{-4}\), respectively. The maximum support-root relative residual is \(8.27\times10^{-13}\). The exact case grid, finite-positive outputs, density closure, and single application of \(\xi_{\rm SPP}\) are recorded as passing in the machine-readable summary.
+
+These checks establish numerical integrity and the stated sampled convergence checks for this diagnostic. They do not validate the flat-space fixed-local-energy approximation as a supernova transport prescription, nor do they establish an escape probability, full Blinov Fig. 7 reproduction, or SN1987A exclusion. See the co-located README.md, SOURCE_PROVENANCE.md, summary.json, and SHA256SUMS.txt for the exact archive and input identities.

@@ -1,0 +1,171 @@
+{
+  "title": "C4-C4-B full-radial EOS moving-nucleon scattering energy dependence",
+  "date": "2026-11-13",
+  "stage": "C4-C4-B 301-radius energy-dependent local rates and flat-space fixed-local-energy optical depth",
+  "source_commit": "42d7c425d34138679c8ce555d671e56927fc9179",
+  "physical_validation_status": "not a transport or literature-reproduction acceptance",
+  "energy_grid_MeV": [
+    10.0,
+    20.0,
+    40.0,
+    60.0,
+    100.0,
+    150.0
+  ],
+  "newly_computed_energies_MeV": [
+    10.0,
+    20.0,
+    40.0,
+    60.0,
+    150.0
+  ],
+  "radial_points": 301,
+  "radial_range_km": [
+    0.2,
+    15.2
+  ],
+  "radial_spacing_km": 0.05,
+  "species": [
+    "n",
+    "p"
+  ],
+  "incoming_states": [
+    "nu",
+    "antinu"
+  ],
+  "case_count": 7224,
+  "newly_recomputed_case_count": 6020,
+  "reused_C4C3_100MeV_baseline_case_count": 1204,
+  "inputs": {
+    "profile_path": "outputs/caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv",
+    "profile_git_blob_sha": "9ff7818b0679992c0a9ba402330ec7f0d1f3041b",
+    "C2_occupation_path": "outputs/p1iii_eos_full_radial_occupation_2026-11-11.csv",
+    "C2_occupation_git_blob_sha": "c472040a4551e68ffadbf7addf9402663f99e7e3",
+    "C4C3_100MeV_baseline_path": "c4c3_direct_local_recomputation_2026-11-11/local_independent_radial_rates_301x4.csv",
+    "C4C3_100MeV_baseline_git_blob_sha": "2b060ffa863430c6e35a1355d0316c1d1c0b4c7c",
+    "C4C4A_anchor_path": "outputs/c4c4_energy_dependence_2026-11-12/local_rates_96.csv",
+    "C4C4A_anchor_git_blob_sha": "8be3757cf28011132a82b5c2373aa3c1fa59d342",
+    "C4B2_kernel_git_blob_sha": "97a2706e978cd22f7ebc08c1f87ce6abd97ad0a7",
+    "C4C1_support_git_blob_sha": "8f7291be8738e0273353a8c30039c6be1ed8e6a9",
+    "C4C2_integrator_git_blob_sha": "2912788345e482e52308e02e6cbbc87c734a18b0",
+    "C4C3_numba_accelerator_code_origin_blob_sha_reference_only": "821e39edfe235f5a8fcac6b2e074bb0dcb9631c6"
+  },
+  "acceptance": {
+    "exact_7224_case_grid": true,
+    "1204_cases_per_energy": true,
+    "all_rates_and_derived_quantities_positive_finite": true,
+    "xi_spp_applied_exactly_once": true,
+    "support_root_residual_below_1e_7": true,
+    "density_closure_below_1_percent": true,
+    "301_point_profile": true,
+    "c4c3_100mev_baseline_blob_matches": true,
+    "c4c4a_anchor_blob_matches": true,
+    "all_96_c4c4a_anchor_rates_reproduced_below_1e_8": true
+  },
+  "numerical_integrity_pass": true,
+  "max_support_root_relative_residual": 8.268597479104185e-13,
+  "max_abs_neutron_density_closure_residual": 0.0021542420497866477,
+  "max_abs_proton_density_closure_residual": 0.007630321904956938,
+  "max_anchor_relative_difference_vs_C4C4A": 3.3306690738754696e-16,
+  "anchor_case_count": 96,
+  "quadrature": {
+    "base": {
+      "cosine": 8,
+      "Eprime": 48,
+      "initial_momentum": 36,
+      "azimuth": 12
+    },
+    "high_order": {
+      "cosine": 12,
+      "Eprime": 72,
+      "initial_momentum": 48,
+      "azimuth": 16
+    },
+    "support_scan_points": 10001,
+    "high_order_sample_indices": [
+      0,
+      30,
+      60,
+      90,
+      96,
+      120,
+      140,
+      142,
+      143,
+      160,
+      180,
+      196,
+      220,
+      240,
+      260,
+      280,
+      300
+    ],
+    "high_order_sample_radii_km": [
+      0.2,
+      1.7,
+      3.2,
+      4.7,
+      5.0,
+      6.2,
+      7.2,
+      7.3,
+      7.35,
+      8.2,
+      9.2,
+      10.0,
+      11.2,
+      12.2,
+      13.2,
+      14.2,
+      15.2
+    ],
+    "high_order_case_count": 340,
+    "high_order_relative_tolerance": 0.01,
+    "acceptance": {
+      "exact_340_case_grid": true,
+      "sixty_eight_cases_per_energy": true,
+      "base_and_high_rates_positive_finite": true,
+      "stored_relative_differences_reproduce": true,
+      "support_root_residual_below_1e_7": true,
+      "combined_quadrature_difference_below_1_percent": true
+    },
+    "quadrature_convergence_pass": true,
+    "case_counts_by_energy": {
+      "10.0": 68,
+      "20.0": 68,
+      "40.0": 68,
+      "60.0": 68,
+      "150.0": 68
+    },
+    "max_relative_difference": 8.306897585796946e-05,
+    "max_relative_difference_by_energy": {
+      "10.0": 4.798065197197943e-05,
+      "20.0": 8.306897585796946e-05,
+      "40.0": 7.53664367800777e-05,
+      "60.0": 2.2414994673924937e-05,
+      "150.0": 3.208624122752468e-05
+    },
+    "max_support_root_relative_residual": 7.995182110509836e-13
+  },
+  "radial_grid": {
+    "acceptance": {
+      "all_tau_nonnegative_and_radially_monotone": true,
+      "0p10km_radial_integral_within_1_percent": true,
+      "0p25km_radial_integral_within_1_percent": true
+    },
+    "radial_grid_convergence_pass": true,
+    "max_0p10km_difference_over_tau_inner": 1.3411660443059709e-05,
+    "max_0p25km_difference_over_tau_inner": 0.00012799892643281793,
+    "radial_relative_tolerance": 0.01,
+    "comparison_rows": 72
+  },
+  "interpretation": [
+    "100-MeV local rates are reused from the separately validated C4-C3 301-radius archive and are not recomputed.",
+    "The 100-MeV C4-C3 baseline is checked against the C4-C4-A anchor records; all energies are checked against all 96 C4-C4-A anchor records.",
+    "The full radial energy scan uses fixed local incident energy at every radius and flat-space radial integration.",
+    "The radial optical depth is a total-scattering diagnostic, not an absorption-only transport optical depth or escape probability.",
+    "The high-order comparisons are stratified over 17 radial nodes; they are not a pointwise high-order calculation at all 301 radii.",
+    "No gravitational redshift, energy redistribution, angular transport, hydrodynamic feedback, full Blinov Fig. 7 luminosity, or SN1987A exclusion is inferred."
+  ]
+}

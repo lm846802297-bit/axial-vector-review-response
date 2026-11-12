@@ -1,6 +1,6 @@
 # C4-C4-Aq combined quadrature-convergence audit
 
-- Source commit: `92e3502108484818593b9b1d535550a671efcacd`
+- Source commit: `7cc76155ce73e6e1380f041fa71e6ea5e171165e`
 - Cases: 80 (five new energies × four radii × two targets × two signs)
 - Base orders: cosine 8, outgoing energy 48, initial momentum 36, azimuth 12
 - High orders: cosine 12, outgoing energy 72, initial momentum 48, azimuth 16
