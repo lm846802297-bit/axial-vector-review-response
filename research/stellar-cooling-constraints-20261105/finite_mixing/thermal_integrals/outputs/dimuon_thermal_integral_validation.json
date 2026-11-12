@@ -17,8 +17,8 @@
     "dimuon.py": "fbb9981f531b3878c115720f78e2c871237951f961cb9e43ea559288d85df280",
     "test_dimuon.py": "a0763895b77dc74d4a9f3be4d8217bbdc35cec8c2d5e9f674fcdacccb54c9f50",
     "run_dimuon_validation.py": "92f5deab5d8eaf425138706cb43941363181fc9b56cc78b5b1c932edb4032b17",
-    "moving_compton.py": "18fc4b244cc0c77f3c6874d816607ec9e231025e9b3bf53b0d2c2fc5babf4baa",
-    "test_moving_compton.py": "05bbc9e67fbeb6486b1aa0d33104c74bc0ce50701b52f8987bc6541a2733c282",
+    "moving_compton.py": "fea7ba5a49e35b1810a42f6712116e6a676ebcedd1e2faab961d14bbb70dafd4",
+    "test_moving_compton.py": "c468e439c43a757803ab57d32af91e4650acff2400e0d514b3033ac16790167a",
     "moving_compton_derivation.md": "9ccbf2c5840aee9a1e914368ba903d2ce4ab146021dac1d12f067440dd60f7eb"
   },
   "benchmarks": {
