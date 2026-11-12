@@ -204,8 +204,8 @@
           "reduced_absorption_modes_MeV": 8.073261750564247e-05
         },
         "mu_plus": {
-          "absorption_modes_MeV": 6.160876711961788e-05,
-          "maximum_over_production_absorption_and_reduced_absorption": 6.160876711970392e-05,
+          "absorption_modes_MeV": 6.160876711972938e-05,
+          "maximum_over_production_absorption_and_reduced_absorption": 6.160876711972938e-05,
           "production_modes_MeV": 6.160876711965932e-05,
           "reduced_absorption_modes_MeV": 6.160876711970392e-05
         }
@@ -333,11 +333,11 @@
               "absorption_sum_MeV": 0.04672030705449256,
               "maximum_matrix_element": 1.3426746743305493,
               "minimum_matrix_element_before_roundoff_clip": 2.6159034117787003e-05,
-              "mode_detailed_balance_max_relative_residual": 2.781418102204477e-16,
+              "mode_detailed_balance_max_relative_residual": 1.3907090511022386e-16,
               "production_modes_MeV": [
                 0.006807682689015886,
                 0.012473662083394883,
-                0.01247366208339488
+                0.012473662083394881
               ],
               "production_sum_MeV": 0.03175500685580565,
               "reduced_absorption_modes_MeV": [
@@ -395,13 +395,13 @@
               "absorption_sum_MeV": 0.04670764467342145,
               "maximum_matrix_element": 1.4294175618539209,
               "minimum_matrix_element_before_roundoff_clip": 2.6026707876486487e-05,
-              "mode_detailed_balance_max_relative_residual": 1.3908507898905932e-16,
+              "mode_detailed_balance_max_relative_residual": 1.390850789890593e-16,
               "production_modes_MeV": [
                 0.006801618612889165,
-                0.01247239091774369,
+                0.012472390917743688,
                 0.01247239091774369
               ],
-              "production_sum_MeV": 0.031746400448376545,
+              "production_sum_MeV": 0.03174640044837654,
               "reduced_absorption_modes_MeV": [
                 0.0032054241033883826,
                 0.005877910060828258,
@@ -705,13 +705,13 @@
               "absorption_sum_MeV": 6.902072946758386e-06,
               "maximum_matrix_element": 1.3104072519681504,
               "minimum_matrix_element_before_roundoff_clip": 5.57536500643115e-05,
-              "mode_detailed_balance_max_relative_residual": 7.866582174813145e-16,
+              "mode_detailed_balance_max_relative_residual": 6.5554851456776215e-16,
               "production_modes_MeV": [
-                4.0378063581075755e-07,
+                4.037806358107576e-07,
                 1.2917590725246014e-06,
                 1.2917590725246014e-06
               ],
-              "production_sum_MeV": 2.9872987808599604e-06,
+              "production_sum_MeV": 2.9872987808599608e-06,
               "reduced_absorption_modes_MeV": [
                 5.291435901523555e-07,
                 1.692815287873034e-06,
@@ -799,14 +799,14 @@
           "charges": {
             "mu_minus": {
               "absorption_modes_MeV": [
-                0.0013357776625750769,
+                0.0013357776625750766,
                 0.0041549317249615,
                 0.0041549317249615
               ],
               "absorption_sum_MeV": 0.009645641112498077,
               "maximum_matrix_element": 1.3668555238310471,
               "minimum_matrix_element_before_roundoff_clip": 1.389546413710172e-05,
-              "mode_detailed_balance_max_relative_residual": 1.875326884864794e-16,
+              "mode_detailed_balance_max_relative_residual": 1.205805499897646e-16,
               "production_modes_MeV": [
                 0.0005781403664799869,
                 0.001798303578110294,
@@ -814,7 +814,7 @@
               ],
               "production_sum_MeV": 0.004174747522700575,
               "reduced_absorption_modes_MeV": [
-                0.0007576372960950899,
+                0.0007576372960950898,
                 0.002356628146851206,
                 0.002356628146851206
               ],
@@ -822,7 +822,7 @@
             },
             "mu_plus": {
               "absorption_modes_MeV": [
-                9.327820299091242e-07,
+                9.327820299091244e-07,
                 2.984801708627463e-06,
                 2.9848017086274634e-06
               ],
@@ -837,7 +837,7 @@
               ],
               "production_sum_MeV": 2.9874340347305117e-06,
               "reduced_absorption_modes_MeV": [
-                5.290629382318464e-07,
+                5.290629382318465e-07,
                 1.6929442371008465e-06,
                 1.6929442371008467e-06
               ],
@@ -877,8 +877,8 @@
             },
             "mu_plus": {
               "absorption_modes_MeV": 0.000509392676297758,
-              "maximum_over_production_absorption_and_reduced_absorption": 0.0005093926762987778,
-              "production_modes_MeV": 0.0005093926762987778,
+              "maximum_over_production_absorption_and_reduced_absorption": 0.0005093926762986469,
+              "production_modes_MeV": 0.0005093926762986469,
               "reduced_absorption_modes_MeV": 0.0005093926762977798
             }
           },
@@ -907,7 +907,7 @@
             "mu_plus": {
               "absorption_modes_MeV": 0.00012798559543433918,
               "maximum_over_production_absorption_and_reduced_absorption": 0.00012798559543433918,
-              "production_modes_MeV": 0.0001279855954335865,
+              "production_modes_MeV": 0.0001279855954337176,
               "reduced_absorption_modes_MeV": 0.00012798559543421328
             }
           },
@@ -928,16 +928,16 @@
           "maximum_relative_change": 3.0429869319587425e-05,
           "per_charge": {
             "mu_minus": {
-              "absorption_modes_MeV": 3.042986931925636e-05,
+              "absorption_modes_MeV": 3.042986931941869e-05,
               "maximum_over_production_absorption_and_reduced_absorption": 3.0429869319587425e-05,
               "production_modes_MeV": 3.0429869319587425e-05,
-              "reduced_absorption_modes_MeV": 3.0429869319289923e-05
+              "reduced_absorption_modes_MeV": 3.042986931943302e-05
             },
             "mu_plus": {
-              "absorption_modes_MeV": 2.443725720624397e-05,
-              "maximum_over_production_absorption_and_reduced_absorption": 2.4437257206351134e-05,
+              "absorption_modes_MeV": 2.443725720601696e-05,
+              "maximum_over_production_absorption_and_reduced_absorption": 2.4437257206151014e-05,
               "production_modes_MeV": 2.443725720597241e-05,
-              "reduced_absorption_modes_MeV": 2.4437257206351134e-05
+              "reduced_absorption_modes_MeV": 2.4437257206151014e-05
             }
           },
           "to_orders": [
@@ -1056,7 +1056,7 @@
               "minimum_matrix_element_before_roundoff_clip": 2.879577510696712e-05,
               "mode_detailed_balance_max_relative_residual": 2.5224699832683214e-16,
               "production_modes_MeV": [
-                1.1538017615571894e-10,
+                1.1538017615571895e-10,
                 8.19812146467313e-10,
                 8.198121464673128e-10
               ],
@@ -1096,8 +1096,8 @@
               "mode_detailed_balance_max_relative_residual": 4.594496257353585e-16,
               "production_modes_MeV": [
                 1.3826863160982118e-06,
-                9.798193912289492e-06,
-                9.798193912289492e-06
+                9.798193912289493e-06,
+                9.798193912289493e-06
               ],
               "production_sum_MeV": 2.0979074140677196e-05,
               "reduced_absorption_modes_MeV": [
@@ -1116,13 +1116,13 @@
               "absorption_sum_MeV": 1.6942118018257608e-08,
               "maximum_matrix_element": 1.291758860381601,
               "minimum_matrix_element_before_roundoff_clip": 1.337911427183575e-05,
-              "mode_detailed_balance_max_relative_residual": 3.783703225827473e-16,
+              "mode_detailed_balance_max_relative_residual": 2.5224688172183154e-16,
               "production_modes_MeV": [
                 1.1537986512623748e-10,
                 8.19812525438086e-10,
-                8.198125254380859e-10
+                8.19812525438086e-10
               ],
-              "production_sum_MeV": 1.7550049160024094e-09,
+              "production_sum_MeV": 1.7550049160024096e-09,
               "reduced_absorption_modes_MeV": [
                 9.984513692340635e-10,
                 7.0943308665105665e-09,
@@ -1256,7 +1256,7 @@
             "mu_plus": {
               "absorption_modes_MeV": 2.69569255167687e-06,
               "maximum_over_production_absorption_and_reduced_absorption": 2.6956925517310797e-06,
-              "production_modes_MeV": 2.695692551543818e-06,
+              "production_modes_MeV": 2.695692551655836e-06,
               "reduced_absorption_modes_MeV": 2.6956925517310797e-06
             }
           },
@@ -1279,7 +1279,7 @@
             "mu_minus": {
               "absorption_modes_MeV": 3.7509294324347604e-06,
               "maximum_over_production_absorption_and_reduced_absorption": 3.7509294324347604e-06,
-              "production_modes_MeV": 3.750929431921961e-06,
+              "production_modes_MeV": 3.7509294320948562e-06,
               "reduced_absorption_modes_MeV": 3.7509294323541614e-06
             },
             "mu_plus": {
@@ -1323,7 +1323,7 @@
   ],
   "source_sha256": {
     "audit_script": "461fee28a61c05b4e02e85f4ecb475da6a7cccf41f4e08f8d437f4eaf511910f",
-    "moving_muon_compton_py": "44bc670fd9384f34de56fbecb5371bae18c93c2292aa67e98f4ee304433dbaea",
+    "moving_muon_compton_py": "38436b94f070069c8696b37b9bce1955e2d5d7e39dad9b302ab754582ff6a5a5",
     "rates_py": "2fc7bc2d3b0d7b98c191755cd2bb87944e4ebe259adc3d3bbc8e0f60dcc57f56",
     "reference_py": "f81468f4305cf57eb86cc0210abc7afc333d434ae70da307ca64a824e486107c"
   },
