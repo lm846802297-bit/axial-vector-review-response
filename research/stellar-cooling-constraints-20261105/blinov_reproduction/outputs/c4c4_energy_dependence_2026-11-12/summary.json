@@ -1,0 +1,77 @@
+{
+  "title": "C4-C4 incident-energy dependence of EOS moving-nucleon neutral-current scattering",
+  "date": "2026-11-12",
+  "stage": "C4-C4-A four-radius local anchor scan",
+  "numerical_integrity_pass": true,
+  "physical_validation_status": "not a transport or literature-reproduction acceptance",
+  "exploratory_energy_grid_MeV": [
+    10.0,
+    20.0,
+    40.0,
+    60.0,
+    100.0,
+    150.0
+  ],
+  "energy_grid_note": "The six-point grid is an exploratory first-pass choice, not a final physical boundary or a user-approved exclusion range.",
+  "radii_km": [
+    0.2,
+    5.0,
+    10.0,
+    15.2
+  ],
+  "species": [
+    "n",
+    "p"
+  ],
+  "incoming_states": [
+    "nu",
+    "antinu"
+  ],
+  "case_count": 96,
+  "newly_recomputed_case_count": 80,
+  "reused_100MeV_baseline_case_count": 16,
+  "source_commit": "50aebfc670528caebe4b4052f21c48ed4affe884",
+  "inputs": {
+    "profile_path": "outputs/caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv",
+    "profile_sha256": "97d6a88a95d0a636ac359ae981b1b06ec33b88b0f106bfb88d203cb0f9fbbc59",
+    "C2_occupation_path": "outputs/p1iii_eos_full_radial_occupation_2026-11-11.csv",
+    "C2_occupation_git_blob_sha": "c472040a4551e68ffadbf7addf9402663f99e7e3",
+    "C4C2_100MeV_reference_path": "outputs/p1iiie_c4c2_full_angle_total_rates_2026-11-11.csv",
+    "C4C2_100MeV_reference_git_blob_sha": "881b6459e8d9a1ac867b0f4dc47ac168d454e488",
+    "C4B2_kernel_git_blob_sha": "97a2706e978cd22f7ebc08c1f87ce6abd97ad0a7",
+    "C4C1_support_git_blob_sha": "8f7291be8738e0273353a8c30039c6be1ed8e6a9",
+    "C4C2_integrator_git_blob_sha": "2912788345e482e52308e02e6cbbc87c734a18b0"
+  },
+  "kernel": {
+    "definition": "Gamma_N^avail(E,r)=2*pi*integral[-1,1] dcos(theta) integral[Eprime_min,Eprime_max] dEprime dGamma_N/(dEprime dOmegaprime)",
+    "support": "Exact p_min(Eprime,cos(theta);mstar)<=p_max with the existing 45*T momentum-tail cutoff; roots are recomputed for each energy, radius, target and angular node.",
+    "quadrature": {
+      "cosine": 8,
+      "outgoing_energy": 48,
+      "initial_momentum": 36,
+      "azimuth": 12,
+      "support_scan_points": 10001
+    },
+    "opacity": "kappa_N=xi_SPP*Gamma_N^avail; xi_SPP is applied exactly once.",
+    "mean_free_path": "lambda_N=1/kappa_N, converted from MeV^-1 to km using hbar*c=197.3269804 MeV fm.",
+    "local_energy_convention": "Fixed local incident energy at each sampled radius; no gravitational redshift or energy redistribution."
+  },
+  "acceptance": {
+    "exact_96_case_grid": true,
+    "sixteen_cases_per_energy": true,
+    "all_rates_and_derived_quantities_positive_finite": true,
+    "xi_spp_applied_exactly_once": true,
+    "support_root_residual_below_1e-7": true,
+    "100_mev_baseline_reused_not_recomputed": true,
+    "source_labels_match_energy_provenance": true,
+    "C4C2_reference_blob_sha_matches": true
+  },
+  "max_support_root_relative_residual": 3.6374457778732855e-13,
+  "interpretation": [
+    "The output is a four-radius local total-scattering energy scan, not a 301-radius opacity or optical-depth calculation.",
+    "The 100-MeV entries are reused byte-provenanced C4-C2 reference values and are not recomputed.",
+    "The C4-C3 100-MeV 301-radius flat-space diagnostic remains the baseline and is not replaced.",
+    "No transport, escape probability, redshift, hydrodynamic feedback, or supernova exclusion is inferred.",
+    "The scan is not a physical validation of the pure-vector Blinov Fig. 7 benchmark."
+  ]
+}
