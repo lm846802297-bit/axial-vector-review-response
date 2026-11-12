@@ -138,6 +138,10 @@ def thermal_convergence_case(label, temperature, mu_mu):
         ),
         "coarse_detailed_balance_residual": coarse["max_detailed_balance_relative_residual"],
         "fine_detailed_balance_residual": fine["max_detailed_balance_relative_residual"],
+        "coarse_Eq5_12_relative_residual": coarse["unpolarized_normalization"]["Eq_5_12_relative_residual"],
+        "fine_Eq5_12_relative_residual": fine["unpolarized_normalization"]["Eq_5_12_relative_residual"],
+        "mode_order": fine["mode_order"],
+        "polarization_basis": fine["polarization_basis"],
         "mu_minus_fraction_by_mode": [
             float(x) for x in (
                 fine["charge_contributions"]["mu_minus"]["Gamma_abs_by_mode"]
@@ -164,6 +168,10 @@ def main():
         max(x["coarse_detailed_balance_residual"], x["fine_detailed_balance_residual"])
         for x in convergence.values()
     )
+    max_eq_5_12 = max(
+        max(x["coarse_Eq5_12_relative_residual"], x["fine_Eq5_12_relative_residual"])
+        for x in convergence.values()
+    )
     max_endpoint = max(checks["stationary_endpoint_relative_residual"].values())
     acceptance = {
         "stationary_endpoint_pass": max_endpoint < 2e-12,
@@ -185,6 +193,8 @@ def main():
             )
         ),
         "detailed_balance_pass": max_balance < 1e-10,
+        "Eq5_12_unpolarized_2_over_3_normalization_pass": max_eq_5_12 < 1e-10,
+        "max_Eq5_12_unpolarized_relative_residual": max_eq_5_12,
         "max_stationary_endpoint_relative_residual": max_endpoint,
         "max_thermal_quadrature_relative_difference": max_quad,
         "max_detailed_balance_relative_residual": max_balance,
@@ -205,7 +215,8 @@ def main():
             "angular_quadrature": "Gauss-Legendre in cos(theta_p), cos(theta_gamma); periodic trapezoid in relative azimuth",
             "charge_species": "mu- and mu+ integrated separately with chemical potentials +mu_mu and -mu_mu",
             "current": "Coherent vector-axial amplitude; charge-conjugate interference sign retained",
-            "production_absorption": "Independent Fermi/Bose statistical factors on common invariant phase space",
+            "production_absorption": "Independent Fermi/Bose statistical factors on common invariant phase space; per-mode detailed balance is checked before spin-averaged totals",
+            "unpolarized_inverse_rate_normalization": "Gamma_abs/Gamma_prod=(2/3) exp(omega/T), from averaging 2 initial photon polarizations in production and 3 initial A' polarizations in absorption (paper Eq. 5.12)",
         },
         "source_sha256": {
             "rates.py": sha256(ROOT / "rates.py"),
