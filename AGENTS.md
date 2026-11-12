@@ -99,7 +99,7 @@ The following rules are mandatory for numerical research, phenomenology, data pr
 
 1. Finish the calculation locally and retain the exact output produced by the run.
 2. Check file completeness, row/record counts, units, numerical finiteness, and the calculation-specific validation criteria. Record failed or incomplete checks explicitly; do not label a partial run as complete.
-3. If any deliverable arrives in ZIP/TAR, extract it before upload. Organize the required uncompressed native files individually and add the README/run record, provenance, and checksum manifest; do not upload the delivery bundle as a replacement for its contents.
+3. Organize the uncompressed deliverables and add the README/run record, provenance, and checksum manifest.
 4. Commit to the appropriate task branch and submit through the relevant pull request. Do not push research changes directly to `main` unless the author explicitly instructs otherwise.
 5. After the push, inspect the actual PR diff and retrieve the committed files from GitHub. Compare the remote file contents or Git blob identities against the local submission; verify the expected paths, file count, and checksums before reporting that the upload is complete.
 6. Report repository submission status separately from scientific validation status. A successful commit, checksum match, or passing CI job does not by itself establish that the physical calculation is correct or that the research task is complete.

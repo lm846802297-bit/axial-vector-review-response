@@ -1,0 +1,68 @@
+B5-2B1 diagonal-gauge parameter poles and tree current-basis map
+Date: 2026-11-11
+Gauge basis: diagonal B, W, A' propagators; mixed B-A' excluded/conditional.
+Common-S convention: S_mu=S, S_tau=S*, eta_mu=+1, eta_tau=-1.
+
+Gauge parameter-pole residues (common 1/(16 pi^2 eps) removed):
+delta_y/y       = -(15/8 gY^2 + 9/8 g2^2 + 3 Q_l^2 gX^2)
+delta_lambda/lambda = -(3 gY^2 + 3 Q_l^2 gX^2)
+delta_M/M       = -(3 gY^2 + 3 Q_l^2 gX^2)
+
+Derived Wilson parameter-pole residues:
+delta_C5/C5     = -(15/8 gY^2 + 9/8 g2^2 + 3 Q_l^2 gX^2)
+delta_CLD/CLD   = +(9/4 gY^2 - 9/4 g2^2)
+delta_CRD/CRD   = 0
+
+Gauge-only beta coefficients (16 pi^2 beta_C/C):
+C5              = -(15/4 gY^2 + 9/4 g2^2 + 6 Q_l^2 gX^2)
+CLD             = +(9/2 gY^2 - 9/2 g2^2)
+CRD             = 0
+tree-current parameter-only beta:
+C_HL^(1), C_HL^(3): +(9/2 gY^2 - 9/2 g2^2) relative coefficient
+C_Se_tree,common: 0
+
+Independent C5 EFT-side Casimir:
+-3[(Y_L^2+Y_lR^2)gY^2 + C2(L)g2^2 + (X_L^2+X_lR^2)gX^2]
+= -(15/4 gY^2 + 9/4 g2^2 + 6 Q_l^2 gX^2)
+PASS: exact equality to UV-parameter result.
+
+Tree-level EOM/current map:
+Q_LD = (bar L H) i slashD (H^dagger L)
+  = -1/4 O_HL^(1) -1/4 O_HL^(3)
+    +1/4 E_L^(1) +1/4 E_L^(3)  (mod total derivative)
+where Pauli-normalized currents use sigma^I, not sigma^I/2.
+
+Q_RD = S_l^* bar l_R i slashD(S_l l_R)
+  = +1/2 O_Se,l^(flavor) +1/2 E_R,l (mod total derivative)
+O_Se,l^(common-S) coefficient = eta_l C_RD,l/2.
+
+Benchmark tree-current coefficients [GeV^-2]:
+C_HL^(1)=C_HL^(3)=-8.247519487585e-10 for A and B, both flavors.
+A: C_Se,mu^tree=+5.554197442002e-11
+A: C_Se,tau^tree=-1.570796328364e-08
+B: C_Se,mu^tree=+2.812721671277e-12
+B: C_Se,tau^tree=-7.954727789368e-10
+
+Known tree + C5C5* hard subset for C_Se_commonS [GeV^-2]:
+A mu=+5.623817788136e-11; A tau=-1.590485830804e-08
+B mu=+2.847978368285e-12; B tau=-8.054438126978e-10
+These are partial sums only; gauge matching and full operator mixing are absent.
+
+B5-2A corrected C5C5* common-S hard sums [GeV^-2]:
+A: CLS=+9.809941046989e-11; CHe=+9.879561393123e-11; CSe=-1.961988209398e-10
+B: CLS=+4.967888532040e-12; CHe=+5.003145229048e-12; CSe=-9.935777064080e-12
+
+Exact symbolic audit:
+- C5 pole equals delta_y/y after delta_lambda/lambda - delta_M/M cancellation.
+- CLD and CRD parameter pole combinations reproduce the established gauge-counterterm sub-block.
+- C5 UV parameter running equals the direct EFT Yukawa-type Casimir coefficient.
+- 2x2 Pauli decomposition of i[H(DH)^dagger-(DH)H^dagger] passed.
+- H H^dagger Pauli completeness identity passed.
+- J_(S*)=-J_S passed.
+- Tree current basis coefficients checked for both eta signs.
+
+Scope limit:
+No complete UV/EFT gauge-loop amplitude, no finite O(g^2/M_E^2) coefficient,
+no current-form-factor integral, no Ward/Slavnov-Taylor closure, and no full
+operator anomalous-dimension matrix is claimed. Mixed B-A' propagation remains
+conditional on the kinetic-mixing input.

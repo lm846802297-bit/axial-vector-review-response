@@ -1,0 +1,48 @@
+A4a U(1)_X radial self-energy audit
+
+Conventions:
+  g_A = 2 g_X = m_X/v_S
+  Gamma_E^(2) = p_E^2 + m_s^2 + Pi_ss,E
+  A_E(UV) = -M^2/epsbar; B_E(UV) = +1/epsbar
+
+SYMBOLIC CHECKS
+PASS: general-xi p_E^2=0 cancellation of unphysical longitudinal vector, mixed A-a, and ghost terms at lambda_S=0.
+PASS: longitudinal-vector and complex-ghost tadpole cancellation.
+PASS: mixed A-a numerator reduces to A_E(m_X^2)+(2 p_E^2-m_X^2) B_E(p_E^2;m_X^2,m_X^2) in Feynman gauge.
+PASS: Feynman-gauge cut sum equals the physical s -> A'A' width.
+PASS: Feynman-gauge UV poles.
+
+Feynman-gauge UV pole, X vector + Goldstone + ghost:
+  16 pi^2 Pi_ss,E^UV = [-2 g_A^2 p_E^2 - 9 g_A^2 m_X^2
+                        - lambda_S m_X^2 - 2 lambda_S^2 v_S^2]/epsbar
+
+Radial-scalar UV pole:
+  16 pi^2 Pi_ss,E^UV,radial = -24 lambda_S^2 v_S^2/epsbar
+
+Total singlet-bosonic UV pole:
+  16 pi^2 Pi_ss,E^UV,bos = [-2 g_A^2 p_E^2 - 9 g_A^2 m_X^2
+                            - lambda_S m_X^2 - 26 lambda_S^2 v_S^2]/epsbar
+
+BENCHMARK A
+  v_S = 70.886458 GeV; m_X = 10 GeV; g_X = 0.0705353341
+  m_s [GeV]    Gamma_from_cut [GeV]    Gamma_direct [GeV]    relative residual
+     10.00      0                      0                    0
+    100.00      1.86433080156          1.86433080156        1.19e-16
+    125.25      3.74367566372          3.74367566372        2.37e-16
+    150.00      6.50529208796          6.50529208796        1.37e-16
+  m_s,max = 355.371999822 GeV; Gamma_AA/m_s = 0.24881506954
+
+BENCHMARK B
+  v_S = 315 GeV; m_X = 63 GeV; g_X = 0.1
+  m_s [GeV]    Gamma_from_cut [GeV]    Gamma_direct [GeV]    relative residual
+     10.00      0                      0                    0
+    100.00      0                      0                    0
+    125.25      0                      0                    0
+    150.00      0.122594341522         0.122594341522       0
+  m_s,max = 1579.17581302 GeV; Gamma_AA/m_s = 0.24762405430
+
+LIMITS
+- The real finite part is not evaluated because the complete subtraction and tadpole scheme have not yet been fixed.
+- The on-shell absorptive check is explicit in Feynman gauge; a general-xi numerical tensor reduction remains A4b.
+- The UV pole shown is the bosonic singlet subset, not the full UV-EFT matched counterterm.
+- No complete physical complex pole or two-state line shape is claimed.

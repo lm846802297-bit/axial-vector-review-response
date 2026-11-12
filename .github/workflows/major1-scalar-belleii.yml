@@ -1,0 +1,102 @@
+name: Major 1 scalar Belle II width audit
+
+on:
+  push:
+    branches:
+      - research/major1-scalar-pole-belleii-20261109
+    paths:
+      - "research/radial-scalar-collider-recast-2026-10-28/radial_scalar_widths.py"
+      - "research/radial-scalar-collider-recast-2026-10-28/off_shell_cascades.py"
+      - "research/radial-scalar-collider-recast-2026-10-28/off_shell_four_body.py"
+      - "research/radial-scalar-collider-recast-2026-10-28/scan_original_uv_widths.py"
+      - "research/radial-scalar-collider-recast-2026-10-28/belleii_resolution_promptness.py"
+      - "research/radial-scalar-collider-recast-2026-10-28/narrow_prompt_benchmark_recast.py"
+      - "research/radial-scalar-collider-recast-2026-10-28/test_*.py"
+      - ".github/workflows/major1-scalar-belleii.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: major1-scalar-belleii-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  unit-tests-and-width-scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - name: Check out exact PR commit
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install numerical dependency
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy==2.3.5 scipy==1.17.0
+
+      - name: Prepare reproducibility archive
+        working-directory: research/radial-scalar-collider-recast-2026-10-28
+        run: |
+          OUTPUT_DIR="data/derived/scan-pr52-thetaR-1e-2"
+          mkdir -p "$OUTPUT_DIR"
+          python --version > "$OUTPUT_DIR/python-version.txt"
+          python -c "import numpy; print('numpy', numpy.__version__)" > "$OUTPUT_DIR/numerical-dependencies.txt"
+          git rev-parse HEAD > "$OUTPUT_DIR/source-commit.txt"
+          sha256sum radial_scalar_widths.py off_shell_cascades.py off_shell_four_body.py scan_original_uv_widths.py belleii_resolution_promptness.py narrow_prompt_benchmark_recast.py test_scan_original_uv_widths.py test_narrow_prompt_benchmark_recast.py > "$OUTPUT_DIR/source-sha256.txt"
+
+      - name: Run all Belle II scalar unit tests
+        working-directory: research/radial-scalar-collider-recast-2026-10-28
+        run: |
+          set -o pipefail
+          python -m unittest discover -s . -p "test_*.py" -v 2>&1 | tee data/derived/scan-pr52-thetaR-1e-2/unit-tests.txt
+
+      - name: Regenerate the historical PR #52 benchmark width scan with current code
+        working-directory: research/radial-scalar-collider-recast-2026-10-28
+        run: >-
+          python scan_original_uv_widths.py
+          --output-dir data/derived/scan-pr52-thetaR-1e-2
+          --ms-points 48
+          --mA-points 48
+          --gX-points 32
+          --theta-mu-R 1.0e-2
+          --theta-tau-R 1.0e-2
+          --threebody-quadrature-order 192
+          --fourbody-quadrature-order 128
+
+      - name: Reinterpret regenerated width intervals against the Belle II scalar limits
+        working-directory: research/radial-scalar-collider-recast-2026-10-28
+        run: |
+          python narrow_prompt_benchmark_recast.py \
+            --scan data/derived/scan-pr52-thetaR-1e-2/original_uv_width_scan.csv \
+            --fourmu-limits data/raw/belleii/four-muon/S_supplemental.txt \
+            --tau-limits data/raw/belleii/tau-pair/limits.csv \
+            --output-dir data/derived/recast-pr52-thetaR-1e-2
+
+      - name: Hash and compress scan and recast outputs
+        working-directory: research/radial-scalar-collider-recast-2026-10-28
+        run: |
+          cd data/derived/scan-pr52-thetaR-1e-2
+          sha256sum original_uv_width_scan.csv original_uv_width_scan_summary.json > SHA256SUMS.txt
+          gzip -9 -c original_uv_width_scan.csv > original_uv_width_scan.csv.gz
+          rm original_uv_width_scan.csv
+          cd ../recast-pr52-thetaR-1e-2
+          sha256sum belleii_4mu_bounded_width_uv_recast.csv belleii_tautau_bounded_width_uv_recast.csv bounded_width_recast_summary.json > SHA256SUMS.txt
+
+      - name: Commit reproducible scan archive to this PR branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/radial-scalar-collider-recast-2026-10-28/data/derived/scan-pr52-thetaR-1e-2 research/radial-scalar-collider-recast-2026-10-28/data/derived/recast-pr52-thetaR-1e-2
+          if git diff --cached --quiet; then
+            echo "No new scan output to commit."
+            exit 0
+          fi
+          git commit -m "Archive regenerated PR52 width scan [scan-output]"
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

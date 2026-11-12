@@ -1,0 +1,67 @@
+B5-1 one-loop UV Higgs-singlet portal beta audit
+Date: 2026-11-11
+Inputs: M_E=20 TeV, v_h=246.22 GeV, m_h=125.25 GeV, theta_L=1e-2.
+
+SYMBOLIC CHECKS
+PASS mixed_h2s2_fermion_trace: 0
+PASS scalar_beta: 4*lHS*(3*lH + lHS + 2*lS)
+PASS gauge_beta_coefficient: -9*g2^2/2 - 24*gX^2 - 3*gY^2/2
+PASS Tr_YX: 0
+PASS checks: 4
+
+FULL ONE-LOOP UV PORTAL BETA
+16 pi^2 beta_lambdaHS = lambdaHS * [12 lambdaH + 8 lambdaS + 4 lambdaHS
+  - (9/2) g2^2 - (3/2) gY^2 - 24 gX^2
+  + 2*(T_SM + sum_l |y_l|^2 + sum_l |lambda_l|^2)]
+The additive VLL mixed-box UV-pole coefficient is zero.
+
+BENCHMARK INPUTS
+lambda_H=0.129383477431
+y_mu=y_tau=1.14873979561
+
+Benchmark A:
+  lambdaHS_UV=0.210763976387
+  lambda_mu=0.210792740710
+  lambda_tau=3.544907703582
+  gX=0.0705353341255
+  T_H_VLL=2.639206236027
+  T_S_VLL=12.610804206449
+  C_Y_VLL=30.500020884954
+  C_X=24*gX^2=0.119405600645
+  lambda_tau^2/(16 pi^2)=0.079577471625
+
+Benchmark B:
+  lambdaHS_UV=0.0106733764886
+  lambda_mu=0.0474360341620
+  lambda_tau=0.797733177917
+  gX=0.100000000000
+  T_H_VLL=2.639206236027
+  T_S_VLL=0.638628400486
+  C_Y_VLL=6.555669273028
+  C_X=24*gX^2=0.240000000000
+  lambda_tau^2/(16 pi^2)=0.004029912176
+
+m_s [GeV] | A beta_scalar | A beta_VLLY | A beta_X | A beta_portal2 | A known subtotal
+10.00 | +2.178469494e-03 | +4.070772128e-02 | -1.593680847e-04 | +1.125208568e-03 | +4.385203126e-02
+50.00 | +4.728358848e-03 | +4.070772128e-02 | -1.593680847e-04 | +1.125208568e-03 | +4.640192061e-02
+100.00 | +1.269676308e-02 | +4.070772128e-02 | -1.593680847e-04 | +1.125208568e-03 | +5.437032484e-02
+125.25 | +1.873953603e-02 | +4.070772128e-02 | -1.593680847e-04 | +1.125208568e-03 | +6.041309779e-02
+150.00 | +2.597743680e-02 | +4.070772128e-02 | -1.593680847e-04 | +1.125208568e-03 | +6.765099856e-02
+
+m_s [GeV] | B beta_scalar | B beta_VLLY | B beta_X | B beta_portal2 | B known subtotal
+10.00 | +1.052127388e-04 | +4.430973335e-04 | -1.622158709e-05 | +2.885651771e-06 | +5.349741370e-04
+50.00 | +1.117520533e-04 | +4.430973335e-04 | -1.622158709e-05 | +2.885651771e-06 | +5.415134515e-04
+100.00 | +1.321874112e-04 | +4.430973335e-04 | -1.622158709e-05 | +2.885651771e-06 | +5.619488094e-04
+125.25 | +1.476843946e-04 | +4.430973335e-04 | -1.622158709e-05 | +2.885651771e-06 | +5.774457927e-04
+150.00 | +1.662463410e-04 | +4.430973335e-04 | -1.622158709e-05 | +2.885651771e-06 | +5.960077392e-04
+
+At m_s=125.25 GeV:
+  beta_A = 0.060413097790 + 1.334678472294e-03 * D_SM
+  beta_B = 0.000577445793 + 6.758994620533e-05 * D_SM
+where D_SM=2*T_SM-(9/2)g2^2-(3/2)gY^2.
+No numerical D_SM is inserted because running SM inputs at 20 TeV have not yet been fixed.
+
+COMBINED-ORDER NOTE
+Since lambdaHS^UV=O(hbar), the 4 lambdaHS^2 term is O(hbar^3) and is omitted at strict O(hbar^2); it is retained in the full one-loop MS formula.
+Benchmark A has lambda_tau=sqrt(4 pi), at the adopted perturbativity boundary.
+LIMIT: UV beta above M_E only. EFT beta below M_E and full matching-scale cancellation remain separate.

@@ -1,0 +1,10 @@
+test_absorptive_matrix_is_positive_semidefinite_and_rank_one (test_fermion_sector_matrix_audit.FermionSectorMatrixAuditTests.test_absorptive_matrix_is_positive_semidefinite_and_rank_one) ... ok
+test_diagonal_and_offdiagonal_uv_derivative_structures_differ (test_fermion_sector_matrix_audit.FermionSectorMatrixAuditTests.test_diagonal_and_offdiagonal_uv_derivative_structures_differ) ... ok
+test_full_minus_light_field_counterterm_coefficients (test_fermion_sector_matrix_audit.FermionSectorMatrixAuditTests.test_full_minus_light_field_counterterm_coefficients) ... ok
+test_hard_fermion_momentum_differences_are_real_below_heavy_threshold (test_fermion_sector_matrix_audit.FermionSectorMatrixAuditTests.test_hard_fermion_momentum_differences_are_real_below_heavy_threshold) ... ok
+test_offdiagonal_reproduces_archived_exact_mass_eigenstate_result (test_fermion_sector_matrix_audit.FermionSectorMatrixAuditTests.test_offdiagonal_reproduces_archived_exact_mass_eigenstate_result) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.015s
+
+OK

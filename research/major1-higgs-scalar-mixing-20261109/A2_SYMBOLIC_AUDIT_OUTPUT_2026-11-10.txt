@@ -1,0 +1,58 @@
+A2 symbolic audit summary
+Model normalization: Q_S=2 Q_l, g_X=g_S Q_l, m_X=2 g_X v_S.
+
+Scalar-potential derivatives:
+  hhh = 6 lambda_H v
+  sss = 6 lambda_S v_S
+  hhs = lambda_HS v_S
+  hss = lambda_HS v
+  h G0 G0 = 2 lambda_H v
+  h G+ G- = 2 lambda_H v
+  s G0 G0 = lambda_HS v_S
+  s G+ G- = lambda_HS v_S
+  h a a = lambda_HS v
+  s a a = 2 lambda_S v_S
+
+Quartic derivatives:
+  hhhh=6 lambda_H; ssss=6 lambda_S; hhss=lambda_HS
+  hhG0G0=2 lambda_H; hhG+G-=2 lambda_H
+  ssG0G0=lambda_HS; ssG+G-=lambda_HS
+  hhaa=lambda_HS; ssaa=2 lambda_S
+  G0G0G0G0=6 lambda_H; G0G0G+G-=2 lambda_H
+  G0G0aa=lambda_HS; G+G+G-G-=4 lambda_H
+  G+G-aa=lambda_HS; aaaa=6 lambda_S
+
+Gauge-boson vertex coefficients in L (Feynman rule = i times coefficient):
+  h W+ W-: 2 m_W^2/v g_munu
+  h Z Z: 2 m_Z^2/v g_munu
+  s A' A': 2 m_X^2/v_S g_munu
+  hh W+ W-: 2 m_W^2/v^2 g_munu
+  hh Z Z: 2 m_Z^2/v^2 g_munu
+  ss A' A': 2 m_X^2/v_S^2 g_munu
+
+Radial ghost coefficients in L_FP (Feynman rule = i times coefficient):
+  h cWbar cW: -xi_W m_W^2/v
+  h cZbar cZ: -xi_Z m_Z^2/v
+  s cXbar cX: -xi_X m_X^2/v_S
+
+U(1)_X normalization check:
+  m_X^2/v_S = 2 m_X g_X = 4 g_X^2 v_S.
+  Previous A1 draft coefficient -xi_X m_X g_X was low by factor 2.
+
+Mixed h-s scalar bubble UV coefficient (before counterterms):
+  hh pair: 3 lambda_H lambda_HS v v_S
+  ss pair: 3 lambda_S lambda_HS v v_S
+  G+G- pair: 2 lambda_H lambda_HS v v_S
+  G0G0 pair: 1 lambda_H lambda_HS v v_S
+  aa pair: 1 lambda_S lambda_HS v v_S
+  total: lambda_HS v v_S (6 lambda_H + 4 lambda_S)
+
+Gauge-basis absence checks:
+  h A' A' = 0; s W+ W- = 0; s Z Z = 0.
+  No common vector or ghost species couples to both h and s at a single gauge-basis trilinear vertex.
+  Thus no one-loop hs vector/ghost bubble exists in this basis at the stated order.
+
+PASS: independent SymPy derivative checks for all listed scalar cubic and quartic vertices.
+PASS: gauge-boson mass-term vertex coefficients and forbidden-vertex zeros.
+PASS: scalar-dependent radial FP coefficients and U(1)_X factor-of-two correction.
+LIMIT: non-Abelian ghost-vector matrix entries not yet component-expanded; no loop integrals or gauge-independence claim.

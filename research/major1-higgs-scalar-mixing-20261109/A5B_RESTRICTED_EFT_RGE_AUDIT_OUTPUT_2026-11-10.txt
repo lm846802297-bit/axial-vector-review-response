@@ -1,0 +1,88 @@
+A5b restricted EFT RGE audit — local symbolic/numeric execution
+Date: 2026-11-10
+Inputs: M_E=M_*=20 TeV; v_h=246.22 GeV; m_h=125.25 GeV;
+        m_mu=0.1056583755 GeV; m_tau=1.77686 GeV.
+Benchmarks: v_s(A)=70.886458 GeV; v_s(B)=315 GeV.
+
+SYMBOLIC CHECKS
+PASS: delta c_(partial HS) from q_l equals the expression in |C5_l|^2.
+PASS: with c_B=mu^(2 eps)[c+a/eps], beta_c=2a at this one-loop order.
+PASS: beta_c = -M_*^2 sum_l |C5_l|^2/(16 pi^2).
+PASS: mu d(c_hard)/dmu equals the pole-derived beta_c.
+PASS: derivative of the displayed hard plus soft logarithms is exactly zero.
+PASS: coefficient of h^2 s^2 in Tr[(M^dagger M)^2] is exactly zero.
+PASS: scalar-only linear portal beta is twice the A3a pole residue.
+
+DIMENSION-SIX DERIVATIVE OPERATOR
+delta c_(partial HS) = -M_*^2 sum_l |C5_l|^2/(32 pi^2) Delta_UV
+beta c_(partial HS)  = -M_*^2 sum_l |C5_l|^2/(16 pi^2)
+For M_*=M_E and C5_l=-y_l lambda_l/M_E:
+beta c_(partial HS)  = -sum_l |y_l|^2 |lambda_l|^2/(16 pi^2)
+                      = Delta lambda_HS^VLL / 2.
+
+BENCHMARK A
+q_mu  = 1.279237701880e-06
+q_tau = 3.617843813082e-04
+beta_mu  = -3.713085127161e-04
+beta_tau = -1.050106796806e-01
+beta_total = -1.053819881933e-01
+Delta_lambda_HS^VLL = -2.107639763866e-01
+beta_total - Delta_lambda/2 = -1.388e-17
+ln(M_E^2/m_h^2) = 10.146351625142
+delta c(20 TeV -> m_h) = +5.346213535829e-01
+leading-log Pi shift at p^2=m_h^2 = +3.659555873397e-01 GeV^2
+
+BENCHMARK B
+q_mu  = 2.878750146868e-07
+q_tau = 8.141464555766e-05
+beta_mu  = -1.880357173745e-05
+beta_tau = -5.317884672582e-03
+beta_total = -5.336688244319e-03
+Delta_lambda_HS^VLL = -1.067337648864e-02
+beta_total - Delta_lambda/2 = +2.602e-18
+ln(M_E^2/m_h^2) = 10.146351625142
+delta c(20 TeV -> m_h) = +2.707395772031e-02
+leading-log Pi shift at p^2=m_h^2 = +8.235331864070e-02 GeV^2
+
+SCALAR-ONLY UV PORTAL BETA DIAGNOSTIC
+Illustrative m_s=m_h only; lambda_S=m_h^2/(2 v_s^2).
+A: lambda_H=0.129383477; lambda_S=1.560985686
+   beta_scalar_linear=+1.873953602716e-02
+   beta_scalar_including_portal_squared=+1.986474459523e-02
+B: lambda_H=0.129383477; lambda_S=0.079050454
+   beta_scalar_linear=+1.476843945580e-04
+   beta_scalar_including_portal_squared=+1.505700463287e-04
+
+SCOPE LIMITS
+OPEN: gauge/Yukawa contributions to beta_lambda_HS and beta_C5.
+OPEN: Q_LD/Q_RD/current-operator anomalous dimensions and EOM/source closure.
+OPEN: complete O(hbar^2) UV-EFT portal matching and all diagonal counterterms.
+OPEN: dimension-eight hard matching; q_l*m_l^2 pole is O(M_E^-4), not beta_lambda_HS.
+PASS: restricted C5*C5* derivative-operator RGE block and leading-log cancellation.
+LIMIT: not the complete model EFT RGE or physical scalar pole calculation.
+
+
+FIXED-PHYSICAL-MASS FACTOR-TWO SCALE CHECK
+M_E is held fixed at 20 TeV. Hard and soft terms are evaluated at the same common scale mu.
+H' and S' are derivative coefficients; H'+S' is invariant.
+
+Benchmark A:
+  mu=10 TeV: H'=+1.654515624882e-06, S'=+3.975391998738e-05,
+             H'+S'=+4.140843561227e-05
+  mu=20 TeV: H'=-1.532751483982e-06, S'=+4.294118709625e-05,
+             H'+S'=+4.140843561227e-05
+  mu=40 TeV: H'=-4.720018592847e-06, S'=+4.612845420511e-05,
+             H'+S'=+4.140843561227e-05
+  m_h^2(H'+S')=+6.495974216946e-01 GeV^2
+
+Benchmark B:
+  mu=10 TeV: H'=+3.723261979477e-07, S'=+8.946078030226e-06,
+             H'+S'=+9.318404228173e-06
+  mu=20 TeV: H'=-3.449248371230e-07, S'=+9.663329065296e-06,
+             H'+S'=+9.318404228173e-06
+  mu=40 TeV: H'=-1.062175872194e-06, S'=+1.038058010037e-05,
+             H'+S'=+9.318404228173e-06
+  m_h^2(H'+S')=+1.461830487297e-01 GeV^2
+
+PASS: H'+S' is independent of mu for the restricted leading-log expression.
+LIMIT: fixed-sector identity only; not the complete full-model matching-scale uncertainty test.

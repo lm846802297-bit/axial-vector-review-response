@@ -1,0 +1,58 @@
+{
+  "scope": "original single-VEV S+VLL field content; zero-portal and decoupled-VLL benchmark",
+  "scan": {
+    "ms_GeV": [
+      0.212,
+      10.0,
+      48
+    ],
+    "mA_GeV": [
+      0.001,
+      100.0,
+      48
+    ],
+    "gX": [
+      1e-06,
+      0.1,
+      32
+    ],
+    "theta_mu_R": 0.01,
+    "theta_tau_R": 0.01,
+    "threebody_quadrature_order": 192,
+    "fourbody_quadrature_order": 128
+  },
+  "counts": {
+    "total_points": 73728,
+    "lambdaS_le_4pi_points": 68351,
+    "scalar_yukawas_le_sqrt4pi_points": 67344,
+    "lambdaS_and_scalar_yukawas_le_4pi_points": 66617,
+    "exact_primary_width_points_under_declared_benchmark": 46336,
+    "points_with_bounded_branching_fractions": 73728,
+    "points_with_nontrivial_branching_fraction_intervals": 27392,
+    "by_width_regime": {
+      "on_shell_AA": 42240,
+      "one_on_shell_one_virtual_A_three_body": 4096,
+      "two_virtual_A_four_body_bounded": 27392
+    }
+  },
+  "max_fourbody_identical_exchange_upper_over_direct_widths": 1.8490136772157714e-06,
+  "Gamma_s_over_ms_lower_bound_min": 9.308084112976698e-23,
+  "Gamma_s_over_ms_upper_bound_max": 43910.250747986436,
+  "Gamma_s_over_ms_upper_bound_max_all_points": 43910.250747986436,
+  "Gamma_s_over_ms_upper_bound_max_lambdaS_le_4pi_points": 0.2937761287525267,
+  "Gamma_s_over_ms_upper_bound_max_lambdaS_and_scalar_yukawas_le_4pi_points": 0.29340726015456203,
+  "max_y_stau_all_points": 355.372,
+  "max_y_stau_lambdaS_le_4pi_points": 39.1955170598009,
+  "lambdaS_le_4pi_points_with_Gamma_s_over_ms_upper_bound_gt_1": 0,
+  "lambdaS_and_scalar_yukawas_le_4pi_points_with_Gamma_s_over_ms_upper_bound_gt_1": 0,
+  "interpretation": [
+    "The mA >= ms four-body contribution is a double-spectral diagonal-pairing result; identical-flavor exchange is bounded but not explicitly integrated.",
+    "For mA >= ms, the four-body width scales as gX^6 when the off-shell absorptive term is neglected; its effect on direct branching fractions is enclosed by the reported intervals.",
+    "The portal is set to zero and VLLs are decoupled by benchmark; these are assumptions, not symmetry-enforced results.",
+    "No Belle II detector-level recast or experimental exclusion is produced by this scan.",
+    "points_with_bounded_branching_fractions counts all rows with an interval, including degenerate intervals; points_with_nontrivial_branching_fraction_intervals counts only rows with a nonzero exchange-bound interval.",
+    "lambdaS_le_4pi_points applies only the scalar-quartic criterion; scalar-Yukawa perturbativity is reported separately using |y_sll|^2 <= 4 pi, and the combined count requires both.",
+    "The maximum Gamma_s/m_s is reported over all points, the lambdaS-only subset, and the combined lambdaS-plus-scalar-Yukawa subset; the lambdaS-only subset must not be called fully perturbative."
+  ],
+  "output_csv": "original_uv_width_scan.csv"
+}

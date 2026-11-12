@@ -1,0 +1,194 @@
+{
+  "scope": "original one-VEV S+VLL model; zero-portal and decoupled-VLL collider benchmark",
+  "scan_rows": 73728,
+  "fourmu_limit_data": {
+    "rows_raw": 2317,
+    "rows_unique": 2317,
+    "mass_min_GeV": 0.212,
+    "mass_max_GeV": 8.999862
+  },
+  "tau_limit_data": {
+    "rows_raw": 2384,
+    "rows_unique": 2381,
+    "mass_min_GeV": 3.6,
+    "mass_max_GeV": 9.99943
+  },
+  "mass_interpolation": "log-log interpolation of observed/expected scalar coupling limits; no extrapolation",
+  "branching_fraction_treatment": "propagate scan-provided min/max intervals; do not renormalize incomplete partial widths",
+  "narrow_width_tolerance": 0.1,
+  "narrow_width_tolerance_note": "internal conservative diagnostic, not a Belle II cut",
+  "promptness_note": "maximum-kinematic scalar mean-flight interval compared with 5 mm transverse DCA scale; geometry proxy only, not detector efficiency or a literal decay-radius cut",
+  "fourmu_resolution_note": "published reduced-mass resolution envelope used by the width scan",
+  "tau_resolution_note": "anchor-based conservative recoil-mass resolution interval used by the width scan",
+  "coupling_mappings": {
+    "fourmu": "y_smu^2 * BR_UV(mumu) / gS_UL^2; Belle muonphilic scalar reference BR=1",
+    "tautau": "xi_UV^2 * BR_UV(tautau) / (xi_UL^2 * BR_Belle(tautau)); xi_UV=246 GeV/vs"
+  },
+  "classification_counts": {
+    "fourmu": {
+      "evaluated_not_excluded_by_this_channel_conditional": 39534,
+      "finite_width_sensitive": 8673,
+      "theoretically_inconsistent_scalar_yukawa": 1734,
+      "theoretically_inconsistent_scalar_quartic": 4948,
+      "width_interval_straddles_narrow_threshold": 933,
+      "lifetime_sensitive": 12088,
+      "excluded_under_published_narrow_prompt_benchmark_conditional": 2746
+    },
+    "tautau": {
+      "evaluated_not_excluded_by_this_channel_conditional": 11337,
+      "width_interval_straddles_narrow_threshold": 891,
+      "finite_width_sensitive": 3286,
+      "theoretically_inconsistent_scalar_quartic": 2414,
+      "lifetime_sensitive": 721,
+      "unclassified_outside_numerical_limit_grid": 1319
+    }
+  },
+  "classification_details": {
+    "fourmu": {
+      "evaluated_not_excluded_by_this_channel_conditional": {
+        "count": 39534,
+        "max_signal_strength_ratio_observed_min": 0.9999121685868378,
+        "max_signal_strength_ratio_observed_max": 0.9999121685868378,
+        "max_width_ratio_upper": 0.09998988452804404,
+        "max_flight_length_proxy_upper_m": 0.004997298837918152,
+        "unique_mass_points": 46,
+        "mass_min_GeV": 0.212,
+        "mass_max_GeV": 8.48750903116088
+      },
+      "finite_width_sensitive": {
+        "count": 8673,
+        "max_signal_strength_ratio_observed_min": 2392.7051484844924,
+        "max_signal_strength_ratio_observed_max": 2392.7051484844924,
+        "max_width_ratio_upper": 862.4460176515935,
+        "max_flight_length_proxy_upper_m": 3.1441398634732106e-10,
+        "unique_mass_points": 46,
+        "mass_min_GeV": 0.212,
+        "mass_max_GeV": 8.48750903116088
+      },
+      "theoretically_inconsistent_scalar_yukawa": {
+        "count": 1734,
+        "max_signal_strength_ratio_observed_min": null,
+        "max_signal_strength_ratio_observed_max": null,
+        "max_width_ratio_upper": null,
+        "max_flight_length_proxy_upper_m": null,
+        "unique_mass_points": 30,
+        "mass_min_GeV": 0.212,
+        "mass_max_GeV": 2.285715874995086
+      },
+      "theoretically_inconsistent_scalar_quartic": {
+        "count": 4948,
+        "max_signal_strength_ratio_observed_min": null,
+        "max_signal_strength_ratio_observed_max": null,
+        "max_width_ratio_upper": null,
+        "max_flight_length_proxy_upper_m": null,
+        "unique_mass_points": 46,
+        "mass_min_GeV": 0.212,
+        "mass_max_GeV": 8.48750903116088
+      },
+      "width_interval_straddles_narrow_threshold": {
+        "count": 933,
+        "max_signal_strength_ratio_observed_min": 728.8051602830778,
+        "max_signal_strength_ratio_observed_max": 728.8051602830778,
+        "max_width_ratio_upper": 0.19975181126448463,
+        "max_flight_length_proxy_upper_m": 3.987585426102357e-10,
+        "unique_mass_points": 46,
+        "mass_min_GeV": 0.212,
+        "mass_max_GeV": 8.48750903116088
+      },
+      "lifetime_sensitive": {
+        "count": 12088,
+        "max_signal_strength_ratio_observed_min": 0.04602276813934888,
+        "max_signal_strength_ratio_observed_max": 0.04602276813934892,
+        "max_width_ratio_upper": 8.065411604246259e-09,
+        "max_flight_length_proxy_upper_m": 328778530.9770378,
+        "unique_mass_points": 46,
+        "mass_min_GeV": 0.212,
+        "mass_max_GeV": 8.48750903116088
+      },
+      "excluded_under_published_narrow_prompt_benchmark_conditional": {
+        "count": 2746,
+        "max_signal_strength_ratio_observed_min": 5013.926265949072,
+        "max_signal_strength_ratio_observed_max": 5013.926265949072,
+        "max_width_ratio_upper": 0.09978753086175547,
+        "max_flight_length_proxy_upper_m": 0.00020922141379335794,
+        "unique_mass_points": 35,
+        "mass_min_GeV": 0.212,
+        "mass_max_GeV": 3.444067234657897
+      }
+    },
+    "tautau": {
+      "evaluated_not_excluded_by_this_channel_conditional": {
+        "count": 11337,
+        "max_signal_strength_ratio_observed_min": 0.13526564380822229,
+        "max_signal_strength_ratio_observed_max": 0.13526564380822229,
+        "max_width_ratio_upper": 0.0999939399320801,
+        "max_flight_length_proxy_upper_m": 0.004978874750814357,
+        "unique_mass_points": 12,
+        "mass_min_GeV": 3.73836323023915,
+        "mass_max_GeV": 9.212767787782825
+      },
+      "width_interval_straddles_narrow_threshold": {
+        "count": 891,
+        "max_signal_strength_ratio_observed_min": 0.041416651255200554,
+        "max_signal_strength_ratio_observed_max": 0.041416651255200554,
+        "max_width_ratio_upper": 0.9976511903817838,
+        "max_flight_length_proxy_upper_m": 1.599832429191474e-12,
+        "unique_mass_points": 11,
+        "mass_min_GeV": 3.73836323023915,
+        "mass_max_GeV": 9.212767787782825
+      },
+      "finite_width_sensitive": {
+        "count": 3286,
+        "max_signal_strength_ratio_observed_min": 2.729942347261066,
+        "max_signal_strength_ratio_observed_max": 2.729942347261066,
+        "max_width_ratio_upper": 2554.375219744826,
+        "max_flight_length_proxy_upper_m": 1.8103819819374922e-13,
+        "unique_mass_points": 12,
+        "mass_min_GeV": 3.73836323023915,
+        "mass_max_GeV": 9.212767787782825
+      },
+      "theoretically_inconsistent_scalar_quartic": {
+        "count": 2414,
+        "max_signal_strength_ratio_observed_min": null,
+        "max_signal_strength_ratio_observed_max": null,
+        "max_width_ratio_upper": null,
+        "max_flight_length_proxy_upper_m": null,
+        "unique_mass_points": 13,
+        "mass_min_GeV": 3.73836323023915,
+        "mass_max_GeV": 10.0
+      },
+      "lifetime_sensitive": {
+        "count": 721,
+        "max_signal_strength_ratio_observed_min": 5.0614938449007525e-11,
+        "max_signal_strength_ratio_observed_max": 5.0614938449007525e-11,
+        "max_width_ratio_upper": 2.8428665654226075e-11,
+        "max_flight_length_proxy_upper_m": 54.391112060838395,
+        "unique_mass_points": 12,
+        "mass_min_GeV": 3.73836323023915,
+        "mass_max_GeV": 9.212767787782825
+      },
+      "unclassified_outside_numerical_limit_grid": {
+        "count": 1319,
+        "max_signal_strength_ratio_observed_min": null,
+        "max_signal_strength_ratio_observed_max": null,
+        "max_width_ratio_upper": null,
+        "max_flight_length_proxy_upper_m": null,
+        "unique_mass_points": 1,
+        "mass_min_GeV": 10.0,
+        "mass_max_GeV": 10.0
+      }
+    }
+  },
+  "limitations": [
+    "The double-virtual four-body contribution uses a diagonal-pairing spectral calculation and a Cauchy-Schwarz upper bound on identical-flavour exchange; it is not an exact exclusive four-body calculation.",
+    "A point is excluded only if the lower signal-strength endpoint exceeds the observed published limit and the entire width/flight intervals pass the narrow/prompt proxies.",
+    "The 5 mm flight-length comparison is a geometry proxy, not a lifetime-dependent detector efficiency.",
+    "No finite-width convolution or event-level CLs fit is performed.",
+    "No independent MadGraph production recalculation is performed; the mapping uses the same spin-zero muon-FSR coupling normalization as the published scalar benchmark.",
+    "These are conditional reinterpretations of published scalar coupling limits, not new Belle II CLs results."
+  ],
+  "outputs": {
+    "fourmu": "belleii_4mu_bounded_width_uv_recast.csv",
+    "tautau": "belleii_tautau_bounded_width_uv_recast.csv"
+  }
+}

@@ -1,0 +1,9 @@
+test_direct_lorentz_tensors_match_projector_contraction (test_independent_fourbody_tensor_audit.IndependentFourBodyTensorAuditTests.test_direct_lorentz_tensors_match_projector_contraction) ... ok
+test_exchange_bound_and_gx_sixth_power (test_independent_fourbody_tensor_audit.IndependentFourBodyTensorAuditTests.test_exchange_bound_and_gx_sixth_power) ... ok
+test_independent_integral_agrees_with_production_quadrature (test_independent_fourbody_tensor_audit.IndependentFourBodyTensorAuditTests.test_independent_integral_agrees_with_production_quadrature) ... ok
+test_independent_quadrature_convergence (test_independent_fourbody_tensor_audit.IndependentFourBodyTensorAuditTests.test_independent_quadrature_convergence) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 10.946s
+
+OK

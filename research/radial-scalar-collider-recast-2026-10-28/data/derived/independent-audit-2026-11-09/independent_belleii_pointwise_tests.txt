@@ -1,0 +1,10 @@
+test_jpsi_veto_interval_is_exactly_the_declared_interval (test_independent_belleii_pointwise_audit.IndependentBelleIIPointwiseAuditTests.test_jpsi_veto_interval_is_exactly_the_declared_interval) ... ok
+test_log_log_interpolation_and_no_extrapolation (test_independent_belleii_pointwise_audit.IndependentBelleIIPointwiseAuditTests.test_log_log_interpolation_and_no_extrapolation) ... ok
+test_muon_threshold_is_closed_below_and_open_above (test_independent_belleii_pointwise_audit.IndependentBelleIIPointwiseAuditTests.test_muon_threshold_is_closed_below_and_open_above) ... ok
+test_tau_reference_branching_turns_on_above_threshold (test_independent_belleii_pointwise_audit.IndependentBelleIIPointwiseAuditTests.test_tau_reference_branching_turns_on_above_threshold) ... ok
+test_width_and_flight_interval_boundaries_are_conservative (test_independent_belleii_pointwise_audit.IndependentBelleIIPointwiseAuditTests.test_width_and_flight_interval_boundaries_are_conservative) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.000s
+
+OK

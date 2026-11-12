@@ -1,0 +1,51 @@
+{
+  "record_date": "2026-11-05",
+  "model_scope": "Original paper's single-VEV radial scalar S plus original VLL sector only",
+  "archive_policy": "Raw official numerical supplements are stored verbatim; do not edit, normalize, deduplicate, or reformat these source files.",
+  "files": [
+    {
+      "source_id": "belleii_four_muon_scalar",
+      "source_url": "https://journals.aps.org/prd/supplemental/10.1103/PhysRevD.109.112015/S_supplemental.txt",
+      "archive_path": "research/radial-scalar-collider-recast-2026-10-28/data/raw/belleii/four-muon/S_supplemental.txt",
+      "bytes": 317888,
+      "rows_excluding_header": 2317,
+      "columns": 15,
+      "mass_range_GeV": [0.212, 8.999862],
+      "sha256": "ef12682be45c07263ed9b27be7c988b34cb152267da6d933121d448f5658fec2",
+      "git_blob_sha1": "3b37c0c91e633c14e58860479531030310a7f363",
+      "paper_fit_count": 2315,
+      "note": "Supplement row count exceeds the 2315 fits stated in the paper by two; all 2317 mass values are unique and strictly increasing. Discrepancy unresolved."
+    },
+    {
+      "source_id": "belleii_tau_pair_limits_csv",
+      "source_url": "https://journals.aps.org/prl/supplemental/10.1103/PhysRevLett.131.121802/limits.csv",
+      "archive_path": "research/radial-scalar-collider-recast-2026-10-28/data/raw/belleii/tau-pair/limits.csv",
+      "bytes": 821015,
+      "rows_excluding_header": 2384,
+      "columns": 27,
+      "mass_range_GeV": [3.6, 9.99943],
+      "sha256": "ee968c65096393129d03b018493ddb721072b2a1c048609003c3918259fe7cfb",
+      "git_blob_sha1": "257498064a604a6fa46a36d30a2bf6e30428be23",
+      "note": "Byte-identical to the separately listed limits.txt supplement; contains three exact duplicate mass rows."
+    },
+    {
+      "source_id": "belleii_tau_pair_limits_txt",
+      "source_url": "https://journals.aps.org/prl/supplemental/10.1103/PhysRevLett.131.121802/limits.txt",
+      "archive_path": "research/radial-scalar-collider-recast-2026-10-28/data/raw/belleii/tau-pair/limits.txt",
+      "bytes": 821015,
+      "rows_excluding_header": 2384,
+      "columns": 27,
+      "mass_range_GeV": [3.6, 9.99943],
+      "sha256": "ee968c65096393129d03b018493ddb721072b2a1c048609003c3918259fe7cfb",
+      "git_blob_sha1": "257498064a604a6fa46a36d30a2bf6e30428be23",
+      "note": "Byte-identical to limits.csv; retained under the official filename for provenance."
+    }
+  ],
+  "verification": {
+    "github_branch": "research/radial-scalar-original-model-belleii-20261105",
+    "github_raw_file_blob_sha1_matches_original": true,
+    "limits_csv_and_txt_byte_identical": true,
+    "all_numeric_values_finite": true,
+    "expected_quantile_bands_ordered": true
+  }
+}

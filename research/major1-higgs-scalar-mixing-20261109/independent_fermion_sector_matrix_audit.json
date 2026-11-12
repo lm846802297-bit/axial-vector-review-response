@@ -1,0 +1,326 @@
+{
+  "method": "SciPy gesvd plus 45-digit mpmath Feynman-parameter integration",
+  "scope": "mu/tau plus original VLL fermion sector only",
+  "renormalization_scale_GeV": 20000.0,
+  "external_momentum_GeV2": 15687.5625,
+  "benchmarks": {
+    "A_open_AA": {
+      "hh": {
+        "Pi_RC_mh2_GeV2": [
+          -13369714.148145324,
+          0.032570256107215374
+        ],
+        "Pi_RC_0_GeV2": [
+          -13369845.298242219,
+          0.0
+        ],
+        "hard_momentum_difference_PiB_GeV2": [
+          -131.02392496369566,
+          0.0
+        ],
+        "UV_p2_coefficient_sum_C": [
+          2.6392062360273405,
+          0.0
+        ],
+        "UV_local_coefficient_sum": [
+          2111998398.3185186,
+          0.0
+        ],
+        "light_light_UV_p2_coefficient_C": [
+          0.00010448603835134661,
+          0.0
+        ],
+        "light_light_UV_local_coefficient": [
+          0.001972016882158648,
+          0.0
+        ],
+        "full_minus_light_UV_p2_coefficient_C": [
+          2.6391017499889893,
+          0.0
+        ],
+        "full_minus_light_UV_local_coefficient": [
+          2111998398.3165467,
+          0.0
+        ],
+        "MS_field_counterterm_pole_coefficient_full_minus_light": -0.016712307066340585,
+        "MS_mass_counterterm_pole_coefficient_full_minus_light_GeV2": -13374386.09800963
+      },
+      "hs": {
+        "Pi_RC_mh2_GeV2": [
+          3678.3597494125147,
+          0.11313331009059627
+        ],
+        "Pi_RC_0_GeV2": [
+          3677.945519617039,
+          0.0
+        ],
+        "hard_momentum_difference_PiB_GeV2": [
+          0.02403044398676063,
+          0.0
+        ],
+        "UV_p2_coefficient_sum_C": [
+          1.0863197548536402e-19,
+          0.0
+        ],
+        "UV_local_coefficient_sum": [
+          1.9685514482112908e-10,
+          0.0
+        ],
+        "light_light_UV_p2_coefficient_C": [
+          0.00036293393991429886,
+          0.0
+        ],
+        "light_light_UV_local_coefficient": [
+          0.006849830563573524,
+          0.0
+        ],
+        "full_minus_light_UV_p2_coefficient_C": [
+          -0.00036293393991429875,
+          0.0
+        ],
+        "full_minus_light_UV_local_coefficient": [
+          -0.006849830366718379,
+          0.0
+        ],
+        "MS_field_counterterm_pole_coefficient_full_minus_light": 2.2983060235058655e-06,
+        "MS_mass_counterterm_pole_coefficient_full_minus_light_GeV2": 4.3377057531570926e-05
+      },
+      "ss": {
+        "Pi_RC_mh2_GeV2": [
+          -63880065.04074865,
+          0.39297037794854567
+        ],
+        "Pi_RC_0_GeV2": [
+          -63880692.57344255,
+          0.0
+        ],
+        "hard_momentum_difference_PiB_GeV2": [
+          -626.0103898881047,
+          0.0
+        ],
+        "UV_p2_coefficient_sum_C": [
+          12.610804206449409,
+          0.0
+        ],
+        "UV_local_coefficient_sum": [
+          10091023891.362669,
+          0.0
+        ],
+        "light_light_UV_p2_coefficient_C": [
+          0.0012606568956289596,
+          0.0
+        ],
+        "light_light_UV_local_coefficient": [
+          0.023792990401942674,
+          0.0
+        ],
+        "full_minus_light_UV_p2_coefficient_C": [
+          12.609543549553779,
+          0.0
+        ],
+        "full_minus_light_UV_local_coefficient": [
+          10091023891.338877,
+          0.0
+        ],
+        "MS_field_counterterm_pole_coefficient_full_minus_light": -0.07985086735189964,
+        "MS_mass_counterterm_pole_coefficient_full_minus_light_GeV2": -63902155.30209777
+      },
+      "absorptive_matrix_PiRC_GeV2": [
+        [
+          0.032570256107215374,
+          0.11313331009059627
+        ],
+        [
+          0.11313331009059627,
+          0.39297037794854567
+        ]
+      ],
+      "absorptive_eigenvalues_GeV2": [
+        6.540913644048629e-13,
+        0.42554063405510695
+      ],
+      "absorptive_determinant_GeV4": 2.7834298402392273e-13,
+      "absorptive_offdiagonal_saturation_ratio": 0.9999999999891265,
+      "benchmark": {
+        "name": "A_open_AA",
+        "vs_GeV": 70.886458,
+        "mA_GeV": 10.0,
+        "gX": 0.07053533412545454,
+        "ME_GeV": 20000.0,
+        "theta_L": 0.01
+      }
+    },
+    "B_closed_AA": {
+      "hh": {
+        "Pi_RC_mh2_GeV2": [
+          -13369714.148145324,
+          0.03257025610721538
+        ],
+        "Pi_RC_0_GeV2": [
+          -13369845.298242219,
+          0.0
+        ],
+        "hard_momentum_difference_PiB_GeV2": [
+          -131.02392496369566,
+          0.0
+        ],
+        "UV_p2_coefficient_sum_C": [
+          2.6392062360273405,
+          0.0
+        ],
+        "UV_local_coefficient_sum": [
+          2111998398.3185186,
+          0.0
+        ],
+        "light_light_UV_p2_coefficient_C": [
+          0.00010448603835134664,
+          0.0
+        ],
+        "light_light_UV_local_coefficient": [
+          0.0019720168821586487,
+          0.0
+        ],
+        "full_minus_light_UV_p2_coefficient_C": [
+          2.6391017499889893,
+          0.0
+        ],
+        "full_minus_light_UV_local_coefficient": [
+          2111998398.3165467,
+          0.0
+        ],
+        "MS_field_counterterm_pole_coefficient_full_minus_light": -0.016712307066340585,
+        "MS_mass_counterterm_pole_coefficient_full_minus_light_GeV2": -13374386.09800963
+      },
+      "hs": {
+        "Pi_RC_mh2_GeV2": [
+          827.7647424940349,
+          0.025459109949644544
+        ],
+        "Pi_RC_0_GeV2": [
+          827.671525722608,
+          0.0
+        ],
+        "hard_momentum_difference_PiB_GeV2": [
+          0.005407723994481042,
+          0.0
+        ],
+        "UV_p2_coefficient_sum_C": [
+          -5.293955920339377e-23,
+          0.0
+        ],
+        "UV_local_coefficient_sum": [
+          1.7016808180774716e-11,
+          0.0
+        ],
+        "light_light_UV_p2_coefficient_C": [
+          8.167333805876024e-05,
+          0.0
+        ],
+        "light_light_UV_local_coefficient": [
+          0.0015414610366726068,
+          0.0
+        ],
+        "full_minus_light_UV_p2_coefficient_C": [
+          -8.167333805876024e-05,
+          0.0
+        ],
+        "full_minus_light_UV_local_coefficient": [
+          -0.0015414610196557987,
+          0.0
+        ],
+        "MS_field_counterterm_pole_coefficient_full_minus_light": 5.172024552583988e-07,
+        "MS_mass_counterterm_pole_coefficient_full_minus_light_GeV2": 9.761415940628152e-06
+      },
+      "ss": {
+        "Pi_RC_mh2_GeV2": [
+          -3234974.002615849,
+          0.01990055826728962
+        ],
+        "Pi_RC_0_GeV2": [
+          -3235005.7817311226,
+          0.0
+        ],
+        "hard_momentum_difference_PiB_GeV2": [
+          -31.70202371305037,
+          0.0
+        ],
+        "UV_p2_coefficient_sum_C": [
+          0.6386284004864301,
+          0.0
+        ],
+        "UV_local_coefficient_sum": [
+          511023273.4971412,
+          0.0
+        ],
+        "light_light_UV_p2_coefficient_C": [
+          6.384139216164906e-05,
+          0.0
+        ],
+        "light_light_UV_local_coefficient": [
+          0.0012049096278420272,
+          0.0
+        ],
+        "full_minus_light_UV_p2_coefficient_C": [
+          0.6385645590942685,
+          0.0
+        ],
+        "full_minus_light_UV_local_coefficient": [
+          511023273.4959363,
+          0.0
+        ],
+        "MS_field_counterterm_pole_coefficient_full_minus_light": -0.004043757309967427,
+        "MS_mass_counterterm_pole_coefficient_full_minus_light_GeV2": -3236092.6837118976
+      },
+      "absorptive_matrix_PiRC_GeV2": [
+        [
+          0.03257025610721538,
+          0.025459109949644544
+        ],
+        [
+          0.025459109949644544,
+          0.01990055826728962
+        ]
+      ],
+      "absorptive_eigenvalues_GeV2": [
+        2.686340733193404e-13,
+        0.05247081437423637
+      ],
+      "absorptive_determinant_GeV4": 1.4095490768687707e-14,
+      "absorptive_offdiagonal_saturation_ratio": 0.9999999999891267,
+      "benchmark": {
+        "name": "B_closed_AA",
+        "vs_GeV": 315.0,
+        "mA_GeV": 63.0,
+        "gX": 0.1,
+        "ME_GeV": 20000.0,
+        "theta_L": 0.01
+      }
+    }
+  },
+  "comparison_to_archived_calculation": {
+    "status": "PASS",
+    "benchmarks": [
+      {
+        "benchmark": "A_open_AA",
+        "matrix_entries_compared": 3,
+        "hard_difference_max_abs_error_GeV2": 1.4901047507009935e-08,
+        "absorptive_min_eigenvalue_GeV2": 6.540913644048629e-13,
+        "absorptive_saturation_ratio": 0.9999999999891265
+      },
+      {
+        "benchmark": "B_closed_AA",
+        "matrix_entries_compared": 3,
+        "hard_difference_max_abs_error_GeV2": 1.862645149230957e-09,
+        "absorptive_min_eigenvalue_GeV2": 2.686340733193404e-13,
+        "absorptive_saturation_ratio": 0.9999999999891267
+      }
+    ]
+  },
+  "interpretation_limits": [
+    "This is an independent numerical implementation of the fermion-sector subcalculation, not a complete gauge-independent self-energy.",
+    "The calculation does not include top, W, Z, A-prime, Goldstone, ghost, scalar, tadpole, or VEV-renormalization contributions.",
+    "The hard momentum differences are not physical pole shifts.",
+    "No complex poles, residues, mixing angle, line shape, signal strength, or exclusion is inferred.",
+    "If the explicit mu/tau absorptive cuts are retained in a future propagator, their partial widths must not be inserted a second time as external diagonal widths."
+  ]
+}
