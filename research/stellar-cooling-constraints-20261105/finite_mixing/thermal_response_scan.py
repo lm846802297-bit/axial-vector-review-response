@@ -196,6 +196,11 @@ def main():
 
     output = {
         "title": "Local thermal vector/axial response; no stellar transport",
+        "mode_order": ["L", "+", "-"],
+        "polarization_basis": (
+            "Medium rest frame; A' momentum along +z; L is the longitudinal "
+            "polarization and +/- are circular transverse polarizations."
+        ),
         "profile": {
             "source": "reconstructed SFHo-18.8 t_pb=1s digitized profile",
             "sha256": sha256(profile),
