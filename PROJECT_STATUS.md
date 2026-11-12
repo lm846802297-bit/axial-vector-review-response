@@ -1,35 +1,33 @@
-# 2026-11-12 latest status: PR #56 integration, numerical validation, and active-branch synchronization
+# 2026-11-12 live status: post-merge numerical validation and active-branch synchronization
 
-> This section is the live status summary. Dated entries below are retained as historical records; where they describe an older main SHA, PR #56 as Open/Draft, or an earlier branch-sync state, this section supersedes them.
+> This live section supersedes older dated entries below wherever they report an earlier main SHA, PR state, validation run, or branch count. Historical records remain intact.
 
-## Current repository and pull-request state
+## Repository and PR state
 
-- **Main baseline before this status update:** `4f9f82d6e0eb61e42827baa021d93f312087f6ba`. PR #56 was squash-merged into main at `293d047013cce0dc3fbc44b2cd679f2df0f253dd` as a research integration. PR #56 is **Closed / Merged**; this does not constitute scientific acceptance of the vector benchmark.
-- **Open research PRs:** #53 (original-UV axial stellar cooling), #68 (Belle II radial-scalar recast), and #69 (Higgs–singlet mixing) remain Open / Draft. Their unfinished work remains separate.
-- The former PR #56 source branch `codex/major44-axial-cooling-constraints-20261105` is retained and synchronized as a post-merge validation branch. It is not an open PR and its additional commits do not alter the merged main tree.
+- Main baseline before this status commit: `820a846fa79f9abac60ad2d0a8889bacded15081`.
+- PR #56 was squash-merged into main at `293d047013cce0dc3fbc44b2cd679f2df0f253dd` on 2026-11-12 08:47:43 UTC. It is **Closed / Merged**. This was a research integration, not scientific acceptance of the Blinov Fig. 7 benchmark.
+- The former PR #56 branch `codex/major44-axial-cooling-constraints-20261105` is retained as a post-merge validation branch; it is not an open PR.
+- PR #53 (original-UV axial stellar cooling), #68 (Belle II radial-scalar study), and #69 (Higgs–singlet mixing) remain **Open / Draft**.
+- The active research/data branch set is the four PR/source branches (including the retained #56 validation branch), C4-C4, moving-muon, P1-IIIe EOS, PR57 source bundle, and SFHo/FRDM transfer. Older divergent branches without active PRs are retained as historical work and are not automatically rebased into the active line.
 
 ## Numerical validation and failure classification
 
-- **Run #158** ([43135845410](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43135845410), trigger SHA `071d19490bc3`) ended `cancelled` after its 25-minute job timeout. The first test discovery completed 337 tests with one intentional skip; the second discovery logged 92 passing tests before cancellation and had no final summary. The log contains no `FAIL`, `ERROR`, traceback, or assertion failure. Classify this as a runtime/timeout interruption, not a calculation or test-condition failure; the run is incomplete.
-- **Replacement full validation** ([Run 43179379690](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43179379690)) completed successfully on `fdb4a26ce5c06f75ed71cc67b79c01a6055bbbc2`. The two unittest discoveries reported 358 and 229 tests, each `OK (skipped=1)`. The skipped official-table class requires `SFHO_TABLES_DIR`; fixture-based closure tests passed, but this skip is not an official-table test pass.
-- **C4C3 archive:** the runner verified all 14 entries in `c4c3_direct_local_recomputation_2026-11-11/SHA256SUMS.txt`.
-- **SFHo/FRDM archive:** the five-entry downloader/release manifest matched; all three binary split parts and the other archive assets passed their SHA checks; the reconstructed `sfho_frdm_bin.zip` digest was `45479eaf46e1aa9b1ca3502baf4aaeea60ff0021a21d621f10a75eafb8b8949c`.
-- **Post-run content identity:** all 15 Git blobs in the C4C3 archive directory and all 8 Git blobs in the vendored SFHo/FRDM directory are unchanged between validation SHA `fdb4a26`, merged PR #56 tree `d1828fd`, and the pre-update main tree. Thus the successful archive checks still apply to these exact archive files; this does not imply that every official-table numerical test ran.
-- **Exact-head validation:** Run [#43202685556](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43202685556) was triggered on the main-synchronized post-merge validation branch at `d31ee50393b2866e9ea5c58dc374207fa6cae851`. The C4C3 manifest check and SFHo/FRDM manifest/reconstruction checks have passed; the research-level test suite is still running. This is the first full workflow that includes the direct vector longitudinal-projector audit files `audit_vector_longitudinal_projector.py` and `test_vector_longitudinal_projector.py`; do not call it passed until the run completes.
-- **Moving-muon workflow failures on SHA `3d227183aef41d2cc7671440e994bdd07a255ff5`:**
-  - B.16 polarization transport failed before integration: the direct script invocation fell through to `import rates`, but the workflow did not add `research/stellar-cooling-constraints-20261105` to `PYTHONPATH`. The regression tests and compilation passed. Classify as a workflow import-path/environment defect, not a matrix-element or transport failure.
-  - B.16 escape phase-space decomposition stopped at its archived Fig. 7 fingerprint guard. The source PDF SHA-256 is unchanged (`4d7d1d10…e6c48fdb5`); comparing the old and current `luminosity_comparison.json` shows the same point counts and only 1–3 serialized float entries per mass differing at roughly (1.2\times10^{-16})–(1.6\times10^{-16}) relative. The whole-file byte fingerprint is therefore too strict for this reserialization. Do not bypass the guard or overwrite the baseline hash alone; reconcile the canonical numerical fingerprint or regenerate the high-order baseline first. No phase-space integration was completed in this failed run.
-  - P1-IIIe C4-C3 radial scattering failed at checkout, before Python setup or unit tests. The workflow contains literal escaped expressions such as `\${{ github.sha }}` and `\${{ matrix.shard }}`, which produce an invalid Git refspec. Classify as a workflow YAML/expression defect; no C4-C3 rate shard was calculated by this run.
-- The global B.13 quadrature-convergence and low-mass global-transport workflows on the same moving-muon commit remain in progress. Their output-archive steps must rebase onto the synchronized branch head; retain their eventual results and do not overwrite them.
-- **Physical result:** the pure-vector Blinov Fig. 7 gate remains **NOT PASSED**. The 10 MeV strong-absorption residual remains approximately +92.43% in the recorded fixed-profile comparison. No opacity/profile rescaling is accepted, and no production axial-vector exclusion is unlocked by software CI.
+- **Run #158** ([43135845410](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43135845410), trigger SHA `071d19490bc3`) ended `cancelled` under the old `timeout-minutes: 25` job setting. The first unittest discovery completed 337 tests with one intentional skip; the second discovery logged 92 passing tests before cancellation and had no final summary. The log contains no failed assertion, traceback, or calculation exception. Classify this as a runtime timeout/interruption; the run is incomplete.
+- **Run #43202685556** ([run](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43202685556), trigger SHA `d31ee50393b2866e9ea5c58dc374207fa6cae851`) completed with one test-import error: `test_vector_longitudinal_projector.py` used a top-level import for a module in the same `finite_mixing.thermal_integrals` package. The first discovery reported 359 tests, one import error and one intentional skip; no physics assertion failed. The subsequent test discovery, reference scans, saved-output checks and figure regeneration were skipped. Classify this as a Python package/import-path defect, not a matrix-element or transport failure.
+- **Import fix:** commit `c611005c6cb343f8a53b282e14d15a8b6468b541` changes the test to a package-relative import (`from .audit_vector_longitudinal_projector import ...`). Replacement workflows were queued on this commit: Major 4.4 run [#43206544367](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43206544367), Moving-muon [#43206544350](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43206544350), Vector-to-axial [#43206544724](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43206544724), and finite-mixing [#43206544272](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43206544272). These are pending validation, not passes.
+- **Run #43202685556 checksum gates:** the C4C3 SHA-256 manifest step and the SFHo/FRDM manifest/reassembly step both completed successfully before the import error stopped the workflow. The C4C3 manifest contains 14 entries; all 14 target paths exist. The SFHo/FRDM release manifest contains five entries and its asset names match the downloader metadata.
+- **Archive identity:** all 15 Git blobs in the C4C3 archive directory (14 payload files plus the manifest) and all 8 Git blobs in the vendored SFHo/FRDM directory are identical across main, the post-merge validation branch, and the Run #432 trigger tree. This confirms source/archive identity; the actual byte-level SHA checks are the successful workflow gates above. The C4C3 result remains a fixed-local-energy, flat-space radial-scattering/opacity diagnostic, not a full transport solution.
+- **Other moving-muon workflow failures retained:** (i) B.16 polarization transport previously stopped before integration because a direct script import lacked the research root on `PYTHONPATH` (workflow environment defect); (ii) the escape phase-space decomposition stopped at a byte-level Fig. 7 fingerprint guard despite only approximately (10^{-16})-level JSON float reserialization changes (guard/canonicalization issue; no integration completed); (iii) P1-IIIe C4-C3 radial scattering stopped at checkout because escaped GitHub expressions generated an invalid refspec (workflow expression defect; no rate shard ran). These must not be described as physical calculation failures or successful calculations.
+- **Physical result:** pure-vector Blinov Fig. 7 remains **NOT PASSED**. The recorded 10 MeV strong-absorption residual is approximately +92.43%. Neither a successful software test suite nor archive checks resolve this discrepancy or unlock a production axial-vector exclusion.
 
 ## Active branch synchronization
 
-The following eight active research/data branches, plus the retained PR #56 post-merge validation branch, are synchronized to the main status commit created by this update. Each synchronization uses a non-force, two-parent merge; branch-specific research commits and files are retained. Final GitHub `main...head` comparisons are required to show `behind_by=0`.
+The following active branches are synchronized to the main baseline above with `behind_by=0`. This status commit is propagated to each branch with a non-force, two-parent merge; the final comparisons are recorded after propagation.
 
 | Branch | Purpose | Required behind_by |
 |---|---|---:|
 | `research/stellar-cooling-original-uv-model-20261105` | PR #53 | 0 |
+| `codex/major44-axial-cooling-constraints-20261105` | PR #56 post-merge validation | 0 |
 | `research/major1-scalar-pole-belleii-20261109` | PR #68 | 0 |
 | `research/major1-higgs-scalar-mixing-20261109` | PR #69 | 0 |
 | `research/c4c4-energy-dependence-20261112` | C4-C4 follow-up | 0 |
@@ -37,9 +35,8 @@ The following eight active research/data branches, plus the retained PR #56 post
 | `transfer/p1iii-eos-latest-source-20261111` | P1-III EOS source/data | 0 |
 | `transfer/pr57-source-bundle-20261110` | PR #57 source archive | 0 |
 | `transfer/sfho-frdm-release-transfer-20261111` | SFHo/FRDM archive | 0 |
-| `codex/major44-axial-cooling-constraints-20261105` | PR #56 post-merge validation | 0 |
 
-No branch is force-pushed or deleted. The merged PR #56 is not reopened; the closed PR's source branch is retained for reproducible follow-up only.
+No force-push or branch deletion is part of this synchronization. A zero `behind_by` count establishes ancestry synchronization only; it does not imply that the research branch is scientifically complete.
 
 ## Interpretation policy
 
@@ -47,7 +44,6 @@ No branch is force-pushed or deleted. The merged PR #56 is not reopened; the clo
 - A test skip must retain its reason and must not be counted as a pass.
 - A generated scan or figure is not a physical reproduction until the literature benchmark and all declared model/transport assumptions pass their own acceptance criteria.
 - Preserve failed, cancelled, and unresolved physical-validation records. Do not use branch cleanup or successful software CI to erase a scientific discrepancy.
-
 ---
 
 ## 2026-11-09 最终更新：PR #72 Major Point 3 选择性恢复与重新编译（构建通过）
