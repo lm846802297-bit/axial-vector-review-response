@@ -5810,7 +5810,7 @@
       "quadrature_points_all_charges": 24576
     }
   ],
-  "runtime_seconds": 67.7992787361145,
+  "runtime_seconds": 66.0733335018158,
   "source_sha256": {
     "moving_compton.py": "18fc4b244cc0c77f3c6874d816607ec9e231025e9b3bf53b0d2c2fc5babf4baa",
     "model.py": "925021a743a21bc39da84e0b034d4fae76c131411f2c39b65b1662eae21bf664",
