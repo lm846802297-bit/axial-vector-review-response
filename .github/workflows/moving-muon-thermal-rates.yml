@@ -49,7 +49,7 @@ jobs:
         run: |
           mkdir -p research/stellar-cooling-constraints-20261105/finite_mixing/outputs
           mkdir -p research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/outputs
-          echo "PYTHONPATH=$PWD/research/stellar-cooling-constraints-20261105:$PWD/research/stellar-cooling-constraints-20261105/finite_mixing:$PWD/research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals" >> "$GITHUB_ENV"
+          echo "PYTHONPATH=$PWD/research/stellar-cooling-constraints-20261105:$PWD/research/stellar-cooling-constraints-20261105/finite_mixing:$PWD/research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals:$PWD/research/stellar-cooling-eft-literature-20261105" >> "$GITHUB_ENV"
       - name: Compile all moving-muon and thermal-rate Python sources
         shell: bash
         run: |

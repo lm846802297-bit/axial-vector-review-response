@@ -8,6 +8,7 @@ on:
       - '!research/stellar-cooling-constraints-20261105/finite_mixing/outputs/**'
       - '!research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/outputs/**'
       - 'research/stellar-cooling-constraints-20261105/rates.py'
+      - 'research/stellar-cooling-eft-literature-20261105/reference_matrix_element.py'
       - '.github/workflows/vector-axial-response-scan.yml'
   workflow_dispatch:
 permissions:
@@ -30,6 +31,8 @@ jobs:
           python-version: '3.12'
       - run: python -m pip install numpy
       - name: Run finite-mixing and response tests
+        env:
+          PYTHONPATH: ${{ github.workspace }}/research/stellar-cooling-eft-literature-20261105
         run: |
           python -m unittest discover \
             -s research/stellar-cooling-constraints-20261105/finite_mixing \

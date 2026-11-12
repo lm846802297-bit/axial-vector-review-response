@@ -6,11 +6,16 @@ on:
       - codex/major44-axial-cooling-constraints-20261105
     paths:
       - 'research/stellar-cooling-constraints-20261105/finite_mixing/**'
+      - 'research/stellar-cooling-eft-literature-20261105/reference_matrix_element.py'
       - '.github/workflows/finite-mixing-model-map.yml'
   workflow_dispatch:
 
 permissions:
   contents: read
+
+concurrency:
+  group: finite-mixing-model-map-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   test-model-map:
@@ -28,5 +33,7 @@ jobs:
       - name: Install numerical dependency
         run: python -m pip install numpy
       - name: Test UV coupling map and endpoints
+        env:
+          PYTHONPATH: ${{ github.workspace }}/research/stellar-cooling-eft-literature-20261105
         run: |
           python -m unittest discover -s research/stellar-cooling-constraints-20261105/finite_mixing -t research/stellar-cooling-constraints-20261105 -p 'test_*.py' -v

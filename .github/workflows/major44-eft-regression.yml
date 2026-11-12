@@ -96,17 +96,17 @@ jobs:
           python research/stellar-cooling-constraints-20261105/blinov_reproduction/reassemble_sfho_frdm_archives.py --dest "$RUNNER_TEMP/sfho-frdm-v1.03"
       - name: Run research-level rate, transport, and independent kernel tests
         env:
-          PYTHONPATH: ${{ github.workspace }}/research/stellar-cooling-constraints-20261105:${{ github.workspace }}/research/stellar-cooling-constraints-20261105/blinov_reproduction
+          PYTHONPATH: ${{ github.workspace }}/research/stellar-cooling-constraints-20261105:${{ github.workspace }}/research/stellar-cooling-constraints-20261105/blinov_reproduction:${{ github.workspace }}/research/stellar-cooling-eft-literature-20261105
         run: |
           python -m unittest discover -s research/stellar-cooling-constraints-20261105 -p 'test_*.py' -v
       - name: Run Blinov reproduction and EOS regression tests
         env:
-          PYTHONPATH: ${{ github.workspace }}/research/stellar-cooling-constraints-20261105:${{ github.workspace }}/research/stellar-cooling-constraints-20261105/blinov_reproduction
+          PYTHONPATH: ${{ github.workspace }}/research/stellar-cooling-constraints-20261105:${{ github.workspace }}/research/stellar-cooling-constraints-20261105/blinov_reproduction:${{ github.workspace }}/research/stellar-cooling-eft-literature-20261105
         run: |
           python -m unittest discover -s research/stellar-cooling-constraints-20261105/blinov_reproduction -p 'test_*.py' -v
       - name: Run reference scans and independent rate audits
         env:
-          PYTHONPATH: ${{ github.workspace }}/research/stellar-cooling-constraints-20261105:${{ github.workspace }}/research/stellar-cooling-constraints-20261105/blinov_reproduction
+          PYTHONPATH: ${{ github.workspace }}/research/stellar-cooling-constraints-20261105:${{ github.workspace }}/research/stellar-cooling-constraints-20261105/blinov_reproduction:${{ github.workspace }}/research/stellar-cooling-eft-literature-20261105
         run: |
           python research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py \
             --masses 1,10,100,200 --nr 40 --ne 100 --na 16 --ns 32 \
