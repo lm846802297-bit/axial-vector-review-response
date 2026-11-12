@@ -1,0 +1,83 @@
+{
+  "scope": "10 key radii from the Caputo SFHo-18.8 t_pb=1 s published figures; not a full radial/time profile",
+  "profile_csv": "caputo_profile_key_radii_2026-11-11.csv",
+  "profile_csv_sha256": "86fe8ad7af8453caad408a5b3e2951ae539239e971a18c58ab341845a4006c3d",
+  "caputo_source": {
+    "archive": "arXiv-2109.03244v3.tar.gz",
+    "archive_sha256": "2e4a1280460bce9a5f7596d3dfd1d3e0f4752f2e1706e85d3a2c20b5f9dbbd8e",
+    "fig1_pdf_sha256": "19ca5ee492dea689a4a9851e999f7d05d0f26be7dfc820e817cc5bc310065c8e",
+    "fig4_pdf_sha256": "39d66c37dd67d73fbe1b3afe2f5e2a532e0e040e9d220e66ec389abb5daf17ab",
+    "temperature_source": "T_caputo_vertices.csv, linearly interpolated in radius",
+    "composition_source": "caputo_composition_key_radii_2026-11-11.csv",
+    "eos_Yp_coordinate": "Yp_tot = Ye + Ymu, not the free-proton abundance Yp"
+  },
+  "eos_table_sha256": {
+    "sfho_frdm_eos_v1.03.bin": "f1ea9c3e04502ca35d7fc64facce575f8553293085ea26e07732389b80d32cb4",
+    "sfho_frdm_spp_v1.03.tab": "118bd3c986283d958fab88a8e81fe49b64ca3b5137ff4bcdc05f97064cc1219e",
+    "sfho_frdm_comp_v1.03.bin": "0dafcd272ff8b8f4b1ba4c05210ea8020dd9a92820b6b0b54165faead4871da7"
+  },
+  "interpolation": {
+    "method": "trilinear RegularGridInterpolator",
+    "axes": ["log10(T_MeV)", "Yp_tot", "log10(nB_fm3)"],
+    "physical_density_rows": 308,
+    "no_extrapolation": true
+  },
+  "radii_km": [1.0, 15.0],
+  "number_of_key_radii": 10,
+  "composition_closure": {
+    "Xn_EOS_minus_Yn_Caputo_rms_abs": 9.25691236700301e-06,
+    "Xn_EOS_minus_Yn_Caputo_max_abs": 2.0164462571692354e-05,
+    "Xp_EOS_minus_Yp_Caputo_rms_abs": 8.214909921902558e-06,
+    "Xp_EOS_minus_Yp_Caputo_max_abs": 1.6669671080743464e-05,
+    "Xcluster_EOS_minus_Caputo_rms_abs": 1.5596136264791637e-05,
+    "Xcluster_EOS_minus_Caputo_max_abs": 2.6669020644090602e-05,
+    "cluster_charge_EOS_minus_Caputo_rms_abs": 8.214909921911357e-06,
+    "cluster_charge_EOS_minus_Caputo_max_abs": 1.666967108076775e-05
+  },
+  "wrong_EOS_Yp_coordinate_diagnostic": {
+    "interpretation": "Using the free-proton abundance Yp instead of total proton fraction Yp_tot=Ye+Ymu in the EOS interpolation is incorrect once clusters carry charge.",
+    "Xn_rms_abs_error": 0.029595220585607557,
+    "Xn_max_abs_error": 0.06021705113749276,
+    "Xp_rms_abs_error": 0.013313170557922274,
+    "Xp_max_abs_error": 0.020629726899032835,
+    "Xcluster_rms_abs_error": 0.017453705815604247,
+    "Xcluster_max_abs_error": 0.04255696327970376
+  },
+  "filling_factor_closure": {
+    "xi_SPP_minus_Caputo_inferred_rms_abs": 8.063928075166366e-05,
+    "xi_SPP_minus_Caputo_inferred_max_abs": 0.00017413983662728505
+  },
+  "occupation_density_closure": {
+    "neutron_rel_residual_rms": 0.0011560215603824923,
+    "neutron_rel_residual_max_abs": 0.0017722956456830419,
+    "proton_rel_residual_rms": 0.0034858537574915223,
+    "proton_rel_residual_max_abs": 0.006025248379973869,
+    "max_abs_delta_nu_n_MeV": 0.11316395310994665,
+    "max_abs_delta_nu_p_MeV": 0.17589361899533174
+  },
+  "local_degeneracy_factors": {
+    "Fnn_EOS_range": [0.24161166103461554, 0.7311539009486395],
+    "Fpp_EOS_range": [0.4604677086152674, 0.9830767914903347],
+    "Fnn_ideal_vacuum_mass_range": [0.35304508874409307, 0.7458159412325892],
+    "Fpp_ideal_vacuum_mass_range": [0.6277464376104498, 0.9841813409146666],
+    "Fnn_relative_change_vs_ideal_range": [-0.3156351164829565, -0.017772924243752652],
+    "Fpp_relative_change_vs_ideal_range": [-0.2664749952734702, -0.0011223027489074555],
+    "Fnn_EOS_vs_density_matched_max_abs_difference": 0.0003453231054625361,
+    "Fpp_EOS_vs_density_matched_max_abs_difference": 0.0003603092897288551
+  },
+  "effective_mass_MeV_ranges": {
+    "neutron": [542.9845730776909, 894.5411559037369],
+    "proton": [541.6911938174649, 893.2477694421151]
+  },
+  "quadrature": {
+    "max_abs_n_relative_change_2048_vs_512": 1.6608936448392342e-13,
+    "max_abs_F_change_2048_vs_512": 4.440892098500626e-16
+  },
+  "interpretation": [
+    "The Hempel SFHo table composition fractions X_n and X_p match the Caputo Fig. 4 free-nucleon abundances at the ten key radii to O(10^-5) absolute.",
+    "The EOS SPP filling factor agrees with the value inferred from Caputo free-nucleon and total baryon densities at O(10^-4) absolute.",
+    "The local EOS occupation density closure is sub-percent; the chemical-potential correction needed to close exactly is below 0.2 MeV and changes Fdeg by less than 4e-4 absolute.",
+    "At fixed free-nucleon density and temperature, the EOS effective masses reduce the static degeneracy factors relative to a vacuum-mass ideal Fermi gas, most strongly in the inner core.",
+    "These are local t_pb=1 s snapshot factors, not Fiorillo Table 1 mass-time weighted averages. No dynamic response, opacity, transport, or cooling curve is changed."
+  ]
+}

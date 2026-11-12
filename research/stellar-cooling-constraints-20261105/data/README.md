@@ -6,7 +6,7 @@ The Garching raw radial-profile archive requires authorization. No restricted ta
 
 ## Baseline file and columns
 
-sfho188_digitized.csv has 501 uniformly spaced radii from 0 through 25 km:
+sfho188_digitized.csv is a vertex-preserving union grid, not a 501-row file. It contains 501 uniformly spaced base radii from 0 through 25 km plus all retained source-curve vertices and support-boundary knots. The current generated CSV has 1687 rows; 222 lie in 22--25 km, comprising 61 base-grid nodes and 161 additional source/support nodes. The minimum outer-shell spacing is about 6.78e-7 km because of intentional near-step nodes at support boundaries; the maximum spacing remains 0.05 km. The current CSV SHA-256 is `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`. These are reconstructed PDF-curve nodes, not raw simulation snapshots:
 
 | Column | Definition | Input |
 |---|---|---|
@@ -59,7 +59,7 @@ Digitized upstream curves and provenance are stored in `blinov_reproduction/outp
 
 ## Independent consistency check and source discrepancy
 
-The two source temperature profiles agree over 0.2–20 km to **0.267% maximum relative difference** after independent vector-coordinate extraction. At r=0, 5, 8, 10 and 15 km, the muon number density obtained by integrating the Fermi distribution using the Caputo temperature and chemical potential agrees with the independently plotted Caputo density at about **0.5–1.1%**. The density normalization itself was given as n0=0.181 fm^-3 and is rounded.
+The two source temperature profiles agree over 0.2–20 km to **0.267% maximum relative difference** after independent vector-coordinate extraction. At r=8, 9, 10, 12 and 15 km, the muon number density obtained by integrating the standard Fermi distribution using the Caputo temperature and chemical potential agrees with the independently plotted Caputo density to within about **0.5–1.1%**. Using the Ferreira temperature and its own plotted muon chemical potential instead predicts **4.44, 2.36, 1.93, 1.67 and 1.59 times** the Caputo plotted density at those radii. The two temperature profiles are nearly identical, so this difference is driven by the chemical-potential curve, not by temperature. The density normalization itself was given as n0=0.181 fm^-3 and is rounded.
 
 However, the orange curve labeled mu_mu in Ferreira Fig. 1 differs strongly from Caputo's muon chemical potential despite the same profile label:
 
@@ -72,6 +72,6 @@ However, the orange curve labeled mu_mu in Ferreira Fig. 1 differs strongly from
 | 15 | 62.28 | 68.65 |
 | 20 | 14.77 | 12.41 |
 
-The source's caption and text explicitly identify this panel as the muon chemical potential, so this is not a panel-selection ambiguity. Its origin is unresolved here. The baseline retains Caputo's internally density-consistent muon input; Ferreira contributes only the lapse. No claim that the discrepancy has been resolved is made, and no claim that the two entire input datasets are identical should be made.
+The Ferreira Fig. 1 caption explicitly identifies the dashed orange curve as SFHo-18.8 at 1 s post-bounce; Caputo Fig. 1 also identifies SFHo-18.8 at 1 s. Both papers cite the same underlying Bollig et al. simulation (Caputo explicitly cites the consolidated update arXiv:2005.07141v6). Thus the discrepancy is between two published reconstructions of the same nominal model and time, not a panel-selection ambiguity or an obvious model-label mismatch. Its origin remains unresolved: the papers do not establish that identical profile files and post-processing conventions were used. The baseline retains Caputo's internally density-consistent muon input; Ferreira contributes only the lapse in the selected baseline. The alternative Ferreira mu_mu curve remains diagnostic-only. The Garching archive lists the relevant radial-profile data under a protected directory; its current endpoint returns HTTP 401, so no raw profile has been obtained or accessed.
 
 Representative baseline values: T(25 km)=3.03377 MeV and N(25 km)=0.919912. The reconstruction and the physical approximations in the emission/transport calculation are separate uncertainties.

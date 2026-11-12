@@ -1,0 +1,84 @@
+name: B.14 non-relativistic muon approximation diagnostic
+
+on:
+  push:
+    branches:
+      - research/moving-muon-thermal-rates-20261107
+    paths:
+      - '.github/workflows/b13-muon-velocity-diagnostic.yml'
+      - 'research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b13_nonrelativistic_muon.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b13_nonrelativistic_muon.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_redshift_audit_2026-11-09.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: b13-muon-velocity-diagnostic-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  diagnostic:
+    if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out research branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numerical dependency
+        run: python -m pip install numpy scipy
+      - name: Compile and test diagnostic
+        run: |
+          python -m py_compile research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b13_nonrelativistic_muon.py
+          python -m unittest discover -s research/stellar-cooling-constraints-20261105/blinov_reproduction -p 'test_b13_nonrelativistic_muon.py' -v
+      - name: Compute source-weighted muon velocity distribution
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b13_nonrelativistic_muon.py
+      - name: Verify physical bounds and source-weight closure
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path("research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_nonrelativistic_muon_diagnostic_2026-11-09.json")
+          d = json.loads(p.read_text())
+          moments = d["source_weighted_susceptibility_moments"]
+          assert 0.0 < moments["mean_v_chi"] < 1.0
+          assert 0.0 < moments["rms_v_chi"] < 1.0
+          assert 0.0 <= moments["fraction_p_gt_m_chi"] <= 1.0
+          assert 0.0 <= moments["fraction_v_gt_0p5_chi"] <= 1.0
+          assert abs(sum(x["source_weight_fraction"] for x in d["shells"].values()) - 1.0) < 1e-8
+          assert d["comparison_to_B16_0p1MeV_source_shell_fractions"]["maximum_absolute_fraction_difference"] < 0.002
+          print(json.dumps(moments, indent=2))
+          PY
+      - name: Archive diagnostic JSON
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_nonrelativistic_muon_diagnostic_2026-11-09.json
+          if git diff --cached --quiet; then
+            echo "Muon velocity diagnostic is already current."
+          else
+            git commit -m "Archive B.14 non-relativistic muon diagnostic"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin "${GITHUB_REF_NAME}"
+              git rebase "origin/${GITHUB_REF_NAME}"
+              if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+                exit 0
+              fi
+              echo "Push raced with another research workflow; retry ${attempt}/5."
+              sleep 2
+            done
+            echo "Could not archive muon velocity diagnostic after five retries."
+            exit 1
+          fi

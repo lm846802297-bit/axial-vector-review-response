@@ -1,0 +1,514 @@
+{
+  "title": "P1-IIIc moving-nucleon finite-temperature transport-moment energy grid",
+  "date": "2026-11-10",
+  "benchmark": {
+    "T_MeV": 3.03,
+    "Yp": 0.1,
+    "nB_over_n0": 0.001,
+    "n0_fm3": 0.16,
+    "composition_status": "Illustrative ideal-gas composition; not extracted from a same-snapshot SFHo-18.8 profile."
+  },
+  "incident_energies_MeV": [
+    50,
+    100,
+    150,
+    255,
+    500
+  ],
+  "moment_order": [
+    "total",
+    "angular_transport",
+    "momentum_transfer",
+    "net_energy_loss"
+  ],
+  "ratio_definition": "Moving finite-T / stationary Horowitz; each ratio array follows moment_order.",
+  "units": "Cross sections in 1e-40 cm^2 in the generating script; ratios are dimensionless.",
+  "energy_window": "Angle-dependent half-width max(0.5 MeV, 7 q sqrt(T/M)), centered on stationary recoil Eprime and clipped at Eprime=0.",
+  "baseline_quadrature": {
+    "transformed_angle": 8,
+    "outgoing_energy": 24,
+    "initial_nucleon_momentum": 20,
+    "azimuth": 6,
+    "energy_window_nsigma": 7
+  },
+  "results": [
+    {
+      "E_MeV": 50,
+      "target": "n",
+      "species": "nu",
+      "mu_minus_M_MeV": -8.61844,
+      "medium_over_stationary": [
+        1.00340967,
+        1.01064567,
+        1.01612693,
+        0.66559485
+      ]
+    },
+    {
+      "E_MeV": 50,
+      "target": "n",
+      "species": "antinu",
+      "mu_minus_M_MeV": -8.61844,
+      "medium_over_stationary": [
+        1.00005869,
+        1.0068005,
+        1.01098158,
+        0.6812421
+      ]
+    },
+    {
+      "E_MeV": 50,
+      "target": "p",
+      "species": "nu",
+      "mu_minus_M_MeV": -15.32386,
+      "medium_over_stationary": [
+        1.01639985,
+        1.02152166,
+        1.02782171,
+        0.66836415
+      ]
+    },
+    {
+      "E_MeV": 50,
+      "target": "p",
+      "species": "antinu",
+      "mu_minus_M_MeV": -15.32386,
+      "medium_over_stationary": [
+        1.01359095,
+        1.01815503,
+        1.0235875,
+        0.68127518
+      ]
+    },
+    {
+      "E_MeV": 100,
+      "target": "n",
+      "species": "nu",
+      "mu_minus_M_MeV": -8.61844,
+      "medium_over_stationary": [
+        1.0098043,
+        1.0178943,
+        1.02203382,
+        0.85171133
+      ]
+    },
+    {
+      "E_MeV": 100,
+      "target": "n",
+      "species": "antinu",
+      "mu_minus_M_MeV": -8.61844,
+      "medium_over_stationary": [
+        1.00408424,
+        1.0117372,
+        1.01377265,
+        0.86096721
+      ]
+    },
+    {
+      "E_MeV": 100,
+      "target": "p",
+      "species": "nu",
+      "mu_minus_M_MeV": -15.32386,
+      "medium_over_stationary": [
+        1.01511764,
+        1.01985407,
+        1.02455005,
+        0.85383818
+      ]
+    },
+    {
+      "E_MeV": 100,
+      "target": "p",
+      "species": "antinu",
+      "mu_minus_M_MeV": -15.32386,
+      "medium_over_stationary": [
+        1.01087112,
+        1.01465472,
+        1.0180008,
+        0.86155963
+      ]
+    },
+    {
+      "E_MeV": 150,
+      "target": "n",
+      "species": "nu",
+      "mu_minus_M_MeV": -8.61844,
+      "medium_over_stationary": [
+        1.01078004,
+        1.01756488,
+        1.02046478,
+        0.9118526
+      ]
+    },
+    {
+      "E_MeV": 150,
+      "target": "n",
+      "species": "antinu",
+      "mu_minus_M_MeV": -8.61844,
+      "medium_over_stationary": [
+        1.00470522,
+        1.01121336,
+        1.01155274,
+        0.91691057
+      ]
+    },
+    {
+      "E_MeV": 150,
+      "target": "p",
+      "species": "nu",
+      "mu_minus_M_MeV": -15.32386,
+      "medium_over_stationary": [
+        1.01296352,
+        1.01698324,
+        1.02030009,
+        0.91310844
+      ]
+    },
+    {
+      "E_MeV": 150,
+      "target": "p",
+      "species": "antinu",
+      "mu_minus_M_MeV": -15.32386,
+      "medium_over_stationary": [
+        1.00844559,
+        1.01124694,
+        1.01297648,
+        0.91740949
+      ]
+    },
+    {
+      "E_MeV": 255,
+      "target": "n",
+      "species": "nu",
+      "mu_minus_M_MeV": -8.61844,
+      "medium_over_stationary": [
+        1.00777668,
+        1.01193464,
+        1.01277942,
+        0.95665451
+      ]
+    },
+    {
+      "E_MeV": 255,
+      "target": "n",
+      "species": "antinu",
+      "mu_minus_M_MeV": -8.61844,
+      "medium_over_stationary": [
+        1.00378408,
+        1.00813333,
+        1.00602911,
+        0.95782942
+      ]
+    },
+    {
+      "E_MeV": 255,
+      "target": "p",
+      "species": "nu",
+      "mu_minus_M_MeV": -15.32386,
+      "medium_over_stationary": [
+        1.00835717,
+        1.01085873,
+        1.0120172,
+        0.95706097
+      ]
+    },
+    {
+      "E_MeV": 255,
+      "target": "p",
+      "species": "antinu",
+      "mu_minus_M_MeV": -15.32386,
+      "medium_over_stationary": [
+        1.00523943,
+        1.00636432,
+        1.00580271,
+        0.95805003
+      ]
+    },
+    {
+      "E_MeV": 500,
+      "target": "n",
+      "species": "nu",
+      "mu_minus_M_MeV": -8.61844,
+      "medium_over_stationary": [
+        1.00213023,
+        1.00311775,
+        1.00162769,
+        0.98023531
+      ]
+    },
+    {
+      "E_MeV": 500,
+      "target": "n",
+      "species": "antinu",
+      "mu_minus_M_MeV": -8.61844,
+      "medium_over_stationary": [
+        1.00281829,
+        1.00635723,
+        1.00148705,
+        0.98121957
+      ]
+    },
+    {
+      "E_MeV": 500,
+      "target": "p",
+      "species": "nu",
+      "mu_minus_M_MeV": -15.32386,
+      "medium_over_stationary": [
+        1.0022851,
+        1.00234403,
+        1.0010846,
+        0.98020305
+      ]
+    },
+    {
+      "E_MeV": 500,
+      "target": "p",
+      "species": "antinu",
+      "mu_minus_M_MeV": -15.32386,
+      "medium_over_stationary": [
+        1.00329949,
+        1.00313341,
+        1.00004134,
+        0.98085853
+      ]
+    }
+  ],
+  "higher_order_spot_checks": [
+    {
+      "E_MeV": 50,
+      "target": "n",
+      "species": "nu",
+      "quadrature": [
+        12,
+        32,
+        24,
+        8
+      ],
+      "medium_over_stationary": [
+        1.00341035,
+        1.01064674,
+        1.01612775,
+        0.66560435
+      ]
+    },
+    {
+      "E_MeV": 100,
+      "target": "n",
+      "species": "nu",
+      "quadrature": [
+        12,
+        32,
+        24,
+        8
+      ],
+      "medium_over_stationary": [
+        1.00980318,
+        1.01789242,
+        1.02203151,
+        0.85171929
+      ]
+    },
+    {
+      "E_MeV": 255,
+      "target": "n",
+      "species": "nu",
+      "quadrature": [
+        12,
+        32,
+        24,
+        8
+      ],
+      "medium_over_stationary": [
+        1.00772971,
+        1.01184388,
+        1.01270142,
+        0.95654833
+      ]
+    },
+    {
+      "E_MeV": 500,
+      "target": "n",
+      "species": "nu",
+      "quadrature": [
+        12,
+        32,
+        24,
+        8
+      ],
+      "medium_over_stationary": [
+        1.00205543,
+        1.00295199,
+        1.00148061,
+        0.97999187
+      ]
+    },
+    {
+      "E_MeV": 50,
+      "target": "p",
+      "species": "antinu",
+      "quadrature": [
+        12,
+        32,
+        24,
+        8
+      ],
+      "medium_over_stationary": [
+        1.01359099,
+        1.01815513,
+        1.02358754,
+        0.68127734
+      ]
+    },
+    {
+      "E_MeV": 100,
+      "target": "p",
+      "species": "antinu",
+      "quadrature": [
+        12,
+        32,
+        24,
+        8
+      ],
+      "medium_over_stationary": [
+        1.01087053,
+        1.01465373,
+        1.01799971,
+        0.86156097
+      ]
+    },
+    {
+      "E_MeV": 255,
+      "target": "p",
+      "species": "antinu",
+      "quadrature": [
+        12,
+        32,
+        24,
+        8
+      ],
+      "medium_over_stationary": [
+        1.00522485,
+        1.00632908,
+        1.00577563,
+        0.95799325
+      ]
+    },
+    {
+      "E_MeV": 500,
+      "target": "p",
+      "species": "antinu",
+      "quadrature": [
+        12,
+        32,
+        24,
+        8
+      ],
+      "medium_over_stationary": [
+        1.00328777,
+        1.00308686,
+        1.00000759,
+        0.98074685
+      ]
+    },
+    {
+      "E_MeV": 500,
+      "target": "n",
+      "species": "antinu",
+      "quadrature": [
+        12,
+        32,
+        24,
+        8
+      ],
+      "medium_over_stationary": [
+        1.00281953,
+        1.0062287,
+        1.00138673,
+        0.98107556
+      ]
+    }
+  ],
+  "energy_window_convergence": [
+    {
+      "E_MeV": 50,
+      "nsigma5": [
+        1.00339854,
+        1.01063148,
+        1.01611039,
+        0.66569695
+      ],
+      "nsigma9": [
+        1.00340972,
+        1.01064584,
+        1.01612691,
+        0.66560072
+      ]
+    },
+    {
+      "E_MeV": 100,
+      "nsigma5": [
+        1.00979972,
+        1.01788871,
+        1.02202752,
+        0.85173052
+      ],
+      "nsigma7": [
+        1.00980318,
+        1.01789242,
+        1.02203151,
+        0.85171929
+      ],
+      "nsigma9": [
+        1.00980268,
+        1.01789173,
+        1.02203087,
+        0.8517158
+      ]
+    },
+    {
+      "E_MeV": 255,
+      "nsigma5": [
+        1.00772959,
+        1.01184415,
+        1.01270157,
+        0.95654978
+      ],
+      "nsigma9": [
+        1.00773275,
+        1.01184724,
+        1.01270512,
+        0.95654927
+      ]
+    },
+    {
+      "E_MeV": 500,
+      "nsigma5": [
+        1.00205066,
+        1.0029403,
+        1.00147122,
+        0.97998224
+      ],
+      "nsigma9": [
+        1.00205568,
+        1.00294481,
+        1.00147627,
+        0.97997867
+      ]
+    }
+  ],
+  "validation": {
+    "max_relative_difference_baseline_vs_higher_order_spot_checks": 0.0002483542568694208,
+    "max_window_5sigma_vs_9sigma_relative_difference": 0.00014458175079457014,
+    "stationary_target_trace_max_differential_residual": 3.1086244689504383e-15,
+    "stationary_target_trace_ward_residual": 1.7652915622690225e-14,
+    "stationary_target_trace_max_component_residual": 1.1076498711206628e-12,
+    "stationary_target_integrated_moment_quadrature_residual": 1.6653345369377348e-14
+  },
+  "scope": "Local free relativistic nucleon collision kernel at one illustrative thermodynamic point. Not a radial opacity, energy-sphere calculation, Boltzmann transport solution, or B.2 escape probability.",
+  "limitations": [
+    "Yp=0.10, T=3.03 MeV, and nB/n0=1e-3 are illustrative inputs, not a same-snapshot SFHo-18.8 radial profile.",
+    "No EOS effective masses or mean fields, RPA, NN correlations, strange axial form factor, additional baryons, or neutrino final-state blocking.",
+    "The baseline energy/angle grid uses moderate quadrature; higher-order spot checks cover selected neutron-neutrino and proton-antineutrino channels, not every grid point.",
+    "No B.2 opacity, pure-vector Fig. 7 baseline, or axial-vector cooling curve is modified."
+  ]
+}

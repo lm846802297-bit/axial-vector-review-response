@@ -100,10 +100,14 @@ def negative_muon_density_and_degeneracy(temperature, chemical_potential):
         def occupation(p):
             return float(expit((mu - np.hypot(p, M_MU)) / t))
 
+        # The outer SN profile reaches n_mu << 1e-9 MeV^3.  An absolute
+        # tolerance of 1e-9 therefore lets QUADPACK stop before resolving
+        # the dilute Fermi tail and can bias n_mu F_deg by O(10%).  Request
+        # relative convergence for these positive integrals instead.
         n_int = quad(lambda p: p * p * occupation(p), 0.0, np.inf,
-                     epsabs=1e-9, epsrel=2e-9, limit=200)[0] / np.pi**2
+                     epsabs=0.0, epsrel=2e-9, limit=200)[0] / np.pi**2
         chi_int = quad(lambda p: p * p * occupation(p) * (1.0 - occupation(p)),
-                       0.0, np.inf, epsabs=1e-9, epsrel=2e-9, limit=200)[0] / np.pi**2
+                       0.0, np.inf, epsabs=0.0, epsrel=2e-9, limit=200)[0] / np.pi**2
         density[index] = n_int
         susceptibility[index] = chi_int
     degeneracy = np.divide(susceptibility, density,

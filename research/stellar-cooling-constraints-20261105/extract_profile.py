@@ -100,8 +100,34 @@ def main():
     out = HERE/"data"
     out.mkdir(exist_ok=True)
     for key, curve in curves.items():
-        np.savetxt(out/(key+"_vertices.csv"),curve,delimiter=",",header="r_km,value",comments="",fmt="%.10g")
-    r=np.linspace(0,25,501)
+        np.savetxt(out/(key+"_vertices.csv"),curve,delimiter=",",header="r_km,value",comments="",fmt="%.15g")
+    base_r=np.linspace(0,25,501)
+    # Preserve exact source-curve endpoints. In particular, the negative
+    # muon-neutrino branch ends at 13.1099 km and is set to zero immediately
+    # outside its plotted range. A 0.05 km-only grid would smear that cutoff
+    # over the whole 13.10--13.15 km cell when downstream code uses np.interp.
+    profile_knots = []
+    for key in (
+        "T_caputo", "mu_mu_caputo", "minus_mu_numu_caputo",
+        "plus_mu_numu_caputo", "T_ferreira", "mu_mu_ferreira",
+        "lapse_ferreira",
+    ):
+        # Retain every PDF polyline vertex, not just endpoints. This makes
+        # interpolation of the CSV reproduce the digitized piecewise-linear
+        # source curves exactly, including the final steep neutrino segment.
+        profile_knots.extend(curves[key][:, 0])
+    # Represent the adopted zero-outside-support convention with a near-step
+    # rather than allowing np.interp to taper a branch over the next 0.05 km cell.
+    support_epsilon_km = 1.0e-6
+    profile_knots.extend([
+        curves["minus_mu_numu_caputo"][-1, 0] + support_epsilon_km,
+        curves["plus_mu_numu_caputo"][0, 0] - support_epsilon_km,
+        curves["plus_mu_numu_caputo"][-1, 0] + support_epsilon_km,
+        curves["mu_mu_caputo"][-1, 0] + support_epsilon_km,
+    ])
+    profile_knots = np.asarray(profile_knots, dtype=float)
+    profile_knots = profile_knots[(profile_knots >= 0.0) & (profile_knots <= 25.0)]
+    r=np.unique(np.r_[base_r, profile_knots])
     temp=interp(curves["T_caputo"],r)
     mu=interp(curves["mu_mu_caputo"],r,right=0.)
     numu=np.zeros_like(r)
@@ -121,7 +147,8 @@ def main():
     fer_mu=interp(curves["mu_mu_ferreira"],r,right=float("nan"))
     rows=np.column_stack([r,temp,mu,numu,lapse,fer_temp,fer_mu])
     header="r_km,T_MeV,mu_mu_MeV,mu_numu_MeV,lapse,T_Ferreira_MeV,mu_mu_Ferreira_MeV"
-    np.savetxt(out/"sfho188_digitized.csv",rows,delimiter=",",header=header,comments="",fmt="%.10g")
+    np.savetxt(out/"sfho188_digitized.csv",rows,delimiter=",",header=header,comments="",fmt="%.15g")
+    profile_csv_sha256 = hashlib.sha256((out/"sfho188_digitized.csv").read_bytes()).hexdigest()
     samples=[]
     for rr in [0,5,8,10,15,20,24,25]:
         tt=float(interp(curves["T_caputo"],rr))
@@ -146,12 +173,33 @@ def main():
         "curve_ranges":{key:[float(curve[0,0]),float(curve[-1,0])] for key,curve in curves.items()},
         "temperature_overlap_max_relative_difference":float(np.max(abs(t1-t2)/t1)),
         "lapse_exterior_continuation_schwarzschild_radius_km":float(schwarzschild_radius),
+        "profile_grid": {
+            "profile_csv_sha256": profile_csv_sha256,
+            "base_uniform_points": 501,
+            "base_spacing_km": 0.05,
+            "support_boundary_epsilon_km": 1.0e-6,
+            "all_input_pdf_vertices_retained": True,
+            "number_of_extra_source_vertices_and_support_knots": int(len(profile_knots)),
+            "extra_source_knot_count_semantics": "Raw PDF vertices and support knots before union-grid deduplication; unique final added rows are recorded separately.",
+            "final_csv_rows": int(len(r)),
+            "unique_added_source_vertices_and_support_knots": int(len(r) - len(base_r)),
+            "outer_shell_nodes_22_25_km": int(np.count_nonzero((r >= 22.0) & (r <= 25.0))),
+            "outer_shell_base_grid_nodes_22_25_km": int(np.count_nonzero((base_r >= 22.0) & (base_r <= 25.0))),
+            "outer_shell_additional_source_nodes_22_25_km": int(
+                np.count_nonzero((r >= 22.0) & (r <= 25.0))
+                - np.count_nonzero((base_r >= 22.0) & (base_r <= 25.0))
+            ),
+            "outer_shell_min_spacing_km": float(np.min(np.diff(r[(r >= 22.0) & (r <= 25.0)]))),
+            "outer_shell_max_spacing_km": float(np.max(np.diff(r[(r >= 22.0) & (r <= 25.0)]))),
+            "exact_source_knots_km": sorted(float(x) for x in profile_knots),
+        },
         "assumptions":[
             "Caputo top-panel x axis is [0.1,20] km; bottom-panel x axis [0,20] km. Curves encode public PDF vertices beyond clipping frame.",
             "T used through25km from encoded public Caputo path, including off-frame vertices. No temperature tail fitted.",
             "mu_mu set0 beyond final encoded point where plotted value drops below1MeV; no effect expected on muon density in cold tail.",
             "mu_numu set0 in intervals not represented by the |mu_numu|>=1MeV logarithmic plot; use zero-chemical-potential sensitivity check.",
             "First available core point extended constantly to r=0 (first original plotted point at about0.116km).",
+            "The CSV retains the 501-point 0.05 km base grid and every input PDF polyline vertex within 0--25 km. A 1e-6 km near-step preserves the adopted zero-outside-support convention for the muon-neutrino branches and the muon chemical-potential tail, rather than smearing their cutoffs across a full grid cell.",
             "Lapse uses Ferreira SFHo18.8 orange curve through24km, then matched exterior Schwarzschild form through25km.",
             "Ferreira mu_mu curve disagrees strongly with Caputo despite same profile label. It is retained only as diagnostic, not silently mixed into baseline.",
             "No permission-restricted Garching raw tables were accessed or redistributed.",

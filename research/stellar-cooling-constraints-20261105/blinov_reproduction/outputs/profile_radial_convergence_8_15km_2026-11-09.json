@@ -1,0 +1,184 @@
+{
+  "benchmark": {
+    "angular_order": 32,
+    "coupling": 4.17168965e-08,
+    "energy_order": 100,
+    "mass_MeV": 10.0,
+    "path_energy_convention": "fixed omega along B.2 paths",
+    "radial_orders": [
+      40,
+      80,
+      120
+    ],
+    "radius_km": 25.0
+  },
+  "interpretation": [
+    "Only the radial quadrature order changes between rows.",
+    "The same baseline and 8-15 km Ferreira mu_mu diagnostic profiles are used at every order.",
+    "This is a convergence test of a profile sensitivity, not a profile selection or a physical correction.",
+    "No empirical rescaling or axial-vector update is performed."
+  ],
+  "results": [
+    {
+      "B1_source_ratio": 1.2709188113095373,
+      "baseline_B1_source": 4.323522412104891e+70,
+      "baseline_Pesc": 0.0003239353790247465,
+      "baseline_profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+      "escaped_B1_integral_ratio": 0.8398965821259962,
+      "fixed_source_Pesc_ratio": 0.6197761854683449,
+      "own_source_Pesc_ratio": 0.6608577783663288,
+      "path_shells": {
+        "10_12km": {
+          "baseline_mean_tau_per_g2": 983917963489655.8,
+          "tau_ratio": 1.1833200440239802,
+          "variant_mean_tau_per_g2": 1164289847872564.2
+        },
+        "12_15km": {
+          "baseline_mean_tau_per_g2": 1348337651683051.8,
+          "tau_ratio": 1.0383939645700444,
+          "variant_mean_tau_per_g2": 1400105679710227.8
+        },
+        "8_10km": {
+          "baseline_mean_tau_per_g2": 962501966924050.1,
+          "tau_ratio": 1.4973845585858476,
+          "variant_mean_tau_per_g2": 1441235582880579.0
+        }
+      },
+      "radial_order": 40,
+      "relative_to_order_120": {
+        "B1_source_ratio": 0.0015667554013589768,
+        "baseline_Pesc": -0.0031690835222457636,
+        "fixed_source_Pesc_ratio": -0.006589336493037501
+      },
+      "source_shells": {
+        "10_12km": {
+          "baseline_source": 1.127622311908787e+70,
+          "source_ratio": 1.1918227649610116,
+          "variant_source": 1.3439259416108588e+70
+        },
+        "12_15km": {
+          "baseline_source": 5.931196725409649e+69,
+          "source_ratio": 1.0470804270672143,
+          "variant_source": 6.2104400002615975e+69
+        },
+        "8_10km": {
+          "baseline_source": 1.721276200068861e+70,
+          "source_ratio": 1.5386094313819279,
+          "variant_source": 2.6483717954391954e+70
+        }
+      },
+      "variant_B1_source": 5.494845964662492e+70,
+      "variant_Pesc_fixed_baseline_source": 0.0002007674335501999,
+      "variant_Pesc_own_source": 0.00021407521491654863,
+      "variant_profile_sha256": "e7f81277dfc69cfc079bd7b2c1fc0105276fef39791d91d5a837d60bb7fd1e72"
+    },
+    {
+      "B1_source_ratio": 1.268080528317234,
+      "baseline_B1_source": 4.3319360259879245e+70,
+      "baseline_Pesc": 0.0003250711951720196,
+      "baseline_profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+      "escaped_B1_integral_ratio": 0.8431726815846265,
+      "fixed_source_Pesc_ratio": 0.623175311115861,
+      "own_source_Pesc_ratio": 0.6649204547786347,
+      "path_shells": {
+        "10_12km": {
+          "baseline_mean_tau_per_g2": 982576256966924.1,
+          "tau_ratio": 1.1826039243434359,
+          "variant_mean_tau_per_g2": 1161998537455768.8
+        },
+        "12_15km": {
+          "baseline_mean_tau_per_g2": 1345173104976893.8,
+          "tau_ratio": 1.037733996501772,
+          "variant_mean_tau_per_g2": 1395931862214369.8
+        },
+        "8_10km": {
+          "baseline_mean_tau_per_g2": 966889586324498.9,
+          "tau_ratio": 1.4936087668120945,
+          "variant_mean_tau_per_g2": 1444154762673591.0
+        }
+      },
+      "radial_order": 80,
+      "relative_to_order_120": {
+        "B1_source_ratio": -0.000669996358246272,
+        "baseline_Pesc": 0.000326109421622256,
+        "fixed_source_Pesc_ratio": -0.0011410347608713511
+      },
+      "source_shells": {
+        "10_12km": {
+          "baseline_source": 1.1276349989068701e+70,
+          "source_ratio": 1.1916958918839928,
+          "variant_source": 1.343797995741928e+70
+        },
+        "12_15km": {
+          "baseline_source": 5.929291467916907e+69,
+          "source_ratio": 1.0471058601161916,
+          "variant_source": 6.208595842392729e+69
+        },
+        "8_10km": {
+          "baseline_source": 1.7304871966795314e+70,
+          "source_ratio": 1.530032389699628,
+          "variant_source": 2.6477014608801936e+70
+        }
+      },
+      "variant_B1_source": 5.493243724471226e+70,
+      "variant_Pesc_fixed_baseline_source": 0.0002025763431861281,
+      "variant_Pesc_own_source": 0.00021614648692921363,
+      "variant_profile_sha256": "e7f81277dfc69cfc079bd7b2c1fc0105276fef39791d91d5a837d60bb7fd1e72"
+    },
+    {
+      "B1_source_ratio": 1.2689307072699718,
+      "baseline_B1_source": 4.3285456733230065e+70,
+      "baseline_Pesc": 0.0003249652209517677,
+      "baseline_profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+      "escaped_B1_integral_ratio": 0.8445252214558601,
+      "fixed_source_Pesc_ratio": 0.6238871880843275,
+      "own_source_Pesc_ratio": 0.6655408499592584,
+      "path_shells": {
+        "10_12km": {
+          "baseline_mean_tau_per_g2": 983934344077108.5,
+          "tau_ratio": 1.1825827457490563,
+          "variant_mean_tau_per_g2": 1163583778255503.8
+        },
+        "12_15km": {
+          "baseline_mean_tau_per_g2": 1344645310366213.0,
+          "tau_ratio": 1.0375710620526404,
+          "variant_mean_tau_per_g2": 1395165062760774.0
+        },
+        "8_10km": {
+          "baseline_mean_tau_per_g2": 965095799005212.0,
+          "tau_ratio": 1.4969596488661159,
+          "variant_mean_tau_per_g2": 1444709468401005.8
+        }
+      },
+      "radial_order": 120,
+      "relative_to_order_120": {
+        "B1_source_ratio": 0.0,
+        "baseline_Pesc": 0.0,
+        "fixed_source_Pesc_ratio": 0.0
+      },
+      "source_shells": {
+        "10_12km": {
+          "baseline_source": 1.127519979201546e+70,
+          "source_ratio": 1.1917017874420583,
+          "variant_source": 1.343667574591115e+70
+        },
+        "12_15km": {
+          "baseline_source": 5.9312825348515694e+69,
+          "source_ratio": 1.0470825809413151,
+          "variant_source": 6.210542624884527e+69
+        },
+        "8_10km": {
+          "baseline_source": 1.726795903673562e+70,
+          "source_ratio": 1.5327816929766056,
+          "variant_source": 2.6468011486578298e+70
+        }
+      },
+      "variant_B1_source": 5.492624522700139e+70,
+      "variant_Pesc_fixed_baseline_source": 0.00020274163792480054,
+      "variant_Pesc_own_source": 0.0002162776293594377,
+      "variant_profile_sha256": "e7f81277dfc69cfc079bd7b2c1fc0105276fef39791d91d5a837d60bb7fd1e72"
+    }
+  ],
+  "title": "Radial quadrature convergence of baseline and 8-15 km mu_mu profile diagnostic",
+  "variant_definition": "diagnostic substitution over the dominant B.1 emission region; same-model published curve comparison, not an adopted profile"
+}

@@ -1,0 +1,801 @@
+{
+  "result": {
+    "title": "10 MeV B.2 channel-resolved opacity audit",
+    "status": "direct_V8_cross_runtime_calculation",
+    "input_head": "dc46a5501769a9e4cf484c2183b0dad4ff2d4736",
+    "mass_MeV": 10,
+    "coupling": 4.171689650228597e-8,
+    "fig7_reference_luminosity_erg_s": 1.26781475907372e+52,
+    "calculated_luminosity_erg_s": 2.4396359573587814e+52,
+    "relative_difference_vs_fig7": 0.9242842378181555,
+    "grid": {
+      "source_radial_order": 200,
+      "source_nodes": 200,
+      "opacity_radial_order": 640,
+      "opacity_nodes": 642,
+      "energy_order": 200,
+      "energy_nodes": 842,
+      "angular_order": 32,
+      "path_order": 64,
+      "high_energy_nodes_210_510": 10,
+      "path_shell_edges_km": [
+        0,
+        5,
+        8,
+        10,
+        12,
+        15,
+        18,
+        20,
+        22,
+        24,
+        25
+      ]
+    },
+    "global": {
+      "source_fraction": 1,
+      "escape_luminosity_fraction": 1,
+      "source_weighted_mean_tau_nu": 14.480678062962099,
+      "source_weighted_mean_tau_compton": 1.6480386059732108,
+      "source_weighted_mean_tau_total": 16.128716668936427,
+      "escape_weighted_mean_tau_nu": 4.544262871127806,
+      "escape_weighted_mean_tau_compton": 0.7500970655584664,
+      "escape_weighted_mean_tau_total": 5.294359936686347,
+      "mean_escape_probability": 0.00032517740193501826,
+      "source_channel_fraction": {
+        "neutrino": 0.6792586784506992,
+        "semi_compton": 0.32074132154878837
+      },
+      "escaped_source_channel_fraction": {
+        "neutrino": 0.5411025153828588,
+        "semi_compton": 0.45889748461757096
+      },
+      "luminosity_erg_s": 2.4396359573587814e+52,
+      "optically_thin_luminosity_erg_s": 7.502476933640995e+55
+    },
+    "energy_bins": [
+      {
+        "bin": "10-11 MeV",
+        "source_fraction": 0.0000039110584168866636,
+        "escape_luminosity_fraction": 0.0001661690719217136,
+        "source_weighted_mean_tau_nu": 115.7498693131633,
+        "source_weighted_mean_tau_compton": 0.7437861107056584,
+        "source_weighted_mean_tau_total": 116.49365542386863,
+        "escape_weighted_mean_tau_nu": 0.9965228611027951,
+        "escape_weighted_mean_tau_compton": 1.6416418694047555e-18,
+        "escape_weighted_mean_tau_total": 0.9965228611027951,
+        "mean_escape_probability": 0.013815806702388576,
+        "source_channel_fraction": {
+          "neutrino": 1,
+          "semi_compton": 2.429707647822382e-17
+        },
+        "escaped_source_channel_fraction": {
+          "neutrino": 1,
+          "semi_compton": 1.6480652781419204e-18
+        }
+      },
+      {
+        "bin": "11-12 MeV",
+        "source_fraction": 0.00033507966452235745,
+        "escape_luminosity_fraction": 0.0018674380984986226,
+        "source_weighted_mean_tau_nu": 100.78277461753308,
+        "source_weighted_mean_tau_compton": 1.1278064882097054,
+        "source_weighted_mean_tau_total": 101.91058110574362,
+        "escape_weighted_mean_tau_nu": 1.0182864243248624,
+        "escape_weighted_mean_tau_compton": 1.7735733373750962e-18,
+        "escape_weighted_mean_tau_total": 1.0182864243248624,
+        "mean_escape_probability": 0.0018122516327866726,
+        "source_channel_fraction": {
+          "neutrino": 0.9954364925031767,
+          "semi_compton": 0.00456350749684231
+        },
+        "escaped_source_channel_fraction": {
+          "neutrino": 1,
+          "semi_compton": 1.7414528132028484e-18
+        }
+      },
+      {
+        "bin": "12-13 MeV",
+        "source_fraction": 0.000922981458430731,
+        "escape_luminosity_fraction": 0.0025604826163324523,
+        "source_weighted_mean_tau_nu": 78.29260444564395,
+        "source_weighted_mean_tau_compton": 1.7806993354826768,
+        "source_weighted_mean_tau_total": 80.07330378112815,
+        "escape_weighted_mean_tau_nu": 1.0242786627803564,
+        "escape_weighted_mean_tau_compton": 1.9238155777170236e-18,
+        "escape_weighted_mean_tau_total": 1.0242786627803564,
+        "mean_escape_probability": 0.0009020886359888364,
+        "source_channel_fraction": {
+          "neutrino": 0.9104802443060183,
+          "semi_compton": 0.0895197556939224
+        },
+        "escaped_source_channel_fraction": {
+          "neutrino": 1,
+          "semi_compton": 1.877447408174708e-18
+        }
+      },
+      {
+        "bin": "13-15 MeV",
+        "source_fraction": 0.0025843784020738825,
+        "escape_luminosity_fraction": 0.005604760480750541,
+        "source_weighted_mean_tau_nu": 63.27404732405828,
+        "source_weighted_mean_tau_compton": 1.795857792187266,
+        "source_weighted_mean_tau_total": 65.0699051162453,
+        "escape_weighted_mean_tau_nu": 1.0330070062125474,
+        "escape_weighted_mean_tau_compton": 2.332785865148551e-18,
+        "escape_weighted_mean_tau_total": 1.0330070062125474,
+        "mean_escape_probability": 0.0007052146272914186,
+        "source_channel_fraction": {
+          "neutrino": 0.8734354467751472,
+          "semi_compton": 0.12656455322479915
+        },
+        "escaped_source_channel_fraction": {
+          "neutrino": 1,
+          "semi_compton": 2.234576695911029e-18
+        }
+      },
+      {
+        "bin": "15-17.5 MeV",
+        "source_fraction": 0.005206677091241144,
+        "escape_luminosity_fraction": 0.008166061766492427,
+        "source_weighted_mean_tau_nu": 51.37968459285976,
+        "source_weighted_mean_tau_compton": 1.6018006210587967,
+        "source_weighted_mean_tau_total": 52.98148521391841,
+        "escape_weighted_mean_tau_nu": 1.0483629152777911,
+        "escape_weighted_mean_tau_compton": 7.959729404431671e-16,
+        "escape_weighted_mean_tau_total": 1.048362915277792,
+        "mean_escape_probability": 0.0005100025799057008,
+        "source_channel_fraction": {
+          "neutrino": 0.8645101872307034,
+          "semi_compton": 0.13548981276928984
+        },
+        "escaped_source_channel_fraction": {
+          "neutrino": 0.9999999999999996,
+          "semi_compton": 6.674006165928168e-16
+        }
+      },
+      {
+        "bin": "17.5-20 MeV",
+        "source_fraction": 0.005609393430625009,
+        "escape_luminosity_fraction": 0.005478376935545943,
+        "source_weighted_mean_tau_nu": 43.92482455750003,
+        "source_weighted_mean_tau_compton": 1.5141261610119068,
+        "source_weighted_mean_tau_total": 45.438950718512245,
+        "escape_weighted_mean_tau_nu": 1.0683298667277719,
+        "escape_weighted_mean_tau_compton": 1.330153019484796e-13,
+        "escape_weighted_mean_tau_total": 1.0683298667279049,
+        "mean_escape_probability": 0.000317582355517371,
+        "source_channel_fraction": {
+          "neutrino": 0.8549236382530878,
+          "semi_compton": 0.14507636174692265
+        },
+        "escaped_source_channel_fraction": {
+          "neutrino": 0.9999999999998889,
+          "semi_compton": 1.1095128560335433e-13
+        }
+      },
+      {
+        "bin": "20-25 MeV",
+        "source_fraction": 0.012918131281283544,
+        "escape_luminosity_fraction": 0.006133958489190749,
+        "source_weighted_mean_tau_nu": 37.78959595852731,
+        "source_weighted_mean_tau_compton": 1.4719436575783211,
+        "source_weighted_mean_tau_total": 39.261539616106155,
+        "escape_weighted_mean_tau_nu": 1.0982094564441351,
+        "escape_weighted_mean_tau_compton": 4.111797221437677e-11,
+        "escape_weighted_mean_tau_total": 1.0982094564852531,
+        "mean_escape_probability": 0.0001544050483510887,
+        "source_channel_fraction": {
+          "neutrino": 0.8432149271769398,
+          "semi_compton": 0.1567850728230697
+        },
+        "escaped_source_channel_fraction": {
+          "neutrino": 0.9999999999660271,
+          "semi_compton": 3.397297100047784e-11
+        }
+      },
+      {
+        "bin": "25-30 MeV",
+        "source_fraction": 0.01667400990778107,
+        "escape_luminosity_fraction": 0.0027551894143236816,
+        "source_weighted_mean_tau_nu": 32.545770244968416,
+        "source_weighted_mean_tau_compton": 1.4576320070364361,
+        "source_weighted_mean_tau_total": 34.003402252004626,
+        "escape_weighted_mean_tau_nu": 1.1494312522167567,
+        "escape_weighted_mean_tau_compton": 5.417428254061841e-9,
+        "escape_weighted_mean_tau_total": 1.149431257634185,
+        "mean_escape_probability": 0.00005373184618119653,
+        "source_channel_fraction": {
+          "neutrino": 0.8298654338196858,
+          "semi_compton": 0.1701345661803142
+        },
+        "escaped_source_channel_fraction": {
+          "neutrino": 0.9999999955732999,
+          "semi_compton": 4.4267000244021705e-9
+        }
+      },
+      {
+        "bin": "30-40 MeV",
+        "source_fraction": 0.052934551973704336,
+        "escape_luminosity_fraction": 0.0014844380871618993,
+        "source_weighted_mean_tau_nu": 26.82823941171327,
+        "source_weighted_mean_tau_compton": 1.4705361707464408,
+        "source_weighted_mean_tau_total": 28.29877558245963,
+        "escape_weighted_mean_tau_nu": 1.2539158651031004,
+        "escape_weighted_mean_tau_compton": 0.0000056507058353373385,
+        "escape_weighted_mean_tau_total": 1.2539215158089356,
+        "mean_escape_probability": 0.000009118915765197795,
+        "source_channel_fraction": {
+          "neutrino": 0.8094587318853692,
+          "semi_compton": 0.19054126811462427
+        },
+        "escaped_source_channel_fraction": {
+          "neutrino": 0.9999955112690263,
+          "semi_compton": 0.000004488730973692886
+        }
+      },
+      {
+        "bin": "40-60 MeV",
+        "source_fraction": 0.11054269681571409,
+        "escape_luminosity_fraction": 0.00014304111328769983,
+        "source_weighted_mean_tau_nu": 20.935854219804867,
+        "source_weighted_mean_tau_compton": 1.5171363003537413,
+        "source_weighted_mean_tau_total": 22.45299052015846,
+        "escape_weighted_mean_tau_nu": 3.87960459057978,
+        "escape_weighted_mean_tau_compton": 0.015972231596332785,
+        "escape_weighted_mean_tau_total": 3.8955768221761176,
+        "mean_escape_probability": 4.2077621524224234e-7,
+        "source_channel_fraction": {
+          "neutrino": 0.7780472160530475,
+          "semi_compton": 0.2219527839469427
+        },
+        "escaped_source_channel_fraction": {
+          "neutrino": 0.9878608355948978,
+          "semi_compton": 0.012139164405103818
+        }
+      },
+      {
+        "bin": "60-110 MeV",
+        "source_fraction": 0.3592481029868693,
+        "escape_luminosity_fraction": 0.009634128199429864,
+        "source_weighted_mean_tau_nu": 14.51872832256956,
+        "source_weighted_mean_tau_compton": 1.6157183116437692,
+        "source_weighted_mean_tau_total": 16.134446634213578,
+        "escape_weighted_mean_tau_nu": 9.02095366794356,
+        "escape_weighted_mean_tau_compton": 0.29538118032572325,
+        "escape_weighted_mean_tau_total": 9.31633484826924,
+        "mean_escape_probability": 0.000008720437913944959,
+        "source_channel_fraction": {
+          "neutrino": 0.7152729992123681,
+          "semi_compton": 0.2847270007876231
+        },
+        "escaped_source_channel_fraction": {
+          "neutrino": 0.7967002917858466,
+          "semi_compton": 0.2032997082141514
+        }
+      },
+      {
+        "bin": "110-210 MeV",
+        "source_fraction": 0.33611037463426047,
+        "escape_luminosity_fraction": 0.24674461312374532,
+        "source_weighted_mean_tau_nu": 9.352248005556001,
+        "source_weighted_mean_tau_compton": 1.7257458367655278,
+        "source_weighted_mean_tau_total": 11.077993842321542,
+        "escape_weighted_mean_tau_nu": 6.192688149221245,
+        "escape_weighted_mean_tau_compton": 0.5686599836217767,
+        "escape_weighted_mean_tau_total": 6.761348132843006,
+        "mean_escape_probability": 0.0002387185231171442,
+        "source_channel_fraction": {
+          "neutrino": 0.6179032310634324,
+          "semi_compton": 0.3820967689365992
+        },
+        "escaped_source_channel_fraction": {
+          "neutrino": 0.639336821170049,
+          "semi_compton": 0.36066317882998633
+        }
+      },
+      {
+        "bin": "210-510 MeV",
+        "source_fraction": 0.09669607176610405,
+        "escape_luminosity_fraction": 0.6975568726644609,
+        "source_weighted_mean_tau_nu": 5.911764750537986,
+        "source_weighted_mean_tau_compton": 1.8075599569158556,
+        "source_weighted_mean_tau_total": 7.719324707454045,
+        "escape_weighted_mean_tau_nu": 4.107156587288846,
+        "escape_weighted_mean_tau_compton": 0.8509574820778852,
+        "escape_weighted_mean_tau_total": 4.958114069366762,
+        "mean_escape_probability": 0.0023458008935835477,
+        "source_channel_fraction": {
+          "neutrino": 0.49876420234641694,
+          "semi_compton": 0.5012357976535875
+        },
+        "escaped_source_channel_fraction": {
+          "neutrino": 0.48397470773605517,
+          "semi_compton": 0.516025292263957
+        }
+      },
+      {
+        "bin": "510-1010.000000001 MeV",
+        "source_fraction": 0.00021363952903823282,
+        "escape_luminosity_fraction": 0.011704469939750968,
+        "source_weighted_mean_tau_nu": 2.881742985735537,
+        "source_weighted_mean_tau_compton": 1.8773053883397202,
+        "source_weighted_mean_tau_total": 4.75904837407529,
+        "escape_weighted_mean_tau_nu": 2.3199028081914905,
+        "escape_weighted_mean_tau_compton": 1.140077658604486,
+        "escape_weighted_mean_tau_total": 3.4599804667959972,
+        "mean_escape_probability": 0.01781519151988776,
+        "source_channel_fraction": {
+          "neutrino": 0.3198484034679873,
+          "semi_compton": 0.6801515965320328
+        },
+        "escaped_source_channel_fraction": {
+          "neutrino": 0.3174880608989474,
+          "semi_compton": 0.6825119391010507
+        }
+      }
+    ],
+    "emission_radius_bins": [
+      {
+        "bin": "0-5 km",
+        "source_fraction": 0.009078961003543093,
+        "escape_luminosity_fraction": 0.00035351155687525114,
+        "source_weighted_mean_tau_nu": 16.975552154162024,
+        "source_weighted_mean_tau_compton": 1.4935831578865324,
+        "source_weighted_mean_tau_total": 18.469135312048458,
+        "escape_weighted_mean_tau_nu": 6.926864134046289,
+        "escape_weighted_mean_tau_compton": 1.4226087361477002,
+        "escape_weighted_mean_tau_total": 8.34947287019399,
+        "mean_escape_probability": 0.000012661577637995853,
+        "source_channel_fraction": {
+          "neutrino": 0.9616266464873512,
+          "semi_compton": 0.038373353512647576
+        },
+        "escaped_source_channel_fraction": {
+          "neutrino": 0.9316662501864525,
+          "semi_compton": 0.06833374981354567
+        }
+      },
+      {
+        "bin": "5-8 km",
+        "source_fraction": 0.17472423111229268,
+        "escape_luminosity_fraction": 0.09629611831248593,
+        "source_weighted_mean_tau_nu": 12.817086424395637,
+        "source_weighted_mean_tau_compton": 1.8306508077011623,
+        "source_weighted_mean_tau_total": 14.647737232096837,
+        "escape_weighted_mean_tau_nu": 4.793292037145948,
+        "escape_weighted_mean_tau_compton": 1.3988560718972152,
+        "escape_weighted_mean_tau_total": 6.19214810904315,
+        "mean_escape_probability": 0.00017921567815717957,
+        "source_channel_fraction": {
+          "neutrino": 0.6877629989160406,
+          "semi_compton": 0.3122370010839732
+        },
+        "escaped_source_channel_fraction": {
+          "neutrino": 0.5318656042626512,
+          "semi_compton": 0.46813439573735166
+        }
+      },
+      {
+        "bin": "8-10 km",
+        "source_fraction": 0.39912529844740396,
+        "escape_luminosity_fraction": 0.49487285782703294,
+        "source_weighted_mean_tau_nu": 12.233681585098836,
+        "source_weighted_mean_tau_compton": 1.9038580149833362,
+        "source_weighted_mean_tau_total": 14.137539600082047,
+        "escape_weighted_mean_tau_nu": 4.469661594319485,
+        "escape_weighted_mean_tau_compton": 0.965120937658834,
+        "escape_weighted_mean_tau_total": 5.434782531978338,
+        "mean_escape_probability": 0.0004031853426037793,
+        "source_channel_fraction": {
+          "neutrino": 0.5560420749881112,
+          "semi_compton": 0.4439579250119112
+        },
+        "escaped_source_channel_fraction": {
+          "neutrino": 0.4417916434158227,
+          "semi_compton": 0.5582083565841762
+        }
+      },
+      {
+        "bin": "10-12 km",
+        "source_fraction": 0.260425520527141,
+        "escape_luminosity_fraction": 0.30551023950796097,
+        "source_weighted_mean_tau_nu": 14.516120345401264,
+        "source_weighted_mean_tau_compton": 1.5448865997664274,
+        "source_weighted_mean_tau_total": 16.061006945167264,
+        "escape_weighted_mean_tau_nu": 4.783548888679307,
+        "escape_weighted_mean_tau_compton": 0.42658400638434246,
+        "escape_weighted_mean_tau_total": 5.210132895063624,
+        "mean_escape_probability": 0.0003814719300422416,
+        "source_channel_fraction": {
+          "neutrino": 0.7054486028814302,
+          "semi_compton": 0.29455139711854844
+        },
+        "escaped_source_channel_fraction": {
+          "neutrino": 0.5885890773727903,
+          "semi_compton": 0.4114109226272083
+        }
+      },
+      {
+        "bin": "12-15 km",
+        "source_fraction": 0.13697105096650247,
+        "escape_luminosity_fraction": 0.06816746509233886,
+        "source_weighted_mean_tau_nu": 19.648940731054573,
+        "source_weighted_mean_tau_compton": 1.0235816934207995,
+        "source_weighted_mean_tau_total": 20.672522424475673,
+        "escape_weighted_mean_tau_nu": 5.3812194688558845,
+        "escape_weighted_mean_tau_compton": 0.10197793344786021,
+        "escape_weighted_mean_tau_total": 5.483197402303728,
+        "mean_escape_probability": 0.00016183360672791965,
+        "source_channel_fraction": {
+          "neutrino": 0.9129412389365087,
+          "semi_compton": 0.08705876106346333
+        },
+        "escaped_source_channel_fraction": {
+          "neutrino": 0.8260100389224733,
+          "semi_compton": 0.17398996107754272
+        }
+      },
+      {
+        "bin": "15-16.5 km",
+        "source_fraction": 0.012504758167446567,
+        "escape_luminosity_fraction": 0.000440880636165458,
+        "source_weighted_mean_tau_nu": 31.4667258397673,
+        "source_weighted_mean_tau_compton": 0.6694867631397831,
+        "source_weighted_mean_tau_total": 32.13621260290631,
+        "escape_weighted_mean_tau_nu": 6.858960134311138,
+        "escape_weighted_mean_tau_compton": 0.0005247387247138936,
+        "escape_weighted_mean_tau_total": 6.859484873035849,
+        "mean_escape_probability": 0.00001146478947549421,
+        "source_channel_fraction": {
+          "neutrino": 0.9992415014176769,
+          "semi_compton": 0.0007584985822757653
+        },
+        "escaped_source_channel_fraction": {
+          "neutrino": 0.9978819641258161,
+          "semi_compton": 0.0021180358741866587
+        }
+      },
+      {
+        "bin": "16.5-18.5 km",
+        "source_fraction": 0.004642684460198832,
+        "escape_luminosity_fraction": 0.000026021289081755753,
+        "source_weighted_mean_tau_nu": 42.60128216741573,
+        "source_weighted_mean_tau_compton": 0.5768650580773232,
+        "source_weighted_mean_tau_total": 43.1781472254927,
+        "escape_weighted_mean_tau_nu": 7.939047249506186,
+        "escape_weighted_mean_tau_compton": 0.0000012891101379354135,
+        "escape_weighted_mean_tau_total": 7.939048538616342,
+        "mean_escape_probability": 0.0000018225522865370458,
+        "source_channel_fraction": {
+          "neutrino": 0.9999986312239614,
+          "semi_compton": 0.0000013687760462516961
+        },
+        "escaped_source_channel_fraction": {
+          "neutrino": 0.9999962990664207,
+          "semi_compton": 0.000003700933578906614
+        }
+      },
+      {
+        "bin": "18.5-20 km",
+        "source_fraction": 0.001057416612549189,
+        "escape_luminosity_fraction": 0.0000031486401599705167,
+        "source_weighted_mean_tau_nu": 53.46155652914447,
+        "source_weighted_mean_tau_compton": 0.5126100731289048,
+        "source_weighted_mean_tau_total": 53.97416660227267,
+        "escape_weighted_mean_tau_nu": 8.36223878515261,
+        "escape_weighted_mean_tau_compton": 3.3107760128141575e-10,
+        "escape_weighted_mean_tau_total": 8.36223878548368,
+        "mean_escape_probability": 9.682717433189981e-7,
+        "source_channel_fraction": {
+          "neutrino": 0.9999999998683883,
+          "semi_compton": 1.315862034762924e-10
+        },
+        "escaped_source_channel_fraction": {
+          "neutrino": 0.9999999997748505,
+          "semi_compton": 2.2515146843817953e-10
+        }
+      },
+      {
+        "bin": "20-22 km",
+        "source_fraction": 0.0007444799932757493,
+        "escape_luminosity_fraction": 0.000011181327332303942,
+        "source_weighted_mean_tau_nu": 58.76987587109915,
+        "source_weighted_mean_tau_compton": 0.45834758621854904,
+        "source_weighted_mean_tau_total": 59.22822345731779,
+        "escape_weighted_mean_tau_nu": 7.277636083710888,
+        "escape_weighted_mean_tau_compton": 3.644180682841331e-13,
+        "escape_weighted_mean_tau_total": 7.277636083711254,
+        "mean_escape_probability": 0.000004883831674381733,
+        "source_channel_fraction": {
+          "neutrino": 0.9999999999996824,
+          "semi_compton": 3.163446847076573e-13
+        },
+        "escaped_source_channel_fraction": {
+          "neutrino": 0.9999999999998036,
+          "semi_compton": 1.9673532772869603e-13
+        }
+      },
+      {
+        "bin": "22-25 km",
+        "source_fraction": 0.0007255987097311119,
+        "escape_luminosity_fraction": 0.03431857581147621,
+        "source_weighted_mean_tau_nu": 56.60677214069895,
+        "source_weighted_mean_tau_compton": 0.38487770262006626,
+        "source_weighted_mean_tau_total": 56.99164984331876,
+        "escape_weighted_mean_tau_nu": 1.07052791918294,
+        "escape_weighted_mean_tau_compton": 4.315852449916304e-18,
+        "escape_weighted_mean_tau_total": 1.07052791918294,
+        "mean_escape_probability": 0.01537988583885611,
+        "source_channel_fraction": {
+          "neutrino": 1,
+          "semi_compton": 1.3614507835952342e-16
+        },
+        "escaped_source_channel_fraction": {
+          "neutrino": 1,
+          "semi_compton": 3.687749633702933e-18
+        }
+      }
+    ],
+    "direction_bins": [
+      {
+        "bin": "-1--0.5",
+        "source_fraction": 0.2675754103125171,
+        "escape_luminosity_fraction": 0.008832990565352078,
+        "source_weighted_mean_tau_nu": 17.283786017293906,
+        "source_weighted_mean_tau_compton": 2.8136724751692825,
+        "source_weighted_mean_tau_total": 20.097458492463215,
+        "escape_weighted_mean_tau_nu": 6.173334276000618,
+        "escape_weighted_mean_tau_compton": 2.348036964621122,
+        "escape_weighted_mean_tau_total": 8.521371240621615,
+        "mean_escape_probability": 0.000010734502546414865,
+        "source_channel_fraction": {
+          "neutrino": 0.6792586784506325,
+          "semi_compton": 0.32074132154905155
+        },
+        "escaped_source_channel_fraction": {
+          "neutrino": 0.4635964595728705,
+          "semi_compton": 0.5364035404271402
+        }
+      },
+      {
+        "bin": "-0.5-0",
+        "source_fraction": 0.2324245896875131,
+        "escape_luminosity_fraction": 0.028750172878667202,
+        "source_weighted_mean_tau_nu": 15.708921527753029,
+        "source_weighted_mean_tau_compton": 1.9415081991653464,
+        "source_weighted_mean_tau_total": 17.65042972691919,
+        "escape_weighted_mean_tau_nu": 5.671306022678239,
+        "escape_weighted_mean_tau_compton": 1.9611383363461303,
+        "escape_weighted_mean_tau_total": 7.632444359024415,
+        "mean_escape_probability": 0.000040223396906656526,
+        "source_channel_fraction": {
+          "neutrino": 0.6792586784506297,
+          "semi_compton": 0.320741321549251
+        },
+        "escaped_source_channel_fraction": {
+          "neutrino": 0.49794104283939034,
+          "semi_compton": 0.5020589571606164
+        }
+      },
+      {
+        "bin": "0-0.5",
+        "source_fraction": 0.232424589687513,
+        "escape_luminosity_fraction": 0.17591868070662445,
+        "source_weighted_mean_tau_nu": 13.611363470073293,
+        "source_weighted_mean_tau_compton": 1.106625494339043,
+        "source_weighted_mean_tau_total": 14.717988964412667,
+        "escape_weighted_mean_tau_nu": 4.932558297943972,
+        "escape_weighted_mean_tau_compton": 1.0406471144826959,
+        "escape_weighted_mean_tau_total": 5.97320541242602,
+        "mean_escape_probability": 0.00024612189106551095,
+        "source_channel_fraction": {
+          "neutrino": 0.6792586784506297,
+          "semi_compton": 0.3207413215492515
+        },
+        "escaped_source_channel_fraction": {
+          "neutrino": 0.530476583206926,
+          "semi_compton": 0.4695234167931417
+        }
+      },
+      {
+        "bin": "0.5-1",
+        "source_fraction": 0.2675754103125166,
+        "escape_luminosity_fraction": 0.7864981558499419,
+        "source_weighted_mean_tau_nu": 11.365792970055594,
+        "source_weighted_mean_tau_compton": 0.6977764350721176,
+        "source_weighted_mean_tau_total": 12.063569405128659,
+        "escape_weighted_mean_tau_nu": 4.397917102670791,
+        "escape_weighted_mean_tau_compton": 0.6228934421386209,
+        "escape_weighted_mean_tau_total": 5.020810544807116,
+        "mean_escape_probability": 0.000955810650340629,
+        "source_channel_fraction": {
+          "neutrino": 0.6792586784506336,
+          "semi_compton": 0.32074132154905
+        },
+        "escaped_source_channel_fraction": {
+          "neutrino": 0.5459274599786874,
+          "semi_compton": 0.4540725400215024
+        }
+      }
+    ],
+    "high_energy_210_510": {
+      "source": 4.168593206313689e+69,
+      "escape": 9.778689668356957e+66,
+      "nuSource": 2.0791450654537397e+69,
+      "coSource": 2.0894481408599677e+69,
+      "nuEscape": 4.7326384742846404e+66,
+      "coEscape": 5.046051194072435e+66,
+      "tauNuSource": 2.4643742376417388e+70,
+      "tauCoSource": 7.5349821564041e+69,
+      "tauNuEsc": 4.0162609686445654e+67,
+      "tauCoEsc": 8.321249138206067e+66,
+      "source_weighted_mean_tau_nu": 5.911764750537986,
+      "source_weighted_mean_tau_compton": 1.8075599569158556,
+      "source_weighted_mean_tau_total": 7.719324707453842,
+      "escape_weighted_mean_tau_nu": 4.107156587288846,
+      "escape_weighted_mean_tau_compton": 0.8509574820778852,
+      "escape_weighted_mean_tau_total": 4.958114069366731,
+      "mean_escape_probability": 0.0023458008935835477,
+      "source_channel_fraction": {
+        "neutrino": 0.49876420234641694,
+        "semi_compton": 0.5012357976535875
+      },
+      "escaped_source_channel_fraction": {
+        "neutrino": 0.48397470773605517,
+        "semi_compton": 0.516025292263957
+      }
+    },
+    "high_energy_path_shell_contributions": [
+      {
+        "path_shell": "0-5 km",
+        "source_weighted_tau_nu": 0.13733586794347422,
+        "source_weighted_tau_compton": 0.008952376292059886,
+        "source_weighted_tau_total": 0.1462882442355341,
+        "escape_weighted_tau_nu": 0.005897868562532491,
+        "escape_weighted_tau_compton": 0.0004678021976699479,
+        "escape_weighted_tau_total": 0.006365670760202396
+      },
+      {
+        "path_shell": "5-8 km",
+        "source_weighted_tau_nu": 0.5434192421264615,
+        "source_weighted_tau_compton": 0.31866993381167963,
+        "source_weighted_tau_total": 0.8620891759381379,
+        "escape_weighted_tau_nu": 0.039221134514415966,
+        "escape_weighted_tau_compton": 0.03134638238745597,
+        "escape_weighted_tau_total": 0.07056751690187187
+      },
+      {
+        "path_shell": "8-10 km",
+        "source_weighted_tau_nu": 0.7228994188410631,
+        "source_weighted_tau_compton": 0.8563371790295841,
+        "source_weighted_tau_total": 1.5792365978706613,
+        "escape_weighted_tau_nu": 0.23874922804248147,
+        "escape_weighted_tau_compton": 0.3153490884743665,
+        "escape_weighted_tau_total": 0.5540983165168523
+      },
+      {
+        "path_shell": "10-12 km",
+        "source_weighted_tau_nu": 0.6780049517698113,
+        "source_weighted_tau_compton": 0.4778493821067291,
+        "source_weighted_tau_total": 1.1558543338765372,
+        "escape_weighted_tau_nu": 0.47663098955822525,
+        "escape_weighted_tau_compton": 0.3661487742727219,
+        "escape_weighted_tau_total": 0.842779763830953
+      },
+      {
+        "path_shell": "12-15 km",
+        "source_weighted_tau_nu": 0.9106683079927295,
+        "source_weighted_tau_compton": 0.1448781226675551,
+        "source_weighted_tau_total": 1.0555464306602906,
+        "escape_weighted_tau_nu": 0.7839838311773186,
+        "escape_weighted_tau_compton": 0.136803046652953,
+        "escape_weighted_tau_total": 0.9207868778302725
+      },
+      {
+        "path_shell": "15-18 km",
+        "source_weighted_tau_nu": 0.8916119596205351,
+        "source_weighted_tau_compton": 0.0008729591566169288,
+        "source_weighted_tau_total": 0.8924849187771634,
+        "escape_weighted_tau_nu": 0.7785279085546697,
+        "escape_weighted_tau_compton": 0.0008423843082036176,
+        "escape_weighted_tau_total": 0.7793702928628723
+      },
+      {
+        "path_shell": "18-20 km",
+        "source_weighted_tau_nu": 0.5888485100158487,
+        "source_weighted_tau_compton": 3.850359964369749e-9,
+        "source_weighted_tau_total": 0.5888485138662072,
+        "escape_weighted_tau_nu": 0.5160966802490672,
+        "escape_weighted_tau_compton": 3.783245617902063e-9,
+        "escape_weighted_tau_total": 0.5160966840323135
+      },
+      {
+        "path_shell": "20-22 km",
+        "source_weighted_tau_nu": 0.5764792370078882,
+        "source_weighted_tau_compton": 1.2806541012679874e-12,
+        "source_weighted_tau_total": 0.5764792370091721,
+        "escape_weighted_tau_nu": 0.5093073294230497,
+        "escape_weighted_tau_compton": 1.2757357378002685e-12,
+        "escape_weighted_tau_total": 0.5093073294243319
+      },
+      {
+        "path_shell": "22-24 km",
+        "source_weighted_tau_nu": 0.5772661219280185,
+        "source_weighted_tau_compton": 9.789607390639e-16,
+        "source_weighted_tau_total": 0.5772661219280193,
+        "escape_weighted_tau_nu": 0.5062870717205159,
+        "escape_weighted_tau_compton": 9.36573650340364e-16,
+        "escape_weighted_tau_total": 0.5062870717205166
+      },
+      {
+        "path_shell": "24-25 km",
+        "source_weighted_tau_nu": 0.2852311332922156,
+        "source_weighted_tau_compton": 1.5812880008941406e-17,
+        "source_weighted_tau_total": 0.2852311332922156,
+        "escape_weighted_tau_nu": 0.2524545454865934,
+        "escape_weighted_tau_compton": 1.5807494176492123e-17,
+        "escape_weighted_tau_total": 0.2524545454865934
+      }
+    ],
+    "chi_quadrature_convergence": [
+      {
+        "radius_km": 5.010307101222358,
+        "T_MeV": 25.39612330637717,
+        "mu_mu_MeV": 56.20650143016082,
+        "chi_512": 3480.106135152549,
+        "chi_1024": 3480.1061351525473,
+        "relative_difference": -5.551115123125783e-16
+      },
+      {
+        "radius_km": 8.923473478866503,
+        "T_MeV": 37.87722643077686,
+        "mu_mu_MeV": 100.66556331392874,
+        "chi_512": 35087.73209460811,
+        "chi_1024": 35087.73209460805,
+        "relative_difference": -1.6653345369377348e-15
+      },
+      {
+        "radius_km": 12.939440866926871,
+        "T_MeV": 22.01196635562944,
+        "mu_mu_MeV": 86.50133275004116,
+        "chi_512": 6875.7487536608505,
+        "chi_1024": 6875.748753660849,
+        "relative_difference": -2.220446049250313e-16
+      },
+      {
+        "radius_km": 18.006871400814905,
+        "T_MeV": 5.911353600017438,
+        "mu_mu_MeV": 23.352683804530106,
+        "chi_512": 0.001970767215165198,
+        "chi_1024": 0.001970767215165197,
+        "relative_difference": -6.661338147750939e-16
+      },
+      {
+        "radius_km": 21.993128599185095,
+        "T_MeV": 3.5527008673225065,
+        "mu_mu_MeV": 5.617247921957036,
+        "chi_512": 5.794361047758758e-10,
+        "chi_1024": 5.794361047758744e-10,
+        "relative_difference": -2.3314683517128287e-15
+      }
+    ],
+    "checks": {
+      "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+      "profile_blob_sha": "e41df78c8035540760fbcb7ef592cd830171822e",
+      "fig7_blob_sha": "372e8bc335c3815d725cadbbf88308cf454a6547",
+      "baseline_blob_sha": "7c92e605bad15f24ff7041938af5cbd9df6bb031",
+      "node_counts_match": true,
+      "source_luminosity_relative_residual_vs_baseline": -8.737455203799982e-14,
+      "escaped_luminosity_relative_residual_vs_baseline": -9.227063557659676e-13,
+      "escape_probability_absolute_residual": -2.7164685431624314e-16,
+      "channel_opacity_additivity_exact_by_construction": true,
+      "path_shell_label_audit": "Corrected labels to match the radial edges used for path-node binning; optical-depth values unchanged."
+    },
+    "execution": {
+      "engine": "OpenAI Code Mode V8 JavaScript binary64",
+      "elapsed_seconds": 117.507,
+      "qualification": "same source/opacity/energy/angle/path node counts and formulas as archived V8 cross-check; independently regenerated V8 nodes are not bitwise-identical to NumPy grid"
+    }
+  }
+}

@@ -1,0 +1,79 @@
+name: B.16 muon- and tau-neutrino opacity decomposition
+
+on:
+  push:
+    branches:
+      - research/moving-muon-thermal-rates-20261107
+    paths:
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_neutrino_flavour_opacity.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_neutrino_flavour_opacity.py'
+      - '.github/workflows/b16-neutrino-flavour-opacity.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: b16-neutrino-flavour-opacity-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Check out research head
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy
+      - name: Run flavor-split rate and shell-column tests
+        run: |
+          python -m unittest discover \
+            -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
+            -p 'test_b16_neutrino_flavour_opacity.py' -v
+      - name: Run 10 MeV muon/tau neutrino opacity decomposition
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_neutrino_flavour_opacity.py \
+            --mass 10 --nr 40 --ne 100 --na 16 --ns 32 \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_neutrino_flavour_opacity_10mev_2026-11-08.json
+      - name: Verify PR #56 production outputs remain unchanged
+        run: |
+          git diff --exit-code -- \
+            research/stellar-cooling-constraints-20261105/rates.py \
+            research/stellar-cooling-constraints-20261105/transport.py \
+            research/stellar-cooling-constraints-20261105/outputs/axial.json \
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.pdf \
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.png
+      - name: Archive flavor-resolved opacity output
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_neutrino_flavour_opacity_10mev_2026-11-08.json
+          if git diff --cached --quiet; then
+            echo "B.16 flavor-resolved opacity output is already current."
+          else
+            git commit -m "Archive B.16 neutrino flavor opacity audit"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin "${GITHUB_REF_NAME}"
+              git rebase "origin/${GITHUB_REF_NAME}"
+              if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+                exit 0
+              fi
+              echo "Push raced with another research workflow; retry ${attempt}/5."
+              sleep 2
+            done
+            echo "Could not archive flavor-resolved opacity output after five retries."
+            exit 1
+          fi

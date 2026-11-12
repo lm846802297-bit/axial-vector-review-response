@@ -1,0 +1,115 @@
+name: B.16 global 10 MeV polarization-resolved transport diagnostic
+
+on:
+  push:
+    branches:
+      - research/moving-muon-thermal-rates-20261107
+    paths:
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_global_polarization_transport.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_global_redshift.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py'
+      - 'research/stellar-cooling-constraints-20261105/rates.py'
+      - 'research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv'
+      - 'research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json'
+      - '.github/workflows/b16-global-polarization-transport.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: b16-global-polarization-transport-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  global-polarization-audit:
+    if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - name: Check out research branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy
+      - name: Compile diagnostic and run relevant regressions
+        run: |
+          python -m py_compile \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_global_polarization_transport.py \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_global_redshift.py
+          python -m unittest discover \
+            -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
+            -p 'test_b16_global_redshift.py' -v
+      - name: Run 10 MeV full-path polarization-resolved transport
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_global_polarization_transport.py \
+            --mass 10 --nr 200 --opacity-order 640 --ne 200 \
+            --na 32 --ns 64 --neutrino-order 48 \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_polarization_transport_10mev_2026-11-09.json
+      - name: Validate closure, grid identities, and unchanged axial outputs
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path("research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_polarization_transport_10mev_2026-11-09.json")
+          d = json.loads(p.read_text())
+          c = d["configuration"]
+          s = d["source"]
+          o = d["opacity"]
+          assert d["mass_MeV"] == 10.0
+          assert (c["source_radial_order"], c["opacity_order"], c["energy_order"], c["angular_order"], c["path_order"]) == (200, 640, 200, 32, 64)
+          assert c["opacity_grid_node_count"] == 642
+          assert s["source_mode_sum_closure_residual"] < 1e-10
+          assert s["source_channel_closure_residual"] < 1e-10
+          assert o["total_reduced_opacity_closure_residual"] < 1e-10
+          assert d["metrics_vs_fig7"]["literal_scalar"]["strong_absorption_relative_difference"] > 0.5
+          assert len(d["points"]) == 25
+          print(json.dumps({
+              "source": s,
+              "opacity": o,
+              "metrics": {k:{kk:vv for kk,vv in x.items() if kk!="relative_differences"} for k,x in d["metrics_vs_fig7"].items()},
+              "strong_endpoint": d["points"][-1]
+          }, indent=2))
+          PY
+          git diff --exit-code -- \
+            research/stellar-cooling-constraints-20261105/rates.py \
+            research/stellar-cooling-constraints-20261105/transport.py \
+            research/stellar-cooling-constraints-20261105/outputs/axial.json \
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.pdf \
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.png
+      - name: Archive result
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_polarization_transport_10mev_2026-11-09.json
+          if git diff --cached --quiet; then
+            echo "Identical polarization-resolved result is already archived."
+            exit 0
+          fi
+          git commit -m "Archive global 10 MeV polarization-resolved B.16 diagnostic"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin "${GITHUB_REF_NAME}"
+            if ! git rebase "origin/${GITHUB_REF_NAME}"; then
+              git rebase --abort || true
+              echo "Rebase raced with another research workflow; retry ${attempt}/5."
+              sleep 2
+              continue
+            fi
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              exit 0
+            fi
+            echo "Push raced with another research workflow; retry ${attempt}/5."
+            sleep 2
+          done
+          echo "Could not archive diagnostic after five retries."
+          exit 1
