@@ -1,0 +1,81 @@
+{
+  "title": "C4-C4 energy-dependent combined quadrature convergence",
+  "date": "2026-11-12",
+  "stage": "C4-C4-Aq all five newly computed energies, all four radii and all channels",
+  "source_commit": "92e3502108484818593b9b1d535550a671efcacd",
+  "physical_validation_status": "not a transport or literature-reproduction acceptance",
+  "energy_grid_MeV": [
+    10.0,
+    20.0,
+    40.0,
+    60.0,
+    150.0
+  ],
+  "radii_km": [
+    0.2,
+    5.0,
+    10.0,
+    15.2
+  ],
+  "species": [
+    "n",
+    "p"
+  ],
+  "incoming_states": [
+    "nu",
+    "antinu"
+  ],
+  "case_count": 80,
+  "base_quadrature": {
+    "cosine": 8,
+    "Eprime": 48,
+    "initial_momentum": 36,
+    "azimuth": 12
+  },
+  "combined_high_quadrature": {
+    "cosine": 12,
+    "Eprime": 72,
+    "initial_momentum": 48,
+    "azimuth": 16
+  },
+  "relative_tolerance": 0.01,
+  "base_scan_git_blob_sha": "8be3757cf28011132a82b5c2373aa3c1fa59d342",
+  "C4B2_kernel_git_blob_sha": "97a2706e978cd22f7ebc08c1f87ce6abd97ad0a7",
+  "C4C1_support_git_blob_sha": "8f7291be8738e0273353a8c30039c6be1ed8e6a9",
+  "C4C2_integrator_git_blob_sha": "2912788345e482e52308e02e6cbbc87c734a18b0",
+  "profile_sha256": "97d6a88a95d0a636ac359ae981b1b06ec33b88b0f106bfb88d203cb0f9fbbc59",
+  "C2_occupation_git_blob_sha": "c472040a4551e68ffadbf7addf9402663f99e7e3",
+  "acceptance": {
+    "exact_80_case_grid": true,
+    "sixteen_cases_per_energy": true,
+    "base_and_high_rates_positive_finite": true,
+    "support_root_residual_below_1e_7": true,
+    "combined_quadrature_difference_below_1_percent": true,
+    "base_scan_blob_sha_matches": true
+  },
+  "numerical_integrity_pass": true,
+  "quadrature_convergence_pass": true,
+  "max_relative_difference": 8.306897585774742e-05,
+  "max_support_root_relative_residual": 5.06778396513958e-13,
+  "max_relative_difference_by_energy": {
+    "10.0": 4.798065197175738e-05,
+    "20.0": 8.306897585774742e-05,
+    "40.0": 5.742099408778678e-05,
+    "60.0": 2.2414994673924937e-05,
+    "150.0": 3.208624122752468e-05
+  },
+  "case_counts_by_energy": {
+    "10.0": 16,
+    "20.0": 16,
+    "40.0": 16,
+    "60.0": 16,
+    "150.0": 16
+  },
+  "interpretation": [
+    "This is a combined high-order comparison: cosine, outgoing-energy, initial-momentum, and azimuthal orders are all increased simultaneously.",
+    "A pass establishes stability under this combined order increase; it does not isolate the contribution of each quadrature dimension.",
+    "If the 1% threshold is exceeded, the archive is still retained and the responsible quadrature dimensions must be isolated in a follow-up.",
+    "The comparison covers all 80 newly computed C4-C4-A cases; the 100-MeV C4-C2 reference is separately covered by the earlier C4-C2 convergence audit.",
+    "No radial optical depth, transport solution, redshift, escape probability, hydrodynamic feedback, or supernova exclusion is inferred."
+  ]
+}
