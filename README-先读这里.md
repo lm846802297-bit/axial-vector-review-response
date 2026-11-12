@@ -23,7 +23,7 @@
 
 - **正式回复信、PDF 与参考文献归档：** [回复信归档说明](archive/reply-letter/README.md)；最新 [2026-11-04-r2 源码快照清单](archive/reply-letter/snapshots/2026-11-04-r2/manifest.md) 包含回复信 TeX、两份 BibTeX 数据库和根目录 `JHEP.bst`。唯一可编辑的正式 TeX 仍在仓库根目录；快照使用 `.snapshot` 后缀，不作为第二份工作稿。2026-11-04-r2 引用核查记录为 72 次引用、34 个唯一键，全部有对应 BibTeX 条目。仓库根目录保留了 [2026-11-04 编译版 PDF](Replies_to_Referee_3_referee_facing_2026-11-04.pdf)，但该 PDF 对应 2026-11-04-r2 源码包，早于 PR #49 和 PR #50 的 TeX 修改；目前它是历史编译件，不是当前 main TeX 的同步 PDF。编译提交、源码哈希、48 页检查记录及剩余 NA64 表格 overfull 警告见 r2 manifest。
 
-- **2026-11-04 Major 4.4 文献调查：** [轴矢量 stellar-cooling / SN1987A 文献适用性调查](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-04/Major4.4-轴矢量stellar-cooling文献适用性调查_2026-11-04.md)。区分一般轴矢量恒星冷却讨论、轴矢量核子耦合 SN 文献、常规矢量型 \(L_\mu-L_\tau\) 超新星计算，以及本文完全相同的中微子 coalescence 子过程；不将矢量模型完整曲线直接作为轴矢量 UV 模型排除。相关部分计算继续见 [PR #30](https://github.com/lm846802297-bit/axial-vector-review-response/pull/30)。
+- **2026-11-04 Major 4.4 文献调查：** [轴矢量 stellar-cooling / SN1987A 文献适用性调查](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-04/Major4.4-轴矢量stellar-cooling文献适用性调查_2026-11-04.md)。区分一般轴矢量恒星冷却讨论、轴矢量核子耦合 SN 文献、常规矢量型 \(L_\mu-L_\tau\) 超新星计算，以及本文完全相同的中微子 coalescence 子过程；不将矢量模型完整曲线直接作为轴矢量 UV 模型排除。原论文单 VEV 模型的后续计算见 [PR #53](https://github.com/lm846802297-bit/axial-vector-review-response/pull/53)；该研究仍为独立 Draft，不构成已完成的超新星排除。
 
 - **2026-11-04 Major 4.2 新修订：** [动能混合与暗光子限制对照](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-04/Major4.2-暗光子限制与论文修改对照_2026-11-04.md) 及[验证记录](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-04/Major4.2-验证记录_2026-11-04.md)，记录显式匹配边界 epsilon_ind(mu_match)=0、10/100/200/300 MeV 的 NA64 质量依赖视觉读取区间、300 MeV dimuon 分支比，以及 epsilon_eff=|epsilon|sqrt(Br_inv) 的 leading-yield 比较。
 
@@ -33,8 +33,10 @@
 
 - **2026-11-05 回复信解析论证一致性修订 / [PR #50（已合并）](https://github.com/lm846802297-bit/axial-vector-review-response/pull/50)：** [审查与修订记录](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-05/回复信解析论证完整性审查与修订记录_2026-11-05.md)。修正 Minor 6.1 的 \(g_X\) 上限；补充 Major 4.4 的 Kahn et al. 轴矢量恒星冷却引用、轴矢量流散度和 Goldstone 等效纵向耦合，并限定 kinetic-mixing 比较的电磁过程适用范围。复核后已撤销最初拟议的 Major 1.3 三处文字精简，恢复 main 原有表述；PR #50 不修改 Major 1.3。未修改论文正文，也未开展新的 SN 输运计算。完整 PDF 尚未按当前 TeX 重编译。
 
-- **2026-11-05 PR #30 清洁迁移 / [PR #51（Draft）](https://github.com/lm846802297-bit/axial-vector-review-response/pull/51)：** 新分支直接从当前 main 创建，未继承旧 PR #30 的历史；双 VEV Goldstone 映射、半康普顿矩阵元、宽度与局部热率脚本已做本地验收。完整介质 T/L opacity 和 SN transport 仍未完成。旧 PR #30 已关闭并由 #51 替代，旧分支保留历史溯源。
-- **[PR #32（Draft）](https://github.com/lm846802297-bit/axial-vector-review-response/pull/32)：** 标量来源台账、重铸协议和质量分类框架值得保留；宽度公式仍需按双 VEV 质量本征态和 sA'A' 耦合重推，Belle II 补充数据/benchmark 尚未复现。未修改正式回复信或论文正文。详见 [PROJECT_STATUS](PROJECT_STATUS.md) 与两份 PR 的审查记录。
+- **模型一致性边界：** Major Point 3/4.1 的额外中微子完成机制只用于对应的专门中微子回复论证，不改变原论文的 `S+VLL` 单 VEV UV 模型。其他非中微子 Major/Minor 回答及其专题 PR 均以原论文模型为基准。
+- **[PR #54（Draft）](https://github.com/lm846802297-bit/axial-vector-review-response/pull/54)：** 修正正式回复信与项目规范，明确 Major 3/4.1 的中微子完成机制只属于对应问题的回复论证；其他非中微子回答仍以原论文单 VEV 模型和原始规范流为基准。
+- **2026-11-05 PR #30/#51 清洁替代 / [PR #53（Draft）](https://github.com/lm846802297-bit/axial-vector-review-response/pull/53)：** 旧 #30 和错误采用双 VEV 映射的 #51 均已关闭、未合并。#53 从当前 main 创建，恢复原论文单 VEV 映射；半康普顿振幅和均匀局部热率计算保留。完整介质 T/L opacity 和 SN transport 仍未完成。
+- **2026-11-05 PR #32 替代 / [PR #52（Draft）](https://github.com/lm846802297-bit/axial-vector-review-response/pull/52)：** 旧 #32 已关闭、未合并。#52 从当前 main 创建，严格使用原论文单 VEV 标量模型；保留 Belle II 来源台账、重铸协议、部分宽度框架和逐点分类规则。Belle II 数值数据提取、实验 benchmark 复现和 UV 重铸尚未完成；这些是独立后续研究，不是当前 Major Point 1 回复的前置条件。
 
 日常推进使用 **[精简执行手册 v5.6](审稿意见-gpt/当前执行/审稿意见分析与执行手册_v5.6-主分析全任务映射与原子步骤版-20261019.md)** 的任务 ID、依赖和验收条件；其 §0.1 是 2026-10-27 历史状态快照，不再作为当前状态源。物理推导使用 **[v5.7 Markdown 技术参考](审稿意见-gpt/审稿意见分析v5.7-物理校核与专题连续阅读版.md)** 的相关章节。v5.7.1 LaTeX 仅用于查阅尚未回收到 Markdown 的历史细节。
 
@@ -43,7 +45,7 @@
 - [主分析 v4.1](审稿意见-gpt/当前执行/审稿意见分析-gpt-v4.1-公式复核与PMNS方案建议-主题整合重构版-原文恢复修正版-20261019.md)
 
 - **当前任务状态：** 以根目录 [PROJECT_STATUS.md](PROJECT_STATUS.md) 为最新状态入口；v5.6 §0.1 仅保留 2026-10-27 的历史快照。专题研究记录和局部测试必须按实际证据判断，不能自动关闭整个任务。
-- **当前模型路线：** 见[研究决策与不可回退事项（动态登记表）](审稿意见-gpt/项目规范/研究决策与不可回退事项.md)。2026-11-04 作者已选择用双单态 type-I seesaw 完成中微子扇区：保留 S，补入 sigma+3N_R。原 Route B 的“不新增粒子”范围选择已被替代，历史保留；S-only 的 PMNS 分块结论仍成立。正文同步详见 [Major 3 修改对照](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-04/Major3-中微子完成机制与论文修改对照_2026-11-04.md)；中心值树级重构方法和 JSON 输出可按验证记录复跑。
+- **当前模型基准与统一原则：** 原论文 \(S+\mathrm{VLL}\) 单 VEV UV 模型是所有非中微子审稿问题、推导和专题研究的默认基准。Major Point 3/4.1 可以在各自的中微子问题范围内讨论 \(\sigma+3N_R\) 等可选完成机制，但这不改变原论文场内容，也不得用于其他问题。执行时必须遵守 [DEC-15 统一模型适用范围与审稿一致性原则](审稿意见-gpt/项目规范/研究决策与不可回退事项.md) 和 [审稿回复写作原则 §2.1](审稿意见-gpt/写作规范/审稿回复写作原则.md)。Major 3 的扩展模型分析仅作回复论证/历史研究记录，不是论文已经加入该机制的证据；正文修改必须以实际选定源码为准。
 
 
 ## 面向研究者的阅读版
