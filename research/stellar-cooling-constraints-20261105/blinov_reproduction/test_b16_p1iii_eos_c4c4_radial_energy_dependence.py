@@ -24,6 +24,18 @@ class C4C4BRadialEnergyDependenceTests(unittest.TestCase):
         self.assertTrue({0, 96, 142, 143, 196, 300}.issubset(sample))
         self.assertEqual(len(sample), 17)
 
+    def test_imported_kernel_source_pins_match(self):
+        pins = c4c4.validate_kernel_source_pins()
+        self.assertEqual(
+            pins["C4-B2 effective-mass kernel"], c4c4.EXPECTED_C4B2_GIT_BLOB
+        )
+        self.assertEqual(
+            pins["C4-C1 outgoing-energy support"], c4c4.EXPECTED_C4C1_GIT_BLOB
+        )
+        self.assertEqual(
+            pins["C4-C2 full-angle integrator"], c4c4.EXPECTED_C4C2_GIT_BLOB
+        )
+
     def test_kernel_source_blob_pin_rejects_mismatch(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "changed_kernel.py"
