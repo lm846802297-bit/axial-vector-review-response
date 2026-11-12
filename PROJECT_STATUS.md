@@ -14,7 +14,7 @@
 
 ## Active branch synchronization after PR #56 merge
 
-The PR #56 squash merge advanced main from `310a24a53e8448f0388072cfdbf55749fde713f9` to `293d047013cce0dc3fbc44b2cd679f2df0f253dd`. The following still-active branches are being merged with the latest main while preserving their branch-specific research commits and data:
+The PR #56 squash merge advanced main from `310a24a53e8448f0388072cfdbf55749fde713f9` to `293d047013cce0dc3fbc44b2cd679f2df0f253dd`. The following eight active research/data branches have now been merged with the latest main using two-parent merge commits. Their branch-specific commits and non-overlapping files were retained; final GitHub comparisons after propagating this status record are required to remain at `behind_by=0`:
 
 - `research/stellar-cooling-original-uv-model-20261105` (PR #53)
 - `research/major1-scalar-pole-belleii-20261109` (PR #68)
@@ -24,6 +24,20 @@ The PR #56 squash merge advanced main from `310a24a53e8448f0388072cfdbf55749fde7
 - `transfer/p1iii-eos-latest-source-20261111`
 - `transfer/pr57-source-bundle-20261110`
 - `transfer/sfho-frdm-release-transfer-20261111`
+
+Final synchronization record (2026-11-12):
+| Active branch | Retained branch-only files | Final behind target |
+|---|---:|---:|
+| PR #53 original-UV axial cooling | 9 | 0 |
+| PR #68 Belle II scalar | 62 | 0 |
+| PR #69 Higgs–singlet mixing | 121 | 0 |
+| C4-C4 energy dependence | 0 | 0 |
+| moving-muon thermal rates | 1 | 0 |
+| P1-III EOS transfer | 1 | 0 |
+| PR57 source bundle | 0 | 0 |
+| SFHo/FRDM transfer | 0 | 0 |
+
+For the branches with zero branch-only files, the branch-specific history is still retained as a parent of the merge commit; their resulting file tree is the main tree. The PR #56 closed source branch remains available for provenance and is not counted as an active research branch. No research branch or data archive was deleted.
 
 The merged PR #56 source branch is retained as historical provenance, not treated as an open research PR. No branch is deleted by this synchronization. The final GitHub `main...head` comparison must show `behind_by=0` for every active branch above.
 
