@@ -56,7 +56,10 @@ def _spin_summed_axial_matrix_element(p_in, k_gamma, p_out, q_vector,
     """Covariant spin trace for one fixed outgoing-vector polarization."""
     mass = rates.M_MU
     den_s = 2.0*_minkowski_dot(p_in, k_gamma)
-    den_u = -2.0*_minkowski_dot(p_in, q_vector)
+    # The u-channel internal muon carries p_in-q_A'. Since q_A'^2=m_A'^2,
+    # its denominator is m_A'^2-2 p_in.q_A', not the massless-Compton
+    # expression -2 p_in.q_A'.
+    den_u = float(q_vector @ rates._METRIC @ q_vector)-2.0*_minkowski_dot(p_in,q_vector)
     prop_s = (
         rates._slash(p_in+k_gamma)+mass*rates._I4
     )/den_s
@@ -169,10 +172,12 @@ class MovingComptonMatrixElementTests(unittest.TestCase):
         self.assertGreater(abs(float(q_b[0])-omega),1e-3)
 
         rest = moving_muon_compton_rates(
-            mass,omega,temperature,mu_mu,0.0,-1.0,orders=(4,4,4,4)
+            mass,omega,temperature,mu_mu,0.0,-1.0,
+            radial_order=8,angular_order=4,azimuth_order=4,chunk_size=64
         )
         boosted_frame_reconstructed = moving_muon_compton_rates(
-            mass,omega_medium,temperature,mu_mu,0.0,-1.0,orders=(4,4,4,4)
+            mass,omega_medium,temperature,mu_mu,0.0,-1.0,
+            radial_order=8,angular_order=4,azimuth_order=4,chunk_size=64
         )
         np.testing.assert_allclose(
             boosted_frame_reconstructed["production"],rest["production"],
@@ -363,7 +368,7 @@ class MovingComptonThermalRateTests(unittest.TestCase):
         mu_mu = rates.M_MU-5.0*temperature
         out = moving_muon_compton_rates(
             10.0,15.0,temperature,mu_mu,0.0,-1.0,
-            radial_order=4,angular_order=4,azimuth_order=4,chunk_size=512
+            radial_order=8,angular_order=4,azimuth_order=4,chunk_size=64
         )
         normalization = out["unpolarized_normalization"]
         self.assertGreater(normalization["Eq_5_12_expected_log_ratio"],700.0)
