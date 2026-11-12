@@ -185,6 +185,18 @@ class MovingComptonThermalRateTests(unittest.TestCase):
             out["charge_contributions"]["mu_plus"]["Gamma_abs_by_mode"] > 0.0
         ))
 
+    def test_unpolarized_normalization_matches_paper_eq_5_12(self):
+        out = self._run(0.15, -0.85, mu_mu=45.0)
+        normalization = out["unpolarized_normalization"]
+        self.assertEqual(normalization["initial_photon_polarization_average"], 2)
+        self.assertEqual(normalization["initial_vector_polarization_average"], 3)
+        self.assertAlmostEqual(
+            normalization["Gamma_abs_over_Gamma_prod"],
+            normalization["Eq_5_12_expected_ratio"],
+            delta=3e-10,
+        )
+        self.assertLess(normalization["Eq_5_12_relative_residual"], 3e-10)
+
     def test_pure_axial_mode_resolved_rates_are_positive_and_balance(self):
         out = self._run(0.0, -1.0, mu_mu=45.0)
         expected = np.exp(-25.0/20.0)*out["Gamma_abs_by_mode"]
