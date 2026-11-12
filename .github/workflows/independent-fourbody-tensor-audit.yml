@@ -1,0 +1,64 @@
+name: Independent double-virtual four-body tensor audit
+
+on:
+  push:
+    branches:
+      - research/major1-scalar-pole-belleii-20261109
+    paths:
+      - "research/radial-scalar-collider-recast-2026-10-28/independent_fourbody_tensor_audit.py"
+      - "research/radial-scalar-collider-recast-2026-10-28/test_independent_fourbody_tensor_audit.py"
+      - ".github/workflows/independent-fourbody-tensor-audit.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: independent-fourbody-tensor-audit
+  cancel-in-progress: false
+
+jobs:
+  independent-fourbody-tensor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out PR branch
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy==2.3.5 scipy==1.17.0
+      - name: Run independent tensor tests
+        working-directory: research/radial-scalar-collider-recast-2026-10-28
+        run: |
+          set -o pipefail
+          python -m unittest test_independent_fourbody_tensor_audit.py -v 2>&1 | tee independent_fourbody_tensor_tests.txt
+      - name: Recompute tensor and quadrature convergence audit
+        working-directory: research/radial-scalar-collider-recast-2026-10-28
+        run: |
+          python independent_fourbody_tensor_audit.py \
+            --output data/derived/independent-fourbody-audit-2026-11-09/independent_fourbody_tensor_audit.json
+      - name: Hash audit outputs
+        working-directory: research/radial-scalar-collider-recast-2026-10-28
+        run: |
+          sha256sum independent_fourbody_tensor_audit.py test_independent_fourbody_tensor_audit.py \
+            data/derived/independent-fourbody-audit-2026-11-09/independent_fourbody_tensor_audit.json \
+            independent_fourbody_tensor_tests.txt \
+            > data/derived/independent-fourbody-audit-2026-11-09/SHA256SUMS.txt
+      - name: Commit audit output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+actions@users.noreply.github.com"
+          git add research/radial-scalar-collider-recast-2026-10-28/data/derived/independent-fourbody-audit-2026-11-09
+          git add research/radial-scalar-collider-recast-2026-10-28/independent_fourbody_tensor_tests.txt
+          if git diff --cached --quiet; then
+            echo "No four-body audit output changes."
+            exit 0
+          fi
+          git commit -m "Archive independent double-virtual four-body audit [audit-output]"
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"

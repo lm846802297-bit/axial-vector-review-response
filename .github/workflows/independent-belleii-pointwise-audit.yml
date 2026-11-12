@@ -1,0 +1,71 @@
+name: Independent Belle II pointwise numerical audit
+
+on:
+  push:
+    branches:
+      - research/major1-scalar-pole-belleii-20261109
+    paths:
+      - "research/radial-scalar-collider-recast-2026-10-28/independent_belleii_pointwise_audit.py"
+      - "research/radial-scalar-collider-recast-2026-10-28/test_independent_belleii_pointwise_audit.py"
+      - ".github/workflows/independent-belleii-pointwise-audit.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: independent-belleii-pointwise-audit
+  cancel-in-progress: false
+
+jobs:
+  independent-pointwise-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out exact PR branch
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Run independent audit unit tests
+        working-directory: research/radial-scalar-collider-recast-2026-10-28
+        run: |
+          set -o pipefail
+          python -m unittest test_independent_belleii_pointwise_audit.py -v 2>&1 | tee independent_belleii_pointwise_tests.txt
+
+      - name: Recompute every archived Belle II grid classification independently
+        working-directory: research/radial-scalar-collider-recast-2026-10-28
+        run: |
+          python independent_belleii_pointwise_audit.py \
+            --scan data/derived/scan-pr52-thetaR-1e-2/original_uv_width_scan.csv.gz \
+            --fourmu-limits data/raw/belleii/four-muon/S_supplemental.txt \
+            --tau-limits data/raw/belleii/tau-pair/limits.csv \
+            --fourmu-output data/derived/recast-pr52-thetaR-1e-2/belleii_4mu_bounded_width_uv_recast.csv \
+            --tau-output data/derived/recast-pr52-thetaR-1e-2/belleii_tautau_bounded_width_uv_recast.csv \
+            --output data/derived/independent-audit-2026-11-09/independent_belleii_pointwise_audit.json
+
+      - name: Hash the independent audit record
+        working-directory: research/radial-scalar-collider-recast-2026-10-28
+        run: |
+          mkdir -p data/derived/independent-audit-2026-11-09
+          cp independent_belleii_pointwise_tests.txt data/derived/independent-audit-2026-11-09/
+          sha256sum independent_belleii_pointwise_audit.py test_independent_belleii_pointwise_audit.py \
+            data/derived/independent-audit-2026-11-09/independent_belleii_pointwise_audit.json \
+            data/derived/independent-audit-2026-11-09/independent_belleii_pointwise_tests.txt \
+            > data/derived/independent-audit-2026-11-09/SHA256SUMS.txt
+
+      - name: Commit independently reproduced validation output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/radial-scalar-collider-recast-2026-10-28/data/derived/independent-audit-2026-11-09
+          if git diff --cached --quiet; then
+            echo "No independent audit output changes."
+            exit 0
+          fi
+          git commit -m "Archive independent Belle II pointwise validation [audit-output]"
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"

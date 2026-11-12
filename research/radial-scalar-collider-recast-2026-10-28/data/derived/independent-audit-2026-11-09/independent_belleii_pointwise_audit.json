@@ -1,0 +1,126 @@
+{
+  "status": "PASS",
+  "method": "independent standard-library pointwise reconstruction; no production recast imports",
+  "scan_mass_grid_values": 48,
+  "scan_min_mass_GeV": 0.212,
+  "muon_pair_threshold_GeV": 0.211316751,
+  "tau_pair_threshold_GeV": 3.55372,
+  "grid_has_mass_below_muon_threshold": false,
+  "grid_has_mass_inside_Jpsi_veto": false,
+  "fourmu_limit_table": {
+    "raw_rows": 2317,
+    "unique_masses": 2317,
+    "mass_min_GeV": 0.212,
+    "mass_max_GeV": 8.999862
+  },
+  "tau_limit_table": {
+    "raw_rows": 2384,
+    "unique_masses": 2381,
+    "duplicate_rows": 3,
+    "mass_min_GeV": 3.6,
+    "mass_max_GeV": 9.99943
+  },
+  "row_comparisons": {
+    "fourmu": 70656,
+    "tautau": 19968
+  },
+  "classification_counts": {
+    "fourmu": {
+      "evaluated_not_excluded_by_this_channel_conditional": 39534,
+      "finite_width_sensitive": 8673,
+      "theoretically_inconsistent_scalar_yukawa": 1734,
+      "theoretically_inconsistent_scalar_quartic": 4948,
+      "width_interval_straddles_narrow_threshold": 933,
+      "lifetime_sensitive": 12088,
+      "excluded_under_published_narrow_prompt_benchmark_conditional": 2746
+    },
+    "tautau": {
+      "evaluated_not_excluded_by_this_channel_conditional": 11337,
+      "width_interval_straddles_narrow_threshold": 891,
+      "finite_width_sensitive": 3286,
+      "theoretically_inconsistent_scalar_quartic": 2414,
+      "lifetime_sensitive": 721,
+      "unclassified_outside_numerical_limit_grid": 1319
+    }
+  },
+  "samples": {
+    "fourmu_nearest_muon_threshold_grid_point": {
+      "ms_GeV": 0.212,
+      "mA_GeV": 0.001,
+      "gX": 1e-06,
+      "classification": "evaluated_not_excluded_by_this_channel_conditional",
+      "R_obs_min": 3.651626803896823e-06,
+      "width_ratio_upper": 2.363847234282249e-06,
+      "flight_length_upper_m": 1.7106605498388006e-05
+    },
+    "fourmu_nearest_Robs_to_one_from_not_excluded_subset": {
+      "ms_GeV": 0.2497788211142601,
+      "mA_GeV": 0.05036486330526272,
+      "gX": 0.002438354098268829,
+      "classification": "evaluated_not_excluded_by_this_channel_conditional",
+      "R_obs_min": 0.9999121685868378,
+      "width_ratio_upper": 0.001216966544987061,
+      "flight_length_upper_m": 4.2430292659779784e-09
+    },
+    "fourmu_nearest_narrow_width_boundary": {
+      "ms_GeV": 1.9400034131688582,
+      "mA_GeV": 0.7453159674382293,
+      "gX": 0.032819278725114705,
+      "classification": "evaluated_not_excluded_by_this_channel_conditional",
+      "R_obs_min": 0.021468591756574368,
+      "width_ratio_upper": 0.09998988452804404,
+      "flight_length_upper_m": 2.798554107846372e-12
+    },
+    "fourmu_nearest_5mm_prompt_proxy_boundary": {
+      "ms_GeV": 1.0067542962822407,
+      "mA_GeV": 6.757518355386224,
+      "gX": 8.619535664753033e-05,
+      "classification": "evaluated_not_excluded_by_this_channel_conditional",
+      "R_obs_min": 3.5216046596027807e-07,
+      "width_ratio_upper": 1.112883645138057e-10,
+      "flight_length_upper_m": 0.004997298837918152
+    },
+    "tau_nearest_threshold_grid_point": {
+      "ms_GeV": 3.73836323023915,
+      "mA_GeV": 0.001,
+      "gX": 1e-06,
+      "classification": "evaluated_not_excluded_by_this_channel_conditional",
+      "R_obs_min": 1.5759173057079455e-06,
+      "width_ratio_upper": 0.0002141552158706019,
+      "flight_length_upper_m": 1.5947832353650006e-10
+    },
+    "tau_nearest_6GeV_grid_point": {
+      "ms_GeV": 6.114215591749405,
+      "mA_GeV": 0.001,
+      "gX": 1e-06,
+      "classification": "evaluated_not_excluded_by_this_channel_conditional",
+      "R_obs_min": 1.0569361905506298e-06,
+      "width_ratio_upper": 0.0010760951429383968,
+      "flight_length_upper_m": 1.6884168848538386e-11
+    },
+    "tau_highest_mass_with_published_limit": {
+      "ms_GeV": 9.212767787782825,
+      "mA_GeV": 0.001,
+      "gX": 1e-06,
+      "classification": "evaluated_not_excluded_by_this_channel_conditional",
+      "R_obs_min": 7.723173622587597e-09,
+      "width_ratio_upper": 0.03476411167480676,
+      "flight_length_upper_m": 2.4125794115905887e-12
+    }
+  },
+  "boundary_tests": {
+    "muon_channel_below_threshold_weight": 0.0,
+    "muon_channel_above_threshold_weight": 3.2505130763099324e-13,
+    "tau_reference_BR_at_threshold": 0.0,
+    "tau_reference_BR_just_above_threshold": 1.2003725420365707e-10,
+    "Jpsi_veto_at_3p095_GeV": true,
+    "Jpsi_veto_just_below": false,
+    "Jpsi_veto_just_above": false
+  },
+  "interpretation": [
+    "The archived 2,746 four-muon points are reproduced as conditional narrow/prompt pointwise exclusions.",
+    "No grid point lies below the muon threshold or inside the J/psi veto; those boundaries are checked analytically, while the nearest available grid points are reported.",
+    "The 0.10 width and 5 mm flight-length values remain internal conservative proxies, not Belle II selection cuts.",
+    "Finite-width and lifetime-sensitive points remain unclassified; no detector-level CLs result is inferred."
+  ]
+}

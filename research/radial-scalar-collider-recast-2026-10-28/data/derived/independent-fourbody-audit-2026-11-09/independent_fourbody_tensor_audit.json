@@ -1,0 +1,289 @@
+{
+  "status": "PASS",
+  "method": "independent SciPy roots_legendre quadrature plus explicit 4x4 Lorentz tensors",
+  "pointwise_tensor_checks": {
+    "samples": 48,
+    "max_relative_difference_direct_tensor_vs_projector": 6.523221020491871e-14
+  },
+  "benchmarks": {
+    "tau_open_reference": {
+      "inputs": {
+        "ms_GeV": 4.0,
+        "mA_GeV": 5.0,
+        "gX": 0.1
+      },
+      "convergence": [
+        {
+          "diagonal_pairing_GeV": 8.93851266428515e-13,
+          "same_species_diagonal_GeV": 3.310575635091077e-13,
+          "distinct_species_GeV": 5.627937029194073e-13,
+          "identical_exchange_cauchy_upper_bound_GeV": 1.2249088299376228e-12,
+          "ratio_upper_over_diagonal": 1.3703720920281137,
+          "quadrature_order": 96
+        },
+        {
+          "diagonal_pairing_GeV": 8.937315291006148e-13,
+          "same_species_diagonal_GeV": 3.309983053175141e-13,
+          "distinct_species_GeV": 5.627332237831008e-13,
+          "identical_exchange_cauchy_upper_bound_GeV": 1.224729834418129e-12,
+          "ratio_upper_over_diagonal": 1.3703554082405556,
+          "quadrature_order": 128
+        },
+        {
+          "diagonal_pairing_GeV": 8.938173318015117e-13,
+          "same_species_diagonal_GeV": 3.310410167975549e-13,
+          "distinct_species_GeV": 5.627763150039567e-13,
+          "identical_exchange_cauchy_upper_bound_GeV": 1.2248583485990666e-12,
+          "ratio_upper_over_diagonal": 1.370367641149152,
+          "quadrature_order": 192
+        },
+        {
+          "diagonal_pairing_GeV": 8.937432662509679e-13,
+          "same_species_diagonal_GeV": 3.310042874409176e-13,
+          "distinct_species_GeV": 5.627389788100503e-13,
+          "identical_exchange_cauchy_upper_bound_GeV": 1.2247475536918854e-12,
+          "ratio_upper_over_diagonal": 1.370357237855787,
+          "quadrature_order": 256
+        },
+        {
+          "diagonal_pairing_GeV": 8.93748554890971e-13,
+          "same_species_diagonal_GeV": 3.3100688593941355e-13,
+          "distinct_species_GeV": 5.627416689515575e-13,
+          "identical_exchange_cauchy_upper_bound_GeV": 1.2247554408303846e-12,
+          "ratio_upper_over_diagonal": 1.3703579537309498,
+          "quadrature_order": 384
+        },
+        {
+          "diagonal_pairing_GeV": 8.93779466517406e-13,
+          "same_species_diagonal_GeV": 3.310222074400276e-13,
+          "distinct_species_GeV": 5.627572590773784e-13,
+          "identical_exchange_cauchy_upper_bound_GeV": 1.2248016739574337e-12,
+          "ratio_upper_over_diagonal": 1.3703622871644716,
+          "quadrature_order": 512
+        }
+      ],
+      "relative_change_128_vs_512": 5.363450223117801e-05,
+      "relative_change_384_vs_512": 3.458529491104879e-05,
+      "reference_512": {
+        "diagonal_pairing_GeV": 8.93779466517406e-13,
+        "same_species_diagonal_GeV": 3.310222074400276e-13,
+        "distinct_species_GeV": 5.627572590773784e-13,
+        "identical_exchange_cauchy_upper_bound_GeV": 1.2248016739574337e-12,
+        "ratio_upper_over_diagonal": 1.3703622871644716,
+        "quadrature_order": 512
+      }
+    },
+    "upper_fourmu_scan_mass": {
+      "inputs": {
+        "ms_GeV": 8.48750903116088,
+        "mA_GeV": 8.633168407011583,
+        "gX": 0.1
+      },
+      "convergence": [
+        {
+          "diagonal_pairing_GeV": 1.0526912269708159e-11,
+          "same_species_diagonal_GeV": 3.410714672514998e-12,
+          "distinct_species_GeV": 7.116197597193161e-12,
+          "identical_exchange_cauchy_upper_bound_GeV": 1.3937626942223156e-11,
+          "ratio_upper_over_diagonal": 1.3239995342536994,
+          "quadrature_order": 96
+        },
+        {
+          "diagonal_pairing_GeV": 1.0527142359484537e-11,
+          "same_species_diagonal_GeV": 3.4108350387726073e-12,
+          "distinct_species_GeV": 7.116307320711929e-12,
+          "identical_exchange_cauchy_upper_bound_GeV": 1.3937977398257145e-11,
+          "ratio_upper_over_diagonal": 1.3240038865532755,
+          "quadrature_order": 128
+        },
+        {
+          "diagonal_pairing_GeV": 1.0526834453021427e-11,
+          "same_species_diagonal_GeV": 3.4109745586030037e-12,
+          "distinct_species_GeV": 7.115859894418423e-12,
+          "identical_exchange_cauchy_upper_bound_GeV": 1.3937809011624432e-11,
+          "ratio_upper_over_diagonal": 1.3240266172917712,
+          "quadrature_order": 192
+        },
+        {
+          "diagonal_pairing_GeV": 1.0525524339531334e-11,
+          "same_species_diagonal_GeV": 3.4107671218794886e-12,
+          "distinct_species_GeV": 7.114757217651845e-12,
+          "identical_exchange_cauchy_upper_bound_GeV": 1.3936291461410823e-11,
+          "ratio_upper_over_diagonal": 1.3240472409597182,
+          "quadrature_order": 256
+        },
+        {
+          "diagonal_pairing_GeV": 1.0526189782664896e-11,
+          "same_species_diagonal_GeV": 3.41082158062093e-12,
+          "distinct_species_GeV": 7.115368202043966e-12,
+          "identical_exchange_cauchy_upper_bound_GeV": 1.3937011363285827e-11,
+          "ratio_upper_over_diagonal": 1.324031929030774,
+          "quadrature_order": 384
+        },
+        {
+          "diagonal_pairing_GeV": 1.0526263762455026e-11,
+          "same_species_diagonal_GeV": 3.410869373370941e-12,
+          "distinct_species_GeV": 7.115394389084085e-12,
+          "identical_exchange_cauchy_upper_bound_GeV": 1.3937133135825966e-11,
+          "ratio_upper_over_diagonal": 1.32403419203087,
+          "quadrature_order": 512
+        }
+      ],
+      "relative_change_128_vs_512": 8.34671303453436e-05,
+      "relative_change_384_vs_512": 7.028114799287701e-06,
+      "reference_512": {
+        "diagonal_pairing_GeV": 1.0526263762455026e-11,
+        "same_species_diagonal_GeV": 3.410869373370941e-12,
+        "distinct_species_GeV": 7.115394389084085e-12,
+        "identical_exchange_cauchy_upper_bound_GeV": 1.3937133135825966e-11,
+        "ratio_upper_over_diagonal": 1.32403419203087,
+        "quadrature_order": 512
+      }
+    },
+    "more_deeply_offshell": {
+      "inputs": {
+        "ms_GeV": 4.0,
+        "mA_GeV": 10.0,
+        "gX": 0.07
+      },
+      "convergence": [
+        {
+          "diagonal_pairing_GeV": 1.166315091458329e-15,
+          "same_species_diagonal_GeV": 4.3234047921699703e-16,
+          "distinct_species_GeV": 7.339746122413319e-16,
+          "identical_exchange_cauchy_upper_bound_GeV": 1.598655570675326e-15,
+          "ratio_upper_over_diagonal": 1.3706892608895338,
+          "quadrature_order": 96
+        },
+        {
+          "diagonal_pairing_GeV": 1.166144083663743e-15,
+          "same_species_diagonal_GeV": 4.322558484364063e-16,
+          "distinct_species_GeV": 7.338882352273368e-16,
+          "identical_exchange_cauchy_upper_bound_GeV": 1.5983999321001494e-15,
+          "ratio_upper_over_diagonal": 1.3706710469930634,
+          "quadrature_order": 128
+        },
+        {
+          "diagonal_pairing_GeV": 1.1662673920363874e-15,
+          "same_species_diagonal_GeV": 4.3231729392871933e-16,
+          "distinct_species_GeV": 7.33950098107668e-16,
+          "identical_exchange_cauchy_upper_bound_GeV": 1.5985846859651066e-15,
+          "ratio_upper_over_diagonal": 1.3706845418818252,
+          "quadrature_order": 192
+        },
+        {
+          "diagonal_pairing_GeV": 1.1661615556606358e-15,
+          "same_species_diagonal_GeV": 4.3226479459281793e-16,
+          "distinct_species_GeV": 7.338967610678178e-16,
+          "identical_exchange_cauchy_upper_bound_GeV": 1.5984263502534536e-15,
+          "ratio_upper_over_diagonal": 1.37067316487546,
+          "quadrature_order": 256
+        },
+        {
+          "diagonal_pairing_GeV": 1.1661689368756712e-15,
+          "same_species_diagonal_GeV": 4.322684118669022e-16,
+          "distinct_species_GeV": 7.33900525008769e-16,
+          "identical_exchange_cauchy_upper_bound_GeV": 1.5984373487425735e-15,
+          "ratio_upper_over_diagonal": 1.370673920559923,
+          "quadrature_order": 384
+        },
+        {
+          "diagonal_pairing_GeV": 1.16621309254758e-15,
+          "same_species_diagonal_GeV": 4.322902985523111e-16,
+          "distinct_species_GeV": 7.33922793995269e-16,
+          "identical_exchange_cauchy_upper_bound_GeV": 1.598503391099891e-15,
+          "ratio_upper_over_diagonal": 1.3706786532536497,
+          "quadrature_order": 512
+        }
+      ],
+      "relative_change_128_vs_512": 5.917347719550023e-05,
+      "relative_change_384_vs_512": 3.786243885532502e-05,
+      "reference_512": {
+        "diagonal_pairing_GeV": 1.16621309254758e-15,
+        "same_species_diagonal_GeV": 4.322902985523111e-16,
+        "distinct_species_GeV": 7.33922793995269e-16,
+        "identical_exchange_cauchy_upper_bound_GeV": 1.598503391099891e-15,
+        "ratio_upper_over_diagonal": 1.3706786532536497,
+        "quadrature_order": 512
+      }
+    },
+    "near_tau_pair_threshold": {
+      "inputs": {
+        "ms_GeV": 3.8,
+        "mA_GeV": 4.2,
+        "gX": 0.1
+      },
+      "convergence": [
+        {
+          "diagonal_pairing_GeV": 2.0648100006623507e-12,
+          "same_species_diagonal_GeV": 7.633002247493188e-13,
+          "distinct_species_GeV": 1.301509775913032e-12,
+          "identical_exchange_cauchy_upper_bound_GeV": 2.8281102254116697e-12,
+          "ratio_upper_over_diagonal": 1.369670925898493,
+          "quadrature_order": 96
+        },
+        {
+          "diagonal_pairing_GeV": 2.064844680718527e-12,
+          "same_species_diagonal_GeV": 7.633173261927215e-13,
+          "distinct_species_GeV": 1.3015273545258057e-12,
+          "identical_exchange_cauchy_upper_bound_GeV": 2.8281620069112486e-12,
+          "ratio_upper_over_diagonal": 1.3696729992916956,
+          "quadrature_order": 128
+        },
+        {
+          "diagonal_pairing_GeV": 2.0647018411322023e-12,
+          "same_species_diagonal_GeV": 7.632464362447012e-13,
+          "distinct_species_GeV": 1.301455404887501e-12,
+          "identical_exchange_cauchy_upper_bound_GeV": 2.827948277376903e-12,
+          "ratio_upper_over_diagonal": 1.3696642396687002,
+          "quadrature_order": 192
+        },
+        {
+          "diagonal_pairing_GeV": 2.064584068437352e-12,
+          "same_species_diagonal_GeV": 7.631880748941677e-13,
+          "distinct_species_GeV": 1.3013959935431844e-12,
+          "identical_exchange_cauchy_upper_bound_GeV": 2.82777214333152e-12,
+          "ratio_upper_over_diagonal": 1.369657059047158,
+          "quadrature_order": 256
+        },
+        {
+          "diagonal_pairing_GeV": 2.0646911257972846e-12,
+          "same_species_diagonal_GeV": 7.632410897698671e-13,
+          "distinct_species_GeV": 1.3014500360274175e-12,
+          "identical_exchange_cauchy_upper_bound_GeV": 2.8279322155671515e-12,
+          "ratio_upper_over_diagonal": 1.3696635686730818,
+          "quadrature_order": 384
+        },
+        {
+          "diagonal_pairing_GeV": 2.0646699395428856e-12,
+          "same_species_diagonal_GeV": 7.632305766556597e-13,
+          "distinct_species_GeV": 1.301439362887226e-12,
+          "identical_exchange_cauchy_upper_bound_GeV": 2.827900516198545e-12,
+          "ratio_upper_over_diagonal": 1.3696622700016825,
+          "quadrature_order": 512
+        }
+      ],
+      "relative_change_128_vs_512": 8.463395155559753e-05,
+      "relative_change_384_vs_512": 1.0261327485440139e-05,
+      "reference_512": {
+        "diagonal_pairing_GeV": 2.0646699395428856e-12,
+        "same_species_diagonal_GeV": 7.632305766556597e-13,
+        "distinct_species_GeV": 1.301439362887226e-12,
+        "identical_exchange_cauchy_upper_bound_GeV": 2.827900516198545e-12,
+        "ratio_upper_over_diagonal": 1.3696622700016825,
+        "quadrature_order": 512
+      }
+    }
+  },
+  "gX_scaling": {
+    "gX_ratio": 2.0,
+    "width_ratio": 64.0,
+    "expected_gX6_ratio": 64.0
+  },
+  "interpretation_limits": [
+    "The diagonal-pairing double-spectral integral is independently reproduced.",
+    "Identical-species exchange is still represented by a Cauchy-Schwarz upper bound, not an exact exclusive four-body amplitude.",
+    "The width term in the virtual A' propagators is omitted in this mA >= ms domain.",
+    "The 512-point result is a numerical convergence reference, not a detector-level prediction."
+  ]
+}
