@@ -139,7 +139,7 @@ def direct_vector_mediator_ward_residual(mass, photon_energy, cosine=0.3):
 
 
 def printed_low_energy_formulas(mass, photon_energy):
-    """Eq. (58a,b) as transcribed from arXiv:2610.35379v1."""
+    """Section 5.2, Eq. (5.9a,b) as printed in arXiv:2610.35379v1."""
     alpha = rates.ALPHA
     alpha_x = 1.0 / (4.0 * math.pi)  # g_X = 1
     root = math.sqrt(1.0 - (mass / photon_energy) ** 2)
@@ -234,28 +234,76 @@ def ward_checks(mass, photon_energy):
 
 def build_audit(mass=0.001, photon_energy=0.1):
     orders = (32, 64, 128, 256)
-    scans = {
+    crossed_scans = {
         str(order): exact_production_cross_sections(mass, photon_energy, order)
         for order in orders
     }
-    exact = scans[str(orders[-1])]
-    sigma_t_exact = float(exact[1] + exact[2])
-    sigma_l_exact = float(exact[0])
+    crossed = crossed_scans[str(orders[-1])]
+    crossed_t = float(crossed[1] + crossed[2])
+    crossed_l = float(crossed[0])
+
+    direct_l, direct_t = direct_spinor_production_cross_sections(
+        mass, photon_energy, order=orders[-1]
+    )
+    direct_by_mode = np.array([direct_l, direct_t / 2.0, direct_t / 2.0])
+    direct_crossed_residual = relative_difference(direct_by_mode, crossed)
+
     sigma_t_paper, sigma_l_paper, sigma_thomson = printed_low_energy_formulas(
         mass, photon_energy
     )
-    paper_factor = mass * mass + 2.0 * photon_energy * photon_energy * np.linspace(-1, 1, 401)
+    cosines = np.linspace(-1.0, 1.0, 401)
+    exact_t_dcos, exact_l_dcos = direct_spinor_differential_by_mode(
+        mass, photon_energy, cosines
+    )
+    paper_b6a_t, paper_b6b_l = printed_b6_differential_formulas(
+        mass, photon_energy, cosines
+    )
 
-    mode_convergence = relative_difference(scans["128"], scans["256"])
+    nodes, weights = np.polynomial.legendre.leggauss(512)
+    b6a_nodes, b6b_nodes = printed_b6_differential_formulas(
+        mass, photon_energy, nodes
+    )
+    b6a_integral = float(np.dot(weights, b6a_nodes))
+    b6b_integral = float(np.dot(weights, b6b_nodes))
+    phase = math.sqrt(1.0 - (mass / photon_energy) ** 2)
+
+    mode_convergence = relative_difference(
+        crossed_scans["128"], crossed_scans["256"]
+    )
     projector = medium_frame_projector_checks(mass, photon_energy)
     wards = ward_checks(mass, photon_energy)
+    direct_photon_ward = ref.ward_identity_residual(
+        photon_energy, mass, 0.3, 1.0, 0.0
+    )
+    direct_vector_ward = direct_vector_mediator_ward_residual(
+        mass, photon_energy, 0.3
+    )
+
+    sigma_t_reference = direct_t
+    sigma_l_reference = direct_l
+    paper_factor_a = mass * mass + 2.0 * photon_energy**2 * cosines
+    paper_factor_b = (
+        photon_energy**2 * (1.0 + cosines**2)
+        - cosines * (mass * mass + 2.0 * photon_energy**2)
+    )
+    max_abs_over_thomson = lambda x: float(
+        np.max(np.abs(x)) / sigma_thomson
+    )
 
     payload = {
         "title": "Independent vector semi-Compton polarization audit",
-        "source_formula": "arXiv:2610.35379v1, Eqs. (58a,b), (77), and (106a) as transcribed for this audit",
+        "source": {
+            "arxiv": "2610.35379v1",
+            "model_section": "Sec. 5.1-5.2; vector U(1)_{L_mu-L_tau} muon current",
+            "integrated_low_energy_formulas": "Eq. (5.9a,b)",
+            "medium_polarization_projector": "Eq. (A.15)",
+            "exact_semi_compton_amplitude": "Appendix B, Eqs. (B.1a,b)",
+            "printed_angular_differential_cross_sections": "Appendix B, Eqs. (B.6a,b)",
+        },
         "scope": (
-            "Exact repository Dirac trace for the inverse process, crossed to "
-            "production using CM detailed reciprocity; no stellar profile or transport."
+            "Direct explicit-Dirac-spinor production calculation in the initial-muon "
+            "rest frame, cross-checked against the independent repository trace kernel "
+            "by detailed reciprocity. No stellar profile or transport."
         ),
         "units": {"energy": "MeV", "cross_section": "MeV^-2"},
         "benchmark": {
@@ -265,62 +313,144 @@ def build_audit(mass=0.001, photon_energy=0.1):
             "g_vector": 1.0,
             "g_axial": 0.0,
             "initial_photon_polarization_average": 2,
-            "production_mode_order": ["L", "+", "-"],
+            "medium_frame_mode_order": ["L", "T1", "T2"],
         },
         "method": {
-            "exact_kernel": "rates.compton_kernels(current='vector')",
-            "crossing": "sigma_prod,h = 1/2 * (p_Aprime_CM/p_gamma_CM)^2 * sigma_abs,h",
-            "cm_momentum_ratio_squared": "lambda(s,m_mu^2,m_Aprime^2)/(s-m_mu^2)^2",
+            "direct_spinor_kernel": "reference_matrix_element.total_cross_section_lab",
+            "direct_differential_kernel": "reference_matrix_element.differential_cross_section_lab",
+            "independent_cross_check": (
+                "rates.compton_kernels(current='vector') for inverse absorption, "
+                "crossed with sigma_prod,h = 1/2 * (p_Aprime_CM/p_gamma_CM)^2 * sigma_abs,h"
+            ),
+            "projector_definition": (
+                "P_T^{ij}=delta^{ij}-qhat^i*qhat^j, P_T^{0mu}=0; "
+                "P_L=-g+q*q/m_Aprime^2-P_T"
+            ),
             "thomson_reference": "8*pi*alpha*alpha_X/(3*m_mu^2), alpha_X=g_X^2/(4*pi)",
-            "paper_formula_status": "printed Eq. (58a,b) is compared literally; labels and coefficients are not silently altered",
+            "printed_formulas": (
+                "Eq. (5.9) and Eq. (B.6) are compared with their printed T/L labels; "
+                "no label swap or coefficient adjustment is made in the input formulas."
+            ),
         },
-        "exact_sigma_production_by_mode_MeV_minus2": {
-            "L": float(exact[0]), "+": float(exact[1]), "-": float(exact[2])
+        "direct_exact_production_cross_sections_MeV_minus2": {
+            "T_sum": sigma_t_reference,
+            "L": sigma_l_reference,
+            "T1": float(direct_by_mode[1]),
+            "T2": float(direct_by_mode[2]),
         },
-        "exact_sigma_T_sum_MeV_minus2": sigma_t_exact,
-        "exact_sigma_L_MeV_minus2": sigma_l_exact,
+        "crossed_trace_production_cross_sections_MeV_minus2": {
+            "L": float(crossed[0]),
+            "T1": float(crossed[1]),
+            "T2": float(crossed[2]),
+        },
         "sigma_thomson_MeV_minus2": sigma_thomson,
         "ratios_to_thomson": {
-            "exact_T_sum": sigma_t_exact / sigma_thomson,
-            "exact_L": sigma_l_exact / sigma_thomson,
-            "paper_T_as_printed": sigma_t_paper / sigma_thomson,
-            "paper_L_as_printed": sigma_l_paper / sigma_thomson,
+            "direct_exact_T_sum": sigma_t_reference / sigma_thomson,
+            "direct_exact_L": sigma_l_reference / sigma_thomson,
+            "paper_Eq5_9a_T_as_printed": sigma_t_paper / sigma_thomson,
+            "paper_Eq5_9b_L_as_printed": sigma_l_paper / sigma_thomson,
         },
-        "printed_formula_comparison": {
-            "paper_T_over_exact_L": sigma_t_paper / sigma_l_exact,
-            "paper_L_over_exact_T_sum": sigma_l_paper / sigma_t_exact,
-            "exact_L_over_exact_T_sum": sigma_l_exact / sigma_t_exact,
+        "printed_Eq5_9_comparison": {
+            "paper_T_over_exact_L": sigma_t_paper / sigma_l_reference,
+            "paper_L_over_exact_T_sum": sigma_l_paper / sigma_t_reference,
+            "exact_L_over_exact_T_sum": sigma_l_reference / sigma_t_reference,
+            "direct_T_over_paper_L": sigma_t_reference / sigma_l_paper,
+            "direct_L_over_paper_T": sigma_l_reference / sigma_t_paper,
         },
-        "quadrature": {
-            "orders": list(orders),
-            "relative_difference_order128_to256": mode_convergence,
-            "sigma_by_order": {
-                order: [float(x) for x in scans[str(order)]]
+        "printed_EqB6_differential_comparison": {
+            "EqB6a_printed_T_negative_fraction": float(np.mean(paper_b6a_t < 0.0)),
+            "EqB6b_printed_L_negative_fraction": float(np.mean(paper_b6b_l < 0.0)),
+            "EqB6a_T_minimum_over_angular_grid_MeV_minus2": float(
+                np.min(paper_b6a_t)
+            ),
+            "EqB6b_L_minimum_over_angular_grid_MeV_minus2": float(
+                np.min(paper_b6b_l)
+            ),
+            "exact_T_minimum_over_angular_grid_MeV_minus2": float(
+                np.min(exact_t_dcos)
+            ),
+            "exact_L_minimum_over_angular_grid_MeV_minus2": float(
+                np.min(exact_l_dcos)
+            ),
+            "max_abs_exact_T_minus_printed_B6b_over_Thomson": max_abs_over_thomson(
+                exact_t_dcos - paper_b6b_l
+            ),
+            "max_abs_exact_L_minus_printed_B6a_over_Thomson": max_abs_over_thomson(
+                exact_l_dcos - paper_b6a_t
+            ),
+            "max_abs_exact_T_minus_printed_B6a_over_Thomson": max_abs_over_thomson(
+                exact_t_dcos - paper_b6a_t
+            ),
+            "max_abs_exact_L_minus_printed_B6b_over_Thomson": max_abs_over_thomson(
+                exact_l_dcos - paper_b6b_l
+            ),
+            "angular_convention": (
+                "The paper identifies theta as the scattering angle and integrates "
+                "cos(theta) over [-1,1]. The signs are evaluated on that stated range."
+            ),
+        },
+        "EqB6_integrals_and_Eq5_9_phase_factor": {
+            "numerical_integral_B6a_MeV_minus2": b6a_integral,
+            "numerical_integral_B6b_MeV_minus2": b6b_integral,
+            "Eq5_9a_over_integral_B6a": sigma_t_paper / b6a_integral,
+            "Eq5_9b_over_integral_B6b": sigma_l_paper / b6b_integral,
+            "sqrt_1_minus_m2_over_E2": phase,
+            "note": (
+                "The printed B.6 angular expressions integrate without the common "
+                "sqrt(1-m_Z'^2/E_gamma^2) factor present in Eq. (5.9)."
+            ),
+        },
+        "independent_direct_vs_crossed_trace": {
+            "max_relative_difference": direct_crossed_residual,
+            "quadrature_orders": list(orders),
+            "crossed_sigma_by_order_L_Tplus_Tminus": {
+                order: [float(x) for x in crossed_scans[str(order)]]
                 for order in orders
             },
         },
-        "eq106a_printed_angular_factor_diagnostic": {
-            "factor": "m_Aprime^2 + 2*E_gamma^2*cos(theta)",
-            "minimum_MeV2": float(np.min(paper_factor)),
-            "negative_fraction_on_uniform_cosine_grid": float(
-                np.mean(paper_factor < 0.0)
+        "medium_rest_frame_projector_checks": projector,
+        "ward_checks": {
+            **wards,
+            "direct_spinor_photon_ward_max_abs": float(direct_photon_ward),
+            "direct_spinor_vector_mediator_ward_max_abs": float(direct_vector_ward),
+        },
+        "positivity": {
+            "direct_exact_mode_cross_sections_nonnegative": bool(
+                sigma_t_reference >= 0.0 and sigma_l_reference >= 0.0
             ),
-            "convention_warning": (
-                "This sign check assumes the standard Compton scattering-angle "
-                "cos(theta) in [-1,1]; verify the source's angular convention before "
-                "classifying it as a paper error."
+            "direct_exact_differential_cross_sections_nonnegative": bool(
+                np.all(exact_t_dcos >= 0.0) and np.all(exact_l_dcos >= 0.0)
             ),
         },
-        "medium_rest_frame_projector_checks": projector,
-        "ward_checks": wards,
-        "positivity": {
-            "minimum_exact_mode_cross_section_MeV_minus2": float(np.min(exact)),
-            "all_exact_mode_cross_sections_nonnegative": bool(np.all(exact >= 0.0)),
+        "interpretation_flags": {
+            "integrated_Eq5_9_TL_hierarchy_opposite_to_conserved_vector_limit": bool(
+                sigma_t_paper < sigma_l_paper
+                and sigma_t_reference > sigma_l_reference
+            ),
+            "printed_EqB6a_has_negative_differential_region": bool(
+                np.any(paper_b6a_t < 0.0)
+            ),
+            "printed_EqB6b_has_negative_differential_region": bool(
+                np.any(paper_b6b_l < 0.0)
+            ),
+            "EqB6b_shape_tracks_exact_transverse_mode": (
+                max_abs_over_thomson(exact_t_dcos - paper_b6b_l)
+                < max_abs_over_thomson(exact_t_dcos - paper_b6a_t)
+            ),
         },
         "acceptance": {
-            "thomson_transverse_limit_pass": abs(sigma_t_exact / sigma_thomson - 1.0) < 5e-3,
-            "conserved_vector_longitudinal_suppression_pass": sigma_l_exact / sigma_t_exact < 1e-3,
-            "positive_exact_cross_sections_pass": bool(np.all(exact >= 0.0)),
+            "thomson_transverse_limit_pass": abs(
+                sigma_t_reference / sigma_thomson - 1.0
+            ) < 5e-3,
+            "conserved_vector_longitudinal_suppression_pass": (
+                sigma_l_reference / sigma_t_reference < 1e-3
+            ),
+            "positive_exact_cross_sections_pass": (
+                sigma_t_reference > 0.0 and sigma_l_reference > 0.0
+                and np.all(exact_t_dcos >= 0.0)
+                and np.all(exact_l_dcos >= 0.0)
+            ),
+            "direct_spinor_vs_crossed_trace_pass": direct_crossed_residual < 1e-3,
             "quadrature_convergence_pass": mode_convergence < 1e-5,
             "medium_frame_projectors_pass": max(
                 abs(projector["q_dot_eps_l"]),
@@ -332,12 +462,17 @@ def build_audit(mass=0.001, photon_energy=0.1):
                 abs(projector["u_contraction_p_t_max_abs"]),
                 abs(projector["completeness_max_abs_residual"]),
             ) < 1e-10,
-            "photon_ward_pass": wards["photon_ward_relative_residual"] < 2e-12,
-            "vector_mediator_ward_pass": wards["vector_mediator_ward_max_abs"] < 2e-9,
+            "photon_ward_pass": (
+                wards["photon_ward_relative_residual"] < 2e-12
+                and direct_photon_ward < 1e-7
+            ),
+            "vector_mediator_ward_pass": (
+                wards["vector_mediator_ward_max_abs"] < 2e-9
+                and direct_vector_ward < 1e-7
+            ),
         },
     }
     return payload
-
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
