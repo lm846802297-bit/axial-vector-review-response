@@ -1243,7 +1243,9 @@
         "B13_axial_vs_existing_stationary_exact_fraction": 0.043497314543559984,
         "B13_vector_vs_B16_corrected_fraction": -0.5209266532216181,
         "B13_vector_vs_B16_without_parenthesis_correction_fraction": -0.5102523462868267,
-        "B13_vector_vs_existing_stationary_exact_fraction": -0.15736764154445437
+        "B13_vector_vs_existing_stationary_exact_fraction": -0.15736764154445437,
+        "moving_muon_and_B16_approximation_factorization_residual": 0.0,
+        "stationary_exact_recoil_vs_B16_corrected_fraction": -0.43145626681549265
       }
     },
     "12.5": {
@@ -2489,7 +2491,9 @@
         "B13_axial_vs_existing_stationary_exact_fraction": 0.01997732355303361,
         "B13_vector_vs_B16_corrected_fraction": -0.5714062651716584,
         "B13_vector_vs_B16_without_parenthesis_correction_fraction": -0.5647073876855562,
-        "B13_vector_vs_existing_stationary_exact_fraction": -0.20020664622813666
+        "B13_vector_vs_existing_stationary_exact_fraction": -0.20020664622813666,
+        "moving_muon_and_B16_approximation_factorization_residual": -1.1102230246251565e-16,
+        "stationary_exact_recoil_vs_B16_corrected_fraction": -0.46411940933608264
       }
     }
   },
@@ -2497,7 +2501,7 @@
     "moving_muon_compton.py": "4da26fc3135ddb43fae7d86e57d015589756d69b75c7aec64ff886007f2b3a1b",
     "profile": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
     "rates.py": "2fc7bc2d3b0d7b98c191755cd2bb87944e4ebe259adc3d3bbc8e0f60dcc57f56",
-    "script": "35aa434145b0ad224d2cd61033c7aea8f26732282801440c23f406cf77fdfc34"
+    "script": "350403826ea69572162743e26635f649ec1ae1c7fbbbcf89b722cbfb886fd56f"
   },
   "configuration": {
     "B14_current": "pure vector only",
@@ -2551,9 +2555,10 @@
     "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
     "source": "reconstructed SFHo-18.8 t_pb=1s digitized profile"
   },
-  "run_commit_sha": "6c02a067ae2a3a66a84ce6c530b1580546481364",
+  "run_commit_sha": "80b2838b87b047d332088e47f69f2260ef3b02f4",
   "scope_limits": [
     "Local source-rate comparison only; no radial integration or escape probability.",
+    "B.14-B.16 is the published nonrelativistic-muon, negligible-recoil Thomson-limit approximation; its difference from the exact B.13 kernel is retained as a physical approximation diagnostic.",
     "B.14-B.16 is compared only to the pure-vector B.13 rate.",
     "No B.14 vector formula is assigned to the axial or UV mixed-current rates.",
     "No coupling, production, absorption, opacity, or profile rescaling is performed.",

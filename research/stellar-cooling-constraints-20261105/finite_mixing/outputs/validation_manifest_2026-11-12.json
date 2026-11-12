@@ -1,5 +1,5 @@
 {
-  "run_commit_sha": "6c02a067ae2a3a66a84ce6c530b1580546481364",
+  "run_commit_sha": "80b2838b87b047d332088e47f69f2260ef3b02f4",
   "branch": "codex/major44-axial-cooling-constraints-20261105",
   "python": "3.12.16 (main, Oct 26 2026, 02:50:49) [GCC 13.3.0]",
   "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
@@ -13,8 +13,8 @@
     "finite_mixing/thermal_integrals/audit_vector_semicompton_polarization.py": "1ec6b02e72dbe33ecf91a6b3010d5fb867198d5d575cda9397baffb9a61caeef",
     "finite_mixing/thermal_integrals/test_vector_semicompton_polarization.py": "c99d96cb6999ca10237afa806161199ce4aaba96d7d441370024b5233563b1c1",
     "finite_mixing/thermal_response_scan.py": "f229db1299cfba34d2dd32c9ec1b58b6e834f6eb49afb01c7052596596e18998",
-    "finite_mixing/b13_b16_comparison.py": "35aa434145b0ad224d2cd61033c7aea8f26732282801440c23f406cf77fdfc34",
-    "finite_mixing/b13_b16_mass_scan.py": "441f0ab77c7b3843cdba0eae5e8da9e11e34887f9c0be1ffab7d7e691020358c"
+    "finite_mixing/b13_b16_comparison.py": "350403826ea69572162743e26635f649ec1ae1c7fbbbcf89b722cbfb886fd56f",
+    "finite_mixing/b13_b16_mass_scan.py": "aac9523451675112d94dd4959121ef291f2b32311a0c7969140cbc861f400e20"
   },
   "independent_reference_sha256": {
     "research/stellar-cooling-eft-literature-20261105/reference_matrix_element.py": "315ca0d79e20b0ec1c52b5664d58fd7e65f9b30c5c7db56f48db8632ee9c9a5e"

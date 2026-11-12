@@ -1,11 +1,11 @@
 {
   "code_sha256": {
-    "comparison_kernel_script": "35aa434145b0ad224d2cd61033c7aea8f26732282801440c23f406cf77fdfc34",
-    "mass_scan_script": "441f0ab77c7b3843cdba0eae5e8da9e11e34887f9c0be1ffab7d7e691020358c",
+    "comparison_kernel_script": "350403826ea69572162743e26635f649ec1ae1c7fbbbcf89b722cbfb886fd56f",
+    "mass_scan_script": "aac9523451675112d94dd4959121ef291f2b32311a0c7969140cbc861f400e20",
     "moving_muon_compton.py": "4da26fc3135ddb43fae7d86e57d015589756d69b75c7aec64ff886007f2b3a1b",
     "profile": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
     "rates.py": "2fc7bc2d3b0d7b98c191755cd2bb87944e4ebe259adc3d3bbc8e0f60dcc57f56",
-    "reused_10MeV_output": "32a9b5aba86028e5c699094ef3c94f7f70cff7121e9395377065f51c65ca7015"
+    "reused_10MeV_output": "18786da4de942ffc0adb49e4fb4beb4b85f1750f3f34eb093526b0cda5a6a93d"
   },
   "configuration": {
     "B13_base_energy_order": 12,
@@ -387,7 +387,9 @@
           "B13_vector_vs_B16_corrected_fraction": -0.51856940740783,
           "B13_vector_vs_B16_without_parenthesis_correction_fraction": -0.5185677726509186,
           "B13_vector_vs_stationary_exact_recoil_fraction": -0.1542048598424547,
-          "B16_integrated_mass_correction_fraction": 3.3956232456944235e-06
+          "B16_integrated_mass_correction_fraction": 3.3956232456944235e-06,
+          "moving_muon_and_B16_approximation_factorization_residual": 0.0,
+          "stationary_exact_recoil_vs_B16_corrected_fraction": -0.43079527212405766
         },
         "stationary_muon_exact_recoil_vector": {
           "Q_by_mode_MeV5": [
@@ -735,7 +737,9 @@
           "B13_vector_vs_B16_corrected_fraction": -0.5698906231694321,
           "B13_vector_vs_B16_without_parenthesis_correction_fraction": -0.5698896718651997,
           "B13_vector_vs_stationary_exact_recoil_fraction": -0.19773553915553754,
-          "B16_integrated_mass_correction_fraction": 2.211772827109826e-06
+          "B16_integrated_mass_correction_fraction": 2.211772827109826e-06,
+          "moving_muon_and_B16_approximation_factorization_residual": 5.551115123125783e-17,
+          "stationary_exact_recoil_vs_B16_corrected_fraction": -0.4638808051177594
         },
         "stationary_muon_exact_recoil_vector": {
           "Q_by_mode_MeV5": [
@@ -1085,7 +1089,9 @@
           "B13_vector_vs_B16_corrected_fraction": -0.5185692846355283,
           "B13_vector_vs_B16_without_parenthesis_correction_fraction": -0.5185547148613281,
           "B13_vector_vs_stationary_exact_recoil_fraction": -0.15420916776650617,
-          "B16_integrated_mass_correction_fraction": 3.0263491163307066e-05
+          "B16_integrated_mass_correction_fraction": 3.0263491163307066e-05,
+          "moving_muon_and_B16_approximation_factorization_residual": 0.0,
+          "stationary_exact_recoil_vs_B16_corrected_fraction": -0.4307922277980365
         },
         "stationary_muon_exact_recoil_vector": {
           "Q_by_mode_MeV5": [
@@ -1433,7 +1439,9 @@
           "B13_vector_vs_B16_corrected_fraction": -0.5698911233501156,
           "B13_vector_vs_B16_without_parenthesis_correction_fraction": -0.5698826289867611,
           "B13_vector_vs_stationary_exact_recoil_fraction": -0.19773946588996683,
-          "B16_integrated_mass_correction_fraction": 1.9749332821339394e-05
+          "B16_integrated_mass_correction_fraction": 1.9749332821339394e-05,
+          "moving_muon_and_B16_approximation_factorization_residual": -5.551115123125783e-17,
+          "stationary_exact_recoil_vs_B16_corrected_fraction": -0.4638788044995701
         },
         "stationary_muon_exact_recoil_vector": {
           "Q_by_mode_MeV5": [
@@ -1783,7 +1791,9 @@
           "B13_vector_vs_B16_corrected_fraction": -0.5185662038570189,
           "B13_vector_vs_B16_without_parenthesis_correction_fraction": -0.5184096442596309,
           "B13_vector_vs_stationary_exact_recoil_fraction": -0.15424828823301118,
-          "B16_integrated_mass_correction_fraction": 0.0003251944475903823
+          "B16_integrated_mass_correction_fraction": 0.0003251944475903823,
+          "moving_muon_and_B16_approximation_factorization_residual": 0.0,
+          "stationary_exact_recoil_vs_B16_corrected_fraction": -0.4307622562925184
         },
         "stationary_muon_exact_recoil_vector": {
           "Q_by_mode_MeV5": [
@@ -2131,7 +2141,9 @@
           "B13_vector_vs_B16_corrected_fraction": -0.5698920306698538,
           "B13_vector_vs_B16_without_parenthesis_correction_fraction": -0.5698001762907992,
           "B13_vector_vs_stationary_exact_recoil_fraction": -0.19777124099307108,
-          "B16_integrated_mass_correction_fraction": 0.00021356121161320019
+          "B16_integrated_mass_correction_fraction": 0.00021356121161320019,
+          "moving_muon_and_B16_approximation_factorization_residual": 0.0,
+          "stationary_exact_recoil_vs_B16_corrected_fraction": -0.4638587005250564
         },
         "stationary_muon_exact_recoil_vector": {
           "Q_by_mode_MeV5": [
@@ -3087,8 +3099,8 @@
           "B16_integrated_mass_correction_fraction": 0.022281153828683786
         },
         "reuse_note": "Reused from the previously validated 10 MeV B.13/B.14--B.16 comparison; no collision integral was recomputed in this scan.",
-        "source_run_commit_sha": "6c02a067ae2a3a66a84ce6c530b1580546481364",
-        "source_script_sha256": "35aa434145b0ad224d2cd61033c7aea8f26732282801440c23f406cf77fdfc34",
+        "source_run_commit_sha": "80b2838b87b047d332088e47f69f2260ef3b02f4",
+        "source_script_sha256": "350403826ea69572162743e26635f649ec1ae1c7fbbbcf89b722cbfb886fd56f",
         "stationary_muon_exact_recoil_vector": {
           "Q_by_mode_MeV5": [
             0.5377481392643982,
@@ -4041,8 +4053,8 @@
           "B16_integrated_mass_correction_fraction": 0.01562990063022096
         },
         "reuse_note": "Reused from the previously validated 10 MeV B.13/B.14--B.16 comparison; no collision integral was recomputed in this scan.",
-        "source_run_commit_sha": "6c02a067ae2a3a66a84ce6c530b1580546481364",
-        "source_script_sha256": "35aa434145b0ad224d2cd61033c7aea8f26732282801440c23f406cf77fdfc34",
+        "source_run_commit_sha": "80b2838b87b047d332088e47f69f2260ef3b02f4",
+        "source_script_sha256": "350403826ea69572162743e26635f649ec1ae1c7fbbbcf89b722cbfb886fd56f",
         "stationary_muon_exact_recoil_vector": {
           "Q_by_mode_MeV5": [
             11.833925776277454,
@@ -4391,7 +4403,9 @@
           "B13_vector_vs_B16_corrected_fraction": -0.5186123106808892,
           "B13_vector_vs_B16_without_parenthesis_correction_fraction": -0.517326302822561,
           "B13_vector_vs_stationary_exact_recoil_fraction": -0.1545645791262248,
-          "B16_integrated_mass_correction_fraction": 0.0026714597960475484
+          "B16_integrated_mass_correction_fraction": 0.0026714597960475484,
+          "moving_muon_and_B16_approximation_factorization_residual": 0.0,
+          "stationary_exact_recoil_vs_B16_corrected_fraction": -0.4306038315480246
         },
         "stationary_muon_exact_recoil_vector": {
           "Q_by_mode_MeV5": [
@@ -4739,7 +4753,9 @@
           "B13_vector_vs_B16_corrected_fraction": -0.5699313998177535,
           "B13_vector_vs_B16_without_parenthesis_correction_fraction": -0.5691641329172366,
           "B13_vector_vs_stationary_exact_recoil_fraction": -0.19801653423535903,
-          "B16_integrated_mass_correction_fraction": 0.0017840570090259522
+          "B16_integrated_mass_correction_fraction": 0.0017840570090259522,
+          "moving_muon_and_B16_approximation_factorization_residual": 0.0,
+          "stationary_exact_recoil_vs_B16_corrected_fraction": -0.4637438070220027
         },
         "stationary_muon_exact_recoil_vector": {
           "Q_by_mode_MeV5": [
@@ -4765,10 +4781,11 @@
     "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
     "source": "reconstructed SFHo-18.8 t_pb=1s digitized profile"
   },
-  "run_commit_sha": "6c02a067ae2a3a66a84ce6c530b1580546481364",
+  "run_commit_sha": "80b2838b87b047d332088e47f69f2260ef3b02f4",
   "scope_limits": [
     "Local source-rate comparison at r=0 and 12.5 km only.",
     "No radial luminosity integral, escape probability, opacity, or transport calculation.",
+    "B.14-B.16 is the published nonrelativistic-muon, negligible-recoil Thomson-limit approximation; its difference from exact B.13 is decomposed using the stationary exact-recoil kernel.",
     "The 10 MeV result is reused from its previously validated output and is not recomputed.",
     "No coupling, production, absorption, opacity, or stellar-profile rescaling.",
     "The B.14 low-mass statement concerns dropping O(m_V^2/omega^2); nonrelativistic muon and negligible-recoil assumptions are tested separately.",
