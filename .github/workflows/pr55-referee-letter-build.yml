@@ -1,21 +1,6 @@
 name: Referee response LaTeX build (PR55 and PR56)
 
 on:
-  pull_request:
-    branches: [main]
-    types: [opened, synchronize, reopened]
-    paths:
-      - 'Replies_to_Referee_3_referee_facing_2026-11-04.tex'
-      - 'Replies_to_Referee_3_neutrino_references.bib'
-      - 'overleaf-source/axial-vector-model-building-v6/references.bib'
-      - 'JHEP.bst'
-      - 'Replies_to_Referee_3_stellar_references.bib'
-      - 'research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply.pdf'
-      - 'research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply.png'
-      - 'research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply_gev.pdf'
-      - 'research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply_gev.png' # PNG/PDF are regenerated from the same plotting source
-      - '.github/workflows/pr55-referee-letter-build.yml'
-      - 'references.bib'
   push:
     branches:
       - review/response-point-conclusions-20261106
@@ -42,7 +27,7 @@ concurrency:
 
 jobs:
   build-and-inspect:
-    if: github.event.pull_request.head.ref == 'review/response-point-conclusions-20261106' || github.event.pull_request.head.ref == 'codex/major44-axial-cooling-constraints-20261105' || github.event.pull_request.head.ref == 'review/major1-scalar-opening-focus-20261108' || github.event.pull_request.head.ref == 'review/major1-remove-defensive-model-framing-20261108' || github.event.pull_request.head.ref == 'review/major1-streamline-low-mass-constraints-intro-20261108' || github.ref_name == 'review/response-point-conclusions-20261106' || github.ref_name == 'codex/major44-axial-cooling-constraints-20261105'
+    if: github.ref_name == 'review/response-point-conclusions-20261106' || github.ref_name == 'codex/major44-axial-cooling-constraints-20261105'
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
