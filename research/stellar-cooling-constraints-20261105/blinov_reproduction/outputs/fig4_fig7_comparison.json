@@ -1,9 +1,9 @@
 {
   "threshold_erg_s": 4.4e+52,
-  "run_commit_sha": "fdb4a26ce5c06f75ed71cc67b79c01a6055bbbc2",
+  "run_commit_sha": "c611005c6cb343f8a53b282e14d15a8b6468b541",
   "comparison_code_sha256": "35cebf68b8a84707cc9c7a3ab86dad74785ce0c7d276009ce93bfd36fa71ebd2",
   "input_sha256": {
-    "scan_json": "d0fc45d094da97ff2717f285d25cf3ccd3e5ba9e01dec7008b1f81bc59ac9a1f",
+    "scan_json": "4049531102452d795b3b4a511085bd146983f6ea56533609608b6e5979e7b67f",
     "fig4_digitized_vertices": "e3027ac047a379f6e5188aea11c5535e22887c4f625bb98e145cccd5a1fbdd49",
     "fig4_provenance": "1266235ed51ec39f43ed9a8eb1652c1f567747b8bf17979037a9bb80c1751a89",
     "fig7_digitized_comparison_source": "3eb1121da175d89da54a19abbdf0c52669a239be464978ddcfe84887e4d18d06"
