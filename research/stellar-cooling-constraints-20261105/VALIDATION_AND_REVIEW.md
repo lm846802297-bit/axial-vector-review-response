@@ -316,7 +316,26 @@ Before this documentation addendum, PR #56's branch HEAD was `44720ab5d4efe81096
 
 1. Once Run #43164221257 finishes, record each test stage separately; do not summarize a partially completed run as a pass.
 2. Keep the B.13/B.16 approximation-regime note and the vector polarization source audit as separate documents, because they answer different questions.
-3. Add a source-level derivation appendix for arXiv:2610.35379v1 Eqs. (5.9) and (B.6), preserving the paper's printed expressions alongside the independent trace/spinor expressions. Do not silently swap labels or coefficients.
+3. Completed the source-level derivation audit for arXiv:2610.35379v1 Eqs. (5.9), (B.1)–(B.6), and (A.15). See [WANG_ZHANG_SEMICOMPTON_POLARIZATION_AUDIT_2026-11-12.md](finite_mixing/WANG_ZHANG_SEMICOMPTON_POLARIZATION_AUDIT_2026-11-12.md). The origin of the residual coefficient and angular-distribution discrepancy remains open; do not silently swap labels or coefficients.
 4. Keep the Fig. 7 pure-vector literature gate and the global axial transport calculation blocked until their own evidence is complete.
 
 No manuscript-body, referee-response TeX/PDF, or published axial constraint figure was changed by this addendum.
+
+
+### 12.6 Source-level semi-Compton polarization audit: arXiv:2610.35379v1
+
+The detailed derivation is archived in [WANG_ZHANG_SEMICOMPTON_POLARIZATION_AUDIT_2026-11-12.md](finite_mixing/WANG_ZHANG_SEMICOMPTON_POLARIZATION_AUDIT_2026-11-12.md).
+
+The audit establishes the following:
+
+- The original PDF labels are (5.9a,b), (B.1a,b), (B.2)–(B.6a,b), and (A.15). The continuous equation numbers in the HTML conversion are not the PDF labels.
+- The printed (B.6a,b) expressions integrate to (5.9a,b) after the common final-state velocity factor beta is restored. This is an algebraic closure check, not a physical validation.
+- The printed transverse differential expression is negative for c < -x^2/2, where x=m_Z'/E_gamma. The printed longitudinal expression is negative for c > c_L=1+x^2/2-x*sqrt(1+x^2/4). Their sum is nonnegative, but the individual physical-polarization components are not.
+- The correctly ordered crossed Compton amplitude obeys both vector and photon Ward identities. The printed (B.1b) appears to retain the s-channel gamma-matrix ordering in the u-channel; this is an apparent source-level ordering issue and must be checked against the authors' trace derivation.
+- With the physical projectors and a conserved vector current, the independent soft-muon limit gives d sigma_T/dc = C0 beta (1+c^2) and d sigma_L/dc = C0 beta x^2 (1-c^2), to leading order in E_gamma/m_mu and x. Thus the physical hierarchy is T=O(1), L=O(m_Z'^2/E_gamma^2).
+- Comparing the integrated expressions shows sigma_L(paper)=sigma_T(vector), but sigma_T(paper)=(3/2) sigma_L(vector). This is not a pure T/L label swap. The angular functions also differ, so no common normalization or angular reversal resolves the discrepancy.
+- Generic-angle checks of the paper's (B.2) and (B.4) spin sums against the explicit trace agree with the expected common factor 4 from initial-state spin/polarization averaging. The subtraction (B.3) is more numerically sensitive and is to be checked by direct P_L contraction/high-precision arithmetic.
+
+**Interpretation boundary:** this audit establishes an inconsistency between the printed mode-resolved formulas and the conserved-vector-current soft limit. It does not identify the exact algebraic step responsible, establish a corrected full finite-mass cross section, or pass the pure-vector Blinov Fig. 7 gate. Do not modify production code, opacity normalization, the manuscript, referee response, or published constraint figures on this basis.
+
+The remaining P0 theory work is to derive (B.2)/(B.4) from the correctly ordered amplitude with exact kinematics, compute the longitudinal trace directly from P_L^{mu nu}, and trace the phase-space Jacobian and initial-state averages through to (B.6). Only then should the source discrepancy be classified.
