@@ -72,6 +72,87 @@
     "max_abs_exact_L_minus_printed_B6b_over_Thomson": 1.5000374999999997,
     "angular_convention": "The paper identifies theta as the scattering angle and integrates cos(theta) over [-1,1]. The signs are evaluated on that stated range."
   },
+  "appendix_B_trace_audit": {
+    "reference": "arXiv:2610.35379v1, Appendix B, Eqs. (B.2)-(B.4)",
+    "normalization": "The reference spinor code averages over initial muon spin and photon polarization; factor 4 is applied to compare with the paper's unaveraged spin sums.",
+    "cases": [
+      {
+        "photon_energy_MeV": 0.05,
+        "mediator_mass_MeV": 0.005000000000000001,
+        "cos_theta": -0.7,
+        "Egamma_over_mmu": 0.00047322325147806195,
+        "paper_B2_T_over_exact_spin_sum": 1.0000063570551656,
+        "paper_B4_total_over_exact_spin_sum": 0.9999831982680134,
+        "paper_B3_L_over_exact_spin_sum": 0.9932248525325471,
+        "paper_L_positive": true,
+        "exact_T_plus_L_closure_residual": 1.1466502641690015e-17
+      },
+      {
+        "photon_energy_MeV": 0.05,
+        "mediator_mass_MeV": 0.005000000000000001,
+        "cos_theta": 0.2,
+        "Egamma_over_mmu": 0.00047322325147806195,
+        "paper_B2_T_over_exact_spin_sum": 1.0000091038598993,
+        "paper_B4_total_over_exact_spin_sum": 0.9999761274776214,
+        "paper_B3_L_over_exact_spin_sum": 0.9964047032948967,
+        "paper_L_positive": true,
+        "exact_T_plus_L_closure_residual": 6.758671174182038e-17
+      },
+      {
+        "photon_energy_MeV": 0.05,
+        "mediator_mass_MeV": 0.005000000000000001,
+        "cos_theta": 0.8,
+        "Egamma_over_mmu": 0.00047322325147806195,
+        "paper_B2_T_over_exact_spin_sum": 1.0000057715539534,
+        "paper_B4_total_over_exact_spin_sum": 0.999984780805657,
+        "paper_B3_L_over_exact_spin_sum": 0.9904196499205254,
+        "paper_L_positive": true,
+        "exact_T_plus_L_closure_residual": 5.682851433363921e-17
+      },
+      {
+        "photon_energy_MeV": 0.1,
+        "mediator_mass_MeV": 0.010000000000000002,
+        "cos_theta": -0.7,
+        "Egamma_over_mmu": 0.0009464465029561239,
+        "paper_B2_T_over_exact_spin_sum": 1.0000127242294299,
+        "paper_B4_total_over_exact_spin_sum": 0.9999831176439161,
+        "paper_B3_L_over_exact_spin_sum": 0.9913528945084982,
+        "paper_L_positive": true,
+        "exact_T_plus_L_closure_residual": 4.4679590306229843e-17
+      },
+      {
+        "photon_energy_MeV": 0.1,
+        "mediator_mass_MeV": 0.010000000000000002,
+        "cos_theta": 0.2,
+        "Egamma_over_mmu": 0.0009464465029561239,
+        "paper_B2_T_over_exact_spin_sum": 1.0000182145403713,
+        "paper_B4_total_over_exact_spin_sum": 0.9999760734887553,
+        "paper_B3_L_over_exact_spin_sum": 0.9954133915018717,
+        "paper_L_positive": true,
+        "exact_T_plus_L_closure_residual": 1.3404657454272956e-16
+      },
+      {
+        "photon_energy_MeV": 0.1,
+        "mediator_mass_MeV": 0.010000000000000002,
+        "cos_theta": 0.8,
+        "Egamma_over_mmu": 0.0009464465029561239,
+        "paper_B2_T_over_exact_spin_sum": 1.0000115441850084,
+        "paper_B4_total_over_exact_spin_sum": 0.9999847721154578,
+        "paper_B3_L_over_exact_spin_sum": 0.9877817735026684,
+        "paper_L_positive": true,
+        "exact_T_plus_L_closure_residual": 1.5897606547321388e-16
+      }
+    ],
+    "max_abs_B2_T_relative_residual": 1.8214540371319643e-05,
+    "max_abs_B4_total_relative_residual": 2.3926511244720672e-05,
+    "max_abs_B3_L_relative_residual": 0.012218226497331619,
+    "acceptance": {
+      "B2_transverse_matches_direct_spinor_sum": true,
+      "B4_total_matches_direct_spinor_sum": true,
+      "B3_longitudinal_difference_matches_direct_spinor_sum": true,
+      "all_paper_longitudinal_differences_positive": true
+    }
+  },
   "low_energy_angular_shape_audit": {
     "reference": {
       "T": "C * sqrt(1-r^2) * (1+cos(theta)^2)",
@@ -230,6 +311,7 @@
     "printed_Eq106a_has_negative_differential_region": true,
     "printed_Eq106b_has_negative_differential_region": true,
     "Eq106b_is_closer_to_exact_T_than_Eq106a_but_not_accurate": true,
+    "Appendix_B_B2_B4_traces_reproduce_direct_spinor_benchmark": true,
     "Eq106_differential_shapes_fail_the_low_energy_reference": true
   },
   "acceptance": {
@@ -240,6 +322,7 @@
     "quadrature_convergence_pass": true,
     "low_energy_parameter_scan_pass": true,
     "low_energy_angular_shape_audit_pass": true,
+    "appendix_B_trace_audit_pass": true,
     "medium_frame_projectors_pass": true,
     "photon_ward_pass": true,
     "vector_mediator_ward_pass": true
