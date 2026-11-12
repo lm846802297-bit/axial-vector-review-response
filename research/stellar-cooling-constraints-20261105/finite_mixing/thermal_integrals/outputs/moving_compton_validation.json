@@ -21,7 +21,7 @@
   },
   "source_sha256": {
     "rates.py": "2fc7bc2d3b0d7b98c191755cd2bb87944e4ebe259adc3d3bbc8e0f60dcc57f56",
-    "moving_compton.py": "17201b034fe84bea484d3b5a5f0b8ad34681d30f56b00e5616a9464675337110",
+    "moving_compton.py": "647fb476373f1f346cf3192c9dfae9f99945f39d11a182a3e7ff050830bc3301",
     "test_moving_compton.py": "e6d84bd4b979165f110d354149a4db42e57f2962da71150eb27a40a1fe00c026",
     "derivation.md": "9ccbf2c5840aee9a1e914368ba903d2ce4ab146021dac1d12f067440dd60f7eb",
     "run_moving_compton_validation.py": "136fcfc5207c9d4e4399009f51305f9bea4f1dde20d4758817312be75bbb7238"
@@ -67,8 +67,8 @@
       "relative_difference_absorption": 2.5278221612073728e-05,
       "coarse_detailed_balance_residual": 3.1179637809455685e-15,
       "fine_detailed_balance_residual": 2.419638516049859e-15,
-      "coarse_Eq5_12_relative_residual": 1.7176547995545763e-15,
-      "fine_Eq5_12_relative_residual": 1.908505332838418e-15,
+      "coarse_Eq5_12_relative_residual": 1.9984014443252798e-15,
+      "fine_Eq5_12_relative_residual": 1.9984014443252798e-15,
       "mode_order": [
         "L",
         "+",
@@ -108,7 +108,7 @@
       "relative_difference_absorption": 0.0002515649484505436,
       "coarse_detailed_balance_residual": 4.349542289054288e-15,
       "fine_detailed_balance_residual": 2.1742240483362936e-15,
-      "coarse_Eq5_12_relative_residual": 3.4654326441132974e-15,
+      "coarse_Eq5_12_relative_residual": 3.5527136788004946e-15,
       "fine_Eq5_12_relative_residual": 0.0,
       "mode_order": [
         "L",
@@ -136,7 +136,7 @@
     "mode_resolved_positive_rates_pass": true,
     "detailed_balance_pass": true,
     "Eq5_12_unpolarized_2_over_3_normalization_pass": true,
-    "max_Eq5_12_unpolarized_relative_residual": 3.4654326441132974e-15,
+    "max_Eq5_12_unpolarized_relative_residual": 3.5527136788004946e-15,
     "max_stationary_endpoint_relative_residual": 0.0,
     "max_thermal_quadrature_relative_difference": 0.0002515649484505436,
     "max_detailed_balance_relative_residual": 4.349542289054288e-15

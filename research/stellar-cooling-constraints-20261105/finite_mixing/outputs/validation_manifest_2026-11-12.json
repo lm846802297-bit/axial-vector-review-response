@@ -1,5 +1,5 @@
 {
-  "run_commit_sha": "3438e8d6da49868aaaa0a3cd1300bb992cde72c1",
+  "run_commit_sha": "783e6fc2dacee5f8bb54eadba13c2f530c9b12a1",
   "branch": "codex/major44-axial-cooling-constraints-20261105",
   "python": "3.12.16 (main, Oct 26 2026, 02:50:49) [GCC 13.3.0]",
   "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
@@ -7,7 +7,7 @@
   "scipy": "1.18.1",
   "source_sha256": {
     "rates.py": "2fc7bc2d3b0d7b98c191755cd2bb87944e4ebe259adc3d3bbc8e0f60dcc57f56",
-    "finite_mixing/thermal_integrals/moving_compton.py": "17201b034fe84bea484d3b5a5f0b8ad34681d30f56b00e5616a9464675337110",
+    "finite_mixing/thermal_integrals/moving_compton.py": "647fb476373f1f346cf3192c9dfae9f99945f39d11a182a3e7ff050830bc3301",
     "finite_mixing/thermal_integrals/test_moving_compton.py": "e6d84bd4b979165f110d354149a4db42e57f2962da71150eb27a40a1fe00c026",
     "finite_mixing/thermal_integrals/run_moving_compton_validation.py": "136fcfc5207c9d4e4399009f51305f9bea4f1dde20d4758817312be75bbb7238",
     "finite_mixing/thermal_integrals/audit_vector_semicompton_polarization.py": "de61e915e11f7954938b0fd31188451c45fafe0585d0f4529da230bfbdb9ac31",

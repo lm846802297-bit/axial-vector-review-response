@@ -2551,7 +2551,7 @@
     "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
     "source": "reconstructed SFHo-18.8 t_pb=1s digitized profile"
   },
-  "run_commit_sha": "3438e8d6da49868aaaa0a3cd1300bb992cde72c1",
+  "run_commit_sha": "783e6fc2dacee5f8bb54eadba13c2f530c9b12a1",
   "scope_limits": [
     "Local source-rate comparison only; no radial integration or escape probability.",
     "B.14-B.16 is compared only to the pure-vector B.13 rate.",
