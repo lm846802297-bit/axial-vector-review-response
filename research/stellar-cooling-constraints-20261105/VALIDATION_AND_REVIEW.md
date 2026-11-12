@@ -368,3 +368,74 @@ At \(x=10^{-3}\) and \(E_\gamma\le0.1\) MeV, the maximum relative deviations fro
 **Interpretation:** an \(O(x^2 E_\gamma/m_\mu)\) residual in the transverse B.2 expression is of the same \(x\)-order as the physical longitudinal signal. Subtracting B.2 from B.4 therefore induces an \(O(E_\gamma/m_\mu)\) relative bias in B.3. The direct longitudinal kernel should be used for independent physical checks; do not replace the published transport benchmark until the source-level expansion and phase-space derivation are complete.
 
 No production kernel, opacity, thermal integral, transport curve, manuscript, referee response, or published figure is changed by this audit.
+
+
+### 12.8 Post-merge 13-file triage and follow-up scope (2026-11-13)
+
+This review compares the PR #56 research branch after its main synchronization
+(\`codex/major44-axial-cooling-constraints-20261105\`, head
+\`2eea875d9cddc09286911b6f479fcb7b484fb171\)) with \`main\`
+(\`657224b7107dd2844a9d623acd37b09c3e8b6d5f\)). The comparison reports 13
+changed paths. They are not 13 new physical results.
+
+**A. Retain eight provenance-only output refreshes.** The five Blinov output
+records below update \`run_commit_sha\` to the post-synchronization validation
+commit \`c611005c6cb343f8a53b282e14d15a8b6468b541\`; the Fig. 4/Fig. 7 comparison
+also updates the input hash because the referenced scan JSON carries the new
+run provenance.
+
+- \`blinov_reproduction/outputs/blinov_literal_scan.json\`
+- \`blinov_reproduction/outputs/compton_detailed_balance_audit.json\`
+- \`blinov_reproduction/outputs/fig4_fig7_comparison.json\`
+- \`blinov_reproduction/outputs/fig7_10mev_numu_sensitivity.json\`
+- \`blinov_reproduction/outputs/fig7_10mev_opacity_sensitivity.json\`
+
+The three B.13/B.16 records likewise refresh provenance to the same
+post-synchronization run. The low-mass scan also refreshes the SHA-256 of the
+reused 10 MeV reference output to match the refreshed B.13/B.16 comparison
+artifact. Their physical result fields are unchanged.
+
+- \`finite_mixing/outputs/b13_b16_comparison_2026-11-12.json\`
+- \`finite_mixing/outputs/b13_b16_low_mass_scan_2026-11-12.json\`
+- \`finite_mixing/outputs/validation_manifest_2026-11-12.json\`
+
+The provenance refresh is supported by Major 4.4 EFT numerical validation
+[Run #43206544367](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43206544367),
+which completed successfully on the exact source commit
+\`c611005c6cb343f8a53b282e14d15a8b6468b541\). This establishes the recorded
+software/data validation run; it does not pass the physical Fig. 7 benchmark.
+
+**B. Retain one actual test-discovery fix.** In
+\`finite_mixing/thermal_integrals/test_vector_longitudinal_projector.py\`,
+the import is changed from a top-level import to
+\`from .audit_vector_longitudinal_projector import M_MU, build_audit\`.
+Both \`finite_mixing\` and \`thermal_integrals\` are Python packages
+(\`__init__.py\` is present), so the relative import is correct when unittest
+discovers the module as
+\`finite_mixing.thermal_integrals.test_vector_longitudinal_projector\`.
+The preceding Run #43202685556 recorded one import error during discovery;
+the corrected tree was subsequently exercised by successful Run #43206544367.
+
+**C. Exclude four non-substantive changes from the follow-up PR.**
+
+- \`finite_mixing/outputs/vector_axial_response_scan.json\`,
+  \`finite_mixing/thermal_integrals/outputs/dimuon_thermal_integral_validation.json\`,
+  and \`finite_mixing/thermal_integrals/outputs/sfho188_local_compton_rates.json\`
+  differ only in final floating-point digits (roughly machine-precision
+  changes). No physical trend, convergence conclusion, or acceptance boundary
+  changes; the existing \`main\` artifacts are retained rather than replacing
+  them with roundoff variants.
+- \`.github/workflows/major44-eft-regression.yml\` adds only an explanatory
+  comment; it changes no workflow behavior and is not carried into the
+  follow-up PR.
+
+**Follow-up PR scope:** the eight provenance-only JSON refreshes, the relative
+import fix, and this audit record are retained. The three roundoff-only JSON
+files and comment-only workflow edit are excluded. No production kernel,
+opacity, global transport result, manuscript, referee-response TeX/PDF, or
+published constraint figure is modified.
+
+**Physical acceptance boundary remains unchanged:** the pure-vector Blinov
+Fig. 7 gate is **NOT PASSED**. The 10 MeV high-absorption discrepancy remains
+open; no opacity/profile rescaling is accepted; no updated axial constraint
+curve is released. CI success is not treated as physical reproduction.
