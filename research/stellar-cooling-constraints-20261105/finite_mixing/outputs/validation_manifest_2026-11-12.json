@@ -1,5 +1,5 @@
 {
-  "run_commit_sha": "0eacd47bf5de72b1e5b77a20c57df7c62f104bd8",
+  "run_commit_sha": "6c02a067ae2a3a66a84ce6c530b1580546481364",
   "branch": "codex/major44-axial-cooling-constraints-20261105",
   "python": "3.12.16 (main, Oct 26 2026, 02:50:49) [GCC 13.3.0]",
   "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",

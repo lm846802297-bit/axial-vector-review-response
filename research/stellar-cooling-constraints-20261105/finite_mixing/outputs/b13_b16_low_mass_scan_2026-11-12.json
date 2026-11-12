@@ -5,7 +5,7 @@
     "moving_muon_compton.py": "4da26fc3135ddb43fae7d86e57d015589756d69b75c7aec64ff886007f2b3a1b",
     "profile": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
     "rates.py": "2fc7bc2d3b0d7b98c191755cd2bb87944e4ebe259adc3d3bbc8e0f60dcc57f56",
-    "reused_10MeV_output": "0ab2119b5d877c622f1a391d0198689772c98cc6b3f1a73f3b8a27cd0065f927"
+    "reused_10MeV_output": "32a9b5aba86028e5c699094ef3c94f7f70cff7121e9395377065f51c65ca7015"
   },
   "configuration": {
     "B13_base_energy_order": 12,
@@ -3087,7 +3087,7 @@
           "B16_integrated_mass_correction_fraction": 0.022281153828683786
         },
         "reuse_note": "Reused from the previously validated 10 MeV B.13/B.14--B.16 comparison; no collision integral was recomputed in this scan.",
-        "source_run_commit_sha": "0eacd47bf5de72b1e5b77a20c57df7c62f104bd8",
+        "source_run_commit_sha": "6c02a067ae2a3a66a84ce6c530b1580546481364",
         "source_script_sha256": "35aa434145b0ad224d2cd61033c7aea8f26732282801440c23f406cf77fdfc34",
         "stationary_muon_exact_recoil_vector": {
           "Q_by_mode_MeV5": [
@@ -4041,7 +4041,7 @@
           "B16_integrated_mass_correction_fraction": 0.01562990063022096
         },
         "reuse_note": "Reused from the previously validated 10 MeV B.13/B.14--B.16 comparison; no collision integral was recomputed in this scan.",
-        "source_run_commit_sha": "0eacd47bf5de72b1e5b77a20c57df7c62f104bd8",
+        "source_run_commit_sha": "6c02a067ae2a3a66a84ce6c530b1580546481364",
         "source_script_sha256": "35aa434145b0ad224d2cd61033c7aea8f26732282801440c23f406cf77fdfc34",
         "stationary_muon_exact_recoil_vector": {
           "Q_by_mode_MeV5": [
@@ -4765,7 +4765,7 @@
     "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
     "source": "reconstructed SFHo-18.8 t_pb=1s digitized profile"
   },
-  "run_commit_sha": "0eacd47bf5de72b1e5b77a20c57df7c62f104bd8",
+  "run_commit_sha": "6c02a067ae2a3a66a84ce6c530b1580546481364",
   "scope_limits": [
     "Local source-rate comparison at r=0 and 12.5 km only.",
     "No radial luminosity integral, escape probability, opacity, or transport calculation.",
