@@ -603,3 +603,27 @@ composition profile, retaining clusters as a separate component.
 - **回复信 PDF 审计失败分类：** Run #43151746827 的 LaTeX、BibTeX、PDF 结构、交叉引用和字体检查均通过；仅 `audit_reply.py` 的 27 段原文比较失败，原因是 moving-muon 分支仍使用旧基线 `7ef9a4a`，而 TeX 已同步到 main 的 `310a24a`。不是排版或物理内容失败。
 - **回复信审计修复：** moving-muon 分支提交 `4003781`，采用 PR #56 已验证的 `BASE=310a24a` 审计脚本；提交 `d1d79aa` 将 `audit_reply.py` 纳入 push/pull_request 触发路径。新 Run [#43152263886](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43152263886) 已排队，待完成 PDF 构建与 27 段保留审计。
 - **物理验收边界：** 上述 checkout/refspec 与源文档基线问题均归类为 workflow/test-baseline 配置问题。它们不能作为物理计算错误证据；同样，前置 checksum gates 通过也不代表 Blinov Fig. 7 或轴矢量冷却曲线已经通过独立复现。
+
+## 2026-11-12 15:30 CST — 最新数值验收与活跃分支同步复核
+
+- **当前 main 基线：** `310a24a53e8448f0388072cfdbf55749fde713f9`。本次重新执行 GitHub compare（`main...head`），四个开放 Draft PR 及五个持续研究/数据分支均为 `behind_by=0`：
+  - PR #53：`ahead=14, behind=0`；
+  - PR #56：`ahead=758, behind=0`；
+  - PR #68：`ahead=26, behind=0`；
+  - PR #69：`ahead=412, behind=0`；
+  - C4-C4：`ahead=659, behind=0`；
+  - moving-muon：`ahead=1542, behind=0`；
+  - P1-IIIe EOS：`ahead=1350, behind=0`；
+  - PR57 source bundle：`ahead=1125, behind=0`；
+  - SFHo/FRDM transfer：`ahead=1342, behind=0`。
+  比较时 PR #53/#56/#68/#69 均为 Open / Draft。PR #56 最新分支 head 为 `b68897c8c0ac6ade36ebe70aa27124cb380265a5`。
+
+- **Run #158 结论：** [Run #43135845410](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43135845410) 在旧 SHA `071d194` 上以 `cancelled` 结束；它不是测试断言失败，也不能作为最终数值验收。其后已启动具备 90 分钟 timeout、独立 concurrency group 且 `cancel-in-progress=false` 的新 workflow。
+
+- **完整数值验收：** [Run #43164221257](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43164221257) 在 SHA `3f7ce66f210edf966d8bb3b7d20f7716b28135e8` 上 `success`。以下步骤全部成功：C4C3 14 项 SHA-256 manifest、SFHo/FRDM Release manifest 与分块重组、research-level rate/transport/kernel tests、Blinov/EOS regression tests、reference scans/independent rate audits、saved-scan validation、figure regeneration、reproducibility checks 及 figure publishing。该验收提交是当前 PR #56 head 的祖先，当前 head 比验收 SHA 多 6 个提交；这 6 个提交触及 VALIDATION_AND_REVIEW、Blinov/EOS 数值 JSON 与 finite-mixing 数值输出。因此 Run #43164221257 是强而完整的前序数值验收，但**不是当前 head 的逐字节同 SHA 验收**；不得把它写成当前 head 已完整复验。
+
+- **校验和复核边界：** C4C3 的 14 项 SHA-256 与 SFHo/FRDM 的分块、重组及 Release manifest 校验已由 Run #43164221257 的真实步骤通过。C4C3 清单路径为 `blinov_reproduction/c4c3_direct_local_recomputation_2026-11-11/SHA256SUMS.txt`；SFHo/FRDM 清单路径为 `blinov_reproduction/data/sfho-frdm-v1.03/MANIFEST.sha256` 和顶层 `sfho_frdm_v1.03_manifest.sha256`。Manual 与 Shen98 的核对属于 Release digest 元数据比对，不冒称 runner 本地重新下载并计算字节哈希。
+
+- **物理结论独立保留：** 即使上述数值 workflow 完整通过，也只说明其测试合同、归档校验和数值程序检查通过。纯矢量 Blinov Fig. 7 的 10 MeV 强耦合端仍有约 92.43% 差异，物理复现仍未通过；不得将其改写为已复现，不解冻生产轴矢量限制曲线。
+
+- **下一步：** 对当前 head `b68897c` 重新运行完整 Major 4.4 数值验收，重点覆盖上述 6 个后续提交改动的输出 JSON、Blinov/EOS reference scans、saved-output checks 和 figure regeneration。完成前，Run #43164221257 继续标注为前序祖先提交的完整通过记录，而当前 head 标注为待同 SHA 复验。
