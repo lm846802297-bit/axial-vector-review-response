@@ -32,7 +32,142 @@ def _medium_longitudinal_polarization(q, u, mass):
     )
 
 
+def _boost_four_vector(vector, beta):
+    beta = np.asarray(beta, dtype=float)
+    beta2 = float(np.dot(beta, beta))
+    if beta2 == 0.0:
+        return np.asarray(vector, dtype=complex).copy()
+    gamma = 1.0 / np.sqrt(1.0-beta2)
+    bp = float(np.dot(beta, np.asarray(vector)[1:]))
+    energy = gamma*(vector[0]-bp)
+    spatial = np.asarray(vector)[1:] + (
+        ((gamma-1.0)*bp/beta2)-gamma*vector[0]
+    )*beta
+    return np.concatenate(([energy], spatial))
+
+
+def _minkowski_dot(a, b):
+    return float(np.asarray(a) @ rates._METRIC @ np.asarray(b))
+
+
+def _spin_summed_axial_matrix_element(p_in, k_gamma, p_out, q_vector,
+                                       photon_polarizations,
+                                       vector_polarization):
+    """Covariant spin trace for one fixed outgoing-vector polarization."""
+    mass = rates.M_MU
+    den_s = 2.0*_minkowski_dot(p_in, k_gamma)
+    den_u = -2.0*_minkowski_dot(p_in, q_vector)
+    prop_s = (
+        rates._slash(p_in+k_gamma)+mass*rates._I4
+    )/den_s
+    prop_u = (
+        rates._slash(p_in-q_vector)+mass*rates._I4
+    )/den_u
+    spin_out = rates._slash(p_out)+mass*rates._I4
+    spin_in = rates._slash(p_in)+mass*rates._I4
+    gamma_x = rates._slash(vector_polarization) @ rates._G5
+    gamma0 = rates._GAMMA[0]
+    total = 0.0
+    for eps_gamma in photon_polarizations:
+        gamma_gamma = rates._slash(eps_gamma)
+        amplitude = (
+            gamma_x @ prop_s @ gamma_gamma
+            + gamma_gamma @ prop_u @ gamma_x
+        )
+        conjugate = gamma0 @ rates._dagger(amplitude) @ gamma0
+        trace = np.trace(
+            spin_out @ amplitude @ spin_in @ conjugate
+        )
+        total += float(trace.real/2.0)
+    return total
+
+
 class MovingComptonMatrixElementTests(unittest.TestCase):
+    def test_axial_TL_matrix_elements_are_lorentz_covariant(self):
+        mass, omega = 20.0, 45.0
+        p_magnitude, cos_mu, cos_gamma, phi_gamma = 80.0, 0.4, -0.3, 1.2
+        q_energy, e_initial_muon, _ = moving_compton_matrix_elements(
+            mass, omega, np.array([p_magnitude]), np.array([cos_mu]),
+            np.array([cos_gamma]), np.array([phi_gamma]), 0.0, 1.0
+        )
+        q_energy = float(q_energy[0])
+        k_magnitude = np.sqrt(omega*omega-mass*mass)
+        p_vector = np.array([
+            p_magnitude*np.sqrt(1.0-cos_mu*cos_mu), 0.0,
+            p_magnitude*cos_mu
+        ])
+        n_gamma = np.array([
+            np.sqrt(1.0-cos_gamma*cos_gamma)*np.cos(phi_gamma),
+            np.sqrt(1.0-cos_gamma*cos_gamma)*np.sin(phi_gamma),
+            cos_gamma
+        ])
+        p_out = np.r_[np.hypot(rates.M_MU,p_magnitude),p_vector]
+        q_vector = np.array([omega,0.0,0.0,k_magnitude])
+        k_gamma = np.r_[q_energy,q_energy*n_gamma]
+        p_in = np.r_[float(e_initial_muon[0]),p_vector+q_vector[1:]-k_gamma[1:]]
+
+        # Two real photon polarizations, built orthogonally to the incoming
+        # photon momentum. The initial photon is summed, not averaged.
+        eps1 = np.cross(np.array([0.0,0.0,1.0]),n_gamma)
+        eps1 /= np.linalg.norm(eps1)
+        eps2 = np.cross(n_gamma,eps1)
+        photon_pols = (np.r_[0.0,eps1],np.r_[0.0,eps2])
+
+        eps_l = np.array([k_magnitude/mass,0.0,0.0,omega/mass])
+        eps_t1 = np.array([0.0,1.0,0.0,0.0])
+        eps_t2 = np.array([0.0,0.0,1.0,0.0])
+        vector_pols = (eps_l,eps_t1,eps_t2)
+        original = np.array([
+            _spin_summed_axial_matrix_element(
+                p_in,k_gamma,p_out,q_vector,photon_pols,eps
+            ) for eps in vector_pols
+        ])
+
+        beta = np.array([0.31,-0.17,0.22])
+        boosted = [
+            _boost_four_vector(v,beta)
+            for v in (p_in,k_gamma,p_out,q_vector)
+        ]
+        p_in_b,k_gamma_b,p_out_b,q_vector_b = boosted
+        photon_pols_b = tuple(_boost_four_vector(e,beta) for e in photon_pols)
+        vector_pols_b = tuple(_boost_four_vector(e,beta) for e in vector_pols)
+        transformed = np.array([
+            _spin_summed_axial_matrix_element(
+                p_in_b,k_gamma_b,p_out_b,q_vector_b,
+                photon_pols_b,eps
+            ) for eps in vector_pols_b
+        ])
+        np.testing.assert_allclose(transformed,original,rtol=3e-11,atol=3e-10)
+        self.assertGreater(original[0],0.0)
+        self.assertGreater(original[1]+original[2],0.0)
+
+    def test_fixed_energy_argument_is_q_dot_u_after_a_frame_boost(self):
+        mass, omega, temperature, mu_mu = 10.0, 25.0, 20.0, 45.0
+        k = np.sqrt(omega*omega-mass*mass)
+        q = np.array([omega,0.0,0.0,k])
+        u = np.array([1.0,0.0,0.0,0.0])
+        beta = np.array([0.31,-0.17,0.22])
+        q_b = _boost_four_vector(q,beta)
+        u_b = _boost_four_vector(u,beta)
+        omega_medium = _minkowski_dot(q_b,u_b)
+        self.assertAlmostEqual(omega_medium,omega,delta=2e-13)
+        self.assertGreater(abs(float(q_b[0])-omega),1e-3)
+
+        rest = moving_muon_compton_rates(
+            mass,omega,temperature,mu_mu,0.0,-1.0,orders=(4,4,4,4)
+        )
+        boosted_frame_reconstructed = moving_muon_compton_rates(
+            mass,omega_medium,temperature,mu_mu,0.0,-1.0,orders=(4,4,4,4)
+        )
+        np.testing.assert_allclose(
+            boosted_frame_reconstructed["production"],rest["production"],
+            rtol=2e-13,atol=1e-300
+        )
+        np.testing.assert_allclose(
+            boosted_frame_reconstructed["absorption"],rest["absorption"],
+            rtol=2e-13,atol=1e-300
+        )
+
     def test_medium_frame_projectors_are_boost_covariant(self):
         mass, omega = 0.7, 3.2
         momentum = np.sqrt(omega * omega - mass * mass)
@@ -207,6 +342,19 @@ class MovingComptonThermalRateTests(unittest.TestCase):
         self.assertGreater(float(out["Gamma_abs_by_mode"][0]), 0.0)
         self.assertGreater(float(np.sum(out["Gamma_abs_by_mode"][1:])), 0.0)
         self.assertLess(out["max_detailed_balance_relative_residual"], 3e-10)
+
+    def test_cold_dilute_inverse_rate_uses_log_space_without_overflow(self):
+        temperature = 1.0e-3
+        mu_mu = rates.M_MU-5.0*temperature
+        out = moving_muon_compton_rates(
+            10.0,15.0,temperature,mu_mu,0.0,-1.0,orders=(4,4,4,4)
+        )
+        normalization = out["unpolarized_normalization"]
+        self.assertGreater(normalization["Eq_5_12_expected_log_ratio"],700.0)
+        self.assertIsNone(normalization["Eq_5_12_expected_ratio"])
+        self.assertTrue(normalization["Eq_5_12_underflow_limited"])
+        self.assertIsNone(normalization["Eq_5_12_relative_residual"])
+        self.assertTrue(np.isfinite(out["max_detailed_balance_relative_residual"]))
 
     def test_charge_summed_interference_cancels_at_zero_muon_chemical_potential(self):
         gv, ga = 0.2, -0.8
