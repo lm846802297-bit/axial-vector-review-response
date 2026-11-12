@@ -47,7 +47,7 @@ def _boost_four_vector(vector, beta):
 
 
 def _minkowski_dot(a, b):
-    return float(np.asarray(a) @ rates._METRIC @ np.asarray(b))
+    return float(np.dot(np.asarray(a)*rates._METRIC,np.asarray(b)))
 
 
 def _spin_summed_axial_matrix_element(p_in, k_gamma, p_out, q_vector,
@@ -362,7 +362,8 @@ class MovingComptonThermalRateTests(unittest.TestCase):
         temperature = 1.0e-3
         mu_mu = rates.M_MU-5.0*temperature
         out = moving_muon_compton_rates(
-            10.0,15.0,temperature,mu_mu,0.0,-1.0,orders=(4,4,4,4)
+            10.0,15.0,temperature,mu_mu,0.0,-1.0,
+            radial_order=4,angular_order=4,azimuth_order=4,chunk_size=512
         )
         normalization = out["unpolarized_normalization"]
         self.assertGreater(normalization["Eq_5_12_expected_log_ratio"],700.0)
