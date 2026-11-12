@@ -1,9 +1,9 @@
 {
   "code_sha256": {
-    "moving_muon_compton.py": "38436b94f070069c8696b37b9bce1955e2d5d7e39dad9b302ab754582ff6a5a5",
+    "moving_muon_compton.py": "4da26fc3135ddb43fae7d86e57d015589756d69b75c7aec64ff886007f2b3a1b",
     "rates.py": "2fc7bc2d3b0d7b98c191755cd2bb87944e4ebe259adc3d3bbc8e0f60dcc57f56",
     "thermal_dimuon.py": "f152589d52a2f2377f4c3627f6d0fe04c0699fed50e395b06c9ed0b28514bc3f",
-    "thermal_response_scan.py": "f957a90df41c80c43ef83cf3503dcb2cc16be5c10a2dad93973849e1d2f77e0f"
+    "thermal_response_scan.py": "f229db1299cfba34d2dd32c9ec1b58b6e834f6eb49afb01c7052596596e18998"
   },
   "compton": {
     "10MeV_mid_radius_comparison": {
@@ -45,7 +45,7 @@
         ]
       },
       "mass_MeV": 10.0,
-      "max_Eq_5_12_relative_residual": 4.155983169653673e-15,
+      "max_Eq_61_relative_residual": 4.155983169653673e-15,
       "max_detailed_balance_relative_error": 4.222754228027906e-15,
       "max_final_muon_shell_relative_error": 1.710848722915707e-13,
       "mixed_interference_fraction_by_mode": [
@@ -116,7 +116,7 @@
           ]
         },
         "mass_MeV": 0.01,
-        "max_Eq_5_12_relative_residual": 2.5255663579180095e-15,
+        "max_Eq_61_relative_residual": 2.5255663579180095e-15,
         "max_detailed_balance_relative_error": 2.4015901722357845e-15,
         "max_final_muon_shell_relative_error": 1.2937275104714967e-13,
         "mixed_interference_fraction_by_mode": [
@@ -186,7 +186,7 @@
           ]
         },
         "mass_MeV": 0.1,
-        "max_Eq_5_12_relative_residual": 2.848312917742686e-15,
+        "max_Eq_61_relative_residual": 2.848312917742686e-15,
         "max_detailed_balance_relative_error": 3.0142110816330998e-15,
         "max_final_muon_shell_relative_error": 1.0851669042493914e-13,
         "mixed_interference_fraction_by_mode": [
@@ -256,7 +256,7 @@
           ]
         },
         "mass_MeV": 1.0,
-        "max_Eq_5_12_relative_residual": 4.637117934283844e-15,
+        "max_Eq_61_relative_residual": 4.637117934283844e-15,
         "max_detailed_balance_relative_error": 4.44395194763526e-15,
         "max_final_muon_shell_relative_error": 1.0851669042493914e-13,
         "mixed_interference_fraction_by_mode": [
@@ -326,7 +326,7 @@
           ]
         },
         "mass_MeV": 10.0,
-        "max_Eq_5_12_relative_residual": 4.810664098787012e-15,
+        "max_Eq_61_relative_residual": 4.810664098787012e-15,
         "max_detailed_balance_relative_error": 4.947426099557911e-15,
         "max_final_muon_shell_relative_error": 1.2937275104714967e-13,
         "mixed_interference_fraction_by_mode": [
@@ -396,7 +396,7 @@
           ]
         },
         "mass_MeV": 100.0,
-        "max_Eq_5_12_relative_residual": 3.5710485841465264e-15,
+        "max_Eq_61_relative_residual": 3.5710485841465264e-15,
         "max_detailed_balance_relative_error": 4.097934436804366e-15,
         "max_final_muon_shell_relative_error": 1.2089997641937663e-13,
         "mixed_interference_fraction_by_mode": [
@@ -466,7 +466,7 @@
           ]
         },
         "mass_MeV": 220.0,
-        "max_Eq_5_12_relative_residual": 2.151492106242373e-15,
+        "max_Eq_61_relative_residual": 2.151492106242373e-15,
         "max_detailed_balance_relative_error": 2.3813892622019967e-15,
         "max_final_muon_shell_relative_error": 1.502288116693602e-13,
         "mixed_interference_fraction_by_mode": [

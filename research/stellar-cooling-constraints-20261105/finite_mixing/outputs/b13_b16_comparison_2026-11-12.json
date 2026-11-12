@@ -2494,7 +2494,7 @@
     }
   },
   "code_sha256": {
-    "moving_muon_compton.py": "38436b94f070069c8696b37b9bce1955e2d5d7e39dad9b302ab754582ff6a5a5",
+    "moving_muon_compton.py": "4da26fc3135ddb43fae7d86e57d015589756d69b75c7aec64ff886007f2b3a1b",
     "profile": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
     "rates.py": "2fc7bc2d3b0d7b98c191755cd2bb87944e4ebe259adc3d3bbc8e0f60dcc57f56",
     "script": "35aa434145b0ad224d2cd61033c7aea8f26732282801440c23f406cf77fdfc34"
@@ -2551,7 +2551,7 @@
     "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
     "source": "reconstructed SFHo-18.8 t_pb=1s digitized profile"
   },
-  "run_commit_sha": "783e6fc2dacee5f8bb54eadba13c2f530c9b12a1",
+  "run_commit_sha": "0eacd47bf5de72b1e5b77a20c57df7c62f104bd8",
   "scope_limits": [
     "Local source-rate comparison only; no radial integration or escape probability.",
     "B.14-B.16 is compared only to the pure-vector B.13 rate.",

@@ -1,5 +1,5 @@
 {
-  "run_commit_sha": "783e6fc2dacee5f8bb54eadba13c2f530c9b12a1",
+  "run_commit_sha": "0eacd47bf5de72b1e5b77a20c57df7c62f104bd8",
   "branch": "codex/major44-axial-cooling-constraints-20261105",
   "python": "3.12.16 (main, Oct 26 2026, 02:50:49) [GCC 13.3.0]",
   "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
@@ -7,12 +7,12 @@
   "scipy": "1.18.1",
   "source_sha256": {
     "rates.py": "2fc7bc2d3b0d7b98c191755cd2bb87944e4ebe259adc3d3bbc8e0f60dcc57f56",
-    "finite_mixing/thermal_integrals/moving_compton.py": "647fb476373f1f346cf3192c9dfae9f99945f39d11a182a3e7ff050830bc3301",
-    "finite_mixing/thermal_integrals/test_moving_compton.py": "e6d84bd4b979165f110d354149a4db42e57f2962da71150eb27a40a1fe00c026",
-    "finite_mixing/thermal_integrals/run_moving_compton_validation.py": "136fcfc5207c9d4e4399009f51305f9bea4f1dde20d4758817312be75bbb7238",
-    "finite_mixing/thermal_integrals/audit_vector_semicompton_polarization.py": "de61e915e11f7954938b0fd31188451c45fafe0585d0f4529da230bfbdb9ac31",
-    "finite_mixing/thermal_integrals/test_vector_semicompton_polarization.py": "c6936a19f0ac3880a3e8c0a9d5b280d6269b55359358d807720aa4a39be7ac28",
-    "finite_mixing/thermal_response_scan.py": "f957a90df41c80c43ef83cf3503dcb2cc16be5c10a2dad93973849e1d2f77e0f",
+    "finite_mixing/thermal_integrals/moving_compton.py": "18fc4b244cc0c77f3c6874d816607ec9e231025e9b3bf53b0d2c2fc5babf4baa",
+    "finite_mixing/thermal_integrals/test_moving_compton.py": "05bbc9e67fbeb6486b1aa0d33104c74bc0ce50701b52f8987bc6541a2733c282",
+    "finite_mixing/thermal_integrals/run_moving_compton_validation.py": "195d75ea9c1f0ed3cfeed7b2157111a97c2753f938990e5eec96e9f3e431dd13",
+    "finite_mixing/thermal_integrals/audit_vector_semicompton_polarization.py": "1ec6b02e72dbe33ecf91a6b3010d5fb867198d5d575cda9397baffb9a61caeef",
+    "finite_mixing/thermal_integrals/test_vector_semicompton_polarization.py": "c99d96cb6999ca10237afa806161199ce4aaba96d7d441370024b5233563b1c1",
+    "finite_mixing/thermal_response_scan.py": "f229db1299cfba34d2dd32c9ec1b58b6e834f6eb49afb01c7052596596e18998",
     "finite_mixing/b13_b16_comparison.py": "35aa434145b0ad224d2cd61033c7aea8f26732282801440c23f406cf77fdfc34",
     "finite_mixing/b13_b16_mass_scan.py": "441f0ab77c7b3843cdba0eae5e8da9e11e34887f9c0be1ffab7d7e691020358c"
   },

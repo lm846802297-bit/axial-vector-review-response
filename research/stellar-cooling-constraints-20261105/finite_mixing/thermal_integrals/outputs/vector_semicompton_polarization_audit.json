@@ -3,10 +3,10 @@
   "source": {
     "arxiv": "2610.35379v1",
     "model_section": "Sec. 5.1-5.2; vector U(1)_{L_mu-L_tau} muon current",
-    "integrated_low_energy_formulas": "Eq. (5.9a,b)",
-    "medium_polarization_projector": "Eq. (A.15)",
-    "exact_semi_compton_amplitude": "Appendix B, Eqs. (B.1a,b)",
-    "printed_angular_differential_cross_sections": "Appendix B, Eqs. (B.6a,b)"
+    "integrated_low_energy_formulas": "Eq. (58a,b)",
+    "medium_polarization_projector": "Eq. (77)",
+    "exact_semi_compton_amplitude": "Appendix B, Eqs. (101a,b)",
+    "printed_angular_differential_cross_sections": "Appendix B, Eqs. (106a,b)"
   },
   "scope": "Direct explicit-Dirac-spinor production calculation in the initial-muon rest frame, cross-checked against the independent repository trace kernel by detailed reciprocity. No stellar profile or transport.",
   "units": {
@@ -32,7 +32,7 @@
     "independent_cross_check": "rates.compton_kernels(current='vector') for inverse absorption, crossed with sigma_prod,h = 1/2 * (p_Aprime_CM/p_gamma_CM)^2 * sigma_abs,h",
     "projector_definition": "P_T^{ij}=delta^{ij}-qhat^i*qhat^j, P_T^{0mu}=0; P_L=-g+q*q/m_Aprime^2-P_T",
     "thomson_reference": "8*pi*alpha*alpha_X/(3*m_mu^2), alpha_X=g_X^2/(4*pi)",
-    "printed_formulas": "Eq. (5.9) and Eq. (B.6) are compared with their printed T/L labels; no label swap or coefficient adjustment is made in the input formulas."
+    "printed_formulas": "Eq. (58) and Eq. (106) are compared with their printed T/L labels; no label swap or coefficient adjustment is made in the input formulas."
   },
   "direct_exact_production_cross_sections_MeV_minus2": {
     "T_sum": 4.349342871528847e-07,
@@ -49,21 +49,21 @@
   "ratios_to_thomson": {
     "direct_exact_T_sum": 0.998061799573029,
     "direct_exact_L": 4.995024474745797e-05,
-    "paper_Eq5_9a_T_as_printed": 7.499624990624529e-05,
-    "paper_Eq5_9b_L_as_printed": 0.9999499987499374
+    "paper_Eq58a_T_as_printed": 7.499624990624529e-05,
+    "paper_Eq58b_L_as_printed": 0.9999499987499374
   },
-  "printed_Eq5_9_comparison": {
+  "printed_Eq58_comparison": {
     "paper_T_over_exact_L": 1.5014190678227246,
     "paper_L_over_exact_T_sum": 1.0018918659923826,
     "exact_L_over_exact_T_sum": 5.004724634168615e-05,
     "direct_T_over_paper_L": 0.9981117064060514,
     "direct_L_over_paper_T": 0.6660365659603251
   },
-  "printed_EqB6_differential_comparison": {
-    "EqB6a_printed_T_negative_fraction": 0.49875311720698257,
-    "EqB6b_printed_L_negative_fraction": 0.004987531172069825,
-    "EqB6a_T_minimum_over_angular_grid_MeV_minus2": -3.268178438133159e-07,
-    "EqB6b_L_minimum_over_angular_grid_MeV_minus2": -1.6341709276145943e-11,
+  "printed_Eq106_differential_comparison": {
+    "Eq106a_printed_T_negative_fraction": 0.49875311720698257,
+    "Eq106b_printed_L_negative_fraction": 0.004987531172069825,
+    "Eq106a_T_minimum_over_angular_grid_MeV_minus2": -3.268178438133159e-07,
+    "Eq106b_L_minimum_over_angular_grid_MeV_minus2": -1.6341709276145943e-11,
     "exact_T_minimum_over_angular_grid_MeV_minus2": 1.6310018288945865e-07,
     "exact_L_minimum_over_angular_grid_MeV_minus2": 9.90171889471705e-31,
     "max_abs_exact_T_minus_printed_B6b_over_Thomson": 0.7529049276323494,
@@ -72,13 +72,13 @@
     "max_abs_exact_L_minus_printed_B6b_over_Thomson": 1.5000374999999997,
     "angular_convention": "The paper identifies theta as the scattering angle and integrates cos(theta) over [-1,1]. The signs are evaluated on that stated range."
   },
-  "EqB6_integrals_and_Eq5_9_phase_factor": {
-    "numerical_integral_B6a_MeV_minus2": 3.268341855225614e-11,
-    "numerical_integral_B6b_MeV_minus2": 4.3577891403012365e-07,
-    "Eq5_9a_over_integral_B6a": 0.9999499987500312,
-    "Eq5_9b_over_integral_B6b": 0.9999499987499356,
+  "Eq106_integrals_and_Eq58_phase_factor": {
+    "numerical_integral_Eq106a_MeV_minus2": 3.268341855225614e-11,
+    "numerical_integral_Eq106b_MeV_minus2": 4.3577891403012365e-07,
+    "Eq58a_over_integral_Eq106a": 0.9999499987500312,
+    "Eq58b_over_integral_Eq106b": 0.9999499987499356,
     "sqrt_1_minus_m2_over_E2": 0.9999499987499375,
-    "note": "The printed B.6 angular expressions integrate without the common sqrt(1-m_Z'^2/E_gamma^2) factor present in Eq. (5.9)."
+    "note": "The printed Eq. (106) angular expressions integrate without the common sqrt(1-m_Z'^2/E_gamma^2) factor present in Eq. (58)."
   },
   "independent_direct_vs_crossed_trace": {
     "max_relative_difference": 5.352446453546587e-07,
@@ -134,10 +134,10 @@
     "direct_exact_differential_cross_sections_nonnegative": true
   },
   "interpretation_flags": {
-    "integrated_Eq5_9_TL_hierarchy_opposite_to_conserved_vector_limit": true,
-    "printed_EqB6a_has_negative_differential_region": true,
-    "printed_EqB6b_has_negative_differential_region": true,
-    "EqB6b_shape_tracks_exact_transverse_mode": true
+    "integrated_Eq58_TL_hierarchy_opposite_to_conserved_vector_limit": true,
+    "printed_Eq106a_has_negative_differential_region": true,
+    "printed_Eq106b_has_negative_differential_region": true,
+    "Eq106b_shape_tracks_exact_transverse_mode": true
   },
   "acceptance": {
     "thomson_transverse_limit_pass": true,
