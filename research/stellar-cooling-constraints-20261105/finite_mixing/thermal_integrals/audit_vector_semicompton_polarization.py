@@ -318,6 +318,110 @@ def low_energy_angular_shape_audit(
     }
 
 
+def appendix_B_trace_audit():
+    """Compare printed B.2/B.4 spin sums with direct explicit-spinor traces."""
+    mu = M_MU
+    e2 = 4.0 * math.pi * rates.ALPHA
+    cases = []
+    for energy, ratio in ((0.05, 0.1), (0.1, 0.1)):
+        mass = energy * ratio
+        for cosine in (-0.7, 0.2, 0.8):
+            p, k, p2, q = ref.lab_kinematics(energy, mass, cosine)
+            a = float(p[0] * k[0] - np.dot(p[1:], k[1:]))
+            b = float(p[0] * q[0] - np.dot(p[1:], q[1:]))
+            p2q3 = float(np.dot(p2[1:], q[1:]))
+            p2sq = float(np.dot(p2[1:], p2[1:]))
+            q3sq = float(np.dot(q[1:], q[1:]))
+
+            # Appendix B, Eq. (B.2), with the squared scalar product
+            # (p1.q)^2 understood as required by its printed placement.
+            t0 = (
+                8.0 * mu**2 * p2q3**2 / (q3sq * a**2)
+                - 8.0 * mu**2 * p2sq / a**2
+                + 8.0 * b / a
+                + 8.0 * a / b
+            )
+            tm = (
+                4.0 * p2q3**2 / (q3sq * a * b)
+                + 4.0 * mu**2 * (a - b)**2 / (a**2 * b**2)
+                + 4.0 * a / b**2
+                - 4.0 * p2sq / (a * b)
+                + 4.0 / a
+                + 8.0 / b
+            )
+            paper_t = e2 * (t0 + mass**2 * tm)
+
+            # Appendix B, Eq. (B.4), transcribed as printed.
+            total0 = (
+                8.0 * mu**4 * (a - b)**2 / (a**2 * b**2)
+                + 16.0 * mu**2 * (b - a) / (b * a)
+                + 8.0 * (a**2 + b**2) / (b * a)
+            )
+            totalm = (
+                8.0 * mu**4 * (a - b) / (a * b**3)
+                - 4.0 * mu**2 * (a**2 - b**2) / (a**2 * b**2)
+                + 4.0 * (a - b)**2 / (a * b)
+            )
+            paper_total = e2 * (total0 + mass**2 * totalm)
+            paper_l = paper_total - paper_t
+
+            # The reference spinor routine averages the two initial muon
+            # spins and two initial photon polarizations. The paper writes
+            # spin sums, so multiply the averaged result by four.
+            spin_sum_factor = 4.0 * e2
+            exact_t = spin_sum_factor * ref.polarization_resolved_matrix_element_squared(
+                p, k, p2, q, mass, 1.0, 0.0, "T"
+            )
+            exact_l = spin_sum_factor * ref.polarization_resolved_matrix_element_squared(
+                p, k, p2, q, mass, 1.0, 0.0, "L"
+            )
+            exact_total = spin_sum_factor * ref.polarization_resolved_matrix_element_squared(
+                p, k, p2, q, mass, 1.0, 0.0, "all"
+            )
+            cases.append({
+                "photon_energy_MeV": energy,
+                "mediator_mass_MeV": mass,
+                "cos_theta": cosine,
+                "Egamma_over_mmu": energy / mu,
+                "paper_B2_T_over_exact_spin_sum": paper_t / exact_t,
+                "paper_B4_total_over_exact_spin_sum": paper_total / exact_total,
+                "paper_B3_L_over_exact_spin_sum": paper_l / exact_l,
+                "paper_L_positive": paper_l > 0.0,
+                "exact_T_plus_L_closure_residual": (
+                    abs(exact_total - exact_t - exact_l) / exact_total
+                ),
+            })
+    max_t = max(abs(item["paper_B2_T_over_exact_spin_sum"] - 1.0) for item in cases)
+    max_total = max(
+        abs(item["paper_B4_total_over_exact_spin_sum"] - 1.0)
+        for item in cases
+    )
+    max_l = max(
+        abs(item["paper_B3_L_over_exact_spin_sum"] - 1.0)
+        for item in cases
+    )
+    return {
+        "reference": "arXiv:2610.35379v1, Appendix B, Eqs. (B.2)-(B.4)",
+        "normalization": (
+            "The reference spinor code averages over initial muon spin and "
+            "photon polarization; factor 4 is applied to compare with the "
+            "paper's unaveraged spin sums."
+        ),
+        "cases": cases,
+        "max_abs_B2_T_relative_residual": max_t,
+        "max_abs_B4_total_relative_residual": max_total,
+        "max_abs_B3_L_relative_residual": max_l,
+        "acceptance": {
+            "B2_transverse_matches_direct_spinor_sum": max_t < 5e-5,
+            "B4_total_matches_direct_spinor_sum": max_total < 5e-5,
+            "B3_longitudinal_difference_matches_direct_spinor_sum": max_l < 0.015,
+            "all_paper_longitudinal_differences_positive": all(
+                item["paper_L_positive"] for item in cases
+            ),
+        },
+    }
+
+
 def medium_frame_projector_checks(mass, omega):
     """Check covariant U-frame L/T polarization projectors explicitly."""
     metric = np.diag([1.0, -1.0, -1.0, -1.0])
@@ -433,6 +537,7 @@ def build_audit(mass=0.001, photon_energy=0.1):
         crossed_scans["128"], crossed_scans["256"]
     )
     low_energy_scan = low_energy_parameter_scan()
+    appendix_trace = appendix_B_trace_audit()
     angular_shape = low_energy_angular_shape_audit(
         mass, photon_energy, cosines,
         exact_t_dcos, exact_l_dcos, paper_b6a_t, paper_b6b_l
@@ -556,6 +661,7 @@ def build_audit(mass=0.001, photon_energy=0.1):
                 "cos(theta) over [-1,1]. The signs are evaluated on that stated range."
             ),
         },
+        "appendix_B_trace_audit": appendix_trace,
         "low_energy_angular_shape_audit": angular_shape,
         "low_energy_parameter_scan": low_energy_scan,
         "Eq106_integrals_and_Eq58_phase_factor": {
@@ -607,6 +713,9 @@ def build_audit(mass=0.001, photon_energy=0.1):
                 < max_abs_over_thomson(exact_t_dcos - paper_b6a_t)
                 and angular_shape["printed_Eq106b_vs_exact_T_max_abs_over_exact_T_peak"] > 0.5
             ),
+            "Appendix_B_B2_B4_traces_reproduce_direct_spinor_benchmark": (
+                all(appendix_trace["acceptance"].values())
+            ),
             "Eq106_differential_shapes_fail_the_low_energy_reference": (
                 angular_shape["acceptance"]["printed_Eq106a_fails_exact_L_angular_shape"]
                 and angular_shape["acceptance"]["printed_Eq106b_fails_exact_T_angular_shape"]
@@ -631,6 +740,9 @@ def build_audit(mass=0.001, photon_energy=0.1):
             ),
             "low_energy_angular_shape_audit_pass": all(
                 angular_shape["acceptance"].values()
+            ),
+            "appendix_B_trace_audit_pass": all(
+                appendix_trace["acceptance"].values()
             ),
             "medium_frame_projectors_pass": max(
                 abs(projector["q_dot_eps_l"]),

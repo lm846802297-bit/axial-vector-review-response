@@ -79,6 +79,14 @@ class VectorSemiComptonPolarizationAuditTests(unittest.TestCase):
         )
         self.assertTrue(flags["Eq106_differential_shapes_fail_the_low_energy_reference"])
 
+    def test_appendix_B_matrix_element_traces_match_direct_spinor_sum(self):
+        audit = self.audit["appendix_B_trace_audit"]
+        self.assertEqual(len(audit["cases"]), 6)
+        self.assertTrue(all(audit["acceptance"].values()))
+        self.assertLess(audit["max_abs_B2_T_relative_residual"], 5e-5)
+        self.assertLess(audit["max_abs_B4_total_relative_residual"], 5e-5)
+        self.assertLess(audit["max_abs_B3_L_relative_residual"], 0.015)
+
     def test_eq106_angular_shapes_fail_while_exact_shapes_recover_thomson_limit(self):
         angular = self.audit["low_energy_angular_shape_audit"]
         self.assertTrue(
