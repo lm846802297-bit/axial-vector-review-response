@@ -333,6 +333,11 @@ def thermal_compton_emissivity(
     }
     balance = np.exp(-omega/temperature)[:,None]*absorption
     rel = np.abs(production-balance)/np.maximum(np.abs(production),1e-300)
+    prod_unpolarized = np.sum(production, axis=1)/2.0
+    abs_unpolarized = np.sum(absorption, axis=1)/3.0
+    eq_5_12_expected = (2.0/3.0)*np.exp(omega/temperature)
+    eq_5_12_ratio = abs_unpolarized/np.maximum(prod_unpolarized,1e-300)
+    eq_5_12_residual = np.abs(eq_5_12_ratio-eq_5_12_expected)/eq_5_12_expected
     return {
         "mass_MeV": mass, "temperature_MeV": temperature,
         "mode_order": ["L", "+", "-"],
@@ -345,6 +350,10 @@ def thermal_compton_emissivity(
         "mediator_momentum_MeV": q_momentum.tolist(),
         "production_MeV": production.tolist(),
         "absorption_MeV": absorption.tolist(),
+        "unpolarized_production_MeV": prod_unpolarized.tolist(),
+        "unpolarized_absorption_MeV": abs_unpolarized.tolist(),
+        "Eq_5_12_absorption_to_production_ratio": eq_5_12_ratio.tolist(),
+        "max_Eq_5_12_relative_residual": float(np.max(eq_5_12_residual)),
         "production_by_charge_MeV": {
             k:v.tolist() for k,v in charge_production.items()
         },
