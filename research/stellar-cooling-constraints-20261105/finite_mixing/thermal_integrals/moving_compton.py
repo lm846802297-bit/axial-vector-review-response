@@ -272,8 +272,30 @@ def moving_muon_compton_rates(
     # the initial massive vector over 3 states in absorption.
     gamma_prod_unpolarized = float(np.sum(prod_total)/2.0)
     gamma_abs_unpolarized = float(np.sum(abs_total)/3.0)
-    eq_5_12_expected = (2.0/3.0)*np.exp(omega/temperature)
-    eq_5_12_ratio = gamma_abs_unpolarized/gamma_prod_unpolarized
+
+    # Eq. (5.12) contains exp(omega/T), which can exceed the floating-point
+    # range in the cold, dilute outer layers. Production can also underflow
+    # to exactly zero while absorption remains representable. Evaluate the
+    # diagnostic in log space and mark an unresolvable ratio as null instead
+    # of raising ZeroDivisionError or writing inf/NaN to JSON.
+    log_expected = float(np.log(2.0/3.0) + omega/temperature)
+    log_float_max = float(np.log(np.finfo(float).max))
+    eq_5_12_expected = (
+        float(np.exp(log_expected)) if log_expected <= log_float_max else None
+    )
+    log_ratio = None
+    eq_5_12_ratio = None
+    eq_5_12_relative_residual = None
+    log_residual = None
+    if gamma_abs_unpolarized > 0.0 and gamma_prod_unpolarized > 0.0:
+        log_ratio = float(
+            np.log(gamma_abs_unpolarized)-np.log(gamma_prod_unpolarized)
+        )
+        if log_ratio <= log_float_max:
+            eq_5_12_ratio = float(np.exp(log_ratio))
+        log_residual = float(log_ratio-log_expected)
+        if abs(log_residual) < 700.0:
+            eq_5_12_relative_residual = float(abs(np.expm1(log_residual)))
 
     return {
         "Gamma_prod_by_mode": prod_total,
@@ -285,10 +307,14 @@ def moving_muon_compton_rates(
             "initial_vector_polarization_average": 3,
             "Gamma_prod_unpolarized": gamma_prod_unpolarized,
             "Gamma_abs_unpolarized": gamma_abs_unpolarized,
-            "Gamma_abs_over_Gamma_prod": float(eq_5_12_ratio),
-            "Eq_5_12_expected_ratio": float(eq_5_12_expected),
-            "Eq_5_12_relative_residual": float(
-                abs(eq_5_12_ratio-eq_5_12_expected)/eq_5_12_expected
+            "Gamma_abs_over_Gamma_prod": eq_5_12_ratio,
+            "Gamma_abs_over_Gamma_prod_log": log_ratio,
+            "Eq_5_12_expected_ratio": eq_5_12_expected,
+            "Eq_5_12_expected_log_ratio": log_expected,
+            "Eq_5_12_log_residual": log_residual,
+            "Eq_5_12_relative_residual": eq_5_12_relative_residual,
+            "Eq_5_12_underflow_limited": (
+                gamma_prod_unpolarized == 0.0 or gamma_abs_unpolarized == 0.0
             ),
         },
         "charge_contributions": charge_results,
