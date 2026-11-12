@@ -594,3 +594,12 @@ composition profile, retaining clusters as a separate component.
 - **下一步：** 先精简同一物理命题的重复否定句和总结句，再复核实际 diff；不新增物理计算、不改论文正文。
 
 详细逐点结论、模型边界核查、实验适用条件和建议修改位置见 [PR #64 独立审稿人视角复核](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-09/PR64独立审稿人视角复核_2026-11-09.md)。该复核形成时 PR #64 尚未合并；当前状态见顶部更新。
+
+## 2026-11-12 后续 CI 失败分类与修复
+
+- **Major 4.4 数值验证：** Run #43151547062（触发 head `960f407`）与较早 Run #43150499259（触发 head `e9a0223`）均已通过 C4C3 14 项 SHA-256 和 SFHo/FRDM 实际分块重组检查；最后检查时两者仍在第一组 research-level unittest 中，尚无最终测试汇总。Run #43149443570 已取消，不能作为完整数值验收。
+- **C4C3 历史失败分类：** Run #43039883023 与 #43039533642 均在 `actions/checkout` 阶段因工作流将 `\${{ github.sha }}` 写成带反斜杠的字面值而报 `fatal: invalid refspec`；Python、单元测试和计算分片全部 skipped。该问题属于 workflow 配置错误，不是核散射计算或验收阈值失败。独立的 301 点 workflow Run #43039856965 已成功。
+- **C4C3 workflow 修复：** 在 moving-muon 分支提交 `683aee8` 中移除误转义的 GitHub Actions 表达式，并统一 shard 输出文件名；新 Run [#43152133071](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43152133071) 已排队，等待重新执行 unit tests、20 个 shard 与 merge acceptance。
+- **回复信 PDF 审计失败分类：** Run #43151746827 的 LaTeX、BibTeX、PDF 结构、交叉引用和字体检查均通过；仅 `audit_reply.py` 的 27 段原文比较失败，原因是 moving-muon 分支仍使用旧基线 `7ef9a4a`，而 TeX 已同步到 main 的 `310a24a`。不是排版或物理内容失败。
+- **回复信审计修复：** moving-muon 分支提交 `4003781`，采用 PR #56 已验证的 `BASE=310a24a` 审计脚本；提交 `d1d79aa` 将 `audit_reply.py` 纳入 push/pull_request 触发路径。新 Run [#43152263886](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43152263886) 已排队，待完成 PDF 构建与 27 段保留审计。
+- **物理验收边界：** 上述 checkout/refspec 与源文档基线问题均归类为 workflow/test-baseline 配置问题。它们不能作为物理计算错误证据；同样，前置 checksum gates 通过也不代表 Blinov Fig. 7 或轴矢量冷却曲线已经通过独立复现。
