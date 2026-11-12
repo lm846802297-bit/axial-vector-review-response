@@ -25,7 +25,7 @@
     "m300_T30_mu80_pure_axial": {
       "64": {
         "Q_by_mode_MeV5": [
-          2358.034179857178,
+          2358.0341798571785,
           2319.0258753483367,
           2319.0258753483367
         ],
@@ -57,7 +57,7 @@
     "m500_T35_mu75_mixed": {
       "64": {
         "Q_by_mode_MeV5": [
-          511.05178056143967,
+          511.0517805614397,
           508.38832300280046,
           508.3860616927276
         ],
@@ -71,7 +71,7 @@
           508.3860616927232
         ],
         "Q_total_MeV5": 1527.8261652569545,
-        "max_pointwise_detailed_balance_relative_residual": 2.5043709357085602e-14
+        "max_pointwise_detailed_balance_relative_residual": 2.5201216963105005e-14
       },
       "192": {
         "Q_by_mode_MeV5": [
@@ -82,7 +82,7 @@
         "Q_total_MeV5": 1527.8261652569472,
         "max_pointwise_detailed_balance_relative_residual": 5.621947955876355e-14
       },
-      "relative_difference_Q_64_vs_128": 8.721259853009331e-15,
+      "relative_difference_Q_64_vs_128": 8.78703540582616e-15,
       "relative_difference_Q_128_vs_192": 5.143329970320091e-15,
       "max_detailed_balance_relative_residual": 5.621947955876355e-14
     },
@@ -90,10 +90,10 @@
       "64": {
         "Q_by_mode_MeV5": [
           4.049938761730951e-120,
-          4.0499387617309486e-120,
-          4.0499387617309486e-120
+          4.049938761730949e-120,
+          4.049938761730949e-120
         ],
-        "Q_total_MeV5": 1.2149816285192849e-119,
+        "Q_total_MeV5": 1.214981628519285e-119,
         "max_pointwise_detailed_balance_relative_residual": 4.8851775974622493e-14
       },
       "128": {
