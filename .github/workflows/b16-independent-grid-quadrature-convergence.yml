@@ -1,0 +1,154 @@
+name: B.16 independent-grid quadrature convergence
+
+on:
+  push:
+    branches:
+      - research/moving-muon-thermal-rates-20261107
+    paths:
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_independent_grid_quadrature_convergence.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_global_high_order.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_global_redshift.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_high_order_independent_grid_*mev_2026-11-09.json'
+      - '.github/workflows/b16-independent-grid-quadrature-convergence.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: b16-independent-grid-quadrature-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  convergence:
+    if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        mass: [0.1, 1, 10]
+    steps:
+      - name: Check out research branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy
+      - name: Run independent-grid B.16 quadrature variations
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_independent_grid_quadrature_convergence.py \
+            --mass "${{ matrix.mass }}" \
+            --baseline research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_high_order_independent_grid_${{ matrix.mass }}mev_2026-11-09.json \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_independent_grid_quadrature_convergence_${{ matrix.mass }}mev_2026-11-09.json
+      - name: Validate grid isolation and finite convergence diagnostics
+        run: |
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+
+          mass_tag = "${{ matrix.mass }}"
+          p = Path(
+              "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/"
+              f"b16_independent_grid_quadrature_convergence_{mass_tag}mev_2026-11-09.json"
+          )
+          d = json.loads(p.read_text())
+          assert math.isclose(d["mass_MeV"], float(mass_tag), rel_tol=0, abs_tol=1e-12)
+          base = d["baseline"]["configuration"]
+          assert base["radial_order"] == 200
+          assert base["opacity_order"] == 640
+          assert base["energy_order"] == 200
+          assert base["angular_order"] == 32
+          assert base["path_order"] == 64
+          assert base["source_grid_mode"] == "independent"
+
+          variations = d["variations"]
+          assert set(variations) == {
+              "energy_300", "angular_48", "path_96", "combined_300_48_96"
+          }
+          for name, item in variations.items():
+              cfg = item["configuration"]
+              grid = item["grid_identity"]
+              assert cfg["source_grid_mode"] == "independent"
+              assert cfg["radial_order"] == 200
+              assert cfg["opacity_order"] == 640
+              assert grid["source_grid_sha256"] == base["source_grid_sha256"]
+              assert grid["opacity_grid_sha256"] == base["opacity_grid_sha256"]
+              assert len(item["fixed_omega"]["luminosity_change_vs_high_order_baseline"]["points"]) > 0
+              for family in ("fixed_omega", "path_redshift_diagnostic"):
+                  metric = item[family]["luminosity_change_vs_high_order_baseline"]
+                  assert math.isfinite(metric["mean_absolute_relative_change"])
+                  assert math.isfinite(metric["maximum_absolute_relative_change"])
+              assert math.isfinite(item["source_integral"]["relative_change_vs_high_order_baseline"])
+
+          assert variations["energy_300"]["configuration"]["energy_order"] == 300
+          assert variations["angular_48"]["configuration"]["angular_order"] == 48
+          assert variations["path_96"]["configuration"]["path_order"] == 96
+          assert variations["combined_300_48_96"]["configuration"]["energy_order"] == 300
+          assert variations["combined_300_48_96"]["configuration"]["angular_order"] == 48
+          assert variations["combined_300_48_96"]["configuration"]["path_order"] == 96
+
+          # Energy-only and combined runs must change the energy grid;
+          # angle/path-only runs must retain the baseline energy grid.
+          assert variations["energy_300"]["grid_identity"]["energy_grid_sha256"] != base["energy_grid_sha256"]
+          assert variations["combined_300_48_96"]["grid_identity"]["energy_grid_sha256"] != base["energy_grid_sha256"]
+          assert variations["angular_48"]["grid_identity"]["energy_grid_sha256"] == base["energy_grid_sha256"]
+          assert variations["path_96"]["grid_identity"]["energy_grid_sha256"] == base["energy_grid_sha256"]
+
+          print(json.dumps({
+              "mass_MeV": d["mass_MeV"],
+              "fixed_omega_max_changes": {
+                  name: item["fixed_omega"]["luminosity_change_vs_high_order_baseline"]["maximum_absolute_relative_change"]
+                  for name, item in variations.items()
+              },
+              "redshift_max_changes": {
+                  name: item["path_redshift_diagnostic"]["luminosity_change_vs_high_order_baseline"]["maximum_absolute_relative_change"]
+                  for name, item in variations.items()
+              },
+              "source_integral_changes": {
+                  name: item["source_integral"]["relative_change_vs_high_order_baseline"]
+                  for name, item in variations.items()
+              }
+          }, indent=2))
+          PY
+      - name: Verify production axial outputs remain unchanged
+        run: |
+          git diff --exit-code -- \
+            research/stellar-cooling-constraints-20261105/rates.py \
+            research/stellar-cooling-constraints-20261105/transport.py \
+            research/stellar-cooling-constraints-20261105/outputs/axial.json \
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.pdf \
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.png
+      - name: Archive independent-grid quadrature diagnostics
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_independent_grid_quadrature_convergence_${{ matrix.mass }}mev_2026-11-09.json
+          if git diff --cached --quiet; then
+            echo "Identical quadrature diagnostics are already archived."
+            exit 0
+          fi
+          git commit -m "Archive independent-grid B.16 quadrature audit at ${{ matrix.mass }} MeV"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin "${GITHUB_REF_NAME}"
+            git rebase "origin/${GITHUB_REF_NAME}"
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              exit 0
+            fi
+            echo "Push raced with another research workflow; retry ${attempt}/5."
+            sleep 2
+          done
+          echo "Could not archive independent-grid quadrature diagnostics after five retries."
+          exit 1

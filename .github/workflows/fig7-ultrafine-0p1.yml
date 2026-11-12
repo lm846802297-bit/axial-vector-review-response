@@ -1,0 +1,81 @@
+name: Fig. 7 ultrafine 0.1 MeV convergence
+
+on:
+  push:
+    branches:
+      - codex/major44-axial-cooling-constraints-20261105
+    paths:
+      - '.github/workflows/fig7-ultrafine-0p1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fig7-ultrafine-0p1
+  cancel-in-progress: false
+
+jobs:
+  refine:
+    if: github.ref_name == 'codex/major44-axial-cooling-constraints-20261105'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out triggering commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy
+      - name: Run ultrafine 0.1 MeV scan
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py \
+            --masses 0.1 \
+            --gmin 2e-11 --gmax 4e-3 --gcount 501 \
+            --nr 176 --ne 360 --na 64 --ns 128 \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_fig7_ultrafine_0p1_scan.json
+      - name: Compare with Fig. 7
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/compare_reference.py \
+            --scan research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_fig7_ultrafine_0p1_scan.json \
+            --fig7 research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_ultrafine_0p1_comparison.json
+      - name: Compare refined and ultrafine quadrature
+        run: |
+          python research/stellar-cooling-constraints-20261105/compare_fig7_resolution.py \
+            --baseline research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_fig7_refined_scan.json \
+            --high research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_fig7_ultrafine_0p1_scan.json \
+            --vector research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_ultrafine_0p1_resolution.json
+      - name: Commit ultrafine 0.1 MeV outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_fig7_ultrafine_0p1_scan.json
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_ultrafine_0p1_comparison.json
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_ultrafine_0p1_resolution.json
+          if git diff --cached --quiet; then
+            echo "Ultrafine 0.1 MeV outputs are already current."
+          else
+            git commit -m "Archive ultrafine 0.1 MeV Fig. 7 scan"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin "${GITHUB_REF_NAME}"
+              git rebase "origin/${GITHUB_REF_NAME}"
+              if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+                exit 0
+              fi
+              echo "Push raced with another workflow; retry \${attempt}/5."
+              sleep 2
+            done
+            echo "Could not archive ultrafine 0.1 MeV outputs after five retries."
+            exit 1
+          fi

@@ -1,0 +1,87 @@
+name: P1-IIIe-C4B2 effective-mass collision kernel
+
+on:
+  push:
+    branches:
+      - research/moving-muon-thermal-rates-20261107
+    paths:
+      - '.github/workflows/b16-p1iiie-c4b2-effective-mass-collision-kernel.yml'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_b_stationary_dirac_trace.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_b_moving_fermi_gas_collision_kernel.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_full_radial_occupation.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_c4b2_effective_mass_collision_kernel.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_p1iii_eos_c4b2_effective_mass_collision_kernel.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/p1iii_eos_full_radial_occupation_2026-11-11.csv'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: p1iiie-c4b2-effective-mass-collision-kernel
+  cancel-in-progress: false
+
+jobs:
+  eos-effective-mass-collision-kernel:
+    if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Check out the exact research commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy
+
+      - name: Run C4-B2 unit tests
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest test_b16_p1iii_eos_c4b2_effective_mass_collision_kernel -v
+
+      - name: Recompute EOS effective-mass collision kernel
+        env:
+          C4B2_DIR: ${{ runner.temp }}/c4b2
+        run: |
+          set -euo pipefail
+          mkdir -p "$C4B2_DIR"
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_c4b2_effective_mass_collision_kernel.py --profile research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv --c2-reference research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/p1iii_eos_full_radial_occupation_2026-11-11.csv --output-json "$C4B2_DIR/summary.json" --output-local-csv "$C4B2_DIR/eos_local_rates.csv" --output-recovery-csv "$C4B2_DIR/legacy_recovery.csv" --output-cold-csv "$C4B2_DIR/cold_horowitz.csv"
+
+      - name: Validate C4-B2 numerical acceptance
+        env:
+          C4B2_DIR: ${{ runner.temp }}/c4b2
+        run: |
+          python - <<'PY'
+          import csv, json, os
+          from pathlib import Path
+
+          root = Path(os.environ["C4B2_DIR"])
+          summary = json.loads((root / "summary.json").read_text())
+          assert summary["overall_pass"]
+          assert all(summary["acceptance"].values())
+          assert len(summary["legacy_recovery"]) == 4
+          assert len(summary["cold_dilute_Horowitz"]) == 4
+          assert len(summary["core_local_quadrature_convergence"]) == 3
+          assert summary["provenance"]["local_cases"] == 16
+          assert len(list(csv.DictReader((root / "eos_local_rates.csv").open()))) == 16
+          assert len(list(csv.DictReader((root / "legacy_recovery.csv").open()))) == 4
+          assert len(list(csv.DictReader((root / "cold_horowitz.csv").open()))) == 4
+          print(json.dumps(summary["maxima"], indent=2))
+          PY
+
+      - name: Upload C4-B2 numerical outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: c4b2-eos-effective-mass-collision-kernel
+          path: ${{ runner.temp }}/c4b2/
+          if-no-files-found: error
+          retention-days: 90

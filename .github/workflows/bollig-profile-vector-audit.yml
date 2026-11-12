@@ -1,0 +1,72 @@
+name: Original Bollig SFHo-18.8 profile vector-path audit
+
+on:
+  push:
+    branches:
+      - research/moving-muon-thermal-rates-20261107
+    paths:
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_bollig_muon_profile_crosscheck.py'
+      - '.github/workflows/bollig-profile-vector-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bollig-profile-vector-audit-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  extract:
+    if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out research branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install PDF extraction dependency
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pymupdf
+      - name: Extract original Bollig Fig. 3 and Fig. 4 vector paths
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_bollig_muon_profile_crosscheck.py \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/bollig_fig3_fig4_vector_paths_2026-11-09.json
+      - name: Verify production axial outputs remain unchanged
+        run: |
+          git diff --exit-code -- \
+            research/stellar-cooling-constraints-20261105/rates.py \
+            research/stellar-cooling-constraints-20261105/transport.py \
+            research/stellar-cooling-constraints-20261105/outputs/axial.json \
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.pdf \
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.png
+      - name: Archive original-source vector paths
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/bollig_fig3_fig4_vector_paths_2026-11-09.json
+          if git diff --cached --quiet; then
+            echo "Bollig vector-path audit is already current."
+          else
+            git commit -m "Archive original Bollig Fig. 3 and Fig. 4 vector paths"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin "${GITHUB_REF_NAME}"
+              git rebase "origin/${GITHUB_REF_NAME}"
+              if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+                exit 0
+              fi
+              echo "Push raced with another research workflow; retry ${attempt}/5."
+              sleep 2
+            done
+            echo "Could not archive Bollig vector-path audit after five retries."
+            exit 1
+          fi

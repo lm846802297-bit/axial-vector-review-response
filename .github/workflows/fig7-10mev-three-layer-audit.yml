@@ -1,0 +1,70 @@
+name: Fig. 7 10 MeV three-layer decomposition
+
+on:
+  push:
+    branches:
+      - codex/major44-axial-cooling-constraints-20261105
+    paths:
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/diagnose_fig7_10mev_three_layer.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_fig7_10mev_three_layer.py'
+      - '.github/workflows/fig7-10mev-three-layer-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fig7-10mev-three-layer-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    if: github.ref_name == 'codex/major44-axial-cooling-constraints-20261105'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out triggering commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy
+      - name: Run dedicated regression tests
+        run: |
+          python -m unittest discover \
+            -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
+            -p 'test_fig7_10mev_three_layer.py' -v
+      - name: Run three-layer decomposition
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/diagnose_fig7_10mev_three_layer.py \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_three_layer.json
+      - name: Verify production and axial files are untouched
+        run: |
+          git diff --exit-code -- \
+            research/stellar-cooling-constraints-20261105/rates.py \
+            research/stellar-cooling-constraints-20261105/transport.py \
+            research/stellar-cooling-constraints-20261105/outputs/axial.json \
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.pdf \
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.png \
+            Replies_to_Referee_3_referee_facing_2026-11-04.tex \
+            Replies_to_Referee_3_referee_facing_2026-11-04.pdf
+      - name: Archive diagnostic output
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_three_layer.json
+          if git diff --cached --quiet; then
+            echo "Three-layer output is already current."
+          else
+            git commit -m "Archive 10 MeV three-layer decomposition"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi

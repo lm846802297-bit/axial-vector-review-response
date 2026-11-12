@@ -1,0 +1,241 @@
+name: B.13 global transport convergence audit
+
+on:
+  push:
+    branches:
+      - research/moving-muon-thermal-rates-20261107
+    paths:
+      - '.github/workflows/b13-global-convergence.yml'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_global_redshift.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b13_global_transport.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/summarize_b13_global_transport.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/summarize_b13_convergence.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py'
+      - 'research/stellar-cooling-constraints-20261105/finite_mixing/moving_muon_compton.py'
+      - 'research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv'
+      - 'research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: b13-global-grid-scan-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  convergence:
+    if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
+    name: Grid scan - ${{ matrix.case }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        include:
+          - case: baseline
+            nr: 40
+            ne: 100
+            na: 16
+            ns: 32
+          - case: radial60
+            nr: 60
+            ne: 100
+            na: 16
+            ns: 32
+          - case: radial80
+            nr: 80
+            ne: 100
+            na: 16
+            ns: 32
+          - case: energy150
+            nr: 40
+            ne: 150
+            na: 16
+            ns: 32
+          - case: energy200
+            nr: 40
+            ne: 200
+            na: 16
+            ns: 32
+          - case: angle24
+            nr: 40
+            ne: 100
+            na: 24
+            ns: 32
+          - case: angle32
+            nr: 40
+            ne: 100
+            na: 32
+            ns: 32
+          - case: path48
+            nr: 40
+            ne: 100
+            na: 16
+            ns: 48
+          - case: path64
+            nr: 40
+            ne: 100
+            na: 16
+            ns: 64
+
+    steps:
+      - name: Check out research branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy
+
+      - name: Compile convergence and physics scripts
+        run: |
+          python -m py_compile \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_global_redshift.py \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b13_global_transport.py \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/summarize_b13_global_transport.py \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/summarize_b13_convergence.py
+
+      - name: Regenerate matched-grid B.16 vector baseline
+        env:
+          PYTHONPATH: ${{ github.workspace }}/research/stellar-cooling-constraints-20261105
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_global_redshift.py \
+            --masses 10 \
+            --nr ${{ matrix.nr }} \
+            --ne ${{ matrix.ne }} \
+            --na ${{ matrix.na }} \
+            --ns ${{ matrix.ns }} \
+            --energy-offset 1000 \
+            --output "$RUNNER_TEMP/b16_${{ matrix.case }}.json"
+
+      - name: Run B.13 exact source-and-opacity transport on the same grid
+        env:
+          PYTHONPATH: ${{ github.workspace }}/research/stellar-cooling-constraints-20261105
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b13_global_transport.py \
+            --mass 10 \
+            --nr ${{ matrix.nr }} \
+            --ne ${{ matrix.ne }} \
+            --na ${{ matrix.na }} \
+            --ns ${{ matrix.ns }} \
+            --energy-offset 1000 \
+            --kernel-orders 12,8,8,8 \
+            --refined-orders 16,10,10,10 \
+            --active-threshold 1e-8 \
+            --baseline "$RUNNER_TEMP/b16_${{ matrix.case }}.json" \
+            --output "$RUNNER_TEMP/full_${{ matrix.case }}.json"
+
+      - name: Extract compact per-grid diagnostics
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/summarize_b13_global_transport.py \
+            --input "$RUNNER_TEMP/full_${{ matrix.case }}.json" \
+            --output "$RUNNER_TEMP/summary_${{ matrix.case }}.json"
+
+      - name: Verify production axial outputs remain unchanged
+        run: |
+          git diff --exit-code -- \
+            research/stellar-cooling-constraints-20261105/rates.py \
+            research/stellar-cooling-constraints-20261105/transport.py \
+            research/stellar-cooling-constraints-20261105/outputs/axial.json \
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.pdf \
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.png
+
+      - name: Commit compact per-grid summary directly to the research branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          result_dir=research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_convergence_2026-11-09
+          mkdir -p "$result_dir"
+          cp "$RUNNER_TEMP/summary_${{ matrix.case }}.json" "$result_dir/summary_${{ matrix.case }}.json"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$result_dir/summary_${{ matrix.case }}.json"
+          if git diff --cached --quiet; then
+            echo "Summary for ${{ matrix.case }} is already current."
+            exit 0
+          fi
+          git commit -m "Archive B.13 convergence result: ${{ matrix.case }}"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin "${GITHUB_REF_NAME}"
+            if ! git rebase "origin/${GITHUB_REF_NAME}"; then
+              git rebase --abort || true
+              echo "Rebase raced with another matrix job; retry ${attempt}/5."
+              sleep 2
+              continue
+            fi
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              exit 0
+            fi
+            echo "Push raced with another matrix job; retry ${attempt}/5."
+            sleep 2
+          done
+          echo "Could not archive the ${{ matrix.case }} summary after five retries."
+          exit 1
+
+  aggregate:
+    if: needs.convergence.result == 'success' && github.ref_name == 'research/moving-muon-thermal-rates-20261107'
+    needs: convergence
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out research branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Compile aggregator
+        run: |
+          python -m py_compile \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/summarize_b13_convergence.py
+
+      - name: Build convergence report and durable summaries
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/summarize_b13_convergence.py \
+            --input-dir research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_convergence_2026-11-09 \
+            --output-dir research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_convergence_2026-11-09 \
+            --report research/stellar-cooling-constraints-20261105/blinov_reproduction/B13_GLOBAL_TRANSPORT_CONVERGENCE_AUDIT_2026-11-09.md \
+            --aggregate research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_convergence_summary_2026-11-09.json
+
+      - name: Commit convergence report and compact results
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/B13_GLOBAL_TRANSPORT_CONVERGENCE_AUDIT_2026-11-09.md \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_convergence_2026-11-09 \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_convergence_summary_2026-11-09.json
+          if git diff --cached --quiet; then
+            echo "Convergence report is already current."
+            exit 0
+          fi
+          git commit -m "Add B.13 global transport convergence audit"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin "${GITHUB_REF_NAME}"
+            git rebase "origin/${GITHUB_REF_NAME}"
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              exit 0
+            fi
+            echo "Push raced with another research workflow; retry ${attempt}/5."
+            sleep 2
+          done
+          echo "Could not archive convergence results after five retries."
+          exit 1

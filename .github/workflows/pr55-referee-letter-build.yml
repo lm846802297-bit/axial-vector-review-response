@@ -1,9 +1,10 @@
 name: Referee response LaTeX build (PR55 and PR56)
 
 on:
-  pull_request:
-    branches: [main]
-    types: [opened, synchronize, reopened]
+  push:
+    branches:
+      - review/response-point-conclusions-20261106
+      - codex/major44-axial-cooling-constraints-20261105
     paths:
       - 'Replies_to_Referee_3_referee_facing_2026-11-04.tex'
       - 'Replies_to_Referee_3_neutrino_references.bib'
@@ -11,30 +12,43 @@ on:
       - 'JHEP.bst'
       - 'Replies_to_Referee_3_stellar_references.bib'
       - 'research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply.pdf'
+      - 'research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply.png'
+      - 'research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply_gev.pdf'
+      - 'research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply_gev.png' # PNG/PDF are regenerated from the same plotting source
       - '.github/workflows/pr55-referee-letter-build.yml'
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: pr55-referee-letter-${{ github.event.pull_request.number }}
+  group: referee-response-pdf-${{ github.event.pull_request.number || github.ref_name }}
   cancel-in-progress: true
 
 jobs:
   build-and-inspect:
-    if: github.event.pull_request.head.ref == 'review/response-point-conclusions-20261106' || github.event.pull_request.head.ref == 'codex/major44-axial-cooling-constraints-20261105' || github.event.pull_request.head.ref == 'review/major1-scalar-opening-focus-20261108' || github.event.pull_request.head.ref == 'review/major1-remove-defensive-model-framing-20261108' || github.event.pull_request.head.ref == 'review/major1-streamline-low-mass-constraints-intro-20261108'
+    if: github.ref_name == 'review/response-point-conclusions-20261106' || github.ref_name == 'codex/major44-axial-cooling-constraints-20261105'
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
       - name: Checkout exact PR head
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
 
       - name: Install TeX and PDF inspection tools
         run: |
-          sudo apt-get update
-          sudo apt-get install -y latexmk texlive-latex-extra texlive-fonts-recommended texlive-science texlive-publishers texlive-bibtex-extra poppler-utils ghostscript python3-pil
+          sudo timeout 600s apt-get update -o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30
+          sudo env DEBIAN_FRONTEND=noninteractive timeout 1500s apt-get install -y --no-install-recommends latexmk texlive-latex-extra texlive-fonts-recommended texlive-science texlive-publishers texlive-bibtex-extra poppler-utils ghostscript python3-pil
+
+      - name: Refresh checkout to latest PR branch before compilation
+        shell: bash
+        run: |
+          set -euo pipefail
+          BRANCH="${{ github.event.pull_request.head.ref || github.ref_name }}"
+          git fetch origin "$BRANCH"
+          git reset --hard FETCH_HEAD
 
       - name: Compile with latexmk and BibTeX
         shell: bash
@@ -88,7 +102,15 @@ jobs:
           echo "Final .log contains no unresolved citation/reference warnings."
           echo "BibTeX .blg contains no missing-entry/database warnings."
 
-      - name: Render every page and create inspectable contact sheets
+      - name: Run source-preservation and PDF audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m venv build/audit-venv
+          build/audit-venv/bin/pip install --disable-pip-version-check --no-deps pymupdf==1.26.7
+          build/audit-venv/bin/python research/stellar-cooling-constraints-20261105/audit_reply.py
+
+      - name: Render every page and create local contact sheets for visual QA
         run: |
           set -euo pipefail
           pdftoppm -png -r 150 Replies_to_Referee_3_referee_facing_2026-11-04.pdf build/pages/page
@@ -125,10 +147,17 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          BRANCH="${{ github.event.pull_request.head.ref || github.ref_name }}"
+          git fetch origin "$BRANCH"
+          if [ "$(git rev-parse HEAD)" != "$(git rev-parse FETCH_HEAD)" ]; then
+            echo "PR branch advanced during build; refusing to publish a stale PDF."
+            exit 1
+          fi
           git add Replies_to_Referee_3_referee_facing_2026-11-04.pdf
+          git add research/stellar-cooling-constraints-20261105/outputs/reply_audit.json
           if git diff --cached --quiet; then
             echo "Compiled PDF and visual-review sheets are already current."
           else
             git commit -m "Update compiled referee response PDF [skip ci]"
-            git push origin HEAD:${{ github.event.pull_request.head.ref }}
+            git push origin "HEAD:${BRANCH}"
           fi

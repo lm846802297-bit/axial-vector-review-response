@@ -1,0 +1,259 @@
+{
+  "title": "Blinov Fig. 7 vector-path digitization audit",
+  "status": "PASS_EXACT_PDF_VECTOR_PATH_RECONSTRUCTION",
+  "source_url": "https://arxiv.org/src/2511.09619v2",
+  "source_archive_sha256": "ea5bf58438c6442f24b3b781842fdb4ccbec80383c53d605a44ddf224ade8729",
+  "source_pdf_sha256": "4d7d1d10bfe2b52992af94df98749fa3adac887c009cbf98515fa12e6c48fdb5",
+  "comparison_pdf_sha256": "4d7d1d10bfe2b52992af94df98749fa3adac887c009cbf98515fa12e6c48fdb5",
+  "page_rect": [
+    0.0,
+    0.0,
+    416.4628601074219,
+    239.49398803710938
+  ],
+  "plot_axes_pdf_coordinates": {
+    "x_min": 54.82951354980469,
+    "x_max": 397.99951171875,
+    "y_top": 20.904434204101562,
+    "y_bottom": 195.54043579101562
+  },
+  "axis_calibration": {
+    "x_major_ticks": [
+      {
+        "pdf_x": 54.82951354980469,
+        "log10_alpha_V": -22.0
+      },
+      {
+        "pdf_x": 97.72576141357422,
+        "log10_alpha_V": -20.0
+      },
+      {
+        "pdf_x": 140.62200927734375,
+        "log10_alpha_V": -18.0
+      },
+      {
+        "pdf_x": 183.5182647705078,
+        "log10_alpha_V": -16.0
+      },
+      {
+        "pdf_x": 226.41452026367188,
+        "log10_alpha_V": -14.0
+      },
+      {
+        "pdf_x": 269.3107604980469,
+        "log10_alpha_V": -12.0
+      },
+      {
+        "pdf_x": 312.2070007324219,
+        "log10_alpha_V": -10.0
+      },
+      {
+        "pdf_x": 355.103271484375,
+        "log10_alpha_V": -8.0
+      },
+      {
+        "pdf_x": 397.99951171875,
+        "log10_alpha_V": -6.0
+      }
+    ],
+    "y_major_ticks": [
+      {
+        "pdf_y": 195.54043579101562,
+        "log10_luminosity_erg_s": 52.0
+      },
+      {
+        "pdf_y": 137.32843017578125,
+        "log10_luminosity_erg_s": 53.0
+      },
+      {
+        "pdf_y": 79.11643981933594,
+        "log10_luminosity_erg_s": 54.0
+      },
+      {
+        "pdf_y": 20.904434204101562,
+        "log10_luminosity_erg_s": 55.0
+      }
+    ],
+    "max_x_tick_spacing_residual_pdf_points": 1.1444091796875e-05,
+    "max_y_tick_spacing_residual_pdf_points": 5.0862630303072365e-06,
+    "x_variable": "alpha_V = g_mu_tau^2/(4*pi)",
+    "x_log10_range": [
+      -22.0,
+      -6.0
+    ],
+    "y_variable": "L_V [erg/s]",
+    "y_log10_range": [
+      52.0,
+      55.0
+    ]
+  },
+  "curve_results": [
+    {
+      "mass_MeV": 1e-06,
+      "drawing_index": 39,
+      "pdf_path_segments": 83,
+      "raw_pdf_vertices": 84,
+      "visible_digitized_vertices": 82,
+      "curve_color_rgb": [
+        0.12156862765550613,
+        0.46666666865348816,
+        0.7058823704719543
+      ],
+      "max_relative_g_reconstruction_residual": 2.220446049250313e-16,
+      "max_relative_luminosity_reconstruction_residual": 2.220446049250313e-16,
+      "max_relative_alpha_roundtrip_residual": 3.3306690738754696e-16,
+      "first_visible_point": {
+        "g": 1.0096025036803394e-09,
+        "luminosity_erg_s": 1.4346881228362852e+52
+      },
+      "last_visible_point": {
+        "g": 0.003544907701811032,
+        "luminosity_erg_s": 1.0941674856751075e+52
+      }
+    },
+    {
+      "mass_MeV": 1e-05,
+      "drawing_index": 40,
+      "pdf_path_segments": 83,
+      "raw_pdf_vertices": 84,
+      "visible_digitized_vertices": 82,
+      "curve_color_rgb": [
+        1.0,
+        0.49803921580314636,
+        0.054901961237192154
+      ],
+      "max_relative_g_reconstruction_residual": 2.220446049250313e-16,
+      "max_relative_luminosity_reconstruction_residual": 2.220446049250313e-16,
+      "max_relative_alpha_roundtrip_residual": 3.3306690738754696e-16,
+      "first_visible_point": {
+        "g": 1.0096025036803394e-09,
+        "luminosity_erg_s": 1.4420560909647556e+52
+      },
+      "last_visible_point": {
+        "g": 0.003544907701811032,
+        "luminosity_erg_s": 1.0088802006464002e+52
+      }
+    },
+    {
+      "mass_MeV": 0.1,
+      "drawing_index": 41,
+      "pdf_path_segments": 45,
+      "raw_pdf_vertices": 46,
+      "visible_digitized_vertices": 42,
+      "curve_color_rgb": [
+        0.1725490242242813,
+        0.6274510025978088,
+        0.1725490242242813
+      ],
+      "max_relative_g_reconstruction_residual": 2.220446049250313e-16,
+      "max_relative_luminosity_reconstruction_residual": 2.220446049250313e-16,
+      "max_relative_alpha_roundtrip_residual": 3.3306690738754696e-16,
+      "first_visible_point": {
+        "g": 1.0096025036803394e-09,
+        "luminosity_erg_s": 1.4374956002056494e+52
+      },
+      "last_visible_point": {
+        "g": 2.0762602330225336e-06,
+        "luminosity_erg_s": 1.4732681657719356e+52
+      }
+    },
+    {
+      "mass_MeV": 1.0,
+      "drawing_index": 42,
+      "pdf_path_segments": 34,
+      "raw_pdf_vertices": 35,
+      "visible_digitized_vertices": 32,
+      "curve_color_rgb": [
+        0.8392156958580017,
+        0.15294118225574493,
+        0.1568627506494522
+      ],
+      "max_relative_g_reconstruction_residual": 2.220446049250313e-16,
+      "max_relative_luminosity_reconstruction_residual": 0.0,
+      "max_relative_alpha_roundtrip_residual": 3.3306690738754696e-16,
+      "first_visible_point": {
+        "g": 8.381898081991092e-10,
+        "luminosity_erg_s": 1.0110637246148006e+52
+      },
+      "last_visible_point": {
+        "g": 2.6815924763142924e-07,
+        "luminosity_erg_s": 3.0024475327762453e+52
+      }
+    },
+    {
+      "mass_MeV": 10.0,
+      "drawing_index": 43,
+      "pdf_path_segments": 27,
+      "raw_pdf_vertices": 28,
+      "visible_digitized_vertices": 25,
+      "curve_color_rgb": [
+        0.5803921818733215,
+        0.40392157435417175,
+        0.7411764860153198
+      ],
+      "max_relative_g_reconstruction_residual": 0.0,
+      "max_relative_luminosity_reconstruction_residual": 2.220446049250313e-16,
+      "max_relative_alpha_roundtrip_residual": 3.3306690738754696e-16,
+      "first_visible_point": {
+        "g": 4.796429536550025e-10,
+        "luminosity_erg_s": 1.0893295563998579e+52
+      },
+      "last_visible_point": {
+        "g": 4.171689650228597e-08,
+        "luminosity_erg_s": 1.26781475907372e+52
+      }
+    },
+    {
+      "mass_MeV": 200.0,
+      "drawing_index": 44,
+      "pdf_path_segments": 14,
+      "raw_pdf_vertices": 15,
+      "visible_digitized_vertices": 12,
+      "curve_color_rgb": [
+        0.5490196347236633,
+        0.33725491166114807,
+        0.29411765933036804
+      ],
+      "max_relative_g_reconstruction_residual": 0.0,
+      "max_relative_luminosity_reconstruction_residual": 2.220446049250313e-16,
+      "max_relative_alpha_roundtrip_residual": 4.440892098500626e-16,
+      "first_visible_point": {
+        "g": 2.2786924770120788e-10,
+        "luminosity_erg_s": 1.3372469489802903e+52
+      },
+      "last_visible_point": {
+        "g": 1.7643093106416046e-09,
+        "luminosity_erg_s": 1.0576492444887233e+52
+      }
+    }
+  ],
+  "ten_MeV_result": {
+    "mass_MeV": 10.0,
+    "drawing_index": 43,
+    "pdf_path_segments": 27,
+    "raw_pdf_vertices": 28,
+    "visible_digitized_vertices": 25,
+    "curve_color_rgb": [
+      0.5803921818733215,
+      0.40392157435417175,
+      0.7411764860153198
+    ],
+    "max_relative_g_reconstruction_residual": 0.0,
+    "max_relative_luminosity_reconstruction_residual": 2.220446049250313e-16,
+    "max_relative_alpha_roundtrip_residual": 3.3306690738754696e-16,
+    "first_visible_point": {
+      "g": 4.796429536550025e-10,
+      "luminosity_erg_s": 1.0893295563998579e+52
+    },
+    "last_visible_point": {
+      "g": 4.171689650228597e-08,
+      "luminosity_erg_s": 1.26781475907372e+52
+    }
+  },
+  "limitations": [
+    "These are exact centerline vertices of the plotted PDF polylines, not author-provided numerical tables.",
+    "The 10 MeV source path has 27 line segments (28 raw vertices), of which 25 lie inside the visible plotting frame.",
+    "The digitization audit verifies path identity, color/legend correspondence, axis calibration and all stored transformed vertices; it does not infer the authors' unplotted interpolation or original simulation samples.",
+    "The version-of-record Fig. 7 was independently visually compared with the pinned arXiv v2 source figure."
+  ]
+}

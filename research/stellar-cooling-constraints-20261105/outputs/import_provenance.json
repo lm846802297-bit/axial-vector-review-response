@@ -1,0 +1,14 @@
+{
+  "commit": "e94fd051365eec508ac85bfd223c7531c0c64230",
+  "byte_identical_files": {
+    "axial_decay_widths.py": "cb5178ae4600c54c8df637e1e6d8567cc44d95f492ad29209cc0ce66ccaea706",
+    "README.md": "8395c2ace8ac3631ac7c651f403f0cecbe8f54a0c21dde0772f327d44cb42534",
+    "single_vev_axial_mapping.py": "a00c98ef5c650a2271344f5e43a5a6e1f165bfb47cebbcdcf5060c3323c16c1c",
+    "stellar_semi_compton_axial_matrix_element.py": "67bc49a49068b1bd67c76a5563432bddf7ade79b5a65192df1e3e928ad9ee26e",
+    "stellar_semi_compton_thermal_convergence.py": "1188b59da20580a43e176ab3cc6f6bfb0cfc31b2ce5eff32ce3b62d6476fec3e",
+    "stellar_semi_compton_thermal_rate.py": "aaa2315a73f2c26a547fa314d0591224a4f3080d8cd41d45f2adc1113369930d",
+    "test_single_vev_axial_mapping.py": "7e911115b39ce18ac186d2951186305247795badf4adbc9e8326b0058f8579b7",
+    "thermal-convergence-2026-11-05.csv": "2be649ffcdcc9e056ad8046ada4f2c03a82dd815f6da81cc25efa18e7a6ef150",
+    "validation-results-2026-11-05.md": "88c6d0a0a2fad41b6e27e9b12fd7d8aa0bd30bf8e8218b6a0a37b0fd52c6dc90"
+  }
+}

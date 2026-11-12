@@ -1,0 +1,124 @@
+name: Dense local B.6-B.10 and B.14-B.19 audit on global B1+B2 grid
+
+on:
+  push:
+    branches:
+      - research/moving-muon-thermal-rates-20261107
+    paths:
+      - '.github/workflows/b16-dense-local-kernel-audit.yml'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_dense_local_kernel.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_dense_local_kernel.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_b1_independent.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_local_absorption.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py'
+      - 'research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: b16-dense-local-kernel-audit
+  cancel-in-progress: false
+
+jobs:
+  dense-local-audit:
+    if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Check out research branch
+        uses: actions/checkout@v4
+        with:
+          ref: research/moving-muon-thermal-rates-20261107
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy
+
+      - name: Run dense local-kernel unit tests
+        run: |
+          python -m unittest discover \
+            -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
+            -p 'test_b16_dense_local_kernel.py' -v
+
+      - name: Run dense 64,000-point local B.6-B.10 and B.14-B.19 audit
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_dense_local_kernel.py \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_dense_local_kernel_audit_10mev_2026-11-09.json
+
+      - name: Validate dense local-kernel closure
+        run: |
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+          p = Path("research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_dense_local_kernel_audit_10mev_2026-11-09.json")
+          d = json.loads(p.read_text())
+          assert d["profile"]["sha256"] == "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
+          assert d["configuration"]["number_of_radial_nodes"] == 200
+          assert d["configuration"]["number_of_energy_nodes_per_radius"] == 320
+          assert d["configuration"]["total_radius_energy_points"] == 64000
+          assert d["maximum_residuals"]["nu_mu_B6_production"]["maximum_relative_residual"] < 1e-10
+          assert d["maximum_residuals"]["nu_tau_B6_production"]["maximum_relative_residual"] < 1e-10
+          assert d["maximum_residuals"]["compton_B16_production"]["maximum_relative_residual"] < 1e-10
+          assert d["maximum_residuals"]["total_reduced_absorption"]["maximum_relative_residual"] < 1e-10
+          assert d["maximum_residuals"]["mu_numu_sign_invariance"]["maximum_relative_residual"] < 1e-10
+          assert d["angular_quadrature_check"]["maximum_relative_change_256_to_512"] < 1e-8
+          assert d["production_axial_outputs_modified"] is False
+          def check_finite(value):
+              if isinstance(value, float):
+                  assert math.isfinite(value)
+              elif isinstance(value, dict):
+                  for item in value.values():
+                      check_finite(item)
+              elif isinstance(value, list):
+                  for item in value:
+                      check_finite(item)
+          check_finite(d)
+          print(json.dumps({
+              "configuration": d["configuration"],
+              "maximum_residuals": d["maximum_residuals"],
+              "angular_quadrature_check": d["angular_quadrature_check"],
+          }, indent=2))
+          PY
+
+      - name: Verify production axial outputs remain unchanged
+        run: |
+          git diff --exit-code -- \
+            research/stellar-cooling-constraints-20261105/rates.py \
+            research/stellar-cooling-constraints-20261105/transport.py \
+            research/stellar-cooling-constraints-20261105/outputs/axial.json \
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.pdf \
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.png
+
+      - name: Archive dense local-kernel result
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_dense_local_kernel_audit_10mev_2026-11-09.json
+          if git diff --cached --quiet; then
+            echo "Dense local-kernel audit is already current."
+          else
+            git commit -m "Archive dense local B16 kernel audit"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin research/moving-muon-thermal-rates-20261107
+              git rebase origin/research/moving-muon-thermal-rates-20261107
+              if git push origin HEAD:research/moving-muon-thermal-rates-20261107; then
+                exit 0
+              fi
+              echo "Push raced with another research workflow; retry $attempt/5."
+              sleep 2
+            done
+            echo "Could not archive dense local-kernel result after five retries."
+            exit 1
+          fi

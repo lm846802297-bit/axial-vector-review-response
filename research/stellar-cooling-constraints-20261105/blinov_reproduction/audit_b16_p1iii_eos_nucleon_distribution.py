@@ -1,0 +1,756 @@
+#!/usr/bin/env python3
+"""EOS-consistent nucleon occupations and degeneracy factors for Garching SFHo.
+
+The implementation follows Fiorillo et al., arXiv:2509.13322v2,
+Appendix C.1, Eqs. (81)-(82), and Sec. 4.3, Eq. (41).
+It deliberately does not modify the existing ideal-gas response or transport code.
+"""
+from __future__ import annotations
+
+import argparse
+import csv
+import json
+import math
+from dataclasses import dataclass
+from functools import lru_cache
+from pathlib import Path
+
+import numpy as np
+from numpy.polynomial.legendre import leggauss
+from scipy.special import expit
+from scipy.optimize import brentq
+
+HBARC_MEV_FM = 197.3269804
+NEUTRON_MASS_MEV = 939.565346
+PROTON_MASS_MEV = 938.272013
+MASS_SPLITTING_MEV = NEUTRON_MASS_MEV - PROTON_MASS_MEV
+SFHO_SATURATION_DENSITY_FM3 = 0.1583
+TABLE_TARGETS = {
+    "T3": {"p": 0.80, "n": 0.48},
+    "rhoT52": {"p": 0.77, "n": 0.42},
+}
+HERE = Path(__file__).resolve().parent
+
+
+@dataclass(frozen=True)
+class NucleonEOSState:
+    """One local EOS state; mu_star excludes the nucleon rest mass."""
+
+    species: str
+    temperature_mev: float
+    effective_mass_mev: float
+    scalar_potential_mev: float
+    chemical_potential_star_mev: float
+
+    def validate(self) -> None:
+        values = (
+            self.temperature_mev,
+            self.effective_mass_mev,
+            self.scalar_potential_mev,
+            self.chemical_potential_star_mev,
+        )
+        if self.species not in ("n", "p"):
+            raise ValueError("species must be 'n' or 'p'")
+        if not all(math.isfinite(float(value)) for value in values):
+            raise ValueError("EOS state contains a non-finite value")
+        if self.temperature_mev <= 0.0:
+            raise ValueError("temperature must be positive")
+        if self.effective_mass_mev <= 0.0:
+            raise ValueError("effective mass must be positive")
+
+    @property
+    def effective_chemical_potential_mev(self) -> float:
+        # U and mu_star enter the occupation only through this difference.
+        return self.chemical_potential_star_mev - self.scalar_potential_mev
+
+
+def state_from_hs_spp(
+    species: str,
+    temperature_mev: float,
+    effective_mass_mev: float,
+    total_vector_self_energy_mev: float,
+    chemical_potential_total_nonrel_mev: float,
+) -> NucleonEOSState:
+    """Map Hempel SFHo single-particle table fields to the Fiorillo convention.
+
+    Hempel convention, from Hempel (2015), Eqs. (95)-(99):
+      Sigma_V,N^tot = Sigma_V,N^R + W_N
+      E_N^tot(p) = sqrt(p^2 + m_star^2) + Sigma_V,N^tot
+      mu_N^tot,nonrel = mu_N^tot - m_N
+
+    Then U_N = m_star - m_N + Sigma_V,N^tot and mu_N^* = mu_N^tot - m_N. The W_N shift appears in both total quantities and cancels in E_N^tot - mu_N^tot.
+    The excluded-volume filling factor xi remains a separate input; it is
+    never absorbed into U_N or mu_N^*.
+    """
+    if species == "n":
+        vacuum_mass = NEUTRON_MASS_MEV
+    elif species == "p":
+        vacuum_mass = PROTON_MASS_MEV
+    else:
+        raise ValueError("species must be 'n' or 'p'")
+    potential = (
+        effective_mass_mev - vacuum_mass + total_vector_self_energy_mev
+    )
+    return NucleonEOSState(
+        species=species,
+        temperature_mev=temperature_mev,
+        effective_mass_mev=effective_mass_mev,
+        scalar_potential_mev=potential,
+        chemical_potential_star_mev=chemical_potential_total_nonrel_mev,
+    )
+
+
+@lru_cache(maxsize=16)
+def _legendre_rule(order: int):
+    x, w = leggauss(order)
+    x.setflags(write=False)
+    w.setflags(write=False)
+    return x, w
+
+
+def kinetic_energy_mev(momentum_mev, effective_mass_mev: float):
+    """K(p) = sqrt(p^2 + m_star^2) - m_star."""
+    if effective_mass_mev <= 0.0:
+        raise ValueError("effective mass must be positive")
+    p = np.asarray(momentum_mev, dtype=float)
+    return np.hypot(p, effective_mass_mev) - effective_mass_mev
+
+
+def occupation(momentum_mev, state: NucleonEOSState):
+    """Fermi occupation per spin state, evaluated with a stable logistic."""
+    state.validate()
+    kinetic = kinetic_energy_mev(momentum_mev, state.effective_mass_mev)
+    return expit(
+        (state.effective_chemical_potential_mev - kinetic)
+        / state.temperature_mev
+    )
+
+
+def _momentum_quadrature(
+    state: NucleonEOSState, order: int = 512, tail_T: float = 45.0
+):
+    state.validate()
+    if order < 32:
+        raise ValueError("quadrature order must be at least 32")
+    if tail_T < 20.0:
+        raise ValueError("tail_T must be >= 20 to control the Fermi tail")
+    nu = state.effective_chemical_potential_mev
+    mstar = state.effective_mass_mev
+    kmax = max(nu, 0.0) + tail_T * state.temperature_mev
+    pmax = math.sqrt(kmax * (kmax + 2.0 * mstar))
+    x, w = _legendre_rule(order)
+    p = 0.5 * pmax * (x + 1.0)
+    wp = 0.5 * pmax * w
+    return p, wp
+
+
+def phase_space_integrals(
+    state: NucleonEOSState, order: int = 512, tail_T: float = 45.0
+):
+    """Return (n_prime, n_prime_blocked) in MeV^3, including spin degeneracy g_s=2.
+    n_prime is the nucleon density per available volume V', not per total volume V.
+
+    n_prime = 2 int d^3p/(2 pi)^3 f(p)
+    n_prime_blocked = 2 int d^3p/(2 pi)^3 f(p) [1-f(p)]
+    """
+    p, wp = _momentum_quadrature(state, order, tail_T)
+    f = occupation(p, state)
+    measure = wp * p * p / math.pi**2
+    number_mev3 = float(np.sum(measure * f))
+    blocked_mev3 = float(np.sum(measure * f * (1.0 - f)))
+    return number_mev3, blocked_mev3
+
+
+def number_density_fm3(
+    state: NucleonEOSState, order: int = 512, tail_T: float = 45.0
+) -> float:
+    """Return n'_N in fm^-3, i.e. density per nucleon-available volume V'."""
+    number_mev3, _ = phase_space_integrals(state, order, tail_T)
+    return number_mev3 / HBARC_MEV_FM**3
+
+
+def degeneracy_factor(
+    state: NucleonEOSState, order: int = 512, tail_T: float = 45.0
+) -> float:
+    """F_NN^deg = int f(1-f) / int f; spin degeneracy cancels."""
+    number_mev3, blocked_mev3 = phase_space_integrals(state, order, tail_T)
+    if number_mev3 <= 0.0:
+        raise ArithmeticError("number density underflowed to zero")
+    return blocked_mev3 / number_mev3
+
+
+def degeneracy_factor_from_density_derivative(
+    state: NucleonEOSState,
+    order: int = 512,
+    tail_T: float = 45.0,
+    step_fraction: float = 2.0e-4,
+) -> float:
+    """Independent finite-difference check of F = T/n_prime * partial n_prime/partial nu.
+
+    The derivative is taken at fixed T, m_star, and U. Since nu=mu_star-U,
+    varying mu_star at fixed U is equivalent to varying nu.
+    """
+    state.validate()
+    if step_fraction <= 0.0:
+        raise ValueError("step_fraction must be positive")
+    h = step_fraction * state.temperature_mev
+    plus = NucleonEOSState(
+        state.species,
+        state.temperature_mev,
+        state.effective_mass_mev,
+        state.scalar_potential_mev,
+        state.chemical_potential_star_mev + h,
+    )
+    minus = NucleonEOSState(
+        state.species,
+        state.temperature_mev,
+        state.effective_mass_mev,
+        state.scalar_potential_mev,
+        state.chemical_potential_star_mev - h,
+    )
+    n0, _ = phase_space_integrals(state, order, tail_T)
+    n_plus, _ = phase_space_integrals(plus, order, tail_T)
+    n_minus, _ = phase_space_integrals(minus, order, tail_T)
+    return (
+        state.temperature_mev
+        * (n_plus - n_minus)
+        / (2.0 * h * n0)
+    )
+
+
+def infer_filling_factor_from_global_densities(
+    n_baryon_fm3: float,
+    n_neutron_free_fm3: float,
+    n_proton_free_fm3: float,
+    saturation_density_fm3: float = SFHO_SATURATION_DENSITY_FM3,
+) -> float:
+    """Infer xi=V'/V from global free-nucleon densities in the HS model.
+
+    Inputs n_n and n_p are per total volume, not per available volume.
+    Hempel's excluded-volume prescription gives
+      xi = 1 - (n_B - n_n - n_p) / n_0,
+    where n_B-n_n-n_p is the baryon density bound in nuclei.
+    """
+    values = (
+        n_baryon_fm3,
+        n_neutron_free_fm3,
+        n_proton_free_fm3,
+        saturation_density_fm3,
+    )
+    if not all(math.isfinite(float(value)) for value in values):
+        raise ValueError("composition contains a non-finite density")
+    if n_baryon_fm3 <= 0.0 or saturation_density_fm3 <= 0.0:
+        raise ValueError("baryon and saturation densities must be positive")
+    if n_neutron_free_fm3 < 0.0 or n_proton_free_fm3 < 0.0:
+        raise ValueError("free nucleon densities must be non-negative")
+    n_bound = n_baryon_fm3 - n_neutron_free_fm3 - n_proton_free_fm3
+    if n_bound < -1.0e-10:
+        raise ValueError("free neutron+proton density exceeds total baryon density")
+    xi = 1.0 - n_bound / saturation_density_fm3
+    # The distributed Hempel tables print X_n and X_p with limited precision,
+    # so a few cells round to xi = 1 + a handful of ulps (12 of 224 in the
+    # audited SFHo/FRDM grid).  That is a printing artifact of a cell with no
+    # bound baryons, not a physical filling factor above unity.
+    if 1.0 < xi <= 1.0 + 1.0e-12:
+        xi = 1.0
+    if not (0.0 < xi <= 1.0):
+        raise ValueError(
+            f"inferred filling factor xi={xi} is outside the physical interval (0,1]"
+        )
+    return xi
+
+
+def solve_effective_chemical_potential_from_density(
+    species: str,
+    temperature_mev: float,
+    effective_mass_mev: float,
+    density_per_available_volume_fm3: float,
+    order: int = 512,
+    tail_T: float = 45.0,
+) -> float:
+    """Invert n'_N(T,m_star,nu) to obtain nu=mu_star-U in MeV.
+
+    This determines the occupation relevant to Fdeg and same-species elastic
+    response without separately knowing U_N and mu_N^*. The input density is
+    per available nucleon volume V', not per total volume V.
+    """
+    if species not in ("n", "p"):
+        raise ValueError("species must be 'n' or 'p'")
+    if temperature_mev <= 0.0 or effective_mass_mev <= 0.0:
+        raise ValueError("temperature and effective mass must be positive")
+    if density_per_available_volume_fm3 <= 0.0:
+        raise ValueError("available-volume density must be positive")
+
+    def residual(nu):
+        state = NucleonEOSState(
+            species, temperature_mev, effective_mass_mev, 0.0, nu
+        )
+        return (
+            number_density_fm3(state, order, tail_T)
+            - density_per_available_volume_fm3
+        )
+
+    lo = -max(100.0 * temperature_mev, 200.0)
+    hi = max(100.0 * temperature_mev, 200.0)
+    for _ in range(60):
+        if residual(lo) < 0.0:
+            break
+        lo *= 2.0
+    else:
+        raise ArithmeticError("failed to bracket low effective chemical potential")
+    for _ in range(60):
+        if residual(hi) > 0.0:
+            break
+        hi *= 2.0
+    else:
+        raise ArithmeticError("failed to bracket high effective chemical potential")
+    return float(
+        brentq(residual, lo, hi, xtol=1.0e-10, rtol=1.0e-12, maxiter=200)
+    )
+
+
+def state_from_available_volume_density(
+    species: str,
+    temperature_mev: float,
+    effective_mass_mev: float,
+    density_per_available_volume_fm3: float,
+    order: int = 512,
+    tail_T: float = 45.0,
+) -> NucleonEOSState:
+    """Construct an equivalent local occupation with U_N=0 and mu_star=nu."""
+    nu = solve_effective_chemical_potential_from_density(
+        species,
+        temperature_mev,
+        effective_mass_mev,
+        density_per_available_volume_fm3,
+        order,
+        tail_T,
+    )
+    return NucleonEOSState(
+        species, temperature_mev, effective_mass_mev, 0.0, nu
+    )
+
+
+def _state_from_row(row, species: str) -> NucleonEOSState:
+    return NucleonEOSState(
+        species=species,
+        temperature_mev=float(row["T_MeV"]),
+        effective_mass_mev=float(row[f"mstar_{species}_MeV"]),
+        scalar_potential_mev=float(row[f"U_{species}_MeV"]),
+        chemical_potential_star_mev=float(row[f"mu_star_{species}_MeV"]),
+    )
+
+
+def aggregate_profile_rows(
+    rows, order: int = 512, tail_T: float = 45.0
+):
+    """Compute local Fdeg and Fiorillo's two dM dt weighted averages.
+
+    Required CSV columns:
+      T_MeV, rho_g_cm3, dMdt_weight, xi,
+      mstar_n_MeV, U_n_MeV, mu_star_n_MeV,
+      mstar_p_MeV, U_p_MeV, mu_star_p_MeV.
+
+    Optional columns:
+      n_n_target_fm3, n_p_target_fm3.
+
+    xi=V'/V is the nucleon filling factor. The momentum integral gives n'_N
+    per available volume V'; the density per total volume is n_N=xi*n'_N.
+    dMdt_weight is the cell measure Delta M * Delta t (or the equivalent
+    quadrature measure in mass coordinate and time). It is not silently
+    replaced by equal row weights. The published averages omit lapse/redshift.
+    """
+    rows = list(rows)
+    if not rows:
+        raise ValueError("profile contains no rows")
+
+    local_rows = []
+    sums = {
+        kind: {
+            species: {"weighted_F": 0.0, "weight": 0.0}
+            for species in ("p", "n")
+        }
+        for kind in ("T3", "rhoT52")
+    }
+    density_residuals = {"p": [], "n": []}
+    mass_split_residuals = []
+
+    for index, row in enumerate(rows):
+        temperature = float(row["T_MeV"])
+        rho = float(row["rho_g_cm3"])
+        cell_measure = float(row["dMdt_weight"])
+        if temperature <= 0.0 or rho <= 0.0 or cell_measure <= 0.0:
+            raise ValueError(
+                f"non-positive T/rho/dMdt_weight in profile row {index}"
+            )
+        if "xi" in row and row["xi"] not in ("", None):
+            xi = float(row["xi"])
+            xi_source = "single_particle_table"
+        elif all(
+            key in row and row[key] not in ("", None)
+            for key in ("nB_fm3", "n_n_target_fm3", "n_p_target_fm3")
+        ):
+            xi = infer_filling_factor_from_global_densities(
+                float(row["nB_fm3"]),
+                float(row["n_n_target_fm3"]),
+                float(row["n_p_target_fm3"]),
+            )
+            xi_source = "global_density_composition"
+        else:
+            raise ValueError(
+                "profile row requires xi or nB_fm3 plus both free-nucleon target densities"
+            )
+        if not (0.0 < xi <= 1.0):
+            raise ValueError(f"filling factor xi={xi} outside (0,1] in row {index}")
+
+        local = {
+            "row": index,
+            "T_MeV": temperature,
+            "rho_g_cm3": rho,
+            "dMdt_weight": cell_measure,
+            "Fdeg": {},
+            "xi": xi,
+            "xi_source": xi_source,
+            "nprime_fm3": {},
+            "n_actual_fm3": {},
+            "mu_eff_MeV": {},
+        }
+        states = {}
+        for species in ("n", "p"):
+            state = _state_from_row(row, species)
+            states[species] = state
+            number_mev3, blocked_mev3 = phase_space_integrals(
+                state, order, tail_T
+            )
+            if number_mev3 <= 0.0:
+                raise ArithmeticError(
+                    f"zero {species} density in profile row {index}"
+                )
+            density_prime = number_mev3 / HBARC_MEV_FM**3
+            density_actual = xi * density_prime
+            fdeg = blocked_mev3 / number_mev3
+            local["Fdeg"][species] = fdeg
+            local["nprime_fm3"][species] = density_prime
+            local["n_actual_fm3"][species] = density_actual
+            local["mu_eff_MeV"][species] = (
+                state.effective_chemical_potential_mev
+            )
+
+            target_key = f"n_{species}_target_fm3"
+            if target_key in row and row[target_key] not in ("", None):
+                target_density = float(row[target_key])
+                if target_density <= 0.0:
+                    raise ValueError(
+                        f"non-positive {target_key} in profile row {index}"
+                    )
+                residual = abs(density_actual / target_density - 1.0)
+                density_residuals[species].append(residual)
+                local.setdefault(
+                    "density_closure_relative_residual", {}
+                )[species] = residual
+
+            weights = {
+                "T3": cell_measure * temperature**3,
+                "rhoT52": cell_measure * rho * temperature**2.5,
+            }
+            for kind, weight in weights.items():
+                sums[kind][species]["weighted_F"] += weight * fdeg
+                sums[kind][species]["weight"] += weight
+
+        if all(
+            key in row and row[key] not in ("", None)
+            for key in ("nB_fm3", "n_n_target_fm3", "n_p_target_fm3")
+        ):
+            xi_from_composition = infer_filling_factor_from_global_densities(
+                float(row["nB_fm3"]),
+                float(row["n_n_target_fm3"]),
+                float(row["n_p_target_fm3"]),
+            )
+            local["xi_from_composition"] = xi_from_composition
+            local["xi_composition_abs_residual"] = abs(xi - xi_from_composition)
+
+        mass_split_residuals.append(
+            abs(
+                states["n"].effective_mass_mev
+                - states["p"].effective_mass_mev
+                - MASS_SPLITTING_MEV
+            )
+        )
+        local["mstar_n_minus_p_MeV"] = (
+            states["n"].effective_mass_mev
+            - states["p"].effective_mass_mev
+        )
+        local_rows.append(local)
+
+    global_averages = {
+        kind: {
+            species: (
+                sums[kind][species]["weighted_F"]
+                / sums[kind][species]["weight"]
+            )
+            for species in ("p", "n")
+        }
+        for kind in ("T3", "rhoT52")
+    }
+    comparison = {
+        kind: {
+            species: {
+                "computed": global_averages[kind][species],
+                "published": TABLE_TARGETS[kind][species],
+                "difference": (
+                    global_averages[kind][species]
+                    - TABLE_TARGETS[kind][species]
+                ),
+            }
+            for species in ("p", "n")
+        }
+        for kind in ("T3", "rhoT52")
+    }
+    return {
+        "source": "Fiorillo et al., arXiv:2509.13322v2, Sec. 4.3 and App. C.1",
+        "weighting": "integral dM dt; no gravitational redshift/lapse",
+        "quadrature": {"order": order, "tail_T": tail_T},
+        "number_of_profile_cells": len(rows),
+        "global_averages": global_averages,
+        "comparison_to_Fiorillo_Table1": comparison,
+        "max_relative_density_closure_residual": {
+            species: (
+                max(density_residuals[species])
+                if density_residuals[species]
+                else None
+            )
+            for species in ("p", "n")
+        },
+        "max_effective_mass_splitting_residual_MeV": max(
+            mass_split_residuals
+        ),
+        "local_rows": local_rows,
+    }
+
+
+def load_profile_csv(path: Path):
+    with path.open("r", newline="", encoding="utf-8") as stream:
+        reader = csv.DictReader(stream)
+        fields = set(reader.fieldnames or [])
+        required_common = {
+            "T_MeV",
+            "rho_g_cm3",
+            "dMdt_weight",
+            "mstar_n_MeV",
+            "mstar_p_MeV",
+        }
+        missing = required_common.difference(fields)
+        if missing:
+            raise ValueError(
+                "profile CSV is missing required columns: "
+                + ", ".join(sorted(missing))
+            )
+
+        direct_fields = {
+            "U_n_MeV", "mu_star_n_MeV", "U_p_MeV", "mu_star_p_MeV"
+        }
+        hs_fields = {
+            "SigmaV_n_MeV", "mu_nonrel_n_MeV",
+            "SigmaV_p_MeV", "mu_nonrel_p_MeV",
+        }
+        use_direct = direct_fields.issubset(fields)
+        use_hs = hs_fields.issubset(fields)
+        if not (use_direct or use_hs):
+            raise ValueError(
+                "profile CSV requires either direct U_N/mu_star_N columns "
+                "or Hempel SigmaV_N/mu_nonrel_N columns"
+            )
+
+        has_xi = "xi" in fields
+        has_composition = {
+            "nB_fm3", "n_n_target_fm3", "n_p_target_fm3"
+        }.issubset(fields)
+        if not (has_xi or has_composition):
+            raise ValueError(
+                "profile CSV requires xi or nB_fm3 with n_n_target_fm3 and n_p_target_fm3"
+            )
+
+        rows = list(reader)
+        if use_hs and not use_direct:
+            for row in rows:
+                for species in ("n", "p"):
+                    state = state_from_hs_spp(
+                        species=species,
+                        temperature_mev=float(row["T_MeV"]),
+                        effective_mass_mev=float(row[f"mstar_{species}_MeV"]),
+                        total_vector_self_energy_mev=float(
+                            row[f"SigmaV_{species}_MeV"]
+                        ),
+                        chemical_potential_total_nonrel_mev=float(
+                            row[f"mu_nonrel_{species}_MeV"]
+                        ),
+                    )
+                    row[f"U_{species}_MeV"] = state.scalar_potential_mev
+                    row[f"mu_star_{species}_MeV"] = (
+                        state.chemical_potential_star_mev
+                    )
+        return rows
+
+
+def self_test_payload():
+    """Deterministic software fixtures only; these are not Garching data."""
+    states = (
+        NucleonEOSState("n", 3.03, 650.0, -45.0, 38.0),
+        NucleonEOSState("p", 3.03, 648.706667, -40.0, 25.0),
+        NucleonEOSState("n", 12.0, 700.0, -25.0, 18.0),
+        NucleonEOSState("p", 12.0, 698.706667, -20.0, 8.0),
+    )
+    cases = []
+    for state in states:
+        direct = degeneracy_factor(state, order=512)
+        derivative = degeneracy_factor_from_density_derivative(
+            state, order=512
+        )
+        coarse = degeneracy_factor(state, order=256)
+        cases.append(
+            {
+                "species": state.species,
+                "T_MeV": state.temperature_mev,
+                "mstar_MeV": state.effective_mass_mev,
+                "U_MeV": state.scalar_potential_mev,
+                "mu_star_MeV": state.chemical_potential_star_mev,
+                "mu_eff_MeV": state.effective_chemical_potential_mev,
+                "nprime_fm3": number_density_fm3(state, order=512),
+                "Fdeg_direct": direct,
+                "Fdeg_from_density_derivative": derivative,
+                "derivative_identity_abs_residual": abs(direct - derivative),
+                "Fdeg_order_256": coarse,
+                "Fdeg_order_512": direct,
+                "quadrature_abs_difference_256_512": abs(direct - coarse),
+            }
+        )
+
+    mass = 939.56542052
+    temperature = 3.03
+    mu_total = 935.0
+    vacuum_state = NucleonEOSState(
+        "n", temperature, mass, 0.0, mu_total - mass
+    )
+    momenta = np.linspace(0.0, 1000.0, 101)
+    vacuum_expected = expit(
+        (mu_total - np.hypot(momenta, mass)) / temperature
+    )
+    vacuum_residual = float(
+        np.max(np.abs(occupation(momenta, vacuum_state) - vacuum_expected))
+    )
+
+    dilute_state = NucleonEOSState("n", 10.0, 700.0, 25.0, -975.0)
+    dilute_fdeg = degeneracy_factor(dilute_state, order=512)
+
+    mapping_residuals = []
+    for species, vacuum_mass in (
+        ("n", NEUTRON_MASS_MEV),
+        ("p", PROTON_MASS_MEV),
+    ):
+        mstar = 690.0 if species == "n" else 690.0 - MASS_SPLITTING_MEV
+        sigma_v = 115.0 if species == "n" else 104.0
+        mu_nonrel = 35.0 if species == "n" else 20.0
+        mapped = state_from_hs_spp(
+            species, 5.0, mstar, sigma_v, mu_nonrel
+        )
+        p_test = np.linspace(0.0, 800.0, 101)
+        lhs = (
+            mapped.scalar_potential_mev
+            + kinetic_energy_mev(p_test, mstar)
+            - mapped.chemical_potential_star_mev
+        )
+        rhs = (
+            np.sqrt(p_test*p_test + mstar*mstar)
+            + sigma_v
+            - (mu_nonrel + vacuum_mass)
+        )
+        mapping_residuals.append(float(np.max(np.abs(lhs-rhs))))
+
+    inversion_reference = NucleonEOSState("n", 8.0, 650.0, -25.0, 30.0)
+    inversion_density = number_density_fm3(inversion_reference, order=512)
+    inversion_nu = solve_effective_chemical_potential_from_density(
+        "n", 8.0, 650.0, inversion_density, order=512
+    )
+    inversion_residual = abs(
+        inversion_nu - inversion_reference.effective_chemical_potential_mev
+    )
+    inferred_xi = infer_filling_factor_from_global_densities(
+        0.15, 0.12, 0.01
+    )
+
+    shifted_state = NucleonEOSState("n", 5.0, 650.0, 103.0, 193.0)
+    reference_state = NucleonEOSState("n", 5.0, 650.0, -20.0, 70.0)
+    potential_shift_residual = abs(
+        degeneracy_factor(shifted_state, order=512)
+        - degeneracy_factor(reference_state, order=512)
+    )
+
+    return {
+        "title": "Garching EOS nucleon occupation kernel software self-test",
+        "date": "2026-11-11",
+        "software_test_only": True,
+        "not_garching_profile_data": True,
+        "quadrature": {"coarse_order": 256, "fine_order": 512, "tail_T": 45.0},
+        "synthetic_local_states": cases,
+        "checks": {
+            "max_derivative_identity_abs_residual": max(
+                case["derivative_identity_abs_residual"] for case in cases
+            ),
+            "max_256_vs_512_quadrature_abs_difference": max(
+                case["quadrature_abs_difference_256_512"] for case in cases
+            ),
+            "vacuum_mass_limit_max_occupation_abs_residual": vacuum_residual,
+            "dilute_limit_Fdeg": dilute_fdeg,
+            "common_U_mu_shift_Fdeg_abs_residual": potential_shift_residual,
+            "Hempel_RMF_mapping_max_abs_residual_MeV": max(mapping_residuals),
+            "density_inversion_nu_abs_residual_MeV": inversion_residual,
+            "composition_inferred_xi_fixture": inferred_xi,
+        },
+        "published_global_targets_not_tested_without_profiles": TABLE_TARGETS,
+    }
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--profile-csv", type=Path)
+    parser.add_argument("--self-test", action="store_true")
+    parser.add_argument("--output", type=Path)
+    parser.add_argument("--order", type=int, default=512)
+    args = parser.parse_args()
+
+    if args.self_test == (args.profile_csv is not None):
+        parser.error("provide exactly one of --self-test or --profile-csv")
+
+    if args.self_test:
+        payload = self_test_payload()
+        default_output = (
+            HERE / "outputs" / "p1iii_eos_kernel_self_test_2026-11-11.json"
+        )
+    else:
+        rows = load_profile_csv(args.profile_csv)
+        payload = aggregate_profile_rows(rows, order=args.order)
+        default_output = (
+            HERE / "outputs" / "p1iii_eos_degeneracy_profile_2026-11-11.json"
+        )
+
+    output = args.output or default_output
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    print(
+        json.dumps(
+            {
+                "output": str(output),
+                "software_test_only": payload.get("software_test_only", False),
+                "number_of_profile_cells": payload.get(
+                    "number_of_profile_cells"
+                ),
+                "checks": payload.get("checks"),
+                "global_averages": payload.get("global_averages"),
+            },
+            indent=2,
+        )
+    )
+
+
+if __name__ == "__main__":
+    main()

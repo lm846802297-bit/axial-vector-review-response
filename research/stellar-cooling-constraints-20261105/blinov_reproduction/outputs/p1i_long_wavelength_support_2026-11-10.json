@@ -1,0 +1,57 @@
+{
+  "title": "Long-wavelength angular-support diagnostic for high-energy vector-decay neutrino daughters",
+  "date": "2026-11-10",
+  "benchmark": {
+    "mV_MeV": 10.0,
+    "omega_nodes_MeV": [210, 300, 510],
+    "mpi_MeV": 134.98
+  },
+  "method": {
+    "daughter_energies": "E1,2=omega/2*(1 +/- beta*z), beta=sqrt(1-mV^2/omega^2)",
+    "scattering_transfer": "Q=|k-k'|; elastic limit E'=E gives Q=2E*sin(theta/2)",
+    "angular_weight": "3-cos(theta), from Hannestad & Raffelt (1998), Eqs. (23) and (32)",
+    "angular_fraction": "integral_{Q<qmax} dcos(theta)*(3-cos(theta)) / integral_{-1}^{1} dcos(theta)*(3-cos(theta))",
+    "pair_energy_weight": "(1/omega)*integral dz W_h(z)*(E1*F(E1)+E2*F(E2))",
+    "polarization_weights": {
+      "L": "3/4*(1-z^2)",
+      "plus": "3/8*(1+z)^2",
+      "minus": "3/8*(1-z)^2"
+    },
+    "quadrature": {"method": "Gauss-Legendre", "order": 400}
+  },
+  "results": [
+    {
+      "omega_MeV": 210.0,
+      "beta": 0.9988655696858586,
+      "thresholds": {
+        "1.0": {"q_max_MeV": 134.98, "mode_energy_weighted_fraction": {"L": 0.33284736444020757, "plus": 0.2696728068430061, "minus": 0.26967280684300604}, "equal_mode_average": 0.29073099270873987},
+        "0.5": {"q_max_MeV": 67.49, "mode_energy_weighted_fraction": {"L": 0.09640619409952814, "plus": 0.09765792480018107, "minus": 0.09765792480018107}, "equal_mode_average": 0.09724068123329677},
+        "0.25": {"q_max_MeV": 33.745, "mode_energy_weighted_fraction": {"L": 0.02525872057471041, "plus": 0.03285686615874963, "minus": 0.03285686615874963}, "equal_mode_average": 0.03032415096406989}
+      }
+    },
+    {
+      "omega_MeV": 300.0,
+      "beta": 0.9994442900376633,
+      "thresholds": {
+        "1.0": {"q_max_MeV": 134.98, "mode_energy_weighted_fraction": {"L": 0.17949207045623267, "plus": 0.16130440002553675, "minus": 0.16130440002553673}, "equal_mode_average": 0.16736695683576872},
+        "0.5": {"q_max_MeV": 67.49, "mode_energy_weighted_fraction": {"L": 0.048721711552536455, "plus": 0.05619024772608025, "minus": 0.05619024772608026}, "equal_mode_average": 0.05370073566823232},
+        "0.25": {"q_max_MeV": 33.745, "mode_energy_weighted_fraction": {"L": 0.01250095976048838, "plus": 0.018290508281003544, "minus": 0.018290508281003544}, "equal_mode_average": 0.016360658774165156}
+      }
+    },
+    {
+      "omega_MeV": 510.0,
+      "beta": 0.9998077477632912,
+      "thresholds": {
+        "1.0": {"q_max_MeV": 134.98, "mode_energy_weighted_fraction": {"L": 0.06664579042646623, "plus": 0.07240005970581377, "minus": 0.07240005970581376}, "equal_mode_average": 0.07048196994603124},
+        "0.5": {"q_max_MeV": 67.49, "mode_energy_weighted_fraction": {"L": 0.01724354288859857, "plus": 0.023906607854053144, "minus": 0.023906607854053144}, "equal_mode_average": 0.02168558619890162},
+        "0.25": {"q_max_MeV": 33.745, "mode_energy_weighted_fraction": {"L": 0.0043569227746655635, "plus": 0.007473482555836895, "minus": 0.007473482555836895}, "equal_mode_average": 0.006434629295446452}
+      }
+    }
+  ],
+  "interpretation": {
+    "q_lt_mpi": "A deliberately generous scale diagnostic, not the formal validity condition.",
+    "q_lt_half_mpi": "A stricter but still not asymptotically small-transfer criterion.",
+    "q_lt_quarter_mpi": "A more conservative small-transfer indicator.",
+    "important": "The H&R long-wavelength kernel neglects neutrino momentum transfer in the nuclear response. These fractions are computed in the elastic E'=E limit; finite energy transfer gives Q_min=|E-E'| and can reduce the supported fraction. They are not collision probabilities or corrections to the H&R rate."
+  }
+}

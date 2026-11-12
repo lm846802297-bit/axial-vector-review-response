@@ -1,0 +1,77 @@
+name: B.16 outer-shell angular escape distribution
+
+on:
+  push:
+    branches:
+      - research/moving-muon-thermal-rates-20261107
+    paths:
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_outer_escape_angular_distribution.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_outer_escape_angular_distribution.py'
+      - '.github/workflows/b16-outer-escape-angular-distribution.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: b16-outer-escape-angular-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Check out research branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy
+      - name: Run angular-shell geometry tests
+        run: |
+          python -m unittest research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_outer_escape_angular_distribution.py -v
+      - name: Run emission-radius and direction-resolved outer-opacity audit
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_outer_escape_angular_distribution.py \
+            --mass 10 --nr 40 --ne 100 --na 64 --ns 64 --outer-radial-order 96 \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_outer_escape_angular_distribution_10mev_2026-11-08.json
+      - name: Verify production axial outputs remain unchanged
+        run: |
+          git diff --exit-code -- \
+            research/stellar-cooling-constraints-20261105/rates.py \
+            research/stellar-cooling-constraints-20261105/transport.py \
+            research/stellar-cooling-constraints-20261105/outputs/axial.json \
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.pdf \
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.png
+      - name: Archive angular distribution result
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_outer_escape_angular_distribution_10mev_2026-11-08.json
+          if git diff --cached --quiet; then
+            echo "Angular distribution output is already current."
+          else
+            git commit -m "Archive B.16 outer-shell angular distribution"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin "${GITHUB_REF_NAME}"
+              git rebase "origin/${GITHUB_REF_NAME}"
+              if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+                exit 0
+              fi
+              echo "Push raced with another research workflow; retry ${attempt}/5."
+              sleep 2
+            done
+            echo "Could not archive angular distribution output after five retries."
+            exit 1
+          fi

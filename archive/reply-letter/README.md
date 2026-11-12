@@ -2,6 +2,12 @@
 
 This directory preserves recoverable, immutable source snapshots of the referee-response letter. It is an archive, not a second working copy.
 
+## Current build update (2026-11-06)
+
+The repository-root response PDF has now been rebuilt from the current root TeX: 65 A4 pages, including the axial-EFT cooling figure and the earlier main-source revisions. The PDF is 506,944 bytes (SHA-256 `56451f2d…`); the complete hash, source/PDF hashes, build dependencies, citation audit and page-by-page visual checks are recorded in [the validation record](../../research/stellar-cooling-constraints-20261105/VALIDATION_AND_REVIEW.md). The current build adds `Replies_to_Referee_3_stellar_references.bib` and `research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply.pdf` to the older dependencies. No manuscript source was changed.
+
+The older source snapshots remain immutable. Statements below about two bibliographies, no figure dependency, or an outdated root PDF describe the 2026-11-04/05 snapshots and are superseded for the current build by this note. No new immutable snapshot is declared accepted by this PR.
+
 ## Source-of-truth rule
 
 The only editable, authoritative response letter remains at the repository root:

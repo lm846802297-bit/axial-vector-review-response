@@ -1,0 +1,151 @@
+{
+  "title": "Interior lapse B.1 source sensitivity at mV=10 MeV",
+  "date": "2026-11-10",
+  "profile": {
+    "path": "research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv",
+    "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+    "rows": 1687
+  },
+  "benchmark": {
+    "mV_MeV": 10,
+    "weak_coupling": 4.796429536550025e-10,
+    "fig7_weak_luminosity_erg_s": 1.0893295563998579e+52
+  },
+  "method": {
+    "source_only": true,
+    "opacity_omitted": true,
+    "radial_rule": "Composite Gauss-Legendre over [0,5,8,10,12,15,18,20,22,24,25] km",
+    "energy_rule": "Global logarithmic grid plus baseline mV/N(r) knots; exact lower-bound clipping and piecewise-linear energy weights",
+    "lapse_variants": "Multiply N(r) by 0.95, 0.97, 0.99, 1.01, 1.03, or 1.05 only in the selected radial shell",
+    "susceptibility": "128-point Gauss-Legendre after p=40t/(1-t)",
+    "weak_point": "B.1 thin luminosity compared with the digitized weak-coupling Fig. 7 point; B.2 escape is near unity"
+  },
+  "lower_resolution": {
+    "radial_nodes": 100,
+    "base_energy_nodes": 160,
+    "energy_nodes": 260,
+    "baseline": {
+      "source_erg_s_per_g2": 4.3141376439744907e+70,
+      "weak_thin_luminosity_erg_s": 9.924991299525234e+51,
+      "relative_to_fig7_weak": -0.08888992856060096
+    },
+    "shell_8_15": {
+      "stress_relative_source": {
+        "-5%": -0.07794457442017133,
+        "-3%": -0.04724158447801141,
+        "-1%": -0.015905452834346523,
+        "+1%": 0.0160636850712661,
+        "+3%": 0.04866566044170728,
+        "+5%": 0.0819002621808389
+      },
+      "required_lapse_scale_to_match_weak_fig7": 1.0592955489395535,
+      "required_relative_increase": 0.059295548939553466
+    },
+    "shell_5_15": {
+      "stress_relative_source": {
+        "-5%": -0.09504342738655125,
+        "-3%": -0.0576054760746989,
+        "-1%": -0.019394942820960326,
+        "+1%": 0.019588033732348187,
+        "+3%": 0.059343279109793645,
+        "+5%": 0.09987057379338005
+      },
+      "required_lapse_scale_to_match_weak_fig7": 1.0488709885146816,
+      "required_relative_increase": 0.048870988514681635
+    }
+  },
+  "higher_resolution": {
+    "radial_nodes": 200,
+    "base_energy_nodes": 320,
+    "energy_nodes": 520,
+    "baseline": {
+      "source_erg_s_per_g2": 4.307447398683325e+70,
+      "weak_thin_luminosity_erg_s": 9.909599897630757e+51,
+      "relative_to_fig7_weak": -0.09030285285004591,
+      "shell_source_fractions": {
+        "0-5": 0.009078949100462756,
+        "5-8": 0.17472431992798926,
+        "8-10": 0.3991255855537913,
+        "10-12": 0.26042564963493037,
+        "12-15": 0.136970984985484,
+        "15-18": 0.01643591728836784,
+        "18-20": 0.001768669251132785,
+        "20-22": 0.0007444102290156186,
+        "22-25": 0.0007255140288249426
+      }
+    },
+    "shell_8_15": {
+      "stress_relative_source": {
+        "-5%": -0.07795949742842012,
+        "-3%": -0.0472506223757464,
+        "-1%": -0.0159084934691337,
+        "+1%": 0.016066753635600284,
+        "+3%": 0.04867494984846843,
+        "+5%": 0.08191588368475533
+      },
+      "residual_vs_fig7_weak": {
+        "-5%": -0.16122238525392396,
+        "-3%": -0.1332866092263223,
+        "-1%": -0.10477476397437058,
+        "+1%": -0.07568697290377924,
+        "+3%": -0.046023389835227246,
+        "+5%": -0.01578420715575657
+      },
+      "required_lapse_scale_to_match_weak_fig7": 1.060291277007491,
+      "required_relative_increase": 0.06029127700749104
+    },
+    "shell_5_15": {
+      "stress_relative_source": {
+        "-5%": -0.09504452984164946,
+        "-3%": -0.05760613571740547,
+        "-1%": -0.01939516206294467,
+        "+1%": 0.0195882522569939,
+        "+3%": 0.05934393245928771,
+        "+5%": 0.09987165862656044
+      },
+      "residual_vs_fig7_weak": {
+        "-5%": -0.17676459049920312,
+        "-3%": -0.14270699017050292,
+        "-1%": -0.10794657644721783,
+        "+1%": -0.07248347565420499,
+        "+3%": -0.03631784679117234,
+        "+5%": 0.0005501100836700079
+      },
+      "required_lapse_scale_to_match_weak_fig7": 1.0497043519819278,
+      "required_relative_increase": 0.0497043519819278
+    }
+  },
+  "visual_lapse_crosscheck": {
+    "source": "Zuowei Liu, 7th Joint Workshop on the Standard Model and Beyond, 2026-10-31, slide 65",
+    "current_profile_lapse_at_r_0_5_10_15_20_km": [
+      0.73633,
+      0.75868,
+      0.81136,
+      0.8635,
+      0.89889
+    ],
+    "visual_read_off": [
+      0.735,
+      0.76,
+      0.81,
+      0.865,
+      0.9
+    ],
+    "absolute_differences": [
+      0.00133,
+      -0.00132,
+      0.00136,
+      -0.0015,
+      -0.00111
+    ],
+    "visual_resolution": "a few 10^-3; qualitative, not a precision uncertainty"
+  },
+  "conclusions": [
+    "The current weak-end B.1 source deficit is -9.0303% at the higher resolution.",
+    "A uniform +6.029% lapse rescaling in 8--15 km or +4.970% in 5--15 km is required to raise the B.1 thin source to the digitized weak Fig. 7 point.",
+    "The required absolute lapse shift is approximately 0.04--0.05 in the source-dominant region, while the independent slide read-off differences are only about 0.0011--0.0015.",
+    "The required lapse shift is about 27--38 times the independent visual read-off differences and is not supported by the public figure cross-check.",
+    "These are source-only stress tests, not alternative physical profiles or formal uncertainty bounds; the original Garching lapse table remains unavailable."
+  ],
+  "production_outputs_modified": false
+}

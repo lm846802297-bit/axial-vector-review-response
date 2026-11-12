@@ -1,0 +1,45 @@
+{
+  "baseline_scan_sha256": "534d89a8e6df6f935af8cdfc976547b302b16c43d7c54a0bde02478a1d6f45d2",
+  "high_resolution_scan_sha256": "35a9de5f7a819bbb32e08ec1f59741ffd9c549728754e859dcfd359a4db1b5c6",
+  "vector_audit_sha256": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4",
+  "baseline_configuration": {
+    "radial_order": 132,
+    "energy_order": 280,
+    "angular_order": 40,
+    "path_order": 96,
+    "radius_km": 25.0,
+    "energy_offset_MeV": 1000.0,
+    "opacity": "literal scalar Appendix-B prescription",
+    "muon_species": "single negative-muon distribution as printed in Eq. (33)"
+  },
+  "high_resolution_configuration": {
+    "radial_order": 176,
+    "energy_order": 360,
+    "angular_order": 64,
+    "path_order": 128,
+    "radius_km": 25.0,
+    "energy_offset_MeV": 1000.0,
+    "opacity": "literal scalar Appendix-B prescription",
+    "muon_species": "single negative-muon distribution as printed in Eq. (33)"
+  },
+  "resolution_convergence_on_published_fig7_vertices": [
+    {
+      "mass_MeV": 0.1,
+      "reference_points": 42,
+      "mean_abs_resolution_change_on_fig7_vertices": 0.0030639894329629086,
+      "max_abs_resolution_change_on_fig7_vertices": 0.013216341729604508,
+      "peak_coupling_baseline": 4.0256863397797106e-08,
+      "peak_coupling_high": 4.0256863397797106e-08,
+      "peak_luminosity_baseline": 6.190692431082875e+54,
+      "peak_luminosity_high": 6.189130380497312e+54
+    }
+  ],
+  "independent_implementation_crosscheck": [
+    {
+      "mass_MeV": 0.1,
+      "mean_abs_reference_implementation_difference": 0.014662942770874165,
+      "max_abs_reference_implementation_difference": 0.058014080767185394
+    }
+  ],
+  "interpretation": "A convergence pass requires small changes between the two scalar resolutions. Agreement between the two scalar implementations is a separate check; neither result is promoted to a literature pass until the full Fig. 7 residual criteria are met."
+}

@@ -1,0 +1,360 @@
+{
+  "title": "Log-recovered summary of global B.13 quadrature convergence audit at 10 MeV",
+  "record_type": "log_recovered_compact_summary_not_original_full_json",
+  "provenance": {
+    "workflow_run_id": 42542328275,
+    "workflow_url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42542328275",
+    "job_id": 128919874213,
+    "run_commit": "7214134a9a42f736b6fe2e707b28b51e3f6274a9",
+    "branch_at_archive": "research/moving-muon-thermal-rates-20261107",
+    "branch_head_at_archive": "0bc8f32a30d3dceabd86419601489b74dffccd94",
+    "generated_output_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_convergence_vertex_preserving_10mev_2026-11-09.json",
+    "original_output_generated": true,
+    "original_artifact_uploaded": false,
+    "artifact_count": 0,
+    "artifact_upload_failure": "GitHub Actions artifact storage quota was hit; GitHub reported usage is recalculated every 6–12 hours.",
+    "source_for_this_record": "Compact per-scan JSON summaries printed by the completed Actions job log, cross-checked against the previously archived radial-energy convergence JSON.",
+    "limitation": "The original full JSON was generated on the runner but not uploaded and is not present in the branch. This log-recovered record preserves the complete compact per-scan summaries printed to stdout, but not the omitted point arrays and detailed diagnostics from the original full JSON."
+  },
+  "run_outcome": {
+    "workflow_conclusion": "failure",
+    "numerical_scan_step": "success",
+    "structural_validation_step": "success",
+    "artifact_upload_step": "failure",
+    "PR_state": "open",
+    "PR_draft": true,
+    "PR_merged": false
+  },
+  "fixed_inputs": {
+    "mediator_mass_MeV": 10,
+    "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+    "physical_kernels_unchanged": true,
+    "fixed_omega_B2_convention_unchanged": true,
+    "expected_scan_labels": [
+      "angular_only_24x32",
+      "path_only_16x48",
+      "joint_ray_24x48",
+      "combined_60x140_24x48"
+    ],
+    "expected_variants": [
+      "B13_mu_minus_consistent_source_and_opacity",
+      "B13_both_charges_consistent_source_and_opacity"
+    ],
+    "same_grid_B16_closure_tolerance": 2e-10,
+    "production_axial_files_unchanged": true
+  },
+  "scans": [
+    {
+      "label": "angular_only_24x32",
+      "quadrature": {
+        "radial_order": 40,
+        "energy_order": 100,
+        "angular_order": 24,
+        "path_order": 32,
+        "local_kernel_base_orders": [
+          12,
+          8,
+          8,
+          8
+        ],
+        "local_kernel_refined_orders": [
+          16,
+          10,
+          10,
+          10
+        ]
+      },
+      "B16_baseline_reproduction_residual": 0,
+      "variants": {
+        "B13_mu_minus_consistent_source_and_opacity": {
+          "luminosity_shift_vs_original_40x100x16x32": {
+            "mean_absolute_relative_shift": 0.000004180428228313104,
+            "maximum_absolute_relative_shift": 0.00001676795868221781,
+            "weak_endpoint_relative_shift": 2.2063881832679044e-8,
+            "reference_peak_relative_shift": 0.000007801193640188941,
+            "strong_endpoint_relative_shift": 0.00001676795868221781
+          },
+          "escape_fraction_shift_vs_original_40x100x16x32": {
+            "mean_absolute_relative_shift": 0.00000418042822833975,
+            "maximum_absolute_relative_shift": 0.00001676795868221781,
+            "weak_endpoint_relative_shift": 2.2063881832679044e-8,
+            "reference_peak_relative_shift": 0.000007801193640188941,
+            "strong_endpoint_relative_shift": 0.00001676795868221781
+          },
+          "metrics_vs_fig7": {
+            "mean_absolute_relative_difference": 0.30259156272952614,
+            "maximum_absolute_relative_difference": 1.3153392836986844,
+            "weak_endpoint_relative_difference": -0.2810903185712743,
+            "reference_peak_relative_difference": -0.16339095657581404,
+            "strong_endpoint_relative_difference": 1.3153392836986844
+          }
+        },
+        "B13_both_charges_consistent_source_and_opacity": {
+          "luminosity_shift_vs_original_40x100x16x32": {
+            "mean_absolute_relative_shift": 0.000004256759128464793,
+            "maximum_absolute_relative_shift": 0.000016953439776923318,
+            "weak_endpoint_relative_shift": 2.23195879556215e-8,
+            "reference_peak_relative_shift": 0.000007912119284414487,
+            "strong_endpoint_relative_shift": 0.000016953439776923318
+          },
+          "escape_fraction_shift_vs_original_40x100x16x32": {
+            "mean_absolute_relative_shift": 0.000004256759128473675,
+            "maximum_absolute_relative_shift": 0.000016953439776923318,
+            "weak_endpoint_relative_shift": 2.23195879556215e-8,
+            "reference_peak_relative_shift": 0.000007912119284414487,
+            "strong_endpoint_relative_shift": 0.000016953439776923318
+          },
+          "metrics_vs_fig7": {
+            "mean_absolute_relative_difference": 0.3021775861487851,
+            "maximum_absolute_relative_difference": 1.3159444895066237,
+            "weak_endpoint_relative_difference": -0.2804182975619407,
+            "reference_peak_relative_difference": -0.16271823003232866,
+            "strong_endpoint_relative_difference": 1.3159444895066237
+          }
+        }
+      },
+      "wall_time_seconds": 462.6875858306885
+    },
+    {
+      "label": "path_only_16x48",
+      "quadrature": {
+        "radial_order": 40,
+        "energy_order": 100,
+        "angular_order": 16,
+        "path_order": 48,
+        "local_kernel_base_orders": [
+          12,
+          8,
+          8,
+          8
+        ],
+        "local_kernel_refined_orders": [
+          16,
+          10,
+          10,
+          10
+        ]
+      },
+      "B16_baseline_reproduction_residual": 0,
+      "variants": {
+        "B13_mu_minus_consistent_source_and_opacity": {
+          "luminosity_shift_vs_original_40x100x16x32": {
+            "mean_absolute_relative_shift": 0.0000017329773173857532,
+            "maximum_absolute_relative_shift": 0.000015930757761628556,
+            "weak_endpoint_relative_shift": -7.730412976414414e-9,
+            "reference_peak_relative_shift": -8.823863403284449e-7,
+            "strong_endpoint_relative_shift": 0.000015930757761628556
+          },
+          "escape_fraction_shift_vs_original_40x100x16x32": {
+            "mean_absolute_relative_shift": 0.0000017329773173857532,
+            "maximum_absolute_relative_shift": 0.000015930757761628556,
+            "weak_endpoint_relative_shift": -7.730412976414414e-9,
+            "reference_peak_relative_shift": -8.823863402174226e-7,
+            "strong_endpoint_relative_shift": 0.000015930757761628556
+          },
+          "metrics_vs_fig7": {
+            "mean_absolute_relative_difference": 0.3025926607369195,
+            "maximum_absolute_relative_difference": 1.315337345327007,
+            "weak_endpoint_relative_difference": -0.2810903399906809,
+            "reference_peak_relative_difference": -0.1633982212806816,
+            "strong_endpoint_relative_difference": 1.315337345327007
+          }
+        },
+        "B13_both_charges_consistent_source_and_opacity": {
+          "luminosity_shift_vs_original_40x100x16x32": {
+            "mean_absolute_relative_shift": 0.0000017526211935514624,
+            "maximum_absolute_relative_shift": 0.000015968748013239775,
+            "weak_endpoint_relative_shift": -7.563409676336619e-9,
+            "reference_peak_relative_shift": -8.004226735858211e-7,
+            "strong_endpoint_relative_shift": 0.000015968748013239775
+          },
+          "escape_fraction_shift_vs_original_40x100x16x32": {
+            "mean_absolute_relative_shift": 0.0000017526211935603441,
+            "maximum_absolute_relative_shift": 0.000015968748013239775,
+            "weak_endpoint_relative_shift": -7.563409676336619e-9,
+            "reference_peak_relative_shift": -8.004226734747988e-7,
+            "strong_endpoint_relative_shift": 0.000015968748013239775
+          },
+          "metrics_vs_fig7": {
+            "mean_absolute_relative_difference": 0.30217866097778406,
+            "maximum_absolute_relative_difference": 1.3159422090538215,
+            "weak_endpoint_relative_difference": -0.28041831906519865,
+            "reference_peak_relative_difference": -0.16272552482716285,
+            "strong_endpoint_relative_difference": 1.3159422090538215
+          }
+        }
+      },
+      "wall_time_seconds": 378.3657593727112
+    },
+    {
+      "label": "joint_ray_24x48",
+      "quadrature": {
+        "radial_order": 40,
+        "energy_order": 100,
+        "angular_order": 24,
+        "path_order": 48,
+        "local_kernel_base_orders": [
+          12,
+          8,
+          8,
+          8
+        ],
+        "local_kernel_refined_orders": [
+          16,
+          10,
+          10,
+          10
+        ]
+      },
+      "B16_baseline_reproduction_residual": 0,
+      "variants": {
+        "B13_mu_minus_consistent_source_and_opacity": {
+          "luminosity_shift_vs_original_40x100x16x32": {
+            "mean_absolute_relative_shift": 0.0000017592917516573436,
+            "maximum_absolute_relative_shift": 0.000008647361023461642,
+            "weak_endpoint_relative_shift": 1.4322264707544718e-8,
+            "reference_peak_relative_shift": 0.000004235283883158303,
+            "strong_endpoint_relative_shift": 0.000008647361023461642
+          },
+          "escape_fraction_shift_vs_original_40x100x16x32": {
+            "mean_absolute_relative_shift": 0.0000017592917516706664,
+            "maximum_absolute_relative_shift": 0.000008647361023461642,
+            "weak_endpoint_relative_shift": 1.4322264707544718e-8,
+            "reference_peak_relative_shift": 0.000004235283883158303,
+            "strong_endpoint_relative_shift": 0.000008647361023461642
+          },
+          "metrics_vs_fig7": {
+            "mean_absolute_relative_difference": 0.30258951568883075,
+            "maximum_absolute_relative_difference": 1.3153204820751827,
+            "weak_endpoint_relative_difference": -0.2810903241367978,
+            "reference_peak_relative_difference": -0.1633939398248918,
+            "strong_endpoint_relative_difference": 1.3153204820751827
+          }
+        },
+        "B13_both_charges_consistent_source_and_opacity": {
+          "luminosity_shift_vs_original_40x100x16x32": {
+            "mean_absolute_relative_shift": 0.0000017691931800056793,
+            "maximum_absolute_relative_shift": 0.000008633559595017104,
+            "weak_endpoint_relative_shift": 1.4406060344640537e-8,
+            "reference_peak_relative_shift": 0.0000042697556097426315,
+            "strong_endpoint_relative_shift": 0.000008633559595017104
+          },
+          "escape_fraction_shift_vs_original_40x100x16x32": {
+            "mean_absolute_relative_shift": 0.0000017691931800056793,
+            "maximum_absolute_relative_shift": 0.000008633559595017104,
+            "weak_endpoint_relative_shift": 1.4406060344640537e-8,
+            "reference_peak_relative_shift": 0.0000042697556097426315,
+            "strong_endpoint_relative_shift": 0.000008633559595017104
+          },
+          "metrics_vs_fig7": {
+            "mean_absolute_relative_difference": 0.3021754986699057,
+            "maximum_absolute_relative_difference": 1.315925221452623,
+            "weak_endpoint_relative_difference": -0.2804183032563703,
+            "reference_peak_relative_difference": -0.16272127969290373,
+            "strong_endpoint_relative_difference": 1.315925221452623
+          }
+        }
+      },
+      "wall_time_seconds": 378.063805103302
+    },
+    {
+      "label": "combined_60x140_24x48",
+      "quadrature": {
+        "radial_order": 60,
+        "energy_order": 140,
+        "angular_order": 24,
+        "path_order": 48,
+        "local_kernel_base_orders": [
+          12,
+          8,
+          8,
+          8
+        ],
+        "local_kernel_refined_orders": [
+          16,
+          10,
+          10,
+          10
+        ]
+      },
+      "B16_baseline_reproduction_residual": 0,
+      "variants": {
+        "B13_mu_minus_consistent_source_and_opacity": {
+          "luminosity_shift_vs_original_40x100x16x32": {
+            "mean_absolute_relative_shift": 0.002650824373540548,
+            "maximum_absolute_relative_shift": 0.0027316247865244447,
+            "weak_endpoint_relative_shift": -0.0027316247865244447,
+            "reference_peak_relative_shift": -0.002679894134461347,
+            "strong_endpoint_relative_shift": -0.0018420738549872473
+          },
+          "escape_fraction_shift_vs_original_40x100x16x32": {
+            "mean_absolute_relative_shift": 0.00008119820060500161,
+            "maximum_absolute_relative_shift": 0.0008921641164612026,
+            "weak_endpoint_relative_shift": 1.7645234784424702e-7,
+            "reference_peak_relative_shift": 0.000052048809355165204,
+            "strong_endpoint_relative_shift": 0.0008921641164612026
+          },
+          "metrics_vs_fig7": {
+            "mean_absolute_relative_difference": 0.3035174845196884,
+            "maximum_absolute_relative_difference": 1.311035506390874,
+            "weak_endpoint_relative_difference": -0.2830541258949466,
+            "reference_peak_relative_difference": -0.16563948925203387,
+            "strong_endpoint_relative_difference": 1.311035506390874
+          }
+        },
+        "B13_both_charges_consistent_source_and_opacity": {
+          "luminosity_shift_vs_original_40x100x16x32": {
+            "mean_absolute_relative_shift": 0.0026507048777926244,
+            "maximum_absolute_relative_shift": 0.0027319075679480553,
+            "weak_endpoint_relative_shift": -0.0027319075679480553,
+            "reference_peak_relative_shift": -0.0026797508778703127,
+            "strong_endpoint_relative_shift": -0.0018403450059556459
+          },
+          "escape_fraction_shift_vs_original_40x100x16x32": {
+            "mean_absolute_relative_shift": 0.00008160255099476821,
+            "maximum_absolute_relative_shift": 0.0008941824597923365,
+            "weak_endpoint_relative_shift": 1.7740044899738905e-7,
+            "reference_peak_relative_shift": 0.00005247697738952617,
+            "strong_endpoint_relative_shift": 0.0008941824597923365
+          },
+          "metrics_vs_fig7": {
+            "mean_absolute_relative_difference": 0.30310509696315885,
+            "maximum_absolute_relative_difference": 1.3116431623281515,
+            "weak_endpoint_relative_difference": -0.2823841442774784,
+            "reference_peak_relative_difference": -0.16496854345891465,
+            "strong_endpoint_relative_difference": 1.3116431623281515
+          }
+        }
+      },
+      "wall_time_seconds": 808.5139899253845
+    }
+  ],
+  "acceptance_targets": {
+    "maximum_relative_luminosity_shift": 0.01,
+    "peak_luminosity_relative_shift": 0.01,
+    "strong_endpoint_luminosity_relative_shift": 0.02,
+    "escape_fraction_target": null,
+    "note": "Project numerical acceptance targets, not physical uncertainty bounds. No separate numerical threshold was predeclared for escape-fraction shifts."
+  },
+  "numerical_assessment": {
+    "all_four_same_grid_B16_closure_residuals_zero": true,
+    "angular_only_maximum_luminosity_shift_fraction": 0.000016953439776923318,
+    "path_only_maximum_luminosity_shift_fraction": 0.000015968748013239775,
+    "joint_angular_path_maximum_luminosity_shift_fraction": 0.000008647361023461642,
+    "combined_maximum_luminosity_shift_fraction": 0.0027319075679480553,
+    "combined_peak_luminosity_shift_fraction": 0.002679894134461347,
+    "combined_strong_endpoint_luminosity_shift_fraction": 0.0018420738549872473,
+    "combined_maximum_escape_fraction_shift_fraction": 0.0008941824597923365,
+    "radial_energy_thin_source_ratio_crosscheck": {
+      "source": "Previously archived b13_global_grid_convergence_2026-11-09.json and b13_global_transport_summary_vertex_preserving_10mev_2026-11-09.json",
+      "original_40x100_B13_over_B16_thin_source_ratio": 0.7889822588036474,
+      "refined_60x140_B13_over_B16_thin_source_ratio": 0.7888232696829346,
+      "relative_change": -0.00020151165496906653,
+      "percent_change": -0.020151165496906653,
+      "note": "The first three scans keep radial and energy orders fixed, so their optically thin source integral is unchanged by angular/path refinement. This independent stage-A cross-check quantifies the radial-energy contribution."
+    },
+    "project_targets_passed": true,
+    "fig7_difference_persists": true,
+    "local_kernel_convergence_certified_by_this_record": false
+  }
+}

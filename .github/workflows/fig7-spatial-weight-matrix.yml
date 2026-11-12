@@ -1,0 +1,78 @@
+name: Fig. 7 spatial-weight matrix audit
+
+on:
+  push:
+    branches:
+      - codex/major44-axial-cooling-constraints-20261105
+    paths:
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_fig7_spatial_weight_matrix.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_fig7_spatial_weight_matrix.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_eq_b2_path_integral.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_three_layer.json'
+      - 'research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv'
+      - '.github/workflows/fig7-spatial-weight-matrix.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fig7-spatial-weight-matrix-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    if: github.ref_name == 'codex/major44-axial-cooling-constraints-20261105'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out exact triggering commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numerical dependencies
+        run: python -m pip install numpy scipy
+      - name: Run spatial bookkeeping regression tests
+        run: |
+          python -m unittest discover \
+            -s research/stellar-cooling-constraints-20261105 \
+            -p 'test_fig7_spatial_weight_matrix.py' -v
+      - name: Run joint production/absorber spatial audit
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_fig7_spatial_weight_matrix.py
+      - name: Commit machine-readable audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          OUTPUT="research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_spatial_weight_matrix_2026-11-08.json"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$OUTPUT"
+          if git diff --cached --quiet; then
+            echo "Spatial-weight audit is unchanged."
+            exit 0
+          fi
+          git commit -m "Archive Fig. 7 spatial-weight matrix audit"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin "$GITHUB_REF_NAME"
+            if ! git rebase "origin/$GITHUB_REF_NAME"; then
+              if git diff --name-only --diff-filter=U | grep -Fxq "$OUTPUT"; then
+                git checkout --theirs -- "$OUTPUT"
+                git add "$OUTPUT"
+                GIT_EDITOR=true git rebase --continue
+              else
+                git rebase --abort
+                echo "Unexpected non-output rebase conflict."
+                exit 1
+              fi
+            fi
+            if git push origin "HEAD:$GITHUB_REF_NAME"; then exit 0; fi
+            sleep 2
+          done
+          exit 1

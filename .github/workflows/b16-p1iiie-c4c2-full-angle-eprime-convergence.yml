@@ -1,0 +1,90 @@
+name: P1-IIIe-C4C2 full-angle outgoing-energy convergence
+
+on:
+  push:
+    branches:
+      - research/moving-muon-thermal-rates-20261107
+    paths:
+      - '.github/workflows/b16-p1iiie-c4c2-full-angle-eprime-convergence.yml'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_c4b2_effective_mass_collision_kernel.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_c4c1_exact_outgoing_energy_support.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_c4c2_full_angle_eprime_convergence.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_p1iii_eos_c4c2_full_angle_eprime_convergence.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_full_radial_occupation.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/p1iii_eos_full_radial_occupation_2026-11-11.csv'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: p1iiie-c4c2-full-angle-eprime-convergence
+  cancel-in-progress: false
+
+jobs:
+  full-angle-eprime-convergence:
+    if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Check out the exact research commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy
+
+      - name: Run C4-C2 Eprime convergence regression tests
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest test_b16_p1iii_eos_c4c2_full_angle_eprime_convergence -v
+
+      - name: Recompute full-angle outgoing-energy convergence
+        env:
+          C4C2E_DIR: ${{ runner.temp }}/c4c2-eprime
+        run: |
+          set -euo pipefail
+          mkdir -p "$C4C2E_DIR"
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_c4c2_full_angle_eprime_convergence.py \
+            --profile research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv \
+            --c2-reference research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/p1iii_eos_full_radial_occupation_2026-11-11.csv \
+            --output-json "$C4C2E_DIR/summary.json" \
+            --output-csv "$C4C2E_DIR/full_angle_eprime_order_convergence.csv"
+
+      - name: Validate recomputed numerical acceptance
+        env:
+          C4C2E_DIR: ${{ runner.temp }}/c4c2-eprime
+        run: |
+          python - <<'PY'
+          import csv, json, os
+          from pathlib import Path
+          root = Path(os.environ["C4C2E_DIR"])
+          summary = json.loads((root / "summary.json").read_text())
+          with (root / "full_angle_eprime_order_convergence.csv").open(newline="") as stream:
+              rows = list(csv.DictReader(stream))
+          assert summary["overall_pass"]
+          assert all(summary["acceptance"].values())
+          assert len(rows) == 16
+          assert summary["maxima"]["full_angle_Eprime_48_to_72_relative_difference"] < 1e-2
+          assert summary["maxima"]["support_root_relative_residual"] < 1e-7
+          assert all(float(row["gamma_full_angle_Eprime48_MeV"]) > 0 for row in rows)
+          assert all(float(row["gamma_full_angle_Eprime72_MeV"]) > 0 for row in rows)
+          print(json.dumps(summary["maxima"], indent=2))
+          PY
+
+      - name: Upload C4-C2 full-angle Eprime convergence outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: c4c2-full-angle-eprime-convergence
+          path: ${{ runner.temp }}/c4c2-eprime/
+          if-no-files-found: error
+          retention-days: 90

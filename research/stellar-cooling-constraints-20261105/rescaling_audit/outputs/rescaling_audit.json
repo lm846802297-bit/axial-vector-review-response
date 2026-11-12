@@ -1,0 +1,353 @@
+{
+  "audit_date": "2026-11-07",
+  "definition": "L_calc(kappa * g_ref) is compared with L_ref(g_ref).",
+  "fig4_boundary_cross_check": [
+    {
+      "global_rescaled_boundary_deviation_pct": {
+        "lower_pct": -2.13101433880456,
+        "upper_pct": -3.7472324123805856
+      },
+      "global_rescaling_kappa": 1.03,
+      "mass_MeV": 1.0,
+      "masswise_fig7_kappa": 0.9972500000000001,
+      "masswise_rescaled_boundary_deviation_pct": {
+        "lower_pct": 1.0830335733580387,
+        "upper_pct": -0.5862616041634627
+      },
+      "reference_lower": 1.7490347400899984e-09,
+      "reference_upper": 2.526692716170002e-07,
+      "unscaled_boundary_deviation_pct": {
+        "lower": 0.8050552310313153,
+        "upper": -0.8596493847519926
+      }
+    },
+    {
+      "global_rescaled_boundary_deviation_pct": {
+        "lower_pct": -2.5894272178984656,
+        "upper_pct": -1.9749252633103231
+      },
+      "global_rescaling_kappa": 1.03,
+      "mass_MeV": 10.0,
+      "masswise_fig7_kappa": 1.06675,
+      "masswise_rescaled_boundary_deviation_pct": {
+        "lower_pct": -5.945263683557933,
+        "upper_pct": -5.351931587728731
+      },
+      "reference_lower": 1.0102653713946128e-09,
+      "reference_upper": 3.8433563979977404e-08,
+      "unscaled_boundary_deviation_pct": {
+        "lower": 0.3328899655645756,
+        "upper": 0.9658269787903739
+      }
+    },
+    {
+      "global_rescaled_boundary_deviation_pct": {
+        "lower_pct": -3.7813048374875757,
+        "upper_pct": -1.9613531120872163
+      },
+      "global_rescaling_kappa": 1.03,
+      "mass_MeV": 100.0,
+      "masswise_fig7_kappa": null,
+      "masswise_rescaled_boundary_deviation_pct": null,
+      "reference_lower": 2.429877931621444e-10,
+      "reference_upper": 3.524031064178927e-09,
+      "unscaled_boundary_deviation_pct": {
+        "lower": -0.8947439826122006,
+        "upper": 0.9798062945501673
+      }
+    },
+    {
+      "global_rescaled_boundary_deviation_pct": {
+        "lower_pct": -4.188659110400117,
+        "upper_pct": -0.3891216624419491
+      },
+      "global_rescaling_kappa": 1.03,
+      "mass_MeV": 200.0,
+      "masswise_fig7_kappa": 1.0017500000000001,
+      "masswise_rescaled_boundary_deviation_pct": {
+        "lower_pct": -1.4867171287368253,
+        "upper_pct": 2.419969740638672
+      },
+      "reference_lower": 4.883511942027781e-10,
+      "reference_upper": 1.1359459949131351e-09,
+      "unscaled_boundary_deviation_pct": {
+        "lower": -1.3143188837121067,
+        "upper": 2.5992046876847974
+      }
+    }
+  ],
+  "input_sha256": {
+    "literal_comparison": "b57143d808c8b9a96b0cc3c3b49b71ecf00c1893a022e6ea167adb59d21b6f62",
+    "literal_scan": "99a06c9ff90252d2e6f275b16321de832ef90ed69c3934121c71c68958a6bb65",
+    "vector_comparison": "6ec153f4bc0acbc1fdcdcc6b7855cfc980a61e440e858ea571d06923823de0a2"
+  },
+  "interpretation": {
+    "disposition": "Do not apply fitted kappas to production scans or constraint figures. Keep PR #56 Draft until the physical origin of the 10 MeV shape mismatch is understood.",
+    "global_scale": "One common near-unity kappa does not reconcile all Fig. 7 masses; the remaining 10 MeV high-coupling tail dominates the residual.",
+    "literal_reference": "A mass-specific kappa improves the 10 MeV Fig. 7 pointwise curve, but the fitted 10 MeV kappa worsens the already-close Fig. 4 contour boundaries. This is not a single coupling-normalization correction.",
+    "mode_resolved_control": "The exact_modes output is not a like-for-like scalar-opacity implementation of the literal Blinov Appendix-B prescription. Its rescaling failure is recorded as a diagnostic only, not as a stand-alone proof of a production-code error."
+  },
+  "literal_blinov_scalar": {
+    "fixed_fit_point_counts": {
+      "1": 32,
+      "10": 25,
+      "200": 12
+    },
+    "global_fit": {
+      "fit_at_search_boundary": false,
+      "grid_index": 520,
+      "kappa": 1.03,
+      "metrics": {
+        "max_abs_log_residual_pct": 38.887683739411386,
+        "max_abs_relative_residual_pct": 47.5322835538041,
+        "mean_abs_log_residual_pct": 6.137074576473381,
+        "mean_abs_relative_residual_pct": 6.25325733325616,
+        "n_points": 69,
+        "rms_log_residual_pct": 9.30975136874375
+      }
+    },
+    "per_mass": {
+      "1": {
+        "baseline_all_points": {
+          "max_abs_log_residual_pct": 5.6968682801128265,
+          "max_abs_relative_residual_pct": 5.537634812993508,
+          "mean_abs_log_residual_pct": 1.6209108512676775,
+          "mean_abs_relative_residual_pct": 1.599991836797809,
+          "n_points": 32,
+          "rms_log_residual_pct": 2.0609302924880177
+        },
+        "baseline_fixed_fit_subset": {
+          "max_abs_log_residual_pct": 5.6968682801128265,
+          "max_abs_relative_residual_pct": 5.537634812993508,
+          "mean_abs_log_residual_pct": 1.6209108512676775,
+          "mean_abs_relative_residual_pct": 1.599991836797809,
+          "n_points": 32,
+          "rms_log_residual_pct": 2.0609302924880177
+        },
+        "best_fit": {
+          "fit_at_search_boundary": false,
+          "grid_index": 389,
+          "kappa": 0.9972500000000001,
+          "metrics": {
+            "max_abs_log_residual_pct": 3.8649711940622757,
+            "max_abs_relative_residual_pct": 3.7912342052996317,
+            "mean_abs_log_residual_pct": 1.6838638778219568,
+            "mean_abs_relative_residual_pct": 1.6651685357914934,
+            "n_points": 32,
+            "rms_log_residual_pct": 1.9486932338649134
+          }
+        },
+        "mass_MeV": 1.0,
+        "n_fixed_fit_points": 32,
+        "n_reference_points": 32
+      },
+      "10": {
+        "baseline_all_points": {
+          "max_abs_log_residual_pct": 64.89256271649485,
+          "max_abs_relative_residual_pct": 91.34839291193097,
+          "mean_abs_log_residual_pct": 13.668592011412036,
+          "mean_abs_relative_residual_pct": 15.644635916627003,
+          "n_points": 25,
+          "rms_log_residual_pct": 20.165662402694213
+        },
+        "baseline_fixed_fit_subset": {
+          "max_abs_log_residual_pct": 64.89256271649485,
+          "max_abs_relative_residual_pct": 91.34839291193097,
+          "mean_abs_log_residual_pct": 13.668592011412036,
+          "mean_abs_relative_residual_pct": 15.644635916627003,
+          "n_points": 25,
+          "rms_log_residual_pct": 20.165662402694213
+        },
+        "best_fit": {
+          "fit_at_search_boundary": false,
+          "grid_index": 667,
+          "kappa": 1.06675,
+          "metrics": {
+            "max_abs_log_residual_pct": 6.895459768585171,
+            "max_abs_relative_residual_pct": 7.138756456928519,
+            "mean_abs_log_residual_pct": 3.2775510639174015,
+            "mean_abs_relative_residual_pct": 3.3379975141251994,
+            "n_points": 25,
+            "rms_log_residual_pct": 3.4536380132946998
+          }
+        },
+        "mass_MeV": 10.0,
+        "n_fixed_fit_points": 25,
+        "n_reference_points": 25
+      },
+      "200": {
+        "baseline_all_points": {
+          "max_abs_log_residual_pct": 1.5730020952642432,
+          "max_abs_relative_residual_pct": 1.5854388980426126,
+          "mean_abs_log_residual_pct": 0.7035804916828747,
+          "mean_abs_relative_residual_pct": 0.7072454118599414,
+          "n_points": 12,
+          "rms_log_residual_pct": 0.8544418938794766
+        },
+        "baseline_fixed_fit_subset": {
+          "max_abs_log_residual_pct": 1.5730020952642432,
+          "max_abs_relative_residual_pct": 1.5854388980426126,
+          "mean_abs_log_residual_pct": 0.7035804916828747,
+          "mean_abs_relative_residual_pct": 0.7072454118599414,
+          "n_points": 12,
+          "rms_log_residual_pct": 0.8544418938794766
+        },
+        "best_fit": {
+          "fit_at_search_boundary": false,
+          "grid_index": 407,
+          "kappa": 1.0017500000000001,
+          "metrics": {
+            "max_abs_log_residual_pct": 1.349589239219691,
+            "max_abs_relative_residual_pct": 1.3587373022252658,
+            "mean_abs_log_residual_pct": 0.6580306794425004,
+            "mean_abs_relative_residual_pct": 0.6610096174688402,
+            "n_points": 12,
+            "rms_log_residual_pct": 0.7705253790610175
+          }
+        },
+        "mass_MeV": 200.0,
+        "n_fixed_fit_points": 12,
+        "n_reference_points": 12
+      }
+    }
+  },
+  "method": {
+    "fit_coverage": "The same reference points are retained for every trial kappa: each scaled coupling must remain inside the calculated curve's sampled range.",
+    "grid_points": 801,
+    "grid_step": 0.00025000000000000006,
+    "interpolation": "piecewise-linear in log(L) versus log(g); no extrapolation",
+    "kappa_search_interval": [
+      0.9,
+      1.1
+    ],
+    "objective": "minimize the RMS of log(L_calc(kappa*g_ref)/L_ref)",
+    "reported_residuals": "Both log-residual and ordinary relative-residual percentages are reported."
+  },
+  "production_mode_resolved_vector_control": {
+    "fixed_fit_point_counts": {
+      "1": 30,
+      "10": 23,
+      "200": 10
+    },
+    "global_fit": {
+      "fit_at_search_boundary": true,
+      "grid_index": 800,
+      "kappa": 1.1,
+      "metrics": {
+        "max_abs_log_residual_pct": 362.38872807086386,
+        "max_abs_relative_residual_pct": 3648.2991898133946,
+        "mean_abs_log_residual_pct": 78.10496092659518,
+        "mean_abs_relative_residual_pct": 290.6577908341556,
+        "n_points": 63,
+        "rms_log_residual_pct": 117.64514553161717
+      }
+    },
+    "per_mass": {
+      "1": {
+        "baseline_all_points": {
+          "max_abs_log_residual_pct": 454.48819859959843,
+          "max_abs_relative_residual_pct": 9314.931561604673,
+          "mean_abs_log_residual_pct": 111.14863468792637,
+          "mean_abs_relative_residual_pct": 644.897036108597,
+          "n_points": 32,
+          "rms_log_residual_pct": 152.9706971340645
+        },
+        "baseline_fixed_fit_subset": {
+          "max_abs_log_residual_pct": 379.7541619727719,
+          "max_abs_relative_residual_pct": 4359.142695136069,
+          "mean_abs_log_residual_pct": 101.019736947502,
+          "mean_abs_relative_residual_pct": 375.6868927166805,
+          "n_points": 30,
+          "rms_log_residual_pct": 133.8038516813609
+        },
+        "best_fit": {
+          "fit_at_search_boundary": true,
+          "grid_index": 800,
+          "kappa": 1.1,
+          "metrics": {
+            "max_abs_log_residual_pct": 359.3013261276392,
+            "max_abs_relative_residual_pct": 3534.342332775937,
+            "mean_abs_log_residual_pct": 88.18694626758659,
+            "mean_abs_relative_residual_pct": 318.6341184004264,
+            "n_points": 30,
+            "rms_log_residual_pct": 123.97045582203674
+          }
+        },
+        "mass_MeV": 1.0,
+        "n_fixed_fit_points": 30,
+        "n_reference_points": 32
+      },
+      "10": {
+        "baseline_all_points": {
+          "max_abs_log_residual_pct": 496.14294000663284,
+          "max_abs_relative_residual_pct": 14179.77652204556,
+          "mean_abs_log_residual_pct": 87.55241564756106,
+          "mean_abs_relative_residual_pct": 915.1280460806147,
+          "n_points": 25,
+          "rms_log_residual_pct": 154.5516936941352
+        },
+        "baseline_fixed_fit_subset": {
+          "max_abs_log_residual_pct": 388.65611206404174,
+          "max_abs_relative_residual_pct": 4774.297676178738,
+          "mean_abs_log_residual_pct": 72.39833747486242,
+          "mean_abs_relative_residual_pct": 377.1468487396306,
+          "n_points": 23,
+          "rms_log_residual_pct": 123.40130200374027
+        },
+        "best_fit": {
+          "fit_at_search_boundary": true,
+          "grid_index": 800,
+          "kappa": 1.1,
+          "metrics": {
+            "max_abs_log_residual_pct": 362.38872807086386,
+            "max_abs_relative_residual_pct": 3648.2991898133946,
+            "mean_abs_log_residual_pct": 63.86275386912021,
+            "mean_abs_relative_residual_pct": 308.42257911901277,
+            "n_points": 23,
+            "rms_log_residual_pct": 117.21922764455415
+          }
+        },
+        "mass_MeV": 10.0,
+        "n_fixed_fit_points": 23,
+        "n_reference_points": 25
+      },
+      "200": {
+        "baseline_all_points": {
+          "max_abs_log_residual_pct": 272.8261141606024,
+          "max_abs_relative_residual_pct": 1430.6248467655928,
+          "mean_abs_log_residual_pct": 81.5985144974865,
+          "mean_abs_relative_residual_pct": 247.0059389651555,
+          "n_points": 12,
+          "rms_log_residual_pct": 116.32694685667373
+        },
+        "baseline_fixed_fit_subset": {
+          "max_abs_log_residual_pct": 204.04339852399883,
+          "max_abs_relative_residual_pct": 669.394753409954,
+          "mean_abs_log_residual_pct": 70.00223891929414,
+          "mean_abs_relative_residual_pct": 152.69078707452587,
+          "n_points": 10,
+          "rms_log_residual_pct": 93.75995884624469
+        },
+        "best_fit": {
+          "fit_at_search_boundary": true,
+          "grid_index": 0,
+          "kappa": 0.9,
+          "metrics": {
+            "max_abs_log_residual_pct": 203.18270765242542,
+            "max_abs_relative_residual_pct": 662.8010593667588,
+            "mean_abs_log_residual_pct": 59.401446738135654,
+            "mean_abs_relative_residual_pct": 133.53495252842237,
+            "n_points": 10,
+            "rms_log_residual_pct": 88.19717338436143
+          }
+        },
+        "mass_MeV": 200.0,
+        "n_fixed_fit_points": 10,
+        "n_reference_points": 12
+      }
+    }
+  },
+  "scope": "Post-processing only. Reads archived JSON curves and digitized reference points; does not rerun B.13 thermal phase-space integrals, matrix elements, opacity integrals, or stellar luminosity scans.",
+  "script_sha256": "fa567989ef40620df69e7717e0d02e032777d60ae28e523e2cca7d05b135f635",
+  "title": "Coupling-axis rescaling audit of archived vector luminosity curves"
+}
