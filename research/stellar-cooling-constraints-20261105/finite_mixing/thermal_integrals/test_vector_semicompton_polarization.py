@@ -73,8 +73,36 @@ class VectorSemiComptonPolarizationAuditTests(unittest.TestCase):
         self.assertGreater(diagnostic["Eq106b_printed_L_negative_fraction"], 0.0)
         self.assertGreaterEqual(diagnostic["exact_T_minimum_over_angular_grid_MeV_minus2"], 0.0)
         self.assertGreaterEqual(diagnostic["exact_L_minimum_over_angular_grid_MeV_minus2"], 0.0)
+        flags = self.audit["interpretation_flags"]
         self.assertTrue(
-            self.audit["interpretation_flags"]["Eq106b_shape_tracks_exact_transverse_mode"]
+            flags["Eq106b_is_closer_to_exact_T_than_Eq106a_but_not_accurate"]
+        )
+        self.assertTrue(flags["Eq106_differential_shapes_fail_the_low_energy_reference"])
+
+    def test_eq106_angular_shapes_fail_while_exact_shapes_recover_thomson_limit(self):
+        angular = self.audit["low_energy_angular_shape_audit"]
+        self.assertTrue(
+            angular["acceptance"]["exact_T_matches_leading_Thomson_shape"]
+        )
+        self.assertTrue(
+            angular["acceptance"]["exact_L_matches_leading_suppressed_shape"]
+        )
+        self.assertTrue(
+            angular["acceptance"]["printed_Eq106a_fails_exact_L_angular_shape"]
+        )
+        self.assertTrue(
+            angular["acceptance"]["printed_Eq106b_fails_exact_T_angular_shape"]
+        )
+        self.assertGreater(
+            angular["printed_Eq106b_vs_exact_T_max_abs_over_exact_T_peak"], 0.5
+        )
+
+    def test_eq58_hierarchy_and_longitudinal_coefficient_persist_across_low_energy_scan(self):
+        scan = self.audit["low_energy_parameter_scan"]
+        self.assertTrue(all(scan["acceptance"].values()))
+        self.assertEqual(len(scan["cases"]), 6)
+        self.assertGreater(
+            scan["max_abs_deviation_Eq58a_over_exact_L_from_three_halves"], 0.0
         )
 
     def test_paper_eq58_mode_hierarchy_is_opposite_to_conserved_vector_limit(self):

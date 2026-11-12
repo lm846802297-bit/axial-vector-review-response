@@ -156,6 +156,168 @@ def printed_low_energy_formulas(mass, photon_energy):
     return sigma_t, sigma_l, sigma_thomson
 
 
+def low_energy_parameter_scan():
+    """Check Eq. (58) against exact spinor cross sections over low-energy points."""
+    energies = (0.05, 0.1, 0.5)
+    mass_ratios = (0.01, 0.1)
+    cases = []
+    for energy in energies:
+        for ratio in mass_ratios:
+            mass = ratio * energy
+            exact_l, exact_t = direct_spinor_production_cross_sections(
+                mass, energy, order=256
+            )
+            paper_t, paper_l, sigma_thomson = printed_low_energy_formulas(
+                mass, energy
+            )
+            phase = math.sqrt(1.0 - ratio * ratio)
+            cases.append({
+                "photon_energy_MeV": energy,
+                "mediator_mass_MeV": mass,
+                "m_over_Egamma": ratio,
+                "exact_T_over_phase_space_Thomson": (
+                    exact_t / (sigma_thomson * phase)
+                ),
+                "exact_L_over_exact_T_divided_by_m_over_E_squared": (
+                    (exact_l / exact_t) / (ratio * ratio)
+                ),
+                "paper_Eq58a_T_over_exact_L": paper_t / exact_l,
+                "paper_Eq58b_L_over_exact_T": paper_l / exact_t,
+            })
+
+    max_t_deviation = max(
+        abs(item["exact_T_over_phase_space_Thomson"] - 1.0)
+        for item in cases
+    )
+    max_l_coefficient_deviation = max(
+        abs(
+            item["exact_L_over_exact_T_divided_by_m_over_E_squared"] - 0.5
+        )
+        for item in cases
+    )
+    max_paper_a_coefficient_deviation = max(
+        abs(item["paper_Eq58a_T_over_exact_L"] - 1.5)
+        for item in cases
+    )
+    max_paper_b_transverse_deviation = max(
+        abs(item["paper_Eq58b_L_over_exact_T"] - 1.0)
+        for item in cases
+    )
+    return {
+        "scope": (
+            "Exact direct-spinor total cross sections at E_gamma/m_mu <= "
+            "0.00474 and m_Aprime/E_gamma in {0.01, 0.1}; this tests the "
+            "low-energy expansion without using the single reference point only."
+        ),
+        "cases": cases,
+        "max_abs_deviation_exact_T_over_phase_space_Thomson_from_one": (
+            max_t_deviation
+        ),
+        "max_abs_deviation_exact_L_coefficient_from_one_half": (
+            max_l_coefficient_deviation
+        ),
+        "max_abs_deviation_Eq58a_over_exact_L_from_three_halves": (
+            max_paper_a_coefficient_deviation
+        ),
+        "max_abs_deviation_Eq58b_over_exact_T_from_one": (
+            max_paper_b_transverse_deviation
+        ),
+        "acceptance": {
+            "exact_T_tracks_phase_space_corrected_Thomson_limit": (
+                max_t_deviation < 0.02
+            ),
+            "exact_L_scales_as_half_m2_over_E2_times_T": (
+                max_l_coefficient_deviation < 0.03
+            ),
+            "printed_Eq58a_is_1p5_times_exact_L": (
+                max_paper_a_coefficient_deviation < 0.05
+            ),
+            "printed_Eq58b_tracks_exact_T": (
+                max_paper_b_transverse_deviation < 0.02
+            ),
+        },
+    }
+
+
+def low_energy_angular_shape_audit(
+    mass, photon_energy, cosines, exact_t, exact_l, paper_t, paper_l
+):
+    """Compare exact angular distributions with the leading Thomson shapes."""
+    ratio = mass / photon_energy
+    phase = math.sqrt(1.0 - ratio * ratio)
+    alpha_x = 1.0 / (4.0 * math.pi)
+    coefficient = math.pi * rates.ALPHA * alpha_x / (M_MU * M_MU)
+    leading_t = coefficient * phase * (1.0 + cosines * cosines)
+    leading_l = (
+        coefficient * phase * ratio * ratio * (1.0 - cosines * cosines)
+    )
+    mask = np.abs(cosines) <= 0.95
+    t_peak = float(np.max(leading_t[mask]))
+    l_peak = float(np.max(leading_l[mask]))
+    exact_t_shape_error = float(
+        np.max(np.abs(exact_t[mask] - leading_t[mask])) / t_peak
+    )
+    exact_l_shape_error = float(
+        np.max(np.abs(exact_l[mask] - leading_l[mask])) / l_peak
+    )
+    exact_t_peak = float(np.max(exact_t[mask]))
+    exact_l_peak = float(np.max(exact_l[mask]))
+    paper_b_vs_exact_t = float(
+        np.max(np.abs(paper_l[mask] - exact_t[mask])) / exact_t_peak
+    )
+    paper_a_vs_exact_l = float(
+        np.max(np.abs(paper_t[mask] - exact_l[mask])) / exact_l_peak
+    )
+    t_evenness = float(
+        np.max(np.abs(exact_t - exact_t[::-1])) / max(exact_t_peak, 1e-300)
+    )
+    l_evenness = float(
+        np.max(np.abs(exact_l - exact_l[::-1])) / max(exact_l_peak, 1e-300)
+    )
+    return {
+        "reference": {
+            "T": "C * sqrt(1-r^2) * (1+cos(theta)^2)",
+            "L": "C * sqrt(1-r^2) * r^2 * (1-cos(theta)^2)",
+            "r": "m_Aprime/E_gamma",
+            "C": "pi*alpha*alpha_X/m_mu^2",
+            "qualification": (
+                "Leading heavy-muon / Thomson angular shapes; used only at "
+                "the low-energy benchmark, not asserted as exact at finite E_gamma."
+            ),
+        },
+        "exact_T_vs_leading_shape_max_abs_over_leading_peak": (
+            exact_t_shape_error
+        ),
+        "exact_L_vs_leading_shape_max_abs_over_leading_peak": (
+            exact_l_shape_error
+        ),
+        "printed_Eq106b_vs_exact_T_max_abs_over_exact_T_peak": (
+            paper_b_vs_exact_t
+        ),
+        "printed_Eq106a_vs_exact_L_max_abs_over_exact_L_peak": (
+            paper_a_vs_exact_l
+        ),
+        "exact_T_evenness_residual": t_evenness,
+        "exact_L_evenness_residual": l_evenness,
+        "printed_Eq106a_negative_fraction": float(np.mean(paper_t < 0.0)),
+        "printed_Eq106b_negative_fraction": float(np.mean(paper_l < 0.0)),
+        "acceptance": {
+            "exact_T_matches_leading_Thomson_shape": (
+                exact_t_shape_error < 0.02
+            ),
+            "exact_L_matches_leading_suppressed_shape": (
+                exact_l_shape_error < 0.05
+            ),
+            "printed_Eq106a_fails_exact_L_angular_shape": (
+                paper_a_vs_exact_l > 0.5
+            ),
+            "printed_Eq106b_fails_exact_T_angular_shape": (
+                paper_b_vs_exact_t > 0.5
+            ),
+        },
+    }
+
+
 def medium_frame_projector_checks(mass, omega):
     """Check covariant U-frame L/T polarization projectors explicitly."""
     metric = np.diag([1.0, -1.0, -1.0, -1.0])
@@ -269,6 +431,11 @@ def build_audit(mass=0.001, photon_energy=0.1):
 
     mode_convergence = relative_difference(
         crossed_scans["128"], crossed_scans["256"]
+    )
+    low_energy_scan = low_energy_parameter_scan()
+    angular_shape = low_energy_angular_shape_audit(
+        mass, photon_energy, cosines,
+        exact_t_dcos, exact_l_dcos, paper_b6a_t, paper_b6b_l
     )
     projector = medium_frame_projector_checks(mass, photon_energy)
     wards = ward_checks(mass, photon_energy)
@@ -389,6 +556,8 @@ def build_audit(mass=0.001, photon_energy=0.1):
                 "cos(theta) over [-1,1]. The signs are evaluated on that stated range."
             ),
         },
+        "low_energy_angular_shape_audit": angular_shape,
+        "low_energy_parameter_scan": low_energy_scan,
         "Eq106_integrals_and_Eq58_phase_factor": {
             "numerical_integral_Eq106a_MeV_minus2": b6a_integral,
             "numerical_integral_Eq106b_MeV_minus2": b6b_integral,
@@ -433,9 +602,14 @@ def build_audit(mass=0.001, photon_energy=0.1):
             "printed_Eq106b_has_negative_differential_region": bool(
                 np.any(paper_b6b_l < 0.0)
             ),
-            "Eq106b_shape_tracks_exact_transverse_mode": (
+            "Eq106b_is_closer_to_exact_T_than_Eq106a_but_not_accurate": (
                 max_abs_over_thomson(exact_t_dcos - paper_b6b_l)
                 < max_abs_over_thomson(exact_t_dcos - paper_b6a_t)
+                and angular_shape["printed_Eq106b_vs_exact_T_max_abs_over_exact_T_peak"] > 0.5
+            ),
+            "Eq106_differential_shapes_fail_the_low_energy_reference": (
+                angular_shape["acceptance"]["printed_Eq106a_fails_exact_L_angular_shape"]
+                and angular_shape["acceptance"]["printed_Eq106b_fails_exact_T_angular_shape"]
             ),
         },
         "acceptance": {
@@ -452,6 +626,12 @@ def build_audit(mass=0.001, photon_energy=0.1):
             ),
             "direct_spinor_vs_crossed_trace_pass": direct_crossed_residual < 1e-3,
             "quadrature_convergence_pass": mode_convergence < 1e-5,
+            "low_energy_parameter_scan_pass": all(
+                low_energy_scan["acceptance"].values()
+            ),
+            "low_energy_angular_shape_audit_pass": all(
+                angular_shape["acceptance"].values()
+            ),
             "medium_frame_projectors_pass": max(
                 abs(projector["q_dot_eps_l"]),
                 abs(projector["eps_l_norm_plus_one"]),
