@@ -1,0 +1,8 @@
+HISTORICAL B5-2B3 COMMON-NUMERATOR DIAGNOSTIC — SUPERSEDED
+
+The earlier +3/(4 M_E^2) candidate used one common numerator/denominator family for all four cross-box pairs.
+That ansatz omitted the distinct external-momentum shifts in LD-W-01, LD-W-05 and LD-W-06.
+
+Do not use the old +3/4 finite coefficient as the exact four-box result.
+Use B5_2B3_QLD_WW_CROSSBOX_NUMERATOR_AUDIT_2026-11-11.md and
+b5_2b3_qld_ww_exact_routing.py instead.

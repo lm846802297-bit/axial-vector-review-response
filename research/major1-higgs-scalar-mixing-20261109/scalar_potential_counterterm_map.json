@@ -1,0 +1,572 @@
+{
+  "status": "PASS",
+  "UV_convention": {
+    "Delta_UV": "1/epsilon - gamma_E + ln(4 pi)",
+    "inverse_propagator": "Gamma_inv = p^2 I - M_loc^2 + Pi_RC",
+    "fermion_determinant": "V1_div = + Delta_UV Tr[(Mdagger M)^2]/(16 pi^2)",
+    "potential_counterterm": "delta V = - Delta_UV Tr[(Mdagger M)^2]/(16 pi^2)",
+    "Pi_RC_loop_local": "-F_ab Delta_UV/(16 pi^2)",
+    "Pi_RC_loop_p2": "+C_ab p^2 Delta_UV/(16 pi^2)",
+    "field_counterterm": "delta Z_ab = -C_ab Delta_UV/(16 pi^2)"
+  },
+  "renormalizable_potential_counterterm_basis": {
+    "delta_V": "-delta_mu_H2 HdaggerH - delta_mu_S2 SdaggerS + delta_lambda_H(HdaggerH)^2 + delta_lambda_S(SdaggerS)^2 + delta_lambda_HS(HdaggerH)(SdaggerS)",
+    "delta_mu_H2": "+2 M_E^2 sum_l |y_l|^2/(16 pi^2)",
+    "delta_mu_S2": "+2 M_E^2 sum_l |lambda_l|^2/(16 pi^2)",
+    "delta_lambda_H": "-sum_l |y_l|^4/(16 pi^2)",
+    "delta_lambda_S": "-sum_l |lambda_l|^4/(16 pi^2)",
+    "delta_lambda_HS": "0 at this one-loop VLL determinant order"
+  },
+  "EFT_dimension8_counterterm_basis": {
+    "operator": "(Hdagger H)^2 (Sdagger S)^2",
+    "coefficient": "-sum_l |C5_l|^4/(16 pi^2)",
+    "C5_definition": "L_EFT5=-C5_l O5+h.c.; C5_l=-y_l lambda_l/M_E; m_l(h,s)=C5_l(v_h+h)(v_s+s)/2; physical mass=|m_l|",
+    "reason": "The light determinant of the dimension-five mass operator generates a dimension-eight scalar operator; its h-s contact contribution is required in the EFT two-point UV pole."
+  },
+  "benchmarks": {
+    "A_open_AA": {
+      "vs_GeV": 70.886458,
+      "full_theory_VLL_potential_counterterms": {
+        "delta_mu_H2_GeV2": 13370374.985526461,
+        "delta_mu_S2_GeV2": 63887080.44396132,
+        "delta_lambda_H": -0.022054485649901395,
+        "delta_lambda_S": -1.0000125046700834,
+        "delta_lambda_HS": -0.0,
+        "potential_counterterm_tadpoles_per_vev_GeV2": [
+          -13371712.023025014,
+          -63892105.3967237
+        ],
+        "potential_counterterm_mass_matrix_GeV2": [
+          [
+            -13374386.098022122,
+            -0.0
+          ],
+          [
+            -0.0,
+            -63902155.30224845
+          ]
+        ],
+        "loop_1PI_tadpole_pole_coefficients_GeV3": [
+          -3292382934.3092194,
+          -4529085045.736428
+        ],
+        "loop_Pi_RC_local_pole_coefficients_GeV2": [
+          [
+            -13374386.098022122,
+            -0.0
+          ],
+          [
+            -0.0,
+            -63902155.302248456
+          ]
+        ],
+        "tadpole_cancellation_residual_GeV2": [
+          -4.76837158203125e-07,
+          0.0
+        ],
+        "mass_cancellation_residual_GeV2": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -7.450580596923828e-09
+          ]
+        ]
+      },
+      "full_theory_VLL_field_counterterms": {
+        "delta_Z_HH": -0.016712968731908077,
+        "delta_Z_HS": -6.879200210989065e-22,
+        "delta_Z_SS": -0.07985885055495164,
+        "full_theory_p2_UV_coefficients_C": {
+          "hh": 2.6392062360273405,
+          "hs": 1.0863197548536402e-19,
+          "ss": 12.610804206449409
+        },
+        "p2_cancellation_residual": {
+          "hh": 0.0,
+          "hs": 0.0,
+          "ss": 0.0
+        }
+      },
+      "leading_EFT5_light_loop_and_dimension8_counterterm": {
+        "flavours": {
+          "mu": {
+            "C5_GeVminus1": -1.2107300493940768e-05,
+            "kappa_neutral_mass_operator_GeVminus1": -6.053650246970384e-06,
+            "m_EFT5_mass_parameter_at_vev_GeV": -0.1056583755,
+            "m_EFT5_at_vev_GeV": 0.1056583755,
+            "input_light_mass_GeV": 0.1056583755,
+            "mass_relative_difference": 0.0,
+            "F_derivatives": {
+              "F": 0.00012462802606601117,
+              "F_h": 2.0246612958494218e-06,
+              "F_s": 7.032543567969564e-06,
+              "F_hh": 2.4668929768289603e-08,
+              "F_hs": 1.1424812879489179e-07,
+              "F_ss": 2.976256861911296e-07
+            }
+          },
+          "tau": {
+            "C5_GeVminus1": -0.00020360882754309992,
+            "kappa_neutral_mass_operator_GeVminus1": -0.00010180441377154996,
+            "m_EFT5_mass_parameter_at_vev_GeV": -1.77686,
+            "m_EFT5_at_vev_GeV": 1.77686,
+            "input_light_mass_GeV": 1.77686,
+            "mass_relative_difference": 0.0,
+            "F_derivatives": {
+              "F": 9.968110489487948,
+              "F_h": 0.16193827454289575,
+              "F_s": 0.5624832031803845,
+              "F_hh": 0.001973092452394961,
+              "F_hs": 0.009137896242066193,
+              "F_ss": 0.02380496440577061
+            }
+          }
+        },
+        "sum_derivatives_GeV": {
+          "F": 9.968235117514014,
+          "F_h": 0.1619402992041916,
+          "F_s": 0.5624902357239524,
+          "F_hh": 0.0019731171213247293,
+          "F_hs": 0.009138010490194987,
+          "F_ss": 0.0238052620314568
+        },
+        "bubble_local_UV_coefficients_GeV2": {
+          "hh": 0.0019731171213247293,
+          "hs": 0.006853507867646241,
+          "ss": 0.023805262031456803
+        },
+        "dimension5_contact_local_UV_coefficients_GeV2": {
+          "hh": 0.0,
+          "hs": 0.0022845026225487472,
+          "ss": 0.0
+        },
+        "complete_leading_EFT5_local_UV_coefficients_GeV2": {
+          "hh": 0.0019731171213247293,
+          "hs": 0.009138010490194989,
+          "ss": 0.023805262031456803
+        },
+        "one_loop_EFT_1PI_tadpole_pole_coefficients_GeV3": {
+          "h": -0.0010254989246726888,
+          "s": -0.003562011029425528
+        },
+        "one_loop_EFT_Pi_RC_local_pole_coefficients_GeV2": {
+          "hh": -1.2494910137348985e-05,
+          "hs": -5.786712743766597e-05,
+          "ss": -0.00015074858287145035
+        },
+        "dimension8_operator": "(Hdagger H)^2 (Sdagger S)^2",
+        "dimension8_potential_counterterm_coefficient_GeVminus4": -1.0883588525689463e-17,
+        "dimension8_potential_loop_pole_coefficient_GeVminus4": 1.0883588525689463e-17,
+        "dimension8_operator_coefficient_sum_C5_fourth_GeVminus4": 1.718667411404646e-15
+      },
+      "finite_heavy_VLL_potential_matching_through_dimension8": {
+        "matching_scale_GeV": 20000.0,
+        "renormalization_scheme": "MSbar",
+        "matching_sector": "heavy mu/tau-associated VLL eigenstates only",
+        "background_invariants": "X_l=|y_l|^2 HdaggerH; Y_l=|lambda_l|^2 SdaggerS",
+        "heavy_CW_expansion_at_mu_ME": "V_H=-1/(16 pi^2) sum_l[-3/2 M_E^4-2 M_E^2(X_l+Y_l)+2 X_l Y_l+((X_l+Y_l)^3/3-2 X_l Y_l(X_l+Y_l))/M_E^2+(-(X_l+Y_l)^4/12+X_l Y_l(X_l+Y_l)^2+2 X_l^2 Y_l^2)/M_E^4+ O(fields^10)]",
+        "dimensionless_coupling_invariants": {
+          "xy": 16.641256551490553,
+          "x3": 4.59578808435835,
+          "x2y": 21.959854033012356,
+          "xy2": 208.38597762535343,
+          "y3": 1984.4018012137656,
+          "x4": 6.064616285849353,
+          "x3y": 28.97829185308818,
+          "x2y2": 274.9867858247434,
+          "xy3": 2618.622804273629,
+          "y4": 24936.727408253148,
+          "c5_fourth": 1.718667411404646e-15
+        },
+        "finite_potential_wilson_coefficients_at_mu_ME": {
+          "delta_lambda_H_finite_at_mu_ME": 0.0,
+          "delta_lambda_S_finite_at_mu_ME": 0.0,
+          "delta_lambda_HS_finite_at_mu_ME": -0.21076397638660388,
+          "c_(HdagH)^3_GeVminus2": -2.42526400248198e-11,
+          "c_(HdagH)^2(SdagS)_GeVminus2": 3.476560005059026e-10,
+          "c_(HdagH)(SdagS)^2_GeVminus2": 3.2990490480416447e-09,
+          "c_(SdagS)^3_GeVminus2": -1.0471976006300302e-08,
+          "c_(HdagH)^4_GeVminus4": 2.0002412123009595e-20,
+          "c_(HdagH)^3(SdagS)_GeVminus4": -7.646132371062521e-19,
+          "c_(HdagH)^2(SdagS)^2_GeVminus4": -3.8092559839913124e-17,
+          "c_(HdagH)(SdagS)^3_GeVminus4": -6.909426094839111e-17,
+          "c_(SdagS)^4_GeVminus4": 8.224670368393669e-17
+        },
+        "O8_matching_and_running": {
+          "operator": "(HdaggerH)^2(SdaggerS)^2",
+          "UV_pole_residue_GeVminus4": -1.0883588525689463e-17,
+          "finite_matching_coefficient_c8_at_mu_ME_GeVminus4": -3.8092559839913124e-17,
+          "loop_induced_beta_c8_GeVminus4": -2.1767177051378926e-17,
+          "finite_matching_to_pole_residue_ratio": 3.5,
+          "general_scale_dependence": "c8(mu)=-[sum_l |C5_l|^4/(16 pi^2)][7/2-ln(M_E^2/mu^2)]",
+          "consistency": "d c8(mu)/d ln(mu)=beta_c8=-2 sum_l |C5_l|^4/(16 pi^2)"
+        },
+        "scope": [
+          "The expansion is the finite heavy-eigenstate Coleman-Weinberg contribution in the specified MSbar scalar-background basis.",
+          "The light-eigenstate determinant is matched to the leading dimension-five EFT loop separately and is not included in these hard Wilson coefficients.",
+          "This closes the VLL fermion-sector scalar-potential matching through dimension eight, not the full derivative-operator or gauge/scalar EFT basis.",
+          "The finite portal threshold is distinct from the vanishing divergent renormalizable portal pole."
+        ],
+        "local_hs_mass_contribution_at_benchmark_vev_GeV2": {
+          "dimension4_portal_GeV2": -3678.6035615575383,
+          "dimension6_H2S_GeV2": 0.3678603561557538,
+          "dimension6_HS2_GeV2": 0.28933563718832983,
+          "dimension8_H3S_GeV2": -3.678603561557537e-05,
+          "dimension8_H2S2_GeV2": -0.00020253494603183087,
+          "dimension8_HS3_GeV2": -2.2837204886362547e-05,
+          "dimension6_sum_GeV2": 0.6571959933440836,
+          "dimension8_sum_GeV2": -0.0002621581865337688,
+          "higher_dimensional_sum_GeV2": 0.6569338351575499,
+          "total_including_portal_GeV2": -3677.946627722381,
+          "additional_delta_lambda_HS_for_zero_local_hs_curvature": -3.763873573320937e-05
+        }
+      },
+      "planC_scale_dependence_and_dimension8_running_check": {
+        "evaluation": "s=m_h^2, leading EFT5 soft bubble+contact plus Plan-C hard derivative",
+        "mu_reference_GeV": 20000.0,
+        "mu_low_GeV": 125.25,
+        "soft_d_dlnmu_GeV2": -0.07201966985094525,
+        "hard_derivative_d_dlnmu_GeV2": 0.07213540410582059,
+        "total_d_dlnmu_GeV2": 0.0001157342548753354,
+        "leading_EFT5_PiB_hs_local_UV_coefficient_GeV2": 5.786712743766597e-05,
+        "twice_leading_EFT5_PiB_hs_local_UV_coefficient_GeV2": 0.00011573425487533194,
+        "identity_residual_GeV2": 3.4558944247975454e-18,
+        "relative_identity_residual": 2.986060115494851e-14,
+        "finite_difference_d_dlnmu_GeV2": [
+          0.00011573426106359362,
+          0.0
+        ],
+        "relative_finite_difference_residual": 5.3469547389263314e-08,
+        "dimension8_running": {
+          "sum_abs_C5_fourth_GeVminus4": 1.718667411404646e-15,
+          "loop_induced_beta_c8_GeVminus4": -2.1767177051378926e-17,
+          "delta_c8_from_mu_reference_to_mu_low_GeVminus4": 1.1042871612500945e-16,
+          "delta_PiB_from_O8_running_GeV2": 0.000587140222519479,
+          "delta_PiB_soft_plus_hard_GeV2": [
+            -0.0005871402225193778,
+            0.0
+          ],
+          "residual_after_O8_running_GeV2": [
+            1.0115606269289756e-16,
+            0.0
+          ],
+          "relative_residual_after_O8_running": 1.7228603800782705e-13,
+          "finite_matching_value_c8_at_M_E": "not determined"
+        },
+        "required_dimension8_counterterm_contribution_d_dlnmu_GeV2": -0.0001157342548753354,
+        "interpretation": "The Plan-C finite soft expression already includes the EFT5 contact tadpole. The remaining scale dependence is the running of O8=(Hdagger H)^2(Sdagger S)^2. Its loop-induced running cancels the benchmark scale residual; the finite hard matching value c8(M_E) remains unknown."
+      },
+      "comparison_to_archived_exact_light_bubble": {
+        "exact_mass_eigenstate_light_bubble_local_UV_coefficients_GeV2": {
+          "hh": 0.001972016882158648,
+          "hs": 0.006849830563573524,
+          "ss": 0.023792990401942674
+        },
+        "leading_EFT5_bubble_local_UV_coefficients_GeV2": {
+          "hh": 0.0019731171213247293,
+          "hs": 0.006853507867646241,
+          "ss": 0.023805262031456803
+        },
+        "difference_exact_bubble_minus_leading_EFT5_GeV2": {
+          "hh": -1.1002391660814431e-06,
+          "hs": -3.6773040727171996e-06,
+          "ss": -1.2271629514129523e-05
+        },
+        "interpretation": "The difference includes finite-M_E power corrections because the archived light-state vertices are exact-SVD quantities, whereas the EFT5 values use only the leading dimension-five operator."
+      },
+      "previous_bubble_only_matching_subtraction_not_complete": {
+        "hh": {
+          "Pi_RC_local_pole_coefficient_full_minus_light_bubble_GeV2": -13374386.09800963,
+          "delta_Z_matching_counterterm_pole_coefficient": -0.016712307066340585
+        },
+        "hs": {
+          "Pi_RC_local_pole_coefficient_full_minus_light_bubble_GeV2": 4.3377057531570926e-05,
+          "delta_Z_matching_counterterm_pole_coefficient": 2.2983060235058655e-06
+        },
+        "ss": {
+          "Pi_RC_local_pole_coefficient_full_minus_light_bubble_GeV2": -63902155.30209777,
+          "delta_Z_matching_counterterm_pole_coefficient": -0.07985086735189964
+        }
+      }
+    },
+    "B_closed_AA": {
+      "vs_GeV": 315.0,
+      "full_theory_VLL_potential_counterterms": {
+        "delta_mu_H2_GeV2": 13370374.985526461,
+        "delta_mu_S2_GeV2": 3235329.272244899,
+        "delta_lambda_H": -0.022054485649901395,
+        "delta_lambda_S": -0.002564580413632791,
+        "delta_lambda_HS": -0.0,
+        "potential_counterterm_tadpoles_per_vev_GeV2": [
+          -13371712.023025014,
+          -3235583.7427364415
+        ],
+        "potential_counterterm_mass_matrix_GeV2": [
+          [
+            -13374386.098022122,
+            -0.0
+          ],
+          [
+            -0.0,
+            -3236092.683719527
+          ]
+        ],
+        "loop_1PI_tadpole_pole_coefficients_GeV3": [
+          -3292382934.3092194,
+          -1019208878.9619792
+        ],
+        "loop_Pi_RC_local_pole_coefficients_GeV2": [
+          [
+            -13374386.098022122,
+            -0.0
+          ],
+          [
+            -0.0,
+            -3236092.683719527
+          ]
+        ],
+        "tadpole_cancellation_residual_GeV2": [
+          -4.76837158203125e-07,
+          -1.1920928955078125e-07
+        ],
+        "mass_cancellation_residual_GeV2": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      "full_theory_VLL_field_counterterms": {
+        "delta_Z_HH": -0.016712968731908077,
+        "delta_Z_HS": 3.3524367499946708e-25,
+        "delta_Z_SS": -0.004044161590306126,
+        "full_theory_p2_UV_coefficients_C": {
+          "hh": 2.6392062360273405,
+          "hs": -5.293955920339377e-23,
+          "ss": 0.6386284004864301
+        },
+        "p2_cancellation_residual": {
+          "hh": 0.0,
+          "hs": 0.0,
+          "ss": 0.0
+        }
+      },
+      "leading_EFT5_light_loop_and_dimension8_counterterm": {
+        "flavours": {
+          "mu": {
+            "C5_GeVminus1": -2.724583009387656e-06,
+            "kappa_neutral_mass_operator_GeVminus1": -1.362291504693828e-06,
+            "m_EFT5_mass_parameter_at_vev_GeV": -0.1056583755,
+            "m_EFT5_at_vev_GeV": 0.1056583755,
+            "input_light_mass_GeV": 0.1056583755,
+            "mass_relative_difference": 0.0,
+            "F_derivatives": {
+              "F": 0.00012462802606601117,
+              "F_h": 2.0246612958494218e-06,
+              "F_s": 1.582578108774745e-06,
+              "F_hh": 2.4668929768289603e-08,
+              "F_hs": 2.5709984709199006e-08,
+              "F_ss": 1.507217246452138e-08
+            }
+          },
+          "tau": {
+            "C5_GeVminus1": -4.5819392387502213e-05,
+            "kappa_neutral_mass_operator_GeVminus1": -2.2909696193751107e-05,
+            "m_EFT5_mass_parameter_at_vev_GeV": -1.7768600000000003,
+            "m_EFT5_at_vev_GeV": 1.7768600000000003,
+            "input_light_mass_GeV": 1.77686,
+            "mass_relative_difference": 1.2496460324675624e-16,
+            "F_derivatives": {
+              "F": 9.968110489487954,
+              "F_h": 0.16193827454289583,
+              "F_s": 0.12657918081889466,
+              "F_hh": 0.001973092452394962,
+              "F_hs": 0.0020563590418145503,
+              "F_ss": 0.0012055160077989965
+            }
+          }
+        },
+        "sum_derivatives_GeV": {
+          "F": 9.96823511751402,
+          "F_h": 0.16194029920419167,
+          "F_s": 0.12658076339700344,
+          "F_hh": 0.00197311712132473,
+          "F_hs": 0.0020563847517992596,
+          "F_ss": 0.001205531079971461
+        },
+        "bubble_local_UV_coefficients_GeV2": {
+          "hh": 0.00197311712132473,
+          "hs": 0.0015422885638494447,
+          "ss": 0.0012055310799714612
+        },
+        "dimension5_contact_local_UV_coefficients_GeV2": {
+          "hh": 0.0,
+          "hs": 0.0005140961879498149,
+          "ss": 0.0
+        },
+        "complete_leading_EFT5_local_UV_coefficients_GeV2": {
+          "hh": 0.00197311712132473,
+          "hs": 0.0020563847517992596,
+          "ss": 0.0012055310799714612
+        },
+        "one_loop_EFT_1PI_tadpole_pole_coefficients_GeV3": {
+          "h": -0.0010254989246726895,
+          "s": -0.0008015820483584433
+        },
+        "one_loop_EFT_Pi_RC_local_pole_coefficients_GeV2": {
+          "hh": -1.249491013734899e-05,
+          "hs": -1.3022208567272248e-05,
+          "ss": -7.634114746270889e-06
+        },
+        "dimension8_operator": "(Hdagger H)^2 (Sdagger S)^2",
+        "dimension8_potential_counterterm_coefficient_GeVminus4": -2.7911488938993914e-20,
+        "dimension8_potential_loop_pole_coefficient_GeVminus4": 2.7911488938993914e-20,
+        "dimension8_operator_coefficient_sum_C5_fourth_GeVminus4": 4.407605665172021e-18
+      },
+      "finite_heavy_VLL_potential_matching_through_dimension8": {
+        "matching_scale_GeV": 20000.0,
+        "renormalization_scheme": "MSbar",
+        "matching_sector": "heavy mu/tau-associated VLL eigenstates only",
+        "background_invariants": "X_l=|y_l|^2 HdaggerH; Y_l=|lambda_l|^2 SdaggerS",
+        "heavy_CW_expansion_at_mu_ME": "V_H=-1/(16 pi^2) sum_l[-3/2 M_E^4-2 M_E^2(X_l+Y_l)+2 X_l Y_l+((X_l+Y_l)^3/3-2 X_l Y_l(X_l+Y_l))/M_E^2+(-(X_l+Y_l)^4/12+X_l Y_l(X_l+Y_l)^2+2 X_l^2 Y_l^2)/M_E^4+ O(fields^10)]",
+        "dimensionless_coupling_invariants": {
+          "xy": 0.842736028533976,
+          "x3": 4.59578808435835,
+          "x2y": 1.1120770909158921,
+          "xy2": 0.5344159139977249,
+          "y3": 0.2577187096452018,
+          "x4": 6.064616285849353,
+          "x3y": 1.4675003966441835,
+          "x2y2": 0.7052169064275234,
+          "xy3": 0.3400864128182681,
+          "y4": 0.16400656729154897,
+          "c5_fourth": 4.407605665172021e-18
+        },
+        "finite_potential_wilson_coefficients_at_mu_ME": {
+          "delta_lambda_H_finite_at_mu_ME": 0.0,
+          "delta_lambda_S_finite_at_mu_ME": 0.0,
+          "delta_lambda_HS_finite_at_mu_ME": -0.010673376488638173,
+          "c_(HdagH)^3_GeVminus2": -2.42526400248198e-11,
+          "c_(HdagH)^2(SdagS)_GeVminus2": 1.7605776117675915e-11,
+          "c_(HdagH)(SdagS)^2_GeVminus2": 8.460570775554888e-12,
+          "c_(SdagS)^3_GeVminus2": -1.3600189952097825e-12,
+          "c_(HdagH)^4_GeVminus4": 2.0002412123009595e-20,
+          "c_(HdagH)^3(SdagS)_GeVminus4": -3.8721061766559595e-20,
+          "c_(HdagH)^2(SdagS)^2_GeVminus4": -9.769021128647872e-20,
+          "c_(HdagH)(SdagS)^3_GeVminus4": -8.97342653318324e-21,
+          "c_(SdagS)^4_GeVminus4": 5.409290209341296e-22
+        },
+        "O8_matching_and_running": {
+          "operator": "(HdaggerH)^2(SdaggerS)^2",
+          "UV_pole_residue_GeVminus4": -2.7911488938993914e-20,
+          "finite_matching_coefficient_c8_at_mu_ME_GeVminus4": -9.76902112864787e-20,
+          "loop_induced_beta_c8_GeVminus4": -5.582297787798783e-20,
+          "finite_matching_to_pole_residue_ratio": 3.5,
+          "general_scale_dependence": "c8(mu)=-[sum_l |C5_l|^4/(16 pi^2)][7/2-ln(M_E^2/mu^2)]",
+          "consistency": "d c8(mu)/d ln(mu)=beta_c8=-2 sum_l |C5_l|^4/(16 pi^2)"
+        },
+        "scope": [
+          "The expansion is the finite heavy-eigenstate Coleman-Weinberg contribution in the specified MSbar scalar-background basis.",
+          "The light-eigenstate determinant is matched to the leading dimension-five EFT loop separately and is not included in these hard Wilson coefficients.",
+          "This closes the VLL fermion-sector scalar-potential matching through dimension eight, not the full derivative-operator or gauge/scalar EFT basis.",
+          "The finite portal threshold is distinct from the vanishing divergent renormalizable portal pole."
+        ],
+        "local_hs_mass_contribution_at_benchmark_vev_GeV2": {
+          "dimension4_portal_GeV2": -827.8196090952347,
+          "dimension6_H2S_GeV2": 0.08278196090952343,
+          "dimension6_HS2_GeV2": 0.06511104283636124,
+          "dimension8_H3S_GeV2": -8.278196090952345e-06,
+          "dimension8_H2S2_GeV2": -4.557772998545286e-05,
+          "dimension8_HS3_GeV2": -5.139201793696934e-06,
+          "dimension6_sum_GeV2": 0.14789300374588465,
+          "dimension8_sum_GeV2": -5.8995127870102134e-05,
+          "higher_dimensional_sum_GeV2": 0.14783400861801455,
+          "total_including_portal_GeV2": -827.6717750866167,
+          "additional_delta_lambda_HS_for_zero_local_hs_curvature": -1.9060771386283082e-06
+        }
+      },
+      "planC_scale_dependence_and_dimension8_running_check": {
+        "evaluation": "s=m_h^2, leading EFT5 soft bubble+contact plus Plan-C hard derivative",
+        "mu_reference_GeV": 20000.0,
+        "mu_low_GeV": 125.25,
+        "soft_d_dlnmu_GeV2": -0.016207045403374275,
+        "hard_derivative_d_dlnmu_GeV2": 0.01623308982050882,
+        "total_d_dlnmu_GeV2": 2.6044417134545028e-05,
+        "leading_EFT5_PiB_hs_local_UV_coefficient_GeV2": 1.302220856727224e-05,
+        "twice_leading_EFT5_PiB_hs_local_UV_coefficient_GeV2": 2.604441713454448e-05,
+        "identity_residual_GeV2": 5.488773498207866e-19,
+        "relative_identity_residual": 2.107466436992217e-14,
+        "finite_difference_d_dlnmu_GeV2": [
+          2.6044418011128553e-05,
+          0.0
+        ],
+        "relative_finite_difference_residual": 3.3657252534013274e-08,
+        "dimension8_running": {
+          "sum_abs_C5_fourth_GeVminus4": 4.407605665172021e-18,
+          "loop_induced_beta_c8_GeVminus4": -5.582297787798783e-20,
+          "delta_c8_from_mu_reference_to_mu_low_GeVminus4": 2.831997811563024e-19,
+          "delta_PiB_from_O8_running_GeV2": 0.00013212790705948482,
+          "delta_PiB_soft_plus_hard_GeV2": [
+            -0.00013212790705946498,
+            0.0
+          ],
+          "residual_after_O8_running_GeV2": [
+            1.984089975648473e-17,
+            0.0
+          ],
+          "relative_residual_after_O8_running": 1.5016433846602303e-13,
+          "finite_matching_value_c8_at_M_E": "not determined"
+        },
+        "required_dimension8_counterterm_contribution_d_dlnmu_GeV2": -2.6044417134545028e-05,
+        "interpretation": "The Plan-C finite soft expression already includes the EFT5 contact tadpole. The remaining scale dependence is the running of O8=(Hdagger H)^2(Sdagger S)^2. Its loop-induced running cancels the benchmark scale residual; the finite hard matching value c8(M_E) remains unknown."
+      },
+      "comparison_to_archived_exact_light_bubble": {
+        "exact_mass_eigenstate_light_bubble_local_UV_coefficients_GeV2": {
+          "hh": 0.0019720168821586487,
+          "hs": 0.0015414610366726068,
+          "ss": 0.0012049096278420272
+        },
+        "leading_EFT5_bubble_local_UV_coefficients_GeV2": {
+          "hh": 0.00197311712132473,
+          "hs": 0.0015422885638494447,
+          "ss": 0.0012055310799714612
+        },
+        "difference_exact_bubble_minus_leading_EFT5_GeV2": {
+          "hh": -1.1002391660814431e-06,
+          "hs": -8.275271768378931e-07,
+          "ss": -6.214521294340639e-07
+        },
+        "interpretation": "The difference includes finite-M_E power corrections because the archived light-state vertices are exact-SVD quantities, whereas the EFT5 values use only the leading dimension-five operator."
+      },
+      "previous_bubble_only_matching_subtraction_not_complete": {
+        "hh": {
+          "Pi_RC_local_pole_coefficient_full_minus_light_bubble_GeV2": -13374386.09800963,
+          "delta_Z_matching_counterterm_pole_coefficient": -0.016712307066340585
+        },
+        "hs": {
+          "Pi_RC_local_pole_coefficient_full_minus_light_bubble_GeV2": 9.761415940628152e-06,
+          "delta_Z_matching_counterterm_pole_coefficient": 5.172024552583988e-07
+        },
+        "ss": {
+          "Pi_RC_local_pole_coefficient_full_minus_light_bubble_GeV2": -3236092.6837118976,
+          "delta_Z_matching_counterterm_pole_coefficient": -0.004043757309967427
+        }
+      }
+    }
+  },
+  "scope": [
+    "Only the original mu/tau plus VLL fermion sector is included.",
+    "All listed coefficients multiply Delta_UV and are not finite mass shifts or physical pole corrections.",
+    "The full-theory renormalizable potential poles and the EFT dimension-eight pole are separate operator-basis statements; they must not be combined as if the EFT had only renormalizable scalar operators.",
+    "The archived light-light two-point bubble alone is not the complete EFT subtraction; the dimension-five contact and dimension-eight counterterm are required.",
+    "Finite tadpole conditions, VEV definition, gauge/Goldstone/ghost/scalar contributions, and the complete finite UV-EFT matching remain open.",
+    "The finite portal threshold at M_E is distinct from the vanishing full-theory one-loop divergent lambda_HS pole."
+  ]
+}

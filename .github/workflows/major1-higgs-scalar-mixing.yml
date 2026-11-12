@@ -1,0 +1,147 @@
+name: Higgs-scalar research audit suite
+
+on:
+  push:
+    branches:
+      - research/major1-higgs-scalar-mixing-20261109
+    paths:
+      - "research/major1-higgs-scalar-mixing-20261109/fermion_sector_matrix_audit.py"
+      - "research/major1-higgs-scalar-mixing-20261109/test_fermion_sector_matrix_audit.py"
+      - "research/major1-higgs-scalar-mixing-20261109/c5_gauge_convention_audit.py"
+      - "research/major1-higgs-scalar-mixing-20261109/test_c5_gauge_convention_audit.py"
+      - "research/major1-higgs-scalar-mixing-20261109/b5_1b_sm_threshold_and_uv_rge.py"
+      - "research/major1-higgs-scalar-mixing-20261109/b5_1b_complex_singlet_yukawa_beta_audit.py"
+      - "research/major1-higgs-scalar-mixing-20261109/test_b5_1b_complex_singlet_yukawa_beta_audit.py"
+      - "research/major1-higgs-scalar-mixing-20261109/b5_1d_independent_rge_audit.py"
+      - "research/major1-higgs-scalar-mixing-20261109/test_b5_1d_independent_rge_audit.py"
+      - "research/major1-higgs-scalar-mixing-20261109/b5_1d_pyrate3_model.model"
+      - "research/major1-higgs-scalar-mixing-20261109/B5_1D_PYRATE3_MODEL_INPUT_NOTES_2026-11-11.md"
+      - "research/major1-higgs-scalar-mixing-20261109/b5_2a_c5_squared_operator_block.py"
+      - "research/major1-higgs-scalar-mixing-20261109/test_b5_2a_c5_squared_operator_block.py"
+      - "research/major1-higgs-scalar-mixing-20261109/B5_2A_C5_SQUARED_AND_QUARTIC_EOM_BLOCK_2026-11-11.md"
+      - "research/major1-higgs-scalar-mixing-20261109/B5_2A_C5_SQUARED_AND_QUARTIC_EOM_OUTPUT_2026-11-11.txt"
+      - "research/major1-higgs-scalar-mixing-20261109/b5_2b_gauge_current_subblock.py"
+      - "research/major1-higgs-scalar-mixing-20261109/test_b5_2b_gauge_current_subblock.py"
+      - "research/major1-higgs-scalar-mixing-20261109/b5_2b2_eft_contact_vertex_audit.py"
+      - "research/major1-higgs-scalar-mixing-20261109/test_b5_2b2_eft_contact_vertex_audit.py"
+      - "research/major1-higgs-scalar-mixing-20261109/B5_2B2_EFT_COVARIANT_DERIVATIVE_CONTACTS_2026-11-11.md"
+      - "research/major1-higgs-scalar-mixing-20261109/B5_2B2_EFT_COVARIANT_DERIVATIVE_CONTACTS_OUTPUT_2026-11-11.txt"
+      - "research/major1-higgs-scalar-mixing-20261109/B5_2B1_GAUGE_PARAMETER_AND_CURRENT_BASIS_2026-11-11.md"
+      - "research/major1-higgs-scalar-mixing-20261109/B5_2B1_GAUGE_PARAMETER_AND_CURRENT_BASIS_OUTPUT_2026-11-11.txt"
+      - "research/major1-higgs-scalar-mixing-20261109/b5_2b3_qld_ww_crossbox_tensor_kernels.py"
+      - "research/major1-higgs-scalar-mixing-20261109/test_b5_2b3_qld_ww_crossbox_tensor_kernels.py"
+      - "research/major1-higgs-scalar-mixing-20261109/B5_2B3_QLD_WW_CROSSBOX_NUMERATOR_AUDIT_2026-11-11.md"
+      - "research/major1-higgs-scalar-mixing-20261109/B5_2B3_QLD_WW_CROSSBOX_NUMERATOR_OUTPUT_2026-11-11.txt"
+      - "research/major1-higgs-scalar-mixing-20261109/b5_2b3_qld_ww_exact_routing.py"
+      - "research/major1-higgs-scalar-mixing-20261109/test_b5_2b3_qld_ww_exact_routing.py"
+      - "research/major1-higgs-scalar-mixing-20261109/b5_2b4_triplet_derivative_eom_current_map.py"
+      - "research/major1-higgs-scalar-mixing-20261109/test_b5_2b4_triplet_derivative_eom_current_map.py"
+      - "research/major1-higgs-scalar-mixing-20261109/B5_2B4_TRIPLET_DERIVATIVE_EOM_CURRENT_MAP_2026-11-11.md"
+      - ".github/workflows/major1-higgs-scalar-mixing.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: major1-higgs-scalar-mixing
+  cancel-in-progress: false
+
+jobs:
+
+  pyrate3-crosscheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check out the exact research branch
+        uses: actions/checkout@v4
+      - name: Set up Python for PyR@TE 3
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - name: Hash the exact PyR@TE model input
+        run: |
+          sha256sum research/major1-higgs-scalar-mixing-20261109/b5_1d_pyrate3_model.model > research/major1-higgs-scalar-mixing-20261109/pyrate3_model_input.sha256
+      - name: Fetch pinned PyR@TE 3 source
+        run: |
+          git clone --no-tags https://github.com/LSartore/pyrate.git "$RUNNER_TEMP/pyrate3"
+          git -C "$RUNNER_TEMP/pyrate3" checkout 04b219c2016f3fc4f2371d72607edc26a7e06364
+      - name: Install pinned PyR@TE dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install PyYAML==6.0.2 sympy==1.13.3 h5py==3.12.1 numpy==1.26.4 scipy==1.14.1 matplotlib==3.9.2
+      - name: Run PyR@TE 3 one-loop gauge-invariance and RGE calculation
+        run: |
+          python "$RUNNER_TEMP/pyrate3/pyR@TE.py" \
+            -m "$GITHUB_WORKSPACE/research/major1-higgs-scalar-mixing-20261109/b5_1d_pyrate3_model.model" \
+            -l 1 -gi -py -tex -no-math \
+            -res "$GITHUB_WORKSPACE/research/major1-higgs-scalar-mixing-20261109/pyrate3_results"
+      - name: Collect PyR@TE 3 log files
+        if: always()
+        run: |
+          mkdir -p research/major1-higgs-scalar-mixing-20261109/pyrate3_results/log
+          if [ -d "$RUNNER_TEMP/pyrate3/log" ]; then
+            cp -a "$RUNNER_TEMP/pyrate3/log/." research/major1-higgs-scalar-mixing-20261109/pyrate3_results/log/
+          fi
+      - name: Archive PyR@TE 3 output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: b5-1d-pyrate3-one-loop-output
+          path: |
+            research/major1-higgs-scalar-mixing-20261109/pyrate3_results/**
+            research/major1-higgs-scalar-mixing-20261109/pyrate3_model_input.sha256
+          if-no-files-found: warn
+          retention-days: 30
+  fermion-sector-matrix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out exact PR commit
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy==2.3.5 scipy==1.17.0 sympy==1.14.0 mpmath==1.3.0
+      - name: Run research audit tests
+        run: |
+          set -o pipefail
+          python -m unittest discover -s research/major1-higgs-scalar-mixing-20261109 -p "test_*.py" -v 2>&1 | tee research/major1-higgs-scalar-mixing-20261109/fermion_sector_matrix_tests.txt
+      - name: Run and archive the corrected B5-1b coupled RGE output
+        run: |
+          python research/major1-higgs-scalar-mixing-20261109/b5_1b_sm_threshold_and_uv_rge.py > research/major1-higgs-scalar-mixing-20261109/B5_1B_SM_THRESHOLD_AND_UV_RGE_RAW_OUTPUT.txt
+          sha256sum research/major1-higgs-scalar-mixing-20261109/b5_1b_sm_threshold_and_uv_rge.py research/major1-higgs-scalar-mixing-20261109/b5_1b_complex_singlet_yukawa_beta_audit.py research/major1-higgs-scalar-mixing-20261109/test_b5_1b_complex_singlet_yukawa_beta_audit.py research/major1-higgs-scalar-mixing-20261109/B5_1B_SM_THRESHOLD_AND_UV_RGE_RAW_OUTPUT.txt > research/major1-higgs-scalar-mixing-20261109/B5_1B_RGE_SHA256SUMS.txt
+      - name: Run and archive the independent B5-1d full-RGE audit
+        run: |
+          python research/major1-higgs-scalar-mixing-20261109/b5_1d_independent_rge_audit.py > research/major1-higgs-scalar-mixing-20261109/B5_1D_INDEPENDENT_RGE_AUDIT_OUTPUT_2026-11-11.txt
+          sha256sum research/major1-higgs-scalar-mixing-20261109/b5_1d_independent_rge_audit.py research/major1-higgs-scalar-mixing-20261109/test_b5_1d_independent_rge_audit.py research/major1-higgs-scalar-mixing-20261109/B5_1D_INDEPENDENT_RGE_AUDIT_OUTPUT_2026-11-11.txt > research/major1-higgs-scalar-mixing-20261109/B5_1D_INDEPENDENT_RGE_SHA256SUMS.txt
+      - name: Run and archive the C5/gauge convention audit
+        run: |
+          python research/major1-higgs-scalar-mixing-20261109/c5_gauge_convention_audit.py > research/major1-higgs-scalar-mixing-20261109/c5_gauge_convention_audit.json
+      - name: Run and archive the matrix audit
+        run: |
+          python research/major1-higgs-scalar-mixing-20261109/fermion_sector_matrix_audit.py > research/major1-higgs-scalar-mixing-20261109/fermion_sector_matrix_audit.json
+          sha256sum research/major1-higgs-scalar-mixing-20261109/fermion_sector_matrix_audit.py research/major1-higgs-scalar-mixing-20261109/test_fermion_sector_matrix_audit.py research/major1-higgs-scalar-mixing-20261109/fermion_sector_matrix_audit.json research/major1-higgs-scalar-mixing-20261109/c5_gauge_convention_audit.py research/major1-higgs-scalar-mixing-20261109/test_c5_gauge_convention_audit.py research/major1-higgs-scalar-mixing-20261109/c5_gauge_convention_audit.json research/major1-higgs-scalar-mixing-20261109/fermion_sector_matrix_tests.txt > research/major1-higgs-scalar-mixing-20261109/FERMION_MATRIX_SHA256SUMS.txt
+      - name: Run and archive the B5-2B4 triplet derivative/current-basis audit
+        run: |
+          python research/major1-higgs-scalar-mixing-20261109/b5_2b4_triplet_derivative_eom_current_map.py > research/major1-higgs-scalar-mixing-20261109/B5_2B4_TRIPLET_DERIVATIVE_EOM_CURRENT_MAP_OUTPUT_2026-11-11.txt
+          sha256sum research/major1-higgs-scalar-mixing-20261109/b5_2b4_triplet_derivative_eom_current_map.py research/major1-higgs-scalar-mixing-20261109/test_b5_2b4_triplet_derivative_eom_current_map.py research/major1-higgs-scalar-mixing-20261109/B5_2B4_TRIPLET_DERIVATIVE_EOM_CURRENT_MAP_OUTPUT_2026-11-11.txt > research/major1-higgs-scalar-mixing-20261109/B5_2B4_TRIPLET_DERIVATIVE_EOM_CURRENT_MAP_SHA256SUMS.txt
+      - name: Run and archive the exact-routing B5-2B3R WW box audit
+        run: |
+          python research/major1-higgs-scalar-mixing-20261109/b5_2b3_qld_ww_exact_routing.py > research/major1-higgs-scalar-mixing-20261109/B5_2B3_QLD_WW_EXACT_ROUTING_OUTPUT_2026-11-11.txt
+          sha256sum research/major1-higgs-scalar-mixing-20261109/b5_2b3_qld_ww_exact_routing.py research/major1-higgs-scalar-mixing-20261109/test_b5_2b3_qld_ww_exact_routing.py research/major1-higgs-scalar-mixing-20261109/B5_2B3_QLD_WW_EXACT_ROUTING_OUTPUT_2026-11-11.txt > research/major1-higgs-scalar-mixing-20261109/B5_2B3_QLD_WW_EXACT_ROUTING_SHA256SUMS.txt
+      - name: Commit reproducible audit output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/major1-higgs-scalar-mixing-20261109/fermion_sector_matrix_audit.json research/major1-higgs-scalar-mixing-20261109/c5_gauge_convention_audit.json research/major1-higgs-scalar-mixing-20261109/fermion_sector_matrix_tests.txt research/major1-higgs-scalar-mixing-20261109/FERMION_MATRIX_SHA256SUMS.txt research/major1-higgs-scalar-mixing-20261109/B5_1B_SM_THRESHOLD_AND_UV_RGE_RAW_OUTPUT.txt research/major1-higgs-scalar-mixing-20261109/B5_1B_RGE_SHA256SUMS.txt research/major1-higgs-scalar-mixing-20261109/B5_1D_INDEPENDENT_RGE_AUDIT_OUTPUT_2026-11-11.txt research/major1-higgs-scalar-mixing-20261109/B5_1D_INDEPENDENT_RGE_SHA256SUMS.txt research/major1-higgs-scalar-mixing-20261109/B5_2B4_TRIPLET_DERIVATIVE_EOM_CURRENT_MAP_OUTPUT_2026-11-11.txt research/major1-higgs-scalar-mixing-20261109/B5_2B4_TRIPLET_DERIVATIVE_EOM_CURRENT_MAP_SHA256SUMS.txt research/major1-higgs-scalar-mixing-20261109/B5_2B3_QLD_WW_EXACT_ROUTING_OUTPUT_2026-11-11.txt research/major1-higgs-scalar-mixing-20261109/B5_2B3_QLD_WW_EXACT_ROUTING_SHA256SUMS.txt
+          if git diff --cached --quiet; then
+            echo "No new matrix-audit output to commit."
+            exit 0
+          fi
+          git commit -m "Archive reproducible Higgs-scalar research audit outputs [scan-output]"
+          git push origin HEAD:research/major1-higgs-scalar-mixing-20261109

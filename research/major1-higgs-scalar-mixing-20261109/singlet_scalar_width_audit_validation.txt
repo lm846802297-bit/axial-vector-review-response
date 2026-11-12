@@ -1,0 +1,21 @@
+Tree-level singlet-like scalar width audit (GeV)
+
+Benchmark A: v_s=70.886458, m_A'=10, m_s^max=355.371999822
+m_s=10: Gamma_AA=0, Gamma_mumu=8.83385936e-7, Gamma_tautau=2.04169809e-4, Gamma_total=2.05053195e-4, Gamma/m=2.05053195e-5
+m_s=100: Gamma_AA=1.86433080, Gamma_mumu=8.83972057e-6, Gamma_tautau=2.49526565e-3, Gamma_total=1.86683491, Gamma/m=1.86683491e-2
+m_s=125.25: Gamma_AA=3.74367566, Gamma_mumu=1.10717769e-5, Gamma_tautau=3.12746965e-3, Gamma_total=3.74681421, Gamma/m=2.99146843e-2
+m_s=150: Gamma_AA=6.50529209, Gamma_mumu=1.32596302e-5, Gamma_tautau=3.74684322e-3, Gamma_total=6.50905219, Gamma/m=4.33936813e-2
+m_s=200: Gamma_AA=15.6008864, Gamma_mumu=1.76795300e-5, Gamma_tautau=4.99763227e-3, Gamma_total=15.6059017, Gamma/m=7.80295086e-2
+m_s=355.371999822: Gamma_AA=88.4219088, Gamma_mumu=3.14140855e-5, Gamma_tautau=8.88296739e-3, Gamma_total=88.4308232, Gamma/m=2.48840154e-1
+
+Benchmark B: v_s=315, m_A'=63, m_s^max=1579.175813018
+m_s=10: Gamma_AA=0, Gamma_mumu=4.47358740e-8, Gamma_tautau=1.03394388e-5, Gamma_total=1.03841747e-5, Gamma/m=1.03841747e-6
+m_s=100: Gamma_AA=0, Gamma_mumu=4.47655559e-7, Gamma_tautau=1.26363671e-4, Gamma_total=1.26811326e-4, Gamma/m=1.26811326e-6
+m_s=125.25: Gamma_AA=0, Gamma_mumu=5.60689949e-7, Gamma_tautau=1.58379347e-4, Gamma_total=1.58940037e-4, Gamma/m=1.26898233e-6
+m_s=150: Gamma_AA=1.22594342e-1, Gamma_mumu=6.71485837e-7, Gamma_tautau=1.89745273e-4, Gamma_total=1.22784758e-1, Gamma/m=8.18565055e-4
+m_s=200: Gamma_AA=4.49208367e-1, Gamma_mumu=8.95315616e-7, Gamma_tautau=2.53086944e-4, Gamma_total=4.49462350e-1, Gamma/m=2.24731175e-3
+m_s=1579.175813018: Gamma_AA=3.91041917e2, Gamma_mumu=7.06931548e-6, Gamma_tautau=1.99927548e-3, Gamma_total=3.91043924e2, Gamma/m=2.47625325e-1
+
+PASS: A'A' threshold at m_h is open for A and closed for B.
+PASS: width/mass approaches 1/4 at the lambda_S=4pi perturbativity ceiling.
+LIMIT: this is the unmixed tree-level width subset; no mixing-induced SM channels, scalar-pair channels, or higher-order corrections.

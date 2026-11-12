@@ -1,0 +1,22 @@
+Exact-momentum fermion matching and complex-pole audit
+
+Benchmark A:
+hard momentum remainder at m_h^2 = 0.02403044398585 (real; imaginary < 1e-12) GeV^2
+matched Pi_hs(m_h^2) = -0.4131216491 - 0.1131333101 i GeV^2
+m_s=100 GeV: Higgs-like pole 125.250000129 GeV, Gamma=4.069876 MeV; R_hh=1.000000005-7.32e-10i
+m_s=125.25 GeV: Higgs-like pole 125.250000812 GeV, Gamma=4.072689 MeV; R_hh=1.000000743+4.11e-7i; second pole 125.264005936 GeV, Gamma=3746.392491 MeV
+m_s=150 GeV: Higgs-like pole 125.249999934 GeV, Gamma=4.070133 MeV; R_hh=1.000000002-4.92e-9i
+
+Benchmark B:
+hard momentum remainder at m_h^2 = 0.00540772399471 (real; imaginary < 1e-12) GeV^2
+matched Pi_hs(m_h^2) = -0.0929673982 - 0.02545910995 i GeV^2
+m_s=100 GeV: Higgs-like pole 125.250000022 GeV, Gamma=4.069993 MeV; R_hh=1.000000007-1.16e-10i
+m_s=125.25 GeV: poles 125.250041393 GeV, Gamma=0.292020 MeV and 125.249958626 GeV, Gamma=3.936917 MeV
+  R_hh(narrow)=-0.035406527-0.024321341i
+  R_hh(broad)=1.035406535+0.024321340i
+m_s=150 GeV: Higgs-like pole 125.250000012 GeV, Gamma=4.070006 MeV; R_hh=1.000000007-2.59e-10i
+
+PASS: exact-momentum hard remainder reproduces archived hard coefficients at m_h^2.
+PASS: six complex pole pairs converge with determinant residuals < 1e-7 GeV^4.
+PASS: h-channel residue sums equal 1 within numerical precision for this kernel.
+LIMIT: fermion sector only; fixed diagonal widths; incomplete EFT counterterm and gauge completion.

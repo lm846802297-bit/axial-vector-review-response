@@ -1,0 +1,41 @@
+A4c general-R_xi UV pole audit
+
+Mixed A-a loop:
+  I_Aa|UV,p^2 = (3 - xi_X) p_E^2 / epsbar
+  I_Aa|UV,p^2=0 = -2 xi_X^2 m_X^2 / epsbar
+  Pi_Aa = -g_A^2 I_Aa
+
+UV terms:
+  vector seagull: -g_A^2 (d-1+xi_X^2) m_X^2
+  vector bubble:  -2 g_A^2 (d-1+xi_X^2) m_X^2
+  mixed A-a:      -g_A^2 (3-xi_X) p_E^2 + 2 g_A^2 xi_X^2 m_X^2
+  ghost bubble:   +g_A^2 xi_X^2 m_X^2
+  Goldstone tad:  -xi_X lambda_S m_X^2
+  Goldstone bub:  -2 lambda_S^2 v_S^2
+
+Sum, d=4:
+  16 pi^2 Pi_ss,E^UV,X = [
+      -g_A^2 (3-xi_X) p_E^2
+      -9 g_A^2 m_X^2
+      -xi_X lambda_S m_X^2
+      -2 lambda_S^2 v_S^2
+  ] / epsbar
+
+Radial scalar:
+  16 pi^2 Pi_ss,E^UV,radial = -24 lambda_S^2 v_S^2 / epsbar
+
+Total singlet-bosonic:
+  16 pi^2 Pi_ss,E^UV,bos = [
+      -g_A^2 (3-xi_X) p_E^2
+      -9 g_A^2 m_X^2
+      -xi_X lambda_S m_X^2
+      -26 lambda_S^2 v_S^2
+  ] / epsbar
+
+Required diagonal field counterterm:
+  delta Z_s^X = g_A^2 (3-xi_X)/(16 pi^2 epsbar)
+
+PASS: all xi_X^2 m_X^2 terms cancel in the local gauge pole.
+PASS: scalar-QED (3-xi_X) wave-function coefficient.
+PASS: xi_X=1 reproduces A4a Feynman-gauge UV pole.
+LIMIT: UV poles only; finite real part and full tadpole renormalization remain open.

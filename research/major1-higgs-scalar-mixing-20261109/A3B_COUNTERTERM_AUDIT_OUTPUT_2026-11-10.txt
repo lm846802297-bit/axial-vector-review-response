@@ -1,0 +1,15 @@
+A3b symbolic counterterm audit
+PASS: linearized h and s tadpole counterterms after tree stationarity.
+PASS: parameter/VEV mass counterterms:
+  delta M_hh^2 = 2 v^2 delta_lambda_H + 4 lambda_H v delta_v
+  delta M_ss^2 = 2 v_S^2 delta_lambda_S + 4 lambda_S v_S delta_v_S
+  delta M_hs^2 = v v_S delta_lambda_HS + lambda_HS(v_S delta_v + v delta_v_S)
+PASS: field-renormalization contribution:
+  delta Gamma_hs^ct = 1/2(deltaZ_hs+deltaZ_sh)p^2
+    -1/2[deltaZ_hh M_hs^2 + deltaZ_sh M_ss^2
+         + M_hh^2 deltaZ_hs + M_hs^2 deltaZ_ss]
+    - delta M_hs,par^2 + delta Gamma_hs,tad,scheme
+PASS: symmetric field-renormalization, zero tree portal:
+  delta Gamma_hs^ct = deltaZ_hs[p^2-(m_h^2+m_s^2)/2] - v v_S delta_lambda_HS
+    + delta Gamma_hs,tad,scheme
+LIMIT: symbolic identities only; no renormalization prescription or finite counterterm values selected.

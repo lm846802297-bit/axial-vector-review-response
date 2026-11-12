@@ -1,0 +1,54 @@
+A5a VLL matching-scale provenance audit
+Input mass parameter: M_E = 20,000 GeV
+Mixing benchmark: theta_muL = theta_tauL = 0.01
+
+CONDITIONAL MIXING CONSISTENCY
+m_tau/(theta_tauL theta_tauR)_max = 17.768600 TeV
+At M_E=20 TeV: theta_tauR = 0.0088843000 < 0.01
+At M_E=20 TeV: theta_muR = 0.0005282919
+The 17.77 TeV value is conditional on the leading mass-mixing relation and the assumed mixing-angle cap; it is not an experimental mass bound.
+
+EXACT SVD HEAVY THRESHOLDS
+mu:
+  m_light = 0.105653078 GeV
+  m_heavy = 20001.002765506 GeV
+  (m_heavy-M_E)/M_E = 5.0138275e-5
+  ln(m_heavy^2/M_E^2) = 1.0027404e-4
+tau:
+  m_light = 1.776701061 GeV
+  m_heavy = 20001.789148922 GeV
+  (m_heavy-M_E)/M_E = 8.9457446e-5
+  ln(m_heavy^2/M_E^2) = 1.7890689e-4
+Heavy-threshold splitting = 0.786383416 GeV = 3.9319171e-5 M_E.
+A common 20 TeV matching scale is adequate for this nearly degenerate benchmark.
+
+HARD DERIVATIVE LOG
+ln(M_E^2/m_h^2) = 10.146351625142
+At mu_R=M_E: ln(M_E^2/mu_R^2)=0.
+At mu_R=m_h: the hard coefficient contains a large logarithm.
+For Plan-C Pi_B convention, s Pi'_B(0):
+  Benchmark A, mu_R=M_E: +0.024045135 GeV^2
+  Benchmark A, mu_R=m_h:  -0.341910453 GeV^2
+  Benchmark B, mu_R=M_E: +0.005411030 GeV^2
+  Benchmark B, mu_R=m_h:  -0.076942289 GeV^2
+
+ARCHIVED PLAN-C-LITE PARTIAL HARD+SOFT SCALE COMPARISON
+Benchmark A:
+  Pi_total(mu_R=M_E) = -0.413263168 GeV^2
+  Pi_total(mu_R=m_h) = -0.413850308 GeV^2
+  delta = -5.871400e-4 GeV^2; relative real-part change = 0.142074%
+Benchmark B:
+  Pi_total(mu_R=M_E) = -0.092999245 GeV^2
+  Pi_total(mu_R=m_h) = -0.093131373 GeV^2
+  delta = -1.321280e-4 GeV^2; relative real-part change = 0.142074%
+
+MATCHING-SCALE BOOKKEEPING (fixed physical M_E)
+mu_M = 10 TeV: ln(M_E^2/mu_M^2) = +1.386294361
+mu_M = 20 TeV: ln(M_E^2/mu_M^2) = +0.000000000
+mu_M = 40 TeV: ln(M_E^2/mu_M^2) = -1.386294361
+These are scale logs only, not a computed uncertainty.
+
+PASS: the 20 TeV benchmark is consistent with the conditional tau-mixing cap.
+PASS: exact heavy singular values are within 1.8 GeV of the input M_E.
+PASS: mu_R=M_E removes the large heavy-threshold logarithm.
+LIMIT: the 0.1421% archived residual belongs to a partial hard+soft subset; full RG/matching-scale closure remains A5b.
