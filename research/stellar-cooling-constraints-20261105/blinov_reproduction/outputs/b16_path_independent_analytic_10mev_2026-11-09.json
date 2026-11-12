@@ -2,14 +2,14 @@
   "source": "Blinov et al., JHEP 06 (2026) 155, arXiv:2511.09619, Appendix B, Eqs. (B.1)--(B.5)",
   "method": "Independent exact-in-path integration of piecewise-linear radial reduced opacity; z=s+r*cos(theta); split at every radial knot; analytic primitive for A+B*sqrt(b^2+z^2); angular average checked with Gauss-Legendre, composite Simpson, and adaptive QUADPACK.",
   "shared_inputs": "Local collision kernel, reconstructed profile, B.1 source measure, energy grid, and Fig. 7 vertices are held identical to the archived B.16 baseline. No existing B.2 path integrator generates the new tau.",
-  "run_commit_sha": "5e71128057567eee300f8869d89c1dffed5fdc2c",
+  "run_commit_sha": "3d227183aef41d2cc7671440e994bdd07a255ff5",
   "code_sha256": "15e7aca16e69d50b57ea265d456b0c302d50a7042a0ed7aaaff8a57860408527",
   "profile": {
     "path": "sfho188_digitized.csv",
     "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
   },
-  "fig7_reference_sha256": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4",
-  "archived_b16_baseline_sha256": "b839bff26146fb42cb911c7ef38c356a63d52c42b8c6b87fbd0b784d364169f9",
+  "fig7_reference_sha256": "3eb1121da175d89da54a19abbdf0c52669a239be464978ddcfe84887e4d18d06",
+  "archived_b16_baseline_sha256": "a81832562d1c4a1e92d9219e6e38f37aa43f557cf2825cc3e7fd8a27e59b4d7b",
   "configuration": {
     "mass_MeV": 10.0,
     "radial_order": 40,
@@ -130,21 +130,21 @@
         996.4693280447161,
         996.607838046938,
         996.7696084433035,
-        996.8506430093279,
+        996.8506430093278,
         996.9750733769756,
         997.1506005913614,
         997.2896438220125,
         997.3516228783078,
         997.443599779886,
-        997.5613992848986,
+        997.5613992848985,
         997.6512343945469,
         997.6985782009403,
         997.7862908909922,
-        997.8979193110191,
+        997.897919311019,
         997.9807862912667,
         998.0347449042342,
         998.1512208617135,
-        998.293307164478,
+        998.2933071644779,
         998.3937696548098,
         998.4444040635108,
         998.5329486023084,
@@ -165,7 +165,7 @@
         999.0910161018892,
         999.1021019274451,
         999.1161646252065,
-        999.1266487835073
+        999.1266487835072
       ],
       "spectral_measure_MeV3": [
         0.07164505723142932,
@@ -252,7 +252,7 @@
         33.87596814444643,
         35.29253447281239,
         37.38373073852799,
-        37.744684699267054,
+        37.744684699267026,
         39.17268777153061,
         40.20185050820967,
         42.25841644576657,
@@ -305,7 +305,7 @@
         1133683.0735418843,
         1945927.9962218592,
         3349941.9297051146,
-        5781237.241076987,
+        5781237.241076985,
         9997814.441132193,
         17319851.25215216,
         30047944.73255807,
@@ -314,18 +314,18 @@
     }
   },
   "same_grid_baseline_reproduction": {
-    "maximum_absolute_relative_difference_vs_archived": 1.1102230246251565e-16,
-    "mean_absolute_relative_difference_vs_archived": 4.440892098500626e-18
+    "maximum_absolute_relative_difference_vs_archived": 2.220446049250313e-16,
+    "mean_absolute_relative_difference_vs_archived": 8.881784197001253e-18
   },
   "analytic_path_vs_reference_path_quadrature": {
     "same_16_gauss_directions": true,
     "tau_relative_residual": {
-      "maximum_absolute_relative_difference": 0.005692563461184537,
-      "p99_absolute_relative_difference": 0.0009773732825523339,
-      "source_weighted_rms_relative_difference": 0.00016601098237620438
+      "maximum_absolute_relative_difference": 0.00569256346118426,
+      "p99_absolute_relative_difference": 0.0009773732825525904,
+      "source_weighted_rms_relative_difference": 0.00016601098237619874
     },
     "maximum_luminosity_shift_vs_reference": 4.3069832744047076e-05,
-    "mean_luminosity_shift_vs_reference": 1.0702980224284175e-05,
+    "mean_luminosity_shift_vs_reference": 1.0702980224266412e-05,
     "reference_curve_metrics_vs_fig7": {
       "n_points": 25,
       "mean_absolute_relative_difference": 0.15731955830340819,
@@ -348,14 +348,14 @@
         -0.07278707380388971,
         -0.0715973004813436,
         -0.053548380455852085,
-        -0.04424109970524204,
+        -0.044241099705241926,
         -0.03157156579774578,
         -0.00035147535696578025,
         0.025687774810936315,
         0.06816869963032368,
         0.1318033075432845,
         0.20211151672723027,
-        0.3038020112718307,
+        0.30380201127183093,
         0.43742086212125764,
         0.6327451626493379,
         0.9224061933021663
@@ -363,7 +363,7 @@
     },
     "analytic_path_curve_metrics_vs_fig7": {
       "n_points": 25,
-      "mean_absolute_relative_difference": 0.15733159641089078,
+      "mean_absolute_relative_difference": 0.1573315964108908,
       "maximum_absolute_relative_difference": 0.922488991015378,
       "weak_coupling_relative_difference": -0.08885295436351681,
       "reference_peak_relative_difference": 0.025701519327695932,
@@ -371,25 +371,25 @@
       "relative_differences": [
         -0.08885295436351681,
         -0.08735182891012438,
-        -0.08593899755238066,
+        -0.08593899755238088,
         -0.08680947926221405,
         -0.08914189714731535,
         -0.08721702777673201,
         -0.08907666677645254,
-        -0.08051334785524344,
+        -0.08051334785524356,
         -0.08733772006741136,
         -0.07808858977371114,
-        -0.07441433681672416,
+        -0.07441433681672438,
         -0.07278539226234104,
         -0.07159488620814769,
         -0.05354487278939746,
-        -0.04423609674526008,
+        -0.04423609674525997,
         -0.03156449714493437,
         -0.0003414770409141399,
         0.025701519327695932,
         0.06818736212765808,
         0.13182831242254367,
-        0.2021440313660634,
+        0.20214403136606363,
         0.3038437908293825,
         0.43747374465327593,
         0.6328120900374519,
@@ -400,19 +400,19 @@
       {
         "path_order": 8,
         "tau_vs_analytic": {
-          "maximum_absolute_relative_difference": 0.23352792575982273,
+          "maximum_absolute_relative_difference": 0.2335279257598225,
           "p99_absolute_relative_difference": 0.03908454783362174,
-          "source_weighted_rms_relative_difference": 0.004356369041717887
+          "source_weighted_rms_relative_difference": 0.004356369041717885
         },
-        "maximum_luminosity_shift_vs_analytic_16_angle": 0.001272678138933836,
-        "maximum_escape_fraction_shift_vs_analytic_16_angle": 0.001272678138933836
+        "maximum_luminosity_shift_vs_analytic_16_angle": 0.001272678138934058,
+        "maximum_escape_fraction_shift_vs_analytic_16_angle": 0.001272678138934058
       },
       {
         "path_order": 16,
         "tau_vs_analytic": {
-          "maximum_absolute_relative_difference": 0.02487334484264724,
+          "maximum_absolute_relative_difference": 0.024873344842647523,
           "p99_absolute_relative_difference": 0.005230029593579382,
-          "source_weighted_rms_relative_difference": 0.0005690618546826021
+          "source_weighted_rms_relative_difference": 0.0005690618546826057
         },
         "maximum_luminosity_shift_vs_analytic_16_angle": 3.074610823561308e-05,
         "maximum_escape_fraction_shift_vs_analytic_16_angle": 3.074610823561308e-05
@@ -420,9 +420,9 @@
       {
         "path_order": 32,
         "tau_vs_analytic": {
-          "maximum_absolute_relative_difference": 0.005692563461184537,
-          "p99_absolute_relative_difference": 0.0009773732825523339,
-          "source_weighted_rms_relative_difference": 0.00016601098237620438
+          "maximum_absolute_relative_difference": 0.00569256346118426,
+          "p99_absolute_relative_difference": 0.0009773732825525904,
+          "source_weighted_rms_relative_difference": 0.00016601098237619874
         },
         "maximum_luminosity_shift_vs_analytic_16_angle": 4.3067977813393554e-05,
         "maximum_escape_fraction_shift_vs_analytic_16_angle": 4.3067977813393554e-05
@@ -430,9 +430,9 @@
       {
         "path_order": 64,
         "tau_vs_analytic": {
-          "maximum_absolute_relative_difference": 0.0020135379098040235,
-          "p99_absolute_relative_difference": 0.0004231779326730867,
-          "source_weighted_rms_relative_difference": 5.696522263531051e-05
+          "maximum_absolute_relative_difference": 0.002013537909804024,
+          "p99_absolute_relative_difference": 0.0004231779326730999,
+          "source_weighted_rms_relative_difference": 5.696522263531082e-05
         },
         "maximum_luminosity_shift_vs_analytic_16_angle": 2.4435287594215538e-05,
         "maximum_escape_fraction_shift_vs_analytic_16_angle": 2.4435287594215538e-05
@@ -440,9 +440,9 @@
       {
         "path_order": 128,
         "tau_vs_analytic": {
-          "maximum_absolute_relative_difference": 0.000719346224934859,
+          "maximum_absolute_relative_difference": 0.0007193462249350046,
           "p99_absolute_relative_difference": 0.0001152301686499162,
-          "source_weighted_rms_relative_difference": 1.3286392407610264e-05
+          "source_weighted_rms_relative_difference": 1.3286392407611186e-05
         },
         "maximum_luminosity_shift_vs_analytic_16_angle": 1.3962594360705793e-06,
         "maximum_escape_fraction_shift_vs_analytic_16_angle": 1.3962594360705793e-06
@@ -455,7 +455,7 @@
       "order": 16,
       "luminosity_vs_fig7": {
         "n_points": 25,
-        "mean_absolute_relative_difference": 0.15733159641089078,
+        "mean_absolute_relative_difference": 0.1573315964108908,
         "maximum_absolute_relative_difference": 0.922488991015378,
         "weak_coupling_relative_difference": -0.08885295436351681,
         "reference_peak_relative_difference": 0.025701519327695932,
@@ -463,25 +463,25 @@
         "relative_differences": [
           -0.08885295436351681,
           -0.08735182891012438,
-          -0.08593899755238066,
+          -0.08593899755238088,
           -0.08680947926221405,
           -0.08914189714731535,
           -0.08721702777673201,
           -0.08907666677645254,
-          -0.08051334785524344,
+          -0.08051334785524356,
           -0.08733772006741136,
           -0.07808858977371114,
-          -0.07441433681672416,
+          -0.07441433681672438,
           -0.07278539226234104,
           -0.07159488620814769,
           -0.05354487278939746,
-          -0.04423609674526008,
+          -0.04423609674525997,
           -0.03156449714493437,
           -0.0003414770409141399,
           0.025701519327695932,
           0.06818736212765808,
           0.13182831242254367,
-          0.2021440313660634,
+          0.20214403136606363,
           0.3038437908293825,
           0.43747374465327593,
           0.6328120900374519,
@@ -499,7 +499,7 @@
         "mean_absolute_relative_difference": 0.15732671479063198,
         "maximum_absolute_relative_difference": 0.9224908329391577,
         "weak_coupling_relative_difference": -0.08885296409846144,
-        "reference_peak_relative_difference": 0.025693948770961317,
+        "reference_peak_relative_difference": 0.025693948770961095,
         "strong_absorption_relative_difference": 0.9224908329391577,
         "relative_differences": [
           -0.08885296409846144,
@@ -509,27 +509,27 @@
           -0.08914194059429537,
           -0.08721709121358501,
           -0.08907675917524904,
-          -0.08051348429324756,
+          -0.08051348429324778,
           -0.08733791876196395,
           -0.07808888531702429,
           -0.0744147755453245,
           -0.07278604487176199,
           -0.07159586013924157,
           -0.0535463560545999,
-          -0.0442383338719885,
+          -0.04423833387198839,
           -0.03156786777535259,
           -0.0003465949190452067,
-          0.025693948770961317,
+          0.025693948770961095,
           0.06817636070078814,
           0.13181281901537,
-          0.20212359854157902,
-          0.30381855900456145,
-          0.4374448065483312,
+          0.2021235985415788,
+          0.3038185590045617,
+          0.4374448065483314,
           0.632781697186962,
           0.9224908329391577
         ]
       },
-      "maximum_luminosity_shift_vs_gauss_16": 2.0131223302244372e-05,
+      "maximum_luminosity_shift_vs_gauss_16": 2.013122330213335e-05,
       "maximum_escape_fraction_shift_vs_gauss_16": 2.013122330213335e-05
     },
     {
@@ -537,21 +537,21 @@
       "order": 64,
       "luminosity_vs_fig7": {
         "n_points": 25,
-        "mean_absolute_relative_difference": 0.15732629709362356,
-        "maximum_absolute_relative_difference": 0.9224928414238993,
+        "mean_absolute_relative_difference": 0.15732629709362364,
+        "maximum_absolute_relative_difference": 0.9224928414238998,
         "weak_coupling_relative_difference": -0.08885296647237417,
         "reference_peak_relative_difference": 0.025693051452031268,
-        "strong_absorption_relative_difference": 0.9224928414238993,
+        "strong_absorption_relative_difference": 0.9224928414238998,
         "relative_differences": [
           -0.08885296647237417,
           -0.08735184651854366,
           -0.08593902316302071,
           -0.08680951643397339,
-          -0.08914195104380385,
+          -0.08914195104380396,
           -0.0872171063518491,
           -0.08907678098121974,
           -0.08051351599352274,
-          -0.08733796393735371,
+          -0.08733796393735394,
           -0.07808895055325138,
           -0.07441486863238178,
           -0.07278617638623086,
@@ -563,22 +563,22 @@
           0.025693051452031268,
           0.06817513543887643,
           0.13181113150352197,
-          0.20212133020196266,
-          0.30381564723446974,
+          0.20212133020196288,
+          0.3038156472344702,
           0.4374415231956752,
-          0.6327791414376531,
-          0.9224928414238993
+          0.6327791414376533,
+          0.9224928414238998
         ]
       },
-      "maximum_luminosity_shift_vs_gauss_16": 2.2415336433656563e-05,
-      "maximum_escape_fraction_shift_vs_gauss_16": 2.241533643354554e-05
+      "maximum_luminosity_shift_vs_gauss_16": 2.241533643343452e-05,
+      "maximum_escape_fraction_shift_vs_gauss_16": 2.2415336433323496e-05
     },
     {
       "rule": "composite Simpson",
       "subintervals": 128,
       "luminosity_vs_fig7": {
         "n_points": 25,
-        "mean_absolute_relative_difference": 0.1573265781861832,
+        "mean_absolute_relative_difference": 0.15732657818618326,
         "maximum_absolute_relative_difference": 0.9224931904448537,
         "weak_coupling_relative_difference": -0.08885296453482605,
         "reference_peak_relative_difference": 0.025693941878936588,
@@ -588,22 +588,22 @@
           -0.08735184370350446,
           -0.08593901907390966,
           -0.08680951050987173,
-          -0.08914194247687957,
+          -0.08914194247687979,
           -0.08721709390906018,
           -0.08907676299215506,
           -0.08051348970546202,
           -0.08733792619884684,
           -0.07808889549721487,
-          -0.07441478896871234,
+          -0.07441478896871245,
           -0.07278606172908464,
-          -0.07159587985459615,
+          -0.07159587985459626,
           -0.05354637704399623,
           -0.0442383521347377,
           -0.03156787855315235,
           -0.00034659690734351045,
           0.025693941878936588,
           0.06817629692924942,
-          0.1318125738375322,
+          0.13181257383753242,
           0.2021229591183471,
           0.3038172746755665,
           0.4374428609258332,
@@ -619,15 +619,15 @@
       "subintervals": 256,
       "luminosity_vs_fig7": {
         "n_points": 25,
-        "mean_absolute_relative_difference": 0.15732651910229845,
+        "mean_absolute_relative_difference": 0.1573265191022985,
         "maximum_absolute_relative_difference": 0.9224930984908175,
         "weak_coupling_relative_difference": -0.08885296501891093,
-        "reference_peak_relative_difference": 0.025693737416329743,
+        "reference_peak_relative_difference": 0.02569373741632952,
         "strong_absorption_relative_difference": 0.9224930984908175,
         "relative_differences": [
           -0.08885296501891093,
           -0.08735184440677424,
-          -0.0859390200953678,
+          -0.08593902009536802,
           -0.08680951198948228,
           -0.08914194461608271,
           -0.08721709701505864,
@@ -639,33 +639,33 @@
           -0.07278609006900827,
           -0.07159592022420613,
           -0.05354643506058976,
-          -0.04423843365468694,
-          -0.03156799138848476,
+          -0.044238433654686826,
+          -0.031567991388484984,
           -0.00034675198482558844,
-          0.025693737416329743,
+          0.02569373741632952,
           0.06817603650196613,
           0.13181225894808746,
-          0.20212261308700796,
-          0.3038169364167078,
-          0.4374425831834525,
-          0.6327797907350574,
+          0.20212261308700774,
+          0.30381693641670826,
+          0.43744258318345297,
+          0.6327797907350579,
           0.9224930984908175
         ]
       },
-      "maximum_luminosity_shift_vs_gauss_16": 2.1677940163611353e-05,
-      "maximum_escape_fraction_shift_vs_gauss_16": 2.1677940163611353e-05
+      "maximum_luminosity_shift_vs_gauss_16": 2.1677940163278286e-05,
+      "maximum_escape_fraction_shift_vs_gauss_16": 2.1677940163167264e-05
     }
   ],
   "adaptive_quadpack_angular_checks": {
     "number_of_checks": 27,
-    "maximum_absolute_relative_difference_vs_simpson": 1.145994845019871e-06,
+    "maximum_absolute_relative_difference_vs_simpson": 1.1459948443537371e-06,
     "checks": [
       {
         "source_radius_km": 8.138863688405948,
         "energy_MeV": 19.54548456661835,
         "coupling": 9.415584636282641e-09,
-        "quadpack_escape_average": 0.12033584724247216,
-        "quadpack_abs_error": 2.40519670738112e-09,
+        "quadpack_escape_average": 0.12033584724247218,
+        "quadpack_abs_error": 2.405196695284153e-09,
         "simpson_escape_average": 0.12033585582782495,
         "relative_difference": 7.134493151816912e-08
       },
@@ -673,26 +673,26 @@
         "source_radius_km": 8.138863688405948,
         "energy_MeV": 19.54548456661835,
         "coupling": 1.9818912470130955e-08,
-        "quadpack_escape_average": 0.00010703697405112029,
-        "quadpack_abs_error": 7.77762982108874e-12,
+        "quadpack_escape_average": 0.00010703697405112032,
+        "quadpack_abs_error": 7.777629801381637e-12,
         "simpson_escape_average": 0.00010703698808146052,
-        "relative_difference": 1.3107938023892984e-07
+        "relative_difference": 1.3107938001688524e-07
       },
       {
         "source_radius_km": 8.138863688405948,
         "energy_MeV": 19.54548456661835,
         "coupling": 4.171689650228597e-08,
-        "quadpack_escape_average": 4.069614437487212e-17,
-        "quadpack_abs_error": 2.7577613303641586e-23,
-        "simpson_escape_average": 4.0696142729251575e-17,
-        "relative_difference": -4.043676793408224e-08
+        "quadpack_escape_average": 4.069614437487215e-17,
+        "quadpack_abs_error": 2.7577613345896376e-23,
+        "simpson_escape_average": 4.069614272925156e-17,
+        "relative_difference": -4.043676893328296e-08
       },
       {
         "source_radius_km": 8.138863688405948,
         "energy_MeV": 52.29242874389507,
         "coupling": 9.415584636282641e-09,
-        "quadpack_escape_average": 0.33310027786383806,
-        "quadpack_abs_error": 6.49733660248291e-09,
+        "quadpack_escape_average": 0.333100277863838,
+        "quadpack_abs_error": 6.4973365799529445e-09,
         "simpson_escape_average": 0.3331002936339272,
         "relative_difference": 4.734336833678299e-08
       },
@@ -700,64 +700,64 @@
         "source_radius_km": 8.138863688405948,
         "energy_MeV": 52.29242874389507,
         "coupling": 1.9818912470130955e-08,
-        "quadpack_escape_average": 0.00884102264014587,
-        "quadpack_abs_error": 1.0425558837522175e-10,
-        "simpson_escape_average": 0.008841023540301453,
+        "quadpack_escape_average": 0.008841022640145873,
+        "quadpack_abs_error": 1.0425558759607928e-10,
+        "simpson_escape_average": 0.008841023540301455,
         "relative_difference": 1.018157762544547e-07
       },
       {
         "source_radius_km": 8.138863688405948,
         "energy_MeV": 52.29242874389507,
         "coupling": 4.171689650228597e-08,
-        "quadpack_escape_average": 4.815196130213133e-09,
-        "quadpack_abs_error": 7.12199519009666e-14,
-        "simpson_escape_average": 4.815192761171758e-09,
-        "relative_difference": -6.996685666393887e-07
+        "quadpack_escape_average": 4.81519613021313e-09,
+        "quadpack_abs_error": 7.121995188444597e-14,
+        "simpson_escape_average": 4.815192761171761e-09,
+        "relative_difference": -6.996685654181434e-07
       },
       {
         "source_radius_km": 8.138863688405948,
         "energy_MeV": 99.02150854450393,
         "coupling": 9.415584636282641e-09,
         "quadpack_escape_average": 0.4770700325041797,
-        "quadpack_abs_error": 7.08653284810184e-09,
-        "simpson_escape_average": 0.47707005380977946,
-        "relative_difference": 4.465927072594411e-08
+        "quadpack_abs_error": 7.086532914674186e-09,
+        "simpson_escape_average": 0.4770700538097795,
+        "relative_difference": 4.4659270947988716e-08
       },
       {
         "source_radius_km": 8.138863688405948,
         "energy_MeV": 99.02150854450393,
         "coupling": 1.9818912470130955e-08,
-        "quadpack_escape_average": 0.0418891253206429,
-        "quadpack_abs_error": 6.108950821272738e-10,
-        "simpson_escape_average": 0.0418891297643843,
+        "quadpack_escape_average": 0.04188912532064291,
+        "quadpack_abs_error": 6.108950806261923e-10,
+        "simpson_escape_average": 0.04188912976438431,
         "relative_difference": 1.0608341360907048e-07
       },
       {
         "source_radius_km": 8.138863688405948,
         "energy_MeV": 99.02150854450393,
         "coupling": 4.171689650228597e-08,
-        "quadpack_escape_average": 3.1885636602293856e-06,
-        "quadpack_abs_error": 4.101805450417307e-12,
-        "simpson_escape_average": 3.1885636544292864e-06,
-        "relative_difference": -1.8190319250876996e-09
+        "quadpack_escape_average": 3.188563660229389e-06,
+        "quadpack_abs_error": 4.1018054505604965e-12,
+        "simpson_escape_average": 3.188563654429286e-06,
+        "relative_difference": -1.8190331463330267e-09
       },
       {
         "source_radius_km": 11.861136311594052,
         "energy_MeV": 19.54548456661835,
         "coupling": 9.415584636282641e-09,
-        "quadpack_escape_average": 0.11486088619389544,
-        "quadpack_abs_error": 1.4266494652304118e-09,
+        "quadpack_escape_average": 0.11486088619389538,
+        "quadpack_abs_error": 1.426649520741563e-09,
         "simpson_escape_average": 0.11486088627537673,
-        "relative_difference": 7.09391212438959e-10
+        "relative_difference": 7.093916565281688e-10
       },
       {
         "source_radius_km": 11.861136311594052,
         "energy_MeV": 19.54548456661835,
         "coupling": 1.9818912470130955e-08,
-        "quadpack_escape_average": 0.00013326317613133597,
-        "quadpack_abs_error": 9.536047387420757e-12,
+        "quadpack_escape_average": 0.00013326317613133594,
+        "quadpack_abs_error": 9.536047392617878e-12,
         "simpson_escape_average": 0.00013326317608827986,
-        "relative_difference": -3.230907763551727e-10
+        "relative_difference": -3.2309055431056777e-10
       },
       {
         "source_radius_km": 11.861136311594052,
@@ -765,15 +765,15 @@
         "coupling": 4.171689650228597e-08,
         "quadpack_escape_average": 6.695475254208293e-16,
         "quadpack_abs_error": 1.7190025388755376e-22,
-        "simpson_escape_average": 6.695478502427726e-16,
-        "relative_difference": 4.851365003055719e-07
+        "simpson_escape_average": 6.695478502427724e-16,
+        "relative_difference": 4.851365000835273e-07
       },
       {
         "source_radius_km": 11.861136311594052,
         "energy_MeV": 52.29242874389507,
         "coupling": 9.415584636282641e-09,
-        "quadpack_escape_average": 0.33737985405943666,
-        "quadpack_abs_error": 5.528987820395593e-09,
+        "quadpack_escape_average": 0.3373798540594367,
+        "quadpack_abs_error": 5.528987838021051e-09,
         "simpson_escape_average": 0.3373798692344433,
         "relative_difference": 4.49789945289325e-08
       },
@@ -781,46 +781,46 @@
         "source_radius_km": 11.861136311594052,
         "energy_MeV": 52.29242874389507,
         "coupling": 1.9818912470130955e-08,
-        "quadpack_escape_average": 0.011628149882645027,
-        "quadpack_abs_error": 2.036643964987846e-10,
-        "simpson_escape_average": 0.011628150315756078,
-        "relative_difference": 3.724677233307716e-08
+        "quadpack_escape_average": 0.011628149882645026,
+        "quadpack_abs_error": 2.0366439639850651e-10,
+        "simpson_escape_average": 0.01162815031575608,
+        "relative_difference": 3.7246772555121765e-08
       },
       {
         "source_radius_km": 11.861136311594052,
         "energy_MeV": 52.29242874389507,
         "coupling": 4.171689650228597e-08,
-        "quadpack_escape_average": 4.855949288180489e-08,
-        "quadpack_abs_error": 1.2696351022940727e-15,
-        "simpson_escape_average": 4.855949271313591e-08,
-        "relative_difference": -3.4734501941358076e-09
+        "quadpack_escape_average": 4.855949288180486e-08,
+        "quadpack_abs_error": 1.2696350765529107e-15,
+        "simpson_escape_average": 4.8559492713135914e-08,
+        "relative_difference": -3.4734494169796903e-09
       },
       {
         "source_radius_km": 11.861136311594052,
         "energy_MeV": 99.02150854450393,
         "coupling": 9.415584636282641e-09,
-        "quadpack_escape_average": 0.4961211132663182,
-        "quadpack_abs_error": 6.4989237325008276e-09,
-        "simpson_escape_average": 0.49612113653058265,
-        "relative_difference": 4.689230892473972e-08
+        "quadpack_escape_average": 0.49612111326631797,
+        "quadpack_abs_error": 6.498923510456223e-09,
+        "simpson_escape_average": 0.49612113653058276,
+        "relative_difference": 4.689230959087354e-08
       },
       {
         "source_radius_km": 11.861136311594052,
         "energy_MeV": 99.02150854450393,
         "coupling": 1.9818912470130955e-08,
         "quadpack_escape_average": 0.05783946043859777,
-        "quadpack_abs_error": 8.058090727431688e-10,
-        "simpson_escape_average": 0.05783946291902328,
-        "relative_difference": 4.288465849100476e-08
+        "quadpack_abs_error": 8.058090720656198e-10,
+        "simpson_escape_average": 0.057839462919023296,
+        "relative_difference": 4.288465871304936e-08
       },
       {
         "source_radius_km": 11.861136311594052,
         "energy_MeV": 99.02150854450393,
         "coupling": 4.171689650228597e-08,
-        "quadpack_escape_average": 2.670180892284048e-05,
-        "quadpack_abs_error": 1.5910295504043007e-13,
+        "quadpack_escape_average": 2.670180892284047e-05,
+        "quadpack_abs_error": 1.591029433426477e-13,
         "simpson_escape_average": 2.6701806214074142e-05,
-        "relative_difference": -1.0144504980491575e-07
+        "relative_difference": -1.0144504947184885e-07
       },
       {
         "source_radius_km": 14.791704467391078,
@@ -835,7 +835,7 @@
         "source_radius_km": 14.791704467391078,
         "energy_MeV": 19.54548456661835,
         "coupling": 1.9818912470130955e-08,
-        "quadpack_escape_average": 0.0001912768840384179,
+        "quadpack_escape_average": 0.00019127688403841793,
         "quadpack_abs_error": 3.1466548930294408e-12,
         "simpson_escape_average": 0.000191276895090881,
         "relative_difference": 5.778253409083334e-08
@@ -844,64 +844,64 @@
         "source_radius_km": 14.791704467391078,
         "energy_MeV": 19.54548456661835,
         "coupling": 4.171689650228597e-08,
-        "quadpack_escape_average": 1.1780454677371358e-14,
-        "quadpack_abs_error": 2.1629390009862554e-19,
-        "simpson_escape_average": 1.1780468177711689e-14,
-        "relative_difference": 1.145994845019871e-06
+        "quadpack_escape_average": 1.178045467737138e-14,
+        "quadpack_abs_error": 2.162938999533594e-19,
+        "simpson_escape_average": 1.1780468177711704e-14,
+        "relative_difference": 1.1459948443537371e-06
       },
       {
         "source_radius_km": 14.791704467391078,
         "energy_MeV": 52.29242874389507,
         "coupling": 9.415584636282641e-09,
-        "quadpack_escape_average": 0.3408802648940791,
+        "quadpack_escape_average": 0.34088026489407897,
         "quadpack_abs_error": 3.879408516649363e-09,
         "simpson_escape_average": 0.34088032991758616,
-        "relative_difference": 1.9075174995109023e-07
+        "relative_difference": 1.9075175039517944e-07
       },
       {
         "source_radius_km": 14.791704467391078,
         "energy_MeV": 52.29242874389507,
         "coupling": 1.9818912470130955e-08,
-        "quadpack_escape_average": 0.015668235425470144,
+        "quadpack_escape_average": 0.01566823542547014,
         "quadpack_abs_error": 1.8963922446268988e-10,
         "simpson_escape_average": 0.015668236913027548,
-        "relative_difference": 9.494096575579647e-08
+        "relative_difference": 9.494096597784107e-08
       },
       {
         "source_radius_km": 14.791704467391078,
         "energy_MeV": 52.29242874389507,
         "coupling": 4.171689650228597e-08,
-        "quadpack_escape_average": 3.9755708274476396e-07,
-        "quadpack_abs_error": 7.0503090675454184e-15,
-        "simpson_escape_average": 3.9755709684714404e-07,
+        "quadpack_escape_average": 3.9755708274476385e-07,
+        "quadpack_abs_error": 7.050308996109438e-15,
+        "simpson_escape_average": 3.97557096847144e-07,
         "relative_difference": 3.547259175284978e-08
       },
       {
         "source_radius_km": 14.791704467391078,
         "energy_MeV": 99.02150854450393,
         "coupling": 9.415584636282641e-09,
-        "quadpack_escape_average": 0.5151757940545016,
-        "quadpack_abs_error": 9.706272002263525e-09,
+        "quadpack_escape_average": 0.5151757940545018,
+        "quadpack_abs_error": 9.706271952036184e-09,
         "simpson_escape_average": 0.5151758732999382,
-        "relative_difference": 1.5382212725789657e-07
+        "relative_difference": 1.5382212703585196e-07
       },
       {
         "source_radius_km": 14.791704467391078,
         "energy_MeV": 99.02150854450393,
         "coupling": 1.9818912470130955e-08,
-        "quadpack_escape_average": 0.07572333863518871,
+        "quadpack_escape_average": 0.07572333863518874,
         "quadpack_abs_error": 5.242509759639802e-10,
         "simpson_escape_average": 0.07572334689633202,
-        "relative_difference": 1.0909639569511853e-07
+        "relative_difference": 1.0909639525102932e-07
       },
       {
         "source_radius_km": 14.791704467391078,
         "energy_MeV": 99.02150854450393,
         "coupling": 4.171689650228597e-08,
-        "quadpack_escape_average": 0.00012794630059718143,
-        "quadpack_abs_error": 7.929774338460545e-12,
+        "quadpack_escape_average": 0.00012794630059718152,
+        "quadpack_abs_error": 7.929774338440284e-12,
         "simpson_escape_average": 0.00012794630086575496,
-        "relative_difference": 2.099111329201264e-09
+        "relative_difference": 2.0991106630674494e-09
       }
     ]
   },
@@ -910,7 +910,7 @@
     "luminosity_erg_s": [
       9.925393954309956e+51,
       1.4386214522857385e+52,
-      2.0842881297811998e+52,
+      2.0842881297811993e+52,
       3.017840246681069e+52,
       4.3655612067990654e+52,
       6.306848839917314e+52,
@@ -923,21 +923,21 @@
       7.2218046072346986e+53,
       9.686213917314173e+53,
       1.2573978724188534e+54,
-      1.560404801840489e+54,
+      1.5604048018404885e+54,
       1.8216149221668504e+54,
-      1.9600951742577667e+54,
+      1.9600951742577664e+54,
       1.8960782690225148e+54,
       1.601062625771523e+54,
-      1.1413230734989956e+54,
-      6.61905486485337e+53,
-      2.9979272688412682e+53,
-      1.012741012215386e+53,
+      1.1413230734989955e+54,
+      6.619054864853372e+53,
+      2.997927268841269e+53,
+      1.0127410122153862e+53,
       2.437365124484025e+52
     ],
     "escape_fraction": [
       0.9978698515685818,
       0.9969114724731784,
-      0.9955231763955238,
+      0.9955231763955235,
       0.9935135163322967,
       0.9906073116710394,
       0.9864107204167217,
@@ -950,21 +950,21 @@
       0.8347910435701849,
       0.7717388659486791,
       0.6905141709541962,
-      0.5906370833251581,
+      0.590637083325158,
       0.4752523548948079,
-      0.35247508165369307,
+      0.352475081653693,
       0.23501256324134867,
       0.13678151439853223,
-      0.06720649454458678,
-      0.026864755767019525,
-      0.008386708846715765,
-      0.0019527760032858684,
+      0.06720649454458677,
+      0.026864755767019532,
+      0.008386708846715768,
+      0.0019527760032858688,
       0.0003239357605768668
     ],
     "relative_difference_vs_fig7": [
       -0.08885296501891093,
       -0.08735184440677424,
-      -0.0859390200953678,
+      -0.08593902009536802,
       -0.08680951198948228,
       -0.08914194461608271,
       -0.08721709701505864,
@@ -976,22 +976,22 @@
       -0.07278609006900827,
       -0.07159592022420613,
       -0.05354643506058976,
-      -0.04423843365468694,
-      -0.03156799138848476,
+      -0.044238433654686826,
+      -0.031567991388484984,
       -0.00034675198482558844,
-      0.025693737416329743,
+      0.02569373741632952,
       0.06817603650196613,
       0.13181225894808746,
-      0.20212261308700796,
-      0.3038169364167078,
-      0.4374425831834525,
-      0.6327797907350574,
+      0.20212261308700774,
+      0.30381693641670826,
+      0.43744258318345297,
+      0.6327797907350579,
       0.9224930984908175
     ],
     "relative_difference_vs_archived_b16": [
       1.9252869076780144e-08,
       2.791259134937718e-08,
-      4.045442847377956e-08,
+      4.045442802969035e-08,
       5.860451657291321e-08,
       8.48414145604437e-08,
       1.2270778015910366e-07,
@@ -1004,28 +1004,28 @@
       1.4867009092700556e-06,
       2.0554619193369206e-06,
       2.7894593022104175e-06,
-      3.6909379512728435e-06,
+      3.690937951050799e-06,
       4.725032872965329e-06,
-      5.8132752869255455e-06,
+      5.813275286703501e-06,
       6.868645041846477e-06,
       7.908975652837213e-06,
-      9.230724124398293e-06,
-      1.1447401329300888e-05,
-      1.5111136040468764e-05,
-      2.1208506086223267e-05,
+      9.230724124176248e-06,
+      1.1447401329744977e-05,
+      1.5111136040912854e-05,
+      2.120850608644531e-05,
       4.5206465186131695e-05
     ],
     "curve_metrics_vs_fig7": {
       "n_points": 25,
-      "mean_absolute_relative_difference": 0.15732651910229845,
+      "mean_absolute_relative_difference": 0.1573265191022985,
       "maximum_absolute_relative_difference": 0.9224930984908175,
       "weak_coupling_relative_difference": -0.08885296501891093,
-      "reference_peak_relative_difference": 0.025693737416329743,
+      "reference_peak_relative_difference": 0.02569373741632952,
       "strong_absorption_relative_difference": 0.9224930984908175,
       "relative_differences": [
         -0.08885296501891093,
         -0.08735184440677424,
-        -0.0859390200953678,
+        -0.08593902009536802,
         -0.08680951198948228,
         -0.08914194461608271,
         -0.08721709701505864,
@@ -1037,22 +1037,22 @@
         -0.07278609006900827,
         -0.07159592022420613,
         -0.05354643506058976,
-        -0.04423843365468694,
-        -0.03156799138848476,
+        -0.044238433654686826,
+        -0.031567991388484984,
         -0.00034675198482558844,
-        0.025693737416329743,
+        0.02569373741632952,
         0.06817603650196613,
         0.13181225894808746,
-        0.20212261308700796,
-        0.3038169364167078,
-        0.4374425831834525,
-        0.6327797907350574,
+        0.20212261308700774,
+        0.30381693641670826,
+        0.43744258318345297,
+        0.6327797907350579,
         0.9224930984908175
       ]
     },
     "maximum_absolute_luminosity_shift_vs_archived": 4.5206465186131695e-05
   },
-  "elapsed_seconds": 30.554203033447266,
+  "elapsed_seconds": 27.12661576271057,
   "limitations": [
     "The path integral is exact only for the piecewise-linear interpolation of the supplied radial reduced-opacity table.",
     "The calculation retains the Euclidean straight-chord geometry of Eq. (B.2); it is not full GR ray tracing.",
