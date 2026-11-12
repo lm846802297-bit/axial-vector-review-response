@@ -1,0 +1,163 @@
+name: P1-IIIe-C4-C4 energy-dependent quadrature convergence
+
+on:
+  push:
+    branches:
+      - research/c4c4-energy-dependence-20261112
+    paths:
+      - '.github/workflows/b16-p1iiie-c4c4-quadrature-convergence.yml'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_c4c4_quadrature_convergence.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_p1iii_eos_c4c4_quadrature_convergence.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_c4c4_energy_dependence.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_c4b2_effective_mass_collision_kernel.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_c4c1_exact_outgoing_energy_support.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_c4c2_full_angle_total_scattering.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_full_radial_occupation.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/p1iii_eos_full_radial_occupation_2026-11-11.csv'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c4c4_energy_dependence_2026-11-12/local_rates_96.csv'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: p1iiie-c4c4-quadrature-convergence
+  cancel-in-progress: false
+
+jobs:
+  tests:
+    if: github.ref_name == 'research/c4c4-energy-dependence-20261112'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out the exact source commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy
+      - name: Run C4-C4 quadrature-convergence tests
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest test_b16_p1iii_eos_c4c4_quadrature_convergence -v
+
+  high-order:
+    needs: tests
+    if: github.ref_name == 'research/c4c4-energy-dependence-20261112'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      max-parallel: 5
+      matrix:
+        energy: [10, 20, 40, 60, 150]
+    steps:
+      - name: Check out the exact source commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy
+      - name: Compute combined high-order energy shard
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: |
+          mkdir -p "${{ runner.temp }}/c4c4-high"
+          python audit_b16_p1iii_eos_c4c4_quadrature_convergence.py \
+            --energy ${{ matrix.energy }} \
+            --output-csv "${{ runner.temp }}/c4c4-high/convergence_E${{ matrix.energy }}.csv"
+      - name: Upload high-order energy shard
+        uses: actions/upload-artifact@v4
+        with:
+          name: c4c4-high-order-${{ matrix.energy }}
+          path: ${{ runner.temp }}/c4c4-high/convergence_E${{ matrix.energy }}.csv
+          if-no-files-found: error
+          retention-days: 90
+
+  merge-and-archive:
+    needs: high-order
+    if: github.ref_name == 'research/c4c4-energy-dependence-20261112'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out the exact source commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy
+      - name: Download high-order shards
+        uses: actions/download-artifact@v4
+        with:
+          pattern: c4c4-high-order-*
+          path: ${{ runner.temp }}/c4c4-high-shards
+          merge-multiple: true
+      - name: Merge and evaluate all 80 comparisons
+        env:
+          C4C4_SHARDS: ${{ runner.temp }}/c4c4-high-shards
+          C4C4_OUT: ${{ runner.temp }}/c4c4-high-output
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_c4c4_quadrature_convergence.py \
+            --merge-dir "$C4C4_SHARDS" \
+            --output-dir "$C4C4_OUT" \
+            --source-commit "$GITHUB_SHA"
+      - name: Upload complete high-order diagnostic archive
+        uses: actions/upload-artifact@v4
+        with:
+          name: c4c4-energy-dependent-quadrature-80-cases
+          path: ${{ runner.temp }}/c4c4-high-output/
+          if-no-files-found: error
+          retention-days: 90
+      - name: Commit convergence data separately from source code
+        env:
+          C4C4_OUT: ${{ runner.temp }}/c4c4-high-output
+        run: |
+          set -euo pipefail
+          mkdir -p research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c4c4_energy_dependence_quadrature_2026-11-12
+          cp -a "$C4C4_OUT/." research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c4c4_energy_dependence_quadrature_2026-11-12/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c4c4_energy_dependence_quadrature_2026-11-12
+          if git diff --cached --quiet; then
+            echo "No new archive files to commit."
+          else
+            git commit -m "data: archive C4-C4 energy-dependent quadrature checks"
+            pushed=0
+            for attempt in 1 2 3 4 5; do
+              git fetch origin "$GITHUB_REF_NAME"
+              git rebase FETCH_HEAD
+              if git push origin "HEAD:refs/heads/$GITHUB_REF_NAME"; then
+                pushed=1
+                break
+              fi
+              echo "Archive push raced with another workflow; retrying ($attempt/5)."
+            done
+            if [ "$pushed" -ne 1 ]; then
+              echo "Unable to publish numerical archive after five attempts."
+              exit 1
+            fi
+          fi
+      - name: Enforce the numerical convergence gate after preserving the archive
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: |
+          python audit_b16_p1iii_eos_c4c4_quadrature_convergence.py \
+            --check-summary "${{ runner.temp }}/c4c4-high-output/summary.json"
