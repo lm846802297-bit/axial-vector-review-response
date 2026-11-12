@@ -129,6 +129,8 @@ def thermal_convergence_case(label, temperature, mu_mu):
     return {
         "temperature_MeV": temperature,
         "muon_chemical_potential_MeV": mu_mu,
+        "coarse_production_by_mode": [float(x) for x in coarse["Gamma_prod_by_mode"]],
+        "fine_production_by_mode": [float(x) for x in fine["Gamma_prod_by_mode"]],
         "coarse_absorption_by_mode": [float(x) for x in coarse["Gamma_abs_by_mode"]],
         "fine_absorption_by_mode": [float(x) for x in fine["Gamma_abs_by_mode"]],
         "relative_difference_absorption": max_rel(
@@ -174,6 +176,14 @@ def main():
         ),
         "nonzero_mu_interference_retained": interference["nonzero_mu_interference_abs_max"] > 1e-12,
         "quadrature_convergence_pass": max_quad < 5e-4,
+        "mode_resolved_positive_rates_pass": all(
+            np.all(np.asarray(case[key]) > 0.0)
+            for case in convergence.values()
+            for key in (
+                "coarse_production_by_mode", "fine_production_by_mode",
+                "coarse_absorption_by_mode", "fine_absorption_by_mode",
+            )
+        ),
         "detailed_balance_pass": max_balance < 1e-10,
         "max_stationary_endpoint_relative_residual": max_endpoint,
         "max_thermal_quadrature_relative_difference": max_quad,
@@ -183,6 +193,13 @@ def main():
         "title": "Moving-muon semi-Compton local-rate validation",
         "scope": "Fixed mediator energy local rates only; no stellar luminosity or transport.",
         "units": {"energy_momentum_temperature": "MeV", "rates": "MeV"},
+        "polarization_basis": (
+            "Medium-rest-frame basis with A' momentum along +z; mode order "
+            "(L,+,-), physical longitudinal epsilon_L=(|k|/m,0,0,omega/m) "
+            "and two circular transverse modes. For the conserved vector "
+            "current, epsilon_L-q/m is used as a numerically stable gauge-equivalent vector."
+        ),
+        "mode_order": ["L", "+", "-"],
         "method": {
             "phase_space": "Exact 2<->2 collision integral with final-state delta eliminated analytically",
             "angular_quadrature": "Gauss-Legendre in cos(theta_p), cos(theta_gamma); periodic trapezoid in relative azimuth",
