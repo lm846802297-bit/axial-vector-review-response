@@ -34,9 +34,9 @@
   "comparisons_to_baseline": {
     "mu_numu_minus_1MeV": {
       "reference_peak": {
-        "Fig7_relative_difference_shift": 8.41728349345594e-05,
-        "escape_probability_ratio_vs_baseline": 1.0000846571724868,
-        "escaped_luminosity_ratio_vs_baseline": 1.000082063580447,
+        "Fig7_relative_difference_shift": 8.417283493433736e-05,
+        "escape_probability_ratio_vs_baseline": 1.0000846571724866,
+        "escaped_luminosity_ratio_vs_baseline": 1.0000820635804468,
         "thin_source_ratio_vs_baseline": 0.9999974066275078
       },
       "strong_endpoint": {
@@ -74,9 +74,9 @@
     },
     "mu_numu_plus_1MeV": {
       "reference_peak": {
-        "Fig7_relative_difference_shift": 8.41728349345594e-05,
-        "escape_probability_ratio_vs_baseline": 1.0000846571724868,
-        "escaped_luminosity_ratio_vs_baseline": 1.000082063580447,
+        "Fig7_relative_difference_shift": 8.417283493433736e-05,
+        "escape_probability_ratio_vs_baseline": 1.0000846571724866,
+        "escaped_luminosity_ratio_vs_baseline": 1.0000820635804468,
         "thin_source_ratio_vs_baseline": 0.9999974066275078
       },
       "strong_endpoint": {
@@ -121,7 +121,7 @@
     "radial_order": 40,
     "radius_km": 25.0
   },
-  "fig7_reference_sha256": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4",
+  "fig7_reference_sha256": "3eb1121da175d89da54a19abbdf0c52669a239be464978ddcfe84887e4d18d06",
   "interpretation_limits": [
     "The +/-1 and +/-3 MeV assignments are stress tests, not measured chemical-potential profiles.",
     "Each scenario recomputes the complete B.1 source and B.2 opacity; no source or opacity is rescaled.",
@@ -133,7 +133,7 @@
   "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
   "scenarios": {
     "baseline_zero": {
-      "B1_source_fraction_emitted_in_22_25km": 0.0007276279525925117,
+      "B1_source_fraction_emitted_in_22_25km": 0.0007276279525925115,
       "B2_neutrino_path_tau_fraction_22_25km_8_15km_emission": 0.1910840417992232,
       "B2_neutrino_path_tau_fraction_22_25km_all_emission": 0.1933137555881765,
       "internal_closure": {
@@ -142,7 +142,7 @@
         "direct_source_weighted_mean_tau": 9272114550254984.0,
         "emission_absorption_matrix_weighted_mean_tau": 9272114550254984.0,
         "mean_tau_matrix_relative_residual": 0.0,
-        "shell_columns_vs_direct_chord_max_relative_residual": 6.607908314175328e-16,
+        "shell_columns_vs_direct_chord_max_relative_residual": 6.632406728951981e-16,
         "source_channel_sum_max_relative_residual": 4.3650406414630212e-16
       },
       "points": {
@@ -203,12 +203,12 @@
       "points": {
         "reference_peak": {
           "L_Fig7_erg_s": 1.910994581282271e+54,
-          "L_escaped_erg_s": 1.9602731298828755e+54,
+          "L_escaped_erg_s": 1.960273129882875e+54,
           "L_thin_erg_s": 5.560932369473565e+54,
-          "P_escape": 0.35250799679630845,
+          "P_escape": 0.3525079967963084,
           "g": 1.1341108687336194e-08,
           "index": 17,
-          "relative_difference_vs_Fig7": 0.025786859409898888
+          "relative_difference_vs_Fig7": 0.025786859409898666
         },
         "strong_endpoint": {
           "L_Fig7_erg_s": 1.26781475907372e+52,
@@ -252,7 +252,7 @@
         "direct_source_weighted_mean_tau": 9257530508598294.0,
         "emission_absorption_matrix_weighted_mean_tau": 9257530508598294.0,
         "mean_tau_matrix_relative_residual": 0.0,
-        "shell_columns_vs_direct_chord_max_relative_residual": 6.576130196857822e-16,
+        "shell_columns_vs_direct_chord_max_relative_residual": 6.613297942100381e-16,
         "source_channel_sum_max_relative_residual": 4.3650406414630212e-16
       },
       "points": {
@@ -313,12 +313,12 @@
       "points": {
         "reference_peak": {
           "L_Fig7_erg_s": 1.910994581282271e+54,
-          "L_escaped_erg_s": 1.9602731298828755e+54,
+          "L_escaped_erg_s": 1.960273129882875e+54,
           "L_thin_erg_s": 5.560932369473565e+54,
-          "P_escape": 0.35250799679630845,
+          "P_escape": 0.3525079967963084,
           "g": 1.1341108687336194e-08,
           "index": 17,
-          "relative_difference_vs_Fig7": 0.025786859409898888
+          "relative_difference_vs_Fig7": 0.025786859409898666
         },
         "strong_endpoint": {
           "L_Fig7_erg_s": 1.26781475907372e+52,
@@ -362,7 +362,7 @@
         "direct_source_weighted_mean_tau": 9257530508598294.0,
         "emission_absorption_matrix_weighted_mean_tau": 9257530508598294.0,
         "mean_tau_matrix_relative_residual": 0.0,
-        "shell_columns_vs_direct_chord_max_relative_residual": 6.576130196857822e-16,
+        "shell_columns_vs_direct_chord_max_relative_residual": 6.613297942100381e-16,
         "source_channel_sum_max_relative_residual": 4.3650406414630212e-16
       },
       "points": {
