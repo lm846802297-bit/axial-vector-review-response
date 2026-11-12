@@ -199,10 +199,25 @@ def moving_muon_compton_rates(
 
     production = charge_results["mu_minus"]["production"]+charge_results["mu_plus"]["production"]
     absorption = charge_results["mu_minus"]["absorption"]+charge_results["mu_plus"]["absorption"]
+    gamma_prod_unpolarized = float(np.sum(production)/2.0)
+    gamma_abs_unpolarized = float(np.sum(absorption)/3.0)
+    eq_5_12_expected = (2.0/3.0)*math.exp(energy/temperature)
+    eq_5_12_ratio = gamma_abs_unpolarized/gamma_prod_unpolarized
     return {
         "production": production, "absorption": absorption,
         "mode_order": ["L", "+", "-"],
         "polarization_basis": "medium rest frame; A' momentum along +z",
+        "unpolarized_normalization": {
+            "initial_photon_polarization_average": 2,
+            "initial_vector_polarization_average": 3,
+            "Gamma_prod_unpolarized": gamma_prod_unpolarized,
+            "Gamma_abs_unpolarized": gamma_abs_unpolarized,
+            "Gamma_abs_over_Gamma_prod": eq_5_12_ratio,
+            "Eq_5_12_expected_ratio": eq_5_12_expected,
+            "Eq_5_12_relative_residual": abs(
+                eq_5_12_ratio-eq_5_12_expected
+            )/eq_5_12_expected,
+        },
         "charge_resolved": charge_results,
         "diagnostics": {
             "final_muon_shell_relative_error": float(shell_error),
