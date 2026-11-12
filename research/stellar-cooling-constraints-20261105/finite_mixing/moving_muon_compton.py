@@ -201,8 +201,27 @@ def moving_muon_compton_rates(
     absorption = charge_results["mu_minus"]["absorption"]+charge_results["mu_plus"]["absorption"]
     gamma_prod_unpolarized = float(np.sum(production)/2.0)
     gamma_abs_unpolarized = float(np.sum(absorption)/3.0)
-    eq_5_12_expected = (2.0/3.0)*math.exp(energy/temperature)
-    eq_5_12_ratio = gamma_abs_unpolarized/gamma_prod_unpolarized
+    # Eq. (5.12) can imply an exponentially large absorption/production
+    # ratio in the cold-dilute limit. Keep the diagnostic in log space so a
+    # perfectly valid absorption kernel is not rejected by exp(E/T) overflow
+    # or production underflow.
+    log_eq_5_12_expected = math.log(2.0/3.0) + energy/temperature
+    log_eq_5_12_ratio = None
+    eq_5_12_ratio = None
+    eq_5_12_expected = None
+    eq_5_12_relative_residual = None
+    log_float_max = math.log(sys.float_info.max)
+    if log_eq_5_12_expected <= log_float_max:
+        eq_5_12_expected = math.exp(log_eq_5_12_expected)
+    if gamma_abs_unpolarized > 0.0 and gamma_prod_unpolarized > 0.0:
+        log_eq_5_12_ratio = (
+            math.log(gamma_abs_unpolarized) - math.log(gamma_prod_unpolarized)
+        )
+        if log_eq_5_12_ratio <= log_float_max:
+            eq_5_12_ratio = math.exp(log_eq_5_12_ratio)
+        log_residual = log_eq_5_12_ratio - log_eq_5_12_expected
+        if log_residual <= log_float_max:
+            eq_5_12_relative_residual = abs(math.expm1(log_residual))
     return {
         "production": production, "absorption": absorption,
         "mode_order": ["L", "+", "-"],
@@ -213,10 +232,14 @@ def moving_muon_compton_rates(
             "Gamma_prod_unpolarized": gamma_prod_unpolarized,
             "Gamma_abs_unpolarized": gamma_abs_unpolarized,
             "Gamma_abs_over_Gamma_prod": eq_5_12_ratio,
+            "Gamma_abs_over_Gamma_prod_log": log_eq_5_12_ratio,
             "Eq_5_12_expected_ratio": eq_5_12_expected,
-            "Eq_5_12_relative_residual": abs(
-                eq_5_12_ratio-eq_5_12_expected
-            )/eq_5_12_expected,
+            "Eq_5_12_expected_log_ratio": log_eq_5_12_expected,
+            "Eq_5_12_relative_residual": eq_5_12_relative_residual,
+            "Eq_5_12_relative_residual_status": (
+                "computed" if eq_5_12_relative_residual is not None
+                else "unavailable_in_float_domain"
+            ),
         },
         "charge_resolved": charge_results,
         "diagnostics": {
