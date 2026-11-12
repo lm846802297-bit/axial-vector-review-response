@@ -217,3 +217,27 @@ The audit separates four questions that must not be collapsed into a simple T/L 
 The printed u-channel chain in (B.1b) also appears to have a vertex-order issue. The gauge-consistent crossed amplitude must be used in any independent derivation; the status of the printed expression is recorded as an apparent source-level issue, not silently corrected.
 
 This is a microscopic formula audit only. It does not validate the full Blinov Fig. 7 luminosity curve, authorize a rescaling of the vector opacity, or produce a new axial/finite-mixing exclusion curve. No production code is changed.
+
+
+## 13. Direct vector longitudinal projector and B.3 recoil audit
+
+The direct rank-one \(P_L\) calculation is archived in [audit_vector_longitudinal_projector.py](thermal_integrals/audit_vector_longitudinal_projector.py), with regression tests in [test_vector_longitudinal_projector.py](thermal_integrals/test_vector_longitudinal_projector.py) and a machine-readable summary in [outputs/vector_longitudinal_direct_projector_summary_2026-11-12.json](thermal_integrals/outputs/vector_longitudinal_direct_projector_summary_2026-11-12.json).
+
+For the conserved vector current, the exact Ward identity permits the amplitude-level replacement
+\[
+\epsilon_L^\mu\to\widetilde\epsilon_L^\mu
+=\frac{m_{Z'}}{\omega+|\mathbf q|}(-1,\hat{\mathbf q}).
+\]
+This produces a stable direct longitudinal result without \(B_4-B_2\) subtraction. Across 36 exact-kinematics points, the explicit-spinor and independent-trace longitudinal results agree to \(8.37\times10^{-11}\), and the correct vector Ward residual is below \(1.34\times10^{-14}\).
+
+The literal \(u\)-channel ordering printed in (B.1b) fails the outgoing-vector Ward identity; the crossed ordering \(\gamma^\nu S_u\gamma^\mu\) satisfies it. Treat this as an apparent printed equation-ordering issue, not proof of the authors' internal implementation.
+
+The direct \(P_L\) comparison also resolves the B.3 residual: at small \(x=m_{Z'}/E_\gamma\), the observed leading patterns are
+\[
+\frac{B_2^{\rm paper}}{T_{\rm exact}}-1
+\simeq\frac{2x^2(E_\gamma/m_\mu)}{1+\cos^2\theta},
+\qquad
+\frac{B_3^{\rm paper}}{L_{\rm direct}}-1
+\simeq-\frac{2(E_\gamma/m_\mu)}{1-\cos^2\theta}.
+\]
+The coefficient fit is numerical; its symbolic finite-recoil derivation is still open. This is a source-formula audit, not a revised thermal rate or transport result. Do not rescale the opacity or update the vector/axial production benchmark.
