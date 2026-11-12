@@ -359,3 +359,68 @@ Next analytic tasks:
 - Existing response-map rationale: [VECTOR_TO_AXIAL_RESPONSE_MAPPING_2026-11-07.md](VECTOR_TO_AXIAL_RESPONSE_MAPPING_2026-11-07.md).
 
 No production code, CI workflow, manuscript, referee response, or published constraint figure is modified by this document.
+
+
+## 11. Direct longitudinal-projector follow-up
+
+The direct rank-one longitudinal projection is now evaluated independently. For
+\[
+q^\mu=(\omega,|\mathbf q|\hat{\mathbf q}),\qquad
+\epsilon_L^\mu=\frac{1}{m_{Z'}}(|\mathbf q|,\omega\hat{\mathbf q}),
+\]
+the conserved vector current obeys \(q_\mu\mathcal M^\mu=0\). Therefore, at amplitude level,
+\[
+\epsilon_L^\mu\longrightarrow
+\widetilde\epsilon_L^\mu
+=\epsilon_L^\mu-\frac{q^\mu}{m_{Z'}}
+=\frac{m_{Z'}}{\omega+|\mathbf q|}
+(-1,\hat{\mathbf q})
+\]
+is an exact Ward-equivalent representative. The small representative is evaluated before squaring, avoiding the catastrophic cancellation that occurs if the large physical \(\epsilon_L\) components are contracted only after forming a tensor of spin sums. This identity is specific to the conserved pure-vector current and must not be applied to the axial component.
+
+### 11.1 Independent projection checks
+
+A new standalone calculation uses exact two-body kinematics, explicit Dirac spinors, and an independent trace with the Ward-equivalent longitudinal polarization. It scans 36 points:
+\[
+E_\gamma=(0.05,0.1,0.5,1)\ {\rm MeV},\quad
+m_{Z'}/E_\gamma=(10^{-3},10^{-2},10^{-1}),\quad
+\cos\theta=(-0.7,0.2,0.8).
+\]
+
+| Check | Maximum result |
+|---|---:|
+| Physical \(\epsilon_L\) vs Ward-equivalent \(\widetilde\epsilon_L\) | \(3.27\times10^{-7}\) |
+| Independent trace vs explicit spinor sum | \(8.37\times10^{-11}\) |
+| Correct crossed-amplitude Ward residual, relative amplitude | \(1.34\times10^{-14}\) |
+| Direct longitudinal positivity | all 36 points positive |
+
+The literal \(u\)-channel ordering printed in (B.1b), with the same gamma-matrix order as the \(s\)-channel, gives a nonzero normalized \(q_\mu\mathcal M^\mu\) amplitude residual between \(1.74\times10^{-2}\) and \(1.06\) on this grid. The crossed ordering \(\gamma^\nu S_u\gamma^\mu\) satisfies the Ward identity. This establishes a source-level ordering inconsistency in the printed (B.1b); it does not establish which ordering the authors used internally to generate their later trace expressions.
+
+### 11.2 The B.3 discrepancy is a recoil-order effect amplified by subtraction
+
+The direct \(P_L\) result is compared with the printed B.2/B.4 spin sums using the same unaveraged initial-muon-spin convention. The B.2 and B.4 individual traces remain close to the exact spinor results, but B.3 is systematically below the direct longitudinal projection. An 80-digit evaluation of the scalar B.2/B.4 subtraction leaves the residual unchanged, so it is not solely floating-point roundoff.
+
+For \(x=m_{Z'}/E_\gamma\ll1\) and \(r=E_\gamma/m_\mu\ll1\), the numerical scan resolves the leading patterns
+\[
+\frac{B_2^{\rm paper}}{T_{\rm exact}}-1
+\simeq \frac{2x^2r}{1+\cos^2\theta},
+\qquad
+\frac{B_3^{\rm paper}}{L_{\rm direct}}-1
+\simeq -\frac{2r}{1-\cos^2\theta}.
+\]
+These are numerically extracted asymptotic laws; the complete symbolic finite-recoil expansion remains to be derived. At \(x=10^{-3}\) and \(E_\gamma\le0.1\) MeV, their maximum relative fit errors are 0.154% and 0.0921%, respectively.
+
+The reason for the amplification is transparent from
+\[
+\frac{L_{\rm direct}}{T_{\rm exact}}
+\simeq x^2\frac{1-\cos^2\theta}{1+\cos^2\theta}.
+\]
+The \(O(x^2r)\) transverse residual in B.2 is of the same \(x\)-order as the physical longitudinal signal. When B.2 is subtracted from B.4, it becomes an \(O(r)\) relative bias in B.3. Thus B.3 should not be treated as a precision longitudinal kernel merely because B.2 and B.4 each agree closely with the leading soft-muon result.
+
+### 11.3 Reproducibility and claim boundary
+
+- Calculation: [audit_vector_longitudinal_projector.py](thermal_integrals/audit_vector_longitudinal_projector.py).
+- Regression tests: [test_vector_longitudinal_projector.py](thermal_integrals/test_vector_longitudinal_projector.py).
+- Machine-readable summary: [vector_longitudinal_direct_projector_summary_2026-11-12.json](thermal_integrals/outputs/vector_longitudinal_direct_projector_summary_2026-11-12.json).
+
+The local acceptance checks pass. These files do not change the production kernel, opacity, thermal integration, transport calculation, manuscript, referee response, or published constraint figure. The pure-vector Blinov Fig. 7 gate remains **NOT PASSED**. The next task is the symbolic derivation of the leading recoil terms and the exact phase-space/Jacobian mapping, not another broad parameter scan.
