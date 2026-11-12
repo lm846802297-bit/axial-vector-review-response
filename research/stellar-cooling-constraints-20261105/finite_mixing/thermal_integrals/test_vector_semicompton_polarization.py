@@ -27,18 +27,19 @@ class VectorSemiComptonPolarizationAuditTests(unittest.TestCase):
         )
         self.assertGreaterEqual(float(np.min(matrix_elements)), -1e-11)
         self.assertGreaterEqual(float(np.min(kernels)), -1e-14)
-        self.assertTrue(self.audit["positivity"]["all_exact_mode_cross_sections_nonnegative"])
+        self.assertTrue(self.audit["positivity"]["direct_exact_mode_cross_sections_nonnegative"])
+        self.assertTrue(self.audit["positivity"]["direct_exact_differential_cross_sections_nonnegative"])
 
     def test_thomson_limit_is_transverse_and_vector_longitudinal_is_suppressed(self):
         acceptance = self.audit["acceptance"]
         self.assertTrue(acceptance["thomson_transverse_limit_pass"])
         self.assertTrue(acceptance["conserved_vector_longitudinal_suppression_pass"])
         ratios = self.audit["ratios_to_thomson"]
-        self.assertAlmostEqual(ratios["exact_T_sum"], 1.0, delta=5e-3)
-        self.assertLess(ratios["exact_L"], 1e-3)
+        self.assertAlmostEqual(ratios["direct_exact_T_sum"], 1.0, delta=5e-3)
+        self.assertLess(ratios["direct_exact_L"], 1e-3)
 
     def test_paper_eq58_mode_assignment_and_coefficient_are_flagged_not_relabelled(self):
-        comparison = self.audit["printed_formula_comparison"]
+        comparison = self.audit["printed_Eq5_9_comparison"]
         # The printed unsuppressed expression tracks the exact transverse sum,
         # while the printed suppressed expression has the opposite mode label.
         self.assertAlmostEqual(
