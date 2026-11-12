@@ -56,6 +56,26 @@ class VectorSemiComptonPolarizationAuditTests(unittest.TestCase):
         self.assertTrue(self.audit["acceptance"]["photon_ward_pass"])
         self.assertTrue(self.audit["acceptance"]["vector_mediator_ward_pass"])
 
+    def test_direct_spinor_and_crossed_trace_calculations_agree(self):
+        self.assertTrue(self.audit["acceptance"]["direct_spinor_vs_crossed_trace_pass"])
+
+    def test_printed_appendix_b_differential_formulas_are_flagged_for_negativity(self):
+        diagnostic = self.audit["printed_EqB6_differential_comparison"]
+        self.assertGreater(diagnostic["EqB6a_printed_T_negative_fraction"], 0.4)
+        self.assertGreater(diagnostic["EqB6b_printed_L_negative_fraction"], 0.0)
+        self.assertGreaterEqual(diagnostic["exact_T_minimum_over_angular_grid_MeV_minus2"], 0.0)
+        self.assertGreaterEqual(diagnostic["exact_L_minimum_over_angular_grid_MeV_minus2"], 0.0)
+        self.assertTrue(
+            self.audit["interpretation_flags"]["EqB6b_shape_tracks_exact_transverse_mode"]
+        )
+
+    def test_paper_eq59_mode_hierarchy_is_opposite_to_conserved_vector_limit(self):
+        self.assertTrue(
+            self.audit["interpretation_flags"][
+                "integrated_Eq5_9_TL_hierarchy_opposite_to_conserved_vector_limit"
+            ]
+        )
+
     def test_angular_quadrature_is_converged(self):
         self.assertTrue(self.audit["acceptance"]["quadrature_convergence_pass"])
 
