@@ -4,7 +4,7 @@ import unittest
 import numpy as np
 
 import rates
-from moving_muon_compton import moving_muon_compton_rates
+from finite_mixing.moving_muon_compton import moving_muon_compton_rates
 from finite_mixing.b13_b16_comparison import (
     b14_b16_rate,
     muon_density_and_susceptibility,
