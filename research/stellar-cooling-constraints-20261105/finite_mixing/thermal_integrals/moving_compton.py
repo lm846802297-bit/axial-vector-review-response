@@ -14,10 +14,12 @@ from rates import (
 
 
 def _bose(energy, temperature):
-    """Stable Bose occupation for positive energy."""
+    """Stable Bose occupation; values below double precision underflow to zero."""
     x = np.asarray(energy, float) / float(temperature)
-    ex = np.exp(-np.minimum(x, 700.0))
-    return ex / (-np.expm1(-np.minimum(x, 700.0)))
+    x_clip = np.minimum(x, 745.0)
+    ex = np.exp(-x_clip)
+    value = ex / (-np.expm1(-x_clip))
+    return np.where(x > 745.0, 0.0, value)
 
 
 def _mapped_interval(order, lower, upper):

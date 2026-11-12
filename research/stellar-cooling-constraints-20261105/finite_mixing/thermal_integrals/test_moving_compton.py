@@ -180,11 +180,11 @@ class MovingComptonMatrixElementTests(unittest.TestCase):
             radial_order=8,angular_order=4,azimuth_order=4,chunk_size=64
         )
         np.testing.assert_allclose(
-            boosted_frame_reconstructed["production"],rest["production"],
+            boosted_frame_reconstructed["Gamma_prod_by_mode"],rest["Gamma_prod_by_mode"],
             rtol=2e-13,atol=1e-300
         )
         np.testing.assert_allclose(
-            boosted_frame_reconstructed["absorption"],rest["absorption"],
+            boosted_frame_reconstructed["Gamma_abs_by_mode"],rest["Gamma_abs_by_mode"],
             rtol=2e-13,atol=1e-300
         )
 
