@@ -15,6 +15,7 @@ on:
       - 'research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply_gev.pdf'
       - 'research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply_gev.png'
       - 'references.bib'
+      - 'research/stellar-cooling-constraints-20261105/audit_reply.py'
       - '.github/workflows/pr55-referee-letter-build.yml'
   push:
     branches:
