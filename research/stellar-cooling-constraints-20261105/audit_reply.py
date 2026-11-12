@@ -14,7 +14,7 @@ import pymupdf
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
 NAME='Replies_to_Referee_3_referee_facing_2026-11-04'
-BASE='7ef9a4a65fc0f9afd25ed857325760775faf71bd'
+BASE='310a24a53e8448f0388072cfdbf55749fde713f9'
 
 def sha(path): return hashlib.sha256(path.read_bytes()).hexdigest()
 

@@ -1,8 +1,24 @@
+## 2026-11-09 最终更新：PR #72 Major Point 3 选择性恢复与重新编译（构建通过）
+
+- Major Point 3 保持两部分结构：原始单 VEV \(S\)-only 模型，以及可选的 \(\sigma+3N_R\) type-I seesaw 完成机制。原模型的残余 \(Z_2\)、Weinberg 算符选择规则、\(M_\nu^{(S)}\) 分块纹理和 \(U_{\rm PMNS}=\operatorname{diag}(1,U_{23})\) 结论保留。
+- 扩展部分给出新增场及电荷、三个 Dirac Yukawa 项、四个标量辅助 Majorana 项、两个裸 Majorana 项、\(m_D\)、\(M_R\)、完整 \(6\times6\) 质量矩阵、type-I seesaw、轻/重 Takagi 对角化和解析逆构造；不加入数值 benchmark 或全局扫描。
+- 显式写出新增右手中微子的线性与立方 \(U(1)_X\) anomaly cancellation 求和，并逐项展示 Dirac Yukawa 与 Majorana 项的规范电荷抵消。
+- 恢复双单态 seesaw 的具体文献对应：Borah et al. 的 Table I、Eq. (4)、其后展示的 \(M_R,M_D\) 矩阵及 Eq. (8)；He et al. 的 Sec. II、Eqs. (1)--(5)。修正旧记录中将 Borah et al. 的 Eq. (7) 误列为中微子质量矩阵依据的问题；该式实际给出带电轻子质量矩阵。
+- 恢复 Asai et al. 单电荷一标量模型的 \((M_\nu^{-1})_{\mu\mu}=(M_\nu^{-1})_{\tau\tau}=0\) two-zero-minor 结构，并说明现有电荷二标量 \(S\) 允许 \(M_R\) 的两个对角项，因此该预测不适用于当前双单态构造。
+- 恢复双 VEV 关系 \(m_{A'}^2=g_X^2(4v_s^2+v_\sigma^2)\)、\(r_\sigma=v_\sigma^2/(4v_s^2)\) 及 \(v_s=m_{A'}/[2g_X\sqrt{1+r_\sigma}]\)。同时说明 \(r_\sigma\to0\) 会恢复残余 \(Z_2\)，因此不是完整 PMNS 混合的扩展极限。
+- 恢复含 \(\kappa S^\dagger\sigma^2+\mathrm{h.c.}\) 的可重整化扩展标量势，并说明该项固定两个 singlet VEV 的相对相位。未将 \(m_s^2=2\lambda_Sv_s^2\) 当作扩展模型的一般质量关系；未加入 \(y_{s\ell\ell}\) 的扩展标量唯象映射、标量质量对角化或新实验扫描。
+- Major Point 4.1 引用 Major Point 3 的结论与方程，不重复 seesaw 推导。原论文正文、原论文 bibliography、图表和科研计算均不修改；所有非中微子现象学仍以原始单 VEV \(S+\mathrm{VLL}\) 模型为基准。
+- 英文写作参照用户原论文 axial_vector_model_building-v6.pdf，采用直接陈述、模型定义先行、方程紧接物理结论的组织方式。
+
+**最终构建：** GitHub Actions [Run #152](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42573218957) 成功。58 页 A4 PDF，441,891 bytes；SHA-256：7d5f3dbb4b959dcb43268a1ebe5ec2cb046cb7502d33244b1e3864b53a6fbc23。LaTeX/BibTeX、PDF 结构、字体嵌入、引用与交叉引用检查均通过；BibTeX missing-entry/database warnings 为 0，无 Overfull box，保留一处原有 Underfull \hbox（badness 1199，源码第 609--611 行）。58 页均以 150 dpi 渲染，生成 10 份联系表。
+**工作流清理：** 临时分支白名单已恢复为 main 原样；最终 PR diff 不包含 workflow 修改。
+**当前状态：** PR #72 保持 Open、未合并；最终 PDF 已提交到 PR 分支。
+
 # PROJECT_STATUS — Axial-vector paper revision and referee response
 
 > **P1-IIIe-B SFHo/FRDM v1.03 真实表数据与局域闭合（2026-11-11，后续数值修正）：** 官方 Basel 五个对象的获取器、五项 SHA-256 manifest 与 Release 归档已核对；Release tag sfho-frdm-v1.03-data 指向 e68eae83385dcb62b31b7fa12bf32f85a2e7a819，五个资产 digest 与 manifest 一致，总计 322,921,457 B。HTTP HEAD 的 --check-urls 只证明 HTTP 200 与 Content-Length 匹配，不被描述为远端内容哈希验证。224 点闭合采用 1024 阶 Gauss–Legendre；独立 1024/2048 对照在 448 个核子状态上的最大 Fdeg 绝对差为 4.7117e-8，数密度最大相对差为 1.0115e-8；1024 阶对 fixture 的最大 Fdeg 绝对差为 4.995e-11。旧 512 阶在冷、高密度中子状态可有 2.73% 偏差，因此 fixture 与原始表复算测试均已统一到 1024 阶。有效域仍为 224 点采样网格上的 208/224 格；中子最大偏差 6.1345e-4，质子（Xp≥1e-6）最大偏差 8.8578e-5。其余 16 格并非全部冻结：nB=1.10e-12 与 1e-10 fm⁻³ 的 8 格为明确平台；1e-8 的 4 格为过渡；1e-6 的 4 格更接近闭合但仍未满足 1e-3。16 格均为核子主导组成，Xn+Xp≈1，组成随 Yp 变化。自然单位稀释度在 T=63.096 MeV、nB=1e-6 fm⁻³ 时为 3.06e-5。核团比例统计代码已改为只使用 308 个物理密度行；由于本次未重读原始 composition archive，更新后的整表比例暂不作数值声明。五对象 Manifest、下载器与审计 JSON 的名称和哈希集合一致。本次独立 JavaScript fixture 交叉核验 12 组检查全部通过；这不是 Python unittest 运行结果。17 项 Python 测试尚未重新执行，四项原始表测试仍需 SFHO_TABLES_DIR；当前执行环境无法把 Release 二进制附件下载到数值运行环境。无新的 Python 测试或 CI 通过声明。
 
-> **2026-11-10 纯矢量 Fig. 7 复现状态：** PR #57 仍为 Open / Draft，未合并。当前统一背景为 vertex-preserving profile B，SHA-256 为 `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`。B.1 独立源项、B.2 独立路径、B.1+B.2 端到端重组和局域碰撞核检查已有成功的数值验收记录；最新高阶独立网格 B.16 基准在 10 MeV 强耦合端为 `2.43963596e52 erg/s`，相对 Fig. 7 高出 `92.4284%`，尚未通过物理复现验收。能量/方向分箱程序已修正子区域掩码并加入回归测试，但高阶分箱结果尚未生成。最后一次有意触发的资源预检 Run [#42663539198](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42663539198) 仍在 runner 分配前失败，`steps=null`、`logs_url=null`、没有 runner ID；不再重复触发空跑。下一次执行固定为恢复 Runner 后或本地运行同一脚本，且必须通过完全相同的网格哈希、基准闭合和分箱归一化验收。
+> **2026-11-10 纯矢量 Fig. 7 复现状态：** PR #57 已于 2026-11-12 合并至 PR #56 的研究分支（合并提交 `60c69a0b810b679a90683e638fc0a3bc9dd209e4`）；该来源归档分支保留用于历史溯源。。当前统一背景为 vertex-preserving profile B，SHA-256 为 `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`。B.1 独立源项、B.2 独立路径、B.1+B.2 端到端重组和局域碰撞核检查已有成功的数值验收记录；最新高阶独立网格 B.16 基准在 10 MeV 强耦合端为 `2.43963596e52 erg/s`，相对 Fig. 7 高出 `92.4284%`，尚未通过物理复现验收。能量/方向分箱程序已修正子区域掩码并加入回归测试，但高阶分箱结果尚未生成。最后一次有意触发的资源预检 Run [#42663539198](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42663539198) 仍在 runner 分配前失败，`steps=null`、`logs_url=null`、没有 runner ID；不再重复触发空跑。下一次执行固定为恢复 Runner 后或本地运行同一脚本，且必须通过完全相同的网格哈希、基准闭合和分箱归一化验收。
 
 > **B.2 路径能量与径向插值的独立验收（2026-11-09）：** 固定 B.1 源项径向阶数 40、能量 100、角 16、路径 32，仅将 B.2 局域吸收率径向插值网格从 40 提高到 640。B.1 thin source 在所有插值网格间保持不变；三个质量点的最后两级 320→480、480→640 最大光度变化均小于 1%，因此独立 opacity 插值验收通过。两级变化分别为：0.1 MeV 0.4025%、0.1577%；1 MeV 0.1028%、0.0393%；10 MeV 0.00193%、0.00152%。但粗网格 40→640 对固定能量光度造成的最大变化分别达到 42.14%、9.73%、0.175%，说明此前低质量 B.2 基准存在严重的路径吸收率插值不足。采用 640 阶插值后，B.16 路径红移在峰值/强端的变化分别为：0.1 MeV −0.00747%/−5.9078%；1 MeV −0.51366%/−11.6001%；10 MeV −5.21614%/−28.8724%。这些结果取代原 40 阶径向插值下的低质量红移数值；它们仍是 B.16 矢量碰撞核下的 B.2 诊断，不是 B.13 精确核的传播结果。详见 [B.2 径向 opacity 插值收敛审计](research/stellar-cooling-constraints-20261105/blinov_reproduction/B2_OPACITY_INTERPOLATION_CONVERGENCE_2026-11-09.md) 与 JSON。Run [#42581429474](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42581429474) 全部通过。
 
@@ -38,11 +54,90 @@
 
 **历史基线快照日期：** 2026-11-06（PR #38–#50 已合并；PR #54、#55 已合并；PR #52 Closed / 未合并且保留研究分支；PR #53、#56 Open / Draft）。当前研究状态以本文档最上方的 2026-11-09 摘要及对应验收报告为准。
 
+## 2026-11-09 最终更新：PR #67 回复信写作风格统一（已 Squash merge）
+[PR #67](https://github.com/lm846802297-bit/axial-vector-review-response/pull/67) 从 PR #66 合并后的 main 基线 `d3b234efbce270cd92b7ea55e31e02680114fc3a` 创建，分支为 `review/referee-response-style-20261109`。本节记录最终编译、视觉检查、独立审稿人视角 diff 复核及最终合并状态。
+
+- **检索与写作依据：** 已核对原论文 `main-v6.tex`、正式回复信、长期写作规范、正文待同步清单、DEC-15 及 PR #64/#65 修订台账。英文科研文体以原论文 Abstract、Introduction、Model Setup 和 Conclusion 为直接参照；未将模型生成的中文材料误作个人英文写作样本。
+- **回复信内容：** S-01–S-20 的语言与段落组织修订均保留。非中微子问题继续采用原论文单 VEV `S+\mathrm{VLL}` 模型；可选 `\sigma+3N_R` seesaw 仅用于 Major Points 3/4.1。未修改论文正文、bibliography、图表、科研脚本、物理推导或实验结论。
+- **最终编译：** GitHub Actions [Run #121](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42562306315) 成功，构建提交为 `de61388aedefa30edee59b127ff63f7f45b3a4dd`。当前分支 TeX 与该构建输入逐字一致，唯一差异是构建后移除的一行临时 LaTeX 注释。PDF 已由该工作流提交到 PR 分支。最终 PDF 为 58 页 A4、444,658 bytes；BibTeX 处理 41 条文献；最终 LaTeX 检查无未解析引用或交叉引用；字体全部嵌入；无 Overfull 警告，保留一处轻微 Underfull `\hbox`。PDF SHA-256：`6583031a7dea51abfb7e48207ae5b39e90892f9e5bde6eff2f45dd854292aabf`。
+- **视觉检查：** 58 页均已渲染，并通过 10 份联系表逐页检查；未发现公式裁切、表格列越界或页面重叠。第 5 页留白仍存在，原因是 Table II 整体排至第 6 页；第 58 页参考文献位于页面上部、底部留白较大。这两处均为非阻断性分页现象。
+- **Table II 排版：** 保留 `\small`、三列宽度、所有表格文字、数值和引用；将 `center` 环境改为局部 `\centering` 分组，并将行间距从 3 pt 降至 1.5 pt。规范化间距后，表格内容与原版逐字相同。此调整没有将整张表移回第 5 页。
+- **参数窗口复核：** Major Point 2 和 Minor Point 1 均明确写出 Fig. 2 的显示范围 `10^{-6}\leq g_X\leq1`，即上限为 `10^0=1`，与原图一致。动能混合部分的 `g_X=0.1` 是数值表的参考归一化；正文明确说明 Fig. 2 延伸至 `g_X=1` 时相应估计放大十倍，两者不矛盾。
+- **独立审稿人视角 diff 复核：** 对 PR base 至当前 head 的实际 diff 逐项复核。27/27 个 reviewer quote block、137/137 个 `\[...\]` 显示公式块、4/4 个 equation 环境、48 条 citation commands（74 次 citation-key 出现、41 个唯一 keys）、4 个 equation labels 及 4 个 ref/eqref 均保持一致。LaTeX 花括号净计数为 0；除 Table II 有意将一个 `center` 环境替换为局部分组外，其余环境 begin/end 计数不变。表格内容经间距规范化后完全一致；Minor Point 5 的宽度公式仅移动位置，没有改变公式或数值。未发现物理结论、公式、benchmark、适用条件或引用被误删，也未发现新增的未经支持的物理主张。
+- **清理：** 10 份临时联系表已从分支删除；临时构建触发注释已删除；临时 workflow allowlist 已从 main 工作流恢复；PR 仍仅包含 4 个预期文件（PROJECT_STATUS、正式 PDF、正式 TeX、修改清单）。
+- **独立审查边界：** 已完成一次独立视角的第二遍 reviewer-style diff 审计，结论为无阻断项。该审计是本轮复核记录，不冒称第三方 GitHub reviewer 的正式批准。PR #67 已由 Draft 转为 Ready for review，并于 2026-11-09 Squash merge 至 main；合并提交为 `144bf8ab444a328587d8bfa82ea375355dd2b40b`。
+
+**合并结论：** PR #67 已成功合并；正式回复信 TeX、58 页 PDF、项目状态记录和完整修改/审查清单均进入 main。论文正文、bibliography、图表和科研脚本未修改。
+## 2026-11-09 更新：回复信文献库单文件化（独立 PR）
+
+- 正式回复信 `Replies_to_Referee_3_referee_facing_2026-11-04.tex` 的文献调用统一为 `\bibliography{references}`。
+- 新增仓库根目录 `references.bib`，合并原论文文献库中的 166 条记录，以及回复信专用的 2+2 条补充记录；共 168 条实际文献记录，168 个 citation keys 唯一；已排除两项 REVTeX 专用 `@CONTROL` 控制条目。
+- 正式回复信的 41 个实际引用键均在合并文献库中找到；未发现缺失或重复键。
+- 删除不再单独调用的 `Replies_to_Referee_3_neutrino_references.bib` 和 `Replies_to_Referee_3_additional_references.bib`。原论文目录 `overleaf-source/axial-vector-model-building-v6/references.bib` 保持原样，论文正文及历史版本不受影响。
+- 根目录现有 `JHEP.bst` 继续作为回复信的文献样式文件。
+- **后续约定：** 独立回复信/Overleaf 项目默认维护单一 `references.bib`；只有在确有独立文献体系时才拆分。论文正文继续使用其项目目录下自己的 `references.bib`。
+
+**构建验收：** GitHub Actions [Run #133](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42565134337) 成功。LaTeX/BibTeX 编译通过；BibTeX 无 missing-entry/database warning（`warning$ -- 0`）；最终 LaTeX 日志无未解析引用/交叉引用；PDF 字体全部嵌入，无 Overfull 警告，保留一处轻微 Underfull `\hbox`。PDF 为 58 页 A4、444,658 bytes；所有页面均已由工作流渲染。新 PDF SHA-256：`a58f2fcf38ddc8d7aa6a3dff6f1ccd3f5a258534778f130ba497632c5334c38b`。
+**工作流清理：** 为本次 PR 临时增加的分支白名单和 `references.bib` 触发路径已恢复；PR 最终 diff 不包含 workflow 修改。
+**当前状态：** PR #70 保持 Open；单文件文献库源码、更新后的 58 页 PDF 和状态记录均已提交到 PR 分支，等待最终审查与合并。
+
+
+## 2026-11-09 更新：PR #64 已合并
+
+[PR #64](https://github.com/lm846802297-bit/axial-vector-review-response/pull/64) 已 squash merge 至 main，合并提交 `1e487bbdf79906489eb85651d05ddf830949acf0`。正式回复信结构、第二轮措辞精简和标量约束表分隔线均已进入 main；论文正文未修改。合并前独立审查记录覆盖科学论证及随后纯排版 diff，本地对相同回复信源码完整编译生成 56 页 PDF；只对表格和部分页面放大检查、全页缩略图巡检，未进行全 PDF 逐页高分辨率验收。GitHub 构建项为 SKIPPED，未做数值复算或新文献核验。仓库根目录历史 PDF 不应视为与此次 TeX 同步；后续需生成并核验正式交付版本。
+
+Major 1.3 的 10–150 GeV 诊断不是全微扰质量范围扫描，Major 4.4 未形成完整轴矢量 SN1987A 输运／排除曲线；论文正文同步仍待基于作者选定的活动源码实施。
+
+## 2026-11-09 更新：PR #64 回复信标量约束表排版
+
+按作者要求，在 Major 1.1 的六项标量约束之间添加横向分隔线及留白，便于区分限制；移除新增排版命令后 TeX 与上一 head 完全一致，未改数值、公式、引用或适用条件。本地重新编译得到 56 页 PDF，并放大检查第 6 页表格；此局部检查不代表全 PDF 的逐页高分辨率验收。此前独立科学审查针对 `e8b69296`，本次排版 diff 已由修改者核对，尚无新的 GitHub review。未修改论文正文。
+
+## 2026-11-09 更新：PR #64 独立差异审查
+
+独立审查者核对了 base `b5115cee` 至回复信 head `e8b69296` 的实际 diff 和删除／合并台账；审查范围内未发现独立物理结论、计算证据或关键条件被误删，防御性措辞没有阻止合并的问题。详细结论和未解决项见 [独立审查记录](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-09/PR64第二轮独立审查记录_2026-11-09.md)。本记录不等于 GitHub review。本地对 56 页 PDF 做全页缩略图巡检，并对受影响页面及表格做局部放大检查；不视为全部页面高分辨率逐页视觉验收。GitHub 检查显示 SKIPPED。论文正文未修改。
+
+## 2026-11-09 更新：PR #64 第二轮防御性措辞精简
+
+PR #64 在独立审查基础上精简 Major 1.3、2、3、4.2–4.4 和 Minor 5、6.5 的重复措辞，保留各项计算和科学适用条件；Minor 6.3 的 Belle 数值为直接回答审稿问题而保留。逐项对照见 [第二轮措辞修订台账](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-09/PR64第二轮措辞修订与保留台账_2026-11-09.md)。本地完整 LaTeX/BibTeX 编译生成 56 页 PDF；逐页视觉检查、CI 和数值复算未执行。作者修改者自查不替代独立 review。Major 1.3 全微扰区间扫描和 Major 4.4 完整 SN 输运曲线仍未完成；论文正文未修改。
+
+**状态快照日期：** 2026-11-09（PR #38–#50、#54–#55、#60–#61、#63–#66 已合并；PR #53/#56/#57 Open / Draft；PR #52/#62 Closed / 未合并；PR #67 Merged（Squash merge））
+
 **本状态快照的初始核验基线：** 243b0e62d9c3912525d1144971a1e81c2af84db7（PR #36 合并前）  
 **项目启动机制合并提交：** [9b4e17519230e9eef65b34b643d3a1f8c19f46a2](https://github.com/lm846802297-bit/axial-vector-review-response/commit/9b4e17519230e9eef65b34b643d3a1f8c19f46a2)  
 **用途：** 每次启动项目时快速恢复当前阶段、权威文件和下一步工作。本文件是可更新的状态快照，不替代物理推导、原始论文、计算证据或作者最新指示。
 
 > **更新原则：** 任务完成、作者改变观点、PR 合并、论文基线更换或计算结论更新后，应检查并更新本文件。尚未重新核验的内容标为“待核验”，不得沿用旧状态作确定陈述。
+
+## 2026-11-09 更新：Major Points 2–4 回复结构调整（PR #64）
+
+[PR #64](https://github.com/lm846802297-bit/axial-vector-review-response/pull/64) 从当前 \`main\` 的 \`b5115cee164561c881ef58e44c2bc1bb77d6c6f1\` 创建，工作分支为 \`review/major-response-structure-20261109\`，合并前为 Open。目标是统一落实“总体回复简洁、具体子回复提供充分物理依据、公式和定量结果”的组织原则。
+
+- **Major 2：** 总体 Reply 压缩为显示窗口及其非普适边界的说明；原有实验覆盖、低/高质量端理由、规范与 Yukawa 微扰性、标量质量条件和 Fig. 2 区域解释均保留，并增加主题导航。
+- **Major 3：** 将结尾的总体审稿人 quote 移至开头，合并重复的总体回复；3.1/3.2 的残余对称性、Weinberg 算符、质量矩阵、type-I seesaw、逆重构、PMNS、异常与双 VEV 适用范围推导均保留。
+- **Major 4.1：** 保留对 \(U_{\rm PMNS}=\operatorname{diag}(1,U_{23})\) 的直接回答、可选 \(\sigma+3N_R\) 场内容、seesaw 重构和双 VEV 边界；将与 Major 3.1/3.2 重复的详细推导改为交叉引用。
+- **Major 4.2–4.4：** 保留现有公式、数值、实验比较和适用条件，增加主题标题；Major 4.3 增加简洁总体回答。
+- **长期规范：** 《审稿回复写作原则》新增强制 §5.1，明确 Overall Reply 与具体子回复的职责。
+- **内部记录：** [Major 2–4 回复结构审查与修订记录](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-09/Major2-4回复结构审查与修订记录_2026-11-09.md)列出修改前后基线、内容保留、移动/合并台账及验证边界。
+- **静态核查：** TeX 132,901 → 130,069 字符；39 个唯一引用键及其集合不变；equation labels 不变；花括号与 LaTeX 环境配对通过。引用出现次数 80 → 72，减少项来自重复段落及 Minor Point 6.2 旧表述中的重复引用。Minor Point 6.2 现以三句正面说明 representative 的含义、来源归一化/质量范围/源假设及表格用途。
+- **未执行：** 完整 LaTeX/BibTeX 编译、PDF 逐页视觉检查、数值重算、文献重新核验和全仓库测试。论文正文、图表、BibTeX 与科研脚本未修改。
+
+**下一步：** 独立审查者检查 PR #64 的实际 TeX diff 与删除/合并台账；通过后再进行最新回复信的完整编译和 PDF 视觉检查。PR #64 不自动合并。
+
+
+### 2026-11-09 追加：PR #64 全信防御性措辞审查
+
+作者确认后，对 PR #64 正式回复信完成一次全信防御性措辞审查，目标是删除不增加科学信息的重复免责声明，同时保留必要的物理适用条件。
+
+- **Major 1.3：** 合并局部 Higgs-pole 诊断窗口与非全局扫描说明；以正面措辞说明 scalar-suppressed benchmark 是 \(A'\) effective-current 与 scalar-mediated observables 的现象学分离，且 \(s\) 仍是 UV 物理自由度。CP-even scalar-bubble、soft bubble-plus-contact、fermionic hard subcalculation、mixing-only rate、complex-pole、near-degenerate diagnostics 等不同计算层级的独立限制全部保留。
+- **Major 2：** 将 plotting-window 的非普适性集中说明一次；精简实验覆盖、耦合端点、表格和总结中的重复解释。保留低质量 \((g-2)_\mu\) 渐近式、约 \(0.57\,\mathrm{MeV}\) 交点、天体物理重叠、实验质量覆盖、规范/VLL Yukawa 微扰性和逐点标量条件；Fig. 2 的四种区域解释保留。
+- **Major 3/4.1：** 只精简结尾重复的模型边界说明；可选 \(\sigma+3N_R\) 完成机制与原单 VEV 模型的区分、双 VEV 适用条件、全部矩阵和 seesaw 公式保留。
+- **Major 4.3 / Minor 3–4：** 合并重复的混合角免责声明；保留独立角度条件、矢量/轴矢量比值、LEP 对照、VLL fit 适用性及原有引用。
+- **Major 4.4：** 将防御式结尾改为 neutrino coalescence、charged-muon axial semi-Compton、kinetic-mixing-induced electromagnetic processes 的正面过程分类；详细输运和适用范围限制保留。
+- **Overall Summary：** 改为概括已给出的 seesaw 构造、动能混合、有限矢量效应、Table II 和恒星冷却过程区分；删除泛化的全局排除免责声明。
+- **静态核查：** 本轮 TeX 字符数 \(130{,}069\rightarrow128{,}331\)；72 次引用出现、39 个唯一 citation keys、equation labels 均保持不变；LaTeX 环境栈与花括号检查通过。
+- **验证边界：** 仅完成源码级静态核查；完整 LaTeX/BibTeX 编译、PDF 逐页视觉检查、数值重算、源文献重新核验和全仓库测试未执行。论文正文、图表、BibTeX 和科研脚本未修改。
+
+**删除/合并记录：** 仅合并相同命题、相同适用条件的重复总结；没有删除独立物理结论、公式、数值 benchmark、引用或计算适用范围。详细逐点记录见 [Major 2–4 回复结构审查与修订记录](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-09/Major2-4回复结构审查与修订记录_2026-11-09.md) §7。PR #64 仍待独立 reviewer 检查实际 diff；不自动合并。
 
 ## 2026-11-06 更新：PR #55 Minor Points 论证扩充与长期写作规范（已合并）
 
@@ -54,7 +149,7 @@
 - **长期规范：** 在审稿回复写作原则新增强制 §2.2「论证充分性原则：从结论陈述到可复核的物理论证」，并同步 §5、§6、§6.1、§7。覆盖物理原因、公式来源、benchmark/近似/数值意义、实验适用性映射和多子问题逐项回答；强调不机械增加篇幅。
 - **内部记录：** Minor Points 论证扩充与复核记录、全信结尾修订审查记录均已写入 2026-11-06 目录。
 - **静态验收：** 78 次引用出现、39 个唯一 citation keys 全部解析；LaTeX 环境配对、花括号、标签和交叉引用检查通过；Minor 6.3 与 main 原段落逐字一致。
-- **完整 LaTeX/PDF 验收：** 已通过 GitHub Actions Run [#3](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42146091113) 对 PR 分支源码完成 `latexmk -g -pdf -bibtex` 编译；最终 PDF 为 59 页 A4，根目录文件为 [Replies_to_Referee_3_referee_facing_2026-11-04.pdf](Replies_to_Referee_3_referee_facing_2026-11-04.pdf)，生成提交为 `8c21ff02a216e636e1655ddb0d1c38488ec6714b`。最终 LaTeX `.log` 无未解析引用/交叉引用，BibTeX `.blg` 无缺失条目或数据库错误；59 页均以 150 dpi 渲染并完成人工页面预览检查。未发现公式/表格裁切、缺字、溢出页边距、空白页或异常分页。仅有一处非阻塞 `Underfull \\hbox`（badness 1199，TeX 第 555–557 行），未发现 `Overfull`。
+- **完整 LaTeX/PDF 验收：** 已通过 GitHub Actions Run [#3](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42146091113) 对 PR 分支源码完成 `latexmk -g -pdf -bibtex` 编译；最终 PDF 为 59 页 A4，根目录文件为 [Replies_to_Referee_3_referee_facing_2026-11-04.pdf](Replies_to_Referee_3_referee_facing_2026-11-04.pdf)，生成提交为 `8c21ff02a216e636e1655ddb0d1c38488ec6714b`。最终 LaTeX `.log` 无未解析引用/交叉引用，BibTeX `.blg` 无缺失条目或数据库错误；59 页均以 150 dpi 渲染并完成人工页面预览检查。未发现公式/表格裁切、缺字、溢出页边距、空白页或异常分页。仅有一处非阻塞 `Underfull \hbox`（badness 1199，TeX 第 555–557 行），未发现 `Overfull`。
 - **本轮未涉及：** 论文正文、图表和 BibTeX 数据库均未修改；完整数值脚本 clean-environment 重跑、detector-level collider 模拟和全仓库测试套件仍未执行。Actions 仅用于正式回复信编译、引用检查和页面渲染。
 
 **合并状态：** PR #55 已合并至 main。其 59 页正式回复信 PDF 和视觉验收记录保留在本节；后续 Major 4.4 的轴矢量 EFT 冷却计算由独立 PR #56 处理。
@@ -360,3 +455,16 @@ Stage A has confirmed the research branch, PR #57 status, archived profile/Fig. 
 The high-order phase-space script now archives the full non-empty radius-energy-direction joint table. The workflow additionally checks escape-probability closure against the archived baseline and independently reconstructs all radius, energy, and four-bin direction marginals from the full joint table. This prevents the top-80 display subset from being mistaken for a complete partition.
 
 The latest push-triggered workflow, [Run #42666123613](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42666123613), again failed before runner allocation: job exists, but \`steps=null\` and \`logs_url=null\`. Thus neither regression tests nor the high-order physical calculation executed. Do not interpret this as a numerical failure and do not trigger more empty runs. The next valid execution route is a local checkout of this exact branch or GitHub Actions after hosted-runner provisioning is restored.
+
+
+### 2026-11-09 追加：PR #64 独立审稿人视角复核
+
+已对 PR #64 当前正式 TeX 与实际 diff 进行独立审稿人视角检查，并对照 referee 原文、AGENTS.md、《审稿回复写作原则》§3.1、§6、§7、正文待同步清单和模型决策登记表。
+
+- **总体结论：** Major 1–4 与当前 Minor 小节均有可识别的直接回答；没有发现系统性过度肯定，也没有发现 Major 1–4 将可选 \(\sigma+3N_R\) 双 VEV 中微子完成机制误用于原论文非中微子问题。
+- **当前主要风险：** 仍是防御性措辞和重复限定偏多，集中在 Major 1.3、Major 2、Major 4.3、Major 4.4、Minor 5、Minor 6.5；Major 1.1 与 Minor 6.3 另有重复的 scalar-search 映射内容。
+- **必须保留的限定：** portal matching 与近简并诊断的不同证据边界、\(\epsilon_{\rm ind}=0\) 与物理动能混合的区别、trident/\((g-2)_\mu\)/dimuon threshold 的过程差异、neutrino-coalescence current-level equality 与完整 SN transport 的区别、各实验的 branching fraction/acceptance/promptness 条件。
+- **实质性范围余项：** Major 1.3 数值扫描为 \(10\)–\(150\) GeV，低于 Benchmark A/B 的完整微扰上限 \(355.4/1579.2\) GeV；Major 4.4 没有完整 axial SN1987A transport/exclusion curve。两者均在回复信中按当前证据范围表述，不应通过修辞夸大为已完成。
+- **下一步：** 先精简同一物理命题的重复否定句和总结句，再复核实际 diff；不新增物理计算、不改论文正文。
+
+详细逐点结论、模型边界核查、实验适用条件和建议修改位置见 [PR #64 独立审稿人视角复核](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-09/PR64独立审稿人视角复核_2026-11-09.md)。该复核形成时 PR #64 尚未合并；当前状态见顶部更新。
