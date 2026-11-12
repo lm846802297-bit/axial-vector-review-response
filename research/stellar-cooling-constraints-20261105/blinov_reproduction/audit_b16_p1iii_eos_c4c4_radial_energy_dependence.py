@@ -17,6 +17,7 @@ from audit_b16_p1iii_eos_full_radial_occupation import load_profile
 from audit_b16_p1iii_eos_c4b2_effective_mass_collision_kernel import HBARC
 import audit_b16_p1iii_eos_c4b2_effective_mass_collision_kernel as b2
 import audit_b16_p1iii_eos_c4c2_full_angle_total_scattering as c4
+import audit_b16_p1iii_eos_c4c1_exact_outgoing_energy_support as c1
 from audit_b16_p1iii_eos_c4c1_exact_outgoing_energy_support import load_c2_reference, SPECIES
 
 HERE = Path(__file__).resolve().parent
@@ -238,7 +239,23 @@ def install_accelerator() -> None:
     b2.contract_moving_eos = fast_contract
 
 
+def validate_kernel_source_pins() -> dict[str, str]:
+    """Verify the exact imported kernel/support source blobs used by this run."""
+    return {
+        "C4-B2 effective-mass kernel": require_blob_sha(
+            Path(b2.__file__), EXPECTED_C4B2_GIT_BLOB, "C4-B2 effective-mass kernel"
+        ),
+        "C4-C1 outgoing-energy support": require_blob_sha(
+            Path(c1.__file__), EXPECTED_C4C1_GIT_BLOB, "C4-C1 outgoing-energy support"
+        ),
+        "C4-C2 full-angle integrator": require_blob_sha(
+            Path(c4.__file__), EXPECTED_C4C2_GIT_BLOB, "C4-C2 full-angle integrator"
+        ),
+    }
+
+
 def load_inputs() -> tuple[list[dict[str, float]], list[dict[str, float]]]:
+    validate_kernel_source_pins()
     require_blob_sha(PROFILE_PATH, EXPECTED_PROFILE_GIT_BLOB, "C1 profile")
     require_blob_sha(C2_PATH, EXPECTED_C2_GIT_BLOB, "C2 occupation")
     profile = load_profile(PROFILE_PATH)
