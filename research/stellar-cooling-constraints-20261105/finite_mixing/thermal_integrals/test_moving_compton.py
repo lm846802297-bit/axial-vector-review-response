@@ -59,7 +59,7 @@ def _spin_summed_axial_matrix_element(p_in, k_gamma, p_out, q_vector,
     # The u-channel internal muon carries p_in-q_A'. Since q_A'^2=m_A'^2,
     # its denominator is m_A'^2-2 p_in.q_A', not the massless-Compton
     # expression -2 p_in.q_A'.
-    den_u = float(q_vector @ rates._METRIC @ q_vector)-2.0*_minkowski_dot(p_in,q_vector)
+    den_u = float(np.dot(q_vector*rates._METRIC,q_vector))-2.0*_minkowski_dot(p_in,q_vector)
     prop_s = (
         rates._slash(p_in+k_gamma)+mass*rates._I4
     )/den_s
