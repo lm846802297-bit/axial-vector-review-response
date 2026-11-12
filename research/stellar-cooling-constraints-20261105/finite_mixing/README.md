@@ -201,3 +201,19 @@ The new test module checks threshold closure, pointwise production/absorption de
 The reproducible scan is [run_dimuon_validation.py](thermal_integrals/run_dimuon_validation.py); it checks the 64/128 and 128/192 emissivity differences, pointwise detailed balance, and the analytic total-width ratio \(\Gamma_A/\Gamma_V=\beta^2/(1+2m_\mu^2/m_{A'}^2)\) at \(m_{A'}=2m_\mu(1+10^{-4},10^{-8},10^{-12})\). The dedicated workflow archives its JSON output at [dimuon_thermal_integral_validation.json](thermal_integrals/outputs/dimuon_thermal_integral_validation.json). A source-equivalent isolated local run passes all seven dedicated tests; the repository Actions result remains the required final environment-level confirmation.
 
 The moving-muon semi-Compton integral remains a separate next implementation. The stationary-target kernel is not silently promoted to the full thermal result. No transport scan, cooling curve, manuscript edit, or referee-response edit is included.
+
+
+## 12. Source-level semi-Compton polarization audit
+
+The source-level audit of Wang and Zhang, arXiv:2610.35379v1, is recorded in [WANG_ZHANG_SEMICOMPTON_POLARIZATION_AUDIT_2026-11-12.md](WANG_ZHANG_SEMICOMPTON_POLARIZATION_AUDIT_2026-11-12.md).
+
+The audit separates four questions that must not be collapsed into a simple T/L label swap:
+
+- The printed Appendix-B angular expressions (B.6a,b) integrate algebraically to (5.9a,b) after restoring the common final-state velocity factor beta.
+- Both printed differential components become negative in nonempty angular regions, despite their sum remaining nonnegative.
+- A conserved vector muon current and the physical projectors in (A.15) require an unsuppressed transverse response and a longitudinal response suppressed by m_Z'^2/E_gamma^2 in the light-vector limit.
+- The integrated formula is not repaired by simply exchanging T and L: after the exchange, the suppressed coefficient still differs by a factor 3/2, and the angular functions remain inconsistent.
+
+The printed u-channel chain in (B.1b) also appears to have a vertex-order issue. The gauge-consistent crossed amplitude must be used in any independent derivation; the status of the printed expression is recorded as an apparent source-level issue, not silently corrected.
+
+This is a microscopic formula audit only. It does not validate the full Blinov Fig. 7 luminosity curve, authorize a rescaling of the vector opacity, or produce a new axial/finite-mixing exclusion curve. No production code is changed.
