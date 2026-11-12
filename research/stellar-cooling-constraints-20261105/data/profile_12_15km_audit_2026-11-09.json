@@ -420,7 +420,7 @@
         },
         {
           "omega_MeV": 20.0,
-          "relative_change_for_alternative_mu_numu": 0.03322976395545396
+          "relative_change_for_alternative_mu_numu": 0.03322976395545374
         },
         {
           "omega_MeV": 30.0,
@@ -442,37 +442,37 @@
       "radius_km": 8.0
     },
     {
-      "T_MeV": 37.6382254906592,
+      "T_MeV": 37.6382254906591,
       "alternative_mu_numu_MeV": 0.0,
       "current_mu_numu_MeV": -15.7916029162886,
       "effects": [
         {
           "omega_MeV": 12.0,
-          "relative_change_for_alternative_mu_numu": 0.021665204340154398
+          "relative_change_for_alternative_mu_numu": 0.021665204340154842
         },
         {
           "omega_MeV": 15.0,
-          "relative_change_for_alternative_mu_numu": 0.02151594825900527
+          "relative_change_for_alternative_mu_numu": 0.02151594825900016
         },
         {
           "omega_MeV": 20.0,
-          "relative_change_for_alternative_mu_numu": 0.021200319585526595
+          "relative_change_for_alternative_mu_numu": 0.021200319585529037
         },
         {
           "omega_MeV": 30.0,
-          "relative_change_for_alternative_mu_numu": 0.0203471024558326
+          "relative_change_for_alternative_mu_numu": 0.020347102455832378
         },
         {
           "omega_MeV": 50.0,
-          "relative_change_for_alternative_mu_numu": 0.018025960605504432
+          "relative_change_for_alternative_mu_numu": 0.018025960605504876
         },
         {
           "omega_MeV": 80.0,
-          "relative_change_for_alternative_mu_numu": 0.014131485106030794
+          "relative_change_for_alternative_mu_numu": 0.014131485106030572
         },
         {
           "omega_MeV": 100.0,
-          "relative_change_for_alternative_mu_numu": 0.011828064192702215
+          "relative_change_for_alternative_mu_numu": 0.011828064192702437
         }
       ],
       "radius_km": 9.0
@@ -556,7 +556,7 @@
       "effects": [
         {
           "omega_MeV": 12.0,
-          "relative_change_for_alternative_mu_numu": 0.00338326941413869
+          "relative_change_for_alternative_mu_numu": 0.003383269414138468
         },
         {
           "omega_MeV": 15.0,
@@ -708,7 +708,7 @@
         },
         {
           "omega_MeV": 20.0,
-          "relative_change_for_alternative_mu_numu": -0.0002554677163916219
+          "relative_change_for_alternative_mu_numu": -0.00025546771639184396
         },
         {
           "omega_MeV": 30.0,
@@ -1023,23 +1023,23 @@
       "susceptibility_ratio_Ferreira_over_Caputo": 3.3707896509212456
     },
     {
-      "Caputo_density_to_own_plot_ratio": 0.9953054206148811,
+      "Caputo_density_to_own_plot_ratio": 0.9953054206148757,
       "Caputo_fermi_density": {
-        "Fdeg": 0.8479270784579127,
-        "n_mu_Fdeg_MeV3": 35023.20200737178,
-        "n_mu_Fdeg_fm3": 0.004558232136462324,
-        "n_mu_MeV3": 41304.497635653905,
-        "n_mu_fm3": 0.005375736018187057
+        "Fdeg": 0.8479270784579126,
+        "n_mu_Fdeg_MeV3": 35023.20200737158,
+        "n_mu_Fdeg_fm3": 0.004558232136462298,
+        "n_mu_MeV3": 41304.49763565368,
+        "n_mu_fm3": 0.005375736018187027
       },
       "Caputo_plotted_muon_density_fm3": 0.005401091872750002,
-      "Ferreira_density_to_Caputo_plot_ratio_using_Caputo_T": 2.358012417787293,
+      "Ferreira_density_to_Caputo_plot_ratio_using_Caputo_T": 2.3580124177872848,
       "Ferreira_density_to_Caputo_plot_ratio_using_Ferreira_T": 2.357016631869668,
       "Ferreira_mu_mu_fermi_density_using_Caputo_T": {
-        "Fdeg": 0.7270634971195529,
-        "n_mu_Fdeg_MeV3": 71147.46063013715,
-        "n_mu_Fdeg_fm3": 0.00925976560920153,
-        "n_mu_MeV3": 97855.91067631084,
-        "n_mu_fm3": 0.012735841705554531
+        "Fdeg": 0.7270634971195525,
+        "n_mu_Fdeg_MeV3": 71147.46063013686,
+        "n_mu_Fdeg_fm3": 0.009259765609201491,
+        "n_mu_MeV3": 97855.9106763105,
+        "n_mu_fm3": 0.012735841705554486
       },
       "Ferreira_mu_mu_fermi_density_using_Ferreira_T": {
         "Fdeg": 0.7270137394012848,
@@ -1048,18 +1048,18 @@
         "n_mu_MeV3": 97814.58623837624,
         "n_mu_fm3": 0.012730463374327847
       },
-      "T_Caputo_MeV": 37.6382254906592,
+      "T_Caputo_MeV": 37.6382254906591,
       "T_Ferreira_MeV": 37.6264222855717,
-      "T_relative_difference": -0.00031359621591172586,
+      "T_relative_difference": -0.00031359621590908377,
       "lapse": 0.800176405319387,
       "mu_mu_Caputo_MeV": 101.268634581918,
       "mu_mu_Ferreira_MeV": 142.404573854579,
-      "mu_mu_over_T_Caputo": 2.690579411270336,
-      "mu_mu_over_T_Ferreira": 3.7835092382322864,
+      "mu_mu_over_T_Caputo": 2.690579411270343,
+      "mu_mu_over_T_Ferreira": 3.783509238232296,
       "mu_mu_relative_difference": 0.4062061213967038,
       "mu_numu_MeV": -15.7916029162886,
       "radius_km": 9.0,
-      "susceptibility_ratio_Ferreira_over_Caputo": 2.0314379197870553
+      "susceptibility_ratio_Ferreira_over_Caputo": 2.0314379197870585
     },
     {
       "Caputo_density_to_own_plot_ratio": 0.9954468454121704,
