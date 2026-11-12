@@ -2,7 +2,7 @@
 
 Date: 2026-11-12  
 Branch: `research/c4c4-energy-dependence-20261112`  
-Status: implementation prepared; high-order numerical comparison pending.
+Status: completed; 80-case combined-order comparison archived; physical validation not claimed.
 
 ## 1. Why this stage is required
 
@@ -42,3 +42,16 @@ C4-B2, C4-C1, C4-C2 source files and the C1/C2 EOS inputs are reused unchanged. 
 ## 5. Next stage
 
 Only after this combined quadrature check passes should C4-C4-B extend the energy scan to all 301 radial points. If it fails, isolate the quadrature dimension(s) responsible and repeat the affected cases with a justified refined order.
+
+
+## Execution update — 2026-11-13
+
+The archived 80-row comparison has been independently inspected.
+
+- All 80 expected energy/radius/target/sign combinations are present.
+- Every base and high-order rate is finite and positive.
+- The maximum support-root relative residual is (5.06778\times10^{-13}).
+- The maximum combined-order relative difference is (8.30690\times10^{-5}) (0.00831%), below the 1% working threshold.
+- The largest per-energy difference occurs at 20 MeV; the per-energy maxima are preserved in the machine-readable summary.
+
+This is a combined quadrature-order stability check at four anchor radii. It is not a pointwise convergence proof over all 301 radii and is not a physical transport or literature-reproduction acceptance.
