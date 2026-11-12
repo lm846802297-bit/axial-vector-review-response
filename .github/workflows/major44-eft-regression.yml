@@ -1,3 +1,4 @@
+# Post-merge validation rerun: execute the full numerical suite on the main-synchronized research tree.
 name: Major 4.4 EFT numerical validation
 
 on:
