@@ -108,6 +108,9 @@ class MovingMuonComptonKernelTests(unittest.TestCase):
         np.testing.assert_allclose(
             result["absorption"]/density,sigma,rtol=5e-4,atol=1e-13
         )
+        normalization = result["unpolarized_normalization"]
+        self.assertGreater(normalization["Eq_5_12_expected_log_ratio"], 700.0)
+        self.assertIsNone(normalization["Eq_5_12_expected_ratio"])
 
     def test_unpolarized_inverse_rate_matches_eq_5_12(self):
         result=moving_muon_compton_rates(
