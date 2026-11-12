@@ -2,9 +2,9 @@
   "title": "Blinov Fig. 7 10 MeV joint production/absorption spatial-weight audit",
   "status": "PASS_FROZEN_PROFILE_SPATIAL_DECOMPOSITION",
   "source": "Blinov et al., arXiv:2511.09619v2, Appendix B, Eqs. (B.1)-(B.5)",
-  "run_commit_sha": "e8fd5d0572474c66bacad334e72d1534843bcadb",
+  "run_commit_sha": "60c69a0b810b679a90683e638fc0a3bc9dd209e4",
   "code_sha256": "668009ddabaa174fb2e797a6d7fa4c0e98be44317b2e6e255b850f1d44b289db",
-  "profile_sha256": "08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9",
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
   "fig7_input_sha256": "8792bf8f816a9838705a6b0e01d908bf3257ec30ef603cceb06afd306ba98cb9",
   "frozen_inputs": {
     "mass_MeV": 10.0,
@@ -35,73 +35,73 @@
   "profile_samples": [
     {
       "r_km": 0.0,
-      "T": 19.26522111,
-      "mu_mu": 46.67432845,
-      "mu_numu": -58.61375672,
-      "lapse": 0.7363304267,
+      "T": 19.265221107965,
+      "mu_mu": 46.6743284468278,
+      "mu_numu": -58.6137567217484,
+      "lapse": 0.736330426690871,
       "nearest_profile_node_km": 0.0,
-      "reduced_neutrino_opacity_at_10p1_MeV_MeV": 0.060388846003914295,
-      "reduced_compton_opacity_at_10p1_MeV_MeV": 0.0009428954515320032
+      "reduced_neutrino_opacity_at_10p1_MeV_MeV": 0.06038884600686395,
+      "reduced_compton_opacity_at_10p1_MeV_MeV": 0.0009428954509060706
     },
     {
       "r_km": 5.0,
-      "T": 25.415151028130232,
-      "mu_mu": 56.2794518209947,
-      "mu_numu": -47.6043332389324,
-      "lapse": 0.7587467360856882,
+      "T": 25.415151027016748,
+      "mu_mu": 56.27945182332639,
+      "mu_numu": -47.604333237135684,
+      "lapse": 0.7587467360990118,
       "nearest_profile_node_km": 5.208295532608921,
-      "reduced_neutrino_opacity_at_10p1_MeV_MeV": 0.056868584369595285,
-      "reduced_compton_opacity_at_10p1_MeV_MeV": 0.0052366115182657935
+      "reduced_neutrino_opacity_at_10p1_MeV_MeV": 0.05686858437244401,
+      "reduced_compton_opacity_at_10p1_MeV_MeV": 0.005236611516923834
     },
     {
       "r_km": 10.0,
-      "T": 33.92103686341906,
-      "mu_mu": 102.79540822946376,
-      "mu_numu": -10.17851881471043,
-      "lapse": 0.8113558509,
+      "T": 33.921036863330166,
+      "mu_mu": 102.79540824440102,
+      "mu_numu": -10.178518812476177,
+      "lapse": 0.8113558508988765,
       "nearest_profile_node_km": 9.861136311594052,
-      "reduced_neutrino_opacity_at_10p1_MeV_MeV": 0.0570502842990746,
-      "reduced_compton_opacity_at_10p1_MeV_MeV": 0.03920469231001679
+      "reduced_neutrino_opacity_at_10p1_MeV_MeV": 0.05705028429589586,
+      "reduced_compton_opacity_at_10p1_MeV_MeV": 0.03920469232653349
     },
     {
       "r_km": 15.0,
-      "T": 13.239679831971731,
-      "mu_mu": 61.97050486167517,
+      "T": 13.23967983183017,
+      "mu_mu": 61.97050485935554,
       "mu_numu": 0.0,
-      "lapse": 0.8634937422734502,
+      "lapse": 0.863493894616827,
       "nearest_profile_node_km": 14.791704467391078,
-      "reduced_neutrino_opacity_at_10p1_MeV_MeV": 0.1394891498200506,
-      "reduced_compton_opacity_at_10p1_MeV_MeV": 0.0006468740495937508
+      "reduced_neutrino_opacity_at_10p1_MeV_MeV": 0.13948914985399039,
+      "reduced_compton_opacity_at_10p1_MeV_MeV": 0.0006468740487273387
     },
     {
       "r_km": 20.0,
-      "T": 4.207610458156907,
-      "mu_mu": 14.760066239853538,
+      "T": 4.207581043944078,
+      "mu_mu": 14.759642191564296,
       "mu_numu": 0.0,
-      "lapse": 0.8988769703472936,
+      "lapse": 0.8988769703475963,
       "nearest_profile_node_km": 19.861136311594052,
-      "reduced_neutrino_opacity_at_10p1_MeV_MeV": 0.4167813423221389,
-      "reduced_compton_opacity_at_10p1_MeV_MeV": 1.109286211603914e-12
+      "reduced_neutrino_opacity_at_10p1_MeV_MeV": 0.41678318096463957,
+      "reduced_compton_opacity_at_10p1_MeV_MeV": 1.1091233937968992e-12
     },
     {
       "r_km": 25.0,
-      "T": 3.033770692,
+      "T": 3.03377069226813,
       "mu_mu": 0.0,
       "mu_numu": 0.0,
-      "lapse": 0.9199124874,
+      "lapse": 0.919912487355853,
       "nearest_profile_node_km": 25.0,
-      "reduced_neutrino_opacity_at_10p1_MeV_MeV": 0.5358088653697817,
-      "reduced_compton_opacity_at_10p1_MeV_MeV": 7.034809356771233e-19
+      "reduced_neutrino_opacity_at_10p1_MeV_MeV": 0.5358088653389339,
+      "reduced_compton_opacity_at_10p1_MeV_MeV": 7.478480365754832e-19
     }
   ],
   "local_rate_closure": {
-    "channel_sum_max_relative_residual": 5.939321839695642e-16,
+    "channel_sum_max_relative_residual": 5.942105768596625e-16,
     "path_shell_additivity_max_relative_residual": {
-      "nu_mu": 1.1885498534196623e-15,
-      "nu_tau": 1.1000403562502414e-15,
-      "compton": 1.5346385426149155e-14
+      "nu_mu": 1.207724663402595e-15,
+      "nu_tau": 1.135136755559539e-15,
+      "compton": 1.463666635757976e-14
     },
-    "total_channel_vs_frozen_total_path_max_relative_residual": 1.2755236191614586e-15
+    "total_channel_vs_frozen_total_path_max_relative_residual": 1.1916871575543795e-15
   },
   "joint_production_absorber_matrix_at_high_coupling": {
     "definition": "Each cell is g^2 times the source-weighted mean optical-depth contribution from the absorber shell, conditional on production in the listed source-radius shell. It is not an absorbed-luminosity fraction.",
@@ -111,285 +111,285 @@
           0.0,
           5.0
         ],
-        "source_weight_fraction": 0.009095671361427051,
+        "source_weight_fraction": 0.009095633889713068,
         "absorber_shell_contributions": [
           {
             "absorber_radius_km": [
               0.0,
               5.0
             ],
-            "mean_neutrino_tau": 1.568648452509092,
-            "mean_compton_tau": 0.05541827058364622,
-            "mean_total_tau": 1.6240667230927381
+            "mean_neutrino_tau": 1.568648461483012,
+            "mean_compton_tau": 0.055418270676924265,
+            "mean_total_tau": 1.6240667321599362
           },
           {
             "absorber_radius_km": [
               5.0,
               10.0
             ],
-            "mean_neutrino_tau": 2.3855301244019897,
-            "mean_compton_tau": 0.9668657937499908,
-            "mean_total_tau": 3.3523959181519807
+            "mean_neutrino_tau": 2.3855280561942185,
+            "mean_compton_tau": 0.9668734260488556,
+            "mean_total_tau": 3.3524014822430743
           },
           {
             "absorber_radius_km": [
               10.0,
               15.0
             ],
-            "mean_neutrino_tau": 2.9339613853853685,
-            "mean_compton_tau": 0.4779141139299795,
-            "mean_total_tau": 3.411875499315348
+            "mean_neutrino_tau": 2.933961412165905,
+            "mean_compton_tau": 0.4779152815162701,
+            "mean_total_tau": 3.411876693682175
           },
           {
             "absorber_radius_km": [
               15.0,
               20.0
             ],
-            "mean_neutrino_tau": 4.72368919770592,
-            "mean_compton_tau": 0.0010440119606287118,
-            "mean_total_tau": 4.724733209666549
+            "mean_neutrino_tau": 4.7237172400031415,
+            "mean_compton_tau": 0.0010439676909476503,
+            "mean_total_tau": 4.7247612076940895
           },
           {
             "absorber_radius_km": [
               20.0,
               25.0
             ],
-            "mean_neutrino_tau": 5.362921263124133,
-            "mean_compton_tau": 1.538814932838684e-12,
-            "mean_total_tau": 5.362921263125672
+            "mean_neutrino_tau": 5.362921104359675,
+            "mean_compton_tau": 1.5382878836888309e-12,
+            "mean_total_tau": 5.362921104361213
           }
         ],
-        "mean_neutrino_tau_all_radii": 16.974750423126505,
-        "mean_compton_tau_all_radii": 1.501242190225784,
-        "mean_total_tau_all_radii": 18.47599261335229
+        "mean_neutrino_tau_all_radii": 16.97477627420595,
+        "mean_compton_tau_all_radii": 1.501250945934536,
+        "mean_total_tau_all_radii": 18.476027220140487
       },
       {
         "production_radius_km": [
           5.0,
           10.0
         ],
-        "source_weight_fraction": 0.5731993883380153,
+        "source_weight_fraction": 0.5732025586527975,
         "absorber_shell_contributions": [
           {
             "absorber_radius_km": [
               0.0,
               5.0
             ],
-            "mean_neutrino_tau": 0.2557428442418024,
-            "mean_compton_tau": 0.010916669296453019,
-            "mean_total_tau": 0.2666595135382554
+            "mean_neutrino_tau": 0.25574276985258987,
+            "mean_compton_tau": 0.010916678768917259,
+            "mean_total_tau": 0.26665944862150714
           },
           {
             "absorber_radius_km": [
               5.0,
               10.0
             ],
-            "mean_neutrino_tau": 2.164029830146747,
-            "mean_compton_tau": 1.268965621185112,
-            "mean_total_tau": 3.432995451331859
+            "mean_neutrino_tau": 2.1640274809696387,
+            "mean_compton_tau": 1.2689756580027687,
+            "mean_total_tau": 3.433003138972407
           },
           {
             "absorber_radius_km": [
               10.0,
               15.0
             ],
-            "mean_neutrino_tau": 2.790040639619156,
-            "mean_compton_tau": 0.6008275334048104,
-            "mean_total_tau": 3.3908681730239665
+            "mean_neutrino_tau": 2.790035378807201,
+            "mean_compton_tau": 0.6008283707365857,
+            "mean_total_tau": 3.390863749543787
           },
           {
             "absorber_radius_km": [
               15.0,
               20.0
             ],
-            "mean_neutrino_tau": 3.504881916051313,
-            "mean_compton_tau": 0.001125210498099478,
-            "mean_total_tau": 3.5060071265494126
+            "mean_neutrino_tau": 3.5048889897279216,
+            "mean_compton_tau": 0.0011251629284636426,
+            "mean_total_tau": 3.5060141526563853
           },
           {
             "absorber_radius_km": [
               20.0,
               25.0
             ],
-            "mean_neutrino_tau": 3.7025468489119158,
-            "mean_compton_tau": 1.5834784818138778e-12,
-            "mean_total_tau": 3.7025468489134994
+            "mean_neutrino_tau": 3.7025381416034295,
+            "mean_compton_tau": 1.5829354059811622e-12,
+            "mean_total_tau": 3.7025381416050123
           }
         ],
-        "mean_neutrino_tau_all_radii": 12.417242078970933,
-        "mean_compton_tau_all_radii": 1.8818350343860584,
-        "mean_total_tau_all_radii": 14.299077113356992
+        "mean_neutrino_tau_all_radii": 12.41723276096078,
+        "mean_compton_tau_all_radii": 1.8818458704383183,
+        "mean_total_tau_all_radii": 14.2990786313991
       },
       {
         "production_radius_km": [
           10.0,
           15.0
         ],
-        "source_weight_fraction": 0.39799661683488374,
+        "source_weight_fraction": 0.39799538904483556,
         "absorber_shell_contributions": [
           {
             "absorber_radius_km": [
               0.0,
               5.0
             ],
-            "mean_neutrino_tau": 0.13690679582529483,
-            "mean_compton_tau": 0.005290493419568566,
-            "mean_total_tau": 0.14219728924486338
+            "mean_neutrino_tau": 0.13690677902025233,
+            "mean_compton_tau": 0.005290492750777478,
+            "mean_total_tau": 0.1421972717710298
           },
           {
             "absorber_radius_km": [
               5.0,
               10.0
             ],
-            "mean_neutrino_tau": 1.1179560285060608,
-            "mean_compton_tau": 0.6145810078329325,
-            "mean_total_tau": 1.7325370363389934
+            "mean_neutrino_tau": 1.1179549249161074,
+            "mean_compton_tau": 0.614584567744081,
+            "mean_total_tau": 1.7325394926601883
           },
           {
             "absorber_radius_km": [
               10.0,
               15.0
             ],
-            "mean_neutrino_tau": 4.2970782218595085,
-            "mean_compton_tau": 0.7474966049517543,
-            "mean_total_tau": 5.044574826811263
+            "mean_neutrino_tau": 4.297078295893615,
+            "mean_compton_tau": 0.7474984744719644,
+            "mean_total_tau": 5.0445767703655795
           },
           {
             "absorber_radius_km": [
               15.0,
               20.0
             ],
-            "mean_neutrino_tau": 5.297839778388402,
-            "mean_compton_tau": 0.001373009884475185,
-            "mean_total_tau": 5.299212788272878
+            "mean_neutrino_tau": 5.297871088367041,
+            "mean_compton_tau": 0.0013729541285349264,
+            "mean_total_tau": 5.299244042495576
           },
           {
             "absorber_radius_km": [
               20.0,
               25.0
             ],
-            "mean_neutrino_tau": 5.435436449891027,
-            "mean_compton_tau": 1.7290365277766842e-12,
-            "mean_total_tau": 5.435436449892756
+            "mean_neutrino_tau": 5.4354360127216435,
+            "mean_compton_tau": 1.7284431033594315e-12,
+            "mean_total_tau": 5.435436012723372
           }
         ],
-        "mean_neutrino_tau_all_radii": 16.28521727447029,
-        "mean_compton_tau_all_radii": 1.3687411160904595,
-        "mean_total_tau_all_radii": 17.65395839056075
+        "mean_neutrino_tau_all_radii": 16.28524710091866,
+        "mean_compton_tau_all_radii": 1.3687464890970864,
+        "mean_total_tau_all_radii": 17.653993590015748
       },
       {
         "production_radius_km": [
           15.0,
           20.0
         ],
-        "source_weight_fraction": 0.018235400764316068,
+        "source_weight_fraction": 0.018233511624416703,
         "absorber_shell_contributions": [
           {
             "absorber_radius_km": [
               0.0,
               5.0
             ],
-            "mean_neutrino_tau": 0.0883790019026677,
-            "mean_compton_tau": 0.002998307311360682,
-            "mean_total_tau": 0.09137730921402838
+            "mean_neutrino_tau": 0.08837949803967642,
+            "mean_compton_tau": 0.0029983252640797685,
+            "mean_total_tau": 0.09137782330375618
           },
           {
             "absorber_radius_km": [
               5.0,
               10.0
             ],
-            "mean_neutrino_tau": 0.6140207922544869,
-            "mean_compton_tau": 0.29416159259152486,
-            "mean_total_tau": 0.9081823848460118
+            "mean_neutrino_tau": 0.6140243701590684,
+            "mean_compton_tau": 0.29416590541976834,
+            "mean_total_tau": 0.9081902755788367
           },
           {
             "absorber_radius_km": [
               10.0,
               15.0
             ],
-            "mean_neutrino_tau": 3.7338551497934294,
-            "mean_compton_tau": 0.3411132072702837,
-            "mean_total_tau": 4.074968357063713
+            "mean_neutrino_tau": 3.73389842422459,
+            "mean_compton_tau": 0.3411171343400499,
+            "mean_total_tau": 4.07501555856464
           },
           {
             "absorber_radius_km": [
               15.0,
               20.0
             ],
-            "mean_neutrino_tau": 15.750200000078499,
-            "mean_compton_tau": 0.002282095193089227,
-            "mean_total_tau": 15.752482095271588
+            "mean_neutrino_tau": 15.750585410080909,
+            "mean_compton_tau": 0.0022820277542598658,
+            "mean_total_tau": 15.75286743783517
           },
           {
             "absorber_radius_km": [
               20.0,
               25.0
             ],
-            "mean_neutrino_tau": 15.38445840885176,
-            "mean_compton_tau": 2.492207405718728e-12,
-            "mean_total_tau": 15.384458408854252
+            "mean_neutrino_tau": 15.384760329959063,
+            "mean_compton_tau": 2.491367221274303e-12,
+            "mean_total_tau": 15.384760329961555
           }
         ],
-        "mean_neutrino_tau_all_radii": 35.570913352880844,
-        "mean_compton_tau_all_radii": 0.6405552023687507,
-        "mean_total_tau_all_radii": 36.211468555249596
+        "mean_neutrino_tau_all_radii": 35.57164803246331,
+        "mean_compton_tau_all_radii": 0.6405633927806493,
+        "mean_total_tau_all_radii": 36.21221142524396
       },
       {
         "production_radius_km": [
           20.0,
           25.0
         ],
-        "source_weight_fraction": 0.0014729227013578175,
+        "source_weight_fraction": 0.001472906788237264,
         "absorber_shell_contributions": [
           {
             "absorber_radius_km": [
               0.0,
               5.0
             ],
-            "mean_neutrino_tau": 0.05979989611891915,
-            "mean_compton_tau": 0.002186546035154867,
-            "mean_total_tau": 0.06198644215407402
+            "mean_neutrino_tau": 0.059799631018095,
+            "mean_compton_tau": 0.002186537534206254,
+            "mean_total_tau": 0.06198616855230125
           },
           {
             "absorber_radius_km": [
               5.0,
               10.0
             ],
-            "mean_neutrino_tau": 0.3948999538541011,
-            "mean_compton_tau": 0.20411103750043708,
-            "mean_total_tau": 0.5990109913545382
+            "mean_neutrino_tau": 0.3948978460662281,
+            "mean_compton_tau": 0.20411167603474353,
+            "mean_total_tau": 0.5990095221009716
           },
           {
             "absorber_radius_km": [
               10.0,
               15.0
             ],
-            "mean_neutrino_tau": 2.097367465404312,
-            "mean_compton_tau": 0.21683240321713892,
-            "mean_total_tau": 2.314199868621451
+            "mean_neutrino_tau": 2.0973568209886597,
+            "mean_compton_tau": 0.21683211407573846,
+            "mean_total_tau": 2.314188935064398
           },
           {
             "absorber_radius_km": [
               15.0,
               20.0
             ],
-            "mean_neutrino_tau": 14.321552647540917,
-            "mean_compton_tau": 0.0009719296263765597,
-            "mean_total_tau": 14.322524577167293
+            "mean_neutrino_tau": 14.321631841682942,
+            "mean_compton_tau": 0.0009718786073996238,
+            "mean_total_tau": 14.322603720290342
           },
           {
             "absorber_radius_km": [
               20.0,
               25.0
             ],
-            "mean_neutrino_tau": 40.8294076139377,
-            "mean_compton_tau": 4.0177234962366355e-12,
-            "mean_total_tau": 40.82940761394171
+            "mean_neutrino_tau": 40.829486211548655,
+            "mean_compton_tau": 4.016301192617841e-12,
+            "mean_total_tau": 40.82948621155267
           }
         ],
-        "mean_neutrino_tau_all_radii": 57.703027576855945,
-        "mean_compton_tau_all_radii": 0.4241019163831251,
-        "mean_total_tau_all_radii": 58.12712949323907
+        "mean_neutrino_tau_all_radii": 57.70317235130458,
+        "mean_compton_tau_all_radii": 0.4241022062561042,
+        "mean_total_tau_all_radii": 58.12727455756068
       }
     ]
   },
@@ -397,192 +397,192 @@
     "weak": {
       "g": 4.796429536550025e-10,
       "reference_luminosity_erg_s": 1.0893295563998579e+52,
-      "calculated_luminosity_erg_s": 9.925353058009873e+51,
-      "calculated_over_reference_minus_one": -0.08885671928224126,
-      "overall_escape_fraction": 0.9978698489543507,
+      "calculated_luminosity_erg_s": 9.925393951149937e+51,
+      "calculated_over_reference_minus_one": -0.08885296530899933,
+      "overall_escape_fraction": 0.9978698512508828,
       "production_shells": [
         {
           "production_radius_km": [
             0.0,
             5.0
           ],
-          "thin_luminosity_erg_s": 9.047046531809053e+49,
-          "thin_source_fraction": 0.009095671361427051,
-          "escaped_luminosity_erg_s": 9.024980778006511e+49,
-          "escaped_luminosity_fraction": 0.009092856168701473,
-          "source_weighted_escape_probability": 0.9975609991918402
+          "thin_luminosity_erg_s": 9.04704651389803e+49,
+          "thin_source_fraction": 0.009095633889713066,
+          "escaped_luminosity_erg_s": 9.024980718887733e+49,
+          "escaped_luminosity_fraction": 0.009092818646097282,
+          "source_weighted_escape_probability": 0.9975609946321821
         },
         {
           "production_radius_km": [
             5.0,
             10.0
           ],
-          "thin_luminosity_erg_s": 5.701351040771222e+51,
-          "thin_source_fraction": 0.5731993883380153,
-          "escaped_luminosity_erg_s": 5.6905863525664785e+51,
-          "escaped_luminosity_fraction": 0.5733384313189858,
-          "source_weighted_escape_probability": 0.9981119057346648
+          "thin_luminosity_erg_s": 5.701406051404752e+51,
+          "thin_source_fraction": 0.5732025586527975,
+          "escaped_luminosity_erg_s": 5.690641258202697e+51,
+          "escaped_luminosity_fraction": 0.5733416009692381,
+          "source_weighted_escape_probability": 0.9981119055361084
         },
         {
           "production_radius_km": [
             10.0,
             15.0
           ],
-          "thin_luminosity_erg_s": 3.95868954465264e+51,
-          "thin_source_fraction": 0.39799661683488374,
-          "escaped_luminosity_erg_s": 3.949464686067512e+51,
-          "escaped_luminosity_fraction": 0.3979167958040796,
-          "source_weighted_escape_probability": 0.9976697191125814
+          "thin_luminosity_erg_s": 3.9586936333022936e+51,
+          "thin_source_fraction": 0.39799538904483556,
+          "escaped_luminosity_erg_s": 3.9494687468380374e+51,
+          "escaped_luminosity_fraction": 0.39791556549555995,
+          "source_weighted_escape_probability": 0.9976697144768536
         },
         {
           "production_radius_km": [
             15.0,
             20.0
           ],
-          "thin_luminosity_erg_s": 1.8137915573839521e+50,
-          "thin_source_fraction": 0.018235400764316068,
-          "escaped_luminosity_erg_s": 1.8051359777985263e+50,
-          "escaped_luminosity_fraction": 0.01818712107517184,
-          "source_weighted_escape_probability": 0.995227908328171
+          "thin_luminosity_erg_s": 1.8136111213135273e+50,
+          "thin_source_fraction": 0.018233511624416703,
+          "escaped_luminosity_erg_s": 1.8049562258114848e+50,
+          "escaped_luminosity_fraction": 0.01818523511202662,
+          "source_weighted_escape_probability": 0.9952278107471164
         },
         {
           "production_radius_km": [
             20.0,
             25.0
           ],
-          "thin_luminosity_erg_s": 1.4650485585322826e+49,
-          "thin_source_fraction": 0.0014729227013578177,
-          "escaped_luminosity_erg_s": 1.4538613815965137e+49,
-          "escaped_luminosity_fraction": 0.001464795633061366,
-          "source_weighted_escape_probability": 0.9923639548528164
+          "thin_luminosity_erg_s": 1.4650387631465067e+49,
+          "thin_source_fraction": 0.0014729067882372638,
+          "escaped_luminosity_erg_s": 1.4538516339177717e+49,
+          "escaped_luminosity_fraction": 0.001464779777078099,
+          "source_weighted_escape_probability": 0.992363936361173
         }
       ]
     },
     "reference_peak": {
       "g": 1.1341108687336194e-08,
       "reference_luminosity_erg_s": 1.910994581282271e+54,
-      "calculated_luminosity_erg_s": 1.9600850743804032e+54,
-      "calculated_over_reference_minus_one": 0.025688452274517992,
-      "overall_escape_fraction": 0.35247471684126236,
+      "calculated_luminosity_erg_s": 1.960094992393127e+54,
+      "calculated_over_reference_minus_one": 0.025693642248796777,
+      "overall_escape_fraction": 0.3524750489497945,
       "production_shells": [
         {
           "production_radius_km": [
             0.0,
             5.0
           ],
-          "thin_luminosity_erg_s": 5.058033619197558e+52,
-          "thin_source_fraction": 0.009095671361427053,
-          "escaped_luminosity_erg_s": 1.4389847562856118e+52,
-          "escaped_luminosity_fraction": 0.007341440303250536,
-          "source_weighted_escape_probability": 0.28449489754753793
+          "thin_luminosity_erg_s": 5.058033609183841e+52,
+          "thin_source_fraction": 0.009095633889713066,
+          "escaped_luminosity_erg_s": 1.438982221570494e+52,
+          "escaped_luminosity_fraction": 0.007341390224223808,
+          "source_weighted_escape_probability": 0.2844943969841843
         },
         {
           "production_radius_km": [
             5.0,
             10.0
           ],
-          "thin_luminosity_erg_s": 3.18751817376819e+54,
-          "thin_source_fraction": 0.5731993883380153,
-          "escaped_luminosity_erg_s": 1.2162949222550413e+54,
-          "escaped_luminosity_fraction": 0.6205316994414238,
-          "source_weighted_escape_probability": 0.3815805450976216
+          "thin_luminosity_erg_s": 3.187548929179122e+54,
+          "thin_source_fraction": 0.5732025586527975,
+          "escaped_luminosity_erg_s": 1.216306872229504e+54,
+          "escaped_luminosity_fraction": 0.6205346562028027,
+          "source_weighted_escape_probability": 0.38158061233047025
         },
         {
           "production_radius_km": [
             10.0,
             15.0
           ],
-          "thin_luminosity_erg_s": 2.2132288956863668e+54,
-          "thin_source_fraction": 0.39799661683488374,
-          "escaped_luminosity_erg_s": 7.148186418341861e+53,
-          "escaped_luminosity_fraction": 0.3646875593194062,
-          "source_weighted_escape_probability": 0.32297546956276585
+          "thin_luminosity_erg_s": 2.213231181573516e+54,
+          "thin_source_fraction": 0.39799538904483556,
+          "escaped_luminosity_erg_s": 7.148183417576218e+53,
+          "escaped_luminosity_fraction": 0.36468556092012816,
+          "source_weighted_escape_probability": 0.322975000401637
         },
         {
           "production_radius_km": [
             15.0,
             20.0
           ],
-          "thin_luminosity_erg_s": 1.014056757993732e+53,
-          "thin_source_fraction": 0.018235400764316068,
-          "escaped_luminosity_erg_s": 1.3357229846743456e+52,
-          "escaped_luminosity_fraction": 0.006814617396627935,
-          "source_weighted_escape_probability": 0.13172073201474604
+          "thin_luminosity_erg_s": 1.0139558795792002e+53,
+          "thin_source_fraction": 0.018233511624416703,
+          "escaped_luminosity_erg_s": 1.3355494371265779e+52,
+          "escaped_luminosity_fraction": 0.006813697511139364,
+          "source_weighted_escape_probability": 0.131716721015597
         },
         {
           "production_radius_km": [
             20.0,
             25.0
           ],
-          "thin_luminosity_erg_s": 8.190811041768174e+51,
-          "thin_source_fraction": 0.0014729227013578177,
-          "escaped_luminosity_erg_s": 1.2244328815759455e+51,
-          "escaped_luminosity_fraction": 0.0006246835392912716,
-          "source_weighted_escape_probability": 0.14948860074198753
+          "thin_luminosity_erg_s": 8.190756277607968e+51,
+          "thin_source_fraction": 0.001472906788237264,
+          "escaped_luminosity_erg_s": 1.2244618190306666e+51,
+          "escaped_luminosity_fraction": 0.0006246951417062149,
+          "source_weighted_escape_probability": 0.1494931331772283
         }
       ]
     },
     "high_absorption": {
       "g": 4.171689650228597e-08,
       "reference_luminosity_erg_s": 1.26781475907372e+52,
-      "calculated_luminosity_erg_s": 2.437334688898462e+52,
-      "calculated_over_reference_minus_one": 0.9224690921560235,
-      "overall_escape_fraction": 0.0003239330494390084,
+      "calculated_luminosity_erg_s": 2.4373650898712115e+52,
+      "calculated_over_reference_minus_one": 0.9224930711896575,
+      "overall_escape_fraction": 0.0003239357559766828,
       "production_shells": [
         {
           "production_radius_km": [
             0.0,
             5.0
           ],
-          "thin_luminosity_erg_s": 6.843758414406731e+53,
-          "thin_source_fraction": 0.009095671361427051,
-          "escaped_luminosity_erg_s": 8.577457816898755e+48,
-          "escaped_luminosity_fraction": 0.00035191957247263745,
-          "source_weighted_escape_probability": 1.2533256286257021e-05
+          "thin_luminosity_erg_s": 6.8437584008577e+53,
+          "thin_source_fraction": 0.009095633889713068,
+          "escaped_luminosity_erg_s": 8.577370735077423e+48,
+          "escaped_luminosity_fraction": 0.00035191161023524157,
+          "source_weighted_escape_probability": 1.2533129068382157e-05
         },
         {
           "production_radius_km": [
             5.0,
             10.0
           ],
-          "thin_luminosity_erg_s": 4.3128626587225505e+55,
-          "thin_source_fraction": 0.5731993883380153,
-          "escaped_luminosity_erg_s": 1.4411561112682353e+52,
-          "escaped_luminosity_fraction": 0.5912836336480144,
-          "source_weighted_escape_probability": 0.0003341530267265916
+          "thin_luminosity_erg_s": 4.3129042722463434e+55,
+          "thin_source_fraction": 0.5732025586527976,
+          "escaped_luminosity_erg_s": 1.4411715981158667e+52,
+          "escaped_luminosity_fraction": 0.5912826125658578,
+          "source_weighted_escape_probability": 0.00033415339343139267
         },
         {
           "production_radius_km": [
             10.0,
             15.0
           ],
-          "thin_luminosity_erg_s": 2.994603242725122e+55,
-          "thin_source_fraction": 0.39799661683488374,
-          "escaped_luminosity_erg_s": 9.123264845863614e+51,
-          "escaped_luminosity_fraction": 0.3743131744449432,
-          "source_weighted_escape_probability": 0.00030465688127557567
+          "thin_luminosity_erg_s": 2.994606335638414e+55,
+          "thin_source_fraction": 0.3979953890448356,
+          "escaped_luminosity_erg_s": 9.1232446298934e+51,
+          "escaped_luminosity_fraction": 0.374307676260985,
+          "source_weighted_escape_probability": 0.0003046558915380253
         },
         {
           "production_radius_km": [
             15.0,
             20.0
           ],
-          "thin_luminosity_erg_s": 1.3720666948248989e+54,
-          "thin_source_fraction": 0.018235400764316068,
-          "escaped_luminosity_erg_s": 1.1612157113697037e+49,
-          "escaped_luminosity_fraction": 0.0004764285006317733,
-          "source_weighted_escape_probability": 8.463259954851512e-06
+          "thin_luminosity_erg_s": 1.3719302015648177e+54,
+          "thin_source_fraction": 0.018233511624416707,
+          "escaped_luminosity_erg_s": 1.1610165481321895e+49,
+          "escaped_luminosity_fraction": 0.000476340845676729,
+          "source_weighted_escape_probability": 8.462650263168921e-06
         },
         {
           "production_radius_km": [
             20.0,
             25.0
           ],
-          "thin_luminosity_erg_s": 1.108255425095605e+53,
-          "thin_source_fraction": 0.0014729227013578177,
-          "escaped_luminosity_erg_s": 8.183313155080601e+50,
-          "escaped_luminosity_fraction": 0.03357484383393813,
-          "source_weighted_escape_probability": 0.0073839594824222565
+          "thin_luminosity_erg_s": 1.1082480152460382e+53,
+          "thin_source_fraction": 0.001472906788237264,
+          "escaped_luminosity_erg_s": 8.185027514436496e+50,
+          "escaped_luminosity_fraction": 0.03358145871724529,
+          "source_weighted_escape_probability": 0.007385555761739277
         }
       ]
     }
