@@ -5,6 +5,12 @@
     "energy_momentum_temperature": "MeV",
     "rates": "MeV"
   },
+  "polarization_basis": "Medium-rest-frame basis with A' momentum along +z; mode order (L,+,-), physical longitudinal epsilon_L=(|k|/m,0,0,omega/m) and two circular transverse modes. For the conserved vector current, epsilon_L-q/m is used as a numerically stable gauge-equivalent vector.",
+  "mode_order": [
+    "L",
+    "+",
+    "-"
+  ],
   "method": {
     "phase_space": "Exact 2<->2 collision integral with final-state delta eliminated analytically",
     "angular_quadrature": "Gauss-Legendre in cos(theta_p), cos(theta_gamma); periodic trapezoid in relative azimuth",
@@ -14,10 +20,10 @@
   },
   "source_sha256": {
     "rates.py": "2fc7bc2d3b0d7b98c191755cd2bb87944e4ebe259adc3d3bbc8e0f60dcc57f56",
-    "moving_compton.py": "0319b4be8c91a438c648c0b662dbdf15e3565b8f1d3544ad5f6752f1941ca9ef",
-    "test_moving_compton.py": "bb63fdcbbd108c464a61b7fabcfa84d3c26a086dca37572910bbf9cd0d671809",
+    "moving_compton.py": "a2c119eb3994a3051a3911b8f45f2a87e82551480b03e510d262514928d3cd80",
+    "test_moving_compton.py": "86799d6f9f1e3b750b5c891457a86c0ec3badab1cde75865914e00b78c7744a3",
     "derivation.md": "9ccbf2c5840aee9a1e914368ba903d2ce4ab146021dac1d12f067440dd60f7eb",
-    "run_moving_compton_validation.py": "052bfb5fa6c0fcdfe591f24bd78a28748fa050f628531f61643516f038867f1d"
+    "run_moving_compton_validation.py": "e7f89631b6ca39d0f37a61ca5097a20ec7546d6d964959737507ea0efbeb16aa"
   },
   "matrix_element_checks": {
     "stationary_endpoint_relative_residual": {
@@ -37,6 +43,16 @@
     "nondegenerate_muon_gas": {
       "temperature_MeV": 20.0,
       "muon_chemical_potential_MeV": 45.0,
+      "coarse_production_by_mode": [
+        0.001348987094679034,
+        0.00019125019941257536,
+        0.0001792367256075498
+      ],
+      "fine_production_by_mode": [
+        0.0013489529955462674,
+        0.0001912471457272886,
+        0.00017923374343627177
+      ],
       "coarse_absorption_by_mode": [
         0.004708427605619863,
         0.0006675287866328573,
@@ -60,6 +76,16 @@
     "degenerate_core_like_gas": {
       "temperature_MeV": 19.3,
       "muon_chemical_potential_MeV": 254.9,
+      "coarse_production_by_mode": [
+        0.024660997658006303,
+        0.00626937362648102,
+        0.00598243456676674
+      ],
+      "fine_production_by_mode": [
+        0.024659599898348136,
+        0.006270912144254333,
+        0.005983939916303277
+      ],
       "coarse_absorption_by_mode": [
         0.09006753168492833,
         0.022897168053718702,
@@ -90,6 +116,7 @@
     "zero_mu_interference_cancellation_pass": true,
     "nonzero_mu_interference_retained": true,
     "quadrature_convergence_pass": true,
+    "mode_resolved_positive_rates_pass": true,
     "detailed_balance_pass": true,
     "max_stationary_endpoint_relative_residual": 0.0,
     "max_thermal_quadrature_relative_difference": 0.0002515649484505436,
