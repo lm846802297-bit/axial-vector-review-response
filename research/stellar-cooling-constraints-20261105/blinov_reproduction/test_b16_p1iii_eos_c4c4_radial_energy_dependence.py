@@ -31,8 +31,8 @@ class C4C4BRadialEnergyDependenceTests(unittest.TestCase):
         r = np.asarray([0.0, 0.5, 1.0])
         k = np.asarray([2.0, 2.0, 2.0])
         tau = c4c4.tau_from_kappa(r, k)
-        self.assertAlmostEqual(tau[0], 2.0 * c4c4.KM_TO_MEV_INV, places=10)
-        self.assertAlmostEqual(tau[1], 1.0 * c4c4.KM_TO_MEV_INV, places=10)
+        self.assertAlmostEqual(tau[0] / (2.0 * c4c4.KM_TO_MEV_INV), 1.0, places=14)
+        self.assertAlmostEqual(tau[1] / c4c4.KM_TO_MEV_INV, 1.0, places=14)
         self.assertEqual(tau[2], 0.0)
         self.assertTrue(np.all(np.diff(tau) <= 0.0))
 
