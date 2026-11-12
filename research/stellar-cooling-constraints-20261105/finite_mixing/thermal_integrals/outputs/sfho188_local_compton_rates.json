@@ -58,7 +58,7 @@
     "all_rates_finite_and_nonnegative": true,
     "detailed_balance_max_relative_residual": 3.922850286649499e-14,
     "detailed_balance_pass": true,
-    "refinement_max_relative_difference": 0.0010783542799826591,
+    "refinement_max_relative_difference": 0.001078354279982884,
     "refinement_pass": true
   },
   "refinement_checks": [
@@ -84,7 +84,7 @@
       "mass_MeV": 100.0,
       "omega_over_mass": 1.5,
       "coarse_absorption_by_mode_MeV": [
-        0.007724632390922761,
+        0.007724632390922762,
         0.006188009218161754,
         0.006187322365161974
       ],
@@ -93,7 +93,7 @@
         0.006182449495155405,
         0.006181764012827946
       ],
-      "relative_difference_absorption": 0.0010783542799826591,
+      "relative_difference_absorption": 0.001078354279982884,
       "fine_detailed_balance_relative_residual": 1.2503277947815855e-15
     },
     {
@@ -224,7 +224,7 @@
         0.0007894650640421781
       ],
       "gamma_abs_total_by_mode_MeV": [
-        0.0015920499396182613,
+        0.001592049939618261,
         0.001361558070200601,
         0.0013615501877219935
       ],
@@ -236,11 +236,11 @@
             0.0007831177354048405
           ],
           "gamma_abs_by_mode_MeV": [
-            0.001579251066170033,
+            0.0015792510661700326,
             0.0013506112202353257,
             0.0013506032732968627
           ],
-          "detailed_balance_relative_residual": 3.4336642802599382e-15
+          "detailed_balance_relative_residual": 3.788870929942001e-15
         },
         "mu_plus": {
           "gamma_prod_by_mode_MeV": [
@@ -250,13 +250,13 @@
           ],
           "gamma_abs_by_mode_MeV": [
             1.2798873448228299e-05,
-            1.0946849965275334e-05,
+            1.0946849965275332e-05,
             1.0946914425130939e-05
           ],
-          "detailed_balance_relative_residual": 2.9358546931716544e-15
+          "detailed_balance_relative_residual": 3.0693026337703657e-15
         }
       },
-      "total_detailed_balance_relative_residual": 3.4060602249516696e-15,
+      "total_detailed_balance_relative_residual": 3.64096093012075e-15,
       "quadrature_points_all_charges": 24576
     },
     {
@@ -269,7 +269,7 @@
       "omega_infinity_MeV": 11.044956400363064,
       "omega_over_mass": 1.5,
       "gamma_prod_total_by_mode_MeV": [
-        0.0014603261907257142,
+        0.001460326190725714,
         0.0005141821101615026,
         0.0005141721013952448
       ],
@@ -281,7 +281,7 @@
       "charge_contributions": {
         "mu_minus": {
           "gamma_prod_by_mode_MeV": [
-            0.0014485672423201377,
+            0.0014485672423201375,
             0.0005100418013503258,
             0.0005100317105861132
           ],
@@ -290,7 +290,7 @@
             0.0011110911356433898,
             0.0011110691536045845
           ],
-          "detailed_balance_relative_residual": 2.095702563380554e-15
+          "detailed_balance_relative_residual": 1.946009523139086e-15
         },
         "mu_plus": {
           "gamma_prod_by_mode_MeV": [
@@ -306,7 +306,7 @@
           "detailed_balance_relative_residual": 5.319133821409785e-15
         }
       },
-      "total_detailed_balance_relative_residual": 2.0788273895510825e-15,
+      "total_detailed_balance_relative_residual": 1.9303397188688624e-15,
       "quadrature_points_all_charges": 24576
     },
     {
@@ -321,7 +321,7 @@
       "gamma_prod_total_by_mode_MeV": [
         0.0014357546230490442,
         0.00014598459905651494,
-        0.0001459780590164964
+        0.00014597805901649637
       ],
       "gamma_abs_total_by_mode_MeV": [
         0.006813465278731615,
@@ -333,7 +333,7 @@
           "gamma_prod_by_mode_MeV": [
             0.0014241699115016002,
             0.00014480816911298968,
-            0.0001448015754524201
+            0.00014480157545242007
           ],
           "gamma_abs_by_mode_MeV": [
             0.006758489290059535,
@@ -345,12 +345,12 @@
         "mu_plus": {
           "gamma_prod_by_mode_MeV": [
             1.1584711547444056e-05,
-            1.1764299435252497e-06,
+            1.17642994352525e-06,
             1.1764835640762956e-06
           ],
           "gamma_abs_by_mode_MeV": [
             5.4975988672080085e-05,
-            5.5828234465630235e-06,
+            5.582823446563023e-06,
             5.5830779063132684e-06
           ],
           "detailed_balance_relative_residual": 3.948288135134778e-15
@@ -496,14 +496,14 @@
           "gamma_prod_by_mode_MeV": [
             6.171060758993235e-10,
             5.2957091479803e-10,
-            5.296218783429304e-10
+            5.296218783429303e-10
           ],
           "gamma_abs_by_mode_MeV": [
             1.4852478799705066e-06,
             1.274568683109402e-06,
             1.2746913419195662e-06
           ],
-          "detailed_balance_relative_residual": 6.247329624229971e-15
+          "detailed_balance_relative_residual": 6.0521005734727856e-15
         }
       },
       "total_detailed_balance_relative_residual": 2.586293185726527e-15,
@@ -519,7 +519,7 @@
       "omega_infinity_MeV": 220.8991280072613,
       "omega_over_mass": 3.0,
       "gamma_prod_total_by_mode_MeV": [
-        2.609176149401896e-11,
+        2.6091761494018957e-11,
         1.728114882165735e-11,
         1.7278249540969553e-11
       ],
@@ -531,7 +531,7 @@
       "charge_contributions": {
         "mu_minus": {
           "gamma_prod_by_mode_MeV": [
-            2.5885136992818897e-11,
+            2.5885136992818894e-11,
             1.7144083888210748e-11,
             1.7141161285882247e-11
           ],
@@ -540,23 +540,23 @@
             9.930989450794956e-05,
             9.929296485858311e-05
           ],
-          "detailed_balance_relative_residual": 3.869649302189575e-15
+          "detailed_balance_relative_residual": 3.74482190534475e-15
         },
         "mu_plus": {
           "gamma_prod_by_mode_MeV": [
             2.0662450120006429e-13,
             1.370649334466027e-13,
-            1.3708825508730536e-13
+            1.3708825508730534e-13
           ],
           "gamma_abs_by_mode_MeV": [
             1.1969060318846686e-06,
             7.939709214023156e-07,
             7.941060157994918e-07
           ],
-          "detailed_balance_relative_residual": 8.286338627585677e-15
+          "detailed_balance_relative_residual": 8.47047948597647e-15
         }
       },
-      "total_detailed_balance_relative_residual": 3.8390049795719784e-15,
+      "total_detailed_balance_relative_residual": 3.715166109263205e-15,
       "quadrature_points_all_charges": 24576
     },
     {
@@ -721,7 +721,7 @@
       "gamma_prod_total_by_mode_MeV": [
         4.960654484377516e-20,
         6.645022296368245e-20,
-        6.643711156701794e-20
+        6.643711156701793e-20
       ],
       "gamma_abs_total_by_mode_MeV": [
         3.748617267482348e-05,
@@ -733,19 +733,19 @@
           "gamma_prod_by_mode_MeV": [
             4.92131082921541e-20,
             6.592327965782378e-20,
-            6.591006267145651e-20
+            6.59100626714565e-20
           ],
           "gamma_abs_by_mode_MeV": [
             3.718886451604925e-05,
             4.981623800501321e-05,
             4.9806250326275005e-05
           ],
-          "detailed_balance_relative_residual": 8.218286782080223e-15
+          "detailed_balance_relative_residual": 8.035658186922884e-15
         },
         "mu_plus": {
           "gamma_prod_by_mode_MeV": [
             3.934365516210587e-22,
-            5.269433058586689e-22,
+            5.269433058586688e-22,
             5.270488955614273e-22
           ],
           "gamma_abs_by_mode_MeV": [
@@ -756,7 +756,7 @@
           "detailed_balance_relative_residual": 2.1511878576223923e-15
         }
       },
-      "total_detailed_balance_relative_residual": 8.153090706126e-15,
+      "total_detailed_balance_relative_residual": 7.971910912656533e-15,
       "quadrature_points_all_charges": 24576
     },
     {
@@ -870,7 +870,7 @@
       "omega_over_mass": 1.5,
       "gamma_prod_total_by_mode_MeV": [
         4.077378102164698e-15,
-        4.8322508159424216e-15,
+        4.832250815942421e-15,
         4.831672797660849e-15
       ],
       "gamma_abs_total_by_mode_MeV": [
@@ -882,7 +882,7 @@
         "mu_minus": {
           "gamma_prod_by_mode_MeV": [
             4.045059791551454e-15,
-            4.793950580988169e-15,
+            4.793950580988168e-15,
             4.793367916673969e-15
           ],
           "gamma_abs_by_mode_MeV": [
@@ -944,13 +944,13 @@
         },
         "mu_plus": {
           "gamma_prod_by_mode_MeV": [
-            1.0159551648540118e-27,
+            1.0159551648540117e-27,
             1.619768808161322e-27,
             1.6201027540091242e-27
           ],
           "gamma_abs_by_mode_MeV": [
-            1.9747369609845386e-07,
-            3.1483843425173794e-07,
+            1.9747369609845384e-07,
+            3.148384342517379e-07,
             3.1490334412487246e-07
           ],
           "detailed_balance_relative_residual": 7.08562280469048e-15
@@ -970,7 +970,7 @@
       "omega_over_mass": 10.0,
       "gamma_prod_total_by_mode_MeV": [
         1.1466248917071663e-73,
-        2.518981540986966e-73,
+        2.5189815409869656e-73,
         2.5182183332226017e-73
       ],
       "gamma_abs_total_by_mode_MeV": [
@@ -982,7 +982,7 @@
         "mu_minus": {
           "gamma_prod_by_mode_MeV": [
             1.1374235048068905e-73,
-            2.49878100697823e-73,
+            2.4987810069782298e-73,
             2.4980115778534833e-73
           ],
           "gamma_abs_by_mode_MeV": [
@@ -990,7 +990,7 @@
             1.0629444554123195e-05,
             1.0626171516511293e-05
           ],
-          "detailed_balance_relative_residual": 9.932993924329738e-15
+          "detailed_balance_relative_residual": 9.807259824021768e-15
         },
         "mu_plus": {
           "gamma_prod_by_mode_MeV": [
@@ -1006,7 +1006,7 @@
           "detailed_balance_relative_residual": 7.047522131448002e-15
         }
       },
-      "total_detailed_balance_relative_residual": 9.97806380608742e-15,
+      "total_detailed_balance_relative_residual": 9.853338008511328e-15,
       "quadrature_points_all_charges": 24576
     },
     {
@@ -1020,7 +1020,7 @@
       "omega_over_mass": 1.05,
       "gamma_prod_total_by_mode_MeV": [
         0.006028308228899345,
-        0.005129638347310787,
+        0.005129638347310786,
         0.005129609349243682
       ],
       "gamma_abs_total_by_mode_MeV": [
@@ -1032,7 +1032,7 @@
         "mu_minus": {
           "gamma_prod_by_mode_MeV": [
             0.005950884759976588,
-            0.005063742017650341,
+            0.00506374201765034,
             0.005063712635966493
           ],
           "gamma_abs_by_mode_MeV": [
@@ -1040,7 +1040,7 @@
             0.007661039708072673,
             0.007660995255917358
           ],
-          "detailed_balance_relative_residual": 1.8841755927960187e-15
+          "detailed_balance_relative_residual": 1.7128968413960034e-15
         },
         "mu_plus": {
           "gamma_prod_by_mode_MeV": [
@@ -1056,7 +1056,7 @@
           "detailed_balance_relative_residual": 3.4962942980337783e-15
         }
       },
-      "total_detailed_balance_relative_residual": 2.029059389989436e-15,
+      "total_detailed_balance_relative_residual": 1.8599816220467505e-15,
       "quadrature_points_all_charges": 24576
     },
     {
@@ -1100,7 +1100,7 @@
           ],
           "gamma_abs_by_mode_MeV": [
             0.00023217384637593466,
-            7.92827773069812e-05,
+            7.928277730698121e-05,
             7.928433451790236e-05
           ],
           "detailed_balance_relative_residual": 4.218394418738111e-15
@@ -1140,7 +1140,7 @@
             0.0035204286189008623,
             0.003520268916775024
           ],
-          "detailed_balance_relative_residual": 2.677924349549298e-15
+          "detailed_balance_relative_residual": 2.8354493112874925e-15
         },
         "mu_plus": {
           "gamma_prod_by_mode_MeV": [
@@ -1150,13 +1150,13 @@
           ],
           "gamma_abs_by_mode_MeV": [
             0.00047457910189647713,
-            4.6259970536688585e-05,
+            4.625997053668859e-05,
             4.626207782256479e-05
           ],
-          "detailed_balance_relative_residual": 5.139655675222237e-15
+          "detailed_balance_relative_residual": 5.020128799054277e-15
         }
       },
-      "total_detailed_balance_relative_residual": 2.48755657844759e-15,
+      "total_detailed_balance_relative_residual": 2.6430288646005643e-15,
       "quadrature_points_all_charges": 24576
     },
     {
@@ -1320,7 +1320,7 @@
       "omega_over_mass": 3.0,
       "gamma_prod_total_by_mode_MeV": [
         5.229270409310834e-09,
-        3.3806830537678285e-09,
+        3.380683053767828e-09,
         3.380104462864353e-09
       ],
       "gamma_abs_total_by_mode_MeV": [
@@ -1332,7 +1332,7 @@
         "mu_minus": {
           "gamma_prod_by_mode_MeV": [
             5.164846933937664e-09,
-            3.338780431630925e-09,
+            3.3387804316309247e-09,
             3.3381945394753524e-09
           ],
           "gamma_abs_by_mode_MeV": [
@@ -1500,10 +1500,10 @@
           ],
           "gamma_abs_by_mode_MeV": [
             4.231080215254168e-06,
-            4.786825836640202e-06,
+            4.786825836640201e-06,
             4.787407130873544e-06
           ],
-          "detailed_balance_relative_residual": 7.107961598402582e-15
+          "detailed_balance_relative_residual": 7.25919482390051e-15
         }
       },
       "total_detailed_balance_relative_residual": 5.033735566301372e-15,
@@ -1524,7 +1524,7 @@
         1.1536127988574205e-15
       ],
       "gamma_abs_total_by_mode_MeV": [
-        0.00017269634203049788,
+        0.00017269634203049785,
         0.0002316732919736173,
         0.0002316268902721321
       ],
@@ -1536,7 +1536,7 @@
             1.1393522482814336e-15
           ],
           "gamma_abs_by_mode_MeV": [
-            0.0001705630988220425,
+            0.00017056309882204247,
             0.0002288105889935453,
             0.0002287636011453507
           ],
@@ -1544,7 +1544,7 @@
         },
         "mu_plus": {
           "gamma_prod_by_mode_MeV": [
-            1.0624572412376138e-17,
+            1.062457241237614e-17,
             1.4257631284771643e-17,
             1.426055057598685e-17
           ],
@@ -1553,7 +1553,7 @@
             2.8627029800720083e-06,
             2.863289126781405e-06
           ],
-          "detailed_balance_relative_residual": 6.090715336085581e-15
+          "detailed_balance_relative_residual": 5.945698304274019e-15
         }
       },
       "total_detailed_balance_relative_residual": 6.838177471698719e-15,
@@ -1574,9 +1574,9 @@
         1.6851780006140187e-42
       ],
       "gamma_abs_total_by_mode_MeV": [
-        5.312662647327957e-05,
+        5.3126626473279556e-05,
         7.9897863158781e-05,
-        7.987462220918053e-05
+        7.987462220918052e-05
       ],
       "charge_contributions": {
         "mu_minus": {
@@ -1586,9 +1586,9 @@
             1.664611513419657e-42
           ],
           "gamma_abs_by_mode_MeV": [
-            5.247831892217774e-05,
+            5.2478318922177724e-05,
             7.892333651804099e-05,
-            7.889980507163125e-05
+            7.889980507163123e-05
           ],
           "detailed_balance_relative_residual": 1.0715599032190123e-14
         },
@@ -1600,10 +1600,10 @@
           ],
           "gamma_abs_by_mode_MeV": [
             6.483075511018324e-07,
-            9.745266407400133e-07,
-            9.74817137549279e-07
+            9.745266407400131e-07,
+            9.748171375492788e-07
           ],
-          "detailed_balance_relative_residual": 8.232639365808629e-15
+          "detailed_balance_relative_residual": 7.99050291387308e-15
         }
       },
       "total_detailed_balance_relative_residual": 1.0395883149972584e-14,
@@ -1721,7 +1721,7 @@
       "gamma_prod_total_by_mode_MeV": [
         4.315993949639556e-20,
         6.954518240088571e-20,
-        6.953088278865802e-20
+        6.953088278865799e-20
       ],
       "gamma_abs_total_by_mode_MeV": [
         0.00011165880569946005,
@@ -1733,14 +1733,14 @@
           "gamma_prod_by_mode_MeV": [
             4.262582623647942e-20,
             6.86853131241306e-20,
-            6.867083252920033e-20
+            6.867083252920029e-20
           ],
           "gamma_abs_by_mode_MeV": [
             0.00011027700467271248,
             0.00017769533789949892,
             0.00017765787524420587
           ],
-          "detailed_balance_relative_residual": 1.4198197377779658e-14
+          "detailed_balance_relative_residual": 1.3672338215639677e-14
         },
         "mu_plus": {
           "gamma_prod_by_mode_MeV": [
@@ -1756,7 +1756,7 @@
           "detailed_balance_relative_residual": 6.162333776958012e-15
         }
       },
-      "total_detailed_balance_relative_residual": 1.419569343738385e-14,
+      "total_detailed_balance_relative_residual": 1.3676338799430789e-14,
       "quadrature_points_all_charges": 24576
     },
     {
@@ -1775,7 +1775,7 @@
       ],
       "gamma_abs_total_by_mode_MeV": [
         2.1824969081385237e-05,
-        4.88365182455453e-05,
+        4.883651824554529e-05,
         4.8821756323028713e-05
       ],
       "charge_contributions": {
@@ -1787,10 +1787,10 @@
           ],
           "gamma_abs_by_mode_MeV": [
             2.155070945982143e-05,
-            4.822416780029413e-05,
+            4.8224167800294125e-05,
             4.820921606943023e-05
           ],
-          "detailed_balance_relative_residual": 6.1376127515755014e-15
+          "detailed_balance_relative_residual": 6.249205710695056e-15
         },
         "mu_plus": {
           "gamma_prod_by_mode_MeV": [
@@ -1799,7 +1799,7 @@
             2.5768796166555448e-58
           ],
           "gamma_abs_by_mode_MeV": [
-            2.742596215638073e-07,
+            2.7425962156380723e-07,
             6.123504452511677e-07,
             6.125402535984829e-07
           ],
@@ -1871,7 +1871,7 @@
       "gamma_prod_total_by_mode_MeV": [
         0.13899163093297215,
         0.04523393451963151,
-        0.045233119231625964
+        0.04523311923162596
       ],
       "gamma_abs_total_by_mode_MeV": [
         0.20449473384402558,
@@ -1883,7 +1883,7 @@
           "gamma_prod_by_mode_MeV": [
             0.13724056417829683,
             0.04466575279967129,
-            0.044664926715684464
+            0.04466492671568446
           ],
           "gamma_abs_by_mode_MeV": [
             0.20191843534650572,
@@ -1920,7 +1920,7 @@
       "omega_over_mass": 3.0,
       "gamma_prod_total_by_mode_MeV": [
         0.1684892417517241,
-        0.015826130139472414,
+        0.01582613013947241,
         0.015825456777531267
       ],
       "gamma_abs_total_by_mode_MeV": [
@@ -1932,7 +1932,7 @@
         "mu_minus": {
           "gamma_prod_by_mode_MeV": [
             0.16623944361592652,
-            0.015620539139453332,
+            0.01562053913945333,
             0.015619856552589824
           ],
           "gamma_abs_by_mode_MeV": [
@@ -1995,7 +1995,7 @@
         "mu_plus": {
           "gamma_prod_by_mode_MeV": [
             0.0005352039826239273,
-            1.028689184268028e-05,
+            1.0286891842680284e-05,
             1.0288105017264211e-05
           ],
           "gamma_abs_by_mode_MeV": [
@@ -2003,7 +2003,7 @@
             0.000134971069923431,
             0.00013498698760528317
           ],
-          "detailed_balance_relative_residual": 1.6468199728512034e-15
+          "detailed_balance_relative_residual": 1.9761839674214434e-15
         }
       },
       "total_detailed_balance_relative_residual": 2.8502684754591466e-15,
@@ -2074,7 +2074,7 @@
         0.00013018710462599895
       ],
       "gamma_abs_total_by_mode_MeV": [
-        0.007724632390922761,
+        0.007724632390922762,
         0.006188009218161754,
         0.006187322365161974
       ],
@@ -2086,7 +2086,7 @@
             0.00012863255829651646
           ],
           "gamma_abs_by_mode_MeV": [
-            0.007635098601629856,
+            0.007635098601629858,
             0.006114135139338123,
             0.006113440398897193
           ],
@@ -2095,15 +2095,15 @@
         "mu_plus": {
           "gamma_prod_by_mode_MeV": [
             1.8838754644283655e-06,
-            1.5543803702734028e-06,
+            1.5543803702734026e-06,
             1.554546329482495e-06
           ],
           "gamma_abs_by_mode_MeV": [
             8.953378929290431e-05,
-            7.38740788236307e-05,
-            7.388196626478016e-05
+            7.387407882363069e-05,
+            7.388196626478015e-05
           ],
-          "detailed_balance_relative_residual": 3.405830401350355e-15
+          "detailed_balance_relative_residual": 3.405830401350356e-15
         }
       },
       "total_detailed_balance_relative_residual": 3.955814467263047e-15,
@@ -2270,7 +2270,7 @@
       "omega_over_mass": 1.5,
       "gamma_prod_total_by_mode_MeV": [
         5.974819277112053e-07,
-        6.691041813939787e-07,
+        6.691041813939788e-07,
         6.690118778565167e-07
       ],
       "gamma_abs_total_by_mode_MeV": [
@@ -2282,7 +2282,7 @@
         "mu_minus": {
           "gamma_prod_by_mode_MeV": [
             5.910447285389156e-07,
-            6.618051368841155e-07,
+            6.618051368841156e-07,
             6.617118774974719e-07
           ],
           "gamma_abs_by_mode_MeV": [
@@ -2290,7 +2290,7 @@
             0.003235837022725848,
             0.003235381039296299
           ],
-          "detailed_balance_relative_residual": 5.279516148626999e-15
+          "detailed_balance_relative_residual": 5.439501486464179e-15
         },
         "mu_plus": {
           "gamma_prod_by_mode_MeV": [
@@ -2306,7 +2306,7 @@
           "detailed_balance_relative_residual": 3.626471871205607e-15
         }
       },
-      "total_detailed_balance_relative_residual": 5.380163696378257e-15,
+      "total_detailed_balance_relative_residual": 5.538403805095264e-15,
       "quadrature_points_all_charges": 24576
     },
     {
@@ -2445,7 +2445,7 @@
         "mu_plus": {
           "gamma_prod_by_mode_MeV": [
             1.0938059674725367e-08,
-            1.117912348268329e-08,
+            1.1179123482683288e-08,
             1.1179641365372057e-08
           ],
           "gamma_abs_by_mode_MeV": [
@@ -2453,7 +2453,7 @@
             3.7151023388794255e-05,
             3.7152744442498985e-05
           ],
-          "detailed_balance_relative_residual": 4.439600012475122e-15
+          "detailed_balance_relative_residual": 4.386196176908333e-15
         }
       },
       "total_detailed_balance_relative_residual": 2.8965731932923065e-15,
@@ -2521,7 +2521,7 @@
       "gamma_prod_total_by_mode_MeV": [
         8.1521349517625e-14,
         1.3395774750479777e-13,
-        1.3392855213036556e-13
+        1.3392855213036554e-13
       ],
       "gamma_abs_total_by_mode_MeV": [
         0.0009394637189847211,
@@ -2533,7 +2533,7 @@
           "gamma_prod_by_mode_MeV": [
             8.065322514866865e-14,
             1.3253460254210941e-13,
-            1.3250509475650137e-13
+            1.3250509475650135e-13
           ],
           "gamma_abs_by_mode_MeV": [
             0.0009294593292999716,
@@ -2590,11 +2590,11 @@
             0.0005270143886142051,
             0.0005268492410812175
           ],
-          "detailed_balance_relative_residual": 4.249617045016906e-15
+          "detailed_balance_relative_residual": 4.0922238211273905e-15
         },
         "mu_plus": {
           "gamma_prod_by_mode_MeV": [
-            6.8267670871115225e-40,
+            6.826767087111521e-40,
             1.5586498722510774e-39,
             1.559137709891508e-39
           ],
@@ -2603,10 +2603,10 @@
             5.388204573247484e-06,
             5.389891012936071e-06
           ],
-          "detailed_balance_relative_residual": 2.150642444022323e-15
+          "detailed_balance_relative_residual": 2.2701225798013418e-15
         }
       },
-      "total_detailed_balance_relative_residual": 4.206327458950036e-15,
+      "total_detailed_balance_relative_residual": 4.050537553062998e-15,
       "quadrature_points_all_charges": 24576
     },
     {
@@ -2624,7 +2624,7 @@
         0.055347371991655105
       ],
       "gamma_abs_total_by_mode_MeV": [
-        0.08884168751469182,
+        0.08884168751469183,
         0.07542348241079895,
         0.07542306869343729
       ],
@@ -2636,7 +2636,7 @@
             0.05515094986721359
           ],
           "gamma_abs_by_mode_MeV": [
-            0.08852611073543831,
+            0.08852611073543833,
             0.07515581522640521,
             0.07515539998846432
           ],
@@ -2649,7 +2649,7 @@
             0.00019642212444151696
           ],
           "gamma_abs_by_mode_MeV": [
-            0.0003155767792535126,
+            0.00031557677925351255,
             0.0002676671843937393,
             0.0002676687049729678
           ],
@@ -2671,7 +2671,7 @@
       "gamma_prod_total_by_mode_MeV": [
         0.10885734987887975,
         0.03603117021973598,
-        0.03603050099248254
+        0.03603050099248255
       ],
       "gamma_abs_total_by_mode_MeV": [
         0.1693823032684559,
@@ -2683,7 +2683,7 @@
           "gamma_prod_by_mode_MeV": [
             0.10845775279255303,
             0.03589934867957923,
-            0.03589867691181558
+            0.035898676911815586
           ],
           "gamma_abs_by_mode_MeV": [
             0.1687605292225445,
@@ -2721,7 +2721,7 @@
       "gamma_prod_total_by_mode_MeV": [
         0.12688923136555702,
         0.01223291823635815,
-        0.012232385816364441
+        0.01223238581636444
       ],
       "gamma_abs_total_by_mode_MeV": [
         0.3072170540938789,
@@ -2733,7 +2733,7 @@
           "gamma_prod_by_mode_MeV": [
             0.1263910793490104,
             0.012186451101017287,
-            0.012185916580937867
+            0.012185916580937865
           ],
           "gamma_abs_by_mode_MeV": [
             0.3060109565128045,
@@ -2844,7 +2844,7 @@
         },
         "mu_plus": {
           "gamma_prod_by_mode_MeV": [
-            1.181092083765304e-06,
+            1.1810920837653038e-06,
             1.1551150379016843e-06,
             1.1551556534047978e-06
           ],
@@ -2895,7 +2895,7 @@
         "mu_plus": {
           "gamma_prod_by_mode_MeV": [
             2.877843900767504e-07,
-            2.3946411015779116e-07,
+            2.394641101577911e-07,
             2.394891416650678e-07
           ],
           "gamma_abs_by_mode_MeV": [
@@ -2903,7 +2903,7 @@
             1.992247090184961e-05,
             1.9924553424675347e-05
           ],
-          "detailed_balance_relative_residual": 3.9793523339809935e-15
+          "detailed_balance_relative_residual": 3.978936410377059e-15
         }
       },
       "total_detailed_balance_relative_residual": 9.164877308653858e-16,
@@ -3295,12 +3295,12 @@
         "mu_plus": {
           "gamma_prod_by_mode_MeV": [
             1.1192589214222945e-11,
-            1.3437411958154988e-11,
+            1.3437411958154984e-11,
             1.3439174334526282e-11
           ],
           "gamma_abs_by_mode_MeV": [
-            6.44523669371325e-06,
-            7.737914700843769e-06,
+            6.445236693713249e-06,
+            7.737914700843767e-06,
             7.738929562788564e-06
           ],
           "detailed_balance_relative_residual": 9.617180899228689e-15
@@ -3399,11 +3399,11 @@
             5.552839987938443e-45
           ],
           "gamma_abs_by_mode_MeV": [
-            6.170810434836866e-07,
-            1.4009899194802636e-06,
-            1.4014271711656303e-06
+            6.170810434836863e-07,
+            1.4009899194802634e-06,
+            1.4014271711656301e-06
           ],
-          "detailed_balance_relative_residual": 8.856218493962039e-15
+          "detailed_balance_relative_residual": 8.63201043082376e-15
         }
       },
       "total_detailed_balance_relative_residual": 1.672303837739095e-14,
@@ -3421,7 +3421,7 @@
       "gamma_prod_total_by_mode_MeV": [
         0.00023533567894799804,
         0.00020271155140426622,
-        0.00020271035344615813
+        0.0002027103534461581
       ],
       "gamma_abs_total_by_mode_MeV": [
         0.0005203901323830938,
@@ -3433,7 +3433,7 @@
           "gamma_prod_by_mode_MeV": [
             0.00023531600329255761,
             0.00020269460257423406,
-            0.00020269340451590975
+            0.00020269340451590972
           ],
           "gamma_abs_by_mode_MeV": [
             0.0005203466242461842,
@@ -3470,8 +3470,8 @@
       "omega_over_mass": 1.5,
       "gamma_prod_total_by_mode_MeV": [
         0.0003414462777466524,
-        0.0001249457418759056,
-        0.00012494326548765657
+        0.00012494574187590557,
+        0.00012494326548765654
       ],
       "gamma_abs_total_by_mode_MeV": [
         0.0010608819622466253,
@@ -3482,8 +3482,8 @@
         "mu_minus": {
           "gamma_prod_by_mode_MeV": [
             0.0003414176969241614,
-            0.00012493528453504728,
-            0.0001249328079393767
+            0.00012493528453504725,
+            0.00012493280793937669
           ],
           "gamma_abs_by_mode_MeV": [
             0.0010607931609299234,
@@ -3540,7 +3540,7 @@
             0.00026144610035034834,
             0.00026143427224582246
           ],
-          "detailed_balance_relative_residual": 3.5030406061651205e-15
+          "detailed_balance_relative_residual": 3.3779320130877945e-15
         },
         "mu_plus": {
           "gamma_prod_by_mode_MeV": [
@@ -3553,10 +3553,10 @@
             2.187773807601962e-08,
             2.1878728141812734e-08
           ],
-          "detailed_balance_relative_residual": 3.102319810003574e-15
+          "detailed_balance_relative_residual": 3.284809210592019e-15
         }
       },
-      "total_detailed_balance_relative_residual": 3.37764934673659e-15,
+      "total_detailed_balance_relative_residual": 3.2525512227833826e-15,
       "quadrature_points_all_charges": 24576
     },
     {
@@ -3576,7 +3576,7 @@
       "gamma_abs_total_by_mode_MeV": [
         0.005008934829059821,
         0.00011457944832665606,
-        0.00011456672876674496
+        0.00011456672876674498
       ],
       "charge_contributions": {
         "mu_minus": {
@@ -3588,7 +3588,7 @@
           "gamma_abs_by_mode_MeV": [
             0.005008520873796043,
             0.0001145699492433709,
-            0.00011455722863079356
+            0.00011455722863079357
           ],
           "detailed_balance_relative_residual": 2.4343801642046688e-15
         },
@@ -3669,7 +3669,7 @@
       "omega_infinity_MeV": 129.5242925455761,
       "omega_over_mass": 1.5,
       "gamma_prod_total_by_mode_MeV": [
-        9.508675905426525e-10,
+        9.508675905426523e-10,
         8.26588624287993e-10,
         8.265121001393164e-10
       ],
@@ -3681,7 +3681,7 @@
       "charge_contributions": {
         "mu_minus": {
           "gamma_prod_by_mode_MeV": [
-            9.507890191638374e-10,
+            9.507890191638372e-10,
             8.26520208838928e-10,
             8.264436783827816e-10
           ],
@@ -3699,7 +3699,7 @@
             6.842175653472726e-14
           ],
           "gamma_abs_by_mode_MeV": [
-            6.587357012032429e-09,
+            6.587357012032428e-09,
             5.735892572163249e-09,
             5.736421385016059e-09
           ],
@@ -3794,7 +3794,7 @@
         },
         "mu_plus": {
           "gamma_prod_by_mode_MeV": [
-            4.848261114920939e-42,
+            4.848261114920938e-42,
             2.2933740437719575e-42,
             2.2939615115248374e-42
           ],
@@ -3803,7 +3803,7 @@
             1.525645873792194e-09,
             1.526036681281977e-09
           ],
-          "detailed_balance_relative_residual": 3.0230313993015133e-15
+          "detailed_balance_relative_residual": 3.154467547097232e-15
         }
       },
       "total_detailed_balance_relative_residual": 7.121291882119608e-15,
@@ -3840,23 +3840,23 @@
             4.8491221278693374e-05,
             4.84894266431672e-05
           ],
-          "detailed_balance_relative_residual": 4.296009445759752e-15
+          "detailed_balance_relative_residual": 4.136897984805688e-15
         },
         "mu_plus": {
           "gamma_prod_by_mode_MeV": [
-            1.0331567878728527e-16,
+            1.0331567878728524e-16,
             1.0483658392083092e-16,
-            1.0484045539231157e-16
+            1.0484045539231156e-16
           ],
           "gamma_abs_by_mode_MeV": [
             3.947065621529037e-09,
             4.00517018452166e-09,
             4.0053180899719155e-09
           ],
-          "detailed_balance_relative_residual": 6.9196195945094345e-15
+          "detailed_balance_relative_residual": 7.158227166733901e-15
         }
       },
-      "total_detailed_balance_relative_residual": 4.2956546165869786e-15,
+      "total_detailed_balance_relative_residual": 4.1365562974541275e-15,
       "quadrature_points_all_charges": 24576
     },
     {
@@ -3919,7 +3919,7 @@
       "omega_infinity_MeV": 569.9068872005348,
       "omega_over_mass": 3.0,
       "gamma_prod_total_by_mode_MeV": [
-        3.640908570335227e-27,
+        3.640908570335226e-27,
         4.8628071424104834e-27,
         4.861855352087155e-27
       ],
@@ -3931,7 +3931,7 @@
       "charge_contributions": {
         "mu_minus": {
           "gamma_prod_by_mode_MeV": [
-            3.640607606928319e-27,
+            3.640607606928318e-27,
             4.8624052619675336e-27,
             4.861453392980628e-27
           ],
@@ -4095,15 +4095,15 @@
         "mu_plus": {
           "gamma_prod_by_mode_MeV": [
             3.551377242293164e-24,
-            4.18324035597464e-24,
-            4.183730426582656e-24
+            4.183240355974639e-24,
+            4.183730426582655e-24
           ],
           "gamma_abs_by_mode_MeV": [
             2.092846075261851e-09,
             2.465206471623782e-09,
             2.4654952729193475e-09
           ],
-          "detailed_balance_relative_residual": 1.0185089829536144e-14
+          "detailed_balance_relative_residual": 1.0360694826597113e-14
         }
       },
       "total_detailed_balance_relative_residual": 7.84536633014572e-15,
@@ -4120,7 +4120,7 @@
       "omega_over_mass": 3.0,
       "gamma_prod_total_by_mode_MeV": [
         3.316974202740754e-35,
-        5.242043625475915e-35,
+        5.242043625475914e-35,
         5.240983090063946e-35
       ],
       "gamma_abs_total_by_mode_MeV": [
@@ -4132,7 +4132,7 @@
         "mu_minus": {
           "gamma_prod_by_mode_MeV": [
             3.316700692402642e-35,
-            5.241611492453699e-35,
+            5.241611492453698e-35,
             5.240550869594234e-35
           ],
           "gamma_abs_by_mode_MeV": [
@@ -4146,12 +4146,12 @@
           "gamma_prod_by_mode_MeV": [
             2.73510338111803e-39,
             4.321330222153297e-39,
-            4.3222046971326717e-39
+            4.322204697132671e-39
           ],
           "gamma_abs_by_mode_MeV": [
             9.49849301531296e-10,
             1.5007156663747512e-09,
-            1.501019354876656e-09
+            1.5010193548766558e-09
           ],
           "detailed_balance_relative_residual": 7.157284634701273e-15
         }
@@ -4294,7 +4294,7 @@
         },
         "mu_plus": {
           "gamma_prod_by_mode_MeV": [
-            2.921958107374321e-17,
+            2.9219581073743204e-17,
             1.1782732514677004e-17,
             1.1782958821124814e-17
           ],
@@ -4303,7 +4303,7 @@
             4.175091939107689e-16,
             4.1751721285055774e-16
           ],
-          "detailed_balance_relative_residual": 6.960339424922429e-15
+          "detailed_balance_relative_residual": 6.7494200484096295e-15
         }
       },
       "total_detailed_balance_relative_residual": 1.9160740638058914e-15,
@@ -4346,7 +4346,7 @@
           "gamma_prod_by_mode_MeV": [
             2.264853767387473e-18,
             2.8031662447060176e-19,
-            2.8032878264690643e-19
+            2.803287826469065e-19
           ],
           "gamma_abs_by_mode_MeV": [
             2.8436766777884946e-15,
@@ -4375,8 +4375,8 @@
       ],
       "gamma_abs_total_by_mode_MeV": [
         8.05144114177989e-12,
-        2.0580409377407894e-13,
-        2.0578221659622389e-13
+        2.058040937740789e-13,
+        2.0578221659622386e-13
       ],
       "charge_contributions": {
         "mu_minus": {
@@ -4387,8 +4387,8 @@
           ],
           "gamma_abs_by_mode_MeV": [
             8.044298325510528e-12,
-            2.0562153460238383e-13,
-            2.0559963798174685e-13
+            2.0562153460238378e-13,
+            2.0559963798174682e-13
           ],
           "detailed_balance_relative_residual": 6.240641082617727e-15
         },
@@ -4496,7 +4496,7 @@
           "gamma_prod_by_mode_MeV": [
             4.042284516050144e-32,
             3.59863645109432e-32,
-            3.5989453007160493e-32
+            3.59894530071605e-32
           ],
           "gamma_abs_by_mode_MeV": [
             1.2613253550490591e-16,
@@ -4575,7 +4575,7 @@
       ],
       "gamma_abs_total_by_mode_MeV": [
         4.439017331102474e-14,
-        2.1349933919174805e-14,
+        2.1349933919174802e-14,
         2.1344543641142857e-14
       ],
       "charge_contributions": {
@@ -4587,10 +4587,10 @@
           ],
           "gamma_abs_by_mode_MeV": [
             4.435079267760138e-14,
-            2.13309981638629e-14,
+            2.1330998163862896e-14,
             2.13256030953593e-14
           ],
-          "detailed_balance_relative_residual": 1.578740113311842e-14
+          "detailed_balance_relative_residual": 1.5950157845830983e-14
         },
         "mu_plus": {
           "gamma_prod_by_mode_MeV": [
@@ -4606,7 +4606,7 @@
           "detailed_balance_relative_residual": 1.738637117884622e-14
         }
       },
-      "total_detailed_balance_relative_residual": 1.577339183879981e-14,
+      "total_detailed_balance_relative_residual": 1.5936004125797745e-14,
       "quadrature_points_all_charges": 24576
     },
     {
@@ -4620,7 +4620,7 @@
       "omega_over_mass": 1.05,
       "gamma_prod_total_by_mode_MeV": [
         1.2303416557842855e-37,
-        1.2476609679266955e-37,
+        1.2476609679266953e-37,
         1.2476189120409655e-37
       ],
       "gamma_abs_total_by_mode_MeV": [
@@ -4632,7 +4632,7 @@
         "mu_minus": {
           "gamma_prod_by_mode_MeV": [
             1.2292501612007558e-37,
-            1.2465541459007942e-37,
+            1.246554145900794e-37,
             1.246512052638972e-37
           ],
           "gamma_abs_by_mode_MeV": [
@@ -4640,7 +4640,7 @@
             9.052729200177532e-14,
             9.052423510367161e-14
           ],
-          "detailed_balance_relative_residual": 8.878006955508732e-15
+          "detailed_balance_relative_residual": 9.045516520707011e-15
         },
         "mu_plus": {
           "gamma_prod_by_mode_MeV": [
@@ -4656,7 +4656,7 @@
           "detailed_balance_relative_residual": 5.158590338721046e-15
         }
       },
-      "total_detailed_balance_relative_residual": 8.87013111912604e-15,
+      "total_detailed_balance_relative_residual": 9.037492083637853e-15,
       "quadrature_points_all_charges": 24576
     },
     {
@@ -4721,7 +4721,7 @@
       "gamma_prod_total_by_mode_MeV": [
         2.1897040868155027e-82,
         2.912121252934245e-82,
-        2.9115679909651173e-82
+        2.911567990965117e-82
       ],
       "gamma_abs_total_by_mode_MeV": [
         3.272401022869686e-14,
@@ -4733,7 +4733,7 @@
           "gamma_prod_by_mode_MeV": [
             2.1877614962034403e-82,
             2.909538262965638e-82,
-            2.908984509299094e-82
+            2.9089845092990935e-82
           ],
           "gamma_abs_by_mode_MeV": [
             3.2694979203252805e-14,
@@ -4771,7 +4771,7 @@
       "gamma_prod_total_by_mode_MeV": [
         9.762022421155862e-242,
         1.4615754880484918e-241,
-        1.4611511851041918e-241
+        1.4611511851041916e-241
       ],
       "gamma_abs_total_by_mode_MeV": [
         1.7290601574131566e-14,
@@ -4783,7 +4783,7 @@
           "gamma_prod_by_mode_MeV": [
             9.753362066897705e-242,
             1.4602792316913474e-241,
-            1.4598545516586644e-241
+            1.4598545516586643e-241
           ],
           "gamma_abs_by_mode_MeV": [
             1.7275262259335064e-14,
@@ -4845,7 +4845,7 @@
         "mu_plus": {
           "gamma_prod_by_mode_MeV": [
             1.940959806274904e-49,
-            1.974624558866265e-49,
+            1.9746245588662645e-49,
             1.9746958618719637e-49
           ],
           "gamma_abs_by_mode_MeV": [
@@ -4896,14 +4896,14 @@
           "gamma_prod_by_mode_MeV": [
             1.5092911395231966e-63,
             1.7588339462028066e-63,
-            1.7590274707581093e-63
+            1.759027470758109e-63
           ],
           "gamma_abs_by_mode_MeV": [
             4.58536346396693e-17,
             5.3434971589715065e-17,
             5.344085104134645e-17
           ],
-          "detailed_balance_relative_residual": 9.819253762276277e-15
+          "detailed_balance_relative_residual": 9.665827922240712e-15
         }
       },
       "total_detailed_balance_relative_residual": 1.7561633547494235e-14,
@@ -5026,21 +5026,21 @@
       "gamma_abs_total_by_mode_MeV": [
         8.598428890705751e-18,
         7.572468646998485e-18,
-        7.572468646998487e-18
+        7.572468646998485e-18
       ],
       "charge_contributions": {
         "mu_minus": {
           "gamma_prod_by_mode_MeV": [
             1.6430013826617225e-19,
             1.4469633827498245e-19,
-            1.4469551726805493e-19
+            1.446955172680549e-19
           ],
           "gamma_abs_by_mode_MeV": [
             4.299214445352876e-18,
-            3.786245065075245e-18,
+            3.786245065075244e-18,
             3.786223581923242e-18
           ],
-          "detailed_balance_relative_residual": 4.65855244556716e-15
+          "detailed_balance_relative_residual": 4.49217557251119e-15
         },
         "mu_plus": {
           "gamma_prod_by_mode_MeV": [
@@ -5051,12 +5051,12 @@
           "gamma_abs_by_mode_MeV": [
             4.2992144453528765e-18,
             3.786223581923241e-18,
-            3.786245065075245e-18
+            3.786245065075244e-18
           ],
-          "detailed_balance_relative_residual": 4.65855244556716e-15
+          "detailed_balance_relative_residual": 4.49217557251119e-15
         }
       },
-      "total_detailed_balance_relative_residual": 3.3275469013688574e-15,
+      "total_detailed_balance_relative_residual": 2.9947922112319715e-15,
       "quadrature_points_all_charges": 24576
     },
     {
@@ -5071,26 +5071,26 @@
       "gamma_prod_total_by_mode_MeV": [
         1.8280904616100831e-19,
         7.503352114873935e-20,
-        7.503352114873935e-20
+        7.503352114873934e-20
       ],
       "gamma_abs_total_by_mode_MeV": [
         1.9380122165845894e-17,
         7.954523241237213e-18,
-        7.954523241237215e-18
+        7.954523241237213e-18
       ],
       "charge_contributions": {
         "mu_minus": {
           "gamma_prod_by_mode_MeV": [
             9.140452308050414e-20,
             3.751711737744624e-20,
-            3.7516403771293116e-20
+            3.751640377129311e-20
           ],
           "gamma_abs_by_mode_MeV": [
-            9.690061082922949e-18,
+            9.690061082922947e-18,
             3.977299446357316e-18,
-            3.977223794879899e-18
+            3.977223794879897e-18
           ],
-          "detailed_balance_relative_residual": 5.293991575677296e-15
+          "detailed_balance_relative_residual": 5.454415562819033e-15
         },
         "mu_plus": {
           "gamma_prod_by_mode_MeV": [
@@ -5099,7 +5099,7 @@
             3.751711737744623e-20
           ],
           "gamma_abs_by_mode_MeV": [
-            9.690061082922947e-18,
+            9.690061082922946e-18,
             3.977223794879898e-18,
             3.977299446357316e-18
           ],
@@ -5219,9 +5219,9 @@
       "omega_infinity_MeV": 96.22448148153886,
       "omega_over_mass": 1.05,
       "gamma_prod_total_by_mode_MeV": [
-        1.7562192055817598e-32,
-        1.7368776449682628e-32,
-        1.7368776449682628e-32
+        1.7562192055817596e-32,
+        1.7368776449682625e-32,
+        1.7368776449682625e-32
       ],
       "gamma_abs_total_by_mode_MeV": [
         2.642959549118703e-18,
@@ -5232,7 +5232,7 @@
         "mu_minus": {
           "gamma_prod_by_mode_MeV": [
             8.781096027908799e-33,
-            8.684503826049074e-33,
+            8.684503826049072e-33,
             8.684272623633555e-33
           ],
           "gamma_abs_by_mode_MeV": [
@@ -5244,19 +5244,19 @@
         },
         "mu_plus": {
           "gamma_prod_by_mode_MeV": [
-            8.781096027908799e-33,
+            8.781096027908798e-33,
             8.684272623633555e-33,
-            8.684503826049074e-33
+            8.684503826049071e-33
           ],
           "gamma_abs_by_mode_MeV": [
             1.3214797745593515e-18,
             1.306908681150621e-18,
             1.3069434751347594e-18
           ],
-          "detailed_balance_relative_residual": 7.947895329707272e-15
+          "detailed_balance_relative_residual": 7.792054244811051e-15
         }
       },
-      "total_detailed_balance_relative_residual": 7.947895329707272e-15,
+      "total_detailed_balance_relative_residual": 7.792054244811051e-15,
       "quadrature_points_all_charges": 24576
     },
     {
@@ -5321,7 +5321,7 @@
       "gamma_prod_total_by_mode_MeV": [
         6.316333464273403e-59,
         4.419390957523367e-59,
-        4.419390957523366e-59
+        4.419390957523365e-59
       ],
       "gamma_abs_total_by_mode_MeV": [
         2.030680528464753e-18,
@@ -5332,7 +5332,7 @@
         "mu_minus": {
           "gamma_prod_by_mode_MeV": [
             3.1581667321367013e-59,
-            2.2098709410760155e-59,
+            2.209870941076015e-59,
             2.2095200164473507e-59
           ],
           "gamma_abs_by_mode_MeV": [
@@ -5346,7 +5346,7 @@
           "gamma_prod_by_mode_MeV": [
             3.1581667321367013e-59,
             2.209520016447351e-59,
-            2.209870941076015e-59
+            2.2098709410760146e-59
           ],
           "gamma_abs_by_mode_MeV": [
             1.0153402642323764e-18,
@@ -5388,7 +5388,7 @@
           "gamma_abs_by_mode_MeV": [
             3.498985902133979e-19,
             1.6936510354984098e-19,
-            1.6932247792179338e-19
+            1.6932247792179336e-19
           ],
           "detailed_balance_relative_residual": 2.1702460427155893e-14
         },
@@ -5400,7 +5400,7 @@
           ],
           "gamma_abs_by_mode_MeV": [
             3.4989859021339797e-19,
-            1.6932247792179338e-19,
+            1.6932247792179336e-19,
             1.6936510354984098e-19
           ],
           "detailed_balance_relative_residual": 2.1702460427155893e-14
@@ -5487,7 +5487,7 @@
           ],
           "gamma_abs_by_mode_MeV": [
             5.511874815896302e-19,
-            6.177950568049949e-19,
+            6.177950568049948e-19,
             6.177307459861927e-19
           ],
           "detailed_balance_relative_residual": 1.3891488891596372e-14
@@ -5501,7 +5501,7 @@
           "gamma_abs_by_mode_MeV": [
             5.511874815896302e-19,
             6.177307459861927e-19,
-            6.177950568049949e-19
+            6.177950568049948e-19
           ],
           "detailed_balance_relative_residual": 1.3891488891596372e-14
         }
@@ -5669,7 +5669,7 @@
       "omega_infinity_MeV": 412.3906349208808,
       "omega_over_mass": 1.5,
       "gamma_prod_total_by_mode_MeV": [
-        1.6362959510255308e-79,
+        1.6362959510255305e-79,
         1.905432976012605e-79,
         1.905432976012605e-79
       ],
@@ -5681,7 +5681,7 @@
       "charge_contributions": {
         "mu_minus": {
           "gamma_prod_by_mode_MeV": [
-            8.181479755127654e-80,
+            8.181479755127653e-80,
             9.527686518770398e-80,
             9.526643241355651e-80
           ],
@@ -5690,11 +5690,11 @@
             5.492275212571204e-19,
             5.491673810890551e-19
           ],
-          "detailed_balance_relative_residual": 1.2817919677596145e-14
+          "detailed_balance_relative_residual": 1.2634806539344773e-14
         },
         "mu_plus": {
           "gamma_prod_by_mode_MeV": [
-            8.181479755127654e-80,
+            8.181479755127653e-80,
             9.526643241355651e-80,
             9.527686518770398e-80
           ],
@@ -5703,10 +5703,10 @@
             5.491673810890551e-19,
             5.492275212571204e-19
           ],
-          "detailed_balance_relative_residual": 1.2817919677596145e-14
+          "detailed_balance_relative_residual": 1.2634806539344773e-14
         }
       },
-      "total_detailed_balance_relative_residual": 1.2817919677596145e-14,
+      "total_detailed_balance_relative_residual": 1.2634806539344773e-14,
       "quadrature_points_all_charges": 24576
     },
     {
@@ -5810,7 +5810,7 @@
       "quadrature_points_all_charges": 24576
     }
   ],
-  "runtime_seconds": 87.32401394844055,
+  "runtime_seconds": 67.7992787361145,
   "source_sha256": {
     "moving_compton.py": "18fc4b244cc0c77f3c6874d816607ec9e231025e9b3bf53b0d2c2fc5babf4baa",
     "model.py": "925021a743a21bc39da84e0b034d4fae76c131411f2c39b65b1662eae21bf664",
