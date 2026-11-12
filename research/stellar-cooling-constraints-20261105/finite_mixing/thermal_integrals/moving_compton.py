@@ -265,9 +265,32 @@ def moving_muon_compton_rates(
     abs_total = charge_results["mu_minus"]["Gamma_abs_by_mode"] + charge_results["mu_plus"]["Gamma_abs_by_mode"]
     expected_prod = np.exp(-omega/temperature)*abs_total
     balance = np.max(np.abs(prod_total-expected_prod)/np.maximum(np.abs(prod_total), 1e-300))
+
+    # Map the explicitly mode-resolved, photon-polarization-summed rates to
+    # the unpolarized convention used in the paper's total inverse-rate
+    # relation: average the initial photon over 2 states in production and
+    # the initial massive vector over 3 states in absorption.
+    gamma_prod_unpolarized = float(np.sum(prod_total)/2.0)
+    gamma_abs_unpolarized = float(np.sum(abs_total)/3.0)
+    eq_5_12_expected = (2.0/3.0)*np.exp(omega/temperature)
+    eq_5_12_ratio = gamma_abs_unpolarized/gamma_prod_unpolarized
+
     return {
         "Gamma_prod_by_mode": prod_total,
         "Gamma_abs_by_mode": abs_total,
+        "mode_order": ["L", "+", "-"],
+        "polarization_basis": "medium rest frame; A' momentum along +z",
+        "unpolarized_normalization": {
+            "initial_photon_polarization_average": 2,
+            "initial_vector_polarization_average": 3,
+            "Gamma_prod_unpolarized": gamma_prod_unpolarized,
+            "Gamma_abs_unpolarized": gamma_abs_unpolarized,
+            "Gamma_abs_over_Gamma_prod": float(eq_5_12_ratio),
+            "Eq_5_12_expected_ratio": float(eq_5_12_expected),
+            "Eq_5_12_relative_residual": float(
+                abs(eq_5_12_ratio-eq_5_12_expected)/eq_5_12_expected
+            ),
+        },
         "charge_contributions": charge_results,
         "max_detailed_balance_relative_residual": float(balance),
         "total_quadrature_points_all_charges": int(sum(
