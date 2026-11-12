@@ -1,4 +1,4 @@
-"""Independent direct phase-space audit of B.4 and B.6--B.10 (neutrino inverse decay); B.19 is separately identified as semi-Compton.
+"""Independent direct phase-space audit of B.4, B.6--B.10 and B.19.
 
 The production/reference implementation uses a closed-form Fermi-pair
 antiderivative and, separately, a 48-point mode-resolved angular quadrature.
@@ -120,7 +120,7 @@ def run(profile_path=DEFAULT_PROFILE,mass=MASS,orders=(128,256,512)):
             for key,val in (
                 ("mode_production_vs_direct",prod_err),
                 ("mode_absorption_vs_direct",abs_err),
-                ("neutrino_B10_ratio_residual",float(b19)),
+                ("b19_ratio_residual",float(b19)),
                 ("b4_reduced_opacity_residual",float(b4)),
                 ("analytic_I_vs_direct",ierr),
                 ("mode_sum_vs_scalar_I",sumerr),
@@ -175,9 +175,9 @@ def run(profile_path=DEFAULT_PROFILE,mass=MASS,orders=(128,256,512)):
         "equation_map":{
             "B.4":"Gamma_abs_star=(1-exp(-omega/T))*Gamma_abs",
             "B.6":"three mode angular weights W_L=3(1-z^2)/4, W_+=3(1+z)^2/8, W_-=3(1-z)^2/8",
-            "B.6_to_B.10":"mode-resolved inverse neutrino decay production, blocking and detailed balance",
+            "B.6_to_B.10":"mode-resolved inverse neutrino decay production, blocking, and detailed balance",
             "B.10":"Gamma_prod=exp(-omega/T)*Gamma_abs for each flavor and each vector polarization",
-            "B.19":"Semi-Compton forward/inverse detailed balance, not the neutrino inverse-decay equation; checked separately in test_stage1_detailed_balance.py.",
+            "B.19":"This is the semi-Compton inverse/forward detailed-balance identity, not the neutrino inverse-decay equation; it is checked separately by test_stage1_detailed_balance.py.",
             "fixed_omega":"omega is held fixed along the path; T and mu_nu are local functions of r prime",
         },
         "maximum_residuals":maxima,
