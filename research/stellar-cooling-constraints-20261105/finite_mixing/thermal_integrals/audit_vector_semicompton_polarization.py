@@ -18,6 +18,7 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import sys
 from pathlib import Path
 
 import numpy as np
@@ -29,6 +30,9 @@ from finite_mixing.thermal_integrals.moving_compton import (
 
 HERE = Path(__file__).resolve().parent
 M_MU = rates.M_MU
+LITERATURE_DIR = HERE.parents[3] / "stellar-cooling-eft-literature-20261105"
+sys.path.insert(0, str(LITERATURE_DIR))
+import reference_matrix_element as ref
 
 
 def relative_difference(a, b):
@@ -62,6 +66,76 @@ def exact_production_cross_sections(mass, photon_energy, order=128):
         raise ArithmeticError("Unphysical CM two-body momentum ratio")
     sigma_prod = 0.5 * p_ratio_squared * sigma_abs
     return sigma_prod
+
+
+def direct_spinor_production_cross_sections(mass, photon_energy, order=256):
+    """Independent direct-production result from explicit Dirac spinors.
+
+    The reference module constructs gamma+mu -> mu+A' directly in the
+    initial-muon rest frame and resolves the final A' using the medium-frame
+    spatial-transverse projector. It returns (sigma_L, sigma_T1+T2).
+    """
+    sigma_t = ref.total_cross_section_lab(
+        photon_energy, mass, 1.0, 0.0, mode="T", n_angle=order
+    )
+    sigma_l = ref.total_cross_section_lab(
+        photon_energy, mass, 1.0, 0.0, mode="L", n_angle=order
+    )
+    return float(sigma_l), float(sigma_t)
+
+
+def direct_spinor_differential_by_mode(mass, photon_energy, cosines):
+    """Return d sigma/d cos(theta) for direct production in the medium frame."""
+    exact_t = []
+    exact_l = []
+    for cosine in cosines:
+        # reference_matrix_element returns d sigma/d Omega; integrate azimuth.
+        exact_t.append(
+            2.0 * math.pi * ref.differential_cross_section_lab(
+                photon_energy, mass, float(cosine), 1.0, 0.0, mode="T"
+            )
+        )
+        exact_l.append(
+            2.0 * math.pi * ref.differential_cross_section_lab(
+                photon_energy, mass, float(cosine), 1.0, 0.0, mode="L"
+            )
+        )
+    return np.asarray(exact_t), np.asarray(exact_l)
+
+
+def printed_b6_differential_formulas(mass, photon_energy, cosines):
+    """Appendix B, Eq. (B.6a,b), copied with the paper's T/L labels."""
+    alpha = rates.ALPHA
+    alpha_x = 1.0 / (4.0 * math.pi)
+    prefactor = math.pi * alpha * alpha_x / (
+        M_MU * M_MU * photon_energy * photon_energy
+    )
+    c = np.asarray(cosines, dtype=float)
+    b6a_t = prefactor * (mass * mass + 2.0 * photon_energy**2 * c)
+    b6b_l = prefactor * (
+        photon_energy**2 * (1.0 + c * c)
+        - c * (mass * mass + 2.0 * photon_energy**2)
+    )
+    return b6a_t, b6b_l
+
+
+def direct_vector_mediator_ward_residual(mass, photon_energy, cosine=0.3):
+    """Explicit-spinor check of q_mu M^mu=0 for the conserved vector current."""
+    p, k, p_prime, q = ref.lab_kinematics(
+        photon_energy, mass, cosine, M_MU
+    )
+    maximum = 0.0
+    for initial_spin in range(2):
+        u_in = ref.u_spinor(p, M_MU, initial_spin)
+        for final_spin in range(2):
+            u_out = ref.u_spinor(p_prime, M_MU, final_spin)
+            ubar = u_out.conj().T @ ref.GAMMA[0]
+            for eps_gamma in ref.photon_polarizations():
+                matrix = ref.amplitude_matrix(
+                    p, k, p_prime, q, M_MU, eps_gamma, q, 1.0, 0.0
+                )
+                maximum = max(maximum, float(abs(ubar @ matrix @ u_in)))
+    return maximum
 
 
 def printed_low_energy_formulas(mass, photon_energy):
