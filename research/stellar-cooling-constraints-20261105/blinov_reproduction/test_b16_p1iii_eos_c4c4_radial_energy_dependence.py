@@ -1,4 +1,6 @@
+import tempfile
 import unittest
+from pathlib import Path
 
 import numpy as np
 
@@ -21,6 +23,13 @@ class C4C4BRadialEnergyDependenceTests(unittest.TestCase):
         sample = set(c4c4.QUAD_SAMPLE_INDICES)
         self.assertTrue({0, 96, 142, 143, 196, 300}.issubset(sample))
         self.assertEqual(len(sample), 17)
+
+    def test_kernel_source_blob_pin_rejects_mismatch(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "changed_kernel.py"
+            path.write_text("def altered_kernel(): return 0\\n", encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "Git blob SHA mismatch"):
+                c4c4.require_blob_sha(path, "0" * 40, "test kernel")
 
     def test_relative_difference_is_symmetric_and_positive(self):
         self.assertAlmostEqual(c4c4.relative_difference(1.001, 1.0), 1e-3)
