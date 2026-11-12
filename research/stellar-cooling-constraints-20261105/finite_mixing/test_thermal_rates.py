@@ -109,6 +109,16 @@ class MovingMuonComptonKernelTests(unittest.TestCase):
             result["absorption"]/density,sigma,rtol=5e-4,atol=1e-13
         )
 
+    def test_unpolarized_inverse_rate_matches_eq_5_12(self):
+        result=moving_muon_compton_rates(
+            10.0,15.0,25.0,46.674,0.0,-1.0,orders=(8,8,8,8)
+        )
+        normalization=result["unpolarized_normalization"]
+        self.assertEqual(result["mode_order"],["L","+","-"])
+        self.assertEqual(normalization["initial_photon_polarization_average"],2)
+        self.assertEqual(normalization["initial_vector_polarization_average"],3)
+        self.assertLess(normalization["Eq_5_12_relative_residual"],3e-10)
+
     def test_full_compton_emissivity_has_finite_balance_and_shell_errors(self):
         result=thermal_compton_emissivity(
             10.0,19.26522111,46.67432845,0.0,-1.0,
@@ -117,6 +127,7 @@ class MovingMuonComptonKernelTests(unittest.TestCase):
         self.assertGreater(result["emissivity_total_MeV5"],0.0)
         self.assertLess(result["max_detailed_balance_relative_error"],1e-11)
         self.assertLess(result["max_final_muon_shell_relative_error"],1e-10)
+        self.assertLess(result["max_Eq_5_12_relative_residual"],3e-10)
         self.assertAlmostEqual(
             sum(result["emissivity_by_mode_MeV5"]),
             result["emissivity_total_MeV5"],places=11
