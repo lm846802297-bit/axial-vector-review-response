@@ -1,38 +1,47 @@
-# 2026-11-12 post-merge verification and branch synchronization
+# 2026-11-12 latest status: PR #56 integration, numerical validation, and active-branch synchronization
 
-> This entry supersedes older status statements below where they still describe PR #56 as Open/Draft, use `310a24a53e8448f0388072cfdbf55749fde713f9` as the current main baseline, or describe Run #158 as the latest numerical validation.
+> This section is the live status summary. Dated entries below are retained as historical records; where they describe an older main SHA, PR #56 as Open/Draft, or an earlier branch-sync state, this section supersedes them.
 
-## Current repository baseline
+## Current repository and pull-request state
 
-- **Current main before this status refresh:** `293d047013cce0dc3fbc44b2cd679f2df0f253dd`. This is the squash-merge commit for PR #56. PR #56 is now **closed/merged**, not Open/Draft. Its source branch is retained for provenance; C4-C4 and the other ongoing workstreams remain separate research branches.
-- **PRs still open:** PR #53 (original-UV axial stellar cooling), PR #68 (Belle II radial-scalar recast), and PR #69 (Higgs–singlet mixing). All remain Draft/Open; no completion claim is made for their unfinished work.
-- **Numerical workflow Run #158** (`43135845410`, triggering SHA `071d19490bc3`) ended as `cancelled` after the job's 25-minute timeout. The log contains no `FAIL`, `ERROR`, traceback, or assertion failure. It is an incomplete run, not a failed physical test and not a successful full validation.
-- **Replacement full validation:** Run [`43179379690`](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43179379690) completed successfully on `fdb4a26ce5c06f75ed71cc67b79c01a6055bbbc2`. The two unittest invocations reported `Ran 358 tests` and `Ran 229 tests`, each `OK (skipped=1)`. The skipped class requires `SFHO_TABLES_DIR` to point to an extracted official SFHo/FRDM archive; fixture-based closure tests passed, and the separate archive reconstruction/checksum step passed. These counts are software-test executions, not independent physical validations.
-- **Archive checks in Run #43179379690:** all 14 C4C3 SHA-256 entries verified; SFHo/FRDM split archives were reconstructed and matched the expected SHA-256 values. The workflow also completed Blinov/EOS regression tests, reference scans, saved-scan validation, figure regeneration, and reproducibility checks.
-- **Head-validation boundary:** the final merged tree is the PR #56 head tree `d1828fd783a4fa8380041e360be80e933ba34fe7`, whereas Run #43179379690 tested `fdb4a26`. The final head additionally contains the direct longitudinal-projector audit and related tests; these were not covered by that successful run. Do not describe the final head's projector audit as CI-validated until a run on that exact tree passes.
-- **Physical result remains unchanged:** the pure-vector Blinov Fig. 7 gate is **NOT PASSED**. The 10 MeV strong-absorption endpoint remains about `2.43963596e52 erg/s`, approximately `+92.4284%` above the digitized Fig. 7 reference. No empirical opacity/profile rescaling is accepted; no production axial-vector constraint curve is unlocked by the software CI result.
+- **Main baseline before this status update:** `4f9f82d6e0eb61e42827baa021d93f312087f6ba`. PR #56 was squash-merged into main at `293d047013cce0dc3fbc44b2cd679f2df0f253dd` as a research integration. PR #56 is **Closed / Merged**; this does not constitute scientific acceptance of the vector benchmark.
+- **Open research PRs:** #53 (original-UV axial stellar cooling), #68 (Belle II radial-scalar recast), and #69 (Higgs–singlet mixing) remain Open / Draft. Their unfinished work remains separate.
+- The former PR #56 source branch `codex/major44-axial-cooling-constraints-20261105` is retained and synchronized as a post-merge validation branch. It is not an open PR and its additional commits do not alter the merged main tree.
 
-## Active branch synchronization after PR #56 merge
+## Numerical validation and failure classification
 
-The PR #56 squash merge advanced main from `310a24a53e8448f0388072cfdbf55749fde713f9` to `293d047013cce0dc3fbc44b2cd679f2df0f253dd`. The following still-active branches are being merged with the latest main while preserving their branch-specific research commits and data:
+- **Run #158** ([43135845410](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43135845410), trigger SHA `071d19490bc3`) ended `cancelled` after its 25-minute job timeout. The first test discovery completed 337 tests with one intentional skip; the second discovery logged 92 passing tests before cancellation and had no final summary. The log contains no `FAIL`, `ERROR`, traceback, or assertion failure. Classify this as a runtime/timeout interruption, not a calculation or test-condition failure; the run is incomplete.
+- **Replacement full validation** ([Run 43179379690](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43179379690)) completed successfully on `fdb4a26ce5c06f75ed71cc67b79c01a6055bbbc2`. The two unittest discoveries reported 358 and 229 tests, each `OK (skipped=1)`. The skipped official-table class requires `SFHO_TABLES_DIR`; fixture-based closure tests passed, but this skip is not an official-table test pass.
+- **C4C3 archive:** the runner verified all 14 entries in `c4c3_direct_local_recomputation_2026-11-11/SHA256SUMS.txt`.
+- **SFHo/FRDM archive:** the five-entry downloader/release manifest matched; all three binary split parts and the other archive assets passed their SHA checks; the reconstructed `sfho_frdm_bin.zip` digest was `45479eaf46e1aa9b1ca3502baf4aaeea60ff0021a21d621f10a75eafb8b8949c`.
+- **Post-run content identity:** all 15 Git blobs in the C4C3 archive directory and all 8 Git blobs in the vendored SFHo/FRDM directory are unchanged between validation SHA `fdb4a26`, merged PR #56 tree `d1828fd`, and the pre-update main tree. Thus the successful archive checks still apply to these exact archive files; this does not imply that every official-table numerical test ran.
+- **Exact-head boundary:** Run #431793 predates the direct vector longitudinal-projector audit files `audit_vector_longitudinal_projector.py` and `test_vector_longitudinal_projector.py` in the final PR #56 tree. Their local 36-point checks are recorded, but they were not covered by Run #431793. A new full numerical workflow is to be triggered on the synchronized post-merge validation branch; its result must be recorded against its exact triggering SHA.
+- **Physical result:** the pure-vector Blinov Fig. 7 gate remains **NOT PASSED**. The 10 MeV strong-absorption residual remains approximately +92.43% in the recorded fixed-profile comparison. No opacity/profile rescaling is accepted, and no production axial-vector exclusion is unlocked by software CI.
 
-- `research/stellar-cooling-original-uv-model-20261105` (PR #53)
-- `research/major1-scalar-pole-belleii-20261109` (PR #68)
-- `research/major1-higgs-scalar-mixing-20261109` (PR #69)
-- `research/c4c4-energy-dependence-20261112` (C4-C4)
-- `research/moving-muon-thermal-rates-20261107`
-- `transfer/p1iii-eos-latest-source-20261111`
-- `transfer/pr57-source-bundle-20261110`
-- `transfer/sfho-frdm-release-transfer-20261111`
+## Active branch synchronization
 
-The merged PR #56 source branch is retained as historical provenance, not treated as an open research PR. No branch is deleted by this synchronization. The final GitHub `main...head` comparison must show `behind_by=0` for every active branch above.
+The following eight active research/data branches, plus the retained PR #56 post-merge validation branch, are synchronized to the main status commit created by this update. Each synchronization uses a non-force, two-parent merge; branch-specific research commits and files are retained. Final GitHub `main...head` comparisons are required to show `behind_by=0`.
 
-## Verification policy
+| Branch | Purpose | Required behind_by |
+|---|---|---:|
+| `research/stellar-cooling-original-uv-model-20261105` | PR #53 | 0 |
+| `research/major1-scalar-pole-belleii-20261109` | PR #68 | 0 |
+| `research/major1-higgs-scalar-mixing-20261109` | PR #69 | 0 |
+| `research/c4c4-energy-dependence-20261112` | C4-C4 follow-up | 0 |
+| `research/moving-muon-thermal-rates-20261107` | Moving-muon local rates | 0 |
+| `transfer/p1iii-eos-latest-source-20261111` | P1-III EOS source/data | 0 |
+| `transfer/pr57-source-bundle-20261110` | PR #57 source archive | 0 |
+| `transfer/sfho-frdm-release-transfer-20261111` | SFHo/FRDM archive | 0 |
+| `codex/major44-axial-cooling-constraints-20261105` | PR #56 post-merge validation | 0 |
+
+No branch is force-pushed or deleted. The merged PR #56 is not reopened; the closed PR's source branch is retained for reproducible follow-up only.
+
+## Interpretation policy
 
 - CI success validates only the tests and checks that actually ran on the recorded SHA.
-- A test skip must be reported with its reason; it is not silently counted as a pass.
+- A test skip must retain its reason and must not be counted as a pass.
 - A generated scan or figure is not a physical reproduction until the literature benchmark and all declared model/transport assumptions pass their own acceptance criteria.
-- Preserve every failed or unresolved physical-validation record. Do not convert a cancelled workflow into a pass, and do not delete research outputs to make branch synchronization easier.
+- Preserve failed, cancelled, and unresolved physical-validation records. Do not use branch cleanup or successful software CI to erase a scientific discrepancy.
 
 ---
 
