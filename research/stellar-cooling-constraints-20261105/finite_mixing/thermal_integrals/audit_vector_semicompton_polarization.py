@@ -10,7 +10,7 @@ the absorption kernel sums over final photon polarizations. The CM momentum
 ratio is computed from the Kallen function, not from lab three-momenta.
 
 This script deliberately separates the exact Dirac-kernel result from the
-low-energy expressions as printed in arXiv:2610.35379v1, Eq. (58a,b) and Appendix B, Eq. (106a,b).
+low-energy expressions as printed in arXiv:2610.35379v1, Eq. (5.9a,b) and Appendix B, Eq. (B.6a,b).
 It does not silently swap labels or alter a coefficient to force agreement.
 """
 from __future__ import annotations
@@ -104,7 +104,7 @@ def direct_spinor_differential_by_mode(mass, photon_energy, cosines):
 
 
 def printed_b6_differential_formulas(mass, photon_energy, cosines):
-    """Appendix B, Eq. (106a,b), copied with the paper's T/L labels."""
+    """Appendix B, Eq. (B.6a,b), copied with the paper's T/L labels."""
     alpha = rates.ALPHA
     alpha_x = 1.0 / (4.0 * math.pi)
     prefactor = math.pi * alpha * alpha_x / (
@@ -139,7 +139,7 @@ def direct_vector_mediator_ward_residual(mass, photon_energy, cosine=0.3):
 
 
 def printed_low_energy_formulas(mass, photon_energy):
-    """Section 5.2, Eq. (58a,b) as printed in arXiv:2610.35379v1."""
+    """Section 5.2, Eq. (5.9a,b) as printed in arXiv:2610.35379v1."""
     alpha = rates.ALPHA
     alpha_x = 1.0 / (4.0 * math.pi)  # g_X = 1
     root = math.sqrt(1.0 - (mass / photon_energy) ** 2)
@@ -157,7 +157,7 @@ def printed_low_energy_formulas(mass, photon_energy):
 
 
 def low_energy_parameter_scan():
-    """Check Eq. (58) against exact spinor cross sections over low-energy points."""
+    """Check Eq. (5.9) against exact spinor cross sections over low-energy points."""
     energies = (0.05, 0.1, 0.5)
     mass_ratios = (0.01, 0.1)
     cases = []
@@ -181,8 +181,8 @@ def low_energy_parameter_scan():
                 "exact_L_over_exact_T_divided_by_m_over_E_squared": (
                     (exact_l / exact_t) / (ratio * ratio)
                 ),
-                "paper_Eq58a_T_over_exact_L": paper_t / exact_l,
-                "paper_Eq58b_L_over_exact_T": paper_l / exact_t,
+                "paper_Eq5_9a_T_over_exact_L": paper_t / exact_l,
+                "paper_Eq5_9b_L_over_exact_T": paper_l / exact_t,
             })
 
     max_t_deviation = max(
@@ -196,11 +196,11 @@ def low_energy_parameter_scan():
         for item in cases
     )
     max_paper_a_coefficient_deviation = max(
-        abs(item["paper_Eq58a_T_over_exact_L"] - 1.5)
+        abs(item["paper_Eq5_9a_T_over_exact_L"] - 1.5)
         for item in cases
     )
     max_paper_b_transverse_deviation = max(
-        abs(item["paper_Eq58b_L_over_exact_T"] - 1.0)
+        abs(item["paper_Eq5_9b_L_over_exact_T"] - 1.0)
         for item in cases
     )
     return {
@@ -216,10 +216,10 @@ def low_energy_parameter_scan():
         "max_abs_deviation_exact_L_coefficient_from_one_half": (
             max_l_coefficient_deviation
         ),
-        "max_abs_deviation_Eq58a_over_exact_L_from_three_halves": (
+        "max_abs_deviation_Eq5_9a_over_exact_L_from_three_halves": (
             max_paper_a_coefficient_deviation
         ),
-        "max_abs_deviation_Eq58b_over_exact_T_from_one": (
+        "max_abs_deviation_Eq5_9b_over_exact_T_from_one": (
             max_paper_b_transverse_deviation
         ),
         "acceptance": {
@@ -229,10 +229,10 @@ def low_energy_parameter_scan():
             "exact_L_scales_as_half_m2_over_E2_times_T": (
                 max_l_coefficient_deviation < 0.03
             ),
-            "printed_Eq58a_is_1p5_times_exact_L": (
+            "printed_Eq5_9a_is_1p5_times_exact_L": (
                 max_paper_a_coefficient_deviation < 0.05
             ),
-            "printed_Eq58b_tracks_exact_T": (
+            "printed_Eq5_9b_tracks_exact_T": (
                 max_paper_b_transverse_deviation < 0.02
             ),
         },
@@ -291,16 +291,16 @@ def low_energy_angular_shape_audit(
         "exact_L_vs_leading_shape_max_abs_over_leading_peak": (
             exact_l_shape_error
         ),
-        "printed_Eq106b_vs_exact_T_max_abs_over_exact_T_peak": (
+        "printed_EqB6b_vs_exact_T_max_abs_over_exact_T_peak": (
             paper_b_vs_exact_t
         ),
-        "printed_Eq106a_vs_exact_L_max_abs_over_exact_L_peak": (
+        "printed_EqB6a_vs_exact_L_max_abs_over_exact_L_peak": (
             paper_a_vs_exact_l
         ),
         "exact_T_evenness_residual": t_evenness,
         "exact_L_evenness_residual": l_evenness,
-        "printed_Eq106a_negative_fraction": float(np.mean(paper_t < 0.0)),
-        "printed_Eq106b_negative_fraction": float(np.mean(paper_l < 0.0)),
+        "printed_EqB6a_negative_fraction": float(np.mean(paper_t < 0.0)),
+        "printed_EqB6b_negative_fraction": float(np.mean(paper_l < 0.0)),
         "acceptance": {
             "exact_T_matches_leading_Thomson_shape": (
                 exact_t_shape_error < 0.02
@@ -308,10 +308,10 @@ def low_energy_angular_shape_audit(
             "exact_L_matches_leading_suppressed_shape": (
                 exact_l_shape_error < 0.05
             ),
-            "printed_Eq106a_fails_exact_L_angular_shape": (
+            "printed_EqB6a_fails_exact_L_angular_shape": (
                 paper_a_vs_exact_l > 0.5
             ),
-            "printed_Eq106b_fails_exact_T_angular_shape": (
+            "printed_EqB6b_fails_exact_T_angular_shape": (
                 paper_b_vs_exact_t > 0.5
             ),
         },
@@ -567,10 +567,10 @@ def build_audit(mass=0.001, photon_energy=0.1):
         "source": {
             "arxiv": "2610.35379v1",
             "model_section": "Sec. 5.1-5.2; vector U(1)_{L_mu-L_tau} muon current",
-            "integrated_low_energy_formulas": "Eq. (58a,b)",
+            "integrated_low_energy_formulas": "Eq. (5.9a,b)",
             "medium_polarization_projector": "Eq. (77)",
             "exact_semi_compton_amplitude": "Appendix B, Eqs. (101a,b)",
-            "printed_angular_differential_cross_sections": "Appendix B, Eqs. (106a,b)",
+            "printed_angular_differential_cross_sections": "Appendix B, Eqs. (B.6a,b)",
         },
         "scope": (
             "Direct explicit-Dirac-spinor production calculation in the initial-muon "
@@ -600,7 +600,7 @@ def build_audit(mass=0.001, photon_energy=0.1):
             ),
             "thomson_reference": "8*pi*alpha*alpha_X/(3*m_mu^2), alpha_X=g_X^2/(4*pi)",
             "printed_formulas": (
-                "Eq. (58) and Eq. (106) are compared with their printed T/L labels; "
+                "Eq. (5.9) and Eq. (B.6) are compared with their printed T/L labels; "
                 "no label swap or coefficient adjustment is made in the input formulas."
             ),
         },
@@ -619,23 +619,23 @@ def build_audit(mass=0.001, photon_energy=0.1):
         "ratios_to_thomson": {
             "direct_exact_T_sum": sigma_t_reference / sigma_thomson,
             "direct_exact_L": sigma_l_reference / sigma_thomson,
-            "paper_Eq58a_T_as_printed": sigma_t_paper / sigma_thomson,
-            "paper_Eq58b_L_as_printed": sigma_l_paper / sigma_thomson,
+            "paper_Eq5_9a_T_as_printed": sigma_t_paper / sigma_thomson,
+            "paper_Eq5_9b_L_as_printed": sigma_l_paper / sigma_thomson,
         },
-        "printed_Eq58_comparison": {
+        "printed_Eq5_9_comparison": {
             "paper_T_over_exact_L": sigma_t_paper / sigma_l_reference,
             "paper_L_over_exact_T_sum": sigma_l_paper / sigma_t_reference,
             "exact_L_over_exact_T_sum": sigma_l_reference / sigma_t_reference,
             "direct_T_over_paper_L": sigma_t_reference / sigma_l_paper,
             "direct_L_over_paper_T": sigma_l_reference / sigma_t_paper,
         },
-        "printed_Eq106_differential_comparison": {
-            "Eq106a_printed_T_negative_fraction": float(np.mean(paper_b6a_t < 0.0)),
-            "Eq106b_printed_L_negative_fraction": float(np.mean(paper_b6b_l < 0.0)),
-            "Eq106a_T_minimum_over_angular_grid_MeV_minus2": float(
+        "printed_EqB6_differential_comparison": {
+            "EqB6a_printed_T_negative_fraction": float(np.mean(paper_b6a_t < 0.0)),
+            "EqB6b_printed_L_negative_fraction": float(np.mean(paper_b6b_l < 0.0)),
+            "EqB6a_T_minimum_over_angular_grid_MeV_minus2": float(
                 np.min(paper_b6a_t)
             ),
-            "Eq106b_L_minimum_over_angular_grid_MeV_minus2": float(
+            "EqB6b_L_minimum_over_angular_grid_MeV_minus2": float(
                 np.min(paper_b6b_l)
             ),
             "exact_T_minimum_over_angular_grid_MeV_minus2": float(
@@ -664,15 +664,15 @@ def build_audit(mass=0.001, photon_energy=0.1):
         "appendix_B_trace_audit": appendix_trace,
         "low_energy_angular_shape_audit": angular_shape,
         "low_energy_parameter_scan": low_energy_scan,
-        "Eq106_integrals_and_Eq58_phase_factor": {
-            "numerical_integral_Eq106a_MeV_minus2": b6a_integral,
-            "numerical_integral_Eq106b_MeV_minus2": b6b_integral,
-            "Eq58a_over_integral_Eq106a": sigma_t_paper / b6a_integral,
-            "Eq58b_over_integral_Eq106b": sigma_l_paper / b6b_integral,
+        "EqB6_integrals_and_Eq5_9_phase_factor": {
+            "numerical_integral_EqB6a_MeV_minus2": b6a_integral,
+            "numerical_integral_EqB6b_MeV_minus2": b6b_integral,
+            "Eq5_9a_over_integral_EqB6a": sigma_t_paper / b6a_integral,
+            "Eq5_9b_over_integral_EqB6b": sigma_l_paper / b6b_integral,
             "sqrt_1_minus_m2_over_E2": phase,
             "note": (
-                "The printed Eq. (106) angular expressions integrate without the common "
-                "sqrt(1-m_Z'^2/E_gamma^2) factor present in Eq. (58)."
+                "The printed Eq. (B.6) angular expressions integrate without the common "
+                "sqrt(1-m_Z'^2/E_gamma^2) factor present in Eq. (5.9)."
             ),
         },
         "independent_direct_vs_crossed_trace": {
@@ -698,27 +698,27 @@ def build_audit(mass=0.001, photon_energy=0.1):
             ),
         },
         "interpretation_flags": {
-            "integrated_Eq58_TL_hierarchy_opposite_to_conserved_vector_limit": bool(
+            "integrated_Eq5_9_TL_hierarchy_opposite_to_conserved_vector_limit": bool(
                 sigma_t_paper < sigma_l_paper
                 and sigma_t_reference > sigma_l_reference
             ),
-            "printed_Eq106a_has_negative_differential_region": bool(
+            "printed_EqB6a_has_negative_differential_region": bool(
                 np.any(paper_b6a_t < 0.0)
             ),
-            "printed_Eq106b_has_negative_differential_region": bool(
+            "printed_EqB6b_has_negative_differential_region": bool(
                 np.any(paper_b6b_l < 0.0)
             ),
-            "Eq106b_is_closer_to_exact_T_than_Eq106a_but_not_accurate": (
+            "EqB6b_is_closer_to_exact_T_than_EqB6a_but_not_accurate": (
                 max_abs_over_thomson(exact_t_dcos - paper_b6b_l)
                 < max_abs_over_thomson(exact_t_dcos - paper_b6a_t)
-                and angular_shape["printed_Eq106b_vs_exact_T_max_abs_over_exact_T_peak"] > 0.5
+                and angular_shape["printed_EqB6b_vs_exact_T_max_abs_over_exact_T_peak"] > 0.5
             ),
             "Appendix_B_B2_B4_traces_reproduce_direct_spinor_benchmark": (
                 all(appendix_trace["acceptance"].values())
             ),
-            "Eq106_differential_shapes_fail_the_low_energy_reference": (
-                angular_shape["acceptance"]["printed_Eq106a_fails_exact_L_angular_shape"]
-                and angular_shape["acceptance"]["printed_Eq106b_fails_exact_T_angular_shape"]
+            "EqB6_differential_shapes_fail_the_low_energy_reference": (
+                angular_shape["acceptance"]["printed_EqB6a_fails_exact_L_angular_shape"]
+                and angular_shape["acceptance"]["printed_EqB6b_fails_exact_T_angular_shape"]
             ),
         },
         "acceptance": {
@@ -790,7 +790,7 @@ def main():
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(payload, indent=2) + "\n")
     print(json.dumps(payload["acceptance"], indent=2))
-    print(json.dumps(payload["printed_Eq58_comparison"], indent=2))
+    print(json.dumps(payload["printed_Eq5_9_comparison"], indent=2))
     if not all(payload["acceptance"].values()):
         raise SystemExit("Exact vector-current physical acceptance checks failed")
 
