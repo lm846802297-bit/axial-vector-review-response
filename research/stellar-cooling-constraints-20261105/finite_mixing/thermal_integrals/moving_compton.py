@@ -68,7 +68,7 @@ def moving_compton_matrix_elements(
     The momentum argument p is the final-muon momentum in the production
     process gamma+mu(p') -> A'+mu(p); p' = p+k-q is the initial muon.
     The inverse absorption rate uses the same squared amplitude. The
-    incoming A' momentum is along +z. The final-muon azimuth is set to zero
+    incoming A' momentum is along +z in the medium rest frame. The returned mode order is (L,+,-): epsilon_L=(|k|/m,0,0,omega/m), with +/- the circular transverse vectors in that same frame. For a conserved vector current the code uses epsilon_L-q/m, which is gauge-equivalent and numerically stable; for an axial current it uses the physical epsilon_L. These are medium-rest-frame modes, not helicities defined in the muon-A' pair CM frame. The final-muon azimuth is set to zero
     using axial symmetry. Photon polarizations are e_theta/e_phi.
     The trace sums photon polarizations and final muon spin, and averages
     the initial muon spin. Multiply by the explicit two-spin degeneracy
