@@ -338,4 +338,33 @@ The audit establishes the following:
 
 **Interpretation boundary:** this audit establishes an inconsistency between the printed mode-resolved formulas and the conserved-vector-current soft limit. It does not identify the exact algebraic step responsible, establish a corrected full finite-mass cross section, or pass the pure-vector Blinov Fig. 7 gate. Do not modify production code, opacity normalization, the manuscript, referee response, or published constraint figures on this basis.
 
-The remaining P0 theory work is to derive (B.2)/(B.4) from the correctly ordered amplitude with exact kinematics, compute the longitudinal trace directly from P_L^{mu nu}, and trace the phase-space Jacobian and initial-state averages through to (B.6). Only then should the source discrepancy be classified.
+The direct P_L projection and explicit-spinor/trace cross-check are complete. Remaining P0 theory work is to derive the leading finite-recoil correction to B.2/B.4 symbolically, verify the observed B.2/B.3 asymptotic laws, and trace the exact phase-space Jacobian, beta factor, and initial-state averages into (B.6). The source discrepancy is not yet fully classified.
+
+
+### 12.7 Direct \(P_L\) projection and recoil-order diagnosis
+
+The direct longitudinal-projector calculation is archived in [audit_vector_longitudinal_projector.py](finite_mixing/thermal_integrals/audit_vector_longitudinal_projector.py), its tests in [test_vector_longitudinal_projector.py](finite_mixing/thermal_integrals/test_vector_longitudinal_projector.py), and its numerical summary in [vector_longitudinal_direct_projector_summary_2026-11-12.json](finite_mixing/thermal_integrals/outputs/vector_longitudinal_direct_projector_summary_2026-11-12.json).
+
+The calculation evaluates the rank-one longitudinal projection at amplitude level using the exact vector-Ward-equivalent polarization
+\[
+\widetilde\epsilon_L^\mu
+=\epsilon_L^\mu-q^\mu/m_{Z'}
+=\frac{m_{Z'}}{\omega+|\mathbf q|}(-1,\hat{\mathbf q}).
+\]
+It is exact for the conserved pure-vector current and is not used for the axial component.
+
+Across 36 exact-kinematics points, the maximum physical-versus-Ward polarization difference is \(3.27\times10^{-7}\), the independent trace-versus-explicit-spinor difference is \(8.37\times10^{-11}\), and the correct crossed-amplitude Ward residual is \(1.34\times10^{-14}\). The literal \(u\)-channel order printed in (B.1b) gives a nonzero normalized Ward residual; the crossed \(\gamma^\nu S_u\gamma^\mu\) order satisfies the identity.
+
+The direct P_L comparison shows that B.3 is systematically below the direct longitudinal result. The residual remains after an 80-digit evaluation of B.2/B.4, so it is not merely double-precision cancellation. In the small-\(x\), soft-muon regime, the scan resolves
+\[
+\frac{B_2^{\rm paper}}{T_{\rm exact}}-1
+\simeq \frac{2x^2(E_\gamma/m_\mu)}{1+\cos^2\theta},
+\qquad
+\frac{B_3^{\rm paper}}{L_{\rm direct}}-1
+\simeq-\frac{2(E_\gamma/m_\mu)}{1-\cos^2\theta}.
+\]
+At \(x=10^{-3}\) and \(E_\gamma\le0.1\) MeV, the maximum relative deviations from these leading laws are 0.154% and 0.0921%. These are numerical asymptotic fits, not yet a symbolic proof.
+
+**Interpretation:** an \(O(x^2 E_\gamma/m_\mu)\) residual in the transverse B.2 expression is of the same \(x\)-order as the physical longitudinal signal. Subtracting B.2 from B.4 therefore induces an \(O(E_\gamma/m_\mu)\) relative bias in B.3. The direct longitudinal kernel should be used for independent physical checks; do not replace the published transport benchmark until the source-level expansion and phase-space derivation are complete.
+
+No production kernel, opacity, thermal integral, transport curve, manuscript, referee response, or published figure is changed by this audit.
