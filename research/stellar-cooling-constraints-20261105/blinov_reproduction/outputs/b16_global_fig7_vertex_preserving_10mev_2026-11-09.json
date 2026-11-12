@@ -9,7 +9,7 @@
     {
       "code_sha256": {
         "audit_script": "a146efa0cd2d8c6ddbd13daf8ed00ff4737accdbd16e31a54e008bfaef36f75d",
-        "fig7_reference": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4",
+        "fig7_reference": "3eb1121da175d89da54a19abbdf0c52669a239be464978ddcfe84887e4d18d06",
         "profile": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
         "reference_script": "f81468f4305cf57eb86cc0210abc7afc333d434ae70da307ca64a824e486107c"
       },
@@ -323,7 +323,7 @@
             -0.07278707380388971,
             -0.0715973004813436,
             -0.053548380455852085,
-            -0.04424109970524204,
+            -0.044241099705241926,
             -0.03157156579774578,
             -0.00035147535696578025,
             0.025687774810936315,
@@ -470,8 +470,8 @@
             "escape_fraction": 0.6905122447983917,
             "g": 6.4897983908964e-09,
             "optically_thin_luminosity_erg_s": 1.82095882359851e+54,
-            "reference_luminosity_erg_s": 1.3155978611139929e+54,
-            "relative_difference": -0.04424109970524204,
+            "reference_luminosity_erg_s": 1.3155978611139927e+54,
+            "relative_difference": -0.044241099705241926,
             "source_weighted_mean_tau": 0.39052556042616543
           },
           {
@@ -571,7 +571,7 @@
         "path": "/home/runner/work/axial-vector-review-response/axial-vector-review-response/research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json",
         "pdf_sha256": "4d7d1d10bfe2b52992af94df98749fa3adac887c009cbf98515fa12e6c48fdb5",
         "points": 25,
-        "sha256": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4"
+        "sha256": "3eb1121da175d89da54a19abbdf0c52669a239be464978ddcfe84887e4d18d06"
       },
       "mass_MeV": 10.0,
       "outer_mu_numu_branch_opacity_sensitivity": {
@@ -762,8 +762,8 @@
             "g": 6.4897983908964e-09,
             "luminosity_shift_vs_baseline": -3.556472521959453e-05,
             "outer_mu_numu_zero_luminosity_erg_s": 1.2573496460833629e+54,
-            "reference_luminosity_erg_s": 1.3155978611139929e+54,
-            "relative_difference_vs_fig7_after_variant": -0.044275091007907164
+            "reference_luminosity_erg_s": 1.3155978611139927e+54,
+            "relative_difference_vs_fig7_after_variant": -0.04427509100790694
           },
           {
             "baseline_luminosity_erg_s": 1.5603990425044436e+54,
@@ -953,7 +953,7 @@
       "path_redshift_only_diagnostic": {
         "curve_metrics": {
           "maximum_absolute_relative_difference": 0.36744800013575163,
-          "mean_absolute_relative_difference": 0.09216253301682918,
+          "mean_absolute_relative_difference": 0.09216253301682917,
           "n_points": 25,
           "reference_peak_relative_difference": -0.02770419285998682,
           "relative_differences": [
@@ -971,7 +971,7 @@
             -0.07917214814219287,
             -0.0807158511469721,
             -0.06673844884269053,
-            -0.06301523618252791,
+            -0.0630152361825278,
             -0.058166378391659834,
             -0.03836137370196169,
             -0.02770419285998682,
@@ -1155,8 +1155,8 @@
             "g": 6.4897983908964e-09,
             "luminosity_shift_vs_fixed_omega": -0.019643172008647736,
             "optically_thin_luminosity_erg_s": 1.82095882359851e+54,
-            "reference_luminosity_erg_s": 1.3155978611139929e+54,
-            "relative_difference": -0.06301523618252791,
+            "reference_luminosity_erg_s": 1.3155978611139927e+54,
+            "relative_difference": -0.0630152361825278,
             "source_weight_fraction_at_infinite_tau": 3.2444242215757864e-05,
             "source_weighted_mean_tau_over_escaping_bins": 0.4122703147418404
           },
@@ -1279,7 +1279,7 @@
         "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
       },
       "reference_axis_conversion": "The digitized Fig. 7 abscissa is alpha_V; the source extraction converts it to g=sqrt(4*pi*alpha_V). Rates and opacity are normalized per g^2 and the scan uses this g.",
-      "run_commit_sha": "5e71128057567eee300f8869d89c1dffed5fdc2c",
+      "run_commit_sha": "3d227183aef41d2cc7671440e994bdd07a255ff5",
       "source_channel_fractions": {
         "compton": {
           "fraction": 0.32004993699899165,
@@ -1312,7 +1312,7 @@
       }
     }
   ],
-  "run_commit_sha": "5e71128057567eee300f8869d89c1dffed5fdc2c",
+  "run_commit_sha": "3d227183aef41d2cc7671440e994bdd07a255ff5",
   "scope": [
     "Pure-vector B.14--B.16 literature benchmark only.",
     "The baseline is the literal fixed-omega Eq. (B.2) prescription.",
