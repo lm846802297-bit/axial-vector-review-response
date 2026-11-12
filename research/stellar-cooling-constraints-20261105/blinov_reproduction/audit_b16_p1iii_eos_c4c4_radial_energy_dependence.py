@@ -158,8 +158,8 @@ def tau_from_kappa(r_km: np.ndarray, kappa_mev: np.ndarray) -> np.ndarray:
     return tau
 
 
-# Copied from the C4-C3 local recomputation accelerator. Only the innermost
-# Dirac-matrix contraction is JIT-compiled; phase space and quadrature are unchanged.
+# Code copied from the C4-C3 local recomputation accelerator; this is a code-origin
+# reference, not a runtime dependency. Only the innermost Dirac contraction is JIT-compiled.
 GAMMA = np.asarray(b2.kernel.GAMMA)
 METRIC = np.asarray(b2.kernel.METRIC)
 IDENT = np.asarray(b2.kernel.IDENT)
@@ -698,7 +698,7 @@ def merge_and_archive(shard_dir: Path, output_dir: Path, source_commit: str) -> 
             "C4B2_kernel_git_blob_sha": EXPECTED_C4B2_GIT_BLOB,
             "C4C1_support_git_blob_sha": EXPECTED_C4C1_GIT_BLOB,
             "C4C2_integrator_git_blob_sha": EXPECTED_C4C2_GIT_BLOB,
-            "C4C3_numba_accelerator_source_blob_sha": "821e39edfe235f5a8fcac6b2e074bb0dcb9631c6",
+            "C4C3_numba_accelerator_code_origin_blob_sha_reference_only": "821e39edfe235f5a8fcac6b2e074bb0dcb9631c6",
         },
         "acceptance": acceptance,
         "numerical_integrity_pass": all(acceptance.values()),
