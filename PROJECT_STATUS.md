@@ -1,6 +1,27 @@
-# 2026-11-12 live status: post-merge numerical validation and active-branch synchronization
+# 2026-11-13 live status: branch audit and research integration
 
-> This live section supersedes older dated entries below wherever they report an earlier main SHA, PR state, validation run, or branch count. Historical records remain intact.
+> This live section supersedes older dated entries below wherever they report earlier main SHAs, PR states, branch counts, or active-branch inventories. Historical records remain intact.
+
+## Current repository and PR state
+
+- Main baseline for this audit: `4fdb7ea3b0e85412525322b6b3d584365a852363`.
+- PR #84 is **Closed / Merged**: C4-C4-B full-radial energy-dependence results, native outputs, provenance, and checksums.
+- PR #85 is **Closed / Merged**: separately scoped two-VEV axial microphysics benchmark. This does not change the original one-VEV model.
+- PR #82 was closed as superseded by #84; PR #83 was closed as a duplicate of already-merged PR #77.
+- No open PRs remained after these integrations.
+- PRs #53, #56, #68, #69, #72, #73, #79, #80, and #81 are already merged. Their branches may still report large `ahead_by` counts because of squash-merge ancestry; do not treat those counts as unmerged content.
+
+## Branch audit and scientific status
+
+See [research/BRANCH_INTEGRATION_AUDIT_2026-11-13.md](research/BRANCH_INTEGRATION_AUDIT_2026-11-13.md) for the all-branch comparison, merged-workstream map, intentionally unpromoted historical/preliminary branches, and the reasons not to merge their stale histories.
+
+The pure-vector Blinov Fig. 7 reproduction remains **not passed** at the 10 MeV strong-absorption end. The new C4-C4-B archive is a fixed-local-energy, flat-space total-scattering diagnostic, not a complete transport result or SN1987A exclusion. The two-VEV archive is an alternative model extension and must remain separate from the original one-VEV paper model.
+
+---
+
+## Historical 2026-11-12 status snapshot (superseded)
+
+ older dated entries below wherever they report an earlier main SHA, PR state, validation run, or branch count. Historical records remain intact.
 
 ## Repository and PR state
 
@@ -176,7 +197,7 @@ PR #64 在独立审查基础上精简 Major 1.3、2、3、4.2–4.4 和 Minor 5�
 
 ## 2026-11-09 更新：Major Points 2–4 回复结构调整（PR #64）
 
-[PR #64](https://github.com/lm846802297-bit/axial-vector-review-response/pull/64) 从当前 \`main\` 的 \`b5115cee164561c881ef58e44c2bc1bb77d6c6f1\` 创建，工作分支为 \`review/major-response-structure-20261109\`，合并前为 Open。目标是统一落实“总体回复简洁、具体子回复提供充分物理依据、公式和定量结果”的组织原则。
+[PR #64](https://github.com/lm846802297-bit/axial-vector-review-response/pull/64) 从当前 `main` 的 `b5115cee164561c881ef58e44c2bc1bb77d6c6f1` 创建，工作分支为 `review/major-response-structure-20261109`，合并前为 Open。目标是统一落实“总体回复简洁、具体子回复提供充分物理依据、公式和定量结果”的组织原则。
 
 - **Major 2：** 总体 Reply 压缩为显示窗口及其非普适边界的说明；原有实验覆盖、低/高质量端理由、规范与 Yukawa 微扰性、标量质量条件和 Fig. 2 区域解释均保留，并增加主题导航。
 - **Major 3：** 将结尾的总体审稿人 quote 移至开头，合并重复的总体回复；3.1/3.2 的残余对称性、Weinberg 算符、质量矩阵、type-I seesaw、逆重构、PMNS、异常与双 VEV 适用范围推导均保留。
@@ -511,7 +532,7 @@ PR #53 与 PR #56 是两个不同工作流：#53 针对原论文单 VEV UV 模�
 
 The next research stage is restricted to the high-order energy-resolved escape distribution at the 10 MeV strong-absorption endpoint. The staged plan is [RESEARCH_PLAN_10MEV_HIGH_ORDER_PHASE_SPACE_2026-11-10.md](research/stellar-cooling-constraints-20261105/blinov_reproduction/RESEARCH_PLAN_10MEV_HIGH_ORDER_PHASE_SPACE_2026-11-10.md). It defines the calculation contract, exact baseline/closure gates, the required source-versus-escaped energy/radius/direction distributions, and conditional follow-up diagnostics. No 0.1 or 1 MeV scan or axial-vector curve update is authorized by this stage.
 
-The plan review identified one output-integrity gap before execution: the phase-space script previously archived only the top 80 joint radius-energy-direction cells, which would not allow an independent reconstruction of all one-dimensional marginals. The script now archives the complete non-empty joint table as \`joint_radius_energy_direction_bins\`, while retaining the top-80 convenience view. The workflow and local runbook now require closure of the complete joint source and escaped-luminosity partitions, including their global subregion fractions.
+The plan review identified one output-integrity gap before execution: the phase-space script previously archived only the top 80 joint radius-energy-direction cells, which would not allow an independent reconstruction of all one-dimensional marginals. The script now archives the complete non-empty joint table as `joint_radius_energy_direction_bins`, while retaining the top-80 convenience view. The workflow and local runbook now require closure of the complete joint source and escaped-luminosity partitions, including their global subregion fractions.
 
 Stage A has confirmed the research branch, PR #57 status, archived profile/Fig. 7 fingerprints, and high-order baseline configuration (200/640/200/32/64; 842 energy nodes after lapse-threshold insertion). The exact baseline strong-end point is \(g=4.171689650228597\times10^{-8}\), \(L_{\rm B.16}=2.4396359573610326\times10^{52}\,\mathrm{erg\,s^{-1}}\), and \(P_{\rm esc}=3.251774019352899\times10^{-4}\). The regression suite contains three tests, but it has **not** been executed in this environment; the long physical calculation has not started. Proceed to Stage A runtime tests and then the single high-order run, without changing the calculation contract.
 
@@ -520,7 +541,7 @@ Stage A has confirmed the research branch, PR #57 status, archived profile/Fig. 
 
 The high-order phase-space script now archives the full non-empty radius-energy-direction joint table. The workflow additionally checks escape-probability closure against the archived baseline and independently reconstructs all radius, energy, and four-bin direction marginals from the full joint table. This prevents the top-80 display subset from being mistaken for a complete partition.
 
-The latest push-triggered workflow, [Run #42666123613](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42666123613), again failed before runner allocation: job exists, but \`steps=null\` and \`logs_url=null\`. Thus neither regression tests nor the high-order physical calculation executed. Do not interpret this as a numerical failure and do not trigger more empty runs. The next valid execution route is a local checkout of this exact branch or GitHub Actions after hosted-runner provisioning is restored.
+The latest push-triggered workflow, [Run #42666123613](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42666123613), again failed before runner allocation: job exists, but `steps=null` and `logs_url=null`. Thus neither regression tests nor the high-order physical calculation executed. Do not interpret this as a numerical failure and do not trigger more empty runs. The next valid execution route is a local checkout of this exact branch or GitHub Actions after hosted-runner provisioning is restored.
 
 
 ## 2026-11-11 update: SFHo real-table and Fig. 12 cross-check
@@ -621,13 +642,13 @@ is changed.
 
 The reproducible profile builder, mapping script, input CSV, detailed output,
 and report are in
-\`research/stellar-cooling-constraints-20261105/blinov_reproduction/\`:
-\`build_caputo_profile_key_radii.py\`,
-\`map_caputo_sfho_eos_profile.py\`,
-\`outputs/caputo_profile_key_radii_2026-11-11.csv\`,
-\`outputs/caputo_sfho_eos_profile_key_radii_2026-11-11.csv\`,
-\`outputs/caputo_sfho_eos_profile_key_radii_2026-11-11.json\`, and
-\`B16_P1IIIE_C_CAPUTO_PROFILE_TO_SFHO_EOS_2026-11-11.md\`.
+`research/stellar-cooling-constraints-20261105/blinov_reproduction/`:
+`build_caputo_profile_key_radii.py`,
+`map_caputo_sfho_eos_profile.py`,
+`outputs/caputo_profile_key_radii_2026-11-11.csv`,
+`outputs/caputo_sfho_eos_profile_key_radii_2026-11-11.csv`,
+`outputs/caputo_sfho_eos_profile_key_radii_2026-11-11.json`, and
+`B16_P1IIIE_C_CAPUTO_PROFILE_TO_SFHO_EOS_2026-11-11.md`.
 
 The independent GitHub Actions profile-map validation is running. Next is to
 extend the same mapping from ten key radii to the full 0.05-km Caputo
@@ -712,7 +733,7 @@ The following non-duplicated status entries were present on the active PR #69 br
 
 ## 2026-11-10 update: explicit tree-level evanescents for EOM-generated Fierz channels
 
-The upstream PR #11 is pinned at \`49b70f5fce4966787b0dd41e741c35d3084bcf60\`. The [EOM-generated chiral Fierz note](https://github.com/lm846802297-bit/high-energy-theory-research/blob/49b70f5fce4966787b0dd41e741c35d3084bcf60/research/RC-001-QLD-EOM-generated-chiral-Fierz-identities.md) now gives explicit \(E_{XY;V}^{\mu,rs}\) and \(E_{XY;T}^{\mu\nu,rs}\) differences for the scalar-vector and scalar-tensor channels generated by the second-order fermion EOM. The definitions include the operator-level Grassmann minus sign, the Levi-Civita terms, and the three-component chiral tensor basis; no \(O(\epsilon)\) physical-operator admixture is included at definition stage.
+The upstream PR #11 is pinned at `49b70f5fce4966787b0dd41e741c35d3084bcf60`. The [EOM-generated chiral Fierz note](https://github.com/lm846802297-bit/high-energy-theory-research/blob/49b70f5fce4966787b0dd41e741c35d3084bcf60/research/RC-001-QLD-EOM-generated-chiral-Fierz-identities.md) now gives explicit \(E_{XY;V}^{\mu,rs}\) and \(E_{XY;T}^{\mu\nu,rs}\) differences for the scalar-vector and scalar-tensor channels generated by the second-order fermion EOM. The definitions include the operator-level Grassmann minus sign, the Levi-Civita terms, and the three-component chiral tensor basis; no \(O(\epsilon)\) physical-operator admixture is included at definition stage.
 
 The 4D projections were checked in 34 exact matrix identities (8704/8704 components) plus six self-duality relations. The next step is no longer merely to list Fierz channels: it is to compute their one-loop mixing into the physical and evanescent dimension-eight basis, include UV-generated higher gamma strings, and match the same-order EFT soft/counterterm contributions.
 
@@ -720,7 +741,7 @@ Upstream runs 42735130364 and 42735130363 failed with empty job-step lists and u
 
 ## 2026-11-10 update: EOM-generated scalar-vector and scalar-tensor Fierz projections
 
-The upstream PR #11 is now pinned at \`49b70f5fce4966787b0dd41e741c35d3084bcf60\`. The new [EOM-generated chiral Fierz note](https://github.com/lm846802297-bit/high-energy-theory-research/blob/49b70f5fce4966787b0dd41e741c35d3084bcf60/research/RC-001-QLD-EOM-generated-chiral-Fierz-identities.md) and exact SymPy audit establish the four scalar-vector chiral identities, the two opposite-chirality scalar-tensor identities including their Levi-Civita terms, and the two same-chirality scalar-tensor identities in the three-component self-dual basis.
+The upstream PR #11 is now pinned at `49b70f5fce4966787b0dd41e741c35d3084bcf60`. The new [EOM-generated chiral Fierz note](https://github.com/lm846802297-bit/high-energy-theory-research/blob/49b70f5fce4966787b0dd41e741c35d3084bcf60/research/RC-001-QLD-EOM-generated-chiral-Fierz-identities.md) and exact SymPy audit establish the four scalar-vector chiral identities, the two opposite-chirality scalar-tensor identities including their Levi-Civita terms, and the two same-chirality scalar-tensor identities in the three-component self-dual basis.
 
 Validation: 34 exact matrix identities passed (8704/8704 components), along with six chiral tensor self-duality checks. These are four-dimensional spinor projections and tree-level evanescent-difference definitions, not a one-loop mixing calculation.
 
@@ -728,7 +749,7 @@ The existing four scalar-pair evanescents are not closed after second-order EOM 
 
 ## 2026-11-10 update: derivative-aware QLD8 Fierz/IBP and second-order fermion EOM
 
-The upstream PR #11 now contains the following additional records, pinned at \`49b70f5fce4966787b0dd41e741c35d3084bcf60\`:
+The upstream PR #11 now contains the following additional records, pinned at `49b70f5fce4966787b0dd41e741c35d3084bcf60`:
 
 - [Derivative-aware Fierz/IBP ledger](https://github.com/lm846802297-bit/high-energy-theory-research/blob/49b70f5fce4966787b0dd41e741c35d3084bcf60/research/RC-001-QLD8-derivative-Fierz-IBP-ledger.md): exact covariant-IBP identity for the complete source-pair sum, three Laplacian Leibniz classes, 9 ordered source pairs, 36 derivative placements, and the derivative-label map through spinor Fierz rearrangement.
 
@@ -824,9 +845,9 @@ The following non-duplicated source-archive status note is retained from the SFH
 
 ## 2026-11-13 PR #77 — Major 4.4 post-merge follow-up
 
-- Follow-up PR: [#77](https://github.com/lm846802297-bit/axial-vector-review-response/pull/77), **Open / Draft**, base \`main\`; branch \`research/major44-postmerge-followup-20261113\`.
-- Created from main commit \`657224b7107dd2844a9d623acd37b09c3e8b6d5f\`; the follow-up branch has one commit ahead and \`behind_by=0\`.
-- The 13-path post-merge comparison was reviewed. The PR retains eight provenance-only JSON refreshes, the package-relative import correction for the direct longitudinal-projector test, and the review record in \`VALIDATION_AND_REVIEW.md\`. It excludes three JSON outputs with only final-digit floating-point differences and the workflow's comment-only change.
-- Major 4.4 EFT validation [Run #43206544367](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43206544367) completed successfully on source commit \`c611005c6cb343f8a53b282e14d15a8b6468b541\`. This is software/data reproducibility evidence, not physical Fig. 7 acceptance.
+- Follow-up PR: [#77](https://github.com/lm846802297-bit/axial-vector-review-response/pull/77), **Open / Draft**, base `main`; branch `research/major44-postmerge-followup-20261113`.
+- Created from main commit `657224b7107dd2844a9d623acd37b09c3e8b6d5f`; the follow-up branch has one commit ahead and `behind_by=0`.
+- The 13-path post-merge comparison was reviewed. The PR retains eight provenance-only JSON refreshes, the package-relative import correction for the direct longitudinal-projector test, and the review record in `VALIDATION_AND_REVIEW.md`. It excludes three JSON outputs with only final-digit floating-point differences and the workflow's comment-only change.
+- Major 4.4 EFT validation [Run #43206544367](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43206544367) completed successfully on source commit `c611005c6cb343f8a53b282e14d15a8b6468b541`. This is software/data reproducibility evidence, not physical Fig. 7 acceptance.
 - **Physics gate remains open:** pure-vector Blinov Fig. 7 is **NOT PASSED**; the 10 MeV high-absorption discrepancy remains unresolved. No opacity/profile rescaling, production-kernel replacement, or axial constraint update is accepted.
 - PR #77 remains Draft pending file-level review; no merge has been performed.
