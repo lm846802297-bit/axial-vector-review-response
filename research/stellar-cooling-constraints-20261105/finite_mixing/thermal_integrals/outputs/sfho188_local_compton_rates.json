@@ -4969,9 +4969,9 @@
       "omega_infinity_MeV": 2696.663135017587,
       "omega_over_mass": 10.0,
       "gamma_prod_total_by_mode_MeV": [
-        1.5e-323,
-        1.33e-322,
-        1.33e-322
+        0.0,
+        0.0,
+        0.0
       ],
       "gamma_abs_total_by_mode_MeV": [
         1.2565560606545571e-14,
@@ -4981,16 +4981,16 @@
       "charge_contributions": {
         "mu_minus": {
           "gamma_prod_by_mode_MeV": [
-            1.5e-323,
-            1.33e-322,
-            1.33e-322
+            0.0,
+            0.0,
+            0.0
           ],
           "gamma_abs_by_mode_MeV": [
             1.2554413100260412e-14,
             2.720247612703662e-14,
             2.7194144259330845e-14
           ],
-          "detailed_balance_relative_residual": 1.284570679187241e-22
+          "detailed_balance_relative_residual": 4.940656458412465e-24
         },
         "mu_plus": {
           "gamma_prod_by_mode_MeV": [
@@ -5006,7 +5006,7 @@
           "detailed_balance_relative_residual": 0.0
         }
       },
-      "total_detailed_balance_relative_residual": 1.284570679187241e-22,
+      "total_detailed_balance_relative_residual": 4.940656458412465e-24,
       "quadrature_points_all_charges": 24576
     },
     {
@@ -5810,9 +5810,9 @@
       "quadrature_points_all_charges": 24576
     }
   ],
-  "runtime_seconds": 66.25755548477173,
+  "runtime_seconds": 71.78401494026184,
   "source_sha256": {
-    "moving_compton.py": "a2c119eb3994a3051a3911b8f45f2a87e82551480b03e510d262514928d3cd80",
+    "moving_compton.py": "18fc4b244cc0c77f3c6874d816607ec9e231025e9b3bf53b0d2c2fc5babf4baa",
     "model.py": "925021a743a21bc39da84e0b034d4fae76c131411f2c39b65b1662eae21bf664",
     "runner.py": "7a73b9b67bf4baf34236103db214c08fa4ff1420c2367cd5a54c1ac2e60b40f8"
   }
