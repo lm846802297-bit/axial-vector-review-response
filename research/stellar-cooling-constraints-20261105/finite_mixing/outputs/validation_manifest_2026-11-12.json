@@ -1,5 +1,5 @@
 {
-  "run_commit_sha": "80b2838b87b047d332088e47f69f2260ef3b02f4",
+  "run_commit_sha": "3e0635972945edb3268651c14c545a10e5b9a0b9",
   "branch": "codex/major44-axial-cooling-constraints-20261105",
   "python": "3.12.16 (main, Oct 26 2026, 02:50:49) [GCC 13.3.0]",
   "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
@@ -10,8 +10,8 @@
     "finite_mixing/thermal_integrals/moving_compton.py": "18fc4b244cc0c77f3c6874d816607ec9e231025e9b3bf53b0d2c2fc5babf4baa",
     "finite_mixing/thermal_integrals/test_moving_compton.py": "05bbc9e67fbeb6486b1aa0d33104c74bc0ce50701b52f8987bc6541a2733c282",
     "finite_mixing/thermal_integrals/run_moving_compton_validation.py": "195d75ea9c1f0ed3cfeed7b2157111a97c2753f938990e5eec96e9f3e431dd13",
-    "finite_mixing/thermal_integrals/audit_vector_semicompton_polarization.py": "1ec6b02e72dbe33ecf91a6b3010d5fb867198d5d575cda9397baffb9a61caeef",
-    "finite_mixing/thermal_integrals/test_vector_semicompton_polarization.py": "c99d96cb6999ca10237afa806161199ce4aaba96d7d441370024b5233563b1c1",
+    "finite_mixing/thermal_integrals/audit_vector_semicompton_polarization.py": "3ff56c5023fd43dddfe4fd095664f5ab223aca771cd86e7beb971b18385975fb",
+    "finite_mixing/thermal_integrals/test_vector_semicompton_polarization.py": "37486709dfb0906e09cd9614cf35e8d414fa2ebb75dd01cf12834a3e99bcc2a2",
     "finite_mixing/thermal_response_scan.py": "f229db1299cfba34d2dd32c9ec1b58b6e834f6eb49afb01c7052596596e18998",
     "finite_mixing/b13_b16_comparison.py": "350403826ea69572162743e26635f649ec1ae1c7fbbbcf89b722cbfb886fd56f",
     "finite_mixing/b13_b16_mass_scan.py": "aac9523451675112d94dd4959121ef291f2b32311a0c7969140cbc861f400e20"
