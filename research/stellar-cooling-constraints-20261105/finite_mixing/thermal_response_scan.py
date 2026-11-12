@@ -73,8 +73,8 @@ def compton_case(mass, point, couplings, energy_order=12, orders=(12,8,8,8)):
         "max_detailed_balance_relative_error": max(
             r["max_detailed_balance_relative_error"] for r in results.values()
         ),
-        "max_Eq_5_12_relative_residual": max(
-            r["max_Eq_5_12_relative_residual"] for r in results.values()
+        "max_Eq_61_relative_residual": max(
+            r["max_Eq_61_relative_residual"] for r in results.values()
         ),
         "max_final_muon_shell_relative_error": max(
             r["max_final_muon_shell_relative_error"] for r in results.values()
