@@ -1,3 +1,41 @@
+# 2026-11-12 post-merge verification and branch synchronization
+
+> This entry supersedes older status statements below where they still describe PR #56 as Open/Draft, use `310a24a53e8448f0388072cfdbf55749fde713f9` as the current main baseline, or describe Run #158 as the latest numerical validation.
+
+## Current repository baseline
+
+- **Current main before this status refresh:** `293d047013cce0dc3fbc44b2cd679f2df0f253dd`. This is the squash-merge commit for PR #56. PR #56 is now **closed/merged**, not Open/Draft. Its source branch is retained for provenance; C4-C4 and the other ongoing workstreams remain separate research branches.
+- **PRs still open:** PR #53 (original-UV axial stellar cooling), PR #68 (Belle II radial-scalar recast), and PR #69 (Higgs–singlet mixing). All remain Draft/Open; no completion claim is made for their unfinished work.
+- **Numerical workflow Run #158** (`43135845410`, triggering SHA `071d19490bc3`) ended as `cancelled` after the job's 25-minute timeout. The log contains no `FAIL`, `ERROR`, traceback, or assertion failure. It is an incomplete run, not a failed physical test and not a successful full validation.
+- **Replacement full validation:** Run [`43179379690`](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43179379690) completed successfully on `fdb4a26ce5c06f75ed71cc67b79c01a6055bbbc2`. The two unittest invocations reported `Ran 358 tests` and `Ran 229 tests`, each `OK (skipped=1)`. The skipped class requires `SFHO_TABLES_DIR` to point to an extracted official SFHo/FRDM archive; fixture-based closure tests passed, and the separate archive reconstruction/checksum step passed. These counts are software-test executions, not independent physical validations.
+- **Archive checks in Run #43179379690:** all 14 C4C3 SHA-256 entries verified; SFHo/FRDM split archives were reconstructed and matched the expected SHA-256 values. The workflow also completed Blinov/EOS regression tests, reference scans, saved-scan validation, figure regeneration, and reproducibility checks.
+- **Head-validation boundary:** the final merged tree is the PR #56 head tree `d1828fd783a4fa8380041e360be80e933ba34fe7`, whereas Run #43179379690 tested `fdb4a26`. The final head additionally contains the direct longitudinal-projector audit and related tests; these were not covered by that successful run. Do not describe the final head's projector audit as CI-validated until a run on that exact tree passes.
+- **Physical result remains unchanged:** the pure-vector Blinov Fig. 7 gate is **NOT PASSED**. The 10 MeV strong-absorption endpoint remains about `2.43963596e52 erg/s`, approximately `+92.4284%` above the digitized Fig. 7 reference. No empirical opacity/profile rescaling is accepted; no production axial-vector constraint curve is unlocked by the software CI result.
+
+## Active branch synchronization after PR #56 merge
+
+The PR #56 squash merge advanced main from `310a24a53e8448f0388072cfdbf55749fde713f9` to `293d047013cce0dc3fbc44b2cd679f2df0f253dd`. The following still-active branches are being merged with the latest main while preserving their branch-specific research commits and data:
+
+- `research/stellar-cooling-original-uv-model-20261105` (PR #53)
+- `research/major1-scalar-pole-belleii-20261109` (PR #68)
+- `research/major1-higgs-scalar-mixing-20261109` (PR #69)
+- `research/c4c4-energy-dependence-20261112` (C4-C4)
+- `research/moving-muon-thermal-rates-20261107`
+- `transfer/p1iii-eos-latest-source-20261111`
+- `transfer/pr57-source-bundle-20261110`
+- `transfer/sfho-frdm-release-transfer-20261111`
+
+The merged PR #56 source branch is retained as historical provenance, not treated as an open research PR. No branch is deleted by this synchronization. The final GitHub `main...head` comparison must show `behind_by=0` for every active branch above.
+
+## Verification policy
+
+- CI success validates only the tests and checks that actually ran on the recorded SHA.
+- A test skip must be reported with its reason; it is not silently counted as a pass.
+- A generated scan or figure is not a physical reproduction until the literature benchmark and all declared model/transport assumptions pass their own acceptance criteria.
+- Preserve every failed or unresolved physical-validation record. Do not convert a cancelled workflow into a pass, and do not delete research outputs to make branch synchronization easier.
+
+---
+
 ## 2026-11-09 最终更新：PR #72 Major Point 3 选择性恢复与重新编译（构建通过）
 
 - Major Point 3 保持两部分结构：原始单 VEV \(S\)-only 模型，以及可选的 \(\sigma+3N_R\) type-I seesaw 完成机制。原模型的残余 \(Z_2\)、Weinberg 算符选择规则、\(M_\nu^{(S)}\) 分块纹理和 \(U_{\rm PMNS}=\operatorname{diag}(1,U_{23})\) 结论保留。
