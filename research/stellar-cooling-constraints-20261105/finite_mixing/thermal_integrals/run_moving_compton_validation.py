@@ -129,6 +129,8 @@ def thermal_convergence_case(label, temperature, mu_mu):
     return {
         "temperature_MeV": temperature,
         "muon_chemical_potential_MeV": mu_mu,
+        "coarse_production_by_mode": [float(x) for x in coarse["Gamma_prod_by_mode"]],
+        "fine_production_by_mode": [float(x) for x in fine["Gamma_prod_by_mode"]],
         "coarse_absorption_by_mode": [float(x) for x in coarse["Gamma_abs_by_mode"]],
         "fine_absorption_by_mode": [float(x) for x in fine["Gamma_abs_by_mode"]],
         "relative_difference_absorption": max_rel(
@@ -136,6 +138,10 @@ def thermal_convergence_case(label, temperature, mu_mu):
         ),
         "coarse_detailed_balance_residual": coarse["max_detailed_balance_relative_residual"],
         "fine_detailed_balance_residual": fine["max_detailed_balance_relative_residual"],
+        "coarse_Eq5_12_relative_residual": coarse["unpolarized_normalization"]["Eq_5_12_relative_residual"],
+        "fine_Eq5_12_relative_residual": fine["unpolarized_normalization"]["Eq_5_12_relative_residual"],
+        "mode_order": fine["mode_order"],
+        "polarization_basis": fine["polarization_basis"],
         "mu_minus_fraction_by_mode": [
             float(x) for x in (
                 fine["charge_contributions"]["mu_minus"]["Gamma_abs_by_mode"]
@@ -162,6 +168,10 @@ def main():
         max(x["coarse_detailed_balance_residual"], x["fine_detailed_balance_residual"])
         for x in convergence.values()
     )
+    max_eq_5_12 = max(
+        max(x["coarse_Eq5_12_relative_residual"], x["fine_Eq5_12_relative_residual"])
+        for x in convergence.values()
+    )
     max_endpoint = max(checks["stationary_endpoint_relative_residual"].values())
     acceptance = {
         "stationary_endpoint_pass": max_endpoint < 2e-12,
@@ -174,7 +184,17 @@ def main():
         ),
         "nonzero_mu_interference_retained": interference["nonzero_mu_interference_abs_max"] > 1e-12,
         "quadrature_convergence_pass": max_quad < 5e-4,
+        "mode_resolved_positive_rates_pass": all(
+            np.all(np.asarray(case[key]) > 0.0)
+            for case in convergence.values()
+            for key in (
+                "coarse_production_by_mode", "fine_production_by_mode",
+                "coarse_absorption_by_mode", "fine_absorption_by_mode",
+            )
+        ),
         "detailed_balance_pass": max_balance < 1e-10,
+        "Eq5_12_unpolarized_2_over_3_normalization_pass": max_eq_5_12 < 1e-10,
+        "max_Eq5_12_unpolarized_relative_residual": max_eq_5_12,
         "max_stationary_endpoint_relative_residual": max_endpoint,
         "max_thermal_quadrature_relative_difference": max_quad,
         "max_detailed_balance_relative_residual": max_balance,
@@ -183,12 +203,20 @@ def main():
         "title": "Moving-muon semi-Compton local-rate validation",
         "scope": "Fixed mediator energy local rates only; no stellar luminosity or transport.",
         "units": {"energy_momentum_temperature": "MeV", "rates": "MeV"},
+        "polarization_basis": (
+            "Medium-rest-frame basis with A' momentum along +z; mode order "
+            "(L,+,-), physical longitudinal epsilon_L=(|k|/m,0,0,omega/m) "
+            "and two circular transverse modes. For the conserved vector "
+            "current, epsilon_L-q/m is used as a numerically stable gauge-equivalent vector."
+        ),
+        "mode_order": ["L", "+", "-"],
         "method": {
             "phase_space": "Exact 2<->2 collision integral with final-state delta eliminated analytically",
             "angular_quadrature": "Gauss-Legendre in cos(theta_p), cos(theta_gamma); periodic trapezoid in relative azimuth",
             "charge_species": "mu- and mu+ integrated separately with chemical potentials +mu_mu and -mu_mu",
             "current": "Coherent vector-axial amplitude; charge-conjugate interference sign retained",
-            "production_absorption": "Independent Fermi/Bose statistical factors on common invariant phase space",
+            "production_absorption": "Independent Fermi/Bose statistical factors on common invariant phase space; per-mode detailed balance is checked before spin-averaged totals",
+            "unpolarized_inverse_rate_normalization": "Gamma_abs/Gamma_prod=(2/3) exp(E_A'/T), from averaging 2 initial photon polarizations in production and 3 initial A' polarizations in absorption (arXiv:2610.35379v1, Eq. (5.12)); the paper writes E_gamma in its low-energy E_A'≈E_gamma approximation",
         },
         "source_sha256": {
             "rates.py": sha256(ROOT / "rates.py"),

@@ -14,10 +14,12 @@ from rates import (
 
 
 def _bose(energy, temperature):
-    """Stable Bose occupation for positive energy."""
+    """Stable Bose occupation; values below double precision underflow to zero."""
     x = np.asarray(energy, float) / float(temperature)
-    ex = np.exp(-np.minimum(x, 700.0))
-    return ex / (-np.expm1(-np.minimum(x, 700.0)))
+    x_clip = np.minimum(x, 745.0)
+    ex = np.exp(-x_clip)
+    value = ex / (-np.expm1(-x_clip))
+    return np.where(x > 745.0, 0.0, value)
 
 
 def _mapped_interval(order, lower, upper):
@@ -68,7 +70,7 @@ def moving_compton_matrix_elements(
     The momentum argument p is the final-muon momentum in the production
     process gamma+mu(p') -> A'+mu(p); p' = p+k-q is the initial muon.
     The inverse absorption rate uses the same squared amplitude. The
-    incoming A' momentum is along +z. The final-muon azimuth is set to zero
+    incoming A' momentum is along +z in the medium rest frame. The returned mode order is (L,+,-): epsilon_L=(|k|/m,0,0,omega/m), with +/- the circular transverse vectors in that same frame. For a conserved vector current the code uses epsilon_L-q/m, which is gauge-equivalent and numerically stable; for an axial current it uses the physical epsilon_L. These are medium-rest-frame modes, not helicities defined in the muon-A' pair CM frame. The final-muon azimuth is set to zero
     using axial symmetry. Photon polarizations are e_theta/e_phi.
     The trace sums photon polarizations and final muon spin, and averages
     the initial muon spin. Multiply by the explicit two-spin degeneracy
@@ -265,9 +267,58 @@ def moving_muon_compton_rates(
     abs_total = charge_results["mu_minus"]["Gamma_abs_by_mode"] + charge_results["mu_plus"]["Gamma_abs_by_mode"]
     expected_prod = np.exp(-omega/temperature)*abs_total
     balance = np.max(np.abs(prod_total-expected_prod)/np.maximum(np.abs(prod_total), 1e-300))
+
+    # Map the explicitly mode-resolved, photon-polarization-summed rates to
+    # the unpolarized convention used in the paper's total inverse-rate
+    # relation: average the initial photon over 2 states in production and
+    # the initial massive vector over 3 states in absorption.
+    gamma_prod_unpolarized = float(np.sum(prod_total)/2.0)
+    gamma_abs_unpolarized = float(np.sum(abs_total)/3.0)
+
+    # Eq. (5.12) writes E_gamma in the low-energy E_A'≈E_gamma approximation; our exact balance uses exp(omega/T), which can exceed the floating-point
+    # range in the cold, dilute outer layers. Production can also underflow
+    # to exactly zero while absorption remains representable. Evaluate the
+    # diagnostic in log space and mark an unresolvable ratio as null instead
+    # of raising ZeroDivisionError or writing inf/NaN to JSON.
+    log_expected = float(np.log(2.0/3.0) + omega/temperature)
+    log_float_max = float(np.log(np.finfo(float).max))
+    eq_5_12_expected = (
+        float(np.exp(log_expected)) if log_expected <= log_float_max else None
+    )
+    log_ratio = None
+    eq_5_12_ratio = None
+    eq_5_12_relative_residual = None
+    log_residual = None
+    if gamma_abs_unpolarized > 0.0 and gamma_prod_unpolarized > 0.0:
+        log_ratio = float(
+            np.log(gamma_abs_unpolarized)-np.log(gamma_prod_unpolarized)
+        )
+        if log_ratio <= log_float_max:
+            eq_5_12_ratio = float(np.exp(log_ratio))
+        log_residual = float(log_ratio-log_expected)
+        if abs(log_residual) < 700.0:
+            eq_5_12_relative_residual = float(abs(np.expm1(log_residual)))
+
     return {
         "Gamma_prod_by_mode": prod_total,
         "Gamma_abs_by_mode": abs_total,
+        "mode_order": ["L", "+", "-"],
+        "polarization_basis": "medium rest frame; A' momentum along +z",
+        "unpolarized_normalization": {
+            "initial_photon_polarization_average": 2,
+            "initial_vector_polarization_average": 3,
+            "Gamma_prod_unpolarized": gamma_prod_unpolarized,
+            "Gamma_abs_unpolarized": gamma_abs_unpolarized,
+            "Gamma_abs_over_Gamma_prod": eq_5_12_ratio,
+            "Gamma_abs_over_Gamma_prod_log": log_ratio,
+            "Eq_5_12_expected_ratio": eq_5_12_expected,
+            "Eq_5_12_expected_log_ratio": log_expected,
+            "Eq_5_12_log_residual": log_residual,
+            "Eq_5_12_relative_residual": eq_5_12_relative_residual,
+            "Eq_5_12_underflow_limited": (
+                gamma_prod_unpolarized == 0.0 or gamma_abs_unpolarized == 0.0
+            ),
+        },
         "charge_contributions": charge_results,
         "max_detailed_balance_relative_residual": float(balance),
         "total_quadrature_points_all_charges": int(sum(

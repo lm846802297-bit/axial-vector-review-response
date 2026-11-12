@@ -201,3 +201,43 @@ The new test module checks threshold closure, pointwise production/absorption de
 The reproducible scan is [run_dimuon_validation.py](thermal_integrals/run_dimuon_validation.py); it checks the 64/128 and 128/192 emissivity differences, pointwise detailed balance, and the analytic total-width ratio \(\Gamma_A/\Gamma_V=\beta^2/(1+2m_\mu^2/m_{A'}^2)\) at \(m_{A'}=2m_\mu(1+10^{-4},10^{-8},10^{-12})\). The dedicated workflow archives its JSON output at [dimuon_thermal_integral_validation.json](thermal_integrals/outputs/dimuon_thermal_integral_validation.json). A source-equivalent isolated local run passes all seven dedicated tests; the repository Actions result remains the required final environment-level confirmation.
 
 The moving-muon semi-Compton integral remains a separate next implementation. The stationary-target kernel is not silently promoted to the full thermal result. No transport scan, cooling curve, manuscript edit, or referee-response edit is included.
+
+
+## 12. Source-level semi-Compton polarization audit
+
+The source-level audit of Wang and Zhang, arXiv:2610.35379v1, is recorded in [WANG_ZHANG_SEMICOMPTON_POLARIZATION_AUDIT_2026-11-12.md](WANG_ZHANG_SEMICOMPTON_POLARIZATION_AUDIT_2026-11-12.md).
+
+The audit separates four questions that must not be collapsed into a simple T/L label swap:
+
+- The printed Appendix-B angular expressions (B.6a,b) integrate algebraically to (5.9a,b) after restoring the common final-state velocity factor beta.
+- Both printed differential components become negative in nonempty angular regions, despite their sum remaining nonnegative.
+- A conserved vector muon current and the physical projectors in (A.15) require an unsuppressed transverse response and a longitudinal response suppressed by m_Z'^2/E_gamma^2 in the light-vector limit.
+- The integrated formula is not repaired by simply exchanging T and L: after the exchange, the suppressed coefficient still differs by a factor 3/2, and the angular functions remain inconsistent.
+
+The printed u-channel chain in (B.1b) also appears to have a vertex-order issue. The gauge-consistent crossed amplitude must be used in any independent derivation; the status of the printed expression is recorded as an apparent source-level issue, not silently corrected.
+
+This is a microscopic formula audit only. It does not validate the full Blinov Fig. 7 luminosity curve, authorize a rescaling of the vector opacity, or produce a new axial/finite-mixing exclusion curve. No production code is changed.
+
+
+## 13. Direct vector longitudinal projector and B.3 recoil audit
+
+The direct rank-one \(P_L\) calculation is archived in [audit_vector_longitudinal_projector.py](thermal_integrals/audit_vector_longitudinal_projector.py), with regression tests in [test_vector_longitudinal_projector.py](thermal_integrals/test_vector_longitudinal_projector.py) and a machine-readable summary in [outputs/vector_longitudinal_direct_projector_summary_2026-11-12.json](thermal_integrals/outputs/vector_longitudinal_direct_projector_summary_2026-11-12.json).
+
+For the conserved vector current, the exact Ward identity permits the amplitude-level replacement
+\[
+\epsilon_L^\mu\to\widetilde\epsilon_L^\mu
+=\frac{m_{Z'}}{\omega+|\mathbf q|}(-1,\hat{\mathbf q}).
+\]
+This produces a stable direct longitudinal result without \(B_4-B_2\) subtraction. Across 36 exact-kinematics points, the explicit-spinor and independent-trace longitudinal results agree to \(8.37\times10^{-11}\), and the correct vector Ward residual is below \(1.34\times10^{-14}\).
+
+The literal \(u\)-channel ordering printed in (B.1b) fails the outgoing-vector Ward identity; the crossed ordering \(\gamma^\nu S_u\gamma^\mu\) satisfies it. Treat this as an apparent printed equation-ordering issue, not proof of the authors' internal implementation.
+
+The direct \(P_L\) comparison also resolves the B.3 residual: at small \(x=m_{Z'}/E_\gamma\), the observed leading patterns are
+\[
+\frac{B_2^{\rm paper}}{T_{\rm exact}}-1
+\simeq\frac{2x^2(E_\gamma/m_\mu)}{1+\cos^2\theta},
+\qquad
+\frac{B_3^{\rm paper}}{L_{\rm direct}}-1
+\simeq-\frac{2(E_\gamma/m_\mu)}{1-\cos^2\theta}.
+\]
+The coefficient fit is numerical; its symbolic finite-recoil derivation is still open. This is a source-formula audit, not a revised thermal rate or transport result. Do not rescale the opacity or update the vector/axial production benchmark.
