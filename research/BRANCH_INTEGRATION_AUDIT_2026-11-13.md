@@ -1,6 +1,6 @@
 # 2026-11-13 branch integration audit
 
-Audit baseline: main at \`4fdb7ea3b0e85412525322b6b3d584365a852363\`, after the C4-C4-B and separate two-VEV integrations.
+Audit baseline: main at `4fdb7ea3b0e85412525322b6b3d584365a852363`, after the C4-C4-B and separate two-VEV integrations.
 
 ## Integration completed
 
@@ -12,7 +12,7 @@ Audit baseline: main at \`4fdb7ea3b0e85412525322b6b3d584365a852363\`, after the 
 
 ## How to interpret the branch comparison
 
-GitHub listed 90 non-main branch refs at the audit. 75 reported \`ahead_by > 0\` against main. This is not equivalent to 75 unmerged research packages: many branches were integrated by squash merge, so their old commit ancestry remains divergent even when the corresponding file content is already in main.
+GitHub listed 90 non-main branch refs at the audit. 75 reported `ahead_by > 0` against main. This is not equivalent to 75 unmerged research packages: many branches were integrated by squash merge, so their old commit ancestry remains divergent even when the corresponding file content is already in main.
 
 The following major research workstreams are already represented in main through merged PRs:
 
@@ -28,13 +28,13 @@ These branches must not be re-imported solely because their ahead counts remain 
 
 ## Branches intentionally not promoted in this pass
 
-- \`research/higgs-signal-strength-two-benchmarks-2026-10-28\`: preliminary non-degenerate screening based on inherited fixed-self-energy proxy values. Its limitations are explicit, and the later PR #69 work contains the more developed mass-eigenstate, portal-threshold, and complex-pole analysis. Do not treat the old proxy as a current physical mixing angle or Higgs exclusion.
-- \`research/radial-scalar-two-vev-belleii-20261105-current-main\`: raw supplemental-data fragments only. Its scalar four-muon table is a formatting variant of the Belle II source table already archived with provenance in PR #68; the additional vector-control file is not accompanied by a self-contained source manifest or analysis record.
-- \`transfer/p1iii-eos-latest-source-20261111\`: temporary source-package workflow, not a new EOS calculation/result archive.
-- \`transfer/pr57-source-bundle-20261110\` and \`transfer/sfho-frdm-release-transfer-20261111\`: no tree-level file delta against main; their source/data content is already represented in the merged research history.
-- \`work/hs-mixing-one-loop-20261027\`: older one-loop working note and response draft, superseded by PR #69 and the later matching/pole records.
+- `research/higgs-signal-strength-two-benchmarks-2026-10-28`: preliminary non-degenerate screening based on inherited fixed-self-energy proxy values. Its limitations are explicit, and the later PR #69 work contains the more developed mass-eigenstate, portal-threshold, and complex-pole analysis. Do not treat the old proxy as a current physical mixing angle or Higgs exclusion.
+- `research/radial-scalar-two-vev-belleii-20261105-current-main`: raw supplemental-data fragments only. Its scalar four-muon table is a formatting variant of the Belle II source table already archived with provenance in PR #68; the additional vector-control file is not accompanied by a self-contained source manifest or analysis record.
+- `transfer/p1iii-eos-latest-source-20261111`: temporary source-package workflow, not a new EOS calculation/result archive.
+- `transfer/pr57-source-bundle-20261110` and `transfer/sfho-frdm-release-transfer-20261111`: no tree-level file delta against main; their source/data content is already represented in the merged research history.
+- `work/hs-mixing-one-loop-20261027`: older one-loop working note and response draft, superseded by PR #69 and the later matching/pole records.
 - The old PR #30 axial recast and PR #32/#52 radial-scalar drafts are superseded by the later original-model archives in PRs #53/#56 and #68, respectively.
-- Historical \`docs/*\` and \`review/*\` branches map to already merged response, audit, or archival PRs. They are not separate new results.
+- Historical `docs/*` and `review/*` branches map to already merged response, audit, or archival PRs. They are not separate new results.
 
 ## Scientific boundaries retained
 
@@ -45,4 +45,4 @@ These branches must not be re-imported solely because their ahead counts remain 
 
 ## Repository workflow
 
-Future research integrations should start from current main, use a focused clean branch, preserve native calculation outputs and provenance, and submit a PR. Do not merge stale divergent branch histories wholesale merely to eliminate \`ahead_by\` counts. CI is optional and is not a prerequisite for research execution or integration.
+Future research integrations should start from current main, use a focused clean branch, preserve native calculation outputs and provenance, and submit a PR. Do not merge stale divergent branch histories wholesale merely to eliminate `ahead_by` counts. CI is optional and is not a prerequisite for research execution or integration.
