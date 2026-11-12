@@ -17,13 +17,14 @@ on:
       - research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/**
       - '!research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/outputs/**'
       - research/stellar-cooling-constraints-20261105/rates.py
+      - research/stellar-cooling-eft-literature-20261105/reference_matrix_element.py
       - .github/workflows/moving-muon-thermal-rates.yml
   workflow_dispatch:
 
 concurrency:
   group: moving-muon-thermal-response-${{ github.ref }}
-  # Only the latest branch head should publish numerical outputs.
-  cancel-in-progress: true
+  # Keep one complete numerical validation run alive; do not cancel a scan mid-output.
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -53,7 +54,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          python -m compileall -q research/stellar-cooling-constraints-20261105/rates.py research/stellar-cooling-constraints-20261105/finite_mixing
+          python -m compileall -q research/stellar-cooling-constraints-20261105/rates.py research/stellar-cooling-constraints-20261105/finite_mixing research/stellar-cooling-eft-literature-20261105/reference_matrix_element.py
           python - <<'PY' | tee research/stellar-cooling-constraints-20261105/finite_mixing/outputs/compileall.log
           import hashlib, json, pathlib, platform, sys
           root = pathlib.Path("research/stellar-cooling-constraints-20261105")
@@ -66,6 +67,11 @@ jobs:
               "sha256": {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in files},
           }, indent=2))
           PY
+      - name: Run independent explicit-spinor cross-section checks
+        shell: bash
+        run: |
+          set -euo pipefail
+          python research/stellar-cooling-eft-literature-20261105/reference_matrix_element.py --check 2>&1 | tee research/stellar-cooling-constraints-20261105/finite_mixing/outputs/reference_matrix_element_checks.log
       - name: Run finite-mixing, cross-section, and thermal-rate unit tests
         shell: bash
         run: |
@@ -136,8 +142,13 @@ jobs:
               "source_sha256": {
                   p: hashlib.sha256((root / p).read_bytes()).hexdigest() for p in rel
               },
+              "independent_reference_sha256": {
+                  "research/stellar-cooling-eft-literature-20261105/reference_matrix_element.py":
+                      hashlib.sha256(pathlib.Path("research/stellar-cooling-eft-literature-20261105/reference_matrix_element.py").read_bytes()).hexdigest()
+              },
               "executed_commands": [
-                  "python -m compileall -q rates.py finite_mixing",
+                  "python -m compileall -q rates.py finite_mixing reference_matrix_element.py",
+                  "python reference_matrix_element.py --check",
                   "python -m unittest discover -s finite_mixing -t research/stellar-cooling-constraints-20261105 -p 'test_*.py' -v",
                   "python finite_mixing/thermal_integrals/run_moving_compton_validation.py",
                   "python finite_mixing/thermal_integrals/audit_vector_semicompton_polarization.py",
@@ -157,6 +168,14 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add \
+            research/stellar-cooling-constraints-20261105/finite_mixing/outputs/compileall.log \
+            research/stellar-cooling-constraints-20261105/finite_mixing/outputs/reference_matrix_element_checks.log \
+            research/stellar-cooling-constraints-20261105/finite_mixing/outputs/unittest.log \
+            research/stellar-cooling-constraints-20261105/finite_mixing/outputs/thermal_response_scan.log \
+            research/stellar-cooling-constraints-20261105/finite_mixing/outputs/b13_b16_comparison_2026-11-12.log \
+            research/stellar-cooling-constraints-20261105/finite_mixing/outputs/b13_b16_low_mass_scan_2026-11-12.log \
+            research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/outputs/moving_compton_validation.log \
+            research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/outputs/vector_semicompton_polarization_audit.log \
             research/stellar-cooling-constraints-20261105/finite_mixing/outputs/thermal_response_scan.json \
             research/stellar-cooling-constraints-20261105/finite_mixing/outputs/b13_b16_comparison_2026-11-12.json \
             research/stellar-cooling-constraints-20261105/finite_mixing/outputs/b13_b16_low_mass_scan_2026-11-12.json \
