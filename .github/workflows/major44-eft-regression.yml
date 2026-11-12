@@ -25,9 +25,10 @@ permissions:
   contents: write
 
 concurrency:
-  group: major44-eft-${{ github.event.pull_request.number || github.ref }}
+  group: major44-eft-validation-${{ github.ref }}
   # A newer commit supersedes a queued or running validation of an older branch head.
-  cancel-in-progress: true
+  # Keep a complete numerical validation alive; newer commits queue behind it.
+  cancel-in-progress: false
 
 jobs:
   validate:
