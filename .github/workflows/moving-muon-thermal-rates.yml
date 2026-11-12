@@ -77,6 +77,13 @@ jobs:
         run: |
           set -euo pipefail
           python research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/run_moving_compton_validation.py 2>&1 | tee research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/outputs/moving_compton_validation.log
+      - name: Run independent vector-current T/L source audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          python research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/audit_vector_semicompton_polarization.py \
+            --output research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/outputs/vector_semicompton_polarization_audit.json \
+            2>&1 | tee research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/outputs/vector_semicompton_polarization_audit.log
       - name: Run local thermal response scan
         shell: bash
         run: |
@@ -111,6 +118,8 @@ jobs:
               "finite_mixing/thermal_integrals/moving_compton.py",
               "finite_mixing/thermal_integrals/test_moving_compton.py",
               "finite_mixing/thermal_integrals/run_moving_compton_validation.py",
+              "finite_mixing/thermal_integrals/audit_vector_semicompton_polarization.py",
+              "finite_mixing/thermal_integrals/test_vector_semicompton_polarization.py",
               "finite_mixing/thermal_response_scan.py",
               "finite_mixing/b13_b16_comparison.py",
               "finite_mixing/b13_b16_mass_scan.py",
@@ -129,6 +138,7 @@ jobs:
                   "python -m compileall -q rates.py finite_mixing",
                   "python -m unittest discover -s finite_mixing -t research/stellar-cooling-constraints-20261105 -p 'test_*.py' -v",
                   "python finite_mixing/thermal_integrals/run_moving_compton_validation.py",
+                  "python finite_mixing/thermal_integrals/audit_vector_semicompton_polarization.py",
                   "python finite_mixing/thermal_response_scan.py",
                   "python finite_mixing/b13_b16_comparison.py",
                   "python finite_mixing/b13_b16_mass_scan.py",
@@ -155,7 +165,9 @@ jobs:
             research/stellar-cooling-constraints-20261105/finite_mixing/outputs/b13_b16_low_mass_scan_2026-11-12.log \
             research/stellar-cooling-constraints-20261105/finite_mixing/outputs/validation_manifest_2026-11-12.json \
             research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/outputs/moving_compton_validation.json \
-            research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/outputs/moving_compton_validation.log
+            research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/outputs/moving_compton_validation.log \
+            research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/outputs/vector_semicompton_polarization_audit.json \
+            research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/outputs/vector_semicompton_polarization_audit.log
           if git diff --cached --quiet; then
             echo "All numerical outputs are already archived."
             exit 0
