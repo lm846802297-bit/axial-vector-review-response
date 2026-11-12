@@ -21,7 +21,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: p1iii-eos-c4c3-\${{ github.ref }}
+  group: p1iii-eos-c4c3-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -33,7 +33,7 @@ jobs:
       - name: Check out exact research commit
         uses: actions/checkout@v4
         with:
-          ref: \${{ github.sha }}
+          ref: ${{ github.sha }}
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -45,19 +45,19 @@ jobs:
         run: python -m unittest -v test_b16_p1iii_eos_c4c3_radial_scattering.py
 
   radial-rate-shards:
-    name: C4-C3 rate shard \${{ matrix.shard }}
+    name: C4-C3 rate shard ${{ matrix.shard }}
     needs: unit-tests
     runs-on: ubuntu-latest
     timeout-minutes: 180
     strategy:
       fail-fast: false
       matrix:
-        shard: \${{ fromJson('[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]') }}
+        shard: ${{ fromJson('[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]') }}
     steps:
       - name: Check out exact research commit
         uses: actions/checkout@v4
         with:
-          ref: \${{ github.sha }}
+          ref: ${{ github.sha }}
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -66,19 +66,19 @@ jobs:
         run: python -m pip install --upgrade numpy scipy
       - name: Compute radial rate shard
         env:
-          SHARD_INDEX: \${{ matrix.shard }}
+          SHARD_INDEX: ${{ matrix.shard }}
         run: |
           set -euo pipefail
           ROOT=research/stellar-cooling-constraints-20261105/blinov_reproduction
           mkdir -p /tmp/c4c3
           python "$ROOT/audit_b16_p1iii_eos_c4c3_radial_scattering.py" \
             --shard-index "$SHARD_INDEX" --shard-count 20 \
-            --output-csv "/tmp/c4c3/rates_shard_\${SHARD_INDEX}.csv"
+            --output-csv "/tmp/c4c3/rates_shard_${SHARD_INDEX}.csv"
       - name: Upload radial rate shard
         uses: actions/upload-artifact@v4
         with:
-          name: c4c3-rate-shard-\${{ matrix.shard }}
-          path: /tmp/c4c3/rates_shard-\${{ matrix.shard }}.csv
+          name: c4c3-rate-shard-${{ matrix.shard }}
+          path: /tmp/c4c3/rates_shard-${{ matrix.shard }}.csv
           if-no-files-found: error
           retention-days: 90
 
@@ -91,7 +91,7 @@ jobs:
       - name: Check out exact research commit
         uses: actions/checkout@v4
         with:
-          ref: \${{ github.sha }}
+          ref: ${{ github.sha }}
       - name: Set up Python
         uses: actions/setup-python@v5
         with:

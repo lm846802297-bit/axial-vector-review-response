@@ -25,6 +25,8 @@ jobs:
   global-polarization-audit:
     if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
     runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: research/stellar-cooling-constraints-20261105
     timeout-minutes: 240
     steps:
       - name: Check out research branch
