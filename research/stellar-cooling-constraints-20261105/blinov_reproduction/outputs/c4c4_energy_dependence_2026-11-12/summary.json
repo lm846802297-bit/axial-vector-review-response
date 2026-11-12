@@ -30,7 +30,7 @@
   "case_count": 96,
   "newly_recomputed_case_count": 80,
   "reused_100MeV_baseline_case_count": 16,
-  "source_commit": "50aebfc670528caebe4b4052f21c48ed4affe884",
+  "source_commit": "7f76e9d58f6af5af36694580d5768bc3f9858feb",
   "inputs": {
     "profile_path": "outputs/caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv",
     "profile_sha256": "97d6a88a95d0a636ac359ae981b1b06ec33b88b0f106bfb88d203cb0f9fbbc59",

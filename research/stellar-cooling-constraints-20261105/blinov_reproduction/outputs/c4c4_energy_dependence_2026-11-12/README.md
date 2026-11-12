@@ -1,6 +1,6 @@
 # C4-C4-A energy-dependence anchor scan
 
-- Trigger/source commit: `50aebfc670528caebe4b4052f21c48ed4affe884`
+- Trigger/source commit: `7f76e9d58f6af5af36694580d5768bc3f9858feb`
 - Numerical-integrity status: PASS
 - Physical transport/reproduction status: NOT CLAIMED
 - Energies: 10, 20, 40, 60, 100, 150 MeV
