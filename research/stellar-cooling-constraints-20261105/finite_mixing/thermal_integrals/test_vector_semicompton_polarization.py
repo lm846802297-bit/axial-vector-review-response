@@ -46,7 +46,7 @@ class VectorSemiComptonPolarizationAuditTests(unittest.TestCase):
         self.assertLess(ratios["direct_exact_L"], 1e-3)
 
     def test_paper_eq58_mode_assignment_and_coefficient_are_flagged_not_relabelled(self):
-        comparison = self.audit["printed_Eq5_9_comparison"]
+        comparison = self.audit["printed_Eq58_comparison"]
         # The printed unsuppressed expression tracks the exact transverse sum,
         # while the printed suppressed expression has the opposite mode label.
         self.assertAlmostEqual(
@@ -67,20 +67,20 @@ class VectorSemiComptonPolarizationAuditTests(unittest.TestCase):
     def test_direct_spinor_and_crossed_trace_calculations_agree(self):
         self.assertTrue(self.audit["acceptance"]["direct_spinor_vs_crossed_trace_pass"])
 
-    def test_printed_appendix_b_differential_formulas_are_flagged_for_negativity(self):
-        diagnostic = self.audit["printed_EqB6_differential_comparison"]
-        self.assertGreater(diagnostic["EqB6a_printed_T_negative_fraction"], 0.4)
-        self.assertGreater(diagnostic["EqB6b_printed_L_negative_fraction"], 0.0)
+    def test_printed_eq106_differential_formulas_are_flagged_for_negativity(self):
+        diagnostic = self.audit["printed_Eq106_differential_comparison"]
+        self.assertGreater(diagnostic["Eq106a_printed_T_negative_fraction"], 0.4)
+        self.assertGreater(diagnostic["Eq106b_printed_L_negative_fraction"], 0.0)
         self.assertGreaterEqual(diagnostic["exact_T_minimum_over_angular_grid_MeV_minus2"], 0.0)
         self.assertGreaterEqual(diagnostic["exact_L_minimum_over_angular_grid_MeV_minus2"], 0.0)
         self.assertTrue(
-            self.audit["interpretation_flags"]["EqB6b_shape_tracks_exact_transverse_mode"]
+            self.audit["interpretation_flags"]["Eq106b_shape_tracks_exact_transverse_mode"]
         )
 
-    def test_paper_eq59_mode_hierarchy_is_opposite_to_conserved_vector_limit(self):
+    def test_paper_eq58_mode_hierarchy_is_opposite_to_conserved_vector_limit(self):
         self.assertTrue(
             self.audit["interpretation_flags"][
-                "integrated_Eq5_9_TL_hierarchy_opposite_to_conserved_vector_limit"
+                "integrated_Eq58_TL_hierarchy_opposite_to_conserved_vector_limit"
             ]
         )
 
