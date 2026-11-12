@@ -1,0 +1,72 @@
+name: Fig. 7 10 MeV equation-chain audit
+
+on:
+  push:
+    branches:
+      - codex/major44-axial-cooling-constraints-20261105
+    paths:
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/diagnose_fig7_10mev_equation_chain.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py'
+      - 'research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv'
+      - 'research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json'
+      - '.github/workflows/fig7-10mev-equation-chain-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fig7-10mev-equation-chain-audit
+  cancel-in-progress: false
+
+jobs:
+  equation-chain:
+    if: github.ref_name == 'codex/major44-axial-cooling-constraints-20261105'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Check out triggering commit
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numerical dependencies
+        run: python -m pip install numpy scipy
+      - name: Run Eq. 17-20 and Eq. 31-33 audit
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/diagnose_fig7_10mev_equation_chain.py
+      - name: Archive diagnostic output
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_equation_chain_audit.json
+          if git diff --cached --quiet; then
+            echo "Diagnostic output is already current."
+          else
+            git commit -m "Archive 10 MeV equation-chain audit"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin "${GITHUB_REF_NAME}"
+              if ! git rebase "origin/${GITHUB_REF_NAME}"; then
+                if git diff --name-only --diff-filter=U | grep -Fxq "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_equation_chain_audit.json"; then
+                  git checkout --theirs -- research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_equation_chain_audit.json
+                  git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_equation_chain_audit.json
+                  GIT_EDITOR=true git rebase --continue
+                else
+                  git rebase --abort
+                  echo "Unexpected non-output rebase conflict."
+                  exit 1
+                fi
+              fi
+              if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+                exit 0
+              fi
+              echo "Push raced with another workflow; retry ${attempt}/5."
+              sleep 2
+            done
+            exit 1
+          fi

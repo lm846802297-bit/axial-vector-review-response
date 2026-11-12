@@ -1,0 +1,100 @@
+name: Independent Eq. B2 path integral audit
+
+on:
+  push:
+    branches:
+      - codex/major44-axial-cooling-constraints-20261105
+    paths:
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_eq_b2_path_integral.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_eq_b2_path_integral.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_three_layer.json'
+      - 'research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv'
+      - '.github/workflows/eq-b2-independent-path-integral.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: eq-b2-independent-path-integral-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    if: github.ref_name == 'codex/major44-axial-cooling-constraints-20261105'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out exact triggering commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numerical dependencies
+        run: python -m pip install numpy scipy
+      - name: Run independent path-integral regression tests
+        run: |
+          python -m unittest discover \
+            -s research/stellar-cooling-constraints-20261105 \
+            -p 'test_eq_b2_path_integral.py' -v
+      - name: Run independent Eq. B2 path and angular audit
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_eq_b2_path_integral.py
+      - name: Commit machine-readable audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          OUTPUT="research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/eq_b2_independent_path_integral_2026-11-08.json"
+          git fetch origin "$GITHUB_REF_NAME"
+          if git cat-file -e "origin/$GITHUB_REF_NAME:$OUTPUT" 2>/dev/null; then
+            if python - "$OUTPUT" "origin/$GITHUB_REF_NAME" <<'PY'
+          import json
+          import subprocess
+          import sys
+          from pathlib import Path
+
+          output_path, remote_ref = sys.argv[1], sys.argv[2]
+          remote_text = subprocess.check_output(
+              ["git", "show", f"{remote_ref}:{output_path}"], text=True
+          )
+          local_data = json.loads(Path(output_path).read_text(encoding="utf-8"))
+          remote_data = json.loads(remote_text)
+          local_data.pop("run_commit_sha", None)
+          remote_data.pop("run_commit_sha", None)
+          sys.exit(0 if local_data == remote_data else 1)
+          PY
+            then
+              echo "An identical numerical audit is already archived; keep its original run provenance."
+              exit 0
+            fi
+          fi
+          git add "$OUTPUT"
+          if git diff --cached --quiet; then
+            echo "Independent Eq. B2 path audit is unchanged."
+          else
+            git commit -m "Archive independent Eq. B2 path integral audit"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin "$GITHUB_REF_NAME"
+              if ! git rebase "origin/$GITHUB_REF_NAME"; then
+                if git diff --name-only --diff-filter=U | grep -Fxq "$OUTPUT"; then
+                  git checkout --theirs -- "$OUTPUT"
+                  git add "$OUTPUT"
+                  GIT_EDITOR=true git rebase --continue
+                else
+                  git rebase --abort
+                  echo "Unexpected non-output rebase conflict."
+                  exit 1
+                fi
+              fi
+              if git push origin "HEAD:$GITHUB_REF_NAME"; then exit 0; fi
+              sleep 2
+            done
+            exit 1
+          fi

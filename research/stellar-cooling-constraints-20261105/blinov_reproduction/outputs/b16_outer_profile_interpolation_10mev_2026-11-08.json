@@ -1,0 +1,554 @@
+{
+  "comparisons_to_baseline": {
+    "baseline_source_nodes": {
+      "peak": {
+        "escape_fraction_relative_change_vs_baseline": 0.0,
+        "luminosity_relative_change_vs_baseline": 0.0
+      },
+      "strong": {
+        "escape_fraction_relative_change_vs_baseline": 0.0,
+        "luminosity_relative_change_vs_baseline": 0.0
+      },
+      "weak": {
+        "escape_fraction_relative_change_vs_baseline": 0.0,
+        "luminosity_relative_change_vs_baseline": 0.0
+      }
+    },
+    "uniform_0.025_km": {
+      "peak": {
+        "escape_fraction_relative_change_vs_baseline": 0.00010229136531458849,
+        "luminosity_relative_change_vs_baseline": 0.00010229136531458849
+      },
+      "strong": {
+        "escape_fraction_relative_change_vs_baseline": 0.0017753198463024145,
+        "luminosity_relative_change_vs_baseline": 0.0017753198463021924
+      },
+      "weak": {
+        "escape_fraction_relative_change_vs_baseline": 2.524841169471159e-07,
+        "luminosity_relative_change_vs_baseline": 2.5248411716916053e-07
+      }
+    },
+    "uniform_0.05_km": {
+      "peak": {
+        "escape_fraction_relative_change_vs_baseline": 9.976075001638662e-05,
+        "luminosity_relative_change_vs_baseline": 9.976075001638662e-05
+      },
+      "strong": {
+        "escape_fraction_relative_change_vs_baseline": 0.0017574762339040984,
+        "luminosity_relative_change_vs_baseline": 0.0017574762339040984
+      },
+      "weak": {
+        "escape_fraction_relative_change_vs_baseline": 2.467113253690201e-07,
+        "luminosity_relative_change_vs_baseline": 2.467113253690201e-07
+      }
+    },
+    "uniform_0.1_km": {
+      "peak": {
+        "escape_fraction_relative_change_vs_baseline": 0.00010361855970142386,
+        "luminosity_relative_change_vs_baseline": 0.00010361855970142386
+      },
+      "strong": {
+        "escape_fraction_relative_change_vs_baseline": 0.001757739723833307,
+        "luminosity_relative_change_vs_baseline": 0.001757739723833529
+      },
+      "weak": {
+        "escape_fraction_relative_change_vs_baseline": 2.552954794232676e-07,
+        "luminosity_relative_change_vs_baseline": 2.552954796453122e-07
+      }
+    },
+    "uniform_0.25_km": {
+      "peak": {
+        "escape_fraction_relative_change_vs_baseline": 6.152103994883085e-05,
+        "luminosity_relative_change_vs_baseline": 6.152103994883085e-05
+      },
+      "strong": {
+        "escape_fraction_relative_change_vs_baseline": 0.001408045229162047,
+        "luminosity_relative_change_vs_baseline": 0.001408045229162047
+      },
+      "weak": {
+        "escape_fraction_relative_change_vs_baseline": 1.5786470264345098e-07,
+        "luminosity_relative_change_vs_baseline": 1.5786470264345098e-07
+      }
+    },
+    "uniform_0.5_km": {
+      "peak": {
+        "escape_fraction_relative_change_vs_baseline": 8.689556135310639e-06,
+        "luminosity_relative_change_vs_baseline": 8.689556135310639e-06
+      },
+      "strong": {
+        "escape_fraction_relative_change_vs_baseline": 0.0008858782768814688,
+        "luminosity_relative_change_vs_baseline": 0.0008858782768814688
+      },
+      "weak": {
+        "escape_fraction_relative_change_vs_baseline": 2.6363693672593058e-08,
+        "luminosity_relative_change_vs_baseline": 2.6363693894637663e-08
+      }
+    }
+  },
+  "fig7_reference_sha256": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4",
+  "mass_MeV": 10.0,
+  "path_grid_results": {
+    "baseline_source_nodes": {
+      "detailed_balance_channel_sum_relative_residual": 4.563683669443499e-16,
+      "maximum_path_grid_spacing_km": 1.6999052179242815,
+      "path_grid_nodes": 42,
+      "points": {
+        "peak": {
+          "escape_fraction": 0.3524727080208317,
+          "g": 1.1341108687336194e-08,
+          "index": 17,
+          "luminosity_erg_s": 1.9600739025509403e+54,
+          "reference_luminosity_erg_s": 1.910994581282271e+54
+        },
+        "strong": {
+          "escape_fraction": 0.00032391840780862164,
+          "g": 4.171689650228597e-08,
+          "index": 24,
+          "luminosity_erg_s": 2.4372245212910515e+52,
+          "reference_luminosity_erg_s": 1.26781475907372e+52
+        },
+        "weak": {
+          "escape_fraction": 0.9978698300940606,
+          "g": 4.796429536550025e-10,
+          "index": 0,
+          "luminosity_erg_s": 9.925352865696123e+51,
+          "reference_luminosity_erg_s": 1.0893295563998579e+52
+        }
+      },
+      "shell_sum_to_direct_column_max_relative_residual": 6.724089930264748e-16
+    },
+    "uniform_0.025_km": {
+      "detailed_balance_channel_sum_relative_residual": 5.505982362897277e-16,
+      "maximum_path_grid_spacing_km": 0.02500000000000213,
+      "path_grid_nodes": 1001,
+      "points": {
+        "peak": {
+          "escape_fraction": 0.35250876293537126,
+          "g": 1.1341108687336194e-08,
+          "index": 17,
+          "luminosity_erg_s": 1.9602744011865497e+54,
+          "reference_luminosity_erg_s": 1.910994581282271e+54
+        },
+        "strong": {
+          "escape_fraction": 0.00032449346658658694,
+          "g": 4.171689650228597e-08,
+          "index": 24,
+          "luminosity_erg_s": 2.441551374353594e+52,
+          "reference_luminosity_erg_s": 1.26781475907372e+52
+        },
+        "weak": {
+          "escape_fraction": 0.9978700820403436,
+          "g": 4.796429536550025e-10,
+          "index": 0,
+          "luminosity_erg_s": 9.925355371690078e+51,
+          "reference_luminosity_erg_s": 1.0893295563998579e+52
+        }
+      },
+      "shell_sum_to_direct_column_max_relative_residual": 6.581816534470861e-16
+    },
+    "uniform_0.05_km": {
+      "detailed_balance_channel_sum_relative_residual": 5.505982362897277e-16,
+      "maximum_path_grid_spacing_km": 0.05000000000000071,
+      "path_grid_nodes": 501,
+      "points": {
+        "peak": {
+          "escape_fraction": 0.35250787096254416,
+          "g": 1.1341108687336194e-08,
+          "index": 17,
+          "luminosity_erg_s": 1.9602694409935464e+54,
+          "reference_luminosity_erg_s": 1.910994581282271e+54
+        },
+        "strong": {
+          "escape_fraction": 0.00032448768671206936,
+          "g": 4.171689650228597e-08,
+          "index": 24,
+          "luminosity_erg_s": 2.4415078854639086e+52,
+          "reference_luminosity_erg_s": 1.26781475907372e+52
+        },
+        "weak": {
+          "escape_fraction": 0.9978700762798489,
+          "g": 4.796429536550025e-10,
+          "index": 0,
+          "luminosity_erg_s": 9.925355314393084e+51,
+          "reference_luminosity_erg_s": 1.0893295563998579e+52
+        }
+      },
+      "shell_sum_to_direct_column_max_relative_residual": 6.077709898453876e-16
+    },
+    "uniform_0.1_km": {
+      "detailed_balance_channel_sum_relative_residual": 5.179421185666348e-16,
+      "maximum_path_grid_spacing_km": 0.10000000000000142,
+      "path_grid_nodes": 251,
+      "points": {
+        "peak": {
+          "escape_fraction": 0.3525092307351709,
+          "g": 1.1341108687336194e-08,
+          "index": 17,
+          "luminosity_erg_s": 1.960277002585631e+54,
+          "reference_luminosity_erg_s": 1.910994581282271e+54
+        },
+        "strong": {
+          "escape_fraction": 0.0003244877720613077,
+          "g": 4.171689650228597e-08,
+          "index": 24,
+          "luminosity_erg_s": 2.4415085276480257e+52,
+          "reference_luminosity_erg_s": 1.26781475907372e+52
+        },
+        "weak": {
+          "escape_fraction": 0.9978700848457174,
+          "g": 4.796429536550025e-10,
+          "index": 0,
+          "luminosity_erg_s": 9.925355399593844e+51,
+          "reference_luminosity_erg_s": 1.0893295563998579e+52
+        }
+      },
+      "shell_sum_to_direct_column_max_relative_residual": 6.878759087385139e-16
+    },
+    "uniform_0.25_km": {
+      "detailed_balance_channel_sum_relative_residual": 5.170854904296808e-16,
+      "maximum_path_grid_spacing_km": 0.25,
+      "path_grid_nodes": 101,
+      "points": {
+        "peak": {
+          "escape_fraction": 0.3524943925083827,
+          "g": 1.1341108687336194e-08,
+          "index": 17,
+          "luminosity_erg_s": 1.9601944883358017e+54,
+          "reference_luminosity_erg_s": 1.910994581282271e+54
+        },
+        "strong": {
+          "escape_fraction": 0.00032437449957737436,
+          "g": 4.171689650228597e-08,
+          "index": 24,
+          "luminosity_erg_s": 2.440656243650652e+52,
+          "reference_luminosity_erg_s": 1.26781475907372e+52
+        },
+        "weak": {
+          "escape_fraction": 0.9978699876224846,
+          "g": 4.796429536550025e-10,
+          "index": 0,
+          "luminosity_erg_s": 9.925354432559002e+51,
+          "reference_luminosity_erg_s": 1.0893295563998579e+52
+        }
+      },
+      "shell_sum_to_direct_column_max_relative_residual": 6.722988176208174e-16
+    },
+    "uniform_0.5_km": {
+      "detailed_balance_channel_sum_relative_residual": 4.3721450509491923e-16,
+      "maximum_path_grid_spacing_km": 0.5,
+      "path_grid_nodes": 51,
+      "points": {
+        "peak": {
+          "escape_fraction": 0.3524757708522142,
+          "g": 1.1341108687336194e-08,
+          "index": 17,
+          "luminosity_erg_s": 1.960090934723146e+54,
+          "reference_luminosity_erg_s": 1.910994581282271e+54
+        },
+        "strong": {
+          "escape_fraction": 0.0003242053600895813,
+          "g": 4.171689650228597e-08,
+          "index": 24,
+          "luminosity_erg_s": 2.439383605550346e+52,
+          "reference_luminosity_erg_s": 1.26781475907372e+52
+        },
+        "weak": {
+          "escape_fraction": 0.9978698564015952,
+          "g": 4.796429536550025e-10,
+          "index": 0,
+          "luminosity_erg_s": 9.925353127365087e+51,
+          "reference_luminosity_erg_s": 1.0893295563998579e+52
+        }
+      },
+      "shell_sum_to_direct_column_max_relative_residual": 6.579178586962269e-16
+    }
+  },
+  "profile_sha256": "08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9",
+  "scope": [
+    "B.1 source quadrature, source values, coupling points, energy grid, angular quadrature and path quadrature are held fixed.",
+    "Only the radial grid used to evaluate local thermodynamic inputs/rates and interpolate rates along outgoing paths is refined.",
+    "This is an interpolation-resolution diagnostic, not a change to the physical profile or outer radius.",
+    "The profile remains a public-figure reconstruction, not the raw Garching simulation table."
+  ],
+  "source_quadrature": {
+    "energy_order": 100,
+    "radial_order": 40,
+    "source_measure": {
+      "energy_lower_bound_MeV": [
+        13.577938429276124,
+        13.530671924155518,
+        13.392161953449532,
+        13.230391557011666,
+        13.149356990853999,
+        13.024926622554927,
+        12.849399408925107,
+        12.71035617745472,
+        12.64837712164281,
+        12.556400220338618,
+        12.438600715610537,
+        12.348765605329627,
+        12.30142179914826,
+        12.213709108685762,
+        12.102080689069437,
+        12.019213709205907,
+        11.965267209430053,
+        11.84877913779774,
+        11.706692834962132,
+        11.60623034569183,
+        11.555600004530243,
+        11.467051397339226,
+        11.362786637814757,
+        11.29176580594514,
+        11.262162840151335,
+        11.220577939254266,
+        11.170152798630532,
+        11.134195870051816,
+        11.115805323876138,
+        11.083174478950397,
+        11.043312816644033,
+        11.014591796592756,
+        10.999939148733734,
+        10.973633658548657,
+        10.941286272861447,
+        10.917946246928034,
+        10.908984752667122,
+        10.897898703168588,
+        10.883835374825546,
+        10.87335173700195
+      ],
+      "energy_weight_row_sums_MeV": [
+        996.4220615707238,
+        996.4693280758445,
+        996.6078380465505,
+        996.7696084429883,
+        996.850643009146,
+        996.9750733774451,
+        997.1506005910749,
+        997.2896438225453,
+        997.3516228783571,
+        997.4435997796613,
+        997.5613992843894,
+        997.6512343946704,
+        997.6985782008518,
+        997.7862908913143,
+        997.8979193109305,
+        997.9807862907941,
+        998.0347327905699,
+        998.1512208622023,
+        998.293307165038,
+        998.3937696543082,
+        998.4443999954698,
+        998.5329486026608,
+        998.6372133621852,
+        998.7082341940549,
+        998.7378371598487,
+        998.7794220607458,
+        998.8298472013695,
+        998.8658041299482,
+        998.8841946761239,
+        998.9168255210496,
+        998.956687183356,
+        998.9854082034072,
+        999.0000608512662,
+        999.0263663414513,
+        999.0587137271385,
+        999.0820537530719,
+        999.0910152473328,
+        999.1021012968314,
+        999.1161646251745,
+        999.1266482629981
+      ],
+      "radial_measure_MeVminus3": [
+        9.297758455576318e+46,
+        3.9654167984357124e+48,
+        1.6684403154056426e+49,
+        1.7590553560628453e+49,
+        1.3388193351385403e+49,
+        3.3837103672570605e+49,
+        4.761599233413861e+49,
+        3.206928457493875e+49,
+        2.355626591999546e+49,
+        5.073435123781807e+49,
+        6.013726339177155e+49,
+        3.6279002726258593e+49,
+        3.864705975891292e+49,
+        8.124853427359927e+49,
+        9.36481698294252e+49,
+        5.540500391063482e+49,
+        8.883928076214108e+49,
+        1.922910095799378e+50,
+        2.2913532380386024e+50,
+        1.3860976928631573e+50,
+        1.4781409724565545e+50,
+        3.1108633799157375e+50,
+        3.58528311803867e+50,
+        2.1186106797537286e+50,
+        1.4757916870097477e+50,
+        2.9497718946580076e+50,
+        3.1973382695506366e+50,
+        1.8102517690054932e+50,
+        1.8673966304600792e+50,
+        3.7061911652796515e+50,
+        3.982759072608373e+50,
+        2.241078976264898e+50,
+        2.3045100036458647e+50,
+        4.5479360352624345e+50,
+        4.853543887966e+50,
+        2.7173704625796316e+50,
+        1.3847823616477085e+50,
+        2.658053712205501e+50,
+        2.7399255795677404e+50,
+        1.4953952357352467e+50
+      ],
+      "spectral_measure_MeV3": [
+        0.07164505723142932,
+        0.07863039804806636,
+        0.08629681261514145,
+        0.0947107085384972,
+        0.10394496927910277,
+        0.11407958595505116,
+        0.12520235081567474,
+        0.13740961853808542,
+        0.15080714196106204,
+        0.16551098954923749,
+        0.18164855275936187,
+        0.19935965206049203,
+        0.21879775151618677,
+        0.24013129262390712,
+        0.2635451594008054,
+        0.2892422878327101,
+        0.3174454343043643,
+        0.348399119130567,
+        0.3823717631472521,
+        0.41965803732812074,
+        0.4605814477293553,
+        0.5054971806796886,
+        0.5547952362770104,
+        0.6089038817903616,
+        0.6682934607971123,
+        0.7334805988743319,
+        0.8050328526194169,
+        0.8835738559416061,
+        0.9697890262986213,
+        1.0644319042285053,
+        1.168331212742348,
+        1.2823987395931649,
+        1.4076381661067856,
+        1.5451549923545127,
+        1.6961677416971483,
+        1.8620206702343038,
+        2.044198261426724,
+        2.244341856907379,
+        2.4642688663930072,
+        2.7059951194546334,
+        2.971761078751791,
+        3.2640628403961123,
+        3.585689118655341,
+        3.939765771296404,
+        4.32980989824611,
+        4.759796180383348,
+        5.234238972456249,
+        5.75829480021401,
+        6.337891441808585,
+        6.979891843357755,
+        7.692303933088604,
+        8.484551247302244,
+        9.367824577676526,
+        10.355542188058871,
+        11.463956394795838,
+        12.712958727754385,
+        14.127156373021656,
+        15.737321964537431,
+        17.582361310314397,
+        19.712005833900836,
+        22.19052844973278,
+        25.10191894946861,
+        25.5733618049544,
+        25.782498891286323,
+        26.062782186885816,
+        26.28353048667809,
+        26.46185644746621,
+        26.925858612006646,
+        27.568034455399236,
+        28.089669432805312,
+        28.380054482104285,
+        28.55716239545527,
+        28.948984546516815,
+        29.73827754268817,
+        30.384364868354414,
+        30.748566083290967,
+        31.46094554287928,
+        32.46101343346181,
+        32.70458056911395,
+        33.287047741040034,
+        33.87596814065855,
+        35.29253446728705,
+        37.38373073143242,
+        37.744684699267026,
+        39.1727702689855,
+        40.201850518430476,
+        42.25841643424829,
+        43.951748291005245,
+        45.20365697538644,
+        47.653424089832065,
+        48.79939298541328,
+        50.574502425241946,
+        51.70550577449332,
+        52.995161471971024,
+        54.92186373940141,
+        55.97111558331442,
+        57.98044532767936,
+        60.65266356638544,
+        61.53828444593648,
+        62.76945076671069,
+        64.21121041777157,
+        67.49163921134199,
+        71.72612671393323,
+        74.20592711935902,
+        74.7927847504914,
+        76.81950459927353,
+        80.93662948471035,
+        84.53855751542163,
+        85.78419395988371,
+        90.79579808112527,
+        112.89321863434495,
+        142.8409267900571,
+        184.14811203234436,
+        242.1422152258804,
+        325.018207670062,
+        445.5439548165609,
+        623.8565803902517,
+        892.0852648263414,
+        1302.0500874059621,
+        1938.1691394812417,
+        2939.2254674954115,
+        4535.267037757593,
+        7110.4458061125815,
+        11310.453020845389,
+        18226.82584775097,
+        29714.050304520904,
+        48936.49989168014,
+        81313.7868201784,
+        136157.66537004866,
+        229510.6491675225,
+        389074.8073204219,
+        662778.9226224419,
+        1133683.0735418843,
+        1945927.9962218592,
+        3349941.9297051146,
+        5781237.241076985,
+        9997814.441132193,
+        17319851.25215216,
+        30047944.73255807,
+        52193099.99135333
+      ]
+    },
+    "source_nodes": 40
+  },
+  "title": "B.16 path-opacity interpolation grid audit at mV=10 MeV",
+  "transport_quadrature": {
+    "angular_order": 16,
+    "outer_radius_km": 25.0,
+    "path_order": 32
+  }
+}

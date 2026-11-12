@@ -1,0 +1,127 @@
+{
+  "title": "B.1 source-only sensitivity to mu_nu_mu profile and mu_nu_tau=0 assumption",
+  "date": "2026-11-10",
+  "profile": {
+    "path": "research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv",
+    "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+    "rows": 1687
+  },
+  "benchmark": {
+    "mV_MeV": 10,
+    "weak_coupling": 4.796429536550025e-10,
+    "fig7_weak_luminosity_erg_s": 1.0893295563998579e+52
+  },
+  "method": {
+    "source_only": true,
+    "opacity_omitted": true,
+    "radial_rule": "Composite Gauss-Legendre over [0,5,8,10,12,15,18,20,22,24,25] km",
+    "energy_rule": "Global logarithmic grid from mV+1e-5 to mV+2000 MeV, plus exact B.1 threshold knots mV/N(r), with piecewise-linear energy weights",
+    "susceptibility": "128-point Gauss-Legendre after p=40t/(1-t) for n_mu F_deg",
+    "channels": "Neutrino inverse decay plus B.14-B.16 Compton; dimuon channel closed at mV=10 MeV",
+    "baseline_flavour_assumption": "mu_nu_tau=0"
+  },
+  "lower_resolution": {
+    "radial_nodes": 100,
+    "base_energy_nodes": 160,
+    "energy_nodes": 260,
+    "baseline": {
+      "neutrino_source_erg_s_per_g2": 2.930884654313986e+70,
+      "compton_source_erg_s_per_g2": 1.383252989660508e+70,
+      "total_source_erg_s_per_g2": 4.314137643974494e+70,
+      "neutrino_fraction": 0.6793674416966086,
+      "weak_thin_luminosity_erg_s": 9.924991299525241e+51,
+      "relative_to_fig7_weak": -0.0888899285606003
+    },
+    "mu_numu_global_relative_source_changes": {
+      "minus10": 0.001985324996177651,
+      "plus10": -0.002095776257529991,
+      "minus30": 0.005554556614977724,
+      "plus30": -0.006559557272946548,
+      "zero": 0.011737554138149697,
+      "sign_flip": 0
+    },
+    "mu_numu_8_15km_relative_source_changes": {
+      "minus10": 0.000587508477229548,
+      "plus10": -0.0006459102906662961,
+      "minus30": 0.0015837524429513916,
+      "plus30": -0.002108879593620494,
+      "zero": 0.003125923536817732
+    }
+  },
+  "higher_resolution": {
+    "radial_nodes": 200,
+    "base_energy_nodes": 320,
+    "energy_nodes": 520,
+    "baseline": {
+      "neutrino_source_erg_s_per_g2": 2.925870185976903e+70,
+      "compton_source_erg_s_per_g2": 1.381577212706421e+70,
+      "total_source_erg_s_per_g2": 4.307447398683324e+70,
+      "neutrino_fraction": 0.6792584830800874,
+      "compton_fraction": 0.3207415169199126,
+      "weak_thin_luminosity_erg_s": 9.909599897630754e+51,
+      "relative_to_fig7_weak": -0.09030285285004624,
+      "source_shell_fractions": {
+        "0-5": 0.009078949100462759,
+        "5-8": 0.17472431992798929,
+        "8-10": 0.39912558555379146,
+        "10-12": 0.26042564963493037,
+        "12-15": 0.13697098498548396,
+        "15-18": 0.016435917288367845,
+        "18-20": 0.0017686692511327854,
+        "20-22": 0.0007444102290156187,
+        "22-25": 0.0007255140288249428
+      }
+    },
+    "mu_numu_global_relative_source_changes": {
+      "minus10": 0.0019852501693571334,
+      "plus10": -0.0020956990186068447,
+      "minus30": 0.005554339543685005,
+      "plus30": -0.0065593161265579125,
+      "zero": 0.011737046676696838,
+      "sign_flip": 0
+    },
+    "mu_numu_8_15km_relative_source_changes": {
+      "minus10": 0.0005876804330537944,
+      "plus10": -0.0006460948714099857,
+      "minus30": 0.0015842248655519864,
+      "plus30": -0.0021094650104509505,
+      "zero": 0.003126883212142939
+    },
+    "mu_nutau_assumption_tests": {
+      "tau_0": {
+        "relative_source_change": 0,
+        "weak_luminosity_relative_to_fig7": -0.09030285285005868
+      },
+      "tau_0p25_mu_numu": {
+        "relative_source_change": -0.0008486053292895424,
+        "weak_luminosity_relative_to_fig7": -0.0910748266971696
+      },
+      "tau_0p5_mu_numu": {
+        "relative_source_change": -0.0032811710841896824,
+        "weak_luminosity_relative_to_fig7": -0.09328772482465697
+      },
+      "tau_1_mu_numu": {
+        "relative_source_change": -0.01173704667669806,
+        "weak_luminosity_relative_to_fig7": -0.1009800107278166
+      },
+      "tau_minus1_mu_numu": {
+        "relative_source_change": -0.01173704667669806,
+        "weak_luminosity_relative_to_fig7": -0.1009800107278166
+      }
+    },
+    "lower_to_higher_baseline_refinement": {
+      "relative_total_source_change": -0.0015507723312534472,
+      "interpretation": "Joint radial-and-energy refinement, not a one-dimensional convergence scan."
+    }
+  },
+  "conclusions": [
+    "A +/-10% global mu_nu_mu stress changes the total B.1 source by only about +/-0.21%.",
+    "A +/-30% global mu_nu_mu stress changes the total B.1 source by +0.555%/-0.656%; setting mu_nu_mu=0 changes it by +1.174%.",
+    "Even setting mu_nu_mu=0 only reduces the weak-end source deficit from 9.03% to 7.96%.",
+    "The 8--15 km shell-only +/-30% stress changes the total source by +0.158%/-0.211%; setting mu_nu_mu=0 only in that shell changes it by +0.313%.",
+    "The paper's mu_nu_tau=0 assumption is also not a large source lever in this reconstructed profile: the extreme diagnostic mu_nu_tau=mu_nu_mu changes B.1 by -1.174%; the sign of mu_nu_tau is irrelevant for the pair kernel.",
+    "The local neutrino-pair kernel is even in each chemical potential, so a global sign flip of mu_nu_mu gives exactly the baseline source.",
+    "These are source-only stress tests, not inferred profile uncertainties; B.2 is not recomputed here."
+  ],
+  "production_outputs_modified": false
+}

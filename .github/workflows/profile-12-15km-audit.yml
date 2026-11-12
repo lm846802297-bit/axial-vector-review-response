@@ -1,0 +1,118 @@
+name: SFHo-18.8 profile and shell-resolved B.1+B.2 sensitivity (8--15 km)
+
+on:
+  push:
+    branches:
+      - research/moving-muon-thermal-rates-20261107
+    paths:
+      - 'research/stellar-cooling-constraints-20261105/extract_profile.py'
+      - 'research/stellar-cooling-constraints-20261105/audit_profile_12_15km.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_profile_transport_sensitivity.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_profile_radial_convergence.py'
+      - 'research/stellar-cooling-constraints-20261105/test_profile_12_15km.py'
+      - 'research/stellar-cooling-constraints-20261105/data/**'
+      - '.github/workflows/profile-12-15km-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-12-15km-audit-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
+    runs-on: ubuntu-latest
+    timeout-minutes: 70
+    steps:
+      - name: Check out research branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install profile-audit dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy pymupdf
+
+      - name: Regenerate digitized profiles from hash-pinned source PDFs
+        run: |
+          python research/stellar-cooling-constraints-20261105/extract_profile.py --download
+
+      - name: Run 12--15 km profile regression tests
+        run: |
+          python -m unittest discover \
+            -s research/stellar-cooling-constraints-20261105 \
+            -p 'test_profile_12_15km.py' -v
+
+      - name: Audit source-PDF curve identities and profile inputs
+        run: |
+          python research/stellar-cooling-constraints-20261105/audit_profile_12_15km.py \
+            --source-dir research/stellar-cooling-constraints-20261105/latex-build/sources \
+            --output research/stellar-cooling-constraints-20261105/data/profile_12_15km_audit_2026-11-09.json
+
+      - name: Run full B.1+B.2 profile-input transport sensitivity
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_profile_transport_sensitivity.py \
+            --profile research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/profile_transport_sensitivity_12_15km_2026-11-09.json
+
+      - name: Check radial-quadrature convergence of the 8--15 km profile sensitivity
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_profile_radial_convergence.py \
+            --profile research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/profile_radial_convergence_8_15km_2026-11-09.json
+
+      - name: Verify production axial outputs remain unchanged
+        run: |
+          git diff --exit-code -- \
+            research/stellar-cooling-constraints-20261105/rates.py \
+            research/stellar-cooling-constraints-20261105/transport.py \
+            research/stellar-cooling-constraints-20261105/outputs/axial.json \
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.pdf \
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.png
+
+      - name: Archive regenerated profile and audit output
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            research/stellar-cooling-constraints-20261105/data/T_caputo_vertices.csv \
+            research/stellar-cooling-constraints-20261105/data/T_ferreira_vertices.csv \
+            research/stellar-cooling-constraints-20261105/data/lapse_ferreira_vertices.csv \
+            research/stellar-cooling-constraints-20261105/data/minus_mu_numu_caputo_vertices.csv \
+            research/stellar-cooling-constraints-20261105/data/mu_mu_caputo_vertices.csv \
+            research/stellar-cooling-constraints-20261105/data/mu_mu_ferreira_vertices.csv \
+            research/stellar-cooling-constraints-20261105/data/n_mu_over_n0_caputo_vertices.csv \
+            research/stellar-cooling-constraints-20261105/data/plus_mu_numu_caputo_vertices.csv \
+            research/stellar-cooling-constraints-20261105/data/profile_provenance.json \
+            research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv \
+            research/stellar-cooling-constraints-20261105/data/profile_12_15km_audit_2026-11-09.json \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/profile_transport_sensitivity_12_15km_2026-11-09.json \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/profile_radial_convergence_8_15km_2026-11-09.json
+          if git diff --cached --quiet; then
+            echo "Profile inputs and audit output are already current."
+          else
+            git commit -m "Archive shell-resolved SFHo profile sensitivity and radial convergence"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin "${GITHUB_REF_NAME}"
+              git rebase "origin/${GITHUB_REF_NAME}"
+              if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+                exit 0
+              fi
+              echo "Push raced with another research workflow; retry ${attempt}/5."
+              sleep 2
+            done
+            echo "Could not archive the profile audit after five retries."
+            exit 1
+          fi

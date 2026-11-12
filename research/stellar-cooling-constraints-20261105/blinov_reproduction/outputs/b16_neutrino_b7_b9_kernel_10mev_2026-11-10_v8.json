@@ -1,0 +1,117 @@
+{
+  "result": {
+    "title": "10 MeV neutrino inverse-decay B.7-B.10 kernel audit",
+    "status": "direct_V8_cross_runtime_independent_closed_form_check",
+    "mass_MeV": 10,
+    "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+    "sample_configuration": {
+      "radii_km": [
+        8,
+        10,
+        12.5,
+        15
+      ],
+      "energies_MeV": [
+        60,
+        110,
+        210,
+        510,
+        1010
+      ],
+      "flavours": [
+        "mu_numu",
+        "mu_zero"
+      ],
+      "direct_angular_orders": [
+        128,
+        256,
+        512,
+        1024
+      ],
+      "sample_count": 40
+    },
+    "summary": {
+      "max_abs_relative_residual_eq_B9_vs_repository_pair_average": 2.886579864025407e-15,
+      "max_abs_relative_residual_direct_angular_vs_repository_pair_average_by_order": {
+        "128": 2.886579864025407e-15,
+        "256": 3.1086244689504383e-15,
+        "512": 2.6645352591003757e-15,
+        "1024": 3.1086244689504383e-15
+      },
+      "max_abs_relative_residual_eq_B7_two_flavour_rate": 0,
+      "max_abs_relative_residual_B10_B4_detailed_balance": 0
+    },
+    "selected_points": [
+      {
+        "r_km": 8,
+        "T_MeV": 38.847171184805,
+        "mu_numu_MeV": -20.4279370538693,
+        "energy_MeV": 210,
+        "species": "mu_numu",
+        "I_B9": 0.0033066776748213087,
+        "I_repository": 0.003306677674821311,
+        "relative_residual": -6.661338147750939e-16
+      },
+      {
+        "r_km": 8,
+        "T_MeV": 38.847171184805,
+        "mu_numu_MeV": -20.4279370538693,
+        "energy_MeV": 510,
+        "species": "mu_numu",
+        "I_B9": 0.0000017679014834349887,
+        "I_repository": 0.0000017679014834349874,
+        "relative_residual": 6.661338147750939e-16
+      },
+      {
+        "r_km": 10,
+        "T_MeV": 33.9274404196138,
+        "mu_numu_MeV": -10.2178306046946,
+        "energy_MeV": 210,
+        "species": "mu_numu",
+        "I_B9": 0.001589072572263003,
+        "I_repository": 0.001589072572263005,
+        "relative_residual": -1.2212453270876722e-15
+      },
+      {
+        "r_km": 12.5,
+        "T_MeV": 23.881959149249,
+        "mu_numu_MeV": -2.59165549916519,
+        "energy_MeV": 510,
+        "species": "mu_numu",
+        "I_B9": 4.971102075747868e-10,
+        "I_repository": 4.971102075747865e-10,
+        "relative_residual": 6.661338147750939e-16
+      },
+      {
+        "r_km": 15,
+        "T_MeV": 13.2314158304208,
+        "mu_numu_MeV": 0,
+        "energy_MeV": 1010,
+        "species": "mu_numu",
+        "I_B9": 6.931736970574152e-34,
+        "I_repository": 6.93173697057417e-34,
+        "relative_residual": -2.55351295663786e-15
+      }
+    ],
+    "derivation": {
+      "alpha": "mu_nu/T",
+      "beta": "omega/T",
+      "v": "sqrt(1-mV^2/omega^2)",
+      "eq_B9": "I = log( ((exp(alpha)+exp(beta*(v+1)/2))*(exp(alpha+beta*(v+1)/2)+1)) / (exp(alpha+beta)+(exp(2*alpha)+1)*exp(beta*(v+1)/2)+exp(alpha+beta*v)) ) / ((exp(beta)-1)*beta*v)",
+      "eq_B7_prefactor_per_g2": "(mV/omega)*3*(alphaV*mV/6)/g^2 = mV^2/(8*pi*omega), alphaV=g^2/(4*pi)",
+      "eq_B10_B4": "Gamma_abs=exp(beta)*Gamma_prod; Gamma_abs_star=(exp(beta)-1)*Gamma_prod"
+    },
+    "execution": {
+      "engine": "OpenAI Code Mode V8 JavaScript IEEE-754 binary64",
+      "note": "The published Eq. (B.9) closed form and the repository pair-average formula were evaluated independently. Direct angular quadrature was separately performed in the preceding V8 check. The accompanying Python script is the repository reproduction implementation and was not executed in this V8 session."
+    },
+    "interpretation": [
+      "The corrected transcription of the second numerator factor in Eq. (B.9) is exp(alpha+beta*(v+1)/2)+1.",
+      "The B.9 closed form agrees with the repository Fermi-pair average at machine precision over all 40 sampled points.",
+      "The B.7 polarization and flavour normalization agrees exactly at the prefactor level.",
+      "The B.10 detailed-balance relation combined with B.4 reproduces the reduced-absorption factor.",
+      "These checks verify the local neutrino kernel, not the reconstructed stellar background or the full transport calculation."
+    ]
+  },
+  "run_commit_sha": "28b3178c055e76d28daa1b3f0646f0a114d3823b"
+}

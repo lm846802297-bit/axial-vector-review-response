@@ -1,0 +1,386 @@
+{
+  "title": "Energy-dependent neutrinosphere relevance for 10 MeV high-energy V to neutrino daughters",
+  "date": "2026-11-10",
+  "benchmark": {
+    "mass_MeV": 10,
+    "vector_energy_band_MeV": [
+      210,
+      510
+    ],
+    "coupling": 4.171689650228597e-8,
+    "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+    "reference_luminosity_erg_s": 1.26781475907372e+52,
+    "phase_space_result_status": "cross_runtime_computation_not_strict_numpy_grid_acceptance"
+  },
+  "daughter_kinematics": {
+    "derivation": "E1,2 = omega/2 (1 +/- beta z), beta=sqrt(1-mV^2/omega^2), z=cos(theta*)",
+    "mode_weights": {
+      "L": "3/4(1-z^2)",
+      "plus": "3/8(1+z)^2",
+      "minus": "3/8(1-z)^2"
+    },
+    "polarization_sum": "W_L+W_++W_-=3/2; each W_h integrates to 1",
+    "note": "Per-mode energy fractions are shown. Equal-polarization averaging is only a kinematic reference; the actual production density matrix is channel- and phase-space-dependent.",
+    "representative_points": [
+      {
+        "omega_MeV": 210,
+        "beta": 0.9988655696858586,
+        "Emin_MeV": 0.11911518298484691,
+        "Emax_MeV": 209.88088481701516,
+        "pair_mean_daughter_energy_MeV": 105,
+        "thresholds": [
+          {
+            "cut_MeV": 20,
+            "byMode": {
+              "L": {
+                "weight_integral": 0.9999999999999999,
+                "energy_fraction_above_cut": 0.9967601452933348
+              },
+              "plus": {
+                "weight_integral": 0.9999999999999996,
+                "energy_fraction_above_cut": 0.9878488683325892
+              },
+              "minus": {
+                "weight_integral": 0.9999999999999998,
+                "energy_fraction_above_cut": 0.987848868332589
+              }
+            },
+            "equal_polarization_average": 0.990819293986171
+          },
+          {
+            "cut_MeV": 50,
+            "byMode": {
+              "L": {
+                "weight_integral": 0.9999999999999999,
+                "energy_fraction_above_cut": 0.9555085009496582
+              },
+              "plus": {
+                "weight_integral": 0.9999999999999996,
+                "energy_fraction_above_cut": 0.9368584036969081
+              },
+              "minus": {
+                "weight_integral": 0.9999999999999998,
+                "energy_fraction_above_cut": 0.9368584036969081
+              }
+            },
+            "equal_polarization_average": 0.9430751027811581
+          },
+          {
+            "cut_MeV": 100,
+            "byMode": {
+              "L": {
+                "weight_integral": 0.9999999999999999,
+                "energy_fraction_above_cut": 0.7230950040918542
+              },
+              "plus": {
+                "weight_integral": 0.9999999999999996,
+                "energy_fraction_above_cut": 0.7988626569748528
+              },
+              "minus": {
+                "weight_integral": 0.9999999999999998,
+                "energy_fraction_above_cut": 0.7988626569748529
+              }
+            },
+            "equal_polarization_average": 0.77360677268052
+          },
+          {
+            "cut_MeV": 150,
+            "byMode": {
+              "L": {
+                "weight_integral": 0.9999999999999999,
+                "energy_fraction_above_cut": 0.32462368345528736
+              },
+              "plus": {
+                "weight_integral": 0.9999999999999996,
+                "energy_fraction_above_cut": 0.573957950233734
+              },
+              "minus": {
+                "weight_integral": 0.9999999999999998,
+                "energy_fraction_above_cut": 0.5739579502337336
+              }
+            },
+            "equal_polarization_average": 0.4908465279742516
+          },
+          {
+            "cut_MeV": 200,
+            "byMode": {
+              "L": {
+                "weight_integral": 0.9999999999999999,
+                "energy_fraction_above_cut": 0.011860494565604503
+              },
+              "plus": {
+                "weight_integral": 0.9999999999999996,
+                "energy_fraction_above_cut": 0.12847397839765326
+              },
+              "minus": {
+                "weight_integral": 0.9999999999999998,
+                "energy_fraction_above_cut": 0.12847397839765326
+              }
+            },
+            "equal_polarization_average": 0.08960281712030367
+          }
+        ]
+      },
+      {
+        "omega_MeV": 300,
+        "beta": 0.9994442900376633,
+        "Emin_MeV": 0.08335649435050052,
+        "Emax_MeV": 299.91664350564946,
+        "pair_mean_daughter_energy_MeV": 150,
+        "thresholds": [
+          {
+            "cut_MeV": 20,
+            "byMode": {
+              "L": {
+                "weight_integral": 0.9999999999999999,
+                "energy_fraction_above_cut": 0.9989272772256066
+              },
+              "plus": {
+                "weight_integral": 0.9999999999999996,
+                "energy_fraction_above_cut": 0.9940584953225664
+              },
+              "minus": {
+                "weight_integral": 0.9999999999999998,
+                "energy_fraction_above_cut": 0.9940584953225671
+              }
+            },
+            "equal_polarization_average": 0.99568142262358
+          },
+          {
+            "cut_MeV": 50,
+            "byMode": {
+              "L": {
+                "weight_integral": 0.9999999999999999,
+                "energy_fraction_above_cut": 0.9842938854470052
+              },
+              "plus": {
+                "weight_integral": 0.9999999999999996,
+                "energy_fraction_above_cut": 0.967026516404667
+              },
+              "minus": {
+                "weight_integral": 0.9999999999999998,
+                "energy_fraction_above_cut": 0.9670265164046677
+              }
+            },
+            "equal_polarization_average": 0.9727823060854467
+          },
+          {
+            "cut_MeV": 100,
+            "byMode": {
+              "L": {
+                "weight_integral": 0.9999999999999999,
+                "energy_fraction_above_cut": 0.8901091835400256
+              },
+              "plus": {
+                "weight_integral": 0.9999999999999996,
+                "energy_fraction_above_cut": 0.8895584822958345
+              },
+              "minus": {
+                "weight_integral": 0.9999999999999998,
+                "energy_fraction_above_cut": 0.8895584822958355
+              }
+            },
+            "equal_polarization_average": 0.8897420493772318
+          },
+          {
+            "cut_MeV": 150,
+            "byMode": {
+              "L": {
+                "weight_integral": 0.9999999999999999,
+                "energy_fraction_above_cut": 0.6874004898284348
+              },
+              "plus": {
+                "weight_integral": 0.9999999999999996,
+                "energy_fraction_above_cut": 0.7810960491732729
+              },
+              "minus": {
+                "weight_integral": 0.9999999999999998,
+                "energy_fraction_above_cut": 0.7810960491732731
+              }
+            },
+            "equal_polarization_average": 0.749864196058327
+          },
+          {
+            "cut_MeV": 200,
+            "byMode": {
+              "L": {
+                "weight_integral": 0.9999999999999999,
+                "energy_fraction_above_cut": 0.4047234019137709
+              },
+              "plus": {
+                "weight_integral": 0.9999999999999996,
+                "energy_fraction_above_cut": 0.627860493063061
+              },
+              "minus": {
+                "weight_integral": 0.9999999999999998,
+                "energy_fraction_above_cut": 0.6278604930630617
+              }
+            },
+            "equal_polarization_average": 0.5534814626799646
+          }
+        ]
+      },
+      {
+        "omega_MeV": 510,
+        "beta": 0.9998077477632912,
+        "Emin_MeV": 0.049024320360749885,
+        "Emax_MeV": 509.95097567963927,
+        "pair_mean_daughter_energy_MeV": 255,
+        "thresholds": [
+          {
+            "cut_MeV": 20,
+            "byMode": {
+              "L": {
+                "weight_integral": 0.9999999999999999,
+                "energy_fraction_above_cut": 0.999777755549458
+              },
+              "plus": {
+                "weight_integral": 0.9999999999999996,
+                "energy_fraction_above_cut": 0.9978778983955954
+              },
+              "minus": {
+                "weight_integral": 0.9999999999999998,
+                "energy_fraction_above_cut": 0.9978778983955956
+              }
+            },
+            "equal_polarization_average": 0.9985111841135496
+          },
+          {
+            "cut_MeV": 50,
+            "byMode": {
+              "L": {
+                "weight_integral": 0.9999999999999999,
+                "energy_fraction_above_cut": 0.9964102342027656
+              },
+              "plus": {
+                "weight_integral": 0.9999999999999996,
+                "energy_fraction_above_cut": 0.9870881521772981
+              },
+              "minus": {
+                "weight_integral": 0.9999999999999998,
+                "energy_fraction_above_cut": 0.987088152177298
+              }
+            },
+            "equal_polarization_average": 0.9901955128524539
+          },
+          {
+            "cut_MeV": 100,
+            "byMode": {
+              "L": {
+                "weight_integral": 0.9999999999999999,
+                "energy_fraction_above_cut": 0.9736450950012411
+              },
+              "plus": {
+                "weight_integral": 0.9999999999999996,
+                "energy_fraction_above_cut": 0.954478324062527
+              },
+              "minus": {
+                "weight_integral": 0.9999999999999998,
+                "energy_fraction_above_cut": 0.9544783240625269
+              }
+            },
+            "equal_polarization_average": 0.960867247708765
+          },
+          {
+            "cut_MeV": 150,
+            "byMode": {
+              "L": {
+                "weight_integral": 0.9999999999999999,
+                "energy_fraction_above_cut": 0.9220823460289356
+              },
+              "plus": {
+                "weight_integral": 0.9999999999999996,
+                "energy_fraction_above_cut": 0.9108624907257448
+              },
+              "minus": {
+                "weight_integral": 0.9999999999999998,
+                "energy_fraction_above_cut": 0.9108624907257445
+              }
+            },
+            "equal_polarization_average": 0.914602442493475
+          },
+          {
+            "cut_MeV": 200,
+            "byMode": {
+              "L": {
+                "weight_integral": 0.9999999999999999,
+                "energy_fraction_above_cut": 0.8313657913404989
+              },
+              "plus": {
+                "weight_integral": 0.9999999999999996,
+                "energy_fraction_above_cut": 0.855331263863324
+              },
+              "minus": {
+                "weight_integral": 0.9999999999999998,
+                "energy_fraction_above_cut": 0.855331263863324
+              }
+            },
+            "equal_polarization_average": 0.8473427730223824
+          }
+        ]
+      }
+    ]
+  },
+  "boundary_sensitivity": {
+    "band_source_fraction": 0.09669607176610405,
+    "band_escaped_luminosity_fraction": 0.697556872664461,
+    "baseline_total_luminosity_erg_s": 2.439635957358781e+52,
+    "baseline_band_luminosity_erg_s": 1.7017848288549594e+52,
+    "baseline_residual_vs_fig7": 0.924284237818155,
+    "required_band_suppression_if_other_bins_fixed": 0.6885836437227597,
+    "conditional_band_only_proxies": [
+      {
+        "Rmax_km": 26,
+        "band_ratio": 0.7758291817908873,
+        "band_change": -0.224170818209117,
+        "proxy_total_erg_s": 2.05814545985851e+52,
+        "proxy_residual_vs_fig7": 0.6233802652386022
+      },
+      {
+        "Rmax_km": 27.5,
+        "band_ratio": 0.5335979730128595,
+        "band_change": -0.4664020269871435,
+        "proxy_total_erg_s": 1.6459200636848636e+52,
+        "proxy_residual_vs_fig7": 0.2982338720266924
+      },
+      {
+        "Rmax_km": 30,
+        "band_ratio": 0.2906379730985644,
+        "band_change": -0.7093620269014373,
+        "proxy_total_erg_s": 1.232454421812114e+52,
+        "proxy_residual_vs_fig7": -0.027890775847601357
+      }
+    ],
+    "warning": "These proxies alter only the 210-510 MeV band and hold all other energy bins fixed. They are not full luminosity re-integrations or physical alternative predictions."
+  },
+  "physics_interpretation": {
+    "paper_baseline": "Rmax=Rnu approximately 25 km, a fixed effective boundary in the literal B.2 calculation.",
+    "literature": "The neutrino decoupling region is energy- and flavor-dependent; for heavy-flavor neutrinos the transport sphere and energy sphere are distinct.",
+    "implication": "The pair-mean daughter energies are 105-255 MeV over the vector band. A single thermal-average 25 km radius is not independently demonstrated to be the correct energy-loss boundary for these daughters.",
+    "required_future_quantity": "P_pair^E(omega,r)=(1/omega) sum_h integral dz W_h(z)[E1 P_esc^nu(E1,r)+E2 P_esc^antinu(E2,r)], with separate flavor/channel transport inputs.",
+    "missing_inputs": [
+      "same-snapshot baryon density and composition",
+      "energy- and flavor-dependent nu_mu/anti-nu_mu and nu_tau/anti-nu_tau opacities",
+      "neutrino angular moments/distributions and energy-sphere information"
+    ]
+  },
+  "validation": {
+    "phase_space_grid_hashes_match": false,
+    "phase_space_luminosity_closure": -9.229284003708926e-13,
+    "P1D_max_path64_to128_relative_change": 0.000008604082334939811,
+    "production_axial_outputs_modified": false
+  },
+  "references": [
+    "N. Blinov et al., JHEP 06 (2026) 155, arXiv:2511.09619, Appendix B, Rmax=Rnu approximately 25 km.",
+    "K.-C. Lai, C. S. J. Leung, G.-L. Lin, Phys. Rev. D 110, 103023 (2024), arXiv:2401.16023, Sec. II and Appendix E.",
+    "G. G. Raffelt, H.-T. Janka, D. F. G. Fiorillo, Neutrinos from core-collapse supernovae (2025 review), Sec. 2.2.",
+    "B. Müller, Annu. Rev. Nucl. Part. Sci. 69, 253 (2019), DOI:10.1146/annurev-nucl-101918-023434."
+  ],
+  "limitations": [
+    "The phase-space input is a V8 cross-runtime calculation with matching node counts and integral closures but non-identical NumPy grid hashes; it is not strict NumPy-grid acceptance.",
+    "The Rmax>25 km P1-D rows are one-sided opacity-only conditional diagnostics with B.1 source frozen at 25 km.",
+    "The band-only proxy changes only 210-510 MeV and holds all other energy bins fixed.",
+    "No same-snapshot neutrino transport opacity or raw Garching hydro profile is present in the current public-figure reconstruction.",
+    "No alternative Rmax is selected; no production or axial-vector output is changed."
+  ]
+}

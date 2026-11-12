@@ -1,0 +1,9 @@
+Original user-provided archive: C4C3_direct_local_recomputation_2026-11-11.zip
+Original archive SHA-256: 02b438ba4e6b5c0985417215238e5af161ee2687e32434321f4daf7d2a9a3b26
+Original archive size: 911170 bytes
+Original source snapshot commit: 780e0c0bfd745ec41cb7b840c7ba4f8226bb723d
+Submission layout: all result files and the local driver are extracted as
+individual uncompressed files. The nested source bundle is not duplicated:
+its source commit and the six relevant source/input blobs are already present
+and verified in the PR tree (see SOURCE_PROVENANCE.md).
+No ZIP, TAR, or GZIP container is retained in this result directory.

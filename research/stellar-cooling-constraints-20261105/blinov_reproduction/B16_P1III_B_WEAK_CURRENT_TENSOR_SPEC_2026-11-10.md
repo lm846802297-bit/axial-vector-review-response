@@ -1,0 +1,143 @@
+# P1-IIIb: Full weak-current tensor — implementation and validation specification
+
+Date: 2026-11-10  
+PR: #57  
+Branch: research/moving-muon-thermal-rates-20261107
+
+## Scope and status
+
+This note specifies the next implementation layer after P1-IIIa. It is a derivation/validation specification, **not a claim that the full tensor code or B.2 calculation has already been completed**. P1-IIIa remains a scalar ideal-gas phase-space response. No opacity, luminosity, Fig. 7 curve, or axial constraint is updated here.
+
+## 1. Conventions
+
+Use metric \(g^{\mu\nu}=(+,-,-,-)\), \(q^\mu=k^\mu-k'^\mu=p'^\mu-p^\mu\), and \(Q^2=-q_\mu q^\mu\geq0\). The on-shell nucleon momenta obey
+\[
+p^\mu=(E_p,\mathbf p),\quad p'^\mu=(E_p+q_0,\mathbf p+\mathbf q),\quad
+E_p=\sqrt{p^2+M_N^2}.
+\]
+
+For each species \(N=n,p\), use
+\[
+\Gamma_N^\mu(q)=F_1^N(Q^2)\gamma^\mu
++i\frac{F_2^N(Q^2)}{2M_N}\sigma^{\mu\alpha}q_\alpha
+-G_A^N(Q^2)\gamma^\mu\gamma^5.
+\]
+The sign and index placement of the Pauli term must be matched to the exact Horowitz convention before numerical comparison. Define
+\[
+\overline\Gamma^\nu=\gamma^0(\Gamma^\nu)^\dagger\gamma^0,\qquad
+H_N^{\mu\nu}=\frac12\mathrm{Tr}[
+(\slashed p'+M_N)\Gamma_N^\mu
+(\slashed p+M_N)\overline\Gamma_N^\nu].
+\]
+The trace includes the initial-spin average \(1/2\); the medium response separately includes the spin degeneracy 2. Do not add a second spin factor.
+
+## 2. Medium response tensor
+
+The convention to implement is
+\[
+W_N^{\mu\nu}(q_0,q)=
+2\pi\int\frac{d^3p}{(2\pi)^3}
+\frac{f_N(E_p)[1-f_N(E_p+q_0)]}{4E_p(E_p+q_0)}
+\delta(q_0+E_p-E_{p'})
+\,2H_N^{\mu\nu}.
+\]
+Equivalently, absorb the final factor 2 into the spin-summed hadronic tensor. This convention must be fixed once in code and checked against the stationary-target limit; never mix the two versions.
+
+The energy delta function fixes
+\[
+\cos\theta_{pq}=
+\frac{2E_pq_0+q_0^2-q^2}{2pq},
+\]
+with
+\[
+\left|\frac{\partial(E_p-E_{p'})}{\partial\cos\theta_{pq}}\right|
+=\frac{pq}{E_{p'}}.
+\]
+Define the azimuthal average
+\[
+\overline H_N^{\mu\nu}(p;q_0,q)=
+\frac{1}{2\pi}\int_0^{2\pi}d\phi\,H_N^{\mu\nu}(p,p').
+\]
+With the explicit spin-degeneracy factor 2 and \(H=\tfrac12\operatorname{Tr}[\cdots]\), the angular reduction is
+\[
+\boxed{
+W_N^{\mu\nu}(q_0,q)=
+\frac{1}{4\pi q}\int_{p_{\min}}^\infty dp\,
+\frac{p}{E_p}f_N(E_p)[1-f_N(E_p+q_0)]
+\overline H_N^{\mu\nu}(p;q_0,q)
+}.
+\]
+The prefactor is \(1/(4\pi q)\), not \(1/(8\pi q)\): the latter would omit the explicit nucleon spin degeneracy with the spin-averaged trace convention above. The stationary-target Horowitz limit fixes this normalization independently.
+Unlike the scalar response, the tensor integrand retains the angular dependence of \(p^\mu\), so each component must be evaluated at the kinematically fixed \(\cos\theta_{pq}\) and azimuthally averaged relative to the neutrino scattering plane. It is not permissible to set \(\mathbf p=0\) inside this integral.
+
+## 3. Leptonic contraction
+
+For neutrinos, define the lower-index tensor directly by
+\[
+L^{(\nu)}_{\mu\nu}=
+\operatorname{Tr}[\slashed k'\gamma_\mu(1-\gamma^5)
+\slashed k\gamma_\nu(1-\gamma^5)].
+\]
+For antineutrinos, swap \(k\) and \(k'\) in this trace. This reverses the antisymmetric VA contribution without relying on an implicit epsilon-tensor sign convention.
+In the stationary-target convention used in the audit,
+\[
+L_{\mu\nu}H_N^{\mu\nu}
+=32M_N^2E_\nu^2\,\mathcal B_{\rm Horowitz},
+\qquad
+\frac{d\sigma}{d\Omega}
+=\frac{G_F^2\eta^2}{128\pi^2M_N^2}
+L_{\mu\nu}H_N^{\mu\nu}.
+\]
+The collision kernel is proportional to \(G_F^2 L_{\mu\nu}W_N^{\mu\nu}\), together with the explicitly documented external-state and phase-space normalization.
+
+Keep VV, AA, VA, weak-magnetism, and finite-\(Q^2\) contributions. Do not discard \(W^{0i}\), spatial longitudinal/transverse pieces, or antisymmetric components before contraction.
+
+## 4. Local moving-nucleon collision-rate normalization
+
+For an incident neutrino of energy \(E\) and outgoing neutrino energy/angle \((E',\Omega')\), the invariant collision rate is
+\[
+\frac{d\Gamma_N}{dE'\,d\Omega'}=
+\frac{G_F^2E'}{64\pi^2E}
+\int\frac{d^3p}{(2\pi)^3}
+\frac{f_N(E_p)[1-f_N(E_{p'})]}{E_pE_{p'}}
+\delta(E+E_p-E'-E_{p'})
+L_{\mu\nu}H_N^{\mu\nu}.
+\]
+Here \(f_N\) is the occupation per spin state and \(H=\tfrac12\mathrm{Tr}[\cdots]\). The factor from summing the two occupied initial nucleon spin states is already combined with the \(G_F^2/2\) from the squared weak amplitude; do not multiply this expression by another factor of 2.
+
+Using the exact energy delta function to integrate the initial nucleon polar angle, and defining the azimuthal average relative to the neutrino scattering plane, gives
+\[
+\boxed{
+\frac{d\Gamma_N}{dE'\,d\Omega'}=
+\frac{G_F^2E'}{256\pi^4E q}
+\int_{p_{\min}}^\infty dp\,\frac{p}{E_p}
+f_N(E_p)[1-f_N(E_p+q_0)]
+\overline{L_{\mu\nu}H_N^{\mu\nu}}
+}.
+\]
+This expression is the local moving-nucleon kernel used in the P1-IIIb benchmark. Its normalization is checked by integrating over \(E'\), dividing by the species number density, and recovering the stationary-target Horowitz \(d\sigma/d\Omega\) in the dilute/cold limit.
+
+The benchmark implementation retains the full azimuthal dependence of the moving initial nucleon in the Dirac trace. It does not replace the moving tensor by a scalar response times a stationary-target matrix element.
+
+## 5. Required validation ladder
+
+1. **Gamma algebra:** verify Hermiticity/conjugation of the vertex and tensor symmetry properties numerically for generic on-shell momenta.
+2. **Stationary target:** take a dilute, cold, zero-momentum target limit and reproduce Horowitz's \(d\sigma/d\cos\theta\) for \(\nu n,\bar\nu n,\nu p,\bar\nu p\), including recoil, weak magnetism, and the same form factors.
+3. **Integrated moments:** reproduce total, angular-transport, momentum-transfer, and energy-transfer moments from the existing Horowitz implementation. A total-cross-section-only match is insufficient.
+4. **Dilute thermal gas:** verify the Maxwell-Boltzmann limit and detailed balance.
+5. **Finite density:** verify Pauli blocking species by species and demonstrate that the result is not represented by a universal multiplicative suppression.
+6. **Quadrature:** independently increase radial and angular orders and test near the kinematic boundaries \(q_0=\pm q\).
+
+Acceptance target for the stationary-target differential kernel is a relative residual below \(10^{-3}\) over the supported angular/energy grid, followed by a tighter convergence study for integrated moments. Any failure must be resolved before the kernel is used in B.2.
+
+## 6. Benchmark separation
+
+The P1-IIIa choice \(T=3.03\) MeV, \(Y_p=0.10\), and \(n_B/n_0=10^{-3},10^{-2},10^{-1}\) is an illustrative ideal-gas benchmark only. It is not an extracted SFHo-18.8 radial snapshot. EOS-consistent application requires co-located \(n_B(r),Y_p(r),T(r)\), and, if used, \(m_N^*(r)\), \(U_N(r)\), and chemical potentials from one and the same stellar model.
+
+## 7. Explicit exclusions
+
+This stage does not yet include RPA, NN correlations, in-medium vertex corrections, additional baryons, neutrino final-state blocking, general-relativistic path transport, or a solution of the Boltzmann equation. In particular, \(e^{-\tau_{\rm therm}}\) is not to be used as an escape probability.
+
+## 8. Next executable task
+
+The stationary-target trace, moving-nucleon local collision kernel, and a first energy/angle-integrated transport-moment benchmark are now implemented and checked against the cold/dilute Horowitz limit. The remaining task is to expand these local moments over the relevant incident-energy and angular domain, then replace the illustrative composition with co-located EOS-consistent (n_B(r),Y_p(r),T(r)). Only after those checks should the kernel be connected to radial B.2 propagation. Keep this code and its validation outputs separate from the production B.2 path until acceptance.

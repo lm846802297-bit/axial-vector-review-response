@@ -1,0 +1,77 @@
+{
+  "title": "P1-IIIe-C4A EOS-effective-mass dynamic scalar response",
+  "date": "2026-11-11",
+  "status": "PASS: dynamic/static sum rule, detailed balance, and q->0 susceptibility checked",
+  "scope": "Local scalar quasiparticle response at four selected radii of the t_pb=1 s Caputo SFHo-18.8 published-figure snapshot; no weak tensor, B.2 opacity, transport, or luminosity.",
+  "provenance": {
+    "profile": "outputs/caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv",
+    "C2_occupation": "outputs/p1iii_eos_full_radial_occupation_2026-11-11.csv",
+    "C2_occupation_git_blob_sha": "c472040a4551e68ffadbf7addf9402663f99e7e3",
+    "selected_profile_indices_zero_based": [
+      0,
+      96,
+      196,
+      300
+    ],
+    "selected_radii_km": [
+      0.2,
+      5,
+      10,
+      15.2
+    ],
+    "species": [
+      "n",
+      "p"
+    ],
+    "q_values_MeV": [
+      1,
+      3,
+      10,
+      30,
+      100,
+      200,
+      500
+    ],
+    "q0_Gauss_Legendre_order": 240,
+    "momentum_Gauss_Legendre_order": 600,
+    "static_p_and_cosine_orders": [
+      160,
+      160
+    ],
+    "kinetic_energy_tail_T": 45
+  },
+  "quasiparticle_convention": {
+    "Estar_p": "sqrt(p^2+mstar_N(r)^2)",
+    "kinetic_energy": "E_star-mstar_N",
+    "occupation": "1/[exp((E_star-mstar_N-nu_N(r))/T(r))+1]",
+    "nu_N": "mu_N^nonrel-U_N",
+    "same_species_energy_transfer": "q0=E_star(p+q)-E_star(p); constant U_N cancels",
+    "spin_degeneracy": 2,
+    "response": "S_N(q0,q)=1/(pi*q) integral_{pmin}^infinity dp p*(E_star+q0)*f_i*(1-f_f)",
+    "units": "S in MeV^2; int dq0/(2pi) S in MeV^3"
+  },
+  "species": {
+    "n": {
+      "max_abs_sum_rule_relative_residual": 1.9984014443252818e-15,
+      "max_abs_detailed_balance_relative_residual": 3.552713678800501e-15,
+      "max_abs_q1_static_vs_q0_blocked": 0.00002603957591795769,
+      "max_abs_q3_static_vs_q0_blocked": 0.00023433660061411565
+    },
+    "p": {
+      "max_abs_sum_rule_relative_residual": 2.220446049250313e-15,
+      "max_abs_detailed_balance_relative_residual": 4.440892098500626e-15,
+      "max_abs_q1_static_vs_q0_blocked": 0.000013847489416241032,
+      "max_abs_q3_static_vs_q0_blocked": 0.000124619767612133
+    }
+  },
+  "acceptance": {
+    "four_representative_radii_and_both_species": true,
+    "dynamic_static_sum_rule_below_1e_8": true,
+    "detailed_balance_below_1e_8": true,
+    "q1_static_limit_matches_nF_below_1e_4": true,
+    "q3_static_limit_matches_nF_below_1e_3": true,
+    "all_response_values_nonnegative": true,
+    "C2_blocked_integral_reproduced": true
+  },
+  "overall_pass": true
+}

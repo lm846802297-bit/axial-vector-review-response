@@ -1,0 +1,914 @@
+{
+  "code_sha256": {
+    "moving_muon_compton.py": "38436b94f070069c8696b37b9bce1955e2d5d7e39dad9b302ab754582ff6a5a5",
+    "rates.py": "2fc7bc2d3b0d7b98c191755cd2bb87944e4ebe259adc3d3bbc8e0f60dcc57f56",
+    "thermal_dimuon.py": "f152589d52a2f2377f4c3627f6d0fe04c0699fed50e395b06c9ed0b28514bc3f",
+    "thermal_response_scan.py": "f957a90df41c80c43ef83cf3503dcb2cc16be5c10a2dad93973849e1d2f77e0f"
+  },
+  "compton": {
+    "10MeV_mid_radius_comparison": {
+      "Q_axial_by_mode_MeV5": [
+        15600.63148390128,
+        429.5201085644578,
+        429.52010856445787
+      ],
+      "Q_axial_over_vector_by_mode": [
+        1570.3808989855397,
+        2.314354419788806,
+        2.3143544197888066
+      ],
+      "Q_axial_over_vector_total": 43.1883727253494,
+      "Q_axial_total_MeV5": 16459.671701030195,
+      "Q_mixed_by_mode_MeV5": [
+        15597.511617702572,
+        429.4541828521263,
+        429.4142442615963
+      ],
+      "Q_mixed_over_axial_total": 0.9998000168974395,
+      "Q_mixed_total_MeV5": 16456.380044816295,
+      "Q_vector_by_mode_MeV5": [
+        9.93429778340989,
+        185.58959893604074,
+        185.58959893604074
+      ],
+      "Q_vector_total_MeV5": 381.1134956554914,
+      "charge_resolved_mixed_Q_by_mode_MeV5": {
+        "mu_minus": [
+          15587.334641179004,
+          429.1613688237053,
+          429.1214036349468
+        ],
+        "mu_plus": [
+          10.176976523566278,
+          0.2928140284209758,
+          0.29284062664962446
+        ]
+      },
+      "mass_MeV": 10.0,
+      "max_Eq_5_12_relative_residual": 4.155983169653673e-15,
+      "max_detailed_balance_relative_error": 4.222754228027906e-15,
+      "max_final_muon_shell_relative_error": 1.710848722915707e-13,
+      "mixed_interference_fraction_by_mode": [
+        -1.1662048717318306e-16,
+        4.6499245000958814e-05,
+        -4.6503569762196914e-05
+      ],
+      "mode_order": [
+        "L",
+        "+",
+        "-"
+      ],
+      "polarization_basis": "medium rest frame; A' momentum along +z",
+      "profile_point": {
+        "lapse": 0.838842453891008,
+        "mu_mu_MeV": 90.2165853124713,
+        "mu_numu_MeV": -2.59165549916519,
+        "r_km": 12.5,
+        "temperature_MeV": 23.881959149249
+      },
+      "quadrature": {
+        "energy_order": 12,
+        "inner_orders": [
+          12,
+          8,
+          8,
+          8
+        ]
+      }
+    },
+    "mass_scan_at_center": [
+      {
+        "Q_axial_by_mode_MeV5": [
+          451689697.72101384,
+          17.30419807420158,
+          17.30419807420158
+        ],
+        "Q_axial_over_vector_by_mode": [
+          529841406600646.4,
+          2.486808591701649,
+          2.486808591701649
+        ],
+        "Q_axial_over_vector_total": 32456454.598928712,
+        "Q_axial_total_MeV5": 451689732.32941,
+        "Q_mixed_by_mode_MeV5": [
+          451599367.30928993,
+          17.301405487803788,
+          17.3000696973088
+        ],
+        "Q_mixed_over_axial_total": 0.9998000166659112,
+        "Q_mixed_total_MeV5": 451599401.9107651,
+        "Q_vector_by_mode_MeV5": [
+          8.524998086105844e-07,
+          6.958395644901979,
+          6.958395644901979
+        ],
+        "Q_vector_total_MeV5": 13.916792142303766,
+        "charge_resolved_mixed_Q_by_mode_MeV5": {
+          "mu_minus": [
+            447993712.61769,
+            17.162612170879587,
+            17.161265517676007
+          ],
+          "mu_plus": [
+            3605654.6916000526,
+            0.13879331692419594,
+            0.13880417963278754
+          ]
+        },
+        "mass_MeV": 0.01,
+        "max_Eq_5_12_relative_residual": 2.5255663579180095e-15,
+        "max_detailed_balance_relative_error": 2.4015901722357845e-15,
+        "max_final_muon_shell_relative_error": 1.2937275104714967e-13,
+        "mixed_interference_fraction_by_mode": [
+          -1.3198566935672605e-16,
+          3.860352547505963e-05,
+          -3.860650616852164e-05
+        ],
+        "mode_order": [
+          "L",
+          "+",
+          "-"
+        ],
+        "polarization_basis": "medium rest frame; A' momentum along +z",
+        "profile_point": {
+          "lapse": 0.736330426690871,
+          "mu_mu_MeV": 46.6743284468278,
+          "mu_numu_MeV": -58.6137567217484,
+          "r_km": 0.0,
+          "temperature_MeV": 19.265221107965
+        },
+        "quadrature": {
+          "energy_order": 12,
+          "inner_orders": [
+            12,
+            8,
+            8,
+            8
+          ]
+        }
+      },
+      {
+        "Q_axial_by_mode_MeV5": [
+          4516874.920460668,
+          17.30403249889128,
+          17.30403249889128
+        ],
+        "Q_axial_over_vector_by_mode": [
+          53361378778.89547,
+          2.486800889172773,
+          2.486800889172773
+        ],
+        "Q_axial_over_vector_total": 324565.56908131484,
+        "Q_axial_total_MeV5": 4516909.528525666,
+        "Q_mixed_by_mode_MeV5": [
+          4515971.620754413,
+          17.30123994056341,
+          17.299904160152277
+        ],
+        "Q_mixed_over_axial_total": 0.9998000166659421,
+        "Q_mixed_total_MeV5": 4516006.221898514,
+        "Q_vector_by_mode_MeV5": [
+          8.464689301182565e-05,
+          6.958350615938302,
+          6.958350615938302
+        ],
+        "Q_vector_total_MeV5": 13.916785878769616,
+        "charge_resolved_mixed_Q_by_mode_MeV5": {
+          "mu_minus": [
+            4479915.262926893,
+            17.162447918884382,
+            17.161101275845073
+          ],
+          "mu_plus": [
+            36056.357827520296,
+            0.13879202167902568,
+            0.13880288430719903
+          ]
+        },
+        "mass_MeV": 0.1,
+        "max_Eq_5_12_relative_residual": 2.68076509905194e-15,
+        "max_detailed_balance_relative_error": 2.8635005275514444e-15,
+        "max_final_muon_shell_relative_error": 1.0851669042493914e-13,
+        "mixed_interference_fraction_by_mode": [
+          2.0622861541806963e-16,
+          3.860360343328821e-05,
+          -3.860658413940557e-05
+        ],
+        "mode_order": [
+          "L",
+          "+",
+          "-"
+        ],
+        "polarization_basis": "medium rest frame; A' momentum along +z",
+        "profile_point": {
+          "lapse": 0.736330426690871,
+          "mu_mu_MeV": 46.6743284468278,
+          "mu_numu_MeV": -58.6137567217484,
+          "r_km": 0.0,
+          "temperature_MeV": 19.265221107965
+        },
+        "quadrature": {
+          "energy_order": 12,
+          "inner_orders": [
+            12,
+            8,
+            8,
+            8
+          ]
+        }
+      },
+      {
+        "Q_axial_by_mode_MeV5": [
+          45157.08418982856,
+          17.28826156911439,
+          17.28826156911439
+        ],
+        "Q_axial_over_vector_by_mode": [
+          5650297.5508121215,
+          2.485969693761519,
+          2.485969693761519
+        ],
+        "Q_axial_over_vector_total": 3247.3068954275254,
+        "Q_axial_total_MeV5": 45191.66071296678,
+        "Q_mixed_by_mode_MeV5": [
+          45148.053525574614,
+          17.285471732491736,
+          17.284136816436046
+        ],
+        "Q_mixed_over_axial_total": 0.9998000166689904,
+        "Q_mixed_total_MeV5": 45182.62313412355,
+        "Q_vector_by_mode_MeV5": [
+          0.007991983392686655,
+          6.95433319742347,
+          6.95433319742347
+        ],
+        "Q_vector_total_MeV5": 13.916658378239626,
+        "charge_resolved_mixed_Q_by_mode_MeV5": {
+          "mu_minus": [
+            44787.58435110103,
+            17.146805998972965,
+            17.145460227324392
+          ],
+          "mu_plus": [
+            360.46917447358356,
+            0.13866573351877398,
+            0.13867658911165412
+          ]
+        },
+        "mass_MeV": 1.0,
+        "max_Eq_5_12_relative_residual": 4.637117934283844e-15,
+        "max_detailed_balance_relative_error": 4.44395194763526e-15,
+        "max_final_muon_shell_relative_error": 1.0851669042493914e-13,
+        "mixed_interference_fraction_by_mode": [
+          -1.6115772543907966e-16,
+          3.861381616717903e-05,
+          -3.861679845150285e-05
+        ],
+        "mode_order": [
+          "L",
+          "+",
+          "-"
+        ],
+        "polarization_basis": "medium rest frame; A' momentum along +z",
+        "profile_point": {
+          "lapse": 0.736330426690871,
+          "mu_mu_MeV": 46.6743284468278,
+          "mu_numu_MeV": -58.6137567217484,
+          "r_km": 0.0,
+          "temperature_MeV": 19.265221107965
+        },
+        "quadrature": {
+          "energy_order": 12,
+          "inner_orders": [
+            12,
+            8,
+            8,
+            8
+          ]
+        }
+      },
+      {
+        "Q_axial_by_mode_MeV5": [
+          441.3345102113637,
+          16.064661577348165,
+          16.064661577348165
+        ],
+        "Q_axial_over_vector_by_mode": [
+          939.6625775419863,
+          2.4289221044696547,
+          2.428922104469655
+        ],
+        "Q_axial_over_vector_total": 34.565750246302386,
+        "Q_axial_total_MeV5": 473.46383336606,
+        "Q_mixed_by_mode_MeV5": [
+          441.24625066925955,
+          16.062077994811997,
+          16.060819962987136
+        ],
+        "Q_mixed_over_axial_total": 0.9998000169551956,
+        "Q_mixed_total_MeV5": 473.3691486270587,
+        "Q_vector_by_mode_MeV5": [
+          0.4696733920870057,
+          6.613905628256373,
+          6.613905628256372
+        ],
+        "Q_vector_total_MeV5": 13.697484648599751,
+        "charge_resolved_mixed_Q_by_mode_MeV5": {
+          "mu_minus": [
+            437.72347706047316,
+            15.933235019123899,
+            15.931966759039808
+          ],
+          "mu_plus": [
+            3.522773608786353,
+            0.12884297568810174,
+            0.1288532039473258
+          ]
+        },
+        "mass_MeV": 10.0,
+        "max_Eq_5_12_relative_residual": 4.810664098787012e-15,
+        "max_detailed_balance_relative_error": 4.947426099557911e-15,
+        "max_final_muon_shell_relative_error": 1.2937275104714967e-13,
+        "mixed_interference_fraction_by_mode": [
+          0.0,
+          3.91615526108887e-05,
+          -3.916462010510778e-05
+        ],
+        "mode_order": [
+          "L",
+          "+",
+          "-"
+        ],
+        "polarization_basis": "medium rest frame; A' momentum along +z",
+        "profile_point": {
+          "lapse": 0.736330426690871,
+          "mu_mu_MeV": 46.6743284468278,
+          "mu_numu_MeV": -58.6137567217484,
+          "r_km": 0.0,
+          "temperature_MeV": 19.265221107965
+        },
+        "quadrature": {
+          "energy_order": 12,
+          "inner_orders": [
+            12,
+            8,
+            8,
+            8
+          ]
+        }
+      },
+      {
+        "Q_axial_by_mode_MeV5": [
+          1.064076938637524,
+          0.9481908686307949,
+          0.948190868630795
+        ],
+        "Q_axial_over_vector_by_mode": [
+          2.6017683367225057,
+          1.6306999864584677,
+          1.630699986458468
+        ],
+        "Q_axial_over_vector_total": 1.8833546452344296,
+        "Q_axial_total_MeV5": 2.960458675899114,
+        "Q_mixed_by_mode_MeV5": [
+          1.0638641450731576,
+          0.9480372377466995,
+          0.9479652664008418
+        ],
+        "Q_mixed_over_axial_total": 0.9998000219752314,
+        "Q_mixed_total_MeV5": 2.959866649220699,
+        "Q_vector_by_mode_MeV5": [
+          0.40898220015159414,
+          0.5814624863584277,
+          0.5814624863584277
+        ],
+        "Q_vector_total_MeV5": 1.5719071728684495,
+        "charge_resolved_mixed_Q_by_mode_MeV5": {
+          "mu_minus": [
+            1.0554013172060528,
+            0.9404792356439811,
+            0.9404066859601932
+          ],
+          "mu_plus": [
+            0.0084628278671048,
+            0.007558002102718416,
+            0.007558580440648681
+          ]
+        },
+        "mass_MeV": 100.0,
+        "max_Eq_5_12_relative_residual": 3.5710485841465264e-15,
+        "max_detailed_balance_relative_error": 4.097934436804366e-15,
+        "max_final_muon_shell_relative_error": 1.2089997641937663e-13,
+        "mixed_interference_fraction_by_mode": [
+          2.087151878868539e-16,
+          3.7958079594278235e-05,
+          -3.7960961445021574e-05
+        ],
+        "mode_order": [
+          "L",
+          "+",
+          "-"
+        ],
+        "polarization_basis": "medium rest frame; A' momentum along +z",
+        "profile_point": {
+          "lapse": 0.736330426690871,
+          "mu_mu_MeV": 46.6743284468278,
+          "mu_numu_MeV": -58.6137567217484,
+          "r_km": 0.0,
+          "temperature_MeV": 19.265221107965
+        },
+        "quadrature": {
+          "energy_order": 12,
+          "inner_orders": [
+            12,
+            8,
+            8,
+            8
+          ]
+        }
+      },
+      {
+        "Q_axial_by_mode_MeV5": [
+          0.005588146671189785,
+          0.005814351920582621,
+          0.005814351920582621
+        ],
+        "Q_axial_over_vector_by_mode": [
+          1.3731460625881884,
+          1.2706226629418678,
+          1.2706226629418678
+        ],
+        "Q_axial_over_vector_total": 1.3021793315075971,
+        "Q_axial_total_MeV5": 0.017216850512355025,
+        "Q_mixed_by_mode_MeV5": [
+          0.005587029175680329,
+          0.005813363523156805,
+          0.005813014862556774
+        ],
+        "Q_mixed_over_axial_total": 0.9998000243448333,
+        "Q_mixed_total_MeV5": 0.01721340756139391,
+        "Q_vector_by_mode_MeV5": [
+          0.004069593776977308,
+          0.004575986317700862,
+          0.004575986317700862
+        ],
+        "Q_vector_total_MeV5": 0.01322156641237903,
+        "charge_resolved_mixed_Q_by_mode_MeV5": {
+          "mu_minus": [
+            0.005542728784883805,
+            0.005767258853204814,
+            0.005766907397110468
+          ],
+          "mu_plus": [
+            4.43003907965235e-05,
+            4.610466995199348e-05,
+            4.6107465446307816e-05
+          ]
+        },
+        "mass_MeV": 220.0,
+        "max_Eq_5_12_relative_residual": 2.151492106242373e-15,
+        "max_detailed_balance_relative_error": 2.3813892622019967e-15,
+        "max_final_muon_shell_relative_error": 1.502288116693602e-13,
+        "mixed_interference_fraction_by_mode": [
+          3.104912148173221e-16,
+          2.998785459081797e-05,
+          -2.9989653241390028e-05
+        ],
+        "mode_order": [
+          "L",
+          "+",
+          "-"
+        ],
+        "polarization_basis": "medium rest frame; A' momentum along +z",
+        "profile_point": {
+          "lapse": 0.736330426690871,
+          "mu_mu_MeV": 46.6743284468278,
+          "mu_numu_MeV": -58.6137567217484,
+          "r_km": 0.0,
+          "temperature_MeV": 19.265221107965
+        },
+        "quadrature": {
+          "energy_order": 12,
+          "inner_orders": [
+            12,
+            8,
+            8,
+            8
+          ]
+        }
+      }
+    ],
+    "process": "mu^+/- + gamma <-> mu^+/- + A'",
+    "quadrature_convergence": {
+      "benchmark_mass_MeV": 10.0,
+      "current": "pure axial",
+      "energy_order_12_Q_MeV5": 473.68064318187584,
+      "energy_order_16_Q_MeV5": 473.57961527405513,
+      "inner_orders": [
+        14,
+        10,
+        10,
+        10
+      ],
+      "profile_radius_km": 0.0,
+      "relative_change_12_to_16": -0.000213282744977894
+    }
+  },
+  "couplings_normalized_to_gX": {
+    "axial": {
+      "g_axial": -1.0,
+      "g_vector": 0.0
+    },
+    "uv_theta_1e-2": {
+      "g_axial": -0.9999000033332889,
+      "g_vector": 9.99966667111108e-05
+    },
+    "vector": {
+      "g_axial": 0.0,
+      "g_vector": 1.0
+    }
+  },
+  "dimuon": {
+    "mass_scan": [
+      {
+        "Q_axial_by_mode_MeV5": [
+          0.0010935257138367886,
+          0.0010935225269348948,
+          0.0010935225269348948
+        ],
+        "Q_axial_over_vector_total": 0.00013332222281489493,
+        "Q_axial_total_MeV5": 0.003280570767706578,
+        "Q_mixed_by_mode_MeV5": [
+          0.001093389042554655,
+          0.0010933799691906422,
+          0.001093391743389472
+        ],
+        "Q_mixed_total_MeV5": 0.0032801607551347692,
+        "Q_vector_by_mode_MeV5": [
+          8.202110394131632,
+          8.202110390944725,
+          8.202110390944725
+        ],
+        "Q_vector_total_MeV5": 24.60633117602108,
+        "analytic_vacuum_width_ratio": 0.000133322222814895,
+        "integrated_ratio_minus_analytic": -5.421010862427522e-20,
+        "mass_MeV": 211.33788267510002,
+        "mass_over_threshold": 1.0001,
+        "max_detailed_balance_relative_error": 3.672375277648125e-15,
+        "mixed_interference_fraction_by_mode": [
+          -1.983195606117131e-16,
+          -5.3843124811288745e-06,
+          5.38425450030978e-06
+        ],
+        "open": true,
+        "quadrature": {
+          "angular_order": 64,
+          "energy_order": 24
+        }
+      },
+      {
+        "Q_axial_by_mode_MeV5": [
+          0.034277378576172024,
+          0.034276383538592727,
+          0.034276383538592727
+        ],
+        "Q_axial_over_vector_total": 0.0013322228147649732,
+        "Q_axial_total_MeV5": 0.10283014565335746,
+        "Q_mixed_by_mode_MeV5": [
+          0.03427078094423289,
+          0.03426960210868234,
+          0.03426997010258676
+        ],
+        "Q_mixed_total_MeV5": 0.102810353155502,
+        "Q_vector_by_mode_MeV5": [
+          25.728966447383655,
+          25.728965452346067,
+          25.728965452346067
+        ],
+        "Q_vector_total_MeV5": 77.18689735207579,
+        "analytic_vacuum_width_ratio": 0.0013322228147649726,
+        "integrated_ratio_minus_analytic": 6.505213034913027e-19,
+        "mass_MeV": 211.52806775099998,
+        "mass_over_threshold": 1.001,
+        "max_detailed_balance_relative_error": 3.7368890032735874e-15,
+        "mixed_interference_fraction_by_mode": [
+          2.024725936417539e-16,
+          -5.369100920385953e-06,
+          5.3690432659082365e-06
+        ],
+        "open": true,
+        "quadrature": {
+          "angular_order": 64,
+          "energy_order": 24
+        }
+      },
+      {
+        "Q_axial_by_mode_MeV5": [
+          0.9926024362744655,
+          0.9923254159327959,
+          0.9923254159327959
+        ],
+        "Q_axial_over_vector_total": 0.013222814288533688,
+        "Q_axial_total_MeV5": 2.9772532681400574,
+        "Q_mixed_by_mode_MeV5": [
+          0.9924046828160908,
+          0.9921225436698705,
+          0.9921328920723332
+        ],
+        "Q_mixed_total_MeV5": 2.9766601185582946,
+        "Q_vector_by_mode_MeV5": [
+          75.05362900692245,
+          75.05335198658078,
+          75.05335198658078
+        ],
+        "Q_vector_total_MeV5": 225.16033298008398,
+        "analytic_vacuum_width_ratio": 0.013222814288533688,
+        "integrated_ratio_minus_analytic": 0.0,
+        "mass_MeV": 213.42991851000002,
+        "mass_over_threshold": 1.01,
+        "max_detailed_balance_relative_error": 2.9486773779084806e-15,
+        "mixed_interference_fraction_by_mode": [
+          4.474880233232028e-16,
+          -5.215284406970793e-06,
+          5.215230008260085e-06
+        ],
+        "open": true,
+        "quadrature": {
+          "angular_order": 64,
+          "energy_order": 24
+        }
+      },
+      {
+        "Q_axial_by_mode_MeV5": [
+          7.4975411935686544,
+          7.488765585584226,
+          7.488765585584226
+        ],
+        "Q_axial_over_vector_total": 0.06396255850234005,
+        "Q_axial_total_MeV5": 22.475072364737105,
+        "Q_mixed_by_mode_MeV5": [
+          7.496042981525619,
+          7.487234890522798,
+          7.487303366334756
+        ],
+        "Q_mixed_total_MeV5": 22.470581238383172,
+        "Q_vector_by_mode_MeV5": [
+          117.13204053374974,
+          117.12326492576528,
+          117.12326492576528
+        ],
+        "Q_vector_total_MeV5": 351.37857038528034,
+        "analytic_vacuum_width_ratio": 0.06396255850234006,
+        "integrated_ratio_minus_analytic": -1.3877787807814457e-17,
+        "mass_MeV": 221.88258855,
+        "mass_over_threshold": 1.05,
+        "max_detailed_balance_relative_error": 3.681610468612637e-15,
+        "mixed_interference_fraction_by_mode": [
+          4.739452118346099e-16,
+          -4.572837166703973e-06,
+          4.572795344339334e-06
+        ],
+        "open": true,
+        "quadrature": {
+          "angular_order": 64,
+          "energy_order": 24
+        }
+      },
+      {
+        "Q_axial_by_mode_MeV5": [
+          13.623645071993028,
+          13.590998871434072,
+          13.590998871434072
+        ],
+        "Q_axial_over_vector_total": 0.22680412371134015,
+        "Q_axial_total_MeV5": 40.80564281486117,
+        "Q_mixed_by_mode_MeV5": [
+          13.620921169926023,
+          13.588244573150135,
+          13.588318422323214
+        ],
+        "Q_mixed_total_MeV5": 40.79748416539937,
+        "Q_vector_by_mode_MeV5": [
+          59.993693725244356,
+          59.961047524685426,
+          59.961047524685426
+        ],
+        "Q_vector_total_MeV5": 179.9157887746152,
+        "analytic_vacuum_width_ratio": 0.22680412371134012,
+        "integrated_ratio_minus_analytic": 2.7755575615628914e-17,
+        "mass_MeV": 253.5801012,
+        "mass_over_threshold": 1.2,
+        "max_detailed_balance_relative_error": 4.13741870487003e-15,
+        "mixed_interference_fraction_by_mode": [
+          -5.216554202875247e-16,
+          -2.7173919583730035e-06,
+          2.7173771911916933e-06
+        ],
+        "open": true,
+        "quadrature": {
+          "angular_order": 64,
+          "energy_order": 24
+        }
+      },
+      {
+        "Q_axial_by_mode_MeV5": [
+          2.6640224356430036,
+          2.6599847406136092,
+          2.6599847406136092
+        ],
+        "Q_axial_over_vector_total": 0.45454545454545436,
+        "Q_axial_total_MeV5": 7.983991916870222,
+        "Q_mixed_by_mode_MeV5": [
+          2.6634897341265233,
+          2.659450515077241,
+          2.659455177979697
+        ],
+        "Q_mixed_total_MeV5": 7.982395427183461,
+        "Q_vector_by_mode_MeV5": [
+          5.857619202391097,
+          5.853581507361699,
+          5.853581507361699
+        ],
+        "Q_vector_total_MeV5": 17.564782217114495,
+        "analytic_vacuum_width_ratio": 0.4545454545454544,
+        "integrated_ratio_minus_analytic": -5.551115123125783e-17,
+        "mass_MeV": 316.9751265,
+        "mass_over_threshold": 1.4999999999999998,
+        "max_detailed_balance_relative_error": 3.069711614280036e-15,
+        "mixed_interference_fraction_by_mode": [
+          1.6673208991950524e-16,
+          -8.766665197999303e-07,
+          8.766649830482212e-07
+        ],
+        "open": true,
+        "quadrature": {
+          "angular_order": 64,
+          "energy_order": 24
+        }
+      },
+      {
+        "Q_axial_by_mode_MeV5": [
+          0.04632312925052338,
+          0.04630961760030579,
+          0.04630961760030579
+        ],
+        "Q_axial_over_vector_total": 0.6666666666666671,
+        "Q_axial_total_MeV5": 0.13894236445113495,
+        "Q_mixed_by_mode_MeV5": [
+          0.046313866091446027,
+          0.04630035183600806,
+          0.04630036245038826
+        ],
+        "Q_mixed_total_MeV5": 0.13891458037784235,
+        "Q_vector_by_mode_MeV5": [
+          0.06948018999237915,
+          0.06946667834216158,
+          0.06946667834216158
+        ],
+        "Q_vector_total_MeV5": 0.2084135466767023,
+        "analytic_vacuum_width_ratio": 0.6666666666666666,
+        "integrated_ratio_minus_analytic": 4.440892098500626e-16,
+        "mass_MeV": 422.633502,
+        "mass_over_threshold": 2.0,
+        "max_detailed_balance_relative_error": 4.579990079369558e-15,
+        "mixed_interference_fraction_by_mode": [
+          4.494697477990601e-16,
+          -1.1462526526342769e-07,
+          1.1462523853593005e-07
+        ],
+        "open": true,
+        "quadrature": {
+          "angular_order": 64,
+          "energy_order": 24
+        }
+      },
+      {
+        "Q_axial_by_mode_MeV5": [
+          4.142887062775574e-06,
+          4.142865549599394e-06,
+          4.142865549599394e-06
+        ],
+        "Q_axial_over_vector_total": 0.8421052631578958,
+        "Q_axial_total_MeV5": 1.242861816197436e-05,
+        "Q_mixed_by_mode_MeV5": [
+          4.142058603601482e-06,
+          4.142037088304571e-06,
+          4.142037101150154e-06
+        ],
+        "Q_mixed_total_MeV5": 1.2426132793056207e-05,
+        "Q_vector_by_mode_MeV5": [
+          4.919675697898971e-06,
+          4.919654184722783e-06,
+          4.919654184722783e-06
+        ],
+        "Q_vector_total_MeV5": 1.4758984067344535e-05,
+        "analytic_vacuum_width_ratio": 0.8421052631578947,
+        "integrated_ratio_minus_analytic": 1.1102230246251565e-15,
+        "mass_MeV": 633.950253,
+        "mass_over_threshold": 2.9999999999999996,
+        "max_detailed_balance_relative_error": 6.256287849744421e-15,
+        "mixed_interference_fraction_by_mode": [
+          -4.089912907160768e-16,
+          -1.5506363666198816e-09,
+          1.5506353393274021e-09
+        ],
+        "open": true,
+        "quadrature": {
+          "angular_order": 64,
+          "energy_order": 24
+        }
+      },
+      {
+        "Q_axial_by_mode_MeV5": [
+          8.069616448833584e-15,
+          8.069616441910702e-15,
+          8.069616441910702e-15
+        ],
+        "Q_axial_over_vector_total": 0.9411764705882355,
+        "Q_axial_total_MeV5": 2.4208849332654986e-14,
+        "Q_mixed_by_mode_MeV5": [
+          8.068002745765286e-15,
+          8.068002738842066e-15,
+          8.06800273884551e-15
+        ],
+        "Q_mixed_total_MeV5": 2.4204008223452864e-14,
+        "Q_vector_by_mode_MeV5": [
+          8.573967476597222e-15,
+          8.573967469674346e-15,
+          8.573967469674346e-15
+        ],
+        "Q_vector_total_MeV5": 2.5721902415945916e-14,
+        "analytic_vacuum_width_ratio": 0.9411764705882353,
+        "integrated_ratio_minus_analytic": 2.220446049250313e-16,
+        "mass_MeV": 1056.583755,
+        "mass_over_threshold": 5.0,
+        "max_detailed_balance_relative_error": 7.775645277707432e-15,
+        "mixed_interference_fraction_by_mode": [
+          0.0,
+          -2.1354383145015633e-13,
+          2.133482784908618e-13
+        ],
+        "open": true,
+        "quadrature": {
+          "angular_order": 64,
+          "energy_order": 24
+        }
+      }
+    ],
+    "process": "mu+ + mu- <-> A'",
+    "quadrature_convergence": {
+      "energy_order_16_Q_MeV5": 22.475072380390387,
+      "energy_order_32_Q_MeV5": 22.475072364737102,
+      "mass_over_threshold": 1.05,
+      "relative_change_16_to_32": -6.96473212435933e-10
+    },
+    "threshold_MeV": 211.316751
+  },
+  "mode_order": [
+    "L",
+    "+",
+    "-"
+  ],
+  "polarization_basis": "Medium rest frame; A' momentum along +z; L is the longitudinal polarization and +/- are circular transverse polarizations.",
+  "profile": {
+    "center": {
+      "lapse": 0.736330426690871,
+      "mu_mu_MeV": 46.6743284468278,
+      "mu_numu_MeV": -58.6137567217484,
+      "r_km": 0.0,
+      "temperature_MeV": 19.265221107965
+    },
+    "chemical_potential_convention": "mu_mu is the mu- chemical potential; mu+ uses -mu_mu",
+    "mid_radius": {
+      "lapse": 0.838842453891008,
+      "mu_mu_MeV": 90.2165853124713,
+      "mu_numu_MeV": -2.59165549916519,
+      "r_km": 12.5,
+      "temperature_MeV": 23.881959149249
+    },
+    "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+    "source": "reconstructed SFHo-18.8 t_pb=1s digitized profile"
+  },
+  "scope": {
+    "includes": [
+      "moving thermal muon momentum integral",
+      "both muon charges",
+      "exact 2-to-2 recoil in semi-Compton scattering",
+      "Fermi blocking of the final muon",
+      "Bose enhancement of the final photon",
+      "amplitude-level vector-axial interference",
+      "mode-resolved production and absorption",
+      "full on-shell A' momentum integral for local emissivities",
+      "full A' energy integral for dimuon inverse decay/decay"
+    ],
+    "not_included": [
+      "active-neutrino emissivity",
+      "radial stellar integration",
+      "opacity and escape probability",
+      "gravitational redshift",
+      "hydrodynamic backreaction",
+      "SN1987A exclusion contour"
+    ]
+  },
+  "title": "Local thermal vector/axial response; no stellar transport"
+}

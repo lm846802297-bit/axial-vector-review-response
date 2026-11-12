@@ -1,0 +1,2321 @@
+{
+  "title": "Independent Blinov Eq. (B.2) path and angular integration audit",
+  "status": "independent_transport_integral_complete_local_rates_frozen",
+  "source": "Blinov et al., arXiv:2511.09619v2, Appendix B, Eqs. (B.1)-(B.5)",
+  "run_commit_sha": "60c69a0b810b679a90683e638fc0a3bc9dd209e4",
+  "code_sha256": "84b1960eae74d15d6c1ad9a0bb23feb51ff26b28eb031134e839a6b4986e5a1e",
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "fig7_three_layer_input_sha256": "8792bf8f816a9838705a6b0e01d908bf3257ec30ef603cceb06afd306ba98cb9",
+  "frozen_inputs": {
+    "mass_MeV": 10.0,
+    "radius_km": 25.0,
+    "mu_numu": "Caputo digitized profile, unchanged",
+    "mu_nutau": "zero baseline, unchanged",
+    "mu_mu": "Caputo digitized profile, unchanged",
+    "energy_along_path": "fixed omega as written in Eq. (B.2)",
+    "local_reduced_absorption": "reference.local_rates output, unchanged",
+    "coupling_scaling": "unit-g^2 opacity multiplied by g^2 only in exp(-g^2 tau)",
+    "radial_order": 40,
+    "energy_order": 100,
+    "energy_offset_MeV": 1000.0
+  },
+  "quadrature": {
+    "reference_path": {
+      "angular_order": 16,
+      "path_order": 32
+    },
+    "independent_path": "analytic integration of the piecewise-linear radial opacity in impact-parameter coordinates",
+    "independent_angle_orders": [
+      16,
+      64,
+      128,
+      256
+    ],
+    "highest_order": 256
+  },
+  "local_rate_freeze_check": {
+    "flavor_split_max_relative_residual": 3.9130424675164626e-16,
+    "note": "The same frozen local rates are used in both path implementations; no local rate is recalibrated."
+  },
+  "reference_path_vs_independent_path": {
+    "path_column_comparison_at_identical_16_angles": {
+      "max_absolute_column_difference_unit_g2": 3.544837395041485e+16,
+      "max_relative_column_difference_above_1e-10_of_global_peak": 0.005725154265163355,
+      "rms_relative_column_difference_above_1e-10_of_global_peak": 0.0002133323170635019
+    },
+    "luminosity_reproduction_of_archived_three_layer_baseline": {
+      "max_absolute_relative_difference": 1.2477039951219737e-05,
+      "mean_absolute_relative_difference": 5.098960245248918e-06
+    },
+    "luminosity_at_same_16_angles": {
+      "reference_path_quadrature": [
+        9.925393763217649e+51,
+        1.438621412130087e+52,
+        2.0842880454625184e+52,
+        3.0178400698220107e+52,
+        4.365560836418709e+52,
+        6.306848066017989e+52,
+        9.094059707759339e+52,
+        1.3077013946330905e+53,
+        1.8729864057119074e+53,
+        2.667349008204462e+53,
+        3.767601495429908e+53,
+        5.259743631791791e+53,
+        7.221793870587185e+53,
+        9.686194007711247e+53,
+        1.2573943649684456e+54,
+        1.5603990425044436e+54,
+        1.8216063150171305e+54,
+        1.9600837797511697e+54,
+        1.8960652456233666e+54,
+        1.601049963106346e+54,
+        1.1413125383578144e+54,
+        6.618979094743282e+53,
+        2.997881967439025e+53,
+        1.0127195339469865e+53,
+        2.437254944803213e+52
+      ],
+      "independent_analytic_path": [
+        9.925394070382313e+51,
+        1.4386214767133482e+52,
+        2.0842881811848606e+52,
+        3.0178403548355757e+52,
+        4.3655614343074115e+52,
+        6.306849318317664e+52,
+        9.094062324904583e+52,
+        1.3077019398153586e+53,
+        1.8729875360584345e+53,
+        2.6673513358500824e+53,
+        3.7676062413378095e+53,
+        5.259753170568917e+53,
+        7.221812650566366e+53,
+        9.686229905941112e+53,
+        1.257400946851897e+54,
+        1.560410432007983e+54,
+        1.8216245344164597e+54,
+        1.9601100454482195e+54,
+        1.8960983727058254e+54,
+        1.6010853350307332e+54,
+        1.1413434085095968e+54,
+        6.61919119597923e+53,
+        2.9979922591380728e+53,
+        1.0127610460425967e+53,
+        2.4373599169660397e+52
+      ],
+      "max_absolute_relative_difference": 4.306983274382503e-05
+    }
+  },
+  "fig7_full_curve": {
+    "couplings": [
+      4.796429536550025e-10,
+      5.777315855500023e-10,
+      6.958799646472595e-10,
+      8.381898081991092e-10,
+      1.0096025036803394e-09,
+      1.2160696842969427e-09,
+      1.464760112693122e-09,
+      1.7643093106416046e-09,
+      2.1251157558698884e-09,
+      2.559710277322341e-09,
+      3.0831810858922337e-09,
+      3.7137006897316035e-09,
+      4.473167071557425e-09,
+      5.387942899280016e-09,
+      6.4897983908964e-09,
+      7.81698765963344e-09,
+      9.415584636282641e-09,
+      1.1341108687336194e-08,
+      1.3660409972030494e-08,
+      1.6454004004914003e-08,
+      1.9818912470130955e-08,
+      2.3871938384298948e-08,
+      2.8753843574456517e-08,
+      3.4634117556541197e-08,
+      4.171689650228597e-08
+    ],
+    "reference_luminosity_erg_s": [
+      1.0893295563998579e+52,
+      1.5763155203558458e+52,
+      2.2802506349178829e+52,
+      3.304721508056609e+52,
+      4.792800789316209e+52,
+      6.909473018494258e+52,
+      9.983345461931242e+52,
+      1.4222087256678137e+53,
+      2.052224110978683e+53,
+      2.8932837865575006e+53,
+      4.070510587188928e+53,
+      5.672638380236869e+53,
+      7.778729935114823e+53,
+      1.023421990907104e+54,
+      1.3155978611139927e+54,
+      1.6112693384409214e+54,
+      1.8222467898580756e+54,
+      1.910994581282271e+54,
+      1.7750616042948693e+54,
+      1.4146008873057794e+54,
+      9.494231795275183e+53,
+      5.076675014703045e+53,
+      2.0855979250328497e+53,
+      6.202557246004756e+52,
+      1.26781475907372e+52
+    ],
+    "reference_path_16x32_luminosity_erg_s": [
+      9.925393763217649e+51,
+      1.438621412130087e+52,
+      2.0842880454625184e+52,
+      3.0178400698220107e+52,
+      4.365560836418709e+52,
+      6.306848066017989e+52,
+      9.094059707759339e+52,
+      1.3077013946330905e+53,
+      1.8729864057119074e+53,
+      2.667349008204462e+53,
+      3.767601495429908e+53,
+      5.259743631791791e+53,
+      7.221793870587185e+53,
+      9.686194007711247e+53,
+      1.2573943649684456e+54,
+      1.5603990425044436e+54,
+      1.8216063150171305e+54,
+      1.9600837797511697e+54,
+      1.8960652456233666e+54,
+      1.601049963106346e+54,
+      1.1413125383578144e+54,
+      6.618979094743282e+53,
+      2.997881967439025e+53,
+      1.0127195339469865e+53,
+      2.437254944803213e+52
+    ],
+    "independent_angle_order_results": {
+      "16": {
+        "luminosity_erg_s": [
+          9.925394070382313e+51,
+          1.4386214767133482e+52,
+          2.0842881811848606e+52,
+          3.0178403548355757e+52,
+          4.3655614343074115e+52,
+          6.306849318317664e+52,
+          9.094062324904583e+52,
+          1.3077019398153586e+53,
+          1.8729875360584345e+53,
+          2.6673513358500824e+53,
+          3.7676062413378095e+53,
+          5.259753170568917e+53,
+          7.221812650566366e+53,
+          9.686229905941112e+53,
+          1.257400946851897e+54,
+          1.560410432007983e+54,
+          1.8216245344164597e+54,
+          1.9601100454482195e+54,
+          1.8960983727058254e+54,
+          1.6010853350307332e+54,
+          1.1413434085095968e+54,
+          6.61919119597923e+53,
+          2.9979922591380728e+53,
+          1.0127610460425967e+53,
+          2.4373599169660397e+52
+        ],
+        "fig7_residual_metrics": {
+          "mean_absolute_relative_residual": 0.15733159641089078,
+          "maximum_absolute_relative_residual": 0.9224889910153775,
+          "weak_coupling_relative_residual": -0.08885295436351681,
+          "peak_relative_residual": 0.025701519327695932,
+          "high_coupling_relative_residual": 0.9224889910153775
+        }
+      },
+      "64": {
+        "luminosity_erg_s": [
+          9.925393938476951e+51,
+          1.4386214489569236e+52,
+          2.0842881227861822e+52,
+          3.017840231993263e+52,
+          4.3655611759922787e+52,
+          6.306848775405012e+52,
+          9.094061184758939e+52,
+          1.3077017006876309e+53,
+          1.8729870355826584e+53,
+          2.667350292012488e+53,
+          3.7676040765765444e+53,
+          5.259748722517646e+53,
+          7.221803644121913e+53,
+          9.686212078197157e+53,
+          1.2573975357065081e+54,
+          1.560404220856468e+54,
+          1.821613998940399e+54,
+          1.9600938633837092e+54,
+          1.896076669580021e+54,
+          1.6010610308874403e+54,
+          1.1413218554981972e+54,
+          6.619048320094112e+53,
+          2.997925058132959e+53,
+          1.012740609484954e+53,
+          2.4373647985707926e+52
+        ],
+        "fig7_residual_metrics": {
+          "mean_absolute_relative_residual": 0.15732629709362356,
+          "maximum_absolute_relative_residual": 0.9224928414238998,
+          "weak_coupling_relative_residual": -0.08885296647237417,
+          "peak_relative_residual": 0.025693051452031268,
+          "high_coupling_relative_residual": 0.9224928414238998
+        }
+      },
+      "128": {
+        "luminosity_erg_s": [
+          9.92539395114994e+51,
+          1.4386214516217537e+52,
+          2.0842881283871292e+52,
+          3.017840243757491e+52,
+          4.365561200677974e+52,
+          6.306848827132013e+52,
+          9.094061292927938e+52,
+          1.3077017232404218e+53,
+          1.8729870824015763e+53,
+          2.667350388598421e+53,
+          3.767604274013789e+53,
+          5.259749120760274e+53,
+          7.2218044319535585e+53,
+          9.68621359345303e+53,
+          1.257397815559399e+54,
+          1.5604047087466283e+54,
+          1.821614783524006e+54,
+          1.9600949923931272e+54,
+          1.896078067167427e+54,
+          1.6010624450624416e+54,
+          1.1413229499871272e+54,
+          6.619054259909116e+53,
+          2.9979270729000216e+53,
+          1.012740974904925e+53,
+          2.4373650898712115e+52
+        ],
+        "fig7_residual_metrics": {
+          "mean_absolute_relative_residual": 0.1573264997770263,
+          "maximum_absolute_relative_residual": 0.9224930711896575,
+          "weak_coupling_relative_residual": -0.08885296530899911,
+          "peak_relative_residual": 0.025693642248796777,
+          "high_coupling_relative_residual": 0.9224930711896575
+        }
+      },
+      "256": {
+        "luminosity_erg_s": [
+          9.925393953896867e+51,
+          1.4386214521990308e+52,
+          2.0842881295994285e+52,
+          3.017840246300705e+52,
+          4.365561206005231e+52,
+          6.30684883826682e+52,
+          9.094061316128944e+52,
+          1.3077017280531067e+53,
+          1.8729870923210519e+53,
+          2.6673504088584876e+53,
+          3.767604314865114e+53,
+          5.2597492016535426e+53,
+          7.221804588131709e+53,
+          9.68621388451393e+53,
+          1.257397867203224e+54,
+          1.5604047943630013e+54,
+          1.821614912851306e+54,
+          1.9600951646858878e+54,
+          1.896078261498418e+54,
+          1.6010626216582804e+54,
+          1.1413230718186672e+54,
+          6.6190548524232855e+53,
+          2.9979272563082114e+53,
+          1.0127410056365239e+53,
+          2.43736510986799e+52
+        ],
+        "fig7_residual_metrics": {
+          "mean_absolute_relative_residual": 0.15732651835329636,
+          "maximum_absolute_relative_residual": 0.9224930869622918,
+          "weak_coupling_relative_residual": -0.08885296505683238,
+          "peak_relative_residual": 0.025693732407483072,
+          "high_coupling_relative_residual": 0.9224930869622918
+        }
+      }
+    },
+    "angle_convergence": {
+      "16_to_64": {
+        "max_absolute_relative_luminosity_change": 2.2415336433656563e-05,
+        "high_coupling_relative_change": 2.002824744495868e-06
+      },
+      "64_to_128": {
+        "max_absolute_relative_luminosity_change": 9.589660661113442e-07,
+        "high_coupling_relative_change": 1.1951449341296438e-07
+      },
+      "128_to_256": {
+        "max_absolute_relative_luminosity_change": 1.1029915736315843e-07,
+        "high_coupling_relative_change": 8.204260604216529e-09
+      }
+    }
+  },
+  "outer_neutrino_path_decomposition": {
+    "source_weighted_mean_optical_depth_at_high_coupling": {
+      "nu_mu_total": 7.181040836772325,
+      "nu_tau_total": 7.305986281385368,
+      "nu_total_total": 14.487027118157691,
+      "nu_mu_15_25": 4.570846824564831,
+      "nu_tau_15_25": 4.572970288189338,
+      "nu_total_15_20": 4.468802429761568,
+      "nu_total_20_25": 4.6750146829926,
+      "nu_total_15_25": 9.143817112754169,
+      "nu_total_15_25_fraction_of_nu_total": 0.6311727753510953
+    },
+    "by_production_radius_shell": [
+      {
+        "production_shell_km": [
+          0.0,
+          5.0
+        ],
+        "source_weight_sum": 3.9325176974475233e+68,
+        "nu_mu_total": 8.148191548869937,
+        "nu_tau_total": 8.826584690037649,
+        "nu_total_total": 16.974776238907587,
+        "nu_total_15_25": 10.086638344362816,
+        "nu_total_15_25_fraction_of_nu_total": 0.5942133317341415
+      },
+      {
+        "production_shell_km": [
+          5.0,
+          10.0
+        ],
+        "source_weight_sum": 2.4782541090112383e+70,
+        "nu_mu_total": 6.138495400871761,
+        "nu_tau_total": 6.2787374656948565,
+        "nu_total_total": 12.41723286656662,
+        "nu_total_15_25": 7.207427131331355,
+        "nu_total_15_25_fraction_of_nu_total": 0.5804374620965144
+      },
+      {
+        "production_shell_km": [
+          10.0,
+          15.0
+        ],
+        "source_weight_sum": 1.7207419844497523e+70,
+        "nu_mu_total": 8.096909006390781,
+        "nu_tau_total": 8.188338944755907,
+        "nu_total_total": 16.28524795114669,
+        "nu_total_15_25": 10.733307101088691,
+        "nu_total_15_25_fraction_of_nu_total": 0.6590815892571613
+      },
+      {
+        "production_shell_km": [
+          15.0,
+          20.0
+        ],
+        "source_weight_sum": 7.883299615954071e+68,
+        "nu_mu_total": 17.734419081732767,
+        "nu_tau_total": 17.837234384492472,
+        "nu_total_total": 35.571653466225236,
+        "nu_total_15_25": 31.135923082705155,
+        "nu_total_15_25_fraction_of_nu_total": 0.8753015406570364
+      },
+      {
+        "production_shell_km": [
+          20.0,
+          25.0
+        ],
+        "source_weight_sum": 6.368145509885244e+67,
+        "nu_mu_total": 28.80929962650607,
+        "nu_tau_total": 28.893853973953043,
+        "nu_total_total": 57.70315360045912,
+        "nu_total_15_25": 55.15156828726244,
+        "nu_total_15_25_fraction_of_nu_total": 0.9557808342527683
+      }
+    ],
+    "shell_additivity_max_relative_residual": 9.601308098945612e-16,
+    "flavor_sum_max_relative_residual": 1.1123283726531003e-15,
+    "escaped_luminosity_by_production_radius_shell": [
+      {
+        "production_shell_km": [
+          0.0,
+          5.0
+        ],
+        "escaped_luminosity_erg_s": 8.577370478448828e+48
+      },
+      {
+        "production_shell_km": [
+          5.0,
+          10.0
+        ],
+        "escaped_luminosity_erg_s": 1.4411715966641964e+52
+      },
+      {
+        "production_shell_km": [
+          10.0,
+          15.0
+        ],
+        "escaped_luminosity_erg_s": 9.123244844705079e+51
+      },
+      {
+        "production_shell_km": [
+          15.0,
+          20.0
+        ],
+        "escaped_luminosity_erg_s": 1.161016540833574e+49
+      },
+      {
+        "production_shell_km": [
+          20.0,
+          25.0
+        ],
+        "escaped_luminosity_erg_s": 8.18502751446072e+50
+      }
+    ]
+  },
+  "adaptive_angle_cross_checks": [
+    {
+      "source_radius_km": 5.0,
+      "energy_MeV": 10.09111627561155,
+      "adaptive_escape_probability": 1.4515435828922176e-139,
+      "gauss_legendre_escape_probability": 1.4515435828916094e-139,
+      "relative_difference": -4.189981694935341e-13
+    },
+    {
+      "source_radius_km": 5.0,
+      "energy_MeV": 19.54548456661835,
+      "adaptive_escape_probability": 9.08671433827684e-18,
+      "gauss_legendre_escape_probability": 9.086715760900988e-18,
+      "relative_difference": 1.565608971354493e-07
+    },
+    {
+      "source_radius_km": 5.0,
+      "energy_MeV": 52.29242874389507,
+      "adaptive_escape_probability": 1.4310148666016993e-09,
+      "gauss_legendre_escape_probability": 1.4310152610000914e-09,
+      "relative_difference": 2.756074737320091e-07
+    },
+    {
+      "source_radius_km": 15.0,
+      "energy_MeV": 10.09111627561155,
+      "adaptive_escape_probability": 1.1311562543010687e-113,
+      "gauss_legendre_escape_probability": 1.130998949361471e-113,
+      "relative_difference": -0.00013906561449805732
+    },
+    {
+      "source_radius_km": 15.0,
+      "energy_MeV": 19.54548456661835,
+      "adaptive_escape_probability": 1.5604075154120853e-14,
+      "gauss_legendre_escape_probability": 1.560407515412084e-14,
+      "relative_difference": -7.771561172376096e-16
+    },
+    {
+      "source_radius_km": 15.0,
+      "energy_MeV": 52.29242874389507,
+      "adaptive_escape_probability": 4.772177867989144e-07,
+      "gauss_legendre_escape_probability": 4.772177866245123e-07,
+      "relative_difference": -3.654558877741465e-10
+    },
+    {
+      "source_radius_km": 20.0,
+      "energy_MeV": 10.09111627561155,
+      "adaptive_escape_probability": 1.3089811338077237e-72,
+      "gauss_legendre_escape_probability": 1.3089150798168429e-72,
+      "relative_difference": -5.0462141259921545e-05
+    },
+    {
+      "source_radius_km": 20.0,
+      "energy_MeV": 19.54548456661835,
+      "adaptive_escape_probability": 2.511924524441055e-09,
+      "gauss_legendre_escape_probability": 2.5119245244410843e-09,
+      "relative_difference": 1.176836406102666e-14
+    },
+    {
+      "source_radius_km": 20.0,
+      "energy_MeV": 52.29242874389507,
+      "adaptive_escape_probability": 0.00015441485793599706,
+      "gauss_legendre_escape_probability": 0.00015441485793589495,
+      "relative_difference": -6.612488334667432e-13
+    },
+    {
+      "source_radius_km": 24.0,
+      "energy_MeV": 10.09111627561155,
+      "adaptive_escape_probability": 1.3745775535888754e-17,
+      "gauss_legendre_escape_probability": 1.3745775535888412e-17,
+      "relative_difference": -2.4868995751603507e-14
+    },
+    {
+      "source_radius_km": 24.0,
+      "energy_MeV": 19.54548456661835,
+      "adaptive_escape_probability": 0.003399846686659453,
+      "gauss_legendre_escape_probability": 0.0033998466866594617,
+      "relative_difference": 2.4424906541753444e-15
+    },
+    {
+      "source_radius_km": 24.0,
+      "energy_MeV": 52.29242874389507,
+      "adaptive_escape_probability": 0.054098320014938035,
+      "gauss_legendre_escape_probability": 0.05409832001490186,
+      "relative_difference": -6.686873277317318e-13
+    }
+  ],
+  "direction_resolved_escape_probabilities": [
+    {
+      "source_radius_km": 0.0,
+      "cos_theta": -0.9,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 335.582236581212,
+      "tau_neutrino": 320.87133664457735,
+      "tau_neutrino_outer_15_25": 254.42535063124092,
+      "escape_probability_total": 1.8133700060478418e-146,
+      "escape_probability_neutrino_only": 4.439653685270163e-140,
+      "outer_fraction_of_neutrino_tau": 0.7929201570069273
+    },
+    {
+      "source_radius_km": 0.0,
+      "cos_theta": -0.9,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 40.19423407514741,
+      "tau_neutrino": 38.45307705453186,
+      "tau_neutrino_outer_15_25": 28.27931996440141,
+      "escape_probability_total": 3.498371584812116e-18,
+      "escape_probability_neutrino_only": 1.9954498753862047e-17,
+      "outer_fraction_of_neutrino_tau": 0.7354241098650536
+    },
+    {
+      "source_radius_km": 0.0,
+      "cos_theta": -0.9,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 21.10361855118314,
+      "tau_neutrino": 19.731226336429852,
+      "tau_neutrino_outer_15_25": 11.814147264116835,
+      "escape_probability_total": 6.836202440910639e-10,
+      "escape_probability_neutrino_only": 2.696728847431693e-09,
+      "outer_fraction_of_neutrino_tau": 0.5987538261777638
+    },
+    {
+      "source_radius_km": 0.0,
+      "cos_theta": -0.9,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 14.297107102959451,
+      "tau_neutrino": 12.960653087858812,
+      "tau_neutrino_outer_15_25": 6.601017990673455,
+      "escape_probability_total": 6.177962644851247e-07,
+      "escape_probability_neutrino_only": 2.3510392633151e-06,
+      "outer_fraction_of_neutrino_tau": 0.5093121423685901
+    },
+    {
+      "source_radius_km": 0.0,
+      "cos_theta": -0.5,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 335.582236581212,
+      "tau_neutrino": 320.87133664457735,
+      "tau_neutrino_outer_15_25": 254.42535063124092,
+      "escape_probability_total": 1.8133700060478418e-146,
+      "escape_probability_neutrino_only": 4.439653685270163e-140,
+      "outer_fraction_of_neutrino_tau": 0.7929201570069273
+    },
+    {
+      "source_radius_km": 0.0,
+      "cos_theta": -0.5,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 40.19423407514741,
+      "tau_neutrino": 38.45307705453186,
+      "tau_neutrino_outer_15_25": 28.27931996440141,
+      "escape_probability_total": 3.498371584812116e-18,
+      "escape_probability_neutrino_only": 1.9954498753862047e-17,
+      "outer_fraction_of_neutrino_tau": 0.7354241098650536
+    },
+    {
+      "source_radius_km": 0.0,
+      "cos_theta": -0.5,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 21.10361855118314,
+      "tau_neutrino": 19.731226336429852,
+      "tau_neutrino_outer_15_25": 11.814147264116835,
+      "escape_probability_total": 6.836202440910639e-10,
+      "escape_probability_neutrino_only": 2.696728847431693e-09,
+      "outer_fraction_of_neutrino_tau": 0.5987538261777638
+    },
+    {
+      "source_radius_km": 0.0,
+      "cos_theta": -0.5,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 14.297107102959451,
+      "tau_neutrino": 12.960653087858812,
+      "tau_neutrino_outer_15_25": 6.601017990673455,
+      "escape_probability_total": 6.177962644851247e-07,
+      "escape_probability_neutrino_only": 2.3510392633151e-06,
+      "outer_fraction_of_neutrino_tau": 0.5093121423685901
+    },
+    {
+      "source_radius_km": 0.0,
+      "cos_theta": 0.0,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 335.582236581212,
+      "tau_neutrino": 320.87133664457735,
+      "tau_neutrino_outer_15_25": 254.42535063124092,
+      "escape_probability_total": 1.8133700060478418e-146,
+      "escape_probability_neutrino_only": 4.439653685270163e-140,
+      "outer_fraction_of_neutrino_tau": 0.7929201570069273
+    },
+    {
+      "source_radius_km": 0.0,
+      "cos_theta": 0.0,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 40.19423407514741,
+      "tau_neutrino": 38.45307705453186,
+      "tau_neutrino_outer_15_25": 28.27931996440141,
+      "escape_probability_total": 3.498371584812116e-18,
+      "escape_probability_neutrino_only": 1.9954498753862047e-17,
+      "outer_fraction_of_neutrino_tau": 0.7354241098650536
+    },
+    {
+      "source_radius_km": 0.0,
+      "cos_theta": 0.0,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 21.10361855118314,
+      "tau_neutrino": 19.731226336429852,
+      "tau_neutrino_outer_15_25": 11.814147264116835,
+      "escape_probability_total": 6.836202440910639e-10,
+      "escape_probability_neutrino_only": 2.696728847431693e-09,
+      "outer_fraction_of_neutrino_tau": 0.5987538261777638
+    },
+    {
+      "source_radius_km": 0.0,
+      "cos_theta": 0.0,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 14.297107102959451,
+      "tau_neutrino": 12.960653087858812,
+      "tau_neutrino_outer_15_25": 6.601017990673455,
+      "escape_probability_total": 6.177962644851247e-07,
+      "escape_probability_neutrino_only": 2.3510392633151e-06,
+      "outer_fraction_of_neutrino_tau": 0.5093121423685901
+    },
+    {
+      "source_radius_km": 0.0,
+      "cos_theta": 0.5,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 335.582236581212,
+      "tau_neutrino": 320.87133664457735,
+      "tau_neutrino_outer_15_25": 254.42535063124092,
+      "escape_probability_total": 1.8133700060478418e-146,
+      "escape_probability_neutrino_only": 4.439653685270163e-140,
+      "outer_fraction_of_neutrino_tau": 0.7929201570069273
+    },
+    {
+      "source_radius_km": 0.0,
+      "cos_theta": 0.5,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 40.19423407514741,
+      "tau_neutrino": 38.45307705453186,
+      "tau_neutrino_outer_15_25": 28.27931996440141,
+      "escape_probability_total": 3.498371584812116e-18,
+      "escape_probability_neutrino_only": 1.9954498753862047e-17,
+      "outer_fraction_of_neutrino_tau": 0.7354241098650536
+    },
+    {
+      "source_radius_km": 0.0,
+      "cos_theta": 0.5,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 21.10361855118314,
+      "tau_neutrino": 19.731226336429852,
+      "tau_neutrino_outer_15_25": 11.814147264116835,
+      "escape_probability_total": 6.836202440910639e-10,
+      "escape_probability_neutrino_only": 2.696728847431693e-09,
+      "outer_fraction_of_neutrino_tau": 0.5987538261777638
+    },
+    {
+      "source_radius_km": 0.0,
+      "cos_theta": 0.5,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 14.297107102959451,
+      "tau_neutrino": 12.960653087858812,
+      "tau_neutrino_outer_15_25": 6.601017990673455,
+      "escape_probability_total": 6.177962644851247e-07,
+      "escape_probability_neutrino_only": 2.3510392633151e-06,
+      "outer_fraction_of_neutrino_tau": 0.5093121423685901
+    },
+    {
+      "source_radius_km": 0.0,
+      "cos_theta": 0.9,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 335.582236581212,
+      "tau_neutrino": 320.87133664457735,
+      "tau_neutrino_outer_15_25": 254.42535063124092,
+      "escape_probability_total": 1.8133700060478418e-146,
+      "escape_probability_neutrino_only": 4.439653685270163e-140,
+      "outer_fraction_of_neutrino_tau": 0.7929201570069273
+    },
+    {
+      "source_radius_km": 0.0,
+      "cos_theta": 0.9,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 40.19423407514741,
+      "tau_neutrino": 38.45307705453186,
+      "tau_neutrino_outer_15_25": 28.27931996440141,
+      "escape_probability_total": 3.498371584812116e-18,
+      "escape_probability_neutrino_only": 1.9954498753862047e-17,
+      "outer_fraction_of_neutrino_tau": 0.7354241098650536
+    },
+    {
+      "source_radius_km": 0.0,
+      "cos_theta": 0.9,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 21.10361855118314,
+      "tau_neutrino": 19.731226336429852,
+      "tau_neutrino_outer_15_25": 11.814147264116835,
+      "escape_probability_total": 6.836202440910639e-10,
+      "escape_probability_neutrino_only": 2.696728847431693e-09,
+      "outer_fraction_of_neutrino_tau": 0.5987538261777638
+    },
+    {
+      "source_radius_km": 0.0,
+      "cos_theta": 0.9,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 14.297107102959451,
+      "tau_neutrino": 12.960653087858812,
+      "tau_neutrino_outer_15_25": 6.601017990673455,
+      "escape_probability_total": 6.177962644851247e-07,
+      "escape_probability_neutrino_only": 2.3510392633151e-06,
+      "outer_fraction_of_neutrino_tau": 0.5093121423685901
+    },
+    {
+      "source_radius_km": 5.0,
+      "cos_theta": -0.9,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 354.87950511197624,
+      "tau_neutrino": 339.05682697168874,
+      "tau_neutrino_outer_15_25": 255.90583699832032,
+      "escape_probability_total": 7.547257876324946e-155,
+      "escape_probability_neutrino_only": 5.6168263131358395e-148,
+      "outer_fraction_of_neutrino_tau": 0.7547579539511483
+    },
+    {
+      "source_radius_km": 5.0,
+      "cos_theta": -0.9,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 43.073257484741596,
+      "tau_neutrino": 41.200512292566486,
+      "tau_neutrino_outer_15_25": 28.44931892726088,
+      "escape_probability_total": 1.9657213597339477e-19,
+      "escape_probability_neutrino_only": 1.2789243605519257e-18,
+      "outer_fraction_of_neutrino_tau": 0.6905088637063813
+    },
+    {
+      "source_radius_km": 5.0,
+      "cos_theta": -0.9,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 23.376635261514515,
+      "tau_neutrino": 21.900524324059184,
+      "tau_neutrino_outer_15_25": 11.888009180011204,
+      "escape_probability_total": 7.041355972970328e-11,
+      "escape_probability_neutrino_only": 3.0812230301598957e-10,
+      "outer_fraction_of_neutrino_tau": 0.5428184733893077
+    },
+    {
+      "source_radius_km": 5.0,
+      "cos_theta": -0.9,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 16.2105006900667,
+      "tau_neutrino": 14.773043986444405,
+      "tau_neutrino_outer_15_25": 6.642779888342184,
+      "escape_probability_total": 9.117357860969415e-08,
+      "escape_probability_neutrino_only": 3.838384843764454e-07,
+      "outer_fraction_of_neutrino_tau": 0.4496554599334796
+    },
+    {
+      "source_radius_km": 5.0,
+      "cos_theta": -0.5,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 351.23414135606606,
+      "tau_neutrino": 333.62890457375823,
+      "tau_neutrino_outer_15_25": 260.4381063340395,
+      "escape_probability_total": 2.8903507802935717e-153,
+      "escape_probability_neutrino_only": 1.2788150543457972e-145,
+      "outer_fraction_of_neutrino_tau": 0.7806221306477424
+    },
+    {
+      "source_radius_km": 5.0,
+      "cos_theta": -0.5,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 42.28252574856027,
+      "tau_neutrino": 40.198799956450316,
+      "tau_neutrino_outer_15_25": 28.970462757378574,
+      "escape_probability_total": 4.3344339210513712e-19,
+      "escape_probability_neutrino_only": 3.482434845718399e-18,
+      "outer_fraction_of_neutrino_tau": 0.7206797911570483
+    },
+    {
+      "source_radius_km": 5.0,
+      "cos_theta": -0.5,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 22.56728840042644,
+      "tau_neutrino": 20.924881069603796,
+      "tau_neutrino_outer_15_25": 12.114836049849373,
+      "escape_probability_total": 1.5817985612125192e-10,
+      "escape_probability_neutrino_only": 8.17409379877864e-10,
+      "outer_fraction_of_neutrino_tau": 0.5789679764272496
+    },
+    {
+      "source_radius_km": 5.0,
+      "cos_theta": -0.5,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 15.466567010919114,
+      "tau_neutrino": 13.867168640604653,
+      "tau_neutrino_outer_15_25": 6.771098729351736,
+      "escape_probability_total": 1.918471240623485e-07,
+      "escape_probability_neutrino_only": 9.496535143606006e-07,
+      "outer_fraction_of_neutrino_tau": 0.48828271328043027
+    },
+    {
+      "source_radius_km": 5.0,
+      "cos_theta": 0.0,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 343.47722315887785,
+      "tau_neutrino": 325.41056036463,
+      "tau_neutrino_outer_15_25": 262.54798779628385,
+      "escape_probability_total": 6.756741790631321e-150,
+      "escape_probability_neutrino_only": 4.742302800030285e-142,
+      "outer_fraction_of_neutrino_tau": 0.8068207359407538
+    },
+    {
+      "source_radius_km": 5.0,
+      "cos_theta": 0.0,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 40.983850187144085,
+      "tau_neutrino": 38.84551079942509,
+      "tau_neutrino_outer_15_25": 29.213446208649785,
+      "escape_probability_total": 1.5883273585280362e-18,
+      "escape_probability_neutrino_only": 1.3477489839640623e-17,
+      "outer_fraction_of_neutrino_tau": 0.7520417573986989
+    },
+    {
+      "source_radius_km": 5.0,
+      "cos_theta": 0.0,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 21.406744045334815,
+      "tau_neutrino": 19.721289894181727,
+      "tau_neutrino_outer_15_25": 12.220804285993838,
+      "escape_probability_total": 5.048579338524879e-10,
+      "escape_probability_neutrino_only": 2.7236583078288132e-09,
+      "outer_fraction_of_neutrino_tau": 0.619675708412931
+    },
+    {
+      "source_radius_km": 5.0,
+      "cos_theta": 0.0,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 14.453089901308683,
+      "tau_neutrino": 12.81177195782158,
+      "tau_neutrino_outer_15_25": 6.831083222310138,
+      "escape_probability_total": 5.285703640617412e-07,
+      "escape_probability_neutrino_only": 2.728463417877515e-06,
+      "outer_fraction_of_neutrino_tau": 0.5331880121500105
+    },
+    {
+      "source_radius_km": 5.0,
+      "cos_theta": 0.5,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 331.13465472095515,
+      "tau_neutrino": 314.67861126798954,
+      "tau_neutrino_outer_15_25": 260.4381063340395,
+      "escape_probability_total": 1.5489831295497909e-144,
+      "escape_probability_neutrino_only": 2.171778619590055e-137,
+      "outer_fraction_of_neutrino_tau": 0.8276320569885913
+    },
+    {
+      "source_radius_km": 5.0,
+      "cos_theta": 0.5,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 39.217666381493935,
+      "tau_neutrino": 37.26995715139225,
+      "tau_neutrino_outer_15_25": 28.970462757378574,
+      "escape_probability_total": 9.289319435564001e-18,
+      "escape_probability_neutrino_only": 6.514232701514634e-17,
+      "outer_fraction_of_neutrino_tau": 0.7773140881192658
+    },
+    {
+      "source_radius_km": 5.0,
+      "cos_theta": 0.5,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 20.06279437198779,
+      "tau_neutrino": 18.527596252377847,
+      "tau_neutrino_outer_15_25": 12.114836049849373,
+      "escape_probability_total": 1.9357047362557643e-09,
+      "escape_probability_neutrino_only": 8.986015940464609e-09,
+      "outer_fraction_of_neutrino_tau": 0.6538806159646611
+    },
+    {
+      "source_radius_km": 5.0,
+      "cos_theta": 0.5,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 13.332469792466803,
+      "tau_neutrino": 11.837473195377756,
+      "tau_neutrino_outer_15_25": 6.771098729351736,
+      "escape_probability_total": 1.6209959843728877e-06,
+      "escape_probability_neutrino_only": 7.228542047006803e-06,
+      "outer_fraction_of_neutrino_tau": 0.5720054117626796
+    },
+    {
+      "source_radius_km": 5.0,
+      "cos_theta": 0.9,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 318.80360503731913,
+      "tau_neutrino": 304.2041996600745,
+      "tau_neutrino_outer_15_25": 255.90583699832032,
+      "escape_probability_total": 3.5103750683657426e-139,
+      "escape_probability_neutrino_only": 7.687669703442866e-133,
+      "outer_fraction_of_neutrino_tau": 0.8412304540314566
+    },
+    {
+      "source_radius_km": 5.0,
+      "cos_theta": 0.9,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 37.56062524981743,
+      "tau_neutrino": 35.83266453504847,
+      "tau_neutrino_outer_15_25": 28.44931892726088,
+      "escape_probability_total": 4.87110753463455e-17,
+      "escape_probability_neutrino_only": 2.7420256973660583e-16,
+      "outer_fraction_of_neutrino_tau": 0.7939493000704474
+    },
+    {
+      "source_radius_km": 5.0,
+      "cos_theta": 0.9,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 18.92512623770335,
+      "tau_neutrino": 17.563135444070017,
+      "tau_neutrino_outer_15_25": 11.888009180011204,
+      "escape_probability_total": 6.0384031583917915e-09,
+      "escape_probability_neutrino_only": 2.3573669567255543e-08,
+      "outer_fraction_of_neutrino_tau": 0.6768728293344142
+    },
+    {
+      "source_radius_km": 5.0,
+      "cos_theta": 0.9,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 12.424652541705646,
+      "tau_neutrino": 11.098327570524866,
+      "tau_neutrino_outer_15_25": 6.642779888342184,
+      "escape_probability_total": 4.018296337888434e-06,
+      "escape_probability_neutrino_only": 1.5137619262174797e-05,
+      "outer_fraction_of_neutrino_tau": 0.5985388200276406
+    },
+    {
+      "source_radius_km": 10.0,
+      "cos_theta": -0.9,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 385.3559566655307,
+      "tau_neutrino": 356.51526578375524,
+      "tau_neutrino_outer_15_25": 260.5214388453345,
+      "escape_probability_total": 4.385654868157635e-168,
+      "escape_probability_neutrino_only": 1.4702370265181825e-155,
+      "outer_fraction_of_neutrino_tau": 0.7307441331372163
+    },
+    {
+      "source_radius_km": 10.0,
+      "cos_theta": -0.9,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 47.15287667556575,
+      "tau_neutrino": 43.73934170323187,
+      "tau_neutrino_outer_15_25": 28.98005508763107,
+      "escape_probability_total": 3.324802511509778e-21,
+      "escape_probability_neutrino_only": 1.0098229956418279e-19,
+      "outer_fraction_of_neutrino_tau": 0.6625626714791126
+    },
+    {
+      "source_radius_km": 10.0,
+      "cos_theta": -0.9,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 26.529102633537168,
+      "tau_neutrino": 23.838530350077715,
+      "tau_neutrino_outer_15_25": 12.119016820764747,
+      "escape_probability_total": 3.0099349956300266e-12,
+      "escape_probability_neutrino_only": 4.436677000198349e-11,
+      "outer_fraction_of_neutrino_tau": 0.5083793607572473
+    },
+    {
+      "source_radius_km": 10.0,
+      "cos_theta": -0.9,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 18.9655424078917,
+      "tau_neutrino": 16.345426895363612,
+      "tau_neutrino_outer_15_25": 6.77346484977212,
+      "escape_probability_total": 5.799220019163958e-09,
+      "escape_probability_neutrino_only": 7.966568504549298e-08,
+      "outer_fraction_of_neutrino_tau": 0.41439510225905546
+    },
+    {
+      "source_radius_km": 10.0,
+      "cos_theta": -0.5,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 394.29085220278614,
+      "tau_neutrino": 357.65777614431084,
+      "tau_neutrino_outer_15_25": 281.75981656095513,
+      "escape_probability_total": 5.776418143235568e-172,
+      "escape_probability_neutrino_only": 4.690308519763973e-156,
+      "outer_fraction_of_neutrino_tau": 0.7877916694512697
+    },
+    {
+      "source_radius_km": 10.0,
+      "cos_theta": -0.5,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 47.40249579407905,
+      "tau_neutrino": 43.06666740555768,
+      "tau_neutrino_outer_15_25": 31.437857690542593,
+      "escape_probability_total": 2.5903452261946502e-21,
+      "escape_probability_neutrino_only": 1.9787183978658456e-19,
+      "outer_fraction_of_neutrino_tau": 0.7299812032004499
+    },
+    {
+      "source_radius_km": 10.0,
+      "cos_theta": -0.5,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 25.660838172889637,
+      "tau_neutrino": 22.24330772936347,
+      "tau_neutrino_outer_15_25": 13.19762233366966,
+      "escape_probability_total": 7.1719884336964175e-12,
+      "escape_probability_neutrino_only": 2.187027247745453e-10,
+      "outer_fraction_of_neutrino_tau": 0.5933300251134607
+    },
+    {
+      "source_radius_km": 10.0,
+      "cos_theta": -0.5,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 17.915666418056503,
+      "tau_neutrino": 14.587629262293193,
+      "tau_neutrino_outer_15_25": 7.3852145840356975,
+      "escape_probability_total": 1.657009258432896e-08,
+      "escape_probability_neutrino_only": 4.6203311899705317e-07,
+      "outer_fraction_of_neutrino_tau": 0.5062655796391369
+    },
+    {
+      "source_radius_km": 10.0,
+      "cos_theta": 0.0,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 367.346345036302,
+      "tau_neutrino": 351.97503652349565,
+      "tau_neutrino_outer_15_25": 293.3576258221735,
+      "escape_probability_total": 2.9074309108712685e-160,
+      "escape_probability_neutrino_only": 1.3777926706971898e-153,
+      "outer_fraction_of_neutrino_tau": 0.8334614543113792
+    },
+    {
+      "source_radius_km": 10.0,
+      "cos_theta": 0.0,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 43.54477339446668,
+      "tau_neutrino": 41.72545154139159,
+      "tau_neutrino_outer_15_25": 32.792089013356225,
+      "escape_probability_total": 1.2267193027224175e-19,
+      "escape_probability_neutrino_only": 7.566005290787908e-19,
+      "outer_fraction_of_neutrino_tau": 0.7859013576120684
+    },
+    {
+      "source_radius_km": 10.0,
+      "cos_theta": 0.0,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 21.96568458703659,
+      "tau_neutrino": 20.531682301356426,
+      "tau_neutrino_outer_15_25": 13.798893661674791,
+      "escape_probability_total": 2.886851156535048e-10,
+      "escape_probability_neutrino_only": 1.2111660043809802e-09,
+      "outer_fraction_of_neutrino_tau": 0.6720780820168432
+    },
+    {
+      "source_radius_km": 10.0,
+      "cos_theta": 0.0,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 14.252887420411358,
+      "tau_neutrino": 12.856436688792135,
+      "tau_neutrino_outer_15_25": 7.727483193539047,
+      "escape_probability_total": 6.45728034902619e-07,
+      "escape_probability_neutrino_only": 2.6092788205103174e-06,
+      "outer_fraction_of_neutrino_tau": 0.6010594833229056
+    },
+    {
+      "source_radius_km": 10.0,
+      "cos_theta": 0.5,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 330.8350717662278,
+      "tau_neutrino": 323.03083905980196,
+      "tau_neutrino_outer_15_25": 281.75981656095513,
+      "escape_probability_total": 2.090036698502679e-144,
+      "escape_probability_neutrino_only": 5.1225842721063684e-141,
+      "outer_fraction_of_neutrino_tau": 0.8722381348512473
+    },
+    {
+      "source_radius_km": 10.0,
+      "cos_theta": 0.5,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 38.629940756996135,
+      "tau_neutrino": 37.7062450874014,
+      "tau_neutrino_outer_15_25": 31.437857690542593,
+      "escape_probability_total": 1.6719754372299244e-17,
+      "escape_probability_neutrino_only": 4.2110056609251636e-17,
+      "outer_fraction_of_neutrino_tau": 0.8337573157356569
+    },
+    {
+      "source_radius_km": 10.0,
+      "cos_theta": 0.5,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 18.56248242367492,
+      "tau_neutrino": 17.834418997606097,
+      "tau_neutrino_outer_15_25": 13.19762233366966,
+      "escape_probability_total": 8.677933404375238e-09,
+      "escape_probability_neutrino_only": 1.7972572383750137e-08,
+      "outer_fraction_of_neutrino_tau": 0.7400085382899868
+    },
+    {
+      "source_radius_km": 10.0,
+      "cos_theta": 0.5,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 11.548135769749686,
+      "tau_neutrino": 10.83913780360155,
+      "tau_neutrino_outer_15_25": 7.3852145840356975,
+      "escape_probability_total": 9.654023661754067e-06,
+      "escape_probability_neutrino_only": 1.9616533456702165e-05,
+      "outer_fraction_of_neutrino_tau": 0.6813470515691563
+    },
+    {
+      "source_radius_km": 10.0,
+      "cos_theta": 0.9,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 297.1854652489545,
+      "tau_neutrino": 291.8902645341069,
+      "tau_neutrino_outer_15_25": 260.5214388453345,
+      "escape_probability_total": 8.589983715740288e-130,
+      "escape_probability_neutrino_only": 1.7126506809115264e-127,
+      "outer_fraction_of_neutrino_tau": 0.892532127651325
+    },
+    {
+      "source_radius_km": 10.0,
+      "cos_theta": 0.9,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 34.36480078263806,
+      "tau_neutrino": 33.738069859313306,
+      "tau_neutrino_outer_15_25": 28.98005508763107,
+      "escape_probability_total": 1.1900265434235551e-15,
+      "escape_probability_neutrino_only": 2.2271139079994445e-15,
+      "outer_fraction_of_neutrino_tau": 0.8589719331448714
+    },
+    {
+      "source_radius_km": 10.0,
+      "cos_theta": 0.9,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 16.107694025872632,
+      "tau_neutrino": 15.613700302312902,
+      "tau_neutrino_outer_15_25": 12.119016820764747,
+      "escape_probability_total": 1.010455910041893e-07,
+      "escape_probability_neutrino_only": 1.655983924759996e-07,
+      "outer_fraction_of_neutrino_tau": 0.7761783937257668
+    },
+    {
+      "source_radius_km": 10.0,
+      "cos_theta": 0.9,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 9.837174252096142,
+      "tau_neutrino": 9.356116513507466,
+      "tau_neutrino_outer_15_25": 6.77346484977212,
+      "escape_probability_total": 5.342807227495075e-05,
+      "escape_probability_neutrino_only": 8.64351173859024e-05,
+      "outer_fraction_of_neutrino_tau": 0.7239611477682262
+    },
+    {
+      "source_radius_km": 15.0,
+      "cos_theta": -0.9,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 433.2413199455734,
+      "tau_neutrino": 389.86840173969784,
+      "tau_neutrino_outer_15_25": 268.8614648051313,
+      "escape_probability_total": 7.009473773827878e-189,
+      "escape_probability_neutrino_only": 4.8117655226190274e-170,
+      "outer_fraction_of_neutrino_tau": 0.6896210711239972
+    },
+    {
+      "source_radius_km": 15.0,
+      "cos_theta": -0.9,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 53.59988055663641,
+      "tau_neutrino": 48.46633594930218,
+      "tau_neutrino_outer_15_25": 29.94202263913056,
+      "escape_probability_total": 5.270692063194633e-24,
+      "escape_probability_neutrino_only": 8.94000453599091e-22,
+      "outer_fraction_of_neutrino_tau": 0.6177901021948755
+    },
+    {
+      "source_radius_km": 15.0,
+      "cos_theta": -0.9,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 30.934727139359524,
+      "tau_neutrino": 26.88843115928561,
+      "tau_neutrino_outer_15_25": 12.539378831689916,
+      "escape_probability_total": 3.6746730493988924e-14,
+      "escape_probability_neutrino_only": 2.1013709323132024e-12,
+      "outer_fraction_of_neutrino_tau": 0.4663484737137438
+    },
+    {
+      "source_radius_km": 15.0,
+      "cos_theta": -0.9,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 22.32901834811424,
+      "tau_neutrino": 18.38868084785561,
+      "tau_neutrino_outer_15_25": 7.011562717205579,
+      "escape_probability_total": 2.0073844014156865e-10,
+      "escape_probability_neutrino_only": 1.0325173980232047e-08,
+      "outer_fraction_of_neutrino_tau": 0.3812977545925068
+    },
+    {
+      "source_radius_km": 15.0,
+      "cos_theta": -0.5,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 448.68563191736865,
+      "tau_neutrino": 443.6459380872029,
+      "tau_neutrino_outer_15_25": 337.3442584007787,
+      "escape_probability_total": 1.3750102923971372e-195,
+      "escape_probability_neutrino_only": 2.1233284066365206e-193,
+      "outer_fraction_of_neutrino_tau": 0.7603907292722026
+    },
+    {
+      "source_radius_km": 15.0,
+      "cos_theta": -0.5,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 54.63060358022562,
+      "tau_neutrino": 54.034114015892875,
+      "tau_neutrino_outer_15_25": 38.026555294399515,
+      "escape_probability_total": 1.8803137507823073e-24,
+      "escape_probability_neutrino_only": 3.414148824938728e-24,
+      "outer_fraction_of_neutrino_tau": 0.7037508801053884
+    },
+    {
+      "source_radius_km": 15.0,
+      "cos_theta": -0.5,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 27.928739348054503,
+      "tau_neutrino": 27.458582076436088,
+      "tau_neutrino_outer_15_25": 16.183446536213793,
+      "escape_probability_total": 7.425105258877592e-13,
+      "escape_probability_neutrino_only": 1.1881993851695822e-12,
+      "outer_fraction_of_neutrino_tau": 0.5893766288136857
+    },
+    {
+      "source_radius_km": 15.0,
+      "cos_theta": -0.5,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 17.461341242310098,
+      "tau_neutrino": 17.003495761529567,
+      "tau_neutrino_outer_15_25": 9.096081477469362,
+      "escape_probability_total": 2.6099720217529657e-08,
+      "escape_probability_neutrino_only": 4.125490750064016e-08,
+      "outer_fraction_of_neutrino_tau": 0.5349536121889276
+    },
+    {
+      "source_radius_km": 15.0,
+      "cos_theta": 0.0,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 430.16599380666185,
+      "tau_neutrino": 430.0797924971287,
+      "tau_neutrino_outer_15_25": 430.0797924971287,
+      "escape_probability_total": 1.5180378051241642e-187,
+      "escape_probability_neutrino_only": 1.6547002800450255e-187,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 15.0,
+      "cos_theta": 0.0,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 50.077588299215755,
+      "tau_neutrino": 50.067385659273526,
+      "tau_neutrino_outer_15_25": 50.067385659273526,
+      "escape_probability_total": 1.784759632772961e-22,
+      "escape_probability_neutrino_only": 1.8030621006703014e-22,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 15.0,
+      "cos_theta": 0.0,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 22.471401470901544,
+      "tau_neutrino": 22.463359678311413,
+      "tau_neutrino_outer_15_25": 22.463359678311413,
+      "escape_probability_total": 1.7409822388488288e-10,
+      "escape_probability_neutrino_only": 1.7550393031582717e-10,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 15.0,
+      "cos_theta": 0.0,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 12.88330039942508,
+      "tau_neutrino": 12.875469193534988,
+      "tau_neutrino_outer_15_25": 12.875469193534988,
+      "escape_probability_total": 2.5401170395686476e-06,
+      "escape_probability_neutrino_only": 2.560087312689739e-06,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 15.0,
+      "cos_theta": 0.5,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 337.3647623958443,
+      "tau_neutrino": 337.3442584007787,
+      "tau_neutrino_outer_15_25": 337.3442584007787,
+      "escape_probability_total": 3.050319301878866e-147,
+      "escape_probability_neutrino_only": 3.113508636909696e-147,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 15.0,
+      "cos_theta": 0.5,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 38.02898211227696,
+      "tau_neutrino": 38.02655529439952,
+      "tau_neutrino_outer_15_25": 38.02655529439952,
+      "escape_probability_total": 3.049459825747407e-17,
+      "escape_probability_neutrino_only": 3.056869296450561e-17,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 15.0,
+      "cos_theta": 0.5,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 16.18535937114031,
+      "tau_neutrino": 16.183446536213793,
+      "tau_neutrino_outer_15_25": 16.183446536213793,
+      "escape_probability_total": 9.34948604005858e-08,
+      "escape_probability_neutrino_only": 9.367387179004636e-08,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 15.0,
+      "cos_theta": 0.5,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 9.097944221873105,
+      "tau_neutrino": 9.096081477469363,
+      "tau_neutrino_outer_15_25": 9.096081477469363,
+      "escape_probability_total": 0.00011189560474085288,
+      "escape_probability_neutrino_only": 0.0001121042319016004,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 15.0,
+      "cos_theta": 0.9,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 268.87349956742065,
+      "tau_neutrino": 268.8614648051313,
+      "tau_neutrino_outer_15_25": 268.8614648051313,
+      "escape_probability_total": 1.6971600798419128e-117,
+      "escape_probability_neutrino_only": 1.7177083970162562e-117,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 15.0,
+      "cos_theta": 0.9,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 29.943447053064563,
+      "tau_neutrino": 29.94202263913056,
+      "tau_neutrino_outer_15_25": 29.94202263913056,
+      "escape_probability_total": 9.902074185198885e-14,
+      "escape_probability_neutrino_only": 9.916188887846874e-14,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 15.0,
+      "cos_theta": 0.9,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 12.540501564775143,
+      "tau_neutrino": 12.53937883168992,
+      "tau_neutrino_outer_15_25": 12.53937883168992,
+      "escape_probability_total": 3.5787335941849228e-06,
+      "escape_probability_neutrino_only": 3.5827538131884562e-06,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 15.0,
+      "cos_theta": 0.9,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 7.012656049799208,
+      "tau_neutrino": 7.011562717205581,
+      "tau_neutrino_outer_15_25": 7.011562717205581,
+      "escape_probability_total": 0.0009004138654856509,
+      "escape_probability_neutrino_only": 0.0009013988556753603,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 17.0,
+      "cos_theta": -0.9,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 469.4127374009655,
+      "tau_neutrino": 422.103606647021,
+      "tau_neutrino_outer_15_25": 303.59506718110606,
+      "escape_probability_total": 1.3697408615836737e-204,
+      "escape_probability_neutrino_only": 4.816514163747478e-184,
+      "outer_fraction_of_neutrino_tau": 0.7192430066938132
+    },
+    {
+      "source_radius_km": 17.0,
+      "cos_theta": -0.9,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 58.39444290686728,
+      "tau_neutrino": 52.795014897278534,
+      "tau_neutrino_outer_15_25": 34.66712436149436,
+      "escape_probability_total": 4.361297090672545e-26,
+      "escape_probability_neutrino_only": 1.1787354856914904e-23,
+      "outer_fraction_of_neutrino_tau": 0.6566363212311808
+    },
+    {
+      "source_radius_km": 17.0,
+      "cos_theta": -0.9,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 33.46724527530095,
+      "tau_neutrino": 29.053736719527894,
+      "tau_neutrino_outer_15_25": 15.072380242829418,
+      "escape_probability_total": 2.9198467137458253e-15,
+      "escape_probability_neutrino_only": 2.4105850789687634e-13,
+      "outer_fraction_of_neutrino_tau": 0.5187759629107817
+    },
+    {
+      "source_radius_km": 17.0,
+      "cos_theta": -0.9,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 23.861702855825406,
+      "tau_neutrino": 19.563768805606184,
+      "tau_neutrino_outer_15_25": 8.532903781157517,
+      "escape_probability_total": 4.335050099349518e-11,
+      "escape_probability_neutrino_only": 3.1883292430745214e-09,
+      "outer_fraction_of_neutrino_tau": 0.436158485920787
+    },
+    {
+      "source_radius_km": 17.0,
+      "cos_theta": -0.5,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 522.972383096293,
+      "tau_neutrino": 522.6396414900497,
+      "tau_neutrino_outer_15_25": 469.41360937156844,
+      "escape_probability_total": 7.515879931342199e-228,
+      "escape_probability_neutrino_only": 1.0483050477048265e-227,
+      "outer_fraction_of_neutrino_tau": 0.8981592135515526
+    },
+    {
+      "source_radius_km": 17.0,
+      "cos_theta": -0.5,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 63.55641887222724,
+      "tau_neutrino": 63.51703614334886,
+      "tau_neutrino_outer_15_25": 55.65843845926225,
+      "escape_probability_total": 2.49918263297661e-28,
+      "escape_probability_neutrino_only": 2.5995710755720764e-28,
+      "outer_fraction_of_neutrino_tau": 0.8762757496059659
+    },
+    {
+      "source_radius_km": 17.0,
+      "cos_theta": -0.5,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 30.624121039575176,
+      "tau_neutrino": 30.59307929556903,
+      "tau_neutrino_outer_15_25": 25.530454037071316,
+      "escape_probability_total": 5.013179087912123e-14,
+      "escape_probability_neutrino_only": 5.1712374212295694e-14,
+      "outer_fraction_of_neutrino_tau": 0.834517303420615
+    },
+    {
+      "source_radius_km": 17.0,
+      "cos_theta": -0.5,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 18.03952075602412,
+      "tau_neutrino": 18.009291887799165,
+      "tau_neutrino_outer_15_25": 14.712233014157173,
+      "escape_probability_total": 1.463981806090732e-08,
+      "escape_probability_neutrino_only": 1.5089119922050323e-08,
+      "outer_fraction_of_neutrino_tau": 0.8169245690400706
+    },
+    {
+      "source_radius_km": 17.0,
+      "cos_theta": 0.0,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 467.3045470367232,
+      "tau_neutrino": 467.3044929284488,
+      "tau_neutrino_outer_15_25": 467.3044929284488,
+      "escape_probability_total": 1.1277526431803691e-203,
+      "escape_probability_neutrino_only": 1.1278136655807487e-203,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 17.0,
+      "cos_theta": 0.0,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 52.624966201932736,
+      "tau_neutrino": 52.62495979776968,
+      "tau_neutrino_outer_15_25": 52.62495979776968,
+      "escape_probability_total": 1.3972289265027728e-23,
+      "escape_probability_neutrino_only": 1.3972378746133022e-23,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 17.0,
+      "cos_theta": 0.0,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 21.90574456076204,
+      "tau_neutrino": 21.90573951295565,
+      "tau_neutrino_outer_15_25": 21.90573951295565,
+      "escape_probability_total": 3.0651802266556803e-10,
+      "escape_probability_neutrino_only": 3.065195699131076e-10,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 17.0,
+      "cos_theta": 0.0,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 12.1716390612105,
+      "tau_neutrino": 12.17163414558868,
+      "tau_neutrino_outer_15_25": 12.17163414558868,
+      "escape_probability_total": 5.1751664182679055e-06,
+      "escape_probability_neutrino_only": 5.1751918574914015e-06,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 17.0,
+      "cos_theta": 0.5,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 325.0310799774419,
+      "tau_neutrino": 325.03106854244146,
+      "tau_neutrino_outer_15_25": 325.03106854244146,
+      "escape_probability_total": 6.930993933830298e-142,
+      "escape_probability_neutrino_only": 6.931073190202066e-142,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 17.0,
+      "cos_theta": 0.5,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 35.426944503029915,
+      "tau_neutrino": 35.42694314960277,
+      "tau_neutrino_outer_15_25": 35.42694314960277,
+      "escape_probability_total": 4.114087191575573e-16,
+      "escape_probability_neutrino_only": 4.1140927596966215e-16,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 17.0,
+      "cos_theta": 0.5,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 14.239078252077581,
+      "tau_neutrino": 14.239077185296788,
+      "tau_neutrino_outer_15_25": 14.239077185296788,
+      "escape_probability_total": 6.547068543663227e-07,
+      "escape_probability_neutrino_only": 6.547075527953929e-07,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 17.0,
+      "cos_theta": 0.5,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 7.84074393410472,
+      "tau_neutrino": 7.840742895259222,
+      "tau_neutrino_outer_15_25": 7.840742895259222,
+      "escape_probability_total": 0.00039337628573844785,
+      "escape_probability_neutrino_only": 0.0003933766943958434,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 17.0,
+      "cos_theta": 0.9,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 243.3840258279334,
+      "tau_neutrino": 243.38401920977185,
+      "tau_neutrino_outer_15_25": 243.38401920977185,
+      "escape_probability_total": 1.9937036296712902e-106,
+      "escape_probability_neutrino_only": 1.9937168243676835e-106,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 17.0,
+      "cos_theta": 0.9,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 26.288022634113137,
+      "tau_neutrino": 26.28802185079882,
+      "tau_neutrino_outer_15_25": 26.28802185079882,
+      "escape_probability_total": 3.8305120233480666e-12,
+      "escape_probability_neutrino_only": 3.83051502384415e-12,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 17.0,
+      "cos_theta": 0.9,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 10.476381100915944,
+      "tau_neutrino": 10.47638048350209,
+      "tau_neutrino_outer_15_25": 10.47638048350209,
+      "escape_probability_total": 2.8194571433313223e-05,
+      "escape_probability_neutrino_only": 2.819458884103759e-05,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 17.0,
+      "cos_theta": 0.9,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 5.756782532134903,
+      "tau_neutrino": 5.756781930888982,
+      "tau_neutrino_outer_15_25": 5.756781930888982,
+      "escape_probability_total": 0.0031612665265688266,
+      "escape_probability_neutrino_only": 0.003161268427268001,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 20.0,
+      "cos_theta": -0.9,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 551.888170390267,
+      "tau_neutrino": 507.9489886989254,
+      "tau_neutrino_outer_15_25": 390.76227167573165,
+      "escape_probability_total": 2.079758805934163e-240,
+      "escape_probability_neutrino_only": 2.5151107861955814e-221,
+      "outer_fraction_of_neutrino_tau": 0.769294319645445
+    },
+    {
+      "source_radius_km": 20.0,
+      "cos_theta": -0.9,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 68.22700429505501,
+      "tau_neutrino": 63.02643770759146,
+      "tau_neutrino_outer_15_25": 45.12794347681299,
+      "escape_probability_total": 2.3409304879810504e-30,
+      "escape_probability_neutrino_only": 4.245862147189203e-28,
+      "outer_fraction_of_neutrino_tau": 0.7160160897270159
+    },
+    {
+      "source_radius_km": 20.0,
+      "cos_theta": -0.9,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 37.42730533924457,
+      "tau_neutrino": 33.32818216285363,
+      "tau_neutrino_outer_15_25": 19.651602658818334,
+      "escape_probability_total": 5.565802847703862e-17,
+      "escape_probability_neutrino_only": 3.3554779928271045e-15,
+      "outer_fraction_of_neutrino_tau": 0.5896391997257291
+    },
+    {
+      "source_radius_km": 20.0,
+      "cos_theta": -0.9,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 25.743406907070774,
+      "tau_neutrino": 21.751625571831557,
+      "tau_neutrino_outer_15_25": 11.10851855015111,
+      "escape_probability_total": 6.603595073625092e-12,
+      "escape_probability_neutrino_only": 3.5759302715321595e-10,
+      "outer_fraction_of_neutrino_tau": 0.5106983160162837
+    },
+    {
+      "source_radius_km": 20.0,
+      "cos_theta": -0.5,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 687.2278781576821,
+      "tau_neutrino": 687.2278292264733,
+      "tau_neutrino_outer_15_25": 687.2278292264733,
+      "escape_probability_total": 3.473159323277142e-299,
+      "escape_probability_neutrino_only": 3.4733292733189655e-299,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 20.0,
+      "cos_theta": -0.5,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 79.0242149991237,
+      "tau_neutrino": 79.02420920770932,
+      "tau_neutrino_outer_15_25": 79.02420920770932,
+      "escape_probability_total": 4.788720494855101e-35,
+      "escape_probability_neutrino_only": 4.78874822840015e-35,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 20.0,
+      "cos_theta": -0.5,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 33.33652829833129,
+      "tau_neutrino": 33.33652373349772,
+      "tau_neutrino_outer_15_25": 33.33652373349772,
+      "escape_probability_total": 3.3275892623572594e-15,
+      "escape_probability_neutrino_only": 3.3276044522830915e-15,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 20.0,
+      "cos_theta": -0.5,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 18.568008159711255,
+      "tau_neutrino": 18.56800371441488,
+      "tau_neutrino_outer_15_25": 18.56800371441488,
+      "escape_probability_total": 8.630113676315324e-09,
+      "escape_probability_neutrino_only": 8.630152039813644e-09,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 20.0,
+      "cos_theta": 0.0,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 462.5204452058343,
+      "tau_neutrino": 462.5204452056754,
+      "tau_neutrino_outer_15_25": 462.5204452056754,
+      "escape_probability_total": 1.3487233602638574e-201,
+      "escape_probability_neutrino_only": 1.348723360478139e-201,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 20.0,
+      "cos_theta": 0.0,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 48.433668003664884,
+      "tau_neutrino": 48.43366800364607,
+      "tau_neutrino_outer_15_25": 48.43366800364607,
+      "escape_probability_total": 9.236878853785966e-22,
+      "escape_probability_neutrino_only": 9.23687885395976e-22,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 20.0,
+      "cos_theta": 0.0,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 18.648311539362716,
+      "tau_neutrino": 18.648311539347887,
+      "tau_neutrino_outer_15_25": 18.648311539347887,
+      "escape_probability_total": 7.964182468334513e-09,
+      "escape_probability_neutrino_only": 7.964182468452615e-09,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 20.0,
+      "cos_theta": 0.0,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 10.156955239503692,
+      "tau_neutrino": 10.156955239489253,
+      "tau_neutrino_outer_15_25": 10.156955239489253,
+      "escape_probability_total": 3.880524114101386e-05,
+      "escape_probability_neutrino_only": 3.8805241141574135e-05,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 20.0,
+      "cos_theta": 0.5,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 255.1932266656382,
+      "tau_neutrino": 255.19322666560714,
+      "tau_neutrino_outer_15_25": 255.19322666560714,
+      "escape_probability_total": 1.4824834032253884e-111,
+      "escape_probability_neutrino_only": 1.4824834032714416e-111,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 20.0,
+      "cos_theta": 0.5,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 26.311991115499833,
+      "tau_neutrino": 26.311991115496163,
+      "tau_neutrino_outer_15_25": 26.311991115496163,
+      "escape_probability_total": 3.739792020651531e-12,
+      "escape_probability_neutrino_only": 3.739792020665256e-12,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 20.0,
+      "cos_theta": 0.5,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 10.026123472863835,
+      "tau_neutrino": 10.026123472860938,
+      "tau_neutrino_outer_15_25": 10.026123472860938,
+      "escape_probability_total": 4.4229283179938286e-05,
+      "escape_probability_neutrino_only": 4.4229283180066425e-05,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 20.0,
+      "cos_theta": 0.5,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 5.448311665551233,
+      "tau_neutrino": 5.448311665548411,
+      "tau_neutrino_outer_15_25": 5.448311665548411,
+      "escape_probability_total": 0.004303564416662337,
+      "escape_probability_neutrino_only": 0.00430356441667448,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 20.0,
+      "cos_theta": 0.9,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 173.62566099163735,
+      "tau_neutrino": 173.62566099161938,
+      "tau_neutrino_outer_15_25": 173.62566099161938,
+      "escape_probability_total": 3.9385241657211156e-76,
+      "escape_probability_neutrino_only": 3.938524165791862e-76,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 20.0,
+      "cos_theta": 0.9,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 17.848833080571026,
+      "tau_neutrino": 17.848833080568898,
+      "tau_neutrino_outer_15_25": 17.848833080568898,
+      "escape_probability_total": 1.7715372338809483e-08,
+      "escape_probability_neutrino_only": 1.7715372338847182e-08,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 20.0,
+      "cos_theta": 0.9,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 6.788322631894794,
+      "tau_neutrino": 6.788322631893119,
+      "tau_neutrino_outer_15_25": 6.788322631893119,
+      "escape_probability_total": 0.0011268573443869087,
+      "escape_probability_neutrino_only": 0.0011268573443887963,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 20.0,
+      "cos_theta": 0.9,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 3.687310720391239,
+      "tau_neutrino": 3.687310720389608,
+      "tau_neutrino_outer_15_25": 3.687310720389608,
+      "escape_probability_total": 0.02503924912072797,
+      "escape_probability_neutrino_only": 0.02503924912076881,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 22.0,
+      "cos_theta": -0.9,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 621.9639919464482,
+      "tau_neutrino": 586.6241063286021,
+      "tau_neutrino_outer_15_25": 469.2665626677535,
+      "escape_probability_total": 7.664262222647984e-271,
+      "escape_probability_neutrino_only": 1.7076059919410981e-255,
+      "outer_fraction_of_neutrino_tau": 0.7999442191434426
+    },
+    {
+      "source_radius_km": 22.0,
+      "cos_theta": -0.9,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 75.72357327881437,
+      "tau_neutrino": 71.54080470474301,
+      "tau_neutrino_outer_15_25": 53.641086594456155,
+      "escape_probability_total": 1.2991819406788839e-33,
+      "escape_probability_neutrino_only": 8.515757502136618e-32,
+      "outer_fraction_of_neutrino_tau": 0.7497970817610871
+    },
+    {
+      "source_radius_km": 22.0,
+      "cos_theta": -0.9,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 39.909517550214616,
+      "tau_neutrino": 36.61262992939522,
+      "tau_neutrino_outer_15_25": 23.054965883614045,
+      "escape_probability_total": 4.650683154144913e-18,
+      "escape_probability_neutrino_only": 1.257004561537339e-16,
+      "outer_fraction_of_neutrino_tau": 0.6296998038128881
+    },
+    {
+      "source_radius_km": 22.0,
+      "cos_theta": -0.9,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 26.59967029215937,
+      "tau_neutrino": 23.389116741349735,
+      "tau_neutrino_outer_15_25": 12.9835673118735,
+      "escape_probability_total": 2.804852137745953e-12,
+      "escape_probability_neutrino_only": 6.954015632603298e-11,
+      "outer_fraction_of_neutrino_tau": 0.5551114843477517
+    },
+    {
+      "source_radius_km": 22.0,
+      "cos_theta": -0.5,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 780.080755765796,
+      "tau_neutrino": 780.0807557447317,
+      "tau_neutrino_outer_15_25": 780.0807557447317,
+      "escape_probability_total": 0.0,
+      "escape_probability_neutrino_only": 0.0,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 22.0,
+      "cos_theta": -0.5,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 84.52117822068342,
+      "tau_neutrino": 84.52117821819036,
+      "tau_neutrino_outer_15_25": 84.52117821819036,
+      "escape_probability_total": 1.962992746339614e-37,
+      "escape_probability_neutrino_only": 1.9629927512334865e-37,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 22.0,
+      "cos_theta": -0.5,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 33.404194391817924,
+      "tau_neutrino": 33.404194389852854,
+      "tau_neutrino_outer_15_25": 33.404194389852854,
+      "escape_probability_total": 3.1098733537427643e-15,
+      "escape_probability_neutrino_only": 3.109873359853883e-15,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 22.0,
+      "cos_theta": -0.5,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 18.301442412093333,
+      "tau_neutrino": 18.30144241017971,
+      "tau_neutrino_outer_15_25": 18.30144241017971,
+      "escape_probability_total": 1.1266384001175523e-08,
+      "escape_probability_neutrino_only": 1.1266384022735133e-08,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 22.0,
+      "cos_theta": 0.0,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 389.49262781669285,
+      "tau_neutrino": 389.49262781669273,
+      "tau_neutrino_outer_15_25": 389.49262781669273,
+      "escape_probability_total": 7.006497916735142e-170,
+      "escape_probability_neutrino_only": 7.006497916735939e-170,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 22.0,
+      "cos_theta": 0.0,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 39.53095875437446,
+      "tau_neutrino": 39.53095875437443,
+      "tau_neutrino_outer_15_25": 39.53095875437443,
+      "escape_probability_total": 6.790828280780243e-18,
+      "escape_probability_neutrino_only": 6.7908282807804356e-18,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 22.0,
+      "cos_theta": 0.0,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 14.901746339136817,
+      "tau_neutrino": 14.901746339136798,
+      "tau_neutrino_outer_15_25": 14.901746339136798,
+      "escape_probability_total": 3.3748447113750425e-07,
+      "escape_probability_neutrino_only": 3.3748447113751087e-07,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 22.0,
+      "cos_theta": 0.0,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 8.078380980264182,
+      "tau_neutrino": 8.078380980264164,
+      "tau_neutrino_outer_15_25": 8.078380980264164,
+      "escape_probability_total": 0.00031017280501441515,
+      "escape_probability_neutrino_only": 0.0003101728050144207,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 22.0,
+      "cos_theta": 0.5,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 172.59419010680122,
+      "tau_neutrino": 172.5941901068012,
+      "tau_neutrino_outer_15_25": 172.5941901068012,
+      "escape_probability_total": 1.1048304317365676e-75,
+      "escape_probability_neutrino_only": 1.104830431736599e-75,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 22.0,
+      "cos_theta": 0.5,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 17.38121553384357,
+      "tau_neutrino": 17.38121553384357,
+      "tau_neutrino_outer_15_25": 17.38121553384357,
+      "escape_probability_total": 2.8277043821985054e-08,
+      "escape_probability_neutrino_only": 2.8277043821985054e-08,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 22.0,
+      "cos_theta": 0.5,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 6.521921151638153,
+      "tau_neutrino": 6.52192115163815,
+      "tau_neutrino_outer_15_25": 6.52192115163815,
+      "escape_probability_total": 0.0014708406783295715,
+      "escape_probability_neutrino_only": 0.0014708406783295756,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 22.0,
+      "cos_theta": 0.5,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 3.5320301414650825,
+      "tau_neutrino": 3.5320301414650794,
+      "tau_neutrino_outer_15_25": 3.5320301414650794,
+      "escape_probability_total": 0.029245483091092293,
+      "escape_probability_neutrino_only": 0.029245483091092383,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 22.0,
+      "cos_theta": 0.9,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 109.63139448151075,
+      "tau_neutrino": 109.63139448151072,
+      "tau_neutrino_outer_15_25": 109.63139448151072,
+      "escape_probability_total": 2.4416889249243406e-48,
+      "escape_probability_neutrino_only": 2.4416889249244098e-48,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 22.0,
+      "cos_theta": 0.9,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 11.028226103613362,
+      "tau_neutrino": 11.02822610361336,
+      "tau_neutrino_outer_15_25": 11.02822610361336,
+      "escape_probability_total": 1.623686792465392e-05,
+      "escape_probability_neutrino_only": 1.6236867924653945e-05,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 22.0,
+      "cos_theta": 0.9,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 4.135415283332916,
+      "tau_neutrino": 4.135415283332915,
+      "tau_neutrino_outer_15_25": 4.135415283332915,
+      "escape_probability_total": 0.015996020869429337,
+      "escape_probability_neutrino_only": 0.01599602086942935,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 22.0,
+      "cos_theta": 0.9,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 2.2392692564845063,
+      "tau_neutrino": 2.239269256484505,
+      "tau_neutrino_outer_15_25": 2.239269256484505,
+      "escape_probability_total": 0.10653632667160187,
+      "escape_probability_neutrino_only": 0.10653632667160201,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 24.0,
+      "cos_theta": -0.9,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 700.6866145650905,
+      "tau_neutrino": 675.0402400153505,
+      "tau_neutrino_outer_15_25": 558.1459608868352,
+      "escape_probability_total": 4.962148429651739e-305,
+      "escape_probability_neutrino_only": 6.819439780767608e-294,
+      "outer_fraction_of_neutrino_tau": 0.8268336134659807
+    },
+    {
+      "source_radius_km": 24.0,
+      "cos_theta": -0.9,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 83.77888268537956,
+      "tau_neutrino": 80.74342154479952,
+      "tau_neutrino_outer_15_25": 62.94721018307467,
+      "escape_probability_total": 4.1237615953393545e-37,
+      "escape_probability_neutrino_only": 8.581783877210315e-36,
+      "outer_fraction_of_neutrino_tau": 0.7795955259110386
+    },
+    {
+      "source_radius_km": 24.0,
+      "cos_theta": -0.9,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 42.42596859403739,
+      "tau_neutrino": 40.03339676496397,
+      "tau_neutrino_outer_15_25": 26.70670530923796,
+      "escape_probability_total": 3.755224884797173e-19,
+      "escape_probability_neutrino_only": 4.108815999104235e-18,
+      "outer_fraction_of_neutrino_tau": 0.667110649291965
+    },
+    {
+      "source_radius_km": 24.0,
+      "cos_theta": -0.9,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 27.377070393818197,
+      "tau_neutrino": 25.04715173572041,
+      "tau_neutrino_outer_15_25": 14.989036772960873,
+      "escape_probability_total": 1.2891082781671237e-12,
+      "escape_probability_neutrino_only": 1.3248301826862425e-11,
+      "outer_fraction_of_neutrino_tau": 0.5984327851371862
+    },
+    {
+      "source_radius_km": 24.0,
+      "cos_theta": -0.5,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 816.3638999392713,
+      "tau_neutrino": 816.3638999392393,
+      "tau_neutrino_outer_15_25": 816.3638999392393,
+      "escape_probability_total": 0.0,
+      "escape_probability_neutrino_only": 0.0,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 24.0,
+      "cos_theta": -0.5,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 84.5813432256297,
+      "tau_neutrino": 84.58134322562593,
+      "tau_neutrino_outer_15_25": 84.58134322562593,
+      "escape_probability_total": 1.8483719325105226e-37,
+      "escape_probability_neutrino_only": 1.8483719325174833e-37,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 24.0,
+      "cos_theta": -0.5,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 32.306126818751856,
+      "tau_neutrino": 32.3061268187489,
+      "tau_neutrino_outer_15_25": 32.3061268187489,
+      "escape_probability_total": 9.32453945548805e-15,
+      "escape_probability_neutrino_only": 9.324539455515613e-15,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 24.0,
+      "cos_theta": -0.5,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 17.564138648668184,
+      "tau_neutrino": 17.5641386486653,
+      "tau_neutrino_outer_15_25": 17.5641386486653,
+      "escape_probability_total": 2.3550032212084132e-08,
+      "escape_probability_neutrino_only": 2.355003221215207e-08,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 24.0,
+      "cos_theta": 0.0,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 240.51326609231208,
+      "tau_neutrino": 240.51326609231208,
+      "tau_neutrino_outer_15_25": 240.51326609231208,
+      "escape_probability_total": 3.518971192610097e-105,
+      "escape_probability_neutrino_only": 3.518971192610097e-105,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 24.0,
+      "cos_theta": 0.0,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 23.805815862486483,
+      "tau_neutrino": 23.805815862486487,
+      "tau_neutrino_outer_15_25": 23.805815862486487,
+      "escape_probability_total": 4.5842208671878656e-11,
+      "escape_probability_neutrino_only": 4.5842208671878495e-11,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 24.0,
+      "cos_theta": 0.0,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 8.84221665334323,
+      "tau_neutrino": 8.84221665334323,
+      "tau_neutrino_outer_15_25": 8.84221665334323,
+      "escape_probability_total": 0.00014450208039138216,
+      "escape_probability_neutrino_only": 0.00014450208039138216,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 24.0,
+      "cos_theta": 0.0,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 4.777920328095223,
+      "tau_neutrino": 4.777920328095223,
+      "tau_neutrino_outer_15_25": 4.777920328095223,
+      "escape_probability_total": 0.008413478059745436,
+      "escape_probability_neutrino_only": 0.008413478059745436,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 24.0,
+      "cos_theta": 0.5,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 65.4128198876618,
+      "tau_neutrino": 65.4128198876618,
+      "tau_neutrino_outer_15_25": 65.4128198876618,
+      "escape_probability_total": 3.9045705746507665e-29,
+      "escape_probability_neutrino_only": 3.9045705746507665e-29,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 24.0,
+      "cos_theta": 0.5,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 6.453056976536703,
+      "tau_neutrino": 6.453056976536704,
+      "tau_neutrino_outer_15_25": 6.453056976536704,
+      "escape_probability_total": 0.0015756979271043096,
+      "escape_probability_neutrino_only": 0.0015756979271043083,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 24.0,
+      "cos_theta": 0.5,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 2.392441615100839,
+      "tau_neutrino": 2.392441615100839,
+      "tau_neutrino_outer_15_25": 2.392441615100839,
+      "escape_probability_total": 0.09140623235997274,
+      "escape_probability_neutrino_only": 0.09140623235997274,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 24.0,
+      "cos_theta": 0.5,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 1.2922392344065505,
+      "tau_neutrino": 1.2922392344065505,
+      "tau_neutrino_outer_15_25": 1.2922392344065505,
+      "escape_probability_total": 0.27465507689366025,
+      "escape_probability_neutrino_only": 0.27465507689366025,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 24.0,
+      "cos_theta": 0.9,
+      "energy_MeV": 10.09111627561155,
+      "tau_total": 38.23906068393366,
+      "tau_neutrino": 38.23906068393365,
+      "tau_neutrino_outer_15_25": 38.23906068393365,
+      "escape_probability_total": 2.4716498842140796e-17,
+      "escape_probability_neutrino_only": 2.4716498842140972e-17,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 24.0,
+      "cos_theta": 0.9,
+      "energy_MeV": 19.54548456661835,
+      "tau_total": 3.771687771161167,
+      "tau_neutrino": 3.771687771161167,
+      "tau_neutrino_outer_15_25": 3.771687771161167,
+      "escape_probability_total": 0.023013189493865573,
+      "escape_probability_neutrino_only": 0.023013189493865573,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 24.0,
+      "cos_theta": 0.9,
+      "energy_MeV": 52.29242874389507,
+      "tau_total": 1.3982040440428125,
+      "tau_neutrino": 1.3982040440428125,
+      "tau_neutrino_outer_15_25": 1.3982040440428125,
+      "escape_probability_total": 0.24704023916025944,
+      "escape_probability_neutrino_only": 0.24704023916025944,
+      "outer_fraction_of_neutrino_tau": 1.0
+    },
+    {
+      "source_radius_km": 24.0,
+      "cos_theta": 0.9,
+      "energy_MeV": 99.02150854450393,
+      "tau_total": 0.7552019711503153,
+      "tau_neutrino": 0.7552019711503153,
+      "tau_neutrino_outer_15_25": 0.7552019711503153,
+      "escape_probability_total": 0.4699156957317928,
+      "escape_probability_neutrino_only": 0.4699156957317928,
+      "outer_fraction_of_neutrino_tau": 1.0
+    }
+  ],
+  "interpretation": [
+    "The path integral is evaluated in an independent impact-parameter/longitudinal-coordinate representation; inward rays pass through the closest-approach point and exit the opposite side of the sphere.",
+    "For the same piecewise-linear radial opacity interpolant, the path integral is analytic on each radial cell. This isolates path quadrature from local-rate interpolation.",
+    "The full Eq. (B.2) angular average is recomputed at 16, 64, 128 and 256 Gauss-Legendre nodes; selected points are also checked with adaptive angular quadrature.",
+    "The full escape probability uses the unchanged total reduced opacity. Neutrino-only and 15-25 km shell optical depths are reported separately to identify the outer contribution.",
+    "The energy omega is held fixed along each ray, following the literal argument shown in Eq. (B.2); gravitational redshift in the production luminosity remains as in Eq. (B.1).",
+    "This audit does not change the muon or neutrino chemical potentials, local collision rates, opacity normalization, production source, or coupling axis."
+  ]
+}

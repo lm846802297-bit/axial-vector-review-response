@@ -1,0 +1,147 @@
+{
+  "title": "Smooth daughter-neutrino reprocessing extension of the 10 MeV B.2 high-energy band",
+  "date": "2026-11-10",
+  "benchmark": {
+    "mass_MeV": 10,
+    "coupling": 4.171689650228597e-8,
+    "vector_energy_band_MeV": [
+      210,
+      510
+    ],
+    "energy_nodes_MeV": [
+      217.29217795953696,
+      237.39657523579274,
+      259.4508135230317,
+      283.6439997074672,
+      310.18358135755915,
+      339.29712550971476,
+      371.234269970943,
+      406.26886387014787,
+      444.7013158125026,
+      486.86116977144746
+    ],
+    "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
+  },
+  "method": {
+    "source": "Literal Eq. (B.1) source, frozen at Rmax=25 km",
+    "baseline_opacity": "Literal scalar B.2 reduced opacity inside 25 km",
+    "outer_smooth_opacity": "Two-flavour vacuum-limit V->nu nu opacity multiplied by (1-P_pair^E(omega,r))",
+    "pair_escape": "Equal-mode average of daughter energy survival exp[-tau_nuN(E,r)] using P1G exponential density tail; L-only and transverse-only variants also evaluated",
+    "neutrino_transport_tail": {
+      "low": {
+        "nB20_over_n0": 0.0005,
+        "H_km": 0.9
+      },
+      "central": {
+        "nB20_over_n0": 0.001,
+        "H_km": 1.2
+      },
+      "high": {
+        "nB20_over_n0": 0.002,
+        "H_km": 1.3
+      }
+    },
+    "grids": {
+      "source_radial_nodes": 200,
+      "opacity_radial_nodes": 642,
+      "full_energy_nodes": 842,
+      "band_energy_nodes": 10,
+      "angle_nodes": 32,
+      "path_nodes": 64,
+      "daughter_angle_nodes": 256
+    },
+    "coupling_applied_once": true,
+    "outer_compton_opacity": 0,
+    "other_energy_bins_frozen": true
+  },
+  "numerical_closure": {
+    "B1_source_relative_to_P1C": 1.8816503910557003e-11,
+    "Rmax25_band_B2_relative_to_P1D_path64": 4.9533710466675984e-12,
+    "sharp_Rmax30_band_B2_relative_to_P1D_path64": 5.515587986337778e-12,
+    "source_fraction_outside_15km": 9.690321806265727e-7
+  },
+  "baseline": {
+    "band_luminosity_erg_s": 1.7017848288465618e+52,
+    "full_luminosity_from_V8_phase_space_erg_s": 2.439635957358781e+52,
+    "fig7_reference_luminosity_erg_s": 1.26781475907372e+52,
+    "relative_full_residual_vs_fig7": 0.924284237818155
+  },
+  "sharp_Rmax30_conditional": {
+    "band_luminosity_erg_s": 4.94603293305852e+51,
+    "relative_band_change_vs_Rmax25": -0.7093620269014356,
+    "band_only_total_proxy_erg_s": 1.2324544218180712e+52,
+    "proxy_residual_vs_fig7": -0.02789077584290267,
+    "note": "Full vacuum opacity over 25-30 km; this is the extreme sharp-boundary P1D diagnostic."
+  },
+  "smooth_results": {
+    "low_density_tail": {
+      "equal_mode_Rmax30": {
+        "band_luminosity_erg_s": 1.6960997577074205e+52,
+        "relative_band_change": -0.003340652145191858,
+        "band_only_total_proxy_erg_s": 2.4339508862196393e+52,
+        "proxy_residual_vs_fig7": 0.919800088143722
+      }
+    },
+    "central_tail": {
+      "equal_mode_Rmax27p5": {
+        "band_luminosity_erg_s": 1.6397451758808804e+52,
+        "relative_band_change": -0.0364556387588264,
+        "band_only_total_proxy_erg_s": 2.3775963043930994e+52,
+        "proxy_residual_vs_fig7": 0.8753499179408502
+      },
+      "equal_mode_Rmax30": {
+        "band_luminosity_erg_s": 1.631318859859244e+52,
+        "relative_band_change": -0.041407096709798696,
+        "band_only_total_proxy_erg_s": 2.369169988371463e+52,
+        "proxy_residual_vs_fig7": 0.8687035873461562
+      },
+      "longitudinal_Rmax30": {
+        "band_luminosity_erg_s": 1.6439082299404814e+52,
+        "relative_band_change": -0.03400935178468367,
+        "band_only_total_proxy_erg_s": 2.3817593584527004e+52,
+        "proxy_residual_vs_fig7": 0.8786335633076565
+      },
+      "transverse_Rmax30": {
+        "band_luminosity_erg_s": 1.6250609809558026e+52,
+        "relative_band_change": -0.04508434121061078,
+        "band_only_total_proxy_erg_s": 2.3629121094680216e+52,
+        "proxy_residual_vs_fig7": 0.8637676305286055
+      }
+    },
+    "high_density_tail": {
+      "equal_mode_Rmax30": {
+        "band_luminosity_erg_s": 1.521465689712734e+52,
+        "relative_band_change": -0.1059588357336837,
+        "band_only_total_proxy_erg_s": 2.259316818224953e+52,
+        "proxy_residual_vs_fig7": 0.7820559368433571
+      },
+      "longitudinal_Rmax30": {
+        "band_luminosity_erg_s": 1.5482323110974803e+52,
+        "relative_band_change": -0.09023027773326464,
+        "band_only_total_proxy_erg_s": 2.2860834396096993e+52,
+        "proxy_residual_vs_fig7": 0.8031683439936748
+      },
+      "transverse_Rmax30": {
+        "band_luminosity_erg_s": 1.5082567148943158e+52,
+        "relative_band_change": -0.11372067177459555,
+        "band_only_total_proxy_erg_s": 2.2461078434065348e+52,
+        "proxy_residual_vs_fig7": 0.7716372422163369
+      }
+    }
+  },
+  "conclusions": [
+    "The smooth transport-only reprocessing model changes the 210-510 MeV band by 0.33% (low tail), 4.14% (central equal-mode), and 10.60% (high tail equal-mode), compared with 70.94% for the sharp full-opacity Rmax=30 km extension.",
+    "The band-only total proxies remain 91.98%, 86.87%, and 78.21% above Fig. 7 for the low, central, and high equal-mode tails, respectively.",
+    "The near-match obtained by the sharp Rmax=30 km extension is not reproduced by the smooth daughter-scattering model. The boundary effect is real but does not explain the strong-endpoint discrepancy at the tested figure-level tail range.",
+    "Longitudinal/transverse mode choice changes the central and high-tail band shifts by a few percentage points, smaller than the difference between smooth and sharp boundary prescriptions.",
+    "No Rmax is fitted or selected; the literal 25 km baseline and all axial-vector outputs remain unchanged."
+  ],
+  "limitations": [
+    "This is a transport-scattering proxy, not a heavy-flavor energy-sphere calculation. It treats a daughter scattering as reprocessing the daughter energy and omits the detailed energy-changing collision kernel.",
+    "The 20-25 km baryon-density tail is extrapolated from a figure-level read-off; low/central/high are stresses, not statistical uncertainties.",
+    "The actual production polarization density matrix is not known from the scalar B.16 output; L-only, transverse-only, and equal-mode diagnostics are shown.",
+    "The full total luminosity is a band-only proxy: all other energy bins are held at the V8 phase-space baseline.",
+    "The V8 phase-space total is a cross-runtime result with non-bitwise NumPy grid hashes; the B.1 source, Rmax25 band, and sharp Rmax30 band closures to the archived P1C/P1D results are at 1.9e-11, 5.0e-12, and 5.5e-12.",
+    "No production source, opacity normalization, baseline Rmax, Fig. 7 curve, or axial-vector output is modified."
+  ]
+}

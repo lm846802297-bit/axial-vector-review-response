@@ -1,0 +1,1227 @@
+{
+  "column_closure": {
+    "fixed_omega_all_channel_shell_sum_max_relative_residual": 6.724089930264748e-16,
+    "fixed_omega_flavour_rate_sum_max_relative_residual": 2.811076578620574e-16,
+    "path_redshift_all_channel_shell_sum_max_relative_residual_on_escaping_bins": 8.598922840133925e-16,
+    "path_redshift_total_column_infinite_source_weight_fraction": 3.244452068554469e-05
+  },
+  "configuration": {
+    "angular_order": 16,
+    "energy_offset_MeV": 1000.0,
+    "energy_order": 100,
+    "path_order": 32,
+    "radial_order": 40,
+    "radius_km": 25.0,
+    "shell_edges_km": [
+      "0-5 km",
+      "5-8 km",
+      "8-10 km",
+      "10-12 km",
+      "12-15 km",
+      "15-16.5 km",
+      "16.5-18.5 km",
+      "18.5-20 km",
+      "20-22 km",
+      "22-25 km"
+    ]
+  },
+  "eq_b1_source_measure": {
+    "energy_lower_bound_MeV": [
+      13.577938429276124,
+      13.530671924155518,
+      13.392161953449532,
+      13.230391557011666,
+      13.149356990853999,
+      13.024926622554927,
+      12.849399408925107,
+      12.71035617745472,
+      12.64837712164281,
+      12.556400220338618,
+      12.438600715610537,
+      12.348765605329627,
+      12.30142179914826,
+      12.213709108685762,
+      12.102080689069437,
+      12.019213709205907,
+      11.965267209430053,
+      11.84877913779774,
+      11.706692834962132,
+      11.60623034569183,
+      11.555600004530243,
+      11.467051397339226,
+      11.362786637814757,
+      11.29176580594514,
+      11.262162840151335,
+      11.220577939254266,
+      11.170152798630532,
+      11.134195870051816,
+      11.115805323876138,
+      11.083174478950397,
+      11.043312816644033,
+      11.014591796592756,
+      10.999939148733734,
+      10.973633658548657,
+      10.941286272861447,
+      10.917946246928034,
+      10.908984752667122,
+      10.897898703168588,
+      10.883835374825546,
+      10.87335173700195
+    ],
+    "energy_weight_row_sums_MeV": [
+      996.4220615707238,
+      996.4693280758445,
+      996.6078380465506,
+      996.7696084429883,
+      996.8506430091461,
+      996.9750733774451,
+      997.1506005910749,
+      997.2896438225453,
+      997.3516228783571,
+      997.4435997796613,
+      997.5613992843896,
+      997.6512343946704,
+      997.6985782008517,
+      997.7862908913144,
+      997.8979193109305,
+      997.9807862907942,
+      998.0347327905699,
+      998.1512208622023,
+      998.293307165038,
+      998.3937696543082,
+      998.4443999954697,
+      998.5329486026608,
+      998.6372133621853,
+      998.708234194055,
+      998.7378371598486,
+      998.7794220607457,
+      998.8298472013694,
+      998.8658041299482,
+      998.8841946761238,
+      998.9168255210495,
+      998.956687183356,
+      998.9854082034074,
+      999.0000608512662,
+      999.0263663414514,
+      999.0587137271386,
+      999.0820537530719,
+      999.091015247333,
+      999.1021012968315,
+      999.1161646251744,
+      999.1266482629981
+    ],
+    "radial_measure_MeVminus3": [
+      9.297758455576318e+46,
+      3.9654167984357124e+48,
+      1.6684403154056426e+49,
+      1.7590553560628453e+49,
+      1.3388193351385403e+49,
+      3.3837103672570605e+49,
+      4.761599233413861e+49,
+      3.206928457493875e+49,
+      2.355626591999546e+49,
+      5.073435123781807e+49,
+      6.013726339177155e+49,
+      3.6279002726258593e+49,
+      3.864705975891292e+49,
+      8.124853427359927e+49,
+      9.36481698294252e+49,
+      5.540500391063482e+49,
+      8.883928076214108e+49,
+      1.922910095799378e+50,
+      2.2913532380386024e+50,
+      1.3860976928631573e+50,
+      1.4781409724565545e+50,
+      3.1108633799157375e+50,
+      3.58528311803867e+50,
+      2.1186106797537286e+50,
+      1.4757916870097477e+50,
+      2.9497718946580076e+50,
+      3.1973382695506366e+50,
+      1.8102517690054932e+50,
+      1.8673966304600792e+50,
+      3.7061911652796515e+50,
+      3.982759072608373e+50,
+      2.241078976264898e+50,
+      2.3045100036458647e+50,
+      4.5479360352624345e+50,
+      4.853543887966e+50,
+      2.7173704625796316e+50,
+      1.3847823616477085e+50,
+      2.658053712205501e+50,
+      2.7399255795677404e+50,
+      1.4953952357352467e+50
+    ],
+    "spectral_measure_MeV3": [
+      0.07164505723142932,
+      0.07863039804806636,
+      0.08629681261514145,
+      0.0947107085384972,
+      0.10394496927910277,
+      0.11407958595505116,
+      0.12520235081567474,
+      0.13740961853808542,
+      0.15080714196106204,
+      0.16551098954923749,
+      0.18164855275936187,
+      0.19935965206049203,
+      0.21879775151618677,
+      0.24013129262390712,
+      0.2635451594008054,
+      0.2892422878327101,
+      0.3174454343043643,
+      0.348399119130567,
+      0.3823717631472521,
+      0.41965803732812074,
+      0.4605814477293553,
+      0.5054971806796886,
+      0.5547952362770104,
+      0.6089038817903616,
+      0.6682934607971123,
+      0.7334805988743319,
+      0.8050328526194169,
+      0.8835738559416061,
+      0.9697890262986213,
+      1.0644319042285053,
+      1.168331212742348,
+      1.2823987395931649,
+      1.4076381661067856,
+      1.5451549923545127,
+      1.6961677416971483,
+      1.8620206702343038,
+      2.044198261426724,
+      2.244341856907379,
+      2.4642688663930072,
+      2.7059951194546334,
+      2.971761078751791,
+      3.2640628403961123,
+      3.585689118655341,
+      3.939765771296404,
+      4.32980989824611,
+      4.759796180383348,
+      5.234238972456249,
+      5.75829480021401,
+      6.337891441808585,
+      6.979891843357755,
+      7.692303933088604,
+      8.484551247302244,
+      9.367824577676526,
+      10.355542188058871,
+      11.463956394795838,
+      12.712958727754385,
+      14.127156373021656,
+      15.737321964537431,
+      17.582361310314397,
+      19.712005833900836,
+      22.19052844973278,
+      25.10191894946861,
+      25.51842319923967,
+      25.5733618049544,
+      25.782498891286323,
+      26.062782186885816,
+      26.28353048667809,
+      26.46185644746621,
+      26.925858612006646,
+      27.568034455399236,
+      28.089669432805312,
+      28.380054482104285,
+      28.55716239545527,
+      28.948984546516815,
+      29.73827754268817,
+      30.384364868354414,
+      30.748566083290967,
+      31.46094554287928,
+      32.46101343346181,
+      32.70458056911395,
+      33.287047741040034,
+      33.87596814065855,
+      35.29253446728705,
+      37.38373073143242,
+      37.744684699267026,
+      39.1727702689855,
+      40.201850518430476,
+      42.25841643424829,
+      43.951748291005245,
+      45.20365697538644,
+      47.653424089832065,
+      48.79939298541328,
+      50.574502425241946,
+      51.70550577449332,
+      52.995161471971024,
+      54.92186373940141,
+      55.97111558331442,
+      57.98044532767936,
+      60.65266356638544,
+      61.53828444593648,
+      62.76945076671069,
+      64.21121041777157,
+      67.49163921134199,
+      71.72612671393323,
+      74.20592711935902,
+      74.7927847504914,
+      76.81950459927353,
+      80.93662948471035,
+      84.53855751542163,
+      85.78419395988371,
+      85.86144924199601,
+      90.79579808112527,
+      112.89321863434495,
+      142.8409267900571,
+      184.14811203234436,
+      242.1422152258804,
+      325.018207670062,
+      445.5439548165609,
+      623.8565803902517,
+      892.0852648263414,
+      1302.0500874059621,
+      1938.1691394812417,
+      2939.2254674954115,
+      4535.267037757593,
+      7110.4458061125815,
+      11310.453020845389,
+      18226.82584775097,
+      29714.050304520904,
+      48936.49989168014,
+      81313.7868201784,
+      136157.66537004866,
+      229510.6491675225,
+      389074.8073204219,
+      662778.9226224419,
+      1133683.0735418843,
+      1945927.9962218592,
+      3349941.9297051146,
+      5781237.241076985,
+      9997814.441132193,
+      17319851.25215216,
+      30047944.73255807,
+      52193099.99135333
+    ]
+  },
+  "fixed_omega": {
+    "luminosity_removal": {
+      "peak_index": 17,
+      "points": [
+        {
+          "baseline_log10_luminosity_erg_s": 51.996745955933996,
+          "g": 4.796429536550025e-10,
+          "index": 0,
+          "reference_luminosity_erg_s": 1.0893295563998579e+52,
+          "remove_all_nu_mu": {
+            "log10_luminosity_enhancement": 0.0004120489631068299,
+            "relative_luminosity_enhancement": 0.000949228032069153
+          },
+          "remove_all_nu_tau": {
+            "log10_luminosity_enhancement": 0.0004192179972295027,
+            "relative_luminosity_enhancement": 0.0009657511487493555
+          },
+          "remove_both_outer_neutrino_flavours": {
+            "log10_luminosity_enhancement": 0.0005254783974065167,
+            "relative_luminosity_enhancement": 0.0012106910199354917
+          },
+          "remove_outer_nu_mu": {
+            "log10_luminosity_enhancement": 0.0002626242277932746,
+            "relative_luminosity_enhancement": 0.0006048975087298216
+          },
+          "remove_outer_nu_tau": {
+            "log10_luminosity_enhancement": 0.0002627457280056132,
+            "relative_luminosity_enhancement": 0.0006051774425756019
+          }
+        },
+        {
+          "baseline_log10_luminosity_erg_s": 54.2922724462442,
+          "g": 1.1341108687336194e-08,
+          "index": 17,
+          "reference_luminosity_erg_s": 1.910994581282271e+54,
+          "remove_all_nu_mu": {
+            "log10_luminosity_enhancement": 0.18662968276075442,
+            "relative_luminosity_enhancement": 0.5368436349248614
+          },
+          "remove_all_nu_tau": {
+            "log10_luminosity_enhancement": 0.1896237974720368,
+            "relative_luminosity_enhancement": 0.5474755555107683
+          },
+          "remove_both_outer_neutrino_flavours": {
+            "log10_luminosity_enhancement": 0.24450747789200292,
+            "relative_luminosity_enhancement": 0.7559311284085242
+          },
+          "remove_outer_nu_mu": {
+            "log10_luminosity_enhancement": 0.11418250751811056,
+            "relative_luminosity_enhancement": 0.3007160749359758
+          },
+          "remove_outer_nu_tau": {
+            "log10_luminosity_enhancement": 0.11422213135281886,
+            "relative_luminosity_enhancement": 0.30083475410904753
+          }
+        },
+        {
+          "baseline_log10_luminosity_erg_s": 52.386895541502,
+          "g": 4.171689650228597e-08,
+          "index": 24,
+          "reference_luminosity_erg_s": 1.26781475907372e+52,
+          "remove_all_nu_mu": {
+            "log10_luminosity_enhancement": 1.1392529051495421,
+            "relative_luminosity_enhancement": 12.780117005952873
+          },
+          "remove_all_nu_tau": {
+            "log10_luminosity_enhancement": 1.1419110499335337,
+            "relative_luminosity_enhancement": 12.864718294268709
+          },
+          "remove_both_outer_neutrino_flavours": {
+            "log10_luminosity_enhancement": 2.056521718097818,
+            "relative_luminosity_enhancement": 112.89947390365322
+          },
+          "remove_outer_nu_mu": {
+            "log10_luminosity_enhancement": 0.7266782794298514,
+            "relative_luminosity_enhancement": 4.3293995317215
+          },
+          "remove_outer_nu_tau": {
+            "log10_luminosity_enhancement": 0.726779543648622,
+            "relative_luminosity_enhancement": 4.330642329927868
+          }
+        }
+      ]
+    },
+    "prescription": "Gamma_abs_star(r'(s), omega_source)/v_V(omega_source)",
+    "shell_summary": {
+      "channels": {
+        "compton": {
+          "mean_tau": 947787375074786.6,
+          "shells": [
+            {
+              "mean_tau": 5115716913273.384,
+              "shell": "0-5 km"
+            },
+            {
+              "mean_tau": 163042891705285.12,
+              "shell": "5-8 km"
+            },
+            {
+              "mean_tau": 398898804325431.75,
+              "shell": "8-10 km"
+            },
+            {
+              "mean_tau": 282429993314836.94,
+              "shell": "10-12 km"
+            },
+            {
+              "mean_tau": 97550307621075.2,
+              "shell": "12-15 km"
+            },
+            {
+              "mean_tau": 742023613704.5864,
+              "shell": "15-16.5 km"
+            },
+            {
+              "mean_tau": 7637142047.256058,
+              "shell": "16.5-18.5 km"
+            },
+            {
+              "mean_tau": 438212.1385348101,
+              "shell": "18.5-20 km"
+            },
+            {
+              "mean_tau": 919.5168983583525,
+              "shell": "20-22 km"
+            },
+            {
+              "mean_tau": 0.7374079526884302,
+              "shell": "22-25 km"
+            }
+          ]
+        },
+        "dimuon": {
+          "mean_tau": 0.0,
+          "shells": [
+            {
+              "mean_tau": 0.0,
+              "shell": "0-5 km"
+            },
+            {
+              "mean_tau": 0.0,
+              "shell": "5-8 km"
+            },
+            {
+              "mean_tau": 0.0,
+              "shell": "8-10 km"
+            },
+            {
+              "mean_tau": 0.0,
+              "shell": "10-12 km"
+            },
+            {
+              "mean_tau": 0.0,
+              "shell": "12-15 km"
+            },
+            {
+              "mean_tau": 0.0,
+              "shell": "15-16.5 km"
+            },
+            {
+              "mean_tau": 0.0,
+              "shell": "16.5-18.5 km"
+            },
+            {
+              "mean_tau": 0.0,
+              "shell": "18.5-20 km"
+            },
+            {
+              "mean_tau": 0.0,
+              "shell": "20-22 km"
+            },
+            {
+              "mean_tau": 0.0,
+              "shell": "22-25 km"
+            }
+          ]
+        },
+        "nu_mu": {
+          "mean_tau": 4126360558528932.5,
+          "shells": [
+            {
+              "mean_tau": 47327289720038.21,
+              "shell": "0-5 km"
+            },
+            {
+              "mean_tau": 204338585713930.66,
+              "shell": "5-8 km"
+            },
+            {
+              "mean_tau": 266967447285286.38,
+              "shell": "8-10 km"
+            },
+            {
+              "mean_tau": 351255580331158.9,
+              "shell": "10-12 km"
+            },
+            {
+              "mean_tau": 626095249828843.2,
+              "shell": "12-15 km"
+            },
+            {
+              "mean_tau": 369260020912055.9,
+              "shell": "15-16.5 km"
+            },
+            {
+              "mean_tau": 511882844431062.9,
+              "shell": "16.5-18.5 km"
+            },
+            {
+              "mean_tau": 409593775395899.25,
+              "shell": "18.5-20 km"
+            },
+            {
+              "mean_tau": 536627427800905.3,
+              "shell": "20-22 km"
+            },
+            {
+              "mean_tau": 803012337109751.9,
+              "shell": "22-25 km"
+            }
+          ]
+        },
+        "nu_tau": {
+          "mean_tau": 4198152935323371.0,
+          "shells": [
+            {
+              "mean_tau": 77784608555381.22,
+              "shell": "0-5 km"
+            },
+            {
+              "mean_tau": 234999293478762.6,
+              "shell": "5-8 km"
+            },
+            {
+              "mean_tau": 273201060352543.38,
+              "shell": "8-10 km"
+            },
+            {
+              "mean_tau": 354112129268508.7,
+              "shell": "10-12 km"
+            },
+            {
+              "mean_tau": 626461719555396.4,
+              "shell": "12-15 km"
+            },
+            {
+              "mean_tau": 369337526685321.94,
+              "shell": "15-16.5 km"
+            },
+            {
+              "mean_tau": 513008189927838.9,
+              "shell": "16.5-18.5 km"
+            },
+            {
+              "mean_tau": 409608642588960.6,
+              "shell": "18.5-20 km"
+            },
+            {
+              "mean_tau": 536627427800905.3,
+              "shell": "20-22 km"
+            },
+            {
+              "mean_tau": 803012337109751.9,
+              "shell": "22-25 km"
+            }
+          ]
+        }
+      },
+      "outer_fraction_of_total_mean_tau": 0.5675743556373937,
+      "outer_r_ge_15km_mean_tau": 5262720190957338.0,
+      "total_by_shell": [
+        {
+          "mean_tau": 130227615188692.8,
+          "shell": "0-5 km"
+        },
+        {
+          "mean_tau": 602380770897978.2,
+          "shell": "5-8 km"
+        },
+        {
+          "mean_tau": 939067311963261.5,
+          "shell": "8-10 km"
+        },
+        {
+          "mean_tau": 987797702914504.6,
+          "shell": "10-12 km"
+        },
+        {
+          "mean_tau": 1350107277005315.0,
+          "shell": "12-15 km"
+        },
+        {
+          "mean_tau": 739339571211082.4,
+          "shell": "15-16.5 km"
+        },
+        {
+          "mean_tau": 1024898671500949.0,
+          "shell": "16.5-18.5 km"
+        },
+        {
+          "mean_tau": 819202418423071.9,
+          "shell": "18.5-20 km"
+        },
+        {
+          "mean_tau": 1073254855602730.0,
+          "shell": "20-22 km"
+        },
+        {
+          "mean_tau": 1606024674219504.2,
+          "shell": "22-25 km"
+        }
+      ],
+      "total_mean_tau": 9272300868927090.0
+    }
+  },
+  "fixed_vs_redshift_flavour_comparison": {
+    "compton": {
+      "fixed_omega_mean_tau": 947787375074786.6,
+      "path_redshift_mean_tau": 947425259164120.9,
+      "path_redshift_over_fixed": 0.9996179354988378,
+      "shell_ratios": [
+        {
+          "fixed_omega_mean_tau": 5115716913273.384,
+          "path_redshift_mean_tau": 5099273681705.234,
+          "path_redshift_over_fixed": 0.996785742478149,
+          "shell": "0-5 km"
+        },
+        {
+          "fixed_omega_mean_tau": 163042891705285.12,
+          "path_redshift_mean_tau": 162800361862821.8,
+          "path_redshift_over_fixed": 0.9985124782814714,
+          "shell": "5-8 km"
+        },
+        {
+          "fixed_omega_mean_tau": 398898804325431.75,
+          "path_redshift_mean_tau": 398626078365071.94,
+          "path_redshift_over_fixed": 0.9993163028883453,
+          "shell": "8-10 km"
+        },
+        {
+          "fixed_omega_mean_tau": 282429993314836.94,
+          "path_redshift_mean_tau": 282465384285796.44,
+          "path_redshift_over_fixed": 1.000125308826248,
+          "shell": "10-12 km"
+        },
+        {
+          "fixed_omega_mean_tau": 97550307621075.2,
+          "path_redshift_mean_tau": 97682107414554.38,
+          "path_redshift_over_fixed": 1.0013510956212577,
+          "shell": "12-15 km"
+        },
+        {
+          "fixed_omega_mean_tau": 742023613704.5864,
+          "path_redshift_mean_tau": 744383185896.8152,
+          "path_redshift_over_fixed": 1.0031799152326817,
+          "shell": "15-16.5 km"
+        },
+        {
+          "fixed_omega_mean_tau": 7637142047.256058,
+          "path_redshift_mean_tau": 7669926606.01018,
+          "path_redshift_over_fixed": 1.0042927784439863,
+          "shell": "16.5-18.5 km"
+        },
+        {
+          "fixed_omega_mean_tau": 438212.1385348101,
+          "path_redshift_mean_tau": 440741.8543817674,
+          "path_redshift_over_fixed": 1.0057728109846877,
+          "shell": "18.5-20 km"
+        },
+        {
+          "fixed_omega_mean_tau": 919.5168983583525,
+          "path_redshift_mean_tau": 925.601734021609,
+          "path_redshift_over_fixed": 1.0066174266879924,
+          "shell": "20-22 km"
+        },
+        {
+          "fixed_omega_mean_tau": 0.7374079526884302,
+          "path_redshift_mean_tau": 0.7430547628612453,
+          "path_redshift_over_fixed": 1.0076576475100765,
+          "shell": "22-25 km"
+        }
+      ]
+    },
+    "dimuon": {
+      "fixed_omega_mean_tau": 0.0,
+      "path_redshift_mean_tau": 0.0,
+      "path_redshift_over_fixed": null,
+      "shell_ratios": [
+        {
+          "fixed_omega_mean_tau": 0.0,
+          "path_redshift_mean_tau": 0.0,
+          "path_redshift_over_fixed": null,
+          "shell": "0-5 km"
+        },
+        {
+          "fixed_omega_mean_tau": 0.0,
+          "path_redshift_mean_tau": 0.0,
+          "path_redshift_over_fixed": null,
+          "shell": "5-8 km"
+        },
+        {
+          "fixed_omega_mean_tau": 0.0,
+          "path_redshift_mean_tau": 0.0,
+          "path_redshift_over_fixed": null,
+          "shell": "8-10 km"
+        },
+        {
+          "fixed_omega_mean_tau": 0.0,
+          "path_redshift_mean_tau": 0.0,
+          "path_redshift_over_fixed": null,
+          "shell": "10-12 km"
+        },
+        {
+          "fixed_omega_mean_tau": 0.0,
+          "path_redshift_mean_tau": 0.0,
+          "path_redshift_over_fixed": null,
+          "shell": "12-15 km"
+        },
+        {
+          "fixed_omega_mean_tau": 0.0,
+          "path_redshift_mean_tau": 0.0,
+          "path_redshift_over_fixed": null,
+          "shell": "15-16.5 km"
+        },
+        {
+          "fixed_omega_mean_tau": 0.0,
+          "path_redshift_mean_tau": 0.0,
+          "path_redshift_over_fixed": null,
+          "shell": "16.5-18.5 km"
+        },
+        {
+          "fixed_omega_mean_tau": 0.0,
+          "path_redshift_mean_tau": 0.0,
+          "path_redshift_over_fixed": null,
+          "shell": "18.5-20 km"
+        },
+        {
+          "fixed_omega_mean_tau": 0.0,
+          "path_redshift_mean_tau": 0.0,
+          "path_redshift_over_fixed": null,
+          "shell": "20-22 km"
+        },
+        {
+          "fixed_omega_mean_tau": 0.0,
+          "path_redshift_mean_tau": 0.0,
+          "path_redshift_over_fixed": null,
+          "shell": "22-25 km"
+        }
+      ]
+    },
+    "nu_mu": {
+      "fixed_omega_mean_tau": 4126360558528932.5,
+      "path_redshift_mean_tau": 4386564119145991.0,
+      "path_redshift_over_fixed": 1.0630588522079667,
+      "shell_ratios": [
+        {
+          "fixed_omega_mean_tau": 47327289720038.21,
+          "path_redshift_mean_tau": 46915465426954.25,
+          "path_redshift_over_fixed": 0.9912983757252933,
+          "shell": "0-5 km"
+        },
+        {
+          "fixed_omega_mean_tau": 204338585713930.66,
+          "path_redshift_mean_tau": 203128648991547.38,
+          "path_redshift_over_fixed": 0.9940787653092736,
+          "shell": "5-8 km"
+        },
+        {
+          "fixed_omega_mean_tau": 266967447285286.38,
+          "path_redshift_mean_tau": 266748566865004.25,
+          "path_redshift_over_fixed": 0.9991801231854001,
+          "shell": "8-10 km"
+        },
+        {
+          "fixed_omega_mean_tau": 351255580331158.9,
+          "path_redshift_mean_tau": 353694846339229.56,
+          "path_redshift_over_fixed": 1.006944419233912,
+          "shell": "10-12 km"
+        },
+        {
+          "fixed_omega_mean_tau": 626095249828843.2,
+          "path_redshift_mean_tau": 641515101354701.4,
+          "path_redshift_over_fixed": 1.024628603283723,
+          "shell": "12-15 km"
+        },
+        {
+          "fixed_omega_mean_tau": 369260020912055.9,
+          "path_redshift_mean_tau": 387491867120689.94,
+          "path_redshift_over_fixed": 1.049374005243249,
+          "shell": "15-16.5 km"
+        },
+        {
+          "fixed_omega_mean_tau": 511882844431062.9,
+          "path_redshift_mean_tau": 548073472774308.9,
+          "path_redshift_over_fixed": 1.0707009987480054,
+          "shell": "16.5-18.5 km"
+        },
+        {
+          "fixed_omega_mean_tau": 409593775395899.25,
+          "path_redshift_mean_tau": 446393745951794.1,
+          "path_redshift_over_fixed": 1.0898450434709983,
+          "shell": "18.5-20 km"
+        },
+        {
+          "fixed_omega_mean_tau": 536627427800905.3,
+          "path_redshift_mean_tau": 592756323259429.2,
+          "path_redshift_over_fixed": 1.1045956515650712,
+          "shell": "20-22 km"
+        },
+        {
+          "fixed_omega_mean_tau": 803012337109751.9,
+          "path_redshift_mean_tau": 899846081062332.2,
+          "path_redshift_over_fixed": 1.1205881148739383,
+          "shell": "22-25 km"
+        }
+      ]
+    },
+    "nu_tau": {
+      "fixed_omega_mean_tau": 4198152935323371.0,
+      "path_redshift_mean_tau": 4454280017512124.5,
+      "path_redshift_over_fixed": 1.061009469196249,
+      "shell_ratios": [
+        {
+          "fixed_omega_mean_tau": 77784608555381.22,
+          "path_redshift_mean_tau": 75185965474246.12,
+          "path_redshift_over_fixed": 0.9665918087215813,
+          "shell": "0-5 km"
+        },
+        {
+          "fixed_omega_mean_tau": 234999293478762.6,
+          "path_redshift_mean_tau": 231941078497824.0,
+          "path_redshift_over_fixed": 0.9869862801046465,
+          "shell": "5-8 km"
+        },
+        {
+          "fixed_omega_mean_tau": 273201060352543.38,
+          "path_redshift_mean_tau": 272933644322652.12,
+          "path_redshift_over_fixed": 0.9990211749927098,
+          "shell": "8-10 km"
+        },
+        {
+          "fixed_omega_mean_tau": 354112129268508.7,
+          "path_redshift_mean_tau": 356588121227903.2,
+          "path_redshift_over_fixed": 1.0069921128217472,
+          "shell": "10-12 km"
+        },
+        {
+          "fixed_omega_mean_tau": 626461719555396.4,
+          "path_redshift_mean_tau": 641868872318504.9,
+          "path_redshift_over_fixed": 1.0245939253463772,
+          "shell": "12-15 km"
+        },
+        {
+          "fixed_omega_mean_tau": 369337526685321.94,
+          "path_redshift_mean_tau": 387514103084395.5,
+          "path_redshift_over_fixed": 1.0492139982692854,
+          "shell": "15-16.5 km"
+        },
+        {
+          "fixed_omega_mean_tau": 513008189927838.9,
+          "path_redshift_mean_tau": 549248007727095.5,
+          "path_redshift_over_fixed": 1.0706417919065858,
+          "shell": "16.5-18.5 km"
+        },
+        {
+          "fixed_omega_mean_tau": 409608642588960.6,
+          "path_redshift_mean_tau": 446397820537741.6,
+          "path_redshift_over_fixed": 1.0898154338645112,
+          "shell": "18.5-20 km"
+        },
+        {
+          "fixed_omega_mean_tau": 536627427800905.3,
+          "path_redshift_mean_tau": 592756323259429.2,
+          "path_redshift_over_fixed": 1.1045956515650712,
+          "shell": "20-22 km"
+        },
+        {
+          "fixed_omega_mean_tau": 803012337109751.9,
+          "path_redshift_mean_tau": 899846081062332.2,
+          "path_redshift_over_fixed": 1.1205881148739383,
+          "shell": "22-25 km"
+        }
+      ]
+    }
+  },
+  "mass_MeV": 10.0,
+  "path_redshift_only": {
+    "kinematic_range": {
+      "energy_ratio_local_over_source_max": 1.2264593804612884,
+      "energy_ratio_local_over_source_min": 0.8007059658131034,
+      "minimum_path_vector_speed": 0.3928524359784487,
+      "path_measure": "same Euclidean chord ds as Eq. (B.2); no metric path-length correction"
+    },
+    "luminosity_removal": {
+      "peak_index": 17,
+      "points": [
+        {
+          "baseline_log10_luminosity_erg_s": 51.99668031358913,
+          "g": 4.796429536550025e-10,
+          "index": 0,
+          "reference_luminosity_erg_s": 1.0893295563998579e+52,
+          "remove_all_nu_mu": {
+            "log10_luminosity_enhancement": 0.0004380368661432869,
+            "relative_luminosity_enhancement": 0.0010091259835048418
+          },
+          "remove_all_nu_tau": {
+            "log10_luminosity_enhancement": 0.0004447988720655806,
+            "relative_luminosity_enhancement": 0.0010247119110635735
+          },
+          "remove_both_outer_neutrino_flavours": {
+            "log10_luminosity_enhancement": 0.0005742568988709154,
+            "relative_luminosity_enhancement": 0.0013231499664138103
+          },
+          "remove_outer_nu_mu": {
+            "log10_luminosity_enhancement": 0.00028700737250270293,
+            "relative_luminosity_enhancement": 0.000661077312856578
+          },
+          "remove_outer_nu_tau": {
+            "log10_luminosity_enhancement": 0.00028712719305100317,
+            "relative_luminosity_enhancement": 0.0006613533922922662
+          }
+        },
+        {
+          "baseline_log10_luminosity_erg_s": 54.26905573661175,
+          "g": 1.1341108687336194e-08,
+          "index": 17,
+          "reference_luminosity_erg_s": 1.910994581282271e+54,
+          "remove_all_nu_mu": {
+            "log10_luminosity_enhancement": 0.1972934133477027,
+            "relative_luminosity_enhancement": 0.575046621072304
+          },
+          "remove_all_nu_tau": {
+            "log10_luminosity_enhancement": 0.20008346377496386,
+            "relative_luminosity_enhancement": 0.5851978103785483
+          },
+          "remove_both_outer_neutrino_flavours": {
+            "log10_luminosity_enhancement": 0.2659739916476952,
+            "relative_luminosity_enhancement": 0.8449049310747243
+          },
+          "remove_outer_nu_mu": {
+            "log10_luminosity_enhancement": 0.12409731884031817,
+            "relative_luminosity_enhancement": 0.3307525861441579
+          },
+          "remove_outer_nu_tau": {
+            "log10_luminosity_enhancement": 0.12413624808715283,
+            "relative_luminosity_enhancement": 0.3308718773624087
+          }
+        },
+        {
+          "baseline_log10_luminosity_erg_s": 52.23896026643489,
+          "g": 4.171689650228597e-08,
+          "index": 24,
+          "reference_luminosity_erg_s": 1.26781475907372e+52,
+          "remove_all_nu_mu": {
+            "log10_luminosity_enhancement": 1.1908873637841415,
+            "relative_luminosity_enhancement": 14.519844436513901
+          },
+          "remove_all_nu_tau": {
+            "log10_luminosity_enhancement": 1.1932787694843123,
+            "relative_luminosity_enhancement": 14.605538860535512
+          },
+          "remove_both_outer_neutrino_flavours": {
+            "log10_luminosity_enhancement": 2.1963071212611514,
+            "relative_luminosity_enhancement": 156.14737150106941
+          },
+          "remove_outer_nu_mu": {
+            "log10_luminosity_enhancement": 0.7788140878403631,
+            "relative_luminosity_enhancement": 5.009164429660494
+          },
+          "remove_outer_nu_tau": {
+            "log10_luminosity_enhancement": 0.7789116603585525,
+            "relative_luminosity_enhancement": 5.010514654450356
+          }
+        }
+      ]
+    },
+    "prescription": "omega_local(s)=omega_source*N(source)/N(path); update local rates and v_V(s), same Euclidean ds",
+    "shell_summary": {
+      "channels": {
+        "compton": {
+          "mean_tau": 947425259164120.9,
+          "shells": [
+            {
+              "mean_tau": 5099273681705.234,
+              "shell": "0-5 km"
+            },
+            {
+              "mean_tau": 162800361862821.8,
+              "shell": "5-8 km"
+            },
+            {
+              "mean_tau": 398626078365071.94,
+              "shell": "8-10 km"
+            },
+            {
+              "mean_tau": 282465384285796.44,
+              "shell": "10-12 km"
+            },
+            {
+              "mean_tau": 97682107414554.38,
+              "shell": "12-15 km"
+            },
+            {
+              "mean_tau": 744383185896.8152,
+              "shell": "15-16.5 km"
+            },
+            {
+              "mean_tau": 7669926606.01018,
+              "shell": "16.5-18.5 km"
+            },
+            {
+              "mean_tau": 440741.8543817674,
+              "shell": "18.5-20 km"
+            },
+            {
+              "mean_tau": 925.601734021609,
+              "shell": "20-22 km"
+            },
+            {
+              "mean_tau": 0.7430547628612453,
+              "shell": "22-25 km"
+            }
+          ]
+        },
+        "dimuon": {
+          "mean_tau": 0.0,
+          "shells": [
+            {
+              "mean_tau": 0.0,
+              "shell": "0-5 km"
+            },
+            {
+              "mean_tau": 0.0,
+              "shell": "5-8 km"
+            },
+            {
+              "mean_tau": 0.0,
+              "shell": "8-10 km"
+            },
+            {
+              "mean_tau": 0.0,
+              "shell": "10-12 km"
+            },
+            {
+              "mean_tau": 0.0,
+              "shell": "12-15 km"
+            },
+            {
+              "mean_tau": 0.0,
+              "shell": "15-16.5 km"
+            },
+            {
+              "mean_tau": 0.0,
+              "shell": "16.5-18.5 km"
+            },
+            {
+              "mean_tau": 0.0,
+              "shell": "18.5-20 km"
+            },
+            {
+              "mean_tau": 0.0,
+              "shell": "20-22 km"
+            },
+            {
+              "mean_tau": 0.0,
+              "shell": "22-25 km"
+            }
+          ]
+        },
+        "nu_mu": {
+          "mean_tau": 4386564119145991.0,
+          "shells": [
+            {
+              "mean_tau": 46915465426954.25,
+              "shell": "0-5 km"
+            },
+            {
+              "mean_tau": 203128648991547.38,
+              "shell": "5-8 km"
+            },
+            {
+              "mean_tau": 266748566865004.25,
+              "shell": "8-10 km"
+            },
+            {
+              "mean_tau": 353694846339229.56,
+              "shell": "10-12 km"
+            },
+            {
+              "mean_tau": 641515101354701.4,
+              "shell": "12-15 km"
+            },
+            {
+              "mean_tau": 387491867120689.94,
+              "shell": "15-16.5 km"
+            },
+            {
+              "mean_tau": 548073472774308.9,
+              "shell": "16.5-18.5 km"
+            },
+            {
+              "mean_tau": 446393745951794.1,
+              "shell": "18.5-20 km"
+            },
+            {
+              "mean_tau": 592756323259429.2,
+              "shell": "20-22 km"
+            },
+            {
+              "mean_tau": 899846081062332.2,
+              "shell": "22-25 km"
+            }
+          ]
+        },
+        "nu_tau": {
+          "mean_tau": 4454280017512124.5,
+          "shells": [
+            {
+              "mean_tau": 75185965474246.12,
+              "shell": "0-5 km"
+            },
+            {
+              "mean_tau": 231941078497824.0,
+              "shell": "5-8 km"
+            },
+            {
+              "mean_tau": 272933644322652.12,
+              "shell": "8-10 km"
+            },
+            {
+              "mean_tau": 356588121227903.2,
+              "shell": "10-12 km"
+            },
+            {
+              "mean_tau": 641868872318504.9,
+              "shell": "12-15 km"
+            },
+            {
+              "mean_tau": 387514103084395.5,
+              "shell": "15-16.5 km"
+            },
+            {
+              "mean_tau": 549248007727095.5,
+              "shell": "16.5-18.5 km"
+            },
+            {
+              "mean_tau": 446397820537741.6,
+              "shell": "18.5-20 km"
+            },
+            {
+              "mean_tau": 592756323259429.2,
+              "shell": "20-22 km"
+            },
+            {
+              "mean_tau": 899846081062332.2,
+              "shell": "22-25 km"
+            }
+          ]
+        }
+      },
+      "maximum_local_over_source_energy_ratio": 1.2264593804612884,
+      "minimum_local_over_source_energy_ratio": 0.8007059658131034,
+      "minimum_local_vector_speed": 0.3928524359784487,
+      "outer_fraction_of_total_mean_tau": 0.5875477724232188,
+      "outer_r_ge_15km_mean_tau": 5751075879393720.0,
+      "total_by_shell": [
+        {
+          "mean_tau": 127200704582905.6,
+          "shell": "0-5 km"
+        },
+        {
+          "mean_tau": 597870089352193.4,
+          "shell": "5-8 km"
+        },
+        {
+          "mean_tau": 938308289552728.2,
+          "shell": "8-10 km"
+        },
+        {
+          "mean_tau": 992748351852929.2,
+          "shell": "10-12 km"
+        },
+        {
+          "mean_tau": 1381066081087760.5,
+          "shell": "12-15 km"
+        },
+        {
+          "mean_tau": 775750353390982.1,
+          "shell": "15-16.5 km"
+        },
+        {
+          "mean_tau": 1097329150428010.5,
+          "shell": "16.5-18.5 km"
+        },
+        {
+          "mean_tau": 892791566930277.5,
+          "shell": "18.5-20 km"
+        },
+        {
+          "mean_tau": 1185512646519784.0,
+          "shell": "20-22 km"
+        },
+        {
+          "mean_tau": 1799692162124665.5,
+          "shell": "22-25 km"
+        }
+      ],
+      "total_mean_tau": 9788269395822236.0
+    }
+  },
+  "provenance": {
+    "fig7_path": "/home/runner/work/axial-vector-review-response/axial-vector-review-response/research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json",
+    "fig7_sha256": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4",
+    "profile_identity": "digitized public-figure SFHo-18.8, t_pb=1 s; not original Garching simulation table",
+    "profile_path": "/home/runner/work/axial-vector-review-response/axial-vector-review-response/research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv",
+    "profile_sha256": "08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9",
+    "reference_pdf_sha256": "4d7d1d10bfe2b52992af94df98749fa3adac887c009cbf98515fa12e6c48fdb5",
+    "source_reference": "Blinov et al., JHEP 06 (2026) 155, arXiv:2511.09619, Appendix B"
+  },
+  "scope": [
+    "Pure-vector B.14--B.16 benchmark at m_V=10 MeV.",
+    "Fixed omega is the literal published Eq. (B.2) baseline.",
+    "Path redshift changes omega_loc(s)=omega_source*N(source)/N(path) and local v_V(s), but retains the Euclidean straight-chord ds; it is not a full GR ray trace.",
+    "The Eq. (B.1) source, source energy variable, coupling grid, profile, radial/angular/path quadrature, and production rates at the source are held fixed.",
+    "No rescaling of rates, couplings, or luminosities."
+  ],
+  "title": "B.16 flavor-resolved radial opacity: fixed omega versus path-redshift diagnostic"
+}

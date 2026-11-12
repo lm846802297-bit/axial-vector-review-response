@@ -1,0 +1,4537 @@
+{
+  "curve_support": {
+    "fig1_temperature": {
+      "frame": {
+        "length_pdf": 202.94949340820312,
+        "x_max_pdf": 549.4555053710938,
+        "x_min_pdf": 346.5060119628906,
+        "y_pdf": 177.6042938232422
+      },
+      "path_radius_km": [
+        0.11665143288823625,
+        20.701405333105964
+      ],
+      "path_x_pdf": [
+        337.0707702636719,
+        556.94775390625
+      ],
+      "usable_radius_km": [
+        0.999973211957248,
+        19.99998543139328
+      ]
+    },
+    "fig4_mu_over_T": {
+      "frame": {
+        "length_pdf": 201.43634033203125,
+        "x_max_pdf": 549.4570922851562,
+        "x_min_pdf": 348.020751953125,
+        "y_pdf": 291.43780517578125
+      },
+      "path_radius_km": [
+        0.11677786023720876,
+        20.7012756762906
+      ],
+      "path_x_pdf": [
+        338.65692138671875,
+        556.8917846679688
+      ],
+      "usable_radius_km": [
+        0.9999994818700335,
+        20.000015543899178
+      ]
+    },
+    "joint_usable_radius_km": [
+      0.9999994818700335,
+      19.99998543139328
+    ]
+  },
+  "intervals": {
+    "15_20km": {
+      "T_comparison": {
+        "count": 293,
+        "maximum_absolute_difference": 0.0010237329086244529,
+        "maximum_absolute_relative_difference": 0.0001627955518559432,
+        "maximum_relative_difference": 0.0001627955518559432,
+        "maximum_signed_difference": 0.0010237329086244529,
+        "mean_absolute_difference": 0.000289402967021696,
+        "mean_absolute_relative_difference": 4.295174551114146e-05,
+        "minimum_relative_difference": -0.0001410529598053767,
+        "minimum_signed_difference": -0.000996903891886447,
+        "radial_range_km": [
+          15.0,
+          19.9699139705411
+        ],
+        "relative_count": 293,
+        "relative_denominator_threshold": 1e-12,
+        "rms_difference": 0.0003592371196683231
+      },
+      "mu_mu_derived_comparison": {
+        "count": 293,
+        "maximum_absolute_difference": 0.007734298303169851,
+        "maximum_absolute_relative_difference": 0.00021238425648562043,
+        "maximum_relative_difference": 0.00021238425648562043,
+        "maximum_signed_difference": 0.007734298303169851,
+        "mean_absolute_difference": 0.0015371863855562112,
+        "mean_absolute_relative_difference": 5.111692635826284e-05,
+        "minimum_relative_difference": -0.00013237190114989694,
+        "minimum_signed_difference": -0.004117943722924622,
+        "radial_range_km": [
+          15.0,
+          19.9699139705411
+        ],
+        "relative_count": 293,
+        "relative_denominator_threshold": 1.0,
+        "rms_difference": 0.002027209845350295
+      },
+      "mu_over_T_comparison": {
+        "count": 294,
+        "maximum_absolute_difference": 0.000728341651276665,
+        "maximum_absolute_relative_difference": 0.00015474093087286533,
+        "maximum_relative_difference": 0.00015474093087286533,
+        "maximum_signed_difference": 0.000728341651276665,
+        "mean_absolute_difference": 0.0002007188714428332,
+        "mean_absolute_relative_difference": 4.6841639723532686e-05,
+        "minimum_relative_difference": -8.760778028726879e-05,
+        "minimum_signed_difference": -0.00041931085546931257,
+        "radial_range_km": [
+          15.0,
+          20.0
+        ],
+        "relative_count": 294,
+        "relative_denominator_threshold": 0.1,
+        "rms_difference": 0.0002522131918686371
+      },
+      "requested_interval_km": [
+        15.0,
+        20.0
+      ],
+      "rows": [
+        {
+          "T_Bollig_MeV": 13.23075073206945,
+          "T_Caputo_MeV": 13.2314158304208,
+          "eta_Bollig": 4.707347106476416,
+          "eta_Caputo": 4.707184694793657,
+          "mu_mu_Bollig_derived_MeV": 62.28173617511785,
+          "mu_mu_Caputo_MeV": 62.2827180874073,
+          "r_km": 15.0
+        },
+        {
+          "T_Bollig_MeV": 13.14699735490538,
+          "T_Caputo_MeV": 13.1478585540638,
+          "eta_Bollig": 4.7048549874289955,
+          "eta_Caputo": 4.704600581784289,
+          "mu_mu_Bollig_derived_MeV": 61.85471607494239,
+          "mu_mu_Caputo_MeV": 61.8554230026661,
+          "r_km": 15.0203931055687
+        },
+        {
+          "T_Bollig_MeV": 13.02464301607199,
+          "T_Caputo_MeV": 13.0255572594813,
+          "eta_Bollig": 4.714047966700592,
+          "eta_Caputo": 4.713692803191592,
+          "mu_mu_Bollig_derived_MeV": 61.39879192691523,
+          "mu_mu_Caputo_MeV": 61.398475511577,
+          "r_km": 15.05
+        },
+        {
+          "T_Bollig_MeV": 12.818005985808025,
+          "T_Caputo_MeV": 12.8190153425872,
+          "eta_Bollig": 4.72960393431216,
+          "eta_Caputo": 4.7294416046482315,
+          "mu_mu_Bollig_derived_MeV": 60.62409154051445,
+          "mu_mu_Caputo_MeV": 60.6267844918559,
+          "r_km": 15.1
+        },
+        {
+          "T_Bollig_MeV": 12.786773355827076,
+          "T_Caputo_MeV": 12.7877970887357,
+          "eta_Bollig": 4.731955176873996,
+          "eta_Caputo": 4.731866251474396,
+          "mu_mu_Bollig_derived_MeV": 60.50643837662041,
+          "mu_mu_Caputo_MeV": 60.510145474891,
+          "r_km": 15.1075573651879
+        },
+        {
+          "T_Bollig_MeV": 12.610968773334848,
+          "T_Caputo_MeV": 12.6115965576329,
+          "eta_Bollig": 4.748101737913896,
+          "eta_Caputo": 4.747795710870687,
+          "mu_mu_Bollig_derived_MeV": 59.87816274944907,
+          "mu_mu_Caputo_MeV": 59.877284043561,
+          "r_km": 15.15
+        },
+        {
+          "T_Bollig_MeV": 12.437359267618607,
+          "T_Caputo_MeV": 12.4375933663279,
+          "eta_Bollig": 4.764049707838435,
+          "eta_Caputo": 4.763969449486455,
+          "mu_mu_Bollig_derived_MeV": 59.25219778518008,
+          "mu_mu_Caputo_MeV": 59.2523148223215,
+          "r_km": 15.1919133464495
+        },
+        {
+          "T_Bollig_MeV": 12.404092242007678,
+          "T_Caputo_MeV": 12.4043591941221,
+          "eta_Bollig": 4.767137375248956,
+          "eta_Caputo": 4.766959547341052,
+          "mu_mu_Bollig_derived_MeV": 59.13201173291043,
+          "mu_mu_Caputo_MeV": 59.1310784890681,
+          "r_km": 15.2
+        },
+        {
+          "T_Bollig_MeV": 12.401388401107676,
+          "T_Caputo_MeV": 12.401658023445,
+          "eta_Bollig": 4.767388331301588,
+          "eta_Caputo": 4.76720327743984,
+          "mu_mu_Bollig_derived_MeV": 59.1222343553796,
+          "mu_mu_Caputo_MeV": 59.1212247750551,
+          "r_km": 15.2006572581772
+        },
+        {
+          "T_Bollig_MeV": 12.400127018872798,
+          "T_Caputo_MeV": 12.4003978869095,
+          "eta_Bollig": 4.767505406054962,
+          "eta_Caputo": 4.7673170175002175,
+          "mu_mu_Bollig_derived_MeV": 59.11767259824426,
+          "mu_mu_Caputo_MeV": 59.1166278700374,
+          "r_km": 15.2009638789508
+        },
+        {
+          "T_Bollig_MeV": 12.370301130174507,
+          "T_Caputo_MeV": 12.3706014532639,
+          "eta_Bollig": 4.770273685539894,
+          "eta_Caputo": 4.770013198683961,
+          "mu_mu_Bollig_derived_MeV": 59.00972196347586,
+          "mu_mu_Caputo_MeV": 59.0079322077278,
+          "r_km": 15.208214050083
+        },
+        {
+          "T_Bollig_MeV": 12.340482134698046,
+          "T_Caputo_MeV": 12.3408119060331,
+          "eta_Bollig": 4.773041325232845,
+          "eta_Caputo": 4.7727217718848785,
+          "mu_mu_Bollig_derived_MeV": 58.90163120221141,
+          "mu_mu_Caputo_MeV": 58.8992616666603,
+          "r_km": 15.2154625455891
+        },
+        {
+          "T_Bollig_MeV": 12.27861740057691,
+          "T_Caputo_MeV": 12.2790082674602,
+          "eta_Bollig": 4.778783279011348,
+          "eta_Caputo": 4.778383098908397,
+          "mu_mu_Bollig_derived_MeV": 58.676851523254726,
+          "mu_mu_Caputo_MeV": 58.6738055765883,
+          "r_km": 15.2305008203565
+        },
+        {
+          "T_Bollig_MeV": 12.198401313101197,
+          "T_Caputo_MeV": 12.1988713987172,
+          "eta_Bollig": 4.7862285072681505,
+          "eta_Caputo": 4.785809196412681,
+          "mu_mu_Bollig_derived_MeV": 58.38433610786219,
+          "mu_mu_Caputo_MeV": 58.3814709258364,
+          "r_km": 15.25
+        },
+        {
+          "T_Bollig_MeV": 12.15711467550322,
+          "T_Caputo_MeV": 12.1576255344258,
+          "eta_Bollig": 4.790060512175719,
+          "eta_Caputo": 4.78966951560509,
+          "mu_mu_Bollig_derived_MeV": 58.2333149491199,
+          "mu_mu_Caputo_MeV": 58.2310084043813,
+          "r_km": 15.260036086136
+        },
+        {
+          "T_Bollig_MeV": 12.103066033035265,
+          "T_Caputo_MeV": 12.1036302685945,
+          "eta_Bollig": 4.795077821740745,
+          "eta_Caputo": 4.794762853580766,
+          "mu_mu_Bollig_derived_MeV": 58.03514351007114,
+          "mu_mu_Caputo_MeV": 58.0340368053327,
+          "r_km": 15.2731744006828
+        },
+        {
+          "T_Bollig_MeV": 11.993090055934868,
+          "T_Caputo_MeV": 11.9936128761716,
+          "eta_Bollig": 4.806498813414108,
+          "eta_Caputo": 4.806106769002419,
+          "mu_mu_Bollig_derived_MeV": 57.64477312301948,
+          "mu_mu_Caputo_MeV": 57.6425840289629,
+          "r_km": 15.3
+        },
+        {
+          "T_Bollig_MeV": 11.913804960491357,
+          "T_Caputo_MeV": 11.914297111667,
+          "eta_Bollig": 4.814732645047696,
+          "eta_Caputo": 4.814414996306364,
+          "mu_mu_Bollig_derived_MeV": 57.36178567000891,
+          "mu_mu_Caputo_MeV": 57.3603706848592,
+          "r_km": 15.3193396050505
+        },
+        {
+          "T_Bollig_MeV": 11.788108891023583,
+          "T_Caputo_MeV": 11.7885524204444,
+          "eta_Bollig": 4.827786299927115,
+          "eta_Caputo": 4.827815714108485,
+          "mu_mu_Bollig_derived_MeV": 56.91047060613267,
+          "mu_mu_Caputo_MeV": 56.9129586220131,
+          "r_km": 15.35
+        },
+        {
+          "T_Bollig_MeV": 11.782613231663262,
+          "T_Caputo_MeV": 11.783054635253,
+          "eta_Bollig": 4.8283570293137075,
+          "eta_Caputo": 4.828408143647694,
+          "mu_mu_Bollig_derived_MeV": 56.89066342078601,
+          "mu_mu_Caputo_MeV": 56.8933969579013,
+          "r_km": 15.3513405278877
+        },
+        {
+          "T_Bollig_MeV": 11.586179599880625,
+          "T_Caputo_MeV": 11.5862478615155,
+          "eta_Bollig": 4.846933031652866,
+          "eta_Caputo": 4.847027719568174,
+          "mu_mu_Bollig_derived_MeV": 56.15743661332399,
+          "mu_mu_Caputo_MeV": 56.1588645505531,
+          "r_km": 15.4
+        },
+        {
+          "T_Bollig_MeV": 11.478401320549091,
+          "T_Caputo_MeV": 11.4782598931246,
+          "eta_Bollig": 4.857133376869441,
+          "eta_Caputo": 4.8575155812607855,
+          "mu_mu_Bollig_derived_MeV": 55.752126167141256,
+          "mu_mu_Caputo_MeV": 55.7558262766135,
+          "r_km": 15.4266994750058
+        },
+        {
+          "T_Bollig_MeV": 11.433029238816545,
+          "T_Caputo_MeV": 11.4330065417872,
+          "eta_Bollig": 4.862408237300279,
+          "eta_Caputo": 4.862633780560524,
+          "mu_mu_Bollig_derived_MeV": 55.592055548116505,
+          "mu_mu_Caputo_MeV": 55.5945238234639,
+          "r_km": 15.4380219519237
+        },
+        {
+          "T_Bollig_MeV": 11.385030114574112,
+          "T_Caputo_MeV": 11.385133022427,
+          "eta_Bollig": 4.867988512031196,
+          "eta_Caputo": 4.868092612772639,
+          "mu_mu_Bollig_derived_MeV": 55.42219580687598,
+          "mu_mu_Caputo_MeV": 55.4238819619107,
+          "r_km": 15.45
+        },
+        {
+          "T_Bollig_MeV": 11.372465215154232,
+          "T_Caputo_MeV": 11.3726010030385,
+          "eta_Bollig": 4.86944928015636,
+          "eta_Caputo": 4.869529180473986,
+          "mu_mu_Bollig_derived_MeV": 55.37764255553602,
+          "mu_mu_Caputo_MeV": 55.3792124421837,
+          "r_km": 15.4531355357353
+        },
+        {
+          "T_Bollig_MeV": 11.19508297892478,
+          "T_Caputo_MeV": 11.1956829435049,
+          "eta_Bollig": 4.8900713566247855,
+          "eta_Caputo": 4.890152792274431,
+          "mu_mu_Bollig_derived_MeV": 54.744754610277745,
+          "mu_mu_Caputo_MeV": 54.7486002075997,
+          "r_km": 15.4974007798824
+        },
+        {
+          "T_Bollig_MeV": 11.18882077650279,
+          "T_Caputo_MeV": 11.1894371281153,
+          "eta_Bollig": 4.890799319083293,
+          "eta_Caputo": 4.890892794905186,
+          "mu_mu_Bollig_derived_MeV": 54.72227703506485,
+          "mu_mu_Caputo_MeV": 54.7263374289437,
+          "r_km": 15.4989634950956
+        },
+        {
+          "T_Bollig_MeV": 11.18486912149991,
+          "T_Caputo_MeV": 11.1855199800743,
+          "eta_Bollig": 4.891163230553667,
+          "eta_Caputo": 4.891248578785372,
+          "mu_mu_Bollig_derived_MeV": 54.707020585635455,
+          "mu_mu_Caputo_MeV": 54.7111587055138,
+          "r_km": 15.5
+        },
+        {
+          "T_Bollig_MeV": 10.995972369332243,
+          "T_Caputo_MeV": 10.9965605248766,
+          "eta_Bollig": 4.908717969987728,
+          "eta_Caputo": 4.908712279566682,
+          "mu_mu_Bollig_derived_MeV": 53.97612716682971,
+          "mu_mu_Caputo_MeV": 53.97895168146,
+          "r_km": 15.55
+        },
+        {
+          "T_Bollig_MeV": 10.969479240193786,
+          "T_Caputo_MeV": 10.970058601519,
+          "eta_Bollig": 4.911180055616417,
+          "eta_Caputo": 4.911209703547351,
+          "mu_mu_Bollig_derived_MeV": 53.873087664938055,
+          "mu_mu_Caputo_MeV": 53.8762582522632,
+          "r_km": 15.5570125951967
+        },
+        {
+          "T_Bollig_MeV": 10.925303702586431,
+          "T_Caputo_MeV": 10.9258591450747,
+          "eta_Bollig": 4.9152789323993025,
+          "eta_Caputo": 4.915401817544237,
+          "mu_mu_Bollig_derived_MeV": 53.70091511938718,
+          "mu_mu_Caputo_MeV": 53.7049878999325,
+          "r_km": 15.5687080820401
+        },
+        {
+          "T_Bollig_MeV": 10.81194446425548,
+          "T_Caputo_MeV": 10.8118546165962,
+          "eta_Bollig": 4.924146415966189,
+          "eta_Caputo": 4.924390438215247,
+          "mu_mu_Bollig_derived_MeV": 53.239597583289104,
+          "mu_mu_Caputo_MeV": 53.2417934933397,
+          "r_km": 15.6
+        },
+        {
+          "T_Bollig_MeV": 10.684110856945995,
+          "T_Caputo_MeV": 10.6832933247278,
+          "eta_Bollig": 4.9341461515748914,
+          "eta_Caputo": 4.934756925585851,
+          "mu_mu_Bollig_derived_MeV": 52.7169644677996,
+          "mu_mu_Caputo_MeV": 52.7194557222656,
+          "r_km": 15.6352874526271
+        },
+        {
+          "T_Bollig_MeV": 10.633153631407335,
+          "T_Caputo_MeV": 10.6325727163616,
+          "eta_Bollig": 4.93688243662803,
+          "eta_Caputo": 4.9372911259354675,
+          "mu_mu_Bollig_derived_MeV": 52.49462940886244,
+          "mu_mu_Caputo_MeV": 52.4961069183557,
+          "r_km": 15.65
+        },
+        {
+          "T_Bollig_MeV": 10.544197525287972,
+          "T_Caputo_MeV": 10.5439909731267,
+          "eta_Bollig": 4.941636328917828,
+          "eta_Caputo": 4.94177548978038,
+          "mu_mu_Bollig_derived_MeV": 52.1055895502485,
+          "mu_mu_Caputo_MeV": 52.1060361554631,
+          "r_km": 15.6756949420699
+        },
+        {
+          "T_Bollig_MeV": 10.543926310740023,
+          "T_Caputo_MeV": 10.543720899958,
+          "eta_Bollig": 4.941650822861017,
+          "eta_Caputo": 4.941789277184932,
+          "mu_mu_Bollig_derived_MeV": 52.10440212965436,
+          "mu_mu_Caputo_MeV": 52.1048468850431,
+          "r_km": 15.6757732823031
+        },
+        {
+          "T_Bollig_MeV": 10.461073026276766,
+          "T_Caputo_MeV": 10.4612162952639,
+          "eta_Bollig": 4.946072894517751,
+          "eta_Caputo": 4.946034515854979,
+          "mu_mu_Bollig_derived_MeV": 51.74122974283829,
+          "mu_mu_Caputo_MeV": 51.7415368741998,
+          "r_km": 15.6997054263397
+        },
+        {
+          "T_Bollig_MeV": 10.460090308004018,
+          "T_Caputo_MeV": 10.460231037581,
+          "eta_Bollig": 4.946101661178962,
+          "eta_Caputo": 4.946065239482715,
+          "mu_mu_Bollig_derived_MeV": 51.736670048500635,
+          "mu_mu_Caputo_MeV": 51.7369851319376,
+          "r_km": 15.7
+        },
+        {
+          "T_Bollig_MeV": 10.444718720239074,
+          "T_Caputo_MeV": 10.4447999237818,
+          "eta_Bollig": 4.9465522048594766,
+          "eta_Caputo": 4.946547189493722,
+          "mu_mu_Bollig_derived_MeV": 51.66534641473564,
+          "mu_mu_Caputo_MeV": 51.6656957078071,
+          "r_km": 15.7046136150498
+        },
+        {
+          "T_Bollig_MeV": 10.347340651181714,
+          "T_Caputo_MeV": 10.3470447609354,
+          "eta_Bollig": 4.949406371540597,
+          "eta_Caputo": 4.949633711467535,
+          "mu_mu_Bollig_derived_MeV": 51.213193747459805,
+          "mu_mu_Caputo_MeV": 51.2140815627894,
+          "r_km": 15.7338405844295
+        },
+        {
+          "T_Bollig_MeV": 10.293500902526711,
+          "T_Caputo_MeV": 10.2929965193926,
+          "eta_Bollig": 4.950984423130842,
+          "eta_Caputo": 4.951365399030113,
+          "mu_mu_Bollig_derived_MeV": 50.96296262789301,
+          "mu_mu_Caputo_MeV": 50.9643868184579,
+          "r_km": 15.75
+        },
+        {
+          "T_Bollig_MeV": 10.255073132712996,
+          "T_Caputo_MeV": 10.2544199391388,
+          "eta_Bollig": 4.952110747171704,
+          "eta_Caputo": 4.952612543954767,
+          "mu_mu_Bollig_derived_MeV": 50.78425787353982,
+          "mu_mu_Caputo_MeV": 50.7861688215587,
+          "r_km": 15.761533677578
+        },
+        {
+          "T_Bollig_MeV": 10.157612071681365,
+          "T_Caputo_MeV": 10.1574402474752,
+          "eta_Bollig": 4.9533071444002506,
+          "eta_Caputo": 4.953684283462633,
+          "mu_mu_Bollig_derived_MeV": 50.313772444705535,
+          "mu_mu_Caputo_MeV": 50.3167521141287,
+          "r_km": 15.7919862267892
+        },
+        {
+          "T_Bollig_MeV": 10.131970431997242,
+          "T_Caputo_MeV": 10.1319194528232,
+          "eta_Bollig": 4.953620293921301,
+          "eta_Caputo": 4.953969728176487,
+          "mu_mu_Bollig_derived_MeV": 50.189934349352114,
+          "mu_mu_Caputo_MeV": 50.1932222576086,
+          "r_km": 15.8
+        },
+        {
+          "T_Bollig_MeV": 10.06160505307607,
+          "T_Caputo_MeV": 10.0618786418691,
+          "eta_Bollig": 4.954475034821724,
+          "eta_Caputo": 4.954760560075723,
+          "mu_mu_Bollig_derived_MeV": 49.849971045701494,
+          "mu_mu_Caputo_MeV": 49.8541994550013,
+          "r_km": 15.8219934834374
+        },
+        {
+          "T_Bollig_MeV": 9.975647841658652,
+          "T_Caputo_MeV": 9.97569128465899,
+          "eta_Bollig": 4.9543649806272745,
+          "eta_Caputo": 4.954760560075715,
+          "mu_mu_Bollig_derived_MeV": 49.42300032578368,
+          "mu_mu_Caputo_MeV": 49.4271617367194,
+          "r_km": 15.85
+        },
+        {
+          "T_Bollig_MeV": 9.882008968530807,
+          "T_Caputo_MeV": 9.88180169850381,
+          "eta_Bollig": 4.954245091317452,
+          "eta_Caputo": 4.954760560075716,
+          "mu_mu_Bollig_derived_MeV": 48.95789442469878,
+          "mu_mu_Caputo_MeV": 48.9619613182359,
+          "r_km": 15.8805093500349
+        },
+        {
+          "T_Bollig_MeV": 9.824595099637584,
+          "T_Caputo_MeV": 9.82447425061581,
+          "eta_Bollig": 4.953172827751594,
+          "eta_Caputo": 4.953642933845157,
+          "mu_mu_Bollig_derived_MeV": 48.66291749118634,
+          "mu_mu_Caputo_MeV": 48.6669374503067,
+          "r_km": 15.9
+        },
+        {
+          "T_Bollig_MeV": 9.799307777097239,
+          "T_Caputo_MeV": 9.79922099039537,
+          "eta_Bollig": 4.952699476240277,
+          "eta_Caputo": 4.953146460411449,
+          "mu_mu_Bollig_derived_MeV": 48.53302649514677,
+          "mu_mu_Caputo_MeV": 48.5369767633664,
+          "r_km": 15.9085858079082
+        },
+        {
+          "T_Bollig_MeV": 9.756832365651322,
+          "T_Caputo_MeV": 9.75680279382671,
+          "eta_Bollig": 4.951904382170132,
+          "eta_Caputo": 4.9523067441714845,
+          "mu_mu_Bollig_derived_MeV": 48.314900947568155,
+          "mu_mu_Caputo_MeV": 48.3186802774192,
+          "r_km": 15.9230074898761
+        },
+        {
+          "T_Bollig_MeV": 9.714741122942398,
+          "T_Caputo_MeV": 9.71476824851501,
+          "eta_Bollig": 4.951114595950036,
+          "eta_Caputo": 4.951467388917351,
+          "mu_mu_Bollig_derived_MeV": 48.098796569676146,
+          "mu_mu_Caputo_MeV": 48.1023581734118,
+          "r_km": 15.9372987349828
+        },
+        {
+          "T_Bollig_MeV": 9.71415220211751,
+          "T_Caputo_MeV": 9.71418338595159,
+          "eta_Bollig": 4.951084713338892,
+          "eta_Caputo": 4.951437031065753,
+          "mu_mu_Bollig_derived_MeV": 48.095590470951336,
+          "mu_mu_Caputo_MeV": 48.0991673437644,
+          "r_km": 15.9375044808881
+        },
+        {
+          "T_Bollig_MeV": 9.67886124577662,
+          "T_Caputo_MeV": 9.67866306136812,
+          "eta_Bollig": 4.949269859536011,
+          "eta_Caputo": 4.949586436812087,
+          "mu_mu_Bollig_derived_MeV": 47.9032962383534,
+          "mu_mu_Caputo_MeV": 47.9053794150218,
+          "r_km": 15.95
+        },
+        {
+          "T_Bollig_MeV": 9.631606795950807,
+          "T_Caputo_MeV": 9.63110148837982,
+          "eta_Bollig": 4.946839777530271,
+          "eta_Caputo": 4.947087122755943,
+          "mu_mu_Bollig_derived_MeV": 47.64601561974034,
+          "mu_mu_Caputo_MeV": 47.6458981511194,
+          "r_km": 15.9667314502678
+        },
+        {
+          "T_Bollig_MeV": 9.555969017581177,
+          "T_Caputo_MeV": 9.55497211368929,
+          "eta_Bollig": 4.942950069685874,
+          "eta_Caputo": 4.943034811161757,
+          "mu_mu_Bollig_derived_MeV": 47.234677721368925,
+          "mu_mu_Caputo_MeV": 47.230559777646,
+          "r_km": 15.9935126260475
+        },
+        {
+          "T_Bollig_MeV": 9.53832231918775,
+          "T_Caputo_MeV": 9.53741117670316,
+          "eta_Bollig": 4.941441768449384,
+          "eta_Caputo": 4.941567429815211,
+          "mu_mu_Bollig_derived_MeV": 47.133064308967356,
+          "mu_mu_Caputo_MeV": 47.1297604355519,
+          "r_km": 16.0
+        },
+        {
+          "T_Bollig_MeV": 9.470714645427325,
+          "T_Caputo_MeV": 9.47007036064617,
+          "eta_Bollig": 4.935632704110357,
+          "eta_Caputo": 4.935890024465793,
+          "mu_mu_Bollig_derived_MeV": 46.74396893526803,
+          "mu_mu_Caputo_MeV": 46.7432258241026,
+          "r_km": 16.0248770926275
+        },
+        {
+          "T_Bollig_MeV": 9.405528166286906,
+          "T_Caputo_MeV": 9.40514118238821,
+          "eta_Bollig": 4.9300316764414704,
+          "eta_Caputo": 4.930338955522294,
+          "mu_mu_Bollig_derived_MeV": 46.36955179345691,
+          "mu_mu_Caputo_MeV": 46.3705339537156,
+          "r_km": 16.0488632762874
+        },
+        {
+          "T_Bollig_MeV": 9.402541767789481,
+          "T_Caputo_MeV": 9.4021598977244,
+          "eta_Bollig": 4.929695349008228,
+          "eta_Caputo": 4.93000227658932,
+          "mu_mu_Bollig_derived_MeV": 46.35166642152741,
+          "mu_mu_Caputo_MeV": 46.3526697006381,
+          "r_km": 16.05
+        },
+        {
+          "T_Bollig_MeV": 9.27176806623531,
+          "T_Caputo_MeV": 9.2710249248785,
+          "eta_Bollig": 4.914838285683501,
+          "eta_Caputo": 4.91497886390235,
+          "mu_mu_Bollig_derived_MeV": 45.56924066791098,
+          "mu_mu_Caputo_MeV": 45.5668915524897,
+          "r_km": 16.1
+        },
+        {
+          "T_Bollig_MeV": 9.265647133576831,
+          "T_Caputo_MeV": 9.26488708272504,
+          "eta_Bollig": 4.914142892932265,
+          "eta_Caputo": 4.914265266460898,
+          "mu_mu_Bollig_derived_MeV": 45.5327140098848,
+          "mu_mu_Caputo_MeV": 45.5301127883179,
+          "r_km": 16.1023402765945
+        },
+        {
+          "T_Bollig_MeV": 9.168014023326318,
+          "T_Caputo_MeV": 9.16793777326123,
+          "eta_Bollig": 4.90084863813568,
+          "eta_Caputo": 4.9009792774815795,
+          "mu_mu_Bollig_derived_MeV": 44.931049040627606,
+          "mu_mu_Caputo_MeV": 44.9318730439939,
+          "r_km": 16.1410930683025
+        },
+        {
+          "T_Bollig_MeV": 9.167039992589208,
+          "T_Caputo_MeV": 9.1669705099253,
+          "eta_Bollig": 4.90071597918952,
+          "eta_Caputo": 4.9008453072863105,
+          "mu_mu_Bollig_derived_MeV": 44.925059373551306,
+          "mu_mu_Caputo_MeV": 44.9259044055994,
+          "r_km": 16.1414797049355
+        },
+        {
+          "T_Bollig_MeV": 9.147423300021899,
+          "T_Caputo_MeV": 9.14749011082866,
+          "eta_Bollig": 4.8980442670310245,
+          "eta_Caputo": 4.898141155766367,
+          "mu_mu_Bollig_derived_MeV": 44.80448425277827,
+          "mu_mu_Caputo_MeV": 44.8056977838157,
+          "r_km": 16.1492664530079
+        },
+        {
+          "T_Bollig_MeV": 9.145575318593202,
+          "T_Caputo_MeV": 9.14565496886312,
+          "eta_Bollig": 4.897792579625785,
+          "eta_Caputo": 4.8978858187024095,
+          "mu_mu_Bollig_derived_MeV": 44.79313093181451,
+          "mu_mu_Caputo_MeV": 44.7943737747399,
+          "r_km": 16.15
+        },
+        {
+          "T_Bollig_MeV": 9.131825772843854,
+          "T_Caputo_MeV": 9.13199738224737,
+          "eta_Bollig": 4.895921502877207,
+          "eta_Caputo": 4.895982312363543,
+          "mu_mu_Bollig_derived_MeV": 44.70870216179449,
+          "mu_mu_Caputo_MeV": 44.7100976600333,
+          "r_km": 16.1554592406308
+        },
+        {
+          "T_Bollig_MeV": 9.089071231013754,
+          "T_Caputo_MeV": 9.08907628911111,
+          "eta_Bollig": 4.8902503190026305,
+          "eta_Caputo": 4.890532629877843,
+          "mu_mu_Bollig_derived_MeV": 44.447833486902645,
+          "mu_mu_Caputo_MeV": 44.4504241673469,
+          "r_km": 16.1727864088804
+        },
+        {
+          "T_Bollig_MeV": 9.02192208101359,
+          "T_Caputo_MeV": 9.02166555804457,
+          "eta_Bollig": 4.881343307949032,
+          "eta_Caputo": 4.881868827896704,
+          "mu_mu_Bollig_derived_MeV": 44.039098974993294,
+          "mu_mu_Caputo_MeV": 44.0425878635271,
+          "r_km": 16.2
+        },
+        {
+          "T_Bollig_MeV": 9.011054186779157,
+          "T_Caputo_MeV": 9.01075532767679,
+          "eta_Bollig": 4.8799017341677535,
+          "eta_Caputo": 4.880454428857632,
+          "mu_mu_Bollig_derived_MeV": 43.9730589527432,
+          "mu_mu_Caputo_MeV": 43.9765807463127,
+          "r_km": 16.204404440414
+        },
+        {
+          "T_Bollig_MeV": 9.003422550731775,
+          "T_Caputo_MeV": 9.00309350065177,
+          "eta_Bollig": 4.878883571612274,
+          "eta_Caputo": 4.87945910288316,
+          "mu_mu_Bollig_derived_MeV": 43.92665037104874,
+          "mu_mu_Caputo_MeV": 43.9302265358635,
+          "r_km": 16.20749750623
+        },
+        {
+          "T_Bollig_MeV": 8.901425350542706,
+          "T_Caputo_MeV": 8.90101956500068,
+          "eta_Bollig": 4.862224442573267,
+          "eta_Caputo": 4.86292747763841,
+          "mu_mu_Bollig_derived_MeV": 43.28072791315006,
+          "mu_mu_Caputo_MeV": 43.2850126216389,
+          "r_km": 16.25
+        },
+        {
+          "T_Bollig_MeV": 8.881309019157266,
+          "T_Caputo_MeV": 8.88088267812775,
+          "eta_Bollig": 4.858934975012654,
+          "eta_Caputo": 4.859621281231983,
+          "mu_mu_Bollig_derived_MeV": 43.15370301707857,
+          "mu_mu_Caputo_MeV": 43.1577264587541,
+          "r_km": 16.2583847840627
+        },
+        {
+          "T_Bollig_MeV": 8.859910421727516,
+          "T_Caputo_MeV": 8.85957250011324,
+          "eta_Bollig": 4.85501132057998,
+          "eta_Caputo": 4.855565308461989,
+          "mu_mu_Bollig_derived_MeV": 43.01496539681163,
+          "mu_mu_Caputo_MeV": 43.0182328793537,
+          "r_km": 16.2676405034813
+        },
+        {
+          "T_Bollig_MeV": 8.785097453905596,
+          "T_Caputo_MeV": 8.78506866091029,
+          "eta_Bollig": 4.841293588201489,
+          "eta_Caputo": 4.841230312386799,
+          "mu_mu_Bollig_derived_MeV": 42.53123597531839,
+          "mu_mu_Caputo_MeV": 42.5305406975982,
+          "r_km": 16.3
+        },
+        {
+          "T_Bollig_MeV": 8.764326325246282,
+          "T_Caputo_MeV": 8.76438335895317,
+          "eta_Bollig": 4.8374849866656415,
+          "eta_Caputo": 4.837207107116277,
+          "mu_mu_Bollig_derived_MeV": 42.397297016617344,
+          "mu_mu_Caputo_MeV": 42.3951374734199,
+          "r_km": 16.3089843149538
+        },
+        {
+          "T_Bollig_MeV": 8.67212114503828,
+          "T_Caputo_MeV": 8.67175805399859,
+          "eta_Bollig": 4.818288928850975,
+          "eta_Caputo": 4.818500296077829,
+          "mu_mu_Bollig_derived_MeV": 41.784785302792386,
+          "mu_mu_Caputo_MeV": 41.7848687507075,
+          "r_km": 16.35
+        },
+        {
+          "T_Bollig_MeV": 8.651871916356566,
+          "T_Caputo_MeV": 8.65141458425871,
+          "eta_Bollig": 4.814072136760431,
+          "eta_Caputo": 4.814338034432692,
+          "mu_mu_Bollig_derived_MeV": 41.65073552335222,
+          "mu_mu_Caputo_MeV": 41.6508342846424,
+          "r_km": 16.3590083519618
+        },
+        {
+          "T_Bollig_MeV": 8.575085952856835,
+          "T_Caputo_MeV": 8.57566645214094,
+          "eta_Bollig": 4.796303679004382,
+          "eta_Caputo": 4.796427364990092,
+          "mu_mu_Bollig_derived_MeV": 41.12871630346603,
+          "mu_mu_Caputo_MeV": 41.1325612440763,
+          "r_km": 16.3938796422604
+        },
+        {
+          "T_Bollig_MeV": 8.561610440007033,
+          "T_Caputo_MeV": 8.56237168550909,
+          "eta_Bollig": 4.7931845526763395,
+          "eta_Caputo": 4.793251122456675,
+          "mu_mu_Bollig_derived_MeV": 41.03737890707419,
+          "mu_mu_Caputo_MeV": 41.0415976924577,
+          "r_km": 16.4
+        },
+        {
+          "T_Bollig_MeV": 8.542842924579027,
+          "T_Caputo_MeV": 8.54384876059907,
+          "eta_Bollig": 4.788830451208263,
+          "eta_Caputo": 4.78880934460979,
+          "mu_mu_Bollig_derived_MeV": 40.910226337113095,
+          "mu_mu_Caputo_MeV": 40.9148627836896,
+          "r_km": 16.4085271844157
+        },
+        {
+          "T_Bollig_MeV": 8.4543411688038,
+          "T_Caputo_MeV": 8.45484794365089,
+          "eta_Bollig": 4.7657319527793085,
+          "eta_Caputo": 4.765692876282915,
+          "mu_mu_Bollig_derived_MeV": 40.29112384786584,
+          "mu_mu_Caputo_MeV": 40.2932086151123,
+          "r_km": 16.45
+        },
+        {
+          "T_Bollig_MeV": 8.437935246712842,
+          "T_Caputo_MeV": 8.43834950860754,
+          "eta_Bollig": 4.761449743936521,
+          "eta_Caputo": 4.761354109714186,
+          "mu_mu_Bollig_derived_MeV": 40.17680461981381,
+          "mu_mu_Caputo_MeV": 40.1779701120132,
+          "r_km": 16.4576879805989
+        },
+        {
+          "T_Bollig_MeV": 8.349386602959353,
+          "T_Caputo_MeV": 8.34941558363453,
+          "eta_Bollig": 4.737378763094574,
+          "eta_Caputo": 4.737651388194713,
+          "mu_mu_Bollig_derived_MeV": 39.55420677772598,
+          "mu_mu_Caputo_MeV": 39.5566203304207,
+          "r_km": 16.5
+        },
+        {
+          "T_Bollig_MeV": 8.336111575674831,
+          "T_Caputo_MeV": 8.33608228532889,
+          "eta_Bollig": 4.733770067990603,
+          "eta_Caputo": 4.734054194142605,
+          "mu_mu_Bollig_derived_MeV": 39.4612354603595,
+          "mu_mu_Caputo_MeV": 39.4634653055791,
+          "r_km": 16.506343572228
+        },
+        {
+          "T_Bollig_MeV": 8.247137081007073,
+          "T_Caputo_MeV": 8.24747165850964,
+          "eta_Bollig": 4.709467242236785,
+          "eta_Caputo": 4.710180937157238,
+          "mu_mu_Bollig_derived_MeV": 38.839621925239115,
+          "mu_mu_Caputo_MeV": 38.8470837856567,
+          "r_km": 16.55
+        },
+        {
+          "T_Bollig_MeV": 8.237540308337174,
+          "T_Caputo_MeV": 8.23790876874963,
+          "eta_Bollig": 4.7068454814654,
+          "eta_Caputo": 4.707573823116677,
+          "mu_mu_Bollig_derived_MeV": 38.77282937868593,
+          "mu_mu_Caputo_MeV": 38.7805636769891,
+          "r_km": 16.5547114169156
+        },
+        {
+          "T_Bollig_MeV": 8.170396624506452,
+          "T_Caputo_MeV": 8.17012782405,
+          "eta_Bollig": 4.688360435635996,
+          "eta_Caputo": 4.688792726951056,
+          "mu_mu_Bollig_derived_MeV": 38.30576427778994,
+          "mu_mu_Caputo_MeV": 38.3080359196661,
+          "r_km": 16.5881791203445
+        },
+        {
+          "T_Bollig_MeV": 8.17039461828321,
+          "T_Caputo_MeV": 8.17012579878571,
+          "eta_Bollig": 4.6883598833110955,
+          "eta_Caputo": 4.688792161124588,
+          "mu_mu_Bollig_derived_MeV": 38.30575035917987,
+          "mu_mu_Caputo_MeV": 38.3080218007482,
+          "r_km": 16.5881801203445
+        },
+        {
+          "T_Bollig_MeV": 8.146681301228387,
+          "T_Caputo_MeV": 8.14618741858024,
+          "eta_Bollig": 4.681831469504808,
+          "eta_Caputo": 4.682084505348005,
+          "mu_mu_Bollig_derived_MeV": 38.14138888811744,
+          "mu_mu_Caputo_MeV": 38.1411378901954,
+          "r_km": 16.6
+        },
+        {
+          "T_Bollig_MeV": 8.140503902439127,
+          "T_Caputo_MeV": 8.1399511000087,
+          "eta_Bollig": 4.680129082811506,
+          "eta_Caputo": 4.680330579425518,
+          "mu_mu_Bollig_derived_MeV": 38.09860906254592,
+          "mu_mu_Caputo_MeV": 38.0976620483991,
+          "r_km": 16.6030792616032
+        },
+        {
+          "T_Bollig_MeV": 8.054627049193488,
+          "T_Caputo_MeV": 8.05466949719968,
+          "eta_Bollig": 4.655129255352535,
+          "eta_Caputo": 4.6555870772952055,
+          "mu_mu_Bollig_derived_MeV": 37.495330017654474,
+          "mu_mu_Caputo_MeV": 37.4992152230467,
+          "r_km": 16.646590907174
+        },
+        {
+          "T_Bollig_MeV": 8.054477077631045,
+          "T_Caputo_MeV": 8.05452056515642,
+          "eta_Bollig": 4.655085596752538,
+          "eta_Caputo": 4.655543408011993,
+          "mu_mu_Bollig_derived_MeV": 37.49428023345375,
+          "mu_mu_Caputo_MeV": 37.498170121811,
+          "r_km": 16.6466668939996
+        },
+        {
+          "T_Bollig_MeV": 8.047898685775404,
+          "T_Caputo_MeV": 8.04798777104301,
+          "eta_Bollig": 4.653170544498838,
+          "eta_Caputo": 4.653626296813225,
+          "mu_mu_Bollig_derived_MeV": 37.448245109761025,
+          "mu_mu_Caputo_MeV": 37.452327527757,
+          "r_km": 16.65
+        },
+        {
+          "T_Bollig_MeV": 8.045612507624734,
+          "T_Caputo_MeV": 8.04571545929222,
+          "eta_Bollig": 4.652504435140702,
+          "eta_Caputo": 4.652958735327644,
+          "mu_mu_Bollig_derived_MeV": 37.432247875147574,
+          "mu_mu_Caputo_MeV": 37.4363820282744,
+          "r_km": 16.6511593593491
+        },
+        {
+          "T_Bollig_MeV": 8.040459149402823,
+          "T_Caputo_MeV": 8.04057728577728,
+          "eta_Bollig": 4.65096672860679,
+          "eta_Caputo": 4.651410015424912,
+          "mu_mu_Bollig_derived_MeV": 37.39590798659459,
+          "mu_mu_Caputo_MeV": 37.4000217168625,
+          "r_km": 16.65383940268
+        },
+        {
+          "T_Bollig_MeV": 8.025928468032891,
+          "T_Caputo_MeV": 8.02608942000981,
+          "eta_Bollig": 4.646630929944517,
+          "eta_Caputo": 4.647032484706383,
+          "mu_mu_Bollig_derived_MeV": 37.29352746108385,
+          "mu_mu_Caputo_MeV": 37.2974982599438,
+          "r_km": 16.6613961945858
+        },
+        {
+          "T_Bollig_MeV": 7.997604726303128,
+          "T_Caputo_MeV": 7.99784913603642,
+          "eta_Bollig": 4.638179430776918,
+          "eta_Caputo": 4.63845405353052,
+          "mu_mu_Bollig_derived_MeV": 37.09432573702343,
+          "mu_mu_Caputo_MeV": 37.0976557445737,
+          "r_km": 16.6761261729534
+        },
+        {
+          "T_Bollig_MeV": 7.9542676259686536,
+          "T_Caputo_MeV": 7.9546397313009,
+          "eta_Bollig": 4.625248107264033,
+          "eta_Caputo": 4.625210620671725,
+          "mu_mu_Bollig_derived_MeV": 36.79046128168309,
+          "mu_mu_Caputo_MeV": 36.7918841688302,
+          "r_km": 16.6986639632119
+        },
+        {
+          "T_Bollig_MeV": 7.951737745156566,
+          "T_Caputo_MeV": 7.95208710849005,
+          "eta_Bollig": 4.624464719955059,
+          "eta_Caputo": 4.624449149655138,
+          "mu_mu_Bollig_derived_MeV": 36.77253066481153,
+          "mu_mu_Caputo_MeV": 36.7740224668404,
+          "r_km": 16.7
+        },
+        {
+          "T_Bollig_MeV": 7.941608574793255,
+          "T_Caputo_MeV": 7.9418594311154,
+          "eta_Bollig": 4.621325890945374,
+          "eta_Caputo": 4.621393229020222,
+          "mu_mu_Bollig_derived_MeV": 36.700761322445864,
+          "mu_mu_Caputo_MeV": 36.7024554007871,
+          "r_km": 16.7053531423331
+        },
+        {
+          "T_Bollig_MeV": 7.86328903084009,
+          "T_Caputo_MeV": 7.86277822318376,
+          "eta_Bollig": 4.597056694804329,
+          "eta_Caputo": 4.597496225479532,
+          "mu_mu_Bollig_derived_MeV": 36.14798548240488,
+          "mu_mu_Caputo_MeV": 36.14909320287,
+          "r_km": 16.7467440609579
+        },
+        {
+          "T_Bollig_MeV": 7.857176981587657,
+          "T_Caputo_MeV": 7.8567239206577,
+          "eta_Bollig": 4.595160688120013,
+          "eta_Caputo": 4.595574152392985,
+          "mu_mu_Bollig_derived_MeV": 36.10499078539307,
+          "mu_mu_Caputo_MeV": 36.1061573722622,
+          "r_km": 16.75
+        },
+        {
+          "T_Bollig_MeV": 7.830244206552275,
+          "T_Caputo_MeV": 7.83004364795628,
+          "eta_Bollig": 4.5868053118955885,
+          "eta_Caputo": 4.58706849497448,
+          "mu_mu_Bollig_derived_MeV": 35.91580572005363,
+          "mu_mu_Caputo_MeV": 35.9169465318153,
+          "r_km": 16.7643483648479
+        },
+        {
+          "T_Bollig_MeV": 7.774120218924427,
+          "T_Caputo_MeV": 7.77444510654849,
+          "eta_Bollig": 4.569393086708318,
+          "eta_Caputo": 4.569156122481928,
+          "mu_mu_Bollig_derived_MeV": 35.52301118359263,
+          "mu_mu_Caputo_MeV": 35.5226534574857,
+          "r_km": 16.7942486648206
+        },
+        {
+          "T_Bollig_MeV": 7.763542013187627,
+          "T_Caputo_MeV": 7.76380640725928,
+          "eta_Bollig": 4.565994262313556,
+          "eta_Caputo": 4.565870118823606,
+          "mu_mu_Bollig_derived_MeV": 35.44828828744494,
+          "mu_mu_Caputo_MeV": 35.4485316832364,
+          "r_km": 16.8
+        },
+        {
+          "T_Bollig_MeV": 7.687277549041298,
+          "T_Caputo_MeV": 7.68710435409711,
+          "eta_Bollig": 4.541488818343472,
+          "eta_Caputo": 4.541909770726554,
+          "mu_mu_Bollig_derived_MeV": 34.91168503247387,
+          "mu_mu_Caputo_MeV": 34.9141343744683,
+          "r_km": 16.8414655217418
+        },
+        {
+          "T_Bollig_MeV": 7.671862095614705,
+          "T_Caputo_MeV": 7.67162909707878,
+          "eta_Bollig": 4.5362569973614395,
+          "eta_Caputo": 4.536717215062632,
+          "mu_mu_Bollig_derived_MeV": 34.8015381140242,
+          "mu_mu_Caputo_MeV": 34.8040117922927,
+          "r_km": 16.85
+        },
+        {
+          "T_Bollig_MeV": 7.613734730371922,
+          "T_Caputo_MeV": 7.61327622921067,
+          "eta_Bollig": 4.516529263074843,
+          "eta_Caputo": 4.516947669577591,
+          "mu_mu_Bollig_derived_MeV": 34.387655711014034,
+          "mu_mu_Caputo_MeV": 34.3887703213836,
+          "r_km": 16.882181131566
+        },
+        {
+          "T_Bollig_MeV": 7.6014720684669745,
+          "T_Caputo_MeV": 7.60096599483381,
+          "eta_Bollig": 4.512368864403609,
+          "eta_Caputo": 4.512738275271665,
+          "mu_mu_Bollig_derived_MeV": 34.30064588538407,
+          "mu_mu_Caputo_MeV": 34.3011701739249,
+          "r_km": 16.8889701256046
+        },
+        {
+          "T_Bollig_MeV": 7.58189070510163,
+          "T_Caputo_MeV": 7.58133444469703,
+          "eta_Bollig": 4.506099054884934,
+          "eta_Caputo": 4.506475890893351,
+          "mu_mu_Bollig_derived_MeV": 34.16475054049932,
+          "mu_mu_Caputo_MeV": 34.1651008958265,
+          "r_km": 16.9
+        },
+        {
+          "T_Bollig_MeV": 7.518039549480071,
+          "T_Caputo_MeV": 7.51731399383641,
+          "eta_Bollig": 4.485652630460233,
+          "eta_Caputo": 4.485826371212922,
+          "mu_mu_Bollig_derived_MeV": 33.72331388102935,
+          "mu_mu_Caputo_MeV": 33.7213653542393,
+          "r_km": 16.9359695249134
+        },
+        {
+          "T_Bollig_MeV": 7.4934057226795,
+          "T_Caputo_MeV": 7.4926854169701,
+          "eta_Bollig": 4.47768604819877,
+          "eta_Caputo": 4.477840888311405,
+          "mu_mu_Bollig_derived_MeV": 33.55311825793482,
+          "mu_mu_Caputo_MeV": 33.5510531233633,
+          "r_km": 16.95
+        },
+        {
+          "T_Bollig_MeV": 7.436154121732226,
+          "T_Caputo_MeV": 7.43544147080092,
+          "eta_Bollig": 4.459169403546347,
+          "eta_Caputo": 4.459075940414139,
+          "mu_mu_Bollig_derived_MeV": 33.159070939683396,
+          "mu_mu_Caputo_MeV": 33.1551981688059,
+          "r_km": 16.9826108879513
+        },
+        {
+          "T_Bollig_MeV": 7.405865915970613,
+          "T_Caputo_MeV": 7.40530484430937,
+          "eta_Bollig": 4.449159146293709,
+          "eta_Caputo": 4.449351351744596,
+          "mu_mu_Bollig_derived_MeV": 32.94987607626548,
+          "mu_mu_Caputo_MeV": 32.9488031191087,
+          "r_km": 17.0
+        },
+        {
+          "T_Bollig_MeV": 7.35391727194076,
+          "T_Caputo_MeV": 7.35361114058311,
+          "eta_Bollig": 4.4319881291274505,
+          "eta_Caputo": 4.432485031069969,
+          "mu_mu_Bollig_derived_MeV": 32.59247405182677,
+          "mu_mu_Caputo_MeV": 32.594771304944,
+          "r_km": 17.0298277448725
+        },
+        {
+          "T_Bollig_MeV": 7.319456942581223,
+          "T_Caputo_MeV": 7.31938759666715,
+          "eta_Bollig": 4.420745979460775,
+          "eta_Caputo": 4.4211405412165075,
+          "mu_mu_Bollig_derived_MeV": 32.35745985075219,
+          "mu_mu_Caputo_MeV": 32.3600412405024,
+          "r_km": 17.05
+        },
+        {
+          "T_Bollig_MeV": 7.274123662690486,
+          "T_Caputo_MeV": 7.27436178169537,
+          "eta_Bollig": 4.405954691551167,
+          "eta_Caputo": 4.40605269190248,
+          "mu_mu_Bollig_derived_MeV": 32.04945927855451,
+          "mu_mu_Caputo_MeV": 32.0512213101114,
+          "r_km": 17.0765393972397
+        },
+        {
+          "T_Bollig_MeV": 7.234878878207208,
+          "T_Caputo_MeV": 7.2346841684625,
+          "eta_Bollig": 4.392721513350384,
+          "eta_Caputo": 4.392825638432489,
+          "mu_mu_Bollig_derived_MeV": 31.7808080947851,
+          "mu_mu_Caputo_MeV": 31.7807061011837,
+          "r_km": 17.1
+        },
+        {
+          "T_Bollig_MeV": 7.204761298521624,
+          "T_Caputo_MeV": 7.20423442350898,
+          "eta_Bollig": 4.3825659906687555,
+          "eta_Caputo": 4.382576006052358,
+          "mu_mu_Bollig_derived_MeV": 31.57534183778733,
+          "mu_mu_Caputo_MeV": 31.5731049264469,
+          "r_km": 17.1180043433136
+        },
+        {
+          "T_Bollig_MeV": 7.204630251352888,
+          "T_Caputo_MeV": 7.20410193102757,
+          "eta_Bollig": 4.382521802108184,
+          "eta_Caputo": 4.382531218679195,
+          "mu_mu_Bollig_derived_MeV": 31.574449152682195,
+          "mu_mu_Caputo_MeV": 31.5722016152754,
+          "r_km": 17.1180826835468
+        },
+        {
+          "T_Bollig_MeV": 7.196583554607729,
+          "T_Caputo_MeV": 7.19596648766964,
+          "eta_Bollig": 4.379808489413047,
+          "eta_Caputo": 4.379777977306529,
+          "mu_mu_Bollig_derived_MeV": 31.51965774724125,
+          "mu_mu_Caputo_MeV": 31.5167355481313,
+          "r_km": 17.122893013336
+        },
+        {
+          "T_Bollig_MeV": 7.151249562356706,
+          "T_Caputo_MeV": 7.15084147848361,
+          "eta_Bollig": 4.364791435182873,
+          "eta_Caputo": 4.365039324245222,
+          "mu_mu_Bollig_derived_MeV": 31.21371284062982,
+          "mu_mu_Caputo_MeV": 31.2137042550248,
+          "r_km": 17.15
+        },
+        {
+          "T_Bollig_MeV": 7.117018874589335,
+          "T_Caputo_MeV": 7.11676854807839,
+          "eta_Bollig": 4.353452718438363,
+          "eta_Caputo": 4.353786636463761,
+          "mu_mu_Bollig_derived_MeV": 30.98360516675808,
+          "mu_mu_Caputo_MeV": 30.9848917994293,
+          "r_km": 17.170467906528
+        },
+        {
+          "T_Bollig_MeV": 7.069109775025558,
+          "T_Caputo_MeV": 7.06879795375753,
+          "eta_Bollig": 4.336851449763322,
+          "eta_Caputo": 4.337302483649736,
+          "mu_mu_Bollig_derived_MeV": 30.65767897635566,
+          "mu_mu_Caputo_MeV": 30.6595149212507,
+          "r_km": 17.2
+        },
+        {
+          "T_Bollig_MeV": 7.04042522362167,
+          "T_Caputo_MeV": 7.04007162543652,
+          "eta_Bollig": 4.326912900612852,
+          "eta_Caputo": 4.32732370436216,
+          "mu_mu_Bollig_derived_MeV": 30.463306725888724,
+          "mu_mu_Caputo_MeV": 30.4646688251589,
+          "r_km": 17.2176847634492
+        },
+        {
+          "T_Bollig_MeV": 6.987832295357025,
+          "T_Caputo_MeV": 6.98782753216507,
+          "eta_Bollig": 4.309471502483242,
+          "eta_Caputo": 4.309870795761845,
+          "mu_mu_Bollig_derived_MeV": 30.11386414097316,
+          "mu_mu_Caputo_MeV": 30.1166338066988,
+          "r_km": 17.25
+        },
+        {
+          "T_Bollig_MeV": 6.964050240266478,
+          "T_Caputo_MeV": 6.9642012602277,
+          "eta_Bollig": 4.30158504109579,
+          "eta_Caputo": 4.301892105959092,
+          "mu_mu_Bollig_derived_MeV": 29.956454338969824,
+          "mu_mu_Caputo_MeV": 29.9592424256839,
+          "r_km": 17.2646138734288
+        },
+        {
+          "T_Bollig_MeV": 6.908377253795427,
+          "T_Caputo_MeV": 6.90829457592266,
+          "eta_Bollig": 4.28281517396391,
+          "eta_Caputo": 4.283202706620695,
+          "mu_mu_Bollig_derived_MeV": 29.587302930022183,
+          "mu_mu_Caputo_MeV": 29.589626025725,
+          "r_km": 17.3
+        },
+        {
+          "T_Bollig_MeV": 6.889311358231979,
+          "T_Caputo_MeV": 6.88914854469962,
+          "eta_Bollig": 4.276389355844304,
+          "eta_Caputo": 4.276732530019012,
+          "mu_mu_Bollig_derived_MeV": 29.461377761440502,
+          "mu_mu_Caputo_MeV": 29.46304568525,
+          "r_km": 17.3121184772915
+        },
+        {
+          "T_Bollig_MeV": 6.829757769225856,
+          "T_Caputo_MeV": 6.82985348450695,
+          "eta_Bollig": 4.257603507463491,
+          "eta_Caputo": 4.257962830154151,
+          "mu_mu_Bollig_derived_MeV": 29.078400633382035,
+          "mu_mu_Caputo_MeV": 29.0812622724294,
+          "r_km": 17.35
+        },
+        {
+          "T_Bollig_MeV": 6.816329539357924,
+          "T_Caputo_MeV": 6.81648229292895,
+          "eta_Bollig": 4.25336765133647,
+          "eta_Caputo": 4.253685092333991,
+          "mu_mu_Bollig_derived_MeV": 28.992355563554217,
+          "mu_mu_Caputo_MeV": 28.9951691115905,
+          "r_km": 17.3585423827171
+        },
+        {
+          "T_Bollig_MeV": 6.752121285078546,
+          "T_Caputo_MeV": 6.75187838868686,
+          "eta_Bollig": 4.2329294297523266,
+          "eta_Caputo": 4.233227123502697,
+          "mu_mu_Bollig_derived_MeV": 28.581252900866076,
+          "mu_mu_Caputo_MeV": 28.5822347295809,
+          "r_km": 17.4
+        },
+        {
+          "T_Bollig_MeV": 6.744092862622629,
+          "T_Caputo_MeV": 6.74380049525435,
+          "eta_Bollig": 4.230373891076388,
+          "eta_Caputo": 4.230641546571335,
+          "mu_mu_Bollig_derived_MeV": 28.530034365033384,
+          "mu_mu_Caputo_MeV": 28.5306025570114,
+          "r_km": 17.4051837457551
+        },
+        {
+          "T_Bollig_MeV": 6.676629170982481,
+          "T_Caputo_MeV": 6.67670375528992,
+          "eta_Bollig": 4.207257439785467,
+          "eta_Caputo": 4.2070604307756785,
+          "mu_mu_Bollig_derived_MeV": 28.090297752304718,
+          "mu_mu_Caputo_MeV": 28.0892961768916,
+          "r_km": 17.45
+        },
+        {
+          "T_Bollig_MeV": 6.673342904797492,
+          "T_Caputo_MeV": 6.6734352555207,
+          "eta_Bollig": 4.20613268369376,
+          "eta_Caputo": 4.205899606043483,
+          "mu_mu_Bollig_derived_MeV": 28.068965701364583,
+          "mu_mu_Caputo_MeV": 28.0677987121512,
+          "r_km": 17.4521831450639
+        },
+        {
+          "T_Bollig_MeV": 6.603148818910127,
+          "T_Caputo_MeV": 6.60380712271815,
+          "eta_Bollig": 4.184778331690944,
+          "eta_Caputo": 4.184926436005211,
+          "mu_mu_Bollig_derived_MeV": 27.632714098305748,
+          "mu_mu_Caputo_MeV": 27.6364470061427,
+          "r_km": 17.4982490142186
+        },
+        {
+          "T_Bollig_MeV": 6.600566158336937,
+          "T_Caputo_MeV": 6.60121721676387,
+          "eta_Bollig": 4.183947304661115,
+          "eta_Caputo": 4.184094093783627,
+          "mu_mu_Bollig_derived_MeV": 27.616420987411196,
+          "mu_mu_Caputo_MeV": 27.6201139684445,
+          "r_km": 17.5
+        },
+        {
+          "T_Bollig_MeV": 6.534250290915502,
+          "T_Caputo_MeV": 6.5347153071885,
+          "eta_Bollig": 4.162605916869257,
+          "eta_Caputo": 4.162495784500788,
+          "mu_mu_Bollig_derived_MeV": 27.19950892326953,
+          "mu_mu_Caputo_MeV": 27.2007249190849,
+          "r_km": 17.5449606665859
+        },
+        {
+          "T_Bollig_MeV": 6.527086983024798,
+          "T_Caputo_MeV": 6.52747384087985,
+          "eta_Bollig": 4.16000963089168,
+          "eta_Caputo": 4.159944092763117,
+          "mu_mu_Bollig_derived_MeV": 27.15274471105088,
+          "mu_mu_Caputo_MeV": 27.1539262450339,
+          "r_km": 17.55
+        },
+        {
+          "T_Bollig_MeV": 6.467557257122024,
+          "T_Caputo_MeV": 6.46727869585855,
+          "eta_Bollig": 4.138428745175668,
+          "eta_Caputo": 4.138511818741218,
+          "mu_mu_Bollig_derived_MeV": 26.765524863943284,
+          "mu_mu_Caputo_MeV": 26.7649093179039,
+          "r_km": 17.5918897765654
+        },
+        {
+          "T_Bollig_MeV": 6.455886907578972,
+          "T_Caputo_MeV": 6.45570244139034,
+          "eta_Bollig": 4.134415371183678,
+          "eta_Caputo": 4.134516186808885,
+          "mu_mu_Bollig_derived_MeV": 26.691318065317965,
+          "mu_mu_Caputo_MeV": 26.69120624115,
+          "r_km": 17.6
+        },
+        {
+          "T_Bollig_MeV": 6.414298992738324,
+          "T_Caputo_MeV": 6.41445029004489,
+          "eta_Bollig": 4.120113654529314,
+          "eta_Caputo": 4.120160428252449,
+          "mu_mu_Bollig_derived_MeV": 26.427640864214794,
+          "mu_mu_Caputo_MeV": 26.4285642540354,
+          "r_km": 17.6289008992924
+        },
+        {
+          "T_Bollig_MeV": 6.413746015549221,
+          "T_Caputo_MeV": 6.41390177736324,
+          "eta_Bollig": 4.119923490557281,
+          "eta_Caputo": 4.119968301688535,
+          "mu_mu_Bollig_derived_MeV": 26.4241428719294,
+          "mu_mu_Caputo_MeV": 26.4250720128803,
+          "r_km": 17.6292851825178
+        },
+        {
+          "T_Bollig_MeV": 6.401586752669938,
+          "T_Caputo_MeV": 6.40183624741571,
+          "eta_Bollig": 4.115737965782309,
+          "eta_Caputo": 4.115733802759115,
+          "mu_mu_Bollig_derived_MeV": 26.34725363921275,
+          "mu_mu_Caputo_MeV": 26.3482538432174,
+          "r_km": 17.6377381881078
+        },
+        {
+          "T_Bollig_MeV": 6.38452312915793,
+          "T_Caputo_MeV": 6.38473727705916,
+          "eta_Bollig": 4.109452248115831,
+          "eta_Caputo": 4.10940415541557,
+          "mu_mu_Bollig_derived_MeV": 26.23689292626558,
+          "mu_mu_Caputo_MeV": 26.2374658975836,
+          "r_km": 17.65
+        },
+        {
+          "T_Bollig_MeV": 6.336680304425209,
+          "T_Caputo_MeV": 6.33679534718115,
+          "eta_Bollig": 4.091828412918994,
+          "eta_Caputo": 4.0914749952602865,
+          "mu_mu_Bollig_derived_MeV": 25.92860851323125,
+          "mu_mu_Caputo_MeV": 25.9268397130734,
+          "r_km": 17.6843795511458
+        },
+        {
+          "T_Bollig_MeV": 6.3148947881045965,
+          "T_Caputo_MeV": 6.31501279218334,
+          "eta_Bollig": 4.084353064957887,
+          "eta_Caputo": 4.084215356284713,
+          "mu_mu_Bollig_derived_MeV": 25.792259882681595,
+          "mu_mu_Caputo_MeV": 25.7918722209696,
+          "r_km": 17.7
+        },
+        {
+          "T_Bollig_MeV": 6.27153179346119,
+          "T_Caputo_MeV": 6.27165642920111,
+          "eta_Bollig": 4.069476477200381,
+          "eta_Caputo": 4.069615570947717,
+          "mu_mu_Bollig_derived_MeV": 25.52185110950463,
+          "mu_mu_Caputo_MeV": 25.5232306599112,
+          "r_km": 17.731091203513
+        },
+        {
+          "T_Bollig_MeV": 6.245767249316812,
+          "T_Caputo_MeV": 6.24608548408191,
+          "eta_Bollig": 4.061078845320074,
+          "eta_Caputo": 4.061263052473465,
+          "mu_mu_Bollig_derived_MeV": 25.364553248993452,
+          "mu_mu_Caputo_MeV": 25.3669961990927,
+          "r_km": 17.75
+        },
+        {
+          "T_Bollig_MeV": 6.208764703741059,
+          "T_Caputo_MeV": 6.20936014224112,
+          "eta_Bollig": 4.049017982159264,
+          "eta_Caputo": 4.049146699378138,
+          "mu_mu_Bollig_derived_MeV": 25.139399932443283,
+          "mu_mu_Caputo_MeV": 25.1426101252058,
+          "r_km": 17.7771570726677
+        },
+        {
+          "T_Bollig_MeV": 6.178316199745379,
+          "T_Caputo_MeV": 6.17846895138314,
+          "eta_Bollig": 4.038863674386721,
+          "eta_Caputo": 4.039172619840222,
+          "mu_mu_Bollig_derived_MeV": 24.953376868026623,
+          "mu_mu_Caputo_MeV": 24.9559026209597,
+          "r_km": 17.8
+        },
+        {
+          "T_Bollig_MeV": 6.147267462800339,
+          "T_Caputo_MeV": 6.14696880086654,
+          "eta_Bollig": 4.028509194214779,
+          "eta_Caputo": 4.028898688804244,
+          "mu_mu_Bollig_derived_MeV": 24.76432349318852,
+          "mu_mu_Caputo_MeV": 24.7655145419318,
+          "r_km": 17.8232932311517
+        },
+        {
+          "T_Bollig_MeV": 6.111820008723746,
+          "T_Caputo_MeV": 6.11174391282072,
+          "eta_Bollig": 4.018060293376842,
+          "eta_Caputo": 4.018320190538914,
+          "mu_mu_Bollig_derived_MeV": 24.55766129731899,
+          "mu_mu_Caputo_MeV": 24.5589439642908,
+          "r_km": 17.85
+        },
+        {
+          "T_Bollig_MeV": 6.086796168076059,
+          "T_Caputo_MeV": 6.08687657035474,
+          "eta_Bollig": 4.01067671997125,
+          "eta_Caputo": 4.010778472582748,
+          "mu_mu_Bollig_derived_MeV": 24.412171690512864,
+          "mu_mu_Caputo_MeV": 24.4131135136471,
+          "r_km": 17.8688538957525
+        },
+        {
+          "T_Bollig_MeV": 6.046485374458867,
+          "T_Caputo_MeV": 6.04683643598665,
+          "eta_Bollig": 3.9969434439101805,
+          "eta_Caputo": 3.997382310842592,
+          "mu_mu_Bollig_derived_MeV": 24.167460076142163,
+          "mu_mu_Caputo_MeV": 24.1715170057715,
+          "r_km": 17.9
+        },
+        {
+          "T_Bollig_MeV": 6.027921466649652,
+          "T_Caputo_MeV": 6.02839603860494,
+          "eta_Bollig": 3.9906195619487206,
+          "eta_Caputo": 3.9911528874229534,
+          "mu_mu_Bollig_derived_MeV": 24.055141322702724,
+          "mu_mu_Caputo_MeV": 24.0602502560072,
+          "r_km": 17.9143442710241
+        },
+        {
+          "T_Bollig_MeV": 5.982829608402556,
+          "T_Caputo_MeV": 5.98255851851434,
+          "eta_Bollig": 3.975089965176298,
+          "eta_Caputo": 3.9755019644197387,
+          "mu_mu_Bollig_derived_MeV": 23.78228593972064,
+          "mu_mu_Caputo_MeV": 23.7836731426098,
+          "r_km": 17.95
+        },
+        {
+          "T_Bollig_MeV": 5.970303375845465,
+          "T_Caputo_MeV": 5.96982514582106,
+          "eta_Bollig": 3.97077594157534,
+          "eta_Caputo": 3.9711115809250352,
+          "mu_mu_Bollig_derived_MeV": 23.70673700871321,
+          "mu_mu_Caputo_MeV": 23.7068417726675,
+          "r_km": 17.9599049356249
+        },
+        {
+          "T_Bollig_MeV": 5.919975809859224,
+          "T_Caputo_MeV": 5.91992695393051,
+          "eta_Bollig": 3.9533348139715496,
+          "eta_Caputo": 3.953468425840534,
+          "mu_mu_Bollig_derived_MeV": 23.40364646698589,
+          "mu_mu_Caputo_MeV": 23.4042442956466,
+          "r_km": 18.0
+        },
+        {
+          "T_Bollig_MeV": 5.914199020010719,
+          "T_Caputo_MeV": 5.9141993309397,
+          "eta_Bollig": 3.9513336803597756,
+          "eta_Caputo": 3.9514241875459324,
+          "mu_mu_Bollig_derived_MeV": 23.368973780119134,
+          "mu_mu_Caputo_MeV": 23.3695102862431,
+          "r_km": 18.0046023594009
+        },
+        {
+          "T_Bollig_MeV": 5.857214485029924,
+          "T_Caputo_MeV": 5.85726362723101,
+          "eta_Bollig": 3.9323816635110265,
+          "eta_Caputo": 3.932357742982274,
+          "mu_mu_Bollig_derived_MeV": 23.032802840182853,
+          "mu_mu_Caputo_MeV": 23.0328559772303,
+          "r_km": 18.05
+        },
+        {
+          "T_Bollig_MeV": 5.857009852188131,
+          "T_Caputo_MeV": 5.85705916977171,
+          "eta_Bollig": 3.932313606370078,
+          "eta_Caputo": 3.9322886069696312,
+          "mu_mu_Bollig_derived_MeV": 23.031599534402986,
+          "mu_mu_Caputo_MeV": 23.0316470436403,
+          "r_km": 18.0501630240016
+        },
+        {
+          "T_Bollig_MeV": 5.801544237769626,
+          "T_Caputo_MeV": 5.80181129959967,
+          "eta_Bollig": 3.912872842644079,
+          "eta_Caputo": 3.912794546989818,
+          "mu_mu_Bollig_derived_MeV": 22.700704893367014,
+          "mu_mu_Caputo_MeV": 22.7012956157375,
+          "r_km": 18.096011435544
+        },
+        {
+          "T_Bollig_MeV": 5.796808045522789,
+          "T_Caputo_MeV": 5.79704626634993,
+          "eta_Bollig": 3.911226731010047,
+          "eta_Caputo": 3.9111578213582385,
+          "mu_mu_Bollig_derived_MeV": 22.672630582182833,
+          "mu_mu_Caputo_MeV": 22.6731628454101,
+          "r_km": 18.1
+        },
+        {
+          "T_Bollig_MeV": 5.789570320634887,
+          "T_Caputo_MeV": 5.78976274910351,
+          "eta_Bollig": 3.9087105927488066,
+          "eta_Caputo": 3.908650823673192,
+          "mu_mu_Bollig_derived_MeV": 22.62975483972969,
+          "mu_mu_Caputo_MeV": 22.6301609381558,
+          "r_km": 18.1060966579834
+        },
+        {
+          "T_Bollig_MeV": 5.789203518014973,
+          "T_Caputo_MeV": 5.7893936257603,
+          "eta_Bollig": 3.9085830766963774,
+          "eta_Caputo": 3.9085236029152797,
+          "mu_mu_Bollig_derived_MeV": 22.627582898064453,
+          "mu_mu_Caputo_MeV": 22.6279816328514,
+          "r_km": 18.1064056321646
+        },
+        {
+          "T_Bollig_MeV": 5.780965177215776,
+          "T_Caputo_MeV": 5.78110316180629,
+          "eta_Bollig": 3.9057190821656316,
+          "eta_Caputo": 3.9056619605829423,
+          "mu_mu_Bollig_derived_MeV": 22.57882600598668,
+          "mu_mu_Caputo_MeV": 22.5790347092726,
+          "r_km": 18.1133451534895
+        },
+        {
+          "T_Bollig_MeV": 5.772083439901146,
+          "T_Caputo_MeV": 5.77216523063166,
+          "eta_Bollig": 3.9026314158851623,
+          "eta_Caputo": 3.90256762189966,
+          "mu_mu_Bollig_derived_MeV": 22.52631416766871,
+          "mu_mu_Caputo_MeV": 22.5262651373181,
+          "r_km": 18.1208266363511
+        },
+        {
+          "T_Bollig_MeV": 5.754873153063191,
+          "T_Caputo_MeV": 5.75484605603723,
+          "eta_Bollig": 3.8966483947188904,
+          "eta_Caputo": 3.8965443143396103,
+          "mu_mu_Bollig_derived_MeV": 22.424717233694523,
+          "mu_mu_Caputo_MeV": 22.4240126795516,
+          "r_km": 18.1353236273631
+        },
+        {
+          "T_Bollig_MeV": 5.748480006610214,
+          "T_Caputo_MeV": 5.74841246078871,
+          "eta_Bollig": 3.894425867522956,
+          "eta_Caputo": 3.8942975764133365,
+          "mu_mu_Bollig_derived_MeV": 22.387029236681354,
+          "mu_mu_Caputo_MeV": 22.3860287142737,
+          "r_km": 18.14070885932
+        },
+        {
+          "T_Bollig_MeV": 5.737453959596582,
+          "T_Caputo_MeV": 5.73742004241721,
+          "eta_Bollig": 3.891161791292603,
+          "eta_Caputo": 3.891072095237873,
+          "mu_mu_Bollig_derived_MeV": 22.325361626882675,
+          "mu_mu_Caputo_MeV": 22.3247150257081,
+          "r_km": 18.15
+        },
+        {
+          "T_Bollig_MeV": 5.69475351592681,
+          "T_Caputo_MeV": 5.69484973163082,
+          "eta_Bollig": 3.8785231043285755,
+          "eta_Caputo": 3.8784632958114638,
+          "mu_mu_Bollig_derived_MeV": 22.08723308497852,
+          "mu_mu_Caputo_MeV": 22.0872656592919,
+          "r_km": 18.1859817769792
+        },
+        {
+          "T_Bollig_MeV": 5.678581897468963,
+          "T_Caputo_MeV": 5.67856498633676,
+          "eta_Bollig": 3.873382506175102,
+          "eta_Caputo": 3.87344447943734,
+          "mu_mu_Bollig_derived_MeV": 21.995319781538896,
+          "mu_mu_Caputo_MeV": 21.9956061974523,
+          "r_km": 18.2
+        },
+        {
+          "T_Bollig_MeV": 5.6520543503372345,
+          "T_Caputo_MeV": 5.65184098567653,
+          "eta_Bollig": 3.8649445634485478,
+          "eta_Caputo": 3.865145701489001,
+          "mu_mu_Bollig_derived_MeV": 21.844876733651606,
+          "mu_mu_Caputo_MeV": 21.845188891287,
+          "r_km": 18.2230045355023
+        },
+        {
+          "T_Bollig_MeV": 5.643204354465936,
+          "T_Caputo_MeV": 5.64292544990023,
+          "eta_Bollig": 3.86212978449169,
+          "eta_Caputo": 3.8623596162131557,
+          "mu_mu_Bollig_derived_MeV": 21.794787617356093,
+          "mu_mu_Caputo_MeV": 21.7950073749961,
+          "r_km": 18.2306792007552
+        },
+        {
+          "T_Bollig_MeV": 5.621259111105957,
+          "T_Caputo_MeV": 5.62131423115466,
+          "eta_Bollig": 3.855229410133014,
+          "eta_Caputo": 3.8555563344339396,
+          "mu_mu_Bollig_derived_MeV": 21.671243447113845,
+          "mu_mu_Caputo_MeV": 21.673293691772,
+          "r_km": 18.25
+        },
+        {
+          "T_Bollig_MeV": 5.592438592774543,
+          "T_Caputo_MeV": 5.59292928823277,
+          "eta_Bollig": 3.8461670695567864,
+          "eta_Caputo": 3.8465407847887922,
+          "mu_mu_Bollig_derived_MeV": 21.509453154047943,
+          "mu_mu_Caputo_MeV": 21.5134306136271,
+          "r_km": 18.2753766245312
+        },
+        {
+          "T_Bollig_MeV": 5.56501839404929,
+          "T_Caputo_MeV": 5.56518932728082,
+          "eta_Bollig": 3.8375358523088012,
+          "eta_Caputo": 3.8378411697958135,
+          "mu_mu_Bollig_derived_MeV": 21.3559576059221,
+          "mu_mu_Caputo_MeV": 21.3583127179466,
+          "r_km": 18.3
+        },
+        {
+          "T_Bollig_MeV": 5.542664862171895,
+          "T_Caputo_MeV": 5.54257450272538,
+          "eta_Bollig": 3.830500532539664,
+          "eta_Caputo": 3.8306844304606336,
+          "mu_mu_Bollig_derived_MeV": 21.231180706238327,
+          "mu_mu_Caputo_MeV": 21.2318538522582,
+          "r_km": 18.3200740483072
+        },
+        {
+          "T_Bollig_MeV": 5.520633301198487,
+          "T_Caputo_MeV": 5.52063302300127,
+          "eta_Bollig": 3.82396771708409,
+          "eta_Caputo": 3.8241995314168236,
+          "mu_mu_Bollig_derived_MeV": 21.11072352164238,
+          "mu_mu_Caputo_MeV": 21.1120022196857,
+          "r_km": 18.3401454003766
+        },
+        {
+          "T_Bollig_MeV": 5.509816281412216,
+          "T_Caputo_MeV": 5.50986023115955,
+          "eta_Bollig": 3.82076024603253,
+          "eta_Caputo": 3.820996681915099,
+          "mu_mu_Bollig_derived_MeV": 21.051687010962578,
+          "mu_mu_Caputo_MeV": 21.0531576610766,
+          "r_km": 18.35
+        },
+        {
+          "T_Bollig_MeV": 5.49447376988786,
+          "T_Caputo_MeV": 5.494579276245,
+          "eta_Bollig": 3.8162113554126447,
+          "eta_Caputo": 3.8164319718965998,
+          "mu_mu_Bollig_derived_MeV": 20.968073192662974,
+          "mu_mu_Caputo_MeV": 20.9696880219819,
+          "r_km": 18.3639785205876
+        },
+        {
+          "T_Bollig_MeV": 5.455391881515025,
+          "T_Caputo_MeV": 5.4550925865031,
+          "eta_Bollig": 3.804621468111014,
+          "eta_Caputo": 3.8048450627555277,
+          "mu_mu_Bollig_derived_MeV": 20.755701069370602,
+          "mu_mu_Caputo_MeV": 20.7557820946306,
+          "r_km": 18.4
+        },
+        {
+          "T_Bollig_MeV": 5.446291017235061,
+          "T_Caputo_MeV": 5.44589745752726,
+          "eta_Bollig": 3.8019223796129022,
+          "eta_Caputo": 3.802122739560352,
+          "mu_mu_Bollig_derived_MeV": 20.706375704310698,
+          "mu_mu_Caputo_MeV": 20.7059705605783,
+          "r_km": 18.408388197422
+        },
+        {
+          "T_Bollig_MeV": 5.430827560974755,
+          "T_Caputo_MeV": 5.43048091254737,
+          "eta_Bollig": 3.7971496911739697,
+          "eta_Caputo": 3.7972771561987733,
+          "mu_mu_Bollig_derived_MeV": 20.621665195974376,
+          "mu_mu_Caputo_MeV": 20.6210411163896,
+          "r_km": 18.4229995917391
+        },
+        {
+          "T_Bollig_MeV": 5.430826502751516,
+          "T_Caputo_MeV": 5.43047985744307,
+          "eta_Bollig": 3.797149364532425,
+          "eta_Caputo": 3.797276823626774,
+          "mu_mu_Bollig_derived_MeV": 20.621659403808767,
+          "mu_mu_Caputo_MeV": 20.6210353038406,
+          "r_km": 18.4230005917391
+        },
+        {
+          "T_Bollig_MeV": 5.402255101528841,
+          "T_Caputo_MeV": 5.40199266567666,
+          "eta_Bollig": 3.788330236058557,
+          "eta_Caputo": 3.7882502234157407,
+          "mu_mu_Bollig_derived_MeV": 20.465526344023296,
+          "mu_mu_Caputo_MeV": 20.4640999226398,
+          "r_km": 18.45
+        },
+        {
+          "T_Bollig_MeV": 5.398989825474751,
+          "T_Caputo_MeV": 5.39873701348099,
+          "eta_Bollig": 3.787321901565112,
+          "eta_Caputo": 3.787212554980327,
+          "mu_mu_Bollig_derived_MeV": 20.447712412347727,
+          "mu_mu_Caputo_MeV": 20.4461645984922,
+          "r_km": 18.453085621198
+        },
+        {
+          "T_Bollig_MeV": 5.352980318946882,
+          "T_Caputo_MeV": 5.35260559669835,
+          "eta_Bollig": 3.7728262148123837,
+          "eta_Caputo": 3.773121838035896,
+          "mu_mu_Bollig_derived_MeV": 20.19586447469755,
+          "mu_mu_Caputo_MeV": 20.1960330672957,
+          "r_km": 18.4969198041492
+        },
+        {
+          "T_Bollig_MeV": 5.349801870612671,
+          "T_Caputo_MeV": 5.34945543306891,
+          "eta_Bollig": 3.7718283360971028,
+          "eta_Caputo": 3.772119426356395,
+          "mu_mu_Bollig_derived_MeV": 20.178534288082158,
+          "mu_mu_Caputo_MeV": 20.178784759507,
+          "r_km": 18.5
+        },
+        {
+          "T_Bollig_MeV": 5.307450982059503,
+          "T_Caputo_MeV": 5.30748142098307,
+          "eta_Bollig": 3.7585328593245126,
+          "eta_Caputo": 3.7586493440421855,
+          "mu_mu_Bollig_derived_MeV": 19.948228915324798,
+          "mu_mu_Caputo_MeV": 19.9489615614941,
+          "r_km": 18.541041734042
+        },
+        {
+          "T_Bollig_MeV": 5.298385439720675,
+          "T_Caputo_MeV": 5.29847595337008,
+          "eta_Bollig": 3.755758133890255,
+          "eta_Caputo": 3.755815044832657,
+          "mu_mu_Bollig_derived_MeV": 19.89945421171662,
+          "mu_mu_Caputo_MeV": 19.9000957003514,
+          "r_km": 18.55
+        },
+        {
+          "T_Bollig_MeV": 5.274217086970876,
+          "T_Caputo_MeV": 5.27446425100463,
+          "eta_Bollig": 3.7483597528026302,
+          "eta_Caputo": 3.7482105125501675,
+          "mu_mu_Bollig_derived_MeV": 19.76966305634556,
+          "mu_mu_Caputo_MeV": 19.7698023536856,
+          "r_km": 18.57388584637
+        },
+        {
+          "T_Bollig_MeV": 5.273825877449236,
+          "T_Caputo_MeV": 5.27407557715939,
+          "eta_Bollig": 3.7482399963113138,
+          "eta_Caputo": 3.748086849631581,
+          "mu_mu_Bollig_derived_MeV": 19.767565087436836,
+          "mu_mu_Caputo_MeV": 19.7676933147142,
+          "r_km": 18.574272483003
+        },
+        {
+          "T_Bollig_MeV": 5.265947032744615,
+          "T_Caputo_MeV": 5.26624780023195,
+          "eta_Bollig": 3.7458281357985848,
+          "eta_Caputo": 3.745592429066234,
+          "mu_mu_Bollig_derived_MeV": 19.72533255687985,
+          "mu_mu_Caputo_MeV": 19.7252178901355,
+          "r_km": 18.5820592310754
+        },
+        {
+          "T_Bollig_MeV": 5.263027980492474,
+          "T_Caputo_MeV": 5.26334561333455,
+          "eta_Bollig": 3.7449407307361087,
+          "eta_Caputo": 3.7446657249864166,
+          "mu_mu_Bollig_derived_MeV": 19.70972785115007,
+          "mu_mu_Caputo_MeV": 19.7094699170115,
+          "r_km": 18.5849462063224
+        },
+        {
+          "T_Bollig_MeV": 5.258141062333633,
+          "T_Caputo_MeV": 5.25845333555073,
+          "eta_Bollig": 3.743573806205312,
+          "eta_Caputo": 3.74334094641759,
+          "mu_mu_Bollig_derived_MeV": 19.68423915028476,
+          "mu_mu_Caputo_MeV": 19.6841836857932,
+          "r_km": 18.5898490103367
+        },
+        {
+          "T_Bollig_MeV": 5.248022963472018,
+          "T_Caputo_MeV": 5.24832413987652,
+          "eta_Bollig": 3.7407436631397974,
+          "eta_Caputo": 3.7405902137483618,
+          "mu_mu_Bollig_derived_MeV": 19.631508644620094,
+          "mu_mu_Caputo_MeV": 19.6318299162014,
+          "r_km": 18.6
+        },
+        {
+          "T_Bollig_MeV": 5.2425369189976285,
+          "T_Caputo_MeV": 5.24283207869798,
+          "eta_Bollig": 3.7392091564168783,
+          "eta_Caputo": 3.7390943195866533,
+          "mu_mu_Bollig_derived_MeV": 19.602942050369464,
+          "mu_mu_Caputo_MeV": 19.6034436440063,
+          "r_km": 18.6055038779037
+        },
+        {
+          "T_Bollig_MeV": 5.2199094563749435,
+          "T_Caputo_MeV": 5.22017979988037,
+          "eta_Bollig": 3.732880818984356,
+          "eta_Caputo": 3.7328911652447614,
+          "mu_mu_Bollig_derived_MeV": 19.485299886537085,
+          "mu_mu_Caputo_MeV": 19.4863630559626,
+          "r_km": 18.6282048953904
+        },
+        {
+          "T_Bollig_MeV": 5.210814949057295,
+          "T_Caputo_MeV": 5.21105130520832,
+          "eta_Bollig": 3.7304455760376465,
+          "eta_Caputo": 3.730472441543495,
+          "mu_mu_Bollig_derived_MeV": 19.43866157426162,
+          "mu_mu_Caputo_MeV": 19.4396832855489,
+          "r_km": 18.6375055148813
+        },
+        {
+          "T_Bollig_MeV": 5.198601407798569,
+          "T_Caputo_MeV": 5.19878805318006,
+          "eta_Bollig": 3.7271740620500187,
+          "eta_Caputo": 3.7272097494000644,
+          "mu_mu_Bollig_derived_MeV": 19.376092326083537,
+          "mu_mu_Caputo_MeV": 19.3769735168773,
+          "r_km": 18.65
+        },
+        {
+          "T_Bollig_MeV": 5.1772704555763625,
+          "T_Caputo_MeV": 5.17737028108897,
+          "eta_Bollig": 3.7214603622240485,
+          "eta_Caputo": 3.7214743870792892,
+          "mu_mu_Bollig_derived_MeV": 19.267006784941074,
+          "mu_mu_Caputo_MeV": 19.2674508934981,
+          "r_km": 18.6718216207292
+        },
+        {
+          "T_Bollig_MeV": 5.150416032181214,
+          "T_Caputo_MeV": 5.15064077488357,
+          "eta_Bollig": 3.714612717936939,
+          "eta_Caputo": 3.7146739888332823,
+          "mu_mu_Bollig_derived_MeV": 19.131800895806645,
+          "mu_mu_Caputo_MeV": 19.1329513122841,
+          "r_km": 18.7
+        },
+        {
+          "T_Bollig_MeV": 5.149709357089751,
+          "T_Caputo_MeV": 5.14993732731519,
+          "eta_Bollig": 3.714432539231179,
+          "eta_Caputo": 3.7144940675971507,
+          "mu_mu_Bollig_derived_MeV": 19.12824800355745,
+          "mu_mu_Caputo_MeV": 19.1294116508094,
+          "r_km": 18.7007415779486
+        },
+        {
+          "T_Bollig_MeV": 5.136252709974973,
+          "T_Caputo_MeV": 5.13654213933439,
+          "eta_Bollig": 3.7109998392414667,
+          "eta_Caputo": 3.7110585679175636,
+          "mu_mu_Bollig_derived_MeV": 19.06063298102067,
+          "mu_mu_Caputo_MeV": 19.0620087156465,
+          "r_km": 18.7148628521849
+        },
+        {
+          "T_Bollig_MeV": 5.103060238570328,
+          "T_Caputo_MeV": 5.103501012906,
+          "eta_Bollig": 3.7018836672248843,
+          "eta_Caputo": 3.701915876326344,
+          "mu_mu_Bollig_derived_MeV": 18.89093535002822,
+          "mu_mu_Caputo_MeV": 18.8927314245243,
+          "r_km": 18.75
+        },
+        {
+          "T_Bollig_MeV": 5.095116384622425,
+          "T_Caputo_MeV": 5.09559336041619,
+          "eta_Bollig": 3.699702977518114,
+          "eta_Caputo": 3.699710194356407,
+          "mu_mu_Bollig_derived_MeV": 18.850417258988916,
+          "mu_mu_Caputo_MeV": 18.8522187018266,
+          "r_km": 18.7584092881944
+        },
+        {
+          "T_Bollig_MeV": 5.0569465930982425,
+          "T_Caputo_MeV": 5.05721478172368,
+          "eta_Bollig": 3.6895505439103227,
+          "eta_Caputo": 3.6894170057444207,
+          "mu_mu_Bollig_derived_MeV": 18.657860053091074,
+          "mu_mu_Caputo_MeV": 18.6581742173934,
+          "r_km": 18.8
+        },
+        {
+          "T_Bollig_MeV": 5.0551517515713895,
+          "T_Caputo_MeV": 5.05541010197653,
+          "eta_Bollig": 3.689073145008635,
+          "eta_Caputo": 3.688929140860169,
+          "mu_mu_Bollig_derived_MeV": 18.648824570665376,
+          "mu_mu_Caputo_MeV": 18.6490496441801,
+          "r_km": 18.801955724204
+        },
+        {
+          "T_Bollig_MeV": 5.032253241876663,
+          "T_Caputo_MeV": 5.03216053732181,
+          "eta_Bollig": 3.6828769997303756,
+          "eta_Caputo": 3.683004385920284,
+          "mu_mu_Bollig_derived_MeV": 18.53316972132618,
+          "mu_mu_Caputo_MeV": 18.5334693296112,
+          "r_km": 18.8275220004829
+        },
+        {
+          "T_Bollig_MeV": 5.016604345072873,
+          "T_Caputo_MeV": 5.0162690912705,
+          "eta_Bollig": 3.6786419735982614,
+          "eta_Caputo": 3.6789231232137367,
+          "mu_mu_Bollig_derived_MeV": 18.454291308720485,
+          "mu_mu_Caputo_MeV": 18.4544683521374,
+          "r_km": 18.8449969556597
+        },
+        {
+          "T_Bollig_MeV": 5.012115825551558,
+          "T_Caputo_MeV": 5.01180488237231,
+          "eta_Bollig": 3.677519656939074,
+          "eta_Caputo": 3.677819982667715,
+          "mu_mu_Bollig_derived_MeV": 18.43215447132127,
+          "mu_mu_Caputo_MeV": 18.4325161456205,
+          "r_km": 18.85
+        },
+        {
+          "T_Bollig_MeV": 4.977988447261766,
+          "T_Caputo_MeV": 4.97786346553909,
+          "eta_Bollig": 3.6689943033619112,
+          "eta_Caputo": 3.669368086538243,
+          "mu_mu_Bollig_derived_MeV": 18.264211255204827,
+          "mu_mu_Caputo_MeV": 18.2656133395938,
+          "r_km": 18.8880381871153
+        },
+        {
+          "T_Bollig_MeV": 4.9675410690446995,
+          "T_Caputo_MeV": 4.96744902251386,
+          "eta_Bollig": 3.666499156860906,
+          "eta_Caputo": 3.6668464750990357,
+          "mu_mu_Bollig_derived_MeV": 18.213485141324313,
+          "mu_mu_Caputo_MeV": 18.2148729384391,
+          "r_km": 18.9
+        },
+        {
+          "T_Bollig_MeV": 4.940908575481579,
+          "T_Caputo_MeV": 4.94089105937167,
+          "eta_Bollig": 3.6601382518484558,
+          "eta_Caputo": 3.6603679733023133,
+          "mu_mu_Bollig_derived_MeV": 18.084408476006193,
+          "mu_mu_Caputo_MeV": 18.0854793932998,
+          "r_km": 18.9305039246877
+        },
+        {
+          "T_Bollig_MeV": 4.924198305086574,
+          "T_Caputo_MeV": 4.92430686126518,
+          "eta_Bollig": 3.6563664879159203,
+          "eta_Caputo": 3.6564053292008065,
+          "mu_mu_Bollig_derived_MeV": 18.004673662570926,
+          "mu_mu_Caputo_MeV": 18.0052618501501,
+          "r_km": 18.95
+        },
+        {
+          "T_Bollig_MeV": 4.904079558508994,
+          "T_Caputo_MeV": 4.90433813240401,
+          "eta_Bollig": 3.651823921241022,
+          "eta_Caputo": 3.6515984203744987,
+          "mu_mu_Bollig_derived_MeV": 17.908835043432255,
+          "mu_mu_Caputo_MeV": 17.9086733772689,
+          "r_km": 18.9734748668141
+        },
+        {
+          "T_Bollig_MeV": 4.881427060782401,
+          "T_Caputo_MeV": 4.88201920302948,
+          "eta_Bollig": 3.64651395061511,
+          "eta_Caputo": 3.6464169335046352,
+          "mu_mu_Bollig_derived_MeV": 17.800191876053137,
+          "mu_mu_Caputo_MeV": 17.8018774916215,
+          "r_km": 19.0
+        },
+        {
+          "T_Bollig_MeV": 4.867813910003148,
+          "T_Caputo_MeV": 4.86860636845496,
+          "eta_Bollig": 3.6433237304940387,
+          "eta_Caputo": 3.6432802019362094,
+          "mu_mu_Bollig_derived_MeV": 17.735021933943443,
+          "mu_mu_Caputo_MeV": 17.7376971932125,
+          "r_km": 19.0159406043865
+        },
+        {
+          "T_Bollig_MeV": 4.840025754171788,
+          "T_Caputo_MeV": 4.83994791686836,
+          "eta_Bollig": 3.63710403577261,
+          "eta_Caputo": 3.6371273239537816,
+          "mu_mu_Bollig_derived_MeV": 17.60367720374158,
+          "mu_mu_Caputo_MeV": 17.6035068149551,
+          "r_km": 19.05
+        },
+        {
+          "T_Bollig_MeV": 4.833167689512471,
+          "T_Caputo_MeV": 4.83287460450591,
+          "eta_Bollig": 3.6355650452850257,
+          "eta_Caputo": 3.635597478521856,
+          "mu_mu_Bollig_derived_MeV": 17.571295509992527,
+          "mu_mu_Caputo_MeV": 17.570386726154,
+          "r_km": 19.0584063419589
+        },
+        {
+          "T_Bollig_MeV": 4.814439021364203,
+          "T_Caputo_MeV": 4.81428632498306,
+          "eta_Bollig": 3.6303812662265815,
+          "eta_Caputo": 3.6304870189324894,
+          "mu_mu_Bollig_derived_MeV": 17.47824923055084,
+          "mu_mu_Caputo_MeV": 17.4782040082752,
+          "r_km": 19.0814664509956
+        },
+        {
+          "T_Bollig_MeV": 4.8143753959828235,
+          "T_Caputo_MeV": 4.81422317653259,
+          "eta_Bollig": 3.630363655795506,
+          "eta_Caputo": 3.630469590321762,
+          "mu_mu_Bollig_derived_MeV": 17.47793346293214,
+          "mu_mu_Caputo_MeV": 17.4778908434238,
+          "r_km": 19.0815447912289
+        },
+        {
+          "T_Bollig_MeV": 4.808552029819977,
+          "T_Caputo_MeV": 4.80844346186512,
+          "eta_Bollig": 3.6287518463851614,
+          "eta_Caputo": 3.6288724838400235,
+          "mu_mu_Bollig_derived_MeV": 17.44904205664836,
+          "mu_mu_Caputo_MeV": 17.4492281688628,
+          "r_km": 19.0887149465017
+        },
+        {
+          "T_Bollig_MeV": 4.808301091071372,
+          "T_Caputo_MeV": 4.80819440413362,
+          "eta_Bollig": 3.628682390777338,
+          "eta_Caputo": 3.6288035755136283,
+          "mu_mu_Bollig_derived_MeV": 17.44779749872615,
+          "mu_mu_Caputo_MeV": 17.4479930454847,
+          "r_km": 19.0890239206828
+        },
+        {
+          "T_Bollig_MeV": 4.802414649999093,
+          "T_Caputo_MeV": 4.80235208736131,
+          "eta_Bollig": 3.627053123297253,
+          "eta_Caputo": 3.6271850956834815,
+          "mu_mu_Bollig_derived_MeV": 17.418613055647697,
+          "mu_mu_Caputo_MeV": 17.4190199155014,
+          "r_km": 19.0962717384075
+        },
+        {
+          "T_Bollig_MeV": 4.802414099527146,
+          "T_Caputo_MeV": 4.80235154101567,
+          "eta_Bollig": 3.627052970935918,
+          "eta_Caputo": 3.627184944146816,
+          "mu_mu_Bollig_derived_MeV": 17.418610327354475,
+          "mu_mu_Caputo_MeV": 17.4190172060723,
+          "r_km": 19.0962724161889
+        },
+        {
+          "T_Bollig_MeV": 4.7993866775803635,
+          "T_Caputo_MeV": 4.79934681238598,
+          "eta_Bollig": 3.626215031667379,
+          "eta_Caputo": 3.6263510184057735,
+          "mu_mu_Bollig_derived_MeV": 17.403608113026074,
+          "mu_mu_Caputo_MeV": 17.4041162007784,
+          "r_km": 19.1
+        },
+        {
+          "T_Bollig_MeV": 4.798678445018947,
+          "T_Caputo_MeV": 4.79864384701539,
+          "eta_Bollig": 3.626028883434748,
+          "eta_Caputo": 3.626155768206462,
+          "mu_mu_Bollig_derived_MeV": 17.400146643954443,
+          "mu_mu_Caputo_MeV": 17.4006300654233,
+          "r_km": 19.1008720795313
+        },
+        {
+          "T_Bollig_MeV": 4.790256398025272,
+          "T_Caputo_MeV": 4.79031199826652,
+          "eta_Bollig": 3.624273203550801,
+          "eta_Caputo": 3.6243132579674713,
+          "mu_mu_Bollig_derived_MeV": 17.361197901500773,
+          "mu_mu_Caputo_MeV": 17.361591285118,
+          "r_km": 19.1113106909563
+        },
+        {
+          "T_Bollig_MeV": 4.76667613516554,
+          "T_Caputo_MeV": 4.76698427476235,
+          "eta_Bollig": 3.619357606049151,
+          "eta_Caputo": 3.619120289441984,
+          "mu_mu_Bollig_derived_MeV": 17.252305525384365,
+          "mu_mu_Caputo_MeV": 17.2522895082433,
+          "r_km": 19.1405369825546
+        },
+        {
+          "T_Bollig_MeV": 4.766426849607608,
+          "T_Caputo_MeV": 4.76673765899709,
+          "eta_Bollig": 3.6193056393907184,
+          "eta_Caputo": 3.619065118967801,
+          "mu_mu_Bollig_derived_MeV": 17.251155576528152,
+          "mu_mu_Caputo_MeV": 17.2511339929466,
+          "r_km": 19.1408459567357
+        },
+        {
+          "T_Bollig_MeV": 4.764883094959527,
+          "T_Caputo_MeV": 4.76520806132848,
+          "eta_Bollig": 3.6189848895339867,
+          "eta_Caputo": 3.6187228047440176,
+          "mu_mu_Bollig_derived_MeV": 17.244039921054462,
+          "mu_mu_Caputo_MeV": 17.2439670808794,
+          "r_km": 19.1427623232206
+        },
+        {
+          "T_Bollig_MeV": 4.75924072567717,
+          "T_Caputo_MeV": 4.75948652464984,
+          "eta_Bollig": 3.617885070498662,
+          "eta_Caputo": 3.6177071396327944,
+          "mu_mu_Bollig_derived_MeV": 17.21838596833665,
+          "mu_mu_Caputo_MeV": 17.2184283812118,
+          "r_km": 19.15
+        },
+        {
+          "T_Bollig_MeV": 4.732002211711527,
+          "T_Caputo_MeV": 4.73186546704306,
+          "eta_Bollig": 3.6125760212818228,
+          "eta_Caputo": 3.612769406309567,
+          "mu_mu_Bollig_derived_MeV": 17.094717722681615,
+          "mu_mu_Caputo_MeV": 17.0951387941059,
+          "r_km": 19.1849403138514
+        },
+        {
+          "T_Bollig_MeV": 4.720433622388034,
+          "T_Caputo_MeV": 4.72027278087525,
+          "eta_Bollig": 3.610337997190347,
+          "eta_Caputo": 3.6105787100856577,
+          "mu_mu_Bollig_derived_MeV": 17.04236087012239,
+          "mu_mu_Caputo_MeV": 17.042916408425,
+          "r_km": 19.1999158105133
+        },
+        {
+          "T_Bollig_MeV": 4.720433098801076,
+          "T_Caputo_MeV": 4.72027225619769,
+          "eta_Bollig": 3.6103378958988084,
+          "eta_Caputo": 3.6105786106926465,
+          "mu_mu_Bollig_derived_MeV": 17.04235850165657,
+          "mu_mu_Caputo_MeV": 17.0429140448733,
+          "r_km": 19.1999164882947
+        },
+        {
+          "T_Bollig_MeV": 4.720368585907513,
+          "T_Caputo_MeV": 4.72020760892669,
+          "eta_Bollig": 3.610325415430708,
+          "eta_Caputo": 3.610566363977592,
+          "mu_mu_Bollig_derived_MeV": 17.042066675902607,
+          "mu_mu_Caputo_MeV": 17.0426228237818,
+          "r_km": 19.2
+        },
+        {
+          "T_Bollig_MeV": 4.699643360188074,
+          "T_Caputo_MeV": 4.69943779806177,
+          "eta_Bollig": 3.6063172869235522,
+          "eta_Caputo": 3.606614307870241,
+          "mu_mu_Bollig_derived_MeV": 16.94840509222174,
+          "mu_mu_Caputo_MeV": 16.9490596014358,
+          "r_km": 19.2268305575406
+        },
+        {
+          "T_Bollig_MeV": 4.681984399422005,
+          "T_Caputo_MeV": 4.68192208057446,
+          "eta_Bollig": 3.6030506144022643,
+          "eta_Caputo": 3.603227316844878,
+          "mu_mu_Bollig_derived_MeV": 16.869426766959272,
+          "mu_mu_Caputo_MeV": 16.8700295360651,
+          "r_km": 19.25
+        },
+        {
+          "T_Bollig_MeV": 4.667716041648363,
+          "T_Caputo_MeV": 4.66776946270061,
+          "eta_Bollig": 3.600411158271155,
+          "eta_Caputo": 3.6004720770532503,
+          "mu_mu_Bollig_derived_MeV": 16.805696919992034,
+          "mu_mu_Caputo_MeV": 16.8061736125754,
+          "r_km": 19.2687208012298
+        },
+        {
+          "T_Bollig_MeV": 4.644324104234118,
+          "T_Caputo_MeV": 4.64458447886608,
+          "eta_Bollig": 3.596704602193504,
+          "eta_Caputo": 3.5968287552433997,
+          "mu_mu_Bollig_derived_MeV": 16.704261879777075,
+          "mu_mu_Caputo_MeV": 16.7057750097427,
+          "r_km": 19.3
+        },
+        {
+          "T_Bollig_MeV": 4.636389272845811,
+          "T_Caputo_MeV": 4.63671928683468,
+          "eta_Bollig": 3.5954452403986346,
+          "eta_Caputo": 3.5955845309941714,
+          "mu_mu_Bollig_derived_MeV": 16.669883743688757,
+          "mu_mu_Caputo_MeV": 16.6717161423051,
+          "r_km": 19.310611044919
+        },
+        {
+          "T_Bollig_MeV": 4.630911744853828,
+          "T_Caputo_MeV": 4.63114971334253,
+          "eta_Bollig": 3.594433916645152,
+          "eta_Caputo": 3.5945368003739304,
+          "mu_mu_Bollig_derived_MeV": 16.64550624069298,
+          "mu_mu_Caputo_MeV": 16.6468380726509,
+          "r_km": 19.3182881853605
+        },
+        {
+          "T_Bollig_MeV": 4.630910549318932,
+          "T_Caputo_MeV": 4.63114849771757,
+          "eta_Bollig": 3.5944336959118472,
+          "eta_Caputo": 3.5945365714193094,
+          "mu_mu_Bollig_derived_MeV": 16.64550092122561,
+          "mu_mu_Caputo_MeV": 16.6468326427194,
+          "r_km": 19.3182898609867
+        },
+        {
+          "T_Bollig_MeV": 4.60828582655942,
+          "T_Caputo_MeV": 4.60814358449139,
+          "eta_Bollig": 3.590256461295032,
+          "eta_Caputo": 3.5901821223815458,
+          "mu_mu_Bollig_derived_MeV": 16.544927964299276,
+          "mu_mu_Caputo_MeV": 16.5440747144082,
+          "r_km": 19.35
+        },
+        {
+          "T_Bollig_MeV": 4.606706496790332,
+          "T_Caputo_MeV": 4.606537715342,
+          "eta_Bollig": 3.5899648674022404,
+          "eta_Caputo": 3.589876533996588,
+          "mu_mu_Bollig_derived_MeV": 16.537914477910945,
+          "mu_mu_Caputo_MeV": 16.5369016472765,
+          "r_km": 19.3522135416667
+        },
+        {
+          "T_Bollig_MeV": 4.576207408686621,
+          "T_Caputo_MeV": 4.57642346739531,
+          "eta_Bollig": 3.5852489525597995,
+          "eta_Caputo": 3.5855210576607037,
+          "mu_mu_Bollig_derived_MeV": 16.4068428186901,
+          "mu_mu_Caputo_MeV": 16.4088627111185,
+          "r_km": 19.3941037853559
+        },
+        {
+          "T_Bollig_MeV": 4.572072710391783,
+          "T_Caputo_MeV": 4.57233195362443,
+          "eta_Bollig": 3.5843868191498522,
+          "eta_Caputo": 3.584660316115642,
+          "mu_mu_Bollig_derived_MeV": 16.388077159323046,
+          "mu_mu_Caputo_MeV": 16.390256906265,
+          "r_km": 19.4
+        },
+        {
+          "T_Bollig_MeV": 4.547055506485389,
+          "T_Caputo_MeV": 4.54755457461921,
+          "eta_Bollig": 3.5791649508771117,
+          "eta_Caputo": 3.579414749623473,
+          "mu_mu_Bollig_derived_MeV": 16.274661698505277,
+          "mu_mu_Caputo_MeV": 16.2775839191097,
+          "r_km": 19.4357062821035
+        },
+        {
+          "T_Bollig_MeV": 4.537422661991055,
+          "T_Caputo_MeV": 4.53785656509776,
+          "eta_Bollig": 3.577011340398298,
+          "eta_Caputo": 3.5771712251963597,
+          "mu_mu_Bollig_derived_MeV": 16.230412318122237,
+          "mu_mu_Caputo_MeV": 16.2326899287361,
+          "r_km": 19.45
+        },
+        {
+          "T_Bollig_MeV": 4.51921260633267,
+          "T_Caputo_MeV": 4.51952332061684,
+          "eta_Bollig": 3.572940043060171,
+          "eta_Caputo": 3.5729037322278026,
+          "mu_mu_Bollig_derived_MeV": 16.146875684268316,
+          "mu_mu_Caputo_MeV": 16.1478217401225,
+          "r_km": 19.4770210319095
+        },
+        {
+          "T_Bollig_MeV": 4.504011261004529,
+          "T_Caputo_MeV": 4.50430391445091,
+          "eta_Bollig": 3.569312345779472,
+          "eta_Caputo": 3.5693559462980855,
+          "mu_mu_Bollig_derived_MeV": 16.076222999433234,
+          "mu_mu_Caputo_MeV": 16.0774639609791,
+          "r_km": 19.5
+        },
+        {
+          "T_Bollig_MeV": 4.470937418245656,
+          "T_Caputo_MeV": 4.47118796662854,
+          "eta_Bollig": 3.5616080553108285,
+          "eta_Caputo": 3.561552856709116,
+          "mu_mu_Bollig_derived_MeV": 15.923726723614328,
+          "mu_mu_Caputo_MeV": 15.9243722754293,
+          "r_km": 19.55
+        },
+        {
+          "T_Bollig_MeV": 4.467604923029312,
+          "T_Caputo_MeV": 4.46785122893803,
+          "eta_Bollig": 3.560842754967437,
+          "eta_Caputo": 3.560760208555024,
+          "mu_mu_Bollig_derived_MeV": 15.90843862222578,
+          "mu_mu_Caputo_MeV": 15.9089468737462,
+          "r_km": 19.5550379619336
+        },
+        {
+          "T_Bollig_MeV": 4.467400543759601,
+          "T_Caputo_MeV": 4.4676465894808,
+          "eta_Bollig": 3.5607958197086793,
+          "eta_Caputo": 3.560711557543145,
+          "mu_mu_Bollig_derived_MeV": 15.90750118118347,
+          "mu_mu_Caputo_MeV": 15.9080008461825,
+          "r_km": 19.5553469361148
+        },
+        {
+          "T_Bollig_MeV": 4.464507320239525,
+          "T_Caputo_MeV": 4.46474968270682,
+          "eta_Bollig": 3.5601305176958373,
+          "eta_Caputo": 3.560022368110335,
+          "mu_mu_Bollig_derived_MeV": 15.894228757261196,
+          "mu_mu_Caputo_MeV": 15.8946087384498,
+          "r_km": 19.5597208208508
+        },
+        {
+          "T_Bollig_MeV": 4.462300273961631,
+          "T_Caputo_MeV": 4.46254879147745,
+          "eta_Bollig": 3.5595747386251535,
+          "eta_Caputo": 3.5594901199565445,
+          "mu_mu_Bollig_derived_MeV": 15.883891331353924,
+          "mu_mu_Caputo_MeV": 15.884398333088,
+          "r_km": 19.5631360375948
+        },
+        {
+          "T_Bollig_MeV": 4.4622512128565015,
+          "T_Caputo_MeV": 4.46249982277339,
+          "eta_Bollig": 3.559562372825122,
+          "eta_Caputo": 3.559478271736889,
+          "mu_mu_Bollig_derived_MeV": 15.883661515377266,
+          "mu_mu_Caputo_MeV": 15.8841711567916,
+          "r_km": 19.5632120244204
+        },
+        {
+          "T_Bollig_MeV": 4.457222157838395,
+          "T_Caputo_MeV": 4.4574802394154,
+          "eta_Bollig": 3.5582948047887557,
+          "eta_Caputo": 3.5582623777551645,
+          "mu_mu_Bollig_derived_MeV": 15.860110448025686,
+          "mu_mu_Caputo_MeV": 15.8608842354989,
+          "r_km": 19.5710011259003
+        },
+        {
+          "T_Bollig_MeV": 4.4570241872837535,
+          "T_Caputo_MeV": 4.4572826417161,
+          "eta_Bollig": 3.5582449065183424,
+          "eta_Caputo": 3.5582144576282575,
+          "mu_mu_Bollig_derived_MeV": 15.85918361263147,
+          "mu_mu_Caputo_MeV": 15.8599675374897,
+          "r_km": 19.5713077466739
+        },
+        {
+          "T_Bollig_MeV": 4.446915496658184,
+          "T_Caputo_MeV": 4.44719298967365,
+          "eta_Bollig": 3.5556970216611736,
+          "eta_Caputo": 3.5557619197975088,
+          "mu_mu_Bollig_derived_MeV": 15.811884187046422,
+          "mu_mu_Caputo_MeV": 15.813159482672,
+          "r_km": 19.586964289867
+        },
+        {
+          "T_Bollig_MeV": 4.4467160066193765,
+          "T_Caputo_MeV": 4.44699387535195,
+          "eta_Bollig": 3.5556467404063765,
+          "eta_Caputo": 3.555713408189834,
+          "mu_mu_Bollig_derived_MeV": 15.810951274449046,
+          "mu_mu_Caputo_MeV": 15.812235748727,
+          "r_km": 19.5872732640482
+        },
+        {
+          "T_Bollig_MeV": 4.438498954181709,
+          "T_Caputo_MeV": 4.43879229880946,
+          "eta_Bollig": 3.553575640968088,
+          "eta_Caputo": 3.553711419296761,
+          "mu_mu_Bollig_derived_MeV": 15.772541766042453,
+          "mu_mu_Caputo_MeV": 15.7741868801657,
+          "r_km": 19.6
+        },
+        {
+          "T_Bollig_MeV": 4.437832411446531,
+          "T_Caputo_MeV": 4.43812493900572,
+          "eta_Bollig": 3.553410772775081,
+          "eta_Caputo": 3.5535481925317596,
+          "mu_mu_Bollig_derived_MeV": 15.769441498604522,
+          "mu_mu_Caputo_MeV": 15.7710908552339,
+          "r_km": 19.6010355706568
+        },
+        {
+          "T_Bollig_MeV": 4.426539266861738,
+          "T_Caputo_MeV": 4.4265767949936,
+          "eta_Bollig": 3.5509449284374006,
+          "eta_Caputo": 3.5509681468176195,
+          "mu_mu_Bollig_derived_MeV": 15.718397160191698,
+          "mu_mu_Caputo_MeV": 15.7186331984643,
+          "r_km": 19.6191989142002
+        },
+        {
+          "T_Bollig_MeV": 4.4263486239484,
+          "T_Caputo_MeV": 4.42638184735957,
+          "eta_Bollig": 3.5509033017899387,
+          "eta_Caputo": 3.550924476753823,
+          "mu_mu_Bollig_derived_MeV": 15.717535943651724,
+          "mu_mu_Caputo_MeV": 15.7177476452479,
+          "r_km": 19.6195055349738
+        },
+        {
+          "T_Bollig_MeV": 4.412323678755253,
+          "T_Caputo_MeV": 4.41204021862748,
+          "eta_Bollig": 3.547840972123371,
+          "eta_Caputo": 3.547701235049188,
+          "mu_mu_Bollig_derived_MeV": 15.654222729758004,
+          "mu_mu_Caputo_MeV": 15.6526005327114,
+          "r_km": 19.6420625735212
+        },
+        {
+          "T_Bollig_MeV": 4.40735702048562,
+          "T_Caputo_MeV": 4.40709119404374,
+          "eta_Bollig": 3.546909184613744,
+          "eta_Caputo": 3.5468603642588845,
+          "mu_mu_Bollig_derived_MeV": 15.63249509583231,
+          "mu_mu_Caputo_MeV": 15.6313370778281,
+          "r_km": 19.65
+        },
+        {
+          "T_Bollig_MeV": 4.386478654473247,
+          "T_Caputo_MeV": 4.38629115265803,
+          "eta_Bollig": 3.5430002815332275,
+          "eta_Caputo": 3.5433055586132234,
+          "mu_mu_Bollig_derived_MeV": 15.541295107738206,
+          "mu_mu_Caputo_MeV": 15.5419698229092,
+          "r_km": 19.6833598664668
+        },
+        {
+          "T_Bollig_MeV": 4.386423738274263,
+          "T_Caputo_MeV": 4.38623644247571,
+          "eta_Bollig": 3.542991890316293,
+          "eta_Caputo": 3.543296163980145,
+          "mu_mu_Bollig_derived_MeV": 15.54106373219659,
+          "mu_mu_Caputo_MeV": 15.5417347609341,
+          "r_km": 19.6834476126565
+        },
+        {
+          "T_Bollig_MeV": 4.3862852821151845,
+          "T_Caputo_MeV": 4.38610122595472,
+          "eta_Bollig": 3.542970734160392,
+          "eta_Caputo": 3.543273905343912,
+          "mu_mu_Bollig_derived_MeV": 15.540480386212558,
+          "mu_mu_Caputo_MeV": 15.5411580201223,
+          "r_km": 19.683668840648
+        },
+        {
+          "T_Bollig_MeV": 4.376064380221088,
+          "T_Caputo_MeV": 4.37611947574137,
+          "eta_Bollig": 3.5414089763063075,
+          "eta_Caputo": 3.5416269631328894,
+          "mu_mu_Bollig_derived_MeV": 15.497433677009258,
+          "mu_mu_Caputo_MeV": 15.4985827291766,
+          "r_km": 19.7
+        },
+        {
+          "T_Bollig_MeV": 4.360746966848494,
+          "T_Caputo_MeV": 4.36116037250617,
+          "eta_Bollig": 3.5390749478062267,
+          "eta_Caputo": 3.5391446657154693,
+          "mu_mu_Bollig_derived_MeV": 15.433010344095496,
+          "mu_mu_Caputo_MeV": 15.4347774686849,
+          "r_km": 19.7244746155209
+        },
+        {
+          "T_Bollig_MeV": 4.345272812082539,
+          "T_Caputo_MeV": 4.3455590299145,
+          "eta_Bollig": 3.5378799844316027,
+          "eta_Caputo": 3.5379747862561186,
+          "mu_mu_Bollig_derived_MeV": 15.373053708761638,
+          "mu_mu_Caputo_MeV": 15.3744782800251,
+          "r_km": 19.75
+        },
+        {
+          "T_Bollig_MeV": 4.335875326132286,
+          "T_Caputo_MeV": 4.33608430253663,
+          "eta_Bollig": 3.537156027621698,
+          "eta_Caputo": 3.5372602073291053,
+          "mu_mu_Bollig_derived_MeV": 15.33666754484501,
+          "mu_mu_Caputo_MeV": 15.3378584589872,
+          "r_km": 19.7655016183853
+        },
+        {
+          "T_Bollig_MeV": 4.315604930058471,
+          "T_Caputo_MeV": 4.31559933409386,
+          "eta_Bollig": 3.536213832533132,
+          "eta_Caputo": 3.5362292523871934,
+          "mu_mu_Bollig_derived_MeV": 15.260901849420943,
+          "mu_mu_Caputo_MeV": 15.2609486068054,
+          "r_km": 19.8
+        },
+        {
+          "T_Bollig_MeV": 4.311769712975291,
+          "T_Caputo_MeV": 4.31172267107328,
+          "eta_Bollig": 3.536023664708599,
+          "eta_Caputo": 3.536033047719543,
+          "mu_mu_Bollig_derived_MeV": 15.246519741854433,
+          "mu_mu_Caputo_MeV": 15.2463938575167,
+          "r_km": 19.8065286212497
+        },
+        {
+          "T_Bollig_MeV": 4.30882771643635,
+          "T_Caputo_MeV": 4.3087115008141,
+          "eta_Bollig": 3.535504050071525,
+          "eta_Caputo": 3.535532845031542,
+          "mu_mu_Bollig_derived_MeV": 15.233877842521157,
+          "mu_mu_Caputo_MeV": 15.2335910308934,
+          "r_km": 19.8116800953738
+        },
+        {
+          "T_Bollig_MeV": 4.308826759489599,
+          "T_Caputo_MeV": 4.3087105213671,
+          "eta_Bollig": 3.5355038810558455,
+          "eta_Caputo": 3.5355326822162496,
+          "mu_mu_Bollig_derived_MeV": 15.233873730972759,
+          "mu_mu_Caputo_MeV": 15.2335868665024,
+          "r_km": 19.811681771
+        },
+        {
+          "T_Bollig_MeV": 4.304335023334847,
+          "T_Caputo_MeV": 4.30411317322534,
+          "eta_Bollig": 3.53471055182483,
+          "eta_Caputo": 3.5347676401117663,
+          "mu_mu_Bollig_derived_MeV": 15.214578425570858,
+          "mu_mu_Caputo_MeV": 15.2140399640957,
+          "r_km": 19.8195468593056
+        },
+        {
+          "T_Bollig_MeV": 4.29971022856872,
+          "T_Caputo_MeV": 4.29937963793036,
+          "eta_Bollig": 3.5338937218176754,
+          "eta_Caputo": 3.53397822563512,
+          "mu_mu_Bollig_derived_MeV": 15.19471898237424,
+          "mu_mu_Caputo_MeV": 15.1939140241849,
+          "r_km": 19.8276449349667
+        },
+        {
+          "T_Bollig_MeV": 4.29059369764784,
+          "T_Caputo_MeV": 4.29004875449362,
+          "eta_Bollig": 3.532283562579507,
+          "eta_Caputo": 3.53241700714801,
+          "mu_mu_Bollig_derived_MeV": 15.155593591908694,
+          "mu_mu_Caputo_MeV": 15.1542411818674,
+          "r_km": 19.8436080989334
+        },
+        {
+          "T_Bollig_MeV": 4.288463463541667,
+          "T_Caputo_MeV": 4.28786843323876,
+          "eta_Bollig": 3.5319072985098754,
+          "eta_Caputo": 3.5320512222645166,
+          "mu_mu_Bollig_derived_MeV": 15.146455406275754,
+          "mu_mu_Caputo_MeV": 15.1449709405304,
+          "r_km": 19.8473381665018
+        },
+        {
+          "T_Bollig_MeV": 4.286951493216361,
+          "T_Caputo_MeV": 4.28636922104762,
+          "eta_Bollig": 3.531623747281455,
+          "eta_Caputo": 3.531768166456657,
+          "mu_mu_Bollig_derived_MeV": 15.139899696886594,
+          "mu_mu_Caputo_MeV": 15.1384623645756,
+          "r_km": 19.85
+        },
+        {
+          "T_Bollig_MeV": 4.272279269628061,
+          "T_Caputo_MeV": 4.27181394334172,
+          "eta_Bollig": 3.528870856864781,
+          "eta_Caputo": 3.529009757950024,
+          "mu_mu_Bollig_derived_MeV": 15.076321806978017,
+          "mu_mu_Caputo_MeV": 15.0752730901999,
+          "r_km": 19.8758427232666
+        },
+        {
+          "T_Bollig_MeV": 4.265169642397596,
+          "T_Caputo_MeV": 4.26476098384298,
+          "eta_Bollig": 3.5275370325632758,
+          "eta_Caputo": 3.527666360997293,
+          "mu_mu_Bollig_derived_MeV": 15.045543863722184,
+          "mu_mu_Caputo_MeV": 15.0446538603966,
+          "r_km": 19.8883651693662
+        },
+        {
+          "T_Bollig_MeV": 4.258775135987891,
+          "T_Caputo_MeV": 4.25831411206249,
+          "eta_Bollig": 3.5263170753134903,
+          "eta_Caputo": 3.5264220846162257,
+          "mu_mu_Bollig_derived_MeV": 15.017791481954632,
+          "mu_mu_Caputo_MeV": 15.0166129280101,
+          "r_km": 19.9
+        },
+        {
+          "T_Bollig_MeV": 4.2427468242827,
+          "T_Caputo_MeV": 4.24214837228543,
+          "eta_Bollig": 3.5232548000176953,
+          "eta_Caputo": 3.5232853899140677,
+          "mu_mu_Bollig_derived_MeV": 14.948278113913856,
+          "mu_mu_Caputo_MeV": 14.946299381921,
+          "r_km": 19.9291747146183
+        },
+        {
+          "T_Bollig_MeV": 4.236716031433849,
+          "T_Caputo_MeV": 4.23629862856721,
+          "eta_Bollig": 3.5218004709500947,
+          "eta_Caputo": 3.521838945502469,
+          "mu_mu_Bollig_derived_MeV": 14.920868514785544,
+          "mu_mu_Caputo_MeV": 14.9195614948667,
+          "r_km": 19.9400036755332
+        },
+        {
+          "T_Bollig_MeV": 4.231148048238257,
+          "T_Caputo_MeV": 4.23089867037047,
+          "eta_Bollig": 3.520457964928006,
+          "eta_Caputo": 3.5205001675979775,
+          "mu_mu_Bollig_derived_MeV": 14.895578847209958,
+          "mu_mu_Caputo_MeV": 14.8948794781293,
+          "r_km": 19.95
+        },
+        {
+          "T_Bollig_MeV": 4.220055905951499,
+          "T_Caputo_MeV": 4.22014125560167,
+          "eta_Bollig": 3.5177830233840033,
+          "eta_Caputo": 3.51782293791515,
+          "mu_mu_Bollig_derived_MeV": 14.845241023687583,
+          "mu_mu_Caputo_MeV": 14.8457097101976,
+          "r_km": 19.9699139705411
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": 3.513387815736635,
+          "eta_Caputo": 3.5133058514943576,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.0
+        }
+      ]
+    },
+    "20_22km": {
+      "T_comparison": {
+        "count": 0,
+        "maximum_absolute_difference": null,
+        "maximum_absolute_relative_difference": null,
+        "maximum_relative_difference": null,
+        "maximum_signed_difference": null,
+        "mean_absolute_difference": null,
+        "mean_absolute_relative_difference": null,
+        "minimum_relative_difference": null,
+        "minimum_signed_difference": null,
+        "radial_range_km": null,
+        "relative_count": 0,
+        "relative_denominator_threshold": 1e-12,
+        "rms_difference": null
+      },
+      "mu_mu_derived_comparison": {
+        "count": 0,
+        "maximum_absolute_difference": null,
+        "maximum_absolute_relative_difference": null,
+        "maximum_relative_difference": null,
+        "maximum_signed_difference": null,
+        "mean_absolute_difference": null,
+        "mean_absolute_relative_difference": null,
+        "minimum_relative_difference": null,
+        "minimum_signed_difference": null,
+        "radial_range_km": null,
+        "relative_count": 0,
+        "relative_denominator_threshold": 1.0,
+        "rms_difference": null
+      },
+      "mu_over_T_comparison": {
+        "count": 1,
+        "maximum_absolute_difference": 8.196424227735477e-05,
+        "maximum_absolute_relative_difference": 2.3329118951864736e-05,
+        "maximum_relative_difference": -2.3329118951864736e-05,
+        "maximum_signed_difference": -8.196424227735477e-05,
+        "mean_absolute_difference": 8.196424227735477e-05,
+        "mean_absolute_relative_difference": 2.3329118951864736e-05,
+        "minimum_relative_difference": -2.3329118951864736e-05,
+        "minimum_signed_difference": -8.196424227735477e-05,
+        "radial_range_km": [
+          20.0,
+          20.0
+        ],
+        "relative_count": 1,
+        "relative_denominator_threshold": 0.1,
+        "rms_difference": 8.196424227735477e-05
+      },
+      "requested_interval_km": [
+        20.0,
+        22.0
+      ],
+      "rows": [
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": 3.513387815736635,
+          "eta_Caputo": 3.5133058514943576,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.0
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.0106532264639
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.05
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.0511750247743
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.0683255800664
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.0684039202997
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.0761889927457
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.076190668372
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.0839804476333
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.0843647308587
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.0919142806972
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.0996353152003
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.1
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.1000195984257
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.1313286557781
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.1313293335595
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.1324360790076
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.15
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.1731753349304
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.1945653966268
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.2
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.2136971332409
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.25
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.2541486422221
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.2946704405325
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.3
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.3201872648249
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.3204962390061
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.3354096964554
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.35
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.3759314947658
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.4
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.416383003747
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.45
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.4571925489991
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.4976440579803
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.5
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.5383833139031
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.55
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.5719736405392
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.5723579237646
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.5791928591552
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.579530432445
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.5796064192706
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.5867789279511
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.5870855487246
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.6
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.6015089063187
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.6018931895441
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.6196443681364
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.6310424964719
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.6310441720982
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.65
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.6604539133884
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.6898064072573
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.6898070850387
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.7
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.7014809162528
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.7422201721757
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.75
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.7830297174277
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.8
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.8072555685315
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.8073315553571
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.8145040640375
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.8217525595435
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.8240567202921
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.8364825379112
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.85
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.8648662655442
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.8660178036906
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.9
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.9058932684086
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.9247800388498
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.9319532253116
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.9395100172175
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.946920271273
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.95
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.9540070082295
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.9834669649648
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.9880175634667
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.9907154604708
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 20.9982722523766
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.0
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.0126939343445
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.0202507262503
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.0274992217563
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.0293323132727
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.0346724082182
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.042229200124
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.0423051869496
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.05
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.0500942884295
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.0504056160183
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.0581923640907
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.0582707043239
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.0660574523962
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.0663664265774
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.0709348100203
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.0741555280574
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.074231514883
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.0823272371365
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.0898103956243
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.0901970322573
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.0979837803297
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.1
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.105773559591
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.1061578428164
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.1122495598263
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.1139469442964
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.1139476220778
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.1217367235577
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.1221233601907
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.1299101082631
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.1376998875244
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.1380841707498
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.15
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.1521958642536
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.1696262154578
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.1697045556911
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.1923596262932
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.2
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.2342498699824
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.25
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.2764278606132
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.297098539836
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.2970992176173
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.3
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.3180303573608
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.35
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.3597031434377
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.4
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.4015933871269
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.4437713777577
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.45
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.4859493683886
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.5
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.5280570696901
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.55
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.5519678795479
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.5519685573293
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.5591410660098
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.5666978579156
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.5670068320967
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.5705228072626
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.5814278362832
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.5818144729162
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.6
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.6112713984624
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.6115803726436
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.6132762917766
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.65
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.6560297762906
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.6708832137767
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.67096155401
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.6987832608046
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.7
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.741754202931
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.75
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.784507687445
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.7898738570497
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.7899498438753
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.7971223525557
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.8
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.8046791444615
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.8194091228292
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.8280541234546
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.8492526850084
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.85
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.8713831018519
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.9
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.9086315129671
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.9149295378614
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.95
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 21.9585462632003
+        },
+        {
+          "T_Bollig_MeV": null,
+          "T_Caputo_MeV": null,
+          "eta_Bollig": null,
+          "eta_Caputo": null,
+          "mu_mu_Bollig_derived_MeV": null,
+          "mu_mu_Caputo_MeV": null,
+          "r_km": 22.0
+        }
+      ]
+    }
+  },
+  "policy": {
+    "eta_relative_residual_uses_abs_Bollig_eta_greater_than_0p1": true,
+    "mu_mu_Bollig_is_derived_from_fig1_T_times_fig4_eta": true,
+    "mu_mu_relative_residual_uses_abs_derived_Bollig_mu_greater_than_1MeV": true,
+    "no_extrapolation": true,
+    "only_points_inside_source_vector_path_and_detected_plot_frame_are_compared": true,
+    "production_and_axial_outputs_modified": false
+  },
+  "profile_node_count": 1687,
+  "profile_radial_range_km": [
+    0.0,
+    25.0
+  ],
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "selected_curves": {
+    "fig1_temperature": {
+      "color": [
+        0.6999970078468323,
+        0.6999970078468323,
+        0.0
+      ],
+      "drawing_index": 0,
+      "page_index": 1
+    },
+    "fig4_mu_over_T": {
+      "color": [
+        0.6999970078468323,
+        0.6999970078468323,
+        0.0
+      ],
+      "drawing_index": 193,
+      "page_index": 2
+    }
+  },
+  "selected_radii": [
+    {
+      "T_Bollig_MeV": 13.23075073206945,
+      "T_Caputo_MeV": 13.2314158304208,
+      "eta_Bollig": 4.707347106476416,
+      "eta_Caputo": 4.707184694793657,
+      "mu_mu_Bollig_derived_MeV": 62.28173617511785,
+      "mu_mu_Caputo_MeV": 62.2827180874073,
+      "profile_node_radius_km": 15.0,
+      "target_radius_km": 15.0
+    },
+    {
+      "T_Bollig_MeV": 9.53832231918775,
+      "T_Caputo_MeV": 9.53741117670316,
+      "eta_Bollig": 4.941441768449384,
+      "eta_Caputo": 4.941567429815211,
+      "mu_mu_Bollig_derived_MeV": 47.133064308967356,
+      "mu_mu_Caputo_MeV": 47.1297604355519,
+      "profile_node_radius_km": 16.0,
+      "target_radius_km": 16.0
+    },
+    {
+      "T_Bollig_MeV": 7.405865915970613,
+      "T_Caputo_MeV": 7.40530484430937,
+      "eta_Bollig": 4.449159146293709,
+      "eta_Caputo": 4.449351351744596,
+      "mu_mu_Bollig_derived_MeV": 32.94987607626548,
+      "mu_mu_Caputo_MeV": 32.9488031191087,
+      "profile_node_radius_km": 17.0,
+      "target_radius_km": 17.0
+    },
+    {
+      "T_Bollig_MeV": 5.919975809859224,
+      "T_Caputo_MeV": 5.91992695393051,
+      "eta_Bollig": 3.9533348139715496,
+      "eta_Caputo": 3.953468425840534,
+      "mu_mu_Bollig_derived_MeV": 23.40364646698589,
+      "mu_mu_Caputo_MeV": 23.4042442956466,
+      "profile_node_radius_km": 18.0,
+      "target_radius_km": 18.0
+    },
+    {
+      "T_Bollig_MeV": 4.881427060782401,
+      "T_Caputo_MeV": 4.88201920302948,
+      "eta_Bollig": 3.64651395061511,
+      "eta_Caputo": 3.6464169335046352,
+      "mu_mu_Bollig_derived_MeV": 17.800191876053137,
+      "mu_mu_Caputo_MeV": 17.8018774916215,
+      "profile_node_radius_km": 19.0,
+      "target_radius_km": 19.0
+    },
+    {
+      "T_Bollig_MeV": null,
+      "T_Caputo_MeV": null,
+      "eta_Bollig": 3.513387815736635,
+      "eta_Caputo": 3.5133058514943576,
+      "mu_mu_Bollig_derived_MeV": null,
+      "mu_mu_Caputo_MeV": null,
+      "profile_node_radius_km": 20.0,
+      "target_radius_km": 20.0
+    },
+    {
+      "T_Bollig_MeV": null,
+      "T_Caputo_MeV": null,
+      "eta_Bollig": null,
+      "eta_Caputo": null,
+      "mu_mu_Bollig_derived_MeV": null,
+      "mu_mu_Caputo_MeV": null,
+      "profile_node_radius_km": 20.5,
+      "target_radius_km": 20.5
+    },
+    {
+      "T_Bollig_MeV": null,
+      "T_Caputo_MeV": null,
+      "eta_Bollig": null,
+      "eta_Caputo": null,
+      "mu_mu_Bollig_derived_MeV": null,
+      "mu_mu_Caputo_MeV": null,
+      "profile_node_radius_km": 21.0,
+      "target_radius_km": 21.0
+    },
+    {
+      "T_Bollig_MeV": null,
+      "T_Caputo_MeV": null,
+      "eta_Bollig": null,
+      "eta_Caputo": null,
+      "mu_mu_Bollig_derived_MeV": null,
+      "mu_mu_Caputo_MeV": null,
+      "profile_node_radius_km": 21.5,
+      "target_radius_km": 21.5
+    },
+    {
+      "T_Bollig_MeV": null,
+      "T_Caputo_MeV": null,
+      "eta_Bollig": null,
+      "eta_Caputo": null,
+      "mu_mu_Bollig_derived_MeV": null,
+      "mu_mu_Caputo_MeV": null,
+      "profile_node_radius_km": 22.0,
+      "target_radius_km": 22.0
+    }
+  ],
+  "source": "Bollig et al., arXiv:2005.07141v7",
+  "source_pdf_sha256": "8267f8b1de184163308728c44000425ce58085c1d5bd799d0cbc1e4e8d740d61",
+  "source_pdf_url": "https://arxiv.org/pdf/2005.07141v7"
+}
