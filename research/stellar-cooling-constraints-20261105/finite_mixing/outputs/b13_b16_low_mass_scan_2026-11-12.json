@@ -2,10 +2,10 @@
   "code_sha256": {
     "comparison_kernel_script": "350403826ea69572162743e26635f649ec1ae1c7fbbbcf89b722cbfb886fd56f",
     "mass_scan_script": "aac9523451675112d94dd4959121ef291f2b32311a0c7969140cbc861f400e20",
-    "moving_muon_compton.py": "4da26fc3135ddb43fae7d86e57d015589756d69b75c7aec64ff886007f2b3a1b",
+    "moving_muon_compton.py": "38436b94f070069c8696b37b9bce1955e2d5d7e39dad9b302ab754582ff6a5a5",
     "profile": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
     "rates.py": "2fc7bc2d3b0d7b98c191755cd2bb87944e4ebe259adc3d3bbc8e0f60dcc57f56",
-    "reused_10MeV_output": "13b6ee6e01bded4076476f193562e8b41247ef9c9f73e6ea6c41bc71254737ab"
+    "reused_10MeV_output": "30d40e52c9fbb17673bc44949b82a6854db584e1abfa09cf49944c54460a59f9"
   },
   "configuration": {
     "B13_base_energy_order": 12,
@@ -69,7 +69,7 @@
           "Q_by_mode_MeV5": [
             8.464689301182565e-05,
             6.958350615938302,
-            6.958350615938301
+            6.958350615938302
           ],
           "Q_total_MeV5": 13.916785878769616,
           "energy_order": 12,
@@ -79,7 +79,7 @@
             8,
             8
           ],
-          "max_detailed_balance_relative_error": 2.652578521797016e-15,
+          "max_detailed_balance_relative_error": 2.5320067708062424e-15,
           "max_final_muon_shell_relative_error": 1.0851669042493914e-13
         },
         "B14_B16_vector_no_recoil": {
@@ -247,7 +247,7 @@
                   1.3582924710092256e-05
                 ],
                 "mu_plus": [
-                  6.417923183629284e-13,
+                  6.417923183629285e-13,
                   1.10022289649286e-07,
                   1.10022289649286e-07
                 ]
@@ -354,7 +354,7 @@
             },
             "mu_minus": {
               "B17_susceptibility_MeV3": 726.0015655671777,
-              "fraction_p_over_m_below_0p3": 0.052762341232426326,
+              "fraction_p_over_m_below_0p3": 0.05276234123242634,
               "fraction_p_over_m_below_0p5": 0.21218412106266626,
               "mean_kinetic_energy_over_m": 0.33063960265159265,
               "mean_p_over_m": 0.828580236273236,
@@ -377,7 +377,7 @@
         "quadrature_convergence": {
           "B13_energy_order_12_to_16_relative_change": -8.930183856914464e-05,
           "B13_inner_orders_12_8_8_8_to_16_10_10_10_relative_change": 0.0001598423220101619,
-          "B13_max_detailed_balance_relative_error": 2.652578521797016e-15,
+          "B13_max_detailed_balance_relative_error": 2.5320067708062424e-15,
           "B13_max_final_muon_shell_relative_error": 1.0851669042493914e-13,
           "B16_energy_order_64_to_96_relative_change": 1.5543122344752192e-15,
           "stationary_exact_angular_order_64_to_128_relative_change": 5.995204332975845e-15
@@ -393,7 +393,7 @@
         },
         "stationary_muon_exact_recoil_vector": {
           "Q_by_mode_MeV5": [
-            9.056010010010332e-05,
+            9.056010010010334e-05,
             8.226997663337725,
             8.226997663337725
           ],
@@ -450,13 +450,13 @@
             "B13_vector": {
               "charge_resolved_production_by_mode_MeV": {
                 "mu_minus": [
-                  1.886519796479829e-07,
-                  0.002904240685554425,
+                  1.8865197964798297e-07,
+                  0.0029042406855544255,
                   0.002904240685554425
                 ],
                 "mu_plus": [
                   1.288378332428716e-10,
-                  2.07089183733829e-06,
+                  2.0708918373382904e-06,
                   2.07089183733829e-06
                 ]
               },
@@ -468,14 +468,14 @@
                 8
               ],
               "production_by_mode_MeV": [
-                1.8878081748122575e-07,
-                0.0029063115773917633,
+                1.8878081748122583e-07,
+                0.0029063115773917637,
                 0.0029063115773917633
               ],
-              "production_total_MeV": 0.0058128119356010075
+              "production_total_MeV": 0.005812811935601008
             },
-            "B13_vector_over_B16_corrected": 0.6076761983689496,
-            "B13_vector_over_B16_without_parenthesis_correction": 0.607689702284469,
+            "B13_vector_over_B16_corrected": 0.6076761983689497,
+            "B13_vector_over_B16_without_parenthesis_correction": 0.6076897022844691,
             "B16_B14_with_mass_correction": {
               "B16_mode_rates_with_mass_correction_MeV": [
                 2.1256506089096622e-07,
@@ -528,7 +528,7 @@
                 "mu_plus": [
                   1.0598365120211393e-11,
                   6.602011643920436e-07,
-                  6.602011643920434e-07
+                  6.602011643920436e-07
                 ]
               },
               "max_final_muon_shell_relative_error": 4.904433005691694e-14,
@@ -946,11 +946,11 @@
                 "mu_minus": [
                   7.162905250872134e-10,
                   1.3582852043027273e-05,
-                  1.3582852043027273e-05
+                  1.3582852043027277e-05
                 ],
                 "mu_plus": [
                   5.775993333630774e-12,
-                  1.1002171720490661e-07,
+                  1.1002171720490664e-07,
                   1.1002171720490661e-07
                 ]
               },
@@ -964,12 +964,12 @@
               "production_by_mode_MeV": [
                 7.220665184208442e-10,
                 1.369287376023218e-05,
-                1.369287376023218e-05
+                1.3692873760232184e-05
               ],
-              "production_total_MeV": 2.7386469586982782e-05
+              "production_total_MeV": 2.7386469586982785e-05
             },
             "B13_vector_over_B16_corrected": 0.5324318893227858,
-            "B13_vector_over_B16_without_parenthesis_correction": 0.5324414730967937,
+            "B13_vector_over_B16_without_parenthesis_correction": 0.5324414730967938,
             "B16_B14_with_mass_correction": {
               "B16_mode_rates_with_mass_correction_MeV": [
                 9.258415759736928e-10,
@@ -1056,7 +1056,7 @@
             },
             "mu_minus": {
               "B17_susceptibility_MeV3": 726.0015655671777,
-              "fraction_p_over_m_below_0p3": 0.052762341232426326,
+              "fraction_p_over_m_below_0p3": 0.05276234123242634,
               "fraction_p_over_m_below_0p5": 0.21218412106266626,
               "mean_kinetic_energy_over_m": 0.33063960265159265,
               "mean_p_over_m": 0.828580236273236,
@@ -1077,7 +1077,7 @@
         },
         "muon_susceptibility_order_128_to_192_relative_change": -3.9968028886505635e-15,
         "quadrature_convergence": {
-          "B13_energy_order_12_to_16_relative_change": -8.777281919114532e-05,
+          "B13_energy_order_12_to_16_relative_change": -8.77728191910343e-05,
           "B13_inner_orders_12_8_8_8_to_16_10_10_10_relative_change": 0.00015983531903818182,
           "B13_max_detailed_balance_relative_error": 2.5146004736703653e-15,
           "B13_max_final_muon_shell_relative_error": 1.0004391579716611e-13,
@@ -1108,7 +1108,7 @@
         "B13_exact_moving_muon_vector": {
           "Q_by_charge_and_mode_MeV5": {
             "mu_minus": [
-              0.01465992145585116,
+              0.014659921455851158,
               192.2758590918299,
               192.2758590918299
             ],
@@ -1119,11 +1119,11 @@
             ]
           },
           "Q_by_mode_MeV5": [
-            0.014669810183332218,
+            0.014669810183332216,
             192.40612934181766,
-            192.4061293418177
+            192.40612934181772
           ],
-          "Q_total_MeV5": 384.8269284938187,
+          "Q_total_MeV5": 384.82692849381874,
           "energy_order": 12,
           "inner_orders": [
             12,
@@ -1131,7 +1131,7 @@
             8,
             8
           ],
-          "max_detailed_balance_relative_error": 5.371053212914089e-15,
+          "max_detailed_balance_relative_error": 5.482950154849799e-15,
           "max_final_muon_shell_relative_error": 1.710848722915707e-13
         },
         "B14_B16_vector_no_recoil": {
@@ -1427,18 +1427,18 @@
         },
         "muon_susceptibility_order_128_to_192_relative_change": -4.218847493575595e-15,
         "quadrature_convergence": {
-          "B13_energy_order_12_to_16_relative_change": -0.0002201709751743497,
-          "B13_inner_orders_12_8_8_8_to_16_10_10_10_relative_change": 4.125280322342384e-05,
-          "B13_max_detailed_balance_relative_error": 5.371053212914089e-15,
+          "B13_energy_order_12_to_16_relative_change": -0.00022017097517446071,
+          "B13_inner_orders_12_8_8_8_to_16_10_10_10_relative_change": 4.1252803223201795e-05,
+          "B13_max_detailed_balance_relative_error": 5.482950154849799e-15,
           "B13_max_final_muon_shell_relative_error": 1.710848722915707e-13,
           "B16_energy_order_64_to_96_relative_change": 1.7763568394002505e-15,
           "stationary_exact_angular_order_64_to_128_relative_change": 6.661338147750939e-15
         },
         "recomputed": true,
         "relative_differences": {
-          "B13_vector_vs_B16_corrected_fraction": -0.5698911233501156,
+          "B13_vector_vs_B16_corrected_fraction": -0.5698911233501155,
           "B13_vector_vs_B16_without_parenthesis_correction_fraction": -0.5698826289867611,
-          "B13_vector_vs_stationary_exact_recoil_fraction": -0.19773946588996683,
+          "B13_vector_vs_stationary_exact_recoil_fraction": -0.19773946588996671,
           "B16_integrated_mass_correction_fraction": 1.9749332821339394e-05,
           "moving_muon_and_B16_approximation_factorization_residual": -5.551115123125783e-17,
           "stationary_exact_recoil_vs_B16_corrected_fraction": -0.4638788044995701
@@ -1461,7 +1461,7 @@
           "Q_by_charge_and_mode_MeV5": {
             "mu_minus": [
               0.00792790601131084,
-              6.898572039537948,
+              6.898572039537949,
               6.898572039537949
             ],
             "mu_plus": [
@@ -1651,7 +1651,7 @@
                   1.3582025776526096e-05
                 ],
                 "mu_plus": [
-                  6.416033024626113e-11,
+                  6.416033024626114e-11,
                   1.1001520821381912e-07,
                   1.1001520821381912e-07
                 ]
@@ -1758,7 +1758,7 @@
             },
             "mu_minus": {
               "B17_susceptibility_MeV3": 726.0015655671777,
-              "fraction_p_over_m_below_0p3": 0.052762341232426326,
+              "fraction_p_over_m_below_0p3": 0.05276234123242634,
               "fraction_p_over_m_below_0p5": 0.21218412106266626,
               "mean_kinetic_energy_over_m": 0.33063960265159265,
               "mean_p_over_m": 0.828580236273236,
@@ -1833,7 +1833,7 @@
             8,
             8
           ],
-          "max_detailed_balance_relative_error": 3.1268353286437803e-15,
+          "max_detailed_balance_relative_error": 3.2914056090987153e-15,
           "max_final_muon_shell_relative_error": 1.710848722915707e-13
         },
         "B14_B16_vector_no_recoil": {
@@ -1860,7 +1860,7 @@
                 ],
                 "mu_plus": [
                   1.2839167014158497e-08,
-                  2.0692199029184433e-06,
+                  2.069219902918443e-06,
                   2.069219902918443e-06
                 ]
               },
@@ -1932,7 +1932,7 @@
                 "mu_plus": [
                   1.058865087542725e-09,
                   6.600650307845613e-07,
-                  6.600650307845613e-07
+                  6.600650307845615e-07
                 ]
               },
               "max_final_muon_shell_relative_error": 4.839257816247286e-14,
@@ -2003,7 +2003,7 @@
                 "mu_plus": [
                   1.2356350795833374e-10,
                   2.0510025286239213e-07,
-                  2.0510025286239213e-07
+                  2.0510025286239216e-07
                 ]
               },
               "max_final_muon_shell_relative_error": 5.6376538869412824e-14,
@@ -2131,7 +2131,7 @@
         "quadrature_convergence": {
           "B13_energy_order_12_to_16_relative_change": -0.0002130440586094462,
           "B13_inner_orders_12_8_8_8_to_16_10_10_10_relative_change": 4.121854294347749e-05,
-          "B13_max_detailed_balance_relative_error": 3.1268353286437803e-15,
+          "B13_max_detailed_balance_relative_error": 3.2914056090987153e-15,
           "B13_max_final_muon_shell_relative_error": 1.710848722915707e-13,
           "B16_energy_order_64_to_96_relative_change": 1.7763568394002505e-15,
           "stationary_exact_angular_order_64_to_128_relative_change": 6.661338147750939e-15
@@ -2228,9 +2228,9 @@
                 "susceptibility_nFdeg_MeV3": 726.0015655671807
               },
               "mu_plus": {
-                "Fdeg": 0.9998879675544944,
+                "Fdeg": 0.9998879675544943,
                 "chemical_potential_MeV": -46.6743284468278,
-                "number_density_MeV3": 5.870159221506347,
+                "number_density_MeV3": 5.870159221506348,
                 "susceptibility_nFdeg_MeV3": 5.869501573213254
               }
             },
@@ -2270,7 +2270,7 @@
             "B13_axial": {
               "charge_resolved_production_by_mode_MeV": {
                 "mu_minus": [
-                  0.0011495927423462026,
+                  0.0011495927423462024,
                   0.0006762743425164332,
                   0.0006762743425164333
                 ],
@@ -2288,11 +2288,11 @@
                 8
               ],
               "production_by_mode_MeV": [
-                0.0011589149023623622,
+                0.001158914902362362,
                 0.0006817596915325407,
                 0.0006817596915325409
               ],
-              "production_total_MeV": 0.002522434285427444
+              "production_total_MeV": 0.0025224342854274434
             },
             "B13_vector": {
               "charge_resolved_production_by_mode_MeV": {
@@ -2380,7 +2380,7 @@
                 "mu_plus": [
                   1.1735208769031744e-05,
                   4.132655154150596e-06,
-                  4.1327370642458e-06
+                  4.1327370642458005e-06
                 ]
               },
               "max_final_muon_shell_relative_error": 4.5948508558307565e-14,
@@ -2401,7 +2401,7 @@
               "charge_resolved_production_by_mode_MeV": {
                 "mu_minus": [
                   0.001445901586396753,
-                  0.0005091834564656789,
+                  0.0005091834564656788,
                   0.0005091834564656789
                 ],
                 "mu_plus": [
@@ -2419,7 +2419,7 @@
               ],
               "production_by_mode_MeV": [
                 0.0014576391424742546,
-                0.0005133169791964938,
+                0.0005133169791964937,
                 0.0005133169791964938
               ],
               "production_total_MeV": 0.002484273100867242
@@ -2531,7 +2531,7 @@
               "charge_resolved_production_by_mode_MeV": {
                 "mu_minus": [
                   0.0016168349589944298,
-                  0.0003255475180549777,
+                  0.00032554751805497775,
                   0.0003255475180549777
                 ],
                 "mu_plus": [
@@ -2549,7 +2549,7 @@
               ],
               "production_by_mode_MeV": [
                 0.0016299777719773903,
-                0.00032819209149510375,
+                0.0003281920914951038,
                 0.00032819209149510375
               ],
               "production_total_MeV": 0.002286361954967598
@@ -2564,7 +2564,7 @@
                 "mu_plus": [
                   2.748515388510004e-07,
                   8.983072671366418e-07,
-                  8.983072671366418e-07
+                  8.983072671366417e-07
                 ]
               },
               "max_final_muon_shell_relative_error": 4.5948508558307565e-14,
@@ -2797,7 +2797,7 @@
                 "mu_plus": [
                   5.77731508080768e-06,
                   2.80868708421082e-07,
-                  2.80868708421082e-07
+                  2.8086870842108207e-07
                 ]
               },
               "max_final_muon_shell_relative_error": 4.5948508558307565e-14,
@@ -2817,9 +2817,9 @@
             "B13_vector": {
               "charge_resolved_production_by_mode_MeV": {
                 "mu_minus": [
-                  7.730160837633493e-07,
-                  1.3495513352695746e-05,
-                  1.3495513352695746e-05
+                  7.730160837633494e-07,
+                  1.3495513352695743e-05,
+                  1.3495513352695743e-05
                 ],
                 "mu_plus": [
                   6.236203679325646e-09,
@@ -2835,14 +2835,14 @@
                 8
               ],
               "production_by_mode_MeV": [
-                7.79252287442675e-07,
-                1.3604847399131331e-05,
-                1.3604847399131331e-05
+                7.792522874426751e-07,
+                1.3604847399131328e-05,
+                1.3604847399131328e-05
               ],
-              "production_total_MeV": 2.7988947085705336e-05
+              "production_total_MeV": 2.798894708570533e-05
             },
-            "B13_vector_over_B16_corrected": 0.5334850026697533,
-            "B13_vector_over_B16_without_parenthesis_correction": 0.5441547027231484,
+            "B13_vector_over_B16_corrected": 0.5334850026697532,
+            "B13_vector_over_B16_without_parenthesis_correction": 0.5441547027231483,
             "B16_B14_charge_resolved_with_mass_correction": {
               "mu_minus": 5.204359931983072e-05,
               "mu_plus": 4.207566520118751e-07,
@@ -3064,7 +3064,7 @@
             },
             "mu_minus": {
               "B17_susceptibility_MeV3": 726.0015655671777,
-              "fraction_p_over_m_below_0p3": 0.052762341232426326,
+              "fraction_p_over_m_below_0p3": 0.05276234123242634,
               "fraction_p_over_m_below_0p5": 0.21218412106266626,
               "mean_kinetic_energy_over_m": 0.33063960265159265,
               "mean_p_over_m": 0.828580236273236,
@@ -3099,13 +3099,13 @@
           "B16_integrated_mass_correction_fraction": 0.022281153828683786
         },
         "reuse_note": "Reused from the previously validated 10 MeV B.13/B.14--B.16 comparison; no collision integral was recomputed in this scan.",
-        "source_run_commit_sha": "8fe463db367bc71f2dd7e51e23a78820881f6500",
+        "source_run_commit_sha": "3f7ce66f210edf966d8bb3b7d20f7716b28135e8",
         "source_script_sha256": "350403826ea69572162743e26635f649ec1ae1c7fbbbcf89b722cbfb886fd56f",
         "stationary_muon_exact_recoil_vector": {
           "Q_by_mode_MeV5": [
             0.5377481392643982,
-            7.858920045529581,
-            7.858920045529581
+            7.8589200455295805,
+            7.8589200455295805
           ],
           "Q_total_MeV5": 16.25558823032356,
           "angular_order": 128,
@@ -3129,9 +3129,9 @@
           "Q_by_mode_MeV5": [
             9.93429778340989,
             185.58959893604074,
-            185.58959893604072
+            185.58959893604074
           ],
-          "Q_total_MeV5": 381.11349565549136,
+          "Q_total_MeV5": 381.1134956554914,
           "energy_order": 12,
           "inner_orders": [
             12,
@@ -3231,7 +3231,7 @@
                 "mu_plus": [
                   1.3353742322095963e-05,
                   7.741707390445836e-06,
-                  7.741707390445834e-06
+                  7.741707390445836e-06
                 ]
               },
               "max_final_muon_shell_relative_error": 5.6376538869412824e-14,
@@ -3251,7 +3251,7 @@
             "B13_vector": {
               "charge_resolved_production_by_mode_MeV": {
                 "mu_minus": [
-                  0.0026719219308069604,
+                  0.0026719219308069613,
                   0.003546870056736906,
                   0.003546870056736905
                 ],
@@ -3269,7 +3269,7 @@
                 8
               ],
               "production_by_mode_MeV": [
-                0.0026738317017581323,
+                0.002673831701758133,
                 0.0035494268735311563,
                 0.003549426873531155
               ],
@@ -3334,7 +3334,7 @@
                 "mu_plus": [
                   1.7194888195833886e-05,
                   5.913691575565755e-06,
-                  5.91380818712259e-06
+                  5.913808187122591e-06
                 ]
               },
               "max_final_muon_shell_relative_error": 4.5948508558307565e-14,
@@ -3457,7 +3457,7 @@
             "B13_UV_theta_muR_1e-2": {
               "charge_resolved_production_by_mode_MeV": {
                 "mu_minus": [
-                  0.027845157408483423,
+                  0.027845157408483426,
                   0.005487984418878048,
                   0.00548782433589197
                 ],
@@ -3475,23 +3475,23 @@
                 8
               ],
               "production_by_mode_MeV": [
-                0.027865116002127113,
+                0.027865116002127117,
                 0.005491886990209272,
                 0.005491727022675803
               ],
-              "production_total_MeV": 0.038848730015012184
+              "production_total_MeV": 0.03884873001501219
             },
             "B13_axial": {
               "charge_resolved_production_by_mode_MeV": {
                 "mu_minus": [
                   0.02785072708395647,
-                  0.005489002068337081,
+                  0.0054890020683370806,
                   0.005489002068337081
                 ],
                 "mu_plus": [
                   1.9962585824120204e-05,
                   3.9034096614893275e-06,
-                  3.903409661489327e-06
+                  3.9034096614893275e-06
                 ]
               },
               "max_final_muon_shell_relative_error": 5.6376538869412824e-14,
@@ -3503,7 +3503,7 @@
               ],
               "production_by_mode_MeV": [
                 0.02787068966978059,
-                0.005492905477998571,
+                0.00549290547799857,
                 0.005492905477998571
               ],
               "production_total_MeV": 0.03885650062577773
@@ -3587,13 +3587,13 @@
             "B13_UV_theta_muR_1e-2": {
               "charge_resolved_production_by_mode_MeV": {
                 "mu_minus": [
-                  0.026093196517556774,
+                  0.02609319651755677,
                   0.0026111113620158606,
                   0.0026109938377658873
                 ],
                 "mu_plus": [
                   1.896376477847111e-05,
-                  1.8673788030071165e-06,
+                  1.8673788030071168e-06,
                   1.8674639807137823e-06
                 ]
               },
@@ -3605,7 +3605,7 @@
                 8
               ],
               "production_by_mode_MeV": [
-                0.026112160282335244,
+                0.02611216028233524,
                 0.002612978740818868,
                 0.002612861301746601
               ],
@@ -3614,9 +3614,9 @@
             "B13_axial": {
               "charge_resolved_production_by_mode_MeV": {
                 "mu_minus": [
-                  0.026098415764337697,
+                  0.0260984157643377,
                   0.002611574862287072,
-                  0.0026115748622870714
+                  0.002611574862287072
                 ],
                 "mu_plus": [
                   1.8967557972978774e-05,
@@ -3632,11 +3632,11 @@
                 8
               ],
               "production_by_mode_MeV": [
-                0.026117383322310676,
+                0.02611738332231068,
                 0.0026134426572003108,
-                0.0026134426572003103
+                0.0026134426572003108
               ],
-              "production_total_MeV": 0.031344268636711296
+              "production_total_MeV": 0.0313442686367113
             },
             "B13_vector": {
               "charge_resolved_production_by_mode_MeV": {
@@ -3776,7 +3776,7 @@
                   0.0002897277764890224
                 ],
                 "mu_plus": [
-                  1.193994849079767e-08,
+                  1.1939948490797668e-08,
                   2.035218780039392e-07,
                   2.035218780039392e-07
                 ]
@@ -4038,7 +4038,7 @@
           "weighting": "B.17 susceptibility f_mu(1-f_mu), summed over mu- and mu+"
         },
         "quadrature_convergence": {
-          "B13_energy_order_12_to_16_relative_change": -0.00012980751093027987,
+          "B13_energy_order_12_to_16_relative_change": -0.0001298075109303909,
           "B13_inner_orders_12_8_8_8_to_16_10_10_10_relative_change": 3.58843146470722e-05,
           "B13_max_detailed_balance_relative_error": 3.635611027347325e-15,
           "B13_max_final_muon_shell_relative_error": 1.710848722915707e-13,
@@ -4047,17 +4047,17 @@
         },
         "recomputed": false,
         "relative_differences": {
-          "B13_vector_vs_B16_corrected_fraction": -0.5714062651716584,
-          "B13_vector_vs_B16_without_parenthesis_correction_fraction": -0.5647073876855562,
-          "B13_vector_vs_stationary_exact_recoil_fraction": -0.20020664622813666,
+          "B13_vector_vs_B16_corrected_fraction": -0.5714062651716583,
+          "B13_vector_vs_B16_without_parenthesis_correction_fraction": -0.5647073876855561,
+          "B13_vector_vs_stationary_exact_recoil_fraction": -0.20020664622813644,
           "B16_integrated_mass_correction_fraction": 0.01562990063022096
         },
         "reuse_note": "Reused from the previously validated 10 MeV B.13/B.14--B.16 comparison; no collision integral was recomputed in this scan.",
-        "source_run_commit_sha": "8fe463db367bc71f2dd7e51e23a78820881f6500",
+        "source_run_commit_sha": "3f7ce66f210edf966d8bb3b7d20f7716b28135e8",
         "source_script_sha256": "350403826ea69572162743e26635f649ec1ae1c7fbbbcf89b722cbfb886fd56f",
         "stationary_muon_exact_recoil_vector": {
           "Q_by_mode_MeV5": [
-            11.833925776277454,
+            11.833925776277455,
             232.34051565812703,
             232.34051565812703
           ],
@@ -4077,7 +4077,7 @@
               6.867821915347015
             ],
             "mu_plus": [
-              0.0005090281519386957,
+              0.0005090281519386958,
               0.05551278285713263,
               0.05551278285713263
             ]
@@ -4188,11 +4188,11 @@
               "charge_resolved_production_by_mode_MeV": {
                 "mu_minus": [
                   7.18997980175468e-07,
-                  5.176411344918998e-05,
+                  5.176411344918999e-05,
                   5.176411344918999e-05
                 ],
                 "mu_plus": [
-                  5.813006307635329e-09,
+                  5.8130063076353296e-09,
                   4.2039350894056607e-07,
                   4.203935089405661e-07
                 ]
@@ -4206,13 +4206,13 @@
               ],
               "production_by_mode_MeV": [
                 7.248109864831033e-07,
-                5.2184506958130545e-05,
+                5.218450695813056e-05,
                 5.218450695813056e-05
               ],
-              "production_total_MeV": 0.00010509382490274421
+              "production_total_MeV": 0.00010509382490274422
             },
-            "B13_vector_over_B16_corrected": 0.6140412659539436,
-            "B13_vector_over_B16_without_parenthesis_correction": 0.6171114722837132,
+            "B13_vector_over_B16_corrected": 0.6140412659539437,
+            "B13_vector_over_B16_without_parenthesis_correction": 0.6171114722837133,
             "B16_B14_with_mass_correction": {
               "B16_mode_rates_with_mass_correction_MeV": [
                 8.514979029139485e-07,
@@ -4370,7 +4370,7 @@
             },
             "mu_minus": {
               "B17_susceptibility_MeV3": 726.0015655671777,
-              "fraction_p_over_m_below_0p3": 0.052762341232426326,
+              "fraction_p_over_m_below_0p3": 0.05276234123242634,
               "fraction_p_over_m_below_0p5": 0.21218412106266626,
               "mean_kinetic_energy_over_m": 0.33063960265159265,
               "mean_p_over_m": 0.828580236273236,
@@ -4445,7 +4445,7 @@
             8,
             8
           ],
-          "max_detailed_balance_relative_error": 2.5615676732678365e-15,
+          "max_detailed_balance_relative_error": 2.561567673267836e-15,
           "max_final_muon_shell_relative_error": 1.2937275104714967e-13
         },
         "B14_B16_vector_no_recoil": {
@@ -4543,7 +4543,7 @@
                 ],
                 "mu_plus": [
                   9.46023067398319e-09,
-                  6.58974315423911e-07,
+                  6.589743154239112e-07,
                   6.589743154239109e-07
                 ]
               },
@@ -4743,7 +4743,7 @@
         "quadrature_convergence": {
           "B13_energy_order_12_to_16_relative_change": -0.00019204413593854053,
           "B13_inner_orders_12_8_8_8_to_16_10_10_10_relative_change": 4.059207239359708e-05,
-          "B13_max_detailed_balance_relative_error": 2.5615676732678365e-15,
+          "B13_max_detailed_balance_relative_error": 2.561567673267836e-15,
           "B13_max_final_muon_shell_relative_error": 1.2937275104714967e-13,
           "B16_energy_order_64_to_96_relative_change": 1.9984014443252818e-15,
           "stationary_exact_angular_order_64_to_128_relative_change": 6.661338147750939e-15
@@ -4781,7 +4781,7 @@
     "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
     "source": "reconstructed SFHo-18.8 t_pb=1s digitized profile"
   },
-  "run_commit_sha": "8fe463db367bc71f2dd7e51e23a78820881f6500",
+  "run_commit_sha": "3f7ce66f210edf966d8bb3b7d20f7716b28135e8",
   "scope_limits": [
     "Local source-rate comparison at r=0 and 12.5 km only.",
     "No radial luminosity integral, escape probability, opacity, or transport calculation.",

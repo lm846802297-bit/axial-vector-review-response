@@ -1,37 +1,37 @@
 {
   "code_sha256": {
-    "moving_muon_compton.py": "4da26fc3135ddb43fae7d86e57d015589756d69b75c7aec64ff886007f2b3a1b",
+    "moving_muon_compton.py": "38436b94f070069c8696b37b9bce1955e2d5d7e39dad9b302ab754582ff6a5a5",
     "rates.py": "2fc7bc2d3b0d7b98c191755cd2bb87944e4ebe259adc3d3bbc8e0f60dcc57f56",
     "thermal_dimuon.py": "f152589d52a2f2377f4c3627f6d0fe04c0699fed50e395b06c9ed0b28514bc3f",
-    "thermal_response_scan.py": "f229db1299cfba34d2dd32c9ec1b58b6e834f6eb49afb01c7052596596e18998"
+    "thermal_response_scan.py": "f957a90df41c80c43ef83cf3503dcb2cc16be5c10a2dad93973849e1d2f77e0f"
   },
   "compton": {
     "10MeV_mid_radius_comparison": {
       "Q_axial_by_mode_MeV5": [
-        15600.631483901276,
+        15600.63148390128,
         429.5201085644578,
         429.52010856445787
       ],
       "Q_axial_over_vector_by_mode": [
-        1570.3808989855395,
+        1570.3808989855397,
         2.314354419788806,
         2.3143544197888066
       ],
       "Q_axial_over_vector_total": 43.1883727253494,
-      "Q_axial_total_MeV5": 16459.67170103019,
+      "Q_axial_total_MeV5": 16459.671701030195,
       "Q_mixed_by_mode_MeV5": [
         15597.511617702572,
         429.4541828521263,
         429.4142442615963
       ],
-      "Q_mixed_over_axial_total": 0.9998000168974397,
+      "Q_mixed_over_axial_total": 0.9998000168974395,
       "Q_mixed_total_MeV5": 16456.380044816295,
       "Q_vector_by_mode_MeV5": [
         9.93429778340989,
         185.58959893604074,
-        185.58959893604072
+        185.58959893604074
       ],
-      "Q_vector_total_MeV5": 381.11349565549136,
+      "Q_vector_total_MeV5": 381.1134956554914,
       "charge_resolved_mixed_Q_by_mode_MeV5": {
         "mu_minus": [
           15587.334641179004,
@@ -45,11 +45,11 @@
         ]
       },
       "mass_MeV": 10.0,
-      "max_Eq_61_relative_residual": 4.155983169653673e-15,
+      "max_Eq_5_12_relative_residual": 4.155983169653673e-15,
       "max_detailed_balance_relative_error": 4.222754228027906e-15,
       "max_final_muon_shell_relative_error": 1.710848722915707e-13,
       "mixed_interference_fraction_by_mode": [
-        1.1662048717318306e-16,
+        -1.1662048717318306e-16,
         4.6499245000958814e-05,
         -4.6503569762196914e-05
       ],
@@ -86,7 +86,7 @@
         "Q_axial_over_vector_by_mode": [
           529841406600646.4,
           2.486808591701649,
-          2.4868085917016494
+          2.486808591701649
         ],
         "Q_axial_over_vector_total": 32456454.598928712,
         "Q_axial_total_MeV5": 451689732.32941,
@@ -100,7 +100,7 @@
         "Q_vector_by_mode_MeV5": [
           8.524998086105844e-07,
           6.958395644901979,
-          6.958395644901978
+          6.958395644901979
         ],
         "Q_vector_total_MeV5": 13.916792142303766,
         "charge_resolved_mixed_Q_by_mode_MeV5": {
@@ -116,7 +116,7 @@
           ]
         },
         "mass_MeV": 0.01,
-        "max_Eq_61_relative_residual": 2.5255663579180095e-15,
+        "max_Eq_5_12_relative_residual": 2.5255663579180095e-15,
         "max_detailed_balance_relative_error": 2.4015901722357845e-15,
         "max_final_muon_shell_relative_error": 1.2937275104714967e-13,
         "mixed_interference_fraction_by_mode": [
@@ -156,28 +156,28 @@
         "Q_axial_over_vector_by_mode": [
           53361378778.89547,
           2.486800889172773,
-          2.4868008891727733
+          2.486800889172773
         ],
         "Q_axial_over_vector_total": 324565.56908131484,
         "Q_axial_total_MeV5": 4516909.528525666,
         "Q_mixed_by_mode_MeV5": [
           4515971.620754413,
           17.30123994056341,
-          17.299904160152273
+          17.299904160152277
         ],
         "Q_mixed_over_axial_total": 0.9998000166659421,
         "Q_mixed_total_MeV5": 4516006.221898514,
         "Q_vector_by_mode_MeV5": [
           8.464689301182565e-05,
           6.958350615938302,
-          6.958350615938301
+          6.958350615938302
         ],
         "Q_vector_total_MeV5": 13.916785878769616,
         "charge_resolved_mixed_Q_by_mode_MeV5": {
           "mu_minus": [
             4479915.262926893,
             17.162447918884382,
-            17.16110127584507
+            17.161101275845073
           ],
           "mu_plus": [
             36056.357827520296,
@@ -186,13 +186,13 @@
           ]
         },
         "mass_MeV": 0.1,
-        "max_Eq_61_relative_residual": 2.848312917742686e-15,
-        "max_detailed_balance_relative_error": 3.0142110816330998e-15,
+        "max_Eq_5_12_relative_residual": 2.68076509905194e-15,
+        "max_detailed_balance_relative_error": 2.8635005275514444e-15,
         "max_final_muon_shell_relative_error": 1.0851669042493914e-13,
         "mixed_interference_fraction_by_mode": [
           2.0622861541806963e-16,
           3.860360343328821e-05,
-          -3.860658413961094e-05
+          -3.860658413940557e-05
         ],
         "mode_order": [
           "L",
@@ -250,13 +250,13 @@
             17.145460227324392
           ],
           "mu_plus": [
-            360.4691744735835,
+            360.46917447358356,
             0.13866573351877398,
-            0.1386765891116541
+            0.13867658911165412
           ]
         },
         "mass_MeV": 1.0,
-        "max_Eq_61_relative_residual": 4.637117934283844e-15,
+        "max_Eq_5_12_relative_residual": 4.637117934283844e-15,
         "max_detailed_balance_relative_error": 4.44395194763526e-15,
         "max_final_muon_shell_relative_error": 1.0851669042493914e-13,
         "mixed_interference_fraction_by_mode": [
@@ -326,7 +326,7 @@
           ]
         },
         "mass_MeV": 10.0,
-        "max_Eq_61_relative_residual": 4.810664098787012e-15,
+        "max_Eq_5_12_relative_residual": 4.810664098787012e-15,
         "max_detailed_balance_relative_error": 4.947426099557911e-15,
         "max_final_muon_shell_relative_error": 1.2937275104714967e-13,
         "mixed_interference_fraction_by_mode": [
@@ -361,21 +361,21 @@
         "Q_axial_by_mode_MeV5": [
           1.064076938637524,
           0.9481908686307949,
-          0.9481908686307949
+          0.948190868630795
         ],
         "Q_axial_over_vector_by_mode": [
           2.6017683367225057,
           1.6306999864584677,
-          1.6306999864584677
+          1.630699986458468
         ],
-        "Q_axial_over_vector_total": 1.8833546452344294,
-        "Q_axial_total_MeV5": 2.9604586758991136,
+        "Q_axial_over_vector_total": 1.8833546452344296,
+        "Q_axial_total_MeV5": 2.960458675899114,
         "Q_mixed_by_mode_MeV5": [
           1.0638641450731576,
           0.9480372377466995,
           0.9479652664008418
         ],
-        "Q_mixed_over_axial_total": 0.9998000219752317,
+        "Q_mixed_over_axial_total": 0.9998000219752314,
         "Q_mixed_total_MeV5": 2.959866649220699,
         "Q_vector_by_mode_MeV5": [
           0.40898220015159414,
@@ -396,13 +396,13 @@
           ]
         },
         "mass_MeV": 100.0,
-        "max_Eq_61_relative_residual": 3.5710485841465264e-15,
+        "max_Eq_5_12_relative_residual": 3.5710485841465264e-15,
         "max_detailed_balance_relative_error": 4.097934436804366e-15,
         "max_final_muon_shell_relative_error": 1.2089997641937663e-13,
         "mixed_interference_fraction_by_mode": [
           2.087151878868539e-16,
           3.7958079594278235e-05,
-          -3.796096144490446e-05
+          -3.7960961445021574e-05
         ],
         "mode_order": [
           "L",
@@ -466,7 +466,7 @@
           ]
         },
         "mass_MeV": 220.0,
-        "max_Eq_61_relative_residual": 2.151492106242373e-15,
+        "max_Eq_5_12_relative_residual": 2.151492106242373e-15,
         "max_detailed_balance_relative_error": 2.3813892622019967e-15,
         "max_final_muon_shell_relative_error": 1.502288116693602e-13,
         "mixed_interference_fraction_by_mode": [
@@ -568,7 +568,7 @@
       },
       {
         "Q_axial_by_mode_MeV5": [
-          0.03427737857617202,
+          0.034277378576172024,
           0.034276383538592727,
           0.034276383538592727
         ],
@@ -592,7 +592,7 @@
         "mass_over_threshold": 1.001,
         "max_detailed_balance_relative_error": 3.7368890032735874e-15,
         "mixed_interference_fraction_by_mode": [
-          4.049451872835078e-16,
+          2.024725936417539e-16,
           -5.369100920385953e-06,
           5.3690432659082365e-06
         ],
@@ -734,7 +734,7 @@
         "integrated_ratio_minus_analytic": -5.551115123125783e-17,
         "mass_MeV": 316.9751265,
         "mass_over_threshold": 1.4999999999999998,
-        "max_detailed_balance_relative_error": 3.209243960383674e-15,
+        "max_detailed_balance_relative_error": 3.069711614280036e-15,
         "mixed_interference_fraction_by_mode": [
           1.6673208991950524e-16,
           -8.766665197999303e-07,

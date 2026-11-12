@@ -3,10 +3,10 @@
   "source": {
     "arxiv": "2610.35379v1",
     "model_section": "Sec. 5.1-5.2; vector U(1)_{L_mu-L_tau} muon current",
-    "integrated_low_energy_formulas": "Eq. (58a,b)",
+    "integrated_low_energy_formulas": "Eq. (5.9a,b)",
     "medium_polarization_projector": "Eq. (77)",
     "exact_semi_compton_amplitude": "Appendix B, Eqs. (101a,b)",
-    "printed_angular_differential_cross_sections": "Appendix B, Eqs. (106a,b)"
+    "printed_angular_differential_cross_sections": "Appendix B, Eqs. (B.6a,b)"
   },
   "scope": "Direct explicit-Dirac-spinor production calculation in the initial-muon rest frame, cross-checked against the independent repository trace kernel by detailed reciprocity. No stellar profile or transport.",
   "units": {
@@ -32,11 +32,11 @@
     "independent_cross_check": "rates.compton_kernels(current='vector') for inverse absorption, crossed with sigma_prod,h = 1/2 * (p_Aprime_CM/p_gamma_CM)^2 * sigma_abs,h",
     "projector_definition": "P_T^{ij}=delta^{ij}-qhat^i*qhat^j, P_T^{0mu}=0; P_L=-g+q*q/m_Aprime^2-P_T",
     "thomson_reference": "8*pi*alpha*alpha_X/(3*m_mu^2), alpha_X=g_X^2/(4*pi)",
-    "printed_formulas": "Eq. (58) and Eq. (106) are compared with their printed T/L labels; no label swap or coefficient adjustment is made in the input formulas."
+    "printed_formulas": "Eq. (5.9) and Eq. (B.6) are compared with their printed T/L labels; no label swap or coefficient adjustment is made in the input formulas."
   },
   "direct_exact_production_cross_sections_MeV_minus2": {
     "T_sum": 4.349342871528847e-07,
-    "L": 2.1767263411586083e-11,
+    "L": 2.176726341158851e-11,
     "T1": 2.1746714357644236e-07,
     "T2": 2.1746714357644236e-07
   },
@@ -48,22 +48,22 @@
   "sigma_thomson_MeV_minus2": 4.3577891403012285e-07,
   "ratios_to_thomson": {
     "direct_exact_T_sum": 0.998061799573029,
-    "direct_exact_L": 4.995024474745797e-05,
-    "paper_Eq58a_T_as_printed": 7.499624990624529e-05,
-    "paper_Eq58b_L_as_printed": 0.9999499987499374
+    "direct_exact_L": 4.995024474746354e-05,
+    "paper_Eq5_9a_T_as_printed": 7.499624990624529e-05,
+    "paper_Eq5_9b_L_as_printed": 0.9999499987499374
   },
-  "printed_Eq58_comparison": {
-    "paper_T_over_exact_L": 1.5014190678227246,
+  "printed_Eq5_9_comparison": {
+    "paper_T_over_exact_L": 1.5014190678225572,
     "paper_L_over_exact_T_sum": 1.0018918659923826,
-    "exact_L_over_exact_T_sum": 5.004724634168615e-05,
+    "exact_L_over_exact_T_sum": 5.004724634169173e-05,
     "direct_T_over_paper_L": 0.9981117064060514,
-    "direct_L_over_paper_T": 0.6660365659603251
+    "direct_L_over_paper_T": 0.6660365659603994
   },
-  "printed_Eq106_differential_comparison": {
-    "Eq106a_printed_T_negative_fraction": 0.49875311720698257,
-    "Eq106b_printed_L_negative_fraction": 0.004987531172069825,
-    "Eq106a_T_minimum_over_angular_grid_MeV_minus2": -3.268178438133159e-07,
-    "Eq106b_L_minimum_over_angular_grid_MeV_minus2": -1.6341709276145943e-11,
+  "printed_EqB6_differential_comparison": {
+    "EqB6a_printed_T_negative_fraction": 0.49875311720698257,
+    "EqB6b_printed_L_negative_fraction": 0.004987531172069825,
+    "EqB6a_T_minimum_over_angular_grid_MeV_minus2": -3.268178438133159e-07,
+    "EqB6b_L_minimum_over_angular_grid_MeV_minus2": -1.6341709276145943e-11,
     "exact_T_minimum_over_angular_grid_MeV_minus2": 1.6310018288945865e-07,
     "exact_L_minimum_over_angular_grid_MeV_minus2": 9.90171889471705e-31,
     "max_abs_exact_T_minus_printed_B6b_over_Thomson": 0.7529049276323494,
@@ -81,11 +81,11 @@
         "mediator_mass_MeV": 0.005000000000000001,
         "cos_theta": -0.7,
         "Egamma_over_mmu": 0.00047322325147806195,
-        "paper_B2_T_over_exact_spin_sum": 1.0000063570551656,
+        "paper_B2_T_over_exact_spin_sum": 1.0000063570551658,
         "paper_B4_total_over_exact_spin_sum": 0.9999831982680134,
         "paper_B3_L_over_exact_spin_sum": 0.9932248525325471,
         "paper_L_positive": true,
-        "exact_T_plus_L_closure_residual": 1.1466502641690015e-17
+        "exact_T_plus_L_closure_residual": 1.909765784805613e-16
       },
       {
         "photon_energy_MeV": 0.05,
@@ -114,20 +114,20 @@
         "mediator_mass_MeV": 0.010000000000000002,
         "cos_theta": -0.7,
         "Egamma_over_mmu": 0.0009464465029561239,
-        "paper_B2_T_over_exact_spin_sum": 1.0000127242294299,
-        "paper_B4_total_over_exact_spin_sum": 0.9999831176439161,
+        "paper_B2_T_over_exact_spin_sum": 1.0000127242294303,
+        "paper_B4_total_over_exact_spin_sum": 0.9999831176439163,
         "paper_B3_L_over_exact_spin_sum": 0.9913528945084982,
         "paper_L_positive": true,
-        "exact_T_plus_L_closure_residual": 4.4679590306229843e-17
+        "exact_T_plus_L_closure_residual": 2.4712162779994386e-16
       },
       {
         "photon_energy_MeV": 0.1,
         "mediator_mass_MeV": 0.010000000000000002,
         "cos_theta": 0.2,
         "Egamma_over_mmu": 0.0009464465029561239,
-        "paper_B2_T_over_exact_spin_sum": 1.0000182145403713,
+        "paper_B2_T_over_exact_spin_sum": 1.0000182145403715,
         "paper_B4_total_over_exact_spin_sum": 0.9999760734887553,
-        "paper_B3_L_over_exact_spin_sum": 0.9954133915018717,
+        "paper_B3_L_over_exact_spin_sum": 0.9954133915018559,
         "paper_L_positive": true,
         "exact_T_plus_L_closure_residual": 1.3404657454272956e-16
       },
@@ -143,7 +143,7 @@
         "exact_T_plus_L_closure_residual": 1.5897606547321388e-16
       }
     ],
-    "max_abs_B2_T_relative_residual": 1.8214540371319643e-05,
+    "max_abs_B2_T_relative_residual": 1.8214540371541688e-05,
     "max_abs_B4_total_relative_residual": 2.3926511244720672e-05,
     "max_abs_B3_L_relative_residual": 0.012218226497331619,
     "acceptance": {
@@ -163,17 +163,17 @@
     },
     "exact_T_vs_leading_shape_max_abs_over_leading_peak": 0.0036793045887939676,
     "exact_L_vs_leading_shape_max_abs_over_leading_peak": 0.0009451499618519106,
-    "printed_Eq106b_vs_exact_T_max_abs_over_exact_T_peak": 1.0026099637859054,
-    "printed_Eq106a_vs_exact_L_max_abs_over_exact_L_peak": 19019.82930441874,
+    "printed_EqB6b_vs_exact_T_max_abs_over_exact_T_peak": 1.0026099637859054,
+    "printed_EqB6a_vs_exact_L_max_abs_over_exact_L_peak": 19019.82930441874,
     "exact_T_evenness_residual": 0.0039672310916128144,
     "exact_L_evenness_residual": 5.436842925174502e-07,
-    "printed_Eq106a_negative_fraction": 0.49875311720698257,
-    "printed_Eq106b_negative_fraction": 0.004987531172069825,
+    "printed_EqB6a_negative_fraction": 0.49875311720698257,
+    "printed_EqB6b_negative_fraction": 0.004987531172069825,
     "acceptance": {
       "exact_T_matches_leading_Thomson_shape": true,
       "exact_L_matches_leading_suppressed_shape": true,
-      "printed_Eq106a_fails_exact_L_angular_shape": true,
-      "printed_Eq106b_fails_exact_T_angular_shape": true
+      "printed_EqB6a_fails_exact_L_angular_shape": true,
+      "printed_EqB6b_fails_exact_T_angular_shape": true
     }
   },
   "low_energy_parameter_scan": {
@@ -184,45 +184,45 @@
         "mediator_mass_MeV": 0.0005,
         "m_over_Egamma": 0.01,
         "exact_T_over_phase_space_Thomson": 0.9990546929228639,
-        "exact_L_over_exact_T_divided_by_m_over_E_squared": 0.5002364216990471,
-        "paper_Eq58a_T_over_exact_L": 1.5007097016173394,
-        "paper_Eq58b_L_over_exact_T": 1.000946201528137
+        "exact_L_over_exact_T_divided_by_m_over_E_squared": 0.5002364216990213,
+        "paper_Eq5_9a_T_over_exact_L": 1.5007097016174171,
+        "paper_Eq5_9b_L_over_exact_T": 1.000946201528137
       },
       {
         "photon_energy_MeV": 0.05,
         "mediator_mass_MeV": 0.005000000000000001,
         "m_over_Egamma": 0.1,
         "exact_T_over_phase_space_Thomson": 0.9990523273755184,
-        "exact_L_over_exact_T_divided_by_m_over_E_squared": 0.5002364221034276,
-        "paper_Eq58a_T_over_exact_L": 1.5007132537714751,
-        "paper_Eq58b_L_over_exact_T": 1.0009485715597812
+        "exact_L_over_exact_T_divided_by_m_over_E_squared": 0.5002364221034277,
+        "paper_Eq5_9a_T_over_exact_L": 1.5007132537714747,
+        "paper_Eq5_9b_L_over_exact_T": 1.0009485715597812
       },
       {
         "photon_energy_MeV": 0.1,
         "mediator_mass_MeV": 0.001,
         "m_over_Egamma": 0.01,
         "exact_T_over_phase_space_Thomson": 0.9981117064060514,
-        "exact_L_over_exact_T_divided_by_m_over_E_squared": 0.5004724634168615,
-        "paper_Eq58a_T_over_exact_L": 1.5014190678227246,
-        "paper_Eq58b_L_over_exact_T": 1.0018918659923826
+        "exact_L_over_exact_T_divided_by_m_over_E_squared": 0.5004724634169173,
+        "paper_Eq5_9a_T_over_exact_L": 1.5014190678225572,
+        "paper_Eq5_9b_L_over_exact_T": 1.0018918659923826
       },
       {
         "photon_energy_MeV": 0.1,
         "mediator_mass_MeV": 0.010000000000000002,
         "m_over_Egamma": 0.1,
         "exact_T_over_phase_space_Thomson": 0.9981069769189478,
-        "exact_L_over_exact_T_divided_by_m_over_E_squared": 0.5004724657902456,
-        "paper_Eq58a_T_over_exact_L": 1.5014261751123907,
-        "paper_Eq58b_L_over_exact_T": 1.0018966134140208
+        "exact_L_over_exact_T_divided_by_m_over_E_squared": 0.5004724657902457,
+        "paper_Eq5_9a_T_over_exact_L": 1.5014261751123905,
+        "paper_Eq5_9b_L_over_exact_T": 1.0018966134140208
       },
       {
         "photon_energy_MeV": 0.5,
         "mediator_mass_MeV": 0.005,
         "m_over_Egamma": 0.01,
         "exact_T_over_phase_space_Thomson": 0.9906503547972227,
-        "exact_L_over_exact_T_divided_by_m_over_E_squared": 0.5023472404260861,
-        "paper_Eq58a_T_over_exact_L": 1.5070818621890603,
-        "paper_Eq58b_L_over_exact_T": 1.0094378860891753
+        "exact_L_over_exact_T_divided_by_m_over_E_squared": 0.5023472404260813,
+        "paper_Eq5_9a_T_over_exact_L": 1.5070818621890745,
+        "paper_Eq5_9b_L_over_exact_T": 1.0094378860891753
       },
       {
         "photon_energy_MeV": 0.5,
@@ -230,31 +230,31 @@
         "m_over_Egamma": 0.1,
         "exact_T_over_phase_space_Thomson": 0.990626771050022,
         "exact_L_over_exact_T_divided_by_m_over_E_squared": 0.5023473062364421,
-        "paper_Eq58a_T_over_exact_L": 1.507117543687219,
-        "paper_Eq58b_L_over_exact_T": 1.0094619176706106
+        "paper_Eq5_9a_T_over_exact_L": 1.5071175436872188,
+        "paper_Eq5_9b_L_over_exact_T": 1.0094619176706106
       }
     ],
     "max_abs_deviation_exact_T_over_phase_space_Thomson_from_one": 0.009373228949978052,
     "max_abs_deviation_exact_L_coefficient_from_one_half": 0.0023473062364420816,
-    "max_abs_deviation_Eq58a_over_exact_L_from_three_halves": 0.007117543687219063,
-    "max_abs_deviation_Eq58b_over_exact_T_from_one": 0.009461917670610553,
+    "max_abs_deviation_Eq5_9a_over_exact_L_from_three_halves": 0.007117543687218841,
+    "max_abs_deviation_Eq5_9b_over_exact_T_from_one": 0.009461917670610553,
     "acceptance": {
       "exact_T_tracks_phase_space_corrected_Thomson_limit": true,
       "exact_L_scales_as_half_m2_over_E2_times_T": true,
-      "printed_Eq58a_is_1p5_times_exact_L": true,
-      "printed_Eq58b_tracks_exact_T": true
+      "printed_Eq5_9a_is_1p5_times_exact_L": true,
+      "printed_Eq5_9b_tracks_exact_T": true
     }
   },
-  "Eq106_integrals_and_Eq58_phase_factor": {
-    "numerical_integral_Eq106a_MeV_minus2": 3.268341855225614e-11,
-    "numerical_integral_Eq106b_MeV_minus2": 4.3577891403012365e-07,
-    "Eq58a_over_integral_Eq106a": 0.9999499987500312,
-    "Eq58b_over_integral_Eq106b": 0.9999499987499356,
+  "EqB6_integrals_and_Eq5_9_phase_factor": {
+    "numerical_integral_EqB6a_MeV_minus2": 3.2683418552266786e-11,
+    "numerical_integral_EqB6b_MeV_minus2": 4.3577891403012365e-07,
+    "Eq5_9a_over_integral_EqB6a": 0.9999499987497055,
+    "Eq5_9b_over_integral_EqB6b": 0.9999499987499356,
     "sqrt_1_minus_m2_over_E2": 0.9999499987499375,
-    "note": "The printed Eq. (106) angular expressions integrate without the common sqrt(1-m_Z'^2/E_gamma^2) factor present in Eq. (58)."
+    "note": "The printed Eq. (B.6) angular expressions integrate without the common sqrt(1-m_Z'^2/E_gamma^2) factor present in Eq. (5.9)."
   },
   "independent_direct_vs_crossed_trace": {
-    "max_relative_difference": 5.352446453546587e-07,
+    "max_relative_difference": 5.3524453387484e-07,
     "quadrature_orders": [
       32,
       64,
@@ -285,7 +285,7 @@
     }
   },
   "medium_rest_frame_projector_checks": {
-    "q_dot_eps_l": 7.216449660063518e-16,
+    "q_dot_eps_l": 0.0,
     "eps_l_norm_plus_one": 3.637978807091713e-12,
     "eps_x_norm_plus_one": 0.0,
     "eps_y_norm_plus_one": 0.0,
@@ -307,12 +307,12 @@
     "direct_exact_differential_cross_sections_nonnegative": true
   },
   "interpretation_flags": {
-    "integrated_Eq58_TL_hierarchy_opposite_to_conserved_vector_limit": true,
-    "printed_Eq106a_has_negative_differential_region": true,
-    "printed_Eq106b_has_negative_differential_region": true,
-    "Eq106b_is_closer_to_exact_T_than_Eq106a_but_not_accurate": true,
+    "integrated_Eq5_9_TL_hierarchy_opposite_to_conserved_vector_limit": true,
+    "printed_EqB6a_has_negative_differential_region": true,
+    "printed_EqB6b_has_negative_differential_region": true,
+    "EqB6b_is_closer_to_exact_T_than_EqB6a_but_not_accurate": true,
     "Appendix_B_B2_B4_traces_reproduce_direct_spinor_benchmark": true,
-    "Eq106_differential_shapes_fail_the_low_energy_reference": true
+    "EqB6_differential_shapes_fail_the_low_energy_reference": true
   },
   "acceptance": {
     "thomson_transverse_limit_pass": true,

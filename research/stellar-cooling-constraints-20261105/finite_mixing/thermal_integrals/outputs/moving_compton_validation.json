@@ -17,14 +17,14 @@
     "charge_species": "mu- and mu+ integrated separately with chemical potentials +mu_mu and -mu_mu",
     "current": "Coherent vector-axial amplitude; charge-conjugate interference sign retained",
     "production_absorption": "Independent Fermi/Bose statistical factors on common invariant phase space; per-mode detailed balance is checked before spin-averaged totals",
-    "unpolarized_inverse_rate_normalization": "Gamma_abs/Gamma_prod=(2/3) exp(E_A'/T), from averaging 2 initial photon polarizations in production and 3 initial A' polarizations in absorption (arXiv:2610.35379v1, Eq. (61)); the paper writes E_gamma in its low-energy E_A'\u2248E_gamma approximation"
+    "unpolarized_inverse_rate_normalization": "Gamma_abs/Gamma_prod=(2/3) exp(E_A'/T), from averaging 2 initial photon polarizations in production and 3 initial A' polarizations in absorption (arXiv:2610.35379v1, Eq. (5.12)); the paper writes E_gamma in its low-energy E_A'\u2248E_gamma approximation"
   },
   "source_sha256": {
     "rates.py": "2fc7bc2d3b0d7b98c191755cd2bb87944e4ebe259adc3d3bbc8e0f60dcc57f56",
-    "moving_compton.py": "18fc4b244cc0c77f3c6874d816607ec9e231025e9b3bf53b0d2c2fc5babf4baa",
-    "test_moving_compton.py": "05bbc9e67fbeb6486b1aa0d33104c74bc0ce50701b52f8987bc6541a2733c282",
+    "moving_compton.py": "fea7ba5a49e35b1810a42f6712116e6a676ebcedd1e2faab961d14bbb70dafd4",
+    "test_moving_compton.py": "c468e439c43a757803ab57d32af91e4650acff2400e0d514b3033ac16790167a",
     "derivation.md": "9ccbf2c5840aee9a1e914368ba903d2ce4ab146021dac1d12f067440dd60f7eb",
-    "run_moving_compton_validation.py": "195d75ea9c1f0ed3cfeed7b2157111a97c2753f938990e5eec96e9f3e431dd13"
+    "run_moving_compton_validation.py": "d038394e0a5f1ff32b49217f41654b26c5487675517ffaa39f51c9e89bb4ab0d"
   },
   "matrix_element_checks": {
     "stationary_endpoint_relative_residual": {
@@ -50,7 +50,7 @@
         0.0001792367256075498
       ],
       "fine_production_by_mode": [
-        0.0013489529955462674,
+        0.0013489529955462677,
         0.0001912471457272886,
         0.00017923374343627177
       ],
@@ -67,8 +67,8 @@
       "relative_difference_absorption": 2.5278221612073728e-05,
       "coarse_detailed_balance_residual": 3.1179637809455685e-15,
       "fine_detailed_balance_residual": 2.419638516049859e-15,
-      "coarse_Eq61_relative_residual": 1.9984014443252798e-15,
-      "fine_Eq61_relative_residual": 1.9984014443252798e-15,
+      "coarse_Eq5_12_relative_residual": 1.9984014443252798e-15,
+      "fine_Eq5_12_relative_residual": 1.9984014443252798e-15,
       "mode_order": [
         "L",
         "+",
@@ -86,8 +86,8 @@
       "temperature_MeV": 19.3,
       "muon_chemical_potential_MeV": 254.9,
       "coarse_production_by_mode": [
-        0.024660997658006303,
-        0.00626937362648102,
+        0.024660997658006296,
+        0.006269373626481019,
         0.00598243456676674
       ],
       "fine_production_by_mode": [
@@ -101,15 +101,15 @@
         0.02184920181930848
       ],
       "fine_absorption_by_mode": [
-        0.0900624267510551,
+        0.09006242675105508,
         0.02290278706801076,
         0.021854699695710834
       ],
       "relative_difference_absorption": 0.0002515649484505436,
       "coarse_detailed_balance_residual": 4.349542289054288e-15,
       "fine_detailed_balance_residual": 2.1742240483362936e-15,
-      "coarse_Eq61_relative_residual": 3.5527136788004946e-15,
-      "fine_Eq61_relative_residual": 0.0,
+      "coarse_Eq5_12_relative_residual": 3.1086244689504336e-15,
+      "fine_Eq5_12_relative_residual": 0.0,
       "mode_order": [
         "L",
         "+",
@@ -135,8 +135,8 @@
     "quadrature_convergence_pass": true,
     "mode_resolved_positive_rates_pass": true,
     "detailed_balance_pass": true,
-    "Eq61_unpolarized_2_over_3_normalization_pass": true,
-    "max_Eq61_unpolarized_relative_residual": 3.5527136788004946e-15,
+    "Eq5_12_unpolarized_2_over_3_normalization_pass": true,
+    "max_Eq5_12_unpolarized_relative_residual": 3.1086244689504336e-15,
     "max_stationary_endpoint_relative_residual": 0.0,
     "max_thermal_quadrature_relative_difference": 0.0002515649484505436,
     "max_detailed_balance_relative_residual": 4.349542289054288e-15
