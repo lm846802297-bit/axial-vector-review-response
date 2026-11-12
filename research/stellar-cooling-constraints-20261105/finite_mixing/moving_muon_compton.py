@@ -2,7 +2,11 @@
 
 Rates are per g_X^2 and per A' polarization at fixed A' energy. Both muon
 charges, Fermi blocking, photon Bose enhancement, and exact 2->2 recoil are
-retained. This is a local collision kernel, not stellar transport.
+retained. The A' momentum is along +z in the local medium rest frame; mode
+order is (L,+,-), with physical epsilon_L=(|k|/m,0,0,omega/m) for the axial
+current and a Ward-equivalent epsilon_L-q/m for the conserved vector current.
+The +/- modes are circular transverse polarizations in that same frame.
+This is a local collision kernel, not stellar transport.
 """
 from __future__ import annotations
 import math
@@ -41,9 +45,12 @@ def moving_muon_compton_rates(
     mass, energy, temperature, mu_mu,
     g_vector=0.0, g_axial=-1.0, orders=(12, 8, 8, 8)
 ):
-    """Return production/absorption rates in (L,+,-) order, per g_X^2.
+    """Return medium-rest-frame production/absorption rates in (L,+,-) order.
 
-    mu_mu is the mu- chemical potential; mu+ has chemical potential -mu_mu.
+    The incoming A' momentum is q=(energy,0,0,sqrt(energy^2-mass^2)) in the
+    medium rest frame. L is the physical longitudinal polarization for the
+    axial current; +/- are circular transverse polarizations. Rates are per
+    g_X^2. mu_mu is the mu- chemical potential; mu+ has chemical potential -mu_mu.
     Couplings are normalized to g_X in gamma^mu(g_vector+g_axial gamma5);
     the physical UV axial endpoint is g_axial=-1.
     orders are (kinetic-energy, cos(mu), cos(gamma), relative photon azimuth).
@@ -194,6 +201,8 @@ def moving_muon_compton_rates(
     absorption = charge_results["mu_minus"]["absorption"]+charge_results["mu_plus"]["absorption"]
     return {
         "production": production, "absorption": absorption,
+        "mode_order": ["L", "+", "-"],
+        "polarization_basis": "medium rest frame; A' momentum along +z",
         "charge_resolved": charge_results,
         "diagnostics": {
             "final_muon_shell_relative_error": float(shell_error),
@@ -311,6 +320,8 @@ def thermal_compton_emissivity(
     rel = np.abs(production-balance)/np.maximum(np.abs(production),1e-300)
     return {
         "mass_MeV": mass, "temperature_MeV": temperature,
+        "mode_order": ["L", "+", "-"],
+        "polarization_basis": "medium rest frame; A' momentum along +z",
         "muon_chemical_potential_MeV": mu_mu,
         "couplings_normalized_to_gX": {
             "g_vector": float(g_vector), "g_axial": float(g_axial)
