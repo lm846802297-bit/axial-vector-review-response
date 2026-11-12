@@ -229,13 +229,13 @@
   "archived_B16_baseline": {
     "max_relative_reproduction_residual": 0.0,
     "path": "/home/runner/work/_temp/b16_path64.json",
-    "sha256": "a30247f616cd6843b7d158fe2e69ab2cbfc851eac146f4902fa91b6e92aa7a82"
+    "sha256": "e0c25a4678fb544157e0ee68e402cafd245cec43bd2d2781b40c66046da46fbf"
   },
   "code_sha256": {
-    "archived_B16_baseline": "a30247f616cd6843b7d158fe2e69ab2cbfc851eac146f4902fa91b6e92aa7a82",
+    "archived_B16_baseline": "e0c25a4678fb544157e0ee68e402cafd245cec43bd2d2781b40c66046da46fbf",
     "audit_script": "9439a20aef89feaf4be8769bca97ef624b6a35d8cc7abae30bc315702211d0ec",
-    "fig7_reference": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4",
-    "moving_muon_kernel": "44bc670fd9384f34de56fbecb5371bae18c93c2292aa67e98f4ee304433dbaea",
+    "fig7_reference": "3eb1121da175d89da54a19abbdf0c52669a239be464978ddcfe84887e4d18d06",
+    "moving_muon_kernel": "38436b94f070069c8696b37b9bce1955e2d5d7e39dad9b302ab754582ff6a5a5",
     "profile": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
     "reference_script": "f81468f4305cf57eb86cc0210abc7afc333d434ae70da307ca64a824e486107c"
   },
@@ -315,12 +315,12 @@
     "path_order": 64,
     "radial_order": 40,
     "radius_km": 25.0,
-    "wall_time_seconds": 434.1914587020874
+    "wall_time_seconds": 432.2002902030945
   },
   "fig7_reference": {
     "path": "/home/runner/work/axial-vector-review-response/axial-vector-review-response/research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json",
     "points": 25,
-    "sha256": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4"
+    "sha256": "3eb1121da175d89da54a19abbdf0c52669a239be464978ddcfe84887e4d18d06"
   },
   "inactive_region_omission_diagnostic": {
     "inactive_radial_nodes_fraction_of_B16_Compton_source": 3.343891139779415e-14,
@@ -364,7 +364,7 @@
     "energy_max_MeV": 1010.0,
     "energy_min_MeV": 10.00001,
     "energy_node_count": 142,
-    "full_grid_sha256": "8546fa2ef0ebb1bdd8384732705bc64f9054e390b852cff680d2b4cf26fa1939",
+    "full_grid_sha256": "afe0d0a886d2392d50d20e3bcfa64d8a5ad7b6cc64d5067b4d1c2317b84fec80",
     "inactive_radial_node_count": 15,
     "inactive_radial_nodes_km": [
       19.339981043584856,
@@ -508,7 +508,7 @@
       "mu_plus_fraction_of_B13_Compton_source": 0.00042971177724731045
     }
   ],
-  "run_commit_sha": "56d84d93f6e4842111ec93ef720beddef97a3722",
+  "run_commit_sha": "3d227183aef41d2cc7671440e994bdd07a255ff5",
   "scope": [
     "B.13 exact Compton production and reduced absorption are replaced together in the consistent variants.",
     "B.13 mu-minus-only and mu-minus-plus-mu-plus cases are reported separately.",
@@ -537,7 +537,7 @@
   },
   "summary_source": {
     "path": "/home/runner/work/_temp/full_path64.json",
-    "sha256": "8546fa2ef0ebb1bdd8384732705bc64f9054e390b852cff680d2b4cf26fa1939"
+    "sha256": "afe0d0a886d2392d50d20e3bcfa64d8a5ad7b6cc64d5067b4d1c2317b84fec80"
   },
   "title": "Global B.13 exact moving-muon Compton replacement in the 10 MeV vector B.1/B.2 benchmark",
   "variant_results": {
@@ -668,8 +668,8 @@
           "escape_fraction": 0.6970087454066406,
           "g": 6.4897983908964e-09,
           "optically_thin_luminosity_erg_s": 1.438047532785643e+54,
-          "reference_luminosity_erg_s": 1.3155978611139929e+54,
-          "relative_difference_vs_fig7": -0.23811695329657678
+          "reference_luminosity_erg_s": 1.3155978611139927e+54,
+          "relative_difference_vs_fig7": -0.23811695329657667
         },
         {
           "calculated_luminosity_erg_s": 1.2499555016973805e+54,
@@ -882,8 +882,8 @@
           "escape_fraction": 0.708107887214656,
           "g": 6.4897983908964e-09,
           "optically_thin_luminosity_erg_s": 1.82095882359851e+54,
-          "reference_luminosity_erg_s": 1.3155978611139929e+54,
-          "relative_difference_vs_fig7": -0.01988643840497961
+          "reference_luminosity_erg_s": 1.3155978611139927e+54,
+          "relative_difference_vs_fig7": -0.0198864384049795
         },
         {
           "calculated_luminosity_erg_s": 1.6180959476840823e+54,
@@ -1096,8 +1096,8 @@
           "escape_fraction": 0.6802904815681363,
           "g": 6.4897983908964e-09,
           "optically_thin_luminosity_erg_s": 1.438047532785643e+54,
-          "reference_luminosity_erg_s": 1.3155978611139929e+54,
-          "relative_difference_vs_fig7": -0.25639127463445366
+          "reference_luminosity_erg_s": 1.3155978611139927e+54,
+          "relative_difference_vs_fig7": -0.25639127463445355
         },
         {
           "calculated_luminosity_erg_s": 1.2069474683251687e+54,
@@ -1187,7 +1187,7 @@
       "mean_escape_fraction": 0.6358591249524477,
       "metrics_vs_fig7": {
         "maximum_absolute_relative_difference": 1.31534874493012,
-        "mean_absolute_relative_difference": 0.3025933446011452,
+        "mean_absolute_relative_difference": 0.30259334460114506,
         "reference_peak_relative_difference": -0.16339198273204025,
         "strong_endpoint_relative_difference": 1.31534874493012,
         "weak_endpoint_relative_difference": -0.2810903224461371
@@ -1310,8 +1310,8 @@
           "escape_fraction": 0.6970392711008914,
           "g": 6.4897983908964e-09,
           "optically_thin_luminosity_erg_s": 1.4367042058311847e+54,
-          "reference_luminosity_erg_s": 1.3155978611139929e+54,
-          "relative_difference_vs_fig7": -0.23879531730754155
+          "reference_luminosity_erg_s": 1.3155978611139927e+54,
+          "relative_difference_vs_fig7": -0.23879531730754144
         },
         {
           "calculated_luminosity_erg_s": 1.2488674397835686e+54,
@@ -1524,8 +1524,8 @@
           "escape_fraction": 0.7081658443657616,
           "g": 6.4897983908964e-09,
           "optically_thin_luminosity_erg_s": 1.82095882359851e+54,
-          "reference_luminosity_erg_s": 1.3155978611139929e+54,
-          "relative_difference_vs_fig7": -0.019806218157732536
+          "reference_luminosity_erg_s": 1.3155978611139927e+54,
+          "relative_difference_vs_fig7": -0.019806218157732425
         },
         {
           "calculated_luminosity_erg_s": 1.6182828365276875e+54,
@@ -1738,8 +1738,8 @@
           "escape_fraction": 0.6802681921822883,
           "g": 6.4897983908964e-09,
           "optically_thin_luminosity_erg_s": 1.4367042058311847e+54,
-          "reference_luminosity_erg_s": 1.3155978611139929e+54,
-          "relative_difference_vs_fig7": -0.2571102449392124
+          "reference_luminosity_erg_s": 1.3155978611139927e+54,
+          "relative_difference_vs_fig7": -0.2571102449392123
         },
         {
           "calculated_luminosity_erg_s": 1.2057669752247363e+54,
@@ -1952,8 +1952,8 @@
           "escape_fraction": 0.6905175125500537,
           "g": 6.4897983908964e-09,
           "optically_thin_luminosity_erg_s": 1.82095882359851e+54,
-          "reference_luminosity_erg_s": 1.3155978611139929e+54,
-          "relative_difference_vs_fig7": -0.04423380845070812
+          "reference_luminosity_erg_s": 1.3155978611139927e+54,
+          "relative_difference_vs_fig7": -0.04423380845070801
         },
         {
           "calculated_luminosity_erg_s": 1.5604157009735532e+54,
