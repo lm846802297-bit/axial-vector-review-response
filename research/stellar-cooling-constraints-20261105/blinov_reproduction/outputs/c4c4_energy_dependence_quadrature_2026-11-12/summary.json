@@ -2,7 +2,7 @@
   "title": "C4-C4 energy-dependent combined quadrature convergence",
   "date": "2026-11-12",
   "stage": "C4-C4-Aq all five newly computed energies, all four radii and all channels",
-  "source_commit": "92e3502108484818593b9b1d535550a671efcacd",
+  "source_commit": "7cc76155ce73e6e1380f041fa71e6ea5e171165e",
   "physical_validation_status": "not a transport or literature-reproduction acceptance",
   "energy_grid_MeV": [
     10.0,
@@ -55,11 +55,11 @@
   },
   "numerical_integrity_pass": true,
   "quadrature_convergence_pass": true,
-  "max_relative_difference": 8.306897585774742e-05,
+  "max_relative_difference": 8.306897585796946e-05,
   "max_support_root_relative_residual": 5.06778396513958e-13,
   "max_relative_difference_by_energy": {
     "10.0": 4.798065197175738e-05,
-    "20.0": 8.306897585774742e-05,
+    "20.0": 8.306897585796946e-05,
     "40.0": 5.742099408778678e-05,
     "60.0": 2.2414994673924937e-05,
     "150.0": 3.208624122752468e-05
