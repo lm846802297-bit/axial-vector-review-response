@@ -53,7 +53,7 @@ OUTPUT_FIELDS = (
 
 def git_blob_sha(path: Path) -> str:
     data = Path(path).read_bytes()
-    header = f"blob {len(data)}\\0".encode("ascii")
+    header = f"blob {len(data)}\0".encode("ascii")
     return hashlib.sha1(header + data).hexdigest()
 
 
@@ -76,14 +76,14 @@ def write_csv(path: Path, rows: list[dict]) -> None:
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="", encoding="utf-8") as stream:
-        writer = csv.DictWriter(stream, fieldnames=list(rows[0]), lineterminator="\\n")
+        writer = csv.DictWriter(stream, fieldnames=list(rows[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 
 
 def write_json(path: Path, payload: dict) -> None:
     Path(path).write_text(
-        json.dumps(payload, indent=2, allow_nan=False) + "\\n",
+        json.dumps(payload, indent=2, allow_nan=False) + "\n",
         encoding="utf-8",
     )
 
@@ -272,25 +272,25 @@ def load_c4c2_baseline() -> list[dict]:
 
 
 def build_energy_ratios(rows: list[dict]) -> list[dict]:
-    baseline = {
-        (round(float(row["r_km"]), 8), row["species"], row["antinu"]): float(row["gamma_available_volume_MeV"])
-        for row in rows if abs(float(row["E_MeV"]) - 100.0) < 1e-10
-    }
-    if len(baseline) != 16:
+    baseline_gamma = {}
+    baseline_sigma = {}
+    for row in rows:
+        if abs(float(row["E_MeV"]) - 100.0) < 1e-10:
+            key = (round(float(row["r_km"]), 8), row["species"], row["antinu"])
+            baseline_gamma[key] = float(row["gamma_available_volume_MeV"])
+            baseline_sigma[key] = float(row["sigma_per_target_MeV_minus2"])
+    if len(baseline_gamma) != 16 or len(baseline_sigma) != 16:
         raise ValueError("energy ratios require all 16 C4-C2 100-MeV baseline rows")
     result = []
     for row in rows:
         key = (round(float(row["r_km"]), 8), row["species"], row["antinu"])
-        gamma100 = baseline[key]
         result.append({
             "E_MeV": float(row["E_MeV"]),
             "r_km": float(row["r_km"]),
             "species": row["species"],
             "antinu": row["antinu"],
-            "gamma_over_gamma_100MeV": float(row["gamma_available_volume_MeV"]) / gamma100,
-            "sigma_over_sigma_100MeV": float(row["sigma_per_target_MeV_minus2"]) / (
-                gamma100 / (float(row["nprime_fm3"]) * HBARC**3)
-            ),
+            "gamma_over_gamma_100MeV": float(row["gamma_available_volume_MeV"]) / baseline_gamma[key],
+            "sigma_over_sigma_100MeV": float(row["sigma_per_target_MeV_minus2"]) / baseline_sigma[key],
             "kappa_sc_MeV": float(row["kappa_sc_MeV"]),
             "lambda_sc_km": float(row["lambda_sc_km"]),
         })
