@@ -30,7 +30,7 @@ from finite_mixing.thermal_integrals.moving_compton import (
 
 HERE = Path(__file__).resolve().parent
 M_MU = rates.M_MU
-LITERATURE_DIR = HERE.parents[3] / "stellar-cooling-eft-literature-20261105"
+LITERATURE_DIR = HERE.parents[2] / "stellar-cooling-eft-literature-20261105"
 sys.path.insert(0, str(LITERATURE_DIR))
 import reference_matrix_element as ref
 
