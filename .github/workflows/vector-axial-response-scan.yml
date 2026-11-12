@@ -5,11 +5,17 @@ on:
       - codex/major44-axial-cooling-constraints-20261105
     paths:
       - 'research/stellar-cooling-constraints-20261105/finite_mixing/**'
+      - '!research/stellar-cooling-constraints-20261105/finite_mixing/outputs/**'
+      - '!research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/outputs/**'
       - 'research/stellar-cooling-constraints-20261105/rates.py'
       - '.github/workflows/vector-axial-response-scan.yml'
   workflow_dispatch:
 permissions:
   contents: write
+
+concurrency:
+  group: vector-axial-response-scan-${{ github.ref }}
+  cancel-in-progress: false
 jobs:
   response-scan:
     runs-on: ubuntu-latest
@@ -57,5 +63,19 @@ jobs:
             echo "Response scan output is already current."
           else
             git commit -m "Archive vector-axial and thermal-integral validation scans"
-            git push origin "HEAD:${GITHUB_REF_NAME}"
+            BRANCH="${GITHUB_REF_NAME}"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin "$BRANCH"
+              if ! git rebase "origin/$BRANCH"; then
+                echo "Rebase conflict while archiving response scan outputs."
+                exit 1
+              fi
+              if git push origin "HEAD:$BRANCH"; then
+                exit 0
+              fi
+              echo "Push raced with another workflow; retry ${attempt}/5."
+              sleep 2
+            done
+            echo "Could not archive response scan outputs after five retries."
+            exit 1
           fi
