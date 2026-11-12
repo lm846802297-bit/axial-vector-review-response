@@ -447,7 +447,7 @@ See `summary.json` for exact quadrature orders, all acceptance checks, and input
     for path in sorted(output_dir.iterdir()):
         if path.is_file() and path.name != "SHA256SUMS.txt":
             manifest_lines.append(f"{sha256_file(path)}  {path.name}")
-    (output_dir / "SHA256SUMS.txt").write_text("\\n".join(manifest_lines) + "\\n", encoding="utf-8")
+    (output_dir / "SHA256SUMS.txt").write_text("\n".join(manifest_lines) + "\n", encoding="utf-8")
     return summary
 
 

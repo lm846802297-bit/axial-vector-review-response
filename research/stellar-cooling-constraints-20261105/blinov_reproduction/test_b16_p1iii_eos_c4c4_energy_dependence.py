@@ -56,7 +56,7 @@ class TestC4C4EnergyDependence(unittest.TestCase):
         with TemporaryDirectory() as tmp:
             path = Path(tmp) / "probe.csv"
             write_csv(path, [{"a": 1}, {"a": 2}])
-            self.assertEqual(path.read_bytes().count(b"\\n"), 3)
+            self.assertEqual(path.read_bytes().count(b"\n"), 3)
 
     def test_structural_acceptance_rejects_duplicate_or_missing_cases(self):
         radii = (0.2, 5.0, 10.0, 15.2)
