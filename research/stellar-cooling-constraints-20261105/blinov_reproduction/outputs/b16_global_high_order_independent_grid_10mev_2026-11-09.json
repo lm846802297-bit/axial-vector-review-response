@@ -1,5 +1,5 @@
 {
-  "fig7_digitization_sha256": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4",
+  "fig7_digitization_sha256": "3eb1121da175d89da54a19abbdf0c52669a239be464978ddcfe84887e4d18d06",
   "grid_identity": {
     "energy_grid_sha256": "036e6d772f43acf97601c3846b475e8e1c14200d4d82de1dd9af30f01bb87ea3",
     "energy_node_count": 842,
@@ -30,7 +30,7 @@
   "result": {
     "code_sha256": {
       "audit_script": "a146efa0cd2d8c6ddbd13daf8ed00ff4737accdbd16e31a54e008bfaef36f75d",
-      "fig7_reference": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4",
+      "fig7_reference": "3eb1121da175d89da54a19abbdf0c52669a239be464978ddcfe84887e4d18d06",
       "profile": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
       "reference_script": "f81468f4305cf57eb86cc0210abc7afc333d434ae70da307ca64a824e486107c"
     },
@@ -1506,7 +1506,7 @@
     "eq_b2_fixed_omega_baseline": {
       "curve_metrics": {
         "maximum_absolute_relative_difference": 0.924284237819931,
-        "mean_absolute_relative_difference": 0.15860133107522376,
+        "mean_absolute_relative_difference": 0.15860133107522373,
         "n_points": 25,
         "reference_peak_relative_difference": 0.023159694737848513,
         "relative_differences": [
@@ -1524,7 +1524,7 @@
           -0.07541247259389328,
           -0.07420316116795977,
           -0.05617252280842355,
-          -0.04684623491394024,
+          -0.04684623491394013,
           -0.03414973373031571,
           -0.0029277673974618112,
           0.023159694737848513,
@@ -1671,8 +1671,8 @@
           "escape_fraction": 0.6906261692783539,
           "g": 6.4897983908964e-09,
           "optically_thin_luminosity_erg_s": 1.8156958285699762e+54,
-          "reference_luminosity_erg_s": 1.3155978611139929e+54,
-          "relative_difference": -0.04684623491394024,
+          "reference_luminosity_erg_s": 1.3155978611139927e+54,
+          "relative_difference": -0.04684623491394013,
           "source_weighted_mean_tau": 0.39033566960610094
         },
         {
@@ -1772,7 +1772,7 @@
       "path": "/home/runner/work/axial-vector-review-response/axial-vector-review-response/research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json",
       "pdf_sha256": "4d7d1d10bfe2b52992af94df98749fa3adac887c009cbf98515fa12e6c48fdb5",
       "points": 25,
-      "sha256": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4"
+      "sha256": "3eb1121da175d89da54a19abbdf0c52669a239be464978ddcfe84887e4d18d06"
     },
     "mass_MeV": 10.0,
     "outer_mu_numu_branch_opacity_sensitivity": {
@@ -1963,8 +1963,8 @@
           "g": 6.4897983908964e-09,
           "luminosity_shift_vs_baseline": -3.297377539812629e-05,
           "outer_mu_numu_zero_luminosity_erg_s": 1.2539257066319524e+54,
-          "reference_luminosity_erg_s": 1.3155978611139929e+54,
-          "relative_difference_vs_fig7_after_variant": -0.04687766399211013
+          "reference_luminosity_erg_s": 1.3155978611139927e+54,
+          "relative_difference_vs_fig7_after_variant": -0.04687766399211002
         },
         {
           "baseline_luminosity_erg_s": 1.556244919565342e+54,
@@ -2154,7 +2154,7 @@
     "path_redshift_only_diagnostic": {
       "curve_metrics": {
         "maximum_absolute_relative_difference": 0.3691301193834051,
-        "mean_absolute_relative_difference": 0.09386429135760725,
+        "mean_absolute_relative_difference": 0.09386429135760724,
         "n_points": 25,
         "reference_peak_relative_difference": -0.03020004069029658,
         "relative_differences": [
@@ -2172,7 +2172,7 @@
           -0.0817924456526562,
           -0.08332255866080718,
           -0.06936866933847097,
-          -0.06562889979559472,
+          -0.06562889979559461,
           -0.0607499045132307,
           -0.04093067475384371,
           -0.03020004069029658,
@@ -2356,8 +2356,8 @@
           "g": 6.4897983908964e-09,
           "luminosity_shift_vs_fixed_omega": -0.01970580778218778,
           "optically_thin_luminosity_erg_s": 1.8156958285699762e+54,
-          "reference_luminosity_erg_s": 1.3155978611139929e+54,
-          "relative_difference": -0.06562889979559472,
+          "reference_luminosity_erg_s": 1.3155978611139927e+54,
+          "relative_difference": -0.06562889979559461,
           "source_weight_fraction_at_infinite_tau": 9.188018434162295e-07,
           "source_weighted_mean_tau_over_escaping_bins": 0.4122563519544831
         },
@@ -2480,7 +2480,7 @@
       "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
     },
     "reference_axis_conversion": "The digitized Fig. 7 abscissa is alpha_V; the source extraction converts it to g=sqrt(4*pi*alpha_V). Rates and opacity are normalized per g^2 and the scan uses this g.",
-    "run_commit_sha": "c2a5c0d1fc20530c45ba4e3c3ee56f86fd37b59d",
+    "run_commit_sha": "3d227183aef41d2cc7671440e994bdd07a255ff5",
     "source_channel_fractions": {
       "compton": {
         "fraction": 0.32074132154933493,
@@ -2512,6 +2512,6 @@
       }
     }
   },
-  "run_commit_sha": "c2a5c0d1fc20530c45ba4e3c3ee56f86fd37b59d",
+  "run_commit_sha": "3d227183aef41d2cc7671440e994bdd07a255ff5",
   "title": "High-order independently gridded B.16 global vector luminosity"
 }
