@@ -45,8 +45,8 @@ class VectorSemiComptonPolarizationAuditTests(unittest.TestCase):
         self.assertAlmostEqual(ratios["direct_exact_T_sum"], 1.0, delta=5e-3)
         self.assertLess(ratios["direct_exact_L"], 1e-3)
 
-    def test_paper_eq58_mode_assignment_and_coefficient_are_flagged_not_relabelled(self):
-        comparison = self.audit["printed_Eq58_comparison"]
+    def test_paper_eq5_9_mode_assignment_and_coefficient_are_flagged_not_relabelled(self):
+        comparison = self.audit["printed_Eq5_9_comparison"]
         # The printed unsuppressed expression tracks the exact transverse sum,
         # while the printed suppressed expression has the opposite mode label.
         self.assertAlmostEqual(
@@ -67,17 +67,17 @@ class VectorSemiComptonPolarizationAuditTests(unittest.TestCase):
     def test_direct_spinor_and_crossed_trace_calculations_agree(self):
         self.assertTrue(self.audit["acceptance"]["direct_spinor_vs_crossed_trace_pass"])
 
-    def test_printed_eq106_differential_formulas_are_flagged_for_negativity(self):
-        diagnostic = self.audit["printed_Eq106_differential_comparison"]
-        self.assertGreater(diagnostic["Eq106a_printed_T_negative_fraction"], 0.4)
-        self.assertGreater(diagnostic["Eq106b_printed_L_negative_fraction"], 0.0)
+    def test_printed_eqb6_differential_formulas_are_flagged_for_negativity(self):
+        diagnostic = self.audit["printed_EqB6_differential_comparison"]
+        self.assertGreater(diagnostic["EqB6a_printed_T_negative_fraction"], 0.4)
+        self.assertGreater(diagnostic["EqB6b_printed_L_negative_fraction"], 0.0)
         self.assertGreaterEqual(diagnostic["exact_T_minimum_over_angular_grid_MeV_minus2"], 0.0)
         self.assertGreaterEqual(diagnostic["exact_L_minimum_over_angular_grid_MeV_minus2"], 0.0)
         flags = self.audit["interpretation_flags"]
         self.assertTrue(
-            flags["Eq106b_is_closer_to_exact_T_than_Eq106a_but_not_accurate"]
+            flags["EqB6b_is_closer_to_exact_T_than_EqB6a_but_not_accurate"]
         )
-        self.assertTrue(flags["Eq106_differential_shapes_fail_the_low_energy_reference"])
+        self.assertTrue(flags["EqB6_differential_shapes_fail_the_low_energy_reference"])
 
     def test_appendix_B_matrix_element_traces_match_direct_spinor_sum(self):
         audit = self.audit["appendix_B_trace_audit"]
@@ -87,7 +87,7 @@ class VectorSemiComptonPolarizationAuditTests(unittest.TestCase):
         self.assertLess(audit["max_abs_B4_total_relative_residual"], 5e-5)
         self.assertLess(audit["max_abs_B3_L_relative_residual"], 0.015)
 
-    def test_eq106_angular_shapes_fail_while_exact_shapes_recover_thomson_limit(self):
+    def test_eqb6_angular_shapes_fail_while_exact_shapes_recover_thomson_limit(self):
         angular = self.audit["low_energy_angular_shape_audit"]
         self.assertTrue(
             angular["acceptance"]["exact_T_matches_leading_Thomson_shape"]
@@ -96,27 +96,27 @@ class VectorSemiComptonPolarizationAuditTests(unittest.TestCase):
             angular["acceptance"]["exact_L_matches_leading_suppressed_shape"]
         )
         self.assertTrue(
-            angular["acceptance"]["printed_Eq106a_fails_exact_L_angular_shape"]
+            angular["acceptance"]["printed_EqB6a_fails_exact_L_angular_shape"]
         )
         self.assertTrue(
-            angular["acceptance"]["printed_Eq106b_fails_exact_T_angular_shape"]
+            angular["acceptance"]["printed_EqB6b_fails_exact_T_angular_shape"]
         )
         self.assertGreater(
-            angular["printed_Eq106b_vs_exact_T_max_abs_over_exact_T_peak"], 0.5
+            angular["printed_EqB6b_vs_exact_T_max_abs_over_exact_T_peak"], 0.5
         )
 
-    def test_eq58_hierarchy_and_longitudinal_coefficient_persist_across_low_energy_scan(self):
+    def test_eq5_9_hierarchy_and_longitudinal_coefficient_persist_across_low_energy_scan(self):
         scan = self.audit["low_energy_parameter_scan"]
         self.assertTrue(all(scan["acceptance"].values()))
         self.assertEqual(len(scan["cases"]), 6)
         self.assertGreater(
-            scan["max_abs_deviation_Eq58a_over_exact_L_from_three_halves"], 0.0
+            scan["max_abs_deviation_Eq5_9a_over_exact_L_from_three_halves"], 0.0
         )
 
-    def test_paper_eq58_mode_hierarchy_is_opposite_to_conserved_vector_limit(self):
+    def test_paper_eq5_9_mode_hierarchy_is_opposite_to_conserved_vector_limit(self):
         self.assertTrue(
             self.audit["interpretation_flags"][
-                "integrated_Eq58_TL_hierarchy_opposite_to_conserved_vector_limit"
+                "integrated_Eq5_9_TL_hierarchy_opposite_to_conserved_vector_limit"
             ]
         )
 
