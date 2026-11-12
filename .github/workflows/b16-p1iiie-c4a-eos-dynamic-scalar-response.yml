@@ -1,0 +1,102 @@
+name: P1-IIIe-C4A EOS dynamic scalar response
+
+on:
+  push:
+    branches:
+      - research/moving-muon-thermal-rates-20261107
+    paths:
+      - '.github/workflows/b16-p1iiie-c4a-eos-dynamic-scalar-response.yml'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_nucleon_distribution.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_full_radial_occupation.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_c4a_dynamic_scalar_response.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_p1iii_eos_c4a_dynamic_scalar_response.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/p1iii_eos_full_radial_occupation_2026-11-11.csv'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/p1iiie_c4a_eos_dynamic_scalar_response_2026-11-11.json'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/p1iiie_c4a_eos_dynamic_scalar_response_2026-11-11_q0_grid.csv'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/p1iiie_c4a_eos_dynamic_scalar_response_2026-11-11_sumrule.csv'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: p1iiie-c4a-eos-dynamic-scalar-response
+  cancel-in-progress: false
+
+jobs:
+  eos-dynamic-scalar-response:
+    if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check out the exact research commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy
+
+      - name: Run C4-A unit tests
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest test_b16_p1iii_eos_c4a_dynamic_scalar_response -v
+
+      - name: Recompute EOS dynamic response and sum rules
+        env:
+          C4A_JSON: ${{ runner.temp }}/c4a.json
+          C4A_RESPONSE_CSV: ${{ runner.temp }}/c4a_response.csv
+          C4A_SUMRULE_CSV: ${{ runner.temp }}/c4a_sumrule.csv
+        run: |
+          set -euo pipefail
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_c4a_dynamic_scalar_response.py --profile research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv --c2-reference research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/p1iii_eos_full_radial_occupation_2026-11-11.csv --output-json "$C4A_JSON" --output-response-csv "$C4A_RESPONSE_CSV" --output-sumrule-csv "$C4A_SUMRULE_CSV"
+
+      - name: Validate independent Python reconstruction
+        env:
+          C4A_JSON: ${{ runner.temp }}/c4a.json
+          C4A_RESPONSE_CSV: ${{ runner.temp }}/c4a_response.csv
+          C4A_SUMRULE_CSV: ${{ runner.temp }}/c4a_sumrule.csv
+        run: |
+          python - <<'PY'
+          import csv, json, math, os
+          from pathlib import Path
+
+          root = Path("research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs")
+          expected = json.loads((root / "p1iiie_c4a_eos_dynamic_scalar_response_2026-11-11.json").read_text())
+          actual = json.loads(Path(os.environ["C4A_JSON"]).read_text())
+          assert expected["overall_pass"] and actual["overall_pass"]
+          assert all(actual["acceptance"].values())
+          for species in ("n", "p"):
+              for key in (
+                  "max_abs_sum_rule_relative_residual",
+                  "max_abs_detailed_balance_relative_residual",
+                  "max_abs_q1_static_vs_q0_blocked",
+                  "max_abs_q3_static_vs_q0_blocked",
+              ):
+                  assert abs(expected["species"][species][key]-actual["species"][species][key]) < 2e-8
+
+          for filename, envkey, count in (
+              ("p1iiie_c4a_eos_dynamic_scalar_response_2026-11-11_q0_grid.csv", "C4A_RESPONSE_CSV", 13440),
+              ("p1iiie_c4a_eos_dynamic_scalar_response_2026-11-11_sumrule.csv", "C4A_SUMRULE_CSV", 56),
+          ):
+              with (root / filename).open(newline="") as stream:
+                  expected_rows = list(csv.DictReader(stream))
+              with Path(os.environ[envkey]).open(newline="") as stream:
+                  actual_rows = list(csv.DictReader(stream))
+              assert len(expected_rows) == len(actual_rows) == count
+              for i, (e, a) in enumerate(zip(expected_rows, actual_rows)):
+                  for key in e:
+                      if key == "species":
+                          assert e[key] == a[key], (filename, i, key)
+                      else:
+                          assert math.isclose(float(e[key]), float(a[key]), rel_tol=2e-7, abs_tol=2e-9), (filename, i, key)
+          print("C4-A independent Python reconstruction validates 13,440 q0 points and 56 sum-rule records.")
+          PY

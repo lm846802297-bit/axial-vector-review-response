@@ -1,0 +1,351 @@
+{
+  "title": "P1 B.2 high-energy path and opacity interpolation audit",
+  "date": "2026-11-10",
+  "benchmark": {
+    "mass_MeV": 10,
+    "coupling": 4.171689650228597e-8,
+    "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+    "profile_file_git_blob_sha": "e41df78c8035540760fbcb7ef592cd830171822e",
+    "profile_vertices": 1687,
+    "opacity_grid_nodes": 642,
+    "opacity_grid_definition": "640 composite Gauss-Legendre nodes over [0,5,8,10,12,15,18,20,22,24,25] km plus endpoints",
+    "transport_baseline": "B.16, fixed omega, scalar polarization-summed opacity, Euclidean chord, Rmax=25 km"
+  },
+  "direct_s_path_crosscheck": {
+    "engine": "OpenAI Code Mode V8 binary64; calculation executed directly, not through GitHub Actions",
+    "source_radii_km": [
+      8,
+      10,
+      12.5,
+      15
+    ],
+    "energies_MeV": [
+      210,
+      300,
+      510
+    ],
+    "direction_cosines": [
+      -1,
+      -0.9999,
+      -0.75,
+      -0.25,
+      0,
+      0.25,
+      0.75,
+      0.95,
+      1
+    ],
+    "ray_count": 108,
+    "method": "Direct Gauss-Legendre integration in path coordinate s, splitting at every 642-node opacity interpolation crossing, every radial shell boundary, and the inward-ray turning point; compared with the analytic radial primitive for the same piecewise-linear opacity table.",
+    "max_abs_relative_difference_vs_analytic": {
+      "path_GL2": 1.0345572987180418e-7,
+      "path_GL4": 8.293365993949919e-14,
+      "path_GL8": 6.59472476627343e-14
+    },
+    "worst_cases": {
+      "GL2": {
+        "r0_km": 15,
+        "energy_MeV": 210,
+        "cos_theta": -0.25,
+        "channel": "Compton",
+        "relative_difference": 1.0345572987180418e-7
+      },
+      "GL4": {
+        "r0_km": 12.5,
+        "energy_MeV": 210,
+        "cos_theta": -0.9999,
+        "channel": "neutrino",
+        "relative_difference": 8.293365993949919e-14
+      },
+      "GL8": {
+        "r0_km": 15,
+        "energy_MeV": 510,
+        "cos_theta": 0.75,
+        "channel": "Compton",
+        "relative_difference": 6.59472476627343e-14
+      }
+    },
+    "angle_average": {
+      "method": "Independent composite Simpson 128/256/512 and Gauss-Legendre 32/64 over cos(theta), with the analytic path primitive",
+      "max_abs_relative_difference_simpson256_vs512": 1.17e-8,
+      "max_abs_relative_difference_gauss64_vs_simpson512": 5.77e-7,
+      "note": "Four representative (r0,omega) pairs in the 210 and 510 MeV bands; these are local angular checks, not a new global luminosity integration."
+    }
+  },
+  "profile_vertex_vs_opacity_grid": {
+    "method": "Recompute B.16 local reduced neutrino and Compton opacities on both the 642-node opacity grid and all 1687 retained profile vertices; integrate the piecewise-linear radial opacity exactly along each chord.",
+    "ray_count": 60,
+    "source_radii_km": [
+      8,
+      10,
+      12.5,
+      15
+    ],
+    "energies_MeV": [
+      210,
+      300,
+      510
+    ],
+    "direction_cosines": [
+      -0.75,
+      -0.25,
+      0.25,
+      0.75,
+      0.95
+    ],
+    "local_integrals": {
+      "muon_susceptibility": "Composite Simpson, 1024 momentum intervals, p in [0,1200] MeV",
+      "neutrino_pair_average": "Composite Simpson, 512 angular intervals"
+    },
+    "max_abs_relative_change_1687_vertices_vs_642_nodes": {
+      "tau_neutrino": 0.0000011491986945388888,
+      "tau_compton": 0.0006738407091307907,
+      "tau_total": 0.000018670208520754628,
+      "single_ray_escape_probability": 0.0001572254973315478
+    },
+    "angular_escape_average_comparison": [
+      {
+        "r0_km": 8,
+        "energy_MeV": 210,
+        "escape_642": 0.0004246585786495139,
+        "escape_1687": 0.0004246493262195715,
+        "relative_change": -0.0000217879266016796
+      },
+      {
+        "r0_km": 8,
+        "energy_MeV": 510,
+        "escape_642": 0.01111006584131741,
+        "escape_1687": 0.011109843688935753,
+        "relative_change": -0.000019995595420430057
+      },
+      {
+        "r0_km": 12.5,
+        "energy_MeV": 210,
+        "escape_642": 0.003368289561632485,
+        "escape_1687": 0.003368317447942252,
+        "relative_change": 0.000008279071397110371
+      },
+      {
+        "r0_km": 12.5,
+        "energy_MeV": 510,
+        "escape_642": 0.05560998862728196,
+        "escape_1687": 0.05561066412055013,
+        "relative_change": 0.000012146977275372403
+      }
+    ],
+    "interpretation": "Retaining every original profile vertex changes the representative-ray total optical depth by at most 1.87e-5 and the sampled angular escape averages by at most 2.18e-5. The 642-node opacity interpolation does not hide a percent-level high-energy propagation effect."
+  },
+  "path_redshift_channel_decomposition": {
+    "method": "Direct s integration split at all 1687 profile vertices and shell boundaries; 4-point Gauss-Legendre per segment; 64-point Gauss-Legendre Fermi-pair angular average; susceptibility integrated by composite Simpson with 1024 momentum intervals.",
+    "ray_count": 36,
+    "source_radii_km": [
+      8,
+      10,
+      12.5,
+      15
+    ],
+    "source_energies_MeV": [
+      210,
+      300,
+      510
+    ],
+    "direction_cosines": [
+      -0.75,
+      0.25,
+      0.75
+    ],
+    "statistic": "Unweighted descriptive statistics across the 36 selected rays; not source-, energy-, or angle-weighted global averages.",
+    "relative_change_redshift_vs_fixed_omega": {
+      "tau_neutrino": {
+        "mean": 0.04976485309175914,
+        "min": -0.009257634860023956,
+        "max": 0.09634087390248158
+      },
+      "tau_compton": {
+        "mean": 0.0000025581462048643,
+        "min": -0.0002213213331030417,
+        "max": 0.00013096877672680307
+      },
+      "tau_total": {
+        "mean": 0.041069139275942246,
+        "min": -0.005672926631974384,
+        "max": 0.07906147937193952
+      }
+    },
+    "quadrature_checks": {
+      "max_abs_relative_GL32_vs_GL64_pair_average": 4.773406524494206e-7,
+      "max_abs_relative_GL128_vs_GL64_pair_average": 1.7952306308188781e-12,
+      "max_abs_relative_path_GL4_vs_GL8_neutrino": 1.0547118733938987e-14,
+      "max_abs_relative_path_GL4_vs_GL8_compton": 1.709743457922741e-14,
+      "max_abs_relative_path_GL4_vs_GL8_total": 9.43689570931383e-15
+    },
+    "representative_ray": {
+      "r0_km": 10,
+      "energy_MeV": 300,
+      "cos_theta": 0.75,
+      "fixed_omega_tau": {
+        "neutrino": 3.6703701083943425,
+        "compton": 0.5403027353312225,
+        "total": 4.210672843725565
+      },
+      "path_redshift_tau": {
+        "neutrino": 3.9553874707761882,
+        "compton": 0.5403250806871002,
+        "total": 4.4957125514632885
+      },
+      "shell_contributions": [
+        {
+          "shell_km": "10-12",
+          "nu_fixed": 0.5059026110080524,
+          "nu_redshift": 0.5117144261886591,
+          "compton_fixed": 0.406120247716938,
+          "compton_redshift": 0.40613094249967324
+        },
+        {
+          "shell_km": "12-15",
+          "nu_fixed": 0.7343187895259303,
+          "nu_redshift": 0.7649923254209194,
+          "compton_fixed": 0.13334936026240832,
+          "compton_redshift": 0.13336088170068577
+        },
+        {
+          "shell_km": "15-18",
+          "nu_fixed": 0.7362464509317267,
+          "nu_redshift": 0.7922807992244831,
+          "compton_fixed": 0.0008331236066767365,
+          "compton_redshift": 0.0008332527407127475
+        },
+        {
+          "shell_km": "18-20",
+          "nu_fixed": 0.48819619107988216,
+          "nu_redshift": 0.5362468166716483,
+          "compton_fixed": 3.743911542364378e-9,
+          "compton_redshift": 3.744740171078702e-9
+        },
+        {
+          "shell_km": "20-22",
+          "nu_fixed": 0.4847296543368289,
+          "nu_redshift": 0.5389851861590474,
+          "compton_fixed": 1.2869616583955245e-12,
+          "compton_redshift": 1.28729320733996e-12
+        },
+        {
+          "shell_km": "22-24",
+          "nu_fixed": 0.481320415336932,
+          "nu_redshift": 0.5404155382142042,
+          "compton_fixed": 9.27579097255926e-16,
+          "compton_redshift": 9.278452002633485e-16
+        },
+        {
+          "shell_km": "24-25",
+          "nu_fixed": 0.23965599617499,
+          "nu_redshift": 0.2707523788972262,
+          "compton_fixed": 1.571922097951623e-17,
+          "compton_redshift": 1.5724098770113162e-17
+        }
+      ]
+    },
+    "interpretation": "For the sampled high-energy rays, path redshift changes the neutrino inverse-decay opacity by several percent while leaving the semi-Compton opacity nearly unchanged. This identifies the channel responsible for the previously measured high-energy redshift sensitivity, but does not establish that the unpublished Fig. 7 code used the redshifted prescription."
+  },
+  "archived_global_high_energy_redshift_reference": {
+    "energy_band_MeV": [
+      210,
+      510
+    ],
+    "source_fraction_of_global_thin_source": 0.0967,
+    "escaped_luminosity_fraction_of_global_escape": 0.69756,
+    "fixed_omega_escape_probability": 0.002345801,
+    "path_redshift_escape_probability": 0.001686751,
+    "fixed_omega_escaped_luminosity_erg_s": 1.70178e+52,
+    "path_redshift_escaped_luminosity_erg_s": 1.22367e+52,
+    "relative_luminosity_change": -0.2809,
+    "source_unchanged": true,
+    "source": "B16_HIGH_ENERGY_PATH_REDSHIFT_AUDIT_2026-11-10.md"
+  },
+  "conclusions": [
+    "No path quadrature, angle quadrature, or 642-node radial opacity interpolation error capable of explaining the +92.2406% fixed-omega strong-endpoint residual was found in the targeted high-energy B.2 tests.",
+    "The 1687-vertex opacity stress test confirms that the current 642-node opacity interpolation is adequate for the sampled high-energy rays.",
+    "The path-redshift sensitivity is carried by neutrino inverse-decay opacity; the semi-Compton opacity is effectively unchanged in the sampled high-energy rays.",
+    "Fixed-omega remains the literal displayed Eq. (B.2) baseline. The path-redshift branch remains a separate physical sensitivity, not a replacement or empirical correction."
+  ],
+  "limitations": [
+    "The 36-ray redshift channel statistics are unweighted diagnostic samples, not global source-weighted averages.",
+    "The 60-ray vertex-preserving comparison and 108-ray direct-s check are targeted high-energy diagnostics, not a full re-integration of the 25-point Fig. 7 curve.",
+    "The stellar profile is reconstructed from public figures; it is not the original Garching snapshot."
+  ],
+  "global_source_weighted_channel_shapley": {
+    "configuration": {
+      "mass_MeV": 10,
+      "coupling": 4.171689650228597e-8,
+      "source_radial_order": 200,
+      "opacity_radial_order": 640,
+      "energy_order": 200,
+      "total_energy_nodes": 842,
+      "band_energy_nodes": 10,
+      "angular_order": 32,
+      "path_order": 64,
+      "radius_km": 25,
+      "energy_band_MeV": [
+        210,
+        510
+      ],
+      "source_measure": "Eq. (B.1), independent source radial grid, same source weights in all four transport counterfactuals",
+      "path_redshift_interpolation": "bilinear in radius and local energy, matching the archived high-order path-redshift implementation"
+    },
+    "energy_nodes_MeV": [
+      217.292177959537,
+      237.39657523579274,
+      259.4508135230317,
+      283.64399970746723,
+      310.18358135755926,
+      339.2971255097149,
+      371.23426997094305,
+      406.26886387014787,
+      444.7013158125027,
+      486.86116977144746
+    ],
+    "source_per_g2": {
+      "total": 4.168593206235335e+69,
+      "neutrino": 2.0791450654537646e+69,
+      "compton": 2.0894481407815782e+69
+    },
+    "thin_band_luminosity_erg_s": 7.25460047985254e+54,
+    "luminosity_erg_s": {
+      "fixed_both": 1.7017848288465932e+52,
+      "redshift_neutrino_only": 1.223724420107633e+52,
+      "redshift_compton_only": 1.7017049585887518e+52,
+      "redshift_both": 1.2236705002358703e+52
+    },
+    "escape_probability": {
+      "fixed_both": 0.0023458008936161076,
+      "redshift_neutrino_only": 0.001686825378607902,
+      "redshift_compton_only": 0.002345690797604531,
+      "redshift_both": 0.0016867510535338854
+    },
+    "shapley_delta_luminosity_erg_s": {
+      "total": -4.7811432861072296e+51,
+      "neutrino": -4.7804743354592094e+51,
+      "compton": -6.6895064802012255e+47
+    },
+    "shapley_fraction_of_total_change": {
+      "neutrino": 0.999860085630572,
+      "compton": 0.00013991436942789828
+    },
+    "relative_luminosity_change_redshift_both_vs_fixed": -0.2809487548051367,
+    "validation": {
+      "source_per_g2_relative_residual_vs_archived": -1.87942994500645e-11,
+      "fixed_band_luminosity_relative_residual_vs_archived": 0.00000283752693830408,
+      "bilinear_redshift_band_luminosity_relative_residual_vs_archived": 4.087996521295878e-7
+    },
+    "direct_local_rate_crosscheck": {
+      "method": "same source/path quadrature, but evaluate the local absorption kernels directly at omega_local(s) instead of bilinear interpolation in local energy",
+      "luminosity_redshift_both_erg_s": 1.2298145732425637e+52,
+      "relative_change_vs_fixed": -0.27733838473804806,
+      "relative_difference_vs_bilinear_result": 0.0050214299954756125,
+      "shapley_fraction_neutrino": 0.9998637655316338,
+      "shapley_fraction_compton": 0.0001362344683661906,
+      "interpretation": "A roughly 0.50% difference in the redshift-only branch is associated with the local-energy interpolation choice; the fixed-omega result is unchanged and both methods assign more than 99.98% of the redshift-induced luminosity shift to neutrino inverse decay."
+    },
+    "interpretation": "This is a source-weighted global Shapley attribution for the 210--510 MeV band, not the unweighted 36-ray diagnostic. It shows that the path-redshift sensitivity is overwhelmingly due to neutrino inverse-decay opacity; semi-Compton contributes about 0.014% of the global luminosity change."
+  }
+}

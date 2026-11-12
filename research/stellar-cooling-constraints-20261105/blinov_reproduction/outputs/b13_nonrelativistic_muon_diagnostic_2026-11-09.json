@@ -1,0 +1,88 @@
+{
+  "comparison_to_B16_0p1MeV_source_shell_fractions": {
+    "maximum_absolute_fraction_difference": 0.001719858731690338,
+    "reference": {
+      "0-5 km": 0.0010971086342783968,
+      "10-12 km": 0.24023711234557052,
+      "12-15 km": 0.03754934265050087,
+      "15-18 km": 3.6788844940831786e-05,
+      "18-20 km": 9.306837099487823e-07,
+      "20-22 km": 5.337211825709793e-07,
+      "22-25 km": 6.574865054271506e-07,
+      "5-8 km": 0.17091562188058543,
+      "8-10 km": 0.5501619037527261
+    }
+  },
+  "interpretation": "Equilibrium muon-distribution diagnostic weighted by the B.17 susceptibility. It is not the full B.13 collision integrand and does not by itself quantify the B.14 rate error.",
+  "momentum_quadrature": {
+    "dp_MeV": 0.5,
+    "method": "midpoint rule",
+    "p_max_MeV": 600.0
+  },
+  "muon_mass_MeV": 105.6583755,
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "radial_weight": "r^2 * lapse^2 * (n_mu F_deg) * T^4; leading low-mass B.16 source weight",
+  "run_commit_sha": "0b0789467db88586e1a7ede67d205f936760dbc8",
+  "shells": {
+    "0-5 km": {
+      "fraction_p_gt_m_chi": 0.41242949610122076,
+      "fraction_v_gt_0p5_chi": 0.7943582556899473,
+      "mean_v_chi": 0.6415146718788682,
+      "source_weight_fraction": 0.0010936732869953247
+    },
+    "10-12 km": {
+      "fraction_p_gt_m_chi": 0.6651327343876866,
+      "fraction_v_gt_0p5_chi": 0.9185383799575906,
+      "mean_v_chi": 0.7391527491095733,
+      "source_weight_fraction": 0.23944847518336265
+    },
+    "12-15 km": {
+      "fraction_p_gt_m_chi": 0.46240824755370147,
+      "fraction_v_gt_0p5_chi": 0.8333649290636967,
+      "mean_v_chi": 0.6628633713910304,
+      "source_weight_fraction": 0.03739765926967618
+    },
+    "15-18 km": {
+      "fraction_p_gt_m_chi": 0.1004578516913791,
+      "fraction_v_gt_0p5_chi": 0.5104764112718934,
+      "mean_v_chi": 0.4966640170931873,
+      "source_weight_fraction": 3.077924272127081e-05
+    },
+    "18-20 km": {
+      "fraction_p_gt_m_chi": 0.0023554012694254533,
+      "fraction_v_gt_0p5_chi": 0.1448916748449794,
+      "mean_v_chi": 0.35373500121635276,
+      "source_weight_fraction": 1.012843124279304e-11
+    },
+    "20-22 km": {
+      "fraction_p_gt_m_chi": 0.00013293597815275268,
+      "fraction_v_gt_0p5_chi": 0.05337722838429141,
+      "mean_v_chi": 0.30315894773923713,
+      "source_weight_fraction": 1.1926883802648198e-15
+    },
+    "22-25 km": {
+      "fraction_p_gt_m_chi": 2.3456842487178542e-05,
+      "fraction_v_gt_0p5_chi": 0.02902553532736293,
+      "mean_v_chi": 0.28175396983268197,
+      "source_weight_fraction": 5.906263082649893e-19
+    },
+    "5-8 km": {
+      "fraction_p_gt_m_chi": 0.7098450514103931,
+      "fraction_v_gt_0p5_chi": 0.9271358196529739,
+      "mean_v_chi": 0.759203545731464,
+      "source_weight_fraction": 0.17014765052269862
+    },
+    "8-10 km": {
+      "fraction_p_gt_m_chi": 0.7593324065285134,
+      "fraction_v_gt_0p5_chi": 0.9456750482598117,
+      "mean_v_chi": 0.7787270934945135,
+      "source_weight_fraction": 0.5518817624844164
+    }
+  },
+  "source_weighted_susceptibility_moments": {
+    "fraction_p_gt_m_chi": 0.7168523348275847,
+    "fraction_v_gt_0p5_chi": 0.9316437864265994,
+    "mean_v_chi": 0.7614374120401041,
+    "rms_v_chi": 0.7753784169095116
+  }
+}

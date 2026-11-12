@@ -1,0 +1,140 @@
+{
+  "source_pdf_sha256": "c3b92fe6cf2a8bd3fec84925e2baababfe0c707327a68135013f953ed3d87d43",
+  "source_pdf_bytes": 2749668,
+  "page_index_zero_based": 14,
+  "printed_page": 15,
+  "path_indices": {
+    "T_SFHo18p8": 25,
+    "n": 181,
+    "p": 182
+  },
+  "normalization_n0_fm3": 0.181,
+  "temperature_vs_caputo": {
+    "count": 55,
+    "rms_relative": 0.0007072912518986065,
+    "mean_abs_relative": 0.00048044318203148694,
+    "p95_abs_relative": 0.0017453649346024778,
+    "max_abs_relative": 0.002182424873623967,
+    "min_relative": -0.002182424873623967,
+    "max_relative": 0.0010780247745607596,
+    "radius_km": [
+      5.12608530344786,
+      14.9304108266477
+    ]
+  },
+  "temperature_vs_bollig_fig1": {
+    "count": 391,
+    "rms_relative": 0.0009532667401360351,
+    "mean_abs_relative": 0.0006851219291710429,
+    "p95_abs_relative": 0.0021178928126106,
+    "max_abs_relative": 0.00276912564300269,
+    "min_relative": -0.0023215520024554293,
+    "max_relative": 0.00276912564300269,
+    "radius_km": [
+      0.5,
+      20.0
+    ],
+    "step_km": 0.05
+  },
+  "density_vs_caputo_free_nucleons_corrected_axis": {
+    "neutron": {
+      "count": 10,
+      "rms_relative": 0.005798774689798149,
+      "mean_abs_relative": 0.005437047947926943,
+      "p95_abs_relative": 0.00817315007403582,
+      "max_abs_relative": 0.009762630826025909,
+      "min_relative": -0.009762630826025909,
+      "max_relative": -0.001136700397035506
+    },
+    "proton": {
+      "count": 10,
+      "rms_relative": 0.005864723188631187,
+      "mean_abs_relative": 0.005742931276666063,
+      "p95_abs_relative": 0.00765596497571828,
+      "max_abs_relative": 0.008531654764445507,
+      "min_relative": -0.008531654764445507,
+      "max_relative": -0.004393221221974386
+    },
+    "sum_vs_caputo_free_baryons": {
+      "count": 10,
+      "rms_relative": 0.005741832476268548,
+      "mean_abs_relative": 0.005453008535598591,
+      "p95_abs_relative": 0.007896936288895925,
+      "max_abs_relative": 0.009385922435921623,
+      "min_relative": -0.009385922435921623,
+      "max_relative": -0.0016398093656065926
+    },
+    "sum_vs_caputo_total_baryons": {
+      "count": 10,
+      "rms_relative": 0.053247357753151085,
+      "mean_abs_relative": 0.04150078083075185,
+      "p95_abs_relative": 0.08796505299509987,
+      "max_abs_relative": 0.0929458935617723,
+      "min_relative": -0.0929458935617723,
+      "max_relative": -0.004396004379479401
+    },
+    "radii_km": [
+      1.0,
+      15.0
+    ]
+  },
+  "density_vs_caputo_free_nucleons_literal_top_two_labels": {
+    "neutron": {
+      "count": 10,
+      "rms_relative": 8.945652237157638,
+      "mean_abs_relative": 8.94562952052073,
+      "p95_abs_relative": 8.975484530740145,
+      "max_abs_relative": 8.988632996029645,
+      "min_relative": 8.902373691739742,
+      "max_relative": 8.988632996029645
+    },
+    "proton": {
+      "count": 10,
+      "rms_relative": 8.942578591659569,
+      "mean_abs_relative": 8.942570687233339,
+      "p95_abs_relative": 8.955548470914774,
+      "max_abs_relative": 8.956067787780256,
+      "min_relative": 8.914683452355545,
+      "max_relative": 8.956067787780256
+    }
+  },
+  "density_crosscheck_points": 10,
+  "axis_label_audit": {
+    "visual_reading_of_upper_tick_glyphs": [
+      "10",
+      "1",
+      "10^-2",
+      "10^-3",
+      "10^-4"
+    ],
+    "axis_tick_labels_are_extractable_text": false,
+    "axis_tick_text_spans_found_in_right_margin": 0,
+    "equal_tick_spacing_pdf_points": [
+      25.56,
+      25.6,
+      25.61,
+      25.61
+    ],
+    "interpretation": "The right-panel tick labels are not exposed as PDF text spans in the margin; they are vector glyphs. At the available raster resolution the upper two glyphs are visually ambiguous. Equal log spacing anchored by the lower three labels implies top-to-bottom tick values 1, 10^-1, 10^-2, 10^-3, 10^-4. A literal reading of the upper glyphs as 10 and 1 gives a density scale ten times larger and fails the same-model Caputo free-nucleon cross-check. Both mappings are retained; the corrected mapping is selected as a physically cross-validated calibration, not as proof of a typesetting error."
+  },
+  "digitization_uncertainty": {
+    "curve_stroke_width_pt": 1.0709999799728394,
+    "radius_half_stroke_km": 0.054238068350978524,
+    "temperature_half_stroke_MeV": 0.2772149138636136,
+    "density_half_stroke_decades": 0.02091796835884452
+  },
+  "interpretation": [
+    "The temperature curve agrees with the existing Caputo profile and Bollig Fig. 1 at sub-percent figure-reading precision.",
+    "The corrected density transform is consistent with Caputo reconstructed free-neutron and free-proton densities at ten common radii from 1 to 15 km.",
+    "The sum of E-K n and p follows Caputo free baryons nB*(1-Xcluster), not total nB; the deficit relative to total nB tracks the cluster baryon fraction.",
+    "The upper two tick glyphs are not extractable PDF text spans and are visually ambiguous; equal spacing anchored by the lower three labels selects 1 and 10^-1 as the upper tick values.",
+    "A literal reading of the upper glyphs as 10 and 1 shifts both E-K density curves by a factor of ten and fails the same-model Caputo free-nucleon comparison; the cross-check selects the corrected calibration but does not prove a typesetting error.",
+    "This is a cross-publication figure consistency audit of a shared Garching model lineage, not an independent hydrodynamic simulation validation."
+  ],
+  "caveats": [
+    "These are published-figure vector paths, not raw Garching profile data.",
+    "The density axis retains both candidate transforms. The upper tick glyphs are vector outlines rather than extractable text, so the corrected candidate is selected by equal log spacing and the Caputo free-nucleon cross-check, not by a claim that the printed glyphs are definitively erroneous.",
+    "Caputo composition comparison is restricted to 1-15 km, where the Fig. 4 abundance curves have common support. The E-K proton path ends at 19.30 km; no extrapolation beyond path support is used.",
+    "The line-stroke half-width corresponds to about 0.021 density decades (~4.9%) and 0.277 MeV in temperature; residuals are below this figure-level extraction uncertainty."
+  ]
+}

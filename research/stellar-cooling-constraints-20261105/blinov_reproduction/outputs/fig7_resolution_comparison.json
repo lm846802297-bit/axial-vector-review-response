@@ -1,0 +1,120 @@
+{
+  "baseline_scan_sha256": "b4a338d82d0ad957544c96d7576e3542c7a14bd7dc5318600807a5cee1a048e3",
+  "high_resolution_scan_sha256": "95cbb53d8518817e431d5519f241345c390effc9ce4de6e76b3fcf080913bf74",
+  "vector_audit_sha256": "7296c5b9e379837b0dfaec7d98d88368fa04c2842cc21b92d012f9be826f3c21",
+  "baseline_configuration": {
+    "radial_order": 40,
+    "energy_order": 100,
+    "angular_order": 16,
+    "path_order": 32,
+    "radius_km": 25.0,
+    "energy_offset_MeV": 1000.0,
+    "opacity": "literal scalar Appendix-B prescription",
+    "muon_species": "single negative-muon distribution as printed in Eq. (33)"
+  },
+  "high_resolution_configuration": {
+    "radial_order": 88,
+    "energy_order": 180,
+    "angular_order": 24,
+    "path_order": 64,
+    "radius_km": 25.0,
+    "energy_offset_MeV": 1000.0,
+    "opacity": "literal scalar Appendix-B prescription",
+    "muon_species": "single negative-muon distribution as printed in Eq. (33)"
+  },
+  "resolution_convergence_on_published_fig7_vertices": [
+    {
+      "mass_MeV": 1e-06,
+      "reference_points": 82,
+      "mean_abs_resolution_change_on_fig7_vertices": 0.367717655209224,
+      "max_abs_resolution_change_on_fig7_vertices": 3.0643575343465193,
+      "peak_coupling_baseline": 4.0256863397797106e-08,
+      "peak_coupling_high": 4.0256863397797106e-08,
+      "peak_luminosity_baseline": 6.206805266338375e+54,
+      "peak_luminosity_high": 6.198748964656582e+54
+    },
+    {
+      "mass_MeV": 1e-05,
+      "reference_points": 82,
+      "mean_abs_resolution_change_on_fig7_vertices": 0.36436298627934466,
+      "max_abs_resolution_change_on_fig7_vertices": 3.064345227387692,
+      "peak_coupling_baseline": 4.0256863397797106e-08,
+      "peak_coupling_high": 4.0256863397797106e-08,
+      "peak_luminosity_baseline": 6.206805266291163e+54,
+      "peak_luminosity_high": 6.198748964609405e+54
+    },
+    {
+      "mass_MeV": 0.1,
+      "reference_points": 42,
+      "mean_abs_resolution_change_on_fig7_vertices": 0.05235954515200219,
+      "max_abs_resolution_change_on_fig7_vertices": 0.2734477020246344,
+      "peak_coupling_baseline": 4.0256863397797106e-08,
+      "peak_coupling_high": 4.0256863397797106e-08,
+      "peak_luminosity_baseline": 6.202036141853274e+54,
+      "peak_luminosity_high": 6.193984016174096e+54
+    },
+    {
+      "mass_MeV": 1.0,
+      "reference_points": 32,
+      "mean_abs_resolution_change_on_fig7_vertices": 0.009922244499057879,
+      "max_abs_resolution_change_on_fig7_vertices": 0.07137906083129852,
+      "peak_coupling_baseline": 3.7293729284873425e-08,
+      "peak_coupling_high": 3.7293729284873425e-08,
+      "peak_luminosity_baseline": 5.7846087284667266e+54,
+      "peak_luminosity_high": 5.775277045037753e+54
+    },
+    {
+      "mass_MeV": 10.0,
+      "reference_points": 25,
+      "mean_abs_resolution_change_on_fig7_vertices": 0.0026709316479104793,
+      "max_abs_resolution_change_on_fig7_vertices": 0.003033914616294431,
+      "peak_coupling_baseline": 1.184606235163476e-08,
+      "peak_coupling_high": 1.184606235163476e-08,
+      "peak_luminosity_baseline": 1.96554417309332e+54,
+      "peak_luminosity_high": 1.9601693016002073e+54
+    },
+    {
+      "mass_MeV": 200.0,
+      "reference_points": 12,
+      "mean_abs_resolution_change_on_fig7_vertices": 0.002833678654442312,
+      "max_abs_resolution_change_on_fig7_vertices": 0.004034933841039812,
+      "peak_coupling_baseline": 7.849242647168205e-10,
+      "peak_coupling_high": 7.849242647168205e-10,
+      "peak_luminosity_baseline": 6.187826664365735e+52,
+      "peak_luminosity_high": 6.169929328871975e+52
+    }
+  ],
+  "independent_implementation_crosscheck": [
+    {
+      "mass_MeV": 1e-06,
+      "mean_abs_reference_implementation_difference": 0.0015460472355035343,
+      "max_abs_reference_implementation_difference": 0.006817958627467369
+    },
+    {
+      "mass_MeV": 1e-05,
+      "mean_abs_reference_implementation_difference": 0.00154637677766049,
+      "max_abs_reference_implementation_difference": 0.0068179586274513815
+    },
+    {
+      "mass_MeV": 0.1,
+      "mean_abs_reference_implementation_difference": 0.0029582243322868397,
+      "max_abs_reference_implementation_difference": 0.006816495739753847
+    },
+    {
+      "mass_MeV": 1.0,
+      "mean_abs_reference_implementation_difference": 0.003921958549187223,
+      "max_abs_reference_implementation_difference": 0.00667651834002192
+    },
+    {
+      "mass_MeV": 10.0,
+      "mean_abs_reference_implementation_difference": 0.002077927796101284,
+      "max_abs_reference_implementation_difference": 0.0023448019976031187
+    },
+    {
+      "mass_MeV": 200.0,
+      "mean_abs_reference_implementation_difference": 0.0005610129192815302,
+      "max_abs_reference_implementation_difference": 0.001335088385818195
+    }
+  ],
+  "interpretation": "A convergence pass requires small changes between the two scalar resolutions. Agreement between the two scalar implementations is a separate check; neither result is promoted to a literature pass until the full Fig. 7 residual criteria are met."
+}

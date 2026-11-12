@@ -1,0 +1,170 @@
+{
+  "result": {
+    "title": "10 MeV 210-510 MeV high-energy escape response to outer temperature stress tests",
+    "status": "direct_V8_transport_only_sensitivity",
+    "input_head": "d8616f95978e5276cd273192d54a5e2ad9d111d9",
+    "mass_MeV": 10,
+    "coupling": 4.171689650228597e-8,
+    "energy_band_MeV": [
+      210,
+      510
+    ],
+    "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+    "configuration": {
+      "source_radial_order": 200,
+      "opacity_radial_order": 640,
+      "energy_order": 200,
+      "high_energy_nodes": 10,
+      "angular_order": 32,
+      "path_order": 64,
+      "energy_nodes": [
+        217.29217795953699,
+        237.39657523579274,
+        259.4508135230317,
+        283.6439997074672,
+        310.1835813575592,
+        339.2971255097148,
+        371.23426997094305,
+        406.2688638701478,
+        444.7013158125026,
+        486.86116977144746
+      ],
+      "temperature_variations": "opacity-only; B.1 source weights held fixed to isolate B.2 propagation response",
+      "path_energy_convention": "fixed omega, printed B.2 baseline"
+    },
+    "results": [
+      {
+        "scenario": "baseline",
+        "region": "none",
+        "scale": 1,
+        "source_weight_per_g2": 4.1685932063136875e+69,
+        "escaped_weight_per_g2": 9.778689668356957e+66,
+        "escape_probability": 0.0023458008935835486,
+        "mean_tau_source_weighted": 7.719324707454048,
+        "mean_tau_escape_weighted": 4.958114069366762,
+        "nu_source_fraction": 0.49876420234641694,
+        "compton_source_fraction": 0.5012357976535877,
+        "nu_escaped_source_fraction": 0.48397470773605505,
+        "compton_escaped_source_fraction": 0.5160252922639569,
+        "escape_luminosity_erg_s": 1.7017848288549594e+52,
+        "escaped_high_energy_ratio_vs_baseline": 0
+      },
+      {
+        "scenario": "T(22-25) -30%",
+        "region": "22-25",
+        "scale": 0.7,
+        "source_weight_per_g2": 4.1685932063136875e+69,
+        "escaped_weight_per_g2": 9.741019829495167e+66,
+        "escape_probability": 0.00233676431049726,
+        "mean_tau_source_weighted": 7.724195393203528,
+        "mean_tau_escape_weighted": 4.961063876506348,
+        "nu_source_fraction": 0.49876420234641694,
+        "compton_source_fraction": 0.5012357976535877,
+        "nu_escaped_source_fraction": 0.4838856143478204,
+        "compton_escaped_source_fraction": 0.5161143856521783,
+        "escape_luminosity_erg_s": 1.695229148855435e+52,
+        "escaped_high_energy_ratio_vs_baseline": -0.0038522378906947763
+      },
+      {
+        "scenario": "T(22-25) -10%",
+        "region": "22-25",
+        "scale": 0.9,
+        "source_weight_per_g2": 4.1685932063136875e+69,
+        "escaped_weight_per_g2": 9.766113810765431e+66,
+        "escape_probability": 0.0023427840826429945,
+        "mean_tau_source_weighted": 7.720948361587124,
+        "mean_tau_escape_weighted": 4.95909786157057,
+        "nu_source_fraction": 0.49876420234641694,
+        "compton_source_fraction": 0.5012357976535877,
+        "nu_escaped_source_fraction": 0.4839450058359151,
+        "compton_escaped_source_fraction": 0.5160549941640915,
+        "escape_luminosity_erg_s": 1.6995962530452216e+52,
+        "escaped_high_energy_ratio_vs_baseline": -0.0012860473149302054
+      },
+      {
+        "scenario": "T(22-25) +10%",
+        "region": "22-25",
+        "scale": 1.1,
+        "source_weight_per_g2": 4.1685932063136875e+69,
+        "escaped_weight_per_g2": 9.791284593576825e+66,
+        "escape_probability": 0.0023488222786399726,
+        "mean_tau_source_weighted": 7.717700994631233,
+        "mean_tau_escape_weighted": 4.95712976707673,
+        "nu_source_fraction": 0.49876420234641694,
+        "compton_source_fraction": 0.5012357976535877,
+        "nu_escaped_source_fraction": 0.48400441283084533,
+        "compton_escaped_source_fraction": 0.5159955871691508,
+        "escape_luminosity_erg_s": 1.703976723003016e+52,
+        "escaped_high_energy_ratio_vs_baseline": 0.0012879972314310262
+      },
+      {
+        "scenario": "T(22-25) +30%",
+        "region": "22-25",
+        "scale": 1.3,
+        "source_weight_per_g2": 4.1685932063136875e+69,
+        "escaped_weight_per_g2": 9.816531417929502e+66,
+        "escape_probability": 0.0023548787161725288,
+        "mean_tau_source_weighted": 7.714453447086946,
+        "mean_tau_escape_weighted": 4.955159653053739,
+        "nu_source_fraction": 0.49876420234641694,
+        "compton_source_fraction": 0.5012357976535877,
+        "nu_escaped_source_fraction": 0.48406383112253165,
+        "compton_escaped_source_fraction": 0.5159361688774641,
+        "escape_luminosity_erg_s": 1.7083704264660866e+52,
+        "escaped_high_energy_ratio_vs_baseline": 0.0038698180283804895
+      },
+      {
+        "scenario": "T(20-22) -10%",
+        "region": "20-22",
+        "scale": 0.9,
+        "source_weight_per_g2": 4.1685932063136875e+69,
+        "escaped_weight_per_g2": 9.768874322657933e+66,
+        "escape_probability": 0.002343446299308396,
+        "mean_tau_source_weighted": 7.720586396479366,
+        "mean_tau_escape_weighted": 4.958879300786896,
+        "nu_source_fraction": 0.49876420234641694,
+        "compton_source_fraction": 0.5012357976535877,
+        "nu_escaped_source_fraction": 0.4839512257010386,
+        "compton_escaped_source_fraction": 0.5160487742989756,
+        "escape_luminosity_erg_s": 1.7000766647790896e+52,
+        "escaped_high_energy_ratio_vs_baseline": -0.0010037485626306353
+      },
+      {
+        "scenario": "T(20-22) +10%",
+        "region": "20-22",
+        "scale": 1.1,
+        "source_weight_per_g2": 4.1685932063136875e+69,
+        "escaped_weight_per_g2": 9.788516675054569e+66,
+        "escape_probability": 0.0023481582852049538,
+        "mean_tau_source_weighted": 7.718062984472156,
+        "mean_tau_escape_weighted": 4.95734852029532,
+        "nu_source_fraction": 0.49876420234641694,
+        "compton_source_fraction": 0.5012357976535877,
+        "nu_escaped_source_fraction": 0.48399819210020006,
+        "compton_escaped_source_fraction": 0.5160018078998094,
+        "escape_luminosity_erg_s": 1.7034950222937765e+52,
+        "escaped_high_energy_ratio_vs_baseline": 0.0010049410535453163
+      }
+    ],
+    "checks": {
+      "source_weight_per_g2_vs_channel_opacity_audit": 4.1685932063136875e+69,
+      "source_weight_expected_from_phase_space_audit": 4.168593206313689e+69,
+      "source_relative_residual": -3.3306690738754696e-16,
+      "escape_weight_per_g2_vs_channel_opacity_audit": 9.778689668356957e+66,
+      "escape_relative_residual": 0,
+      "escape_probability": 0.0023458008935835486,
+      "reference_full_luminosity_erg_s": 1.26781475907372e+52
+    },
+    "execution": {
+      "engine": "OpenAI Code Mode V8 JavaScript binary64",
+      "elapsed_seconds": 10.393,
+      "qualification": "Same composite quadrature orders and fixed-omega formulas as archived B.16 calculation; V8 quadrature nodes are not bitwise-identical to NumPy."
+    },
+    "limitations": [
+      "Stress factors are diagnostic perturbations, not statistical uncertainties or revised stellar profiles.",
+      "B.1 source weights are intentionally held fixed; this isolates the B.2 opacity response and is not a self-consistent rerun of B.1+B.2.",
+      "The profile is a public-figure reconstruction, not the original Garching simulation table.",
+      "No opacity rescaling, source modification, or axial-vector update is made."
+    ]
+  }
+}

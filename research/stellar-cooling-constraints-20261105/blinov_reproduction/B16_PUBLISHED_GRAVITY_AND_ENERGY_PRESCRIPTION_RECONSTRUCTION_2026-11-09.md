@@ -1,0 +1,149 @@
+# Reconstruction of the published gravity and energy prescription in Blinov et al. (2026)
+
+Date: 2026-11-09  
+Purpose: distinguish the literal published Fig. 7 prescription from a full-GR extension. This audit uses the version-of-record paper and the gravitational-redshift supplement that it cites; it does not require raw Garching tables.
+
+## Executive conclusion
+
+**The missing spatial metric A(r) is not a prerequisite for reproducing Blinov et al.'s published Appendix-B calculation.** The paper uses a lapse correction in the source luminosity and escape threshold, but uses Euclidean straight chords in the opacity integral. It does not contain A(r), a proper spatial-volume factor, or GR-bent particle trajectories.
+
+The cited gravitational-redshift treatment, Caputo et al., arXiv:2201.09890, explicitly states that the Garching pseudo-Newtonian model is treated with flat spatial coordinates and distant-observer time; the lapse redshifts the emitted particle energy and multiplies the source luminosity by lapse squared. This explains the structure of Blinov's B.1.
+
+The B.1 energy-variable difference is reconciled by an exact change of variables: its printed omega is local energy at emission, while the main-text energy-at-infinity variable is E_infinity=N(r) omega. An independent numerical integration in both variables agrees channel by channel at stored precision. The remaining convention question is in B.2: whether the fixed omega in the path opacity is intended literally as printed or is shorthand for a locally redshifted energy. The literal Appendix-B formula remains the reproduction target; the path-redshift-only calculation is a separate sensitivity extension.
+
+## 1. Direct reconstruction of B.1
+
+Blinov et al. write the source luminosity in the form
+
+```
+L_V = ∫_0^Rmax 4π r² dr N(r)²
+      ∫_[mV/N(r)]^∞ dω [k ω²/(2π²)] Γ_prod(r,ω) O(r,ω).
+```
+
+The structure has a direct interpretation:
+
+- omega is the local energy in the emitting-medium frame;
+- the escape condition is N(r) omega > mV, hence omega_min = mV/N(r);
+- N(r)^2 accounts for the redshift of particle energy and the conversion between local proper time and distant-observer time;
+- k = sqrt(omega² - mV²) and the phase-space measure are evaluated with the local energy.
+
+This is not merely inferred from notation. Caputo et al., arXiv:2201.09890, Supplemental Material C, states that E_infinity = E_local × lapse, that the local emission threshold is E_local > m_a/lapse, and that the luminosity at infinity carries a total lapse² factor. The same supplement explicitly says that the Garching pseudo-Newtonian model is treated with flat spatial coordinates and distant-observer time.
+
+Sources:
+- Blinov et al., JHEP 06 (2026) 155, Sec. 4.1 and Appendix B, Eqs. (B.1)--(B.5): https://doi.org/10.1007/JHEP06(2026)155
+- Caputo et al., *Low-Energy Supernovae Severely Constrain Radiative Particle Decays*, arXiv:2201.09890, Supplemental Material C, especially Eq. (S16): https://arxiv.org/abs/2201.09890
+
+## 2. What B.2 actually propagates
+
+The published B.2 opacity is
+
+```
+tau(r,omega,cos(theta)) =
+  ∫_0^smax ds Gamma_abs*(r'(s),omega) / vV(omega),
+
+r'(s) = sqrt(r² + s² + 2 r s cos(theta)),
+vV(omega) = sqrt(1 - mV²/omega²).
+```
+
+This is a Euclidean straight-chord path. The formula has:
+
+- no A(r) or g_rr;
+- no proper-distance factor A(r) dr;
+- no GR geodesic bending;
+- no explicit replacement omega -> E_infinity/N(r') along the chord.
+
+The reduced absorption rate in B.4 contains the thermal factor 1 - exp[-omega/T(r')]. Thus, in a literal reading of Appendix B, the same omega is passed to the local opacity kernel at every point along the chord. This is the fixed-omega prescription used by the current B.16 reproduction baseline.
+
+## 2.1 Independent source of the B.2 angular escape prescription
+
+Blinov's B.2 is also directly traceable to Caputo, Raffelt and Vitagliano, arXiv:2204.11862, Eq. (4.22). That equation writes the source-perspective luminosity as a volume integral of the local emissivity multiplied by the angle-averaged transmittance,
+```
+T_omega(r) = (1/2) ∫_{-1}^{+1} d(cos beta)
+             exp[-∫_0^∞ ds / lambda_omega(r'(s))],
+r'(s) = sqrt(r² + s² + 2 r s cos(beta)).
+```
+Using (1/\lambda_\omega=\Gamma^*_\mathrm{abs}/v_V) gives the same structure as Blinov B.2. Blinov replaces the infinite path endpoint by the finite neutrinosphere boundary (R_{\max}\simeq25\) km, as stated explicitly in its Appendix-B discussion.
+
+Caputo et al. Eq. (4.23) further identifies the angle-averaged transmittance as the relevant quantity in the strong-trapping regime; Eq. (4.24) reduces it in the plane-parallel limit to (T(\tau)=\tfrac12 E_2(\tau)). This is an important check: the correct strong-absorption escape factor is an angular average of exponentials, not (e^{-\langle\tau\rangle}), and not the outward-radial ray alone.
+
+Blinov itself emphasizes that full angular averaging matters and that outward-radial-only approximations can shift the luminosity by factors of a few. Thus the current B.2 implementation must retain the complete angular average, finite chord to (R_{\max}\), and (1/v_V) factor; it must not be simplified to a radial optical depth.
+
+Sources:
+- Caputo, Raffelt and Vitagliano, *Radiative transfer in stars by feebly interacting bosons*, arXiv:2204.11862, Eqs. (4.22)--(4.24): https://arxiv.org/abs/2204.11862
+- Blinov et al., JHEP 06 (2026) 155, Appendix B discussion preceding Eq. (B.6): https://doi.org/10.1007/JHEP06(2026)155
+
+## 3. B.1 local-energy and infinity-energy variables are exactly equivalent
+
+The main text, Sec. 4.1, describes the emitted energy at infinity. The B.1 source integral is printed in the local source-energy variable omega_loc, as shown by its lower limit mV/N(r), its local momentum k_loc, and its N(r)^2 prefactor.
+
+Set
+```
+E_infinity = N(r) * omega_loc,
+d omega_loc = d E_infinity / N(r),
+k_loc = sqrt(E_infinity^2 - N(r)^2 mV^2) / N(r).
+```
+Then the B.1 energy measure transforms as
+```
+N(r)^2 * k_loc * omega_loc^2 * d omega_loc
+ = [E_infinity^2 * sqrt(E_infinity^2 - N(r)^2 mV^2)
+    / N(r)^2] * d E_infinity.
+```
+The lower limit transforms from omega_loc = mV/N(r) to E_infinity = mV. The local production rate must be evaluated at omega_loc = E_infinity/N(r).
+
+This is an exact change of integration variable, not a different physical prescription. The independent B.1 audit now evaluates both forms with separate logarithmic Gauss-Legendre grids. For the 10 MeV current-profile benchmark, the local-energy and E_infinity forms agree channel by channel at stored precision:
+- neutrino inverse decay: 2.924014280393587e70 erg/s/g^2 in both forms;
+- Compton: 1.3803538885385007e70 erg/s/g^2 in both forms;
+- total: 4.304368168932088e70 erg/s/g^2 in both forms.
+
+Thus the Sec. 4.1 energy-at-infinity language can be reconciled with the B.1 local-energy integral by the Jacobian above. The B.1 source-energy convention is no longer an unresolved physical ambiguity.
+
+## 4. The remaining path-energy convention question is in B.2
+
+The printed B.2 opacity uses the same omega in
+```
+tau = ∫ ds Gamma_abs*(r'(s),omega) / vV(omega),
+Gamma_abs* = (1-exp[-omega/T(r')]) Gamma_abs.
+```
+The question is whether this is intended literally as a fixed local energy along the Euclidean chord, or whether omega is the conserved energy at infinity and the local collision kernel implicitly evaluates omega_loc(r')=E_infinity/N(r'). The printed thermal factor and velocity use omega without an explicit lapse conversion, while Sec. 4.1 describes omega at infinity. The numerical code is not public, so this cannot be resolved from an unpublished implementation.
+
+The safe reproduction rule is:
+
+1. implement B.1 in the local-energy form exactly as printed, or in its exactly equivalent E_infinity form with the transformed measure above;
+2. implement B.2 exactly as printed, keeping the same omega in the path opacity and in vV;
+3. retain the path-redshift-only alternative separately, with omega_loc(r') = omega_source N(r_source)/N(r'), and do not substitute it for the published baseline without evidence that the authors used it.
+
+The mismatch is now isolated to the path-energy interpretation in B.2, not the B.1 source integral.
+
+## 5. Consequence for the role of A(r)
+
+A full static-GR extension would require A(r), or an enclosed-mass profile M(r), to calculate proper path lengths and curved geodesics. That is a legitimate additional study, but **it is not needed to reproduce the approximation that Blinov actually writes in Appendix B**.
+
+Accordingly:
+- A(r) is reclassified as an optional full-GR extension input;
+- the lapse N(r) and the thermodynamic profiles entering B.1--B.5 remain the relevant figure-reproduction inputs;
+- the 20--25 km thermodynamic continuation remains important because the published B.2 integral extends to Rmax = 25 km and the current neutrino inverse-decay path audit finds a non-negligible outer-shell contribution;
+- no synthetic A(r), TOV replacement, or cross-snapshot splice is introduced.
+
+## 6. Reconciliation with existing diagnostics
+
+The current-profile fixed-omega baseline remains the paper-faithful calculation. The path-redshift-only variant is retained as a separate physical sensitivity test. At 10 MeV it reduces the strong-endpoint residual from +92.2406% to +36.7448%, but this does not make it the published B.2 prescription.
+
+The strong-absorption radial-path audit remains relevant and independent of this convention question:
+- the 8--22 km path group accounts for about 75.54% of the source-weighted neutrino inverse-decay optical depth;
+- 22--25 km contributes about 19.07%;
+- the outer shell is important but is not the only important attenuation region.
+
+These results are recorded in:
+- `B16_ENERGY_VARIABLE_AND_PATH_REDSHIFT_CONVENTION_AUDIT_2026-11-09.md`
+- `B16_NEUTRINO_INVERSE_DECAY_RADIAL_PATH_SYNTHESIS_2026-11-09.md`
+
+## 7. Revised project decision
+
+Do not wait for A(r) to continue reproducing Fig. 7. The next checks should reconstruct and stress-test the published algorithms using the current profile:
+
+1. extend the exact B.13 versus B.14--B.16 Compton comparison across the Fig. 7 masses, especially 0.1 and 1 MeV where the paper says the Compton channel is relevant;
+2. keep the fixed-omega B.2 implementation as the reproduction baseline and quantify the path-redshift alternative separately;
+3. continue checking the nonlinear strong-absorption response and the 20--25 km neutrino opacity using the already reconstructed profile;
+4. keep raw-profile uncertainty explicit, but do not make it a prerequisite for these method-level checks.
+
+No production axial-vector output, manuscript, or referee response is modified by this audit.

@@ -1,0 +1,375 @@
+{
+  "input_sha256": "6a9f68add5dde4b41373702d0e10538985bc513db20a7152ebf2e143130aeac4",
+  "source_pdf_sha256": "4d7d1d10bfe2b52992af94df98749fa3adac887c009cbf98515fa12e6c48fdb5",
+  "literature_residuals": {
+    "1e-06": {
+      "blinov_literal": {
+        "points": 82,
+        "mean_absolute_literature_residual": 0.09322658742126659,
+        "max_absolute_literature_residual": 0.2853853118284305
+      },
+      "blinov_average": {
+        "points": 82,
+        "mean_absolute_literature_residual": 2.020969117389827,
+        "max_absolute_literature_residual": 4.52029341153784
+      },
+      "thomson_modes": {
+        "points": 82,
+        "mean_absolute_literature_residual": 0.8974181604697528,
+        "max_absolute_literature_residual": 1.9588675013459338
+      },
+      "exact_recoil_scalar": {
+        "points": 82,
+        "mean_absolute_literature_residual": 0.24784994497408533,
+        "max_absolute_literature_residual": 0.6322091153940315
+      },
+      "exact_modes": {
+        "points": 82,
+        "mean_absolute_literature_residual": 1.3171137738424692,
+        "max_absolute_literature_residual": 3.7486366212380506
+      }
+    },
+    "1e-05": {
+      "blinov_literal": {
+        "points": 82,
+        "mean_absolute_literature_residual": 0.09069741044828133,
+        "max_absolute_literature_residual": 0.2951206534963844
+      },
+      "blinov_average": {
+        "points": 82,
+        "mean_absolute_literature_residual": 2.0324092702987104,
+        "max_absolute_literature_residual": 4.559306644801943
+      },
+      "thomson_modes": {
+        "points": 82,
+        "mean_absolute_literature_residual": 1.341624930836344,
+        "max_absolute_literature_residual": 13.862145089408964
+      },
+      "exact_recoil_scalar": {
+        "points": 82,
+        "mean_absolute_literature_residual": 0.24643277895312737,
+        "max_absolute_literature_residual": 0.6334065023141087
+      },
+      "exact_modes": {
+        "points": 82,
+        "mean_absolute_literature_residual": 1.7612829418486633,
+        "max_absolute_literature_residual": 13.9546019903072
+      }
+    },
+    "0.1": {
+      "blinov_literal": {
+        "points": 42,
+        "mean_absolute_literature_residual": 0.03074370281515405,
+        "max_absolute_literature_residual": 0.18674688353238078
+      },
+      "blinov_average": {
+        "points": 42,
+        "mean_absolute_literature_residual": 3.0212006555918265,
+        "max_absolute_literature_residual": 19.43044559498694
+      },
+      "thomson_modes": {
+        "points": 42,
+        "mean_absolute_literature_residual": 5.754694630851917,
+        "max_absolute_literature_residual": 109.9791976915736
+      },
+      "exact_recoil_scalar": {
+        "points": 42,
+        "mean_absolute_literature_residual": 0.4052755537189402,
+        "max_absolute_literature_residual": 0.6357345628474835
+      },
+      "exact_modes": {
+        "points": 42,
+        "mean_absolute_literature_residual": 6.617866418896131,
+        "max_absolute_literature_residual": 113.90630825840411
+      }
+    },
+    "1.0": {
+      "blinov_literal": {
+        "points": 32,
+        "mean_absolute_literature_residual": 0.009444957383924247,
+        "max_absolute_literature_residual": 0.015749760946898173
+      },
+      "blinov_average": {
+        "points": 32,
+        "mean_absolute_literature_residual": 4.5672618594492755,
+        "max_absolute_literature_residual": 50.165839667805535
+      },
+      "thomson_modes": {
+        "points": 32,
+        "mean_absolute_literature_residual": 4.523882055594168,
+        "max_absolute_literature_residual": 69.47338345151955
+      },
+      "exact_recoil_scalar": {
+        "points": 32,
+        "mean_absolute_literature_residual": 0.5318627142431875,
+        "max_absolute_literature_residual": 1.1896915956513268
+      },
+      "exact_modes": {
+        "points": 32,
+        "mean_absolute_literature_residual": 6.448970361085986,
+        "max_absolute_literature_residual": 93.14931561604719
+      }
+    },
+    "10.0": {
+      "blinov_literal": {
+        "points": 25,
+        "mean_absolute_literature_residual": 0.15745508769827446,
+        "max_absolute_literature_residual": 0.9223828043146873
+      },
+      "blinov_average": {
+        "points": 25,
+        "mean_absolute_literature_residual": 9.930004172738915,
+        "max_absolute_literature_residual": 150.51997626667088
+      },
+      "thomson_modes": {
+        "points": 25,
+        "mean_absolute_literature_residual": 9.660188590228328,
+        "max_absolute_literature_residual": 145.96198007554327
+      },
+      "exact_recoil_scalar": {
+        "points": 25,
+        "mean_absolute_literature_residual": 0.2746570316620032,
+        "max_absolute_literature_residual": 1.3062562024170528
+      },
+      "exact_modes": {
+        "points": 25,
+        "mean_absolute_literature_residual": 9.151280460806124,
+        "max_absolute_literature_residual": 141.79776522045483
+      }
+    },
+    "200.0": {
+      "blinov_literal": {
+        "points": 12,
+        "mean_absolute_literature_residual": 0.006164956604179289,
+        "max_absolute_literature_residual": 0.015892339124887744
+      },
+      "blinov_average": {
+        "points": 12,
+        "mean_absolute_literature_residual": 2.476725041518316,
+        "max_absolute_literature_residual": 14.331638328954869
+      },
+      "thomson_modes": {
+        "points": 12,
+        "mean_absolute_literature_residual": 2.476121820729031,
+        "max_absolute_literature_residual": 14.327834872273844
+      },
+      "exact_recoil_scalar": {
+        "points": 12,
+        "mean_absolute_literature_residual": 0.0058678990283040815,
+        "max_absolute_literature_residual": 0.014466964757146927
+      },
+      "exact_modes": {
+        "points": 12,
+        "mean_absolute_literature_residual": 2.4700593896515635,
+        "max_absolute_literature_residual": 14.306248467656028
+      }
+    }
+  },
+  "controlled_transport_effects": {
+    "B14_mode_resolved_over_scalar_sum": {
+      "1e-06": {
+        "points": 82,
+        "mean_signed_change": 1.1141665827033878,
+        "mean_absolute_change": 1.1141665827033878,
+        "max_absolute_change": 1.9578818083152685,
+        "minimum_signed_change": 0.0005171855066803399,
+        "maximum_signed_change": 1.9578818083152685
+      },
+      "1e-05": {
+        "points": 82,
+        "mean_signed_change": 1.5749722445030985,
+        "mean_absolute_change": 1.5749722445030985,
+        "max_absolute_change": 14.364659965491635,
+        "minimum_signed_change": 0.0005171855066847808,
+        "maximum_signed_change": 14.364659965491635
+      },
+      "0.1": {
+        "points": 42,
+        "mean_signed_change": 6.769500586261752,
+        "mean_absolute_change": 6.769500586261752,
+        "max_absolute_change": 135.46329223257564,
+        "minimum_signed_change": 0.000517687108880116,
+        "maximum_signed_change": 135.46329223257564
+      },
+      "1.0": {
+        "points": 32,
+        "mean_signed_change": 4.474921851034265,
+        "mean_absolute_change": 4.474921851034265,
+        "max_absolute_change": 68.4991668548393,
+        "minimum_signed_change": 0.0003911995929548606,
+        "maximum_signed_change": 68.4991668548393
+      },
+      "10.0": {
+        "points": 25,
+        "mean_signed_change": 5.576273678818109,
+        "mean_absolute_change": 5.576273678818109,
+        "max_absolute_change": 75.44782285073234,
+        "minimum_signed_change": 0.0014147392250316582,
+        "maximum_signed_change": 75.44782285073234
+      },
+      "200.0": {
+        "points": 12,
+        "mean_signed_change": 2.4417486277514953,
+        "mean_absolute_change": 2.4417486277514953,
+        "max_absolute_change": 14.114732752440041,
+        "minimum_signed_change": 0.06318667904100361,
+        "maximum_signed_change": 14.114732752440041
+      }
+    },
+    "B14_scalar_average_over_scalar_sum": {
+      "1e-06": {
+        "points": 82,
+        "mean_signed_change": 2.383789495455448,
+        "mean_absolute_change": 2.383789495455448,
+        "max_absolute_change": 4.563722715813189,
+        "minimum_signed_change": 0.0006896576196644411,
+        "maximum_signed_change": 4.563722715813189
+      },
+      "1e-05": {
+        "points": 82,
+        "mean_signed_change": 2.385250429294838,
+        "mean_absolute_change": 2.385250429294838,
+        "max_absolute_change": 4.563722716393397,
+        "minimum_signed_change": 0.0006896576196686599,
+        "maximum_signed_change": 4.563722716393397
+      },
+      "0.1": {
+        "points": 42,
+        "mean_signed_change": 3.330742130082903,
+        "mean_absolute_change": 3.330742130082903,
+        "max_absolute_change": 24.121878024552768,
+        "minimum_signed_change": 0.0006901140573651876,
+        "maximum_signed_change": 24.121878024552768
+      },
+      "1.0": {
+        "points": 32,
+        "mean_signed_change": 4.522577613776715,
+        "mean_absolute_change": 4.522577613776715,
+        "max_absolute_change": 49.45852851363416,
+        "minimum_signed_change": 0.0005070145111589763,
+        "maximum_signed_change": 49.45852851363416
+      },
+      "10.0": {
+        "points": 25,
+        "mean_signed_change": 5.729001168671477,
+        "mean_absolute_change": 5.729001168671477,
+        "max_absolute_change": 77.81883666801028,
+        "minimum_signed_change": 0.0014224167393619425,
+        "maximum_signed_change": 77.81883666801028
+      },
+      "200.0": {
+        "points": 12,
+        "mean_signed_change": 2.4423447177122966,
+        "mean_absolute_change": 2.4423447177122966,
+        "max_absolute_change": 14.1184833298535,
+        "minimum_signed_change": 0.06319627762836033,
+        "maximum_signed_change": 14.1184833298535
+      }
+    },
+    "B14_mode_resolved_over_scalar_average": {
+      "1e-06": {
+        "points": 82,
+        "mean_signed_change": -0.3072665702964556,
+        "mean_absolute_change": 0.3072665702964556,
+        "max_absolute_change": 0.4703462125207567,
+        "minimum_signed_change": -0.4703462125207567,
+        "maximum_signed_change": -0.00017235324825326526
+      },
+      "1e-05": {
+        "points": 82,
+        "mean_signed_change": -0.17932372992300918,
+        "mean_absolute_change": 0.3631886289811614,
+        "max_absolute_change": 3.331160955567282,
+        "minimum_signed_change": -0.470346212481493,
+        "maximum_signed_change": 3.331160955567282
+      },
+      "0.1": {
+        "points": 42,
+        "mean_signed_change": 0.04842985276375761,
+        "mean_absolute_change": 0.37141407139580584,
+        "max_absolute_change": 4.4320497893988575,
+        "minimum_signed_change": -0.46667438273066886,
+        "maximum_signed_change": 4.4320497893988575
+      },
+      "1.0": {
+        "points": 32,
+        "mean_signed_change": -0.08804221095182124,
+        "mean_absolute_change": 0.1135273790076991,
+        "max_absolute_change": 0.3773522316660556,
+        "minimum_signed_change": -0.37606629029444805,
+        "maximum_signed_change": 0.3773522316660556
+      },
+      "10.0": {
+        "points": 25,
+        "mean_signed_change": -0.005290255577902037,
+        "mean_absolute_change": 0.005290255577902037,
+        "max_absolute_change": 0.030081816955314755,
+        "minimum_signed_change": -0.030081816955314755,
+        "maximum_signed_change": -7.666609217027442e-06
+      },
+      "200.0": {
+        "points": 12,
+        "mean_signed_change": -9.296518989161211e-05,
+        "mean_absolute_change": 9.296518989161211e-05,
+        "max_absolute_change": 0.0002480789462560029,
+        "minimum_signed_change": -0.0002480789462560029,
+        "maximum_signed_change": -9.028048309156489e-06
+      }
+    },
+    "fixed_target_exact_recoil_mode_over_scalar": {
+      "1e-06": {
+        "points": 82,
+        "mean_signed_change": 1.089643108937826,
+        "mean_absolute_change": 1.089643108937826,
+        "max_absolute_change": 2.0395003303297896,
+        "minimum_signed_change": 0.0002626792395010735,
+        "maximum_signed_change": 2.0395003303297896
+      },
+      "1e-05": {
+        "points": 82,
+        "mean_signed_change": 1.5292406518408594,
+        "mean_absolute_change": 1.5292406518408594,
+        "max_absolute_change": 13.865501139326728,
+        "minimum_signed_change": 0.0002626792395068467,
+        "maximum_signed_change": 13.865501139326728
+      },
+      "0.1": {
+        "points": 42,
+        "mean_signed_change": 5.31453698757093,
+        "mean_absolute_change": 5.31453698757093,
+        "max_absolute_change": 103.26669718538992,
+        "minimum_signed_change": 0.00026324585426573677,
+        "maximum_signed_change": 103.26669718538992
+      },
+      "1.0": {
+        "points": 32,
+        "mean_signed_change": 2.9302260045371056,
+        "mean_absolute_change": 2.9302260045371056,
+        "max_absolute_change": 41.996610026281964,
+        "minimum_signed_change": 0.00022023209824162393,
+        "maximum_signed_change": 41.996610026281964
+      },
+      "10.0": {
+        "points": 25,
+        "mean_signed_change": 4.705101223383695,
+        "mean_absolute_change": 4.705101223383695,
+        "max_absolute_change": 60.91756365610932,
+        "minimum_signed_change": 0.0014145451988545332,
+        "maximum_signed_change": 60.91756365610932
+      },
+      "200.0": {
+        "points": 12,
+        "mean_signed_change": 2.43921809619051,
+        "mean_absolute_change": 2.43921809619051,
+        "max_absolute_change": 14.098330500290732,
+        "minimum_signed_change": 0.06314681399472444,
+        "maximum_signed_change": 14.098330500290732
+      }
+    }
+  },
+  "interpretation": {
+    "B14_mode_resolved_over_scalar_sum": "Changes only the transport prescription: identical B.14 local kernels and mode-summed production, with per-mode versus scalar-summed attenuation.",
+    "B14_scalar_average_over_scalar_sum": "Diagnostic arithmetic-average opacity (sum of mode opacities divided by 3); not adopted as a physical prescription without source justification.",
+    "fixed_target_exact_recoil_mode_over_scalar": "Changes transport polarization treatment at fixed-target exact recoil; this is not the full moving-muon B.13 thermal integral."
+  }
+}

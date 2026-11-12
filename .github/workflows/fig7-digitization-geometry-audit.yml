@@ -1,0 +1,102 @@
+name: Fig. 7 raw PDF digitization geometry audit
+
+on:
+  push:
+    branches:
+      - research/moving-muon-thermal-rates-20261107
+    paths:
+      - 'research/stellar-cooling-constraints-20261105/audit_fig7_digitization_geometry.py'
+      - 'research/stellar-cooling-constraints-20261105/test_fig7_digitization_geometry.py'
+      - '.github/workflows/fig7-digitization-geometry-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fig7-digitization-geometry-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out research branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install PDF and numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pymupdf
+      - name: Run PDF path and coordinate-transform tests
+        run: |
+          python -m unittest discover -s research/stellar-cooling-constraints-20261105 -p 'test_fig7_digitization_geometry.py' -v
+      - name: Download the pinned arXiv v2 source archive
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2 \
+            https://arxiv.org/src/2511.09619v2 \
+            --output /tmp/blinov-2511.09619v2-source.tar
+      - name: Extract the source luminosity PDF
+        run: |
+          python - <<'PY'
+          import tarfile
+          from pathlib import Path
+          archive = "/tmp/blinov-2511.09619v2-source.tar"
+          target = Path("/tmp/luminosity_snapshot_t=1.pdf")
+          with tarfile.open(archive, "r:*") as bundle:
+              matches = [m for m in bundle.getmembers()
+                         if Path(m.name).name == "luminosity_snapshot_t=1.pdf"]
+              if len(matches) != 1:
+                  raise RuntimeError(f"Expected one source PDF, found {len(matches)}")
+              stream = bundle.extractfile(matches[0])
+              if stream is None:
+                  raise RuntimeError("Could not extract luminosity source PDF")
+              target.write_bytes(stream.read())
+          print(f"Extracted {target} ({target.stat().st_size} bytes)")
+          PY
+      - name: Audit all six raw Fig. 7 paths and the 10 MeV high-coupling tail
+        run: |
+          python research/stellar-cooling-constraints-20261105/audit_fig7_digitization_geometry.py \
+            --source /tmp/luminosity_snapshot_t=1.pdf \
+            --reference research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json \
+            --output research/stellar-cooling-constraints-20261105/outputs/fig7_digitization_geometry_2026-11-08.json
+      - name: Verify production axial outputs remain unchanged
+        run: |
+          git diff --exit-code -- \
+            research/stellar-cooling-constraints-20261105/rates.py \
+            research/stellar-cooling-constraints-20261105/transport.py \
+            research/stellar-cooling-constraints-20261105/outputs/axial.json \
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.pdf \
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.png
+      - name: Archive the Fig. 7 geometry audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/stellar-cooling-constraints-20261105/outputs/fig7_digitization_geometry_2026-11-08.json
+          if git diff --cached --quiet; then
+            echo "Fig. 7 digitization geometry audit is already current."
+          else
+            git commit -m "Archive raw Fig. 7 digitization geometry audit"
+            for attempt in 1 2 3 4 5; do
+              git fetch origin "${GITHUB_REF_NAME}"
+              git rebase "origin/${GITHUB_REF_NAME}"
+              if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+                exit 0
+              fi
+              echo "Push raced with another workflow; retry ${attempt}/5."
+              sleep 2
+            done
+            echo "Could not archive the Fig. 7 digitization audit after five retries."
+            exit 1
+          fi

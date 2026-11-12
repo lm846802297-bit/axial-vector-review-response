@@ -1,0 +1,330 @@
+{
+  "title": "Independent vector semi-Compton polarization audit",
+  "source": {
+    "arxiv": "2610.35379v1",
+    "model_section": "Sec. 5.1-5.2; vector U(1)_{L_mu-L_tau} muon current",
+    "integrated_low_energy_formulas": "Eq. (5.9a,b)",
+    "medium_polarization_projector": "Eq. (77)",
+    "exact_semi_compton_amplitude": "Appendix B, Eqs. (101a,b)",
+    "printed_angular_differential_cross_sections": "Appendix B, Eqs. (B.6a,b)"
+  },
+  "scope": "Direct explicit-Dirac-spinor production calculation in the initial-muon rest frame, cross-checked against the independent repository trace kernel by detailed reciprocity. No stellar profile or transport.",
+  "units": {
+    "energy": "MeV",
+    "cross_section": "MeV^-2"
+  },
+  "benchmark": {
+    "mediator_mass_MeV": 0.001,
+    "incoming_photon_energy_MeV": 0.1,
+    "muon_mass_MeV": 105.6583755,
+    "g_vector": 1.0,
+    "g_axial": 0.0,
+    "initial_photon_polarization_average": 2,
+    "medium_frame_mode_order": [
+      "L",
+      "T1",
+      "T2"
+    ]
+  },
+  "method": {
+    "direct_spinor_kernel": "reference_matrix_element.total_cross_section_lab",
+    "direct_differential_kernel": "reference_matrix_element.differential_cross_section_lab",
+    "independent_cross_check": "rates.compton_kernels(current='vector') for inverse absorption, crossed with sigma_prod,h = 1/2 * (p_Aprime_CM/p_gamma_CM)^2 * sigma_abs,h",
+    "projector_definition": "P_T^{ij}=delta^{ij}-qhat^i*qhat^j, P_T^{0mu}=0; P_L=-g+q*q/m_Aprime^2-P_T",
+    "thomson_reference": "8*pi*alpha*alpha_X/(3*m_mu^2), alpha_X=g_X^2/(4*pi)",
+    "printed_formulas": "Eq. (5.9) and Eq. (B.6) are compared with their printed T/L labels; no label swap or coefficient adjustment is made in the input formulas."
+  },
+  "direct_exact_production_cross_sections_MeV_minus2": {
+    "T_sum": 4.349342871528847e-07,
+    "L": 2.176726341158851e-11,
+    "T1": 2.1746714357644236e-07,
+    "T2": 2.1746714357644236e-07
+  },
+  "crossed_trace_production_cross_sections_MeV_minus2": {
+    "L": 2.1767275062403504e-11,
+    "T1": 2.1746714357059524e-07,
+    "T2": 2.1746714357059524e-07
+  },
+  "sigma_thomson_MeV_minus2": 4.3577891403012285e-07,
+  "ratios_to_thomson": {
+    "direct_exact_T_sum": 0.998061799573029,
+    "direct_exact_L": 4.995024474746354e-05,
+    "paper_Eq5_9a_T_as_printed": 7.499624990624529e-05,
+    "paper_Eq5_9b_L_as_printed": 0.9999499987499374
+  },
+  "printed_Eq5_9_comparison": {
+    "paper_T_over_exact_L": 1.5014190678225572,
+    "paper_L_over_exact_T_sum": 1.0018918659923826,
+    "exact_L_over_exact_T_sum": 5.004724634169173e-05,
+    "direct_T_over_paper_L": 0.9981117064060514,
+    "direct_L_over_paper_T": 0.6660365659603994
+  },
+  "printed_EqB6_differential_comparison": {
+    "EqB6a_printed_T_negative_fraction": 0.49875311720698257,
+    "EqB6b_printed_L_negative_fraction": 0.004987531172069825,
+    "EqB6a_T_minimum_over_angular_grid_MeV_minus2": -3.268178438133159e-07,
+    "EqB6b_L_minimum_over_angular_grid_MeV_minus2": -1.6341709276145943e-11,
+    "exact_T_minimum_over_angular_grid_MeV_minus2": 1.6310018288945865e-07,
+    "exact_L_minimum_over_angular_grid_MeV_minus2": 9.90171889471705e-31,
+    "max_abs_exact_T_minus_printed_B6b_over_Thomson": 0.7529049276323494,
+    "max_abs_exact_L_minus_printed_B6a_over_Thomson": 0.7500374999999999,
+    "max_abs_exact_T_minus_printed_B6a_over_Thomson": 1.4970950723676504,
+    "max_abs_exact_L_minus_printed_B6b_over_Thomson": 1.5000374999999997,
+    "angular_convention": "The paper identifies theta as the scattering angle and integrates cos(theta) over [-1,1]. The signs are evaluated on that stated range."
+  },
+  "appendix_B_trace_audit": {
+    "reference": "arXiv:2610.35379v1, Appendix B, Eqs. (B.2)-(B.4)",
+    "normalization": "The reference spinor code averages over initial muon spin and photon polarization; factor 4 is applied to compare with the paper's unaveraged spin sums.",
+    "cases": [
+      {
+        "photon_energy_MeV": 0.05,
+        "mediator_mass_MeV": 0.005000000000000001,
+        "cos_theta": -0.7,
+        "Egamma_over_mmu": 0.00047322325147806195,
+        "paper_B2_T_over_exact_spin_sum": 1.0000063570551658,
+        "paper_B4_total_over_exact_spin_sum": 0.9999831982680134,
+        "paper_B3_L_over_exact_spin_sum": 0.9932248525325471,
+        "paper_L_positive": true,
+        "exact_T_plus_L_closure_residual": 1.909765784805613e-16
+      },
+      {
+        "photon_energy_MeV": 0.05,
+        "mediator_mass_MeV": 0.005000000000000001,
+        "cos_theta": 0.2,
+        "Egamma_over_mmu": 0.00047322325147806195,
+        "paper_B2_T_over_exact_spin_sum": 1.0000091038598993,
+        "paper_B4_total_over_exact_spin_sum": 0.9999761274776214,
+        "paper_B3_L_over_exact_spin_sum": 0.9964047032948967,
+        "paper_L_positive": true,
+        "exact_T_plus_L_closure_residual": 6.758671174182038e-17
+      },
+      {
+        "photon_energy_MeV": 0.05,
+        "mediator_mass_MeV": 0.005000000000000001,
+        "cos_theta": 0.8,
+        "Egamma_over_mmu": 0.00047322325147806195,
+        "paper_B2_T_over_exact_spin_sum": 1.0000057715539534,
+        "paper_B4_total_over_exact_spin_sum": 0.999984780805657,
+        "paper_B3_L_over_exact_spin_sum": 0.9904196499205254,
+        "paper_L_positive": true,
+        "exact_T_plus_L_closure_residual": 5.682851433363921e-17
+      },
+      {
+        "photon_energy_MeV": 0.1,
+        "mediator_mass_MeV": 0.010000000000000002,
+        "cos_theta": -0.7,
+        "Egamma_over_mmu": 0.0009464465029561239,
+        "paper_B2_T_over_exact_spin_sum": 1.0000127242294303,
+        "paper_B4_total_over_exact_spin_sum": 0.9999831176439163,
+        "paper_B3_L_over_exact_spin_sum": 0.9913528945084982,
+        "paper_L_positive": true,
+        "exact_T_plus_L_closure_residual": 2.4712162779994386e-16
+      },
+      {
+        "photon_energy_MeV": 0.1,
+        "mediator_mass_MeV": 0.010000000000000002,
+        "cos_theta": 0.2,
+        "Egamma_over_mmu": 0.0009464465029561239,
+        "paper_B2_T_over_exact_spin_sum": 1.0000182145403715,
+        "paper_B4_total_over_exact_spin_sum": 0.9999760734887553,
+        "paper_B3_L_over_exact_spin_sum": 0.9954133915018559,
+        "paper_L_positive": true,
+        "exact_T_plus_L_closure_residual": 1.3404657454272956e-16
+      },
+      {
+        "photon_energy_MeV": 0.1,
+        "mediator_mass_MeV": 0.010000000000000002,
+        "cos_theta": 0.8,
+        "Egamma_over_mmu": 0.0009464465029561239,
+        "paper_B2_T_over_exact_spin_sum": 1.0000115441850084,
+        "paper_B4_total_over_exact_spin_sum": 0.9999847721154578,
+        "paper_B3_L_over_exact_spin_sum": 0.9877817735026684,
+        "paper_L_positive": true,
+        "exact_T_plus_L_closure_residual": 1.5897606547321388e-16
+      }
+    ],
+    "max_abs_B2_T_relative_residual": 1.8214540371541688e-05,
+    "max_abs_B4_total_relative_residual": 2.3926511244720672e-05,
+    "max_abs_B3_L_relative_residual": 0.012218226497331619,
+    "acceptance": {
+      "B2_transverse_matches_direct_spinor_sum": true,
+      "B4_total_matches_direct_spinor_sum": true,
+      "B3_longitudinal_difference_matches_direct_spinor_sum": true,
+      "all_paper_longitudinal_differences_positive": true
+    }
+  },
+  "low_energy_angular_shape_audit": {
+    "reference": {
+      "T": "C * sqrt(1-r^2) * (1+cos(theta)^2)",
+      "L": "C * sqrt(1-r^2) * r^2 * (1-cos(theta)^2)",
+      "r": "m_Aprime/E_gamma",
+      "C": "pi*alpha*alpha_X/m_mu^2",
+      "qualification": "Leading heavy-muon / Thomson angular shapes; used only at the low-energy benchmark, not asserted as exact at finite E_gamma."
+    },
+    "exact_T_vs_leading_shape_max_abs_over_leading_peak": 0.0036793045887939676,
+    "exact_L_vs_leading_shape_max_abs_over_leading_peak": 0.0009451499618519106,
+    "printed_EqB6b_vs_exact_T_max_abs_over_exact_T_peak": 1.0026099637859054,
+    "printed_EqB6a_vs_exact_L_max_abs_over_exact_L_peak": 19019.82930441874,
+    "exact_T_evenness_residual": 0.0039672310916128144,
+    "exact_L_evenness_residual": 5.436842925174502e-07,
+    "printed_EqB6a_negative_fraction": 0.49875311720698257,
+    "printed_EqB6b_negative_fraction": 0.004987531172069825,
+    "acceptance": {
+      "exact_T_matches_leading_Thomson_shape": true,
+      "exact_L_matches_leading_suppressed_shape": true,
+      "printed_EqB6a_fails_exact_L_angular_shape": true,
+      "printed_EqB6b_fails_exact_T_angular_shape": true
+    }
+  },
+  "low_energy_parameter_scan": {
+    "scope": "Exact direct-spinor total cross sections at E_gamma/m_mu <= 0.00474 and m_Aprime/E_gamma in {0.01, 0.1}; this tests the low-energy expansion without using the single reference point only.",
+    "cases": [
+      {
+        "photon_energy_MeV": 0.05,
+        "mediator_mass_MeV": 0.0005,
+        "m_over_Egamma": 0.01,
+        "exact_T_over_phase_space_Thomson": 0.9990546929228639,
+        "exact_L_over_exact_T_divided_by_m_over_E_squared": 0.5002364216990213,
+        "paper_Eq5_9a_T_over_exact_L": 1.5007097016174171,
+        "paper_Eq5_9b_L_over_exact_T": 1.000946201528137
+      },
+      {
+        "photon_energy_MeV": 0.05,
+        "mediator_mass_MeV": 0.005000000000000001,
+        "m_over_Egamma": 0.1,
+        "exact_T_over_phase_space_Thomson": 0.9990523273755184,
+        "exact_L_over_exact_T_divided_by_m_over_E_squared": 0.5002364221034277,
+        "paper_Eq5_9a_T_over_exact_L": 1.5007132537714747,
+        "paper_Eq5_9b_L_over_exact_T": 1.0009485715597812
+      },
+      {
+        "photon_energy_MeV": 0.1,
+        "mediator_mass_MeV": 0.001,
+        "m_over_Egamma": 0.01,
+        "exact_T_over_phase_space_Thomson": 0.9981117064060514,
+        "exact_L_over_exact_T_divided_by_m_over_E_squared": 0.5004724634169173,
+        "paper_Eq5_9a_T_over_exact_L": 1.5014190678225572,
+        "paper_Eq5_9b_L_over_exact_T": 1.0018918659923826
+      },
+      {
+        "photon_energy_MeV": 0.1,
+        "mediator_mass_MeV": 0.010000000000000002,
+        "m_over_Egamma": 0.1,
+        "exact_T_over_phase_space_Thomson": 0.9981069769189478,
+        "exact_L_over_exact_T_divided_by_m_over_E_squared": 0.5004724657902457,
+        "paper_Eq5_9a_T_over_exact_L": 1.5014261751123905,
+        "paper_Eq5_9b_L_over_exact_T": 1.0018966134140208
+      },
+      {
+        "photon_energy_MeV": 0.5,
+        "mediator_mass_MeV": 0.005,
+        "m_over_Egamma": 0.01,
+        "exact_T_over_phase_space_Thomson": 0.9906503547972227,
+        "exact_L_over_exact_T_divided_by_m_over_E_squared": 0.5023472404260813,
+        "paper_Eq5_9a_T_over_exact_L": 1.5070818621890745,
+        "paper_Eq5_9b_L_over_exact_T": 1.0094378860891753
+      },
+      {
+        "photon_energy_MeV": 0.5,
+        "mediator_mass_MeV": 0.05,
+        "m_over_Egamma": 0.1,
+        "exact_T_over_phase_space_Thomson": 0.990626771050022,
+        "exact_L_over_exact_T_divided_by_m_over_E_squared": 0.5023473062364421,
+        "paper_Eq5_9a_T_over_exact_L": 1.5071175436872188,
+        "paper_Eq5_9b_L_over_exact_T": 1.0094619176706106
+      }
+    ],
+    "max_abs_deviation_exact_T_over_phase_space_Thomson_from_one": 0.009373228949978052,
+    "max_abs_deviation_exact_L_coefficient_from_one_half": 0.0023473062364420816,
+    "max_abs_deviation_Eq5_9a_over_exact_L_from_three_halves": 0.007117543687218841,
+    "max_abs_deviation_Eq5_9b_over_exact_T_from_one": 0.009461917670610553,
+    "acceptance": {
+      "exact_T_tracks_phase_space_corrected_Thomson_limit": true,
+      "exact_L_scales_as_half_m2_over_E2_times_T": true,
+      "printed_Eq5_9a_is_1p5_times_exact_L": true,
+      "printed_Eq5_9b_tracks_exact_T": true
+    }
+  },
+  "EqB6_integrals_and_Eq5_9_phase_factor": {
+    "numerical_integral_EqB6a_MeV_minus2": 3.2683418552266786e-11,
+    "numerical_integral_EqB6b_MeV_minus2": 4.3577891403012365e-07,
+    "Eq5_9a_over_integral_EqB6a": 0.9999499987497055,
+    "Eq5_9b_over_integral_EqB6b": 0.9999499987499356,
+    "sqrt_1_minus_m2_over_E2": 0.9999499987499375,
+    "note": "The printed Eq. (B.6) angular expressions integrate without the common sqrt(1-m_Z'^2/E_gamma^2) factor present in Eq. (5.9)."
+  },
+  "independent_direct_vs_crossed_trace": {
+    "max_relative_difference": 5.3524453387484e-07,
+    "quadrature_orders": [
+      32,
+      64,
+      128,
+      256
+    ],
+    "crossed_sigma_by_order_L_Tplus_Tminus": {
+      "32": [
+        2.1767275062461323e-11,
+        2.1746714357059373e-07,
+        2.1746714357059373e-07
+      ],
+      "64": [
+        2.176727506240019e-11,
+        2.1746714357059547e-07,
+        2.1746714357059547e-07
+      ],
+      "128": [
+        2.176727506242082e-11,
+        2.1746714357059558e-07,
+        2.1746714357059558e-07
+      ],
+      "256": [
+        2.1767275062403504e-11,
+        2.1746714357059524e-07,
+        2.1746714357059524e-07
+      ]
+    }
+  },
+  "medium_rest_frame_projector_checks": {
+    "q_dot_eps_l": 0.0,
+    "eps_l_norm_plus_one": 3.637978807091713e-12,
+    "eps_x_norm_plus_one": 0.0,
+    "eps_y_norm_plus_one": 0.0,
+    "eps_l_dot_eps_x": 0.0,
+    "eps_l_dot_eps_y": 0.0,
+    "p_t_explicit_max_abs_residual": 3.637978807091713e-12,
+    "q_contraction_p_t_max_abs": 5.456786307149514e-13,
+    "u_contraction_p_t_max_abs": 1.8189894035458565e-12,
+    "completeness_max_abs_residual": 0.0
+  },
+  "ward_checks": {
+    "photon_ward_relative_residual": 6.623121624145889e-16,
+    "vector_mediator_ward_max_abs": 1.016350029387782e-12,
+    "direct_spinor_photon_ward_max_abs": 8.412065142101996e-10,
+    "direct_spinor_vector_mediator_ward_max_abs": 8.343015903816546e-15
+  },
+  "positivity": {
+    "direct_exact_mode_cross_sections_nonnegative": true,
+    "direct_exact_differential_cross_sections_nonnegative": true
+  },
+  "interpretation_flags": {
+    "integrated_Eq5_9_TL_hierarchy_opposite_to_conserved_vector_limit": true,
+    "printed_EqB6a_has_negative_differential_region": true,
+    "printed_EqB6b_has_negative_differential_region": true,
+    "EqB6b_is_closer_to_exact_T_than_EqB6a_but_not_accurate": true,
+    "Appendix_B_B2_B4_traces_reproduce_direct_spinor_benchmark": true,
+    "EqB6_differential_shapes_fail_the_low_energy_reference": true
+  },
+  "acceptance": {
+    "thomson_transverse_limit_pass": true,
+    "conserved_vector_longitudinal_suppression_pass": true,
+    "positive_exact_cross_sections_pass": true,
+    "direct_spinor_vs_crossed_trace_pass": true,
+    "quadrature_convergence_pass": true,
+    "low_energy_parameter_scan_pass": true,
+    "low_energy_angular_shape_audit_pass": true,
+    "appendix_B_trace_audit_pass": true,
+    "medium_frame_projectors_pass": true,
+    "photon_ward_pass": true,
+    "vector_mediator_ward_pass": true
+  }
+}

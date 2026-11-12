@@ -1,0 +1,127 @@
+name: B.16 high-order independent-grid global Fig. 7 audit
+
+on:
+  push:
+    branches:
+      - research/moving-muon-thermal-rates-20261107
+    paths:
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_global_high_order.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_global_redshift.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py'
+      - 'research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv'
+      - 'research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json'
+      - '.github/workflows/b16-high-order-independent-grid.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: b16-high-order-independent-grid-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        mass: [0.1, 1.0, 10.0]
+    steps:
+      - name: Check out research head
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy
+      - name: Run B.16 regression tests
+        run: |
+          python -m unittest discover \
+            -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
+            -p 'test_b16_global_redshift.py' -v
+      - name: Run high-order B.16 with independent source and opacity grids
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_global_high_order.py \
+            --mass "${{ matrix.mass }}" \
+            --nr 200 --ne 200 --na 32 --ns 64 \
+            --opacity-order 640 \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_high_order_independent_grid_${{ matrix.mass }}mev_2026-11-09.json
+      - name: Validate method, grid identities, and profile
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          mass_tag = "${{ matrix.mass }}"
+          mass = float(mass_tag)
+          p = Path(
+              f"research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/"
+              f"b16_global_high_order_independent_grid_{mass_tag}mev_2026-11-09.json"
+          )
+          d = json.loads(p.read_text())
+          r = d["result"]
+          c = r["configuration"]
+          assert abs(r["mass_MeV"] - mass) < 1e-12
+          assert c["source_grid_mode"] == "independent"
+          assert c["radial_order"] == 200
+          assert c["opacity_order"] == 640
+          assert c["opacity_radial_node_count"] == 642
+          assert c["energy_order"] == 200
+          assert c["angular_order"] == 32
+          assert c["path_order"] == 64
+          assert c["source_radial_node_count"] == 200
+          assert d["grid_identity"]["opacity_grid_sha256"] == c["opacity_grid_sha256"]
+          assert d["grid_identity"]["energy_grid_sha256"] == c["energy_grid_sha256"]
+          assert d["profile_sha256"] == r["profile"]["sha256"]
+          assert d["paper_reference"]["compton_method"] == "Non-relativistic-muon/no-recoil Eqs. (B.14)--(B.19)"
+          print(json.dumps({
+              "mass_MeV": mass,
+              "source_grid_sha256": c["source_grid_sha256"],
+              "opacity_grid_sha256": c["opacity_grid_sha256"],
+              "energy_grid_sha256": c["energy_grid_sha256"],
+              "opacity_nodes": c["opacity_radial_node_count"],
+              "energy_nodes": c["energy_node_count"],
+              "profile_sha256": d["profile_sha256"],
+          }, sort_keys=True))
+          PY
+      - name: Verify axial-vector production outputs remain unchanged
+        run: |
+          git diff --exit-code -- \
+            research/stellar-cooling-constraints-20261105/rates.py \
+            research/stellar-cooling-constraints-20261105/transport.py \
+            research/stellar-cooling-constraints-20261105/outputs/axial.json \
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.pdf \
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.png
+      - name: Archive high-order B.16 result
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_high_order_independent_grid_${{ matrix.mass }}mev_2026-11-09.json
+          if git diff --cached --quiet; then
+            echo "Identical high-order result is already archived."
+            exit 0
+          fi
+          git commit -m "Archive high-order independent-grid B.16 result at ${{ matrix.mass }} MeV"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin "${GITHUB_REF_NAME}"
+            git rebase "origin/${GITHUB_REF_NAME}"
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              exit 0
+            fi
+            echo "Push raced with another research workflow; retry ${attempt}/5."
+            sleep 2
+          done
+          echo "Could not archive high-order B.16 result after five retries."
+          exit 1

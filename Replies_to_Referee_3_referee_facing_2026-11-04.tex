@@ -663,7 +663,7 @@ Within this window, PIENU probes \(m_{A'}<m_{\pi^+}-m_\mu\simeq33.9\,\mathrm{MeV
 \medskip
 \noindent {\bf Lower-mass region.}
 
-Below the displayed mass window, astrophysical environments provide important additional sensitivity to weakly coupled light mediators. Supernova cooling and energy transport are particularly relevant to muon- and neutrino-coupled bosons~\cite{Blinov:2025aha,Wang:2026supernova}, with sensitivity overlapping the sub-GeV part of Fig.~2. Because charged-muon production and absorption differ for an axial current, the full vector \(L_\mu-L_\tau\) exclusion is not directly transferable; the axial processes are treated under Major Point~4.4. These astrophysical probes motivate a separate treatment of the lower-mass region alongside the laboratory comparison.
+Below the displayed mass window, astrophysical environments provide important additional sensitivity to weakly coupled light mediators. Supernova cooling and energy transport are particularly relevant to muon- and neutrino-coupled bosons~\cite{Blinov:2025aha,Wang:2026supernova}, with sensitivity overlapping the sub-GeV part of Fig.~2. Because charged-muon production and absorption differ for an axial current, the full vector \(L_\mu-L_\tau\) exclusion is not directly transferable; the axial processes are treated under Major Point~4.4. These astrophysical probes motivate a separate treatment of the lower-mass region alongside the laboratory comparison. Figure~\ref{fig:reply-axial-cooling} presents the separate axial-EFT ballistic-cooling benchmark; under the stated criterion, its calculated contour does not overlap the displayed \(g_X\geq10^{-6}\), \(m_{A'}\geq1\) MeV window. This statement is specific to the stated cooling criterion and approximations; it does not exclude additional diffusive or explosion-energy constraints.
 
 The more direct reason not to extend the figure to much smaller masses is that the \((g-2)_\mu\) bound already dominates the laboratory constraints displayed at its low-mass end, and its low-mass continuation is fixed by a simple asymptotic behavior. In the scalar-suppressed benchmark, for \(m_{A'}\ll m_\mu\),
 \[
@@ -1316,6 +1316,130 @@ The low-momentum kinetic-mixing estimate has a separate scope. In the equal-mixi
 \]
 compared with approximately \(1/70\) in the conventional vector model. At the same vacuum kinematics, this suppresses only electromagnetic-current-mediated amplitudes and rates, such as plasmon conversion or the mixing-induced proton coupling in \(np\) bremsstrahlung, by about \(10^{-4}\) and \(10^{-8}\), respectively. It does not suppress neutrino coalescence or the direct axial semi-Compton process. These factors are same-kinematics vacuum scaling estimates, not supernova emissivity ratios; an actual in-medium rate requires the momentum-dependent mixing and plasma propagators.
 
+\paragraph{An explicit axial-EFT cooling benchmark.}
+We evaluate the axial interaction at the effective-current level, with \(g_A^\mu=-g_X\), \(g_V^\mu=0\), and the active-neutrino currents above. An identical ultraviolet completion is not required to reuse a calculation with these operators. Existing axial-vector cooling estimates use longitudinal-mode matching~\cite{Alonso:2019axial,Gori:2025axial}; here finite-mass semi-Compton scattering is obtained from the exact tree-level spin-one kernels of Liu and Miller~\cite{Liu:2017htz}, with the electron mass and coupling replaced by those of the muon. The small vector admixture described under Major Point~4.3 can be retained in this EFT; the plotted benchmark is its pure-axial limit.
+
+For \(\gamma(k)\mu(p)\to A'(q)\mu(p')\), define \(M=m_{A'}\), \(m=m_\mu\), \(S=(p+k)^2-m^2\), \(U=(p-q)^2-m^2\), and \(t=(p'-p)^2\). Then
+\[
+S+U+t=M^2,\quad
+R=\frac{(S+U)^2}{SU},\quad
+B=m^2\left(\frac{S+U}{SU}\right)^2-\frac{t}{SU},
+\]
+and the initial-spin-averaged, final-polarization-summed result is
+\[
+\overline{|\mathcal M|^2}=e^2\big[(g_V^\mu)^2\mathcal A_V+
+(g_A^\mu)^2\mathcal A_A\big],
+\quad
+\mathcal A_V=4-2R+4(M^2+2m^2)B,
+\]
+\[
+\mathcal A_A=4-\left(2+\frac{4m^2}{M^2}\right)R
++4(M^2-4m^2)B,\qquad
+\frac{d\sigma}{dt}=\frac{\overline{|\mathcal M|^2}}{16\pi S^2}.
+\]
+The \(VA\) interference vanishes for this unpolarized vacuum \(2\to2\) observable. These expressions retain the full masses and do not use the high-energy Weizs\"acker--Williams approximation. An independent explicit-spinor evaluation agrees with the published kernels in 28 pure/mixed-current comparisons, with maximum relative difference \(2.9\times10^{-12}\).
+
+For transport we keep each mediator polarization \(h=L,+,-\) separately. Inverse Compton scattering is evaluated with an initial muon at rest, exact two-body recoil, and the effective muon density
+\[
+n_\mu^{\rm eff}(r)=2\sum_{\eta=\pm1}
+\int\frac{d^3p}{(2\pi)^3}
+f_\mu(E;\eta\mu_\mu)\,[1-f_\mu(E;\eta\mu_\mu)].
+\]
+Writing \(k_A=\sqrt{\omega^2-M^2}\), \(D=m+\omega-k_Ac\), the outgoing photon energy and differential absorption kernel are
+\[
+\omega_\gamma=\frac{M^2+2m\omega}{2D},\qquad
+v_A\frac{d\sigma_h^{\rm abs}}{d\Omega}
+=\frac{\overline{|\mathcal M_h^{\rm abs}|^2}\,\omega_\gamma}
+{64\pi^2m\omega D}.
+\]
+Here only the initial muon spin is averaged. Multiplication by \(n_\mu^{\rm eff}\), angular integration and the factor \(1+f_B(\omega_\gamma)\) give \(\Gamma_h^{\rm abs}\). Production is assigned through thermal detailed balance,
+\[
+\Gamma_h^{\rm prod}=e^{-\omega/T}\Gamma_h^{\rm abs},\qquad
+\Gamma_h^{\rm red}=(1-e^{-\omega/T})\Gamma_h^{\rm abs}.
+\]
+This is the stated muon-rest/effective-density approximation, with exact recoil; it is not an exact moving-muon thermal integral.
+
+Neutrino production and decay are computed with Fermi--Dirac occupations and Pauli blocking. For each flavor, \(\Gamma_{\nu,0}=g_X^2M/(24\pi)\), and
+\[
+\Gamma_{\nu,h}^{\rm prod/abs}
+=\frac{M}{\omega}\Gamma_{\nu,0}\int_{-1}^{1}dz\,W_h(z)
+\begin{cases}
+f_\nu(E_+;\mu_\nu)f_{\bar\nu}(E_-;-\mu_\nu),\\
+[1-f_\nu(E_+;\mu_\nu)][1-f_{\bar\nu}(E_-;-\mu_\nu)],
+\end{cases}
+\]
+\[
+E_\pm=\frac{\omega\pm k_Az}{2},\quad
+W_L=\frac34(1-z^2),\quad W_\pm=\frac38(1\pm z)^2,\quad
+\int_{-1}^{1}W_h\,dz=1.
+\]
+The two flavors are summed with their respective chemical potentials, taking \(\mu_{\nu_\tau}=0\). In particular, a nonzero \(\mu_{\nu_\mu}\) can distinguish the two circular transverse rates, so their opacities are not averaged before exponentiation. Above \(M=2m_\mu\), dimuon inverse decay and decay are included with the axial width \(g_X^2M(1-4m_\mu^2/M^2)^{3/2}/(12\pi)\), the appropriate massive two-body kinematics and muon blocking factors.
+
+We use a reconstructed SFHo-18.8 profile at one second after bounce. The temperature and muon/neutrino chemical potentials are extracted from the published vector-graphics figure in Ref.~\cite{Caputo:2021rux}; the gravitational lapse is extracted from Ref.~\cite{Ferreira:2025muonALP}. These are digitized published profiles, not the original simulation tables. Reconstructing the muon density from the extracted \(T,\mu_\mu\) agrees with the independently plotted density at five radii between 0 and 15 km to approximately \(0.5\)--\(1.1\%\). The two published temperature curves agree within \(0.27\%\) over their common range. The last kilometre of the lapse is continued by an exterior Schwarzschild form matched at 24 km; unresolved sub-MeV neutrino chemical potentials are set to zero.
+
+Following the ballistic-cooling prescription of Ref.~\cite{Blinov:2025aha}, the luminosity at infinity is
+\[
+L_{A'}=\sum_h\int_0^{R_\nu}4\pi r^2dr\,N(r)^2
+\int_{M/N(r)}^\infty d\omega\,
+\frac{k_A\omega^2}{2\pi^2}\,
+\Gamma_h^{\rm prod}(r,\omega)\,
+\mathcal P_h(r,\omega),
+\]
+\[
+\mathcal P_h=\frac12\int_{-1}^{1}dc_\theta\,
+\exp\!\left[-\int_0^{s_{\max}}
+\frac{ds}{v_A}\,
+\Gamma_h^{\rm red}\!\left(\sqrt{r^2+s^2+2rsc_\theta},\omega\right)\right],
+\]
+\[
+s_{\max}=-rc_\theta+\sqrt{R_\nu^2-r^2+r^2c_\theta^2},
+\qquad R_\nu=25~\mathrm{km}.
+\]
+This includes inward and outward trajectories, the velocity factor, stimulated-emission reduction of opacity, gravitational redshift of luminosity and the escape-energy threshold. As in this prescription, the local energy is held fixed along a straight chord; this is not full general-relativistic ray transport. The polarization sum is outside the escape exponential. The cooling criterion is \(L_{A'}>4.4\times10^{52}\,\mathrm{erg\,s^{-1}}\), with the alternative \(3.0\times10^{52}\,\mathrm{erg\,s^{-1}}\) also shown.
+
+% The GeV reply figure has no in-figure footer; all interpretive notes are given in this caption.
+% The plotted legend explicitly identifies the axial thresholds and the internal vector-muon-current control; the latter is not a published exclusion contour.
+% The current reply PNG/PDF assets are regenerated from the saved scan outputs with the final comparison-only legend.
+% The dashed vector-current curve is labelled as a comparison only, not as a separate experimental bound.
+% The solid axial boundary uses the one-second Raffelt luminosity L_R=4.4e52 erg/s; the dotted curve is the canonical 3.0e52 erg/s local-emissivity estimate. The vector-current control remains provisional pending a like-for-like literature validation.
+% The figure asset is regenerated from the final legend text after the vector-control comparison was explicitly marked provisional.
+% The GeV reply panel artwork is unchanged from the wide GeV figure; only the canvas and Axes positions are rearranged for the stacked layout.
+% The Fig. 2 overlap annotation is positioned clear of the upper axis border in the regenerated asset.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply_gev.pdf}
+\caption{Conditional SN1987A ballistic-cooling exclusion for the axial EFT, with \(m_{A'}\) shown in GeV for direct comparison with Fig.~2. The GeV mass axis is obtained by converting the same saved MeV scan, \(m_{A'}[\mathrm{GeV}]=m_{A'}[\mathrm{MeV}]/1000\); no scan boundary or physical input is changed. Top: the blue shading marks the axial region with \(L_{\rm axial}>4.4\times10^{52}\,\mathrm{erg\,s^{-1}}\). The solid blue boundary uses \(L_R=4.4\times10^{52}\,\mathrm{erg\,s^{-1}}\), the one-second Raffelt luminosity adopted for the Garching supernova profiles in the recent \(L_\mu-L_\tau\) analyses of Refs.~\cite{Blinov:2025aha,Wang:2026supernova}; it is also the reference luminosity associated with the SFHo-18.8 benchmark used here. The dotted blue curve uses the alternative canonical \(3.0\times10^{52}\,\mathrm{erg\,s^{-1}}\) luminosity estimate obtained from the local emissivity criterion at fiducial core conditions. Thus \(3.0\times10^{52}\) is a threshold comparison, not the primary Raffelt luminosity adopted in the cited profile-based vector-boson studies. The black dashed curve is an internal vector-muon-current control, not a published exclusion contour. Although the vector current, active-neutrino sector and nominal transport prescription are matched within this code, the reconstructed thermodynamic profile and muon-rest/effective-density treatment have not yet been demonstrated to reproduce the published vector cooling contours point by point; the curve is therefore diagnostic only and is not used as an independently validated bound. The beige shading marks only the displayed overlap with the original Fig.~2 window. Bottom: contributions to the optically thin axial luminosity, with channel fractions \(f_i^{\rm thin}=L_i^{\rm thin}/\sum_j L_j^{\rm thin}\). These are optically thin production fractions before escape attenuation, not fractions of the final escaping luminosity. The calculation includes semi-Compton scattering, neutrino coalescence/decay, and dimuon coalescence/decay. It assumes vacuum photon dispersion, a reconstructed stationary profile and the muon-rest/effective-density treatment. This is a conditional ballistic-cooling benchmark; unshaded regions are not established globally allowed regions.}
+\label{fig:reply-axial-cooling}
+\end{figure}
+
+Representative intervals above the \(4.4\times10^{52}\,\mathrm{erg\,s^{-1}}\) criterion are
+\[
+\begin{array}{c|cc}
+M~[\mathrm{MeV}] & |g_X|_{\rm lower} & |g_X|_{\rm upper}\\ \hline
+1&3.8\times10^{-11}&4.9\times10^{-7}\\
+10&3.6\times10^{-10}&7.5\times10^{-8}\\
+100&2.4\times10^{-10}&7.3\times10^{-9}\\
+200&4.1\times10^{-10}&2.9\times10^{-9}
+\end{array}
+\]
+and the benchmark closes near \(M\simeq0.26\) GeV. The lower edge is production limited; the upper edge includes absorption and decay trapping. At \(M=10\) MeV, semi-Compton emission supplies approximately \(91\%\) of the optically thin axial luminosity, whereas neutrino coalescence supplies approximately \(99.4\%\) at 100 MeV. Thus the vector benchmark's quoted dominance above approximately 10 MeV cannot be assumed unchanged for the axial current.
+
+Several checks determine the precision of this comparison. The kernels reproduce the vector Thomson limit, the axial longitudinal mass scaling, the vacuum neutrino/dimuon widths and mode-specific detailed balance. The angular escape calculation reproduces the analytic uniform-sphere result. Increasing the radial, energy and angular quadrature gives stable lower edges at the sub-percent level; the most sensitive low-mass upper edge changes by approximately \(8\%\) in the refinement checks, while the 1--250 MeV upper edges are substantially more stable. These numerical checks are separate from physical approximation uncertainties. Scaling the semi-Compton rate and its inverse together by factors \(1/2\) and 2 moves the low-mass lower edge by approximately \(+\!41\%\) and \(-\!29\%\), respectively. This is a sensitivity test, not a confidence interval. Changing the common source/escape radius to 20 km changes the upper edge by approximately a factor of two at 10 keV and by \(25\%\) at 100 MeV; setting \(\mu_{\nu_\mu}=0\) changes the tested boundaries by less than \(1\%\).
+
+In the relativistic longitudinal limit the result can also be checked against the corrected ALP--muon bound of Bollig et al.~\cite{Bollig:2020muon,Bollig:2021erratum}:
+\[
+\widehat g_{a\mu}=\frac{|g_A^\mu|}{M},\qquad
+\widehat g_{a\mu}\lesssim10^{-7.5}~\mathrm{GeV}^{-1}.
+\]
+For the \(3.0\times10^{52}\,\mathrm{erg\,s^{-1}}\) criterion our low-mass lower edge is approximately
+\[
+|g_A^\mu|_{\rm lower}\simeq
+3.2\times10^{-11}(M/\mathrm{MeV}),
+\]
+consistent with that longitudinal estimate. The finite-mass calculation and its upper edge do not follow from extending this straight line.
+
+The plotted exclusion is specifically a stationary-profile ballistic-cooling benchmark. Muon thermal motion and full finite-temperature photon dispersion are not included; muon--proton bremsstrahlung and other additional channels are not part of this three-channel estimate. The approximate rate rescaling above tests sensitivity without replacing a calculation of those effects. Sufficiently strong new interactions can also change the underlying supernova profile. The diffusive-transport, high-energy-neutrino and LESN observables discussed in Ref.~\cite{Blinov:2025aha} impose different criteria and are not represented by this shading. Within the stated benchmark the ballistic exclusion lies below the \(g_X\geq10^{-6}\), \(M\geq1\) MeV portion displayed in the original Fig.~2. This explains why that laboratory-summary window and the new cooling figure cover complementary couplings; it does not establish that astrophysical energy transport is irrelevant within the original window.
+
 \medskip
 \noindent {\bf Interpretation and applicability.}
 
@@ -1704,12 +1828,12 @@ In the original \(S\)-only symmetry-breaking limit, the residual \(Z_2\) symmetr
 
 The axial current shifts \(C_A\) in neutrino trident production and gives a longitudinally enhanced negative contribution to \((g-2)_\mu\). Finite light--heavy mixing generates a small vector admixture and momentum-dependent kinetic mixing; their leading effects are quantified for the adopted small-mixing benchmark. The finite vector component gives subleading contributions to neutrino trident production and \((g-2)_\mu\) in this regime. Separately, the vector-only and axial-only coupling reaches in the high-mass four-muon searches are of the same order away from the dimuon threshold.
 
-For stellar cooling, the neutrino couplings and invisible partial widths retain the conventional \(L_\mu-L_\tau\) normalization, and neutrino-coalescence production dominates in the cited profile for \(m_{A'}\gtrsim10\,\mathrm{MeV}\). Charged-muon semi-Compton production and inverse absorption instead probe the nonconserved axial current, including its longitudinal contribution, whereas electromagnetic-current-mediated processes depend on the loop-induced, momentum-dependent kinetic mixing. The vector-model supernova result therefore provides a reference for the neutrino-coalescence channel. These process differences distinguish the axial transport problem from the conventional vector benchmark. At a future muon collider, the angular distribution and forward--backward asymmetry in \(\mu^+\mu^-\to\tau^+\tau^-\) provide complementary sensitivity to the chiral structure beyond a total-rate comparison.
+For stellar cooling, the neutrino couplings and invisible partial widths retain the conventional \(L_\mu-L_\tau\) normalization, and neutrino-coalescence production dominates in the cited profile for \(m_{A'}\gtrsim10\,\mathrm{MeV}\). Charged-muon semi-Compton production and inverse absorption instead probe the nonconserved axial current, including its longitudinal contribution, whereas electromagnetic-current-mediated processes depend on the loop-induced, momentum-dependent kinetic mixing. The vector-model supernova result therefore provides a reference for the neutrino-coalescence channel. These process differences distinguish the axial transport problem from the conventional vector benchmark. At a future muon collider, the angular distribution and forward--backward asymmetry in \(\mu^+\mu^-\to\tau^+\tau^-\) provide complementary sensitivity to the chiral structure beyond a total-rate comparison. The separately evaluated axial-EFT ballistic-cooling curve in Fig.~\ref{fig:reply-axial-cooling} is a conditional benchmark under the stated criterion, not a complete SN1987A transport or exclusion result.
 
 \noindent Sincerely yours,
 
 \noindent Rundong Fang, Jinhui Guo, Ming Li, Jia Liu, Xiao-Ping Wang, Yiheng Xiong
 
 \bibliographystyle{JHEP}
-\bibliography{references}
+\bibliography{references,Replies_to_Referee_3_stellar_references}
 \end{document}

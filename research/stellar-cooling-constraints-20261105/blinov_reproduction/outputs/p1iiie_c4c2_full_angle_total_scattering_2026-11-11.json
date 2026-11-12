@@ -1,0 +1,48 @@
+{
+  "title": "P1-IIIe-C4C2 full outgoing-angle and outgoing-energy scattering integral",
+  "date": "2026-11-11",
+  "status": "PASS: full Eprime support, outgoing-angle convergence, and cold total Horowitz limit",
+  "scope": "Local EOS total neutral-current scattering rate at four selected radii; full outgoing energy and angle at fixed E=100 MeV; no radial transport.",
+  "provenance": {
+    "selected_profile_indices_zero_based": [0, 96, 196, 300],
+    "selected_radii_km": [0.2, 5.0, 10.0, 15.2],
+    "species": ["n", "p"],
+    "neutrino_antineutrino": ["nu", "antinu"],
+    "incident_energy_MeV": 100.0,
+    "local_cosine_order": 8,
+    "local_Eprime_order": 48,
+    "local_initial_momentum_order": 36,
+    "local_azimuth_order": 12,
+    "cold_cosine_order": 16,
+    "cold_Eprime_order": 72,
+    "cold_initial_momentum_order": 48,
+    "cold_azimuth_order": 16
+  },
+  "maxima": {
+    "cold_total_Horowitz_relative_residual": 5.374420715353878e-06,
+    "Horowitz_cos16_to_cos32_relative_difference": 4.440892098500626e-16,
+    "EOS_local_cos8_to_cos12_relative_difference": 1.782435670794058e-05,
+    "EOS_kernel_p36phi12_to_p48phi16_relative_difference": 7.230675025504674e-06,
+    "support_root_relative_residual": 1.0317349103132463e-13
+  },
+  "acceptance": {
+    "sixteen_full_angle_EOS_cases": true,
+    "four_cold_Horowitz_total_cases": true,
+    "four_core_angle_convergence_cases": true,
+    "two_core_kernel_order_cases": true,
+    "cold_full_angle_Horowitz_below_1e_3": true,
+    "Horowitz_angle_quadrature_below_1e_4": true,
+    "EOS_local_angle_quadrature_below_1_percent": true,
+    "EOS_kernel_order_difference_below_1_percent": true,
+    "support_root_residual_below_1e_7": true,
+    "all_local_total_rates_positive": true
+  },
+  "overall_pass": true,
+  "interpretation": [
+    "The full outgoing-energy support is integrated at every outgoing-angle node.",
+    "The factor 2pi converts the azimuth-symmetric differential-in-angle rate to a total rate.",
+    "The cold/dilute total cross section is compared with the independently angle-integrated Horowitz stationary-target result.",
+    "The local EOS rate is per available volume; xi_SPP is restored only in xi_times_gamma_total.",
+    "The output is a local total scattering rate, not yet a radial optical depth or transport solution."
+  ]
+}

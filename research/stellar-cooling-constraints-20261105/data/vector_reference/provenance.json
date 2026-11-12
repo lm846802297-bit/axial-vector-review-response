@@ -1,0 +1,61 @@
+{
+  "kind": "Digitized public PDF paths; not author numerical tables",
+  "sources": {
+    "blinov": {
+      "url": "https://arxiv.org/src/2511.09619v2",
+      "archive_member": "combined_sn_bounds_hot_and_cold_with_mfp_cont.pdf",
+      "pdf_sha256": "98c87197308e230bd90521292d97d90bbf6a201202fa9a9a07f1e8f0d3330282",
+      "drawing_index": 78,
+      "figure": 4,
+      "threshold_erg_s": 4.4e+52,
+      "maximum_mass_vertex_MeV": 210.97608355537614,
+      "points": {
+        "1": [
+          1.749034740091805e-09,
+          2.5266927161675497e-07
+        ],
+        "10": [
+          1.0102653713943903e-09,
+          3.843356397997024e-08
+        ],
+        "100": [
+          2.429877931617229e-10,
+          3.5240310641812512e-09
+        ],
+        "200": [
+          4.883511942020839e-10,
+          1.1359459949121884e-09
+        ]
+      },
+      "uncertainty": "Path vertex extraction is exact up to PDF rounding; the published contour is coarse and its underlying interpolation/systematics are unknown."
+    },
+    "wang": {
+      "url": "https://arxiv.org/src/2610.35379v1",
+      "archive_member": "Figures/mumtau_compare.pdf",
+      "pdf_sha256": "47aadd4a8c728f0ccae2629c4d7ec5ce54837f959a73e24e04fef57ced326ea7",
+      "drawing_index": 2,
+      "figure": 12,
+      "threshold_erg_s": 3e+52,
+      "maximum_mass_vertex_MeV": 303.4126182512054,
+      "points": {
+        "1": [
+          1.4462062164331796e-09,
+          6.079414248440243e-07
+        ],
+        "10": [
+          5.712750510951346e-10,
+          9.01072242326916e-08
+        ],
+        "100": [
+          1.2216947773195496e-10,
+          9.263094760216975e-09
+        ],
+        "200": [
+          1.7687030547996793e-10,
+          3.9054397868808225e-09
+        ]
+      },
+      "uncertainty": "Path vertex extraction is exact up to PDF rounding; the published contour is coarse and its underlying interpolation/systematics are unknown."
+    }
+  }
+}
