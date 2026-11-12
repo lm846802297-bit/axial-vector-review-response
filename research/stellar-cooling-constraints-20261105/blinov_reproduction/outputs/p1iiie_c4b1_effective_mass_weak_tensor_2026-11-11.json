@@ -1,0 +1,63 @@
+{
+  "title": "P1-IIIe-C4B1 effective-mass quasiparticle weak tensor",
+  "date": "2026-11-11",
+  "status": "PASS: vector Ward identity, hermiticity, vacuum-mass recovery, and VA sign checks",
+  "scope": "Local on-shell quasiparticle tensor algebra at four selected SFHo-18.8 radii; no momentum-integrated collision kernel or opacity.",
+  "convention": {
+    "quasiparticle_spinor_mass": "m*_N(r)",
+    "quasiparticle_energy": "E*_p=sqrt(p^2+m*_N(r)^2)",
+    "form_factor_mass": "physical vacuum M_N",
+    "weak_magnetism_denominator": "2 M_N (physical vacuum mass)",
+    "vertex": "F1(Q2) gamma^mu + i F2(Q2)/(2 M_N) sigma^{mu alpha} q_alpha - G_A(Q2) gamma^mu gamma^5",
+    "trace": "H^{mu nu}=1/2 Tr[(slash p'*+m*) Gamma^mu (slash p*+m*) barGamma^nu]",
+    "excluded": [
+      "RPA",
+      "NN correlations",
+      "in-medium vertex corrections",
+      "additional baryons"
+    ]
+  },
+  "provenance": {
+    "selected_profile_indices_zero_based": [
+      0,
+      96,
+      196,
+      300
+    ],
+    "selected_radii_km": [
+      0.2,
+      5,
+      10,
+      15.2
+    ],
+    "ward_scan_cases": 288,
+    "vacuum_mass_recovery_cases": 40,
+    "VA_sign_cases": 8,
+    "github_actions_run_id": 43001802164,
+    "github_actions_run_number": 5,
+    "github_actions_artifact_id": 13846825852,
+    "github_actions_artifact_sha256": "3e1b248a49336798c137ed1138ce22b1cf2a1d3aaacb5439d62ef371c126cd45"
+  },
+  "maxima": {
+    "vector_ward_residual": 3.0095346774059447e-15,
+    "tensor_hermiticity_residual": 2.415835273108294e-16,
+    "mstar_equals_M_component_recovery_residual": 6.614211968484765e-16,
+    "neutrino_antineutrino_VA_sign_residual": 2.6094771280614336e-16
+  },
+  "acceptance": {
+    "effective_mass_ward_scan_cases": true,
+    "vector_ward_residual_below_1e_10": true,
+    "hadronic_tensor_hermiticity_below_1e_10": true,
+    "mstar_equals_M_recovers_existing_P1IIIb_below_1e_12": true,
+    "neutrino_antineutrino_VA_sign_structure_below_1e_10": true,
+    "tensor_decomposition_exact": true
+  },
+  "overall_pass": true,
+  "interpretation": [
+    "The local quasiparticle spinors use m*_N, while vacuum nucleon form factors and the weak-magnetism normalization retain physical M_N.",
+    "For equal initial/final m*_N, the vector Ward identity holds on shell with the bare vector vertex and Pauli term.",
+    "The m*_N=M_N limit reproduces the existing P1-IIIb stationary tensor exactly.",
+    "This defines a minimal local quasiparticle embedding; it is not a full in-medium weak vertex or RPA response.",
+    "The tensor is not yet integrated over the local Fermi sea and does not yet produce an EOS-dependent collision rate."
+  ]
+}

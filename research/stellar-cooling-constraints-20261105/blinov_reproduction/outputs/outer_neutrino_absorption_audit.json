@@ -1,0 +1,887 @@
+{
+  "title": "Outer 15--25 km neutrino inverse-decay absorption audit",
+  "status": "diagnostic_complete_not_a_curve_fit",
+  "source": "Blinov et al., arXiv:2511.09619v2, Appendix B, Eqs. (B1)--(B10)",
+  "run_commit_sha": "8132388137fe5ebcd2821be00943daf59e2523ab",
+  "profile_sha256": "08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9",
+  "quadrature": {
+    "nr": 40,
+    "ne": 100,
+    "na": 16,
+    "ns": 32,
+    "Rmax_km": 25.0
+  },
+  "model": {
+    "mass_MeV": 10.0,
+    "coupling_high_absorption": 4.171689650228597e-08,
+    "nu_mu_profile_source": "Caputo Fig. 1; |mu_numu| curves are digitized only while >=1 MeV",
+    "outer_mu_numu_baseline": "zero-filled where the public logarithmic plot does not resolve |mu_numu|<1 MeV",
+    "nu_tau_assumption": "mu_nu_tau=0 baseline; no separate nu_tau chemical-potential curve is present in the public Caputo Fig. 1 reconstruction",
+    "outer_temperature": "Caputo public PDF vector path through 25 km; no fitted tail"
+  },
+  "rate_split_max_relative_residual": 5.6051443721021175e-16,
+  "local_kernel_and_cold_limit_checks": [
+    {
+      "r_km": 15.0,
+      "T_MeV": 13.239679831971731,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 10.1,
+      "omega_over_T": 0.762858326498961,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.18839210150656924,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.18839210150656924,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 15.0,
+      "T_MeV": 13.239679831971731,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 12.0,
+      "omega_over_T": 0.906366328513617,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.22169073119363125,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.22169073119363125,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 15.0,
+      "T_MeV": 13.239679831971731,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 15.0,
+      "omega_over_T": 1.1329579106420213,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.27217265868952795,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.27217265868952795,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 15.0,
+      "T_MeV": 13.239679831971731,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 20.0,
+      "omega_over_T": 1.510610547522695,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.3498537014224019,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.3498537014224019,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 15.0,
+      "T_MeV": 13.239679831971731,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 30.0,
+      "omega_over_T": 2.2659158212840427,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.4791966545867419,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.4791966545867419,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 15.0,
+      "T_MeV": 13.239679831971731,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 50.0,
+      "omega_over_T": 3.7765263688067376,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.6482702094612739,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.6482702094612739,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 15.0,
+      "T_MeV": 13.239679831971731,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 100.0,
+      "omega_over_T": 7.553052737613475,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.818183621939881,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.818183621939881,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 17.0,
+      "T_MeV": 7.409457908474039,
+      "mu_numu_MeV_reconstructed": 1.5740038132235465,
+      "omega_MeV": 10.1,
+      "omega_over_T": 1.363122663595787,
+      "mu_numu_over_T": 0.21243170993972338,
+      "reduced_opacity_over_zeroT_limit_numu": 0.3246763869384237,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.3279509777599038,
+      "numu_to_zero_mu_ratio": 0.990014999059166
+    },
+    {
+      "r_km": 17.0,
+      "T_MeV": 7.409457908474039,
+      "mu_numu_MeV_reconstructed": 1.5740038132235465,
+      "omega_MeV": 12.0,
+      "omega_over_T": 1.6195516795197469,
+      "mu_numu_over_T": 0.21243170993972338,
+      "reduced_opacity_over_zeroT_limit_numu": 0.37525216200265804,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.37874022933803564,
+      "numu_to_zero_mu_ratio": 0.9907903437100567
+    },
+    {
+      "r_km": 17.0,
+      "T_MeV": 7.409457908474039,
+      "mu_numu_MeV_reconstructed": 1.5740038132235465,
+      "omega_MeV": 15.0,
+      "omega_over_T": 2.0244395993996833,
+      "mu_numu_over_T": 0.21243170993972338,
+      "reduced_opacity_over_zeroT_limit_numu": 0.4466235694696933,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.45023287274945056,
+      "numu_to_zero_mu_ratio": 0.9919834745568082
+    },
+    {
+      "r_km": 17.0,
+      "T_MeV": 7.409457908474039,
+      "mu_numu_MeV_reconstructed": 1.5740038132235465,
+      "omega_MeV": 20.0,
+      "omega_over_T": 2.699252799199578,
+      "mu_numu_over_T": 0.21243170993972338,
+      "reduced_opacity_over_zeroT_limit_numu": 0.5436885005132185,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.5471314676740839,
+      "numu_to_zero_mu_ratio": 0.9937072397325237
+    },
+    {
+      "r_km": 17.0,
+      "T_MeV": 7.409457908474039,
+      "mu_numu_MeV_reconstructed": 1.5740038132235465,
+      "omega_MeV": 30.0,
+      "omega_over_T": 4.048879198799367,
+      "mu_numu_over_T": 0.21243170993972338,
+      "reduced_opacity_over_zeroT_limit_numu": 0.6737378105735788,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.6764544489169827,
+      "numu_to_zero_mu_ratio": 0.9959840040260607
+    },
+    {
+      "r_km": 17.0,
+      "T_MeV": 7.409457908474039,
+      "mu_numu_MeV_reconstructed": 1.5740038132235465,
+      "omega_MeV": 50.0,
+      "omega_over_T": 6.748131997998945,
+      "mu_numu_over_T": 0.21243170993972338,
+      "reduced_opacity_over_zeroT_limit_numu": 0.7991517610517299,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.8008443306157865,
+      "numu_to_zero_mu_ratio": 0.9978865186412006
+    },
+    {
+      "r_km": 17.0,
+      "T_MeV": 7.409457908474039,
+      "mu_numu_MeV_reconstructed": 1.5740038132235465,
+      "omega_MeV": 100.0,
+      "omega_over_T": 13.49626399599789,
+      "mu_numu_over_T": 0.21243170993972338,
+      "reduced_opacity_over_zeroT_limit_numu": 0.8984251401495923,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.8992634539310216,
+      "numu_to_zero_mu_ratio": 0.99906777732625
+    },
+    {
+      "r_km": 18.0,
+      "T_MeV": 5.926295121350919,
+      "mu_numu_MeV_reconstructed": 1.5017755417855807,
+      "omega_MeV": 10.1,
+      "omega_over_T": 1.7042688211075236,
+      "mu_numu_over_T": 0.2534088348680222,
+      "reduced_opacity_over_zeroT_limit_numu": 0.39627977397510644,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.4016279516061628,
+      "numu_to_zero_mu_ratio": 0.9866837514429255
+    },
+    {
+      "r_km": 18.0,
+      "T_MeV": 5.926295121350919,
+      "mu_numu_MeV_reconstructed": 1.5017755417855807,
+      "omega_MeV": 12.0,
+      "omega_over_T": 2.0248738468604244,
+      "mu_numu_over_T": 0.2534088348680222,
+      "reduced_opacity_over_zeroT_limit_numu": 0.4522332251724443,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.45766057328478776,
+      "numu_to_zero_mu_ratio": 0.9881411062495737
+    },
+    {
+      "r_km": 18.0,
+      "T_MeV": 5.926295121350919,
+      "mu_numu_MeV_reconstructed": 1.5017755417855807,
+      "omega_MeV": 15.0,
+      "omega_over_T": 2.53109230857553,
+      "mu_numu_over_T": 0.2534088348680222,
+      "reduced_opacity_over_zeroT_limit_numu": 0.5275350125717762,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.5327644224643178,
+      "numu_to_zero_mu_ratio": 0.9901843860587523
+    },
+    {
+      "r_km": 18.0,
+      "T_MeV": 5.926295121350919,
+      "mu_numu_MeV_reconstructed": 1.5017755417855807,
+      "omega_MeV": 20.0,
+      "omega_over_T": 3.374789744767374,
+      "mu_numu_over_T": 0.2534088348680222,
+      "reduced_opacity_over_zeroT_limit_numu": 0.6228706828574909,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.627409839552495,
+      "numu_to_zero_mu_ratio": 0.9927652446473557
+    },
+    {
+      "r_km": 18.0,
+      "T_MeV": 5.926295121350919,
+      "mu_numu_MeV_reconstructed": 1.5017755417855807,
+      "omega_MeV": 30.0,
+      "omega_over_T": 5.06218461715106,
+      "mu_numu_over_T": 0.2534088348680222,
+      "reduced_opacity_over_zeroT_limit_numu": 0.7385840390301552,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.7418239036241367,
+      "numu_to_zero_mu_ratio": 0.995632569160749
+    },
+    {
+      "r_km": 18.0,
+      "T_MeV": 5.926295121350919,
+      "mu_numu_MeV_reconstructed": 1.5017755417855807,
+      "omega_MeV": 50.0,
+      "omega_over_T": 8.436974361918434,
+      "mu_numu_over_T": 0.2534088348680222,
+      "reduced_opacity_over_zeroT_limit_numu": 0.8405162565471673,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.8424478083373355,
+      "numu_to_zero_mu_ratio": 0.9977072148908782
+    },
+    {
+      "r_km": 18.0,
+      "T_MeV": 5.926295121350919,
+      "mu_numu_MeV_reconstructed": 1.5017755417855807,
+      "omega_MeV": 100.0,
+      "omega_over_T": 16.873948723836868,
+      "mu_numu_over_T": 0.2534088348680222,
+      "reduced_opacity_over_zeroT_limit_numu": 0.9189692720999831,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.9199225024418725,
+      "numu_to_zero_mu_ratio": 0.9989637927767185
+    },
+    {
+      "r_km": 20.0,
+      "T_MeV": 4.207610458156907,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 10.1,
+      "omega_over_T": 2.400412324391879,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.5362204434195361,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.5362204434195361,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 20.0,
+      "T_MeV": 4.207610458156907,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 12.0,
+      "omega_over_T": 2.85197503888144,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.5932688869129983,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.5932688869129983,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 20.0,
+      "T_MeV": 4.207610458156907,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 15.0,
+      "omega_over_T": 3.5649687986018006,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.6626913558460786,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.6626913558460786,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 20.0,
+      "T_MeV": 4.207610458156907,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 20.0,
+      "omega_over_T": 4.7532917314690675,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.7401778055034252,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.7401778055034252,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 20.0,
+      "T_MeV": 4.207610458156907,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 30.0,
+      "omega_over_T": 7.129937597203601,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.822851565647092,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.822851565647092,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 20.0,
+      "T_MeV": 4.207610458156907,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 50.0,
+      "omega_over_T": 11.883229328672668,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.8909371178143136,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.8909371178143136,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 20.0,
+      "T_MeV": 4.207610458156907,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 100.0,
+      "omega_over_T": 23.766458657345336,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.9438576816101379,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.9438576816101379,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 22.0,
+      "T_MeV": 3.5523516353051963,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 10.1,
+      "omega_over_T": 2.843187003116675,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.6099079038698351,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.6099079038698351,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 22.0,
+      "T_MeV": 3.5523516353051963,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 12.0,
+      "omega_over_T": 3.3780439640990196,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.662553758053912,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.662553758053912,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 22.0,
+      "T_MeV": 3.5523516353051963,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 15.0,
+      "omega_over_T": 4.222554955123774,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.7234149122659752,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.7234149122659752,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 22.0,
+      "T_MeV": 3.5523516353051963,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 20.0,
+      "omega_over_T": 5.630073273498366,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.7879184342656238,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.7879184342656238,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 22.0,
+      "T_MeV": 3.5523516353051963,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 30.0,
+      "omega_over_T": 8.445109910247549,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.8544610506551158,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.8544610506551158,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 22.0,
+      "T_MeV": 3.5523516353051963,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 50.0,
+      "omega_over_T": 14.075183183745915,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.9094212178437667,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.9094212178437667,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 22.0,
+      "T_MeV": 3.5523516353051963,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 100.0,
+      "omega_over_T": 28.15036636749183,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.9529803449703784,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.9529803449703784,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 24.0,
+      "T_MeV": 3.21664992316749,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 10.1,
+      "omega_over_T": 3.139912717033987,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.6540444517824374,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.6540444517824374,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 24.0,
+      "T_MeV": 3.21664992316749,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 12.0,
+      "omega_over_T": 3.7305893667730543,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.702384149322779,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.702384149322779,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 24.0,
+      "T_MeV": 3.21664992316749,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 15.0,
+      "omega_over_T": 4.663236708466318,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.7567321578057074,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.7567321578057074,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 24.0,
+      "T_MeV": 3.21664992316749,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 20.0,
+      "omega_over_T": 6.217648944621757,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.8130217917196655,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.8130217917196655,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 24.0,
+      "T_MeV": 3.21664992316749,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 30.0,
+      "omega_over_T": 9.326473416932636,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.8706829055912996,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.8706829055912996,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 24.0,
+      "T_MeV": 3.21664992316749,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 50.0,
+      "omega_over_T": 15.544122361554393,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.9188825312232483,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.9188825312232483,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 24.0,
+      "T_MeV": 3.21664992316749,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 100.0,
+      "omega_over_T": 31.088244723108787,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.9576529703515594,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.9576529703515594,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 25.0,
+      "T_MeV": 3.033770692,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 10.1,
+      "omega_over_T": 3.3291903131088723,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.6800503031874691,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.6800503031874691,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 25.0,
+      "T_MeV": 3.033770692,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 12.0,
+      "omega_over_T": 3.955473639337274,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.7252872910350051,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.7252872910350051,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 25.0,
+      "T_MeV": 3.033770692,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 15.0,
+      "omega_over_T": 4.944342049171592,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.7754071275874478,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.7754071275874478,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 25.0,
+      "T_MeV": 3.033770692,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 20.0,
+      "omega_over_T": 6.592456065562123,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.8268088895839564,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.8268088895839564,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 25.0,
+      "T_MeV": 3.033770692,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 30.0,
+      "omega_over_T": 9.888684098343184,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.8795135910552174,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.8795135910552174,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 25.0,
+      "T_MeV": 3.033770692,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 50.0,
+      "omega_over_T": 16.48114016390531,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.9240332408552795,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.9240332408552795,
+      "numu_to_zero_mu_ratio": 1.0
+    },
+    {
+      "r_km": 25.0,
+      "T_MeV": 3.033770692,
+      "mu_numu_MeV_reconstructed": 0.0,
+      "omega_MeV": 100.0,
+      "omega_over_T": 32.96228032781062,
+      "mu_numu_over_T": 0.0,
+      "reduced_opacity_over_zeroT_limit_numu": 0.9601980315554497,
+      "reduced_opacity_over_zeroT_limit_nutau": 0.9601980315554497,
+      "numu_to_zero_mu_ratio": 1.0
+    }
+  ],
+  "optical_depth_decomposition": {
+    "coupling": 4.171689650228597e-08,
+    "source_weighted_mean_tau_by_absorber_shell": {
+      "numu": {
+        "0-5km": 0.07942490922069602,
+        "5-10km": 0.8278522407946487,
+        "10-15km": 1.6993349010030976,
+        "15-20km": 2.2405146324005596,
+        "20-25km": 2.3339763426983007
+      },
+      "nutau": {
+        "0-5km": 0.1314986405010716,
+        "5-10km": 0.8930515108532411,
+        "10-15km": 1.7048829390090339,
+        "15-20km": 2.242633827176759,
+        "20-25km": 2.3339763426983007
+      },
+      "neutrino_total": {
+        "0-5km": 0.21092354972176763,
+        "5-10km": 1.7209037516478898,
+        "10-15km": 3.4042178400121315,
+        "15-20km": 4.483148459577319,
+        "20-25km": 4.667952685396601
+      }
+    },
+    "source_weighted_mean_tau_by_production_and_absorber_shell": {
+      "numu": {
+        "0-5km": {
+          "0-5km": 0.5199651084462754,
+          "5-10km": 0.0960150504513975,
+          "10-15km": 0.04848151241903134,
+          "15-20km": 0.018567236616987094,
+          "20-25km": 0.01741460175882637
+        },
+        "5-10km": {
+          "0-5km": 1.1134452809215365,
+          "5-10km": 1.0447478207443728,
+          "10-15km": 0.5361848951777938,
+          "15-20km": 0.28675802423774155,
+          "20-25km": 0.16767672124991112
+        },
+        "10-15km": {
+          "0-5km": 1.468732430395898,
+          "5-10km": 1.3887631679772539,
+          "10-15km": 2.1478060141850093,
+          "15-20km": 1.8414104533916558,
+          "20-25km": 1.0450040681383557
+        },
+        "15-20km": {
+          "0-5km": 2.3591128433315,
+          "5-10km": 1.7599418703065883,
+          "10-15km": 2.6505334254004045,
+          "15-20km": 7.942322877839845,
+          "20-25km": 7.145342317727254
+        },
+        "20-25km": {
+          "0-5km": 2.686926520282419,
+          "5-10km": 1.8490482083189446,
+          "10-15km": 2.7140038876697967,
+          "15-20km": 7.64448985755337,
+          "20-25km": 20.434839176084495
+        }
+      },
+      "nutau": {
+        "0-5km": {
+          "0-5km": 1.0001576640955503,
+          "5-10km": 0.15195842789490377,
+          "10-15km": 0.08611708885296876,
+          "15-20km": 0.051929495615184236,
+          "20-25km": 0.05281470468657307
+        },
+        "5-10km": {
+          "0-5km": 1.3037971465812914,
+          "5-10km": 1.1234447292677194,
+          "10-15km": 0.580153470987874,
+          "15-20km": 0.33211191577458554,
+          "20-25km": 0.189729071964709
+        },
+        "10-15km": {
+          "0-5km": 1.4742319693472279,
+          "5-10km": 1.3931845234697728,
+          "10-15km": 2.1549830676826125,
+          "15-20km": 1.846966277887451,
+          "20-25km": 1.049038255341489
+        },
+        "15-20km": {
+          "0-5km": 2.361510669366397,
+          "5-10km": 1.7611369757474509,
+          "10-15km": 2.653151135157842,
+          "15-20km": 7.960862395296879,
+          "20-25km": 7.16736388936196
+        },
+        "20-25km": {
+          "0-5km": 2.686926520282419,
+          "5-10km": 1.8490482083189446,
+          "10-15km": 2.7140038876697967,
+          "15-20km": 7.64448985755337,
+          "20-25km": 20.434839176084495
+        }
+      },
+      "neutrino_total": {
+        "0-5km": {
+          "0-5km": 1.5201227725418252,
+          "5-10km": 0.24797347834630123,
+          "10-15km": 0.13459860127200013,
+          "15-20km": 0.07049673223217133,
+          "20-25km": 0.07022930644539943
+        },
+        "5-10km": {
+          "0-5km": 2.4172424275028277,
+          "5-10km": 2.168192550012092,
+          "10-15km": 1.1163383661656678,
+          "15-20km": 0.6188699400123271,
+          "20-25km": 0.3574057932146201
+        },
+        "10-15km": {
+          "0-5km": 2.942964399743126,
+          "5-10km": 2.7819476914470265,
+          "10-15km": 4.302789081867623,
+          "15-20km": 3.688376731279106,
+          "20-25km": 2.094042323479845
+        },
+        "15-20km": {
+          "0-5km": 4.720623512697896,
+          "5-10km": 3.52107884605404,
+          "10-15km": 5.3036845605582466,
+          "15-20km": 15.903185273136724,
+          "20-25km": 14.312706207089214
+        },
+        "20-25km": {
+          "0-5km": 5.373853040564838,
+          "5-10km": 3.698096416637889,
+          "10-15km": 5.428007775339593,
+          "15-20km": 15.28897971510674,
+          "20-25km": 40.86967835216899
+        }
+      }
+    },
+    "outer_15_25_fraction_of_neutrino_mean_tau": 0.6316703762143008
+  },
+  "mu_numu_outer_profile_envelope": [
+    {
+      "variant": "baseline",
+      "mu_numu_override_for_r_ge_15_km_MeV": null,
+      "luminosity_erg_s": 2.4372245354553146e+52,
+      "relative_to_baseline": 0.0,
+      "outer_15_25_fraction_of_neutrino_mean_tau": 0.6316703762143008
+    },
+    {
+      "variant": "outer_mu0",
+      "mu_numu_override_for_r_ge_15_km_MeV": 0.0,
+      "luminosity_erg_s": 2.4369115064987546e+52,
+      "relative_to_baseline": -0.00012843665079120825,
+      "outer_15_25_fraction_of_neutrino_mean_tau": 0.6317364274634503
+    },
+    {
+      "variant": "outer_mu1",
+      "mu_numu_override_for_r_ge_15_km_MeV": 1.0,
+      "luminosity_erg_s": 2.4378924190800143e+52,
+      "relative_to_baseline": 0.0002740345072782535,
+      "outer_15_25_fraction_of_neutrino_mean_tau": 0.6315465469814082
+    },
+    {
+      "variant": "outer_mu2",
+      "mu_numu_override_for_r_ge_15_km_MeV": 2.0,
+      "luminosity_erg_s": 2.440807205676282e+52,
+      "relative_to_baseline": 0.001469979547985334,
+      "outer_15_25_fraction_of_neutrino_mean_tau": 0.6309828052928595
+    }
+  ],
+  "mu_nutau_outer_profile_stress_test": [
+    {
+      "variant": "baseline_mu_nutau_zero",
+      "mu_nutau_override_for_r_ge_15_km_MeV": 0.0,
+      "luminosity_erg_s": 2.4372245354553146e+52,
+      "relative_to_baseline": 0.0,
+      "outer_15_25_fraction_of_neutrino_mean_tau": 0.6316703762143008
+    },
+    {
+      "variant": "outer_mu_nutau_1MeV",
+      "mu_nutau_override_for_r_ge_15_km_MeV": 1.0,
+      "luminosity_erg_s": 2.4384847761167536e+52,
+      "relative_to_baseline": 0.0005170802456260226,
+      "outer_15_25_fraction_of_neutrino_mean_tau": 0.6314995304887965
+    },
+    {
+      "variant": "outer_mu_nutau_2MeV",
+      "mu_nutau_override_for_r_ge_15_km_MeV": 2.0,
+      "luminosity_erg_s": 2.4422383681857125e+52,
+      "relative_to_baseline": 0.002057189502838064,
+      "outer_15_25_fraction_of_neutrino_mean_tau": 0.6309918283646125
+    },
+    {
+      "variant": "outer_mu_nutau_5MeV",
+      "mu_nutau_override_for_r_ge_15_km_MeV": 5.0,
+      "luminosity_erg_s": 2.4674847392192814e+52,
+      "relative_to_baseline": 0.01241584569815335,
+      "outer_15_25_fraction_of_neutrino_mean_tau": 0.6276237232568341
+    },
+    {
+      "variant": "outer_mu_nutau_10MeV",
+      "mu_nutau_override_for_r_ge_15_km_MeV": 10.0,
+      "luminosity_erg_s": 2.5465706646434715e+52,
+      "relative_to_baseline": 0.04486502068129283,
+      "outer_15_25_fraction_of_neutrino_mean_tau": 0.6175776121856745
+    }
+  ],
+  "opacity_only_shell_sensitivity": [
+    {
+      "case": "baseline",
+      "shell_opacity_scales": {},
+      "luminosity_erg_s": 2.4372245354553146e+52,
+      "relative_to_baseline": 0.0,
+      "warning": "Opacity-only perturbation; not a physical profile variation."
+    },
+    {
+      "case": "remove_neutrino_pair_absorption_15-20km",
+      "shell_opacity_scales": {
+        "15-20km": 0.0
+      },
+      "luminosity_erg_s": 1.3123036251254084e+53,
+      "relative_to_baseline": 4.384418243107207,
+      "warning": "Opacity-only perturbation; not a physical profile variation."
+    },
+    {
+      "case": "half_neutrino_pair_absorption_15-20km",
+      "shell_opacity_scales": {
+        "15-20km": 0.5
+      },
+      "luminosity_erg_s": 5.337568007301953e+52,
+      "relative_to_baseline": 1.1900189866194686,
+      "warning": "Opacity-only perturbation; not a physical profile variation."
+    },
+    {
+      "case": "double_neutrino_pair_absorption_15-20km",
+      "shell_opacity_scales": {
+        "15-20km": 2.0
+      },
+      "luminosity_erg_s": 6.559054367185026e+51,
+      "relative_to_baseline": -0.7308801765381997,
+      "warning": "Opacity-only perturbation; not a physical profile variation."
+    },
+    {
+      "case": "remove_neutrino_pair_absorption_20-25km",
+      "shell_opacity_scales": {
+        "20-25km": 0.0
+      },
+      "luminosity_erg_s": 2.0671855779394436e+53,
+      "relative_to_baseline": 7.481719873845183,
+      "warning": "Opacity-only perturbation; not a physical profile variation."
+    },
+    {
+      "case": "half_neutrino_pair_absorption_20-25km",
+      "shell_opacity_scales": {
+        "20-25km": 0.5
+      },
+      "luminosity_erg_s": 5.372917155593229e+52,
+      "relative_to_baseline": 1.2045228403994699,
+      "warning": "Opacity-only perturbation; not a physical profile variation."
+    },
+    {
+      "case": "double_neutrino_pair_absorption_20-25km",
+      "shell_opacity_scales": {
+        "20-25km": 2.0
+      },
+      "luminosity_erg_s": 6.218296607192418e+51,
+      "relative_to_baseline": -0.7448615621280567,
+      "warning": "Opacity-only perturbation; not a physical profile variation."
+    },
+    {
+      "case": "remove_neutrino_pair_absorption_15-25km",
+      "shell_opacity_scales": {
+        "15-20km": 0.0,
+        "20-25km": 0.0
+      },
+      "luminosity_erg_s": 2.7465835546192108e+54,
+      "relative_to_baseline": 111.69308652787309,
+      "warning": "Opacity-only perturbation; not a physical profile variation."
+    }
+  ],
+  "quadrature_convergence": [
+    {
+      "case": "baseline_40_16_32",
+      "nr": 40,
+      "na": 16,
+      "ns": 32,
+      "luminosity_erg_s": 2.4372245354553146e+52,
+      "relative_to_baseline": 0.0
+    },
+    {
+      "case": "double_angular_path_40_32_64",
+      "nr": 40,
+      "na": 32,
+      "ns": 64,
+      "luminosity_erg_s": 2.437306383535724e+52,
+      "relative_to_baseline": 3.358249484963771e-05
+    },
+    {
+      "case": "triple_angular_path_40_48_96",
+      "nr": 40,
+      "na": 48,
+      "ns": 96,
+      "luminosity_erg_s": 2.4373384821246074e+52,
+      "relative_to_baseline": 4.6752635071145576e-05
+    },
+    {
+      "case": "double_radial_and_angular_path_80_32_64",
+      "nr": 80,
+      "na": 32,
+      "ns": 64,
+      "luminosity_erg_s": 2.449247627780065e+52,
+      "relative_to_baseline": 0.00493310819329329
+    }
+  ],
+  "interpretation": [
+    "The inverse-decay reduced opacity is split into nu_mu and nu_tau channels and summed back to the existing total reduced opacity; the rate identity is checked numerically.",
+    "At low outer temperatures the reduced opacity approaches the time-dilated vacuum-decay limit. Therefore a falling T(r) does not make the outer neutrino absorption vanish.",
+    "The public Caputo plot resolves |mu_nu_mu| only above about 1 MeV. The zero-filled outer tail is an input convention, not an exact raw-profile statement; constant 1 and 2 MeV outer envelopes quantify its effect with production and absorption recomputed together.",
+    "No separate mu_nu_tau curve is present in the public Caputo profile. The baseline sets mu_nu_tau=0; constant 1, 2, 5 and 10 MeV outer stress tests quantify sensitivity but are not alternative physical profiles.",
+    "The absorber-shell optical-depth table is weighted over the actual production source, emitted energies, and isotropic directions. It distinguishes absorber radius from production radius.",
+    "Opacity-only shell removal is a diagnostic decomposition and is not a physical alternative prediction.",
+    "No arbitrary opacity multiplier or fitted profile is adopted."
+  ]
+}

@@ -1,0 +1,181 @@
+name: Major 4.4 EFT numerical validation
+
+on:
+  push:
+    branches:
+      - codex/major44-axial-cooling-constraints-20261105
+    paths:
+      - 'research/stellar-cooling-constraints-20261105/*.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/**'
+      - '!research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/**'
+      - 'research/stellar-cooling-constraints-20261105/finite_mixing/**'
+      - '!research/stellar-cooling-constraints-20261105/finite_mixing/outputs/**'
+      - '!research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/outputs/**'
+      - '!research/stellar-cooling-constraints-20261105/blinov_reproduction/diagnose_fig7_10mev_three_layer.py'
+      - '!research/stellar-cooling-constraints-20261105/blinov_reproduction/test_fig7_10mev_three_layer.py'
+      - '!research/stellar-cooling-constraints-20261105/blinov_reproduction/FIG7_10MEV_THREE_LAYER_AUDIT_2026-11-07.md'
+      - '!research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_three_layer.json'
+      - 'research/stellar-cooling-constraints-20261105/outputs/vector_audit/**'
+      - 'research/stellar-cooling-constraints-20261105/data/**'
+      - 'research/stellar-cooling-eft-literature-20261105/*.py'
+      - '.github/workflows/major44-eft-regression.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: major44-eft-validation-${{ github.ref }}
+  # A newer commit supersedes a queued or running validation of an older branch head.
+  # Keep a complete numerical validation alive; newer commits queue behind it.
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    if: github.event_name == 'workflow_dispatch' || github.ref_name == 'codex/major44-axial-cooling-constraints-20261105'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Checkout exact triggering commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy matplotlib pymupdf==1.26.7
+      - name: Verify C4C3 direct-recomputation SHA-256 manifest
+        run: |
+          python - <<'PY'
+          import hashlib
+          from pathlib import Path
+
+          root = Path("research/stellar-cooling-constraints-20261105/blinov_reproduction/c4c3_direct_local_recomputation_2026-11-11")
+          manifest = root / "SHA256SUMS.txt"
+          failures = []
+          checked = 0
+          for line in manifest.read_text(encoding="utf-8").splitlines():
+              if not line.strip():
+                  continue
+              expected, name = line.split(maxsplit=1)
+              path = root / name.lstrip("*")
+              if not path.is_file():
+                  failures.append(f"MISSING {path}")
+                  continue
+              actual = hashlib.sha256(path.read_bytes()).hexdigest()
+              checked += 1
+              if actual != expected:
+                  failures.append(f"SHA256 {path.name}: {actual} != {expected}")
+              else:
+                  print(f"OK {path.name}")
+          if failures:
+              raise SystemExit("\\n".join(failures))
+          print(f"Verified {checked} C4C3 SHA-256 entries.")
+          PY
+      - name: Verify SFHo/FRDM release manifest and reconstruct vendored archives
+        run: |
+          python - <<'PY'
+          import importlib.util
+          from pathlib import Path
+
+          root = Path("research/stellar-cooling-constraints-20261105/blinov_reproduction")
+          spec = importlib.util.spec_from_file_location("sfho_download", root / "sfho_frdm_v1.03_download.py")
+          module = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(module)
+          manifest = {}
+          for line in (root / "sfho_frdm_v1.03_manifest.sha256").read_text(encoding="utf-8").splitlines():
+              if line.strip():
+                  digest, name = line.split(maxsplit=1)
+                  manifest[name.strip()] = digest
+          expected = {entry["name"]: entry["sha256"] for entry in module.FILES}
+          if manifest != expected:
+              raise SystemExit(f"Release manifest differs from downloader metadata: {manifest!r} != {expected!r}")
+          print(f"Release manifest matches all {len(expected)} downloader entries.")
+          PY
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/reassemble_sfho_frdm_archives.py --dest "$RUNNER_TEMP/sfho-frdm-v1.03"
+      - name: Run research-level rate, transport, and independent kernel tests
+        env:
+          PYTHONPATH: ${{ github.workspace }}/research/stellar-cooling-constraints-20261105:${{ github.workspace }}/research/stellar-cooling-constraints-20261105/blinov_reproduction:${{ github.workspace }}/research/stellar-cooling-eft-literature-20261105
+        run: |
+          python -m unittest discover -s research/stellar-cooling-constraints-20261105 -p 'test_*.py' -v
+      - name: Run Blinov reproduction and EOS regression tests
+        env:
+          PYTHONPATH: ${{ github.workspace }}/research/stellar-cooling-constraints-20261105:${{ github.workspace }}/research/stellar-cooling-constraints-20261105/blinov_reproduction:${{ github.workspace }}/research/stellar-cooling-eft-literature-20261105
+        run: |
+          python -m unittest discover -s research/stellar-cooling-constraints-20261105/blinov_reproduction -p 'test_*.py' -v
+      - name: Run reference scans and independent rate audits
+        env:
+          PYTHONPATH: ${{ github.workspace }}/research/stellar-cooling-constraints-20261105:${{ github.workspace }}/research/stellar-cooling-constraints-20261105/blinov_reproduction:${{ github.workspace }}/research/stellar-cooling-eft-literature-20261105
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py \
+            --masses 1,10,100,200 --nr 40 --ne 100 --na 16 --ns 32 \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_literal_scan.json
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/compare_reference.py \
+            --scan research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_literal_scan.json \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig4_fig7_comparison.json
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/diagnose_fig7_10mev_numu.py \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_numu_sensitivity.json
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/diagnose_fig7_10mev_opacity.py \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_opacity_sensitivity.json
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/compton_detailed_balance_audit.py \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/compton_detailed_balance_audit.json
+          python research/stellar-cooling-constraints-20261105/audit_muon_susceptibility.py --check --output research/stellar-cooling-constraints-20261105/outputs/vector_audit/muon_susceptibility_charge_audit.json
+          python research/stellar-cooling-eft-literature-20261105/check_literature_kernels.py \
+            --matrix-script research/stellar-cooling-eft-literature-20261105/reference_matrix_element.py \
+            --output research/stellar-cooling-eft-literature-20261105/literature_kernel_validation.json
+      - name: Validate saved scans and regenerate figures
+        run: |
+          python research/stellar-cooling-constraints-20261105/validate_outputs.py
+          python research/stellar-cooling-constraints-20261105/plot_constraints.py
+      - name: Check numerical validation records are reproducible
+        run: |
+          git diff --exit-code -- \
+            research/stellar-cooling-constraints-20261105/outputs/numerical_validation.json \
+            research/stellar-cooling-constraints-20261105/outputs/vector_audit/muon_susceptibility_charge_audit.json
+          echo "The independent kernel checker is tolerance-based; its JSON may differ in final floating-point digits across runners."
+      - name: Publish regenerated figure assets
+        if: success()
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          BRANCH="${{ github.ref_name }}"
+          git fetch origin "$BRANCH"
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_literal_scan.json
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig4_fig7_comparison.json
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_numu_sensitivity.json
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_opacity_sensitivity.json
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/compton_detailed_balance_audit.json
+          if git diff --cached --quiet; then
+            echo "Reply figure assets are already current."
+          else
+            git commit -m "Archive independent Blinov reference scan and comparison"
+            # Plot regeneration may leave unrelated generated files unstaged.
+            # Stash those artifacts before rebasing the selected, committed outputs.
+            git stash push --include-untracked -m "temporary unselected generated artifacts"
+            if ! git pull --rebase origin "$BRANCH"; then
+              # These JSON outputs are deterministic products of the exact
+              # triggering commit. Prefer this run's outputs if another run
+              # archived a different run_commit_sha concurrently.
+              git checkout --theirs -- \
+                research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_literal_scan.json \
+                research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig4_fig7_comparison.json \
+                research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_numu_sensitivity.json \
+                research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_opacity_sensitivity.json \
+                research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/compton_detailed_balance_audit.json
+              git add \
+                research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/blinov_literal_scan.json \
+                research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig4_fig7_comparison.json \
+                research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_numu_sensitivity.json \
+                research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_opacity_sensitivity.json \
+                research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/compton_detailed_balance_audit.json
+              GIT_EDITOR=true git rebase --continue
+            fi
+            git push origin "HEAD:${BRANCH}"
+          fi

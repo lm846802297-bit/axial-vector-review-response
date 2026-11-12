@@ -1,0 +1,254 @@
+{
+  "source": "Esseili & Kribs, Phys. Rev. D 114, 016023 (2026), DOI 10.1103/718s-7k7v; checksum-pinned SCOAP3 copy of the published APS PDF",
+  "source_urls": [
+    "https://repo.scoap3.org/records/109482",
+    "https://scoap3-prod-backend.s3.cern.ch/media/harvested_files/10.1103/718s-7k7v/718s-7k7v.pdf",
+    "https://journals.aps.org/prd/pdf/10.1103/718s-7k7v"
+  ],
+  "source_pdf_sha256": "c3b92fe6cf2a8bd3fec84925e2baababfe0c707327a68135013f953ed3d87d43",
+  "source_pdf_bytes": 2749668,
+  "pdf_page_index_zero_based": 14,
+  "printed_page": 15,
+  "path_indices": {
+    "T_SFHo18p8": 25,
+    "n": 181,
+    "p": 182
+  },
+  "plot_frames_pdf_points": {
+    "T_SFHo18p8": [
+      79.77400207519531,
+      48.8079833984375,
+      294.02099609375,
+      166.64398193359375
+    ],
+    "n": [
+      338.89697265625,
+      48.8079833984375,
+      553.1439819335938,
+      166.64398193359375
+    ],
+    "p": [
+      338.89697265625,
+      48.8079833984375,
+      553.1439819335938,
+      166.64398193359375
+    ]
+  },
+  "axis_calibration": {
+    "radius_left": "(x_pdf - 76.814010620)/9.872998962",
+    "radius_right": "(x_pdf - 335.936508179)/9.873139038",
+    "temperature": "(y_pdf - 170.506339518)/-1.931714216",
+    "density_candidate": "log10(n/n0) = -4 + (166.643982 - y_pdf)/25.6; n0=0.181 fm^-3",
+    "density_alternative_literal_top_tick": "10 times the candidate density"
+  },
+  "density_axis_label_issue": {
+    "visual_reading_of_upper_tick_glyphs": [
+      "10",
+      "1",
+      "10^-2",
+      "10^-3",
+      "10^-4"
+    ],
+    "axis_tick_labels_are_extractable_text": false,
+    "axis_tick_text_spans_found_in_right_margin": 0,
+    "equal_tick_spacing_pdf_points": [
+      25.56,
+      25.6,
+      25.61,
+      25.61
+    ],
+    "interpretation": "The right-panel tick labels are not exposed as PDF text spans in the margin; they are vector glyphs. At the available raster resolution the upper two glyphs are visually ambiguous. Equal log spacing anchored by the lower three labels implies top-to-bottom tick values 1, 10^-1, 10^-2, 10^-3, 10^-4. A literal reading of the upper glyphs as 10 and 1 gives a density scale ten times larger and fails the same-model Caputo free-nucleon cross-check. Both mappings are retained; the corrected mapping is selected as a physically cross-validated calibration, not as proof of a typesetting error."
+  },
+  "normalization_n0_fm3": 0.181,
+  "curves": {
+    "T_SFHo18p8": {
+      "path_index": 25,
+      "stroke_rgb": [
+        1.0,
+        0.5097886919975281,
+        0.019607843831181526
+      ],
+      "point_count_after_bezier_flattening_and_clipping": 386,
+      "visible_radius_km": [
+        0.29980672198489317,
+        22.000102127102938
+      ],
+      "peak_T_MeV": 39.22233871753525,
+      "peak_radius_km": 8.380531829361315
+    },
+    "n": {
+      "path_index": 181,
+      "stroke_rgb": [
+        0.0,
+        0.5097886919975281,
+        0.7842984795570374
+      ],
+      "point_count_after_bezier_flattening_and_clipping": 337,
+      "visible_radius_km": [
+        0.2998503784985858,
+        21.915876341658787
+      ],
+      "visible_n_over_n0_corrected": [
+        0.0001,
+        1.5204971397530478
+      ]
+    },
+    "p": {
+      "path_index": 182,
+      "stroke_rgb": [
+        0.20000000298023224,
+        0.7293965220451355,
+        1.0
+      ],
+      "point_count_after_bezier_flattening_and_clipping": 473,
+      "visible_radius_km": [
+        0.2998503784985858,
+        19.297861710118813
+      ],
+      "visible_n_over_n0_corrected": [
+        0.0001,
+        0.4226079866215081
+      ]
+    }
+  },
+  "right_panel_axis_text_spans": [],
+  "top_page_text_words": [
+    {
+      "text": "HIDING",
+      "bbox_pdf_points": [
+        54.02830123901367,
+        24.072113037109375,
+        90.94140625,
+        34.57221221923828
+      ]
+    },
+    {
+      "text": "A",
+      "bbox_pdf_points": [
+        94.61749267578125,
+        24.072113037109375,
+        102.15656280517578,
+        34.57221221923828
+      ]
+    },
+    {
+      "text": "LIGHT",
+      "bbox_pdf_points": [
+        105.78645324707031,
+        24.072113037109375,
+        136.92555236816406,
+        34.57221221923828
+      ]
+    },
+    {
+      "text": "VECTOR",
+      "bbox_pdf_points": [
+        140.59323120117188,
+        24.072113037109375,
+        182.16522216796875,
+        34.57221221923828
+      ]
+    },
+    {
+      "text": "BOSON",
+      "bbox_pdf_points": [
+        185.83184814453125,
+        24.072113037109375,
+        221.23399353027344,
+        34.57221221923828
+      ]
+    },
+    {
+      "text": "FROM",
+      "bbox_pdf_points": [
+        224.89117431640625,
+        24.072113037109375,
+        254.13711547851562,
+        34.57221221923828
+      ]
+    },
+    {
+      "text": "TERRESTRIAL",
+      "bbox_pdf_points": [
+        257.7722473144531,
+        24.072113037109375,
+        327.0938720703125,
+        34.57221221923828
+      ]
+    },
+    {
+      "text": "\u2026",
+      "bbox_pdf_points": [
+        330.74688720703125,
+        23.631595611572266,
+        341.2469787597656,
+        34.13169860839844
+      ]
+    },
+    {
+      "text": "PHYS.",
+      "bbox_pdf_points": [
+        403.2574462890625,
+        24.072113037109375,
+        432.5527038574219,
+        34.57221221923828
+      ]
+    },
+    {
+      "text": "REV.",
+      "bbox_pdf_points": [
+        436.1416320800781,
+        24.072113037109375,
+        458.3273010253906,
+        34.57221221923828
+      ]
+    },
+    {
+      "text": "D",
+      "bbox_pdf_points": [
+        461.9949951171875,
+        24.072113037109375,
+        469.5340576171875,
+        34.57221221923828
+      ]
+    },
+    {
+      "text": "114,",
+      "bbox_pdf_points": [
+        473.2164611816406,
+        23.98398208618164,
+        491.5916748046875,
+        34.48408126831055
+      ]
+    },
+    {
+      "text": "016023",
+      "bbox_pdf_points": [
+        495.213134765625,
+        24.072113037109375,
+        526.7135009765625,
+        34.57221221923828
+      ]
+    },
+    {
+      "text": "(2026)",
+      "bbox_pdf_points": [
+        530.3076782226562,
+        24.072113037109375,
+        558.0700073242188,
+        34.57221221923828
+      ]
+    }
+  ],
+  "digitization_uncertainty_estimate": {
+    "curve_stroke_width_pt": 1.0709999799728394,
+    "radius_half_stroke_km": 0.054238068350978524,
+    "temperature_half_stroke_MeV": 0.2772149138636136,
+    "density_half_stroke_decades": 0.02091796835884452
+  },
+  "caveats": [
+    "These are published-figure vector paths, not raw Garching profile data.",
+    "The right-panel density axis has a top-two-tick label inconsistency; both literal and cross-checked corrected transforms are archived.",
+    "The n and p paths are compared with Caputo reconstructed free-neutron and free-proton curves from the same Garching SFHo-18.8 model lineage."
+  ]
+}

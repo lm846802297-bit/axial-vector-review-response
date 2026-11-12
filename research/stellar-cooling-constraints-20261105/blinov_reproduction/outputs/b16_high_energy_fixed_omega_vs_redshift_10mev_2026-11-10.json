@@ -1,0 +1,103 @@
+{
+  "result": {
+    "title": "10 MeV high-energy B.2 fixed-omega versus path-redshift comparison",
+    "status": "direct_V8_cross_runtime_energy_resolved_diagnostic",
+    "input_head": "8406eb809d2485f2489645bc1d05a7e42aaabb67",
+    "mass_MeV": 10,
+    "coupling": 4.171689650228597e-8,
+    "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+    "configuration": {
+      "emission_energy_band_MeV": [
+        210,
+        510
+      ],
+      "energy_sub_bands": [
+        {
+          "name": "210-300 MeV",
+          "lo": 210,
+          "hi": 300
+        },
+        {
+          "name": "300-510 MeV",
+          "lo": 300,
+          "hi": 510
+        }
+      ],
+      "source_radial_order": 200,
+      "opacity_radial_order": 640,
+      "energy_order": 200,
+      "energy_nodes": 842,
+      "angular_order": 32,
+      "path_order": 64,
+      "opacity_interpolation": "bilinear in radius and local energy for path-redshift variant",
+      "fixed_omega": "omega_local(s)=omega_source",
+      "path_redshift": "omega_local(s)=omega_source*N(r_source)/N(r(s)); v evaluated at local energy",
+      "source_weights": "same B.1 local-source-energy weights for both variants"
+    },
+    "fixed_omega": {
+      "source_per_g2": 4.1685932063136875e+69,
+      "escaped_per_g2": 9.778689668356957e+66,
+      "escape_probability": 0.0023458008935835486,
+      "mean_tau_source_weighted": 7.719324707454048,
+      "mean_tau_escape_weighted": 4.958114069366762,
+      "nu_source_fraction": 0.49876420234641694,
+      "compton_source_fraction": 0.5012357976535877,
+      "nu_escaped_source_fraction": 0.48397470773605505,
+      "compton_escaped_source_fraction": 0.5160252922639569,
+      "escaped_luminosity_erg_s": 1.7017848288549594e+52
+    },
+    "path_redshift": {
+      "source_per_g2": 4.1685932063136875e+69,
+      "escaped_per_g2": 7.031378982407066e+66,
+      "escape_probability": 0.0016867510535106777,
+      "mean_tau_source_weighted": 8.116942480781637,
+      "mean_tau_escape_weighted": 5.211514088244063,
+      "nu_source_fraction": 0.49876420234641694,
+      "compton_source_fraction": 0.5012357976535877,
+      "nu_escaped_source_fraction": 0.48408382379871867,
+      "compton_escaped_source_fraction": 0.5159161762012825,
+      "escaped_luminosity_erg_s": 1.223670500242034e+52
+    },
+    "relative_change": {
+      "escaped_luminosity": -0.28094875480504966,
+      "escape_probability": -0.28094875480504977,
+      "mean_tau_source_weighted": 0.05150939860628423
+    },
+    "sub_bands": [
+      {
+        "bin": "210-300 MeV",
+        "fixed_escape_probability": 0.001630754518318522,
+        "path_redshift_escape_probability": 0.0011308450855394185,
+        "relative_escaped_luminosity_change": -0.3065510027190127,
+        "luminosity_fixed_erg_s": 9.61115835049865e+51,
+        "luminosity_redshift_erg_s": 6.664848120862076e+51
+      },
+      {
+        "bin": "300-510 MeV",
+        "fixed_escape_probability": 0.0054424440195949145,
+        "path_redshift_escape_probability": 0.004094206645169018,
+        "relative_escaped_luminosity_change": -0.2477264570056611,
+        "luminosity_fixed_erg_s": 7.406689938051293e+51,
+        "luminosity_redshift_erg_s": 5.571856881558366e+51
+      }
+    ],
+    "checks": {
+      "fixed_source_per_g2": 4.1685932063136875e+69,
+      "expected_source_per_g2": 4.168593206313689e+69,
+      "fixed_source_relative_residual": -3.3306690738754696e-16,
+      "fixed_escape_per_g2": 9.778689668356957e+66,
+      "expected_escape_per_g2": 9.778689668356957e+66,
+      "fixed_escape_relative_residual": 0
+    },
+    "execution": {
+      "engine": "OpenAI Code Mode V8 JavaScript binary64",
+      "elapsed_seconds": 5.683,
+      "qualification": "Cross-runtime diagnostic; V8-generated grids are not bitwise-identical to NumPy grids."
+    },
+    "limitations": [
+      "Path-redshift is a sensitivity variant, not the printed fixed-omega B.2 baseline or a full GR ray trace.",
+      "The Euclidean chord is retained; no proper spatial metric or ray bending is introduced.",
+      "No source, coupling, or axial-vector result is modified."
+    ]
+  }
+}

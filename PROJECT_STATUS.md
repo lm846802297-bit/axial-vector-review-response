@@ -16,8 +16,59 @@
 
 # PROJECT_STATUS — Axial-vector paper revision and referee response
 
-## 2026-11-09 最终更新：PR #67 回复信写作风格统一（已 Squash merge）
+## 2026-11-12 最新分支、校验和与 Run #158 审计
 
+- **main 基准与活跃分支同步：** `main=310a24a53e8448f0388072cfdbf55749fde713f9`。四个开放 PR（#53、#56、#68、#69）以及五个持续研究/数据分支（C4-C4、moving-muon、P1-IIIe EOS、PR57 source bundle、SFHo/FRDM transfer）均逐个执行 `main...head` 比较，九个分支全部 `behind_by=0`，均保留各自独有提交。比较结果：#53 14/0、#56 734/0、#68 26/0、#69 412/0、C4-C4 659/0、moving-muon 1536/0、P1-IIIe EOS 1350/0、PR57 source bundle 1125/0、SFHo/FRDM transfer 1342/0（格式均为 ahead/behind）。PR #53、#56、#68、#69 仍保持 Open / Draft；PR #56 在本记录更新前 head 为 `960f4079287a05f820f66d45e387d6a42c0b5e53`。
+- **moving-muon 研究分支同步：** `research/moving-muon-thermal-rates-20261107` 原 head `004d640f6a2f10fef149580eba89b41c1c9acfd9`，相对 main 原先 `ahead_by=1535, behind_by=48`。已采用双父节点 merge commit `5f4c91fa0294a3007d5f6e812ceb1b938c5d7895` 将 main 合入，保留原分支研究历史、README 和 neutrino inverse-decay 审计脚本，采用 main 已纠正的 B.16 外层输入审计，并携带当前 PR #56 的回复信、PDF、项目状态和正文同步清单。未 force-push；合并后比较为 `ahead_by=1536, behind_by=0`。该分支的 LaTeX build 已由 Run [#43151746827](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43151746827) 触发，等待 PDF 构建验收。
+- **Run #158（2026-11-12）：** [Major 4.4 EFT numerical validation](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43135845410) 在触发提交 `071d19490bc3` 上运行，最终为 `cancelled`，不是测试断言失败。日志明确显示 job 的 `timeout-minutes: 25`；第一组 unittest 完成 337 项、1 项按设计跳过，其余通过；第二组测试在取消前又记录 92 个 `... ok`，但没有最终测试汇总。日志没有 `FAILED`、`ERROR`、Traceback 或 AssertionError。第二组及后续数值扫描、输出重建和归档步骤均未完成。由于该 run 的 SHA `071d194` 比当前 PR #56 head `75251a5` 落后一个 PDF/audit 提交，即使旧 run 的测试阶段通过，也不能作为当前 head 的完整验收。
+- **失败分类：** 当前唯一能确认的直接原因是 CI job 25 分钟超时；不能归类为物理计算错误，也不能归类为测试条件断言错误。现有测试通过记录仅覆盖已完成的测试，不替代未完成的后续验证。
+- **Run #43151547062（当前 PR #56 head）：** 在 head `960f407` 上重新启动完整 Major 4.4 workflow。C4C3 14 项和 SFHo/FRDM 实际归档校验步骤均已通过；截至本次状态更新，第一组 research-level unittest 正在运行，尚无最终汇总。较早的 Run #43150499259 在父提交 `e9a0223` 上也通过同一组 checksum gates，仍在运行；它不是当前 head 的最终验收替代品。
+- **Run #43149443570（2026-11-12）：** 新的 90 分钟 workflow 已完成 C4C3 14 项 SHA-256 检查及 SFHo/FRDM manifest、分块、BIN 重组检查；随后进入 Blinov/EOS unittest，但该 run 最终 `cancelled`，没有最终测试汇总，也未执行后续 reference scans、saved-output validation 或 figure regeneration。日志没有 `FAILED`、`ERROR`、Traceback 或 AssertionError；取消发起者未在可读 run metadata 中披露，不能推断为物理错误或断言失败。该 run 证明前置 checksum gates 通过，不构成数值 CI 完整通过。
+- **C4C3 归档 SHA-256：** 对 `c4c3_direct_local_recomputation_2026-11-11/SHA256SUMS.txt` 中全部 14 个条目，从 PR #56 当前文件内容重新取得原始字节并独立计算 SHA-256，14/14 与清单完全一致。包括 301×4 径向率、1204 条逐项对照、opacity/tau、checkpoint、summary、源码及 provenance。归档结论仍限定为固定局域能量、平直空间径向散射光学深度诊断，不等同于完整输运解。
+- **SFHo/FRDM v1.03 归档：** GitHub Release `sfho-frdm-v1.03-data` 五项资产 digest 与顶层 `sfho_frdm_v1.03_manifest.sha256` 逐项一致。Run [#43149443570](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43149443570) 的归档步骤已实际校验三个 BIN 分块（62,914,560 B、62,914,560 B、35,262,951 B），逐片 SHA-256 全部通过；重组得到 161,092,071 B 的 `sfho_frdm_bin.zip`，SHA-256 为 `45479eaf46e1aa9b1ca3502baf4aaeea60ff0021a21d621f10a75eafb8b8949c`，与目标清单一致。SPP（28,240,340 B）和 COMP（45,332,354 B）实际字节校验也通过。Manual 与 Shen98 的 digest 与 GitHub Release 资产元数据一致；本次 runner 未重新下载这两个资产，故将其标记为 Release-digest 核对，而非本地字节重算。
+- **CI 修复：** Major 4.4 job 的 timeout 已提高到 90 分钟；将 concurrency 改为专属 `major44-eft-validation-${github.ref}` 组并设置 `cancel-in-progress: false`，避免新的提交或其他研究 workflow 中断正在运行的完整数值验收。C4C3 14 项 SHA-256 与 SFHo/FRDM 分块重组检查已在 Run #43149443570 实际通过。下一次 run 必须在当前 PR #56 head 上完整完成两组 unittest、reference scans、saved-output validation 和 figure regeneration，才可记为 CI 完整通过。
+- **物理验收边界不变：** 纯矢量 B.16 的 10 MeV 强耦合端仍为约 `2.43963596e52 erg/s`，相对 Blinov Fig. 7 高约 `92.4284%`；Fig. 7 物理复现仍未通过。Run #158 的取消或后续 CI 通过均不能改变该物理结论，也不解冻生产轴矢量限制曲线。
+
+
+> **P1-IIIe-B SFHo/FRDM v1.03 真实表数据与局域闭合（2026-11-11，后续数值修正）：** 官方 Basel 五个对象的获取器、五项 SHA-256 manifest 与 Release 归档已核对；Release tag sfho-frdm-v1.03-data 指向 e68eae83385dcb62b31b7fa12bf32f85a2e7a819，五个资产 digest 与 manifest 一致，总计 322,921,457 B。HTTP HEAD 的 --check-urls 只证明 HTTP 200 与 Content-Length 匹配，不被描述为远端内容哈希验证。224 点闭合采用 1024 阶 Gauss–Legendre；独立 1024/2048 对照在 448 个核子状态上的最大 Fdeg 绝对差为 4.7117e-8，数密度最大相对差为 1.0115e-8；1024 阶对 fixture 的最大 Fdeg 绝对差为 4.995e-11。旧 512 阶在冷、高密度中子状态可有 2.73% 偏差，因此 fixture 与原始表复算测试均已统一到 1024 阶。有效域仍为 224 点采样网格上的 208/224 格；中子最大偏差 6.1345e-4，质子（Xp≥1e-6）最大偏差 8.8578e-5。其余 16 格并非全部冻结：nB=1.10e-12 与 1e-10 fm⁻³ 的 8 格为明确平台；1e-8 的 4 格为过渡；1e-6 的 4 格更接近闭合但仍未满足 1e-3。16 格均为核子主导组成，Xn+Xp≈1，组成随 Yp 变化。自然单位稀释度在 T=63.096 MeV、nB=1e-6 fm⁻³ 时为 3.06e-5。核团比例统计代码已改为只使用 308 个物理密度行；由于本次未重读原始 composition archive，更新后的整表比例暂不作数值声明。五对象 Manifest、下载器与审计 JSON 的名称和哈希集合一致。本次独立 JavaScript fixture 交叉核验 12 组检查全部通过；这不是 Python unittest 运行结果。18 项 Python 测试（新增一项校验 vendored 分块布局）已在 head 5dd24ac 上、以 SFHO_TABLES_DIR 指向解包后的 v1.03 表重跑：P1-IIIe-A 15/15、P1-IIIe-B 18/18 全过。CI 也已在同一 head 通过（run 42922595906，success，23 s：fixture 路径 Ran 14 tests … OK (skipped=1)，四项原始表测试按设计跳过，自检断言块通过）。原始归档现已入库：spp/comp/manual 原样提交，161 092 071 B 的 extended 表拆为三个 60 MiB 分块，配 MANIFEST.sha256（7 条）与 reassemble_sfho_frdm_archives.py；往返重组与已发布文件逐字节一致（sha256 45479eaf…b8949c），shen98 仍只存 Release。本轮之前的「无新的 Python 测试或 CI 通过声明」等表述已被以上结果取代。
+
+> **2026-11-10 纯矢量 Fig. 7 复现状态：** PR #57 已于 2026-11-12 合并至 PR #56 的研究分支（合并提交 `60c69a0b810b679a90683e638fc0a3bc9dd209e4`）；原始来源分支保留用于历史溯源。当前统一背景为 vertex-preserving profile B，SHA-256 为 `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`。B.1 独立源项、B.2 独立路径、B.1+B.2 端到端重组和局域碰撞核检查已有成功的数值验收记录；最新高阶独立网格 B.16 基准在 10 MeV 强耦合端为 `2.43963596e52 erg/s`，相对 Fig. 7 高出 `92.4284%`，尚未通过物理复现验收。能量/方向分箱程序已修正子区域掩码并加入回归测试，但高阶分箱结果尚未生成。最后一次有意触发的资源预检 Run [#42663539198](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42663539198) 仍在 runner 分配前失败，`steps=null`、`logs_url=null`、没有 runner ID；不再重复触发空跑。下一次执行固定为恢复 Runner 后或本地运行同一脚本，且必须通过完全相同的网格哈希、基准闭合和分箱归一化验收。
+
+> **B.2 路径能量与径向插值的独立验收（2026-11-09）：** 固定 B.1 源项径向阶数 40、能量 100、角 16、路径 32，仅将 B.2 局域吸收率径向插值网格从 40 提高到 640。B.1 thin source 在所有插值网格间保持不变；三个质量点的最后两级 320→480、480→640 最大光度变化均小于 1%，因此独立 opacity 插值验收通过。两级变化分别为：0.1 MeV 0.4025%、0.1577%；1 MeV 0.1028%、0.0393%；10 MeV 0.00193%、0.00152%。但粗网格 40→640 对固定能量光度造成的最大变化分别达到 42.14%、9.73%、0.175%，说明此前低质量 B.2 基准存在严重的路径吸收率插值不足。采用 640 阶插值后，B.16 路径红移在峰值/强端的变化分别为：0.1 MeV −0.00747%/−5.9078%；1 MeV −0.51366%/−11.6001%；10 MeV −5.21614%/−28.8724%。这些结果取代原 40 阶径向插值下的低质量红移数值；它们仍是 B.16 矢量碰撞核下的 B.2 诊断，不是 B.13 精确核的传播结果。详见 [B.2 径向 opacity 插值收敛审计](research/stellar-cooling-constraints-20261105/blinov_reproduction/B2_OPACITY_INTERPOLATION_CONVERGENCE_2026-11-09.md) 与 JSON。Run [#42581429474](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42581429474) 全部通过。
+
+> **B.13 低质量全局收敛状态（2026-11-09）：** 0.1、1 MeV 的 B.13 全局径向/能量/角/路径积分与全网格碰撞核阶数检查正在运行，当前尚无最终验收结果。已通过的局域核收敛不替代全局 B.1+B.2 收敛；同时，B.2 矢量基准已显示路径 opacity 插值网格是低质量区的重要数值维度，因此 B.13 全局结果必须结合其自身的路径插值分辨率审查，不能仅依据 source radial order 40→80 的变化作最终结论。
+
+> **B.13 全局替换结果：** 在 10 MeV 纯矢量 benchmark 中，按单负缪子约定同时替换 B.1 Compton 源项和 B.2 Compton reduced opacity，得到弱端/峰值/强端偏差分别为 \\(-28.11\\%\\)、\\(-16.34\\%\\)、\\(+131.53\\%\\)。B.13 的 optically-thin 总源为 B.16 的 78.898%；B.13 负缪子 Compton 源为 B.16 Compton 源的 34.07%。源项与吸收项必须同时替换；source-only 和 opacity-only 结果仅为反事实诊断。该结果没有修复 B.16--Fig. 7 的差异，且尚不作为最终精度预测。
+
+> **数值与 CI 状态：** B.16 同网格闭合残差为 0；B.13 详细平衡最大残差约 \\(1.5\\times10^{-14}\\)，最终缪子质量壳残差约 \\(3.7\\times10^{-13}\\)。最新局域碰撞核全网格审计 Run [#42565336032](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42565336032) 成功；当前 vertex-preserving profile B 上的固定能量/路径红移三质量审计 Run [#42568420651](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42568420651) 也成功，JSON 已归档为 `outputs/b16_global_redshift_audit_2026-11-09.json`，其 profile SHA-256 与当前 9fb14e... 完全一致。重复并发 Run #42568424558 的数值步骤通过，但在首个 run 已归档同名输出后发生 add/add 归档冲突，不构成计算失败。B.13 全局 quadrature Run [#42542328275](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42542328275) 的计算和数值验证步骤通过，但归档上传步骤失败；另一个径向/能量扫描 Run [#42536610504](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42536610504) 成功。因此 B.13 全局替换仍标为独立诊断，不宣称所有收敛输出均已完整归档。
+
+> **正式版本文献边界：** JHEP 06 (2026) 155 的 Sec. 4.1 将 \\(\\omega\\) 描述为无穷远能量，而 Appendix B.1 的 \\(N(r)^2\\) 与 \\(m_V/N(r)\\) 下限对应源点局域能量；B.2 沿路径固定同一 \\(\\omega\\)。此外，论文给出完整 Compton 相空间式 B.13 及近似表达式 B.14--B.16，但 Fig. 7 文字没有明确指出数值实现采用哪一种，且文章未提供配套数据或代码。当前 B.16 仍是工作基准，不能据此声称已确认作者未公开代码的具体实现。详见 [能量与 Compton 处方文献复核](research/stellar-cooling-constraints-20261105/blinov_reproduction/B16_ENERGY_VARIABLE_AND_PATH_REDSHIFT_CONVENTION_AUDIT_2026-11-09.md)。
+
+> **B.2 路径能量与径向收敛审计（2026-11-09）：** 三质量点 fixed-\(\\omega\) 与 path-redshift-only 计算已完成。最高测试网格下，强耦合端红移敏感性分别为 −5.64%（0.1 MeV）、−11.55%（1 MeV）、−28.85%（10 MeV）；该分支仍是固定 Euclidean chord 的敏感性诊断，不是完整 GR。能量、角度、路径积分的单维加密均通过 1% 筛选，但径向 60→80 节点变化在 0.1、1 MeV 分别仍达 7.63%、1.87%，因此低质量全局曲线尚未收敛。独立吸收率插值审计显示 0.1 MeV 需至少约 240–320 节点才进入 1% 稳定区间。现已增加 B.1 源径向阶数 80–200、同时固定 640 节点 opacity grid 的解耦审计，运行中。详见 [B.2 路径能量与径向收敛状态](research/stellar-cooling-constraints-20261105/blinov_reproduction/B2_PATH_ENERGY_AND_RADIAL_CONVERGENCE_STATUS_2026-11-09.md)。
+
+> **B.13/B.16 三质量点对照（2026-11-09）：** 纯矢量 B.13 全局源项与吸收率已在 0.1、1、10 MeV 完整替换计算。主产生区 5--12 km 内，B.13/B.16 源项比约为 0.338、0.338、0.340；Compton 约化吸收率比约为 0.353、0.352、0.360。B.13 局域矩阵元在 (8 km,15 MeV)、(12.5 km,20 MeV)、(15 km,30 MeV) 的高阶积分检查均通过 0.1% 项目筛选阈值，0.1 与 1 MeV 的最大末级变化分别为 0.0283% 和 0.0288%。这不是全局 B.1+B.2 积分的收敛证明。三质量点的 Fig. 7 强耦合端偏差分别为 +0.33%、+138.84%、+131.59%；10 MeV 仅为超出低质量 Compton 适用区的压力测试。详见 [B.13/B.16 三质量点源项、吸收率与收敛审计](research/stellar-cooling-constraints-20261105/blinov_reproduction/B13_THREE_MASS_SOURCE_OPACITY_AND_CONVERGENCE_AUDIT_2026-11-09.md)。低质量局域核 Run [#42575922722](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42575922722) 通过。
+
+> **B.16 约化 Compton opacity 解析化简（2026-11-09）：** 将 B.16、B.19 和 B.4 直接合并后，显式 Bose 因子严格抵消，得到 `Gamma_abs* = [16 pi alpha alphaV/(3 m_mu^2)] (n_mu F_deg) [1+mV^2/(2 omega^2)]`；B.2 光学深度还需除以 `vV`。因此路径红移不会通过残留 Bose 因子改变约化 Compton opacity，而是通过有限质量项和 B.2 的 `1/vV` 改变它。详见 [跨质量 opacity 与能量约定诊断](research/stellar-cooling-constraints-20261105/blinov_reproduction/B16_CROSS_MASS_OPACITY_AND_ENERGY_CONVENTION_DIAGNOSTIC_2026-11-09.md)。
+
+> **22--25 km 中微子化学势敏感性（2026-11-09）：** 在当前 profile B 上，对 22--25 km 的 mu_numu 分别赋值 ±1、±3 MeV，并对每个情形完整重算 B.1+B.2。该壳层占 8--15 km 源项的 neutrino path-tau 19.1084%，但强耦合端逸出光度分别只改变 +0.0172% 和 +0.1505%；±号结果精确对称。说明该区间的路径吸收重要，但其未确定的 mu_numu 延拓在 ±3 MeV 测试范围内不是 Fig. 7 大偏差的原因。Run [#42572982267](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42572982267) 全部通过。详见 [22--25 km 中微子化学势敏感性审计](research/stellar-cooling-constraints-20261105/blinov_reproduction/B16_OUTER_NUMU_SENSITIVITY_22_25KM_2026-11-09.md)。
+
+> **B.14 非相对论缪子近似诊断（2026-11-09）：** 使用 B.17 的 susceptibility 权重 (p^2 f_\mu(1-f_\mu))，并按低质量 B.16 源项径向权重 (r^2N^2(n_\mu F_{\rm deg})T^4) 加权，得到缪子平均速度约 0.761、rms 速度约 0.775；约 93.2% susceptibility 权重满足 (v_\mu>0.5)，约 71.7% 满足 (p_\mu>m_\mu)。约 79.1% 的低质量 Compton 源来自 8--12 km，该区间平均速度约 0.74--0.78。因此 B.14 的非相对论/无反冲近似在主要源区并非显然受控；这只是分布诊断，不等同于 B.13 速率误差，需由 0.1、1 MeV 的全局 B.13 对照定量判断。详见 [B.14 非相对论缪子近似诊断](research/stellar-cooling-constraints-20261105/blinov_reproduction/B13_NONRELATIVISTIC_MUON_APPROXIMATION_DIAGNOSTIC_2026-11-09.md)。独立脚本、测试和 JSON 已归档，Run [#42572394290](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42572394290) 全部通过。
+
+> **跨质量 opacity/能量约定诊断（2026-11-09）：** 当前 profile B 的 0.1、1、10 MeV 结果显示：B.16 Compton 源项份额分别为 99.978%、97.870%、32.005%；Compton 对 source-weighted mean opacity 的份额分别为 99.931%、93.471%、10.222%。10 MeV 的中微子逆衰变贡献了 89.778% 的平均光学深度，且 20--25 km 占总平均光学深度 28.895%。路径红移诊断在 10 MeV 改善强端偏差（+92.24% 到 +36.74%），但在 0.1、1 MeV 分别使强端偏差从 -36.16% 变为 -39.35%、从 -5.35% 变为 -16.17%；因此它不是可全质量采用的修正。详见 [跨质量 opacity 与能量约定诊断](research/stellar-cooling-constraints-20261105/blinov_reproduction/B16_CROSS_MASS_OPACITY_AND_ENERGY_CONVENTION_DIAGNOSTIC_2026-11-09.md)。
+
+> **方法重建纠正（2026-11-09）：** 缺少同快照 A(r)/M(r) 不妨碍复现 Blinov 发表版 Appendix B。其 B.1 使用 lapse 的 N(r)^2 与 m_V/N(r) 局域发射能量处方；B.2 明确使用欧几里得直线弦，未包含 A(r)、proper-distance 因子或测地线弯曲。这与其引用的 Caputo et al. arXiv:2201.09890 Supplemental C 一致：Garching pseudo-Newtonian 模型采用平直空间坐标，lapse 负责发射能量红移和 N^2 光度因子。A(r)/M(r) 仅是完整 GR 扩展所需，不是 Fig. 7 论文处方复现的前置条件。B.1 的局域源能量与无穷远守恒能量已通过精确 Jacobian 变换和独立数值积分验证为完全等价，三个通道的相对残差均为 0；对应 Run [#42573725261](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42573725261) 通过。唯一剩余的能量约定问题是 B.2 沿路径固定 omega 是否为字面局域能量，还是作者数值实现中隐含了 E_infinity/N(r')。详见 [发表版引力与能量处方重建](research/stellar-cooling-constraints-20261105/blinov_reproduction/B16_PUBLISHED_GRAVITY_AND_ENERGY_PRESCRIPTION_RECONSTRUCTION_2026-11-09.md)。
+
+> **物理输入边界：** Caputo 的 T(r) 与 mu_mu/T 在 5--20 km 与 Bollig Figs. 1、4 的直接矢量曲线交叉吻合；原始 Fig. 4 明确支持 Caputo 而非 Ferreira 的 mu_mu/T digitization。Caputo 的绝对 n_mu 与其自身 Fermi 积分一致，但 Bollig Fig. 3 的密度在 5--15 km 平均低约 5%，12--15 km 低约 8.8%；B.17 使用的是同一 T, mu_mu 分布决定的 susceptibility n_mu F_deg，不得按 Fig. 3 密度比直接重标度。20--25 km 的部分热力学输入仍属图像外延或未分辨分支。lapse N(r) 在 0--20 km 还得到 Zuowei Liu 2026-10-31 会议报告 slide 65 的独立视觉交叉支持，但这不是机器精度验证。原始 20--25 km 热力学剖面仍未完全核验；同快照 A(r)/M(r) 只影响可选完整 GR 扩展，不阻碍按论文 B.1--B.5 复现。
+
+> **原始数据获取审计（2026-11-09）：** 官方 Garching 目录列出的 Bollig/Hüdepohl 径向 hydro 数据、径向中微子数据以及 Robert Bollig 的 Python TOV solver 入口均返回 HTTP 401；官方目录明确说明部分档案需密码并要求联系数据负责人。arXiv:2610.35379 的后续研究同样指向 Garching archive，而不是提供独立公开镜像。当前没有获得同一快照的原始 (A(r))、(M(r)) 或 hydro 表。详见 [公开 profile 与 metric 数据可用性审计](research/stellar-cooling-constraints-20261105/blinov_reproduction/B16_PUBLIC_PROFILE_AND_METRIC_SOURCE_AVAILABILITY_AUDIT_2026-11-09.md)。不绕过访问控制，不以通用 TOV 求解器或其他快照替代原始数据。
+
+> **方法边界：** Fig. 7 工作基准继续采用 Appendix B.2 字面给出的标量、偏振求和吸收率；逐偏振传播、路径红移和 B.13 精确移动缪子计算保留为独立诊断。没有进行经验性源项/吸收率/光度重标度，没有修改生产轴矢量曲线、论文正文或正式回复信。只有纯矢量基准通过独立物理验收后，才解冻轴矢量限制曲线。最终验收结论见 [B16_VECTOR_BENCHMARK_ACCEPTANCE_GATE_2026-11-09.md](research/stellar-cooling-constraints-20261105/blinov_reproduction/B16_VECTOR_BENCHMARK_ACCEPTANCE_GATE_2026-11-09.md)：数值模块通过，但 Fig. 7 物理复现未通过；PR #57 保持 Open / Draft。
+
+> **2026-11-07 矢量 benchmark 更新：** 作者指定仅复现 Blinov et al.，采用现有重建剖面，不要求精细恒星模型或原始表作为前置条件。已定量对照该文 Fig. 4，发现偏振求和吸收率与逐偏振单粒子宽度的区别；完整 Fig. 7 中 10 MeV 光度仍有差异。旧“矢量端点 223 MeV”是稀疏采样误读，当前逐偏振计算闭合点约 259.1 MeV。详见 [矢量 benchmark 核查](research/stellar-cooling-constraints-20261105/VECTOR_BENCHMARK_AUDIT_2026-11-07.md)。PR #56 仍为 Draft；这些诊断并不构成最终物理验证。
+
+**历史基线快照日期：** 2026-11-06（PR #38–#50 已合并；PR #54、#55 已合并；PR #52 Closed / 未合并且保留研究分支；PR #53、#56 Open / Draft）。当前研究状态以本文档最上方的 2026-11-09 摘要及对应验收报告为准。
+
+## 2026-11-09 最终更新：PR #67 回复信写作风格统一（已 Squash merge）
 [PR #67](https://github.com/lm846802297-bit/axial-vector-review-response/pull/67) 从 PR #66 合并后的 main 基线 `d3b234efbce270cd92b7ea55e31e02680114fc3a` 创建，分支为 `review/referee-response-style-20261109`。本节记录最终编译、视觉检查、独立审稿人视角 diff 复核及最终合并状态。
 
 - **检索与写作依据：** 已核对原论文 `main-v6.tex`、正式回复信、长期写作规范、正文待同步清单、DEC-15 及 PR #64/#65 修订台账。英文科研文体以原论文 Abstract、Introduction、Model Setup 和 Conclusion 为直接参照；未将模型生成的中文材料误作个人英文写作样本。
@@ -102,9 +153,9 @@ PR #64 在独立审查基础上精简 Major 1.3、2、3、4.2–4.4 和 Minor 5�
 
 **删除/合并记录：** 仅合并相同命题、相同适用条件的重复总结；没有删除独立物理结论、公式、数值 benchmark、引用或计算适用范围。详细逐点记录见 [Major 2–4 回复结构审查与修订记录](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-09/Major2-4回复结构审查与修订记录_2026-11-09.md) §7。PR #64 仍待独立 reviewer 检查实际 diff；不自动合并。
 
-## 2026-11-06 更新：PR #55 Minor Points 论证扩充与长期写作规范
+## 2026-11-06 更新：PR #55 Minor Points 论证扩充与长期写作规范（已合并）
 
-[PR #55](https://github.com/lm846802297-bit/axial-vector-review-response/pull/55) 继续更新正式回复信及其写作规范，当前保持 Open、未合并。工作分支为 review/response-point-conclusions-20261106。
+[PR #55](https://github.com/lm846802297-bit/axial-vector-review-response/pull/55) 已于 2026-11-06 Squash Merge 至 main，合并提交为 [7ef9a4a65fc0f9afd25ed857325760775faf71bd](https://github.com/lm846802297-bit/axial-vector-review-response/commit/7ef9a4a65fc0f9afd25ed857325760775faf71bd)。以下保留该 PR 的正式回复信与写作规范修改记录。
 
 - **正式回复信：** 在此前 Major 3、Major 4.2、Major 4.3 和 Minor 6.5 结尾修订基础上，进一步扩充 Minor 1–5、6.1、6.2、6.4、6.5、6.6；Minor 6.3 经核对保持不变。所有非中微子问题继续采用原论文单 VEV \(S+\mathrm{VLL}\) 模型。
 - **后续最小纠错：** Major 3 明确原始 \(S\)-only 模型与可选 \(\sigma+3N_R\) seesaw 的区别；Major 4.3 统一 \(\mu/\tau\) 的带符号耦合并将 small-mixing 统一称为 condition/domain；Minor 3 澄清带符号耦合与绝对值；Minor 4 澄清四个混合角分别受同一数值上限约束而非彼此相等。另补充 Major 2 的 VLL Yukawa 微扰性依赖、Major 4.2 的保守不等式和 Major 4.4 的完整超新星输运限定。Major 1.3 的局部扫描边界保持不变。
@@ -115,7 +166,20 @@ PR #64 在独立审查基础上精简 Major 1.3、2、3、4.2–4.4 和 Minor 5�
 - **完整 LaTeX/PDF 验收：** 已通过 GitHub Actions Run [#3](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42146091113) 对 PR 分支源码完成 `latexmk -g -pdf -bibtex` 编译；最终 PDF 为 59 页 A4，根目录文件为 [Replies_to_Referee_3_referee_facing_2026-11-04.pdf](Replies_to_Referee_3_referee_facing_2026-11-04.pdf)，生成提交为 `8c21ff02a216e636e1655ddb0d1c38488ec6714b`。最终 LaTeX `.log` 无未解析引用/交叉引用，BibTeX `.blg` 无缺失条目或数据库错误；59 页均以 150 dpi 渲染并完成人工页面预览检查。未发现公式/表格裁切、缺字、溢出页边距、空白页或异常分页。仅有一处非阻塞 `Underfull \hbox`（badness 1199，TeX 第 555–557 行），未发现 `Overfull`。
 - **本轮未涉及：** 论文正文、图表和 BibTeX 数据库均未修改；完整数值脚本 clean-environment 重跑、detector-level collider 模拟和全仓库测试套件仍未执行。Actions 仅用于正式回复信编译、引用检查和页面渲染。
 
-**下一步：** 作者审阅 PR #55 的实际 TeX diff 与已编译 PDF，再决定是否合并。仅用于视觉检查的临时页面预览文件已在审阅后清理。PR #55 保持 Open、未合并。
+**合并状态：** PR #55 已合并至 main。其 59 页正式回复信 PDF 和视觉验收记录保留在本节；后续 Major 4.4 的轴矢量 EFT 冷却计算由独立 PR #56 处理。
+
+## 2026-11-06 更新：PR #56 Major 4.4 轴矢量 EFT 恒星冷却 benchmark（Draft）
+
+[PR #56](https://github.com/lm846802297-bit/axial-vector-review-response/pull/56) 保持 Open / Draft，分支为 `codex/major44-axial-cooling-constraints-20261105`；**尚未合并**。
+
+- **与 PR #53 的区别：** PR #53 继续研究原论文单 VEV UV 模型的完整恒星冷却匹配；PR #56 是专门支持 Major 4.4 的固定剖面轴矢量 EFT ballistic-cooling benchmark。PR #56 使用原论文的低能电流归一化 \(g_A^\mu=-g_X\)、\(g_V^\mu=0\)、\(g_{\nu_\mu}=+g_X\)、\(g_{\nu_\tau}=-g_X\)，不引入新的 UV 场、不采用双 VEV 映射，也不把 Major 3 的可选 seesaw 带入本计算。
+- **回复信整合：** Major 4.4 增加轴矢量半康普顿、三偏振输运、三通道竞争、冷却带和数值敏感性；Major 2 增加新图交叉引用；Summary 与新恒星物理参考文献同步。正式回复信仍不包含 PR、CI 或内部任务状态。
+- **数值验收：** 19 项单元测试通过；28 个独立振幅对照点的最大相对误差为 \(2.8801\times10^{-12}\)；75 个基准质量点、80 个轴矢量绘图质量点、每点 301 个耦合。冷却带的质量端点位于 255–260 MeV；10 MeV 薄极限半康普顿份额约 91.4%，100 MeV 中微子份额约 99.4%。
+- **PDF 验收：** 最新 GeV 竖版图版本重新编译为 65 页 A4；45 个唯一引用键、27 段审稿人原文全部保留；无未解析引用/交叉引用、无未嵌入字体、无 overfull 警告。最新 CI 将全部 65 页以 150 dpi 渲染并通过 PDF 结构审计；新 GeV 回复信 PNG 已单独完成视觉检查。根目录 PDF SHA-256 为 cc998df36c809fd47acf8d714b1c286e1d4d1f7a8f1a56cd4df0cd27540832ea。此前末页只有最后一条参考文献，但不是空白页；缩小整套参考文献字号未减少页数，因此恢复标准字号。
+- **GeV 对比图：** 新增 outputs/axial_stellar_constraints_gev.png/.pdf，完全复用已有扫描数据，只将质量坐标由 MeV 转为 GeV；原宽版 MeV 图和回复信版 MeV 图均保留。阴影只标示当前面板与 Fig. 2 展示窗口的可见交集，不表示重绘 Fig. 2 全部范围。
+- **GeV 竖版回复信图：** 新增 outputs/axial_stellar_constraints_reply_gev.png/.pdf；与 GeV 宽版使用同一数据和坐标变换，采用上下两面板竖排，并在下方面板保留完整的 “Fraction of optically thin axial luminosity” 纵轴标签。正式回复信 TeX 已切换到新 PDF，根目录回复信 PDF 已重新编译。
+- **图形验证：** GitHub Actions Run [42230567245](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42230567245) 通过：19/19 单元测试、28 组独立半康普顿振幅对照（最大相对误差 2.8801e-12）、保存扫描检查及四类 MeV/GeV 图形再生成和发布均成功；GeV 竖版回复信 PNG 已完成视觉检查。最终 PDF 构建见 Run [42230873049](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42230873049)。
+- **边界：** 这是指定剖面和所列通道下的条件性 ballistic benchmark，不是完整超新星流体模拟、全介质输运、LESN/高能中微子重铸或完整 UV 参数空间排除。论文正文未修改。PR #56 保持 Draft，等待作者审阅与明确合并决定。
 
 ## 2026-11-05 更新：模型范围纠正与研究 PR 替代关系
 
@@ -125,16 +189,16 @@ PR #50 已于 2026-11-05 Squash Merge 至 main，合并提交为 [51a245b0a36703
 
 - **旧 PR #30：** 已关闭且未合并；其错误采用双 VEV 映射的 PR #51 也已关闭且未合并。现由 [PR #53](https://github.com/lm846802297-bit/axial-vector-review-response/pull/53) 替代。PR #53 从当前 main 创建，严格使用原论文单 VEV 模型 \(m_{A'}=2|g_X|v_s\)、\(G=a_s\)，保留通用电流半康普顿振幅和局部热率计算。六项单 VEV 映射测试通过；介质静止系 T/L opacity、trapping、SN profile 和最终 SN1987A/LESN 曲线仍未完成。
 - **旧 PR #32：** 已关闭且未合并；现由 [PR #52](https://github.com/lm846802297-bit/axial-vector-review-response/pull/52) 替代。PR #52 从当前 main 创建，研究原论文的单 VEV 径向标量，保留 Belle II 来源台账、重铸协议、逐点分类框架和部分宽度计算器。Belle II 逐质量补充数据提取、实验 benchmark 复现、完整宽度/分支比/寿命、产生率、接受度和质量扫描仍未完成。
-- **PR #52：** 已 Closed、未合并；其研究分支 \`research/radial-scalar-original-model-belleii-20261105\` 仍保留，研究成果未合并、未删除。
-- **PR #53：** 保持 Open / Draft；其研究分支 \`research/stellar-cooling-original-uv-model-20261105\` 独立保留。
-- PR #52/#53 均不修改论文正文或正式回复信，也不是当前审稿回复的前置条件。旧 PR 的讨论和提交保留作历史溯源，不合并其错误模型范围的提交。
+- **PR #52：** 已 Closed、未合并；其研究分支 `research/radial-scalar-original-model-belleii-20261105` 仍保留，研究成果未合并、未删除。
+- **PR #53：** 保持 Open / Draft；其研究分支 `research/stellar-cooling-original-uv-model-20261105` 独立保留。
+- PR #52/#53 均不修改论文正文或正式回复信，也不是当前审稿回复的前置条件。PR #56 仅补充正式回复信 Major 4.4 的条件性轴矢量 EFT 冷却论证和图，不修改论文正文，也不引入额外中微子场。旧 PR 的讨论和提交保留作历史溯源，不合并其错误模型范围的提交。
 
-- **PR #54：** 已合并至 \`main\`，合并提交为 [\`0f3816e3e62dd7668fca1d4aee5e8749708f99f2\`](https://github.com/lm846802297-bit/axial-vector-review-response/commit/0f3816e3e62dd7668fca1d4aee5e8749708f99f2)。该 PR 修正正式回复信中 Major 1、2、4.2、4.4 对 Major 3 扩展的跨问题引用，并将中微子完成机制限定为 Major 3/4.1 专门回复内容。
+- **PR #54：** 已合并至 `main`，合并提交为 [`0f3816e3e62dd7668fca1d4aee5e8749708f99f2`](https://github.com/lm846802297-bit/axial-vector-review-response/commit/0f3816e3e62dd7668fca1d4aee5e8749708f99f2)。该 PR 修正正式回复信中 Major 1、2、4.2、4.4 对 Major 3 扩展的跨问题引用，并将中微子完成机制限定为 Major 3/4.1 专门回复内容。
 
 **统一模型边界：** 除 Major Point 3/4.1 的专门中微子回复段落外，所有非中微子审稿回复和专题研究均以原论文 \(S+\mathrm{VLL}\) 单 VEV UV 模型为准。不得将 Major Point 3/4.1 中讨论的可选扩展机制作为原论文已经采用的场内容。
 ## 2026-11-05 更新：PR #53 原论文单 VEV 轴矢量恒星冷却计算（Draft）
 
-[PR #53](https://github.com/lm846802297-bit/axial-vector-review-response/pull/53) 从当前 main 的 \`d3c8c573e0b219dbcb4be62dc57f77fdc04c4f96\` 创建，替代旧 PR #30 及错误采用双 VEV 映射的 PR #51；两者均关闭且未合并。
+[PR #53](https://github.com/lm846802297-bit/axial-vector-review-response/pull/53) 从当前 main 的 `d3c8c573e0b219dbcb4be62dc57f77fdc04c4f96` 创建，替代旧 PR #30 及错误采用双 VEV 映射的 PR #51；两者均关闭且未合并。
 
 - **原论文模型映射：** \(S=(v_s+s+ia_s)/\sqrt2\)、\(Q_X(S)=2\)、\(m_{A'}=2|g_X|v_s\)、\(G=a_s\)。在小 VLL 混合 benchmark 下 \(y_{s\ell\ell}=m_\ell/v_s\)，Goldstone/current 关系为 \(m_\ell/v_s=2|g_A^\ell|m_\ell/m_{A'}\)（\(|g_A^\ell|=|g_X|\)）。
 - **保留的计算：** 显式 Dirac 旋量半康普顿振幅、EM Ward identity、实验室系/CM 截面对照、Klein–Nishina 对照、轴矢量纵向标度、均匀介质局部热产生率及积分阶数/截断扫描。
@@ -347,14 +411,16 @@ Major 4.2 已补充有限轻子混合产生的非零动能混合、四态矢量�
 - [PR #35](https://github.com/lm846802297-bit/axial-vector-review-response/pull/35)：回复信写作规范和项目级读取规则。
 - [PR #36](https://github.com/lm846802297-bit/axial-vector-review-response/pull/36)：项目启动读取机制、PROJECT_STATUS 和可修改的研究决策登记表。
 
-### 仍开放的专题研究 PR
+### PR 状态汇总
 | PR | 状态 | 当前已知边界 |
 |---|---|---|
-| [#53 原论文单 VEV 轴矢量恒星冷却/半康普顿计算](https://github.com/lm846802297-bit/axial-vector-review-response/pull/53) | Open / Draft；2026-11-05 新建 | 原论文单 VEV 映射与局部振幅/热率已验收；完整介质 T/L opacity 和 SN 输运未完成 |
-| [#54 Major 3/4.1 回复范围隔离与原论文模型一致性](https://github.com/lm846802297-bit/axial-vector-review-response/pull/54) | Open / Draft；2026-11-05 新建 | Major 3/4.1 扩展仅限中微子回复论证；Major 1/2/4.2/4.4 恢复原论文单 VEV/原始 active-flavor current；静态检查通过，完整编译与视觉检查未做 |
-| [#52 原论文单 VEV 标量 Belle II 后续研究](https://github.com/lm846802297-bit/axial-vector-review-response/pull/52) | Open / Draft；2026-11-05 新建 | 保留来源台账、重铸协议和部分宽度框架；Belle II 补充数据提取、benchmark 复现和 UV 重铸尚未完成 |
+| [#53 原论文单 VEV 轴矢量恒星冷却/半康普顿计算](https://github.com/lm846802297-bit/axial-vector-review-response/pull/53) | Open / Draft；2026-11-05 新建 | 原论文单 VEV 映射与局部振幅/热率已验收；完整介质 T/L opacity 和 SN 输运仍未完成 |
+| [#56 Major 4.4 轴矢量 EFT ballistic-cooling benchmark](https://github.com/lm846802297-bit/axial-vector-review-response/pull/56) | Open / Draft；2026-11-06 更新 | 固定剖面 EFT benchmark、GeV 竖版回复信图、19 项测试、数值审计和最新 65 页 PDF 构建完成；不是完整 UV 或流体输运分析 |
+| [#52 原论文单 VEV 标量 Belle II 后续研究](https://github.com/lm846802297-bit/axial-vector-review-response/pull/52) | Closed / 未合并；保留研究分支 | 保留来源台账、重铸协议和部分宽度框架；Belle II 补充数据提取、benchmark 复现和 UV 重铸尚未完成 |
+| [#54 Major 3/4.1 回复范围隔离与原论文模型一致性](https://github.com/lm846802297-bit/axial-vector-review-response/pull/54) | 已合并；2026-11-05 | Major 3/4.1 扩展仅限中微子回复论证；跨问题引用已隔离 |
+| [#55 Minor Points 论证扩充与长期写作规范](https://github.com/lm846802297-bit/axial-vector-review-response/pull/55) | 已合并；2026-11-06 | 正式回复信、Minor Points 和写作规范已进入 main |
 
-两个开放 PR 是独立研究工作流，不是正式回复信已完成的证据。继续前应重新检查 head、分支内容和验证记录；PR 仍开放不代表仍在持续推进。
+PR #53 与 PR #56 是两个不同工作流：#53 针对原论文单 VEV UV 模型的进一步恒星冷却研究；#56 是支撑 Major 4.4 的固定剖面 EFT benchmark。#56 不替代 #53，也不代表完整 UV 恒星冷却问题已经解决。#52 已关闭；#54/#55 已合并。
 
 ## 5. 正式回复信与论文正文的状态边界
 
@@ -376,7 +442,7 @@ Major 4.2 已补充有限轻子混合产生的非零动能混合、四态矢量�
 1. 审阅本轮 Major 3 回复与 N-01–N-14 正文修改对照；本轮回复编译和关键页面检查已有验证记录。
 2. PR #39 已合并。下一步另行确认作者当前使用的 Overleaf 正文基线，再按已归档清单实施论文修改；不得把未实施的正文修改写成已完成。
 3. 优先核对影响主要物理主张的 PMNS、标量约束、portal/mixing 和参数范围；完成后更新清单中的实际正文位置和状态。
-4. PR #52（已关闭、未合并但保留研究分支）与 PR #53（Open / Draft）均作为基于原论文单 VEV 模型的独立后续研究；只有在研究本身值得继续时推进，不作为当前回复信的前置条件。未完成工作不得写成已得到的排除结论。
+4. PR #52 已关闭且保留研究分支；PR #53 继续原论文单 VEV UV 恒星冷却研究；PR #56 作为 Major 4.4 的固定剖面 EFT response-support benchmark 保持 Draft。PR #56 不替代 PR #53，也不作为完整 UV 恒星冷却已完成的证据。未完成工作不得写成已得到的排除结论。
 5. 关键 PR 合并、作者改变路线、正文基线更新或专题验收后，更新本文件和相关决策条目。
 
 ## 7. 状态可信度约定
@@ -387,6 +453,134 @@ Major 4.2 已补充有限轻子混合产生的非零动能混合、四态矢量�
 - **未完成：** 当前证据明确表明工作尚未闭环。
 
 本文件是项目管理状态快照，不是物理结果的独立证明。物理结论以模型定义、可复核推导、实际计算和原始实验文献为准。
+
+
+## 2026-11-10 update: focused 10 MeV research plan
+
+The next research stage is restricted to the high-order energy-resolved escape distribution at the 10 MeV strong-absorption endpoint. The staged plan is [RESEARCH_PLAN_10MEV_HIGH_ORDER_PHASE_SPACE_2026-11-10.md](research/stellar-cooling-constraints-20261105/blinov_reproduction/RESEARCH_PLAN_10MEV_HIGH_ORDER_PHASE_SPACE_2026-11-10.md). It defines the calculation contract, exact baseline/closure gates, the required source-versus-escaped energy/radius/direction distributions, and conditional follow-up diagnostics. No 0.1 or 1 MeV scan or axial-vector curve update is authorized by this stage.
+
+The plan review identified one output-integrity gap before execution: the phase-space script previously archived only the top 80 joint radius-energy-direction cells, which would not allow an independent reconstruction of all one-dimensional marginals. The script now archives the complete non-empty joint table as \`joint_radius_energy_direction_bins\`, while retaining the top-80 convenience view. The workflow and local runbook now require closure of the complete joint source and escaped-luminosity partitions, including their global subregion fractions.
+
+Stage A has confirmed the research branch, PR #57 status, archived profile/Fig. 7 fingerprints, and high-order baseline configuration (200/640/200/32/64; 842 energy nodes after lapse-threshold insertion). The exact baseline strong-end point is \(g=4.171689650228597\times10^{-8}\), \(L_{\rm B.16}=2.4396359573610326\times10^{52}\,\mathrm{erg\,s^{-1}}\), and \(P_{\rm esc}=3.251774019352899\times10^{-4}\). The regression suite contains three tests, but it has **not** been executed in this environment; the long physical calculation has not started. Proceed to Stage A runtime tests and then the single high-order run, without changing the calculation contract.
+
+
+## 2026-11-10 update: complete joint-table validation and latest execution status
+
+The high-order phase-space script now archives the full non-empty radius-energy-direction joint table. The workflow additionally checks escape-probability closure against the archived baseline and independently reconstructs all radius, energy, and four-bin direction marginals from the full joint table. This prevents the top-80 display subset from being mistaken for a complete partition.
+
+The latest push-triggered workflow, [Run #42666123613](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42666123613), again failed before runner allocation: job exists, but \`steps=null\` and \`logs_url=null\`. Thus neither regression tests nor the high-order physical calculation executed. Do not interpret this as a numerical failure and do not trigger more empty runs. The next valid execution route is a local checkout of this exact branch or GitHub Actions after hosted-runner provisioning is restored.
+
+
+## 2026-11-11 update: SFHo real-table and Fig. 12 cross-check
+
+P1-IIIe-A/B now has an authenticated local raw-data run and a full local test
+execution. The current combined suite passes **35/35** locally and in GitHub Actions. Run
+[#42953524476](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42953524476)
+downloaded the three original Release ZIPs, verified their SHA-256 values,
+extracted the tables, and passed 15/15 plus 20/20 tests with zero skips.
+The decoded physical SPP grid contains 1,496,880 cells; the excluded-volume
+identity has maximum residual 7.975e-8. The composition table has 1,521,828
+physical cells, of which 1,121,375 (73.6861%) are nuclei-containing. Its free
+neutron/proton densities reproduce X_n n_B and X_p n_B to 4.44e-16 relative
+precision. The composition layer-0 NSE neutron-side input is now documented as
+conditional: it is zero and unused in the 400,453 no-nuclei cells and is not
+interchangeable with the Extended EOS thermodynamic chemical potential.
+
+P1-IIId Fig. 12 has been extracted from native APS/SCOAP3 PDF vector paths (page 15;
+APS SHA-256 d660eb39..., SCOAP3 mirror SHA-256 c3b92fe6...). The E-K temperature profile agrees with the archived
+Caputo profile at 55 radii with 0.071% RMS relative residual and with Bollig
+Fig. 1 at 391 radii with 0.095% RMS. At ten common radii from 1 to 15 km, the
+E-K n,p curves agree with Caputo reconstructed free-neutron/free-proton
+profiles at 0.58% RMS each. The upper two density-axis glyphs are visually ambiguous vector outlines, not
+extractable text spans; both mappings remain archived, and equal log spacing
+plus the same-model comparison selects the corrected mapping without claiming
+a definitive typesetting error. The sum n+p
+tracks Caputo n_B(1-X_cluster), not total n_B.
+
+This is a cross-publication check of the same Garching SFHo-18.8 model lineage,
+not an independent hydrodynamic simulation validation. No raw Garching profile
+has been obtained, and no B.2 opacity, pure-vector Fig. 7 result, or axial
+cooling curve is changed. Fiorillo Table 1 weighted F_NN averages remain open
+because their original space-time weights are not contained in the EOS tables.
+The reproducible Fig. 12 vector workflow completed successfully in Run
+[#42952924997](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42952924997),
+using the checksum-pinned SCOAP3 copy because APS direct download returns HTTP
+403 to hosted runners. The reproducible extraction and cross-check scripts and their workflow are in
+`research/stellar-cooling-constraints-20261105/blinov_reproduction/`.
+
+
+**P1-IIId source-version clarification (2026-11-11):** The reproducible
+native-vector extraction is tied to the checksum-verified SCOAP3 copy of the
+published APS PDF (SHA-256 `c3b92fe6cf2a8bd3fec84925e2baababfe0c707327a68135013f953ed3d87d43`,
+2,749,668 bytes), validated in GitHub Actions Run
+[#42953625693](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42953625693).
+The arXiv v3 PDF is not used for path indexing: although its text/version
+matches the published paper, its internal vector-object ordering differs, so
+published-PDF path indices 25/181/182 do not identify the corresponding curves
+in that file. Numerical cross-checks below remain based on the SCOAP3 source.
+
+
+**P1-IIId completion / P1-IIIe handoff (2026-11-11):** The final Fig. 12
+native-vector extraction, PDF-axis glyph audit, and Caputo/Bollig pointwise
+cross-check passed in GitHub Actions
+[#42955259591](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42955259591).
+The E–K temperature profile has 0.0707% RMS residual against Caputo Fig. 1
+(55 common radii) and 0.0953% against Bollig Fig. 1 (391 radii). At ten radii
+from 1 to 15 km, E–K free-neutron and free-proton densities agree with Caputo
+reconstructions at 0.580% and 0.586% RMS; their sum agrees with
+\((1-X_{\rm cluster})n_B\) at 0.574% RMS. Caputo's own Fig. 1/Fig. 4 closure
+supports the free-proton reconstruction. The cluster fraction is
+\(X_{\rm cluster}=1-Y_n-Y_p\), rising to 8.85% at 15 km. This is a
+cross-publication consistency check of the same Garching SFHo-18.8 lineage,
+not independent hydrodynamic validation. Next: map the validated
+\(T,n_n^{\rm free},n_p^{\rm free}\) profiles onto the authenticated SFHo EOS
+tables and calculate local nucleon chemical potentials/occupation factors,
+keeping cluster-bound baryons separate. No B.2 opacity, vector Fig. 7 result,
+or axial cooling curve is changed.
+
+
+
+## 2026-11-11: P1-IIIe-C local Caputo-to-SFHo EOS key-radius mapping
+
+A first local mapping is complete at ten audited Caputo SFHo-18.8 radii from
+1 to 15 km, using the official SFHo/FRDM v1.03 EOS files whose extracted
+SHA-256 hashes are recorded in the new P1-IIIe-C JSON. The EOS interpolation
+coordinate is the total proton fraction \(Y_p^{\rm tot}=Y_e+Y_\mu\), not the
+free-proton abundance \(Y_p\). The wrong-coordinate test fails at the
+few-percent composition level, while the correct coordinate reproduces
+Caputo \(X_n,X_p,X_{\rm cluster}\) at maximum absolute differences
+\(2.02\times10^{-5}\), \(1.67\times10^{-5}\), and \(2.67\times10^{-5}\).
+
+The SPP filling factor agrees with the value inferred from Caputo densities
+to \(1.74\times10^{-4}\) maximum absolute difference. Direct Fermi-integral
+density closure is 0.177% maximum for neutrons and 0.603% for protons.
+The chemical-potential correction needed for exact density closure is below
+0.18 MeV; the resulting change in \(F_{NN}^{\rm deg}\) is below
+\(3.7\times10^{-4}\). The 2048-point quadrature is converged against 512
+points at better than \(2\times10^{-13}\) in density.
+
+Local static factors span \(F_{nn}^{\rm deg}=0.242\)--0.731 and
+\(F_{pp}^{\rm deg}=0.460\)--0.983. Relative to a vacuum-mass ideal gas at the
+same local free-nucleon densities, the EOS effective masses lower these
+factors by up to 31.6% (neutrons) and 26.6% (protons) in the inner core.
+These are snapshot-local static factors, not Fiorillo Table 1 mass-time
+weighted averages; no dynamic response, opacity, transport, or cooling curve
+is changed.
+
+The reproducible profile builder, mapping script, input CSV, detailed output,
+and report are in
+\`research/stellar-cooling-constraints-20261105/blinov_reproduction/\`:
+\`build_caputo_profile_key_radii.py\`,
+\`map_caputo_sfho_eos_profile.py\`,
+\`outputs/caputo_profile_key_radii_2026-11-11.csv\`,
+\`outputs/caputo_sfho_eos_profile_key_radii_2026-11-11.csv\`,
+\`outputs/caputo_sfho_eos_profile_key_radii_2026-11-11.json\`, and
+\`B16_P1IIIE_C_CAPUTO_PROFILE_TO_SFHO_EOS_2026-11-11.md\`.
+
+The independent GitHub Actions profile-map validation is running. Next is to
+extend the same mapping from ten key radii to the full 0.05-km Caputo
+composition profile, retaining clusters as a separate component.
+
 
 
 ### 2026-11-09 追加：PR #64 独立审稿人视角复核
@@ -400,3 +594,61 @@ Major 4.2 已补充有限轻子混合产生的非零动能混合、四态矢量�
 - **下一步：** 先精简同一物理命题的重复否定句和总结句，再复核实际 diff；不新增物理计算、不改论文正文。
 
 详细逐点结论、模型边界核查、实验适用条件和建议修改位置见 [PR #64 独立审稿人视角复核](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-09/PR64独立审稿人视角复核_2026-11-09.md)。该复核形成时 PR #64 尚未合并；当前状态见顶部更新。
+
+## 2026-11-12 后续 CI 失败分类与修复
+
+- **Major 4.4 数值验证：** Run #43151547062（触发 head `960f407`）与较早 Run #43150499259（触发 head `e9a0223`）均已通过 C4C3 14 项 SHA-256 和 SFHo/FRDM 实际分块重组检查；最后检查时两者仍在第一组 research-level unittest 中，尚无最终测试汇总。Run #43149443570 已取消，不能作为完整数值验收。
+- **C4C3 历史失败分类：** Run #43039883023 与 #43039533642 均在 `actions/checkout` 阶段因工作流将 `\${{ github.sha }}` 写成带反斜杠的字面值而报 `fatal: invalid refspec`；Python、单元测试和计算分片全部 skipped。该问题属于 workflow 配置错误，不是核散射计算或验收阈值失败。独立的 301 点 workflow Run #43039856965 已成功。
+- **C4C3 workflow 修复：** 在 moving-muon 分支提交 `683aee8` 中移除误转义的 GitHub Actions 表达式，并统一 shard 输出文件名；新 Run [#43152133071](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43152133071) 已排队，等待重新执行 unit tests、20 个 shard 与 merge acceptance。
+- **回复信 PDF 审计失败分类：** Run #43151746827 的 LaTeX、BibTeX、PDF 结构、交叉引用和字体检查均通过；仅 `audit_reply.py` 的 27 段原文比较失败，原因是 moving-muon 分支仍使用旧基线 `7ef9a4a`，而 TeX 已同步到 main 的 `310a24a`。不是排版或物理内容失败。
+- **回复信审计修复：** moving-muon 分支提交 `4003781`，采用 PR #56 已验证的 `BASE=310a24a` 审计脚本；提交 `d1d79aa` 将 `audit_reply.py` 纳入 push/pull_request 触发路径。新 Run [#43152263886](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43152263886) 已排队，待完成 PDF 构建与 27 段保留审计。
+- **物理验收边界：** 上述 checkout/refspec 与源文档基线问题均归类为 workflow/test-baseline 配置问题。它们不能作为物理计算错误证据；同样，前置 checksum gates 通过也不代表 Blinov Fig. 7 或轴矢量冷却曲线已经通过独立复现。
+
+## 2026-11-12 15:30 CST — 最新数值验收与活跃分支同步复核
+
+- **当前 main 基线：** `310a24a53e8448f0388072cfdbf55749fde713f9`。本次重新执行 GitHub compare（`main...head`），四个开放 Draft PR 及五个持续研究/数据分支均为 `behind_by=0`：
+  - PR #53：`ahead=14, behind=0`；
+  - PR #56：`ahead=758, behind=0`；
+  - PR #68：`ahead=26, behind=0`；
+  - PR #69：`ahead=412, behind=0`；
+  - C4-C4：`ahead=659, behind=0`；
+  - moving-muon：`ahead=1542, behind=0`；
+  - P1-IIIe EOS：`ahead=1350, behind=0`；
+  - PR57 source bundle：`ahead=1125, behind=0`；
+  - SFHo/FRDM transfer：`ahead=1342, behind=0`。
+  比较时 PR #53/#56/#68/#69 均为 Open / Draft。PR #56 最新分支 head 为 `b68897c8c0ac6ade36ebe70aa27124cb380265a5`。
+
+- **Run #158 结论：** [Run #43135845410](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43135845410) 在旧 SHA `071d194` 上以 `cancelled` 结束；它不是测试断言失败，也不能作为最终数值验收。其后已启动具备 90 分钟 timeout、独立 concurrency group 且 `cancel-in-progress=false` 的新 workflow。
+
+- **完整数值验收：** [Run #43164221257](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43164221257) 在 SHA `3f7ce66f210edf966d8bb3b7d20f7716b28135e8` 上 `success`。以下步骤全部成功：C4C3 14 项 SHA-256 manifest、SFHo/FRDM Release manifest 与分块重组、research-level rate/transport/kernel tests、Blinov/EOS regression tests、reference scans/independent rate audits、saved-scan validation、figure regeneration、reproducibility checks 及 figure publishing。该验收提交是当前 PR #56 head 的祖先，当前 head 比验收 SHA 多 6 个提交；这 6 个提交触及 VALIDATION_AND_REVIEW、Blinov/EOS 数值 JSON 与 finite-mixing 数值输出。因此 Run #43164221257 是强而完整的前序数值验收，但**不是当前 head 的逐字节同 SHA 验收**；不得把它写成当前 head 已完整复验。
+
+- **校验和复核边界：** C4C3 的 14 项 SHA-256 与 SFHo/FRDM 的分块、重组及 Release manifest 校验已由 Run #43164221257 的真实步骤通过。C4C3 清单路径为 `blinov_reproduction/c4c3_direct_local_recomputation_2026-11-11/SHA256SUMS.txt`；SFHo/FRDM 清单路径为 `blinov_reproduction/data/sfho-frdm-v1.03/MANIFEST.sha256` 和顶层 `sfho_frdm_v1.03_manifest.sha256`。Manual 与 Shen98 的核对属于 Release digest 元数据比对，不冒称 runner 本地重新下载并计算字节哈希。
+
+- **物理结论独立保留：** 即使上述数值 workflow 完整通过，也只说明其测试合同、归档校验和数值程序检查通过。纯矢量 Blinov Fig. 7 的 10 MeV 强耦合端仍有约 92.43% 差异，物理复现仍未通过；不得将其改写为已复现，不解冻生产轴矢量限制曲线。
+
+- **下一步：** 对当前 head `b68897c` 重新运行完整 Major 4.4 数值验收，重点覆盖上述 6 个后续提交改动的输出 JSON、Blinov/EOS reference scans、saved-output checks 和 figure regeneration。完成前，Run #43164221257 继续标注为前序祖先提交的完整通过记录，而当前 head 标注为待同 SHA 复验。
+
+
+## 2026-11-12 15:59 CST — PR #56 semi-Compton polarization source audit
+
+- **PR #56 live state:** Open / Draft, target `main`, current head `532652c5c93e1ca890905976d6192a9984423f1f`; current main base `310a24a53e8448f0388072cfdbf55749fde713f9`. A fresh GitHub compare reports `ahead_by=763, behind_by=0`. The branch remains a research branch and was not merged.
+- **HEAD reconciliation:** the earlier reported SHA `44720ab5d4efe81096b2151948d84c17dfb69b5e` is no longer the live PR head. The branch advanced through subsequent archived scans and the new source-audit documentation. Use the live PR metadata before any subsequent write or merge.
+- **Four named Actions runs:** Moving-muon thermal response [#43164221127], vector-to-axial local response [#43164221273], finite-mixing UV coupling-map [#43164221246], and Major 4.4 EFT numerical validation [#43164221257] all report `completed/success`. All four ran on `3f7ce66f210edf966d8bb3b7d20f7716b28135e8`. The current head is 11 commits ahead of that tested SHA. These are successful historical runs, not same-HEAD CI acceptance; do not describe the current head as fully revalidated by those runs. No already-passed workflow was repeated in this documentation task.
+- **New theory document:** [WANG_ZHANG_SEMICOMPTON_POLARIZATION_AUDIT_2026-11-12.md](research/stellar-cooling-constraints-20261105/finite_mixing/WANG_ZHANG_SEMICOMPTON_POLARIZATION_AUDIT_2026-11-12.md) was added and indexed in `finite_mixing/README.md` and `VALIDATION_AND_REVIEW.md`.
+- **Formula result:** the PDF labels are (5.9a,b), (B.1a,b), (B.2)–(B.6a,b), and (A.15). The printed (B.6) integrates to (5.9) after restoring the common phase-space factor beta, but each printed polarization component has a negative angular region. The conserved-vector-current soft limit instead has unsuppressed transverse production and longitudinal production suppressed by \(m_{Z'}^2/E_\gamma^2\). The integrated comparison is not fixed by a pure T/L label swap: the suppressed coefficient still differs by a factor \(3/2\), and the differential angular functions remain inconsistent.
+- **Additional amplitude issue:** the printed (B.1b) u-channel gamma-matrix ordering appears inconsistent with the crossed Compton amplitude and its Ward identities. The generic-angle (B.2)/(B.4) trace comparison is consistent with the expected common factor 4 from initial-state averaging; the subtracted longitudinal trace requires a more stable direct projection.
+- **Scope:** no production code, CI workflow, opacity normalization, manuscript, referee-response TeX/PDF, or published constraint figure was changed. No rescaling or replacement cross section was inserted into the transport benchmark. The pure-vector Blinov Fig. 7 gate remains **NOT PASSED**; no axial/finite-mixing luminosity or exclusion curve is released.
+- **Next theory tasks:** derive (B.2)/(B.4) from the correctly ordered amplitude at exact finite mass; compute the longitudinal contribution directly with \(P_L^{\mu\nu}\); trace the phase-space Jacobian, beta factor, and initial-state averages into (B.6); identify the first step where the source formulas diverge. Do not introduce a fitted rescaling or modify the production transport benchmark before that audit is complete.
+
+
+## 2026-11-12 — Direct vector longitudinal projector audit
+
+- **PR #56 remains Open / Draft** on branch codex/major44-axial-cooling-constraints-20261105; no merge was performed. The branch is kept separate from the production transport benchmark.
+- **New reproducible files:** research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/audit_vector_longitudinal_projector.py, test_vector_longitudinal_projector.py, and outputs/vector_longitudinal_direct_projector_summary_2026-11-12.json.
+- **Direct P_L:** the rank-one longitudinal mode is evaluated at amplitude level using the exact Ward-equivalent polarization \(\widetilde\epsilon_L=\epsilon_L-q/m_{Z'}\), written in a cancellation-free form. This is valid for the conserved vector current only; it is not applied to the axial current.
+- **36-point local acceptance:** physical/Ward polarization agreement \(3.27\times10^{-7}\); independent trace/explicit-spinor agreement \(8.37\times10^{-11}\); correct vector Ward residual \(1.34\times10^{-14}\); all direct longitudinal rates positive. Local regression assertions pass. The new commits use [skip ci]; no already-passed GitHub Actions workflow was rerun.
+- **Printed B.1b:** the literal printed u-channel gamma order fails \(q_\mu\mathcal M^\mu=0\), while the crossed \(\gamma^\nu S_u\gamma^\mu\) order satisfies it. Treat this as a printed equation-ordering inconsistency, not proof of the authors' internal implementation.
+- **B.3 diagnosis:** 80-digit evaluation does not remove the B.3/direct-\(P_L\) residual. At small \(x=m_{Z'}/E_\gamma\), the scan supports the numerical leading laws \((B_2/T_{\rm exact})-1\simeq 2x^2(E_\gamma/m_\mu)/(1+\cos^2\theta)\) and \((B_3/L_{\rm direct})-1\simeq-2(E_\gamma/m_\mu)/(1-\cos^2\theta)\). At \(x=10^{-3}\), \(E_\gamma\le0.1\) MeV, the maximum relative fit errors are 0.154% and 0.0921%. A symbolic finite-recoil derivation remains pending.
+- **Physical interpretation:** the B.2 residual is \(O(x^2 E_\gamma/m_\mu)\), the same mass order as the physical longitudinal signal. Subtracting B.2 from B.4 amplifies this into an \(O(E_\gamma/m_\mu)\) relative bias in B.3. This is not solely floating-point cancellation.
+- **Scope boundary:** no production kernel, opacity, thermal integral, transport curve, manuscript, referee-response TeX/PDF, or published constraint figure was modified. The pure-vector Blinov Fig. 7 gate remains **NOT PASSED**; no axial/finite-mixing constraint curve is released.
+- **Next P0 work:** derive the finite-recoil correction symbolically from the full crossed amplitude; establish the coefficients of the two asymptotic laws; then rederive the B.6 phase-space/Jacobian mapping and clarify the beta and initial-state averaging conventions. Do not rescale opacity or update production constraints before these steps are complete.

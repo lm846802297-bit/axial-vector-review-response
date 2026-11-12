@@ -1,0 +1,159 @@
+{
+  "title": "Dimuon thermal emissivity integral: numerical validation",
+  "units": {
+    "mass_temperature_momentum": "MeV",
+    "differential_rates": "MeV",
+    "energy_emissivity": "MeV^5"
+  },
+  "method": {
+    "momentum_map": "k = scale*x/(1-x), x in (0,1)",
+    "quadrature": "Gauss-Legendre on the mapped finite interval",
+    "default_scale": "max(T, sqrt(m_Aprime*T))",
+    "absorption": "retained differentially in mediator energy and polarization; not phase-space integrated",
+    "scope": "local microphysical rate only; no stellar profile or transport"
+  },
+  "source_sha256": {
+    "rates.py": "2fc7bc2d3b0d7b98c191755cd2bb87944e4ebe259adc3d3bbc8e0f60dcc57f56",
+    "dimuon.py": "fbb9981f531b3878c115720f78e2c871237951f961cb9e43ea559288d85df280",
+    "test_dimuon.py": "a0763895b77dc74d4a9f3be4d8217bbdc35cec8c2d5e9f674fcdacccb54c9f50",
+    "run_dimuon_validation.py": "92f5deab5d8eaf425138706cb43941363181fc9b56cc78b5b1c932edb4032b17",
+    "moving_compton.py": "fea7ba5a49e35b1810a42f6712116e6a676ebcedd1e2faab961d14bbb70dafd4",
+    "test_moving_compton.py": "c468e439c43a757803ab57d32af91e4650acff2400e0d514b3033ac16790167a",
+    "moving_compton_derivation.md": "9ccbf2c5840aee9a1e914368ba903d2ce4ab146021dac1d12f067440dd60f7eb"
+  },
+  "benchmarks": {
+    "m300_T30_mu80_pure_axial": {
+      "64": {
+        "Q_by_mode_MeV5": [
+          2358.0341798571785,
+          2319.0258753483367,
+          2319.0258753483367
+        ],
+        "Q_total_MeV5": 6996.0859305538515,
+        "max_pointwise_detailed_balance_relative_residual": 2.7849285564116814e-14
+      },
+      "128": {
+        "Q_by_mode_MeV5": [
+          2358.0341798571603,
+          2319.0258753483186,
+          2319.0258753483186
+        ],
+        "Q_total_MeV5": 6996.085930553797,
+        "max_pointwise_detailed_balance_relative_residual": 2.879040367227188e-14
+      },
+      "192": {
+        "Q_by_mode_MeV5": [
+          2358.034179857149,
+          2319.0258753483067,
+          2319.0258753483067
+        ],
+        "Q_total_MeV5": 6996.085930553762,
+        "max_pointwise_detailed_balance_relative_residual": 2.922512735355786e-14
+      },
+      "relative_difference_Q_64_vs_128": 7.843765017381031e-15,
+      "relative_difference_Q_128_vs_192": 5.098447261297696e-15,
+      "max_detailed_balance_relative_residual": 2.922512735355786e-14
+    },
+    "m500_T35_mu75_mixed": {
+      "64": {
+        "Q_by_mode_MeV5": [
+          511.0517805614397,
+          508.38832300280046,
+          508.3860616927276
+        ],
+        "Q_total_MeV5": 1527.8261652569677,
+        "max_pointwise_detailed_balance_relative_residual": 2.634649843280565e-14
+      },
+      "128": {
+        "Q_by_mode_MeV5": [
+          511.05178056143524,
+          508.388323002796,
+          508.3860616927232
+        ],
+        "Q_total_MeV5": 1527.8261652569545,
+        "max_pointwise_detailed_balance_relative_residual": 2.5201216963105005e-14
+      },
+      "192": {
+        "Q_by_mode_MeV5": [
+          511.0517805614329,
+          508.3883230027936,
+          508.3860616927206
+        ],
+        "Q_total_MeV5": 1527.8261652569472,
+        "max_pointwise_detailed_balance_relative_residual": 5.621947955876355e-14
+      },
+      "relative_difference_Q_64_vs_128": 8.78703540582616e-15,
+      "relative_difference_Q_128_vs_192": 5.143329970320091e-15,
+      "max_detailed_balance_relative_residual": 5.621947955876355e-14
+    },
+    "m3000_T10_mu0_pure_axial": {
+      "64": {
+        "Q_by_mode_MeV5": [
+          4.049938761730951e-120,
+          4.049938761730949e-120,
+          4.049938761730949e-120
+        ],
+        "Q_total_MeV5": 1.214981628519285e-119,
+        "max_pointwise_detailed_balance_relative_residual": 4.8851775974622493e-14
+      },
+      "128": {
+        "Q_by_mode_MeV5": [
+          4.049938761730598e-120,
+          4.049938761730597e-120,
+          4.049938761730597e-120
+        ],
+        "Q_total_MeV5": 1.2149816285191791e-119,
+        "max_pointwise_detailed_balance_relative_residual": 5.306129508289216e-14
+      },
+      "192": {
+        "Q_by_mode_MeV5": [
+          4.04993876173057e-120,
+          4.0499387617305695e-120,
+          4.0499387617305695e-120
+        ],
+        "Q_total_MeV5": 1.2149816285191709e-119,
+        "max_pointwise_detailed_balance_relative_residual": 5.00520711773125e-14
+      },
+      "relative_difference_Q_64_vs_128": 8.730650627027029e-14,
+      "relative_difference_Q_128_vs_192": 6.794280643600848e-15,
+      "max_detailed_balance_relative_residual": 5.306129508289216e-14
+    }
+  },
+  "threshold_scan": {
+    "0.0001": {
+      "mass_MeV": 211.33788267510002,
+      "beta": 0.014141075065200232,
+      "Q_vector_total_MeV5": 2240.1885616883515,
+      "Q_axial_total_MeV5": 0.2986669185687938,
+      "observed_QA_over_QV": 0.00013332222281489512,
+      "analytic_GammaA_over_GammaV": 0.000133322222814895,
+      "relative_deviation": 1.1102230246251565e-15
+    },
+    "1e-08": {
+      "mass_MeV": 211.31675311316752,
+      "beta": 0.0001414213554150443,
+      "Q_vector_total_MeV5": 22.4126871964914,
+      "Q_axial_total_MeV5": 2.988358278037529e-07,
+      "observed_QA_over_QV": 1.3333333267174416e-08,
+      "analytic_GammaA_over_GammaV": 1.3333333267174407e-08,
+      "relative_deviation": 6.661338147750939e-16
+    },
+    "1e-12": {
+      "mass_MeV": 211.31675100021135,
+      "beta": 1.4142764231806604e-06,
+      "Q_vector_total_MeV5": 0.22413684467506537,
+      "Q_axial_total_MeV5": 2.9887569409497377e-13,
+      "observed_QA_over_QV": 1.3334518674440092e-12,
+      "analytic_GammaA_over_GammaV": 1.3334518674440105e-12,
+      "relative_deviation": 8.881784197001252e-16
+    }
+  },
+  "acceptance": {
+    "quadrature_relative_difference_max": 8.730650627027029e-14,
+    "detailed_balance_relative_residual_max": 5.621947955876355e-14,
+    "threshold_width_ratio_relative_deviation_max": 1.1102230246251565e-15,
+    "quadrature_pass": true,
+    "detailed_balance_pass": true,
+    "threshold_scaling_pass": true
+  }
+}

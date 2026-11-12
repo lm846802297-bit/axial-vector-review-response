@@ -1,0 +1,90 @@
+{
+  "title": "Garching EOS nucleon occupation kernel software self-test",
+  "date": "2026-11-11",
+  "software_test_only": true,
+  "not_garching_profile_data": true,
+  "quadrature": {
+    "coarse_order": 256,
+    "fine_order": 512,
+    "tail_T": 45.0
+  },
+  "synthetic_local_states": [
+    {
+      "species": "n",
+      "T_MeV": 3.03,
+      "mstar_MeV": 650.0,
+      "U_MeV": -45.0,
+      "mu_star_MeV": 38.0,
+      "mu_eff_MeV": 83.0,
+      "nprime_fm3": 0.1713338944688892,
+      "Fdeg_direct": 0.05790247967655566,
+      "Fdeg_from_density_derivative": 0.05790247967639448,
+      "derivative_identity_abs_residual": 1.611766275999571e-13,
+      "Fdeg_order_256": 0.05790247967655632,
+      "Fdeg_order_512": 0.05790247967655566,
+      "quadrature_abs_difference_256_512": 6.591949208711867e-16
+    },
+    {
+      "species": "p",
+      "T_MeV": 3.03,
+      "mstar_MeV": 648.706667,
+      "U_MeV": -40.0,
+      "mu_star_MeV": 25.0,
+      "mu_eff_MeV": 65.0,
+      "nprime_fm3": 0.11623914178724888,
+      "Fdeg_direct": 0.07297178513447286,
+      "Fdeg_from_density_derivative": 0.07297178513550717,
+      "derivative_identity_abs_residual": 1.0343115253164115e-12,
+      "Fdeg_order_256": 0.07297178513447285,
+      "Fdeg_order_512": 0.07297178497474446,
+      "quadrature_abs_difference_256_512": 1.3877787807814457e-17
+    },
+    {
+      "species": "n",
+      "T_MeV": 12.0,
+      "mstar_MeV": 700.0,
+      "U_MeV": -25.0,
+      "mu_star_MeV": 18.0,
+      "mu_eff_MeV": 43.0,
+      "nprime_fm3": 0.0760504105987252,
+      "Fdeg_direct": 0.37429089623577505,
+      "Fdeg_from_density_derivative": 0.374290896191975,
+      "derivative_identity_abs_residual": 4.3800074678301826e-11,
+      "Fdeg_order_256": 0.3742908962357748,
+      "Fdeg_order_512": 0.37429089623577505,
+      "quadrature_abs_difference_256_512": 2.7755575615628914e-16
+    },
+    {
+      "species": "p",
+      "T_MeV": 12.0,
+      "mstar_MeV": 698.706667,
+      "U_MeV": -20.0,
+      "mu_star_MeV": 8.0,
+      "mu_eff_MeV": 28.0,
+      "nprime_fm3": 0.04445462323974619,
+      "Fdeg_direct": 0.4878613681243141,
+      "Fdeg_from_density_derivative": 0.4878613680376459,
+      "derivative_identity_abs_residual": 8.666817263858206e-11,
+      "Fdeg_order_256": 0.4878613681243142,
+      "Fdeg_order_512": 0.48786136776401356,
+      "quadrature_abs_difference_256_512": 1.1102230246251565e-16
+    }
+  ],
+  "checks": {
+    "max_derivative_identity_abs_residual": 8.666817263858206e-11,
+    "max_256_vs_512_quadrature_abs_difference": 6.591949208711867e-16,
+    "vacuum_mass_limit_max_occupation_abs_residual": 0.0,
+    "dilute_limit_Fdeg": 1.0,
+    "common_U_mu_shift_Fdeg_abs_residual": 0.0,\n    "Hempel_RMF_mapping_max_abs_residual_MeV": 2.2737367544323206e-13,\n    "density_inversion_nu_abs_residual_MeV": 2.0889956431346945e-11,\n    "composition_inferred_xi_fixture": 0.8736576121288693
+  },
+  "published_global_targets_not_tested_without_profiles": {
+    "T3": {
+      "p": 0.8,
+      "n": 0.48
+    },
+    "rhoT52": {
+      "p": 0.77,
+      "n": 0.42
+    }
+  }
+}

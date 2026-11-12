@@ -1,0 +1,1092 @@
+{
+  "title": "Dense local B.6--B.10 and B.14--B.19 kernel audit on the full B.1+B.2 quadrature grid",
+  "status": "completed",
+  "scope": "Local production, absorption, reduced-absorption, and B.17 susceptibility formulae only; no global source or transport recomputation.",
+  "profile": {
+    "path": "sfho188_digitized.csv",
+    "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+    "expected_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
+  },
+  "configuration": {
+    "mass_MeV": 10.0,
+    "number_of_radial_nodes": 200,
+    "number_of_energy_nodes_per_radius": 320,
+    "total_radius_energy_points": 64000,
+    "radial_panels": 50,
+    "radial_order": 4,
+    "energy_panels": 80,
+    "energy_order": 4,
+    "energy_upper_MeV": 2010.0,
+    "neutrino_angular_order": 512,
+    "neutrino_angular_check_order": 256,
+    "susceptibility_order": 256,
+    "omega_min_over_all_nodes_MeV": 10.877849043524188,
+    "omega_max_over_all_nodes_MeV": 1999.0505031378418,
+    "maximum_omega_over_T": 656.4588891310036
+  },
+  "independent_methods": {
+    "neutrino": "Direct two-body angular phase-space integral of f_nu(E1) f_antinu(E2) and inverse-occupation factors, separately for nu_mu and nu_tau.",
+    "muon_susceptibility": "Independent transformed Gauss-Legendre integral in t=sqrt((E-m_mu)/T), following the printed one-species B.17 convention.",
+    "compton": "Direct vectorized B.14 cross section, B.16 production, B.19 detailed balance, and B.4 reduced absorption using independently integrated chi_mu.",
+    "reference_under_test": "reference.local_rates on exactly the same radius-dependent energy quadrature nodes."
+  },
+  "maximum_residuals": {
+    "nu_mu_B6_production": {
+      "maximum_relative_residual": 6.305151697176778e-14,
+      "p99_relative_residual_over_radial_nodes": 5.911020804948508e-14,
+      "rms_of_radial_maxima": 2.852952050894012e-14
+    },
+    "nu_tau_B6_production": {
+      "maximum_relative_residual": 6.305151697176778e-14,
+      "p99_relative_residual_over_radial_nodes": 5.911020804948508e-14,
+      "rms_of_radial_maxima": 2.4974916861277953e-14
+    },
+    "nu_mu_B10_absorption": {
+      "maximum_relative_residual": 5.996223704920602e-14,
+      "p99_relative_residual_over_radial_nodes": 5.78328994839145e-14,
+      "rms_of_radial_maxima": 2.3710595979379704e-14
+    },
+    "nu_tau_B10_absorption": {
+      "maximum_relative_residual": 5.996223704920602e-14,
+      "p99_relative_residual_over_radial_nodes": 5.78328994839145e-14,
+      "rms_of_radial_maxima": 2.3761354567741783e-14
+    },
+    "neutrino_B4_reduced_absorption": {
+      "maximum_relative_residual": 5.996223704920602e-14,
+      "p99_relative_residual_over_radial_nodes": 5.76168459332095e-14,
+      "rms_of_radial_maxima": 2.3706431261109012e-14
+    },
+    "muon_B17_density": {
+      "maximum_relative_residual": 2.324807013565078e-13,
+      "p99_relative_residual_over_radial_nodes": 4.396705222120545e-14,
+      "rms_of_radial_maxima": 2.856205010153774e-14
+    },
+    "muon_B17_susceptibility": {
+      "maximum_relative_residual": 2.653433028854124e-13,
+      "p99_relative_residual_over_radial_nodes": 5.140332604014475e-14,
+      "rms_of_radial_maxima": 3.203005067009076e-14
+    },
+    "muon_B17_degeneracy_factor": {
+      "maximum_relative_residual": 3.26405569239796e-14,
+      "p99_relative_residual_over_radial_nodes": 7.924771949774329e-15,
+      "rms_of_radial_maxima": 3.7995020983416676e-15
+    },
+    "compton_B16_production": {
+      "maximum_relative_residual": 2.6556791532833373e-13,
+      "p99_relative_residual_over_radial_nodes": 5.178230621972818e-14,
+      "rms_of_radial_maxima": 3.22765823970724e-14
+    },
+    "compton_B19_absorption": {
+      "maximum_relative_residual": 0.0,
+      "p99_relative_residual_over_radial_nodes": 0.0,
+      "rms_of_radial_maxima": 0.0
+    },
+    "compton_B4_reduced_absorption": {
+      "maximum_relative_residual": 4.427745361644855e-16,
+      "p99_relative_residual_over_radial_nodes": 4.3242003753684087e-16,
+      "rms_of_radial_maxima": 3.225401300000294e-16
+    },
+    "compton_B14_B16_velocity_cancellation": {
+      "maximum_relative_residual": 7.270117186654494e-16,
+      "p99_relative_residual_over_radial_nodes": 7.244960487249649e-16,
+      "rms_of_radial_maxima": 5.471574323157031e-16
+    },
+    "total_production": {
+      "maximum_relative_residual": 2.2966923079387924e-13,
+      "p99_relative_residual_over_radial_nodes": 6.13387706880708e-14,
+      "rms_of_radial_maxima": 3.517834679073762e-14
+    },
+    "total_absorption": {
+      "maximum_relative_residual": 2.29488990264112e-13,
+      "p99_relative_residual_over_radial_nodes": 4.6148749352109935e-14,
+      "rms_of_radial_maxima": 2.5476965504537436e-14
+    },
+    "total_reduced_absorption": {
+      "maximum_relative_residual": 2.29488990264112e-13,
+      "p99_relative_residual_over_radial_nodes": 4.6148749352109935e-14,
+      "rms_of_radial_maxima": 2.5477391211251105e-14
+    },
+    "mu_numu_sign_invariance": {
+      "maximum_relative_residual": 3.96170029069734e-15,
+      "p99_relative_residual_over_radial_nodes": 3.90413205801922e-15,
+      "rms_of_radial_maxima": 2.2792840441657795e-15
+    }
+  },
+  "angular_quadrature_check": {
+    "number_of_radial_nodes_checked": 40,
+    "maximum_relative_change_256_to_512": 1.1945110926520043e-14,
+    "checks": [
+      {
+        "radius_km": 0.03471592210148686,
+        "maximum_relative_change_256_to_512": 3.111973587943795e-15
+      },
+      {
+        "radius_km": 0.6650047391037859,
+        "maximum_relative_change_256_to_512": 3.588131167357705e-15
+      },
+      {
+        "radius_km": 1.3349952608962141,
+        "maximum_relative_change_256_to_512": 3.3132497586278502e-15
+      },
+      {
+        "radius_km": 1.9652840778985132,
+        "maximum_relative_change_256_to_512": 3.4578096825907996e-15
+      },
+      {
+        "radius_km": 2.534715922101487,
+        "maximum_relative_change_256_to_512": 3.5628378001082575e-15
+      },
+      {
+        "radius_km": 3.165004739103786,
+        "maximum_relative_change_256_to_512": 3.3581560925625192e-15
+      },
+      {
+        "radius_km": 3.834995260896214,
+        "maximum_relative_change_256_to_512": 3.787763070624693e-15
+      },
+      {
+        "radius_km": 4.465284077898513,
+        "maximum_relative_change_256_to_512": 3.575546122924657e-15
+      },
+      {
+        "radius_km": 5.034715922101487,
+        "maximum_relative_change_256_to_512": 3.4434020344585156e-15
+      },
+      {
+        "radius_km": 5.665004739103786,
+        "maximum_relative_change_256_to_512": 3.5626746679896905e-15
+      },
+      {
+        "radius_km": 6.334995260896214,
+        "maximum_relative_change_256_to_512": 2.937513785780808e-15
+      },
+      {
+        "radius_km": 6.965284077898513,
+        "maximum_relative_change_256_to_512": 3.193414955263814e-15
+      },
+      {
+        "radius_km": 7.534715922101487,
+        "maximum_relative_change_256_to_512": 2.9322878627002024e-15
+      },
+      {
+        "radius_km": 8.165004739103786,
+        "maximum_relative_change_256_to_512": 3.0913225102017794e-15
+      },
+      {
+        "radius_km": 8.834995260896214,
+        "maximum_relative_change_256_to_512": 2.9943119495055455e-15
+      },
+      {
+        "radius_km": 9.465284077898513,
+        "maximum_relative_change_256_to_512": 3.67265994434384e-15
+      },
+      {
+        "radius_km": 10.034715922101487,
+        "maximum_relative_change_256_to_512": 3.008282849796737e-15
+      },
+      {
+        "radius_km": 10.665004739103786,
+        "maximum_relative_change_256_to_512": 3.789847671159698e-15
+      },
+      {
+        "radius_km": 11.334995260896214,
+        "maximum_relative_change_256_to_512": 3.62710592467358e-15
+      },
+      {
+        "radius_km": 11.965284077898513,
+        "maximum_relative_change_256_to_512": 3.2480281445016217e-15
+      },
+      {
+        "radius_km": 12.534715922101487,
+        "maximum_relative_change_256_to_512": 3.799101443854335e-15
+      },
+      {
+        "radius_km": 13.165004739103786,
+        "maximum_relative_change_256_to_512": 3.811895474463504e-15
+      },
+      {
+        "radius_km": 13.834995260896214,
+        "maximum_relative_change_256_to_512": 3.678569742645699e-15
+      },
+      {
+        "radius_km": 14.465284077898513,
+        "maximum_relative_change_256_to_512": 4.706090921953691e-15
+      },
+      {
+        "radius_km": 15.034715922101487,
+        "maximum_relative_change_256_to_512": 5.501769553182498e-15
+      },
+      {
+        "radius_km": 15.665004739103786,
+        "maximum_relative_change_256_to_512": 4.643266639360113e-15
+      },
+      {
+        "radius_km": 16.334995260896214,
+        "maximum_relative_change_256_to_512": 5.520072472267175e-15
+      },
+      {
+        "radius_km": 16.965284077898513,
+        "maximum_relative_change_256_to_512": 5.224946965201659e-15
+      },
+      {
+        "radius_km": 17.534715922101487,
+        "maximum_relative_change_256_to_512": 5.701350275722844e-15
+      },
+      {
+        "radius_km": 18.165004739103786,
+        "maximum_relative_change_256_to_512": 5.228352960663317e-15
+      },
+      {
+        "radius_km": 18.834995260896214,
+        "maximum_relative_change_256_to_512": 8.226039398949209e-15
+      },
+      {
+        "radius_km": 19.465284077898513,
+        "maximum_relative_change_256_to_512": 7.502733066981203e-15
+      },
+      {
+        "radius_km": 20.034715922101487,
+        "maximum_relative_change_256_to_512": 7.233358352801563e-15
+      },
+      {
+        "radius_km": 20.665004739103786,
+        "maximum_relative_change_256_to_512": 1.0562193827446672e-14
+      },
+      {
+        "radius_km": 21.334995260896214,
+        "maximum_relative_change_256_to_512": 9.300155034840059e-15
+      },
+      {
+        "radius_km": 21.965284077898513,
+        "maximum_relative_change_256_to_512": 8.740392713257067e-15
+      },
+      {
+        "radius_km": 22.534715922101487,
+        "maximum_relative_change_256_to_512": 8.486134285341961e-15
+      },
+      {
+        "radius_km": 23.165004739103786,
+        "maximum_relative_change_256_to_512": 7.0690665195654956e-15
+      },
+      {
+        "radius_km": 23.834995260896214,
+        "maximum_relative_change_256_to_512": 9.01740070660589e-15
+      },
+      {
+        "radius_km": 24.465284077898513,
+        "maximum_relative_change_256_to_512": 1.1945110926520043e-14
+      }
+    ]
+  },
+  "radial_maximum_residuals": [
+    {
+      "radius_km": 0.03471592210148686,
+      "maximum_local_residual": 3.323017314259528e-14
+    },
+    {
+      "radius_km": 0.16500473910378594,
+      "maximum_local_residual": 5.1057037855937107e-14
+    },
+    {
+      "radius_km": 0.33499526089621406,
+      "maximum_local_residual": 2.7553573279674327e-14
+    },
+    {
+      "radius_km": 0.4652840778985131,
+      "maximum_local_residual": 2.0527876195175843e-14
+    },
+    {
+      "radius_km": 0.5347159221014869,
+      "maximum_local_residual": 4.1044671093089594e-14
+    },
+    {
+      "radius_km": 0.6650047391037859,
+      "maximum_local_residual": 3.331443690103541e-14
+    },
+    {
+      "radius_km": 0.8349952608962141,
+      "maximum_local_residual": 3.314286439212077e-14
+    },
+    {
+      "radius_km": 0.9652840778985131,
+      "maximum_local_residual": 3.597134342016307e-14
+    },
+    {
+      "radius_km": 1.0347159221014868,
+      "maximum_local_residual": 3.623692357776538e-14
+    },
+    {
+      "radius_km": 1.1650047391037859,
+      "maximum_local_residual": 3.189615194918416e-14
+    },
+    {
+      "radius_km": 1.3349952608962141,
+      "maximum_local_residual": 3.3094502096080644e-14
+    },
+    {
+      "radius_km": 1.4652840778985132,
+      "maximum_local_residual": 5.067181871249623e-14
+    },
+    {
+      "radius_km": 1.5347159221014868,
+      "maximum_local_residual": 2.8450638625080374e-14
+    },
+    {
+      "radius_km": 1.6650047391037859,
+      "maximum_local_residual": 3.2684335616820504e-14
+    },
+    {
+      "radius_km": 1.8349952608962141,
+      "maximum_local_residual": 2.8360010577094502e-14
+    },
+    {
+      "radius_km": 1.9652840778985132,
+      "maximum_local_residual": 2.7751926420323217e-14
+    },
+    {
+      "radius_km": 2.034715922101487,
+      "maximum_local_residual": 2.7969648579543044e-14
+    },
+    {
+      "radius_km": 2.165004739103786,
+      "maximum_local_residual": 3.788285142621619e-14
+    },
+    {
+      "radius_km": 2.334995260896214,
+      "maximum_local_residual": 5.212193933865475e-14
+    },
+    {
+      "radius_km": 2.465284077898513,
+      "maximum_local_residual": 2.602049167821591e-14
+    },
+    {
+      "radius_km": 2.534715922101487,
+      "maximum_local_residual": 3.719827662402693e-14
+    },
+    {
+      "radius_km": 2.665004739103786,
+      "maximum_local_residual": 3.771286818831352e-14
+    },
+    {
+      "radius_km": 2.834995260896214,
+      "maximum_local_residual": 2.927701074656669e-14
+    },
+    {
+      "radius_km": 2.965284077898513,
+      "maximum_local_residual": 3.1067184386451626e-14
+    },
+    {
+      "radius_km": 3.034715922101487,
+      "maximum_local_residual": 2.4791825777427175e-14
+    },
+    {
+      "radius_km": 3.165004739103786,
+      "maximum_local_residual": 2.344066716546612e-14
+    },
+    {
+      "radius_km": 3.334995260896214,
+      "maximum_local_residual": 2.617294418053315e-14
+    },
+    {
+      "radius_km": 3.465284077898513,
+      "maximum_local_residual": 2.7227715590325065e-14
+    },
+    {
+      "radius_km": 3.534715922101487,
+      "maximum_local_residual": 3.548737419765242e-14
+    },
+    {
+      "radius_km": 3.665004739103786,
+      "maximum_local_residual": 2.848051862488836e-14
+    },
+    {
+      "radius_km": 3.834995260896214,
+      "maximum_local_residual": 2.5388604843314943e-14
+    },
+    {
+      "radius_km": 3.965284077898513,
+      "maximum_local_residual": 2.4041630876084748e-14
+    },
+    {
+      "radius_km": 4.034715922101487,
+      "maximum_local_residual": 2.8292274240501406e-14
+    },
+    {
+      "radius_km": 4.165004739103786,
+      "maximum_local_residual": 2.48596536520091e-14
+    },
+    {
+      "radius_km": 4.334995260896214,
+      "maximum_local_residual": 2.5223289493810897e-14
+    },
+    {
+      "radius_km": 4.465284077898513,
+      "maximum_local_residual": 2.5655895973096942e-14
+    },
+    {
+      "radius_km": 4.534715922101487,
+      "maximum_local_residual": 2.5651845406279136e-14
+    },
+    {
+      "radius_km": 4.665004739103786,
+      "maximum_local_residual": 2.6033307773981968e-14
+    },
+    {
+      "radius_km": 4.834995260896214,
+      "maximum_local_residual": 2.6636123845481534e-14
+    },
+    {
+      "radius_km": 4.965284077898513,
+      "maximum_local_residual": 2.740014252714737e-14
+    },
+    {
+      "radius_km": 5.034715922101487,
+      "maximum_local_residual": 2.77349641336939e-14
+    },
+    {
+      "radius_km": 5.165004739103786,
+      "maximum_local_residual": 2.837603680842725e-14
+    },
+    {
+      "radius_km": 5.334995260896214,
+      "maximum_local_residual": 2.917946617511726e-14
+    },
+    {
+      "radius_km": 5.465284077898513,
+      "maximum_local_residual": 2.9739728544782923e-14
+    },
+    {
+      "radius_km": 5.534715922101487,
+      "maximum_local_residual": 3.024559722351781e-14
+    },
+    {
+      "radius_km": 5.665004739103786,
+      "maximum_local_residual": 3.094479415751316e-14
+    },
+    {
+      "radius_km": 5.834995260896214,
+      "maximum_local_residual": 2.5811924257662536e-14
+    },
+    {
+      "radius_km": 5.965284077898513,
+      "maximum_local_residual": 2.5948130561845605e-14
+    },
+    {
+      "radius_km": 6.034715922101487,
+      "maximum_local_residual": 3.3017293081939205e-14
+    },
+    {
+      "radius_km": 6.165004739103786,
+      "maximum_local_residual": 3.4081644457679565e-14
+    },
+    {
+      "radius_km": 6.334995260896214,
+      "maximum_local_residual": 3.549704410595116e-14
+    },
+    {
+      "radius_km": 6.465284077898513,
+      "maximum_local_residual": 3.651175714922116e-14
+    },
+    {
+      "radius_km": 6.534715922101487,
+      "maximum_local_residual": 3.6925525757721787e-14
+    },
+    {
+      "radius_km": 6.665004739103786,
+      "maximum_local_residual": 3.8095558458962513e-14
+    },
+    {
+      "radius_km": 6.834995260896214,
+      "maximum_local_residual": 3.96756904419061e-14
+    },
+    {
+      "radius_km": 6.965284077898513,
+      "maximum_local_residual": 4.092726805781582e-14
+    },
+    {
+      "radius_km": 7.034715922101487,
+      "maximum_local_residual": 4.142307701533353e-14
+    },
+    {
+      "radius_km": 7.165004739103786,
+      "maximum_local_residual": 4.2622397845314104e-14
+    },
+    {
+      "radius_km": 7.334995260896214,
+      "maximum_local_residual": 4.3887650317388255e-14
+    },
+    {
+      "radius_km": 7.465284077898513,
+      "maximum_local_residual": 4.495944258876024e-14
+    },
+    {
+      "radius_km": 7.534715922101487,
+      "maximum_local_residual": 4.5630552104158864e-14
+    },
+    {
+      "radius_km": 7.665004739103786,
+      "maximum_local_residual": 4.6667820876176296e-14
+    },
+    {
+      "radius_km": 7.834995260896214,
+      "maximum_local_residual": 2.6556791532833373e-13
+    },
+    {
+      "radius_km": 7.965284077898513,
+      "maximum_local_residual": 4.884285989384756e-14
+    },
+    {
+      "radius_km": 8.034715922101487,
+      "maximum_local_residual": 4.937887483392347e-14
+    },
+    {
+      "radius_km": 8.165004739103786,
+      "maximum_local_residual": 5.0276655949013955e-14
+    },
+    {
+      "radius_km": 8.334995260896214,
+      "maximum_local_residual": 5.088290343870948e-14
+    },
+    {
+      "radius_km": 8.465284077898513,
+      "maximum_local_residual": 5.179171349266086e-14
+    },
+    {
+      "radius_km": 8.534715922101487,
+      "maximum_local_residual": 5.178221119676926e-14
+    },
+    {
+      "radius_km": 8.665004739103786,
+      "maximum_local_residual": 5.116753589900308e-14
+    },
+    {
+      "radius_km": 8.834995260896214,
+      "maximum_local_residual": 5.085127760942651e-14
+    },
+    {
+      "radius_km": 8.965284077898513,
+      "maximum_local_residual": 5.087163714066564e-14
+    },
+    {
+      "radius_km": 9.034715922101487,
+      "maximum_local_residual": 5.085193975271571e-14
+    },
+    {
+      "radius_km": 9.165004739103786,
+      "maximum_local_residual": 5.083519789567422e-14
+    },
+    {
+      "radius_km": 9.334995260896214,
+      "maximum_local_residual": 5.0197348944599574e-14
+    },
+    {
+      "radius_km": 9.465284077898513,
+      "maximum_local_residual": 4.987136492308596e-14
+    },
+    {
+      "radius_km": 9.534715922101487,
+      "maximum_local_residual": 4.888911326549899e-14
+    },
+    {
+      "radius_km": 9.665004739103786,
+      "maximum_local_residual": 4.8515365752993236e-14
+    },
+    {
+      "radius_km": 9.834995260896214,
+      "maximum_local_residual": 4.808305094872795e-14
+    },
+    {
+      "radius_km": 9.965284077898513,
+      "maximum_local_residual": 4.732527430516037e-14
+    },
+    {
+      "radius_km": 10.034715922101487,
+      "maximum_local_residual": 4.6810020240635103e-14
+    },
+    {
+      "radius_km": 10.165004739103786,
+      "maximum_local_residual": 4.620984614875897e-14
+    },
+    {
+      "radius_km": 10.334995260896214,
+      "maximum_local_residual": 4.524084081086911e-14
+    },
+    {
+      "radius_km": 10.465284077898513,
+      "maximum_local_residual": 4.43987269297969e-14
+    },
+    {
+      "radius_km": 10.534715922101487,
+      "maximum_local_residual": 4.397979935535686e-14
+    },
+    {
+      "radius_km": 10.665004739103786,
+      "maximum_local_residual": 4.343532369007939e-14
+    },
+    {
+      "radius_km": 10.834995260896214,
+      "maximum_local_residual": 4.247512513500554e-14
+    },
+    {
+      "radius_km": 10.965284077898513,
+      "maximum_local_residual": 4.139228705632592e-14
+    },
+    {
+      "radius_km": 11.034715922101487,
+      "maximum_local_residual": 4.1222898960856566e-14
+    },
+    {
+      "radius_km": 11.165004739103786,
+      "maximum_local_residual": 3.141173621607012e-14
+    },
+    {
+      "radius_km": 11.334995260896214,
+      "maximum_local_residual": 3.908890450259367e-14
+    },
+    {
+      "radius_km": 11.465284077898513,
+      "maximum_local_residual": 3.803127794086706e-14
+    },
+    {
+      "radius_km": 11.534715922101487,
+      "maximum_local_residual": 3.730963565398799e-14
+    },
+    {
+      "radius_km": 11.665004739103786,
+      "maximum_local_residual": 3.653665453694193e-14
+    },
+    {
+      "radius_km": 11.834995260896214,
+      "maximum_local_residual": 3.534272243258277e-14
+    },
+    {
+      "radius_km": 11.965284077898513,
+      "maximum_local_residual": 3.437802494423715e-14
+    },
+    {
+      "radius_km": 12.034715922101487,
+      "maximum_local_residual": 3.427922483317643e-14
+    },
+    {
+      "radius_km": 12.165004739103786,
+      "maximum_local_residual": 3.286607181077952e-14
+    },
+    {
+      "radius_km": 12.334995260896214,
+      "maximum_local_residual": 3.1998273749336605e-14
+    },
+    {
+      "radius_km": 12.465284077898513,
+      "maximum_local_residual": 3.050782247754743e-14
+    },
+    {
+      "radius_km": 12.534715922101487,
+      "maximum_local_residual": 3.029621451578389e-14
+    },
+    {
+      "radius_km": 12.665004739103786,
+      "maximum_local_residual": 2.9591372771794994e-14
+    },
+    {
+      "radius_km": 12.834995260896214,
+      "maximum_local_residual": 2.7913774198486867e-14
+    },
+    {
+      "radius_km": 12.965284077898513,
+      "maximum_local_residual": 2.709813546739103e-14
+    },
+    {
+      "radius_km": 13.034715922101487,
+      "maximum_local_residual": 2.6604371195861642e-14
+    },
+    {
+      "radius_km": 13.165004739103786,
+      "maximum_local_residual": 2.535224196508406e-14
+    },
+    {
+      "radius_km": 13.334995260896214,
+      "maximum_local_residual": 2.441437956703848e-14
+    },
+    {
+      "radius_km": 13.465284077898513,
+      "maximum_local_residual": 2.3476854408947667e-14
+    },
+    {
+      "radius_km": 13.534715922101487,
+      "maximum_local_residual": 2.3004354882451715e-14
+    },
+    {
+      "radius_km": 13.665004739103786,
+      "maximum_local_residual": 2.1987301938356638e-14
+    },
+    {
+      "radius_km": 13.834995260896214,
+      "maximum_local_residual": 2.137970772757349e-14
+    },
+    {
+      "radius_km": 13.965284077898513,
+      "maximum_local_residual": 2.0197916411784346e-14
+    },
+    {
+      "radius_km": 14.034715922101487,
+      "maximum_local_residual": 1.9562569888811547e-14
+    },
+    {
+      "radius_km": 14.165004739103786,
+      "maximum_local_residual": 1.8655510761030606e-14
+    },
+    {
+      "radius_km": 14.334995260896214,
+      "maximum_local_residual": 1.815394262936452e-14
+    },
+    {
+      "radius_km": 14.465284077898513,
+      "maximum_local_residual": 1.735890377982874e-14
+    },
+    {
+      "radius_km": 14.534715922101487,
+      "maximum_local_residual": 1.699556525783291e-14
+    },
+    {
+      "radius_km": 14.665004739103786,
+      "maximum_local_residual": 1.63203558580965e-14
+    },
+    {
+      "radius_km": 14.834995260896214,
+      "maximum_local_residual": 2.5369572721954338e-14
+    },
+    {
+      "radius_km": 14.965284077898513,
+      "maximum_local_residual": 1.5145605406622525e-14
+    },
+    {
+      "radius_km": 15.034715922101487,
+      "maximum_local_residual": 1.456878704678185e-14
+    },
+    {
+      "radius_km": 15.165004739103786,
+      "maximum_local_residual": 1.3963824147567971e-14
+    },
+    {
+      "radius_km": 15.334995260896214,
+      "maximum_local_residual": 1.7114469650832826e-14
+    },
+    {
+      "radius_km": 15.465284077898513,
+      "maximum_local_residual": 1.5911795589419236e-14
+    },
+    {
+      "radius_km": 15.534715922101487,
+      "maximum_local_residual": 1.3678276322423257e-14
+    },
+    {
+      "radius_km": 15.665004739103786,
+      "maximum_local_residual": 1.662754124921342e-14
+    },
+    {
+      "radius_km": 15.834995260896214,
+      "maximum_local_residual": 1.6175040499780205e-14
+    },
+    {
+      "radius_km": 15.965284077898513,
+      "maximum_local_residual": 1.6101648585248745e-14
+    },
+    {
+      "radius_km": 16.034715922101487,
+      "maximum_local_residual": 1.8126351892957947e-14
+    },
+    {
+      "radius_km": 16.165004739103786,
+      "maximum_local_residual": 1.7391561918184303e-14
+    },
+    {
+      "radius_km": 16.334995260896214,
+      "maximum_local_residual": 1.4416361508179164e-14
+    },
+    {
+      "radius_km": 16.465284077898513,
+      "maximum_local_residual": 1.6679234269804273e-14
+    },
+    {
+      "radius_km": 16.534715922101487,
+      "maximum_local_residual": 1.4788841804511072e-14
+    },
+    {
+      "radius_km": 16.665004739103786,
+      "maximum_local_residual": 1.6465985154690917e-14
+    },
+    {
+      "radius_km": 16.834995260896214,
+      "maximum_local_residual": 1.3705502351906831e-14
+    },
+    {
+      "radius_km": 16.965284077898513,
+      "maximum_local_residual": 3.1902635464015375e-14
+    },
+    {
+      "radius_km": 17.034715922101487,
+      "maximum_local_residual": 1.9022452982010078e-14
+    },
+    {
+      "radius_km": 17.165004739103786,
+      "maximum_local_residual": 2.7085508456818977e-14
+    },
+    {
+      "radius_km": 17.334995260896214,
+      "maximum_local_residual": 2.2916268557025926e-14
+    },
+    {
+      "radius_km": 17.465284077898513,
+      "maximum_local_residual": 2.2747153529276057e-14
+    },
+    {
+      "radius_km": 17.534715922101487,
+      "maximum_local_residual": 2.900540028753503e-14
+    },
+    {
+      "radius_km": 17.665004739103786,
+      "maximum_local_residual": 2.9418827723508145e-14
+    },
+    {
+      "radius_km": 17.834995260896214,
+      "maximum_local_residual": 2.562030969922706e-14
+    },
+    {
+      "radius_km": 17.965284077898513,
+      "maximum_local_residual": 3.164055931848804e-14
+    },
+    {
+      "radius_km": 18.034715922101487,
+      "maximum_local_residual": 2.8130938097673164e-14
+    },
+    {
+      "radius_km": 18.165004739103786,
+      "maximum_local_residual": 2.5400699778989085e-14
+    },
+    {
+      "radius_km": 18.334995260896214,
+      "maximum_local_residual": 2.879642377079278e-14
+    },
+    {
+      "radius_km": 18.465284077898513,
+      "maximum_local_residual": 3.062453775491073e-14
+    },
+    {
+      "radius_km": 18.534715922101487,
+      "maximum_local_residual": 2.890545058920158e-14
+    },
+    {
+      "radius_km": 18.665004739103786,
+      "maximum_local_residual": 3.159275674633215e-14
+    },
+    {
+      "radius_km": 18.834995260896214,
+      "maximum_local_residual": 2.960923276689421e-14
+    },
+    {
+      "radius_km": 18.965284077898513,
+      "maximum_local_residual": 2.889571904507071e-14
+    },
+    {
+      "radius_km": 19.034715922101487,
+      "maximum_local_residual": 3.3562060007853375e-14
+    },
+    {
+      "radius_km": 19.165004739103786,
+      "maximum_local_residual": 3.0586850748063195e-14
+    },
+    {
+      "radius_km": 19.334995260896214,
+      "maximum_local_residual": 2.9004395783260624e-14
+    },
+    {
+      "radius_km": 19.465284077898513,
+      "maximum_local_residual": 3.1491709648842766e-14
+    },
+    {
+      "radius_km": 19.534715922101487,
+      "maximum_local_residual": 3.141157409334515e-14
+    },
+    {
+      "radius_km": 19.665004739103786,
+      "maximum_local_residual": 3.282042973380944e-14
+    },
+    {
+      "radius_km": 19.834995260896214,
+      "maximum_local_residual": 2.829771119180801e-14
+    },
+    {
+      "radius_km": 19.965284077898513,
+      "maximum_local_residual": 3.237189091658755e-14
+    },
+    {
+      "radius_km": 20.034715922101487,
+      "maximum_local_residual": 2.7791194833907246e-14
+    },
+    {
+      "radius_km": 20.165004739103786,
+      "maximum_local_residual": 3.097522933780651e-14
+    },
+    {
+      "radius_km": 20.334995260896214,
+      "maximum_local_residual": 3.260558376962588e-14
+    },
+    {
+      "radius_km": 20.465284077898513,
+      "maximum_local_residual": 2.997550381228416e-14
+    },
+    {
+      "radius_km": 20.534715922101487,
+      "maximum_local_residual": 3.242261357110034e-14
+    },
+    {
+      "radius_km": 20.665004739103786,
+      "maximum_local_residual": 3.1414472434440574e-14
+    },
+    {
+      "radius_km": 20.834995260896214,
+      "maximum_local_residual": 4.7644757931993e-14
+    },
+    {
+      "radius_km": 20.965284077898513,
+      "maximum_local_residual": 6.132147022088326e-14
+    },
+    {
+      "radius_km": 21.034715922101487,
+      "maximum_local_residual": 3.4288980467755275e-14
+    },
+    {
+      "radius_km": 21.165004739103786,
+      "maximum_local_residual": 3.394279362785591e-14
+    },
+    {
+      "radius_km": 21.334995260896214,
+      "maximum_local_residual": 2.817270710569309e-14
+    },
+    {
+      "radius_km": 21.465284077898513,
+      "maximum_local_residual": 5.667653023626582e-14
+    },
+    {
+      "radius_km": 21.534715922101487,
+      "maximum_local_residual": 5.558840079484563e-14
+    },
+    {
+      "radius_km": 21.665004739103786,
+      "maximum_local_residual": 4.623477624182778e-14
+    },
+    {
+      "radius_km": 21.834995260896214,
+      "maximum_local_residual": 4.734790932043531e-14
+    },
+    {
+      "radius_km": 21.965284077898513,
+      "maximum_local_residual": 4.948571426520358e-14
+    },
+    {
+      "radius_km": 22.034715922101487,
+      "maximum_local_residual": 2.9869004583533525e-14
+    },
+    {
+      "radius_km": 22.165004739103786,
+      "maximum_local_residual": 3.514304642718214e-14
+    },
+    {
+      "radius_km": 22.334995260896214,
+      "maximum_local_residual": 5.732473886849742e-14
+    },
+    {
+      "radius_km": 22.465284077898513,
+      "maximum_local_residual": 3.099901230329218e-14
+    },
+    {
+      "radius_km": 22.534715922101487,
+      "maximum_local_residual": 5.661398673928702e-14
+    },
+    {
+      "radius_km": 22.665004739103786,
+      "maximum_local_residual": 5.893560526594035e-14
+    },
+    {
+      "radius_km": 22.834995260896214,
+      "maximum_local_residual": 4.8637745285073805e-14
+    },
+    {
+      "radius_km": 22.965284077898513,
+      "maximum_local_residual": 3.5812644216022527e-14
+    },
+    {
+      "radius_km": 23.034715922101487,
+      "maximum_local_residual": 5.1247121043631206e-14
+    },
+    {
+      "radius_km": 23.165004739103786,
+      "maximum_local_residual": 6.305151697176778e-14
+    },
+    {
+      "radius_km": 23.334995260896214,
+      "maximum_local_residual": 5.707235849555777e-14
+    },
+    {
+      "radius_km": 23.465284077898513,
+      "maximum_local_residual": 5.383695912507824e-14
+    },
+    {
+      "radius_km": 23.534715922101487,
+      "maximum_local_residual": 5.403818313196945e-14
+    },
+    {
+      "radius_km": 23.665004739103786,
+      "maximum_local_residual": 5.908787206795583e-14
+    },
+    {
+      "radius_km": 23.834995260896214,
+      "maximum_local_residual": 5.7009238436383e-14
+    },
+    {
+      "radius_km": 23.965284077898513,
+      "maximum_local_residual": 5.7870854709579e-14
+    },
+    {
+      "radius_km": 24.034715922101487,
+      "maximum_local_residual": 5.384195917293346e-14
+    },
+    {
+      "radius_km": 24.165004739103786,
+      "maximum_local_residual": 5.902841260912608e-14
+    },
+    {
+      "radius_km": 24.334995260896214,
+      "maximum_local_residual": 5.440460768798161e-14
+    },
+    {
+      "radius_km": 24.465284077898513,
+      "maximum_local_residual": 4.925844359511619e-14
+    },
+    {
+      "radius_km": 24.534715922101487,
+      "maximum_local_residual": 5.0451545791829144e-14
+    },
+    {
+      "radius_km": 24.665004739103786,
+      "maximum_local_residual": 5.4479152466321846e-14
+    },
+    {
+      "radius_km": 24.834995260896214,
+      "maximum_local_residual": 5.692070960736495e-14
+    },
+    {
+      "radius_km": 24.965284077898513,
+      "maximum_local_residual": 5.579891831676335e-14
+    }
+  ],
+  "production_axial_outputs_modified": false,
+  "limitations": [
+    "The local production kernels are checked against direct local phase-space integrals, but this does not validate the physical no-recoil approximation against the exact moving-muon B.13 process.",
+    "The audit uses the same reconstructed public-figure stellar profile as the global calculation, not the raw Garching simulation table.",
+    "The fixed-omega Appendix-B energy prescription is retained."
+  ],
+  "run_commit_sha": "6e8e2d8ca9fed7afb30ad146f5ef508b2d7dba38",
+  "code_sha256": "97d87aee11bcd12c2497763c5e1cd385d3ae451bdbd37302d24e13a5813db3c8",
+  "elapsed_seconds": 16.6156485080719
+}
