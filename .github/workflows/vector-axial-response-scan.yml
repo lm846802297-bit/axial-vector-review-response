@@ -16,7 +16,8 @@ permissions:
 
 concurrency:
   group: vector-axial-response-scan-${{ github.ref }}
-  cancel-in-progress: false
+  # Do not publish results from a superseded code revision.
+  cancel-in-progress: true
 jobs:
   response-scan:
     runs-on: ubuntu-latest
