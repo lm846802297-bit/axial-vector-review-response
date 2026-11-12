@@ -231,6 +231,15 @@ def run_new_mass_radius_case(
                 b13["Q_total_MeV5"]
                 / stationary["Q_total_MeV5"] - 1.0
             ),
+            "stationary_exact_recoil_vs_B16_corrected_fraction": (
+                stationary["Q_total_MeV5"]
+                / b16["Q_B16_with_mass_correction_MeV5"] - 1.0
+            ),
+            "moving_muon_and_B16_approximation_factorization_residual": (
+                (b13["Q_total_MeV5"]/stationary["Q_total_MeV5"])
+                *(stationary["Q_total_MeV5"]/b16["Q_B16_with_mass_correction_MeV5"])
+                - b13["Q_total_MeV5"]/b16["Q_B16_with_mass_correction_MeV5"]
+            ),
             "B16_integrated_mass_correction_fraction": (
                 b16["relative_mass_correction_to_no_parenthesis"]
             ),
@@ -391,6 +400,7 @@ def run_mass_scan(
         "scope_limits": [
             "Local source-rate comparison at r=0 and 12.5 km only.",
             "No radial luminosity integral, escape probability, opacity, or transport calculation.",
+            "B.14-B.16 is the published nonrelativistic-muon, negligible-recoil Thomson-limit approximation; its difference from exact B.13 is decomposed using the stationary exact-recoil kernel.",
             "The 10 MeV result is reused from its previously validated output and is not recomputed.",
             "No coupling, production, absorption, opacity, or stellar-profile rescaling.",
             "The B.14 low-mass statement concerns dropping O(m_V^2/omega^2); nonrelativistic muon and negligible-recoil assumptions are tested separately.",

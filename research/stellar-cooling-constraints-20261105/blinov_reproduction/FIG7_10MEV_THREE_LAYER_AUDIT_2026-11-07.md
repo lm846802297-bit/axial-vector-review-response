@@ -33,7 +33,7 @@ The output contains optically thin source luminosities for neutrino coalescence,
 
 ## Interpretation boundary
 
-The channel opacity decomposition uses the detailed-balance prescription already present in reference.py. It is **not** an independent microscopic derivation of each inverse process, nor does it independently integrate the forward and reverse Compton phase spaces. The B.19 direct thermal-integral audit remains separate.
+The channel opacity decomposition uses the detailed-balance prescription already present in reference.py. It is **not** an independent microscopic derivation of each inverse process, nor does it independently integrate the forward and reverse Compton phase spaces. The Eq. (35) direct thermal-integral audit remains separate.
 
 A near-zero channel-additivity residual validates numerical bookkeeping and linearity of the line-of-sight integral. It does not prove that the underlying microscopic opacity formula is physically correct.
 
@@ -92,6 +92,6 @@ The weighted mean optical depth must not be exponentiated to estimate the escape
 
 The channel reduced-opacity sum agrees with the reference total to a maximum relative residual of \(3.96\times10^{-16}\); the sum of channel line-of-sight columns agrees with a direct total-opacity integration to \(6.72\times10^{-16}\); and channel emergent luminosities sum to the total by construction to floating-point precision.
 
-These are decomposition/bookkeeping checks under the *same* reference detailed-balance prescription. They are not the independent forward/reverse Compton phase-space test of B.19. That remains the next microscopic cross-check before any production-code correction is considered.
+These are decomposition/bookkeeping checks under the *same* reference detailed-balance prescription. They are not the independent forward/reverse Compton phase-space test of Eq. (35). That remains the next microscopic cross-check before any production-code correction is considered.
 
 The dedicated [three-layer workflow](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42310090478) passes, including four regression tests and the full 25-point diagnostic. The earlier broad Major 4.4 workflow on the initial diagnostic commit failed at test-module import discovery (before its numerical scans); the import mode is now fixed, and the diagnostic-only paths are excluded from that broad full-scan trigger to avoid repeating the four-mass scan for this targeted audit.

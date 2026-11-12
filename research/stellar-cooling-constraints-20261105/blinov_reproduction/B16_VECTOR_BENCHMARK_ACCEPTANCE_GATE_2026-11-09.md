@@ -91,23 +91,31 @@ The source-level convention and implementation ambiguity is documented in:
 ### Completed; do not repeat
 
 1. Independent B.1 source integration.
-2. Independent B.2 path integration.
-3. B.1+B.2 end-to-end numerical closure.
-4. Dense local collision-kernel checks on the full integration grid.
-5. Caputo-versus-Ferreira \\(\mu_\mu/T\\) adjudication against Bollig Fig. 4.
-6. Current-profile redshift-only diagnostic and archival.
-7. Source-weighted muon-velocity diagnostic for the B.14 non-relativistic approximation; workflow #42572394290 passes and the JSON is archived.
-8. 22--25 km muon-neutrino chemical-potential stress test at ±1 and ±3 MeV; workflow #42572982267 passes. The strong-endpoint luminosity changes by only +0.0172% and +0.1505%, respectively.
+2. Independent B.2 path integration and end-to-end B.1+B.2 closure.
+3. Dense local collision-kernel checks on the full integration grid.
+4. Caputo-versus-Ferreira \(\mu_\mu/T\) adjudication against Bollig Fig. 4.
+5. Current-profile redshift-only diagnostic and archival.
+6. Source-weighted muon-velocity diagnostic for the B.14 non-relativistic approximation.
+7. Inner and outer \(\mu_{\nu_\mu}\) branch/plot-floor sensitivity tests.
+8. B.1 source/background audit to the limit of public figure data: B.17's one-\(\mu^-\)-species \(n_\mu F_{\rm deg}\) product is independently checked; the Fig. 3 density discrepancy is not explained by the \(\mu^+\) fraction and is not a permitted standalone normalization; the density-only source-weighted estimate is about 1% over 5--15 km.
+9. Strong-endpoint emission-radius decomposition: 8--15 km supplies 79.61% of the thin source and 86.84% of the escaped luminosity; 22--25 km emission supplies 0.073% and 3.36%, respectively. Fig. 7 itself contains no radius-resolved reference distribution.
+10. The 10 MeV global B.13 source-plus-opacity alternative and its radial/energy/angular/path convergence scans. The combined \(60\times140\times24\times48\) grid changes the B.13 luminosity curve by at most 0.2732% relative to \(40\times100\times16\times32\); the strong-endpoint residual changes from \(+131.53\%\) to approximately \(+131.12\%\). The full artifact upload hit the Actions storage quota, so the compact recovered scan summary is the archived numerical record. B.13 is a separate moving-muon alternative, not the operational Fig. 7 benchmark. The 0.1 and 1 MeV global outputs remain baseline-grid comparisons and are not described here as independently grid-converged.
+11. P1 high-energy B.2 propagation audit: direct \(s\)-coordinate integration agrees with the analytic radial primitive at \(\leq8.3\times10^{-14}\) for four-point path quadrature across 108 rays; Simpson/Gauss angular averages agree below \(6\times10^{-7}\); using all 1687 retained profile vertices rather than the 642-node opacity grid changes sampled total optical depths by at most \(1.87\times10^{-5}\). A separate 36-ray fixed-\(\omega\)/path-redshift comparison shows that the redshift sensitivity is carried by neutrino inverse-decay opacity, with negligible semi-Compton change. See [B16_P1_B2_HIGH_ENERGY_PROPAGATION_AUDIT_2026-11-10.md](B16_P1_B2_HIGH_ENERGY_PROPAGATION_AUDIT_2026-11-10.md).
+12. Source-weighted global Shapley attribution of the 210--510 MeV path-redshift sensitivity: 99.9860% of the global luminosity change is due to neutrino inverse-decay opacity and 0.0140% to semi-Compton opacity. The four counterfactual luminosities reproduce the archived fixed-\(\omega\) and bilinear-redshift band results at \(2.84\times10^{-6}\) and \(4.09\times10^{-7}\) relative residuals, respectively. A direct local-rate evaluation differs from the bilinear redshift result by 0.50% but preserves the channel attribution.
+13. P1-B.2 thermodynamic interpolation and source-frozen input sensitivity: direct local-kernel evaluation from the 1687-vertex profile versus the 642-node opacity table changes sampled total optical depths by at most \(9.07\times10^{-6}\). In the source-frozen 210--510 MeV band, \(\pm10\%\) variations of \(\mu_{\nu_\mu}\) change the escaped luminosity by less than \(0.03\%\), while \(\pm10\%\) \(T\) or \(\mu_\mu\) stress tests produce larger changes through semi-Compton opacity. The baseline \(T\) and \(\mu_\mu/T\) profiles independently match Bollig Figs. 1 and 4 at the \(10^{-4}\) relative scale. See [B16_P1B2_THERMODYNAMIC_INTERPOLATION_AND_INPUT_SENSITIVITY_2026-11-10.md](B16_P1B2_THERMODYNAMIC_INTERPOLATION_AND_INPUT_SENSITIVITY_2026-11-10.md).
+
 
 ### Still unresolved
 
-1. The true same-snapshot thermodynamic continuation over 20--25 km.
-2. Whether the unpublished Fig. 7 calculation uses B.13 or B.14--B.16. Global B.13 source-plus-opacity replacements are now archived at 0.1, 1, and 10 MeV. The exact kernel passes the sampled 0.1% local convergence screen at all three masses, but global B.1+B.2 quadrature convergence remains to be demonstrated.
-3. The B.2 path-energy convention: the B.1 source variable ambiguity is resolved by the exact E_infinity=N omega_loc Jacobian, but the path opacity still has no explicit lapse conversion in the printed thermal factor.
-4. The global impact of the non-relativistic/no-recoil muon approximation in B.14. The B.13/B.16 source and reduced-opacity ratios are about 0.34 and 0.35 in the dominant 5--12 km region at 0.1 and 1 MeV. The local exact kernel passes the sampled convergence screen; full global quadrature refinement remains.
-5. A same-snapshot spatial metric A(r) or enclosed mass M(r) only if a separate full-GR extension is pursued.
+1. The exact same-snapshot Garching thermodynamic profile remains unavailable. The public-figure reconstruction is internally consistent for the validated \(T\) and \(\mu_\mu/T\) ranges, but the Bollig Fig. 3 absolute-density tension remains unresolved at the raw-profile level. The 20--25 km continuation is also not directly validated by the original Bollig Fig. 1/Fig. 4 frames.
+2. The unpublished Fig. 7 numerical code is unavailable. The text supports B.14 in the low-mass Compton regime, but does not identify the Compton implementation for every plotted mass point. B.16 remains the adopted equation-level reproduction benchmark; B.13 remains a separately completed alternative.
+3. The displayed B.2 equation uses fixed \(\omega\), which remains the literal reproduction baseline. The path-redshift alternative is a separately quantified physical sensitivity; the unpublished numerical code is unavailable, so its exact implementation cannot be independently inferred.
+4. The B.16 physical reproduction still fails at the 10 MeV strong endpoint: \(+92.2406\%\) for fixed \(\omega\). The path-redshift-only diagnostic gives \(+36.7448\%\), but is not the literal published baseline.
+5. The scalar versus polarization-resolved interpretation of the B.2 absorption rate remains a separate transport-prescription question; the mode-resolved result is not silently substituted for the published scalar baseline.
+6. A same-snapshot spatial metric \(A(r)\) or enclosed mass \(M(r)\) is needed only for an optional full-GR extension, not for the published Euclidean-chord B.2 approximation.
 
-The Garching radial-profile endpoint remains access-protected. This limits raw-profile precision and any optional full-GR extension, but it does not prevent the method-level checks of the published B.1--B.5 prescription using the reconstructed profile.
+The protected Garching endpoint limits raw-profile precision. This does not prevent the method-level B.1--B.5 checks using the current public-profile reconstruction, but it prevents claiming exact reproduction of the original simulation background.
+
 
 ## 6. Final gate decision
 
@@ -117,7 +125,9 @@ The Garching radial-profile endpoint remains access-protected. This limits raw-p
 - **Axial-vector recalculation:** frozen.
 - **PR #57:** keep Open / Draft; do not merge as a validated reproduction.
 
-The next action is to converge the full global B.13 B.1+B.2 curves at 0.1 and 1 MeV, then continue the B.2 path-energy and outer-neutrino-opacity diagnostics using the current reconstructed profile. Raw Garching data would improve input fidelity but are not a prerequisite for these checks. No empirical rescaling, profile swapping, or opacity tuning is permitted.
+The P1-B.2 thermodynamic interpolation audit and the subsequent P1-C polarization-normalization audit are complete. The scalar Appendix-B normalization is retained as the literal baseline; the mode-resolved diagnostic is not substituted and no factor-of-three rescaling is authorized. P1-D has quantified the source-frozen 25--30 km boundary sensitivity. P1-E1--E3 have completed the outer-lapse, neutrino-chemical-potential, and interior-lapse source tests. P1-F has derived the high-energy daughter-neutrino spectrum and identified the energy-dependent heavy-flavor energy sphere as the relevant missing physics. P1-G has used the same-snapshot public Caputo Fig. 1 density curve through 20 km to estimate a transport-only outer-tail envelope: the central radial \(\tau_{\nu N}=2/3\) radius is about 24.6 km at 255 MeV and 26.2 km at 500 MeV. The smooth central-tail 25--30 km reprocessing fraction is only 8.91% on an unweighted radial/node average, so the full P1-D 30 km vacuum-opacity extension remains an extreme upper bound.
+
+Do not repeat generic radial/path interpolation, broad profile stress tests, or full-opacity boundary scans. The actual heavy-flavor energy sphere cannot be computed without same-snapshot energy-changing neutrino collision kernels and moments. Retain the literal \(R_{\max}=25\) km, fixed-\(\omega\), scalar B.2 baseline; keep all axial-vector outputs unchanged.
 
 
 ## 7. Official data and metric-source availability
@@ -131,3 +141,67 @@ Detailed endpoint and source audit:
 
 
 Three-mass B.13 source/opacity and local convergence audit: [B13_THREE_MASS_SOURCE_OPACITY_AND_CONVERGENCE_AUDIT_2026-11-09.md](B13_THREE_MASS_SOURCE_OPACITY_AND_CONVERGENCE_AUDIT_2026-11-09.md).
+
+
+## 7. Source-language qualification: what the published text does and does not prove (2026-11-10)
+
+A cross-check against the version-of-record wording requires a narrower statement than the earlier categorical wording in the separate method note.
+
+The paragraph following Fig. 7 explicitly invokes Eq. (B.14) for the **low-mass Compton absorption regime** and its mass-independent (m_V\to0) behavior. This is direct evidence that the authors use the B.14 approximation to interpret that low-mass regime. It does not, by itself, explicitly state that every Fig. 7 mass point is evaluated with B.14--B.19, nor does it expose the unpublished numerical implementation line by line.
+
+For (m_V=10\,\mathrm{MeV}), the paper states that inverse neutrino decay dominates trapping above the MeV scale. This makes the B.14--B.19 implementation the natural operational benchmark for the published calculation, while the exact B.13 kernel is a controlled relativistic correction study. Nevertheless, because the code is unavailable and the text does not explicitly label the Compton implementation for each Fig. 7 mass, the strongest defensible provenance statement is:
+
+- B.14--B.19 is the adopted equation-level reproduction prescription for the published Appendix-B approximation and the operational Fig. 7 benchmark;
+- B.13 is the general phase-space expression and its global replacement is an alternative calculation, not a required Fig. 7 convergence target;
+- the article does not let us prove the exact code path used at every plotted mass point.
+
+This qualification does not change any numerical result. The current B.16 fixed-ω benchmark remains the correct working branch to compare with Fig. 7 under the adopted reading. Its +92.24% strong-endpoint residual remains a failed physical reproduction against the digitized curve, despite sub-percent internal numerical closure. It must not be presented as an accepted reproduction.
+
+The B.13 convergence scans are complete as a separate alternative-kernel study. Their residuals (+131.53% at the 10 MeV strong endpoint) are not evidence that the published Fig. 7 baseline itself fails because B.13 is not the operational benchmark adopted here.
+
+No source, opacity, profile, coupling, luminosity, or axial-vector production result is changed by this wording adjudication.
+
+
+## 8. P1 high-energy B.2 propagation audit (2026-11-10)
+
+The direct calculation is archived in [B16_P1_B2_HIGH_ENERGY_PROPAGATION_AUDIT_2026-11-10.md](B16_P1_B2_HIGH_ENERGY_PROPAGATION_AUDIT_2026-11-10.md), with its machine-readable output in \`outputs/b16_p1_b2_high_energy_propagation_audit_2026-11-10.json\`.
+
+The key results are:
+- Direct \(s\)-coordinate integration and the analytic radial primitive agree to \(8.3\times10^{-14}\) or better with four Gauss points per profile segment, including central, near-central, tangent, inward, and outward rays.
+- The 642-node opacity interpolation grid agrees with an opacity table evaluated at all 1687 retained profile vertices: the maximum sampled change in total optical depth is \(1.87\times10^{-5}\), and the maximum sampled angular escape-average change is \(2.18\times10^{-5}\).
+- In a separate 36-ray path-redshift diagnostic, the neutrino inverse-decay optical depth changes by a mean \(+4.98\%\) over the selected rays, while the semi-Compton optical depth changes by a mean \(+2.56\times10^{-6}\). These are unweighted ray diagnostics, not global source-weighted averages.
+
+The P1 numerical propagation checks do not explain the \(+92.2406\%\) fixed-\(\omega\) strong-endpoint mismatch. The path-redshift branch remains a physical sensitivity and is not substituted for the displayed Eq. (B.2) baseline. No source, opacity, or axial-vector result is modified.
+
+
+### Global channel attribution addendum
+
+The source-weighted 210--510 MeV Shapley decomposition is archived in the P1 report and JSON output. It confirms that the path-redshift effect is a neutrino inverse-decay opacity effect, not a Compton opacity effect. This is a separate physical sensitivity and does not alter the fixed-\(\omega\) Fig. 7 baseline.
+
+
+## 9. P1-C through P1-G closure update (2026-11-10)
+
+The follow-up sequence is now complete at the scope supported by public information:
+
+- **P1-C:** polarization-summed production/absorption normalization reconciled with the scalar Appendix-B prescription. No manual factor-of-three correction is allowed.
+- **P1-D:** \(R_{\max}\) sensitivity evaluated at 15, 18.5, 20, 22, 24, 25, 26, 27.5, and 30 km, with source frozen at the literal 25 km baseline.
+- **P1-E1--E3:** outer lapse, \(\mu_{\nu_\mu}\)/\(\mu_{\nu_\tau}=0\), and interior lapse source sensitivities completed.
+- **P1-F:** boosted vector-decay daughter energies and energy-/flavor-dependent heavy-flavor decoupling reviewed.
+- **P1-G:** the same SFHo-18.8, 1 s public baryon-density figure used to estimate a transport-only neutrino optical-depth envelope. This suggests a central 255 MeV transport radius near 24.6 km and 500 MeV near 26.2 km, but does not determine the energy sphere.
+
+The P1-D 30 km sharp-boundary luminosity proxy nearly matches the Fig. 7 strong point only when the entire 210--510 MeV band is assigned full extra vacuum opacity. P1-G instead finds a central smooth radial 25--30 km reprocessing fraction of about 8.91% across the ten vector-energy nodes. The P1-D extension is therefore an extreme conditional upper bound, not a physical correction.
+
+The exact heavy-flavor energy sphere remains uncomputed because the raw same-snapshot composition, energy-changing collision kernels, and neutrino moments are unavailable. The current public figure provides \(n_B(r)\) only through 20 km; the 20--25 km tail in P1-G is extrapolated. Do not select a new boundary, fit Fig. 7, or update the axial-vector curve.
+
+**Final decision remains unchanged:** the literal fixed-\(\omega\), scalar B.2 benchmark is not a successful Fig. 7 reproduction at 10 MeV; PR #57 stays Draft/Open, and axial-vector recalculation remains frozen.
+
+
+## 10. P1-H smooth daughter-reprocessing B.2 integration (2026-11-10)
+
+P1-H has now inserted the P1-G energy-weighted daughter survival proxy into the full B.2 ray integral for the 210--510 MeV band. The B.1 source and scalar opacity inside 25 km are frozen; only the outer \(V\to\nu\bar\nu\) opacity is multiplied by \(1-P_{\rm pair}^{E}(\omega,r)\).
+
+The central equal-mode density tail changes the band by \(-4.14\%\), the high-density tail by \(-10.60\%\), and the low-density tail by \(-0.33\%\). The band-only total proxies remain \(+86.87\%\), \(+78.21\%\), and \(+91.98\%\) above Fig. 7. By contrast, the sharp full-opacity \(R_{\max}=30\) km extension suppresses the band by \(70.94\%\) and gives a spurious near-match.
+
+The B.1 source, literal \(R_{\max}=25\) band, and sharp \(R_{\max}=30\) band close to the P1-C/P1-D archived results at \(1.9\times10^{-11}\), \(5.0\times10^{-12}\), and \(5.5\times10^{-12}\). The direct V8 computation is archived; the Python implementation is added for repository reproduction but has not yet been independently rerun.
+
+**Updated decision:** the smooth public-density transport model does not explain the strong-endpoint discrepancy. The exact energy sphere remains unavailable without same-snapshot energy-changing neutrino collision kernels and moments. Retain the literal 25 km baseline, keep PR #57 Draft/Open, and do not update the axial-vector constraint curve.

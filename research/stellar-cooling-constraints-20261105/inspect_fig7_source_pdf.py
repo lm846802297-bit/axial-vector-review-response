@@ -17,6 +17,47 @@ from pathlib import Path
 import fitz
 
 
+CURVE_DRAWING_INDICES = {39, 40, 41, 42, 43, 44}
+
+
+def path_vertices(drawing: dict) -> list[list[float]]:
+    """Return the exact connected polyline vertices from a PDF drawing."""
+    vertices: list[list[float]] = []
+    for item in drawing.get("items", []):
+        if item[0] != "l":
+            raise RuntimeError(
+                f"Expected line-segment path at drawing {drawing.get('seqno')}; "
+                f"found item type {item[0]!r}"
+            )
+        start, end = item[1], item[2]
+        first = [float(start.x), float(start.y)]
+        last = [float(end.x), float(end.y)]
+        if not vertices:
+            vertices.append(first)
+        elif (abs(vertices[-1][0] - first[0]) > 1e-4
+              or abs(vertices[-1][1] - first[1]) > 1e-4):
+            raise RuntimeError("Discontinuous PDF curve path")
+        vertices.append(last)
+    return vertices
+
+
+def extract_text_spans(page) -> list[dict]:
+    """Archive text labels and their PDF boxes for independent axis/legend checks."""
+    spans = []
+    for block in page.get_text("dict").get("blocks", []):
+        for line in block.get("lines", []):
+            for span in line.get("spans", []):
+                value = span.get("text", "").strip()
+                if value:
+                    spans.append({
+                        "text": value,
+                        "bbox": [float(x) for x in span.get("bbox", [])],
+                        "font": span.get("font"),
+                        "size": float(span.get("size", 0.0)),
+                    })
+    return spans
+
+
 def inspect(archive: Path) -> dict:
     archive_bytes = archive.read_bytes()
     archive_sha = hashlib.sha256(archive_bytes).hexdigest()
@@ -54,6 +95,10 @@ def inspect(archive: Path) -> dict:
             "item_count": len(drawing.get("items", [])),
             "rect": list(rect) if rect is not None else None,
             "close_path": drawing.get("closePath"),
+            "path_vertices": (
+                path_vertices(drawing)
+                if index in CURVE_DRAWING_INDICES else None
+            ),
         })
     return {
         "source_url": "https://arxiv.org/src/2511.09619v2",
@@ -64,10 +109,13 @@ def inspect(archive: Path) -> dict:
         "page_rect": list(page.rect),
         "drawing_count": len(drawings),
         "drawings": rows,
+        "text_spans": extract_text_spans(page),
         "note": (
-            "Drawing metadata only. The curve identity and axis transform must "
-            "be verified against the published Fig. 7 before digitized vertices "
-            "are added to the reference data."
+            "The six plotted curve paths (drawing indices 39-44) are archived "
+            "as exact PDF polyline vertices, together with axis/legend drawing "
+            "metadata and text-span boxes. audit_fig7_digitization.py checks "
+            "their colors, legend correspondence, log-axis calibration and "
+            "every stored transformed point against luminosity_comparison.json."
         ),
     }
 

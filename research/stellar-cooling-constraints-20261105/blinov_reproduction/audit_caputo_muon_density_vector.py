@@ -103,6 +103,34 @@ def main():
                 "points": [[float(x), float(y)] for x, y in pts],
             })
 
+    # Inventory colored polyline candidates in the lower density panel.
+    # Keep complete vertices so n_B, n_p, n_e, and n_mu can be identified
+    # from their PDF color, extent, and nearby text labels without guessing
+    # path indices from a screenshot.
+    colored_curve_candidates = []
+    for index, d in enumerate(drawings):
+        rect = [float(x) for x in d["rect"]]
+        if rect[0] < 40 or rect[2] > 335 or rect[1] < 280 or rect[3] > 465:
+            continue
+        pts, kinds = extract_vertices(d)
+        if len(pts) < 20 or (pts[:, 0].max() - pts[:, 0].min()) < 80:
+            continue
+        color = d.get("color")
+        if color is None:
+            continue
+        color = [float(x) for x in color]
+        if max(color) < 1.0e-5:
+            continue
+        colored_curve_candidates.append({
+            "index": index,
+            "color": color,
+            "rect": rect,
+            "width": float(d["width"]) if d.get("width") is not None else None,
+            "point_count": int(len(pts)),
+            "item_kinds": kinds,
+            "points": [[float(x), float(y)] for x, y in pts],
+        })
+
     # Reproduce the committed extraction formula exactly.
     radius = (selected_points[:, 0] - 47.52) * 20.0 / (324.0 - 47.52)
     n_over_n0 = 10.0 ** (-4.0 + (442.918 - selected_points[:, 1]) / 41.4718)
@@ -140,6 +168,7 @@ def main():
             if x["bbox"][0] < 335 and 220 <= x["bbox"][1] <= 465
         ],
         "axis_path_candidates": axis_candidates,
+        "colored_curve_path_candidates": colored_curve_candidates,
         "sampled_curve_vertices": [
             {"r_km": float(r), "n_mu_over_n0": float(n)}
             for r, n in zip(radius[::max(1, len(radius)//30)], n_over_n0[::max(1, len(radius)//30)])
@@ -153,6 +182,10 @@ def main():
         "selected_density_path": payload["selected_density_path"],
         "mapping": payload["existing_mapping"],
         "axis_path_count": len(axis_candidates),
+        "colored_curve_candidates": [
+            {"index": x["index"], "color": x["color"], "rect": x["rect"], "point_count": x["point_count"]}
+            for x in colored_curve_candidates
+        ],
         "output": str(args.output),
     }, indent=2))
 

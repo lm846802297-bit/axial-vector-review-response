@@ -440,6 +440,14 @@ def run_case(profile_path: Path, radius: float) -> dict:
     vector_vs_stationary = (
         b13_vector["Q_total_MeV5"] / stationary_vector["Q_total_MeV5"] - 1.0
     )
+    stationary_vs_b16 = (
+        stationary_vector["Q_total_MeV5"]
+        / b16["Q_B16_with_mass_correction_MeV5"] - 1.0
+    )
+    approximation_factorization_residual = (
+        (1.0+vector_vs_stationary)*(1.0+stationary_vs_b16)
+        - (1.0+vector_vs_b16)
+    )
     axial_vs_stationary = (
         b13_axial["Q_total_MeV5"] / stationary_axial["Q_total_MeV5"] - 1.0
     )
@@ -515,6 +523,10 @@ def run_case(profile_path: Path, radius: float) -> dict:
             "B13_vector_vs_B16_corrected_fraction": vector_vs_b16,
             "B13_vector_vs_B16_without_parenthesis_correction_fraction": vector_vs_b16_no,
             "B13_vector_vs_existing_stationary_exact_fraction": vector_vs_stationary,
+            "stationary_exact_recoil_vs_B16_corrected_fraction": stationary_vs_b16,
+            "moving_muon_and_B16_approximation_factorization_residual": (
+                approximation_factorization_residual
+            ),
             "B13_axial_vs_existing_stationary_exact_fraction": axial_vs_stationary,
             "B13_UV_vs_existing_stationary_exact_fraction": uv_vs_stationary,
         },
@@ -608,6 +620,7 @@ def run(profile_path: Path) -> dict:
         "cases": results,
         "scope_limits": [
             "Local source-rate comparison only; no radial integration or escape probability.",
+            "B.14-B.16 is the published nonrelativistic-muon, negligible-recoil Thomson-limit approximation; its difference from the exact B.13 kernel is retained as a physical approximation diagnostic.",
             "B.14-B.16 is compared only to the pure-vector B.13 rate.",
             "No B.14 vector formula is assigned to the axial or UV mixed-current rates.",
             "No coupling, production, absorption, opacity, or profile rescaling is performed.",

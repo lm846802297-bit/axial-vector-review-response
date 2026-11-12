@@ -1,0 +1,49 @@
+{
+  "title": "Horowitz exact free-nucleon recoil/weak-magnetism moment summary",
+  "date": "2026-11-10",
+  "reference": "Horowitz, PRD 65, 043001 (2002), Eqs. (12)-(17), (30)-(43), Table I, Appendix II",
+  "cross_section_units": "10^-40 cm^2 for sigma_tr_1e-40_cm2",
+  "target_masses_MeV": {"n": 939.56542052, "p": 938.27208816},
+  "T_outer_MeV": 3.03,
+  "rows": [
+    {"E_MeV":50,"target":"n","species":"nu","sigma_tr_1e-40_cm2":0.585168,"mean_energy_loss_fraction":0.050406,"form_factor_ratio":0.974466,"relative_to_E2_scaling":1.128515,"antinu_over_nu":0.720037},
+    {"E_MeV":50,"target":"n","species":"antinu","sigma_tr_1e-40_cm2":0.421343,"mean_energy_loss_fraction":0.046668,"form_factor_ratio":0.976890,"relative_to_E2_scaling":1.495435,"antinu_over_nu":0.720037},
+    {"E_MeV":50,"target":"p","species":"nu","sigma_tr_1e-40_cm2":0.501719,"mean_energy_loss_fraction":0.053647,"form_factor_ratio":0.974160,"relative_to_E2_scaling":1.160366,"antinu_over_nu":0.764551},
+    {"E_MeV":50,"target":"p","species":"antinu","sigma_tr_1e-40_cm2":0.383590,"mean_energy_loss_fraction":0.051173,"form_factor_ratio":0.976031,"relative_to_E2_scaling":1.465586,"antinu_over_nu":0.764551},
+    {"E_MeV":100,"target":"n","species":"nu","sigma_tr_1e-40_cm2":2.074116,"mean_energy_loss_fraction":0.091859,"form_factor_ratio":0.907823,"relative_to_E2_scaling":1.0,"antinu_over_nu":0.543369},
+    {"E_MeV":100,"target":"n","species":"antinu","sigma_tr_1e-40_cm2":1.127011,"mean_energy_loss_fraction":0.078983,"form_factor_ratio":0.923766,"relative_to_E2_scaling":1.0,"antinu_over_nu":0.543369},
+    {"E_MeV":100,"target":"p","species":"nu","sigma_tr_1e-40_cm2":1.729519,"mean_energy_loss_fraction":0.097096,"form_factor_ratio":0.907414,"relative_to_E2_scaling":1.0,"antinu_over_nu":0.605327},
+    {"E_MeV":100,"target":"p","species":"antinu","sigma_tr_1e-40_cm2":1.046925,"mean_energy_loss_fraction":0.088382,"form_factor_ratio":0.919671,"relative_to_E2_scaling":1.0,"antinu_over_nu":0.605327},
+    {"E_MeV":150,"target":"n","species":"nu","sigma_tr_1e-40_cm2":3.984889,"mean_energy_loss_fraction":0.125189,"form_factor_ratio":0.817212,"relative_to_E2_scaling":0.853887,"antinu_over_nu":0.429255},
+    {"E_MeV":150,"target":"n","species":"antinu","sigma_tr_1e-40_cm2":1.710533,"mean_energy_loss_fraction":0.100290,"form_factor_ratio":0.859361,"relative_to_E2_scaling":0.674561,"antinu_over_nu":0.429255},
+    {"E_MeV":150,"target":"p","species":"nu","sigma_tr_1e-40_cm2":3.251594,"mean_energy_loss_fraction":0.131736,"form_factor_ratio":0.817205,"relative_to_E2_scaling":0.835581,"antinu_over_nu":0.496143},
+    {"E_MeV":150,"target":"p","species":"antinu","sigma_tr_1e-40_cm2":1.613257,"mean_energy_loss_fraction":0.114454,"form_factor_ratio":0.849585,"relative_to_E2_scaling":0.684866,"antinu_over_nu":0.496143},
+    {"E_MeV":255,"target":"n","species":"nu","sigma_tr_1e-40_cm2":7.680790,"mean_energy_loss_fraction":0.173529,"form_factor_ratio":0.610588,"relative_to_E2_scaling":0.569498,"antinu_over_nu":0.298262},
+    {"E_MeV":255,"target":"n","species":"antinu","sigma_tr_1e-40_cm2":2.290889,"mean_energy_loss_fraction":0.121670,"form_factor_ratio":0.729329,"relative_to_E2_scaling":0.312605,"antinu_over_nu":0.298262},
+    {"E_MeV":255,"target":"p","species":"nu","sigma_tr_1e-40_cm2":6.071449,"mean_energy_loss_fraction":0.181714,"form_factor_ratio":0.612092,"relative_to_E2_scaling":0.539867,"antinu_over_nu":0.361151},
+    {"E_MeV":255,"target":"p","species":"antinu","sigma_tr_1e-40_cm2":2.192713,"mean_energy_loss_fraction":0.143534,"form_factor_ratio":0.703087,"relative_to_E2_scaling":0.322096,"antinu_over_nu":0.361151},
+    {"E_MeV":500,"target":"n","species":"nu","sigma_tr_1e-40_cm2":10.293011,"mean_energy_loss_fraction":0.215044,"form_factor_ratio":0.274421,"relative_to_E2_scaling":0.198504,"antinu_over_nu":0.203547},
+    {"E_MeV":500,"target":"n","species":"antinu","sigma_tr_1e-40_cm2":2.095113,"mean_energy_loss_fraction":0.123236,"form_factor_ratio":0.519422,"relative_to_E2_scaling":0.074360,"antinu_over_nu":0.203547},
+    {"E_MeV":500,"target":"p","species":"nu","sigma_tr_1e-40_cm2":7.835390,"mean_energy_loss_fraction":0.224706,"form_factor_ratio":0.277178,"relative_to_E2_scaling":0.181215,"antinu_over_nu":0.248393},
+    {"E_MeV":500,"target":"p","species":"antinu","sigma_tr_1e-40_cm2":1.946258,"mean_energy_loss_fraction":0.148200,"form_factor_ratio":0.467497,"relative_to_E2_scaling":0.074361,"antinu_over_nu":0.248393}
+  ],
+  "muller_janka_A31_comparison": [
+    {"E_MeV":100,"T_outer_MeV":3.03,"alpha_MJ_A31":0.096757,"exact_mean_loss":{"nu_n":0.091859,"antinu_n":0.078983,"nu_p":0.097096,"antinu_p":0.088382}},
+    {"E_MeV":150,"T_outer_MeV":3.03,"alpha_MJ_A31":0.149974,"exact_mean_loss":{"nu_n":0.125189,"antinu_n":0.100290,"nu_p":0.131736,"antinu_p":0.114454}},
+    {"E_MeV":255,"T_outer_MeV":3.03,"alpha_MJ_A31":0.261727,"exact_mean_loss":{"nu_n":0.173529,"antinu_n":0.121670,"nu_p":0.181714,"antinu_p":0.143534}},
+    {"E_MeV":500,"T_outer_MeV":3.03,"alpha_MJ_A31":0.522486,"exact_mean_loss":{"nu_n":0.215044,"antinu_n":0.123236,"nu_p":0.224706,"antinu_p":0.148200}}
+  ],
+  "analytic_identity": "sigma_energy_loss/sigma_momentum_transfer = E/(M+E) for a stationary target",
+  "validation": {
+    "Horowitz_pointlike_Rt_vs_Eqs_37_42_max_relative_residual": 1.38e-13,
+    "energy_momentum_identity_max_relative_residual": 3.33e-16,
+    "quadrature_convergence_max_relative_difference_at_64_to_1024_nodes": 1.1e-14
+  },
+  "limitations": [
+    "Free nucleon initially at rest; no nucleon thermal motion, Pauli blocking, mean fields, RPA correlations, or nucleon-nucleon correlations.",
+    "No strange axial form factor.",
+    "Horowitz 2002 dipole form factors should be varied as a nuclear-input uncertainty at Q2 approaching 0.5 GeV2.",
+    "The angular transport moment (1-cos(theta)) is Horowitz's convention; at high E/M the momentum-transfer moment (1-eta*cos(theta)) is also reported by the script.",
+    "These are local free-space cross-section moments, not a radial optical-depth integration and not an updated B.2 result."
+  ]
+}

@@ -2,7 +2,11 @@
 
 Rates are per g_X^2 and per A' polarization at fixed A' energy. Both muon
 charges, Fermi blocking, photon Bose enhancement, and exact 2->2 recoil are
-retained. This is a local collision kernel, not stellar transport.
+retained. The A' momentum is along +z in the local medium rest frame; mode
+order is (L,+,-), with physical epsilon_L=(|k|/m,0,0,omega/m) for the axial
+current and a Ward-equivalent epsilon_L-q/m for the conserved vector current.
+The +/- modes are circular transverse polarizations in that same frame.
+This is a local collision kernel, not stellar transport.
 """
 from __future__ import annotations
 import math
@@ -41,9 +45,12 @@ def moving_muon_compton_rates(
     mass, energy, temperature, mu_mu,
     g_vector=0.0, g_axial=-1.0, orders=(12, 8, 8, 8)
 ):
-    """Return production/absorption rates in (L,+,-) order, per g_X^2.
+    """Return medium-rest-frame production/absorption rates in (L,+,-) order.
 
-    mu_mu is the mu- chemical potential; mu+ has chemical potential -mu_mu.
+    The incoming A' momentum is q=(energy,0,0,sqrt(energy^2-mass^2)) in the
+    medium rest frame. L is the physical longitudinal polarization for the
+    axial current; +/- are circular transverse polarizations. Rates are per
+    g_X^2. mu_mu is the mu- chemical potential; mu+ has chemical potential -mu_mu.
     Couplings are normalized to g_X in gamma^mu(g_vector+g_axial gamma5);
     the physical UV axial endpoint is g_axial=-1.
     orders are (kinetic-energy, cos(mu), cos(gamma), relative photon azimuth).
@@ -192,8 +199,48 @@ def moving_muon_compton_rates(
 
     production = charge_results["mu_minus"]["production"]+charge_results["mu_plus"]["production"]
     absorption = charge_results["mu_minus"]["absorption"]+charge_results["mu_plus"]["absorption"]
+    gamma_prod_unpolarized = float(np.sum(production)/2.0)
+    gamma_abs_unpolarized = float(np.sum(absorption)/3.0)
+    # Eq. (5.12) can imply an exponentially large absorption/production
+    # ratio in the cold-dilute limit. Keep the diagnostic in log space so a
+    # perfectly valid absorption kernel is not rejected by exp(E/T) overflow
+    # or production underflow.
+    log_eq_5_12_expected = math.log(2.0/3.0) + energy/temperature
+    log_eq_5_12_ratio = None
+    eq_5_12_ratio = None
+    eq_5_12_expected = None
+    eq_5_12_relative_residual = None
+    log_float_max = math.log(sys.float_info.max)
+    if log_eq_5_12_expected <= log_float_max:
+        eq_5_12_expected = math.exp(log_eq_5_12_expected)
+    if gamma_abs_unpolarized > 0.0 and gamma_prod_unpolarized > 0.0:
+        log_eq_5_12_ratio = (
+            math.log(gamma_abs_unpolarized) - math.log(gamma_prod_unpolarized)
+        )
+        if log_eq_5_12_ratio <= log_float_max:
+            eq_5_12_ratio = math.exp(log_eq_5_12_ratio)
+        log_residual = log_eq_5_12_ratio - log_eq_5_12_expected
+        if log_residual <= log_float_max:
+            eq_5_12_relative_residual = abs(math.expm1(log_residual))
     return {
         "production": production, "absorption": absorption,
+        "mode_order": ["L", "+", "-"],
+        "polarization_basis": "medium rest frame; A' momentum along +z",
+        "unpolarized_normalization": {
+            "initial_photon_polarization_average": 2,
+            "initial_vector_polarization_average": 3,
+            "Gamma_prod_unpolarized": gamma_prod_unpolarized,
+            "Gamma_abs_unpolarized": gamma_abs_unpolarized,
+            "Gamma_abs_over_Gamma_prod": eq_5_12_ratio,
+            "Gamma_abs_over_Gamma_prod_log": log_eq_5_12_ratio,
+            "Eq_5_12_expected_ratio": eq_5_12_expected,
+            "Eq_5_12_expected_log_ratio": log_eq_5_12_expected,
+            "Eq_5_12_relative_residual": eq_5_12_relative_residual,
+            "Eq_5_12_relative_residual_status": (
+                "computed" if eq_5_12_relative_residual is not None
+                else "unavailable_in_float_domain"
+            ),
+        },
         "charge_resolved": charge_results,
         "diagnostics": {
             "final_muon_shell_relative_error": float(shell_error),
@@ -309,8 +356,15 @@ def thermal_compton_emissivity(
     }
     balance = np.exp(-omega/temperature)[:,None]*absorption
     rel = np.abs(production-balance)/np.maximum(np.abs(production),1e-300)
+    prod_unpolarized = np.sum(production, axis=1)/2.0
+    abs_unpolarized = np.sum(absorption, axis=1)/3.0
+    eq_5_12_expected = (2.0/3.0)*np.exp(omega/temperature)
+    eq_5_12_ratio = abs_unpolarized/np.maximum(prod_unpolarized,1e-300)
+    eq_5_12_residual = np.abs(eq_5_12_ratio-eq_5_12_expected)/eq_5_12_expected
     return {
         "mass_MeV": mass, "temperature_MeV": temperature,
+        "mode_order": ["L", "+", "-"],
+        "polarization_basis": "medium rest frame; A' momentum along +z",
         "muon_chemical_potential_MeV": mu_mu,
         "couplings_normalized_to_gX": {
             "g_vector": float(g_vector), "g_axial": float(g_axial)
@@ -319,6 +373,10 @@ def thermal_compton_emissivity(
         "mediator_momentum_MeV": q_momentum.tolist(),
         "production_MeV": production.tolist(),
         "absorption_MeV": absorption.tolist(),
+        "unpolarized_production_MeV": prod_unpolarized.tolist(),
+        "unpolarized_absorption_MeV": abs_unpolarized.tolist(),
+        "Eq_5_12_absorption_to_production_ratio": eq_5_12_ratio.tolist(),
+        "max_Eq_5_12_relative_residual": float(np.max(eq_5_12_residual)),
         "production_by_charge_MeV": {
             k:v.tolist() for k,v in charge_production.items()
         },

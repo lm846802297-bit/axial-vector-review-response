@@ -148,6 +148,27 @@ Therefore:
 - do not rescale the B.1 Compton source using the Bollig Fig. 3 density ratio;
 - keep the weak-end source-normalization mismatch as unresolved pending a separate audit of the remaining B.1 source inputs and the Fig. 7 digitized reference.
 
+
+### 6.2 Charge-conjugate convention and source-weighted size of the density tension (2026-11-10)
+
+A fresh, independent composite-Simpson integration was run directly from the frozen profile at \(r=5,8,10,12,15\) km. It uses \(p\in[0,1000]\) MeV, 20,000 equal subintervals, \(E_\mu=\sqrt{p^2+m_\mu^2}\), and \((\hbar c)=197.3269804\) MeV fm. The reconstructed \(n_{\mu^-}\) and \(n_{\mu^-}F_{\rm deg}\) agree with the archived independent Fermi-integral values at these points to a maximum relative difference below \(8.3\times10^{-9}\).
+
+| \(r\) (km) | \(n_{\mu^-}\) (fm\(^{-3}\)) | \(F_{\rm deg}\) | \(n_{\mu^+}/n_{\mu^-}\) |
+|---:|---:|---:|---:|
+| 5 | \(4.670997\times10^{-4}\) | 0.962300 | 1.242% |
+| 8 | \(4.660747\times10^{-3}\) | 0.871282 | 1.033% |
+| 10 | \(4.494302\times10^{-3}\) | 0.841716 | 0.284% |
+| 12 | \(1.943681\times10^{-3}\) | 0.871681 | 0.0857% |
+| 15 | \(4.013552\times10^{-5}\) | 0.988346 | 0.00825% |
+
+The positive-muon fraction falls below \(0.086\%\) over 12--15 km. Consequently, interpreting the plotted quantity as net density rather than negative-muon density cannot explain the discrepancy: over 12--15 km the plotted-density comparison is 6.85--10.84%, while the Fermi-reconstructed negative-muon-density comparison is 6.32--9.63%. The charge-conjugate convention can produce a percent-level distinction only toward the inner 5--8 km region.
+
+The channel-resolved B.1 output further sharpens the source-weighting argument. Compton accounts for \(32.0048\%\) of the total thin source, but the 12--15 km shell contains only \(3.7320\%\) of the Compton source. Thus this shell's Compton contribution is \(1.1944\%\) of the total B.1 source. Applying the mean 8.8% Fig. 3 density offset to that component alone would shift the total source by only about \(0.105\%\); even using the 10.84% endpoint offset gives about \(0.130\%\). These are density-only sensitivity estimates, not B.17-consistent replacements.
+
+Across 5--15 km, a piecewise-linear interpolation of the digitized density residuals, weighted by the actual B.1 Compton shell fractions, gives an illustrative total-source shift of about \(0.96\%\) if \(n_\mu\) alone is replaced while \(F_{\rm deg}\) is artificially held fixed. This is not a physical prescription: B.17 requires the product \(n_\mu F_{\rm deg}\) to be evaluated from the same Fermi distribution. The estimate only quantifies why the plotted-density tension cannot account for the \(-8.885\%\) weak-endpoint B.1/B.16 luminosity deficit.
+
+The original Fig. 3 density discrepancy therefore remains a genuine figure-level provenance tension, but neither a net-versus-negative-muon convention nor a standalone density normalization provides a justified correction to the B.1 source.
+
 ## 7. Baseline-input freeze decision
 
 Freeze the following as the current internally consistent working inputs:
@@ -175,3 +196,16 @@ Keep the following distinctions explicit:
 - Successful Caputo vector audit workflow: https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42526643916
 
 Both workflows preserve the production rates, transport, and published axial outputs.
+
+
+## 7. Current-profile B.1 source-input closure update (2026-11-10)
+
+The subsequent P1-E source-side tests have now checked two additional profile inputs that were not covered by the original density audit:
+
+1. **Neutrino chemical potentials:** \`B16_P1E2_B1_NEUTRINO_CHEMICAL_POTENTIAL_SOURCE_SENSITIVITY_2026-11-10.md\` varies \(\mu_{\nu_\mu}\) in the B.1 production kernel. Global \(\pm10\%\) and \(\pm30\%\) stresses change the total B.1 source by at most \(0.66\%\); setting \(\mu_{\nu_\mu}=0\) changes it by \(+1.17\%\). The diagnostic \(\mu_{\nu_\tau}=\mu_{\nu_\mu}\) alternative changes the source by \(-1.17\%\).
+2. **Interior lapse:** \`B16_P1E3_INTERIOR_LAPSE_B1_SOURCE_SENSITIVITY_2026-11-10.md\` finds that matching the weak Fig. 7 source would require a \(+4.97\%\) lapse rescaling over 5--15 km or \(+6.03\%\) over 8--15 km. The independent public lapse visualization agrees with the current profile to a few \(10^{-3}\) in absolute lapse, so this is not supported by the available cross-check.
+3. **Outer lapse:** P1-E1 finds that the 24--25 km continuation changes the full strong-point B.1+B.2 luminosity by at most \(0.0262\%\).
+
+The B.1 weak-end source residual remains about \(-9.03\%\) for the current 1687-row profile. The source-side tests above do not justify changing \(n_\mu F_{\rm deg}\), \(\mu_{\nu_\mu}\), \(\mu_{\nu_\tau}\), or the lapse. The original Garching table and the paper's numerical implementation remain unavailable, so the residual stays an explicit reproduction limitation rather than a fitted correction.
+
+No B.1 source, opacity, profile, Fig. 7 digitization, or axial-vector output is changed by this status update.

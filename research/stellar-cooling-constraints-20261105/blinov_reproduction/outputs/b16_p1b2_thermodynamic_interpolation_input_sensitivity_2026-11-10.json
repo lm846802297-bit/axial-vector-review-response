@@ -1,0 +1,221 @@
+{
+  "title": "P1-B2 thermodynamic interpolation and high-energy input sensitivity",
+  "date": "2026-11-10",
+  "benchmark": {
+    "mass_MeV": 10,
+    "coupling": 4.171689650228597e-8,
+    "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+    "profile_git_blob_sha": "e41df78c8035540760fbcb7ef592cd830171822e",
+    "profile_vertices": 1687,
+    "opacity_grid_nodes": 642,
+    "energy_band_MeV": [
+      210,
+      510
+    ],
+    "energy_nodes_MeV": [
+      217.292177959537,
+      237.39657523579274,
+      259.4508135230317,
+      283.64399970746723,
+      310.18358135755926,
+      339.2971255097149,
+      371.23426997094305,
+      406.26886387014787,
+      444.7013158125027,
+      486.86116977144746
+    ],
+    "source_radial_nodes": 200,
+    "opacity_radial_nodes": 640,
+    "total_energy_nodes": 842,
+    "angular_nodes": 32,
+    "path_nodes": 64,
+    "propagation": "literal fixed-omega Eq. (B.2), scalar opacity, Euclidean chord",
+    "sensitivity_mode": "B.1 source frozen; only B.2 opacity profile inputs varied in 8--15 km"
+  },
+  "baseline": {
+    "source_per_g2": 4.168593206235334e+69,
+    "thin_band_luminosity_erg_s": 7.254600479852526e+54,
+    "source_channel_fractions": {
+      "neutrino": 0.4987642023557975,
+      "semi_compton": 0.5012357976442035
+    },
+    "escaped_luminosity_erg_s": 1.7017848288465725e+52,
+    "escape_probability": 0.002345800893616084,
+    "source_weighted_mean_tau_per_g2": {
+      "neutrino": 3396981328524341.5,
+      "semi_compton": 1038648810089896.4
+    },
+    "relative_residual_vs_archived_high_energy_luminosity": 0
+  },
+  "interpolation_comparison": {
+    "engine": "Direct V8 binary64 execution",
+    "rays": 36,
+    "emission_radii_km": [
+      8,
+      10,
+      12.5,
+      15
+    ],
+    "energies_MeV": [
+      210,
+      300,
+      510
+    ],
+    "direction_cosines": [
+      -0.75,
+      0.25,
+      0.75
+    ],
+    "direct_profile_method": "At every path quadrature node, linearly interpolate T, mu_numu, mu_mu from the 1687-vertex profile and recompute the local B.16 kernel; split each chord at every profile-vertex crossing.",
+    "opacity_table_method": "Precompute the local reduced opacity on the 642-node radial grid, then linearly interpolate that opacity along the same path nodes, matching the current reference-style B.2 implementation.",
+    "path_quadrature": "4-point Gauss-Legendre per profile-vertex segment; independent 8-point check",
+    "susceptibility": "96-point Gauss-Legendre p integral over [0,1200] MeV; 96/128 and 128/192 checks at r=8,10,12.5,15,20,22,25 km",
+    "max_abs_relative_difference_direct_profile_vs_opacity_table": {
+      "neutrino_tau": 0.000001132237341106012,
+      "semi_compton_tau": 0.0014317214836049308,
+      "total_tau": 0.000009068908496612238
+    },
+    "max_abs_relative_difference_direct_profile_GL4_vs_GL8": {
+      "neutrino_tau": 5.6621374255882984e-14,
+      "semi_compton_tau": 1.2245759961615477e-13,
+      "total_tau": 3.730349362740526e-14
+    },
+    "susceptibility_quadrature": {
+      "max_abs_relative_GL96_vs_GL128": 2.4424906541753444e-15,
+      "max_abs_relative_GL128_vs_GL192": 1.4432899320127035e-15
+    },
+    "interpretation": "Nonlinear recomputation of the local kernel from the interpolated thermodynamic fields does not reveal a hidden total-opacity interpolation error. The maximum total-tau difference is 9.07e-6; the larger relative Compton-only difference is subdominant in the total for these rays."
+  },
+  "source_frozen_B2_sensitivity_8_15km": [
+    {
+      "name": "baseline",
+      "scale_T": 1,
+      "scale_mu_numu": 1,
+      "scale_mu_mu": 1,
+      "escaped_luminosity_erg_s": 1.7017848288465725e+52,
+      "relative_change": 0,
+      "escape_probability": 0.002345800893616084,
+      "mean_tau_nu_per_g2": 3396981328524341.5,
+      "mean_tau_compton_per_g2": 1038648810089896.4
+    },
+    {
+      "name": "T_minus10pct",
+      "scale_T": 0.9,
+      "scale_mu_numu": 1,
+      "scale_mu_mu": 1,
+      "escaped_luminosity_erg_s": 1.9790683320275457e+52,
+      "relative_change": 0.16293687573235038,
+      "escape_probability": 0.002728018362312044,
+      "mean_tau_nu_per_g2": 3421946933460531,
+      "mean_tau_compton_per_g2": 864311330294501
+    },
+    {
+      "name": "T_plus10pct",
+      "scale_T": 1.1,
+      "scale_mu_numu": 1,
+      "scale_mu_mu": 1,
+      "escaped_luminosity_erg_s": 1.4408916309889303e+52,
+      "relative_change": -0.15330563149659115,
+      "escape_probability": 0.001986176406255002,
+      "mean_tau_nu_per_g2": 3372114918289938.5,
+      "mean_tau_compton_per_g2": 1236784222621877.8
+    },
+    {
+      "name": "mu_numu_minus10pct",
+      "scale_T": 1,
+      "scale_mu_numu": 0.9,
+      "scale_mu_mu": 1,
+      "escaped_luminosity_erg_s": 1.7013842127225313e+52,
+      "relative_change": -0.0002354093873975227,
+      "escape_probability": 0.002345248670064761,
+      "mean_tau_nu_per_g2": 3397394443322349.5,
+      "mean_tau_compton_per_g2": 1038648810089896.4
+    },
+    {
+      "name": "mu_numu_plus10pct",
+      "scale_T": 1,
+      "scale_mu_numu": 1.1,
+      "scale_mu_mu": 1,
+      "escaped_luminosity_erg_s": 1.7022268875429772e+52,
+      "relative_change": 0.00025976180355558043,
+      "escape_probability": 0.0023464102430869917,
+      "mean_tau_nu_per_g2": 3396525943127476,
+      "mean_tau_compton_per_g2": 1038648810089896.4
+    },
+    {
+      "name": "mu_mu_minus10pct_at_fixed_T",
+      "scale_T": 1,
+      "scale_mu_numu": 1,
+      "scale_mu_mu": 0.9,
+      "escaped_luminosity_erg_s": 2.0412840077847265e+52,
+      "relative_change": 0.19949594871418497,
+      "escape_probability": 0.0028137786683826074,
+      "mean_tau_nu_per_g2": 3396981328524341.5,
+      "mean_tau_compton_per_g2": 864661994963634.6
+    },
+    {
+      "name": "mu_mu_plus10pct_at_fixed_T",
+      "scale_T": 1,
+      "scale_mu_numu": 1,
+      "scale_mu_mu": 1.1,
+      "escaped_luminosity_erg_s": 1.3800038560601068e+52,
+      "relative_change": -0.18908440557938266,
+      "escape_probability": 0.0019022465260391016,
+      "mean_tau_nu_per_g2": 3396981328524341.5,
+      "mean_tau_compton_per_g2": 1244905967541799
+    },
+    {
+      "name": "T_and_mu_mu_minus10pct_fixed_eta",
+      "scale_T": 0.9,
+      "scale_mu_numu": 1,
+      "scale_mu_mu": 0.9,
+      "escaped_luminosity_erg_s": 2.3322646484236508e+52,
+      "relative_change": 0.37048151381417704,
+      "escape_probability": 0.0032148767597896194,
+      "mean_tau_nu_per_g2": 3421946933460532,
+      "mean_tau_compton_per_g2": 712608831089223.8
+    },
+    {
+      "name": "T_and_mu_mu_plus10pct_fixed_eta",
+      "scale_T": 1.1,
+      "scale_mu_numu": 1,
+      "scale_mu_mu": 1.1,
+      "escaped_luminosity_erg_s": 1.1510963914026482e+52,
+      "relative_change": -0.32359463318119197,
+      "escape_probability": 0.0015867123139302747,
+      "mean_tau_nu_per_g2": 3372114918289938.5,
+      "mean_tau_compton_per_g2": 1467296215989488
+    }
+  ],
+  "profile_validation": {
+    "caputo_T_vs_bollig_fig1_5_15km_mean_abs_relative_difference": 0.0000266,
+    "caputo_T_vs_bollig_fig1_5_15km_max_abs_relative_difference": 0.000099,
+    "caputo_mu_mu_over_T_vs_bollig_fig4_5_15km_mean_abs_relative_difference": 0.0000646,
+    "caputo_mu_mu_over_T_vs_bollig_fig4_5_15km_max_abs_relative_difference": 0.0002127
+  },
+  "finite_difference_log_sensitivities": {
+    "dlnL_dlnT_at_fixed_mu_mu": -1.5868204221563382,
+    "dlnL_dlnmu_mu_at_fixed_T": -1.9574636601315047,
+    "dlnL_dlnT_at_fixed_mu_mu_over_T": -3.530624378146571,
+    "linearized_effect_from_max_figure_residual_percent": {
+      "T_at_fixed_mu_mu": 0.01570952217934775,
+      "mu_mu_over_T_at_fixed_T": 0.04163525205099711,
+      "T_at_fixed_mu_mu_over_T": 0.03495318134365105
+    },
+    "note": "Local first-order estimates only; not a formal confidence interval or profile error bound."
+  },
+  "conclusions": [
+    "The 642-node opacity interpolation versus direct recomputation of the local B.16 kernel from the 1687-vertex thermodynamic profile changes sampled total optical depths by at most 9.07e-6.",
+    "For the high-energy band, the B.2 luminosity is sensitive to the inner 8--15 km semi-Compton opacity: +/-10% T or mu_mu changes the source-frozen escaped luminosity by about +16/-15% or +20/-19%, respectively.",
+    "A physically correlated +/-10% T and mu_mu variation at fixed mu_mu/T changes the source-frozen high-energy luminosity by +37.05%/-32.36%.",
+    "The neutrino inverse-decay opacity is almost insensitive to a +/-10% mu_numu variation in 8--15 km: the high-energy escaped luminosity changes by less than 0.03%.",
+    "The large T and mu_mu stress-test responses are not supported profile uncertainties: Caputo T and mu_mu/T agree with original Bollig Figs. 1 and 4 at the 1e-4 relative scale over 5--15 km.",
+    "No source, opacity, coupling, profile, Fig. 7 curve, or axial-vector output is rescaled or changed."
+  ],
+  "limitations": [
+    "The +/-10% variations are deliberately broad stress tests, not statistical uncertainty intervals.",
+    "The source is frozen by design to isolate B.2 transport response; this is not a self-consistent perturbed B.1+B.2 stellar model.",
+    "The profile is a public-figure reconstruction, not the original same-snapshot Garching table.",
+    "The direct profile-kernel versus opacity-table comparison is a targeted 36-ray diagnostic, not a full global rerun with the direct kernel evaluated at every path node."
+  ]
+}

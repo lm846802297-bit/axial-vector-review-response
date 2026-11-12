@@ -1,0 +1,101 @@
+name: P1-IIIe-C3B full-radial degeneracy step scan
+
+on:
+  push:
+    branches:
+      - research/moving-muon-thermal-rates-20261107
+    paths:
+      - '.github/workflows/b16-p1iii-eos-full-radial-degeneracy-step-scan.yml'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_nucleon_distribution.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_full_radial_occupation.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_full_radial_degeneracy_step_scan.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_p1iii_eos_full_radial_degeneracy_step_scan.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/p1iii_eos_full_radial_occupation_2026-11-11.csv'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/p1iii_eos_full_radial_degeneracy_step_scan_2026-11-11.json'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/p1iii_eos_full_radial_degeneracy_step_scan_2026-11-11.csv'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: p1iii-eos-full-radial-degeneracy-step-scan
+  cancel-in-progress: false
+
+jobs:
+  full-radial-degeneracy-step-scan:
+    if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check out the exact research commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy
+
+      - name: Run C3-B full-radial step-scan tests
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest test_b16_p1iii_eos_full_radial_degeneracy_step_scan -v
+
+      - name: Recompute all 5418 species-radius-step combinations
+        env:
+          C3B_JSON: ${{ runner.temp }}/c3b.json
+          C3B_CSV: ${{ runner.temp }}/c3b.csv
+        run: |
+          set -euo pipefail
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_p1iii_eos_full_radial_degeneracy_step_scan.py --profile research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv --c2-reference research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/p1iii_eos_full_radial_occupation_2026-11-11.csv --output-json "$C3B_JSON" --output-csv "$C3B_CSV"
+
+      - name: Validate independent Python step scan
+        env:
+          C3B_JSON: ${{ runner.temp }}/c3b.json
+          C3B_CSV: ${{ runner.temp }}/c3b.csv
+        run: |
+          python - <<'PY'
+          import csv, json, math, os
+          from pathlib import Path
+
+          root = Path("research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs")
+          expected = json.loads((root / "p1iii_eos_full_radial_degeneracy_step_scan_2026-11-11.json").read_text())
+          actual = json.loads(Path(os.environ["C3B_JSON"]).read_text())
+          assert expected["overall_pass"] and actual["overall_pass"]
+          assert all(actual["acceptance"].values())
+          assert actual["selected_shared_step"]["step_fraction_h_over_T"] == 3e-5
+          assert actual["selected_shared_step"]["max_species_max_relative"] < 1e-8
+          for species in ("n", "p"):
+              ratio = actual["truncation_scaling_ratio"][species]["max_error_ratio_1e_2_over_1e_3"]
+              assert 80.0 < ratio < 120.0
+
+          expected_path = root / "p1iii_eos_full_radial_degeneracy_step_scan_2026-11-11.csv"
+          c2_path = root / "p1iii_eos_full_radial_occupation_2026-11-11.csv"
+          with expected_path.open(newline="") as stream:
+              expected_rows = list(csv.DictReader(stream))
+          with Path(os.environ["C3B_CSV"]).open(newline="") as stream:
+              actual_rows = list(csv.DictReader(stream))
+          with c2_path.open(newline="") as stream:
+              c2_rows = list(csv.DictReader(stream))
+          assert len(expected_rows) == len(actual_rows) == 5418
+          assert len(c2_rows) == 301
+          for i, (e, a) in enumerate(zip(expected_rows, actual_rows)):
+              assert e["species"] == a["species"], i
+              assert abs(float(e["r_km"])-float(a["r_km"])) < 1e-12, i
+              assert abs(float(e["step_fraction_h_over_T"])-float(a["step_fraction_h_over_T"])) < 1e-15, i
+              assert abs(float(e["F_direct"])-float(a["F_direct"])) < 1e-11, i
+              if math.isclose(float(a["step_fraction_h_over_T"]), 3e-5, rel_tol=0.0, abs_tol=1e-15):
+                  assert abs((float(a["F_density_derivative"])-float(a["F_direct"]))/float(a["F_direct"])) < 1e-8, i
+              c2row = c2_rows[i // 18]
+              ref_key = "Fnn_deg" if a["species"] == "n" else "Fpp_deg"
+              assert abs(float(a["F_direct"])-float(c2row[ref_key])) < 5e-12, i
+          print("C3-B independent Python scan validates all 5418 rows, both species, and all nine steps.")
+          PY
