@@ -255,3 +255,68 @@ The high-coupling endpoint is above the rough fixed-background warning line quot
 5. PR #56 remains Open / Draft. No manuscript, referee-response TeX/PDF, or axial constraint figure is changed by this addendum. No validated vector literature reproduction or new axial exclusion curve is claimed.
 
 
+
+
+## 12. 2026-11-12 continuation: local moving-muon acceptance and document corrections
+
+This addendum records the latest archived workflow results. It does not promote a local-rate comparison to a stellar-luminosity or literature-reproduction pass.
+
+### 12.1 Workflow status at the recorded checkpoint
+
+The complete workflow batch triggered by commit `3f7ce66f210edf966d8bb3b7d20f7716b28135e8` completed successfully for:
+
+- Moving-muon thermal response: Run [43164221127](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43164221127).
+- Vector-to-axial local response scan: Run [43164221273](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43164221273).
+- Finite-mixing UV coupling-map tests: Run [43164221246](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43164221246).
+
+The Major 4.4 EFT numerical validation workflow, Run [43164221257](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43164221257), had completed the C4C3 direct-recomputation SHA-256 manifest check and the SFHo/FRDM release-manifest reconstruction check. Its research-level rate/transport/kernel test step was still running at the checkpoint; the Blinov/EOS regression, saved-scan validation, figure regeneration, and reproducibility stages were therefore not yet accepted.
+
+The three successful workflows validate their own scoped software and numerical acceptance criteria. They do not establish the pure-vector Blinov Fig. 7 gate, a global transport result, or a new SN1987A exclusion curve.
+
+### 12.2 Moving-muon local-rate acceptance
+
+The archived `moving_compton_validation.json` reports:
+
+- Photon and vector-mediator Ward checks: pass.
+- Charge-conjugation and zero-chemical-potential interference checks: pass.
+- Nonzero-chemical-potential vector--axial interference retained: pass.
+- Mode-resolved positivity and detailed balance: pass.
+- Unpolarized inverse-rate normalization: pass, with maximum relative residual `3.11e-15`.
+- Maximum detailed-balance residual: `4.35e-15`.
+- Maximum thermal quadrature refinement difference: `2.52e-4`.
+
+The separate SFHo-18.8 local Compton map reports finite nonnegative rates, maximum detailed-balance residual `3.92e-14`, and maximum refinement difference `1.08e-3`. Its scope is local production/absorption only: it does not include radial integration, opacity, transport, luminosity, or an exclusion curve.
+
+The local B.13 versus B.14--B.16 comparison is documented separately in `finite_mixing/B13_B16_APPROXIMATION_REGIME_AUDIT_2026-11-12.md`. At the 10 MeV reference point it finds (Q_{\rm B13}/Q_{\rm B16}=0.4791) at the center and (0.4286) at 12.5 km. The factorized comparison separates the moving-muon correction from the stationary-target exact-Compton versus Thomson-limit approximation. This is a local source comparison, not a reason to rescale either rate and not a global Fig. 7 diagnosis.
+
+PR #57 has since been merged into the PR #56 research branch (not into `main`). Its moving-muon work is therefore now present in PR #56's branch; it remains a local-rate module and has not been substituted into the independent Blinov transport implementation.
+
+### 12.3 Vector-current polarization audit: reference labels and interpretation
+
+The machine-readable audit currently identifies the integrated low-energy expressions as arXiv:2610.35379v1, Eqs. (5.9a,b), and the printed angular expressions as Appendix B, Eqs. (B.6a,b). These are the equation labels to use when discussing this audit. Any earlier conversational reference to Eqs. (58) or (106) was incorrect and must not be propagated into project documents.
+
+The archived direct-spinor calculation and crossed-trace calculation agree at the stated benchmark, and the exact conserved-vector result has the expected transverse Thomson limit and suppressed longitudinal mode. The audit also finds that the printed integrated T/L hierarchy is opposite to that exact result, while the printed Appendix-B angular expressions develop negative regions on the paper-stated \,\(\cos\theta\in[-1,1]\) interval. Separately, the direct trace audit of Appendix-B Eqs. (B.2)--(B.4) reproduces the reference spin sums at the sampled points to approximately the (10^{-5}) level for the transverse/total pieces and about (1.2\%\) for the longitudinal difference.
+
+These findings warrant a source-level equation audit before making a claim about a typographical or derivational error in the paper. They do not authorize replacing the published formulas in the transport benchmark. The vector Fig. 7 gate remains **NOT PASSED**.
+
+### 12.4 Branch synchronization
+
+At this checkpoint, the following active research PRs were each confirmed to be zero commits behind `main`:
+
+| PR | Branch | State | Behind `main` |
+|---:|---|---|---:|
+| #53 | `research/stellar-cooling-original-uv-model-20261105` | Open / Draft | 0 |
+| #56 | `codex/major44-axial-cooling-constraints-20261105` | Open / Draft | 0 |
+| #68 | `research/major1-scalar-pole-belleii-20261109` | Open / Draft | 0 |
+| #69 | `research/major1-higgs-scalar-mixing-20261109` | Open / Draft | 0 |
+
+PR #56's recorded branch HEAD at this checkpoint is `44720ab5d4efe81096b2151948d84c17dfb69b5e`. All four branches retain their independent research commits. No branch was merged into `main` as part of this continuation.
+
+### 12.5 Next documentation actions
+
+1. Once Run #43164221257 finishes, record each test stage separately; do not summarize a partially completed run as a pass.
+2. Keep the B.13/B.16 approximation-regime note and the vector polarization source audit as separate documents, because they answer different questions.
+3. Add a source-level derivation appendix for arXiv:2610.35379v1 Eqs. (5.9) and (B.6), preserving the paper's printed expressions alongside the independent trace/spinor expressions. Do not silently swap labels or coefficients.
+4. Keep the Fig. 7 pure-vector literature gate and the global axial transport calculation blocked until their own evidence is complete.
+
+No manuscript-body, referee-response TeX/PDF, or published axial constraint figure was changed by this addendum.
