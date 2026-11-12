@@ -2,7 +2,7 @@
 
 Date: 2026-11-12  
 Branch: `research/c4c4-energy-dependence-20261112`  
-Status: C4-C4-A implementation prepared; numerical run pending.
+Status: completed; 96-case numerical-integrity scan archived; physical validation not claimed.
 
 ## 1. Research question
 
@@ -80,3 +80,16 @@ The data archive is separate from the source-code commit and contains:
 C4-C4-A is a four-radius, fixed-local-energy, flat-space local scattering study. It does not include gravitational redshift, energy redistribution, angular transport, escape probabilities, full radial integration, hydrodynamic feedback, or supernova luminosity.
 
 Only after the anchor scan and its energy-dependent quadrature checks are understood should C4-C4-B extend the calculation to all 301 radial points and construct (\tau(E_\nu,r)). The C4-C3 100-MeV 301-radius archive remains the baseline and is not overwritten. No manuscript, referee response, PR #56 transport result, or axial cooling limit is modified.
+
+
+## Execution update — 2026-11-13
+
+The archived run has now been independently inspected against the committed CSV outputs.
+
+- 96/96 expected local records are present; 80 are newly recomputed and 16 are reused 100-MeV C4-C2 reference rows.
+- All rates and derived quantities are finite and positive.
+- The maximum support-root relative residual is (3.63745\times10^{-13}).
+- The 16 reused 100-MeV anchor rates agree with the independent C4-C3 301-radius archive at maximum relative difference (4.44089\times10^{-16}).
+- The separate C4-C4-Aq comparison covers all 80 newly computed cases and is recorded in the companion convergence report.
+
+This closes the C4-C4-A numerical-integrity stage only. It does not establish transport, redshift, escape-probability, or literature-reproduction validity.
