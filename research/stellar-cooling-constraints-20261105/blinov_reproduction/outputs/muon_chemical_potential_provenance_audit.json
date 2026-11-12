@@ -14,8 +14,8 @@
     "conclusion": "A consistent rest-energy zero shift cannot change the occupation or density; a constant shift of mu alone is not a valid convention conversion."
   },
   "inputs": {
-    "profile_csv_sha256": "08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9",
-    "caputo_nmu_curve_sha256": "c90b729bb43cad15acdb122c1a8bb466e0b168a0f0d3aaeb457cfbc4dbffe6b1",
+    "profile_csv_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+    "caputo_nmu_curve_sha256": "d6ead6bc878d21d5ac50cd39defc09c582f9ea2d0b44aca647aece65bb4efe60",
     "muon_mass_MeV": 105.6583755,
     "n0_fm3": 0.181
   },
@@ -28,9 +28,9 @@
           20.0
         ],
         "n_uniform_comparison_samples": 501,
-        "max_abs_relative_difference": 0.0001613061749139444,
-        "mean_abs_relative_difference": 5.510131960454882e-05,
-        "rms_relative_difference": 6.617698255477208e-05
+        "max_abs_relative_difference": 0.0001613062008380961,
+        "mean_abs_relative_difference": 5.5101315897141405e-05,
+        "rms_relative_difference": 6.617696846830133e-05
       },
       "ferreira_mu_mu_over_T_vs_bollig_fig4": {
         "common_radius_km": [
@@ -38,58 +38,58 @@
           20.0
         ],
         "n_uniform_comparison_samples": 501,
-        "max_abs_relative_difference": 4.4613962516921255,
-        "mean_abs_relative_difference": 1.2756813688229236,
-        "rms_relative_difference": 2.0341618163638535
+        "max_abs_relative_difference": 4.461396251010529,
+        "mean_abs_relative_difference": 1.2756813691676343,
+        "rms_relative_difference": 2.034161816278337
       },
       "samples": [
         {
           "r_km": 1,
           "bollig_mu_mu_over_T": 2.4172825884713802,
-          "caputo_mu_mu_over_T": 2.4173096423945903,
-          "ferreira_mu_mu_over_T": 13.201738067958235
+          "caputo_mu_mu_over_T": 2.4173096418139033,
+          "ferreira_mu_mu_over_T": 13.201738066310623
         },
         {
           "r_km": 5,
           "bollig_mu_mu_over_T": 2.213624291297911,
-          "caputo_mu_mu_over_T": 2.2138361573147267,
-          "ferreira_mu_mu_over_T": 9.199886098938228
+          "caputo_mu_mu_over_T": 2.2138361570151255,
+          "ferreira_mu_mu_over_T": 9.199886097349323
         },
         {
           "r_km": 8,
           "bollig_mu_mu_over_T": 2.3626637954256267,
-          "caputo_mu_mu_over_T": 2.362911880891185,
-          "ferreira_mu_mu_over_T": 4.312599048553387
+          "caputo_mu_mu_over_T": 2.362911880649759,
+          "ferreira_mu_mu_over_T": 4.312599048737321
         },
         {
           "r_km": 10,
           "bollig_mu_mu_over_T": 3.031083474465028,
-          "caputo_mu_mu_over_T": 3.0313228950301876,
-          "ferreira_mu_mu_over_T": 3.8655464024133384
+          "caputo_mu_mu_over_T": 3.031322896302864,
+          "ferreira_mu_mu_over_T": 3.8655464050311545
         },
         {
           "r_km": 12,
           "bollig_mu_mu_over_T": 3.6078061846751264,
-          "caputo_mu_mu_over_T": 3.607833103050725,
-          "ferreira_mu_mu_over_T": 4.229155738497251
+          "caputo_mu_mu_over_T": 3.607833102222012,
+          "ferreira_mu_mu_over_T": 4.229155739632435
         },
         {
           "r_km": 15,
           "bollig_mu_mu_over_T": 4.707211383036134,
-          "caputo_mu_mu_over_T": 4.707130193917038,
-          "ferreira_mu_mu_over_T": 5.192627021504532
+          "caputo_mu_mu_over_T": 4.707130192417254,
+          "ferreira_mu_mu_over_T": 5.192627023421679
         },
         {
           "r_km": 18,
           "bollig_mu_mu_over_T": 3.9532214794973144,
-          "caputo_mu_mu_over_T": 3.953451340187905,
-          "ferreira_mu_mu_over_T": 4.462809167248839
+          "caputo_mu_mu_over_T": 3.953451339277352,
+          "ferreira_mu_mu_over_T": 4.462809174500697
         },
         {
           "r_km": 20,
           "bollig_mu_mu_over_T": 3.51329400813048,
-          "caputo_mu_mu_over_T": 3.5132132817433672,
-          "ferreira_mu_mu_over_T": 2.9499027829433584
+          "caputo_mu_mu_over_T": 3.5132132811468346,
+          "ferreira_mu_mu_over_T": 2.9499027816949255
         }
       ]
     },
@@ -97,43 +97,43 @@
       "caputo_n_mu_vs_bollig_fig3": {
         "common_radius_km": [
           1.301776553,
-          15.27285938
+          15.2728593790973
         ],
         "n_uniform_comparison_samples": 501,
-        "max_abs_relative_difference": 0.10453891467113863,
-        "mean_abs_relative_difference": 0.03725298061835255,
-        "rms_relative_difference": 0.048318139190185176
+        "max_abs_relative_difference": 0.10453891110967728,
+        "mean_abs_relative_difference": 0.037252980805651086,
+        "rms_relative_difference": 0.04831813955270208
       },
       "samples": [
         {
           "r_km": 1,
           "bollig_n_mu_fm3": 9.824001942e-05,
-          "caputo_n_mu_fm3": 9.62180974038059e-05
+          "caputo_n_mu_fm3": 9.621809740719127e-05
         },
         {
           "r_km": 5,
           "bollig_n_mu_fm3": 0.00046215712421806215,
-          "caputo_n_mu_fm3": 0.00046954309089233646
+          "caputo_n_mu_fm3": 0.000469543090912233
         },
         {
           "r_km": 8,
           "bollig_n_mu_fm3": 0.004611859456401022,
-          "caputo_n_mu_fm3": 0.004683944743178675
+          "caputo_n_mu_fm3": 0.004683944743438266
         },
         {
           "r_km": 10,
           "bollig_n_mu_fm3": 0.00437981811584329,
-          "caputo_n_mu_fm3": 0.0045148590442319735
+          "caputo_n_mu_fm3": 0.004514859037713354
         },
         {
           "r_km": 12,
           "bollig_n_mu_fm3": 0.0018310520459374705,
-          "caputo_n_mu_fm3": 0.0019543548663027944
+          "caputo_n_mu_fm3": 0.0019543548625595426
         },
         {
           "r_km": 15,
           "bollig_n_mu_fm3": 3.686235051697572e-05,
-          "caputo_n_mu_fm3": 4.056968293196382e-05
+          "caputo_n_mu_fm3": 4.056968257304285e-05
         }
       ]
     }
@@ -141,145 +141,145 @@
   "sampled_muon_degeneracy_parameters": [
     {
       "r_km": 0.0,
-      "mu_mu_over_T_caputo": 2.4227247734921016,
-      "mu_mu_over_T_ferreira": 13.230594958896894
+      "mu_mu_over_T_caputo": 2.422724773583356,
+      "mu_mu_over_T_ferreira": 13.230594960784867
     },
     {
       "r_km": 5.0,
-      "mu_mu_over_T_caputo": 2.2138198651902226,
-      "mu_mu_over_T_ferreira": 9.200330609750813
+      "mu_mu_over_T_caputo": 2.2138198650324235,
+      "mu_mu_over_T_ferreira": 9.200330609867887
     },
     {
       "r_km": 8.0,
-      "mu_mu_over_T_caputo": 2.3629764701441,
-      "mu_mu_over_T_ferreira": 4.309232943226113
+      "mu_mu_over_T_caputo": 2.3629764698570774,
+      "mu_mu_over_T_ferreira": 4.309232942768991
     },
     {
       "r_km": 10.0,
-      "mu_mu_over_T_caputo": 3.0312834574863574,
-      "mu_mu_over_T_ferreira": 3.8652206938279843
+      "mu_mu_over_T_caputo": 3.0312834561935595,
+      "mu_mu_over_T_ferreira": 3.865220695132761
     },
     {
       "r_km": 15.0,
-      "mu_mu_over_T_caputo": 4.707184695139311,
-      "mu_mu_over_T_ferreira": 5.188346793118662
+      "mu_mu_over_T_caputo": 4.707184694793657,
+      "mu_mu_over_T_ferreira": 5.1883467930878675
     },
     {
       "r_km": 20.0,
-      "mu_mu_over_T_caputo": 3.5133058516362525,
-      "mu_mu_over_T_ferreira": 2.95270301376187
+      "mu_mu_over_T_caputo": 3.5133058514943576,
+      "mu_mu_over_T_ferreira": 2.9527030149178626
     }
   ],
   "muon_chemical_potential_differences": [
     {
       "r_km": 0.0,
-      "delta_mu_ferreira_minus_caputo_MeV": 208.21600885
+      "delta_mu_ferreira_minus_caputo_MeV": 208.21600886262019
     },
     {
       "r_km": 5.0,
-      "delta_mu_ferreira_minus_caputo_MeV": 177.17615258
+      "delta_mu_ferreira_minus_caputo_MeV": 177.17615260849828
     },
     {
       "r_km": 8.0,
-      "delta_mu_ferreira_minus_caputo_MeV": 75.60655837000002
+      "delta_mu_ferreira_minus_caputo_MeV": 75.6065583727439
     },
     {
       "r_km": 10.0,
-      "delta_mu_ferreira_minus_caputo_MeV": 28.29335590000001
+      "delta_mu_ferreira_minus_caputo_MeV": 28.293355987807004
     },
     {
       "r_km": 15.0,
-      "delta_mu_ferreira_minus_caputo_MeV": 6.366455799999997
+      "delta_mu_ferreira_minus_caputo_MeV": 6.366455804368506
     },
     {
       "r_km": 20.0,
-      "delta_mu_ferreira_minus_caputo_MeV": -2.357011479999999
+      "delta_mu_ferreira_minus_caputo_MeV": -2.3570114743156996
     }
   ],
   "density_comparison": [
     {
       "r_km": 0.0,
-      "T_caputo_MeV": 19.26522111,
-      "T_ferreira_MeV": 19.27000158,
-      "mu_mu_caputo_MeV": 46.67432845,
-      "mu_mu_ferreira_MeV": 254.8903373,
-      "n_mu_caputo_fm3": 9.580878079372892e-05,
-      "n_mu_ferreira_mu_only_fm3": 0.05898539005919818,
-      "n_mu_ferreira_native_T_fm3": 0.058987439119265635,
-      "n_mu_caputo_figure_fm3": 9.62766490461e-05,
-      "mu_mu_over_T_caputo": 2.4227247734921016,
-      "mu_mu_over_T_ferreira": 13.230594958896894,
-      "ferreira_over_caputo_mu_only_density": 615.6574540510071
+      "T_caputo_MeV": 19.265221107965,
+      "T_ferreira_MeV": 19.2700015752231,
+      "mu_mu_caputo_MeV": 46.6743284468278,
+      "mu_mu_ferreira_MeV": 254.890337309448,
+      "n_mu_caputo_fm3": 9.580878072951338e-05,
+      "n_mu_ferreira_mu_only_fm3": 0.058985390065841456,
+      "n_mu_ferreira_native_T_fm3": 0.05898743912473333,
+      "n_mu_caputo_figure_fm3": 9.627664904734237e-05,
+      "mu_mu_over_T_caputo": 2.422724773583356,
+      "mu_mu_over_T_ferreira": 13.230594960784867,
+      "ferreira_over_caputo_mu_only_density": 615.6574545329886
     },
     {
       "r_km": 5.0,
-      "T_caputo_MeV": 25.3597481,
-      "T_ferreira_MeV": 25.359537,
-      "mu_mu_caputo_MeV": 56.14191412,
-      "mu_mu_ferreira_MeV": 233.3180667,
-      "n_mu_caputo_fm3": 0.0004670996760359583,
-      "n_mu_ferreira_mu_only_fm3": 0.04613473861463692,
-      "n_mu_ferreira_native_T_fm3": 0.04613462918033922,
-      "n_mu_caputo_figure_fm3": 0.00046954309089233646,
-      "mu_mu_over_T_caputo": 2.2138198651902226,
-      "mu_mu_over_T_ferreira": 9.200330609750813,
-      "ferreira_over_caputo_mu_only_density": 98.76850912456075
+      "T_caputo_MeV": 25.3597481030813,
+      "T_ferreira_MeV": 25.3595370034122,
+      "mu_mu_caputo_MeV": 56.1419141228197,
+      "mu_mu_ferreira_MeV": 233.318066731318,
+      "n_mu_caputo_fm3": 0.0004670996762983729,
+      "n_mu_ferreira_mu_only_fm3": 0.04613473863712379,
+      "n_mu_ferreira_native_T_fm3": 0.04613462920299761,
+      "n_mu_caputo_figure_fm3": 0.000469543090912233,
+      "mu_mu_over_T_caputo": 2.2138198650324235,
+      "mu_mu_over_T_ferreira": 9.200330609867887,
+      "ferreira_over_caputo_mu_only_density": 98.76850911721452
     },
     {
       "r_km": 8.0,
-      "T_caputo_MeV": 38.84717118,
-      "T_ferreira_MeV": 38.84443835,
-      "mu_mu_caputo_MeV": 91.79495143,
-      "mu_mu_ferreira_MeV": 167.4015098,
-      "n_mu_caputo_fm3": 0.004660747268760058,
-      "n_mu_ferreira_mu_only_fm3": 0.020792257546530777,
-      "n_mu_ferreira_native_T_fm3": 0.020790719261620398,
-      "n_mu_caputo_figure_fm3": 0.0046839447431786755,
-      "mu_mu_over_T_caputo": 2.3629764701441,
-      "mu_mu_over_T_ferreira": 4.309232943226113,
-      "ferreira_over_caputo_mu_only_density": 4.461142462260635
+      "T_caputo_MeV": 38.847171184805,
+      "T_ferreira_MeV": 38.8444383510168,
+      "mu_mu_caputo_MeV": 91.7949514302041,
+      "mu_mu_ferreira_MeV": 167.401509802948,
+      "n_mu_caputo_fm3": 0.0046607472701261496,
+      "n_mu_ferreira_mu_only_fm3": 0.02079225755027432,
+      "n_mu_ferreira_native_T_fm3": 0.02079071926323145,
+      "n_mu_caputo_figure_fm3": 0.004683944743438266,
+      "mu_mu_over_T_caputo": 2.3629764698570774,
+      "mu_mu_over_T_ferreira": 4.309232942768991,
+      "ferreira_over_caputo_mu_only_density": 4.461142461756256
     },
     {
       "r_km": 10.0,
-      "T_caputo_MeV": 33.92744042,
-      "T_ferreira_MeV": 33.91271626,
-      "mu_mu_caputo_MeV": 102.8436889,
-      "mu_mu_ferreira_MeV": 131.1370448,
-      "n_mu_caputo_fm3": 0.004494302191698455,
-      "n_mu_ferreira_mu_only_fm3": 0.008732721624735243,
-      "n_mu_ferreira_native_T_fm3": 0.008727235411023784,
-      "n_mu_caputo_figure_fm3": 0.0045148590442319735,
-      "mu_mu_over_T_caputo": 3.0312834574863574,
-      "mu_mu_over_T_ferreira": 3.8652206938279843,
-      "ferreira_over_caputo_mu_only_density": 1.9430650748998777
+      "T_caputo_MeV": 33.9274404196138,
+      "T_ferreira_MeV": 33.9127162573417,
+      "mu_mu_caputo_MeV": 102.843688854968,
+      "mu_mu_ferreira_MeV": 131.137044842775,
+      "n_mu_caputo_fm3": 0.004494302186572387,
+      "n_mu_ferreira_mu_only_fm3": 0.00873272163283838,
+      "n_mu_ferreira_native_T_fm3": 0.008727235418278361,
+      "n_mu_caputo_figure_fm3": 0.004514859037713354,
+      "mu_mu_over_T_caputo": 3.0312834561935595,
+      "mu_mu_over_T_ferreira": 3.865220695132761,
+      "ferreira_over_caputo_mu_only_density": 1.94306507891906
     },
     {
       "r_km": 15.0,
-      "T_caputo_MeV": 13.23141583,
-      "T_ferreira_MeV": 13.24147465,
-      "mu_mu_caputo_MeV": 62.28271809,
-      "mu_mu_ferreira_MeV": 68.64917389,
-      "n_mu_caputo_fm3": 4.013551887870917e-05,
-      "n_mu_ferreira_mu_only_fm3": 6.447519249214783e-05,
-      "n_mu_ferreira_native_T_fm3": 6.46937773035712e-05,
-      "n_mu_caputo_figure_fm3": 4.056968293196382e-05,
-      "mu_mu_over_T_caputo": 4.707184695139311,
-      "mu_mu_over_T_ferreira": 5.188346793118662,
-      "ferreira_over_caputo_mu_only_density": 1.6064372479397595
+      "T_caputo_MeV": 13.2314158304208,
+      "T_ferreira_MeV": 13.2414746503787,
+      "mu_mu_caputo_MeV": 62.2827180874073,
+      "mu_mu_ferreira_MeV": 68.6491738917758,
+      "n_mu_caputo_fm3": 4.013551887725311e-05,
+      "n_mu_ferreira_mu_only_fm3": 6.447519250977499e-05,
+      "n_mu_ferreira_native_T_fm3": 6.469377732032426e-05,
+      "n_mu_caputo_figure_fm3": 4.0569682573042844e-05,
+      "mu_mu_over_T_caputo": 4.707184694793657,
+      "mu_mu_over_T_ferreira": 5.1883467930878675,
+      "ferreira_over_caputo_mu_only_density": 1.60643724843723
     },
     {
       "r_km": 20.0,
-      "T_caputo_MeV": 4.204423026,
-      "T_ferreira_MeV": 4.206281365,
-      "mu_mu_caputo_MeV": 14.77142402,
-      "mu_mu_ferreira_MeV": 12.41441254,
-      "n_mu_caputo_fm3": 6.811570122997781e-14,
-      "n_mu_ferreira_mu_only_fm3": 3.888485760334608e-14,
-      "n_mu_ferreira_native_T_fm3": 3.929500976996531e-14,
+      "T_caputo_MeV": 4.20442302559431,
+      "T_ferreira_MeV": 4.20628136483415,
+      "mu_mu_caputo_MeV": 14.7714240179781,
+      "mu_mu_ferreira_MeV": 12.4144125436624,
+      "n_mu_caputo_fm3": 6.811570104481205e-14,
+      "n_mu_ferreira_mu_only_fm3": 3.888485754810948e-14,
+      "n_mu_ferreira_native_T_fm3": 3.92950097673982e-14,
       "n_mu_caputo_figure_fm3": null,
-      "mu_mu_over_T_caputo": 3.5133058516362525,
-      "mu_mu_over_T_ferreira": 2.95270301376187,
-      "ferreira_over_caputo_mu_only_density": 0.5708648211968022
+      "mu_mu_over_T_caputo": 3.5133058514943576,
+      "mu_mu_over_T_ferreira": 2.9527030149178626,
+      "ferreira_over_caputo_mu_only_density": 0.5708648219377183
     }
   ],
   "interpretation": [
