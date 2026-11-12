@@ -1,10 +1,26 @@
 name: Referee response LaTeX build (PR55 and PR56)
 
 on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'Replies_to_Referee_3_referee_facing_2026-11-04.tex'
+      - 'Replies_to_Referee_3_neutrino_references.bib'
+      - 'overleaf-source/axial-vector-model-building-v6/references.bib'
+      - 'JHEP.bst'
+      - 'Replies_to_Referee_3_stellar_references.bib'
+      - 'research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply.pdf'
+      - 'research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply.png'
+      - 'research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply_gev.pdf'
+      - 'research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply_gev.png'
+      - 'references.bib'
+      - '.github/workflows/pr55-referee-letter-build.yml'
   push:
     branches:
       - review/response-point-conclusions-20261106
       - codex/major44-axial-cooling-constraints-20261105
+      - research/moving-muon-thermal-rates-20261107
     paths:
       - 'Replies_to_Referee_3_referee_facing_2026-11-04.tex'
       - 'Replies_to_Referee_3_neutrino_references.bib'
@@ -27,7 +43,7 @@ concurrency:
 
 jobs:
   build-and-inspect:
-    if: github.ref_name == 'review/response-point-conclusions-20261106' || github.ref_name == 'codex/major44-axial-cooling-constraints-20261105'
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && (github.ref_name == 'review/response-point-conclusions-20261106' || github.ref_name == 'codex/major44-axial-cooling-constraints-20261105' || github.ref_name == 'research/moving-muon-thermal-rates-20261107')) || (github.event_name == 'pull_request' && (github.event.pull_request.head.ref == 'review/response-point-conclusions-20261106' || github.event.pull_request.head.ref == 'codex/major44-axial-cooling-constraints-20261105' || github.event.pull_request.head.ref == 'research/moving-muon-thermal-rates-20261107' || github.event.pull_request.head.ref == 'review/major1-scalar-opening-focus-20261108' || github.event.pull_request.head.ref == 'review/major1-remove-defensive-model-framing-20261108' || github.event.pull_request.head.ref == 'review/major1-streamline-low-mass-constraints-intro-20261108'))
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:

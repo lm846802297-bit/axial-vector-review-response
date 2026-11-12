@@ -158,19 +158,22 @@ At the Fig. 7 luminosity peak, the outer-shell-only escape factor for 8--15 km s
 
 The literal numerical implementation matches the structure of the published equations:
 
-| Published equation | Physical content | Implementation check |
+| Appendix-B equation | Physical content | Implementation check |
 |---|---|---|
-| Eq. (17) | B.1 luminosity source, \(N(r)^2\), and local escape-energy threshold \(m_V/N(r)\) | Source measure includes \(N^2\) and the lower energy bound |
-| Eqs. (18)--(19) | Full direction average and chord endpoint \(s_{\max}\) | Full angular integral and chord geometry |
-| Eq. (20) | Reduced absorption \((1-e^{-\omega/T})\Gamma_{\rm abs}\) | Both algebraically equivalent forms checked |
-| Eq. (21) | Vector speed \(v_V=\sqrt{1-m_V^2/\omega^2}\) | \(1/v_V\) retained in the optical depth |
-| Eqs. (22)--(25) | Neutrino inverse-decay phase space and analytic Fermi integral | Direct angular integration agrees with analytic result |
-| Eq. (26) | Neutrino inverse-decay detailed balance | Independently verified |
-| Eq. (35) | Compton detailed balance | Separately verified; not confused with neutrino detailed balance |
+| B.1 | Ballistic luminosity source, including \(N(r)^2\) and \(\omega_{\min}=m_V/N(r)\) | Source measure includes \(N^2\) and the local escape-energy lower bound |
+| B.2 | Full angular average of the path survival factor and optical depth | Full direction integral and fixed-\(\omega\) path opacity |
+| B.3 | Chord endpoint \(s_{\max}(r,\cos\theta)\) | Chord geometry independently tested |
+| B.4 | Reduced absorption \(\Gamma^*_{\rm abs}=(1-e^{-\omega/T})\Gamma_{\rm abs}\) | Both equivalent forms checked |
+| B.5 | Vector speed \(v_V=\sqrt{1-m_V^2/\omega^2}\) | \(1/v_V\) retained in the optical depth |
+| B.6 | Neutrino inverse-decay production phase-space integral | Independent angular phase-space integration |
+| B.7--B.9 | Analytic production rate, vacuum width, and Fermi integral \(I\) | Direct integral agrees with analytic result |
+| B.10 | Neutrino inverse-decay detailed balance | Independently verified against the inverse occupation integral |
+| B.13--B.18 | Compton production, approximate cross section, thermal-rate factors, and cross-section relation | Separate Compton audit |
+| B.19 | Compton absorption detailed balance, \(\Gamma_{\rm abs}=e^{\omega/T}\Gamma_{\rm prod}\) | Separate from neutrino inverse-decay detailed balance |
 
 The published paper explicitly identifies \(R_{\max}=R_\nu\simeq25\) km, sets \(\mu_{\nu_\tau}=0\) because the simulations do not provide that profile, and uses the SFHo-18.8 muonic supernova model at 1 s post-bounce. The present benchmark follows those choices.
 
-The literal B.2 opacity in Eq. (18) uses \(\Gamma_{\rm abs}^{*}(r',\omega)\) along the path with the same displayed energy argument \(\omega\). The path-redshift alternative is therefore kept as a separate sensitivity diagnostic and is not silently substituted into the fixed-\(\omega\) reproduction.
+**Equation-number correction:** in the published arXiv:2511.09619v2 Appendix B, the labels are B.1--B.19, not the main-text Eq. (17)--(35) numbering. In particular, B.19 is the Compton absorption detailed-balance equation. The neutrino inverse-decay absorption is checked with B.6 (production phase space), B.10 (neutrino detailed balance), and B.4 (reduced absorption). B.19 must not be cited as the neutrino inverse-decay relation.\n\nThe literal B.2 opacity in Eq. (18) uses \(\Gamma_{\rm abs}^{*}(r',\omega)\) along the path with the same displayed energy argument \(\omega\). The path-redshift alternative is therefore kept as a separate sensitivity diagnostic and is not silently substituted into the fixed-\(\omega\) reproduction.
 
 Relevant primary sources:
 
