@@ -310,7 +310,7 @@ At this checkpoint, the following active research PRs were each confirmed to be 
 | #68 | `research/major1-scalar-pole-belleii-20261109` | Open / Draft | 0 |
 | #69 | `research/major1-higgs-scalar-mixing-20261109` | Open / Draft | 0 |
 
-PR #56's recorded branch HEAD at this checkpoint is `44720ab5d4efe81096b2151948d84c17dfb69b5e`. All four branches retain their independent research commits. No branch was merged into `main` as part of this continuation.
+Before this documentation addendum, PR #56's branch HEAD was `44720ab5d4efe81096b2151948d84c17dfb69b5e`; the addendum itself is committed as `3e60bdf012019fe222bb18fa238cc78f97ccd49c`. All four branches retain their independent research commits. No branch was merged into `main` as part of this continuation.
 
 ### 12.5 Next documentation actions
 
