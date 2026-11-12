@@ -161,13 +161,24 @@ jobs:
             research/stellar-cooling-constraints-20261105/finite_mixing/outputs/b13_b16_low_mass_scan_2026-11-12.json \
             research/stellar-cooling-constraints-20261105/finite_mixing/outputs/validation_manifest_2026-11-12.json \
             research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/outputs/moving_compton_validation.json \
-            research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/outputs/vector_semicompton_polarization_audit.json \
+            research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/outputs/vector_semicompton_polarization_audit.json
           if git diff --cached --quiet; then
-            echo "All numerical outputs are already archived."
+            echo "All machine-readable numerical outputs are already archived."
             exit 0
           fi
           git commit -m "Archive moving-muon thermal validation and convergence outputs"
           BRANCH="${GITHUB_REF_NAME}"
-          git fetch origin "$BRANCH"
-          git rebase "origin/$BRANCH"
-          git push origin "HEAD:$BRANCH"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin "$BRANCH"
+            if ! git rebase "origin/$BRANCH"; then
+              echo "Rebase conflict while archiving moving-muon outputs."
+              exit 1
+            fi
+            if git push origin "HEAD:$BRANCH"; then
+              exit 0
+            fi
+            echo "Push raced with another workflow; retry ${attempt}/5."
+            sleep 2
+          done
+          echo "Could not archive moving-muon outputs after five retries."
+          exit 1
