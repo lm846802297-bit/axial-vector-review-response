@@ -1,3 +1,4 @@
+import json
 import unittest
 
 import numpy as np
@@ -6,6 +7,7 @@ import rates
 from finite_mixing.thermal_integrals.audit_vector_semicompton_polarization import (
     build_audit,
     exact_production_cross_sections,
+    json_native,
 )
 
 
@@ -13,6 +15,11 @@ class VectorSemiComptonPolarizationAuditTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.audit = build_audit(0.001, 0.1)
+
+    def test_audit_payload_is_json_serializable(self):
+        encoded = json.dumps(json_native(self.audit))
+        self.assertIsInstance(encoded, str)
+        self.assertIn('"acceptance"', encoded)
 
     def test_exact_cross_sections_are_nonnegative_for_all_modes(self):
         mass = 0.001
