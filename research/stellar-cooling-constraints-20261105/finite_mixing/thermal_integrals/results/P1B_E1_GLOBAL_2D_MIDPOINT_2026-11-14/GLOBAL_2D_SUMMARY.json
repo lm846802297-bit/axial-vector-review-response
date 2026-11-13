@@ -108,7 +108,11 @@
       0.0008106325403963815,
       0.0008107965177309563
     ],
-    "interval_702_cell_center_pchip_error_recomputed_after_x36_extension": false
+    "interval_702_cell_center_pchip_error_recomputed_after_x36_extension": true,
+    "interval_702_high_order_pchip_error_after_extension": 0.004189210717559335,
+    "interval_702_high_order_bilinear_error_after_extension": 0.05391076899468916,
+    "interval_702_all_quadrature_nodes_pass_0p1pct": true,
+    "scope": "Selected worst cells only; the interval-702 PCHIP cell-center comparison has now been recomputed using the order-36 x=36 endpoint values; no full-profile high-order quadrature acceptance."
   },
   "acceptance_boundary": {
     "complete_low_order_global_2d_interpolation_screen_pass": true,
@@ -118,7 +122,8 @@
     "GR_geodesic_optical_depth_computed": false,
     "luminosity_computed": false,
     "fig7_reproduced": false,
-    "SN1987A_limit_updated": false
+    "SN1987A_limit_updated": false,
+    "interval_702_pchip_recheck_after_x36_pass": true
   },
   "scope": "Complete low-order 2D interpolation screen and selected high-order checks; no full-profile high-order quadrature or full-star transport claim."
 }
