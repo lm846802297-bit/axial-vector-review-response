@@ -54,3 +54,22 @@ Still outstanding:
 4. Only then proceed to global independent-polarization transport.
 
 No axial-vector SN1987A limit is updated by this local patch.
+
+
+## Additional targeted checks: hot shell and muon-support edge
+
+### High-temperature shell, highest energy endpoint
+
+At (r=8.4821412022467\,\mathrm{km}), (T=39.2496793414\,\mathrm{MeV}), and (\omega=1500\,\mathrm{MeV}), the order ladder was extended through ((36,20,20,20)). The final successive change is (9.43932\times10^{-4}), just below the (10^{-3}) pointwise criterion. Detailed balance and final-muon mass-shell residuals remain below (10^{-12}). This is one worst-point check, not global quadrature acceptance.
+
+### Narrow muon chemical-potential support edge
+
+The fixed digitized profile contains adjacent values:
+- (r=22.1918936570485\,\mathrm{km}), (\mu_\mu=0.9999998342\,\mathrm{MeV});
+- (r=22.1918946570485\,\mathrm{km}), (\mu_\mu=0\).
+
+The transition width is (10^{-6}\,\mathrm{km}=10^{-3}\,\mathrm{m}). Five direct samples (including three interior points) at (\omega=20\,\mathrm{MeV}) were compared between quadrature orders ((20,12,12,12)) and ((28,16,16,16)). The maximum relative change is (7.14\times10^{-8}); detailed balance and mass-shell residuals are at the (10^{-15}) level. The original profile is retained without smoothing. The edge must remain explicitly represented in any future radial interpolation grid.
+
+## Current P1-B status
+
+The local patch passes the 1% midpoint interpolation criterion, and the selected 12 worst midpoints pass the 0.1% quadrature comparison. The hot-shell endpoint and the narrow muon-support edge also pass their respective targeted pointwise checks. **Global P1-B remains OPEN**: pointwise quadrature has not been checked at every one of the 151 patch points, the full radial-energy domain is not covered by this interpolation patch, and no full-star GR emissivity or optical-depth integration has been recomputed.
