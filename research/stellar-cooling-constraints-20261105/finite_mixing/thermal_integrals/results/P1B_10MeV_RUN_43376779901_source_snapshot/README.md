@@ -25,7 +25,7 @@ git checkout 0f61bfc3e381402cbea9740958b9a2744f006040
 python -m pip install numpy scipy
 set PYTHONPATH=research/stellar-cooling-constraints-20261105
 python -m unittest discover -s research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals -p "test_p1b_b13_local_kernel_radial_energy_10mev.py" -v
-python research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/audit_b13_local_kernel_radial_energy_10mev.py --help
+python research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/audit_b13_local_kernel_radial_energy_10mev.py --profile research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv --output research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/outputs/p1b_b13_local_kernel_radial_energy_10mev_reproduced.json
 ```
 
 Run the exact audit command recorded in the workflow at that commit to reproduce the original JSON. The original numerical JSON is retained unchanged in Actions artifact `p1b-b13-local-radial-energy-10mev` (artifact ID `14015517843`).
