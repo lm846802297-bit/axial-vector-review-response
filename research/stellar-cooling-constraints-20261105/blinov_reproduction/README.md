@@ -197,3 +197,12 @@ The focused high-order audit is documented in [FIG7_10MEV_LOCAL_RATE_POLARIZATIO
 At \(m_V=10\) MeV and \(g=4.171689650228597\times10^{-8}\), the literal scalar B.2 luminosity is \(2.43964\times10^{52}\) erg/s versus \(1.26781\times10^{52}\) erg/s from Fig. 7 (+92.43%). Local L,+,- neutrino production/absorption sums and detailed balance close at approximately \(10^{-14}\) on selected physical nodes; integrated source and opacity closures are \(6.3\times10^{-16}\) and \(1.1\times10^{-12}\). The remaining factor 1.924 is localized to the global escape integral: at fixed source, the computed escape fraction is \(3.2518\times10^{-4}\), compared with \(1.6899\times10^{-4}\) required by Fig. 7.
 
 The escaping luminosity is dominated by 110--510 MeV (94.43%), although this band contributes only 43.28% of the optically thin source. A conserved-\(E_\infty\), redshift-only path diagnostic reduces the residual to +36.91% but is not full GR ray tracing. No opacity multiplier or source rescaling is adopted, and the axial contour is not changed.
+
+
+## 10 MeV B.2 energy / GR-path / shell / polarization follow-up — 2026-11-13
+
+Full audit: [B2_10MEV_ENERGY_GR_SHELL_POLARIZATION_AUDIT_2026-11-13.md](B2_10MEV_ENERGY_GR_SHELL_POLARIZATION_AUDIT_2026-11-13.md).
+
+The B.1 local-energy and \(E_\infty\) source integrals are exactly equivalent by the Jacobian. The literal fixed-\(\omega\) B.2 result remains \(2.43964\times10^{52}\) erg/s (+92.43% vs Fig. 7); the conserved-\(E_\infty\), redshift-only diagnostic is \(1.73580\times10^{52}\) erg/s (+36.91%) but retains Euclidean chords. The Garching pseudo-Newtonian prescription uses flat spatial coordinates, while the public-figure profile does not provide a same-snapshot \(B(r)\) or \(M(r)\).
+
+A generic GR ray kernel and six tests are added: \`gr_ray_transport.py\`, \`test_gr_ray_transport.py\`. Machine-readable summary: \`outputs/10mev_gr_path_audit_summary_2026-11-13.json\`. The 15--25 km path shells carry 56.71% of the source-weighted mean total optical depth; 110--510 MeV supplies 94.43% of escaped luminosity. Local mode sums pass, but scalar-sum and independent polarization propagation remain separate transport prescriptions.
