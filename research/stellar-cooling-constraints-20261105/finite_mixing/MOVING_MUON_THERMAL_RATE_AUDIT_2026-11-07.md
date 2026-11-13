@@ -187,3 +187,12 @@ The machine-readable scan is archived as `outputs/thermal_response_scan.json` by
 This stage completes local semi-Compton and dimuon thermal phase-space integrals. It does **not** include the unchanged active-neutrino channel, radial integration, reduced opacity, escape probabilities, redshifted luminosity, hydrodynamic backreaction, or a SN1987A exclusion contour. It therefore does not pass the separate pure-vector Blinov Fig. 7 literature gate and does not authorize a finite-mixing stellar-cooling curve.
 
 The existing PR #56 remains unchanged. This work is isolated in a stacked Draft PR based on the PR #56 research branch.
+
+
+## 7. Independent explicit-spinor validation — 2026-11-13
+
+A new pointwise reference calculation independently constructs on-shell Dirac spinors, sums initial/final muon spins and two physical photon polarizations, and compares the resulting \(L,+,-\) matrix elements with the moving-muon production trace. It covers five moving-muon kinematic points and six current/charge combinations per point (30 point/current cases, 90 mode matrix elements).
+
+The maximum explicit-spinor/trace relative residual is \(1.7712\times10^{-13}\); the explicit photon-Ward amplitude residual is \(1.4688\times10^{-13}\); the final-muon shell residual is \(6.5175\times10^{-16}\); and the physical-versus-Ward-shifted vector longitudinal amplitude residual is \(3.5415\times10^{-14}\). The minimum explicit mode \(|\mathcal M_h|^2\) is positive, \(7.0507\times10^{-3}\). Applying the same longitudinal shift to the axial current is not valid and gives an order-one change, so the axial longitudinal polarization remains physical.
+
+This independently validates the pointwise amplitude and polarization projection. It does not replace the thermal integration or prove uniform radial/energy convergence. See B13_EXPLICIT_SPINOR_INDEPENDENT_AUDIT_2026-11-13.md and its script/tests under thermal_integrals/.
