@@ -188,3 +188,12 @@ The public Caputo reconstruction has no separate \(\mu_{\nu_\tau}\) curve, so th
 The source-weighted mean neutrino optical depth from absorber shells 15--20 and 20--25 km is 4.483 and 4.668, respectively; together the 15--25 km region contributes 63.17% of the total mean neutrino optical depth at the 10 MeV high-absorption point. This remains important even though the outer temperature is only 3--4 MeV: the reduced opacity approaches the time-dilated vacuum-decay limit as the temperature falls. Angular/path quadrature changes the luminosity by less than 0.005%; doubling radial resolution changes it by about 0.49%.
 
 See [the full outer-neutrino profile and convention audit](OUTER_NEUTRINO_PROFILE_CONVENTION_AUDIT_2026-11-08.md). The independent direct collision-integral audit has now been extended through 25 km: 132 neutrino and 132 B.14 Compton cases pass, with maximum direct-vs-code neutrino production/absorption errors of \(5.24\times10^{-15}\) and \(3.99\times10^{-15}\). At 20--25 km the effective muon susceptibility falls to negligible values, so the outer opacity is overwhelmingly neutrino inverse decay. The next validation is now the full independent angular/path transport integral, not another local-rate calculation.
+
+
+## 10 MeV local-rate, polarization and escape localization — 2026-11-13
+
+The focused high-order audit is documented in [FIG7_10MEV_LOCAL_RATE_POLARIZATION_ESCAPE_AUDIT_2026-11-13.md](FIG7_10MEV_LOCAL_RATE_POLARIZATION_ESCAPE_AUDIT_2026-11-13.md).
+
+At \(m_V=10\) MeV and \(g=4.171689650228597\times10^{-8}\), the literal scalar B.2 luminosity is \(2.43964\times10^{52}\) erg/s versus \(1.26781\times10^{52}\) erg/s from Fig. 7 (+92.43%). Local L,+,- neutrino production/absorption sums and detailed balance close at approximately \(10^{-14}\) on selected physical nodes; integrated source and opacity closures are \(6.3\times10^{-16}\) and \(1.1\times10^{-12}\). The remaining factor 1.924 is localized to the global escape integral: at fixed source, the computed escape fraction is \(3.2518\times10^{-4}\), compared with \(1.6899\times10^{-4}\) required by Fig. 7.
+
+The escaping luminosity is dominated by 110--510 MeV (94.43%), although this band contributes only 43.28% of the optically thin source. A conserved-\(E_\infty\), redshift-only path diagnostic reduces the residual to +36.91% but is not full GR ray tracing. No opacity multiplier or source rescaling is adopted, and the axial contour is not changed.
