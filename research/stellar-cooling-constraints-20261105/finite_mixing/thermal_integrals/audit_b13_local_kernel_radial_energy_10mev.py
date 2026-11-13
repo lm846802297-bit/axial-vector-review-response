@@ -37,7 +37,7 @@ EXPECTED_PROFILE_SHA256 = (
 BASE_RADII_KM = (0.0, 5.0, 8.0, 10.0, 12.5, 15.0, 18.66, 22.0, 24.0)
 BASE_ENERGIES_MEV = (
     10.0, 10.5, 12.0, 15.0, 20.0, 30.0,
-    50.0, 80.0, 120.0, 200.0, 300.0, 510.0,
+    50.0, 80.0, 120.0, 200.0, 300.0, 510.0, 720.0,
 )
 
 
@@ -511,6 +511,16 @@ def run_audit(profile_path=DEFAULT_PROFILE, output_path=None):
             f"expected {EXPECTED_PROFILE_SHA256}, got {profile_hash}"
         )
 
+    profile_at_grid = load_profile(profile_path, np.asarray(RADII_KM, dtype=float))
+    maximum_temperature = float(np.max(profile_at_grid["T"]))
+    required_maximum_energy = MASS_MEV + ENERGY_INTEGRAL_X_MAX * maximum_temperature
+    if ENERGIES_MEV[-1] < required_maximum_energy:
+        raise RuntimeError(
+            "Radial-energy grid does not cover the full local emissivity cutoff: "
+            f"grid maximum={ENERGIES_MEV[-1]:.6f} MeV, "
+            f"required maximum={required_maximum_energy:.6f} MeV"
+        )
+
     cache = {}
     grid_points = []
     grid_final = {}
@@ -627,6 +637,9 @@ def run_audit(profile_path=DEFAULT_PROFILE, output_path=None):
                 "radius_midpoint_km": rmid,
                 "omega_midpoint_MeV": omega_mid,
                 "energy_midpoint_coordinate": "sqrt(omega-mass)",
+            "maximum_profile_temperature_MeV": maximum_temperature,
+            "required_energy_coverage_from_x_max_MeV": required_maximum_energy,
+            "energy_coverage_pass": bool(ENERGIES_MEV[-1] >= required_maximum_energy),
                 "order_ladder": ladder,
                 "successive_refinement": comparisons,
                 "final_order": direct["orders"],
