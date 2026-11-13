@@ -114,3 +114,16 @@ P1-B is a local collision-kernel and sampled interpolation audit only. It does n
 - an axial-vector cooling curve or SN1987A exclusion.
 
 Only after P1-B passes should the project proceed to P2: matched global propagation of \(L,+,-\), with scalar B.2, equal-occupation closure, and independent-mode transport kept as separate prescriptions.
+
+
+## 9. First coarse-grid result and refinement decision
+
+The first 9-radius by 12-energy pass completed on Actions run #43373577571. The local quadrature screen passed at all 108 grid nodes and 88 cell midpoints:
+- maximum final grid-node refinement change: \(9.9600\times10^{-4}\);
+- maximum final cell-midpoint refinement change: \(8.6649\times10^{-4}\);
+- maximum mode-by-mode detailed-balance residual: \(1.9926\times10^{-14}\);
+- maximum final-muon shell residual: \(2.0432\times10^{-13}\).
+
+The interpolation screen did not pass. The initial worst discrepancy was dominated by a combination of coarse radial/energy spacing and an overly broad linear fallback when a spectral-source corner was exactly zero at the mediator threshold. The latter was corrected by interpolating the positive production rate first and applying the exact \(\omega^2|\mathbf k|/(2\pi^2)\) phase-space factor at the midpoint. The interpolation is now performed sequentially in \(\sqrt{\omega-m_{A'}}\) and radius.
+
+To test whether the remaining discrepancy is a grid-resolution problem, the next run bisects every original radial and threshold-adapted energy interval. The refined grid therefore contains 17 radii and 23 energies (391 nodes), with 352 new direct cell-midpoint checks. The local kernel and physical inputs are unchanged. The refined-grid run is the current P1-B continuation; P2 remains blocked until the interpolation criterion is met or a direct-evaluation strategy is adopted.
