@@ -4,7 +4,7 @@
   "source_branch": "research/stellar-cooling-review-package-20261113",
   "source_commit": "48bbe212d9a239b9e23bc45d455302b1f8fdcec1",
   "numerical_source_baseline": "81d9b2faf16eb39879b759b05afce46732c925d7",
-  "policy": "Archive containers were decoded and extracted; only native files are committed.",
+  "policy": "Generated review-delivery ZIP/Base64 containers were extracted and are not retained in main. Original upstream SFHo/FRDM source archives remain only in the separate data-input directory under the repository's documented provenance exception.",
   "source_parts": [
     {
       "name": "01_sources_profile_report.zip.b64",
@@ -478,6 +478,20 @@
       "path": "vector_reference.py",
       "bytes": 3628,
       "sha256": "6f245b3c6bc012b39216e1c6d82754e6ec1a995c67c315491606f5ffecd1fb29"
+    }
+  ],
+  "supplemental_evidence": [
+    {
+      "path": "package_metadata/REVIEW_PACKAGE_VALIDATION_2026-11-13.md",
+      "bytes": 4218,
+      "sha256": "66c1704531c8d20d62355be72efacecfabf7952e4f93f5400067a360fbb7a9b8",
+      "source": "historical validation report from source branch commit f421fd88db6447620047676981d16e8f5b8cd90a; amended to disclose retention and extraction scope"
+    },
+    {
+      "path": "package_metadata/validation_summary_2026-11-13.json",
+      "bytes": 3315,
+      "sha256": "fbd85f28ca85da3941ba731dc7fd13e395edc7516ce808414914e7e29626a240",
+      "source": "historical machine-readable validation summary from source branch commit f421fd88db6447620047676981d16e8f5b8cd90a; copied without changing recorded results"
     }
   ]
 }
