@@ -37,20 +37,18 @@ jobs:
           cp -a "$root/finite_mixing" /tmp/p1b-local-bundle/
           cp -a "$root/blinov_reproduction" /tmp/p1b-local-bundle/
           cp -a "$root/data" /tmp/p1b-local-bundle/
-          find /tmp/p1b-local-bundle -type f ! -path '*/moving_muon_compton.py' ! -path '*/rates.py' ! -path '*/reference.py' ! -path '*/audit_b13_local_kernel_radial_energy_10mev.py' ! -path '*/test_p1b_b13_local_kernel_radial_energy_10mev.py' ! -path '*/sfho188_digitized.csv' ! -path '*/profile_provenance.json' -delete
+          find /tmp/p1b-local-bundle -type f ! -name '__init__.py' ! -path '*/moving_muon_compton.py' ! -path '*/rates.py' ! -path '*/reference.py' ! -path '*/audit_b13_local_kernel_radial_energy_10mev.py' ! -path '*/test_p1b_b13_local_kernel_radial_energy_10mev.py' ! -path '*/sfho188_digitized.csv' ! -path '*/profile_provenance.json' -delete
           {
             echo "commit=${GITHUB_SHA}"
             echo "branch=${GITHUB_REF_NAME}"
             echo "python=3.12"
-            find /tmp/p1b-local-bundle -type f -print0 | sort -z | xargs -0 sha256sum
+            find /tmp/p1b-local-bundle -type f ! -name MANIFEST.sha256 -print0 | sort -z | xargs -0 sha256sum
           } > /tmp/p1b-local-bundle/MANIFEST.sha256
           cp -a /tmp/p1b-local-bundle "$GITHUB_WORKSPACE/p1b-local-bundle"
-          cd "$GITHUB_WORKSPACE"
-          zip -qr p1b-local-compute-source.zip p1b-local-bundle
 
       - name: Upload source bundle for local execution
         uses: actions/upload-artifact@v4
         with:
           name: p1b-local-compute-source
-          path: p1b-local-compute-source.zip
+          path: p1b-local-bundle/
           retention-days: 30
