@@ -11,6 +11,7 @@ from finite_mixing.thermal_integrals.audit_b13_local_kernel_radial_energy_10mev 
     MASS_MEV,
     RADII_KM,
     _bilinear_log_value,
+    _interpolate_pair,
     _max_relative_difference,
     sha256,
 )
@@ -22,6 +23,10 @@ class P1BB13LocalKernelRadialEnergyTests(unittest.TestCase):
         self.assertIn(8.0, RADII_KM)
         self.assertIn(12.5, RADII_KM)
         self.assertIn(15.0, RADII_KM)
+        self.assertEqual(len(RADII_KM), 17)
+        self.assertEqual(len(ENERGIES_MEV), 23)
+        self.assertIn(2.5, RADII_KM)
+        self.assertIn(10.125, ENERGIES_MEV)
         self.assertIn(15.0, ENERGIES_MEV)
         self.assertIn(20.0, ENERGIES_MEV)
         self.assertIn(30.0, ENERGIES_MEV)
@@ -38,6 +43,10 @@ class P1BB13LocalKernelRadialEnergyTests(unittest.TestCase):
 
     def test_zero_corner_falls_back_to_linear_interpolation(self):
         self.assertAlmostEqual(_bilinear_log_value([0.0, 2.0, 4.0, 6.0]), 3.0)
+        self.assertAlmostEqual(_interpolate_pair(0.0, 4.0, 0.5), 2.0)
+
+    def test_positive_rate_pair_uses_log_linear_interpolation(self):
+        self.assertAlmostEqual(_interpolate_pair(1.0, 9.0, 0.5), 3.0)
 
     def test_relative_difference_is_symmetric_and_zero_safe(self):
         self.assertAlmostEqual(
