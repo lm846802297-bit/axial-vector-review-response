@@ -917,3 +917,27 @@ The following non-duplicated source-archive status note is retained from the SFH
 
 
 - Thirteen legacy GitHub Actions ZIP artifacts from earlier packaging runs were deleted by cleanup run #43358373940. All 13 original workflow runs were re-queried and returned zero remaining artifacts. The temporary cleanup workflow was removed after success.
+
+
+## 2026-11-13 physics and branch audit continuation
+
+- The direct axial-current / Goldstone amplitude identity is now encoded as a regression: q_nu M_A^nu = 2 m_mu M_P for the source's gamma^nu(gV - gA gamma5) convention. The five-point independent spinor check closes at or below 9.0e-13; see PHYSICS_CROSSCHECK_2026-11-13.md.
+- The pure-axial Goldstone map is explicitly separated from finite right-handed mixing. For g_A=-g_X cos^2(theta_R), the current-side Ward requirement includes cos^2(theta_R); the full UV phase projection at finite mixing remains open.
+- A nontrivial unitary PMNS regression confirms Tr(G_nu^dagger G_nu)=2 while producing off-diagonal flavour couplings. The minimal-model U_PMNS=I assumption remains an approximation, not an oscillation fit.
+- Branch-by-branch tree/blob findings and deletion candidates are recorded in research/BRANCH_DISPOSITION_2026-11-13.md. PR #102 remains active and must be preserved.
+
+
+## 2026-11-13 branch cleanup execution
+
+- First batch complete: 11 stale refs with heads already reachable from main were deleted and individually verified absent by cleanup run #43364401393.
+- Their commits remain reachable from main; no research commit history was discarded.
+- The active PR #102 branch and divergent Major 1, Major 4.4, C4-C4-A/B, and two-VEV history branches were not touched.
+- The temporary pruning workflow is removed in the follow-up documentation PR after successful execution.
+
+
+## 2026-11-13 second branch cleanup execution
+
+- Five completed administrative branches were deleted and verified absent by run #43364866549.
+- The cleanup checked each expected SHA and refused any branch used by an open PR.
+- Their merged PR histories remain available; no research source, numerical output, or research-history branch was removed.
+- The one-time cleanup workflow was removed after success.

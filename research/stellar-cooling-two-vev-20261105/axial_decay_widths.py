@@ -63,11 +63,16 @@ def neutrino_branching_fractions(m_a_mev: float) -> tuple[float, float]:
     Assumptions: the inclusive width into all three effectively massless
     light-neutrino mass eigenstates is normalized by
     Tr(G_nu^dagger G_nu)=2, as for two unmixed massless L_mu-L_tau flavours.
-    The PMNS rotation is unitary, active-heavy mixing is negligible, all
-    heavy-neutrino channels are kinematically closed, and only light-nu-nu
-    plus mu+mu- final states are retained. Below dimuon threshold BR_nunu=1
-    under these assumptions. If a heavy-neutrino threshold opens, or the
-    active-heavy sector is non-negligible, the total width must be extended.
+    The corresponding one-active-chirality normalization is
+    Gamma_nu = g_X^2 m_A'/(24 pi) Tr(G_nu^dagger G_nu), giving
+    g_X^2 m_A'/(12 pi) when the trace is 2. The PMNS rotation is unitary,
+    active-heavy mixing is negligible, all heavy-neutrino channels are
+    kinematically closed, and only light-nu-nu plus mu+mu- final states are
+    retained. Below dimuon threshold BR_nunu=1 under these assumptions.
+    Majorana-state identical-particle factors or independent right-handed
+    currents require a full mass-basis width calculation. If a heavy-neutrino
+    threshold opens, or active-heavy mixing is non-negligible, extend the
+    total width before using these branching fractions.
     """
     if m_a_mev <= 2.0 * M_MU_MEV:
         return 1.0, 1.0

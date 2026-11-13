@@ -212,3 +212,32 @@ The previous packaging workflows had uploaded 13 ZIP artifacts. They were remove
 | 13999345496 | axial-stellar-constraints-review-package | 2026-12-13 00:46 |
 
 The temporary deletion workflow was removed after the successful run. The ongoing collaborator workflow remains validation-only and does not build or upload archives.
+
+
+## 2026-11-13 tree-level branch disposition update
+
+The detailed branch/path/blob comparison is now recorded in research/BRANCH_DISPOSITION_2026-11-13.md. The key distinction is between tree content and commit Ahead/Behind counts:
+
+- Major 1 Higgs-mixing branch: zero branch-only paths and zero unique blobs; the Major 1 source files are already in main. Preserve the extensive branch history.
+- Major 1 Belle II branch: its only unique file is a generated ZIP whose extracted Markdown/SVG deliverable is in main. Preserve the scalar-pole development history.
+- Major 4.4 branch: no unique scientific output; its JSON differences are at floating-point roundoff/runtime-metadata level, and its workflow adds only a comment. Keep main's stricter current audit and outputs.
+- C4-C4-A/B: all local-rate/radial-opacity outputs are in main; the old B.16 escape audit is weaker than the current main version, which checks the PDF fingerprint and numerical reference vertices.
+- Two-VEV: the branch's thermal scripts are older standalone copies; current main uses shared thermal adapters. The branch-only convergence CSV is byte-identical to the canonical original-UV copy.
+- Collaborator archive: no branch-only content; PR #101/#104 contain the current docs and workflow policy.
+- PR #102's research/fig7-10mev-transport-localization-20261113 branch remains open and contains new localization work; keep it active.
+
+Eleven branch refs in two exact-SHA groups have ahead_by=0 relative to main. Their commits are already reachable from main and they are the first safe deletion batch. The exact branch names and SHA guards are listed in the disposition document. No divergent research branch is force-reset or deleted as part of this audit.
+
+
+## 2026-11-13 first-batch branch pruning — completed
+
+Cleanup workflow run #43364401393 completed successfully. It deleted the 11 exact branch refs listed in section 7 of research/BRANCH_DISPOSITION_2026-11-13.md. For every ref, the workflow verified the expected head SHA, required ahead_by=0 against the current main commit, deleted the ref, and queried it again to confirm absence.
+
+The 11 commits remain reachable from main. The active PR #102 branch and all divergent Major 1, Major 4.4, C4-C4-A/B, and two-VEV research-history branches were not touched. The one-time pruning workflow is being removed now that the operation is complete.
+
+
+## 2026-11-13 second branch-pruning batch — completed
+
+A second SHA-guarded workflow run, #43364866549, deleted five completed administrative branches: the main-index documentation branch, the two ZIP-cleanup branches, the first branch-pruning workflow branch, and its finalization branch. Each branch was checked against its exact expected head SHA, checked for open-PR use, deleted, and verified absent. A fresh branches-list query confirmed all five are absent.
+
+These were administrative/one-time workflow branches, not research branches. Their PR histories remain available. The Major 1, Major 4.4, C4-C4-A/B, two-VEV, collaborator-archive, and active PR #102 research branches were not included. The one-time workflow is removed after success.

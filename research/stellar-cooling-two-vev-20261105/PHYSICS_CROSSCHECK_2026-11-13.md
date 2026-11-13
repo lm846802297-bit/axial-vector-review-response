@@ -145,3 +145,95 @@ Most importantly, this is a homogeneous, optically thin, polarization-summed loc
 PR #85 already integrated the separate two-VEV research line into main. PR #100 was closed as redundant because its four actual changes would have replaced the current shared thermal adapters with older duplicated implementations; it did not contain a new physical result. The canonical implementation remains the main-branch two-VEV matrix element plus the shared thermal module.
 
 No new supernova limit or referee-response result follows from this audit. The pure-vector Blinov Fig. 7 10 MeV strong-absorption gate remains **NOT PASSED**.
+
+
+## 9. Direct axial-current / Goldstone Ward identity
+
+The previous check of \(\sigma_L\propto m_{A'}^{-2}\) was a useful scaling test, but it did not directly compare the longitudinal axial amplitude with an independently constructed Goldstone amplitude. The matrix-element module now has a separate unit-pseudoscalar amplitude and a direct contraction test.
+
+With the module's vertex convention
+\[
+\Gamma_{A'}^\nu=\gamma^\nu(g_V-g_A\gamma^5),
+\]
+set \(g_V=0,\ g_A=1\) and contract the full \(s+u\) amplitude with the outgoing momentum \(q_\nu\). Let \(\mathcal M_P\) denote the independently built amplitude with a unit \(\gamma^5\) vertex and the same photon vertex and propagator routing. For on-shell external muons,
+\[
+\boxed{q_\nu\mathcal M_A^\nu=2m_\mu\,\mathcal M_P.}
+\]
+This is the tree-level axial Ward identity in the code's sign convention. It tests both Compton diagrams together; the cancellation of the inverse-propagator/contact pieces is not assumed diagram by diagram.
+
+An independent spinor-level numerical evaluation used both physical incoming-photon polarizations, all four initial/final muon-spin combinations, and five kinematic points:
+
+| \(E_\gamma\) (MeV) | \(m_{A'}\) (MeV) | \(\cos\theta\) | Maximum relative residual |
+|---:|---:|---:|---:|
+| 10 | 2 | 0.3 | \(4.86\times10^{-14}\) |
+| 1 | 0.1 | -0.5 | \(6.82\times10^{-14}\) |
+| 200 | 50 | 0.8 | \(1.07\times10^{-14}\) |
+| 1 | 0.5 | 0.1 | \(8.96\times10^{-13}\) |
+| 30 | 10 | -0.9 | \(1.20\times10^{-15}\) |
+
+The source now includes a separate pseudoscalar amplitude, a direct axial-Goldstone Ward residual, and a regression test over these points. The command-line --check also checks the direct identity, not only the \(1/m_{A'}^2\) scaling.
+
+The physical longitudinal polarization is not exactly \(q^\mu/m_{A'}\) at finite energy:
+\[
+\epsilon_L^\mu=\frac{q^\mu}{m_{A'}}+
+O\!\left(\frac{m_{A'}}{E_{A'}}\right).
+\]
+Thus the exact contracted Ward identity and the high-energy Goldstone-equivalence approximation are distinct statements. The exact identity is established at the amplitude level; using it to replace a finite-energy physical longitudinal polarization still requires the stated high-energy approximation.
+
+## 10. Finite right-handed mixing: the Goldstone matching boundary
+
+The finite-mixing current parameterization used by the width helper is
+\[
+g_V=g_X\sin^2\theta_{\ell R},\qquad
+g_A=-g_X\cos^2\theta_{\ell R}.
+\]
+The current-side Ward identity therefore requires the Goldstone coupling magnitude
+\[
+|g_{G\ell\ell}|_{\rm Ward}
+=\frac{2m_\ell |g_A|}{m_{A'}}
+=\frac{2m_\ell}{v_X}\cos^2\theta_{\ell R},
+\qquad m_{A'}=|g_X|v_X.
+\]
+By contrast, the TwoVEVPoint.goldstone_lepton_yukawa method returns \(2m_\ell/v_X\), which is the leading small-mixing/pure-axial result. At \(\theta_{\ell R}=10^{-2}\), the current-side factor differs by \(1-\cos^2\theta_{\ell R}=9.9997\times10^{-5}\).
+
+The mapping test now records this distinction explicitly. It does **not** claim that the full UV phase coupling at finite mixing has already been derived. That requires projecting the original \(S\)-phase Yukawa through the complete left/right charged-lepton mass rotations and checking it against the current-side result above. Until that UV projection is added, use the simple Goldstone map only in the pure-axial/leading-seesaw limit.
+
+## 11. PMNS rotation: inclusive trace versus flavour structure
+
+For the active charge matrix
+\[
+Q_\nu=\operatorname{diag}(0,+1,-1),\qquad
+G_\nu=U_{\rm PMNS}^\dagger Q_\nu U_{\rm PMNS},
+\]
+unitarity gives
+\[
+\operatorname{Tr}(G_\nu^\dagger G_\nu)
+=\operatorname{Tr}(Q_\nu^\dagger Q_\nu)=2.
+\]
+A nontrivial PMNS matrix therefore changes the individual diagonal and off-diagonal mass-basis couplings, but it does not change the fully inclusive massless-active-neutrino trace. The new test_pmns_inclusive_neutrino_trace.py checks both facts with a representative nontrivial three-angle/one-phase unitary matrix; it is a trace-identity regression, not a fit to oscillation data.
+
+For one massless active chiral sector, the width normalization used by axial_decay_widths.py is
+\[
+\Gamma_{\nu,\mathrm{incl}}
+=\frac{g_X^2m_{A'}}{24\pi}
+\operatorname{Tr}(G_\nu^\dagger G_\nu)
+=\frac{g_X^2m_{A'}}{12\pi}.
+\]
+This is the helper's reference neutrino width. The statement is conditional on that one-active-chirality normalization and a complete inclusive sum over the three light mass eigenstates. If the neutral states are Majorana, if both chiralities carry independent gauge currents, if active-heavy mixing is appreciable, or if a charged-\(N_R\) threshold opens, the mass-basis interaction and identical-particle factors must be derived explicitly. The helper does not do that.
+
+Finally, the minimal-model response's \(U_{\rm PMNS}=I\) assumption remains a model assumption, not a reproduction of observed neutrino oscillations. The trace invariance above shows only that the inclusive light-neutrino width is insensitive to a unitary rotation; it does not repair the model's neutrino-mass/mixing completion, justify flavour-specific constraints, or add neutrino bounds to the referee response.
+
+## 12. Updated acceptance table
+
+| Check | Status after this audit |
+|---|---|
+| Two-VEV gauge mass and eaten/physical CP-odd basis | Algebraically correct for the stated charges and covariant derivative |
+| Pure-axial Goldstone/current coupling | Correct |
+| Direct \(q_\nu\mathcal M_A^\nu=2m_\mu\mathcal M_P\) | Numerically closed at \(1.0\times10^{-12}\) or better over the five tested points |
+| Physical \(\epsilon_L\) versus \(q/m_{A'}\) | High-energy approximation only; finite-energy correction remains |
+| Finite-\(\theta_{\ell R}\) UV Goldstone projection | Not yet derived; current-side required factor is \(\cos^2\theta_{\ell R}\) |
+| Inclusive unitary-PMNS trace | \(\operatorname{Tr}(G_\nu^\dagger G_\nu)=2\), numerically checked |
+| Minimal-model oscillation fit | Not provided; \(U_{\rm PMNS}=I\) remains an explicit simplifying assumption |
+| Full neutral-fermion width | Not complete for charged \(N_R\), active-heavy mixing, or open heavy thresholds |
+
+No new SN transport result or astrophysical exclusion follows from these amplitude/trace checks. The pure-vector Blinov Fig. 7 10 MeV strong-absorption gate remains **NOT PASSED**.

@@ -142,4 +142,4 @@ A generic static-spherical geodesic and local-opacity kernel is added and six fl
 
 The high-order path decomposition assigns 56.71% of source-weighted mean total optical depth to \(r\ge15\) km. The 110--510 MeV band supplies 94.43% of escaped luminosity. Local \(L,+,-\) rate sums and detailed balance pass, but the literal scalar B.2 and independent mode-resolved propagation differ by 76.37 at the strong endpoint. Retain both lanes separately; do not interpret the mode-resolved diagnostic as a scalar correction.
 
-See [the 10 MeV B.2 energy/GR/shell/polarization audit](../stellar-cooling-constraints-20261105/blinov_reproduction/B2_10MEV_ENERGY_GR_SHELL_POLARIZATION_AUDIT_2026-11-13.md), \`gr_ray_transport.py\`, its six tests, and the machine-readable summary.
+See [the 10 MeV B.2 energy/GR/shell/polarization audit](../stellar-cooling-constraints-20261105/blinov_reproduction/B2_10MEV_ENERGY_GR_SHELL_POLARIZATION_AUDIT_2026-11-13.md), `gr_ray_transport.py`, its six tests, and the machine-readable summary.
