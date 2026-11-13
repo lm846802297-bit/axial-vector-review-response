@@ -24,7 +24,7 @@ These are pointwise microphysical closure checks at scouting quadrature order. T
 
 ## G2 — selected worst-interval midpoint audit
 The 60 intervals with the largest adjacent-knot variation were selected. Direct radial-midpoint calculations were performed at the five original x nodes and additional energy midpoints.
-- Direct selected midpoint evaluations: 1080.
+- Direct selected midpoint evaluations: 1140.
 - At fixed original x nodes, maximum radial-midpoint discrepancy against log-linear endpoint interpolation: below 0.09%.
 - After refining the energy grid to 11 knots and using PCHIP in log-rate, the worst checked energy-midpoint discrepancy is 1.0720%, slightly above the 1% target. It occurs near r=14.55–14.60 km, x=10.3923, in the mu+ production longitudinal component.
 
