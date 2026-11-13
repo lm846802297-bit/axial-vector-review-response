@@ -45,9 +45,10 @@ Thus the old \(m_\ell/v_s\) Goldstone result is recovered only in the
 - `stellar_semi_compton_axial_matrix_element.py`: exact vacuum tree-level
   \(\gamma\mu\to\mu A'\) amplitude, EM Ward checks, exact lab/CM phase space,
   and T/L projections in the frame of the supplied momenta.
-- `stellar_semi_compton_thermal_rate.py`: variant-local adapter to the shared optically thin homogeneous-cell thermal-rate implementation in `../stellar-cooling-shared-20261105/`; it resolves this directory's two-VEV matrix-element module.
-- `stellar_semi_compton_thermal_convergence.py`: variant-local adapter to the shared quadrature/cutoff study.
-- The identical thermal-convergence CSV is stored once in the original-UV model directory and is shared by reference.
+- `stellar_semi_compton_thermal_rate.py`: optically thin homogeneous-cell
+  polarization-summed production prototype, with Fermi/Bose distributions
+  and final-state Pauli blocking.
+- `stellar_semi_compton_thermal_convergence.py`: quadrature/cutoff study.
 - `axial_decay_widths.py`: current-level \(A'\to\nu\bar\nu,\mu^+\mu^-\)
   partial-width comparison, independent of the VEV parameterization.
 - `two_vev_axial_mapping.py`: exact gauge-mass and eaten-Goldstone map.
@@ -75,7 +76,7 @@ python stellar_semi_compton_thermal_rate.py --check
 
 The local acceptance has been run and is recorded in
 `validation-results-2026-11-05.md`; the associated machine-readable data are in
-`../stellar-cooling-original-uv-model-20261105/thermal-convergence-2026-11-05.csv`. The convergence script now derives its
+`thermal-convergence-2026-11-05.csv`. The convergence script now derives its
 reference cutoffs from the same defaults as `thermal_emissivity`, unless
 explicit reference cutoffs are supplied.
 
