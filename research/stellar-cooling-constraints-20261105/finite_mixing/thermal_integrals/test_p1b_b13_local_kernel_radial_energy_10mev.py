@@ -3,10 +3,11 @@ import unittest
 
 import numpy as np
 
-from blinov_reproduction.reference import DEFAULT_PROFILE
+from blinov_reproduction.reference import DEFAULT_PROFILE, load_profile
 from finite_mixing.moving_muon_compton import moving_muon_compton_rates
 from finite_mixing.thermal_integrals.audit_b13_local_kernel_radial_energy_10mev import (
     ENERGIES_MEV,
+    ENERGY_INTEGRAL_X_MAX,
     EXPECTED_PROFILE_SHA256,
     MASS_MEV,
     RADII_KM,
@@ -25,7 +26,7 @@ class P1BB13LocalKernelRadialEnergyTests(unittest.TestCase):
         self.assertIn(12.5, RADII_KM)
         self.assertIn(15.0, RADII_KM)
         self.assertEqual(len(RADII_KM), 17)
-        self.assertEqual(len(ENERGIES_MEV), 23)
+        self.assertEqual(len(ENERGIES_MEV), 25)
         self.assertIn(2.5, RADII_KM)
         self.assertIn(10.125, ENERGIES_MEV)
         self.assertIn(15.0, ENERGIES_MEV)
@@ -35,7 +36,10 @@ class P1BB13LocalKernelRadialEnergyTests(unittest.TestCase):
 
     def test_threshold_and_high_energy_coverage(self):
         self.assertEqual(ENERGIES_MEV[0], MASS_MEV)
-        self.assertGreaterEqual(ENERGIES_MEV[-1], 500.0)
+        profile = load_profile(DEFAULT_PROFILE, np.asarray(RADII_KM, dtype=float))
+        required = MASS_MEV + ENERGY_INTEGRAL_X_MAX * float(np.max(profile["T"]))
+        self.assertGreaterEqual(ENERGIES_MEV[-1], required)
+        self.assertGreaterEqual(ENERGIES_MEV[-1], 720.0)
         self.assertTrue(all(b > a for a, b in zip(ENERGIES_MEV, ENERGIES_MEV[1:])))
 
     def test_geometric_bilinear_interpolation(self):
