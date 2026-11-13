@@ -1,0 +1,788 @@
+{
+  "audit_date": "2026-11-13",
+  "repository": "lm846802297-bit/axial-vector-review-response",
+  "base_branch": "main",
+  "base_main_sha": "a74707637837dfd577e15e530c896959ed12baa2",
+  "method": "GitHub compare endpoint: base=main, head=<branch>. Ahead/behind are ancestry counts; compare_file_count is the branch-side three-dot/merge-base path count, not a unique-tree-delta or merge recommendation.",
+  "summary": {
+    "total_refs_including_main": 96,
+    "non_main_branches": 95,
+    "diverged": 79,
+    "behind_only": 16,
+    "ahead_only": 0,
+    "identical_non_main": 0,
+    "diverged_without_changed_paths": 3,
+    "branches_with_changed_paths": 76,
+    "compare_file_path_entries": 686
+  },
+  "branches": [
+    {
+      "branch": "main",
+      "head_sha": "a74707637837dfd577e15e530c896959ed12baa2",
+      "status": "base",
+      "ahead_by": 0,
+      "behind_by": 0,
+      "compare_file_count": 0
+    },
+    {
+      "branch": "${GITHUB_REF_NAME}",
+      "head_sha": "f10191ed831fe9f4e66fb2e492cae7ba04058f44",
+      "status": "diverged",
+      "ahead_by": 13,
+      "behind_by": 45,
+      "compare_file_count": 17
+    },
+    {
+      "branch": "archive/overleaf-source-v6-2026-10-27",
+      "head_sha": "a179cf182fcf474bd2eedd7c84d106d361c5e639",
+      "status": "behind",
+      "ahead_by": 0,
+      "behind_by": 330,
+      "compare_file_count": 0
+    },
+    {
+      "branch": "chore/referee-response-pdf-2026-10-28",
+      "head_sha": "ee571faf6dfc99c0b6d740e506f2880bff06c49f",
+      "status": "behind",
+      "ahead_by": 0,
+      "behind_by": 128,
+      "compare_file_count": 0
+    },
+    {
+      "branch": "chore/single-bibliography-reply-letter-20261109",
+      "head_sha": "3e378c15839f93c8a4be4e46895e0d337ad6c372",
+      "status": "diverged",
+      "ahead_by": 9,
+      "behind_by": 40,
+      "compare_file_count": 6
+    },
+    {
+      "branch": "codex/major2-fig2-range-20261104",
+      "head_sha": "9e4cabe29c9f10576a1c7fa5a17f57dfd177842a",
+      "status": "behind",
+      "ahead_by": 0,
+      "behind_by": 107,
+      "compare_file_count": 0
+    },
+    {
+      "branch": "codex/major42-kinetic-dark-photon-20261104",
+      "head_sha": "846c584806a8ba0dfd267fad15b9190410c2b828",
+      "status": "diverged",
+      "ahead_by": 19,
+      "behind_by": 105,
+      "compare_file_count": 12
+    },
+    {
+      "branch": "codex/major44-axial-cooling-constraints-20261105",
+      "head_sha": "2eea875d9cddc09286911b6f479fcb7b484fb171",
+      "status": "diverged",
+      "ahead_by": 786,
+      "behind_by": 13,
+      "compare_file_count": 13
+    },
+    {
+      "branch": "codex/neutrino-completion-response-20261104",
+      "head_sha": "b13dde44a75646f2c2c8aaee97d6aaf0e68082d3",
+      "status": "behind",
+      "ahead_by": 0,
+      "behind_by": 110,
+      "compare_file_count": 0
+    },
+    {
+      "branch": "codex/referee-3-neutrino-response-v2",
+      "head_sha": "3d3b94f0055c5745e6b2f2724156f4be6ae6f834",
+      "status": "behind",
+      "ahead_by": 0,
+      "behind_by": 268,
+      "compare_file_count": 0
+    },
+    {
+      "branch": "deliverable/major3-overleaf-bundle-20261113",
+      "head_sha": "d19d1fb2a9a818bebeafebf683e004b20c4e39d2",
+      "status": "diverged",
+      "ahead_by": 1,
+      "behind_by": 2,
+      "compare_file_count": 2
+    },
+    {
+      "branch": "docs/add-axial-u1-model-explanation-20261027",
+      "head_sha": "4c9810074847f3c4360d439b58762181c2bae79c",
+      "status": "diverged",
+      "ahead_by": 2,
+      "behind_by": 348,
+      "compare_file_count": 2
+    },
+    {
+      "branch": "docs/archive-dw13678-markdown-master-20261027",
+      "head_sha": "32251abde2662690956a70a4ae49d2ab75e5b5e2",
+      "status": "diverged",
+      "ahead_by": 3,
+      "behind_by": 337,
+      "compare_file_count": 2
+    },
+    {
+      "branch": "docs/archive-meeting-records-2026-10-23",
+      "head_sha": "b155fcba90c56e332dca9f0404727e940cb8c6d5",
+      "status": "diverged",
+      "ahead_by": 1,
+      "behind_by": 346,
+      "compare_file_count": 6
+    },
+    {
+      "branch": "docs/branch-integration-audit-20261113",
+      "head_sha": "e320373885edf6349e83fcef56b5880c2b763595",
+      "status": "diverged",
+      "ahead_by": 4,
+      "behind_by": 4,
+      "compare_file_count": 2
+    },
+    {
+      "branch": "docs/calculation-results-github-policy-20261112",
+      "head_sha": "f06ee04751f57b45e12e8d162bdd4f9b8a36afb3",
+      "status": "diverged",
+      "ahead_by": 2,
+      "behind_by": 23,
+      "compare_file_count": 0
+    },
+    {
+      "branch": "docs/ci-not-required-policy-2026-11-13",
+      "head_sha": "99adbc2e9d72400951a2a48a47f5dba8c378390e",
+      "status": "diverged",
+      "ahead_by": 1,
+      "behind_by": 7,
+      "compare_file_count": 1
+    },
+    {
+      "branch": "docs/dw13678-markdown-master-20261023",
+      "head_sha": "de2df1d7c30ae74b5311c4326f2e526717e337ba",
+      "status": "diverged",
+      "ahead_by": 1,
+      "behind_by": 360,
+      "compare_file_count": 1
+    },
+    {
+      "branch": "docs/extract-before-upload-policy-2026-11-13",
+      "head_sha": "7acb4de2a655ac4c50dcbdc4c917a0c8c37dbfba",
+      "status": "diverged",
+      "ahead_by": 2,
+      "behind_by": 9,
+      "compare_file_count": 1
+    },
+    {
+      "branch": "docs/major4.4-direct-axial-stellar-literature-20261104",
+      "head_sha": "f56987f3365b039de80cf35046642c6fb080dd92",
+      "status": "diverged",
+      "ahead_by": 47,
+      "behind_by": 95,
+      "compare_file_count": 21
+    },
+    {
+      "branch": "docs/major-point-1-portal-threshold-evidence-2026-10-27",
+      "head_sha": "afcec448aafc6319c7a0a19e37bc56d4c5463f43",
+      "status": "diverged",
+      "ahead_by": 2,
+      "behind_by": 348,
+      "compare_file_count": 1
+    },
+    {
+      "branch": "docs/meeting-screenshot-revision-2026-10-27",
+      "head_sha": "845ace417e7b9bdba268c3335a7f0c609402738f",
+      "status": "diverged",
+      "ahead_by": 41,
+      "behind_by": 346,
+      "compare_file_count": 9
+    },
+    {
+      "branch": "docs/meeting-summary-audit-2026-10-28",
+      "head_sha": "cc67371b99d264fcd4a51b88a3188d0d5a663c9d",
+      "status": "diverged",
+      "ahead_by": 1,
+      "behind_by": 270,
+      "compare_file_count": 1
+    },
+    {
+      "branch": "docs/project-preflight-living-decisions-2026-11-04",
+      "head_sha": "64922a853ad1304dae048159d8bcb9c3cd65a3f7",
+      "status": "diverged",
+      "ahead_by": 15,
+      "behind_by": 124,
+      "compare_file_count": 7
+    },
+    {
+      "branch": "docs/record-pr46-merge-20261104",
+      "head_sha": "a5a2cb46a1a38d859b2575914b2a069f22d8a82d",
+      "status": "diverged",
+      "ahead_by": 1,
+      "behind_by": 94,
+      "compare_file_count": 1
+    },
+    {
+      "branch": "docs/record-reply-pdf-build-20261104",
+      "head_sha": "87748fef2924cabfba74e1ea7567487fde4037cc",
+      "status": "diverged",
+      "ahead_by": 6,
+      "behind_by": 90,
+      "compare_file_count": 4
+    },
+    {
+      "branch": "docs/referee-letter-writing-rules-2026-11-04",
+      "head_sha": "2ea2d34b489213fbb256036eb5db36d04005044a",
+      "status": "diverged",
+      "ahead_by": 4,
+      "behind_by": 125,
+      "compare_file_count": 4
+    },
+    {
+      "branch": "docs/refresh-project-status-after-pr36-2026-11-04",
+      "head_sha": "6ff98dc31e0f76daff4b1a1c155eb9ba56a5afc9",
+      "status": "diverged",
+      "ahead_by": 1,
+      "behind_by": 123,
+      "compare_file_count": 1
+    },
+    {
+      "branch": "docs/repository-categorized-index-2026-10-27",
+      "head_sha": "92983e486d40641417413914c45878fe26dfc22f",
+      "status": "diverged",
+      "ahead_by": 4,
+      "behind_by": 333,
+      "compare_file_count": 4
+    },
+    {
+      "branch": "docs/repository-navigation-refresh-20261027",
+      "head_sha": "893045e799aa7f0cfc408f212199ec812d047320",
+      "status": "behind",
+      "ahead_by": 0,
+      "behind_by": 327,
+      "compare_file_count": 0
+    },
+    {
+      "branch": "docs/research-state-checkpoint-2026-10-26",
+      "head_sha": "7fea2ce2263e13d8c08c4555b0556bcf77e9afa1",
+      "status": "diverged",
+      "ahead_by": 31,
+      "behind_by": 348,
+      "compare_file_count": 9
+    },
+    {
+      "branch": "docs/researcher-handbook-and-audit",
+      "head_sha": "17363e2e51a6c3b9a004a64745b1113b5e5f6d11",
+      "status": "diverged",
+      "ahead_by": 10,
+      "behind_by": 359,
+      "compare_file_count": 5
+    },
+    {
+      "branch": "docs/review-response-work-copy-2026-10-27",
+      "head_sha": "cc121bdf13577ddc419bf7d4f0ba7c9bba383a5e",
+      "status": "diverged",
+      "ahead_by": 2,
+      "behind_by": 348,
+      "compare_file_count": 2
+    },
+    {
+      "branch": "docs/reviewer-response-v5.6-20261026",
+      "head_sha": "9f98bea7d8807683b6c4d475844648c265cee72f",
+      "status": "diverged",
+      "ahead_by": 5,
+      "behind_by": 360,
+      "compare_file_count": 5
+    },
+    {
+      "branch": "docs/routeB-manuscript-crossrefs-2026-10-27",
+      "head_sha": "921b9922bd9406f58d342fd64b73ac778957062d",
+      "status": "diverged",
+      "ahead_by": 4,
+      "behind_by": 344,
+      "compare_file_count": 3
+    },
+    {
+      "branch": "docs/separate-major3-response-from-original-model-20261105",
+      "head_sha": "8ddc32cc2ed08916d834900b45c9b8401ac1f67c",
+      "status": "diverged",
+      "ahead_by": 38,
+      "behind_by": 75,
+      "compare_file_count": 7
+    },
+    {
+      "branch": "docs/table-ii-sync-checklist-20261108",
+      "head_sha": "99906cfe864e24837913cef7c14fc162ddca5232",
+      "status": "behind",
+      "ahead_by": 0,
+      "behind_by": 64,
+      "compare_file_count": 0
+    },
+    {
+      "branch": "overleaf-export/reply-letter-20261109",
+      "head_sha": "ee8582405f6e8830cfe6aa445446cc86e347476a",
+      "status": "diverged",
+      "ahead_by": 4,
+      "behind_by": 40,
+      "compare_file_count": 1
+    },
+    {
+      "branch": "overleaf-package-2026-11-09",
+      "head_sha": "1fc4b8634b65678bb97a7b1368964ad1440aa45a",
+      "status": "diverged",
+      "ahead_by": 4,
+      "behind_by": 39,
+      "compare_file_count": 1
+    },
+    {
+      "branch": "research/c4c4-energy-dependence-20261112",
+      "head_sha": "6bcfbee90543543bd8b0d3c7422cf2c3f1c431da",
+      "status": "diverged",
+      "ahead_by": 696,
+      "behind_by": 12,
+      "compare_file_count": 32
+    },
+    {
+      "branch": "research/c4c4b-full-radial-results-main-20261113",
+      "head_sha": "68962d7d398bc24c59ccf472e833b702c1bdfb9e",
+      "status": "diverged",
+      "ahead_by": 1,
+      "behind_by": 6,
+      "compare_file_count": 15
+    },
+    {
+      "branch": "research/higgs-signal-strength-two-benchmarks-2026-10-28",
+      "head_sha": "5134b8413ed28ca9d6b4db72e16714711e813dca",
+      "status": "diverged",
+      "ahead_by": 41,
+      "behind_by": 127,
+      "compare_file_count": 16
+    },
+    {
+      "branch": "research/initial-baseline-pmns-audit-2026-10-26",
+      "head_sha": "a7912492a8c20bb48df13d8d54b333e258bef974",
+      "status": "diverged",
+      "ahead_by": 25,
+      "behind_by": 348,
+      "compare_file_count": 5
+    },
+    {
+      "branch": "research/major1-higgs-scalar-mixing-20261109",
+      "head_sha": "9185e84efacb09b3586399f8544ded1c79fb55ee",
+      "status": "diverged",
+      "ahead_by": 420,
+      "behind_by": 13,
+      "compare_file_count": 121
+    },
+    {
+      "branch": "research/major1-scalar-pole-belleii-20261109",
+      "head_sha": "4a0e00b09268e764ad8cbccf63d26459036c5273",
+      "status": "diverged",
+      "ahead_by": 35,
+      "behind_by": 13,
+      "compare_file_count": 62
+    },
+    {
+      "branch": "research/major44-postmerge-followup-20261113",
+      "head_sha": "bf86283e05123d9d8ce5ad03603d93521fd7ae08",
+      "status": "diverged",
+      "ahead_by": 2,
+      "behind_by": 13,
+      "compare_file_count": 11
+    },
+    {
+      "branch": "research/major-point-1-exact-hs-mixing-2026-10-27-v2",
+      "head_sha": "5ce553c9389b7d9c54ff1a4e85155607c26830f2",
+      "status": "behind",
+      "ahead_by": 0,
+      "behind_by": 271,
+      "compare_file_count": 0
+    },
+    {
+      "branch": "research/major-point-1-exact-hs-mixing-2026-10-27",
+      "head_sha": "268b1ff0777a80353eba149a4bb4c20fe96658ee",
+      "status": "behind",
+      "ahead_by": 0,
+      "behind_by": 300,
+      "compare_file_count": 0
+    },
+    {
+      "branch": "research/radial-scalar-collider-recast-2026-10-28",
+      "head_sha": "7b3fe928b85bd52aa99c145b7420d683b0480447",
+      "status": "diverged",
+      "ahead_by": 8,
+      "behind_by": 127,
+      "compare_file_count": 7
+    },
+    {
+      "branch": "research/radial-scalar-original-model-belleii-20261105",
+      "head_sha": "277c64c73cd852ccde36d1e1ec34b13900a79f9e",
+      "status": "diverged",
+      "ahead_by": 68,
+      "behind_by": 75,
+      "compare_file_count": 34
+    },
+    {
+      "branch": "research/radial-scalar-two-vev-belleii-20261105-current-main",
+      "head_sha": "05ce56a0e2fc396f43434d62c8687c8dde63b46a",
+      "status": "diverged",
+      "ahead_by": 7,
+      "behind_by": 75,
+      "compare_file_count": 6
+    },
+    {
+      "branch": "research/radial-scalar-two-vev-belleii-20261105",
+      "head_sha": "aaed93697dfaefdc6fa80a6bc5d5f5eee192e759",
+      "status": "behind",
+      "ahead_by": 0,
+      "behind_by": 78,
+      "compare_file_count": 0
+    },
+    {
+      "branch": "research/stellar-cooling-axial-recast-2026-10-28",
+      "head_sha": "ee4ba1a16bddbd6f3ef7f66dc8ea707008f00f48",
+      "status": "diverged",
+      "ahead_by": 65,
+      "behind_by": 134,
+      "compare_file_count": 8
+    },
+    {
+      "branch": "research/stellar-cooling-original-uv-model-20261105",
+      "head_sha": "535361144d9e457f1f65256cf3fe2d413a288931",
+      "status": "diverged",
+      "ahead_by": 23,
+      "behind_by": 13,
+      "compare_file_count": 9
+    },
+    {
+      "branch": "research/stellar-cooling-review-package-20261113",
+      "head_sha": "29eef91bb41a69d11bea96568c250131e108428b",
+      "status": "diverged",
+      "ahead_by": 29,
+      "behind_by": 3,
+      "compare_file_count": 23
+    },
+    {
+      "branch": "research/stellar-cooling-two-vev-20261105",
+      "head_sha": "5ec3c3396b2f85c2a2efd1431a183bf7a7255ca2",
+      "status": "diverged",
+      "ahead_by": 12,
+      "behind_by": 78,
+      "compare_file_count": 9
+    },
+    {
+      "branch": "research/two-vev-axial-stellar-microphysics-main-20261113",
+      "head_sha": "5ff9e0470b394451408ce388550b21a87667a5ea",
+      "status": "diverged",
+      "ahead_by": 1,
+      "behind_by": 5,
+      "compare_file_count": 9
+    },
+    {
+      "branch": "response-letter-referee-ready-2026-10-28",
+      "head_sha": "5158fb449948597cb6fcc80ef4c4ece670b05707",
+      "status": "behind",
+      "ahead_by": 0,
+      "behind_by": 136,
+      "compare_file_count": 0
+    },
+    {
+      "branch": "review/major1-remove-defensive-model-framing-20261108",
+      "head_sha": "0a4495bd94b47e696983e6179eaadf9ec55181dd",
+      "status": "diverged",
+      "ahead_by": 3,
+      "behind_by": 68,
+      "compare_file_count": 3
+    },
+    {
+      "branch": "review/major1-restructure-scalar-argument-20261108",
+      "head_sha": "00340cdf6d2d48987d0aa11561b24dd96d7aaedb",
+      "status": "diverged",
+      "ahead_by": 4,
+      "behind_by": 64,
+      "compare_file_count": 2
+    },
+    {
+      "branch": "review/major1-scalar-opening-focus-20261108",
+      "head_sha": "04a451fd230a187525b5e0b7b70cf7ce60499d69",
+      "status": "diverged",
+      "ahead_by": 4,
+      "behind_by": 69,
+      "compare_file_count": 3
+    },
+    {
+      "branch": "review/major1-scalar-response-structure-20261108",
+      "head_sha": "af97812947c2baee866f640e766b72431dca0c37",
+      "status": "behind",
+      "ahead_by": 0,
+      "behind_by": 58,
+      "compare_file_count": 0
+    },
+    {
+      "branch": "review/major1-scalar-structure-20261109",
+      "head_sha": "cf0f37a9110346567372548d876bd802fc222b9b",
+      "status": "diverged",
+      "ahead_by": 1,
+      "behind_by": 52,
+      "compare_file_count": 3
+    },
+    {
+      "branch": "review/major1-streamline-low-mass-constraints-intro-20261108",
+      "head_sha": "ae85d91181c57cbc7928111ec01d44bb8b3183ea",
+      "status": "diverged",
+      "ahead_by": 11,
+      "behind_by": 67,
+      "compare_file_count": 3
+    },
+    {
+      "branch": "review/major1-structure-20261108",
+      "head_sha": "b67c0c7e5034700afd7b2e320783a806ee34f4fa",
+      "status": "diverged",
+      "ahead_by": 4,
+      "behind_by": 65,
+      "compare_file_count": 2
+    },
+    {
+      "branch": "review/major1-structure-scalar-constraints-20261108",
+      "head_sha": "abd273ee2c0629f43ab94395afeb4fe6c03eede9",
+      "status": "diverged",
+      "ahead_by": 3,
+      "behind_by": 65,
+      "compare_file_count": 2
+    },
+    {
+      "branch": "review/major1.3-higgs-portal-higgs-strength-20261104",
+      "head_sha": "a324c019431776656448778e7acaeb4c35752992",
+      "status": "diverged",
+      "ahead_by": 72,
+      "behind_by": 89,
+      "compare_file_count": 10
+    },
+    {
+      "branch": "review/major3-neutrino-yukawa-and-s-only-clarity-20261104",
+      "head_sha": "aadb691b553206f05cf1baccae03358f5541f686",
+      "status": "diverged",
+      "ahead_by": 10,
+      "behind_by": 98,
+      "compare_file_count": 4
+    },
+    {
+      "branch": "review/major3-two-block-neutrino-response-20261109",
+      "head_sha": "8618575c9a3a6049a52f00ce6ccd92cbb6143307",
+      "status": "diverged",
+      "ahead_by": 31,
+      "behind_by": 39,
+      "compare_file_count": 5
+    },
+    {
+      "branch": "review/major4.3-small-mixing-domain-20261104",
+      "head_sha": "2baaa9e7428e304856028c6ecf60ec51535956dd",
+      "status": "diverged",
+      "ahead_by": 14,
+      "behind_by": 97,
+      "compare_file_count": 5
+    },
+    {
+      "branch": "review/major41-pmns-complete-argument-2026-11-04",
+      "head_sha": "9fc27f4c8471364f86abe1be14faadde0ee12a7f",
+      "status": "diverged",
+      "ahead_by": 7,
+      "behind_by": 102,
+      "compare_file_count": 3
+    },
+    {
+      "branch": "review/major-point-1-meeting-aligned-literature-2026-10-28",
+      "head_sha": "3cac3f2c287a55b35db536a6ec4940c42d58e917",
+      "status": "diverged",
+      "ahead_by": 16,
+      "behind_by": 270,
+      "compare_file_count": 1
+    },
+    {
+      "branch": "review/major-point-1-scalar-ordered-reply-2026-10-27",
+      "head_sha": "3c93183a65fbf149848fdd64d5a40a3be865c278",
+      "status": "behind",
+      "ahead_by": 0,
+      "behind_by": 310,
+      "compare_file_count": 0
+    },
+    {
+      "branch": "review/major-point-2-effective-parameter-range-2026-10-27-v2",
+      "head_sha": "4d394cacb71ce3aab3e85f66079f8ac8cfa04aff",
+      "status": "behind",
+      "ahead_by": 0,
+      "behind_by": 307,
+      "compare_file_count": 0
+    },
+    {
+      "branch": "review/major-point-2-effective-parameter-range-2026-10-27",
+      "head_sha": "5849938b0d65de93d5532944bbcbc12e3427faad",
+      "status": "diverged",
+      "ahead_by": 6,
+      "behind_by": 311,
+      "compare_file_count": 4
+    },
+    {
+      "branch": "review/major-points-3-4-transcript02-2026-10-28",
+      "head_sha": "1fdc639907ef83f4a8cea613aa86c07cd3f409cd",
+      "status": "diverged",
+      "ahead_by": 12,
+      "behind_by": 270,
+      "compare_file_count": 4
+    },
+    {
+      "branch": "review/major-response-structure-20261109",
+      "head_sha": "fe8a89dfc03c37ea0c54e2309f442205689d0014",
+      "status": "diverged",
+      "ahead_by": 29,
+      "behind_by": 54,
+      "compare_file_count": 8
+    },
+    {
+      "branch": "review/minor63-coupling-table-threshold-20261109",
+      "head_sha": "705471295b92c9d645af0b04cb465293e8639915",
+      "status": "behind",
+      "ahead_by": 0,
+      "behind_by": 46,
+      "compare_file_count": 0
+    },
+    {
+      "branch": "review/referee-letter-cleanup-2026-11-03",
+      "head_sha": "d1dc76a57d11c2748aaf798f3e5befb51c57fe46",
+      "status": "diverged",
+      "ahead_by": 28,
+      "behind_by": 126,
+      "compare_file_count": 1
+    },
+    {
+      "branch": "review/referee-response-style-20261109",
+      "head_sha": "32d13950225f7240356595863cecd1f3a628f05c",
+      "status": "diverged",
+      "ahead_by": 40,
+      "behind_by": 45,
+      "compare_file_count": 4
+    },
+    {
+      "branch": "review/response-analytic-consistency-20261105",
+      "head_sha": "006748868ffec88d752bf2286a6f196fbcdc464a",
+      "status": "diverged",
+      "ahead_by": 22,
+      "behind_by": 88,
+      "compare_file_count": 7
+    },
+    {
+      "branch": "review/response-letter-kinetic-mixing-main-2026-10-28",
+      "head_sha": "c2754fa6fd5e124baff2799e806b38a761bf4747",
+      "status": "behind",
+      "ahead_by": 0,
+      "behind_by": 154,
+      "compare_file_count": 0
+    },
+    {
+      "branch": "review/response-letter-transcript01-kineticmixing-2026-10-28",
+      "head_sha": "3ea9784daa1c530508aec7921c45ee177b501362",
+      "status": "diverged",
+      "ahead_by": 18,
+      "behind_by": 270,
+      "compare_file_count": 1
+    },
+    {
+      "branch": "review/response-point-conclusions-20261106",
+      "head_sha": "792fe1dec849a7d777a533025b9da2c2ccbf9592",
+      "status": "diverged",
+      "ahead_by": 78,
+      "behind_by": 72,
+      "compare_file_count": 8
+    },
+    {
+      "branch": "review/scalar-decay-widths-response-2026-11-04",
+      "head_sha": "c10b1c42f8eb35867e5455984dc94dcc45adedfd",
+      "status": "diverged",
+      "ahead_by": 28,
+      "behind_by": 122,
+      "compare_file_count": 9
+    },
+    {
+      "branch": "review/table-II-scalar-constraints-2026-11-04",
+      "head_sha": "56113a54772bc66d3963c2748b1643841dcdd6e2",
+      "status": "diverged",
+      "ahead_by": 30,
+      "behind_by": 117,
+      "compare_file_count": 5
+    },
+    {
+      "branch": "review/table-ii-source-anchored-response-2026-11-04",
+      "head_sha": "ebdd33bb3906dac0d2a45075ead34838c8847e9e",
+      "status": "diverged",
+      "ahead_by": 13,
+      "behind_by": 117,
+      "compare_file_count": 9
+    },
+    {
+      "branch": "sync/root-referee-response-2026-10-28",
+      "head_sha": "492ca08affa7abc388757143a64acb9989269c50",
+      "status": "diverged",
+      "ahead_by": 3,
+      "behind_by": 135,
+      "compare_file_count": 3
+    },
+    {
+      "branch": "transfer/p1iii-eos-latest-source-20261111",
+      "head_sha": "09e3df9966526e1ceafb7c3233029d23c6d01638",
+      "status": "diverged",
+      "ahead_by": 1359,
+      "behind_by": 13,
+      "compare_file_count": 1
+    },
+    {
+      "branch": "transfer/pr57-source-bundle-20261110",
+      "head_sha": "11df499413500b02ed346cadb93a0386a8af55f3",
+      "status": "diverged",
+      "ahead_by": 1133,
+      "behind_by": 13,
+      "compare_file_count": 0
+    },
+    {
+      "branch": "transfer/sfho-frdm-release-transfer-20261111",
+      "head_sha": "cdb45b070c5253c4a370691686c7e0d2a3040982",
+      "status": "diverged",
+      "ahead_by": 1350,
+      "behind_by": 13,
+      "compare_file_count": 0
+    },
+    {
+      "branch": "work/hs-mixing-one-loop-20261027",
+      "head_sha": "0ae1f283b48b1976b6b51ad21fabc23adba9397a",
+      "status": "diverged",
+      "ahead_by": 6,
+      "behind_by": 310,
+      "compare_file_count": 4
+    },
+    {
+      "branch": "research/moving-muon-b13-b16-recovery-20261113",
+      "head_sha": "c45d0d2bf6741b904b8b6a86f13c1cd46c06baff",
+      "status": "diverged",
+      "ahead_by": 4,
+      "behind_by": 3,
+      "compare_file_count": 6
+    },
+    {
+      "branch": "research/moving-muon-thermal-rates-20261107",
+      "head_sha": "9dac1307d88c7011c6fbeb42369c41b9a2f0b3eb",
+      "status": "diverged",
+      "ahead_by": 1578,
+      "behind_by": 13,
+      "compare_file_count": 41
+    },
+    {
+      "branch": "review/meeting-aligned-referee-response-2026-10-28",
+      "head_sha": "df8adc648ac238fe3456c50c4b382c8484306694",
+      "status": "diverged",
+      "ahead_by": 32,
+      "behind_by": 127,
+      "compare_file_count": 5
+    },
+    {
+      "branch": "fix/major3-overleaf-sha256-manifest-20261113",
+      "head_sha": "b9e88a9c4deefa92a06e4daa65d852d45c467072",
+      "status": "diverged",
+      "ahead_by": 2,
+      "behind_by": 1,
+      "compare_file_count": 2
+    }
+  ]
+}
