@@ -188,3 +188,12 @@ The public Caputo reconstruction has no separate \(\mu_{\nu_\tau}\) curve, so th
 The source-weighted mean neutrino optical depth from absorber shells 15--20 and 20--25 km is 4.483 and 4.668, respectively; together the 15--25 km region contributes 63.17% of the total mean neutrino optical depth at the 10 MeV high-absorption point. This remains important even though the outer temperature is only 3--4 MeV: the reduced opacity approaches the time-dilated vacuum-decay limit as the temperature falls. Angular/path quadrature changes the luminosity by less than 0.005%; doubling radial resolution changes it by about 0.49%.
 
 See [the full outer-neutrino profile and convention audit](OUTER_NEUTRINO_PROFILE_CONVENTION_AUDIT_2026-11-08.md). The independent direct collision-integral audit has now been extended through 25 km: 132 neutrino and 132 B.14 Compton cases pass, with maximum direct-vs-code neutrino production/absorption errors of \(5.24\times10^{-15}\) and \(3.99\times10^{-15}\). At 20--25 km the effective muon susceptibility falls to negligible values, so the outer opacity is overwhelmingly neutrino inverse decay. The next validation is now the full independent angular/path transport integral, not another local-rate calculation.
+
+
+## 10 MeV B.2 energy / GR-path / shell / polarization follow-up — 2026-11-13
+
+Full audit: [B2_10MEV_ENERGY_GR_SHELL_POLARIZATION_AUDIT_2026-11-13.md](B2_10MEV_ENERGY_GR_SHELL_POLARIZATION_AUDIT_2026-11-13.md).
+
+The B.1 local-energy and \(E_\infty\) source integrals are exactly equivalent by the Jacobian. The literal fixed-\(\omega\) B.2 result remains \(2.43964\times10^{52}\) erg/s (+92.43% vs Fig. 7); the conserved-\(E_\infty\), redshift-only diagnostic is \(1.73580\times10^{52}\) erg/s (+36.91%) but retains Euclidean chords. The Garching pseudo-Newtonian prescription uses flat spatial coordinates, while the public-figure profile does not provide a same-snapshot \(B(r)\) or \(M(r)\).
+
+A generic GR ray kernel and six tests are added: \`gr_ray_transport.py\`, \`test_gr_ray_transport.py\`. Machine-readable summary: \`outputs/10mev_gr_path_audit_summary_2026-11-13.json\`. The 15--25 km path shells carry 56.71% of the source-weighted mean total optical depth; 110--510 MeV supplies 94.43% of escaped luminosity. Local mode sums pass, but scalar-sum and independent polarization propagation remain separate transport prescriptions.
