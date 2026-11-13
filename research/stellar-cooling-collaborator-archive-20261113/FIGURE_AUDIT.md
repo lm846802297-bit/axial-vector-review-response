@@ -116,7 +116,7 @@ The numerical scan has separate checks for array integrity, interval reconstruct
 
 ### As a final SN1987A exclusion
 
-**No. It is not yet justified as the final model exclusion.** The pure-vector Fig. 7 end-to-end gate remains open. The literal fixed-omega 10 MeV high-absorption comparison retains a discrepancy of about +92.24%; the separate conserved-E-infinity diagnostic does not close it (about +35.97%). The axial scan also has not incorporated the complete moving-muon B.13 thermal kernel. Background reconstruction, outer lapse continuation, tau-neutrino chemical-potential choice, fixed-energy chord convention, and polarization-summed versus mode-resolved opacity remain physical/model limitations.
+**No. It is not yet justified as the final model exclusion.** The pure-vector Fig. 7 end-to-end gate remains open. The literal fixed-omega 10 MeV high-absorption comparison retains a high-order discrepancy of about +92.43%; the separate conserved-E-infinity redshift-only diagnostic reduces it to about +36.91%, but does not close it. The axial scan also has not incorporated the complete moving-muon B.13 thermal kernel. Background reconstruction, outer lapse continuation, tau-neutrino chemical-potential choice, fixed-energy chord convention, and polarization-summed versus mode-resolved opacity remain physical/model limitations.
 
 The 20 km escape-radius diagnostic shifts the upper boundary substantially over representative masses; it is a model-radius sensitivity, not a calibrated uncertainty band. The unshaded area must not be described as globally allowed.
 
@@ -132,3 +132,16 @@ The 20 km escape-radius diagnostic shifts the upper boundary substantially over 
 8. Regenerate the final figure from the accepted scan and archive exact source, inputs, tests, and SHA-256 manifest.
 
 Until these gates pass, use the conditional-benchmark wording in README.md and STATUS_MATRIX.md.
+
+
+## 7. 10 MeV local-rate, polarization, and escape localization
+
+The 2026-11-13 high-order audit fixes \(m_V=10\) MeV and the Fig. 7 strong-endpoint coupling \(g=4.171689650228597\times10^{-8}\). It finds \(L_{\rm calc}=2.43964\times10^{52}\) erg/s versus \(L_{\rm Fig.7}=1.26781\times10^{52}\) erg/s (+92.43%). The result is stable against the earlier lower-order quadrature at approximately the 0.10% level.
+
+Matched-radius/matched-energy local neutrino L,+,- production and absorption sums close to the scalar rates at \(10^{-14}\); mode-by-mode detailed balance also passes at that level. Integrated source and opacity closure are \(6.3\times10^{-16}\) and \(1.1\times10^{-12}\). This rules out a simple local mode-sum bookkeeping error in the tested domain.
+
+At fixed source, the computed escape fraction \(3.2518\times10^{-4}\) is 1.924 times the \(1.6899\times10^{-4}\) value required to match Fig. 7. The mismatch is therefore localized to the global B.2 path/angle escape integral. The 110--510 MeV interval supplies 94.43% of the escaped luminosity, and 56.71% of the source-weighted mean optical depth accumulates at radii \(r\ge15\) km.
+
+A conserved-\(E_\infty\) redshift-only path variant lowers the residual from +92.43% to +36.91%, but it retains a Euclidean chord length and is not a full GR calculation. Independent mode propagation is also not substituted for the literal scalar B.2 baseline because it is a different transport prescription. No opacity multiplier, source normalization change, or axial-curve update is accepted.
+
+See [the full 10 MeV local-rate/polarization/escape audit](../stellar-cooling-constraints-20261105/blinov_reproduction/FIG7_10MEV_LOCAL_RATE_POLARIZATION_ESCAPE_AUDIT_2026-11-13.md) for the detailed channel, polarization, optical-depth, and energy-bin tables.
