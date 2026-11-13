@@ -1,0 +1,73 @@
+name: Prune fully integrated branch refs (one-time, SHA guarded)
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: "Select yes to prune only the 11 reviewed branch refs whose commits are already in main"
+        required: true
+        type: choice
+        options:
+          - no
+          - yes
+        default: no
+
+permissions:
+  contents: write
+
+jobs:
+  prune-integrated-branches:
+    if: >-
+      (github.event_name == 'workflow_dispatch' && inputs.confirm == 'yes') ||
+      (github.event_name == 'push' && contains(github.event.head_commit.message, '[prune-integrated-branches]'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Delete only the reviewed ancestry-safe refs
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          MAIN_SHA: ${{ github.sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS='|' read -r branch expected_sha; do
+            [[ -z "$branch" ]] && continue
+            ref_path="$(python -c 'import sys, urllib.parse; print(urllib.parse.quote(sys.argv[1], safe="/"))' "$branch")"
+            ref_json="$(gh api "repos/$REPOSITORY/git/ref/heads/$ref_path" 2>/dev/null || true)"
+            if [[ -z "$ref_json" ]]; then
+              echo "already absent: $branch"
+              continue
+            fi
+            current_sha="$(jq -r '.object.sha' <<< "$ref_json")"
+            if [[ "$current_sha" != "$expected_sha" ]]; then
+              echo "REF MOVED; refusing deletion: $branch expected=$expected_sha current=$current_sha" >&2
+              exit 1
+            fi
+            ahead_by="$(gh api "repos/$REPOSITORY/compare/$MAIN_SHA...$current_sha" --jq '.ahead_by')"
+            if [[ "$ahead_by" != "0" ]]; then
+              echo "NOT ANCESTOR OF MAIN; refusing deletion: $branch ahead_by=$ahead_by" >&2
+              exit 1
+            fi
+            gh api --method DELETE "repos/$REPOSITORY/git/refs/heads/$ref_path" >/dev/null
+            if gh api "repos/$REPOSITORY/git/ref/heads/$ref_path" >/dev/null 2>&1; then
+              echo "DELETE NOT VERIFIED: $branch" >&2
+              exit 1
+            fi
+            echo "deleted and verified absent: $branch ($current_sha)"
+          done <<'BRANCHES'
+          chore/extract-generated-archives-20261113|304498ad21880097e8f46b26823ef85e9213e231
+          deliverable/major3-overleaf-bundle-20261113|304498ad21880097e8f46b26823ef85e9213e231
+          fix/b13-b16-sha256-manifest-20261113|304498ad21880097e8f46b26823ef85e9213e231
+          fix/major3-overleaf-sha256-manifest-20261113|304498ad21880097e8f46b26823ef85e9213e231
+          overleaf-export/reply-letter-20261109|304498ad21880097e8f46b26823ef85e9213e231
+          overleaf-package-2026-11-09|304498ad21880097e8f46b26823ef85e9213e231
+          research/major44-postmerge-followup-20261113|304498ad21880097e8f46b26823ef85e9213e231
+          research/moving-muon-b13-b16-recovery-20261113|304498ad21880097e8f46b26823ef85e9213e231
+          ${GITHUB_REF_NAME}|309b0cbd4e5d6976b63fa47978a31aac4fe9b245
+          docs/post-pr94-archive-policy-and-review-index-20261113|309b0cbd4e5d6976b63fa47978a31aac4fe9b245
+          research/stellar-cooling-review-package-20261113|309b0cbd4e5d6976b63fa47978a31aac4fe9b245
+          BRANCHES
