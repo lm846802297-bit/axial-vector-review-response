@@ -1,0 +1,63 @@
+{
+  "record": "P1-B 10 MeV B.13 local-kernel audit",
+  "run_id": 43376779901,
+  "run_url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43376779901",
+  "run_head_sha": "0f61bfc3e381402cbea9740958b9a2744f006040",
+  "branch": "research/fig7-10mev-transport-localization-20261113-v2",
+  "pr": 106,
+  "artifact": {
+    "id": 14015517843,
+    "name": "p1b-b13-local-radial-energy-10mev",
+    "size_bytes": 1215553,
+    "sha256": "2c2e2ef8610abfa16bc9e423937f974061ece101911fb9c6503e65901bb55715"
+  },
+  "original_json": {
+    "name": "p1b_b13_local_kernel_radial_energy_10mev_2026-11-13.json",
+    "size_bytes": 10899390,
+    "sha256": "14c4405f9421aca517ff00310232ad9aead4c0cdd61868e2788125875cb84dc0"
+  },
+  "scope": {
+    "mediator_mass_MeV": 10,
+    "vector_coupling_over_gX": 1,
+    "axial_coupling_over_gX": 0,
+    "profile": "reconstructed SFHo-18.8 t_pb=1s, 1687-row digitization",
+    "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
+  },
+  "grid": {
+    "radial_nodes": 19,
+    "energy_nodes": 27,
+    "grid_nodes": 513,
+    "cell_midpoints": 468,
+    "energy_coordinate": "sqrt(omega-mass)",
+    "max_profile_temperature_MeV": 39.2496793414134,
+    "max_temperature_radius_km": 8.4821412022467,
+    "required_energy_max_MeV": 1422.9884562908824,
+    "grid_energy_max_MeV": 1500
+  },
+  "acceptance": {
+    "overall": false,
+    "detailed_balance_max": 4.265992810743489e-14,
+    "mass_shell_max": 7.048696738412713e-13,
+    "local_emissivity_energy_order_change_max": 0.000005326250052588946,
+    "grid_node_refinement_change_max": 0.0033677548916923213,
+    "cell_midpoint_refinement_change_max": 0.002440415292305638,
+    "interpolation_error_max": 0.5712974029731586,
+    "quadrature_pass": false,
+    "interpolation_pass": false
+  },
+  "workflow": {
+    "conclusion": "failure",
+    "numerical_json_produced": true,
+    "regression_tests": "success",
+    "dense_audit": "success",
+    "publish_summary_error": "KeyError: 'energy_coverage_pass'"
+  },
+  "source_sha256": {
+    "audit_script": "ff6479a8d6d4ba417dc4b31e745b4028a28d9e42df5598144334453ea9627683",
+    "moving_muon_compton_py": "38436b94f070069c8696b37b9bce1955e2d5d7e39dad9b302ab754582ff6a5a5",
+    "profile_provenance_json": "025329271bb66c55d9d8067ed714dd425b4c4dc08d09c1970f08e272461ea3e2",
+    "rates_py": "2fc7bc2d3b0d7b98c191755cd2bb87944e4ebe259adc3d3bbc8e0f60dcc57f56",
+    "reference_py": "f81468f4305cf57eb86cc0210abc7afc333d434ae70da307ca64a824e486107c"
+  },
+  "interpretation": "Archival record of Actions output; not a fresh local-cloud B.13 re-evaluation, not exact GR luminosity or B.2 optical-depth calculation, and not a final SN1987A constraint."
+}
