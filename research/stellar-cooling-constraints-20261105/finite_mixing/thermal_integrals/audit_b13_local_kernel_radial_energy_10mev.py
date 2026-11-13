@@ -23,7 +23,10 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from blinov_reproduction.reference import DEFAULT_PROFILE, load_profile
-from finite_mixing.moving_muon_compton import moving_muon_compton_rates
+from finite_mixing.moving_muon_compton import (
+    moving_muon_compton_rates,
+    thermal_compton_emissivity,
+)
 
 MASS_MEV = 10.0
 G_VECTOR = 1.0
@@ -67,6 +70,11 @@ MIDPOINT_ORDERS = (
     (16, 10, 10, 10),
     (20, 12, 12, 12),
 )
+ENERGY_INTEGRAL_RADII_KM = (0.0, 5.0, 8.0, 10.0, 12.5, 15.0, 18.66, 22.0, 24.0)
+ENERGY_INTEGRAL_ORDERS = (8, 12, 16, 20)
+ENERGY_INTEGRAL_REFINEMENTS = (24, 28)
+ENERGY_INTEGRAL_INNER_ORDERS = (20, 12, 12, 12)
+ENERGY_INTEGRAL_X_MAX = 36.0
 MODES = ("L", "+", "-")
 CHARGES = ("mu_minus", "mu_plus")
 RATE_FIELDS = ("production", "absorption", "reduced_absorption", "spectral_source")
@@ -326,6 +334,142 @@ def compare_midpoint_to_interpolation(direct, prediction):
     }
 
 
+def _compare_emissivity_results(a, b):
+    details = {}
+    maximum = 0.0
+    for charge in CHARGES:
+        aa = a["emissivity_by_charge_and_mode_MeV5"][charge]
+        bb = b["emissivity_by_charge_and_mode_MeV5"][charge]
+        change = _max_relative_difference(aa, bb)
+        details[charge] = change
+        maximum = max(maximum, change)
+    total_change = _max_relative_difference(
+        a["emissivity_by_mode_MeV5"], b["emissivity_by_mode_MeV5"]
+    )
+    maximum = max(maximum, total_change)
+    return {
+        "per_charge_max_relative_change": details,
+        "total_mode_max_relative_change": total_change,
+        "maximum_relative_change": maximum,
+    }
+
+
+def evaluate_energy_integral(profile_path, radius, energy_order):
+    background = load_profile(profile_path, np.asarray([radius], dtype=float))
+    temperature = float(background["T"][0])
+    mu_mu = float(background["mu_mu"][0])
+    result = thermal_compton_emissivity(
+        MASS_MEV,
+        temperature,
+        mu_mu,
+        g_vector=G_VECTOR,
+        g_axial=G_AXIAL,
+        energy_order=int(energy_order),
+        orders=ENERGY_INTEGRAL_INNER_ORDERS,
+        x_max=ENERGY_INTEGRAL_X_MAX,
+    )
+    return {
+        "radius_km": float(radius),
+        "temperature_MeV": temperature,
+        "mu_minus_chemical_potential_MeV": mu_mu,
+        "energy_order": int(energy_order),
+        "inner_orders": list(ENERGY_INTEGRAL_INNER_ORDERS),
+        "x_max": ENERGY_INTEGRAL_X_MAX,
+        "omega_max_local_MeV": MASS_MEV + ENERGY_INTEGRAL_X_MAX * temperature,
+        "emissivity_by_mode_MeV5": result["emissivity_by_mode_MeV5"],
+        "emissivity_by_charge_and_mode_MeV5": (
+            result["emissivity_by_charge_and_mode_MeV5"]
+        ),
+        "emissivity_total_MeV5": result["emissivity_total_MeV5"],
+        "max_detailed_balance_relative_error": (
+            result["max_detailed_balance_relative_error"]
+        ),
+        "max_final_muon_shell_relative_error": (
+            result["max_final_muon_shell_relative_error"]
+        ),
+    }
+
+
+def run_energy_integral_audit(profile_path):
+    """Converge the actual local emissivity energy integral at anchor radii."""
+    results = []
+    maximum_change = 0.0
+    maximum_db = 0.0
+    maximum_shell = 0.0
+    all_nonnegative = True
+    for radius in ENERGY_INTEGRAL_RADII_KM:
+        ladder = [
+            evaluate_energy_integral(profile_path, radius, order)
+            for order in ENERGY_INTEGRAL_ORDERS
+        ]
+        comparisons = []
+        for i in range(1, len(ladder)):
+            comparisons.append({
+                "from_energy_order": ladder[i - 1]["energy_order"],
+                "to_energy_order": ladder[i]["energy_order"],
+                **_compare_emissivity_results(ladder[i - 1], ladder[i]),
+            })
+        while comparisons[-1]["maximum_relative_change"] >= QUADRATURE_TOLERANCE:
+            last_order = ladder[-1]["energy_order"]
+            if last_order == ENERGY_INTEGRAL_ORDERS[-1]:
+                next_order = ENERGY_INTEGRAL_REFINEMENTS[0]
+            elif last_order == ENERGY_INTEGRAL_REFINEMENTS[0]:
+                next_order = ENERGY_INTEGRAL_REFINEMENTS[1]
+            else:
+                break
+            next_result = evaluate_energy_integral(profile_path, radius, next_order)
+            comparisons.append({
+                "from_energy_order": ladder[-1]["energy_order"],
+                "to_energy_order": next_result["energy_order"],
+                **_compare_emissivity_results(ladder[-1], next_result),
+            })
+            ladder.append(next_result)
+        final_change = comparisons[-1]["maximum_relative_change"]
+        maximum_change = max(maximum_change, final_change)
+        maximum_db = max(
+            maximum_db,
+            *(x["max_detailed_balance_relative_error"] for x in ladder),
+        )
+        maximum_shell = max(
+            maximum_shell,
+            *(x["max_final_muon_shell_relative_error"] for x in ladder),
+        )
+        all_nonnegative = all_nonnegative and all(
+            x["emissivity_total_MeV5"] >= 0.0
+            and np.all(np.asarray(x["emissivity_by_mode_MeV5"]) >= 0.0)
+            for x in ladder
+        )
+        results.append({
+            "radius_km": radius,
+            "order_ladder": ladder,
+            "successive_refinement": comparisons,
+            "final_energy_order": ladder[-1]["energy_order"],
+            "final_refinement_relative_change": final_change,
+            "energy_quadrature_pass": final_change < QUADRATURE_TOLERANCE,
+        })
+        print(
+            f"Local emissivity energy integral at r={radius:6.2f} km complete "
+            f"(final order={ladder[-1]['energy_order']})",
+            flush=True,
+        )
+    return {
+        "radii_km": list(ENERGY_INTEGRAL_RADII_KM),
+        "energy_order_ladder": list(ENERGY_INTEGRAL_ORDERS),
+        "adaptive_energy_orders": list(ENERGY_INTEGRAL_REFINEMENTS),
+        "inner_local_kernel_orders": list(ENERGY_INTEGRAL_INNER_ORDERS),
+        "x_max": ENERGY_INTEGRAL_X_MAX,
+        "results": results,
+        "acceptance": {
+            "relative_tolerance": QUADRATURE_TOLERANCE,
+            "pass": maximum_change < QUADRATURE_TOLERANCE,
+            "maximum_successive_energy_order_change": maximum_change,
+            "maximum_detailed_balance_residual": maximum_db,
+            "maximum_final_muon_shell_residual": maximum_shell,
+            "all_emissivities_nonnegative": all_nonnegative,
+        },
+    }
+
+
 def _refine_if_needed(profile_path, radius, omega, ladder, cache, tolerance):
     """Adaptively add 24- or 28-order rules if the last refinement exceeds 0.1%."""
     comparisons = []
@@ -505,6 +649,9 @@ def run_audit(profile_path=DEFAULT_PROFILE, output_path=None):
             flush=True,
         )
 
+    # Independently converge the complete local emissivity integral over omega.
+    energy_integral_audit = run_energy_integral_audit(profile_path)
+
     # Isolate the integration dimensions at the worst grid point, rather than
     # changing all four orders together and guessing which angle controls it.
     worst_grid = max(
@@ -553,6 +700,7 @@ def run_audit(profile_path=DEFAULT_PROFILE, output_path=None):
     all_shell_pass = max(grid_shell_max, midpoint_shell_max) < SHELL_TOLERANCE
     all_positive = grid_all_positive and midpoint_all_positive
     interpolation_pass = interpolation_max < INTERPOLATION_TOLERANCE
+    energy_integral_pass = energy_integral_audit["acceptance"]["pass"]
 
     result = {
         "title": "P1-B dense radial-energy convergence audit of exact B.13 local Compton kernel",
@@ -602,6 +750,10 @@ def run_audit(profile_path=DEFAULT_PROFILE, output_path=None):
             "maximum_cell_midpoint_final_refinement_change": midpoint_comparison_max,
             "interpolation_relative_tolerance": INTERPOLATION_TOLERANCE,
             "interpolation_pass": bool(interpolation_pass),
+            "local_emissivity_energy_integral_pass": bool(energy_integral_pass),
+            "maximum_local_emissivity_energy_order_change": energy_integral_audit[
+                "acceptance"
+            ]["maximum_successive_energy_order_change"],
             "maximum_direct_midpoint_vs_bilinear_log_interpolation_error": interpolation_max,
             "detailed_balance_tolerance": DB_TOLERANCE,
             "detailed_balance_pass": bool(all_detailed_balance_pass),
@@ -617,6 +769,7 @@ def run_audit(profile_path=DEFAULT_PROFILE, output_path=None):
             "overall_p1b_pass": bool(
                 all_quadrature_pass
                 and interpolation_pass
+                and energy_integral_pass
                 and all_detailed_balance_pass
                 and all_shell_pass
                 and all_positive
@@ -631,6 +784,7 @@ def run_audit(profile_path=DEFAULT_PROFILE, output_path=None):
             ],
         },
         "quadrature_dimension_isolation_at_worst_grid_point": dimension_isolation,
+        "local_emissivity_energy_integral_audit": energy_integral_audit,
         "ten_worst_interpolation_cells": worst_midpoints,
         "grid_node_results": grid_points,
         "radial_energy_midpoint_results": midpoint_points,
@@ -651,6 +805,7 @@ def run_audit(profile_path=DEFAULT_PROFILE, output_path=None):
             "It does not perform the global B.1 source integral, B.2 path optical-depth integral, or independent-mode transport.",
             "It does not modify the scalar B.2 baseline, vector Fig. 7 reference, production axial-vector scan, or any exclusion curve.",
             "The 0.1% quadrature and 1% interpolation criteria are project screening targets, not published physical uncertainties.",
+            "The local emissivity energy integral uses omega=m_Aprime+T*y^2 with y in [0,6], matching x_max=36 of the existing local-emissivity routine.",
         ],
     }
 
