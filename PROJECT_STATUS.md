@@ -957,3 +957,12 @@ The following non-duplicated source-archive status note is retained from the SFH
 ## 2026-11-13 P0 polarization state-counting
 
 The active PR #106 line now contains the analytic mode-resolved Boltzmann collision-term derivation, total-occupation closure, and seven algebraic regression tests. The literal scalar B.2 reproduction remains unchanged; the physical no-mixing transport lane remains mode-resolved pending the exact B.13 Compton polarization kernel.
+
+
+## 2026-11-13 P1 exact B.13 polarization-kernel validation
+
+The exact moving-muon B.13 local kernel already resolves \(L,+,-\), both muon charges, exact recoil, Fermi blocking, Bose enhancement, and independent production/absorption. A new independent explicit-spinor audit now compares the production Dirac trace with explicit on-shell spinors and two physical photon polarizations at five moving-muon kinematic points, for six pure/mixed-current charge cases (30 cases, 90 mode matrix elements).
+
+Local maxima: spinor/trace relative residual \(1.77\times10^{-13}\); explicit photon-Ward amplitude residual \(1.47\times10^{-13}\); final-muon shell residual \(6.52\times10^{-16}\); vector longitudinal Ward-shift residual \(3.54\times10^{-14}\). All mode matrix elements are nonnegative. The dedicated P1 GitHub Actions workflow completed successfully: [run #43372084167](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43372084167).
+
+This is a pointwise amplitude validation, not a dense continuous-domain thermal convergence bound or global independent-mode transport result. The scalar B.2 baseline and axial-vector production outputs remain unchanged.
