@@ -67,9 +67,8 @@ Therefore:
 
 ## 6. Snapshot provenance
 
-This index is pinned to main commit `ca998e3c2845579e5183158d6328a557b3fd2ed4`. Later changes should append a dated update rather than silently rewriting the historical meaning of this snapshot.
+The original workstream inventory in sections 1–5 reflects main commit `ca998e3c2845579e5183158d6328a557b3fd2ed4`. Later dated additions are appended below rather than silently rewriting the historical meaning of that snapshot.
 
-
-## 6. Branch disposition and active work
+## 7. Branch disposition and active work
 
 The file research/BRANCH_DISPOSITION_2026-11-13.md records tree/blob-level findings for Major 1, Major 4.4, C4-C4-A/B, two-VEV, and collaborator-archive branches. It distinguishes branches safe to delete because their commits are already reachable from main from historical branches that should be preserved. PR #102's 10 MeV Fig. 7 localization branch remains active and must not be removed.
