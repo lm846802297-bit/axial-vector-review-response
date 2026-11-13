@@ -1,6 +1,9 @@
 name: Delete legacy generated ZIP artifacts (manual confirmation)
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
     inputs:
       confirm:
@@ -18,7 +21,9 @@ permissions:
 
 jobs:
   delete-legacy-zip-artifacts:
-    if: inputs.confirm == 'yes'
+    if: >
+      (github.event_name == 'workflow_dispatch' && inputs.confirm == 'yes') ||
+      (github.event_name == 'push' && contains(github.event.head_commit.message, '[cleanup-legacy-artifacts]'))
     runs-on: ubuntu-latest
     steps:
       - name: Delete only the recorded legacy ZIP artifacts
