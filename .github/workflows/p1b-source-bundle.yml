@@ -22,6 +22,8 @@ on:
       - research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/run_p1b_e1_targeted_high_order_checks.py
       - research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/run_p1b_e1_global_2d_midpoint_screen.py
       - research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/postprocess_p1b_e1_global_2d_midpoint_screen.py
+      - research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/run_p1b_e1_global_2d_targeted_high_order.py
+      - research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/extend_p1b_e1_global_03_x36_interval_0702.py
   pull_request:
     branches:
       - main
@@ -51,7 +53,7 @@ jobs:
           cp -a "$root/finite_mixing" /tmp/p1b-local-bundle/
           cp -a "$root/blinov_reproduction" /tmp/p1b-local-bundle/
           cp -a "$root/data" /tmp/p1b-local-bundle/
-          find /tmp/p1b-local-bundle -type f ! -name '__init__.py' ! -path '*/moving_muon_compton.py' ! -path '*/rates.py' ! -path '*/reference.py' ! -path '*/audit_b13_local_kernel_radial_energy_10mev.py' ! -path '*/test_p1b_b13_local_kernel_radial_energy_10mev.py' ! -path '*/run_p1b_e1_energy_anchor.py' ! -path '*/run_p1b_e1_global_energy_scan.py' ! -path '*/run_p1b_e1_global_energy_scan_dynamic.py' ! -path '*/postprocess_p1b_e1_global_scan.py' ! -path '*/run_p1b_e1_radial_midpoint_top_intervals.py' ! -path '*/run_p1b_e1_targeted_high_order_checks.py' ! -path '*/run_p1b_e1_global_2d_midpoint_screen.py' ! -path '*/postprocess_p1b_e1_global_2d_midpoint_screen.py' ! -path '*/sfho188_digitized.csv' ! -path '*/profile_provenance.json' -delete
+          find /tmp/p1b-local-bundle -type f ! -name '__init__.py' ! -path '*/moving_muon_compton.py' ! -path '*/rates.py' ! -path '*/reference.py' ! -path '*/audit_b13_local_kernel_radial_energy_10mev.py' ! -path '*/test_p1b_b13_local_kernel_radial_energy_10mev.py' ! -path '*/run_p1b_e1_energy_anchor.py' ! -path '*/run_p1b_e1_global_energy_scan.py' ! -path '*/run_p1b_e1_global_energy_scan_dynamic.py' ! -path '*/postprocess_p1b_e1_global_scan.py' ! -path '*/run_p1b_e1_radial_midpoint_top_intervals.py' ! -path '*/run_p1b_e1_targeted_high_order_checks.py' ! -path '*/run_p1b_e1_global_2d_midpoint_screen.py' ! -path '*/postprocess_p1b_e1_global_2d_midpoint_screen.py' ! -path '*/run_p1b_e1_global_2d_targeted_high_order.py' ! -path '*/extend_p1b_e1_global_03_x36_interval_0702.py' ! -path '*/sfho188_digitized.csv' ! -path '*/profile_provenance.json' -delete
           {
             echo "commit=${GITHUB_SHA}"
             echo "branch=${GITHUB_REF_NAME}"
