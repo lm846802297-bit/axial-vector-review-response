@@ -925,3 +925,11 @@ The following non-duplicated source-archive status note is retained from the SFH
 - The pure-axial Goldstone map is explicitly separated from finite right-handed mixing. For g_A=-g_X cos^2(theta_R), the current-side Ward requirement includes cos^2(theta_R); the full UV phase projection at finite mixing remains open.
 - A nontrivial unitary PMNS regression confirms Tr(G_nu^dagger G_nu)=2 while producing off-diagonal flavour couplings. The minimal-model U_PMNS=I assumption remains an approximation, not an oscillation fit.
 - Branch-by-branch tree/blob findings and deletion candidates are recorded in research/BRANCH_DISPOSITION_2026-11-13.md. PR #102 remains active and must be preserved.
+
+
+## 2026-11-13 branch cleanup execution
+
+- First batch complete: 11 stale refs with heads already reachable from main were deleted and individually verified absent by cleanup run #43364401393.
+- Their commits remain reachable from main; no research commit history was discarded.
+- The active PR #102 branch and divergent Major 1, Major 4.4, C4-C4-A/B, and two-VEV history branches were not touched.
+- The temporary pruning workflow is removed in the follow-up documentation PR after successful execution.

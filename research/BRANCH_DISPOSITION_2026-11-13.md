@@ -114,7 +114,7 @@ The two research branches include the retired `review_package_extracted/` tree. 
 - `chore/one-time-cleanup-legacy-zip-artifacts-20261113`: contains only the temporary one-time cleanup workflow; PRs #103 and #104 retain its purpose and deletion record.
 - `docs/main-research-index-physics-crosscheck-archive-policy-20261113`: contains the temporary cleanup workflow that was later removed; the final documentation is in main.
 
-These are candidates for later deletion after the first-batch ancestry-safe refs are pruned.
+These remain later cleanup candidates. The first batch of 11 ancestry-safe refs was already pruned and verified absent by run #43364401393.
 
 ## 9. Branch preservation policy
 
