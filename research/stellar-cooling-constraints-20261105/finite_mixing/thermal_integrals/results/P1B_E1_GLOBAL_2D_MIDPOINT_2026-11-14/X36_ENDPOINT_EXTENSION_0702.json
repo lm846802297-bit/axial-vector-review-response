@@ -40,5 +40,9 @@
     }
   ],
   "both_endpoints_pass_0p1pct": true,
-  "caveat": "The interval-702 cell-center PCHIP interpolation comparison still uses order-(32,18,18,18) endpoint values; it was not recomputed with the order-(36,20,20,20) x=36 endpoint values."
+  "caveat": "The PCHIP cell-center comparison has now been recomputed using all nine high-order energy knots at both endpoints, including the order-(36,20,20,20) x=36 extension.",
+  "pchip_cell_center_recheck_after_extension": "INTERVAL_0702_HIGH_ORDER_PCHIP_RECHECK.json",
+  "pchip_cell_center_recomputed": true,
+  "pchip_interpolation_error_after_extension": 0.004189210717559335,
+  "bilinear_interpolation_error_after_extension": 0.05391076899468916
 }
