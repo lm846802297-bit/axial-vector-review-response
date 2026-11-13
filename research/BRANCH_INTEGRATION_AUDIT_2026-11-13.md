@@ -98,3 +98,40 @@ PRs #87, #88, and #89 are merged. PR #77 is merged; PR #83 is closed as its dupl
 - PR #91 merged the branch inventory and status/audit documentation at `d106b9a6f16116918a92da775fa7113b2718a221`.
 - The inventory JSON is intentionally pinned to the pre-follow-up main snapshot `a74707637837dfd577e15e530c896959ed12baa2`. Two refs were added after that snapshot: `fix/b13-b16-sha256-manifest-20261113` (PR #90; checksum-only) and `docs/post-merge-branch-audit-20261113` (PR #91; documentation-only). Neither contains new physics results.
 - Latest main after both follow-on merges is `dc3e3339238cbae7b72f73228518ca36a89a837d`; no open PRs remained at this point.
+
+
+## Post-PR94 archive extraction and branch cleanup (2026-11-13)
+
+Audit baseline: main at `2bebb38c7ff8966b048b133d67c1aa7bd37aa496`, immediately after PR #94.
+
+### Archive integration
+
+- **PR #94 — merged:** extracted the verified Major 3 Overleaf package, the Higgs-portal Markdown/SVG handoff, and the pinned axial stellar-cooling review snapshot. No generated ZIP or Base64 ZIP container remains in the main tree.
+- The Overleaf archive was 777,561 bytes with SHA-256 `6c3d74091df33f316ea01694738a5b2392d9a882576704a7c3690a6569037323`. Its ZIP CRC, archive digest, and all embedded file hashes were verified. The original external manifest is preserved in the extracted directory.
+- The stellar review package contains 75 extracted archive members from the 12 non-overlapping parts selected by its original packager. Its package manifest preserves each encoded-part hash, decoded-archive hash, size, and member count. The 18 source/profile SHA-256 entries and 24 reference/test Git blob SHA-1 entries were independently matched.
+- The 75-member snapshot is kept under `review_package_extracted/` to preserve the pinned source baseline `81d9b2faf16eb39879b759b05afce46732c925d7`; it does not overwrite the active calculation tree.
+- **PR #93 — closed as superseded:** its ZIP/Base64 packaging path was not merged. The report and index are represented by extracted files; the ZIP-building workflow is not part of main.
+- Official SFHo/FRDM upstream EOS archives remain under the EOS data directory pending a separate, verified table-extraction/data-reader migration. They are original source inputs rather than generated delivery packages.
+
+### Completed-branch synchronization
+
+The following completed or superseded branch refs were moved to the post-PR94 main SHA after their results were verified in main or the corresponding PR was closed:
+
+- `deliverable/major3-overleaf-bundle-20261113` and `fix/major3-overleaf-sha256-manifest-20261113` (PRs #88/#89; extracted contents now in main).
+- `overleaf-export/reply-letter-20261109` and `overleaf-package-2026-11-09` (obsolete archive-only delivery branches).
+- `chore/extract-generated-archives-20261113` (PR #94 merged).
+- `fix/b13-b16-sha256-manifest-20261113` (PR #90 merged; checksum-only).
+- `research/major44-postmerge-followup-20261113` (PR #83 duplicate of already-merged PR #77).
+- `research/moving-muon-b13-b16-recovery-20261113` (PR #87 merged; six selected files are in main).
+
+The obsolete ZIP file was also removed from `review/major3-two-block-neutrino-response-20261109` without discarding the branch's other historical review work. The former PR #93 branch is synchronized after its report/index have been copied to main.
+
+### Ref inventory
+
+At the post-PR94 audit snapshot, there were 100 refs including main. After the nine completed/superseded branch synchronizations, all 99 non-main refs were compared with main: 74 diverged, 16 behind-only, 9 identical, and 0 ahead-only. Three diverged refs had no branch-side changed-path entries. The full earlier 96-ref per-branch inventory is retained as a historical snapshot; the new post-PR94 summary is recorded in the inventory JSON.
+
+The branch named `${GITHUB_REF_NAME}` is not an archive-only artifact: compared with `research/major1-higgs-scalar-mixing-20261109`, it carries one additional commit and three independent fermion-sector audit outputs. It is preserved for separate Major 1 review, not reset or merged in this archive-cleanup pass.
+
+### Scientific acceptance boundary
+
+The pure-vector Blinov Fig. 7 physical benchmark remains **NOT PASSED** at the 10 MeV strong-absorption end. This archive cleanup does not alter the B.13/B.16 calculations, the vector benchmark, the axial-vector limit, or any astrophysical interpretation.

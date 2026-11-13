@@ -800,5 +800,39 @@
     }
   ],
   "latest_main_after_post_snapshot_merges": "dc3e3339238cbae7b72f73228518ca36a89a837d",
-  "post_snapshot_note": "The core 95-non-main-branch comparison remains pinned to base_main_sha. The two listed refs were created after that inventory snapshot and are checksum/documentation-only."
+  "post_snapshot_note": "The core 95-non-main-branch comparison remains pinned to base_main_sha. The two listed refs were created after that inventory snapshot and are checksum/documentation-only.",
+  "post_pr94_audit": {
+    "audit_date": "2026-11-13",
+    "base_branch": "main",
+    "base_main_sha": "2bebb38c7ff8966b048b133d67c1aa7bd37aa496",
+    "snapshot_scope": "after PR #94 archive extraction and synchronization of nine completed/superseded refs; before the temporary documentation-only integration branch",
+    "summary": {
+      "total_refs_including_main": 100,
+      "non_main_branches": 99,
+      "diverged": 74,
+      "behind_only": 16,
+      "ahead_only": 0,
+      "identical_non_main": 9,
+      "diverged_without_changed_paths": 3,
+      "branches_with_changed_paths": 71
+    },
+    "synchronized_branches": [
+      "deliverable/major3-overleaf-bundle-20261113",
+      "fix/major3-overleaf-sha256-manifest-20261113",
+      "overleaf-export/reply-letter-20261109",
+      "overleaf-package-2026-11-09",
+      "chore/extract-generated-archives-20261113",
+      "fix/b13-b16-sha256-manifest-20261113",
+      "research/major44-postmerge-followup-20261113",
+      "research/moving-muon-b13-b16-recovery-20261113",
+      "research/stellar-cooling-review-package-20261113"
+    ],
+    "notes": [
+      "The previous 96-ref inventory remains preserved under the original base_main_sha; it is a historical snapshot, not overwritten.",
+      "PR #94 removed generated delivery ZIP containers from main and replaced them with extracted native files.",
+      "PR #93 was closed as superseded; its report/index are retained as native files, not as a ZIP-building workflow.",
+      "The official SFHo/FRDM upstream EOS archives remain as original source inputs pending a separate verified extraction and reader migration.",
+      "The branch named ${GITHUB_REF_NAME} is retained because it carries independent fermion-sector matrix audit outputs; it is not an archive-only branch."
+    ]
+  }
 }
