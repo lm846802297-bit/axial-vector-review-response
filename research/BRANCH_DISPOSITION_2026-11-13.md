@@ -119,7 +119,7 @@ These remain later cleanup candidates. The first batch of 11 ancestry-safe refs 
 ## 9. Branch preservation policy
 
 - Preserve branches with meaningful independent development history even when their final files are integrated: Major 1 Higgs mixing, Major 1 Belle II, Major 4.4, and C4-C4-A.
-- Preserve the active PR #102 branch and the ongoing axial/Goldstone cross-check branch until their work is reviewed and integrated.
+- Preserve the active PR #102 branch. The axial/Goldstone/PMNS cross-check was integrated by PR #105; its branch remains as a historical research record.
 - Do not force-reset a divergent branch to main to make Ahead/Behind appear clean.
 - Delete only refs whose head commit is already reachable from main, or whose remaining differences are demonstrably superseded and whose PR/history records are retained.
 - GitHub main remains the canonical source of native files, extracted data, reports, figures, tests, provenance, and checksums. Generated ZIPs remain local-only handoff files.

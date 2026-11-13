@@ -933,3 +933,11 @@ The following non-duplicated source-archive status note is retained from the SFH
 - Their commits remain reachable from main; no research commit history was discarded.
 - The active PR #102 branch and divergent Major 1, Major 4.4, C4-C4-A/B, and two-VEV history branches were not touched.
 - The temporary pruning workflow is removed in the follow-up documentation PR after successful execution.
+
+
+## 2026-11-13 second branch cleanup execution
+
+- Five completed administrative branches were deleted and verified absent by run #43364866549.
+- The cleanup checked each expected SHA and refused any branch used by an open PR.
+- Their merged PR histories remain available; no research source, numerical output, or research-history branch was removed.
+- The one-time cleanup workflow was removed after success.
