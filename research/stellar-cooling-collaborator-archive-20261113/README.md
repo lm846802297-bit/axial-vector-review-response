@@ -57,11 +57,24 @@ For the pure-vector reproduction, follow the independent instructions in 01_axia
 
 Do not treat the moving-muon B.13 local-rate work, the EOS collision-kernel work, or any independent diagnostic as already incorporated into the axial production scan. STATUS_MATRIX.md identifies these boundaries.
 
-## Reproduce the archive
+## Create an optional local handoff ZIP
 
-The repository-side builder is included at 00_START_HERE/tools/build_archive.py. Run it from a clone of the repository checkout, not from the extracted ZIP. It reconstructs the ZIP from tracked source files, excludes the legacy extracted copy and large EOS ZIP payloads, de-duplicates byte-identical files, creates the file catalog and SHA-256 manifest, and checks the result.
+The builder is included at 00_START_HERE/tools/build_archive.py. It runs from a local repository checkout and reads the tracked canonical files. It creates a deduplicated ZIP outside the checkout, validates its member checksums and ZIP CRC, and records the exact source commit in ARCHIVE_PROVENANCE.json.
 
-The ZIP is a generated review deliverable. GitHub stores the canonical source, research records, tests, and archive builder; it does not store another copy of the ZIP.
+From the repository root:
+
+\`\`\`bash
+python -m pip install -r research/stellar-cooling-collaborator-archive-20261113/requirements-review.txt
+python research/stellar-cooling-constraints-20261105/plot_constraints_loglog.py \\
+  --output-dir ../stellar-cooling-review-figures
+python research/stellar-cooling-collaborator-archive-20261113/build_archive.py \\
+  --output ../Stellar_Cooling_Research_Archive_2026-11-13.zip \\
+  --generated-figures ../stellar-cooling-review-figures
+\`\`\`
+
+The generated ZIP is a direct handoff file only. Do not commit it, publish it as a GitHub Release asset, or upload it as a GitHub Actions artifact. The repository retains the extracted/native files, reports, code, results, manifests, and the local builder script. The optional GitHub Actions workflow is validation-only and does not create an archive.
+
+Historical extraction metadata for the original 12-part/75-member review package is preserved under provenance/original-review-package/. The old extracted source payload is not duplicated there; canonical files remain in the main research tree.
 
 ## Citation and collaboration policy
 

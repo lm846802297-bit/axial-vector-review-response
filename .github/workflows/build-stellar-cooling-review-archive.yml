@@ -1,20 +1,17 @@
-name: Build stellar-cooling collaborator archive
+name: Validate stellar-cooling collaborator sources (no ZIP upload)
 
 on:
-  push:
-    branches:
-      - research/stellar-cooling-collaborator-archive-20261113
   workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  build-and-validate:
+  validate-only:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - name: Checkout pinned research snapshot
+      - name: Checkout current research snapshot
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -31,7 +28,8 @@ jobs:
 
       - name: Run axial core tests
         run: |
-          pytest -q research/stellar-cooling-constraints-20261105             --ignore=research/stellar-cooling-constraints-20261105/blinov_reproduction
+          pytest -q research/stellar-cooling-constraints-20261105 \
+            --ignore=research/stellar-cooling-constraints-20261105/blinov_reproduction
 
       - name: Run model-variant mapping tests
         run: |
@@ -47,21 +45,9 @@ jobs:
         run: |
           python research/stellar-cooling-constraints-20261105/validate_outputs.py
 
-      - name: Generate log-log contour review and interpolation audit
+      - name: Generate a temporary log-log figure/interpolation audit
         run: |
           python research/stellar-cooling-constraints-20261105/plot_constraints_loglog.py \
-            --output-dir dist/reviewed-loglog-figures
+            --output-dir ../stellar-cooling-review-figures
 
-      - name: Build deduplicated collaborator ZIP
-        run: |
-          python research/stellar-cooling-collaborator-archive-20261113/build_archive.py \
-            --output dist/Stellar_Cooling_Research_Archive_2026-11-13.zip \
-            --generated-figures dist/reviewed-loglog-figures
-
-      - name: Upload collaborator ZIP
-        uses: actions/upload-artifact@v4
-        with:
-          name: Stellar_Cooling_Research_Archive_2026-11-13
-          path: dist/Stellar_Cooling_Research_Archive_2026-11-13.zip
-          if-no-files-found: error
-          retention-days: 30
+      # Deliberately no ZIP build, artifact upload, or GitHub Release publication.
