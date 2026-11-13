@@ -39,3 +39,12 @@ This is a reproducible fixed-profile ballistic-cooling benchmark, not a final SN
 ## Archive policy
 
 The generated ZIP containers were extracted and removed from the repository's main tree. The package is distributed as individual source, data, output, figure, and provenance files. The separate official SFHo/FRDM upstream EOS source archives are retained under the EOS data directory until a verified extracted-table replacement and reader migration are completed.
+
+
+## Supplemental validation evidence
+
+- Historical 221-targeted-test report: `review_package_extracted/package_metadata/REVIEW_PACKAGE_VALIDATION_2026-11-13.md`.
+- Machine-readable summary: `review_package_extracted/package_metadata/validation_summary_2026-11-13.json`.
+- The recorded result is 221/221 targeted tests, saved-output validation passed, and 28 independent literature-kernel points with maximum relative error (2.88\times10^{-12}). The broader recursive EOS/C4 discovery was not accepted as passed.
+- The historical stdout/stderr logs were not retained. PR #94 did not rerun these tests; the extraction workflow only checked archive integrity and file hashes.
+- Repository-level rerun entry point: `research/stellar-cooling-constraints-20261105/run_review_validation.py`. It records the exact execution-tree commit so a future run is not confused with the historical pinned baseline.
