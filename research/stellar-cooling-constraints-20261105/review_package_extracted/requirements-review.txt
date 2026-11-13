@@ -1,5 +1,0 @@
-# Direct dependencies inferred from source imports; versions intentionally unpinned.
-numpy
-scipy
-matplotlib
-PyMuPDF
