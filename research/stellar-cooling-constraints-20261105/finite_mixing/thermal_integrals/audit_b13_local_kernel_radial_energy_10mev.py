@@ -262,41 +262,47 @@ def _interpolate_pair(a, b, fraction=0.5):
     return float((1.0 - fraction) * a + fraction * b)
 
 
-def interpolate_cell(c00, c01, c10, c11, omega_mid):
-    """Sequential energy-then-radius interpolation at a cell center.
+def interpolate_cell(c00, c01, c10, c11, omega_mid, temperature_mid):
+    """Interpolate absorption, then reconstruct other rates by detailed balance.
 
-    The spectral source is not interpolated through its exact threshold zero:
-    interpolate Gamma_prod and apply the exact omega^2 |k|/(2 pi^2) factor
-    at the midpoint. This avoids a spurious zero-corner linear fallback.
+    Detailed balance is an exact local identity. Reconstructing production and
+    reduced absorption with the midpoint temperature avoids interpolating the
+    steep exp(-omega/T) factor as if it were an independent smooth table entry.
+    The spectral source then receives its exact midpoint phase-space factor.
     """
     prediction = {}
+    boltzmann = math.exp(-omega_mid / temperature_mid)
+    reduced_factor = -math.expm1(-omega_mid / temperature_mid)
     k_mid = math.sqrt(max(omega_mid * omega_mid - MASS_MEV * MASS_MEV, 0.0))
     spectral_prefactor = omega_mid * omega_mid * k_mid / (2.0 * math.pi**2)
     for charge in CHARGES:
-        prediction[charge] = {}
-        for field in ("production", "absorption", "reduced_absorption"):
-            arrays = [
-                np.asarray(item["charge_resolved"][charge][field], dtype=float)
-                for item in (c00, c01, c10, c11)
-            ]
-            bottom = [
-                _interpolate_pair(arrays[0][mode], arrays[1][mode])
-                for mode in range(3)
-            ]
-            top = [
-                _interpolate_pair(arrays[2][mode], arrays[3][mode])
-                for mode in range(3)
-            ]
-            prediction[charge][field] = [
-                _interpolate_pair(bottom[mode], top[mode])
-                for mode in range(3)
-            ]
-        prediction[charge]["spectral_source"] = [
-            spectral_prefactor * value
-            for value in prediction[charge]["production"]
+        arrays = [
+            np.asarray(item["charge_resolved"][charge]["absorption"], dtype=float)
+            for item in (c00, c01, c10, c11)
         ]
+        bottom = [
+            _interpolate_pair(arrays[0][mode], arrays[1][mode])
+            for mode in range(3)
+        ]
+        top = [
+            _interpolate_pair(arrays[2][mode], arrays[3][mode])
+            for mode in range(3)
+        ]
+        absorption = [
+            _interpolate_pair(bottom[mode], top[mode])
+            for mode in range(3)
+        ]
+        production = [boltzmann * value for value in absorption]
+        reduced_absorption = [reduced_factor * value for value in absorption]
+        prediction[charge] = {
+            "absorption": absorption,
+            "production": production,
+            "reduced_absorption": reduced_absorption,
+            "spectral_source": [
+                spectral_prefactor * value for value in production
+            ],
+        }
     return prediction
-
 
 def compare_midpoint_to_interpolation(direct, prediction):
     details = {}
@@ -448,7 +454,9 @@ def run_audit(profile_path=DEFAULT_PROFILE, output_path=None):
             c01 = grid_final[(r0, w1)]
             c10 = grid_final[(r1, w0)]
             c11 = grid_final[(r1, w1)]
-            prediction = interpolate_cell(c00, c01, c10, c11, omega_mid)
+            prediction = interpolate_cell(
+                c00, c01, c10, c11, omega_mid, direct["temperature_MeV"]
+            )
             interpolation = compare_midpoint_to_interpolation(
                 direct, prediction
             )
