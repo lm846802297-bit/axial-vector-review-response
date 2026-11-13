@@ -33,12 +33,12 @@ r=\{0,5,8,10,12.5,15,18.66,22,24\}\ {\rm km},
 \]
 
 \[
-\omega=\{10,10.5,12,15,20,30,50,80,120,200,300,510\}\ {\rm MeV}.
+\omega=\{10,10.5,12,15,20,30,50,80,120,200,300,510,720\}\ {\rm MeV}.
 \]
 
 The exact threshold \(\omega=m_{A'}\) is retained. Every radial-energy cell is also sampled at its center. Radial midpoints are arithmetic; energy midpoints are centered in \(\sqrt{\omega-m_{A'}}\), matching the threshold variable used by the local emissivity integral.
 
-This gives 108 grid nodes and 88 direct cell-midpoint checks.
+After one bisection this gives 17 radii × 25 energies = 425 grid nodes and 16 × 24 = 384 direct cell-midpoint checks. The 720 MeV endpoint covers the finite thermal-integral cutoff (m_{A'}+36T_{max}simeq703.55) MeV of the fixed profile. A runtime guard checks this coverage from the loaded background before any collision-kernel evaluation.
 
 ## 4. Quadrature refinement
 
@@ -126,7 +126,7 @@ The first 9-radius by 12-energy pass completed on Actions run #43373577571. The 
 
 The interpolation screen did not pass. The initial worst discrepancy was dominated by a combination of coarse radial/energy spacing and an overly broad linear fallback when a spectral-source corner was exactly zero at the mediator threshold. The latter was corrected by interpolating the positive production rate first and applying the exact \(\omega^2|\mathbf k|/(2\pi^2)\) phase-space factor at the midpoint. The interpolation is now performed sequentially in \(\sqrt{\omega-m_{A'}}\) and radius.
 
-To test whether the remaining discrepancy is a grid-resolution problem, the next run bisects every original radial and threshold-adapted energy interval. The refined grid therefore contains 17 radii and 23 energies (391 nodes), with 352 new direct cell-midpoint checks. The local kernel and physical inputs are unchanged. The refined-grid run is the current P1-B continuation; P2 remains blocked until the interpolation criterion is met or a direct-evaluation strategy is adopted.
+To test whether the remaining discrepancy is a grid-resolution problem, the next run bisects every original radial and threshold-adapted energy interval. The refined grid therefore contains 17 radii and 25 energies (425 nodes), with 384 direct cell-midpoint checks. The 720 MeV endpoint is required because the existing local emissivity integral uses (x_{max}=36), and the central profile temperature implies (omega_{max}=m_{A'}+36T_{max}simeq703.55) MeV. The local kernel and physical inputs are unchanged. The refined-grid run is the current P1-B continuation; P2 remains blocked until the interpolation criterion is met or a direct-evaluation strategy is adopted.
 
 
 A post-processing check of the first coarse-grid JSON, using sequential log interpolation and the exact midpoint spectral phase-space factor, also gives diagnostic volume-weighted discrepancies of approximately 27.3% for the spectral source, 15.8% for reduced absorption, and 12.5% for reduced absorption weighted by the local spectral source. The volume weight used for this diagnostic is \(4\pi r^2 N(r)^2\,\Delta r\,\Delta\omega\). These are grid-interpolation diagnostics only, not a completed B.1 source integral or B.2 optical-depth calculation. They show that the coarse-grid problem is not confined to numerically negligible tails.
