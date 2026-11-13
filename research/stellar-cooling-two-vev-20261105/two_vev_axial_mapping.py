@@ -56,11 +56,13 @@ class TwoVEVPoint:
         return 2.0 * self.v_s / self.v_x
 
     def goldstone_lepton_yukawa(self, m_l: float) -> float:
+        """S-phase Goldstone coupling in the leading-seesaw/pure-axial limit."""
         if not math.isfinite(m_l) or m_l < 0.0:
             raise ValueError("m_l must be finite and non-negative")
         return (m_l / self.v_s) * self.goldstone_s_projection
 
     def longitudinal_current_yukawa(self, m_l: float, g_a: float | None = None) -> float:
+        """Goldstone coupling required by the on-shell axial-current divergence."""
         if not math.isfinite(m_l) or m_l < 0.0:
             raise ValueError("m_l must be finite and non-negative")
         coupling = abs(self.g_x if g_a is None else g_a)
