@@ -135,3 +135,80 @@ The branch named `${GITHUB_REF_NAME}` is not an archive-only artifact: compared 
 ### Scientific acceptance boundary
 
 The pure-vector Blinov Fig. 7 physical benchmark remains **NOT PASSED** at the 10 MeV strong-absorption end. This archive cleanup does not alter the B.13/B.16 calculations, the vector benchmark, the axial-vector limit, or any astrophysical interpretation.
+
+
+## Post-main consolidation, physics cross-check, and current workstream audit (2026-11-13)
+
+**Audit baseline:** current main at ca998e3c2845579e5183158d6328a557b3fd2ed4. This is later than the pinned 100-ref post-PR94 inventory snapshot. The historical inventory JSON remains unchanged and must not be mistaken for a live inventory of every current ref.
+
+### PR #100 disposition
+
+PR #100 was closed without merging. Its four actual file changes would have replaced the current two-VEV shared thermal adapters with older standalone copies. The two-VEV map, matrix element, width helper, tests, and validation record were already represented in main through PR #85 and the subsequent shared-code consolidation. The temporary PR #100 branch was moved back to the current main tree. No unique physics result was lost.
+
+### Formula/code review of the two-VEV microphysics
+
+The new research/stellar-cooling-two-vev-20261105/PHYSICS_CROSSCHECK_2026-11-13.md records the formula-level review:
+
+- The scalar kinetic terms give \(m_{A'}^2=g_X^2(4v_s^2+v_\sigma^2)\); the eaten and orthogonal CP-odd directions are normalized and orthogonal.
+- The projected \(S\)-phase Goldstone coupling equals the longitudinal axial-current divergence result for the stated pure-axial convention \(|g_A|=|g_X|\).
+- The two-VEV extension contains a physical CP-odd state \(a_\perp\) with a nonzero charged-lepton coupling when \(v_\sigma\ne0\); its scalar-potential mass and constraints are outside this prototype.
+- The inclusive active-neutrino trace is 2 for a unitary three-flavour PMNS rotation of \(Q_\nu=\mathrm{diag}(0,1,-1)\). This does not include non-negligible active-heavy mixing, open charged-\(N_R\) thresholds, or a complete Majorana-channel width calculation.
+- The vacuum semi-Compton checks establish the electromagnetic Ward contraction and stated vector limits; they do not by themselves establish an \(A'\)-Goldstone Ward identity or medium-rest-frame T/L transport.
+- The thermal code is homogeneous, optically thin, and polarization-summed. Its stored order scan changes both Gauss–Legendre and azimuthal orders together; an independent azimuthal-order scan remains open.
+
+No new SN transport result or astrophysical limit is inferred from these checks.
+
+### Major 1 branch comparison
+
+- PR #68 and PR #69 are merged. Their canonical Belle II and Higgs–singlet research files are in main.
+- The branch research/major1-higgs-scalar-mixing-20261109 has no branch-only file paths relative to current main. Its 15 same-path differences are older copies of shared project/status and stellar-cooling files, not a new Major 1 result.
+- The branch research/major1-scalar-pole-belleii-20261109 has one branch-only generated ZIP, higgs_portal_mixing_md_with_svg.zip; its extracted Markdown/SVG counterpart is already in deliverables/higgs_portal_mixing_md_with_svg/.
+- The independent fermion-sector audit is now in main under research/major1-higgs-scalar-mixing-20261109/independent_fermion_sector_audit_snapshot_20261113/. The older branch note that the outputs existed only on ${GITHUB_REF_NAME} is superseded.
+
+### Major 4.4 and C4-C4 branch comparison
+
+- PR #56 and PR #77 are merged; PR #83 was a duplicate of #77 and remains closed. Any earlier line in this audit or PROJECT_STATUS that labels PR #77 Draft/Open is historical and superseded.
+- The old codex/major44-axial-cooling-constraints-20261105 branch has one branch-only generated Higgs-portal ZIP. Its three differing numerical JSON records were checked against main: the vector/axial scan differs only in final floating-point digits; the dimuon validation has six last-digit differences; and the SFHo local Compton record differs only in final digits/runtime metadata. The current-main files are retained; no old numerical output is copied over them.
+- PR #79 and PR #84 are merged. The C4-C4 and C4-C4-B branches each have one branch-only generated ZIP, while their research outputs are already in main. Their local-rate and radial-opacity records remain diagnostics, not full SN transport acceptance.
+- The Major 4.4 physical gate is unchanged: pure-vector Blinov Fig. 7 remains **NOT PASSED** at the 10 MeV strong-absorption end.
+
+### Historical extraction metadata preserved without a duplicate source tree
+
+The old research/major44-postmerge-followup-20261113 and ${GITHUB_REF_NAME} trees contain 82 branch-only paths under review_package_extracted/. Of these, 70 file blobs are byte-identical to canonical files elsewhere in current main. The remaining 12 are original package-provenance records (manifest, original checksums, original README/requirements, and part-level metadata). They are retained as native files under:
+
+research/stellar-cooling-collaborator-archive-20261113/provenance/original-review-package/
+
+The original manifest pins source commit 48bbe212d9a239b9e23bc45d455302b1f8fdcec1, numerical baseline 81d9b2faf16eb39879b759b05afce46732c925d7, 12 input parts, and 75 extracted members. The source payload itself is not copied a second time. The two-VEV convergence CSV on the old branch is byte-identical to the canonical CSV under the original-UV directory.
+
+### Current ref count and branch handling
+
+The repository currently exposes 108 refs including main. The earlier 100-ref JSON remains a pinned historical snapshot. This audit adds exact tree-content findings for the named workstreams above; it does not claim that the historical JSON is a fresh full 108-ref comparison.
+
+Completed branch histories are not merged wholesale merely to reduce ahead/behind counts. After the provenance metadata is moved to main, only branches whose remaining tree differences are generated ZIPs, byte-identical duplicates, or superseded copies are candidates for a history-preserving sync to current main. The original PR commits and research history are retained; no branch is force-reset as a substitute for reviewing its content.
+
+### Generated archive policy
+
+The collaborator ZIP is now a local-only handoff. The repository keeps the builder script, native files, provenance, and checksums. The GitHub Actions workflow is validation-only and no longer builds or uploads a ZIP artifact. Original scientific input archives are separately documented as upstream source inputs and are not generated delivery bundles.
+
+
+### Legacy GitHub Actions ZIP artifacts — one-time cleanup still required
+
+The previous packaging workflows uploaded 13 ZIP artifacts before the local-only policy was applied. The current validation workflow no longer creates or uploads archives, but the earlier artifacts remain stored until deleted or expired.
+
+| Artifact ID | Name | Expiry (UTC) |
+|---:|---|---|
+| 14005115238 | Stellar_Cooling_Research_Archive_2026-11-13 | 2026-12-13 02:28 |
+| 14005065033 | Stellar_Cooling_Research_Archive_2026-11-13 | 2026-12-13 02:27 |
+| 14004496598 | Stellar_Cooling_Research_Archive_2026-11-13 | 2026-12-13 02:25 |
+| 14000599612 | axial-stellar-constraints-review-package | 2026-11-14 01:26 |
+| 14000328688 | axial-stellar-constraints-review-package | 2026-11-14 01:22 |
+| 14000509052 | axial-stellar-constraints-review-package | 2026-11-14 01:21 |
+| 14000008862 | axial-stellar-constraints-review-package | 2026-11-14 01:20 |
+| 13999268425 | axial-stellar-constraints-review-package | 2026-11-14 01:07 |
+| 13998919607 | axial-stellar-constraints-review-package | 2026-11-14 01:05 |
+| 14000626053 | axial-stellar-constraints-review-package | 2026-11-14 01:05 |
+| 13998493850 | axial-stellar-constraints-review-package | 2026-12-13 00:47 |
+| 13998169336 | axial-stellar-constraints-review-package | 2026-12-13 00:47 |
+| 13999345496 | axial-stellar-constraints-review-package | 2026-12-13 00:46 |
+
+A one-time manual workflow, .github/workflows/delete-legacy-zip-artifacts.yml, deletes only these exact artifact IDs after the operator selects the explicit confirmation input. The cleanup workflow must be run once from the repository Actions page with the explicit confirmation input. If it is not run, the artifacts expire at the dates above.

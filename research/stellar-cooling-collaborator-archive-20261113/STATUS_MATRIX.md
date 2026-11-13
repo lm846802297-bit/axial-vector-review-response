@@ -32,3 +32,10 @@ This table separates work completed, numerical/code acceptance, and physical int
 ## Current decision
 
 The existing axial figure is a **conditional fixed-profile ballistic benchmark**. The vector Fig. 7 gate is not passed, the axial production scan still uses an initial-muon-rest semi-Compton approximation, and the background / propagation prescription is not a full self-consistent GR supernova transport calculation. Therefore the contour is useful for review and development, but it is not yet the final SN1987A exclusion of the underlying UV model.
+
+
+## Two-VEV formula and local-thermal cross-check (2026-11-13)
+
+The exact gauge-mass and eaten-Goldstone algebra is checked in PHYSICS_CROSSCHECK_2026-11-13.md. The recorded two-VEV local tests cover the mapping, vacuum semi-Compton amplitude, current-level widths under restricted neutrino assumptions, and a homogeneous optically thin polarization-summed thermal smoke test.
+
+Still open: the physical CP-odd scalar spectrum; full mass-basis treatment of charged right-handed neutrinos if active-heavy mixing or heavy thresholds matter; a direct A'-Goldstone amplitude identity; independent azimuthal quadrature convergence; medium-rest-frame T/L-resolved opacity; and radial SN transport. These checks do not change the NOT PASSED 10 MeV pure-vector Fig. 7 acceptance gate.

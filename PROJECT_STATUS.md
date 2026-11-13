@@ -903,4 +903,17 @@ The following non-duplicated source-archive status note is retained from the SFH
 - The 13-path post-merge comparison was reviewed. The PR retains eight provenance-only JSON refreshes, the package-relative import correction for the direct longitudinal-projector test, and the review record in `VALIDATION_AND_REVIEW.md`. It excludes three JSON outputs with only final-digit floating-point differences and the workflow's comment-only change.
 - Major 4.4 EFT validation [Run #43206544367](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43206544367) completed successfully on source commit `c611005c6cb343f8a53b282e14d15a8b6468b541`. This is software/data reproducibility evidence, not physical Fig. 7 acceptance.
 - **Physics gate remains open:** pure-vector Blinov Fig. 7 is **NOT PASSED**; the 10 MeV high-absorption discrepancy remains unresolved. No opacity/profile rescaling, production-kernel replacement, or axial constraint update is accepted.
-- PR #77 remains Draft pending file-level review; no merge has been performed.
+- Historical status note superseded on 2026-11-13: PR #77 was merged; PR #83 was closed as its duplicate. See the current branch-integration audit.
+
+
+## 2026-11-13 current-main research index and archive-policy update
+
+- Current canonical navigation is research/MAIN_RESEARCH_INDEX_2026-11-13.md. It maps Major 1, Major 3, Major 4.4, C4-C4-A/Aq/B, the original one-VEV line, the two-VEV extension, and collaborator deliverables to their current-main paths and merge history.
+- PR #100 was closed as redundant after confirming PR #85 already integrated the two-VEV baseline and main had since consolidated the shared thermal implementation. No old duplicate implementation was merged.
+- The two-VEV formula/implementation review is recorded in research/stellar-cooling-two-vev-20261105/PHYSICS_CROSSCHECK_2026-11-13.md. It confirms the stated mass/Goldstone algebra while documenting the physical CP-odd state, PMNS/charged-N_R caveats, frame-dependent T/L split, and missing independent azimuthal convergence scan.
+- The original 12-part/75-member review-package provenance metadata is retained under research/stellar-cooling-collaborator-archive-20261113/provenance/original-review-package/; duplicate source payloads are not copied there.
+- Generated collaborator ZIPs are no longer uploaded as GitHub Actions artifacts. The builder remains for local packaging and direct handoff only.
+- The pure-vector Blinov Fig. 7 physical benchmark remains **NOT PASSED** at the 10 MeV strong-absorption end. No axial limit curve is promoted by this documentation and repository-organization update.
+
+
+- Thirteen legacy GitHub Actions ZIP artifacts from earlier packaging runs were identified. The current workflow no longer uploads ZIPs; the exact IDs and expiry times are recorded in BRANCH_INTEGRATION_AUDIT_2026-11-13.md. A confirmation-gated one-time cleanup workflow is included because the current GitHub connection does not expose artifact deletion.

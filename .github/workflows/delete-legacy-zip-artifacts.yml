@@ -1,0 +1,44 @@
+name: Delete legacy generated ZIP artifacts (manual confirmation)
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: "Select yes to delete the 13 identified pre-policy ZIP artifacts"
+        required: true
+        type: choice
+        options:
+          - no
+          - yes
+        default: no
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  delete-legacy-zip-artifacts:
+    if: inputs.confirm == 'yes'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete only the recorded legacy ZIP artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          for artifact_id in \
+            14005115238 14005065033 14004496598 \
+            14000599612 14000328688 14000509052 14000008862 \
+            13999268425 13998919607 14000626053 \
+            13998493850 13998169336 13999345496
+          do
+            if gh api --method DELETE "repos/$GITHUB_REPOSITORY/actions/artifacts/$artifact_id" >/dev/null 2>&1; then
+              echo "deleted artifact $artifact_id"
+            elif ! gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$artifact_id" >/dev/null 2>&1; then
+              echo "artifact $artifact_id already absent or expired"
+            else
+              echo "failed to delete existing artifact $artifact_id" >&2
+              exit 1
+            fi
+          done
