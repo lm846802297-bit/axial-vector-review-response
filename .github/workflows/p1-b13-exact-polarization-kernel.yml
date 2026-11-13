@@ -1,0 +1,71 @@
+name: P1 exact B.13 moving-muon polarization kernel audit
+
+on:
+  push:
+    branches:
+      - research/fig7-10mev-transport-localization-20261113-v2
+    paths:
+      - .github/workflows/p1-b13-exact-polarization-kernel.yml
+      - research/stellar-cooling-constraints-20261105/finite_mixing/moving_muon_compton.py
+      - research/stellar-cooling-constraints-20261105/finite_mixing/test_thermal_rates.py
+      - research/stellar-cooling-constraints-20261105/finite_mixing/test_b13_moving_muon_spinor_reference.py
+      - research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/audit_b13_moving_muon_spinor_reference.py
+      - research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b13_local_kernel_convergence.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: p1-b13-polarization-kernel-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  validate-exact-kernel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Check out triggering research commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install numerical dependencies
+        run: python -m pip install --upgrade numpy scipy
+      - name: Compile exact B.13 sources
+        run: |
+          python -m compileall -q \
+            research/stellar-cooling-constraints-20261105/rates.py \
+            research/stellar-cooling-constraints-20261105/finite_mixing
+      - name: Run independent explicit-spinor audit
+        env:
+          PYTHONPATH: ${{ github.workspace }}/research/stellar-cooling-constraints-20261105
+        run: |
+          python research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/audit_b13_moving_muon_spinor_reference.py \
+            --output research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/outputs/b13_moving_muon_explicit_spinor_audit_2026-11-13.json
+      - name: Run independent-spinor regression tests
+        env:
+          PYTHONPATH: ${{ github.workspace }}/research/stellar-cooling-constraints-20261105
+        run: |
+          python -m unittest discover \
+            -s research/stellar-cooling-constraints-20261105/finite_mixing \
+            -t research/stellar-cooling-constraints-20261105 \
+            -p 'test_b13_moving_muon_spinor_reference.py' -v
+      - name: Run existing moving-muon thermal-rate regressions
+        env:
+          PYTHONPATH: ${{ github.workspace }}/research/stellar-cooling-constraints-20261105
+        run: |
+          python -m unittest discover \
+            -s research/stellar-cooling-constraints-20261105/finite_mixing \
+            -t research/stellar-cooling-constraints-20261105 \
+            -p 'test_thermal_rates.py' -v
+      - name: Upload machine-readable audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: p1-b13-explicit-spinor-audit
+          path: research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/outputs/b13_moving_muon_explicit_spinor_audit_2026-11-13.json
+          if-no-files-found: error
