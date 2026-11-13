@@ -3,7 +3,7 @@ import unittest
 
 import numpy as np
 
-from blinov_reproduction.reference import DEFAULT_PROFILE
+from blinov_reproduction.reference import DEFAULT_PROFILE, load_profile
 from finite_mixing.moving_muon_compton import moving_muon_compton_rates
 from finite_mixing.thermal_integrals.audit_b13_local_kernel_radial_energy_10mev import (
     ENERGIES_MEV,
