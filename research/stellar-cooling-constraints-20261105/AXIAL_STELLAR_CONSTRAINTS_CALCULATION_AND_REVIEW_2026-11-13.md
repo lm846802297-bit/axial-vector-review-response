@@ -331,7 +331,7 @@ The following issues remain open and must accompany any external review.
 
 ### P0 — pure-vector Fig. 7 gate is not passed
 
-The 10 MeV high-absorption tail retains an approximately +92.25% residual in the literal fixed-\(\omega\) comparison. The separate conserved-\(E_\infty\) diagnostic is also not in agreement. No empirical opacity or profile rescaling is accepted. The vector control is therefore not a passed end-to-end validation of the shared transport calculation.
+The 10 MeV high-absorption tail retains an approximately +92.24% residual in the literal fixed-\(\omega\) comparison. The separate conserved-\(E_\infty\) diagnostic is also not in agreement. No empirical opacity or profile rescaling is accepted. The vector control is therefore not a passed end-to-end validation of the shared transport calculation.
 
 ### P0 — mode-resolved versus scalar opacity prescription
 
@@ -343,7 +343,7 @@ The production plot uses an initial-muon-rest approximation with an effective th
 
 ### P1 — background and propagation
 
-The background is reconstructed from public plots; the lapse is externally continued from 24 to 25 km; the tau-neutrino chemical potential is set to zero; the opacity chord uses the stated fixed-\(\omega\) convention. The 20-km escape-radius sensitivity changes some upper boundaries by tens of percent. These are physical/model uncertainties, not just numerical quadrature errors.
+The background is reconstructed from public plots; the lapse is externally continued from 24 to 25 km; the tau-neutrino chemical potential is set to zero; the opacity chord uses the stated fixed-\(\omega\) convention. The 20-km escape-radius diagnostic shifts the upper boundary by about 25%–93% over the representative 0.01–250 MeV mass points; this is a model-radius sensitivity, not a calibrated uncertainty. These are physical/model uncertainties, not just numerical quadrature errors.
 
 ### Other excluded physics
 
