@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - research/stellar-cooling-review-package-20261113
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: read
