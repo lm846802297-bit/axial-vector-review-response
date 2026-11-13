@@ -767,7 +767,7 @@ def run_audit(profile_path=DEFAULT_PROFILE, output_path=None):
             "maximum_local_emissivity_energy_order_change": energy_integral_audit[
                 "acceptance"
             ]["maximum_successive_energy_order_change"],
-            "maximum_direct_midpoint_vs_bilinear_log_interpolation_error": interpolation_max,
+            "maximum_direct_midpoint_vs_sequential_log_interpolation_error": interpolation_max,
             "detailed_balance_tolerance": DB_TOLERANCE,
             "detailed_balance_pass": bool(all_detailed_balance_pass),
             "maximum_mode_detailed_balance_relative_residual": max(
