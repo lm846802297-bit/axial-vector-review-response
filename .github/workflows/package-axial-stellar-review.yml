@@ -25,6 +25,7 @@ jobs:
         run: |
           python - <<'PY'
           import csv
+          import io
           import hashlib
           import json
           import subprocess
@@ -61,13 +62,37 @@ jobs:
           if len(files) < 500:
               raise RuntimeError(f"Unexpectedly small package payload: {len(files)} files")
 
-          # Validate every archived JSON payload before writing the ZIP.
+          # Hard-validate the numerical source arrays and core reference outputs.
+          critical_json = [
+              "research/stellar-cooling-constraints-20261105/outputs/axial.json",
+              "research/stellar-cooling-constraints-20261105/outputs/vector.json",
+              "research/stellar-cooling-constraints-20261105/outputs/endpoint.json",
+              "research/stellar-cooling-constraints-20261105/outputs/convergence.json",
+              "research/stellar-cooling-constraints-20261105/outputs/coupling_refinement.json",
+              "research/stellar-cooling-constraints-20261105/outputs/cutoff.json",
+              "research/stellar-cooling-constraints-20261105/outputs/numerical_validation.json",
+              "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/pure_vector_literature_benchmark.json",
+              "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/compton_detailed_balance_audit.json",
+              "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_equation_chain_audit.json"
+          ]
+          for name in critical_json:
+              if name not in files:
+                  raise RuntimeError(f"Required numerical output is missing: {name}")
+              json.loads(files[name].decode("utf-8"))
+
+          # Preserve all other diagnostics byte-for-byte, but report any historical
+          # files with a .json suffix that are not strict JSON documents.
+          invalid_json = []
           for name, data in files.items():
               if name.endswith(".json"):
                   try:
                       json.loads(data.decode("utf-8"))
                   except Exception as exc:
-                      raise RuntimeError(f"Invalid JSON payload at {name}: {exc}") from exc
+                      invalid_json.append({
+                          "path": name,
+                          "error": str(exc),
+                          "sha256": hashlib.sha256(data).hexdigest()
+                      })
 
 
           package_head = subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()
@@ -125,6 +150,11 @@ jobs:
               "numpy\nscipy\nmatplotlib\nPyMuPDF\n"
           ).encode("utf-8")
 
+          audit_buffer = io.StringIO()
+          audit_writer = csv.DictWriter(audit_buffer, fieldnames=["path", "error", "sha256"])
+          audit_writer.writeheader()
+          audit_writer.writerows(invalid_json)
+          files["JSON_FORMAT_AUDIT.csv"] = audit_buffer.getvalue().encode("utf-8")
           provenance = {
               "repository": "lm846802297-bit/axial-vector-review-response",
               "calculation_source_baseline": source_baseline,
@@ -133,6 +163,7 @@ jobs:
               "created_utc": datetime.now(timezone.utc).isoformat(),
               "payload_file_count": len(files),
               "payload_bytes": total_bytes,
+              "nonstandard_json_files": [item["path"] for item in invalid_json],
               "excluded_patterns": [
                   "*/review_package_parts/*",
                   "*.zip",
