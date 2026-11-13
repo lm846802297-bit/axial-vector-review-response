@@ -917,3 +917,11 @@ The following non-duplicated source-archive status note is retained from the SFH
 
 
 - Thirteen legacy GitHub Actions ZIP artifacts from earlier packaging runs were deleted by cleanup run #43358373940. All 13 original workflow runs were re-queried and returned zero remaining artifacts. The temporary cleanup workflow was removed after success.
+
+
+## 2026-11-13 physics and branch audit continuation
+
+- The direct axial-current / Goldstone amplitude identity is now encoded as a regression: q_nu M_A^nu = 2 m_mu M_P for the source's gamma^nu(gV - gA gamma5) convention. The five-point independent spinor check closes at or below 9.0e-13; see PHYSICS_CROSSCHECK_2026-11-13.md.
+- The pure-axial Goldstone map is explicitly separated from finite right-handed mixing. For g_A=-g_X cos^2(theta_R), the current-side Ward requirement includes cos^2(theta_R); the full UV phase projection at finite mixing remains open.
+- A nontrivial unitary PMNS regression confirms Tr(G_nu^dagger G_nu)=2 while producing off-diagonal flavour couplings. The minimal-model U_PMNS=I assumption remains an approximation, not an oscillation fit.
+- Branch-by-branch tree/blob findings and deletion candidates are recorded in research/BRANCH_DISPOSITION_2026-11-13.md. PR #102 remains active and must be preserved.
