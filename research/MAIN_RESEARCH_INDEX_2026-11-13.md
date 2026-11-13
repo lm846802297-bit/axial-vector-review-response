@@ -81,3 +81,8 @@ The second cleanup batch removed five completed administrative branches after ex
 
 
 PR #106 v2 is synchronized with current main and remains Draft pending the physical transport review. The B.1 energy-variable transformation is exact; B.2 path-energy and scalar-versus-mode transport prescriptions remain distinct, and no axial limit is updated.
+
+
+## 2026-11-13 P0 polarization transport update
+
+PR #106 now includes a completed analytic Boltzmann state-counting audit. It derives the per-mode collision terms and the total-occupation equation, clarifies the B.7 factor-of-three convention, and distinguishes the literal scalar B.2 sum-opacity prescription from per-mode physical attenuation. Seven algebraic tests pass locally. The pure-vector Fig. 7 gate remains NOT PASSED; the exact recoil-resolved B.13 polarization kernel and matched global transport comparison remain open.
