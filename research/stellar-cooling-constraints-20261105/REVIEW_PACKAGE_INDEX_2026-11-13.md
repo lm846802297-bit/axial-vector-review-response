@@ -7,7 +7,11 @@
 
 ## Storage rule
 
-The repository contains the extracted source files, input data, saved numerical outputs, figures, tests, and audit reports in their normal directory structure. No ZIP, Base64-encoded ZIP, or split ZIP parts are committed. The user-facing ZIP is built from these extracted files and delivered separately; the workflow artifact has a one-day retention period and is not part of the repository tree.
+The repository contains the extracted source files, input data, saved numerical outputs, figures, tests, and audit reports in their normal directory structure. No ZIP, Base64-encoded ZIP, or split ZIP parts for this review package are committed. The user-facing ZIP is built from these extracted files and delivered separately; the workflow artifact has a one-day retention period and is not part of the repository tree.
+
+## Version boundary
+
+The production code and saved axial/vector/endpoint arrays used for the displayed constraint figure are pinned to calculation source commit `81d9b2faf16eb39879b759b05afce46732c925d7`. The review branch is synchronized with current main so that later B.13/B.16 audit reports and diagnostic outputs are also available. Those later diagnostics are supplemental evidence; they do not silently replace the pinned inputs or regenerate the plotted axial contour. The archive's `PACKAGE_FILE_INDEX.csv` records each included file's Git blob SHA and SHA-256.
 
 ## Repository locations
 

@@ -1,0 +1,12 @@
+# SHA-256 manifest: recovered moving-muon B.13/B.16 artifacts
+# source_branch=research/moving-muon-thermal-rates-20261107
+# source_branch_head=9dac1307d88c7011c6fbeb42369c41b9a2f0b3eb
+# target_main_base=81d9b2faf16eb39879b759b05afce46732c925d7
+# profile_sha256=9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c
+# Scope: 10 MeV B.13 grid-convergence archive; non-converged 0.1 MeV companion scan; B.16 mu_numu sensitivity; B.16 phase-space provenance-check update.
+# The 0.1 MeV scan is intentionally retained with overall_passed=false; do not treat it as converged.
+485bc6ce837f6bd45b9dd7958c7049b5426f5d6508638c9976f2b55267bbd4f4  research/stellar-cooling-constraints-20261105/blinov_reproduction/B13_GLOBAL_TRANSPORT_CONVERGENCE_AUDIT_2026-11-09.md
+02127a6ea5625f850170342a1cf23ccad630feea6e75e5a0ac7832ffcbb20a93  research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_convergence_summary_2026-11-09.json
+18fa0614406e841f550d42c9793346682e9adb4994e4f9fb4b6da06a50930ac2  research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_convergence_vertex_preserving_0p1mev_2026-11-09.json
+e1db47a66e265d7c07a228fc1ac0e0a717f657773d5667b2aee4d0b9cc77a910  research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_numu_profile_sensitivity_10mev_2026-11-08.json
+1812fd763f7193602389e84df71630bd0e87d56af83769a35a3e4c4bac805cff  research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_escape_phase_space.py

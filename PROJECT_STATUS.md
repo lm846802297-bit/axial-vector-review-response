@@ -1,21 +1,39 @@
-# 2026-11-13 live status: branch audit and research integration
+# 2026-11-13 live status: post-integration branch audit
 
-> This live section supersedes older dated entries below wherever they report earlier main SHAs, PR states, branch counts, or active-branch inventories. Historical records remain intact.
+> This live section supersedes older dated entries below wherever they report earlier main SHAs, PR states, branch counts, or active-branch inventories. The branch inventory is a snapshot against the main SHA recorded below; it is not a request to rebase or merge every divergent branch.
 
 ## Current repository and PR state
 
-- Main baseline for this audit: `4fdb7ea3b0e85412525322b6b3d584365a852363`.
-- PR #84 is **Closed / Merged**: C4-C4-B full-radial energy-dependence results, native outputs, provenance, and checksums.
-- PR #85 is **Closed / Merged**: separately scoped two-VEV axial microphysics benchmark. This does not change the original one-VEV model.
-- PR #82 was closed as superseded by #84; PR #83 was closed as a duplicate of already-merged PR #77.
-- No open PRs remained after these integrations.
-- PRs #53, #56, #68, #69, #72, #73, #79, #80, and #81 are already merged. Their branches may still report large `ahead_by` counts because of squash-merge ancestry; do not treat those counts as unmerged content.
+- Audited main baseline: `a74707637837dfd577e15e530c896959ed12baa2` (after PR #89).
+- **PR #87 — merged:** selected B.13/B.16 moving-muon validation artifacts recovered onto a clean main-based branch. The 0.1 MeV vertex-preserving scan remains explicitly not converged.
+- **PR #88 — merged:** current-main Major 3 Overleaf bundle rebuilt with its required TeX, BibTeX, bibliography style, figure PDF, reference PDF, and README.
+- **PR #89 — merged:** corrected the Overleaf ZIP's embedded and external SHA-256 manifests. The current ZIP is 777,561 bytes with SHA-256 `6c3d74091df33f316ea01694738a5b2392d9a882576704a7c3690a6569037323`; every embedded file hash and CRC-32 was rechecked against the stored bytes.
+- **PR #77 — merged:** Major 4.4 post-merge provenance refreshes and the package-relative projector-test import fix. PR #83 was closed as a duplicate of #77, not as lost research.
+- **PR #84 and PR #85 — merged:** C4-C4-B full-radial archive and the separately scoped two-VEV microphysics benchmark.
+- No open PRs were present at the post-PR #89 repository snapshot. This status/audit update is documentation-only.
 
-## Branch audit and scientific status
+## Post-inventory checksum and documentation corrections (2026-11-13)
 
-See [research/BRANCH_INTEGRATION_AUDIT_2026-11-13.md](research/BRANCH_INTEGRATION_AUDIT_2026-11-13.md) for the all-branch comparison, merged-workstream map, intentionally unpromoted historical/preliminary branches, and the reasons not to merge their stale histories.
+- **PR #90 — merged** at `dc3e3339238cbae7b72f73228518ca36a89a837d`: corrected the B.13/B.16 recovery manifest's report digest to `485bc6ce837f6bd45b9dd7958c7049b5426f5d6508638c9976f2b55267bbd4f4`. The four other artifact hashes were independently verified and unchanged; no source or numerical output changed.
+- **PR #91 — merged** at `d106b9a6f16116918a92da775fa7113b2718a221`: added the all-branch inventory and updated the live status/audit documentation.
+- Latest main after these follow-on merges: `dc3e3339238cbae7b72f73228518ca36a89a837d`. The branch inventory remains a point-in-time snapshot against `a74707637837dfd577e15e530c896959ed12baa2` (96 refs including main). Two post-snapshot refs were created for PR #90 (checksum-only) and PR #91 (documentation-only); they do not add research content.
+- No open PRs remained after PR #90 and PR #91 were merged.
 
-The pure-vector Blinov Fig. 7 reproduction remains **not passed** at the 10 MeV strong-absorption end. The new C4-C4-B archive is a fixed-local-energy, flat-space total-scattering diagnostic, not a complete transport result or SN1987A exclusion. The two-VEV archive is an alternative model extension and must remain separate from the original one-VEV paper model.
+## All-branch audit
+
+- The repository had **96 branch refs including main**, hence **95 non-main branches**.
+- Against main `a74707637837dfd577e15e530c896959ed12baa2`, all 95 non-main refs were compared: **79 diverged**, **16 were behind-only**, **0 were ahead-only**, and **0 were identical**.
+- Of the 79 diverged branches, 76 had branch-side changed-path entries in the compare result; 3 had no branch-side path entries. These counts are ancestry/diff triage, not a statement that every divergent branch contains unmerged work. Squash-merged branches commonly remain divergent.
+- Full per-branch names, head SHAs, ahead/behind counts, and compare-path counts are recorded in [BRANCH_INVENTORY_2026-11-13.json](research/BRANCH_INVENTORY_2026-11-13.json).
+- Do not bulk-merge stale branches to eliminate `ahead_by` counts. Merge only isolated, genuinely new content after provenance, input hashes, output hashes, and current-main overlap have been checked.
+
+## Research and scientific acceptance boundaries
+
+- The moving-muon source branch is retained as historical research; PR #87 extracted only six missing B.13/B.16 artifacts. Its later profile/provenance changes were not copied over the profile used by the archived results.
+- Major 4.4's three B.13/B.16 output records (`b13_b16_comparison_2026-11-12.json`, `b13_b16_low_mass_scan_2026-11-12.json`, and `validation_manifest_2026-11-12.json`) are already in main with run commit `c611005c6cb343f8a53b282e14d15a8b6468b541`. The three additional numerical files differing only at floating-point roundoff were not used to overwrite main.
+- The pure-vector Blinov Fig. 7 physical benchmark remains **NOT PASSED** at the 10 MeV strong-absorption end. Software/CI success, grid convergence, archive integrity, and physical benchmark acceptance remain distinct. No opacity/profile rescaling or updated axial constraint curve is authorized by these integrations.
+- The Major 3 historical branch is not re-imported: PR #72 already integrated the response, while PR #88/#89 provide the current-main Overleaf package with verified integrity metadata.
+- Other substantial branches (including the ongoing Higgs–singlet and separate stellar-review-package work) remain separate workstreams and require their own scoped review; this audit does not delete or merge them.
 
 ---
 

@@ -1,0 +1,1881 @@
+{
+  "acceptance": {
+    "angular": {
+      "Lthin_max_change_below_1pct": true,
+      "comparison": "angle_24_to_32",
+      "passed": true,
+      "peak_Ltotal_change_below_1pct": true,
+      "strong_endpoint_Ltotal_change_below_2pct": true
+    },
+    "energy": {
+      "Lthin_max_change_below_1pct": true,
+      "comparison": "energy_150_to_200",
+      "passed": true,
+      "peak_Ltotal_change_below_1pct": true,
+      "strong_endpoint_Ltotal_change_below_2pct": true
+    },
+    "path": {
+      "Lthin_max_change_below_1pct": true,
+      "comparison": "path_48_to_64",
+      "passed": true,
+      "peak_Ltotal_change_below_1pct": true,
+      "strong_endpoint_Ltotal_change_below_2pct": true
+    },
+    "radial": {
+      "Lthin_max_change_below_1pct": true,
+      "comparison": "radial_60_to_80",
+      "passed": true,
+      "peak_Ltotal_change_below_1pct": true,
+      "strong_endpoint_Ltotal_change_below_2pct": true
+    }
+  },
+  "cases": {
+    "angle24": {
+      "B13_metrics_vs_Fig7": {
+        "maximum_absolute_relative_difference": 1.3153392836986844,
+        "mean_absolute_relative_difference": 0.30259156272952614,
+        "reference_peak_relative_difference": -0.16339095657581404,
+        "strong_endpoint_relative_difference": 1.3153392836986844,
+        "weak_endpoint_relative_difference": -0.2810903185712743
+      },
+      "B13_numerical_validation": {
+        "B13_mu_minus_over_B16_mu_minus_production_ratio": {
+          "maximum": 0.8233730350692408,
+          "median": 0.5246411913680231,
+          "minimum": 0.09950395342236056
+        },
+        "angle_weight_residual": 0.0,
+        "maximum_residuals": {
+          "final_muon_shell": 3.7117270388590294e-13,
+          "mu_minus_absorption_vs_production": 1.3734379829952775e-14,
+          "mu_minus_mode_detailed_balance": 1.3869832828132552e-14,
+          "mu_plus_absorption_vs_production": 1.4443909517799305e-14,
+          "mu_plus_mode_detailed_balance": 1.5258094567659876e-14
+        },
+        "mu_plus_fraction_of_exact_Compton_reduced_absorption_unweighted_grid_sum": 0.0021546367022935663,
+        "refinement_checks": [
+          {
+            "mu_minus_relative_refinement_change": 0.0020604649798785543,
+            "mu_plus_relative_refinement_change": 0.0015867339961060513,
+            "omega_MeV": 15.0,
+            "radius_km": 8.0
+          },
+          {
+            "mu_minus_relative_refinement_change": 0.00020528728453201802,
+            "mu_plus_relative_refinement_change": 0.00011801543398282701,
+            "omega_MeV": 20.0,
+            "radius_km": 12.5
+          },
+          {
+            "mu_minus_relative_refinement_change": 0.0001578267172078394,
+            "mu_plus_relative_refinement_change": 0.00016275678921449084,
+            "omega_MeV": 30.0,
+            "radius_km": 15.0
+          }
+        ]
+      },
+      "B13_radial_shell_diagnostics": {
+        "10_15km": {
+          "escaped_luminosity_fraction": 0.30055167067458716,
+          "source_fraction": 0.4342899816754253
+        },
+        "5_10km": {
+          "escaped_luminosity_fraction": 0.670386897691034,
+          "source_fraction": 0.5294593432332462
+        }
+      },
+      "B13_strong_endpoint_escape_fraction": 0.0004944717759385577,
+      "B13_thin_luminosity_ratio_vs_B16": 0.7889822588036474,
+      "B16_archived_closure_residual": 0.0,
+      "B16_metrics_vs_Fig7": {
+        "maximum_absolute_relative_difference": 0.9225045616730649,
+        "mean_absolute_relative_difference": 0.1573340627686915,
+        "reference_peak_relative_difference": 0.025704861593701445,
+        "strong_endpoint_relative_difference": 0.9225045616730649,
+        "weak_endpoint_relative_difference": -0.08885294809095812
+      },
+      "B16_radial_shell_diagnostics": {
+        "10_15km": {
+          "escaped_luminosity_fraction": 0.3743131547552779,
+          "source_fraction": 0.39799538904483556
+        },
+        "5_10km": {
+          "escaped_luminosity_fraction": 0.5912832385085433,
+          "source_fraction": 0.5732025586527975
+        }
+      },
+      "configuration": {
+        "B13_current": "pure vector, g_V=1, g_A=0, rates per g_X^2",
+        "B13_kernel_orders": [
+          12,
+          8,
+          8,
+          8
+        ],
+        "B13_refined_orders": [
+          16,
+          10,
+          10,
+          10
+        ],
+        "B2_convention": "literal scalar mode-summed opacity in the fixed-omega Eq. (B.2) ray exponent",
+        "active_energy_node_count": 78,
+        "active_opacity_fraction_threshold": 1e-08,
+        "active_radial_node_count": 27,
+        "active_radial_nodes_km": [
+          0.0,
+          0.3471592210148686,
+          1.6500473910378592,
+          3.3499526089621408,
+          4.652840778985132,
+          5.208295532608921,
+          5.990028434622715,
+          7.009971565377285,
+          7.791704467391079,
+          8.138863688405948,
+          8.660018956415144,
+          9.339981043584856,
+          9.861136311594052,
+          10.138863688405948,
+          10.660018956415144,
+          11.339981043584856,
+          11.861136311594052,
+          12.208295532608922,
+          12.990028434622715,
+          14.009971565377285,
+          14.791704467391078,
+          15.208295532608922,
+          15.990028434622715,
+          17.009971565377285,
+          17.791704467391078,
+          18.138863688405948,
+          18.660018956415144
+        ],
+        "angular_order": 24,
+        "charge_cases": {
+          "both_charges": "mu-minus plus mu-plus exact moving-muon Compton rates",
+          "mu_minus_only": "like-for-like with the single negative-muon distribution in B.17"
+        },
+        "energy_offset_MeV": 1000.0,
+        "energy_order": 100,
+        "exact_B13_kernel_evaluations": 2106,
+        "global_emission_threshold_MeV": 10.8733512164927,
+        "inactive_radial_nodes_km": [
+          19.339981043584856,
+          19.861136311594052,
+          20.138863688405948,
+          20.660018956415144,
+          21.339981043584856,
+          21.861136311594052,
+          22.138863688405948,
+          22.660018956415144,
+          23.339981043584856,
+          23.861136311594052,
+          24.069431844202974,
+          24.33000947820757,
+          24.66999052179243,
+          24.930568155797026,
+          25.0
+        ],
+        "path_order": 32,
+        "radial_order": 40,
+        "radius_km": 25.0,
+        "wall_time_seconds": 337.97829127311707
+      }
+    },
+    "angle32": {
+      "B13_metrics_vs_Fig7": {
+        "maximum_absolute_relative_difference": 1.315338057762157,
+        "mean_absolute_relative_difference": 0.3025906690088501,
+        "reference_peak_relative_difference": -0.16339206899492986,
+        "strong_endpoint_relative_difference": 1.315338057762157,
+        "weak_endpoint_relative_difference": -0.28109031848687904
+      },
+      "B13_numerical_validation": {
+        "B13_mu_minus_over_B16_mu_minus_production_ratio": {
+          "maximum": 0.8233730350692408,
+          "median": 0.5246411913680231,
+          "minimum": 0.09950395342236056
+        },
+        "angle_weight_residual": 0.0,
+        "maximum_residuals": {
+          "final_muon_shell": 3.7117270388590294e-13,
+          "mu_minus_absorption_vs_production": 1.3734379829952775e-14,
+          "mu_minus_mode_detailed_balance": 1.3869832828132552e-14,
+          "mu_plus_absorption_vs_production": 1.4443909517799305e-14,
+          "mu_plus_mode_detailed_balance": 1.5258094567659876e-14
+        },
+        "mu_plus_fraction_of_exact_Compton_reduced_absorption_unweighted_grid_sum": 0.0021546367022935663,
+        "refinement_checks": [
+          {
+            "mu_minus_relative_refinement_change": 0.0020604649798785543,
+            "mu_plus_relative_refinement_change": 0.0015867339961060513,
+            "omega_MeV": 15.0,
+            "radius_km": 8.0
+          },
+          {
+            "mu_minus_relative_refinement_change": 0.00020528728453201802,
+            "mu_plus_relative_refinement_change": 0.00011801543398282701,
+            "omega_MeV": 20.0,
+            "radius_km": 12.5
+          },
+          {
+            "mu_minus_relative_refinement_change": 0.0001578267172078394,
+            "mu_plus_relative_refinement_change": 0.00016275678921449084,
+            "omega_MeV": 30.0,
+            "radius_km": 15.0
+          }
+        ]
+      },
+      "B13_radial_shell_diagnostics": {
+        "10_15km": {
+          "escaped_luminosity_fraction": 0.30054988669332516,
+          "source_fraction": 0.4342899816754253
+        },
+        "5_10km": {
+          "escaped_luminosity_fraction": 0.6703852559090366,
+          "source_fraction": 0.5294593432332462
+        }
+      },
+      "B13_strong_endpoint_escape_fraction": 0.0004944715141233602,
+      "B13_thin_luminosity_ratio_vs_B16": 0.7889822588036474,
+      "B16_archived_closure_residual": 0.0,
+      "B16_metrics_vs_Fig7": {
+        "maximum_absolute_relative_difference": 0.922510732387614,
+        "mean_absolute_relative_difference": 0.1573314204278247,
+        "reference_peak_relative_difference": 0.02570268657496455,
+        "strong_endpoint_relative_difference": 0.922510732387614,
+        "weak_endpoint_relative_difference": -0.08885294561507995
+      },
+      "B16_radial_shell_diagnostics": {
+        "10_15km": {
+          "escaped_luminosity_fraction": 0.3743077375250517,
+          "source_fraction": 0.39799538904483556
+        },
+        "5_10km": {
+          "escaped_luminosity_fraction": 0.5912846546655376,
+          "source_fraction": 0.5732025586527975
+        }
+      },
+      "configuration": {
+        "B13_current": "pure vector, g_V=1, g_A=0, rates per g_X^2",
+        "B13_kernel_orders": [
+          12,
+          8,
+          8,
+          8
+        ],
+        "B13_refined_orders": [
+          16,
+          10,
+          10,
+          10
+        ],
+        "B2_convention": "literal scalar mode-summed opacity in the fixed-omega Eq. (B.2) ray exponent",
+        "active_energy_node_count": 78,
+        "active_opacity_fraction_threshold": 1e-08,
+        "active_radial_node_count": 27,
+        "active_radial_nodes_km": [
+          0.0,
+          0.3471592210148686,
+          1.6500473910378592,
+          3.3499526089621408,
+          4.652840778985132,
+          5.208295532608921,
+          5.990028434622715,
+          7.009971565377285,
+          7.791704467391079,
+          8.138863688405948,
+          8.660018956415144,
+          9.339981043584856,
+          9.861136311594052,
+          10.138863688405948,
+          10.660018956415144,
+          11.339981043584856,
+          11.861136311594052,
+          12.208295532608922,
+          12.990028434622715,
+          14.009971565377285,
+          14.791704467391078,
+          15.208295532608922,
+          15.990028434622715,
+          17.009971565377285,
+          17.791704467391078,
+          18.138863688405948,
+          18.660018956415144
+        ],
+        "angular_order": 32,
+        "charge_cases": {
+          "both_charges": "mu-minus plus mu-plus exact moving-muon Compton rates",
+          "mu_minus_only": "like-for-like with the single negative-muon distribution in B.17"
+        },
+        "energy_offset_MeV": 1000.0,
+        "energy_order": 100,
+        "exact_B13_kernel_evaluations": 2106,
+        "global_emission_threshold_MeV": 10.8733512164927,
+        "inactive_radial_nodes_km": [
+          19.339981043584856,
+          19.861136311594052,
+          20.138863688405948,
+          20.660018956415144,
+          21.339981043584856,
+          21.861136311594052,
+          22.138863688405948,
+          22.660018956415144,
+          23.339981043584856,
+          23.861136311594052,
+          24.069431844202974,
+          24.33000947820757,
+          24.66999052179243,
+          24.930568155797026,
+          25.0
+        ],
+        "path_order": 32,
+        "radial_order": 40,
+        "radius_km": 25.0,
+        "wall_time_seconds": 396.3529553413391
+      }
+    },
+    "baseline": {
+      "B13_metrics_vs_Fig7": {
+        "maximum_absolute_relative_difference": 1.3153004608362204,
+        "mean_absolute_relative_difference": 0.3025897249118066,
+        "reference_peak_relative_difference": -0.16339748307404833,
+        "strong_endpoint_relative_difference": 1.3153004608362204,
+        "weak_endpoint_relative_difference": -0.2810903344332123
+      },
+      "B13_numerical_validation": {
+        "B13_mu_minus_over_B16_mu_minus_production_ratio": {
+          "maximum": 0.8233730350692408,
+          "median": 0.5246411913680231,
+          "minimum": 0.09950395342236056
+        },
+        "angle_weight_residual": 0.0,
+        "maximum_residuals": {
+          "final_muon_shell": 3.7117270388590294e-13,
+          "mu_minus_absorption_vs_production": 1.3734379829952775e-14,
+          "mu_minus_mode_detailed_balance": 1.3869832828132552e-14,
+          "mu_plus_absorption_vs_production": 1.4443909517799305e-14,
+          "mu_plus_mode_detailed_balance": 1.5258094567659876e-14
+        },
+        "mu_plus_fraction_of_exact_Compton_reduced_absorption_unweighted_grid_sum": 0.0021546367022935663,
+        "refinement_checks": [
+          {
+            "mu_minus_relative_refinement_change": 0.0020604649798785543,
+            "mu_plus_relative_refinement_change": 0.0015867339961060513,
+            "omega_MeV": 15.0,
+            "radius_km": 8.0
+          },
+          {
+            "mu_minus_relative_refinement_change": 0.00020528728453201802,
+            "mu_plus_relative_refinement_change": 0.00011801543398282701,
+            "omega_MeV": 20.0,
+            "radius_km": 12.5
+          },
+          {
+            "mu_minus_relative_refinement_change": 0.0001578267172078394,
+            "mu_plus_relative_refinement_change": 0.00016275678921449084,
+            "omega_MeV": 30.0,
+            "radius_km": 15.0
+          }
+        ]
+      },
+      "B13_radial_shell_diagnostics": {
+        "10_15km": {
+          "escaped_luminosity_fraction": 0.3005583905870513,
+          "source_fraction": 0.4342899816754253
+        },
+        "5_10km": {
+          "escaped_luminosity_fraction": 0.6703806945993072,
+          "source_fraction": 0.5294593432332462
+        }
+      },
+      "B13_strong_endpoint_escape_fraction": 0.0004944634847952748,
+      "B13_thin_luminosity_ratio_vs_B16": 0.7889822588036474,
+      "B16_archived_closure_residual": 0.0,
+      "B16_metrics_vs_Fig7": {
+        "maximum_absolute_relative_difference": 0.9224061933021663,
+        "mean_absolute_relative_difference": 0.15731955830340819,
+        "reference_peak_relative_difference": 0.025687774810936315,
+        "strong_endpoint_relative_difference": 0.9224061933021663,
+        "weak_endpoint_relative_difference": -0.08885298256110519
+      },
+      "B16_radial_shell_diagnostics": {
+        "10_15km": {
+          "escaped_luminosity_fraction": 0.3743366418163805,
+          "source_fraction": 0.39799538904483556
+        },
+        "5_10km": {
+          "escaped_luminosity_fraction": 0.5912591684275864,
+          "source_fraction": 0.5732025586527975
+        }
+      },
+      "configuration": {
+        "B13_current": "pure vector, g_V=1, g_A=0, rates per g_X^2",
+        "B13_kernel_orders": [
+          12,
+          8,
+          8,
+          8
+        ],
+        "B13_refined_orders": [
+          16,
+          10,
+          10,
+          10
+        ],
+        "B2_convention": "literal scalar mode-summed opacity in the fixed-omega Eq. (B.2) ray exponent",
+        "active_energy_node_count": 78,
+        "active_opacity_fraction_threshold": 1e-08,
+        "active_radial_node_count": 27,
+        "active_radial_nodes_km": [
+          0.0,
+          0.3471592210148686,
+          1.6500473910378592,
+          3.3499526089621408,
+          4.652840778985132,
+          5.208295532608921,
+          5.990028434622715,
+          7.009971565377285,
+          7.791704467391079,
+          8.138863688405948,
+          8.660018956415144,
+          9.339981043584856,
+          9.861136311594052,
+          10.138863688405948,
+          10.660018956415144,
+          11.339981043584856,
+          11.861136311594052,
+          12.208295532608922,
+          12.990028434622715,
+          14.009971565377285,
+          14.791704467391078,
+          15.208295532608922,
+          15.990028434622715,
+          17.009971565377285,
+          17.791704467391078,
+          18.138863688405948,
+          18.660018956415144
+        ],
+        "angular_order": 16,
+        "charge_cases": {
+          "both_charges": "mu-minus plus mu-plus exact moving-muon Compton rates",
+          "mu_minus_only": "like-for-like with the single negative-muon distribution in B.17"
+        },
+        "energy_offset_MeV": 1000.0,
+        "energy_order": 100,
+        "exact_B13_kernel_evaluations": 2106,
+        "global_emission_threshold_MeV": 10.8733512164927,
+        "inactive_radial_nodes_km": [
+          19.339981043584856,
+          19.861136311594052,
+          20.138863688405948,
+          20.660018956415144,
+          21.339981043584856,
+          21.861136311594052,
+          22.138863688405948,
+          22.660018956415144,
+          23.339981043584856,
+          23.861136311594052,
+          24.069431844202974,
+          24.33000947820757,
+          24.66999052179243,
+          24.930568155797026,
+          25.0
+        ],
+        "path_order": 32,
+        "radial_order": 40,
+        "radius_km": 25.0,
+        "wall_time_seconds": 336.2646918296814
+      }
+    },
+    "energy150": {
+      "B13_metrics_vs_Fig7": {
+        "maximum_absolute_relative_difference": 1.3078446662479273,
+        "mean_absolute_relative_difference": 0.30354579327791475,
+        "reference_peak_relative_difference": -0.16608487147426265,
+        "strong_endpoint_relative_difference": 1.3078446662479273,
+        "weak_endpoint_relative_difference": -0.2834034246421754
+      },
+      "B13_numerical_validation": {
+        "B13_mu_minus_over_B16_mu_minus_production_ratio": {
+          "maximum": 0.8233730350692408,
+          "median": 0.5121129131169517,
+          "minimum": 0.09950395342236056
+        },
+        "angle_weight_residual": 0.0,
+        "maximum_residuals": {
+          "final_muon_shell": 3.7117270388590294e-13,
+          "mu_minus_absorption_vs_production": 1.8995260457103037e-14,
+          "mu_minus_mode_detailed_balance": 1.99036654870793e-14,
+          "mu_plus_absorption_vs_production": 1.4312936216371586e-14,
+          "mu_plus_mode_detailed_balance": 1.5258094567659876e-14
+        },
+        "mu_plus_fraction_of_exact_Compton_reduced_absorption_unweighted_grid_sum": 0.0018428189163265192,
+        "refinement_checks": [
+          {
+            "mu_minus_relative_refinement_change": 0.0020604649798785543,
+            "mu_plus_relative_refinement_change": 0.0015867339961060513,
+            "omega_MeV": 15.0,
+            "radius_km": 8.0
+          },
+          {
+            "mu_minus_relative_refinement_change": 0.00020528728453201802,
+            "mu_plus_relative_refinement_change": 0.00011801543398282701,
+            "omega_MeV": 20.0,
+            "radius_km": 12.5
+          },
+          {
+            "mu_minus_relative_refinement_change": 0.0001578267172078394,
+            "mu_plus_relative_refinement_change": 0.00016275678921449084,
+            "omega_MeV": 30.0,
+            "radius_km": 15.0
+          }
+        ]
+      },
+      "B13_radial_shell_diagnostics": {
+        "10_15km": {
+          "escaped_luminosity_fraction": 0.30056077609217985,
+          "source_fraction": 0.4342904694630927
+        },
+        "5_10km": {
+          "escaped_luminosity_fraction": 0.6703862419032438,
+          "source_fraction": 0.5294609999441166
+        }
+      },
+      "B13_strong_endpoint_escape_fraction": 0.000494462158433136,
+      "B13_thin_luminosity_ratio_vs_B16": 0.7889816820014787,
+      "B16_archived_closure_residual": 0.0,
+      "B16_metrics_vs_Fig7": {
+        "maximum_absolute_relative_difference": 0.9162124624116661,
+        "mean_absolute_relative_difference": 0.15797145568954485,
+        "reference_peak_relative_difference": 0.02239299446228049,
+        "strong_endpoint_relative_difference": 0.9162124624116661,
+        "weak_endpoint_relative_difference": -0.0917839388162277
+      },
+      "B16_radial_shell_diagnostics": {
+        "10_15km": {
+          "escaped_luminosity_fraction": 0.37434022808364226,
+          "source_fraction": 0.3979956448123314
+        },
+        "5_10km": {
+          "escaped_luminosity_fraction": 0.5912650845193268,
+          "source_fraction": 0.5732040162789158
+        }
+      },
+      "configuration": {
+        "B13_current": "pure vector, g_V=1, g_A=0, rates per g_X^2",
+        "B13_kernel_orders": [
+          12,
+          8,
+          8,
+          8
+        ],
+        "B13_refined_orders": [
+          16,
+          10,
+          10,
+          10
+        ],
+        "B2_convention": "literal scalar mode-summed opacity in the fixed-omega Eq. (B.2) ray exponent",
+        "active_energy_node_count": 97,
+        "active_opacity_fraction_threshold": 1e-08,
+        "active_radial_node_count": 27,
+        "active_radial_nodes_km": [
+          0.0,
+          0.3471592210148686,
+          1.6500473910378592,
+          3.3499526089621408,
+          4.652840778985132,
+          5.208295532608921,
+          5.990028434622715,
+          7.009971565377285,
+          7.791704467391079,
+          8.138863688405948,
+          8.660018956415144,
+          9.339981043584856,
+          9.861136311594052,
+          10.138863688405948,
+          10.660018956415144,
+          11.339981043584856,
+          11.861136311594052,
+          12.208295532608922,
+          12.990028434622715,
+          14.009971565377285,
+          14.791704467391078,
+          15.208295532608922,
+          15.990028434622715,
+          17.009971565377285,
+          17.791704467391078,
+          18.138863688405948,
+          18.660018956415144
+        ],
+        "angular_order": 16,
+        "charge_cases": {
+          "both_charges": "mu-minus plus mu-plus exact moving-muon Compton rates",
+          "mu_minus_only": "like-for-like with the single negative-muon distribution in B.17"
+        },
+        "energy_offset_MeV": 1000.0,
+        "energy_order": 150,
+        "exact_B13_kernel_evaluations": 2619,
+        "global_emission_threshold_MeV": 10.8733512164927,
+        "inactive_radial_nodes_km": [
+          19.339981043584856,
+          19.861136311594052,
+          20.138863688405948,
+          20.660018956415144,
+          21.339981043584856,
+          21.861136311594052,
+          22.138863688405948,
+          22.660018956415144,
+          23.339981043584856,
+          23.861136311594052,
+          24.069431844202974,
+          24.33000947820757,
+          24.66999052179243,
+          24.930568155797026,
+          25.0
+        ],
+        "path_order": 32,
+        "radial_order": 40,
+        "radius_km": 25.0,
+        "wall_time_seconds": 405.38452219963074
+      }
+    },
+    "energy200": {
+      "B13_metrics_vs_Fig7": {
+        "maximum_absolute_relative_difference": 1.3052583577875132,
+        "mean_absolute_relative_difference": 0.3038773817160376,
+        "reference_peak_relative_difference": -0.16701695534325534,
+        "strong_endpoint_relative_difference": 1.3052583577875132,
+        "weak_endpoint_relative_difference": -0.2842057053363032
+      },
+      "B13_numerical_validation": {
+        "B13_mu_minus_over_B16_mu_minus_production_ratio": {
+          "maximum": 0.8233828272253297,
+          "median": 0.4993203842521723,
+          "minimum": 0.09950395342236056
+        },
+        "angle_weight_residual": 0.0,
+        "maximum_residuals": {
+          "final_muon_shell": 3.9202876450811345e-13,
+          "mu_minus_absorption_vs_production": 1.4868481584226177e-14,
+          "mu_minus_mode_detailed_balance": 1.4872822584373622e-14,
+          "mu_plus_absorption_vs_production": 1.6880680687213262e-14,
+          "mu_plus_mode_detailed_balance": 1.7733169874565964e-14
+        },
+        "mu_plus_fraction_of_exact_Compton_reduced_absorption_unweighted_grid_sum": 0.001693212181132329,
+        "refinement_checks": [
+          {
+            "mu_minus_relative_refinement_change": 0.0020604649798785543,
+            "mu_plus_relative_refinement_change": 0.0015867339961060513,
+            "omega_MeV": 15.0,
+            "radius_km": 8.0
+          },
+          {
+            "mu_minus_relative_refinement_change": 0.00020528728453201802,
+            "mu_plus_relative_refinement_change": 0.00011801543398282701,
+            "omega_MeV": 20.0,
+            "radius_km": 12.5
+          },
+          {
+            "mu_minus_relative_refinement_change": 0.0001578267172078394,
+            "mu_plus_relative_refinement_change": 0.00016275678921449084,
+            "omega_MeV": 30.0,
+            "radius_km": 15.0
+          }
+        ]
+      },
+      "B13_radial_shell_diagnostics": {
+        "10_15km": {
+          "escaped_luminosity_fraction": 0.3005616538159646,
+          "source_fraction": 0.43429064622818536
+        },
+        "5_10km": {
+          "escaped_luminosity_fraction": 0.6703882881760354,
+          "source_fraction": 0.5294615878919429
+        }
+      },
+      "B13_strong_endpoint_escape_fraction": 0.0004944616291855089,
+      "B13_thin_luminosity_ratio_vs_B16": 0.7889814779729638,
+      "B16_archived_closure_residual": 0.0,
+      "B16_metrics_vs_Fig7": {
+        "maximum_absolute_relative_difference": 0.9140638828578567,
+        "mean_absolute_relative_difference": 0.1581975463522931,
+        "reference_peak_relative_difference": 0.021250244589624323,
+        "strong_endpoint_relative_difference": 0.9140638828578567,
+        "weak_endpoint_relative_difference": -0.09280051887733198
+      },
+      "B16_radial_shell_diagnostics": {
+        "10_15km": {
+          "escaped_luminosity_fraction": 0.3743415479440627,
+          "source_fraction": 0.3979957387278682
+        },
+        "5_10km": {
+          "escaped_luminosity_fraction": 0.5912672671984031,
+          "source_fraction": 0.5732045332805542
+        }
+      },
+      "configuration": {
+        "B13_current": "pure vector, g_V=1, g_A=0, rates per g_X^2",
+        "B13_kernel_orders": [
+          12,
+          8,
+          8,
+          8
+        ],
+        "B13_refined_orders": [
+          16,
+          10,
+          10,
+          10
+        ],
+        "B2_convention": "literal scalar mode-summed opacity in the fixed-omega Eq. (B.2) ray exponent",
+        "active_energy_node_count": 117,
+        "active_opacity_fraction_threshold": 1e-08,
+        "active_radial_node_count": 27,
+        "active_radial_nodes_km": [
+          0.0,
+          0.3471592210148686,
+          1.6500473910378592,
+          3.3499526089621408,
+          4.652840778985132,
+          5.208295532608921,
+          5.990028434622715,
+          7.009971565377285,
+          7.791704467391079,
+          8.138863688405948,
+          8.660018956415144,
+          9.339981043584856,
+          9.861136311594052,
+          10.138863688405948,
+          10.660018956415144,
+          11.339981043584856,
+          11.861136311594052,
+          12.208295532608922,
+          12.990028434622715,
+          14.009971565377285,
+          14.791704467391078,
+          15.208295532608922,
+          15.990028434622715,
+          17.009971565377285,
+          17.791704467391078,
+          18.138863688405948,
+          18.660018956415144
+        ],
+        "angular_order": 16,
+        "charge_cases": {
+          "both_charges": "mu-minus plus mu-plus exact moving-muon Compton rates",
+          "mu_minus_only": "like-for-like with the single negative-muon distribution in B.17"
+        },
+        "energy_offset_MeV": 1000.0,
+        "energy_order": 200,
+        "exact_B13_kernel_evaluations": 3159,
+        "global_emission_threshold_MeV": 10.8733512164927,
+        "inactive_radial_nodes_km": [
+          19.339981043584856,
+          19.861136311594052,
+          20.138863688405948,
+          20.660018956415144,
+          21.339981043584856,
+          21.861136311594052,
+          22.138863688405948,
+          22.660018956415144,
+          23.339981043584856,
+          23.861136311594052,
+          24.069431844202974,
+          24.33000947820757,
+          24.66999052179243,
+          24.930568155797026,
+          25.0
+        ],
+        "path_order": 32,
+        "radial_order": 40,
+        "radius_km": 25.0,
+        "wall_time_seconds": 641.6849365234375
+      }
+    },
+    "path48": {
+      "B13_metrics_vs_Fig7": {
+        "maximum_absolute_relative_difference": 1.315337345327007,
+        "mean_absolute_relative_difference": 0.3025926607369195,
+        "reference_peak_relative_difference": -0.1633982212806816,
+        "strong_endpoint_relative_difference": 1.315337345327007,
+        "weak_endpoint_relative_difference": -0.2810903399906809
+      },
+      "B13_numerical_validation": {
+        "B13_mu_minus_over_B16_mu_minus_production_ratio": {
+          "maximum": 0.8233730350692408,
+          "median": 0.5246411913680231,
+          "minimum": 0.09950395342236056
+        },
+        "angle_weight_residual": 0.0,
+        "maximum_residuals": {
+          "final_muon_shell": 3.7117270388590294e-13,
+          "mu_minus_absorption_vs_production": 1.3734379829952775e-14,
+          "mu_minus_mode_detailed_balance": 1.3869832828132552e-14,
+          "mu_plus_absorption_vs_production": 1.4443909517799305e-14,
+          "mu_plus_mode_detailed_balance": 1.5258094567659876e-14
+        },
+        "mu_plus_fraction_of_exact_Compton_reduced_absorption_unweighted_grid_sum": 0.0021546367022935663,
+        "refinement_checks": [
+          {
+            "mu_minus_relative_refinement_change": 0.0020604649798785543,
+            "mu_plus_relative_refinement_change": 0.0015867339961060513,
+            "omega_MeV": 15.0,
+            "radius_km": 8.0
+          },
+          {
+            "mu_minus_relative_refinement_change": 0.00020528728453201802,
+            "mu_plus_relative_refinement_change": 0.00011801543398282701,
+            "omega_MeV": 20.0,
+            "radius_km": 12.5
+          },
+          {
+            "mu_minus_relative_refinement_change": 0.0001578267172078394,
+            "mu_plus_relative_refinement_change": 0.00016275678921449084,
+            "omega_MeV": 30.0,
+            "radius_km": 15.0
+          }
+        ]
+      },
+      "B13_radial_shell_diagnostics": {
+        "10_15km": {
+          "escaped_luminosity_fraction": 0.30055099639937,
+          "source_fraction": 0.4342899816754253
+        },
+        "5_10km": {
+          "escaped_luminosity_fraction": 0.6703885494832277,
+          "source_fraction": 0.5294593432332462
+        }
+      },
+      "B13_strong_endpoint_escape_fraction": 0.000494471361973273,
+      "B13_thin_luminosity_ratio_vs_B16": 0.7889822588036474,
+      "B16_archived_closure_residual": 0.0,
+      "B16_metrics_vs_Fig7": {
+        "maximum_absolute_relative_difference": 0.9225153041514498,
+        "mean_absolute_relative_difference": 0.15733154817957246,
+        "reference_peak_relative_difference": 0.025690654410871705,
+        "strong_endpoint_relative_difference": 0.9225153041514498,
+        "weak_endpoint_relative_difference": -0.08885298339889969
+      },
+      "B16_radial_shell_diagnostics": {
+        "10_15km": {
+          "escaped_luminosity_fraction": 0.3743098980504123,
+          "source_fraction": 0.39799538904483556
+        },
+        "5_10km": {
+          "escaped_luminosity_fraction": 0.5912878474798667,
+          "source_fraction": 0.5732025586527975
+        }
+      },
+      "configuration": {
+        "B13_current": "pure vector, g_V=1, g_A=0, rates per g_X^2",
+        "B13_kernel_orders": [
+          12,
+          8,
+          8,
+          8
+        ],
+        "B13_refined_orders": [
+          16,
+          10,
+          10,
+          10
+        ],
+        "B2_convention": "literal scalar mode-summed opacity in the fixed-omega Eq. (B.2) ray exponent",
+        "active_energy_node_count": 78,
+        "active_opacity_fraction_threshold": 1e-08,
+        "active_radial_node_count": 27,
+        "active_radial_nodes_km": [
+          0.0,
+          0.3471592210148686,
+          1.6500473910378592,
+          3.3499526089621408,
+          4.652840778985132,
+          5.208295532608921,
+          5.990028434622715,
+          7.009971565377285,
+          7.791704467391079,
+          8.138863688405948,
+          8.660018956415144,
+          9.339981043584856,
+          9.861136311594052,
+          10.138863688405948,
+          10.660018956415144,
+          11.339981043584856,
+          11.861136311594052,
+          12.208295532608922,
+          12.990028434622715,
+          14.009971565377285,
+          14.791704467391078,
+          15.208295532608922,
+          15.990028434622715,
+          17.009971565377285,
+          17.791704467391078,
+          18.138863688405948,
+          18.660018956415144
+        ],
+        "angular_order": 16,
+        "charge_cases": {
+          "both_charges": "mu-minus plus mu-plus exact moving-muon Compton rates",
+          "mu_minus_only": "like-for-like with the single negative-muon distribution in B.17"
+        },
+        "energy_offset_MeV": 1000.0,
+        "energy_order": 100,
+        "exact_B13_kernel_evaluations": 2106,
+        "global_emission_threshold_MeV": 10.8733512164927,
+        "inactive_radial_nodes_km": [
+          19.339981043584856,
+          19.861136311594052,
+          20.138863688405948,
+          20.660018956415144,
+          21.339981043584856,
+          21.861136311594052,
+          22.138863688405948,
+          22.660018956415144,
+          23.339981043584856,
+          23.861136311594052,
+          24.069431844202974,
+          24.33000947820757,
+          24.66999052179243,
+          24.930568155797026,
+          25.0
+        ],
+        "path_order": 48,
+        "radial_order": 40,
+        "radius_km": 25.0,
+        "wall_time_seconds": 332.5306224822998
+      }
+    },
+    "path64": {
+      "B13_metrics_vs_Fig7": {
+        "maximum_absolute_relative_difference": 1.31534874493012,
+        "mean_absolute_relative_difference": 0.30259334460114506,
+        "reference_peak_relative_difference": -0.16339198273204025,
+        "strong_endpoint_relative_difference": 1.31534874493012,
+        "weak_endpoint_relative_difference": -0.2810903224461371
+      },
+      "B13_numerical_validation": {
+        "B13_mu_minus_over_B16_mu_minus_production_ratio": {
+          "maximum": 0.8233730350692408,
+          "median": 0.5246411913680231,
+          "minimum": 0.09950395342236056
+        },
+        "angle_weight_residual": 0.0,
+        "maximum_residuals": {
+          "final_muon_shell": 3.7117270388590294e-13,
+          "mu_minus_absorption_vs_production": 1.3734379829952775e-14,
+          "mu_minus_mode_detailed_balance": 1.3869832828132552e-14,
+          "mu_plus_absorption_vs_production": 1.4443909517799305e-14,
+          "mu_plus_mode_detailed_balance": 1.5258094567659876e-14
+        },
+        "mu_plus_fraction_of_exact_Compton_reduced_absorption_unweighted_grid_sum": 0.0021546367022935663,
+        "refinement_checks": [
+          {
+            "mu_minus_relative_refinement_change": 0.0020604649798785543,
+            "mu_plus_relative_refinement_change": 0.0015867339961060513,
+            "omega_MeV": 15.0,
+            "radius_km": 8.0
+          },
+          {
+            "mu_minus_relative_refinement_change": 0.00020528728453201802,
+            "mu_plus_relative_refinement_change": 0.00011801543398282701,
+            "omega_MeV": 20.0,
+            "radius_km": 12.5
+          },
+          {
+            "mu_minus_relative_refinement_change": 0.0001578267172078394,
+            "mu_plus_relative_refinement_change": 0.00016275678921449084,
+            "omega_MeV": 30.0,
+            "radius_km": 15.0
+          }
+        ]
+      },
+      "B13_radial_shell_diagnostics": {
+        "10_15km": {
+          "escaped_luminosity_fraction": 0.3005481192365141,
+          "source_fraction": 0.4342899816754253
+        },
+        "5_10km": {
+          "escaped_luminosity_fraction": 0.6703916287683781,
+          "source_fraction": 0.5294593432332462
+        }
+      },
+      "B13_strong_endpoint_escape_fraction": 0.0004944737965115007,
+      "B13_thin_luminosity_ratio_vs_B16": 0.7889822588036474,
+      "B16_archived_closure_residual": 0.0,
+      "B16_metrics_vs_Fig7": {
+        "maximum_absolute_relative_difference": 0.9225359675867704,
+        "mean_absolute_relative_difference": 0.15733831786771596,
+        "reference_peak_relative_difference": 0.025708179534494446,
+        "strong_endpoint_relative_difference": 0.9225359675867704,
+        "weak_endpoint_relative_difference": -0.08885294158713786
+      },
+      "B16_radial_shell_diagnostics": {
+        "10_15km": {
+          "escaped_luminosity_fraction": 0.37430063090732074,
+          "source_fraction": 0.39799538904483556
+        },
+        "5_10km": {
+          "escaped_luminosity_fraction": 0.5912975843763024,
+          "source_fraction": 0.5732025586527975
+        }
+      },
+      "configuration": {
+        "B13_current": "pure vector, g_V=1, g_A=0, rates per g_X^2",
+        "B13_kernel_orders": [
+          12,
+          8,
+          8,
+          8
+        ],
+        "B13_refined_orders": [
+          16,
+          10,
+          10,
+          10
+        ],
+        "B2_convention": "literal scalar mode-summed opacity in the fixed-omega Eq. (B.2) ray exponent",
+        "active_energy_node_count": 78,
+        "active_opacity_fraction_threshold": 1e-08,
+        "active_radial_node_count": 27,
+        "active_radial_nodes_km": [
+          0.0,
+          0.3471592210148686,
+          1.6500473910378592,
+          3.3499526089621408,
+          4.652840778985132,
+          5.208295532608921,
+          5.990028434622715,
+          7.009971565377285,
+          7.791704467391079,
+          8.138863688405948,
+          8.660018956415144,
+          9.339981043584856,
+          9.861136311594052,
+          10.138863688405948,
+          10.660018956415144,
+          11.339981043584856,
+          11.861136311594052,
+          12.208295532608922,
+          12.990028434622715,
+          14.009971565377285,
+          14.791704467391078,
+          15.208295532608922,
+          15.990028434622715,
+          17.009971565377285,
+          17.791704467391078,
+          18.138863688405948,
+          18.660018956415144
+        ],
+        "angular_order": 16,
+        "charge_cases": {
+          "both_charges": "mu-minus plus mu-plus exact moving-muon Compton rates",
+          "mu_minus_only": "like-for-like with the single negative-muon distribution in B.17"
+        },
+        "energy_offset_MeV": 1000.0,
+        "energy_order": 100,
+        "exact_B13_kernel_evaluations": 2106,
+        "global_emission_threshold_MeV": 10.8733512164927,
+        "inactive_radial_nodes_km": [
+          19.339981043584856,
+          19.861136311594052,
+          20.138863688405948,
+          20.660018956415144,
+          21.339981043584856,
+          21.861136311594052,
+          22.138863688405948,
+          22.660018956415144,
+          23.339981043584856,
+          23.861136311594052,
+          24.069431844202974,
+          24.33000947820757,
+          24.66999052179243,
+          24.930568155797026,
+          25.0
+        ],
+        "path_order": 64,
+        "radial_order": 40,
+        "radius_km": 25.0,
+        "wall_time_seconds": 432.2002902030945
+      }
+    },
+    "radial60": {
+      "B13_metrics_vs_Fig7": {
+        "maximum_absolute_relative_difference": 1.3177615497402044,
+        "mean_absolute_relative_difference": 0.3026830097333722,
+        "reference_peak_relative_difference": -0.16326422210588254,
+        "strong_endpoint_relative_difference": 1.3177615497402044,
+        "weak_endpoint_relative_difference": -0.28101310557732284
+      },
+      "B13_numerical_validation": {
+        "B13_mu_minus_over_B16_mu_minus_production_ratio": {
+          "maximum": 0.8194300484838272,
+          "median": 0.5323961471750036,
+          "minimum": 0.09935789286378213
+        },
+        "angle_weight_residual": 0.0,
+        "maximum_residuals": {
+          "final_muon_shell": 3.7117270388590294e-13,
+          "mu_minus_absorption_vs_production": 1.9433135716191458e-14,
+          "mu_minus_mode_detailed_balance": 2.1607187788602333e-14,
+          "mu_plus_absorption_vs_production": 1.6864150772155603e-14,
+          "mu_plus_mode_detailed_balance": 1.686748409599529e-14
+        },
+        "mu_plus_fraction_of_exact_Compton_reduced_absorption_unweighted_grid_sum": 0.0025767145353082534,
+        "refinement_checks": [
+          {
+            "mu_minus_relative_refinement_change": 0.0020694913662458567,
+            "mu_plus_relative_refinement_change": 0.0015942873493274984,
+            "omega_MeV": 15.0,
+            "radius_km": 8.0
+          },
+          {
+            "mu_minus_relative_refinement_change": 0.00020581962902579143,
+            "mu_plus_relative_refinement_change": 0.00011858591009102097,
+            "omega_MeV": 20.0,
+            "radius_km": 12.5
+          },
+          {
+            "mu_minus_relative_refinement_change": 0.0001576419548152495,
+            "mu_plus_relative_refinement_change": 0.00016266954467530876,
+            "omega_MeV": 30.0,
+            "radius_km": 15.0
+          }
+        ]
+      },
+      "B13_radial_shell_diagnostics": {
+        "10_15km": {
+          "escaped_luminosity_fraction": 0.30037517597489544,
+          "source_fraction": 0.4342570639387472
+        },
+        "5_10km": {
+          "escaped_luminosity_fraction": 0.6699409056550363,
+          "source_fraction": 0.5295100418369193
+        }
+      },
+      "B13_strong_endpoint_escape_fraction": 0.000494935983467378,
+      "B13_thin_luminosity_ratio_vs_B16": 0.7888237774316303,
+      "B16_archived_closure_residual": 0.0,
+      "B16_metrics_vs_Fig7": {
+        "maximum_absolute_relative_difference": 0.9262999837610466,
+        "mean_absolute_relative_difference": 0.15752330094274042,
+        "reference_peak_relative_difference": 0.026150896674468127,
+        "strong_endpoint_relative_difference": 0.9262999837610466,
+        "weak_endpoint_relative_difference": -0.0885718384901224
+      },
+      "B16_radial_shell_diagnostics": {
+        "10_15km": {
+          "escaped_luminosity_fraction": 0.37433613876701066,
+          "source_fraction": 0.39790087437850613
+        },
+        "5_10km": {
+          "escaped_luminosity_fraction": 0.5905440223270192,
+          "source_fraction": 0.5733163753096723
+        }
+      },
+      "configuration": {
+        "B13_current": "pure vector, g_V=1, g_A=0, rates per g_X^2",
+        "B13_kernel_orders": [
+          12,
+          8,
+          8,
+          8
+        ],
+        "B13_refined_orders": [
+          16,
+          10,
+          10,
+          10
+        ],
+        "B2_convention": "literal scalar mode-summed opacity in the fixed-omega Eq. (B.2) ray exponent",
+        "active_energy_node_count": 98,
+        "active_opacity_fraction_threshold": 1e-08,
+        "active_radial_node_count": 39,
+        "active_radial_nodes_km": [
+          0.0,
+          0.1688262144921202,
+          0.8469765338343387,
+          1.9034520347920076,
+          3.0965479652079924,
+          4.153023466165662,
+          4.83117378550788,
+          5.101295728695272,
+          5.508185920300603,
+          6.142071220875205,
+          6.857928779124795,
+          7.491814079699397,
+          7.898704271304728,
+          8.067530485796848,
+          8.338790613533735,
+          8.761380813916803,
+          9.238619186083197,
+          9.661209386466265,
+          9.932469514203152,
+          10.067530485796848,
+          10.338790613533735,
+          10.761380813916803,
+          11.238619186083197,
+          11.661209386466265,
+          11.932469514203152,
+          12.101295728695272,
+          12.508185920300603,
+          13.142071220875204,
+          13.857928779124796,
+          14.491814079699397,
+          14.898704271304728,
+          15.101295728695272,
+          15.508185920300603,
+          16.142071220875206,
+          16.857928779124794,
+          17.491814079699395,
+          17.898704271304727,
+          18.067530485796848,
+          18.338790613533735
+        ],
+        "angular_order": 16,
+        "charge_cases": {
+          "both_charges": "mu-minus plus mu-plus exact moving-muon Compton rates",
+          "mu_minus_only": "like-for-like with the single negative-muon distribution in B.17"
+        },
+        "energy_offset_MeV": 1000.0,
+        "energy_order": 100,
+        "exact_B13_kernel_evaluations": 3822,
+        "global_emission_threshold_MeV": 10.871935756595729,
+        "inactive_radial_nodes_km": [
+          18.7613808139168,
+          19.2386191860832,
+          19.661209386466265,
+          19.932469514203152,
+          20.067530485796848,
+          20.338790613533735,
+          20.7613808139168,
+          21.2386191860832,
+          21.661209386466265,
+          21.932469514203152,
+          22.067530485796848,
+          22.338790613533735,
+          22.7613808139168,
+          23.2386191860832,
+          23.661209386466265,
+          23.932469514203152,
+          24.033765242898426,
+          24.16939530676687,
+          24.3806904069584,
+          24.6193095930416,
+          24.83060469323313,
+          24.966234757101574,
+          25.0
+        ],
+        "path_order": 32,
+        "radial_order": 60,
+        "radius_km": 25.0,
+        "wall_time_seconds": 759.4209060668945
+      }
+    },
+    "radial80": {
+      "B13_metrics_vs_Fig7": {
+        "maximum_absolute_relative_difference": 1.3256091044610159,
+        "mean_absolute_relative_difference": 0.3028381779687594,
+        "reference_peak_relative_difference": -0.16219919104251146,
+        "strong_endpoint_relative_difference": 1.3256091044610159,
+        "weak_endpoint_relative_difference": -0.2803153692121043
+      },
+      "B13_numerical_validation": {
+        "B13_mu_minus_over_B16_mu_minus_production_ratio": {
+          "maximum": 0.8211891997504284,
+          "median": 0.5394843751058145,
+          "minimum": 0.09939358914288408
+        },
+        "angle_weight_residual": 0.0,
+        "maximum_residuals": {
+          "final_muon_shell": 3.7964547851367595e-13,
+          "mu_minus_absorption_vs_production": 1.311406917723945e-14,
+          "mu_minus_mode_detailed_balance": 1.3116662241724799e-14,
+          "mu_plus_absorption_vs_production": 1.6019900668840688e-14,
+          "mu_plus_mode_detailed_balance": 1.8569273150060057e-14
+        },
+        "mu_plus_fraction_of_exact_Compton_reduced_absorption_unweighted_grid_sum": 0.0029335355378178043,
+        "refinement_checks": [
+          {
+            "mu_minus_relative_refinement_change": 0.002072878508220596,
+            "mu_plus_relative_refinement_change": 0.001597127642186415,
+            "omega_MeV": 15.0,
+            "radius_km": 8.0
+          },
+          {
+            "mu_minus_relative_refinement_change": 0.00020546081300411466,
+            "mu_plus_relative_refinement_change": 0.00011823257108177985,
+            "omega_MeV": 20.0,
+            "radius_km": 12.5
+          },
+          {
+            "mu_minus_relative_refinement_change": 0.00015753470037003378,
+            "mu_plus_relative_refinement_change": 0.00016262472306565978,
+            "omega_MeV": 30.0,
+            "radius_km": 15.0
+          }
+        ]
+      },
+      "B13_radial_shell_diagnostics": {
+        "10_15km": {
+          "escaped_luminosity_fraction": 0.29928553518472994,
+          "source_fraction": 0.4337680823805637
+        },
+        "5_10km": {
+          "escaped_luminosity_fraction": 0.6709794079427294,
+          "source_fraction": 0.5300232114972196
+        }
+      },
+      "B13_strong_endpoint_escape_fraction": 0.0004961306027012285,
+      "B13_thin_luminosity_ratio_vs_B16": 0.7882981142439244,
+      "B16_archived_closure_residual": 0.0,
+      "B16_metrics_vs_Fig7": {
+        "maximum_absolute_relative_difference": 0.9332111386359194,
+        "mean_absolute_relative_difference": 0.15777326469508843,
+        "reference_peak_relative_difference": 0.02815828984927604,
+        "strong_endpoint_relative_difference": 0.9332111386359194,
+        "weak_endpoint_relative_difference": -0.08707890838180699
+      },
+      "B16_radial_shell_diagnostics": {
+        "10_15km": {
+          "escaped_luminosity_fraction": 0.37314383072259555,
+          "source_fraction": 0.39718133771520225
+        },
+        "5_10km": {
+          "escaped_luminosity_fraction": 0.5916799891597234,
+          "source_fraction": 0.5740742798852148
+        }
+      },
+      "configuration": {
+        "B13_current": "pure vector, g_V=1, g_A=0, rates per g_X^2",
+        "B13_kernel_orders": [
+          12,
+          8,
+          8,
+          8
+        ],
+        "B13_refined_orders": [
+          16,
+          10,
+          10,
+          10
+        ],
+        "B2_convention": "literal scalar mode-summed opacity in the fixed-omega Eq. (B.2) ray exponent",
+        "active_energy_node_count": 118,
+        "active_opacity_fraction_threshold": 1e-08,
+        "active_radial_node_count": 52,
+        "active_radial_nodes_km": [
+          0.0,
+          0.09927535875615945,
+          0.5083338064659331,
+          1.1861689752091775,
+          2.0414133937608754,
+          2.9585866062391246,
+          3.8138310247908223,
+          4.491666193534067,
+          4.9007246412438406,
+          5.059565215253696,
+          5.30500028387956,
+          5.711701385125506,
+          6.2248480362565255,
+          6.7751519637434745,
+          7.288298614874494,
+          7.69499971612044,
+          7.940434784746304,
+          8.039710143502464,
+          8.203333522586373,
+          8.474467590083671,
+          8.81656535750435,
+          9.18343464249565,
+          9.525532409916329,
+          9.796666477413627,
+          9.960289856497536,
+          10.039710143502464,
+          10.203333522586373,
+          10.474467590083671,
+          10.81656535750435,
+          11.18343464249565,
+          11.525532409916329,
+          11.796666477413627,
+          11.960289856497536,
+          12.059565215253695,
+          12.30500028387956,
+          12.711701385125506,
+          13.224848036256525,
+          13.775151963743475,
+          14.288298614874494,
+          14.69499971612044,
+          14.940434784746305,
+          15.059565215253695,
+          15.30500028387956,
+          15.711701385125506,
+          16.224848036256525,
+          16.775151963743475,
+          17.288298614874492,
+          17.69499971612044,
+          17.940434784746305,
+          18.039710143502464,
+          18.203333522586373,
+          18.47446759008367
+        ],
+        "angular_order": 16,
+        "charge_cases": {
+          "both_charges": "mu-minus plus mu-plus exact moving-muon Compton rates",
+          "mu_minus_only": "like-for-like with the single negative-muon distribution in B.17"
+        },
+        "energy_offset_MeV": 1000.0,
+        "energy_order": 100,
+        "exact_B13_kernel_evaluations": 6136,
+        "global_emission_threshold_MeV": 10.871384733289224,
+        "inactive_radial_nodes_km": [
+          18.81656535750435,
+          19.18343464249565,
+          19.52553240991633,
+          19.796666477413627,
+          19.960289856497536,
+          20.039710143502464,
+          20.203333522586373,
+          20.47446759008367,
+          20.81656535750435,
+          21.18343464249565,
+          21.52553240991633,
+          21.796666477413627,
+          21.960289856497536,
+          22.039710143502464,
+          22.203333522586373,
+          22.47446759008367,
+          22.81656535750435,
+          23.18343464249565,
+          23.52553240991633,
+          23.796666477413627,
+          23.960289856497536,
+          24.01985507175123,
+          24.10166676129319,
+          24.237233795041835,
+          24.408282678752176,
+          24.591717321247824,
+          24.762766204958165,
+          24.89833323870681,
+          24.98014492824877,
+          25.0
+        ],
+        "path_order": 32,
+        "radial_order": 80,
+        "radius_km": 25.0,
+        "wall_time_seconds": 1091.1102764606476
+      }
+    }
+  },
+  "date": "2026-11-09",
+  "fixed_physics": {
+    "B13_kernel_orders": [
+      12,
+      8,
+      8,
+      8
+    ],
+    "B13_refined_point_check_orders": [
+      16,
+      10,
+      10,
+      10
+    ],
+    "B2": "published scalar, polarization-summed, fixed-omega Eq. (B.2)",
+    "charge_convention": "mu-minus only, matching the single-species Eq. (B.17)",
+    "current": "pure vector, g_V=1, g_A=0",
+    "profile_provenance": "1687-row vertex-preserving reconstruction from public figures; not raw Garching output"
+  },
+  "interpretation": "The numerical tolerances are audit criteria, not physical bounds. Pesc and radial-shell fractions are retained separately to expose source/escape cancellations.",
+  "mass_MeV": 10.0,
+  "overall_passed": true,
+  "pairwise_convergence": {
+    "angle_16_to_24": {
+      "B13_mu_minus_consistent_source_and_opacity": {
+        "Lthin": {
+          "max_abs_relative_change": 0.0,
+          "mean_abs_relative_change": 0.0,
+          "reference_peak_relative_change": 0.0,
+          "strong_endpoint_relative_change": 0.0,
+          "weak_endpoint_relative_change": 0.0
+        },
+        "Ltotal": {
+          "max_abs_relative_change": 1.676795868221781e-05,
+          "mean_abs_relative_change": 4.180428228313104e-06,
+          "reference_peak_relative_change": 7.801193640188941e-06,
+          "strong_endpoint_relative_change": 1.676795868221781e-05,
+          "weak_endpoint_relative_change": 2.2063881832679044e-08
+        },
+        "Pesc": {
+          "max_abs_relative_change": 1.676795868221781e-05,
+          "mean_abs_relative_change": 4.18042822833975e-06,
+          "reference_peak_relative_change": 7.801193640188941e-06,
+          "strong_endpoint_relative_change": 1.676795868221781e-05,
+          "weak_endpoint_relative_change": 2.2063881832679044e-08
+        }
+      },
+      "B16_reference": {
+        "Lthin": {
+          "max_abs_relative_change": 0.0,
+          "mean_abs_relative_change": 0.0,
+          "reference_peak_relative_change": 0.0,
+          "strong_endpoint_relative_change": 0.0,
+          "weak_endpoint_relative_change": 0.0
+        },
+        "Ltotal": {
+          "max_abs_relative_change": 5.11693997040652e-05,
+          "mean_abs_relative_change": 1.3032781520463389e-05,
+          "reference_peak_relative_change": 1.665885387813759e-05,
+          "strong_endpoint_relative_change": 5.11693997040652e-05,
+          "weak_endpoint_relative_change": 3.7831597410331597e-08
+        },
+        "Pesc": {
+          "max_abs_relative_change": 5.11693997040652e-05,
+          "mean_abs_relative_change": 1.3032781520463389e-05,
+          "reference_peak_relative_change": 1.665885387813759e-05,
+          "strong_endpoint_relative_change": 5.11693997040652e-05,
+          "weak_endpoint_relative_change": 3.7831597410331597e-08
+        }
+      }
+    },
+    "angle_24_to_32": {
+      "B13_mu_minus_consistent_source_and_opacity": {
+        "Lthin": {
+          "max_abs_relative_change": 0.0,
+          "mean_abs_relative_change": 0.0,
+          "reference_peak_relative_change": 0.0,
+          "strong_endpoint_relative_change": 0.0,
+          "weak_endpoint_relative_change": 0.0
+        },
+        "Ltotal": {
+          "max_abs_relative_change": 5.85203446790139e-06,
+          "mean_abs_relative_change": 1.1506559269403028e-06,
+          "reference_peak_relative_change": -1.329676178607464e-06,
+          "strong_endpoint_relative_change": -5.294846141534748e-07,
+          "weak_endpoint_relative_change": 1.1739342831162958e-10
+        },
+        "Pesc": {
+          "max_abs_relative_change": 5.85203446790139e-06,
+          "mean_abs_relative_change": 1.1506559269447435e-06,
+          "reference_peak_relative_change": -1.329676178607464e-06,
+          "strong_endpoint_relative_change": -5.294846140424525e-07,
+          "weak_endpoint_relative_change": 1.1739342831162958e-10
+        }
+      },
+      "B16_reference": {
+        "Lthin": {
+          "max_abs_relative_change": 0.0,
+          "mean_abs_relative_change": 0.0,
+          "reference_peak_relative_change": 0.0,
+          "strong_endpoint_relative_change": 0.0,
+          "weak_endpoint_relative_change": 0.0
+        },
+        "Ltotal": {
+          "max_abs_relative_change": 1.2759205263779272e-05,
+          "mean_abs_relative_change": 2.428572504316051e-06,
+          "reference_peak_relative_change": -2.1205112878952548e-06,
+          "strong_endpoint_relative_change": 3.209726869846108e-06,
+          "weak_endpoint_relative_change": 2.717319924627759e-09
+        },
+        "Pesc": {
+          "max_abs_relative_change": 1.275920526366825e-05,
+          "mean_abs_relative_change": 2.428572504280524e-06,
+          "reference_peak_relative_change": -2.1205112877842325e-06,
+          "strong_endpoint_relative_change": 3.209726869846108e-06,
+          "weak_endpoint_relative_change": 2.717319924627759e-09
+        }
+      }
+    },
+    "energy_100_to_150": {
+      "B13_mu_minus_consistent_source_and_opacity": {
+        "Lthin": {
+          "max_abs_relative_change": 0.0032175538653188562,
+          "mean_abs_relative_change": 0.003217553865318683,
+          "reference_peak_relative_change": -0.003217553865318523,
+          "strong_endpoint_relative_change": -0.003217553865318745,
+          "weak_endpoint_relative_change": -0.003217553865318745
+        },
+        "Ltotal": {
+          "max_abs_relative_change": 0.0032202276613377823,
+          "mean_abs_relative_change": 0.003215067404309937,
+          "reference_peak_relative_change": -0.0032122643021550434,
+          "strong_endpoint_relative_change": -0.0032202276613377823,
+          "weak_endpoint_relative_change": -0.0032174977187703346
+        },
+        "Pesc": {
+          "max_abs_relative_change": 5.391113036878892e-06,
+          "mean_abs_relative_change": 2.7090813053298747e-06,
+          "reference_peak_relative_change": 5.306637555824167e-06,
+          "strong_endpoint_relative_change": -2.682426871958299e-06,
+          "weak_endpoint_relative_change": 5.632778599107269e-08
+        }
+      },
+      "B16_reference": {
+        "Lthin": {
+          "max_abs_relative_change": 0.0032168251458950525,
+          "mean_abs_relative_change": 0.003216825145894933,
+          "reference_peak_relative_change": -0.0032168251458949415,
+          "strong_endpoint_relative_change": -0.0032168251458949415,
+          "weak_endpoint_relative_change": -0.0032168251458949415
+        },
+        "Ltotal": {
+          "max_abs_relative_change": 0.003221863783044343,
+          "mean_abs_relative_change": 0.003214810433716826,
+          "reference_peak_relative_change": -0.003212264423511524,
+          "strong_endpoint_relative_change": -0.003221863783044343,
+          "weak_endpoint_relative_change": -0.0032167764356634265
+        },
+        "Pesc": {
+          "max_abs_relative_change": 5.054897872058817e-06,
+          "mean_abs_relative_change": 2.425605900100436e-06,
+          "reference_peak_relative_change": 4.5754407762554905e-06,
+          "strong_endpoint_relative_change": -5.054897872058817e-06,
+          "weak_endpoint_relative_change": 4.8867429436327825e-08
+        }
+      }
+    },
+    "energy_150_to_200": {
+      "B13_mu_minus_consistent_source_and_opacity": {
+        "Lthin": {
+          "max_abs_relative_change": 0.001119590526181713,
+          "mean_abs_relative_change": 0.0011195905261814777,
+          "reference_peak_relative_change": -0.001119590526181491,
+          "strong_endpoint_relative_change": -0.001119590526181602,
+          "weak_endpoint_relative_change": -0.0011195905261813799
+        },
+        "Ltotal": {
+          "max_abs_relative_change": 0.0011206596779405054,
+          "mean_abs_relative_change": 0.0011187213655697902,
+          "reference_peak_relative_change": -0.0011177203016337067,
+          "strong_endpoint_relative_change": -0.0011206596779405054,
+          "weak_endpoint_relative_change": -0.001119570929748237
+        },
+        "Pesc": {
+          "max_abs_relative_change": 1.9037571852287272e-06,
+          "mean_abs_relative_change": 9.557628153888941e-07,
+          "reference_peak_relative_change": 1.8723207804161035e-06,
+          "strong_endpoint_relative_change": -1.070350112764018e-06,
+          "weak_endpoint_relative_change": 1.9618397795184706e-08
+        }
+      },
+      "B16_reference": {
+        "Lthin": {
+          "max_abs_relative_change": 0.0011193322183606913,
+          "mean_abs_relative_change": 0.0011193322183605003,
+          "reference_peak_relative_change": -0.0011193322183604693,
+          "strong_endpoint_relative_change": -0.0011193322183603582,
+          "weak_endpoint_relative_change": -0.0011193322183605803
+        },
+        "Ltotal": {
+          "max_abs_relative_change": 0.0011212637408198889,
+          "mean_abs_relative_change": 0.0011186309881725221,
+          "reference_peak_relative_change": -0.0011177207579137205,
+          "strong_endpoint_relative_change": -0.0011212637408198889,
+          "weak_endpoint_relative_change": -0.0011193152208509582
+        },
+        "Pesc": {
+          "max_abs_relative_change": 1.933686897492848e-06,
+          "mean_abs_relative_change": 8.567109288559749e-07,
+          "reference_peak_relative_change": 1.613266227495913e-06,
+          "strong_endpoint_relative_change": -1.933686897492848e-06,
+          "weak_endpoint_relative_change": 1.7016556830284912e-08
+        }
+      }
+    },
+    "path_32_to_48": {
+      "B13_mu_minus_consistent_source_and_opacity": {
+        "Lthin": {
+          "max_abs_relative_change": 0.0,
+          "mean_abs_relative_change": 0.0,
+          "reference_peak_relative_change": 0.0,
+          "strong_endpoint_relative_change": 0.0,
+          "weak_endpoint_relative_change": 0.0
+        },
+        "Ltotal": {
+          "max_abs_relative_change": 1.5930757761628556e-05,
+          "mean_abs_relative_change": 1.7329773173857532e-06,
+          "reference_peak_relative_change": -8.823863403284449e-07,
+          "strong_endpoint_relative_change": 1.5930757761628556e-05,
+          "weak_endpoint_relative_change": -7.730412976414414e-09
+        },
+        "Pesc": {
+          "max_abs_relative_change": 1.5930757761628556e-05,
+          "mean_abs_relative_change": 1.7329773173857532e-06,
+          "reference_peak_relative_change": -8.823863402174226e-07,
+          "strong_endpoint_relative_change": 1.5930757761628556e-05,
+          "weak_endpoint_relative_change": -7.730412976414414e-09
+        }
+      },
+      "B16_reference": {
+        "Lthin": {
+          "max_abs_relative_change": 0.0,
+          "mean_abs_relative_change": 0.0,
+          "reference_peak_relative_change": 0.0,
+          "strong_endpoint_relative_change": 0.0,
+          "weak_endpoint_relative_change": 0.0
+        },
+        "Ltotal": {
+          "max_abs_relative_change": 5.675743745703343e-05,
+          "mean_abs_relative_change": 7.851110818553053e-06,
+          "reference_peak_relative_change": 2.8074819706791487e-06,
+          "strong_endpoint_relative_change": 5.675743745703343e-05,
+          "weak_endpoint_relative_change": -9.194942585111221e-10
+        },
+        "Pesc": {
+          "max_abs_relative_change": 5.675743745681139e-05,
+          "mean_abs_relative_change": 7.851110818521966e-06,
+          "reference_peak_relative_change": 2.8074819706791487e-06,
+          "strong_endpoint_relative_change": 5.675743745681139e-05,
+          "weak_endpoint_relative_change": -9.194941474888196e-10
+        }
+      }
+    },
+    "path_48_to_64": {
+      "B13_mu_minus_consistent_source_and_opacity": {
+        "Lthin": {
+          "max_abs_relative_change": 0.0,
+          "mean_abs_relative_change": 0.0,
+          "reference_peak_relative_change": 0.0,
+          "strong_endpoint_relative_change": 0.0,
+          "weak_endpoint_relative_change": 0.0
+        },
+        "Ltotal": {
+          "max_abs_relative_change": 9.874475250137849e-06,
+          "mean_abs_relative_change": 3.571484985149809e-06,
+          "reference_peak_relative_change": 7.457010969824651e-06,
+          "strong_endpoint_relative_change": 4.923517143540224e-06,
+          "weak_endpoint_relative_change": 2.440437918416194e-08
+        },
+        "Pesc": {
+          "max_abs_relative_change": 9.874475250137849e-06,
+          "mean_abs_relative_change": 3.5714849851231633e-06,
+          "reference_peak_relative_change": 7.457010969824651e-06,
+          "strong_endpoint_relative_change": 4.923517143540224e-06,
+          "weak_endpoint_relative_change": 2.4404378962117335e-08
+        }
+      },
+      "B16_reference": {
+        "Lthin": {
+          "max_abs_relative_change": 0.0,
+          "mean_abs_relative_change": 0.0,
+          "reference_peak_relative_change": 0.0,
+          "strong_endpoint_relative_change": 0.0,
+          "weak_endpoint_relative_change": 0.0
+        },
+        "Ltotal": {
+          "max_abs_relative_change": 2.6775166840131703e-05,
+          "mean_abs_relative_change": 8.57128671310825e-06,
+          "reference_peak_relative_change": 1.708616876583413e-05,
+          "strong_endpoint_relative_change": 1.0748125268911224e-05,
+          "weak_endpoint_relative_change": 4.588914959136048e-08
+        },
+        "Pesc": {
+          "max_abs_relative_change": 2.6775166840131703e-05,
+          "mean_abs_relative_change": 8.571286713117132e-06,
+          "reference_peak_relative_change": 1.7086168766056176e-05,
+          "strong_endpoint_relative_change": 1.0748125268911224e-05,
+          "weak_endpoint_relative_change": 4.588914959136048e-08
+        }
+      }
+    },
+    "radial_40_to_60": {
+      "B13_mu_minus_consistent_source_and_opacity": {
+        "Lthin": {
+          "max_abs_relative_change": 0.00010728638245005584,
+          "mean_abs_relative_change": 0.00010728638244986932,
+          "reference_peak_relative_change": 0.0001072863824498338,
+          "strong_endpoint_relative_change": 0.0001072863824498338,
+          "weak_endpoint_relative_change": 0.0001072863824498338
+        },
+        "Ltotal": {
+          "max_abs_relative_change": 0.0010629673969380082,
+          "mean_abs_relative_change": 0.00019290287611100075,
+          "reference_peak_relative_change": 0.00015928827067779316,
+          "strong_endpoint_relative_change": 0.0010629673969380082,
+          "weak_endpoint_relative_change": 0.00010742497922677785
+        },
+        "Pesc": {
+          "max_abs_relative_change": 0.0009555784939283551,
+          "mean_abs_relative_change": 8.560730916260972e-05,
+          "reference_peak_relative_change": 5.199630973184988e-05,
+          "strong_endpoint_relative_change": 0.0009555784939283551,
+          "weak_endpoint_relative_change": 1.385819090593543e-07
+        }
+      },
+      "B16_reference": {
+        "Lthin": {
+          "max_abs_relative_change": 0.00030821639932421263,
+          "mean_abs_relative_change": 0.00030821639932406166,
+          "reference_peak_relative_change": 0.0003082163993239906,
+          "strong_endpoint_relative_change": 0.00030821639932421263,
+          "weak_endpoint_relative_change": 0.0003082163993239906
+        },
+        "Ltotal": {
+          "max_abs_relative_change": 0.002025477483607041,
+          "mean_abs_relative_change": 0.0004966312723905908,
+          "reference_peak_relative_change": 0.0004515232363153654,
+          "strong_endpoint_relative_change": 0.002025477483607041,
+          "weak_endpoint_relative_change": 0.00030856060065143076
+        },
+        "Pesc": {
+          "max_abs_relative_change": 0.0017167319593396346,
+          "mean_abs_relative_change": 0.00018835681840616126,
+          "reference_peak_relative_change": 0.00014326268108355578,
+          "strong_endpoint_relative_change": 0.0017167319593396346,
+          "weak_endpoint_relative_change": 3.4409527160939035e-07
+        }
+      }
+    },
+    "radial_60_to_80": {
+      "B13_mu_minus_consistent_source_and_opacity": {
+        "Lthin": {
+          "max_abs_relative_change": 0.0009698083551534786,
+          "mean_abs_relative_change": 0.0009698083551532921,
+          "reference_peak_relative_change": 0.0009698083551534786,
+          "strong_endpoint_relative_change": 0.0009698083551532566,
+          "weak_endpoint_relative_change": 0.0009698083551532566
+        },
+        "Ltotal": {
+          "max_abs_relative_change": 0.003385833508926517,
+          "mean_abs_relative_change": 0.001348077374862946,
+          "reference_peak_relative_change": 0.001272840353560012,
+          "strong_endpoint_relative_change": 0.003385833508926517,
+          "weak_endpoint_relative_change": 0.00097044378782285
+        },
+        "Pesc": {
+          "max_abs_relative_change": 0.002413684342531086,
+          "mean_abs_relative_change": 0.00037790252668186143,
+          "reference_peak_relative_change": 0.0003027384001768052,
+          "strong_endpoint_relative_change": 0.002413684342531086,
+          "weak_endpoint_relative_change": 6.348170185077606e-07
+        }
+      },
+      "B16_reference": {
+        "Lthin": {
+          "max_abs_relative_change": 0.0016372880443087379,
+          "mean_abs_relative_change": 0.0016372880443086756,
+          "reference_peak_relative_change": 0.0016372880443087379,
+          "strong_endpoint_relative_change": 0.0016372880443085158,
+          "weak_endpoint_relative_change": 0.0016372880443087379
+        },
+        "Ltotal": {
+          "max_abs_relative_change": 0.0035877874334915294,
+          "mean_abs_relative_change": 0.001977681512535394,
+          "reference_peak_relative_change": 0.0019562358531417523,
+          "strong_endpoint_relative_change": 0.0035877874334915294,
+          "weak_endpoint_relative_change": 0.0016380118273306987
+        },
+        "Pesc": {
+          "max_abs_relative_change": 0.0019473110800329874,
+          "mean_abs_relative_change": 0.0003398370570761777,
+          "reference_peak_relative_change": 0.00031842645300850236,
+          "strong_endpoint_relative_change": 0.0019473110800329874,
+          "weak_endpoint_relative_change": 7.225999179016895e-07
+        }
+      }
+    }
+  },
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "title": "Global B.13 exact-Compton transport convergence audit"
+}

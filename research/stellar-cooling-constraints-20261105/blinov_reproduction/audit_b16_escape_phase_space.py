@@ -304,8 +304,26 @@ def run(profile_path=DEFAULT_PROFILE, fig7_path=DEFAULT_FIG7,
         )
     if current_profile_hash != baseline["profile"]["sha256"]:
         raise ArithmeticError("Profile fingerprint differs from the archived high-order baseline")
-    if current_fig7_hash != baseline["fig7_reference"]["sha256"]:
-        raise ArithmeticError("Fig. 7 digitization fingerprint differs from the archived baseline")
+    # Compare the source PDF and the numerical 10 MeV vertices, not the
+    # serialized JSON byte stream. JSON float formatting can change by one ULP
+    # while preserving the digitized curve and its source PDF.
+    if fig7.get("pdf_sha256") != baseline["fig7_reference"]["pdf_sha256"]:
+        raise ArithmeticError("Fig. 7 source-PDF fingerprint differs from the archived baseline")
+    baseline_points = baseline["eq_b2_fixed_omega_baseline"]["points"]
+    baseline_couplings = np.asarray([point["g"] for point in baseline_points], float)
+    baseline_luminosities = np.asarray(
+        [point["reference_luminosity_erg_s"] for point in baseline_points], float
+    )
+    if (
+        couplings.shape != baseline_couplings.shape
+        or reference_luminosities.shape != baseline_luminosities.shape
+        or not np.allclose(couplings, baseline_couplings, rtol=5.0e-15, atol=0.0)
+        or not np.allclose(reference_luminosities, baseline_luminosities, rtol=5.0e-15, atol=0.0)
+    ):
+        raise ArithmeticError(
+            "Fig. 7 10 MeV reference vertices differ from the archived baseline "
+            "beyond the 5e-15 relative provenance tolerance"
+        )
 
     total_thin = float(np.sum(source))
     base = source[:, None, :] * angle_weights[None, :, None]

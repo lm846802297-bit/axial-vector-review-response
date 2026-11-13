@@ -124,6 +124,8 @@ jobs:
 
           This package is an extracted, self-contained snapshot of the axial-EFT fixed-profile ballistic-cooling benchmark and its associated independent reference audits. It includes source programs, reconstructed profile inputs, saved numerical scans, figures, tests, and B.13/B.16 transport diagnostics.
 
+          The axial production code and the saved axial/vector/endpoint scan arrays are pinned to the stated calculation source baseline. Supplemental B.13/B.16 transport diagnostics include later audit records merged from main; these are separately identifiable by their Git blob SHAs in PACKAGE_FILE_INDEX.csv and do not silently replace the pinned plotted-scan inputs.
+
           It is NOT a final SN1987A exclusion. The pure-vector Blinov Fig. 7 10-MeV strong-absorption validation gate remains NOT PASSED (about +92.24% in the literal fixed-energy comparison). The baseline axial scan uses the initial-muon-rest/effective-density semi-Compton approximation and mode-resolved propagation. The separate literal Blinov reference uses the printed scalar-opacity prescription. These are not interchangeable.
 
           ## Reproduction
