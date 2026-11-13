@@ -34,10 +34,12 @@ G_AXIAL = 0.0
 EXPECTED_PROFILE_SHA256 = (
     "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
 )
-BASE_RADII_KM = (0.0, 5.0, 8.0, 10.0, 12.5, 15.0, 18.66, 22.0, 24.0)
+BASE_RADII_KM = (
+    0.0, 5.0, 8.0, 8.4821412022467, 10.0, 12.5, 15.0, 18.66, 22.0, 24.0,
+)
 BASE_ENERGIES_MEV = (
     10.0, 10.5, 12.0, 15.0, 20.0, 30.0,
-    50.0, 80.0, 120.0, 200.0, 300.0, 510.0, 720.0,
+    50.0, 80.0, 120.0, 200.0, 300.0, 510.0, 720.0, 1500.0,
 )
 
 
@@ -70,7 +72,9 @@ MIDPOINT_ORDERS = (
     (16, 10, 10, 10),
     (20, 12, 12, 12),
 )
-ENERGY_INTEGRAL_RADII_KM = (0.0, 5.0, 8.0, 10.0, 12.5, 15.0, 18.66, 22.0, 24.0)
+ENERGY_INTEGRAL_RADII_KM = (
+    0.0, 5.0, 8.0, 8.4821412022467, 10.0, 12.5, 15.0, 18.66, 22.0, 24.0,
+)
 ENERGY_INTEGRAL_ORDERS = (8, 12, 16, 20)
 ENERGY_INTEGRAL_REFINEMENTS = (24, 28)
 ENERGY_INTEGRAL_INNER_ORDERS = (20, 12, 12, 12)
@@ -511,9 +515,27 @@ def run_audit(profile_path=DEFAULT_PROFILE, output_path=None):
             f"expected {EXPECTED_PROFILE_SHA256}, got {profile_hash}"
         )
 
-    profile_at_grid = load_profile(profile_path, np.asarray(RADII_KM, dtype=float))
-    maximum_temperature = float(np.max(profile_at_grid["T"]))
+    profile_table = np.genfromtxt(profile_path, delimiter=",", names=True)
+    profile_temperature = np.asarray(profile_table["T_MeV"], dtype=float)
+    peak_index = int(np.nanargmax(profile_temperature))
+    maximum_temperature = float(profile_temperature[peak_index])
+    maximum_temperature_radius = float(profile_table["r_km"][peak_index])
     required_maximum_energy = MASS_MEV + ENERGY_INTEGRAL_X_MAX * maximum_temperature
+    if not any(
+        abs(radius - maximum_temperature_radius) < 1.0e-8
+        for radius in RADII_KM
+    ):
+        raise RuntimeError(
+            "Radial grid does not include the maximum-temperature shell: "
+            f"r_peak={maximum_temperature_radius:.9f} km"
+        )
+    if not any(
+        abs(radius - maximum_temperature_radius) < 1.0e-8
+        for radius in ENERGY_INTEGRAL_RADII_KM
+    ):
+        raise RuntimeError(
+            "Local emissivity energy-integral audit omits the maximum-temperature shell"
+        )
     if ENERGIES_MEV[-1] < required_maximum_energy:
         raise RuntimeError(
             "Radial-energy grid does not cover the full local emissivity cutoff: "
@@ -638,6 +660,7 @@ def run_audit(profile_path=DEFAULT_PROFILE, output_path=None):
                 "omega_midpoint_MeV": omega_mid,
                 "energy_midpoint_coordinate": "sqrt(omega-mass)",
             "maximum_profile_temperature_MeV": maximum_temperature,
+            "maximum_profile_temperature_radius_km": maximum_temperature_radius,
             "required_energy_coverage_from_x_max_MeV": required_maximum_energy,
             "energy_coverage_pass": bool(ENERGIES_MEV[-1] >= required_maximum_energy),
                 "order_ladder": ladder,
