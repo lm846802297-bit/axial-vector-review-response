@@ -174,6 +174,69 @@ def amplitude_matrix(
     return vertex_x @ prop_s @ vertex_gamma + vertex_gamma @ prop_u @ vertex_x
 
 
+def pseudoscalar_amplitude_matrix(
+    p: np.ndarray,
+    k: np.ndarray,
+    p_prime: np.ndarray,
+    q: np.ndarray,
+    muon_mass: float,
+    epsilon_gamma: np.ndarray,
+) -> np.ndarray:
+    """Spinor-space gamma-mu -> mu-P amplitude for a unit pseudoscalar vertex.
+
+    The overall phase and pseudoscalar coupling are omitted. This is the
+    independent Goldstone-side amplitude used by the axial Ward-identity test.
+    """
+    s_invariant = (p[0] + k[0]) ** 2 - np.dot(p[1:] + k[1:], p[1:] + k[1:])
+    r = p - q
+    u_invariant = r[0] ** 2 - np.dot(r[1:], r[1:])
+    denom_s = s_invariant - muon_mass**2
+    denom_u = u_invariant - muon_mass**2
+    prop_s = (slash(p + k) + muon_mass * ID4) / denom_s
+    prop_u = (slash(r) + muon_mass * ID4) / denom_u
+    vertex_p = GAMMA5
+    vertex_gamma = slash(epsilon_gamma)
+    return vertex_p @ prop_s @ vertex_gamma + vertex_gamma @ prop_u @ vertex_p
+
+
+def axial_goldstone_ward_identity_residual(
+    photon_energy: float,
+    vector_mass: float,
+    cos_theta: float,
+    muon_mass: float = M_MU_MEV,
+) -> float:
+    """Maximum relative residual of q_nu M_A^nu = 2 m_mu M_P.
+
+    The A' vertex convention is gamma^nu (gV - gA gamma5). Setting
+    (gV,gA)=(0,1) and supplying epsilon_X=q contracts the full s+u
+    amplitude with the outgoing A' momentum. M_P uses a unit gamma5 vertex.
+    The equality is exact at tree level for on-shell external muons; the
+    high-energy equivalence of a physical epsilon_L state to q/m_A is a
+    separate O(m_A/E_A) approximation.
+    """
+    p, k, p_prime, q = lab_kinematics(
+        photon_energy, vector_mass, cos_theta, muon_mass
+    )
+    residual = 0.0
+    for epsilon_gamma in photon_polarizations():
+        axial_contracted = amplitude_matrix(
+            p, k, p_prime, q, muon_mass, epsilon_gamma, q, 0.0, 1.0
+        )
+        pseudoscalar = pseudoscalar_amplitude_matrix(
+            p, k, p_prime, q, muon_mass, epsilon_gamma
+        )
+        for initial_spin in range(2):
+            u_in = u_spinor(p, muon_mass, initial_spin)
+            for final_spin in range(2):
+                u_out = u_spinor(p_prime, muon_mass, final_spin)
+                ubar_out = u_out.conj().T @ GAMMA[0]
+                lhs = ubar_out @ axial_contracted @ u_in
+                rhs = 2.0 * muon_mass * (ubar_out @ pseudoscalar @ u_in)
+                scale = max(abs(lhs), abs(rhs), 1.0e-300)
+                residual = max(residual, abs(lhs - rhs) / scale)
+    return float(residual)
+
+
 def ward_identity_residual(
     photon_energy: float,
     vector_mass: float,
@@ -480,6 +543,22 @@ def run_checks() -> None:
         residual = ward_identity_residual(0.01, 0.001, 0.3, gv, ga)
         assert residual < 1e-7, (gv, ga, residual)
 
+    # Direct axial-current Ward identity against an independently built
+    # unit-pseudoscalar (Goldstone) amplitude. This is stronger than checking
+    # only the 1/m_A'^2 scaling of the physical longitudinal cross section.
+    goldstone_ward_benchmarks = (
+        (10.0, 2.0, 0.3),
+        (1.0, 0.1, -0.5),
+        (200.0, 50.0, 0.8),
+        (1.0, 0.5, 0.1),
+        (30.0, 10.0, -0.9),
+    )
+    goldstone_ward_max = max(
+        axial_goldstone_ward_identity_residual(*point)
+        for point in goldstone_ward_benchmarks
+    )
+    assert goldstone_ward_max < 1.0e-10, goldstone_ward_max
+
     # In the soft-photon, light-A' limit, a conserved vector current has
     # Thomson scattering in T and a suppressed longitudinal mode.
     eg, ma = 1e-4, 1e-7
@@ -535,6 +614,7 @@ def run_checks() -> None:
     print(f"vector soft-limit sigma_L / sigma_T = {sigma_l / sigma_t:.3e}")
     print(f"axial sigma_L(M=0.1 MeV) / sigma_L(M=0.2 MeV) = "
           f"{sig_l_m2 / sig_l_m1:.6f}")
+    print(f"direct axial-Goldstone Ward max residual = {goldstone_ward_max:.3e}")
 
 
 def main() -> None:

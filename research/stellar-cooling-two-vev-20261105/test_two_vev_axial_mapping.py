@@ -38,6 +38,25 @@ class TwoVEVMappingTests(unittest.TestCase):
         self.assertAlmostEqual(eaten_goldstone(vs, vq, 1.0, 0.0)**2
                                + physical_pseudoscalar(vs, vq, 1.0, 0.0)**2, 1.0)
 
+    def test_finite_mixing_current_side_goldstone_requirement(self):
+        p = TwoVEVPoint(v_s=100.0, v_sigma=60.0, g_x=0.02)
+        m_l = 1.77686
+        theta_r = 1.0e-2
+        g_a = -p.g_x * math.cos(theta_r) ** 2
+        pure_axial_uv_value = p.goldstone_lepton_yukawa(m_l)
+        current_required_value = p.longitudinal_current_yukawa(m_l, g_a=g_a)
+        # The existing S-phase map is the leading pure-axial limit. At finite
+        # right mixing the current-side Ward identity requires the cos^2(theta_R)
+        # factor; the UV phase coupling must be matched independently.
+        self.assertAlmostEqual(
+            current_required_value / pure_axial_uv_value,
+            math.cos(theta_r) ** 2,
+            places=14,
+        )
+        self.assertNotAlmostEqual(
+            current_required_value, pure_axial_uv_value, places=8
+        )
+
     def test_invalid_inputs(self):
         for args in ((0.0, 1.0, 0.1), (1.0, -1.0, 0.1), (1.0, 0.0, 0.0)):
             with self.assertRaises(ValueError):

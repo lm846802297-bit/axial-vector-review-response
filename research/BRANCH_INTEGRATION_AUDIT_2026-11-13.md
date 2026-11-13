@@ -212,3 +212,18 @@ The previous packaging workflows had uploaded 13 ZIP artifacts. They were remove
 | 13999345496 | axial-stellar-constraints-review-package | 2026-12-13 00:46 |
 
 The temporary deletion workflow was removed after the successful run. The ongoing collaborator workflow remains validation-only and does not build or upload archives.
+
+
+## 2026-11-13 tree-level branch disposition update
+
+The detailed branch/path/blob comparison is now recorded in research/BRANCH_DISPOSITION_2026-11-13.md. The key distinction is between tree content and commit Ahead/Behind counts:
+
+- Major 1 Higgs-mixing branch: zero branch-only paths and zero unique blobs; the Major 1 source files are already in main. Preserve the extensive branch history.
+- Major 1 Belle II branch: its only unique file is a generated ZIP whose extracted Markdown/SVG deliverable is in main. Preserve the scalar-pole development history.
+- Major 4.4 branch: no unique scientific output; its JSON differences are at floating-point roundoff/runtime-metadata level, and its workflow adds only a comment. Keep main's stricter current audit and outputs.
+- C4-C4-A/B: all local-rate/radial-opacity outputs are in main; the old B.16 escape audit is weaker than the current main version, which checks the PDF fingerprint and numerical reference vertices.
+- Two-VEV: the branch's thermal scripts are older standalone copies; current main uses shared thermal adapters. The branch-only convergence CSV is byte-identical to the canonical original-UV copy.
+- Collaborator archive: no branch-only content; PR #101/#104 contain the current docs and workflow policy.
+- PR #102's research/fig7-10mev-transport-localization-20261113 branch remains open and contains new localization work; keep it active.
+
+Eleven branch refs in two exact-SHA groups have ahead_by=0 relative to main. Their commits are already reachable from main and they are the first safe deletion batch. The exact branch names and SHA guards are listed in the disposition document. No divergent research branch is force-reset or deleted as part of this audit.

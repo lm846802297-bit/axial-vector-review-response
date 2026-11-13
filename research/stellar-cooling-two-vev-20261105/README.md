@@ -67,7 +67,7 @@ extended before computing branching fractions or lifetimes.
 Run from this directory:
 
 ```bash
-python -m unittest -v test_two_vev_axial_mapping.py
+python -m unittest -v test_two_vev_axial_mapping.py test_axial_goldstone_ward_identity.py test_pmns_inclusive_neutrino_trace.py
 python stellar_semi_compton_axial_matrix_element.py --check
 python axial_decay_widths.py
 python stellar_semi_compton_thermal_rate.py --check
