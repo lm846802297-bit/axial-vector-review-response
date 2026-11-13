@@ -23,5 +23,9 @@
     "both_pass": true
   },
   "interval_702_cell_center_pchip_error_recomputed_after_x36_extension": false,
-  "scope": "Selected worst interpolation intervals/cells only; not a full-profile high-order quadrature scan."
+  "scope": "Four selected worst interpolation intervals/cells only; interval-702 PCHIP cell-center comparison is recomputed with order-36 x=36 endpoint values. No full-profile high-order quadrature acceptance.",
+  "interval_702_pchip_cell_center_recomputed_after_x36_extension": true,
+  "interval_702_recomputed_pchip_interpolation_error": 0.004189210717559335,
+  "interval_702_recomputed_bilinear_interpolation_error": 0.05391076899468916,
+  "interval_702_all_quadrature_nodes_pass_0p1pct": true
 }
