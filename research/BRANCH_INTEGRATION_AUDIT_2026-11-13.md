@@ -191,11 +191,11 @@ Completed branch histories are not merged wholesale merely to reduce ahead/behin
 The collaborator ZIP is now a local-only handoff. The repository keeps the builder script, native files, provenance, and checksums. The GitHub Actions workflow is validation-only and no longer builds or uploads a ZIP artifact. Original scientific input archives are separately documented as upstream source inputs and are not generated delivery bundles.
 
 
-### Legacy GitHub Actions ZIP artifacts — one-time cleanup still required
+### Legacy GitHub Actions ZIP artifacts — deleted and verified
 
-The previous packaging workflows uploaded 13 ZIP artifacts before the local-only policy was applied. The current validation workflow no longer creates or uploads archives, but the earlier artifacts remain stored until deleted or expired.
+The previous packaging workflows had uploaded 13 ZIP artifacts. They were removed by the one-time cleanup workflow in run #43358373940, which completed successfully on 2026-11-13. Each of the 13 original workflow runs was then queried again; every run returned zero artifacts. The table is retained only as a historical deletion record, not as an active artifact inventory.
 
-| Artifact ID | Name | Expiry (UTC) |
+| Artifact ID | Name | Original expiry (UTC) |
 |---:|---|---|
 | 14005115238 | Stellar_Cooling_Research_Archive_2026-11-13 | 2026-12-13 02:28 |
 | 14005065033 | Stellar_Cooling_Research_Archive_2026-11-13 | 2026-12-13 02:27 |
@@ -211,4 +211,4 @@ The previous packaging workflows uploaded 13 ZIP artifacts before the local-only
 | 13998169336 | axial-stellar-constraints-review-package | 2026-12-13 00:47 |
 | 13999345496 | axial-stellar-constraints-review-package | 2026-12-13 00:46 |
 
-A one-time manual workflow, .github/workflows/delete-legacy-zip-artifacts.yml, deletes only these exact artifact IDs after the operator selects the explicit confirmation input. The cleanup workflow must be run once from the repository Actions page with the explicit confirmation input. If it is not run, the artifacts expire at the dates above.
+The temporary deletion workflow was removed after the successful run. The ongoing collaborator workflow remains validation-only and does not build or upload archives.
