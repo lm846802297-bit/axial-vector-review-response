@@ -941,3 +941,14 @@ The following non-duplicated source-archive status note is retained from the SFH
 - The cleanup checked each expected SHA and refused any branch used by an open PR.
 - Their merged PR histories remain available; no research source, numerical output, or research-history branch was removed.
 - The one-time cleanup workflow was removed after success.
+
+
+## 2026-11-13 current Major 4.4 branch status
+
+- PR #102 v1 is closed without merge; its branch is retained as a historical snapshot.
+- PR #106 v2 is the active draft, synchronized with current main and limited to nine intended files.
+- B.1 local-energy/\(E_\infty\) integration is exactly equivalent by a Jacobian change of variables.
+- B.2 fixed-\(\omega\) gives +92.43%; the redshift-only conserved-\(E_\infty\) diagnostic gives +36.91% but retains Euclidean chords.
+- The generic static-spherical GR ray kernel passes six independently executed tests, but the reconstructed profile lacks same-snapshot \(B(r)\) and \(M(r)\); the paper's Garching pseudo-Newtonian baseline is spatially flat.
+- The 15–25 km shells contribute 56.71% of source-weighted mean total optical depth; 110–510 MeV supplies 94.43% of escaped luminosity.
+- Local mode sums/detailed balance pass at \(10^{-14}\), while scalar B.2 and mode-resolved propagation differ by 76.37. Keep them separate; no opacity correction or axial-curve update is authorized.

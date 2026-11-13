@@ -71,10 +71,13 @@ The original workstream inventory in sections 1–5 reflects main commit `ca998e
 
 ## 7. Branch disposition and active work
 
-The file research/BRANCH_DISPOSITION_2026-11-13.md records tree/blob-level findings for Major 1, Major 4.4, C4-C4-A/B, two-VEV, and collaborator-archive branches. It distinguishes branches safe to delete because their commits are already reachable from main from historical branches that should be preserved. PR #102's 10 MeV Fig. 7 localization branch remains active and must not be removed.
+The file research/BRANCH_DISPOSITION_2026-11-13.md records tree/blob-level findings for Major 1, Major 4.4, C4-C4-A/B, two-VEV, and collaborator-archive branches. It distinguishes branches safe to delete because their commits are already reachable from main from historical branches that should be preserved. PR #106 v2 is the active 10 MeV B.2/GR/polarization follow-up; PR #102 v1 is closed without merge and retained as historical context.
 
 
 The first ancestry-safe branch cleanup batch is complete: 11 refs whose commits were already reachable from main were deleted and verified absent in Actions run #43364401393. Divergent research-history branches and the active PR #102 branch were preserved.
 
 
 The second cleanup batch removed five completed administrative branches after exact-SHA and open-PR checks; run #43364866549 completed successfully and all five refs were verified absent. Research-history branches remain preserved.
+
+
+PR #106 v2 is synchronized with current main and remains Draft pending the physical transport review. The B.1 energy-variable transformation is exact; B.2 path-energy and scalar-versus-mode transport prescriptions remain distinct, and no axial limit is updated.
