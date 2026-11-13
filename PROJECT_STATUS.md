@@ -916,4 +916,4 @@ The following non-duplicated source-archive status note is retained from the SFH
 - The pure-vector Blinov Fig. 7 physical benchmark remains **NOT PASSED** at the 10 MeV strong-absorption end. No axial limit curve is promoted by this documentation and repository-organization update.
 
 
-- Thirteen legacy GitHub Actions ZIP artifacts from earlier packaging runs were identified. The current workflow no longer uploads ZIPs; the exact IDs and expiry times are recorded in BRANCH_INTEGRATION_AUDIT_2026-11-13.md. A confirmation-gated one-time cleanup workflow is included because the current GitHub connection does not expose artifact deletion.
+- Thirteen legacy GitHub Actions ZIP artifacts from earlier packaging runs were deleted by cleanup run #43358373940. All 13 original workflow runs were re-queried and returned zero remaining artifacts. The temporary cleanup workflow was removed after success.

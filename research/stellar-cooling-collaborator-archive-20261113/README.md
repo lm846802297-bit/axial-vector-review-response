@@ -72,7 +72,7 @@ python research/stellar-cooling-collaborator-archive-20261113/build_archive.py \
   --generated-figures ../stellar-cooling-review-figures
 ```
 
-The generated ZIP is a direct handoff file only. Do not commit it, publish it as a GitHub Release asset, or upload it as a GitHub Actions artifact. The repository retains the extracted/native files, reports, code, results, manifests, and the local builder script. The optional GitHub Actions workflow is validation-only and does not create an archive. Thirteen artifacts uploaded by earlier runs remain until deleted or expired; run the confirmation-gated delete-legacy-zip-artifacts workflow once to remove them.
+The generated ZIP is a direct handoff file only. Do not commit it, publish it as a GitHub Release asset, or upload it as a GitHub Actions artifact. The repository retains the extracted/native files, reports, code, results, manifests, and the local builder script. The optional GitHub Actions workflow is validation-only and does not create an archive. Thirteen pre-policy ZIP artifacts were deleted in run #43358373940; all 13 original runs were rechecked and returned zero remaining artifacts. The one-time cleanup workflow was removed after success.
 
 Historical extraction metadata for the original 12-part/75-member review package is preserved under provenance/original-review-package/. The old extracted source payload is not duplicated there; canonical files remain in the main research tree.
 
