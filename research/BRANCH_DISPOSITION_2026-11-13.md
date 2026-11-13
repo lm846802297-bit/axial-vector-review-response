@@ -7,9 +7,11 @@
 
 | Branch | PR | Tree-level finding | Decision |
 |---|---:|---|---|
-| `research/fig7-10mev-transport-localization-20261113` | #102, open draft | Four changed files contain the new 10 MeV local-rate/polarization/escape localization analysis | **Keep active.** This is unresolved Major 4.4 research, not a superseded branch. |
+| \`research/fig7-10mev-transport-localization-20261113-v2\` | #106, open draft | Nine changed files cover B.2 energy conventions, a static-spherical GR ray kernel, path-shell and energy-band decomposition, and polarization/transport comparison | **Keep active.** This is the current Major 4.4 10 MeV follow-up. |
 
-PR #102 updates the literal 10 MeV Fig. 7 residual to +92.43%; the redshift-only diagnostic gives +36.91% and still does not close the discrepancy. Its matched local mode sums and detailed-balance checks close at approximately \(10^{-14}\), while the escape integral remains open. Do not merge or delete this branch as part of housekeeping; review its numerical inputs and physical interpretation separately.
+PR #106 is now synchronized with current main through a two-parent merge commit; its comparison is ahead 10 / behind 0 and its PR diff is limited to the nine intended files. The B.1 local-energy to \(E_\infty\) change of variables is exact. At the 10 MeV strong endpoint, the literal fixed-\(\omega\) B.2 path gives +92.43%, while the conserved-\(E_\infty\), redshift-only diagnostic gives +36.91% but retains Euclidean chords. The generic static-spherical GR ray kernel passes six independent flat-limit/redshift/Schwarzschild-toy tests, but no same-snapshot \(B(r)\) or \(M(r)\) is available for the SFHo profile. The Garching pseudo-Newtonian baseline is spatially flat. The 15–25 km path shells contribute 56.71% of source-weighted mean total optical depth; 110–510 MeV supplies 94.43% of escaped luminosity. Local neutrino mode sums and detailed balance pass at approximately \(10^{-14}\), but mode-resolved propagation and scalar B.2 differ by a factor 76.37. These are separate transport prescriptions, not a correction factor. Keep PR #106 Draft until the physical transport prescription is resolved; the pure-vector Fig. 7 gate remains NOT PASSED.
+
+PR #102 was closed without merging. Its v1 branch, \`research/fig7-10mev-transport-localization-20261113\`, remains as a historical snapshot; PR #106 v2 supersedes it and is the active line. Do not delete either branch while the v2 audit is unresolved.
 
 ## 2. Major 1 branch comparison
 
@@ -108,18 +110,26 @@ The two research branches include the retired `review_package_extracted/` tree. 
 
 **Decision:** these 11 refs are safe first-batch deletion candidates. Their commits are already in main; no unique file content depends on the branch refs.
 
-## 8. Other completed housekeeping branches
+## 8. Completed housekeeping branch cleanup
 
-- `docs/finalize-legacy-zip-cleanup-20261113`: its complete tree is identical to main after PR #104; the PR retains the squash-merge history.
-- `chore/one-time-cleanup-legacy-zip-artifacts-20261113`: contains only the temporary one-time cleanup workflow; PRs #103 and #104 retain its purpose and deletion record.
-- `docs/main-research-index-physics-crosscheck-archive-policy-20261113`: contains the temporary cleanup workflow that was later removed; the final documentation is in main.
+Two batches of branch refs were removed after exact-SHA and content checks:
 
-These remain later cleanup candidates. The first batch of 11 ancestry-safe refs was already pruned and verified absent by run #43364401393.
+- 11 refs whose commits were already reachable from main were deleted and verified absent in run #43364401393.
+- Five completed administrative/one-time branches were deleted and verified absent in run #43364866549. Their merged PR histories remain available.
+
+The five administrative refs were:
+1. \`docs/main-research-index-physics-crosscheck-archive-policy-20261113\`
+2. \`docs/finalize-legacy-zip-cleanup-20261113\`
+3. \`chore/one-time-cleanup-legacy-zip-artifacts-20261113\`
+4. \`chore/prune-fully-integrated-branch-refs-20261113\`
+5. \`docs/finalize-integrated-branch-pruning-20261113\`
+
+All 16 refs were re-queried and absent. Their one-time workflows were removed after success. No research-history branch was force-reset or deleted in either batch.
 
 ## 9. Branch preservation policy
 
 - Preserve branches with meaningful independent development history even when their final files are integrated: Major 1 Higgs mixing, Major 1 Belle II, Major 4.4, and C4-C4-A.
-- Preserve the active PR #102 branch. The axial/Goldstone/PMNS cross-check was integrated by PR #105; its branch remains as a historical research record.
+- Preserve the active PR #106 v2 branch until the 10 MeV transport review is complete. PR #102 v1 is closed without merge and retained as a historical snapshot. The axial/Goldstone/PMNS cross-check was integrated by PR #105; its branch remains as a historical research record.
 - Do not force-reset a divergent branch to main to make Ahead/Behind appear clean.
 - Delete only refs whose head commit is already reachable from main, or whose remaining differences are demonstrably superseded and whose PR/history records are retained.
 - GitHub main remains the canonical source of native files, extracted data, reports, figures, tests, provenance, and checksums. Generated ZIPs remain local-only handoff files.
