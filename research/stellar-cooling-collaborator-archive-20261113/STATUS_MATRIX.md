@@ -32,3 +32,10 @@ This table separates work completed, numerical/code acceptance, and physical int
 ## Current decision
 
 The existing axial figure is a **conditional fixed-profile ballistic benchmark**. The vector Fig. 7 gate is not passed, the axial production scan still uses an initial-muon-rest semi-Compton approximation, and the background / propagation prescription is not a full self-consistent GR supernova transport calculation. Therefore the contour is useful for review and development, but it is not yet the final SN1987A exclusion of the underlying UV model.
+
+
+## 2026-11-13 focused 10 MeV Fig. 7 localization update
+
+The fixed-\(m_V=10\) MeV high-order audit now closes the local neutrino L,+,- production/absorption sum and detailed balance at approximately \(10^{-14}\) on selected physical nodes. Integrated source and opacity mode-sum residuals are \(6.3\times10^{-16}\) and \(1.1\times10^{-12}\). The literal scalar B.2 strong-endpoint residual is +92.43%; at fixed source, the computed escape fraction is 1.924 times the value required by Fig. 7. The remaining issue is therefore in the global path/angle escape integral, not a demonstrated missing local polarization factor.
+
+The leading open sensitivities are the fixed-\(\omega\) versus conserved-\(E_\infty\) path-energy convention, the 110--510 MeV escaping tail, and opacity accumulated outside 15 km. The redshift-only alternative gives +36.91% but is not full GR and is not adopted. See the 2026-11-13 local-rate/polarization/escape audit in the independent Blinov reproduction directory.
