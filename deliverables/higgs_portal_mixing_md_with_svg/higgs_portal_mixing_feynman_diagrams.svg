@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="600" viewBox="0 0 1500 600" role="img" aria-labelledby="title desc">
+<title id="title">EFT and UV one-loop Feynman diagrams for h-s mixing</title>
+<desc id="desc">Three panels: EFT fermion bubble with two scalar Yukawa vertices, EFT contact tadpole, and UV mass-eigenstate fermion bubble.</desc>
+<defs>
+  <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#222"/></marker>
+  <marker id="farrow" markerWidth="8" markerHeight="8" refX="6.5" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#1769aa"/></marker>
+  <style>
+    .panel{fill:#fff;stroke:#aab3bd;stroke-width:2;rx:18}
+    .heading{font: bold 25px sans-serif; fill:#17212b}
+    .label{font: 21px sans-serif; fill:#17212b}
+    .small{font: 18px sans-serif; fill:#354454}
+    .vertex{fill:#fff;stroke:#222;stroke-width:2.5}
+    .scalar{stroke:#222;stroke-width:3;fill:none;marker-end:url(#arrow)}
+    .fermion{stroke:#1769aa;stroke-width:4;fill:none;marker-end:url(#farrow)}
+    .loop{stroke:#1769aa;stroke-width:4;fill:none}
+  </style>
+</defs>
+<rect width="1500" height="600" fill="#f5f7fa"/>
+<!-- panel 1 -->
+<rect class="panel" x="25" y="25" width="465" height="550"/>
+<text class="heading" x="257" y="70" text-anchor="middle">(a) EFT fermion bubble</text>
+<!-- loop ellipse and arrow segment -->
+<ellipse class="loop" cx="257" cy="300" rx="112" ry="135"/>
+<path class="fermion" d="M 347,200 A 112,135 0 0 1 366,335"/>
+<circle class="vertex" cx="178" cy="205" r="7"/><circle class="vertex" cx="336" cy="395" r="7"/>
+<path class="scalar" d="M 70,130 L 173,201"/><path class="scalar" d="M 341,400 L 435,472"/>
+<text class="label" x="65" y="115">h(q)</text><text class="label" x="360" y="500">s(-q)</text>
+<text class="small" x="90" y="190">-i y_h</text><text class="small" x="350" y="380">-i y_s</text>
+<text class="label" x="250" y="292" text-anchor="middle">l(k)</text><text class="label" x="255" y="320" text-anchor="middle">l(k+q)</text>
+<text class="small" x="257" y="535" text-anchor="middle">Two propagators; momentum-dependent</text>
+<!-- panel 2 -->
+<rect class="panel" x="517" y="25" width="465" height="550"/>
+<text class="heading" x="749" y="70" text-anchor="middle">(b) EFT contact tadpole</text>
+<path class="scalar" d="M 590,155 L 735,270"/><path class="scalar" d="M 910,155 L 765,270"/>
+<text class="label" x="555" y="140">h(q)</text><text class="label" x="868" y="140">s(-q)</text>
+<circle cx="750" cy="282" r="8" fill="#222"/>
+<text class="small" x="750" y="250" text-anchor="middle">-i y_hₛ</text>
+<path class="loop" d="M750,290 L750,318"/>
+<path class="loop" d="M750,318 C690,318 680,395 750,405 C820,415 822,330 760,318"/>
+<path class="fermion" d="M 704,337 C 691,359 705,389 730,398"/>
+<text class="label" x="750" y="365" text-anchor="middle">l(k)</text>
+<text class="small" x="749" y="475" text-anchor="middle">One propagator; no q² dependence</text>
+<text class="small" x="749" y="505" text-anchor="middle">in the loop denominator</text>
+<!-- panel 3 -->
+<rect class="panel" x="1009" y="25" width="465" height="550"/>
+<text class="heading" x="1241" y="70" text-anchor="middle">(c) UV mass-basis bubble</text>
+<ellipse class="loop" cx="1240" cy="300" rx="112" ry="135"/>
+<path class="fermion" d="M 1330,200 A 112,135 0 0 1 1349,335"/>
+<circle class="vertex" cx="1161" cy="205" r="7"/><circle class="vertex" cx="1319" cy="395" r="7"/>
+<path class="scalar" d="M 1053,130 L 1156,201"/><path class="scalar" d="M 1324,400 L 1418,472"/>
+<text class="label" x="1048" y="115">h(q)</text><text class="label" x="1343" y="500">s(-q)</text>
+<text class="small" x="1062" y="190">Gamma^h_ij</text><text class="small" x="1334" y="380">Gamma^s_ji</text>
+<text class="label" x="1235" y="290" text-anchor="middle">chi_i(k)</text><text class="label" x="1242" y="320" text-anchor="middle">chi_j(k+q)</text>
+<text class="small" x="1241" y="535" text-anchor="middle">Sum over (i,j) = (1,1),(1,2),(2,1),(2,2)</text>
+</svg>
