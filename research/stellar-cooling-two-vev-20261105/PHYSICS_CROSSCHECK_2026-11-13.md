@@ -1,7 +1,7 @@
 # Two-VEV axial microphysics — formula and code cross-check
 
 **Audit date:** 2026-11-13  
-**Canonical source:** \`research/stellar-cooling-two-vev-20261105/\` and \`research/stellar-cooling-shared-20261105/\`  
+**Canonical source:** `research/stellar-cooling-two-vev-20261105/` and `research/stellar-cooling-shared-20261105/`  
 **Integration:** PR #85 merged; the later shared-code consolidation is in current main.  
 **Scope:** formula and implementation review of the two-VEV mapping, current-level widths, vacuum semi-Compton amplitude, and homogeneous thermal prototype. This is not a supernova transport calculation.
 
@@ -35,7 +35,7 @@ v_s=\frac{m_{A'}}{2|g_X|\sqrt{1+r_\sigma}},\qquad
 v_\sigma=2v_s\sqrt{r_\sigma}.
 \]
 
-**Result:** the gauge-mass relation and the eaten-Goldstone direction in \`two_vev_axial_mapping.py\` are algebraically correct for the stated charge and covariant-derivative conventions.
+**Result:** the gauge-mass relation and the eaten-Goldstone direction in `two_vev_axial_mapping.py` are algebraically correct for the stated charge and covariant-derivative conventions.
 
 ## 2. Goldstone coupling versus the longitudinal axial current
 
@@ -57,7 +57,7 @@ q_\mu\bar u(p')\gamma^\mu\gamma^5u(p)
 \[
 |g_A^\ell|=|g_X|,\qquad m_{A'}=|g_X|v_X.
 \]
-The test in \`test_two_vev_axial_mapping.py\` checks this relation in the default pure-axial convention. If a finite-mixing point has \(|g_A^\ell|\ne|g_X|\), the equality must not be assumed without changing the Goldstone/Yukawa matching.
+The test in `test_two_vev_axial_mapping.py` checks this relation in the default pure-axial convention. If a finite-mixing point has \(|g_A^\ell|\ne|g_X|\), the equality must not be assumed without changing the Goldstone/Yukawa matching.
 
 A second consequence is important: the orthogonal physical pseudoscalar is not absent. Its charged-lepton coupling magnitude from the same \(S\)-phase term is
 \[
@@ -67,7 +67,7 @@ Its mass and interactions depend on the scalar potential and are not specified b
 
 ## 3. Current-level \(A'\) partial widths
 
-For \(r_\ell=m_\ell^2/m_{A'}^2\) and \(\beta_\ell=\sqrt{1-4r_\ell}\), the standard unpolarized two-body factors used by \`axial_decay_widths.py\` are
+For \(r_\ell=m_\ell^2/m_{A'}^2\) and \(\beta_\ell=\sqrt{1-4r_\ell}\), the standard unpolarized two-body factors used by `axial_decay_widths.py` are
 \[
 \Gamma_V(A'\to\ell^+\ell^-)
 =\frac{g_V^2m_{A'}}{12\pi}(1+2r_\ell)\beta_\ell,
@@ -98,7 +98,7 @@ This does **not** establish the full neutral-fermion width in the presence of ch
 
 ## 5. Vacuum semi-Compton amplitude
 
-\`stellar_semi_compton_axial_matrix_element.py\` constructs the tree-level \(s\)- and \(u\)-channel muon diagrams for
+`stellar_semi_compton_axial_matrix_element.py` constructs the tree-level \(s\)- and \(u\)-channel muon diagrams for
 \[
 \gamma(k)+\mu(p)\to\mu(p')+A'(q),
 \]

@@ -18,14 +18,14 @@ No generated collaborator ZIP is committed, published as a GitHub Release asset,
 
 When a collaborator specifically requests a single-file handoff, create it locally from a clean, pinned repository checkout and give the ZIP directly to that collaborator. Run from the repository root:
 
-\`\`\`bash
+```bash
 python -m pip install -r research/stellar-cooling-collaborator-archive-20261113/requirements-review.txt
-python research/stellar-cooling-constraints-20261105/plot_constraints_loglog.py \\
+python research/stellar-cooling-constraints-20261105/plot_constraints_loglog.py \
   --output-dir ../stellar-cooling-review-figures
-python research/stellar-cooling-collaborator-archive-20261113/build_archive.py \\
-  --output ../Stellar_Cooling_Research_Archive_2026-11-13.zip \\
+python research/stellar-cooling-collaborator-archive-20261113/build_archive.py \
+  --output ../Stellar_Cooling_Research_Archive_2026-11-13.zip \
   --generated-figures ../stellar-cooling-review-figures
-\`\`\`
+```
 
 The output path is outside the repository checkout, so the handoff ZIP is not accidentally committed. The workflow .github/workflows/build-stellar-cooling-review-archive.yml is optional validation-only; it does not create or upload a ZIP.
 

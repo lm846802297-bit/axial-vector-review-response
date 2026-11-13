@@ -63,14 +63,14 @@ The builder is included at 00_START_HERE/tools/build_archive.py. It runs from a 
 
 From the repository root:
 
-\`\`\`bash
+```bash
 python -m pip install -r research/stellar-cooling-collaborator-archive-20261113/requirements-review.txt
-python research/stellar-cooling-constraints-20261105/plot_constraints_loglog.py \\
+python research/stellar-cooling-constraints-20261105/plot_constraints_loglog.py \
   --output-dir ../stellar-cooling-review-figures
-python research/stellar-cooling-collaborator-archive-20261113/build_archive.py \\
-  --output ../Stellar_Cooling_Research_Archive_2026-11-13.zip \\
+python research/stellar-cooling-collaborator-archive-20261113/build_archive.py \
+  --output ../Stellar_Cooling_Research_Archive_2026-11-13.zip \
   --generated-figures ../stellar-cooling-review-figures
-\`\`\`
+```
 
 The generated ZIP is a direct handoff file only. Do not commit it, publish it as a GitHub Release asset, or upload it as a GitHub Actions artifact. The repository retains the extracted/native files, reports, code, results, manifests, and the local builder script. The optional GitHub Actions workflow is validation-only and does not create an archive.
 
