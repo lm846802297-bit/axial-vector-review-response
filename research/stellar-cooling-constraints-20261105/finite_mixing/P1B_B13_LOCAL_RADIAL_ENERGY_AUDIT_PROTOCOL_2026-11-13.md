@@ -130,3 +130,17 @@ To test whether the remaining discrepancy is a grid-resolution problem, the next
 
 
 A post-processing check of the first coarse-grid JSON, using sequential log interpolation and the exact midpoint spectral phase-space factor, also gives diagnostic volume-weighted discrepancies of approximately 27.3% for the spectral source, 15.8% for reduced absorption, and 12.5% for reduced absorption weighted by the local spectral source. The volume weight used for this diagnostic is \(4\pi r^2 N(r)^2\,\Delta r\,\Delta\omega\). These are grid-interpolation diagnostics only, not a completed B.1 source integral or B.2 optical-depth calculation. They show that the coarse-grid problem is not confined to numerically negligible tails.
+
+
+## 10. Detailed-balance-preserving interpolation
+
+The refined interpolation now uses only the absorption kernel as the interpolated rate table. At each midpoint, the exact local temperature is taken from the fixed background, and the other channels are reconstructed using the exact identity
+\[
+\Gamma_{{\rm prod},h}^{(Q)}
+=e^{-\omega/T(r)}\Gamma_{{\rm abs},h}^{(Q)},\qquad
+\Gamma_{{\rm abs},h}^{*,(Q)}
+=(1-e^{-\omega/T(r)})\Gamma_{{\rm abs},h}^{(Q)}.
+\]
+The spectral source then uses the exact midpoint phase-space factor. This avoids treating the steep thermal Boltzmann factor as an independent interpolated function and enforces detailed balance by construction. It does not remove the need to resolve the radial dependence of the absorption kernel itself.
+
+The regression suite now includes a synthetic check that the reconstructed production, reduced absorption, and spectral source obey these exact midpoint relations.
