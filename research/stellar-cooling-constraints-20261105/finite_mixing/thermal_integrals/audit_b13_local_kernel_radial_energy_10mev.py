@@ -31,13 +31,31 @@ G_AXIAL = 0.0
 EXPECTED_PROFILE_SHA256 = (
     "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
 )
-RADII_KM = (0.0, 5.0, 8.0, 10.0, 12.5, 15.0, 18.66, 22.0, 24.0)
-ENERGIES_MEV = (
+BASE_RADII_KM = (0.0, 5.0, 8.0, 10.0, 12.5, 15.0, 18.66, 22.0, 24.0)
+BASE_ENERGIES_MEV = (
     10.0, 10.5, 12.0, 15.0, 20.0, 30.0,
     50.0, 80.0, 120.0, 200.0, 300.0, 510.0,
 )
+
+
+def _bisect_radial_grid(nodes):
+    midpoints = [0.5 * (a + b) for a, b in zip(nodes, nodes[1:])]
+    return tuple(sorted(set(nodes).union(midpoints)))
+
+
+def _bisect_energy_grid(nodes):
+    midpoints = []
+    for a, b in zip(nodes, nodes[1:]):
+        ya = math.sqrt(max(a - MASS_MEV, 0.0))
+        yb = math.sqrt(max(b - MASS_MEV, 0.0))
+        midpoints.append(MASS_MEV + (0.5 * (ya + yb)) ** 2)
+    return tuple(sorted(set(nodes).union(midpoints)))
+
+
+# One systematic bisection of the original radial and sqrt(omega-m) grids.
+RADII_KM = _bisect_radial_grid(BASE_RADII_KM)
+ENERGIES_MEV = _bisect_energy_grid(BASE_ENERGIES_MEV)
 GRID_ORDERS = (
-    (12, 8, 8, 8),
     (16, 10, 10, 10),
     (20, 12, 12, 12),
 )
@@ -236,20 +254,47 @@ def _bilinear_log_value(corners, t_r=0.5, t_e=0.5):
     return float(np.dot(weights, values))
 
 
-def interpolate_cell(c00, c01, c10, c11):
-    """Return charge/mode arrays at the center of an (r, sqrt(omega-m)) cell."""
+def _interpolate_pair(a, b, fraction=0.5):
+    """Log-linear interpolation for positive rates, linear at a true zero."""
+    a, b = float(a), float(b)
+    if a > 0.0 and b > 0.0:
+        return float(np.exp((1.0 - fraction) * np.log(a) + fraction * np.log(b)))
+    return float((1.0 - fraction) * a + fraction * b)
+
+
+def interpolate_cell(c00, c01, c10, c11, omega_mid):
+    """Sequential energy-then-radius interpolation at a cell center.
+
+    The spectral source is not interpolated through its exact threshold zero:
+    interpolate Gamma_prod and apply the exact omega^2 |k|/(2 pi^2) factor
+    at the midpoint. This avoids a spurious zero-corner linear fallback.
+    """
     prediction = {}
+    k_mid = math.sqrt(max(omega_mid * omega_mid - MASS_MEV * MASS_MEV, 0.0))
+    spectral_prefactor = omega_mid * omega_mid * k_mid / (2.0 * math.pi**2)
     for charge in CHARGES:
         prediction[charge] = {}
-        for field in RATE_FIELDS:
+        for field in ("production", "absorption", "reduced_absorption"):
             arrays = [
                 np.asarray(item["charge_resolved"][charge][field], dtype=float)
                 for item in (c00, c01, c10, c11)
             ]
-            prediction[charge][field] = [
-                _bilinear_log_value([array[mode] for array in arrays])
+            bottom = [
+                _interpolate_pair(arrays[0][mode], arrays[1][mode])
                 for mode in range(3)
             ]
+            top = [
+                _interpolate_pair(arrays[2][mode], arrays[3][mode])
+                for mode in range(3)
+            ]
+            prediction[charge][field] = [
+                _interpolate_pair(bottom[mode], top[mode])
+                for mode in range(3)
+            ]
+        prediction[charge]["spectral_source"] = [
+            spectral_prefactor * value
+            for value in prediction[charge]["production"]
+        ]
     return prediction
 
 
@@ -403,7 +448,7 @@ def run_audit(profile_path=DEFAULT_PROFILE, output_path=None):
             c01 = grid_final[(r0, w1)]
             c10 = grid_final[(r1, w0)]
             c11 = grid_final[(r1, w1)]
-            prediction = interpolate_cell(c00, c01, c10, c11)
+            prediction = interpolate_cell(c00, c01, c10, c11, omega_mid)
             interpolation = compare_midpoint_to_interpolation(
                 direct, prediction
             )
@@ -522,6 +567,9 @@ def run_audit(profile_path=DEFAULT_PROFILE, output_path=None):
             "rates": "local-frame coefficients per g_X^2",
         },
         "grid": {
+            "base_radii_km": list(BASE_RADII_KM),
+            "base_omega_local_MeV": list(BASE_ENERGIES_MEV),
+            "refinement_depth": 1,
             "radii_km": list(RADII_KM),
             "omega_local_MeV": list(ENERGIES_MEV),
             "radial_nodes": len(RADII_KM),
