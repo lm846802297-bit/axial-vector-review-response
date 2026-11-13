@@ -286,11 +286,12 @@ def _refine_if_needed(profile_path, radius, omega, ladder, cache, tolerance):
         })
     while comparisons[-1]["maximum_relative_change"] >= tolerance:
         last_orders = tuple(ladder[-1]["orders"])
-        if last_orders == REFINEMENT_ORDERS[-1]:
+        if last_orders == GRID_ORDERS[-1]:
+            next_orders = REFINEMENT_ORDERS[0]
+        elif last_orders == REFINEMENT_ORDERS[0]:
+            next_orders = REFINEMENT_ORDERS[1]
+        else:
             break
-        next_orders = REFINEMENT_ORDERS[
-            REFINEMENT_ORDERS.index(last_orders) + 1
-        ]
         next_result = evaluate_point(
             profile_path, radius, omega, next_orders, cache
         )
