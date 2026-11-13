@@ -1,0 +1,27 @@
+{
+  "run": "P1B-E1-GLOBAL-03-TARGETED-HIGH-ORDER-SUMMARY",
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "selected_cells": 4,
+  "unique_radial_intervals": [
+    702,
+    993,
+    1016,
+    1024
+  ],
+  "all_selected_high_order_nodes_pass_0p1pct": true,
+  "maximum_final_successive_order_change": 0.0009327009610770679,
+  "maximum_selected_high_order_pchip_interpolation_error": 0.008068429676823035,
+  "interval_702_x36_endpoint_extension": {
+    "order": [
+      36,
+      20,
+      20,
+      20
+    ],
+    "left_final_change": 0.0008106325403963815,
+    "right_final_change": 0.0008107965177309563,
+    "both_pass": true
+  },
+  "interval_702_cell_center_pchip_error_recomputed_after_x36_extension": false,
+  "scope": "Selected worst interpolation intervals/cells only; not a full-profile high-order quadrature scan."
+}
