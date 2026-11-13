@@ -145,3 +145,14 @@ At fixed source, the computed escape fraction \(3.2518\times10^{-4}\) is 1.924 t
 A conserved-\(E_\infty\) redshift-only path variant lowers the residual from +92.43% to +36.91%, but it retains a Euclidean chord length and is not a full GR calculation. Independent mode propagation is also not substituted for the literal scalar B.2 baseline because it is a different transport prescription. No opacity multiplier, source normalization change, or axial-curve update is accepted.
 
 See [the full 10 MeV local-rate/polarization/escape audit](../stellar-cooling-constraints-20261105/blinov_reproduction/FIG7_10MEV_LOCAL_RATE_POLARIZATION_ESCAPE_AUDIT_2026-11-13.md) for the detailed channel, polarization, optical-depth, and energy-bin tables.
+
+
+## 8. 2026-11-13 B.2 energy, GR geometry, shell, and polarization audit
+
+The B.1 source integral is exactly invariant under the change \(E_\infty=N(r)\omega_{\rm loc}\), including the Jacobian and threshold transformation. The B.2 path-energy convention remains ambiguous: the printed chord formula holds the same \(\omega\) along the path, while the main text describes \(\omega\) as energy at infinity. At the 10 MeV strong endpoint, fixed-\(\omega\) gives \(2.43964\times10^{52}\) erg/s (+92.43%); a conserved-\(E_\infty\) redshift-only path gives \(1.73580\times10^{52}\) erg/s (+36.91%) but still uses Euclidean chords.
+
+A generic static-spherical geodesic and local-opacity kernel is added and six flat-limit/redshift/Schwarzschild-toy tests pass. The reconstructed profile contains a lapse but no same-snapshot \(B(r)=\sqrt{g_{rr}}\) or enclosed mass. The Garching pseudo-Newtonian prescription uses flat spatial coordinates; a nontrivial spatial metric is a separate GR extension and cannot be inferred from the lapse alone.
+
+The high-order path decomposition assigns 56.71% of source-weighted mean total optical depth to \(r\ge15\) km. The 110--510 MeV band supplies 94.43% of escaped luminosity. Local \(L,+,-\) rate sums and detailed balance pass, but the literal scalar B.2 and independent mode-resolved propagation differ by 76.37 at the strong endpoint. Retain both lanes separately; do not interpret the mode-resolved diagnostic as a scalar correction.
+
+See [the 10 MeV B.2 energy/GR/shell/polarization audit](../stellar-cooling-constraints-20261105/blinov_reproduction/B2_10MEV_ENERGY_GR_SHELL_POLARIZATION_AUDIT_2026-11-13.md), \`gr_ray_transport.py\`, its six tests, and the machine-readable summary.
