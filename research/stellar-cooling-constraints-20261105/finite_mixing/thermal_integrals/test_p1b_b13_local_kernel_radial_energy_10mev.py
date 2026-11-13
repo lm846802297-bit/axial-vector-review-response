@@ -3,10 +3,11 @@ import unittest
 
 import numpy as np
 
-from blinov_reproduction.reference import DEFAULT_PROFILE, load_profile
+from blinov_reproduction.reference import DEFAULT_PROFILE
 from finite_mixing.moving_muon_compton import moving_muon_compton_rates
 from finite_mixing.thermal_integrals.audit_b13_local_kernel_radial_energy_10mev import (
     ENERGIES_MEV,
+    ENERGY_INTEGRAL_RADII_KM,
     ENERGY_INTEGRAL_X_MAX,
     EXPECTED_PROFILE_SHA256,
     MASS_MEV,
@@ -25,9 +26,17 @@ class P1BB13LocalKernelRadialEnergyTests(unittest.TestCase):
         self.assertIn(8.0, RADII_KM)
         self.assertIn(12.5, RADII_KM)
         self.assertIn(15.0, RADII_KM)
-        self.assertEqual(len(RADII_KM), 17)
-        self.assertEqual(len(ENERGIES_MEV), 25)
+        self.assertEqual(len(RADII_KM), 19)
+        self.assertEqual(len(ENERGIES_MEV), 27)
         self.assertIn(2.5, RADII_KM)
+        profile = np.genfromtxt(DEFAULT_PROFILE, delimiter=",", names=True)
+        temperatures = np.asarray(profile["T_MeV"], dtype=float)
+        peak_index = int(np.nanargmax(temperatures))
+        peak_radius = float(profile["r_km"][peak_index])
+        required = MASS_MEV + ENERGY_INTEGRAL_X_MAX * float(temperatures[peak_index])
+        self.assertLess(min(abs(r - peak_radius) for r in RADII_KM), 1e-8)
+        self.assertLess(min(abs(r - peak_radius) for r in ENERGY_INTEGRAL_RADII_KM), 1e-8)
+        self.assertGreaterEqual(ENERGIES_MEV[-1], required)
         self.assertIn(10.125, ENERGIES_MEV)
         self.assertIn(15.0, ENERGIES_MEV)
         self.assertIn(20.0, ENERGIES_MEV)
@@ -39,7 +48,7 @@ class P1BB13LocalKernelRadialEnergyTests(unittest.TestCase):
         profile = load_profile(DEFAULT_PROFILE, np.asarray(RADII_KM, dtype=float))
         required = MASS_MEV + ENERGY_INTEGRAL_X_MAX * float(np.max(profile["T"]))
         self.assertGreaterEqual(ENERGIES_MEV[-1], required)
-        self.assertGreaterEqual(ENERGIES_MEV[-1], 720.0)
+        self.assertGreaterEqual(ENERGIES_MEV[-1], 1500.0)
         self.assertTrue(all(b > a for a, b in zip(ENERGIES_MEV, ENERGIES_MEV[1:])))
 
     def test_geometric_bilinear_interpolation(self):
