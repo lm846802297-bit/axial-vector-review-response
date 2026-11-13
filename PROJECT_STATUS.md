@@ -12,6 +12,13 @@
 - **PR #84 and PR #85 — merged:** C4-C4-B full-radial archive and the separately scoped two-VEV microphysics benchmark.
 - No open PRs were present at the post-PR #89 repository snapshot. This status/audit update is documentation-only.
 
+## Post-inventory checksum and documentation corrections (2026-11-13)
+
+- **PR #90 — merged** at `dc3e3339238cbae7b72f73228518ca36a89a837d`: corrected the B.13/B.16 recovery manifest's report digest to `485bc6ce837f6bd45b9dd7958c7049b5426f5d6508638c9976f2b55267bbd4f4`. The four other artifact hashes were independently verified and unchanged; no source or numerical output changed.
+- **PR #91 — merged** at `d106b9a6f16116918a92da775fa7113b2718a221`: added the all-branch inventory and updated the live status/audit documentation.
+- Latest main after these follow-on merges: `dc3e3339238cbae7b72f73228518ca36a89a837d`. The branch inventory remains a point-in-time snapshot against `a74707637837dfd577e15e530c896959ed12baa2` (96 refs including main). Two post-snapshot refs were created for PR #90 (checksum-only) and PR #91 (documentation-only); they do not add research content.
+- No open PRs remained after PR #90 and PR #91 were merged.
+
 ## All-branch audit
 
 - The repository had **96 branch refs including main**, hence **95 non-main branches**.

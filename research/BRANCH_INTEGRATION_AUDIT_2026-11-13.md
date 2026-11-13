@@ -91,3 +91,10 @@ The pure-vector Blinov Fig. 7 reproduction remains **NOT PASSED** at the 10 MeV 
 ### Final repository state
 
 PRs #87, #88, and #89 are merged. PR #77 is merged; PR #83 is closed as its duplicate. PRs #84 and #85 are merged. No open PRs were present at the audited snapshot. The only work in this update is the branch inventory and status/audit documentation.
+
+## Post-inventory corrections after PR #90 and PR #91 (2026-11-13)
+
+- PR #90 merged the checksum-only correction to `RECOVERED_B13_B16_SHA256SUMS_2026-11-13.txt`. The exact stored report bytes hash to `485bc6ce837f6bd45b9dd7958c7049b5426f5d6508638c9976f2b55267bbd4f4`; the other four manifest entries were already correct. No B.13/B.16 calculation, source code, or scientific conclusion changed.
+- PR #91 merged the branch inventory and status/audit documentation at `d106b9a6f16116918a92da775fa7113b2718a221`.
+- The inventory JSON is intentionally pinned to the pre-follow-up main snapshot `a74707637837dfd577e15e530c896959ed12baa2`. Two refs were added after that snapshot: `fix/b13-b16-sha256-manifest-20261113` (PR #90; checksum-only) and `docs/post-merge-branch-audit-20261113` (PR #91; documentation-only). Neither contains new physics results.
+- Latest main after both follow-on merges is `dc3e3339238cbae7b72f73228518ca36a89a837d`; no open PRs remained at this point.

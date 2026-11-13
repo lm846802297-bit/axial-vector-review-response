@@ -784,5 +784,21 @@
       "behind_by": 1,
       "compare_file_count": 2
     }
-  ]
+  ],
+  "post_snapshot_additions": [
+    {
+      "branch": "fix/b13-b16-sha256-manifest-20261113",
+      "pr": 90,
+      "merge_sha": "dc3e3339238cbae7b72f73228518ca36a89a837d",
+      "scope": "one-line SHA-256 correction only; no calculation/source change"
+    },
+    {
+      "branch": "docs/post-merge-branch-audit-20261113",
+      "pr": 91,
+      "merge_sha": "d106b9a6f16116918a92da775fa7113b2718a221",
+      "scope": "PROJECT_STATUS, branch audit report, and branch inventory documentation only"
+    }
+  ],
+  "latest_main_after_post_snapshot_merges": "dc3e3339238cbae7b72f73228518ca36a89a837d",
+  "post_snapshot_note": "The core 95-non-main-branch comparison remains pinned to base_main_sha. The two listed refs were created after that inventory snapshot and are checksum/documentation-only."
 }
