@@ -13,6 +13,7 @@ from finite_mixing.thermal_integrals.audit_b13_local_kernel_radial_energy_10mev 
     _bilinear_log_value,
     _interpolate_pair,
     _max_relative_difference,
+    interpolate_cell,
     sha256,
 )
 
@@ -47,6 +48,30 @@ class P1BB13LocalKernelRadialEnergyTests(unittest.TestCase):
 
     def test_positive_rate_pair_uses_log_linear_interpolation(self):
         self.assertAlmostEqual(_interpolate_pair(1.0, 9.0, 0.5), 3.0)
+
+    def test_interpolated_production_and_reduced_opacity_obey_exact_local_balance(self):
+        corners = []
+        for scale in (1.0, 4.0, 9.0, 16.0):
+            corners.append({
+                "charge_resolved": {
+                    "mu_minus": {"absorption": [scale, 2.0 * scale, 3.0 * scale]},
+                    "mu_plus": {"absorption": [2.0 * scale, 3.0 * scale, 4.0 * scale]},
+                }
+            })
+        omega = 20.0
+        temperature = 10.0
+        result = interpolate_cell(*corners, omega, temperature)
+        boltzmann = math.exp(-omega / temperature)
+        reduced = -math.expm1(-omega / temperature)
+        prefactor = omega**2 * math.sqrt(omega**2 - MASS_MEV**2) / (2.0 * math.pi**2)
+        for charge in ("mu_minus", "mu_plus"):
+            absorption = np.asarray(result[charge]["absorption"])
+            production = np.asarray(result[charge]["production"])
+            reduced_absorption = np.asarray(result[charge]["reduced_absorption"])
+            spectral_source = np.asarray(result[charge]["spectral_source"])
+            np.testing.assert_allclose(production, boltzmann * absorption, rtol=1e-14)
+            np.testing.assert_allclose(reduced_absorption, reduced * absorption, rtol=1e-14)
+            np.testing.assert_allclose(spectral_source, prefactor * production, rtol=1e-14)
 
     def test_relative_difference_is_symmetric_and_zero_safe(self):
         self.assertAlmostEqual(
