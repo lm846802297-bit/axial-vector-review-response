@@ -1,0 +1,45 @@
+name: Axial Goldstone and PMNS regressions
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "research/stellar-cooling-two-vev-20261105/**"
+      - ".github/workflows/axial-goldstone-pmns-regression.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  axial-goldstone-pmns:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout current main
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install numerical dependency
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy
+
+      - name: Run two-VEV mapping, axial-Goldstone, and PMNS regressions
+        run: |
+          python -m unittest discover \
+            -s research/stellar-cooling-two-vev-20261105 \
+            -p "test_*.py" -v
+
+      - name: Run full vacuum semi-Compton matrix-element checks
+        run: |
+          python research/stellar-cooling-two-vev-20261105/stellar_semi_compton_axial_matrix_element.py --check
+
+      - name: Run current-level decay-width checks
+        run: |
+          python research/stellar-cooling-two-vev-20261105/axial_decay_widths.py
