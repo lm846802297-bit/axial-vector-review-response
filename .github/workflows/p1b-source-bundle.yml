@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - research/fig7-10mev-transport-localization-20261113-v2
+      - research/p1b-global02-full-radial-20261114
     paths:
       - .github/workflows/p1b-source-bundle.yml
       - research/stellar-cooling-constraints-20261105/finite_mixing/moving_muon_compton.py
