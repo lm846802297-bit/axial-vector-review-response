@@ -1,0 +1,56 @@
+{
+  "run": "P1B-10MeV-GLOBAL-02",
+  "status": "G1_full_radial_knot_scan_complete_G2_selected_subset_midpoint_audit_global_acceptance_open",
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "profile_rows": 1687,
+  "mass_MeV": 10,
+  "couplings": {
+    "gV_over_gX": 1,
+    "gA_over_gX": 0
+  },
+  "energy_coordinate": "x=(omega_local-m_Aprime)/T(r)",
+  "x_knots": [
+    0.5,
+    2,
+    6,
+    18,
+    36
+  ],
+  "quadrature_orders": [
+    10,
+    6,
+    6,
+    6
+  ],
+  "G1": {
+    "direct_points": 8435,
+    "radial_nodes": 1687,
+    "chunks": 36,
+    "all_finite_nonnegative": true,
+    "max_detailed_balance": 1.0934050042089811e-14,
+    "max_final_muon_mass_shell": 6.214454313524293e-13,
+    "max_local_energy_MeV": 1422.9884562908824
+  },
+  "G2": {
+    "selected_intervals": 60,
+    "direct_midpoint_evaluations": 1080,
+    "max_energy_interpolation_error_after_11_knot_PCHIP": 0.010720275032399822,
+    "worst_location": {
+      "r_interval_km": [
+        14.55,
+        14.6
+      ],
+      "x": 10.392304845413264,
+      "channel": "mu_plus production",
+      "polarization_index": 0
+    }
+  },
+  "quadrature_crosscheck": {
+    "hot_shell_r_km": 8.4821412022467,
+    "omega_MeV": 417.89463280068736,
+    "max_change_10_to_14": 0.014371173756705461,
+    "criterion": 0.001,
+    "passed": false
+  },
+  "scope": "No full-star emissivity, GR optical depth, luminosity, or SN1987A constraint computed."
+}
