@@ -1,0 +1,180 @@
+{
+  "run": "P1B-E1-ENERGY-REFINEMENT-ANCHOR-SCREEN-2026-11-14",
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "physics": {
+    "process": "exact-recoil moving-muon semi-Compton B.13",
+    "m_Aprime_MeV": 10,
+    "gV_over_gX": 1,
+    "gA_over_gX": 0,
+    "muon_charges": [
+      "mu_minus",
+      "mu_plus"
+    ],
+    "polarizations": [
+      "L",
+      "+",
+      "-"
+    ]
+  },
+  "energy_grid": {
+    "base_x": [
+      0.5,
+      2,
+      6,
+      18,
+      36
+    ],
+    "interpolation_knots_x": [
+      0.5,
+      1.125,
+      2,
+      3.7320508075688767,
+      6,
+      11.19615242270663,
+      18,
+      26.227922061357848,
+      36
+    ],
+    "direct_validation_midpoints_x": [
+      0.7812500000000001,
+      1.5312500000000004,
+      2.7990381056766576,
+      4.799038105676657,
+      8.397114317029972,
+      14.397114317029972,
+      21.920941546018383,
+      30.920941546018387
+    ],
+    "coordinate": "sqrt(x), x=(omega_local-m_Aprime)/T(r)",
+    "interpolant": "PCHIP(log absorption) in sqrt(x); production and reduced absorption reconstructed using exact detailed balance"
+  },
+  "radial_anchor_screen": [
+    {
+      "tag": "center",
+      "radius_km": 0,
+      "T_MeV": 19.265221107965,
+      "max_PCHIP_error": 0.006827799243144202,
+      "worst": {
+        "x": 0.78125,
+        "charge": "mu_minus",
+        "mode": "L"
+      }
+    },
+    {
+      "tag": "peak-temperature shell",
+      "radius_km": 8.4821412022467,
+      "T_MeV": 39.2496793414134,
+      "max_PCHIP_error": 0.004310539250293691,
+      "worst": {
+        "x": 8.397114317029972,
+        "charge": "mu_plus",
+        "mode": "L"
+      }
+    },
+    {
+      "tag": "G2 energy-worst radius",
+      "radius_km": 14.575,
+      "T_MeV": 15.022804771580804,
+      "max_PCHIP_error": 0.007351388819480292,
+      "worst": {
+        "x": 0.78125,
+        "charge": "mu_minus",
+        "mode": "L"
+      }
+    },
+    {
+      "tag": "ADAPTIVE-01 radial patch",
+      "radius_km": 21.6346875,
+      "T_MeV": 3.6288816574216347,
+      "max_PCHIP_error": 0.0033806978331517748,
+      "worst": {
+        "x": 0.78125,
+        "charge": "mu_plus",
+        "mode": "L"
+      }
+    },
+    {
+      "tag": "steep-gradient region",
+      "radius_km": 22.1,
+      "T_MeV": 3.53234031502358,
+      "max_PCHIP_error": 0.003289164290923556,
+      "worst": {
+        "x": 0.78125,
+        "charge": "mu_plus",
+        "mode": "L"
+      }
+    },
+    {
+      "tag": "muon chemical-potential support edge",
+      "radius_km": 22.1918941570485,
+      "T_MeV": 3.5152433682409496,
+      "max_PCHIP_error": 0.0032728585239104554,
+      "worst": {
+        "x": 0.78125,
+        "charge": "mu_plus",
+        "mode": "L"
+      }
+    },
+    {
+      "tag": "outer profile",
+      "radius_km": 24.5,
+      "T_MeV": 3.1224054498959,
+      "max_PCHIP_error": 0.0028909736011055436,
+      "worst": {
+        "x": 0.78125,
+        "charge": "mu_minus",
+        "mode": "L"
+      }
+    }
+  ],
+  "maximum_PCHIP_error_over_seven_anchors": 0.007351388819480292,
+  "all_seven_anchor_interpolation_screens_pass_1pct": true,
+  "selected_high_order_checks": [
+    {
+      "location": "r=8.4821412 km, all 17 sampled energy points",
+      "max_final_successive_order_change": 0.0008841334445754876,
+      "tolerance": 0.001,
+      "pass": true
+    },
+    {
+      "location": "r=14.575 km, x=0.5,0.78125,1.125",
+      "max_24_to_28_change": 6.690369428891325e-7
+    },
+    {
+      "location": "r=14.575 km, prior G2 worst x=10.3923048",
+      "local_log_linear_error": 0.007630772086298781,
+      "max_24_to_28_change": 1.4880619005671893e-7
+    },
+    {
+      "location": "r=21.6346875 km, x=0.5,0.78125,1.125",
+      "max_24_to_28_change": 7.653624238934827e-9
+    },
+    {
+      "location": "r=22.1 km, x=0.5,0.78125,1.125",
+      "max_24_to_28_change": 7.402521092765245e-9
+    },
+    {
+      "location": "r=22.191894157 km, x=0.5,0.78125,1.125",
+      "max_24_to_28_change": 7.3497459276966304e-9,
+      "local_two_endpoint_log_linear_error": 0.010260605831799385,
+      "pchip_anchor_screen_error": 0.0032728585239104554
+    },
+    {
+      "location": "r=0 km, x=0.78125",
+      "max_24_to_28_change": 0.00000212828618509684
+    },
+    {
+      "location": "r=24.5 km, x=0.78125",
+      "max_24_to_28_change": 5.479982995271379e-9
+    }
+  ],
+  "global_status": {
+    "all_1687_radial_knots_completed": false,
+    "full_radial_energy_interpolation_acceptance": false,
+    "full_star_emissivity_computed": false,
+    "GR_optical_depth_computed": false,
+    "SN1987A_limit_updated": false
+  },
+  "scope": "Seven selected radial anchors; each nine-knot one-bisection energy interpolant checked at eight direct energy midpoints. This is not a scan of all 1687 radial knots. Order-24 is used for anchor interpolation screening; high-order checks are targeted as listed.",
+  "provenance_note": "The previously stated 30,357-point global scan and associated error summary are not present in the retrievable Global-02 report or original Run #43376779901 artifact; they are not used as validated results in this record."
+}
