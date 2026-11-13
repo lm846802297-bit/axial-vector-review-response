@@ -1,0 +1,67 @@
+name: Prune completed administrative branch refs (one-time, SHA guarded)
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: "Select yes to prune only the five reviewed completed housekeeping branches"
+        required: true
+        type: choice
+        options:
+          - no
+          - yes
+        default: no
+
+permissions:
+  contents: write
+  pull-requests: read
+
+jobs:
+  prune-completed-admin-branches:
+    if: >-
+      (github.event_name == 'workflow_dispatch' && inputs.confirm == 'yes') ||
+      (github.event_name == 'push' && contains(github.event.head_commit.message, '[prune-admin-branches]'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Delete only reviewed completed housekeeping refs
+        env:
+          GH_TOKEN: \${{ github.token }}
+          REPOSITORY: \${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          open_heads="$(gh pr list --repo "$REPOSITORY" --state open --json headRefName --jq '.[].headRefName')"
+          while IFS='|' read -r branch expected_sha; do
+            [[ -z "$branch" ]] && continue
+            if grep -Fxq "$branch" <<< "$open_heads"; then
+              echo "OPEN PR USES THIS BRANCH; refusing deletion: $branch" >&2
+              exit 1
+            fi
+            ref_path="$(python -c 'import sys, urllib.parse; print(urllib.parse.quote(sys.argv[1], safe="/"))' "$branch")"
+            ref_json="$(gh api "repos/$REPOSITORY/git/ref/heads/$ref_path" 2>/dev/null || true)"
+            if [[ -z "$ref_json" ]]; then
+              echo "already absent: $branch"
+              continue
+            fi
+            current_sha="$(jq -r '.object.sha' <<< "$ref_json")"
+            if [[ "$current_sha" != "$expected_sha" ]]; then
+              echo "REF MOVED; refusing deletion: $branch expected=$expected_sha current=$current_sha" >&2
+              exit 1
+            fi
+            gh api --method DELETE "repos/$REPOSITORY/git/refs/heads/$ref_path" >/dev/null
+            if gh api "repos/$REPOSITORY/git/ref/heads/$ref_path" >/dev/null 2>&1; then
+              echo "DELETE NOT VERIFIED: $branch" >&2
+              exit 1
+            fi
+            echo "deleted and verified absent: $branch ($current_sha)"
+          done <<'BRANCHES'
+          docs/main-research-index-physics-crosscheck-archive-policy-20261113|ced64cd5776a2dd2c30902cf11f9d5e93583c2d8
+          docs/finalize-legacy-zip-cleanup-20261113|d4560865bf14485c18156fb9dfc30d75a4bbf47a
+          chore/one-time-cleanup-legacy-zip-artifacts-20261113|3f426e86e26fbe50af359a3d265ce5b93f16a973
+          chore/prune-fully-integrated-branch-refs-20261113|fd9c9a02585f4b6fd7879759cd96e7b14e76a678
+          docs/finalize-integrated-branch-pruning-20261113|c2df7b966e4dbe5db28b4748591ae338009829b1
+          BRANCHES
