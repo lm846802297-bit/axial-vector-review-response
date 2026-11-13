@@ -86,6 +86,7 @@ jobs:
               f"- Radial-energy interpolation: {'PASS' if a['interpolation_pass'] else 'NOT PASSED'}; max midpoint error = {a['maximum_direct_midpoint_vs_sequential_log_interpolation_error']:.6e}",
               f"- Local emissivity energy integral: {'PASS' if a['local_emissivity_energy_integral_pass'] else 'NOT PASSED'}; max successive energy-order change = {a['maximum_local_emissivity_energy_order_change']:.6e}",
               f"- Energy coverage: {'PASS' if data['grid']['energy_coverage_pass'] else 'NOT PASSED'}; grid max = {data['grid']['omega_local_MeV'][-1]:.3f} MeV, required = {data['grid']['required_energy_coverage_from_x_max_MeV']:.3f} MeV",
+              f"- Temperature peak: r = {data['grid']['maximum_profile_temperature_radius_km']:.6f} km, T = {data['grid']['maximum_profile_temperature_MeV']:.6f} MeV",
               f"- Detailed balance: {'PASS' if a['detailed_balance_pass'] else 'NOT PASSED'}; max residual = {a['maximum_mode_detailed_balance_relative_residual']:.6e}",
               f"- Final-muon shell: {'PASS' if a['mass_shell_pass'] else 'NOT PASSED'}; max residual = {a['maximum_final_muon_mass_shell_relative_error']:.6e}",
               f"- Finite/nonnegative rates: **{'PASS' if a['finite_nonnegative_rates_pass'] else 'NOT PASSED'}**",
