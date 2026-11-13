@@ -375,7 +375,7 @@ def run_audit(profile_path=DEFAULT_PROFILE, output_path=None):
         flush=True,
     )
 
-    # First perform a three-level order ladder at every requested grid node.
+    # Perform the base-to-fine order ladder at every requested grid node.
     for ir, radius in enumerate(RADII_KM):
         for omega in ENERGIES_MEV:
             ladder = [
@@ -481,7 +481,7 @@ def run_audit(profile_path=DEFAULT_PROFILE, output_path=None):
                 "final_refinement_relative_change": comparisons[-1][
                     "maximum_relative_change"
                 ],
-                "bilinear_log_interpolation": prediction,
+                "sequential_log_interpolation": prediction,
                 "direct_vs_interpolated": interpolation,
                 "quadrature_pass": comparisons[-1][
                     "maximum_relative_change"
