@@ -41,7 +41,7 @@ class PolarizationBoltzmannStateCountingTests(unittest.TestCase):
         gamma_abs = (2.0, 4.0, 6.0)
         occupations = (1.0, 2.0, 3.0)
         self.assertAlmostEqual(
-            effective_absorption_rate(gamma_abs, occupations), 5.0
+            effective_absorption_rate(gamma_abs, occupations), 14.0 / 3.0
         )
         equal_occupations = (1.0, 1.0, 1.0)
         self.assertAlmostEqual(
