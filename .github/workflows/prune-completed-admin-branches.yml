@@ -29,8 +29,8 @@ jobs:
     steps:
       - name: Delete only reviewed completed housekeeping refs
         env:
-          GH_TOKEN: \${{ github.token }}
-          REPOSITORY: \${{ github.repository }}
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
         shell: bash
         run: |
           set -euo pipefail
