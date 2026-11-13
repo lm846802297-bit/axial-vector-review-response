@@ -55,7 +55,7 @@ def main():
       "max_profile_temperature_MeV":max(x["T_MeV"] for x in records)},
       "next_required":"Expand radial coverage using original profile knots and adaptive midpoints; run order-pair quadrature checks; then construct global interpolation error estimator before emissivity/GR optical-depth integration."}
     args.output.parent.mkdir(parents=True,exist_ok=True); args.csv.parent.mkdir(parents=True,exist_ok=True)
-    args.output.write_text(json.dumps(payload,indent=2,sort_keys=True)+"\\n")
+    args.output.write_text(json.dumps(payload,indent=2,sort_keys=True)+"\n")
     fields=["r_km","T_MeV","x","omega_local_MeV","max_detailed_balance","mass_shell","all_rates_finite_nonnegative","lapse","mu_mu"]
     with args.csv.open("w",newline="") as f:
         w=csv.DictWriter(f,fieldnames=fields); w.writeheader()
