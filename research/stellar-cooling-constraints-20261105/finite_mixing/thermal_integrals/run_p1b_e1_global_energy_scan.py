@@ -22,6 +22,8 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
+if str(HERE) not in sys.path:
+    sys.path.insert(0, str(HERE))
 import audit_b13_local_kernel_radial_energy_10mev as audit
 
 PROFILE = ROOT / "data" / "sfho188_digitized.csv"
