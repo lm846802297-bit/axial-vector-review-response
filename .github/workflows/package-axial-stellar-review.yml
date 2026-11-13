@@ -64,7 +64,10 @@ jobs:
           # Validate every archived JSON payload before writing the ZIP.
           for name, data in files.items():
               if name.endswith(".json"):
-                  json.loads(data.decode("utf-8"))
+                  try:
+                      json.loads(data.decode("utf-8"))
+                  except Exception as exc:
+                      raise RuntimeError(f"Invalid JSON payload at {name}: {exc}") from exc
 
 
           package_head = subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()
