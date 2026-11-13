@@ -14,6 +14,11 @@ on:
       - research/stellar-cooling-constraints-20261105/data/profile_provenance.json
       - research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/audit_b13_local_kernel_radial_energy_10mev.py
       - research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/test_p1b_b13_local_kernel_radial_energy_10mev.py
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/p1b-source-bundle.yml
 
 permissions:
   contents: read
