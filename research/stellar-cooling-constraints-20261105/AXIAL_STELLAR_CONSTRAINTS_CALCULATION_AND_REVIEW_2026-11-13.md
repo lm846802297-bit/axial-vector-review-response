@@ -315,7 +315,7 @@ It includes:
 - a four-mass scan and comparison against digitized public Fig. 4 and Fig. 7 paths;
 - its own tests and provenance fingerprints.
 
-The digitized reference curves are public-PDF vector paths, not the authors' numerical tables. The current Fig. 7 10-MeV strong-absorption discrepancy remains large. The fixed-\(\omega\) literal lane has a recorded high-absorption residual of about +92.25%; a separate conserved-\(E_\infty\) diagnostic reduces but does not close it (about +35.97%). The Fig. 4 boundary agreement alone is not sufficient to pass the full luminosity benchmark.
+The digitized reference curves are public-PDF vector paths, not the authors' numerical tables. The current Fig. 7 10-MeV strong-absorption discrepancy remains large. The fixed-\(\omega\) literal lane has a recorded high-absorption residual of about +92.24%; a separate conserved-\(E_\infty\) diagnostic reduces but does not close it (about +35.97%). The Fig. 4 boundary agreement alone is not sufficient to pass the full luminosity benchmark.
 
 The mode-resolved production lane and scalar literal reference lane answer different questions. In particular,
 \[
