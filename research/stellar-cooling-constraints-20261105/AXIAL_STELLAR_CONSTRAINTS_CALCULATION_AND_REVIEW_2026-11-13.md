@@ -1,9 +1,9 @@
 # Axial stellar-cooling constraint: calculation, reproduction, and independent-review record
 
 **Prepared:** 2026-11-13  
-**Repository:** \`lm846802297-bit/axial-vector-review-response\`  
-**Pinned source revision:** \`81d9b2faf16eb39879b759b05afce46732c925d7\` (main at package preparation)  
-**Calculation directory:** \`research/stellar-cooling-constraints-20261105/\`  
+**Repository:** `lm846802297-bit/axial-vector-review-response`  
+**Pinned source revision:** `81d9b2faf16eb39879b759b05afce46732c925d7` (main at package preparation)  
+**Calculation directory:** `research/stellar-cooling-constraints-20261105/`  
 **Status:** reproducible fixed-profile benchmark; **not a physically validated final SN1987A exclusion**
 
 > **Review warning.** This package preserves the calculation as it currently exists. It does not repair or conceal the unresolved pure-vector Blinov Fig. 7 discrepancy, does not replace the static-muon semi-Compton approximation with the moving-muon B.13 kernel, and does not reinterpret a successful software test as validation of the astrophysical transport model. Do not cite the plotted blue region as an unconditional exclusion until the physics gates in §10 have been closed.
@@ -16,9 +16,9 @@ The benchmark is conditional on:
 
 - an SFHo-18.8 profile at \(t_{\rm pb}=1\) s;
 - the reconstructed radial inputs described in §3, rather than the original Garching simulation tables;
-- the three production/absorption channels implemented in \`rates.py\`;
+- the three production/absorption channels implemented in `rates.py`;
 - independent propagation of the \(L,+,-\) mediator polarization modes;
-- the fixed-profile ballistic escape prescription in \`transport.py\`;
+- the fixed-profile ballistic escape prescription in `transport.py`;
 - the selected radius \(R_\nu=25\) km and the energy convention documented below.
 
 It is **not** a hydrodynamic simulation, a diffusion calculation, an LESN analysis, a high-energy-neutrino recast, or a global exclusion of the UV-complete model.
@@ -47,7 +47,7 @@ g_A^\mu\simeq-g_X.
 \]
 The finite vector component is not included in this scan. No extra Major 3 sterile-neutrino completion or second scalar VEV is introduced.
 
-All rates in \`rates.py\` are returned at unit overall \(g_X^2\); the luminosity routine supplies the \(g_X^2\) production factor and \(g_X^2\) opacity factor.
+All rates in `rates.py` are returned at unit overall \(g_X^2\); the luminosity routine supplies the \(g_X^2\) production factor and \(g_X^2\) opacity factor.
 
 ## 2. Calculation chain
 
@@ -64,21 +64,21 @@ The calculation is organized as:
 
 The principal programs are:
 
-- \`extract_profile.py\`: public-figure vector-path extraction and profile construction;
-- \`rates.py\`: mode-resolved local rates;
-- \`transport.py\`: radial/energy integration, chord opacity and ballistic luminosity;
-- \`run_scan.py\`: mass/coupling scan driver;
-- \`validate_outputs.py\`: archived-scan integrity and sensitivity checks;
-- \`plot_constraints.py\`: PDF/PNG rendering from saved scan files.
+- `extract_profile.py`: public-figure vector-path extraction and profile construction;
+- `rates.py`: mode-resolved local rates;
+- `transport.py`: radial/energy integration, chord opacity and ballistic luminosity;
+- `run_scan.py`: mass/coupling scan driver;
+- `validate_outputs.py`: archived-scan integrity and sensitivity checks;
+- `plot_constraints.py`: PDF/PNG rendering from saved scan files.
 
-The separate \`blinov_reproduction/\` module is a scalar, literal Appendix-B reference implementation. It deliberately does not import the production \`rates.py\` or \`transport.py\`; it is a control lane, not the engine used to draw the axial contour.
+The separate `blinov_reproduction/` module is a scalar, literal Appendix-B reference implementation. It deliberately does not import the production `rates.py` or `transport.py`; it is a control lane, not the engine used to draw the axial contour.
 
 ## 3. Stellar background and provenance
 
 ### 3.1 Adopted sources
 
 The profile file is
-\`data/sfho188_digitized.csv\`, a 1,687-row vertex-preserving union grid. It contains a 0.05-km base grid plus retained PDF-polyline vertices and support-boundary knots.
+`data/sfho188_digitized.csv`, a 1,687-row vertex-preserving union grid. It contains a 0.05-km base grid plus retained PDF-polyline vertices and support-boundary knots.
 
 | Input | Adopted source | Use |
 |---|---|---|
@@ -87,7 +87,7 @@ The profile file is
 | \(\mu_{\nu_\mu}(r)\) | Same Caputo Fig. 1, negative and positive branches | Muon-neutrino chemical potential |
 | \(N(r)\) | Ferreira, Marsh & Ravensburg, arXiv:2510.14469v1, Fig. 1, SFHo-18.8 curve | Lapse |
 
-Source PDF archive members, SHA-256 digests, vector-path indices, axis calibrations, support ranges and representative samples are recorded in \`data/profile_provenance.json\`. The extraction script verifies the source PDF hashes before digitizing.
+Source PDF archive members, SHA-256 digests, vector-path indices, axis calibrations, support ranges and representative samples are recorded in `data/profile_provenance.json`. The extraction script verifies the source PDF hashes before digitizing.
 
 ### 3.2 Explicit reconstruction assumptions
 
@@ -103,7 +103,7 @@ The Caputo and Ferreira temperature paths agree over their common 0.2–20 km ra
 
 The Ferreira curve labelled \(\mu_\mu\) differs strongly from the Caputo curve despite the same nominal SFHo-18.8, 1-s label. It is retained only as a diagnostic column and is **not** used for the baseline \(\mu_\mu\). The origin of the published-curve discrepancy is unresolved; it is not converted into an invented statistical uncertainty.
 
-No restricted Garching raw tables were accessed, redistributed, or reconstructed from credentials. Reviewers can regenerate the digitized profile from the public arXiv source archives using \`extract_profile.py --download\`, subject to the pinned source hashes.
+No restricted Garching raw tables were accessed, redistributed, or reconstructed from credentials. Reviewers can regenerate the digitized profile from the public arXiv source archives using `extract_profile.py --download`, subject to the pinned source hashes.
 
 ## 4. Local rates and physical channels
 
@@ -122,7 +122,7 @@ n_\mu^{\rm eff}
 =2\sum_{\mu^-,\mu^+}
 \int\frac{d^3p}{(2\pi)^3}f_\mu(1-f_\mu).
 \]
-The spin/Jacobian normalization is already included in \`transport.effective_muon_density\`; no additional factor of two is to be applied.
+The spin/Jacobian normalization is already included in `transport.effective_muon_density`; no additional factor of two is to be applied.
 
 This is a **muon-rest/effective-density approximation**, not the exact moving-muon thermal collision integral. It does not preserve the incoming/outgoing muon momentum correlation in the thermal scattering kernel. This is a leading physical limitation, especially because semi-Compton emission supplies about 91.4% of the optically thin source at 10 MeV.
 
@@ -220,16 +220,16 @@ This is not algebraically equivalent to first summing opacities and then inserti
 
 ### 6.1 Baseline scan
 
-The archived \`outputs/axial.json\` baseline has:
+The archived `outputs/axial.json` baseline has:
 
 | Setting | Value |
 |---|---:|
 | Current | axial |
-| Radial quadrature target \`nr\` | 88 |
-| Energy nodes \`ne\` | 180 |
-| Direction quadrature \`na\` | 24 |
-| Chord/path quadrature \`ns\` | 64 |
-| Semi-Compton scattering-angle order \`nc\` | 40 |
+| Radial quadrature target `nr` | 88 |
+| Energy nodes `ne` | 180 |
+| Direction quadrature `na` | 24 |
+| Chord/path quadrature `ns` | 64 |
+| Semi-Compton scattering-angle order `nc` | 40 |
 | Escape radius | 25 km |
 | Energy offset | 1,200 MeV |
 | Semi-Compton scale | 1 |
@@ -250,7 +250,7 @@ L_{A'}(m_{A'},g_X)=4.4\times10^{52}\ {\rm erg\,s^{-1}}.
 \]
 The filled blue region denotes the sampled/interpolated points above this criterion. The dotted contour at \(3.0\times10^{52}\) erg/s is a separate threshold sensitivity view, not an independent experimental exclusion.
 
-For each mass, \`run_scan.find_intervals\` finds all crossings in \((\log g_X,\log L)\) and records every interval above threshold. It does not assume a single connected island. The black dashed curve in the figure is the pure-vector muon-current control using the same reconstructed profile and code family; it is **not** a claim that the published Blinov Fig. 7 vector curve has been reproduced.
+For each mass, `run_scan.find_intervals` finds all crossings in \((\log g_X,\log L)\) and records every interval above threshold. It does not assume a single connected island. The black dashed curve in the figure is the pure-vector muon-current control using the same reconstructed profile and code family; it is **not** a claim that the published Blinov Fig. 7 vector curve has been reproduced.
 
 ### 6.3 Figure panels
 
@@ -259,7 +259,7 @@ For each mass, \`run_scan.find_intervals\` finds all crossings in \((\log g_X,\l
 - Beige region: visible overlap with the original Fig. 2 display window. It is a visual comparison region only and does not convert this calculation into a global viability statement.
 - MeV and GeV figures use the same saved scan. GeV figures change only the mass coordinate by \(m[{\rm GeV}]=m[{\rm MeV}]/1000\).
 
-The current \`plot_constraints.py\` sends the saved arrays to Matplotlib \`contour/contourf\` in the native linear coordinate arrays and then sets logarithmic axes. This is not identical to the log-log interpolation used by \`find_intervals\`. The coupling grid is dense, but a reviewer should regard the plotted contour interpolation as a small presentation-level numerical issue to be checked. This package preserves the existing figure and code without silently changing either.
+The current `plot_constraints.py` sends the saved arrays to Matplotlib `contour/contourf` in the native linear coordinate arrays and then sets logarithmic axes. This is not identical to the log-log interpolation used by `find_intervals`. The coupling grid is dense, but a reviewer should regard the plotted contour interpolation as a small presentation-level numerical issue to be checked. This package preserves the existing figure and code without silently changing either.
 
 ## 7. Representative saved results
 
@@ -291,7 +291,7 @@ At \(m_{A'}>2m_\mu\), the dimuon channel opens and changes the source hierarchy.
 
 ## 8. Numerical checks already recorded
 
-The archived \`outputs/numerical_validation.json\` checks:
+The archived `outputs/numerical_validation.json` checks:
 
 - the coupling arrays are increasing and luminosity arrays have the expected length, finite nonnegative values;
 - thin-source fractions sum to one;
@@ -306,7 +306,7 @@ These checks establish internal numerical consistency of the saved arrays and se
 
 ## 9. Independent pure-vector reference lane
 
-The \`blinov_reproduction/\` subdirectory implements a separate scalar Appendix-B prescription for comparison with Blinov et al., arXiv:2511.09619v2. It is deliberately isolated from the production axial code.
+The `blinov_reproduction/` subdirectory implements a separate scalar Appendix-B prescription for comparison with Blinov et al., arXiv:2511.09619v2. It is deliberately isolated from the production axial code.
 
 It includes:
 - an independent scalar implementation of the neutrino/dimuon rates and no-recoil semi-Compton prescription;
@@ -353,7 +353,7 @@ The calculation does not include the complete in-medium photon dispersion, muon�
 
 Use Python with NumPy, SciPy, Matplotlib; profile extraction additionally requires PyMuPDF. Run from the repository root:
 
-\`\`\`bash
+```bash
 python -m unittest discover -s research/stellar-cooling-constraints-20261105 -p "test_*.py" -v
 
 python research/stellar-cooling-constraints-20261105/run_scan.py \\
@@ -373,14 +373,14 @@ python research/stellar-cooling-constraints-20261105/run_scan.py \\
 
 python research/stellar-cooling-constraints-20261105/validate_outputs.py
 python research/stellar-cooling-constraints-20261105/plot_constraints.py
-\`\`\`
+```
 
 To regenerate the reconstructed profile from the pinned public source PDFs:
-\`\`\`bash
+```bash
 python research/stellar-cooling-constraints-20261105/extract_profile.py --download
-\`\`\`
+```
 
-The independent vector lane can be run separately using its own \`blinov_reproduction/README.md\` instructions. Do not merge its scalar opacity prescription into the axial production lane without an explicit physics decision.
+The independent vector lane can be run separately using its own `blinov_reproduction/README.md` instructions. Do not merge its scalar opacity prescription into the axial production lane without an explicit physics decision.
 
 ## 12. Review package contents and integrity
 
@@ -391,10 +391,10 @@ The package index and file-level SHA-256 manifest are included inside the archiv
 Recommended reviewer sequence:
 
 1. Verify the package checksum and the pinned source revision.
-2. Inspect \`data/profile_provenance.json\` and regenerate \`sfho188_digitized.csv\` from the public source PDFs.
-3. Re-run the local tests and \`validate_outputs.py\`.
+2. Inspect `data/profile_provenance.json` and regenerate `sfho188_digitized.csv` from the public source PDFs.
+3. Re-run the local tests and `validate_outputs.py`.
 4. Recompute the axial, vector and endpoint scans from the archived profile.
-5. Re-run \`plot_constraints.py\` and compare the generated PDFs/PNGs bytewise or visually.
+5. Re-run `plot_constraints.py` and compare the generated PDFs/PNGs bytewise or visually.
 6. Inspect the independent Blinov reference lane and its Fig. 4/Fig. 7 residuals.
 7. Resolve the P0/P1 physics gates in §10 before treating the contour as a final astrophysical exclusion.
 
