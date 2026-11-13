@@ -211,4 +211,4 @@ The previous packaging workflows uploaded 13 ZIP artifacts before the local-only
 | 13998169336 | axial-stellar-constraints-review-package | 2026-12-13 00:47 |
 | 13999345496 | axial-stellar-constraints-review-package | 2026-12-13 00:46 |
 
-A one-time manual workflow, .github/workflows/delete-legacy-zip-artifacts.yml, deletes only these exact artifact IDs after the operator selects the explicit confirmation input. The current GitHub connector can inspect artifacts but does not expose an artifact-delete action, so this workflow must be run once from the repository Actions page. If it is not run, the artifacts expire at the dates above.
+A one-time manual workflow, .github/workflows/delete-legacy-zip-artifacts.yml, deletes only these exact artifact IDs after the operator selects the explicit confirmation input. The cleanup workflow must be run once from the repository Actions page with the explicit confirmation input. If it is not run, the artifacts expire at the dates above.
