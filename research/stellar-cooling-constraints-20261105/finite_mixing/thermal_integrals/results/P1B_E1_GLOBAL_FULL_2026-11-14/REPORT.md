@@ -47,7 +47,7 @@ The narrow support-edge interval near 22.191894 km has a 24.76% neighbor-change 
 
 At the global energy-interpolation worst radial node (r=14.74234939 km), the 9 interpolation knots plus the worst energy midpoint were directly re-evaluated with the order ladder. The maximum successive-order change was 7.469e-04 at final order (20,12,12,12), below the 1e-3 quadrature criterion. The high-order PCHIP error at x=0.78125 is 0.7362%, below 1%.
 
-The two worst radial-midpoint intervals that were rechecked at high order also pass the 1e-3 successive-order criterion:
+The three worst radial-midpoint intervals that were rechecked at high order also pass the 1e-3 successive-order criterion:
 
 - 15.500–15.550 km: high-order midpoint interpolation error 0.0829%.
 - 22.100–22.135104 km: high-order midpoint interpolation error 0.0128%.
@@ -56,7 +56,7 @@ The tiny 22.191894–22.191895 km support-edge interval has only the low-order d
 
 ## 4. Acceptance boundary
 
-**Passed:** complete 1687-node low-order energy interpolation screen; all 1687 refined-grid radial nodes below 1%; direct radial midpoint checks for the top 60 neighbor-variation intervals; selected high-order checks of the global energy worst point and two radial-midpoint worst intervals.
+**Passed:** complete 1687-node low-order energy interpolation screen; all 1687 refined-grid radial nodes below 1%; direct radial midpoint checks for the top 60 neighbor-variation intervals; selected high-order checks of the global energy worst point and all three highest-neighbor-change radial-midpoint intervals.
 
 **Not claimed:** global high-order quadrature convergence at every radius/energy point; exhaustive radial-midpoint validation of all 1686 intervals; full-star volume emissivity; GR optical depth; luminosity; Fig. 7 reproduction; or updated SN1987A exclusion curves.
 
