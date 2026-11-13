@@ -946,9 +946,14 @@ The following non-duplicated source-archive status note is retained from the SFH
 ## 2026-11-13 current Major 4.4 branch status
 
 - PR #102 v1 is closed without merge; its branch is retained as a historical snapshot.
-- PR #106 v2 is the active draft, synchronized with current main and limited to nine intended files.
+- PR #106 v2 is the active draft and is synchronized with current main. It now includes the P0 polarization Boltzmann state-counting addendum and seven algebraic regression tests; the scalar B.2 reference and axial-vector curves remain unchanged.
 - B.1 local-energy/\(E_\infty\) integration is exactly equivalent by a Jacobian change of variables.
 - B.2 fixed-\(\omega\) gives +92.43%; the redshift-only conserved-\(E_\infty\) diagnostic gives +36.91% but retains Euclidean chords.
 - The generic static-spherical GR ray kernel passes six independently executed tests, but the reconstructed profile lacks same-snapshot \(B(r)\) and \(M(r)\); the paper's Garching pseudo-Newtonian baseline is spatially flat.
 - The 15–25 km shells contribute 56.71% of source-weighted mean total optical depth; 110–510 MeV supplies 94.43% of escaped luminosity.
 - Local mode sums/detailed balance pass at \(10^{-14}\), while scalar B.2 and mode-resolved propagation differ by 76.37. Keep them separate; no opacity correction or axial-curve update is authorized.
+
+
+## 2026-11-13 P0 polarization state-counting
+
+The active PR #106 line now contains the analytic mode-resolved Boltzmann collision-term derivation, total-occupation closure, and seven algebraic regression tests. The literal scalar B.2 reproduction remains unchanged; the physical no-mixing transport lane remains mode-resolved pending the exact B.13 Compton polarization kernel.
