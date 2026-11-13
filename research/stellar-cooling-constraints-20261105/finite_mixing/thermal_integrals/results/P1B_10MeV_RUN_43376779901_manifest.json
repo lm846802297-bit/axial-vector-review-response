@@ -59,5 +59,12 @@
     "rates_py": "2fc7bc2d3b0d7b98c191755cd2bb87944e4ebe259adc3d3bbc8e0f60dcc57f56",
     "reference_py": "f81468f4305cf57eb86cc0210abc7afc333d434ae70da307ca64a824e486107c"
   },
-  "interpretation": "Archival record of Actions output; not a fresh local-cloud B.13 re-evaluation, not exact GR luminosity or B.2 optical-depth calculation, and not a final SN1987A constraint."
+  "interpretation": "Archival record of Actions output; not a fresh local-cloud B.13 re-evaluation, not exact GR luminosity or B.2 optical-depth calculation, and not a final SN1987A constraint.",
+  "source_snapshot": {
+    "root": "research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_10MeV_RUN_43376779901_source_snapshot",
+    "source_commit": "0f61bfc3e381402cbea9740958b9a2744f006040",
+    "readme": "research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_10MeV_RUN_43376779901_source_snapshot/README.md",
+    "manifest": "research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_10MeV_RUN_43376779901_source_snapshot/SOURCE_MANIFEST.json",
+    "exact_copy_verification": "All seven copied source/input files were re-fetched from the PR branch and their Git blob IDs exactly matched the original source-commit blob IDs recorded in SOURCE_MANIFEST.json."
+  }
 }
