@@ -903,7 +903,7 @@ The following non-duplicated source-archive status note is retained from the SFH
 - The 13-path post-merge comparison was reviewed. The PR retains eight provenance-only JSON refreshes, the package-relative import correction for the direct longitudinal-projector test, and the review record in `VALIDATION_AND_REVIEW.md`. It excludes three JSON outputs with only final-digit floating-point differences and the workflow's comment-only change.
 - Major 4.4 EFT validation [Run #43206544367](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43206544367) completed successfully on source commit `c611005c6cb343f8a53b282e14d15a8b6468b541`. This is software/data reproducibility evidence, not physical Fig. 7 acceptance.
 - **Physics gate remains open:** pure-vector Blinov Fig. 7 is **NOT PASSED**; the 10 MeV high-absorption discrepancy remains unresolved. No opacity/profile rescaling, production-kernel replacement, or axial constraint update is accepted.
-- PR #77 remains Draft pending file-level review; no merge has been performed.
+- Historical status note superseded on 2026-11-13: PR #77 was merged; PR #83 was closed as its duplicate. See the current branch-integration audit.
 
 
 ## 2026-11-13 current-main research index and archive-policy update

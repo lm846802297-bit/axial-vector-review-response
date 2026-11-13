@@ -167,7 +167,7 @@ No new SN transport result or astrophysical limit is inferred from these checks.
 
 ### Major 4.4 and C4-C4 branch comparison
 
-- PR #56 and PR #77 are merged; PR #83 was a duplicate of #77 and remains closed.
+- PR #56 and PR #77 are merged; PR #83 was a duplicate of #77 and remains closed. Any earlier line in this audit or PROJECT_STATUS that labels PR #77 Draft/Open is historical and superseded.
 - The old codex/major44-axial-cooling-constraints-20261105 branch has one branch-only generated Higgs-portal ZIP. Its three differing numerical JSON records were checked against main: the vector/axial scan differs only in final floating-point digits; the dimuon validation has six last-digit differences; and the SFHo local Compton record differs only in final digits/runtime metadata. The current-main files are retained; no old numerical output is copied over them.
 - PR #79 and PR #84 are merged. The C4-C4 and C4-C4-B branches each have one branch-only generated ZIP, while their research outputs are already in main. Their local-rate and radial-opacity records remain diagnostics, not full SN transport acceptance.
 - The Major 4.4 physical gate is unchanged: pure-vector Blinov Fig. 7 remains **NOT PASSED** at the 10 MeV strong-absorption end.
