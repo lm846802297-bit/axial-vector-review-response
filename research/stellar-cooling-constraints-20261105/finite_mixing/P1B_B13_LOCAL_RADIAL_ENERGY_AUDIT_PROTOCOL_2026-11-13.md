@@ -202,7 +202,7 @@ The maximum detailed-balance residual in Global-03 was \(1.2384\times10^{-14}\),
 
 Four high-error cells were selected (radial intervals 702, 993, 1016 and 1024). The nine energy knots at both endpoints and the selected cell centers were re-evaluated with the high-order ladder. All selected points passed the 0.1% successive-order criterion after the two interval-702 \(x=36\) endpoints were extended to \((36,20,20,20)\). The largest final successive-order change was \(9.3270\times10^{-4}\).
 
-The interval-702 high-order PCHIP cell-center interpolation comparison initially used order-32 endpoint values. The \(x=36\) endpoint convergence was subsequently extended to order 36; the PCHIP cell-center interpolation value is being independently recomputed with the updated endpoint values. Until that recomputation is archived, that one high-order interpolation number remains provisional.
+The interval-702 high-order PCHIP cell-center comparison has now been recomputed using high-order values at all nine energy knots on both radial endpoints, including the order-36 \(x=36\) endpoint extension. The updated PCHIP interpolation discrepancy is 0.418921%, and all 19 endpoint/cell-center quadrature nodes in this interval pass the 0.1% successive-order criterion.
 
 ### Acceptance boundary
 
