@@ -48,13 +48,13 @@ The four integration orders are
 \]
 where the variables are the transformed muon kinetic-energy coordinate, initial-muon polar angle, photon polar angle, and relative photon azimuth.
 
-Every grid node is evaluated with
-\[
-(12,8,8,8),\quad(16,10,10,10),\quad(20,12,12,12).
-\]
-Every cell midpoint is evaluated with
+Every refined-grid node and cell midpoint is evaluated with
 \[
 (16,10,10,10),\quad(20,12,12,12).
+\]
+If the successive difference is too large, both are adaptively refined to
+\[
+(24,14,14,14),\quad(28,16,16,16).
 \]
 If the last successive refinement exceeds the screening target, the point is adaptively refined to
 \[
@@ -71,11 +71,11 @@ The quadrature screening target is a maximum relative change below \(10^{-3}\) (
 
 ## 5. Radial-energy interpolation check
 
-At each of the 88 cell centers, the directly evaluated rates are compared with a bilinear interpolation of the four surrounding grid-node values in log(rate), falling back to linear interpolation if any corner is exactly zero.
+At each cell center, the directly evaluated rates are compared with sequential log interpolation: first in the threshold-adapted coordinate \(\sqrt{\omega-m_{A'}}\), then in radius. If a rate endpoint is exactly zero, that one-dimensional interpolation falls back to linear interpolation. The absorption kernel is interpolated; production and reduced absorption are reconstructed from detailed balance at the exact midpoint temperature.
 
 The same charge, mode, and observable decomposition is retained. The screening target is a maximum direct-midpoint/interpolant discrepancy below \(10^{-2}\) (1%). This is an interpolation-resolution criterion, distinct from the local quadrature criterion.
 
-The ten worst interpolation cells are retained in the output to guide any necessary local grid refinement.
+The ten worst interpolation cells are retained in the output to guide any necessary local grid refinement. The output key is maximum_direct_midpoint_vs_sequential_log_interpolation_error.
 
 ## 6. Algebraic and kinematic checks
 
