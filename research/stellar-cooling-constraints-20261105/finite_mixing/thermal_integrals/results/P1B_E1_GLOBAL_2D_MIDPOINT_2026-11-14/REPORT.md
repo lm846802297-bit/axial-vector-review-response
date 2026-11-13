@@ -49,7 +49,7 @@ The x = 36 endpoints of interval 702 required one further extension to `(36,20,2
 
 Across the four selected intervals, every tested endpoint and cell-center quadrature passed 0.1%; the largest final successive-order change was 0.0932701%, at the interval-702 cell center. The largest selected high-order PCHIP interpolation discrepancy was 0.806843% (interval 993).
 
-**Specific caveat:** the interval-702 high-order cell-center PCHIP comparison retains the order-32 endpoint values from the first targeted run. The x=36 endpoint quadrature convergence was extended and passed at order 36, but the PCHIP cell-center comparison was not recomputed with those updated order-36 endpoint values. This does not affect the low-order global 1% screen, but the high-order interpolation number for this one cell should be treated as provisional.
+The interval-702 high-order cell-center PCHIP comparison was subsequently recomputed using high-order values at all nine energy knots on both radial endpoints, including the order-36 x=36 endpoint extension. The recomputed PCHIP interpolation discrepancy is 0.418921%; the local bilinear-log discrepancy is 5.39108%. All 19 endpoint/cell-center quadrature nodes in this interval pass the 0.1% successive-order criterion. This removes the provisional interpolation caveat for interval 702.
 
 ## Acceptance boundary
 
