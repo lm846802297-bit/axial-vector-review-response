@@ -1,3 +1,5 @@
+> **Collaborator archive (2026-11-13):** the canonical research files are indexed and packaged without duplicate copies. Start with the [collaborator guide](../stellar-cooling-collaborator-archive-20261113/README.md), [status matrix](../stellar-cooling-collaborator-archive-20261113/STATUS_MATRIX.md), [figure audit](../stellar-cooling-collaborator-archive-20261113/FIGURE_AUDIT.md), and [review checklist](../stellar-cooling-collaborator-archive-20261113/REVIEW_CHECKLIST.md). The generated ZIP is a GitHub Actions artifact; the repository keeps the source and builder, not another ZIP copy. The current axial contour remains a conditional benchmark, not a final SN1987A exclusion.
+
 # Major 4.4：轴矢量 EFT 超新星冷却限制
 
 > **2026-11-07 验证更新：** 作者选择仅复现 Blinov et al. 作为矢量基准，不要求复现多篇文献或获得原始剖面。边界诊断复现、偏振归一化差异、光度曲线的未决问题及 223 MeV 端点误读的纠正见 [矢量基准核查](VECTOR_BENCHMARK_AUDIT_2026-11-07.md)。B.7–B.19 的逐偏振产生率、吸收率、详细平衡和 Python 对照见 [逐偏振理论核查](POLARIZATION_DETAILED_BALANCE_AUDIT_2026-11-07.md)。既有曲线尚不能依据此次诊断认定完整物理验证通过。
