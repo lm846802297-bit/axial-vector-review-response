@@ -10,7 +10,7 @@ The collaborator package is built from the canonical research files; it does not
 - research/stellar-cooling-eft-literature-20261105/: independent literature-kernel implementation and checks.
 - research/stellar-cooling-collaborator-archive-20261113/: collaborator guide, status matrix, figure audit, reviewer checklist, package builder, and dependency list.
 
-The historical directory review_package_extracted/ is retired and removed from the current branch. Its duplicated source copies are not used as canonical inputs.
+The historical directory review_package_extracted/ is retired and removed from the current branch. Its duplicated source copies are not used as canonical inputs. The 12 unique metadata records for the original 12-part/75-member extraction are preserved under research/stellar-cooling-collaborator-archive-20261113/provenance/original-review-package/; this directory contains provenance only, not another copy of the source payload.
 
 ## Optional local ZIP handoff — not stored on GitHub
 

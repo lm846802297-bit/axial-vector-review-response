@@ -18,7 +18,7 @@ This directory preserves the *metadata* for the 2026-11-13 independent-review pa
 - `ORIGINAL_SHA256SUMS.txt`: original member-level SHA-256 manifest, preserved byte-for-byte. Paths are relative to the original extracted package root.
 - `package_metadata/`: original part README files and source/test reference records, including Git blob SHA-1 and byte-size information.
 - `ORIGINAL_REVIEW_PACKAGE_README.md` and `ORIGINAL_PACKAGE_PARTS_README.md`: original historical instructions. They describe the old Base64/nested-ZIP delivery mechanism and are retained only as provenance, not as current usage instructions.
-- `ORIGINAL_REQUIREMENTS.txt`: original package dependency list; the current collaborator package uses `../requirements-review.txt`.
+- `ORIGINAL_REQUIREMENTS.txt`: original package dependency list; the current collaborator package uses `research/stellar-cooling-collaborator-archive-20261113/requirements-review.txt`.
 
 ## Why the payload is not duplicated
 
