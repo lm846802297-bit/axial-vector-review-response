@@ -1,0 +1,51 @@
+{
+  "run": "P1B-E1-TARGETED-HIGH-ORDER-RADIAL-MIDPOINT",
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "left_radial_index": 1487,
+  "right_radial_index": 1488,
+  "r_left_km": 22.1918936570485,
+  "r_mid_km": 22.1918941570485,
+  "r_right_km": 22.1918946570485,
+  "x": 0.5,
+  "omega_mid_MeV": 11.757621684120474,
+  "node_quadrature": [
+    {
+      "radius_km": 22.1918936570485,
+      "temperature_MeV": 3.51524345680526,
+      "final_orders": [
+        20,
+        12,
+        12,
+        12
+      ],
+      "final_change": 3.3584620057672076e-7
+    },
+    {
+      "radius_km": 22.1918941570485,
+      "temperature_MeV": 3.5152433682409496,
+      "final_orders": [
+        20,
+        12,
+        12,
+        12
+      ],
+      "final_change": 3.3584609185091616e-7
+    },
+    {
+      "radius_km": 22.1918946570485,
+      "temperature_MeV": 3.51524327967664,
+      "final_orders": [
+        20,
+        12,
+        12,
+        12
+      ],
+      "final_change": 3.358459826622048e-7
+    }
+  ],
+  "maximum_radial_midpoint_interpolation_error": 3.0782766622658287e-9,
+  "all_nodes_quadrature_pass": true,
+  "maximum_detailed_balance_residual": 1.5896718149475273e-15,
+  "maximum_final_muon_mass_shell_residual": 3.584635419442434e-15,
+  "scope": "High-order direct midpoint recheck of the narrow support-edge radial interval; not a global high-order scan."
+}
