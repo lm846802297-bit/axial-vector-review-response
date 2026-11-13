@@ -26,19 +26,19 @@ This is a vertex-preserving reconstruction of published profile figures, not the
 
 ## 3. Radial-energy grid
 
-The node grid contains 9 radii and 12 local mediator energies:
+The final base grid contains 10 radii and 14 local mediator energies:
 
 \[
 r=\{0,5,8,10,12.5,15,18.66,22,24\}\ {\rm km},
 \]
 
 \[
-\omega=\{10,10.5,12,15,20,30,50,80,120,200,300,510,720\}\ {\rm MeV}.
+\omega=\{10,10.5,12,15,20,30,50,80,120,200,300,510,720,1500\}\ {\rm MeV}.
 \]
 
 The exact threshold \(\omega=m_{A'}\) is retained. Every radial-energy cell is also sampled at its center. Radial midpoints are arithmetic; energy midpoints are centered in \(\sqrt{\omega-m_{A'}}\), matching the threshold variable used by the local emissivity integral.
 
-After one bisection this gives 17 radii × 25 energies = 425 grid nodes and 16 × 24 = 384 direct cell-midpoint checks. The 720 MeV endpoint covers the finite thermal-integral cutoff (m_{A'}+36T_{max}simeq703.55) MeV of the fixed profile. A runtime guard checks this coverage from the loaded background before any collision-kernel evaluation.
+After one bisection this gives 19 radii × 27 energies = 513 grid nodes and 18 × 26 = 468 direct cell-midpoint checks. The radial grid explicitly includes the profile's maximum-temperature shell at 8.482141 km. The 1500 MeV endpoint covers the finite thermal-integral cutoff (m_{A'}+36T_{max}simeq1422.99) MeV. A runtime guard scans the full 1687-row profile, verifies that the maximum-temperature shell is included in both the radial grid and local emissivity audit, and checks energy coverage before any collision-kernel evaluation.
 
 ## 4. Quadrature refinement
 
@@ -144,3 +144,23 @@ The refined interpolation now uses only the absorption kernel as the interpolate
 The spectral source then uses the exact midpoint phase-space factor. This avoids treating the steep thermal Boltzmann factor as an independent interpolated function and enforces detailed balance by construction. It does not remove the need to resolve the radial dependence of the absorption kernel itself.
 
 The regression suite now includes a synthetic check that the reconstructed production, reduced absorption, and spectral source obey these exact midpoint relations.
+
+
+## 11. Full-profile temperature maximum and final energy coverage
+
+A scan of all 1687 rows of the fixed profile shows that the maximum temperature is not at the center:
+\[
+T_{\max}=39.24967934\ {\rm MeV},\qquad
+r(T_{\max})=8.482141202\ {\rm km}.
+\]
+The local emissivity routine uses the finite thermal variable
+\[
+x=(\omega-m_{A'})/T\in[0,36],
+\]
+so the maximum required energy is
+\[
+\omega_{\max}=10+36T_{\max}=1422.988456\ {\rm MeV}.
+\]
+The final grid therefore includes the exact peak-temperature radius and extends to 1500 MeV. The local emissivity energy-integral audit also includes this radius as an explicit anchor. The runtime guard reads the complete profile table rather than estimating its maximum from the sparse grid nodes.
+
+The final one-bisection grid is 19 radii × 27 energies = 513 nodes, with 468 direct cell-midpoint evaluations. This supersedes the earlier 17 × 25 planning count recorded during the intermediate refinement.
