@@ -15,137 +15,196 @@ jobs:
   package-review-bundle:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out pinned review branch
+      - name: Check out review branch
         uses: actions/checkout@v4
         with:
           ref: research/stellar-cooling-review-package-20261113
 
-      - name: Assemble verified ZIP from the small package parts
+      - name: Assemble package from extracted repository files
         shell: bash
         run: |
           python - <<'PY'
-          import base64
+          import csv
           import hashlib
-          import io
           import json
+          import subprocess
           import zipfile
+          from datetime import datetime, timezone
           from pathlib import Path
 
           repo_root = Path(".")
           calc = Path("research/stellar-cooling-constraints-20261105")
-          parts_dir = calc / "review_package_parts"
-          part_names = [
-              "01_sources_profile_report.zip.b64",
-              "02A1_axial_scan.zip.b64",
-              "02A2_vector_scan.zip.b64",
-              "02A3_endpoint_validation.zip.b64",
-              "02B1_convergence_refinements.zip.b64",
-              "02B2a_profile_sensitivity.zip.b64",
-              "02B2b_coupling_and_vector_audit.zip.b64",
-              "03A_figures_mev_and_wide.zip.b64",
-              "03B_figures_gev_and_luminosity_png.zip.b64",
-              "04A_source_tests_reference.zip.b64",
-              "04B_reference_diagnostics_and_audits.zip.b64",
-              "04C_reference_helpers.zip.b64",
-          ]
+          literature = Path("research/stellar-cooling-eft-literature-20261105")
+          roots = [calc, literature]
+
+          def excluded(path):
+              rel = path.relative_to(repo_root)
+              if "review_package_parts" in rel.parts:
+                  return True
+              if "__pycache__" in rel.parts or path.suffix == ".pyc":
+                  return True
+              if path.suffix.lower() in {".zip", ".gz", ".b64"}:
+                  return True
+              if ".part-" in path.name:
+                  return True
+              return False
 
           files = {}
-          git_blob_map = {}
-          for part_name in part_names:
-              raw = (parts_dir / part_name).read_text(encoding="ascii")
-              payload = base64.b64decode(raw, validate=True)
-              with zipfile.ZipFile(io.BytesIO(payload), "r") as part_zip:
-                  bad = part_zip.testzip()
-                  if bad:
-                      raise RuntimeError(f"{part_name}: CRC failure in {bad}")
-                  for member in part_zip.infolist():
-                      if member.is_dir():
-                          continue
-                      name = member.filename
-                      data = part_zip.read(member)
-                      if name == "PART_README.txt":
-                          name = f"package_metadata/part_{part_name.removesuffix('.zip.b64')}_README.txt"
-                      elif name.startswith("SHA256") or name.startswith("GIT_BLOB"):
-                          name = f"package_metadata/part_{part_name.removesuffix('.zip.b64')}_{name}"
-                      elif name.startswith("source/"):
-                          name = "research/stellar-cooling-constraints-20261105/" + name[len("source/"):]
-                      elif name.startswith("reports/"):
-                          name = "research/stellar-cooling-constraints-20261105/" + name[len("reports/"):]
-                      else:
-                          name = "research/stellar-cooling-constraints-20261105/" + name
-                      if name in files:
-                          raise RuntimeError(f"Duplicate package path: {name}")
-                      files[name] = data
+          for root in roots:
+              if not root.exists():
+                  raise RuntimeError(f"Required source directory is missing: {root}")
+              for path in sorted(root.rglob("*")):
+                  if path.is_file() and not excluded(path):
+                      rel = path.relative_to(repo_root).as_posix()
+                      files[rel] = path.read_bytes()
 
-          report_path = calc / "AXIAL_STELLAR_CONSTRAINTS_CALCULATION_AND_REVIEW_2026-11-13.md"
-          files[str(report_path)] = report_path.read_bytes()
-          init_path = calc / "blinov_reproduction" / "__init__.py"
-          files[str(init_path)] = init_path.read_bytes()
+          if len(files) < 500:
+              raise RuntimeError(f"Unexpectedly small package payload: {len(files)} files")
 
-          readme = """# Axial stellar-cooling constraint review package
+          # Validate every archived JSON payload before writing the ZIP.
+          for name, data in files.items():
+              if name.endswith(".json"):
+                  json.loads(data.decode("utf-8"))
+              elif name.endswith(".jsonl"):
+                  for line_no, line in enumerate(data.decode("utf-8").splitlines(), 1):
+                      if line.strip():
+                          try:
+                              json.loads(line)
+                          except Exception as exc:
+                              raise RuntimeError(f"Invalid JSONL at {name}:{line_no}: {exc}") from exc
 
-          Prepared 2026-11-13. Single source-and-results snapshot for independent technical review.
+          package_head = subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()
+          source_baseline = "81d9b2faf16eb39879b759b05afce46732c925d7"
+          branch_name = "research/stellar-cooling-review-package-20261113"
 
-          ## Provenance
-          - Repository: https://github.com/lm846802297-bit/axial-vector-review-response
-          - Numerical source baseline: 81d9b2faf16eb39879b759b05afce46732c925d7
-          - Package branch: research/stellar-cooling-review-package-20261113
-          - Calculation directory: research/stellar-cooling-constraints-20261105/
-          - Profile data are reconstructed from public paper figures; no restricted Garching raw simulation tables are included.
+          blob_map = {}
+          listing = subprocess.check_output(["git", "ls-tree", "-r", "-l", "HEAD"], text=True)
+          for line in listing.splitlines():
+              meta, path = line.split("\t", 1)
+              fields = meta.split()
+              if len(fields) >= 3 and fields[1] == "blob":
+                  blob_map[path] = fields[2]
 
-          ## Contents
-          Production axial EFT rates/transport/scan/profile/plot/validation code; reconstructed SFHo-18.8 profile and provenance; axial/vector/endpoint scans; convergence/refinement/sensitivity outputs; numerical validation JSON; original PDFs/PNGs; independent literal Blinov vector reference code and digitized comparison inputs; tests and detailed-balance/equation-chain/profile/opacity diagnostics; review and audit notes.
+          missing_blobs = sorted(set(files) - set(blob_map))
+          if missing_blobs:
+              raise RuntimeError(f"Files missing from Git tree: {missing_blobs[:10]}")
+
+          total_bytes = sum(len(data) for data in files.values())
+          readme = f"""# Axial stellar-cooling independent-review package
+
+          Prepared: {datetime.now(timezone.utc).isoformat()}
+          Repository: https://github.com/lm846802297-bit/axial-vector-review-response
+          Calculation source baseline: {source_baseline}
+          Package branch: {branch_name}
+          Package branch commit: {package_head}
+
+          ## Scope
+
+          This package is an extracted, self-contained snapshot of the axial-EFT fixed-profile ballistic-cooling benchmark and its associated independent reference audits. It includes source programs, reconstructed profile inputs, saved numerical scans, figures, tests, and B.13/B.16 transport diagnostics.
+
+          It is NOT a final SN1987A exclusion. The pure-vector Blinov Fig. 7 10-MeV strong-absorption validation gate remains NOT PASSED (about +92.24% in the literal fixed-energy comparison). The baseline axial scan uses the initial-muon-rest/effective-density semi-Compton approximation and mode-resolved propagation. The separate literal Blinov reference uses the printed scalar-opacity prescription. These are not interchangeable.
 
           ## Reproduction
-          Python 3 with NumPy, SciPy and Matplotlib is required. Profile extraction additionally requires PyMuPDF. No version-pinned environment lockfile was present; record python --version and python -m pip freeze when rerunning.
 
-          From repository root after extraction:
+          Required Python packages: NumPy, SciPy, Matplotlib, PyMuPDF. Run from the extracted package root:
+
+          \`\`\`bash
           python -m unittest discover -s research/stellar-cooling-constraints-20261105 -p "test_*.py" -v
-          python research/stellar-cooling-constraints-20261105/run_scan.py --mass-count 68 --nr 88 --ne 180 --na 24 --ns 64 --nc 40 --gmax 1e-3 --gcount 301 --output research/stellar-cooling-constraints-20261105/outputs/axial_reproduced.json
-          python research/stellar-cooling-constraints-20261105/run_scan.py --mass-count 68 --nr 88 --ne 180 --na 24 --ns 64 --nc 40 --current vector --gmax 1e-3 --gcount 301 --output research/stellar-cooling-constraints-20261105/outputs/vector_reproduced.json
+          python research/stellar-cooling-eft-literature-20261105/check_literature_kernels.py --matrix-script research/stellar-cooling-eft-literature-20261105/reference_matrix_element.py --output research/stellar-cooling-eft-literature-20261105/literature_kernel_validation_reproduced.json
           python research/stellar-cooling-constraints-20261105/validate_outputs.py
-          python research/stellar-cooling-constraints-20261105/plot_constraints.py
+          \`\`\`
 
-          Endpoint masses 250, 255, 260, 265 and 270 MeV are archived separately in outputs/endpoint.json.
+          The scan JSONs and rendered PDFs/PNGs are preserved as generated; package assembly does not rerun or alter the physical scan.
 
-          ## Critical physics status
-          This is a reproducible fixed-profile ballistic-cooling benchmark, not a final SN1987A exclusion. The pure-vector Blinov Fig. 7 validation gate remains NOT PASSED at the 10 MeV strong-absorption tail (about +92.24% at the high-coupling endpoint). The calculation uses a reconstructed public-figure profile, an initial-muon-rest/effective-density semi-Compton approximation, mode-resolved axial propagation, and the stated fixed-energy chord prescription. The independent vector reference uses the literal scalar-opacity prescription. These transport conventions are not automatically equivalent. See the calculation report and VALIDATION_AND_REVIEW.md.
+          ## Exclusions
 
-          Numerical convergence and software consistency are not physical validation. The unshaded area is not a demonstrated globally allowed region.
+          No restricted Garching raw simulation tables are included. Raw compressed SFHo-FRDM EOS archive payloads (zip files, split part files, and gzip files) are excluded from this handoff; they are not inputs to the displayed fixed-profile axial contour. The associated code, provenance notes, and derived audit outputs remain in the repository/package where applicable. Re-running the separate EOS-dependent diagnostics requires obtaining the EOS release files described by their local README and checksum manifest.
+
+          No ZIP, Base64 ZIP, or split archive is committed as package content. GitHub stores the extracted source/data/results. A short-retention Actions artifact is used only as a transfer mechanism for this user-delivered ZIP.
           """
-          files["PACKAGE_README.md"] = readme.encode()
+          files["PACKAGE_README.md"] = readme.encode("utf-8")
           files["requirements-review.txt"] = (
-              "# Direct Python dependencies inferred from source imports; versions unpinned because no lockfile was archived.\n"
+              "# Versions are intentionally not pinned; record your environment when reproducing.\n"
               "numpy\nscipy\nmatplotlib\nPyMuPDF\n"
-          ).encode()
+          ).encode("utf-8")
+
+          provenance = {
+              "repository": "lm846802297-bit/axial-vector-review-response",
+              "calculation_source_baseline": source_baseline,
+              "package_branch": branch_name,
+              "package_branch_commit": package_head,
+              "created_utc": datetime.now(timezone.utc).isoformat(),
+              "payload_file_count": len(files),
+              "payload_bytes": total_bytes,
+              "excluded_patterns": [
+                  "*/review_package_parts/*",
+                  "*.zip",
+                  "*.gz",
+                  "*.b64",
+                  "*.part-*",
+                  "__pycache__/*",
+                  "*.pyc"
+              ],
+              "scientific_status": "fixed-profile ballistic-cooling benchmark; not a final SN1987A exclusion",
+              "vector_fig7_10mev_gate": "NOT PASSED; literal fixed-energy high-absorption residual about +92.24%"
+          }
+          files["PROVENANCE.json"] = (json.dumps(provenance, indent=2, sort_keys=True) + "\n").encode("utf-8")
+
+          index_rows = []
+          for name in sorted(files):
+              data = files[name]
+              index_rows.append({
+                  "path": name,
+                  "bytes": len(data),
+                  "sha256": hashlib.sha256(data).hexdigest(),
+                  "git_blob_sha": blob_map.get(name, "generated-in-workflow")
+              })
+          import io
+          buf = io.StringIO()
+          writer = csv.DictWriter(buf, fieldnames=["path", "bytes", "sha256", "git_blob_sha"])
+          writer.writeheader()
+          writer.writerows(index_rows)
+          files["PACKAGE_FILE_INDEX.csv"] = buf.getvalue().encode("utf-8")
 
           manifest_lines = []
           for name in sorted(files):
-              data = files[name]
-              manifest_lines.append(f"{hashlib.sha256(data).hexdigest()}  {name}  bytes={len(data)}")
-          files["SHA256SUMS.txt"] = ("\n".join(manifest_lines) + "\n").encode()
+              manifest_lines.append(f"{hashlib.sha256(files[name]).hexdigest()}  {name}  bytes={len(files[name])}")
+          files["SHA256SUMS.txt"] = ("\n".join(manifest_lines) + "\n").encode("utf-8")
+
+          # Hard fail if any archive payload accidentally enters the package.
+          bad_names = [name for name in files if name.lower().endswith((".zip", ".gz", ".b64")) or ".part-" in name]
+          if bad_names:
+              raise RuntimeError(f"Nested/encoded archive files are forbidden: {bad_names[:10]}")
 
           out = Path("dist/axial_stellar_constraints_review_package.zip")
           out.parent.mkdir(parents=True, exist_ok=True)
           with zipfile.ZipFile(out, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=6) as zf:
               for name in sorted(files):
                   zf.writestr(name, files[name])
+
           with zipfile.ZipFile(out, "r") as zf:
               bad = zf.testzip()
               if bad:
                   raise RuntimeError(f"Master ZIP CRC failure: {bad}")
+              if len(zf.namelist()) != len(files):
+                  raise RuntimeError("ZIP member count does not match the file inventory")
+
           print(json.dumps({
-              "file_count": len(files),
+              "package_commit": package_head,
+              "source_baseline": source_baseline,
+              "payload_file_count": len(files),
+              "payload_bytes": total_bytes,
               "archive": str(out),
               "archive_bytes": out.stat().st_size,
               "archive_sha256": hashlib.sha256(out.read_bytes()).hexdigest(),
+              "nested_archives": 0
           }, indent=2))
           PY
 
-      - name: Upload consolidated review ZIP
+      - name: Upload short-retention handoff artifact
         uses: actions/upload-artifact@v4
         with:
           name: axial-stellar-constraints-review-package
           path: dist/axial_stellar_constraints_review_package.zip
           if-no-files-found: error
-          retention-days: 30
+          retention-days: 1
