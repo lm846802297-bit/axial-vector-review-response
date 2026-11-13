@@ -34,7 +34,7 @@ This 8-radius × 5-thermal-energy grid is a coarse scouting calculation. It is *
 Install numpy, scipy and threadpoolctl, then run the committed driver from the source snapshot root:
 
 ```bash
-python run_global_pilot_01.py --output results/P1B_10MeV_GLOBAL_PILOT_01.json --csv results/P1B_10MeV_GLOBAL_PILOT_01.csv
+python run_global_pilot_01.py --output ../P1B_10MeV_GLOBAL_PILOT_01/P1B_10MeV_GLOBAL_PILOT_01.json --csv ../P1B_10MeV_GLOBAL_PILOT_01/P1B_10MeV_GLOBAL_PILOT_01.csv
 ```
 
 ## Checksums
