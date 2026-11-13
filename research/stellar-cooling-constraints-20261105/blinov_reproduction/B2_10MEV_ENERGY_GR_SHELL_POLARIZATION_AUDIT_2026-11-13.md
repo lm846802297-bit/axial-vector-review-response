@@ -166,3 +166,20 @@ The pure-vector Fig. 7 gate remains **not passed**. The axial-vector curve is un
 - Blinov et al., JHEP 06 (2026) 155, Sec. 4.1 and Appendix B. https://doi.org/10.1007/JHEP06(2026)155
 - Caputo et al., PRL 128 (2022) 221103, Supplemental Material C, arXiv:2201.09890. https://arxiv.org/abs/2201.09890
 - Caputo, Raffelt and Vitagliano, JCAP 08 (2022) 045, Eqs. (4.22)--(4.24), arXiv:2204.11862. https://arxiv.org/abs/2204.11862
+
+
+## 8. P0 Boltzmann state-counting follow-up — 2026-11-13
+
+The analytic follow-up is archived in [B2_POLARIZATION_BOLTZMANN_STATE_COUNTING_AUDIT_2026-11-13.md](B2_POLARIZATION_BOLTZMANN_STATE_COUNTING_AUDIT_2026-11-13.md).
+
+For fixed mode \(h\), the collision term is
+\[
+C_h=\Gamma_{{\rm prod},h}(1+f_h)-\Gamma_{{\rm abs},h}f_h,
+\qquad
+\Gamma_{{\rm prod},h}=e^{-\omega/T}\Gamma_{{\rm abs},h}.
+\]
+Summing modes gives a closed scalar equation only after an occupation closure is specified. For equal occupations \(f_h=F/3\), the total absorption coefficient is the mode average \(\sum_h\Gamma_{{\rm abs},h}^{*}/3\). For unequal occupations it is the occupation-weighted rate \(\sum_h\Gamma_{{\rm abs},h}^{*}f_h/F\).
+
+The B.6--B.10 printed equation chain remains sum-to-sum: B.7's factor of three converts the averaged vacuum width to the summed thermal production rate, and B.10 adds no further degeneracy factor. The literal scalar B.2 baseline is therefore retained unchanged for equation-level reproduction, while its interpretation as a per-particle opacity remains under-specified. Physical no-mixing propagation uses each \(\Gamma_{{\rm abs},h}^{*}\) separately.
+
+Seven algebraic tests pass. This does not replace the exact B.13 Compton polarization kernel or close the Fig. 7 benchmark.
