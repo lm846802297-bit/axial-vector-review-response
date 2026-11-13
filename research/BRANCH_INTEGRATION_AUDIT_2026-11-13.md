@@ -234,3 +234,10 @@ Eleven branch refs in two exact-SHA groups have ahead_by=0 relative to main. The
 Cleanup workflow run #43364401393 completed successfully. It deleted the 11 exact branch refs listed in section 7 of research/BRANCH_DISPOSITION_2026-11-13.md. For every ref, the workflow verified the expected head SHA, required ahead_by=0 against the current main commit, deleted the ref, and queried it again to confirm absence.
 
 The 11 commits remain reachable from main. The active PR #102 branch and all divergent Major 1, Major 4.4, C4-C4-A/B, and two-VEV research-history branches were not touched. The one-time pruning workflow is being removed now that the operation is complete.
+
+
+## 2026-11-13 second branch-pruning batch — completed
+
+A second SHA-guarded workflow run, #43364866549, deleted five completed administrative branches: the main-index documentation branch, the two ZIP-cleanup branches, the first branch-pruning workflow branch, and its finalization branch. Each branch was checked against its exact expected head SHA, checked for open-PR use, deleted, and verified absent. A fresh branches-list query confirmed all five are absent.
+
+These were administrative/one-time workflow branches, not research branches. Their PR histories remain available. The Major 1, Major 4.4, C4-C4-A/B, two-VEV, collaborator-archive, and active PR #102 research branches were not included. The one-time workflow is removed after success.
