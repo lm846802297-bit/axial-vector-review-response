@@ -227,3 +227,10 @@ The detailed branch/path/blob comparison is now recorded in research/BRANCH_DISP
 - PR #102's research/fig7-10mev-transport-localization-20261113 branch remains open and contains new localization work; keep it active.
 
 Eleven branch refs in two exact-SHA groups have ahead_by=0 relative to main. Their commits are already reachable from main and they are the first safe deletion batch. The exact branch names and SHA guards are listed in the disposition document. No divergent research branch is force-reset or deleted as part of this audit.
+
+
+## 2026-11-13 first-batch branch pruning — completed
+
+Cleanup workflow run #43364401393 completed successfully. It deleted the 11 exact branch refs listed in section 7 of research/BRANCH_DISPOSITION_2026-11-13.md. For every ref, the workflow verified the expected head SHA, required ahead_by=0 against the current main commit, deleted the ref, and queried it again to confirm absence.
+
+The 11 commits remain reachable from main. The active PR #102 branch and all divergent Major 1, Major 4.4, C4-C4-A/B, and two-VEV research-history branches were not touched. The one-time pruning workflow is being removed now that the operation is complete.
