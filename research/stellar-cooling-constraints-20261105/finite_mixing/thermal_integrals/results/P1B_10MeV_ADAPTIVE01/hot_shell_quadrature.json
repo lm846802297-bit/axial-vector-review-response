@@ -1,0 +1,52 @@
+{
+  "run": "P1B-10MeV-ADAPTIVE-01-hot-shell-quadrature",
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "r_km": 8.4821412022467,
+  "T_MeV": 39.2496793414134,
+  "omega_MeV": 1500,
+  "orders": [
+    [
+      20,
+      12,
+      12,
+      12
+    ],
+    [
+      24,
+      14,
+      14,
+      14
+    ],
+    [
+      28,
+      16,
+      16,
+      16
+    ],
+    [
+      32,
+      18,
+      18,
+      18
+    ],
+    [
+      36,
+      20,
+      20,
+      20
+    ]
+  ],
+  "successive_changes": [
+    null,
+    0.006015193429474781,
+    0.0033677548916923213,
+    0.0018057990397508784,
+    0.0009439318622330218
+  ],
+  "final_change": 0.0009439318622330218,
+  "criterion": 0.001,
+  "pass": true,
+  "max_detailed_balance_residual": 4.1724209823427535e-15,
+  "max_final_muon_mass_shell_residual": 7.048696738412713e-13,
+  "scope": "single hot-shell endpoint pointwise check only; not global quadrature acceptance"
+}
