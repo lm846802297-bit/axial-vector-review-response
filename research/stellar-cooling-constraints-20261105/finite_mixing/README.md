@@ -241,3 +241,14 @@ The direct \(P_L\) comparison also resolves the B.3 residual: at small \(x=m_{Z'
 \simeq-\frac{2(E_\gamma/m_\mu)}{1-\cos^2\theta}.
 \]
 The coefficient fit is numerical; its symbolic finite-recoil derivation is still open. This is a source-formula audit, not a revised thermal rate or transport result. Do not rescale the opacity or update the vector/axial production benchmark.
+
+
+## 14. Independent explicit-spinor validation of the moving-muon B.13 kernel
+
+The production local kernel already resolves the exact moving-muon B.13 collision integral into \(L,+,-\), evaluates \(\mu^-\) and \(\mu^+\) separately, and integrates production and absorption independently. A new independent pointwise audit now constructs explicit Dirac spinors and sums the two physical photon polarizations rather than reusing the production trace as its reference.
+
+Across five moving-muon kinematic points and six pure/mixed-current charge cases (30 cases, 90 polarization matrix elements), the maximum explicit-spinor/trace residual is \(1.77\times10^{-13}\), the explicit photon-Ward amplitude residual is \(1.47\times10^{-13}\), the final-muon shell residual is \(6.52\times10^{-16}\), and the vector longitudinal Ward-shift residual is \(3.54\times10^{-14}\). All explicit mode matrix elements are nonnegative.
+
+See [B13_EXPLICIT_SPINOR_INDEPENDENT_AUDIT_2026-11-13.md](B13_EXPLICIT_SPINOR_INDEPENDENT_AUDIT_2026-11-13.md), the independent reference [audit_b13_moving_muon_spinor_reference.py](thermal_integrals/audit_b13_moving_muon_spinor_reference.py), its regression tests [test_b13_moving_muon_spinor_reference.py](test_b13_moving_muon_spinor_reference.py), and the machine-readable summary [b13_moving_muon_explicit_spinor_audit_2026-11-13.json](thermal_integrals/outputs/b13_moving_muon_explicit_spinor_audit_2026-11-13.json).
+
+This is a pointwise amplitude-level validation, not a uniform thermal-integral convergence bound or a global mode-resolved transport result. The exact B.13 scalar source-plus-opacity calculation and the physical independent-mode transport lane remain distinct.

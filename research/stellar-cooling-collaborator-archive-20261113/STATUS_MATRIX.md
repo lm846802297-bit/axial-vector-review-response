@@ -7,10 +7,10 @@ This table separates work completed, numerical/code acceptance, and physical int
 | Axial EFT model mapping | Effective axial muon current, model-to-EFT coupling convention, single-VEV and two-VEV mapping records, decay-width code | Documented; model variants kept distinct | Freeze the UV benchmark and map final UV parameters to the plotted EFT coupling before claiming a UV-model limit |
 | Axial semi-Compton matrix element | Dirac-trace implementation with three massive-vector polarizations; exact vacuum recoil with initial muon at rest | Implemented and covered by unit tests | Replace the initial-muon-rest thermal approximation by the full moving-muon thermal kernel in the production axial scan |
 | Axial neutrino and dimuon channels | Coalescence / inverse-decay rates with Fermi blocking and detailed-balance relations | Implemented in the benchmark | Check in-medium dispersion and transport assumptions; retain dimuon threshold and channel bookkeeping |
-| Polarization-resolved detailed balance | Per-polarization production / absorption identities and independent audit records | Numerical identities tested | Decide from the physical transport prescription whether propagation is mode-resolved or requires a density-matrix treatment |
+| Polarization-resolved detailed balance | Per-mode Boltzmann collision terms, summed-rate state counting, and exact B.13 L,+,- moving-muon kernel | P0 state-counting derivation and seven algebraic tests pass; independent B.13 spinor/Ward audit passes 30 current-charge cases and 90 mode matrix elements; scalar B.2 and no-mixing transport remain distinct | Complete dense radial/energy kernel convergence and matched global mode-resolved transport; assess mode-conversion terms |
 | Reconstructed SN background | Public-plot digitization, profile provenance, Caputo / Bollig / Esseili–Kribs cross-checks, lapse and neutrino-chemical-potential audits | Public reconstruction and cross-checks completed; not identical to the private Garching snapshot | Obtain or justify one internally consistent profile and quantify reconstruction uncertainty |
 | Official SFHo-FRDM EOS parsing | Official table parsing, physical dimensions / grid alignment, thermodynamic and free-nucleon closure, regression tests | 35/35 recorded tests pass, including real-table tests | EOS tables do not supply the missing time- and radius-dependent Garching supernova snapshot |
-| B.13 moving-muon local kernel | Moving Fermi-gas collision kernel, exact outgoing-energy support, angle / energy / momentum quadrature and anchor comparisons | Substantial local-kernel and sampled-convergence work completed | Integrate the validated kernel into axial production / absorption and global transport |
+| B.13 moving-muon local kernel | Charge-resolved moving-Fermi-gas kernel with exact recoil and separate L,+,- production/absorption | Independent explicit-spinor, photon-Ward, vector-L Ward-shift, mass-shell, mode detailed-balance, and sampled quadrature checks pass; uniform continuous-domain convergence remains open | Complete source-weighted radial/energy convergence; then compare exact B.13 mode-resolved transport with scalar B.2 and equal-population closure |
 | B.13 global diagnostics | Radial, energy, angular, and path convergence records; exact moving-muon global alternative retained separately | Global diagnostic runs and convergence records archived | Not the same as a completed axial-EFT global scan; does not close B.16/Fig. 7 mismatch |
 | B.16 / Blinov pure-vector Fig. 4 | Ballistic boundary reconstruction and numerical comparison | Boundary agreement recorded at about 1.5% (lower) and 2.9% (upper) for the checked mass set | Keep exact mass set and digitization uncertainty attached to the claim |
 | B.16 / Blinov pure-vector Fig. 7 | Independent scalar Appendix-B lane, local-rate checks, path / angular integration, outer-shell and profile diagnostics | **Not passed end-to-end** | 10 MeV strong-absorption tail remains discrepant; resolve source / opacity / energy-frame / transport without empirical rescaling |
@@ -39,3 +39,31 @@ The existing axial figure is a **conditional fixed-profile ballistic benchmark**
 The exact gauge-mass and eaten-Goldstone algebra is checked in PHYSICS_CROSSCHECK_2026-11-13.md. The recorded two-VEV local tests cover the mapping, vacuum semi-Compton amplitude, current-level widths under restricted neutrino assumptions, and a homogeneous optically thin polarization-summed thermal smoke test.
 
 The vacuum tree-level axial-current/Goldstone amplitude identity is now checked directly (PR #105; maximum tested relative residual below 9.0e-13). Still open: the physical CP-odd scalar spectrum; full mass-basis treatment of charged right-handed neutrinos if active-heavy mixing or heavy thresholds matter; the finite-right-mixing UV Goldstone phase projection; independent azimuthal quadrature convergence; medium-rest-frame T/L-resolved opacity; and radial SN transport. These checks do not change the NOT PASSED 10 MeV pure-vector Fig. 7 acceptance gate.
+
+
+## 2026-11-13 B.2 energy / GR-path / shell / polarization update
+
+- B.1 local-energy versus conserved-\(E_\infty\) source integration: exact Jacobian transformation; independent channel integrals agree at stored precision.
+- B.2 fixed-\(\omega\) strong-endpoint residual: +92.43%; redshift-only \(E_\infty\) path variant: +36.91%. The latter retains Euclidean chords and is not full GR.
+- Generic static-spherical GR geodesic/opacity kernel added with six tests passing. No same-snapshot \(B(r)=\sqrt{g_{rr}}\) or \(M(r)\) exists in the reconstructed public profile. The Garching pseudo-Newtonian baseline has flat spatial coordinates.
+- Source-weighted mean total optical depth: 56.71% accumulates at \(r\ge15\) km.
+- 110--510 MeV supplies 94.43% of escaped luminosity while contributing 43.28% of thin source.
+- Local neutrino mode sums/detailed balance pass at \(10^{-14}\), but scalar-sum B.2 and independent mode propagation differ by a factor 76.37 at the strong endpoint. This is a transport-prescription/normalization ambiguity, not numerical quadrature error.
+
+The pure-vector Fig. 7 gate remains open. No axial-vector curve or baseline opacity is changed. See the new B.2 follow-up report and GR ray module in the Blinov reproduction directory.
+
+
+## 2026-11-13 P0 polarization state-counting update
+
+The B.2 polarization Boltzmann state-counting addendum is complete. It establishes the mode-by-mode detailed-balance relation, derives the total-occupation equation, and shows that an equal-occupation scalar closure uses the average \(\sum_h\Gamma_{{\rm abs},h}^{*}/3\). This does not alter the literal B.2 equation-level reproduction, whose printed spin-sum convention is retained.
+
+Seven algebraic regression tests pass. The physical transport prescription remains open pending the exact recoil-resolved B.13 mode kernel and a matched global comparison. The 10 MeV Fig. 7 gate remains NOT PASSED; no axial-vector curve is updated.
+
+See the B.2 P0 addendum and its implementation/tests in the Blinov reproduction directory.
+
+
+## 2026-11-13 P1 exact B.13 polarization-kernel update
+
+The pointwise amplitude stage passes. The exact moving-muon B.13 kernel returns charge-resolved \(L,+,-\) production and absorption. An independent explicit-spinor reference covers five kinematic points and six current/charge combinations per point (30 cases, 90 mode matrix elements). Maximum spinor/trace residual is \(1.77\times10^{-13}\), photon-Ward amplitude residual \(1.47\times10^{-13}\), final-muon shell residual \(6.52\times10^{-16}\), and vector longitudinal Ward-shift residual \(3.54\times10^{-14}\). The dedicated workflow [#43372084167](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43372084167) passed.
+
+Still open: dense source-weighted radial/energy convergence and the global exact-B.13 independent-mode transport comparison. This does not update the axial production scan, scalar B.2 reference, or SN1987A curve.

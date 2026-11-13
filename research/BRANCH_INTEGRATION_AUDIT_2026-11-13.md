@@ -278,3 +278,17 @@ Comparison method: recursive Git trees against current main, separating (i) path
 5. Branches created solely for completed PRs #101, #103, and #104 are administrative branches. They can be removed after their merged content is verified on main; do not use their deletion as a model for deleting scientific research branches.
 
 This audit is a content comparison, not a claim that every one of the repository's 112 branches has been individually reviewed. The remaining branches require grouped triage by PR/workstream and content uniqueness before cleanup.
+
+
+## 2026-11-13 current Major 4.4 10 MeV branch status
+
+PR #102 (v1) is closed without merge. Its branch is retained as a historical snapshot. PR #106 (v2) is the active draft and has been synchronized with current main by a two-parent merge commit; the current PR diff contains 23 files after adding the P0 state-counting derivation, algebraic tests, and synchronized project-status/index updates.
+
+The v2 audit establishes exact B.1 local-energy/\(E_\infty\) variable equivalence, quantifies the B.2 fixed-\(\omega\) (+92.43%) versus redshift-only \(E_\infty\) (+36.91%) path prescriptions, and adds a generic static-spherical GR ray kernel. Six flat-limit, chord, tangential, Killing-energy, bound-energy, and Schwarzschild-toy tests were independently executed and passed. No same-snapshot \(B(r)\) or \(M(r)\) is available for the reconstructed SFHo profile; the published Garching pseudo-Newtonian baseline uses flat spatial coordinates.
+
+The 15–25 km path shells contribute 56.71% of source-weighted mean total optical depth, and 110–510 MeV contributes 94.43% of escaped luminosity. Local mode sums and detailed balance close at approximately \(10^{-14}\), but scalar B.2 and mode-resolved propagation differ by a factor 76.37. Keep these as separate transport prescriptions; do not rescale opacity or update the axial curve. The pure-vector Fig. 7 physical gate remains NOT PASSED.
+
+
+## 2026-11-13 P0 state-counting follow-up
+
+The active PR #106 branch now contains the analytic polarization Boltzmann derivation, a reusable state-counting module, and seven algebraic regression tests. The result is that B.6--B.10 are sum-to-sum under the printed spin-sum convention, while an equal-occupation scalar total-population equation uses the average opacity \(\sum_h\Gamma_{{\rm abs},h}^{*}/3\). The no-mixing physical transport lane remains mode-resolved. No scalar B.2 baseline, axial-vector curve, or final constraint is changed.
