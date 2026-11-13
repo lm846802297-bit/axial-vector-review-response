@@ -914,3 +914,6 @@ The following non-duplicated source-archive status note is retained from the SFH
 - The original 12-part/75-member review-package provenance metadata is retained under research/stellar-cooling-collaborator-archive-20261113/provenance/original-review-package/; duplicate source payloads are not copied there.
 - Generated collaborator ZIPs are no longer uploaded as GitHub Actions artifacts. The builder remains for local packaging and direct handoff only.
 - The pure-vector Blinov Fig. 7 physical benchmark remains **NOT PASSED** at the 10 MeV strong-absorption end. No axial limit curve is promoted by this documentation and repository-organization update.
+
+
+- Thirteen legacy GitHub Actions ZIP artifacts from earlier packaging runs were identified. The current workflow no longer uploads ZIPs; the exact IDs and expiry times are recorded in BRANCH_INTEGRATION_AUDIT_2026-11-13.md. A confirmation-gated one-time cleanup workflow is included because the current GitHub connection does not expose artifact deletion.

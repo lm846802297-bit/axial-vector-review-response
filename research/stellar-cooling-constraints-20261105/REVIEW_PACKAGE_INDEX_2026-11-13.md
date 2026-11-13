@@ -14,7 +14,7 @@ The historical directory review_package_extracted/ is retired and removed from t
 
 ## Optional local ZIP handoff — not stored on GitHub
 
-No generated collaborator ZIP is committed, published as a GitHub Release asset, or uploaded as a GitHub Actions artifact. GitHub stores the canonical extracted/native source, data, reports, tests, figures, provenance, and checksum records.
+No generated collaborator ZIP is committed or published as a GitHub Release asset, and the current workflow no longer uploads one. Thirteen ZIP artifacts from earlier runs remain temporarily in GitHub Actions; use the confirmation-gated delete-legacy-zip-artifacts workflow or allow them to expire. Their IDs and expiry times are recorded in research/BRANCH_INTEGRATION_AUDIT_2026-11-13.md. GitHub stores the canonical extracted/native source, data, reports, tests, figures, provenance, and checksum records.
 
 When a collaborator specifically requests a single-file handoff, create it locally from a clean, pinned repository checkout and give the ZIP directly to that collaborator. Run from the repository root:
 

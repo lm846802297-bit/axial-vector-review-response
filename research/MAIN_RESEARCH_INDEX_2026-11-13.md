@@ -60,7 +60,7 @@ Therefore:
 ## 5. Repository and handoff policy
 
 - GitHub main stores native source files, extracted data, figures, reports, tests, provenance, and SHA-256 manifests.
-- Generated collaborator ZIP files are **not committed, released, or uploaded as GitHub Actions artifacts**.
+- Generated collaborator ZIP files are **not committed or published as release assets**; the current workflow does not upload them. Thirteen ZIP artifacts from pre-policy runs remain in GitHub Actions until manually deleted or automatically expired; see the branch audit and the one-time cleanup workflow.
 - `research/stellar-cooling-collaborator-archive-20261113/build_archive.py` is retained as a local packaging utility. When a ZIP is requested, generate it from a pinned local checkout and hand the file directly to the collaborator/user.
 - Original scientific input archives (for example, official EOS source payloads) are distinct from generated delivery ZIPs. Their source provenance and checksums remain documented; do not confuse them with generated handoff bundles.
 - Never overwrite a current-main numerical result with an older branch copy merely because the latter has a different Git blob or final floating-point digits. Compare source provenance, inputs, and semantic content first.

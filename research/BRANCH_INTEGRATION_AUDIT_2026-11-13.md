@@ -189,3 +189,26 @@ Completed branch histories are not merged wholesale merely to reduce ahead/behin
 ### Generated archive policy
 
 The collaborator ZIP is now a local-only handoff. The repository keeps the builder script, native files, provenance, and checksums. The GitHub Actions workflow is validation-only and no longer builds or uploads a ZIP artifact. Original scientific input archives are separately documented as upstream source inputs and are not generated delivery bundles.
+
+
+### Legacy GitHub Actions ZIP artifacts — one-time cleanup still required
+
+The previous packaging workflows uploaded 13 ZIP artifacts before the local-only policy was applied. The current validation workflow no longer creates or uploads archives, but the earlier artifacts remain stored until deleted or expired.
+
+| Artifact ID | Name | Expiry (UTC) |
+|---:|---|---|
+| 14005115238 | Stellar_Cooling_Research_Archive_2026-11-13 | 2026-12-13 02:28 |
+| 14005065033 | Stellar_Cooling_Research_Archive_2026-11-13 | 2026-12-13 02:27 |
+| 14004496598 | Stellar_Cooling_Research_Archive_2026-11-13 | 2026-12-13 02:25 |
+| 14000599612 | axial-stellar-constraints-review-package | 2026-11-14 01:26 |
+| 14000328688 | axial-stellar-constraints-review-package | 2026-11-14 01:22 |
+| 14000509052 | axial-stellar-constraints-review-package | 2026-11-14 01:21 |
+| 14000008862 | axial-stellar-constraints-review-package | 2026-11-14 01:20 |
+| 13999268425 | axial-stellar-constraints-review-package | 2026-11-14 01:07 |
+| 13998919607 | axial-stellar-constraints-review-package | 2026-11-14 01:05 |
+| 14000626053 | axial-stellar-constraints-review-package | 2026-11-14 01:05 |
+| 13998493850 | axial-stellar-constraints-review-package | 2026-12-13 00:47 |
+| 13998169336 | axial-stellar-constraints-review-package | 2026-12-13 00:47 |
+| 13999345496 | axial-stellar-constraints-review-package | 2026-12-13 00:46 |
+
+A one-time manual workflow, .github/workflows/delete-legacy-zip-artifacts.yml, deletes only these exact artifact IDs after the operator selects the explicit confirmation input. The current GitHub connector can inspect artifacts but does not expose an artifact-delete action, so this workflow must be run once from the repository Actions page. If it is not run, the artifacts expire at the dates above.
