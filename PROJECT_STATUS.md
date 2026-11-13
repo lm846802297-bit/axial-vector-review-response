@@ -1,3 +1,38 @@
+# 2026-11-13 live status: post-PR94 archive extraction
+
+> This section supersedes earlier live entries below wherever they report earlier main SHAs, PR states, archive locations, or branch counts. The historical records remain intact.
+
+## Current repository state
+
+- Main immediately after PR #94: `2bebb38c7ff8966b048b133d67c1aa7bd37aa496`.
+- **PR #94 — merged:** generated delivery archives were replaced by extracted files. The Major 3 Overleaf package, Higgs-portal document package, and axial stellar-cooling independent-review snapshot are now stored as ordinary files with file-level checksums and extraction provenance.
+- **PR #93 — closed as superseded:** its archive-based packaging path was not merged. Its report and package index are now represented by the extracted review snapshot and the root-level review index; the ZIP-building workflow is not retained.
+- **PR #88/#89 — merged, then cleaned:** the Overleaf bundle was verified and extracted. The committed ZIP and its archive-only sidecar manifest were removed after their contents and original manifest were preserved as individual files.
+- **PR #87 — merged:** six selected B.13/B.16 moving-muon recovery artifacts are in main. The 0.1 MeV vertex-preserving scan remains explicitly not converged.
+- **PR #77 — merged; PR #83 — duplicate and closed:** the Major 4.4 provenance outputs already in main were not overwritten.
+- **PR #84/#85 — merged:** C4-C4-B full-radial and separate two-VEV benchmark results remain in their previously defined scientific scopes.
+- No physics calculations, rate kernels, opacity tables, or constraint curves were changed by PR #94. The pure-vector Blinov Fig. 7 benchmark remains **NOT PASSED** at the 10 MeV strong-absorption end.
+
+## Archive policy and current locations
+
+Generated review/delivery ZIPs and Base64 ZIP parts are not committed to main. Their extracted contents are stored at:
+
+- `deliverables/Overleaf_Reply_Letter_PR72_2026-11-13/`
+- `deliverables/higgs_portal_mixing_md_with_svg/`
+- `research/stellar-cooling-constraints-20261105/review_package_extracted/`
+
+See `deliverables/README.md` and `research/stellar-cooling-constraints-20261105/REVIEW_PACKAGE_INDEX_2026-11-13.md` for the import paths, source snapshot, and checksums.
+
+The official SFHo/FRDM v1.03 upstream input archives under `research/stellar-cooling-constraints-20261105/blinov_reproduction/data/sfho-frdm-v1.03/` are a separate case: they are original EOS source inputs used by the current reassembly/provenance workflow, not generated handoff bundles. They are retained pending a separate extraction and data-reader migration; they were not deleted without verifying a replacement input path.
+
+## Branch audit refresh
+
+At the post-PR94 audit snapshot, the repository had 100 refs including main (99 non-main). After synchronizing the completed/superseded delivery and duplicate branches to main, the compare summary was 74 diverged, 16 behind-only, 9 identical, and 0 ahead-only. These are ancestry categories, not counts of unmerged research results. The pre-PR94 96-ref inventory remains preserved as a historical snapshot; the updated summary is recorded in `research/BRANCH_INVENTORY_2026-11-13.json`.
+
+The workflow-generated branch named `${GITHUB_REF_NAME}` was deliberately retained: it contains independent fermion-sector matrix audit outputs related to the Major 1 Higgs–singlet workstream and is not an archive-only branch. It requires its own scoped review rather than a branch reset.
+
+---
+
 # 2026-11-13 live status: post-integration branch audit
 
 > This live section supersedes older dated entries below wherever they report earlier main SHAs, PR states, branch counts, or active-branch inventories. The branch inventory is a snapshot against the main SHA recorded below; it is not a request to rebase or merge every divergent branch.
