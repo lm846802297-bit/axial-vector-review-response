@@ -250,3 +250,31 @@ PR #102 (v1) is closed without merge. Its branch is retained as a historical sna
 The v2 audit establishes exact B.1 local-energy/\(E_\infty\) variable equivalence, quantifies the B.2 fixed-\(\omega\) (+92.43%) versus redshift-only \(E_\infty\) (+36.91%) path prescriptions, and adds a generic static-spherical GR ray kernel. Six flat-limit, chord, tangential, Killing-energy, bound-energy, and Schwarzschild-toy tests were independently executed and passed. No same-snapshot \(B(r)\) or \(M(r)\) is available for the reconstructed SFHo profile; the published Garching pseudo-Newtonian baseline uses flat spatial coordinates.
 
 The 15–25 km path shells contribute 56.71% of source-weighted mean total optical depth, and 110–510 MeV contributes 94.43% of escaped luminosity. Local mode sums and detailed balance close at approximately \(10^{-14}\), but scalar B.2 and mode-resolved propagation differ by a factor 76.37. Keep these as separate transport prescriptions; do not rescale opacity or update the axial curve. The pure-vector Fig. 7 physical gate remains NOT PASSED.
+
+
+## Final targeted branch-content audit after PR #104 (2026-11-13)
+
+Comparison method: recursive Git trees against current main, separating (i) paths absent from main, (ii) unique Git blobs, and (iii) same-path/different-blob files. A branch being ahead in commit history is not treated as evidence of unique scientific content.
+
+| Branch | Branch-only paths | Unique-content paths | Same-path differences | Decision |
+|---|---:|---:|---:|---|
+| research/major1-higgs-scalar-mixing-20261109 | 0 | 0 | 15 | No missing Major 1 deliverable identified; differences are older shared/status and stellar-cooling copies. |
+| research/major1-scalar-pole-belleii-20261109 | 1 | 1 | 15 | The only unique path is higgs_portal_mixing_md_with_svg.zip; extracted Markdown/SVG already exists in main. |
+| codex/major44-axial-cooling-constraints-20261105 | 1 | 1 | 10 | The only unique path is the same generated ZIP. Three numerical JSON differences were checked previously and are final-digit/runtime metadata differences; retain current-main results. |
+| research/c4c4-energy-dependence-20261112 | 1 | 1 | 5 | The only unique path is the same generated ZIP; C4-C4 energy-dependent research outputs are already in main. |
+| research/c4c4b-full-radial-results-main-20261113 | 1 | 1 | 8 | The only unique path is the same generated ZIP; C4-C4-B radial outputs are already in main. |
+| research/two-vev-axial-stellar-microphysics-main-20261113 | 2 | 1 | 15 | The unique path is the same generated ZIP; the other branch-only path has identical content elsewhere. The different thermal-rate files are older standalone implementations, while main uses shared thermal adapters. Do not merge over main. |
+| research/stellar-cooling-collaborator-archive-20261113 | 0 | 0 | 11 | No unique file content; differences are superseded archive/status documentation and older two-VEV implementation copies. |
+| ${GITHUB_REF_NAME} | 0 | 0 | 0 | Fully behind main at the tree level; no unique file content. |
+| research/major44-postmerge-followup-20261113 | 0 | 0 | 0 | Fully behind main at the tree level; its unique provenance records were moved into main by PR #101. |
+| docs/post-pr94-archive-policy-and-review-index-20261113 | 0 | 0 | 0 | Fully behind main at the tree level; superseded by the current index and archive-policy records. |
+
+### Interpretation and cleanup boundary
+
+1. No additional physics source, numerical output, or report was found in the named Major 1, Major 4.4, C4-C4-A/Aq/B, or two-VEV branches that is absent from main.
+2. The repeated unique ZIP blob is a generated handoff artifact, not a scientific source. Its extracted deliverables are already present in main and generated ZIPs are now local-only.
+3. The old two-VEV and original-UV thermal-rate files are not to be restored over the shared adapters. The current shared implementation is the canonical path.
+4. Branches with large ahead/behind counts are not automatically merged or deleted. Their commit histories may contain useful provenance. Preserve those histories until the owner explicitly approves deletion or a history-preserving archival operation.
+5. Branches created solely for completed PRs #101, #103, and #104 are administrative branches. They can be removed after their merged content is verified on main; do not use their deletion as a model for deleting scientific research branches.
+
+This audit is a content comparison, not a claim that every one of the repository's 112 branches has been individually reviewed. The remaining branches require grouped triage by PR/workstream and content uniqueness before cleanup.
