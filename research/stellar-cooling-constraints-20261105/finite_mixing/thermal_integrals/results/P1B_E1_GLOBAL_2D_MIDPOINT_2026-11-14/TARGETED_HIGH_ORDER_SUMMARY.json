@@ -27,5 +27,44 @@
   "interval_702_pchip_cell_center_recomputed_after_x36_extension": true,
   "interval_702_recomputed_pchip_interpolation_error": 0.004189210717559335,
   "interval_702_recomputed_bilinear_interpolation_error": 0.05391076899468916,
-  "interval_702_all_quadrature_nodes_pass_0p1pct": true
+  "interval_702_all_quadrature_nodes_pass_0p1pct": true,
+  "additional_hot_shell_point": {
+    "radius_km": 8.4821412022467,
+    "omega_local_MeV": 417.89463280068736,
+    "x": 10.392304845413264,
+    "orders_ladder": [
+      [
+        10,
+        6,
+        6,
+        6
+      ],
+      [
+        14,
+        8,
+        8,
+        8
+      ],
+      [
+        18,
+        10,
+        10,
+        10
+      ],
+      [
+        22,
+        12,
+        12,
+        12
+      ],
+      [
+        26,
+        14,
+        14,
+        14
+      ]
+    ],
+    "final_successive_order_change": 0.00038317774417923555,
+    "pass_0p1pct": true
+  }
 }
