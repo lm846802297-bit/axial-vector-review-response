@@ -1,0 +1,87 @@
+{
+  "generated_utc": "2026-11-13T01:14:46.548022+00:00",
+  "purpose": "Independent software and saved-output validation; no scan or figure regeneration",
+  "calculation_source_baseline": "81d9b2faf16eb39879b759b05afce46732c925d7",
+  "python": "3.13.5",
+  "test_suites": [
+    {
+      "name": "core_production_profile_tests",
+      "return_code": 0,
+      "tests": 52,
+      "seconds": 0.224,
+      "passed": true,
+      "log": "research/stellar-cooling-constraints-20261105/outputs/review_package_validation_2026-11-13/core_production_profile_tests.log"
+    },
+    {
+      "name": "independent_blinov_b13_b16_tests",
+      "return_code": 0,
+      "tests": 88,
+      "seconds": 1.389,
+      "passed": true,
+      "log": "research/stellar-cooling-constraints-20261105/outputs/review_package_validation_2026-11-13/independent_blinov_b13_b16_tests.log"
+    },
+    {
+      "name": "moving_muon_finite_mixing_tests",
+      "return_code": 0,
+      "tests": 81,
+      "seconds": 6.722,
+      "passed": true,
+      "log": "research/stellar-cooling-constraints-20261105/outputs/review_package_validation_2026-11-13/moving_muon_finite_mixing_tests.log"
+    }
+  ],
+  "targeted_test_count": 221,
+  "all_targeted_tests_passed": true,
+  "validate_outputs_return_code": 0,
+  "validate_outputs_summary": {
+    "baseline_mass_count": 75,
+    "plotted_axial_mass_count": 80,
+    "coupling_count": 301,
+    "optimized_column_luminosity_relative_difference_above_1e40": 2.0321598240561412e-15,
+    "largest_surface_blackbody_erg_s": 8.703842421497118e+51,
+    "low_mass_3e52_g_per_mass_MeV": 3.173398502331217e-11
+  },
+  "convergence_and_sensitivity_boundary_relative_changes": {
+    "convergence": [
+      0.0005148262133041204,
+      0.05614594194311695
+    ],
+    "refined_fast": [
+      0.0012047528792671347,
+      0.07285274895518312
+    ],
+    "cutoff": [
+      0.0001479507524614343,
+      0.00006060501966742571
+    ],
+    "sensitivity_half": [
+      0.41421509815655266,
+      0.08311797384793684
+    ],
+    "sensitivity_double": [
+      0.2928943940575722,
+      0.07343833129757205
+    ],
+    "sensitivity_radius20": [
+      0.0802532695440723,
+      0.9268343551828404
+    ],
+    "sensitivity_numu0": [
+      0.004733089272980329,
+      0.00037116960349892203
+    ],
+    "coupling_refinement": [
+      0.0011742577532998233,
+      0.00280992094563004
+    ]
+  },
+  "literature_kernel_return_code": 0,
+  "literature_kernel_summary": {
+    "comparison_count": 28,
+    "maximum_relative_error": 2.8800777622282404e-12,
+    "comparison_passed": true,
+    "reference_sha256": "315ca0d79e20b0ec1c52b5664d58fd7e65f9b30c5c7db56f48db8632ee9c9a5e"
+  },
+  "known_nonstandard_json_artifact": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/p1iii_eos_kernel_self_test_2026-11-11.json; preserved byte-for-byte and flagged in JSON_FORMAT_AUDIT.csv; not consumed by the plotted axial scan",
+  "scope_limit": "The complete recursive discovery also enters supplemental EOS/C4 test modules and exceeded a 120-second local execution budget. The three explicit targeted suites above are the acceptance set recorded here.",
+  "scientific_gate": "Pure-vector Blinov Fig. 7 10-MeV strong-absorption comparison remains NOT PASSED (about +92.24%); this validation does not promote the plot to a final SN1987A exclusion."
+}
