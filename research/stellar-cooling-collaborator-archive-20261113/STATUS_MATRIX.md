@@ -39,3 +39,15 @@ The existing axial figure is a **conditional fixed-profile ballistic benchmark**
 The exact gauge-mass and eaten-Goldstone algebra is checked in PHYSICS_CROSSCHECK_2026-11-13.md. The recorded two-VEV local tests cover the mapping, vacuum semi-Compton amplitude, current-level widths under restricted neutrino assumptions, and a homogeneous optically thin polarization-summed thermal smoke test.
 
 Still open: the physical CP-odd scalar spectrum; full mass-basis treatment of charged right-handed neutrinos if active-heavy mixing or heavy thresholds matter; a direct A'-Goldstone amplitude identity; independent azimuthal quadrature convergence; medium-rest-frame T/L-resolved opacity; and radial SN transport. These checks do not change the NOT PASSED 10 MeV pure-vector Fig. 7 acceptance gate.
+
+
+## 2026-11-13 B.2 energy / GR-path / shell / polarization update
+
+- B.1 local-energy versus conserved-\(E_\infty\) source integration: exact Jacobian transformation; independent channel integrals agree at stored precision.
+- B.2 fixed-\(\omega\) strong-endpoint residual: +92.43%; redshift-only \(E_\infty\) path variant: +36.91%. The latter retains Euclidean chords and is not full GR.
+- Generic static-spherical GR geodesic/opacity kernel added with six tests passing. No same-snapshot \(B(r)=\sqrt{g_{rr}}\) or \(M(r)\) exists in the reconstructed public profile. The Garching pseudo-Newtonian baseline has flat spatial coordinates.
+- Source-weighted mean total optical depth: 56.71% accumulates at \(r\ge15\) km.
+- 110--510 MeV supplies 94.43% of escaped luminosity while contributing 43.28% of thin source.
+- Local neutrino mode sums/detailed balance pass at \(10^{-14}\), but scalar-sum B.2 and independent mode propagation differ by a factor 76.37 at the strong endpoint. This is a transport-prescription/normalization ambiguity, not numerical quadrature error.
+
+The pure-vector Fig. 7 gate remains open. No axial-vector curve or baseline opacity is changed. See the new B.2 follow-up report and GR ray module in the Blinov reproduction directory.
