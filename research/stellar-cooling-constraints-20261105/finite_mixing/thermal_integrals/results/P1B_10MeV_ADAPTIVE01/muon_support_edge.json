@@ -1,0 +1,61 @@
+{
+  "run": "P1B-10MeV-ADAPTIVE-01-muon-support-edge",
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "transition_radii_km": [
+    22.1918936570485,
+    22.1918946570485
+  ],
+  "transition_width_km": 0.0000010000000010279564,
+  "transition_width_m": 0.0010000000010279564,
+  "mu_mu_endpoints_MeV": [
+    0.999999834223691,
+    0
+  ],
+  "omega_MeV": 20,
+  "quadrature_orders": [
+    [
+      20,
+      12,
+      12,
+      12
+    ],
+    [
+      28,
+      16,
+      16,
+      16
+    ]
+  ],
+  "interior_samples": [
+    {
+      "r_km": 22.1918936570485,
+      "mu_mu_MeV": 0.999999834223691,
+      "change": 7.137867712906747e-8
+    },
+    {
+      "r_km": 22.1918939070485,
+      "mu_mu_MeV": 0.7499998765559466,
+      "change": 7.13786720718647e-8
+    },
+    {
+      "r_km": 22.1918941570485,
+      "mu_mu_MeV": 0.49999991533548893,
+      "change": 7.137866729212957e-8
+    },
+    {
+      "r_km": 22.1918944070485,
+      "mu_mu_MeV": 0.24999995766774452,
+      "change": 7.137866001382283e-8
+    },
+    {
+      "r_km": 22.1918946570485,
+      "mu_mu_MeV": 0,
+      "change": 7.137866053291159e-8
+    }
+  ],
+  "maximum_quadrature_change": 7.137867712906747e-8,
+  "max_detailed_balance_residual": 3.8722172271379777e-16,
+  "max_mass_shell_residual": 3.584635419442434e-15,
+  "profile_modified": false,
+  "scope": "five-point direct local audit of narrow profile support edge only"
+}
