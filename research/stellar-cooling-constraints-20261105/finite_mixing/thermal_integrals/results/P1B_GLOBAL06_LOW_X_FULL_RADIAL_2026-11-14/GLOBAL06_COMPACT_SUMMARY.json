@@ -1,0 +1,171 @@
+{
+  "run": "P1B-GLOBAL-06-LOW-X-FULL-RADIAL",
+  "date": "2026-11-14",
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "radial_nodes": 1687,
+  "formal_x_grid": [
+    0.05,
+    0.07285533905932738,
+    0.1,
+    0.14571067811865476,
+    0.2,
+    0.2697875655532295,
+    0.35,
+    0.4216650066335189,
+    0.5
+  ],
+  "validation_x": [
+    0.060891504294495524,
+    0.08589150429449552,
+    0.12178300858899109,
+    0.17178300858899104,
+    0.23359067416492213,
+    0.3085906741649221,
+    0.3849987549751391,
+    0.4599987549751393
+  ],
+  "direct_low_order_radial_node_evaluations": 28679,
+  "direct_low_order_radial_midpoint_evaluations": 540,
+  "quadrature_order": [
+    10,
+    6,
+    6,
+    6
+  ],
+  "energy_interpolation": {
+    "method": "PCHIP(log absorption) in sqrt(x)",
+    "validation_count": 13496,
+    "max_relative_error": 0.0003259551884376627,
+    "max_percent": 0.03259551884376627,
+    "median_percent": 0.004375269104535646,
+    "p95_percent": 0.0183944823760483,
+    "pass_1pct": true,
+    "worst": {
+      "radial_index": 703,
+      "r_km": 8.4821412022467,
+      "x": 0.060891504294495524,
+      "charge": "mu_plus",
+      "mode": "L"
+    }
+  },
+  "radial_interpolation": {
+    "intervals_ranked": 1686,
+    "intervals_midpoint_checked": 60,
+    "max_relative_error": 0.0008309161499474289,
+    "max_percent": 0.0830916149947429,
+    "median_percent": 0.0345250128677171,
+    "p95_percent": 0.07147876716833156,
+    "pass_1pct": true,
+    "worst_interval": {
+      "index": 1024,
+      "r_left_km": 15.5,
+      "r_mid_km": 15.525,
+      "r_right_km": 15.55
+    }
+  },
+  "max_radial_neighbor_change": 0.2475923494175531,
+  "micro_consistency": {
+    "max_detailed_balance_residual": 6.869299692896723e-15,
+    "max_mass_shell_residual": 2.0432421890821873e-13,
+    "max_charge_sum_closure_residual": 0,
+    "all_rates_finite_nonnegative": true
+  },
+  "targeted_high_order": {
+    "unique_r_x_points": 431,
+    "nominal_ordered_evaluations": 2155,
+    "order_ladder": [
+      [
+        10,
+        6,
+        6,
+        6
+      ],
+      [
+        14,
+        8,
+        8,
+        8
+      ],
+      [
+        18,
+        10,
+        10,
+        10
+      ],
+      [
+        22,
+        12,
+        12,
+        12
+      ],
+      [
+        26,
+        14,
+        14,
+        14
+      ]
+    ],
+    "extension_order_if_needed": [
+      30,
+      16,
+      16,
+      16
+    ],
+    "all_targeted_quadrature_pass": true,
+    "max_successive_order_change": 0.0003282579972588272,
+    "max_detailed_balance_residual": 5.324459927153245e-15,
+    "max_mass_shell_residual": 2.4603634015263977e-13,
+    "max_high_order_radial_midpoint_interpolation_error": 0.0008310439544648867,
+    "max_high_order_energy_pchip_error": 0.0003255661627251991,
+    "global_high_order_acceptance": false
+  },
+  "low_x_absorption_ratio_extrema": [
+    {
+      "charge": "mu_minus",
+      "mode": "L",
+      "max_ratio": 8.43141387557161,
+      "r_km": 8.24821831451522
+    },
+    {
+      "charge": "mu_minus",
+      "mode": "T",
+      "max_ratio": 1.9342086109636794,
+      "r_km": 8.4821412022467
+    },
+    {
+      "charge": "mu_plus",
+      "mode": "L",
+      "max_ratio": 8.905179196676102,
+      "r_km": 8.4821412022467
+    },
+    {
+      "charge": "mu_plus",
+      "mode": "T",
+      "max_ratio": 1.9409814145933064,
+      "r_km": 8.4821412022467
+    }
+  ],
+  "runtime_seconds": {
+    "low_order": 366.341593503952,
+    "targeted_high_order": 334.350613117218,
+    "workers": 4
+  },
+  "acceptance": {
+    "full_1687_radial_low_order_scan": true,
+    "energy_interpolation_pass": true,
+    "top60_radial_midpoint_pass": true,
+    "targeted_high_order_pass": true,
+    "global_high_order_pass": false,
+    "x_below_0p05_covered": false,
+    "full_band_B1_B2": false,
+    "luminosity": false,
+    "fig7_passed": false,
+    "SN1987A_updated": false,
+    "axial_limit_updated": false
+  },
+  "archive": {
+    "filename": "P1B_GLOBAL06_LOW_X_FULL_RADIAL_2026-11-14.zip",
+    "sha256": "54b4ce938034d154b2eeb7ede87f720e21eafb24e08f9743380fb313679c05df",
+    "size_bytes": 13851449
+  }
+}
