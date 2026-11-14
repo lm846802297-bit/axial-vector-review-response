@@ -32,7 +32,7 @@ This is a classification proposal, not a move/delete instruction. Root files are
 | File | Role | Proposed treatment |
 |---|---|---|
 | `axial_vector_model_building-v6.pdf` | Manuscript baseline PDF | Candidate for `archive/manuscript-baselines/` or a pinned source package; keep root until all references and build notes are updated. |
-| `dw13678_report_1_a.pdf` | Original referee report | Candidate for `archive/referee-reports/`; immutable baseline, retain exact hash. |
+| `dw13678_report_1_a.pdf` | Annotated referee-report PDF variant | 161,829 bytes; SHA-256 `752226d1…`; one highlight annotation was detected. It is distinct from the `(原件)` file; do not assume either is pristine without provenance review. |
 | `（原件）dw13678_report_1_a.pdf` | Separate original-named annotated PDF variant | Not byte-identical to `dw13678_report_1_a.pdf` (158,794 bytes; SHA-256 `ac7357aa…` versus 161,829 bytes; SHA-256 `752226d1…`). Both contain highlight annotations (4 versus 1); page/text equivalence is not established. Preserve both; do not label as duplicates or delete. |
 | `dw13678_report_1_a.md` | Extracted/annotated referee-report text | Keep adjacent to the source report or under a dedicated referee-report directory after checking links. |
 
