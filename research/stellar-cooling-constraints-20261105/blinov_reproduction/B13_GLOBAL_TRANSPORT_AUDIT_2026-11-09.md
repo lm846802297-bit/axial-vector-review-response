@@ -1,5 +1,7 @@
 # Global B.13 exact Compton source-and-opacity audit
 
+> **Historical 10-MeV alternative-kernel result (2026-11-15):** this is a controlled B.13 source-plus-opacity replacement on the 1687-row profile, retaining scalar fixed-\(\omega\) B.2. The 10-MeV point is a stress test outside the paper's main \(m_V\lesssim1\) MeV Compton regime. Later full-profile B.13/B.2 work is recorded in PR #113, merged on 2026-11-14; do not read the old PR #57 branch state below as current.
+
 Date: 2026-11-09  
 Status: **completed for the 10 MeV pure-vector benchmark.** The calculation updates the Compton production and reduced-absorption terms together, while retaining the published scalar, polarization-summed Eq. (B.2) transport prescription. It is a controlled alternative-kernel calculation, not a new Fig. 7 reproduction claim and not an axial-vector result.
 
@@ -254,4 +256,4 @@ The next priority is not another empirical adjustment to the Compton rate. It is
 - Workflow: **.github/workflows/b13-global-transport-vertex-preserving.yml**
 - Summary workflow: **.github/workflows/b13-global-transport-summary.yml**
 
-The work remains on the Draft PR #57 branch. No merge is performed.
+The work was on the Draft PR #57 branch at this 2026-11-09 snapshot. Later full-profile B.13/B.2 work was recorded in PR #113, merged on 2026-11-14. This document remains a dated 10-MeV alternative-kernel result, not a Fig. 7 reproduction or axial-vector result.
