@@ -4,7 +4,9 @@
 
 ## Repository-management update (2026-11-14)
 
-- Four A4–A5 portal research notes were read and checked against their associated scoped script outputs; chronology and matching-scale limits were clarified without changing results. Baseline review: 133 reviewed, 329 pending. See `docs/repository-management/SIXTEENTH_REVIEW_PORTAL_A4_A5_NOTES_2026-11-15.md`.
+- Seven A5b/B5 output records were individually reviewed. A B5-2B2 Pauli-generator tuple was missing and repaired; four suites (27 tests) pass. A superseded SM-only summary contains a T_SM value inconsistent with its own y_t and now has a warning preserving the original value. Baseline register: 140 reviewed, 322 pending. See `docs/repository-management/SEVENTEENTH_REVIEW_PORTAL_B5_OUTPUTS_2026-11-15.md`.
+
+- Four A4–A5 portal research notes were read and checked against their associated scoped script outputs; chronology and matching-scale limits were clarified without changing results. At that checkpoint: 133 reviewed, 329 pending. See `docs/repository-management/SIXTEENTH_REVIEW_PORTAL_A4_A5_NOTES_2026-11-15.md`.
 
 - Five A4–A5 portal output summaries were individually checked against script reruns. A4d initially failed due to undefined `p2`; the SymPy declaration and a full-script regression check were added. All five scripts now exit zero. No complete pole or UV–EFT matching is claimed. At that checkpoint the baseline register had 129 reviewed, 333 pending; see `docs/repository-management/FIFTEENTH_REVIEW_PORTAL_A4_A5_2026-11-15.md`.
 
