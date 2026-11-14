@@ -87,7 +87,7 @@ The current 1687-row profile has columns \(r,T,\mu_\mu,\mu_{\nu_\mu},N\) and com
 
 ### Code validation
 
-\`gr_ray_transport.py\` implements conserved-energy/angular-momentum propagation, radial turning points, proper path length, bending, and local-energy opacity evaluation. Six unit tests pass: flat radial path, inward/outward flat chords, tangential limit, Killing-energy redshift, bound-energy escape gate, and a Schwarzschild toy metric. The Schwarzschild test is only a code-validation toy model, not the SFHo-18.8 metric.
+\`gr_ray_transport.py\` implements conserved-energy/angular-momentum propagation, radial turning points, proper path length, bending, and local-energy opacity evaluation. The result flag `escapes_to_rmax` means that the ray reaches the finite outer edge of the supplied metric table; it does not assert that the ray is unbound at spatial infinity. A ray with `E_infinity <= m` can still reach finite `r_max` if its local energy remains above threshold there. Seven unit tests cover flat radial propagation, inward/outward flat chords, tangential limit, Killing-energy redshift, a bound ray turning before the outer boundary, a bound ray reaching a finite boundary, and a Schwarzschild toy metric. The Schwarzschild test is only a code-validation toy model, not the SFHo-18.8 metric.
 
 ## 4. Radial path-shell decomposition
 
