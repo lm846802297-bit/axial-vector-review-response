@@ -1,0 +1,62 @@
+{
+  "source_commit": "e4dd7ec4df4c83f70c5ab53bc7b91bea4f1eede9",
+  "purpose": "Keep workflow review notes in documentation while preserving YAML workflow locations.",
+  "records": [
+    {
+      "old_path": ".github/workflows/B13_WORKFLOW_REVIEW_BATCH_2026-11-14.md",
+      "new_path": "docs/repository-management/workflow-reviews/B13_WORKFLOW_REVIEW_BATCH_2026-11-14.md",
+      "git_blob_before": "3581f611e583bb1768461d9006553118b7c9c2b0",
+      "git_blob_after": "3581f611e583bb1768461d9006553118b7c9c2b0",
+      "sha256": "dd0d0bd5f1737dc429742f3c362d0b219c249e09df6a3965fd63d39c255adfcc",
+      "bytes": 5495
+    },
+    {
+      "old_path": ".github/workflows/B14_B16_LOCAL_WORKFLOW_REVIEW_2026-11-14.md",
+      "new_path": "docs/repository-management/workflow-reviews/B14_B16_LOCAL_WORKFLOW_REVIEW_2026-11-14.md",
+      "git_blob_before": "fe2125ba595620db2765cc2e4c6f2e1cbc567652",
+      "git_blob_after": "fe2125ba595620db2765cc2e4c6f2e1cbc567652",
+      "sha256": "0d9a3d80709e34f2b0486463843d027cc43dcc98c305868e0f8dae3e21e72a92",
+      "bytes": 3564
+    },
+    {
+      "old_path": ".github/workflows/B16_ESCAPE_BENCHMARK_WORKFLOW_REVIEW_2026-11-14.md",
+      "new_path": "docs/repository-management/workflow-reviews/B16_ESCAPE_BENCHMARK_WORKFLOW_REVIEW_2026-11-14.md",
+      "git_blob_before": "89b924c52ac8cf5e100a99c55f07a470c222b2cd",
+      "git_blob_after": "89b924c52ac8cf5e100a99c55f07a470c222b2cd",
+      "sha256": "c648772976b938243de82a2af4768e5d727e8491bac1a08b4b8ed0d0de879faa",
+      "bytes": 3592
+    },
+    {
+      "old_path": ".github/workflows/B16_HIGH_ORDER_INNER_PATH_REVIEW_2026-11-14.md",
+      "new_path": "docs/repository-management/workflow-reviews/B16_HIGH_ORDER_INNER_PATH_REVIEW_2026-11-14.md",
+      "git_blob_before": "2710f7042f4d2735fa24cec810349f015e907e83",
+      "git_blob_after": "2710f7042f4d2735fa24cec810349f015e907e83",
+      "sha256": "6668b05286541441b966a3365389b04e33f5fff94ca06f3d3482aafcae031b64",
+      "bytes": 3228
+    },
+    {
+      "old_path": ".github/workflows/WORKFLOW_REVIEW_BATCH_2.md",
+      "new_path": "docs/repository-management/workflow-reviews/WORKFLOW_REVIEW_BATCH_2.md",
+      "git_blob_before": "c0018de8d6d15be0fc59cb4ef124bfad2d39286f",
+      "git_blob_after": "c0018de8d6d15be0fc59cb4ef124bfad2d39286f",
+      "sha256": "fcc4f60e1f16429e23d216ff784dea3bcb892b10865620f0f4fd54aebe36cc33",
+      "bytes": 3891
+    },
+    {
+      "old_path": ".github/workflows/WORKFLOW_REVIEW_BATCH_2026-11-14.md",
+      "new_path": "docs/repository-management/workflow-reviews/WORKFLOW_REVIEW_BATCH_2026-11-14.md",
+      "git_blob_before": "318c6b6a832584cf44c82fe9c0443169bf4d4175",
+      "git_blob_after": "318c6b6a832584cf44c82fe9c0443169bf4d4175",
+      "sha256": "6dca59548b16a36990b009eda047a100068db73dd2b5c9f6f7fd708b61b89771",
+      "bytes": 5589
+    },
+    {
+      "old_path": ".github/workflows/WORKFLOW_REVIEW_BATCH_2_2026-11-14.md",
+      "new_path": "docs/repository-management/workflow-reviews/WORKFLOW_REVIEW_BATCH_2_2026-11-14.md",
+      "git_blob_before": "5c443da4ac59276dc68dc9e94b26f63209446a2b",
+      "git_blob_after": "5c443da4ac59276dc68dc9e94b26f63209446a2b",
+      "sha256": "97b7de879471c8f30f066f7fb5c3e363d4937664b7e40292d3361e0d545b3726",
+      "bytes": 5192
+    }
+  ]
+}

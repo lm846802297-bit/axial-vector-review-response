@@ -32,8 +32,8 @@ This is a classification proposal, not a move/delete instruction. Root files are
 | File | Role | Proposed treatment |
 |---|---|---|
 | `axial_vector_model_building-v6.pdf` | Manuscript baseline PDF | Candidate for `archive/manuscript-baselines/` or a pinned source package; keep root until all references and build notes are updated. |
-| `dw13678_report_1_a.pdf` | Annotated referee-report PDF variant | 161,829 bytes; SHA-256 `752226d1…`; one highlight annotation was detected. It is distinct from the `(原件)` file; do not assume either is pristine without provenance review. |
-| `（原件）dw13678_report_1_a.pdf` | Separate original-named annotated PDF variant | Not byte-identical to `dw13678_report_1_a.pdf` (158,794 bytes; SHA-256 `ac7357aa…` versus 161,829 bytes; SHA-256 `752226d1…`). Both contain highlight annotations (4 versus 1); page/text equivalence is not established. Preserve both; do not label as duplicates or delete. |
+| `dw13678_report_1_a.pdf` | Annotated referee-report PDF variant | 161,829 bytes; SHA-256 `752226d1…`; pypdf counted 18 highlight annotations (plus popups and underlines). Extracted text and page counts match the `(原件)` variant, while PDF bytes and annotations differ; visual equivalence is not established. |
+| `（原件）dw13678_report_1_a.pdf` | Separate original-named annotated PDF variant | Not byte-identical to `dw13678_report_1_a.pdf` (158,794 bytes; SHA-256 `ac7357aa…` versus 161,829 bytes; SHA-256 `752226d1…`). pypdf counted 15 highlights here versus 18 in the other file; each has four pages and identical extracted text. Preserve both because annotation and byte-level content differ; visual equivalence is not established. |
 | `dw13678_report_1_a.md` | Extracted/annotated referee-report text | Keep adjacent to the source report or under a dedicated referee-report directory after checking links. |
 
 ## 4. Internal research notes and large working documents
@@ -66,9 +66,9 @@ A physical move is allowed only after all of the following are recorded:
 
 ## 7. Explicit no-delete list for this phase
 
-No root file is deleted or overwritten by this proposal. v65/v66 are sequential portal snapshots, not duplicates. The two referee-report PDFs are distinct annotated variants, not byte-identical; their page/text equivalence is still unverified. The large v65/v66 files are retained as historical provenance. See [root-file audit report](ROOT_FILE_AUDIT_REPORT_2026-11-14.md).
+No root file is deleted or overwritten by this proposal. v65/v66 are sequential portal snapshots, not duplicates. The two referee-report PDFs are distinct annotated variants, not byte-identical; their extracted text and page count agree, while visual equivalence remains unchecked. The large v65/v66 files are retained as historical provenance. See [root-file audit report](ROOT_FILE_AUDIT_REPORT_2026-11-14.md).
 
 
 ## 8. Completed root-file audit
 
-The 24 root files have now been individually classified for authority, build dependency, provenance and next action. See [ROOT_FILE_AUDIT_REPORT_2026-11-14.md](ROOT_FILE_AUDIT_REPORT_2026-11-14.md). Four PDF artifacts remain blocked for visual/text extraction in this review environment; their byte hashes and metadata are recorded where available. The current formal reply TeX passed static citation, label, cross-reference and figure-path checks, but the current root PDF still requires a same-source rebuild/render audit.
+The 24 root files have now been individually classified for authority, build dependency, provenance and next action. See [ROOT_FILE_AUDIT_REPORT_2026-11-14.md](ROOT_FILE_AUDIT_REPORT_2026-11-14.md). Text extraction and annotation counts are now available for the four root PDFs; visual inspection and source-to-PDF rebuild remain open. See [PDF audit](ROOT_PDF_EXTRACTION_AUDIT_2026-11-14.md). The current formal reply TeX passed static citation, label, cross-reference and figure-path checks, but the current root PDF still requires a same-source rebuild/render audit.

@@ -9,13 +9,12 @@ This directory contains directly usable files, not ZIP bundles. Generated delive
   - Includes main.tex, both bibliography databases, JHEP.bst, reply-figure PDF, reference PDF, instructions, original archive manifest, and current file-level checksums.
 - Higgs-portal document handoff: [higgs_portal_mixing_md_with_svg/](higgs_portal_mixing_md_with_svg/)
   - Markdown and SVG assets are extracted individually, with SHA-256 and provenance.
-- Axial stellar-cooling independent-review snapshot:
-  [../research/stellar-cooling-constraints-20261105/review_package_extracted/](../research/stellar-cooling-constraints-20261105/review_package_extracted/)
-  - Contains the pinned review source, inputs, outputs, figures, tests, report, and extraction manifest.
+- Axial stellar-cooling collaborator archive: [archive guide](../research/stellar-cooling-collaborator-archive-20261113/README.md) and [source/provenance index](../research/stellar-cooling-constraints-20261105/REVIEW_PACKAGE_INDEX_2026-11-13.md).
+  - The former `review_package_extracted/` duplicate directory was retired. Canonical inputs and results remain in their research directories; original package metadata is preserved in the collaborator archive's `provenance/` directory.
 
 ## Integrity
 
-Each package has a SHA256SUMS.txt file and extraction provenance. The original Overleaf external manifest and the stellar package's per-part metadata are preserved alongside the extracted files.
+The extracted Overleaf and Higgs-portal packages include file-level SHA-256 records and extraction provenance. The stellar archive uses the source/provenance index and retained original package metadata; consult its guide for the current packaging and checksums.
 
 ## Source-data exception
 

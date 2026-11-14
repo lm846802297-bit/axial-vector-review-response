@@ -19,6 +19,8 @@ This document describes the current repository organization and the intended own
 | `work/` | Temporary or intermediate working material | Never treat as authoritative without promotion and review. |
 | `.github/workflows/` | Reproducible automation | Each workflow must identify its scientific scope, inputs, outputs and acceptance criteria. |
 
+工作流 YAML 保留在 `.github/workflows/`；静态审查报告现集中于 [workflow-reviews](workflow-reviews/README.md)，迁移清单记录原路径和文件哈希。历史工作目录、附件和已停用材料分别见 [work](../../work/README.md)、[附件](../../附件/README.md)、[弃用](../../弃用/README.md)。
+
 ## Research workstream rules
 
 1. Keep distinct physical models in separate directories (in particular, original one-VEV and two-VEV extensions).
@@ -30,7 +32,7 @@ This document describes the current repository organization and the intended own
 
 ## Review coverage and reports
 
-The baseline inventory contains 462 Markdown/text documents. Current register counts are: 47 `PASS_WITH_NOTES`, 1 `PASS`, 3 `REVISION_REQUIRED`, 14 `HISTORICAL`, and 397 `PENDING` (65 individually reviewed). Only documents read individually are assigned a non-pending review outcome. See the [audit register](DOCUMENT_AUDIT_REGISTER.csv) and the nine dated reports:
+The baseline inventory contains 462 Markdown/text documents. Current register counts are: 47 `PASS_WITH_NOTES`, 1 `PASS`, 3 `REVISION_REQUIRED`, 16 `HISTORICAL`, and 395 `PENDING` (67 individually reviewed). Only documents read individually are assigned a non-pending review outcome. See the [audit register](DOCUMENT_AUDIT_REGISTER.csv) and the ten dated review reports:
 
 - [Initial governance and entry review](INITIAL_REVIEW_REPORT_2026-11-14.md)
 - [Second review batch](SECOND_REVIEW_REPORT_2026-11-14.md)
@@ -41,6 +43,9 @@ The baseline inventory contains 462 Markdown/text documents. Current register co
 - [Root-file and build-dependency review](ROOT_FILE_AUDIT_REPORT_2026-11-14.md)
 - [Navigation, workflow catalog and reply archive review](EIGHTH_REVIEW_REPORT_NAVIGATION_ARCHIVE_2026-11-14.md)
 - [PR template and coherent spectral-area diagnostic review](NINTH_REVIEW_SPECTRAL_AREA_2026-11-14.md)
+- [Historical attachment review](TENTH_REVIEW_ATTACHMENTS_2026-11-14.md)
+- [Root PDF extraction audit](ROOT_PDF_EXTRACTION_AUDIT_2026-11-14.md) (supplementary technical audit)
+- [Link and relocation audit](LINK_AND_RELOCATION_AUDIT_2026-11-14.md) (supplementary technical audit)
 
 The 462-row register covers Markdown/text documents. Root-level TeX, BibTeX, bibliography styles and binary PDFs are additionally covered by the [root-file audit report](ROOT_FILE_AUDIT_REPORT_2026-11-14.md); workflow YAML files are covered by the separate workflow register.
 

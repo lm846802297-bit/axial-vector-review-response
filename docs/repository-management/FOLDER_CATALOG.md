@@ -1,6 +1,6 @@
 # Folder catalog
 
-Updated from the Git tree on 2026-11-14 for branch `maintenance/repository-organization-audit-20261114`.
+Historical 2026-11-14 Git-tree snapshot for branch `maintenance/repository-organization-audit-20261114`; counts below predate subsequent report relocation and new audit files. See the current register and Git tree for live counts.
 
 ## Repository footprint
 
@@ -39,5 +39,5 @@ See [ROOT_FILE_CLASSIFICATION.md](ROOT_FILE_CLASSIFICATION.md) for a file-by-fil
 2. Refresh old subdirectory READMEs that still expose PR/task states from October or early November.
 3. Review similarly named Higgs-portal and referee-analysis files by content/provenance; different Git blob IDs do not prove duplication.
 4. Complete the 109-workflow audit and identify current versus historical workflows before changing triggers or permissions.
-5. Continue the 462-row baseline Markdown/text review: 62 individually reviewed, 400 still `PENDING`; newly added review reports and indexes are tracked separately.
-6. Audit all relative links, Python imports, workflow paths, LaTeX inputs, bibliography lookup and manifests before any physical relocation. The current maintenance PR branch is five documentation-only commits behind main and must be synchronized before merge.
+5. Continue the 462-row baseline Markdown/text review: 67 individually reviewed, 395 still `PENDING` at the latest recorded baseline snapshot; newly added review reports and indexes are tracked separately.
+6. Audit all relative links, Python imports, workflow paths, LaTeX inputs, bibliography lookup and manifests before any physical relocation. The maintenance branch was synchronized with main at merge commit `e4dd7ec`; refresh the comparison before integration.
