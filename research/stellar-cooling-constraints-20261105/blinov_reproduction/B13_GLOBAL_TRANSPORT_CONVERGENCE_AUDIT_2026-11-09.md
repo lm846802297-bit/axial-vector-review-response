@@ -1,7 +1,9 @@
 # Global B.13 exact-Compton transport convergence audit
 
 Date: 2026-11-09  
-Status: **all finest-step criteria passed**
+Status: **all finest-step criteria passed for the 10 MeV scan only**
+
+> **Scope boundary (2026-11-15):** the 10-MeV radial/energy/angular/path refinements pass the stated numerical criteria, but the companion 0.1-MeV scan fails its radial 60-to-80 refinement (5.27% total-luminosity and 4.94% escape-probability shifts). The three-mass report and later PR #113 add subsequent global B.13/B.2 work. Numerical convergence on this grid is not Fig. 7 reproduction or physical validation.
 
 ## 1. Scope and fixed physics
 
