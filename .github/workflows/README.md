@@ -1,6 +1,6 @@
 # GitHub Actions workflow catalog
 
-Inventory generated from `maintenance/repository-organization-audit-20261114` on 2026-11-14. The 109 YAML files are listed below by provisional topic. This index is not a claim that all workflows are active or that their historical runs passed. The first 25 workflows have received individual static YAML review; remaining entries are still pending.
+Inventory generated from `maintenance/repository-organization-audit-20261114` on 2026-11-14. The 109 YAML files are listed below by provisional topic. This index is not a claim that all workflows are active or that their historical runs passed. 34 of the 109 workflows have individual static YAML reviews recorded in the register; 16 are historical candidates and 59 remain pending. Static review does not establish that a workflow is currently active or that its scientific gate has passed.
 
 ## Topic groups
 
@@ -133,7 +133,7 @@ Inventory generated from `maintenance/repository-organization-audit-20261114` on
 
 ## Individual audit register
 
-See [WORKFLOW_AUDIT_REGISTER.csv](WORKFLOW_AUDIT_REGISTER.csv). Every workflow begins as `PENDING`; the first 10 sampled workflow files have an individual review note in [WORKFLOW_REVIEW_BATCH_2026-11-14.md](WORKFLOW_REVIEW_BATCH_2026-11-14.md).
+See [WORKFLOW_AUDIT_REGISTER.csv](WORKFLOW_AUDIT_REGISTER.csv). Current register totals are 34 `REVIEWED_WITH_NOTES`, 16 `HISTORICAL_CANDIDATE`, and 59 `PENDING`. Individual review records are grouped in [batch 1](WORKFLOW_REVIEW_BATCH_2026-11-14.md), [batch 2](WORKFLOW_REVIEW_BATCH_2_2026-11-14.md), [B.13 kernel and global review](B13_WORKFLOW_REVIEW_BATCH_2026-11-14.md), [B.14/B.16 local review](B14_B16_LOCAL_WORKFLOW_REVIEW_2026-11-14.md), [B.16 escape benchmark review](B16_ESCAPE_BENCHMARK_WORKFLOW_REVIEW_2026-11-14.md), and [B.16 high-order inner-path review](B16_HIGH_ORDER_INNER_PATH_REVIEW_2026-11-14.md). The older [batch 2 summary](WORKFLOW_REVIEW_BATCH_2.md) is retained as an earlier review note.
 
 ## Classification and maintenance rules
 
