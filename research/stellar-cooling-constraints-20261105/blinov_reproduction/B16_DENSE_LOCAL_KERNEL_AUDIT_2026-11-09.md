@@ -20,7 +20,7 @@ Therefore the local B.6--B.10 and B.14--B.19 formula implementations are indepen
 ## 1. Grid matched to the end-to-end luminosity calculation
 
 - Mediator mass: 10 MeV.
-- Profile SHA-256: \`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c\`.
+- Profile SHA-256: `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`.
 - Radial quadrature: 50 equal-width panels, four-point Gauss--Legendre per panel.
 - Source radial nodes: 200.
 - Energy quadrature at each radius: 80 logarithmic panels, four-point Gauss--Legendre per panel.
@@ -110,7 +110,7 @@ No local rate, opacity, source normalization, coupling, luminosity, vector refer
 ## 7. Reproducibility
 
 - GitHub Actions: [Run #42565336032](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42565336032)
-- Script: \`audit_b16_dense_local_kernel.py\`
-- Unit tests: \`test_b16_dense_local_kernel.py\`
-- Workflow: \`.github/workflows/b16-dense-local-kernel-audit.yml\`
-- Machine-readable result: \`outputs/b16_dense_local_kernel_audit_10mev_2026-11-09.json\`
+- Script: `audit_b16_dense_local_kernel.py`
+- Unit tests: `test_b16_dense_local_kernel.py`
+- Workflow: `.github/workflows/b16-dense-local-kernel-audit.yml`
+- Machine-readable result: `outputs/b16_dense_local_kernel_audit_10mev_2026-11-09.json`
