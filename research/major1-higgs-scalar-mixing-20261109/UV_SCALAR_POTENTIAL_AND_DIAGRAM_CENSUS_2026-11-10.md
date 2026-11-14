@@ -78,7 +78,7 @@ Consequences:
 - The tree-level UV off-diagonal mass entry \(\lambda_{HS}^{\rm UV}vv_s\) and the hard one-loop VLL threshold must be combined before interpreting low-energy mixing.
 - The leading nonzero matched \(hs\) two-point function is \(O(\hbar)\): full VLL/lepton one-loop contribution minus the EFT light contribution, plus the matched local derivative operators and all same-order EFT soft/counterterm terms.
 - A scalar bubble with one portal cubic and one ordinary scalar cubic is \(O(\hbar^2)\) in this combined counting. The CP-even subset already archived in P2-lite is therefore a next-order subset, not a complete next-order answer.
-- Portal-induced Goldstone, \(W/Z\), \(A'\), top and ghost contributions, together with their counterterms, enter the same next-order completion where the corresponding portal-induced vertices are present.
+- Portal-dependent scalar/Goldstone diagrams can contribute to the mixed \(hs\) entry at \(O(\hbar^2)\). In the original gauge basis, \(W/Z\) and \(A'\) vector/ghost loops contribute through their direct vertices to diagonal \(hh\) or \(ss\) entries; they do not generate a one-loop \(hs\) vector/ghost bubble. The full diagonal and mixed entries must use one common tadpole/VEV and counterterm prescription.
 - The diagonal \(hh\) and \(ss\) self-energies have ordinary one-loop pieces even when the portal is small. They must either be included with a consistent on-shell/pole renormalization prescription or absorbed into explicitly defined physical mass and residue inputs. Fixed widths cannot be combined with explicit cuts that are already included in the self-energy.
 
 ## 4. Diagram and counterterm census
@@ -89,12 +89,16 @@ Consequences:
 | Higgs/radial CP-even scalar loops | yes | portal-dependent | yes | Selected \(hs\) bubble subset exists; complete tadpole and counterterm set absent |
 | Electroweak Goldstones | yes | portal-dependent | yes | Vertices derived; must be combined with gauge/ghost sector in \(R_\xi\) gauge |
 | \(U(1)_X\) Goldstone | portal-dependent | portal-dependent | yes | Vertices derived; combine with \(A'\), ghost and tadpole terms |
-| \(W,Z\) gauge bosons | yes | portal/mixing-induced | no direct \(s\) vertex in gauge basis | Include for gauge-complete next-order physical poles |
-| \(A'\) gauge boson | portal/mixing-induced | portal/mixing-induced | yes | Include \(A'\) self-energy and associated Goldstone/ghost terms |
-| SM fermions (especially top) | yes | portal/mixing-induced | no direct \(s\) Yukawa in gauge basis | Standard \(hh\) part may be absorbed into SM pole inputs; mixing-induced terms belong to the declared higher order |
+| \(W,Z\) gauge bosons | yes | no direct gauge-basis \(sVV\) vertex | no direct \(sVV\) vertex | Include in diagonal \(hh\) entry; no one-loop gauge-basis \(hs\) vector bubble |
+| \(A'\) gauge boson | no direct \(hA'A'\) vertex | no direct gauge-basis \(hA'A'\) vertex | yes | Include in diagonal \(ss\) entry with its Goldstone/ghost terms; no one-loop gauge-basis \(hs\) vector bubble |
+| Electroweak ghosts | yes | no direct common gauge-basis ghost vertex | no direct common gauge-basis ghost vertex | The \(h\bar c_{W,Z}c_{W,Z}\) vertices contribute to diagonal \(hh\), not a mixed \(hs\) bubble |
+| \(U(1)_X\) ghost | no direct \(h\bar c_Xc_X\) vertex | no direct common gauge-basis ghost vertex | yes | The \(s\bar c_Xc_X\) vertex contributes to diagonal \(ss\) |
+| SM fermions (especially top) | yes | no direct gauge-basis \(s\) Yukawa | no direct gauge-basis \(s\) Yukawa | Standard \(hh\) part may be absorbed into SM pole inputs; scalar mixing is carried by the full propagator, not an added mixed vertex |
 | VLL plus scalar/gauge mixed two-loop graphs | yes | yes | yes | Not calculated; required only if claiming the complete next order |
 | Tadpoles and VEV counterterms | yes | yes | yes | Must be fixed consistently; not optional for un-subtracted pole masses |
 | Field and mass counterterms | yes | yes | yes | Fermion-sector UV coefficients exist; full gauge/scalar counterterm closure remains open |
+
+**Gauge-basis rule:** this census is written in the original \(h,s\) basis. Do not insert mixing-induced \(sWW/sZZ\) or \(hA'A'\) vertices while retaining the full two-state propagator; the mixing is carried by the propagator, otherwise it is double-counted.
 
 ## 5. Required renormalization prescription
 
