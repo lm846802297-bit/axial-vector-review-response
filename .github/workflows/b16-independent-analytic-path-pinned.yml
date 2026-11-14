@@ -31,6 +31,10 @@ jobs:
       - name: Check out reviewed revision
         uses: actions/checkout@v4
 
+      - name: Require the reviewed maintenance branch
+        run: |
+          test "$GITHUB_REF" = "refs/heads/maintenance/repository-organization-audit-20261114"
+
       - name: Set up pinned Python
         uses: actions/setup-python@v5
         with:
