@@ -30,7 +30,7 @@
 
 - **正式回复信、PDF 与参考文献归档：** 唯一可编辑权威源文件仍是根目录 [当前回复 TeX](Replies_to_Referee_3_referee_facing_2026-11-04.tex)，其 BibTeX 依赖为 `references.bib`、`Replies_to_Referee_3_stellar_references.bib` 和 `JHEP.bst`；Major 4.4 图依赖见 TeX。根目录 [当前回复 PDF](Replies_to_Referee_3_referee_facing_2026-11-04.pdf) 当前为 500,497 bytes，SHA-256 `e0a2114e5e932d02794a1cdf074c9214ed201f71ff37fc25a72314af05ed4051`。PR #56 的 65 页全页渲染记录对应 2026-11-06 旧 head，晚于该记录的 TeX 修改尚未以同一 head 重新构建和视觉验收；当前 PDF 不能直接沿用旧页数/hash 作为最终验收。详见 [PROJECT_STATUS.md](PROJECT_STATUS.md) 和根目录审查报告。
 
-- **2026-11-04 Major 4.4 文献调查：** [轴矢量 stellar-cooling / SN1987A 文献适用性调查](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-04/Major4.4-轴矢量stellar-cooling文献适用性调查_2026-11-04.md)。区分一般轴矢量恒星冷却讨论、轴矢量核子耦合 SN 文献、常规矢量型 \(L_\mu-L_\tau\) 超新星计算，以及本文完全相同的中微子 coalescence 子过程；不将矢量模型完整曲线直接作为轴矢量 UV 模型排除。原论文单 VEV 模型的后续计算见 [PR #53](https://github.com/lm846802297-bit/axial-vector-review-response/pull/53)；该研究仍为独立 Draft，不构成已完成的超新星排除。
+- **2026-11-04 Major 4.4 文献调查：** [轴矢量 stellar-cooling / SN1987A 文献适用性调查](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-04/Major4.4-轴矢量stellar-cooling文献适用性调查_2026-11-04.md)。区分一般轴矢量恒星冷却讨论、轴矢量核子耦合 SN 文献、常规矢量型 \(L_\mu-L_\tau\) 超新星计算，以及本文完全相同的中微子 coalescence 子过程；不将矢量模型完整曲线直接作为轴矢量 UV 模型排除。原论文单 VEV 模型的后续计算见 [PR #53](https://github.com/lm846802297-bit/axial-vector-review-response/pull/53)；PR #53 已于 2026-11-12 合并；合并不构成已完成的超新星排除，当前验收边界以 PROJECT_STATUS.md 为准。
 
 - **2026-11-04 Major 4.2 新修订：** [动能混合与暗光子限制对照](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-04/Major4.2-暗光子限制与论文修改对照_2026-11-04.md) 及[验证记录](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-04/Major4.2-验证记录_2026-11-04.md)，记录显式匹配边界 epsilon_ind(mu_match)=0、10/100/200/300 MeV 的 NA64 质量依赖视觉读取区间、300 MeV dimuon 分支比，以及 epsilon_eff=|epsilon|sqrt(Br_inv) 的 leading-yield 比较。
 
@@ -42,7 +42,7 @@
 
 - **模型一致性边界：** Major Point 3/4.1 的额外中微子完成机制只用于对应的专门中微子回复论证，不改变原论文的 `S+VLL` 单 VEV UV 模型。其他非中微子 Major/Minor 回答及其专题 PR 均以原论文模型为基准。
 - **[PR #54（已合并）](https://github.com/lm846802297-bit/axial-vector-review-response/pull/54)：** 修正正式回复信与项目规范，明确 Major 3/4.1 的中微子完成机制只属于对应问题的回复论证；其他非中微子回答仍以原论文单 VEV 模型和原始规范流为基准。
-- **2026-11-05 PR #30/#51 清洁替代 / [PR #53（Draft）](https://github.com/lm846802297-bit/axial-vector-review-response/pull/53)：** 旧 #30 和错误采用双 VEV 映射的 #51 均已关闭、未合并。#53 从当前 main 创建，恢复原论文单 VEV 映射；半康普顿振幅和均匀局部热率计算保留。完整介质 T/L opacity 和 SN transport 仍未完成。
+- **2026-11-05 PR #30/#51 清洁替代 / [PR #53（已合并）](https://github.com/lm846802297-bit/axial-vector-review-response/pull/53)：** 旧 #30 和错误采用双 VEV 映射的 #51 均已关闭、未合并。#53 从当前 main 创建，恢复原论文单 VEV 映射；半康普顿振幅和均匀局部热率计算保留。完整介质 T/L opacity 和 SN transport 仍未完成。
 - **2026-11-05 PR #32 替代 / [PR #52（Closed，未合并）](https://github.com/lm846802297-bit/axial-vector-review-response/pull/52)：** 旧 #32 已关闭、未合并。#52 从当前 main 创建，严格使用原论文单 VEV 标量模型；保留 Belle II 来源台账、重铸协议、部分宽度框架和逐点分类规则。Belle II 数值数据提取、实验 benchmark 复现和 UV 重铸尚未完成；这些是独立后续研究，不是当前 Major Point 1 回复的前置条件。
 
 日常推进使用 **[精简执行手册 v5.6](审稿意见-gpt/当前执行/审稿意见分析与执行手册_v5.6-主分析全任务映射与原子步骤版-20261019.md)** 的任务 ID、依赖和验收条件；其 §0.1 是 2026-10-27 历史状态快照，不再作为当前状态源。物理推导使用 **[v5.7 Markdown 技术参考](审稿意见-gpt/审稿意见分析v5.7-物理校核与专题连续阅读版.md)** 的相关章节。v5.7.1 LaTeX 仅用于查阅尚未回收到 Markdown 的历史细节。
