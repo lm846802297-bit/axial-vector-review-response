@@ -6,6 +6,11 @@
 
 ## 快速入口
 
+- [仓库结构与文件管理说明](docs/repository-management/README.md)：目录职责、迁移原则和导航。
+- [逐文档审查标准](docs/repository-management/DOCUMENT_REVIEW_STANDARD.md) 与 [文档审查登记表](docs/repository-management/DOCUMENT_AUDIT_REGISTER.csv)：462 份 Markdown/text 基线文档逐份记录审查状态；未审查文件不会标记为通过。
+- [GitHub Actions 工作流索引](.github/workflows/README.md) 与 [工作流审查登记表](.github/workflows/WORKFLOW_AUDIT_REGISTER.csv)：109 个工作流按物理专题分类，并逐份记录触发条件、权限和输出行为；目前 34 个完成静态审查，16 个标记为历史候选，59 个待审查。
+
+- [根目录文件逐项审查](docs/repository-management/ROOT_FILE_AUDIT_REPORT_2026-11-14.md)：覆盖 24 个根目录文件，包括权威入口、回复信 TeX/PDF、BibTeX、论文和审稿报告基线及历史工作稿。
 - [Git 合并策略与科研提交历史规范](GIT_MERGE_POLICY.md)：实质性科研 PR 默认采用 Merge Commit。
 
 - [项目入口与阅读说明](README-先读这里.md)
@@ -23,7 +28,7 @@
 
 - [论文基线 PDF](axial_vector_model_building-v6.pdf) 和 [原始审稿报告](dw13678_report_1_a.pdf)。
 - [Overleaf 源码归档](overleaf-source/axial-vector-model-building-v6/)：包含 `main.tex`、`main-v1.tex` 至 `main-v6.tex`、参考文献数据库、图表及随源包提供的回复信材料。编译时请将该目录作为项目根目录，并在 Overleaf 选择所需主文文件。当前环境尚未完成该归档的完整编译验证；两张较大的图经过 PDF 重新编码。
-- [面向审稿人的正式回复信源文件（2026-11-04）](Replies_to_Referee_3_referee_facing_2026-11-04.tex)：当前 main 唯一权威回复信，PR #38 已合并。该文件只保留审稿人需要看到的科学论证；正文同步任务、状态和前后对照统一记录在[内部论文正文待同步修改清单](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-03/论文正文待同步修改清单_2026-11-03.md)，不写入正式回复信。
+- [正式回复 TeX](Replies_to_Referee_3_referee_facing_2026-11-04.tex) 与 [PDF](Replies_to_Referee_3_referee_facing_2026-11-04.pdf)：当前整理分支的 PDF 由对应 TeX 编译，共 64 页，SHA-256 `095daf18a7202d11f9bf9f48077ab2ab82c1f10386059da9bf9633ae4d9ea679`。原第 43 页溢出的完整图注移至图后正文；物理内容与图像未改。旧的 65 页验收属于历史版本，详见 [排版审查](docs/repository-management/ROOT_PDF_EXTRACTION_AUDIT_2026-11-14.md)。
 - [2026-10-28 回复信副本](Replies_to_Referee_3_referee_facing_2026-10-28.tex)：历史副本，仅用于版本追溯，不作为当前回复信主线。
 - [内部回复信工作稿（2026-10-27）](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-10-27/Replies_to_Referee_3_revised_working_2026-10-27.tex) 和 [论文修改 Diff](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-10-27/axial_vectorv6-diff-v2.4-PMNS-scope-2026-10-27.md)：保留为内部工作副本和正文修订方案；正式提交前须与实际主文和计算证据逐项核对。
 - [会议记录](审稿意见-gpt/会议记录/2026-10-23/README.md)：包含会议观点总结及四份文字稿。

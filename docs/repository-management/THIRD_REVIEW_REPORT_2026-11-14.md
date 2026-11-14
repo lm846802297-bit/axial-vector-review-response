@@ -1,0 +1,35 @@
+# Third document review batch — research workstream READMEs (2026-11-14)
+
+## Scope
+
+Reviewed 16 complete research-workstream, data, collaborator archive, figure-audit and checklist documents (14 new documents plus two rechecks of Major 1 and radial-scalar READMEs already covered in batch one) on the maintenance branch. This pass emphasizes model scope, reproducibility, source provenance, output interpretation and acceptance gates. It is a documentation review, not a new numerical calculation or independent re-derivation of the physics.
+
+## Individual outcomes
+
+| Document | Outcome | Findings |
+|---|---|---|
+| research/major1-higgs-scalar-mixing-20261109/README.md | PASS_WITH_NOTES | Comprehensive staged plan and dated progress. High-impact issue: the signed dimension-five coefficient in archived v6 manuscript Eq. (5-d) is reported opposite to the coefficient derived from the printed UV Lagrangian/operator orientation. Requires dedicated source-level derivation and author decision; do not silently change during repository organization. Full coupled VLL beta functions and threshold decoupling remain open. |
+| research/major1-higgs-scalar-mixing-20261109/independent_fermion_sector_audit_snapshot_20261113/README.md | PASS_WITH_NOTES | Pinned independent subcalculation, benchmarks, algorithms, tests and warning against double-counting absorptive cuts are recorded. Snapshot correctly must not overwrite active Major 1 source. Verify checksum manifest separately. |
+| research/radial-scalar-collider-recast-2026-10-28/README.md | PASS_WITH_NOTES | Clearly scopes original one-VEV model, benchmark assumptions and limitations. Detector efficiency and finite-width/lifetime-dependent recast remain open; pointwise checks are not a complete experimental reinterpretation. |
+| research/stellar-cooling-collaborator-archive-20261113/provenance/PROVENANCE_README.md | PASS_WITH_NOTES | Pins source branch/commit, baseline and extraction metadata. Correctly says it stores provenance metadata, not duplicate source or ZIP payload. |
+| research/stellar-cooling-collaborator-archive-20261113/provenance/original-review-package/ORIGINAL_REVIEW_PACKAGE_README.md | PASS_WITH_NOTES | Identifies extracted review snapshot, pinned source and profile reconstruction limits; explicitly disclaims final SN1987A exclusion. Verify referenced manifests and checksums separately. |
+| research/stellar-cooling-collaborator-archive-20261113/provenance/original-review-package/package_metadata/ORIGINAL_PACKAGE_PARTS_README.md | HISTORICAL | Preserved original README still describes old Base64 download/decode workflow. Parent provenance README warns not to use it as current workflow. Keep immutable and do not direct new collaborators to it. |
+| research/stellar-cooling-constraints-20261105/blinov_reproduction/README.md | PASS_WITH_NOTES | Explicit independent implementation boundary and detailed 10 MeV B.2/B.13/P0 follow-ups. Distinguishes scalar mode-summed opacity from physical per-mode attenuation and local tests from global transport. Current Fig. 7 physical gate remains open. |
+| research/stellar-cooling-constraints-20261105/blinov_reproduction/data/sfho-frdm-v1.03/README.md | PASS_WITH_NOTES | Strong EOS archive provenance, file sizes/hashes and version explanation. Distinguishes v1.03 tables from v1.04 manual and original source archives from generated delivery bundles. Byte-level checks remain separate. |
+| research/stellar-cooling-constraints-20261105/data/README.md | PASS_WITH_NOTES | Transparently states profiles are reconstructed from public figures, not raw simulation tables; source comparison and uncertainty are included. Do not describe this as access to restricted Garching raw data. |
+| research/stellar-cooling-constraints-20261105/finite_mixing/README.md | PASS_WITH_NOTES | Separates pure-vector endpoint gate, vector/axial mapping, local rates and global transport. Header date predates later main updates; use current main index and dated appendices. No mixed-current luminosity scan or final exclusion is claimed. |
+| research/stellar-cooling-eft-literature-20261105/README.md | PASS_WITH_NOTES | Maps EFT literature by external states, current, coupling and kinematics rather than requiring identical UV completion. Limits conditional low-mass estimates and does not claim a complete axial SN contour. Literature citation details need later paper-level checking. |
+| research/stellar-cooling-original-uv-model-20261105/README.md | PASS_WITH_NOTES | Explicitly preserves original single-VEV field content and mass mapping. Local amplitude/thermal checks are not promoted to radial transport; medium-frame opacity and SN transport are deferred. |
+| research/stellar-cooling-shared-20261105/README.md | PASS_WITH_NOTES | Documents shared generic-current thermal modules and variant-specific amplitude adapters. Clearly limits scope to homogeneous optically thin thermal rates, not radial transport or SN exclusion. Add exact test entry points and dependency versions later. |
+| research/stellar-cooling-two-vev-20261105/README.md | PASS_WITH_NOTES | Defines two-VEV scalar/Goldstone relations and separates this extension from the original model. Local tests are distinct from deferred medium-frame opacity and SN transport. Preserve separate directory. |
+| research/stellar-cooling-collaborator-archive-20261113/FIGURE_AUDIT.md | PASS_WITH_NOTES | States contour is generated from saved scans and is a conditional fixed-profile ballistic benchmark, not final SN exclusion. Keeps scalar-B.2 and mode-resolved propagation lanes separate. |
+| research/stellar-cooling-collaborator-archive-20261113/REVIEW_CHECKLIST.md | PASS_WITH_NOTES | Good independent-review sequence covering hashes, source commit, tests, vector reference, EOS/background and physical acceptance. Prevents equating convergence/software success with final phenomenological validation. |
+
+## High-priority issues
+
+1. Major 1 dimension-five sign: the README reports a sign mismatch between archived manuscript Eq. (5-d) and the UV Lagrangian/operator orientation. This is a scientific/manuscript issue, not a folder-management edit. It needs a dedicated derivation-to-source audit and explicit author-approved correction before submission.
+2. Historical Base64 instructions: keep original package metadata immutable; the parent README correctly warns against following it as the current workflow.
+3. One-VEV / two-VEV boundary: current READMEs consistently separate these lines. Keep directories, tests and workflow groups separate.
+4. Stellar cooling: local rates, explicit amplitudes, detailed balance, radial integration and full transport are separate evidence layers. No reviewed README supports calling the final axial exclusion accepted.
+
+The 16 outcomes have been entered in DOCUMENT_AUDIT_REGISTER.csv. No source code, input data, numerical result, model parameter or scientific conclusion was modified.

@@ -24,7 +24,8 @@ HERE = Path(__file__).resolve().parent
 PROFILE_PATH = HERE / "outputs/caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv"
 C2_PATH = HERE / "outputs/p1iii_eos_full_radial_occupation_2026-11-11.csv"
 C4C3_BASELINE_PATH = HERE / "c4c3_direct_local_recomputation_2026-11-11/local_independent_radial_rates_301x4.csv"
-C4C4A_PATH = HERE / "outputs/c4c4_energy_dependence_2026-11-12/local_rates_96.csv"
+# Historical byte-pinned anchor used by these archived comparisons.
+C4C4A_PATH = HERE / "audit_provenance/c4c4_anchor_original_8be3757.csv"
 
 EXPECTED_PROFILE_GIT_BLOB = "9ff7818b0679992c0a9ba402330ec7f0d1f3041b"
 EXPECTED_C2_GIT_BLOB = "c472040a4551e68ffadbf7addf9402663f99e7e3"

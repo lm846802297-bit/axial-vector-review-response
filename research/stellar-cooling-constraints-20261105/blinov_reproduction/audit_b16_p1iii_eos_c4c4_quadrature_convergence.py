@@ -26,7 +26,8 @@ from audit_b16_p1iii_eos_c4c4_energy_dependence import (
 HERE = Path(__file__).resolve().parent
 PROFILE_PATH = HERE / "outputs/caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv"
 C2_PATH = HERE / "outputs/p1iii_eos_full_radial_occupation_2026-11-11.csv"
-BASE_SCAN_PATH = HERE / "outputs/c4c4_energy_dependence_2026-11-12/local_rates_96.csv"
+# Historical byte-pinned anchor used by these archived comparisons.
+BASE_SCAN_PATH = HERE / "audit_provenance/c4c4_anchor_original_8be3757.csv"
 EXPECTED_BASE_SCAN_GIT_BLOB = "8be3757cf28011132a82b5c2373aa3c1fa59d342"
 
 BASE_ORDERS = {"cosine": 8, "Eprime": 48, "initial_momentum": 36, "azimuth": 12}

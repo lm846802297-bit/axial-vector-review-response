@@ -1,5 +1,8 @@
 # Major Point 1 — exact-momentum fermion hard matching in the complex-pole diagnostic
 
+> Numerical review (2026-11-15): a current rerun of the exact-momentum pole driver emitted a SciPy integration roundoff warning. The quoted pole-based quantities need integral convergence/error verification before their displayed precision is relied on; see [the audit](../../docs/repository-management/TWENTY_NINTH_REVIEW_POLE_AND_RGE_OUTPUTS_2026-11-15.md).
+> Follow-up (2026-11-15): the warning persists at `epsabs = epsrel = 2e-8, 2e-9, 2e-10`; pole masses and widths are stable across that scan, while complex Higgs residues vary by at most (5.81\times10^{-8}). The requested quadrature error is still uncertified. See the [tolerance audit](POLE_QUADRATURE_TOLERANCE_AUDIT_2026-11-15.md), script and JSON output; an independent integration method remains necessary before closing the warning.
+
 **Purpose:** replace the leading-derivative hard approximation in Plan-C-lite by the exact momentum-dependent one-loop fermion-sector hard remainder, while retaining the same explicit limitations on diagonal widths and missing sectors.
 
 For each charged-lepton family, the exact \(2\times2\) mass matrix is diagonalized by an SVD. The full \(hh,hs,ss\) fermion-loop kernels use all four internal mass-eigenstate pairings. For the off-diagonal entry define the finite momentum-dependent hard remainder

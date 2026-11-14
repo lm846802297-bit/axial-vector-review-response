@@ -1,0 +1,2 @@
+716cc6e0f6e5b6a4a3556ca802efecfa090726475dca93f01c1c7778b17c28f5  spectral_window_audit_2026-11-14.py
+672fa1bc02a884f99d0b5fa37c0efb53487691eaf8488ccb4f50e187c36b9de3  spectral_window_audit_2026-11-14.csv

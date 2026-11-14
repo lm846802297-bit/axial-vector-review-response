@@ -1,5 +1,7 @@
 # Independent Blinov vector reproduction
 
+> **Checksum note (2026-11-14):** the dated GR-path manifest differs from the current GR module, its test and the B.2 audit report, but all four historical hashes match commit `ba581642dd749d8a4c54ea9553a2c3d1baf839c3`. It is retained as a historical record; use `SHA256SUMS_10MEV_GR_PATH_CURRENT_2026-11-14.txt` to identify current bytes. Seven GR unit tests passed locally on the current files, which does not establish their identity with an earlier run or close the Fig. 7 physics gate. See [manifest audit](../../../docs/repository-management/MANIFEST_REVIEW_2026-11-14.md).
+
 This directory is a deliberately separate implementation of the **vector-boson** ballistic-cooling prescription in Blinov et al., arXiv:2511.09619v2, Appendix B, Eqs. (17)--(35). The word scalar below refers only to the paper's mode-summed (scalar) opacity treatment; it does not mean a scalar mediator.
 
 ## Independence boundary
@@ -206,3 +208,7 @@ The new analytic addendum is [B2_POLARIZATION_BOLTZMANN_STATE_COUNTING_AUDIT_202
 The reusable algebraic identities are in polarization_boltzmann_state_counting.py, with seven regression tests in test_polarization_boltzmann_state_counting.py. All seven tests pass locally. The scalar B.2 reference and axial-vector curves are unchanged.
 
 The analytic result is deliberately limited: it does not settle the authors' intended scalar-opacity closure, nor does it replace the recoil-resolved B.13 Compton polarization kernel.
+
+## C4-C4 anchor provenance (2026-11-15)
+
+The exact historical C4-C4-A input has been recovered and the downstream input paths repaired. See [the anchor provenance note](audit_provenance/README.md) before rerunning C4-C4-Aq or C4-C4-B.

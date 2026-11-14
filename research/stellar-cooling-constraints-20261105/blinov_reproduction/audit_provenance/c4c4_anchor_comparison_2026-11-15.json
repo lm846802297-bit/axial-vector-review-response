@@ -1,0 +1,14 @@
+{
+  "rows": 96,
+  "changed_rows": 11,
+  "changed_columns": {
+    "gamma_available_volume_MeV": 11,
+    "sigma_per_target_MeV_minus2": 11,
+    "kappa_sc_MeV": 11,
+    "lambda_sc_km": 10
+  },
+  "max_relative_difference": 4.440892098500626e-16,
+  "old_blob": "8be3757cf28011132a82b5c2373aa3c1fa59d342",
+  "current_blob": "f5d8303fba5fc53de2e8bdd14c9feed40ff6a197",
+  "old_sha256": "29e261b992d61e34b1b9743099fdfbc5a6df6d502ac06708dff221b8b67137be"
+}

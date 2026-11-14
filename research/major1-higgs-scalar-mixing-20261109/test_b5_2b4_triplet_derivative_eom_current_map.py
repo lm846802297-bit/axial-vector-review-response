@@ -17,7 +17,7 @@ class TestB52B4TripletDerivativeMap(unittest.TestCase):
         self.assertTrue(triplet_derivative_eom_identity())
 
     def test_current_basis_projection(self):
-        O1, O3, E1, E3 = sp.symbols("O1 O3 E1 E3")
+        O1, O3, E1, E3 = sp.symbols("O_HL1 O_HL3 E_L1 E_L3")
         expected = (-3*O1 + O3 + 3*E1 - E3)/4
         self.assertEqual(sp.simplify(current_basis_projection()-expected), 0)
 

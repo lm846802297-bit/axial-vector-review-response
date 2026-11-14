@@ -1,5 +1,7 @@
 # B.13 global angular/path quadrature convergence audit (2026-11-09)
 
+> **Historical convergence record (2026-11-15):** this is the log-recovered 2026-11-09 PR #57 run; the original full JSON was not archived because the Actions artifact upload failed. Later full-profile B.13/B.2 work was recorded in PR #113, merged on 2026-11-14. Do not treat this compact summary as the complete point-array archive or as current global Fig. 7 validation.
+
 ## Executive result
 
 The four B.13 scans completed and the workflow's structural validation passed. All four same-grid B.16 reproduction residuals are exactly zero. The combined (60\times140\times24\times48) grid changes the B.13 luminosity by at most **0.273191%** relative to the original (40\times100\times16\times32) grid; the peak and strong-endpoint changes are **0.267989%** and **0.184207%**, respectively. These are below the predeclared project targets of 1%, 1%, and 2%.
@@ -53,4 +55,4 @@ The exact original output path was not present in the branch and the Actions art
 
 The accompanying `*_log_recovered_summary.json` preserves the compact per-scan numerical summaries printed by the Actions job, with this limitation recorded in its metadata. The original full JSON should be regenerated or uploaded after the quota becomes available if its full arrays and diagnostics are required.
 
-No physical setting, source, opacity, coupling, or luminosity has been rescaled. No axial-vector production curve, manuscript, or referee response has been changed. PR #57 remains Draft/Open and is not merged.
+No physical setting, source, opacity, coupling, or luminosity has been rescaled. No axial-vector production curve, manuscript, or referee response has been changed. PR #57 was Draft/Open at this 2026-11-09 snapshot; later full-profile B.13/B.2 work is documented in PR #113, merged on 2026-11-14.

@@ -4,8 +4,8 @@ Date: 2026-11-09
 
 ## Source identity and visible frame
 
-- Source PDF: https://arxiv.org/src/2109.03244v3
-- SHA-256: 19ca5ee492dea689a4a9851e999f7d05d0f26be7dfc820e817cc5bc310065c8e
+- Source archive: https://arxiv.org/src/2109.03244v3
+- Extracted `figures/SNProfile.pdf` SHA-256: 19ca5ee492dea689a4a9851e999f7d05d0f26be7dfc820e817cc5bc310065c8e
 - The existing extraction map defines the visible top-panel radial frame as 0.1--20 km.
 - T curve clip rectangle: [[47.0, 87.0, 325.0, 217.0]].
 - mu_mu curve clip rectangle: [[47.0, 54.0, 325.0, 217.0]]. Both clipping rectangles end at x_pdf=325.

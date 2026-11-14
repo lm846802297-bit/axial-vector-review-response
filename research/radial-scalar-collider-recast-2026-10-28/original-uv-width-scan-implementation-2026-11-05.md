@@ -1,5 +1,7 @@
 # Original one-VEV UV radial-scalar width scan: implementation note
 
+> Historical design stage: the later bounded double-virtual calculation and updated scan are documented in [the width audit](original-uv-width-scan-and-belleii-width-audit-2026-11-05.md) and [bounded recast](BOUNDED_WIDTH_RECAST_2026-11-09.md). Statements below that the four-body term is not yet included describe this earlier stage.
+
 **Date:** 2026-11-05  
 **Scope:** original paper's single-VEV \(S+\mathrm{VLL}\) model only.  
 **Benchmark assumptions:** negligible Higgs portal; decoupled VLLs; \(\theta_{\mu R}=\theta_{\tau R}=10^{-2}\) for the \(A'\) decay/cascade module; no electron Yukawa, extra scalar, extra VEV, or right-handed neutrino.

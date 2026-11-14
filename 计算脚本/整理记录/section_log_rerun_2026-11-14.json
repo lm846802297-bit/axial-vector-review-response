@@ -1,0 +1,121 @@
+{
+  "python": "3.12.14",
+  "results": [
+    {
+      "section": 250,
+      "exit": 0,
+      "stderr": "",
+      "same_except_python_version": true,
+      "result": "RESULT: 56 checks passed; no failures",
+      "script_sha256": "b7cbaf111ebc9f9eed7df56f8ff6d6e6195b215dc133a459994a3b8b64253603",
+      "archive_sha256": "86f94f77ac7422c8675086bca45de742127dc61bd488cc0537188c5d5fadc8d4"
+    },
+    {
+      "section": 251,
+      "exit": 0,
+      "stderr": "",
+      "same_except_python_version": true,
+      "result": "RESULT: 59 exact symbolic checks passed; 3 high-precision numerical cases passed",
+      "script_sha256": "7264e2bdd0ffcf2708fc04879ec40a3c64ee72462cd9d90788a16019e5db3ccd",
+      "archive_sha256": "4334698cb2a086b8eecbba9d5d83e89011ba0a2c90862668eda39ec3df3d9cfc"
+    },
+    {
+      "section": 252,
+      "exit": 0,
+      "stderr": "",
+      "same_except_python_version": true,
+      "result": "RESULT: 46 exact symbolic checks passed",
+      "script_sha256": "832a3af675790a6219ec8bc849ad24ad7d864bf7f02a86603c65c96cc85e521b",
+      "archive_sha256": "01ee98ad56606868409c4b368e5fcf2b2fa5ab6bc4bcf614d05977255110f911"
+    },
+    {
+      "section": 253,
+      "exit": 0,
+      "stderr": "",
+      "same_except_python_version": false,
+      "result": "RESULT: 68 exact symbolic checks passed; 3 numerical parameter-integral cases passed",
+      "script_sha256": "b8c97d2b26a56edba4d662d58d93468e24bbb5c0658466bdfa1ff81ae095d335",
+      "archive_sha256": "06f2d1373c86cb213ed94ab7d37c20266d21c0370a6dddb9e8326ed2b5264ae7"
+    },
+    {
+      "section": 254,
+      "exit": 0,
+      "stderr": "",
+      "same_except_python_version": true,
+      "result": "RESULT: 68 exact symbolic checks passed; 3 neutral-background numerical cases passed",
+      "script_sha256": "633c63dfc9810ae9ae124fe2994dfb7082ace8b4c3e1284df20a84a37824f297",
+      "archive_sha256": "612c8f7355e7c5a02befbdf2bb8b3f6d7608cb156bfe86c18cdc6fc9bc7ece49"
+    },
+    {
+      "section": 255,
+      "exit": 0,
+      "stderr": "",
+      "same_except_python_version": true,
+      "result": "RESULT: 47 exact symbolic/matrix checks passed; 6 numerical cases passed",
+      "script_sha256": "643c3e05ea7bf371baae8d6980eee9fc816674572db5eb1c4d5049ad53dd7c2d",
+      "archive_sha256": "569ff1d11058f0cdb6cdb14bd5a23a61437f281e64ca0155a52d20956adacb31"
+    },
+    {
+      "section": 256,
+      "exit": 0,
+      "stderr": "",
+      "same_except_python_version": true,
+      "result": "RESULT: 62 exact graph/symbolic/matrix checks passed; 3 integrals and 3 high-precision hard limits passed",
+      "script_sha256": "7ea661bd7e836c043f14be19b27cb50469e71ef6211512211340166ec9b17b85",
+      "archive_sha256": "407e85be85f6729b9f837874ade3bb2f3b4c6a63250a3623301daddfc46e61c6"
+    },
+    {
+      "section": 257,
+      "exit": 0,
+      "stderr": "",
+      "same_except_python_version": true,
+      "result": "RESULT: 58 exact graph/symbolic checks passed; 3 integrals and 3 mass-basis hard limits passed",
+      "script_sha256": "f8f2f991a118ac20767cf9017030057ebb7dbe18ec364e9f1a93bd1c279f1432",
+      "archive_sha256": "9918adc9d809e354897537ddf2c9717ce5a54d9d381ae27e01e2659a09cbc2bc"
+    },
+    {
+      "section": 258,
+      "exit": 0,
+      "stderr": "",
+      "same_except_python_version": true,
+      "result": "RESULT: 74 exact parameter/symbolic/group checks passed; 6 integrals and 3 IR hard limits passed",
+      "script_sha256": "7a5e5fc703e5e8a53e18051be20f4f8976a6b9b804e7aa1d7245fa1e68f93658",
+      "archive_sha256": "f7fe678b1597b89b4ecbbc9964e19a036d1d051b8bf0ecff6935fb888e404d57"
+    },
+    {
+      "section": 259,
+      "exit": 0,
+      "stderr": "",
+      "same_except_python_version": true,
+      "result": "RESULT: 53 exact determinant/Fierz/symbolic checks passed; 9 integrals and 6 IR hard limits passed",
+      "script_sha256": "1d804342679312a973a319494f34fc2a301da9cfe4bf120b737b53f2ddcf3847",
+      "archive_sha256": "47378c9f4ced384ba9ffdfe9af2ac3e1d4b365c7776471f88df71ae0ca62420c"
+    },
+    {
+      "section": 261,
+      "exit": 0,
+      "stderr": "",
+      "same_except_python_version": true,
+      "result": "RESULT: 59 exact broken-phase checks passed; 3 independent diagonalization cases and 3 truncation-scaling cases passed",
+      "script_sha256": "199fee49595f1623523dfbe76689a8a46bef08db85fef4cf7b99c20a4102ef82",
+      "archive_sha256": "79999d7d0fef3fb8f4b03bb9e475a054bf9b3d48fe2a4a8cd07f30aa2b96db00"
+    },
+    {
+      "section": 262,
+      "exit": 0,
+      "stderr": "",
+      "same_except_python_version": false,
+      "result": "RESULT: 62 exact light-fermion checks passed; 8 B0 integrals, 3 derivative integrals and 3 massless-limit cases passed",
+      "script_sha256": "07ca907b58cad437e9bc1dca5fb3e97a1bb909dcc73ff3ca8ac46d8af0813f5c",
+      "archive_sha256": "0c1ed3b3988d2985e0a57765680d5ce5cb88b0f877a5a6d16011f93b64bab353"
+    }
+  ],
+  "section260": {
+    "exit": 1,
+    "pass_lines_before_failure": 69,
+    "prefix_matches_archived": true,
+    "error_last_line": "AssertionError: (250, 'archived log differs')",
+    "script_sha256": "05f4013d666a14265e577ccbeb9257e3cdfcff4f1f4bfa31973326c9dad7dc63",
+    "archive_sha256": "d03213a89066cadadf9fbbcf66c5b3c410551199a24cb60525de8f35b12edeb1"
+  }
+}

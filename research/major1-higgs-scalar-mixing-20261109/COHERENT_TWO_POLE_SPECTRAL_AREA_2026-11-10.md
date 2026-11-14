@@ -5,7 +5,24 @@ Using the Plan-C-lite approximate propagator, the \(h\)-source to SM-final-state
 {\cal A}_{\rm res}(s)\propto D_{hh}(s)
 =\frac{s-b}{(s-a)(s-b)-\Pi_{hs}(s)^2}.
 \]
-A coherent spectral-area proxy was evaluated over \(m\in[124.5,126.0]\) GeV:
+In the archived implementation, \(a=m_h^2-i m_h\Gamma_h\) and
+\(b=m_s^2-i m_s\Gamma_s\), with \(D_{\rm SM}(s)=1/(s-a)\);
+\(\Gamma_s\) is the sum of the implemented \(A'A'\), muon and tau
+partial widths. The selected off-diagonal kernel and constants are defined in
+[the archived script](coherent_two_pole_spectral_area.py), not a complete
+renormalized self-energy. The script uses \(m_h=125.25\) GeV,
+\(\Gamma_h=0.00407\) GeV and \(M_E=20\) TeV.
+
+> **Window audit, 2026-11-14:** the archived script inserts \(m_s\) into
+> the quadrature breakpoints even when it is outside the integration interval.
+> Thus the 100 and 150 GeV cases in the table integrate beyond the stated
+> window. The largest absolute change in the ratio when restricting the
+> integration to 124.5–126.0 GeV is \(2.69\times10^{-8}\); the two
+> 125.25 GeV cases are unchanged within numerical precision. The table below
+> preserves the archived values. See the [audit record](SPECTRAL_WINDOW_AUDIT_2026-11-14.md)
+> and [numerical comparison](spectral_window_audit_2026-11-14.csv).
+
+The intended coherent spectral-area proxy was evaluated over \(m\in[124.5,126.0]\) GeV:
 \[
 R_{\rm area}=
 \frac{\int dm\,|D_{hh}(m^2)|^2}

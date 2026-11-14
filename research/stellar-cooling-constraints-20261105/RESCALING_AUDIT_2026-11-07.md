@@ -1,5 +1,7 @@
 # Coupling-axis rescaling audit — 2026-11-07
 
+> **Historical diagnostic, not a prescription:** this is a post-processing fit to archived curves only. No fitted \(\kappa\) is adopted or applied to a production scan. PR #56 was Draft at the time of this 2026-11-07 note and merged on 2026-11-12; the vector Fig. 7 gate remains unpassed.
+
 ## Scope and motivation
 
 The user proposed using coupling-axis rescaling to test the vector-current calculation without repeating the B.13 thermal phase-space integration. This is implemented as a post-processing audit of already archived luminosity curves.
@@ -95,7 +97,7 @@ This is not a like-for-like reproduction test of the scalar Appendix-B prescript
 1. Do not apply any fitted kappa to the production vector scan, axial scan, or constraint figures.
 2. Do not change the Compton normalization, the factor of 2, the factor of 3, or the positive/negative charge convention based on this fit.
 3. Retain the original Fig. 4 and Fig. 7 comparison results; the rescaling audit is an additional diagnostic, not a replacement.
-4. Keep PR #56 Open / Draft. The vector control is not declared validated.
+4. PR #56 was Open / Draft at this 2026-11-07 snapshot and later merged on 2026-11-12. The vector control is not declared validated.
 5. Use the result to narrow the next investigation: explain the 10 MeV Fig. 7 curve-shape/trapping-tail discrepancy while preserving the already-close Fig. 4 contour boundaries. Prefer targeted comparisons of archived source and opacity components over repeating the full B.13 integration.
 
 ## Reproducibility

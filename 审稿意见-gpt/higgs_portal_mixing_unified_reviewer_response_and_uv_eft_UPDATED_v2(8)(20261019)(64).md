@@ -15707,11 +15707,11 @@ UV 图的拓扑与 EFT 泡图相同，但两个内部费米子传播子的质量
 
 为避免普通 Markdown 阅读器只显示 TikZ 源码，本节将三类核心拓扑另行绘制为独立 SVG 矢量图，并通过相对路径嵌入本文。若 SVG 与本文档保存在同一目录，支持 SVG 的 Markdown 阅读器会直接显示下图；SVG 可无损缩放。图中蓝色闭合线表示费米子环，外部实线表示标量外腿。
 
-![EFT 泡图、EFT 双标量接触 tadpole 与 UV 质量本征态泡图](higgs_portal_mixing_feynman_diagrams.svg)
+![EFT 泡图、EFT 双标量接触 tadpole 与 UV 质量本征态泡图](../deliverables/higgs_portal_mixing_md_with_svg/higgs_portal_mixing_feynman_diagrams.svg)
 
 **图中顶角约定：** EFT 泡图使用 \(-iy_h\) 与 \(-iy_s\)；接触图使用 \(-iy_{hs}\)；UV 图使用质量本征态顶角 \(\Gamma^h_{ij}\) 与 \(\Gamma^s_{ji}\)。本图是拓扑与顶角标签示意，不替代原始 UV 拉氏量对顶角矩阵、手征结构、整体符号和组合因子的推导。
 
-**文件说明：** SVG 源文件为 `higgs_portal_mixing_feynman_diagrams.svg`。如果阅读器不显示 SVG，请确认 SVG 文件与 Markdown 文件位于同一文件夹；也可以直接用浏览器打开 SVG 文件查看。
+**文件说明（2026-11-14 路径更新）：** 图使用同一交付包中保留的 `higgs_portal_mixing_feynman_diagrams.svg`；其来源和 SHA-256 见 `deliverables/higgs_portal_mixing_md_with_svg/`。如果阅读器不显示 SVG，可直接打开图文件。
 
 
 ## 188. 从原论文质量基底顶角显式计算四通道耦合权重
