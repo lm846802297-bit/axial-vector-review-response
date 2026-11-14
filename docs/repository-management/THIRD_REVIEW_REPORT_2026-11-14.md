@@ -2,7 +2,7 @@
 
 ## Scope
 
-Reviewed 16 complete research-workstream, data, collaborator archive, figure-audit and checklist documents on the maintenance branch. This pass emphasizes model scope, reproducibility, source provenance, output interpretation and acceptance gates. It is a documentation review, not a new numerical calculation or independent re-derivation of the physics.
+Reviewed 16 complete research-workstream, data, collaborator archive, figure-audit and checklist documents (14 new documents plus two rechecks of Major 1 and radial-scalar READMEs already covered in batch one) on the maintenance branch. This pass emphasizes model scope, reproducibility, source provenance, output interpretation and acceptance gates. It is a documentation review, not a new numerical calculation or independent re-derivation of the physics.
 
 ## Individual outcomes
 
