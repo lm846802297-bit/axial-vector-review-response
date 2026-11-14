@@ -4,6 +4,8 @@
 
 ## Repository-management update (2026-11-15)
 
+- Six B.16 high-energy propagation/GR records were individually reviewed. Clarified that printed Eq. (B.2) is fixed-\(\omega\), corrected B.9 equation references, fixed the Fermi-pair occupancy sign in the Python audit helper, and added a pinned 20-test regression lane (Python 3.12.14 / NumPy 2.5.4 / SciPy 1.18.1; Actions #43646106550). Four records are PASS_WITH_NOTES and two remain REVISION_REQUIRED because their global V8 diagnostics lack matching strict NumPy outputs. Baseline register: 264 reviewed, 198 pending. See `docs/repository-management/FORTY_SECOND_REVIEW_B16_HIGH_ENERGY_PROPAGATION_2026-11-15.md`.
+
 - Six additional B.16 equation/escape/acceptance records were reviewed. The equation-to-code map and consolidated Fig. 7 acceptance were retained as PASS_WITH_NOTES; the V8 result is explicitly cross-runtime only; the source-versus-escape note was marked HISTORICAL. Repaired equation, code-fence, inline-code and section-number formatting. The escape runbook remains REVISION_REQUIRED because the strict NumPy output is absent, full joint-table closure is not automated in the inspected Python path, and the Python/NumPy/SciPy environment is not pinned. Verified independent B.1+B.2 workflow #42564417076 succeeded. Baseline register: 258 reviewed, 204 pending. See `docs/repository-management/FORTY_FIRST_REVIEW_B16_EQUATION_ESCAPE_ACCEPTANCE_2026-11-15.md`.
 
 
