@@ -72,8 +72,8 @@ The fixed-\(\omega\) B.16 vector benchmark remains the paper-reproduction baseli
 The official [Garching Core-Collapse Supernova Archive index](https://wwwmpa.mpa-garching.mpg.de/ccsnarchive/archive.html) was rechecked on 2026-11-15. It still explicitly states that some archives are password protected, asks users who need those data to contact the archive, and asks users not to redistribute access keys or protected data without permission.
 
 Under the Bollig/Hüdepohl PROMETHEUS-VERTEX entry, the index links separately to:
-- radial neutrino moment profiles, spectral data, and hydro profiles: \`https://wwwmpa.mpa-garching.mpg.de/ccsnarchive/data/Bollig2016_angular_moments/\`;
-- hydro radial profiles: \`https://wwwmpa.mpa-garching.mpg.de/ccsnarchive/data/Bollig2016_radial_profiles/\`.
+- radial neutrino moment profiles, spectral data, and hydro profiles: `https://wwwmpa.mpa-garching.mpg.de/ccsnarchive/data/Bollig2016_angular_moments/`;
+- hydro radial profiles: `https://wwwmpa.mpa-garching.mpg.de/ccsnarchive/data/Bollig2016_radial_profiles/`.
 
 Both exact endpoints were followed from the official index during this recheck and both returned **HTTP 401 Unauthorized**. This confirms that the relevant archive entries exist but remain inaccessible without authorization; it does not mean the files are absent.
 
