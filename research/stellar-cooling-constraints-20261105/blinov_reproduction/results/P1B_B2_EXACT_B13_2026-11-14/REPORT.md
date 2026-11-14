@@ -52,7 +52,7 @@ This is not a full-band Fig. 7 reproduction. The path result uses the low-order 
 
 Extend exact-B.13 source and mode-resolved reduced absorption to the full energy range, preserve the literal B.16 scalar lane as regression baseline, and separately test fixed-omega versus GR-redshifted path energy. Only after the full-band vector baseline is reconciled should the axial calculation or exclusion curve be updated.
 
-Reproducibility archive: `P1B_B2_EXACT_B13_HIGH_ENERGY_2026-11-14.zip`, SHA-256 `e33c71f7d58c85f8e64f7a4c9066588f749cda60e63c74bd1dacedc1c244e2f5`.
+Reproducibility archive: `P1B_B2_EXACT_B13_HIGH_ENERGY_AND_LOW_X_PILOT_2026-11-14.zip`, SHA-256 `afeb8a909cd973835066bda34a06da0de94bf8290135b6a7be278d454562b0b0`.
 
 
 ## 7. Full-band low-x support gate
