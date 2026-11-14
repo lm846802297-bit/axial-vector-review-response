@@ -4,7 +4,7 @@
 
 ## Current repository state
 
-- **Current main:** `d2f4037cc965eb2f4184f695dc81a95e1b8283c9`.
+- **Current branch:** `main` (the PR #113 merge-state anchor is `d2f4037cc965eb2f4184f695dc81a95e1b8283c9`; subsequent commits in this audit refresh status ledgers only).
 - **PR #106 — merged (Squash):** `71ce83e72dd4688f09462e54209d3a47e7172e03`. Archives the 10 MeV B.2 energy/GR/polarization audit, GR ray kernel, polarization state-counting module, exact B.13 explicit-spinor audit, and regression tests.
 - **PR #113 — merged (Squash):** `d2f4037cc965eb2f4184f695dc81a95e1b8283c9`. Archives P1-B Global-02–05 radial/energy screens, selected high-order checks, exact-B.13 high-energy-band B.1/B.2 comparison, and the low-x support finding.
 - **No open PRs remain** in this repository after the merge audit.
