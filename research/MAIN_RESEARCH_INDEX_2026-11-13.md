@@ -1,6 +1,6 @@
 # Main research index — 2026-11-14
 
-**Snapshot:** `main` at `d2f4037cc965eb2f4184f695dc81a95e1b8283c9`  
+**Merge-state anchor:** PR #113 merge commit `d2f4037cc965eb2f4184f695dc81a95e1b8283c9`; subsequent commits in this audit refresh status ledgers only.  
 **Purpose:** identify the canonical location, integration history, and scientific acceptance boundary for each active referee-response and stellar-cooling workstream.
 
 This index is a navigation and status document. The source files, calculation outputs, validation records, and provenance manifests in the listed directories remain authoritative.
