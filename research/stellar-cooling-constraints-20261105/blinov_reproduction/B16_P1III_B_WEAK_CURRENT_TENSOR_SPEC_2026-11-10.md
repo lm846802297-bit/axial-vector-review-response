@@ -6,6 +6,8 @@ Branch: research/moving-muon-thermal-rates-20261107
 
 ## Scope and status
 
+**Primary free-nucleon benchmark:** C. J. Horowitz, *Phys. Rev. D* 65, 043001 (2002), [DOI:10.1103/PhysRevD.65.043001](https://doi.org/10.1103/PhysRevD.65.043001), especially Eqs. (12)–(14) and Appendix B.
+
 This note specifies the next implementation layer after P1-IIIa. It is a derivation/validation specification, **not a claim that the full tensor code or B.2 calculation has already been completed**. P1-IIIa remains a scalar ideal-gas phase-space response. No opacity, luminosity, Fig. 7 curve, or axial constraint is updated here.
 
 ## 1. Conventions
@@ -123,7 +125,7 @@ The benchmark implementation retains the full azimuthal dependence of the moving
 
 1. **Gamma algebra:** verify Hermiticity/conjugation of the vertex and tensor symmetry properties numerically for generic on-shell momenta.
 2. **Stationary target:** take a dilute, cold, zero-momentum target limit and reproduce Horowitz's \(d\sigma/d\cos\theta\) for \(\nu n,\bar\nu n,\nu p,\bar\nu p\), including recoil, weak magnetism, and the same form factors.
-3. **Integrated moments:** reproduce total, angular-transport, momentum-transfer, and energy-transfer moments from the existing Horowitz implementation. A total-cross-section-only match is insufficient.
+3. **Integrated moments:** reproduce total, angular-transport, longitudinal momentum-transfer, and energy-transfer moments from the existing Horowitz implementation. A total-cross-section-only match is insufficient.
 4. **Dilute thermal gas:** verify the Maxwell-Boltzmann limit and detailed balance.
 5. **Finite density:** verify Pauli blocking species by species and demonstrate that the result is not represented by a universal multiplicative suppression.
 6. **Quadrature:** independently increase radial and angular orders and test near the kinematic boundaries \(q_0=\pm q\).
@@ -141,3 +143,10 @@ This stage does not yet include RPA, NN correlations, in-medium vertex correctio
 ## 8. Next executable task
 
 The stationary-target trace, moving-nucleon local collision kernel, and a first energy/angle-integrated transport-moment benchmark are now implemented and checked against the cold/dilute Horowitz limit. The remaining task is to expand these local moments over the relevant incident-energy and angular domain, then replace the illustrative composition with co-located EOS-consistent (n_B(r),Y_p(r),T(r)). Only after those checks should the kernel be connected to radial B.2 propagation. Keep this code and its validation outputs separate from the production B.2 path until acceptance.
+
+## 9. Physics-review clarification (2026-11-15)
+
+The angular reduction and rate prefactors were re-derived from the invariant phase-space measure. With \(H_N^{\mu\nu}\) defined as an initial-spin-averaged trace, the explicit factor 2 in \(W_N^{\mu\nu}\) is the occupied nucleon spin degeneracy; the resulting \(1/(4\pi q)\) response prefactor and \(G_F^2E'/(256\pi^4Eq)\) local-rate prefactor are consistent. The \(1/(8\pi q)\) alternative would omit the spin degeneracy under this convention.
+
+The validation list now names the recoil moment as the longitudinal momentum-transfer moment, \(1-\eta\cos\theta\), to distinguish it from both Horowitz's \(1-\cos\theta\) angular transport moment and the magnitude of the full momentum transfer.
+
