@@ -75,3 +75,4 @@ Do not move or delete files solely from their names. Before a move, search and u
 - [Portal A4–A5 research-note review](SIXTEENTH_REVIEW_PORTAL_A4_A5_NOTES_2026-11-15.md)
 - [Portal A5b/B5 output review](SEVENTEENTH_REVIEW_PORTAL_B5_OUTPUTS_2026-11-15.md)
 - [B5 triplet output review](EIGHTEENTH_REVIEW_TRIPLET_OUTPUTS_2026-11-15.md)
+- [B5 triplet research-note review](NINETEENTH_REVIEW_TRIPLET_NOTES_2026-11-15.md)

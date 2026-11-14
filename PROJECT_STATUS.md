@@ -4,7 +4,9 @@
 
 ## Repository-management update (2026-11-14)
 
-- Three B5-2B3/B4 output records were individually reviewed. A triplet-map test used different SymPy symbol names from its expected expression; the test identifiers were aligned and 39 related tests pass. The common-numerator result remains superseded and full Ward/matching closure is open. Baseline register: 143 reviewed, 319 pending. See `docs/repository-management/EIGHTEENTH_REVIEW_TRIPLET_OUTPUTS_2026-11-15.md`.
+- Three B5-2B2/B3/B4 research notes were read and checked against their scoped symbolic scripts and tests; full matching and Ward closure remain open. Baseline register: 146 reviewed, 316 pending. See `docs/repository-management/NINETEENTH_REVIEW_TRIPLET_NOTES_2026-11-15.md`.
+
+- Three B5-2B3/B4 output records were individually reviewed. A triplet-map test used different SymPy symbol names from its expected expression; the test identifiers were aligned and 39 related tests pass. The common-numerator result remains superseded and full Ward/matching closure is open. At that checkpoint: 143 reviewed, 319 pending. See `docs/repository-management/EIGHTEENTH_REVIEW_TRIPLET_OUTPUTS_2026-11-15.md`.
 
 - Seven A5b/B5 output records were individually reviewed. A B5-2B2 Pauli-generator tuple was missing and repaired; four suites (27 tests) pass. A superseded SM-only summary contains a T_SM value inconsistent with its own y_t and now has a warning preserving the original value. At that checkpoint: 140 reviewed, 322 pending. See `docs/repository-management/SEVENTEENTH_REVIEW_PORTAL_B5_OUTPUTS_2026-11-15.md`.
 
