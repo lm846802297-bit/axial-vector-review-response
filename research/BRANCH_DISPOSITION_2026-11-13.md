@@ -21,6 +21,7 @@ The merge disposition is an integration/archive decision only. The low-x support
 | Branch | PR | Tree-level finding | Decision |
 |---|---:|---|---|
 | `research/fig7-10mev-transport-localization-20261113-v2` | #106, merged | Twenty-three changed files cover B.2 energy conventions, a static-spherical GR ray kernel, path-shell and energy-band decomposition, polarization/transport comparison, the P0 Boltzmann state-counting derivation, and the P1 exact B.13 explicit-spinor audit | **Preserve as historical source branch.** Its contents are now integrated into main by PR #106. |
+| `research/p1b-global02-full-radial-20261114` | #113, merged | Global-02–05 full-profile B.13 radial/energy screens, selected high-order checks, exact-B.13 high-energy B.1/B.2 band audit, and low-x support finding | **Preserve as historical source branch.** Its contents are now integrated into main by PR #113. |
 
 PR #106 was squash-merged into main at `71ce83e72dd4688f09462e54209d3a47e7172e03`; its 49-file audit/code/source-snapshot diff is now integrated. The GR ray kernel includes the finite-boundary versus asymptotic-escape distinction and seven regression tests. The 38-test exact-kernel workflow passed. No same-snapshot SFHo spatial metric is claimed; the Garching pseudo-Newtonian baseline remains spatially flat. The B.2 scalar versus mode-resolved transport prescriptions remain distinct, and the pure-vector Fig. 7 gate remains NOT PASSED.
 
