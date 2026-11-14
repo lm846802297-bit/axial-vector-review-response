@@ -1,160 +1,146 @@
 # GitHub Actions workflow catalog
 
-Generated from branch `maintenance/repository-organization-audit-20261114` on 2026-11-14. This is a path inventory, not an execution-history audit or a statement that every workflow is active.
+Inventory generated from `maintenance/repository-organization-audit-20261114` on 2026-11-14. The 109 YAML files are listed below by provisional topic. This index is not a claim that all workflows are active or that their historical runs passed.
 
-**Total workflow files:** 109
+## Topic groups
 
-## Workflow paths by provisional topic
+### Two-VEV extension regressions (1)
 
-### Neutrino / PMNS (2)
+- [`axial-goldstone-pmns-regression.yml`](axial-goldstone-pmns-regression.yml)
 
-- `.github/workflows/axial-goldstone-pmns-regression.yml`
-- `.github/workflows/outer-neutrino-absorption-audit.yml`
+### Major 4.4 stellar cooling / transport (98)
 
-### Stellar cooling / transport (68)
+- [`b13-exact-compton-radial.yml`](b13-exact-compton-radial.yml)
+- [`b13-exact-compton-vertex-preserving.yml`](b13-exact-compton-vertex-preserving.yml)
+- [`b13-global-convergence-audit.yml`](b13-global-convergence-audit.yml)
+- [`b13-global-convergence.yml`](b13-global-convergence.yml)
+- [`b13-global-grid-convergence.yml`](b13-global-grid-convergence.yml)
+- [`b13-global-transport-summary.yml`](b13-global-transport-summary.yml)
+- [`b13-global-transport-vertex-preserving.yml`](b13-global-transport-vertex-preserving.yml)
+- [`b13-local-kernel-convergence-audit.yml`](b13-local-kernel-convergence-audit.yml)
+- [`b13-local-kernel-low-mass-convergence.yml`](b13-local-kernel-low-mass-convergence.yml)
+- [`b13-low-mass-global-convergence.yml`](b13-low-mass-global-convergence.yml)
+- [`b13-muon-velocity-diagnostic.yml`](b13-muon-velocity-diagnostic.yml)
+- [`b16-b1-independent-source.yml`](b16-b1-independent-source.yml)
+- [`b16-dense-local-kernel-audit.yml`](b16-dense-local-kernel-audit.yml)
+- [`b16-directional-escape-8-15.yml`](b16-directional-escape-8-15.yml)
+- [`b16-directional-escape.yml`](b16-directional-escape.yml)
+- [`b16-emission-radius-escape.yml`](b16-emission-radius-escape.yml)
+- [`b16-escape-phase-space.yml`](b16-escape-phase-space.yml)
+- [`b16-flavour-fixed-vs-redshift.yml`](b16-flavour-fixed-vs-redshift.yml)
+- [`b16-full-b1b2-independent.yml`](b16-full-b1b2-independent.yml)
+- [`b16-global-fig7-vertex-preserving.yml`](b16-global-fig7-vertex-preserving.yml)
+- [`b16-global-polarization-transport.yml`](b16-global-polarization-transport.yml)
+- [`b16-global-redshift-audit.yml`](b16-global-redshift-audit.yml)
+- [`b16-high-order-independent-grid.yml`](b16-high-order-independent-grid.yml)
+- [`b16-independent-grid-quadrature-convergence.yml`](b16-independent-grid-quadrature-convergence.yml)
+- [`b16-inner-numu-branch-sensitivity.yml`](b16-inner-numu-branch-sensitivity.yml)
+- [`b16-inner-path-channel-directional.yml`](b16-inner-path-channel-directional.yml)
+- [`b16-inner-path-vertex-preserving.yml`](b16-inner-path-vertex-preserving.yml)
+- [`b16-lapse-boundary-sensitivity.yml`](b16-lapse-boundary-sensitivity.yml)
+- [`b16-local-absorption-vertex-preserving.yml`](b16-local-absorption-vertex-preserving.yml)
+- [`b16-local-absorption.yml`](b16-local-absorption.yml)
+- [`b16-neutrino-flavour-opacity.yml`](b16-neutrino-flavour-opacity.yml)
+- [`b16-neutrino-inverse-decay-audit.yml`](b16-neutrino-inverse-decay-audit.yml)
+- [`b16-neutrino-inverse-decay-direct.yml`](b16-neutrino-inverse-decay-direct.yml)
+- [`b16-numu-positive-branch-sensitivity.yml`](b16-numu-positive-branch-sensitivity.yml)
+- [`b16-numu-profile-sensitivity.yml`](b16-numu-profile-sensitivity.yml)
+- [`b16-outer-22-25-temperature-sensitivity.yml`](b16-outer-22-25-temperature-sensitivity.yml)
+- [`b16-outer-escape-angular-distribution.yml`](b16-outer-escape-angular-distribution.yml)
+- [`b16-outer-numu-22-25km-sensitivity.yml`](b16-outer-numu-22-25km-sensitivity.yml)
+- [`b16-outer-numu-floor-sensitivity.yml`](b16-outer-numu-floor-sensitivity.yml)
+- [`b16-outer-profile-input-audit.yml`](b16-outer-profile-input-audit.yml)
+- [`b16-outer-profile-interpolation.yml`](b16-outer-profile-interpolation.yml)
+- [`b16-outer-shell-polarization-resolved.yml`](b16-outer-shell-polarization-resolved.yml)
+- [`b16-outer-temperature-sensitivity.yml`](b16-outer-temperature-sensitivity.yml)
+- [`b16-p1iii-eos-degeneracy.yml`](b16-p1iii-eos-degeneracy.yml)
+- [`b16-p1iii-eos-full-profile.yml`](b16-p1iii-eos-full-profile.yml)
+- [`b16-p1iii-eos-full-radial-degeneracy-identity.yml`](b16-p1iii-eos-full-radial-degeneracy-identity.yml)
+- [`b16-p1iii-eos-full-radial-degeneracy-radial-diagnostics.yml`](b16-p1iii-eos-full-radial-degeneracy-radial-diagnostics.yml)
+- [`b16-p1iii-eos-full-radial-degeneracy-step-scan.yml`](b16-p1iii-eos-full-radial-degeneracy-step-scan.yml)
+- [`b16-p1iii-eos-full-radial-occupation.yml`](b16-p1iii-eos-full-radial-occupation.yml)
+- [`b16-p1iiie-c4a-eos-dynamic-scalar-response.yml`](b16-p1iiie-c4a-eos-dynamic-scalar-response.yml)
+- [`b16-p1iiie-c4b1-effective-mass-weak-tensor.yml`](b16-p1iiie-c4b1-effective-mass-weak-tensor.yml)
+- [`b16-p1iiie-c4b2-effective-mass-collision-kernel.yml`](b16-p1iiie-c4b2-effective-mass-collision-kernel.yml)
+- [`b16-p1iiie-c4c1-exact-outgoing-energy-support.yml`](b16-p1iiie-c4c1-exact-outgoing-energy-support.yml)
+- [`b16-p1iiie-c4c2-full-angle-eprime-convergence.yml`](b16-p1iiie-c4c2-full-angle-eprime-convergence.yml)
+- [`b16-p1iiie-c4c2-full-angle-total-scattering.yml`](b16-p1iiie-c4c2-full-angle-total-scattering.yml)
+- [`b16-p1iiie-c4c3-radial-scattering.yml`](b16-p1iiie-c4c3-radial-scattering.yml)
+- [`b16-p1iiie-c4c4-energy-dependence.yml`](b16-p1iiie-c4c4-energy-dependence.yml)
+- [`b16-p1iiie-c4c4-quadrature-convergence.yml`](b16-p1iiie-c4c4-quadrature-convergence.yml)
+- [`b16-p1iiie-c4c4b-full-radial-energy-dependence.yml`](b16-p1iiie-c4c4b-full-radial-energy-dependence.yml)
+- [`b16-path-independent-analytic.yml`](b16-path-independent-analytic.yml)
+- [`b16-quadrature-convergence.yml`](b16-quadrature-convergence.yml)
+- [`b16-shell-luminosity-sensitivity.yml`](b16-shell-luminosity-sensitivity.yml)
+- [`b2-opacity-interpolation-convergence.yml`](b2-opacity-interpolation-convergence.yml)
+- [`b2-path-energy-convergence.yml`](b2-path-energy-convergence.yml)
+- [`b2-radial-source-convergence.yml`](b2-radial-source-convergence.yml)
+- [`bollig-fig3-crosscheck.yml`](bollig-fig3-crosscheck.yml)
+- [`bollig-fig4-muon-profile.yml`](bollig-fig4-muon-profile.yml)
+- [`bollig-muon-density-b1-audit.yml`](bollig-muon-density-b1-audit.yml)
+- [`bollig-outer-thermodynamic-profile.yml`](bollig-outer-thermodynamic-profile.yml)
+- [`bollig-profile-vector-audit.yml`](bollig-profile-vector-audit.yml)
+- [`build-stellar-cooling-review-archive.yml`](build-stellar-cooling-review-archive.yml)
+- [`caputo-muon-density-vector-audit.yml`](caputo-muon-density-vector-audit.yml)
+- [`caputo-offframe-thermodynamic-audit.yml`](caputo-offframe-thermodynamic-audit.yml)
+- [`direct-collision-integrals.yml`](direct-collision-integrals.yml)
+- [`eq-b2-independent-path-integral.yml`](eq-b2-independent-path-integral.yml)
+- [`fig12-vector-extraction.yml`](fig12-vector-extraction.yml)
+- [`fig7-10mev-equation-chain-audit.yml`](fig7-10mev-equation-chain-audit.yml)
+- [`fig7-10mev-three-layer-audit.yml`](fig7-10mev-three-layer-audit.yml)
+- [`fig7-digitization-geometry-audit.yml`](fig7-digitization-geometry-audit.yml)
+- [`fig7-highres-convergence.yml`](fig7-highres-convergence.yml)
+- [`fig7-refined-scan.yml`](fig7-refined-scan.yml)
+- [`fig7-six-mass-reproduction.yml`](fig7-six-mass-reproduction.yml)
+- [`fig7-source-drawings.yml`](fig7-source-drawings.yml)
+- [`fig7-spatial-weight-matrix.yml`](fig7-spatial-weight-matrix.yml)
+- [`fig7-ultrafine-0p1.yml`](fig7-ultrafine-0p1.yml)
+- [`fig7-ultrafine-light-mass.yml`](fig7-ultrafine-light-mass.yml)
+- [`moving-muon-thermal-rates.yml`](moving-muon-thermal-rates.yml)
+- [`muon-chemical-potential-audit.yml`](muon-chemical-potential-audit.yml)
+- [`muon-profile-sensitivity-10mev.yml`](muon-profile-sensitivity-10mev.yml)
+- [`outer-neutrino-absorption-audit.yml`](outer-neutrino-absorption-audit.yml)
+- [`p1-b13-exact-polarization-kernel.yml`](p1-b13-exact-polarization-kernel.yml)
+- [`p1b-b13-local-kernel-radial-energy.yml`](p1b-b13-local-kernel-radial-energy.yml)
+- [`p1b-source-bundle.yml`](p1b-source-bundle.yml)
+- [`p1iii-eos-c4c3-radial-scattering.yml`](p1iii-eos-c4c3-radial-scattering.yml)
+- [`profile-12-15km-audit.yml`](profile-12-15km-audit.yml)
+- [`pure-vector-benchmark-audit.yml`](pure-vector-benchmark-audit.yml)
+- [`transport-prescription-audit.yml`](transport-prescription-audit.yml)
+- [`vector-rescaling-audit.yml`](vector-rescaling-audit.yml)
 
-- `.github/workflows/b13-exact-compton-radial.yml`
-- `.github/workflows/b13-exact-compton-vertex-preserving.yml`
-- `.github/workflows/b13-global-convergence-audit.yml`
-- `.github/workflows/b13-global-convergence.yml`
-- `.github/workflows/b13-global-grid-convergence.yml`
-- `.github/workflows/b13-global-transport-summary.yml`
-- `.github/workflows/b13-global-transport-vertex-preserving.yml`
-- `.github/workflows/b13-local-kernel-convergence-audit.yml`
-- `.github/workflows/b13-local-kernel-low-mass-convergence.yml`
-- `.github/workflows/b13-low-mass-global-convergence.yml`
-- `.github/workflows/b13-muon-velocity-diagnostic.yml`
-- `.github/workflows/b16-b1-independent-source.yml`
-- `.github/workflows/b16-dense-local-kernel-audit.yml`
-- `.github/workflows/b16-directional-escape-8-15.yml`
-- `.github/workflows/b16-directional-escape.yml`
-- `.github/workflows/b16-emission-radius-escape.yml`
-- `.github/workflows/b16-escape-phase-space.yml`
-- `.github/workflows/b16-flavour-fixed-vs-redshift.yml`
-- `.github/workflows/b16-full-b1b2-independent.yml`
-- `.github/workflows/b16-global-fig7-vertex-preserving.yml`
-- `.github/workflows/b16-global-polarization-transport.yml`
-- `.github/workflows/b16-global-redshift-audit.yml`
-- `.github/workflows/b16-high-order-independent-grid.yml`
-- `.github/workflows/b16-independent-grid-quadrature-convergence.yml`
-- `.github/workflows/b16-inner-numu-branch-sensitivity.yml`
-- `.github/workflows/b16-inner-path-channel-directional.yml`
-- `.github/workflows/b16-inner-path-vertex-preserving.yml`
-- `.github/workflows/b16-lapse-boundary-sensitivity.yml`
-- `.github/workflows/b16-local-absorption-vertex-preserving.yml`
-- `.github/workflows/b16-local-absorption.yml`
-- `.github/workflows/b16-neutrino-flavour-opacity.yml`
-- `.github/workflows/b16-neutrino-inverse-decay-audit.yml`
-- `.github/workflows/b16-neutrino-inverse-decay-direct.yml`
-- `.github/workflows/b16-numu-positive-branch-sensitivity.yml`
-- `.github/workflows/b16-numu-profile-sensitivity.yml`
-- `.github/workflows/b16-outer-22-25-temperature-sensitivity.yml`
-- `.github/workflows/b16-outer-escape-angular-distribution.yml`
-- `.github/workflows/b16-outer-numu-22-25km-sensitivity.yml`
-- `.github/workflows/b16-outer-numu-floor-sensitivity.yml`
-- `.github/workflows/b16-outer-profile-input-audit.yml`
-- `.github/workflows/b16-outer-profile-interpolation.yml`
-- `.github/workflows/b16-outer-shell-polarization-resolved.yml`
-- `.github/workflows/b16-outer-temperature-sensitivity.yml`
-- `.github/workflows/b16-p1iii-eos-degeneracy.yml`
-- `.github/workflows/b16-p1iii-eos-full-profile.yml`
-- `.github/workflows/b16-p1iii-eos-full-radial-degeneracy-identity.yml`
-- `.github/workflows/b16-p1iii-eos-full-radial-degeneracy-radial-diagnostics.yml`
-- `.github/workflows/b16-p1iii-eos-full-radial-degeneracy-step-scan.yml`
-- `.github/workflows/b16-p1iii-eos-full-radial-occupation.yml`
-- `.github/workflows/b16-p1iiie-c4a-eos-dynamic-scalar-response.yml`
-- `.github/workflows/b16-p1iiie-c4b1-effective-mass-weak-tensor.yml`
-- `.github/workflows/b16-p1iiie-c4b2-effective-mass-collision-kernel.yml`
-- `.github/workflows/b16-p1iiie-c4c1-exact-outgoing-energy-support.yml`
-- `.github/workflows/b16-p1iiie-c4c2-full-angle-eprime-convergence.yml`
-- `.github/workflows/b16-p1iiie-c4c2-full-angle-total-scattering.yml`
-- `.github/workflows/b16-p1iiie-c4c3-radial-scattering.yml`
-- `.github/workflows/b16-p1iiie-c4c4-energy-dependence.yml`
-- `.github/workflows/b16-p1iiie-c4c4-quadrature-convergence.yml`
-- `.github/workflows/b16-p1iiie-c4c4b-full-radial-energy-dependence.yml`
-- `.github/workflows/b16-path-independent-analytic.yml`
-- `.github/workflows/b16-quadrature-convergence.yml`
-- `.github/workflows/b16-shell-luminosity-sensitivity.yml`
-- `.github/workflows/b2-opacity-interpolation-convergence.yml`
-- `.github/workflows/build-stellar-cooling-review-archive.yml`
-- `.github/workflows/p1-b13-exact-polarization-kernel.yml`
-- `.github/workflows/p1b-b13-local-kernel-radial-energy.yml`
-- `.github/workflows/p1iii-eos-c4c3-radial-scattering.yml`
-- `.github/workflows/transport-prescription-audit.yml`
+### Major 1 scalar / Higgs / collider (6)
 
-### Other / needs classification (27)
+- [`finite-mixing-model-map.yml`](finite-mixing-model-map.yml)
+- [`independent-belleii-pointwise-audit.yml`](independent-belleii-pointwise-audit.yml)
+- [`independent-fourbody-tensor-audit.yml`](independent-fourbody-tensor-audit.yml)
+- [`independent-higgs-scalar-matrix-audit.yml`](independent-higgs-scalar-matrix-audit.yml)
+- [`major1-higgs-scalar-mixing.yml`](major1-higgs-scalar-mixing.yml)
+- [`major1-scalar-belleii.yml`](major1-scalar-belleii.yml)
 
-- `.github/workflows/b2-path-energy-convergence.yml`
-- `.github/workflows/b2-radial-source-convergence.yml`
-- `.github/workflows/bollig-fig3-crosscheck.yml`
-- `.github/workflows/bollig-fig4-muon-profile.yml`
-- `.github/workflows/bollig-muon-density-b1-audit.yml`
-- `.github/workflows/bollig-outer-thermodynamic-profile.yml`
-- `.github/workflows/caputo-offframe-thermodynamic-audit.yml`
-- `.github/workflows/direct-collision-integrals.yml`
-- `.github/workflows/eq-b2-independent-path-integral.yml`
-- `.github/workflows/fig7-10mev-equation-chain-audit.yml`
-- `.github/workflows/fig7-10mev-three-layer-audit.yml`
-- `.github/workflows/fig7-digitization-geometry-audit.yml`
-- `.github/workflows/fig7-highres-convergence.yml`
-- `.github/workflows/fig7-refined-scan.yml`
-- `.github/workflows/fig7-six-mass-reproduction.yml`
-- `.github/workflows/fig7-source-drawings.yml`
-- `.github/workflows/fig7-spatial-weight-matrix.yml`
-- `.github/workflows/fig7-ultrafine-0p1.yml`
-- `.github/workflows/fig7-ultrafine-light-mass.yml`
-- `.github/workflows/independent-belleii-pointwise-audit.yml`
-- `.github/workflows/independent-fourbody-tensor-audit.yml`
-- `.github/workflows/major44-eft-regression.yml`
-- `.github/workflows/moving-muon-thermal-rates.yml`
-- `.github/workflows/muon-chemical-potential-audit.yml`
-- `.github/workflows/muon-profile-sensitivity-10mev.yml`
-- `.github/workflows/p1b-source-bundle.yml`
-- `.github/workflows/profile-12-15km-audit.yml`
+### Needs manual classification (1)
 
-### Axial-vector phenomenology (6)
+- [`major44-eft-regression.yml`](major44-eft-regression.yml)
 
-- `.github/workflows/bollig-profile-vector-audit.yml`
-- `.github/workflows/caputo-muon-density-vector-audit.yml`
-- `.github/workflows/fig12-vector-extraction.yml`
-- `.github/workflows/pure-vector-benchmark-audit.yml`
-- `.github/workflows/vector-axial-response-scan.yml`
-- `.github/workflows/vector-rescaling-audit.yml`
+### Referee-letter LaTeX build (2)
 
-### Higgs portal / scalar / VLL (4)
+- [`pr55-latex-build.yml`](pr55-latex-build.yml)
+- [`pr55-referee-letter-build.yml`](pr55-referee-letter-build.yml)
 
-- `.github/workflows/finite-mixing-model-map.yml`
-- `.github/workflows/independent-higgs-scalar-matrix-audit.yml`
-- `.github/workflows/major1-higgs-scalar-mixing.yml`
-- `.github/workflows/major1-scalar-belleii.yml`
+### Vector–axial response mapping (1)
 
-### Referee response / documentation / packaging (2)
+- [`vector-axial-response-scan.yml`](vector-axial-response-scan.yml)
 
-- `.github/workflows/pr55-latex-build.yml`
-- `.github/workflows/pr55-referee-letter-build.yml`
+## Individual audit register
 
-## Required metadata for each workflow
+See [WORKFLOW_AUDIT_REGISTER.csv](WORKFLOW_AUDIT_REGISTER.csv). Every workflow begins as `PENDING`; the first 10 sampled workflow files have an individual review note in [WORKFLOW_REVIEW_BATCH_2026-11-14.md](WORKFLOW_REVIEW_BATCH_2026-11-14.md).
 
-Before a workflow is treated as active/current, its owner must document:
+## Classification and maintenance rules
 
-- research workstream and responsible source directory;
-- trigger type (manual, PR, push, schedule, or workflow_call);
-- exact inputs, source commit/ref, data dependencies and secrets/permissions required;
-- runner requirements and expected runtime/resource use;
-- artifacts and whether they are retained, committed, or only transient;
-- tests/checks performed and their scientific acceptance boundary;
-- current status: `ACTIVE`, `HISTORICAL`, `SUPERSEDED`, `EXPERIMENTAL`, or `UNKNOWN`;
-- callers, reusable-workflow dependencies and branch-protection references.
-
-## Safety and maintenance rules
-
-1. Do not delete a workflow based on its filename or apparent age. Check run history, workflow_call callers, branch protection, badges and scripts first.
-2. A green workflow means its declared software checks passed for that run; it does not prove physical validation.
-3. Pin numerical workflow inputs to immutable commits and record checksums for external data.
-4. Avoid duplicate full test discovery where targeted suites suffice; preserve separate research acceptance gates.
-5. Do not publish generated ZIP archives or Base64 archive parts as routine artifacts when the repository policy requires extracted, provenance-tracked files.
-6. A workflow that changes a scientific result must commit the exact source, inputs, outputs, validation report and manifest together.
-
-## Next audit
-
-The next pass must inspect each YAML file and its referenced scripts, reusable workflows, triggers, permissions, artifacts and historical run state. The topic grouping above is inferred from filenames only and must be corrected during that audit.
+- Topic groups are provisional filename-based classifications; correct them only after inspecting each workflow's actual paths and commands.
+- For every workflow, record its exact triggers, branch filters, path filters, permissions, runner, Python/TeX versions, dependencies, commands, artifact behavior, write-back behavior and known latest run.
+- Use status labels `ACTIVE`, `HISTORICAL_CANDIDATE`, `SUPERSEDED`, `EXPERIMENTAL`, `REVIEWED_WITH_NOTES`, or `PENDING`.
+- A workflow pinned to a retired branch is not automatically safe to delete: check historical run links, callers, branch refs and whether the workflow remains manually dispatchable.
+- Minimize write permissions. Workflows that only test should use `contents: read`; workflows that commit results require an explicit output/provenance contract.
+- Keep CI/software status distinct from scientific acceptance. A green workflow cannot close a physical validation gate by itself.
+- Do not consolidate workflows solely because they share Python dependencies; different physical gates and inputs may need separate validation lanes.
