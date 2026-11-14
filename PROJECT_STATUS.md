@@ -1,3 +1,19 @@
+# 2026-11-14 live status: post-PR #106 / #113 merge audit
+
+> This entry supersedes earlier live summaries below wherever they list PR #106 or #113 as open/draft, report an older main SHA, or describe either branch as an active PR. Older dated entries remain as historical snapshots.
+
+## Current repository state
+
+- **Current main:** `d2f4037cc965eb2f4184f695dc81a95e1b8283c9`.
+- **PR #106 — merged (Squash):** `71ce83e72dd4688f09462e54209d3a47e7172e03`. Archives the 10 MeV B.2 energy/GR/polarization audit, GR ray kernel, polarization state-counting module, exact B.13 explicit-spinor audit, and regression tests.
+- **PR #113 — merged (Squash):** `d2f4037cc965eb2f4184f695dc81a95e1b8283c9`. Archives P1-B Global-02–05 radial/energy screens, selected high-order checks, exact-B.13 high-energy-band B.1/B.2 comparison, and the low-x support finding.
+- **No open PRs remain** in this repository after the merge audit.
+- PR #106's exact-kernel workflow passed compilation, the explicit-spinor audit, and 38 regression tests across five suites (run #43534265182).
+- The Global-05 low-x driver was rerun from the exact packaged source/profile. All 80 low-order points were finite/nonnegative; maximum detailed-balance residual was (4.6060\times10^{-15}), and maximum final-muon shell residual was (1.6261\times10^{-13}). The script writes the summary and regenerable 80-point JSON/CSV records.
+- **Physics acceptance remains open:** the low-x check is only a 16-radius, five-energy low-order screen. Full 1687-radius low-x coverage, complete full-band B.1/B.2 transport, the Fig. 7 strong-absorption reconciliation, and any SN1987A/axial-limit update are not accepted. The literal scalar B.2 baseline and production axial curve remain unchanged.
+
+---
+
 # 2026-11-13 live status: post-PR94 archive extraction
 
 > This section supersedes earlier live entries below wherever they report earlier main SHAs, PR states, archive locations, or branch counts. The historical records remain intact.
