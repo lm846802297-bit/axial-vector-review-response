@@ -66,3 +66,5 @@ The 462-row register covers Markdown/text documents. Root-level TeX, BibTeX, bib
 ## Safe migration policy
 
 Do not move or delete files solely from their names. Before a move, search and update inbound relative links, code imports, workflow paths, LaTeX inputs, scripts, manifests and external handoff instructions. Keep a relocation manifest mapping old path to new path and preserve blob hashes where bytes are unchanged.
+
+- [Portal A2–A3 individual review](ELEVENTH_REVIEW_PORTAL_A2_A3_2026-11-15.md)
