@@ -38,7 +38,7 @@
   "maximum_final_muon_shell_residual": 1.626120976637977e-13,
   "selected_core_comparison": {
     "r_km": 9.95,
-    "T_MeV": 34.106934597756,
+    "T_MeV": 34.1069345977565,
     "x_0p05_over_x_0p5_mu_minus_absorption_mode_ratios": [
       7.07918478,
       1.81713804,
