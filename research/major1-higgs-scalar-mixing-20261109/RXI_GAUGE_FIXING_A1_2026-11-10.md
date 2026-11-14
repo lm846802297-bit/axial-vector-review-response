@@ -101,4 +101,4 @@ The following identities are fixed by construction:
 - no gauge-basis \(hA'A'\), \(sWW\), or \(sZZ\) vertex exists at zero portal;
 - portal-induced vertices are \(O(\hbar)\) in the chosen conditional matching counting.
 
-This A1 note does not yet expand every nonlinear ghost vertex or enumerate every 1PI graph. The next A2 task is to derive the complete field-dependent Faddeev--Popov matrix and machine-check all two- and three-point vertices before integrating any gauge/Goldstone/ghost loop.
+This A1 note does not yet expand every nonlinear ghost vertex or enumerate every 1PI graph. The subsequent [A2 gauge-basis vertex ledger](A2_SCALAR_GAUGE_GHOST_VERTEX_LEDGER_2026-11-10.md) now records the scalar/vector vertices and scalar-dependent Faddeev--Popov entries. The remaining non-Abelian ghost-vector expansion, full PV-integral calculation, and gauge-parameter cancellation are still open A2b/A3 tasks; no gauge/Goldstone/ghost loop should be integrated before those inputs are fixed.
