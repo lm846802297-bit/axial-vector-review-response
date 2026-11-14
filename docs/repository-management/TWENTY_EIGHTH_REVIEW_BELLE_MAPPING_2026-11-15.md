@@ -1,0 +1,5 @@
+# Individual review: Belle II benchmark-mapping note
+
+Baseline `0938df26a09c512866972ea5a454c93e6a465571`, 2026-11-15. `research/radial-scalar-collider-recast-2026-10-28/belleii-benchmark-mapping-2026-11-05.md` was read in full and compared with the existing raw-supplement and bounded-recast reviews. Its seven two-lepton branching-ratio entries independently recompute to the displayed four decimal places using the stated lepton masses; the two input-table dimensions and duplicate counts match the local files. The published detector simulation and experimental likelihood were not rerun or exhaustively revalidated here.
+
+The note uses the original one-VEV model and explicitly conditions coupling rescalings on matching production, branching fractions, widths and acceptance. Its 2026-11-05 acceptance gates predate the later conditional bounded-width classification, so a dated-status note now links that later record without claiming it completes detector-level or global exclusion. All historical numbers and formulas are retained. Outcome: PASS_WITH_NOTES; the later scan and the original paper's assumptions remain distinct.

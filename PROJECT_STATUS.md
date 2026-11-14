@@ -4,7 +4,9 @@
 
 ## Repository-management update (2026-11-14)
 
-- Two Belle evidence/protocol documents were individually reviewed. The old evidence ledger now points to the subsequently extracted mass tables and conditional recast; no detector-level validation is claimed. Baseline register: 178 reviewed, 284 pending; see `docs/repository-management/TWENTY_SEVENTH_REVIEW_BELLE_PROTOCOLS_2026-11-15.md`.
+- The Belle II benchmark-mapping note was reviewed and its seven two-lepton threshold fractions recomputed. A dated-status note links the later conditional recast. Baseline register: 179 reviewed, 283 pending; see `docs/repository-management/TWENTY_EIGHTH_REVIEW_BELLE_MAPPING_2026-11-15.md`.
+
+- Two Belle evidence/protocol documents were individually reviewed. The old evidence ledger now points to the subsequently extracted mass tables and conditional recast; no detector-level validation is claimed. At that checkpoint: 178 reviewed, 284 pending; see `docs/repository-management/TWENTY_SEVENTH_REVIEW_BELLE_PROTOCOLS_2026-11-15.md`.
 
 - Three older Belle II scan/recast records were individually reviewed and clearly marked historical or superseded; their original conclusions and numbers remain traceable. At that checkpoint: 176 reviewed, 286 pending; see `docs/repository-management/TWENTY_SIXTH_REVIEW_BELLE_HISTORY_2026-11-15.md`.
 
