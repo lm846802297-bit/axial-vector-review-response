@@ -85,7 +85,7 @@ These are independent reproducibility runs. They do not modify production source
 
 ## 5. Remaining reproducibility and physical gates
 
-1. The full independent analytic B.2 integration is now dependency-pinned and archived (Actions #43649694860). The next numerical layer is a separate B.1 source-measure and radial/energy-quadrature audit; do not treat the B.2 result as validating the shared B.1 source.
+1. The independent B.1 source audit is now also dependency-pinned and archived (Actions #43650570961): six tests pass, the final source is lower than archived B.16 by 0.443024%, and the local-energy/E-infinity Jacobian check closes at 2.22e-16. The next numerical gate is the pinned end-to-end B.1+B.2 luminosity calculation, combining the pinned B.1 source and B.2 analytic path while retaining the fixed-omega baseline.
 2. Keep the generic GR kernel separate from a physical full-GR SN result until same-snapshot \(N(r)\) and \(A(r)\) or \(M(r)\) data are available.
 3. The public-figure reconstructed thermodynamic profile is not the original Garching raw snapshot; its provenance uncertainty remains.
 4. The \(+92\%\) Fig. 7 strong-endpoint discrepancy remains unresolved. No opacity rescaling, source normalization adjustment, or fitted correction is authorized.
