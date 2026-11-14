@@ -10,3 +10,8 @@ Baseline `3809b3166055e783c41f6aab4886e85bca101e3c`, 2026-11-15. Each note was r
 | `SINGLET_SCALAR_DIRECT_WIDTH_AUDIT_2026-11-10.md` | Direct-width script exits 0; displayed A/B threshold widths and perturbativity-ceiling ratios match to stated precision. The note retains the no-double-counting and omitted-channel limitations. PASS_WITH_NOTES. |
 
 A successful script exit does not remove the exact-momentum integrator's warning. No physical pole result or archived numerical value was altered.
+
+
+## Follow-up numerical tolerance scan (2026-11-15)
+
+The exact-momentum pole quadrature was rerun at three requested tolerances (`2e-8`, `2e-9`, `2e-10`) for both benchmarks and all six pole pairs. Each run still emitted four `IntegrationWarning` messages. The pole mass/width shifts relative to the archived tolerance were below `1e-13 GeV` / `6e-13 GeV`, and the largest complex Higgs-residue shift was `5.81e-8`. The warning calls are in the hierarchical heavy–light Feynman-parameter pairing; the returned pole numbers are stable under this tolerance variation, but requested integration errors remain uncertified. The result, script and machine-readable output are preserved in `research/major1-higgs-scalar-mixing-20261109/POLE_QUADRATURE_TOLERANCE_AUDIT_2026-11-15.md`, `.py` and `.json`. Both the exact-momentum pole note and dependent CMS cascade note remain `REVISION_REQUIRED` until an independent integration method is compared.

@@ -39,5 +39,5 @@ See [ROOT_FILE_CLASSIFICATION.md](ROOT_FILE_CLASSIFICATION.md) for a file-by-fil
 2. Refresh old subdirectory READMEs that still expose PR/task states from October or early November.
 3. Review similarly named Higgs-portal and referee-analysis files by content/provenance; different Git blob IDs do not prove duplication.
 4. Complete the 109-workflow audit and identify current versus historical workflows before changing triggers or permissions.
-5. Continue the 462-row baseline Markdown/text review: 105 individually reviewed, 357 still `PENDING` at the latest recorded baseline snapshot; newly added review reports and indexes are tracked separately.
+5. Continue the 462-row baseline Markdown/text review: 205 individually reviewed, 257 still `PENDING` at the 2026-11-15 checkpoint; newly added review reports and indexes are tracked separately. See `DOCUMENT_AUDIT_REGISTER.csv` and its dated batch reports.
 6. Audit all relative links, Python imports, workflow paths, LaTeX inputs, bibliography lookup and manifests before any physical relocation. The maintenance branch was synchronized with main at merge commit `e4dd7ec`; refresh the comparison before integration.

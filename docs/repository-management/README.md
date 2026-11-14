@@ -32,7 +32,7 @@ This document describes the current repository organization and the intended own
 
 ## Review coverage and reports
 
-The baseline inventory contains 462 Markdown/text documents. Current register counts are: 61 `PASS_WITH_NOTES`, 1 `PASS`, 5 `REVISION_REQUIRED`, 38 `HISTORICAL`, and 357 `PENDING` (105 individually reviewed). Only documents read individually are assigned a non-pending review outcome. See the [audit register](DOCUMENT_AUDIT_REGISTER.csv) and the dated review reports:
+The baseline inventory contains 462 Markdown/text documents. At the latest review checkpoint (2026-11-15), the register contains 134 `PASS_WITH_NOTES`, 1 `PASS`, 8 `REVISION_REQUIRED`, 62 `HISTORICAL`, and 257 `PENDING` (205 individually reviewed). Only documents read individually are assigned a non-pending review outcome. See the [audit register](DOCUMENT_AUDIT_REGISTER.csv) and the dated review reports:
 
 - [Initial governance and entry review](INITIAL_REVIEW_REPORT_2026-11-14.md)
 - [Second review batch](SECOND_REVIEW_REPORT_2026-11-14.md)
@@ -68,6 +68,9 @@ The 462-row register covers Markdown/text documents. Root-level TeX, BibTeX, bib
 Do not move or delete files solely from their names. Before a move, search and update inbound relative links, code imports, workflow paths, LaTeX inputs, scripts, manifests and external handoff instructions. Keep a relocation manifest mapping old path to new path and preserve blob hashes where bytes are unchanged.
 
 - [Portal A2–A3 individual review](ELEVENTH_REVIEW_PORTAL_A2_A3_2026-11-15.md)
+- [Legacy EFT calculation and audit artifact review](THIRTY_FIRST_REVIEW_LEGACY_CALCULATIONS_2026-11-15.md)
+- [Exact-momentum pole quadrature follow-up](../../research/major1-higgs-scalar-mixing-20261109/POLE_QUADRATURE_TOLERANCE_AUDIT_2026-11-15.md) (supplementary numerical audit)
+- [B5 portal RGE/EFT work-record review](THIRTY_SECOND_REVIEW_B5_RGE_EFT_2026-11-15.md)
 - [C4-C3/C4-C4 individual archive review](TWELFTH_REVIEW_C4C3_C4C4_2026-11-15.md)
 - [C4-C4 research-report review](THIRTEENTH_REVIEW_C4C4_REPORTS_2026-11-15.md)
 - [Global-06 individual protocol review](FOURTEENTH_REVIEW_GLOBAL06_2026-11-15.md)

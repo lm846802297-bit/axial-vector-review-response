@@ -1,6 +1,6 @@
 # Major Point 1 — Benchmark-A vector cascade and CMS \(\mu\mu\tau\tau\) search applicability
 
-> Numerical review (2026-11-15): a current rerun of the exact-momentum pole driver emitted a SciPy integration roundoff warning. The quoted pole-based quantities need integral convergence/error verification before their displayed precision is relied on; see [the audit](../../docs/repository-management/TWENTY_NINTH_REVIEW_POLE_AND_RGE_OUTPUTS_2026-11-15.md).
+> Numerical review (2026-11-15): a current rerun of the exact-momentum pole driver emitted a SciPy integration roundoff warning. The quoted pole-based quantities need integral convergence/error verification before their displayed precision is relied on; see [the audit](../../docs/repository-management/TWENTY_NINTH_REVIEW_POLE_AND_RGE_OUTPUTS_2026-11-15.md). The follow-up tolerance scan shows stable masses/widths and (R_{hh}) to (5.81\times10^{-8}), but four warnings persist at each tolerance; see [the numerical audit](POLE_QUADRATURE_TOLERANCE_AUDIT_2026-11-15.md). Keep this cascade estimate revision-required until an independent integration check closes the warning.
 
 **Purpose:** quantify whether the open \(A'A'\) channel in Benchmark A is potentially relevant to existing Higgs exotic-decay searches. This is a leading isolated-pole estimate, not an experimental recast.
 

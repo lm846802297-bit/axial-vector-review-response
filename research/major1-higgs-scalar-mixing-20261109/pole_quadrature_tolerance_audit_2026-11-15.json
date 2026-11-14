@@ -1,0 +1,512 @@
+{
+  "benchmarks": [
+    {
+      "mA_GeV": 10.0,
+      "name": "A",
+      "vs_GeV": 70.886458
+    },
+    {
+      "mA_GeV": 63.0,
+      "name": "B",
+      "vs_GeV": 315.0
+    }
+  ],
+  "command": "python research/major1-higgs-scalar-mixing-20261109/pole_quadrature_tolerance_audit_2026-11-15.py",
+  "input_source": "exact_momentum_fermion_pole_audit.py",
+  "input_source_sha256": "e391afbc3b2f75305a3f31209aac209b3aa4f1104cd0f13c68f0159064b08246",
+  "interpretation": "IntegrationWarning persists at all three requested tolerances. Pole masses and widths are stable across the tolerance scan; complex residues vary at the 1e-8 scale. A different integration method is still needed to establish the requested quadrature error independently.",
+  "purpose": "Numerical stability audit only; not a pole-physics validation.",
+  "runs": [
+    {
+      "epsabs": "2e-8",
+      "epsrel": "2e-8",
+      "integration_warning_count": 4,
+      "max_abs_delta_vs_2e-9": {
+        "R_hh_complex": 5.8098260520252485e-08,
+        "mass_GeV": 9.947598300641403e-14,
+        "width_GeV": 5.673057509869572e-13
+      },
+      "poles": [
+        {
+          "R_hh_im": -7.328886017108064e-10,
+          "R_hh_re": 1.0000000052898235,
+          "benchmark": "A",
+          "determinant_residual_GeV4": 3.5870715570002353e-09,
+          "mA_GeV": 10.0,
+          "mass_GeV": 125.25000012936827,
+          "ms_input_GeV": 100.0,
+          "pole_index": 1,
+          "vs_GeV": 70.886458,
+          "width_GeV": 0.004069876177658556
+        },
+        {
+          "R_hh_im": 9.975478342550336e-10,
+          "R_hh_re": 2.260823429233525e-09,
+          "benchmark": "A",
+          "determinant_residual_GeV4": 1.775557061664327e-09,
+          "mA_GeV": 10.0,
+          "mass_GeV": 100.00435580328471,
+          "ms_input_GeV": 100.0,
+          "pole_index": 2,
+          "vs_GeV": 70.886458,
+          "width_GeV": 1.866753655760163
+        },
+        {
+          "R_hh_im": 4.668600069352412e-07,
+          "R_hh_re": 1.000000728648594,
+          "benchmark": "A",
+          "determinant_residual_GeV4": 6.248807562808896e-11,
+          "mA_GeV": 10.0,
+          "mass_GeV": 125.25000081249338,
+          "ms_input_GeV": 125.25,
+          "pole_index": 1,
+          "vs_GeV": 70.886458,
+          "width_GeV": 0.0040726888521818334
+        },
+        {
+          "R_hh_im": -3.860199794271183e-07,
+          "R_hh_re": -7.423100257745136e-07,
+          "benchmark": "A",
+          "determinant_residual_GeV4": 3.2109979753000834e-10,
+          "mA_GeV": 10.0,
+          "mass_GeV": 125.26400593632835,
+          "ms_input_GeV": 125.25,
+          "pole_index": 2,
+          "vs_GeV": 70.886458,
+          "width_GeV": 3.746392490864907
+        },
+        {
+          "R_hh_im": 5.1770265913341e-09,
+          "R_hh_re": 5.491252186546658e-09,
+          "benchmark": "A",
+          "determinant_residual_GeV4": 3.5226455103390085e-09,
+          "mA_GeV": 10.0,
+          "mass_GeV": 150.0352858510315,
+          "ms_input_GeV": 150.0,
+          "pole_index": 1,
+          "vs_GeV": 70.886458,
+          "width_GeV": 6.507521168593996
+        },
+        {
+          "R_hh_im": -4.918636709693046e-09,
+          "R_hh_re": 1.0000000020351807,
+          "benchmark": "A",
+          "determinant_residual_GeV4": 1.594237523945623e-09,
+          "mA_GeV": 10.0,
+          "mass_GeV": 125.24999993356712,
+          "ms_input_GeV": 150.0,
+          "pole_index": 2,
+          "vs_GeV": 70.886458,
+          "width_GeV": 0.004070133311587978
+        },
+        {
+          "R_hh_im": -1.1574731199832111e-10,
+          "R_hh_re": 1.000000006986908,
+          "benchmark": "B",
+          "determinant_residual_GeV4": 4.7558510959355275e-09,
+          "mA_GeV": 63.0,
+          "mass_GeV": 125.25000002214311,
+          "ms_input_GeV": 100.0,
+          "pole_index": 1,
+          "vs_GeV": 315.0,
+          "width_GeV": 0.004069993353885346
+        },
+        {
+          "R_hh_im": 6.170694872180222e-11,
+          "R_hh_re": 1.0886668328642407e-10,
+          "benchmark": "B",
+          "determinant_residual_GeV4": 2.2090404264486303e-10,
+          "mA_GeV": 63.0,
+          "mass_GeV": 99.99999999692402,
+          "ms_input_GeV": 100.0,
+          "pole_index": 2,
+          "vs_GeV": 315.0,
+          "width_GeV": 0.00012681483545207882
+        },
+        {
+          "R_hh_im": -0.024321340544066247,
+          "R_hh_re": -0.035406527252270815,
+          "benchmark": "B",
+          "determinant_residual_GeV4": 4.1389762282991405e-13,
+          "mA_GeV": 63.0,
+          "mass_GeV": 125.250041393395,
+          "ms_input_GeV": 125.25,
+          "pole_index": 1,
+          "vs_GeV": 315.0,
+          "width_GeV": 0.00029201981903545786
+        },
+        {
+          "R_hh_im": 0.024321345413008694,
+          "R_hh_re": 1.0354065330110098,
+          "benchmark": "B",
+          "determinant_residual_GeV4": 8.542585696245146e-14,
+          "mA_GeV": 63.0,
+          "mass_GeV": 125.24995862583795,
+          "ms_input_GeV": 125.25,
+          "pole_index": 2,
+          "vs_GeV": 315.0,
+          "width_GeV": 0.003936916805535253
+        },
+        {
+          "R_hh_im": 2.0466674586012435e-10,
+          "R_hh_re": 3.30300277327934e-10,
+          "benchmark": "B",
+          "determinant_residual_GeV4": 7.1597105508395805e-09,
+          "mA_GeV": 63.0,
+          "mass_GeV": 150.00001257092225,
+          "ms_input_GeV": 150.0,
+          "pole_index": 1,
+          "vs_GeV": 315.0,
+          "width_GeV": 0.12278473873553204
+        },
+        {
+          "R_hh_im": -2.590889682767771e-10,
+          "R_hh_re": 1.0000000067642918,
+          "benchmark": "B",
+          "determinant_residual_GeV4": 6.246841722645137e-11,
+          "mA_GeV": 63.0,
+          "mass_GeV": 125.25000001185418,
+          "ms_input_GeV": 150.0,
+          "pole_index": 2,
+          "vs_GeV": 315.0,
+          "width_GeV": 0.004070005571490855
+        }
+      ],
+      "warning_messages": [
+        "The algorithm does not converge.  Roundoff error is detected",
+        "The algorithm does not converge.  Roundoff error is detected",
+        "The algorithm does not converge.  Roundoff error is detected",
+        "The algorithm does not converge.  Roundoff error is detected"
+      ]
+    },
+    {
+      "epsabs": "2e-9",
+      "epsrel": "2e-9",
+      "integration_warning_count": 4,
+      "poles": [
+        {
+          "R_hh_im": -7.319740902908575e-10,
+          "R_hh_re": 1.0000000052938278,
+          "benchmark": "A",
+          "determinant_residual_GeV4": 2.8970479648947863e-09,
+          "mA_GeV": 10.0,
+          "mass_GeV": 125.25000012936827,
+          "ms_input_GeV": 100.0,
+          "pole_index": 1,
+          "vs_GeV": 70.886458,
+          "width_GeV": 0.004069876177658787
+        },
+        {
+          "R_hh_im": 9.975478342550336e-10,
+          "R_hh_re": 2.260823429233525e-09,
+          "benchmark": "A",
+          "determinant_residual_GeV4": 1.7450429854112413e-09,
+          "mA_GeV": 10.0,
+          "mass_GeV": 100.00435580328471,
+          "ms_input_GeV": 100.0,
+          "pole_index": 2,
+          "vs_GeV": 70.886458,
+          "width_GeV": 1.866753655760163
+        },
+        {
+          "R_hh_im": 4.106739752940081e-07,
+          "R_hh_re": 1.0000007434316154,
+          "benchmark": "A",
+          "determinant_residual_GeV4": 2.4954276148617746e-10,
+          "mA_GeV": 10.0,
+          "mass_GeV": 125.25000081249338,
+          "ms_input_GeV": 125.25,
+          "pole_index": 1,
+          "vs_GeV": 70.886458,
+          "width_GeV": 0.004072688852170186
+        },
+        {
+          "R_hh_im": -3.860199794324006e-07,
+          "R_hh_re": -7.423100257699814e-07,
+          "benchmark": "A",
+          "determinant_residual_GeV4": 3.193308471187392e-10,
+          "mA_GeV": 10.0,
+          "mass_GeV": 125.26400593632835,
+          "ms_input_GeV": 125.25,
+          "pole_index": 2,
+          "vs_GeV": 70.886458,
+          "width_GeV": 3.746392490864907
+        },
+        {
+          "R_hh_im": 5.177026591323346e-09,
+          "R_hh_re": 5.4912521865415046e-09,
+          "benchmark": "A",
+          "determinant_residual_GeV4": 3.5247327644595457e-09,
+          "mA_GeV": 10.0,
+          "mass_GeV": 150.0352858510315,
+          "ms_input_GeV": 150.0,
+          "pole_index": 1,
+          "vs_GeV": 70.886458,
+          "width_GeV": 6.507521168593996
+        },
+        {
+          "R_hh_im": -4.919043414906714e-09,
+          "R_hh_re": 1.0000000020341235,
+          "benchmark": "A",
+          "determinant_residual_GeV4": 9.43780462431278e-10,
+          "mA_GeV": 10.0,
+          "mass_GeV": 125.24999993356712,
+          "ms_input_GeV": 150.0,
+          "pole_index": 2,
+          "vs_GeV": 70.886458,
+          "width_GeV": 0.00407013331158765
+        },
+        {
+          "R_hh_im": -1.1572553232647842e-10,
+          "R_hh_re": 1.000000006986982,
+          "benchmark": "B",
+          "determinant_residual_GeV4": 4.721308890502255e-09,
+          "mA_GeV": 63.0,
+          "mass_GeV": 125.25000002214311,
+          "ms_input_GeV": 100.0,
+          "pole_index": 1,
+          "vs_GeV": 315.0,
+          "width_GeV": 0.004069993353885359
+        },
+        {
+          "R_hh_im": 6.170694883736758e-11,
+          "R_hh_re": 1.088666832863817e-10,
+          "benchmark": "B",
+          "determinant_residual_GeV4": 2.2338518997780485e-10,
+          "mA_GeV": 63.0,
+          "mass_GeV": 99.99999999692402,
+          "ms_input_GeV": 100.0,
+          "pole_index": 2,
+          "vs_GeV": 315.0,
+          "width_GeV": 0.0001268148354520854
+        },
+        {
+          "R_hh_im": -0.024321340593159674,
+          "R_hh_re": -0.035406527244207224,
+          "benchmark": "B",
+          "determinant_residual_GeV4": 1.5095243047014894e-13,
+          "mA_GeV": 63.0,
+          "mass_GeV": 125.2500413933951,
+          "ms_input_GeV": 125.25,
+          "pole_index": 1,
+          "vs_GeV": 315.0,
+          "width_GeV": 0.00029201981897304934
+        },
+        {
+          "R_hh_im": 0.024321339931986985,
+          "R_hh_re": 1.035406534680096,
+          "benchmark": "B",
+          "determinant_residual_GeV4": 2.3103187120088965e-13,
+          "mA_GeV": 63.0,
+          "mass_GeV": 125.24995862583803,
+          "ms_input_GeV": 125.25,
+          "pole_index": 2,
+          "vs_GeV": 315.0,
+          "width_GeV": 0.003936916806102558
+        },
+        {
+          "R_hh_im": 2.046667458603221e-10,
+          "R_hh_re": 3.3030027732811774e-10,
+          "benchmark": "B",
+          "determinant_residual_GeV4": 7.160791929900886e-09,
+          "mA_GeV": 63.0,
+          "mass_GeV": 150.00001257092225,
+          "ms_input_GeV": 150.0,
+          "pole_index": 1,
+          "vs_GeV": 315.0,
+          "width_GeV": 0.12278473873553204
+        },
+        {
+          "R_hh_im": -2.5912203557663453e-10,
+          "R_hh_re": 1.0000000067641672,
+          "benchmark": "B",
+          "determinant_residual_GeV4": 9.696604064040119e-11,
+          "mA_GeV": 63.0,
+          "mass_GeV": 125.25000001185418,
+          "ms_input_GeV": 150.0,
+          "pole_index": 2,
+          "vs_GeV": 315.0,
+          "width_GeV": 0.004070005571490843
+        }
+      ],
+      "warning_messages": [
+        "The algorithm does not converge.  Roundoff error is detected",
+        "The algorithm does not converge.  Roundoff error is detected",
+        "The algorithm does not converge.  Roundoff error is detected",
+        "The algorithm does not converge.  Roundoff error is detected"
+      ]
+    },
+    {
+      "epsabs": "2e-10",
+      "epsrel": "2e-10",
+      "integration_warning_count": 4,
+      "max_abs_delta_vs_2e-9": {
+        "R_hh_complex": 5.181186874414168e-09,
+        "mass_GeV": 0.0,
+        "width_GeV": 1.610647379357566e-14
+      },
+      "poles": [
+        {
+          "R_hh_im": -7.323551608429674e-10,
+          "R_hh_re": 1.0000000052921592,
+          "benchmark": "A",
+          "determinant_residual_GeV4": 2.880786341419771e-09,
+          "mA_GeV": 10.0,
+          "mass_GeV": 125.25000012936827,
+          "ms_input_GeV": 100.0,
+          "pole_index": 1,
+          "vs_GeV": 70.886458,
+          "width_GeV": 0.004069876177658793
+        },
+        {
+          "R_hh_im": 9.975478342550336e-10,
+          "R_hh_re": 2.260823429233525e-09,
+          "benchmark": "A",
+          "determinant_residual_GeV4": 1.734442990255593e-09,
+          "mA_GeV": 10.0,
+          "mass_GeV": 100.00435580328471,
+          "ms_input_GeV": 100.0,
+          "pole_index": 2,
+          "vs_GeV": 70.886458,
+          "width_GeV": 1.866753655760163
+        },
+        {
+          "R_hh_im": 4.0566317189777806e-07,
+          "R_hh_re": 1.0000007447493964,
+          "benchmark": "A",
+          "determinant_residual_GeV4": 2.5440376257552426e-10,
+          "mA_GeV": 10.0,
+          "mass_GeV": 125.25000081249338,
+          "ms_input_GeV": 125.25,
+          "pole_index": 1,
+          "vs_GeV": 70.886458,
+          "width_GeV": 0.004072688852169892
+        },
+        {
+          "R_hh_im": -3.8601997942183743e-07,
+          "R_hh_re": -7.423100256577893e-07,
+          "benchmark": "A",
+          "determinant_residual_GeV4": 3.1326994478002063e-10,
+          "mA_GeV": 10.0,
+          "mass_GeV": 125.26400593632835,
+          "ms_input_GeV": 125.25,
+          "pole_index": 2,
+          "vs_GeV": 70.886458,
+          "width_GeV": 3.7463924908649076
+        },
+        {
+          "R_hh_im": 5.177026591326035e-09,
+          "R_hh_re": 5.491252186542793e-09,
+          "benchmark": "A",
+          "determinant_residual_GeV4": 3.4752776794165213e-09,
+          "mA_GeV": 10.0,
+          "mass_GeV": 150.0352858510315,
+          "ms_input_GeV": 150.0,
+          "pole_index": 1,
+          "vs_GeV": 70.886458,
+          "width_GeV": 6.507521168593996
+        },
+        {
+          "R_hh_im": -4.919957786213247e-09,
+          "R_hh_re": 1.0000000020320519,
+          "benchmark": "A",
+          "determinant_residual_GeV4": 9.256087951251232e-10,
+          "mA_GeV": 10.0,
+          "mass_GeV": 125.24999993356712,
+          "ms_input_GeV": 150.0,
+          "pole_index": 2,
+          "vs_GeV": 70.886458,
+          "width_GeV": 0.00407013331158764
+        },
+        {
+          "R_hh_im": -1.1570317879032338e-10,
+          "R_hh_re": 1.0000000069870758,
+          "benchmark": "B",
+          "determinant_residual_GeV4": 4.7204017408749845e-09,
+          "mA_GeV": 63.0,
+          "mass_GeV": 125.25000002214311,
+          "ms_input_GeV": 100.0,
+          "pole_index": 1,
+          "vs_GeV": 315.0,
+          "width_GeV": 0.004069993353885359
+        },
+        {
+          "R_hh_im": 6.170694883340035e-11,
+          "R_hh_re": 1.0886668328637978e-10,
+          "benchmark": "B",
+          "determinant_residual_GeV4": 2.238148882769128e-10,
+          "mA_GeV": 63.0,
+          "mass_GeV": 99.99999999692402,
+          "ms_input_GeV": 100.0,
+          "pole_index": 2,
+          "vs_GeV": 315.0,
+          "width_GeV": 0.00012681483545208517
+        },
+        {
+          "R_hh_im": -0.024321340601211626,
+          "R_hh_re": -0.03540652722368557,
+          "benchmark": "B",
+          "determinant_residual_GeV4": 3.9710816879328997e-13,
+          "mA_GeV": 63.0,
+          "mass_GeV": 125.2500413933951,
+          "ms_input_GeV": 125.25,
+          "pole_index": 1,
+          "vs_GeV": 315.0,
+          "width_GeV": 0.00029201981895694287
+        },
+        {
+          "R_hh_im": 0.024321339696315707,
+          "R_hh_re": 1.0354065347549533,
+          "benchmark": "B",
+          "determinant_residual_GeV4": 6.93865282736634e-14,
+          "mA_GeV": 63.0,
+          "mass_GeV": 125.24995862583803,
+          "ms_input_GeV": 125.25,
+          "pole_index": 2,
+          "vs_GeV": 315.0,
+          "width_GeV": 0.003936916806118568
+        },
+        {
+          "R_hh_im": 2.046667458603157e-10,
+          "R_hh_re": 3.303002773281118e-10,
+          "benchmark": "B",
+          "determinant_residual_GeV4": 7.1589133963163905e-09,
+          "mA_GeV": 63.0,
+          "mass_GeV": 150.00001257092225,
+          "ms_input_GeV": 150.0,
+          "pole_index": 1,
+          "vs_GeV": 315.0,
+          "width_GeV": 0.12278473873553204
+        },
+        {
+          "R_hh_im": -2.5911790216415236e-10,
+          "R_hh_re": 1.0000000067641828,
+          "benchmark": "B",
+          "determinant_residual_GeV4": 9.776631201002116e-11,
+          "mA_GeV": 63.0,
+          "mass_GeV": 125.25000001185418,
+          "ms_input_GeV": 150.0,
+          "pole_index": 2,
+          "vs_GeV": 315.0,
+          "width_GeV": 0.004070005571490843
+        }
+      ],
+      "warning_messages": [
+        "The algorithm does not converge.  Roundoff error is detected",
+        "The algorithm does not converge.  Roundoff error is detected",
+        "The algorithm does not converge.  Roundoff error is detected",
+        "The algorithm does not converge.  Roundoff error is detected"
+      ]
+    }
+  ],
+  "runtime": {
+    "numpy": "2.3.5",
+    "python": "3.12.14",
+    "scipy": "1.17.0"
+  },
+  "singlet_masses_GeV": [
+    100.0,
+    125.25,
+    150.0
+  ]
+}

@@ -64,7 +64,7 @@ The independent analytic audit is complete; an actual external PyR@TE/SARAH run 
 \[
 A_{WW,\rm hard}^{\rm box}=\frac{1}{M_E^2}\left(\frac38\Delta_{\rm UV}-\frac38L+\frac{11}{16}\right).
 \]
-The earlier \(+3/(4M_E^2)\) finite candidate is superseded. B5-2B4 maps this triplet derivative structure to the B5-2B1 current/EOM basis and verifies the nonzero adjoint \(W\)-contact term. The resulting \(\Delta C_{HL}^{(1,3)}\) values are only the EOM images of this exact-routed four-box subset, not complete matching coefficients. Still required are LSZ/counterterms and Ward completion, the remaining gauge-loop UV/EFT amplitudes, the multiplicative \(c_{\partial HS}\) anomalous dimension, and the full current/operator mixing matrix. Keep all sectors in one basis and exclude dimension-eight insertions from strict \(M_E^{-2}\) running. Keep all sectors in one basis and exclude dimension-eight insertions from strict \(M_E^{-2}\) running.
+The earlier \(+3/(4M_E^2)\) finite candidate is superseded. B5-2B4 maps this triplet derivative structure to the B5-2B1 current/EOM basis and verifies the nonzero adjoint \(W\)-contact term. The resulting \(\Delta C_{HL}^{(1,3)}\) values are only the EOM images of this exact-routed four-box subset, not complete matching coefficients. Still required are LSZ/counterterms and Ward completion, the remaining gauge-loop UV/EFT amplitudes, the multiplicative \(c_{\partial HS}\) anomalous dimension, and the full current/operator mixing matrix. Keep all sectors in one basis and exclude dimension-eight insertions from strict \(M_E^{-2}\) running.
 
 
 
@@ -79,6 +79,8 @@ A_{WW,\rm hard}^{\rm box}=\frac{1}{M_E^2}\left(\frac38\Delta_{\rm UV}-\frac38L+\
 The UV pole and matching logarithm do not cancel inside this four-box subset. The earlier common-numerator \(+3/(4M_E^2)\) diagnostic is superseded. The full EFT counterterm, LSZ, and Ward completion remain open.
 
 
+
+> **Superseded intermediate projection, retained for chronology.** The following `C3_WW_box = 3 g2^2 C_LD / 4` expression predates exact external-momentum routing. Do not use its `(-9/16, +3/16)` finite coefficients. The later exact-routed B5-2B4 block below, and the summary table above, are the current sub-block result.
 
 **B5-2B4 — Pauli-triplet derivative EOM/current projection (analytic sub-block complete).** The raw B5-2B3 four-box tensor \(T_3\slashed P\) is matched to the symmetrized triplet derivative operator
 \[
