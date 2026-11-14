@@ -1,6 +1,6 @@
 # GitHub Actions workflow catalog
 
-Inventory generated from `maintenance/repository-organization-audit-20261114` on 2026-11-15. The 113 YAML files are listed below by provisional topic. This index is not a claim that all workflows are active or that their historical runs passed. 38 of the 113 workflows have individual static YAML reviews recorded in the register; 16 are historical candidates and 59 remain pending. Static review does not establish that a workflow is currently active or that its scientific gate has passed.
+Inventory generated from `maintenance/repository-organization-audit-20261114` on 2026-11-15. The 114 YAML files are listed below by provisional topic. This index is not a claim that all workflows are active or that their historical runs passed. 39 of the 114 workflows have individual static YAML reviews recorded in the register; 16 are historical candidates and 59 remain pending. Static review does not establish that a workflow is currently active or that its scientific gate has passed.
 
 ## Topic groups
 
@@ -8,7 +8,7 @@ Inventory generated from `maintenance/repository-organization-audit-20261114` on
 
 - [`axial-goldstone-pmns-regression.yml`](axial-goldstone-pmns-regression.yml)
 
-### Major 4.4 stellar cooling / transport (102)
+### Major 4.4 stellar cooling / transport (103)
 
 - [`b13-exact-compton-radial.yml`](b13-exact-compton-radial.yml)
 - [`b13-exact-compton-vertex-preserving.yml`](b13-exact-compton-vertex-preserving.yml)
@@ -37,6 +37,7 @@ Inventory generated from `maintenance/repository-organization-audit-20261114` on
 - [`b16-high-energy-strict-numpy-reproduction.yml`](b16-high-energy-strict-numpy-reproduction.yml)
 - [`b16-high-energy-global-sensitivities-numpy.yml`](b16-high-energy-global-sensitivities-numpy.yml)
 - [`b16-independent-analytic-path-pinned.yml`](b16-independent-analytic-path-pinned.yml)
+- [`b16-b1-independent-source-pinned.yml`](b16-b1-independent-source-pinned.yml)
 - [`b16-independent-grid-quadrature-convergence.yml`](b16-independent-grid-quadrature-convergence.yml)
 - [`b16-inner-numu-branch-sensitivity.yml`](b16-inner-numu-branch-sensitivity.yml)
 - [`b16-inner-path-channel-directional.yml`](b16-inner-path-channel-directional.yml)
