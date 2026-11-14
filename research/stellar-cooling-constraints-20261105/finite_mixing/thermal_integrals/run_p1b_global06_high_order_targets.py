@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse, hashlib, json, math, sys, time
 from pathlib import Path
 import numpy as np
+from scipy.interpolate import PchipInterpolator
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
@@ -73,19 +74,56 @@ def main():
         i=int(item["left_index"])
         r0=float(radii[i]);r1=float(radii[i+1]);rm=0.5*(r0+r1)
         points=[]
+        by_r={}
         for r in (r0,rm,r1):
+            by_r[r]={}
             for x in X_GRID:
-                points.append(evaluate(r,float(x)))
+                p=evaluate(r,float(x));points.append(p);by_r[r][float(x)]=p
+        radial_interp_errors=[]
+        for x in X_GRID:
+            left=by_r[r0][float(x)]["final_payload"]
+            mid=by_r[rm][float(x)]["final_payload"]
+            right=by_r[r1][float(x)]["final_payload"]
+            channel={}
+            for q in ("mu_minus","mu_plus"):
+                channel[q]={}
+                for imode,mode in enumerate(("L","+","-")):
+                    a=left["charge_resolved"][q]["absorption"][imode]
+                    b=right["charge_resolved"][q]["absorption"][imode]
+                    pred=math.exp(0.5*(math.log(a)+math.log(b))) if a>0 and b>0 else 0.5*(a+b)
+                    truth=mid["charge_resolved"][q]["absorption"][imode]
+                    channel[q][mode]=abs(pred-truth)/max(abs(pred),abs(truth),1.0e-300)
+            radial_interp_errors.append({"x":float(x),"maximum_channel_error":max(v for q in channel.values() for v in q.values()),"channel_errors":channel})
         radial_results.append({"rank":rank,"interval_index":i,"r_left_km":r0,
             "r_mid_km":rm,"r_right_km":r1,"points":points,
+            "maximum_high_order_midpoint_interpolation_error":max(z["maximum_channel_error"] for z in radial_interp_errors),
+            "radial_interpolation_checks":radial_interp_errors,
             "all_quadrature_pass":all(p["quadrature_pass"] for p in points)})
 
     energy_results=[]
     for rank,item in enumerate(energy_targets,1):
         r=float(item["r_km"]);x=float(item["x_validation"])
+        grid_points=[evaluate(r,float(xx)) for xx in X_GRID]
+        validation_points=[evaluate(r,float(xx)) for xx in X_VALIDATION]
+        validation_index=int(np.argmin(np.abs(X_VALIDATION-x)))
+        direct=validation_points[validation_index]
+        channel_errors={}
+        for q in ("mu_minus","mu_plus"):
+            channel_errors[q]={}
+            for imode,mode in enumerate(("L","+","-")):
+                y=[p["final_payload"]["charge_resolved"][q]["absorption"][imode] for p in grid_points]
+                if min(y)>0:
+                    pred=float(np.exp(PchipInterpolator(np.sqrt(X_GRID),np.log(y))(math.sqrt(x))))
+                else:
+                    pred=max(float(PchipInterpolator(np.sqrt(X_GRID),y)(math.sqrt(x))),0.0)
+                truth=direct["final_payload"]["charge_resolved"][q]["absorption"][imode]
+                channel_errors[q][mode]=abs(pred-truth)/max(abs(pred),abs(truth),1.0e-300)
         energy_results.append({"rank":rank,"radial_index":int(item["radial_index"]),
             "direct_low_order_error":float(item["maximum_channel_relative_error"]),
-            "high_order_validation":evaluate(r,x)})
+            "high_order_validation":direct,
+            "high_order_pchip_error":max(v for q in channel_errors.values() for v in q.values()),
+            "high_order_pchip_channel_errors":channel_errors,
+            "all_grid_and_validation_quadrature_pass":all(p["quadrature_pass"] for p in grid_points+validation_points)})
 
     all_points=[p for group in radial_results for p in group["points"]]+[
         item["high_order_validation"] for item in energy_results]
@@ -100,7 +138,9 @@ def main():
       "radial_results":radial_results,
       "energy_results":energy_results,
       "acceptance":{
-        "all_targeted_quadrature_pass":all(p["quadrature_pass"] for p in all_points),
+        "all_targeted_quadrature_pass":all(p["quadrature_pass"] for p in all_points) and all(x["all_grid_and_validation_quadrature_pass"] for x in energy_results),
+        "maximum_high_order_radial_midpoint_interpolation_error":max(x["maximum_high_order_midpoint_interpolation_error"] for x in radial_results),
+        "maximum_high_order_energy_pchip_error":max(x["high_order_pchip_error"] for x in energy_results),
         "maximum_final_successive_order_change":max(p["final_change"] for p in all_points),
         "maximum_detailed_balance_residual":max(p["detailed_balance_max"] for p in all_points),
         "maximum_mass_shell_residual":max(p["mass_shell_max"] for p in all_points),
