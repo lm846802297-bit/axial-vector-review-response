@@ -1,5 +1,18 @@
 # Branch disposition audit — 2026-11-13
 
+
+## Post-merge correction — 2026-11-14
+
+PR #106 and PR #113 have both been squash-merged into `main`. The former PR #106 branch `research/fig7-10mev-transport-localization-20261113-v2` and the former PR #113 branch `research/p1b-global02-full-radial-20261114` are now historical source branches, not active PR branches. The repository has no open PRs.
+
+- PR #106 merge commit: `71ce83e72dd4688f09462e54209d3a47e7172e03`.
+- PR #113 merge commit: `d2f4037cc965eb2f4184f695dc81a95e1b8283c9`.
+- The GR ray finite-boundary semantics fix and seven-case regression suite are in main.
+- Global-05 low-x B.13 support screen and its reproducible driver are in main.
+
+The merge disposition is an integration/archive decision only. The low-x support gap, full-band B.1/B.2 transport, Fig. 7 physical benchmark, and SN1987A/axial-limit update remain open scientific tasks.
+
+
 **Comparison base:** main at `8b2f8570886bc5fbc7ac64232de94fa7f5e701f9`  
 **Method:** compare complete Git trees by path and blob SHA, then inspect changed source/output files. Ahead/behind counts are reported as history metadata only; they are not used as a substitute for tree comparison.
 
