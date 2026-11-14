@@ -139,7 +139,7 @@ def fixed_omega_columns(inputs: dict, mass: float, angular_order: int,
     )
     columns_compton, angle_weights_compton = scalar_optical_depths(
         inputs["source_r"], inputs["opacity_grid"], reduced_compton,
-        mass, inputs["energies"], 25.0, angular_order, path_order
+        mass, inputs["energies"], inputs["radius_km"], angular_order, path_order
     )
     angle_residual = float(np.max(np.abs(angle_weights - angle_weights_compton)))
     if angle_residual > 1.0e-14:
