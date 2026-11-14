@@ -1,0 +1,36 @@
+{
+  "changed_bound_pairs": 70656,
+  "changed_columns": {
+    "fourmu_Gamma_over_sigma_lower_bound": 70656,
+    "fourmu_Gamma_over_sigma_upper_bound": 70656
+  },
+  "column_count": 77,
+  "current_archive": {
+    "csv": {
+      "bytes": 80770035,
+      "sha256": "5d5f0ce306d6ac75498eef054c9c02f6897b676fe0cf6626fb5dcbdbc390dd67"
+    },
+    "gzip": {
+      "bytes": 20156701,
+      "sha256": "f8dde6825e3c658cb841f06e1ac2aa9de36519e805e589d86fc07e37079429ff"
+    }
+  },
+  "current_lower_greater_count": 0,
+  "different_rows": 70656,
+  "exact_swapped_pairs": 64567,
+  "max_relative_difference_from_swap": 1.849010258605991e-06,
+  "nonfinite_bound_rows": 3072,
+  "old_archive": {
+    "csv": {
+      "bytes": 80770106,
+      "sha256": "67ec36a50c65b9c03de9e63c83039feb965f12335dbd3984be92d4ab214ca783"
+    },
+    "gzip": {
+      "bytes": 20156614,
+      "sha256": "ca723a11f69b58558f71520cf944733bd33d323abd58f29de275eb391d3c9c8a"
+    }
+  },
+  "old_lower_greater_count": 70656,
+  "rows": 73728,
+  "swapped_within_1e_minus_12": 68691
+}

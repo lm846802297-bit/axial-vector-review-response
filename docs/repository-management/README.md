@@ -32,7 +32,7 @@ This document describes the current repository organization and the intended own
 
 ## Review coverage and reports
 
-The baseline inventory contains 462 Markdown/text documents. Current register counts are: 61 `PASS_WITH_NOTES`, 1 `PASS`, 7 `REVISION_REQUIRED`, 19 `HISTORICAL`, and 374 `PENDING` (88 individually reviewed). Only documents read individually are assigned a non-pending review outcome. See the [audit register](DOCUMENT_AUDIT_REGISTER.csv) and the dated review reports:
+The baseline inventory contains 462 Markdown/text documents. Current register counts are: 61 `PASS_WITH_NOTES`, 1 `PASS`, 5 `REVISION_REQUIRED`, 21 `HISTORICAL`, and 374 `PENDING` (88 individually reviewed). Only documents read individually are assigned a non-pending review outcome. See the [audit register](DOCUMENT_AUDIT_REGISTER.csv) and the dated review reports:
 
 - [Initial governance and entry review](INITIAL_REVIEW_REPORT_2026-11-14.md)
 - [Second review batch](SECOND_REVIEW_REPORT_2026-11-14.md)
