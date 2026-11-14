@@ -107,6 +107,7 @@ def build_inputs(profile_path: Path, fig7_path: Path, mass: float,
         "source_compton": source_compton,
         "source_total": source_total,
         "source_weight_per_g2": float(np.sum(source_total)),
+        "radius_km": float(radius_km),
         "profile_sha256": profile_hash,
         "fig7_sha256": sha256(fig7_path),
     }
@@ -134,7 +135,7 @@ def fixed_omega_columns(inputs: dict, mass: float, angular_order: int,
     )
     columns_nu, angle_weights = scalar_optical_depths(
         inputs["source_r"], inputs["opacity_grid"], reduced_nu,
-        mass, inputs["energies"], 25.0, angular_order, path_order
+        mass, inputs["energies"], inputs["radius_km"], angular_order, path_order
     )
     columns_compton, angle_weights_compton = scalar_optical_depths(
         inputs["source_r"], inputs["opacity_grid"], reduced_compton,
@@ -219,7 +220,10 @@ def outer_temperature_sensitivity(inputs: dict, mass: float,
             inputs["energies"]
         )
         scenarios.append({
-            "scenario": f"T({region}) {scale:+.0%}" if scale >= 1 else f"T({region}) -{(1-scale)*100:.0f}%",
+            "scenario": (
+                "baseline" if scale == 1.0
+                else f"T({region}) {(scale-1.0)*100:+.0f}%"
+            ),
             "region": region,
             "scale": float(scale),
             **summary,
@@ -279,7 +283,7 @@ def fixed_vs_redshift(inputs: dict, mass: float,
     )
     redshift_columns, redshift_weights, redshift_info = redshifted_scalar_optical_depths(
         inputs["source_r"], inputs["opacity_grid"], inputs["opacity_profile"],
-        mass, inputs["energies"], 25.0, angular_order, path_order,
+        mass, inputs["energies"], inputs["radius_km"], angular_order, path_order,
         source_lapse=inputs["source_profile"]["lapse"]
     )
     angle_residual = float(np.max(np.abs(fixed_weights - redshift_weights)))
