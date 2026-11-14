@@ -4,7 +4,9 @@
 
 ## Repository-management update (2026-11-14)
 
-- Three Belle II bounded-recast/response records were reviewed; all categories in 70,656 four-muon and 19,968 tau-pair saved rows match their summary. A historical run-provenance note was added. No scan, detector response or likelihood was rerun. Baseline register: 173 reviewed, 289 pending; see `docs/repository-management/TWENTY_FIFTH_REVIEW_BELLE_RECAST_2026-11-15.md`.
+- Three older Belle II scan/recast records were individually reviewed and clearly marked historical or superseded; their original conclusions and numbers remain traceable. Baseline register: 176 reviewed, 286 pending; see `docs/repository-management/TWENTY_SIXTH_REVIEW_BELLE_HISTORY_2026-11-15.md`.
+
+- Three Belle II bounded-recast/response records were reviewed; all categories in 70,656 four-muon and 19,968 tau-pair saved rows match their summary. A historical run-provenance note was added. No scan, detector response or likelihood was rerun. At that checkpoint: 173 reviewed, 289 pending; see `docs/repository-management/TWENTY_FIFTH_REVIEW_BELLE_RECAST_2026-11-15.md`.
 
 - Four Belle II classification, validation and detector-input notes were reviewed. The 2026-11-05 lifetime count is now explicitly marked as an earlier width-complete classification; later bounded-width counts use different assumptions. No detector-level likelihood or efficiency was computed. At that checkpoint: 170 reviewed, 292 pending; see `docs/repository-management/TWENTY_FOURTH_REVIEW_BELLE_METHOD_2026-11-15.md`.
 
