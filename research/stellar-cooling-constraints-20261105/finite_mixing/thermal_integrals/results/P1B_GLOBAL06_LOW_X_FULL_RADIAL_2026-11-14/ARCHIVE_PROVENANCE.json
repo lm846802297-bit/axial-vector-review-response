@@ -1,0 +1,17 @@
+{
+  "archive": "P1B_GLOBAL06_LOW_X_FULL_RADIAL_2026-11-14.zip",
+  "archive_sha256": "54b4ce938034d154b2eeb7ede87f720e21eafb24e08f9743380fb313679c05df",
+  "archive_size_bytes": 13851449,
+  "source_bundle_commit": "483efe3db148ed38aa59a323cc11569df21a81f6",
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "local_runner_sha256": {
+    "run_global06_local_py": "1bd1e1b654fdb695dde58e4013ee4a3749b5c10667d38493dee1832eb95f6eff",
+    "run_global06_highorder_local_py": "1fe63fb8dfc912c8ded507ac70fa10dcb35d8770be55ad604285eb75eee9e39b"
+  },
+  "kernel_sha256": "38436b94f070069c8696b37b9bce1955e2d5d7e39dad9b302ab754582ff6a5a5",
+  "audit_sha256": "ff6479a8d6d4ba417dc4b31e745b4028a28d9e42df5598144334453ea9627683",
+  "low_order_runtime_seconds": 366.341593503952,
+  "targeted_high_order_runtime_seconds": 334.350613117218,
+  "workers": 4,
+  "ci_used_for_physics_calculation": false
+}
