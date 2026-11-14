@@ -1,5 +1,7 @@
 # B.2 combined channel--shell sensitivity at the strong-coupling endpoint
 
+> **Scope boundary (2026-11-15):** these are leave-one-shell/channel sensitivity diagnostics on the reconstructed profile, not an independently converged global transport result or an original-Garching-profile validation. Keep the neutrino inverse-decay and Compton contributions separate when interpreting the shell fractions.
+
 Date: 2026-11-09  
 Benchmark: pure-vector B.14--B.19 reference baseline, \(m_V=10\) MeV, \(g=4.17168965\times10^{-8}\).  
 Status: **combined nonlinear leave-out diagnostics are complete. Neutrino inverse-decay opacity dominates the total attenuation; the most sensitive individual path shells are 12--15 km and 22--25 km.**
