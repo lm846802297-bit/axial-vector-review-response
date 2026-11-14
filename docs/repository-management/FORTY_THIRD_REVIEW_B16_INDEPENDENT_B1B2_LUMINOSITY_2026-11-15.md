@@ -1,13 +1,13 @@
 # Individual review: independent B.1 source and full B.1+B.2 luminosity
 
-Review date: 2026-11-15. Baseline branch: \`maintenance/repository-organization-audit-20261114\`. This review covers the independent optically-thin B.1 source audit, the full end-to-end B.1+B.2 luminosity audit, their Python implementations/tests, the pinned workflows, and the archived machine-readable outputs. It is an implementation and numerical-provenance review; it does not claim an independent derivation of the shared local collision kernels or a full-GR supernova calculation.
+Review date: 2026-11-15. Baseline branch: `maintenance/repository-organization-audit-20261114`. This review covers the independent optically-thin B.1 source audit, the full end-to-end B.1+B.2 luminosity audit, their Python implementations/tests, the pinned workflows, and the archived machine-readable outputs. It is an implementation and numerical-provenance review; it does not claim an independent derivation of the shared local collision kernels or a full-GR supernova calculation.
 
 ## 1. Document-by-document outcomes
 
 | Document | Outcome | Findings and disposition |
 |---|---|---|
-| \`B16_INDEPENDENT_B1_THIN_SOURCE_AUDIT_2026-11-09.md\` | \`PASS_WITH_NOTES\` | Read the full audit, script, tests, old output and pinned output. The independent source calculation avoids the legacy B.1 energy weights and radial rule, evaluates production kernels at new log-energy quadrature nodes, and inserts the exact radius-dependent lower limit \(m_V/N(r)\). The pinned 400-node result is \(4.30436817\times10^{70}\) erg/s per \(g^2\), \(-0.443024\%\) relative to archived B.16. Matched 40-node radial comparison isolates \(-0.575495\%\) from the archived energy-grid integration. Six tests and pinned provenance/convergence/Jacobian checks pass. Escape factor is set to one; local kernels and muon-density convention are shared. |
-| \`B16_FULL_INDEPENDENT_B1B2_LUMINOSITY_AUDIT_2026-11-09.md\` | \`PASS_WITH_NOTES\` | Read the full end-to-end audit, source, tests, old output and pinned output. The pinned 200-node/320-energy-node/16-angle calculation uses independent B.1 source quadrature and analytic piecewise-linear B.2 chords. It reproduces archived B.16 to \(0.445059\%\) maximum and \(0.397526\%\) mean absolute relative difference over all 25 couplings. The Fig. 7 residual remains \(-9.2908\%\) at weak coupling and \(+92.0542\%\) at strong absorption. Four tests and all pinned input-SHA/source-closure checks pass. |
+| `B16_INDEPENDENT_B1_THIN_SOURCE_AUDIT_2026-11-09.md` | `PASS_WITH_NOTES` | Read the full audit, script, tests, old output and pinned output. The independent source calculation avoids the legacy B.1 energy weights and radial rule, evaluates production kernels at new log-energy quadrature nodes, and inserts the exact radius-dependent lower limit \(m_V/N(r)\). The pinned 400-node result is \(4.30436817\times10^{70}\) erg/s per \(g^2\), \(-0.443024\%\) relative to archived B.16. Matched 40-node radial comparison isolates \(-0.575495\%\) from the archived energy-grid integration. Six tests and pinned provenance/convergence/Jacobian checks pass. Escape factor is set to one; local kernels and muon-density convention are shared. |
+| `B16_FULL_INDEPENDENT_B1B2_LUMINOSITY_AUDIT_2026-11-09.md` | `PASS_WITH_NOTES` | Read the full end-to-end audit, source, tests, old output and pinned output. The pinned 200-node/320-energy-node/16-angle calculation uses independent B.1 source quadrature and analytic piecewise-linear B.2 chords. It reproduces archived B.16 to \(0.445059\%\) maximum and \(0.397526\%\) mean absolute relative difference over all 25 couplings. The Fig. 7 residual remains \(-9.2908\%\) at weak coupling and \(+92.0542\%\) at strong absorption. Four tests and all pinned input-SHA/source-closure checks pass. |
 
 ## 2. B.1 source audit: numerical evidence
 
@@ -44,13 +44,13 @@ Both new workflows were statically reviewed and executed successfully.
 
 ### B.1 source workflow
 
-- Workflow: \`.github/workflows/b16-b1-independent-source-pinned.yml\`
+- Workflow: `.github/workflows/b16-b1-independent-source-pinned.yml`
 - Run: [#43650570961](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43650570961)
 - Six tests, full source integration, provenance, radial/energy/tail convergence, Jacobian closure and production-output invariance passed.
 
 ### Full B.1+B.2 workflow
 
-- Workflow: \`.github/workflows/b16-full-b1b2-independent-pinned.yml\`
+- Workflow: `.github/workflows/b16-full-b1b2-independent-pinned.yml`
 - Run: [#43651020195](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43651020195)
 - Four tests, pinned B.1/B.2 input SHA checks, 25-point full curve, source closure and production-output invariance passed.
 
