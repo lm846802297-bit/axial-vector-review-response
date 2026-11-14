@@ -5,6 +5,7 @@ import sympy as sp
 d, xi, gA, mX, lamS, vS = sp.symbols(
     "d xi g_A m_X lambda_S v_S", positive=True
 )
+p2 = sp.symbols("p_E2", real=True)
 Am, Axi, As = sp.symbols("A_m A_xi A_s")
 Bm, Bxi, Bs = sp.symbols("B_m B_xi B_s")
 

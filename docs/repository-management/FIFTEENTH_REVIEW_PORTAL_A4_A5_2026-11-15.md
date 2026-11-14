@@ -1,0 +1,13 @@
+# Individual review: A4a–A4d and A5a output summaries
+
+Review baseline `47638f5f288d359a6d604da4713efb09a5102106`; 2026-11-15. Each of the five archived output summaries was read and compared with the named script rerun under Python 3.12.14, SymPy 1.14.0 and NumPy 2.3.5. The summaries are curated records, not necessarily byte-for-byte stdout. These are code/summary consistency checks; they do not independently derive the full diagrams, establish the complete complex pole or complete UV–EFT matching, or replace a literature review.
+
+| Summary under `research/major1-higgs-scalar-mixing-20261109/` | Individual finding and status |
+|---|---|
+| `A4A_U1X_SS_SELF_ENERGY_OUTPUT_2026-11-10.txt` | `a4a_u1x_ss_self_energy_audit.py` exits 0. Symbolic subset coefficients, two benchmark widths and perturbative caps agree at displayed precision; floating-point relative residuals can differ at the 1e-16 level from the record. The finite real part and general-xi full complex pole are not established. PASS_WITH_NOTES. |
+| `A4B_GENERAL_XI_CUT_OUTPUT_2026-11-10.txt` | `a4b_general_xi_on_shell_cut_audit.py` exits 0. Six xi values at the five stated open-channel points reproduce the reported global maximum `8.61e-16` and table values at printed precision. This is an on-shell absorptive check, not a full real self-energy. PASS_WITH_NOTES. |
+| `A4C_GENERAL_XI_UV_OUTPUT_2026-11-10.txt` | `a4c_general_xi_ss_uv_pole_audit.py` exits 0. Algebraic xi-dependent pole, cancellation, and xi=1 reduction match the summary under its conventions. This checks the bosonic subset only. PASS_WITH_NOTES. |
+| `A4D_TADPOLE_IMPROVED_SS_OUTPUT_2026-11-10.txt` | The associated script initially failed with `NameError: p2 is not defined`. Defined `p2` as a real SymPy symbol; rerun exits 0 and its zero-momentum identity and momentum-dependent UV coefficient agree with the saved summary. A subprocess regression test now exercises the whole script. Finite momentum-dependent pole and complete tadpole renormalization remain open. PASS_WITH_NOTES after repair. |
+| `A5A_SCALE_AUDIT_OUTPUT_2026-11-10.txt` | `a5a_vll_matching_scale_audit.py` exits 0. The 17.7686 TeV conditional mixing estimate, heavy singular values, threshold logs and 0.142074% partial hard+soft change match to printed precision. The latter is not a full RG/matching-scale uncertainty. PASS_WITH_NOTES. |
+
+No archived output text was changed; scripts and generated assertions implement the calculation's existing conventions. The added regression test only establishes that the A4d symbolic script runs and reaches its assertions, not that its starting physical expressions are independently proved.
