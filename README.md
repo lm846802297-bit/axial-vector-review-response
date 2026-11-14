@@ -7,9 +7,10 @@
 ## 快速入口
 
 - [仓库结构与文件管理说明](docs/repository-management/README.md)：目录职责、迁移原则和导航。
-- [逐文档审查标准](docs/repository-management/DOCUMENT_REVIEW_STANDARD.md) 与 [文档审查登记表](docs/repository-management/DOCUMENT_AUDIT_REGISTER.csv)：逐份记录审查状态；未审查文件不会标记为通过。
+- [逐文档审查标准](docs/repository-management/DOCUMENT_REVIEW_STANDARD.md) 与 [文档审查登记表](docs/repository-management/DOCUMENT_AUDIT_REGISTER.csv)：462 份 Markdown/text 基线文档逐份记录审查状态；未审查文件不会标记为通过。
 - [GitHub Actions 工作流索引](.github/workflows/README.md) 与 [工作流审查登记表](.github/workflows/WORKFLOW_AUDIT_REGISTER.csv)：109 个工作流按物理专题分类，并逐份记录触发条件、权限和输出行为；目前 34 个完成静态审查，16 个标记为历史候选，59 个待审查。
 
+- [根目录文件逐项审查](docs/repository-management/ROOT_FILE_AUDIT_REPORT_2026-11-14.md)：覆盖 24 个根目录文件，包括权威入口、回复信 TeX/PDF、BibTeX、论文和审稿报告基线及历史工作稿。
 - [Git 合并策略与科研提交历史规范](GIT_MERGE_POLICY.md)：实质性科研 PR 默认采用 Merge Commit。
 
 - [项目入口与阅读说明](README-先读这里.md)
