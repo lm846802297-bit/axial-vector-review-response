@@ -108,3 +108,4 @@ path,topic,status,workflow_name,trigger_summary,reviewed_commit,review_note
 ".github/workflows/transport-prescription-audit.yml","Major 4.4 stellar cooling / transport","HISTORICAL_CANDIDATE","","","",""
 ".github/workflows/vector-axial-response-scan.yml","Vector–axial response mapping","PENDING","","","",""
 ".github/workflows/vector-rescaling-audit.yml","Major 4.4 stellar cooling / transport","PENDING","","","",""
+".github/workflows/b16-high-energy-kernel-regression.yml","Major 4.4 stellar cooling / transport","REVIEWED_WITH_NOTES","B16 high-energy kernel pinned NumPy regression","push: maintenance review branch, path-filtered; workflow_dispatch","b8901a3fd6813390c3c707c31516242c0f25ad9e","Pinned Python 3.12.14, NumPy 2.5.4, SciPy 1.18.1; 20/20 tests pass in run #43646106550. Read-only regression lane only; not a full B.16 transport or Fig. 7 acceptance.",""
