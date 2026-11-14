@@ -85,3 +85,4 @@ Do not move or delete files solely from their names. Before a move, search and u
 - [Historical Belle II scan and recast review](TWENTY_SIXTH_REVIEW_BELLE_HISTORY_2026-11-15.md)
 - [Belle II evidence and protocol review](TWENTY_SEVENTH_REVIEW_BELLE_PROTOCOLS_2026-11-15.md)
 - [Belle II benchmark mapping review](TWENTY_EIGHTH_REVIEW_BELLE_MAPPING_2026-11-15.md)
+- [Pole, scalar and UV RGE output review](TWENTY_NINTH_REVIEW_POLE_AND_RGE_OUTPUTS_2026-11-15.md)

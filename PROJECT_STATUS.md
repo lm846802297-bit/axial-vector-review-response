@@ -4,7 +4,9 @@
 
 ## Repository-management update (2026-11-14)
 
-- The Belle II benchmark-mapping note was reviewed and its seven two-lepton threshold fractions recomputed. A dated-status note links the later conditional recast. Baseline register: 179 reviewed, 283 pending; see `docs/repository-management/TWENTY_EIGHTH_REVIEW_BELLE_MAPPING_2026-11-15.md`.
+- Ten pole/scalar/RGE output summaries were individually reviewed. Seven associated scripts exited zero, but the exact-momentum pole driver emitted an integration-roundoff warning requiring convergence follow-up. The archived values are preserved and the issue is marked revision-required. Baseline register: 189 reviewed, 273 pending; see `docs/repository-management/TWENTY_NINTH_REVIEW_POLE_AND_RGE_OUTPUTS_2026-11-15.md`.
+
+- The Belle II benchmark-mapping note was reviewed and its seven two-lepton threshold fractions recomputed. A dated-status note links the later conditional recast. At that checkpoint: 179 reviewed, 283 pending; see `docs/repository-management/TWENTY_EIGHTH_REVIEW_BELLE_MAPPING_2026-11-15.md`.
 
 - Two Belle evidence/protocol documents were individually reviewed. The old evidence ledger now points to the subsequently extracted mass tables and conditional recast; no detector-level validation is claimed. At that checkpoint: 178 reviewed, 284 pending; see `docs/repository-management/TWENTY_SEVENTH_REVIEW_BELLE_PROTOCOLS_2026-11-15.md`.
 

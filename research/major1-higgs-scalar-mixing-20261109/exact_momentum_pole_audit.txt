@@ -1,3 +1,5 @@
+REVIEW NOTE (2026-11-15): A rerun with the current Python/SciPy environment exited zero but emitted scipy.integrate.IntegrationWarning at line 42 (roundoff prevented the requested integration tolerance). The originally recorded numerical values are retained below; independently check integral convergence and error estimates before relying on the quoted precision.
+
 Exact-momentum fermion matching and complex-pole audit
 
 Benchmark A:
