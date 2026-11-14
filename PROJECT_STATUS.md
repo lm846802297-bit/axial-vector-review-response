@@ -4,7 +4,9 @@
 
 ## Repository-management update (2026-11-14)
 
-- Five A2–A3 portal calculation records were reviewed individually at `fe1c308`; four corresponding scripts ran successfully under Python 3.12.14 / SymPy 1.14.0. One Markdown rendering error was fixed without changing physics. See `docs/repository-management/ELEVENTH_REVIEW_PORTAL_A2_A3_2026-11-15.md`. The baseline register now records 110 reviewed and 352 pending; these checks do not establish complete gauge-invariant matching.
+- Seven C4-C3/C4-C4 archive descriptions were individually reviewed. Their manifests pass, but the currently tracked 96-row anchor differs in floating-point final digits from the historical input pinned by two programs. The original byte-pinned object has been recovered, both program paths repaired, and 17 unit/input checks pass. The origin of the later differences is unknown; no scattering integrations were rerun. See `docs/repository-management/TWELFTH_REVIEW_C4C3_C4C4_2026-11-15.md`. Baseline review: 117 reviewed, 345 pending.
+
+- Five A2–A3 portal calculation records were reviewed individually at `fe1c308`; four corresponding scripts ran successfully under Python 3.12.14 / SymPy 1.14.0. One Markdown rendering error was fixed without changing physics. See `docs/repository-management/ELEVENTH_REVIEW_PORTAL_A2_A3_2026-11-15.md`. At that checkpoint the baseline register recorded 110 reviewed and 352 pending; these checks do not establish complete gauge-invariant matching.
 
 - Legacy section 250–259 and 261–262 Python scripts were rerun locally: all 12 exited zero; sections 253 and 262 have small floating-point residual-text differences from archived logs. Section 260 passed its first 69 checks but failed its byte-for-byte archived stdout comparison at section 250 because the interpreter version differs. See `docs/repository-management/LEGACY_LOG_REVIEW_2026-11-14.md`; Mathematica was not rerun.
 

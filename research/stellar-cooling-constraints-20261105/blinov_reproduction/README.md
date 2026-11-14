@@ -208,3 +208,7 @@ The new analytic addendum is [B2_POLARIZATION_BOLTZMANN_STATE_COUNTING_AUDIT_202
 The reusable algebraic identities are in polarization_boltzmann_state_counting.py, with seven regression tests in test_polarization_boltzmann_state_counting.py. All seven tests pass locally. The scalar B.2 reference and axial-vector curves are unchanged.
 
 The analytic result is deliberately limited: it does not settle the authors' intended scalar-opacity closure, nor does it replace the recoil-resolved B.13 Compton polarization kernel.
+
+## C4-C4 anchor provenance (2026-11-15)
+
+The exact historical C4-C4-A input has been recovered and the downstream input paths repaired. See [the anchor provenance note](audit_provenance/README.md) before rerunning C4-C4-Aq or C4-C4-B.
