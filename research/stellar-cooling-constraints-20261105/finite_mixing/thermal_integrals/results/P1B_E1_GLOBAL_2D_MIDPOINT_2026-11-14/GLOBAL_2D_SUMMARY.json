@@ -1,0 +1,173 @@
+{
+  "run": "P1B-E1-GLOBAL-03-FULL-2D-MIDPOINT-SCREEN",
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "e1_source_sha256": "e48a388c7572880115ae6cb4bc8bae6fabefcc3a5982981243a585a527a6ce9e",
+  "radial_intervals_completed": 1686,
+  "radial_intervals_expected": 1686,
+  "complete_radial_coverage": true,
+  "direct_b13_midpoint_evaluations": 28662,
+  "screening_orders": [
+    10,
+    6,
+    6,
+    6
+  ],
+  "radial_midpoint_interpolation": {
+    "samples": 28662,
+    "maximum_error": 0.0008283879026431248,
+    "p95_error": 0.00020433023846577267,
+    "median_error": 0.0000015528325374507693,
+    "samples_over_1pct": 0
+  },
+  "energy_pchip_at_radial_midpoints": {
+    "samples": 13488,
+    "maximum_error": 0.007361703167982161,
+    "p95_error": 0.005859240371530017,
+    "median_error": 0.0012867274883244715,
+    "samples_over_1pct": 0
+  },
+  "two_dimensional_cell_midpoint_interpolation": {
+    "samples": 13488,
+    "local_bilinear_log": {
+      "maximum_error": 0.054724423633917794,
+      "p95_error": 0.049603809445191355,
+      "median_error": 0.018969307582209768,
+      "samples_over_1pct": 11509
+    },
+    "sequential_pchip_sqrtx_then_radial_log": {
+      "maximum_error": 0.008067795053151448,
+      "p95_error": 0.005945832584008333,
+      "median_error": 0.0013585968571507392,
+      "samples_over_1pct": 0
+    }
+  },
+  "micro_consistency": {
+    "maximum_detailed_balance_residual": 1.238403846725505e-14,
+    "maximum_final_muon_mass_shell_residual": 5.380211888635872e-13,
+    "all_rates_finite_nonnegative": true
+  },
+  "screening_acceptance": {
+    "tolerance": 0.01,
+    "radial_pass": true,
+    "energy_pchip_pass": true,
+    "two_dimensional_pchip_pass": true,
+    "overall_interpolation_screen_pass": true
+  },
+  "worst_locations": {
+    "radial_midpoint": {
+      "interval_index": 1024,
+      "r_mid_km": 15.525,
+      "x": 0.5,
+      "maximum_relative_error": 0.0008283879026431248
+    },
+    "energy_pchip_midpoint": {
+      "interval_index": 989,
+      "r_mid_km": 14.7461746931076,
+      "x_mid": 0.78125,
+      "maximum_relative_error": 0.007361703167982161
+    },
+    "two_dimensional_pchip_cell": {
+      "interval_index": 993,
+      "r_left_km": 14.85,
+      "r_mid_km": 14.875,
+      "r_right_km": 14.9,
+      "x_mid": 0.78125,
+      "omega_mid_MeV": 20.74733981215887,
+      "bilinear_log_error": 0.0023151306864240863,
+      "pchip_then_radial_log_error": 0.008067795053151448
+    },
+    "worst_bilinear_log_cell": {
+      "interval_index": 702,
+      "r_left_km": 8.4783373082451,
+      "r_mid_km": 8.4802392552459,
+      "r_right_km": 8.4821412022467,
+      "x_mid": 8.397114317029972,
+      "omega_mid_MeV": 339.5797890725776,
+      "bilinear_log_error": 0.054724423633917794,
+      "pchip_then_radial_log_error": 0.00452851030402737
+    }
+  },
+  "targeted_high_order_followup": {
+    "selected_cells": 4,
+    "unique_radial_intervals": [
+      702,
+      993,
+      1016,
+      1024
+    ],
+    "all_selected_high_order_nodes_pass_0p1pct": true,
+    "maximum_final_successive_order_change": 0.0009327009610770679,
+    "maximum_selected_high_order_pchip_interpolation_error": 0.008068429676823035,
+    "interval_702_x36_endpoint_extension_order": [
+      36,
+      20,
+      20,
+      20
+    ],
+    "interval_702_x36_endpoint_final_changes": [
+      0.0008106325403963815,
+      0.0008107965177309563
+    ],
+    "interval_702_cell_center_pchip_error_recomputed_after_x36_extension": true,
+    "interval_702_high_order_pchip_error_after_extension": 0.004189210717559335,
+    "interval_702_high_order_bilinear_error_after_extension": 0.05391076899468916,
+    "interval_702_all_quadrature_nodes_pass_0p1pct": true,
+    "scope": "Selected worst cells only; the interval-702 PCHIP cell-center comparison has now been recomputed using the order-36 x=36 endpoint values; no full-profile high-order quadrature acceptance."
+  },
+  "acceptance_boundary": {
+    "complete_low_order_global_2d_interpolation_screen_pass": true,
+    "selected_high_order_checks_pass": true,
+    "global_high_order_quadrature_acceptance": false,
+    "full_star_emissivity_computed": false,
+    "GR_geodesic_optical_depth_computed": false,
+    "luminosity_computed": false,
+    "fig7_reproduced": false,
+    "SN1987A_limit_updated": false,
+    "interval_702_pchip_recheck_after_x36_pass": true,
+    "hot_shell_quadrature_point_pass": true
+  },
+  "scope": "Complete low-order 2D interpolation screen and selected high-order checks; no full-profile high-order quadrature or full-star transport claim.",
+  "hot_shell_high_order_check": {
+    "radius_km": 8.4821412022467,
+    "omega_local_MeV": 417.89463280068736,
+    "x": 10.392304845413264,
+    "orders_ladder": [
+      [
+        10,
+        6,
+        6,
+        6
+      ],
+      [
+        14,
+        8,
+        8,
+        8
+      ],
+      [
+        18,
+        10,
+        10,
+        10
+      ],
+      [
+        22,
+        12,
+        12,
+        12
+      ],
+      [
+        26,
+        14,
+        14,
+        14
+      ]
+    ],
+    "initial_10_to_14_change": 0.014371173756705461,
+    "final_22_to_26_change": 0.00038317774417923555,
+    "pass_0p1pct": true,
+    "detailed_balance_residual": 5.883508710405239e-16,
+    "final_muon_mass_shell_residual": 2.0432421890821873e-13,
+    "scope": "Single previously flagged hot-shell point only; not a full-profile high-order scan."
+  }
+}

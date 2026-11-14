@@ -1,6 +1,6 @@
 {
   "run": "P1B-10MeV-GLOBAL-02",
-  "status": "G1_full_radial_knot_scan_complete_G2_selected_subset_midpoint_audit_global_acceptance_open",
+  "status": "G1_full_radial_knot_scan_complete_G2_selected_subset_midpoint_audit_global_acceptance_open_hot_shell_quadrature_point_converged",
   "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
   "profile_rows": 1687,
   "mass_MeV": 10,
@@ -48,9 +48,46 @@
   "quadrature_crosscheck": {
     "hot_shell_r_km": 8.4821412022467,
     "omega_MeV": 417.89463280068736,
-    "max_change_10_to_14": 0.014371173756705461,
+    "x": 10.392304845413264,
+    "initial_max_change_10_to_14": 0.014371173756705461,
+    "orders_ladder": [
+      [
+        10,
+        6,
+        6,
+        6
+      ],
+      [
+        14,
+        8,
+        8,
+        8
+      ],
+      [
+        18,
+        10,
+        10,
+        10
+      ],
+      [
+        22,
+        12,
+        12,
+        12
+      ],
+      [
+        26,
+        14,
+        14,
+        14
+      ]
+    ],
+    "final_successive_order_change_22_to_26": 0.00038317774417923555,
     "criterion": 0.001,
-    "passed": false
+    "passed": true,
+    "detailed_balance_residual": 5.883508710405239e-16,
+    "final_muon_mass_shell_residual": 2.0432421890821873e-13,
+    "result_file": "../P1B_E1_GLOBAL_2D_MIDPOINT_2026-11-14/HOT_SHELL_417MeV_HIGH_ORDER.json"
   },
   "scope": "No full-star emissivity, GR optical depth, luminosity, or SN1987A constraint computed."
 }

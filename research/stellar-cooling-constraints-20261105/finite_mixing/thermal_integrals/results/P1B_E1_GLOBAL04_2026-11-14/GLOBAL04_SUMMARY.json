@@ -1,0 +1,195 @@
+{
+  "run": "P1B-E1-GLOBAL-04-HIGH-ORDER-EXTENSION",
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "physics": {
+    "kernel": "exact-recoil moving-muon semi-Compton B.13",
+    "mass_MeV": 10,
+    "gV_over_gX": 1,
+    "gA_over_gX": 0,
+    "charges": [
+      "mu_minus",
+      "mu_plus"
+    ],
+    "polarizations": [
+      "L",
+      "+",
+      "-"
+    ]
+  },
+  "top50_pchip_cells": {
+    "selected_cells": 50,
+    "unique_radial_intervals": 50,
+    "radial_range_km": [
+      13.85,
+      16.1
+    ],
+    "x_mid": [
+      0.78125
+    ],
+    "direct_high_order_nodes": 950,
+    "endpoint_nodes": 900,
+    "cell_center_nodes": 50,
+    "all_nodes_pass_0p1pct": true,
+    "maximum_successive_order_change": 0.0009555883168560706,
+    "endpoint_final_order_counts": {
+      "20,12,12,12": 871,
+      "24,14,14,14": 29
+    },
+    "pchip_interpolation_error": {
+      "maximum": 0.008068429676823035,
+      "p95": 0.007944514482866706,
+      "median": 0.007474810583648014,
+      "samples_over_1pct": 0
+    },
+    "maximum_cell_center_quadrature_change": 0.00004172788179294165,
+    "maximum_detailed_balance_residual": 5.3453671672288106e-15,
+    "maximum_final_muon_shell_residual": 1.0851669042493914e-13,
+    "all_rates_finite_nonnegative": true,
+    "runtime_seconds": 588.495
+  },
+  "stratified_radial": {
+    "interval_count": 16,
+    "interval_indices": [
+      0,
+      120,
+      240,
+      361,
+      481,
+      601,
+      722,
+      842,
+      962,
+      1024,
+      1083,
+      1203,
+      1323,
+      1444,
+      1564,
+      1685
+    ],
+    "x_values": [
+      0.5,
+      0.78125,
+      6,
+      18,
+      36
+    ],
+    "direct_high_order_nodes": 240,
+    "all_nodes_pass_0p1pct": true,
+    "maximum_successive_order_change": 0.0009906745761896498,
+    "maximum_radial_interpolation_error": 0.0008285117974665456,
+    "maximum_detailed_balance_residual": 8.176469851991087e-15,
+    "maximum_final_muon_shell_residual": 5.380211888635872e-13,
+    "all_rates_finite_nonnegative": true,
+    "runtime_seconds": 267.846
+  },
+  "near_threshold_rechecks": [
+    {
+      "interval": 481,
+      "radial_node_index": 482,
+      "radius_km": 5.38488887954722,
+      "x": 18,
+      "omega_MeV": 492.4718442059284,
+      "orders": [
+        [
+          16,
+          10,
+          10,
+          10
+        ],
+        [
+          20,
+          12,
+          12,
+          12
+        ],
+        [
+          24,
+          14,
+          14,
+          14
+        ],
+        [
+          28,
+          16,
+          16,
+          16
+        ],
+        [
+          32,
+          18,
+          18,
+          18
+        ]
+      ],
+      "successive_changes": [
+        0.0009906745761896498,
+        0.00025732806214015557,
+        0.0000677804458638311,
+        0.000018329613738891204
+      ],
+      "pass": true
+    },
+    {
+      "interval": 361,
+      "radial_node_index": 362,
+      "radius_km": 3.25,
+      "x": 36,
+      "omega_MeV": 773.0956982419516,
+      "orders_from_to": [
+        [
+          24,
+          14,
+          14,
+          14
+        ],
+        [
+          28,
+          16,
+          16,
+          16
+        ]
+      ],
+      "change": 0.0003088360231906514,
+      "pass": true
+    },
+    {
+      "radial_node_index": 981,
+      "radius_km": 14.5421829488542,
+      "x": 36,
+      "omega_MeV": 555.8337217589284,
+      "orders_from_to": [
+        [
+          20,
+          12,
+          12,
+          12
+        ],
+        [
+          24,
+          14,
+          14,
+          14
+        ]
+      ],
+      "change": 0.00021444020402205832,
+      "pass": true
+    }
+  ],
+  "acceptance_boundary": {
+    "full_profile_low_order_2d_interpolation_screen_pass": true,
+    "top50_high_order_pass": true,
+    "stratified_high_order_pass": true,
+    "near_threshold_rechecks_pass": true,
+    "full_profile_high_order_scan_complete": false,
+    "full_star_B1_source_integral_computed": false,
+    "B2_path_optical_depth_updated_with_exact_B13": false,
+    "luminosity_reproduced": false,
+    "SN1987A_limit_updated": false
+  },
+  "archive": {
+    "filename": "P1B_E1_GLOBAL04_HIGH_ORDER_2026-11-14.zip",
+    "sha256": "c549a2f16c563ea5e44257297cc722c40da8b5a34145109ebcaf012bb362e68d"
+  },
+  "scope": "Expanded selected high-order coverage over the 50 largest PCHIP interpolation-error cells and 16 stratified radial intervals; not an exhaustive high-order scan of all radius-energy nodes."
+}

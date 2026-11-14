@@ -1,0 +1,24 @@
+{
+  "run": "P1B-E1-RADIAL-MIDPOINT-TOP-INTERVALS",
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "intervals_checked": 60,
+  "energy_knots_per_midpoint": 9,
+  "low_order": [
+    10,
+    6,
+    6,
+    6
+  ],
+  "maximum_radial_midpoint_interpolation_error": 0.0008283879026431248,
+  "intervals_over_1pct": 0,
+  "worst_interval": {
+    "left_radial_index": 1024,
+    "r_left_km": 15.5,
+    "r_right_km": 15.55,
+    "worst_energy_x": 0.5
+  },
+  "maximum_detailed_balance_residual": 7.970234973984876e-15,
+  "maximum_final_muon_mass_shell_residual": 6.680456918051809e-14,
+  "all_direct_rates_finite_nonnegative": true,
+  "scope": "Direct low-order B.13 midpoint checks for the top 60 radial-neighbor-variation intervals only."
+}

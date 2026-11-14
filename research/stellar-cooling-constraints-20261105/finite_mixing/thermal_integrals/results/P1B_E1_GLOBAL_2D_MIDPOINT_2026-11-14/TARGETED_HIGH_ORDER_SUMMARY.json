@@ -1,0 +1,70 @@
+{
+  "run": "P1B-E1-GLOBAL-03-TARGETED-HIGH-ORDER-SUMMARY",
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "selected_cells": 4,
+  "unique_radial_intervals": [
+    702,
+    993,
+    1016,
+    1024
+  ],
+  "all_selected_high_order_nodes_pass_0p1pct": true,
+  "maximum_final_successive_order_change": 0.0009327009610770679,
+  "maximum_selected_high_order_pchip_interpolation_error": 0.008068429676823035,
+  "interval_702_x36_endpoint_extension": {
+    "order": [
+      36,
+      20,
+      20,
+      20
+    ],
+    "left_final_change": 0.0008106325403963815,
+    "right_final_change": 0.0008107965177309563,
+    "both_pass": true
+  },
+  "interval_702_cell_center_pchip_error_recomputed_after_x36_extension": false,
+  "scope": "Four selected worst interpolation intervals/cells only; interval-702 PCHIP cell-center comparison is recomputed with order-36 x=36 endpoint values. No full-profile high-order quadrature acceptance.",
+  "interval_702_pchip_cell_center_recomputed_after_x36_extension": true,
+  "interval_702_recomputed_pchip_interpolation_error": 0.004189210717559335,
+  "interval_702_recomputed_bilinear_interpolation_error": 0.05391076899468916,
+  "interval_702_all_quadrature_nodes_pass_0p1pct": true,
+  "additional_hot_shell_point": {
+    "radius_km": 8.4821412022467,
+    "omega_local_MeV": 417.89463280068736,
+    "x": 10.392304845413264,
+    "orders_ladder": [
+      [
+        10,
+        6,
+        6,
+        6
+      ],
+      [
+        14,
+        8,
+        8,
+        8
+      ],
+      [
+        18,
+        10,
+        10,
+        10
+      ],
+      [
+        22,
+        12,
+        12,
+        12
+      ],
+      [
+        26,
+        14,
+        14,
+        14
+      ]
+    ],
+    "final_successive_order_change": 0.00038317774417923555,
+    "pass_0p1pct": true
+  }
+}

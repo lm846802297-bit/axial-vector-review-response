@@ -1,0 +1,158 @@
+{
+  "run": "P1B-B-GLOBAL-02-E1-ENERGY-AND-RADIAL-SCREEN-2026-11-14",
+  "repository": "lm846802297-bit/axial-vector-review-response",
+  "branch": "research/p1b-global02-full-radial-20261114",
+  "profile": {
+    "name": "SFHo-18.8, t_pb=1 s digitized profile",
+    "radial_rows": 1687,
+    "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
+  },
+  "physics": {
+    "kernel": "exact-recoil moving-muon semi-Compton B.13",
+    "mass_MeV": 10,
+    "gV_over_gX": 1,
+    "gA_over_gX": 0,
+    "targets": [
+      "mu_minus",
+      "mu_plus"
+    ],
+    "polarizations": [
+      "L",
+      "+",
+      "-"
+    ]
+  },
+  "global_energy_scan": {
+    "radial_nodes": 1687,
+    "energy_nodes_per_radius": 17,
+    "direct_B13_evaluations": 28679,
+    "quadrature_orders": [
+      10,
+      6,
+      6,
+      6
+    ],
+    "base_energy_knots_x": [
+      0.5,
+      2,
+      6,
+      18,
+      36
+    ],
+    "refined_energy_knots_x": [
+      0.5,
+      1.125,
+      2,
+      3.7320508075688767,
+      6,
+      11.19615242270663,
+      18,
+      26.227922061357848,
+      36
+    ],
+    "interpolant": "PCHIP(log absorption) in sqrt(x); production/reduced absorption/spectral source reconstructed by exact detailed balance"
+  },
+  "original_5_knot_grid": {
+    "median_max_error": 0.02485737534325148,
+    "p95_max_error": 0.030736736887632066,
+    "maximum_error": 0.030794154238483445,
+    "radial_nodes_over_1pct": 1687
+  },
+  "refined_9_knot_grid": {
+    "median_max_error": 0.004805510523731007,
+    "p95_max_error": 0.007040512250806436,
+    "maximum_error": 0.007361703982204986,
+    "radial_nodes_over_1pct": 0,
+    "all_1687_nodes_pass_1pct": true,
+    "worst": {
+      "radial_index": 989,
+      "radius_km": 14.7423493862152,
+      "x_mid": 0.78125,
+      "charge": "mu_minus",
+      "mode": "L"
+    }
+  },
+  "micro_consistency": {
+    "maximum_detailed_balance_residual": 1.1205192492075147e-14,
+    "maximum_final_muon_mass_shell_residual": 6.214454313524293e-13,
+    "all_rates_finite_nonnegative": true
+  },
+  "radial_neighbor_screen": {
+    "adjacent_intervals": 1686,
+    "ranked_top_intervals": 60,
+    "maximum_neighbor_relative_change": 0.24759234678455316,
+    "worst_interval": {
+      "index": 1487,
+      "r_left_km": 22.1918936570485,
+      "r_right_km": 22.1918946570485,
+      "dr_km": 0.0000010000000010279564,
+      "x": 0.5,
+      "charge": "mu_minus",
+      "field": "production",
+      "mode": "+"
+    }
+  },
+  "radial_midpoint_screen": {
+    "intervals_directly_checked": 60,
+    "energy_knots_per_midpoint": 9,
+    "direct_B13_midpoint_evaluations": 540,
+    "maximum_interpolation_error": 0.0008283879026431248,
+    "intervals_over_1pct": 0,
+    "worst_interval": {
+      "index": 1024,
+      "r_left_km": 15.5,
+      "r_right_km": 15.55,
+      "x": 0.5
+    }
+  },
+  "targeted_high_order": {
+    "energy_worst_node": {
+      "radius_km": 14.7423493862152,
+      "final_orders": [
+        20,
+        12,
+        12,
+        12
+      ],
+      "maximum_successive_order_change": 0.0007468500270146189,
+      "quadrature_pass": true,
+      "high_order_PCHIP_error": 0.007362462115604602
+    },
+    "radial_midpoint_intervals": {
+      "1024": {
+        "maximum_interpolation_error": 0.0008285117974665456,
+        "quadrature_pass": true,
+        "maximum_order_change": 0.000004764730243380236
+      },
+      "1479": {
+        "maximum_interpolation_error": 0.00012812551964725894,
+        "quadrature_pass": true,
+        "maximum_order_change": 3.568566907974786e-7
+      },
+      "1487": {
+        "r_left_km": 22.1918936570485,
+        "r_mid_km": 22.1918941570485,
+        "r_right_km": 22.1918946570485,
+        "maximum_interpolation_error": 3.0782766622658287e-9,
+        "quadrature_pass": true,
+        "maximum_order_change": 3.3584620057672076e-7
+      }
+    },
+    "all_three_radial_midpoint_checks_pass": true
+  },
+  "acceptance_boundary": {
+    "global_low_order_energy_screen_pass": true,
+    "top60_low_order_radial_midpoint_screen_pass": true,
+    "selected_high_order_checks_pass": true,
+    "global_high_order_quadrature_acceptance": false,
+    "full_star_emissivity_computed": false,
+    "GR_optical_depth_computed": false,
+    "luminosity_reproduced": false,
+    "SN1987A_limit_updated": false
+  },
+  "provenance": {
+    "original_Run_43376779901_untouched": true,
+    "G1_and_ADAPTIVE_01_untouched": true,
+    "raw_chunk_count": 1687
+  }
+}

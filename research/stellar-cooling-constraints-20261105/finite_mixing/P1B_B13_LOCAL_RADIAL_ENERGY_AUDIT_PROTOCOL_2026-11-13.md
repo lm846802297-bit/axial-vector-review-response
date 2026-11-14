@@ -1,6 +1,6 @@
 # P1-B: 10 MeV exact B.13 local radial-energy convergence audit
 
-**Status:** numerical workflow launched; final numerical disposition pending.  
+**Status:** full-profile low-order Global-03 interpolation screen complete; selected high-order follow-up passed; global high-order quadrature acceptance remains pending.  
 **Research line:** PR #106 v2, research/fig7-10mev-transport-localization-20261113-v2.
 
 ## 1. Purpose and boundary
@@ -164,3 +164,77 @@ so the maximum required energy is
 The final grid therefore includes the exact peak-temperature radius and extends to 1500 MeV. The local emissivity energy-integral audit also includes this radius as an explicit anchor. The runtime guard reads the complete profile table rather than estimating its maximum from the sparse grid nodes.
 
 The final one-bisection grid is 19 radii × 27 energies = 513 nodes, with 468 direct cell-midpoint evaluations. This supersedes the earlier 17 × 25 planning count recorded during the intermediate refinement.
+
+
+## 12. Global-02/Global-03 full-profile extension (2026-11-14)
+
+The original 19 x 27 P1-B grid remains the fixed local-kernel protocol grid. In addition, an independent full-profile extension was run using the same exact-recoil moving-muon B.13 kernel and the fixed 10 MeV pure-vector endpoint:
+
+\[
+m_{A'}=10\ {\rm MeV},\qquad g_V/g_X=1,\qquad g_A/g_X=0.
+\]
+
+The background remains the 1687-row reconstructed SFHo-18.8, \(t_{\rm pb}=1\) s profile, SHA-256 `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`.
+
+### Global-02: radial-node energy interpolation
+
+- All 1687 radial nodes were evaluated at 17 local energy coordinates: 28,679 direct low-order B.13 evaluations.
+- The original five-knot energy PCHIP had a maximum direct-midpoint discrepancy of 3.0794%.
+- One bisection to a nine-knot PCHIP in \(\sqrt{x}\) reduced the maximum to 0.7362%; no radial node exceeded 1%.
+- Maximum detailed-balance residual was \(1.121\times10^{-14}\); final-muon mass-shell residual was \(6.214\times10^{-13}\).
+
+### Global-03: full radial-midpoint and 2D cell-midpoint screen
+
+For all 1686 adjacent radial intervals, B.13 was directly evaluated at the true radial midpoint and all 17 E1 validation-energy coordinates, adding 28,662 direct evaluations. The 13,488 energy midpoints and 13,488 2D cell centers were checked.
+
+| Interpolation check | Maximum discrepancy | Samples above 1% |
+|---|---:|---:|
+| Radial midpoint, all 17 energy coordinates | 0.08284% | 0 |
+| Energy PCHIP at radial midpoints | 0.73617% | 0 |
+| Local bilinear-log 2D interpolation | 5.47244% | 11,509 |
+| Nine-knot PCHIP in \(\sqrt{x}\), then log-radial interpolation | 0.80678% | 0 |
+
+The local bilinear-log interpolant is rejected for this kernel grid. The retained prescription is PCHIP in \(\sqrt{x}\) at each radial endpoint, followed by log-linear interpolation in radius. Absorption is interpolated; production, reduced absorption and spectral source are reconstructed from exact midpoint detailed balance and the exact spectral phase-space factor.
+
+The maximum detailed-balance residual in Global-03 was \(1.2384\times10^{-14}\), and the maximum final-muon mass-shell residual was \(5.3802\times10^{-13}\). All rates were finite and nonnegative.
+
+### Selected high-order follow-up
+
+Four high-error cells were selected (radial intervals 702, 993, 1016 and 1024). The nine energy knots at both endpoints and the selected cell centers were re-evaluated with the high-order ladder. All selected points passed the 0.1% successive-order criterion after the two interval-702 \(x=36\) endpoints were extended to \((36,20,20,20)\). The largest final successive-order change was \(9.3270\times10^{-4}\).
+
+The interval-702 high-order PCHIP cell-center comparison has now been recomputed using high-order values at all nine energy knots on both radial endpoints, including the order-36 \(x=36\) endpoint extension. The updated PCHIP interpolation discrepancy is 0.418921%, and all 19 endpoint/cell-center quadrature nodes in this interval pass the 0.1% successive-order criterion.\n\nThe previously flagged hot-shell point at \(r=8.482141202\) km and \(\omega=417.894633\) MeV (\(x=10.392305\)) was also extended through \((26,14,14,14)\). Its final \((22,12,12,12)\) to \((26,14,14,14)\) change is 0.03832%, below the 0.1% criterion.
+
+### Acceptance boundary
+
+**Passed:** complete low-order full-profile radial-midpoint, energy-PCHIP-at-radial-midpoint and sequential 2D PCHIP cell-midpoint screens; selected high-order checks for the four worst cells; exact detailed balance and final-muon shell closure.
+
+**Not claimed:** full-profile high-order quadrature convergence at every radius/energy point; exhaustive high-order evaluation of every 2D cell; full-star B.1 source integral; B.2 optical depth; GR geodesic transport; luminosity; Fig. 7 reproduction; or an updated SN1987A limit. The vector endpoint gate remains a separate acceptance requirement, and the axial exclusion curve remains frozen.
+
+Reproducible results are archived under `thermal_integrals/results/P1B_E1_GLOBAL_2D_MIDPOINT_2026-11-14/`; the direct midpoint data and source/input bundle are retained in the separate Global-03 archive.
+
+
+## 13. Global-04 expanded high-order quadrature validation (2026-11-14)
+
+The Global-03 full-profile low-order 2D interpolation screen has now been supplemented by selected direct high-order B.13 evaluations.
+
+### Top-50 PCHIP interpolation cells
+
+The 50 largest Global-03 sequential-PCHIP interpolation-error cells were checked at both radial endpoints at all nine energy knots and at the direct 2D cell center: 900 endpoint nodes plus 50 center nodes, 950 high-order B.13 nodes total.
+
+All 950 pass the 0.1% successive-order criterion. The maximum endpoint change is 0.09556%; the maximum cell-center change is 0.004173%. The 50 high-order direct cell-center comparisons give a maximum PCHIP interpolation discrepancy of 0.806843%, p95 0.794451%, median 0.747481%, with zero cells above 1%.
+
+### Stratified radial sample
+
+Sixteen intervals spanning the 1687-row profile were sampled at five local energy coordinates, x = {0.5, 0.78125, 6, 18, 36}, and at left endpoint, midpoint and right endpoint: 240 direct high-order nodes. All pass the 0.1% criterion. The maximum successive-order change is 0.099067%; the maximum radial midpoint interpolation discrepancy is 0.082851%.
+
+The closest-to-threshold point (interval 481, right endpoint, x=18) was refined through (32,18,18,18), with successive changes 0.099067%, 0.025733%, 0.006778%, and 0.001833%. Two further near-threshold points also pass their next-order checks: interval 361 right endpoint at x=36 changes by 0.030884% from (24,14,14,14) to (28,16,16,16), and radial node 981 at x=36 changes by 0.021444% from (20,12,12,12) to (24,14,14,14).
+
+Maximum detailed-balance residual is 8.18e-15; maximum final-muon shell residual is 5.38e-13. All rates are finite and nonnegative.
+
+### Disposition
+
+**Passed:** top-50 high-order quadrature checks, 16-interval stratified high-order checks, the three additional near-threshold refinements, and the high-order interpolation comparison at the 50 selected worst PCHIP cells.
+
+**Not claimed:** an exhaustive high-order scan of all 1687 × 17 profile-energy nodes or all 13,488 2D cell centers; the full-star B.1 source integral; B.2 path optical depth updated with exact B.13 mode-resolved Compton; luminosity/Fig. 7 reproduction; or an updated SN1987A limit.
+
+Machine-readable summary and report: `thermal_integrals/results/P1B_E1_GLOBAL04_2026-11-14/`. Reproducibility archive: `P1B_E1_GLOBAL04_HIGH_ORDER_2026-11-14.zip`, SHA-256 `c549a2f16c563ea5e44257297cc722c40da8b5a34145109ebcaf012bb362e68d`.

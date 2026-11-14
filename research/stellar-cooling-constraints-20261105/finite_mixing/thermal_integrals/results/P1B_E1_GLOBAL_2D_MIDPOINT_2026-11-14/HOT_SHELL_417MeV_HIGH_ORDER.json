@@ -1,0 +1,108 @@
+{
+  "run": "P1B-E1-GLOBAL-03-HOT-SHELL-HIGH-ORDER",
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "radius_km": 8.4821412022467,
+  "omega_local_MeV": 417.89463280068736,
+  "temperature_MeV": 39.2496793414134,
+  "x": 10.392304845413264,
+  "orders_ladder": [
+    [
+      10,
+      6,
+      6,
+      6
+    ],
+    [
+      14,
+      8,
+      8,
+      8
+    ],
+    [
+      18,
+      10,
+      10,
+      10
+    ],
+    [
+      22,
+      12,
+      12,
+      12
+    ],
+    [
+      26,
+      14,
+      14,
+      14
+    ]
+  ],
+  "successive_order_changes": [
+    {
+      "from": [
+        10,
+        6,
+        6,
+        6
+      ],
+      "to": [
+        14,
+        8,
+        8,
+        8
+      ],
+      "maximum_relative_change": 0.014371173756705461
+    },
+    {
+      "from": [
+        14,
+        8,
+        8,
+        8
+      ],
+      "to": [
+        18,
+        10,
+        10,
+        10
+      ],
+      "maximum_relative_change": 0.004218356102087842
+    },
+    {
+      "from": [
+        18,
+        10,
+        10,
+        10
+      ],
+      "to": [
+        22,
+        12,
+        12,
+        12
+      ],
+      "maximum_relative_change": 0.0012362325055932737
+    },
+    {
+      "from": [
+        22,
+        12,
+        12,
+        12
+      ],
+      "to": [
+        26,
+        14,
+        14,
+        14
+      ],
+      "maximum_relative_change": 0.00038317774417923555
+    }
+  ],
+  "final_successive_order_change": 0.00038317774417923555,
+  "quadrature_pass_0p1pct": true,
+  "maximum_detailed_balance_residual": 5.883508710405239e-16,
+  "final_muon_mass_shell_residual": 2.0432421890821873e-13,
+  "all_rates_finite_nonnegative": true,
+  "scope": "Single previously flagged hot-shell high-energy point; not a full-profile high-order scan."
+}

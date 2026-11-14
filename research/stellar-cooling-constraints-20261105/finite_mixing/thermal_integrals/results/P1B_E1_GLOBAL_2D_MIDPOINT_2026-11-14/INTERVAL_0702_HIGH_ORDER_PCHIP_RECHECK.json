@@ -1,0 +1,60 @@
+{
+  "run": "P1B-E1-GLOBAL-03-INTERVAL-0702-HIGH-ORDER-PCHIP-RECHECK",
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "interval_index": 702,
+  "r_left_km": 8.4783373082451,
+  "r_mid_km": 8.4802392552459,
+  "r_right_km": 8.4821412022467,
+  "x_mid": 8.397114317029972,
+  "omega_mid_MeV": 339.5797890725776,
+  "endpoint_energy_knots": 9,
+  "endpoint_nodes": 18,
+  "cell_center_nodes": 1,
+  "total_high_order_nodes": 19,
+  "quadrature_orders_available": [
+    [
+      16,
+      10,
+      10,
+      10
+    ],
+    [
+      20,
+      12,
+      12,
+      12
+    ],
+    [
+      24,
+      14,
+      14,
+      14
+    ],
+    [
+      28,
+      16,
+      16,
+      16
+    ],
+    [
+      32,
+      18,
+      18,
+      18
+    ],
+    [
+      36,
+      20,
+      20,
+      20
+    ]
+  ],
+  "all_quadrature_nodes_pass_0p1pct": true,
+  "maximum_successive_order_change": 0.0009327009610770679,
+  "pchip_then_radial_log_interpolation_error": 0.004189210717559335,
+  "bilinear_log_interpolation_error": 0.05391076899468916,
+  "maximum_detailed_balance_residual": 3.8504930139843915e-15,
+  "maximum_final_muon_mass_shell_residual": 5.380211888635872e-13,
+  "all_rates_finite_nonnegative": true,
+  "scope": "High-order recheck of interval 702 using high-order values at all nine energy knots on both radial endpoints and the direct cell center; x=36 endpoint values include the order-(36,20,20,20) extension."
+}

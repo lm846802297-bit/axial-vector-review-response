@@ -1,0 +1,211 @@
+{
+  "run": "P1B-B2-EXACT-B13-LOCAL-AND-HIGH-ENERGY-GLOBAL",
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "local_fixed_r_omega_audit": {
+    "points": 42,
+    "radii_km": [
+      8,
+      10,
+      12.5,
+      15,
+      18.5,
+      20,
+      22
+    ],
+    "energies_MeV": [
+      12,
+      20,
+      80,
+      210,
+      300,
+      510
+    ],
+    "all_points_pass_0p1pct": true,
+    "maximum_successive_order_change": 0.0009969979,
+    "maximum_detailed_balance_residual": 1.0985e-14,
+    "maximum_final_muon_shell_relative_error": 1.7108e-13,
+    "maximum_neutrino_mode_sum_vs_scalar_relative_residual": 3.09e-14,
+    "B13_mu_minus_over_B16_compton_production": {
+      "minimum": 0.1578108,
+      "maximum": 0.8312067,
+      "median": 0.34006
+    },
+    "B13_both_charges_over_B16_compton_production": {
+      "minimum": 0.15952,
+      "maximum": 0.86833,
+      "median": 0.34926
+    },
+    "total_reduced_opacity_change_mu_minus_only": {
+      "minimum": -0.55713,
+      "maximum": 0.00001
+    },
+    "total_reduced_opacity_change_both_charges": {
+      "minimum": -0.556,
+      "maximum": 0.00001
+    },
+    "mu_plus_fraction_of_local_B13_Compton_production": {
+      "minimum": 0.0000826,
+      "maximum": 0.04275
+    }
+  },
+  "high_energy_band_transport": {
+    "band_MeV": [
+      210,
+      510
+    ],
+    "energy_nodes_MeV": [
+      217.292,
+      237.397,
+      259.451,
+      283.644,
+      310.184,
+      339.297,
+      371.234,
+      406.269,
+      444.701,
+      486.861
+    ],
+    "full_energy_grid_nodes": 842,
+    "source_radial_order": 200,
+    "opacity_radial_grid_nodes": 642,
+    "angle_order": 32,
+    "path_order": 64,
+    "neutrino_order": 64,
+    "convention": "fixed omega along Euclidean chords to 25 km; no GR redshift",
+    "B16_literal_scalar_luminosity_erg_s": 1.7017848289e+52,
+    "archived_P1C_B16_luminosity_erg_s": 1.701785e+52,
+    "B16_relative_residual_to_P1C": -1.01e-7,
+    "B13_mu_minus_only_scalar_sum_opacity_luminosity_erg_s": 2.0994473e+52,
+    "B13_both_charges_scalar_sum_opacity_luminosity_erg_s": 2.1001262e+52,
+    "B13_both_charges_equal_occupation_average_opacity_luminosity_erg_s": 6.07138768e+53,
+    "B13_both_charges_mode_resolved_exact_weights_luminosity_erg_s": 6.05812455e+53,
+    "B13_both_charges_mode_resolved_B14_weights_same_total_luminosity_erg_s": 6.05797848e+53,
+    "ratios_to_B16": {
+      "B13_mu_minus_scalar_sum": 1.23367,
+      "B13_both_scalar_sum": 1.23407,
+      "B13_equal_average": 35.6766,
+      "B13_mode_resolved": 35.5987
+    },
+    "luminosity_ratios": {
+      "B13_mode_resolved_over_B13_scalar_sum": 28.8465,
+      "B13_equal_average_over_B13_scalar_sum": 28.9096,
+      "B13_mode_resolved_over_equal_average": 0.997815,
+      "exact_B13_weights_over_B14_weights_same_B13_total": 1.000024
+    },
+    "escape_fractions": {
+      "B16": 0.0023458,
+      "B13_both_scalar_sum": 0.00466836,
+      "B13_equal_average": 0.134961,
+      "B13_mode_resolved": 0.134666
+    },
+    "thin_source_ratio_B13_both_to_B16": 0.620108,
+    "source_fractions_B13_both_charges": {
+      "neutrino": 0.8043,
+      "Compton": 0.1957
+    },
+    "source_fractions_B16": {
+      "neutrino": 0.4988,
+      "Compton": 0.5012
+    },
+    "mu_plus_fraction_of_B13_Compton_thin_source": 0.00717,
+    "B13_Compton_mode_source_fractions": [
+      0.0017568,
+      0.4991216,
+      0.4991216
+    ],
+    "B14_expected_Compton_mode_source_fractions_same_B13_scalar_source": [
+      0.000799,
+      0.4996005,
+      0.4996005
+    ],
+    "mode_luminosity_fractions_B13_exact_weights": [
+      0.2992,
+      0.34782,
+      0.35298
+    ],
+    "mode_luminosity_fractions_B13_B14_weights_same_total": [
+      0.29912,
+      0.34786,
+      0.35302
+    ],
+    "source_weighted_mean_optical_depth_per_g2_by_mode": [
+      1200500000000000,
+      1223800000000000,
+      1261200000000000
+    ],
+    "tail_checks": [
+      {
+        "r_km": 15,
+        "omega_MeV": 510,
+        "x": 38.5446,
+        "B13_Compton_to_neutrino_reduced_opacity": 0.0030677
+      },
+      {
+        "r_km": 18.5,
+        "omega_MeV": 210,
+        "x": 39.2563,
+        "B13_Compton_to_neutrino_reduced_opacity": 1.546e-9
+      },
+      {
+        "r_km": 18.5,
+        "omega_MeV": 300,
+        "x": 56.0805,
+        "B13_Compton_to_neutrino_reduced_opacity": 1.814e-9
+      },
+      {
+        "r_km": 18.5,
+        "omega_MeV": 510,
+        "x": 95.3368,
+        "B13_Compton_to_neutrino_reduced_opacity": 2.253e-9
+      },
+      {
+        "r_km": 20,
+        "omega_MeV": 510,
+        "x": 121.3008,
+        "B13_Compton_to_neutrino_reduced_opacity": 5.528e-12
+      },
+      {
+        "r_km": 22,
+        "omega_MeV": 510,
+        "x": 143.6058,
+        "B13_Compton_to_neutrino_reduced_opacity": 6.176e-15
+      }
+    ]
+  },
+  "acceptance_boundary": {
+    "B16_high_energy_band_baseline_reproduced": true,
+    "B13_local_mode_resolved_kernel_pass": true,
+    "full_profile_high_order_B13_kernel_scan_complete": false,
+    "full_energy_band_Fig7_reproduced": false,
+    "GR_redshifted_path_energy_convention_tested": false,
+    "SN1987A_limit_updated": false,
+    "axial_exclusion_curve_updated": false,
+    "full_band_B2_transport_ready": false,
+    "low_x_extension_required_before_full_band": true
+  },
+  "archive": {
+    "filename": "P1B_B2_EXACT_B13_HIGH_ENERGY_AND_LOW_X_PILOT_2026-11-14.zip",
+    "sha256": "afeb8a909cd973835066bda34a06da0de94bf8290135b6a7be278d454562b0b0"
+  },
+  "scope": "Exact-B.13 local polarization audit plus 210–510 MeV fixed-omega B.1/B.2 transport comparison; not a full-band Fig. 7 result.",
+  "low_x_extension": {
+    "full_band_relevant_x_minimum": 0.022181053958074612,
+    "current_global03_interpolation_x_minimum": 0.5,
+    "pilot_x_values": [
+      0.01,
+      0.025,
+      0.05,
+      0.1,
+      0.25,
+      0.5
+    ],
+    "pilot_points_completed": 7,
+    "pilot_points_planned": 24,
+    "all_completed_points_pass_0p1pct": true,
+    "maximum_completed_point_final_order_change": 0.00032921215895045014,
+    "maximum_detailed_balance_residual": 6.1471724834929195e-16,
+    "maximum_final_muon_shell_residual": 1.626120976637977e-13,
+    "full_profile_low_x_extension_complete": false,
+    "scope": "Partial pilot only; no full-band B.2 claim."
+  }
+}
