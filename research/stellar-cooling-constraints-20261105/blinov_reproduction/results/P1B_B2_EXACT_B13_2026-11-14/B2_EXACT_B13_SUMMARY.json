@@ -179,11 +179,33 @@
     "full_energy_band_Fig7_reproduced": false,
     "GR_redshifted_path_energy_convention_tested": false,
     "SN1987A_limit_updated": false,
-    "axial_exclusion_curve_updated": false
+    "axial_exclusion_curve_updated": false,
+    "full_band_B2_transport_ready": false,
+    "low_x_extension_required_before_full_band": true
   },
   "archive": {
     "filename": "P1B_B2_EXACT_B13_HIGH_ENERGY_2026-11-14.zip",
     "sha256": "e33c71f7d58c85f8e64f7a4c9066588f749cda60e63c74bd1dacedc1c244e2f5"
   },
-  "scope": "Exact-B.13 local polarization audit plus 210–510 MeV fixed-omega B.1/B.2 transport comparison; not a full-band Fig. 7 result."
+  "scope": "Exact-B.13 local polarization audit plus 210–510 MeV fixed-omega B.1/B.2 transport comparison; not a full-band Fig. 7 result.",
+  "low_x_extension": {
+    "full_band_relevant_x_minimum": 0.022181053958074612,
+    "current_global03_interpolation_x_minimum": 0.5,
+    "pilot_x_values": [
+      0.01,
+      0.025,
+      0.05,
+      0.1,
+      0.25,
+      0.5
+    ],
+    "pilot_points_completed": 7,
+    "pilot_points_planned": 24,
+    "all_completed_points_pass_0p1pct": true,
+    "maximum_completed_point_final_order_change": 0.00032921215895045014,
+    "maximum_detailed_balance_residual": 6.1471724834929195e-16,
+    "maximum_final_muon_shell_residual": 1.626120976637977e-13,
+    "full_profile_low_x_extension_complete": false,
+    "scope": "Partial pilot only; no full-band B.2 claim."
+  }
 }
