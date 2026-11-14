@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Stratified low-x support audit for exact-recoil moving-muon B.13."""
 from __future__ import annotations
-import hashlib,json,sys
+import csv,hashlib,json,sys
 from pathlib import Path
 import numpy as np
 HERE=Path(__file__).resolve().parent
@@ -58,5 +58,16 @@ def main():
     outdir.mkdir(parents=True,exist_ok=True)
     (outdir/"LOW_X_STRATIFIED_SCREEN.json").write_text(json.dumps(summary,indent=2)+"\n")
     (outdir/"LOW_X_STRATIFIED_RECORDS.json").write_text(json.dumps(records,indent=2)+"\n")
+    with (outdir/"LOW_X_STRATIFIED_RECORDS.csv").open("w",newline="",encoding="utf-8") as stream:
+        writer=csv.writer(stream,lineterminator="\\n")
+        writer.writerow(["radial_index","r_km","T_MeV","x","omega_local_MeV",
+            "mu_minus_L","mu_minus_Tplus","mu_minus_Tminus",
+            "mu_plus_L","mu_plus_Tplus","mu_plus_Tminus",
+            "detailed_balance_residual","final_muon_shell_relative_error","all_rates_finite_nonnegative"])
+        for row in records:
+            writer.writerow([row["radial_index"],row["r_km"],row["T_MeV"],row["x"],row["omega_local_MeV"],
+                *row["absorption"]["mu_minus"],*row["absorption"]["mu_plus"],
+                row["detailed_balance_residual"],row["final_muon_shell_relative_error"],
+                str(row["all_rates_finite_nonnegative"]).lower()])
     print(json.dumps(summary,indent=2))
 if __name__=="__main__":main()
