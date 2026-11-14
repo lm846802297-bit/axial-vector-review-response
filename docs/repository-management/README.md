@@ -32,7 +32,7 @@ This document describes the current repository organization and the intended own
 
 ## Review coverage and reports
 
-The baseline inventory contains 462 Markdown/text documents. At the latest review checkpoint (2026-11-15), the register contains 134 `PASS_WITH_NOTES`, 1 `PASS`, 8 `REVISION_REQUIRED`, 62 `HISTORICAL`, and 257 `PENDING` (205 individually reviewed). Only documents read individually are assigned a non-pending review outcome. See the [audit register](DOCUMENT_AUDIT_REGISTER.csv) and the dated review reports:
+The baseline inventory contains 462 Markdown/text documents. At the latest review checkpoint (2026-11-15), the register contains 162 `PASS_WITH_NOTES`, 2 `PASS`, 11 `REVISION_REQUIRED`, 89 `HISTORICAL`, and 198 `PENDING` (264 individually reviewed). Only documents read individually are assigned a non-pending review outcome. See the [audit register](DOCUMENT_AUDIT_REGISTER.csv) and the dated review reports:
 
 - [Initial governance and entry review](INITIAL_REVIEW_REPORT_2026-11-14.md)
 - [Second review batch](SECOND_REVIEW_REPORT_2026-11-14.md)
@@ -48,6 +48,8 @@ The baseline inventory contains 462 Markdown/text documents. At the latest revie
 - [Legacy calculation-log review](LEGACY_LOG_REVIEW_2026-11-14.md)
 - [Root PDF extraction audit](ROOT_PDF_EXTRACTION_AUDIT_2026-11-14.md) (supplementary technical audit)
 - [Link and relocation audit](LINK_AND_RELOCATION_AUDIT_2026-11-14.md) (supplementary technical audit)
+
+- [B.16 high-energy propagation and GR review](FORTY_SECOND_REVIEW_B16_HIGH_ENERGY_PROPAGATION_2026-11-15.md)
 
 The 462-row register covers Markdown/text documents. Root-level TeX, BibTeX, bibliography styles and binary PDFs are additionally covered by the [root-file audit report](ROOT_FILE_AUDIT_REPORT_2026-11-14.md); workflow YAML files are covered by the separate workflow register.
 
