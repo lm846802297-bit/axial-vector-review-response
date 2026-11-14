@@ -4,7 +4,9 @@
 
 ## Repository-management update (2026-11-14)
 
-- Two Belle II raw supplement text tables and their historical audit were individually checked: 2317×15 and 2384×27 finite rows, hashes and three exact duplicate tau rows agree. The four-muon 2317-versus-2315 source discrepancy remains open; no detector-level recast was performed. Baseline register: 166 reviewed, 296 pending; see `docs/repository-management/TWENTY_THIRD_REVIEW_BELLE_SUPPLEMENTS_2026-11-15.md`.
+- Four Belle II classification, validation and detector-input notes were reviewed. The 2026-11-05 lifetime count is now explicitly marked as an earlier width-complete classification; later bounded-width counts use different assumptions. No detector-level likelihood or efficiency was computed. Baseline register: 170 reviewed, 292 pending; see `docs/repository-management/TWENTY_FOURTH_REVIEW_BELLE_METHOD_2026-11-15.md`.
+
+- Two Belle II raw supplement text tables and their historical audit were individually checked: 2317×15 and 2384×27 finite rows, hashes and three exact duplicate tau rows agree. The four-muon 2317-versus-2315 source discrepancy remains open; no detector-level recast was performed. At that checkpoint: 166 reviewed, 296 pending; see `docs/repository-management/TWENTY_THIRD_REVIEW_BELLE_SUPPLEMENTS_2026-11-15.md`.
 
 - Six Belle II scan test-log/environment records were individually reviewed; the original 69-test module set reran successfully in the current Python environment, without rerunning the scan. At that checkpoint: 163 reviewed, 299 pending; see `docs/repository-management/TWENTY_SECOND_REVIEW_BELLE_SCAN_LOGS_2026-11-15.md`.
 
