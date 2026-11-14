@@ -1,9 +1,17 @@
-# Main research index — 2026-11-13
+# Main research index — 2026-11-14
 
-**Snapshot:** `main` at `ca998e3c2845579e5183158d6328a557b3fd2ed4`  
+**Snapshot:** `main` at `d2f4037cc965eb2f4184f695dc81a95e1b8283c9`  
 **Purpose:** identify the canonical location, integration history, and scientific acceptance boundary for each active referee-response and stellar-cooling workstream.
 
 This index is a navigation and status document. The source files, calculation outputs, validation records, and provenance manifests in the listed directories remain authoritative.
+
+
+## 0. Current merge/status correction (2026-11-14)
+
+PR #106 (B.2 energy/GR/polarization audit) and PR #113 (P1-B Global-02–05 B.13/B.2 audit archive) are both merged into `main` by squash commits. There are currently no open PRs. The corresponding research branches are historical source branches, not active PRs.
+
+The merged records add code/regression coverage and reproducible numerical diagnostics only. They do **not** close the 10 MeV Fig. 7 physical acceptance gate, do not constitute a full 1687-radius low-x/high-order transport validation, and do not update the SN1987A or axial-vector exclusion curve. The current low-x result is a 16-radius, five-energy, low-order screen; complete full-band B.1/B.2 remains blocked.
+
 
 ## 1. Workstream index
 
