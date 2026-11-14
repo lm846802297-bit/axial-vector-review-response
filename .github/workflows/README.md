@@ -1,6 +1,6 @@
 # GitHub Actions workflow catalog
 
-Inventory generated from `maintenance/repository-organization-audit-20261114` on 2026-11-14. The 109 YAML files are listed below by provisional topic. This index is not a claim that all workflows are active or that their historical runs passed.
+Inventory generated from `maintenance/repository-organization-audit-20261114` on 2026-11-14. The 109 YAML files are listed below by provisional topic. This index is not a claim that all workflows are active or that their historical runs passed. The first 25 workflows have received individual static YAML review; remaining entries are still pending.
 
 ## Topic groups
 
