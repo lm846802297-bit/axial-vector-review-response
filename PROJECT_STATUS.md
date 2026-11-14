@@ -4,7 +4,9 @@
 
 ## Repository-management update (2026-11-14)
 
-- Five profile-provenance/B.2 interpolation notes were reviewed. The exact 731-row Caputo archived vertex payload is also available uncompressed; the transformed CSV requires the original external source PDF/tarball. The published Fig. 1 normalization `n_0=0.181 fm^-3` was verified. No new source-PDF extraction or transport run was performed. Baseline register: 157 reviewed, 305 pending; see `docs/repository-management/TWENTY_FIRST_REVIEW_PROFILE_PROVENANCE_2026-11-15.md`.
+- Six Belle II scan test-log/environment records were individually reviewed; the original 69-test module set reran successfully in the current Python environment, without rerunning the scan. Baseline register: 163 reviewed, 299 pending; see `docs/repository-management/TWENTY_SECOND_REVIEW_BELLE_SCAN_LOGS_2026-11-15.md`.
+
+- Five profile-provenance/B.2 interpolation notes were reviewed. The exact 731-row Caputo archived vertex payload is also available uncompressed; the transformed CSV requires the original external source PDF/tarball. The published Fig. 1 normalization `n_0=0.181 fm^-3` was verified. No new source-PDF extraction or transport run was performed. At that checkpoint: 157 reviewed, 305 pending; see `docs/repository-management/TWENTY_FIRST_REVIEW_PROFILE_PROVENANCE_2026-11-15.md`.
 
 - Six B.16 chemical-potential/temperature sensitivity notes were individually checked against stored scenario JSON. One note had literal newline escapes repaired; original values and controlled-stress-test scope remain unchanged. No transport integration was rerun. At that checkpoint: 152 reviewed, 310 pending; see `docs/repository-management/TWENTIETH_REVIEW_B16_SENSITIVITY_2026-11-15.md`.
 
