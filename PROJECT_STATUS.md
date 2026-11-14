@@ -312,7 +312,7 @@ PR #64 在独立审查基础上精简 Major 1.3、2、3、4.2–4.4 和 Minor 5�
 
 **合并状态：** PR #55 已合并至 main。其 59 页正式回复信 PDF 和视觉验收记录保留在本节；后续 Major 4.4 的轴矢量 EFT 冷却计算由独立 PR #56 处理。
 
-## 2026-11-06 更新：PR #56 Major 4.4 轴矢量 EFT 恒星冷却 benchmark（Draft）
+## 2026-11-06 历史快照：PR #56 Major 4.4 轴矢量 EFT 恒星冷却 benchmark（当时 Open / Draft，2026-11-12 合并）
 
 [PR #56](https://github.com/lm846802297-bit/axial-vector-review-response/pull/56) 保持 Open / Draft，分支为 `codex/major44-axial-cooling-constraints-20261105`；**尚未合并**。
 
