@@ -77,3 +77,16 @@ The \(22\text{--}25\) km temperature reconstruction cannot plausibly explain the
 The printed Eq. (B.2) remains the fixed-\(\omega\) baseline. The path-redshift branch is a separate alternative sensitivity, not an ambiguity in the displayed equation and not a full-GR ray trace. The remaining physical-input limitation is the absence of the original same-snapshot Garching thermodynamic profile.
 
 No temperature profile is changed, no opacity or luminosity is rescaled, and no axial-vector result is updated.
+
+## 8. Strict NumPy reproduction (2026-11-15)
+
+A matching NumPy implementation has now been executed for the exact frozen-source, energy-resolved transport sensitivity described above. The output is archived at [b16_high_energy_outer_temperature_sensitivity_10mev_2026-11-15_numpy.json](outputs/b16_high_energy_outer_temperature_sensitivity_10mev_2026-11-15_numpy.json).
+
+- Output SHA-1 (Git blob): \`3ac5533202ca10d69f6c4972d60016575327405e\`.
+- Script SHA-256: \`d18de99fd57e7d894d0861d68b362d3d40b4c6afd17b1329f6be486f36fc918e\`.
+- Run commit: \`9d7665560d61479b2cda653b2dd842a4340b14d6\`.
+- Execution and five V8-comparison tests: [GitHub Actions #43648694518](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43648694518).
+
+The calculation uses the full 842-node B.1 energy quadrature to preserve the source weights, then retains the ten \(210\text{--}510\) MeV nodes for the opacity and escape calculation. The source is held fixed in all seven temperature scenarios; only the B.2 opacity profile is changed. The principal escape-probability and escaped-luminosity observables agree with V8 to better than \(2.5\times10^{-7}\) relative across the seven scenarios. The absolute differences in the small fractional-change observables are below \(2.5\times10^{-7}\).
+
+This supersedes the earlier statement in Section 6 that no matching Python implementation or output existed. The strict reproduction confirms the original conclusion: even a \(\pm30\%\) stress of \(T(22\text{--}25\,\mathrm{km})\) changes the dominant high-energy escaped luminosity by only about \(\mp0.386\%\). It does not explain the \(+92.4\%\) fixed-\(\omega\) strong-endpoint discrepancy. The test is a transport-only sensitivity, not a self-consistent new stellar profile or a statistical uncertainty interval.
