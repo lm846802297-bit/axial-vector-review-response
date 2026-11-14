@@ -4,7 +4,9 @@
 
 ## Repository-management update (2026-11-14)
 
-- Ten pole/scalar/RGE output summaries were individually reviewed. Seven associated scripts exited zero, but the exact-momentum pole driver emitted an integration-roundoff warning requiring convergence follow-up. The archived values are preserved and the issue is marked revision-required. Baseline register: 189 reviewed, 273 pending; see `docs/repository-management/TWENTY_NINTH_REVIEW_POLE_AND_RGE_OUTPUTS_2026-11-15.md`.
+- Four pole/cascade/width notes were reviewed. Exact-momentum pole and derived CMS-cascade notes now carry the observed integration-roundoff warning and remain revision-required pending convergence checks. Baseline register: 193 reviewed, 269 pending; see `docs/repository-management/THIRTIETH_REVIEW_POLE_RESEARCH_NOTES_2026-11-15.md`.
+
+- Ten pole/scalar/RGE output summaries were individually reviewed. Seven associated scripts exited zero, but the exact-momentum pole driver emitted an integration-roundoff warning requiring convergence follow-up. The archived values are preserved and the issue is marked revision-required. At that checkpoint: 189 reviewed, 273 pending; see `docs/repository-management/TWENTY_NINTH_REVIEW_POLE_AND_RGE_OUTPUTS_2026-11-15.md`.
 
 - The Belle II benchmark-mapping note was reviewed and its seven two-lepton threshold fractions recomputed. A dated-status note links the later conditional recast. At that checkpoint: 179 reviewed, 283 pending; see `docs/repository-management/TWENTY_EIGHTH_REVIEW_BELLE_MAPPING_2026-11-15.md`.
 

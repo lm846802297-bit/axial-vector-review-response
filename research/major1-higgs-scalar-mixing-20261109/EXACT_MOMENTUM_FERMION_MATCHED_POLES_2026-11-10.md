@@ -1,5 +1,7 @@
 # Major Point 1 — exact-momentum fermion hard matching in the complex-pole diagnostic
 
+> Numerical review (2026-11-15): a current rerun of the exact-momentum pole driver emitted a SciPy integration roundoff warning. The quoted pole-based quantities need integral convergence/error verification before their displayed precision is relied on; see [the audit](../../docs/repository-management/TWENTY_NINTH_REVIEW_POLE_AND_RGE_OUTPUTS_2026-11-15.md).
+
 **Purpose:** replace the leading-derivative hard approximation in Plan-C-lite by the exact momentum-dependent one-loop fermion-sector hard remainder, while retaining the same explicit limitations on diagonal widths and missing sectors.
 
 For each charged-lepton family, the exact \(2\times2\) mass matrix is diagonalized by an SVD. The full \(hh,hs,ss\) fermion-loop kernels use all four internal mass-eigenstate pairings. For the off-diagonal entry define the finite momentum-dependent hard remainder
