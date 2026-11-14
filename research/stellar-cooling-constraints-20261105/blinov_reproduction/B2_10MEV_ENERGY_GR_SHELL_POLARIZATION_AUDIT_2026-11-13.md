@@ -230,3 +230,18 @@ At r=15 km and omega=510 MeV (x=38.54), the direct local B.13 Compton-to-neutrin
 **Not claimed:** full-band Fig. 7 reproduction; exhaustive high-order B.13 quadrature at every profile-energy node; GR-redshifted path-energy calculation; updated SN1987A limit; or an updated axial-vector exclusion curve.
 
 Machine-readable summary and report are under `blinov_reproduction/results/P1B_B2_EXACT_B13_2026-11-14/`. Reproducibility archive: `P1B_B2_EXACT_B13_HIGH_ENERGY_2026-11-14.zip`, SHA-256 `e33c71f7d58c85f8e64f7a4c9066588f749cda60e63c74bd1dacedc1c244e2f5`.
+
+
+## 9. Full-band low-x interpolation prerequisite
+
+The 210–510 MeV B.2 result lies within the Global-03 local-kernel interpolation support. The full B.2 energy grid does not: the relevant minimum path-local coordinate is
+
+\[
+x_{\min}=\frac{m_{A'}/N_{\max}-m_{A'}}{T_{\max}}=0.0221811,
+\]
+
+whereas the current Global-03 table begins at x=0.5. Therefore the 210–510 MeV result must not be promoted to a full-band Fig. 7 result.
+
+A partial local pilot tested x={0.01, 0.025, 0.05, 0.1, 0.25, 0.5} at r=8.482141 km and x=0.01 at r=12.5 km. All seven completed points pass 0.1% successive-order convergence, with maximum final change 0.03292%, detailed-balance residual below 6.2e-16 and final-muon shell residual below 1.63e-13. The 24-point pilot was not completed; this is not a global low-x interpolation validation.
+
+**Next required calculation:** construct and validate the low-x extension beginning at x=0.01 over the radial profile, then merge it with the x>=0.5 Global-03 table. Only after that should the full-band exact-B.13 B.1/B.2 transport be attempted.
