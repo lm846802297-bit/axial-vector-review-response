@@ -184,8 +184,8 @@
     "low_x_extension_required_before_full_band": true
   },
   "archive": {
-    "filename": "P1B_B2_EXACT_B13_HIGH_ENERGY_2026-11-14.zip",
-    "sha256": "e33c71f7d58c85f8e64f7a4c9066588f749cda60e63c74bd1dacedc1c244e2f5"
+    "filename": "P1B_B2_EXACT_B13_HIGH_ENERGY_AND_LOW_X_PILOT_2026-11-14.zip",
+    "sha256": "afeb8a909cd973835066bda34a06da0de94bf8290135b6a7be278d454562b0b0"
   },
   "scope": "Exact-B.13 local polarization audit plus 210–510 MeV fixed-omega B.1/B.2 transport comparison; not a full-band Fig. 7 result.",
   "low_x_extension": {
