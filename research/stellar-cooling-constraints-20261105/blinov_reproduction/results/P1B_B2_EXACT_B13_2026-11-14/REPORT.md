@@ -53,3 +53,16 @@ This is not a full-band Fig. 7 reproduction. The path result uses the low-order 
 Extend exact-B.13 source and mode-resolved reduced absorption to the full energy range, preserve the literal B.16 scalar lane as regression baseline, and separately test fixed-omega versus GR-redshifted path energy. Only after the full-band vector baseline is reconciled should the axial calculation or exclusion curve be updated.
 
 Reproducibility archive: `P1B_B2_EXACT_B13_HIGH_ENERGY_2026-11-14.zip`, SHA-256 `e33c71f7d58c85f8e64f7a4c9066588f749cda60e63c74bd1dacedc1c244e2f5`.
+
+
+## 7. Full-band low-x support gate
+
+The full B.2 energy grid reaches a relevant minimum local coordinate
+\[
+x_{\min}=\frac{m_{A'}/N_{\max}-m_{A'}}{T_{\max}}=0.0221811,
+\]
+when a photon emitted near the outer lapse threshold traverses the hottest shell. The existing Global-03 interpolation table starts at x = 0.5, so it cannot yet support a full-band B.2 calculation.
+
+A local high-order pilot covered x = {0.01, 0.025, 0.05, 0.1, 0.25, 0.5} at r = 8.482141 km, plus x = 0.01 at r = 12.5 km. All seven completed points pass the 0.1% successive-order criterion; the maximum final change is 0.03292%, detailed-balance residuals are below 6.2e-16, and final-muon shell residuals below 1.63e-13. The pilot was planned for 24 points but timed out after seven, so it is not a global low-x interpolation scan.
+
+**Next prerequisite for full-band transport:** construct and validate a low-x extension starting at x = 0.01 across the radial profile, then merge it with the existing x >= 0.5 table. Until that is done, the 210–510 MeV band result is the only exact-B.13 global transport band claimed here.
