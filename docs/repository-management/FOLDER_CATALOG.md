@@ -4,8 +4,8 @@ Updated from the Git tree on 2026-11-14 for branch `maintenance/repository-organ
 
 ## Repository footprint
 
-- **1,529 Git tree entries** (files and directories).
-- **469 Markdown/text documents** in the current organization branch; the baseline register initially enumerated 462 documents before review reports and new indexes were added.
+- **1,530 Git tree entries** (files and directories).
+- **471 Markdown/text documents** in the current organization branch; the baseline register initially enumerated 462 documents before review reports and new indexes were added.
 - **408 source-code files** with Python/Mathematica/FORM-like extensions counted by the inventory.
 - **261 JSON files**.
 - **109 GitHub Actions workflow YAML files**.
@@ -15,7 +15,7 @@ Updated from the Git tree on 2026-11-14 for branch `maintenance/repository-organ
 | `.github/` | 114 | 109 Actions workflows plus templates and metadata | Workflow catalog/register under `.github/workflows/`; inspect callers and run history before deprecation. |
 | `archive/` | 19 | Frozen source snapshots and historical response-letter packages | Immutable; add new dated snapshots instead of editing old ones. |
 | `deliverables/` | 21 | Extracted handoff packages and instructions | Keep file-level hashes, extraction provenance and import instructions. Do not store generated ZIP/Base64 bundles. |
-| `docs/` | 8 | Repository management, review standards and audit records | Keep navigation and governance documentation here. |
+| `docs/` | 9 | Repository management, review standards and audit records | Keep navigation and governance documentation here. |
 | `overleaf-source/` | 27 | Pinned manuscript source snapshots | Treat as versioned source archives; confirm active Overleaf source before editing. |
 | `research/` | 1,035 | Scientific workstreams, inputs, scripts, tests, outputs and evidence | Use one directory per physical model/workstream; preserve original one-VEV vs two-VEV separation. |
 | `work/` | 16 | Intermediate and temporary research material | Not authoritative until promoted and reviewed. |
