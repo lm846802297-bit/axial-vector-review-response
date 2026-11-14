@@ -8,7 +8,7 @@
 
 - [仓库结构与文件管理说明](docs/repository-management/README.md)：目录职责、迁移原则和导航。
 - [逐文档审查标准](docs/repository-management/DOCUMENT_REVIEW_STANDARD.md) 与 [文档审查登记表](docs/repository-management/DOCUMENT_AUDIT_REGISTER.csv)：逐份记录审查状态；未审查文件不会标记为通过。
-- [GitHub Actions 工作流索引](.github/workflows/README.md) 与 [工作流审查登记表](.github/workflows/WORKFLOW_AUDIT_REGISTER.csv)：109 个工作流按物理专题分类，并逐份记录触发条件、权限和输出行为。
+- [GitHub Actions 工作流索引](.github/workflows/README.md) 与 [工作流审查登记表](.github/workflows/WORKFLOW_AUDIT_REGISTER.csv)：109 个工作流按物理专题分类，并逐份记录触发条件、权限和输出行为；目前 34 个完成静态审查，16 个标记为历史候选，59 个待审查。
 
 - [Git 合并策略与科研提交历史规范](GIT_MERGE_POLICY.md)：实质性科研 PR 默认采用 Merge Commit。
 
