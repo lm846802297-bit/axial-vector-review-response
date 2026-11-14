@@ -1,0 +1,61 @@
+{
+  "run": "P1B-E1-TARGETED-HIGH-ORDER-SUMMARY",
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "energy_worst_node": {
+    "radius_km": 14.7423493862152,
+    "temperature_MeV": 14.3139925684565,
+    "worst_x": 0.78125,
+    "final_orders": [
+      20,
+      12,
+      12,
+      12
+    ],
+    "maximum_successive_order_change": 0.0007468500270146189,
+    "quadrature_pass_1e3": true,
+    "high_order_PCHIP_error": 0.007362462115604602,
+    "interpolation_pass_1pct": true,
+    "worst_channel": {
+      "charge": "mu_minus",
+      "mode": "L"
+    }
+  },
+  "radial_midpoint_worst_intervals": {
+    "1024": {
+      "r_left_km": 15.5,
+      "r_mid_km": 15.525,
+      "r_right_km": 15.55,
+      "maximum_radial_midpoint_interpolation_error": 0.0008285117974665456,
+      "all_nodes_quadrature_pass": true,
+      "maximum_node_final_successive_order_change": 0.000004764730243380236
+    },
+    "1479": {
+      "r_left_km": 22.1,
+      "r_mid_km": 22.11755213605035,
+      "r_right_km": 22.1351042721007,
+      "maximum_radial_midpoint_interpolation_error": 0.00012812551964725894,
+      "all_nodes_quadrature_pass": true,
+      "maximum_node_final_successive_order_change": 3.568566907974786e-7
+    },
+    "1487": {
+      "r_left_km": 22.1918936570485,
+      "r_mid_km": 22.1918941570485,
+      "r_right_km": 22.1918946570485,
+      "maximum_radial_midpoint_interpolation_error": 3.0782766622658287e-9,
+      "all_nodes_quadrature_pass": true,
+      "maximum_node_final_successive_order_change": 3.3584620057672076e-7,
+      "maximum_detailed_balance_residual": 1.5896718149475273e-15,
+      "maximum_final_muon_mass_shell_residual": 3.584635419442434e-15
+    }
+  },
+  "support_edge_interval_1487": {
+    "r_left_km": 22.1918936570485,
+    "r_mid_km": 22.1918941570485,
+    "r_right_km": 22.1918946570485,
+    "high_order_midpoint_interpolation_error": 3.0782766622658287e-9,
+    "maximum_successive_order_change": 3.3584620057672076e-7,
+    "high_order_recheck": true
+  },
+  "scope": "Selected worst energy and radial-midpoint points only; not a full high-order scan.",
+  "all_three_selected_radial_midpoint_intervals_high_order_pass": true
+}

@@ -1,0 +1,92 @@
+{
+  "run": "P1B-E1-PEAK-SHELL-ENERGY-BISECTION-VERIFIED",
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "radius_km": 8.4821412022467,
+  "temperature_MeV": 39.2496793414134,
+  "interpolation_knots_x": [
+    0.5,
+    1.125,
+    2,
+    3.7320508075688767,
+    6,
+    11.19615242270663,
+    18,
+    26.227922061357848,
+    36
+  ],
+  "direct_validation_midpoints_x": [
+    0.7812500000000001,
+    1.53125,
+    2.7990381056766576,
+    4.799038105676657,
+    8.397114317029972,
+    14.397114317029972,
+    21.920941546018383,
+    30.920941546018387
+  ],
+  "pchip_midpoint_errors": [
+    {
+      "x": 0.78125,
+      "error": 0.002913332305093158,
+      "charge": "mu_minus",
+      "mode": "L"
+    },
+    {
+      "x": 1.53125,
+      "error": 0.0007903692400607604,
+      "charge": "mu_minus",
+      "mode": "+"
+    },
+    {
+      "x": 2.7990381056766576,
+      "error": 0.004042387408007709,
+      "charge": "mu_minus",
+      "mode": "L"
+    },
+    {
+      "x": 4.799038105676657,
+      "error": 0.003513259513233561,
+      "charge": "mu_minus",
+      "mode": "L"
+    },
+    {
+      "x": 8.397114317029972,
+      "error": 0.004310539250293691,
+      "charge": "mu_plus",
+      "mode": "L"
+    },
+    {
+      "x": 14.397114317029972,
+      "error": 0.000577323525848277,
+      "charge": "mu_plus",
+      "mode": "L"
+    },
+    {
+      "x": 21.920941546018383,
+      "error": 0.0007136615400222348,
+      "charge": "mu_plus",
+      "mode": "L"
+    },
+    {
+      "x": 30.920941546018387,
+      "error": 0.002003934027049414,
+      "charge": "mu_plus",
+      "mode": "L"
+    }
+  ],
+  "maximum_PCHIP_interpolation_error": 0.004310539250293691,
+  "interpolation_tolerance": 0.01,
+  "interpolation_pass": true,
+  "maximum_final_successive_quadrature_change": 0.0008841334445754876,
+  "quadrature_tolerance": 0.001,
+  "quadrature_pass": true,
+  "quadrature_escalation": {
+    "ordinary_sampled_points": "(24,14,14,14) -> (28,16,16,16)",
+    "x_26_227922": "(24,14,14,14) -> (28,16,16,16) -> (32,18,18,18) -> (36,20,20,20)",
+    "x_30_920942": "(24,14,14,14) -> (28,16,16,16) -> (32,18,18,18) -> (36,20,20,20)",
+    "x_36": "(24,14,14,14) -> (28,16,16,16) -> (32,18,18,18) -> (36,20,20,20)"
+  },
+  "max_detailed_balance_residual": 1.4466479724570762e-15,
+  "max_final_muon_mass_shell_residual": 4.63069721002518e-13,
+  "scope": "Peak-temperature shell only; not full radial-domain acceptance or full-star transport."
+}

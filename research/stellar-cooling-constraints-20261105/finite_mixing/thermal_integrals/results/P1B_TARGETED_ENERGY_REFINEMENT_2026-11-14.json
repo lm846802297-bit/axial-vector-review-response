@@ -1,0 +1,17 @@
+{
+  "run": "P1B-TARGETED-ENERGY-REFINEMENT-2026-11-14",
+  "status": "PRELIMINARY_TWO_CELL_PILOT_SUPERSEDED_BY_P1B_E1_ENERGY_REFINEMENT_ANCHOR_SUMMARY_2026-11-14.json",
+  "scope": "Two directly evaluated energy-cell midpoints at the peak-temperature shell; retained as an immutable historical pilot, not global P1-B acceptance.",
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "mass_MeV": 10.0,
+  "couplings": {"gV_over_gX": 1.0, "gA_over_gX": 0.0},
+  "orders": [[16,10,10,10],[20,12,12,12],[24,14,14,14]],
+  "radius_km": 8.4821412022467,
+  "temperature_MeV": 39.2496793414134,
+  "results": [
+    {"x_interval":[0.5,2.0],"x_mid":1.1250000000000002,"omega_mid_MeV":54.15588925909008,"max_log_interpolation_error":0.14178415812982306,"worst_charge":"mu_minus","worst_mode":"L","order24_vs20_max_relative_change":0.0002958363363704478,"final_muon_shell_residual":1.626120976637977e-13},
+    {"x_interval":[2.0,6.0],"x_mid":3.7320508075688767,"omega_mid_MeV":156.48179748294132,"max_log_interpolation_error":0.15147548482781395,"worst_charge":"mu_plus","worst_mode":"L","order24_vs20_max_relative_change":0.00024555700323541127,"final_muon_shell_residual":1.626120976637977e-13}
+  ],
+  "interpretation": "The original five-knot energy grid has 14.18% and 15.15% log-linear midpoint discrepancies in the first two intervals. The 20-to-24 order changes independently reproduced here are 0.02958% and 0.02456%. The expanded one-bisection PCHIP anchor audit is recorded in the superseding summary.",
+  "acceptance": "This two-cell pilot is not an acceptance result. No full-star emissivity or optical-depth calculation is included."
+}

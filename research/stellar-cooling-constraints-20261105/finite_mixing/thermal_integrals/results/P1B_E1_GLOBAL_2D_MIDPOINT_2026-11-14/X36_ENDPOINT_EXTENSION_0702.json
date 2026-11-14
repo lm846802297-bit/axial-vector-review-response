@@ -1,0 +1,48 @@
+{
+  "run": "P1B-E1-GLOBAL-03-X36-HIGH-ORDER-EXTENSION",
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "interval_index": 702,
+  "energy_coordinate_x": 36,
+  "order_ladder": [
+    [
+      32,
+      18,
+      18,
+      18
+    ],
+    [
+      36,
+      20,
+      20,
+      20
+    ]
+  ],
+  "endpoints": [
+    {
+      "radial_index": 702,
+      "radius_km": 8.4783373082451,
+      "temperature_MeV": 39.248665835135,
+      "omega_local_MeV": 1422.95197006486,
+      "maximum_successive_order_change": 0.0008106325403963815,
+      "pass_0p1pct": true,
+      "detailed_balance_residual": 8.618857863911864e-16,
+      "final_muon_mass_shell_residual": 5.380211888635872e-13
+    },
+    {
+      "radial_index": 703,
+      "radius_km": 8.4821412022467,
+      "temperature_MeV": 39.2496793414134,
+      "omega_local_MeV": 1422.9884562908824,
+      "maximum_successive_order_change": 0.0008107965177309563,
+      "pass_0p1pct": true,
+      "detailed_balance_residual": 3.8504930139843915e-15,
+      "final_muon_mass_shell_residual": 5.380211888635872e-13
+    }
+  ],
+  "both_endpoints_pass_0p1pct": true,
+  "caveat": "The PCHIP cell-center comparison has now been recomputed using all nine high-order energy knots at both endpoints, including the order-(36,20,20,20) x=36 extension.",
+  "pchip_cell_center_recheck_after_extension": "INTERVAL_0702_HIGH_ORDER_PCHIP_RECHECK.json",
+  "pchip_cell_center_recomputed": true,
+  "pchip_interpolation_error_after_extension": 0.004189210717559335,
+  "bilinear_interpolation_error_after_extension": 0.05391076899468916
+}
