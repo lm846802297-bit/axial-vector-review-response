@@ -66,3 +66,12 @@ when a photon emitted near the outer lapse threshold traverses the hottest shell
 A local high-order pilot covered x = {0.01, 0.025, 0.05, 0.1, 0.25, 0.5} at r = 8.482141 km, plus x = 0.01 at r = 12.5 km. All seven completed points pass the 0.1% successive-order criterion; the maximum final change is 0.03292%, detailed-balance residuals are below 6.2e-16, and final-muon shell residuals below 1.63e-13. The pilot was planned for 24 points but timed out after seven, so it is not a global low-x interpolation scan.
 
 **Next prerequisite for full-band transport:** construct and validate a low-x extension starting at x = 0.01 across the radial profile, then merge it with the existing x >= 0.5 table. Until that is done, the 210–510 MeV band result is the only exact-B.13 global transport band claimed here.
+
+## 8. Independent physics-content review (2026-11-15)
+
+The local collision-kernel interpretation is consistent with the published Blinov et al. Appendix B ([JHEP 06 (2026) 155](https://doi.org/10.1007/JHEP06(2026)155)): B.13 is the full recoil-resolved \(\mu\gamma\leftrightarrow\mu V\) phase-space integral, whereas B.14–B.16 are the non-relativistic-muon/negligible-recoil approximation. The latter is not parametrically controlled for the reconstructed SFHo-18.8 profile, where the susceptibility-weighted muon speeds are relativistic enough that the exact moving-muon kernel is required for a physical comparison.
+
+The near equality (0.22%) between equal-occupation average-opacity and independent-mode luminosities is specific to this 210–510 MeV band, this 10 MeV pure-vector benchmark, and this reconstructed profile. It does not prove a general equivalence of the closures. The much larger difference from the literal scalar-sum opacity is a consequence of the different attenuation prescriptions and exponentiation; it is not a factor-of-three source correction.
+
+The full-band claim remains explicitly blocked. The interpolation table does not cover the full low-\(x\) region required by B.2, and the completed low-\(x\) calculation is only a seven-point pilot. The \(x>36\) tail is also not integrated as an independent global truncation bound. Thus this report is accepted only as a local-kernel plus restricted-band transport diagnostic, not as a full Fig. 7 reproduction, a final vector benchmark, or an axial-vector exclusion.
+
