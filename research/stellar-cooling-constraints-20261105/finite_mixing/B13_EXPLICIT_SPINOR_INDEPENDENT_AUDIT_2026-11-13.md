@@ -76,7 +76,7 @@ The independent explicit-spinor calculation was run locally with NumPy 2.3.5 / P
 | Physical vs Ward-shifted vector longitudinal amplitude | \(3.5415\times10^{-14}\) maximum relative residual | PASS |
 | Minimum explicit \(|\mathcal M_h|^2\) | \(7.0507\times10^{-3}\) | nonnegative |
 
-All 90 mode-resolved explicit matrix elements are nonnegative.
+All 90 mode-resolved reference matrix elements (including the charge-conjugation-mapped μ⁺ cases) are nonnegative.
 
 As a negative control on the Ward shift, applying the same \(q^\mu/m_{A'}\) subtraction to the axial longitudinal current is not valid: the sampled axial amplitude changes by an order-one amount. The implementation must therefore continue to use the physical longitudinal polarization for the axial current.
 
@@ -89,7 +89,7 @@ This is a stronger check than comparing two quadrature implementations that shar
 3. the sum over the two physical photon polarizations;
 4. the three physical mediator-polarization projections;
 5. the vector-current longitudinal Ward shift;
-6. the charge-conjugate sign of the mixed vector--axial term.
+6. consistency of the assumed charge-conjugation sign map for the mixed vector--axial term; an explicit (v)-spinor derivation remains outstanding.
 
 It is a pointwise matrix-element audit. It does **not** by itself certify the thermal phase-space integral, a uniform radial/energy quadrature error bound, or the global mode-resolved supernova transport.
 
