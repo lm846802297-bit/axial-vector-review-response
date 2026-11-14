@@ -94,7 +94,7 @@ At \(m_{A'}=10\,\mathrm{MeV}<2m_\mu\), dimuon production is kinematically closed
 |---|---:|---:|
 | Optically-thin source fraction | 67.93% | 32.07% |
 | Escaping-luminosity fraction | 54.11% | 45.89% |
-| Escaping luminosity | \(1.3201\times10^{52}\\) erg/s | \(1.1195\times10^{52}\\) erg/s |
+| Escaping luminosity | \(1.3201\times10^{52}\,\mathrm{erg\,s^{-1}}\) | \(1.1195\times10^{52}\,\mathrm{erg\,s^{-1}}\) |
 
 The escaping spectrum is strongly channel-selected. In the \(210\text{--}510\,\mathrm{MeV}\) bin:
 
