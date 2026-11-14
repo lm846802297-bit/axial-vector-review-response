@@ -33,11 +33,27 @@ class TestGRRayTransport(unittest.TestCase):
         rs,r2=10.,25.; E=metric.N(rs)*100.
         self.assertAlmostEqual(metric.local_energy(E,rs),100.,places=12)
         self.assertLess(metric.local_energy(E,r2),100.)
-    def test_bound_energy_not_escaping(self):
+    def test_bound_energy_turns_before_outer_boundary(self):
+        # E_infinity < m, and the increasing lapse makes E_local fall below m
+        # before r_max. The outward ray therefore has a genuine turning point.
+        lapse=.8+.2*self.r/self.r.max()
+        metric=StaticSphericalMetric(self.r,lapse,np.ones_like(self.r))
+        out=propagate_ray(metric,mass_MeV=10,source_radius_km=10,source_local_energy_MeV=11,
+            source_mu=1,gamma_abs_star=self.gamma,r_max_km=25)
+        self.assertFalse(out.escapes_to_rmax)
+        self.assertIsNotNone(out.turning_radius_km)
+        self.assertTrue(np.isinf(out.optical_depth))
+
+    def test_bound_energy_can_still_reach_finite_outer_boundary(self):
+        # The lapse is constant and below one, so E_infinity < m does not
+        # prevent the ray from reaching this finite r_max.
         metric=StaticSphericalMetric(self.r,.8*np.ones_like(self.r),np.ones_like(self.r))
         out=propagate_ray(metric,mass_MeV=10,source_radius_km=10,source_local_energy_MeV=11,
             source_mu=1,gamma_abs_star=self.gamma,r_max_km=25)
-        self.assertFalse(out.escapes_to_rmax); self.assertTrue(np.isinf(out.optical_depth))
+        self.assertTrue(out.escapes_to_rmax)
+        self.assertLess(out.E_inf_MeV,10.0)
+        self.assertTrue(np.isfinite(out.optical_depth))
+        self.assertIn("bound relative to infinity",out.reason)
     def test_schwarzschild_toy_radial_path(self):
         r=np.linspace(3.1,30,539); M=1.5; N=np.sqrt(1-2*M/r); B=1/N
         metric=StaticSphericalMetric(r,N,B)
