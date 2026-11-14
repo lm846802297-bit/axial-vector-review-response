@@ -6,6 +6,9 @@
 
 ## 快速入口
 
+- [仓库结构与文件管理说明](docs/repository-management/README.md)：目录职责、迁移原则和导航。
+- [逐文档审查标准](docs/repository-management/DOCUMENT_REVIEW_STANDARD.md) 与 [文档审查登记表](docs/repository-management/DOCUMENT_AUDIT_REGISTER.csv)：逐份记录审查状态；未审查文件不会标记为通过。
+
 - [Git 合并策略与科研提交历史规范](GIT_MERGE_POLICY.md)：实质性科研 PR 默认采用 Merge Commit。
 
 - [项目入口与阅读说明](README-先读这里.md)
