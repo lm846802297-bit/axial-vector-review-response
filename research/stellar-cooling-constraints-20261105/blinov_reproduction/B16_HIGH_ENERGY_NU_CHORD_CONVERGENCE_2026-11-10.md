@@ -8,7 +8,7 @@ Profile SHA-256: \`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c0
 
 ## 1. Scope
 
-The preceding energy-resolved decomposition identifies neutrino inverse decay as the larger opacity contribution in the dominant \(210\text{--}510\) MeV escape bin. The local Eq. (B.25) Fermi-pair angular average has also been checked independently against direct angular integration to machine precision.
+The preceding energy-resolved decomposition identifies neutrino inverse decay as the larger opacity contribution in the dominant \(210\text{--}510\) MeV escape bin. The local Eq. (B.9) Fermi-pair angular average has also been checked independently against direct angular integration to machine precision.
 
 This follow-up isolates the remaining numerical part of the neutrino B.2 kernel: the chord integral itself. It uses the printed fixed-\(\omega\) convention and evaluates 36 rays:
 
@@ -85,3 +85,10 @@ The following are now independently checked:
 The \(+92.4\%\) B.16 strong-endpoint difference is therefore not explained by a local neutrino-kernel error or by under-resolved high-energy neutrino chord integration. The redshift-only path variant is material but does not close the discrepancy and must not be silently substituted for the printed baseline.
 
 The next calculation should test the **high-energy B.1 source measure and reconstructed local thermodynamic inputs** separately: first verify the \(\omega\)-integration measure and \(m_V/N(r)\) escape threshold against Eq. (B.1), then quantify the sensitivity of the \(210\text{--}510\) MeV source and escape contribution to the reconstructed \(T(r)\), \(\mu_{\nu_\mu}(r)\), and lapse profiles. Keep the published fixed-\(\omega\) B.2 path prescription as the baseline throughout.
+
+
+## 7. Reproducibility qualification (2026-11-15)
+
+The archived JSON is explicitly a direct V8 JavaScript binary64 calculation. It has no Python script hash. The repository contains `audit_b16_high_energy_nu_chord_convergence.py`, but that script was not executed for this record and has no dedicated test entry or full-run workflow. The new pinned regression workflow tests the analytic path helper and generic GR kernel; it does not run this 36-ray chord scan.
+
+Accordingly, the values in Section 2 remain a valid cross-runtime diagnostic, not a strict NumPy reproduction. The reported refinements are preserved as observed changes; this record does not define a predeclared numerical pass/fail tolerance for the targeted-ray scan. A separate Python JSON, with script hash, environment manifest, and the same ray/grid configuration, is still required before claiming native reproduction.
