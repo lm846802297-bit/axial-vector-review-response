@@ -1,0 +1,80 @@
+name: B16 high-energy kernel pinned NumPy regression
+
+on:
+  push:
+    branches:
+      - maintenance/repository-organization-audit-20261114
+    paths:
+      - '.github/workflows/b16-high-energy-kernel-regression.yml'
+      - 'research/stellar-cooling-constraints-20261105/requirements-b16-audit.txt'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_channel_resolved_energy.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_neutrino_b7_b9_kernel.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_channel_resolved_energy.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_neutrino_inverse_decay.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_path_independent.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_gr_ray_transport.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: b16-high-energy-kernel-regression-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out reviewed revision
+        uses: actions/checkout@v4
+
+      - name: Set up pinned Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.14'
+
+      - name: Install pinned numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r research/stellar-cooling-constraints-20261105/requirements-b16-audit.txt
+
+      - name: Record and verify numerical environment
+        run: |
+          python - <<'PY'
+          import sys
+          import numpy
+          import scipy
+          assert sys.version_info[:3] == (3, 12, 14)
+          assert numpy.__version__ == "2.5.4"
+          assert scipy.__version__ == "1.18.1"
+          print("Python:", sys.version)
+          print("NumPy:", numpy.__version__)
+          print("SciPy:", scipy.__version__)
+          PY
+          python -m pip freeze
+
+      - name: Test channel-resolved Fermi-pair angular average
+        run: |
+          python -m unittest discover \
+            -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
+            -p 'test_b16_channel_resolved_energy.py' -v
+
+      - name: Test independent B.6/B.10/B.4 neutrino kernel
+        run: |
+          python -m unittest discover \
+            -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
+            -p 'test_b16_neutrino_inverse_decay.py' -v
+
+      - name: Test independent analytic B.2 path integration
+        run: |
+          python -m unittest discover \
+            -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
+            -p 'test_b16_path_independent.py' -v
+
+      - name: Test generic static-spherical GR ray kernel
+        run: |
+          python -m unittest discover \
+            -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
+            -p 'test_gr_ray_transport.py' -v
