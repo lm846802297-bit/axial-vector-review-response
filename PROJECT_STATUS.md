@@ -4,7 +4,9 @@
 
 ## Repository-management update (2026-11-14)
 
-- Three B5-2B2/B3/B4 research notes were read and checked against their scoped symbolic scripts and tests; full matching and Ward closure remain open. Baseline register: 146 reviewed, 316 pending. See `docs/repository-management/NINETEENTH_REVIEW_TRIPLET_NOTES_2026-11-15.md`.
+- Six B.16 chemical-potential/temperature sensitivity notes were individually checked against stored scenario JSON. One note had literal newline escapes repaired; original values and controlled-stress-test scope remain unchanged. No transport integration was rerun. Baseline register: 152 reviewed, 310 pending; see `docs/repository-management/TWENTIETH_REVIEW_B16_SENSITIVITY_2026-11-15.md`.
+
+- Three B5-2B2/B3/B4 research notes were read and checked against their scoped symbolic scripts and tests; full matching and Ward closure remain open. At that checkpoint: 146 reviewed, 316 pending. See `docs/repository-management/NINETEENTH_REVIEW_TRIPLET_NOTES_2026-11-15.md`.
 
 - Three B5-2B3/B4 output records were individually reviewed. A triplet-map test used different SymPy symbol names from its expected expression; the test identifiers were aligned and 39 related tests pass. The common-numerator result remains superseded and full Ward/matching closure is open. At that checkpoint: 143 reviewed, 319 pending. See `docs/repository-management/EIGHTEENTH_REVIEW_TRIPLET_OUTPUTS_2026-11-15.md`.
 

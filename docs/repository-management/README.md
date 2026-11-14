@@ -76,3 +76,4 @@ Do not move or delete files solely from their names. Before a move, search and u
 - [Portal A5b/B5 output review](SEVENTEENTH_REVIEW_PORTAL_B5_OUTPUTS_2026-11-15.md)
 - [B5 triplet output review](EIGHTEENTH_REVIEW_TRIPLET_OUTPUTS_2026-11-15.md)
 - [B5 triplet research-note review](NINETEENTH_REVIEW_TRIPLET_NOTES_2026-11-15.md)
+- [B.16 sensitivity note review](TWENTIETH_REVIEW_B16_SENSITIVITY_2026-11-15.md)
