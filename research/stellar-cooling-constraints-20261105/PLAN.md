@@ -2,6 +2,8 @@
 
 Date: 2026-11-06. Authorized scope: finish a reproducible cooling calculation, make a constraint figure, write the scientific response, submit a PR. No manuscript edits.
 
+> **Historical planning snapshot (2026-11-15):** This cumulative plan records decisions and PR states from 2026-11-06 through 2026-11-08. References below to PR #56 as Open/Draft and to original Garching profile access as a P0 blocker are superseded: PR #56 merged on 2026-11-12, and the later agreed route proceeds from the documented literature reconstruction without blocking on restricted raw files. The pure-vector Fig. 7 10-MeV tail remains unvalidated, so axial constraint updates remain deferred. Use [the 2026-11-13 axial calculation/review record](AXIAL_STELLAR_CONSTRAINTS_CALCULATION_AND_REVIEW_2026-11-13.md) for the saved benchmark and its explicit limitations, and `PROJECT_STATUS.md` for live repository status.
+
 ## Design and scientific scope
 Use the axial-vector EFT benchmark with the pure axial muon current and the two specified active-flavor neutrino currents. Compute a fixed-profile SN1987A ballistic cooling benchmark including three polarization modes, neutrino inverse decay/decay, exact-recoil muon-rest inverse Compton with an effective Pauli-blocked muon density, and dimuon inverse decay/decay above threshold. Use mode-by-mode detailed balance and reduced opacity; propagate each polarization separately and sum escaped luminosities only after attenuation. Keep scalar summed-opacity runs as diagnostics, not as the physical mode-resolved solver. The calculation is a stationary-profile transport approximation, not a hydrodynamic SN simulation or a LESN/high-energy-neutrino recast.
 
