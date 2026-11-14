@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 
 import numpy as np
+from numpy.polynomial.legendre import leggauss
 
 from reference import (
     KM_TO_MEV_INV,
@@ -276,19 +277,138 @@ def outer_temperature_sensitivity(inputs: dict, mass: float,
     }
 
 
+def bilinear_redshifted_columns(inputs: dict, mass: float,
+                                angular_order: int, path_order: int):
+    """B.2 redshift-only opacity using bilinear (r, omega_local) interpolation.
+
+    This reproduces the interpolation prescription recorded in the archived
+    V8 high-energy diagnostic. It is deliberately kept separate from
+    redshifted_scalar_optical_depths(), which recomputes local rates directly
+    from interpolated thermodynamic fields at each path node.
+    """
+    source_r = inputs["source_r"]
+    source_lapse = inputs["source_profile"]["lapse"]
+    radial_grid = inputs["opacity_grid"]
+    profile = inputs["opacity_profile"]
+    full_energies = inputs["full_energies"]
+    source_energies = inputs["energies"]
+    radius_km = inputs["radius_km"]
+
+    rates = local_rates(
+        mass, full_energies[None, :], profile["T"][:, None],
+        profile["mu_numu"][:, None], profile["mu_mu"][:, None]
+    )
+    opacity_grid_omega = rates["reduced_absorption"]
+
+    angles, angle_weights = leggauss(angular_order)
+    path_x, path_w = leggauss(path_order)
+    path_w = path_w / 2.0
+    columns = np.zeros((len(source_r), len(angles), len(source_energies)))
+    min_energy_ratio = np.inf
+    max_energy_ratio = 0.0
+    min_local_velocity = 1.0
+
+    for ia, cosine in enumerate(angles):
+        r = source_r[:, None]
+        smax = -cosine * r + np.sqrt(
+            radius_km**2 - r**2 + r**2 * cosine**2
+        )
+        s = smax * (1.0 + path_x[None, :]) / 2.0
+        position = np.sqrt(np.maximum(
+            r**2 + s**2 + 2.0 * r * s * cosine, 0.0
+        ))
+        path_weights = smax * path_w[None, :]
+
+        lapse_path = np.interp(
+            position.ravel(), radial_grid, profile["lapse"]
+        ).reshape(position.shape)
+        omega_local = (
+            source_energies[None, None, :]
+            * source_lapse[:, None, None]
+            / lapse_path[:, :, None]
+        )
+        ratio = omega_local / source_energies[None, None, :]
+        min_energy_ratio = min(min_energy_ratio, float(np.min(ratio)))
+        max_energy_ratio = max(max_energy_ratio, float(np.max(ratio)))
+        velocity = np.sqrt(np.maximum(1.0 - (mass / omega_local)**2, 0.0))
+        if np.any(velocity <= 0.0):
+            raise FloatingPointError("A propagating path-redshift mode reached v_V=0")
+        min_local_velocity = min(min_local_velocity, float(np.min(velocity)))
+
+        # Locate the four corners of the (radius, local-energy) interpolation
+        # cell for every source radius, path node, and selected emission energy.
+        r_hi = np.searchsorted(radial_grid, position, side="right")
+        r_hi = np.clip(r_hi, 1, len(radial_grid) - 1)
+        r_lo = r_hi - 1
+        r_fraction = (
+            (position - radial_grid[r_lo])
+            / (radial_grid[r_hi] - radial_grid[r_lo])
+        )
+
+        e_hi = np.searchsorted(full_energies, omega_local, side="right")
+        e_hi = np.clip(e_hi, 1, len(full_energies) - 1)
+        e_lo = e_hi - 1
+        e_fraction = (
+            (omega_local - full_energies[e_lo])
+            / (full_energies[e_hi] - full_energies[e_lo])
+        )
+
+        rlo = r_lo[:, :, None]
+        rhi = r_hi[:, :, None]
+        low_r_low_e = opacity_grid_omega[rlo, e_lo]
+        low_r_high_e = opacity_grid_omega[rlo, e_hi]
+        high_r_low_e = opacity_grid_omega[rhi, e_lo]
+        high_r_high_e = opacity_grid_omega[rhi, e_hi]
+
+        low_r = low_r_low_e * (1.0 - e_fraction) + low_r_high_e * e_fraction
+        high_r = high_r_low_e * (1.0 - e_fraction) + high_r_high_e * e_fraction
+        reduced_along_path = (
+            low_r * (1.0 - r_fraction[:, :, None])
+            + high_r * r_fraction[:, :, None]
+        )
+        columns[:, ia, :] = (
+            np.sum(
+                path_weights[:, :, None] * reduced_along_path / velocity,
+                axis=1
+            ) * KM_TO_MEV_INV
+        )
+
+    info = {
+        "minimum_local_to_source_energy_ratio": min_energy_ratio,
+        "maximum_local_to_source_energy_ratio": max_energy_ratio,
+        "minimum_local_vector_velocity": min_local_velocity,
+        "interpolation": "bilinear in radius and local energy on the full opacity grid",
+    }
+    return columns, angle_weights / 2.0, info
+
+
 def fixed_vs_redshift(inputs: dict, mass: float,
                       angular_order: int, path_order: int) -> dict:
     fixed_columns, fixed_weights, fixed_detail = fixed_omega_columns(
         inputs, mass, angular_order, path_order
     )
-    redshift_columns, redshift_weights, redshift_info = redshifted_scalar_optical_depths(
-        inputs["source_r"], inputs["opacity_grid"], inputs["opacity_profile"],
-        mass, inputs["energies"], inputs["radius_km"], angular_order, path_order,
-        source_lapse=inputs["source_profile"]["lapse"]
+
+    # The archived V8 result specifies bilinear interpolation in radius and
+    # local energy. Reproduce that algorithm explicitly before comparing.
+    redshift_columns, redshift_weights, redshift_info = bilinear_redshifted_columns(
+        inputs, mass, angular_order, path_order
     )
     angle_residual = float(np.max(np.abs(fixed_weights - redshift_weights)))
     if angle_residual > 1.0e-14:
         raise ArithmeticError("Fixed and path-redshift angular weights differ")
+
+    # Independent alternative: evaluate local rates directly at each path
+    # point. This is not the V8 interpolation algorithm and is retained as a
+    # discretization/interpolation sensitivity check, not mixed into the
+    # strict V8 comparison.
+    direct_columns, direct_weights, direct_info = redshifted_scalar_optical_depths(
+        inputs["source_r"], inputs["opacity_grid"], inputs["opacity_profile"],
+        mass, inputs["energies"], inputs["radius_km"], angular_order, path_order,
+        source_lapse=inputs["source_profile"]["lapse"]
+    )
+    direct_angle_residual = float(np.max(np.abs(fixed_weights - direct_weights)))
+    if direct_angle_residual > 1.0e-14:
+        raise ArithmeticError("Direct-rate and fixed angular weights differ")
 
     fixed = summarize_band(
         fixed_columns, fixed_weights, inputs["coupling"],
@@ -297,6 +417,11 @@ def fixed_vs_redshift(inputs: dict, mass: float,
     )
     redshift = summarize_band(
         redshift_columns, redshift_weights, inputs["coupling"],
+        inputs["source_nu"], inputs["source_compton"], inputs["source_total"],
+        inputs["energies"]
+    )
+    direct = summarize_band(
+        direct_columns, direct_weights, inputs["coupling"],
         inputs["source_nu"], inputs["source_compton"], inputs["source_total"],
         inputs["energies"]
     )
@@ -312,13 +437,23 @@ def fixed_vs_redshift(inputs: dict, mass: float,
             inputs["source_nu"], inputs["source_compton"], inputs["source_total"],
             inputs["energies"], (lo, hi), upper_inclusive=(hi == 510.0)
         )
+        direct_sub = summarize_band(
+            direct_columns, direct_weights, inputs["coupling"],
+            inputs["source_nu"], inputs["source_compton"], inputs["source_total"],
+            inputs["energies"], (lo, hi), upper_inclusive=(hi == 510.0)
+        )
         subbands.append({
             "bin": f"{lo:g}-{hi:g} MeV",
             "fixed": fixed_sub,
             "path_redshift": redshift_sub,
+            "direct_local_rate_recomputation": direct_sub,
             "relative_escaped_luminosity_change": (
                 redshift_sub["escape_luminosity_erg_s"]
                 / fixed_sub["escape_luminosity_erg_s"] - 1.0
+            ),
+            "direct_vs_bilinear_relative_difference": (
+                direct_sub["escape_luminosity_erg_s"]
+                / redshift_sub["escape_luminosity_erg_s"] - 1.0
             ),
         })
 
@@ -340,7 +475,8 @@ def fixed_vs_redshift(inputs: dict, mass: float,
             "angular_order": angular_order,
             "path_order": path_order,
             "fixed_omega": "omega_local(s)=omega_source",
-            "path_redshift": "omega_local(s)=omega_source*N(source)/N(path); update local rates and vector speed",
+            "path_redshift": "omega_local(s)=omega_source*N(source)/N(path)",
+            "path_redshift_opacity_interpolation": "bilinear in radius and local energy",
             "source_weights": "same B.1 source weights in both variants",
         },
         "fixed_omega": {
@@ -355,6 +491,31 @@ def fixed_vs_redshift(inputs: dict, mass: float,
             "escaped_per_g2": redshift["escaped_weight_per_g2"],
             "escaped_luminosity_erg_s": redshift["escape_luminosity_erg_s"],
             "kinematic_range": redshift_info,
+        },
+        "direct_local_rate_recomputation": {
+            **direct,
+            "source_per_g2": direct["source_weight_per_g2"],
+            "escaped_per_g2": direct["escaped_weight_per_g2"],
+            "escaped_luminosity_erg_s": direct["escape_luminosity_erg_s"],
+            "kinematic_range": direct_info,
+            "qualification": (
+                "Independent alternative that recomputes local rates from "
+                "interpolated thermodynamic fields at each path node; not the "
+                "bilinear opacity interpolation used by the archived V8 result."
+            ),
+        },
+        "interpolation_sensitivity": {
+            "direct_vs_bilinear_escaped_luminosity_relative_difference": (
+                direct["escape_luminosity_erg_s"]
+                / redshift["escape_luminosity_erg_s"] - 1.0
+            ),
+            "direct_vs_bilinear_escape_probability_relative_difference": (
+                direct["escape_probability"] / redshift["escape_probability"] - 1.0
+            ),
+            "direct_vs_bilinear_mean_tau_relative_difference": (
+                direct["mean_tau_source_weighted"]
+                / redshift["mean_tau_source_weighted"] - 1.0
+            ),
         },
         "relative_change": {
             "escaped_luminosity": (
@@ -372,6 +533,7 @@ def fixed_vs_redshift(inputs: dict, mass: float,
             "fixed_angle_weight_sum": float(np.sum(fixed_weights)),
             "redshift_angle_weight_sum": float(np.sum(redshift_weights)),
             "angle_weight_max_absolute_residual": angle_residual,
+            "direct_angle_weight_max_absolute_residual": direct_angle_residual,
             "fixed_channel_angle_weight_residual": fixed_detail["angle_weight_residual"],
         },
     }
