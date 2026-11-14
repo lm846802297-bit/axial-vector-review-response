@@ -183,3 +183,50 @@ Summing modes gives a closed scalar equation only after an occupation closure is
 The B.6--B.10 printed equation chain remains sum-to-sum: B.7's factor of three converts the averaged vacuum width to the summed thermal production rate, and B.10 adds no further degeneracy factor. The literal scalar B.2 baseline is therefore retained unchanged for equation-level reproduction, while its interpretation as a per-particle opacity remains under-specified. Physical no-mixing propagation uses each \(\Gamma_{{\rm abs},h}^{*}\) separately.
 
 Seven algebraic tests pass. This does not replace the exact B.13 Compton polarization kernel or close the Fig. 7 benchmark.
+
+
+## 8. Exact B.13 Compton kernel inserted into the 210–510 MeV B.1/B.2 band (2026-11-14)
+
+The missing B.2 follow-up has now been evaluated using the full-profile Global-03 B.13 local-kernel table.
+
+### Local fixed-(r, omega) polarization audit
+
+The exact-recoil moving-muon B.13 kernel was evaluated at 42 points: seven radii (8, 10, 12.5, 15, 18.5, 20, 22 km) and six energies (12, 20, 80, 210, 300, 510 MeV). Both muon charges and all three A' polarizations are retained. All 42 points pass the 0.1% successive-order criterion; maximum change is 0.099700%. Maximum detailed-balance residual is 1.10e-14 and final-muon shell residual is 1.71e-13.
+
+For a like-for-like comparison to the printed B.16 one-negative-muon Compton approximation, the exact B.13 mu-minus-only Compton production is 0.1578–0.8312 of B.16 across these points (median 0.3401). Including mu-plus gives 0.1595–0.8683 (median 0.3493). The largest local reduction in total reduced opacity is 55.7% in the inner high-energy sample. The mu-plus contribution to the integrated 210–510 MeV B.13 Compton thin source is 0.717%.
+
+### Global high-energy band transport
+
+The high-energy band uses the ten 210–510 MeV nodes selected from the full 842-node P1-C energy grid, with source radial order 200, opacity grid 642, angular order 32 and path order 64. The path convention is fixed omega along Euclidean chords to 25 km; no GR redshift is introduced.
+
+The B.16 scalar baseline is reproduced:
+\[
+L_{B16}^{210-510}=1.7017848289\times10^{52}\;\mathrm{erg/s},
+\]
+with relative residual -1.01e-7 against the archived P1-C band value.
+
+| Prescription | Escaped luminosity (erg/s) | Ratio to B.16 scalar |
+|---|---:|---:|
+| B.16 literal scalar sum | 1.701785e52 | 1 |
+| B.13, mu-minus only, scalar sum opacity | 2.099447e52 | 1.23367 |
+| B.13, both charges, scalar sum opacity | 2.100126e52 | 1.23407 |
+| B.13, both charges, equal-occupation average opacity | 6.071388e53 | 35.6766 |
+| B.13, both charges, independent mode-resolved transport | 6.058125e53 | 35.5987 |
+
+The B.13 thin source is 62.01% of the B.16 thin source. Its source composition is 80.43% neutrino and 19.57% Compton; the B.16 band source is 49.88% neutrino and 50.12% Compton. The B.13 scalar-sum escape fraction is 0.4668%, versus 0.2346% for B.16, so the lower B.13 thin source is partly offset by increased escape.
+
+The mode-resolved B.13 result is 28.85 times the B.13 scalar-sum result. The equal-occupation average-opacity and mode-resolved luminosities differ by only 0.22%. This is the state-counting distinction already identified in the scalar-versus-mode transport audit: the literal scalar prescription attenuates with the sum of the three mode opacities, whereas mode-resolved transport applies a separate survival factor to each mode. The mode-resolved number is not a correction factor to the scalar B.2 result.
+
+### Exact B.13 polarization weights versus B.14 no-recoil weights
+
+The B.13 Compton source fractions are 0.1757% longitudinal and 49.9122% in each transverse mode. Applying the B.14 no-recoil weights to the same B.13 scalar Compton source gives 0.07990% longitudinal and 49.9600% in each transverse mode. Although the longitudinal share differs by a factor about 2.2, its absolute share is small. Holding the B.13 scalar source and opacity fixed, the exact-B.13 and B.14 mode splits change the mode-resolved luminosity by only 0.0024%. Therefore the ~8.4% difference between the exact-B.13 and archived B.14 mode-resolved band luminosities is driven by the overall Compton source/opacity magnitude, not the detailed polarization split.
+
+### Interpolation support tail and acceptance boundary
+
+At r=15 km and omega=510 MeV (x=38.54), the direct local B.13 Compton-to-neutrino reduced-opacity ratio is 0.3068%. At r=18.5 km it is below 2.3e-9 and falls further at 20–22 km. The B.13 Compton term is set to zero outside the Global-03 x<=36 interpolation support in this band calculation; 0.3068% is a local boundary bound, not a separately integrated global truncation error.
+
+**Passed:** local exact B.13 mode-resolved kernel audit; full B.16 high-energy band baseline closure; fixed-omega B.1/B.2 high-energy band calculation using interpolated B.13 Compton source and reduced absorption.
+
+**Not claimed:** full-band Fig. 7 reproduction; exhaustive high-order B.13 quadrature at every profile-energy node; GR-redshifted path-energy calculation; updated SN1987A limit; or an updated axial-vector exclusion curve.
+
+Machine-readable summary and report are under `blinov_reproduction/results/P1B_B2_EXACT_B13_2026-11-14/`. Reproducibility archive: `P1B_B2_EXACT_B13_HIGH_ENERGY_2026-11-14.zip`, SHA-256 `e33c71f7d58c85f8e64f7a4c9066588f749cda60e63c74bd1dacedc1c244e2f5`.
