@@ -1,0 +1,56 @@
+{
+  "run": "P1B-GLOBAL06-HIGH-ORDER-TARGETS",
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "unique_r_x_points": 431,
+  "nominal_ordered_evaluations": 2155,
+  "order_ladder": [
+    [
+      10,
+      6,
+      6,
+      6
+    ],
+    [
+      14,
+      8,
+      8,
+      8
+    ],
+    [
+      18,
+      10,
+      10,
+      10
+    ],
+    [
+      22,
+      12,
+      12,
+      12
+    ],
+    [
+      26,
+      14,
+      14,
+      14
+    ]
+  ],
+  "extension_order_if_needed": [
+    30,
+    16,
+    16,
+    16
+  ],
+  "targeted_radial_intervals": 10,
+  "targeted_energy_worst_points": 10,
+  "all_targeted_quadrature_pass": true,
+  "max_successive_order_change": 0.0003282579972588272,
+  "max_detailed_balance_residual": 5.324459927153245e-15,
+  "max_mass_shell_residual": 2.4603634015263977e-13,
+  "all_rates_finite_nonnegative": true,
+  "max_high_order_radial_midpoint_interpolation_error": 0.0008310439544648867,
+  "max_high_order_energy_pchip_error": 0.0003255661627251991,
+  "full_global_high_order_acceptance": false,
+  "runtime_seconds": 334.350613117218,
+  "scope": "Selected top-10 radial intervals and top-10 energy interpolation errors only; not an exhaustive 1687-radius high-order scan."
+}
