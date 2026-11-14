@@ -75,4 +75,4 @@ The next research stage should target these shared physical inputs and conventio
 
 ## 6. Register status
 
-The 462-document baseline register remains at 264 individually reviewed and 198 pending (164 PASS_WITH_NOTES, 2 PASS, 9 REVISION_REQUIRED, 89 HISTORICAL). The separate workflow register contains 115 YAML workflows: 40 individually reviewed, 16 historical candidates and 59 pending. This review report and its workflow-review records are supplementary and do not increase the 462-document baseline.
+The 462-document baseline register now contains 265 individually reviewed and 197 pending (165 PASS_WITH_NOTES, 2 PASS, 9 REVISION_REQUIRED, 89 HISTORICAL). The separate workflow register contains 115 YAML workflows: 40 individually reviewed, 16 historical candidates and 59 pending. This review report and its workflow-review records are supplementary and do not increase the 462-document baseline.
