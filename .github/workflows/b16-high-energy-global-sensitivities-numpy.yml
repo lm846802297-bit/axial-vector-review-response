@@ -8,6 +8,7 @@ on:
       - '.github/workflows/b16-high-energy-global-sensitivities-numpy.yml'
       - 'research/stellar-cooling-constraints-20261105/requirements-b16-audit.txt'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_high_energy_energy_resolved_numpy.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_high_energy_v8_reproduction.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_global_redshift.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py'
       - 'research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv'
@@ -79,6 +80,12 @@ jobs:
               assert result.get("comparison_to_archived_v8"), name
               print(name, "OK")
           PY
+
+      - name: Compare strict NumPy outputs against archived V8 references
+        run: |
+          python -m unittest discover \
+            -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
+            -p 'test_b16_high_energy_v8_reproduction.py' -v
 
       - name: Save strict NumPy outputs to the reviewed branch
         env:
