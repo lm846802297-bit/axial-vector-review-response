@@ -67,3 +67,8 @@ All 80 points were finite and nonnegative. The maximum detailed-balance residual
 **Important finding:** the B.13 absorption is not negligible below the existing interpolation support. At \(r=9.95\) km, the \(x=0.05\) to \(x=0.5\) \(\mu^-\) absorption ratios are 7.079 (longitudinal) and 1.817 in each transverse mode. At \(r=15.5\) km the corresponding ratios are 2.468 and 1.244. Thus setting the B.13 Compton term to zero for \(x<0.5\) is not justified by the existing table.
 
 This 80-point screen is not a full radial scan or high-order acceptance, and it does not yet quantify the integrated luminosity impact. It establishes a necessary next task: extend the B.13 table below \(x=0.5\), then redo the full-band B.1/B.2 integration. Until then, the 210–510 MeV band result remains a valid restricted-band calculation, but the current full-band extrapolation is not accepted.
+
+
+### Low-x record reproducibility update
+
+The Global-05 driver now writes the compact `LOW_X_STRATIFIED_SCREEN.json` summary together with `LOW_X_STRATIFIED_RECORDS.json` (all 80 charge/mode-resolved points) and `LOW_X_STRATIFIED_RECORDS.csv` (80 tabular rows). The exact source/input bundle was re-run locally after this change: 80/80 points were finite and nonnegative, and the regenerated summary reproduces the committed residuals and radial absorption ratios. The raw JSON/CSV are deterministic generated outputs; the repository commits the compact summary and the driver, while the full point records can be regenerated from the bundled profile and source.
