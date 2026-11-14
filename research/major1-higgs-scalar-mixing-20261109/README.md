@@ -482,23 +482,23 @@ The full component expansion of non-Abelian ghost-vector/off-diagonal entries, P
 
 ## 2026-11-10 — A3a mixed scalar-bubble kernel
 
-Added `A3A_MIXED_SCALAR_BUBBLE_KERNEL_2026-11-10.md`, its SymPy UV-pole audit script, and output. The gauge-basis one-loop-topology (hs) scalar kernel is written in terms of five (B_0) functions: internal (hh), (ss), (G^+G^-), (G^0G^0), and (aa). The CP-even (hh/ss) terms are identified as the already archived P2-lite subset; the new contribution is the three Goldstone terms with their (R_\xi)-dependent masses.
+Added `A3A_MIXED_SCALAR_BUBBLE_KERNEL_2026-11-10.md`, its SymPy UV-pole audit script, and output. The gauge-basis one-loop-topology \(hs\) scalar kernel is written in terms of five \(B_0\) functions: internal \(hh\), \(ss\), \(G^+G^-\), \(G^0G^0\), and \(aa\). The CP-even \(hh/ss\) terms are identified as the already archived P2-lite subset; the new contribution is the three Goldstone terms with their \(R_\xi\)-dependent masses.
 
 The symmetry-weighted UV pole is
-[
+\[
 \Pi_{hs}^{\rm scalar,UV}=
 \frac{\lambda_{HS}vv_S}{16\pi^2\bar\epsilon}
 (6\lambda_H+4\lambda_S),
-]
+\]
 which matches the scalar-potential portal counterterm contribution in the stated convention. Gauge/Yukawa pieces, higher powers of the portal, tadpole/VEV and field renormalization, and full UV--EFT matching are not included. The finite Goldstone terms are gauge dependent and are not a physical mixing prediction.
 
 
-A3a was extended with an independent (O(4)\times O(2)) effective-potential check. It gives
-[
-[\mathrm{Tr}{\cal M}_{\rm scal}^4]_{H^2S^2}
+A3a was extended with an independent \(O(4)\times O(2)\) effective-potential check. It gives
+\[
+[\mathrm{Tr}\,\mathcal M_{\rm scal}^4]_{H^2S^2}
 =2\lambda_{HS}(3\lambda_H+\lambda_{HS}+2\lambda_S),
-]
-and the scalar-only portal counterterm includes the additional (2\lambda_{HS}^2) term. Its part linear in (lambda_{HS}) agrees with the bubble UV pole; the portal-squared term is beyond the adopted (lambda_{HS}=O(\hbar)), (O(\hbar^2)) truncation. The audit script/output were updated.
+\]
+and the scalar-only portal counterterm includes the additional \(2\lambda_{HS}^2\) term. Its part linear in \(\lambda_{HS}\) agrees with the bubble UV pole; the portal-squared term is beyond the adopted \(\lambda_{HS}=O(\hbar)\), \(O(\hbar^2)\) truncation. The audit script/output were updated.
 
 
 ## 2026-11-10 — A3b tadpole/VEV and mixed field-counterterm matrix
@@ -695,3 +695,31 @@ The top-only SM remainder is \(D_{\rm SM}=1.60947075\). Inserting it into the ea
 **Consistency warning:** the earlier scalar benchmark subtotal used the electroweak tree proxy \(\lambda_H=m_h^2/(2v_h^2)=0.12938\), whereas the one-loop SM-only running gives \(\lambda_H(20\,{\rm TeV})=0.05807\). These must not be mixed in a final matching-scale beta. The fully consistent value also requires the UV running of \(\lambda_S\), VLL Yukawas and \(g_X\), plus a common matching prescription. Therefore the two diagnostic beta values are not final UV matching-scale predictions.
 
 The full coupled VLL beta functions have not yet been integrated. Derive and validate them before running Benchmark A, which starts at \(\lambda_\tau=\sqrt{4\pi}\). The VLLs must be decoupled at \(M_E\); the UV beta is not to be continued below threshold.
+
+
+## 2026-11-11 — B5-2B1 diagonal-gauge parameter poles and tree-level current map
+
+Added [B5_2B1_GAUGE_PARAMETER_AND_CURRENT_BASIS_2026-11-11.md](B5_2B1_GAUGE_PARAMETER_AND_CURRENT_BASIS_2026-11-11.md), [the SymPy algebra audit](b5_2b_gauge_current_subblock.py), and [its regression tests](test_b5_2b_gauge_current_subblock.py).
+
+The parameter-induced diagonal-gauge poles are:
+\[
+\frac{\delta C_{5,\ell}}{C_{5,\ell}}
+=-\frac{1}{16\pi^2\epsilon}
+\left(\frac{15}{8}g_Y^2+\frac98g_2^2+3Q_\ell^2g_X^2\right),
+\qquad
+\frac{\delta C_{LD,\ell}}{C_{LD,\ell}}
+=\frac{1}{16\pi^2\epsilon}
+\left(\frac94g_Y^2-\frac94g_2^2\right),
+\qquad
+\frac{\delta C_{RD,\ell}}{C_{RD,\ell}}=0.
+\]
+The independent EFT Yukawa-type Casimir expression reproduces the C5 pole. In the declared Pauli-current normalization, the tree-level EOM map is
+\[
+C_{HL}^{(1)}=C_{HL}^{(3)}=-\frac14C_{LD,\ell},
+\qquad
+C_{Se,\ell}^{\mathrm{tree,common}}=\frac{\eta_\ell}{2}C_{RD,\ell}.
+\]
+
+An independent SymPy check reproduces the displayed parameter-pole combinations and the underlying Pauli completeness identities. The associated seven-test module is present; this review did not claim a fresh execution of that test module.
+
+**Boundary:** these are parameter-induced gauge pieces and tree-level current/EOM images, not the full gauge-loop UV–EFT matching or the complete operator anomalous-dimension matrix. The BB, WW, A'A' amplitudes, EFT insertion diagrams, conditional mixed B-A' terms, common UV/IR subtraction, and Ward/Slavnov–Taylor completion remain open.
