@@ -2,7 +2,7 @@
   "source": "Blinov et al., JHEP 06 (2026) 155, arXiv:2511.09619, Appendix B, Eqs. (B.1)--(B.5)",
   "method": "Independent exact-in-path integration of piecewise-linear radial reduced opacity; z=s+r*cos(theta); split at every radial knot; analytic primitive for A+B*sqrt(b^2+z^2); angular average checked with Gauss-Legendre, composite Simpson, and adaptive QUADPACK.",
   "shared_inputs": "Local collision kernel, reconstructed profile, B.1 source measure, energy grid, and Fig. 7 vertices are held identical to the archived B.16 baseline. No existing B.2 path integrator generates the new tau.",
-  "run_commit_sha": "0fb4aa94bc6f137039c3637d3a728af7323fbed5",
+  "run_commit_sha": "e200faa10e510edfc4bf32990cda08ef26da0ca8",
   "code_sha256": "15e7aca16e69d50b57ea265d456b0c302d50a7042a0ed7aaaff8a57860408527",
   "profile": {
     "path": "sfho188_digitized.csv",
@@ -1052,7 +1052,7 @@
     },
     "maximum_absolute_luminosity_shift_vs_archived": 4.5206465186131695e-05
   },
-  "elapsed_seconds": 15.952127456665039,
+  "elapsed_seconds": 16.09041666984558,
   "limitations": [
     "The path integral is exact only for the piecewise-linear interpolation of the supplied radial reduced-opacity table.",
     "The calculation retains the Euclidean straight-chord geometry of Eq. (B.2); it is not full GR ray tracing.",
