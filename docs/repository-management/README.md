@@ -28,15 +28,28 @@ This document describes the current repository organization and the intended own
 5. A passing software test is not equivalent to physical validation or a phenomenological exclusion.
 6. Preserve original PDFs, raw source data and historical snapshots; add a reviewed/current pointer instead of silently replacing them.
 
-## Document status vocabulary
+## Review coverage and reports
 
-- `CURRENT`: reviewed and designated as a current authoritative entry.
-- `REVIEWED`: content and links checked; no blocking issue found within the stated review scope.
-- `REVISE`: actionable content, consistency, citation or navigation issue found.
-- `HISTORICAL`: intentionally retained snapshot; not a current instruction or result.
-- `DUPLICATE_CANDIDATE`: possible duplicate; compare content and provenance before removal.
-- `PENDING`: not yet individually reviewed.
-- `NOT_APPLICABLE`: non-prose artifact or generated output; use its own artifact validation record.
+The baseline inventory contains 462 Markdown/text documents. Current register counts are: 40 `PASS_WITH_NOTES`, 1 `PASS`, 8 `REVISION_REQUIRED`, 11 `HISTORICAL`, and 402 `PENDING`. Only documents read individually are assigned a non-pending review outcome. See the [audit register](DOCUMENT_AUDIT_REGISTER.csv) and the six dated reports:
+
+- [Initial governance and entry review](INITIAL_REVIEW_REPORT_2026-11-14.md)
+- [Second review batch](SECOND_REVIEW_REPORT_2026-11-14.md)
+- [Third workstream review](THIRD_REVIEW_REPORT_2026-11-14.md)
+- [Major 1 derivation review](FOURTH_REVIEW_REPORT_MAJOR1_2026-11-14.md)
+- [Referee and neutrino history review](FIFTH_REVIEW_REPORT_REFEREE_NEUTRINO_2026-11-14.md)
+- [Major 1 portal reference review](SIXTH_REVIEW_REPORT_MAJOR1_PORTAL_2026-11-14.md)
+
+## Status vocabulary
+
+**Review outcome** (what the individual review established):
+- `PASS`: all applicable checks completed within the recorded scope.
+- `PASS_WITH_NOTES`: usable within scope, with caveats recorded.
+- `REVISION_REQUIRED`: actionable content, consistency, citation or formatting issue found.
+- `BLOCKED`: cannot validate because required source, data or context is unavailable.
+- `HISTORICAL`: retained as historical material; not a current instruction/result.
+- `PENDING`: inventory only; no individual content review completed.
+
+**Lifecycle/authority** (a separate property): current authoritative, working draft, superseded, duplicate candidate, archival, or generated. A document may be historically important while still having a revision-required formatting issue; do not conflate lifecycle with review outcome.
 
 ## Safe migration policy
 
