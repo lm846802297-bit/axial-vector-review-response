@@ -2,9 +2,9 @@
 
 This directory preserves recoverable, immutable source snapshots of the referee-response letter. It is an archive, not a second working copy.
 
-## Current build update (2026-11-06)
+## Current root response status (2026-11-14)
 
-The repository-root response PDF has now been rebuilt from the current root TeX: 65 A4 pages, including the axial-EFT cooling figure and the earlier main-source revisions. The PDF is 506,944 bytes (SHA-256 `56451f2d…`); the complete hash, source/PDF hashes, build dependencies, citation audit and page-by-page visual checks are recorded in [the validation record](../../research/stellar-cooling-constraints-20261105/VALIDATION_AND_REVIEW.md). The current build adds `Replies_to_Referee_3_stellar_references.bib` and `research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply.pdf` to the older dependencies. No manuscript source was changed.
+The repository-root response TeX and PDF were last committed together in merge commit `293d047013cce0dc3fbc44b2cd679f2df0f253dd` on 2026-11-12 (PR #56). The currently tracked root PDF is 500,497 bytes, SHA-256 `e0a2114e5e932d02794a1cdf074c9214ed201f71ff37fc25a72314af05ed4051` (Git blob `6e0f41398aa87b4516983927d4cc74a5c479c803`); its embedded CreationDate is 2026-11-12 01:39:49 UTC. The often-cited 65-page PDF and SHA-256 `cc998df…` belong to Run #42230873049 on 2026-11-06, before the later 2026-11-09–12 TeX edits. That run is historical and is not a same-source validation of the current merged TeX/PDF pair. A fresh LaTeX/BibTeX build and page-by-page rendering of the exact current source remain pending. The current TeX build dependencies are `references.bib`, `Replies_to_Referee_3_stellar_references.bib`, root `JHEP.bst`, and the figure `research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply_gev.pdf`. No manuscript source was changed.
 
 The older source snapshots remain immutable. Statements below about two bibliographies, no figure dependency, or an outdated root PDF describe the 2026-11-04/05 snapshots and are superseded for the current build by this note. No new immutable snapshot is declared accepted by this PR.
 
@@ -30,11 +30,11 @@ The 2026-11-04-r2 response TeX snapshot contained 45 citation commands, represen
 
 The likely source-level issue behind widespread `[?]` markers is the BibTeX style lookup: the root-level response TeX uses `\bibliographystyle{JHEP}`, while the original `JHEP.bst` was stored only in the nested model-source directory. A default local BibTeX search does not recursively discover arbitrary project subdirectories. A byte-identical copy is therefore now present at repository root. The 2026-11-04-r2 PDF was compiled and visually reviewed; see the build record in [the r2 manifest](snapshots/2026-11-04-r2/manifest.md). That PDF predates the TeX changes in PR #49 and PR #50 and is not a current build of the root-level response source.
 
-## Current source and PDF status (2026-11-05)
+## Historical source/PDF status snapshot (2026-11-05; superseded by the 2026-11-12 merge)
 
-The only editable response source remains the repository-root TeX file. PR #49 has been merged, and PR #50 contains a further referee-response-only update. The root-level PDF remains the 2026-11-04-r2 build and does not include either later TeX update. Do not treat it as the current compiled response; a full LaTeX/BibTeX rebuild and visual inspection are still required before submission. No full PDF rebuild or CI pass is claimed by PR #49 or PR #50.
+This paragraph records only the state as of 2026-11-05: PR #49 had merged, PR #50 was a later referee-response-only update, and the root PDF was still the 2026-11-04-r2 build. It is superseded by the 2026-11-12 PR #56 merge and the current root-file status above. Do not use the 2026-11-04-r2 PDF as the current compiled response.
 
-## Restore procedure
+## Restore procedure for the 2026-11-04-r2 historical snapshot
 
 1. Check out or download the source commit recorded in the selected snapshot manifest.
 2. For the latest corrected package, restore the TeX snapshot to the repository root and remove the `.snapshot` suffix.
@@ -65,8 +65,8 @@ git tag -a reply-letter-2026-11-04 d9b262798f80c0f109f328b1b0019191e99d5437 -m "
 git push origin reply-letter-2026-11-04
 ```
 
-## Scope and validation boundary
+## Historical 2026-11-04-r2 snapshot build boundary
 
 The response TeX has no `\input`, `\include`, or `\includegraphics` file dependencies. Its two bibliography databases and the `JHEP.bst` style are repository files. LaTeX packages such as `amsmath`, `slashed`, `graphicx`, `multirow`, `needspace`, `placeins`, `microtype`, `url`, `xcolor`, and `hyperref` remain TeX-environment dependencies.
 
-The root-level PDF was built from the reference-complete r2 source package. Its build commit and all four source blob IDs are recorded in the r2 manifest. The build record reports one remaining overfull-box warning in the NA64 table; the table was visually judged readable. Raw `.log` and `.blg` files were not retained in the repository, and CI was not run.
+The historical 2026-11-04-r2 PDF was built from the reference-complete r2 source package. Its build commit and source blob IDs are recorded in the r2 manifest. That snapshot build record reports one remaining overfull-box warning in the NA64 table; the table was visually judged readable. Raw `.log` and `.blg` files were not retained in the repository. This historical check does not validate the current 2026-11-12 root PDF.
