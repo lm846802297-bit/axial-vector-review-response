@@ -26,3 +26,14 @@ Review date: 2026-11-15. Baseline branch: `maintenance/repository-organization-a
 The 462-row baseline register now records 246 individually reviewed and 216 pending documents after this batch. Exact status counts are maintained in `DOCUMENT_AUDIT_REGISTER.csv`; this report documents the six reviewed entries and their limitations.
 
 No physics script was modified or rerun. This was a document/evidence audit; no new transport result or axial-vector curve is claimed.
+
+
+## Follow-up document corrections (2026-11-15)
+
+- Added a historical-status banner to the cumulative Stage-A file and repaired the malformed optical-depth display-equation delimiters.
+- Added current scope notes to the 10-MeV global transport and global convergence records. The 10-MeV finest-grid pass is explicitly mass-specific; the 0.1-MeV companion still fails its radial 60-to-80 refinement.
+- Updated the local-kernel quadrature note to point to the later three-mass/global comparison rather than describe global B.13 transport as future work. Its 10 exact moving-muon regression tests are pre-existing kernel tests; no separate local-quadrature test file is present.
+- Updated the non-relativistic-muon diagnostic to point to the completed three-mass comparison and to state that the 0.1/1-MeV global curves use the baseline grid rather than independent full-grid convergence.
+- Added an acceptance-boundary banner to the three-mass report: 0.1/1 MeV are baseline-grid comparisons; 10 MeV is a stress test; PR #113 contains later full-profile refinements.
+- The compact three-mass summary JSONs and local-kernel/non-relativistic diagnostic JSONs were parsed. The full 10-MeV point-array blob is present by path/hash but the GitHub file reader returned no text for it, so no point-by-point reparse of that large blob is claimed.
+- These are documentation and status corrections only. No B.13 kernel, source integral, opacity, transport solver, or scan was rerun.
