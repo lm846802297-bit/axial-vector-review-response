@@ -1,5 +1,7 @@
 # Diagnostic of the non-relativistic-muon approximation in B.14 (2026-11-09)
 
+> **Later-work note (2026-11-15):** global B.13/B.16 comparisons at 0.1, 1, and 10 MeV were subsequently archived in B13_THREE_MASS_SOURCE_OPACITY_AND_CONVERGENCE_AUDIT_2026-11-09.md. The 0.1/1-MeV curves use the baseline global grid and are not independently grid-converged; the 10-MeV case is a stress test outside the paper's primary Compton regime. This velocity-moment diagnostic remains an approximation-control indicator, not a direct rate-error calculation.
+
 ## Executive result
 
 The non-relativistic-muon approximation underlying the reduced Compton expression B.14 is **not parametrically well controlled in the radii that dominate the current 0.1--1 MeV Compton source**.
@@ -76,7 +78,7 @@ The 10 MeV B.13 calculation remains a stress test outside the paper's stated (m_
 
 ## 5. Decision
 
-Do not assume B.14--B.16 is automatically accurate simply because (m_V\lesssim1\) MeV. Complete the global B.13 versus B.16 comparison at 0.1 and 1 MeV, retaining separate source-only and opacity-only diagnostics but using the consistent source-plus-opacity replacement for the physical comparison. No empirical correction is applied and no axial-vector curve is updated.
+Do not assume B.14--B.16 is automatically accurate simply because \(m_V\lesssim1\) MeV. The global B.13 versus B.16 comparison at 0.1 and 1 MeV was subsequently archived in B13_THREE_MASS_SOURCE_OPACITY_AND_CONVERGENCE_AUDIT_2026-11-09.md. Those low-mass curves use the baseline global grid and are not independently grid-converged. This distribution diagnostic still does not quantify the direct B.14 rate error. No empirical correction is applied and no axial-vector curve is updated.
 
 
 ## 6. Reproducibility and validation
