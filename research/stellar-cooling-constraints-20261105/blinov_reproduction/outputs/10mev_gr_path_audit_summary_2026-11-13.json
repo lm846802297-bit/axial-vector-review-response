@@ -1,0 +1,63 @@
+{
+  "date": "2026-11-13",
+  "mass_MeV": 10.0,
+  "coupling": 4.171689650228597e-8,
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "B1_local_vs_Einf": {
+    "status": "exact change-of-variable equivalence passed",
+    "neutrino_source_erg_s_per_g2": 2.924014280393587e70,
+    "compton_source_erg_s_per_g2": 1.3803538885385007e70,
+    "total_source_erg_s_per_g2": 4.304368168932088e70
+  },
+  "B2_strong_endpoint": {
+    "fig7_reference_erg_s": 1.26781475907372e52,
+    "fixed_omega_luminosity_erg_s": 2.4396359573610326e52,
+    "fixed_omega_residual": 0.924284237819931,
+    "redshift_only_luminosity_erg_s": 1.735803372446645e52,
+    "redshift_only_residual": 0.3691301193834051,
+    "redshift_only_shift_vs_fixed": -0.2884990208439653
+  },
+  "spatial_metric": {
+    "same_snapshot_B_sqrt_g_rr_available": false,
+    "same_snapshot_enclosed_mass_available": false,
+    "paper_baseline_spatial_geometry": "flat pseudo-Newtonian coordinates",
+    "generic_GR_ray_kernel_added": true,
+    "unit_tests_passed": 6
+  },
+  "path_shell_fraction_of_source_weighted_mean_total_tau": {
+    "0-5 km": 0.013963532320291567,
+    "5-8 km": 0.0635663078979998,
+    "8-10 km": 0.10469043290744043,
+    "10-12 km": 0.10594790009753913,
+    "12-15 km": 0.14477901177388855,
+    "15-16.5 km": 0.07850360449022549,
+    "16.5-18.5 km": 0.11210140621306444,
+    "18.5-20 km": 0.08704541096725293,
+    "20-22 km": 0.11573719419799708,
+    "22-25 km": 0.1736651991343005
+  },
+  "r_ge_15km_fraction": 0.5670528150028404,
+  "energy_bins": {
+    "60-110": {"thin_source_fraction": 0.35924810298684073, "escaped_luminosity_fraction": 0.009634128199421301, "mean_tau": 16.134446634213745},
+    "110-210": {"thin_source_fraction": 0.3361103746342494, "escaped_luminosity_fraction": 0.24674461312353202, "mean_tau": 11.077993842321355},
+    "210-510": {"thin_source_fraction": 0.09669607176609707, "escaped_luminosity_fraction": 0.6975568726638325, "mean_tau": 7.719324707453824},
+    "510-1010": {"thin_source_fraction": 0.00021363952903821835, "escaped_luminosity_fraction": 0.011704469939740262, "mean_tau": 4.759048374075196}
+  },
+  "combined_110_510": {
+    "thin_source_fraction": 0.4328064464003465,
+    "escaped_luminosity_fraction": 0.9443014857873645,
+    "source_neutrino_fraction": 0.5912856144202884,
+    "source_compton_fraction": 0.4087143855797115,
+    "escaped_neutrino_fraction": 0.5245706033798648,
+    "escaped_compton_fraction": 0.4754293966201351
+  },
+  "polarization": {
+    "local_production_mode_sum_residual": 1.6673360207832632e-14,
+    "local_absorption_mode_sum_residual": 1.5974904697902192e-14,
+    "detailed_balance_residual": 3.4228148613803193e-14,
+    "literal_scalar_luminosity_erg_s": 2.4396359573610326e52,
+    "mode_resolved_luminosity_erg_s": 1.8630576062791735e54,
+    "mode_resolved_to_scalar_ratio": 76.36621360075596,
+    "decision": "Keep scalar B.2 for equation-level reproduction; retain mode-resolved propagation as a separate physical transport lane."
+  }
+}

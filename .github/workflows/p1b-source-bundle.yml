@@ -1,0 +1,54 @@
+name: P1-B local-compute source bundle
+
+on:
+  push:
+    branches:
+      - research/fig7-10mev-transport-localization-20261113-v2
+    paths:
+      - .github/workflows/p1b-source-bundle.yml
+      - research/stellar-cooling-constraints-20261105/finite_mixing/moving_muon_compton.py
+      - research/stellar-cooling-constraints-20261105/rates.py
+      - research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py
+      - research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv
+      - research/stellar-cooling-constraints-20261105/data/profile_provenance.json
+      - research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/audit_b13_local_kernel_radial_energy_10mev.py
+      - research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/test_p1b_b13_local_kernel_radial_energy_10mev.py
+
+permissions:
+  contents: read
+
+jobs:
+  package-reproducible-local-input:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out exact research commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+
+      - name: Assemble minimal source and input bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/p1b-local-bundle
+          root=research/stellar-cooling-constraints-20261105
+          cp -a "$root/rates.py" /tmp/p1b-local-bundle/
+          cp -a "$root/finite_mixing" /tmp/p1b-local-bundle/
+          cp -a "$root/blinov_reproduction" /tmp/p1b-local-bundle/
+          cp -a "$root/data" /tmp/p1b-local-bundle/
+          find /tmp/p1b-local-bundle -type f ! -name '__init__.py' ! -path '*/moving_muon_compton.py' ! -path '*/rates.py' ! -path '*/reference.py' ! -path '*/audit_b13_local_kernel_radial_energy_10mev.py' ! -path '*/test_p1b_b13_local_kernel_radial_energy_10mev.py' ! -path '*/sfho188_digitized.csv' ! -path '*/profile_provenance.json' -delete
+          {
+            echo "commit=${GITHUB_SHA}"
+            echo "branch=${GITHUB_REF_NAME}"
+            echo "python=3.12"
+            find /tmp/p1b-local-bundle -type f ! -name MANIFEST.sha256 -print0 | sort -z | xargs -0 sha256sum
+          } > /tmp/p1b-local-bundle/MANIFEST.sha256
+          cp -a /tmp/p1b-local-bundle "$GITHUB_WORKSPACE/p1b-local-bundle"
+
+      - name: Upload source bundle for local execution
+        uses: actions/upload-artifact@v4
+        with:
+          name: p1b-local-compute-source
+          path: p1b-local-bundle/
+          retention-days: 30

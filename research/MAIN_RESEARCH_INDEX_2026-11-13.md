@@ -81,3 +81,13 @@ The second cleanup batch removed five completed administrative branches after ex
 
 
 PR #106 v2 is synchronized with current main and remains Draft pending the physical transport review. The B.1 energy-variable transformation is exact; B.2 path-energy and scalar-versus-mode transport prescriptions remain distinct, and no axial limit is updated.
+
+
+## 2026-11-13 P0 polarization transport update
+
+PR #106 now includes a completed analytic Boltzmann state-counting audit. It derives the per-mode collision terms and the total-occupation equation, clarifies the B.7 factor-of-three convention, and distinguishes the literal scalar B.2 sum-opacity prescription from per-mode physical attenuation. Seven algebraic tests pass locally. The pure-vector Fig. 7 gate remains NOT PASSED; the exact recoil-resolved B.13 polarization kernel and matched global transport comparison remain open.
+
+
+## 2026-11-13 P1 exact B.13 amplitude validation
+
+The moving-muon exact B.13 kernel is already implemented with separate \(L,+,-\) rates and charge-resolved \(\mu^\pm\) contributions. A new independent explicit-spinor calculation checks 30 moving-muon point/current/charge cases and 90 polarization matrix elements. The maximum explicit-spinor/trace residual is \(1.77\times10^{-13}\), the photon-Ward amplitude residual is \(1.47\times10^{-13}\), and the vector longitudinal Ward-shift residual is \(3.54\times10^{-14}\). The dedicated validation workflow passed (run #43372084167). This validates pointwise amplitudes, not the global mode-resolved transport or the production axial scan; the Fig. 7 gate remains NOT PASSED.

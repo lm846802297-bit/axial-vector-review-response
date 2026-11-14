@@ -1,0 +1,51 @@
+{
+  "title": "Independent explicit-spinor validation of the exact moving-muon B.13 polarization kernel",
+  "status": "local_independent_spinor_check_completed",
+  "mode_order": [
+    "L",
+    "+",
+    "-"
+  ],
+  "configuration": {
+    "kinematic_points": 5,
+    "current_charge_combinations_per_point": 6,
+    "total_point_current_cases": 30,
+    "polarization_matrix_element_count": 90,
+    "mediator_mass_MeV": 10,
+    "current_cases": [
+      "pure vector, mu- and mu+",
+      "pure axial, mu- and mu+",
+      "mixed vector-axial, mu- and mu+"
+    ]
+  },
+  "summary": {
+    "maximum_explicit_spinor_vs_dirac_trace_relative_residual": 1.771172767526159e-13,
+    "maximum_explicit_photon_ward_amplitude_residual": 1.468792078566235e-13,
+    "maximum_final_muon_shell_relative_error": 6.517518944440789e-16,
+    "maximum_vector_longitudinal_ward_shift_relative_residual": 3.541430872639605e-14,
+    "minimum_explicit_mode_matrix_element_squared": 0.0070507302154700375,
+    "all_mode_matrix_elements_nonnegative": true,
+    "axial_wrong_ward_shift_control_max_relative_difference_over_vector_scale": 16.631540386046698
+  },
+  "acceptance": {
+    "trace_vs_spinor_relative_tolerance": 1e-10,
+    "photon_ward_amplitude_tolerance": 1e-10,
+    "final_muon_shell_tolerance": 1e-10,
+    "vector_longitudinal_shift_tolerance": 1e-10,
+    "passed": true
+  },
+  "conventions": {
+    "spinor_normalization": "ubar(p)u(p)=2m_mu",
+    "initial_muon_spin": "explicit sum followed by average 1/2",
+    "final_muon_spin": "explicit sum",
+    "photon_polarizations": "two explicit orthonormal real transverse vectors",
+    "mediator_polarizations": "L,+,-; vector L uses Ward-equivalent epsilon_L-q/m, axial L uses physical epsilon_L",
+    "mu_plus_axial_interference": "charge_sign=-1 reverses the relative vector-axial term",
+    "matrix_element_normalization": "e^2 included; rates per g_X^2"
+  },
+  "scope": [
+    "Pointwise amplitude validation only; no thermal phase-space integral.",
+    "No radial-energy interpolation or global mode-resolved transport.",
+    "No change to scalar B.2 baseline, Fig. 7 comparison, or axial-vector output."
+  ]
+}

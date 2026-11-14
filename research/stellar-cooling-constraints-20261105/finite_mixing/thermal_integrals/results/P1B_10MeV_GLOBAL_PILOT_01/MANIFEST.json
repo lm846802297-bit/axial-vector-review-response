@@ -1,0 +1,53 @@
+{
+  "run": "P1B-10MeV-GLOBAL-PILOT-01",
+  "status": "pilot_only_global_acceptance_open",
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "profile_rows": 1687,
+  "physics": {
+    "m_Aprime_MeV": 10,
+    "gV_over_gX": 1,
+    "gA_over_gX": 0,
+    "kernel": "exact-recoil B.13 moving-muon semi-Compton"
+  },
+  "grid": {
+    "radii_km": [
+      0,
+      8.4821412022467,
+      12.5,
+      20.33,
+      21,
+      21.6346875,
+      22.1918941570485,
+      24.5
+    ],
+    "thermal_x": [
+      0.5,
+      2,
+      6,
+      18,
+      36
+    ],
+    "energy": "omega=m_Aprime+x*T(r)",
+    "point_count": 40,
+    "quadrature_orders": [
+      16,
+      10,
+      10,
+      10
+    ]
+  },
+  "acceptance": {
+    "all_finite_nonnegative": true,
+    "max_detailed_balance": 5.99472371291166e-15,
+    "max_mass_shell": 3.7964547851367595e-13,
+    "max_energy_MeV": 1422.9884562908824,
+    "max_profile_temperature_MeV": 39.2496793414134
+  },
+  "runtime_seconds": 22.716659784317017,
+  "files": {
+    "driver_sha256": "b7810974e829614ced29a8f49b39880df0e3f279a87637f8c25f26adf3d26740",
+    "json_sha256": "6993051408f08cdf70afc797fe0439a56773137d857240e30b981d489ea4f7ee",
+    "csv_sha256": "909243758ef84a9322e8df0197f607545cb62236f11814c7a5b89338da81bc0a"
+  },
+  "interpretation": "Coarse pilot only; no global interpolation or transport acceptance."
+}\n

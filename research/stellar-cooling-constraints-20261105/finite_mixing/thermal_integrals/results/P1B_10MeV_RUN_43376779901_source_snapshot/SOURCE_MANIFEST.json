@@ -1,0 +1,55 @@
+{
+  "title": "P1-B 10 MeV B.13 exact source snapshot",
+  "purpose": "Exact source and input files used by Actions run 43376779901, copied verbatim from source commit.",
+  "source_repository": "lm846802297-bit/axial-vector-review-response",
+  "source_commit": "0f61bfc3e381402cbea9740958b9a2744f006040",
+  "source_commit_url": "https://github.com/lm846802297-bit/axial-vector-review-response/commit/0f61bfc3e381402cbea9740958b9a2744f006040",
+  "run_url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43376779901",
+  "pr_url": "https://github.com/lm846802297-bit/axial-vector-review-response/pull/106",
+  "snapshot_root": "research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_10MeV_RUN_43376779901_source_snapshot",
+  "files": [
+    {
+      "original_path": "research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/audit_b13_local_kernel_radial_energy_10mev.py",
+      "snapshot_path": "research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_10MeV_RUN_43376779901_source_snapshot/program/audit_b13_local_kernel_radial_energy_10mev.py",
+      "git_blob_sha_at_source_commit": "96b70750333af1b89274b60ffb4bc9492514ecbf",
+      "characters": 35145
+    },
+    {
+      "original_path": "research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/test_p1b_b13_local_kernel_radial_energy_10mev.py",
+      "snapshot_path": "research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_10MeV_RUN_43376779901_source_snapshot/tests/test_p1b_b13_local_kernel_radial_energy_10mev.py",
+      "git_blob_sha_at_source_commit": "cb52f9947ca794795968724a11cca269c9d19c17",
+      "characters": 5795
+    },
+    {
+      "original_path": "research/stellar-cooling-constraints-20261105/finite_mixing/moving_muon_compton.py",
+      "snapshot_path": "research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_10MeV_RUN_43376779901_source_snapshot/finite_mixing/moving_muon_compton.py",
+      "git_blob_sha_at_source_commit": "918d38504b8a0df1c21dfe243bc25eab9808e6a9",
+      "characters": 17409
+    },
+    {
+      "original_path": "research/stellar-cooling-constraints-20261105/rates.py",
+      "snapshot_path": "research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_10MeV_RUN_43376779901_source_snapshot/rates.py",
+      "git_blob_sha_at_source_commit": "dd4d1accfd58a574e704f477f611299f15943465",
+      "characters": 17006
+    },
+    {
+      "original_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py",
+      "snapshot_path": "research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_10MeV_RUN_43376779901_source_snapshot/blinov_reproduction/reference.py",
+      "git_blob_sha_at_source_commit": "374c8d69311231533faf9f8c4f8bea84d0f97b42",
+      "characters": 15174
+    },
+    {
+      "original_path": "research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv",
+      "snapshot_path": "research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_10MeV_RUN_43376779901_source_snapshot/inputs/sfho188_digitized.csv",
+      "git_blob_sha_at_source_commit": "e41df78c8035540760fbcb7ef592cd830171822e",
+      "characters": 182716
+    },
+    {
+      "original_path": "research/stellar-cooling-constraints-20261105/data/profile_provenance.json",
+      "snapshot_path": "research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_10MeV_RUN_43376779901_source_snapshot/inputs/profile_provenance.json",
+      "git_blob_sha_at_source_commit": "08e697fddcc448681b58ac0a1d653addd879ed99",
+      "characters": 49376
+    }
+  ],
+  "note": "git_blob_sha_at_source_commit is the Git object blob SHA-1 returned by GitHub, not a SHA-256 digest. The snapshot files are verbatim copies from the pinned source commit. The original numerical JSON remains in Actions artifact 14015517843."
+}
