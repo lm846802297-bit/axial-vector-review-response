@@ -159,3 +159,11 @@ with lower limit (E_\infty=m_V) and the local production rate evaluated at (E_\i
 An independent numerical integration using separate logarithmic quadrature grids gives identical B.1 neutrino, Compton, and total source integrals in the local-energy and E-infinity variables at stored precision. GitHub Actions [Run #42573725261](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42573725261) passes the explicit equivalence check.
 
 Thus the B.1 energy-variable issue is resolved by a change of variables. The equation-level B.2 prescription is also explicit: the displayed path opacity uses fixed \(\omega\). The unresolved point is only whether the unavailable private numerical implementation followed that printed prescription or an alternative; the path-redshift branch remains a separate sensitivity diagnostic. This does not alter the conclusion that \(A(r)\) is not needed for the paper's Euclidean-chord B.2 approximation.
+
+## 10. High-energy interpolation provenance (2026-11-15)
+
+The high-energy path-redshift audit now has a strict NumPy reproduction of the archived V8 diagnostic. The archived V8 prescription uses bilinear interpolation of the precomputed reduced opacity in radius and local energy; the NumPy implementation reproduces that exact numerical method and agrees with the V8 high-energy band at relative differences below \(3\times10^{-14}\). The corresponding output and code are recorded in [B16_HIGH_ENERGY_PATH_REDSHIFT_AUDIT_2026-11-10.md](B16_HIGH_ENERGY_PATH_REDSHIFT_AUDIT_2026-11-10.md).
+
+A second, independent calculation recomputes local rates directly from the interpolated thermodynamic fields at every path node. It differs from the bilinear-grid result by \(+0.5021\%\) in escaped luminosity. This is retained as an interpolation-method sensitivity and is not conflated with the strict V8 reproduction.
+
+Neither calculation changes the equation-level decision: the displayed Eq. (B.2) uses fixed \(\omega\) along the Euclidean chord. The redshift-only path branch is a counterfactual sensitivity, not the printed baseline and not a full-GR ray trace. A physical full-GR calculation still requires same-snapshot spatial metric data \(A(r)\) or \(M(r)\), in addition to a consistently sourced lapse and thermodynamic profile.
