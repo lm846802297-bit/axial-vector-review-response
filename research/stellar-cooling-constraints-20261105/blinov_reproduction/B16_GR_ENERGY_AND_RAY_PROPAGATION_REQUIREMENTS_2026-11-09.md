@@ -2,7 +2,7 @@
 
 ## Executive conclusion
 
-The independent B.1+B.2 calculation and the dense local-kernel audit are complete for the literal fixed-\(\omega\), Euclidean-chord Appendix-B prescription. The remaining energy-convention question cannot be promoted to a full GR transport calculation with the currently available profile.
+The independent B.1+B.2 calculation and dense local-kernel audit validate the literal fixed-\(\omega\), Euclidean-chord Appendix-B prescription on the reconstructed profile. The displayed Eq. (B.2) fixes \(\omega\) along the chord; the path-redshift branch is a separate alternative diagnostic. A full-GR extension cannot be computed from the currently available profile because the same-snapshot spatial metric is unavailable.
 
 A consistent static, spherically symmetric GR treatment requires both:
 1. the lapse \(N(r)\), which determines the local energy from the conserved Killing energy;
@@ -143,7 +143,7 @@ The cited gravitational-redshift treatment, Caputo et al., arXiv:2201.09890, Sup
 
 Blinov's B.2 then explicitly uses the Euclidean chord (r'(s)=\sqrt{r^2+s^2+2rs\cos\theta}) and contains no (A(r)), proper spatial path factor, or geodesic bending. Therefore, the literal published Appendix-B calculation does not require (A(r)) or (M(r)). Their absence limits a **full-GR extension**, not reproduction of the paper's stated approximation.
 
-The remaining energy-convention ambiguity is between the Sec. 4.1 description of (omega) as energy at infinity and the B.1 local-energy threshold/phase-space structure, together with B.2's fixed-(omega) path kernel. The reproduction baseline continues to follow B.1--B.5 literally; the path-redshift-only calculation remains a separate diagnostic.
+The displayed Eq. (B.2) itself is not ambiguous: it writes fixed \(\omega\) in the local rate and vector speed along the chord. The path-redshift branch tests a separate conserved-\(E_\infty\) alternative motivated by the main-text energy-at-infinity language. What cannot be established without the authors' unpublished code is whether their numerical implementation followed the displayed equation exactly or used an unreported alternative. The reproduction baseline continues to follow B.1--B.5 literally.
 
 The corrected method reconstruction is documented in [B16_PUBLISHED_GRAVITY_AND_ENERGY_PRESCRIPTION_RECONSTRUCTION_2026-11-09.md](B16_PUBLISHED_GRAVITY_AND_ENERGY_PRESCRIPTION_RECONSTRUCTION_2026-11-09.md). Do not block the B.13/B.16, strong-absorption, or outer-neutrino-opacity audits on access to (A(r)).
 
@@ -158,4 +158,4 @@ with lower limit (E_\infty=m_V) and the local production rate evaluated at (E_\i
 
 An independent numerical integration using separate logarithmic quadrature grids gives identical B.1 neutrino, Compton, and total source integrals in the local-energy and E-infinity variables at stored precision. GitHub Actions [Run #42573725261](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42573725261) passes the explicit equivalence check.
 
-Thus the B.1 energy-variable issue is resolved by a change of variables. The remaining convention question is confined to B.2: whether the fixed omega in the path opacity is literal or shorthand for a locally redshifted energy. This does not alter the conclusion that A(r) is not needed for the paper's Euclidean-chord B.2 prescription.
+Thus the B.1 energy-variable issue is resolved by a change of variables. The equation-level B.2 prescription is also explicit: the displayed path opacity uses fixed \(\omega\). The unresolved point is only whether the unavailable private numerical implementation followed that printed prescription or an alternative; the path-redshift branch remains a separate sensitivity diagnostic. This does not alter the conclusion that \(A(r)\) is not needed for the paper's Euclidean-chord B.2 approximation.
