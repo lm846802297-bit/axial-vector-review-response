@@ -1,5 +1,11 @@
 """Static spherical GR ray/optical-depth kernel.
 
+The result reports whether a ray reaches the finite outer table radius r_max;
+that is distinct from being unbound at spatial infinity. A ray with
+E_infinity <= mass may still reach a finite r_max if the lapse there keeps
+its local energy above threshold. The supplied metric must extend far enough
+to identify any turning point before r_max.
+
 Metric: ds^2=-N(r)^2 dt^2+B(r)^2 dr^2+r^2 dOmega^2, B=sqrt(g_rr).
 This is a GR-extension module, not the paper-exact flat-chord B.2 baseline.
 gamma_abs_star(r_km, omega_local_MeV) must return a reduced local-time rate in MeV.
@@ -110,8 +116,6 @@ def propagate_ray(metric:StaticSphericalMetric,*,mass_MeV:float,source_radius_km
     rs=float(source_radius_km); rmax=metric.r_max if r_max_km is None else float(r_max_km)
     if not metric.r_min<=rs<=rmax<=metric.r_max: raise ValueError("source/rmax outside metric table")
     E=float(metric.N(rs))*float(source_local_energy_MeV)
-    if E<=mass_MeV:
-        return RayResult(False,E,0,None,float("inf"),0,0,tuple(),"E_infinity <= mass")
     ks=np.sqrt(source_local_energy_MeV**2-mass_MeV**2)
     L=rs*ks*np.sqrt(max(1-source_mu**2,0))
     p2s=float(radial_momentum_squared(metric,mass_MeV,E,L,rs))
@@ -140,4 +144,8 @@ def propagate_ray(metric:StaticSphericalMetric,*,mass_MeV:float,source_radius_km
         root=_first_root(metric,mass_MeV,E,L,start,rmax,1)
         return RayResult(False,E,L,root,float("inf"),0,0,tuple(),"outward forbidden region")
     tau,ell,phi=_segment(metric,mass_MeV,E,L,rs,rmax,gamma_abs_star,length_to_mev_inv,tangent)
-    return RayResult(True,E,L,None,tau,ell,phi,((rs,rmax),),"outward ray escapes")
+    reason = (
+        "outward ray reaches r_max but is bound relative to infinity"
+        if E <= mass_MeV else "outward ray reaches r_max and is unbound at infinity"
+    )
+    return RayResult(True,E,L,None,tau,ell,phi,((rs,rmax),),reason)
