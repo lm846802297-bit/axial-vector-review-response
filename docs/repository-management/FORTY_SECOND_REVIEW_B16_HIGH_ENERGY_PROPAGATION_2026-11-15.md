@@ -85,7 +85,7 @@ These are independent reproducibility runs. They do not modify production source
 
 ## 5. Remaining reproducibility and physical gates
 
-1. The independent B.1 source audit is now also dependency-pinned and archived (Actions #43650570961): six tests pass, the final source is lower than archived B.16 by 0.443024%, and the local-energy/E-infinity Jacobian check closes at 2.22e-16. The next numerical gate is the pinned end-to-end B.1+B.2 luminosity calculation, combining the pinned B.1 source and B.2 analytic path while retaining the fixed-omega baseline.
+1. The pinned end-to-end B.1+B.2 luminosity calculation is now complete (Actions #43651020195), using the separately pinned B.1 and B.2 outputs. It reproduces archived B.16 to 0.445059% maximum relative difference over all 25 couplings, with source closure at 2.14115e-5 relative. The Fig. 7 residual remains -9.2908% at weak coupling and +92.0542% at the strong endpoint. The next investigation is therefore the shared physical inputs and conventions—not another quadrature refinement: reconstructed public-figure profile versus the original Garching snapshot, shared local production/absorption kernels and muon-species convention, and fixed-local-energy versus energy-at-infinity interpretation. Do not rescale the source or opacity.
 2. Keep the generic GR kernel separate from a physical full-GR SN result until same-snapshot \(N(r)\) and \(A(r)\) or \(M(r)\) data are available.
 3. The public-figure reconstructed thermodynamic profile is not the original Garching raw snapshot; its provenance uncertainty remains.
 4. The \(+92\%\) Fig. 7 strong-endpoint discrepancy remains unresolved. No opacity rescaling, source normalization adjustment, or fitted correction is authorized.
