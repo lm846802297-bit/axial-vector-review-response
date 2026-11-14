@@ -1,0 +1,1803 @@
+{
+  "result": {
+    "core_8_15km": {
+      "escaped_channel_fractions": {
+        "compton": 0.4764177086426847,
+        "neutrino": 0.5235822913573155
+      },
+      "escaped_fraction": 0.8685505624265446,
+      "source_channel_fractions": {
+        "compton": 0.33373605956788266,
+        "neutrino": 0.6662639404321173
+      },
+      "source_fraction": 0.7965218699409811
+    },
+    "coupling": 4.171689650228597e-08,
+    "energy_bins": [
+      {
+        "bin": "10-11 MeV",
+        "counterfactual_luminosity_erg_s": {
+          "both_opacities": 4.0539204286114407e+48,
+          "compton_opacity_only": 2.6723180424592837e+50,
+          "neutrino_opacity_only": 4.0539204286114407e+48,
+          "optically_thin": 2.93426255588143e+50
+        },
+        "escaped": {
+          "compton_fraction_in_bin": 1.6480652781419211e-18,
+          "compton_fraction_of_global_escape": 2.738574777349872e-22,
+          "escape_probability": 0.013815806702388545,
+          "neutrino_fraction_in_bin": 1.0,
+          "neutrino_fraction_of_global_escape": 0.00016616907192155788
+        },
+        "mean_tau": {
+          "compton_escape_weighted": 1.6416418694047723e-18,
+          "compton_source_weighted": 0.7437861107056852,
+          "neutrino_escape_weighted": 0.9965228611027968,
+          "neutrino_source_weighted": 115.74986931316407,
+          "total_escape_weighted": 0.9965228611027968,
+          "total_source_weighted": 116.49365542386975
+        },
+        "opacity_loss_shapley_erg_s": {
+          "compton": 1.309722567110732e+49,
+          "neutrino": 2.7627510948842424e+50
+        },
+        "source": {
+          "compton_fraction_in_bin": 2.4297076478224117e-17,
+          "compton_fraction_of_global_source": 9.502728546588794e-23,
+          "neutrino_fraction_in_bin": 1.0,
+          "neutrino_fraction_of_global_source": 3.911058416886274e-06
+        }
+      },
+      {
+        "bin": "11-12 MeV",
+        "counterfactual_luminosity_erg_s": {
+          "both_opacities": 4.5558691332389207e+49,
+          "compton_opacity_only": 2.0444405762617789e+52,
+          "neutrino_opacity_only": 4.5558691332389207e+49,
+          "optically_thin": 2.513927454011121e+52
+        },
+        "escaped": {
+          "compton_fraction_in_bin": 1.7414528132028407e-18,
+          "compton_fraction_of_global_escape": 3.2520553301095695e-21,
+          "escape_probability": 0.001812251632786682,
+          "neutrino_fraction_in_bin": 1.0,
+          "neutrino_fraction_of_global_escape": 0.001867438098496888
+        },
+        "mean_tau": {
+          "compton_escape_weighted": 1.7735733373751216e-18,
+          "compton_source_weighted": 1.1278064882103684,
+          "neutrino_escape_weighted": 1.0182864243248677,
+          "neutrino_source_weighted": 100.78277461753468,
+          "total_escape_weighted": 1.0182864243248677,
+          "total_source_weighted": 101.91058110574505
+        },
+        "opacity_loss_shapley_erg_s": {
+          "compton": 2.3474343887467108e+51,
+          "neutrino": 2.274628146003211e+52
+        },
+        "source": {
+          "compton_fraction_in_bin": 0.004563507496848731,
+          "compton_fraction_of_global_source": 1.5291385610891853e-06,
+          "neutrino_fraction_in_bin": 0.9954364925031511,
+          "neutrino_fraction_of_global_source": 0.0003335505259612352
+        }
+      },
+      {
+        "bin": "12-13 MeV",
+        "counterfactual_luminosity_erg_s": {
+          "both_opacities": 6.24664545899671e+49,
+          "compton_opacity_only": 4.1685518539069403e+52,
+          "neutrino_opacity_only": 6.24664545899671e+49,
+          "optically_thin": 6.924647102054776e+52
+        },
+        "escaped": {
+          "compton_fraction_in_bin": 1.8774474081747075e-18,
+          "compton_fraction_of_global_escape": 4.8071714517053e-21,
+          "escape_probability": 0.0009020886359888462,
+          "neutrino_fraction_in_bin": 1.0,
+          "neutrino_fraction_of_global_escape": 0.002560482616330078
+        },
+        "mean_tau": {
+          "compton_escape_weighted": 1.9238155777170336e-18,
+          "compton_source_weighted": 1.78069933548364,
+          "neutrino_escape_weighted": 1.0242786627803695,
+          "neutrino_source_weighted": 78.29260444564589,
+          "total_escape_weighted": 1.0242786627803695,
+          "total_source_weighted": 80.07330378112954
+        },
+        "opacity_loss_shapley_erg_s": {
+          "compton": 1.378047624073918e+52,
+          "neutrino": 5.540352832521862e+52
+        },
+        "source": {
+          "compton_fraction_in_bin": 0.08951975569399233,
+          "compton_fraction_of_global_source": 8.262507466879527e-05,
+          "neutrino_fraction_in_bin": 0.9104802443060077,
+          "neutrino_fraction_of_global_source": 0.0008403563837618408
+        }
+      },
+      {
+        "bin": "13-15 MeV",
+        "counterfactual_luminosity_erg_s": {
+          "both_opacities": 1.3673575201222284e+50,
+          "compton_opacity_only": 1.0130482826787113e+53,
+          "neutrino_opacity_only": 1.3673575201222284e+50,
+          "optically_thin": 1.938923934935869e+53
+        },
+        "escaped": {
+          "compton_fraction_in_bin": 2.2345766959110813e-18,
+          "compton_fraction_of_global_escape": 1.2524267156436784e-20,
+          "escape_probability": 0.0007052146272914283,
+          "neutrino_fraction_in_bin": 1.0,
+          "neutrino_fraction_of_global_escape": 0.005604760480745277
+        },
+        "mean_tau": {
+          "compton_escape_weighted": 2.3327858651486478e-18,
+          "compton_source_weighted": 1.795857792187724,
+          "neutrino_escape_weighted": 1.0330070062125687,
+          "neutrino_source_weighted": 63.2740473240597,
+          "total_escape_weighted": 1.0330070062125687,
+          "total_source_weighted": 65.06990511624743
+        },
+        "opacity_loss_shapley_erg_s": {
+          "compton": 4.629378261285788e+52,
+          "neutrino": 1.474618751287168e+53
+        },
+        "source": {
+          "compton_fraction_in_bin": 0.12656455322485172,
+          "compton_fraction_of_global_source": 0.0003270906978223986,
+          "neutrino_fraction_in_bin": 0.8734354467751482,
+          "neutrino_fraction_of_global_source": 0.0022572877042511793
+        }
+      },
+      {
+        "bin": "15-17.5 MeV",
+        "counterfactual_luminosity_erg_s": {
+          "both_opacities": 1.992221791554758e+50,
+          "compton_opacity_only": 1.9806698208517995e+53,
+          "neutrino_opacity_only": 1.9922217915547605e+50,
+          "optically_thin": 3.906297477795393e+53
+        },
+        "escaped": {
+          "compton_fraction_in_bin": 6.67400616592824e-16,
+          "compton_fraction_of_global_escape": 5.4500346580870725e-18,
+          "escape_probability": 0.0005100025799056945,
+          "neutrino_fraction_in_bin": 0.9999999999999993,
+          "neutrino_fraction_of_global_escape": 0.008166061766484841
+        },
+        "mean_tau": {
+          "compton_escape_weighted": 7.959729404431656e-16,
+          "compton_source_weighted": 1.6018006210588012,
+          "neutrino_escape_weighted": 1.0483629152777967,
+          "neutrino_source_weighted": 51.37968459285918,
+          "total_escape_weighted": 1.0483629152777976,
+          "total_source_weighted": 52.98148521391798
+        },
+        "opacity_loss_shapley_erg_s": {
+          "compton": 9.62813828471797e+52,
+          "neutrino": 2.9414914275320416e+53
+        },
+        "source": {
+          "compton_fraction_in_bin": 0.13548981276929517,
+          "compton_fraction_of_global_source": 0.0007054517042423841,
+          "neutrino_fraction_in_bin": 0.8645101872307048,
+          "neutrino_fraction_of_global_source": 0.00450122538699834
+        }
+      },
+      {
+        "bin": "17.5-20 MeV",
+        "counterfactual_luminosity_erg_s": {
+          "both_opacities": 1.3365245359922833e+50,
+          "compton_opacity_only": 2.062770369499204e+53,
+          "neutrino_opacity_only": 1.3365245359925153e+50,
+          "optically_thin": 4.208434482498195e+53
+        },
+        "escaped": {
+          "compton_fraction_in_bin": 1.1095128560335461e-13,
+          "compton_fraction_of_global_escape": 6.078329640180251e-16,
+          "escape_probability": 0.0003175823555173659,
+          "neutrino_fraction_in_bin": 0.999999999999889,
+          "neutrino_fraction_of_global_escape": 0.0054783769355402565
+        },
+        "mean_tau": {
+          "compton_escape_weighted": 1.3301530194847844e-13,
+          "compton_source_weighted": 1.5141261610118961,
+          "neutrino_escape_weighted": 1.068329866727775,
+          "neutrino_source_weighted": 43.92482455749951,
+          "total_escape_weighted": 1.068329866727908,
+          "total_source_weighted": 45.43895071851141
+        },
+        "opacity_loss_shapley_erg_s": {
+          "compton": 1.0728320564994956e+53,
+          "neutrino": 3.1342659014627066e+53
+        },
+        "source": {
+          "compton_fraction_in_bin": 0.14507636174692276,
+          "compton_fraction_of_global_source": 0.0008137903905221042,
+          "neutrino_fraction_in_bin": 0.8549236382530773,
+          "neutrino_fraction_of_global_source": 0.00479560304010248
+        }
+      },
+      {
+        "bin": "20-25 MeV",
+        "counterfactual_luminosity_erg_s": {
+          "both_opacities": 1.4964625691175837e+50,
+          "compton_opacity_only": 4.552337749045024e+53,
+          "neutrino_opacity_only": 1.496462569198557e+50,
+          "optically_thin": 9.69179819635759e+53
+        },
+        "escaped": {
+          "compton_fraction_in_bin": 3.397297100047784e-11,
+          "compton_fraction_of_global_escape": 2.083887938712191e-13,
+          "escape_probability": 0.00015440504835108828,
+          "neutrino_fraction_in_bin": 0.9999999999660271,
+          "neutrino_fraction_of_global_escape": 0.006133958488976677
+        },
+        "mean_tau": {
+          "compton_escape_weighted": 4.111797221437653e-11,
+          "compton_source_weighted": 1.4719436575783316,
+          "neutrino_escape_weighted": 1.0982094564441405,
+          "neutrino_source_weighted": 37.78959595852757,
+          "total_escape_weighted": 1.0982094564852585,
+          "total_source_weighted": 39.2615396161059
+        },
+        "opacity_loss_shapley_erg_s": {
+          "compton": 2.5697302236563233e+53,
+          "neutrino": 7.120571510132149e+53
+        },
+        "source": {
+          "compton_fraction_in_bin": 0.1567850728230725,
+          "compton_fraction_of_global_source": 0.0020253701536738725,
+          "neutrino_fraction_in_bin": 0.8432149271769275,
+          "neutrino_fraction_of_global_source": 0.01089276112760853
+        }
+      },
+      {
+        "bin": "25-30 MeV",
+        "counterfactual_luminosity_erg_s": {
+          "both_opacities": 6.721659164518329e+49,
+          "compton_opacity_only": 5.600344789527696e+53,
+          "neutrino_opacity_only": 6.721659212773118e+49,
+          "optically_thin": 1.2509637472443048e+54
+        },
+        "escaped": {
+          "compton_fraction_in_bin": 4.42670002440228e-09,
+          "compton_fraction_of_global_escape": 1.2196397047608282e-11,
+          "escape_probability": 5.37318461811958e-05,
+          "neutrino_fraction_in_bin": 0.9999999955733,
+          "neutrino_fraction_of_global_escape": 0.0027551894021247405
+        },
+        "mean_tau": {
+          "compton_escape_weighted": 5.417428254061953e-09,
+          "compton_source_weighted": 1.457632007036416,
+          "neutrino_escape_weighted": 1.1494312522167613,
+          "neutrino_source_weighted": 32.545770244968146,
+          "total_escape_weighted": 1.1494312576341896,
+          "total_source_weighted": 34.00340225200456
+        },
+        "opacity_loss_shapley_erg_s": {
+          "compton": 3.4546463414600887e+53,
+          "neutrino": 9.054318965066507e+53
+        },
+        "source": {
+          "compton_fraction_in_bin": 0.1701345661803152,
+          "compton_fraction_of_global_source": 0.002836825442146398,
+          "neutrino_fraction_in_bin": 0.8298654338196848,
+          "neutrino_fraction_of_global_source": 0.013837184465633428
+        }
+      },
+      {
+        "bin": "30-40 MeV",
+        "counterfactual_luminosity_erg_s": {
+          "both_opacities": 3.6214885339130356e+49,
+          "compton_opacity_only": 1.6581005437707782e+54,
+          "neutrino_opacity_only": 3.621516127398261e+49,
+          "optically_thin": 3.9714025517534254e+54
+        },
+        "escaped": {
+          "compton_fraction_in_bin": 4.4887309736930215e-06,
+          "compton_fraction_of_global_escape": 6.66324322036705e-09,
+          "escape_probability": 9.118915765197617e-06,
+          "neutrino_fraction_in_bin": 0.9999955112690263,
+          "neutrino_fraction_of_global_escape": 0.0014844314239173002
+        },
+        "mean_tau": {
+          "compton_escape_weighted": 5.650705835337585e-06,
+          "compton_source_weighted": 1.4705361707464186,
+          "neutrino_escape_weighted": 1.2539158651031044,
+          "neutrino_source_weighted": 26.828239411712946,
+          "total_escape_weighted": 1.2539215158089396,
+          "total_source_weighted": 28.298775582459363
+        },
+        "opacity_loss_shapley_erg_s": {
+          "compton": 1.156651004129291e+54,
+          "neutrino": 2.814715332738795e+54
+        },
+        "source": {
+          "compton_fraction_in_bin": 0.19054126811462438,
+          "compton_fraction_of_global_source": 0.010086216660148372,
+          "neutrino_fraction_in_bin": 0.8094587318853756,
+          "neutrino_fraction_of_global_source": 0.042848335313552054
+        }
+      },
+      {
+        "bin": "40-60 MeV",
+        "counterfactual_luminosity_erg_s": {
+          "both_opacities": 3.4896824335730374e+48,
+          "compton_opacity_only": 3.135847362256443e+54,
+          "neutrino_opacity_only": 3.567233755150193e+48,
+          "optically_thin": 8.293440330423555e+54
+        },
+        "escaped": {
+          "compton_fraction_in_bin": 0.012139164405104137,
+          "compton_fraction_of_global_escape": 1.7363995908869136e-06,
+          "escape_probability": 4.2077621524224747e-07,
+          "neutrino_fraction_in_bin": 0.9878608355948959,
+          "neutrino_fraction_of_global_escape": 0.00014130471369668107
+        },
+        "mean_tau": {
+          "compton_escape_weighted": 0.015972231596333267,
+          "compton_source_weighted": 1.5171363003537797,
+          "neutrino_escape_weighted": 3.879604590579807,
+          "neutrino_source_weighted": 20.935854219804927,
+          "total_escape_weighted": 3.89557682217614,
+          "total_source_weighted": 22.452990520158707
+        },
+        "opacity_loss_shapley_erg_s": {
+          "compton": 2.578796522859217e+54,
+          "neutrino": 5.714640317881904e+54
+        },
+        "source": {
+          "compton_fraction_in_bin": 0.22195278394694828,
+          "compton_fraction_of_global_source": 0.024535259303248777,
+          "neutrino_fraction_in_bin": 0.7780472160530517,
+          "neutrino_fraction_of_global_source": 0.0860074375124544
+        }
+      },
+      {
+        "bin": "60-110 MeV",
+        "counterfactual_luminosity_erg_s": {
+          "both_opacities": 2.3503765573134107e+50,
+          "compton_opacity_only": 8.668298139539651e+54,
+          "neutrino_opacity_only": 3.4129246369475776e+50,
+          "optically_thin": 2.695250606113293e+55
+        },
+        "escaped": {
+          "compton_fraction_in_bin": 0.20329970821414858,
+          "compton_fraction_of_global_escape": 0.001958615451840052,
+          "escape_probability": 8.720437913945189e-06,
+          "neutrino_fraction_in_bin": 0.7967002917858514,
+          "neutrino_fraction_of_global_escape": 0.007675512747581253
+        },
+        "mean_tau": {
+          "compton_escape_weighted": 0.29538118032571803,
+          "compton_source_weighted": 1.615718311643763,
+          "neutrino_escape_weighted": 9.020953667943377,
+          "neutrino_source_weighted": 14.518728322569899,
+          "total_escape_weighted": 9.316334848269095,
+          "total_source_weighted": 16.134446634213663
+        },
+        "opacity_loss_shapley_erg_s": {
+          "compton": 9.142157088200621e+54,
+          "neutrino": 1.7810113935276576e+55
+        },
+        "source": {
+          "compton_fraction_in_bin": 0.2847270007876253,
+          "compton_fraction_of_global_source": 0.1022876349020871,
+          "neutrino_fraction_in_bin": 0.7152729992123747,
+          "neutrino_fraction_of_global_source": 0.25696046808475365
+        }
+      },
+      {
+        "bin": "110-210 MeV",
+        "counterfactual_luminosity_erg_s": {
+          "both_opacities": 6.019670304613057e+51,
+          "compton_opacity_only": 6.755700715630504e+54,
+          "neutrino_opacity_only": 1.1994323208100827e+52,
+          "optically_thin": 2.52166033285111e+55
+        },
+        "escaped": {
+          "compton_fraction_in_bin": 0.3606631788299669,
+          "compton_fraction_of_global_escape": 0.08899169652830344,
+          "escape_probability": 0.00023871852311714516,
+          "neutrino_fraction_in_bin": 0.6393368211700331,
+          "neutrino_fraction_of_global_escape": 0.1577529165952286
+        },
+        "mean_tau": {
+          "compton_escape_weighted": 0.5686599836217542,
+          "compton_source_weighted": 1.7257458367654315,
+          "neutrino_escape_weighted": 6.192688149221022,
+          "neutrino_source_weighted": 9.352248005555838,
+          "total_escape_weighted": 6.761348132842776,
+          "total_source_weighted": 11.07799384232127
+        },
+        "opacity_loss_shapley_erg_s": {
+          "compton": 9.233438632892042e+54,
+          "neutrino": 1.5977145025314446e+55
+        },
+        "source": {
+          "compton_fraction_in_bin": 0.3820967689365736,
+          "compton_fraction_of_global_source": 0.12842668815380798,
+          "neutrino_fraction_in_bin": 0.6179032310634265,
+          "neutrino_fraction_of_global_source": 0.20768368648044144
+        }
+      },
+      {
+        "bin": "210-510 MeV",
+        "counterfactual_luminosity_erg_s": {
+          "both_opacities": 1.7017848288549969e+52,
+          "compton_opacity_only": 1.6768662314867213e+54,
+          "neutrino_opacity_only": 4.6499938984562027e+52,
+          "optically_thin": 7.25460047998901e+54
+        },
+        "escaped": {
+          "compton_fraction_in_bin": 0.5160252922639489,
+          "compton_fraction_of_global_escape": 0.3599569890870804,
+          "escape_probability": 0.002345800893583564,
+          "neutrino_fraction_in_bin": 0.48397470773605106,
+          "neutrino_fraction_of_global_escape": 0.3375998835767522
+        },
+        "mean_tau": {
+          "compton_escape_weighted": 0.8509574820778766,
+          "compton_source_weighted": 1.807559956915818,
+          "neutrino_escape_weighted": 4.107156587288833,
+          "neutrino_source_weighted": 5.911764750538013,
+          "total_escape_weighted": 4.95811406936671,
+          "total_source_weighted": 7.719324707453831
+        },
+        "opacity_loss_shapley_erg_s": {
+          "compton": 2.8036081695991502e+54,
+          "neutrino": 4.433974462101309e+54
+        },
+        "source": {
+          "compton_fraction_in_bin": 0.5012357976535854,
+          "compton_fraction_of_global_source": 0.048467532661647994,
+          "neutrino_fraction_in_bin": 0.4987642023464147,
+          "neutrino_fraction_of_global_source": 0.048228539104449075
+        }
+      },
+      {
+        "bin": "510-1010 MeV",
+        "counterfactual_luminosity_erg_s": {
+          "both_opacities": 2.8554645726841654e+50,
+          "compton_opacity_only": 3.218605700116795e+51,
+          "neutrino_opacity_only": 1.0640935513490939e+51,
+          "optically_thin": 1.6028256387232988e+52
+        },
+        "escaped": {
+          "compton_fraction_in_bin": 0.682511939101052,
+          "compton_fraction_of_global_escape": 0.0079884404747221,
+          "escape_probability": 0.017815191519887544,
+          "neutrino_fraction_in_bin": 0.3174880608989479,
+          "neutrino_fraction_of_global_escape": 0.0037160294650181607
+        },
+        "mean_tau": {
+          "compton_escape_weighted": 1.1400776586044792,
+          "compton_source_weighted": 1.8773053883396853,
+          "neutrino_escape_weighted": 2.319902808191495,
+          "neutrino_source_weighted": 2.881742985735469,
+          "total_escape_weighted": 3.459980466795974,
+          "total_source_weighted": 4.759048374075154
+        },
+        "opacity_loss_shapley_erg_s": {
+          "compton": 6.794098890598435e+51,
+          "neutrino": 8.948611039366137e+51
+        },
+        "source": {
+          "compton_fraction_in_bin": 0.6801515965320161,
+          "compton_fraction_of_global_source": 0.00014530726675769223,
+          "neutrino_fraction_in_bin": 0.31984840346798393,
+          "neutrino_fraction_of_global_source": 6.833226228052614e-05
+        }
+      }
+    ],
+    "execution": {
+      "angular_order": 32,
+      "angular_weight_sum": 1.0,
+      "baseline_sha256": "dc7cce151ce9d8ec79d37c0f75c03984f8c5f9660b102f0f054f622b7f33c373",
+      "comparison_to_archived_B16_baseline": {
+        "escape_probability_absolute_residual": -5.421010862427522e-20,
+        "luminosity_relative_residual": -2.220446049250313e-16,
+        "thin_luminosity_relative_residual": 0.0
+      },
+      "energy_nodes": 842,
+      "energy_order": 200,
+      "engine": "Python/NumPy/SciPy reference implementation",
+      "fig7_sha256": "3eb1121da175d89da54a19abbdf0c52669a239be464978ddcfe84887e4d18d06",
+      "max_channel_angle_weight_residual": 0.0,
+      "opacity_radial_nodes": 642,
+      "opacity_radial_order": 640,
+      "path_order": 64,
+      "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+      "source_radial_nodes": 200,
+      "source_radial_order": 200
+    },
+    "fig7_reference_luminosity_erg_s": 1.26781475907372e+52,
+    "integrated": {
+      "calculated_luminosity_erg_s": 2.439635957361032e+52,
+      "escape_probability": 0.00032517740193528985,
+      "escaped_luminosity_by_source_channel_erg_s": {
+        "compton": 1.1195428042146169e+52,
+        "neutrino": 1.3200931531464154e+52
+      },
+      "escaped_luminosity_channel_fractions": {
+        "compton": 0.4588974846171855,
+        "neutrino": 0.5411025153828146
+      },
+      "optically_thin_luminosity_erg_s": 7.502476933641651e+55,
+      "relative_difference_vs_fig7": 0.9242842378199307,
+      "source_channel_luminosity_fractions": {
+        "compton": 0.32074132154933493,
+        "neutrino": 0.6792586784506651
+      }
+    },
+    "interpretation": [
+      "Channel source fractions use the B.1 production terms and the same total B.2 survival factor.",
+      "Opacity-only counterfactuals keep the total B.1 source fixed and are diagnostics, not alternative physical models.",
+      "Shapley opacity-loss attribution symmetrizes the order dependence of removing the two opacity channels.",
+      "The exact B.13 global source-plus-opacity replacement is a separate archived calculation; it is not mixed into this B.16 reference result.",
+      "No empirical rescaling, profile modification, or axial-vector curve update is performed."
+    ],
+    "mass_MeV": 10.0,
+    "neutrino_pair_average_independent_angular_check": {
+      "energies_MeV": [
+        60.0,
+        110.0,
+        210.0,
+        510.0,
+        1010.0
+      ],
+      "maximum_absolute_relative_residual_by_order": {
+        "1024": 7.549516567451064e-15,
+        "128": 5.773159728050814e-15,
+        "256": 2.7755575615628914e-15,
+        "512": 4.440892098500626e-15
+      },
+      "method": "independent direct angular integral of f(E1,mu) f(E2,-mu)",
+      "points": [
+        {
+          "analytic_pair_average": 0.09089776494985098,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -4.440892098500626e-16,
+              "value": 0.09089776494985094
+            },
+            {
+              "order": 256,
+              "relative_residual": 2.220446049250313e-16,
+              "value": 0.090897764949851
+            },
+            {
+              "order": 512,
+              "relative_residual": -1.1102230246251565e-16,
+              "value": 0.09089776494985097
+            },
+            {
+              "order": 1024,
+              "relative_residual": -7.771561172376096e-16,
+              "value": 0.09089776494985091
+            }
+          ],
+          "energy_MeV": 60.0,
+          "mu_numu_MeV": -20.4279370538693,
+          "radius_km": 8.0,
+          "species": "mu_numu",
+          "temperature_MeV": 38.847171184805
+        },
+        {
+          "analytic_pair_average": 0.09586412630463621,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -1.1102230246251565e-16,
+              "value": 0.0958641263046362
+            },
+            {
+              "order": 256,
+              "relative_residual": 2.220446049250313e-16,
+              "value": 0.09586412630463623
+            },
+            {
+              "order": 512,
+              "relative_residual": -1.1102230246251565e-16,
+              "value": 0.0958641263046362
+            },
+            {
+              "order": 1024,
+              "relative_residual": -9.992007221626409e-16,
+              "value": 0.09586412630463612
+            }
+          ],
+          "energy_MeV": 60.0,
+          "mu_numu_MeV": -20.4279370538693,
+          "radius_km": 8.0,
+          "species": "mu_zero",
+          "temperature_MeV": 38.847171184805
+        },
+        {
+          "analytic_pair_average": 0.03332674101316153,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -1.2212453270876722e-15,
+              "value": 0.033326741013161486
+            },
+            {
+              "order": 256,
+              "relative_residual": 0.0,
+              "value": 0.03332674101316153
+            },
+            {
+              "order": 512,
+              "relative_residual": -6.661338147750939e-16,
+              "value": 0.03332674101316151
+            },
+            {
+              "order": 1024,
+              "relative_residual": -2.3314683517128287e-15,
+              "value": 0.03332674101316145
+            }
+          ],
+          "energy_MeV": 110.0,
+          "mu_numu_MeV": -20.4279370538693,
+          "radius_km": 8.0,
+          "species": "mu_numu",
+          "temperature_MeV": 38.847171184805
+        },
+        {
+          "analytic_pair_average": 0.034514835793642444,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -9.992007221626409e-16,
+              "value": 0.03451483579364241
+            },
+            {
+              "order": 256,
+              "relative_residual": 2.220446049250313e-16,
+              "value": 0.03451483579364245
+            },
+            {
+              "order": 512,
+              "relative_residual": -5.551115123125783e-16,
+              "value": 0.03451483579364242
+            },
+            {
+              "order": 1024,
+              "relative_residual": -2.4424906541753444e-15,
+              "value": 0.03451483579364236
+            }
+          ],
+          "energy_MeV": 110.0,
+          "mu_numu_MeV": -20.4279370538693,
+          "radius_km": 8.0,
+          "species": "mu_zero",
+          "temperature_MeV": 38.847171184805
+        },
+        {
+          "analytic_pair_average": 0.003306677674821311,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -1.5543122344752192e-15,
+              "value": 0.0033066776748213057
+            },
+            {
+              "order": 256,
+              "relative_residual": 4.440892098500626e-16,
+              "value": 0.003306677674821312
+            },
+            {
+              "order": 512,
+              "relative_residual": -6.661338147750939e-16,
+              "value": 0.0033066776748213087
+            },
+            {
+              "order": 1024,
+              "relative_residual": -3.6637359812630166e-15,
+              "value": 0.0033066776748212987
+            }
+          ],
+          "energy_MeV": 210.0,
+          "mu_numu_MeV": -20.4279370538693,
+          "radius_km": 8.0,
+          "species": "mu_numu",
+          "temperature_MeV": 38.847171184805
+        },
+        {
+          "analytic_pair_average": 0.003362719326845853,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -1.5543122344752192e-15,
+              "value": 0.003362719326845848
+            },
+            {
+              "order": 256,
+              "relative_residual": 6.661338147750939e-16,
+              "value": 0.003362719326845855
+            },
+            {
+              "order": 512,
+              "relative_residual": -6.661338147750939e-16,
+              "value": 0.003362719326845851
+            },
+            {
+              "order": 1024,
+              "relative_residual": -3.774758283725532e-15,
+              "value": 0.0033627193268458404
+            }
+          ],
+          "energy_MeV": 210.0,
+          "mu_numu_MeV": -20.4279370538693,
+          "radius_km": 8.0,
+          "species": "mu_zero",
+          "temperature_MeV": 38.847171184805
+        },
+        {
+          "analytic_pair_average": 1.7679014834349877e-06,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -3.219646771412954e-15,
+              "value": 1.767901483434982e-06
+            },
+            {
+              "order": 256,
+              "relative_residual": -5.551115123125783e-16,
+              "value": 1.7679014834349866e-06
+            },
+            {
+              "order": 512,
+              "relative_residual": -1.9984014443252818e-15,
+              "value": 1.767901483434984e-06
+            },
+            {
+              "order": 1024,
+              "relative_residual": -5.773159728050814e-15,
+              "value": 1.7679014834349775e-06
+            }
+          ],
+          "energy_MeV": 510.0,
+          "mu_numu_MeV": -20.4279370538693,
+          "radius_km": 8.0,
+          "species": "mu_numu",
+          "temperature_MeV": 38.847171184805
+        },
+        {
+          "analytic_pair_average": 1.7782533900319735e-06,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -3.3306690738754696e-15,
+              "value": 1.7782533900319675e-06
+            },
+            {
+              "order": 256,
+              "relative_residual": -4.440892098500626e-16,
+              "value": 1.7782533900319726e-06
+            },
+            {
+              "order": 512,
+              "relative_residual": -2.1094237467877974e-15,
+              "value": 1.7782533900319697e-06
+            },
+            {
+              "order": 1024,
+              "relative_residual": -5.662137425588298e-15,
+              "value": 1.7782533900319633e-06
+            }
+          ],
+          "energy_MeV": 510.0,
+          "mu_numu_MeV": -20.4279370538693,
+          "radius_km": 8.0,
+          "species": "mu_zero",
+          "temperature_MeV": 38.847171184805
+        },
+        {
+          "analytic_pair_average": 4.826635744555981e-12,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -1.9984014443252818e-15,
+              "value": 4.8266357445559715e-12
+            },
+            {
+              "order": 256,
+              "relative_residual": 6.661338147750939e-16,
+              "value": 4.826635744555984e-12
+            },
+            {
+              "order": 512,
+              "relative_residual": -1.2212453270876722e-15,
+              "value": 4.8266357445559755e-12
+            },
+            {
+              "order": 1024,
+              "relative_residual": -4.6629367034256575e-15,
+              "value": 4.8266357445559585e-12
+            }
+          ],
+          "energy_MeV": 1010.0,
+          "mu_numu_MeV": -20.4279370538693,
+          "radius_km": 8.0,
+          "species": "mu_numu",
+          "temperature_MeV": 38.847171184805
+        },
+        {
+          "analytic_pair_average": 4.840076608601137e-12,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -1.9984014443252818e-15,
+              "value": 4.8400766086011276e-12
+            },
+            {
+              "order": 256,
+              "relative_residual": 4.440892098500626e-16,
+              "value": 4.840076608601139e-12
+            },
+            {
+              "order": 512,
+              "relative_residual": -9.992007221626409e-16,
+              "value": 4.8400766086011324e-12
+            },
+            {
+              "order": 1024,
+              "relative_residual": -4.3298697960381105e-15,
+              "value": 4.840076608601116e-12
+            }
+          ],
+          "energy_MeV": 1010.0,
+          "mu_numu_MeV": -20.4279370538693,
+          "radius_km": 8.0,
+          "species": "mu_zero",
+          "temperature_MeV": 38.847171184805
+        },
+        {
+          "analytic_pair_average": 0.07988292265338363,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -5.551115123125783e-16,
+              "value": 0.07988292265338359
+            },
+            {
+              "order": 256,
+              "relative_residual": 2.220446049250313e-16,
+              "value": 0.07988292265338365
+            },
+            {
+              "order": 512,
+              "relative_residual": -3.3306690738754696e-16,
+              "value": 0.0798829226533836
+            },
+            {
+              "order": 1024,
+              "relative_residual": -1.2212453270876722e-15,
+              "value": 0.07988292265338354
+            }
+          ],
+          "energy_MeV": 60.0,
+          "mu_numu_MeV": -10.2178306046946,
+          "radius_km": 10.0,
+          "species": "mu_numu",
+          "temperature_MeV": 33.9274404196138
+        },
+        {
+          "analytic_pair_average": 0.08120132974881586,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -3.3306690738754696e-16,
+              "value": 0.08120132974881583
+            },
+            {
+              "order": 256,
+              "relative_residual": 4.440892098500626e-16,
+              "value": 0.08120132974881589
+            },
+            {
+              "order": 512,
+              "relative_residual": 0.0,
+              "value": 0.08120132974881586
+            },
+            {
+              "order": 1024,
+              "relative_residual": -9.992007221626409e-16,
+              "value": 0.08120132974881578
+            }
+          ],
+          "energy_MeV": 60.0,
+          "mu_numu_MeV": -10.2178306046946,
+          "radius_km": 10.0,
+          "species": "mu_zero",
+          "temperature_MeV": 33.9274404196138
+        },
+        {
+          "analytic_pair_average": 0.024019847998785572,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -1.1102230246251565e-15,
+              "value": 0.024019847998785544
+            },
+            {
+              "order": 256,
+              "relative_residual": 2.220446049250313e-16,
+              "value": 0.024019847998785575
+            },
+            {
+              "order": 512,
+              "relative_residual": -5.551115123125783e-16,
+              "value": 0.024019847998785558
+            },
+            {
+              "order": 1024,
+              "relative_residual": -2.55351295663786e-15,
+              "value": 0.02401984799878551
+            }
+          ],
+          "energy_MeV": 110.0,
+          "mu_numu_MeV": -10.2178306046946,
+          "radius_km": 10.0,
+          "species": "mu_numu",
+          "temperature_MeV": 33.9274404196138
+        },
+        {
+          "analytic_pair_average": 0.02426251790976225,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -1.4432899320127035e-15,
+              "value": 0.024262517909762214
+            },
+            {
+              "order": 256,
+              "relative_residual": 0.0,
+              "value": 0.02426251790976225
+            },
+            {
+              "order": 512,
+              "relative_residual": -8.881784197001252e-16,
+              "value": 0.024262517909762228
+            },
+            {
+              "order": 1024,
+              "relative_residual": -2.886579864025407e-15,
+              "value": 0.02426251790976218
+            }
+          ],
+          "energy_MeV": 110.0,
+          "mu_numu_MeV": -10.2178306046946,
+          "radius_km": 10.0,
+          "species": "mu_zero",
+          "temperature_MeV": 33.9274404196138
+        },
+        {
+          "analytic_pair_average": 0.0015890725722630047,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -1.887379141862766e-15,
+              "value": 0.0015890725722630017
+            },
+            {
+              "order": 256,
+              "relative_residual": 2.220446049250313e-16,
+              "value": 0.0015890725722630052
+            },
+            {
+              "order": 512,
+              "relative_residual": -7.771561172376096e-16,
+              "value": 0.0015890725722630034
+            },
+            {
+              "order": 1024,
+              "relative_residual": -4.107825191113079e-15,
+              "value": 0.0015890725722629982
+            }
+          ],
+          "energy_MeV": 210.0,
+          "mu_numu_MeV": -10.2178306046946,
+          "radius_km": 10.0,
+          "species": "mu_numu",
+          "temperature_MeV": 33.9274404196138
+        },
+        {
+          "analytic_pair_average": 0.0015965177757861228,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -1.887379141862766e-15,
+              "value": 0.0015965177757861198
+            },
+            {
+              "order": 256,
+              "relative_residual": 2.220446049250313e-16,
+              "value": 0.0015965177757861233
+            },
+            {
+              "order": 512,
+              "relative_residual": -1.1102230246251565e-15,
+              "value": 0.001596517775786121
+            },
+            {
+              "order": 1024,
+              "relative_residual": -4.107825191113079e-15,
+              "value": 0.0015965177757861163
+            }
+          ],
+          "energy_MeV": 210.0,
+          "mu_numu_MeV": -10.2178306046946,
+          "radius_km": 10.0,
+          "species": "mu_zero",
+          "temperature_MeV": 33.9274404196138
+        },
+        {
+          "analytic_pair_average": 2.6850233169695664e-07,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -3.1086244689504383e-15,
+              "value": 2.685023316969558e-07
+            },
+            {
+              "order": 256,
+              "relative_residual": -4.440892098500626e-16,
+              "value": 2.6850233169695654e-07
+            },
+            {
+              "order": 512,
+              "relative_residual": -1.7763568394002505e-15,
+              "value": 2.6850233169695617e-07
+            },
+            {
+              "order": 1024,
+              "relative_residual": -5.551115123125783e-15,
+              "value": 2.6850233169695516e-07
+            }
+          ],
+          "energy_MeV": 510.0,
+          "mu_numu_MeV": -10.2178306046946,
+          "radius_km": 10.0,
+          "species": "mu_numu",
+          "temperature_MeV": 33.9274404196138
+        },
+        {
+          "analytic_pair_average": 2.6894761364441944e-07,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -2.9976021664879227e-15,
+              "value": 2.6894761364441865e-07
+            },
+            {
+              "order": 256,
+              "relative_residual": -2.220446049250313e-16,
+              "value": 2.689476136444194e-07
+            },
+            {
+              "order": 512,
+              "relative_residual": -1.7763568394002505e-15,
+              "value": 2.6894761364441897e-07
+            },
+            {
+              "order": 1024,
+              "relative_residual": -5.551115123125783e-15,
+              "value": 2.6894761364441796e-07
+            }
+          ],
+          "energy_MeV": 510.0,
+          "mu_numu_MeV": -10.2178306046946,
+          "radius_km": 10.0,
+          "species": "mu_zero",
+          "temperature_MeV": 33.9274404196138
+        },
+        {
+          "analytic_pair_average": 1.1226960239296821e-13,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -2.3314683517128287e-15,
+              "value": 1.1226960239296795e-13
+            },
+            {
+              "order": 256,
+              "relative_residual": 0.0,
+              "value": 1.1226960239296821e-13
+            },
+            {
+              "order": 512,
+              "relative_residual": -1.5543122344752192e-15,
+              "value": 1.1226960239296804e-13
+            },
+            {
+              "order": 1024,
+              "relative_residual": -4.9960036108132044e-15,
+              "value": 1.1226960239296766e-13
+            }
+          ],
+          "energy_MeV": 1010.0,
+          "mu_numu_MeV": -10.2178306046946,
+          "radius_km": 10.0,
+          "species": "mu_numu",
+          "temperature_MeV": 33.9274404196138
+        },
+        {
+          "analytic_pair_average": 1.1235903166049792e-13,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -2.1094237467877974e-15,
+              "value": 1.1235903166049768e-13
+            },
+            {
+              "order": 256,
+              "relative_residual": 2.220446049250313e-16,
+              "value": 1.1235903166049793e-13
+            },
+            {
+              "order": 512,
+              "relative_residual": -1.4432899320127035e-15,
+              "value": 1.1235903166049775e-13
+            },
+            {
+              "order": 1024,
+              "relative_residual": -5.10702591327572e-15,
+              "value": 1.1235903166049735e-13
+            }
+          ],
+          "energy_MeV": 1010.0,
+          "mu_numu_MeV": -10.2178306046946,
+          "radius_km": 10.0,
+          "species": "mu_zero",
+          "temperature_MeV": 33.9274404196138
+        },
+        {
+          "analytic_pair_average": 0.04505071710980525,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -8.881784197001252e-16,
+              "value": 0.04505071710980521
+            },
+            {
+              "order": 256,
+              "relative_residual": 0.0,
+              "value": 0.04505071710980525
+            },
+            {
+              "order": 512,
+              "relative_residual": -6.661338147750939e-16,
+              "value": 0.045050717109805224
+            },
+            {
+              "order": 1024,
+              "relative_residual": -2.1094237467877974e-15,
+              "value": 0.045050717109805155
+            }
+          ],
+          "energy_MeV": 60.0,
+          "mu_numu_MeV": -2.59165549916519,
+          "radius_km": 12.5,
+          "species": "mu_numu",
+          "temperature_MeV": 23.881959149249
+        },
+        {
+          "analytic_pair_average": 0.045125966135688235,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -7.771561172376096e-16,
+              "value": 0.0451259661356882
+            },
+            {
+              "order": 256,
+              "relative_residual": 2.220446049250313e-16,
+              "value": 0.04512596613568824
+            },
+            {
+              "order": 512,
+              "relative_residual": -4.440892098500626e-16,
+              "value": 0.045125966135688214
+            },
+            {
+              "order": 1024,
+              "relative_residual": -1.9984014443252818e-15,
+              "value": 0.045125966135688145
+            }
+          ],
+          "energy_MeV": 60.0,
+          "mu_numu_MeV": -2.59165549916519,
+          "radius_km": 12.5,
+          "species": "mu_zero",
+          "temperature_MeV": 23.881959149249
+        },
+        {
+          "analytic_pair_average": 0.0071012705092029236,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -2.1094237467877974e-15,
+              "value": 0.007101270509202909
+            },
+            {
+              "order": 256,
+              "relative_residual": -3.3306690738754696e-16,
+              "value": 0.007101270509202921
+            },
+            {
+              "order": 512,
+              "relative_residual": -1.3322676295501878e-15,
+              "value": 0.007101270509202914
+            },
+            {
+              "order": 1024,
+              "relative_residual": -3.9968028886505635e-15,
+              "value": 0.007101270509202895
+            }
+          ],
+          "energy_MeV": 110.0,
+          "mu_numu_MeV": -2.59165549916519,
+          "radius_km": 12.5,
+          "species": "mu_numu",
+          "temperature_MeV": 23.881959149249
+        },
+        {
+          "analytic_pair_average": 0.0071074887464967745,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -2.4424906541753444e-15,
+              "value": 0.007107488746496757
+            },
+            {
+              "order": 256,
+              "relative_residual": -4.440892098500626e-16,
+              "value": 0.007107488746496771
+            },
+            {
+              "order": 512,
+              "relative_residual": -1.6653345369377348e-15,
+              "value": 0.007107488746496762
+            },
+            {
+              "order": 1024,
+              "relative_residual": -4.440892098500626e-15,
+              "value": 0.007107488746496743
+            }
+          ],
+          "energy_MeV": 110.0,
+          "mu_numu_MeV": -2.59165549916519,
+          "radius_km": 12.5,
+          "species": "mu_zero",
+          "temperature_MeV": 23.881959149249
+        },
+        {
+          "analytic_pair_average": 0.00012786224150656745,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -2.7755575615628914e-15,
+              "value": 0.0001278622415065671
+            },
+            {
+              "order": 256,
+              "relative_residual": -4.440892098500626e-16,
+              "value": 0.0001278622415065674
+            },
+            {
+              "order": 512,
+              "relative_residual": -1.6653345369377348e-15,
+              "value": 0.00012786224150656723
+            },
+            {
+              "order": 1024,
+              "relative_residual": -5.329070518200751e-15,
+              "value": 0.00012786224150656677
+            }
+          ],
+          "energy_MeV": 210.0,
+          "mu_numu_MeV": -2.59165549916519,
+          "radius_km": 12.5,
+          "species": "mu_numu",
+          "temperature_MeV": 23.881959149249
+        },
+        {
+          "analytic_pair_average": 0.000127913060245115,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -2.9976021664879227e-15,
+              "value": 0.00012791306024511462
+            },
+            {
+              "order": 256,
+              "relative_residual": -4.440892098500626e-16,
+              "value": 0.00012791306024511495
+            },
+            {
+              "order": 512,
+              "relative_residual": -1.887379141862766e-15,
+              "value": 0.00012791306024511476
+            },
+            {
+              "order": 1024,
+              "relative_residual": -5.329070518200751e-15,
+              "value": 0.00012791306024511432
+            }
+          ],
+          "energy_MeV": 210.0,
+          "mu_numu_MeV": -2.59165549916519,
+          "radius_km": 12.5,
+          "species": "mu_zero",
+          "temperature_MeV": 23.881959149249
+        },
+        {
+          "analytic_pair_average": 4.971102075747866e-10,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -3.552713678800501e-15,
+              "value": 4.971102075747849e-10
+            },
+            {
+              "order": 256,
+              "relative_residual": -9.992007221626409e-16,
+              "value": 4.971102075747861e-10
+            },
+            {
+              "order": 512,
+              "relative_residual": -2.4424906541753444e-15,
+              "value": 4.971102075747854e-10
+            },
+            {
+              "order": 1024,
+              "relative_residual": -6.217248937900877e-15,
+              "value": 4.971102075747835e-10
+            }
+          ],
+          "energy_MeV": 510.0,
+          "mu_numu_MeV": -2.59165549916519,
+          "radius_km": 12.5,
+          "species": "mu_numu",
+          "temperature_MeV": 23.881959149249
+        },
+        {
+          "analytic_pair_average": 4.971834819218712e-10,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -3.9968028886505635e-15,
+              "value": 4.971834819218692e-10
+            },
+            {
+              "order": 256,
+              "relative_residual": -9.992007221626409e-16,
+              "value": 4.971834819218706e-10
+            },
+            {
+              "order": 512,
+              "relative_residual": -2.4424906541753444e-15,
+              "value": 4.971834819218699e-10
+            },
+            {
+              "order": 1024,
+              "relative_residual": -5.995204332975845e-15,
+              "value": 4.971834819218682e-10
+            }
+          ],
+          "energy_MeV": 510.0,
+          "mu_numu_MeV": -2.59165549916519,
+          "radius_km": 12.5,
+          "species": "mu_zero",
+          "temperature_MeV": 23.881959149249
+        },
+        {
+          "analytic_pair_average": 4.155371557640125e-19,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -2.220446049250313e-16,
+              "value": 4.155371557640124e-19
+            },
+            {
+              "order": 256,
+              "relative_residual": 1.7763568394002505e-15,
+              "value": 4.1553715576401323e-19
+            },
+            {
+              "order": 512,
+              "relative_residual": 0.0,
+              "value": 4.155371557640125e-19
+            },
+            {
+              "order": 1024,
+              "relative_residual": -2.9976021664879227e-15,
+              "value": 4.1553715576401126e-19
+            }
+          ],
+          "energy_MeV": 1010.0,
+          "mu_numu_MeV": -2.59165549916519,
+          "radius_km": 12.5,
+          "species": "mu_numu",
+          "temperature_MeV": 23.881959149249
+        },
+        {
+          "analytic_pair_average": 4.155670520199937e-19,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -6.661338147750939e-16,
+              "value": 4.155670520199934e-19
+            },
+            {
+              "order": 256,
+              "relative_residual": 1.7763568394002505e-15,
+              "value": 4.1556705201999445e-19
+            },
+            {
+              "order": 512,
+              "relative_residual": 0.0,
+              "value": 4.155670520199937e-19
+            },
+            {
+              "order": 1024,
+              "relative_residual": -2.7755575615628914e-15,
+              "value": 4.1556705201999253e-19
+            }
+          ],
+          "energy_MeV": 1010.0,
+          "mu_numu_MeV": -2.59165549916519,
+          "radius_km": 12.5,
+          "species": "mu_zero",
+          "temperature_MeV": 23.881959149249
+        },
+        {
+          "analytic_pair_average": 0.007613634882169936,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -1.887379141862766e-15,
+              "value": 0.0076136348821699215
+            },
+            {
+              "order": 256,
+              "relative_residual": 2.220446049250313e-16,
+              "value": 0.007613634882169937
+            },
+            {
+              "order": 512,
+              "relative_residual": -9.992007221626409e-16,
+              "value": 0.0076136348821699285
+            },
+            {
+              "order": 1024,
+              "relative_residual": -3.774758283725532e-15,
+              "value": 0.007613634882169908
+            }
+          ],
+          "energy_MeV": 60.0,
+          "mu_numu_MeV": 0.0,
+          "radius_km": 15.0,
+          "species": "mu_numu",
+          "temperature_MeV": 13.2314158304208
+        },
+        {
+          "analytic_pair_average": 0.007613634882169936,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -1.887379141862766e-15,
+              "value": 0.0076136348821699215
+            },
+            {
+              "order": 256,
+              "relative_residual": 2.220446049250313e-16,
+              "value": 0.007613634882169937
+            },
+            {
+              "order": 512,
+              "relative_residual": -9.992007221626409e-16,
+              "value": 0.0076136348821699285
+            },
+            {
+              "order": 1024,
+              "relative_residual": -3.774758283725532e-15,
+              "value": 0.007613634882169908
+            }
+          ],
+          "energy_MeV": 60.0,
+          "mu_numu_MeV": 0.0,
+          "radius_km": 15.0,
+          "species": "mu_zero",
+          "temperature_MeV": 13.2314158304208
+        },
+        {
+          "analytic_pair_average": 0.0002046924365716088,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -1.9984014443252818e-15,
+              "value": 0.0002046924365716084
+            },
+            {
+              "order": 256,
+              "relative_residual": 4.440892098500626e-16,
+              "value": 0.0002046924365716089
+            },
+            {
+              "order": 512,
+              "relative_residual": -7.771561172376096e-16,
+              "value": 0.00020469243657160864
+            },
+            {
+              "order": 1024,
+              "relative_residual": -4.3298697960381105e-15,
+              "value": 0.0002046924365716079
+            }
+          ],
+          "energy_MeV": 110.0,
+          "mu_numu_MeV": 0.0,
+          "radius_km": 15.0,
+          "species": "mu_numu",
+          "temperature_MeV": 13.2314158304208
+        },
+        {
+          "analytic_pair_average": 0.0002046924365716088,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -1.9984014443252818e-15,
+              "value": 0.0002046924365716084
+            },
+            {
+              "order": 256,
+              "relative_residual": 4.440892098500626e-16,
+              "value": 0.0002046924365716089
+            },
+            {
+              "order": 512,
+              "relative_residual": -7.771561172376096e-16,
+              "value": 0.00020469243657160864
+            },
+            {
+              "order": 1024,
+              "relative_residual": -4.3298697960381105e-15,
+              "value": 0.0002046924365716079
+            }
+          ],
+          "energy_MeV": 110.0,
+          "mu_numu_MeV": 0.0,
+          "radius_km": 15.0,
+          "species": "mu_zero",
+          "temperature_MeV": 13.2314158304208
+        },
+        {
+          "analytic_pair_average": 1.1687000683703828e-07,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -2.4424906541753444e-15,
+              "value": 1.16870006837038e-07
+            },
+            {
+              "order": 256,
+              "relative_residual": -2.220446049250313e-16,
+              "value": 1.1687000683703826e-07
+            },
+            {
+              "order": 512,
+              "relative_residual": -1.4432899320127035e-15,
+              "value": 1.1687000683703811e-07
+            },
+            {
+              "order": 1024,
+              "relative_residual": -4.9960036108132044e-15,
+              "value": 1.168700068370377e-07
+            }
+          ],
+          "energy_MeV": 210.0,
+          "mu_numu_MeV": 0.0,
+          "radius_km": 15.0,
+          "species": "mu_numu",
+          "temperature_MeV": 13.2314158304208
+        },
+        {
+          "analytic_pair_average": 1.1687000683703828e-07,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -2.4424906541753444e-15,
+              "value": 1.16870006837038e-07
+            },
+            {
+              "order": 256,
+              "relative_residual": -2.220446049250313e-16,
+              "value": 1.1687000683703826e-07
+            },
+            {
+              "order": 512,
+              "relative_residual": -1.4432899320127035e-15,
+              "value": 1.1687000683703811e-07
+            },
+            {
+              "order": 1024,
+              "relative_residual": -4.9960036108132044e-15,
+              "value": 1.168700068370377e-07
+            }
+          ],
+          "energy_MeV": 210.0,
+          "mu_numu_MeV": 0.0,
+          "radius_km": 15.0,
+          "species": "mu_zero",
+          "temperature_MeV": 13.2314158304208
+        },
+        {
+          "analytic_pair_average": 1.7555504526720787e-17,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -5.773159728050814e-15,
+              "value": 1.7555504526720685e-17
+            },
+            {
+              "order": 256,
+              "relative_residual": -2.7755575615628914e-15,
+              "value": 1.7555504526720738e-17
+            },
+            {
+              "order": 512,
+              "relative_residual": -4.440892098500626e-15,
+              "value": 1.755550452672071e-17
+            },
+            {
+              "order": 1024,
+              "relative_residual": -7.549516567451064e-15,
+              "value": 1.7555504526720654e-17
+            }
+          ],
+          "energy_MeV": 510.0,
+          "mu_numu_MeV": 0.0,
+          "radius_km": 15.0,
+          "species": "mu_numu",
+          "temperature_MeV": 13.2314158304208
+        },
+        {
+          "analytic_pair_average": 1.7555504526720787e-17,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -5.773159728050814e-15,
+              "value": 1.7555504526720685e-17
+            },
+            {
+              "order": 256,
+              "relative_residual": -2.7755575615628914e-15,
+              "value": 1.7555504526720738e-17
+            },
+            {
+              "order": 512,
+              "relative_residual": -4.440892098500626e-15,
+              "value": 1.755550452672071e-17
+            },
+            {
+              "order": 1024,
+              "relative_residual": -7.549516567451064e-15,
+              "value": 1.7555504526720654e-17
+            }
+          ],
+          "energy_MeV": 510.0,
+          "mu_numu_MeV": 0.0,
+          "radius_km": 15.0,
+          "species": "mu_zero",
+          "temperature_MeV": 13.2314158304208
+        },
+        {
+          "analytic_pair_average": 6.931736970574169e-34,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -2.1094237467877974e-15,
+              "value": 6.931736970574155e-34
+            },
+            {
+              "order": 256,
+              "relative_residual": 4.440892098500626e-16,
+              "value": 6.931736970574172e-34
+            },
+            {
+              "order": 512,
+              "relative_residual": -2.1094237467877974e-15,
+              "value": 6.931736970574155e-34
+            },
+            {
+              "order": 1024,
+              "relative_residual": -4.551914400963142e-15,
+              "value": 6.931736970574138e-34
+            }
+          ],
+          "energy_MeV": 1010.0,
+          "mu_numu_MeV": 0.0,
+          "radius_km": 15.0,
+          "species": "mu_numu",
+          "temperature_MeV": 13.2314158304208
+        },
+        {
+          "analytic_pair_average": 6.931736970574169e-34,
+          "direct_angular_quadrature": [
+            {
+              "order": 128,
+              "relative_residual": -2.1094237467877974e-15,
+              "value": 6.931736970574155e-34
+            },
+            {
+              "order": 256,
+              "relative_residual": 4.440892098500626e-16,
+              "value": 6.931736970574172e-34
+            },
+            {
+              "order": 512,
+              "relative_residual": -2.1094237467877974e-15,
+              "value": 6.931736970574155e-34
+            },
+            {
+              "order": 1024,
+              "relative_residual": -4.551914400963142e-15,
+              "value": 6.931736970574138e-34
+            }
+          ],
+          "energy_MeV": 1010.0,
+          "mu_numu_MeV": 0.0,
+          "radius_km": 15.0,
+          "species": "mu_zero",
+          "temperature_MeV": 13.2314158304208
+        }
+      ],
+      "quadrature_orders": [
+        128,
+        256,
+        512,
+        1024
+      ],
+      "radii_km": [
+        8.0,
+        10.0,
+        12.5,
+        15.0
+      ]
+    },
+    "opacity_decomposition": {
+      "counterfactual_luminosity_erg_s": {
+        "both_opacities": 2.439635957361032e+52,
+        "compton_opacity_only": 2.3481345855650393e+55,
+        "neutrino_opacity_only": 6.073798290290133e+52,
+        "optically_thin": 7.502476933641651e+55
+      },
+      "mean_tau_escape_weighted": {
+        "compton": 0.7500970655578677,
+        "neutrino": 4.544262871127852,
+        "total": 5.29435993668572
+      },
+      "mean_tau_source_weighted": {
+        "compton": 1.6480386059752676,
+        "neutrino": 14.48067806296033,
+        "total": 16.128716668935596
+      },
+      "shapley_attribution_of_total_luminosity_suppression_erg_s": {
+        "compton": 2.57898825520477e+55,
+        "neutrino": 4.921049042479519e+55
+      },
+      "shapley_fraction_of_suppression": {
+        "compton": 0.3438633906528782,
+        "neutrino": 0.6561366093471217
+      }
+    },
+    "status": "python_reference_script_for_reproduction",
+    "title": "10 MeV channel-resolved B.1 source and B.2 opacity decomposition"
+  },
+  "run_commit_sha": "83f36f06ae4d4442fa0a1faf5632a22d64a821b0",
+  "script_sha256": "4b79e3fb21d5efb57bf834d9f168a9271831c9ae43becb9db5eb72e0ff73256e"
+}
