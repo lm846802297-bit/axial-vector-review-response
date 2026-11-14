@@ -11,7 +11,7 @@ Review date: 2026-11-15. Baseline branch: \`maintenance/repository-organization-
 | \`B16_HIGH_ENERGY_NU_CHORD_CONVERGENCE_2026-11-10.md\` | \`PASS_WITH_NOTES\` | The Python implementation has now run all 108 combinations corresponding to the 36 rays and three opacity grids. Its five maximum-refinement metrics agree with V8 to a maximum relative difference of \(1.19\times10^{-9}\). |
 | \`B16_HIGH_ENERGY_OUTER_TEMPERATURE_SENSITIVITY_2026-11-10.md\` | \`PASS_WITH_NOTES\` | Added the matching frozen-source \(210\text{--}510\) MeV NumPy calculation. All seven temperature scenarios reproduce the V8 escape and luminosity observables to better than \(2.5\times10^{-7}\) relative. The source is frozen; only B.2 opacity is recomputed. |
 | \`B16_HIGH_ENERGY_PATH_REDSHIFT_AUDIT_2026-11-10.md\` | \`PASS_WITH_NOTES\` | Added the global energy-resolved NumPy reproduction using the archived V8 bilinear interpolation in radius and local energy. Its observables agree with V8 to better than \(3\times10^{-14}\). A separate direct-local-rate recomputation differs by \(+0.5021\%\) in escaped luminosity and is explicitly retained as an interpolation-method sensitivity, not silently mixed with the V8 prescription. |
-| \`B16_INDEPENDENT_ANALYTIC_PATH_INTEGRATION_AUDIT_2026-11-09.md\` | \`PASS_WITH_NOTES\` | The independent B.2 path result has a Python run, source commit, and script SHA. Same-grid reproduction is \(1.11\times10^{-16}\) maximum relative difference; adaptive QUADPACK/Simpson comparison is \(1.15\times10^{-6}\). Its historical full-integration workflow used unpinned NumPy/SciPy; the new pinned lane runs its unit tests but not that full integration. |
+| \`B16_INDEPENDENT_ANALYTIC_PATH_INTEGRATION_AUDIT_2026-11-09.md\` | \`PASS_WITH_NOTES\` | Full analytic B.2 path integration now reruns under pinned Python 3.12.14 / NumPy 2.5.4 / SciPy 1.18.1 in Actions #43649694860. Same-grid reproduction is \(2.22\times10^{-16}\); Simpson-256 vs. QUADPACK angular escape averages agree to \(1.146\times10^{-6}\); final independent curve is within \(4.52\times10^{-5}\) of archived B.16. The +92.2493% Fig. 7 strong-endpoint residual remains. |
 
 ## 2. Source and test inspection
 
@@ -43,6 +43,7 @@ The separate \`audit_b16_neutrino_b7_b9_kernel.py\` implementation uses a stable
 | 36-ray chord convergence | 108 cases; five maximum-refinement metrics | \(1.19\times10^{-9}\) relative |
 | Outer-temperature sensitivity | Seven frozen-source scenarios | \(2.5\times10^{-7}\) relative for main observables |
 | High-energy path-redshift | \(210\text{--}510\) MeV escaped luminosity shift \(-28.09487548\%\) | \(3\times10^{-14}\) relative |
+| Independent analytic B.2 path | 25-point Simpson-256 curve; strong-endpoint residual \(+92.24931\%\) | \(4.52\times10^{-5}\) maximum relative difference vs. archived B.16 |
 
 The path-redshift result is not an ambiguity in the printed equation. The published B.2 integrand uses fixed \(\omega\) along the chord. The \(-28.09\%\) result is the separate conserved-\(E_\infty\) sensitivity, retaining a Euclidean chord. The direct-local-rate alternative differs from the V8 bilinear interpolation by \(+0.5021\%\); both methods are archived and labeled separately.
 
@@ -76,11 +77,15 @@ Run [#43648694518](https://github.com/lm846802297-bit/axial-vector-review-respon
 - five automated V8-versus-NumPy reproduction tests;
 - strict NumPy JSON outputs archived on the reviewed branch.
 
+### Full independent analytic B.2 path integration
+
+Run [#43649694860](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43649694860) completed successfully on the pinned runtime. It passes five analytic-path unit tests, recomputes the complete 40-radius-node / 142-energy-node / 25-coupling calculation, validates output provenance and numerical closure, and archives the JSON output. The workflow now guards write-back to the reviewed maintenance branch.
+
 These are independent reproducibility runs. They do not modify production source arrays, coupling values, the Fig. 7 digitization, or axial-vector constraints.
 
 ## 5. Remaining reproducibility and physical gates
 
-1. Rerun the full independent analytic B.2 integration under the pinned environment if a dependency-locked full output is required; its current full result is tied to a historical unpinned environment.
+1. The full independent analytic B.2 integration is now dependency-pinned and archived (Actions #43649694860). The next numerical layer is a separate B.1 source-measure and radial/energy-quadrature audit; do not treat the B.2 result as validating the shared B.1 source.
 2. Keep the generic GR kernel separate from a physical full-GR SN result until same-snapshot \(N(r)\) and \(A(r)\) or \(M(r)\) data are available.
 3. The public-figure reconstructed thermodynamic profile is not the original Garching raw snapshot; its provenance uncertainty remains.
 4. The \(+92\%\) Fig. 7 strong-endpoint discrepancy remains unresolved. No opacity rescaling, source normalization adjustment, or fitted correction is authorized.
