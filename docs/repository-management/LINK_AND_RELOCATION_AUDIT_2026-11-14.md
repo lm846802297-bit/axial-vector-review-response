@@ -1,5 +1,7 @@
 # Local path and workflow-review relocation audit — 2026-11-14
 
+> **Later update:** The 63-page PDF described below is historical. A matched 64-page layout-fixed build is documented in [the PDF audit](ROOT_PDF_EXTRACTION_AUDIT_2026-11-14.md).
+
 > **Later checkpoint:** the [manifest review](MANIFEST_REVIEW_2026-11-14.md) and [legacy-log review](LEGACY_LOG_REVIEW_2026-11-14.md) examined additional baseline entries; 357 remain pending. Counts below record the earlier checkpoint.
 
 ## Changes

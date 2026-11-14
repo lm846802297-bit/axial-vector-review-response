@@ -1,5 +1,7 @@
 # Root-file audit report — 2026-11-14
 
+> **Later update:** The 63-page PDF described below is historical. A matched 64-page layout-fixed build is documented in [the PDF audit](ROOT_PDF_EXTRACTION_AUDIT_2026-11-14.md).
+
 > **Later PDF check (2026-11-14):** This historical review predates local PDF extraction. A later [audit](ROOT_PDF_EXTRACTION_AUDIT_2026-11-14.md) found the two four-page referee PDFs have identical extracted text; their `/Highlight` counts are 18 and 15, not the earlier metadata-scan counts 1 and 4. Bytes and annotations differ. The current response PDF has 63 pages; no same-source build or full visual review has been completed.
 
 ## Scope and method

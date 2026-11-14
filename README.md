@@ -28,7 +28,7 @@
 
 - [论文基线 PDF](axial_vector_model_building-v6.pdf) 和 [原始审稿报告](dw13678_report_1_a.pdf)。
 - [Overleaf 源码归档](overleaf-source/axial-vector-model-building-v6/)：包含 `main.tex`、`main-v1.tex` 至 `main-v6.tex`、参考文献数据库、图表及随源包提供的回复信材料。编译时请将该目录作为项目根目录，并在 Overleaf 选择所需主文文件。当前环境尚未完成该归档的完整编译验证；两张较大的图经过 PDF 重新编码。
-- [面向审稿人的正式回复信源文件（2026-11-04）](Replies_to_Referee_3_referee_facing_2026-11-04.tex) 与 [当前 PDF](Replies_to_Referee_3_referee_facing_2026-11-04.pdf)：TeX 是当前唯一可编辑权威源，最后一次与 PDF 同提交于 PR #56 合并提交 `293d047`。PDF 当前 SHA-256 为 `e0a2114e5e932d02794a1cdf074c9214ed201f71ff37fc25a72314af05ed4051`；此前 2026-11-06 的 65 页验收早于最后 TeX 修改，当前 PDF 仍需同源重建和逐页视觉验收。正文同步任务、状态和前后对照统一记录在[内部论文正文待同步修改清单](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-03/论文正文待同步修改清单_2026-11-03.md)，不写入正式回复信。
+- [正式回复 TeX](Replies_to_Referee_3_referee_facing_2026-11-04.tex) 与 [PDF](Replies_to_Referee_3_referee_facing_2026-11-04.pdf)：当前整理分支的 PDF 由对应 TeX 编译，共 64 页，SHA-256 `095daf18a7202d11f9bf9f48077ab2ab82c1f10386059da9bf9633ae4d9ea679`。原第 43 页溢出的完整图注移至图后正文；物理内容与图像未改。旧的 65 页验收属于历史版本，详见 [排版审查](docs/repository-management/ROOT_PDF_EXTRACTION_AUDIT_2026-11-14.md)。
 - [2026-10-28 回复信副本](Replies_to_Referee_3_referee_facing_2026-10-28.tex)：历史副本，仅用于版本追溯，不作为当前回复信主线。
 - [内部回复信工作稿（2026-10-27）](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-10-27/Replies_to_Referee_3_revised_working_2026-10-27.tex) 和 [论文修改 Diff](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-10-27/axial_vectorv6-diff-v2.4-PMNS-scope-2026-10-27.md)：保留为内部工作副本和正文修订方案；正式提交前须与实际主文和计算证据逐项核对。
 - [会议记录](审稿意见-gpt/会议记录/2026-10-23/README.md)：包含会议观点总结及四份文字稿。

@@ -1,5 +1,7 @@
 # Root-level file classification and safe migration proposal
 
+> **Later update:** The 63-page PDF described below is historical. A matched 64-page layout-fixed build is documented in [the PDF audit](ROOT_PDF_EXTRACTION_AUDIT_2026-11-14.md).
+
 Snapshot: `main` at `fbab624435c853e90e3955009a545e28c5f5be98` (2026-11-14); the maintenance branch used for this review is five documentation-only commits behind this main snapshot.
 
 This is a classification proposal, not a move/delete instruction. Root files are deliberately retained in place until all inbound Markdown links, TeX/BibTeX build assumptions, scripts, workflow references and external handoff instructions have been checked.
