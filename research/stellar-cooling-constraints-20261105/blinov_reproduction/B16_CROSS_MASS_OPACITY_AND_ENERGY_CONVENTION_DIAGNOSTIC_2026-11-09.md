@@ -38,9 +38,9 @@ This supports a targeted strategy: do not spend equal effort on the 20--25 km pr
 ## 3. Fixed-(omega) versus path-redshift-only comparison
 
 The path-redshift-only diagnostic replaces the local energy along the ray by
-[
-omega_{m loc}(r')=omega_srac{N(r_s)}{N(r')},
-]
+\[
+\omega_{\rm loc}(r')=\omega_s\frac{N(r_s)}{N(r')},
+\]
 while retaining Euclidean chords. It is not the literal fixed-(omega) B.2 baseline and is not full GR.
 
 | (m_V) | Fixed-(omega) strong-endpoint residual | Path-redshift-only residual | Change |
