@@ -1,7 +1,7 @@
 # Original SFHo-18.8 profile acquisition and validation
 
 **Date:** 2026-11-07  
-**Status:** Archive entry identified; access request and exact-model/time confirmation pending. No restricted data downloaded or redistributed.
+**Status:** historical access-request draft. The archive entry was identified, but this file does not document a sent request or granted access; no restricted data were downloaded or redistributed.
 
 ## 1. Objective
 
@@ -107,8 +107,8 @@ Best regards,
 
 ---
 
-## 8. Current decision
+## 8. Historical decision and current applicability
 
-This is now a P0 source-acquisition task, ahead of further high-resolution scans on the reconstructed profile. The 176/360/64/128 scan may be retained as a numerical convergence diagnostic, but it must not be presented as resolving the background-model discrepancy.
+At the 2026-11-07 snapshot, original-profile acquisition was marked P0. Subsequent work proceeded using the documented literature reconstruction and official SFHo EOS tables; the current research path does not block on obtaining restricted Garching raw files. Treat access to the exact s18.8-SFHo-MUONS snapshot as an optional independent validation opportunity if the archive grants permission, not as an active prerequisite for the literature-driven reproduction.
 
-No production code, opacity normalization, Fig. 7/4 result, manuscript, or referee-response text is changed by this acquisition task. The finite-mixing/axial scan remains blocked until the pure-vector benchmark is validated using the best available documented background.
+This remains a draft access-request record, not evidence that an email was sent or that access was granted. The archive's permission and non-redistribution rules remain applicable. No production code, opacity normalization, Fig. 7/4 result, manuscript, or referee-response text is changed by this historical acquisition task. The pure-vector Fig. 7 validation gate remains separate and unresolved.
