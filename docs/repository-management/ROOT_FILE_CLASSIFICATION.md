@@ -1,6 +1,6 @@
 # Root-level file classification and safe migration proposal
 
-Snapshot: `main` at `fb705dc74d63ff29681243ec94f303b12b78182a`, reviewed against the 2026-11-14 organization branch.
+Snapshot: `main` at `fbab624435c853e90e3955009a545e28c5f5be98` (2026-11-14); the maintenance branch used for this review is five documentation-only commits behind this main snapshot.
 
 This is a classification proposal, not a move/delete instruction. Root files are deliberately retained in place until all inbound Markdown links, TeX/BibTeX build assumptions, scripts, workflow references and external handoff instructions have been checked.
 
@@ -33,16 +33,16 @@ This is a classification proposal, not a move/delete instruction. Root files are
 |---|---|---|
 | `axial_vector_model_building-v6.pdf` | Manuscript baseline PDF | Candidate for `archive/manuscript-baselines/` or a pinned source package; keep root until all references and build notes are updated. |
 | `dw13678_report_1_a.pdf` | Original referee report | Candidate for `archive/referee-reports/`; immutable baseline, retain exact hash. |
-| `（原件）dw13678_report_1_a.pdf` | Original-named duplicate candidate | Compare byte hash with the canonical referee PDF; if identical, retain one canonical file plus a provenance note, but do not delete until inbound references are checked. |
+| `（原件）dw13678_report_1_a.pdf` | Separate original-named annotated PDF variant | Not byte-identical to `dw13678_report_1_a.pdf` (158,794 bytes; SHA-256 `ac7357aa…` versus 161,829 bytes; SHA-256 `752226d1…`). Both contain highlight annotations (4 versus 1); page/text equivalence is not established. Preserve both; do not label as duplicates or delete. |
 | `dw13678_report_1_a.md` | Extracted/annotated referee-report text | Keep adjacent to the source report or under a dedicated referee-report directory after checking links. |
 
 ## 4. Internal research notes and large working documents
 
 | File | Role | Proposed treatment |
 |---|---|---|
-| `higgs_portal_mixing_merged_guide-gemini.md` | Higgs-portal guide / synthesis note | Compare against the dated 65/66 versions; classify as current, source synthesis or historical. Do not infer duplicate status from title. |
-| `higgs_portal_mixing_unified_reviewer_response_and_uv_eft_UPDATED_v2(8)(20261019)(65).md` | Large versioned portal note | Candidate for a dated Major 1 history folder after semantic diff and inbound-link audit. |
-| `higgs_portal_mixing_unified_reviewer_response_and_uv_eft_UPDATED_v2(8)(20261019)(66).md` | Large versioned portal note | Candidate for a dated Major 1 history folder after semantic diff and inbound-link audit. |
+| `higgs_portal_mixing_merged_guide-gemini.md` | Historical Higgs-portal guide / synthesis note | Individually reviewed and marked HISTORICAL. Its conditional soft-loop route, VLL threshold and old response drafts remain useful provenance; current Major 1 progress is in A2–A5. Do not copy the old response text. |
+| `higgs_portal_mixing_unified_reviewer_response_and_uv_eft_UPDATED_v2(8)(20261019)(65).md` | Historical cumulative portal note v65 | Sequential historical snapshot ending at §261.12. Keep as provenance; do not treat as current state or merge mechanically with v66. |
+| `higgs_portal_mixing_unified_reviewer_response_and_uv_eft_UPDATED_v2(8)(20261019)(66).md` | Historical cumulative portal note v66 | Later sequential snapshot; includes new §262 light-fermion two-point/pole-kernel work beyond v65. Keep as provenance; not a duplicate of v65 and not current status authority. |
 | `单圈混合推导独立复核报告-协调更新版-20261019.md` | Independent one-loop derivation review | Candidate for Major 1 evidence/review directory after confirming whether a newer authoritative report supersedes it. |
 | `中微子扇区电荷分析-hy4-统一更新版-20261019.md` | Neutrino charge analysis | Candidate for Major 3 historical/evidence directory; keep model-extension scope explicit. |
 | `审稿意见逐条对照表-统一更新版-20261019.md` | Reviewer-point crosswalk | Candidate for referee-response tracking directory; verify whether newer task maps supersede it. |
@@ -55,7 +55,7 @@ The 13 root directories are indexed in FOLDER_CATALOG.md. In particular, `resear
 
 A physical move is allowed only after all of the following are recorded:
 
-1. Search all 469 Markdown/text documents for inbound links to the old path.
+1. Search all current Markdown/text documents for inbound links to the old path (baseline register: 462; live tree count is maintained in FOLDER_CATALOG.md).
 2. Search all Python/Mathematica/FORM sources and notebooks for hard-coded path strings/imports.
 3. Search all 109 workflow YAML files and their shell commands for old paths.
 4. Search all TeX `\input`, `\include`, `\includegraphics`, bibliography and `BSTINPUTS/BIBINPUTS` assumptions.
@@ -66,4 +66,9 @@ A physical move is allowed only after all of the following are recorded:
 
 ## 7. Explicit no-delete list for this phase
 
-No root file is deleted or overwritten by this proposal. The two large Higgs-portal documents and the two referee-report PDFs remain duplicate candidates only; exact content comparison is required before any deduplication.
+No root file is deleted or overwritten by this proposal. v65/v66 are sequential portal snapshots, not duplicates. The two referee-report PDFs are distinct annotated variants, not byte-identical; their page/text equivalence is still unverified. The large v65/v66 files are retained as historical provenance. See [root-file audit report](ROOT_FILE_AUDIT_REPORT_2026-11-14.md).
+
+
+## 8. Completed root-file audit
+
+The 24 root files have now been individually classified for authority, build dependency, provenance and next action. See [ROOT_FILE_AUDIT_REPORT_2026-11-14.md](ROOT_FILE_AUDIT_REPORT_2026-11-14.md). Four PDF artifacts remain blocked for visual/text extraction in this review environment; their byte hashes and metadata are recorded where available. The current formal reply TeX passed static citation, label, cross-reference and figure-path checks, but the current root PDF still requires a same-source rebuild/render audit.
