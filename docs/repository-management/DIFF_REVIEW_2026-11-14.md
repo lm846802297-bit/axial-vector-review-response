@@ -25,3 +25,7 @@ The review applies [writing rules §3.1, §6 and §7](../../审稿意见-gpt/写
 ## Follow-up manifest review
 
 The follow-up adds warnings to three existing research notes and current checksum sidecars while preserving the original manifests, archived source files, outputs and reported historical values. The radial-scalar scan's two sets of source and CSV hashes are now traced to separate runs; the comparison and bound-column correction are recorded. The current uncompressed CSV remains unavailable as a directly committed file. No scientific argument or result is deleted or merged. This remains an author-side review under writing rules §§3.1, 6 and 7, not a full physical re-derivation.
+
+## Later response-PDF layout finding
+
+The earlier missing-format blocker was resolved temporarily. A same-source rebuild reproduced a pre-existing page-43 figure-caption overflow in the tracked PDF. A local candidate preserved the complete original caption as adjacent body text and built to 64 pages; the affected pages were inspected. Neither the candidate TeX nor its PDF is included in this branch at this checkpoint. Finish the matched source/PDF repair, full-page visual review, and the required before/after and deletion ledger under §§3.1, 6 and 7 before accepting the response. This is a layout finding, not an independent review of the physics.

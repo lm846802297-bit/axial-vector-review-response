@@ -10,7 +10,7 @@
 
 - Maintenance PR #115 incorporated `main` at merge commit `e4dd7ec` with an unchanged maintenance tree; refresh branch comparison before integration. Workflow review reports were relocated under `docs/repository-management/workflow-reviews/` with a blob/SHA-256 manifest; YAML execution paths were not changed.
 - The old `research/stellar-cooling-constraints-20261105/review_package_extracted/` mentioned in historical entries below was retired; use `research/stellar-cooling-constraints-20261105/REVIEW_PACKAGE_INDEX_2026-11-13.md` and the collaborator archive instead.
-- Local PDF extraction finds 63 pages in the current response PDF and equal extracted text in the two four-page referee PDF variants; their annotation sets differ. Same-source LaTeX build and visual review remain open. See `docs/repository-management/ROOT_PDF_EXTRACTION_AUDIT_2026-11-14.md`.
+- Local PDF extraction finds 63 pages in the current response PDF and equal extracted text in the two four-page referee PDF variants; their annotation sets differ. A subsequent same-source build reproduced a page-43 figure-caption overflow; a local repair candidate needs full-page review and is not committed. See `docs/repository-management/ROOT_PDF_EXTRACTION_AUDIT_2026-11-14.md`.
 
 ## Current repository state
 
