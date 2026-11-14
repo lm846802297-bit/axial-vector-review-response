@@ -77,3 +77,30 @@ Thus the targeted-ray Python script is not a strict Python reproduction of this 
 The path-redshift prescription materially changes the dominant high-energy escaping component, but it does not establish which prescription the authors' unpublished numerical code used. The displayed equation-level baseline remains fixed-\(\omega\). The redshifted branch retains Euclidean chords and is not full GR.
 
 The same-snapshot metric and thermodynamic profile remain unavailable. No opacity, source normalization, energy cutoff, coupling, or axial-vector constraint curve is adjusted to force agreement with Fig. 7.
+
+## 8. Strict NumPy global-band reproduction and interpolation audit (2026-11-15)
+
+A strict NumPy reproduction of the archived \(210\text{--}510\) MeV comparison is now available at [b16_high_energy_fixed_omega_vs_redshift_10mev_2026-11-15_numpy.json](outputs/b16_high_energy_fixed_omega_vs_redshift_10mev_2026-11-15_numpy.json).
+
+- Output SHA-1 (Git blob): \`77c40bc10ca8dca8af7be261ae2344b176389647\`.
+- Script SHA-256: \`d18de99fd57e7d894d0861d68b362d3d40b4c6afd17b1329f6be486f36fc918e\`.
+- Run commit: \`9d7665560d61479b2cda653b2dd842a4340b14d6\`.
+- Execution and five V8-comparison tests: [GitHub Actions #43648694518](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43648694518).
+
+The important numerical detail is that the archived V8 result specifies **bilinear interpolation in radius and local energy** for the path-redshift opacity. The strict NumPy implementation now reproduces that exact interpolation prescription. Its fixed-\(\omega\) and path-redshift luminosities, escape probabilities, mean optical depths, channel fractions, and two sub-band changes agree with V8 at relative differences below \(3\times10^{-14}\).
+
+The reproduced bilinear result is:
+- fixed-\(\omega\) escape probability: \(2.3458008936\times10^{-3}\);
+- path-redshift escape probability: \(1.6867510535\times10^{-3}\);
+- \(210\text{--}510\) MeV escaped-luminosity change: \(-28.09487548\%\);
+- source-weighted mean-\(\tau\) change: \(+5.15093986\%\);
+- \(210\text{--}300\) MeV escaped-luminosity change: \(-30.65510027\%\);
+- \(300\text{--}510\) MeV escaped-luminosity change: \(-24.77264570\%\).
+
+### Direct local-rate recomputation is a separate numerical method
+
+The same script also retains an independent alternative that recomputes the local rates directly from the interpolated thermodynamic fields at each path node, rather than bilinearly interpolating the precomputed opacity grid. That alternative gives an escaped luminosity \(0.5021\%\) above the bilinear result and a source-weighted mean optical depth \(0.0810\%\) below it.
+
+This is not a failure of the V8 reproduction: it is a method-dependent interpolation difference. The archived V8 result is specifically the bilinear-grid calculation, so only the bilinear branch is used for the strict V8 comparison. Both methods are retained and labeled separately; neither is promoted to the printed Eq. (B.2) baseline.
+
+This supersedes the earlier Section 6 qualification that the global-band NumPy output was missing. The physical disposition is unchanged: fixed-\(\omega\) remains the literal Eq. (B.2) baseline; path-redshift is a counterfactual Euclidean-chord sensitivity, not a full-GR ray trace and not a fitted correction to Fig. 7.
