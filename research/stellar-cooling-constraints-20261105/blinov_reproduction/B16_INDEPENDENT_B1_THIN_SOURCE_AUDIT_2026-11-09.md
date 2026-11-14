@@ -256,3 +256,33 @@ This resolves the B.1 energy-variable issue: the local-energy lower limit and N(
 Reproducibility:
 - Successful workflow with the explicit variable-equivalence acceptance check: [Run #42573725261](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42573725261)
 - Updated machine-readable result: `outputs/b16_b1_independent_thin_source_10mev_2026-11-09.json`
+
+## 13. Full pinned NumPy reproduction (2026-11-15)
+
+The complete independent B.1 thin-source calculation has now been rerun in a dependency-pinned workflow on the maintenance review branch. The authoritative run is [#43650570961](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43650570961), which completed successfully.
+
+Machine-readable output: [\`b16_b1_independent_thin_source_10mev_2026-11-15_numpy_pinned.json\`](outputs/b16_b1_independent_thin_source_10mev_2026-11-15_numpy_pinned.json).
+
+- Output Git blob SHA: \`1bfe090d8c0dd1987f6d8c999dec08424f0ec0cb\`.
+- Run commit: \`6c2cdf858cf908f5ba390f4dfae82e01abb132fc\`.
+- Script SHA-256: \`390e9648ab0dc047c9e5c5bbf6aced92e9f496c3f677cb5ce431e4b375554cf5\`.
+- Profile SHA-256: \`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c\`.
+- Archived B.16 baseline file SHA-256: \`a81832562d1c4a1e92d9219e6e38f37aa43f557cf2825cc3e7fd8a27e59b4d7b\`.
+- Runtime: Python 3.12.14, NumPy 2.5.4, SciPy 1.18.1.
+- All six B.1 quadrature tests pass. The workflow's provenance, closure, convergence, energy-variable Jacobian, and production-output invariance checks also pass.
+
+The pinned result reproduces the previously archived values:
+- Independent 400-node source: \(4.304368168932088\times10^{70}\ \mathrm{erg\,s^{-1}}\) per \(g_{\mu\tau}^2\).
+- Archived B.16 source: \(4.323522412104892\times10^{70}\ \mathrm{erg\,s^{-1}}\) per \(g_{\mu\tau}^2\).
+- Total relative difference: \(-0.4430240\%\).
+- Matched 40-node radial grid, with independent direct energy quadrature: \(-0.5754948\%\) relative to the archived B.16 source.
+- 200-node versus 400-node radial refinement: \(-2.1411\times10^{-5}\) relative.
+- Energy-panel sequence 80, 120, 180, 240: identical to stored precision.
+- Offset 1000 versus 4000 MeV: \(-2.5746\times10^{-9}\) relative.
+- Local-energy versus \(E_\infty\) source integration: \(2.22\times10^{-16}\) relative difference in the total; channel-wise differences are at or below this level.
+- Dimuon inverse decay remains exactly closed at \(m_V=10\) MeV.
+
+This confirms the sub-percent B.1 source-quadrature residual under a pinned runtime. It does not independently rederive the shared local production kernels or the negative-muon density convention, and it does not include the escape factor \(\mathcal O(r,\omega)\). The \(-0.4430\%\) B.1 source difference remains far too small to explain the order-one strong-coupling Fig. 7 discrepancy.
+
+The new pinned lane is [\`.github/workflows/b16-b1-independent-source-pinned.yml\`](../../../.github/workflows/b16-b1-independent-source-pinned.yml). The earlier workflow on \`research/moving-muon-thermal-rates-20261107\` remains a historical, unpinned execution record; it is not used as the dependency-locked acceptance run.
+
