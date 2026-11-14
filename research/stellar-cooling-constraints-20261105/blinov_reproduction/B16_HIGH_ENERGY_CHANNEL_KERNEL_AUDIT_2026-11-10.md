@@ -82,7 +82,7 @@ The Compton share of the suppression is larger than its \(10.2\%\) share of the 
 
 ## 5. Independent local check of the high-energy neutrino kernel
 
-The analytic Eq. (B.25) Fermi-pair angular average is independently checked by direct numerical integration:
+The analytic Eq. (B.9) Fermi-pair angular average is independently checked by direct numerical integration:
 \[
 I(\mu,\omega,T)
 =\frac12\int_{-1}^{1}d\cos\vartheta\,
@@ -92,7 +92,7 @@ f\!\left(\frac{\omega}{2}(1-v\cos\vartheta),-\mu\right).
 
 The comparison covers \(r=8,10,12.5,15\) km, \(\omega=60,110,210,510,1010\) MeV, both \(\mu_{\nu_\mu}(r)\) and \(\mu=0\), and direct Gauss-Legendre orders 128, 256, 512, and 1024.
 
-| Direct angular order | Maximum absolute relative residual vs analytic Eq. (B.25) |
+| Direct angular order | Maximum absolute relative residual vs analytic Eq. (B.9) |
 |---:|---:|
 | 128 | \(2.89\times10^{-15}\) |
 | 256 | \(3.11\times10^{-15}\) |
@@ -146,3 +146,14 @@ The high-energy neutrino local kernel and chord quadrature are therefore not pla
 - The remaining limitation is physical/reproduction-level: the exact same-snapshot Garching thermodynamic profile is unavailable through the public archive endpoint, and the unpublished numerical implementation's B.2 energy interpretation cannot be established from the paper alone.
 
 The next useful action is a final source/provenance and equation-to-code reconciliation of the original Fig. 7 benchmark, not another increase in quadrature order. If no authorized same-snapshot profile becomes available, the residual mismatch must remain an explicitly documented reproduction limitation rather than being tuned away.
+
+
+## 7. Reproducibility addendum (2026-11-15)
+
+The paper's Fermi-pair angular-average expression is Eq. (B.9), not Eq. (B.25); the equation references in this record have been corrected accordingly. The production integrand uses the two neutrino occupation factors, while the corresponding absorption integral uses the blocking complements.
+
+A source review found that the initial `direct_pair_average()` helper in `audit_b16_channel_resolved_energy.py` had the signs of both `expit` arguments reversed. It evaluated `(1-f_1)(1-f_2)` rather than `f_1 f_2`. The helper is corrected to use `expit((mu-e1)/T) * expit((-mu-e2)/T)`.
+
+Four regression tests now compare this helper with the repository analytic pair average, the separate B.9 direct-angular implementation, and the published Eq. (B.9) closed form. They pass in pinned Python 3.12.14 / NumPy 2.5.4 / SciPy 1.18.1 workflow [#43646106550](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43646106550).
+
+The archived machine-readable channel result remains a direct V8 JavaScript calculation. It has no Python script hash and is not reclassified as a NumPy result. The full Python channel-resolved calculation has not yet been run to produce a separate strict NumPy JSON. The code correction affects the independent validation helper only; it does not alter the archived V8 output or any production source/opacity array.
