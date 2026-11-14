@@ -1,13 +1,15 @@
 # 2026-11-13 branch integration audit
 
 
-## Current correction — 2026-11-14
+## Current correction — 2026-11-15
 
-The repository's latest PR audit supersedes the older PR inventory below: PR #106 and PR #113 were reviewed and squash-merged into `main`; no open PRs remain.
+The repository's latest PR audit supersedes the older PR inventory below: PR #106 and PR #113 were reviewed and squash-merged into `main`; no open research/physics PRs remain. Draft repository-maintenance PR #115 is open on `maintenance/repository-organization-audit-20261114`.
 
 - #106: `71ce83e72dd4688f09462e54209d3a47e7172e03` — B.2 energy/GR/polarization audit and 38 passing regression tests.
 - #113: `d2f4037cc965eb2f4184f695dc81a95e1b8283c9` — P1-B Global-02–05 B.13/B.2 research archive.
 - Both merges preserve explicit scientific non-claims. The full-band low-x B.1/B.2 transport, Fig. 7 reconciliation, and any SN1987A/axial constraint update remain open.
+
+> **Historical-record note (2026-11-15):** The dated sections below preserve point-in-time branch/PR snapshots. In particular, statements that PR #106 was active or Draft, and statements that no PRs were open, describe earlier snapshots and are superseded by this correction. PR #106 and PR #113 are merged; the only currently open PR is the Draft repository-maintenance PR #115.
 - Current `main` after both merges and the status-ledger refresh is recorded in the repository's root `PROJECT_STATUS.md`.
 
 
