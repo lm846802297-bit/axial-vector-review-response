@@ -43,7 +43,11 @@ If instead \(E_\infty=N(r)\omega_{\rm src}\) is conserved along the path, the lo
 \omega_{\rm loc}(s)=
 \omega_{\rm src}\frac{N(r)}{N(r'(s))}.
 \]
-This is the prescription used by the separate redshift-only diagnostic. It changes only the local energy argument in the opacity kernel; it does not include spatial-curvature corrections to the path length.
+This is the prescription used by the separate lapse-redshift diagnostic. At every path point it recomputes the local production/absorption kernels and the local vector speed
+\[
+v_V(s)=\sqrt{1-\frac{m_V^2}{\omega_{\rm loc}(s)^2}},
+\]
+including the \(1/v_V(s)\) factor in the optical-depth integrand. It retains the Euclidean straight-chord path element \(ds\); it does not include spatial-metric corrections or gravitational ray bending and is therefore not full GR propagation.
 
 ## 3. Numerical comparison at 10 MeV
 
@@ -178,3 +182,24 @@ The exact equivalence is archived in `outputs/b16_b1_independent_thin_source_10m
 **Separate comparison with the older archived B.1 source:** the independent high-resolution integral differs from the older B.16 source output by -0.443% in total luminosity, -0.536% in neutrino inverse decay, and -0.245% in muon-Compton. This is not a failure of the local-energy versus \(E_\infty\) variable transformation: those two parameterizations agree exactly with each other in the new integration. It is a distinct small source-integration/profile/interpolation residual that should remain visible in the benchmark audit rather than be attributed to the energy-variable choice.
 
 This means the Sec. 4.1 versus B.1 notation is not a physical ambiguity: it is an exact variable transformation. The only remaining energy-convention question is whether B.2's fixed omega is literal or implicitly redshifted along the path. The reproduction baseline remains the literal B.2 expression.
+
+## 9. Independent inspection of the lapse-redshift implementation (2026-11-15)
+
+The implementation in `audit_b16_global_redshift.py` was checked against the conserved-Killing-energy relation. Its source energies are local at the production point, so it forms
+\[
+E_\infty=N(r_{\rm src})\omega_{\rm src},\qquad
+\omega_{\rm loc}(s)=\frac{E_\infty}{N(r'(s))}.
+\]
+It then recomputes the neutrino/dimuon/Compton production kernels and detailed-balance reduced absorption at \(\omega_{\rm loc}(s)\), and updates
+\[
+v_V(s)=\sqrt{1-\frac{m_V^2}{\omega_{\rm loc}(s)^2}},
+\qquad
+d\tau=\Gamma_{\rm abs}^{*}(r'(s),\omega_{\rm loc}(s))
+\frac{ds}{v_V(s)}.
+\]
+The code also treats source points with \(E_\infty\le m_V\) as non-escaping. These are the correct lapse-only energy and local-speed transformations for a static background.
+
+The approximation boundary is the path geometry: \(ds\) and the straight chord are still Euclidean. The diagnostic is therefore a lapse-redshift sensitivity calculation, not a GR geodesic transport result. The fixed-\(\omega\) branch remains a literal reproduction of the printed B.2 argument; it is not physically equivalent to conserved-\(E_\infty\) propagation when \(N(r)\) varies.
+
+The published main text calls \(\omega\) the energy at spatial infinity, while B.1 is printed in a local source-energy variable (the two B.1 forms are exactly related by the documented change of variables). B.2 does not explicitly print the local conversion \(E_\infty/N(r'(s))\) inside the path-dependent collision kernel and speed. This remains a publication-level notation/implementation ambiguity; without the authors' numerical code it cannot be resolved by matching Fig. 7.
+
