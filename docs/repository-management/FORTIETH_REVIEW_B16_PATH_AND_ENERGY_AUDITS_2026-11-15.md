@@ -33,3 +33,13 @@ No numerical result or physical convention was changed.
 The 462-row baseline register now records 252 individually reviewed and 210 pending documents after this batch. Exact outcome counts are maintained in `DOCUMENT_AUDIT_REGISTER.csv`.
 
 No physics script was modified or rerun. This batch is a document/evidence review and equation-rendering repair only.
+
+
+## Follow-up documentation corrections (2026-11-15)
+
+- Added a historical-profile banner and corrected a literal escaped-newline break in the 10-MeV outer-input audit; its old 501-node values remain separate from the 1687-row profile.
+- Added a scope boundary to the combined channel-shell sensitivity note, explicitly preventing leave-out shifts from being treated as additive corrections or global convergence.
+- Linked the completed three-mass B.13 comparison from the cross-mass diagnostic and retained the fixed-omega versus path-redshift question as a separate unresolved B.2 issue.
+- Repaired inline-code formatting in the dense local-kernel audit.
+- Normalized malformed doubled TeX escapes and a stray parenthesis in the energy-variable audit. The exact B.1 local-energy versus E-infinity transformation remains established, but a separate comparison with the older archived B.1 source shows small residuals: -0.443% total, -0.536% neutrino inverse decay, and -0.245% muon-Compton. These are not caused by the variable transformation and remain visible as a distinct source-integration/profile/interpolation residual.
+- No production calculation was rerun.
