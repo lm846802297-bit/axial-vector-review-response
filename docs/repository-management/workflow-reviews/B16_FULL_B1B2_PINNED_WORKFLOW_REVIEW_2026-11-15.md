@@ -1,24 +1,24 @@
 # Workflow review: pinned full independent B.1+B.2 luminosity
 
 Review date: 2026-11-15  
-Workflow: \`b16-full-b1b2-independent-pinned.yml\`  
-Reviewed branch: \`maintenance/repository-organization-audit-20261114\`  
+Workflow: `b16-full-b1b2-independent-pinned.yml`  
+Reviewed branch: `maintenance/repository-organization-audit-20261114`  
 Pinned runtime: Python 3.12.14 / NumPy 2.5.4 / SciPy 1.18.1
 
 ## 1. Static workflow review
 
-- Trigger: path-filtered push to the maintenance review branch and manual \`workflow_dispatch\`.
-- Branch guard: the job explicitly requires \`GITHUB_REF=refs/heads/maintenance/repository-organization-audit-20261114\`; manual dispatch from another branch fails before calculation or write-back.
-- Runner: GitHub-hosted \`ubuntu-latest\`; it does not use the user's Windows self-hosted runner.
+- Trigger: path-filtered push to the maintenance review branch and manual `workflow_dispatch`.
+- Branch guard: the job explicitly requires `GITHUB_REF=refs/heads/maintenance/repository-organization-audit-20261114`; manual dispatch from another branch fails before calculation or write-back.
+- Runner: GitHub-hosted `ubuntu-latest`; it does not use the user's Windows self-hosted runner.
 - Dependencies: exact Python, NumPy, and SciPy versions are pinned and asserted.
 - Inputs: the workflow explicitly supplies the pinned B.1 thin-source JSON and pinned B.2 analytic-path JSON. The validator cross-checks their file SHA-256 values, run commits, profile hash, archived B.16 baseline hash, and Fig. 7 reference hash.
 - Tests: four unit tests cover the angular escape factor's zero-depth limit, coupling monotonicity, zero-coupling limit, and rejection of negative optical depth.
 - Calculation: complete fixed-\(\omega\) Appendix-B B.1+B.2 luminosity for the 10 MeV benchmark, with 100/200 source radial nodes, 320 energy nodes per source radius, 16 angular nodes, and 25 digitized coupling vertices.
 - Acceptance: checks B.1 source closure against the pinned 400-node source, sub-percent agreement with archived B.16, finite values, expected persistence of the Fig. 7 discrepancy, and invariance of production axial-vector outputs.
-- Write scope: \`contents:write\` is used only to commit the generated full-curve JSON to the fixed reviewed branch. The output path is excluded from the push path filter to prevent a write-back loop.
+- Write scope: `contents:write` is used only to commit the generated full-curve JSON to the fixed reviewed branch. The output path is excluded from the push path filter to prevent a write-back loop.
 - Secrets: no repository secrets are used.
 
-Outcome: \`REVIEWED_WITH_NOTES\`.
+Outcome: `REVIEWED_WITH_NOTES`.
 
 ## 2. Execution
 
@@ -34,14 +34,14 @@ Result: success; all steps completed.
 
 ## 3. Output and numerical results
 
-Output: [\`b16_full_b1b2_independent_10mev_2026-11-15_numpy_pinned.json\`](../../../research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_full_b1b2_independent_10mev_2026-11-15_numpy_pinned.json)
+Output: [`b16_full_b1b2_independent_10mev_2026-11-15_numpy_pinned.json`](../../../research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_full_b1b2_independent_10mev_2026-11-15_numpy_pinned.json)
 
-- Output Git blob SHA: \`f6a61a337474167fa0819f5435eb595e10df7ea5\`.
-- Run commit: \`1aa2697356b01c499f1801dc0eddf60581795b3b\`.
-- Script SHA-256: \`85bb5bc4a3dfc8a5060a297eab32d795a96ebf737bc3b0d3e05fe5938e45d771\`.
-- Pinned B.1 input SHA-256: \`64a45d1764c41a056a828c518118dba99ad919752668cb031b428827d45779cf\`.
-- Pinned B.2 input SHA-256: \`f1e059db7d8180b4d5752c9a3d3687f8082309548b2001d2679132c3e9591732\`.
-- Profile SHA-256: \`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c\`.
+- Output Git blob SHA: `f6a61a337474167fa0819f5435eb595e10df7ea5`.
+- Run commit: `1aa2697356b01c499f1801dc0eddf60581795b3b`.
+- Script SHA-256: `85bb5bc4a3dfc8a5060a297eab32d795a96ebf737bc3b0d3e05fe5938e45d771`.
+- Pinned B.1 input SHA-256: `64a45d1764c41a056a828c518118dba99ad919752668cb031b428827d45779cf`.
+- Pinned B.2 input SHA-256: `f1e059db7d8180b4d5752c9a3d3687f8082309548b2001d2679132c3e9591732`.
+- Profile SHA-256: `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`.
 
 | Metric | vs archived B.16 | vs digitized Fig. 7 |
 |---|---:|---:|
