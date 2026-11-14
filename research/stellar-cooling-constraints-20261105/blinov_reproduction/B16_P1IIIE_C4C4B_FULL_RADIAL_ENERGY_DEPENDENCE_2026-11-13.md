@@ -54,9 +54,9 @@ This is a stratified radial convergence diagnostic, not a pointwise high-order c
 
 For each energy and each target/sign channel, form
 
-[
+\[
 \tau_N(E,r)=\int_r^{15.20\,\mathrm{km}}\kappa_N(E,r')\,dr'.
-]
+\]
 
 Also form neutron-plus-proton total optical depths separately for neutrinos and antineutrinos. Use the same trapezoidal radial integration convention as C4-C3.
 
@@ -68,9 +68,9 @@ Compare the 0.05 km result with 0.10 km and 0.25 km subsampled grids at common n
 2. Exact profile and occupation input blob SHA checks.
 3. Exact C4-C3 100-MeV archive blob SHA check.
 4. Exact C4-C4-A 96-row archive blob SHA check.
-5. The 80 non-100-MeV anchor rows at the four C4-C4-A radii reproduce the original unaccelerated anchor results within (10^{-8}).
+5. The 80 non-100-MeV anchor rows at the four C4-C4-A radii reproduce the original unaccelerated anchor results within \(10^{-8}\).
 6. The 16 100-MeV anchors agree with C4-C3 at the same tolerance.
-7. All local rates, opacities, and mean free paths are finite and positive; support-root residuals remain below (10^{-7}).
+7. All local rates, opacities, and mean free paths are finite and positive; support-root residuals remain below \(10^{-7}\).
 8. `kappa_N/(xi_SPP Gamma_N^avail)=1` to floating-point precision.
 9. All 340 stratified high-order comparisons are archived; the 1% threshold is reported separately from the software-integrity checks.
 10. Radial optical depths are nonnegative and monotone; 0.10 km and 0.25 km comparisons are reported separately for each energy and channel.

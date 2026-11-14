@@ -4,7 +4,9 @@
 
 ## Repository-management update (2026-11-14)
 
-- Seven C4-C3/C4-C4 archive descriptions were individually reviewed. Their manifests pass, but the currently tracked 96-row anchor differs in floating-point final digits from the historical input pinned by two programs. The original byte-pinned object has been recovered, both program paths repaired, and 17 unit/input checks pass. The origin of the later differences is unknown; no scattering integrations were rerun. See `docs/repository-management/TWELFTH_REVIEW_C4C3_C4C4_2026-11-15.md`. Baseline review: 117 reviewed, 345 pending.
+- Three C4-C4 research reports were individually reviewed against their output archives; malformed math delimiters were repaired. All 80 quadrature base anchors match the recovered pinned table exactly, while the 80 overlapping radial anchors agree to `3.33e-16` relative. See `docs/repository-management/THIRTEENTH_REVIEW_C4C4_REPORTS_2026-11-15.md`; baseline review now has 120 reviewed and 342 pending. No new scattering integrals were run.
+
+- Seven C4-C3/C4-C4 archive descriptions were individually reviewed. Their manifests pass, but the currently tracked 96-row anchor differs in floating-point final digits from the historical input pinned by two programs. The original byte-pinned object has been recovered, both program paths repaired, and 17 unit/input checks pass. The origin of the later differences is unknown; no scattering integrations were rerun. See `docs/repository-management/TWELFTH_REVIEW_C4C3_C4C4_2026-11-15.md`. At that checkpoint: 117 reviewed, 345 pending.
 
 - Five A2–A3 portal calculation records were reviewed individually at `fe1c308`; four corresponding scripts ran successfully under Python 3.12.14 / SymPy 1.14.0. One Markdown rendering error was fixed without changing physics. See `docs/repository-management/ELEVENTH_REVIEW_PORTAL_A2_A3_2026-11-15.md`. At that checkpoint the baseline register recorded 110 reviewed and 352 pending; these checks do not establish complete gauge-invariant matching.
 
