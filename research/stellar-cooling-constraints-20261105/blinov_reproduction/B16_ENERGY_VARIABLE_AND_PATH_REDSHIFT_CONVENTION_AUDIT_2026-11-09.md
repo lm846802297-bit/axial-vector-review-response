@@ -111,7 +111,7 @@ For reproduction, retain the literal fixed-omega B.2 expression as the published
 
 ### 6.2 Compton prescription: formal rate versus approximate reduction
 
-The version of record presents Eq. (B.13) as the thermal phase-space integral for \(\\mu\\gamma\\to\\mu V\). It then discusses the non-relativistic-muon/no-recoil approximation, gives the approximate cross section in Eq. (B.14), and derives the compact thermal-rate expressions in Eqs. (B.15)--(B.16).
+The version of record presents Eq. (B.13) as the thermal phase-space integral for \(\mu\gamma\to\mu V\). It then discusses the non-relativistic-muon/no-recoil approximation, gives the approximate cross section in Eq. (B.14), and derives the compact thermal-rate expressions in Eqs. (B.15)--(B.16).
 
 The Fig. 7 discussion says that the luminosity is evaluated using Eq. (B.1) and the physics inputs described in Appendix B, but it does not separately identify the numerical Compton implementation as either the full Eq. (B.13) integral or the reduced Eq. (B.16) expression. The formal presentation of B.13 and the subsequent approximate reduction therefore need to be distinguished when describing what is directly established by the article.
 
@@ -123,7 +123,7 @@ The article's data-availability and code-availability statements say that no ass
 
 For the current vertex-preserving profile B at 10 MeV:
 
-- literal fixed-\(\\omega\), B.16 working benchmark: strong-endpoint residual \( +92.24\\% \);
+- literal fixed-\(\omega\), B.16 working benchmark: strong-endpoint residual \( +92.24\\% \);
 - path-redshift-only diagnostic with the same Euclidean chord measure: strong-endpoint residual \( +36.74\\% \);
 - consistent global B.13 source-and-opacity replacement: strong-endpoint residual \( +131.53\\% \).
 
@@ -131,7 +131,7 @@ These are different physical prescriptions, not interchangeable numerical refine
 
 ### 6.4 Decision
 
-1. Preserve the literal fixed-\(\\omega\) Appendix-B calculation and its B.16 working Compton implementation for continuity with the current benchmark.
+1. Preserve the literal fixed-\(\omega\) Appendix-B calculation and its B.16 working Compton implementation for continuity with the current benchmark.
 2. Keep the redshift-only and B.13 calculations separate, with their assumptions visible.
 3. Do not state that the published Fig. 7 code is known to use B.16 unless independent implementation evidence becomes available.
 4. Do not infer a full GR result from the redshift-only diagnostic.
@@ -174,5 +174,7 @@ The independent B.1 audit now includes a second full source integration in E_inf
 - total: 4.304368168932088e70 erg/s/g^2.
 
 The exact equivalence is archived in `outputs/b16_b1_independent_thin_source_10mev_2026-11-09.json`; the acceptance workflow is [Run #42573725261](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42573725261).
+
+**Separate comparison with the older archived B.1 source:** the independent high-resolution integral differs from the older B.16 source output by -0.443% in total luminosity, -0.536% in neutrino inverse decay, and -0.245% in muon-Compton. This is not a failure of the local-energy versus \(E_\infty\) variable transformation: those two parameterizations agree exactly with each other in the new integration. It is a distinct small source-integration/profile/interpolation residual that should remain visible in the benchmark audit rather than be attributed to the energy-variable choice.
 
 This means the Sec. 4.1 versus B.1 notation is not a physical ambiguity: it is an exact variable transformation. The only remaining energy-convention question is whether B.2's fixed omega is literal or implicitly redshifted along the path. The reproduction baseline remains the literal B.2 expression.
