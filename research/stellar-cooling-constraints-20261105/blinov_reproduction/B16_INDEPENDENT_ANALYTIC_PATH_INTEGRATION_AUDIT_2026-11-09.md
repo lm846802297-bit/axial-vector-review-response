@@ -173,3 +173,10 @@ No production axial-vector output, coupling, source normalization, local opacity
 - Unit tests: \`test_b16_path_independent.py\`
 - Machine-readable output: \`outputs/b16_path_independent_analytic_10mev_2026-11-09.json\`
 - The workflow verifies that production axial-vector files remain unchanged.
+
+
+## 10. Environment provenance addendum (2026-11-15)
+
+The historical full-integration workflow [#42562585233](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42562585233) configured Python 3.12 and installed NumPy 2.5.4 / SciPy 1.18.1 from unpinned package names. The job log records the resolved NumPy and SciPy wheel versions, but the workflow did not pin them and the output JSON does not include package-version fields. The historical output remains tied to its recorded source commit and script SHA; it is not a dependency-locked rerun.
+
+A new lock file, `research/stellar-cooling-constraints-20261105/requirements-b16-audit.txt`, and pinned regression workflow now use Python 3.12.14, NumPy 2.5.4, and SciPy 1.18.1. Workflow [#43646106550](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43646106550) passes the five analytic-path unit tests as part of a 20-test regression set. It does **not** rerun the full analytic-path integration. A full calculation rerun under the pinned environment is still required if a dependency-locked numerical output is needed.
