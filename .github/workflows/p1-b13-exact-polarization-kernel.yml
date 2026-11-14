@@ -11,6 +11,12 @@ on:
       - research/stellar-cooling-constraints-20261105/finite_mixing/test_b13_moving_muon_spinor_reference.py
       - research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/audit_b13_moving_muon_spinor_reference.py
       - research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b13_local_kernel_convergence.py
+      - research/stellar-cooling-constraints-20261105/blinov_reproduction/gr_ray_transport.py
+      - research/stellar-cooling-constraints-20261105/blinov_reproduction/test_gr_ray_transport.py
+      - research/stellar-cooling-constraints-20261105/blinov_reproduction/polarization_boltzmann_state_counting.py
+      - research/stellar-cooling-constraints-20261105/blinov_reproduction/test_polarization_boltzmann_state_counting.py
+      - research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/audit_b13_local_kernel_radial_energy_10mev.py
+      - research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/test_p1b_b13_local_kernel_radial_energy_10mev.py
   workflow_dispatch:
 
 permissions:
@@ -63,6 +69,28 @@ jobs:
             -s research/stellar-cooling-constraints-20261105/finite_mixing \
             -t research/stellar-cooling-constraints-20261105 \
             -p 'test_thermal_rates.py' -v
+      - name: Run static-spherical GR ray regressions
+        env:
+          PYTHONPATH: ${{ github.workspace }}/research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: |
+          python -m unittest discover \
+            -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
+            -p 'test_gr_ray_transport.py' -v
+      - name: Run polarization state-counting regressions
+        env:
+          PYTHONPATH: ${{ github.workspace }}/research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: |
+          python -m unittest discover \
+            -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
+            -p 'test_polarization_boltzmann_state_counting.py' -v
+      - name: Run P1-B B.13 local-kernel regressions
+        env:
+          PYTHONPATH: ${{ github.workspace }}/research/stellar-cooling-constraints-20261105
+        run: |
+          python -m unittest discover \
+            -s research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals \
+            -t research/stellar-cooling-constraints-20261105 \
+            -p 'test_p1b_b13_local_kernel_radial_energy_10mev.py' -v
       - name: Upload machine-readable audit
         uses: actions/upload-artifact@v4
         with:
