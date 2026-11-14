@@ -79,19 +79,20 @@ These are numerical regression tolerances, not astrophysical uncertainties.
 
 ## 5. Numerical result and disposition
 
-The final run covers five profile radii, four mediator masses, and three values of \\(\\omega/m_V\\), giving 60 neutrino points and 60 Compton points. The largest relative errors are:
+The final run covers five profile radii, four mediator masses, and three values of \(\omega/m_V\), giving 60 neutrino points and 60 Compton points. The largest relative errors are:
 
 | Check | Maximum relative error | Acceptance |
 |---|---:|---:|
-| Neutrino production: adaptive reference vs. rates.neutrino_rates | \\(3.91\\times10^{-15}\\) | \\(2\\times10^{-9}\\) |
-| Neutrino absorption: adaptive reference vs. rates.neutrino_rates | \\(3.96\\times10^{-15}\\) | \\(2\\times10^{-9}\\) |
-| Neutrino detailed balance, mode resolved | \\(1.07\\times10^{-15}\\) | \\(3\\times10^{-10}\\) |
-| B.14 Compton detailed balance, mode resolved | \\(2.38\\times10^{-16}\\) | \\(3\\times10^{-13}\\) |
-| B.14/B.16 spin-summed normalization | \\(3.94\\times10^{-16}\\) | \\(3\\times10^{-13}\\) |
+| Neutrino production: adaptive reference vs. rates.neutrino_rates | \(3.91\times10^{-15}\) | \(2\times10^{-9}\) |
+| Neutrino absorption: adaptive reference vs. rates.neutrino_rates | \(3.96\times10^{-15}\) | \(2\times10^{-9}\) |
+| Neutrino detailed balance, mode resolved | \(1.07\times10^{-15}\) | \(3\times10^{-10}\) |
+| B.14 Compton detailed balance, mode resolved | \(2.38\times10^{-16}\) | \(3\times10^{-13}\) |
+| B.14/B.16 spin-summed normalization | \(3.94\times10^{-16}\) | \(3\times10^{-13}\) |
 
-The independent muon-susceptibility normalization test also passes: \\(n_{\\rm eff}=T\\,\\partial n/\\partial\\mu\\) is checked by finite-differencing a separately integrated number density for both charge species. The repository-wide physics suite passed all 82 tests at the recorded 2026-11-07 run. The machine-readable run is archived at [direct_collision_integrals_2026-11-07.json](outputs/direct_collision_integrals_2026-11-07.json); it records the input, code, and profile hashes. The audit was run at commit 4ee237596a397fb2d54ba90dad1c39e8d9e436d7 and the result was archived by commit 608b4af1e09cdf72c56cb916617b4b961f6cf801.
+The independent muon-susceptibility normalization test also passes: \(n_{\rm eff}=T\,\partial n/\partial\mu\) is checked by finite-differencing a separately integrated number density for both charge species. The repository-wide physics suite passed all 82 tests at the recorded 2026-11-07 run. The machine-readable run is archived at [direct_collision_integrals_2026-11-07.json](outputs/direct_collision_integrals_2026-11-07.json); it records the input, code, and profile hashes. The audit was run at commit 4ee237596a397fb2d54ba90dad1c39e8d9e436d7 and the result was archived by commit 608b4af1e09cdf72c56cb916617b4b961f6cf801.
 
 **What this establishes:** the existing neutrino collision terms are independently reproduced to numerical precision on the tested grid, and the B.14 no-recoil Compton forward/reverse factors and polarization-summed normalization are internally consistent. **What it does not establish:** the full moving-muon thermal B.13 Compton integral, the source's unresolved B.17 charge-conjugate convention, the equivalence of polarization-summed and mode-resolved opacity, or the full Fig. 7 luminosity reproduction. Therefore P0-A is closed, but the pure-vector literature gate remains blocked.
+
 ## 6. Updated research order
 
 | Priority | Task | Purpose |
