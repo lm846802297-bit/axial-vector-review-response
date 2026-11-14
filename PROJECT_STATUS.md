@@ -4,6 +4,8 @@
 
 ## Repository-management update (2026-11-14)
 
+- A manifest review found three provenance issues: the fermion snapshot README does not match its historical checksum; three GR-path files differ from a dated historical manifest; and the compressed radial-scalar scan matches its adjacent uncompressed hash but differs from the run record in both recorded CSV hash and source commit. Old manifests and payloads are retained; current checksum sidecars and explicit limitations are documented in `docs/repository-management/MANIFEST_REVIEW_2026-11-14.md`.
+
 - Maintenance PR #115 incorporated `main` at merge commit `e4dd7ec` with an unchanged maintenance tree; refresh branch comparison before integration. Workflow review reports were relocated under `docs/repository-management/workflow-reviews/` with a blob/SHA-256 manifest; YAML execution paths were not changed.
 - The old `research/stellar-cooling-constraints-20261105/review_package_extracted/` mentioned in historical entries below was retired; use `research/stellar-cooling-constraints-20261105/REVIEW_PACKAGE_INDEX_2026-11-13.md` and the collaborator archive instead.
 - Local PDF extraction finds 63 pages in the current response PDF and equal extracted text in the two four-page referee PDF variants; their annotation sets differ. Same-source LaTeX build and visual review remain open. See `docs/repository-management/ROOT_PDF_EXTRACTION_AUDIT_2026-11-14.md`.

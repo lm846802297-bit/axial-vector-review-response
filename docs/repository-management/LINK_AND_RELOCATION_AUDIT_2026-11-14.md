@@ -1,5 +1,7 @@
 # Local path and workflow-review relocation audit — 2026-11-14
 
+> **Later checkpoint:** the [manifest review](MANIFEST_REVIEW_2026-11-14.md) examined 20 additional baseline entries; 374 remain pending. Counts below record the earlier checkpoint.
+
 ## Changes
 
 Seven Markdown workflow review records were moved from `.github/workflows/` to `docs/repository-management/workflow-reviews/`. The original and destination blob IDs, SHA-256 hashes and sizes are recorded in the [relocation manifest](workflow-reviews/RELOCATION_MANIFEST_2026-11-14.json). All seven contents are byte-identical before/after. The workflow index links were updated; no YAML file, workflow trigger, Python source, physics equation or numerical output was moved by this migration.

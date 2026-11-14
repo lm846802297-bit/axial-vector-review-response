@@ -1,5 +1,7 @@
 # Regenerated Belle II radial-scalar width scan — 2026-11-09
 
+> **Provenance discrepancy (2026-11-14):** the current compressed CSV decompresses to SHA-256 `5d5f0ce3…` (matching the adjacent `SHA256SUMS.txt`), not the `67ec36a5…` value recorded below. The adjacent `source-commit.txt` also names `b362de7…`, not the `4e90cd9…` reported below; its `unit-tests.txt` records 69 tests, whereas this record states 58. The relationship between these artifacts has not been established; retain both records and do not claim they identify the same run. See [manifest audit](../../docs/repository-management/MANIFEST_REVIEW_2026-11-14.md).
+
 **PR:** #68  
 **Workflow:** https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42560249275  
 **Source commit:** 4e90cd971e5cd3264294958f261bd9ce05825e01  

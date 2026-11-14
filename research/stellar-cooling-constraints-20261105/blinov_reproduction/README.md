@@ -1,5 +1,7 @@
 # Independent Blinov vector reproduction
 
+> **Checksum note (2026-11-14):** the dated GR-path manifest differs from the current GR module, its test and the B.2 audit report. It is retained as a historical record; use `SHA256SUMS_10MEV_GR_PATH_CURRENT_2026-11-14.txt` to identify current bytes. Seven GR unit tests passed locally on the current files, which does not establish their identity with an earlier run or close the Fig. 7 physics gate. See [manifest audit](../../../docs/repository-management/MANIFEST_REVIEW_2026-11-14.md).
+
 This directory is a deliberately separate implementation of the **vector-boson** ballistic-cooling prescription in Blinov et al., arXiv:2511.09619v2, Appendix B, Eqs. (17)--(35). The word scalar below refers only to the paper's mode-summed (scalar) opacity treatment; it does not mean a scalar mediator.
 
 ## Independence boundary
