@@ -4,7 +4,9 @@
 
 ## Repository-management update (2026-11-14)
 
-- Three C4-C4 research reports were individually reviewed against their output archives; malformed math delimiters were repaired. All 80 quadrature base anchors match the recovered pinned table exactly, while the 80 overlapping radial anchors agree to `3.33e-16` relative. See `docs/repository-management/THIRTEENTH_REVIEW_C4C4_REPORTS_2026-11-15.md`; baseline review now has 120 reviewed and 342 pending. No new scattering integrals were run.
+- Four Global-06 protocols and compact-result records were reviewed against their digitized profile and summary files. The raw 36 chunks remain referenced to a conversation ZIP not verified in this review. Numerical checks remain scoped to the original stage. Baseline register: 124 reviewed, 338 pending; see `docs/repository-management/FOURTEENTH_REVIEW_GLOBAL06_2026-11-15.md`.
+
+- Three C4-C4 research reports were individually reviewed against their output archives; malformed math delimiters were repaired. All 80 quadrature base anchors match the recovered pinned table exactly, while the 80 overlapping radial anchors agree to `3.33e-16` relative. See `docs/repository-management/THIRTEENTH_REVIEW_C4C4_REPORTS_2026-11-15.md`; at that checkpoint baseline review had 120 reviewed and 342 pending. No new scattering integrals were run.
 
 - Seven C4-C3/C4-C4 archive descriptions were individually reviewed. Their manifests pass, but the currently tracked 96-row anchor differs in floating-point final digits from the historical input pinned by two programs. The original byte-pinned object has been recovered, both program paths repaired, and 17 unit/input checks pass. The origin of the later differences is unknown; no scattering integrations were rerun. See `docs/repository-management/TWELFTH_REVIEW_C4C3_C4C4_2026-11-15.md`. At that checkpoint: 117 reviewed, 345 pending.
 

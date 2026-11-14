@@ -1,5 +1,7 @@
 # P1-B Global-06: full-radial low-x B.13 extension
 
+> Historical stage record: later work can postdate its sequencing statements. Check current project status and subsequent stage records before using it as an execution plan. The reported acceptance is limited to this stage.
+
 **Date:** 2026-11-14  
 **Status:** execution package prepared; no new Global-06 numerical result is claimed by this protocol commit.  
 **Parent baseline:** merged main after PR #106 and #113.  
