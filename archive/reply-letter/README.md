@@ -19,7 +19,7 @@ The two bibliography databases remain at their working paths, and the root-level
 ## Snapshots preserved
 
 - [2026-11-04 baseline snapshot manifest](snapshots/2026-11-04/manifest.md): original TeX plus the two bibliography databases; this is the historical source backup created before the citation audit.
-- [2026-11-04-r1 manifest](snapshots/2026-11-04-r1/manifest.md): adds a root-level copy of the pre-existing nested `JHEP.bst`.
+- `snapshots/2026-11-04-r1/manifest.md` is referenced by an older archive note but is not present in the current Git tree; treat this snapshot as an unresolved historical reference until its source commit or manifest is recovered. Do not infer that the file exists.
 - [2026-11-04-r2 corrected reference snapshot manifest](snapshots/2026-11-04-r2/manifest.md): latest source package, including the root-level `JHEP.bst` and the completed NA64, CHARM-II, and HNL bibliographic metadata.
 
 The `2026-11-04-r2` snapshot is the reference-complete recovery point for the 2026-11-04 source state. It does not include the subsequent referee-response TeX edits in PR #49 or PR #50; use the repository-root TeX on the current branch/main as the editable source. The older snapshots remain unchanged for history.
