@@ -118,12 +118,17 @@ def main():
                     pred=max(float(PchipInterpolator(np.sqrt(X_GRID),y)(math.sqrt(x))),0.0)
                 truth=direct["final_payload"]["charge_resolved"][q]["absorption"][imode]
                 channel_errors[q][mode]=abs(pred-truth)/max(abs(pred),abs(truth),1.0e-300)
+        energy_ladders=grid_points+validation_points
         energy_results.append({"rank":rank,"radial_index":int(item["radial_index"]),
             "direct_low_order_error":float(item["maximum_channel_relative_error"]),
             "high_order_validation":direct,
             "high_order_pchip_error":max(v for q in channel_errors.values() for v in q.values()),
             "high_order_pchip_channel_errors":channel_errors,
-            "all_grid_and_validation_quadrature_pass":all(p["quadrature_pass"] for p in grid_points+validation_points)})
+            "maximum_detailed_balance_residual":max(p["detailed_balance_max"] for p in energy_ladders),
+            "maximum_mass_shell_residual":max(p["mass_shell_max"] for p in energy_ladders),
+            "all_rates_finite_nonnegative":all(p["finite_nonnegative"] for p in energy_ladders),
+            "maximum_final_order_change":max(p["final_change"] for p in energy_ladders),
+            "all_grid_and_validation_quadrature_pass":all(p["quadrature_pass"] for p in energy_ladders)})
 
     all_points=[p for group in radial_results for p in group["points"]]+[
         item["high_order_validation"] for item in energy_results]
@@ -141,10 +146,13 @@ def main():
         "all_targeted_quadrature_pass":all(p["quadrature_pass"] for p in all_points) and all(x["all_grid_and_validation_quadrature_pass"] for x in energy_results),
         "maximum_high_order_radial_midpoint_interpolation_error":max(x["maximum_high_order_midpoint_interpolation_error"] for x in radial_results),
         "maximum_high_order_energy_pchip_error":max(x["high_order_pchip_error"] for x in energy_results),
-        "maximum_final_successive_order_change":max(p["final_change"] for p in all_points),
-        "maximum_detailed_balance_residual":max(p["detailed_balance_max"] for p in all_points),
-        "maximum_mass_shell_residual":max(p["mass_shell_max"] for p in all_points),
-        "all_rates_finite_nonnegative":all(p["finite_nonnegative"] for p in all_points),
+        "maximum_final_successive_order_change":max(
+            [p["final_change"] for p in all_points]+[x["maximum_final_order_change"] for x in energy_results]),
+        "maximum_detailed_balance_residual":max(
+            [p["detailed_balance_max"] for p in all_points]+[x["maximum_detailed_balance_residual"] for x in energy_results]),
+        "maximum_mass_shell_residual":max(
+            [p["mass_shell_max"] for p in all_points]+[x["maximum_mass_shell_residual"] for x in energy_results]),
+        "all_rates_finite_nonnegative":all(p["finite_nonnegative"] for p in all_points) and all(x["all_rates_finite_nonnegative"] for x in energy_results),
         "full_global_high_order_acceptance":False
       },
       "runtime_seconds":time.time()-started,
