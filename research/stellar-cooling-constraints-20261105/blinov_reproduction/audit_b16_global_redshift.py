@@ -2,10 +2,10 @@
 baseline opacity, and a separately labeled path-redshift sensitivity test.
 
 The baseline follows the published Eq. (B.2) literally: omega is held fixed
-along a chord. The alternative changes only the local energy in the opacity
-kernel according to conserved energy at infinity; it retains the same
-Euclidean chord length and is therefore a redshift-only diagnostic, not a
-fully GR ray-tracing calculation.
+along a chord. The alternative enforces conserved energy at infinity by
+recomputing the local production/absorption kernels and local vector speed
+along the chord. It retains the Euclidean straight-chord path measure and is
+therefore a lapse-redshift diagnostic, not a full GR ray-tracing calculation.
 """
 from __future__ import annotations
 
@@ -99,9 +99,11 @@ def redshifted_scalar_optical_depths(
 ):
     """Diagnostic alternative: omega_loc(s)=omega_source*N_source/N(path).
 
-    The Euclidean chord/path measure is intentionally unchanged. This
-    isolates the effect of changing the energy argument in the local
-    absorption kernel; it is not a complete GR propagation calculation.
+    The Euclidean chord/path measure is intentionally unchanged. At every
+    path point this recomputes the local production/absorption kernels and
+    v_V(s)=sqrt(1-m_V^2/omega_local(s)^2), including 1/v_V(s) in the
+    optical depth. This is a lapse-redshift diagnostic, not full GR
+    propagation because the spatial metric and geodesic bending are omitted.
     """
     source_radii = np.asarray(source_radii, float)
     radial_grid = np.asarray(radial_grid, float)
