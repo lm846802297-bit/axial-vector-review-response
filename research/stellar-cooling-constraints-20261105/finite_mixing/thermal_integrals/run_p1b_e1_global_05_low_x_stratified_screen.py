@@ -56,7 +56,7 @@ def main():
         "scope":"80-point, 16-radius stratified low-x direct screen at low quadrature order; not a full radial scan, not high-order acceptance, and not an integrated luminosity correction."}
     outdir=HERE/"results"/"P1B_E1_GLOBAL_2D_MIDPOINT_2026-11-14"
     outdir.mkdir(parents=True,exist_ok=True)
-    (outdir/"LOW_X_STRATIFIED_SCREEN.json").write_text(json.dumps(summary,indent=2)+"\\n")
-    (outdir/"LOW_X_STRATIFIED_RECORDS.json").write_text(json.dumps(records,indent=2)+"\\n")
+    (outdir/"LOW_X_STRATIFIED_SCREEN.json").write_text(json.dumps(summary,indent=2)+"\n")
+    (outdir/"LOW_X_STRATIFIED_RECORDS.json").write_text(json.dumps(records,indent=2)+"\n")
     print(json.dumps(summary,indent=2))
 if __name__=="__main__":main()
