@@ -1,5 +1,7 @@
 # B.13/B.16 three-mass source, opacity, and convergence audit (2026-11-09)
 
+> **Status boundary (2026-11-15):** the 0.1- and 1-MeV global curves below use the baseline \((40,100,16,32)\) grid and are not independently grid-converged. The 10-MeV result is an out-of-regime stress test and later full-profile B.13/B.2 refinements are archived in PR #113, merged on 2026-11-14. This report is a comparative alternative-kernel record, not a final Fig. 7 reproduction or an axial-vector constraint update.
+
 ## Executive result
 
 The formal moving-muon Compton expression B.13 has now been integrated globally with the source and reduced absorption replaced consistently at 0.1, 1, and 10 MeV, on the same reconstructed profile and literal fixed-omega B.2 ray prescription. This is a method-level comparison; it does not determine which unpublished implementation the authors used for Fig. 7.
