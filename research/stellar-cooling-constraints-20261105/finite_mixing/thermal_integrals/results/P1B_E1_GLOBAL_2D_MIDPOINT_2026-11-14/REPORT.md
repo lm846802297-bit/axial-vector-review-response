@@ -56,3 +56,14 @@ The interval-702 high-order cell-center PCHIP comparison was subsequently recomp
 **Passed:** complete low-order radial-midpoint, energy-PCHIP-at-radial-midpoint, and sequential 2D PCHIP cell-midpoint screens over all 1686 radial intervals; selected high-order convergence checks for the four worst interpolation cells; exact detailed-balance and mass-shell consistency.
 
 **Not claimed:** a full-profile high-order quadrature scan at every radius/energy point; exhaustive direct high-order checks of every 2D cell; full-star volume emissivity; GR geodesic optical depth; luminosity; Fig. 7 reproduction; or an updated SN1987A limit. PR #113 remains Draft.
+
+
+## Low-x support audit (Global-05, 2026-11-14)
+
+The existing nine-knot Global-03/04 table covers \(x=(\omega-m_{A'})/T\in[0.5,36]\), and the B.2 interpolator returns zero Compton absorption outside that support. Before extending B.1/B.2 to the full energy range, we directly evaluated B.13 at 16 stratified radial nodes and five lower-energy coordinates \(x=0.05,0.1,0.2,0.35,0.5\), adding 80 low-order direct evaluations.
+
+All 80 points were finite and nonnegative. The maximum detailed-balance residual was \(4.6060\times10^{-15}\), and the maximum final-muon shell residual was \(1.6261\times10^{-13}\).
+
+**Important finding:** the B.13 absorption is not negligible below the existing interpolation support. At \(r=9.95\) km, the \(x=0.05\) to \(x=0.5\) \(\mu^-\) absorption ratios are 7.079 (longitudinal) and 1.817 in each transverse mode. At \(r=15.5\) km the corresponding ratios are 2.468 and 1.244. Thus setting the B.13 Compton term to zero for \(x<0.5\) is not justified by the existing table.
+
+This 80-point screen is not a full radial scan or high-order acceptance, and it does not yet quantify the integrated luminosity impact. It establishes a necessary next task: extend the B.13 table below \(x=0.5\), then redo the full-band B.1/B.2 integration. Until then, the 210–510 MeV band result remains a valid restricted-band calculation, but the current full-band extrapolation is not accepted.
