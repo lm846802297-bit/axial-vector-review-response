@@ -70,7 +70,7 @@ Established within the stated scope:
 4. The order-one Fig. 7 strong-endpoint discrepancy persists after the independent B.1+B.2 recomputation.
 
 Not established:
-1. The reconstructed public-figure profile is not the original Garching s18.8-SFHo-MUONS raw snapshot.
+1. The reconstructed public-figure profile is not the original Garching s18.8-SFHo-MUONS raw snapshot. A fresh 2026-11-15 check of the official archive confirms that both the Bollig2016 radial-neutrino and hydro-profile endpoints return HTTP 401; only authorized archive access or an explicitly authorized transfer can close this provenance gap. See [profile availability audit](../../research/stellar-cooling-constraints-20261105/blinov_reproduction/B16_PUBLIC_PROFILE_AND_METRIC_SOURCE_AVAILABILITY_AUDIT_2026-11-09.md).
 2. The local production and absorption kernels are shared with the Appendix-B reference implementation; they have not all been independently re-derived in this end-to-end calculation.
 3. The negative-muon density/species convention is shared.
 4. The fixed-\(\omega\) Appendix-B prescription versus the main-text energy-at-infinity language remains a physical convention question.
