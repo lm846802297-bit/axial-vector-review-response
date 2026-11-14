@@ -32,7 +32,7 @@ This document describes the current repository organization and the intended own
 
 ## Review coverage and reports
 
-The baseline inventory contains 462 Markdown/text documents. Current register counts are: 61 `PASS_WITH_NOTES`, 1 `PASS`, 5 `REVISION_REQUIRED`, 21 `HISTORICAL`, and 374 `PENDING` (88 individually reviewed). Only documents read individually are assigned a non-pending review outcome. See the [audit register](DOCUMENT_AUDIT_REGISTER.csv) and the dated review reports:
+The baseline inventory contains 462 Markdown/text documents. Current register counts are: 61 `PASS_WITH_NOTES`, 1 `PASS`, 5 `REVISION_REQUIRED`, 38 `HISTORICAL`, and 357 `PENDING` (105 individually reviewed). Only documents read individually are assigned a non-pending review outcome. See the [audit register](DOCUMENT_AUDIT_REGISTER.csv) and the dated review reports:
 
 - [Initial governance and entry review](INITIAL_REVIEW_REPORT_2026-11-14.md)
 - [Second review batch](SECOND_REVIEW_REPORT_2026-11-14.md)
@@ -45,6 +45,7 @@ The baseline inventory contains 462 Markdown/text documents. Current register co
 - [PR template and coherent spectral-area diagnostic review](NINTH_REVIEW_SPECTRAL_AREA_2026-11-14.md)
 - [Historical attachment review](TENTH_REVIEW_ATTACHMENTS_2026-11-14.md)
 - [Manifest and checksum review](MANIFEST_REVIEW_2026-11-14.md)
+- [Legacy calculation-log review](LEGACY_LOG_REVIEW_2026-11-14.md)
 - [Root PDF extraction audit](ROOT_PDF_EXTRACTION_AUDIT_2026-11-14.md) (supplementary technical audit)
 - [Link and relocation audit](LINK_AND_RELOCATION_AUDIT_2026-11-14.md) (supplementary technical audit)
 

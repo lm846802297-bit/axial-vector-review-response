@@ -19,7 +19,7 @@ The review applies [writing rules §3.1, §6 and §7](../../审稿意见-gpt/写
 
 ## Verification and unresolved items
 
-`LINK_AND_RELOCATION_AUDIT_2026-11-14.md` records the syntax/path checks and their limitations. The current response PDF could not be rebuilt locally because `pdflatex.fmt` was absent; its page-by-page visual verification remains open. At the original diff-review checkpoint the register contained 395 pending baseline documents; the later manifest review reduced this to 374, while three additional provenance issues remain revision-required. Workflow classification still contains pending/historical candidates. This review does not approve the PR as a complete repository-wide scientific audit.
+`LINK_AND_RELOCATION_AUDIT_2026-11-14.md` records the syntax/path checks and their limitations. The current response PDF could not be rebuilt locally because `pdflatex.fmt` was absent; its page-by-page visual verification remains open. At the original diff-review checkpoint the register contained 395 pending baseline documents; the later manifest and legacy-log reviews reduced this to 357; the current register records five revision-required entries. Workflow classification still contains pending/historical candidates. This review does not approve the PR as a complete repository-wide scientific audit.
 
 
 ## Follow-up manifest review

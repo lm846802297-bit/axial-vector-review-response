@@ -4,6 +4,8 @@
 
 ## Repository-management update (2026-11-14)
 
+- Legacy section 250–259 and 261–262 Python scripts were rerun locally: all 12 exited zero; sections 253 and 262 have small floating-point residual-text differences from archived logs. Section 260 passed its first 69 checks but failed its byte-for-byte archived stdout comparison at section 250 because the interpreter version differs. See `docs/repository-management/LEGACY_LOG_REVIEW_2026-11-14.md`; Mathematica was not rerun.
+
 - A manifest review found three provenance issues: the fermion snapshot README does not match its historical checksum; the dated GR-path manifest matches historical commit `ba581642dd749d8a4c54ea9553a2c3d1baf839c3` while three files changed later; and the compressed radial-scalar scan belongs to a later run than the 2026-11-09 record. Commit `9ae7955` confirms the earlier data and source; row-level comparison isolates differences to two bound columns. The current uncompressed CSV is not committed. Old manifests and payloads are retained; current checksum sidecars and explicit limitations are documented in `docs/repository-management/MANIFEST_REVIEW_2026-11-14.md`.
 
 - Maintenance PR #115 incorporated `main` at merge commit `e4dd7ec` with an unchanged maintenance tree; refresh branch comparison before integration. Workflow review reports were relocated under `docs/repository-management/workflow-reviews/` with a blob/SHA-256 manifest; YAML execution paths were not changed.

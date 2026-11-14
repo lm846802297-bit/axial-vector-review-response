@@ -1,6 +1,6 @@
 # Local path and workflow-review relocation audit — 2026-11-14
 
-> **Later checkpoint:** the [manifest review](MANIFEST_REVIEW_2026-11-14.md) examined 20 additional baseline entries; 374 remain pending. Counts below record the earlier checkpoint.
+> **Later checkpoint:** the [manifest review](MANIFEST_REVIEW_2026-11-14.md) and [legacy-log review](LEGACY_LOG_REVIEW_2026-11-14.md) examined additional baseline entries; 357 remain pending. Counts below record the earlier checkpoint.
 
 ## Changes
 
