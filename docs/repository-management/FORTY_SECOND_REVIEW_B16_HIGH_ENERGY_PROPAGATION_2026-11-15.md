@@ -1,37 +1,37 @@
 # Individual review: six B.16 high-energy propagation and GR records
 
-Review date: 2026-11-15. Baseline branch: \`maintenance/repository-organization-audit-20261114\`. Six B.16 records were read in full and cross-checked against their Python source, test modules, archived JSON, and historical GitHub Actions logs. The review now includes strict NumPy reproductions of all four high-energy V8 diagnostics; this is an implementation/provenance review, not a full new Fig. 7 parameter scan.
+Review date: 2026-11-15. Baseline branch: `maintenance/repository-organization-audit-20261114`. Six B.16 records were read in full and cross-checked against their Python source, test modules, archived JSON, and historical GitHub Actions logs. The review now includes strict NumPy reproductions of all four high-energy V8 diagnostics; this is an implementation/provenance review, not a full new Fig. 7 parameter scan.
 
 ## 1. Document-by-document outcomes
 
 | Document | Outcome | Findings and disposition |
 |---|---|---|
-| \`B16_GR_ENERGY_AND_RAY_PROPAGATION_REQUIREMENTS_2026-11-09.md\` | \`PASS_WITH_NOTES\` | The distinction between the paper's flat pseudo-Newtonian Euclidean-chord prescription and a full-GR extension is correct. The generic static-spherical ray kernel has seven passing tests, but is not applied to a fabricated SFHo metric. Clarified that the displayed Eq. (B.2) uses fixed \(\omega\); the path-redshift result is a separately labeled interpolation sensitivity. |
-| \`B16_HIGH_ENERGY_CHANNEL_KERNEL_AUDIT_2026-11-10.md\` | \`PASS_WITH_NOTES\` | Corrected the Fermi-pair equation reference from B.25 to B.9 and fixed the reversed occupancy signs in the Python direct-angular helper. The full NumPy B.1+B.2 calculation now matches V8 luminosity to \(9.22\times10^{-13}\), escape probability to \(8.35\times10^{-13}\), and mean source-weighted \(\tau\) to \(1.75\times10^{-14}\). |
-| \`B16_HIGH_ENERGY_NU_CHORD_CONVERGENCE_2026-11-10.md\` | \`PASS_WITH_NOTES\` | The Python implementation has now run all 108 combinations corresponding to the 36 rays and three opacity grids. Its five maximum-refinement metrics agree with V8 to a maximum relative difference of \(1.19\times10^{-9}\). |
-| \`B16_HIGH_ENERGY_OUTER_TEMPERATURE_SENSITIVITY_2026-11-10.md\` | \`PASS_WITH_NOTES\` | Added the matching frozen-source \(210\text{--}510\) MeV NumPy calculation. All seven temperature scenarios reproduce the V8 escape and luminosity observables to better than \(2.5\times10^{-7}\) relative. The source is frozen; only B.2 opacity is recomputed. |
-| \`B16_HIGH_ENERGY_PATH_REDSHIFT_AUDIT_2026-11-10.md\` | \`PASS_WITH_NOTES\` | Added the global energy-resolved NumPy reproduction using the archived V8 bilinear interpolation in radius and local energy. Its observables agree with V8 to better than \(3\times10^{-14}\). A separate direct-local-rate recomputation differs by \(+0.5021\%\) in escaped luminosity and is explicitly retained as an interpolation-method sensitivity, not silently mixed with the V8 prescription. |
-| \`B16_INDEPENDENT_ANALYTIC_PATH_INTEGRATION_AUDIT_2026-11-09.md\` | \`PASS_WITH_NOTES\` | Full analytic B.2 path integration now reruns under pinned Python 3.12.14 / NumPy 2.5.4 / SciPy 1.18.1 in Actions #43649694860. Same-grid reproduction is \(2.22\times10^{-16}\); Simpson-256 vs. QUADPACK angular escape averages agree to \(1.146\times10^{-6}\); final independent curve is within \(4.52\times10^{-5}\) of archived B.16. The +92.2493% Fig. 7 strong-endpoint residual remains. |
+| `B16_GR_ENERGY_AND_RAY_PROPAGATION_REQUIREMENTS_2026-11-09.md` | `PASS_WITH_NOTES` | The distinction between the paper's flat pseudo-Newtonian Euclidean-chord prescription and a full-GR extension is correct. The generic static-spherical ray kernel has seven passing tests, but is not applied to a fabricated SFHo metric. Clarified that the displayed Eq. (B.2) uses fixed \(\omega\); the path-redshift result is a separately labeled interpolation sensitivity. |
+| `B16_HIGH_ENERGY_CHANNEL_KERNEL_AUDIT_2026-11-10.md` | `PASS_WITH_NOTES` | Corrected the Fermi-pair equation reference from B.25 to B.9 and fixed the reversed occupancy signs in the Python direct-angular helper. The full NumPy B.1+B.2 calculation now matches V8 luminosity to \(9.22\times10^{-13}\), escape probability to \(8.35\times10^{-13}\), and mean source-weighted \(\tau\) to \(1.75\times10^{-14}\). |
+| `B16_HIGH_ENERGY_NU_CHORD_CONVERGENCE_2026-11-10.md` | `PASS_WITH_NOTES` | The Python implementation has now run all 108 combinations corresponding to the 36 rays and three opacity grids. Its five maximum-refinement metrics agree with V8 to a maximum relative difference of \(1.19\times10^{-9}\). |
+| `B16_HIGH_ENERGY_OUTER_TEMPERATURE_SENSITIVITY_2026-11-10.md` | `PASS_WITH_NOTES` | Added the matching frozen-source \(210\text{--}510\) MeV NumPy calculation. All seven temperature scenarios reproduce the V8 escape and luminosity observables to better than \(2.5\times10^{-7}\) relative. The source is frozen; only B.2 opacity is recomputed. |
+| `B16_HIGH_ENERGY_PATH_REDSHIFT_AUDIT_2026-11-10.md` | `PASS_WITH_NOTES` | Added the global energy-resolved NumPy reproduction using the archived V8 bilinear interpolation in radius and local energy. Its observables agree with V8 to better than \(3\times10^{-14}\). A separate direct-local-rate recomputation differs by \(+0.5021\%\) in escaped luminosity and is explicitly retained as an interpolation-method sensitivity, not silently mixed with the V8 prescription. |
+| `B16_INDEPENDENT_ANALYTIC_PATH_INTEGRATION_AUDIT_2026-11-09.md` | `PASS_WITH_NOTES` | Full analytic B.2 path integration now reruns under pinned Python 3.12.14 / NumPy 2.5.4 / SciPy 1.18.1 in Actions #43649694860. Same-grid reproduction is \(2.22\times10^{-16}\); Simpson-256 vs. QUADPACK angular escape averages agree to \(1.146\times10^{-6}\); final independent curve is within \(4.52\times10^{-5}\) of archived B.16. The +92.2493% Fig. 7 strong-endpoint residual remains. |
 
 ## 2. Source and test inspection
 
 ### Fermi-pair angular average
 
-The paper's production kernel uses the two neutrino occupation factors \(f(E_1,\mu)f(E_2,-\mu)\); the blocking complements belong to the absorption integral. In \`audit_b16_channel_resolved_energy.py\`, the original \`expit\` arguments had the wrong signs. The corrected helper is
+The paper's production kernel uses the two neutrino occupation factors \(f(E_1,\mu)f(E_2,-\mu)\); the blocking complements belong to the absorption integral. In `audit_b16_channel_resolved_energy.py`, the original `expit` arguments had the wrong signs. The corrected helper is
 \[
 \operatorname{expit}\!\left(\frac{\mu-E_1}{T}\right)
 \operatorname{expit}\!\left(\frac{-\mu-E_2}{T}\right).
 \]
 
-The separate \`audit_b16_neutrino_b7_b9_kernel.py\` implementation uses a stable logistic function \(1/(1+e^x)\) with \(x=(E-\mu)/T\), which has the correct occupancy sign. Four pinned regression tests compare the direct angular implementations with the repository analytic average and published Eq. (B.9).
+The separate `audit_b16_neutrino_b7_b9_kernel.py` implementation uses a stable logistic function \(1/(1+e^x)\) with \(x=(E-\mu)/T\), which has the correct occupancy sign. Four pinned regression tests compare the direct angular implementations with the repository analytic average and published Eq. (B.9).
 
 ### Propagation and GR
 
-- \`audit_b16_high_energy_nu_chord_convergence.py\` now has a strict NumPy output covering all 108 ray/grid cases.
-- \`audit_b16_high_energy_energy_resolved_numpy.py\` computes the frozen-source outer-temperature sensitivity and the global fixed-\(\omega\)/path-redshift band comparison.
+- `audit_b16_high_energy_nu_chord_convergence.py` now has a strict NumPy output covering all 108 ray/grid cases.
+- `audit_b16_high_energy_energy_resolved_numpy.py` computes the frozen-source outer-temperature sensitivity and the global fixed-\(\omega\)/path-redshift band comparison.
 - The strict path-redshift reproduction implements the V8-documented bilinear interpolation in radius and local energy. The direct local-rate recomputation is retained separately to quantify interpolation-method sensitivity.
-- \`audit_b16_path_independent.py\` is tied to the archived Python output by \`run_commit_sha\` and \`code_sha256\`. Its test module has five tests.
-- \`gr_ray_transport.py\` is a generic geometry solver. Seven tests cover flat chords, redshift, toy Schwarzschild radial propagation, and finite-boundary/turning-point semantics. They do not supply the missing same-snapshot \(A(r)\) or \(M(r)\) profile.
+- `audit_b16_path_independent.py` is tied to the archived Python output by `run_commit_sha` and `code_sha256`. Its test module has five tests.
+- `gr_ray_transport.py` is a generic geometry solver. Seven tests cover flat chords, redshift, toy Schwarzschild radial propagation, and finite-boundary/turning-point semantics. They do not supply the missing same-snapshot \(A(r)\) or \(M(r)\) profile.
 
 ## 3. Numerical evidence: NumPy versus V8
 
