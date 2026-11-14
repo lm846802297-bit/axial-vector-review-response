@@ -164,16 +164,16 @@ The next investigation should therefore focus on the physical inputs and convent
 
 The complete B.1+B.2 luminosity curve has now been recomputed in a pinned Python environment, using the separately pinned B.1 and B.2 outputs as provenance inputs. The authoritative workflow is [#43651020195](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43651020195), which completed successfully.
 
-Machine-readable output: [\`b16_full_b1b2_independent_10mev_2026-11-15_numpy_pinned.json\`](outputs/b16_full_b1b2_independent_10mev_2026-11-15_numpy_pinned.json).
+Machine-readable output: [`b16_full_b1b2_independent_10mev_2026-11-15_numpy_pinned.json`](outputs/b16_full_b1b2_independent_10mev_2026-11-15_numpy_pinned.json).
 
-- Output Git blob SHA: \`f6a61a337474167fa0819f5435eb595e10df7ea5\`.
-- Run commit: \`1aa2697356b01c499f1801dc0eddf60581795b3b\`.
-- Script SHA-256: \`85bb5bc4a3dfc8a5060a297eab32d795a96ebf737bc3b0d3e05fe5938e45d771\`.
+- Output Git blob SHA: `f6a61a337474167fa0819f5435eb595e10df7ea5`.
+- Run commit: `1aa2697356b01c499f1801dc0eddf60581795b3b`.
+- Script SHA-256: `85bb5bc4a3dfc8a5060a297eab32d795a96ebf737bc3b0d3e05fe5938e45d771`.
 - Runtime: Python 3.12.14, NumPy 2.5.4, SciPy 1.18.1.
-- Pinned B.1 input SHA-256: \`64a45d1764c41a056a828c518118dba99ad919752668cb031b428827d45779cf\`.
-- Pinned B.2 input SHA-256: \`f1e059db7d8180b4d5752c9a3d3687f8082309548b2001d2679132c3e9591732\`.
-- Archived B.16 baseline SHA-256: \`a81832562d1c4a1e92d9219e6e38f37aa43f557cf2825cc3e7fd8a27e59b4d7b\`.
-- Fig. 7 digitization SHA-256: \`3eb1121da175d89da54a19abbdf0c52669a239be464978ddcfe84887e4d18d06\`.
+- Pinned B.1 input SHA-256: `64a45d1764c41a056a828c518118dba99ad919752668cb031b428827d45779cf`.
+- Pinned B.2 input SHA-256: `f1e059db7d8180b4d5752c9a3d3687f8082309548b2001d2679132c3e9591732`.
+- Archived B.16 baseline SHA-256: `a81832562d1c4a1e92d9219e6e38f37aa43f557cf2825cc3e7fd8a27e59b4d7b`.
+- Fig. 7 digitization SHA-256: `3eb1121da175d89da54a19abbdf0c52669a239be464978ddcfe84887e4d18d06`.
 - All four angular-escape unit tests pass. Input provenance, source closure, full-curve comparisons, finite-value checks, and production-output invariance pass.
 
 The final calculation uses 200 source radial nodes, 320 energy nodes per source radius, 16 angular nodes, and all 25 digitized Fig. 7 coupling vertices. The 100-to-200-node radial refinement changes the luminosity by at most \(0.19867\%\) (mean absolute shift \(0.08042\%\)).
