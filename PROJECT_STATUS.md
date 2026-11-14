@@ -4,7 +4,9 @@
 
 ## Repository-management update (2026-11-14)
 
-- Three older Belle II scan/recast records were individually reviewed and clearly marked historical or superseded; their original conclusions and numbers remain traceable. Baseline register: 176 reviewed, 286 pending; see `docs/repository-management/TWENTY_SIXTH_REVIEW_BELLE_HISTORY_2026-11-15.md`.
+- Two Belle evidence/protocol documents were individually reviewed. The old evidence ledger now points to the subsequently extracted mass tables and conditional recast; no detector-level validation is claimed. Baseline register: 178 reviewed, 284 pending; see `docs/repository-management/TWENTY_SEVENTH_REVIEW_BELLE_PROTOCOLS_2026-11-15.md`.
+
+- Three older Belle II scan/recast records were individually reviewed and clearly marked historical or superseded; their original conclusions and numbers remain traceable. At that checkpoint: 176 reviewed, 286 pending; see `docs/repository-management/TWENTY_SIXTH_REVIEW_BELLE_HISTORY_2026-11-15.md`.
 
 - Three Belle II bounded-recast/response records were reviewed; all categories in 70,656 four-muon and 19,968 tau-pair saved rows match their summary. A historical run-provenance note was added. No scan, detector response or likelihood was rerun. At that checkpoint: 173 reviewed, 289 pending; see `docs/repository-management/TWENTY_FIFTH_REVIEW_BELLE_RECAST_2026-11-15.md`.
 

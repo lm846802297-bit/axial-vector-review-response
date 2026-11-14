@@ -83,3 +83,4 @@ Do not move or delete files solely from their names. Before a move, search and u
 - [Belle II method and detector-input review](TWENTY_FOURTH_REVIEW_BELLE_METHOD_2026-11-15.md)
 - [Belle II bounded-recast review](TWENTY_FIFTH_REVIEW_BELLE_RECAST_2026-11-15.md)
 - [Historical Belle II scan and recast review](TWENTY_SIXTH_REVIEW_BELLE_HISTORY_2026-11-15.md)
+- [Belle II evidence and protocol review](TWENTY_SEVENTH_REVIEW_BELLE_PROTOCOLS_2026-11-15.md)
