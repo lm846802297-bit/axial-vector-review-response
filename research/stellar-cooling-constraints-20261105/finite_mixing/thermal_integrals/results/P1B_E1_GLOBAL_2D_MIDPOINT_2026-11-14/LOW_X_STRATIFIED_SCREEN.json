@@ -1,1 +1,72 @@
-{}
+{
+  "run": "P1B-E1-GLOBAL-05-LOW-X-STRATIFIED-RADIAL",
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "radial_indices": [
+    0,
+    120,
+    240,
+    361,
+    481,
+    601,
+    722,
+    842,
+    962,
+    1024,
+    1083,
+    1203,
+    1323,
+    1444,
+    1564,
+    1685
+  ],
+  "x_knots": [
+    0.05,
+    0.1,
+    0.2,
+    0.35,
+    0.5
+  ],
+  "quadrature_order": [
+    10,
+    6,
+    6,
+    6
+  ],
+  "direct_evaluations": 80,
+  "all_rates_finite_nonnegative": true,
+  "maximum_detailed_balance_residual": 4.606032673453639e-15,
+  "maximum_final_muon_shell_residual": 1.626120976637977e-13,
+  "selected_core_comparison": {
+    "r_km": 9.95,
+    "T_MeV": 34.106934597756,
+    "x_0p05_over_x_0p5_mu_minus_absorption_mode_ratios": [
+      7.07918478,
+      1.81713804,
+      1.81713804
+    ]
+  },
+  "radial_trend": {
+    "r_13p95_km_x0p05_over_x0p5_mu_minus_mode_ratios": [
+      3.62224286,
+      1.41696011,
+      1.41696011
+    ],
+    "r_15p5_km_x0p05_over_x0p5_mu_minus_mode_ratios": [
+      2.4679693,
+      1.24367151,
+      1.24367151
+    ],
+    "r_16p588_km_x0p05_over_x0p5_mu_minus_mode_ratios": [
+      1.98864826,
+      1.16043772,
+      1.16043772
+    ],
+    "r_18p75_km_x0p05_over_x0p5_mu_minus_mode_ratios": [
+      1.55436904,
+      1.0787215,
+      1.0787215
+    ]
+  },
+  "conclusion": "The existing Global-03/04 interpolation table starts at x=0.5 and sets B13 absorption to zero below support. Direct B13 evaluations show nonzero low-x absorption; at r=9.95 km, x=0.05 absorption is 7.08 times the x=0.5 longitudinal value and 1.82 times each transverse value. Therefore zeroing x<0.5 is not justified by the present data. This is a support gap to close before claiming full-band B1/B2 transport.",
+  "scope": "80-point, 16-radius stratified low-x direct screen at low quadrature order; not a full radial scan, not high-order acceptance, and not an integrated luminosity correction."
+}
