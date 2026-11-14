@@ -92,3 +92,16 @@ The next calculation should test the **high-energy B.1 source measure and recons
 The archived JSON is explicitly a direct V8 JavaScript binary64 calculation. It has no Python script hash. The repository contains `audit_b16_high_energy_nu_chord_convergence.py`, but that script was not executed for this record and has no dedicated test entry or full-run workflow. The new pinned regression workflow tests the analytic path helper and generic GR kernel; it does not run this 36-ray chord scan.
 
 Accordingly, the values in Section 2 remain a valid cross-runtime diagnostic, not a strict NumPy reproduction. The reported refinements are preserved as observed changes; this record does not define a predeclared numerical pass/fail tolerance for the targeted-ray scan. A separate Python JSON, with script hash, environment manifest, and the same ray/grid configuration, is still required before claiming native reproduction.
+
+## 8. Strict NumPy 36-ray reproduction (2026-11-15)
+
+The repository Python implementation was executed under pinned Python 3.12.14 / NumPy 2.5.4 / SciPy 1.18.1. The output is archived at [b16_high_energy_nu_chord_convergence_10mev_2026-11-15_numpy.json](outputs/b16_high_energy_nu_chord_convergence_10mev_2026-11-15_numpy.json).
+
+- Output SHA-1 (Git blob): \`f1171184a82243af1a73ee4fd1741c7a3022fd28\`.
+- Script SHA-256: \`ac9bdfd703e9710b8ddb3291aaddd0656787e46c02cec71681fb67db7449b18f\`.
+- Run commit: \`83f36f06ae4d4442fa0a1faf5632a22d64a821b0\`.
+- Execution: [GitHub Actions #43647616434](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43647616434).
+
+The Python run evaluates all 108 combinations (36 source-radius/direction/energy rays across three opacity grids) and reproduces the five V8 maximum-refinement metrics. The largest relative NumPy/V8 difference among those metrics is \(1.19\times10^{-9}\); the absolute differences are at the \(10^{-15}\) level.
+
+The five-metric comparison is now an executable regression test in \`test_b16_high_energy_v8_reproduction.py\`. This closes the earlier qualification that the 36-ray Python implementation had not been executed. It remains a targeted local-ray convergence calculation, not a new global luminosity calculation.
