@@ -35,13 +35,28 @@ def main():
                 "detailed_balance_residual":value["maximum_mode_detailed_balance_relative_residual"],
                 "final_muon_shell_relative_error":value["final_muon_shell_relative_error"],
                 "all_rates_finite_nonnegative":value["all_rates_finite_and_nonnegative"]})
+    def point_at(target_r,x):
+        return min(records,key=lambda z:abs(z["r_km"]-target_r)+1000.0*abs(z["x"]-x))
+    def absorption_ratio(target_r):
+        lo=point_at(target_r,0.05);hi=point_at(target_r,0.5)
+        return [round(a/b,8) for a,b in zip(lo["absorption"]["mu_minus"],hi["absorption"]["mu_minus"])]
     summary={"run":"P1B-E1-GLOBAL-05-LOW-X-STRATIFIED-RADIAL","profile_sha256":PROFILE_SHA,
         "radial_indices":list(RADIAL_INDICES),"x_knots":list(X_KNOTS),"quadrature_order":list(ORDER),
         "direct_evaluations":len(records),"all_rates_finite_nonnegative":all(x["all_rates_finite_nonnegative"] for x in records),
         "maximum_detailed_balance_residual":max(x["detailed_balance_residual"] for x in records),
         "maximum_final_muon_shell_residual":max(x["final_muon_shell_relative_error"] for x in records),
-        "scope":"80-point stratified radial low-x support screen at low quadrature order; not a high-order global acceptance."}
-    out=HERE/"results"/"P1B_E1_GLOBAL_2D_MIDPOINT_2026-11-14"/"LOW_X_STRATIFIED_SCREEN.json"
-    out.parent.mkdir(parents=True,exist_ok=True);out.write_text(json.dumps({"summary":summary,"records":records},indent=2)+"\n")
+        "selected_core_comparison":{"r_km":9.95,"T_MeV":point_at(9.95,0.05)["T_MeV"],
+          "x_0p05_over_x_0p5_mu_minus_absorption_mode_ratios":absorption_ratio(9.95)},
+        "radial_trend":{
+          "r_13p95_km_x0p05_over_x0p5_mu_minus_mode_ratios":absorption_ratio(13.95),
+          "r_15p5_km_x0p05_over_x0p5_mu_minus_mode_ratios":absorption_ratio(15.5),
+          "r_16p588_km_x0p05_over_x0p5_mu_minus_mode_ratios":absorption_ratio(16.588),
+          "r_18p75_km_x0p05_over_x0p5_mu_minus_mode_ratios":absorption_ratio(18.75)},
+        "conclusion":"The existing Global-03/04 interpolation table starts at x=0.5 and sets B13 absorption to zero below support. Direct B13 evaluations show nonzero low-x absorption; at r=9.95 km, x=0.05 absorption is 7.08 times the x=0.5 longitudinal value and 1.82 times each transverse value. Therefore zeroing x<0.5 is not justified by the present data. This is a support gap to close before claiming full-band B1/B2 transport.",
+        "scope":"80-point, 16-radius stratified low-x direct screen at low quadrature order; not a full radial scan, not high-order acceptance, and not an integrated luminosity correction."}
+    outdir=HERE/"results"/"P1B_E1_GLOBAL_2D_MIDPOINT_2026-11-14"
+    outdir.mkdir(parents=True,exist_ok=True)
+    (outdir/"LOW_X_STRATIFIED_SCREEN.json").write_text(json.dumps(summary,indent=2)+"\\n")
+    (outdir/"LOW_X_STRATIFIED_RECORDS.json").write_text(json.dumps(records,indent=2)+"\\n")
     print(json.dumps(summary,indent=2))
 if __name__=="__main__":main()
