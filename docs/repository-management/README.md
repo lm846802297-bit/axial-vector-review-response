@@ -72,3 +72,4 @@ Do not move or delete files solely from their names. Before a move, search and u
 - [C4-C4 research-report review](THIRTEENTH_REVIEW_C4C4_REPORTS_2026-11-15.md)
 - [Global-06 individual protocol review](FOURTEENTH_REVIEW_GLOBAL06_2026-11-15.md)
 - [Portal A4–A5 output review](FIFTEENTH_REVIEW_PORTAL_A4_A5_2026-11-15.md)
+- [Portal A4–A5 research-note review](SIXTEENTH_REVIEW_PORTAL_A4_A5_NOTES_2026-11-15.md)

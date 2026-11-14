@@ -1,5 +1,7 @@
 # Major Point 1 — A4a complete one-loop \(ss\) kernel in the \(U(1)_X\) Abelian-Higgs sector
 
+> Dated stage record: the separate A4b on-shell general-gauge cut check was performed later. The complete finite self-energy and physical complex pole remain outside this record.
+
 **Date:** 2026-11-10  
 **Scope:** original one-complex-singlet model, \(m_X=2g_Xv_S\), \(\lambda_{HS}^{\rm EFT}(M_E)=0\). This note derives the \(U(1)_X\) vector/Goldstone/ghost contribution to the radial \(ss\) two-point function, adds the singlet-radial scalar loop, and checks its absorptive part against \(s\to A'A'\). It does not yet calculate a complete renormalized complex pole.
 

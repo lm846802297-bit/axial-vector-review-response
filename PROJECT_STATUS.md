@@ -4,7 +4,9 @@
 
 ## Repository-management update (2026-11-14)
 
-- Five A4–A5 portal output summaries were individually checked against script reruns. A4d initially failed due to undefined `p2`; the SymPy declaration and a full-script regression check were added. All five scripts now exit zero. No complete pole or UV–EFT matching is claimed. Baseline register: 129 reviewed, 333 pending; see `docs/repository-management/FIFTEENTH_REVIEW_PORTAL_A4_A5_2026-11-15.md`.
+- Four A4–A5 portal research notes were read and checked against their associated scoped script outputs; chronology and matching-scale limits were clarified without changing results. Baseline review: 133 reviewed, 329 pending. See `docs/repository-management/SIXTEENTH_REVIEW_PORTAL_A4_A5_NOTES_2026-11-15.md`.
+
+- Five A4–A5 portal output summaries were individually checked against script reruns. A4d initially failed due to undefined `p2`; the SymPy declaration and a full-script regression check were added. All five scripts now exit zero. No complete pole or UV–EFT matching is claimed. At that checkpoint the baseline register had 129 reviewed, 333 pending; see `docs/repository-management/FIFTEENTH_REVIEW_PORTAL_A4_A5_2026-11-15.md`.
 
 - Four Global-06 protocols and compact-result records were reviewed against their digitized profile and summary files. The raw 36 chunks remain referenced to a conversation ZIP not verified in this review. Numerical checks remain scoped to the original stage. At that checkpoint the baseline register had 124 reviewed, 338 pending; see `docs/repository-management/FOURTEENTH_REVIEW_GLOBAL06_2026-11-15.md`.
 
