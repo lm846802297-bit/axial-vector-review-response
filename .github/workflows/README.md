@@ -8,7 +8,7 @@ Inventory generated from `maintenance/repository-organization-audit-20261114` on
 
 - [`axial-goldstone-pmns-regression.yml`](axial-goldstone-pmns-regression.yml)
 
-### Major 4.4 stellar cooling / transport (99)
+### Major 4.4 stellar cooling / transport (101)
 
 - [`b13-exact-compton-radial.yml`](b13-exact-compton-radial.yml)
 - [`b13-exact-compton-vertex-preserving.yml`](b13-exact-compton-vertex-preserving.yml)
@@ -34,6 +34,8 @@ Inventory generated from `maintenance/repository-organization-audit-20261114` on
 - [`b16-global-redshift-audit.yml`](b16-global-redshift-audit.yml)
 - [`b16-high-order-independent-grid.yml`](b16-high-order-independent-grid.yml)
 - [`b16-high-energy-kernel-regression.yml`](b16-high-energy-kernel-regression.yml)
+- [`b16-high-energy-strict-numpy-reproduction.yml`](b16-high-energy-strict-numpy-reproduction.yml)
+- [`b16-high-energy-global-sensitivities-numpy.yml`](b16-high-energy-global-sensitivities-numpy.yml)
 - [`b16-independent-grid-quadrature-convergence.yml`](b16-independent-grid-quadrature-convergence.yml)
 - [`b16-inner-numu-branch-sensitivity.yml`](b16-inner-numu-branch-sensitivity.yml)
 - [`b16-inner-path-channel-directional.yml`](b16-inner-path-channel-directional.yml)
