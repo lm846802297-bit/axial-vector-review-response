@@ -5,6 +5,8 @@
 **Benchmark context:** \(m_V=10\) MeV, \(g=4.171689650228597\times10^{-8}\)  
 **Scope:** analytic normalization audit; no new mass scan and no change to the literal scalar Fig. 7 reference.
 
+**Primary source:** Blinov et al., *JHEP* 06 (2026) 155, arXiv:2511.09619 ([version of record](https://doi.org/10.1007/JHEP06(2026)155)), Appendix B, especially Eqs. (B.1)–(B.10) and (B.13)–(B.19).
+
 ## Executive conclusion
 
 This addendum completes the missing Boltzmann-level state-counting step left open by the earlier P1-C polarization audit.
@@ -263,3 +265,17 @@ What remains open:
 4. Keep the pure-vector Fig. 7 gate and all axial-vector limits unchanged until the above comparison is accepted.
 
 The analytic identities are implemented in polarization_boltzmann_state_counting.py and tested in test_polarization_boltzmann_state_counting.py. The tests verify collision-term summation, equilibrium detailed balance, occupancy-weighted absorption, and the distinction between mode-resolved and scalar exponential attenuation.
+
+## 8. Physics-review qualification (2026-11-15)
+
+The published Appendix B confirms that the production integrals in Eqs. (B.6) and (B.13) sum over the relevant spin/polarization states, and that the factor of three in Eq. (B.7) converts the polarization-averaged vacuum width into the summed production rate. The sum-to-sum detailed-balance identity in Eq. (B.10) follows without another factor of three.
+
+The unresolved point is narrower: Eq. (B.2) inserts a single scalar \(\Gamma_{\rm abs}^{*}\) into the ray exponent, but the paper does not explicitly state whether this scalar is the sum over incident vector polarizations, the average over the three incident states, or a shorthand for an assumed polarization closure. The document correctly identifies this as an ambiguity; it must not be upgraded to a claim that the authors definitely made a factor-of-three error.
+
+Accordingly, retain three separate lanes:
+1. literal scalar equation-level reproduction;
+2. no-mixing mode-resolved propagation with \(\tau_h\);
+3. equal-occupation average-opacity closure, only when its occupation/mixing assumption is stated.
+
+The numerical ratio \(L_{\rm modes}/L_{\rm scalar}=76.37\) is specific to the benchmark and transport prescription recorded above. It is not a universal polarization correction.
+
