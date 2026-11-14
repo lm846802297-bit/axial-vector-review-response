@@ -69,13 +69,13 @@ For each source radius and energy quadrature:
 4. Form \(\mathcal O_g(r,\omega)=\frac12\sum_a w_a e^{-g^2\tau_a}\) for all 25 Fig. 7 coupling vertices.
 5. Integrate the source spectrum times this escape factor.
 
-No legacy \`eq_b1_source_measure\`, \`energy_weights\`, \`radial_rule\`, \`scalar_optical_depths\`, or path-length Gauss quadrature is used.
+No legacy `eq_b1_source_measure`, `energy_weights`, `radial_rule`, `scalar_optical_depths`, or path-length Gauss quadrature is used.
 
 ## 3. Frozen inputs and reproducibility
 
 - Mediator mass: 10 MeV.
 - Outer radius: 25 km.
-- Profile SHA-256: \`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c\`.
+- Profile SHA-256: `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`.
 - Source radial nodes: 200.
 - Opacity radial nodes: 202.
 - Energy nodes per source radius: 320.
@@ -155,7 +155,7 @@ The next investigation should therefore focus on the physical inputs and convent
 ## 9. Reproducibility
 
 - GitHub Actions: [Run #42564417076](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42564417076)
-- Script: \`audit_b16_b1b2_full_independent.py\`
-- Unit tests: \`test_b16_b1b2_full_independent.py\`
-- Workflow: \`.github/workflows/b16-full-b1b2-independent.yml\`
-- Machine-readable output: \`outputs/b16_full_b1b2_independent_10mev_2026-11-09.json\`
+- Script: `audit_b16_b1b2_full_independent.py`
+- Unit tests: `test_b16_b1b2_full_independent.py`
+- Workflow: `.github/workflows/b16-full-b1b2-independent.yml`
+- Machine-readable output: `outputs/b16_full_b1b2_independent_10mev_2026-11-09.json`
