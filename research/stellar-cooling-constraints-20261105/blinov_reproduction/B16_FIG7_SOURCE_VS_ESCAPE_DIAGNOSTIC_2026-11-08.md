@@ -63,7 +63,7 @@ Do not rescale the opacity or luminosity. The next calculation should isolate th
 This is the narrowest next step that can locate the high-coupling discrepancy without modifying the physical model.
 
 
-## 4. Emission-radius distribution: thin source versus escaping population (completed 2026-11-10)
+## 5. Emission-radius distribution: thin source versus escaping population (completed 2026-11-10)
 
 The archived emission-radius calculation now completes the earlier source-versus-escape diagnostic. At the strong endpoint \(g=4.17168965\times10^{-8}\), the global source-weighted escape probability is \(3.23918\times10^{-4}\). The table separates the B.1 emission measure from the same measure after multiplication by the full angularly averaged survival probability.
 
@@ -97,7 +97,7 @@ Thus the escaping population is not a simple radial or channel copy of the B.1 s
 The machine-readable result is outputs/b16_emission_radius_escape_10mev_2026-11-08.json. No source, opacity, profile, coupling, luminosity, or axial-vector curve is changed by this decomposition.
 
 
-## 5. High-coupling shell attribution and the 25 km boundary
+## 6. High-coupling shell attribution and the 25 km boundary
 
 At the strong endpoint \(g=4.17169\times10^{-8}\), removing one absorption shell at a time while holding the source fixed gives:
 
@@ -120,6 +120,6 @@ The 25 km outer boundary is **not an arbitrary numerical truncation**. Blinov et
 
 **Consequence for the next step:** inspect the reconstructed thermodynamic inputs and the exact path integral specifically over 22--25 km, and compare their influence on the strong-coupling escape distribution. The literature-defined \(R_{\max}=25\) km remains fixed. The discrepancy must not be “fixed” by changing this radius without an independent physical justification.
 
-## 6. Next step
+## 7. Next step
 
 The source-versus-escape decomposition is complete. The remaining high-coupling discrepancy is now a B.2 path problem rather than an unidentified B.1 emission-radius weighting problem. Proceed with the independent path-integral and angle-integration cross-check over the dominant 8--22 km path region, retaining the 22--25 km contribution and the fixed-\(\omega\) B.16 benchmark. Do not rescale the opacity, alter the 25 km boundary, or substitute the B.13 alternative kernel for this benchmark.
