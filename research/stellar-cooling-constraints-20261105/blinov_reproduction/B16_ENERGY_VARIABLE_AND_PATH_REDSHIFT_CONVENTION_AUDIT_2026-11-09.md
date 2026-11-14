@@ -47,7 +47,7 @@ This is the prescription used by the separate redshift-only diagnostic. It chang
 
 ## 3. Numerical comparison at 10 MeV
 
-For the current vertex-preserving profile (SHA-256 `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c)):
+For the current vertex-preserving profile (SHA-256 `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c):
 
 | Quantity | Fixed-\(\omega\) Appendix-B baseline | Path-redshift-only diagnostic |
 |---|---:|---:|
@@ -111,7 +111,7 @@ For reproduction, retain the literal fixed-omega B.2 expression as the published
 
 ### 6.2 Compton prescription: formal rate versus approximate reduction
 
-The version of record presents Eq. (B.13) as the thermal phase-space integral for \\(\\mu\\gamma\\to\\mu V\\). It then discusses the non-relativistic-muon/no-recoil approximation, gives the approximate cross section in Eq. (B.14), and derives the compact thermal-rate expressions in Eqs. (B.15)--(B.16).
+The version of record presents Eq. (B.13) as the thermal phase-space integral for \(\\mu\\gamma\\to\\mu V\). It then discusses the non-relativistic-muon/no-recoil approximation, gives the approximate cross section in Eq. (B.14), and derives the compact thermal-rate expressions in Eqs. (B.15)--(B.16).
 
 The Fig. 7 discussion says that the luminosity is evaluated using Eq. (B.1) and the physics inputs described in Appendix B, but it does not separately identify the numerical Compton implementation as either the full Eq. (B.13) integral or the reduced Eq. (B.16) expression. The formal presentation of B.13 and the subsequent approximate reduction therefore need to be distinguished when describing what is directly established by the article.
 
@@ -123,15 +123,15 @@ The article's data-availability and code-availability statements say that no ass
 
 For the current vertex-preserving profile B at 10 MeV:
 
-- literal fixed-\\(\\omega\\), B.16 working benchmark: strong-endpoint residual \\( +92.24\\% \\);
-- path-redshift-only diagnostic with the same Euclidean chord measure: strong-endpoint residual \\( +36.74\\% \\);
-- consistent global B.13 source-and-opacity replacement: strong-endpoint residual \\( +131.53\\% \\).
+- literal fixed-\(\\omega\), B.16 working benchmark: strong-endpoint residual \( +92.24\\% \);
+- path-redshift-only diagnostic with the same Euclidean chord measure: strong-endpoint residual \( +36.74\\% \);
+- consistent global B.13 source-and-opacity replacement: strong-endpoint residual \( +131.53\\% \).
 
-These are different physical prescriptions, not interchangeable numerical refinements. None reproduces Fig. 7. The B.13 result remains a separate diagnostic and is not promoted to a final precision prediction until its dedicated global convergence output is fully archived.
+These are different physical prescriptions, not interchangeable numerical refinements. None reproduces Fig. 7. The early 2026-11-09 B.13 run's full point-array artifact remains incomplete; later full-profile B.13/B.2 refinements are recorded in PR #113. Neither branch reproduces Fig. 7 or constitutes a final precision prediction.
 
 ### 6.4 Decision
 
-1. Preserve the literal fixed-\\(\\omega\\) Appendix-B calculation and its B.16 working Compton implementation for continuity with the current benchmark.
+1. Preserve the literal fixed-\(\\omega\) Appendix-B calculation and its B.16 working Compton implementation for continuity with the current benchmark.
 2. Keep the redshift-only and B.13 calculations separate, with their assumptions visible.
 3. Do not state that the published Fig. 7 code is known to use B.16 unless independent implementation evidence becomes available.
 4. Do not infer a full GR result from the redshift-only diagnostic.
@@ -144,7 +144,7 @@ The path-redshift diagnostic has now been rerun on the exact vertex-preserving p
 
 `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`.
 
-Configuration is unchanged from the prior diagnostic: (N_r=40), (N_\omega=100), (N_\theta=16), (N_s=32), (R_{\max}=25\) km; masses (m_V=0.1,1,10\) MeV. The 10 MeV result is:
+Configuration is unchanged from the prior diagnostic: \(N_r=40\), \(N_\omega=100\), \(N_\theta=16\), \(N_s=32\), \(R_{\max}=25\,\mathrm{km}\); masses \(m_V=0.1,1,10\,\mathrm{MeV}\). The 10 MeV result is:
 
 | Fig. 7 point | Fixed-\(\omega\) baseline | Path-redshift-only |
 |---|---:|---:|
@@ -153,7 +153,7 @@ Configuration is unchanged from the prior diagnostic: (N_r=40), (N_\omega=100), 
 | Strong endpoint | +92.2406% | +36.7448% |
 | Strong-endpoint shift relative to fixed-\(\omega\) | 0 | -28.8679% |
 
-At the strong endpoint, the fixed-\(\omega\) escape fraction is (3.23921\times10^{-4}), while the path-redshift-only value is (2.30412\times10^{-4}). The optically thin source is held fixed between the two prescriptions.
+At the strong endpoint, the fixed-\(\omega\) escape fraction is \(3.23921\times10^{-4}\), while the path-redshift-only value is \(2.30412\times10^{-4}\). The optically thin source is held fixed between the two prescriptions.
 
 The current-profile output is archived at:
 
