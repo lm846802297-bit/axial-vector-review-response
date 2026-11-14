@@ -1,5 +1,16 @@
 # Research status matrix — 2026-11-13
 
+
+## Current integration update — 2026-11-14
+
+PR #106 and PR #113 are merged into `main`; no open PRs remain. Their code and audit records are integrated, but the scientific acceptance states below remain deliberately unchanged.
+
+- PR #106 added the GR ray transport and polarization state-counting modules, the explicit-spinor B.13 check, and regression coverage (38 tests passed in the merged workflow).
+- PR #113 added Global-02/03/04 radial-energy screens, selected high-order checks, a 210–510 MeV exact-B.13 B.1/B.2 band comparison, and the Global-05 low-x support screen.
+- Global-05 is a 16-radius × 5-energy low-order screen only. It shows that setting B.13 absorption to zero below (x=0.5) is not justified. It does not constitute full-profile low-x interpolation or full-band transport.
+- The pure-vector Fig. 7 gate remains **NOT PASSED**. No SN1987A limit or axial-vector exclusion curve is updated.
+
+
 This table separates work completed, numerical/code acceptance, and physical interpretation. A passing test is not automatically a passed physics benchmark.
 
 | Workstream | What has been done | Current status | What is still required |
@@ -10,7 +21,7 @@ This table separates work completed, numerical/code acceptance, and physical int
 | Polarization-resolved detailed balance | Per-mode Boltzmann collision terms, summed-rate state counting, and exact B.13 L,+,- moving-muon kernel | P0 state-counting derivation and seven algebraic tests pass; independent B.13 spinor/Ward audit passes 30 current-charge cases and 90 mode matrix elements; scalar B.2 and no-mixing transport remain distinct | Complete dense radial/energy kernel convergence and matched global mode-resolved transport; assess mode-conversion terms |
 | Reconstructed SN background | Public-plot digitization, profile provenance, Caputo / Bollig / Esseili–Kribs cross-checks, lapse and neutrino-chemical-potential audits | Public reconstruction and cross-checks completed; not identical to the private Garching snapshot | Obtain or justify one internally consistent profile and quantify reconstruction uncertainty |
 | Official SFHo-FRDM EOS parsing | Official table parsing, physical dimensions / grid alignment, thermodynamic and free-nucleon closure, regression tests | 35/35 recorded tests pass, including real-table tests | EOS tables do not supply the missing time- and radius-dependent Garching supernova snapshot |
-| B.13 moving-muon local kernel | Charge-resolved moving-Fermi-gas kernel with exact recoil and separate L,+,- production/absorption | Independent explicit-spinor, photon-Ward, vector-L Ward-shift, mass-shell, mode detailed-balance, and sampled quadrature checks pass; uniform continuous-domain convergence remains open | Complete source-weighted radial/energy convergence; then compare exact B.13 mode-resolved transport with scalar B.2 and equal-population closure |
+| B.13 moving-muon local kernel | Charge-resolved moving-Fermi-gas kernel with exact recoil and separate L,+,- production/absorption; PR #106/#113 code and audit records merged | Explicit-spinor, photon-Ward, vector-L Ward-shift, mass-shell, detailed-balance, Global-02/03 interpolation, selected Global-04 high-order, and Global-05 low-x screen checks archived; full low-x support and uniform continuous-domain convergence remain open | Complete 1687-radius low-x extension and full source-weighted radial/energy convergence; then compare exact B.13 mode-resolved transport with scalar B.2 and equal-population closure |
 | B.13 global diagnostics | Radial, energy, angular, and path convergence records; exact moving-muon global alternative retained separately | Global diagnostic runs and convergence records archived | Not the same as a completed axial-EFT global scan; does not close B.16/Fig. 7 mismatch |
 | B.16 / Blinov pure-vector Fig. 4 | Ballistic boundary reconstruction and numerical comparison | Boundary agreement recorded at about 1.5% (lower) and 2.9% (upper) for the checked mass set | Keep exact mass set and digitization uncertainty attached to the claim |
 | B.16 / Blinov pure-vector Fig. 7 | Independent scalar Appendix-B lane, local-rate checks, path / angular integration, outer-shell and profile diagnostics | **Not passed end-to-end** | 10 MeV strong-absorption tail remains discrepant; resolve source / opacity / energy-frame / transport without empirical rescaling |
