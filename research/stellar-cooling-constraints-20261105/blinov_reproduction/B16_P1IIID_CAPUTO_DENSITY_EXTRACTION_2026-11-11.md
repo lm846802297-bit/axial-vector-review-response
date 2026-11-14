@@ -1,5 +1,7 @@
 # P1-IIId: Caputo density curves extracted from the arXiv source package
 
+> Review update (2026-11-15): the 731 archived PDF vertices are also available as [uncompressed CSV](audit_provenance/caputo_density_pdf_vertices_2026-11-11.csv). The transformed CSV named below is a generated output and is not present in the current checkout; regeneration requires the separately supplied original source PDF/tarball.
+
 Date: 2026-11-11  
 PR: #57  
 Branch: `research/moving-muon-thermal-rates-20261107`
@@ -27,12 +29,12 @@ The three missing paths are therefore (n_B:158), (n_p:159), and (n_e:160). The k
 
 ## 3. Axis calibration and data products
 
-[
+\[
 r\,[\mathrm{km}]=\frac{x_{\rm PDF}-47.52}{324.0-47.52}\,20,
 \qquad
 \frac{n_i}{n_0}=10^{-4+(442.918-y_{\rm PDF})/41.4718},
 \quad n_0=0.181\,\mathrm{fm}^{-3}.
-]
+\]
 
 All unique PDF polyline vertices are archived in
 `outputs/caputo_density_pdf_vertices_2026-11-11.csv.gz`. The reproducible script

@@ -1,5 +1,7 @@
 # P1-IIId: APS Fig. 12 source-access record
 
+> Historical access record: later work reports local PDF vector extraction; consult [the subsequent extraction audit](B16_P1IIID_FIG12_VECTOR_EXTRACTION_CROSSCHECK_2026-11-11.md) for its scope and status.
+
 Date: 2026-11-11  
 PR: #57  
 Branch: \`research/moving-muon-thermal-rates-20261107\`
