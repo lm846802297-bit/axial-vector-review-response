@@ -962,7 +962,7 @@ The following non-duplicated source-archive status note is retained from the SFH
 ## 2026-11-13 current Major 4.4 branch status
 
 - PR #102 v1 is closed without merge; its branch is retained as a historical snapshot.
-- PR #106 v2 is the active draft and is synchronized with current main. It now includes the P0 polarization Boltzmann state-counting addendum and seven algebraic regression tests; the scalar B.2 reference and axial-vector curves remain unchanged.
+- Historical snapshot before the 2026-11-14 merges: PR #106 v2 was the active draft and was synchronized with main. It included the P0 polarization Boltzmann state-counting addendum and seven algebraic regression tests; its scalar B.2 reference and axial-vector curves remained unchanged.
 - B.1 local-energy/\(E_\infty\) integration is exactly equivalent by a Jacobian change of variables.
 - B.2 fixed-\(\omega\) gives +92.43%; the redshift-only conserved-\(E_\infty\) diagnostic gives +36.91% but retains Euclidean chords.
 - The generic static-spherical GR ray kernel passes six independently executed tests, but the reconstructed profile lacks same-snapshot \(B(r)\) and \(M(r)\); the paper's Garching pseudo-Newtonian baseline is spatially flat.
