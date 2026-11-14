@@ -4,7 +4,7 @@
 
 ## Repository-management update (2026-11-15)
 
-- Six additional B.16 transport records were reviewed. The 10 MeV outer-input/direction audit and old 12–15 km shell audit were classified HISTORICAL; combined channel-shell sensitivity, cross-mass opacity/redshift, dense local-kernel closure, and energy-variable/path-redshift analysis were retained as PASS_WITH_NOTES. Repaired a malformed path-redshift equation in the cross-mass note. Baseline register: 252 reviewed, 210 pending. See `docs/repository-management/FORTIETH_REVIEW_B16_PATH_AND_ENERGY_AUDITS_2026-11-15.md`.
+- Six additional B.16 transport records were reviewed. The 10 MeV outer-input/direction audit and old 12–15 km shell audit were classified HISTORICAL; combined channel-shell sensitivity, cross-mass opacity/redshift, dense local-kernel closure, and energy-variable/path-redshift analysis were retained as PASS_WITH_NOTES. Repaired the cross-mass path-redshift equation, normalized the energy-audit TeX, and recorded the separate -0.443% independent B.1-versus-archived-source residual (not an energy-variable mismatch). Baseline register: 252 reviewed, 210 pending. See `docs/repository-management/FORTIETH_REVIEW_B16_PATH_AND_ENERGY_AUDITS_2026-11-15.md`.
 
 - Six additional B.13 transport records were reviewed: three dated global transport/convergence snapshots were classified HISTORICAL; the sampled local-kernel convergence, non-relativistic-muon diagnostic and three-mass source/opacity audit were retained as PASS_WITH_NOTES with explicit domain/grid limitations. The B.16 fixed-omega Fig. 7 baseline and B.13 alternative-kernel distinction are preserved. Baseline register: 246 reviewed, 216 pending. See `docs/repository-management/THIRTY_NINTH_REVIEW_B13_TRANSPORT_AUDITS_2026-11-15.md`.
 
