@@ -59,7 +59,7 @@ def main():
     (outdir/"LOW_X_STRATIFIED_SCREEN.json").write_text(json.dumps(summary,indent=2)+"\n")
     (outdir/"LOW_X_STRATIFIED_RECORDS.json").write_text(json.dumps(records,indent=2)+"\n")
     with (outdir/"LOW_X_STRATIFIED_RECORDS.csv").open("w",newline="",encoding="utf-8") as stream:
-        writer=csv.writer(stream,lineterminator="\\n")
+        writer=csv.writer(stream,lineterminator="\n")
         writer.writerow(["radial_index","r_km","T_MeV","x","omega_local_MeV",
             "mu_minus_L","mu_minus_Tplus","mu_minus_Tminus",
             "mu_plus_L","mu_plus_Tplus","mu_plus_Tminus",
