@@ -6,11 +6,11 @@ Date: 2026-11-15. This is the historical pre-repair SciPy/QUADPACK tolerance sca
 
 Run from the repository root:
 
-\`\`\`bash
+```bash
 python research/major1-higgs-scalar-mixing-20261109/pole_quadrature_tolerance_audit_2026-11-15.py
-\`\`\`
+```
 
-The script now retrieves the immutable pre-repair source from commit \`5522ae1081f61a711fc846168370542efdef9a35\` with \`git show\`, verifies its SHA-256 (\`e391afbc3b2f75305a3f31209aac209b3aa4f1104cd0f13c68f0159064b08246\`), and varies only the two archived \`scipy.integrate.quad\` settings: \`epsabs=epsrel=2e-8, 2e-9, 2e-10\`.
+The script now retrieves the immutable pre-repair source from commit `5522ae1081f61a711fc846168370542efdef9a35` with `git show`, verifies its SHA-256 (`e391afbc3b2f75305a3f31209aac209b3aa4f1104cd0f13c68f0159064b08246`), and varies only the two archived `scipy.integrate.quad` settings: `epsabs=epsrel=2e-8, 2e-9, 2e-10`.
 
 The scan covered Benchmarks A/B and \(m_s=100,125.25,150\) GeV, giving six complex pole pairs. All three tolerance settings emitted four roundoff warnings. Pole masses and widths were stable; the maximum complex \(R_{hh}\) change was \(5.81\times10^{-8}\). The QUADPACK warning estimate was about \(1.78\times10^{-7}\) for each affected real integral.
 

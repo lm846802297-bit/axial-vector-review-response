@@ -10,7 +10,7 @@ Review scope: the three register entries tied to the exact-momentum pole quadrat
 2. **EXACT_MOMENTUM_FERMION_MATCHED_POLES_2026-11-10.md** — the endpoint-sensitive QUADPACK implementation was replaced by composite Gauss-Legendre with geometric endpoint and open-threshold root-neighbourhood panels. The four old warning points agree with mpmath tanh-sinh to \(3.6\times10^{-15}\); the full six-pole grid converges through GL order 128. Physical-model limitations remain explicit. Disposition: PASS_WITH_NOTES.
 3. **exact_momentum_pole_audit.txt** — replaced the pre-repair output summary with the new 64-node production results, all six pole pairs, residuals, residue sums, input/output provenance and limitations. Disposition: PASS_WITH_NOTES.
 
-The earlier 2026-11-15 tolerance scan remains preserved as a historical record. Its driver now reads the exact pre-repair source from immutable commit \`5522ae1081f61a711fc846168370542efdef9a35\`; it no longer attempts to mutate the current production source.
+The earlier 2026-11-15 tolerance scan remains preserved as a historical record. Its driver now reads the exact pre-repair source from immutable commit `5522ae1081f61a711fc846168370542efdef9a35`; it no longer attempts to mutate the current production source.
 
 ## 2. Numerical acceptance evidence
 

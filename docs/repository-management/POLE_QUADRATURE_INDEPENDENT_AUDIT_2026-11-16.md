@@ -61,33 +61,33 @@ Additional closure checks:
 
 Run from the repository root:
 
-\`\`\`bash
+```bash
 python research/major1-higgs-scalar-mixing-20261109/pole_quadrature_independent_audit_2026-11-16.py
-\`\`\`
+```
 
 Then run the regression tests:
 
-\`\`\`bash
+```bash
 cd research/major1-higgs-scalar-mixing-20261109
 python -m unittest -v test_exact_momentum_pole_quadrature.py
-\`\`\`
+```
 
 Pinned audit environment: Python 3.13.5, NumPy 2.3.5, SciPy 1.17.0, mpmath 1.3.0. SciPy is used only to reproduce the historical warning; the production integrator uses NumPy.
 
 Key files:
-- Production source: \`exact_momentum_fermion_pole_audit.py\`
-- Independent driver: \`pole_quadrature_independent_audit_2026-11-16.py\`
-- Machine-readable output: \`pole_quadrature_independent_audit_2026-11-16.json\`
-- Human-readable pole output: \`exact_momentum_pole_audit.txt\`
-- Regression tests: \`test_exact_momentum_pole_quadrature.py\`
-- Runtime pins: \`pole_quadrature_audit_requirements.txt\`
+- Production source: `exact_momentum_fermion_pole_audit.py`
+- Independent driver: `pole_quadrature_independent_audit_2026-11-16.py`
+- Machine-readable output: `pole_quadrature_independent_audit_2026-11-16.json`
+- Human-readable pole output: `exact_momentum_pole_audit.txt`
+- Regression tests: `test_exact_momentum_pole_quadrature.py`
+- Runtime pins: `pole_quadrature_audit_requirements.txt`
 
 SHA-256 / Git provenance:
-- Production source SHA-256: \`04cb52b824bffc3df7d16b84a2356ef873ffbe2050db1381da926e19ed5156a7\`
-- Independent audit driver SHA-256: \`c391b6a92f988cf0c5356fbdbb2d6ead18f32267af2e87a3ea83633161e2a278\`
-- JSON output Git blob ID: \`e7c85ab5010f6af3eeab30ce242cf01ba62bbd73\`
-- Human-readable pole output SHA-256: \`0ce70c4134a315a73003df1f9ae2083a44a53b0d292f325f80e6be5c12b66fec\`
-- Regression tests SHA-256: \`8c2f6d5b37a45f3d6fc587982b208c9d80e31949a8d0ad53c658dc13eab5cd47\`
+- Production source SHA-256: `04cb52b824bffc3df7d16b84a2356ef873ffbe2050db1381da926e19ed5156a7`
+- Independent audit driver SHA-256: `c391b6a92f988cf0c5356fbdbb2d6ead18f32267af2e87a3ea83633161e2a278`
+- JSON output Git blob ID: `e7c85ab5010f6af3eeab30ce242cf01ba62bbd73`
+- Human-readable pole output SHA-256: `0ce70c4134a315a73003df1f9ae2083a44a53b0d292f325f80e6be5c12b66fec`
+- Regression tests SHA-256: `8c2f6d5b37a45f3d6fc587982b208c9d80e31949a8d0ad53c658dc13eab5cd47`
 
 ## 5. Interpretation and remaining physics boundary
 
