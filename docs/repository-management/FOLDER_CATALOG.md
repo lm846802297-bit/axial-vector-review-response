@@ -6,7 +6,7 @@ Live Git-tree inventory for branch `maintenance/repository-organization-audit-20
 
 - **1,668 Git-tree entries:** 1,545 files and 123 directories.
 - **572 Markdown/text files:** 475 `.md` and 97 `.txt`.
-- **Baseline document register:** 462/462 individually reviewed; 286 `PASS_WITH_NOTES`, 2 `PASS`, 152 `HISTORICAL`, 22 `REVISION_REQUIRED`, 0 `PENDING`.
+- **Baseline document register:** 462/462 individually reviewed; 286 `PASS_WITH_NOTES`, 2 `PASS`, 152 `HISTORICAL`, 22 `REVISION_REQUIRED`, 0 `PENDING`. Current fingerprints: 407 match, 52 content hashes differ from the recorded reviewed version, and 3 size-only metadata discrepancies; reconciliation is open.
 - **Supplemental document register:** 110 post-baseline Markdown/text files; 11 `PASS_WITH_NOTES` and 99 `PENDING`. Full current-tree document coverage remains incomplete.
 - **115 GitHub Actions workflow YAML files:** 47 `REVIEWED_WITH_NOTES`, 16 `HISTORICAL_CANDIDATE`, 52 `PENDING`.
 - **274 JSON files** and **410 Python files** (file counts only; not all are production code).
