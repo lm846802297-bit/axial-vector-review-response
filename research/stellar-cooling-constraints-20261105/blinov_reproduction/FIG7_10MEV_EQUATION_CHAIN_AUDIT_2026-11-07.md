@@ -157,3 +157,13 @@ The local algebraic checks and quadrature checks pass, but the full Fig. 7 curve
 5. Do not promote the vector benchmark to passed, and do not use it to validate the axial cooling curve yet.
 
 No production rate, transport routine, axial result, manuscript, or referee-response file is modified by this audit.
+
+## Independent review qualification (2026-11-15)
+
+The machine-readable equation-chain result is pinned to the current profile B SHA-256 9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c and the source script is committed. The local Eq. (31)--(33) algebra, Fermi degeneracy identity, reduced-absorption detailed-balance identity, phase-space Jacobian, and path/angular convergence tests are numerical consistency checks; they do not validate the physical accuracy of the nonrelativistic/no-recoil semi-Compton approximation or the missing raw Garching profile.
+
+The later P1-C state-counting audit clarifies that B.6/B.7/B.10 establish sum-to-sum local rates, while the scalar opacity in the B.2 attenuation exponent is not explicitly identified as a polarization sum, three-state average, or separate closure. This equation-chain audit's scalar reference result remains the named B.16 equation-level lane, not proof that the paper's text uniquely mandates a particular mode closure.
+
+The reported 10 MeV residuals are tied to the quadrature configuration in this audit. Later high-order B.16 runs give a strong-endpoint residual of \(+92.2406\%\); the small differences between these values are numerical-grid/configuration differences, not a fitted correction. The 24 km boundary test and temperature rescalings remain sensitivities only.
+
+**Review disposition: PASS_WITH_NOTES.** Preserve the frozen local rates, \(R_{\max}=25\) km, and the no-factor-two decision. Do not update the axial-vector cooling curve.

@@ -1,5 +1,8 @@
 # Caputo--Ferreira muon chemical-potential provenance audit
 
+> **HISTORICAL — superseded for current-profile quantitative use.** The archived 5--15 km comparison JSON records input SHA-256 `e41df78c8035540760fbcb7ef592cd830171822e`, whereas the current vertex-preserving profile B is SHA-256 `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`. The 77.26% radius-weighted and 82.98% node-mean differences below are valid for the archived input only; they have not been rerun on profile B. The original Bollig Fig. 4 cross-check independently selects Caputo over Ferreira for the (mu_mu/T) baseline.
+
+
 Date: 2026-11-10  
 PR: #57  
 Branch: `research/moving-muon-thermal-rates-20261107`  
@@ -115,3 +118,11 @@ The remaining profile limitation is the absence of the exact same-snapshot Garch
 - B.17 density check: `BOLLIG_MUON_DENSITY_AND_B1_SOURCE_AUDIT_2026-11-09.md`
 
 This is a profile-provenance audit only. No production, opacity, transport, luminosity, or axial-vector output is modified.
+
+## 7. Historical profile-version disposition (2026-11-15)
+
+The archived machine-readable comparison is tied to input SHA-256 e41df78c8035540760fbcb7ef592cd830171822e. The current profile B used by the accepted B.16 calculations and the 15--20 km Bollig cross-check has SHA-256 9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c. Therefore the 5--15 km relative-difference statistics in this record are not current-profile-B statistics and should not be copied into current uncertainty estimates without rerunning the comparison on the new profile.
+
+The qualitative baseline selection survives: the original Bollig Fig. 4 degeneracy curve is reproduced by the Caputo curve and not by the Ferreira curve in the directly checked 12--15 km region. The separate 15--20 km public-vector audit also supports Caputo \(T\) and \(\mu_\mu/T\). The unavailable same-snapshot Garching table remains the ultimate provenance gap.
+
+**Review disposition: HISTORICAL.** Preserve this comparison as a dated provenance record; do not treat its old-profile numerical averages as current profile-B results.
