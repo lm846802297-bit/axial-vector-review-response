@@ -96,10 +96,21 @@ W_N^{\mu\nu}=\frac{1}{4\pi q}
 \]
 The coefficient is \(1/(4\pi q)\), not \(1/(8\pi q)\), when the explicit spin degeneracy 2 is retained. The specification has been corrected in this commit.
 
-## 7. Scope and next task
+## 7. Scope and follow-up (updated 2026-11-15)
 
-Completed: stationary-target Dirac traces; neutrino/antineutrino contractions; weak-magnetism and form-factor convention; differential and integrated Horowitz validation; vector Ward identity; Hermiticity; corrected medium-tensor angular normalization.
+Completed: stationary-target Dirac traces; neutrino/antineutrino contractions; weak-magnetism and form-factor convention; differential and integrated Horowitz validation; vector Ward identity; Hermiticity; corrected medium-tensor angular normalization. The moving-initial-nucleon tensor, final-state blocking, and cold/dilute four-channel bridge are now implemented in the companion P1-IIIb moving-kernel audit. P1-IIIc subsequently integrates the kernel over five incident energies and four channels.
 
-Not completed: moving initial nucleons, finite-temperature Pauli blocking with the full weak tensor, EOS-consistent matter composition, RPA/NN correlations, radial optical depths, or B.2 escape probabilities.
+Still not completed: EOS-consistent effective masses and vector mean fields in the moving kernel; RPA/NN correlations; radial optical depths; multiple-scattering redistribution; and B.2 escape probabilities. The current moving-kernel benchmark remains an ideal-gas local calculation.
 
-Next implement the moving-nucleon tensor with the azimuthal average relative to the neutrino scattering plane. Its dilute/cold limit must recover stationary-target \(d\sigma/d\Omega\) after division by target density before finite-temperature benchmarks are used. No B.2, pure-vector Fig. 7, or axial-vector constraint is changed.
+No B.2, pure-vector Fig. 7, or axial-vector constraint is changed.
+
+
+## 8. Independent review qualification (2026-11-15)
+
+The gamma-matrix conventions, initial-spin-averaged hadronic tensor, antineutrino momentum interchange, and \(VV+AA+VA\) decomposition are internally consistent. The duplicated Horowitz form-factor expressions and weak couplings were compared term by term with the repository's audit_b16_p1i_horowitz_transport_moments.py baseline: the masses, \(\sin^2\theta_W\), \(g_A\), anomalous magnetic moments, dipole factors, and proton/neutron vector/axial combinations agree. The reported pointwise, Ward, Hermiticity, decomposition, and integrated-moment residuals are correspondingly strong.
+
+A producer/output distinction must be preserved. The checked-in Python script emits pointwise_rows (180 entries) and integrated_moments (20 entries). The archived JSON is a compact summary with integrated_moments_selected (four selected rows) and one \(VA\) example; it is not the direct full-schema output of the current script. The JSON note correctly says that running the script regenerates the full rows, but the archived compact summary should not be presented as containing all 180/20 rows.
+
+There is no dedicated unittest module or workflow for this stationary trace driver. The script's residuals and quadrature comparisons are numerical self-checks, not an independent CI rerun.
+
+**Review disposition: PASS_WITH_NOTES.** No form factor, coupling, production cross section, or axial-vector result is changed.

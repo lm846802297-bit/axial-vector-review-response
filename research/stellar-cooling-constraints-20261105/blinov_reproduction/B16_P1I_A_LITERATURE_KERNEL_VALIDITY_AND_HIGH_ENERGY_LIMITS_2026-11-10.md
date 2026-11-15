@@ -26,7 +26,7 @@ Their Eq. (1) defines
 \]
 This is an effective depth for an energy-changing process in a scattering atmosphere. It distinguishes the energy sphere from the transport sphere.
 
-However, §2.3 explicitly warns that recoil transfers only a small fraction of the neutrino energy per scattering. The authors therefore state that it is not straightforward to define an energy sphere for nucleon recoil alone. In §3.2.1 they also omit \(\nu NN\leftrightarrow NN\nu\) in their Monte Carlo runs because it was not important relative to recoil in the models they studied.
+However, §2.3 explicitly warns that recoil transfers only a small fraction of the neutrino energy per scattering. The authors therefore state that it is not straightforward to define an energy sphere for nucleon recoil alone. In §3.2 they also omit \(\nu NN\leftrightarrow NN\nu\) in their Monte Carlo runs because it was not important relative to recoil in the models they studied.
 
 This does not invalidate H&R. It establishes that the hierarchy depends on the stellar background and the adopted approximations. We must not promote either hierarchy to a universal rule.
 
@@ -184,17 +184,15 @@ with the last term explicitly accounting for any included pair conversion or oth
 
 ## 5. Data and profile status
 
-The current repository's sfho188_digitized.csv contains the thermodynamic and lapse columns, but not \(n_B(r)\) or \(n_p(r)\). The profile provenance records the Caputo \(n_\mu/n_0\) vector path, but the baryon and proton density paths have not yet been added to the committed profile.
+The canonical research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv still contains the thermodynamic and lapse columns only; it does not contain \(n_B(r)\) or \(n_p(r)\). However, the planned Caputo density/composition extraction has since been completed as separate, provenance-recorded artifacts:
 
-Thus the first profile task remains:
+1. blinov_reproduction/outputs/caputo_profile_full_0p05km_2026-11-11.csv contains 301 rows on the 0.2--15.2 km common support, with \(T(r)\), \(n_B(r)\), \(Y_n^{\rm free}\), \(Y_p^{\rm free}\), \(Y_p^{\rm tot}\), cluster fractions, and derived free-nucleon densities.
+2. blinov_reproduction/outputs/esseili_kribs_fig12_vector_vertices_2026-11-11.csv and its cross-check summary provide the separate native-vector Fig. 12 comparison. This supports figure-level consistency within the shared Garching SFHo-18.8 model lineage; it is not raw-profile validation from an independent simulation.
+3. blinov_reproduction/outputs/caputo_sfho_eos_profile_full_0p05km_2026-11-11.csv maps the 301-point Caputo profile onto the SFHo EOS and adds the composition, effective masses, vector mean fields, and SPP filling factor.
 
-1. identify the Caputo Fig. 1 \(n_B\) and \(n_p\) PDF vector paths;
-2. digitize and archive both curves with source hashes and axis calibration;
-3. compare their common support and continuity;
-4. form \(n_n=n_B-n_p\) only after confirming that both plotted quantities use the same baryon-number convention;
-5. attach the existing P1-G outer-tail uncertainty envelope without silently replacing the published profile.
+Thus the earlier digitization and cross-figure comparison tasks are complete as separate artifacts, but those columns have not been silently merged into the canonical sfho188_digitized.csv. The common-support profile remains a public-figure reconstruction, not a same-snapshot raw Garching data product. The raw archive variable dictionary is still unavailable, so the free-nucleon interpretation is supported by cross-figure closure rather than authenticated from raw field metadata.
 
-No unrelated progenitor, EOS, or post-bounce snapshot is to be spliced into SFHo-18.8.
+Do not splice an unrelated progenitor, EOS, or post-bounce snapshot into SFHo-18.8. Keep the separate profile's source hashes, axis calibration, digitization uncertainty, and outer-tail assumptions attached to every downstream calculation.
 
 ## 6. Stopping rules
 
@@ -214,8 +212,19 @@ No unrelated progenitor, EOS, or post-bounce snapshot is to be spliced into SFHo
 
 ## References
 
-1. M. Th. Keil, G. G. Raffelt, and H.-T. Janka, “Monte Carlo Study of Supernova Neutrino Spectra Formation,” Astrophys. J. 590, 971 (2003), especially Eqs. (1)--(2), §2.3, and §3.2.1. https://arxiv.org/abs/astro-ph/0208035
+1. M. Th. Keil, G. G. Raffelt, and H.-T. Janka, “Monte Carlo Study of Supernova Neutrino Spectra Formation,” Astrophys. J. 590, 971 (2003), especially Eqs. (1)--(2), §2.3, and §3.2. https://arxiv.org/abs/astro-ph/0208035
 2. S. Hannestad and G. Raffelt, “Supernova Neutrino Opacity from Nucleon-Nucleon Bremsstrahlung and Related Processes,” Astrophys. J. 507, 339 (1998), especially Eqs. (3), (7), (14), (23), and (32). https://arxiv.org/abs/astro-ph/9711132
 3. B. Müller and H.-Th. Janka, “Non-radial instabilities and progenitor asphericities in core-collapse supernovae,” Mon. Not. R. Astron. Soc. 448, 2141 (2015), Appendix A, Eq. (A31). https://doi.org/10.1093/mnras/stv101
 4. T. Fischer, “The role of medium modifications for neutrino-pair processes from nucleon-nucleon bremsstrahlung,” Astron. Astrophys. 593, A103 (2016), https://arxiv.org/abs/1608.05004
 5. A. Caputo, G. Raffelt, and E. Vitagliano, “Muonic boson limits: Supernova redux,” Phys. Rev. D 105, 035022 (2022), Fig. 1. https://arxiv.org/abs/2109.03244
+
+
+## 8. Independent review qualification (2026-11-15)
+
+The primary literature claims were checked against the cited papers. Hannestad--Raffelt Eqs. (3) and (7) are correctly distinguished: Eq. (3) compares inelastic \(NN\) energy transfer with pair bremsstrahlung (leading factor 20, reduced to roughly 10 by order-unity corrections); Eq. (7) instead compares inelastic scattering with recoil and gives \(1.21\eta_*^{3/2}\), with the authors suggesting approximately \(0.5\eta_*^{3/2}\) after vector-current and pion-mass corrections. Their assumptions of \(nn\)-only interactions, nonrelativistic nucleons, OPE in Born approximation, no \(np\) channel, no explicit \(NN\) correlations, and surface-layer applicability are accurately recorded. The Keil--Raffelt--Janka omission of inelastic \(NN\) scattering is in §3.2 (Monte Carlo setup), not a §3.2.1 subsection; the citation was corrected. That omission is their model-specific choice because they found the process unimportant relative to recoil in their tested models, not a universal conclusion. Müller--Janka Eq. (A31) is correctly treated as an effective recoil-opacity heuristic, not a differential collision kernel.
+
+The kinematic diagnostic is deliberately generous: \(E'=E\) maximizes the angular support available at small \(Q\) for fixed incident energy, while an inelastic event has \(Q_{\min}=|E-E'|\). The \(m_\pi,m_\pi/2,m_\pi/4\) cuts are illustrative scales, not formal validity boundaries. The mode-energy-weighted fractions are diagnostics, not collision probabilities.
+
+The P1-IIIb moving-nucleon kernel and P1-IIIc energy grid now implement the local free-gas finite-\(q_0,q\) kinematics, thermal nucleon motion, and final-state blocking. They do not yet include EOS mean fields/effective masses, RPA/NN correlations, or radial propagation. Therefore the original primary-kernel recommendation has been advanced but not completed as a supernova transport operator.
+
+**Review disposition: PASS_WITH_NOTES.** The P1-Ia literature and kinematic limits are usable within the stated scope. No B.2 opacity, Fig. 7 curve, luminosity, or axial-vector constraint is changed.

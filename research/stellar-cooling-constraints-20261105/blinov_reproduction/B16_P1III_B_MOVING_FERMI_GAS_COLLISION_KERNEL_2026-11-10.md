@@ -123,6 +123,29 @@ Not established:
 
 The \(Y_p=0.10\) and density points are illustrative, not extracted from SFHo-18.8. No B.2 opacity, pure-vector Fig. 7 comparison, or axial-vector cooling limit is modified.
 
-## 8. Next step
+## 8. Next step (updated 2026-11-15)
 
-Expand the moving-nucleon kernel over the relevant \(E_\nu,E',\cos\theta\) domain and compare integrated transport and energy-transfer moments with the stationary-target kernel. Then replace the illustrative composition with co-located \(n_B(r),Y_p(r),T(r)\) from one consistent stellar snapshot. Only after those steps should the local kernel be connected to radial B.2 propagation.
+The energy/angle integration over five incident energies and all four \(\nu n,\bar\nu n,\nu p,\bar\nu p\) channels is now archived in P1-IIIc. A 301-point Caputo figure-derived composition/density profile and a separate 301-point SFHo-EOS-mapped profile are also available under outputs/ (P1-IIId/P1-IIIe). They are not raw Garching simulation arrays and have not yet been inserted into this local collision-kernel calculation.
+
+The remaining step is to evaluate this moving-nucleon kernel on the co-located radial EOS profile, including the EOS-derived effective masses and vector mean fields, and only then construct a radial opacity/transport operator. The current \(Y_p=0.10\), \(n_B/n_0=10^{-3}\), \(T=3.03\) MeV benchmark remains a local ideal-gas diagnostic. No radial B.2 propagation is claimed.
+
+
+## 9. Independent review qualification (2026-11-15)
+
+### 9.1 Kinematics and normalization
+
+The delta-function reduction is algebraically consistent with \(q_0=E-E'\), \(q=|\mathbf k-\mathbf k'|\), and the on-shell condition \(E_{p'}=E_p+q_0\). The \(p_{\min}\) boundary is the condition that the reconstructed initial-nucleon polar cosine lies in \([-1,1]\). The azimuthal average is taken around \(\mathbf q\), with its basis tied to the incident-neutrino scattering plane. The \(H_N^{\mu\nu}=\tfrac12\mathrm{Tr}[\cdots]\) convention averages the initial nucleon spin; the factor of two from the occupied spin states is included once in the rate prefactor. The cold/dilute ratios in all four channels (maximum \(8.1\times10^{-6}\)) provide a strong normalization bridge to the stationary Horowitz kernel.
+
+The finite-temperature result is properly separated into total, angular-transport, momentum-transfer, and net energy-loss moments. The \(n_B=0.1n_0\) blocking row is only an ideal-gas stress point; it must not be read as a radial SFHo opacity correction.
+
+### 9.2 Archived output provenance
+
+The committed JSON uses the top-level key "rate_definition" and contains "high_density_convergence". The checked-in Python driver currently emits "definition" and does not construct the "high_density_convergence" block. Therefore the archived JSON is not schema-identical to the current script output. The numerical high-density values remain inspectable, but the exact producing source revision/invocation is not closed. Do not state that the current checked-in script reproduces every JSON field.
+
+There is no dedicated unittest module or workflow that runs this P1-IIIb moving-kernel script. The cold/dilute, density-blocking, energy-window, and quadrature comparisons are internal numerical checks, not CI regression coverage.
+
+### 9.3 Updated dependency chain
+
+The P1-IIIb moment integration and P1-IIIc five-energy/four-channel grid now complete the former energy/angle-grid task. The Caputo and SFHo-mapped profiles now exist as separate figure-derived artifacts, but this kernel has not been evaluated on those 301 radial points. EOS mean fields/effective masses, RPA/NN correlations, full angular/energy redistribution, radial optical depth, and a Boltzmann solution remain open.
+
+**Review disposition: PASS_WITH_NOTES.** No EOS profile, B.2 opacity, pure-vector Fig. 7 curve, luminosity, or axial-vector cooling limit is modified.

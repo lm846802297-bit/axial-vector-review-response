@@ -77,6 +77,19 @@ It is not yet a supernova cooling result:
 
 No B.2 opacity, pure-vector Fig. 7 curve, or axial-vector cooling constraint is modified.
 
-## 6. Next step
+## 6. Next step (updated 2026-11-15)
 
-Repeat this energy/angle-integrated calculation over the relevant incident-energy grid and both neutrino signs, then replace the illustrative composition with co-located \(n_B(r),Y_p(r),T(r)\) from one consistent stellar snapshot. Only after those steps should the local kernel be inserted into radial B.2 propagation.
+The five-energy grid and all four neutrino/antineutrino neutron/proton channels are now covered by P1-IIIc. The Caputo figure-derived density/composition profile and the SFHo-EOS-mapped profile are also available as separate 301-point artifacts. The present moment calculation, however, remains a single ideal-gas benchmark at \(E_\nu=100\) MeV, \(T=3.03\) MeV, \(Y_p=0.10\), and \(n_B/n_0=10^{-3}\).
+
+The next calculation is a radial evaluation using the same EOS-mapped \(n_B(r),Y_p(r),T(r),m_N^*(r)\), and vector mean fields. Until then, the moments are local kernel diagnostics, not a supernova opacity or energy sphere.
+
+
+## 7. Independent review qualification (2026-11-15)
+
+The transformed-angle mapping \(s=\sqrt{(1-\cos\theta)/2}\) has \(|d\cos\theta|=4s\,ds\), so the stated Jacobian and forward-node clustering are correct. The four weights also have distinct physical meanings: \(1\), \(1-\cos\theta\), \(1-(E'/E)\cos\theta\), and \(1-E'/E\). In particular, the last is a signed net energy-transfer moment and correctly retains upscattering contributions.
+
+The archived 8-versus-16 angular comparison changes the four ratios by \(3.8\times10^{-5}\), \(3.3\times10^{-5}\), \(4.3\times10^{-5}\), and \(8.6\times10^{-5}\). This is a useful angular convergence check at the selected benchmark, not a global error bound over energy, density, composition, or the full outgoing-energy support. The later P1-IIIc grid expands the energy/channel coverage but still fixes one thermodynamic point.
+
+The JSON output matches the checked-in moment script's compact two-resolution result. No dedicated unittest or workflow currently exercises this P1-IIIb moments driver; its convergence comparison is an in-script diagnostic.
+
+**Review disposition: PASS_WITH_NOTES.** No radial opacity, B.2 baseline, Fig. 7 curve, or axial-vector constraint is changed.

@@ -147,7 +147,7 @@ def build_payload() -> dict:
                         "fraction_energy_loss": round(item["energy_loss"], 6),
                     })
 
-    max_difference = 0.0
+    max_absolute_difference = 0.0
     convergence_cases = (
         (100.0, "n", False),
         (255.0, "n", False),
@@ -166,8 +166,8 @@ def build_payload() -> dict:
             for moment in (
                 "total", "angular_transport", "momentum_transfer", "energy_loss"
             ):
-                max_difference = max(
-                    max_difference,
+                max_absolute_difference = max(
+                    max_absolute_difference,
                     abs(low[qcut][moment] - high[qcut][moment]),
                 )
 
@@ -208,7 +208,7 @@ def build_payload() -> dict:
         },
         "rows": rows,
         "validation": {
-            "max_relative_difference_400_vs_800_nodes": max_difference
+            "max_absolute_difference_400_vs_800_nodes": max_absolute_difference
         },
         "interpretation": (
             "These are kinematic support fractions, not collision probabilities "

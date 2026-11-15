@@ -608,7 +608,7 @@
     ]
   ],
   "validation": {
-    "max_relative_difference_400_vs_800_nodes": 3.2e-14
+    "max_absolute_difference_400_vs_800_nodes": 3.2e-14
   },
   "interpretation": "These are kinematic support fractions, not collision probabilities or medium-response correction factors. The stationary-target approximation excludes nucleon thermal motion, Pauli blocking, and correlations."
 }
