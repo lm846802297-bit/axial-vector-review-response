@@ -1,9 +1,9 @@
 # Sixty-fourth review — two-VEV validation and V57 document family
 
 **Date:** 2026-11-16  
-**Reviewed base:** \`2affc1893cf09b716fd2d893ae4e98797f18ff39\`  
-**Scope:** the next six \`PENDING\` entries in \`DOCUMENT_AUDIT_REGISTER.csv\`.  
-**Disposition:** 2 \`PASS_WITH_NOTES\`, 1 \`REVISION_REQUIRED\`, 3 \`HISTORICAL\`.
+**Reviewed base:** `2affc1893cf09b716fd2d893ae4e98797f18ff39`  
+**Scope:** the next six `PENDING` entries in `DOCUMENT_AUDIT_REGISTER.csv`.  
+**Disposition:** 2 `PASS_WITH_NOTES`, 1 `REVISION_REQUIRED`, 3 `HISTORICAL`.
 
 This is a document and provenance review. The archived physics outputs, model parameters, production kernels, supernova limits and axial-vector constraints were not changed. Source files and historical results were inspected; this review does not claim to have rerun the original local Python jobs.
 
@@ -11,12 +11,12 @@ This is a document and provenance review. The archived physics outputs, model pa
 
 | Document | Result | Finding |
 |---|---|---|
-| \`research/stellar-cooling-two-vev-20261105/PHYSICS_CROSSCHECK_2026-11-13.md\` | \`PASS_WITH_NOTES\` | The two-VEV gauge mass, eaten/physical CP-odd basis, pure-axial Goldstone relation, PMNS trace identity and direct axial-Goldstone amplitude test are internally consistent. The document correctly keeps finite-mixing UV matching and supernova transport open. |
-| \`research/stellar-cooling-two-vev-20261105/validation-results-2026-11-05.md\` | \`REVISION_REQUIRED\` | Historical source blobs match the archived branch head, but the convergence CSV is not the direct output/schema of the pinned convergence driver; it uses order 10 as its zero/reference. The order scan also varies \(n_{\rm GL}\) and \(n_\phi\) together. Its code examples use escaped rather than real Markdown fences. |
-| \`work/v57_before_reading_flow_adjustment.md\` | \`HISTORICAL\` | Complete V5.7 working snapshot with 59 atomic entries and valid internal links. Retain as a pre-adjustment reference; one evidence-row cross-reference is duplicated. |
-| \`work/v57_corrected.md\` | \`HISTORICAL\` | Explicit V5.6 predecessor. Its section 3.4 is the joint UV–EFT analysis and section 3.5 is the reply template; internal references are consistent apart from one explicitly historical reference to a merged-version §3.6. |
-| \`work/v57_enhanced.md\` | \`HISTORICAL\` | Alternative V5.7 working snapshot. It retains explicitly unverified portal estimates, has duplicated G.15.6 references in two records and the typo “当前当前”. Do not promote it as canonical. |
-| \`work/v57_reconstructed_1007.md\` | \`PASS_WITH_NOTES\` | Most complete V5.7 candidate in this set; its core scalar formulas are sound and its internal links pass. Before promotion, unify \(\Delta_{hs}^2\) with the \(\Delta\) used in Work E, fix the duplicated word/reference, and restore two useful self-energy caveats. |
+| `research/stellar-cooling-two-vev-20261105/PHYSICS_CROSSCHECK_2026-11-13.md` | `PASS_WITH_NOTES` | The two-VEV gauge mass, eaten/physical CP-odd basis, pure-axial Goldstone relation, PMNS trace identity and direct axial-Goldstone amplitude test are internally consistent. The document correctly keeps finite-mixing UV matching and supernova transport open. |
+| `research/stellar-cooling-two-vev-20261105/validation-results-2026-11-05.md` | `REVISION_REQUIRED` | Historical source blobs match the archived branch head, but the convergence CSV is not the direct output/schema of the pinned convergence driver; it uses order 10 as its zero/reference. The order scan also varies \(n_{\rm GL}\) and \(n_\phi\) together. Its code examples use escaped rather than real Markdown fences. |
+| `work/v57_before_reading_flow_adjustment.md` | `HISTORICAL` | Complete V5.7 working snapshot with 59 atomic entries and valid internal links. Retain as a pre-adjustment reference; one evidence-row cross-reference is duplicated. |
+| `work/v57_corrected.md` | `HISTORICAL` | Explicit V5.6 predecessor. Its section 3.4 is the joint UV–EFT analysis and section 3.5 is the reply template; internal references are consistent apart from one explicitly historical reference to a merged-version §3.6. |
+| `work/v57_enhanced.md` | `HISTORICAL` | Alternative V5.7 working snapshot. It retains explicitly unverified portal estimates, has duplicated G.15.6 references in two records and the typo “当前当前”. Do not promote it as canonical. |
+| `work/v57_reconstructed_1007.md` | `PASS_WITH_NOTES` | Most complete V5.7 candidate in this set; its core scalar formulas are sound and its internal links pass. Before promotion, unify \(\Delta_{hs}^2\) with the \(\Delta\) used in Work E, fix the duplicated word/reference, and restore two useful self-energy caveats. |
 
 ## 2. Two-VEV physics cross-check
 
@@ -97,22 +97,22 @@ The implementation is homogeneous, optically thin and polarization-summed. It do
 
 ### 3.1 Source provenance — verified
 
-The archived branch \`research/stellar-cooling-two-vev-20261105\` is at commit
-\`5ec3c3396b2f85c2a2efd1431a183bf7a7255ca2\`. The source blob hashes in the validation table match that branch tree, including:
-- mapping: \`5b45faf292e49183f97445a6f6ae4ac6c6ffd798\`;
-- mapping tests: \`e38e9479955f7df28dbc2059d3df4e6567a70a5c\`;
-- amplitude: \`3317339e663fbe59739045771902fb0927260c2f\`;
-- thermal rate: \`d37023df57ffea47018593b43ff5b62f7ee34e28\`;
-- convergence driver: \`e36ab13ae32216ae4d3c9a2323099485f880a1b0\`;
-- decay widths: \`be2aefbd9078f43b8aa586f5516ce4caf953a107\).
+The archived branch `research/stellar-cooling-two-vev-20261105` is at commit
+`5ec3c3396b2f85c2a2efd1431a183bf7a7255ca2`. The source blob hashes in the validation table match that branch tree, including:
+- mapping: `5b45faf292e49183f97445a6f6ae4ac6c6ffd798`;
+- mapping tests: `e38e9479955f7df28dbc2059d3df4e6567a70a5c`;
+- amplitude: `3317339e663fbe59739045771902fb0927260c2f`;
+- thermal rate: `d37023df57ffea47018593b43ff5b62f7ee34e28`;
+- convergence driver: `e36ab13ae32216ae4d3c9a2323099485f880a1b0`;
+- decay widths: `be2aefbd9078f43b8aa586f5516ce4caf953a107\).
 
 The reported 6/6 mapping tests and local amplitude/width/smoke-test outputs are therefore correctly attributable to the Nov. 5 branch snapshot. They are historical results, not the later Nov. 13 direct-Ward and PMNS-trace tests documented in the cross-check.
 
 ### 3.2 Convergence artifact mismatch — REVISION_REQUIRED
 
-The archived \`thermal-convergence-2026-11-05.csv\` contains columns \`relative_rate_percent\` and \`relative_emissivity_percent\), with the order-10 row set to zero. The pinned driver at blob \`e36ab13...\` instead:
-- uses the last/highest requested order as the reference (\`order_values[-1]\`);
-- writes \`relative_rate_to_reference\` and \`relative_emissivity_to_reference\`;
+The archived `thermal-convergence-2026-11-05.csv` contains columns `relative_rate_percent` and `relative_emissivity_percent\), with the order-10 row set to zero. The pinned driver at blob `e36ab13...` instead:
+- uses the last/highest requested order as the reference (`order_values[-1]`);
+- writes `relative_rate_to_reference` and `relative_emissivity_to_reference`;
 - uses a different cutoff-row label/schema.
 
 The raw rate and emissivity columns do reproduce the quoted order-10 to order-12 changes, so the numerical comparison itself is recoverable. But the CSV is not the direct output of the pinned driver under its recorded reference convention, and its exact producer is not identified. Preserve the raw values; either regenerate the CSV with the pinned driver or add a deterministic conversion/producer record and label the existing CSV as an order-10-referenced legacy summary.
@@ -121,9 +121,9 @@ The report should also state explicitly that the order scan varies \(n_{\rm GL}\
 
 ### 3.3 Markdown formatting
 
-The four command examples use escaped backticks (\`\\\`\\\`\\\`bash\`) rather than real fenced code blocks. GitHub therefore renders literal backticks instead of code blocks. Replace them with ordinary triple-backtick fences during the next revision.
+The four command examples are written with a backslash before each backtick, so GitHub renders literal delimiters rather than code blocks. Replace them with ordinary fenced code blocks during the next revision.
 
-**Disposition:** retain the historical 6/6 and local benchmark results, but keep the validation record \`REVISION_REQUIRED\` until the CSV producer/reference convention and its formatting are reconciled. No supernova transport or exclusion follows from this local record.
+**Disposition:** retain the historical 6/6 and local benchmark results, but keep the validation record `REVISION_REQUIRED` until the CSV producer/reference convention and its formatting are reconciled. No supernova transport or exclusion follows from this local record.
 
 ## 4. V57 family — comparison and document-by-document disposition
 
@@ -146,29 +146,29 @@ The core equations checked across the family are consistent:
 
 These checks support the stated algebraic conventions; they do not mean the model-specific portal loop calculation, full Higgs recast, PMNS completion, finite-VLL kinetic-mixing scan or joint UV–EFT parameter scan has been completed. The documents themselves correctly label those as outstanding.
 
-### 4.2 \`v57_before_reading_flow_adjustment.md\` — HISTORICAL
+### 4.2 `v57_before_reading_flow_adjustment.md` — HISTORICAL
 
 This is a 5.7 working snapshot (5660 lines, 419 headings). Its scalar Work E uses one consistent \(\Delta\) notation and includes the useful explicit spectral identity
 \[
 (m_+^2-m_-^2)^2=(b-a)^2+4\Delta^2.
 \]
-The file is labelled “before reading flow adjustment” and should remain an archived predecessor, not be treated as the canonical current manual. One evidence-row reference repeats \`§6.6\` and \`附录 G.15.6\`; the unverified portal estimate is properly caveated.
+The file is labelled “before reading flow adjustment” and should remain an archived predecessor, not be treated as the canonical current manual. One evidence-row reference repeats `§6.6` and `附录 G.15.6`; the unverified portal estimate is properly caveated.
 
-### 4.3 \`v57_corrected.md\` — HISTORICAL
+### 4.3 `v57_corrected.md` — HISTORICAL
 
 This file explicitly identifies itself as V5.6 (5375 lines, 368 headings). Its joint UV–EFT analysis is §3.4 and its English reply template is §3.5; its navigation and local anchors agree with that structure. The single reference to “merged version §3.6” is explicitly historical. Retain as the V5.6 predecessor; do not merge it into a V5.7 file by copying section numbers.
 
-### 4.4 \`v57_enhanced.md\` — HISTORICAL
+### 4.4 `v57_enhanced.md` — HISTORICAL
 
-This is an alternative V5.7 snapshot (5485 lines, 372 headings). It contains the same 59 atomic entries, but is not the fullest reading-flow version. It repeats the \`G.15.6\` cross-reference in two evidence records and contains the duplicated phrase “当前当前”. Its unverified portal estimates are caveated, but the repeated references and typo should be corrected if this version is ever reused. Retain as an alternative historical draft, not as the canonical manual.
+This is an alternative V5.7 snapshot (5485 lines, 372 headings). It contains the same 59 atomic entries, but is not the fullest reading-flow version. It repeats the `G.15.6` cross-reference in two evidence records and contains the duplicated phrase “当前当前”. Its unverified portal estimates are caveated, but the repeated references and typo should be corrected if this version is ever reused. Retain as an alternative historical draft, not as the canonical manual.
 
-### 4.5 \`v57_reconstructed_1007.md\` — PASS_WITH_NOTES
+### 4.5 `v57_reconstructed_1007.md` — PASS_WITH_NOTES
 
-This is the most complete V5.7 candidate in the reviewed set (5666 lines, 419 headings). Relative to \`v57_before_reading_flow_adjustment.md\`, it is a close revision rather than an independent document family. It adds an explicit general CP-even mass-matrix presentation and makes the off-diagonal mass-squared notation more explicit.
+This is the most complete V5.7 candidate in the reviewed set (5666 lines, 419 headings). Relative to `v57_before_reading_flow_adjustment.md`, it is a close revision rather than an independent document family. It adds an explicit general CP-even mass-matrix presentation and makes the off-diagonal mass-squared notation more explicit.
 
 Before designating it canonical:
 1. Define one symbol consistently: the introductory \(\Delta_{hs}^2\) should be explicitly identified with the \(\Delta\) used in Work E, or replace both by one notation.
-2. Fix “当前当前” and remove the repeated \`§6.6\`/\`附录 G.15.6\` references in the relevant evidence row.
+2. Fix “当前当前” and remove the repeated `§6.6`/`附录 G.15.6` references in the relevant evidence row.
 3. Restore the explicit statement that absorptive self-energy parts arise above open thresholds and retain the momentum-dependence check near the two complex poles; the current Work E keeps complex poles/widths but the earlier wording made these triggers clearer.
 4. Record the source/version relationship in a small V57 version manifest. The present Git history only shows the four files arriving in the same initial snapshot, so “reconstructed_1007” cannot be proven to be later from commit history alone.
 
