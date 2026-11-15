@@ -22,8 +22,10 @@ Every human-readable document in this repository must receive an individual revi
 - `PASS_WITH_NOTES`: usable, with non-blocking caveats recorded.
 - `REVISION_REQUIRED`: at least one actionable issue.
 - `BLOCKED`: cannot validate because source, data, cited paper, or required context is unavailable.
-- `HISTORICAL_ONLY`: intentionally preserved and not to be used as current guidance.
-- `NOT_REVIEWED`: inventory only; no content-level review claim.
+- `HISTORICAL`: intentionally preserved for provenance and not to be used as current guidance.
+- `PENDING`: inventory only; no content-level review claim.
+
+These are the canonical register values used in `DOCUMENT_AUDIT_REGISTER.csv` and `README.md`; do not substitute `HISTORICAL_ONLY` or `NOT_REVIEWED`.
 
 ## Scientific claim discipline
 

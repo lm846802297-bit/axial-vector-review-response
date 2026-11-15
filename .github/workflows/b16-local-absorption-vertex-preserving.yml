@@ -50,7 +50,7 @@ jobs:
             -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
             -p 'test_reference.py' -v
 
-      - name: Run current-profile B.6--B.10 and B.13--B.19 local audit
+      - name: Run current-profile B.6--B.10 and B.14--B.19 local audit (B.13 is separate)
         run: |
           python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_local_absorption.py \
             --profile research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv \

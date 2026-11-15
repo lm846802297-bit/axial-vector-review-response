@@ -185,3 +185,7 @@ Accordingly, the pure-vector transport curve remains **not yet validated**. No e
 - .github/workflows/b16-local-absorption.yml: automated test and audit workflow.
 
 The original profile remains a public-figure reconstruction, not the raw Garching simulation table.
+
+## Review disposition (2026-11-15)
+
+**Outcome: HISTORICAL.** This local-opacity record belongs to the earlier profile snapshot and is retained for provenance. It must not be mixed with the 1687-row vertex-preserving local audit. Use `B16_LOCAL_ABSORPTION_VERTEX_PRESERVING_2026-11-09.md` and its paired JSON for the current-profile local formula checks. The exact moving-muon B.13 calculation remains a separate diagnostic; this historical B.16 record is not a validation of the B.14--B.16 approximation's physical accuracy.

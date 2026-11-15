@@ -79,7 +79,7 @@ For the dominant 8--15 km source region:
 
 For all emission radii, the corresponding individual channel changes are 56.18% and 56.19% in the 12--15 km shell, and 60.82% for either neutrino flavor in the 22--25 km shell.
 
-The current profile gives zero Compton contribution to the 22--25 km shell at the numerical precision of this audit. Compton absorption remains relevant in the inner 8--15 km production/transport region.
+The current profile gives a tiny but nonzero Compton contribution to the 22--25 km shell. For the dominant 8--15 km source, the source-weighted Compton path column is \(0.7935\) per \(g_X^2\), compared with \(1.5633\times10^{15}\) per \(g_X^2\) from \(\nu_\mu+\nu_\tau\) inverse decay in that shell (relative fraction \(5.08\times10^{-16}\)). It is therefore negligible in this decomposition, but not mathematically zero. Compton absorption remains relevant in the inner 8--15 km production/transport region.
 
 ## 5. Comparison with the 501-node profile
 
@@ -92,6 +92,9 @@ The local cutoff difference is retained; no profile smoothing or empirical opaci
 Machine-readable current-profile output:
 
 `outputs/b16_inner_path_channel_directional_vertex_preserving_10mev_2026-11-09.json`
+
+- Workflow: [Run 42532897123](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42532897123); six unit tests passed and the run verified the current profile fingerprint.
+- The reported \(1.19179\times10^{-4}\) maximum residual is against a fixed-order 256-point whole-ray quadrature. It is a cross-check, not a certified error bound for the analytic primitive; the unit tests separately split the direct path integral at profile and shell crossings.
 
 Related audits:
 
