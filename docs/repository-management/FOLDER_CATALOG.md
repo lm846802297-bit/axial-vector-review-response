@@ -28,7 +28,7 @@ Live Git-tree inventory for branch `maintenance/repository-organization-audit-20
 | `[root]` | 24 files + 13 top-level directories | Project entry points, formal TeX/PDF, bibliographies, manuscript/reviewer PDFs and legacy notes | Keep only build-critical/authority files at root; use the root-file audit before proposing moves. |
 | `.freebuff/` | 2 | Tool/project metadata (one directory and one metadata file) | Do not edit or relocate as ordinary research content. |
 
-Directory counts include the directory node itself; the `[root]` row lists root files and top-level directory count separately. All counts refer to the same recursive Git-tree snapshot.
+Directory counts include each top-level directory node. The `[root]` row lists the 24 root files and notes the 13 top-level directories for orientation; those directory nodes are already included in their respective subtree counts and must not be added twice. All counts refer to the same recursive Git-tree snapshot.
 
 ## Root-level file classification
 
