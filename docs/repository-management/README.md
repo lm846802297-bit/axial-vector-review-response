@@ -32,7 +32,7 @@ This document describes the current repository organization and the intended own
 
 ## Review coverage and reports
 
-The original baseline contains 462 Markdown/text documents and is now fully reviewed: 286 `PASS_WITH_NOTES`, 2 `PASS`, 152 `HISTORICAL`, 22 `REVISION_REQUIRED`, and 0 `PENDING`. The current tree additionally contains 110 later-added Markdown/text files, tracked separately in the [supplemental register](SUPPLEMENTAL_DOCUMENT_AUDIT_REGISTER.csv); these remain `PENDING` until individually reviewed. Thus the live tree has 572 `.md`/`.txt` files, and baseline completion must not be confused with full-tree completion. See the [baseline audit register](DOCUMENT_AUDIT_REGISTER.csv), [supplemental register](SUPPLEMENTAL_DOCUMENT_AUDIT_REGISTER.csv), and the dated review reports:
+The original baseline contains 462 Markdown/text documents and is now fully reviewed: 286 `PASS_WITH_NOTES`, 2 `PASS`, 152 `HISTORICAL`, 22 `REVISION_REQUIRED`, and 0 `PENDING`. The current tree additionally contains 110 later-added Markdown/text files, tracked separately in the [supplemental register](SUPPLEMENTAL_DOCUMENT_AUDIT_REGISTER.csv): 5 are `PASS_WITH_NOTES` and 105 remain `PENDING` for individual review. Thus the live tree has 572 `.md`/`.txt` files, and baseline completion must not be confused with full-tree completion. See the [baseline audit register](DOCUMENT_AUDIT_REGISTER.csv), [supplemental register](SUPPLEMENTAL_DOCUMENT_AUDIT_REGISTER.csv), and the dated review reports:
 
 - [Initial governance and entry review](INITIAL_REVIEW_REPORT_2026-11-14.md)
 - [Second review batch](SECOND_REVIEW_REPORT_2026-11-14.md)
