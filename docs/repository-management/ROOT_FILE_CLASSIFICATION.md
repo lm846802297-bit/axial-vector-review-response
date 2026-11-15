@@ -1,8 +1,8 @@
 # Root-level file classification and safe migration proposal
 
-> **Later update:** The 63-page PDF described below is historical. A matched 64-page layout-fixed build is documented in [the PDF audit](ROOT_PDF_EXTRACTION_AUDIT_2026-11-14.md).
+> **Later update:** The earlier 63-page PDF described below is historical. The current matching 64-page response TeX/PDF pair passed final layout acceptance; see [the final acceptance record](REPLY_LETTER_FINAL_ACCEPTANCE_2026-11-16.md).
 
-Snapshot: `main` at `fbab624435c853e90e3955009a545e28c5f5be98` (2026-11-14); the maintenance branch used for this review is five documentation-only commits behind this main snapshot.
+Historical classification baseline: `main` at `fbab624435c853e90e3955009a545e28c5f5be98` (2026-11-14). This proposal does not describe the current PR head or current main comparison; see [PROJECT_STATUS](../../PROJECT_STATUS.md) and [FOLDER_CATALOG](FOLDER_CATALOG.md) for live state.
 
 This is a classification proposal, not a move/delete instruction. Root files are deliberately retained in place until all inbound Markdown links, TeX/BibTeX build assumptions, scripts, workflow references and external handoff instructions have been checked.
 
@@ -59,7 +59,7 @@ A physical move is allowed only after all of the following are recorded:
 
 1. Search all current Markdown/text documents for inbound links to the old path (baseline register: 462; live tree count is maintained in FOLDER_CATALOG.md).
 2. Search all Python/Mathematica/FORM sources and notebooks for hard-coded path strings/imports.
-3. Search all 109 workflow YAML files and their shell commands for old paths.
+3. Search all 115 workflow YAML files and their shell commands for old paths.
 4. Search all TeX `\input`, `\include`, `\includegraphics`, bibliography and `BSTINPUTS/BIBINPUTS` assumptions.
 5. Update READMEs, manifests, tests, release notes and collaborator instructions in the same change.
 6. Preserve original bytes and record old path → new path, old/new Git blob SHA, SHA-256 when available, and commit.
@@ -73,4 +73,4 @@ No root file is deleted or overwritten by this proposal. v65/v66 are sequential 
 
 ## 8. Completed root-file audit
 
-The 24 root files have now been individually classified for authority, build dependency, provenance and next action. See [ROOT_FILE_AUDIT_REPORT_2026-11-14.md](ROOT_FILE_AUDIT_REPORT_2026-11-14.md). Text extraction and annotation counts are now available for the four root PDFs; visual inspection and source-to-PDF rebuild remain open. See [PDF audit](ROOT_PDF_EXTRACTION_AUDIT_2026-11-14.md). The current formal reply TeX passed static citation, label, cross-reference and figure-path checks, but the current root PDF still requires a same-source rebuild/render audit.
+The 24 root files have been individually classified for authority, build dependency, provenance and next action. See [ROOT_FILE_AUDIT_REPORT_2026-11-14.md](ROOT_FILE_AUDIT_REPORT_2026-11-14.md). The four root PDFs have text-extraction and annotation records; the current formal reply TeX/PDF pair subsequently passed the 64-page final layout acceptance documented in [REPLY_LETTER_FINAL_ACCEPTANCE_2026-11-16.md](REPLY_LETTER_FINAL_ACCEPTANCE_2026-11-16.md). This is a layout/build acceptance, not a scientific validation of the underlying physics.
