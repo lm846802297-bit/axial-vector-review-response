@@ -32,7 +32,7 @@ This document describes the current repository organization and the intended own
 
 ## Review coverage and reports
 
-The baseline inventory contains 462 Markdown/text documents. At the latest review checkpoint (2026-11-15), the register contains 187 `PASS_WITH_NOTES`, 2 `PASS`, 9 `REVISION_REQUIRED`, 90 `HISTORICAL`, and 174 `PENDING` (288 individually reviewed). Only documents read individually are assigned a non-pending review outcome. See the [audit register](DOCUMENT_AUDIT_REGISTER.csv) and the dated review reports:
+The baseline inventory contains 462 Markdown/text documents. At the latest review checkpoint (2026-11-15), the register contains 190 `PASS_WITH_NOTES`, 2 `PASS`, 9 `REVISION_REQUIRED`, 93 `HISTORICAL`, and 168 `PENDING` (294 individually reviewed). Only documents read individually are assigned a non-pending review outcome. See the [audit register](DOCUMENT_AUDIT_REGISTER.csv) and the dated review reports:
 
 - [Initial governance and entry review](INITIAL_REVIEW_REPORT_2026-11-14.md)
 - [Second review batch](SECOND_REVIEW_REPORT_2026-11-14.md)
@@ -56,6 +56,7 @@ The baseline inventory contains 462 Markdown/text documents. At the latest revie
 - [B.1 energy variables and B.2 lapse-redshift propagation review](FORTY_SIXTH_REVIEW_B2_LAPSE_REDSHIFT_PHYSICS_2026-11-15.md)
 - [EOS moving-nucleon response and scattering-opacity review](FORTY_SEVENTH_REVIEW_EOS_MOVING_NUCLEON_COLLISION_PHYSICS_2026-11-15.md)
 - [B.16 inner-path, local absorption, radial synthesis and paper cross-check](FORTY_EIGHTH_REVIEW_B16_INNER_PATH_LOCAL_ABSORPTION_2026-11-15.md)
+- [B.16 outer-shell and thermodynamic-input records](FORTY_NINTH_REVIEW_B16_OUTER_SHELL_THERMODYNAMIC_INPUTS_2026-11-15.md)
 
 The 462-row register covers Markdown/text documents. Root-level TeX, BibTeX, bibliography styles and binary PDFs are additionally covered by the [root-file audit report](ROOT_FILE_AUDIT_REPORT_2026-11-14.md); workflow YAML files are covered by the separate workflow register.
 
