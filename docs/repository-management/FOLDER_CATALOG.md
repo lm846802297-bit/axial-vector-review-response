@@ -1,43 +1,46 @@
 # Folder catalog
 
-Historical 2026-11-14 Git-tree snapshot for branch `maintenance/repository-organization-audit-20261114`; counts below predate subsequent report relocation and new audit files. See the current register and Git tree for live counts.
+Live Git-tree inventory for branch `maintenance/repository-organization-audit-20261114`, updated 2026-11-16. Counts are structural entries, not counts of unique scientific results.
 
 ## Repository footprint
 
-- **1,541 Git tree entries** (1,420 files and 121 directories).
-- **482 Markdown/text documents** in the current organization branch; the 462-row baseline register tracks the original inventory, with new review reports and indexes tracked separately.
-- **412 source-code files** with Python/Mathematica/FORM-like extensions counted by the inventory.
-- **261 JSON files**.
-- **109 GitHub Actions workflow YAML files**.
+- **1,668 Git-tree entries:** 1,545 files and 123 directories.
+- **572 Markdown/text files:** 475 `.md` and 97 `.txt`.
+- **Baseline document register:** 462/462 individually reviewed; 286 `PASS_WITH_NOTES`, 2 `PASS`, 152 `HISTORICAL`, 22 `REVISION_REQUIRED`, 0 `PENDING`.
+- **Supplemental document register:** 110 post-baseline Markdown/text files, initially all `PENDING`; these must be reviewed before claiming full current-tree document coverage.
+- **115 GitHub Actions workflow YAML files:** 47 `REVIEWED_WITH_NOTES`, 16 `HISTORICAL_CANDIDATE`, 52 `PENDING`.
+- **274 JSON files** and **410 Python files** (file counts only; not all are production code).
 
-| Top-level area | Git tree entries | Responsibility | Management rule |
+| Top-level area | Git-tree entries | Responsibility | Management rule |
 |---|---:|---|---|
-| `.github/` | 120 | 109 Actions workflows plus workflow catalog, review notes, templates and metadata | Workflow catalog/register under `.github/workflows/`; inspect callers and run history before deprecation. |
-| `archive/` | 19 | Frozen source snapshots and historical response-letter packages | Immutable; add new dated snapshots instead of editing old ones. |
-| `deliverables/` | 21 | Extracted handoff packages and instructions | Keep file-level hashes, extraction provenance and import instructions. Do not store generated ZIP/Base64 bundles. |
-| `docs/` | 14 | Repository management, review standards and audit records | Keep navigation and governance documentation here. |
-| `overleaf-source/` | 27 | Pinned manuscript source snapshots | Treat as versioned source archives; confirm active Overleaf source before editing. |
-| `research/` | 1,035 | Scientific workstreams, inputs, scripts, tests, outputs and evidence | Use one directory per physical model/workstream; preserve original one-VEV vs two-VEV separation. |
-| `work/` | 16 | Intermediate and temporary research material | Not authoritative until promoted and reviewed. |
-| `审稿意见-gpt/` | 121 | Referee analysis, current execution notes, decisions, meeting records and historical work | Keep reviewer-facing text separate from internal notes; old status documents remain dated history. |
-| `导出/` | 2 | Exported artifacts | Identify source and lifecycle before promotion to deliverables. |
-| `弃用/` | 5 | Explicitly deprecated material | Retain unless provenance and inbound references are audited. |
-| `计算脚本/` | 121 | Legacy calculation scripts, outputs and audit records | Current README appears to describe legacy section 250–262 material; verify ownership before merging with research/. |
-| `附件/` | 2 | Supporting attachments | Link from owning document; avoid duplicate authoritative copies. |
-| `[root]` | 37 entries (24 files + 13 directories) | Project entry points, formal TeX/PDF, bibliographies, manuscript/reviewer PDFs and legacy notes | Keep only build-critical/authority files at root; migration proposals are recorded separately. |
-| `.freebuff/` | 1 directory + 1 metadata file | Tool/project metadata | Do not edit or relocate as ordinary research content. |
+| `.github/` | 120 | 115 Actions workflows plus workflow catalog, audit register, review notes, templates and metadata | Keep workflow YAML in `.github/workflows/`; review triggers, permissions, paths and write-back behavior before deprecation. |
+| `archive/` | 20 | Frozen source snapshots and historical response-letter packages | Immutable; add new dated snapshots instead of editing old ones. |
+| `deliverables/` | 22 | Extracted handoff packages and instructions | Keep file-level hashes, extraction provenance and import instructions. Do not store generated ZIP/Base64 bundles as substitutes for extracted contents. |
+| `docs/` | 100 | Repository management, review standards and audit records | Keep navigation, governance, baseline and supplemental audit records here. |
+| `overleaf-source/` | 28 | Pinned manuscript source snapshots | Treat as versioned source archives; confirm active Overleaf source before editing. |
+| `research/` | 1,073 | Scientific workstreams, inputs, scripts, tests, outputs and evidence | Use one directory per physical model/workstream; preserve original one-VEV vs two-VEV separation. |
+| `work/` | 18 | Intermediate and temporary research material | Not authoritative until promoted and reviewed. |
+| `审稿意见-gpt/` | 122 | Referee analysis, current execution notes, decisions, meeting records and historical work | Keep reviewer-facing text separate from internal notes; dated status snapshots remain history. |
+| `导出/` | 3 | Exported artifacts | Identify source and lifecycle before promotion to deliverables. |
+| `弃用/` | 7 | Explicitly deprecated material | Retain unless provenance and inbound references are audited. |
+| `计算脚本/` | 125 | Legacy calculation scripts, outputs and audit records | Preserve historical paths until imports and references are migrated and checked. |
+| `附件/` | 4 | Supporting attachments | Link from owning document; avoid duplicate authoritative copies. |
+| `[root]` | 24 files + 13 top-level directories | Project entry points, formal TeX/PDF, bibliographies, manuscript/reviewer PDFs and legacy notes | Keep only build-critical/authority files at root; use the root-file audit before proposing moves. |
+| `.freebuff/` | 2 | Tool/project metadata (one directory and one metadata file) | Do not edit or relocate as ordinary research content. |
 
-Counts include nested files and directory entries as represented by the Git tree. They are not counts of unique scientific results. Counts may change as this branch adds documentation.
+Directory counts include the directory node itself; the `[root]` row lists root files and top-level directory count separately. All counts refer to the same recursive Git-tree snapshot.
 
 ## Root-level file classification
 
-See [ROOT_FILE_CLASSIFICATION.md](ROOT_FILE_CLASSIFICATION.md) for a file-by-file grouping of the 24 root files and a safe migration proposal. No root files have been moved in this phase because TeX, BibTeX, relative links and historical provenance may depend on their current paths.
+See [ROOT_FILE_CLASSIFICATION.md](ROOT_FILE_CLASSIFICATION.md) for the 24 root files and safe migration proposal. No root files have been moved in this phase because TeX, BibTeX, relative links and historical provenance may depend on their current paths.
 
-## Immediate priorities
+## Review coverage and current priorities
 
-1. Keep root README, PROJECT_STATUS and decision ledger as the concise governance entry points.
-2. Refresh old subdirectory READMEs that still expose PR/task states from October or early November.
-3. Review similarly named Higgs-portal and referee-analysis files by content/provenance; different Git blob IDs do not prove duplication.
-4. Complete the 115-workflow audit and identify current versus historical workflows before changing triggers or permissions.
-5. Continue the 462-row baseline Markdown/text review. The 205-reviewed/257-pending figures above belong to this catalog's original checkpoint and are historical; the live 2026-11-15 checkpoint is 348 reviewed and 114 `PENDING`. Newly added review reports and indexes are tracked separately. See `DOCUMENT_AUDIT_REGISTER.csv` and its dated batch reports.
-6. Audit all relative links, Python imports, workflow paths, LaTeX inputs, bibliography lookup and manifests before any physical relocation. The maintenance branch was synchronized with main at merge commit `e4dd7ec`; refresh the comparison before integration.
+1. Keep root `README.md`, `PROJECT_STATUS.md` and the living decision register as concise governance entry points.
+2. Review the **110 supplemental Markdown/text files** individually; do not count them as complete merely because the original 462-row baseline is complete.
+3. Resolve or explicitly retain the **22 baseline `REVISION_REQUIRED`** items only after evidence-based review; never bulk-promote them.
+4. Continue triage of the **52 pending workflows**. Do not disable or delete a workflow based only on its filename or an old branch reference.
+5. Audit relative links, Python imports, workflow paths, LaTeX inputs, bibliography lookup and manifests before any physical relocation.
+6. Refresh the PR-vs-main comparison before integration; this catalog does not authorize merge or scientific acceptance.
+
+The baseline and supplemental registers are deliberately separate: [baseline register](DOCUMENT_AUDIT_REGISTER.csv), [supplemental register](SUPPLEMENTAL_DOCUMENT_AUDIT_REGISTER.csv), and [workflow register](../../.github/workflows/WORKFLOW_AUDIT_REGISTER.csv).
