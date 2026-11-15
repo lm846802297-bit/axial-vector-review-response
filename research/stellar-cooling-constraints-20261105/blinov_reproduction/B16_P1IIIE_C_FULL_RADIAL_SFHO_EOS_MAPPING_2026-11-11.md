@@ -49,3 +49,12 @@ Free neutron, free proton, and cluster baryon densities are stored separately. T
 Overall C1 acceptance: **PASS**.
 
 The machine-readable acceptance criteria and full provenance are in the accompanying JSON. No dynamic response, B.2 opacity, pure-vector Fig. 7 result, axial cooling curve, manuscript, or referee response is modified.
+## 7. Independent review qualification (2026-11-15)
+
+The full-profile workflow run #42960145972 completed successfully. Its relevant steps passed: profile-builder/interpolation-helper tests, the full 301-point mapping onto the official SFHo EOS grid, and the radial/domain/composition/filling-factor acceptance gates. The workflow pins the Caputo arXiv source archive SHA-256 and all three official SFHo/FRDM v1.03 table hashes before mapping.
+
+The interpolation coordinates and boundaries are correctly distinguished: \((\log_{10}T,Y_p^{\rm tot},\log_{10}n_B)\), with \(Y_p^{\rm tot}=Y_e+Y_\mu\), 308 physical density rows, and bounds_error enabled. The 301 points remain within the EOS domains, so no extrapolation is used. The composition and filling-factor residuals are small compared with the explicit 5e-3 acceptance gates.
+
+The workflow and the mapping code are a clean reproducible pipeline, but the source profile itself is still a published-figure reconstruction: \(T(r)\), \(n_B(r)\), and composition are extracted/interpolated from Caputo Fig. 1/Fig. 4. It is not a raw Garching snapshot, mass-time sequence, or independent simulation output. The map validates internal consistency of this reconstructed snapshot with the official EOS tables; it does not authenticate the missing raw archive fields.
+
+**Review disposition: PASS_WITH_NOTES.** The 301-point C1 mapping is accepted within its figure-derived snapshot scope. No dynamic response, B.2 opacity, Fig. 7 luminosity, or axial-vector limit follows from the EOS mapping alone.

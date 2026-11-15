@@ -32,7 +32,7 @@ This document describes the current repository organization and the intended own
 
 ## Review coverage and reports
 
-The baseline inventory contains 462 Markdown/text documents. At the latest review checkpoint (2026-11-15), the register contains 207 `PASS_WITH_NOTES`, 2 `PASS`, 9 `REVISION_REQUIRED`, 94 `HISTORICAL`, and 150 `PENDING` (312 individually reviewed). Only documents read individually are assigned a non-pending review outcome. See the [audit register](DOCUMENT_AUDIT_REGISTER.csv) and the dated review reports:
+The baseline inventory contains 462 Markdown/text documents. At the latest review checkpoint (2026-11-15), the register contains 213 `PASS_WITH_NOTES`, 2 `PASS`, 9 `REVISION_REQUIRED`, 94 `HISTORICAL`, and 144 `PENDING` (318 individually reviewed). Only documents read individually are assigned a non-pending review outcome. See the [audit register](DOCUMENT_AUDIT_REGISTER.csv) and the dated review reports:
 
 - [Initial governance and entry review](INITIAL_REVIEW_REPORT_2026-11-14.md)
 - [Second review batch](SECOND_REVIEW_REPORT_2026-11-14.md)
@@ -60,6 +60,7 @@ The baseline inventory contains 462 Markdown/text documents. At the latest revie
 - [B.16 P1-C/P1-D and P1-E/P1-F source records](FIFTIETH_REVIEW_B16_P1C_P1D_P1E_2026-11-15.md)
 - [B.16 P1-G/P1-H and P1-IIId composition/source records](FIFTY_FIRST_REVIEW_B16_P1G_P1H_P1IIID_2026-11-15.md)
 - [P1-IIId vector/NSE provenance and P1-IIIe-A/B/C2 EOS occupation records](FIFTY_SECOND_REVIEW_P1IIID_P1IIIE_2026-11-15.md)
+- [P1-IIIe C3 degeneracy validation, full radial EOS mapping, and P1-IIIa scalar response](FIFTY_THIRD_REVIEW_P1IIIE_C3_P1III_2026-11-15.md)
 
 The 462-row register covers Markdown/text documents. Root-level TeX, BibTeX, bibliography styles and binary PDFs are additionally covered by the [root-file audit report](ROOT_FILE_AUDIT_REPORT_2026-11-14.md); workflow YAML files are covered by the separate workflow register.
 

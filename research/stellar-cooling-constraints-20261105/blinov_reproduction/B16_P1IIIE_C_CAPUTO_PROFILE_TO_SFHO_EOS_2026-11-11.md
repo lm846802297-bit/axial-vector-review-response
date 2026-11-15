@@ -205,3 +205,10 @@ Then inspect \(F_{nn}^{\rm deg}(r)\), \(F_{pp}^{\rm deg}(r)\), \(m_N^*(r)\),
 Only after that profile-level closure should the local EOS factors be supplied
 to an independent dynamic-response calculation. Do not infer a global
 mass-time average from the ten key radii.
+## 6. Independent review qualification (2026-11-15)
+
+This ten-key-radius report is a valid predecessor check, not the final radial mapping. The later P1-IIIe-C full-profile workflow #42960145972 successfully extracted the Caputo vector-path inputs, built the 0.05-km profile, mapped all 301 points to the official SFHo/FRDM v1.03 tables, enforced interpolation-domain/composition/filling-factor gates, and archived the full mapped CSV/JSON. The full radial interval is 0.20--15.20 km and uses no EOS extrapolation.
+
+The key-radius report remains useful as a compact cross-check of the \(Y_p^{\rm tot}=Y_e+Y_\mu\) EOS coordinate, the free-proton versus total-proton distinction, and the Hempel \(U_N,\xi\) mapping. Its earlier "next add full radial profile/CI" items are superseded by the C-full report and workflow. Neither the key-radius nor full-profile input is raw Garching time-series data; both are reconstructions from the Caputo published figures.
+
+**Review disposition: PASS_WITH_NOTES.** Keep this file as the ten-radius predecessor and direct readers to B16_P1IIIE_C_FULL_RADIAL_SFHO_EOS_MAPPING_2026-11-11.md for the accepted 301-point mapping. No EOS table, profile, occupation, response kernel, or cooling output is changed.

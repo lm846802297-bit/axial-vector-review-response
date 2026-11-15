@@ -195,3 +195,14 @@ Only after that will we insert same-snapshot \(n_B(r)\), \(Y_p(r)\), and \(T(r)\
 1. S. Reddy, M. Prakash, and J. M. Lattimer, “Neutrino interactions in hot and dense matter,” Phys. Rev. D 58, 013009 (1998), arXiv:astro-ph/9710115.
 2. S. Reddy, M. Prakash, J. M. Lattimer, and J. A. Pons, “Effects of Strong and Electromagnetic Correlations on Neutrino Interactions in Dense Matter,” Phys. Rev. C 59, 2888 (1999), arXiv:astro-ph/9811294.
 3. C. J. Horowitz, “Weak magnetism for antineutrinos in supernovae,” Phys. Rev. D 65, 043001 (2002), arXiv:astro-ph/0109209.
+## 9. Independent review qualification (2026-11-15)
+
+The scalar response reduction is consistent with the Reddy--Prakash--Lattimer phase-space definition and its energy-delta angular reduction. The factor of two is the spin degeneracy; after integrating over the polar angle, the coefficient \(1/(\pi q)\) and the support \(|q_0|<q\) are consistent with the stated relativistic dispersion. The static sum rule, detailed balance, number-density inversion, and 300/900-node comparison are all recorded in the JSON with residuals below \(10^{-10}\).
+
+The benchmark remains deliberately illustrative: \(T=3.03\) MeV, \(Y_p=0.10\), \(n_0=0.16\ {\rm fm}^{-3}\), and vacuum masses. It is not an EOS-mapped SFHo profile and must not be mixed with the later Hempel effective-mass/mean-field C1/C2 occupations. No dedicated unit-test module or CI workflow accompanies this P1-IIIa script; the current evidence is the single reproducible script and its internal numerical checks.
+
+One helper limitation is recorded for future use: S_nr returns zero at exactly \(q_0=0\), although the analytic expression has a finite removable limit. The current archived nonrelativistic comparison evaluates only the nonzero stationary-target recoil value \(q_0=\sqrt{M_N^2+q^2}-M_N\), so this does not affect the reported 0.715% low-q or 18.8% high-q comparisons. Before using S_nr in a full \(q_0\)-spectrum integration, implement and test the \(q_0\to0\) limit.
+
+The current result remains a scalar ideal-gas response only. It has no vector/axial weak-current tensor, leptonic contraction, weak magnetism, nucleon form factors, neutrino final-state blocking, mean fields, RPA, or NN correlations. Its response-only negative-\(q_0\) fraction is not a final neutrino energy-gain probability.
+
+**Review disposition: PASS_WITH_NOTES.** Retain P1-IIIa as the relativistic free-gas phase-space baseline. Do not insert it into B.2 or interpret it as the complete moving-nucleon collision kernel until P1-IIIb's current tensor and limiting checks are complete.

@@ -169,3 +169,12 @@ C3-C acceptance:
 This result does not establish the accuracy of a nonrelativistic approximation for dynamic \(W_N^{\mu\nu}(q_0,q;r)\), B.1 production, B.2 absorption, or transport. Those involve momentum/energy transfer, recoil, and response kinematics beyond the static occupation ratio.
 
 Next: C4, construct the local dynamic nucleon response with the relativistic EOS baseline retained, and validate the limiting/static relations before using it in any luminosity calculation.
+## 7. Independent review qualification (2026-11-15)
+
+The successful GitHub Actions run #42998186301 executed all C3-C unit tests, recomputed all 602 species-radius records, and compared the full JSON/CSV invariants with the committed output. The relativistic baseline reproduces C2, the nonrelativistic fixed-density solver closes the density, and both dispersion comparisons remain negative over the complete radial profile.
+
+The workflow's Python validation is a clean rerun of the checked-in C3-C implementation, not a second independent implementation. The independent numerical content is the separate nonrelativistic integral/root calculation versus the relativistic EOS baseline. The correlations and regressions remain descriptive along one radial trajectory and are not causal or universal EOS fits.
+
+The static \(F^{\rm deg}\) diagnostic does not provide \(W_N^{\mu\nu}(q_0,q;r)\), a neutrino energy-transfer kernel, B.2 absorption, or a cooling luminosity. The next dynamic-response workstream must retain the relativistic EOS baseline and independently validate its dilute stationary-target limit.
+
+**Review disposition: PASS_WITH_NOTES.** Retain the full-radial static diagnostics and their documented limitations; no dynamic response or stellar-cooling result is inferred from them.
