@@ -105,7 +105,7 @@ The 22--25 km shell is now evaluated with the same vertex-preserving profile (SH
 
 At the strong endpoint, the ratio is 3.1109. The mode-resolved result agrees with the three-state average-opacity diagnostic to about \(3\times10^{-5}\) relative; the longitudinal/transverse rate splitting itself is typically 8--10% in the sampled outer-shell energy range.
 
-The paper's scalar prescription is unambiguous for reproducing Fig. 7: Eq. (B.6) sums over polarization states, Eq. (B.7) supplies the factor of three relative to the polarization-averaged vacuum decay width, and Eq. (B.10) fixes detailed balance. The scalar \(\Gamma_{\rm abs}\) in Eq. (B.2) is therefore evaluated with the polarization-summed rate in the published baseline. Propagating each polarization with its own opacity is a separate, more differential transport extension; it is not a correction to the literal published scalar prescription. The repository retains the polarization-summed scalar result for the Fig. 7 reproduction baseline.
+The local-rate normalization is fixed by the B.6--B.7 sum convention, and B.10 is sum-to-sum detailed balance. However, Eq. (B.2) inserts one scalar \(\Gamma_{\rm abs}^{*}\) into the attenuation exponent without stating whether it is the sum over incident vector polarizations, the three-state average, or shorthand for an assumed polarization closure. The repository retains the literal scalar B.2 implementation as the equation-level reproduction lane, but does not claim that the paper uniquely mandates a polarization-summed exponent. Propagating each polarization with its own opacity remains a distinct, more differential transport extension, not a correction factor to the scalar baseline.
 
 The outer-shell mode audit uses a 48-point mode integral and 512-point direct phase-space checks, four direction bins with 32-point angular quadrature, and the current 222-node vertex-preserving outer profile. Its output is `outputs/b16_outer_shell_polarization_resolved_10mev_2026-11-09.json`. No production axial curve is changed.
 
@@ -169,3 +169,15 @@ The 12--15 km and 22--25 km inverse-decay shells are now compared with source we
 - Successful B.2 path audit: https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42504612491
 
 No production rates, transport routines, luminosity outputs, or axial-vector plots are modified by this re-evaluation.
+
+## 10. Independent review qualification (2026-11-15)
+
+The current input fingerprint in the report is profile B (9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c). The report's source-versus-escape separation, 12--15 km and 22--25 km shell sensitivities, and consistent global B.13 source-plus-opacity comparison remain useful within their recorded quadrature and profile scope. The B.13 replacement does not resolve the B.16--Fig. 7 mismatch.
+
+Two numerical-resolution distinctions should remain explicit. The \(2.43725\times10^{52}\) erg/s fixed-\(\omega\) value in §6 is tied to the report's earlier grid; the later independent 256-angle path-integral audit gives \(2.43736510986799\times10^{52}\) erg/s and \(+92.24931\%\) at the strong endpoint. The 32-direction local-rate report gives \(2.439635957\times10^{52}\) erg/s, about \(0.0932\%\) above that 256-angle result. These are configuration-specific values, not interchangeable exact duplicates and not a physical correction.
+
+The polarization statement in §6 has been corrected: B.6/B.7/B.10 establish the local summed-rate convention, but B.2 does not explicitly identify the scalar attenuation rate as a sum, average, or polarization closure. Keep the scalar equation-level baseline and mode-resolved transport as separate lanes.
+
+The path-redshift-only calculation continues to use Euclidean chord length and is not full GR ray tracing. The exact B.13 global result is restricted to 210--510 MeV; the low-\(x\) full-band extension remains incomplete. Neither diagnostic establishes a full-band Fig. 7 reproduction or author-side raw-profile validation.
+
+**Review disposition: PASS_WITH_NOTES.** The 10 MeV pure-vector Fig. 7 benchmark remains **not validated**. Do not change the production axial-vector cooling curve, the fixed \(R_{\max}=25\) km baseline, or any published constraint.

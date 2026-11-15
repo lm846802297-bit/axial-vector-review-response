@@ -78,7 +78,7 @@ The neutrino-only source fractions are \(L=34.74\%\), \(+=31.50\%\), and \(-=33.
 | \(+\) | 5.400 | 2.392% |
 | \(-\) | 5.475 | 2.298% |
 
-Independent mode propagation gives \(1.8631\times10^{54}\) erg/s, 76.37 times the literal scalar B.2 result. This is **not** a correction to the baseline: the published scalar B.2 prescription exponentiates the polarization-summed opacity, whereas independent mode propagation exponentiates each mode separately. These are distinct transport prescriptions. The literal scalar baseline is retained.
+Independent mode propagation gives \(1.8631\times10^{54}\) erg/s, 76.37 times the literal scalar B.2 result. This is **not** a correction to the baseline. The later Boltzmann state-counting audit establishes the B.6/B.7/B.10 sum-to-sum local-rate convention, but Eq. (B.2) inserts one scalar \(\Gamma_{\rm abs}^{*}\) without specifying whether it denotes a polarization sum, a three-state average, or a separate polarization closure. The repository retains the literal scalar B.2 implementation as an equation-level reproduction lane; it does not claim that the paper uniquely mandates a polarization-summed exponent. Independent mode propagation remains a distinct transport prescription.
 
 ## 5. Leading physical sensitivity: path-energy convention
 
@@ -101,3 +101,21 @@ Next, keep the mass fixed at 10 MeV and perform a one-factor path-energy audit u
 ## Reproduction
 
 The self-contained executable diagnostic, selected-node CSV, machine-readable JSON, plot, pinned inputs and helper source are supplied in the 10 MeV localization addendum delivered with this audit. It contains the direct-run script and three fast regression tests. The calculation was run directly in the local Python environment; CI is not the primary calculation engine.
+
+## 7. Independent review qualification (2026-11-15)
+
+### 7.1 B.2 polarization wording
+
+The original §4 sentence stating that the published scalar B.2 prescription necessarily exponentiates the polarization-summed opacity was too strong. B.6/B.7/B.10 establish the summed local production/absorption convention, but B.2 does not identify its single scalar \(\Gamma_{\rm abs}^{*}\) as a sum, a three-state average, or shorthand for an assumed polarization closure. The literal scalar B.2 implementation is retained for equation-level reproduction; the mode-resolved calculation remains a separate transport lane. This is not evidence that the published calculation definitely contains a factor-of-three error.
+
+### 7.2 Numerical grid comparison
+
+The archived high-order local-rate result quoted above is \(2.439635957\times10^{52}\) erg/s at 32 direction nodes and 64 path nodes. The later independent 256-angle path-integral audit gives \(2.43736510986799\times10^{52}\) erg/s on its pinned configuration. Their relative difference is \(+0.09317\%\). These are configuration-specific numerical results, not contradictory physical prescriptions.
+
+### 7.3 Reproducibility blocker
+
+The current repository tree contains this Markdown report but does not contain the claimed 10 MeV localization addendum artifacts: no direct-run script, selected-node CSV, machine-readable JSON, plot, pinned-input manifest, or helper source corresponding to this report was found. The report states that these materials were supplied in the addendum, but does not provide a repository path or external immutable artifact reference.
+
+To close this item, commit the exact producer and invocation, selected-node data, machine-readable output, plot, input fingerprints (including the profile SHA), and the three regression tests; then rerun the producer and verify the archived values. Until that evidence is present, treat the quoted values as reported numerical evidence rather than an independently reproducible repository output.
+
+**Review disposition: REVISION_REQUIRED.** The physics interpretation has been corrected, but the missing calculation artifacts remain an actionable provenance/reproducibility issue. No source, opacity, coupling, Fig. 7 curve, or axial-vector constraint is changed.
