@@ -4,7 +4,7 @@ Live Git-tree inventory for branch `maintenance/repository-organization-audit-20
 
 ## Repository footprint
 
-- **1,668 Git-tree entries:** 1,545 files and 123 directories.
+- **1,669 Git-tree entries:** 1,546 files and 123 directories.
 - **572 Markdown/text files:** 475 `.md` and 97 `.txt`.
 - **Baseline document register:** 462/462 individually reviewed; 290 `PASS_WITH_NOTES`, 2 `PASS`, 152 `HISTORICAL`, 18 `REVISION_REQUIRED`, 0 `PENDING`. Current fingerprints: 407 match, 52 content hashes differ from the recorded reviewed version, and 3 size-only metadata discrepancies; reconciliation is open.
 - **Supplemental document register:** 110 post-baseline Markdown/text files; 11 `PASS_WITH_NOTES` and 99 `PENDING`. Full current-tree document coverage remains incomplete.
@@ -16,7 +16,7 @@ Live Git-tree inventory for branch `maintenance/repository-organization-audit-20
 | `.github/` | 120 | 115 Actions workflows plus workflow catalog, audit register, review notes, templates and metadata | Keep workflow YAML in `.github/workflows/`; review triggers, permissions, paths and write-back behavior before deprecation. |
 | `archive/` | 20 | Frozen source snapshots and historical response-letter packages | Immutable; add new dated snapshots instead of editing old ones. |
 | `deliverables/` | 22 | Extracted handoff packages and instructions | Keep file-level hashes, extraction provenance and import instructions. Do not store generated ZIP/Base64 bundles as substitutes for extracted contents. |
-| `docs/` | 100 | Repository management, review standards and audit records | Keep navigation, governance, baseline and supplemental audit records here. |
+| `docs/` | 101 | Repository management, review standards and audit records | Keep navigation, governance, baseline and supplemental audit records here. |
 | `overleaf-source/` | 28 | Pinned manuscript source snapshots | Treat as versioned source archives; confirm active Overleaf source before editing. |
 | `research/` | 1,073 | Scientific workstreams, inputs, scripts, tests, outputs and evidence | Use one directory per physical model/workstream; preserve original one-VEV vs two-VEV separation. |
 | `work/` | 18 | Intermediate and temporary research material | Not authoritative until promoted and reviewed. |
