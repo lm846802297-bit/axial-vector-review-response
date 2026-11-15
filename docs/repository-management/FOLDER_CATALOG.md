@@ -6,7 +6,7 @@ Live Git-tree inventory for branch `maintenance/repository-organization-audit-20
 
 - **1,669 Git-tree entries:** 1,546 files and 123 directories.
 - **572 Markdown/text files:** 475 `.md` and 97 `.txt`.
-- **Baseline document register:** 462/462 individually reviewed; 290 `PASS_WITH_NOTES`, 2 `PASS`, 152 `HISTORICAL`, 18 `REVISION_REQUIRED`, 0 `PENDING`. Current fingerprints: 407 match, 52 content hashes differ from the recorded reviewed version, and 3 size-only metadata discrepancies; reconciliation is open.
+- **Baseline document register:** 462/462 individually reviewed; 291 `PASS_WITH_NOTES`, 2 `PASS`, 152 `HISTORICAL`, 17 `REVISION_REQUIRED`, 0 `PENDING`. Current fingerprints: 407 match, 52 content hashes differ from the recorded reviewed version, and 3 size-only metadata discrepancies; reconciliation is open.
 - **Supplemental document register:** 110 post-baseline Markdown/text files; 11 `PASS_WITH_NOTES` and 99 `PENDING`. Full current-tree document coverage remains incomplete.
 - **115 GitHub Actions workflow YAML files:** 47 `REVIEWED_WITH_NOTES`, 16 `HISTORICAL_CANDIDATE`, 52 `PENDING`.
 - **274 JSON files** and **410 Python files** (file counts only; not all are production code).
@@ -38,7 +38,7 @@ See [ROOT_FILE_CLASSIFICATION.md](ROOT_FILE_CLASSIFICATION.md) for the 24 root f
 
 1. Keep root `README.md`, `PROJECT_STATUS.md` and the living decision register as concise governance entry points.
 2. Review the **110 supplemental Markdown/text files** individually; do not count them as complete merely because the original 462-row baseline is complete.
-3. Resolve or explicitly retain the **18 baseline `REVISION_REQUIRED`** items only after evidence-based review; never bulk-promote them.
+3. Resolve or explicitly retain the **17 baseline `REVISION_REQUIRED`** items only after evidence-based review; never bulk-promote them.
 4. Continue triage of the **52 pending workflows**. Do not disable or delete a workflow based only on its filename or an old branch reference.
 5. Audit relative links, Python imports, workflow paths, LaTeX inputs, bibliography lookup and manifests before any physical relocation.
 6. Refresh the PR-vs-main comparison before integration; this catalog does not authorize merge or scientific acceptance.
