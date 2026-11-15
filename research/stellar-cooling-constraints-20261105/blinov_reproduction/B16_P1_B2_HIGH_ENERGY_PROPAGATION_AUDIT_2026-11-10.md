@@ -165,3 +165,13 @@ The main numerical result is that evaluating the local B.16 kernel directly from
 The source-frozen 210--510 MeV global calculation also shows that the inner semi-Compton opacity is sensitive to broad \(T,\mu_\mu\) variations, while the \(\mu_{\nu_\mu}\) sensitivity is below \(0.03\%\) for \(\pm10\%\) changes. The \(T,\mu_\mu/T\) inputs are independently anchored to Bollig Figs. 1 and 4 at the \(10^{-4}\) relative scale. These results do not support a profile correction or opacity rescaling and do not explain the \(+92.2406\%\) fixed-\(\omega\) strong-endpoint residual.
 
 The next unresolved B.2 issue is the normalization map between polarization-summed production, per-polarization inverse absorption, and the scalar absorption rate in the B.2 exponent. This must be derived from B.6--B.10 before any alternative opacity convention is considered.
+
+## 9. Independent review qualification (2026-11-15)
+
+The archived V8 JSON is internally consistent with the reported three distinct diagnostics: (i) 108 direct-\(s\) rays for path-coordinate versus analytic-primitive closure; (ii) 60 rays for 642-node versus 1687-vertex opacity interpolation; and (iii) 36 rays for the fixed-\(\omega\)/path-redshift channel comparison. These sample sets and their weighting must not be conflated. In particular, the 36-ray channel means are unweighted diagnostics, whereas the four-counterfactual Shapley result is source weighted over the 210--510 MeV band.
+
+The quoted numerical values are supported by the archived JSON, but the direct V8 producer source/invocation for this exact 108/60/36-ray payload is not committed alongside it. A later pinned NumPy high-energy chord study provides an independent neighboring check on the same fixed-\(\omega\) neutrino path problem (36 rays across three opacity grids; all 108 combinations; maximum V8/NumPy metric difference \(1.19\times10^{-9}\)). That later check supports the conclusion that the targeted chord quadrature is stable, but it is not a byte-for-byte regeneration of this report's distinct ray sets or its global Shapley output.
+
+The physical interpretation remains limited to the local-ray/high-energy-band scope. The path-redshift Shapley attribution is a sensitivity comparison, not evidence that the published Fig. 7 implementation used the redshifted prescription. The fixed-\(\omega\), Euclidean-chord Eq. (B.2) baseline and the \(+92.2406\%\) strong-endpoint discrepancy remain unchanged.
+
+**Review disposition: PASS_WITH_NOTES.** No profile, source, opacity, coupling, Fig. 7 curve, or axial-vector constraint is modified.

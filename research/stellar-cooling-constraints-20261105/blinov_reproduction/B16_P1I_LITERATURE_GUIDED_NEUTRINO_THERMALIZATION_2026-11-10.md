@@ -89,13 +89,14 @@ Before constructing the full collision kernel, a transparent pilot calculation w
 - central P1-G density tail: \(n_B(20\,{\rm km})/n_0=10^{-3}\), \(H_\rho=1.2\) km;
 - \(T(25\,{\rm km})=3.03\) MeV from the existing profile;
 - the P1-G \(\lambda_T\propto n_B^{-1}E^{-2}\) reference;
-- the recoil-only effective opacity \(\kappa_E/\kappa_T=|E-3T|/m_N\);
+- the recoil-only effective-opacity estimate \(\kappa_E/\kappa_s\simeq|E-3T|/m_N\), with the additional isotropic-scattering closure \(\kappa_s\simeq\kappa_T\) made explicit;
 - the energy-sphere criterion \(\tau_{\rm therm}=2/3\).
 
 For the exponential outer tail, treating \(T\) as locally constant over the short tail gives
 \[
-\kappa_E=\alpha(E)\kappa_T,\qquad
-\alpha(E)=\frac{|E-3T|}{m_N},
+\kappa_E\simeq\alpha(E)\kappa_s,\qquad
+\alpha(E)=\frac{|E-3T|}{m_N},\qquad
+\kappa_s\simeq\kappa_T\ \text{(isotropic-scattering closure)},
 \]
 and hence
 \[
@@ -146,7 +147,7 @@ Consequently, \(e^{-\tau_{\rm therm}}\) must not be inserted as an exact daughte
 
 ## 6. Concrete next calculation
 
-1. Digitize the full \(n_B(r)\) and \(n_p(r)\) curves from Caputo et al. Fig. 1 through 20 km, preserving the figure-read-off uncertainty. Set \(n_n=n_B-n_p\) and join continuously to the existing P1-G outer-tail envelope.
+1. Digitize the full \(n_B(r)\) and \(n_p(r)\) curves from Caputo et al. Fig. 1 through 20 km, preserving the figure-read-off uncertainty. Use \(n_n^{\rm free}=Y_n n_B\) and \(n_p^{\rm free}=Y_p n_B\), or the cross-checked Esseili--Kribs Fig. 12 free-nucleon paths with their line-stroke uncertainty. Do not set \(n_n^{\rm free}=n_B-n_p^{\rm free}\): the difference includes baryons bound in clusters. Join to the P1-G outer-tail envelope only with an explicit species/continuation prescription.
 2. Interpolate the already archived \(T(r)\) profile and use the same radial coordinate and snapshot convention.
 3. Implement the relativistic neutral-current \(\nu n\) and \(\nu p\) differential cross sections with recoil, weak magnetism, and nucleon form factors for the transport kernel. Retain the P1-G \(E^2\) mean-free-path scaling as a comparison baseline.
 4. Implement the recoil effective opacity of Müller--Janka as a cross-check of the energy-transfer moment.
@@ -172,3 +173,33 @@ Consequently, \(e^{-\tau_{\rm therm}}\) must not be inserted as an exact daughte
 4. G. G. Raffelt, H.-T. Janka, and D. F. G. Fiorillo, “Neutrinos from core-collapse supernovae,” 2025 review, Sec. 2.2, arXiv:2509.16306.
 5. A. Caputo, G. Raffelt, and E. Vitagliano, “Muonic boson limits: Supernova redux,” Phys. Rev. D 105, 035022 (2022), Fig. 1, DOI: 10.1103/PhysRevD.105.035022.
 6. N. Blinov et al., “\(L_\mu-L_\tau\) gauge bosons in beam dumps and supernovae,” JHEP 06 (2026) 155, Appendix B, arXiv:2511.09619.
+
+
+## 8. Independent review qualification (2026-11-15)
+
+### 8.1 Free nucleons versus total baryon density
+
+The original Step 6.1 instruction \(n_n=n_B-n_p\) is not valid for the free-neutron density when nuclear clusters are present. The Caputo composition closure and the Esseili--Kribs Fig. 12 comparison show that free nucleons and cluster baryons must remain separate. In the validated common-support region use
+\[
+n_n^{\rm free}=Y_n n_B,\qquad n_p^{\rm free}=Y_p n_B,
+\]
+or use the cross-checked Fig. 12 free-neutron/free-proton paths with their figure-stroke uncertainty. The total baryon density minus the free-proton density also contains bound neutrons in clusters; it is not \(n_n^{\rm free}\). The revised Step 6.1 now states this explicitly.
+
+### 8.2 Scattering opacity versus transport opacity
+
+Müller--Janka Eq. (A31) defines the effective recoil absorption opacity as
+\[
+\kappa_{a,\nu N}^{\rm recoil}
+=\frac{|E_\nu-3T|}{m_N}\,\kappa_{s,\nu N},
+\]
+where \(\kappa_{s,\nu N}\) is the neutrino--nucleon scattering opacity. Keil--Raffelt--Janka Eq. (1), by contrast, uses \(\kappa_T=\lambda_T^{-1}\), the transport opacity associated with momentum exchange. These are not generally identical: \(\kappa_T\) includes the transport angular weighting. The identification \(\kappa_s\simeq\kappa_T\) is justified only as the isotropic-scattering FMT closure used for the simple pilot, not as an exact identity for the differential recoil/weak-magnetism kernel. The revised pilot now labels that closure.
+
+At \(E=255\) and \(500\) MeV, \(E/m_N\simeq0.27\) and \(0.53\), respectively. Thus the linear recoil fraction in Eq. (A31), originally motivated as a small-recoil effective opacity, is an extrapolative diagnostic at the upper end of this daughter band. The tabulated \(R_{\rm therm}\) values must remain a recoil-only stress estimate, not a controlled prediction for the full energy sphere.
+
+### 8.3 Provenance and current implementation status
+
+The four recoil-only radii and density-tail envelope are archived as tables in this Markdown record; no dedicated producer script or machine-readable JSON for this pilot is present in the repository. Their input assumptions are stated, but exact script-level reproduction is not yet closed.
+
+The repository now has separate local-kernel work for stationary-target recoil/weak magnetism (P1-I-B), finite-\(q\) response domains (P1-I-C), moving-nucleon thermal response (P1-IIIb), and EOS effective-mass scattering kernels (P1-IIIe-C4). These should be reused as local microphysical inputs rather than reimplemented. They do not, by themselves, constitute a full radial energy-redistribution transport solution or the daughter-pair deposition probability.
+
+**Review disposition: PASS_WITH_NOTES.** The recoil-only estimate is useful as a literature-based scale, but its opacity closure, free-nucleon inputs, high-energy extrapolation, and missing producer artifact are now explicit. Do not use \(e^{-\tau_{\rm therm}}\) as an exact daughter escape probability, do not fit a new \(R_{\max}\), and do not update the axial-vector constraint.

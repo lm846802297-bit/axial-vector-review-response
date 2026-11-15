@@ -16,7 +16,7 @@ No axial-vector curve is recalculated or updated. PR #57 remains Open / Draft.
 | Local collision kernels | Full 64,000-point radius--energy grid checked | B.6, B.10, B.17 and B.16 residuals at or below the archived (10^{-13}) scale; angular-order and sign checks pass | Numerical pass |
 | Fig. 7 physical comparison | Strong-endpoint residual remains +92.2406% for the fixed-\(\omega\) B.16 working benchmark | Current profile B; 25 coupling points | **Not passed** |
 | Energy/GR convention | B.1 local-energy and E_infinity forms shown numerically equivalent; B.2 path-energy interpretation remains isolated | Independent local-vs-infinity B.1 quadrature and B.2 literal/path-redshift comparison | B.1 resolved; B.2 implementation convention remains a paper-level ambiguity |
-| Stellar-background fidelity | Caputo (T(r)) and (mu_\mu/T) supported by direct Bollig figure comparisons; outer profile remains figure-derived | Original Bollig Figs. 1, 3 and 4 cross-checks; 20--25 km continuation not fully source-validated | Partial |
+| Stellar-background fidelity | \(T(r)\) and \(\mu_\mu/T\) have direct public-figure cross-checks; the 20--25 km thermodynamic continuation remains figure-derived and incompletely source-validated | Original Bollig Figs. 1, 3 and 4 cross-checks; no same-snapshot raw profile | Partial |
 
 ## 2. Current 10 MeV Fig. 7 residuals
 
@@ -120,7 +120,7 @@ The protected Garching endpoint limits raw-profile precision. This does not prev
 ## 6. Final gate decision
 
 - **Numerical modules:** pass.
-- **Current public-profile reconstruction:** internally consistent for the validated (T) and (mu_\mu/T) ranges, but incomplete in the outer profile and metric.
+- **Current public-profile reconstruction:** internally consistent for the validated \(T\) and \(\mu_\mu/T\) ranges, but the 20--25 km thermodynamic continuation remains figure-derived and incompletely source-validated. Missing \(A(r)\) or \(M(r)\) limits only an optional full-GR extension; it does not block the paper's flat-spatial Euclidean-chord B.2 reproduction.
 - **Pure-vector Fig. 7 reproduction:** not passed.
 - **Axial-vector recalculation:** frozen.
 - **PR #57:** keep Open / Draft; do not merge as a validated reproduction.
@@ -205,3 +205,14 @@ The central equal-mode density tail changes the band by \(-4.14\%\), the high-de
 The B.1 source, literal \(R_{\max}=25\) band, and sharp \(R_{\max}=30\) band close to the P1-C/P1-D archived results at \(1.9\times10^{-11}\), \(5.0\times10^{-12}\), and \(5.5\times10^{-12}\). The direct V8 computation is archived; the Python implementation is added for repository reproduction but has not yet been independently rerun.
 
 **Updated decision:** the smooth public-density transport model does not explain the strong-endpoint discrepancy. The exact energy sphere remains unavailable without same-snapshot energy-changing neutrino collision kernels and moments. Retain the literal 25 km baseline, keep PR #57 Draft/Open, and do not update the axial-vector constraint curve.
+
+
+## 8. Independent review qualification (2026-11-15)
+
+The central gate remains unchanged: internal numerical checks pass, but the pure-vector fixed-\(\omega\) Fig. 7 physical reproduction does not pass at the 10 MeV strong endpoint. The path-redshift sensitivity is not promoted to the published baseline, and axial-vector recalculation remains frozen.
+
+Two scope clarifications are added. First, the absence of \(A(r)\) or \(M(r)\) is not a blocker for the paper's printed B.2 prescription; it blocks only a distinct full-GR extension. The remaining relevant background limitation is the figure-derived/incompletely validated 20--25 km thermodynamic continuation and the absence of raw same-snapshot Garching arrays. Second, P1-I's recoil-only energy-thermalization radii are an approximate diagnostic, not a daughter escape probability or a corrected B.2 luminosity. Their use of the Müller--Janka recoil opacity requires an explicit isotropic-scattering identification of scattering and transport opacities and a high-energy extrapolation caveat; the P1-I review now records these limits.
+
+The later 42nd review independently reproduced neighboring high-energy chord and analytic-path diagnostics, but it does not change the Fig. 7 acceptance decision or remove the physical-profile limitation.
+
+**Review disposition: PASS_WITH_NOTES.** Keep PR #57 Draft/Open and do not update any axial-vector constraint until the pure-vector benchmark and energy-redistribution physics pass their independent gates.

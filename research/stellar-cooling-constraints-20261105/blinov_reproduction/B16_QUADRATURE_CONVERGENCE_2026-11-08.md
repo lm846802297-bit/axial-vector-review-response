@@ -1,5 +1,8 @@
 # B.16 fixed-omega quadrature convergence at mV = 10 MeV
 
+> **HISTORICAL — not the current profile-B convergence result.** The machine-readable output records profile SHA-256 `08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9`; the current vertex-preserving profile B used by the 10 MeV baseline is `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`. The six-configuration values below remain valid for their archived input, but the stated 0.3% convergence envelope must not be quoted as a full six-configuration rerun on profile B.
+
+
 **Status:** six-configuration quadrature audit completed; all closure checks pass.  
 **Benchmark:** pure-vector B.14--B.16, SFHo-18.8 figure-reconstructed background at t_pb = 1 s.  
 **Important provenance limitation:** the radial thermodynamic profile is digitized from public figures, not the original Garching simulation table.
@@ -57,3 +60,11 @@ The next investigation should therefore not increase quadrature orders indiscrim
 - Workflow: B.16 fixed-omega quadrature convergence
 - Baseline orders: \((40,100,16,32)\)
 - Combined orders: \((60,150,24,48)\)
+
+## 6. Profile-version disposition (2026-11-15)
+
+The JSON output outputs/b16_quadrature_convergence_10mev_2026-11-08.json records profile_sha256=08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9. The later vertex-preserving baseline uses profile B with SHA-256 9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c. The checked-in driver defaults to the profile imported as DEFAULT_PROFILE from audit_b16_emission_radius_escape.py, and the archived JSON confirms that the six-configuration scan was run on the earlier profile.
+
+Accordingly, the six one-factor/combined refinement values and internal closures are retained as a historical quadrature study for the old profile. They do not establish the same convergence envelope for profile B. Later current-profile work independently checks the B.2 high-energy chord and path integrations, but does not constitute a rerun of this full six-configuration, 25-point luminosity scan. A current-profile six-configuration rerun would be required before reusing the 0.3% figure as a profile-B numerical uncertainty.
+
+**Review disposition: HISTORICAL.** Preserve the original output and its provenance; do not overwrite or relabel its profile hash.
