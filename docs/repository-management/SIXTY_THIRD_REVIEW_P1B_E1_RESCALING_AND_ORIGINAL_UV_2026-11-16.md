@@ -20,7 +20,7 @@ This review checks each report against its machine-readable summaries, relevant 
 
 ## 2. P1-B E1 energy refinement and global interpolation
 
-All four P1-B records use the reconstructed SFHo-18.8 \(t_{\rm pb}=1\) s profile, 1687 radial rows, SHA-256 \`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c\), exact-recoil moving-muon B.13, \(m_{A'}=10\) MeV, pure-vector coupling, both muon charges and \(L,+,-\) modes.
+All four P1-B records use the reconstructed SFHo-18.8 \(t_{\rm pb}=1\) s profile, 1687 radial rows, profile SHA-256 \`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c\`, exact-recoil moving-muon B.13, \(m_{A'}=10\) MeV, pure-vector coupling, both muon charges and \(L,+,-\) modes.
 
 ### 2.1 Seven-anchor energy refinement — PASS_WITH_NOTES
 
