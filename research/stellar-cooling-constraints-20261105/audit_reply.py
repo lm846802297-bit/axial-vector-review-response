@@ -44,7 +44,7 @@ def main():
     assert len(original_caption)==2253
     assert caption_sha=='3e042139e73f73b39ac42081ff494bccafe0345a1135c33eaf990cbd38d2c8c3'
     assert r'\caption{Conditional SN1987A ballistic-cooling benchmark for the axial EFT. The detailed interpretation is given immediately after the figure.}' in after
-    assert r'\end{figure}'+'\n'+r'\clearpage'+'\n'+caption_marker in after
+    assert r'\end{figure}'+'\n'+r'\clearpage'+'\n'+r'\enlargethispage{\baselineskip}'+'\n'+caption_marker in after
     # Only these eight wrappers are layout edits to pre-existing mathematics.
     stripped=after.replace('\\resizebox{\\linewidth}{!}{$\\displaystyle{\n','').replace('\n}$}\n','\n')
     quotes=lambda s:re.findall(r'\\begin\{quote\}(.*?)\\end\{quote\}',s,re.S)
