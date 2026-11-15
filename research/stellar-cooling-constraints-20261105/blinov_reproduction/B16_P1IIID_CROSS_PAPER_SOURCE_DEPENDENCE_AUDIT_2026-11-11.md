@@ -113,3 +113,12 @@ calculation:
 5. Only after the local profile-to-EOS mapping closes should these inputs be
    used in any revised B.2 transport or axial cooling calculation.
 
+## 8. Independent review qualification (2026-11-15)
+
+The cited native-vector extraction and cross-check products were verified against their machine-readable summaries. The APS PDF SHA-256 is c3b92fe6cf2a8bd3fec84925e2baababfe0c707327a68135013f953ed3d87d43 (2,749,668 bytes), with page index 14 / printed page 15 and native paths 25, 181, and 182 for SFHo-18.8 temperature, neutron, and proton. The extraction workflow run #42955259591 completed successfully on the research branch at SHA 014e80889095e846357dc5e02e5c4070b7c45faf; this is historical research-branch evidence, not a check on maintenance PR #115.
+
+The numerical residuals are reproduced by the archived summary: temperature versus Caputo is 0.0707% RMS over 55 points; temperature versus Bollig Fig. 1 is 0.0953% RMS over 391 points; E--K neutron and proton versus Caputo reconstructed free-nucleon curves are 0.580% and 0.586% RMS over ten radii; and their sum versus Caputo free baryons is 0.574% RMS. The literal alternative density-axis transform is about a factor of ten too high and fails the same-model comparison. The half-stroke density uncertainty is about 0.0209 decades (roughly 4.9%), so these residuals demonstrate figure-level consistency, not raw-profile precision.
+
+The source-dependence qualification remains essential: Caputo and Esseili--Kribs trace to the same Garching SFHo-18.8 model lineage and cited simulation family. The sub-percent residuals are an extraction/species-definition consistency check across publications, not an independent simulation uncertainty estimate. The Garching archive's exact same-snapshot raw profile and variable dictionary have not been obtained.
+
+**Review disposition: PASS_WITH_NOTES.** Keep the corrected density-axis candidate as the cross-validated figure interpretation, preserve the literal alternative in the provenance output, and do not describe this comparison as independent hydrodynamic validation.

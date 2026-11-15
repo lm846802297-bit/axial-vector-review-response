@@ -32,7 +32,7 @@ This document describes the current repository organization and the intended own
 
 ## Review coverage and reports
 
-The baseline inventory contains 462 Markdown/text documents. At the latest review checkpoint (2026-11-15), the register contains 196 `PASS_WITH_NOTES`, 2 `PASS`, 9 `REVISION_REQUIRED`, 93 `HISTORICAL`, and 162 `PENDING` (300 individually reviewed). Only documents read individually are assigned a non-pending review outcome. See the [audit register](DOCUMENT_AUDIT_REGISTER.csv) and the dated review reports:
+The baseline inventory contains 462 Markdown/text documents. At the latest review checkpoint (2026-11-15), the register contains 201 `PASS_WITH_NOTES`, 2 `PASS`, 9 `REVISION_REQUIRED`, 94 `HISTORICAL`, and 156 `PENDING` (306 individually reviewed). Only documents read individually are assigned a non-pending review outcome. See the [audit register](DOCUMENT_AUDIT_REGISTER.csv) and the dated review reports:
 
 - [Initial governance and entry review](INITIAL_REVIEW_REPORT_2026-11-14.md)
 - [Second review batch](SECOND_REVIEW_REPORT_2026-11-14.md)
@@ -58,6 +58,7 @@ The baseline inventory contains 462 Markdown/text documents. At the latest revie
 - [B.16 inner-path, local absorption, radial synthesis and paper cross-check](FORTY_EIGHTH_REVIEW_B16_INNER_PATH_LOCAL_ABSORPTION_2026-11-15.md)
 - [B.16 outer-shell and thermodynamic-input records](FORTY_NINTH_REVIEW_B16_OUTER_SHELL_THERMODYNAMIC_INPUTS_2026-11-15.md)
 - [B.16 P1-C/P1-D and P1-E/P1-F source records](FIFTIETH_REVIEW_B16_P1C_P1D_P1E_2026-11-15.md)
+- [B.16 P1-G/P1-H and P1-IIId composition/source records](FIFTY_FIRST_REVIEW_B16_P1G_P1H_P1IIID_2026-11-15.md)
 
 The 462-row register covers Markdown/text documents. Root-level TeX, BibTeX, bibliography styles and binary PDFs are additionally covered by the [root-file audit report](ROOT_FILE_AUDIT_REPORT_2026-11-14.md); workflow YAML files are covered by the separate workflow register.
 

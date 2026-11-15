@@ -153,3 +153,13 @@ The smooth public-density transport model does not close the strong-endpoint dis
 2. G. G. Raffelt, H.-T. Janka, and D. F. G. Fiorillo, “Neutrinos from core-collapse supernovae,” 2025 review manuscript.
 3. N. Blinov et al., JHEP 06 (2026) 155, arXiv:2511.09619, Appendix B.
 4. K.-C. Lai, C. S. J. Leung, and G.-L. Lin, Phys. Rev. D 110, 103023 (2024), arXiv:2401.16023.
+
+## 9. Independent review qualification (2026-11-15)
+
+The reported smooth-tail band changes are consistent with the archived table: -0.33% (low tail), -4.14% (central equal-polarization tail), and -10.60% (high tail), compared with -70.94% for the sharp full-opacity \(R_{\max}=30\) km extension. The band-only total proxies remain approximately +91.98%, +86.87%, and +78.21% above Fig. 7. These are conditional band substitutions with all other energy bins frozen, not a full-spectrum re-integration.
+
+The physical interpretation remains deliberately limited: the model multiplies the outer vacuum-limit inverse-decay opacity by a figure-level energy-weighted daughter survival complement. It does not solve a heavy-flavor energy sphere or a full energy-changing neutrino transport problem. The public density tail, simplified \(\nu N\) mean free path, radial daughter optical depths, and equal/longitudinal/transverse polarization weights are diagnostic assumptions. No new \(R_{\max}\) is selected.
+
+The current Python driver audit_b16_smooth_daughter_reprocessing_b2.py is explicitly an independent repository implementation, not the direct V8 producer of the archived JSON. Its returned schema (configuration, closures, baseline, smooth_results, limitations) differs from the archived V8 schema (method, numerical_closure, baseline, smooth_results, conclusions). The direct V8 source/invocation is not archived, and the independent Python rerun is not claimed as completed. The numerical closure against P1-C/P1-D is strong, but it does not remove this producer-provenance limitation.
+
+**Review disposition: PASS_WITH_NOTES.** Keep the 25 km literal baseline and the sharp 30 km extension as a conditional upper-bound diagnostic only. No source, opacity, luminosity curve, or axial-vector result is changed.

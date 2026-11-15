@@ -1,5 +1,8 @@
 # P1-IIId: Fig. 12 PDF-page render audit and comparison limits
 
+> **HISTORICAL — superseded:** This page-render record is retained as evidence of the initial qualitative inspection only. The current numerical comparison is the native-vector extraction in [B16_P1IIID_FIG12_VECTOR_EXTRACTION_CROSSCHECK_2026-11-11.md](B16_P1IIID_FIG12_VECTOR_EXTRACTION_CROSSCHECK_2026-11-11.md). Do not use the qualitative-only statuses in §§2–5 as the current comparison status.
+
+
 Date: 2026-11-11  
 PR: #57  
 Branch: \`research/moving-muon-thermal-rates-20261107\`

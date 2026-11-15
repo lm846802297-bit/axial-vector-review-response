@@ -193,3 +193,15 @@ The full 210--510 MeV band changes by:
 The band-only total proxies remain \(+86.87\%\), \(+78.21\%\), and \(+91.98\%\) above Fig. 7, respectively. This contrasts with the \(-70.94\%\) band change from the sharp full-opacity 30 km extension. The sharp-boundary near-match is therefore not reproduced by the smooth transport-only model.
 
 The B.1 source, \(R_{\max}=25\) B.2 band, and sharp \(R_{\max}=30\) band close to the archived P1-C/P1-D results at \(1.9\times10^{-11}\), \(5.0\times10^{-12}\), and \(5.5\times10^{-12}\). The full energy-sphere calculation remains unavailable, but the public-density smooth transport estimate does not explain the strong-endpoint discrepancy. See \`B16_P1H_SMOOTH_DAUGHTER_REPROCESSING_B2_2026-11-10.md\`.
+
+## 10. Independent review qualification (2026-11-15)
+
+The exponential-tail integral is dimensionally consistent when \(H_\rho\) is converted from km to cm, and the quoted central \(\tau=2/3\) radii follow from the stated \(n_B(20\,{\rm km})/n_0=10^{-3}\), \(H_\rho=1.2\) km, and \(\lambda_{\nu N}=25\) cm at \(n_0\), \(E_\nu=100\) MeV. The \(\tau=2/3\) radii and energy-weighted pair survival are figure-level radial transport diagnostics, not an energy sphere.
+
+The equal-polarization average is a reference only. The actual vector production density matrix is phase-space and channel dependent. The low/central/high density-tail values are deliberate read-off stresses, not statistical confidence intervals. The radial \(f_{\rm repr}^{25-30}\) average is not a source-, angle-, and energy-weighted B.2 optical-depth integral and must not be multiplied into the P1-D optical depth as a correction.
+
+A source/output version mismatch was identified. The current JavaScript driver uses input keys such as figure_read_off_central and figure_read_off_stress_envelope, whereas the archived JSON uses nB20_over_n0_central, H_km_central, and stress_envelope. The output remains inspectable and its formulas/results are consistent with the report, but the current checked-in script is not schema-identical to the archived producer. Do not claim an exact rerun from the current script until the producer version or a regenerated output is archived.
+
+P1-H subsequently inserts the pair-energy survival proxy into the full 210--510 MeV B.2 ray integral. That smooth calculation changes the band by -0.33% (low tail), -4.14% (central tail), and -10.60% (high tail), rather than the -70.94% sharp 30 km extension. It still leaves the band-only total proxies +78% to +92% above Fig. 7 and is not an energy-sphere result.
+
+**Review disposition: PASS_WITH_NOTES.** Retain \(R_{\max}=25\) km as the literal paper baseline. No density profile, mean free path, source, B.2 opacity, luminosity curve, or axial-vector constraint is changed.
