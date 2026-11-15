@@ -32,7 +32,7 @@ This document describes the current repository organization and the intended own
 
 ## Review coverage and reports
 
-The baseline inventory contains 462 Markdown/text documents. At the latest review checkpoint (2026-11-15), the register contains 238 `PASS_WITH_NOTES`, 2 `PASS`, 10 `REVISION_REQUIRED`, 98 `HISTORICAL`, and 114 `PENDING` (348 individually reviewed). Only documents read individually are assigned a non-pending review outcome. See the [audit register](DOCUMENT_AUDIT_REGISTER.csv) and the dated review reports:
+The original baseline contains 462 Markdown/text documents and is now fully reviewed: 286 `PASS_WITH_NOTES`, 2 `PASS`, 152 `HISTORICAL`, 22 `REVISION_REQUIRED`, and 0 `PENDING`. The current tree additionally contains 110 later-added Markdown/text files, tracked separately in the [supplemental register](SUPPLEMENTAL_DOCUMENT_AUDIT_REGISTER.csv); these remain `PENDING` until individually reviewed. Thus the live tree has 572 `.md`/`.txt` files, and baseline completion must not be confused with full-tree completion. See the [baseline audit register](DOCUMENT_AUDIT_REGISTER.csv), [supplemental register](SUPPLEMENTAL_DOCUMENT_AUDIT_REGISTER.csv), and the dated review reports:
 
 - [Initial governance and entry review](INITIAL_REVIEW_REPORT_2026-11-14.md)
 - [Second review batch](SECOND_REVIEW_REPORT_2026-11-14.md)
@@ -108,3 +108,19 @@ Do not move or delete files solely from their names. Before a move, search and u
 - [Belle II benchmark mapping review](TWENTY_EIGHTH_REVIEW_BELLE_MAPPING_2026-11-15.md)
 - [Pole, scalar and UV RGE output review](TWENTY_NINTH_REVIEW_POLE_AND_RGE_OUTPUTS_2026-11-15.md)
 - [Pole and scalar-width research note review](THIRTIETH_REVIEW_POLE_RESEARCH_NOTES_2026-11-15.md)
+
+
+### Latest document-review batches and targeted follow-ups (2026-11-16)
+
+- [Fifty-ninth review: profile and outer-neutrino audits](FIFTY_NINTH_REVIEW_PROFILE_AND_OUTER_NEUTRINO_AUDITS_2026-11-15.md)
+- [Sixtieth review: 10 MeV profile and B.13 audits](SIXTIETH_REVIEW_10MEV_PROFILE_AND_B13_AUDITS_2026-11-15.md)
+- [Sixty-first review: moving-muon and vector-to-axial records](SIXTY_FIRST_REVIEW_MOVING_MUON_AND_VECTOR_AXIAL_2026-11-16.md)
+- [Sixty-second review: P1-B global convergence and polarization](SIXTY_SECOND_REVIEW_P1B_GLOBAL_AND_POLARIZATION_2026-11-16.md)
+- [Sixty-third review: P1-B E1, rescaling and original-UV records](SIXTY_THIRD_REVIEW_P1B_E1_RESCALING_AND_ORIGINAL_UV_2026-11-16.md)
+- [Sixty-fourth review: two-VEV and V57 records](SIXTY_FOURTH_REVIEW_TWOVEV_AND_V57_2026-11-16.md)
+- [Sixty-fifth review: V57, portal and neutrino records](SIXTY_FIFTH_REVIEW_V57_PORTAL_NEUTRINO_2026-11-16.md)
+- [Sixty-sixth review: meeting archive and historical handbook](SIXTY_SIXTH_REVIEW_MEETING_ARCHIVE_AND_HANDBOOK_2026-11-16.md)
+- [Sixty-seventh review: current manuals and Major 4.2–4.4 technical audit](SIXTY_SEVENTH_REVIEW_CURRENT_MANUALS_AND_TECHNICAL_AUDIT_2026-11-16.md)
+- [Sixty-eighth review: PMNS, portal and scalar-constraint sources](SIXTY_EIGHTH_REVIEW_PMNS_PORTAL_SCALAR_CONSTRAINTS_2026-11-16.md)
+- [Sixty-ninth review: final 54 baseline documents](SIXTY_NINTH_REVIEW_FINAL_54_DOCUMENT_AUDIT_2026-11-16.md)
+- [Targeted follow-up: Major 1 endpoint quadrature repair](SIXTY_SIXTH_REVIEW_MAJOR1_ENDPOINT_QUADRATURE_2026-11-16.md) and [independent numerical audit](POLE_QUADRATURE_INDEPENDENT_AUDIT_2026-11-16.md). This follow-up closes three earlier baseline `REVISION_REQUIRED` entries; it is a targeted repair report, not a replacement for the numbered 59th–69th batch chronology.
