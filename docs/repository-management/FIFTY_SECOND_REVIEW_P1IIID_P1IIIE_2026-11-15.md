@@ -86,3 +86,11 @@ The primary occupation retains the tabulated Hempel/Fiorillo chemical potentials
 ## 8. Final disposition
 
 All six documents are PASS_WITH_NOTES. The P1-IIId figure-level comparison and composition interpretation are updated; the P1-IIIe EOS data/occupation chain is accepted within its documented sampled-grid and snapshot scope. The generic filling-factor default is aligned to the exact HS reference density, but the new regression test has not yet been executed. Continue with the next PENDING row in DOCUMENT_AUDIT_REGISTER.csv.
+
+## 9. Post-review artifact-integrity repair (2026-11-15)
+
+The committed file \`outputs/p1iii_eos_kernel_self_test_2026-11-11.json\` was found to contain three literal backslash-n sequences between object properties. A strict JSON parser failed at line 78, column 48. Only those three separators were replaced with ordinary line breaks; the file now parses successfully and all numerical check values are unchanged.
+
+This is an archived-output formatting defect, not a generator defect: the Python self-test writer uses json.dumps, and the successful EOS workflow generates a fresh temporary JSON and parses it before asserting the checks. No code or test was changed in this repair. It does not supersede the existing qualification that the separate default-filling-factor code patch and its new regression test have not yet been run through the full suite.
+
+**Disposition of this addendum:** formatting-only repair verified by JSON.parse; no new physics or CI acceptance claim.
