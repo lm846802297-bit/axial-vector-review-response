@@ -7,7 +7,7 @@
 ## 快速入口
 
 - [仓库结构与文件管理说明](docs/repository-management/README.md)：目录职责、迁移原则和导航。
-- [逐文档审查标准](docs/repository-management/DOCUMENT_REVIEW_STANDARD.md)、[462 份基线文档登记表](docs/repository-management/DOCUMENT_AUDIT_REGISTER.csv) 与 [110 份补充文档登记表](docs/repository-management/SUPPLEMENTAL_DOCUMENT_AUDIT_REGISTER.csv)：当前 Git 树共有 572 份 Markdown/text 文件（475 `.md`、97 `.txt`）；原始 462 份基线已逐份审查，新增 110 份已入补充台账并保持 PENDING，未审查文件不会标记为通过。
+- [逐文档审查标准](docs/repository-management/DOCUMENT_REVIEW_STANDARD.md)、[462 份基线文档登记表](docs/repository-management/DOCUMENT_AUDIT_REGISTER.csv) 与 [110 份补充文档登记表](docs/repository-management/SUPPLEMENTAL_DOCUMENT_AUDIT_REGISTER.csv)：当前 Git 树共有 572 份 Markdown/text 文件（475 `.md`、97 `.txt`）；原始 462 份基线已逐份审查；新增 110 份已入补充台账，其中 5 份 PASS_WITH_NOTES、105 份 PENDING，未审查文件不会标记为通过。
 
 > **2026-11-16审查状态：** 原始基线 462/462 已审查（286 PASS_WITH_NOTES、2 PASS、152 HISTORICAL、22 REVISION_REQUIRED、0 PENDING）；补充台账另有 110 份新增文本文件待逐份审查。第六十九轮完成最后 54 份基线文件审查；随后第六十六轮专项端点积分复核关闭三项旧 REVISION_REQUIRED。详见[第六十九轮报告](docs/repository-management/SIXTY_NINTH_REVIEW_FINAL_54_DOCUMENT_AUDIT_2026-11-16.md)及[端点积分修复报告](docs/repository-management/SIXTY_SIXTH_REVIEW_MAJOR1_ENDPOINT_QUADRATURE_2026-11-16.md)。
 - [GitHub Actions 工作流索引](.github/workflows/README.md) 与 [工作流审查登记表](.github/workflows/WORKFLOW_AUDIT_REGISTER.csv)：115 个工作流按物理专题分类，并逐份记录触发条件、权限和输出行为；目前 47 个完成静态审查，16 个标记为历史候选，52 个待审查。
