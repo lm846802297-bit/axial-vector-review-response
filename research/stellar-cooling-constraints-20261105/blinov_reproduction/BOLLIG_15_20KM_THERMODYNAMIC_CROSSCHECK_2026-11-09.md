@@ -142,3 +142,11 @@ The current-profile conclusion is therefore narrower and better grounded: the Fi
 - Original vector paths: `outputs/bollig_fig3_fig4_vector_paths_2026-11-09.json`
 
 The audit does not modify production rates, transport, the vector Fig. 7 comparison, or the axial-vector constraint outputs.
+
+## 9. Independent review qualification (2026-11-15)
+
+The current-profile comparison in §7 is distinct from the explicitly superseded old-profile impact estimate in §6. The 294-node 15--20 km comparison supports the public-figure consistency of \(T(r)\) and \(\mu_\mu/T\) to the quoted read-off precision. It does not remove the absolute-density discrepancy: Fig. 3 reaches its lower plotting floor at 16.6466 km, so no pointwise inference beyond that radius is warranted.
+
+The reported 10.38% mean density offset is a figure-level mismatch, not a correction factor. The B.1 susceptibility factor \(n_\mu F_{\rm deg}\) is fixed by the same \(T,\mu_\mu\) distribution; changing the plotted \(n_\mu\) normalization alone would double-count a change in \(F_{\rm deg}\). The current-profile shell estimate limits the effect on outer Compton attenuation to a very small level, but it is not a new transport calculation.
+
+**Review disposition: PASS_WITH_NOTES.** Keep the old-profile §6 result historical, retain the current-profile §7 result as the active comparison, and do not rescale \(n_\mu\), \(F_{\rm deg}\), the B.1 source, or the B.2 opacity.

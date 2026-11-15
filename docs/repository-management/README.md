@@ -32,7 +32,7 @@ This document describes the current repository organization and the intended own
 
 ## Review coverage and reports
 
-The baseline inventory contains 462 Markdown/text documents. At the latest review checkpoint (2026-11-15), the register contains 224 `PASS_WITH_NOTES`, 2 `PASS`, 9 `REVISION_REQUIRED`, 95 `HISTORICAL`, and 132 `PENDING` (330 individually reviewed). Only documents read individually are assigned a non-pending review outcome. See the [audit register](DOCUMENT_AUDIT_REGISTER.csv) and the dated review reports:
+The baseline inventory contains 462 Markdown/text documents. At the latest review checkpoint (2026-11-15), the register contains 230 `PASS_WITH_NOTES`, 2 `PASS`, 9 `REVISION_REQUIRED`, 95 `HISTORICAL`, and 126 `PENDING` (336 individually reviewed). Only documents read individually are assigned a non-pending review outcome. See the [audit register](DOCUMENT_AUDIT_REGISTER.csv) and the dated review reports:
 
 - [Initial governance and entry review](INITIAL_REVIEW_REPORT_2026-11-14.md)
 - [Second review batch](SECOND_REVIEW_REPORT_2026-11-14.md)
@@ -63,6 +63,7 @@ The baseline inventory contains 462 Markdown/text documents. At the latest revie
 - [P1-IIIe C3 degeneracy validation, full radial EOS mapping, and P1-IIIa scalar response](FIFTY_THIRD_REVIEW_P1IIIE_C3_P1III_2026-11-15.md)
 - [P1-IIIb/P1-IIIc moving-nucleon kernels and P1-I finite-Q literature domain](FIFTY_FOURTH_REVIEW_P1III_MOVING_KERNEL_AND_P1I_Q_DOMAIN_2026-11-15.md)
 - [P1-I thermalization, B.2 propagation, gravity and vector benchmark records](FIFTY_FIFTH_REVIEW_P1I_B16_BENCHMARK_RECORDS_2026-11-15.md)
+- [B.2 polarization/energy audits and Bollig profile cross-checks](FIFTY_SIXTH_REVIEW_B2_BOLLIG_PROFILE_RECORDS_2026-11-15.md)
 
 The 462-row register covers Markdown/text documents. Root-level TeX, BibTeX, bibliography styles and binary PDFs are additionally covered by the [root-file audit report](ROOT_FILE_AUDIT_REPORT_2026-11-14.md); workflow YAML files are covered by the separate workflow register.
 

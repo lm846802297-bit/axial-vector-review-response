@@ -185,7 +185,7 @@ The B.6--B.10 printed equation chain remains sum-to-sum: B.7's factor of three c
 Seven algebraic tests pass. This does not replace the exact B.13 Compton polarization kernel or close the Fig. 7 benchmark.
 
 
-## 8. Exact B.13 Compton kernel inserted into the 210–510 MeV B.1/B.2 band (2026-11-14)
+## 9. Exact B.13 Compton kernel inserted into the 210–510 MeV B.1/B.2 band (2026-11-14)
 
 The missing B.2 follow-up has now been evaluated using the full-profile Global-03 B.13 local-kernel table.
 
@@ -215,7 +215,7 @@ with relative residual -1.01e-7 against the archived P1-C band value.
 
 The B.13 thin source is 62.01% of the B.16 thin source. Its source composition is 80.43% neutrino and 19.57% Compton; the B.16 band source is 49.88% neutrino and 50.12% Compton. The B.13 scalar-sum escape fraction is 0.4668%, versus 0.2346% for B.16, so the lower B.13 thin source is partly offset by increased escape.
 
-The mode-resolved B.13 result is 28.85 times the B.13 scalar-sum result. The equal-occupation average-opacity and mode-resolved luminosities differ by only 0.22%. This is the state-counting distinction already identified in the scalar-versus-mode transport audit: the literal scalar prescription attenuates with the sum of the three mode opacities, whereas mode-resolved transport applies a separate survival factor to each mode. The mode-resolved number is not a correction factor to the scalar B.2 result.
+The mode-resolved B.13 result is 28.85 times the B.13 scalar-sum result. The equal-occupation average-opacity and mode-resolved luminosities differ by only 0.22%. This is the state-counting distinction already identified in the scalar-versus-mode transport audit: the B.16 scalar-sum implementation used in this comparison attenuates with the sum of the three mode opacities, whereas mode-resolved transport applies a separate survival factor to each mode. The printed B.2 scalar exponent itself does not specify whether its single opacity is the polarization sum, the three-state average, or shorthand for a polarization closure; therefore these are explicitly named comparison lanes, not a proof that the text uniquely mandates the scalar-sum convention. The mode-resolved number is not a correction factor to the scalar B.2 result.
 
 ### Exact B.13 polarization weights versus B.14 no-recoil weights
 
@@ -232,7 +232,7 @@ At r=15 km and omega=510 MeV (x=38.54), the direct local B.13 Compton-to-neutrin
 Machine-readable summary and report are under `blinov_reproduction/results/P1B_B2_EXACT_B13_2026-11-14/`. Reproducibility archive: `P1B_B2_EXACT_B13_HIGH_ENERGY_2026-11-14.zip`, SHA-256 `e33c71f7d58c85f8e64f7a4c9066588f749cda60e63c74bd1dacedc1c244e2f5`.
 
 
-## 9. Full-band low-x interpolation prerequisite
+## 10. Full-band low-x interpolation prerequisite
 
 The 210–510 MeV B.2 result lies within the Global-03 local-kernel interpolation support. The full B.2 energy grid does not: the relevant minimum path-local coordinate is
 
@@ -245,3 +245,12 @@ whereas the current Global-03 table begins at x=0.5. Therefore the 210–510 MeV
 A partial local pilot tested x={0.01, 0.025, 0.05, 0.1, 0.25, 0.5} at r=8.482141 km and x=0.01 at r=12.5 km. All seven completed points pass 0.1% successive-order convergence, with maximum final change 0.03292%, detailed-balance residual below 6.2e-16 and final-muon shell residual below 1.63e-13. The 24-point pilot was not completed; this is not a global low-x interpolation validation.
 
 **Next required calculation:** construct and validate the low-x extension beginning at x=0.01 over the radial profile, then merge it with the x>=0.5 Global-03 table. Only after that should the full-band exact-B.13 B.1/B.2 transport be attempted.
+
+
+## 11. Independent review qualification (2026-11-15)
+
+The B.6/B.7/B.10 state-counting interpretation is now consistent with the later P1-C audit: B.7 converts the polarization-averaged vacuum width to the summed thermal production rate, and B.10 is sum-to-sum detailed balance. Neither identity alone specifies the scalar polarization closure inserted into the B.2 ray exponent. The exact-B.13 comparison above is therefore correctly kept as distinct named lanes (B.16 scalar-sum reproduction, B.13 scalar-sum, B.13 equal-occupation average, and B.13 independent mode propagation); the revised text no longer implies that the printed B.2 equation uniquely requires a sum opacity.
+
+The local exact-B.13 kernel audit and the 210--510 MeV global band calculation are accepted within their stated support. The full-band low-x prerequisite in §10 remains open: the 7-point local pilot is not the 24-point radial-profile validation, and the B.13 210--510 MeV band is not a full Fig. 7 reproduction. The exact-B.13 zip and SHA remain the archived reproducibility object; no full-band output is inferred from it.
+
+**Review disposition: PASS_WITH_NOTES.** Keep the 210--510 MeV band as a restricted result, retain the full-band low-x gate, and make no SN1987A or axial-vector limit update.

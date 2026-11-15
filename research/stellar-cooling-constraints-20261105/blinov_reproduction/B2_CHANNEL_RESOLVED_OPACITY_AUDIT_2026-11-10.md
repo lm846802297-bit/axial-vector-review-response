@@ -8,15 +8,15 @@ Result: [`b16_10mev_channel_resolved_opacity_2026-11-10.json`](outputs/b16_10mev
 
 ## Scope and method
 
-The literal B.2 reduced absorption kernel is split additively into neutrino inverse-decay and semi-Compton pieces:
-[
+For this channel-resolved B.16 scalar-sum implementation, the reduced absorption kernel is split additively into neutrino inverse-decay and semi-Compton pieces:
+\[
 \Gamma_{\rm red}=(e^{\omega/T}-1)\,\Gamma_{\rm prod}
 =\Gamma_{\rm red,\nu}+\Gamma_{\rm red,C},
 \qquad
 \tau_i=g_X^2\int_{\rm chord}\frac{ds}{v}\,
 \Gamma_{\rm red,i}(r(s),\omega).
 ]
-The survival factor is evaluated with the sum, (P_{\rm esc}=\exp[-(\tau_\nu+\tau_C)]). The channel split is diagnostic only; it does not apply separate survival factors or modify the total opacity.
+For this named scalar-sum lane, the survival factor is evaluated with the sum, (P_{\rm esc}=\exp[-(\tau_\nu+\tau_C)]). The channel split is diagnostic only; it does not apply separate survival factors or modify the total opacity. This is the implementation convention used for the B.16 reproduction, not a claim that the printed B.2 text uniquely specifies the polarization closure of its scalar exponent.
 
 The direct V8 double-precision calculation uses the same reconstructed SFHo-18.8 profile, Fig. 7 digitization, coupling, and quadrature orders as the preceding phase-space cross-check: source radial 200, opacity radial 640, energy 200 plus lapse-threshold nodes, direction 32, path 64. The profile and Fig. 7 files are the same archived inputs. Node counts agree with the archived high-order baseline. V8-generated quadrature nodes are not bitwise-identical to NumPy's nodes, so this is not the strict NumPy runbook acceptance.
 
@@ -98,4 +98,15 @@ A source-frozen global B.2 sensitivity calculation in the 210--510 MeV band find
 - \(\pm10\%\) \(\mu_\mu\) at fixed \(T\) changes it by \(+19.95\%/-18.91\%\);
 - correlated \(\pm10\%\) \(T,\mu_\mu\) variations at fixed \(\mu_\mu/T\) change it by \(+37.05\%/-32.36\%\).
 
-These broad variations are stress tests, not inferred uncertainties. The actual baseline \(T\) and \(\mu_\mu/T\) match Bollig Figs. 1 and 4 over 5--15 km to maximum relative residuals \(9.90\times10^{-5}\) and \(2.127\times10^{-4}\), respectively. The remaining B.2 normalization issue is the relation between the polarization-summed production rate and the scalar absorption rate in the optical-depth exponent; it is not resolved by these thermodynamic tests.
+These broad variations are stress tests, not inferred uncertainties. The actual baseline \(T\) and \(\mu_\mu/T\) match Bollig Figs. 1 and 4 over 5--15 km to maximum relative residuals \(9.90\times10^{-5}\) and \(2.127\times10^{-4}\), respectively. The remaining B.2 normalization issue is not a missing factor in B.7 or B.10: the local chain is sum-to-sum. The unresolved point is whether the single scalar opacity in the B.2 exponent denotes a polarization sum, a three-state average, or a specified polarization closure; the printed equation does not say. The thermodynamic tests do not resolve that interpretation.
+
+
+## 7. Independent review qualification (2026-11-15)
+
+The machine-readable V8 result is numerically consistent with the displayed global and 210--510 MeV channel means, the 36-ray channel/path diagnostics, and the source-weighted global Shapley attribution. The distinction between the unweighted 36-ray sample and the source-weighted global counterfactual is essential and is now explicit in the companion P1-B.2 review.
+
+The exact direct V8 producer source/invocation for this channel-resolved JSON is not committed. Its output remains inspectable numerical evidence, and the later P1-B.2 path audit plus the pinned NumPy high-energy chord study provide independent neighboring checks, but they do not constitute an exact source-level regeneration of this JSON.
+
+The B.6/B.7/B.10 local-rate convention is sum-to-sum. As clarified in the later P1-C audit, the scalar opacity in the B.2 ray exponent remains under-specified as to sum, three-state average, or an explicit polarization closure. The channel decomposition here is retained as the named B.16 scalar-sum implementation lane, not as proof that B.2 uniquely selects that polarization convention.
+
+**Review disposition: PASS_WITH_NOTES.** The channel fractions and luminosity remain unchanged; no source, opacity, Fig. 7 curve, or axial-vector constraint is modified.

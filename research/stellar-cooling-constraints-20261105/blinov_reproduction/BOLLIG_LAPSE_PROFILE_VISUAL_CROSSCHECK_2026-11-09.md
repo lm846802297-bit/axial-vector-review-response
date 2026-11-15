@@ -60,3 +60,11 @@ The 15--20 km profile uncertainty is now more constrained than before: T and mu_
 The main unresolved reproduction issue is therefore not an obvious lapse-profile mismatch. It remains the strong-coupling difference between the paper-faithful fixed-omega B.16 global calculation and Fig. 7.
 
 No production source, absorption rate, path integral, coupling, luminosity, or axial-vector constraint is modified.
+
+## 5. Independent review qualification (2026-11-15)
+
+The document correctly labels the slide-65 comparison as a qualitative visual cross-check rather than a numerical lapse extraction. The sampled values agree at the stated few-\(10^{-3}\) read-off scale over 0--20 km, but the presentation curve is rasterized and has no machine-readable data or archived numerical trace. The source is a separate public visualization of the same SFHo-18.8 Garching model lineage, not an independent hydrodynamic simulation or a raw Garching profile table.
+
+The 20--22 km continuation remains outside the plotted interval and is not validated by this source. The absence of \(A(r)\) or \(M(r)\) is not a blocker for the published flat-spatial B.2 baseline; it limits only a separate full-GR extension.
+
+**Review disposition: PASS_WITH_NOTES.** Retain the visual corroboration without assigning it sub-percent precision; do not modify the lapse profile or any transport result.
