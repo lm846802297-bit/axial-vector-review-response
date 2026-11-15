@@ -1,6 +1,6 @@
 # 2026-11-15 live status: post-PR #106 / #113 merge and maintenance audit
 
-> This entry supersedes earlier live summaries below wherever they list PR #106 or #113 as open/draft, report an older main SHA, or describe either branch as an active PR. It also supersedes the pre-merge PR #56 status and the 2026-11-06 response-PDF validation metadata: PR #56 merged on 2026-11-12, and the response PDF layout fix on this maintenance branch is described below. Older dated entries remain as historical snapshots.
+> This entry supersedes earlier live summaries below wherever they list PR #106 or #113 as open/draft, report an older main SHA, or describe either branch as an active PR. It also supersedes the pre-merge PR #56 status and the 2026-11-06 response-PDF validation metadata: PR #56 merged on 2026-11-12, and the final response-PDF layout acceptance recorded on 2026-11-16 below. Older dated entries remain as historical snapshots.
 
 ## Repository-management update (2026-11-15)
 
@@ -97,7 +97,7 @@
 - **PR #106 — merged (Squash):** `71ce83e72dd4688f09462e54209d3a47e7172e03`. Archives the 10 MeV B.2 energy/GR/polarization audit, GR ray kernel, polarization state-counting module, exact B.13 explicit-spinor audit, and regression tests.
 - **PR #113 — merged (Squash):** `d2f4037cc965eb2f4184f695dc81a95e1b8283c9`. Archives P1-B Global-02–05 radial/energy screens, selected high-order checks, exact-B.13 high-energy-band B.1/B.2 comparison, and the low-x support finding.
 - **PR #56 — merged 2026-11-12:** author-directed integration of the fixed-profile axial-EFT ballistic-cooling benchmark and related research. Merge status is not scientific acceptance: the pure-vector Blinov Fig. 7 10 MeV high-absorption discrepancy remains unresolved (+92.24691% in the literal fixed-ω lane); no opacity/profile rescaling is accepted, and the axial curve remains conditional rather than a complete SN1987A transport/exclusion result.
-- **Formal response on the maintenance branch:** same-source build, 64 pages, 501,004 bytes, SHA-256 `095daf18a7202d11f9bf9f48077ab2ab82c1f10386059da9bf9633ae4d9ea679`. Full original Figure 1 caption is retained in the adjacent text after the figure. Layout inspection does not establish scientific validity; the prior 63-page file (`e0a2114e…`) remains recoverable from Git history and the dated Overleaf package.
+- **Formal response on the maintenance branch — final layout accepted:** GitHub Actions run [#43767527054](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43767527054) rebuilt the root TeX with BibTeX. The final PDF is 64 pages / 500,973 bytes, SHA-256 `f5f7f5c24bc04b3901f26d261d18b64ec876a2680dee23c7b3b1964abf3e1819`; all 64 pages were rendered and visually reviewed. The 2,253-character Figure 1 caption is preserved exactly; the page-44/45 widow was removed without changing text. No unresolved references, overfull boxes, oversized floats, unembedded fonts, blank pages, or out-of-bounds text. One non-clipping underfull warning at lines 609–611 remains. See [final acceptance report](docs/repository-management/REPLY_LETTER_FINAL_ACCEPTANCE_2026-11-16.md). This is layout acceptance only, not physical validation.
 - **No open research/physics PRs remain** after the merge audit. The separate Draft repository-management PR #115 is open on `maintenance/repository-organization-audit-20261114`; it contains navigation, classification, audit documentation and a separately recorded spectral-window comparison; it does not overwrite original scientific outputs or change physical conclusions. The branch was synchronized with main at `e4dd7ec` and must be reviewed against the latest main before merge.
 - PR #106's exact-kernel workflow passed compilation, the explicit-spinor audit, and 38 regression tests across five suites (run #43534265182).
 - The Global-05 low-x driver was rerun from the exact packaged source/profile. All 80 low-order points were finite/nonnegative; maximum detailed-balance residual was (4.6060\times10^{-15}), and maximum final-muon shell residual was (1.6261\times10^{-13}). The script writes the summary and regenerable 80-point JSON/CSV records.
@@ -124,7 +124,7 @@
 
 Generated review/delivery ZIPs and Base64 ZIP parts are not committed to main. Their extracted contents are stored at:
 
-- `deliverables/Overleaf_Reply_Letter_PR72_2026-11-13/`
+- `deliverables/Overleaf_Reply_Letter_PR72_2026-11-13/` (historical 2026-11-13 export; not the current final-submission source)
 - `deliverables/higgs_portal_mixing_md_with_svg/`
 - `research/stellar-cooling-constraints-20261105/review_package_extracted/`
 

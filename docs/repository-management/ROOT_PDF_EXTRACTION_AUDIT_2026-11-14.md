@@ -32,3 +32,12 @@ A local candidate moved the original caption text, unchanged, into a paragraph i
 The 64-page PDF (501,004 bytes, SHA-256 `095daf18a7202d11f9bf9f48077ab2ab82c1f10386059da9bf9633ae4d9ea679`) was built from the corresponding root TeX and the existing two BibTeX inputs, JHEP style and unchanged figure. Original caption text (2,253 characters; SHA-256 `3e042139e73f73b39ac42081ff494bccafe0345a1135c33eaf990cbd38d2c8c3`) is retained exactly as body text immediately after the figure. A short caption and clear page separate the figure and explanation. A reconstruction test restores the pre-edit TeX byte-for-byte by reversing these insertions and relocation. No scientific claim, parameter, formula, result or graphic was removed or recomputed.
 
 `latexmk` completed with BibTeX, no undefined reference or oversized float warnings; one pre-existing underfull box at lines 609–611 remains. All pages were rendered and inspected as 4-by-4 contact sheets; pages 42–44 also received enlarged inspection. A PyMuPDF text-boundary scan found no lines outside the page. All fonts were embedded. Contact sheets and boundary checks are not a substitute for independent physics or high-resolution equation verification. The environment used a temporary locally generated TeX format and font map. The earlier 63-page PDF and historical Overleaf package are preserved in Git history.
+
+
+## Final CI build and visual acceptance — 2026-11-16
+
+The earlier statements above that the caption-repaired candidate was not yet committed, and that the current PDF was still the 501,004-byte local candidate, describe an intermediate checkpoint only. They are superseded by the final CI acceptance in [REPLY_LETTER_FINAL_ACCEPTANCE_2026-11-16.md](REPLY_LETTER_FINAL_ACCEPTANCE_2026-11-16.md).
+
+The final root PDF is 64 pages / 500,973 bytes, SHA-256 `f5f7f5c24bc04b3901f26d261d18b64ec876a2680dee23c7b3b1964abf3e1819`, built in [Actions run #43767527054](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43767527054). The 2,253-character original Figure 1 caption is preserved exactly. All 64 pages were rendered and visually reviewed; the final page-44/45 widow adjustment was independently rebuilt and re-inspected. The build has no unresolved references, no overfull boxes or oversized floats, all fonts embedded, and no blank/out-of-bounds text. One non-clipping underfull box warning at lines 609–611 remains documented.
+
+This remains a layout-only acceptance. It does not validate the physical cooling calculation or close the outstanding scientific questions.

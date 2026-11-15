@@ -1,6 +1,8 @@
 # Overleaf import package — extracted files
 
-This directory is the individually extracted, verified snapshot of the Major 3 reply-letter package. It is not a ZIP archive.
+This directory is the individually extracted, verified **historical 2026-11-13 snapshot** of the PR72 reply-letter package. It is not a ZIP archive.
+
+> **Not for final submission:** this package's `main.tex` predates the accepted Figure 1 caption relocation and page-44/45 widow adjustment. Preserve it for provenance only. The current authoritative TeX/PDF are at the repository root; see [the final acceptance report](../../docs/repository-management/REPLY_LETTER_FINAL_ACCEPTANCE_2026-11-16.md).
 
 ## Import and compile
 

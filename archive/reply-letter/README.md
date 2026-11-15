@@ -2,11 +2,11 @@
 
 This directory preserves recoverable, immutable source snapshots of the referee-response letter. It is an archive, not a second working copy.
 
-## Current root response status (2026-11-14)
+## Current root response status (2026-11-16)
 
-On the maintenance branch the root TeX and PDF include a layout-only repair of the oversized Figure 1 caption. The corresponding 64-page PDF has SHA-256 `095daf18a7202d11f9bf9f48077ab2ab82c1f10386059da9bf9633ae4d9ea679`. The 63-page PR #56 PDF (`e0a2114e…`) and the older 65-page build remain historical records. The build dependencies are `references.bib`, `Replies_to_Referee_3_stellar_references.bib`, `JHEP.bst`, and `research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply_gev.pdf`.
+On the maintenance branch the root TeX and PDF include the final layout-only repair of the oversized Figure 1 caption and a one-line widow adjustment. The 64-page PDF was rebuilt by GitHub Actions run [#43767527054](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43767527054); it is 500,973 bytes with SHA-256 `f5f7f5c24bc04b3901f26d261d18b64ec876a2680dee23c7b3b1964abf3e1819`. The full 2,253-character original caption is preserved exactly. All 64 pages were rendered and visually reviewed; citations, fonts and page boundaries passed. See [the final acceptance report](../../docs/repository-management/REPLY_LETTER_FINAL_ACCEPTANCE_2026-11-16.md). The 63-page PR #56 PDF (`e0a2114e…`) and earlier local 64-page candidate remain historical. Build dependencies are `references.bib`, `Replies_to_Referee_3_stellar_references.bib`, `JHEP.bst`, and `research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply_gev.pdf`.
 
-The older source snapshots remain immutable. Statements below about two bibliographies, no figure dependency, or an outdated root PDF describe the 2026-11-04/05 snapshots and are superseded for the current build by this note. No new immutable snapshot is declared accepted by this PR.
+The older source snapshots remain immutable. Statements below about two bibliographies, no figure dependency, or an outdated root PDF describe the 2026-11-04/05 snapshots and are superseded for the current build by this note. The 2026-11-13 Overleaf package under `deliverables/` is also a historical export and predates the final caption relocation; do not use it as the current submission source. No new immutable snapshot is declared accepted by this PR.
 
 ## Source-of-truth rule
 
