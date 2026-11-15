@@ -101,3 +101,14 @@ Related audits:
 - `FIG7_VECTOR_BENCHMARK_REEVALUATION_2026-11-09.md`
 
 No axial-vector production curve is regenerated or modified. No empirical rescaling of source, opacity, or luminosity is applied.
+
+## 7. Independent physics-content review (2026-11-15)
+
+The impact-parameter geometry, inward/outward branch accounting, piecewise-linear radial-opacity primitive, and independent direct path-coordinate check are consistent. The current-profile channel sum and reduced-absorption closure are at the \(10^{-16}\) level; the maximum analytic-radial versus direct-path residual is \(1.19179\times10^{-4}\), while the source-weighted L1 residual over the dominant 8–15 km emission region is \(2.09403\times10^{-6}\). The 16/32/64 angular-order scan changes the strong-endpoint source-weighted escape probability by only \(5.73\times10^{-6}\) at order 16 and \(1.30\times10^{-6}\) at order 32 relative to order 64.
+
+The radial attribution is correctly stated as a path-optical-depth weighting, not as an additive decomposition of luminosity. In particular, the 22–25 km shell contributes 19.07% of the source-weighted neutrino path optical depth, while the full 8–22 km group contributes 75.54%. The leave-one-shell-out luminosity factors are nonlinear counterfactuals and must not be added or interpreted as physical opacity corrections.
+
+This output uses the literal fixed-\(\omega\) B.2 path prescription. It is not the conserved-\(E_\infty\) lapse-redshift diagnostic, and neither prescription here includes the full spatial metric/geodesic path correction. The B.1/B.2 background is a vertex-preserving public-figure reconstruction, not the raw Garching snapshot.
+
+**Review outcome: PASS_WITH_NOTES.** The current-profile path decomposition is numerically and geometrically consistent within the fixed-\(\omega\), reconstructed-profile baseline. It does not resolve the B.2 energy-convention ambiguity or establish agreement with Fig. 7.
+
