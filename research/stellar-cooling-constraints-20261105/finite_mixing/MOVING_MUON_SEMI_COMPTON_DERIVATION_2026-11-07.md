@@ -1,7 +1,7 @@
 # Moving-muon semi-Compton collision integral
 
 Date: 2026-11-07  
-Status: phase-space reduction and normalization specification; production implementation is not yet validated.
+Status: phase-space reduction and normalization specification; pointwise \(\mu^-\) spinor/trace and local implementation validation passed (workflow #43534265182, 38 targeted tests). The independent explicit \(\mu^+\) \(v\)-spinor cross-check and global transport acceptance remain open.
 
 ## 1. Scope
 
@@ -203,3 +203,9 @@ In the dilute, nonrelativistic thermal limit, the integrated moving-muon absorpt
 9. The pure-vector local thermal rate is compared with the literal Blinov B.13/B.14 conventions; the positive-muon and charge-conjugate corrections are reported separately rather than silently absorbed into a normalization.
 
 Only after these tests pass may the local rates be tabulated over the reconstructed SFHo-18.8 profile. The pure-vector full Fig. 7 reproduction gate remains separate and mandatory before any final astrophysical exclusion claim.
+
+## 8. Validation update (2026-11-16)
+
+The previous header statement that the production implementation was not yet validated is superseded for the tested local domain by workflow [#43534265182](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43534265182). The run passed 38 targeted tests, including the explicit-spinor audit. For the \(\mu^-\) channel, the maximum spinor/trace residual was \(1.4820\times10^{-13}\), photon-Ward amplitude residual \(6.8864\times10^{-13}\), final-muon shell residual \(6.52\times10^{-16}\), and vector-longitudinal Ward-shift residual \(4.77\times10^{-14}\).
+
+The qualification is important: the direct explicit-spinor comparison uses positive-energy \(u\) spinors for \(\mu^-\). The \(\mu^+\) rows use the charge-conjugated \(u\)-spinor mapping and are not an independent explicit \(v\)-spinor calculation. This derivation therefore has pointwise local matrix-element validation, not a complete independent charge-conjugate spinor proof or global stellar-transport acceptance. The original requirements in §7 remain applicable to any extension beyond the tested domain.
