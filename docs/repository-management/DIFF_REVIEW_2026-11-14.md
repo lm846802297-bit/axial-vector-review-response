@@ -1,5 +1,7 @@
 # Organization change: author-side diff review — 2026-11-14
 
+> **Status clarification (2026-11-16):** This author-side diff review preserves several dated checkpoints. The statement below that the register had five `REVISION_REQUIRED` entries and the earlier statement that the response-PDF layout repair remained open describe intermediate checkpoints, not current status. The live baseline now has 22 `REVISION_REQUIRED` entries (462/462 reviewed); 110 post-baseline Markdown/text files are separately inventoried. The later “Figure 1 layout repair” section and [final acceptance record](REPLY_LETTER_FINAL_ACCEPTANCE_2026-11-16.md) supersede the earlier open-layout statement: the matched response PDF is 64 pages and passed layout acceptance. This is not an independent physics review.
+
 Review baseline: maintenance branch `e4dd7ec4df4c83f70c5ab53bc7b91bea4f1eede9`, after synchronizing `main`. This is an author-side review, not an independent reviewer or physical recalculation.
 
 ## Preservation audit
