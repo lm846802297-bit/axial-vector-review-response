@@ -1,5 +1,7 @@
 # Eighth review batch — current navigation, workflow catalog and reply archive (2026-11-14)
 
+> **Historical snapshot notice (2026-11-16):** This report records the repository state reviewed on 2026-11-14. Its workflow totals (109 files; 34 reviewed, 16 historical candidates, 59 pending), 111-link count and response-PDF build status are checkpoint values, not live counts. The current workflow inventory is 115 files (47 reviewed with notes, 16 historical candidates, 52 pending), with 115/115 workflow filename links resolving; the current 64-page response-PDF layout acceptance is recorded in [REPLY_LETTER_FINAL_ACCEPTANCE_2026-11-16.md](REPLY_LETTER_FINAL_ACCEPTANCE_2026-11-16.md). The original findings remain a dated audit record.
+
 ## Scope
 
 Reviewed five high-traffic entry documents and checked their local Markdown links against the current branch tree:
