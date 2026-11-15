@@ -174,3 +174,7 @@ The published Fiorillo Table 1 averages \(F_{pp}^{\rm deg}=(0.80,0.77)\) and \(F
 One software-naming caveat: the dataclass attribute scalar_potential_mev stores the complete \(U_N\) used in the occupation, including \(m_N^*-m_N\) and the total vector self-energy. It is not just the RMF scalar self-energy \(\Sigma_S\). Preserve this distinction in future interfaces and user-facing tables.
 
 **Review disposition: PASS_WITH_NOTES.** No degeneracy factor, EOS table, B.2 opacity, vector Fig. 7 curve, or axial-vector limit is changed by this implementation review.
+
+## 9. Archived self-test JSON integrity correction (2026-11-15)
+
+The committed synthetic self-test output was independently parsed during repository review and found to contain three literal backslash-n separators inside the checks object. They have been corrected to ordinary JSON line breaks; strict JSON parsing now succeeds. The numerical checks and values are unchanged. This is an output-format repair only. The existing caveat remains: the generic filling-factor default change and added regression test have not yet been run through the full unit-test suite.
