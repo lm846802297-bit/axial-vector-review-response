@@ -118,3 +118,14 @@ F_{NN}^{\rm deg}
 =\frac{T}{n_N'}\left.\frac{\partial n_N'}{\partial\nu_N}\right|_{T,m_N^*},
 \]
 at all radial points, before moving to the dynamic response in C4.
+## 7. Independent review qualification (2026-11-15)
+
+The input fingerprint in the C2 driver and JSON matches the C1 mapped-profile SHA-256 \(97d6a88a95d0a636ac359ae981b1b06ec33b88b0f106bfb88d203cb0f9fbbc59\), and the JSON separately records the Git blob SHA of the committed CSV. The 301-row grid spans 0.20--15.20 km at 0.05 km spacing. The C2 summary records the maximum 2048-versus-512 relative density changes at \(6.11\times10^{-15}\) (neutrons) and \(5.33\times10^{-15}\) (protons), with maximum absolute \(F^{\rm deg}\) changes \(6.55\times10^{-15}\) and \(5.00\times10^{-15}\), respectively.
+
+The local density residuals are 0.2154% maximum for neutrons and 0.7630% for protons. The maximum density-matched shifts are 0.1166 MeV and 0.1832 MeV, and the maximum static-factor shifts are \(4.06\times10^{-4}\) and \(4.45\times10^{-4}\). These pass the stated numerical criteria, but the density-matched distributions remain diagnostics only; the primary occupations retain the tabulated Hempel/Fiorillo chemical potentials.
+
+The full-radial numerical maxima are recorded by the standalone C2 analysis and its JSON output. The accompanying unit-test module checks the pinned input/grid, convention, density inversion, and selected core/outer quadrature points; it does not independently assert every radial point's quadrature convergence. Do not conflate the full-run JSON audit with the narrower selected-point unit tests.
+
+The C1 input is interpolated from Caputo published-figure paths and the official SFHo/FRDM EOS tables. It is not a raw Garching snapshot or time history. Consequently, C2 establishes a self-consistent local EOS occupation for that reconstructed snapshot, not the global mass-time weighted Fiorillo Table 1 averages, dynamic \(W_N^{\mu\nu}\), B.2 opacity, or a cooling curve.
+
+**Review disposition: PASS_WITH_NOTES.** Retain the local C2 results as a validated snapshot-level occupation/density-closure calculation. No response kernel, opacity, luminosity, Fig. 7 curve, or axial-vector constraint is changed.

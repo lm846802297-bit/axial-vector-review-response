@@ -20,11 +20,14 @@ from numpy.polynomial.legendre import leggauss
 from scipy.special import expit
 from scipy.optimize import brentq
 
+from sfho_eos_tables import NUCLEON_BAG_DENSITY_FM3
+
 HBARC_MEV_FM = 197.3269804
 NEUTRON_MASS_MEV = 939.565346
 PROTON_MASS_MEV = 938.272013
 MASS_SPLITTING_MEV = NEUTRON_MASS_MEV - PROTON_MASS_MEV
-SFHO_SATURATION_DENSITY_FM3 = 0.1583
+# Exact HS excluded-volume reference density; the public SFHo manual rounds it to 0.1583 fm^-3.
+SFHO_SATURATION_DENSITY_FM3 = NUCLEON_BAG_DENSITY_FM3
 TABLE_TARGETS = {
     "T3": {"p": 0.80, "n": 0.48},
     "rhoT52": {"p": 0.77, "n": 0.42},

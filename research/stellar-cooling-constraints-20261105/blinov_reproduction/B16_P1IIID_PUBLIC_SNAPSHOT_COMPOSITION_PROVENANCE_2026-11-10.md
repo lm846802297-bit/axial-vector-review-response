@@ -87,3 +87,14 @@ The distinction is especially important for the 15–20 km region, where the pub
 6. Only then build the radial \(n_n^{\rm free}(r),n_p^{\rm free}(r)\) inputs and integrate the P1-IIIb collision kernel.
 
 No B.2 opacity, transport sphere, escape probability, pure-vector Fig. 7 result, or axial cooling curve is changed in this source audit.
+## 7. Follow-up status (2026-11-15)
+
+The Fig. 12 digitization and the Caputo/E--K cross-publication comparison in §§3 and 6 have now been completed. The checksum-pinned published APS PDF yields the SFHo-18.8 temperature, neutron, and proton paths; the corrected equal-spacing density transform agrees with Caputo's reconstructed free-nucleon curves at 0.580%/0.586% RMS over the ten common radii. The E--K n+p sum follows Caputo free baryons \(n_B(1-X_{\rm cluster})\), not total \(n_B\). The cluster-aware comparison therefore explains the apparent deficit relative to total baryon density.
+
+This is a cross-publication figure-level consistency check within the same Garching SFHo-18.8 model lineage. It is not independent hydrodynamic validation and does not replace the raw Garching profile or its variable dictionary. The HTTP 401 observation for the archive endpoint is dated 2026-11-10 and must not be presented as a statement about current archive access.
+
+The Caputo Fig. 4 composition reconstruction provides a radial cluster bookkeeping input over its common support. At 8 km the reconstructed cluster fractions are zero within the figure-level composition, while from 9 to 15 km the cluster baryon fraction rises to about 8.85% and the cluster charge fraction to about 3.43%. The separate E--K curve-stroke uncertainty is about 4.9% in density. These facts support using free-nucleon densities explicitly; they do not quantify nuclear coherent/inelastic scattering, which remains absent from the P1-IIIb free-n,p kernel.
+
+The SFHoY dissertation curve remains a separate EOS-variant sensitivity source. It must not be merged into the baseline SFHo profile because it includes hyperons and has different unplotted cluster content. The raw Garching same-snapshot arrays and the SFHoY digitization remain distinct follow-up tasks.
+
+**Disposition update:** former P1-IIId steps 1--3 are complete as public-figure reconstruction and comparison. The raw archive field-definition check, optional SFHoY alternative-EOS extraction, propagated figure uncertainties, and nuclear-response extension remain open. The Caputo-derived 301-point profile used by the later EOS C1/C2 chain is a labelled published-figure reconstruction, not raw Garching data.

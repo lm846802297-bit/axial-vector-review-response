@@ -14,6 +14,7 @@ from audit_b16_p1iii_eos_nucleon_distribution import (
     infer_filling_factor_from_global_densities,
     load_profile_csv,
     solve_effective_chemical_potential_from_density,
+    SFHO_SATURATION_DENSITY_FM3,
     state_from_hs_spp,
     degeneracy_factor,
     degeneracy_factor_from_density_derivative,
@@ -133,7 +134,7 @@ class TestGarchingEOSNucleonDistribution(unittest.TestCase):
             row["nB_fm3"] = (
                 row["n_n_target_fm3"]
                 + row["n_p_target_fm3"]
-                + (1.0 - row["xi"]) * 0.1583
+                + (1.0 - row["xi"]) * SFHO_SATURATION_DENSITY_FM3
             )
         result = aggregate_profile_rows(rows, order=128)
         local = result["local_rows"]
@@ -202,11 +203,14 @@ class TestGarchingEOSNucleonDistribution(unittest.TestCase):
             )
             np.testing.assert_allclose(lhs, rhs, rtol=0.0, atol=5e-13)
 
+    def test_filling_factor_default_uses_unrounded_hs_reference_density(self):
+        self.assertEqual(SFHO_SATURATION_DENSITY_FM3, 0.15824150805)
+
     def test_filling_factor_from_global_composition(self):
         n_b = 0.15
         n_n = 0.12
         n_p = 0.01
-        expected = 1.0 - (n_b - n_n - n_p) / 0.1583
+        expected = 1.0 - (n_b - n_n - n_p) / SFHO_SATURATION_DENSITY_FM3
         self.assertAlmostEqual(
             infer_filling_factor_from_global_densities(n_b, n_n, n_p),
             expected,
@@ -268,7 +272,7 @@ class TestGarchingEOSNucleonDistribution(unittest.TestCase):
             "n_n_target_fm3": 0.12, "n_p_target_fm3": 0.01,
         }
         result = aggregate_profile_rows([row], order=128)
-        expected = 1.0 - (0.15 - 0.12 - 0.01) / 0.1583
+        expected = 1.0 - (0.15 - 0.12 - 0.01) / SFHO_SATURATION_DENSITY_FM3
         self.assertAlmostEqual(result["local_rows"][0]["xi"], expected, places=14)
         self.assertEqual(
             result["local_rows"][0]["xi_source"],
