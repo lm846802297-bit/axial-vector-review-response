@@ -27,7 +27,7 @@ The original report is a valid dated snapshot:
 - the original output used profile A, SHA `08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9`;
 - the scan covered \(m_V=0.1,0.3,1,3\) MeV at \(r=0\) and \(12.5\) km, with the 10 MeV reference reused.
 
-The current rerun is [workflow #43206544350](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43206544350), which succeeded on profile B, SHA `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`. It recomputed the four low-mass cases and archived `research/stellar-cooling-constraints-20261105/finite_mixing/outputs/b13_b16_low_mass_scan_2026-11-12.json`. The 10 MeV reference row is explicitly marked ``recomputed=false`; it is reused from the profile-B 10 MeV comparison output.
+The current rerun is [workflow #43206544350](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43206544350), which succeeded on profile B, SHA `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`. It recomputed the four low-mass cases and archived `research/stellar-cooling-constraints-20261105/finite_mixing/outputs/b13_b16_low_mass_scan_2026-11-12.json`. The 10 MeV reference row is explicitly marked `recomputed=false`; it is reused from the profile-B 10 MeV comparison output.
 
 Comparing the archived profile-A and profile-B low-mass JSONs at all eight new mass/radius points gives:
 - maximum relative change in \(Q_{\rm B13}\): \(1.04\times10^{-9}\);
