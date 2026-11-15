@@ -81,3 +81,14 @@ No production rate, path opacity, coupling, luminosity, vector reference curve, 
 - Machine-readable output: `outputs/b16_local_absorption_vertex_preserving_10mev_2026-11-09.json`
 - Audit script: `audit_b16_local_absorption.py`
 - Tests: `test_b16_local_absorption.py`
+
+## 7. Independent physics-content review (2026-11-15)
+
+The direct \(\nu_\mu\) and \(\nu_\tau\) B.6 angular integrals, inverse-occupation absorption integrals, B.10 detailed balance, and B.4 reduced-absorption relation are mutually consistent. The chemical-potential dependence is not generally cancelled by the exact Fermi-Dirac phase-space integral; cancellation occurs only in the Maxwell-Boltzmann limit. The two neutrino flavors must therefore remain separate when the reconstructed \(\mu_{\nu_\mu}(r)\) is nonzero.
+
+The B.17 Compton susceptibility convention is also reproduced as printed: one charged-muon distribution \(f_\mu(E;\mu_\mu)\), with the factor two inside the integral accounting for the two muon spin states. It is not an instruction to add an extra factor of two for \(\mu^+\). The report separately quantifies the antiparticle susceptibility: it is below 0.05% through 22 km and reaches 50% only at 23–25 km, where the total muon susceptibility and Compton opacity are exponentially dilute. If a future calculation uses a region where \(\mu^+\) is not negligible, the two charge species should be summed explicitly rather than hidden in a degeneracy factor.
+
+The \(3.05\times10^{-14}\) maximum closure is a local algebra/numerics check on the current 1687-row reconstructed profile. It does not validate the physical accuracy of the B.14–B.16 no-recoil Compton approximation at \(m_V=10\) MeV; the exact B.13 calculation remains a separate kernel and gives materially different local rates. Nor does local closure establish the global B.1 source or B.2 transport.
+
+**Review outcome: PASS_WITH_NOTES.** The current-profile local formula implementation closes. Keep the B.13/B.16 approximation distinction and reconstructed-profile limitation explicit.
+
