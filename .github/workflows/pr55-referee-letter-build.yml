@@ -98,8 +98,9 @@ jobs:
             echo "The generated bibliography contains no bibitems."
             exit 1
           fi
-          if grep -E "Overfull \\hbox|Overfull \\vbox" "$FINAL_LOG"; then
-            echo "Overfull boxes require visual review; see the log."
+          if grep -F -e 'Overfull \\hbox' -e 'Overfull \\vbox' -e 'Float too large for page' "$FINAL_LOG"; then
+            echo "Overfull boxes or oversized floats fail layout acceptance."
+            exit 1
           fi
           echo "Final .log contains no unresolved citation/reference warnings."
           echo "BibTeX .blg contains no missing-entry/database warnings."
@@ -178,7 +179,7 @@ jobs:
       - name: Upload complete reply-letter build and visual-review evidence
         uses: actions/upload-artifact@v4
         with:
-          name: reply-letter-layout-acceptance-\${{ github.run_id }}
+          name: reply-letter-layout-acceptance-${{ github.run_id }}
           if-no-files-found: error
           retention-days: 30
           path: |
