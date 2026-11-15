@@ -153,3 +153,9 @@ After reviewing the six next pending entries, the register contains 354 reviewed
 5. Keep the radial-convergence result limited to the tested radial dimension; do not infer full energy-angle convergence from it.
 
 **Scientific disposition:** no profile substitution is adopted, no opacity or source rescaling is permitted, and the pure-vector Fig. 7 discrepancy remains unresolved.
+
+## 7. Erratum added during the sixtieth review (2026-11-15)
+
+The earlier statement in §3.1 that the plotted Caputo muon-density curve is a net-muon quantity was too strong. The public Fig. 3 convention is not established by the available source metadata. The independent B.1 source audit reports both \(n_{\mu^-}\) and \(n_{\mu^-}-n_{\mu^+}\) comparisons: the \(n_{\mu^-}\)-to-plot residual over the 12--15 km digitized vertices has 0.472% mean and 0.538% maximum absolute relative difference, while the net-density comparison over 5--15 km has 0.990% mean and 1.863% maximum. The latter interval includes inner radii with a larger positive-muon fraction; in the outer 12--15 km shell that fraction is below about 0.086% at 12 km and negligible by 15 km.
+
+Accordingly, the audit finding is retained as \`REVISION_REQUIRED\`, but its reason is now stated precisely: the plotted-density convention must not be assumed, both density definitions must be reported, and the same-vertex 12--15 km net comparison should be recorded if the convention is resolved. This does not alter the B.17 source definition, which uses one negative-muon species with two spin states.
