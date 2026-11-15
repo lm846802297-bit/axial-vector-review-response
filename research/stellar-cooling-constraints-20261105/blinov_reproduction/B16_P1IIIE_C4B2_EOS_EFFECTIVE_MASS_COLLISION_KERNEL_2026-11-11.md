@@ -170,3 +170,13 @@ C4-C should first establish outgoing-phase-space completeness:
 - only then generate the 301-radius EOS local total scattering rate and construct a radial optical-depth diagnostic.
 
 No B.2 production opacity, radial transport, luminosity, or axial cooling curve is updated at this stage.
+
+## 9. Independent physics review (2026-11-15)
+
+The exact moving-nucleon kinematics, \(p_{\min}(q_0,q;m_N^*)\), final-state Pauli factor, and Dirac-trace contraction are consistent with the P1-IIIb invariant-rate specification. The cold/dilute Horowitz limit and \(m_N^*=M_N\) recovery provide independent normalization checks. The EOS convention is also internally consistent: \(m_N^*\) enters quasiparticle spinors and energies, \(U_N\) cancels from same-species energy transfer but remains in \(\nu_N\), and the available-volume rate is converted to a total-volume coefficient by multiplying \(\xi_{\rm SPP}\) exactly once.
+
+The vacuum mass \(M_N\) in the Pauli/weak-magnetism denominator remains a declared minimal-vertex prescription, not a unique in-medium vertex derived from the Ward identity. RPA, NN correlations, in-medium vertex corrections, and neutrino final-state blocking remain outside this calculation.
+
+Most importantly, the legacy \(\pm60\) MeV \(E_\nu'\) window is not a complete local outgoing-energy integral. The C4-C1 follow-up finds that it captures only 75.05%–99.30% of the 45T-truncated full-support result in the selected cases. The C4-B2 numbers must therefore remain finite-window differential-in-angle diagnostics; use the C4-C1/C4-C2 full-support results for the same benchmark instead.
+
+**Review outcome: PASS_WITH_NOTES.** No definite local-kernel algebra or normalization error was found. This result is not a total scattering rate or radial opacity.
