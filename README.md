@@ -8,6 +8,8 @@
 
 - [仓库结构与文件管理说明](docs/repository-management/README.md)：目录职责、迁移原则和导航。
 - [逐文档审查标准](docs/repository-management/DOCUMENT_REVIEW_STANDARD.md) 与 [文档审查登记表](docs/repository-management/DOCUMENT_AUDIT_REGISTER.csv)：462 份 Markdown/text 基线文档逐份记录审查状态；未审查文件不会标记为通过。
+
+> **2026-11-16审查状态：** 462/462 份文档已审查；0 PENDING，22 REVISION_REQUIRED 尚待修复。最新一批三项 Major 1 数值问题已关闭，详见 [第六十六轮审查](docs/repository-management/SIXTY_SIXTH_REVIEW_MAJOR1_ENDPOINT_QUADRATURE_2026-11-16.md)。
 - [GitHub Actions 工作流索引](.github/workflows/README.md) 与 [工作流审查登记表](.github/workflows/WORKFLOW_AUDIT_REGISTER.csv)：109 个工作流按物理专题分类，并逐份记录触发条件、权限和输出行为；目前 34 个完成静态审查，16 个标记为历史候选，59 个待审查。
 
 - [根目录文件逐项审查](docs/repository-management/ROOT_FILE_AUDIT_REPORT_2026-11-14.md)：覆盖 24 个根目录文件，包括权威入口、回复信 TeX/PDF、BibTeX、论文和审稿报告基线及历史工作稿。
