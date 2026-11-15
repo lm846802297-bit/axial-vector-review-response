@@ -27,7 +27,7 @@ The original report is a valid dated snapshot:
 - the original output used profile A, SHA \`08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9\`;
 - the scan covered \(m_V=0.1,0.3,1,3\) MeV at \(r=0\) and \(12.5\) km, with the 10 MeV reference reused.
 
-The current rerun is [workflow #43206544350](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43206544350), which succeeded on profile B, SHA \`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c\`. It recomputed the four low-mass cases and archived \`b13_b16_low_mass_scan_2026-11-12.json\`. The 10 MeV reference row is explicitly marked \`recomputed=false\); it is reused from the profile-B 10 MeV comparison output.
+The current rerun is [workflow #43206544350](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43206544350), which succeeded on profile B, SHA \`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c\`. It recomputed the four low-mass cases and archived \`research/stellar-cooling-constraints-20261105/finite_mixing/outputs/b13_b16_low_mass_scan_2026-11-12.json\`. The 10 MeV reference row is explicitly marked \`recomputed=false\); it is reused from the profile-B 10 MeV comparison output.
 
 Comparing the archived profile-A and profile-B low-mass JSONs at all eight new mass/radius points gives:
 - maximum relative change in \(Q_{\rm B13}\): \(1.04\times10^{-9}\);
@@ -63,7 +63,7 @@ The spin convention is also correct in this derivation: the trace averages the i
 \frac{2}{16\omega(2\pi)^4}
 =\frac{1}{128\pi^4\omega}.
 \]
-The legacy implementation uses \(1/(128\pi^4\omega)\); the newer \`thermal_integrals/moving_compton.py\` implementation uses the algebraically identical \(2/[16\omega(2\pi)^4]\). No additional photon factor is to be inserted into the mode-resolved B.13 rate.
+The legacy implementation uses \(1/(128\pi^4\omega)\); the newer \`research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/moving_compton.py\` implementation uses the algebraically identical \(2/[16\omega(2\pi)^4]\). No additional photon factor is to be inserted into the mode-resolved B.13 rate.
 
 The document's header, however, still says “production implementation is not yet validated.” That is stale:
 - workflow [#43534265182](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43534265182) passed;
@@ -95,7 +95,7 @@ The 2026-11-12 moving-muon thermal workflow [#43206544350](https://github.com/lm
 - the current validation manifest;
 - the fixed-energy moving-muon validation and vector polarization audit.
 
-The archived fixed-energy validation for the newer \`thermal_integrals/moving_compton.py\` implementation gives a maximum coarse/fine thermal quadrature difference \(2.52\times10^{-4}\), detailed-balance residual \(4.35\times10^{-15}\), and unpolarized Eq. (5.12) residual \(3.11\times10^{-15}\). These are local fixed-\(\omega\) checks, not a full radial transport result.
+The archived fixed-energy validation for the newer \`research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/moving_compton.py\` implementation gives a maximum coarse/fine thermal quadrature difference \(2.52\times10^{-4}\), detailed-balance residual \(4.35\times10^{-15}\), and unpolarized Eq. (5.12) residual \(3.11\times10^{-15}\). These are local fixed-\(\omega\) checks, not a full radial transport result.
 
 One notation point remains: the opening rate equations use \(\sum_{\pm,s}\), but do not define \(s\). The later text says that the trace averages the initial muon spin and that a physical spin degeneracy of two is included. Define whether \(s\) denotes the final-muon spin sum or another index; if it denotes an initial-spin sum, the displayed average and the later factor two would double count. The reduced integral and implemented prefactor are consistent, so this is retained as a note rather than evidence of a numerical factor error.
 
@@ -104,14 +104,14 @@ The explicit-spinor boundary from §2 applies here too. The local rate audit doe
 ### 2.5 Pure-vector endpoint gate — HISTORICAL
 
 The 2026-11-07 gate is an initial decision record. Its substantive conclusion—do not promote a mixed-current curve before the pure-vector Fig. 7 benchmark passes—remains correct, but its detailed numbers and branch status are superseded by:
-- \`blinov_reproduction/B16_VECTOR_BENCHMARK_ACCEPTANCE_GATE_2026-11-09.md\`;
-- \`blinov_reproduction/FIG7_VECTOR_BENCHMARK_REEVALUATION_2026-11-09.md\), including its 2026-11-15 review qualification.
+- \`research/stellar-cooling-constraints-20261105/blinov_reproduction/B16_VECTOR_BENCHMARK_ACCEPTANCE_GATE_2026-11-09.md\`;
+- \`research/stellar-cooling-constraints-20261105/blinov_reproduction/FIG7_VECTOR_BENCHMARK_REEVALUATION_2026-11-09.md\), including its 2026-11-15 review qualification.
 
 The current fixed-\(\omega\), scalar B.2 B.16 benchmark still fails the 10 MeV strong endpoint (the later acceptance gate records \(+92.2406\%\)). The separate path-redshift and global B.13 alternatives are not substitutes for the literal published benchmark. Keep this 2026-11-07 document as a historical snapshot; do not use its old PR #56 Draft status or old endpoint table as the current sign-off.
 
 ### 2.6 Vector-to-axial response mapping — REVISION_REQUIRED
 
-The document says the numerical response scan is the next local-kernel task. That is stale. Workflow [#43206544724](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43206544724) succeeded, ran the 81-test finite-mixing suite, and archived \`outputs/vector_axial_response_scan.json\` with 25 differential Compton points, 25 angle-integrated Compton points, 25 finite-mixing points, and 9 dimuon points.
+The document says the numerical response scan is the next local-kernel task. That is stale. Workflow [#43206544724](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43206544724) succeeded, ran the 81-test finite-mixing suite, and archived \`research/stellar-cooling-constraints-20261105/finite_mixing/outputs/vector_axial_response_scan.json\` with 25 differential Compton points, 25 angle-integrated Compton points, 25 finite-mixing points, and 9 dimuon points.
 
 Across the angle-integrated Compton grid:
 - transverse \(A/V\) ratios range from 1.2124 to 2.9890;
@@ -120,15 +120,15 @@ Across the angle-integrated Compton grid:
 
 The local response is strongly dependent on mass, \(\omega/m_{A'}\), angle, and polarization. It cannot be represented by one universal factor. The UV active-neutrino couplings remain unchanged as \(\theta_{\mu R}\) varies, so even a constant muon-channel ratio would not justify rescaling the total stellar luminosity.
 
-The dimuon data also need two scopes distinguished. The 9-point \`vector_axial_response_scan.json\` is a fixed-energy local-rate comparison at \(\omega=1.25m_{A'}\); its thermal \(A/V\) ratios differ from the vacuum-width ratio by up to 0.992%. The separate full mediator-momentum thermal integral in \`thermal_response_scan.json\` agrees with the analytic vacuum-width ratio to \(1.11\times10^{-15}\). These are not contradictory: one is a fixed-energy response, the other is the fully integrated emissivity.
+The dimuon data also need two scopes distinguished. The 9-point \`vector_axial_response_scan.json\` is a fixed-energy local-rate comparison at \(\omega=1.25m_{A'}\); its thermal \(A/V\) ratios differ from the vacuum-width ratio by up to 0.992%. The separate full mediator-momentum thermal integral in \`research/stellar-cooling-constraints-20261105/finite_mixing/outputs/thermal_response_scan.json\` agrees with the analytic vacuum-width ratio to \(1.11\times10^{-15}\). These are not contradictory: one is a fixed-energy response, the other is the fully integrated emissivity.
 
 Update the mapping document to record the completed local scan, its limited fixed-energy/local scope, the full thermal dimuon result, and the still-open global transport step. Do not infer a luminosity rescaling from these local ratios.
 
 ## 3. Cross-implementation audit gap
 
 Two fixed-energy moving-muon implementations are present:
-- \`finite_mixing/moving_muon_compton.py\`, used by the local thermal-response/mass scans and the explicit-spinor audit;
-- \`finite_mixing/thermal_integrals/moving_compton.py\`, with its own matrix-element, covariance, phase-space, and thermal-rate tests.
+- \`research/stellar-cooling-constraints-20261105/finite_mixing/moving_muon_compton.py\`, used by the local thermal-response/mass scans and the explicit-spinor audit;
+- \`finite_mixing/research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/moving_compton.py\`, with its own matrix-element, covariance, phase-space, and thermal-rate tests.
 
 Both use the same reduced invariant integral and the same spin-degeneracy normalization, but the reviewed tests do not directly compare their numerical \(\Gamma^{\rm prod/abs}_{Q,h}\) values at identical nontrivial \((m_{A'},\omega,T,\mu_\mu,g_V,g_A)\) points. Their separate test success is not a cross-implementation closure test.
 
