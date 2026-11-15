@@ -1,9 +1,9 @@
 # 第六十五轮文档审查：V57、Higgs portal / UV–EFT 与 Major 3 中微子机制
 
 - 审查日期：2026-11-16
-- 审查基线：\`8e419aaceb077763c963f9bcf267489fb80adfda\`
+- 审查基线：`8e419aaceb077763c963f9bcf267489fb80adfda`
 - PR：[#115](https://github.com/lm846802297-bit/axial-vector-review-response/pull/115)
-- 分支：\`maintenance/repository-organization-audit-20261114\`
+- 分支：`maintenance/repository-organization-audit-20261114`
 - 本轮范围：最新台账中指定的六份 PENDING 文档
 - 操作边界：只新增审查报告并更新台账；不修改生产物理计算代码、SN1987A 限制、轴矢量排除曲线或正式回复信正文
 
@@ -11,12 +11,12 @@
 
 | 文档 | 本轮状态 | 核心判断 |
 |---|---|---|
-| \`work/v57_reconstructed_1007_final.md\` | REVISION_REQUIRED | 相对原始版只修正一处重复文字，先前实质性审查意见仍未关闭 |
-| \`work/v57_reconstructed_1007_fixed.md\` | REVISION_REQUIRED | 与 final 只有一处空格差异，不构成独立物理修订 |
-| \`审稿意见-gpt/higgs_portal_mixing_unified_reviewer_response_and_uv_eft_UPDATED_v2(8)(20261019)(64).md\` | HISTORICAL | 保留为累计研究档案；当前研究状态以 Major 1 专题 README 和专门审计记录为准 |
-| \`审稿意见-gpt/专题研究/2026-11-04-Major3-文献完成机制-候选英文回复.md\` | HISTORICAL | 以可选 \`sigma+3N_R\` 扩展为前提的候选稿，已被根目录正式回复信取代 |
-| \`审稿意见-gpt/专题研究/2026-11-04-中微子-LmuLtau机制移植核查.md\` | PASS_WITH_NOTES | 电荷、Majorana 质量纹理、seesaw 与残余 Z2 分析成立；没有进行全局拟合或完整约束扫描 |
-| \`审稿意见-gpt/会议记录/2026-10-23/01_文字稿_2026-10-23_20-15.md\` | HISTORICAL | 早期 ASR 会议记录，含不确定公式、未采纳猜测及截断内容，只保留历史来源价值 |
+| `work/v57_reconstructed_1007_final.md` | REVISION_REQUIRED | 相对原始版只修正一处重复文字，先前实质性审查意见仍未关闭 |
+| `work/v57_reconstructed_1007_fixed.md` | REVISION_REQUIRED | 与 final 只有一处空格差异，不构成独立物理修订 |
+| `审稿意见-gpt/higgs_portal_mixing_unified_reviewer_response_and_uv_eft_UPDATED_v2(8)(20261019)(64).md` | HISTORICAL | 保留为累计研究档案；当前研究状态以 Major 1 专题 README 和专门审计记录为准 |
+| `审稿意见-gpt/专题研究/2026-11-04-Major3-文献完成机制-候选英文回复.md` | HISTORICAL | 以可选 `sigma+3N_R` 扩展为前提的候选稿，已被根目录正式回复信取代 |
+| `审稿意见-gpt/专题研究/2026-11-04-中微子-LmuLtau机制移植核查.md` | PASS_WITH_NOTES | 电荷、Majorana 质量纹理、seesaw 与残余 Z2 分析成立；没有进行全局拟合或完整约束扫描 |
+| `审稿意见-gpt/会议记录/2026-10-23/01_文字稿_2026-10-23_20-15.md` | HISTORICAL | 早期 ASR 会议记录，含不确定公式、未采纳猜测及截断内容，只保留历史来源价值 |
 
 本轮六份文档的状态分布：2 份 REVISION_REQUIRED、1 份 PASS_WITH_NOTES、3 份 HISTORICAL。
 
@@ -26,9 +26,9 @@
 
 | 文件 | Git blob SHA | 登记大小 |
 |---|---|---:|
-| 原始 \`v57_reconstructed_1007.md\` | \`8a0737bbd562a7c6467f336348fb0ea8c7f760bf\` | 493,307 B |
-| \`v57_reconstructed_1007_final.md\` | \`5736a5f2cadc0486d17d1b0c29ef58e095feb9d3\` | 493,303 B |
-| \`v57_reconstructed_1007_fixed.md\` | \`98706104fd34ad5de5b8dca4f78d4888d8b668c9\` | 493,301 B |
+| 原始 `v57_reconstructed_1007.md` | `8a0737bbd562a7c6467f336348fb0ea8c7f760bf` | 493,307 B |
+| `v57_reconstructed_1007_final.md` | `5736a5f2cadc0486d17d1b0c29ef58e095feb9d3` | 493,303 B |
+| `v57_reconstructed_1007_fixed.md` | `98706104fd34ad5de5b8dca4f78d4888d8b668c9` | 493,301 B |
 
 三个文件均为 5,666 行。
 
@@ -41,9 +41,9 @@
 
 ### 2.3 仍未关闭的第六十四轮意见
 
-1. 引言使用 \`\\Delta_{hs}^{2}\`，Work E 使用 \`\\Delta\`；尚未明确给出二者的统一定义或在全文统一记号。
-2. 交叉引用仍存在重复：例如同一条目重复列出 \`§6.6\`，以及重复列出附录 \`G.15.6\`。
-3. 尚未补齐针对 \`\\Pi_{hs}\` 的明确开阈值吸收部分说明：一般性的“虚部”“复极点”或其他物理过程的阈值说明，不能替代对本混合自能在开放轻子阈值上的具体说明。
+1. 引言使用 `\Delta_{hs}^{2}`，Work E 使用 `\Delta`；尚未明确给出二者的统一定义或在全文统一记号。
+2. 交叉引用仍存在重复：例如同一条目重复列出 `§6.6`，以及重复列出附录 `G.15.6`。
+3. 尚未补齐针对 `\Pi_{hs}` 的明确开阈值吸收部分说明：一般性的“虚部”“复极点”或其他物理过程的阈值说明，不能替代对本混合自能在开放轻子阈值上的具体说明。
 4. 尚未形成对两个复极点附近动量依赖的明确验收记录。文中虽多次提及动量依赖和复极点，但没有给出所要求的双极点邻域核查结果。
 5. 尚无清晰的版本来源清单，不能据文件名或单处空格差异认定 final/fixed 是经过独立物理验收的先后版本。
 
@@ -55,7 +55,7 @@
 
 目标文件 Git blob：
 
-\`f42b72c14c7bedbdee470ac4e6d297862c142979\`
+`f42b72c14c7bedbdee470ac4e6d297862c142979`
 
 文件包含 30,723 行，登记大小 1,529,615 B。其前言标注整理版本为 2026-10-18，但后续已累积至第 260.12 节。因此它是跨阶段累计工作文档，不是单一日期的最终回复稿。
 
@@ -90,8 +90,8 @@
 
 交叉核验对象：
 
-- [当前正式回复信](../../Replies_to_Referee_3_referee_facing_2026-11-04.tex)，blob \`d961ce9018ad9b92c0fc8c0d44a1c7301a6afd62\`
-- [Major 1 当前研究 README](../../research/major1-higgs-scalar-mixing-20261109/README.md)，blob \`e118d1f3197d308985e54e02120d7794efffcddd\`
+- [当前正式回复信](../../Replies_to_Referee_3_referee_facing_2026-11-04.tex)，blob `d961ce9018ad9b92c0fc8c0d44a1c7301a6afd62`
+- [Major 1 当前研究 README](../../research/major1-higgs-scalar-mixing-20261109/README.md)，blob `e118d1f3197d308985e54e02120d7794efffcddd`
 
 ### 4.1 三个不同对象不能混为一谈
 
