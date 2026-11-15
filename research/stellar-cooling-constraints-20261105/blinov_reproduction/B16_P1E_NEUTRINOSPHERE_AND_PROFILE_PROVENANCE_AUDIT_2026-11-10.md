@@ -163,3 +163,21 @@ No production code, source normalization, opacity, coupling, profile, Fig. 7 cur
 5. A. Caputo et al., *Muonic boson limits: Supernova redux*, arXiv:2109.03244v3, Fig. 1.
 6. R. Z. Ferreira, M. C. D. Marsh, and E. Ravensburg, arXiv:2510.14469v1, Fig. 1.
 7. Z. Liu, *Supernova constraints on millicharged particles and lepton-flavor-violating axions*, 7th Joint Workshop on the Standard Model and Beyond, 2026-10-31, slide 65.
+
+
+## 9. Independent review qualification (2026-11-15)
+
+The profile provenance metadata and extractor were checked together. profile_provenance.json records the Caputo source archive/member and PDF SHA-256 19ca5ee492dea689a4a9851e999f7d05d0f26be7dfc820e817cc5bc310065c8e, and the Ferreira source archive/member and PDF SHA-256 5cc8b07dad824b65391fae6229bb9eca138c1cf5ff0348c8aaf712779a2566f2. The curve path indices are explicit (Caputo T=0, \(\mu_\mu=1\), negative/positive \(\mu_{\nu_\mu}=6/7\), \(n_\mu/n_0=161\); Ferreira lapse=610). The resulting 1687-row profile fingerprint is 9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c.
+
+The extractor verifies the source PDF hashes before reading the vector paths and writes both the derived profile and provenance metadata. The source PDFs themselves are not committed; rerunning requires the public arXiv source archives or local PDFs supplied through the extractor's source directory. This makes the public-figure reconstruction reproducible from its cited sources when they are available, but it does not turn the profile into raw Garching simulation data. The current review checked the committed metadata and extractor logic; it did not repeat the PDF vector extraction.
+
+Keep the following boundaries explicit:
+- Caputo's 20--25 km temperature and outer charged-muon path segments are encoded off-frame vector paths, not independently digitized visible plot points.
+- The muon-neutrino chemical-potential branches have weaker independent validation than \(T(r)\) and \(\mu_\mu/T\).
+- The lapse is digitized from the Ferreira curve through approximately 24 km; 24--25 km is a matched Schwarzschild exterior continuation with \(r_s\simeq3.8440\) km, not a same-snapshot numerical lapse table.
+- The public density comparison is figure-level and does not resolve the previously documented absolute muon-density tension.
+- \(R_{\max}\simeq25\) km is supported as an effective paper convention near the \(T\simeq3\) MeV criterion, not as a unique energy- and flavor-dependent heavy-flavor energy sphere.
+
+The later P1-G/P1-H transport-only envelope narrows the interpretation of the outer boundary but does not supply the missing energy-changing neutrino collision kernels. Its smooth public-density model leaves the strong-endpoint Fig. 7 discrepancy unresolved; it does not justify fitting a new \(R_{\max}\).
+
+**Review disposition: PASS_WITH_NOTES.** The profile remains a vertex-preserving public-figure reconstruction, not raw simulation data. No source profile, lapse, boundary, rate, or axial-vector result is modified.
