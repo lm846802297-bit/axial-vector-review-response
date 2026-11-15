@@ -54,6 +54,7 @@ The baseline inventory contains 462 Markdown/text documents. At the latest revie
 - [B.2 polarization and B.13 collision-physics review](FORTY_FOURTH_REVIEW_B13_B2_PHYSICAL_CONTENT_2026-11-15.md)
 - [Weak-current tensor, SFHo EOS and recoil-moment review](FORTY_FIFTH_REVIEW_WEAK_TENSOR_EOS_RECOIL_PHYSICS_2026-11-15.md)
 - [B.1 energy variables and B.2 lapse-redshift propagation review](FORTY_SIXTH_REVIEW_B2_LAPSE_REDSHIFT_PHYSICS_2026-11-15.md)
+- [EOS moving-nucleon response and scattering-opacity review](FORTY_SEVENTH_REVIEW_EOS_MOVING_NUCLEON_COLLISION_PHYSICS_2026-11-15.md)
 
 The 462-row register covers Markdown/text documents. Root-level TeX, BibTeX, bibliography styles and binary PDFs are additionally covered by the [root-file audit report](ROOT_FILE_AUDIT_REPORT_2026-11-14.md); workflow YAML files are covered by the separate workflow register.
 
