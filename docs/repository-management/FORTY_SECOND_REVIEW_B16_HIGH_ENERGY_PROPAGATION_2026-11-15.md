@@ -98,4 +98,4 @@ No source, opacity, coupling, energy cutoff, production axial-vector output, or 
 
 ## 7. Baseline register
 
-The 462-document baseline register now records **276 individually reviewed** and **186 pending**. Outcome totals: 2 PASS, 177 PASS_WITH_NOTES, 88 HISTORICAL, 9 REVISION_REQUIRED, and 186 PENDING.
+The 462-document baseline register now records **282 individually reviewed** and **180 pending**. Outcome totals: 2 PASS, 183 PASS_WITH_NOTES, 88 HISTORICAL, 9 REVISION_REQUIRED, and 180 PENDING.
