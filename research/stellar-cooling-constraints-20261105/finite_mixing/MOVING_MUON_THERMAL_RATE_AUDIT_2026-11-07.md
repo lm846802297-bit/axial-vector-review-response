@@ -28,13 +28,13 @@ For a fixed on-shell A' momentum \(q=(\omega,0,0,k_A)\), the absorption and prod
 \[
 \begin{aligned}
 \Gamma^{\rm abs}_h(q)
-&=\frac{1}{2\omega}\sum_{\pm,s}
+&=\frac{2}{2\omega}\sum_{\pm}
 \int d\Pi_Pd\Pi_{P'}d\Pi_K\,(2\pi)^4
 \delta^{(4)}(P+q-P'-K)\,
 \overline{|\mathcal M_{h,\pm}|^2}\,
 f_{\mu^\pm}(E_P)[1-f_{\mu^\pm}(E_{P'})][1+n_B(k)],\\
 \Gamma^{\rm prod}_h(q)
-&=\frac{1}{2\omega}\sum_{\pm,s}
+&=\frac{2}{2\omega}\sum_{\pm}
 \int d\Pi_Pd\Pi_{P'}d\Pi_K\,(2\pi)^4
 \delta^{(4)}(P+q-P'-K)\,
 \overline{|\mathcal M_{h,\pm}|^2}\,
@@ -42,7 +42,7 @@ f_{\mu^\pm}(E_{P'})[1-f_{\mu^\pm}(E_P)]n_B(k).
 \end{aligned}
 \]
 
-The initial-muon spin average in the trace is accompanied by the physical spin degeneracy two. The two muon charges are integrated separately. Charge conjugation reverses the relative axial term for a mu+ target; this is retained before summing the charge-resolved rates.
+The factor 2 explicitly counts the two initial-muon spin states. The squared matrix element is averaged over the initial-muon spin, summed over the final-muon spin and the two physical photon polarizations, and is not averaged over the fixed mediator polarization h. There is therefore no additional initial-spin sum in the notation. The two muon charges are integrated separately. Charge conjugation reverses the relative axial term for a mu+ target; this is retained before summing the charge-resolved rates.
 
 Choose the muon azimuth to be zero using axial symmetry. With \(c=\cos\theta_\gamma\),
 
@@ -196,3 +196,18 @@ A new pointwise reference calculation independently constructs on-shell Dirac sp
 The maximum explicit-spinor/trace relative residual is \(1.7712\times10^{-13}\); the explicit photon-Ward amplitude residual is \(1.4688\times10^{-13}\); the final-muon shell residual is \(6.5175\times10^{-16}\); and the physical-versus-Ward-shifted vector longitudinal amplitude residual is \(3.5415\times10^{-14}\). The minimum explicit mode \(|\mathcal M_h|^2\) is positive, \(7.0507\times10^{-3}\). Applying the same longitudinal shift to the axial current is not valid and gives an order-one change, so the axial longitudinal polarization remains physical.
 
 This independently validates the pointwise amplitude and polarization projection. It does not replace the thermal integration or prove uniform radial/energy convergence. See B13_EXPLICIT_SPINOR_INDEPENDENT_AUDIT_2026-11-13.md and its script/tests under thermal_integrals/.
+
+## 8. 2026-11-16 normalization and validation reconciliation
+
+The original `sum_{±,s}` notation in §2 was ambiguous because the trace already averages over the initial-muon spin. It is now written as an explicit factor of 2 multiplying the charge sum, matching the derivation in `MOVING_MUON_SEMI_COMPTON_DERIVATION_2026-11-07.md` and the implementation's `2/(16 ω (2π)^4)` phase-space prefactor. This is a notation/normalization clarification; the archived numerical outputs were not rescaled.
+
+The local moving-muon thermal implementation was executed by [workflow #43206544350](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43206544350), which completed its 81-test suite and generated the mode-resolved thermal scan. Its machine-readable validation reports:
+
+- photon Ward residual `7.71×10⁻¹³` and vector-mediator Ward residual `1.02×10⁻¹²`;
+- maximum per-mode detailed-balance residual `4.35×10⁻¹⁵`;
+- unpolarized Eq. (5.12) `2/3` normalization residual `3.11×10⁻¹⁵`;
+- maximum coarse-to-fine thermal quadrature difference `2.52×10⁻⁴`.
+
+The separate [workflow #43534265182](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43534265182) passed 38 targeted exact-kernel tests and uploaded the explicit-spinor audit. The direct explicit-spinor comparison is for the `μ−` channel; `μ+` uses the charge-conjugated `u`-spinor mapping, not an independent explicit `v`-spinor calculation. This remains a stated limitation.
+
+These validations cover local matrix elements and local thermal rates only. They do not establish radial optical depth, escaped luminosity, the pure-vector Fig. 7 gate, or an axial-vector SN1987A limit. No production cooling curve or manuscript constraint was changed.
