@@ -136,3 +136,18 @@ C4-A establishes that the C2 EOS occupation can be inserted into a local finite-
 This is not yet the full weak-current tensor. In particular, it does not include the vector/axial Dirac trace, weak magnetism, finite-\(Q^2\) form factors, neutrino/antineutrino VA contraction, RPA, NN correlations, or in-medium vertex corrections. It does not calculate B.1 production, B.2 absorption, radial transport, luminosity, or an axial cooling curve.
 
 Next: C4-B, introduce the full weak-current tensor using local quasiparticle kinematics and effective-mass spinors, while retaining vacuum nucleon form factors with their physical nucleon-mass normalization. The vector Ward identity, the \(m_N^*\to M_N\) recovery of the existing P1-IIIb kernel, and the cold/dilute Horowitz limit must all pass before any EOS-dependent opacity is considered.
+
+## 7. Independent physics review (2026-11-15)
+
+The scalar response reduction is consistent with the stated spin-summed convention:
+\[
+S_N(q_0,q)=\frac{1}{\pi q}\int_{p_{\min}}^{p_{\max}}dp\,
+p(E_p^*+q_0)f_i(1-f_f).
+\]
+The factor \(1/\pi q\) includes the spin degeneracy two and the \(2\pi\delta\)-function convention in the definition of \(S_N\). The dynamic/static sum rule, detailed balance, and \(q\to0\) susceptibility identity are mutually consistent with the C2 occupation convention.
+
+The \(45T\) momentum cutoff is shared by the dynamic and static integrals and by the C2 blocked-integral cross-check. Therefore the near-machine-precision sum-rule residual verifies the response algebra and numerical integration **within the same stated tail cutoff**; it is not by itself an independent bound on the omitted \(p>p_{\max}\) tail. A 40T/45T/50T cutoff comparison remains a useful tail-convergence check before using the response in an opacity.
+
+The four radii and two species are representative local states only. C4-A is a scalar thermodynamic response validation, not the full weak tensor, RPA response, or a radial transport calculation. The use of \(m_N^*(r)\) and \(\nu_N(r)=\mu_N^{\rm nonrel}-U_N\) is consistent with the SFHo/Hempel occupation convention described by Fiorillo et al., JCAP 03 (2026) 053, Appendix C.1 ([DOI](https://doi.org/10.1088/1475-7516/2026/03/053)).
+
+**Review outcome: PASS_WITH_NOTES.** No scalar-response algebra error was identified. Keep the tail-cutoff and local-scope qualifications attached to the result.
