@@ -6,7 +6,7 @@ Branch: \`research/moving-muon-thermal-rates-20261107\`
 
 ## 1. Purpose
 
-C4-C1 removes the arbitrary finite \(E_\nu'\) integration window used in the C4-B2 local diagnostic. It determines the full outgoing-neutrino energy support allowed by the exact moving-nucleon kinematics and the same \(45T\) momentum-tail cutoff used in C4-B2. It then integrates the differential weak collision kernel over that support and measures, rather than assumes, the fraction captured by the old \(\pm60\) MeV window.
+C4-C1 removes the arbitrary finite \(E_\nu'\) integration window used in the C4-B2 local diagnostic. It determines the outgoing-neutrino energy interval allowed by the exact moving-nucleon kinematics **within the same \(45T\) initial-momentum cutoff** used in C4-B2. It then integrates the differential weak collision kernel over that support and measures, rather than assumes, the fraction captured by the old \(\pm60\) MeV window.
 
 The benchmark uses \(E_\nu=100\) MeV and \(\cos\theta=-0.5\), at \(r=0.20,\ 5.00,\ 10.00,\ 15.20\) km, for neutron/proton targets and neutrino/antineutrino. This gives 16 local rate cases and eight distinct kinematic support intervals (the support is independent of the neutrino/antineutrino label).
 
