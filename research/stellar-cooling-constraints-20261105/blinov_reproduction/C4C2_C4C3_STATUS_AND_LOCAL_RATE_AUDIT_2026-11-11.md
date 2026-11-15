@@ -99,3 +99,14 @@ and workflow trigger updates are commits `4cbbba371f967c8edcf97ac78e30b7978c8afc
 
 The workflow is running/pending; this addendum does not claim a test pass or
 C4-C3 numerical completion.
+
+## Physics-content review (2026-11-15)
+
+The C4-C2 full-angle rate and the C4-C3 301-radius recomputation are internally consistent with the declared fixed-local-energy, flat-space diagnostic. The \(\xi_{\rm SPP}\) factor is applied once when converting the available-volume rate to the total-volume opacity. The 0.05/0.10/0.25 km radial-grid comparisons and the C2 density-closure checks are separate from the angular quadrature.
+
+A scope limitation remains: C4-C2 compares eight and twelve outgoing-angle nodes only at the first selected radius, \(r=0.20\) km, for the four target/sign combinations. The 301-radius C4-C3 calculation uses eight angle nodes at every radius and does not repeat that comparison. In particular, the reported opacity peak near \(r=7.35\) km is not among the angular-convergence checkpoints. Thus the 301-point rates are directly reproduced, but uniform angular convergence over the radial profile has not yet been established.
+
+The C4-C1 support interval is also conditional on the 45T initial-momentum cutoff. It is the exact kinematic interval for that truncated integration domain, not the mathematical support of an untruncated Fermi-Dirac distribution. A 40T/45T/50T tail-convergence comparison remains outstanding.
+
+**Review outcome: PASS_WITH_NOTES.** Retain the C4-C3 values as a fixed-local-energy radial diagnostic; do not promote them to a fully converged physical opacity or transport result until the radial angular and tail-cutoff checks are complete.
+
