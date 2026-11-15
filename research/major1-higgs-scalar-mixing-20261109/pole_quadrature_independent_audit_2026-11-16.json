@@ -1,0 +1,47 @@
+{
+  "benchmarks": [
+    {"mA_GeV": 10.0, "name": "A", "vs_GeV": 70.886458},
+    {"mA_GeV": 63.0, "name": "B", "vs_GeV": 315.0}
+  ],
+  "gauss_legendre_orders": [32, 48, 64, 96, 128],
+  "hard_coefficient_checks": {
+    "A": {"abs_real_delta_GeV2": 4.747313653297169e-13, "archived_re_GeV2": 0.024030443985870786, "computed_im_GeV2": -3.064215547965432e-14, "computed_re_GeV2": 0.024030443985396055},
+    "B": {"abs_real_delta_GeV2": 1.1589340598305853e-13, "archived_re_GeV2": 0.005407723994710553, "computed_im_GeV2": -6.900729987435739e-15, "computed_re_GeV2": 0.00540772399459466}
+  },
+  "interpretation": "The four archived QUADPACK warnings are reproduced and localized to the 20 TeV-muon heavy-light endpoint layer. Composite Gauss-Legendre with geometric endpoint panels converges across orders 32-128; the four flagged integrals agree with independent high-precision mpmath tanh-sinh. The exact-momentum numerical quadrature warning is closed for this declared fermion-sector benchmark and mass grid. This does not validate the incomplete physical pole model, fixed diagonal widths, missing counterterms/gauge sectors, or collider observables.",
+  "legacy_quad_warning_count": 4,
+  "legacy_warning_integrals": [
+    {"gauss64_vs_mpmath90_abs": 1.431739006248887e-15, "gauss96_vs_mpmath90_abs": 3.5317390062488854e-15, "mi_GeV": 0.10565307823687947, "mj_GeV": 20001.002765505546, "mpmath90_im": "-0.0000002333348653376449294742737719", "mpmath90_re": "0.9999122241359192317390062489", "mpmath_dps50_vs90_abs": "2.0472138e-51", "mpmath_dps70_vs90_abs": "3.6117256e-72", "quad_estimated_abs_error": 1.7756127657087006e-07, "s_im_GeV2": -186.68350025123775, "s_re_GeV2": 10000.00008035762},
+    {"gauss64_vs_mpmath90_abs": 1.2716167487288034e-15, "gauss96_vs_mpmath90_abs": 3.2716167487288034e-15, "mi_GeV": 20001.002765505546, "mj_GeV": 0.10565307823687947, "mpmath90_im": "-6.375843201386980996926932951e-10", "mpmath90_re": "0.9999193330283977716167487288", "mpmath_dps50_vs90_abs": "1.345958e-51", "mpmath_dps70_vs90_abs": "9.2907991e-73", "quad_estimated_abs_error": 1.7753482961513356e-07, "s_im_GeV2": -0.510105269611901, "s_re_GeV2": 15687.56259940277},
+    {"gauss64_vs_mpmath90_abs": 1.3467760902607677e-15, "gauss96_vs_mpmath90_abs": 3.2467760902607676e-15, "mi_GeV": 20001.002765505546, "mj_GeV": 0.10565307823687947, "mpmath90_im": "-6.375843356768592926530796064e-10", "mpmath90_re": "0.9999193330283977467760902608", "mpmath_dps50_vs90_abs": "1.9550472e-51", "mpmath_dps70_vs90_abs": "1.1524269e-72", "quad_estimated_abs_error": 1.7753482961513356e-07, "s_im_GeV2": -0.5101052820433515, "s_re_GeV2": 15687.562599382896},
+    {"gauss64_vs_mpmath90_abs": 1.3467760902607677e-15, "gauss96_vs_mpmath90_abs": 3.2467760902607676e-15, "mi_GeV": 20001.002765505546, "mj_GeV": 0.10565307823687947, "mpmath90_im": "-6.375843356768555429310626757e-10", "mpmath90_re": "0.9999193330283977467760902608", "mpmath_dps50_vs90_abs": "7.1693704e-52", "mpmath_dps70_vs90_abs": "5.6402157e-73", "quad_estimated_abs_error": 1.7753482961513356e-07, "s_im_GeV2": -0.5101052820433485, "s_re_GeV2": 15687.562599382896}
+  ],
+  "n128_max_determinant_residual_GeV4": 6.0743734537281115e-09,
+  "n128_max_h_channel_residue_sum_delta": 7.55730063674571e-09,
+  "order_convergence_vs_128": {
+    "32": {"max_R_hh_complex_delta_vs_128": 7.449517200400737e-10, "max_hard_remainder_complex_delta_GeV2_vs_128": 4.5446979513030783e-13, "max_pole_mass_delta_GeV_vs_128": 0.0, "max_pole_width_delta_GeV_vs_128": 7.28583859910259e-16},
+    "48": {"max_R_hh_complex_delta_vs_128": 4.966757149460585e-10, "max_hard_remainder_complex_delta_GeV2_vs_128": 1.3641310303569298e-12, "max_pole_mass_delta_GeV_vs_128": 0.0, "max_pole_width_delta_GeV_vs_128": 7.286380700188833e-16},
+    "64": {"max_R_hh_complex_delta_vs_128": 4.966462920243489e-10, "max_hard_remainder_complex_delta_GeV2_vs_128": 1.3638534746007736e-12, "max_pole_mass_delta_GeV_vs_128": 0.0, "max_pole_width_delta_GeV_vs_128": 3.642919299551295e-16},
+    "96": {"max_R_hh_complex_delta_vs_128": 2.4828986671697207e-10, "max_hard_remainder_complex_delta_GeV2_vs_128": 1.363742452298311e-12, "max_pole_mass_delta_GeV_vs_128": 0.0, "max_pole_width_delta_GeV_vs_128": 7.28583859910259e-16}
+  },
+  "production_order": 64,
+  "production_order_64_pole_pairs": [
+    {"R_hh_im": -7.324313709599333e-10, "R_hh_re": 1.0000000052918256, "benchmark": "A", "determinant_residual_GeV4": 2.264968603206016e-09, "mA_GeV": 10.0, "mass_GeV": 125.25000012936827, "ms_input_GeV": 100.0, "pole_index": 1, "vs_GeV": 70.886458, "width_GeV": 0.004069876177658999},
+    {"R_hh_im": 9.975478392468537e-10, "R_hh_re": 2.2608234293969248e-09, "benchmark": "A", "determinant_residual_GeV4": 1.717673104112416e-09, "mA_GeV": 10.0, "mass_GeV": 100.00435580328471, "ms_input_GeV": 100.0, "pole_index": 2, "vs_GeV": 70.886458, "width_GeV": 1.8667536557601632},
+    {"R_hh_im": 3.8628752189236494e-07, "R_hh_re": 1.0000007498470989, "benchmark": "A", "determinant_residual_GeV4": 4.2125547567800433e-10, "mA_GeV": 10.0, "mass_GeV": 125.25000081249338, "ms_input_GeV": 125.25, "pole_index": 1, "vs_GeV": 70.886458, "width_GeV": 0.004072688852159485},
+    {"R_hh_im": -3.860199833021218e-07, "R_hh_re": -7.423100252940063e-07, "benchmark": "A", "determinant_residual_GeV4": 2.3594319279237993e-10, "mA_GeV": 10.0, "mass_GeV": 125.26400593632833, "ms_input_GeV": 125.25, "pole_index": 2, "vs_GeV": 70.886458, "width_GeV": 3.7463924908649093},
+    {"R_hh_im": 5.177026607667868e-09, "R_hh_re": 5.4912521841952126e-09, "benchmark": "A", "determinant_residual_GeV4": 3.119108954448965e-09, "mA_GeV": 10.0, "mass_GeV": 150.0352858510315, "ms_input_GeV": 150.0, "pole_index": 1, "vs_GeV": 70.886458, "width_GeV": 6.507521168593995},
+    {"R_hh_im": -4.919407341751312e-09, "R_hh_re": 1.0000000020333557, "benchmark": "A", "determinant_residual_GeV4": 3.450921433127533e-10, "mA_GeV": 10.0, "mass_GeV": 125.24999993356712, "ms_input_GeV": 150.0, "pole_index": 2, "vs_GeV": 70.886458, "width_GeV": 0.004070133311587349},
+    {"R_hh_im": -1.1570318210875574e-10, "R_hh_re": 1.0000000069870758, "benchmark": "B", "determinant_residual_GeV4": 4.689513049814442e-09, "mA_GeV": 63.0, "mass_GeV": 125.25000002214311, "ms_input_GeV": 100.0, "pole_index": 1, "vs_GeV": 315.0, "width_GeV": 0.004069993353885372},
+    {"R_hh_im": 6.170694882059133e-11, "R_hh_re": 1.0886668328638202e-10, "benchmark": "B", "determinant_residual_GeV4": 2.2538167244083418e-10, "mA_GeV": 63.0, "mass_GeV": 99.99999999692402, "ms_input_GeV": 100.0, "pole_index": 2, "vs_GeV": 315.0, "width_GeV": 0.00012681483545208444},
+    {"R_hh_im": -0.024321340594932628, "R_hh_re": -0.035406527201788475, "benchmark": "B", "determinant_residual_GeV4": 1.7794658245491954e-13, "mA_GeV": 63.0, "mass_GeV": 125.25004139339508, "ms_input_GeV": 125.25, "pole_index": 1, "vs_GeV": 315.0, "width_GeV": 0.0002920198188807818},
+    {"R_hh_im": 0.02432134033732816, "R_hh_re": 1.0354065343701073, "benchmark": "B", "determinant_residual_GeV4": 3.9457091702390133e-13, "mA_GeV": 63.0, "mass_GeV": 125.24995862583812, "ms_input_GeV": 125.25, "pole_index": 2, "vs_GeV": 315.0, "width_GeV": 0.003936916806633857},
+    {"R_hh_im": 2.0466673908082923e-10, "R_hh_re": 3.30300277345951e-10, "benchmark": "B", "determinant_residual_GeV4": 6.074376315219898e-09, "mA_GeV": 63.0, "mass_GeV": 150.00001257092225, "ms_input_GeV": 150.0, "pole_index": 1, "vs_GeV": 315.0, "width_GeV": 0.12278473873553235},
+    {"R_hh_im": -2.591096316886849e-10, "R_hh_re": 1.0000000067642139, "benchmark": "B", "determinant_residual_GeV4": 1.2863337557405548e-10, "mA_GeV": 63.0, "mass_GeV": 125.25000001185418, "ms_input_GeV": 150.0, "pole_index": 2, "vs_GeV": 315.0, "width_GeV": 0.004070005571490834}
+  ],
+  "purpose": "Independent numerical quadrature audit; does not complete the physical UV propagator or pole prediction.",
+  "runtime": {"mpmath": "1.3.0", "numpy": "2.3.5", "python": "3.13.5", "scipy": "1.17.0"},
+  "singlet_masses_GeV": [100.0, 125.25, 150.0],
+  "source": "exact_momentum_fermion_pole_audit.py",
+  "source_sha256": "04cb52b824bffc3df7d16b84a2356ef873ffbe2050db1381da926e19ed5156a7"
+}
