@@ -27,7 +27,7 @@ The local section261/section262 scripts validate their declared symbolic and num
 ### 1. Minkowski numerator export
 
 - The paired source \`计算脚本/derive_raw_minkowski_numerator.py\` is present. It constructs explicit four-dimensional Dirac matrices for metric \((+---)\), uses four independently labelled chiral vertices \(\Gamma_i=u_iP_R+v_iP_L\), and expands all \(2^4=16\) slash/mass masks in the stated order \(\Gamma_1N_1\Gamma_2N_2\Gamma_3N_3\Gamma_4N_4\). It asserts the odd-slash masks vanish.
-- The current \`derive_raw_minkowski_numerator_output.txt\` has SHA-256 \`a03e5f799fedd186626b3fefa8ace3ebb0eadc3b17fccab4874d9d659a45d433\`, matching the digest recorded in the original review.
+- The original review records SHA-256 \`a03e5f799fedd186626b3fefa8ace3ebb0eadc3b17fccab4874d9d659a45d433\` for \`derive_raw_minkowski_numerator_output.txt\`. This follow-up confirmed the file exists (Git blob \`8962cdffd2cd5cdd6eeb97e69941f618347320ec\`) but did not independently recompute its SHA-256; treat the digest as a preserved record, not a newly verified hash.
 - **Portability note:** the checked-in generator writes to the hard-coded absolute path \`/mnt/data/derive_raw_minkowski_numerator_output.txt\`. The original review redirected this path for its comparison run; a clean Windows checkout or ordinary Linux checkout may not have \`/mnt/data\`. Before treating this as a portable reproduction command, change the default to a path relative to \`__file__\` or expose an output-path argument.
 - This remains raw trace algebra only. It does not attach the model-specific vertex orientation/conjugations, perform loop integration, Wick rotation, UV–EFT matching, or a physical pole calculation.
 
