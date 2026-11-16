@@ -1,0 +1,13 @@
+# Current maintenance-branch file fingerprints, captured 2026-11-16.
+# These hashes pin the current Git files only. They do not establish that the same
+# bytes were used by the historical 2026-11-14 local rerun.
+# SHA-256 is computed over the UTF-8 file content.
+
+9a4a45cc32bd6a27da613db97cad28c19d9e0c48836aad7f0d83f94685afe830  计算脚本/整理记录/audit_section_logs_2026_11_14.py
+29c838c60f3aa3238c4f4c7c983e508144a38200f7b819630e92fa8974b4f0b1  计算脚本/整理记录/section_log_rerun_2026-11-14.json
+1259e532a4234a7b80db0fd3b015dd3cc0884d13458077e1d644b8dc72cbb6f1  计算脚本/计算输出/section260_reproduce.py
+9b2e7d2c9b74d24ab7d8d02b27ec2f8f3cb3ae9748bb94278bd7e1d23fd57707  计算脚本/计算输出/section260_checks.txt
+db8419d07098f3025ac8ef8448007e634bfcf61d481d336e85ff2217f3fb7799  计算脚本/计算输出/section261_reproduce.py
+8381442ac971e231d151e3174aa10d5205446ba8535e530e8cc6cb959037cdc8  计算脚本/计算输出/section261_checks.txt
+ffd9c80d0814312615e617f0d39247cc8206eb30a50625139a8ef78d55633b94  计算脚本/计算输出/section262_reproduce.py
+dc8d2044fca2652b37cbe824374c00617099b7998dabdb1f60b60bc6b3ade7e2  计算脚本/计算输出/section262_checks.txt
