@@ -6,6 +6,7 @@
 
 - `v57_corrected.md`、`v57_enhanced.md`、`v57_before_reading_flow_adjustment.md`：连续修订的工作稿。
 - `v57_reconstructed_1007.md`、`v57_reconstructed_1007_final.md`、`v57_reconstructed_1007_fixed.md`：重建及其修订副本；文件名中的 `final` 是当时版本名称，不表示当前权威版本。
+- `v57_reconstructed_1007_final.md` 与 `v57_reconstructed_1007_fixed.md` 现均按历史变体归档：final 相对原始重建稿只修正一处重复文字，fixed 相对 final 仅有一处空格差异；两者仍保留第六十五轮审查列出的记号、交叉引用、开阈值吸收、双极点动量依赖和来源问题。不得将它们作为当前 canonical 版本；详见 [第六十五轮审查](../docs/repository-management/SIXTY_FIFTH_REVIEW_V57_PORTAL_NEUTRINO_2026-11-16.md)。
 - `revise_v57.py`、`enhance_v57.py`、`structure_v57.py`、`polish_v57.py`、`reconstruct_v57_1007.py`：历史文本变换脚本；`structure_v57.py` 和 `polish_v57.py` 会写入当前技术参考路径，**不要在现有工作树直接运行**。要研究历史脚本，应先使用隔离副本并检查所有输入与输出路径。
 - `validate_v57.py`、`markdown_qa.cjs`：历史检查脚本；`validate_v57.py` 会覆盖 `work/validation.json`。
 - `correction_log.json`、`section_map.json`、`validation.json`：对应历史变换和检查记录；不能证明当前文档或物理计算通过验收。
