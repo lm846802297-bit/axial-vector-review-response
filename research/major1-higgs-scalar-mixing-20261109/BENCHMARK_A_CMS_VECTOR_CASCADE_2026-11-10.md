@@ -94,4 +94,6 @@ A valid recast must:
 
 Until this vector-specific recast is done, the CMS result is a strong motivation for a dedicated check, not an exclusion. The calculation does show that Benchmark A's exotic Higgs channel is experimentally relevant enough that it must be included in the referee discussion.
 
+**Pole-input traceability note (2026-11-16):** `cms_vector_cascade_audit.py` currently embeds `R_{hh}` and `R_{hs}` as literal constants. The independent quadrature JSON records the converged `R_{hh}` values but does not serialize `R_{hs}`. Thus the branching/cascade arithmetic is reproducible conditional on the hard-coded residue ratio, but the committed machine-readable artifacts do not yet provide an end-to-end numerical reconstruction of that ratio. Keep the cascade result as a conditional isolated-pole estimate until `R_{hs}` is added to the pole output/JSON or computed directly by the cascade driver.
+
 **References:** CMS Collaboration, CMS-SUS-23-005, CERN-EP-2026-200, arXiv:2609.12683 (2026); ATLAS Collaboration, HIGP-2025-19, CERN-EP-2026-228, arXiv:2608.07332 (2026).
