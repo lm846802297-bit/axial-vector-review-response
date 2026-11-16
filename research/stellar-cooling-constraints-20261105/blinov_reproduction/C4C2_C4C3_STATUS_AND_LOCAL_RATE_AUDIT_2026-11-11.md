@@ -82,24 +82,16 @@ or axial cooling limits.
 
 ## Execution update
 
-The C4-C3 workflow has now been triggered by the regression-test update:
+The C4-C3 Actions run #43039883023 is now completed with **failure**, not pending. The job log identifies a workflow-definition failure before Python setup or any unit test/compute step:
 
-- Actions run: https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43039883023
-- Run number: 4
-- Trigger: push
-- Head: `c56389d8510a8040f9b974dffb504013a45ec655`
-- Initial observed state: `pending`; no jobs had yet been allocated at the time of this update.
+- `actions/checkout@v4` received the ref as `\c56389d8510a8040f9b974dffb504013a45ec655` and constructed an invalid refspec.
+- The workflow had escaped GitHub expression markers (`\${{ github.sha }}`) which inserted a literal backslash before the SHA.
+- A second latent issue was found in the shard artifact handoff: the compute step wrote `rates_shard_${SHARD_INDEX}.csv` literally, while the upload step expected an indexed filename.
 
-The Git blob NUL-byte encoding fix is additionally covered by a regression test
-using the canonical Git blob SHA-1 of the byte sequence `test\n`.
-The test fixture was corrected to contain an actual newline byte. The test
-and workflow trigger updates are commits `4cbbba371f967c8edcf97ac78e30b7978c8afc28`,
-`5439166606c25b9c99670dd21ea0942643f6ecd7`, and
-`c56389d8510a8040f9b974dffb504013a45ec655`.
+These are workflow wiring defects; the C4-C3 Python unit tests and radial shard computations were **skipped**, so this run is not evidence for or against the numerical kernel. The maintenance-branch workflow has now been corrected: GitHub expressions are unescaped, the shell variable expands, and the compute/upload paths both use `rates_shard_${{ matrix.shard }}.csv`. The repair is in commits `cd355d23a9d2f9682077c159d82cd148637d49ee` and `f352c117c2a1108812db48fadc8f7310d607f744` (current workflow blob `6598dc67af10d07704694b25c4c404857ac2db93`). The corrected workflow has not yet been rerun.
 
-The workflow is running/pending; this addendum does not claim a test pass or
-C4-C3 numerical completion.
-
+The 301-radius C4-C3 computation described below was performed directly in the local Python environment and its archived CSV/JSON outputs remain separate from this failed Actions attempt. Do not label the Actions workflow as passed until a corrected run completes.
+ 
 ## Physics-content review (2026-11-15)
 
 The C4-C2 full-angle rate and the C4-C3 301-radius recomputation are internally consistent with the declared fixed-local-energy, flat-space diagnostic. The \(\xi_{\rm SPP}\) factor is applied once when converting the available-volume rate to the total-volume opacity. The 0.05/0.10/0.25 km radial-grid comparisons and the C2 density-closure checks are separate from the angular quadrature.
