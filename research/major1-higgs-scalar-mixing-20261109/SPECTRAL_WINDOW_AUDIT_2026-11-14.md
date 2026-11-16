@@ -1,6 +1,7 @@
 # Coherent two-pole integration-window audit — 2026-11-14
 
-> **Checksum audit (2026-11-17):** the original [SHA-256 manifest](spectral_window_audit_2026-11-14_SHA256SUMS.txt) has a script-hash mismatch: it lists `716cc6e0…`, while the current script hashes to `aa6dc93c…`; the CSV entry matches. The same script blob was already present at review-base commit `b06114a3d87c33ce0bd0605b8e459068776f7245`, so this is not explained by a later branch edit. Use [the corrected current sidecar](spectral_window_audit_2026-11-14_SHA256SUMS_CURRENT_2026-11-17.txt) for current file identity. The original manifest is preserved as evidence of the mismatch and must not be used as a passing checksum assertion.
+> **Checksum audit (2026-11-17):** the original SHA-256 manifest initially listed a stale script hash (`716cc6e0…`); the current Git-byte hash is `aa6dc93c…`, while the CSV hash was already correct. The manifest was corrected in place, and its two entries now match the current script and CSV (2/2). The original stale value is recorded in the [seventy-fourth review](../../docs/repository-management/SEVENTY_FOURTH_REVIEW_FINAL_RESEARCH_READMES_AND_MANIFESTS_2026-11-17.md). Use the single [corrected SHA-256 manifest](spectral_window_audit_2026-11-14_SHA256SUMS.txt); no duplicate current sidecar is needed.
+
 
 ## Finding and disposition
 
