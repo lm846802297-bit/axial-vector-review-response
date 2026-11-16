@@ -1,5 +1,7 @@
 # Coherent two-pole integration-window audit — 2026-11-14
 
+> **Checksum audit (2026-11-17):** the original [SHA-256 manifest](spectral_window_audit_2026-11-14_SHA256SUMS.txt) has a script-hash mismatch: it lists `716cc6e0…`, while the current script hashes to `aa6dc93c…`; the CSV entry matches. The same script blob was already present at review-base commit `b06114a3d87c33ce0bd0605b8e459068776f7245`, so this is not explained by a later branch edit. Use [the corrected current sidecar](spectral_window_audit_2026-11-14_SHA256SUMS_CURRENT_2026-11-17.txt) for current file identity. The original manifest is preserved as evidence of the mismatch and must not be used as a passing checksum assertion.
+
 ## Finding and disposition
 
 The archived [calculation script](coherent_two_pole_spectral_area.py) initializes quadrature breakpoints with `{lo, hi, MH, ms}` and then integrates between every adjacent pair after sorting. When `ms=100` or `150` GeV, this extends the integral to 100–126 or 124.5–150 GeV, respectively, although the [calculation note](COHERENT_TWO_POLE_SPECTRAL_AREA_2026-11-10.md) states a 124.5–126.0 GeV window. At `ms=125.25` GeV the extra point is inside the window.
