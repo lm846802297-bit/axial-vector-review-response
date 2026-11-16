@@ -148,3 +148,16 @@ No production collision kernel, scalar B.2 baseline, stellar profile, Fig. 7 ref
 2. Obtain authorized same-snapshot Garching hydrodynamic data before claiming a raw-profile reproduction.
 
 The pure-vector Fig. 7 gate remains unpassed. Production axial-vector limits remain frozen.
+
+
+## Current-tree and subsequent-review reconciliation (2026-11-16)
+
+The six scientific source documents in §2 were individually fetched from the current maintenance branch. Their live Git blob IDs match the baseline register's current-blob fields, and all six retain `PASS_WITH_NOTES` with `MATCH_CURRENT` fingerprints. The B.13 local-kernel and high-energy transport JSON was also read directly rather than relying only on the prose report.
+
+The machine-readable B.13 summary confirms: 42/42 fixed-radius/fixed-energy local points pass the 0.1% successive-order criterion; maximum detailed-balance and final-muon shell residuals are (1.0985\times10^{-14}) and (1.7108\times10^{-13}), respectively. In the 210–510 MeV band, the literal scalar-sum, equal-occupation-average, and independent-mode prescriptions give (2.1001262\times10^{52}), (6.07138768\times10^{53}), and (6.05812455\times10^{53}) erg/s. The mode-resolved/equal-average difference is 0.22% for this benchmark only, while mode-resolved/scalar-sum is 28.8465. These are distinct attenuation prescriptions, not a normalization correction. The B.16 band baseline closes to (1.01\times10^{-7}) relative against the archived P1-C result.
+
+The low-(x) extension remains incomplete: only 7 of 24 pilot points were completed; the required full-band minimum is (x\simeq0.02218), below the current table's (x=0.5) floor. The full-profile high-order B.13 scan, full-band Fig. 7 reproduction, GR energy convention, and updated SN1987A/axial limits therefore remain unaccepted. The Global-04 report's 950 selected high-order nodes and 240 stratified nodes pass their stated local quadrature screens, but it explicitly does not claim exhaustive full-grid high-order convergence or B.1/B.2 transport.
+
+The explicit-spinor output remains a pointwise check: direct positive-energy (u)-spinors validate the (mu^-) amplitudes; the (mu^+) entries use the charge-conjugated (u)-spinor mapping and are not an independent (v)-spinor calculation. The later sixty-first review independently retains this limitation. Its separate correction to the thermal-integral design's initial-muon spin-degeneracy convention concerns a different document and does not alter the six-file findings here.
+
+No production collision kernel, scalar B.2 convention, stellar profile, Fig. 7 reference, luminosity, SN1987A limit, manuscript, referee response, or axial-vector constraint output was modified by this review.
