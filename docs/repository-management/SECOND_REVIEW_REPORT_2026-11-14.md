@@ -54,3 +54,24 @@ The 20 outcomes above have been entered in `DOCUMENT_AUDIT_REGISTER.csv`. No sci
 - The two manifest updates are deliberately separate: `ARCHIVE_ORIGINAL_SHA256SUMS.txt` is immutable evidence from the original archive, while `SHA256SUMS.txt` fingerprints the current extracted package state. The current manifest now matches all seven text files; the binary entries remain tied to the source commit by Git blob and size.
 
 The report's original 20-document review and its historical status table are preserved. The current-execution README is closed after its later repair; the script-directory README remains open pending ownership clarification. No scientific calculation or model parameter was changed.
+
+## Independent follow-up (2026-11-16)
+
+The 20-document table above is retained as the original 2026-11-14 review snapshot. All 20 document paths were checked against the current tree and still exist. A second local-link pass covered **51 relative Markdown links** across the 20 documents; no missing local target was found.
+
+### 1. Previously revision-required navigation files
+
+- \`审稿意见-gpt/当前执行/README.md\`: the original finding is resolved. The current file now routes live status to \`PROJECT_STATUS.md\`, research authority to \`research/MAIN_RESEARCH_INDEX_2026-11-13.md\`, model decisions to the decision ledger, and calculations to the relevant workstream indexes. All seven local links resolve. Its current register status is \`PASS_WITH_NOTES\`; the 2026-11-14 \`REVISION_REQUIRED\` label remains only as the historical outcome in the table above.
+- \`计算脚本/README.md\`: updated on 2026-11-16. It now distinguishes the canonical research index and current Major 1/2/3/4.2 entrypoints from the historical section250–262 and DeepSeek66 material. It removes the inaccurate claim that v65/v66 master documents are present at the workspace root: the current Git tree contains only the old \`build_v65.py\` and \`build_v66.py\` generation scripts in their section directories. All 14 local links resolve. Its current disposition is \`PASS_WITH_NOTES\`, not a claim that the legacy scripts or external DeepSeek material have been rebuilt.
+
+### 2. Binary-capable package integrity checks
+
+- **Overleaf handoff:** the original ZIP was retrieved from the extraction commit's parent \`0c7136de89ce81f30f9c0d13371e1566c72a760c\`; its 777,561 bytes and SHA-256 \`6c3d74091df33f316ea01694738a5b2392d9a882576704a7c3690a6569037323\` match the preserved original manifest. All nine entries in the current \`SHA256SUMS.txt\`, including both PDFs, match their repository bytes and declared sizes. Of the eight hashes in the immutable original embedded manifest, six match current extracted files; the only two differences are the intentionally updated historical-only \`README_Overleaf.md\` and the refreshed current \`SHA256SUMS.txt\`. The original manifest was not overwritten. Current manifest SHA-256: \`26a52620f8eeee97bfb73eb529606cc3ca32de84bbb26ee3f65e6c0dea92c85c\`.
+- **Higgs-portal handoff:** the original ZIP was retrieved from the same extraction parent commit; its 273,574 bytes and SHA-256 \`32c37db733836eced4c122fe8b7ee4287bc2ec35fc9391d46fed38501a7f6159\` match the recorded identity. Extraction PR #94 came from \`chore/extract-generated-archives-20261113\` and merged into \`main\` at \`2bebb38c7ff8966b048b133d67c1aa7bd37aa496\`. The extraction-time checksum manifest SHA-256 is \`6dae97dae126847e4965fa8cbec56d3100ce689ae021417bfd6c0395137d59ad\`; all three entries in the refreshed current manifest match current repository bytes and sizes. Current manifest SHA-256: \`d31e9559002352ba02aa7ce87674780a2c5862c844535a1ec96167c85a6acbf7\`.
+- The archive ZIP byte hashes and sizes were independently checked from the Git parent commit. ZIP entry CRC checks remain the extraction-time records; this follow-up did not independently rerun ZIP decompression/CRC. The original archives are absent from the current tree by design.
+
+### 3. Remaining scope notes
+
+The extracted Overleaf package remains a historical handoff, not the final submission source; the accepted current response is the root TeX/PDF pair. The older PMNS/VLL and Major 1 Plan B/Plan C-lite documents remain historical or partial evidence with their stated limitations. The deliverables index still does not provide a persistent generated package-inventory script; the checks above are an independent audit, not a new automated packaging workflow.
+
+**Current disposition of this review batch: \`PASS_WITH_NOTES\`.** The two navigation findings are resolved, all 20 documents and 51 local links are present, and both extracted-package checksum manifests pass. No model assumption, loop result, Wilson coefficient, production rate, stellar-cooling result, or physical constraint was changed.
