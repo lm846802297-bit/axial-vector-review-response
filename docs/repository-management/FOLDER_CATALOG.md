@@ -7,7 +7,7 @@ Live Git-tree inventory for branch `maintenance/repository-organization-audit-20
 - **1,676 Git-tree entries:** 1,553 files and 123 directories.
 - **579 Markdown/text files:** 480 `.md` and 99 `.txt`.
 - **Baseline document register:** 462/462 individually reviewed; 296 `PASS_WITH_NOTES`, 2 `PASS`, 153 `HISTORICAL`, 11 `REVISION_REQUIRED`, 0 `PENDING`. Current fingerprints: 390 match, 71 content hashes differ from the recorded reviewed version, and 1 size-only metadata discrepancy; reconciliation is open.
-- **Supplemental document register:** 117 post-baseline Markdown/text files; 110 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 0 `PENDING`, and 1 `REVISION_REQUIRED`. Every supplemental document has an individual review disposition; the remaining issue is the current section-log checksum sidecar.
+- **Supplemental document register:** 117 post-baseline Markdown/text files; 111 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 0 `PENDING`, and 0 `REVISION_REQUIRED`. Every supplemental document has an individual review disposition; no supplemental `PENDING` or `REVISION_REQUIRED` entries remain.
 - **115 GitHub Actions workflow YAML files:** 47 `REVIEWED_WITH_NOTES`, 16 `HISTORICAL_CANDIDATE`, 52 `PENDING`.
 - **274 JSON files** and **410 Python files** (file counts only; not all are production code).
 
@@ -39,7 +39,7 @@ See [ROOT_FILE_CLASSIFICATION.md](ROOT_FILE_CLASSIFICATION.md) for the 24 root f
 The seventy-fourth review completed the last 12 pending supplemental documents; see [the review report](SEVENTY_FOURTH_REVIEW_FINAL_RESEARCH_READMES_AND_MANIFESTS_2026-11-17.md).
 
 1. Keep root `README.md`, `PROJECT_STATUS.md` and the living decision register as concise governance entry points.
-2. All **117 supplemental Markdown/text files** now have individual review dispositions (0 `PENDING`); resolve the one supplemental `REVISION_REQUIRED` current section-log checksum sidecar from exact intended bytes.
+2. All **117 supplemental Markdown/text files** now have individual review dispositions (0 `PENDING`, 0 `REVISION_REQUIRED`). The current section-log sidecar has been regenerated from exact Git bytes and matches 8/8; its superseded hash set remains in Git history.
 3. Resolve or explicitly retain the **11 baseline `REVISION_REQUIRED`** items only after evidence-based review; never bulk-promote them.
 4. Continue triage of the **52 pending workflows**. Do not disable or delete a workflow based only on its filename or an old branch reference.
 5. Audit relative links, Python imports, workflow paths, LaTeX inputs, bibliography lookup and manifests before any physical relocation.
