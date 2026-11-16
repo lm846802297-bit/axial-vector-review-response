@@ -16,7 +16,7 @@ Reviewed the complete YAML for ten B.13 workflows on `maintenance/repository-org
 | `b13-global-transport-summary.yml` | REVIEWED_WITH_NOTES | A downstream compaction workflow, not a transport calculation. It waits for three full-mass inputs and only generates summaries if all exist; manual dispatch can therefore finish without producing output when prerequisites are missing. Make that no-op state visible in the run summary. |
 | `b13-global-transport-vertex-preserving.yml` | REVIEWED_WITH_NOTES | Full 0.1, 1 and 10 MeV B.13 source-and-opacity transport on a fixed profile. It checks the profile hash, mass labels, B.16 baseline residual and unchanged production axial outputs, then commits JSON outputs. These are valuable controls, but do not by themselves establish final axial SN exclusion or close the strong-absorption physical benchmark. |
 | `b13-local-kernel-convergence-audit.yml` | REVIEWED_WITH_NOTES | Local 10 MeV kernel convergence and thermal-rate regression tests. This is a local-kernel gate, not a radial/global transport validation. The workflow commits the JSON output; confirm that the result needs to be durable in Git rather than retained as an artifact. |
-| `b13-local-kernel-low-mass-convergence.yml` | REVIEWED_WITH_NOTES | Matrix variant for 0.1 and 1 MeV local kernels. It has similar logic to the single-mass local audit but extends mass coverage. Unlike the neighboring workflows, it does not test whether the staged diff is empty before committing; unchanged output may lead to an empty-commit failure. |
+| `b13-local-kernel-low-mass-convergence.yml` | REVIEWED_WITH_NOTES | Matrix variant for 0.1 and 1 MeV local kernels. It has similar logic to the single-mass local audit but extends mass coverage. The current YAML includes `git diff --cached --quiet && exit 0`, so it safely skips an empty commit. This corrects the original static-review note, which had missed the existing guard. |
 | `b13-low-mass-global-convergence.yml` | REVIEWED_WITH_NOTES | Global 0.1 and 1 MeV convergence matrix with profile and B.16 closure assertions. It has a 240-minute timeout and writes outputs to the branch. It also lacks an explicit staged-diff guard before `git commit`; add one if this workflow is maintained. Numerical convergence remains separate from physical acceptance. |
 
 ## Cross-cutting findings
@@ -26,7 +26,7 @@ Reviewed the complete YAML for ten B.13 workflows on `maintenance/repository-org
 3. The read-only global quadrature audit is a good least-privilege pattern: upload a versioned artifact without write access.
 4. B.13 workflow names encode separate validation layers: local kernel, radial opacity, global transport, multi-grid convergence and summary generation. Do not merge them into one broad “B.13 passed” status.
 5. The three-mass transport workflow explicitly verifies B.16 baseline closure and fixed-profile identity. This is an implementation/consistency check, not proof that the physical 10 MeV strong-absorption endpoint is correct.
-6. Two matrix workflows omit an explicit empty-staged-diff guard before committing. This is a reliability issue to fix only in a dedicated workflow change, not silently during documentation review.
+6. The current `b13-local-kernel-low-mass-convergence.yml` has an empty-staged-diff guard. `b13-low-mass-global-convergence.yml` does not visibly have the same guard, so only that workflow retains the empty-commit reliability note. This correction is based on the current YAML and does not modify either workflow.
 
 ## Disposition
 
