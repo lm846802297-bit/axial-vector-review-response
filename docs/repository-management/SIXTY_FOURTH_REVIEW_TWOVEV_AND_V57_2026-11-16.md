@@ -198,3 +198,16 @@ After this review: 384 reviewed, 78 pending:
 6. Do not infer a supernova luminosity, transport result or SN1987A limit from either two-VEV local validation record.
 
 **Scientific disposition:** the two-VEV mapping and current-level checks are useful and internally consistent within their stated limits. The local thermal prototype is not supernova transport. The V57 manual family contains sound core formulae and useful review workflows, but its version lineage is unresolved and no model-specific UV loop, experimental recast or joint allowed region is established by these documents.
+
+
+## 7. Post-review provenance clarification (2026-11-16)
+
+The archived two-VEV branch provenance in §3.1 was checked directly at commit `5ec3c3396b2f85c2a2efd1431a183bf7a7255ca2`. Its tree confirms the six source blobs listed in the report, including the convergence driver blob `e36ab13ae32216ae4d3c9a2323099485f880a1b0`, decay-width blob `be2aefbd9078f43b8aa586f5516ce4caf953a107`, and the historical CSV blob `075314ff389cfa2eade061d8a6d359473e8225c2` at `research/stellar-cooling-two-vev-20261105/thermal-convergence-2026-11-05.csv`.
+
+In the current maintenance tree, the old full convergence driver has been consolidated into `research/stellar-cooling-shared-20261105/stellar_semi_compton_thermal_convergence_common.py` (same blob `e36ab13...`), while the two-VEV path is now a thin adapter (blob `15e97646...`). The historical CSV is no longer present at the two-VEV path; the same CSV blob is present under the original-UV line. Do not mistake that migrated copy for a fresh two-VEV run. The CSV still uses order 10 as its zero/reference and `relative_*_percent` columns, unlike the pinned highest-order-reference driver's `relative_*_to_reference` schema. The validation record remains `REVISION_REQUIRED` until the exact producer/reference convention is reconciled and the command examples are fixed.
+
+The decay-width source comparison was also checked line-by-line. The archived two-VEV blob `be2aefbd...` and current two-VEV file blob `e7fbb438...` retain the same executable formula bodies; the substantive differences are expanded neutrino-normalization/ Majorana/active-heavy caveats in the current docstring. Preserve both hashes as historical and current snapshots rather than overwriting one with the other.
+
+The four V57 working documents remain present with the reported identities. The alternative `v57_enhanced.md` and candidate `v57_reconstructed_1007.md` each contain the duplicated phrase `当前当前`; the candidate also needs its (Delta_{hs}^2)/(Delta) notation and source/version manifest before promotion. No canonical V5.7 choice is inferred from the filenames or the shared initial-commit history.
+
+This review report is `PASS_WITH_NOTES`: the archived branch evidence and V57 disposition are reproducible at the stated level, while the two-VEV validation record remains independently `REVISION_REQUIRED`. No UV–EFT closure, stellar transport, SN1987A limit or axial-vector constraint is inferred.
