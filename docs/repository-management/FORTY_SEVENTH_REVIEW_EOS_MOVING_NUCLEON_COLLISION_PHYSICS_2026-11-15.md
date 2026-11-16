@@ -133,3 +133,14 @@ The archived optical depths at \(r=0.20\) km are \(\tau_\nu=28603.0\) and \(\tau
 3. Keep the effective-mass/weak-magnetism vertex prescription distinct from any future RPA or in-medium vertex calculation.
 
 No B.2 vector production opacity, Blinov Fig. 7 result, SN1987A bound, manuscript, referee response, or axial-vector exclusion is updated by this review.
+
+
+## Current-tree and CI execution reconciliation (2026-11-16)
+
+The seven C4-A/C4-B2/C4-C1/C4-C2/C4-C3 documents listed in §2 remain present in the current tree and retain their recorded \`PASS_WITH_NOTES\` baseline dispositions. The C4-A sum-rule CSV has 56 data rows (four radii, two species, seven momentum-transfer values); the serialized acceptance JSON has all seven acceptance flags true. The C4-C2 \(E_\nu'\) output records all 16 selected radius/species/sign cases, maximum 48-to-72 difference \(2.08975\times10^{-5}\), and support-root residual \(1.03173\times10^{-13}\). The C4-C3 local summary records 301 radial points and 1204 species/sign cases, with its archived-table and radial-grid acceptance flags true. These outputs do not change the angular/tail limitations in §1.
+
+The four earlier numerical CI workflows were independently fetched and are completed successfully: C4-A #42999848393, C4-B2 #43006872370, C4-C1 #43009019757, and C4-C2 #43011762069. By contrast, C4-C3 Actions run #43039883023 is completed with failure before Python setup: the checkout step received a literal backslash-prefixed commit SHA because the workflow escaped GitHub expression markers. The unit-test, 20-shard, and merge jobs were consequently skipped; this failure is not a numerical test failure and does not validate or invalidate the archived local calculation.
+
+A second latent C4-C3 workflow defect was found during repair: the shard command wrote a literal escaped shell variable in its output filename, while the artifact upload expected a matrix-indexed filename. The maintenance-branch workflow was corrected by removing the escape before GitHub expressions and the shell variable, and making the shard write/upload paths agree. The workflow repair is recorded in commits \`cd355d23a9d2f9682077c159d82cd148637d49ee\` and \`f352c117c2a1108812db48fadc8f7310d607f744\`; current workflow blob is \`6598dc67af10d07704694b25c4c404857ac2db93\`. The corrected workflow has not yet been rerun. The C4-C3 301-radius archive remains a direct local computation, not a successful Actions run.
+
+The physical disposition is unchanged: C4-C3 is a reproducible fixed-local-energy, flat-space radial diagnostic, not a uniformly angular-converged opacity or transport solution. P0 remains the radial angular-order scan (especially near the 7.35 km opacity peak); P1 remains the independent 40T/45T/50T momentum-tail test. No production weak kernel, EOS table, local-rate CSV, optical-depth archive, B.2 vector opacity, SN1987A bound, manuscript, referee response, or axial-vector constraint output was modified.
