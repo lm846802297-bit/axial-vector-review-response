@@ -32,7 +32,7 @@ This document describes the current repository organization and the intended own
 
 ## Review coverage and reports
 
-The original baseline contains 462 Markdown/text documents and is now fully reviewed: 295 `PASS_WITH_NOTES`, 2 `PASS`, 153 `HISTORICAL`, 12 `REVISION_REQUIRED`, and 0 `PENDING`. The current tree additionally contains 110 later-added Markdown/text files, tracked separately in the [supplemental register](SUPPLEMENTAL_DOCUMENT_AUDIT_REGISTER.csv): 59 are `PASS_WITH_NOTES` and 51 remain `PENDING` for individual review. Thus the live tree has 573 `.md`/`.txt` files, and baseline completion must not be confused with full-tree completion. The baseline register also preserves reviewed-version hashes alongside current-tree fingerprints: 399 rows currently match, 60 have differing content fingerprints, and 3 have size-only metadata discrepancies. These 63 rows require reconciliation against later review evidence; review outcomes were not changed by this fingerprint check. See the [baseline audit register](DOCUMENT_AUDIT_REGISTER.csv), [supplemental register](SUPPLEMENTAL_DOCUMENT_AUDIT_REGISTER.csv), and the dated review reports:
+The original baseline contains 462 Markdown/text documents and is now fully reviewed: 296 `PASS_WITH_NOTES`, 2 `PASS`, 153 `HISTORICAL`, 11 `REVISION_REQUIRED`, and 0 `PENDING`. The current tree additionally contains 110 later-added Markdown/text files, tracked separately in the [supplemental register](SUPPLEMENTAL_DOCUMENT_AUDIT_REGISTER.csv): 69 are `PASS_WITH_NOTES` and 41 remain `PENDING` for individual review. Thus the live tree has 573 `.md`/`.txt` files (475 `.md`, 98 `.txt`), and baseline completion must not be confused with full-tree completion. The baseline register also preserves reviewed-version hashes alongside current-tree fingerprints: 394 rows currently match, 67 have differing content fingerprints, and 1 has a size-only metadata discrepancy. These 63 rows require reconciliation against later review evidence; review outcomes were not changed by this fingerprint check. See the [baseline audit register](DOCUMENT_AUDIT_REGISTER.csv), [supplemental register](SUPPLEMENTAL_DOCUMENT_AUDIT_REGISTER.csv), and the dated review reports:
 
 - [Initial governance and entry review](INITIAL_REVIEW_REPORT_2026-11-14.md)
 - [Second review batch](SECOND_REVIEW_REPORT_2026-11-14.md)
@@ -49,6 +49,7 @@ The original baseline contains 462 Markdown/text documents and is now fully revi
 - [Root PDF extraction audit](ROOT_PDF_EXTRACTION_AUDIT_2026-11-14.md) (supplementary technical audit)
 - [Link and relocation audit](LINK_AND_RELOCATION_AUDIT_2026-11-14.md) (supplementary technical audit)
 
+- [B.13 global transport, moving-muon kernel and B.2 convergence review](THIRTY_NINTH_REVIEW_B13_TRANSPORT_AUDITS_2026-11-15.md)
 - [B.16 high-energy propagation and GR review](FORTY_SECOND_REVIEW_B16_HIGH_ENERGY_PROPAGATION_2026-11-15.md)
 - [B.16 independent B.1 source and B.1+B.2 luminosity review](FORTY_THIRD_REVIEW_B16_INDEPENDENT_B1B2_LUMINOSITY_2026-11-15.md)
 - [B.2 polarization and B.13 collision-physics review](FORTY_FOURTH_REVIEW_B13_B2_PHYSICAL_CONTENT_2026-11-15.md)
