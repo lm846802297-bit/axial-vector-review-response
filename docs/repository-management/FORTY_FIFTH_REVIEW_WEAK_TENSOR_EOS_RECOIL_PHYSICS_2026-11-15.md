@@ -1,7 +1,7 @@
 # Forty-fifth review: weak-current tensor, SFHo EOS occupations, and recoil moments
 
 Review date: 2026-11-15  
-Reviewed branch: \`maintenance/repository-organization-audit-20261114\`  
+Reviewed branch: `maintenance/repository-organization-audit-20261114`  
 Scope: four P1-I/P1-IIIb/P1-IIIe scientific documents, the stationary-target weak-current implementation, the C4-B1 effective-mass tensor implementation/tests, and the published Horowitz and Fiorillo references.
 
 Primary references:
@@ -21,10 +21,10 @@ The use of vacuum \(M_N\) in the C4-B1 Pauli denominator while the external quas
 
 | Document | Outcome | Physics assessment |
 |---|---|---|
-| \`B16_P1I_B_EXACT_ONE_NUCLEON_RECOIL_WEAK_MAGNETISM_2026-11-10.md\` | \`PASS_WITH_NOTES\` | The Horowitz exact stationary-target recoil/weak-magnetism formula and single-nucleon form factors match the published expressions. The new \(\sigma_{\rm mom}\) definition is algebraically useful but represents longitudinal momentum transfer \(q_\parallel/E_\nu\), not \(|\mathbf q|/E_\nu\). The Müller–Janka A31 comparison is now qualified as a small-recoil heuristic stress test. |
-| \`B16_P1III_B_WEAK_CURRENT_TENSOR_SPEC_2026-11-10.md\` | \`PASS_WITH_NOTES\` | The invariant response and moving-nucleon rate prefactors follow from the spin-averaged hadronic tensor plus explicit two-state nucleon degeneracy. The \(1/(4\pi q)\) response prefactor and \(G_F^2E'/(256\pi^4Eq)\) local-rate prefactor are consistent. This remains a specification/validation contract, not evidence that a full EOS-integrated transport kernel is complete. |
-| \`B16_P1IIIE_GARCHING_EOS_NUCLEON_DISTRIBUTIONS_2026-11-11.md\` | \`PASS_WITH_NOTES\` | The Fiorillo Appendix C.1 occupation \(f_N=[\exp((U_N+K_N-\mu_N^*)/T)+1]^{-1}\), with \(K_N=\sqrt{p^2+m_N^{*2}}-m_N^*\), is correctly represented. The distinction between nucleon chemical potentials excluding rest mass and relativistic muon chemical potentials including mass is essential. The weighted degeneracy factors are global time/core averages, not \(t_{\rm pb}=1\) s local values. |
-| \`B16_P1IIIE_C4B1_EFFECTIVE_MASS_WEAK_TENSOR_2026-11-11.md\` | \`PASS_WITH_NOTES\` | The equal-\(m_N^*\) quasiparticle spinors, on-shell kinematics, trace, vector Ward identity, hermiticity, vacuum-mass recovery, and neutrino/antineutrino VA sign structure are internally consistent. The vacuum \(M_N\) in the Pauli denominator is a model choice, not a consequence of the Ward identity; the calculation is not a full in-medium vertex or RPA response. |
+| `B16_P1I_B_EXACT_ONE_NUCLEON_RECOIL_WEAK_MAGNETISM_2026-11-10.md` | `PASS_WITH_NOTES` | The Horowitz exact stationary-target recoil/weak-magnetism formula and single-nucleon form factors match the published expressions. The new \(\sigma_{\rm mom}\) definition is algebraically useful but represents longitudinal momentum transfer \(q_\parallel/E_\nu\), not \(|\mathbf q|/E_\nu\). The Müller–Janka A31 comparison is now qualified as a small-recoil heuristic stress test. |
+| `B16_P1III_B_WEAK_CURRENT_TENSOR_SPEC_2026-11-10.md` | `PASS_WITH_NOTES` | The invariant response and moving-nucleon rate prefactors follow from the spin-averaged hadronic tensor plus explicit two-state nucleon degeneracy. The \(1/(4\pi q)\) response prefactor and \(G_F^2E'/(256\pi^4Eq)\) local-rate prefactor are consistent. This remains a specification/validation contract, not evidence that a full EOS-integrated transport kernel is complete. |
+| `B16_P1IIIE_GARCHING_EOS_NUCLEON_DISTRIBUTIONS_2026-11-11.md` | `PASS_WITH_NOTES` | The Fiorillo Appendix C.1 occupation \(f_N=[\exp((U_N+K_N-\mu_N^*)/T)+1]^{-1}\), with \(K_N=\sqrt{p^2+m_N^{*2}}-m_N^*\), is correctly represented. The distinction between nucleon chemical potentials excluding rest mass and relativistic muon chemical potentials including mass is essential. The weighted degeneracy factors are global time/core averages, not \(t_{\rm pb}=1\) s local values. |
+| `B16_P1IIIE_C4B1_EFFECTIVE_MASS_WEAK_TENSOR_2026-11-11.md` | `PASS_WITH_NOTES` | The equal-\(m_N^*\) quasiparticle spinors, on-shell kinematics, trace, vector Ward identity, hermiticity, vacuum-mass recovery, and neutrino/antineutrino VA sign structure are internally consistent. The vacuum \(M_N\) in the Pauli denominator is a model choice, not a consequence of the Ward identity; the calculation is not a full in-medium vertex or RPA response. |
 
 ## 3. Independent equation checks
 
@@ -138,3 +138,8 @@ No production rates, B.2 opacity, stellar profile, or axial-vector outputs were 
 4. Keep stationary-target, moving ideal-gas, and EOS-quasiparticle results as separate lanes until the cold/dilute and finite-density limits all pass.
 
 The B.2 and axial-vector production gates remain unchanged.
+
+
+## Current-tree reconciliation (2026-11-16)
+
+The four source documents in §2 remain present and their live blob IDs and baseline-register outcomes match the reviewed entries (all four PASS_WITH_NOTES). The Horowitz moment summary JSON retains the stated identity residual (3.33\times10^{-16}), pointlike-form-factor residual (1.38\times10^{-13}), and 64-to-1024-node quadrature difference (1.1\times10^{-14}). The C4-B1 summary retains 288 Ward cases, 40 vacuum-mass recovery cases, eight VA sign cases and `overall_pass=true`; its cited workflow #43001802164 is completed successfully. The P1-IIIb note remains a normalization/specification contract, and C4-B1 remains a local tensor-algebra check only. No EOS-integrated collision kernel, B.2 opacity, stellar transport or SN limit is accepted by this review.
