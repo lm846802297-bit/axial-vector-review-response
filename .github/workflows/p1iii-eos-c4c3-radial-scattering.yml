@@ -73,7 +73,7 @@ jobs:
           mkdir -p /tmp/c4c3
           python "$ROOT/audit_b16_p1iii_eos_c4c3_radial_scattering.py" \
             --shard-index "$SHARD_INDEX" --shard-count 20 \
-            --output-csv "/tmp/c4c3/rates_shard_\${SHARD_INDEX}.csv"
+            --output-csv "/tmp/c4c3/rates_shard_${SHARD_INDEX}.csv"
       - name: Upload radial rate shard
         uses: actions/upload-artifact@v4
         with:
