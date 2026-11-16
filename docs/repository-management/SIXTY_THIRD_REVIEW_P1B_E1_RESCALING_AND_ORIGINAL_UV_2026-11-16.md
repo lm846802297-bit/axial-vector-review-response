@@ -165,3 +165,18 @@ After this review: 378 reviewed, 84 pending:
 6. Reconcile the UV validation CSV with its exact producer and record both the historical and current decay-width source hashes.
 
 **Scientific disposition:** this review validates substantial interpolation progress and the limited rescaling/UV-model scopes, but it does not establish a full-band P1-B kernel, exact-B.13 B.2 transport, a reproduced vector Fig. 7 curve, or a model-specific SN1987A exclusion. No production physics outputs or axial-vector constraints changed.
+
+
+## 7. Post-review current-tree reconciliation (2026-11-16)
+
+Two of the reviewed findings have since been corrected without changing numerical outputs:
+
+1. **Global-Full interval 1487:** `REPORT.md` now lists the three high-order radial-midpoint intervals individually. The support-edge interval 1487 is included with its direct high-order JSON provenance (blob `d0143b8070b0bcac571042e9b33c1a7412fa73ee`): all three nodes pass through order ((20,12,12,12)), maximum successive-order change (3.3585\times10^{-7}), midpoint interpolation error (3.0783\times10^{-9}). The report no longer says this interval was only low-order checked. This resolves the internal narrative inconsistency; global high-order quadrature and full-star transport remain unaccepted.
+
+2. **Rescaling README:** the point-weighting convention is now explicit. The pooled literal fit has 69 equally weighted points: 32 at 1 MeV, 25 at 10 MeV and 12 at 200 MeV. The fit is point-weighted, not equal-mass weighted; this is documentation only and does not change (kappa=1.03) or the no-rescaling conclusion.
+
+The Global-04 raw ZIP remains absent from the tracked tree; only its manifest digest, compact summary and report are available here. The low-(x) B.13 support gap remains material: the existing (x\ge0.5) table cannot be used as a full-band Compton opacity without the missing low-(x) extension and full radial/high-order validation.
+
+The original single-VEV UV validation record remains `REVISION_REQUIRED`. The committed thermal-convergence CSV is not the direct output/schema of the pinned highest-order-reference driver, and the historical/current decay-width source blobs still need to be labelled as separate snapshots. Do not infer a model-specific UV–EFT closure or supernova limit from this local validation.
+
+With the two post-review corrections recorded, this 63rd review report is `PASS_WITH_NOTES`; the remaining two underlying research records retain their own separate statuses. No production kernel, coupling, opacity, luminosity, Fig. 7 reference, SN1987A limit or axial-vector constraint was changed.
