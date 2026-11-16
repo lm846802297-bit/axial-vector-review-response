@@ -48,3 +48,10 @@ After the twelve-document review, the separate current section-log sidecar was r
 - No source code, raw scientific data, numerical output, manuscript source, physical parameter, exclusion or constraint curve was changed.
 
 The supplemental document review queue is empty and the supplemental register now has no `PENDING` or `REVISION_REQUIRED` entries: 111 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 0 `PENDING`, 0 `REVISION_REQUIRED`. The 2026-11-16 current section-log sidecar has been regenerated from exact current Git UTF-8 bytes and independently verified 8/8. Its prior incorrect hash set remains in Git history. The 11 baseline `REVISION_REQUIRED` entries are separate and remain open.
+
+
+## Post-review follow-up — 2026-11-17
+
+The one remaining supplemental `REVISION_REQUIRED` item identified above, `计算脚本/整理记录/section_log_rerun_current_SHA256SUMS_2026-11-16.txt`, has now been repaired as a file-integrity record. Its eight SHA-256 entries were regenerated from the exact current Git UTF-8 bytes and independently recomputed in this follow-up: **8/8 match**. The superseded, incorrect hash set remains available in Git history; the current manifest explicitly states that it pins current Git files and does not prove identity with the historical 2026-11-14 local working-copy inputs.
+
+This is a checksum/provenance repair only. It does not rerun any section calculation, convert the recorded section-260 mismatch into a PASS, or change the historical section-253/262 comparison results. The 2026-11-14 rerun JSON remains the authoritative record of that run's mixed outcome. The supplemental register now has 117 entries: 111 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 0 `PENDING`, and 0 `REVISION_REQUIRED`. No production calculation, workflow, source code, raw data, manuscript source or scientific conclusion changed.
