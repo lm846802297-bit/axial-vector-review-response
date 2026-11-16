@@ -31,3 +31,40 @@ The register remains 462 documents. After this batch:
 - Individually reviewed: 240 / 462
 
 No production rate, transport solver, opacity, coupling, scan, or constraint figure was modified or rerun. Changes are limited to historical-status notes, package-catalog clarification, escaped Markdown delimiters, and the individual-review register/report.
+
+
+## Independent current-tree follow-up (2026-11-16)
+
+**Disposition of this review batch: PASS_WITH_NOTES.** The six source documents and their linked local targets were checked against the current maintenance tree. Their original dispositions remain appropriate: the rescaling audit and package index are PASS_WITH_NOTES; the six-mass vector benchmark, the two profile-specific local B.13 records, and the log-recovered global convergence record remain HISTORICAL. No production calculation was rerun.
+
+### 1. Coupling-axis rescaling: exact historical input pin
+
+The six methods in rescaling_audit/test_rescaling.py are present, and the archived JSON reproduces the values quoted in the 2026-11-07 report: \(\kappa_{10}=1.06675\), global \(\kappa=1.03\), 10-MeV mean/max absolute relative residuals 15.6446%/91.3484%, and mass-specific Fig. 4 boundary shifts −5.9453%/−5.3519%.
+
+A raw-byte SHA-256 check establishes that the three input hashes stored in rescaling_audit/outputs/rescaling_audit.json match the input JSON files at commit b3af69de1b37e2efc9f590e40e03a4ca85434420, the head of Actions run #42302956969. The recorded run.py hash also matches that commit. This pins the archived rescaling result to that historical input set.
+
+The current maintenance tree has subsequently updated all three input JSONs. In particular, the archived result carries the earlier profile-A fingerprint 08d7afce..., whereas the current 1687-row vertex-preserving profile is 9fb14e79...; the literal scan, Fig. 4/7 comparison, and vector luminosity-comparison JSONs also contain later numerical/structural changes. The archived output is therefore **not** a rescaling fit on the current profile-B inputs. The rescaling README now records the exact historical commit and warns that the default script output path would overwrite the archived result; current-input reruns must use a distinct output filename.
+
+This does not change the original interpretation: \(\kappa\) is a diagnostic fit, not a production coupling redefinition. No fitted value is applied to the production scan or constraint curve.
+
+### 2. Collaborator package source-root accounting
+
+The package builder has five SOURCE_ROOTS entries: four primary physics/model roots plus research/stellar-cooling-shared-20261105/, which supplies shared thermal adapters and common support code. The package index previously described only the four primary roots. It now explicitly lists the shared support root and distinguishes it from a separate UV model line. The builder and validation-only workflow remain present; the workflow has no ZIP build or artifact-upload step, and the builder metadata records garching_raw_profile_included: false. The file catalog is intentionally generated inside the local ZIP rather than tracked as a standalone CSV.
+
+### 3. B.13 local radial records: profile identity and point counts
+
+Both local radial JSONs contain 42 points: seven radii (8, 10, 12.5, 15, 18.5, 20, 22 km) by six local energies (12, 15, 20, 30, 50, 80 MeV). The 24 inner-region points are the first four radii, 8–15 km.
+
+- The historical 501-node uniform-profile output is pinned to 08d7afce...; its raw profile is not present in the current tree, so that result remains a historical profile-specific diagnostic.
+- The vertex-preserving output is pinned to 9fb14e79.... The current data/sfho188_digitized.csv contains 1687 data rows (plus its header), matching the recorded current-profile variant.
+- For the 1687-row result, the maximum mode detailed-balance residual is \(3.05\times10^{-15}\), and the maximum final-muon shell residual is \(1.42\times10^{-13}\). Across the 24 inner points, the B.13 mu-minus production rate is 0.375–0.723 times the B.16 reference; the B.13 change in total local opacity ranges from −24.28% to −0.0622%.
+
+These are local-kernel and local-opacity statements. They do not determine the full escaped luminosity; source and absorption must be updated consistently in a global B.2 calculation.
+
+### 4. Global angular/path convergence: compact log record only
+
+Actions run #42542328275 records numerical_scan_step: success and structural_validation_step: success, but artifact_upload_step: failure; the original full JSON arrays were not archived. The log-recovered summary reports zero same-grid B.16 closure residuals and a maximum luminosity shift of 0.273191% on the combined \(60\times140\times24\times48\) grid. The combined-grid Fig. 7 strong-endpoint residual remains approximately +131.1% for the mu-minus-consistent variant. Thus the grid is numerically stable at the stated project targets, but the literature reproduction gate remains unpassed. The compact summary is not a substitute for the missing full arrays or an independent physical validation.
+
+PR #56, PR #106, and PR #113 are confirmed merged. Their later integration does not retroactively turn the 2026-11-07/09 records into current production inputs or a final SN1987A exclusion.
+
+**Boundary:** all findings above concern document integrity, archived diagnostics, input provenance, and stated local/global validation scope. No production B.13 kernel, B.2 opacity, luminosity curve, axial scan, SN1987A limit, or axial-vector exclusion curve was modified.
