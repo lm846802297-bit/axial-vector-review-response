@@ -41,3 +41,14 @@ The earlier statements above that the caption-repaired candidate was not yet com
 The final root PDF is 64 pages / 500,973 bytes, SHA-256 `f5f7f5c24bc04b3901f26d261d18b64ec876a2680dee23c7b3b1964abf3e1819`, built in [Actions run #43767527054](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43767527054). The 2,253-character original Figure 1 caption is preserved exactly. All 64 pages were rendered and visually reviewed; the final page-44/45 widow adjustment was independently rebuilt and re-inspected. The build has no unresolved references, no overfull boxes or oversized floats, all fonts embedded, and no blank/out-of-bounds text. One non-clipping underfull box warning at lines 609–611 remains documented.
 
 This remains a layout-only acceptance. It does not validate the physical cooling calculation or close the outstanding scientific questions.
+
+## Independent current-tree follow-up — 2026-11-16
+
+**Disposition of this extraction/layout report: PASS_WITH_NOTES.** The final CI PDF and the unchanged non-reply root PDFs were checked against the earlier extraction snapshot.
+
+- The final 64-page PDF was extracted directly from Actions artifact `14182947154`. Its 500,973-byte payload has SHA-256 `f5f7f5c24bc04b3901f26d261d18b64ec876a2680dee23c7b3b1964abf3e1819` and Git blob `4c18235a7e025872fa14a83ca7862b9c7592ac5b`; both match the current root PDF and the final acceptance report. The earlier 63-page/500,497-byte PDF and the 64-page/501,004-byte local candidate remain historical checkpoints.
+- The final CI artifact contains 64 page PNGs and 11 contact sheets (ten six-page sheets and one four-page sheet). All 11 sheets were inspected; pages 43–45 were also inspected individually. The page-boundary audit reports no blank/out-of-bounds text; all fonts are embedded; the final TeX log has one non-clipping underfull box, zero overfull boxes, and zero unresolved citations/references.
+- The other three root PDFs are byte-identical to the files in the original extraction snapshot: `axial_vector_model_building-v6.pdf` (2,759,986 bytes), `dw13678_report_1_a.pdf` (161,829 bytes), and `（原件）dw13678_report_1_a.pdf` (158,794 bytes). Their earlier extraction/annotation findings therefore remain applicable.
+- The two four-page referee PDFs still have identical extracted text but different annotation objects (18/20/2 versus 15/17/2 for highlights/popups/underlines). They remain blocked for visual/source equivalence; text equality is not visual equality. The 33-page manuscript PDF remains blocked because this follow-up did not render or visually inspect it.
+
+This follow-up closes the final referee-response PDF layout/extraction task only. It does not validate the manuscript PDF's visual fidelity, establish the source provenance of the two referee-report PDFs, or validate any physical calculation.
