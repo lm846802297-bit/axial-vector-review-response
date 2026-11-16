@@ -7,7 +7,7 @@
 ## 快速入口
 
 - [仓库结构与文件管理说明](docs/repository-management/README.md)：目录职责、迁移原则和导航。
-- [逐文档审查标准](docs/repository-management/DOCUMENT_REVIEW_STANDARD.md)、[462 份基线文档登记表](docs/repository-management/DOCUMENT_AUDIT_REGISTER.csv) 与 [110 份补充文档登记表](docs/repository-management/SUPPLEMENTAL_DOCUMENT_AUDIT_REGISTER.csv)：当前 Git 树共有 573 份 Markdown/text 文件（475 `.md`、98 `.txt`）；原始 462 份基线已逐份审查；新增 110 份已入补充台账，其中 64 份 PASS_WITH_NOTES、46 份 PENDING，未审查文件不会标记为通过。基线登记表另记录 395 条指纹匹配、66 条内容指纹不匹配和 1 条仅文件大小元数据不匹配；这些差异正在与后续审查证据逐项核对，不会被直接覆盖。
+- [逐文档审查标准](docs/repository-management/DOCUMENT_REVIEW_STANDARD.md)、[462 份基线文档登记表](docs/repository-management/DOCUMENT_AUDIT_REGISTER.csv) 与 [110 份补充文档登记表](docs/repository-management/SUPPLEMENTAL_DOCUMENT_AUDIT_REGISTER.csv)：当前 Git 树共有 573 份 Markdown/text 文件（475 `.md`、98 `.txt`）；原始 462 份基线已逐份审查；新增 110 份已入补充台账，其中 64 份 PASS_WITH_NOTES、46 份 PENDING，未审查文件不会标记为通过。基线登记表另记录 397 条指纹匹配、64 条内容指纹不匹配和 1 条仅文件大小元数据不匹配；这些差异正在与后续审查证据逐项核对，不会被直接覆盖。
 
 > **2026-11-16审查状态：** 原始基线 462/462 已审查（296 PASS_WITH_NOTES、2 PASS、153 HISTORICAL、11 REVISION_REQUIRED、0 PENDING）；补充台账另有 110 份新增文本文件，其中 64 份 PASS_WITH_NOTES、46 份仍待逐份审查。第六十九轮完成最后 54 份基线文件审查；随后第六十六轮专项端点积分复核关闭三项旧 REVISION_REQUIRED；第六十一轮状态/归一化复核关闭四项文档问题，另对 Wang–Zhang 极化审计补充了直接纵向投影结论，又关闭一项文档问题；并将旧单圈混合独立报告归档为 HISTORICAL，保留原始公式转换记录。详见[第六十九轮报告](docs/repository-management/SIXTY_NINTH_REVIEW_FINAL_54_DOCUMENT_AUDIT_2026-11-16.md)及[端点积分修复报告](docs/repository-management/SIXTY_SIXTH_REVIEW_MAJOR1_ENDPOINT_QUADRATURE_2026-11-16.md)。
 - [GitHub Actions 工作流索引](.github/workflows/README.md) 与 [工作流审查登记表](.github/workflows/WORKFLOW_AUDIT_REGISTER.csv)：115 个工作流按物理专题分类，并逐份记录触发条件、权限和输出行为；目前 47 个完成静态审查，16 个标记为历史候选，52 个待审查。
