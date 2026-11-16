@@ -147,3 +147,13 @@ The register note for the fifty-ninth review's muon-density source audit was als
 5. Do not rescale source, opacity, coupling, profile, \(R_{\max}\), luminosity, or axial-vector constraints to fit Fig. 7.
 
 **Scientific disposition:** the 10 MeV pure-vector strong-endpoint discrepancy remains unresolved. The cross-runtime result improves the phase-space diagnosis but does not pass the strict grid-identity gate or authorize a revised axial-vector curve.
+
+## 6. Post-review provenance and status erratum (2026-11-16)
+
+Two findings in the reviewed-base snapshot have since received additional evidence.
+
+1. **Profile transport sensitivity provenance (§2.1):** workflow #43197376758 completed successfully on 2026-11-12 at head `3d227183aef41d2cc7671440e994bdd07a255ff5`. Its log shows the exact invocation of `audit_profile_transport_sensitivity.py` and writes `outputs/profile_transport_sensitivity_12_15km_2026-11-09.json`. The resulting checked-in blob is `754b261870434c80e3e084ac004f18053addf330`, whose `benchmark.profile_sha256` is the current profile B fingerprint `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`. This closes the previously missing generating-run/commit provenance when the workflow log and head commit are cited together. Preserve the earlier run #42521503180 / profile 6c47 record as a separate historical execution; do not relabel it as the producer of the 9fb14 artifact. The 9fb14 sensitivity result is accepted as a fixed-grid diagnostic only, not a global Fig. 7 or physical-profile acceptance.
+
+2. **10 MeV strong-endpoint diagnosis (§2.4):** the current diagnosis document now contains a later V8 cross-runtime addendum identifying the +92.4284% high-order result, the `grid_hashes_match=false` condition, and the remaining strict Python/NumPy gate. The archived V8 JSON blob is `1cfd2e4167c845a5eaa098316bcbd6b7cd1f8b08`; the current diagnosis Markdown blob is `886c4ce5cc20d850c36ebcb5d3494321f8d76340`. The earlier “physical calculation has not started” statement is explicitly identified as a historical checkpoint, not current status. The diagnosis document's stale-status issue is therefore resolved; the physical Fig. 7 discrepancy and strict-grid acceptance remain open.
+
+With these post-review updates, the profile-sensitivity provenance issue is resolved at the documentation/evidence level and the strong-endpoint diagnosis is current. The underlying muon-density convention, low-(x) full-radial coverage, strict NumPy-grid identity, and complete Fig. 7 acceptance remain unresolved. The original six-document review results remain a dated snapshot; do not rewrite their historical findings.
