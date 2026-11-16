@@ -95,3 +95,10 @@ The 462-row baseline document register now contains **288 individually reviewed*
 The separate 115-row workflow register now contains 41 REVIEWED_WITH_NOTES, 16 HISTORICAL_CANDIDATE, and 58 PENDING entries.
 
 No production rate, opacity, source, luminosity, or axial-vector constraint was changed. The pure-vector Fig. 7 strong-endpoint discrepancy remains unresolved. The next batch should continue with the next six PENDING baseline records; the B.13/B.16 physical approximation comparison and raw-background identity remain separate scientific gates.
+
+
+## 8. Current-tree reconciliation (2026-11-16)
+
+The four current-profile source documents and two historical-profile documents in §1 remain present; their current baseline-register outcomes match the report. The paired current-profile JSONs retain profile SHA `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`. Directly inspected values reproduce the reported 8--15 km source fraction (0.7961143384), strong-endpoint source-weighted escape probability (3.5333047\times10^{-4}), production/reduced-absorption channel-sum residuals (4.01\times10^{-16})/(5.94\times10^{-16}), and local-absorption maximum closure (3.04845\times10^{-14}). The 1.17% (mu^+) susceptibility fraction at 8 km and 4.275% at 22 km are present in the pointwise JSON; the report correctly avoids treating them as a global opacity correction.
+
+Both cited current-profile workflows (#42532897123 and #42558231626) are completed successfully. The historical 501-node profile remains separate from the 1687-row profile. The 256-point whole-ray comparison is a cross-check, not a certified error bound; fixed-(omega) remains the literal B.2 reproduction lane, not a full-GR propagation claim. No production output or cooling constraint is updated.
