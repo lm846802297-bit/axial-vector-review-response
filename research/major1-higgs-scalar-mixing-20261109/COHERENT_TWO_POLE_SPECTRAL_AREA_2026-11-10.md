@@ -46,6 +46,7 @@ In this simplified calculation, the exact-degeneracy area shift is about \(-0.06
 ## Reproduction and artifact provenance
 
 - Archived implementation: [coherent_two_pole_spectral_area.py](coherent_two_pole_spectral_area.py).
+- The original script is retained for historical reproduction only; it is not the authoritative strict-window producer. Use the restricted-window audit script and CSV for the target interval.
 - Archived output: [coherent_two_pole_spectral_area.txt](coherent_two_pole_spectral_area.txt).
 - Suggested command to regenerate the archived output: `python coherent_two_pole_spectral_area.py > coherent_two_pole_spectral_area.txt`. This reproduces the historical breakpoint behavior, including the out-of-window `m_s` breakpoint for the 100 and 150 GeV cases; it is not the strictly restricted-window result.
 - Strict-window comparison: run `python spectral_window_audit_2026-11-14.py > spectral_window_audit_2026-11-14.csv`; the [window-audit record](SPECTRAL_WINDOW_AUDIT_2026-11-14.md) records Python 3.12.14 and SciPy 1.17.0 for that comparison.
