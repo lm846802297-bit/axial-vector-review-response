@@ -43,3 +43,8 @@ No physics script was modified or rerun. This batch is a document/evidence revie
 - Repaired inline-code formatting in the dense local-kernel audit.
 - Normalized malformed doubled TeX escapes and a stray parenthesis in the energy-variable audit. The exact B.1 local-energy versus E-infinity transformation remains established, but a separate comparison with the older archived B.1 source shows small residuals: -0.443% total, -0.536% neutrino inverse decay, and -0.245% muon-Compton. These are not caused by the variable transformation and remain visible as a distinct source-integration/profile/interpolation residual.
 - No production calculation was rerun.
+
+
+## Current-tree reconciliation (2026-11-16)
+
+All six reviewed document paths remain present in the current tree. Their live Git blob IDs and baseline-register outcomes match the six entries in §1 exactly: two HISTORICAL profile-specific audits and four PASS_WITH_NOTES records. The 501-node historical profile SHA remains explicitly separated from the current 1687-row profile. The later B.13 three-mass comparison and the current fixed-(\omega) B.2 baseline remain separate from the redshift-only sensitivity diagnostic. No rate rescaling, profile replacement, luminosity update, SN1987A limit change or axial-vector curve update is supported by this review.
