@@ -159,3 +159,15 @@ After this review: 366 reviewed, 96 pending:
 5. Keep the pure-vector Fig. 7 gate blocked; do not rescale source, opacity, coupling, profile, luminosity, or any axial-vector constraint.
 
 **Scientific disposition:** the moving-muon B.13 local matrix element and local thermal-rate machinery have substantial independent checks, but they are not a global transport acceptance. The pure-vector Fig. 7 benchmark remains unpassed, and no axial-vector cooling curve is promoted.
+
+## 6. Post-review current-tree reconciliation (2026-11-16)
+
+The reviewed-base snapshot classified three documents as `REVISION_REQUIRED`. A current-tree recheck confirms that all three repairs have since landed, with their updated contents and dispositions reflected in the baseline audit register:
+
+- `MOVING_MUON_SEMI_COMPTON_DERIVATION_2026-11-07.md`: header now states pointwise `mu-` spinor/trace and local implementation validation passed under workflow #43534265182 (38 targeted tests), while explicitly retaining the independent `mu+` (v)-spinor and global-transport limitations. The explicit-spinor JSON is blob `bf0e4ea17fa0aa6af69146be1520481229780ad8`; maximum trace/spinor residual is (1.77\times10^{-13}).
+- `MOVING_MUON_THERMAL_INTEGRAL_DESIGN_2026-11-07.md`: status now records the initial-muon spin degeneracy factor two and defines the matrix-element convention as initial-spin average, final-spin sum and two physical photon-polarization sum. The same convention is applied to absorption. This resolves the omitted-factor ambiguity in the design equation.
+- `VECTOR_TO_AXIAL_RESPONSE_MAPPING_2026-11-07.md`: status now records workflow #43206544724 and the local response scan (25 differential Compton, 25 angle-integrated Compton, 25 finite-mixing and 9 dimuon points). It distinguishes fixed-energy dimuon response from the full thermal dimuon integral and retains the no-universal-rescaling conclusion.
+
+The profile-B low-mass rerun JSON (blob `1ff3273ef498567d32edb5cfcd2996cbe9124039`) was compared point-by-point with the profile-A JSON (blob `998cbf994c1aae92d93c72f5fdeb1282a7b10a41`) at all eight new mass/radius points. The maxima reproduce the report: (1.0385\times10^{-9}) for (Q_{\rm B13}), (1.0881\times10^{-9}) for (Q_{\rm B16}), and (2.3861\times10^{-11}) absolute change in the B.13/B.16 ratio. Workflow #43206544350 succeeded; workflow #43206544724 succeeded; workflow #43534265182 succeeded. The original profile-A scan remains a historical snapshot, not the current reference.
+
+Thus the three former revision findings are resolved at the document level and are now `PASS_WITH_NOTES` in the baseline register. The direct `mu+` (v)-spinor proof, cross-implementation pointwise regression, and global transport acceptance remain open. The pure-vector Fig. 7 gate and all cooling constraints remain unchanged.
