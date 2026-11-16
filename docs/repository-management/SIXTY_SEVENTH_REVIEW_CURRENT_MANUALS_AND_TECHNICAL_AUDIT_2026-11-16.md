@@ -218,3 +218,8 @@ M_{E_\mu}=M_{E_\tau},\quad \chi_{\rm UV}=0
 ## 11. 下一轮
 
 继续从最新台账前六份 PENDING 文档开始。优先检查 2026-10-27 之后形成的当前专题计算报告和论文修改一致性文件，逐项核实其输入 SHA、参数、公式、输出、独立复核、证据等级及当前正式回复落点。不得因为文件名带有“final”“complete”或 PR 已合并就直接认定物理结案。
+
+
+## 12. Live-status source refresh (2026-11-16)
+
+The `PROJECT_STATUS.md` blob cited in this review was the 2026-11-15 snapshot. The current live-status document has since been updated (blob `84d2f8ac0cb473c51bc1d5003c58d9719f5ded79`) to reflect the latest audit registers: baseline 462/462 reviewed with 293 PASS_WITH_NOTES, 2 PASS, 153 HISTORICAL and 14 REVISION_REQUIRED; supplemental 110 rows with 29 PASS_WITH_NOTES and 81 PENDING; baseline fingerprints 404 MATCH_CURRENT, 55 CONTENT_FINGERPRINT_DIFFERS and 3 SIZE_METADATA_DIFFERS. The earlier 2026-11-15 status values in §§1–2 remain a dated snapshot, not current counts. The six documents reviewed in this round retain their individual dispositions; this update changes no physics result or paper-response decision.
