@@ -42,3 +42,15 @@ This batch covers 20 complete Markdown documents: execution/deliverable/calculat
 ## Register update
 
 The 20 outcomes above have been entered in `DOCUMENT_AUDIT_REGISTER.csv`. No scientific calculation, model parameter, numerical result or physical conclusion was changed.
+
+## 2. Independent current-tree follow-up (2026-11-16)
+
+**Disposition of this review report: PASS_WITH_NOTES.** All 20 document paths in the original table still exist. Their recorded outcomes match the current baseline register except the first row, whose subsequent repair is recorded below.
+
+- The `审稿意见-gpt/当前执行/README.md` finding was accurate at the report's creation commit (`7732e479...`, 08:24:21Z). The README was updated 80 seconds later by commit `3499f4b7...` (08:25:41Z); its current task order and navigation now point to `PROJECT_STATUS.md` and the active research indexes, and its baseline-register status is `PASS_WITH_NOTES`. The original table is retained as the review-time snapshot.
+- `计算脚本/README.md` remains `REVISION_REQUIRED`. It describes the section250–262 directory as a historical archive and calls v65/v66 historical snapshots, but later says the workspace root retains v66 as the current latest document and v65 as backup. The ownership boundary between this repository archive and the external workspace is still ambiguous. Do not move or delete this directory until that boundary is stated explicitly.
+- The Overleaf package's current `SHA256SUMS.txt` was independently checked. All seven text-file hashes and byte counts now match. The two PDF entries retain their manifest SHA-256 values; their byte sizes and Git blob IDs match the corresponding source-tree files at commit `3a3e8bb0eeb54a627cf2b2df315edf8badfe1dc8`, but raw binary SHA-256 was not independently recomputed in this review.
+- The package's `main.tex`, `JHEP.bst`, both bibliography files and two PDF payloads match their source-tree Git blobs at source commit `3a3e8bb0...`. `README_Overleaf.md` was later extended with a historical-only/not-for-final-submission warning and the current PDF pointer; `EXTRACTION_PROVENANCE.md` records that change; the current `SHA256SUMS.txt` was refreshed for both updated text files. `ARCHIVE_ORIGINAL_SHA256SUMS.txt` remains unchanged and preserves the original archive manifest.
+- The two manifest updates are deliberately separate: `ARCHIVE_ORIGINAL_SHA256SUMS.txt` is immutable evidence from the original archive, while `SHA256SUMS.txt` fingerprints the current extracted package state. The current manifest now matches all seven text files; the binary entries remain tied to the source commit by Git blob and size.
+
+The report's original 20-document review and its historical status table are preserved. The current-execution README is closed after its later repair; the script-directory README remains open pending ownership clarification. No scientific calculation or model parameter was changed.
