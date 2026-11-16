@@ -13,3 +13,14 @@ Baseline `65b856eeb7078b6efb4cc5b602b25260921755c7`, 2026-11-15. All seven outpu
 | `B5_2B2_EFT_COVARIANT_DERIVATIVE_CONTACTS_OUTPUT_2026-11-11.txt` | `b5_2b2_eft_contact_vertex_audit.py` originally failed because `tau` was undefined. Restored the tuple of its already-declared Pauli generators; script and existing five tests now pass, including weak-contact cancellation. This is a contact check, not a loop amplitude or Ward-identity proof. PASS_WITH_NOTES after repair. |
 
 The original B5-2B2 summary is retained; the missing symbol repair does not alter the definitions of its three matrices. Historical T_SM values are not silently overwritten. Higher-order and external-generator verification remain open.
+
+## 2. Independent current-tree follow-up (2026-11-16)
+
+**Disposition of this review report: PASS_WITH_NOTES.** All seven output files and their associated scripts are present. The four referenced unittest modules contain exactly 27 test methods in total: B5-1D 10, B5-2A 5, B5-2B1 7 and B5-2B2 5. The 27 historical PASS results are therefore consistent with the current test inventory; I did not rerun all four suites in this follow-up.
+
+- The superseded `b5_1b_sm_running_20tev.py` was independently executed under Python 3.13.5 / NumPy 2.3.5 / SciPy 1.17.0. It returns `T_SM(top-only)=1.781931005404`, `D_SM(top-only)=1.609470751820`. The preserved output's `T_SM=1.782928294` is inconsistent with its displayed `y_t=0.770699034515` because `3 y_t^2=1.781931005407`. The output already flags this and is correctly marked superseded; its old beta subtotal must not be reused.
+- The current B5-2B2 script explicitly defines the Pauli-generator tuple `tau=(tau1,tau2,tau3)`, matching the repaired output and five-method test module. Its output has six PASS assertions; those are assertions, not six unittest methods.
+- The B5-1D output and ten-method suite cover an independent symbolic beta-vector/group-theory audit and comparison to the production RHS. They do not constitute an external PyR@TE/SARAH run; the output explicitly says that external generator execution remains unperformed.
+- The A5B and B5-2A outputs are restricted EFT/RGE and EOM subblocks; B5-1 is the UV portal beta above the VLL threshold; B5-2B1 is a parameter-pole/tree-current subblock; B5-2B2 is a derivative-contact audit. Their stated limits remain correct: none closes the full model anomalous-dimension matrix, full UV–EFT matching, complete gauge-loop Ward identity, or physical scalar pole calculation.
+
+The output records are internally consistent with the report's bounded dispositions. The 27-test count is not the later 39-test combined count, which includes additional B5-2B3/B5-2B4 and other suites. No Wilson coefficient, matching result or phenomenological constraint was upgraded by this document review.
