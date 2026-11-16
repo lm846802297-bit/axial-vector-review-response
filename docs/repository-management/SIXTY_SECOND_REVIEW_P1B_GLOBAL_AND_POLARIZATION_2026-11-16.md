@@ -163,3 +163,18 @@ After this review: 372 reviewed, 90 pending:
 6. Keep the pure-vector Fig. 7 gate blocked; do not rescale source, opacity, coupling, profile, luminosity, or any axial-vector constraint.
 
 **Scientific disposition:** this round establishes a substantial local polarization finding and progress in 10 MeV B.13 sampling, but no globally accepted P1-B kernel or transport result. No updated SN1987A or axial-vector exclusion is authorized.
+
+
+## 7. Post-review current-tree reconciliation (2026-11-16)
+
+The Wang–Zhang audit has since been updated. Its current header and §12 now identify the direct (P_L) and explicit-spinor follow-up, distinguish the printed crossed-chain ordering inconsistency from the recoil-order bias in the B.3 subtraction, and state precisely that the complete symbolic finite-recoil expansion and exact phase-space/Jacobian mapping remain open. This resolves the stale “origin unidentified” status language, but not the underlying analytic derivation. The pure-vector Fig. 7 gate remains not passed.
+
+The Global 02 count discrepancy remains unresolved at the source-record level: the machine-readable summary field `G2.direct_midpoint_evaluations` is 1080, while §G2 of the Markdown report says 1140. The available summary does not provide a subset decomposition proving that the extra 60 are separate energy-midpoint evaluations. Do not silently choose one total or infer a breakdown. A report addendum now records the exact field-level discrepancy and the later one-point hot-shell result.
+
+A subsequent, distinct Global-03 full-profile screen is now archived at `P1B_E1_GLOBAL_2D_MIDPOINT_2026-11-14/GLOBAL_2D_SUMMARY.json` (blob `650496bd63bccff038bed9bcdff468e8287df376`). It directly evaluates 28,662 B.13 radial midpoints over all 1,686 intervals, plus 13,488 energy-PCHIP and 13,488 two-dimensional sequential-PCHIP cell centers. All sequential interpolation checks pass the 1% screening threshold. However, the same summary explicitly sets `global_high_order_quadrature_acceptance=false`; it does not compute full-star emissivity, GR optical depth, luminosity or Fig. 7, and does not update SN1987A. This is later evidence, not a retroactive repair of the Global 02 count or its original scouting-order acceptance.
+
+The targeted hot-shell JSON (blob `3b11d334e62ce0adf0520587c3e370598ebf53bd`) confirms the single (r=8.4821412) km, (omega=417.895) MeV point converges from order ((22,12,12,12)) to ((26,14,14,14)) by (3.8318\times10^{-4}), below the 0.1% criterion. It remains a one-point check, not a global high-order acceptance.
+
+The seven-file source snapshot was rechecked against its pinned source manifest and the repository tree: every copied file's blob ID matches the recorded source-commit blob ID. The archived run #43376779901 still has a genuine numerical acceptance failure (grid refinement (3.3678\times10^{-3}), midpoint refinement (2.4404\times10^{-3}), interpolation error (57.13\%)); the separate publisher `KeyError: 'energy_coverage_pass'` is a reporting defect, not the cause of the physical acceptance failure.
+
+With these current-tree qualifications, the 62nd review report itself is `PASS_WITH_NOTES`: its remaining Global 02 count discrepancy and symbolic Wang–Zhang derivation are accurately preserved as open issues. No kernel, opacity, transport table, luminosity, Fig. 7 reference, SN1987A limit or axial-vector constraint is modified.
