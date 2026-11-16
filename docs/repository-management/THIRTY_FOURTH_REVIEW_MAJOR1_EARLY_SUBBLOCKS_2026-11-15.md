@@ -42,3 +42,33 @@ The register remains 462 documents. After this batch:
 - Individually reviewed: 214 / 462
 
 No physics script, numerical production output, manuscript or referee response was changed or rerun in this batch. The algebra checks above are independent symbolic checks; they are not a substitute for the outstanding complete gauge-loop matching, Ward/Slavnov–Taylor closure, full propagator and physical-pole calculation.
+
+
+## Independent follow-up (2026-11-16)
+
+**Current disposition: PASS_WITH_NOTES.** All six reviewed documents and the source/test/output files named in the report are present in the current tree. The two repaired navigation/evidence files were also checked at their current branch versions.
+
+### 1. B5-2B1 and C5 convention sub-blocks
+
+- The B5-2B1 note, SymPy source and test module are present. The test module contains seven test methods. The code independently forms the UV-parameter combinations
+  \(\delta C_5/C_5=\delta y/y+\delta\lambda/\lambda-\delta M_E/M_E\),
+  \(\delta C_{LD}/C_{LD}=2\delta y/y-2\delta M_E/M_E\), and
+  \(\delta C_{RD}/C_{RD}=2\delta\lambda/\lambda-2\delta M_E/M_E\), and compares the \(C_5\) pole to its direct EFT Casimir expression. The output preserves the parameter-only qualification and the separate \(BB/WW/A'A'\), EFT-insertion, mixed \(B-A'\), UV/IR and Ward/Slavnov–Taylor work still open.
+- The C5 convention source and seven-test module are present. The exact-rational Schur complement gives \(m_{\ell,\mathrm{Schur}}=-y_\ell\lambda_\ell v_hv_s/(2M_E)\), hence \(C_{5,\ell}=-y_\ell\lambda_\ell/M_E\) in the displayed EFT convention. The right-handed rephasing transforms \(\lambda_\ell\) and \(\mathcal O_{5,\ell}\) together; it does not erase the printed v6 Eq. (5-d) sign discrepancy. This remains a tree-level sign/convention audit, not loop matching.
+- Neither seven-test module was freshly executed in this follow-up. Their presence and test declarations were checked; no new test-pass claim is made.
+
+### 2. Protocol, historical ledger and README repairs
+
+- \`CALCULATION_PROTOCOL.md\` keeps conventions, full-theory/EFT matching, propagator/pole work, acceptance gates and reporting labels distinct. No contradictory instruction was found.
+- \`EXISTING_WORK_AUDIT.md\` now has unique section headings 1–9, the RC-001 signed-\(C_5\) display is correctly delimited, and its banner explicitly marks it as a historical evidence ledger rather than the live task list.
+- The current Major 1 README contains the corrected A3a display-math delimiters and the B5-2B1 navigation section. Its B5-2B1 note, script and test links resolve; the fermion-matrix JSON and test-log targets also exist.
+
+### 3. Fermion-sector matrix provenance and values
+
+- The matrix JSON's \(A/B\) hard \(hs\) momentum differences agree with the Markdown table: \(+0.0240304439859\) and \(+0.00540772399471\ \mathrm{GeV}^2\). The displayed absorptive matrices/eigenvalues also agree with the JSON: the large eigenvalues are \(0.425540634\) and \(0.0524708144\ \mathrm{GeV}^2\), with small eigenvalues \(6.54\times10^{-13}\) and \(2.69\times10^{-13}\ \mathrm{GeV}^2\).
+- GitHub Actions run [#42564492356](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42564492356) is completed/success. Its job log shows Python 3.13.18, NumPy 2.3.5 and SciPy 1.17.0; all five matrix tests passed. The workflow then generated the JSON, test log and checksum manifest in output commit \`a984da0\`. The current JSON, test log and manifest blobs are byte-identical to that generated commit; the matrix source and test-module blobs are unchanged from the run head \`e6a5075f409fff2e1833ecf19859fb87be44a4f2\`.
+- The independent fermion audit itself explicitly describes the five tests as same-implementation regression/consistency checks, not an independent numerical implementation. The JSON and audit correctly withhold full gauge independence, complete UV–EFT matching, physical poles/residues and observables.
+
+### 4. Boundary
+
+The original 214/462 register totals in this report are a dated 2026-11-15 checkpoint, not the current baseline totals. This follow-up changes no baseline review outcome and does not rerun the B5/C5 scripts or alter any production calculation. No complete gauge-loop matching, Ward/Slavnov–Taylor closure, full propagator, physical scalar pole, line shape or exclusion is claimed.
