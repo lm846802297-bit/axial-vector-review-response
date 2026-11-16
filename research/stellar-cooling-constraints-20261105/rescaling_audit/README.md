@@ -26,6 +26,21 @@ python research/stellar-cooling-constraints-20261105/rescaling_audit/run.py
 
 The deterministic output is written to outputs/rescaling_audit.json.
 
+## Historical input pin and safe reruns
+
+The committed `outputs/rescaling_audit.json` is the archived 2026-11-07 result. Its three recorded input SHA-256 values match the raw input JSON files at commit `b3af69de1b37e2efc9f590e40e03a4ca85434420` (the head of Actions run [#42302956969](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42302956969)); the recorded script SHA-256 also matches `run.py` at that commit.
+
+The current repository inputs have since advanced. In particular, the archived rescaling result uses profile SHA-256 `08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9`, whereas the current vertex-preserving profile is `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`. The other two luminosity/comparison JSON inputs have also changed. Therefore, a run from the current checkout is a **new input-version diagnostic**, not an exact reproduction of the archived result.
+
+**Do not run the default command above on the current checkout if you need to preserve the historical output:** `run.py` writes to the same default `outputs/rescaling_audit.json` path and will overwrite it. For a current-tree rerun, supply a distinct path, for example:
+
+```bash
+python research/stellar-cooling-constraints-20261105/rescaling_audit/run.py \
+  --output research/stellar-cooling-constraints-20261105/rescaling_audit/outputs/rescaling_audit_current_2026-11-16.json
+```
+
+To reproduce the historical input set, check out commit `b3af69de1b37e2efc9f590e40e03a4ca85434420` before running the script. Keep the historical and current-input outputs separate.
+
 ## Rescaling convention
 
 The fit tests
