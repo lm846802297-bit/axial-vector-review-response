@@ -170,10 +170,10 @@ SVG 文件及相对路径已核实存在，但本轮没有进行浏览器级 SVG
 
 The three cited source values were checked against the current arXiv records:
 
-- Liu & Tang, arXiv:2501.10927v2, reports the strongest periastron-advance sensitivity over approximately (10^{-17})–(2\times10^{-15}) eV and probes muonic couplings at (mathcal O(10^{-21})). The source note correctly labels (4\times10^{-16}) eV as its best-sensitivity point, not a flat limit.
-- Fiorillo et al., arXiv:2605.24094v2, Table 1 explicitly lists scalar NS-cooling (7.4\times10^{-14}) and scalar SN 1987A cooling (4.2\times10^{-9}) for (m_X\lesssim1) keV. The abstract gives rounded order-of-magnitude summaries; the note correctly cites the exact table entries.
-- Caputo, Raffelt & Vitagliano, arXiv:2109.03244v3, gives the diffuse-SN-gamma scalar plateau (g_\phi\lesssim0.4\times10^{-10}=4\times10^{-11}) for (m_\phi\gtrsim100) keV.
+- Liu & Tang, arXiv:2501.10927v2, reports the strongest periastron-advance sensitivity over approximately $10^{-17}$–$2\times10^{-15}$ eV and probes muonic couplings at $\mathcal O(10^{-21})$. The source note correctly labels $4\times10^{-16}$ eV as its best-sensitivity point, not a flat limit.
+- Fiorillo et al., arXiv:2605.24094v2, Table 1 explicitly lists scalar NS-cooling $7.4\times10^{-14}$ and scalar SN 1987A cooling $4.2\times10^{-9}$ for $m_X\lesssim1$ keV. The abstract gives rounded order-of-magnitude summaries; the note correctly cites the exact table entries.
+- Caputo, Raffelt & Vitagliano, arXiv:2109.03244v3, gives the diffuse-SN-gamma scalar plateau $g_\phi\lesssim0.4\times10^{-10}=4\times10^{-11}$ for $m_\phi\gtrsim100$ keV.
 
 The Markdown math delimiter issue in `scalar_coupling_constraints_source_note_2026-10-28.md` has now been repaired: the neutron-star and SN 1987A table rows use single-backslash inline-math commands and delimiters. Current file blob SHA is `c44d5932521e474edf3f18a58ffc6cc62062a67b`. The companion SVG exists (blob `189b2873edf5b058f5c051905b4c3e9564f1dd6b`) and its embedded text labels agree with the source-note table. This was an XML/text-label inspection, not a browser-level visual rendering check; retain that as a non-blocking note.
 
-The scalar source note is therefore now `PASS_WITH_NOTES`, with visual SVG rendering still to be checked. It remains a scalar-Yukawa source summary and conditional UV translation, not a direct pure-axial (A') constraint. The historical PMNS, Plan-C-lite and Route-B build dispositions in §§2–5 remain unchanged.
+The scalar source note is therefore now `PASS_WITH_NOTES`, with visual SVG rendering still to be checked. It remains a scalar-Yukawa source summary and conditional UV translation, not a direct pure-axial $A'$ constraint. The historical PMNS, Plan-C-lite and Route-B build dispositions in §§2–5 remain unchanged.
