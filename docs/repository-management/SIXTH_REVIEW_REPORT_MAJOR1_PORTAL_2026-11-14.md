@@ -24,3 +24,14 @@ Reviewed two complete Major 1 portal documents: the 2026-10-26 merged working gu
 - Added a historical-working-guide banner to the merged portal guide.
 - Added a formatting/scope warning to the independent report and linked the current A2/A3a/A3b documents.
 - No physics formula, parameter, numerical result or scientific conclusion was changed.
+
+
+## Current-tree follow-up (2026-11-16)
+
+The two source documents were checked again against the current tree:
+
+- \`higgs_portal_mixing_merged_guide-gemini.md\` remains \`HISTORICAL\`. Its opening banner correctly directs readers to the current Major 1 README and research index, warns against copying the old English response draft, and preserves the conditional soft-loop/heavy-threshold distinction. All four local Markdown links resolve.
+- \`单圈混合推导独立复核报告-协调更新版-20261019.md\` remains an archived record with 258 Pandoc \`{=tex}\` artifacts and mixed math/code notation. All four local links resolve, including the current A2, A3a and A3b records. Its main-register disposition was subsequently changed from the original 2026-11-14 \`REVISION_REQUIRED\` finding to \`HISTORICAL\`: the formatting is intentionally preserved as provenance rather than silently rewriting the archived derivation. It is not a collaborator-facing or copy-ready document, and no current calculation depends on it.
+- The current Major 1 README and research index remain the authority. The newer A2/A3a/A3b records are scoped subcalculations; they do not establish full UV–EFT matching, a gauge-independent complex pole, the near-degenerate observable analysis, or a final LHC recast.
+
+**Current disposition of this review report: \`PASS_WITH_NOTES\`.** The original table is retained as the dated 2026-11-14 outcome; the later archival reclassification is recorded here. No equation, numerical result, model parameter or physical conclusion was changed.
