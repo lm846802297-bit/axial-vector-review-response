@@ -98,3 +98,15 @@ The companion 0.1 MeV vertex-preserving scan is archived separately in `outputs/
 - Maximum relative change in escape probability: 4.9419% (fails the 1% criterion).
 
 Accordingly, the 0.1 MeV result is retained as an unresolved convergence diagnostic and must not be described as converged. The 10 MeV convergence result above applies only to its own fixed-\(\omega\) vector benchmark; it does not establish agreement with Fig. 7 or validate the complete supernova transport model.
+
+
+## Execution and validator follow-up (2026-11-16)
+
+The numerical acceptance values and the GitHub Actions workflow conclusions must be reported separately:
+
+- Run [#42542328275](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42542328275) completed the four numerical configurations and passed its structural validation, but the final artifact upload failed because the Actions artifact-storage quota had been reached. This is an artifact-retention failure, not a numerical convergence failure; the full generated JSON was not archived by that run.
+- Run [#42585823966](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42585823966) recorded all nine per-grid shard jobs as successful, but its aggregate job failed in summarize_b13_convergence.py: shutil.copy2 raised SameFileError because the workflow supplied the same directory as both input and output. This is an aggregation/packaging defect, not evidence that the individual grid calculations failed.
+- Run [#42585105281](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42585105281) printed overall_grid_passed=true and overall_passed=true from the numerical driver, but the final workflow validator failed. The driver defines nine scan configurations (radial60, radial80, energy150, energy200, angle24, angle32, path48, path64, and combined_60x140_24x48), whereas the YAML validator asserts len(d["scans"]) == 4. The validator is stale relative to the driver; the workflow conclusion is failure and must not be called a successful CI run.
+- Run [#42536610504](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42536610504) is a separate successful radial/energy-grid calculation. It does not convert the later aggregate/validator failures into successful workflow results.
+
+The 10 MeV numerical convergence conclusion remains scoped to the recorded scan values and stated tolerances. The 0.1 MeV companion remains overall_passed=false; its radial 60-to-80 refinement changes total luminosity by 5.2749% and escape probability by 4.9419%. The 1 MeV global curve in the three-mass archive uses the baseline grid and has no independent global-grid convergence acceptance. None of these workflow outcomes validates the complete supernova background or upgrades the B.13 alternative into the published B.16 Fig. 7 prescription.
