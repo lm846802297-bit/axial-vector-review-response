@@ -57,7 +57,7 @@ The two polar-angle integrations dominate the residual at this point. The separa
 | Mode-by-mode detailed balance, both charges | \(1.514\times10^{-15}\) |
 | Final-muon mass-shell closure | \(1.626\times10^{-13}\) |
 
-The associated workflow [Run #42575916846](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42575916846) passed 10 tests in total: 7 MovingMuonComptonKernelTests (including charge conjugation, the photon Ward identity, the stationary-muon limit, and mode-by-mode detailed balance) and 3 ThermalDimuonTests. Thus the run provides seven moving-muon regression tests, not ten. No dedicated unit-test module exercises this quadrature-convergence scan; its convergence evidence is the separate audit script and machine-readable order-ladder output.
+The associated workflows [Run #42548625879](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42548625879) and [Run #42575916846](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42575916846) each passed 10 tests in total: 7 MovingMuonComptonKernelTests (including charge conjugation, the photon Ward identity, the stationary-muon limit, and mode-by-mode detailed balance) and 3 ThermalDimuonTests. Thus the run provides seven moving-muon regression tests, not ten. No dedicated unit-test module exercises this quadrature-convergence scan; its convergence evidence is the separate audit script and machine-readable order-ladder output.
 
 ## 5. Interpretation and scope
 
