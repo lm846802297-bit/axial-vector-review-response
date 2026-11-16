@@ -24,7 +24,7 @@
 
 ## 当前工作入口
 
-- **2026-11-16 仓库审查状态：** 原始 462 份基线文档已全部审查，仍有 11 条 REVISION_REQUIRED；另有 110 份后续新增 `.md`/`.txt` 文件已列入[补充登记表](docs/repository-management/SUPPLEMENTAL_DOCUMENT_AUDIT_REGISTER.csv)，其中 63 份 PASS_WITH_NOTES、47 份尚待逐份审查。115 个工作流中 47 个已静态审查、16 个为历史候选、52 个待审查。Major 1 [独立端点积分验收](docs/repository-management/POLE_QUADRATURE_INDEPENDENT_AUDIT_2026-11-16.md) 关闭了三项相关文档问题；不代表所有 Major 1 或 SN 物理问题结案。
+- **2026-11-16 仓库审查状态：** 原始 462 份基线文档已全部审查，仍有 11 条 REVISION_REQUIRED；另有 110 份后续新增 `.md`/`.txt` 文件已列入[补充登记表](docs/repository-management/SUPPLEMENTAL_DOCUMENT_AUDIT_REGISTER.csv)，其中 64 份 PASS_WITH_NOTES、46 份尚待逐份审查。115 个工作流中 47 个已静态审查、16 个为历史候选、52 个待审查。Major 1 [独立端点积分验收](docs/repository-management/POLE_QUADRATURE_INDEPENDENT_AUDIT_2026-11-16.md) 关闭了三项相关文档问题；不代表所有 Major 1 或 SN 物理问题结案。
 
 下面按日期保留历史工作快照；当前 PR 状态、科学验收状态和正式回复 PDF 状态均以根目录 [PROJECT_STATUS.md](PROJECT_STATUS.md) 顶部最新 live section 为准。
 
