@@ -152,3 +152,10 @@ Table II 的二星、第五力、中子星冷却、SN1987A 中微子能损、单
 4. Major 4.4 的模型特定 axial stellar/SN 输运边界；
 5. 任何新增计算都必须写入当前专题记录并更新 PROJECT_STATUS，而不是回写旧手册伪装成历史结果。
 
+
+
+## 7. Post-review register reconciliation (2026-11-16)
+
+The 54 rows covered by this report were rechecked against the current baseline register and repository tree: all 54 paths exist, all 54 row outcomes still match this report (23 PASS_WITH_NOTES and 31 HISTORICAL), all 54 current blob IDs match the live tree, and none of the 54 rows is PENDING. The single 2026-11-03 metadata correction remains consistent.
+
+The *overall* baseline register has since changed through separate, later reviews and repairs outside this 54-file batch. Its current 462-row distribution is 294 PASS_WITH_NOTES, 2 PASS, 153 HISTORICAL, 13 REVISION_REQUIRED and 0 PENDING. These later outcome changes do not invalidate the dated 54-file findings above; they must not be back-projected into the 2026-11-16 review snapshot. The supplemental register currently has 31 PASS_WITH_NOTES and 79 PENDING entries. The 462/462 baseline completion still means only that every baseline file has an individual disposition, not that every underlying scientific task is complete.
