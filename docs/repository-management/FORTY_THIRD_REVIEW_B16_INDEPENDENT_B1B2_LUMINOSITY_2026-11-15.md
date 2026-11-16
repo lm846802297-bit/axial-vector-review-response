@@ -81,3 +81,10 @@ The next research stage should target these shared physical inputs and conventio
 ## 6. Register status
 
 The 462-document baseline register now contains 282 individually reviewed and 180 pending (183 PASS_WITH_NOTES, 2 PASS, 9 REVISION_REQUIRED, 88 HISTORICAL). The separate workflow register contains 115 YAML workflows: 40 individually reviewed, 16 historical candidates and 59 pending. This review report and its workflow-review records are supplementary and do not increase the 462-document baseline.
+
+
+## Current-tree and pinned-output reconciliation (2026-11-16)
+
+Both source reports in §1 remain present and retain their `PASS_WITH_NOTES` baseline dispositions. The current pinned B.1 JSON is present at blob `1bfe090d8c0dd1987f6d8c999dec08424f0ec0cb`; its 400-node source is (4.3043681689\times10^{70}) erg s(^{-1}) per (g^2), the 200-to-400-node shift is (2.14115\times10^{-5}), the 1000-to-4000 MeV tail shift is (2.57464\times10^{-9}), and the 10 MeV dimuon channel is exactly zero. The pinned full B.1+B.2 JSON is present at blob `f6a61a337474167fa0819f5435eb595e10df7ea5); its maximum difference from archived B.16 is (0.445059\%), while the strong-end Fig. 7 residual remains (+92.0542\%). The two JSON `run_commit_sha` values match the head SHAs of Actions runs #43650570961 and #43651020195; both runs were independently fetched and completed successfully. The source and end-to-end regression modules contain six and four tests, respectively.
+
+The calculation remains independent in the B.1 source quadrature and B.2 path integration, not in the shared local collision-kernel derivation. It uses the reconstructed 1687-row profile, not the original Garching raw simulation table, and the fixed-(\omega) Euclidean-chord prescription, not full-GR transport. No opacity/source rescaling or axial-vector production output is inferred.
