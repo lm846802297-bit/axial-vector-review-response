@@ -22,7 +22,7 @@ renormalized self-energy. The script uses \(m_h=125.25\) GeV,
 > preserves the archived values. See the [audit record](SPECTRAL_WINDOW_AUDIT_2026-11-14.md)
 > and [numerical comparison](spectral_window_audit_2026-11-14.csv).
 
-The intended coherent spectral-area proxy was evaluated over \(m\in[124.5,126.0]\) GeV:
+The target coherent spectral-area proxy is defined over \(m\in[124.5,126.0]\) GeV:
 \[
 R_{\rm area}=
 \frac{\int dm\,|D_{hh}(m^2)|^2}
@@ -42,3 +42,12 @@ The calculation retains the full coherent two-pole denominator and interference;
 In this simplified calculation, the exact-degeneracy area shift is about \(-0.066\%\) for A and \(-1.22\%\) for B. The sharp pointwise dip/peak structure in B therefore does not translate into a comparably large integrated h-channel area change once the two poles are treated coherently.
 
 **Interpretation boundary:** this ratio is not an experimental signal strength. It assumes constant external production/decay vertices, fixed diagonal widths, the selected Plan-C-lite off-diagonal kernel, no backgrounds, and no detector response or acceptance. It is a theory-level coherent spectral-area diagnostic only. A detector-level result requires production-mode-dependent vertices, final-state-specific widths, parton luminosities, interference with continuum backgrounds, detector resolution/efficiency and the experimental likelihood.
+
+## Reproduction and artifact provenance
+
+- Archived implementation: [coherent_two_pole_spectral_area.py](coherent_two_pole_spectral_area.py).
+- Archived output: [coherent_two_pole_spectral_area.txt](coherent_two_pole_spectral_area.txt).
+- Suggested command to regenerate the archived output: `python coherent_two_pole_spectral_area.py > coherent_two_pole_spectral_area.txt`. This reproduces the historical breakpoint behavior, including the out-of-window `m_s` breakpoint for the 100 and 150 GeV cases; it is not the strictly restricted-window result.
+- Strict-window comparison: run `python spectral_window_audit_2026-11-14.py > spectral_window_audit_2026-11-14.csv`; the [window-audit record](SPECTRAL_WINDOW_AUDIT_2026-11-14.md) records Python 3.12.14 and SciPy 1.17.0 for that comparison.
+- The exact historical shell command and runtime used to create the original `.txt` output were not separately preserved. The window-audit record states that the original script was also rerun and passed its six stored tolerance checks; those checks do not detect the breakpoint issue.
+
