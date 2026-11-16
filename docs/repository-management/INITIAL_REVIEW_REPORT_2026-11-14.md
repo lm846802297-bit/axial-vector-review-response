@@ -6,7 +6,7 @@
 - Base `main` commit: `fb705dc74d63ff29681243ec94f303b12b78182a`
 - Base inventory: 1,517 Git tree entries; 462 Markdown/text documents; 397 Python files; 261 JSON files; 109 workflow YAML files; 30 PDFs.
 - The 462-row register is an inventory, not a declaration that 462 documents have been content-reviewed.
-- This first review batch covers 16 high-level entry, governance, decision, and workstream README/status documents. Review was limited to the complete fetched text, headings, internal Markdown links, role, authority and consistency statements. It is not a substitute for equation-by-equation physics review against source papers and numerical data.
+- This first review batch covers 17 high-level entry, governance, decision, and workstream README/status documents. Review was limited to the complete fetched text, headings, internal Markdown links, role, authority and consistency statements. It is not a substitute for equation-by-equation physics review against source papers and numerical data.
 
 ## Per-document findings
 
@@ -32,7 +32,7 @@
 
 ## Link audit
 
-A sampled Markdown-link scan across the 16 documents found two unresolved local references:
+The initial Markdown-link sample covered 16 of the 17 listed documents; the exact 16-document subset was not recorded. It found two unresolved local references:
 
 1. `archive/reply-letter/README.md` → `snapshots/2026-11-04-r1/manifest.md`: target absent from the current tree. Replaced with an explicit unresolved historical-reference note; no file was fabricated.
 2. `审稿意见-gpt/写作规范/审稿回复写作原则.md` → malformed self-reference. Replaced with “本规范”.
@@ -68,3 +68,41 @@ After these corrections, rerun the same link scan and then expand it to all 462 
 - Run link, import, workflow-path, checksum and LaTeX dependency checks after any migration.
 
 No scientific calculation, numerical output, model assumption or physical conclusion was changed in this review batch.
+
+
+## 2. Independent current-tree reconciliation (2026-11-16)
+
+**Disposition of this initial review report: PASS_WITH_NOTES.** The original inventory and most individual findings are supported. This follow-up corrects the batch-count typo, records subsequent structural/status work, and fixes stale status summaries discovered in the two root navigation files.
+
+### 2.1 Baseline inventory and document count
+
+The base commit fb705dc74d63ff29681243ec94f303b12b78182a was checked directly against its recursive Git tree. The report's inventory is correct: 1,517 tree entries, 462 Markdown/text files, 397 Python files, 261 JSON files, 109 workflow YAML files, 30 PDFs, 24 root-level files, and 1,035 entries under research/.
+
+The table in this report contains **17 distinct document rows**, not 16. The scope count has been corrected to 17. The initial local-link sample is retained as a 16-document sample because the original report did not preserve the exact subset; it must not be represented as a scan of all 17.
+
+### 2.2 Structural findings resolved or mitigated
+
+- research/README.md is no longer the short stub described in the first review. It now has a canonical navigation section, an eight-workstream directory map, scientific-evidence rules and a directory-growth policy. Its baseline register entry is PASS_WITH_NOTES, and its 12 local links were checked as resolving.
+- PROJECT_STATUS.md remains a large append-only ledger, but the current live summary and latest update are now at the top. This mitigates the original discoverability concern without removing dated history. A separate compact dashboard remains an optional future improvement, not a reason to discard the canonical ledger.
+- The 2026-11-14 research index is a dated snapshot. Its statement that there were no open PRs was correct for that date; it is not the live PR dashboard. research/README.md and AGENTS.md direct readers to PROJECT_STATUS.md for current PR/repository status.
+- VALIDATION_AND_REVIEW.md is a cumulative 2026-11-06 record. Its header's PR #56 Open/Draft state is historical and was superseded when PR #56 merged on 2026-11-12. Its earlier PASS entries remain scoped to their original checks, not current global physical acceptance.
+- archive/reply-letter/README.md continues to state explicitly that snapshots/2026-11-04-r1/manifest.md is absent. No manifest was fabricated; the r2 and baseline manifests remain distinct.
+- The writing-standard self-reference now reads “本规范”; the malformed nested local path is absent.
+
+### 2.3 Root navigation status repair
+
+The current root README.md and README-先读这里.md still carried stale 2026-11-16 counts from an earlier checkpoint: 18/110 supplemental reviews, 92 pending, 291 PASS_WITH_NOTES / 16 REVISION_REQUIRED baseline entries, and (in README.md) the old 405/54/3 fingerprint split. They have now been synchronized to the canonical PROJECT_STATUS and registers:
+
+- Baseline: 462/462 reviewed — 294 PASS_WITH_NOTES, 2 PASS, 153 HISTORICAL, 13 REVISION_REQUIRED, 0 PENDING.
+- Supplemental queue: 46 PASS_WITH_NOTES and 64 PENDING at the time of this report update.
+- Baseline fingerprint register: 399 MATCH_CURRENT, 60 CONTENT_FINGERPRINT_DIFFERS, 3 SIZE_METADATA_DIFFERS.
+
+The three root governance files (README.md, README-先读这里.md and PROJECT_STATUS.md) were re-fingerprinted in DOCUMENT_AUDIT_REGISTER.csv after synchronization. Their original reviewed blob IDs remain preserved; the current blob/size fields now point to the actual maintenance-branch files. Their status remains PASS_WITH_NOTES.
+
+### 2.4 Link-check evidence and limitations
+
+The two local-reference repairs described in the original report remain present. A later, broader link-and-relocation audit parsed 400 Markdown files and reported zero missing or outside-repository local path targets after six repairs. This is stronger than the original 16-document sample, but it still does not validate section anchors, HTML-only links, file paths written as prose, generated files, external URLs, or scientific claims. The link audit is not a substitute for the individual content review of all 462 baseline documents.
+
+The initial report's remaining-work list is a dated 2026-11-14 snapshot. The original 462-document review is now complete, and the 110-file supplemental queue is tracked separately. The workflow inventory has also grown from the 109-file baseline to 115 current YAML workflows; the separate workflow register is the current status source.
+
+**Final boundary:** this follow-up changes navigation/status prose and register fingerprints only. No scientific calculation, numerical output, model assumption, manuscript result, referee-response claim or physical conclusion was changed.
