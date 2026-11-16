@@ -34,7 +34,7 @@ The large official SFHo-FRDM EOS source archives remain separately documented as
 
 ## Package contents and de-duplication
 
-The package builder includes all tracked files from the four canonical research roots above, plus relevant stellar-cooling GitHub Actions workflows. It preserves each source subdirectory and records every file in SOURCE_FILE_CATALOG.csv with:
+The package builder includes the four primary physics roots above plus the shared adapter/support root, and the relevant stellar-cooling GitHub Actions workflows. The builder's five SOURCE_ROOTS entries are intentional: four primary physics/model roots and one shared support root. It preserves each source subdirectory and records every file in SOURCE_FILE_CATALOG.csv with:
 
 - original repository path;
 - packaged path;
