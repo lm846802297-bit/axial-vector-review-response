@@ -34,3 +34,10 @@ No physics kernel, numerical output, stellar profile, manuscript, referee respon
 ## Register result
 
 The 462-row baseline register now records 258 individually reviewed and 204 pending documents. The runbook remains REVISION_REQUIRED until a strict Python result is archived and its full joint-table closure is automatically checked.
+
+
+## Current-tree and workflow reconciliation (2026-11-16)
+
+The six source documents listed in §1 remain present in the current tree. Their live Git blob IDs and baseline-register dispositions match the reviewed table: four PASS_WITH_NOTES, one REVISION_REQUIRED (the strict escape-phase-space runbook), and one HISTORICAL. The Python driver and its three-test module remain present. Direct inspection confirms that the driver writes the complete joint radius-energy-direction table but only checks global luminosity/thin-source closure and marginal partitions; it does not enforce the runbook's joint-table acceptance condition. The strict Python output is still absent. The V8 JSON remains explicitly `cross_runtime_computation_not_strict_numpy_grid_acceptance` with `grid_hashes_match=false`; it is not promoted to strict acceptance.
+
+The five cited B.1/B.2 and high-energy workflows (#43646106550, #43647616434, #43648694518, #43649694860, #43651020195) were fetched from Actions and are all completed successfully. Their success validates the scoped tests/calculations described in the source records; it does not satisfy the separate strict phase-space runbook gate or resolve the +92% Fig. 7 strong-endpoint mismatch. The current operational reference remains fixed-(\omega), Euclidean-chord B.2; the path-redshift and B.13 moving-muon calculations remain separate alternatives. No source, opacity, profile, coupling, luminosity, manuscript, or axial-vector constraint output was changed.
