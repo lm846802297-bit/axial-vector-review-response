@@ -79,7 +79,7 @@ The velocity-moment JSON independently confirms mean(v_mu)=0.76144, v_rms=0.7753
 
 ### 4. Test-count correction and artifact availability
 
-The local-kernel report's earlier wording "10 exact moving-muon regression tests" overstated the moving-muon subset. The successful Run #42575916846 ran 10 tests total: seven moving-muon Compton tests and three dimuon tests. The source document has been corrected accordingly. There is no dedicated unit-test module for the local quadrature-convergence scan itself; its order-ladder result is provided by the separate audit driver and JSON.
+The local-kernel report's earlier wording "10 exact moving-muon regression tests" overstated the moving-muon subset. The successful Runs #42548625879 and #42575916846 each ran 10 tests total: seven moving-muon Compton tests and three dimuon tests. The source document has been corrected accordingly. There is no dedicated unit-test module for the local quadrature-convergence scan itself; its order-ladder result is provided by the separate audit driver and JSON.
 
 The full 10 MeV global transport JSON is present in the current Git tree at research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b13_global_transport_vertex_preserving_10mev_2026-11-09.json (1,383,603 bytes; Git blob 8cc747e69df2ffee88680ee0de528381e4290390). The text-file reader did not return its contents, so this review does not claim a point-by-point reparse of that large array. The three compact summary JSONs, three local-kernel convergence JSONs, and the non-relativistic-muon diagnostic JSON were parsed and checked against the report.
 
