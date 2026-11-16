@@ -76,7 +76,7 @@ One pre-existing `Underfull \\hbox` warning remains at TeX lines 609–611. It i
 
 ## 4. Visual review
 
-All 64 pages were rendered at 150 dpi. The four 4×4 contact sheets were inspected across the full document. The affected region was enlarged and inspected page by page:
+All 64 pages were rendered at 150 dpi. The build artifact contains 11 contact sheets: ten six-page sheets covering pages 1–60 and one four-page sheet covering pages 61–64. All 64 page PNGs are present. The affected region was enlarged and inspected page by page:
 
 - Page 42: preceding text/equation page; no clipped content.
 - Page 43: both panels of Figure 1, short caption, and page number are separated and fully visible.
@@ -94,3 +94,17 @@ After the one-line pagination adjustment, a pixel comparison against the precedi
 This is a **typesetting and source/PDF consistency acceptance**, not a physics acceptance. No SN production rate, opacity, luminosity, cooling contour, coupling limit, or other physical result was recalculated in this task. In particular, the known vector Fig. 7 strong-absorption discrepancy and the limitations of the conditional axial ballistic-cooling benchmark remain open and are not resolved by a clean PDF build.
 
 The formal reply-letter layout is accepted on PR #115. PR #115 remains a Draft pull request and has not been merged.
+
+## 7. Independent artifact and source-tree follow-up (2026-11-16)
+
+**Disposition of this acceptance report: PASS_WITH_NOTES.** The Actions run, uploaded artifact, final PDF bytes, source tree and rendered pages were independently checked.
+
+- Run `43767527054` completed with conclusion `success`; its `build-and-inspect` job completed all 13 steps successfully. The uploaded artifact is `14182947154` (23,361,353 uncompressed bytes in the ZIP listing).
+- The PDF extracted directly from the artifact ZIP has SHA-256 `f5f7f5c24bc04b3901f26d261d18b64ec876a2680dee23c7b3b1964abf3e1819`, Git blob `4c18235a7e025872fa14a83ca7862b9c7592ac5b`, and size 500,973 bytes. These match the report and current repository tree. It is 64 pages, A4.
+- The TeX and all five build dependencies listed in the audit JSON have the same Git blob IDs at the workflow head commit `9a024d0684b436ac1d770a0b292b48c07d1f6685` and in the current maintenance tree. No post-build drift was found in the TeX, either bibliography source, the referee bibliography, `JHEP.bst`, or the axial stellar-constraint PDF dependency.
+- The artifact contains 64 rendered page PNGs and 11 SVG contact sheets (ten sheets of six pages, plus one sheet of four pages). All 11 sheets were independently inspected; pages 43, 44 and 45 were also inspected individually. The Figure 1 caption no longer overlaps the page number; the complete caption interpretation is visible on page 44, and page 45 starts with a new paragraph.
+- The final PDF's `page-boundary-audit.json` reports 64 pages, uniform A4 dimensions and no blank/out-of-bounds text. `pdffonts.txt` shows all fonts embedded. The final TeX `.log` has one underfull box, zero overfull boxes, and zero undefined citations/references. The earlier first-pass undefined-citation messages in `latexmk.log` occur before BibTeX; the final BibTeX and final pdfLaTeX passes resolve them.
+- The artifact's `reply_audit.json` records 27/27 referee quote blocks unchanged, unchanged Major 1/Major 3–4.3/Minor science blocks, exact preservation of the 2,253-character original caption, 47 unique citation keys, seven labels, balanced environments, zero unresolved PDF markers and all fonts embedded. The PDF SHA in that JSON agrees with `pdf-sha256.txt` and the extracted artifact PDF.
+- The artifact contains only the final render, not the preceding render. I therefore did not independently recompute the reported pixel-by-pixel claim that exactly pages 44 and 45 changed and the other 62 are identical; that remains a recorded workflow comparison rather than a newly reproduced comparison.
+
+The original statement about four 4×4 contact sheets is corrected above to match the actual uploaded artifact. This follow-up is still a typesetting/source-consistency acceptance only. It does not validate any physics result or resolve the open stellar-cooling discrepancies. PR #115 remains Draft and unmerged.
