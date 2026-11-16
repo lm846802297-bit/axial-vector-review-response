@@ -99,3 +99,10 @@ No source, opacity, coupling, energy cutoff, production axial-vector output, or 
 ## 7. Baseline register
 
 The 462-document baseline register now records **282 individually reviewed** and **180 pending**. Outcome totals: 2 PASS, 183 PASS_WITH_NOTES, 88 HISTORICAL, 9 REVISION_REQUIRED, and 180 PENDING.
+
+
+## Current-tree and workflow reconciliation (2026-11-16)
+
+All six source documents in §1 remain present. Their current Git blob IDs match the live tree and the baseline register's `current_blob_sha`; all six remain `PASS_WITH_NOTES` with `MATCH_CURRENT` fingerprints. The five cited pinned workflow runs (#43646106550, #43647616434, #43648694518, #43649694860 and #43651020195) were independently fetched and are completed successfully. This confirms the recorded implementation/test scope, including the corrected Fermi-pair occupancy signs and high-energy fixed-source/path-redshift reproductions.
+
+The physical boundary remains unchanged: the path-redshift branch is not full GR without same-snapshot metric data; the fixed-(\omega) Euclidean chord is the printed B.2 baseline; and the Fig. 7 strong-endpoint mismatch remains approximately +92%. No rescaling, profile substitution, source/opacity adjustment, or axial-vector update is justified by these successful workflows.
