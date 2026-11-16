@@ -36,3 +36,16 @@ This is a document-level review of six prior review records. It checks the claim
 - No source physics code, numerical output, manuscript text, exclusion classification, or physical constraint was changed.
 
 The next review batch should cover the remaining Belle II protocol/history/supplement records, then the workflow-review reports and outstanding README/manifest documents.
+
+## Post-review register and tree consistency check (2026-11-16)
+
+A recursive Git-tree comparison was performed at branch head `337b09e87c32fac075c05226b3875ceee1e51a77` after the document-status updates:
+
+- The live tree contains 477 Markdown and 99 text files (576 total).
+- All 462 baseline-register rows have current blob SHA and byte-size fields matching the Git tree (462/462).
+- All 114 supplemental-register rows have blob SHA and byte-size fields matching the Git tree (114/114).
+- Supplemental outcomes are 80 `PASS_WITH_NOTES`, 4 `HISTORICAL`, 29 `PENDING`, and 1 `REVISION_REQUIRED`.
+- One stale supplemental size entry for the sixty-ninth review was corrected from 22,690 to 23,036 bytes; its blob SHA was already correct.
+- Four live fingerprints in the baseline register were refreshed for the two extracted deliverable packages' provenance notes and current checksum manifests. Their original reviewed `blob_sha` and `size_bytes` values were preserved; their `fingerprint_status` remains `CONTENT_FINGERPRINT_DIFFERS`.
+
+This is a metadata reconciliation only. It changes no source physics, archived numerical output, manuscript equation, or physical conclusion.
