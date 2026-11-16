@@ -98,3 +98,57 @@ All six workflows use Python 3.12 and install NumPy/SciPy without exact dependen
 ## 8. Disposition
 
 The six document rows and six workflow rows are updated in their respective registers. The next document batch should continue from the next PENDING baseline row; do not revisit the three historical records unless a new provenance question arises.
+
+
+## 9. Independent review of this report (2026-11-16)
+
+**Reviewed against:** maintenance-branch HEAD `50e7c42a868336a02273539990c04249b87f6dfb`, the six source documents, their paired JSON outputs and Python drivers, the six workflow definitions, the workflow register, and the four cited historical Actions runs.
+
+**Disposition of this report: PASS_WITH_NOTES.** The profile-version boundaries, the nonzero-but-negligible outer Compton column, the V8/Python separation, and the limitation of historical CI evidence are correctly stated. The independent review found two source-record inconsistencies that the original batch did not identify, plus one workflow-coverage wording issue. They are recorded below rather than silently changing historical numerical outputs.
+
+### 9.1 Historical source-fraction value in the 501-node escape record
+
+`B16_OUTER_ESCAPE_ANGULAR_DISTRIBUTION_2026-11-08.md` labels its paired output as the historical 501-node profile, SHA-256 `08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9`. The paired JSON independently confirms `radial_nodes = 501` and reports
+
+[
+f_{8-15,mathrm{km}}^{mathrm{historical}}
+=0.7923233149765334
+=79.2323315%.
+]
+
+The Markdown body instead says that the selected source contributes 79.61% of the global B.1 source. That value matches the later current-profile-B full-path JSON,
+
+[
+f_{8-15,mathrm{km}}^{mathrm{profile,B}}
+=0.7961143383648793
+=79.6114338%,
+]
+
+with profile SHA-256 `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`. The 79.61% statement is therefore a current-profile value embedded in a historical-profile report. The historical JSON and the current-profile result must remain separate; the historical report's global source-fraction sentence requires correction or an explicit cross-version note. The three within-selected-source shell fractions are consistent with the historical JSON.
+
+### 9.2 Outer-profile interpolation table versus paired JSON
+
+The paired `b16_outer_profile_inputs_10mev_2026-11-08.json` is pinned to profile A SHA-256 `6c47d0712d266848d0cb2315c8a9b43cf13d0b39b6986d4239dd3f22cb9ba0bc`, as stated in the source document. Its stored interpolation summary does not reproduce several values in Section 1.2 of `B16_OUTER_INPUT_AND_INVERSE_DECAY_AUDIT_2026-11-08.md`:
+
+| Quantity | Markdown | Paired JSON |
+|---|---:|---:|
+| (T) maximum absolute interpolation error | 0.00426 MeV | 0.0045676034 MeV |
+| (mu_mu) maximum absolute interpolation error | 2.63 MeV | 2.7480281 MeV |
+| Neutrino reduced-absorption maximum relative error | (8.37	imes10^{-4}) | (8.97123	imes10^{-4}) |
+| Neutrino reduced-absorption RMS relative error | (2.52	imes10^{-4}) | (2.57820	imes10^{-4}) |
+
+The JSON's (mu_mu) maximum relative-error field is (1.7480), evaluated wherever (|mu_mu^{m truth}|>10^{-12}); the Markdown's phrase “where meaningful” does not state its denominator floor. Those relative-error figures are not demonstrably the same statistic. The paired JSON does confirm the Compton-to-neutrino peak-rate ratio (1.35262	imes10^{-15}), so the conclusion that Compton is negligible in this 10 MeV outer-shell local-rate comparison is unaffected. The interpolation table should be reconciled to the paired artifact or its distinct sampling/threshold convention should be documented.
+
+### 9.3 Workflow coverage wording
+
+The six workflow YAML files and their job-level branch guards were checked directly. Four workflows contain an explicit test step: outer escape, outer-profile inputs, outer-shell polarization-resolved, and the neutrino inverse-decay audit. Two do not contain a dedicated test step: outer-profile path interpolation and direct inverse-decay. Both still execute their named numerical audit scripts. The original phrase “five workflows have a test or direct quadrature check” is ambiguous; the auditable count is **4/6 with explicit test steps and 2/6 without dedicated test steps**. A numerical audit command is not automatically a regression-test suite.
+
+All four cited historical runs were independently confirmed completed/successful on their stated research-branch commits. They are not checks on PR #115. The two workflows whose records say “no run claimed” remain static-only in this review. All six workflows use Python 3.12, unpinned NumPy/SciPy dependencies, `contents: write`, and a branch guard restricting the job to `research/moving-muon-thermal-rates-20261107`.
+
+### 9.4 Claims confirmed and scientific boundary
+
+The full-path vertex-preserving JSON confirms the outer-reference-shell source-weighted Compton column (0.7934816880606981/g_X^2), compared with the two-flavor neutrino column (1.5633323742	imes10^{15}/g_X^2); their ratio is (5.07558	imes10^{-16}). The report's correction from “zero” to “nonzero but negligible” is correct.
+
+The 36-ray V8 artifact records its 1687-vertex profile, 642-node opacity grid, ray set and quadrature checks, and its maximum total-(	au) difference (9.06891	imes10^{-6}). Its V8 producer source is not archived; the separate Python driver does not reproduce that V8 comparison. The result remains a targeted diagnostic, not a full global transport rerun. The old P1-B pointwise note is correctly treated as historical.
+
+**No production rate, B.2 opacity, luminosity, Fig. 7 curve, SN1987A limit, or axial-vector exclusion was changed or accepted by this review.** PASS_WITH_NOTES applies to the audit report's scope and traceability, not to full physical validation. The two source-record mismatches above remain explicit follow-up items.
