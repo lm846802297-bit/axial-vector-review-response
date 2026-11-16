@@ -93,7 +93,7 @@ The ATLAS 2026 combination reports an inclusive Higgs event rate
 \[
 \mu_{\rm incl}=0.990^{+0.053}_{-0.051}.
 \]
-For an isolated singlet-mixed Higgs-like pole, assuming no nonstandard decays and universal doublet-coupling rescaling, \(\mu\simeq\cos^2\theta\). A one-sided Gaussian 95% lower estimate is \(\mu_{\min}\simeq0.906\), giving the illustrative condition
+For an isolated singlet-mixed Higgs-like pole, assuming no nonstandard decays and universal doublet-coupling rescaling, \(\mu\simeq\cos^2\theta\). A one-sided Gaussian 95% lower estimate is \(\mu_{\min}\simeq0.9061\), giving the illustrative condition
 \[
 \sin^2\theta\lesssim0.094,\qquad |\theta|\lesssim0.3114\ {\rm rad}.
 \]
