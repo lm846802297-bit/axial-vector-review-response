@@ -34,7 +34,7 @@ The fit tests
 L_{\rm calc}(\kappa g_{\rm ref}) \simeq L_{\rm ref}(g_{\rm ref}).
 ~~~
 
-The search interval is 0.90 <= kappa <= 1.10 with a fixed 0.00025 grid. The objective is the RMS of the logarithmic luminosity ratio. The fit-point set is fixed across all trial values of kappa; no extrapolation is allowed. This prevents the optimizer from improving the score by silently dropping difficult endpoint samples.
+The search interval is 0.90 <= kappa <= 1.10 with a fixed 0.00025 grid. The objective is the RMS of the logarithmic luminosity ratio. The fit-point set is fixed across all trial values of kappa; no extrapolation is allowed. This prevents the optimizer from improving the score by silently dropping difficult endpoint samples. For the literal scalar fit, the pooled objective contains 69 points with equal weight per point: 32 at 1 MeV, 25 at 10 MeV and 12 at 200 MeV (weights 32/69, 25/69 and 12/69). It is therefore point-weighted, not an equal-mass average; the 1 MeV dataset contributes the largest share.
 
 A fitted mass-specific kappa is diagnostic only. It is not adopted as a coupling redefinition unless a single physically motivated value also passes the independent Fig. 4 contour-boundary check.
 
