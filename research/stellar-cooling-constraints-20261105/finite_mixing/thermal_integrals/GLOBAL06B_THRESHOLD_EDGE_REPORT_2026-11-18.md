@@ -85,6 +85,8 @@ Here \(\Gamma_{\rm abs,T,av}=(\Gamma_{+}+\Gamma_{-})/2\). The \(+\) and \(-\) ra
 
 This establishes an energy-dependent longitudinal/transverse difference in the **local B.13 semi-Compton opacity**. It rules out treating the three B.13 modes as having identical Compton opacity at all energies. It does not yet give the total B.2 opacity: neutrino inverse decay and dimuon channels must be included, and each mode must be propagated through the full ray integral.
 
+For a quantitative comparison, define the equal-split proxy \(\bar\Gamma=(\Gamma_L+\Gamma_++\Gamma_-)/3\). At \(x=0.015\), assigning \(\bar\Gamma\) to each mode would overestimate the true longitudinal absorption by 5.68% and underestimate each transverse absorption by 2.62%. At \(x=0.05\), those errors grow to +19.79% for \(L\) and -7.63% for each transverse mode. These are local B.13-only errors at the stated radius; they are not yet errors on the total B.2 optical depth or escaped luminosity.
+
 ## 4. Acceptance boundary
 
 The targeted high-order checks pass. The following gates remain open:
