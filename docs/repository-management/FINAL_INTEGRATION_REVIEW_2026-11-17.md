@@ -46,7 +46,7 @@ Total observed attempts: 499. Several workflows have failed or cancelled runs; t
 
 ## Full PR diff review
 
-The GitHub PR files API returned all 386 changed paths across five pages. The aggregate is 167 added, 217 modified and 2 renamed files; no files were removed. The two moves are workflow-review Markdown records relocated under `docs/repository-management/workflow-reviews/`. The diff contains 23,148 added and 731 deleted lines; the deletions occur within modified files and were reviewed as replacements, corrections, or moves, not file removals.
+The GitHub PR files API returned all 386 changed paths across five pages. The aggregate is 167 added, 217 modified and 2 renamed files; no files were removed. The two moves are workflow-review Markdown records relocated under `docs/repository-management/workflow-reviews/`. The diff contains 23,146 added and 731 deleted lines; the deletions occur within modified files and were reviewed as replacements, corrections, or moves, not file removals.
 
 Key findings:
 
