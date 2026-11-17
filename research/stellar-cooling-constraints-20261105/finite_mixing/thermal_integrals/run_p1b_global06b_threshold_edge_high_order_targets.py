@@ -24,7 +24,7 @@ EXTENSION=(30,16,16,16)
 TOL=1.0e-3
 CHARGES=("mu_minus","mu_plus")
 MODES=("L","+","-")
-_AUDIT=_TABLE=_RADII=None
+_AUDIT=_TABLE=_RADII=_PROFILE=None
 
 def sha(path):
     h=hashlib.sha256()
@@ -32,8 +32,9 @@ def sha(path):
         for b in iter(lambda:f.read(1<<20),b""):h.update(b)
     return h.hexdigest()
 
-def init_worker():
-    global _AUDIT,_TABLE,_RADII
+def init_worker(profile_path):
+    global _AUDIT,_TABLE,_RADII,_PROFILE
+    _PROFILE=Path(profile_path)
     if str(HERE) not in sys.path:sys.path.insert(0,str(HERE))
     if str(ROOT) not in sys.path:sys.path.insert(0,str(ROOT))
     import audit_b13_local_kernel_radial_energy_10mev as audit
@@ -51,7 +52,7 @@ def evaluate_task(task):
     temp=float(np.interp(r,_RADII,np.asarray(_TABLE["T_MeV"],float)))
     omega=10.0+x*temp
     cache={}
-    ladder=[_AUDIT.evaluate_point(PROFILE,r,omega,o,cache) for o in ORDERS]
+    ladder=[_AUDIT.evaluate_point(_PROFILE,r,omega,o,cache) for o in ORDERS]
     changes=[_AUDIT.compare_points(ladder[i-1],ladder[i])["maximum_relative_change"] for i in range(1,len(ladder))]
     if changes[-1]>=TOL:
         ladder.append(_AUDIT.evaluate_point(PROFILE,r,omega,EXTENSION,cache))
@@ -98,7 +99,7 @@ def main():
         r=float(item["r_km"])
         for x in np.r_[xgrid,xval]:add(r,x)
     tasks=list(taskmap.values());results={}
-    with ProcessPoolExecutor(max_workers=args.workers,initializer=init_worker) as pool:
+    with ProcessPoolExecutor(max_workers=args.workers,initializer=init_worker,initargs=(str(args.profile),)) as pool:
         futures={pool.submit(evaluate_task,t):t for t in tasks}
         for n,f in enumerate(as_completed(futures),1):
             p=f.result();results[(round(p["r_km"],12),round(p["x"],14))]=p
