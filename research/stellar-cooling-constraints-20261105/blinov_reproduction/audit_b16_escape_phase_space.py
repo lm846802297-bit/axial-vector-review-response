@@ -38,6 +38,28 @@ def sha256(path: Path) -> str:
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
+def reconstruct_energy_grid_from_spectral_measure(spectral_measure, mass,
+                                                  energy_offset=1000.0):
+    """Invert B.1's monotone E^2 sqrt(E^2-m^2)/(2 pi^2) spectral measure.
+
+    The archived baseline stores this measure for every energy node. Inverting
+    it lets the audit compare physical nodes at a tight binary64 tolerance
+    without treating last-bit interpolation differences as different grids.
+    """
+    target = np.asarray(spectral_measure, float)
+    if target.ndim != 1 or target.size == 0 or np.any(~np.isfinite(target)) or np.any(target <= 0.0):
+        raise ValueError("spectral_measure must be a finite positive one-dimensional array")
+    lo = np.full_like(target, float(mass))
+    hi = np.full_like(target, float(mass) + float(energy_offset) + 1.0)
+    for _ in range(100):
+        mid = 0.5 * (lo + hi)
+        value = mid * mid * np.sqrt(np.maximum(mid * mid - mass * mass, 0.0)) / (2.0 * np.pi**2)
+        below = value < target
+        lo[below] = mid[below]
+        hi[~below] = mid[~below]
+    return 0.5 * (lo + hi)
+
+
 def label(lo: float, hi: float, unit: str) -> str:
     return f"{lo:g}-{hi:g} {unit}"
 
