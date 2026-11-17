@@ -85,3 +85,51 @@ SHA-256:
 This is a successful regeneration of the declared PR #52 collider benchmark, not a model-specific Belle II detector-level recast. It does not supply the real mass-dependent Crystal Ball response, production-times-efficiency arrays, lifetime-dependent detector efficiency, or detector-level likelihood. No global allowed scalar-mass interval is claimed.
 
 Any alternate VLL-angle or portal benchmark must be defined and evaluated as a separate collider benchmark. It is not a prerequisite for, or an input imported from, the independent Higgs--scalar mixing research workstream.
+
+ 
+ ---
+ 
+ ## 2026-11-17 current-archive extraction and version disposition
+ 
+ The current archive was decompressed and verified byte-for-byte by
+ [PR52 scan archive integrity run #44033029862](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44033029862).
+ The machine-readable result is
+ [scan_archive_integrity_2026-11-17.json](data/derived/scan-pr52-thetaR-1e-2/scan_archive_integrity_2026-11-17.json).
+ 
+ | Object | SHA-256 | Bytes |
+ |---|---|---:|
+ | Current `.csv.gz` | `f8dde6825e3c658cb841f06e1ac2aa9de36519e805e589d86fc07e37079429ff` | 20,156,701 |
+ | Current decompressed CSV | `5d5f0ce306d6ac75498eef054c9c02f6897b676fe0cf6626fb5dcbdbc390dd67` | 80,770,035 |
+ | Earlier decompressed CSV | `67ec36a50c65b9c03de9e63c83039feb965f12335dbd3984be92d4ab214ca783` | 80,770,106 |
+ | Earlier `.csv.gz` | `ca723a11f69b58558f71520cf944733bd33d323abd58f29de275eb391d3c9c8a` | 20,156,614 |
+ 
+ The current extraction contains 73,728 data rows and 77 columns, with no
+ malformed row widths. Its decompressed hash matches `SHA256SUMS.txt`.
+ The current archive commit is `7b81a9eea3caf80991dcbe29f3a3c677f678d9d0`
+ and records source commit `b362de7cc345ec75ef9f4ae117364c1ee59e6e4d`.
+ The earlier archive is preserved at
+ `9ae7955f6b2a6d3f8112b1f3772889bb54f58a56` and records source commit
+ `4e90cd971e5cd3264294958f261bd9ce05825e01`.
+ 
+ The version comparison is substantive, not merely recompression: only the
+ two four-muon width-over-resolution bound columns differ, in 70,656 rows.
+ The earlier file has `lower > upper` in all 70,656 of those rows; the current
+ file has zero such rows. There are 64,567 exact swapped pairs and 68,691
+ pairs agreeing with a swap to (10^{-12}); the maximum relative difference
+ from a pure swap is (1.8490103\times10^{-6}). The 3,072 nonfinite bound
+ rows remain explicitly flagged in the comparison report.
+ 
+ The 80,770,035-byte uncompressed CSV is not committed because it duplicates
+ the 20,156,701-byte canonical gzip archive in Git history. Instead,
+ `extract_and_verify_scan_archive.py` performs streaming extraction, gzip
+ CRC validation, SHA-256/byte-count verification, and CSV row/column checks.
+ Use:
+ 
+ ```bash
+ python data/derived/scan-pr52-thetaR-1e-2/extract_and_verify_scan_archive.py \
+   --output /path/to/original_uv_width_scan.csv
+ ```
+ 
+ This closes the archive-integrity and direct-extraction gate. It does not
+ change the collider physics interpretation or promote the historical scan
+ into a detector-level Belle II recast.
