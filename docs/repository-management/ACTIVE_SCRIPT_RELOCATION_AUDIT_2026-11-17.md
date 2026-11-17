@@ -5,7 +5,7 @@
 This PR relocates the three self-contained referee-response calculation packages from `计算脚本/` into dedicated `research/` workstream folders. The migration is organizational and provenance-focused; it does not change physical formulas, benchmark inputs, or numerical results.
 
 - Major 2: Fig. 2 parameter-window benchmark.
-- Major 3: optional response-only neutrino seesaw construction and charged-lepton/VLL diagnostic.
+- Major 3: optional response-only \(\sigma+3N_R\) neutrino seesaw construction and charged-lepton/VLL diagnostic.
 - Major 4.2: momentum-dependent kinetic mixing and conditional NA64 comparison.
 
 The original manuscript model remains the one-VEV (S+\mathrm{VLL}) theory. The Major 3 (sigma+3N_R) construction remains a response-only optional completion and is not promoted to the non-neutrino model baseline.

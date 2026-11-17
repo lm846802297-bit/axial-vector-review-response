@@ -4,7 +4,7 @@
 
 ## Scope and model boundary
 
-This folder preserves the optional two-singlet type-I seesaw construction discussed in the Major 3/4.1 referee response. It is **not** part of the original manuscript's one-VEV (S+\mathrm{VLL}) model. The original minimal model's PMNS selection-rule limitation remains explicitly acknowledged; the optional (sigma+3N_R) completion is discussed only as a possible neutrino-sector completion in the response.
+This folder preserves the optional three-singlet \(\sigma+3N_R\) type-I seesaw construction discussed in the Major 3/4.1 referee response. It is **not** part of the original manuscript's one-VEV (S+\mathrm{VLL}) model. The original minimal model's PMNS selection-rule limitation remains explicitly acknowledged; the optional (sigma+3N_R) completion is discussed only as a possible neutrino-sector completion in the response.
 
 The numerical reconstruction is a constructive tree-level benchmark from NuFIT 6.1 central values. It is not a statistical fit, parameter scan, or check of HNL, LFV, scalar-potential/vacuum, cosmological, (A'), or global experimental constraints.
 
