@@ -2,8 +2,7 @@ import unittest
 
 import numpy as np
 
-from audit_b16_escape_phase_space import _axis_bins
-
+from audit_b16_escape_phase_space import (\n    _axis_bins, reconstruct_energy_grid_from_spectral_measure,\n)\n
 
 class EscapePhaseSpaceBinningTests(unittest.TestCase):
     def setUp(self):
@@ -79,6 +78,31 @@ class EscapePhaseSpaceBinningTests(unittest.TestCase):
             1.0,
             places=13,
         )
+
+    def test_archived_spectral_measure_reconstructs_842_energy_nodes(self):
+        from pathlib import Path
+        import json
+
+        here = Path(__file__).resolve().parent
+        baseline_path = here / "outputs" / "b16_global_high_order_independent_grid_10mev_2026-11-09.json"
+        payload = json.loads(baseline_path.read_text(encoding="utf-8"))
+        baseline = payload["result"]
+        spectral = np.asarray(baseline["eq_b1_source_measure"]["spectral_measure_MeV3"], float)
+        energies = reconstruct_energy_grid_from_spectral_measure(spectral, 10.0, 1000.0)
+        self.assertEqual(len(energies), 842)
+        self.assertTrue(np.all(np.diff(energies) > 0.0))
+        self.assertGreater(float(energies[0]), 10.0)
+        self.assertLessEqual(float(energies[-1]), 1010.0 + 1.0e-10)
+
+    def test_spectral_measure_inversion_round_trip(self):
+        energies = np.asarray([10.00001, 10.01, 10.5, 12.0, 100.0, 1010.0])
+        spectral = energies**2 * np.sqrt(energies**2 - 10.0**2) / (2.0 * np.pi**2)
+        reconstructed = reconstruct_energy_grid_from_spectral_measure(spectral, 10.0, 1000.0)
+        self.assertTrue(np.allclose(reconstructed, energies, rtol=5.0e-14, atol=1.0e-13))
+
+    def test_spectral_measure_rejects_invalid_input(self):
+        with self.assertRaises(ValueError):
+            reconstruct_energy_grid_from_spectral_measure([1.0, 0.0], 10.0, 1000.0)
 
 
 if __name__ == "__main__":
