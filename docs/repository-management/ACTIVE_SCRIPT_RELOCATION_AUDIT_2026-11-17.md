@@ -36,7 +36,7 @@ The Major 2 and Major 4.2 scripts use `Path(__file__).resolve().parents[2]`; the
 
 ## Path references and indexes
 
-Updated the research directory index, main research index, legacy calculation index, current decision ledger, and the three Major 2 / 3 / 4.2 comparison/validation records. Their commands now point to the new locations. The legacy `计算脚本/` directory remains in place for Major 1 tools, Section 250–262 materials, DeepSeek66 audit evidence, and other historical scripts; it is not renamed or removed.
+Updated the research directory index, main research index, legacy calculation index, current decision ledger, the three Major 2 / 3 / 4.2 comparison/validation records, and the two historical PMNS/LFV technical notes that still linked to the old folder. Their commands now point to the new locations. The legacy `计算脚本/` directory remains in place for Major 1 tools, Section 250–262 materials, DeepSeek66 audit evidence, and other historical scripts; it is not renamed or removed.
 
 ## Validation boundary
 
