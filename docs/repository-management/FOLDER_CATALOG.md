@@ -18,12 +18,12 @@ Updated 2026-11-17. Counts describe the audited tree after root-file relocation,
 | `deliverables/` | 22 | Extracted handoff packages and instructions. |
 | `docs/` | 127 | Governance, document registers, review standards and audit reports. |
 | `overleaf-source/` | 29 | Pinned manuscript source package; read-only source archive. |
-| `research/` | 1,088 | Current scientific workstreams, inputs, scripts, tests, outputs and evidence. |
+| `research/` | 1,091 | Current scientific workstreams, inputs, scripts, tests, outputs and evidence. |
 | `work/` | 18 | Intermediate and temporary material; not authoritative until promoted. |
 | `审稿意见-gpt/` | 128 | Internal referee analysis, decisions, writing rules, current execution and original reviewer materials. |
 | `导出/` | 3 | Exported artifacts; identify source and lifecycle before promotion. |
 | `弃用/` | 7 | Explicitly deprecated material; retain pending provenance/link checks. |
-| `计算脚本/` | 115 | Legacy calculation scripts, outputs and audit records. |
+| `计算脚本/` | 112 | Legacy calculation scripts, outputs and audit records. |
 | `附件/` | 4 | Supporting historical attachments. |
 | `[root]` | 12 files + 13 top-level directories | Governance, current status, formal reply TeX/PDF and its BibTeX/style dependencies. |
 
