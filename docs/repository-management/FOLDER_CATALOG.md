@@ -1,6 +1,6 @@
 # Folder catalog
 
-Updated 2026-11-17. Counts describe the audited tree after root-file relocation, based on `main` commit `ce9cf1628efc16c55d64aa59f93b7d745f8ef23e`.
+Updated 2026-11-17. Counts describe the audited tree after PR #117 merged into `main`, based on commit `2d9bf2e050f161b152d1761265796ad9c86e97a1`.
 
 ## Repository footprint
 
