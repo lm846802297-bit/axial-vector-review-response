@@ -5,7 +5,7 @@ Reviewed branch: `maintenance/repository-organization-audit-20261114`
 Reviewed branch head before this report: `dc29c9bebdc2c184f93858294f704c9dcea7b55c`  
 Scope: all 15 workflows previously labeled `HISTORICAL_CANDIDATE`. Their YAML triggers, branch guards, checkout refs, runtime, permissions, commands and write-back behavior have now been statically reviewed. Configured branch refs were checked; the four referenced branch families exist. This report does not authorize deletion.
 
-No workflows, tests or calculations were run. The available run-history query does not expose a general branch/workflow run listing for these refs, so these 15 remain candidates rather than being declared confirmed historical or deleted. A candidate label records a disposition and a follow-up boundary; it is not a claim that a workflow is already disabled.
+A read-only Actions API audit now covers the configured branch families through 2026-11-17. All 14 non-active candidates have recorded history: 499 runs in aggregate, with each workflow's run tally and latest result documented in [the final integration review](../FINAL_INTEGRATION_REVIEW_2026-11-17.md). The current maintenance branch has no runs for these 14; their runs are on the configured research/review branches. No workflow, test, or calculation was executed as part of this history check. Run success is not scientific acceptance.
 
 ## Inventory and disposition
 
@@ -36,4 +36,4 @@ No workflows, tests or calculations were run. The available run-history query do
 
 ## Follow-up boundary
 
-Static YAML review for all 115 workflows is now complete: 100 entries are `REVIEWED_WITH_NOTES`, one current PR response-build workflow is `ACTIVE`, 14 are individually documented `HISTORICAL_CANDIDATE`, and 0 remain `PENDING`. The 15 candidates are retained. This review does not convert them to `HISTORICAL`, remove them, or claim their last Actions runs were successful. Final cleanup decisions require the missing workflow-run and caller/history evidence.
+Static YAML review for all 115 workflows is complete: 100 entries are `REVIEWED_WITH_NOTES`, one response-build workflow is `ACTIVE`, 14 are `HISTORICAL_CANDIDATE`, and 0 remain `PENDING`. Run-history verification for the 14 candidates is complete. They remain explicitly retained as candidates because the configured refs still exist and the workflows remain push-triggered and/or manually dispatchable; several can write results. The run records include failures and cancellations, which remain visible in the linked closeout table. No workflow was deleted, disabled, or executed in this review. The run-history verification does not claim scientific validity or acceptance.
