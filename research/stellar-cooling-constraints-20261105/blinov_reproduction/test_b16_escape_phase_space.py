@@ -139,7 +139,7 @@ class EscapePhaseSpaceBinningTests(unittest.TestCase):
             svg = target.read_text(encoding="utf-8")
             self.assertEqual(metadata["panels"], 4)
             self.assertIn("B.16 10 MeV escaping phase space", svg)
-            self.assertIn("0-1 cos(theta)", svg)
+            self.assertIn("0 to 1 cos(theta)", svg)
             self.assertIn("escaped-luminosity fraction", svg)
             self.assertTrue(svg.rstrip().endswith("</svg>"))
             self.assertTrue(metadata["sha256"])
