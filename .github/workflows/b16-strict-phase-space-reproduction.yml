@@ -9,6 +9,8 @@ on:
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_escape_phase_space.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_global_redshift.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/validate_b16_escape_phase_space_output.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_phase_space_output_validation.py'
       - 'research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv'
       - 'research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_high_order_independent_grid_10mev_2026-11-09.json'
@@ -16,7 +18,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: b16-strict-phase-space-reproduction-${{ github.ref }}
@@ -44,98 +46,26 @@ jobs:
           python --version
           python -c "import numpy, scipy; print('numpy', numpy.__version__); print('scipy', scipy.__version__)"
           git rev-parse HEAD
-      - name: Run phase-space binning regression tests
+      - name: Run B.16 regression tests
         run: |
           python -m unittest discover \
             -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
-            -p 'test_b16_escape_phase_space.py' -v
-      - name: Compile targeted diagnostic
+            -p 'test_b16_*.py' -v
+      - name: Compile B.16 diagnostic and validator
         run: |
           python -m py_compile \
-            research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_escape_phase_space.py
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_escape_phase_space.py \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/validate_b16_escape_phase_space_output.py
       - name: Run high-order 10 MeV escape phase-space decomposition
         run: |
           python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_escape_phase_space.py \
             --mass 10 --nr 200 --opacity-order 640 --ne 200 \
             --na 32 --ns 64 --energy-offset 1000 \
-            --output /tmp/b16_escape_phase_space_10mev_2026-11-17.json
-      - name: Validate baseline closure and phase-space normalization
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-17.json
+      - name: Validate baseline closure and sparse joint-table marginals
         run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-
-          p = Path("/tmp/b16_escape_phase_space_10mev_2026-11-17.json")
-          d = json.loads(p.read_text())
-          assert d["mass_MeV"] == 10.0
-          assert abs(d["closure"]["luminosity_relative_residual_vs_high_order_baseline"]) < 2e-10
-          assert abs(d["closure"]["thin_luminosity_relative_residual_vs_high_order_baseline"]) < 2e-10
-          assert abs(d["closure"]["escape_probability_absolute_residual_vs_high_order_baseline"]) < 2e-13
-          assert abs(d["configuration"]["direction_weight_sum"] - 1.0) < 1e-14
-
-          for region in d["regions"]:
-              for key in ("emission_radius_bins", "energy_bins", "direction_bins_4", "direction_bins_8"):
-                  rows = region[key]
-                  thin_sum = sum(x["thin_source_fraction_within_region"] for x in rows)
-                  esc_sum = sum(x["escaped_luminosity_fraction_within_region"] for x in rows)
-                  assert abs(thin_sum - 1.0) < 2e-10, (region["region"], key, thin_sum)
-                  assert abs(esc_sum - 1.0) < 2e-10, (region["region"], key, esc_sum)
-
-              joint = region["joint_radius_energy_direction_bins"]
-              assert len(joint) > 0
-              assert all(x["thin_source_fraction_within_region"] >= 0 for x in joint)
-              assert all(x["escaped_luminosity_fraction_within_region"] >= 0 for x in joint)
-              joint_thin = sum(x["thin_source_fraction_within_region"] for x in joint)
-              joint_esc = sum(x["escaped_luminosity_fraction_within_region"] for x in joint)
-              assert abs(joint_thin - 1.0) < 2e-10, (region["region"], "joint thin", joint_thin)
-              assert abs(joint_esc - 1.0) < 2e-10, (region["region"], "joint escaped", joint_esc)
-
-              joint_thin_global = sum(x["thin_source_fraction_of_global"] for x in joint)
-              joint_esc_global = sum(x["escaped_luminosity_fraction_of_global"] for x in joint)
-              assert abs(joint_thin_global - region["source_fraction_of_global_B1"]) < 2e-10
-              assert abs(joint_esc_global - region["escaped_luminosity_fraction_of_global"]) < 2e-10
-
-              for axis, field, key in (
-                  ("emission_shell", "emission_radius_bins", "bin"),
-                  ("energy_bin", "energy_bins", "bin"),
-                  ("direction_bin", "direction_bins_4", "bin"),
-              ):
-                  for observable in (
-                      "thin_source_fraction_within_region",
-                      "escaped_luminosity_fraction_within_region",
-                  ):
-                      marginal = {}
-                      for cell in joint:
-                          marginal[cell[axis]] = marginal.get(cell[axis], 0.0) + cell[observable]
-                      expected = {row[key]: row[observable] for row in region[field]}
-                      assert marginal.keys() == expected.keys(), (region["region"], field, marginal.keys(), expected.keys())
-                      for bin_name, value in expected.items():
-                          assert abs(marginal[bin_name] - value) < 2e-10, (
-                              region["region"], field, bin_name, marginal[bin_name], value
-                          )
-
-          core = next(x for x in d["regions"] if x["region"] == "dominant_8_15km_emission")
-          assert 0.75 < core["source_fraction_of_global_B1"] < 0.85
-
-          print(json.dumps({
-              "mass_MeV": d["mass_MeV"],
-              "coupling": d["coupling"],
-              "calculated_luminosity_erg_s": d["calculated_luminosity_erg_s"],
-              "reference_luminosity_erg_s": d["reference_luminosity_erg_s"],
-              "relative_difference_vs_fig7": d["relative_difference_vs_fig7"],
-              "escape_probability": d["escape_probability"],
-              "closure": d["closure"],
-              "configuration": d["configuration"],
-              "regions": [{
-                  "region": x["region"],
-                  "source_fraction": x["source_fraction_of_global_B1"],
-                  "escaped_fraction": x["escaped_luminosity_fraction_of_global"],
-                  "P_escape": x["source_weighted_escape_probability"],
-                  "joint_bin_count": x["joint_bin_count_nonempty"],
-                  "top_joint_bins": x["top_joint_radius_energy_direction_bins"][:8],
-              } for x in d["regions"]],
-          }, indent=2))
-          PY
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/validate_b16_escape_phase_space_output.py \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-17.json
       - name: Verify axial-vector production outputs remain unchanged
         run: |
           git diff --exit-code -- \
@@ -144,10 +74,23 @@ jobs:
             research/stellar-cooling-constraints-20261105/outputs/axial.json \
             research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.pdf \
             research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.png
+      - name: Archive strict phase-space result on diagnostic branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+actions[bot]@users.noreply.github.com"
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-17.json
+          if git diff --cached --quiet; then
+            echo "Identical phase-space result is already archived."
+            exit 0
+          fi
+          git commit -m "Archive strict 10 MeV B.16 escape phase-space result"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
       - name: Upload strict phase-space result
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: b16-strict-10mev-escape-phase-space
-          path: /tmp/b16_escape_phase_space_10mev_2026-11-17.json
+          path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-17.json
           if-no-files-found: warn
