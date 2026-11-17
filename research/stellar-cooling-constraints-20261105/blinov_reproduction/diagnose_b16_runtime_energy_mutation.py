@@ -17,7 +17,7 @@ try:
 except ImportError:
     from reference import DEFAULT_PROFILE, radial_rule, load_profile, local_rates, scalar_optical_depths
     from audit_b16_global_redshift import (
-        DEFAULT_FIG7, DEFAULT_BASELINE, eq_b1_source_measure,
+        DEFAULT_FIG7, eq_b1_source_measure,
         float_array_sha256, sha256,
     )
     from diagnose_b16_energy_grid_identity import build_energy_grid
