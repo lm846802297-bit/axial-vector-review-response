@@ -1,6 +1,7 @@
 """Instrument the B.16 phase-space energy array through each calculation stage."""
 from __future__ import annotations
 
+import argparse
 import json
 from pathlib import Path
 
@@ -37,6 +38,9 @@ def snapshot(label, energies, original):
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--output', type=Path, default=Path('/tmp/b16_runtime_energy_mutation_diagnostic.json'))
+    args = parser.parse_args()
     mass = 10.0
     radial_order = 200
     opacity_order = 640
@@ -107,6 +111,8 @@ def main():
         "opacity_shape": list(columns.shape),
         "angle_weight_sum": float(np.sum(angle_weights)),
     }
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    args.output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\\n")
     print(json.dumps(result, indent=2, sort_keys=True), flush=True)
 
 
