@@ -1,68 +1,50 @@
 {
-  "run": "P1B-GLOBAL06B-POLARIZATION-ANCHOR-HIGH-ORDER",
-  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
-  "radius_km": 8.24821831451522,
-  "temperature_MeV": 39.1873531264166,
-  "lapse": 0.791831562776043,
-  "order_ladder": [[10,6,6,6],[14,8,8,8],[18,10,10,10],[22,12,12,12],[26,14,14,14]],
-  "points": [
+  "run":"P1B-GLOBAL06B-POLARIZATION-ANCHOR-HIGH-ORDER",
+  "profile_sha256":"9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "radius_km":8.24821831451522,
+  "temperature_MeV":39.1873531264166,
+  "lapse":0.791831562776043,
+  "order_ladder":[[10,6,6,6],[14,8,8,8],[18,10,10,10],[22,12,12,12],[26,14,14,14]],
+  "points":[
     {
-      "x": 0.0,
-      "omega_local_MeV": 10.0,
-      "absorption_modes": [0.02670354629914524,0.02670224108557134,0.026702241085571333],
-      "L_over_T_average": 1.0000488803007104,
-      "L_fraction": 0.333344195445399,
-      "T_each_fraction": 0.33332790227730047,
-      "successive_order_changes": [0.0063388498407529175,0.002816492924363881,0.0009587755106893282,0.00032128699682470785],
-      "final_successive_order_change": 0.00032128699682470785,
-      "longitudinal_suppression_vs_T_percent": -0.004888030071037441,
-      "detailed_balance_residual": 1.6968358657697067e-16,
-      "mass_shell_residual": 1.626120976637977e-13,
-      "plus_minus_relative_difference": 2.5986185510311665e-16,
-      "finite_nonnegative": true,
-      "charge_resolved": {
-        "mu_minus":{"absorption":[0.026391670691378294,0.02639037611433198,0.026390376114331975]},
-        "mu_plus":{"absorption":[0.0003118756077669466,0.000311864971239359,0.000311864971239359]}
+      "x":0.0,"omega_local_MeV":10.0,
+      "absorption_modes":[0.0267064246030639,0.026702173651744255,0.026702173651744255],
+      "L_over_T_average":1.0001591986995173,"L_fraction":0.33336870894486453,"T_each_fraction":0.3333156455275677,
+      "successive_order_changes":[0.0063388498407529175,0.002816492924363881,0.0009587755106893282,0.00032128699682470785],
+      "final_successive_order_change":0.00032128699682470785,"longitudinal_suppression_vs_T_percent":-0.015919869951730448,
+      "detailed_balance_residual":3.3936804028342504e-16,"mass_shell_residual":1.2089997641937663e-13,
+      "plus_minus_relative_difference":0.0,"finite_nonnegative":true,
+      "charge_resolved":{
+        "mu_minus":{"absorption":[0.02639452531532428,0.026390308683488472,0.026390308683488472]},
+        "mu_plus":{"absorption":[0.00031189928773962166,0.00031186496825578243,0.00031186496825578243]}
       }
     },
     {
-      "x": 0.015,
-      "omega_local_MeV": 10.587810296896249,
-      "absorption_modes": [0.023708271275741866,0.025726816841164193,0.0257268168411642],
-      "L_over_T_average": 0.9215392414116093,
-      "L_fraction": 0.31542935598782035,
-      "T_each_fraction": 0.34228532200608974,
-      "successive_order_changes": [0.0063929589890691155,0.00280743724242622,0.0009570245758580014,0.00032120552874762324],
-      "final_successive_order_change": 0.00032120552874762324,
-      "longitudinal_suppression_vs_T_percent": 7.846075858839074,
-      "detailed_balance_residual": 2.5766290844894553e-16,
-      "mass_shell_residual": 1.2089997641937663e-13,
-      "plus_minus_relative_difference": 2.697144363699379e-16,
-      "finite_nonnegative": true,
-      "charge_resolved": {
+      "x":0.015,"omega_local_MeV":10.587810296896249,
+      "absorption_modes":[0.023708271275741866,0.025726816841164193,0.0257268168411642],
+      "L_over_T_average":0.9215392414116093,"L_fraction":0.31542935598782035,"T_each_fraction":0.34228532200608974,
+      "successive_order_changes":[0.0063929589890691155,0.00280743724242622,0.0009570245758580014,0.00032120552874762324],
+      "final_successive_order_change":0.00032120552874762324,"longitudinal_suppression_vs_T_percent":7.846075858839074,
+      "detailed_balance_residual":2.5766290844894553e-16,"mass_shell_residual":1.2089997641937663e-13,
+      "plus_minus_relative_difference":2.697144363699379e-16,"finite_nonnegative":true,
+      "charge_resolved":{
         "mu_minus":{"absorption":[0.0234326149560477,0.025426603622895158,0.025426603622895165]},
         "mu_plus":{"absorption":[0.0002756563196941663,0.0003002132182690363,0.00030021321826903633]}
       }
     },
     {
-      "x": 0.05,
-      "omega_local_MeV": 11.95936765632083,
-      "absorption_modes": [0.018283918474840236,0.023713205919116756,0.023713205919116756],
-      "L_over_T_average": 0.7710437187280688,
-      "L_fraction": 0.27825029014049046,
-      "T_each_fraction": 0.3608748549297548,
-      "successive_order_changes": [0.006460831593483586,0.00278364457498589,0.000952559919931431,0.00032074056987309036],
-      "final_successive_order_change": 0.00032074056987309036,
-      "longitudinal_suppression_vs_T_percent": 22.895628127193124,
-      "detailed_balance_residual": 4.01725359803135e-16,
-      "mass_shell_residual": 1.626120976637977e-13,
-      "plus_minus_relative_difference": 0.0,
-      "finite_nonnegative": true,
-      "charge_resolved": {
-        "mu_minus":{"absorption":[0.01807327503869404,0.023436938822880143,0.023436938822880143]},
-        "mu_plus":{"absorption":[0.00021064343614619378,0.00027626709623661185,0.00027626709623661185]}
+      "x":0.05,"omega_local_MeV":11.95936765632083,
+      "absorption_modes":[0.018285886719032685,0.023713232795742993,0.023713232795743],
+      "L_over_T_average":0.771125846759931,"L_fraction":0.2782716806822579,"T_each_fraction":0.360864159658871,
+      "successive_order_changes":[0.006460831593483586,0.00278364457498589,0.000952559919931431,0.00032074056987309036],
+      "final_successive_order_change":0.00032074056987309036,"longitudinal_suppression_vs_T_percent":22.8874153240069,
+      "detailed_balance_residual":5.237569567432536e-16,"mass_shell_residual":1.626120976637977e-13,
+      "plus_minus_relative_difference":0.0,"finite_nonnegative":true,
+      "charge_resolved":{
+        "mu_minus":{"absorption":[0.018075226942224916,0.023436964593755247,0.023436964593755254]},
+        "mu_plus":{"absorption":[0.00021065977680776845,0.00027626820198774454,0.00027626820198774454]}
       }
     }
   ],
-  "scope": "B.13 moving-muon semi-Compton local absorption at one radial anchor only. Does not include neutrino inverse decay, dimuon, B.2 ray integration, or full transport."
+  "scope":"B.13 moving-muon semi-Compton local absorption at one radial anchor only; not full B.2 transport."
 }
