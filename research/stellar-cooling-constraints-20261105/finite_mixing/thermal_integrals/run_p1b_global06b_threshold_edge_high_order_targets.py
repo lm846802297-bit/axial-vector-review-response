@@ -39,7 +39,7 @@ def init_worker(profile_path):
     if str(ROOT) not in sys.path:sys.path.insert(0,str(ROOT))
     import audit_b13_local_kernel_radial_energy_10mev as audit
     _AUDIT=audit
-    _TABLE=np.genfromtxt(PROFILE,delimiter=",",names=True)
+    _TABLE=np.genfromtxt(_PROFILE,delimiter=",",names=True)
     _RADII=np.asarray(_TABLE["r_km"],float)
     def fast_load(_path,rr):
         rr=np.asarray(rr,float)
@@ -55,7 +55,7 @@ def evaluate_task(task):
     ladder=[_AUDIT.evaluate_point(_PROFILE,r,omega,o,cache) for o in ORDERS]
     changes=[_AUDIT.compare_points(ladder[i-1],ladder[i])["maximum_relative_change"] for i in range(1,len(ladder))]
     if changes[-1]>=TOL:
-        ladder.append(_AUDIT.evaluate_point(PROFILE,r,omega,EXTENSION,cache))
+        ladder.append(_AUDIT.evaluate_point(_PROFILE,r,omega,EXTENSION,cache))
         changes.append(_AUDIT.compare_points(ladder[-2],ladder[-1])["maximum_relative_change"])
     final=ladder[-1]
     return {"r_km":float(r),"x":float(x),"omega_local_MeV":float(omega),
