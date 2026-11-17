@@ -1,6 +1,6 @@
 # GitHub Actions workflow catalog
 
-Inventory generated from `maintenance/repository-organization-audit-20261114` on 2026-11-15. The 115 YAML files are listed below by provisional topic. This index is not a claim that all workflows are active or that their historical runs passed. 47 of the 115 workflows have individual static YAML reviews recorded in the register; 16 are historical candidates and 52 remain pending. Static review does not establish that a workflow is currently active or that its scientific gate has passed.
+Inventory updated from `maintenance/repository-organization-audit-20261114` on 2026-11-17. The 115 YAML files are listed below by provisional topic. This index is not a claim that all workflows are active or that their historical runs passed. 50 of the 115 workflows have individual static YAML reviews recorded in the register; 15 are historical candidates and 50 remain pending. The seventy-seventh review covers the C4-C4 anchor, quadrature and full-radial workflows; static review does not establish successful execution or scientific acceptance. See [the C4-C4 workflow review](../../docs/repository-management/workflow-reviews/C4C4_WORKFLOW_REVIEW_2026-11-17.md).
 
 ## Topic groups
 
