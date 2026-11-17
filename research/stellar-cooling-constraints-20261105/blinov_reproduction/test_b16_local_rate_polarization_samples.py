@@ -9,6 +9,7 @@ from pathlib import Path
 import numpy as np
 
 import audit_b16_local_rate_polarization_samples as samples
+import audit_b16_local_absorption as local
 
 HERE = Path(__file__).resolve().parent
 PROFILE = HERE.parent / "data" / "sfho188_digitized.csv"
