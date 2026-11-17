@@ -66,3 +66,20 @@ The error is strongly radius-dependent. The median is about 1.40% in the 8–10 
 **No B.2 transport or Fig. 7 conclusion is updated by this audit.**
 
 Next, the local B.2 implementation must be inspected before propagation: retain the archived pointwise direct midpoint values as independent checks, and compare (i) scalar opacity/escape treatment and (ii) polarization-resolved opacity/escape treatment. The comparison must report the contribution-weighted impact of interpolation errors, preserve (L) versus transverse modes, and demonstrate whether the transverse degeneracy is preserved. Do not rescale opacity or update axial limits.
+
+
+## Important scope correction: this archive is the semi-Compton channel only
+
+The archived local kernel is explicitly the pure-vector process
+`muon + photon <-> muon + A'` (B.13). It is **not** the complete local opacity entering B.2. The neutrino inverse-decay contribution must be supplied separately from the corresponding B.1/B.4 kernel and combined only at the transport stage according to the chosen closure. Therefore none of the tabulated B.13 rates may be relabeled as total absorption.
+
+The B.2 state-counting audit already recorded in `B2_POLARIZATION_BOLTZMANN_STATE_COUNTING_AUDIT_2026-11-13.md` distinguishes three different objects:
+- literal scalar equation-level reproduction using the paper's summed opacity convention;
+- no-polarization-mixing transport, propagating each (h=L,+,-) with its own (	au_h) and summing escaped mode luminosities;
+- equal-occupation scalar closure, for which the attenuation coefficient is the arithmetic-average per-state opacity (sum_hGamma^*_{\mathrm{abs},h}/3).
+
+These are not interchangeable after exponentiation. The local B.13 archive supplies only the Compton part of the mode-resolved rates; a fair comparison must combine it with the same separately validated neutrino inverse-decay rates in all lanes. The scalar lane must remain a literal equation-reproduction lane and must not be silently redefined as the physical no-mixing lane.
+
+## Interpolation cross-check
+
+An additional post-processing comparison was made using the same four grid corners and the direct midpoint values. For the absorption channel alone, bilinear interpolation in (logGamma_{\rm abs}) gives a median relative error of 7.64%, a maximum of 57.13%, and 82.37% of charge/mode midpoint rows above 1%. Ordinary bilinear interpolation in (Gamma_{\rm abs}) gives a median of 21.24%, a maximum of 96.70%, and 86.40% of rows above 1%. This confirms that the log method is better than the linear alternative for this table, but neither passes the project tolerance. The per-midpoint archive acceptance metric is stricter because it takes the maximum across charges, modes, and all four derived rate fields.
