@@ -4,21 +4,21 @@ Updated 2026-11-17. Counts describe the PR #121 branch snapshot after synchroniz
 
 ## Repository footprint
 
-- **1,723 Git-tree entries:** 1,592 files and 131 directories.
-- **609 Markdown/text files:** 510 `.md` and 99 `.txt`.
+- **1,727 Git-tree entries:** 1,596 files and 131 directories.
+- **610 Markdown/text files:** 511 `.md` and 99 `.txt`.
 - **Baseline register:** 462/462 individually reviewed — 298 `PASS_WITH_NOTES`, 2 `PASS`, 156 `HISTORICAL`, 6 `REVISION_REQUIRED`, 0 `PENDING`.
-- **Supplemental register:** 147 entries — 141 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 0 `PENDING`, 0 `REVISION_REQUIRED`.
-- **Workflow inventory:** 117 YAML workflows — 102 `REVIEWED_WITH_NOTES`, 1 `ACTIVE`, 14 `HISTORICAL_CANDIDATE`, 0 `PENDING`.
+- **Supplemental register:** 148 entries — 142 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 0 `PENDING`, 0 `REVISION_REQUIRED`.
+- **Workflow inventory:** 118 YAML workflows — 103 `REVIEWED_WITH_NOTES`, 1 `ACTIVE`, 14 `HISTORICAL_CANDIDATE`, 0 `PENDING`.
 
 | Area | Git-tree entries | Responsibility |
 |---|---:|---|
 | `.freebuff/` | 2 | Tool/project metadata; do not treat as research content. |
-| `.github/` | 122 | Actions workflows, catalogs, audit registers and templates. |
+| `.github/` | 123 | Actions workflows, catalogs, audit registers and templates. |
 | `archive/` | 37 | Frozen reply versions, historical research, referee analysis and manuscript baselines. |
 | `deliverables/` | 22 | Extracted handoff packages and instructions. |
-| `docs/` | 129 | Governance, document registers, review standards and audit reports. |
+| `docs/` | 130 | Governance, document registers, review standards and audit reports. |
 | `overleaf-source/` | 29 | Pinned manuscript source package; read-only source archive. |
-| `research/` | 1,098 | Current scientific workstreams, inputs, scripts, tests, outputs and evidence. |
+| `research/` | 1,100 | Current scientific workstreams, inputs, scripts, tests, outputs and evidence. |
 | `work/` | 18 | Intermediate and temporary material; not authoritative until promoted. |
 | `审稿意见-gpt/` | 128 | Internal referee analysis, decisions, writing rules, current execution and original reviewer materials. |
 | `导出/` | 3 | Exported artifacts; identify source and lifecycle before promotion. |
