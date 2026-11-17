@@ -31,6 +31,15 @@ def main():
         if len(group)!=1687:raise SystemExit(f"FAIL: x={x} has {len(group)} radial points")
         radii=np.asarray([p["r_km"] for p in group],float)
         if not np.array_equal(radii,reference_r):raise SystemExit(f"FAIL: radial grid differs at x={x}")
+    charge_closure=0.0
+    mode_fraction_closure=0.0
+    for point in points:
+        total_abs=np.asarray(point["absorption_modes"],float)
+        charge_abs=sum(np.asarray(point["charge_resolved_absorption"][q],float) for q in ("mu_minus","mu_plus"))
+        charge_closure=max(charge_closure,float(np.max(np.abs(total_abs-charge_abs)/np.maximum(np.abs(total_abs),1e-300))))
+        mode_fraction_closure=max(mode_fraction_closure,abs(float(sum(point["mode_fractions"]))-1.0))
+    if charge_closure>=1e-12:raise SystemExit(f"FAIL: charge-sum closure max={charge_closure:.6e}")
+    if mode_fraction_closure>=1e-12:raise SystemExit(f"FAIL: mode-fraction closure max={mode_fraction_closure:.6e}")
     max_quad=max(p["final_change"] for p in points)
     max_db=max(p["detailed_balance_max"] for p in points)
     max_shell=max(p["mass_shell_max"] for p in points)
@@ -58,7 +67,7 @@ def main():
     result={"validation":"PASS","radial_nodes":1687,"x_anchors":list(EXPECTED_X),
       "points":len(points),"maximum_quadrature_change":max_quad,
       "maximum_detailed_balance_residual":max_db,"maximum_mass_shell_residual":max_shell,
-      "maximum_transverse_plus_minus_difference":max_pm,
+      "maximum_transverse_plus_minus_difference":max_pm,\n      "maximum_charge_sum_closure_residual":charge_closure,\n      "maximum_mode_fraction_closure_residual":mode_fraction_closure,
       "maximum_threshold_isotropy_deviation":threshold_dev,
       "L_over_T_ranges":ratio_ranges,"nonmonotone_energy_ordering_radii":ordering_violations}
     print(json.dumps(result,indent=2))
