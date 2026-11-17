@@ -106,8 +106,11 @@ jobs:
               joint_esc_global = sum(x["escaped_luminosity_fraction_of_global"] for x in joint)
               assert abs(joint_thin_global - region["source_fraction_of_global_B1"]) < 2e-10
               assert abs(joint_esc_global - region["escaped_luminosity_fraction_of_global"]) < 2e-10
-              # Independently reconstruct all one-dimensional marginals from
-              # the complete joint table and compare with the stored partitions.
+              # The joint table is sparse: zero-weight cells are omitted.
+              # Reconstruct each marginal with missing keys interpreted as zero.
+              import sys
+              sys.path.insert(0, "research/stellar-cooling-constraints-20261105/blinov_reproduction")
+              from audit_b16_escape_phase_space import assert_sparse_marginal_matches
               for axis, field, key in (
                   ("emission_shell", "emission_radius_bins", "bin"),
                   ("energy_bin", "energy_bins", "bin"),
@@ -117,13 +120,10 @@ jobs:
                       "thin_source_fraction_within_region",
                       "escaped_luminosity_fraction_within_region",
                   ):
-                      marginal = {}
-                      for cell in joint:
-                          marginal[cell[axis]] = marginal.get(cell[axis], 0.0) + cell[observable]
-                      expected = {row[key]: row[observable] for row in region[field]}
-                      assert marginal.keys() == expected.keys(), (region["region"], field, marginal.keys(), expected.keys())
-                      for bin_name, value in expected.items():
-                          assert abs(marginal[bin_name] - value) < 2e-10, (region["region"], field, bin_name, marginal[bin_name], value)
+                      assert_sparse_marginal_matches(
+                          joint, region[field], axis, key, observable,
+                          tolerance=2e-10,
+                      )
           core = next(x for x in d["regions"] if x["region"] == "dominant_8_15km_emission")
           assert 0.75 < core["source_fraction_of_global_B1"] < 0.85
           print(json.dumps({

@@ -109,6 +109,41 @@ def _axis_bins(axis, edges, names, region_mask, r, energies, angles,
     return rows
 
 
+def reconstruct_sparse_marginal(joint_rows, axis, observable):
+    """Reconstruct one marginal from a sparse table of non-empty joint cells."""
+    marginal = {}
+    for cell in joint_rows:
+        name = cell[axis]
+        marginal[name] = marginal.get(name, 0.0) + float(cell[observable])
+    return marginal
+
+
+def assert_sparse_marginal_matches(
+    joint_rows, expected_rows, axis, expected_key, observable, tolerance=2.0e-10
+):
+    """Compare a sparse joint-table marginal with a complete one-dimensional table.
+
+    Empty joint cells are omitted by construction. A missing key therefore means
+    zero contribution, not a missing physical bin. Non-zero discrepancies remain
+    fatal in either direction.
+    """
+    actual = reconstruct_sparse_marginal(joint_rows, axis, observable)
+    expected = {
+        row[expected_key]: float(row[observable])
+        for row in expected_rows
+    }
+    for name in sorted(set(actual) | set(expected)):
+        actual_value = actual.get(name, 0.0)
+        expected_value = expected.get(name, 0.0)
+        residual = abs(actual_value - expected_value)
+        if residual > tolerance:
+            raise AssertionError(
+                f"Sparse joint marginal mismatch for {axis}={name!r}, "
+                f"{observable}: actual={actual_value:.16e}, "
+                f"expected={expected_value:.16e}, residual={residual:.3e}"
+            )
+
+
 def region_summary(name, region_mask, r, energies, angles, angle_weights,
                    source, columns, g, shell_edges, energy_edges,
                    direction_edges_4, direction_edges_8, global_thin,
