@@ -1,0 +1,46 @@
+name: B.16 runtime energy-grid mutation diagnostic
+
+on:
+  push:
+    branches:
+      - research/b16-energy-grid-diagnostic-20261117
+    paths:
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/diagnose_b16_runtime_energy_mutation.py'
+      - '.github/workflows/b16-runtime-energy-grid-diagnostic.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: b16-runtime-energy-grid-diagnostic-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out diagnostic branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy==2.5.4 scipy==1.18.1
+      - name: Run staged B.16 energy-grid mutation diagnostic
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/diagnose_b16_runtime_energy_mutation.py \
+            --output /tmp/b16_runtime_energy_mutation_diagnostic.json
+      - name: Upload staged diagnostic JSON
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: b16-runtime-energy-mutation-diagnostic
+          path: /tmp/b16_runtime_energy_mutation_diagnostic.json
+          if-no-files-found: warn
