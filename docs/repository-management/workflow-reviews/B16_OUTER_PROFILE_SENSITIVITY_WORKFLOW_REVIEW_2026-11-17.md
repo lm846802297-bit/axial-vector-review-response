@@ -5,7 +5,7 @@ Reviewed branch: `maintenance/repository-organization-audit-20261114`
 Reviewed branch head before this report: `bc4176539e4e53c0502633a074e2885e9546924c`  
 Scope: four B.16 workflows that stress-test temperature or muon-neutrino chemical-potential continuations in the 20--22 km and 22--25 km shells. YAML definitions were checked against their drivers, shared B.1/B.2 implementation, profile input and archived interpretation notes.
 
-This is a static workflow/provenance review. No workflow was dispatched; no tests or calculations were run; no scientific result or production output was changed. The reports describe bounded stress tests of a reconstructed profile, not measured profile uncertainties or a statistical error band.
+This is a static workflow/provenance review. No workflow was dispatched; no tests or calculations were run; historical Actions run records were not re-queried in this batch; no scientific result or production output was changed. The reports describe bounded stress tests of a reconstructed profile, not measured profile uncertainties or a statistical error band.
 
 ## Workflow inventory
 
