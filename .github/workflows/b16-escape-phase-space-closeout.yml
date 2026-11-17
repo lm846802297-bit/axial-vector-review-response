@@ -66,6 +66,8 @@ jobs:
             --mass 10 --nr 200 --opacity-order 640 --ne 200 \
             --na 32 --ns 64 --energy-offset 1000 \
             --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-10.json
+            --csv-output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-10.csv \
+            --svg-output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-10.svg
       - name: Validate baseline closure and phase-space normalization
         run: |
           python - <<'PY'
@@ -78,6 +80,13 @@ jobs:
           assert abs(d["closure"]["thin_luminosity_relative_residual_vs_high_order_baseline"]) < 2e-10
           assert abs(d["closure"]["escape_probability_absolute_residual_vs_high_order_baseline"]) < 2e-13
           assert abs(d["configuration"]["direction_weight_sum"] - 1.0) < 1e-14
+          assert d["derived_artifacts"]["csv"]["rows"] == 660
+          assert d["derived_artifacts"]["csv"]["columns"] == 13
+          assert d["derived_artifacts"]["svg"]["panels"] == 8
+          assert d["derived_artifacts"]["csv"]["sha256"]
+          assert d["derived_artifacts"]["svg"]["sha256"]
+          assert d["derived_artifacts"]["csv"]["bytes"] > 0
+          assert d["derived_artifacts"]["svg"]["bytes"] > 0
           for region in d["regions"]:
               for key in ("emission_radius_bins", "energy_bins", "direction_bins_4", "direction_bins_8"):
                   rows = region[key]
@@ -148,6 +157,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-10.json
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-10.csv research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-10.svg
           if git diff --cached --quiet; then
             echo "Identical phase-space result is already archived."
             exit 0
