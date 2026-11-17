@@ -1,103 +1,161 @@
 #!/usr/bin/env python3
-"""Decompose the recovered direct-midpoint B.13 source by radius, charge and mode.
+"""Recompute B.13 source fractions from the recovered 10 MeV JSON artifact.
 
-This is a local-source diagnostic only. It does not calculate B.2 escape,
-optical depth, neutrino inverse decay, or Fig. 7 luminosity.
+Separates the historical flat local-source proxy from an Eq. (B.1)-motivated
+midpoint measure containing lapse^2 and omega_local >= m/N(r). Neither is a
+B.2 escaped luminosity; the midpoint rule is diagnostic, not the production
+radial Gauss / piecewise-linear energy integration.
 """
 from __future__ import annotations
-import argparse, csv, json, math
-from bisect import bisect_right
+import argparse, hashlib, json, math
 from collections import defaultdict
 from pathlib import Path
 
-MASS_MEV = 10.0
+PROFILE_SHA = "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
+CHARGES = ("mu_minus", "mu_plus")
+MODES = ("L", "+", "-")
+FOUR_PI = 4.0 * math.pi
+NAMES = (
+    "flat_local_no_lapse_no_threshold",
+    "eq_b1_midpoint_lapse_no_threshold",
+    "eq_b1_midpoint_lapse_midpoint_threshold",
+    "eq_b1_midpoint_lapse_fractional_threshold",
+)
 
-def bracket(nodes, x, transform=lambda q: q):
-    values = [transform(v) for v in nodes]
-    xx = transform(x)
-    i = max(0, min(bisect_right(values, xx) - 1, len(nodes) - 2))
-    return nodes[i], nodes[i + 1]
+def sha256(path):
+    h = hashlib.sha256()
+    with Path(path).open("rb") as f:
+        for block in iter(lambda: f.read(1 << 20), b""):
+            h.update(block)
+    return h.hexdigest()
+
+def fractions(values):
+    total = sum(values.values())
+    if total <= 0:
+        raise ValueError("non-positive source integral")
+    return {k: {"integral": float(v), "fraction": float(v / total)}
+            for k, v in sorted(values.items())}
+
+def calculate(archive):
+    grid = archive["grid"]
+    rnodes = list(map(float, grid["radii_km"]))
+    enodes = list(map(float, grid["omega_local_MeV"]))
+    mass = float(archive["physics_scope"]["mediator_mass_MeV"])
+    rows = archive["radial_energy_midpoint_results"]
+    ne = len(enodes) - 1
+    if len(rows) != (len(rnodes)-1)*ne:
+        raise ValueError("midpoint count does not match the archived grid")
+
+    cm = {n: defaultdict(float) for n in NAMES}
+    shells = {n: defaultdict(float) for n in NAMES}
+    closure = transverse = 0.0
+    lapse_range = [math.inf, 0.0]
+    threshold_range = [math.inf, 0.0]
+
+    for index, row in enumerate(rows):
+        ir, ie = divmod(index, ne)
+        r0, r1 = rnodes[ir:ir+2]
+        e0, e1 = enodes[ie:ie+2]
+        r = 0.5*(r0+r1)
+        y = 0.5*(math.sqrt(max(e0-mass, 0.0))+math.sqrt(max(e1-mass, 0.0)))
+        omega = mass+y*y
+        if abs(row["radius_midpoint_km"]-r) > 2e-10*max(1.0,abs(r)):
+            raise ValueError(f"radial midpoint mismatch at row {index}")
+        if abs(row["omega_midpoint_MeV"]-omega) > 2e-10*max(1.0,abs(omega)):
+            raise ValueError(f"energy midpoint mismatch at row {index}")
+
+        p = row["order_ladder"][-1]
+        if p["mode_order"] != list(MODES) or p["orders"] != row["final_order"]:
+            raise ValueError(f"mode/order mismatch at row {index}")
+        lapse = float(p["lapse"])
+        threshold = mass/lapse
+        lapse_range = [min(lapse_range[0],lapse),max(lapse_range[1],lapse)]
+        threshold_range = [min(threshold_range[0],threshold),max(threshold_range[1],threshold)]
+
+        dr, de = r1-r0, e1-e0
+        w0 = FOUR_PI*r*r*dr*de
+        w1 = w0*lapse*lapse
+        w2 = w1 if omega >= threshold else 0.0
+        w3 = FOUR_PI*r*r*lapse*lapse*dr*max(0.0,e1-max(e0,threshold))
+        weights = (w0,w1,w2,w3)
+        source = {q:p["charge_resolved"][q]["spectral_source"] for q in CHARGES}
+        mode_sums = [sum(float(source[q][i]) for q in CHARGES) for i in range(3)]
+        for a,b in zip(mode_sums,p["total_spectral_source_by_mode"]):
+            closure=max(closure,abs(a-b)/max(abs(a),abs(b),1e-300))
+        transverse=max(transverse,abs(mode_sums[1]-mode_sums[2])/max(mode_sums[1],mode_sums[2],1e-300))
+        shell=f"{2*int(r//2)}-{2*int(r//2)+2} km"
+        for j,name in enumerate(NAMES):
+            for q in CHARGES:
+                for i,mode in enumerate(MODES):
+                    cm[name][f"{q}/{mode}"] += weights[j]*float(source[q][i])
+            shells[name][shell] += weights[j]*sum(mode_sums)
+
+    result={}
+    for name in NAMES:
+        c=cm[name]
+        charge={q:sum(v for k,v in c.items() if k.startswith(q+"/")) for q in CHARGES}
+        mode={m:sum(v for k,v in c.items() if k.endswith("/"+m)) for m in MODES}
+        total=sum(c.values())
+        result[name]={
+            "integral_internal_units":float(total),
+            "charge_mode_contributions":fractions(dict(c)),
+            "charge_contributions":fractions(charge),
+            "mode_contributions":fractions(mode),
+            "radial_shell_contributions":fractions(dict(shells[name])),
+            "8_12_km_fraction":float((shells[name].get("8-10 km",0)+shells[name].get("10-12 km",0))/total),
+        }
+    flat=result[NAMES[0]]["integral_internal_units"]
+    lapse=result[NAMES[1]]["integral_internal_units"]
+    mid=result[NAMES[2]]["integral_internal_units"]
+    frac=result[NAMES[3]]["integral_internal_units"]
+    return result,{
+        "maximum_charge_sum_closure_relative_residual":closure,
+        "maximum_transverse_plus_minus_source_difference":transverse,
+        "lapse_range":lapse_range,
+        "local_escape_threshold_m_over_lapse_MeV_range":threshold_range,
+        "lapse_squared_factor_ratio_no_threshold":lapse/flat,
+        "fraction_retained_by_local_escape_threshold_after_lapse_weighting":frac/lapse,
+        "midpoint_cut_vs_fractional_cut_relative_difference":abs(mid-frac)/frac,
+    }
 
 def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--csv", type=Path, required=True)
-    ap.add_argument("--output", type=Path, required=True)
-    args = ap.parse_args()
-    with args.csv.open(newline="") as stream:
-        rows = list(csv.DictReader(stream))
-    grid = [r for r in rows if r["point_type"] == "grid_node"]
-    mids = [r for r in rows if r["point_type"] == "cell_midpoint"]
-    radii = sorted({float(r["radius_km"]) for r in grid})
-    energies = sorted({float(r["omega_local_MeV"]) for r in grid})
+    ap=argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--archive-json",type=Path,required=True,
+                    help="Extracted p1b_b13_local_kernel_radial_energy_10mev_2026-11-13.json")
+    ap.add_argument("--output",type=Path,required=True)
+    args=ap.parse_args()
+    archive=json.loads(args.archive_json.read_text(encoding="utf-8"))
+    profile_sha=archive["physics_scope"]["profile_sha256"]
+    if profile_sha != PROFILE_SHA: raise ValueError("profile SHA-256 mismatch")
+    if float(archive["physics_scope"]["mediator_mass_MeV"]) != 10.0:
+        raise ValueError("this audit is fixed to the 10 MeV benchmark")
+    schemes,diagnostics=calculate(archive)
+    result={
+        "status":"RECOMPUTED_FROM_HISTORICAL_JSON_ARCHIVE_SOURCE_ONLY_NOT_B2",
+        "source_run_id":43376779901,"source_artifact_id":14015517843,
+        "source_artifact_zip_sha256":"2c2e2ef8610abfa16bc9e423937f974061ece101911fb9c6503e65901bb55715",
+        "archive_json_sha256":sha256(args.archive_json),"profile_sha256":profile_sha,
+        "mass_MeV":10.0,"grid_node_count":len(archive["grid_node_results"]),
+        "radial_energy_direct_midpoint_count":len(archive["radial_energy_midpoint_results"]),
+        "radial_node_count":len(archive["grid"]["radii_km"]),
+        "energy_node_count":len(archive["grid"]["omega_local_MeV"]),
+        "direct_midpoint_final_order":archive["radial_energy_midpoint_results"][0]["final_order"],
+        "source_definition":"spectral_source = omega^2*sqrt(omega^2-m^2)/(2*pi^2) times B.13 local production rate, per g_X^2",
+        "primary_measure":"4*pi*r^2*lapse^2*dr*domega with omega_local >= m/lapse; direct cell-midpoint quadrature; km-to-MeV^-1 and MeV^2-to-erg/s conversions omitted",
+        "integration_scope":"B.13 moving-muon semi-Compton source only; excludes neutrino inverse decay, dimuon, B.2 attenuation, angular ray average, and full GR ray transport",
+        "global_p1b_acceptance":archive["acceptance"],
+        "schemes":schemes,"diagnostics":diagnostics,
+        "interpretation_boundary":[
+            "The flat measure reproduces the historical local-source proxy but omits the Eq. (B.1) lapse-squared factor and local escape threshold.",
+            "The primary result is an Eq. (B.1)-motivated direct midpoint diagnostic, not the production radial Gauss / piecewise-linear energy integration.",
+            "The 8-12 km concentration is robust under both measures; it does not determine the B.2 optical-depth distribution.",
+            "Polarization fractions are local source fractions, not escaped-luminosity fractions.",
+            "The historical P1-B overall acceptance remains failed; this post-processing does not change interpolation or quadrature acceptance."
+        ]}
+    args.output.parent.mkdir(parents=True,exist_ok=True)
+    args.output.write_text(json.dumps(result,indent=2,sort_keys=True)+"\n",encoding="utf-8")
+    print(json.dumps({"status":result["status"],"schemes":{
+        k:{"integral_internal_units":v["integral_internal_units"],"8_12_km_fraction":v["8_12_km_fraction"]}
+        for k,v in schemes.items()},"diagnostics":diagnostics},indent=2))
 
-    total = 0.0
-    lapse_total = 0.0
-    by_charge_mode = defaultdict(float)
-    by_shell = defaultdict(float)
-    by_shell_charge_mode = defaultdict(float)
-    for row in mids:
-        radius = float(row["radius_km"])
-        omega = float(row["omega_local_MeV"])
-        r0, r1 = bracket(radii, radius)
-        e0, e1 = bracket(energies, omega,
-                         lambda q: math.sqrt(max(q - MASS_MEV, 0.0)))
-        measure = 4.0 * math.pi * radius**2 * (r1-r0) * (e1-e0)
-        source = float(row["spectral_source_MeV5"])
-        weight = measure * source
-        key = (row["charge"], row["mode"])
-        shell = f"{int(radius // 2)*2}-{int(radius // 2)*2+2} km"
-        by_charge_mode[key] += weight
-        by_shell[shell] += weight
-        by_shell_charge_mode[(shell, *key)] += weight
-        total += weight
-        lapse_total += float(row["lapse"]) * weight
-
-    result = {
-        "status": "LOCAL_B13_SOURCE_DECOMPOSITION_ONLY_NOT_B2",
-        "input_rows": len(rows),
-        "grid_nodes": len(grid),
-        "direct_midpoints": len(mids),
-        "mass_MeV": MASS_MEV,
-        "measure": "4*pi*r^2*Delta_r*Delta_omega times direct midpoint spectral_source",
-        "direct_midpoint_source_integral_internal_units": total,
-        "lapse_weighted_source_integral_internal_units": lapse_total,
-        "lapse_weighted_over_unweighted": lapse_total / total,
-        "charge_mode_contributions": {
-            f"{q}/{mode}": {
-                "integral": value, "fraction": value/total
-            } for (q, mode), value in sorted(by_charge_mode.items())
-        },
-        "charge_contributions": {
-            q: {
-                "integral": sum(v for (qq, _), v in by_charge_mode.items() if qq == q),
-                "fraction": sum(v for (qq, _), v in by_charge_mode.items() if qq == q)/total
-            } for q in ("mu_minus", "mu_plus")
-        },
-        "mode_contributions": {
-            mode: {
-                "integral": sum(v for (_, mm), v in by_charge_mode.items() if mm == mode),
-                "fraction": sum(v for (_, mm), v in by_charge_mode.items() if mm == mode)/total
-            } for mode in ("L", "+", "-")
-        },
-        "radial_shell_contributions": {
-            shell: {"integral": value, "fraction": value/total}
-            for shell, value in sorted(by_shell.items(),
-                key=lambda item: int(item[0].split("-")[0]))
-        },
-        "radial_shell_charge_mode_contributions": {
-            f"{shell}/{q}/{mode}": {"integral": value, "fraction": value/total}
-            for (shell, q, mode), value in sorted(by_shell_charge_mode.items())
-        },
-        "interpretation": [
-            "The integral uses direct archived cell-midpoint spectral-source values, not interpolated values.",
-            "The mu_minus/mu_plus and L,+,- channels are retained separately.",
-            "This is a local B.13 semi-Compton source diagnostic; it excludes neutrino inverse decay, ray geometry, attenuation, and the complete GR transport measure.",
-            "The mode fractions are source fractions, not escaped-luminosity fractions."
-        ]
-    }
-    args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
-    print(json.dumps(result, indent=2, sort_keys=True))
-
-if __name__ == "__main__":
-    main()
+if __name__=="__main__": main()
