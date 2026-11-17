@@ -1132,14 +1132,20 @@ registers now show:
 | Register | Documents | PASS_WITH_NOTES | PASS | HISTORICAL | REVISION_REQUIRED |
 |---|---:|---:|---:|---:|---:|
 | Baseline document register | 462 | 304 | 2 | 156 | 0 |
-| Supplemental document register | 136 | 130 | 0 | 6 | 0 |
-| **Total** | **598** | **434** | **2** | **162** | **0** |
+| Supplemental document register | 137 | 131 | 0 | 6 | 0 |
+| **Total** | **599** | **435** | **2** | **162** | **0** |
 
 The two new 2026-11-17 repository-management notes are supplemental records,
 not baseline documents. Every baseline and supplemental item is now assigned
 an explicit disposition. `PASS_WITH_NOTES` and `HISTORICAL` are retained
 where the underlying physics or historical provenance is intentionally
 limited; this is not a claim that all physical research gates have passed.
+
+The workflow audit register now contains 118 YAML workflows: 103
+`REVIEWED_WITH_NOTES`, 14 `HISTORICAL_CANDIDATE`, one `ACTIVE`, and zero
+`PENDING`. The three new B.16/PR52 closeout workflows were individually
+reviewed in
+[the 2026-11-17 workflow review](docs/repository-management/workflow-reviews/B16_LOCAL_RATE_ESCAPE_AND_SCAN_ARCHIVE_WORKFLOW_REVIEW_2026-11-17.md).
 
 ### B.16 10 MeV local-rate and global escape deliverables
 
@@ -1217,6 +1223,6 @@ inferred from this homogeneous-cell benchmark.
 5. The legacy thermal-convergence table has an unrecovered exact producer
    and does not establish independent azimuthal or radial SN convergence.
 
-The 50th review report and the thermal-convergence provenance note are
-registered in the supplemental document register. The maintenance branch
+The 90th review report, thermal-convergence provenance note, and closeout
+workflow review are registered in the supplemental document register. The maintenance branch
 has not been merged; final PR diff review remains a separate repository step.
