@@ -23,7 +23,7 @@ No workflows, tests or calculations were run. The available run-history query do
 | `.github/workflows/major44-eft-regression.yml` | `85d9ace4bd64d0dce8cc242b4f70eac404bfaf85` | Broad codex regression/manual workflow; 90-minute tests, manifest/release verification, scans and figure regeneration; workflow-wide write access. | `HISTORICAL_CANDIDATE` |
 | `.github/workflows/moving-muon-thermal-rates.yml` | `ad3a2b8c33cf03ca67329cb0e6d63fce53d31d7b` | Moving-muon and codex branch pushes/manual; extensive thermal/matrix-element checks and scans; writes outputs. No job-level branch guard is shown. | `HISTORICAL_CANDIDATE` |
 | `.github/workflows/pr55-latex-build.yml` | `600944de52eaf41c62b2fc48bc0ad2500598d79a` | Push-only PR55 response branch; compiles, checks citations, renders pages, and pushes the PDF to that fixed branch. | `HISTORICAL_CANDIDATE` |
-| `.github/workflows/pr55-referee-letter-build.yml` | `5bfc462d4778c0917109e90891ad91e04d710a97` | Push/manual on response, codex and current maintenance branches; guarded; full LaTeX/source/PDF audit, retained artifact and PDF write-back. | `HISTORICAL_CANDIDATE` |
+| `.github/workflows/pr55-referee-letter-build.yml` | `5bfc462d4778c0917109e90891ad91e04d710a97` | Push/manual on response, codex and current maintenance branches; guarded; full LaTeX/source/PDF audit, retained artifact and PDF write-back. | `ACTIVE` |
 | `.github/workflows/pure-vector-benchmark-audit.yml` | `4a729673e1f7bd026db0bf35f3734d43d8a94fa1` | Legacy codex push/manual; guarded; refreshes Fig. 7 comparison, validates pure-vector benchmark provenance and commits JSON. | `HISTORICAL_CANDIDATE` |
 | `.github/workflows/transport-prescription-audit.yml` | `4b8f32d286f9468ddb8929f90343e082beb0c0a2` | Legacy codex push/manual; guarded; analyzes transport-prescription input and commits a comparison JSON. | `HISTORICAL_CANDIDATE` |
 
@@ -36,4 +36,4 @@ No workflows, tests or calculations were run. The available run-history query do
 
 ## Follow-up boundary
 
-Static YAML review for all 115 workflows is now complete: 100 entries are `REVIEWED_WITH_NOTES`, 15 are individually documented `HISTORICAL_CANDIDATE`, and 0 remain `PENDING`. The 15 candidates are retained. This review does not convert them to `HISTORICAL`, remove them, or claim their last Actions runs were successful. Final cleanup decisions require the missing workflow-run and caller/history evidence.
+Static YAML review for all 115 workflows is now complete: 100 entries are `REVIEWED_WITH_NOTES`, one current PR response-build workflow is `ACTIVE`, 14 are individually documented `HISTORICAL_CANDIDATE`, and 0 remain `PENDING`. The 15 candidates are retained. This review does not convert them to `HISTORICAL`, remove them, or claim their last Actions runs were successful. Final cleanup decisions require the missing workflow-run and caller/history evidence.
