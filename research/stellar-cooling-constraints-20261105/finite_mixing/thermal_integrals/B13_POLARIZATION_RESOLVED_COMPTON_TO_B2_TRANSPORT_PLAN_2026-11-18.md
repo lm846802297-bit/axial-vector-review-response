@@ -45,7 +45,7 @@ At the high-order anchor \(r=8.2482183145\) km, \(T=39.1873531264\) MeV, the dir
 
 The \(+\) and \(-\) rates agree to better than \(3\times10^{-16}\) at this anchor. All three points pass the successive-order quadrature criterion of \(10^{-3}\).
 
-The low-order full-radial screen indicates that this polarization splitting is also radial dependent. At \(x=0.05\), its preliminary \(R_{LT}\) range is 0.77298--0.97325 across the profile, with the strongest suppression near 8.25 km and weaker suppression toward 25 km. The full-radial high-order scan is being run to replace this low-order estimate.
+The low-order full-radial screen indicates that this polarization splitting is also radial dependent. At \(x=0.05\), its preliminary \(R_{LT}\) range is 0.77298--0.97325 across the profile, with the strongest suppression near 8.25 km and weaker suppression toward 25 km. The full-radial high-order scan is being run to replace this low-order estimate. At the 8.2482 km anchor, the low-order full-radial screen differs from the high-order \(R_{LT}\) result by 0.24--0.28% over the three tested \(x\) values, so the low-order radial envelope is a screening result rather than the final high-order profile.
 
 ## 3. Correct channel combination for B.2
 
