@@ -83,3 +83,16 @@ These are not interchangeable after exponentiation. The local B.13 archive suppl
 ## Interpolation cross-check
 
 An additional post-processing comparison was made using the same four grid corners and the direct midpoint values. For the absorption channel alone, bilinear interpolation in (logGamma_{\rm abs}) gives a median relative error of 7.64%, a maximum of 57.13%, and 82.37% of charge/mode midpoint rows above 1%. Ordinary bilinear interpolation in (Gamma_{\rm abs}) gives a median of 21.24%, a maximum of 96.70%, and 86.40% of rows above 1%. This confirms that the log method is better than the linear alternative for this table, but neither passes the project tolerance. The per-midpoint archive acceptance metric is stricter because it takes the maximum across charges, modes, and all four derived rate fields.
+
+
+## Source-weighted interpolation diagnostic (not a B.2 result)
+
+I also integrated the direct midpoint B.13 spectral source over each radial-energy cell using the diagnostic measure (4\pi r^2\,dr\,d\omega), and compared it with the same cell source reconstructed from the archived log-interpolated absorption and midpoint detailed balance. The result is:
+- direct local Compton-source integral: (2.24809\times10^7) in the archive's internal units;
+- interpolated local Compton-source integral: (2.20743\times10^7);
+- integrated difference: (-1.8084\%);
+- source-weighted pointwise relative error: (2.1662\%).
+
+Multiplying the diagnostic measure by the midpoint lapse changes the integrated difference only slightly, to (-1.8090\%). This confirms that the interpolation problem does not disappear merely by weighting with the local Compton source. However, this remains a local-source diagnostic: it omits neutrino inverse decay, ray geometry, path attenuation, and the complete GR transport measure. It must not be quoted as the Fig. 7 luminosity error or as a B.2 error estimate.
+
+Reproduction: `audit_b13_source_weighted_interpolation.py`; result: `outputs/b13_source_weighted_interpolation_diagnostic_2026-11-18.json`.
