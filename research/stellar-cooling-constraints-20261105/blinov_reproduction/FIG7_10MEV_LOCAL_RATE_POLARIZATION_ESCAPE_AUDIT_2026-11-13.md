@@ -128,3 +128,67 @@ A later, separate artifact package is now present at `blinov_reproduction/result
 This later package is scientifically relevant context, but it does **not** replace the specific 10 MeV local-rate/polarization/escape addendum required by this audit: the producer, selected-node CSV, audit JSON, plot, pinned input set and helper source for the 2026-11-13 addendum are still not all present as one reproducible package. The 210–510 MeV B.13 band result must not be presented as the missing full 10 MeV local-rate/escape result or as a full Fig. 7 validation.
 
 **Disposition remains `REVISION_REQUIRED`.** No rate, opacity, luminosity, escape fraction or exclusion curve was changed in this documentation follow-up.
+
+
+---
+
+## 2026-11-17 reproducible 54-point local-rate/polarization handoff
+
+The previously missing local-rate handoff is now generated from committed source
+rather than retained as an unowned CSV:
+
+- Producer: `audit_b16_local_rate_polarization_samples.py`
+- Kernel: `audit_b16_local_absorption.py`
+- Shared reference: `reference.py`
+- Regression tests: `test_b16_local_rate_polarization_samples.py`
+- Successful validation run:
+  [GitHub Actions #44031506218](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44031506218)
+- Source commit used by the run: `e63d482d9fe7df292534baf841d97c6ee719636c`
+- Environment: Python 3.12.16, NumPy 2.5.4, SciPy 1.18.1
+- Exact profile: Git blob `e41df78c8035540760fbcb7ef592cd830171822e`,
+  SHA-256 `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`
+
+The package contains 54 points: (r=8,12,15,20,22,25\) km and
+(omega=12,15,20,30,50,100,200,300,500\) MeV. Five regression tests
+passed. The tests include six anchors from the supplied 54-point reference
+table and 36 overlapping points against the archived independent scalar
+local-rate JSON.
+
+### Maximum closure residuals
+
+| Check | Maximum relative residual |
+|---|---:|
+| B.10 muon-neutrino detailed balance, mode-resolved | (7.62\times10^{-15}) |
+| B.10 tau-neutrino detailed balance, mode-resolved | (7.62\times10^{-15}) |
+| B.4 neutrino reduced-absorption identity | (6.10\times10^{-15}) |
+| B.19 Compton detailed balance | (2.19\times10^{-16}) |
+| B.4 Compton reduced-absorption identity | (2.21\times10^{-16}) |
+| B.14/B.16 velocity-cancellation check | (3.94\times10^{-16}) |
+| B.14 polarization-weight sum | (1.11\times10^{-16}) |
+| Mode sum versus scalar production | (3.26\times10^{-14}) |
+| Mode sum versus scalar absorption | (3.24\times10^{-14}) |
+| Mode sum versus scalar reduced absorption | (3.24\times10^{-14}) |
+
+### Committed outputs
+
+| Artifact | Path | SHA-256 / Git blob |
+|---|---|---|
+| CSV | `outputs/b16_local_rate_polarization_samples_10mev_54pt.csv` | SHA-256 `59aad16b3fde33ca5b4ee826086092a99b0ae0b54377308b27b44bcdc8a5cf03`; blob `ff9cb10a4a315ce69a54e0809507665d136afe14` |
+| JSON | `outputs/b16_local_rate_polarization_samples_10mev_54pt.json` | blob `541df9da22a629873ebc87f815c9a221ca67bcbc` |
+| SVG | `outputs/b16_local_rate_polarization_samples_10mev_54pt.svg` | SHA-256 `17c7a684201e11b6c6ca29f5892d1c29a97b910b75a02ff84f8f7ed5e9ab1992`; blob `7d2f95f16999b87bda2683bb3b4ab859912c3696` |
+
+The package records the B.14 no-recoil Thomson-limit Compton weights
+[
+w_L=\frac{m_V^2/\omega^2}{2+m_V^2/\omega^2},
+\qquad
+w_+=w_-=\frac{1}{2+m_V^2/\omega^2},
+]
+and preserves the B.17 single-(\mu^-) source convention. The
+(\mu^+) density and susceptibility are included as separate diagnostics;
+they are not added to the B.17 kernel.
+
+**Scope limitation:** these are local rates, not an escape-probability
+calculation. The Compton split is the B.14 no-recoil approximation, not an
+exact recoil-resolved three-mode kernel. The global B.1/B.2 chord integral
+and its phase-space decomposition are a separate deliverable; no global
+luminosity or new exclusion is inferred from this local package.
