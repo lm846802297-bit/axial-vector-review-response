@@ -118,3 +118,8 @@ python audit_b13_recovered_source_decomposition.py \
 ```
 
 The script validates the profile hash, grid dimensions, direct midpoint coordinates, final quadrature order, polarization ordering, and charge-sum closure before writing the output JSON.
+
+
+## Independent rerun check (2026-11-18)
+
+The committed script was executed again against the extracted historical JSON archive. It reproduced all four integral totals, all four 8--12 km fractions, the profile and archive hashes, the 513-node/468-midpoint counts, and the closure diagnostics exactly to the stored double-precision values. The rerun output JSON was compared field by field with the committed machine-readable result; no numerical differences were found.
