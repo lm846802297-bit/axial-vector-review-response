@@ -42,9 +42,10 @@ jobs:
         shell: bash
         run: |
           set +e
+          set -o pipefail
           python research/stellar-cooling-constraints-20261105/blinov_reproduction/trace_b16_phase_run_grid_hashes.py \
             2>&1 | tee /tmp/b16_production_hash_trace.log
-          status=\${PIPESTATUS[0]}
+          status=$?
           echo "production phase-space run exit code: \${status}"
           exit 0
       - name: Upload staged diagnostic outputs
