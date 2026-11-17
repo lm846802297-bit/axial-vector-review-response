@@ -1,9 +1,7 @@
 # Final integration review: repository organization PR #115
 
 Date: 2026-11-17  
-Reviewed PR head: `a82d7a6b85fc0440f9a76d142890f5ce3b65f1f2`  
-Base: `main` at `fbab624435c853e90e3955009a545e28c5f5be98`  
-Scope: the seven baseline `REVISION_REQUIRED` records, all 14 `HISTORICAL_CANDIDATE` workflows, and the complete PR file diff.
+Reviewed PR #115 against `main` at `fbab624435c853e90e3955009a545e28c5f5be98` at the 2026-11-17 closeout checkpoint. Scope: the seven baseline `REVISION_REQUIRED` records, all 14 `HISTORICAL_CANDIDATE` workflows, and all 386 changed paths in the final PR files listing.
 
 ## Closeout disposition
 
@@ -48,7 +46,7 @@ Total observed attempts: 499. Several workflows have failed or cancelled runs; t
 
 ## Full PR diff review
 
-The GitHub PR files API returned all 385 changed paths across four pages. The aggregate is 166 added, 217 modified and 2 renamed files; no files were removed. The two moves are workflow-review Markdown records relocated under `docs/repository-management/workflow-reviews/`. The diff contains 23,077 added and 731 deleted lines; the deletions occur within modified files and were reviewed as replacements, corrections, or moves, not file removals.
+The GitHub PR files API returned all 386 changed paths across five pages. The aggregate is 167 added, 217 modified and 2 renamed files; no files were removed. The two moves are workflow-review Markdown records relocated under `docs/repository-management/workflow-reviews/`. The diff contains 23,148 added and 731 deleted lines; the deletions occur within modified files and were reviewed as replacements, corrections, or moves, not file removals.
 
 Key findings:
 
