@@ -137,10 +137,14 @@ def write_phase_space_svg(result, path):
     energy_names = [
         label(lo, hi, "MeV") for lo, hi in zip(energy_edges[:-1], energy_edges[1:])
     ]
-    direction_names = [
-        label(lo, hi, "cos(theta)")
+    direction_pairs = [
+        (
+            label(lo, hi, "cos(theta)"),
+            f"{lo:g} to {hi:g} cos(theta)",
+        )
         for lo, hi in zip(direction_edges[:-1], direction_edges[1:])
     ]
+    direction_names = [key for key, _ in direction_pairs]
 
     values = [
         cell["escaped_luminosity_fraction_within_region"]
@@ -150,8 +154,10 @@ def write_phase_space_svg(result, path):
     ]
     if not values:
         raise ValueError("No positive escaped-luminosity fractions to plot")
-    log_min = math.log10(min(values))
     log_max = math.log10(max(values))
+    plotting_floor = max(values) * 1.0e-8
+    log_min = math.log10(max(min(values), plotting_floor))
+    clipped_low_count = sum(value < 10.0**log_min for value in values)
 
     width, height = 1600, 760
     panel_w, panel_h = 380, 292
@@ -172,11 +178,15 @@ def write_phase_space_svg(result, path):
             (x["emission_shell"], x["energy_bin"], x["direction_bin"]): x
             for x in region["joint_radius_energy_direction_bins"]
         }
-        for col_index, direction_name in enumerate(direction_names):
+        region_title = {
+            "all_emission_radii": "All emission radii",
+            "dominant_8_15km_emission": "Dominant 8–15 km emission",
+        }.get(region["region"], region["region"].replace("_", " "))
+        for col_index, (direction_name, direction_label) in enumerate(direction_pairs):
             px = grid_x + col_index * panel_w
             py = grid_y + row_index * panel_h
             svg.append(
-                f'<text x="{px}" y="{py-18}" class="paneltitle">{region["region"].replace("_", " ")} · {direction_name}</text>'
+                f'<text x="{px}" y="{py-18}" class="paneltitle">{region_title} · {direction_label}</text>'
             )
             x0, y0 = px + 58, py + 7
             for e_index, energy_name in enumerate(reversed(energy_names)):
@@ -230,7 +240,7 @@ def write_phase_space_svg(result, path):
         f'<text x="{legend_x+legend_w}" y="{legend_y+25}" text-anchor="end" class="small">max {10**log_max:.2e}</text>',
         '<rect x="900" y="718" width="12" height="10" fill="#e8e8e8" stroke="#aaa"/>',
         '<text x="918" y="727" class="small">outside selected emission-radius region</text>',
-        '<text x="42" y="750" class="small">Cell color: log10 escaped-luminosity fraction within the selected region; labels shown for cells ≥2%. White cells are zero/empty bins. Bins are post-processing partitions, not new physics inputs.</text>',
+        f'<text x="42" y="750" class="small">Log color scale; values below 10^-8 of the maximum are clipped to the lightest shade ({clipped_low_count} cells). Gray = outside region; bins are post-processing only.</text>',
         '</svg>',
     ])
     path.write_text("\n".join(svg) + "\n", encoding="utf-8")
@@ -240,9 +250,12 @@ def write_phase_space_svg(result, path):
         "bytes": path.stat().st_size,
         "panels": len(result["regions"]) * len(direction_names),
         "direction_bins": direction_names,
-        "color_scale": "log10 escaped_luminosity_fraction_within_region",
+        "direction_labels": [label for _, label in direction_pairs],
+        "color_scale": "log10 escaped_luminosity_fraction_within_region; values below 1e-8 of maximum clipped",
         "log10_min": log_min,
         "log10_max": log_max,
+        "plotting_floor": 10.0**log_min,
+        "clipped_low_cell_count": clipped_low_count,
     }
 
 
