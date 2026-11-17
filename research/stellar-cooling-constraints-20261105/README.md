@@ -2,6 +2,8 @@
 
 # Major 4.4：轴矢量 EFT 超新星冷却限制
 
+> **2026-11-17 B.16 vector-baseline update:** the strict 10 MeV escape phase-space decomposition now reproduces the archived 842-node energy grid and closes the global luminosity, thin-source, escape-probability, joint-table and marginal bookkeeping checks. This does **not** reproduce the Fig. 7 10 MeV strong-absorption tail: the luminosity remains +92.4284% above the digitized reference. The B.16 runbook is `PASS_WITH_NOTES`; the separate local-rate/polarization/escape audit remains `REVISION_REQUIRED`. No axial-vector constraint curve was updated. See the [strict result report](blinov_reproduction/B16_ESCAPE_PHASE_SPACE_10MEV_RESULT_2026-11-17.md), [runbook](blinov_reproduction/B16_ESCAPE_PHASE_SPACE_RUNBOOK_2026-11-10.md), and [workflow review](../../docs/repository-management/workflow-reviews/B16_STRICT_PHASE_SPACE_AND_ENERGY_GRID_WORKFLOW_REVIEW_2026-11-17.md).
+
 > **2026-11-07 验证更新：** 作者选择仅复现 Blinov et al. 作为矢量基准，不要求复现多篇文献或获得原始剖面。边界诊断复现、偏振归一化差异、光度曲线的未决问题及 223 MeV 端点误读的纠正见 [矢量基准核查](VECTOR_BENCHMARK_AUDIT_2026-11-07.md)。B.7–B.19 的逐偏振产生率、吸收率、详细平衡和 Python 对照见 [逐偏振理论核查](POLARIZATION_DETAILED_BALANCE_AUDIT_2026-11-07.md)。既有曲线尚不能依据此次诊断认定完整物理验证通过。
 
 2026-11-06。这里给出可复算的 **固定剖面、弹道能量逃逸（ballistic cooling）条件性限制**，以及正式回复信所用的图、数值和验证依据。该结果包含产生端和吸收/衰变截获端；它不是完整流体演化、扩散输运或所有超新星观测的联合排除。

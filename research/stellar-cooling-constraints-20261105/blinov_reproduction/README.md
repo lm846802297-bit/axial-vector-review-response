@@ -212,3 +212,31 @@ The analytic result is deliberately limited: it does not settle the authors' int
 ## C4-C4 anchor provenance (2026-11-15)
 
 The exact historical C4-C4-A input has been recovered and the downstream input paths repaired. See [the anchor provenance note](audit_provenance/README.md) before rerunning C4-C4-Aq or C4-C4-B.
+
+
+## 2026-11-17 B.16 strict 10 MeV phase-space closeout
+
+The current-main energy-grid identity diagnostic and strict 10 MeV phase-space calculation now reproduce the archived high-order vector baseline. The calculation uses the reconstructed public-figure SFHo-18.8 profile; it does not use the original Garching simulation table.
+
+| Check | Result |
+|---|---:|
+| Source radial grid | 200 nodes; SHA-256 `1a007702d1f7c8b81200e648a763f7f1a0e3565a39d57c8174dada5aad1a4cb5` |
+| Opacity radial grid | 642 nodes; SHA-256 `6701fc3fe06bf07879612e591ae62c494f673928bc18f169d4b6f3fabed7d378` |
+| Energy grid | 842 nodes; SHA-256 `036e6d772f43acf97601c3846b475e8e1c14200d4d82de1dd9af30f01bb87ea3` |
+| Profile SHA-256 | `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c` |
+| Luminosity relative residual to archived high-order baseline | (-2.22\times10^{-16}) |
+| Optically thin luminosity relative residual | (0) |
+| Escape-probability absolute residual | (-5.42\times10^{-20}) |
+| Maximum joint-to-marginal absolute residual | (6.66\times10^{-16}) |
+
+The full non-empty joint radius-energy-direction table contains 508 cells; the dominant 8–15 km region contains 152 non-empty cells and contributes 79.6522% of the optically thin source and 86.8551% of escaped luminosity. The 10–11 MeV bin in this region has exactly zero source and escaped weight, so its omission from the sparse joint table is accepted only when the corresponding stored marginal is exactly zero.
+
+**Physical interpretation boundary:** the phase-space bookkeeping and archived-baseline reproduction pass, but the published Fig. 7 10 MeV strong-absorption endpoint is still not reproduced. The calculated luminosity is (2.439635957361032\times10^{52}) erg/s versus the digitized reference (1.26781475907372\times10^{52}) erg/s, a **+92.4284%** difference. This remains a separate local-rate/polarization/escape audit; no empirical opacity rescaling or axial-vector constraint update is authorized.
+
+The historical failed-run energy hash `db6f613c...` was not reproduced by the current-main diagnostic or strict run. Its exact trigger remains unknown; the archived baseline hash was not changed.
+
+- [Energy-grid identity diagnostic](B16_ENERGY_GRID_IDENTITY_DIAGNOSTIC.md)
+- [Machine-readable 10 MeV phase-space result](outputs/b16_escape_phase_space_10mev_2026-11-17.json)
+- [Detailed result report](B16_ESCAPE_PHASE_SPACE_10MEV_RESULT_2026-11-17.md)
+- [Strict phase-space runbook](B16_ESCAPE_PHASE_SPACE_RUNBOOK_2026-11-10.md)
+- [Workflow static review](../../../docs/repository-management/workflow-reviews/B16_STRICT_PHASE_SPACE_AND_ENERGY_GRID_WORKFLOW_REVIEW_2026-11-17.md)
