@@ -16,6 +16,9 @@
     "gA_over_gX":0.0,
     "profile":"SFHo-18.8, t_pb=1 s, 1687 radial vertices",
     "profile_sha256":"9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+    "profile_provenance_sha256":"025329271bb66c55d9d8067ed714dd425b4c4dc08d09c1970f08e272461ea3e2",
+    "muon_chemical_potential_source_domain_max_km":22.191893657048542,
+    "support_boundary_offset_km":0.000001,
     "moving_muon_kernel_sha256":"38436b94f070069c8696b37b9bce1955e2d5d7e39dad9b302ab754582ff6a5a5",
     "local_kernel_audit_sha256":"ff6479a8d6d4ba417dc4b31e745b4028a28d9e42df5598144334453ea9627683",
     "reference_sha256":"f81468f4305cf57eb86cc0210abc7afc333d434ae70da307ca64a824e486107c"
