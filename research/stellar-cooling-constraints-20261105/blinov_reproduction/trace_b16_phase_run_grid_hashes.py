@@ -1,17 +1,19 @@
-"""Call the production B.16 run() and trace each grid hash call."""
+"""Trace the exact production CLI call and every grid-hash invocation."""
 from __future__ import annotations
 
+import sys
 import numpy as np
 
 import audit_b16_escape_phase_space as phase
 
 
-_original = phase.float_array_sha256
+_original_hash = phase.float_array_sha256
+_original_run = phase.run
 
 
 def traced_float_array_sha256(values):
     array = np.asarray(values)
-    digest = _original(values)
+    digest = _original_hash(values)
     if array.ndim == 1 and array.size in (200, 642, 842):
         print({
             "trace": "float_array_sha256",
@@ -26,19 +28,28 @@ def traced_float_array_sha256(values):
     return digest
 
 
-phase.float_array_sha256 = traced_float_array_sha256
+def traced_run(*args, **kwargs):
+    print({
+        "trace": "run_arguments",
+        "positional": [str(x) if hasattr(x, "__fspath__") else x for x in args],
+        "keyword": kwargs,
+    }, flush=True)
+    return _original_run(*args, **kwargs)
 
+
+phase.float_array_sha256 = traced_float_array_sha256
+phase.run = traced_run
 
 if __name__ == "__main__":
-    phase.run(
-        phase.DEFAULT_PROFILE,
-        phase.DEFAULT_FIG7,
-        phase.DEFAULT_BASELINE,
-        10.0,
-        200,
-        640,
-        200,
-        32,
-        64,
-        1000.0,
-    )
+    sys.argv = [
+        "audit_b16_escape_phase_space.py",
+        "--mass", "10",
+        "--nr", "200",
+        "--opacity-order", "640",
+        "--ne", "200",
+        "--na", "32",
+        "--ns", "64",
+        "--energy-offset", "1000",
+        "--output", "/tmp/b16_cli_trace_result.json",
+    ]
+    phase.main()
