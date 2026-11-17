@@ -48,3 +48,16 @@ python research/stellar-cooling-constraints-20261105/blinov_reproduction/diagnos
 A failure leaves the JSON diagnostic available as a GitHub Actions artifact.
 Do not update the baseline hash to make the check pass. Any mismatch must be
 explained from the recorded arrays, inputs, and code fingerprints first.
+
+
+## Current mainline result — 2026-11-17
+
+The diagnostic workflow passed on the branch based on current \`main\`:
+
+- [GitHub Actions run #44054718118](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44054718118)
+- All three constructions (high-order driver, phase-space driver, and direct CSV lapse interpolation) are exactly equal.
+- Energy nodes: 842.
+- Energy-grid SHA-256: \`036e6d772f43acf97601c3846b475e8e1c14200d4d82de1dd9af30f01bb87ea3\`.
+- Profile SHA-256: \`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c\`, equal to the archived baseline.
+
+The historical failed-run fingerprint \`db6f613c...\` was not reproduced by the current-main diagnostic or the final production phase-space run. The historical run remains recorded as a non-reproduced discrepancy; no claim is made about its exact trigger, and the baseline fingerprint has not been changed.
