@@ -98,11 +98,12 @@ No B.2 escaped luminosity, Fig. 7 curve, SN1987A limit, or axial-vector exclusio
 
 ## 5. Reproduction and files
 
-- Frozen target set: `HIGH_ORDER_TARGETS_INPUT.json`.
-- High-order driver: `run_p1b_global06b_threshold_edge_high_order_targets.py`.
-- Polarization-anchor driver: `run_p1b_global06b_polarization_anchor_high_order.py`.
-- Machine-readable targeted result: `HIGH_ORDER_ACCEPTANCE_SUMMARY.json`.
-- Machine-readable polarization result: `POLARIZATION_ANCHOR_SUMMARY.json`.
+- Frozen target set: [`HIGH_ORDER_TARGETS_INPUT.json`](results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_TARGETS_INPUT.json).
+- High-order driver: [`run_p1b_global06b_threshold_edge_high_order_targets.py`](run_p1b_global06b_threshold_edge_high_order_targets.py).
+- Polarization-anchor driver: [`run_p1b_global06b_polarization_anchor_high_order.py`](run_p1b_global06b_polarization_anchor_high_order.py).
+- Machine-readable targeted result: [`HIGH_ORDER_ACCEPTANCE_SUMMARY.json`](results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_ACCEPTANCE_SUMMARY.json).
+- Machine-readable polarization result: [`POLARIZATION_ANCHOR_SUMMARY.json`](results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/POLARIZATION_ANCHOR_SUMMARY.json).
+- Calculation provenance: [`HIGH_ORDER_PROVENANCE.json`](results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_PROVENANCE.json).
 
 Run from the repository's thermal-integrals directory:
 
