@@ -1,6 +1,6 @@
 # Folder catalog
 
-Updated 2026-11-17 on branch `chore/root-archive-and-directory-index-20261117`, based on `main` commit `ce9cf1628efc16c55d64aa59f93b7d745f8ef23e`. Counts describe this branch after root-file relocation.
+Updated 2026-11-17. Counts describe the audited tree after root-file relocation, based on `main` commit `ce9cf1628efc16c55d64aa59f93b7d745f8ef23e`.
 
 ## Repository footprint
 
