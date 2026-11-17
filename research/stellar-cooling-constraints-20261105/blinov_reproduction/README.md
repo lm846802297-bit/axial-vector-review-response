@@ -255,3 +255,4 @@ A high-order local polarization anchor shows that the exact-recoil moving-muon C
 - [Targeted high-order driver](../finite_mixing/thermal_integrals/run_p1b_global06b_threshold_edge_high_order_targets.py)
 - [Polarization-anchor driver](../finite_mixing/thermal_integrals/run_p1b_global06b_polarization_anchor_high_order.py)
 - [Full-radial polarization scan driver](../finite_mixing/thermal_integrals/run_p1b_global06b_full_radial_polarization_scan.py)
+- [Full-radial polarization output validator](../finite_mixing/thermal_integrals/validate_p1b_global06b_full_radial_polarization_scan.py)
