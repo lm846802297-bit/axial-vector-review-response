@@ -1,45 +1,120 @@
 {
-  "status": "LOCAL_B13_SOURCE_DECOMPOSITION_ONLY_NOT_B2",
+  "status": "RECOMPUTED_FROM_HISTORICAL_JSON_ARCHIVE_SOURCE_ONLY_NOT_B2",
   "source_run_id": 43376779901,
   "source_artifact_id": 14015517843,
+  "source_artifact_zip_sha256": "2c2e2ef8610abfa16bc9e423937f974061ece101911fb9c6503e65901bb55715",
+  "archive_json_sha256": "14c4405f9421aca517ff00310232ad9aead4c0cdd61868e2788125875cb84dc0",
   "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
-  "grid_nodes": 513,
-  "direct_midpoints": 468,
-  "csv_rows": 5886,
-  "mass_MeV": 10.0,
-  "measure": "4*pi*r^2*Delta_r*Delta_omega times direct midpoint spectral_source",
-  "direct_midpoint_source_integral_internal_units": 22480885.750463076,
-  "lapse_weighted_source_integral_internal_units": 18065839.76373589,
-  "lapse_weighted_over_unweighted": 0.8036088953196053,
-  "charge_contributions": {
-    "mu_minus": {"fraction": 0.99318141},
-    "mu_plus": {"fraction": 0.00681859}
+  "mass_MeV": 10,
+  "grid_node_count": 513,
+  "radial_energy_direct_midpoint_count": 468,
+  "radial_node_count": 19,
+  "energy_node_count": 27,
+  "direct_midpoint_final_order": [
+    20,
+    12,
+    12,
+    12
+  ],
+  "source_definition": "spectral_source = omega^2*sqrt(omega^2-m^2)/(2*pi^2) times B.13 local production rate, per g_X^2",
+  "primary_measure": "4*pi*r^2*lapse^2*dr*domega with omega_local >= m/lapse; direct cell-midpoint quadrature; km-to-MeV^-1 and MeV^2-to-erg/s conversions omitted",
+  "integration_scope": "B.13 moving-muon semi-Compton source only; excludes neutrino inverse decay, dimuon, B.2 attenuation, angular ray average, and full GR ray transport",
+  "schemes": {
+    "flat_local_no_lapse_no_threshold": {
+      "integral_internal_units": 22480885.750463136,
+      "charge_fractions": {
+        "mu_minus": 0.9931814063221669,
+        "mu_plus": 0.006818593677833154
+      },
+      "mode_fractions": {
+        "L": 0.016242893442050252,
+        "plus": 0.4918785532789749,
+        "minus": 0.4918785532789749
+      },
+      "radial_8_12_km_fraction": 0.818066116336624
+    },
+    "eq_b1_midpoint_lapse_no_threshold": {
+      "integral_internal_units": 14523881.669340452,
+      "charge_fractions": {
+        "mu_minus": 0.9933534922447601,
+        "mu_plus": 0.006646507755239863
+      },
+      "mode_fractions": {
+        "L": 0.016345421807079645,
+        "plus": 0.4918272890964602,
+        "minus": 0.4918272890964602
+      },
+      "radial_8_12_km_fraction": 0.8255302229763163
+    },
+    "eq_b1_midpoint_lapse_midpoint_threshold": {
+      "integral_internal_units": 14512907.670960983,
+      "charge_fractions": {
+        "mu_minus": 0.993354155725879,
+        "mu_plus": 0.006645844274120966
+      },
+      "mode_fractions": {
+        "L": 0.016137395376017778,
+        "plus": 0.4919313023119911,
+        "minus": 0.4919313023119911
+      },
+      "radial_8_12_km_fraction": 0.8256431118755659
+    },
+    "eq_b1_midpoint_lapse_fractional_threshold": {
+      "integral_internal_units": 14511885.86806256,
+      "charge_fractions": {
+        "mu_minus": 0.9933537163892511,
+        "mu_plus": 0.00664628361074898
+      },
+      "mode_fractions": {
+        "L": 0.01612020470043835,
+        "plus": 0.4919398976497808,
+        "minus": 0.49193989764978086
+      },
+      "radial_8_12_km_fraction": 0.8255849666084749,
+      "radial_shell_fractions": {
+        "0-2 km": 0.00002613770127088684,
+        "2-4 km": 0.0008339287175154248,
+        "4-6 km": 0.011438109595274231,
+        "6-8 km": 0.13986831887654314,
+        "8-10 km": 0.5413057444316469,
+        "10-12 km": 0.28427922217682783,
+        "12-14 km": 0.020433027840624094,
+        "14-16 km": 0.00181551003199159,
+        "16-18 km": 6.28218368179398e-10,
+        "18-20 km": 8.727152761476247e-14,
+        "20-22 km": 1.678888819256726e-16,
+        "22-24 km": 8.003703540262015e-19
+      }
+    }
   },
-  "mode_contributions": {
-    "L": {"fraction": 0.0162430},
-    "+": {"fraction": 0.4918787},
-    "-": {"fraction": 0.4918787}
+  "diagnostics": {
+    "maximum_charge_sum_closure_relative_residual": 2.2574818520121367e-16,
+    "maximum_transverse_plus_minus_source_difference": 5.219427470066761e-16,
+    "lapse_range": [
+      0.737959001486433,
+      0.91457920615531
+    ],
+    "local_escape_threshold_m_over_lapse_MeV_range": [
+      10.933990115561235,
+      13.550888301189513
+    ],
+    "lapse_squared_factor_ratio_no_threshold": 0.6460546897731216,
+    "fraction_retained_by_local_escape_threshold_after_lapse_weighting": 0.9991740636868989,
+    "midpoint_cut_vs_fractional_cut_relative_difference": 0.00007041144808563494
   },
-  "radial_shell_contributions": {
-    "0-2 km": {"fraction": 0.00003121},
-    "2-4 km": {"fraction": 0.00096337},
-    "4-6 km": {"fraction": 0.01262785},
-    "6-8 km": {"fraction": 0.14822095},
-    "8-10 km": {"fraction": 0.54644950},
-    "10-12 km": {"fraction": 0.27161662},
-    "12-14 km": {"fraction": 0.01849188},
-    "14-16 km": {"fraction": 0.00159863},
-    "16-18 km": {"fraction": 5.30e-10},
-    "18-20 km": {"fraction": 7.29e-14},
-    "20-22 km": {"fraction": 1.39e-16},
-    "22-24 km": {"fraction": 6.55e-19}
+  "historical_p1b_acceptance": {
+    "overall_p1b_pass": false,
+    "interpolation_pass": false,
+    "quadrature_pass": false,
+    "detailed_balance_pass": true,
+    "mass_shell_pass": true,
+    "local_emissivity_energy_integral_pass": true
   },
-  "interpretation": [
-    "Direct midpoint values were integrated with the exact cell widths reconstructed from the archived grid-node coordinates.",
-    "The source is concentrated in the 8-12 km region (81.8066% of this local B.13 source integral).",
-    "mu_plus contributes 0.6819%; charge channels are retained separately in the transport implementation.",
-    "The longitudinal mode contributes 1.6243% of the local B.13 source, while each transverse mode contributes 49.1879%.",
-    "These are local B.13 semi-Compton source fractions, not B.2 escape fractions or escaped luminosity fractions.",
-    "Neutrino inverse decay, ray geometry, path attenuation, and full GR transport are excluded."
+  "interpretation_boundary": [
+    "The flat measure reproduces the historical local-source proxy but omits the Eq. (B.1) lapse-squared factor and local escape threshold.",
+    "The primary result is an Eq. (B.1)-motivated direct midpoint diagnostic, not the production radial Gauss / piecewise-linear energy integration.",
+    "The 8-12 km concentration is robust under both measures; it does not determine the B.2 optical-depth distribution.",
+    "Polarization fractions are local source fractions, not escaped-luminosity fractions.",
+    "The historical P1-B overall acceptance remains failed; this post-processing does not change interpolation or quadrature acceptance."
   ]
 }
