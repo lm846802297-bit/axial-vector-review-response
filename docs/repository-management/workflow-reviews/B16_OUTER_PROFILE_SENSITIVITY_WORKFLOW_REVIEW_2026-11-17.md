@@ -34,7 +34,7 @@ All four workflows trigger on pushes to `research/moving-muon-thermal-rates-2026
 
 The four drivers use the current reconstructed profile fingerprint `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c` and recompute the B.1 source and B.2 opacity for their prescribed variations. The corresponding notes identify the tested changes as stress scenarios, not inferred outer profiles or statistical intervals. Bollig Figs. 1 and 4 provide cross-check support through 20 km; they do not establish the 20--22 km continuation. The 22--25 km Caputo temperature input is extracted from off-frame PDF vertices rather than raw Garching tables. The notes keep those limitations explicit and do not use the variants to tune the profile or rescale Fig. 7.
 
-The existing notes report that outer shells contribute materially to neutrino path optical depth while the tested \\(\\mu_\\nu\\) variations have small effects on the cited endpoints. This review did not recompute those values or assess whether the chosen stress envelopes cover the physical profile uncertainty.
+The existing notes report that outer shells contribute materially to neutrino path optical depth while the tested \(\mu_\nu\) variations have small effects on the cited endpoints. This review did not recompute those values or assess whether the chosen stress envelopes cover the physical profile uncertainty.
 
 ## Follow-up
 
