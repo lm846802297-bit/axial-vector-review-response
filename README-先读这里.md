@@ -6,8 +6,10 @@
 
 ## 分类索引
 
+- [历史归档总索引](archive/README.md)、[Overleaf 源码归档说明](overleaf-source/README.md)、[审稿意见资料索引](审稿意见-gpt/README.md)。
+
 - [仓库分类索引](仓库分类索引.md)：按权威入口、会议决策、回复信与 Diff、专题计算、脚本日志、历史归档和分支审计定位材料。
-- [根目录 24 个文件逐项审查](docs/repository-management/ROOT_FILE_AUDIT_REPORT_2026-11-14.md)：记录根目录文档、TeX、BibTeX、PDF 和构建依赖的审查结论及待办。
+- [根目录迁移审查](docs/repository-management/ROOT_RELOCATION_AUDIT_2026-11-17.md)；[原始 24 文件审查基线](docs/repository-management/ROOT_FILE_AUDIT_REPORT_2026-11-14.md)：记录根目录文档、TeX、BibTeX、PDF 和构建依赖的审查结论及待办。
 
 ## 每次开展本项目工作前必读（轻量启动）
 
@@ -24,7 +26,7 @@
 
 ## 当前工作入口
 
-- **2026-11-17 仓库审查状态：** 原始 462 份基线文档已全部审查，其中 7 条 REVISION_REQUIRED 已作为独立科学/来源待办明确保留；另有 134 份后续新增 `.md`/`.txt` 文件已列入[补充登记表](docs/repository-management/SUPPLEMENTAL_DOCUMENT_AUDIT_REGISTER.csv)，其中 128 份 PASS_WITH_NOTES、6 份 HISTORICAL、0 份 PENDING、0 份 REVISION_REQUIRED。当前 Git 树共 596 份 Markdown/text 文件（497 `.md`、99 `.txt`）；基线指纹状态为 389 MATCH_CURRENT、72 CONTENT_FINGERPRINT_DIFFERS、1 SIZE_METADATA_DIFFERS。115 个工作流中 100 个已静态审查、1 个为 ACTIVE、14 个保留为历史候选、0 个待审查。第七十八轮静态审查 4 个 B.2/B.16 工作流；第七十九轮再审查 4 个外层温度及缪子中微子敏感性工作流，第八十至八十七轮完成余下工作流的逐项静态审查，第八十八轮核对 15 个历史候选，其中当前 PR 回复信构建工作流改列 ACTIVE，另 14 个的运行历史已通过 GitHub Actions API 核对，共 499 次记录，候选状态因分支和手动触发仍有效而保留，覆盖 EOS 占据、C4 碰撞核、B.16 路径与剖面、Bollig/Caputo 来源、Fig. 7 数字化与收敛，以及 collider/vector-response 审计；记录了触发依赖缺项、分支守卫、权限范围和依赖锁定问题。第七十五轮将三个明确归档的历史变体从 REVISION_REQUIRED 调整为 HISTORICAL；第七十六轮确认 B.16 escape-phase-space runbook 和 10 MeV Fig. 7 local-rate audit 仍需实质修复；第八十九轮更正 Global-02 报告计数并将其文档状态从 REVISION_REQUIRED 调整为 PASS_WITH_NOTES，未改变计算输出或全局验收结论；另有[7 条基线待修复项行动表](docs/repository-management/REMAINING_BASELINE_REVISION_REQUIRED_ACTION_PLAN_2026-11-17.md)列出每项关闭证据；[最终集成审查](docs/repository-management/FINAL_INTEGRATION_REVIEW_2026-11-17.md)逐项说明保留理由并审查 PR 全部变更。未执行新物理计算。相关报告见[第七十七轮工作流审查](docs/repository-management/workflow-reviews/C4C4_WORKFLOW_REVIEW_2026-11-17.md)和[第七十八轮工作流审查](docs/repository-management/workflow-reviews/B2_PATH_WORKFLOW_REVIEW_2026-11-17.md)、[第七十九轮工作流审查](docs/repository-management/workflow-reviews/B16_OUTER_PROFILE_SENSITIVITY_WORKFLOW_REVIEW_2026-11-17.md)和[第八十轮工作流审查](docs/repository-management/workflow-reviews/B16_MUON_PROFILE_AND_NEUTRINO_BRANCH_WORKFLOW_REVIEW_2026-11-17.md)、[第七十四轮](docs/repository-management/SEVENTY_FOURTH_REVIEW_FINAL_RESEARCH_READMES_AND_MANIFESTS_2026-11-17.md)、[第七十五轮](docs/repository-management/SEVENTY_FIFTH_REVIEW_BASELINE_ARCHIVE_RECLASSIFICATION_2026-11-17.md)和[第七十六轮](docs/repository-management/SEVENTY_SIXTH_REVIEW_B16_ESCAPE_AND_FIG7_FOLLOW_UP_2026-11-17.md)和[第八十九轮](docs/repository-management/EIGHTY_NINTH_REVIEW_P1B_GLOBAL02_REPORT_COUNT_RECONCILIATION_2026-11-17.md)。
+- **2026-11-17 仓库审查状态：** 原始 462 份基线文档已全部审查，其中 7 条 REVISION_REQUIRED 已作为独立科学/来源待办明确保留；另有 139 份后续新增 `.md`/`.txt` 文件已列入[补充登记表](docs/repository-management/SUPPLEMENTAL_DOCUMENT_AUDIT_REGISTER.csv)，其中 133 份 PASS_WITH_NOTES、6 份 HISTORICAL、0 份 PENDING、0 份 REVISION_REQUIRED。当前 Git 树共 601 份 Markdown/text 文件（502 `.md`、99 `.txt`）；基线指纹状态为 389 MATCH_CURRENT、72 CONTENT_FINGERPRINT_DIFFERS、1 SIZE_METADATA_DIFFERS。115 个工作流中 100 个已静态审查、1 个为 ACTIVE、14 个保留为历史候选、0 个待审查。第七十八轮静态审查 4 个 B.2/B.16 工作流；第七十九轮再审查 4 个外层温度及缪子中微子敏感性工作流，第八十至八十七轮完成余下工作流的逐项静态审查，第八十八轮核对 15 个历史候选，其中当前 PR 回复信构建工作流改列 ACTIVE，另 14 个的运行历史已通过 GitHub Actions API 核对，共 499 次记录，候选状态因分支和手动触发仍有效而保留，覆盖 EOS 占据、C4 碰撞核、B.16 路径与剖面、Bollig/Caputo 来源、Fig. 7 数字化与收敛，以及 collider/vector-response 审计；记录了触发依赖缺项、分支守卫、权限范围和依赖锁定问题。第七十五轮将三个明确归档的历史变体从 REVISION_REQUIRED 调整为 HISTORICAL；第七十六轮确认 B.16 escape-phase-space runbook 和 10 MeV Fig. 7 local-rate audit 仍需实质修复；第八十九轮更正 Global-02 报告计数并将其文档状态从 REVISION_REQUIRED 调整为 PASS_WITH_NOTES，未改变计算输出或全局验收结论；另有[7 条基线待修复项行动表](docs/repository-management/REMAINING_BASELINE_REVISION_REQUIRED_ACTION_PLAN_2026-11-17.md)列出每项关闭证据；[最终集成审查](docs/repository-management/FINAL_INTEGRATION_REVIEW_2026-11-17.md)逐项说明保留理由并审查 PR 全部变更。未执行新物理计算。相关报告见[第七十七轮工作流审查](docs/repository-management/workflow-reviews/C4C4_WORKFLOW_REVIEW_2026-11-17.md)和[第七十八轮工作流审查](docs/repository-management/workflow-reviews/B2_PATH_WORKFLOW_REVIEW_2026-11-17.md)、[第七十九轮工作流审查](docs/repository-management/workflow-reviews/B16_OUTER_PROFILE_SENSITIVITY_WORKFLOW_REVIEW_2026-11-17.md)和[第八十轮工作流审查](docs/repository-management/workflow-reviews/B16_MUON_PROFILE_AND_NEUTRINO_BRANCH_WORKFLOW_REVIEW_2026-11-17.md)、[第七十四轮](docs/repository-management/SEVENTY_FOURTH_REVIEW_FINAL_RESEARCH_READMES_AND_MANIFESTS_2026-11-17.md)、[第七十五轮](docs/repository-management/SEVENTY_FIFTH_REVIEW_BASELINE_ARCHIVE_RECLASSIFICATION_2026-11-17.md)和[第七十六轮](docs/repository-management/SEVENTY_SIXTH_REVIEW_B16_ESCAPE_AND_FIG7_FOLLOW_UP_2026-11-17.md)和[第八十九轮](docs/repository-management/EIGHTY_NINTH_REVIEW_P1B_GLOBAL02_REPORT_COUNT_RECONCILIATION_2026-11-17.md)。
 
 下面按日期保留历史工作快照；当前 PR 状态、科学验收状态和正式回复 PDF 状态均以根目录 [PROJECT_STATUS.md](PROJECT_STATUS.md) 顶部最新 live section 为准。
 
@@ -69,9 +71,9 @@
 
 ## 原始只读基线
 
-- `axial_vector_model_building-v6.pdf`：当前存档论文基线，用于核对当前版本内部公式、符号与论证的一致性。
-- `dw13678_report_1_a.pdf`：原始审稿报告。
-- `dw13678_report_1_a.md`：审稿报告文本版；核对原文措辞时以原始 PDF 为准。
+- `archive/manuscript-baselines/axial_vector_model_building-v6.pdf`：当前存档论文基线，用于核对当前版本内部公式、符号与论证的一致性。
+- `审稿意见-gpt/原始审稿材料/dw13678_report_1_a.pdf`：原始审稿报告。
+- `审稿意见-gpt/原始审稿材料/dw13678_report_1_a.md`：审稿报告文本版；核对原文措辞时以原始 PDF 为准。
 
 项目已确定：不再把审稿报告与当前存档 v6 在 Eq. (30)/(34) 上的表达差异作为追查实际送审 PDF 版本的任务；后续以当前 v6 内部一致的定义、归一化和推导为基准。除非作者明确重新开启该问题，不应将旧 PDF 版本差异列为阻塞。
 
