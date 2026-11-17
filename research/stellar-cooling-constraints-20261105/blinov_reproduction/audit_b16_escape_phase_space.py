@@ -290,17 +290,46 @@ def run(profile_path=DEFAULT_PROFILE, fig7_path=DEFAULT_FIG7,
     expected_hashes = {
         "source_grid_sha256": baseline_config["source_grid_sha256"],
         "opacity_grid_sha256": baseline_config["opacity_grid_sha256"],
-        "energy_grid_sha256": baseline_config["energy_grid_sha256"],
     }
     actual_hashes = {
         "source_grid_sha256": source_grid_hash,
         "opacity_grid_sha256": opacity_grid_hash,
-        "energy_grid_sha256": energy_grid_hash,
     }
     if actual_hashes != expected_hashes:
         raise ArithmeticError(
-            "Phase-space grids differ from the archived high-order B.16 baseline: "
+            "Source/opacity phase-space grids differ from the archived high-order B.16 baseline: "
             + json.dumps({"expected": expected_hashes, "actual": actual_hashes})
+        )
+
+    baseline_energy_grid = reconstruct_energy_grid_from_spectral_measure(
+        baseline["eq_b1_source_measure"]["spectral_measure_MeV3"],
+        mass,
+        energy_offset,
+    )
+    if len(energies) != len(baseline_energy_grid):
+        raise ArithmeticError(
+            "Energy-grid node count differs from the archived B.16 baseline: "
+            + json.dumps({"expected": len(baseline_energy_grid), "actual": len(energies)})
+        )
+    energy_delta = energies - baseline_energy_grid
+    energy_abs_max = float(np.max(np.abs(energy_delta)))
+    energy_rel_max = float(np.max(np.abs(energy_delta) / baseline_energy_grid))
+    energy_grid_equivalence = {
+        "baseline_exact_sha256": baseline_config["energy_grid_sha256"],
+        "current_exact_sha256": energy_grid_hash,
+        "exact_sha256_match": energy_grid_hash == baseline_config["energy_grid_sha256"],
+        "node_count_match": len(energies) == len(baseline_energy_grid),
+        "max_abs_difference_MeV": energy_abs_max,
+        "max_relative_difference": energy_rel_max,
+        "rtol": 5.0e-14,
+        "atol_MeV": 1.0e-13,
+        "comparison_method": "invert archived B.1 spectral_measure_MeV3 = E^2 sqrt(E^2-m^2)/(2 pi^2)",
+    }
+    if not np.allclose(energies, baseline_energy_grid, rtol=5.0e-14, atol=1.0e-13):
+        raise ArithmeticError(
+            "Energy-grid nodes differ from the archived B.16 baseline beyond "
+            "the 5e-14 relative / 1e-13 MeV tolerance: "
+            + json.dumps(energy_grid_equivalence)
         )
     if current_profile_hash != baseline["profile"]["sha256"]:
         raise ArithmeticError("Profile fingerprint differs from the archived high-order baseline")
@@ -385,6 +414,7 @@ def run(profile_path=DEFAULT_PROFILE, fig7_path=DEFAULT_FIG7,
         "profile": {"sha256": current_profile_hash, "identity": baseline["profile"]["identity"]},
         "fig7_reference_sha256": current_fig7_hash,
         "baseline_json_sha256": sha256(baseline_path),
+        "energy_grid_equivalence": energy_grid_equivalence,
         "configuration": {
             "source_radial_order": radial_order,
             "source_radial_node_count": len(source_r),
@@ -395,6 +425,12 @@ def run(profile_path=DEFAULT_PROFILE, fig7_path=DEFAULT_FIG7,
             "energy_order": energy_order,
             "energy_node_count": len(energies),
             "energy_grid_sha256": energy_grid_hash,
+            "baseline_energy_grid_sha256": baseline_config["energy_grid_sha256"],
+            "energy_grid_exact_sha256_match": energy_grid_equivalence["exact_sha256_match"],
+            "energy_grid_max_abs_difference_MeV": energy_abs_max,
+            "energy_grid_max_relative_difference": energy_rel_max,
+            "energy_grid_equivalence_rtol": energy_grid_equivalence["rtol"],
+            "energy_grid_equivalence_atol_MeV": energy_grid_equivalence["atol_MeV"],
             "angular_order": angular_order,
             "path_order": path_order,
             "direction_weight_sum": float(np.sum(angle_weights)),
