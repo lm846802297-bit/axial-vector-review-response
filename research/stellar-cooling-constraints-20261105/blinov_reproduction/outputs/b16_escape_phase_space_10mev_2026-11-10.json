@@ -77,6 +77,30 @@
     "source_radial_order": 200
   },
   "coupling": 4.171689650228597e-08,
+  "derived_artifacts": {
+    "csv": {
+      "bytes": 166149,
+      "columns": 13,
+      "path": "b16_escape_phase_space_10mev_2026-11-10.csv",
+      "rows": 660,
+      "sha256": "38e18c97225f08d653feed1dc0e359f5a4e62f569439dd8af645d352b8a4bfec"
+    },
+    "svg": {
+      "bytes": 137206,
+      "color_scale": "log10 escaped_luminosity_fraction_within_region",
+      "direction_bins": [
+        "-1--0.5 cos(theta)",
+        "-0.5-0 cos(theta)",
+        "0-0.5 cos(theta)",
+        "0.5-1 cos(theta)"
+      ],
+      "log10_max": -0.45320639540380725,
+      "log10_min": -85.44684662612254,
+      "panels": 8,
+      "path": "b16_escape_phase_space_10mev_2026-11-10.svg",
+      "sha256": "161678f71eb7314b9aa22a5a79e87482273c666cc6175fd36b4576124abf31dd"
+    }
+  },
   "energy_grid_equivalence": {
     "atol_MeV": 1e-13,
     "baseline_exact_sha256": "036e6d772f43acf97601c3846b475e8e1c14200d4d82de1dd9af30f01bb87ea3",
