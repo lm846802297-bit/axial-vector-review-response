@@ -58,8 +58,8 @@ Key findings:
 
 ## Disposition
 
-No unexplained file deletion, unregistered move, or caption-content loss was found. Repository navigation, document dispositions, and candidate-workflow history now have a documented closeout. The seven scientific/provenance blockers remain visible and unchanged in the baseline register. This is an integration review of the PR diff, not approval of the two computational-method edits, a full numerical reproduction, or a production-physics validation. PR #115 remains open Draft pending normal review; this closeout does not merge it or advance any physics claim.
+No unexplained file deletion, unregistered move, or caption-content loss was found. Repository navigation, document dispositions, and candidate-workflow history now have a documented closeout. The seven scientific/provenance blockers remain visible and unchanged in the baseline register. This is an integration review of the PR diff, not approval of the two computational-method edits, a full numerical reproduction, or a production-physics validation. PR #115 was open Draft at the time of this review; it was subsequently merged into `main` on 2026-11-17 at commit `ce9cf1628efc16c55d64aa59f93b7d745f8ef23e`. This closeout does not advance any physics claim.
 
-The 73 baseline fingerprint-difference flags (72 content and one size metadata) remain intentionally preserved as historical reviewed-version versus current-version fingerprints; all live blob/size metadata still match the PR Git tree. They are audit-trail distinctions, not missing inventory entries.
+After PR #117 merged, the baseline register contains 86 fingerprint-difference flags (85 content and one size metadata). Eleven additional content-difference flags appeared relative to the pre-PR #117 main snapshot and correspond to documented path/navigation edits in that PR. All current blob/size metadata match the main Git tree. These are audit-trail distinctions, not missing inventory entries.
 
 No tests, workflows, or physics calculations were run in this review.
