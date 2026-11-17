@@ -1,4 +1,4 @@
-name: B.16 baseline closeout: high-order 10 MeV escape phase space
+name: "B.16 baseline closeout: high-order 10 MeV escape phase space"
 
 on:
   push:
