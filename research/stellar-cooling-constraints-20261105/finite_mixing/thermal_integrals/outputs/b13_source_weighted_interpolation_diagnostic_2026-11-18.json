@@ -7,8 +7,8 @@
   "interpolated_local_source_integral_flat_weight": 22074339.285345715,
   "integrated_source_difference_fraction": -0.018084094622875316,
   "source_weighted_pointwise_relative_error": 0.021661627686219705,
-  "direct_local_source_integral_lapse_weighted": null,
-  "interpolated_local_source_integral_lapse_weighted": null,
+  "direct_local_source_integral_lapse_weighted": 18065839.76373592,
+  "interpolated_local_source_integral_lapse_weighted": 17739020.296371214,
   "integrated_source_difference_fraction_lapse_weighted": -0.0180904664072532,
   "interpretation": "The source-weighted integrated B.13 Compton source changes by about 1.8% under the archived interpolation on this diagnostic quadrature. This is not a B.2 luminosity or optical-depth error estimate: it excludes neutrino inverse decay, ray geometry, attenuation, and the complete GR transport measure."
 }
