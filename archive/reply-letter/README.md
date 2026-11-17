@@ -70,3 +70,13 @@ git push origin reply-letter-2026-11-04
 For the archived 2026-11-04-r2 source snapshot only, the response TeX had no `\input`, `\include`, or `\includegraphics` file dependencies. **This statement does not apply to the current root TeX**, which includes one figure dependency: `research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply_gev.pdf`. The current source also uses the two root BibTeX databases and root `JHEP.bst`. LaTeX packages such as `amsmath`, `slashed`, `graphicx`, `multirow`, `needspace`, `placeins`, `microtype`, `url`, `xcolor`, and `hyperref` remain TeX-environment dependencies.
 
 The historical 2026-11-04-r2 PDF was built from the reference-complete r2 source package. Its build commit and source blob IDs are recorded in the r2 manifest. That snapshot build record reports one remaining overfull-box warning in the NA64 table; the table was visually judged readable. Raw `.log` and `.blg` files were not retained in the repository. This historical check does not validate the current 2026-11-12 root PDF.
+
+
+## Historical working TeX versions
+
+The pre-final response sources are preserved under [`versions/`](versions/):
+
+- [2026-10-28 source](versions/Replies_to_Referee_3_referee_facing_2026-10-28.tex)
+- [2026-11-03 source](versions/Replies_to_Referee_3_referee_facing_2026-11-03.tex)
+
+These are historical, non-authoritative versions. The current editable response source and accepted PDF remain at the repository root. Both moves preserve original Git blob identities; see the [relocation manifest](../../docs/repository-management/ROOT_RELOCATION_MANIFEST_2026-11-17.csv).

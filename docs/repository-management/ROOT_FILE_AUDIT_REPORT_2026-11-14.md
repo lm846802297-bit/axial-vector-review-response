@@ -1,5 +1,8 @@
 # Root-file audit report — 2026-11-14
 
+> **2026-11-17 relocation follow-up:** this report remains the historical audit of the original 24 root files. Twelve historical/source files have since been moved byte-identically; the root now has 12 files. The authoritative 2026-11-04 reply TeX/PDF and its BibTeX/style dependencies remain at root. See [the relocation audit](ROOT_RELOCATION_AUDIT_2026-11-17.md) and [the path/blob manifest](ROOT_RELOCATION_MANIFEST_2026-11-17.csv).
+
+
 > **Later update:** The 63-page PDF described below is historical. A matched 64-page layout-fixed build is documented in [the PDF audit](ROOT_PDF_EXTRACTION_AUDIT_2026-11-14.md).
 
 > **Later PDF check (2026-11-14):** This historical review predates local PDF extraction. A later [audit](ROOT_PDF_EXTRACTION_AUDIT_2026-11-14.md) found the two four-page referee PDFs have identical extracted text; their `/Highlight` counts are 18 and 15, not the earlier metadata-scan counts 1 and 4. Bytes and annotations differ. At the 2026-11-14 extraction snapshot, the tracked response PDF was 63 pages and had not yet been rebuilt from the exact current TeX. This is superseded by the 64-page CI-accepted PDF documented in the final acceptance report; the 65-page 2026-11-06 build remains a separate historical artifact.

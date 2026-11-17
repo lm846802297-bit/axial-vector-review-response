@@ -2,9 +2,13 @@
 
 > **Later update:** The earlier 63-page PDF described below is historical. The current matching 64-page response TeX/PDF pair passed final layout acceptance; see [the final acceptance record](REPLY_LETTER_FINAL_ACCEPTANCE_2026-11-16.md).
 
-Historical classification baseline: `main` at `fbab624435c853e90e3955009a545e28c5f5be98` (2026-11-14). This proposal does not describe the current PR head or current main comparison; see [PROJECT_STATUS](../../PROJECT_STATUS.md) and [FOLDER_CATALOG](FOLDER_CATALOG.md) for live state.
+Historical classification baseline: `main` at `fbab624435c853e90e3955009a545e28c5f5be98` (2026-11-14). The physical moves proposed below were implemented in the 2026-11-17 follow-up branch; see the [relocation audit](ROOT_RELOCATION_AUDIT_2026-11-17.md) and [manifest](ROOT_RELOCATION_MANIFEST_2026-11-17.csv). The table below is retained as the original classification reasoning, not as a current path inventory.
 
 This is a classification proposal, not a move/delete instruction. Root files are deliberately retained in place until all inbound Markdown links, TeX/BibTeX build assumptions, scripts, workflow references and external handoff instructions have been checked.
+
+## 2026-11-17 relocation follow-up
+
+Twelve historical/source files have been moved without changing their Git blob SHA or size. The current root retains the 2026-11-04 authoritative response TeX/PDF and its BibTeX/style dependencies. Historical reply TeX, Major 1 working documents, referee analysis, the manuscript baseline PDF and referee-report materials now have dedicated archive/source locations. No code or workflow paths were moved. Full mapping: [ROOT_RELOCATION_AUDIT_2026-11-17.md](ROOT_RELOCATION_AUDIT_2026-11-17.md).
 
 ## 1. Governance and navigation
 
