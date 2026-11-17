@@ -157,3 +157,13 @@ The Caputo source PDF contains 57 T(r) vector vertices in 22--25 km, with T=3.03
 The 22--25 km shell contributes 19.1084% of the neutrino inverse-decay path optical depth for 8--15 km emission in the independent full B.1+B.2 path-matrix calculation, consistent with the earlier 19.07% direction-resolved synthesis. The B.1 source emitted in this shell is only 0.07276%.
 
 A self-consistent temperature-only stress test of the 222 nodes, with N_r=40, N_E=100, N_omega=32, N_s=32, finds that at the strong endpoint +/-10% T changes escaped luminosity by -1.8133% / +2.7688%; a broad +/-30% stress changes it by -3.6191% / +12.4742%. The corresponding Fig. 7 discrepancy remains +85.29% to +116.23%, compared with +92.25% at baseline. The response is dominated by B.2 propagation rather than B.1 emission. These variations are stress tests, not statistical uncertainty estimates, and no profile or luminosity rescaling is applied. See B16_OUTER_TEMPERATURE_SENSITIVITY_22_25KM_2026-11-09.md and CAPUTO_OFFFRAME_THERMODYNAMIC_VERTICES_20_22KM_2026-11-09.md.
+
+## 8. Independent physics-content review (2026-11-15)
+
+The post-processing arithmetic was checked against `outputs/b16_inner_path_channel_directional_vertex_preserving_10mev_2026-11-09.json`. For the dominant 8--15 km source, the B.1 source fraction is 0.796114338 and the strong-endpoint source-weighted escape probability is \(3.5333093\times10^{-4}\). The \(\nu_\mu+\nu_\tau\) source-weighted path-optical-depth fractions are 5.38566% (0--8 km), 75.53971% (8--22 km), and 19.07463% (22--25 km); for all emission radii they are 6.71002%, 73.97364%, and 19.31634%. The listed direction-bin fractions and leave-one-out factors also agree with the JSON to the displayed precision.
+
+The report correctly distinguishes path-optical-depth attribution from an additive luminosity decomposition. The 19.07% outer-shell figure is the neutrino inverse-decay path-optical-depth fraction, not the outer shell's fraction of emitted luminosity. The leave-one-out factors are nonlinear counterfactuals and must not be added.
+
+This is a post-processing synthesis of the archived JSON, not a new transport run. No standalone post-processing script or dedicated test module is supplied; the values can be reproduced directly from the paired machine-readable output. The fixed-\(\omega\) B.2 and reconstructed-profile limitations remain explicit.
+
+**Review outcome: PASS_WITH_NOTES.** The arithmetic and physical interpretation are consistent within the stated source-weighted path-optical-depth scope; no global luminosity or final axial-vector constraint is established.

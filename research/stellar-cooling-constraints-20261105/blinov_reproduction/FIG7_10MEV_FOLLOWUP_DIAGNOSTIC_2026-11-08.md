@@ -225,3 +225,13 @@ The next useful task is not another opacity or chemical-potential scan. It is to
 - CI run: https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42409199703
 
 The spatial-weight workflow passed all five bookkeeping tests and the full numerical run. Its machine-readable output is committed to the PR branch. The manuscript and referee-response files are unchanged; PR #56 remains Open / Draft.
+
+## Independent review qualification (2026-11-15)
+
+The archived joint production-radius/absorber-radius matrix is tied to the current profile B SHA-256 9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c and its committed producer script. Its distinction between optically thin source weights, source-weighted mean optical depths, and escaped-luminosity shell fractions is correct; these quantities must not be interchanged.
+
+The \(+35.97\%\) high-absorption residual quoted for the conserved-\(E_\infty\) diagnostic is specific to this earlier 88-radial/180-energy/24-angle/64-path configuration. Later high-order B.2 runs quote \(+36.7448\%\) for a separate grid and implementation lane. They are not an exact same-configuration comparison, and neither result is selected as a correction to the fixed-\(\omega\) Appendix-B baseline. The fixed-background warning above is a physical-applicability caveat, not an explanation for the numerical mismatch between two implementations of the same frozen profile.
+
+The later B.2 audit also retains the polarization-closure ambiguity in the scalar exponent and the exact-B.13 210--510 MeV band result; the low-x/full-band extension remains incomplete. No full-band or axial-vector result follows from this follow-up matrix.
+
+**Review disposition: PASS_WITH_NOTES.** Keep the two energy-convention lanes separate, preserve the 25 km baseline, and do not fit any source/opacity or update the axial-vector limit.

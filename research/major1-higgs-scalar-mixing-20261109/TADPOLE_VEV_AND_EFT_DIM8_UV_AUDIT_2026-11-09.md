@@ -5,6 +5,8 @@
 **Convention:** \(\Gamma_{\mathrm{inv}}=p^2 I-\mathcal M_{\mathrm{loc}}^2+\Pi_{\mathrm{RC}}\), \(\Delta_{\mathrm{UV}}=1/\epsilon-\gamma_E+\ln4\pi\).  
 **Status:** full-theory VLL potential poles and leading dimension-five EFT light-loop poles are independently mapped and CI-validated. This is not a complete UV–EFT matching or physical pole calculation.
 
+> **Historical snapshot (2026-11-09):** This report records the VLL potential and EFT5/O8 subcalculation at the stated baseline. Later appended sections retain their original numbering for provenance; repeated section numbers are not a stable navigation scheme. Current work order and status are in the Major 1 `README.md` and `PROJECT_STATUS.md`.
+
 ## 1. Main result
 
 For

@@ -1,5 +1,7 @@
 # Global-06 execution notes
 
+> Historical stage record: later work can postdate its sequencing statements. Check current project status and subsequent stage records before using it as an execution plan. The reported acceptance is limited to this stage.
+
 The Global-06 source package and compact results are on branch:
 research/p1b-global06-low-x-full-radial-20261114
 

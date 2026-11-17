@@ -9,7 +9,7 @@
 
 The comparison between the exact moving-muon semi-Compton calculation and the compact B.14--B.16 expression must not be interpreted as a requirement that the two agree throughout the supernova profile.
 
-In Blinov et al., arXiv:2511.09619v1, Appendix B:
+In the published version of Blinov et al., JHEP 06 (2026) 155, arXiv:2511.09619, Appendix B ([version of record](https://doi.org/10.1007/JHEP06(2026)155)):
 
 - Eq. (B.13) is the full (2\leftrightarrow2) phase-space integral for (\mu\gamma\leftrightarrow\mu V), including the initial and final muon distributions and final-state Pauli blocking.
 - The text immediately below Eq. (B.13) states that the rate is usually evaluated in the non-relativistic-muon limit and with muon recoil neglected; this gives (E_\gamma\simeq\omega).
@@ -92,7 +92,7 @@ m_V=0.05\,\mathrm{MeV},\quad
 \mu_\mu=m_\mu+0.05\,\mathrm{MeV}.
 \]
 
-The exact moving-muon result agrees with the B.14--B.16 transverse modes and total rate within the test's 5% tolerance. This common-limit test passed in the 74-test finite-mixing/response suite.
+The exact moving-muon result agrees with the B.14--B.16 transverse modes and total rate within the test's 5% tolerance. This common-limit test passed in the 74-test finite-mixing/response suite. This 5% threshold is a broad regression check that the two formulations approach the same limiting regime; it is not a precision estimate for the approximation error at supernova conditions.
 
 ## 7. Numerical convergence and interpretation boundary
 

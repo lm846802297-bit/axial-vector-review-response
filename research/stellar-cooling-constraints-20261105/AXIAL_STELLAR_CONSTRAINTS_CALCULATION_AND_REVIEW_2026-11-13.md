@@ -7,6 +7,8 @@
 **Status:** reproducible fixed-profile benchmark; **not a physically validated final SN1987A exclusion**
 
 > **Review warning.** This package preserves the calculation as it currently exists. It does not repair or conceal the unresolved pure-vector Blinov Fig. 7 discrepancy, does not replace the static-muon semi-Compton approximation with the moving-muon B.13 kernel, and does not reinterpret a successful software test as validation of the astrophysical transport model. Do not cite the plotted blue region as an unconditional exclusion until the physics gates in §10 have been closed.
+>
+> **Status boundary (2026-11-15):** the saved axial contour is an exploratory fixed-profile calculation, not an adopted or updated SN1987A axial constraint. The pure-vector Fig. 7 benchmark remains unpassed; under the current validation order, axial limit updates remain deferred until the vector baseline passes. Retain these arrays for provenance and diagnostic comparison only.
 
 ## 1. What the figure represents
 
@@ -82,10 +84,10 @@ The profile file is
 
 | Input | Adopted source | Use |
 |---|---|---|
-| \(T(r)\) | Caputo, Raffelt & Vitagliano, arXiv:2109.03244v3, Fig. 1 | Baseline temperature |
+| \(T(r)\) | [Caputo, Raffelt & Vitagliano, arXiv:2109.03244v3](https://arxiv.org/abs/2109.03244), Fig. 1 | Baseline temperature |
 | \(\mu_\mu(r)\) | Same Caputo Fig. 1 | Baseline muon chemical potential |
 | \(\mu_{\nu_\mu}(r)\) | Same Caputo Fig. 1, negative and positive branches | Muon-neutrino chemical potential |
-| \(N(r)\) | Ferreira, Marsh & Ravensburg, arXiv:2510.14469v1, Fig. 1, SFHo-18.8 curve | Lapse |
+| \(N(r)\) | [Ferreira, Marsh & Ravensburg, arXiv:2510.14469v1](https://arxiv.org/abs/2510.14469), Fig. 1, SFHo-18.8 curve | Lapse |
 
 Source PDF archive members, SHA-256 digests, vector-path indices, axis calibrations, support ranges and representative samples are recorded in `data/profile_provenance.json`. The extraction script verifies the source PDF hashes before digitizing.
 
@@ -306,7 +308,7 @@ These checks establish internal numerical consistency of the saved arrays and se
 
 ## 9. Independent pure-vector reference lane
 
-The `blinov_reproduction/` subdirectory implements a separate scalar Appendix-B prescription for comparison with Blinov et al., arXiv:2511.09619v2. It is deliberately isolated from the production axial code.
+The `blinov_reproduction/` subdirectory implements a separate scalar Appendix-B prescription for comparison with [Blinov et al., arXiv:2511.09619v2](https://arxiv.org/abs/2511.09619). It is deliberately isolated from the production axial code.
 
 It includes:
 - an independent scalar implementation of the neutrino/dimuon rates and no-recoil semi-Compton prescription;

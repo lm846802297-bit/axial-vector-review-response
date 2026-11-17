@@ -1,5 +1,7 @@
 # Major Point 1 — exact-momentum fermion hard matching in the complex-pole diagnostic
 
+> Numerical follow-up (2026-11-16): the four legacy QUADPACK warnings were reproduced and localized to the 20 TeV--muon heavy-light endpoint layer. The production \(B_0\) integral now uses composite Gauss-Legendre with geometric endpoint refinement and threshold-root panels. The four flagged points agree with independent mpmath tanh-sinh at 50/70/90 digits to within \(3.6\times10^{-15}\); all six pole pairs across Benchmarks A/B are stable under GL orders 32--128. See [the independent audit](../../docs/repository-management/POLE_QUADRATURE_INDEPENDENT_AUDIT_2026-11-16.md) and the updated [pole output](exact_momentum_pole_audit.txt). This closes the numerical integration warning for the declared fermion-sector grid only; it does not establish a gauge-complete physical pole prediction.
+
 **Purpose:** replace the leading-derivative hard approximation in Plan-C-lite by the exact momentum-dependent one-loop fermion-sector hard remainder, while retaining the same explicit limitations on diagonal widths and missing sectors.
 
 For each charged-lepton family, the exact \(2\times2\) mass matrix is diagonalized by an SVD. The full \(hh,hs,ss\) fermion-loop kernels use all four internal mass-eigenstate pairings. For the off-diagonal entry define the finite momentum-dependent hard remainder

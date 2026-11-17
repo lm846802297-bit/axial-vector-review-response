@@ -2,7 +2,7 @@
 
 Date: 2026-11-11  
 PR: #57  
-Branch: \`research/moving-muon-thermal-rates-20261107\`
+Branch: `research/moving-muon-thermal-rates-20261107`
 
 ## 1. Purpose
 
@@ -114,3 +114,10 @@ After the algebraic gate passes, C4-B2 will implement the EOS-dependent moving-n
 - \(n_N'(r)\) for per-target normalization, with \(\xi_{\rm SPP}(r)\) restored only when converting to a total-volume opacity.
 
 The mandatory C4-B2 limits are \(m_N^*\to M_N\) recovery of P1-IIIb, the cold/dilute Horowitz limit, and local detailed balance. No B.2 or luminosity calculation is allowed before those gates pass.
+
+## 6. Physics-review qualification (2026-11-15)
+
+The trace algebra, equal-\(m_N^*\) on-shell kinematics, vector Ward contraction, Hermiticity, vacuum-mass recovery, and neutrino/antineutrino VA sign checks are internally consistent with the stated minimal quasiparticle prescription.
+
+One distinction is important: retaining the physical vacuum mass \(M_N\) in the Pauli denominator \(2M_N\), while using \(m_N^*\) in the external quasiparticle spinors, is a declared **model prescription**. The vector Ward identity does not determine this denominator because \(q_\mu\sigma^{\mu\alpha}q_\alpha=0\) for any choice of denominator. Therefore the Ward test verifies algebraic consistency but does not independently establish that this is the unique in-medium weak-magnetism vertex. C4-B1 remains a minimal local quasiparticle embedding; it is not a full in-medium vertex or RPA response.
+

@@ -58,3 +58,11 @@ No production rate, opacity, transport implementation, luminosity, vector benchm
 - Script: audit_bollig_outer_thermodynamic_profile.py
 - Machine-readable output: outputs/bollig_outer_thermodynamic_profile_15_22km_2026-11-09.json
 - PDF source: https://arxiv.org/pdf/2005.07141v7
+
+## 5. Independent review qualification (2026-11-15)
+
+The machine-readable output is pinned to the current profile B SHA-256 9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c and Bollig PDF SHA-256 8267f8b1de184163308728c44000425ce58085c1d5bd799d0cbc1e4e8d740d61. The extractor verifies the PDF checksum before reading the native vector paths. The reported 15--20 km comparisons are supported by 293/294 in-frame nodes and reproduce the separate 15--20 km audit.
+
+The zero-node Fig. 1 temperature support over 20--22 km and one endpoint-only Fig. 4 degeneracy point are correctly treated as missing source coverage, not failed numerical comparisons. No extrapolation should be added to fill this interval. The combined \(\mu_\mu\) column is derived from \(T_{\rm Bollig}(\mu_\mu/T)_{\rm Bollig}\), not a third independent observable.
+
+**Review disposition: PASS_WITH_NOTES.** Retain the 15--20 km comparison as the active quantitative check; keep 20--22 km unvalidated by these published curves and do not extend the profile based on this document.

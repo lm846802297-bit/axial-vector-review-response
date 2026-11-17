@@ -1,13 +1,13 @@
 # Global-06C: full-profile high-order B.13 kernel convergence
 
 ## Purpose and status
-Global-06C isolates and closes the local B.13 quadrature-accuracy gap identified after Global-07's first energy/radial integration. This protocol does not claim a completed calculation or accepted luminosity.
+Global-06C is intended to isolate and close the local B.13 quadrature-accuracy gap identified after Global-07's first energy/radial integration. This protocol does not claim a completed calculation or accepted luminosity.
 
 ## Frozen physics baseline
 - SFHo-18.8, post-bounce 1 s, 1687 radial profile nodes.
 - $m_{A'}=10$ MeV, pure-vector benchmark: $g_V/g_X=1$, $g_A/g_X=0$.
 - Exact-recoil moving-muon semi-Compton kernel B.13.
-- Keep $mu^-$ and $mu^+$ and $L,+,-$ polarization channels separate.
+- Keep $\mu^-$ and $\mu^+$ and $L,+,-$ polarization channels separate.
 - Do not alter B.16 literature baseline, scalar B.2 reference, prior runs, or axial limits.
 
 ## Stage A: directional diagnosis

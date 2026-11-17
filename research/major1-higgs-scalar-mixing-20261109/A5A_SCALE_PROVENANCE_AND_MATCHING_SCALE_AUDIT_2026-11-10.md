@@ -1,5 +1,7 @@
 # A5a — provenance and suitability of the \(20\) TeV VLL matching scale
 
+> Scope of the scale choice: the small heavy-threshold splitting supports a common central scale for this benchmark; it does not by itself establish complete RG evolution or matching-scale independence.
+
 **Date:** 2026-11-10  
 **Scope:** the original degenerate \(S+\mathrm{VLL}\) benchmark used by PR #49 / Plan-C-lite and continued in PR #69. This note distinguishes the physical VLL mass, the EFT matching scale, and the dimensional-regularization scale.
 

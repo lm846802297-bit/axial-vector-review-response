@@ -50,8 +50,8 @@ The archived 80-row comparison has been independently inspected.
 
 - All 80 expected energy/radius/target/sign combinations are present.
 - Every base and high-order rate is finite and positive.
-- The maximum support-root relative residual is (5.06778\times10^{-13}).
-- The maximum combined-order relative difference is (8.30690\times10^{-5}) (0.00831%), below the 1% working threshold.
+- The maximum support-root relative residual is \(5.06778\times10^{-13}\).
+- The maximum combined-order relative difference is \(8.30690\times10^{-5}\) (0.00831%), below the 1% working threshold.
 - The largest per-energy difference occurs at 20 MeV; the per-energy maxima are preserved in the machine-readable summary.
 
 This is a combined quadrature-order stability check at four anchor radii. It is not a pointwise convergence proof over all 301 radii and is not a physical transport or literature-reproduction acceptance.

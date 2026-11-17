@@ -83,3 +83,11 @@ The next investigation therefore remains on the calculation side: compare the ra
 - Tests: \`test_fig7_digitization_geometry.py\` (6 tests pass)
 - Machine-readable result: \`../outputs/fig7_digitization_geometry_2026-11-08.json\`
 - GitHub Actions: https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42447481306
+
+## 6. Independent review qualification (2026-11-15)
+
+The later geometry audit independently checks the same pinned source PDF (SHA-256 4d7d1d10bfe2b52992af94df98749fa3adac887c009cbf98515fa12e6c48fdb5) using native path order rather than screenshot pixels. It verifies all six mass curves, the axis tick coordinates, monotonic coupling coordinates, visible-frame clipping, and exact reconstruction of the archived 25-point 10 MeV reference. The 10 MeV path contains 28 ordered vertices, of which 25 lie inside the published luminosity frame; the additional high-\(g\) vertex is below the plotted luminosity floor. The dedicated six-test suite passed in workflow run #42447481306.
+
+This later check strengthens, rather than changes, the conclusion in this report: the high-coupling tail is present in the original PDF vector path and is not an artifact of sorting, duplicate-\(x\) removal, or screenshot digitization. It still does not recover the authors' underlying numerical table or interpolation between plotted vertices.
+
+**Review disposition: PASS_WITH_NOTES.** Keep the pinned 25-point reference vertices unchanged; use the later all-six-curve geometry audit as the stronger current provenance record.

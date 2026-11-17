@@ -123,3 +123,14 @@ The outer 24--25 km lapse continuation is negligible, and the B.1 source respons
 1. N. Blinov et al., *\(L_\mu-L_\tau\) gauge bosons in beam dumps and supernovae*, JHEP 06 (2026) 155, Appendix B, Eqs. (B.6)--(B.10), https://doi.org/10.1007/JHEP06(2026)155.
 2. A. Caputo, G. Raffelt and E. Vitagliano, *Muonic boson limits: Supernova redux*, arXiv:2109.03244v3, Fig. 1.
 3. R. Bollig et al., *Muons in Supernovae: Implications for the Axion-Muon Coupling*, arXiv:2005.07141v7, Figs. 1, 3 and 4.
+
+
+## 8. Independent review qualification (2026-11-15)
+
+The archived output confirms the stated source-only sensitivity: the \(\pm10\%\) changes in \(\mu_{\nu_\mu}\) shift the total B.1 source by about \(+0.1985\%\) and \(-0.2096\%\); the \(\pm30\%\) stresses remain below 0.66%; setting \(\mu_{\nu_\mu}=0\) changes the total source by \(+1.1737\%\); and the diagnostic \(\mu_{\nu_\tau}=\mu_{\nu_\mu}\) choice changes it by \(-1.1737\%\). The pair kernel is even under \(\mu_{\nu_\mu}\to-\mu_{\nu_\mu}\), as expected from the neutrino-antineutrino pair occupancy. These are source-only, fixed-background stresses, not profile confidence intervals or a self-consistent supernova perturbation.
+
+A producer-version mismatch was found. The checked-in JavaScript file audit_b16_numu_b1_source_sensitivity.js builds a payload with resolution_checks and conclusion, while the archived JSON records lower_resolution, higher_resolution, and conclusions. The profile SHA-256 in the archived result matches the current 1687-row profile, but the current script is not schema-identical to the archived output producer. No dedicated unit-test module for this V8 source-sensitivity calculation is present; the lower/higher resolution values are archived numerical evidence, not a substitute for an exact producer/invocation record.
+
+The result supports the conclusion that the tested \(\mu_{\nu_\mu}\) reconstruction and \(\mu_{\nu_\tau}=0\) assumption cannot explain the approximately 9% weak-end source deficit. It does not establish that the reconstructed \(\mu_{\nu_\mu}(r)\) is independently known to percent precision.
+
+**Review disposition: PASS_WITH_NOTES.** No profile, B.1 source, B.2 opacity, coupling, Fig. 7 curve, or axial-vector result is modified.

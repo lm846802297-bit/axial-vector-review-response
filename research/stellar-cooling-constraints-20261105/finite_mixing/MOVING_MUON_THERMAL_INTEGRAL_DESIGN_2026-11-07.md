@@ -1,7 +1,7 @@
 # Moving-muon Compton and full dimuon thermal integrals
 
 Date: 2026-11-07  
-Status: implementation specification; no production code or cooling curve changed.
+Status (updated 2026-11-16): design specification with the initial-muon spin degeneracy and spin-average convention made explicit. The moving-muon local implementation and response scan now exist; full radial transport and a cooling curve remain open. No production cooling curve was changed.
 
 ## Scope and decision
 
@@ -20,13 +20,15 @@ For each mediator polarization (h=L,+,-), evaluate the differential production r
 
 \[
 \Gamma^{\rm prod}_{\mu\gamma,h}(k)=
-\frac{1}{2\omega}\sum_{Q=\mu^-,\mu^+}
+\frac{2}{2\omega}\sum_{Q=\mu^-,\mu^+}
 \int d\Pi_p\,d\Pi_q\,d\Pi_{p'}
 (2\pi)^4\delta^{(4)}(p+q-p'-k)
 \overline{|\mathcal M_{Q,h}|^2}
 f_Q(E_p)f_\gamma(q)
 [1-f_Q(E_{p'})],
 \]
+
+The factor 2 is the initial-muon spin degeneracy. The convention for \(\overline{|\mathcal M_{Q,h}|^2}\) is an average over the initial-muon spin, a sum over the final-muon spin and the two physical photon polarizations, with no average over the fixed mediator polarization \(h\). The charge sum includes \(\mu^-\) and \(\mu^+\) with chemical potentials \(+\mu_\mu\) and \(-\mu_\mu\).
 
 where (d\Pi_a=d^3p_a/[(2\pi)^3 2E_a]). The inverse absorption rate uses the same matrix element and phase space with statistical factor
 

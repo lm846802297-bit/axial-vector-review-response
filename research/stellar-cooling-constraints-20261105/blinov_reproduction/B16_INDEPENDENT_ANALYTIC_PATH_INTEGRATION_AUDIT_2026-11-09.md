@@ -173,3 +173,39 @@ No production axial-vector output, coupling, source normalization, local opacity
 - Unit tests: \`test_b16_path_independent.py\`
 - Machine-readable output: \`outputs/b16_path_independent_analytic_10mev_2026-11-09.json\`
 - The workflow verifies that production axial-vector files remain unchanged.
+
+
+## 10. Environment provenance addendum (2026-11-15)
+
+The historical full-integration workflow [#42562585233](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42562585233) configured Python 3.12 and installed NumPy 2.5.4 / SciPy 1.18.1 from unpinned package names. The job log records the resolved NumPy and SciPy wheel versions, but the workflow did not pin them and the output JSON does not include package-version fields. The historical output remains tied to its recorded source commit and script SHA; it is not a dependency-locked rerun.
+
+A new lock file, `research/stellar-cooling-constraints-20261105/requirements-b16-audit.txt`, and pinned regression workflow use Python 3.12.14, NumPy 2.5.4, and SciPy 1.18.1. Workflow [#43646106550](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43646106550) passed the five analytic-path unit tests as part of a 20-test regression set. At the time this addendum was written, the full pinned integration had not yet been rerun; that gap is closed by the complete run documented in Section 11 below.
+
+## 11. Full dependency-pinned analytic B.2 integration (2026-11-15)
+
+The complete analytic path integration has now been rerun under the pinned environment. The final branch-guarded workflow is [#43649694860](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43649694860), which completed successfully. Its output is archived at [b16_path_independent_analytic_10mev_2026-11-15_numpy_pinned.json](outputs/b16_path_independent_analytic_10mev_2026-11-15_numpy_pinned.json).
+
+- Output Git blob SHA: \`b694ef4cde5ef46908a020241205a8b6354ea937\`.
+- Run commit: \`e200faa10e510edfc4bf32990cda08ef26da0ca8\`.
+- Script SHA-256: \`15e7aca16e69d50b57ea265d456b0c302d50a7042a0ed7aaaff8a57860408527\`.
+- Profile SHA-256: \`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c\`.
+- Fig. 7 reference SHA-256: \`3eb1121da175d89da54a19abbdf0c52669a239be464978ddcfe84887e4d18d06\`.
+- Archived B.16 baseline SHA-256: \`a81832562d1c4a1e92d9219e6e38f37aa43f557cf2825cc3e7fd8a27e59b4d7b\`.
+- Runtime: Python 3.12.14, NumPy 2.5.4, SciPy 1.18.1.
+- The run passes all five analytic-path unit tests and the output-schema/numerical-closure checks. The workflow also explicitly guards write-back to the reviewed maintenance branch.
+
+The 40-radius-node, 142-energy-node, 25-coupling-point calculation gives:
+
+| Check | Result |
+|---|---:|
+| Same-grid reproduction of archived B.16 | \(2.22\times10^{-16}\) maximum relative difference |
+| Analytic path vs. reference path quadrature, \(N_s=32\) | \(4.30698\times10^{-5}\) maximum luminosity shift |
+| \(N_s=128\) source-weighted RMS \(\tau\) residual vs. analytic path | \(1.32864\times10^{-5}\) |
+| \(N_s=128\) maximum luminosity shift vs. analytic path | \(1.39626\times10^{-6}\) |
+| Simpson-256 vs. adaptive QUADPACK angular escape average | \(1.1460\times10^{-6}\) maximum relative difference |
+| Simpson-256 curve vs. archived B.16 curve | \(4.52065\times10^{-5}\) maximum relative difference |
+
+The final Simpson-256 curve still differs from Fig. 7 by \(-8.88530\%\) at the weak endpoint, \(+2.56937\%\) at the reference peak, and \(+92.24931\%\) at the strong endpoint. The archived fixed-\(\omega\) B.16 curve gives \(+92.24062\%\) at the strong endpoint. Thus the independent analytic B.2 integration shifts the strong-endpoint residual by only about \(0.0087\) percentage points. The order-one discrepancy is not caused by the path-quadrature implementation, conditional on the adopted piecewise-linear opacity, frozen B.1 source measure, reconstructed profile, and fixed-\(\omega\) Euclidean-chord prescription.
+
+This is a full dependency-pinned numerical reproduction, but it is not a new physical model calculation. The local collision kernel, B.1 source measure, reconstructed public-figure profile, and Fig. 7 vertices remain shared inputs. No opacity rescaling, source normalization adjustment, full-GR interpretation, or production axial-vector output is introduced.
+

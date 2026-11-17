@@ -1,5 +1,7 @@
 # B.13 local moving-muon collision-kernel quadrature convergence (2026-11-09)
 
+> **Scope note (2026-11-15):** this audit certifies only three sampled \((r,\omega)\) points. The subsequent global B.13/B.16 comparison is recorded in B13_THREE_MASS_SOURCE_OPACITY_AND_CONVERGENCE_AUDIT_2026-11-09.md and PR #113; those global reports have their own profile, energy-grid, and convergence limitations.
+
 ## Executive result
 
 The independent high-order local-kernel audit passes its explicitly adopted **0.1% screening target at all three sampled \(r,\omega\) points**. The largest change between the \(20\times12\times12\times12\) and \(24\times14\times14\times14\) quadratures is **0.03016%**, at \(r=8\) km and \(\omega=15\) MeV.
@@ -55,13 +57,13 @@ The two polar-angle integrations dominate the residual at this point. The separa
 | Mode-by-mode detailed balance, both charges | \(1.514\times10^{-15}\) |
 | Final-muon mass-shell closure | \(1.626\times10^{-13}\) |
 
-The existing 10 exact moving-muon regression tests also pass, including charge conjugation, the photon Ward identity, the stationary-muon limit, and mode-by-mode detailed balance.
+The associated workflows [Run #42548625879](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42548625879) and [Run #42575916846](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42575916846) each passed 10 tests in total: 7 MovingMuonComptonKernelTests (including charge conjugation, the photon Ward identity, the stationary-muon limit, and mode-by-mode detailed balance) and 3 ThermalDimuonTests. Thus the run provides seven moving-muon regression tests, not ten. No dedicated unit-test module exercises this quadrature-convergence scan; its convergence evidence is the separate audit script and machine-readable order-ladder output.
 
 ## 5. Interpretation and scope
 
 **Established:** at the three selected thermodynamic/kinematic points, the exact B.13 local kernel is stable to better than 0.1% under the final quadrature refinement. The previous \((12,8,8,8)\to(16,10,10,10)\) check was not by itself sufficient at the most demanding point; the additional 20 and 24 order calculations resolve that concern for the sampled points.
 
-**Not established:** a uniform error bound over the full radius-energy domain, or convergence of a source-weighted B.1/B.2 transport calculation after replacing the B.16 Compton source and opacity consistently. A future global B.13 transport calculation still requires a sufficiently dense \(r,\omega\) kernel grid or a validated interpolation-error study.
+**Not established:** a uniform error bound over the full radius-energy domain, or convergence of a source-weighted B.1/B.2 transport calculation after replacing the B.16 Compton source and opacity consistently. The later global B.13 transport calculations are archived in B13_THREE_MASS_SOURCE_OPACITY_AND_CONVERGENCE_AUDIT_2026-11-09.md and PR #113. This local audit itself still does not certify interpolation error over every global \(r,\omega\) node.
 
 No density, source, opacity, coupling, or luminosity is rescaled. The B.14--B.16 reference baseline, production axial-vector files, and axial-vector constraint curve remain unchanged.
 

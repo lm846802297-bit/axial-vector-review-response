@@ -144,3 +144,16 @@ The published Fig. 7 contains six masses ((10^{-6},10^{-5},0.1,1,10,200\) MeV). 
 The published article does not provide an associated code/data archive. The profile in this repository remains a reconstruction from public figure paths rather than the original Garching simulation table. This limits exact digit-by-digit reproduction, but does not prevent an equation-level reproduction of the published B.14--B.19 method.
 
 No empirical rescaling is introduced. No axial-vector production result or constraint curve is modified.
+
+
+## 10. Final workflow status and accepted source-radial artifacts (2026-11-15)
+
+The chronology in §§7--9 is retained as a record of the debugging sequence. The final status is:
+
+- The 0.1 MeV source-radial result is archived at outputs/b2_radial_source_convergence_0.1mev_2026-11-09.json (Git blob SHA 6f48b953cd3c762a223f13a930e95aeb05b7b3cd). Its adjacent-order maximum changes are 0.7466%, 0.1978%, 0.1556%, and 0.1437% for 80→100, 100→120, 120→160, and 160→200.
+- The 1 MeV source-radial result is now also archived at outputs/b2_radial_source_convergence_1mev_2026-11-09.json (Git blob SHA 2c8e4e98a2a544cf290d07672c1b87a862ed2ce1). Its corresponding maximum changes are 0.1757%, 0.0150%, 0.0873%, and 0.0620%.
+- Both source-radial scans hold the 642-node B.2 opacity grid and 742-node energy grid fixed, and retain the current 1687-row profile SHA 9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c. Both therefore pass the 1% source-radial screening criterion in this isolated dimension.
+- Run #42586195530 completed with the 1 MeV job successful. Its 0.1 MeV job stopped at the commit step because the accepted 0.1 MeV JSON already existed from Run #42585236139; this is a no-change-to-commit workflow outcome, not a failed numerical calculation.
+- The primary high-order B.16 run #42588622451 completed successfully for all three jobs (0.1, 1, and 10 MeV). This is a high-order calculation, not a six-mass Fig. 7 reproduction.
+
+The distinction between isolated source-radial convergence and the full multidimensional global grid remains important. The archived path-energy scan still fails the 1% combined 80×200×32×64 criterion at 0.1 and 1 MeV (the 60→80 radial step is the limiting change), while 10 MeV passes its tested one-factor and combined-grid criteria. Thus the 0.1 and 1 MeV Fig. 7 residuals remain provisional even though their isolated B.1 source-radial integrations pass. No new physical prescription is selected, and no axial-vector constraint is updated.

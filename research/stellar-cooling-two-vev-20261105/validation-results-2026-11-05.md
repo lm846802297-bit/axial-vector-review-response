@@ -1,22 +1,22 @@
 # Local validation record — two-VEV axial stellar-cooling line
 
 **Date:** 2026-11-05  
-**Branch:** \`research/stellar-cooling-two-vev-20261105\`  
-**Base:** \`main\` at \`aaed93697dfaefdc6fa80a6bc5d5f5eee192e759\`  
+**Branch:** `research/stellar-cooling-two-vev-20261105`  
+**Base:** `main` at `aaed93697dfaefdc6fa80a6bc5d5f5eee192e759`  
 **Runtime:** Python 3.13.5, NumPy 2.3.5
 
 ## Source integrity and execution method
 
-A direct \`git clone\` was attempted but this execution environment has no outbound connection to \`github.com\`. To avoid treating a reconstructed or stale copy as branch evidence, each Python source was fetched from this exact branch and its Git blob SHA-1 was independently reproduced from the local bytes before execution.
+A direct `git clone` was attempted but this execution environment has no outbound connection to `github.com`. To avoid treating a reconstructed or stale copy as branch evidence, each Python source was fetched from this exact branch and its Git blob SHA-1 was independently reproduced from the local bytes before execution.
 
 | File | Git blob SHA-1 |
 |---|---|
-| \`two_vev_axial_mapping.py\` | \`5b45faf292e49183f97445a6f6ae4ac6c6ffd798\` |
-| \`test_two_vev_axial_mapping.py\` | \`e38e9479955f7df28dbc2059d3df4e6567a70a5c\` |
-| \`stellar_semi_compton_axial_matrix_element.py\` | \`3317339e663fbe59739045771902fb0927260c2f\` |
-| \`stellar_semi_compton_thermal_rate.py\` | \`d37023df57ffea47018593b43ff5b62f7ee34e28\` |
-| \`stellar_semi_compton_thermal_convergence.py\` (reference-cutoff update) | \`e36ab13ae32216ae4d3c9a2323099485f880a1b0\` |
-| \`axial_decay_widths.py\` (light-neutrino trace caveat) | \`be2aefbd9078f43b8aa586f5516ce4caf953a107\` |
+| `two_vev_axial_mapping.py` | `5b45faf292e49183f97445a6f6ae4ac6c6ffd798` |
+| `test_two_vev_axial_mapping.py` | `e38e9479955f7df28dbc2059d3df4e6567a70a5c` |
+| `stellar_semi_compton_axial_matrix_element.py` | `3317339e663fbe59739045771902fb0927260c2f` |
+| `stellar_semi_compton_thermal_rate.py` | `d37023df57ffea47018593b43ff5b62f7ee34e28` |
+| `stellar_semi_compton_thermal_convergence.py` (reference-cutoff update) | `e36ab13ae32216ae4d3c9a2323099485f880a1b0` |
+| `axial_decay_widths.py` (light-neutrino trace caveat) | `be2aefbd9078f43b8aa586f5516ce4caf953a107` |
 
 The GitHub clone itself was not available, but the executed local source bytes matched the branch blobs listed above.
 
@@ -24,9 +24,9 @@ The GitHub clone itself was not available, but the executed local source bytes m
 
 Command:
 
-\`\`\`bash
+```bash
 python -m unittest -v test_two_vev_axial_mapping.py
-\`\`\`
+```
 
 **Result: 6/6 tests passed.**
 
@@ -43,9 +43,9 @@ Checks cover:
 
 Command:
 
-\`\`\`bash
+```bash
 python stellar_semi_compton_axial_matrix_element.py --check
-\`\`\`
+```
 
 **Result: PASS.**
 
@@ -68,9 +68,9 @@ The T/L labels remain frame-defined. The CM-helicity split is **not** the medium
 
 Command:
 
-\`\`\`bash
+```bash
 python axial_decay_widths.py
-\`\`\`
+```
 
 **Result: PASS.**
 
@@ -90,9 +90,9 @@ The neutrino width is the inclusive light-neutrino trace result
 
 Command:
 
-\`\`\`bash
+```bash
 python stellar_semi_compton_thermal_rate.py --check
-\`\`\`
+```
 
 **Result: PASS.**
 
@@ -136,7 +136,7 @@ At order 10, changing one cutoff at a time gives:
 
 The order-6 cutoff scan is visibly less stable; it is retained as a diagnostic of why low-order results must not be promoted. The higher-order order-10/12 comparison and the order-10 cutoff checks are stable at the sub-percent level for this stated benchmark.
 
-Machine-readable values are in \`thermal-convergence-2026-11-05.csv\`.
+Machine-readable values are in `thermal-convergence-2026-11-05.csv`.
 
 ## 6. What this validation does and does not establish
 

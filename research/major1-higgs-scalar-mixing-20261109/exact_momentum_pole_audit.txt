@@ -1,22 +1,47 @@
 Exact-momentum fermion matching and complex-pole audit
+Quadrature repair: composite Gauss-Legendre, 64 nodes per geometrically refined panel.
+Independent check: mpmath tanh-sinh at 50/70/90 decimal digits for the four legacy warning integrals; full pole scan at GL orders 32, 48, 64, 96, 128.
 
 Benchmark A:
-hard momentum remainder at m_h^2 = 0.02403044398585 (real; imaginary < 1e-12) GeV^2
-matched Pi_hs(m_h^2) = -0.4131216491 - 0.1131333101 i GeV^2
-m_s=100 GeV: Higgs-like pole 125.250000129 GeV, Gamma=4.069876 MeV; R_hh=1.000000005-7.32e-10i
-m_s=125.25 GeV: Higgs-like pole 125.250000812 GeV, Gamma=4.072689 MeV; R_hh=1.000000743+4.11e-7i; second pole 125.264005936 GeV, Gamma=3746.392491 MeV
-m_s=150 GeV: Higgs-like pole 125.249999934 GeV, Gamma=4.070133 MeV; R_hh=1.000000002-4.92e-9i
+hard momentum remainder at m_h^2 = 0.02403044398676 -3.064e-14 i GeV^2; archived reference 0.024030443985871; delta=8.891e-13 GeV^2
+matched Pi_hs(m_h^2) = -0.4131216491 -0.1131333101 i GeV^2
+m_s=100.00 GeV:
+  pole 1: mass=125.250000129368 GeV, Gamma=0.00406987617766 GeV, R_hh=1.00000000529-7.3243137096e-10i, determinant residual=2.265e-09 GeV^4
+  pole 2: mass=100.004355803285 GeV, Gamma=1.86675365576 GeV, R_hh=2.2608234294e-09+9.97547839247e-10i, determinant residual=1.718e-09 GeV^4
+  sum R_hh=1.00000000755+2.651e-10i
+m_s=125.25 GeV:
+  pole 1: mass=125.250000812493 GeV, Gamma=0.00407268885216 GeV, R_hh=1.00000074985+3.86287521892e-07i, determinant residual=4.213e-10 GeV^4
+  pole 2: mass=125.264005936328 GeV, Gamma=3.74639249086 GeV, R_hh=-7.42310025294e-07-3.86019983302e-07i, determinant residual=2.359e-10 GeV^4
+  sum R_hh=1.00000000754+2.675e-10i
+m_s=150.00 GeV:
+  pole 1: mass=150.035285851031 GeV, Gamma=6.50752116859 GeV, R_hh=5.4912521842e-09+5.17702660767e-09i, determinant residual=3.119e-09 GeV^4
+  pole 2: mass=125.249999933567 GeV, Gamma=0.00407013331159 GeV, R_hh=1.00000000203-4.91940734175e-09i, determinant residual=3.451e-10 GeV^4
+  sum R_hh=1.00000000752+2.576e-10i
 
 Benchmark B:
-hard momentum remainder at m_h^2 = 0.00540772399471 (real; imaginary < 1e-12) GeV^2
-matched Pi_hs(m_h^2) = -0.0929673982 - 0.02545910995 i GeV^2
-m_s=100 GeV: Higgs-like pole 125.250000022 GeV, Gamma=4.069993 MeV; R_hh=1.000000007-1.16e-10i
-m_s=125.25 GeV: poles 125.250041393 GeV, Gamma=0.292020 MeV and 125.249958626 GeV, Gamma=3.936917 MeV
-  R_hh(narrow)=-0.035406527-0.024321341i
-  R_hh(broad)=1.035406535+0.024321340i
-m_s=150 GeV: Higgs-like pole 125.250000012 GeV, Gamma=4.070006 MeV; R_hh=1.000000007-2.59e-10i
+hard momentum remainder at m_h^2 = 0.0054077239945946 -6.901e-15 i GeV^2; archived reference 0.0054077239947106; delta=1.159e-13 GeV^2
+matched Pi_hs(m_h^2) = -0.09296739819 -0.02545910995 i GeV^2
+m_s=100.00 GeV:
+  pole 1: mass=125.250000022143 GeV, Gamma=0.00406999335389 GeV, R_hh=1.00000000699-1.15703182109e-10i, determinant residual=4.690e-09 GeV^4
+  pole 2: mass=99.999999996924 GeV, Gamma=0.000126814835452 GeV, R_hh=1.08866683286e-10+6.17069488206e-11i, determinant residual=2.254e-10 GeV^4
+  sum R_hh=1.0000000071-5.400e-11i
+m_s=125.25 GeV:
+  pole 1: mass=125.250041393395 GeV, Gamma=0.000292019818881 GeV, R_hh=-0.0354065272018-0.0243213405949i, determinant residual=1.779e-13 GeV^4
+  pole 2: mass=125.249958625838 GeV, Gamma=0.00393691680663 GeV, R_hh=1.03540653437+0.0243213403373i, determinant residual=3.946e-13 GeV^4
+  sum R_hh=1.00000000717-2.576e-10i
+m_s=150.00 GeV:
+  pole 1: mass=150.000012570922 GeV, Gamma=0.122784738736 GeV, R_hh=3.30300277346e-10+2.04666739081e-10i, determinant residual=6.074e-09 GeV^4
+  pole 2: mass=125.250000011854 GeV, Gamma=0.00407000557149 GeV, R_hh=1.00000000676-2.59109631689e-10i, determinant residual=1.286e-10 GeV^4
+  sum R_hh=1.00000000709-5.444e-11i
 
-PASS: exact-momentum hard remainder reproduces archived hard coefficients at m_h^2.
-PASS: six complex pole pairs converge with determinant residuals < 1e-7 GeV^4.
-PASS: h-channel residue sums equal 1 within numerical precision for this kernel.
-LIMIT: fermion sector only; fixed diagonal widths; incomplete EFT counterterm and gauge completion.
+Numerical validation:
+  - Legacy QUADPACK warning count: 4; all four calls localized to the 20 TeV--muon heavy-light endpoint layer.
+  - Independent mpmath tanh-sinh (50/70/90 dps) and composite Gauss-Legendre (64/96 nodes) agree for each flagged integral within 3.6e-15 in the dimensionless B0bar value.
+  - Across GL orders 32--128: max hard-remainder change <=1.37e-12 GeV^2; max pole-mass change =0; max width change <=7.30e-16 GeV; max complex R_hh change <=7.45e-10.
+  - Maximum determinant residual over 12 poles <6.08e-9 GeV^4; maximum |sum R_hh - 1| <7.56e-9.
+  - The production 64-node composite quadrature emits no QUADPACK IntegrationWarning (the production B0bar path no longer calls QUADPACK).
+
+Limitations:
+  - This remains the exact-momentum fermion-sector subset with fixed Plan-C-lite diagonal widths.
+  - Diagonal self-energies/field counterterms, full EFT counterterm and same-order matching sectors, gauge/Goldstone/ghost completion, mixing-induced SM widths, and detector-level coherent likelihood are not included.
+  - Numerical quadrature acceptance does not promote these poles to gauge-complete physical Higgs--singlet predictions and implies no allowed/excluded interval.

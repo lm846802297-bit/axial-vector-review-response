@@ -5,10 +5,12 @@ on:
     branches:
       - review/response-point-conclusions-20261106
       - codex/major44-axial-cooling-constraints-20261105
+      - maintenance/repository-organization-audit-20261114
     paths:
       - 'Replies_to_Referee_3_referee_facing_2026-11-04.tex'
       - 'Replies_to_Referee_3_neutrino_references.bib'
       - 'overleaf-source/axial-vector-model-building-v6/references.bib'
+      - 'references.bib'
       - 'JHEP.bst'
       - 'Replies_to_Referee_3_stellar_references.bib'
       - 'research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints_reply.pdf'
@@ -27,7 +29,7 @@ concurrency:
 
 jobs:
   build-and-inspect:
-    if: github.ref_name == 'review/response-point-conclusions-20261106' || github.ref_name == 'codex/major44-axial-cooling-constraints-20261105'
+    if: github.ref_name == 'review/response-point-conclusions-20261106' || github.ref_name == 'codex/major44-axial-cooling-constraints-20261105' || github.ref_name == 'maintenance/repository-organization-audit-20261114'
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:
@@ -96,8 +98,9 @@ jobs:
             echo "The generated bibliography contains no bibitems."
             exit 1
           fi
-          if grep -E "Overfull \\hbox|Overfull \\vbox" "$FINAL_LOG"; then
-            echo "Overfull boxes require visual review; see the log."
+          if grep -F -e 'Overfull \\hbox' -e 'Overfull \\vbox' -e 'Float too large for page' "$FINAL_LOG"; then
+            echo "Overfull boxes or oversized floats fail layout acceptance."
+            exit 1
           fi
           echo "Final .log contains no unresolved citation/reference warnings."
           echo "BibTeX .blg contains no missing-entry/database warnings."
@@ -140,6 +143,59 @@ jobs:
               out.write_text(svg, encoding="utf-8")
           print(f"Rendered {len(pages)} pages at 150 dpi into {((len(pages)+5)//6)} contact sheets.")
           PY
+
+      - name: Audit page geometry and text boundaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          build/audit-venv/bin/python - <<'PY'
+          import json, pymupdf
+          from pathlib import Path
+          pdf = Path("Replies_to_Referee_3_referee_facing_2026-11-04.pdf")
+          doc = pymupdf.open(pdf)
+          problems = []
+          sizes = []
+          for i, page in enumerate(doc, start=1):
+              rect = page.rect
+              sizes.append([round(rect.width, 3), round(rect.height, 3)])
+              if not page.get_text().strip():
+                  problems.append({"page": i, "kind": "blank-page"})
+              for block in page.get_text("dict")["blocks"]:
+                  for line in block.get("lines", []):
+                      for span in line.get("spans", []):
+                          x0, y0, x1, y1 = span["bbox"]
+                          if x0 < -0.75 or y0 < -0.75 or x1 > rect.width + 0.75 or y1 > rect.height + 0.75:
+                              problems.append({"page": i, "kind": "text-outside-page", "bbox": [round(x, 3) for x in span["bbox"]], "text": span["text"][:100]})
+          unique_sizes = sorted({tuple(x) for x in sizes})
+          if len(unique_sizes) != 1:
+              problems.append({"kind": "mixed-page-sizes", "sizes": unique_sizes})
+          result = {"pages": len(doc), "page_sizes_pt": unique_sizes, "blank_or_out_of_bounds": problems}
+          Path("build/page-boundary-audit.json").write_text(json.dumps(result, indent=2) + "\n")
+          print(json.dumps(result, indent=2))
+          if problems:
+              raise SystemExit("PDF page-boundary audit failed")
+          PY
+
+      - name: Upload complete reply-letter build and visual-review evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: reply-letter-layout-acceptance-${{ github.run_id }}
+          if-no-files-found: error
+          retention-days: 30
+          path: |
+            Replies_to_Referee_3_referee_facing_2026-11-04.pdf
+            build/latexmk.log
+            build/Replies_to_Referee_3_referee_facing_2026-11-04.log
+            build/Replies_to_Referee_3_referee_facing_2026-11-04.blg
+            build/Replies_to_Referee_3_referee_facing_2026-11-04.bbl
+            build/reply.txt
+            build/pdfinfo.txt
+            build/pdffonts.txt
+            build/pdf-sha256.txt
+            build/page-boundary-audit.json
+            build/review/
+            build/pages/
+            research/stellar-cooling-constraints-20261105/outputs/reply_audit.json
 
       - name: Commit the compiled PDF
         if: success()

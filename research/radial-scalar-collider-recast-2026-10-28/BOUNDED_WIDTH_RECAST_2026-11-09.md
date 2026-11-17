@@ -1,5 +1,7 @@
 # Belle II bounded-width pointwise reinterpretation — 2026-11-09
 
+> Provenance update (2026-11-15): the archived recast CSV classification counts below match the stored summary. The cited 60-test execution is a historical run; the currently stored width-scan archive has a different recorded source/test run, documented in [SCAN_RUN_RECORD](SCAN_RUN_RECORD_2026-11-09.md). Do not infer byte-level identity between these run snapshots from the count table alone.
+
 **PR:** #68  
 **Benchmark:** original one-VEV \(S+\mathrm{VLL}\) model, \(\theta_{\mu R}=\theta_{\tau R}=10^{-2}\), negligible Higgs-portal mixing as an explicit collider benchmark, and decoupled VLLs in the scalar-width calculation.  
 **Status:** regenerated 73,728-point width scan, bounded branching-fraction propagation, and conditional narrow/prompt grid classification completed. This is not a detector-level recast or a new CLs fit.

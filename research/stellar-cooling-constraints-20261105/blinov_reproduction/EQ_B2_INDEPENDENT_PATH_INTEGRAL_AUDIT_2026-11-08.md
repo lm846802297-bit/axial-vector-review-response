@@ -10,13 +10,13 @@ g=4.171689650228597\times10^{-8},
 \]
 the independent 256-point angular result is
 \[
-L_{\rm calc}=2.437334708881218\times10^{52}\ {\rm erg\,s^{-1}},
+L_{\rm calc}=2.437365109867990\times10^{52}\ {\rm erg\,s^{-1}},
 \]
 while the digitized Fig. 7 reference is
 \[
 L_{\rm Fig.\,7}=1.267814759073720\times10^{52}\ {\rm erg\,s^{-1}}.
 \]
-The residual is therefore \(+92.24691\%\). Increasing the angular order from 128 to 256 changes this high-coupling luminosity by only \(8.20\times10^{-9}\) fractionally. Replacing the existing 32-point path quadrature by the independent analytic path integral changes the full luminosity by at most \(4.31\times10^{-5}\) over the 25 Fig. 7 comparison points.
+The residual is therefore \(+92.24931\%\). Increasing the angular order from 128 to 256 changes this high-coupling luminosity by only \(8.20\times10^{-9}\) fractionally. Replacing the existing 32-point path quadrature by the independent analytic path integral changes the full luminosity by at most \(4.31\times10^{-5}\) over the 25 Fig. 7 comparison points.
 
 This rules out the Eq. (B.2) path/angular quadrature as the source of the approximately 92% tail discrepancy, within the frozen opacity interpolation and profile used here. It does not identify the remaining physical or source-data discrepancy.
 
@@ -102,7 +102,7 @@ At the same 16 angular nodes, the independent analytic path columns are compared
 | Maximum relative column difference, retaining entries above \(10^{-10}\) of the global peak | \(5.72\times10^{-3}\) |
 | RMS relative column difference on the same mask | \(2.13\times10^{-4}\) |
 | Maximum relative change in the integrated luminosity over all 25 couplings | \(4.31\times10^{-5}\) |
-| Reproduction of the archived three-layer baseline | \(2.22\times10^{-16}\) maximum relative difference |
+| Reproduction of the archived three-layer baseline (pinned JSON) | \(1.2477\times10^{-5}\) maximum relative difference; mean \(5.0990\times10^{-6}\) |
 
 The largest pointwise column difference does not translate into a comparably large luminosity difference. The source-, energy-, and angle-weighted integral is much less sensitive to those isolated path-column differences.
 
@@ -120,10 +120,10 @@ The maximum absolute difference between the selected adaptive angular checks and
 
 | Angular order | Mean absolute relative residual | High-coupling residual |
 |---:|---:|---:|
-| 16 | 15.7331% | 92.2465% |
-| 64 | 15.7326% | 92.2469% |
-| 128 | 15.7326% | 92.2469% |
-| 256 | 15.7326% | 92.2469% |
+| 16 | 15.7332% | 92.2489% |
+| 64 | 15.7326% | 92.2493% |
+| 128 | 15.7327% | 92.2493% |
+| 256 | 15.7327% | 92.2493% |
 
 The residual is stable under both path and angular integration changes. The approximately 92% high-coupling discrepancy is therefore not a path-quadrature artifact.
 
@@ -198,3 +198,14 @@ The next investigation should therefore move outside the already validated path 
 - Full regression/reproducibility validation: [Major 4.4 EFT numerical validation](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42404088631)
 
 This is an internal research validation only. It does not modify the manuscript, referee response, production rates, transport outputs, or axial constraint figures. PR #56 remains Draft.
+
+
+## 7. Independent review qualification (2026-11-15)
+
+The archived JSON is pinned to the current profile B SHA-256 9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c and records code SHA-256 84b1960eae74d15d6c1ad9a0bb23feb51ff26b28eb031134e839a6b4986e5a1e. The analytic path integral is exact for the same piecewise-linear radial opacity interpolant; it is independent of the reference path quadrature, but not an independent local-rate or opacity calculation.
+
+A numerical transcription mismatch was found in the Markdown summary. The archived 256-angle result is \(2.43736510986799\times10^{52}\) erg/s, corresponding to \(+92.24931\%\), not \(2.4373347089\times10^{52}\) erg/s and \(+92.24691\%\). The latter pair is not the pinned JSON's 256-angle result. The 16/64/128/256 table and the three-layer reproduction row have been corrected to match the machine-readable JSON. The pinned JSON gives a maximum relative difference \(1.2477\times10^{-5}\) and mean \(5.0990\times10^{-6}\) against the archived three-layer baseline; the previous \(2.22\times10^{-16}\) row was not supported by that output.
+
+The corrected 256-angle residual differs slightly from the 92.24062% fixed reference-path result because the independent analytic path and higher angular order are distinct numerical configurations. This is a numerical cross-check, not a physical correction. The later 10 MeV acceptance gate remains failed at the strong endpoint.
+
+**Review disposition: PASS_WITH_NOTES.** Keep the independent path/angle result as a current-profile numerical validation; do not change the fixed-\(\omega\) prescription, local rates, opacity, or axial-vector constraint.

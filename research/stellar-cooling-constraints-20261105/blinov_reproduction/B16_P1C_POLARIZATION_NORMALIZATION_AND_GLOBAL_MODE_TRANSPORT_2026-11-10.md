@@ -110,7 +110,7 @@ The large difference between scalar and mode-resolved luminosities is caused by 
 
 ## 4. P1-C decision
 
-1. The literal B.2 scalar implementation uses the polarization-summed opacity implied by the published B.6--B.10 equation chain. Do not change its factor-of-three normalization.
+1. The B.6--B.7 production normalization and B.10 sum-to-sum detailed-balance identity do not justify inserting another factor of three into the local summed rate. However, Eq. (B.2) inserts a single scalar \(\Gamma_{\rm abs}^{*}\) into the ray exponent without specifying whether it is a sum over incident vector polarizations, an average over the three incident states, or shorthand for a polarization closure. Preserve the literal scalar B.2 implementation as the equation-level reproduction lane, but do not claim that its exponent is unambiguously a per-mode attenuation rate or that the paper definitely contains a factor-of-three error.
 2. The mode-resolved calculation is a distinct transport prescription, not an algebraically equivalent rewriting of the scalar equation.
 3. The improved B.14 Compton mode split is almost entirely transverse; it changes the earlier equal-split mode-resolved result by about 5.1%, but does not change the qualitative conclusion.
 4. Mode-resolved propagation increases, rather than decreases, the high-energy escape luminosity. It does not solve the scalar Fig. 7 mismatch.
@@ -133,3 +133,34 @@ For the source-frozen 210--510 MeV band at the 10 MeV strong-endpoint point:
 - a conditional vacuum-limit neutrino-opacity extension to 26 km lowers it by 22.42%.
 
 The 25 km paper prescription remains the baseline. The extension is conditional on continued neutrino trapping and is not adopted as a replacement. The next unresolved issue is the provenance/physical definition of the effective neutrinosphere radius for the exact SFHo-18.8 snapshot, not another increase in path quadrature order.
+
+
+## 6. Independent review qualification (2026-11-15)
+
+### 6.1 B.2 state-counting interpretation
+
+The later analytic Boltzmann audit, B2_POLARIZATION_BOLTZMANN_STATE_COUNTING_AUDIT_2026-11-13.md, narrows the interpretation stated in the original P1-C decision. The factor of three in B.7 converts the polarization-averaged vacuum width into the polarization-summed thermal production rate. Under the B.6 spin-sum convention, B.10 is sum-to-sum detailed balance and does not introduce another factor of three.
+
+The remaining ambiguity is specifically in B.2: the paper inserts one scalar \(\Gamma_{\rm abs}^{*}\) into the ray exponent but does not state whether this is the sum over incident vector polarizations, the arithmetic average over three states, or shorthand for an assumed polarization closure. The literal B.2 numerical lane must remain unchanged, but its scalar exponent must not be described as an unambiguously per-mode physical attenuation rate. This is an interpretation qualification, not evidence that the published calculation definitely has a factor-of-three error.
+
+Keep three distinct lanes: (i) literal scalar equation-level reproduction; (ii) no-mixing propagation with a separate \(\tau_h\) for each mode; and (iii) equal-occupation average-opacity closure, only when its population/mixing assumption is explicit.
+
+### 6.2 Later exact-B.13 comparison
+
+The archived P1-C mode result is specifically a 210--510 MeV band calculation using B.14 no-recoil Thomson-limit Compton weights:
+
+- B.16 literal scalar band: \(1.7017848288\times10^{52}\) erg/s;
+- B.14 mode-resolved band: \(6.6158287761\times10^{53}\) erg/s;
+- ratio: 38.8758.
+
+The later exact-B.13 moving-muon calculation in results/P1B_B2_EXACT_B13_2026-11-14/ provides a like-for-like B.16 closure at \(1.7017848289\times10^{52}\) erg/s (relative residual \(-1.01\times10^{-7}\)). With both muon charges included, it obtains \(2.1001262\times10^{52}\) erg/s for the B.13 scalar-sum prescription and \(6.05812455\times10^{53}\) erg/s for independent mode-resolved transport. The latter is 35.5987 times the B.16 scalar band, not a universal correction factor.
+
+The exact-B.13 and B.14 mode splits applied to the same B.13 scalar Compton source change the mode-resolved luminosity by only 0.0024%; the roughly 8.4% difference from the archived P1-C B.14 mode result is driven primarily by the overall recoil-resolved Compton source/opacity, not by the detailed polarization split. The exact-B.13 global result remains restricted to 210--510 MeV. Its low-x interpolation pilot is incomplete, so it is not a full-band Fig. 7 reproduction.
+
+### 6.3 Producer/source provenance
+
+The archived P1-C JSON identifies a direct V8 binary64 calculation. The checked-in Python driver audit_b16_global_polarization_transport_b14_split.py is a separate implementation: its default output filename differs from the archived P1-C filename, and its output schema (profile, fig7_reference_sha256, metrics_vs_fig7, points) differs from the archived V8 schema (calculation, equation_normalization, source_closure, results). It must not be represented as the exact producer of the archived JSON. The algebraic tests in polarization_boltzmann_state_counting.py validate state-counting identities, not the full P1-C radial/energy/angle integration.
+
+The archived numbers remain useful, inspectable evidence with a closed B.16 scalar-band reference, but the exact V8 producer source/invocation is not present in this tree. A future reproducibility closure should archive that producer or regenerate a separately named output from the Python driver and compare it explicitly.
+
+**Review disposition: PASS_WITH_NOTES.** The B.14 calculation remains a valid restricted-band diagnostic; the B.2 scalar-opacity interpretation and the producer provenance are now qualified. No source, opacity, coupling, transport output, Fig. 7 curve, or axial-vector constraint is changed.

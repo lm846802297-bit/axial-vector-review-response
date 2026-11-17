@@ -158,3 +158,23 @@ After the Garching profile data become available, run the CSV interface and chec
 4. both mass-time weighted Table 1 degeneracy averages.
 
 Only after these checks pass should P1-IIIe-B be considered complete and the EOS quasiparticle dispersion be introduced into the dynamic response in P1-IIIe-C.
+## 8. Independent review qualification (2026-11-15)
+
+The occupation and static-factor definitions are consistent with Fiorillo et al. Appendix C.1 and the Hempel table convention. In particular, Hempel Eqs. (91)--(99) distinguish local free-volume densities \(n_N'=n_N/\xi\), the total vector self-energy including the nucleus interaction \(W_N\), and the total chemical potential; the \(W_N\) terms cancel in the occupation. Hempel Eq. (107) supplies the separate \(\xi\) factor when converting a response per available volume to a total-volume rate. The code's Hempel mapping
+\[
+U_N=m_N^*-m_N+\Sigma_{V,N}^{\rm tot},\qquad
+\mu_{N,F}^*=\mu_N^{\rm nonrel}
+\]
+therefore has the correct sign and rest-mass convention.
+
+Sections 6--7 contain a historical execution snapshot and are superseded for the EOS-table acquisition/interpolation path by P1-IIIe-B and C1/C2. The official SFHo/FRDM v1.03 tables have since been downloaded, checksum-verified, decoded, and tested. The Caputo SFHo-18.8 \(t_{\rm pb}=1\) s published-figure profile has been mapped to the EOS tables, and C2 has evaluated the local neutron/proton occupations at all 301 radii. This remains a public-figure reconstruction, not a raw Garching time sequence.
+
+The published Fiorillo Table 1 averages \(F_{pp}^{\rm deg}=(0.80,0.77)\) and \(F_{nn}^{\rm deg}=(0.48,0.42)\) remain unreproduced: they require the original mass-time profile and its \(\Delta M\,\Delta t\) weights. The local C2 snapshot values must not be substituted for those global weighted averages.
+
+One software-naming caveat: the dataclass attribute scalar_potential_mev stores the complete \(U_N\) used in the occupation, including \(m_N^*-m_N\) and the total vector self-energy. It is not just the RMF scalar self-energy \(\Sigma_S\). Preserve this distinction in future interfaces and user-facing tables.
+
+**Review disposition: PASS_WITH_NOTES.** No degeneracy factor, EOS table, B.2 opacity, vector Fig. 7 curve, or axial-vector limit is changed by this implementation review.
+
+## 9. Archived self-test JSON integrity correction (2026-11-15)
+
+The committed synthetic self-test output was independently parsed during repository review and found to contain three literal backslash-n separators inside the checks object. They have been corrected to ordinary JSON line breaks; strict JSON parsing now succeeds. The numerical checks and values are unchanged. This is an output-format repair only. The existing caveat remains: the generic filling-factor default change and added regression test have not yet been run through the full unit-test suite.

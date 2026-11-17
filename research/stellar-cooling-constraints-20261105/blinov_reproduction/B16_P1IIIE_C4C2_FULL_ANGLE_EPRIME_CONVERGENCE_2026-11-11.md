@@ -6,7 +6,7 @@ Branch: `research/moving-muon-thermal-rates-20261107`
 
 ## 1. Purpose
 
-This supplementary audit closes the one remaining numerical-validation gap identified after the C4-C2 full-angle total-scattering workflow passed. C4-C1 had already checked the outgoing-energy quadrature at a fixed scattering angle; this calculation checks the same energy-order convergence **inside the full outgoing-angle integral**.
+This supplementary audit checks outgoing-energy quadrature convergence **inside the full outgoing-angle integral**, using the C4-C2 fixed \(N_{\cos\theta}=8\) rule. It closes the \(E_\nu'\)-order comparison for the 16 selected local cases, but does not by itself establish angular-quadrature convergence over the full radial profile.
 
 The existing C4-B2 collision kernel, C4-C1 exact outgoing-energy support, C4-C2 angular integral, C1 SFHo profile, and C2 occupation table are reused. No new collision kernel or weak tensor is introduced.
 
@@ -84,3 +84,14 @@ The input C1/C2 files and the existing C4 collision-kernel implementation are un
 ## 7. Next stage
 
 C4-C2 is now complete. The next calculation is C4-C3: recompute the validated full-angle local total scattering rate at all 301 radial points, then form the fixed-local-energy, flat-space radial scattering optical-depth diagnostic. The ξ factor is restored exactly once because the C4-C2 Γ value already contains the available-volume nucleon occupation integral.
+
+## 8. Independent physics-review qualification (2026-11-15)
+
+The 48-versus-72 \(E_\nu'\) comparison is correctly performed after the outgoing-angle integral for all 16 selected combinations of four radii, two target species, and neutrino/antineutrino. The maximum relative difference \(2.08975\times10^{-5}\) is a strong check of the outgoing-energy quadrature at the fixed eight-node angular rule.
+
+However, this is **not** an eight-versus-twelve angular convergence test. In the C4-C2 total-scattering driver, the condition testing whether the radial index equals the first selected profile index means the angular comparison covers only the innermost radius \(r=0.20\) km (four species/sign combinations). The other three radii have \(N_{\cos\theta}=8\) rates but no local 8-versus-12 comparison. The 301-radius C4-C3 calculation then uses \(N_{\cos\theta}=8\) at every radius, without a radial angular-convergence scan.
+
+Accordingly, **PASS** applies to the stated \(E_\nu'\)-quadrature and root-finding checks, not to uniform angular convergence throughout the star. The next C4-C3 validation should compare \(N_{\cos\theta}=8\) and 12 at least at \(r=0.20,5.00,7.35,10.00,15.20\) km, with \(7.35\) km included because it is the reported opacity-peak region. Preferably, perform the 8-versus-12 check over all 301 radii; escalate any point failing a predeclared tolerance to 16 or more nodes.
+
+**Review outcome: PASS_WITH_NOTES.** The outgoing-energy quadrature result is accepted within its stated scope; radial angular convergence remains open.
+

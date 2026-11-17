@@ -93,9 +93,9 @@ The ATLAS 2026 combination reports an inclusive Higgs event rate
 \[
 \mu_{\rm incl}=0.990^{+0.053}_{-0.051}.
 \]
-For an isolated singlet-mixed Higgs-like pole, assuming no nonstandard decays and universal doublet-coupling rescaling, \(\mu\simeq\cos^2\theta\). A one-sided Gaussian 95% lower estimate is \(\mu_{\min}\simeq0.906\), giving the illustrative condition
+For an isolated singlet-mixed Higgs-like pole, assuming no nonstandard decays and universal doublet-coupling rescaling, \(\mu\simeq\cos^2\theta\). A one-sided Gaussian 95% lower estimate is \(\mu_{\min}\simeq0.9061\), giving the illustrative condition
 \[
-\sin^2\theta\lesssim0.094,\qquad |\theta|\lesssim0.311\ {\rm rad}.
+\sin^2\theta\lesssim0.094,\qquad |\theta|\lesssim0.3114\ {\rm rad}.
 \]
 This is not a model-specific likelihood fit. It does not apply unchanged when the two poles overlap, when the second scalar contributes within the experimental mass resolution, or when exotic decays are open.
 
@@ -160,3 +160,11 @@ The technically correct response is not that loop-induced portal mixing is absen
 6. a complete allowed/excluded region is not claimed until the full gauge-complete propagator, tadpole/VEV prescription, scalar widths, and model-specific Higgs-search recast are completed.
 
 The original paper's low-energy EFT treatment may therefore be defended only as a stated non-degenerate, negligible-renormalized-portal benchmark. It must not be presented as a generic decoupling theorem or as valid throughout the full perturbative \(m_s\) interval.
+
+
+## 8. External experimental references and applicability
+
+- ATLAS Collaboration, [Combination of Higgs boson measurements at sqrt(s) = 13 TeV and their interpretations by the ATLAS experiment, arXiv:2608.07332](https://arxiv.org/abs/2608.07332) (2026). The paper reports the inclusive Higgs event rate \(\mu_{\rm incl}=0.990^{+0.053}_{-0.051}\), using up to 140 fb\(^{-1}\) at 13 TeV. The one-sided Gaussian lower estimate used above is an illustrative translation of this measured rate, not an ATLAS-provided model-independent mixing-angle limit.
+- ATLAS Collaboration, [Search for light neutral particles decaying promptly into collimated pairs of electrons or muons, arXiv:2407.09168](https://arxiv.org/abs/2407.09168), published in *European Physical Journal C* (2025), [doi:10.1140/epjc/s10052-025-13916-5](https://doi.org/10.1140/epjc/s10052-025-13916-5). The 95% CL branching-fraction range 0.001%–5% is mass- and signal-model-dependent and comes from the specified 13 TeV, 140 fb\(^{-1}\), prompt-collimated e/mu search. It is not a model-independent bound on this model's \(h\to A'A'\) rate.
+
+The references support the experimental inputs only. They do not replace a model-specific recast with the actual \(A'\) branching fractions, lifetime, collimation/acceptance and final-state composition.

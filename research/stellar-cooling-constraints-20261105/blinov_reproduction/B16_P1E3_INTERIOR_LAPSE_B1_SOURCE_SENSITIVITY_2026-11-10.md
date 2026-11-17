@@ -114,3 +114,16 @@ The strong-endpoint \(+92.26\%\) fixed-\(\omega\) B.1+B.2 mismatch remains a sep
 1. N. Blinov et al., *\(L_\mu-L_\tau\) gauge bosons in beam dumps and supernovae*, JHEP 06 (2026) 155, Sec. 4.1 and Appendix B, Eq. (B.1), https://doi.org/10.1007/JHEP06(2026)155.
 2. Z. Liu, *Supernova constraints on millicharged particles and lepton-flavor-violating axions*, 7th Joint Workshop on the Standard Model and Beyond, 2026-10-31, slide 65.
 3. R. Bollig et al., *Muons in Supernovae: Implications for the Axion-Muon Coupling*, arXiv:2005.07141v7.
+
+
+## 8. Independent review qualification (2026-11-15)
+
+The archived source-only scan gives the stated root shifts: matching the weak-end B.1 source would require increasing the lapse by approximately 6.03% over 8--15 km or 4.97% over 5--15 km. The independent public lapse visualization is only a few \(10^{-3}\) in absolute \(N\) away from the adopted reconstruction, so the required shift is not supported by the cited visual cross-check.
+
+This is a diagnostic deformation of the lapse in the B.1 measure and threshold, not a self-consistent family of supernova metrics: the matter profile, spatial metric, hydrostatic structure, and neutrino transport are not recomputed. It must not be interpreted as an allowed physical uncertainty band for \(N(r)\).
+
+A producer-version mismatch was found. The checked-in JavaScript file audit_b16_inner_lapse_b1_source_sensitivity.js uses a resolution_checks/conclusion payload, whereas the archived JSON records lower_resolution, higher_resolution, and conclusions. The archived profile fingerprint is the current 1687-row profile, but the current source file is not schema-identical to the archived output producer. No dedicated unit-test module for this V8 source-sensitivity calculation is present; the two-resolution result is retained as archived evidence with a producer-version caveat.
+
+The conclusion remains that the tested interior lapse normalization is not a supported explanation of the weak-end source deficit. No lapse, profile, source, opacity, coupling, Fig. 7 curve, or axial-vector output is changed.
+
+**Review disposition: PASS_WITH_NOTES.**

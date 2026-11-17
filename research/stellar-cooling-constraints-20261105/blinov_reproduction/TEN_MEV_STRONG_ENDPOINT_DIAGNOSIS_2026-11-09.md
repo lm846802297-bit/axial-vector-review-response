@@ -353,3 +353,16 @@ The push-triggered run [#42666123613](https://github.com/lm846802297-bit/axial-v
 - elapsed time about four seconds.
 
 The stricter validation code therefore has not run, and the physical phase-space calculation has not started. This is still an Actions runner-provisioning failure, not evidence of a code or numerical failure. No further automatic retries are warranted until runner provisioning is restored or the exact branch is run locally.
+
+## 17. 2026-11-16 update: V8 high-order phase-space result exists
+
+The statement in §16 that the physical phase-space calculation had not started is a historical 2026-11-10 checkpoint and is superseded by the archived V8 cross-runtime calculation. The high-order phase-space calculation has now been executed in a separate runtime, with:
+
+- escaped luminosity \(L_{\rm esc}=2.4396359574\times10^{52}\ {\rm erg\,s^{-1}}\);
+- Fig. 7 reference \(L_{\rm Fig.7}=1.2678147591\times10^{52}\ {\rm erg\,s^{-1}}\);
+- source-weighted escape fraction \(P_{\rm esc}=3.2517740\times10^{-4}\);
+- residual \(L_{\rm esc}/L_{\rm Fig.7}-1=+92.4284\%\).
+
+The result is archived in [the V8 cross-runtime audit](B16_ESCAPE_PHASE_SPACE_V8_CROSSCHECK_2026-11-10.md) and `outputs/b16_escape_phase_space_10mev_2026-11-10_v8_crosscheck.json`. It is a genuine high-order phase-space calculation, but **not strict Python/NumPy acceptance**: the JSON records `grid_hashes_match=false` and `status=cross_runtime_computation_not_strict_numpy_grid_acceptance`. It therefore does not satisfy the runbook's exact grid-identity gate.
+
+The strict Python artifact, pinned Python/NumPy/SciPy environment and an automated full joint-table closure checker remain outstanding. The 92.4284% residual remains a vector-baseline discrepancy; it is not a reason to rescale opacity or update the axial-vector curve. No production physics output was changed by this documentation update.

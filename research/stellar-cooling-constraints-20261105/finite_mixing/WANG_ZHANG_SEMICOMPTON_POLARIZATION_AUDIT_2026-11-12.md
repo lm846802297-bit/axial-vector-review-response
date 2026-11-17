@@ -2,7 +2,7 @@
 
 **Primary source:** Wang and Zhang, *Revisiting supernova constraints on dark gauge bosons*, arXiv:2610.35379v1, PDF pp. 30 and 45–46.  
 **Date:** 2026-11-12  
-**Status:** Equation numbering, integrated/differential algebra, positivity, vector Ward identities, and the soft-muon limit have been checked. The origin of the discrepancy in the printed Eqs. (5.9) and (B.6) is not yet identified. No production rate, opacity, transport result, manuscript, referee-response file, or published constraint figure is changed by this audit.
+**Status (updated 2026-11-16):** Direct longitudinal-projector and explicit-spinor checks have been completed on a 36-point grid. The literal printed \(u\)-channel ordering in (B.1b) violates the vector Ward identity; the direct \(P_L\) result also exposes an \(O(r)\) relative bias in the B.3 subtraction from recoil-order terms. The leading recoil laws are numerically extracted, but their complete symbolic derivation and the exact phase-space/Jacobian mapping remain open. The pure-vector Fig. 7 gate remains **NOT PASSED**. No production rate, opacity, transport result, manuscript, referee-response file, or published constraint figure is changed by this audit.
 
 ## 1. Scope and conventions
 
@@ -424,3 +424,14 @@ The \(O(x^2r)\) transverse residual in B.2 is of the same \(x\)-order as the phy
 - Machine-readable summary: [vector_longitudinal_direct_projector_summary_2026-11-12.json](thermal_integrals/outputs/vector_longitudinal_direct_projector_summary_2026-11-12.json).
 
 The local acceptance checks pass. These files do not change the production kernel, opacity, thermal integration, transport calculation, manuscript, referee response, or published constraint figure. The pure-vector Blinov Fig. 7 gate remains **NOT PASSED**. The next task is the symbolic derivation of the leading recoil terms and the exact phase-space/Jacobian mapping, not another broad parameter scan.
+
+## 12. Status update (2026-11-16): discrepancy diagnosis narrowed
+
+The direct-projector follow-up in §11 supersedes the earlier open checklist in §9 in two respects:
+
+1. **The printed (B.1b) ordering is now identified as a source-level inconsistency.** The literal same-order \(u\)-channel chain does not satisfy the outgoing-vector or incoming-photon Ward contraction. The crossed chain \(\gamma^\nu S_u\gamma^\mu\) does. This establishes what is inconsistent in the printed equation, but not which chain the authors used internally to obtain their later trace formulas.
+2. **The B.3 longitudinal subtraction is now diagnosed as recoil-order sensitive.** The direct \(P_L\) projection and 80-digit subtraction show that the residual is not just floating-point cancellation. The leading numerical patterns are \((B_2^{\rm paper}/T_{\rm exact})-1\simeq 2x^2r/(1+c^2)\) and \((B_3^{\rm paper}/L_{\rm direct})-1\simeq-2r/(1-c^2)\), but the complete symbolic finite-recoil expansion remains open.
+
+Accordingly, the remaining analytic work is narrower than the original §9 list: derive the leading recoil terms symbolically, derive the exact phase-space/Jacobian mapping, and determine whether the authors' internal trace calculation used the corrected crossed amplitude. Do not use the printed B.3 subtraction as a precision longitudinal kernel, and do not infer a corrected full finite-mass thermal rate from this local audit.
+
+This update changes only the status description. The published vector benchmark, production opacity, transport output, SN1987A limit and axial-vector constraint remain unchanged; the pure-vector Fig. 7 reproduction gate is still **NOT PASSED**.

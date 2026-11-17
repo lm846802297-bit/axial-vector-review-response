@@ -1,4 +1,4 @@
-# P1-IIIe-C4C1: exact outgoing-neutrino energy support
+# P1-IIIe-C4C1: outgoing-neutrino energy support with a 45T cutoff
 
 Date: 2026-11-11  
 PR: #57  
@@ -6,11 +6,11 @@ Branch: \`research/moving-muon-thermal-rates-20261107\`
 
 ## 1. Purpose
 
-C4-C1 removes the arbitrary finite \(E_\nu'\) integration window used in the C4-B2 local diagnostic. It determines the full outgoing-neutrino energy support allowed by the exact moving-nucleon kinematics and the same \(45T\) momentum-tail cutoff used in C4-B2. It then integrates the differential weak collision kernel over that support and measures, rather than assumes, the fraction captured by the old \(\pm60\) MeV window.
+C4-C1 removes the arbitrary finite \(E_\nu'\) integration window used in the C4-B2 local diagnostic. It determines the outgoing-neutrino energy interval allowed by the exact moving-nucleon kinematics **within the same \(45T\) initial-momentum cutoff** used in C4-B2. It then integrates the differential weak collision kernel over that support and measures, rather than assumes, the fraction captured by the old \(\pm60\) MeV window.
 
 The benchmark uses \(E_\nu=100\) MeV and \(\cos\theta=-0.5\), at \(r=0.20,\ 5.00,\ 10.00,\ 15.20\) km, for neutron/proton targets and neutrino/antineutrino. This gives 16 local rate cases and eight distinct kinematic support intervals (the support is independent of the neutrino/antineutrino label).
 
-## 2. Exact outgoing-energy support
+## 2. Kinematic support within the 45T momentum cutoff
 
 For each trial outgoing energy \(E_\nu'\), define
 \[
@@ -121,3 +121,14 @@ The \(\pm60\) MeV window is not a uniformly accurate approximation to the local 
 C4-C2 must now integrate over the complete outgoing-angle range, using the full \(E_\nu'\) support established here. The cold/dilute angle-integrated result must recover the total Horowitz cross section before any 301-radius total scattering rate or optical-depth calculation is attempted.
 
 The present C4-C1 result remains differential in outgoing angle and is not a total cross section, total opacity, radial transport solution, or luminosity.
+
+## 8. Independent physics review (2026-11-15)
+
+The roots of \(p_{\min}(E_\nu',\cos\theta;m_N^*)=p_{\max}\) are solved accurately for the stated truncated momentum domain. The support-root residuals and cold/dilute Horowitz comparison are strong checks of the implementation. The measured \(\pm60\) MeV fractions also correctly show that the old C4-B2 window is materially incomplete in several inner/intermediate cases.
+
+There is one terminology point that matters physically: a Fermi-Dirac distribution has an exponentially suppressed but nonzero tail at arbitrarily large momentum. Consequently, the finite interval found here is **not the exact mathematical support of the untruncated thermal distribution**. It is the exact kinematic outgoing-energy interval conditional on the declared \(45T\) initial-momentum cutoff. The document title and headings have been qualified accordingly.
+
+The \(45T\) tail is very conservative, but the archived calculation does not compare 40T, 45T, and 50T cutoffs. Before calling the energy integral numerically complete to a specified tolerance, perform that tail-cutoff convergence test on the most demanding inner and intermediate EOS states. The 48-versus-72 \(E_\nu'\) convergence test controls the energy quadrature at fixed cutoff; it does not control the omitted momentum tail.
+
+**Review outcome: PASS_WITH_NOTES.** The finite-cutoff kinematics and reported window fractions are internally consistent; the untruncated thermal-tail bound remains a separate numerical gate.
+

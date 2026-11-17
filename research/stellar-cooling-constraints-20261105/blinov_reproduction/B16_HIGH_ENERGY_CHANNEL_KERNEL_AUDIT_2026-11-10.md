@@ -82,7 +82,7 @@ The Compton share of the suppression is larger than its \(10.2\%\) share of the 
 
 ## 5. Independent local check of the high-energy neutrino kernel
 
-The analytic Eq. (B.25) Fermi-pair angular average is independently checked by direct numerical integration:
+The analytic Eq. (B.9) Fermi-pair angular average is independently checked by direct numerical integration:
 \[
 I(\mu,\omega,T)
 =\frac12\int_{-1}^{1}d\cos\vartheta\,
@@ -92,7 +92,7 @@ f\!\left(\frac{\omega}{2}(1-v\cos\vartheta),-\mu\right).
 
 The comparison covers \(r=8,10,12.5,15\) km, \(\omega=60,110,210,510,1010\) MeV, both \(\mu_{\nu_\mu}(r)\) and \(\mu=0\), and direct Gauss-Legendre orders 128, 256, 512, and 1024.
 
-| Direct angular order | Maximum absolute relative residual vs analytic Eq. (B.25) |
+| Direct angular order | Maximum absolute relative residual vs analytic Eq. (B.9) |
 |---:|---:|
 | 128 | \(2.89\times10^{-15}\) |
 | 256 | \(3.11\times10^{-15}\) |
@@ -146,3 +146,31 @@ The high-energy neutrino local kernel and chord quadrature are therefore not pla
 - The remaining limitation is physical/reproduction-level: the exact same-snapshot Garching thermodynamic profile is unavailable through the public archive endpoint, and the unpublished numerical implementation's B.2 energy interpretation cannot be established from the paper alone.
 
 The next useful action is a final source/provenance and equation-to-code reconciliation of the original Fig. 7 benchmark, not another increase in quadrature order. If no authorized same-snapshot profile becomes available, the residual mismatch must remain an explicitly documented reproduction limitation rather than being tuned away.
+
+
+## 7. Reproducibility addendum (2026-11-15)
+
+The paper's Fermi-pair angular-average expression is Eq. (B.9), not Eq. (B.25); the equation references in this record have been corrected accordingly. The production integrand uses the two neutrino occupation factors, while the corresponding absorption integral uses the blocking complements.
+
+A source review found that the initial `direct_pair_average()` helper in `audit_b16_channel_resolved_energy.py` had the signs of both `expit` arguments reversed. It evaluated `(1-f_1)(1-f_2)` rather than `f_1 f_2`. The helper is corrected to use `expit((mu-e1)/T) * expit((-mu-e2)/T)`.
+
+Four regression tests now compare this helper with the repository analytic pair average, the separate B.9 direct-angular implementation, and the published Eq. (B.9) closed form. They pass in pinned Python 3.12.14 / NumPy 2.5.4 / SciPy 1.18.1 workflow [#43646106550](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43646106550).
+
+The archived machine-readable channel result remains a direct V8 JavaScript calculation. It has no Python script hash and is not reclassified as a NumPy result. The full Python channel-resolved calculation has not yet been run to produce a separate strict NumPy JSON. The code correction affects the independent validation helper only; it does not alter the archived V8 output or any production source/opacity array.
+
+## 8. Strict NumPy full calculation (2026-11-15)
+
+The full channel-resolved B.1+B.2 calculation has now been executed in pinned Python 3.12.14 / NumPy 2.5.4 / SciPy 1.18.1. The strict NumPy output is archived at [b16_channel_resolved_energy_10mev_2026-11-15_numpy.json](outputs/b16_channel_resolved_energy_10mev_2026-11-15_numpy.json).
+
+- Output SHA-1 (Git blob): \`24d08768a059b7055ebdcc54dd457f8e2c59f0ed\`.
+- Script SHA-256: \`4b79e3fb21d5efb57bf834d9f168a9271831c9ae43becb9db5eb72e0ff73256e\`.
+- Run commit: \`83f36f06ae4d4442fa0a1faf5632a22d64a821b0\`.
+- Execution: [GitHub Actions #43647616434](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43647616434).
+
+The calculation uses source radial order 200, opacity radial order 640 (642 opacity nodes), 842 energy nodes, angular order 32, and path order 64. Against the archived V8 result:
+- integrated luminosity relative residual: \(9.22\times10^{-13}\);
+- escape-probability relative residual: \(8.35\times10^{-13}\);
+- source-weighted mean-\(\tau\) relative residual: \(1.75\times10^{-14}\);
+- neutrino and Compton source fractions agree to better than \(4\times10^{-14}\).
+
+This closes the previous missing-strict-NumPy-output qualification. The corrected direct Fermi-pair helper is independently covered by the four pinned regression tests; the complete channel result itself remains a separate full calculation, not merely a unit test. No source, opacity, coupling, or axial-vector constraint curve is modified.

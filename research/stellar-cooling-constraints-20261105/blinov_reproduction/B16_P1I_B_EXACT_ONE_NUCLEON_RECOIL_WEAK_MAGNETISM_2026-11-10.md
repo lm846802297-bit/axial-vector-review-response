@@ -69,9 +69,10 @@ and
 \sigma_E=\int(1-\eta)d\sigma.
 \]
 
-Here \(\sigma_{\rm ang}\) is Horowitz's conventional angular-transport moment. Horowitz notes that its strict interpretation assumes \(E'_\nu\simeq E_\nu\). The additional \(\sigma_{\rm mom}\) retains the outgoing momentum magnitude and is therefore a useful exact kinematic moment when recoil is appreciable.
+Here \(\sigma_{\rm ang}\) is Horowitz's conventional angular-transport moment. Horowitz notes that its strict interpretation assumes \(E'_\nu\simeq E_\nu\). The additional \(\sigma_{\rm mom}\) weights the **longitudinal** momentum transfer along the incident-neutrino direction, since \(1-\eta\cos\theta=(E_\nu-E'_
+u\cos\theta)/E_\nu=q_\parallel/E_\nu\). It is an exact longitudinal momentum-deposition moment when recoil is appreciable; it is not the magnitude moment \(\int |\mathbf q|/E_\nu\,d\sigma\).
 
-The energy-loss moment \(\sigma_E\) measures the energy deposited into a stationary target per unit path length, before medium thermal-motion and blocking corrections are included.
+The energy-loss moment \(\sigma_E\) measures the energy deposited into a stationary target per unit path length, before medium thermal-motion and blocking corrections are included. Accordingly, \(\sigma_E/\sigma_{\rm mom}\) compares energy transfer with the **longitudinal** momentum transfer, not with the magnitude of the full three-momentum transfer.
 
 An exact kinematic identity follows:
 \[
@@ -156,9 +157,9 @@ For the outer-profile temperature \(T=3.03\) MeV, the comparison with the exact 
 | 255 MeV | 0.2617 | 0.1735 | 0.1217 |
 | 500 MeV | 0.5225 | 0.2150 | 0.1232 |
 
-For this free-target comparison, the A31 estimate is close at 100 MeV but increasingly exceeds the exact energy-loss fraction at higher energies. At 500 MeV the ratios are approximately 2.43 for \(\nu n\) and 4.24 for \(\bar\nu n\).
+For this free-target comparison, the A31 estimate is close to the exact stationary-target energy-loss fraction at 100 MeV, but increasingly exceeds it at higher energies. At 500 MeV the ratios are approximately 2.43 for \(\nu n\) and 4.24 for \(\bar\nu n\). This high-energy comparison is a stress test of the approximation, not a direct validation of the FMT prescription.
 
-This does not prove that the Müller--Janka FMT prescription is incorrect in its intended supernova application. A31 includes a thermal-motion estimate, while the present calculation uses a stationary target and omits Pauli blocking and medium response. It does show that A31 should not be extrapolated uncritically to 500 MeV daughter neutrinos.
+Müller--Janka introduce A31 as a heuristic effective absorption opacity based on the estimated fractional energy transfer \(|E_\nu-3T|/(m_nc^2)\), where the \(3T\) term accounts for thermal motion. It is a small-recoil estimate, not an exact differential cross section or a general all-orders identity. At 100 MeV, \(E_\nu/M_N\simeq0.106\), so an order-of-magnitude comparison is meaningful; at 500 MeV, \(E_\nu/M_N\simeq0.53\), and the expansion is not controlled. The stationary-target calculation also omits thermal motion, Pauli blocking, and medium response. The comparison therefore demonstrates the breakdown of a first-order estimate at high energy, not an error in the original FMT scheme within its intended regime.
 
 ## 6. Independent validation
 
@@ -217,3 +218,10 @@ Do not update the literal B.2 \(R_{\max}=25\) km baseline, the pure-vector Fig. 
 2. B. Müller and H.-Th. Janka, “Non-radial instabilities and progenitor asphericities in core-collapse supernovae,” MNRAS 448, 2141 (2015), Appendix A, Eq. (A31), https://doi.org/10.1093/mnras/stv101.
 3. S. Hannestad and G. Raffelt, “Supernova Neutrino Opacity from Nucleon-Nucleon Bremsstrahlung and Related Processes,” ApJ 507, 339 (1998), https://arxiv.org/abs/astro-ph/9711132.
 4. M. Th. Keil, G. G. Raffelt, and H.-T. Janka, “Monte Carlo Study of Supernova Neutrino Spectra Formation,” ApJ 590, 971 (2003), https://arxiv.org/abs/astro-ph/0208035.
+
+## 9. Physics-review clarification (2026-11-15)
+
+The published Horowitz Eq. (26) defines the conventional angular transport moment with \(1-\cos\theta\) and explicitly notes that its transport interpretation is strict only for \(E'_\nu=E_\nu\). The additional moment used here is \(1-\eta\cos\theta\), which is the longitudinal momentum transfer divided by the incident energy. It is a useful exact kinematic moment, but it is not the magnitude of the three-momentum transfer. The document's terminology has been clarified accordingly.
+
+The Müller–Janka Eq. (A31) factor is an effective absorption-opacity estimate based on the approximate energy transfer fraction \(|E_\nu-3T|/(m_nc^2)\), not an exact scattering cross section. Its high-energy comparison with the exact stationary-target kernel is only a stress test of the small-recoil estimate; at \(E_\nu=500\) MeV, \(E_\nu/M_N\simeq0.53\), so the expansion is not controlled. This comparison must not be presented as a quantitative validation or refutation of the FMT prescription.
+

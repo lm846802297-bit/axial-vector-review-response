@@ -1,5 +1,7 @@
 # Global B.13 stage-A convergence audit: status (2026-11-09)
 
+> **Historical Stage-A snapshot (2026-11-15):** this is the cumulative 2026-11-09 record of B.13/B.16, B.1/B.2, local-kernel, and profile/metric checks. Subsequent full-profile B.13/B.2 work is recorded in PR #113, merged on 2026-11-14. The original full angular/path JSON archive was only partially recovered; consult the later PR for current full-profile energy-screen results. Same-snapshot GR metric and raw-profile fidelity remain external-data limitations, not grounds for rescaling. Axial constraint updates remain deferred until the pure-vector Fig. 7 gate passes.
+
 ## Scope
 
 This report records the numerical-convergence work for the 10 MeV pure-vector B.13 global transport benchmark. The physical collision kernels, fixed-\omega B.2 convention, SFHo-18.8 vertex-preserving profile, and interaction channels are held fixed. No empirical source/opacity/luminosity rescaling is applied. No production axial-vector curve or manuscript file is modified.
@@ -286,10 +288,10 @@ Full report: [B16_DENSE_LOCAL_KERNEL_AUDIT_2026-11-09.md](B16_DENSE_LOCAL_KERNEL
 ## 21. Full GR energy/path requirements and same-snapshot data availability: audited
 
 A full GR continuation of B.2 has been derived for a static spherical metric ds^2=-N(r)^2dt^2+A(r)^2dr^2+r^2dOmega^2. The local energy follows the conserved Killing energy, omega_loc(r')=E_infinity/N(r'), while the proper path element and geodesic bending require A(r) or an enclosed-mass profile M(r). The optical-depth integrand on an outward radial segment is
-[
+\[
 d\tau=dr'\,A(r')\frac{\omega_{\rm loc}(r')}{p_{\hat r}(r')}
 \Gamma_{\rm abs}^*(r',\omega_{\rm loc}(r')).
-]
+\]
 
 The current public-figure profile supplies a reconstructed lapse N(r), but no same-snapshot A(r), enclosed mass M(r), or complete hydro profile. The Garching archive explicitly states that some archives are password protected; the listed Bollig/Hüdepohl hydro-profile endpoint returns HTTP 401 Unauthorized. No access restriction is bypassed and no substitute model is introduced.
 

@@ -56,7 +56,7 @@ The neutrino part of the 8--15 km B.1 source has mode fractions:
 
 The scalar Compton source contributes 33.2817% of the selected total source. Since the B.14--B.16 scalar approximation does not provide a mode-resolved Compton source, the full-source mode-resolved diagnostic splits this Compton source equally among \(L,+,-\). This is an explicit diagnostic assumption, not a new derivation of the Compton polarization density matrix.
 
-The outer-shell Compton opacity is zero at the numerical precision of this benchmark. The outer-shell attenuation is therefore controlled by neutrino inverse decay.
+The outer-shell Compton contribution is nonzero but numerically negligible. In the later vertex-preserving full-path decomposition for the same 8--15 km source and 10 MeV strong endpoint, the source-weighted 22--25 km Compton path column is \(0.7934817\) per \(g_X^2\), whereas the combined \(\nu_\mu+\nu_\tau\) inverse-decay column is \(1.5633324\times10^{15}\) per \(g_X^2\); their ratio is \(5.0756\times10^{-16}\). The supporting current-profile result is archived in outputs/b16_inner_path_channel_directional_vertex_preserving_10mev_2026-11-09.json. Thus the outer-shell attenuation is numerically controlled by neutrino inverse decay, but the Compton column is not exactly zero. This correction changes only the interpretation of a negligible channel; it does not alter the mode-resolved rate or the scalar-versus-mode comparison reported here.
 
 ## 4. Scalar versus mode-resolved propagation
 

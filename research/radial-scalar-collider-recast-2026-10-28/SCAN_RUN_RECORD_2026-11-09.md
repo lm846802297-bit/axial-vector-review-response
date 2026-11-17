@@ -1,5 +1,8 @@
 # Regenerated Belle II radial-scalar width scan — 2026-11-09
 
+> **Archive comparison (2026-11-14):** commit `9ae7955f6b2a6d3f8112b1f3772889bb54f58a56` contains the earlier scan documented below: its decompressed CSV hash is `67ec36a5…`, its source commit is `4e90cd9…`, and its log records 58 tests. The current archive instead records hash `5d5f0ce3…`, source commit `b362de7…` and 69 tests. Both CSVs have 73,728 rows and identical headers; only the two four-muon width/resolution bound columns differ in 70,656 rows. The earlier finite bounds are reversed while the current bounds are ordered. Source diff shows the relevant bound-selection change. See the [comparison audit](../../docs/repository-management/MANIFEST_REVIEW_2026-11-14.md). The old run record is preserved; it is not the provenance record for the current archive.
+
+
 **PR:** #68  
 **Workflow:** https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42560249275  
 **Source commit:** 4e90cd971e5cd3264294958f261bd9ce05825e01  

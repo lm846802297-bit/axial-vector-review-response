@@ -81,14 +81,14 @@ The accompanying SymPy script independently verifies all five symmetry-weighted 
 ## 6. Independent effective-potential cross-check and portal-squared order
 
 In the real-field basis (H\to4) components and (S\to2) components, the background-dependent scalar mass matrix gives
-[
+\[
 [\operatorname{Tr}{\cal M}_{\rm scal}^4]_{(H^\dagger H)(S^\dagger S)}
 =2\lambda_{HS}(3\lambda_H+\lambda_{HS}+2\lambda_S).
-]
+\]
 The corresponding scalar-only one-loop portal counterterm is
-[
+\[
 \delta\lambda_{HS}^{\rm scalar}
 =\frac{\lambda_{HS}}{16\pi^2\bar\epsilon}
 (6\lambda_H+2\lambda_{HS}+4\lambda_S).
-]
+\]
 Its term linear in (lambda_{HS}) agrees with the A3a bubble pole. The additional (2\lambda_{HS}^2) term comes from diagrams with two portal insertions and is beyond the adopted combined truncation (lambda_{HS}=O(\hbar)) when retaining only (O(\hbar^2)). It must be restored if the portal is treated as an ordinary independent tree-level coupling rather than a loop-sized matching parameter.

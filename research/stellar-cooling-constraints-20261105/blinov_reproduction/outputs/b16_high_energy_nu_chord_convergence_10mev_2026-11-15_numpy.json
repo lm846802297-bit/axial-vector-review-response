@@ -1,0 +1,1824 @@
+{
+  "result": {
+    "cases": [
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 12.397646618129171,
+          "256": 12.397592593607367,
+          "32": 12.39733885375739,
+          "64": 12.397393456825455
+        }
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 7.433825519082207,
+          "256": 7.43380771075081,
+          "32": 7.433723955187668,
+          "64": 7.43373714039117
+        }
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 3.3445546384572307,
+          "256": 3.3445515546372326,
+          "32": 3.344536991284065,
+          "64": 3.344539212109936
+        }
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 11.002377439244361,
+          "256": 11.002354400263819,
+          "32": 11.002375530434,
+          "64": 11.002286201317862
+        }
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 6.441672825437942,
+          "256": 6.4416657462922995,
+          "32": 6.441672844330004,
+          "64": 6.4416422039003285
+        }
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 2.8530350873287063,
+          "256": 2.8530338828602924,
+          "32": 2.8530351620565653,
+          "64": 2.8530298124320663
+        }
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 9.618235583575576,
+          "256": 9.61821754674506,
+          "32": 9.618265144369907,
+          "64": 9.618175257462749
+        }
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 5.544908596747196,
+          "256": 5.544902567186184,
+          "32": 5.544915501535284,
+          "64": 5.544888507080191
+        }
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 2.4312257227729424,
+          "256": 2.4312246779640416,
+          "32": 2.431226853293865,
+          "64": 2.4312222267663466
+        }
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 9.094053360824986,
+          "256": 9.09406284388169,
+          "32": 9.093924999349193,
+          "64": 9.094062852913169
+        }
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 5.220078904910568,
+          "256": 5.220081481298302,
+          "32": 5.220034979115562,
+          "64": 5.220083965573538
+        }
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 2.2824392716238107,
+          "256": 2.2824397024683525,
+          "32": 2.282431645759528,
+          "64": 2.2824401801809193
+        }
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 12.75725922822111,
+          "256": 12.757236302720475,
+          "32": 12.7573754434924,
+          "64": 12.75714981126553
+        }
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 7.522897666971675,
+          "256": 7.522891380401185,
+          "32": 7.522932320306273,
+          "64": 7.522867154224378
+        }
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 3.3422068659366952,
+          "256": 3.3422058060413082,
+          "32": 3.342212780175861,
+          "64": 3.3422017019095867
+        }
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 10.879410302566486,
+          "256": 10.879408105474754,
+          "32": 10.879463272336768,
+          "64": 10.87938849312297
+        }
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 6.2344322729089,
+          "256": 6.234431739025913,
+          "32": 6.234446285759765,
+          "64": 6.234426247111767
+        }
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 2.719392241741013,
+          "256": 2.719392153188382,
+          "32": 2.7193946106063955,
+          "64": 2.7193912239161095
+        }
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 9.055225979130302,
+          "256": 9.055234260548715,
+          "32": 9.05517347073604,
+          "64": 9.055228351010072
+        }
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 5.114214754635743,
+          "256": 5.114217115584905,
+          "32": 5.114200925048479,
+          "64": 5.1142153894122995
+        }
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 2.2107514655408185,
+          "256": 2.2107518650639184,
+          "32": 2.2107491334048666,
+          "64": 2.2107515741320767
+        }
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 8.404144236418741,
+          "256": 8.404153004974376,
+          "32": 8.404239622851934,
+          "64": 8.404134388872746
+        }
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 4.729544517051067,
+          "256": 4.729547066917964,
+          "32": 4.72957011287338,
+          "64": 4.729542121984541
+        }
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 2.039967367937599,
+          "256": 2.039967800487208,
+          "32": 2.039971697548896,
+          "64": 2.03996696430114
+        }
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 13.318540019777997,
+          "256": 13.318542740802053,
+          "32": 13.318718679454744,
+          "64": 13.318533310582431
+        }
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 7.616634878534821,
+          "256": 7.616635801737364,
+          "32": 7.616684095034402,
+          "64": 7.6166336114761055
+        }
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 3.313912003485315,
+          "256": 3.3139121608657574,
+          "32": 3.3139203330073865,
+          "64": 3.3139117944343623
+        }
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 10.552016503901042,
+          "256": 10.552018831313452,
+          "32": 10.551996231565372,
+          "64": 10.552055254987298
+        }
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 5.87020145451297,
+          "256": 5.870201984722265,
+          "32": 5.870195379625099,
+          "64": 5.870212332936143
+        }
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 2.512140243071171,
+          "256": 2.5121403324711142,
+          "32": 2.5121392114745444,
+          "64": 2.512142085331389
+        }
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 8.165570884092636,
+          "256": 8.165555282513068,
+          "32": 8.165518841703637,
+          "64": 8.165546801168382
+        }
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 4.496602132025751,
+          "256": 4.4965978741954995,
+          "32": 4.496587868725945,
+          "64": 4.496595549455437
+        }
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 1.9126198537529573,
+          "256": 1.9126191331990665,
+          "32": 1.9126174390999078,
+          "64": 1.912618739366735
+        }
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 7.39271350548115,
+          "256": 7.392721548082635,
+          "32": 7.39269720939615,
+          "64": 7.392717475550616
+        }
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 4.06244426114104,
+          "256": 4.062446406198179,
+          "32": 4.0624400563980805,
+          "64": 4.062445120014522
+        }
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 322,
+        "opacity_order": 320,
+        "tau_by_path_order": {
+          "128": 1.7257653791388337,
+          "256": 1.7257657420047254,
+          "32": 1.7257646686150276,
+          "64": 1.7257655237337255
+        }
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 12.39755137507898,
+          "256": 12.397575531052636,
+          "32": 12.39734153704974,
+          "64": 12.397425299641476
+        }
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 7.433793117202515,
+          "256": 7.433799610035352,
+          "32": 7.43372225091968,
+          "64": 7.433748964480441
+        }
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 3.3445490021266546,
+          "256": 3.3445500843715665,
+          "32": 3.3445366524368327,
+          "64": 3.3445412787938524
+        }
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 11.002381106516694,
+          "256": 11.0023736349449,
+          "32": 11.002356016763196,
+          "64": 11.002362901753417
+        }
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 6.441674276480064,
+          "256": 6.441671782645046,
+          "32": 6.441666548726111,
+          "64": 6.441668296485528
+        }
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 2.853035344497129,
+          "256": 2.8530349102949657,
+          "32": 2.8530341111572604,
+          "64": 2.8530343221126246
+        }
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 9.61821654845815,
+          "256": 9.618222408028112,
+          "32": 9.618275860049758,
+          "64": 9.618255906284219
+        }
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 5.5449035923459915,
+          "256": 5.5449048968404675,
+          "32": 5.544915816456416,
+          "64": 5.5449131050133555
+        }
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 2.4312248720109495,
+          "256": 2.431225088533638,
+          "32": 2.431226810488683,
+          "64": 2.43122644923524
+        }
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 9.09405752245176,
+          "256": 9.094077221982142,
+          "32": 9.0939718321212,
+          "64": 9.094082318933754
+        }
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 5.220080586422124,
+          "256": 5.220086000740378,
+          "32": 5.220049875820008,
+          "64": 5.220090710047949
+        }
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 2.2824395547177696,
+          "256": 2.282440472190441,
+          "32": 2.2824342031692506,
+          "64": 2.2824413386340616
+        }
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 12.757272869433987,
+          "256": 12.757294671951804,
+          "32": 12.757449414998499,
+          "64": 12.757202339658317
+        }
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 7.52290547469814,
+          "256": 7.522911421168936,
+          "32": 7.5229568769251935,
+          "64": 7.522885237142241
+        }
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 3.342208267642803,
+          "256": 3.342209273303494,
+          "32": 3.3422170018835287,
+          "64": 3.3422048287255333
+        }
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 10.879427201497078,
+          "256": 10.879426617929369,
+          "32": 10.879471824666156,
+          "64": 10.879427337599576
+        }
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 6.234438812689592,
+          "256": 6.2344387224257165,
+          "32": 6.234450277955899,
+          "64": 6.234438859644363
+        }
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 2.719393377975932,
+          "256": 2.719393363809568,
+          "32": 2.719395312327822,
+          "64": 2.7193933879119263
+        }
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 9.05524564981402,
+          "256": 9.055248145869081,
+          "32": 9.055162697523079,
+          "64": 9.055253994465138
+        }
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 5.114221548070091,
+          "256": 5.114222256796483,
+          "32": 5.1141996913797305,
+          "64": 5.114223618395342
+        }
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 2.2107526317245876,
+          "256": 2.210752752579758,
+          "32": 2.2107489372643663,
+          "64": 2.210752980659169
+        }
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 8.404164463733352,
+          "256": 8.404170524398966,
+          "32": 8.404268573236497,
+          "64": 8.404154060374418
+        }
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 4.729551381993749,
+          "256": 4.729553113619176,
+          "32": 4.729579271030834,
+          "64": 4.729548578594914
+        }
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 2.0399685454651078,
+          "256": 2.039968839491934,
+          "32": 2.039973259278508,
+          "64": 2.0399680722114417
+        }
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 13.318556615366116,
+          "256": 13.318561373605212,
+          "32": 13.318780412882377,
+          "64": 13.318515773242174
+        }
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 7.616642627425925,
+          "256": 7.616643808312686,
+          "32": 7.61670477895167,
+          "64": 7.616631331257215
+        }
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 3.3139133402110574,
+          "256": 3.3139135389914154,
+          "32": 3.3139238618295868,
+          "64": 3.3139114267495344
+        }
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 10.552053487680542,
+          "256": 10.552045455143595,
+          "32": 10.551954099909048,
+          "64": 10.55204899264912
+        }
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 5.870213286584229,
+          "256": 5.870211165402553,
+          "32": 5.8701861551804795,
+          "64": 5.870212078196468
+        }
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 2.5121422550792136,
+          "256": 2.5121418962643913,
+          "32": 2.5121376631598094,
+          "64": 2.512142050298306
+        }
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 8.165572543523618,
+          "256": 8.16558113381724,
+          "32": 8.165552407639185,
+          "64": 8.165594623343807
+        }
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 4.496603579564649,
+          "256": 4.496605915473286,
+          "32": 4.4965980463656,
+          "64": 4.496609616111453
+        }
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 1.91262010354169,
+          "256": 1.9126204988223807,
+          "32": 1.9126191671284067,
+          "64": 1.9126211253011318
+        }
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 7.392761550781172,
+          "256": 7.392740687002213,
+          "32": 7.39270300529163,
+          "64": 7.392750771693365
+        }
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 4.062458073245793,
+          "256": 4.062452418401795,
+          "32": 4.062442104116858,
+          "64": 4.06245520904334
+        }
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 642,
+        "opacity_order": 640,
+        "tau_by_path_order": {
+          "128": 1.7257677201538648,
+          "256": 1.7257667632925409,
+          "32": 1.725765017656662,
+          "64": 1.7257672357023632
+        }
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 12.397562027251055,
+          "256": 12.397580332732446,
+          "32": 12.397352553568293,
+          "64": 12.397424444738958
+        }
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 7.433796696579057,
+          "256": 7.433801376767958,
+          "32": 7.433726174024299,
+          "64": 7.4337475316232755
+        }
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 3.344549625238947,
+          "256": 3.344550398201057,
+          "32": 3.3445373382102273,
+          "64": 3.344541008753018
+        }
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 11.002375533360112,
+          "256": 11.002370770190101,
+          "32": 11.002368054384759,
+          "64": 11.002324446653809
+        }
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 6.441672468094955,
+          "256": 6.441670666173313,
+          "32": 6.441670312133477,
+          "64": 6.441654721230235
+        }
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 2.8530350272246365,
+          "256": 2.853034712312476,
+          "32": 2.8530347545652623,
+          "64": 2.8530319429705244
+        }
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 9.618229917683182,
+          "256": 9.618222208789721,
+          "32": 9.618280390959972,
+          "64": 9.618226540891678
+        }
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 5.544907859371013,
+          "256": 5.5449049034799796,
+          "32": 5.544917936473502,
+          "64": 5.544903551256126
+        }
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 2.4312256062221187,
+          "256": 2.431225088658741,
+          "32": 2.431227189204801,
+          "64": 2.431224790145295
+        }
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 9.094056199260228,
+          "256": 9.094080940674928,
+          "32": 9.093968752530015,
+          "64": 9.094086545542757
+        }
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 5.220080370385429,
+          "256": 5.220087135142988,
+          "32": 5.220048676273375,
+          "64": 5.2200922129508935
+        }
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 2.2824395219023286,
+          "256": 2.2824406643824298,
+          "32": 2.282433997406784,
+          "64": 2.282441600753006
+        }
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 12.757284643882782,
+          "256": 12.757290528641628,
+          "32": 12.757398640554792,
+          "64": 12.757206269321147
+        }
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 7.522909400584082,
+          "256": 7.522911034821611,
+          "32": 7.522943469174919,
+          "64": 7.522887363409524
+        }
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 3.342208943839798,
+          "256": 3.3422092216606836,
+          "32": 3.3422147443585626,
+          "64": 3.342205210233396
+        }
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 10.879430978234007,
+          "256": 10.879432078012815,
+          "32": 10.879471292209594,
+          "64": 10.879424804283424
+        }
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 6.234440348723876,
+          "256": 6.234440663435715,
+          "32": 6.234450715111704,
+          "64": 6.234438616845168
+        }
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 2.719393645316667,
+          "256": 2.719393698728158,
+          "32": 2.719395395313505,
+          "64": 2.719393352616593
+        }
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 9.055254292206499,
+          "256": 9.05525153105722,
+          "32": 9.05517514608914,
+          "64": 9.05526113168515
+        }
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 5.114224263817845,
+          "256": 5.114223532397592,
+          "32": 5.114203342733333,
+          "64": 5.114225845847328
+        }
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 2.210753096062262,
+          "256": 2.210752972293527,
+          "32": 2.2107495596070965,
+          "64": 2.210753361648704
+        }
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 8.404165079285963,
+          "256": 8.404174260456216,
+          "32": 8.404269308395138,
+          "64": 8.404162622161321
+        }
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 4.729551862698754,
+          "256": 4.729554394916032,
+          "32": 4.729579607274325,
+          "64": 4.729551220276114
+        }
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 2.039968630409736,
+          "256": 2.0399690593881714,
+          "32": 2.039973318417716,
+          "64": 2.0399685224299535
+        }
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 13.318560377604479,
+          "256": 13.318569901997003,
+          "32": 13.318789543433185,
+          "64": 13.31853430325016
+        }
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 7.616644397978776,
+          "256": 7.616646992662333,
+          "32": 7.6167079072905794,
+          "64": 7.616637262200954
+        }
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 3.3139136450469917,
+          "256": 3.313914084165539,
+          "32": 3.3139243960337357,
+          "64": 3.313912437545609
+        }
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 10.552070293654133,
+          "256": 10.552055321487764,
+          "32": 10.55197330798499,
+          "64": 10.552055353033245
+        }
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 5.870218443788124,
+          "256": 5.870214354872399,
+          "32": 5.870192007855705,
+          "64": 5.870214380357585
+        }
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 2.5121431307658577,
+          "256": 2.512142438665476,
+          "32": 2.512138656645925,
+          "64": 2.5121424429528454
+        }
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 8.165585185438253,
+          "256": 8.165583980216667,
+          "32": 8.165558103184658,
+          "64": 8.165609728312182
+        }
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 4.496607274105728,
+          "256": 4.496606950780559,
+          "32": 4.496599880681503,
+          "64": 4.496613999124155
+        }
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 1.9126207299538471,
+          "256": 1.9126206752476709,
+          "32": 1.9126194788104076,
+          "64": 1.9126218682008975
+        }
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 110.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 7.392762925212633,
+          "256": 7.392743682898519,
+          "32": 7.39270265252304,
+          "64": 7.392750544817197
+        }
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 210.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 4.062458685551504,
+          "256": 4.062453434368209,
+          "32": 4.062442201347859,
+          "64": 4.062455293481913
+        }
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 510.0,
+        "opacity_grid_node_count": 1282,
+        "opacity_order": 1280,
+        "tau_by_path_order": {
+          "128": 1.7257678248651094,
+          "256": 1.7257669361163095,
+          "32": 1.7257650348123728,
+          "64": 1.7257672506985429
+        }
+      }
+    ],
+    "channel": "neutrino inverse decay only",
+    "cos_theta": [
+      -0.25,
+      0.25,
+      0.75,
+      0.95
+    ],
+    "coupling": 4.171689650228597e-08,
+    "energies_MeV": [
+      110.0,
+      210.0,
+      510.0
+    ],
+    "energy_convention": "fixed omega along the full Eq. (B.2) chord",
+    "execution": {
+      "engine": "Python/NumPy reference implementation",
+      "fig7_sha256": "3eb1121da175d89da54a19abbdf0c52669a239be464978ddcfe84887e4d18d06",
+      "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
+    },
+    "interpretation": [
+      "This isolates the neutrino inverse-decay B.2 chord integral.",
+      "The opacity radial grid and path quadrature are varied independently.",
+      "It is a targeted local-ray convergence diagnostic, not a new global luminosity calculation.",
+      "No source, profile, opacity prescription, or axial-vector result is changed."
+    ],
+    "mass_MeV": 10.0,
+    "maximum_absolute_relative_refinement": {
+      "opacity_320_to_640_at_path256": 4.575382155147523e-06,
+      "opacity_640_to_1280_at_path256": 9.350172163191672e-07,
+      "path_128_to_256_at_opacity640": 2.8221901674507777e-06,
+      "path_32_to_64_at_opacity640": 1.9869660134008704e-05,
+      "path_64_to_128_at_opacity640": 1.0169485554989421e-05
+    },
+    "opacity_orders": [
+      320,
+      640,
+      1280
+    ],
+    "path_orders": [
+      32,
+      64,
+      128,
+      256
+    ],
+    "refinements": [
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 110.0,
+        "opacity_320_to_640_at_path256": -1.3762796770011576e-06,
+        "opacity_640_to_1280_at_path256": 3.8730796969588255e-07,
+        "path_128_to_256_at_opacity640": 1.948447150956767e-06,
+        "path_32_to_64_at_opacity640": 6.75649626047381e-06,
+        "path_64_to_128_at_opacity640": 1.0169485554989421e-05
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 210.0,
+        "opacity_320_to_640_at_path256": -1.089712805768528e-06,
+        "opacity_640_to_1280_at_path256": 2.3766212420284205e-07,
+        "path_128_to_256_at_opacity640": 8.734212446626088e-07,
+        "path_32_to_64_at_opacity640": 3.5935645508189396e-06,
+        "path_64_to_128_at_opacity640": 5.939495977713705e-06
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 510.0,
+        "opacity_320_to_640_at_path256": -4.396002399875698e-07,
+        "opacity_640_to_1280_at_path256": 9.383309640398352e-08,
+        "path_128_to_256_at_opacity640": 3.235847079174903e-07,
+        "path_32_to_64_at_opacity640": 1.3832579817130153e-06,
+        "path_64_to_128_at_opacity640": 2.3092353056419768e-06
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 110.0,
+        "opacity_320_to_640_at_path256": 1.7482331855500632e-06,
+        "opacity_640_to_1280_at_path256": -2.6037606926099244e-07,
+        "path_128_to_256_at_opacity640": -6.790868013473172e-07,
+        "path_32_to_64_at_opacity640": 6.257741713699971e-07,
+        "path_64_to_128_at_opacity640": 1.654623051461357e-06
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 210.0,
+        "opacity_320_to_640_at_path256": 9.370794735730215e-07,
+        "opacity_640_to_1280_at_path256": -1.7332018309446084e-07,
+        "path_128_to_256_at_opacity640": -3.8714081318502735e-07,
+        "path_32_to_64_at_opacity640": 2.7132100099969136e-07,
+        "path_64_to_128_at_opacity640": 9.283300941298478e-07
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 510.0,
+        "opacity_320_to_640_at_path256": 3.601200391223358e-07,
+        "opacity_640_to_1280_at_path256": -6.939364427527295e-08,
+        "path_128_to_256_at_opacity640": -1.5218954929618889e-07,
+        "path_32_to_64_at_opacity640": 7.394070866695301e-08,
+        "path_64_to_128_at_opacity640": 3.583498791037698e-07
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 110.0,
+        "opacity_320_to_640_at_path256": 5.054245268976132e-07,
+        "opacity_640_to_1280_at_path256": -2.071467919417813e-08,
+        "path_128_to_256_at_opacity640": 6.09215849101119e-07,
+        "path_32_to_64_at_opacity640": -2.0745678154243663e-06,
+        "path_64_to_128_at_opacity640": -4.0919919840343155e-06
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 210.0,
+        "opacity_320_to_640_at_path256": 4.201434120609804e-07,
+        "opacity_640_to_1280_at_path256": 1.1974077285259455e-09,
+        "path_128_to_256_at_opacity640": 2.3526008230412288e-07,
+        "path_32_to_64_at_opacity640": -4.889962534893044e-07,
+        "path_64_to_128_at_opacity640": -1.7155665352763805e-06
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 510.0,
+        "opacity_320_to_640_at_path256": 1.6887357223716037e-07,
+        "opacity_640_to_1280_at_path256": 5.145683878993168e-11,
+        "path_128_to_256_at_opacity640": 8.905909565370962e-08,
+        "path_32_to_64_at_opacity640": -1.485889516983363e-07,
+        "path_64_to_128_at_opacity640": -6.487360693085975e-07
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 110.0,
+        "opacity_320_to_640_at_path256": 1.5810425655349292e-06,
+        "opacity_640_to_1280_at_path256": 4.089137024543277e-07,
+        "path_128_to_256_at_opacity640": 2.166198128206176e-06,
+        "path_32_to_64_at_opacity640": 1.2149456210419629e-05,
+        "path_64_to_128_at_opacity640": -2.726661264440544e-06
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 210.0,
+        "opacity_320_to_640_at_path256": 8.657799868139193e-07,
+        "opacity_640_to_1280_at_path256": 2.1731492738652491e-07,
+        "path_128_to_256_at_opacity640": 1.0372097067889996e-06,
+        "path_32_to_64_at_opacity640": 7.822574288107731e-06,
+        "path_64_to_128_at_opacity640": -1.9393582195714743e-06
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 8.0,
+        "energy_MeV": 510.0,
+        "opacity_320_to_640_at_path256": 3.3723654913053736e-07,
+        "opacity_640_to_1280_at_path256": 8.420460062552593e-08,
+        "path_128_to_256_at_opacity640": 4.019701944635301e-07,
+        "path_32_to_64_at_opacity640": 3.126252139606933e-06,
+        "path_64_to_128_at_opacity640": -7.815825370238727e-07
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 110.0,
+        "opacity_320_to_640_at_path256": 4.575382155147523e-06,
+        "opacity_640_to_1280_at_path256": -3.2477968747723907e-07,
+        "path_128_to_256_at_opacity640": 1.7090265325148124e-06,
+        "path_32_to_64_at_opacity640": -1.936714245498461e-05,
+        "path_64_to_128_at_opacity640": 5.528624050343822e-06
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 210.0,
+        "opacity_320_to_640_at_path256": 2.663971435667989e-06,
+        "opacity_640_to_1280_at_path256": -5.135609115747286e-08,
+        "path_128_to_256_at_opacity640": 7.90448692500334e-07,
+        "path_32_to_64_at_opacity640": -9.522822491780936e-06,
+        "path_64_to_128_at_opacity640": 2.6901322114358805e-06
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 510.0,
+        "opacity_320_to_640_at_path256": 1.0374173187166491e-06,
+        "opacity_640_to_1280_at_path256": -1.545169858729878e-08,
+        "path_128_to_256_at_opacity640": 3.008970748119566e-07,
+        "path_32_to_64_at_opacity640": -3.642240461454449e-06,
+        "path_64_to_128_at_opacity640": 1.028936718716622e-06
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 110.0,
+        "opacity_320_to_640_at_path256": 1.7016049433937752e-06,
+        "opacity_640_to_1280_at_path256": 5.018723538974257e-07,
+        "path_128_to_256_at_opacity640": -5.363956201431819e-08,
+        "path_32_to_64_at_opacity640": -4.089083302627472e-06,
+        "path_64_to_128_at_opacity640": -1.2510079194782975e-08
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 210.0,
+        "opacity_320_to_640_at_path256": 1.1201341350020044e-06,
+        "opacity_640_to_1280_at_path256": 3.1133676725580983e-07,
+        "path_128_to_256_at_opacity640": -1.4478267917894527e-08,
+        "path_32_to_64_at_opacity640": -1.8314865027901917e-06,
+        "path_64_to_128_at_opacity640": -7.531515189285187e-09
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 510.0,
+        "opacity_320_to_640_at_path256": 4.45180804220513e-07,
+        "opacity_640_to_1280_at_path256": 1.231593025341482e-07,
+        "path_128_to_256_at_opacity640": -5.2093839242317586e-09,
+        "path_32_to_64_at_opacity640": -7.0766316573323e-07,
+        "path_64_to_128_at_opacity640": -3.653753966048612e-09
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 110.0,
+        "opacity_320_to_640_at_path256": 1.5334026670643652e-06,
+        "opacity_640_to_1280_at_path256": 3.7383714768246534e-07,
+        "path_128_to_256_at_opacity640": 2.7564741555963224e-07,
+        "path_32_to_64_at_opacity640": 1.0082308304015797e-05,
+        "path_64_to_128_at_opacity640": -9.215259033634737e-07
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 210.0,
+        "opacity_320_to_640_at_path256": 1.0052783174785418e-06,
+        "opacity_640_to_1280_at_path256": 2.4942230614222183e-07,
+        "path_128_to_256_at_opacity640": 1.3857952474438662e-07,
+        "path_32_to_64_at_opacity640": 4.678545433289827e-06,
+        "path_64_to_128_at_opacity640": -4.0481711505169216e-07
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 510.0,
+        "opacity_320_to_640_at_path256": 4.0145429869298255e-07,
+        "opacity_640_to_1280_at_path256": 9.93841435814602e-08,
+        "path_128_to_256_at_opacity640": 5.4666980275897004e-08,
+        "path_32_to_64_at_opacity640": 1.8289705965290892e-06,
+        "path_64_to_128_at_opacity640": -1.5783517393064272e-07
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 110.0,
+        "opacity_320_to_640_at_path256": 2.084615139619217e-06,
+        "opacity_640_to_1280_at_path256": 4.445480061843199e-07,
+        "path_128_to_256_at_opacity640": 7.211502868198494e-07,
+        "path_32_to_64_at_opacity640": -1.362555956896383e-05,
+        "path_64_to_128_at_opacity640": 1.2378829397086122e-06
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 210.0,
+        "opacity_320_to_640_at_path256": 1.2784947749366893e-06,
+        "opacity_640_to_1280_at_path256": 2.709128801292593e-07,
+        "path_128_to_256_at_opacity640": 3.661288963119347e-07,
+        "path_32_to_64_at_opacity640": -6.489464318470972e-06,
+        "path_64_to_128_at_opacity640": 5.92741313365508e-07
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 10.0,
+        "energy_MeV": 510.0,
+        "opacity_320_to_640_at_path256": 5.093240815767786e-07,
+        "opacity_640_to_1280_at_path256": 1.0779391956816653e-07,
+        "path_128_to_256_at_opacity640": 1.4413301974158799e-07,
+        "path_32_to_64_at_opacity640": -2.542713264719332e-06,
+        "path_64_to_128_at_opacity640": 2.3199072196611326e-07
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 110.0,
+        "opacity_320_to_640_at_path256": 1.3990121532359012e-06,
+        "opacity_640_to_1280_at_path256": 6.403388137510291e-07,
+        "path_128_to_256_at_opacity640": 3.5726387115353475e-07,
+        "path_32_to_64_at_opacity640": -1.9869660134008704e-05,
+        "path_64_to_128_at_opacity640": 3.0665672239305053e-06
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 210.0,
+        "opacity_320_to_640_at_path256": 1.0511957679870676e-06,
+        "opacity_640_to_1280_at_path256": 4.1807779482816443e-07,
+        "path_128_to_256_at_opacity640": 1.5504032657709388e-07,
+        "path_32_to_64_at_opacity640": -9.642975090429218e-06,
+        "path_64_to_128_at_opacity640": 1.4830924877085039e-06
+      },
+      {
+        "cos_theta": -0.25,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 510.0,
+        "opacity_320_to_640_at_path256": 4.158606479176541e-07,
+        "opacity_640_to_1280_at_path256": 1.645106659786677e-07,
+        "path_128_to_256_at_opacity640": 5.998357144321176e-08,
+        "path_32_to_64_at_opacity640": -3.7523734915945184e-06,
+        "path_64_to_128_at_opacity640": 5.774027354021882e-07
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 110.0,
+        "opacity_320_to_640_at_path256": 2.523102978546632e-06,
+        "opacity_640_to_1280_at_path256": 9.350172163191672e-07,
+        "path_128_to_256_at_opacity640": -7.612297413528424e-07,
+        "path_32_to_64_at_opacity640": 8.992906827653968e-06,
+        "path_64_to_128_at_opacity640": 4.2598659510950654e-07
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 210.0,
+        "opacity_320_to_640_at_path256": 1.5639462342953436e-06,
+        "opacity_640_to_1280_at_path256": 5.433313650105021e-07,
+        "path_128_to_256_at_opacity640": -3.613466107443841e-07,
+        "path_32_to_64_at_opacity640": 4.416046664124096e-06,
+        "path_64_to_128_at_opacity640": 2.0585078441826e-07
+      },
+      {
+        "cos_theta": 0.25,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 510.0,
+        "opacity_320_to_640_at_path256": 6.224943953636597e-07,
+        "opacity_640_to_1280_at_path256": 2.1591180221491868e-07,
+        "path_128_to_256_at_opacity640": -1.4283220683974918e-07,
+        "path_32_to_64_at_opacity640": 1.746376626199364e-06,
+        "path_64_to_128_at_opacity640": 8.151645247700401e-08
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 110.0,
+        "opacity_320_to_640_at_path256": 3.1658966570535796e-06,
+        "opacity_640_to_1280_at_path256": 3.485850401663271e-07,
+        "path_128_to_256_at_opacity640": 1.052013631097637e-06,
+        "path_32_to_64_at_opacity640": 5.169975344720967e-06,
+        "path_64_to_128_at_opacity640": -2.704006408338344e-06
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 210.0,
+        "opacity_320_to_640_at_path256": 1.7883026259823964e-06,
+        "opacity_640_to_1280_at_path256": 2.3024194084619864e-07,
+        "path_128_to_256_at_opacity640": 5.194828931465167e-07,
+        "path_32_to_64_at_opacity640": 2.5729997952250727e-06,
+        "path_64_to_128_at_opacity640": -1.3424662843597446e-06
+      },
+      {
+        "cos_theta": 0.75,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 510.0,
+        "opacity_320_to_640_at_path256": 7.140069293587459e-07,
+        "opacity_640_to_1280_at_path256": 9.224270591801087e-08,
+        "path_128_to_256_at_opacity640": 2.0666973532534882e-07,
+        "path_32_to_64_at_opacity640": 1.0238173697718622e-06,
+        "path_64_to_128_at_opacity640": -5.342194688839896e-07
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 110.0,
+        "opacity_320_to_640_at_path256": 2.5888868468992854e-06,
+        "opacity_640_to_1280_at_path256": 4.0524839617361863e-07,
+        "path_128_to_256_at_opacity640": -2.8221901674507777e-06,
+        "path_32_to_64_at_opacity640": 6.461290505077599e-06,
+        "path_64_to_128_at_opacity640": 1.4580618419302027e-06
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 210.0,
+        "opacity_320_to_640_at_path256": 1.4799465679615764e-06,
+        "opacity_640_to_1280_at_path256": 2.500869693555785e-07,
+        "path_128_to_256_at_opacity640": -1.3919759651592756e-06,
+        "path_32_to_64_at_opacity640": 3.2258740298996003e-06,
+        "path_64_to_128_at_opacity640": 7.050422234922138e-07
+      },
+      {
+        "cos_theta": 0.95,
+        "emission_radius_km": 12.5,
+        "energy_MeV": 510.0,
+        "opacity_320_to_640_at_path256": 5.917882077710601e-07,
+        "opacity_640_to_1280_at_path256": 1.0014317819440066e-07,
+        "path_128_to_256_at_opacity640": -5.54455453549707e-07,
+        "path_32_to_64_at_opacity640": 1.2852535997698311e-06,
+        "path_64_to_128_at_opacity640": 2.807165946361323e-07
+      }
+    ],
+    "source_radii_km": [
+      8.0,
+      10.0,
+      12.5
+    ],
+    "title": "High-energy neutrino B.2 chord convergence"
+  },
+  "run_commit_sha": "83f36f06ae4d4442fa0a1faf5632a22d64a821b0",
+  "script_sha256": "ac9bdfd703e9710b8ddb3291aaddd0656787e46c02cec71681fb67db7449b18f"
+}

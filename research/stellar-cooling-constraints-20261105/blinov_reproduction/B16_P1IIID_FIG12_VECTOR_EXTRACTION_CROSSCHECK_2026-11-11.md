@@ -213,3 +213,12 @@ The extraction script checks the exact PDF SHA-256, expected path colors,
 plot-frame bounds, and writes the vertex CSV and provenance JSON. The
 cross-check script reads only the archived Caputo/Bollig profile records and
 the extracted E–K vector paths.
+## 9. Independent review qualification (2026-11-15)
+
+The archived native-vector products are internally consistent with the recorded published-PDF source: SHA-256 c3b92fe6cf2a8bd3fec84925e2baababfe0c707327a68135013f953ed3d87d43, page index 14 / printed page 15, and paths 25/181/182. The extraction workflow pins this exact c3b92... source and verifies it before running. The standalone extractor's approved-hash set also accepts d660eb390271b41c5c0c20ccd52cc57df891a78d30067a78f84bb6c228225a92. The currently archived provenance JSON identifies c3b92..., not d660...; therefore any run using the alternate hash must retain its own generated provenance and must not be described as the exact archived published-PDF run.
+
+The extraction logic checks stroke colors, plot-frame containment, and the source digest. It flattens each selected path, sorts by radius, and keeps one ordinate per rounded PDF abscissa; this is appropriate for the selected single-valued radial curves but is not a general-purpose extractor for loops or multivalued paths. The current workflow is a checksum-and-geometry validation, not a dedicated unit-test suite for all possible PDF path structures.
+
+The cross-check summary gives 0.0707% RMS for temperature versus Caputo, 0.0953% versus Bollig Fig. 1, and 0.580%/0.586% for the E--K neutron/proton curves versus Caputo reconstructed free nucleons. The E--K sum agrees with Caputo free baryons at 0.574% RMS. The estimated density line-stroke uncertainty is about 4.9%, so these residuals establish figure-level consistency, not sub-percent precision of the raw hydrodynamic solution.
+
+**Review disposition: PASS_WITH_NOTES.** Keep both density-axis transforms and the ambiguous glyph provenance. The corrected equal-spacing transform is the cross-validated figure interpretation, not proof of a typesetting error. The comparison is within a shared Garching model lineage, not an independent hydrodynamic simulation validation.

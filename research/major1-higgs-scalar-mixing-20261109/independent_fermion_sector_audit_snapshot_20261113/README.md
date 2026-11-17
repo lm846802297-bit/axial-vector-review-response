@@ -1,5 +1,7 @@
 # Independent fermion-sector matrix audit snapshot
 
+> **Checksum note (2026-11-14):** the historical `SHA256SUMS.txt` does not match the snapshot README (expected `c0b1c5a7…`; pre-note file was `8ed7898c…`), while its five other entries matched. It is retained unchanged as historical evidence. Use `SHA256SUMS_CURRENT_2026-11-14.txt` to check the current snapshot files and the preserved historical manifest. The four unit tests were rerun locally; a passing test is not proof of the historical README provenance or full physical-pole validation.
+
 This folder preserves one pinned independent numerical subcalculation from the Major 1 Higgs–singlet mixing workstream. It is a self-contained snapshot and must not overwrite the active Major 1 source files.
 
 ## Scope and method

@@ -79,3 +79,13 @@ Garching Core-Collapse Supernova Archive, archive index and access policy:
 https://wwwmpa.mpa-garching.mpg.de/ccsnarchive/archive.html
 
 The archive index states that access to some collections is password protected and instructs users to contact the responsible person. The present audit records the observed access status only; it does not request credentials, infer protected file contents, or claim that the listed archive files have already been mapped to the exact Blinov snapshot.
+
+## 6. Independent review qualification (2026-11-15)
+
+The HTTP 401 responses recorded above are observations from the 2026-11-10 access attempt, not a statement about the archive's access state today. The public index establishes that the named collections exist and that some datasets are access-controlled; it does not establish that the exact s18.8-SFHo-MUONS, \(t_{\rm pb}=1\) s files are present in every linked collection. The exact model identifier, time, radial coordinate, field definitions, units, and frame convention must still be confirmed with the archive provider before using any file.
+
+The minimum-data list remains appropriate. In particular, a transport optical depth or angular moment alone does not determine the heavy-flavor energy sphere; energy-changing pair-process information and same-snapshot species distributions are required. The P1-G/P1-H figure-level proxies do not close this requirement.
+
+This note is retained as a dated archive-discovery/access record. No credential was obtained, no protected data was accessed, and no raw Garching profile is claimed.
+
+**Review disposition: PASS_WITH_NOTES.** Do not infer current archive availability from the historical 401 response, and do not change \(R_{\max}\), B.2, or any axial-vector constraint without authenticated same-snapshot data.

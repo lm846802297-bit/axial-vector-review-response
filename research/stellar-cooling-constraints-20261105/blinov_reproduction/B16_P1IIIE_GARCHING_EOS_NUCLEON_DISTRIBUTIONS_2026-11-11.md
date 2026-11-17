@@ -2,7 +2,7 @@
 
 Date: 2026-11-11  
 PR: #57  
-Branch: \`research/moving-muon-thermal-rates-20261107\`
+Branch: `research/moving-muon-thermal-rates-20261107`
 
 ## 1. New source
 
@@ -81,3 +81,21 @@ The validation ladder should therefore be:
 - Section 4.3, Eq. (4.1): definition of \(F_{NN}^{\rm deg}\).
 - Appendix C.1, Eqs. (C.1)–(C.2): EOS-consistent \(f_N(p)\), effective mass, scalar potential, and chemical-potential convention.
 - Appendix C.2: Garching lapse convention and its effect on local versus distant-observer energies/rates.
+
+## 7. Chemical-potential convention check (2026-11-15)
+
+The published Appendix C.1 of Fiorillo et al. ([JCAP 03 (2026) 053](https://doi.org/10.1088/1475-7516/2026/03/053)) explicitly writes
+\[
+f_N(p)=\left[\exp\left(\frac{U_N+K_N(p)-\mu_N^*}{T}\right)+1\right]^{-1},
+\]
+and states that the tabulated nucleon chemical potential \(\mu_N^*\) does **not** include the rest mass, whereas the relativistic chemical potentials for particles such as muons do include their masses.
+
+For the Hempel/SFHo mapping used by the code, the intended convention is
+\[
+\mu_N^{\rm nonrel}=\mu_N^{\rm total}-M_N,\qquad
+U_N=m_N^*-M_N+\Sigma_{V,N}^{\rm total},
+\]
+so the exponent is \(K_N+U_N-\mu_N^{\rm nonrel}\). Equivalently, the kinetic-energy Fermi parameter is \(\nu_N=\mu_N^{\rm nonrel}-U_N\). Do not subtract the vector self-energy from \(\mu_N^{\rm nonrel}\) a second time before using the displayed Fiorillo distribution; \(U_N\) is already explicit in that expression.
+
+The document's statement that the common \(U_N\) cancels from same-species elastic energy conservation but remains in the occupations is correct. The static degeneracy factor \(F_{NN}^{\rm deg}\) remains an occupation/Pauli-blocking diagnostic, not a replacement for the dynamic tensor response.
+

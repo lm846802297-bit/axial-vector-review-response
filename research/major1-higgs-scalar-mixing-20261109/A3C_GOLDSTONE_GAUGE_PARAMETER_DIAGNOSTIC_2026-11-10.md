@@ -67,7 +67,7 @@ The abrupt threshold changes and nonzero imaginary part are properties of the un
 
 ## 4. Physical interpretation
 
-This is precisely why the calculation must retain the full gauge-basis \(2\\times2\) inverse propagator. In A, the physical \(s\\to A'A'\) channel is open and contributes to the diagonal \(ss\) absorptive kernel through the vector sector. The Goldstone \(aa\) cut in the off-diagonal scalar subset is gauge dependent. The physical complex poles are obtained only after assembling the diagonal vector/Goldstone/ghost contributions, the off-diagonal scalar/fermion terms, and all counterterms consistently.
+This is precisely why the calculation must retain the full gauge-basis \(2\times2\) inverse propagator. In A, the physical \(s\to A'A'\) channel is open and contributes to the diagonal \(ss\) absorptive kernel through the vector sector. The Goldstone \(aa\) cut in the off-diagonal scalar subset is gauge dependent. The physical complex poles are obtained only after assembling the diagonal vector/Goldstone/ghost contributions, the off-diagonal scalar/fermion terms, and all counterterms consistently.
 
 There is no contradiction with the A2 result that no one-loop \(hs\) vector or ghost bubble exists: gauge independence of the poles is a property of the complete matrix and its determinant, not of an isolated off-diagonal entry.
 

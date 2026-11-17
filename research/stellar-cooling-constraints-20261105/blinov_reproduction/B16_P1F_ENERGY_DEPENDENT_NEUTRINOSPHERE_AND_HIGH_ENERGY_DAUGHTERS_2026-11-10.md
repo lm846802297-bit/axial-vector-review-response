@@ -185,3 +185,16 @@ P1-G, \`B16_P1G_PUBLIC_DENSITY_NEUTRINO_TRANSPORT_ENVELOPE_2026-11-10.md\`, uses
 The transport-only pair-energy escape proxy rises smoothly across 25--30 km. This makes \(R_{\max}=25\) km plausible for much of the pair energy, while allowing the high-energy tail to remain partially transport-thick outside 25 km. It does not establish the energy sphere; the full energy-changing collision terms remain unavailable. The P1-D sharp 30 km extension is therefore an extreme conditional bound, not a preferred boundary.
 
 P1-G narrows the boundary uncertainty but does not select a new \(R_{\max}\) or alter the literal B.2 baseline.
+
+
+## 10. Independent review qualification (2026-11-15)
+
+The two-body daughter kinematics are consistent: \(E_{1,2}=\omega(1\pm\beta z)/2\), \(E_1+E_2=\omega\) event by event, and the pair-mean daughter energy is \(\omega/2=105\)--\(255\) MeV across the 210--510 MeV vector band. The mode weights each integrate to one; their sum is \(3/2\). The equal-polarization average remains only a kinematic reference, not the actual source polarization density matrix.
+
+The later P1-G figure-level transport estimate gives central-tail radial \(\tau_{\nu N}=2/3\) radii of approximately 22.37, 23.34, 24.62, and 26.23 km for daughter energies 100, 150, 255, and 500 MeV. P1-H then inserts the smooth pair-energy survival proxy into the B.2 high-energy-band ray integral: the band changes by -0.33% (low tail), -4.14% (central equal-polarization tail), and -10.60% (high tail), compared with -70.94% for the sharp full-opacity \(R_{\max}=30\) km extension. The corresponding band-only total proxies remain +91.98%, +86.87%, and +78.21% above Fig. 7. This rules out interpreting the sharp-boundary near-match as a physical prediction within the tested smooth transport model.
+
+The P1-G/P1-H extensions remain transport-only proxies, not heavy-flavor energy-sphere calculations. They use a figure-level density read-off with an exponential outer tail, a simplified \(\nu N\) scattering mean free path, radial daughter optical depths, and an equal-polarization reference. They omit the full energy-changing collision kernel, angular neutrino transport, and same-snapshot raw neutrino moments. Thus they narrow the boundary sensitivity but do not determine the exact energy-loss boundary.
+
+A producer-version mismatch was also identified for the archived P1-F daughter-kinematics JSON. The checked-in JavaScript payload uses polarization_weights and high_energy_band_source_fraction fields (and repeats the polarization_weights property), whereas the archived JSON uses mode_weights, polarization_sum, and band_source_fraction. The current script is not schema-identical to the archived output producer; no dedicated test module for this V8 kinematic/output calculation is present. P1-G's current JavaScript payload likewise differs from the archived JSON input-field schema, and P1-H explicitly states that its Python driver is an independent implementation rather than the direct V8 producer. Treat those follow-up JSON files as archived numerical evidence with source-version caveats, not as exact reruns from the currently committed scripts.
+
+**Review disposition: PASS_WITH_NOTES.** Retain \(R_{\max}=25\) km as the literal paper baseline. Do not use the sharp 30 km band-only near-match to change the Fig. 7 curve or any axial-vector limit.

@@ -8,7 +8,7 @@ Profile SHA-256: \`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c0
 
 ## 1. Scope
 
-The preceding energy-resolved decomposition identifies neutrino inverse decay as the larger opacity contribution in the dominant \(210\text{--}510\) MeV escape bin. The local Eq. (B.25) Fermi-pair angular average has also been checked independently against direct angular integration to machine precision.
+The preceding energy-resolved decomposition identifies neutrino inverse decay as the larger opacity contribution in the dominant \(210\text{--}510\) MeV escape bin. The local Eq. (B.9) Fermi-pair angular average has also been checked independently against direct angular integration to machine precision.
 
 This follow-up isolates the remaining numerical part of the neutrino B.2 kernel: the chord integral itself. It uses the printed fixed-\(\omega\) convention and evaluates 36 rays:
 
@@ -85,3 +85,23 @@ The following are now independently checked:
 The \(+92.4\%\) B.16 strong-endpoint difference is therefore not explained by a local neutrino-kernel error or by under-resolved high-energy neutrino chord integration. The redshift-only path variant is material but does not close the discrepancy and must not be silently substituted for the printed baseline.
 
 The next calculation should test the **high-energy B.1 source measure and reconstructed local thermodynamic inputs** separately: first verify the \(\omega\)-integration measure and \(m_V/N(r)\) escape threshold against Eq. (B.1), then quantify the sensitivity of the \(210\text{--}510\) MeV source and escape contribution to the reconstructed \(T(r)\), \(\mu_{\nu_\mu}(r)\), and lapse profiles. Keep the published fixed-\(\omega\) B.2 path prescription as the baseline throughout.
+
+
+## 7. Reproducibility qualification (2026-11-15)
+
+The archived JSON is explicitly a direct V8 JavaScript binary64 calculation. It has no Python script hash. The repository contains `audit_b16_high_energy_nu_chord_convergence.py`, but that script was not executed for this record and has no dedicated test entry or full-run workflow. The new pinned regression workflow tests the analytic path helper and generic GR kernel; it does not run this 36-ray chord scan.
+
+Accordingly, the values in Section 2 remain a valid cross-runtime diagnostic, not a strict NumPy reproduction. The reported refinements are preserved as observed changes; this record does not define a predeclared numerical pass/fail tolerance for the targeted-ray scan. A separate Python JSON, with script hash, environment manifest, and the same ray/grid configuration, is still required before claiming native reproduction.
+
+## 8. Strict NumPy 36-ray reproduction (2026-11-15)
+
+The repository Python implementation was executed under pinned Python 3.12.14 / NumPy 2.5.4 / SciPy 1.18.1. The output is archived at [b16_high_energy_nu_chord_convergence_10mev_2026-11-15_numpy.json](outputs/b16_high_energy_nu_chord_convergence_10mev_2026-11-15_numpy.json).
+
+- Output SHA-1 (Git blob): \`f1171184a82243af1a73ee4fd1741c7a3022fd28\`.
+- Script SHA-256: \`ac9bdfd703e9710b8ddb3291aaddd0656787e46c02cec71681fb67db7449b18f\`.
+- Run commit: \`83f36f06ae4d4442fa0a1faf5632a22d64a821b0\`.
+- Execution: [GitHub Actions #43647616434](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43647616434).
+
+The Python run evaluates all 108 combinations (36 source-radius/direction/energy rays across three opacity grids) and reproduces the five V8 maximum-refinement metrics. The largest relative NumPy/V8 difference among those metrics is \(1.19\times10^{-9}\); the absolute differences are at the \(10^{-15}\) level.
+
+The five-metric comparison is now an executable regression test in \`test_b16_high_energy_v8_reproduction.py\`. This closes the earlier qualification that the 36-ray Python implementation had not been executed. It remains a targeted local-ray convergence calculation, not a new global luminosity calculation.

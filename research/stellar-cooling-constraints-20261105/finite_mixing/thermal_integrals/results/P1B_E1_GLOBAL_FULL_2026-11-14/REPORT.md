@@ -47,16 +47,17 @@ The narrow support-edge interval near 22.191894 km has a 24.76% neighbor-change 
 
 At the global energy-interpolation worst radial node (r=14.74234939 km), the 9 interpolation knots plus the worst energy midpoint were directly re-evaluated with the order ladder. The maximum successive-order change was 7.469e-04 at final order (20,12,12,12), below the 1e-3 quadrature criterion. The high-order PCHIP error at x=0.78125 is 0.7362%, below 1%.
 
-The three worst radial-midpoint intervals that were rechecked at high order also pass the 1e-3 successive-order criterion:
+The three worst radial-midpoint intervals rechecked at high order pass the 1e-3 successive-order criterion:
 
-- 15.500–15.550 km: high-order midpoint interpolation error 0.0829%.
-- 22.100–22.135104 km: high-order midpoint interpolation error 0.0128%.
+- 15.500–15.550 km (interval 1024): high-order midpoint interpolation error 0.0829%; maximum node final successive-order change 4.7647e-6.
+- 22.100–22.135104 km (interval 1479): high-order midpoint interpolation error 0.0128%; maximum node final successive-order change 3.5686e-7.
+- 22.191893657–22.191894657 km (interval 1487): the support-edge interval was subsequently rechecked at all three nodes through order (20,12,12,12). The maximum node final successive-order change is 3.3585e-7 and the high-order midpoint interpolation error is 3.0783e-9. Detailed-balance and final-muon shell residuals are 1.5897e-15 and 3.5846e-15.
 
-The tiny 22.191894–22.191895 km support-edge interval has only the low-order direct midpoint check in this round; its low-order interpolation error is 3.08e-9 and is not counted as high-order verified.
+The interval-1487 machine-readable result is `RADIAL_INTERVAL_1487_HIGH_ORDER.json` (blob `d0143b8070b0bcac571042e9b33c1a7412fa73ee`). This is a selected high-order recheck of one narrow support-edge interval, not a full high-order radial scan.
 
 ## 4. Acceptance boundary
 
-**Passed:** complete 1687-node low-order energy interpolation screen; all 1687 refined-grid radial nodes below 1%; direct radial midpoint checks for the top 60 neighbor-variation intervals; selected high-order checks of the global energy worst point and all three highest-neighbor-change radial-midpoint intervals.
+**Passed:** complete 1687-node low-order energy interpolation screen; all 1687 refined-grid radial nodes below 1%; direct radial midpoint checks for the top 60 neighbor-variation intervals; selected high-order checks of the global energy worst point and all three highest-neighbor-change radial-midpoint intervals, including the support-edge interval 1487.
 
 **Not claimed:** global high-order quadrature convergence at every radius/energy point; exhaustive radial-midpoint validation of all 1686 intervals; full-star volume emissivity; GR optical depth; luminosity; Fig. 7 reproduction; or updated SN1987A exclusion curves.
 

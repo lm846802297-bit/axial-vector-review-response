@@ -127,3 +127,12 @@ The historical outputs are retained for auditability. They are not deleted or si
 6. Do not update the axial-vector curve until the pure-vector Fig. 7 baseline is re-evaluated on this same current profile.
 
 This reconciliation establishes that the previous integrated shell conclusions are robust to the profile-grid refinement; it does not establish that the reconstructed public-figure profile is identical to the original supernova simulation.
+
+## 6. Independent physics-content review (2026-11-15)
+
+The profile-version distinction is physically important and correctly retained. The 501-node uniform profile smears sharp digitized support boundaries over a 0.05 km cell; the 1687-row vertex-preserving grid retains the actual PDF vertices and support knots. The local \(\mu_{\nu_\mu}\) difference near 13.11 km is therefore not a harmless serialization change between the two profile constructions. It is a real interpolation-resolution difference.
+
+A separate later refresh from vertex-preserving profile A to profile B changed only last-digit serialization in the active thermodynamic fields used by the B.1/B.2 calculations. The profile A/B fingerprint distinction must still be preserved in each archived output; a result should never be relabelled as if it had been run with a different file hash. The integrated B.1/B.2 observables being stable under the profile-A/profile-B refresh does not mean the old 501-node and new vertex-preserving profiles are pointwise interchangeable.
+
+**Review outcome: PASS_WITH_NOTES.** Use profile B (\(9fb14e\ldots\)) as the current reconstructed input, preserve the actual profile hash for every historical output, and do not smooth or overwrite the support-boundary differences.
+

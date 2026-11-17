@@ -3,6 +3,8 @@
 **Baseline:** main commit d3b234efbce270cd92b7ea55e31e02680114fc3a.  
 **Purpose:** separate completed subcalculations from the missing ingredients needed for a physical, gauge-consistent pole and observable prediction.
 
+> **Historical snapshot (updated through 2026-11-11):** This evidence ledger records the Major 1 workstream against the listed baseline. It is not the live task queue; later B5 work and current next steps are maintained in `README.md` and `PROJECT_STATUS.md`.
+
 ## 1. Executive assessment
 
 The merged PR #49 contains substantial one-loop and selected higher-order work. A new 2026-11-09 exact-basis calculation now evaluates all three independent \(hh,hs,ss\) entries of the original \(\mu,\tau+\mathrm{VLL}\) fermion sector and passes five automated tests. It still does not close the complete same-order UV--EFT matching or produce a complete physical \(h\)-\(s\) pole/residue/lineshape prediction. The near-degenerate region therefore remains unclassified.
@@ -134,18 +136,18 @@ The local mass-pole coefficients are also recorded in the JSON output. Their con
 The new fifth test checks the field-counterterm coefficients for both benchmarks. GitHub Actions run 42564492356 passes all five tests. The 2026-11-09 follow-up now validates the leading EFT5 bubble-plus-contact local pole, the (O_8) running, and the retained Plan-C scale cancellation at Benchmarks A/B. Other same-order soft/counterterm sectors and the complete gauge-fixed matching remain open.
 
 
-## 8. RC-001 cross-reconciliation, (C_5) sign, and contact no-double-counting audit
+## 9. RC-001 cross-reconciliation, \(C_5\) sign, and contact no-double-counting audit
 
-The (O_8=(H^dagger H)^2(S^dagger S)^2) operator and its (C_5^4) soft-potential pole were already derived in RC-001 §§262.5, 264.4, and 10.9. PR #69 supplies an independent Benchmark A/B reconstruction and connects the leading EFT5 mixed local pole to the Plan-C scale derivative and (O_8) running. The result is an independent cross-check and a benchmark-level extension, not a first discovery of the operator.
+The \(O_8=(H^\dagger H)^2(S^\dagger S)^2\) operator and its \(C_5^4\) soft-potential pole were already derived in RC-001 §§262.5, 264.4, and 10.9. PR #69 supplies an independent Benchmark A/B reconstruction and connects the leading EFT5 mixed local pole to the Plan-C scale derivative and \(O_8\) running. The result is an independent cross-check and a benchmark-level extension, not a first discovery of the operator.
 
 The EFT coefficient is aligned with the active RC-001 convention
-[
-mathcal L_{mathrm{EFT5}}supset-C_{5,ell}mathcal O_{5,ell}+mathrm{h.c.},
-qquad
-C_{5,ell}=-y_elllambda_ell/M_E.
-]
-The signed mass parameter follows the mass-matrix Schur complement; the positive physical mass used in the determinant is (|m_ell|). The (O_8) pole, running, and quoted scalar-potential numbers depend on (|C_5|^4), so they are unchanged by this sign alignment.
+\[
+\mathcal L_{\mathrm{EFT5}}\supset-C_{5,\ell}\mathcal O_{5,\ell}+\mathrm{h.c.},
+\qquad
+C_{5,\ell}=-\frac{y_\ell\lambda_\ell}{M_E}.
+\]
+The signed mass parameter follows the mass-matrix Schur complement; the positive physical mass used in the determinant is \(|m_\ell|\). The \(O_8\) pole, running, and quoted scalar-potential numbers depend on \(|C_5|^4\), so they are unchanged by this sign alignment.
 
 A source-code audit of the archived 2026-10-27 `higgs_portal_planC_lite.py` confirms that `pi_soft_planb` already adds its explicit bubble and contact-tadpole pieces. The new Plan-C scale-check routine also includes `bubble + contact + hard`. Consequently, the contact is not an omitted finite term to be appended again to the Plan-C soft self-energy. The bubble-only statement in the UV audit refers instead to the separate archived exact-SVD light-light subtraction.
 
-The finite heavy-eigenstate Coleman--Weinberg coefficient (c_8(M_E)) is established only in the restricted VLL scalar-potential/(overline{mathrm{MS}}) basis. The full dimension-eight hard/soft Wilson vector, derivative-operator/EOM/source completion, remaining gauge/scalar sectors, and physical pole calculation remain open.
+The finite heavy-eigenstate Coleman--Weinberg coefficient \(c_8(M_E)\) is established only in the restricted VLL scalar-potential/\(\overline{\mathrm{MS}}\) basis. The full dimension-eight hard/soft Wilson vector, derivative-operator/EOM/source completion, remaining gauge/scalar sectors, and physical pole calculation remain open.

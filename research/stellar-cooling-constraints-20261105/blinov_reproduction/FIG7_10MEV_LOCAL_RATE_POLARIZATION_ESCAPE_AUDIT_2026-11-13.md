@@ -78,7 +78,7 @@ The neutrino-only source fractions are \(L=34.74\%\), \(+=31.50\%\), and \(-=33.
 | \(+\) | 5.400 | 2.392% |
 | \(-\) | 5.475 | 2.298% |
 
-Independent mode propagation gives \(1.8631\times10^{54}\) erg/s, 76.37 times the literal scalar B.2 result. This is **not** a correction to the baseline: the published scalar B.2 prescription exponentiates the polarization-summed opacity, whereas independent mode propagation exponentiates each mode separately. These are distinct transport prescriptions. The literal scalar baseline is retained.
+Independent mode propagation gives \(1.8631\times10^{54}\) erg/s, 76.37 times the literal scalar B.2 result. This is **not** a correction to the baseline. The later Boltzmann state-counting audit establishes the B.6/B.7/B.10 sum-to-sum local-rate convention, but Eq. (B.2) inserts one scalar \(\Gamma_{\rm abs}^{*}\) without specifying whether it denotes a polarization sum, a three-state average, or a separate polarization closure. The repository retains the literal scalar B.2 implementation as an equation-level reproduction lane; it does not claim that the paper uniquely mandates a polarization-summed exponent. Independent mode propagation remains a distinct transport prescription.
 
 ## 5. Leading physical sensitivity: path-energy convention
 
@@ -101,3 +101,30 @@ Next, keep the mass fixed at 10 MeV and perform a one-factor path-energy audit u
 ## Reproduction
 
 The self-contained executable diagnostic, selected-node CSV, machine-readable JSON, plot, pinned inputs and helper source are supplied in the 10 MeV localization addendum delivered with this audit. It contains the direct-run script and three fast regression tests. The calculation was run directly in the local Python environment; CI is not the primary calculation engine.
+
+## 7. Independent review qualification (2026-11-15)
+
+### 7.1 B.2 polarization wording
+
+The original §4 sentence stating that the published scalar B.2 prescription necessarily exponentiates the polarization-summed opacity was too strong. B.6/B.7/B.10 establish the summed local production/absorption convention, but B.2 does not identify its single scalar \(\Gamma_{\rm abs}^{*}\) as a sum, a three-state average, or shorthand for an assumed polarization closure. The literal scalar B.2 implementation is retained for equation-level reproduction; the mode-resolved calculation remains a separate transport lane. This is not evidence that the published calculation definitely contains a factor-of-three error.
+
+### 7.2 Numerical grid comparison
+
+The archived high-order local-rate result quoted above is \(2.439635957\times10^{52}\) erg/s at 32 direction nodes and 64 path nodes. The later independent 256-angle path-integral audit gives \(2.43736510986799\times10^{52}\) erg/s on its pinned configuration. Their relative difference is \(+0.09317\%\). These are configuration-specific numerical results, not contradictory physical prescriptions.
+
+### 7.3 Reproducibility blocker
+
+The current repository tree contains this Markdown report but does not contain the claimed 10 MeV localization addendum artifacts: no direct-run script, selected-node CSV, machine-readable JSON, plot, pinned-input manifest, or helper source corresponding to this report was found. The report states that these materials were supplied in the addendum, but does not provide a repository path or external immutable artifact reference.
+
+To close this item, commit the exact producer and invocation, selected-node data, machine-readable output, plot, input fingerprints (including the profile SHA), and the three regression tests; then rerun the producer and verify the archived values. Until that evidence is present, treat the quoted values as reported numerical evidence rather than an independently reproducible repository output.
+
+**Review disposition: REVISION_REQUIRED.** The physics interpretation has been corrected, but the missing calculation artifacts remain an actionable provenance/reproducibility issue. No source, opacity, coupling, Fig. 7 curve, or axial-vector constraint is changed.
+
+
+## Subsequent B.13 evidence and non-supersession boundary (2026-11-17)
+
+A later, separate artifact package is now present at `blinov_reproduction/results/P1B_B2_EXACT_B13_2026-11-14/`. Its report and summary document a 42-point local exact-B.13 polarization audit and a fixed-\(\omega\) global transport comparison restricted to the 210–510 MeV band. The B.16 scalar high-energy-band baseline is reproduced at relative residual −1.01\times10^{-7}; the seven-point low-x pilot completed only 7 of 24 planned points. The package explicitly states that full-band Fig. 7 reproduction, a complete low-x profile extension, GR-redshifted path energy, the SN1987A limit and the axial exclusion curve are not complete.
+
+This later package is scientifically relevant context, but it does **not** replace the specific 10 MeV local-rate/polarization/escape addendum required by this audit: the producer, selected-node CSV, audit JSON, plot, pinned input set and helper source for the 2026-11-13 addendum are still not all present as one reproducible package. The 210–510 MeV B.13 band result must not be presented as the missing full 10 MeV local-rate/escape result or as a full Fig. 7 validation.
+
+**Disposition remains `REVISION_REQUIRED`.** No rate, opacity, luminosity, escape fraction or exclusion curve was changed in this documentation follow-up.

@@ -187,3 +187,7 @@ The larger relative differences across the full 8–22 km interval occur in oute
 - Successful CI run: [B.16 analytic inner-path channel and direction audit](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42504612491)
 
 The workflow passes all six tests, runs the audit, and verifies that the production axial rates, transport outputs, and published axial plot files remain unchanged.
+
+## Review disposition (2026-11-15)
+
+**Outcome: HISTORICAL.** This record belongs to the earlier 501-node uniform-profile implementation. It is retained as provenance and as a comparison against the later vertex-preserving reconstruction; its numerical values must not be presented as the current 1687-row B.2 result. Use `B16_INNER_PATH_CHANNEL_DIRECTIONAL_AUDIT_VERTEX_PRESERVING_2026-11-09.md` and its paired JSON for the current-profile path decomposition. No historical calculation values were overwritten.

@@ -1,9 +1,9 @@
 # Branch disposition audit — 2026-11-13
 
 
-## Post-merge correction — 2026-11-14
+## Post-merge correction — 2026-11-15
 
-PR #106 and PR #113 have both been squash-merged into `main`. The former PR #106 branch `research/fig7-10mev-transport-localization-20261113-v2` and the former PR #113 branch `research/p1b-global02-full-radial-20261114` are now historical source branches, not active PR branches. The repository has no open PRs.
+PR #106 and PR #113 have both been squash-merged into `main`. The former PR #106 branch `research/fig7-10mev-transport-localization-20261113-v2` and the former PR #113 branch `research/p1b-global02-full-radial-20261114` are now historical source branches, not active PR branches. As of 2026-11-15, Draft PR #115 is open for repository maintenance on `maintenance/repository-organization-audit-20261114`; no open research/physics PRs remain.
 
 - PR #106 merge commit: `71ce83e72dd4688f09462e54209d3a47e7172e03`.
 - PR #113 merge commit: `d2f4037cc965eb2f4184f695dc81a95e1b8283c9`.
@@ -16,7 +16,7 @@ The merge disposition is an integration/archive decision only. The low-x support
 **Comparison base:** main at `8b2f8570886bc5fbc7ac64232de94fa7f5e701f9`  
 **Method:** compare complete Git trees by path and blob SHA, then inspect changed source/output files. Ahead/behind counts are reported as history metadata only; they are not used as a substitute for tree comparison.
 
-## 1. Active branch — preserve
+## 1. Merged source branches — preserve
 
 | Branch | PR | Tree-level finding | Decision |
 |---|---:|---|---|
@@ -25,7 +25,7 @@ The merge disposition is an integration/archive decision only. The low-x support
 
 PR #106 was squash-merged into main at `71ce83e72dd4688f09462e54209d3a47e7172e03`; its 49-file audit/code/source-snapshot diff is now integrated. The GR ray kernel includes the finite-boundary versus asymptotic-escape distinction and seven regression tests. The 38-test exact-kernel workflow passed. No same-snapshot SFHo spatial metric is claimed; the Garching pseudo-Newtonian baseline remains spatially flat. The B.2 scalar versus mode-resolved transport prescriptions remain distinct, and the pure-vector Fig. 7 gate remains NOT PASSED.
 
-PR #102 was closed without merging. Its v1 branch, `research/fig7-10mev-transport-localization-20261113`, remains as a historical snapshot; PR #106 v2 supersedes it and is the active line. Do not delete either branch while the v2 audit is unresolved.
+PR #102 was closed without merging. Its v1 branch, `research/fig7-10mev-transport-localization-20261113`, remains a historical snapshot. PR #106 v2 later superseded v1 and was squash-merged into `main` on 2026-11-14; its branch is now a historical source branch, not an active PR line. Preserve both branches for provenance until the 10 MeV transport review is complete.
 
 ## 2. Major 1 branch comparison
 
@@ -143,7 +143,7 @@ All 16 refs were re-queried and absent. Their one-time workflows were removed af
 ## 9. Branch preservation policy
 
 - Preserve branches with meaningful independent development history even when their final files are integrated: Major 1 Higgs mixing, Major 1 Belle II, Major 4.4, and C4-C4-A.
-- Preserve the active PR #106 v2 branch until the 10 MeV transport review is complete. PR #102 v1 is closed without merge and retained as a historical snapshot. The axial/Goldstone/PMNS cross-check was integrated by PR #105; its branch remains as a historical research record.
+- Preserve the former PR #106 v2 branch as a historical source branch until the 10 MeV transport review is complete. PR #102 v1 is closed without merge and retained as a historical snapshot. The axial/Goldstone/PMNS cross-check was integrated by PR #105; its branch remains as a historical research record.
 - Do not force-reset a divergent branch to main to make Ahead/Behind appear clean.
 - Delete only refs whose head commit is already reachable from main, or whose remaining differences are demonstrably superseded and whose PR/history records are retained.
 - GitHub main remains the canonical source of native files, extracted data, reports, figures, tests, provenance, and checksums. Generated ZIPs remain local-only handoff files.
@@ -151,11 +151,11 @@ All 16 refs were re-queried and absent. Their one-time workflows were removed af
 
 ## 2026-11-13 P0 polarization state-counting addition
 
-The active PR #106 branch now includes the mode-resolved Boltzmann collision-term derivation and the equal-occupation total-population closure. The derivation separates the sum-to-sum detailed-balance convention in B.6--B.10 from the per-mode attenuation rate required for independent propagation. Seven algebraic tests pass locally. The literal scalar B.2 reproduction remains unchanged; exact B.13 polarization-resolved Compton transport remains the next physics gate.
+The former PR #106 v2 branch (now integrated into `main`) added the mode-resolved Boltzmann collision-term derivation and the equal-occupation total-population closure. The derivation separates the sum-to-sum detailed-balance convention in B.6--B.10 from the per-mode attenuation rate required for independent propagation. Seven algebraic tests pass locally. The literal scalar B.2 reproduction remains unchanged; exact B.13 polarization-resolved Compton transport remains the next physics gate.
 
 
 ## 2026-11-13 P1 exact B.13 validation
 
-The active PR #106 branch now contains a pointwise independent explicit-spinor audit of the existing exact moving-muon B.13 \(L,+,-\) kernel. Across 30 kinematic/current/charge cases and 90 mode matrix elements, the maximum spinor/trace residual is \(1.77\times10^{-13}\), photon-Ward residual \(1.47\times10^{-13}\), final-muon shell residual \(6.52\times10^{-16}\), and vector longitudinal Ward-shift residual \(3.54\times10^{-14}\). GitHub Actions run #43372084167 passed.
+The former PR #106 v2 branch (now integrated into `main`) added a pointwise independent explicit-spinor audit of the existing exact moving-muon B.13 \(L,+,-\) kernel. Across 30 kinematic/current/charge cases and 90 mode matrix elements, the maximum spinor/trace residual is \(1.77\times10^{-13}\), photon-Ward residual \(1.47\times10^{-13}\), final-muon shell residual \(6.52\times10^{-16}\), and vector longitudinal Ward-shift residual \(3.54\times10^{-14}\). GitHub Actions run #43372084167 passed.
 
 This closes the pointwise amplitude-validation item, not the dense continuous-domain kernel convergence or global mode-resolved transport. The production axial scan still uses its existing approximation, and no axial curve is updated.

@@ -79,7 +79,7 @@ For the dominant 8--15 km source region:
 
 For all emission radii, the corresponding individual channel changes are 56.18% and 56.19% in the 12--15 km shell, and 60.82% for either neutrino flavor in the 22--25 km shell.
 
-The current profile gives zero Compton contribution to the 22--25 km shell at the numerical precision of this audit. Compton absorption remains relevant in the inner 8--15 km production/transport region.
+The current profile gives a tiny but nonzero Compton contribution to the 22--25 km shell. For the dominant 8--15 km source, the source-weighted Compton path column is \(0.7935\) per \(g_X^2\), compared with \(1.5633\times10^{15}\) per \(g_X^2\) from \(\nu_\mu+\nu_\tau\) inverse decay in that shell (relative fraction \(5.08\times10^{-16}\)). It is therefore negligible in this decomposition, but not mathematically zero. Compton absorption remains relevant in the inner 8--15 km production/transport region.
 
 ## 5. Comparison with the 501-node profile
 
@@ -93,6 +93,9 @@ Machine-readable current-profile output:
 
 `outputs/b16_inner_path_channel_directional_vertex_preserving_10mev_2026-11-09.json`
 
+- Workflow: [Run 42532897123](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42532897123); six unit tests passed and the run verified the current profile fingerprint.
+- The reported \(1.19179\times10^{-4}\) maximum residual is against a fixed-order 256-point whole-ray quadrature. It is a cross-check, not a certified error bound for the analytic primitive; the unit tests separately split the direct path integral at profile and shell crossings.
+
 Related audits:
 
 - `B16_OUTER_INPUT_AND_INVERSE_DECAY_AUDIT_2026-11-08.md`
@@ -101,3 +104,14 @@ Related audits:
 - `FIG7_VECTOR_BENCHMARK_REEVALUATION_2026-11-09.md`
 
 No axial-vector production curve is regenerated or modified. No empirical rescaling of source, opacity, or luminosity is applied.
+
+## 7. Independent physics-content review (2026-11-15)
+
+The impact-parameter geometry, inward/outward branch accounting, piecewise-linear radial-opacity primitive, and independent direct path-coordinate check are consistent. The current-profile channel sum and reduced-absorption closure are at the \(10^{-16}\) level; the maximum analytic-radial versus direct-path residual is \(1.19179\times10^{-4}\), while the source-weighted L1 residual over the dominant 8–15 km emission region is \(2.09403\times10^{-6}\). The 16/32/64 angular-order scan changes the strong-endpoint source-weighted escape probability by only \(5.73\times10^{-6}\) at order 16 and \(1.30\times10^{-6}\) at order 32 relative to order 64.
+
+The radial attribution is correctly stated as a path-optical-depth weighting, not as an additive decomposition of luminosity. In particular, the 22–25 km shell contributes 19.07% of the source-weighted neutrino path optical depth, while the full 8–22 km group contributes 75.54%. The leave-one-shell-out luminosity factors are nonlinear counterfactuals and must not be added or interpreted as physical opacity corrections.
+
+This output uses the literal fixed-\(\omega\) B.2 path prescription. It is not the conserved-\(E_\infty\) lapse-redshift diagnostic, and neither prescription here includes the full spatial metric/geodesic path correction. The B.1/B.2 background is a vertex-preserving public-figure reconstruction, not the raw Garching snapshot.
+
+**Review outcome: PASS_WITH_NOTES.** The current-profile path decomposition is numerically and geometrically consistent within the fixed-\(\omega\), reconstructed-profile baseline. It does not resolve the B.2 energy-convention ambiguity or establish agreement with Fig. 7.
+

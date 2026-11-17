@@ -137,7 +137,9 @@ No rate rescaling, fitted opacity correction, altered \(R_{\max}\), or productio
 - outputs/b16_emission_radius_escape_10mev_2026-11-08.json
 
 Primary literature:
-- Blinov et al., https://arxiv.org/abs/2511.09619
+- Blinov et al., *JHEP* 06 (2026) 155, [DOI: 10.1007/JHEP06(2026)155](https://doi.org/10.1007/JHEP06(2026)155) — publisher version of record; Appendix B, pp. 20--23 of the publisher PDF.
+- Blinov et al., [arXiv:2511.09619v2](https://arxiv.org/abs/2511.09619) — preprint cross-check, not the primary equation authority.
+- Bollig et al., *Phys. Rev. Lett.* 125, 051104 (2020), [DOI: 10.1103/PhysRevLett.125.051104](https://doi.org/10.1103/PhysRevLett.125.051104), [arXiv:2005.07141v7](https://arxiv.org/abs/2005.07141) — original SFHo-18.8 muon-density and degeneracy figures.
 - Caputo, Raffelt and Vitagliano, https://arxiv.org/abs/2109.03244
 - Ferreira, Marsh and Ravensburg, https://arxiv.org/abs/2510.14469
 
@@ -186,7 +188,7 @@ The appropriate next step is therefore a source/profile-level comparison, not an
 
 ### 4.4 Cross-check of the muon chemical-potential reconstruction against the original Bollig figures
 
-A more discriminating check is available than simply comparing two later figure reconstructions. The original Bollig et al. paper, arXiv:2005.07141v7, directly plots both the SFHo-18.8 muon number density (Fig. 3) and the degeneracy parameter \(\mu_\mu/T\) (Fig. 4). Its text states that the latter remains a small \(O(1)\) quantity in the high-muon-density region \(5\lesssim r\lesssim15\) km. The same paper defines the Fermi occupation as \(f_\mu(E)=[\exp((E-\mu_\mu)/T)+1]^{-1}\).
+A more discriminating check is available than simply comparing two later figure reconstructions. The original Bollig et al. paper, *Phys. Rev. Lett.* 125, 051104 (2020), DOI 10.1103/PhysRevLett.125.051104 (arXiv:2005.07141v7), directly plots both the SFHo-18.8 muon number density (Fig. 3) and the degeneracy parameter \(\mu_\mu/T\) (Fig. 4). Its text states that the latter remains a small \(O(1)\) quantity in the high-muon-density region \(5\lesssim r\lesssim15\) km. The same paper defines the Fermi occupation as \(f_\mu(E)=[\exp((E-\mu_\mu)/T)+1]^{-1}\).
 
 Using the common temperature curve and the two independently digitized \(\mu_\mu(r)\) curves gives:
 
@@ -222,3 +224,11 @@ gives the following implied densities:
 The Caputo-derived density has the same qualitative radial behavior and scale as the original Bollig Fig. 3 SFHo-18.8 curve: it peaks around 8--10 km at a few \(10^{-3}\,\mathrm{fm}^{-3}\) and is strongly suppressed toward the center and beyond 15 km. The Ferreira-derived density is far above the plotted original profile in the inner core. The density comparison is a diagnostic based on the same ideal relativistic Fermi integral; it is not a replacement for the unavailable raw simulation table.
 
 **Decision:** for the present Blinov reproduction, retain the Caputo \(\mu_\mu(r)\) reconstruction. Do not substitute the Ferreira curve merely because its figure also labels the model SFHo-18.8. The Ferreira figure-level \(\mu_\mu\) curve is not consistent with the original Bollig Fig. 3--4 diagnostics under the common Fermi-distribution convention. The reason for this inter-publication discrepancy is not established; it may involve a different profile version or chemical-potential convention and must remain explicitly unresolved. This finding makes the Caputo baseline substantially better supported than the Ferreira alternative, but still does not turn the digitized profile into the exact raw snapshot used by Blinov et al.
+
+### 4.5 Independent physics-content review (2026-11-15)
+
+The equation map was checked against the publisher version of record, *JHEP* 06 (2026) 155, DOI 10.1007/JHEP06(2026)155. The publisher PDF confirms the B.1 lapse-squared source measure and emission threshold, the fixed displayed \(\omega\) argument and full angular chord integral in B.2/B.3, the reduced-absorption definition in B.4, neutrino production/detailed balance in B.6/B.10, the Compton chain B.13--B.19, and \(R_{\max}\simeq25\) km. The paper's data statement does not deposit the numerical supernova profile; the linked archive collections remain protected in this workflow, so exact raw-snapshot identity is not established.
+
+The original Bollig et al. *PRL* Fig. 3 and Fig. 4 provide an independent figure-level check of the Caputo reconstruction: the SFHo-18.8 muon density peaks around 8--10 km at a few \(10^{-3}\,\mathrm{fm}^{-3}\), and \(\mu_\mu/T\) is a few in the high-muon-density 5--15 km region. The tabulated Caputo curve is consistent with those figures; the Ferreira curve's much larger core degeneracy is not. This supports the selected public-figure baseline but does not replace the unavailable raw simulation table.
+
+**Review outcome: PASS_WITH_NOTES.** The equation mapping and figure-level source comparison are supported; exact identity with the private/raw \(s18.8\)-SFHo-MUONS, \(t_{\rm pb}=1\) s profile remains unverified.

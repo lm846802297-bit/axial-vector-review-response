@@ -1,0 +1,368 @@
+{
+  "result": {
+    "checks": {
+      "angle_weight_max_absolute_residual": 0.0,
+      "direct_angle_weight_max_absolute_residual": 0.0,
+      "fixed_angle_weight_sum": 1.0,
+      "fixed_channel_angle_weight_residual": 0.0,
+      "fixed_escape_per_g2": 9.778689668357174e+66,
+      "redshift_angle_weight_sum": 1.0,
+      "source_weight_per_g2": 4.168593206313752e+69
+    },
+    "comparison_to_archived_v8": {
+      "quantities": {
+        "fixed_omega": {
+          "compton_escaped_source_fraction": {
+            "numpy": 0.516025292263949,
+            "relative_residual": -1.532107773982716e-14,
+            "v8": 0.5160252922639569
+          },
+          "compton_source_fraction": {
+            "numpy": 0.5012357976535854,
+            "relative_residual": -4.6629367034256575e-15,
+            "v8": 0.5012357976535877
+          },
+          "escape_probability": {
+            "numpy": 0.0023458008935835642,
+            "relative_residual": 6.661338147750939e-15,
+            "v8": 0.0023458008935835486
+          },
+          "escaped_luminosity_erg_s": {
+            "numpy": 1.701784828854997e+52,
+            "relative_residual": 2.220446049250313e-14,
+            "v8": 1.7017848288549594e+52
+          },
+          "escaped_per_g2": {
+            "numpy": 9.778689668357174e+66,
+            "relative_residual": 2.220446049250313e-14,
+            "v8": 9.778689668356957e+66
+          },
+          "mean_tau_escape_weighted": {
+            "numpy": 4.95811406936671,
+            "relative_residual": -1.0547118733938987e-14,
+            "v8": 4.958114069366762
+          },
+          "mean_tau_source_weighted": {
+            "numpy": 7.719324707453833,
+            "relative_residual": -2.786659791809143e-14,
+            "v8": 7.719324707454048
+          },
+          "nu_escaped_source_fraction": {
+            "numpy": 0.4839747077360511,
+            "relative_residual": -8.104628079763643e-15,
+            "v8": 0.48397470773605505
+          },
+          "nu_source_fraction": {
+            "numpy": 0.4987642023464147,
+            "relative_residual": -4.440892098500626e-15,
+            "v8": 0.49876420234641694
+          },
+          "source_per_g2": {
+            "numpy": 4.168593206313752e+69,
+            "relative_residual": 1.554312234475219e-14,
+            "v8": 4.1685932063136875e+69
+          }
+        },
+        "path_redshift": {
+          "compton_escaped_source_fraction": {
+            "numpy": 0.5159161762012763,
+            "relative_residual": -1.2101430968414206e-14,
+            "v8": 0.5159161762012825
+          },
+          "compton_source_fraction": {
+            "numpy": 0.5012357976535854,
+            "relative_residual": -4.6629367034256575e-15,
+            "v8": 0.5012357976535877
+          },
+          "escape_probability": {
+            "numpy": 0.0016867510535106807,
+            "relative_residual": 1.7763568394002505e-15,
+            "v8": 0.0016867510535106777
+          },
+          "escaped_luminosity_erg_s": {
+            "numpy": 1.2236705002420552e+52,
+            "relative_residual": 1.7319479184152442e-14,
+            "v8": 1.223670500242034e+52
+          },
+          "escaped_per_g2": {
+            "numpy": 7.031378982407187e+66,
+            "relative_residual": 1.7319479184152442e-14,
+            "v8": 7.031378982407066e+66
+          },
+          "mean_tau_escape_weighted": {
+            "numpy": 5.211514088244,
+            "relative_residual": -1.2101430968414206e-14,
+            "v8": 5.211514088244063
+          },
+          "mean_tau_source_weighted": {
+            "numpy": 8.116942480781567,
+            "relative_residual": -8.548717289613705e-15,
+            "v8": 8.116942480781637
+          },
+          "nu_escaped_source_fraction": {
+            "numpy": 0.4840838237987237,
+            "relative_residual": 1.0436096431476471e-14,
+            "v8": 0.48408382379871867
+          },
+          "nu_source_fraction": {
+            "numpy": 0.4987642023464147,
+            "relative_residual": -4.440892098500626e-15,
+            "v8": 0.49876420234641694
+          },
+          "source_per_g2": {
+            "numpy": 4.168593206313752e+69,
+            "relative_residual": 1.554312234475219e-14,
+            "v8": 4.1685932063136875e+69
+          }
+        },
+        "relative_change": {
+          "escape_probability": {
+            "absolute_difference": -3.4416913763379853e-15,
+            "numpy": -0.2809487548050532,
+            "v8": -0.28094875480504977
+          },
+          "escaped_luminosity": {
+            "absolute_difference": -3.552713678800501e-15,
+            "numpy": -0.2809487548050532,
+            "v8": -0.28094875480504966
+          },
+          "mean_tau_source_weighted": {
+            "absolute_difference": 2.020605904817785e-14,
+            "numpy": 0.051509398606304435,
+            "v8": 0.05150939860628423
+          }
+        }
+      },
+      "reference_json_sha256": "775bba3cd9599e320fea4bdfa036097a573e70b1310a981204b8712de4dc7a22"
+    },
+    "configuration": {
+      "angular_order": 32,
+      "emission_energy_band_MeV": [
+        210.0,
+        510.0
+      ],
+      "energy_nodes_MeV": [
+        217.29217795953699,
+        237.39657523579274,
+        259.4508135230317,
+        283.6439997074672,
+        310.1835813575592,
+        339.2971255097148,
+        371.23426997094305,
+        406.2688638701478,
+        444.7013158125026,
+        486.8611697714474
+      ],
+      "energy_order": 200,
+      "fixed_omega": "omega_local(s)=omega_source",
+      "full_energy_node_count": 842,
+      "high_energy_node_count": 10,
+      "opacity_radial_order": 640,
+      "path_order": 64,
+      "path_redshift": "omega_local(s)=omega_source*N(source)/N(path)",
+      "path_redshift_opacity_interpolation": "bilinear in radius and local energy",
+      "source_radial_order": 200,
+      "source_weights": "same B.1 source weights in both variants"
+    },
+    "coupling": 4.171689650228597e-08,
+    "direct_local_rate_recomputation": {
+      "compton_escaped_source_fraction": 0.5159212488381737,
+      "compton_source_fraction": 0.5012357976535854,
+      "energy_band_MeV": [
+        210.0,
+        510.0
+      ],
+      "escape_luminosity_erg_s": 1.2298145732487733e+52,
+      "escape_probability": 0.0016952202628402171,
+      "escaped_luminosity_erg_s": 1.2298145732487733e+52,
+      "escaped_per_g2": 7.066683670881142e+66,
+      "escaped_weight_per_g2": 7.066683670881142e+66,
+      "kinematic_range": {
+        "energy_ratio_local_over_source_max": 1.2430710716612225,
+        "energy_ratio_local_over_source_min": 0.8004710953677828,
+        "minimum_path_vector_speed": 0.9983459454371364,
+        "path_measure": "same Euclidean chord ds as Eq. (B.2); no metric path-length correction"
+      },
+      "mean_tau_escape_weighted": 5.207582295029899,
+      "mean_tau_source_weighted": 8.110366343598011,
+      "nu_escaped_source_fraction": 0.48407875116182664,
+      "nu_source_fraction": 0.4987642023464147,
+      "qualification": "Independent alternative that recomputes local rates from interpolated thermodynamic fields at each path node; not the bilinear opacity interpolation used by the archived V8 result.",
+      "source_per_g2": 4.168593206313752e+69,
+      "source_weight_per_g2": 4.168593206313752e+69
+    },
+    "fig7_sha256": "3eb1121da175d89da54a19abbdf0c52669a239be464978ddcfe84887e4d18d06",
+    "fixed_omega": {
+      "compton_escaped_source_fraction": 0.516025292263949,
+      "compton_source_fraction": 0.5012357976535854,
+      "energy_band_MeV": [
+        210.0,
+        510.0
+      ],
+      "escape_luminosity_erg_s": 1.701784828854997e+52,
+      "escape_probability": 0.0023458008935835642,
+      "escaped_luminosity_erg_s": 1.701784828854997e+52,
+      "escaped_per_g2": 9.778689668357174e+66,
+      "escaped_weight_per_g2": 9.778689668357174e+66,
+      "mean_tau_escape_weighted": 4.95811406936671,
+      "mean_tau_source_weighted": 7.719324707453833,
+      "nu_escaped_source_fraction": 0.4839747077360511,
+      "nu_source_fraction": 0.4987642023464147,
+      "source_per_g2": 4.168593206313752e+69,
+      "source_weight_per_g2": 4.168593206313752e+69
+    },
+    "interpolation_sensitivity": {
+      "direct_vs_bilinear_escape_probability_relative_difference": 0.005021019143227612,
+      "direct_vs_bilinear_escaped_luminosity_relative_difference": 0.005021019143227612,
+      "direct_vs_bilinear_mean_tau_relative_difference": -0.000810174175698064
+    },
+    "mass_MeV": 10.0,
+    "path_redshift": {
+      "compton_escaped_source_fraction": 0.5159161762012763,
+      "compton_source_fraction": 0.5012357976535854,
+      "energy_band_MeV": [
+        210.0,
+        510.0
+      ],
+      "escape_luminosity_erg_s": 1.2236705002420552e+52,
+      "escape_probability": 0.0016867510535106807,
+      "escaped_luminosity_erg_s": 1.2236705002420552e+52,
+      "escaped_per_g2": 7.031378982407187e+66,
+      "escaped_weight_per_g2": 7.031378982407187e+66,
+      "kinematic_range": {
+        "interpolation": "bilinear in radius and local energy on the full opacity grid",
+        "maximum_local_to_source_energy_ratio": 1.2430710716612225,
+        "minimum_local_to_source_energy_ratio": 0.8004710953677828,
+        "minimum_local_vector_velocity": 0.9983459454371364
+      },
+      "mean_tau_escape_weighted": 5.211514088244,
+      "mean_tau_source_weighted": 8.116942480781567,
+      "nu_escaped_source_fraction": 0.4840838237987237,
+      "nu_source_fraction": 0.4987642023464147,
+      "source_per_g2": 4.168593206313752e+69,
+      "source_weight_per_g2": 4.168593206313752e+69
+    },
+    "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+    "relative_change": {
+      "escape_probability": -0.2809487548050532,
+      "escaped_luminosity": -0.2809487548050532,
+      "mean_tau_source_weighted": 0.051509398606304435
+    },
+    "status": "strict_numpy_energy_resolved_diagnostic",
+    "sub_bands": [
+      {
+        "bin": "210-300 MeV",
+        "direct_local_rate_recomputation": {
+          "compton_escaped_source_fraction": 0.46917352078038704,
+          "compton_source_fraction": 0.4855804259978306,
+          "energy_band_MeV": [
+            210.0,
+            300.0
+          ],
+          "escape_luminosity_erg_s": 6.701148231121735e+51,
+          "escape_probability": 0.001137004235837712,
+          "escaped_weight_per_g2": 3.850571932639053e+66,
+          "mean_tau_escape_weighted": 5.683754868891922,
+          "mean_tau_source_weighted": 8.43788399772227,
+          "nu_escaped_source_fraction": 0.5308264792196128,
+          "nu_source_fraction": 0.5144195740021693,
+          "source_weight_per_g2": 3.3865941843233876e+69
+        },
+        "direct_vs_bilinear_relative_difference": 0.005446502246007734,
+        "fixed": {
+          "compton_escaped_source_fraction": 0.4727886911761723,
+          "compton_source_fraction": 0.4855804259978306,
+          "energy_band_MeV": [
+            210.0,
+            300.0
+          ],
+          "escape_luminosity_erg_s": 9.611158350498692e+51,
+          "escape_probability": 0.0016307545183185323,
+          "escaped_weight_per_g2": 5.522703767796629e+66,
+          "mean_tau_escape_weighted": 5.391221997641129,
+          "mean_tau_source_weighted": 8.026928976588962,
+          "nu_escaped_source_fraction": 0.5272113088238277,
+          "nu_source_fraction": 0.5144195740021693,
+          "source_weight_per_g2": 3.3865941843233876e+69
+        },
+        "path_redshift": {
+          "compton_escaped_source_fraction": 0.46912892125782213,
+          "compton_source_fraction": 0.4855804259978306,
+          "energy_band_MeV": [
+            210.0,
+            300.0
+          ],
+          "escape_luminosity_erg_s": 6.664848120862159e+51,
+          "escape_probability": 0.0011308450855394348,
+          "escaped_weight_per_g2": 3.8297133900585335e+66,
+          "mean_tau_escape_weighted": 5.6882623907416585,
+          "mean_tau_source_weighted": 8.444685256910049,
+          "nu_escaped_source_fraction": 0.5308710787421778,
+          "nu_source_fraction": 0.5144195740021693,
+          "source_weight_per_g2": 3.3865941843233876e+69
+        },
+        "relative_escaped_luminosity_change": -0.30655100271900715
+      },
+      {
+        "bin": "300-510 MeV",
+        "direct_local_rate_recomputation": {
+          "compton_escaped_source_fraction": 0.5718911604036049,
+          "compton_source_fraction": 0.5690343359022092,
+          "energy_band_MeV": [
+            300.0,
+            510.0
+          ],
+          "escape_luminosity_erg_s": 5.596997501366002e+51,
+          "escape_probability": 0.0041126800006173365,
+          "escaped_weight_per_g2": 3.216111738242091e+66,
+          "mean_tau_escape_weighted": 4.637472517374033,
+          "mean_tau_source_weighted": 6.69198939998321,
+          "nu_escaped_source_fraction": 0.42810883959639495,
+          "nu_source_fraction": 0.43096566409779097,
+          "source_weight_per_g2": 7.81999021990365e+68
+        },
+        "direct_vs_bilinear_relative_difference": 0.004512072068975748,
+        "fixed": {
+          "compton_escaped_source_fraction": 0.5721304921666869,
+          "compton_source_fraction": 0.5690343359022092,
+          "energy_band_MeV": [
+            300.0,
+            510.0
+          ],
+          "escape_luminosity_erg_s": 7.406689938051277e+51,
+          "escape_probability": 0.0054424440195949275,
+          "escaped_weight_per_g2": 4.255985900560544e+66,
+          "mean_tau_escape_weighted": 4.396099334536719,
+          "mean_tau_source_weighted": 6.387186431532919,
+          "nu_escaped_source_fraction": 0.42786950783331307,
+          "nu_source_fraction": 0.43096566409779097,
+          "source_weight_per_g2": 7.81999021990365e+68
+        },
+        "path_redshift": {
+          "compton_escaped_source_fraction": 0.5718813516928196,
+          "compton_source_fraction": 0.5690343359022092,
+          "energy_band_MeV": [
+            300.0,
+            510.0
+          ],
+          "escape_luminosity_erg_s": 5.571856881558392e+51,
+          "escape_probability": 0.004094206645169055,
+          "escaped_weight_per_g2": 3.201665592348654e+66,
+          "mean_tau_escape_weighted": 4.6412454873862865,
+          "mean_tau_source_weighted": 6.697590603888308,
+          "nu_escaped_source_fraction": 0.42811864830718044,
+          "nu_source_fraction": 0.43096566409779097,
+          "source_weight_per_g2": 7.81999021990365e+68
+        },
+        "relative_escaped_luminosity_change": -0.2477264570056561
+      }
+    ],
+    "title": "10 MeV high-energy B.2 fixed-omega versus path-redshift comparison"
+  },
+  "run_commit_sha": "a01d1aaacc773cf630814892c3585ac32ce9c89f",
+  "runtime": {
+    "engine": "Python/NumPy/SciPy",
+    "numpy": "2.5.4"
+  },
+  "script_sha256": "d18de99fd57e7d894d0861d68b362d3d40b4c6afd17b1329f6be486f36fc918e"
+}

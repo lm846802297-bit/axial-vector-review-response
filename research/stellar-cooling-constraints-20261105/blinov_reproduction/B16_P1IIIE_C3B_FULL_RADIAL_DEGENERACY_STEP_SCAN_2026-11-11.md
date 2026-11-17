@@ -73,3 +73,12 @@ The scan validates the numerical derivative and selects a stable shared step. It
 This remains a local static calculation at one radial snapshot. It does not yield a time-space weighted core average, dynamic \(W_N^{\mu\nu}(q_0,q;r)\), B.2 opacity, transport, luminosity, or an axial cooling curve.
 
 Next is C3-C: characterize the radial dependence of the already-validated local \(F_{nn}^{\rm deg}(r)\) and \(F_{pp}^{\rm deg}(r)\), and compare it against \(T(r)\), \(m_N^*(r)\), \(\nu_N(r)\), and the free-nucleon/cluster composition. This is still diagnostic; it is not yet a global cooling weight.
+## 7. Independent review qualification (2026-11-15)
+
+The successful clean GitHub Actions run #42971175588 executed the unit tests, recomputed all 5,418 species-radius-step combinations, and checked the 301-point C2 references and selected-step residuals. The large-step ratios are \(100.0013\) (neutrons) and \(99.99999\) (protons), consistent with second-order central-difference truncation. The selected shared step remains \(h/T=3\times10^{-5}\), with a maximum archived direct-scan residual \(3.19345\times10^{-10}\).
+
+A producer/schema qualification is required. The committed JSON contains a cross_runtime_validation object with both JavaScript-direct and Python-CI residuals; the currently checked-in Python driver does not emit that object. The archived JSON is therefore a composite record of the direct JavaScript scan plus a Python CI cross-runtime check, not a byte-for-byte output of the current Python driver. The direct JavaScript producer source/invocation is not archived. The workflow reruns the Python driver and checks selected numerical invariants and all 5,418 rows; it does not validate an exact match of the complete JSON schema.
+
+The reported \(3.19\times10^{-10}\) JavaScript maximum and \(1.54\times10^{-10}\) Python-CI maximum are backend-specific roundoff residuals, not competing physical answers. At \(h/T=10^{-5}\), the ordering reverses between the two implementations. The common \(3\times10^{-5}\) step is retained because both implementations satisfy the \(10^{-8}\) criterion with margin.
+
+**Review disposition: PASS_WITH_NOTES.** The numerical step-selection conclusion is supported. Preserve the archived JavaScript/Python provenance distinction and do not claim that the direct JavaScript source is reproducible from the current checked-in driver.

@@ -6,6 +6,13 @@
 
 ## 快速入口
 
+- [仓库结构与文件管理说明](docs/repository-management/README.md)：目录职责、迁移原则和导航。
+- [逐文档审查标准](docs/repository-management/DOCUMENT_REVIEW_STANDARD.md)、[462 份基线文档登记表](docs/repository-management/DOCUMENT_AUDIT_REGISTER.csv) 与 [134 份补充文档登记表](docs/repository-management/SUPPLEMENTAL_DOCUMENT_AUDIT_REGISTER.csv)：当前 Git 树共有 596 份 Markdown/text 文件（497 `.md`、99 `.txt`）；原始 462 份基线已逐份审查；新增 134 份已入补充台账，其中 128 份 PASS_WITH_NOTES、6 份 HISTORICAL、0 份 PENDING、0 份 REVISION_REQUIRED。基线登记表保留审查时指纹，并记录当前指纹状态为 389 MATCH_CURRENT、72 CONTENT_FINGERPRINT_DIFFERS 和 1 SIZE_METADATA_DIFFERS；这些差异作为历史审查版本指纹予以保留；全部当前 blob/size 元数据与 Git 树一致。详见[最终集成审查](docs/repository-management/FINAL_INTEGRATION_REVIEW_2026-11-17.md)。
+
+> **2026-11-17审查状态：** 原始基线 462/462 已审查（297 PASS_WITH_NOTES、2 PASS、156 HISTORICAL、7 REVISION_REQUIRED、0 PENDING）；补充台账另有 133 份新增文本文件，其中 127 份 PASS_WITH_NOTES、6 份 HISTORICAL、0 份 PENDING、0 份 REVISION_REQUIRED。第六十九轮完成最后 54 份基线文件审查；第七十五轮将三个明确归档的历史变体重新分类为 HISTORICAL；第七十六轮确认 B.16 escape-phase-space runbook 与 10 MeV Fig. 7 local-rate audit 两项基线问题仍需实质修复；第八十九轮将 Global-02 报告中无依据的 1140 次计数更正为汇总 JSON 记录的 1080 次，基线待修复项降至 7 条，但全局高阶收敛仍未通过。未执行新物理计算。相关报告见[第六十九轮报告](docs/repository-management/SIXTY_NINTH_REVIEW_FINAL_54_DOCUMENT_AUDIT_2026-11-16.md)、[端点积分修复报告](docs/repository-management/SIXTY_SIXTH_REVIEW_MAJOR1_ENDPOINT_QUADRATURE_2026-11-16.md)、[第七十五轮报告](docs/repository-management/SEVENTY_FIFTH_REVIEW_BASELINE_ARCHIVE_RECLASSIFICATION_2026-11-17.md)和[第七十六轮报告](docs/repository-management/SEVENTY_SIXTH_REVIEW_B16_ESCAPE_AND_FIG7_FOLLOW_UP_2026-11-17.md)和[第八十九轮报告](docs/repository-management/EIGHTY_NINTH_REVIEW_P1B_GLOBAL02_REPORT_COUNT_RECONCILIATION_2026-11-17.md)及[7 条基线待修复项行动表](docs/repository-management/REMAINING_BASELINE_REVISION_REQUIRED_ACTION_PLAN_2026-11-17.md)。第七十至八十九轮补充审查报告见[仓库管理文档索引](docs/repository-management/README.md)及[工作流审查索引](docs/repository-management/workflow-reviews/README.md)。
+- [GitHub Actions 工作流索引](.github/workflows/README.md) 与 [工作流审查登记表](.github/workflows/WORKFLOW_AUDIT_REGISTER.csv)：115 个工作流按物理专题分类，并逐份记录触发条件、权限和输出行为；目前 100 个完成静态审查，1 个为 ACTIVE，14 个保留为历史候选，0 个待审查。第八十至八十八轮审查见[工作流审查索引](docs/repository-management/workflow-reviews/README.md)。
+
+- [根目录文件逐项审查](docs/repository-management/ROOT_FILE_AUDIT_REPORT_2026-11-14.md)：覆盖 24 个根目录文件，包括权威入口、回复信 TeX/PDF、BibTeX、论文和审稿报告基线及历史工作稿。
 - [Git 合并策略与科研提交历史规范](GIT_MERGE_POLICY.md)：实质性科研 PR 默认采用 Merge Commit。
 
 - [项目入口与阅读说明](README-先读这里.md)
@@ -23,7 +30,7 @@
 
 - [论文基线 PDF](axial_vector_model_building-v6.pdf) 和 [原始审稿报告](dw13678_report_1_a.pdf)。
 - [Overleaf 源码归档](overleaf-source/axial-vector-model-building-v6/)：包含 `main.tex`、`main-v1.tex` 至 `main-v6.tex`、参考文献数据库、图表及随源包提供的回复信材料。编译时请将该目录作为项目根目录，并在 Overleaf 选择所需主文文件。当前环境尚未完成该归档的完整编译验证；两张较大的图经过 PDF 重新编码。
-- [面向审稿人的正式回复信源文件（2026-11-04）](Replies_to_Referee_3_referee_facing_2026-11-04.tex)：当前 main 唯一权威回复信，PR #38 已合并。该文件只保留审稿人需要看到的科学论证；正文同步任务、状态和前后对照统一记录在[内部论文正文待同步修改清单](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-03/论文正文待同步修改清单_2026-11-03.md)，不写入正式回复信。
+- [正式回复 TeX](Replies_to_Referee_3_referee_facing_2026-11-04.tex) 与 [PDF](Replies_to_Referee_3_referee_facing_2026-11-04.pdf)：最终匹配源/PDF 已由 [GitHub Actions run #43767527054](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43767527054) 独立编译和验收，共 64 页，500,973 bytes，SHA-256 `f5f7f5c24bc04b3901f26d261d18b64ec876a2680dee23c7b3b1964abf3e1819`。原第 43 页 2,253 字符完整图注逐字保留并移至图后正文；第 44/45 页续句分页亦已修复。64 页视觉检查、引用、字体和页边界检查通过。详见 [正式回复信最终排版验收](docs/repository-management/REPLY_LETTER_FINAL_ACCEPTANCE_2026-11-16.md)。这是排版验收，不代表超新星物理结果已验证。
 - [2026-10-28 回复信副本](Replies_to_Referee_3_referee_facing_2026-10-28.tex)：历史副本，仅用于版本追溯，不作为当前回复信主线。
 - [内部回复信工作稿（2026-10-27）](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-10-27/Replies_to_Referee_3_revised_working_2026-10-27.tex) 和 [论文修改 Diff](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-10-27/axial_vectorv6-diff-v2.4-PMNS-scope-2026-10-27.md)：保留为内部工作副本和正文修订方案；正式提交前须与实际主文和计算证据逐项核对。
 - [会议记录](审稿意见-gpt/会议记录/2026-10-23/README.md)：包含会议观点总结及四份文字稿。

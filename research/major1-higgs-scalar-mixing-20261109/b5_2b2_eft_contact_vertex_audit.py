@@ -44,6 +44,7 @@ def weak_singlet_covariant_derivative_check():
     tau1 = sp.Matrix([[0, 1], [1, 0]])/2
     tau2 = sp.Matrix([[0, -I], [I, 0]])/2
     tau3 = sp.Matrix([[1, 0], [0, -1]])/2
+    tau = (tau1, tau2, tau3)
     Hbar = sp.Matrix([[h1, h2]])
     L = sp.Matrix([l1, l2])
     # D H^dagger has + i g H^dagger tau^I W^I; D L has - i g tau^I W^I L.

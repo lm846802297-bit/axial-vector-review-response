@@ -141,8 +141,19 @@ Not established:
 
 The fixed \(Y_p=0.10\), \(T=3.03\) MeV, \(n_B/n_0=10^{-3}\) point is only a controlled benchmark. No mixed stellar profiles are used.
 
-## 7. Next stage
+## 7. Next stage (updated 2026-11-15)
 
-P1-IIId should reconstruct co-located \(n_B(r)\), \(Y_p(r)\), and \(T(r)\) from a single public stellar snapshot, with explicit provenance and digitization uncertainties. Only after that should this local kernel be evaluated radially.
+P1-IIId has now produced a 301-point Caputo figure-derived profile with \(T(r)\), \(n_B(r)\), and free-neutron/free-proton composition on the 0.2--15.2 km common support. P1-IIIe has separately mapped this profile to the SFHo EOS, including \(m_n^*(r)\), \(m_p^*(r)\), vector mean fields, and \(\xi_{\rm SPP}(r)\). These are public-figure reconstructions and EOS mappings, not raw Garching simulation arrays.
 
-The original Blinov B.2 convention, pure-vector Fig. 7 benchmark, and axial cooling curves remain untouched. No use of \(e^{-\tau_{\rm therm}}\) as a final escape probability is permitted.
+The P1-IIIb/C moving-nucleon kernel and five-energy grid have not yet been evaluated on that radial EOS profile. The next physical task is to combine the local kernel with those co-located EOS fields, then validate radial integration and energy/angle redistribution. The original Blinov B.2 convention, pure-vector Fig. 7 benchmark, and axial cooling curves remain untouched. Do not use \(e^{-\tau_{\rm therm}}\) as a final escape probability.
+
+
+## 8. Independent review qualification (2026-11-15)
+
+The five incident energies (50, 100, 150, 255, and 500 MeV), four \(\nu/\bar\nu\) neutron/proton channels, and four separately defined moments are consistent with the companion P1-IIIb kernel. The energy-window prescription is centered on the exact stationary recoil energy and uses a \(7q\sqrt{T/M_N}\) thermal-width proxy, with the lower endpoint clipped at zero. The 5-versus-9 width and higher-order spot checks support the archived ratios at the reported \(10^{-4}\) level; they do not establish uniform high-order convergence for every one of the 20 channel/energy points.
+
+The energy-loss ratio rises from roughly 0.666--0.681 at 50 MeV to roughly 0.980--0.981 at 500 MeV. This is a correction to the net energy-exchange moment, not a 30% change in total opacity. The interpretation correctly retains negative contributions from upscattering.
+
+The calculation still fixes \(T=3.03\) MeV, \(Y_p=0.10\), and \(n_B/n_0=10^{-3}\). The later Caputo/SFHo profile artifacts have not been used as radial inputs here. No dedicated unittest or workflow currently runs this P1-IIIc grid script; its high-order/window checks are embedded in the calculation output.
+
+**Review disposition: PASS_WITH_NOTES.** No B.2 opacity, Fig. 7 luminosity, or axial-vector cooling limit is modified.

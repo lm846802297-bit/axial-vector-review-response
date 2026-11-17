@@ -1,5 +1,7 @@
 # Belle II lifetime-dependent selection: evidence audit and required simulation
 
+> Historical scan snapshot: the 1,852 / 946 / 15 counts below describe the earlier width-complete classification. A later bounded-width scan uses a different treatment and reports different counts; see [bounded-width recast](BOUNDED_WIDTH_RECAST_2026-11-09.md) and its archived summary. The geometry-versus-efficiency distinction still applies.
+
 **Date:** 2026-11-05  
 **Scope:** original one-VEV \(S+\mathrm{VLL}\) radial scalar. No new field content and no referee-response change.
 

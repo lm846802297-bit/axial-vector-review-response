@@ -1,0 +1,57 @@
+# Seventy-fourth review: final research READMEs and checksum/environment manifests
+
+Review date: 2026-11-17  
+Reviewed branch: `maintenance/repository-organization-audit-20261114`  
+Reviewed branch head before this report: `a1b5a7095e7c425ec856aa74e250e7e522e175ad`  
+Scope: all twelve documents that remained `PENDING` in the supplemental register after the seventy-third review.
+
+This is a document, provenance, link and checksum review. It does not rerun the scientific calculations represented by the archived scripts or outputs. Two current checksum manifests were corrected during the twelve-document review; a third current sidecar was regenerated in the post-review follow-up. No source code, raw data, numerical output or physical conclusion was changed.
+
+## Individual dispositions
+
+| Document | Outcome | Findings and disposition |
+|---|---|---|
+| `research/major1-higgs-scalar-mixing-20261109/independent_fermion_sector_audit_snapshot_20261113/SHA256SUMS_CURRENT_2026-11-14.txt` | `PASS_WITH_NOTES` | Recomputed the seven listed SHA-256 entries from exact Git file bytes: 7/7 match. The manifest covers the preserved original manifest, historical manifest, README, independent matrix-audit driver, unit-test module, JSON output and test log. The README explicitly records that the older `SHA256SUMS.txt` has one historical README mismatch; that historical record is retained, not silently rewritten. The current sidecar validates byte identity, not a gauge-complete self-energy or physical pole. |
+| `research/major1-higgs-scalar-mixing-20261109/pole_quadrature_audit_requirements.txt` | `PASS_WITH_NOTES` | The three pins (NumPy 2.3.5, SciPy 1.17.0, mpmath 1.3.0) are explicitly scoped to the 2026-11-16 independent endpoint-quadrature audit. They must not be read as repository-wide or B.16 runtime requirements. No package installation or quadrature rerun was performed here. |
+| `research/major1-higgs-scalar-mixing-20261109/spectral_window_audit_2026-11-14_SHA256SUMS.txt` | `PASS_WITH_NOTES` | The CSV hash matched. The Python driver hash in the sidecar was stale; the current Git-byte SHA-256 was recomputed as `aa6dc93ce3d5d4456514708100a446324fde7882c2affe4ddf8314486278fadc`, replacing the stale `716cc6e0…` entry. After the metadata-only repair, both entries match 2/2. The script is a restricted 124.5–126.0 GeV spectral-area window comparison; this document review did not execute it or promote it to a detector-level signal-strength/likelihood result. |
+| `research/radial-scalar-collider-recast-2026-10-28/data/derived/scan-pr52-thetaR-1e-2/README.md` | `PASS_WITH_NOTES` | The archive description correctly identifies a compressed 73,728-row CSV, 80,770,035 uncompressed bytes, and the current archive hash. It distinguishes the earlier 58-test archive from the current 69-test generation, records that the comparison concerns two bound columns across 70,656 rows, and explicitly states that the uncompressed CSV is not committed as a directly usable native-file handoff. A successful checksum is not physical validation. The linked scan record and manifest-audit paths resolve. |
+| `research/radial-scalar-collider-recast-2026-10-28/data/derived/scan-pr52-thetaR-1e-2/SCAN_COMPARISON_SHA256SUMS_2026-11-14.txt` | `PASS_WITH_NOTES` | All three listed files (archive-comparison driver, its test module and JSON comparison output) match their SHA-256 entries, 3/3. The sidecar establishes the identity of the comparison artifacts only; it does not establish that the archived width scan is a detector-level recast or a new Belle II likelihood. |
+| `research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_provenance/README.md` | `PASS_WITH_NOTES` | The README preserves the original 96-row C4-C4-A anchor by its original Git blob and SHA-256, explains the distinct later table, and reports 11 changed rows across four numeric columns with maximum relative difference \(4.440892098500626\times10^{-16}\). It distinguishes the 17 input/unit checks from new high-order or full-radial integrations and warns that historical `SOURCE_PROVENANCE.md` paths describe the original run, not the recovered current snapshot. No anchor or numerical output was modified. |
+| `research/stellar-cooling-constraints-20261105/blinov_reproduction/SHA256SUMS_10MEV_GR_PATH_CURRENT_2026-11-14.txt` | `PASS_WITH_NOTES` | Four entries matched. The B.2 audit Markdown had changed after the sidecar was first written; its current Git-byte SHA-256 was recomputed as `7599586011aed9020866a85cfc8dbbb603fc6868080d268d18eba0c5bed8c766`, replacing `a3fdb356…`. After this metadata-only repair, all five entries match 5/5. The sidecar validates the current code/test/summary/report bytes, not the physical completeness of the GR treatment. |
+| `research/stellar-cooling-constraints-20261105/requirements-b16-audit.txt` | `PASS_WITH_NOTES` | NumPy 2.5.4 and SciPy 1.18.1 are pinned for the B.16 audit environment. This is a separate environment from the endpoint-quadrature requirements and the 10 MeV GR path's earlier run metadata. Keep each runtime file attached to its own audit; do not merge them into a single global environment without a dependency reconciliation. No package installation or B.16 calculation was run. |
+| `work/README.md` | `PASS_WITH_NOTES` | The README clearly labels `work/` as the historical v5.7 workspace, not current project authority. It warns that `structure_v57.py` and `polish_v57.py` write into the active technical-reference path and that validation scripts can overwrite working outputs; the isolated-copy instruction is appropriate. All 18 explicitly referenced files/entry points checked in this review exist. |
+| `弃用/README.md` | `PASS_WITH_NOTES` | The directory is explicitly an archive of superseded referee analyses, not current physics guidance. The five historical document links and the two current cross-reference links resolve. The README correctly avoids claiming that archiving the files means they have received full equation-level physical review. |
+| `计算脚本/整理记录/section_log_rerun_2026-11-14_SHA256SUMS.txt` | `PASS_WITH_NOTES` | Both listed entries (the 2026-11-14 section-log audit driver and its JSON output) match their SHA-256 hashes, 2/2. This dated rerun manifest is distinct from `section_log_rerun_current_SHA256SUMS_2026-11-16.txt`. The latter was regenerated after this review from exact current Git UTF-8 bytes and independently verified 8/8; its header does not claim to pin the historical local-rerun execution bytes. |
+| `附件/README.md` | `PASS_WITH_NOTES` | The two historical attachments and three current cross-reference targets resolve. The README distinguishes the old neutrino-charge analysis and 38-item coverage table from current authoritative model decisions, and explicitly warns against reusing their early claims as current conclusions. |
+
+## Cross-cutting conclusions
+
+1. All twelve documents previously marked `PENDING` have now received individual content-level review records.
+2. Five checksum groups were checked against exact Git bytes: independent fermion snapshot 7/7, spectral-window sidecar 2/2 after repair, scan-comparison sidecar 3/3, 10 MeV GR current sidecar 5/5 after repair, and dated section-log sidecar 2/2.
+3. Three current sidecars contained stale target hashes (spectral-window, 10 MeV GR and section-log). Their hash lines were updated only after independently hashing the current target bytes. The superseded section-log hash set remains recoverable in Git history; no historical target file was overwritten.
+4. The 2026-11-14 section-log sidecar (2/2) is distinct from the 2026-11-16 current sidecar. The latter was regenerated after this review from exact current Git UTF-8 bytes and now matches 8/8; it pins current file identity only, not the historical local-rerun inputs.
+5. The Belle II width archive remains compressed; the uncompressed 73,728-row CSV handoff is still outstanding.
+6. The 10 MeV B.2 audit still does not establish a full physical GR transport result: the same-snapshot profile lacks \(B(r)=\sqrt{g_{rr}}\) and enclosed-mass data, and the fixed-\(\omega\) versus redshift-only path prescriptions remain distinct. The redshift-only variant is not a full GR ray trace.
+7. The independent fermion snapshot remains a fermion-sector subcalculation only; it is not a complete gauge-independent scalar self-energy or physical pole.
+
+## Post-review follow-up: current section-log sidecar repair
+
+After the twelve-document review, the separate current section-log sidecar was re-examined. Its header says that it pins current maintenance-branch Git files only, not the historical 2026-11-14 local rerun. The eight target files were fetched as exact base64 Git contents, SHA-256 was recomputed over their decoded bytes, and the sidecar was regenerated with those eight current hashes. An independent second fetch confirmed 8/8 matches. The previous 2026-11-16 hash set is preserved in Git history; no target script, check log or JSON was modified. The sidecar is now `PASS_WITH_NOTES`, with the historical-run provenance limitation retained.
+
+## Execution boundary
+
+- All twelve previously pending documents were read.
+- Five checksum groups were independently recomputed from exact Git file bytes; all entries match. The subsequent section-log current-sidecar repair also independently matches 8/8.
+- Relative links and file references in the three historical-directory READMEs were checked against the current recursive Git tree.
+- No production collider, Higgs-pole, stellar-cooling, section-log, or transport calculation was run.
+- No GitHub Actions workflow was triggered.
+- No source code, raw scientific data, numerical output, manuscript source, physical parameter, exclusion or constraint curve was changed.
+
+The supplemental document review queue is empty and the supplemental register now has no `PENDING` or `REVISION_REQUIRED` entries: 111 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 0 `PENDING`, 0 `REVISION_REQUIRED`. The 2026-11-16 current section-log sidecar has been regenerated from exact current Git UTF-8 bytes and independently verified 8/8. Its prior incorrect hash set remains in Git history. The 11 baseline `REVISION_REQUIRED` entries are separate and remain open.
+
+
+## Post-review follow-up — 2026-11-17
+
+The one remaining supplemental `REVISION_REQUIRED` item identified above, `计算脚本/整理记录/section_log_rerun_current_SHA256SUMS_2026-11-16.txt`, has now been repaired as a file-integrity record. Its eight SHA-256 entries were regenerated from the exact current Git UTF-8 bytes and independently recomputed in this follow-up: **8/8 match**. The superseded, incorrect hash set remains available in Git history; the current manifest explicitly states that it pins current Git files and does not prove identity with the historical 2026-11-14 local working-copy inputs.
+
+This is a checksum/provenance repair only. It does not rerun any section calculation, convert the recorded section-260 mismatch into a PASS, or change the historical section-253/262 comparison results. The 2026-11-14 rerun JSON remains the authoritative record of that run's mixed outcome. The supplemental register now has 117 entries: 111 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 0 `PENDING`, and 0 `REVISION_REQUIRED`. No production calculation, workflow, source code, raw data, manuscript source or scientific conclusion changed.

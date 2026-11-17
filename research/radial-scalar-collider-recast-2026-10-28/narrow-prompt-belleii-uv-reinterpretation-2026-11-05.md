@@ -1,5 +1,7 @@
 # Belle II narrow-width / prompt benchmark reinterpretation of the original UV radial scalar
 
+> Superseded classification snapshot: the 1,852-point result below uses the earlier incomplete-width input. The later [bounded-width recast](BOUNDED_WIDTH_RECAST_2026-11-09.md) uses different input and decision rules; see also [scan provenance](SCAN_RUN_RECORD_2026-11-09.md). Neither result is a detector-level exclusion.
+
 **Date:** 2026-11-05  
 **Branch:** research/radial-scalar-original-model-belleii-20261105  
 **Status:** first conditional, pointwise narrow-width/prompt reinterpretation completed from the archived Belle II scalar limits and the available 73,728-point width-scan artifact. This is not a detector-level recast, a new CLs result, or a complete exclusion map.

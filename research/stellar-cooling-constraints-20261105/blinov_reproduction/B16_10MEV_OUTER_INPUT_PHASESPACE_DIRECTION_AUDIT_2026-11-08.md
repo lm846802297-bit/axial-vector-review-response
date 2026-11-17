@@ -1,5 +1,7 @@
 # B.16 10 MeV vector benchmark: outer inputs, inverse decay, and direction-resolved escape
 
+> **Historical profile-specific audit (2026-11-15):** this 2026-11-08 record uses the 501-node uniform profile and its outer 22--25 km inputs. Later vertex-preserving 1687-row and global B.13/B.2 records are separate. The full-curve Fig. 7 comparison was subsequently run and remains unresolved at 10 MeV; this outer-shell audit is not a benchmark sign-off.
+
 **Date:** 2026-11-08  
 **Status:** Steps 1--3 completed; literature equation mapping completed; full Fig. 7 discrepancy remains unresolved.  
 **Benchmark:** \(m_V=10\) MeV, pure-vector \(L_\mu-L_\tau\) current, fixed-\(\omega\) Appendix-B prescription, reconstructed SFHo-18.8 profile at 1 s post-bounce.  
@@ -173,7 +175,9 @@ The literal numerical implementation matches the structure of the published equa
 
 The published paper explicitly identifies \(R_{\max}=R_\nu\simeq25\) km, sets \(\mu_{\nu_\tau}=0\) because the simulations do not provide that profile, and uses the SFHo-18.8 muonic supernova model at 1 s post-bounce. The present benchmark follows those choices.
 
-**Equation-number correction:** in the published arXiv:2511.09619v2 Appendix B, the labels are B.1--B.19, not the main-text Eq. (17)--(35) numbering. In particular, B.19 is the Compton absorption detailed-balance equation. The neutrino inverse-decay absorption is checked with B.6 (production phase space), B.10 (neutrino detailed balance), and B.4 (reduced absorption). B.19 must not be cited as the neutrino inverse-decay relation.\n\nThe literal B.2 opacity in Eq. (18) uses \(\Gamma_{\rm abs}^{*}(r',\omega)\) along the path with the same displayed energy argument \(\omega\). The path-redshift alternative is therefore kept as a separate sensitivity diagnostic and is not silently substituted into the fixed-\(\omega\) reproduction.
+**Equation-number correction:** in the published arXiv:2511.09619v2 Appendix B, the labels are B.1--B.19, not the main-text Eq. (17)--(35) numbering. In particular, B.19 is the Compton absorption detailed-balance equation. The neutrino inverse-decay absorption is checked with B.6 (production phase space), B.10 (neutrino detailed balance), and B.4 (reduced absorption). B.19 must not be cited as the neutrino inverse-decay relation.
+
+The literal B.2 opacity in Eq. (18) uses \(\Gamma_{\rm abs}^{*}(r',\omega)\) along the path with the same displayed energy argument \(\omega\). The path-redshift alternative is therefore kept as a separate sensitivity diagnostic and is not silently substituted into the fixed-\(\omega\) reproduction.
 
 Relevant primary sources:
 
@@ -225,8 +229,8 @@ Independent scripts:
 
 The corresponding GitHub Actions audits pass, including 3 outer-shell geometry tests, 4 inverse-decay tests, and 3 directional-escape tests. The workflows also verify that the production axial-vector rate, transport, and plot outputs remain unchanged.
 
-## 7. Next step
+## 7. Historical next step at the 2026-11-08 snapshot
 
-Proceed to the independent whole-curve comparison with the published Fig. 7 inputs, keeping the source-side weak-coupling discrepancy separate from the strong-coupling escape discrepancy. In particular, isolate the inner-path absorption channels for the surviving outward trajectories and compare their local inputs with the exact Appendix-B expressions. The 25 km boundary, the B.1 source normalization, and the validated neutrino inverse-decay formula remain fixed.
+At the time of this audit, the next step was a whole-curve comparison and an inner-path channel audit. The subsequent vector benchmark, combined-channel shell sensitivity, dense local-kernel, and B.13/B.2 global records now preserve those later checks. The 10-MeV strong-absorption endpoint remains unresolved; the 25 km boundary, B.1 source normalization, and neutrino inverse-decay formula remain fixed.
 
-**The axial-vector scan remains frozen until the pure-vector Fig. 7 benchmark is understood.**
+**The axial-vector scan remains frozen until the pure-vector Fig. 7 benchmark passes.**

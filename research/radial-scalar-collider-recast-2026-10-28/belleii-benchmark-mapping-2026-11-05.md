@@ -1,5 +1,7 @@
 # Belle II scalar-benchmark normalization and original-UV mapping
 
+> Historical benchmark-stage record: the later [bounded-width recast](BOUNDED_WIDTH_RECAST_2026-11-09.md) implements a conditional pointwise classification. The unchecked gates below are the status of this earlier snapshot, not a complete description of later work. Detector-level validation and complete widths remain separate requirements.
+
 **Record date:** 2026-11-05  
 **Research scope:** the original paper's single-VEV \(S+\mathrm{VLL}\) model only.  
 **Status:** official numerical supplements archived byte-for-byte; published scalar benchmark curves reconstructed from the numerical tables; conditional original-UV/perturbativity overlay completed; no detector-level recast or complete UV exclusion claimed.

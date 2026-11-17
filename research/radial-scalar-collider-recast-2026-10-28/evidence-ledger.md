@@ -1,5 +1,7 @@
 # Evidence ledger — radial-scalar collider recast
 
+> Historical evidence snapshot: mass-dependent Belle II supplements were subsequently archived and table-driven benchmark curves reconstructed; the statements below that those rows remain unextracted describe the earlier stage. See [source-data audit](source-data-audit-2026-11-05.md) and [bounded recast](BOUNDED_WIDTH_RECAST_2026-11-09.md). Detector-level validation remains open.
+
 **Status date:** 2026-10-28  
 **Model scope:** original paper's single-VEV UV model only, with \(m_{A'}=2g_Xv_s\). No change to the paper's field content is made in this research line.
 

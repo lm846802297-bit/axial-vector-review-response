@@ -1,5 +1,8 @@
 # Three-layer decomposition of the 10 MeV Fig. 7 discrepancy
 
+> **HISTORICAL — superseded input:** This archived decomposition is pinned to profile SHA-256 08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9 and the (40,100,16,32) quadrature. The current accepted profile B is SHA-256 9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c. Retain these results as a historical channel-decomposition diagnostic; do not present them as the current profile-B benchmark.
+
+
 ## Question
 
 Does the residual in the 10 MeV Blinov Fig. 7 curve arise already in the optically thin source, in the channel-resolved reduced opacities, or only after transport/escape is applied?
@@ -95,3 +98,13 @@ The channel reduced-opacity sum agrees with the reference total to a maximum rel
 These are decomposition/bookkeeping checks under the *same* reference detailed-balance prescription. They are not the independent forward/reverse Compton phase-space test of Eq. (35). That remains the next microscopic cross-check before any production-code correction is considered.
 
 The dedicated [three-layer workflow](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42310090478) passes, including four regression tests and the full 25-point diagnostic. The earlier broad Major 4.4 workflow on the initial diagnostic commit failed at test-module import discovery (before its numerical scans); the import mode is now fixed, and the diagnostic-only paths are excluded from that broad full-scan trigger to avoid repeating the four-mass scan for this targeted audit.
+
+## Independent review qualification (2026-11-15)
+
+The archived JSON and the current source/test pair were checked together. The JSON records profile SHA-256 08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9, Fig. 7 comparison JSON SHA-256 6ec153f4bc0acbc1fdcdcc6b7855cfc980a61e440e858ea571d06923823de0a2, and quadrature \((40,100,16,32)\). It reports a mean absolute relative Fig. 7 difference of 15.7319%, with -8.8857% at the weak endpoint, +2.5683% at the sampled peak, and +92.2382% at the strong endpoint. Four dedicated regression tests are present, and historical workflow run #42310090478 completed successfully.
+
+The output's channel additivity residuals (about \(4.0\times10^{-16}\) and \(6.7\times10^{-16}\)) are bookkeeping closures under the same detailed-balance prescription in reference.py; they do not independently derive the inverse-process matrix elements. The report already states this limitation correctly.
+
+The profile fingerprint predates current profile B. The 2026-11-15 independent B.2 path-integral audit is tied to profile B and gives a 256-angle strong-endpoint luminosity \(2.43736510986799\times10^{52}\) erg/s with a \(+92.24931\%\) residual. That result is not a re-run of this three-layer decomposition and must not be substituted into its historical JSON. A new channel decomposition on profile B would be needed before using the three-layer attribution as a current-profile result.
+
+**Review disposition: HISTORICAL.** Preserve the archived source/opacity/transport decomposition for provenance; do not use its profile-A numbers as current profile-B evidence. No production source, opacity, luminosity curve, or axial-vector constraint is changed.

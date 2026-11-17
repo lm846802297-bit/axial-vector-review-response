@@ -63,7 +63,7 @@ In the density-comparison interval 15--16.5 km, the Compton contribution is 0.00
 | Weak endpoint relative difference vs Fig. 7 | -8.8853% | -8.8991% |
 | Reference peak relative difference vs Fig. 7 | 2.5688% | -2.7704% |
 | Strong endpoint relative difference vs Fig. 7 | 92.2406% | 36.7448% |
-| Strong-endpoint luminosity shift vs fixed baseline | 0 | NaN% |
+| Strong-endpoint luminosity shift vs fixed baseline | 0 | 0.0000% (reference row) |
 
 The path-redshift-only diagnostic uses \(\omega_{\rm loc}(s)=\omega_{\rm source}N_{\rm source}/N(s)\) in the local absorption kernel while retaining the same Euclidean path length and straight chord. It is a redshift-only sensitivity test, not full GR propagation. Appendix B, Eq. (B.2), explicitly evaluates the absorption rate at one fixed \(\omega\) along the chord, so fixed-\(\omega\) remains the paper-faithful baseline. The alternative demonstrates sensitivity to the energy prescription but cannot be substituted into the benchmark without a justified change of transport model.
 
@@ -79,3 +79,12 @@ The path-redshift-only diagnostic uses \(\omega_{\rm loc}(s)=\omega_{\rm source}
 - Current B.16 machine-readable result: `outputs/b16_global_fig7_vertex_preserving_10mev_2026-11-09.json`
 - Profile SHA-256: `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`
 - This report does not change the production axial-vector curve, the fixed-\(\omega\) baseline, or any source/opacity normalization.
+
+
+## 7. Independent review qualification (2026-11-15)
+
+The archived global output is tied to the current vertex-preserving profile SHA-256 9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c. The channel and shell fractions are descriptive decompositions of the specified B.16 source-weighted path measure, not independent measurements of the stellar opacity. The distinction between thin-source shell fractions and path optical-depth shell fractions in §§2--3 is correctly maintained.
+
+The table entry comparing the fixed-\(\omega\) baseline with itself previously displayed NaN%. This is a presentation artifact for a reference row, not a physical result; it is now written as a zero relative shift. The path-redshift-only values remain a separately labelled sensitivity and do not replace the published fixed-\(\omega\) B.2 prescription.
+
+**Review disposition: PASS_WITH_NOTES.** No source, opacity, profile, coupling, luminosity, or axial-vector result is changed.

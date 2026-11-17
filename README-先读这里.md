@@ -1,10 +1,13 @@
 # 审稿修订项目入口
 
-更新日期：2026-11-06。
+更新日期：2026-11-17。
+
+> **当前状态提示（2026-11-16）：** 本文件中带有 2026-11-06 日期的任务条目属于历史工作快照，不再代表当前 PR 或科学验收状态。最新状态请以根目录 [PROJECT_STATUS.md](PROJECT_STATUS.md) 和 [research 主索引](research/MAIN_RESEARCH_INDEX_2026-11-13.md) 为准。
 
 ## 分类索引
 
 - [仓库分类索引](仓库分类索引.md)：按权威入口、会议决策、回复信与 Diff、专题计算、脚本日志、历史归档和分支审计定位材料。
+- [根目录 24 个文件逐项审查](docs/repository-management/ROOT_FILE_AUDIT_REPORT_2026-11-14.md)：记录根目录文档、TeX、BibTeX、PDF 和构建依赖的审查结论及待办。
 
 ## 每次开展本项目工作前必读（轻量启动）
 
@@ -13,7 +16,7 @@
 3. 本文件：仓库导航和专题入口。
 
 根据任务再追加读取：
-- 回复信任务：[审稿回复写作原则](审稿意见-gpt/写作规范/审稿回复写作原则.md)、根目录 2026-11-04 回复信（PR #38 是此前合并版本；本轮 Major 3 新修订、对照、验证记录及 PDF 在 [PR #40](https://github.com/lm846802297-bit/axial-vector-review-response/pull/40)）和[正文待同步清单](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-03/论文正文待同步修改清单_2026-11-03.md)。
+- 回复信任务：[审稿回复写作原则](审稿意见-gpt/写作规范/审稿回复写作原则.md)、根目录当前权威 [回复 TeX](Replies_to_Referee_3_referee_facing_2026-11-04.tex) 与 [回复 PDF](Replies_to_Referee_3_referee_facing_2026-11-04.pdf)、[正文待同步清单](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-03/论文正文待同步修改清单_2026-11-03.md)。PR #40 是 Major 3 历史修订；PR #56 已于 2026-11-12 合并 Major 4.4 固定剖面 EFT benchmark。当前 PDF 已于 2026-11-16完成同源构建及64页逐页视觉验收，详见 [正式回复信最终排版验收](docs/repository-management/REPLY_LETTER_FINAL_ACCEPTANCE_2026-11-16.md)。
 - 物理研究任务：[研究决策与不可回退事项（动态登记表）](审稿意见-gpt/项目规范/研究决策与不可回退事项.md)及对应 v5.7 专题章节、原始推导和计算证据。
 - 论文正文修改：正文清单、作者当前选定的活动源文件及依赖、对应技术证据。
 
@@ -21,13 +24,15 @@
 
 ## 当前工作入口
 
-下面较早日期条目保留其历史验收边界；当前计算/PDF 状态以 2026-11-06 条目为准。
+- **2026-11-17 仓库审查状态：** 原始 462 份基线文档已全部审查，其中 7 条 REVISION_REQUIRED 已作为独立科学/来源待办明确保留；另有 134 份后续新增 `.md`/`.txt` 文件已列入[补充登记表](docs/repository-management/SUPPLEMENTAL_DOCUMENT_AUDIT_REGISTER.csv)，其中 128 份 PASS_WITH_NOTES、6 份 HISTORICAL、0 份 PENDING、0 份 REVISION_REQUIRED。当前 Git 树共 596 份 Markdown/text 文件（497 `.md`、99 `.txt`）；基线指纹状态为 389 MATCH_CURRENT、72 CONTENT_FINGERPRINT_DIFFERS、1 SIZE_METADATA_DIFFERS。115 个工作流中 100 个已静态审查、1 个为 ACTIVE、14 个保留为历史候选、0 个待审查。第七十八轮静态审查 4 个 B.2/B.16 工作流；第七十九轮再审查 4 个外层温度及缪子中微子敏感性工作流，第八十至八十七轮完成余下工作流的逐项静态审查，第八十八轮核对 15 个历史候选，其中当前 PR 回复信构建工作流改列 ACTIVE，另 14 个的运行历史已通过 GitHub Actions API 核对，共 499 次记录，候选状态因分支和手动触发仍有效而保留，覆盖 EOS 占据、C4 碰撞核、B.16 路径与剖面、Bollig/Caputo 来源、Fig. 7 数字化与收敛，以及 collider/vector-response 审计；记录了触发依赖缺项、分支守卫、权限范围和依赖锁定问题。第七十五轮将三个明确归档的历史变体从 REVISION_REQUIRED 调整为 HISTORICAL；第七十六轮确认 B.16 escape-phase-space runbook 和 10 MeV Fig. 7 local-rate audit 仍需实质修复；第八十九轮更正 Global-02 报告计数并将其文档状态从 REVISION_REQUIRED 调整为 PASS_WITH_NOTES，未改变计算输出或全局验收结论；另有[7 条基线待修复项行动表](docs/repository-management/REMAINING_BASELINE_REVISION_REQUIRED_ACTION_PLAN_2026-11-17.md)列出每项关闭证据；[最终集成审查](docs/repository-management/FINAL_INTEGRATION_REVIEW_2026-11-17.md)逐项说明保留理由并审查 PR 全部变更。未执行新物理计算。相关报告见[第七十七轮工作流审查](docs/repository-management/workflow-reviews/C4C4_WORKFLOW_REVIEW_2026-11-17.md)和[第七十八轮工作流审查](docs/repository-management/workflow-reviews/B2_PATH_WORKFLOW_REVIEW_2026-11-17.md)、[第七十九轮工作流审查](docs/repository-management/workflow-reviews/B16_OUTER_PROFILE_SENSITIVITY_WORKFLOW_REVIEW_2026-11-17.md)和[第八十轮工作流审查](docs/repository-management/workflow-reviews/B16_MUON_PROFILE_AND_NEUTRINO_BRANCH_WORKFLOW_REVIEW_2026-11-17.md)、[第七十四轮](docs/repository-management/SEVENTY_FOURTH_REVIEW_FINAL_RESEARCH_READMES_AND_MANIFESTS_2026-11-17.md)、[第七十五轮](docs/repository-management/SEVENTY_FIFTH_REVIEW_BASELINE_ARCHIVE_RECLASSIFICATION_2026-11-17.md)和[第七十六轮](docs/repository-management/SEVENTY_SIXTH_REVIEW_B16_ESCAPE_AND_FIG7_FOLLOW_UP_2026-11-17.md)和[第八十九轮](docs/repository-management/EIGHTY_NINTH_REVIEW_P1B_GLOBAL02_REPORT_COUNT_RECONCILIATION_2026-11-17.md)。
 
-- **2026-11-06 Major 4.4 计算与回复 / [PR #56（Open / Draft）](https://github.com/lm846802297-bit/axial-vector-review-response/pull/56)：** [轴矢量固定剖面冷却限制](research/stellar-cooling-constraints-20261105/README.md)、[验证与正式自审记录](research/stellar-cooling-constraints-20261105/VALIDATION_AND_REVIEW.md)。沿用适配的轴矢量/V+A EFT 文献，给出三偏振产生/吸收/衰变、条件性 SN1987A 限制图、收敛与敏感性对照。论文正文未改；PR #56 尚未合并。
+下面按日期保留历史工作快照；当前 PR 状态、科学验收状态和正式回复 PDF 状态均以根目录 [PROJECT_STATUS.md](PROJECT_STATUS.md) 顶部最新 live section 为准。
 
-- **正式回复信、PDF 与参考文献归档：** 根目录 [当前回复 PDF](Replies_to_Referee_3_referee_facing_2026-11-04.pdf) 已于 2026-11-06 按当前 TeX 重编译并检查，共 65 页，包含 Major 4.4 新图；当前 PDF 为 65 页 A4、506,944 bytes；SHA-256 为 `56451f2d…`，完整值见验证记录。唯一可编辑权威 TeX 仍在根目录；当前构建新增 stellar bibliography 和限制图依赖，哈希及完整依赖见本轮验证记录。[归档说明](archive/reply-letter/README.md)与[2026-11-04-r2](archive/reply-letter/snapshots/2026-11-04-r2/manifest.md)保持历史快照用途。
+- **2026-11-06 历史快照：Major 4.4 / [PR #56](https://github.com/lm846802297-bit/axial-vector-review-response/pull/56)：** PR #56 已于 2026-11-12 合并，整合固定剖面轴矢量 EFT ballistic-cooling benchmark 和相关研究记录。合并不表示纯矢量 Blinov Fig. 7 10 MeV 强吸收端已复现（字面固定-ω 路径仍有约 +92.25% 差异），也不表示获得完整 SN1987A transport/exclusion。具体状态和适用边界以 [PROJECT_STATUS.md](PROJECT_STATUS.md) 及 [验证与正式自审记录](research/stellar-cooling-constraints-20261105/VALIDATION_AND_REVIEW.md) 为准。
 
-- **2026-11-04 Major 4.4 文献调查：** [轴矢量 stellar-cooling / SN1987A 文献适用性调查](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-04/Major4.4-轴矢量stellar-cooling文献适用性调查_2026-11-04.md)。区分一般轴矢量恒星冷却讨论、轴矢量核子耦合 SN 文献、常规矢量型 \(L_\mu-L_\tau\) 超新星计算，以及本文完全相同的中微子 coalescence 子过程；不将矢量模型完整曲线直接作为轴矢量 UV 模型排除。原论文单 VEV 模型的后续计算见 [PR #53](https://github.com/lm846802297-bit/axial-vector-review-response/pull/53)；该研究仍为独立 Draft，不构成已完成的超新星排除。
+- **正式回复信与参考文献：** [回复 TeX](Replies_to_Referee_3_referee_facing_2026-11-04.tex) 是可编辑源；[PDF](Replies_to_Referee_3_referee_facing_2026-11-04.pdf) 在本整理分支由该源编译，共 64 页、500,973 bytes，SHA-256 `f5f7f5c24bc04b3901f26d261d18b64ec876a2680dee23c7b3b1964abf3e1819`。依赖 `references.bib`、`Replies_to_Referee_3_stellar_references.bib`、`JHEP.bst` 与 Major 4.4 图；验收范围见 [最终排版验收报告](docs/repository-management/REPLY_LETTER_FINAL_ACCEPTANCE_2026-11-16.md)。
+
+- **2026-11-04 Major 4.4 文献调查：** [轴矢量 stellar-cooling / SN1987A 文献适用性调查](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-04/Major4.4-轴矢量stellar-cooling文献适用性调查_2026-11-04.md)。区分一般轴矢量恒星冷却讨论、轴矢量核子耦合 SN 文献、常规矢量型 \(L_\mu-L_\tau\) 超新星计算，以及本文完全相同的中微子 coalescence 子过程；不将矢量模型完整曲线直接作为轴矢量 UV 模型排除。原论文单 VEV 模型的后续计算见 [PR #53](https://github.com/lm846802297-bit/axial-vector-review-response/pull/53)；PR #53 已于 2026-11-12 合并；合并不构成已完成的超新星排除，当前验收边界以 PROJECT_STATUS.md 为准。
 
 - **2026-11-04 Major 4.2 新修订：** [动能混合与暗光子限制对照](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-04/Major4.2-暗光子限制与论文修改对照_2026-11-04.md) 及[验证记录](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-04/Major4.2-验证记录_2026-11-04.md)，记录显式匹配边界 epsilon_ind(mu_match)=0、10/100/200/300 MeV 的 NA64 质量依赖视觉读取区间、300 MeV dimuon 分支比，以及 epsilon_eff=|epsilon|sqrt(Br_inv) 的 leading-yield 比较。
 
@@ -39,7 +44,7 @@
 
 - **模型一致性边界：** Major Point 3/4.1 的额外中微子完成机制只用于对应的专门中微子回复论证，不改变原论文的 `S+VLL` 单 VEV UV 模型。其他非中微子 Major/Minor 回答及其专题 PR 均以原论文模型为基准。
 - **[PR #54（已合并）](https://github.com/lm846802297-bit/axial-vector-review-response/pull/54)：** 修正正式回复信与项目规范，明确 Major 3/4.1 的中微子完成机制只属于对应问题的回复论证；其他非中微子回答仍以原论文单 VEV 模型和原始规范流为基准。
-- **2026-11-05 PR #30/#51 清洁替代 / [PR #53（Draft）](https://github.com/lm846802297-bit/axial-vector-review-response/pull/53)：** 旧 #30 和错误采用双 VEV 映射的 #51 均已关闭、未合并。#53 从当前 main 创建，恢复原论文单 VEV 映射；半康普顿振幅和均匀局部热率计算保留。完整介质 T/L opacity 和 SN transport 仍未完成。
+- **2026-11-05 PR #30/#51 清洁替代 / [PR #53（已合并）](https://github.com/lm846802297-bit/axial-vector-review-response/pull/53)：** 旧 #30 和错误采用双 VEV 映射的 #51 均已关闭、未合并。#53 从当前 main 创建，恢复原论文单 VEV 映射；半康普顿振幅和均匀局部热率计算保留。完整介质 T/L opacity 和 SN transport 仍未完成。
 - **2026-11-05 PR #32 替代 / [PR #52（Closed，未合并）](https://github.com/lm846802297-bit/axial-vector-review-response/pull/52)：** 旧 #32 已关闭、未合并。#52 从当前 main 创建，严格使用原论文单 VEV 标量模型；保留 Belle II 来源台账、重铸协议、部分宽度框架和逐点分类规则。Belle II 数值数据提取、实验 benchmark 复现和 UV 重铸尚未完成；这些是独立后续研究，不是当前 Major Point 1 回复的前置条件。
 
 日常推进使用 **[精简执行手册 v5.6](审稿意见-gpt/当前执行/审稿意见分析与执行手册_v5.6-主分析全任务映射与原子步骤版-20261019.md)** 的任务 ID、依赖和验收条件；其 §0.1 是 2026-10-27 历史状态快照，不再作为当前状态源。物理推导使用 **[v5.7 Markdown 技术参考](审稿意见-gpt/审稿意见分析v5.7-物理校核与专题连续阅读版.md)** 的相关章节。v5.7.1 LaTeX 仅用于查阅尚未回收到 Markdown 的历史细节。

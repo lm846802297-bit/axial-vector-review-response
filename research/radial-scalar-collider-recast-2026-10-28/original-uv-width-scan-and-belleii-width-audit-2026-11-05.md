@@ -1,5 +1,7 @@
 # Original-UV radial-scalar width scan and Belle II width/promptness audit
 
+> Historical run record: the currently stored scan artifact has later provenance and corrected width/resolution endpoint ordering; see [scan provenance](SCAN_RUN_RECORD_2026-11-09.md). The bounded four-body and conditional benchmark limitations below continue to apply.
+
 **Date:** 2026-11-05  
 **Branch:** \`research/radial-scalar-original-model-belleii-20261105\`  
 **Scope lock:** the original paper's single-VEV \(S+\mathrm{VLL}\) model only. No extra scalar, extra VEV, right-handed neutrino, or neutrino-sector completion is introduced.  

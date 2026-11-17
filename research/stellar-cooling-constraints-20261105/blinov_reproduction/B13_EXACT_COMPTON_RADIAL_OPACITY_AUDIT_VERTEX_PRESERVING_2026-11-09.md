@@ -3,6 +3,8 @@
 Date: 2026-11-09  
 Status: **local radial comparison completed and numerically converged at the sampled points.** This establishes that the B.13 versus B.14--B.16 difference is non-negligible in the inner production region at \(m_V=10\) MeV. It does not yet provide a source-weighted full-path luminosity correction.
 
+> **Historical local-kernel record (2026-11-15):** the later full-profile B.13/B.2 global work is archived in PR #113, merged on 2026-11-14. This note remains a sampled local radial comparison, not a global luminosity correction or final Fig. 7 validation.
+
 ## 1. Input and scope
 
 - \(m_V=10\) MeV.

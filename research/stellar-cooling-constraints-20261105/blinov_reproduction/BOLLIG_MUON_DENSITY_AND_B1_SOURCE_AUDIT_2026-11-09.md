@@ -198,7 +198,7 @@ Keep the following distinctions explicit:
 Both workflows preserve the production rates, transport, and published axial outputs.
 
 
-## 7. Current-profile B.1 source-input closure update (2026-11-10)
+## 9. Current-profile B.1 source-input closure update (2026-11-10)
 
 The subsequent P1-E source-side tests have now checked two additional profile inputs that were not covered by the original density audit:
 
@@ -209,3 +209,13 @@ The subsequent P1-E source-side tests have now checked two additional profile in
 The B.1 weak-end source residual remains about \(-9.03\%\) for the current 1687-row profile. The source-side tests above do not justify changing \(n_\mu F_{\rm deg}\), \(\mu_{\nu_\mu}\), \(\mu_{\nu_\tau}\), or the lapse. The original Garching table and the paper's numerical implementation remain unavailable, so the residual stays an explicit reproduction limitation rather than a fitted correction.
 
 No B.1 source, opacity, profile, Fig. 7 digitization, or axial-vector output is changed by this status update.
+
+## 10. Independent review qualification (2026-11-15)
+
+The source data and the Fermi--Dirac reconstruction are internally consistent within the public-figure extraction: the Caputo \(T(r)\) and \(\mu_\mu/T\) paths reproduce Bollig Figs. 1 and 4 at the stated \(10^{-4}\) level, while the absolute Fig. 3 density curve remains lower by roughly 5--10% over the visible outer part of the muon-rich region. The 15--20 km follow-up confirms that the discrepancy persists where Fig. 3 is above its plotting floor and becomes censored beyond 16.6466 km.
+
+The B.1 susceptibility is \(n_\mu F_{\rm deg}=T\,\partial n_\mu/\partial\mu_\mu\) for the same distribution. It is not consistent to rescale \(n_\mu\) independently while holding \(F_{\rm deg}\) fixed. The P1-E2 neutrino-chemical-potential stresses and P1-E3 lapse stresses are too small or unsupported to explain the weak-end B.1 source deficit; the current residual remains an explicit public-profile/model-reproduction limitation.
+
+The archive's exact same-snapshot Garching variable dictionary and raw arrays remain unavailable. This prevents identifying whether the Fig. 3 difference is due to species definition, normalization, or simulation output conventions. No density rescaling is justified.
+
+**Review disposition: PASS_WITH_NOTES.** Preserve the original Fig. 3 discrepancy and the current B.1 input freeze; no source, opacity, profile, or axial-vector output is changed.

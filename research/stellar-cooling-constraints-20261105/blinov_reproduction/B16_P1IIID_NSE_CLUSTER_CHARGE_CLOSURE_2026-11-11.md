@@ -83,3 +83,14 @@ This also defines the correct applicability of the existing free-nucleon collisi
 5. Only then decide whether the outer-layer neutrino opacity needs explicit nuclear coherent/inelastic scattering in addition to the free-nucleon kernel.
 
 No B.2, vector Fig. 7, or axial cooling result is changed by this composition diagnostic.
+## 6. Independent review qualification (2026-11-15)
+
+The subsequent native-vector Fig. 12 cross-check now supplies the figure-level comparison anticipated in §§4--5. Over ten common radii from 1 to 15 km, the E--K neutron and proton curves agree with Caputo's reconstructed free-neutron/free-proton curves at 0.580% and 0.586% RMS relative residual; their sum agrees with Caputo free baryons at 0.574% RMS. The literal upper-tick density transform is about ten times too large. This strongly supports interpreting the E--K n,p curves as free-nucleon densities at the published-figure level.
+
+This does **not** authenticate the raw Garching variable dictionary. The archive's exact field names and same-snapshot arrays remain unavailable in the reviewed repository. Accordingly, retain the distinction between (i) figure-level support for the free-nucleon interpretation and (ii) definitive raw-archive variable semantics.
+
+The 8 km Caputo Fig. 1 density-path residual gives \(n_Q^{\rm cl}/n_B\simeq0.037\%\), while the independent Fig. 4 abundance reconstruction has \(X_{\rm cluster}=Y_Q^{\rm cl}=0\) at that key radius. Treat this small mismatch as figure-path closure/digitization residual, not evidence for a physical cluster population at 8 km. From 9--15 km, the Fig. 4 composition gives \(X_{\rm cluster}\simeq0.45\%\)--\(8.85\%\), \(Y_Q^{\rm cl}\simeq0.19\%\)--\(3.43\%\), and an effective \(\langle Z/A\rangle_{\rm cl}\simeq0.42\)--0.387. These are published-figure composition estimates, not raw NSE abundances.
+
+The free-n,p collision kernel must use \(n_n^{\rm free}\) and \(n_p^{\rm free}\), not \(n_B\) with the cluster component silently assigned to free nucleons. The current kernel still omits coherent/inelastic neutrino responses on nuclei. The present closure audit therefore supports the composition bookkeeping but does not establish complete outer-layer opacity.
+
+**Review disposition: PASS_WITH_NOTES.** Steps 1--2 of the former validation list are complete at figure level; raw archive variable confirmation and propagated digitization uncertainties remain open. No collision kernel, B.2 opacity, luminosity, or axial-vector result is changed.

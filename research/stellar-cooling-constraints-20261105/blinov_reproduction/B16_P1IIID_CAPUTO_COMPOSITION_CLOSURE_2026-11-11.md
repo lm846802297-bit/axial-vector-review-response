@@ -85,7 +85,7 @@ and
 n_{\rm cl}^{\rm baryon}(r)=X_{\rm cl}(r)n_B(r).
 \]
 
-Selected values from the vector-path reconstruction:
+Selected values from the vector-path reconstruction. The 1--15 km rows are also covered by the 0.05-km common-support CSV; the 18 km row is taken from the separate extended key-radii artifact, as clarified in the review note below:
 
 | \(r\) (km) | \(n_B/n_0\) | \(n_n^{\rm free}/n_0\) | \(n_p^{\rm free}/n_0\) | \(X_{\rm cl}\) | \(Y_Q^{\rm cl}\) | \((Z/A)_{\rm eff}\) |
 |---:|---:|---:|---:|---:|---:|---:|
@@ -153,3 +153,14 @@ free-nucleon \(nn,np,pp\) kernel must remain distinct from any cluster
 response. No B.2 opacity, Fig. 7 vector benchmark, escape probability, or
 axial cooling curve is changed at this stage.
 
+## 8. Independent review qualification (2026-11-15)
+
+The 301-row composition output and its JSON closure summary were cross-checked numerically. The recomputed Fig. 4 \(Y_p\) versus Fig. 1 \(n_p/n_B\) RMS residual is 0.0320205%, the \(Y_e+Y_\mu\) versus \((n_e+n_\mu)/n_B\) RMS residual is 0.107404%, and the cluster-charge absolute-difference RMS is \(1.61510\times10^{-4}\) per baryon; these reproduce the archived JSON values to floating-point precision. The 1--15 km free-neutron/free-proton reconstruction and the warning against \(n_n^{\rm free}=n_B-n_p^{\rm free}\) are supported within the published-figure scope.
+
+One provenance distinction is required for the 18 km row in the selected-values table. The current extract_caputo_composition_abundances.py script and its caputo_composition_closure JSON produce the 301-row common-support profile only over 0.2--15.2 km, because the Fig. 1 \(n_\mu\) path ends near 15.27 km. The separate caputo_composition_key_radii_2026-11-11.csv contains additional 16, 18, and 20 km values, including the 18 km row shown above, but no current checked-in script writes that extended key-radii CSV. The 18 km values are retained as an archived vector-derived artifact, not as output of the current 301-row extraction run. The exact producer/invocation for that extended file should be added before claiming full script-level reproducibility beyond 15.2 km.
+
+The 18 km row is not used in the cross-figure validation metrics, which are restricted to the common support. The 1--15 km closure and the physical conclusion that clusters carry a non-negligible baryon/positive-charge fraction in the 8--15 km region remain unchanged.
+
+The E--K comparison is a cross-publication figure-level check within a shared Garching model lineage, not an independent hydrodynamic simulation validation. The density-axis upper glyphs remain ambiguous vector outlines; the corrected logarithmic mapping is selected by equal tick spacing and the same-model free-nucleon comparison, not by asserting a definite typesetting error. Figure stroke uncertainty is larger than the reported sub-percent residuals.
+
+**Review disposition: PASS_WITH_NOTES.** The cluster bookkeeping is valid within the documented support; the extended 18 km row carries an explicit producer-provenance caveat. No EOS input, nucleon density, collision kernel, B.2 opacity, or axial-vector result is modified.

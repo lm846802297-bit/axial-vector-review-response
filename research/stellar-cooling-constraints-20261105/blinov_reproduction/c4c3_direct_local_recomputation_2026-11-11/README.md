@@ -83,3 +83,12 @@ In the inner region the per-target proton response is larger, partially
 compensating for neutron-rich composition. Toward the outer region the
 per-target responses approach one another, so the opacity ratio approaches
 the available neutron/proton density ratio.
+
+## Physics-review qualification (2026-11-15)
+
+The 301-radius rate table is a faithful reproduction of the archived table, but both use the same eight-node outgoing-angle quadrature. The independent 8-versus-12 angular comparison in C4-C2 covers only the innermost \(r=0.20\) km anchor; the 301-radius run has no radial angular-convergence scan. In particular, the opacity peak near 7.35 km is not independently checked at a higher angular order.
+
+The outgoing-energy support also inherits the 45T initial-momentum cutoff. Its roots are exact for that truncated domain, not for the nonzero untruncated Fermi-Dirac tail. The fixed-local-energy, flat-space \(\tau\) table remains a diagnostic, not a fully converged physical opacity or transport result.
+
+Required before promotion: check 8-versus-12 angular convergence across the radial profile (including 7.35 km), and compare 40T/45T/50T momentum cutoffs in the most demanding local states.
+

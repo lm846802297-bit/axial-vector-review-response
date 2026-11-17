@@ -608,3 +608,16 @@ same mass/time weights, which are not contained in these EOS tables. It also
 does not claim a phase-space closure proof over every one of the 1.5 million
 physical EOS cells. No B.2 transport, pure-vector Fig. 7, or axial-vector
 constraint curve is changed by this validation.
+## 14. Independent review qualification (2026-11-15)
+
+The pending-execution wording in §10 is superseded by the later same-day acceptance in §13. The official archives were transferred, hash-verified, decoded, and checked. The local P1-IIIe-A/P1-IIIe-B suite passed 35/35 tests, and GitHub Actions run 42953524476 completed the 15/15 distribution-kernel tests plus 20/20 real-table/fixture/archive tests with no table-dependent test skipped. This review checked the recorded evidence and source/test consistency; it did not rerun that 35-test suite.
+
+The 224-cell phase-space closure remains a **sampled-grid** result. It is not a continuous-domain guarantee and does not establish Fermi-integral closure on every one of the 1.5 million physical EOS cells. The full-table audits validate the table structure, thermodynamic identities, mass fractions, filling factor, and composition free-n,p layers; they do not replace the sampled phase-space calculation.
+
+The exact HS excluded-volume reference density used in the raw-table identity is \(n_B^0=0.15824150805\ {\rm fm}^{-3}\). The public SFHo manual rounds the symmetric-matter saturation density to \(0.1583\ {\rm fm}^{-3}\). The generic kernel fallback previously used the rounded value even though the raw-table audit passed the unrounded value explicitly. The fallback default and its unit-test expectations have now been aligned to the unrounded table-module constant. The real-table audit and C1/C2 production outputs are unchanged because the audit passed the exact constant explicitly and C1/C2 take \(\xi\) directly from the SPP table.
+
+The composition-table semantic caveats in §13 remain important: the neutron-side NSE input is conditional on the no-nuclei switch, the Coulomb electron-density input is not the global charge density \(Y_p^{\rm tot}n_B\), and composition layers 1 and 3 remain unidentified. None is substituted into the Fiorillo occupation mapping. The EOS table's mass fractions, total chemical potentials, effective masses, vector self-energies, and SPP filling factor are the supported inputs.
+
+The published Fiorillo Table 1 weighted averages remain **not reproduced**. No same-snapshot Garching mass-time profile and \(\Delta M\,\Delta t\) weights have been obtained. The EOS tables plus the Caputo-derived 301-point \(t_{\rm pb}=1\) s profile support a local snapshot reconstruction, not a time-integrated Garching average.
+
+**Review disposition: PASS_WITH_NOTES.** No EOS table values, raw-table audit result, C1/C2 profile, degeneracy factor, B.2 opacity, Fig. 7 curve, or axial-vector limit is changed by this review.

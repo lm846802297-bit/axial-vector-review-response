@@ -43,11 +43,15 @@ If instead \(E_\infty=N(r)\omega_{\rm src}\) is conserved along the path, the lo
 \omega_{\rm loc}(s)=
 \omega_{\rm src}\frac{N(r)}{N(r'(s))}.
 \]
-This is the prescription used by the separate redshift-only diagnostic. It changes only the local energy argument in the opacity kernel; it does not include spatial-curvature corrections to the path length.
+This is the prescription used by the separate lapse-redshift diagnostic. At every path point it recomputes the local production/absorption kernels and the local vector speed
+\[
+v_V(s)=\sqrt{1-\frac{m_V^2}{\omega_{\rm loc}(s)^2}},
+\]
+including the \(1/v_V(s)\) factor in the optical-depth integrand. It retains the Euclidean straight-chord path element \(ds\); it does not include spatial-metric corrections or gravitational ray bending and is therefore not full GR propagation.
 
 ## 3. Numerical comparison at 10 MeV
 
-For the current vertex-preserving profile (SHA-256 `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c)):
+For the current vertex-preserving profile (SHA-256 `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c):
 
 | Quantity | Fixed-\(\omega\) Appendix-B baseline | Path-redshift-only diagnostic |
 |---|---:|---:|
@@ -111,7 +115,7 @@ For reproduction, retain the literal fixed-omega B.2 expression as the published
 
 ### 6.2 Compton prescription: formal rate versus approximate reduction
 
-The version of record presents Eq. (B.13) as the thermal phase-space integral for \\(\\mu\\gamma\\to\\mu V\\). It then discusses the non-relativistic-muon/no-recoil approximation, gives the approximate cross section in Eq. (B.14), and derives the compact thermal-rate expressions in Eqs. (B.15)--(B.16).
+The version of record presents Eq. (B.13) as the thermal phase-space integral for \(\mu\gamma\to\mu V\). It then discusses the non-relativistic-muon/no-recoil approximation, gives the approximate cross section in Eq. (B.14), and derives the compact thermal-rate expressions in Eqs. (B.15)--(B.16).
 
 The Fig. 7 discussion says that the luminosity is evaluated using Eq. (B.1) and the physics inputs described in Appendix B, but it does not separately identify the numerical Compton implementation as either the full Eq. (B.13) integral or the reduced Eq. (B.16) expression. The formal presentation of B.13 and the subsequent approximate reduction therefore need to be distinguished when describing what is directly established by the article.
 
@@ -123,15 +127,15 @@ The article's data-availability and code-availability statements say that no ass
 
 For the current vertex-preserving profile B at 10 MeV:
 
-- literal fixed-\\(\\omega\\), B.16 working benchmark: strong-endpoint residual \\( +92.24\\% \\);
-- path-redshift-only diagnostic with the same Euclidean chord measure: strong-endpoint residual \\( +36.74\\% \\);
-- consistent global B.13 source-and-opacity replacement: strong-endpoint residual \\( +131.53\\% \\).
+- literal fixed-\(\omega\), B.16 working benchmark: strong-endpoint residual \( +92.24\\% \);
+- path-redshift-only diagnostic with the same Euclidean chord measure: strong-endpoint residual \( +36.74\\% \);
+- consistent global B.13 source-and-opacity replacement: strong-endpoint residual \( +131.53\\% \).
 
-These are different physical prescriptions, not interchangeable numerical refinements. None reproduces Fig. 7. The B.13 result remains a separate diagnostic and is not promoted to a final precision prediction until its dedicated global convergence output is fully archived.
+These are different physical prescriptions, not interchangeable numerical refinements. None reproduces Fig. 7. The early 2026-11-09 B.13 run's full point-array artifact remains incomplete; later full-profile B.13/B.2 refinements are recorded in PR #113. Neither branch reproduces Fig. 7 or constitutes a final precision prediction.
 
 ### 6.4 Decision
 
-1. Preserve the literal fixed-\\(\\omega\\) Appendix-B calculation and its B.16 working Compton implementation for continuity with the current benchmark.
+1. Preserve the literal fixed-\(\omega\) Appendix-B calculation and its B.16 working Compton implementation for continuity with the current benchmark.
 2. Keep the redshift-only and B.13 calculations separate, with their assumptions visible.
 3. Do not state that the published Fig. 7 code is known to use B.16 unless independent implementation evidence becomes available.
 4. Do not infer a full GR result from the redshift-only diagnostic.
@@ -144,7 +148,7 @@ The path-redshift diagnostic has now been rerun on the exact vertex-preserving p
 
 `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`.
 
-Configuration is unchanged from the prior diagnostic: (N_r=40), (N_\omega=100), (N_\theta=16), (N_s=32), (R_{\max}=25\) km; masses (m_V=0.1,1,10\) MeV. The 10 MeV result is:
+Configuration is unchanged from the prior diagnostic: \(N_r=40\), \(N_\omega=100\), \(N_\theta=16\), \(N_s=32\), \(R_{\max}=25\,\mathrm{km}\); masses \(m_V=0.1,1,10\,\mathrm{MeV}\). The 10 MeV result is:
 
 | Fig. 7 point | Fixed-\(\omega\) baseline | Path-redshift-only |
 |---|---:|---:|
@@ -153,7 +157,7 @@ Configuration is unchanged from the prior diagnostic: (N_r=40), (N_\omega=100), 
 | Strong endpoint | +92.2406% | +36.7448% |
 | Strong-endpoint shift relative to fixed-\(\omega\) | 0 | -28.8679% |
 
-At the strong endpoint, the fixed-\(\omega\) escape fraction is (3.23921\times10^{-4}), while the path-redshift-only value is (2.30412\times10^{-4}). The optically thin source is held fixed between the two prescriptions.
+At the strong endpoint, the fixed-\(\omega\) escape fraction is \(3.23921\times10^{-4}\), while the path-redshift-only value is \(2.30412\times10^{-4}\). The optically thin source is held fixed between the two prescriptions.
 
 The current-profile output is archived at:
 
@@ -175,4 +179,27 @@ The independent B.1 audit now includes a second full source integration in E_inf
 
 The exact equivalence is archived in `outputs/b16_b1_independent_thin_source_10mev_2026-11-09.json`; the acceptance workflow is [Run #42573725261](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/42573725261).
 
+**Separate comparison with the older archived B.1 source:** the independent high-resolution integral differs from the older B.16 source output by -0.443% in total luminosity, -0.536% in neutrino inverse decay, and -0.245% in muon-Compton. This is not a failure of the local-energy versus \(E_\infty\) variable transformation: those two parameterizations agree exactly with each other in the new integration. It is a distinct small source-integration/profile/interpolation residual that should remain visible in the benchmark audit rather than be attributed to the energy-variable choice.
+
 This means the Sec. 4.1 versus B.1 notation is not a physical ambiguity: it is an exact variable transformation. The only remaining energy-convention question is whether B.2's fixed omega is literal or implicitly redshifted along the path. The reproduction baseline remains the literal B.2 expression.
+
+## 9. Independent inspection of the lapse-redshift implementation (2026-11-15)
+
+The implementation in `audit_b16_global_redshift.py` was checked against the conserved-Killing-energy relation. Its source energies are local at the production point, so it forms
+\[
+E_\infty=N(r_{\rm src})\omega_{\rm src},\qquad
+\omega_{\rm loc}(s)=\frac{E_\infty}{N(r'(s))}.
+\]
+It then recomputes the neutrino/dimuon/Compton production kernels and detailed-balance reduced absorption at \(\omega_{\rm loc}(s)\), and updates
+\[
+v_V(s)=\sqrt{1-\frac{m_V^2}{\omega_{\rm loc}(s)^2}},
+\qquad
+d\tau=\Gamma_{\rm abs}^{*}(r'(s),\omega_{\rm loc}(s))
+\frac{ds}{v_V(s)}.
+\]
+The code also treats source points with \(E_\infty\le m_V\) as non-escaping. These are the correct lapse-only energy and local-speed transformations for a static background.
+
+The approximation boundary is the path geometry: \(ds\) and the straight chord are still Euclidean. The diagnostic is therefore a lapse-redshift sensitivity calculation, not a GR geodesic transport result. The fixed-\(\omega\) branch remains a literal reproduction of the printed B.2 argument; it is not physically equivalent to conserved-\(E_\infty\) propagation when \(N(r)\) varies.
+
+The published main text calls \(\omega\) the energy at spatial infinity, while B.1 is printed in a local source-energy variable (the two B.1 forms are exactly related by the documented change of variables). B.2 does not explicitly print the local conversion \(E_\infty/N(r'(s))\) inside the path-dependent collision kernel and speed. This remains a publication-level notation/implementation ambiguity; without the authors' numerical code it cannot be resolved by matching Fig. 7.
+

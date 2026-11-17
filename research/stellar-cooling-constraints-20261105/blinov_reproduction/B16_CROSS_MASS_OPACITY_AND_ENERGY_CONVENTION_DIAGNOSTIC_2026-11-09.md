@@ -1,5 +1,7 @@
 # Cross-mass opacity and energy-convention diagnostic (2026-11-09)
 
+> **Later-work note (2026-11-15):** the exact B.13 versus B.16 global source-plus-opacity comparison at 0.1, 1 and 10 MeV was subsequently archived in B13_THREE_MASS_SOURCE_OPACITY_AND_CONVERGENCE_AUDIT_2026-11-09.md. The low-mass curves use the baseline global grid and are not independently grid-converged. The B.2 fixed-\(\omega\) versus path-redshift convention remains a separate unresolved reproduction question.
+
 ## Scope
 
 This report compares the current vertex-preserving profile B results at (m_V=0.1,1,10) MeV. It uses the archived fixed-(omega) B.16 baseline and the separate path-redshift-only diagnostic. No collision kernel, profile, coupling grid, or production output is changed.
@@ -38,9 +40,9 @@ This supports a targeted strategy: do not spend equal effort on the 20--25 km pr
 ## 3. Fixed-(omega) versus path-redshift-only comparison
 
 The path-redshift-only diagnostic replaces the local energy along the ray by
-[
-omega_{m loc}(r')=omega_srac{N(r_s)}{N(r')},
-]
+\[
+\omega_{\rm loc}(r')=\omega_s\frac{N(r_s)}{N(r')},
+\]
 while retaining Euclidean chords. It is not the literal fixed-(omega) B.2 baseline and is not full GR.
 
 | (m_V) | Fixed-(omega) strong-endpoint residual | Path-redshift-only residual | Change |

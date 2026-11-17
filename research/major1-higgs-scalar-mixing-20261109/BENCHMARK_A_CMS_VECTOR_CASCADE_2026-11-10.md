@@ -1,5 +1,7 @@
 # Major Point 1 — Benchmark-A vector cascade and CMS \(\mu\mu\tau\tau\) search applicability
 
+> Numerical follow-up (2026-11-16): the four legacy QUADPACK warnings in the pole driver have been closed by replacing the endpoint-sensitive integration with composite Gauss-Legendre panels and independently checking the flagged integrals with high-precision mpmath tanh-sinh. The updated pole/residue values reproduce the Benchmark-A isolated-pole ratio and cascade estimate at the quoted precision. See [the independent quadrature audit](../../docs/repository-management/POLE_QUADRATURE_INDEPENDENT_AUDIT_2026-11-16.md) and [updated pole output](exact_momentum_pole_audit.txt). This closes only the numerical integration issue; the cascade remains a conditional isolated-pole estimate, not a gauge-independent vertex calculation or a vector-specific CMS recast.
+
 **Purpose:** quantify whether the open \(A'A'\) channel in Benchmark A is potentially relevant to existing Higgs exotic-decay searches. This is a leading isolated-pole estimate, not an experimental recast.
 
 ## 1. Benchmark-A pole-induced \(h_1\to A'A'\)
@@ -91,5 +93,7 @@ A valid recast must:
 5. account for the two-pole Higgs line shape if the singlet pole overlaps the 125 GeV state.
 
 Until this vector-specific recast is done, the CMS result is a strong motivation for a dedicated check, not an exclusion. The calculation does show that Benchmark A's exotic Higgs channel is experimentally relevant enough that it must be included in the referee discussion.
+
+**Pole-input traceability note (2026-11-16):** `cms_vector_cascade_audit.py` currently embeds `R_{hh}` and `R_{hs}` as literal constants. The independent quadrature JSON records the converged `R_{hh}` values but does not serialize `R_{hs}`. In addition, the cascade script's hard-coded `R_{hh}` differs from the current Benchmark-A, `m_s=125.25` GeV JSON value by `2.52e-8` in complex absolute magnitude (small for the quoted cascade precision, but not byte-identical). Thus the branching/cascade arithmetic is reproducible conditional on the hard-coded residue ratio, but the committed machine-readable artifacts do not yet provide an end-to-end numerical reconstruction of that ratio. Keep the cascade result as a conditional isolated-pole estimate until the current `R_{hs}` and `R_{hh}` are serialized with the pole output/JSON or computed directly by the cascade driver.
 
 **References:** CMS Collaboration, CMS-SUS-23-005, CERN-EP-2026-200, arXiv:2609.12683 (2026); ATLAS Collaboration, HIGP-2025-19, CERN-EP-2026-228, arXiv:2608.07332 (2026).

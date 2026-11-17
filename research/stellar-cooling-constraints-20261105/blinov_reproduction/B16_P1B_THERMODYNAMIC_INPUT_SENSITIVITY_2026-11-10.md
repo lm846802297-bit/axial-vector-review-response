@@ -1,5 +1,7 @@
 # P1-B thermodynamic-input sensitivity of high-energy B.2 neutrino opacity
 
+> **Historical local-kernel snapshot (2026-11-15):** This note preserves an earlier pointwise B.7--B.10 sensitivity study using the profile file identified below. Its integrated B.2 transport questions were subsequently extended in [P1-B.2 thermodynamic interpolation and input sensitivity](B16_P1B2_THERMODYNAMIC_INTERPOLATION_AND_INPUT_SENSITIVITY_2026-11-10.md), while the B.1 source-side \(\mu_{\nu_\mu}\) question was treated separately in [P1-E2](B16_P1E2_B1_NEUTRINO_CHEMICAL_POTENTIAL_SOURCE_SENSITIVITY_2026-11-10.md) and [P1-E3](B16_P1E3_INTERIOR_LAPSE_B1_SOURCE_SENSITIVITY_2026-11-10.md). The later consolidated decision is [B.16 Fig. 7 final reproduction acceptance](B16_FIG7_FINAL_REPRODUCTION_ACCEPTANCE_2026-11-10.md). Retain the local derivatives as a dated diagnostic, not as a current global-luminosity uncertainty or an active next-step instruction. No dedicated script, test module, or machine-readable output is linked by this note, so its tabulated derivatives are not independently rerunnable from this document alone.
+
 Date: 2026-11-10  
 PR: #57  
 Branch: \`research/moving-muon-thermal-rates-20261107\`  

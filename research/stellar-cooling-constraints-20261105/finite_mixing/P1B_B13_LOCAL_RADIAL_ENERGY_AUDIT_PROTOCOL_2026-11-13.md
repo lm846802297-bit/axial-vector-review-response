@@ -29,7 +29,7 @@ This is a vertex-preserving reconstruction of published profile figures, not the
 The final base grid contains 10 radii and 14 local mediator energies:
 
 \[
-r=\{0,5,8,10,12.5,15,18.66,22,24\}\ {\rm km},
+r=\{0,5,8,8.482141202,10,12.5,15,18.66,22,24\}\ {\rm km},
 \]
 
 \[
@@ -52,14 +52,11 @@ Every refined-grid node and cell midpoint is evaluated with
 \[
 (16,10,10,10),\quad(20,12,12,12).
 \]
-If the successive difference is too large, both are adaptively refined to
+If the successive difference of the initial pair is too large, the point is adaptively refined through
 \[
 (24,14,14,14),\quad(28,16,16,16).
 \]
-If the last successive refinement exceeds the screening target, the point is adaptively refined to
-\[
-(24,14,14,14),\quad(28,16,16,16).
-\]
+If the final \((28,16,16,16)\) result still exceeds the screening target, that point remains a failed quadrature point; this protocol specifies no further hidden order increase or extrapolation.
 
 The pointwise comparison is made separately for both target charges and all three physical mediator modes \(L,+,-\), and separately for:
 - production \(\Gamma_{{\rm prod},h}\);

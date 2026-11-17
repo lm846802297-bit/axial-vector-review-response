@@ -76,3 +76,12 @@ The finite-difference step used here is a fixed, preselected numerical setting. 
 C3-A verifies the local thermodynamic identity only. It does not calculate a dynamic \(W_N^{\mu\nu}(q_0,q;r)\), a time-space weighted core average, B.2 opacity, radial transport, luminosity, the pure-vector Fig. 7 benchmark, or an axial cooling curve.
 
 Next: C3-B, scan the finite-difference step over the full radial profile and identify a stable plateau, explicitly separating central-difference truncation error from floating-point cancellation. Only after that should C3-C investigate the radial dependence of the local static factors.
+## 6. Independent review qualification (2026-11-15)
+
+The clean GitHub Actions run #42970450802 completed successfully: the C3-A unit tests ran, the full 301-radius calculation was recomputed, and the generated JSON/CSV were compared with the committed artifacts. This is a reproducible clean-environment rerun of the checked-in Python implementation, not a second independent codebase.
+
+The two estimators are mathematically distinct: one evaluates the blocked integral directly, while the other differentiates the unblocked density with respect to \(\nu_N\). They do, however, share the same Gauss-Legendre phase_space_integrals backend and EOS state loader. Therefore the agreement is a strong algebraic/numerical identity check, but not an independent quadrature-backend cross-check. The direct C2 reproduction residuals remain at floating-point scale.
+
+C3-B and C3-C have since completed; the selected step \(h/T=3\times10^{-5}\) is now supported by the full nine-step scan, and the radial dependence/nonrelativistic comparisons are documented separately. C3-A remains strictly local and static.
+
+**Review disposition: PASS_WITH_NOTES.** Keep the C3-A numerical result. Do not describe the CI rerun as an independent implementation or promote this identity to a dynamic response or global cooling weight.

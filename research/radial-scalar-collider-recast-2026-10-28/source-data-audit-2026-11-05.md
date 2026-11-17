@@ -1,5 +1,7 @@
 # Belle II numerical supplement audit and scalar-benchmark reconstruction
 
+> Historical stage note (2026-11-15): later point-by-point width scans were archived. Their existence does not complete a detector-level recast or establish a universal exclusion; see [scan provenance](SCAN_RUN_RECORD_2026-11-09.md) and the corresponding width audit.
+
 **Record date:** 2026-11-05  
 **Branch:** research/radial-scalar-original-model-belleii-20261105  
 **Model scope:** the original paper's one-VEV radial scalar and original VLL sector only.  

@@ -5,7 +5,7 @@
 
 ## Executive result
 
-The existing exact moving-muon semi-Compton kernel already evaluates the three physical \(A'\) modes \(L,+,-\), both muon charges, exact \(2\to2\) recoil, and production/absorption statistical factors independently. This audit adds an independent pointwise check that does not use the production trace to form its reference: it constructs explicit on-shell Dirac spinors, sums the two initial/final muon spin states and two physical photon polarizations, and compares that result with the production trace.
+The existing exact moving-muon semi-Compton kernel already evaluates the three physical \(A'\) modes \(L,+,-\), both muon charges, exact \(2\to2\) recoil, and production/absorption statistical factors independently. This audit adds an independent pointwise check that does not use the production trace to form its reference for the direct muon-minus amplitude: it constructs explicit on-shell positive-energy Dirac spinors, sums the two initial/final spin states and two physical photon polarizations, and compares that result with the production trace. The muon-plus cases use the charge-conjugation map described below; they are not a separate explicit-v-spinor calculation.
 
 The local independent calculation covers five moving-muon kinematic points and six current/charge combinations per point:
 
@@ -57,6 +57,13 @@ The vector longitudinal mode uses the Ward-equivalent representative
 \]
 which is valid only for the conserved vector-current part. The axial longitudinal mode retains the physical \(\epsilon_L^\mu\). The \(\mu^+\) mixed-current amplitude reverses the relative vector--axial interference sign.
 
+### Charge-conjugate validation boundary
+
+The reference helper \`dirac_u\` constructs positive-energy \(u\) spinors. The \(\mu^+\) rows in \`CURRENT_CASES\` do not construct negative-energy \(v\) spinors; they apply the charge-conjugation relation by reversing the relative vector--axial coefficient (\`charge_sign=-1\)) in the mapped \(u\)-spinor amplitude. This is the expected mapping if the charge-conjugation algebra and crossing conventions are correct, but it is not an independent numerical test of those conventions using explicit \(v\) spinors.
+
+Accordingly, the 90 comparisons establish direct explicit-spinor/trace agreement for the \(\mu^-\) amplitudes and agreement of the \(\mu^+\) trace with the assumed charge-conjugated \(u\)-spinor representation. A direct \(v\)-spinor construction for \(\mu^+\), with the crossed fermion-line ordering made explicit, remains a recommended follow-up before describing the antimuon sign as independently spinor-validated.
+
+
 ## 2. Numerical checks
 
 The independent explicit-spinor calculation was run locally with NumPy 2.3.5 / Python 3.13.5. The acceptance thresholds are \(10^{-10}\) for amplitude/trace agreement, photon Ward residual, final-muon shell closure, and the vector longitudinal Ward shift.
@@ -69,7 +76,7 @@ The independent explicit-spinor calculation was run locally with NumPy 2.3.5 / P
 | Physical vs Ward-shifted vector longitudinal amplitude | \(3.5415\times10^{-14}\) maximum relative residual | PASS |
 | Minimum explicit \(|\mathcal M_h|^2\) | \(7.0507\times10^{-3}\) | nonnegative |
 
-All 90 mode-resolved explicit matrix elements are nonnegative.
+All 90 mode-resolved reference matrix elements (including the charge-conjugation-mapped μ⁺ cases) are nonnegative.
 
 As a negative control on the Ward shift, applying the same \(q^\mu/m_{A'}\) subtraction to the axial longitudinal current is not valid: the sampled axial amplitude changes by an order-one amount. The implementation must therefore continue to use the physical longitudinal polarization for the axial current.
 
@@ -82,7 +89,7 @@ This is a stronger check than comparing two quadrature implementations that shar
 3. the sum over the two physical photon polarizations;
 4. the three physical mediator-polarization projections;
 5. the vector-current longitudinal Ward shift;
-6. the charge-conjugate sign of the mixed vector--axial term.
+6. consistency of the assumed charge-conjugation sign map for the mixed vector--axial term; an explicit (v)-spinor derivation remains outstanding.
 
 It is a pointwise matrix-element audit. It does **not** by itself certify the thermal phase-space integral, a uniform radial/energy quadrature error bound, or the global mode-resolved supernova transport.
 
@@ -103,7 +110,7 @@ The earlier high-order local quadrature audit reached a maximum \(20\times12\tim
 
 ## 5. P1 disposition
 
-**Pointwise three-polarization amplitude validation: PASS.**
+**Pointwise three-polarization amplitude validation: PASS_WITH_NOTES.** The direct (u)-spinor reference validates the μ⁻ amplitudes. The μ⁺ comparison uses the charge-conjugated (u)-spinor mapping and should not be cited as an independent (v)-spinor validation.
 
 The exact B.13 local kernel is already implemented; this audit independently validates its pointwise matrix elements. The next unresolved P1 item is a denser, source-weighted radial/energy convergence audit of the local mode-resolved production and absorption arrays. After that, P2 must propagate the exact B.13 \(L,+,-\) rates separately and compare:
 

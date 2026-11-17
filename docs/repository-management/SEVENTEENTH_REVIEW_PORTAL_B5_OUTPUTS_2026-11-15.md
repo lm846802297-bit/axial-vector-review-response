@@ -1,0 +1,26 @@
+# Individual review: portal A5b / B5 output records
+
+Baseline `65b856eeb7078b6efb4cc5b602b25260921755c7`, 2026-11-15. All seven output summaries below were read and associated scripts executed under Python 3.12.14 and SymPy 1.14.0; 27 tests across four B5 suites pass after the B5-2B2 fix. This is a scoped script/output and internal-convention review, not an independent derivation of all UV/EFT loop amplitudes, an external PyR@TE run, or complete RG closure.
+
+| Document under `research/major1-higgs-scalar-mixing-20261109/` | Individual findings and disposition |
+|---|---|
+| `A5B_RESTRICTED_EFT_RGE_AUDIT_OUTPUT_2026-11-10.txt` | `a5b_dim6_derivative_rge_audit.py` exits 0; fixed-sector logarithmic cancellation and benchmark entries match to shown precision. This restricted result is not a complete model anomalous-dimension matrix. PASS_WITH_NOTES. |
+| `B5_1B_SM_RUNNING_OUTPUT_2026-11-11.txt` | Already superseded input set. Current rerun gives `T_SM=1.781931005404`; stored `1.782928294` is inconsistent with its own `y_t=0.770699034515` because `3 y_t^2=1.781931005407`. The stored D_SM agrees with the corrected value. Added explicit warning and kept original numbers. Do not mix with matched coupled UV run. HISTORICAL. |
+| `B5_1D_INDEPENDENT_RGE_AUDIT_OUTPUT_2026-11-11.txt` | `b5_1d_independent_rge_audit.py` exits 0 and its ten unittest cases pass. Gauge traces, scalar tensor and charge checks agree with the summary. External PyR@TE/SARAH execution remains unperformed; this output does not validate EFT running. PASS_WITH_NOTES. |
+| `B5_1_UV_PORTAL_BETA_AUDIT_OUTPUT_2026-11-11.txt` | `b5_1_uv_portal_beta_audit.py` exits 0; symbolic scalar/gauge coefficients and subtotal tables match the recorded digits. At this historical stage D_SM is symbolic; later input schemes must not be mixed into its old table. The beta is only above the VLL threshold. PASS_WITH_NOTES. |
+| `B5_2A_C5_SQUARED_AND_QUARTIC_EOM_OUTPUT_2026-11-11.txt` | `b5_2a_c5_squared_operator_block.py` exits 0; signs, selected benchmark quantities and threshold identity agree within recorded precision, with a tiny last-digit difference in a displayed EOM slope. The quoted subblocks do not close the gauge-corrected operator mixing. PASS_WITH_NOTES. |
+| `B5_2B1_GAUGE_PARAMETER_AND_CURRENT_BASIS_OUTPUT_2026-11-11.txt` | `b5_2b_gauge_current_subblock.py` exits 0; pole combinations, Casimir equality and current sign/Pauli checks agree with its symbolic output and tests. This is a parameter-pole/tree-current subblock; no complete gauge-loop Ward closure or finite matching is established. PASS_WITH_NOTES. |
+| `B5_2B2_EFT_COVARIANT_DERIVATIVE_CONTACTS_OUTPUT_2026-11-11.txt` | `b5_2b2_eft_contact_vertex_audit.py` originally failed because `tau` was undefined. Restored the tuple of its already-declared Pauli generators; script and existing five tests now pass, including weak-contact cancellation. This is a contact check, not a loop amplitude or Ward-identity proof. PASS_WITH_NOTES after repair. |
+
+The original B5-2B2 summary is retained; the missing symbol repair does not alter the definitions of its three matrices. Historical T_SM values are not silently overwritten. Higher-order and external-generator verification remain open.
+
+## 2. Independent current-tree follow-up (2026-11-16)
+
+**Disposition of this review report: PASS_WITH_NOTES.** All seven output files and their associated scripts are present. The four referenced unittest modules contain exactly 27 test methods in total: B5-1D 10, B5-2A 5, B5-2B1 7 and B5-2B2 5. The 27 historical PASS results are therefore consistent with the current test inventory; I did not rerun all four suites in this follow-up.
+
+- The superseded `b5_1b_sm_running_20tev.py` was independently executed under Python 3.13.5 / NumPy 2.3.5 / SciPy 1.17.0. It returns `T_SM(top-only)=1.781931005404`, `D_SM(top-only)=1.609470751820`. The preserved output's `T_SM=1.782928294` is inconsistent with its displayed `y_t=0.770699034515` because `3 y_t^2=1.781931005407`. The output already flags this and is correctly marked superseded; its old beta subtotal must not be reused.
+- The current B5-2B2 script explicitly defines the Pauli-generator tuple `tau=(tau1,tau2,tau3)`, matching the repaired output and five-method test module. Its output has six PASS assertions; those are assertions, not six unittest methods.
+- The B5-1D output and ten-method suite cover an independent symbolic beta-vector/group-theory audit and comparison to the production RHS. They do not constitute an external PyR@TE/SARAH run; the output explicitly says that external generator execution remains unperformed.
+- The A5B and B5-2A outputs are restricted EFT/RGE and EOM subblocks; B5-1 is the UV portal beta above the VLL threshold; B5-2B1 is a parameter-pole/tree-current subblock; B5-2B2 is a derivative-contact audit. Their stated limits remain correct: none closes the full model anomalous-dimension matrix, full UV–EFT matching, complete gauge-loop Ward identity, or physical scalar pole calculation.
+
+The output records are internally consistent with the report's bounded dispositions. The 27-test count is not the later 39-test combined count, which includes additional B5-2B3/B5-2B4 and other suites. No Wilson coefficient, matching result or phenomenological constraint was upgraded by this document review.

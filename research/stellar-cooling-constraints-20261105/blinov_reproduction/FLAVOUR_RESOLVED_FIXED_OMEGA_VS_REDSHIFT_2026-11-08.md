@@ -1,5 +1,8 @@
 # Flavor-resolved neutrino opacity: fixed omega versus path redshift
 
+> **HISTORICAL — superseded profile:** The archived JSON is pinned to sfho188_digitized.csv SHA-256 08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9. The current accepted profile B is SHA-256 9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c. Keep this report as a reproducible profile-A sensitivity study; do not quote its shell statistics as current profile-B results.
+
+
 **Status:** numerical audit completed; four unit tests pass and both path-column closures are verified.  
 **Scope:** \(m_V=10\) MeV, pure-vector B.14--B.16 benchmark, digitized SFHo-18.8 \(t_{\rm pb}=1\) s background. The source term and all background profiles are held fixed.
 
@@ -134,3 +137,13 @@ Machine-readable output: \`outputs/b16_flavour_fixed_vs_redshift_10mev_2026-11-0
 ## References
 
 N. Blinov, P. J. Fox, K. J. Kelly, R. Plestid, and T. Zhou, “\(L_\mu-L_\tau\) gauge bosons in beam dumps and supernovae,” JHEP 06 (2026) 155, arXiv:2511.09619, Appendix B, Eqs. (B.1)--(B.19).
+
+## 6. Independent review qualification (2026-11-15)
+
+The committed driver, four-test module, workflow, and machine-readable JSON were located. The JSON explicitly records the old input profile SHA-256 08d7afce8252bce18dcd69035b9b5cd76ee2a848b3e755b84bb8ede72f6e65b9, not current profile B (9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c). The reported fixed-\(\omega\) and path-redshift shell ratios and luminosity-removal factors are therefore valid for the archived profile-A/grid configuration only.
+
+The path-redshift prescription changes \(\omega_{\rm loc}(s)\) and \(v_V(s)\) but retains the Euclidean chord measure. It is a sensitivity diagnostic, not a full GR ray trace. The shell-column closure and equality of \(\nu_\mu,\nu_\tau\) in the \(\mu_{\nu_\mu}=0\) test validate the decomposition under the same underlying opacity prescription; they do not independently derive the microscopic inverse-decay kernel.
+
+The later 2026-11-15 high-energy fixed-\(\omega\)/redshift artifacts are separate restricted-energy diagnostics and are not a profile-B rerun of this full flavor-resolved shell decomposition. No current-profile replacement for this exact output has been established in the reviewed tree.
+
+**Review disposition: HISTORICAL.** Preserve the driver/tests/JSON as a historical, reproducible profile-A comparison. A current-profile result requires rerunning the same full flavor-resolved calculation with profile B and archiving the paired output; do not silently relabel the old JSON.

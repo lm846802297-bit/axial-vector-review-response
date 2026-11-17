@@ -55,14 +55,14 @@ def source_measure(r, rw, energies, lapse, mass, production):
 
 
 def direct_pair_average(mu, omega, temperature, mass, order):
-    """Independent 1/2 integral dcos(theta) f(E1,mu) f(E2,-mu)."""
+    """Independent 1/2 integral dcos(theta) f(E1,mu) f(E2,-mu). The expit arguments are mu-E1 and -mu-E2, not the blocking complements."""
     z, w = leggauss(order)
     velocity = np.sqrt(max(1.0 - (mass / omega)**2, 0.0))
     e1 = omega * (1.0 + velocity * z) / 2.0
     e2 = omega * (1.0 - velocity * z) / 2.0
     return float(0.5 * np.sum(
-        w * expit((e1 - mu) / temperature)
-        * expit((e2 + mu) / temperature)
+        w * expit((mu - e1) / temperature)
+        * expit((-mu - e2) / temperature)
     ))
 
 

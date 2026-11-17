@@ -18,9 +18,33 @@ BASE='310a24a53e8448f0388072cfdbf55749fde713f9'
 
 def sha(path): return hashlib.sha256(path.read_bytes()).hexdigest()
 
+def extract_braced(text, marker):
+    start = text.index(marker) + len(marker)
+    depth = 1
+    for i in range(start, len(text)):
+        if text[i] == '{':
+            depth += 1
+        elif text[i] == '}':
+            depth -= 1
+            if depth == 0:
+                return text[start:i]
+    raise AssertionError(f'unclosed braced field: {marker}')
+
 def main():
     before=subprocess.check_output(['git','show',BASE+':'+NAME+'.tex'],cwd=ROOT).decode('utf-8')
     after=(ROOT/(NAME+'.tex')).read_text(encoding='utf-8')
+    layout_before=subprocess.check_output(['git','show','293d047013cce0dc3fbc44b2cd679f2df0f253dd:'+NAME+'.tex'],cwd=ROOT).decode('utf-8')
+    original_caption=extract_braced(layout_before, r'\caption{')
+    caption_marker=r'\noindent\textbf{Detailed interpretation of Fig.~\ref{fig:reply-axial-cooling}.} '
+    caption_start=after.index(caption_marker)+len(caption_marker)
+    caption_end=after.index('\n\nRepresentative intervals',caption_start)
+    relocated_caption=after[caption_start:caption_end]
+    caption_sha=hashlib.sha256(original_caption.encode('utf-8')).hexdigest()
+    assert relocated_caption==original_caption
+    assert len(original_caption)==2253
+    assert caption_sha=='3e042139e73f73b39ac42081ff494bccafe0345a1135c33eaf990cbd38d2c8c3'
+    assert r'\caption{Conditional SN1987A ballistic-cooling benchmark for the axial EFT. The detailed interpretation is given immediately after the figure.}' in after
+    assert r'\end{figure}'+'\n'+r'\clearpage'+'\n'+r'\enlargethispage{\baselineskip}'+'\n'+caption_marker in after
     # Only these eight wrappers are layout edits to pre-existing mathematics.
     stripped=after.replace('\\resizebox{\\linewidth}{!}{$\\displaystyle{\n','').replace('\n}$}\n','\n')
     quotes=lambda s:re.findall(r'\\begin\{quote\}(.*?)\\end\{quote\}',s,re.S)
@@ -52,6 +76,7 @@ def main():
     log=(ROOT/'build'/(NAME+'.log')).read_text(encoding='utf-8',errors='replace')
     assert not re.search(r'undefined|There were undefined|Citation .* Warning',log,re.I)
     doc=pymupdf.open(pdf)
+    assert len(doc)==64, f'expected 64 pages, found {len(doc)}'
     unresolved=[i+1 for i,p in enumerate(doc) if '[?]' in p.get_text() or '??' in p.get_text()]
     assert not unresolved
     fontrefs={font[0] for p in doc for font in p.get_fonts()}
@@ -59,6 +84,7 @@ def main():
     assert not unembedded
     dependencies=[ROOT/(NAME+'.tex'),*bibs,ROOT/'JHEP.bst',HERE/'outputs/axial_stellar_constraints_reply_gev.pdf']
     report=dict(base_commit=BASE,referee_quotes_unchanged=len(quotes(after)),unchanged_science_blocks=unchanged,
+        figure_caption_preserved_exactly=True,figure_caption_chars=len(original_caption),figure_caption_sha256=caption_sha,
         new_layout_wrappers=after.count('\\resizebox{\\linewidth}{!}{$\\displaystyle{'),
         unique_citation_keys=len(cited),labels=len(labels),environments_balanced=True,
         pdf_pages=len(doc),pdf_sha256=sha(pdf),pdf_matches_build=True,

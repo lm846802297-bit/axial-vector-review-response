@@ -1,3 +1,5 @@
+REVIEW NOTE (2026-11-15): The historical T_SM=1.782928294 below is inconsistent with the listed y_t=0.770699034515: 3*y_t^2=1.781931005407. The current script gives 1.781931005404, consistent with the listed D_SM=1.609470751825. Original values below are preserved. This entire input set is superseded.
+
 SUPERSEDED INPUT SET — retained for provenance only.
 Use B5_1B_SM_THRESHOLD_AND_UV_RGE_OUTPUT_2026-11-11.txt for the current PDG-2025 matched coupled UV run. Do not mix the values below with that run.
 

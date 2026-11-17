@@ -66,16 +66,25 @@ No `A(r)` is inferred from the lapse `N(r)` alone. No static-TOV approximation i
 5. If such access is not pursued, the metric and outer-profile limitations remain explicit. Do not construct a synthetic TOV star, splice another progenitor/time snapshot, or tune a profile to reduce the Fig. 7 residual.
 
 The fixed-\(\omega\) B.16 vector benchmark remains the paper-reproduction baseline. The path-redshift calculation remains a diagnostic. No axial-vector curve is recalculated or updated.
-would require a justified enclosed-mass/energy-density profile, and a full ray calculation would also require a consistent treatment of the time-dependent hydrodynamic state and the relevant metric convention. The current public-figure reconstruction does not provide those inputs with sufficient provenance.
 
-No `A(r)` is inferred from the lapse `N(r)` alone. No static-TOV approximation is promoted to a same-snapshot GR result.
+## 6. Official archive recheck (2026-11-15)
 
-## 5. Decision and next action
+The official [Garching Core-Collapse Supernova Archive index](https://wwwmpa.mpa-garching.mpg.de/ccsnarchive/archive.html) was rechecked on 2026-11-15. It still explicitly states that some archives are password protected, asks users who need those data to contact the archive, and asks users not to redistribute access keys or protected data without permission.
 
-1. The public unauthenticated search for the exact Bollig/Hüdepohl radial profile tables and the listed Bollig TOV solver is exhausted for the endpoints identified in the official index.
-2. The current SFHo-18.8, 1 s background remains a published-figure reconstruction, not the raw simulation table.
-3. The lapse cross-check remains visual and does not validate `A(r)` or `M(r)`.
-4. The only legitimate route to exact same-snapshot data is authorized archive access or a data transfer explicitly authorized by the archive/data owners.
-5. If such access is not pursued, the metric and outer-profile limitations remain explicit. Do not construct a synthetic TOV star, splice another progenitor/time snapshot, or tune a profile to reduce the Fig. 7 residual.
+Under the Bollig/Hüdepohl PROMETHEUS-VERTEX entry, the index links separately to:
+- radial neutrino moment profiles, spectral data, and hydro profiles: `https://wwwmpa.mpa-garching.mpg.de/ccsnarchive/data/Bollig2016_angular_moments/`;
+- hydro radial profiles: `https://wwwmpa.mpa-garching.mpg.de/ccsnarchive/data/Bollig2016_radial_profiles/`.
 
-The fixed-\(\omega\) B.16 vector benchmark remains the paper-reproduction baseline. The path-redshift calculation remains a diagnostic. No axial-vector curve is recalculated or updated.
+Both exact endpoints were followed from the official index during this recheck and both returned **HTTP 401 Unauthorized**. This confirms that the relevant archive entries exist but remain inaccessible without authorization; it does not mean the files are absent.
+
+The archive also lists a separate 2023 PROMETHEUS-VERTEX proto-neutron-star evolution dataset and a 2026 three-dimensional model named s18.88. These listings do not establish that either resource is the exact \(s18.8\)-SFHo-MUONS, \(t_{\rm pb}=1.000\) s snapshot used for the Fig. 7 benchmark. The 2023 hydro radial-profile endpoint also returned HTTP 401 during the check. Neither dataset is substituted for the target snapshot.
+
+### Updated decision
+
+1. The unauthenticated public-data route remains blocked at the official Bollig2016 radial-neutrino and hydro endpoints.
+2. The exact raw snapshot can only be obtained through authorized archive access or an explicitly authorized transfer from the data owners.
+3. Do not attempt to bypass the archive controls, redistribute protected data, or substitute a different progenitor/model/time and label it as the target snapshot.
+4. Until authorized same-snapshot data are available, retain the Caputo/Ferreira/Bollig figure reconstructions with their documented provenance limitations. Do not fit them to Fig. 7.
+
+The current public-profile limitation is therefore confirmed by a fresh official-host check. No metric, profile, source, opacity, luminosity, or axial-vector output is modified by this audit.
+

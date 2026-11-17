@@ -1,0 +1,103 @@
+name: B16 high-energy global sensitivities strict NumPy reproduction
+
+on:
+  push:
+    branches:
+      - maintenance/repository-organization-audit-20261114
+    paths:
+      - '.github/workflows/b16-high-energy-global-sensitivities-numpy.yml'
+      - 'research/stellar-cooling-constraints-20261105/requirements-b16-audit.txt'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_high_energy_energy_resolved_numpy.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_high_energy_v8_reproduction.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_global_redshift.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py'
+      - 'research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv'
+      - 'research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_high_energy_outer_temperature_sensitivity_10mev_2026-11-10.json'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_high_energy_fixed_omega_vs_redshift_10mev_2026-11-10.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: b16-high-energy-global-sensitivities-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  strict-numpy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Check out reviewed revision
+        uses: actions/checkout@v4
+
+      - name: Set up pinned Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.14'
+
+      - name: Install pinned numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r research/stellar-cooling-constraints-20261105/requirements-b16-audit.txt
+
+      - name: Verify exact runtime
+        run: |
+          python - <<'PY'
+          import sys, numpy, scipy
+          assert sys.version_info[:3] == (3, 12, 14)
+          assert numpy.__version__ == "2.5.4"
+          assert scipy.__version__ == "1.18.1"
+          print("Python:", sys.version)
+          print("NumPy:", numpy.__version__)
+          print("SciPy:", scipy.__version__)
+          PY
+          python -m pip freeze
+
+      - name: Recompute high-energy outer-temperature and path-redshift diagnostics
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_high_energy_energy_resolved_numpy.py \
+            --output-dir research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs
+
+      - name: Verify NumPy provenance and V8 comparisons
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          base = Path("research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs")
+          names = (
+              "b16_high_energy_outer_temperature_sensitivity_10mev_2026-11-15_numpy.json",
+              "b16_high_energy_fixed_omega_vs_redshift_10mev_2026-11-15_numpy.json",
+          )
+          for name in names:
+              payload = json.loads((base / name).read_text())
+              assert payload.get("script_sha256"), name
+              assert payload.get("run_commit_sha"), name
+              assert payload.get("runtime", {}).get("engine") == "Python/NumPy/SciPy", name
+              result = payload["result"]
+              assert result.get("profile_sha256") == "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
+              assert result.get("comparison_to_archived_v8"), name
+              print(name, "OK")
+          PY
+
+      - name: Compare strict NumPy outputs against archived V8 references
+        run: |
+          python -m unittest discover \
+            -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
+            -p 'test_b16_high_energy_v8_reproduction.py' -v
+
+      - name: Save strict NumPy outputs to the reviewed branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_high_energy_outer_temperature_sensitivity_10mev_2026-11-15_numpy.json
+          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_high_energy_fixed_omega_vs_redshift_10mev_2026-11-15_numpy.json
+          if git diff --cached --quiet; then
+            echo "No output changes to commit."
+          else
+            git commit -m "results(b16): archive strict NumPy global sensitivities"
+            git push origin HEAD:maintenance/repository-organization-audit-20261114
+          fi

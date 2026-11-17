@@ -2,11 +2,13 @@
 
 Date: 2026-11-10  
 PR: #57  
-Branch: \`research/moving-muon-thermal-rates-20261107\`  
+Branch: `research/moving-muon-thermal-rates-20261107`  
 Benchmark: \(m_V=10\) MeV  
-Profile SHA-256: \`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c\`
+Profile SHA-256: `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`
 
 ## 1. Purpose
+
+**Primary source:** Blinov et al., *JHEP* 06 (2026) 155, arXiv:2511.09619 ([version of record](https://doi.org/10.1007/JHEP06(2026)155)), Appendix B, Eqs. (B.6)–(B.10).
 
 The high-energy phase-space audit showed that neutrino inverse decay is the dominant contribution to the B.16 opacity in the \(210\text{--}510\) MeV escape bin. The local neutrino kernel is therefore checked against the paper's own closed-form expression, rather than only against a second implementation of the same repository formula.
 
@@ -105,7 +107,16 @@ This is a local-kernel validation. It does not validate the reconstructed \(T(r)
 
 ## 6. Reproducibility and scope
 
-- Machine-readable result: \`outputs/b16_neutrino_b7_b9_kernel_10mev_2026-11-10_v8.json\`
-- Reproduction script: \`audit_b16_neutrino_b7_b9_kernel.py\`
+- Machine-readable result: `outputs/b16_neutrino_b7_b9_kernel_10mev_2026-11-10_v8.json`
+- Reproduction script: `audit_b16_neutrino_b7_b9_kernel.py`
 - The archived numerical comparison is from direct V8 double-precision execution. The Python/NumPy script is added as the repository reproduction implementation and was not executed in this V8 session.
 - No source normalization, profile, opacity prescription, coupling, or axial-vector curve is changed.
+
+## 7. Physics-review qualification (2026-11-15)
+
+The closed-form expression, polarization factor, two-flavour sum, and detailed-balance reduction were checked against the published version of record. In particular, the factor of three in Eq. (B.7) converts the polarization-averaged vacuum width to the polarization-summed production rate; it is not an additional multiplier in Eq. (B.10).
+
+The 40-point comparison and direct angular quadrature establish the local kernel identity on the stated \((r,\omega)\) grid. They do not validate the reconstructed stellar thermodynamic profile, the lapse, the full B.1 source integration, or the polarization interpretation of the scalar B.2 attenuation exponent. The latter remains a separate state-counting question documented in \`B2_POLARIZATION_BOLTZMANN_STATE_COUNTING_AUDIT_2026-11-13.md\`.
+
+The archived V8 comparison is not the same as an executed Python/NumPy reproduction: the note correctly records that the Python reproduction script was added but not executed in that V8 session. Do not describe the V8 result as a Python rerun.
+

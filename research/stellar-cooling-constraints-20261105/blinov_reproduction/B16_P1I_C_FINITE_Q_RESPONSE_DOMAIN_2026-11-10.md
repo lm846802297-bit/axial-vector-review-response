@@ -80,7 +80,7 @@ F_E(q_c)=
 {\int(1-E'/E)d\sigma}.
 \]
 
-The boundary \(q=q_c\) is solved before integration, so the step function is not sampled on a coarse angular grid. The 400- versus 800-node convergence check gives a maximum absolute difference below \(3.2\times10^{-14}\) for the representative cases.
+The boundary \(q=q_c\) is solved before integration, so the step function is not sampled on a coarse angular grid. The 400- versus 800-node convergence check gives a maximum absolute difference below \(3.2\times10^{-14}\) for the representative cases. The JSON field is named max_absolute_difference_400_vs_800_nodes to match the actual absolute-difference calculation.
 
 ### 3.1 Neutron target: representative results
 
@@ -131,13 +131,13 @@ The kinematic support calculation assumes a stationary free nucleon. It does not
 - RPA or other nucleon correlations;
 - finite-temperature broadening of the response.
 
-These effects must be included in the next medium-response calculation. They do not alter the main domain warning: the high-energy daughter transport moments sample a broad, substantially higher-\(q\) region than the low-\(q\) virial response fits.
+The P1-IIIb moving-nucleon kernel now includes the free-gas finite-\((q_0,q)\) kinematics, thermal initial-nucleon motion, and final-state Pauli blocking. This addresses the free-gas kinematic baseline, but it is not the full many-body dynamic structure function: EOS mean fields/effective masses, RPA, \(NN\) correlations, and a momentum-dependent in-medium interaction are still absent. It does not alter the main domain warning: high-energy daughter transport moments sample a broad, substantially higher-\(q\) region than the low-\(q\) virial response fits.
 
-## 6. Next step
+## 6. Next step (updated 2026-11-15)
 
-The next calculation should implement a finite-\((q_0,q)\) free Fermi-gas response with Pauli blocking and compare it against the Horowitz stationary-target limit. The medium response should then be upgraded using a momentum-dependent interaction only where a published model supports that extrapolation.
+The free-gas finite-\((q_0,q)\) kinematic benchmark with moving nucleons and final-state blocking has been implemented in P1-IIIb, and P1-IIIc integrates its four transport/energy moments over five incident energies and all four neutron/proton neutrino/antineutrino channels. This is not yet a many-body Reddy/RPA or virial response.
 
-Do not update the literal B.2 \(R_{\max}=25\) km baseline, the pure-vector Fig. 7 comparison, or the axial-vector cooling curve yet.
+The next step is to evaluate the moving-nucleon kernel on the co-located Caputo/SFHo radial EOS profile, then add a controlled in-medium response only in the momentum-transfer domain supported by the chosen interaction model. Do not extrapolate the low-\(q\) virial fit to the 100--510 MeV daughter spectrum. Do not update the literal B.2 \(R_{\max}=25\) km baseline, the pure-vector Fig. 7 comparison, or the axial-vector cooling curve.
 
 ## Reproducibility
 
@@ -152,3 +152,16 @@ Do not update the literal B.2 \(R_{\max}=25\) km baseline, the pure-vector Fig. 
 2. C. J. Horowitz et al., “Neutrino-nucleon scattering in supernova matter from the virial expansion,” Phys. Rev. C 95, 025801 (2017), https://arxiv.org/abs/1611.05140.
 3. P. F. Bedaque, S. Reddy, S. Sen, and N. C. Warrington, “Neutrino-nucleon scattering in the neutrino-sphere,” Phys. Rev. C 98, 015802 (2018), https://arxiv.org/abs/1801.07077.
 4. C. J. Horowitz, “Weak magnetism for antineutrinos in supernovae,” Phys. Rev. D 65, 043001 (2002), https://arxiv.org/abs/astro-ph/0109209.
+
+
+## 7. Independent review qualification (2026-11-15)
+
+The stationary-target recoil relation \(E'=E/[1+(E/M)(1-\cos\theta)]\), momentum-transfer magnitude \(q=\sqrt{E^2+E'^2-2EE'\cos\theta}\), and the three moment weights \(1\), \(1-\cos\theta\), and \(1-E'/E\) are consistent. Solving \(q=q_c\) for the angular boundary before quadrature avoids sampling a discontinuous step function on a coarse Gauss grid.
+
+A code/metadata label error was found and corrected: the script accumulated \(\max|F_{400}-F_{800}|\), an absolute difference, but called it max_relative_difference_400_vs_800_nodes. The code and archived JSON now both use max_absolute_difference_400_vs_800_nodes; the numerical value \(3.2\times10^{-14}\) is unchanged. No downstream consumer of the old key is present in the reviewed tree.
+
+The literature-domain interpretation is retained: Reddy's finite-\((q_0,q)\) free-gas/RPA formalism is useful, but the momentum-independent particle-hole interaction approximation is motivated by thermal PNS momentum transfers of a few tens of MeV. The Horowitz virial and Bedaque virial results are low-\(q\) response benchmarks, not universal corrections at \(q\sim100\)--500 MeV. The moving-nucleon P1-IIIb calculation is a free-gas kinematic baseline, not a replacement for these many-body response functions.
+
+No dedicated unittest or GitHub Actions workflow currently runs this P1-Ic diagnostic. Its 400/800-node comparison is an in-script convergence check, not CI coverage.
+
+**Review disposition: PASS_WITH_NOTES.** No B.2 opacity, Fig. 7 curve, luminosity, or axial-vector constraint is modified.

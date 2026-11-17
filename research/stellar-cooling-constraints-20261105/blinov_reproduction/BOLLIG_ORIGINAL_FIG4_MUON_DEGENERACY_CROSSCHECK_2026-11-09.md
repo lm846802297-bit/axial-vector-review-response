@@ -108,3 +108,13 @@ In particular, the B2 result that changes the escaped B.1 integral by roughly 15
 The next independent cross-check is to compare the Caputo and Bollig muon number-density curves directly using Bollig Fig. 3, and then to inspect the \(\mu_\mu/T\) agreement over the full 5--15 km region rather than only 12--15 km. The current Fig. 4 result already establishes the baseline choice in the sensitive shell.
 
 No production rate, transport implementation, reference luminosity, or axial-vector output is changed by this audit.
+
+## 8. Independent review qualification (2026-11-15)
+
+The source-side vector evidence is pinned: Bollig et al. arXiv:2005.07141v7 PDF SHA-256 8267f8b1de184163308728c44000425ce58085c1d5bd799d0cbc1e4e8d740d61, Fig. 4 drawing path 193 on page index 2, and a 222-row extracted SFHo-18.8 curve CSV. The later 15--20 km comparison uses the current Caputo profile B SHA-256 9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c and confirms the same near-identical \(T\) and \(\mu_\mu/T\) behavior over the common support.
+
+A reproducibility limitation remains in this specific 12--15 km comparison: the document reports the 97-node Caputo/Ferreira numerical comparison, but no dedicated comparison script/JSON or explicit profile-input SHA accompanies the reported \(5.18\times10^{-5}\) and 12.74% residuals. The Bollig vector extraction itself is reproducible; the comparison statistics are currently archived in this Markdown record. Preserve the reported distinction, but do not describe those particular 97-node metrics as an independently rerun machine-readable result.
+
+The physical conclusion is nevertheless supported by the source hierarchy: the Caputo \(\mu_\mu/T\) curve tracks the original Bollig Fig. 4, whereas the Ferreira curve does not. This resolves the choice of published baseline for the degeneracy profile; it does not resolve the separate absolute Fig. 3 muon-density discrepancy or prove equivalence to the unavailable raw Garching table.
+
+**Review disposition: PASS_WITH_NOTES.** Retain Caputo as the \(\mu_\mu/T\) baseline, keep Ferreira as an off-baseline published-profile diagnostic, and do not rescale \(n_\mu\), \(F_{\rm deg}\), B.1, B.2, or the axial-vector limit.

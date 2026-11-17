@@ -115,3 +115,12 @@ This does **not** prevent reproducing the published calculation method. It does 
 5. Once the B.16 benchmark is accepted, retain B.13 as a separate relativistic correction study.
 6. Only after the pure-vector baseline passes may the axial-vector kernel be switched back on. No empirical rescaling and no modification of the formal axial-vector production outputs are permitted during this audit.
 
+## 8. Independent review qualification (2026-11-15)
+
+The interpretation of B.14--B.19 as the literal Fig. 7 semi-Compton implementation is consistent with the paper's discussion immediately following Fig. 7 and with the structure in reference.py: the nonrelativistic/no-recoil cross section is combined with the negative-muon susceptibility, the two photon polarizations, the \(1/v_V\) factor, and the stated detailed-balance conversion. The exact moving-muon B.13 calculation is a separate correction study, not the published approximation used in the baseline.
+
+This does not establish that the B.14 approximation is physically accurate at every plotted mass. In particular, the later consistent global B.13 source-plus-opacity replacement at 10 MeV increases the strong-endpoint residual to about \(+131.53\%\), compared with \(+92.24\%\) for B.16. That result supports keeping B.13 separate; it does not justify replacing the published baseline or applying a source-only/opacity-only substitution.
+
+The six-step priority list in §7 is a dated roadmap, not current task status. Later reviews completed the B.16 source/opacity and high-order path checks, but the pure-vector Fig. 7 benchmark remains unvalidated because the weak-end source discrepancy, strong-end escape discrepancy, and missing raw same-snapshot Garching profile are unresolved. The B.2 scalar polarization closure also remains under-specified; this Compton-method audit does not settle that separate issue.
+
+**Review disposition: PASS_WITH_NOTES.** Retain B.14--B.19 as the literal published-approximation lane, B.13 as a separate physical sensitivity study, and do not declare the Fig. 7 benchmark or axial-vector constraint validated.

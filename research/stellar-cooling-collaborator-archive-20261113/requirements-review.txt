@@ -1,3 +1,5 @@
+# Reproducible archive-review environment. This is broader and version-bounded compared with the unpinned ORIGINAL_REQUIREMENTS.txt preserved from the original collaborator package.
+# Python 3.11 is recommended by the archive README; pytest is for tests and numba is used by accelerated review helpers.
 numpy>=1.24,<2.0
 scipy>=1.10,<2.0
 matplotlib>=3.7,<4.0

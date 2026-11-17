@@ -151,3 +151,16 @@ The additional radial-only diagnostic in P1-G finds that the central-tail reproc
 P1-H replaces the full outer vacuum-limit opacity with the transport-only smooth factor \(1-P_{\rm pair}^{E}(\omega,r)\) and performs the full source-radius, energy, angular, and vector-chord integration in the 210--510 MeV band. The central equal-polarization tail changes the band by only \(-4.14\%\); the high-density tail by \(-10.60\%\); the low-density tail by \(-0.33\%\). The corresponding band-only total proxies remain \(+86.87\%\), \(+78.21\%\), and \(+91.98\%\) above Fig. 7.
 
 Thus the sharp \(R_{\max}=30\) km extension, which suppresses the band by \(70.94\%\), is an extreme upper-bound prescription. Its apparent near-match to Fig. 7 is not reproduced by the smooth public-density transport model. The strong-endpoint discrepancy remains unresolved. See \`B16_P1H_SMOOTH_DAUGHTER_REPROCESSING_B2_2026-11-10.md\`.
+
+
+## 12. Independent review qualification (2026-11-15)
+
+The archived boundary scan is numerically well converged: the largest relative change between path orders 64 and 128 over the nine radii is \(8.61\times10^{-6}\). In the 210--510 MeV band, the source fraction outside 15 km is \(9.69\times10^{-7}\), so the source-frozen inward scan is a controlled diagnostic for this selected band. It is not a full 25-point Fig. 7 rerun.
+
+The outward 26--30 km extension remains a one-sided opacity-only stress. It adds two-flavour vacuum-limit neutrino inverse-decay opacity outside 25 km, sets the outer Compton opacity to zero, and does not extend the B.1 production model. The later P1-G/P1-H analyses show why the sharp 30 km result cannot be selected as a physical correction: the figure-level smooth transport proxy changes the band by only -0.33% (low tail), -4.14% (central equal-polarization tail), and -10.60% (high tail), rather than the -70.94% sharp-boundary suppression. The corresponding band-only total proxies remain +91.98%, +86.87%, and +78.21% above Fig. 7. None is a full energy-sphere calculation.
+
+There is also a source/output versioning qualification. The checked-in Python driver audit_b16_rmax_boundary_sensitivity.py returns an interpretation field, whereas the archived JSON has a conclusions field and an additional outward_extension_consistency_note. The numerical scan values and path-order closure are inspectable, but the current source file is not schema-identical to the archived output producer. Treat it as a separately committed implementation until the exact producing revision or a regenerated output is archived.
+
+The fixed 25 km boundary remains the literal paper baseline. Do not use the 30 km near-match, the band-only proxy, or the source-frozen scan as a corrected Fig. 7 prediction.
+
+**Review disposition: PASS_WITH_NOTES.** No boundary, source, opacity, coupling, Fig. 7 reference, or axial-vector result is changed.

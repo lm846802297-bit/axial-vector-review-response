@@ -2,7 +2,7 @@
 
 ## Executive result
 
-**PASS.** The 301-point, 1204-case EOS moving-nucleon total-scattering calculation was executed directly in the local Python environment. GitHub Actions was not used to perform the calculation.
+**Numerical reproduction: PASS. Physics validation: PASS_WITH_NOTES.** The 301-point, 1204-case EOS moving-nucleon total-scattering calculation was executed directly in the local Python environment. GitHub Actions was not used to perform the calculation.
 
 The calculation uses the existing C4-B2/C4-C1/C4-C2 collision kernel and exact source/input snapshots. The local full-rate table reproduces the archived 1204-case C4-C3 table at double-precision roundoff.
 
@@ -52,7 +52,7 @@ The independently reconstructed radial opacity/tau table agrees with the archive
 - All local rates are positive.
 - All radial optical depths are nonnegative and monotonically non-increasing with radius.
 
-All C4-C3 acceptance conditions pass.
+All predeclared C4-C3 reproducibility, density-closure, positivity, monotonicity, and radial-grid acceptance conditions pass. Those conditions do not include a radial scan of the outgoing-angle quadrature order.
 
 ## Optical depths at the inner radius
 
@@ -114,3 +114,19 @@ composition. Toward the outer radius the per-target responses approach one
 another, so the opacity ratio approaches the available neutron/proton
 density ratio. This is why the opacity ratio must not be interpreted as a
 composition ratio alone.
+
+## Independent physics-content review (2026-11-15)
+
+The local/archived agreement at \(5.55\times10^{-16}\) establishes faithful reproduction of the archived 1204-case table. It does not establish independent angular convergence, because both calculations use the same \(N_{\cos\theta}=8\) rule. The C4-C2 angular comparison is performed only at \(r=0.20\) km; C4-C3 uses eight angle nodes at all 301 radii. The opacity peak at \(r=7.35\) km is not separately checked at a higher angular order.
+
+The radial trapezoid/grid checks (0.10 and 0.25 km), density closure, and exact support-root residuals validate different numerical layers. They cannot substitute for angular-quadrature convergence. Accordingly, the quoted \(\tau(r)\) values are reproducible fixed-local-energy diagnostics, but their angular-integration error over the full profile is not yet bounded.
+
+The calculation also inherits the C4-C1 45T initial-momentum cutoff. The outgoing-energy endpoints are exact only within that truncated momentum domain. A 40T/45T/50T comparison is needed to bound the thermal tail independently of the \(E_\nu'\)-quadrature order test.
+
+**Required follow-up before physical-opacity promotion:**
+1. Recompute \(N_{\cos\theta}=8\) and 12 rates at all 301 radii, or at a dense predeclared radial subset including \(0.20,5.00,7.35,10.00,15.20\) km; escalate points exceeding a stated tolerance to 16 or more nodes.
+2. Repeat the most demanding local cases with 40T, 45T, and 50T momentum cutoffs.
+3. Keep the fixed-local-energy, flat-space radial \(\tau\) separate from redshifted transport and neutrino-distribution effects.
+
+No production B.2 opacity, SN1987A limit, or axial-vector exclusion is updated by this review.
+

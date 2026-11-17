@@ -3,6 +3,8 @@
 **Date:** 2026-11-07  
 **Scope:** Stage 1 only. This note derives polarization-resolved production/absorption rates for the vector benchmark and compares them with the existing Python implementation. It does not alter production code, transport normalization, saved scans, the manuscript, or the referee response.
 
+> **Historical stage record (2026-11-15):** The direct forward/reverse integral sub-block was subsequently checked in `DIRECT_COLLISION_INTEGRAL_AUDIT_2026-11-07.md`. This note remains the detailed polarization-convention record; it does not close the B.2 scalar-opacity ambiguity or the moving-muon thermal B.13 integral. PR #56 later merged on 2026-11-12. See `AXIAL_STELLAR_CONSTRAINTS_CALCULATION_AND_REVIEW_2026-11-13.md` for the later benchmark status.
+
 Primary source: [Blinov et al., arXiv:2511.09619v2](https://arxiv.org/abs/2511.09619), Appendix B, especially Eqs. (B.2), (B.4), and (B.6)–(B.19).
 
 ## 1. Conventions
@@ -392,4 +394,4 @@ Stage 1 establishes:
 4. The existing production solver already follows that mode-resolved transport structure. The `blinov_literal` and `blinov_average` branches are scalar diagnostic interpretations and must not be promoted to the physical per-mode solver.
 5. The B.17 charge-conjugate muon-density convention remains ambiguous in the printed paper. Its numerical impact is now quantified with an independent adaptive-quadrature script; the current implementation includes both charges and is unchanged.
 
-**No production rate, transport normalization, or saved scan is changed in this stage.** The added tests and B.17 audit are diagnostic/reproducibility assets only. Stage 2 may begin only after the above definitions and the intended comparison prescription are accepted. PR #56 remains Draft; the manuscript and referee response remain untouched.
+**No production rate, transport normalization, or saved scan is changed in this stage.** The added tests and B.17 audit are diagnostic/reproducibility assets only. Stage 2 was the next step at this 2026-11-07 snapshot. PR #56 later merged on 2026-11-12; the later pure-vector Fig. 7 comparison remains unpassed, and the manuscript and referee response remain untouched by this Stage-1 audit.

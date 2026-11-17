@@ -147,3 +147,19 @@ Do not wait for A(r) to continue reproducing Fig. 7. The next checks should reco
 4. keep raw-profile uncertainty explicit, but do not make it a prerequisite for these method-level checks.
 
 No production axial-vector output, manuscript, or referee response is modified by this audit.
+
+## 8. Independent review qualification (2026-11-15)
+
+The B.1 change of variables is algebraically exact:
+\[
+E_\infty=N(r)\omega_{\rm loc},\qquad
+N^2 k_{\rm loc}\omega_{\rm loc}^2\,d\omega_{\rm loc}
+=\frac{E_\infty^2\sqrt{E_\infty^2-N^2m_V^2}}{N^2}\,dE_\infty.
+\]
+The local threshold \(E_\infty\ge m_V\) and the \(N^2\) source prefactor are therefore mutually consistent. The independent channel-by-channel numerical equality recorded in §3 is the appropriate implementation check.
+
+The distinction between the published pseudo-Newtonian prescription and a full-GR extension is also correct: the displayed B.2 path is a Euclidean straight chord with fixed \(\omega\), while \(A(r)\), proper radial distance, and geodesic bending would belong to a different model. The absence of \(A(r)\) must not be listed as a blocker for reproducing the paper's printed approximation. The unresolved issue is the physical interpretation of the fixed \(\omega\) along the chord, not a missing metric factor that can be inferred from \(N(r)\).
+
+The fixed-\(\omega\) reading is retained as the equation-level baseline; the conserved-\(E_\infty\) path-redshift result remains a separately labelled sensitivity. It does not become the published prescription merely because it moves the 10 MeV strong endpoint closer to Fig. 7.
+
+**Review disposition: PASS_WITH_NOTES.** No synthetic \(A(r)\), TOV replacement, profile splice, source/opacity change, or axial-vector recalculation is authorized.
