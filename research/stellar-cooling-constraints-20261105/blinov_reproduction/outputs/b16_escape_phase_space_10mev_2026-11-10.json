@@ -86,19 +86,27 @@
       "sha256": "38e18c97225f08d653feed1dc0e359f5a4e62f569439dd8af645d352b8a4bfec"
     },
     "svg": {
-      "bytes": 137206,
-      "color_scale": "log10 escaped_luminosity_fraction_within_region",
+      "bytes": 137196,
+      "clipped_low_cell_count": 448,
+      "color_scale": "log10 escaped_luminosity_fraction_within_region; values below 1e-8 of maximum clipped",
       "direction_bins": [
         "-1--0.5 cos(theta)",
         "-0.5-0 cos(theta)",
         "0-0.5 cos(theta)",
         "0.5-1 cos(theta)"
       ],
+      "direction_labels": [
+        "-1 to -0.5 cos(theta)",
+        "-0.5 to 0 cos(theta)",
+        "0 to 0.5 cos(theta)",
+        "0.5 to 1 cos(theta)"
+      ],
       "log10_max": -0.45320639540380725,
-      "log10_min": -85.44684662612254,
+      "log10_min": -8.453206395403807,
       "panels": 8,
       "path": "b16_escape_phase_space_10mev_2026-11-10.svg",
-      "sha256": "161678f71eb7314b9aa22a5a79e87482273c666cc6175fd36b4576124abf31dd"
+      "plotting_floor": 3.5220344904585877e-09,
+      "sha256": "808e30611da404c1d9194de141b978b5d775adb7090eaa227c6638a70083755c"
     }
   },
   "energy_grid_equivalence": {
