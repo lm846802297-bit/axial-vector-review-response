@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - research/moving-muon-thermal-rates-20261107
+      - maintenance/close-baseline-revision-required-20261117
     paths:
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_escape_phase_space.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_escape_phase_space.py'
