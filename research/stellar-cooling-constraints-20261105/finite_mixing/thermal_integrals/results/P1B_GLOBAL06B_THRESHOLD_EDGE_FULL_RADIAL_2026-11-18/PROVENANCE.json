@@ -1,0 +1,41 @@
+{
+  "run": "P1B-GLOBAL-06B-THRESHOLD-EDGE-FULL-RADIAL",
+  "date_utc": "2026-11-17/18",
+  "execution": "local four-process calculation; CI was not used as the primary compute backend",
+  "source_bundle": {
+    "workflow_run_id": 43534587169,
+    "artifact_id": 14089450366,
+    "artifact_name": "p1b-local-compute-source",
+    "artifact_zip_sha256": "b27c101a063d6f5784d72ef12ad699abc2ceae000b5824cfc4aaa0d191c3474d",
+    "source_snapshot_commit": "5e7b60dc61b3f36909ed39f3400b06884fc77053",
+    "source_snapshot_branch": "research/p1b-global02-full-radial-20261114",
+    "manifest": "MANIFEST.sha256"
+  },
+  "source_hashes": {
+    "audit_b13_local_kernel_radial_energy_10mev.py": "ff6479a8d6d4ba417dc4b31e745b4028a28d9e42df5598144334453ea9627683",
+    "moving_muon_compton.py": "38436b94f070069c8696b37b9bce1955e2d5d7e39dad9b302ab754582ff6a5a5",
+    "reference.py": "f81468f4305cf57eb86cc0210abc7afc333d434ae70da307ca64a824e486107c",
+    "rates.py": "2fc7bc2d3b0d7b98c191755cd2bb87944e4ebe259adc3d3bbc8e0f60dcc57f56",
+    "sfho188_digitized.csv": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
+  },
+  "runtime": {
+    "python": "3.13.5",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "workers": 4,
+    "wall_seconds": 569.0779051780701,
+    "quadrature_order": [10, 6, 6, 6]
+  },
+  "output_archive": {
+    "file": "P1B_GLOBAL06B_LOW_X_FULL_RADIAL_2026-11-18.zip",
+    "sha256": "9d10004210659896e59f982b0485a8bba8183efe84f1f9acd2feda275b7d0cd1",
+    "contains": [
+      "LOW_X_RADIAL_NODES.json",
+      "ENERGY_INTERPOLATION_CHECKS.json",
+      "RADIAL_NEIGHBOR_RANKING_TOP60.json",
+      "RADIAL_MIDPOINT_CHECKS_TOP60.json",
+      "GLOBAL06B_SUMMARY.json"
+    ]
+  },
+  "scope_boundary": "Local B.13 semi-Compton only. No B.1 complete source integration, B.2 attenuation, escaped luminosity, Fig. 7 update, SN1987A update, or axial-limit update."
+}
