@@ -5,7 +5,7 @@
 
 ## Latest update (2026-11-17)
 
-- **PR state after index reconciliation:** PR #120 merged into `main` at `0d2f6232694b4e151d0fafbb47a072d5d7d1b3a4`. PR #119 and PR #121 remain separate open/draft B.16 validation branches; neither is merged by this repository closeout.
+- **PR state after index reconciliation:** PR #120 merged into `main` at `0d2f6232694b4e151d0fafbb47a072d5d7d1b3a4`. PR #122 (90th-review closeout integration) is open and mergeable, with 41 changed paths and no deletions. PR #119 and PR #121 remain separate open/draft B.16 validation branches; neither is merged by PR #122.
 
 - **Ninetieth baseline closeout (2026-11-17):** the seven previously `REVISION_REQUIRED` baseline records now have evidence-based `PASS_WITH_NOTES` dispositions. This closes their document/provenance deliverables, not the underlying physical questions: the pure-vector 10 MeV Fig. 7 result remains +92.4284% above the digitized reference. No opacity rescaling or axial-vector constraint update is authorized. See the [90th review](docs/repository-management/NINETIETH_REVIEW_B16_AND_REPOSITORY_BASELINE_CLOSEOUT_2026-11-17.md), [thermal-convergence provenance note](docs/repository-management/THERMAL_CONVERGENCE_CSV_PROVENANCE_2026-11-17.md), and [closeout workflow review](docs/repository-management/workflow-reviews/B16_LOCAL_RATE_ESCAPE_AND_SCAN_ARCHIVE_WORKFLOW_REVIEW_2026-11-17.md).
 
