@@ -240,3 +240,18 @@ The historical failed-run energy hash `db6f613c...` was not reproduced by the cu
 - [Detailed result report](B16_ESCAPE_PHASE_SPACE_10MEV_RESULT_2026-11-17.md)
 - [Strict phase-space runbook](B16_ESCAPE_PHASE_SPACE_RUNBOOK_2026-11-10.md)
 - [Workflow static review](../../../docs/repository-management/workflow-reviews/B16_STRICT_PHASE_SPACE_AND_ENERGY_GRID_WORKFLOW_REVIEW_2026-11-17.md)
+
+
+## 2026-11-18 Global-06B B.13 threshold-edge and polarization follow-up
+
+The full low-order B.13 threshold-edge screen covers all 1687 SFHo profile radii and nine formal knots over (0\le x=(\omega_{\rm loc}-m_{A'})/T\le0.05), with independent energy validation points. Targeted high-order checks of the worst ten energy points and ten radial intervals pass the (10^{-3}) successive-order criterion; this is not an exhaustive high-order acceptance of all radial-energy points.
+
+A high-order local polarization anchor shows that the exact-recoil moving-muon Compton opacity is not polarization independent: at (r=8.2482) km, (Gamma_L/[(Gamma_++\Gamma_-)/2]) is 1.00016, 0.92154, and 0.77113 at (x=0,0.015,0.05), respectively. The transverse (+) and (-) rates agree to numerical precision. A 1687-radius high-order scan at these three anchors is being run; no B.2 transport, Fig. 7 luminosity, SN1987A bound, or axial-vector curve is changed.
+
+- [Global-06B targeted high-order report](../finite_mixing/thermal_integrals/GLOBAL06B_THRESHOLD_EDGE_REPORT_2026-11-18.md)
+- [B.13 polarization-resolved Compton to B.2 handoff](../finite_mixing/thermal_integrals/B13_POLARIZATION_RESOLVED_COMPTON_TO_B2_TRANSPORT_PLAN_2026-11-18.md)
+- [High-order acceptance summary](../finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_ACCEPTANCE_SUMMARY.json)
+- [Frozen high-order target set](../finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_TARGETS_INPUT.json)
+- [Targeted high-order driver](../finite_mixing/thermal_integrals/run_p1b_global06b_threshold_edge_high_order_targets.py)
+- [Polarization-anchor driver](../finite_mixing/thermal_integrals/run_p1b_global06b_polarization_anchor_high_order.py)
+- [Full-radial polarization scan driver](../finite_mixing/thermal_integrals/run_p1b_global06b_full_radial_polarization_scan.py)
