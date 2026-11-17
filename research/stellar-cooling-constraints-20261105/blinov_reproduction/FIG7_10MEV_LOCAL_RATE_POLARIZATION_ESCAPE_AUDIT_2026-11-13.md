@@ -192,3 +192,79 @@ calculation. The Compton split is the B.14 no-recoil approximation, not an
 exact recoil-resolved three-mode kernel. The global B.1/B.2 chord integral
 and its phase-space decomposition are a separate deliverable; no global
 luminosity or new exclusion is inferred from this local package.
+
+ 
+ ---
+ 
+ ## 2026-11-17: complete local-rate, polarization and global escape handoff
+ 
+ The missing 10 MeV deliverable is now archived as two linked, reproducible
+ layers. The local-rate layer and global escape layer intentionally remain
+ separate calculations: the first records local mode-resolved rates; the
+ second post-processes the literal B.1/B.2 source and survival measure into
+ an emission-radius/energy/direction distribution.
+ 
+ ### A. Local rate and polarization samples
+ 
+ - Producer: `audit_b16_local_rate_polarization_samples.py`
+ - Kernel: `audit_b16_local_absorption.py`
+ - Shared reference: `reference.py`
+ - Tests: `test_b16_local_rate_polarization_samples.py`
+ - Successful workflow: [#44031506218](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44031506218)
+ - 54 points: (r=8,12,15,20,22,25\) km and
+   (omega=12,15,20,30,50,100,200,300,500\) MeV.
+ - Five regression tests passed, including six reference anchors and 36
+   overlaps with the archived scalar local-rate JSON.
+ - Output triplet: `outputs/b16_local_rate_polarization_samples_10mev_54pt.csv`,
+   `...json`, and `...svg`; hashes and closure values are recorded in the
+   preceding 2026-11-17 addendum in this file.
+ 
+ The local B.14 Compton split remains the stated no-recoil Thomson-limit
+ approximation. It is not described as an exact recoil-resolved three-mode
+ kernel. The B.17 source retains the single-(\mu^-\) convention.
+ 
+ ### B. Global high-order escape phase space
+ 
+ - Producer: `audit_b16_escape_phase_space.py`
+ - Shared kernels/inputs: `audit_b16_global_redshift.py`,
+   `reference.py`, `data/sfho188_digitized.csv`,
+   `outputs/vector_audit/luminosity_comparison.json`, and the archived
+   high-order independent-grid JSON.
+ - Regression suite: eight tests, including tolerance-based reconstruction
+   of all 842 archived energy nodes, CSV export, SVG export, and regional
+   partition checks.
+ - Successful workflow:
+   [#44035746636](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44035746636).
+ - Profile SHA-256:
+   `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`.
+ - The energy-node SHA-256 is identical to the archived baseline
+   (`036e6d772f43acf97601c3846b475e8e1c14200d4d82de1dd9af30f01bb87ea3));
+   maximum relative node difference is (2.69\times10^{-16}\).
+ 
+ | Output | Git blob SHA-1 | SHA-256 / size |
+ |---|---|---|
+ | `b16_escape_phase_space_10mev_2026-11-10.json` | `9dda96c2e851b94ab5a65b38febe3023d80ba63b` | full run and 508+152 joint-bin data |
+ | `b16_escape_phase_space_10mev_2026-11-10.csv` | `af40a7b3e0bd164f6833a1ec29fbf69e7e7ac4b9` | SHA-256 `38e18c97225f08d653feed1dc0e359f5a4e62f569439dd8af645d352b8a4bfec`; 660 rows, 13 columns |
+ | `b16_escape_phase_space_10mev_2026-11-10.svg` | `cd776943218642b9f80b9f18830dbb1568c4041a` | SHA-256 `808e30611da404c1d9194de141b978b5d775adb7090eaa227c6638a70083755c`; 8 panels |
+ 
+ The global result is (2.4396359574\times10^{52}\) erg/s versus the Fig. 7
+ reference (1.2678147591\times10^{52}\) erg/s, a (+92.4284\%\) difference.
+ The global source-weighted escape probability is (3.25177\times10^{-4}\).
+ The 8--15 km region supplies 79.6522% of the B.1 source and 86.8551% of the
+ escaped luminosity. The integrated luminosity closes against the archived
+ high-order baseline at (2.22\times10^{-16}\); source, escape and complete
+ joint partitions pass their normalization checks.
+ 
+ ### Disposition
+ 
+ The reproducibility gap identified in the 2026-11-13 review is closed:
+ producer, kernels, pinned profile/baseline inputs, regression tests, CSV,
+ JSON, SVG, and successful CI evidence are now present. The document's
+ deliverable-completeness status is therefore **PASS_WITH_NOTES**.
+ 
+ This is **not** a physical Fig. 7 acceptance. The literal fixed-(\omega\)
+ scalar B.2 prediction remains 92.43% above the plotted reference. The
+ decomposition identifies where the current result originates; it does not
+ supply the missing physical explanation or justify opacity rescaling. The
+ vector benchmark remains blocked and the axial-vector output/constraint
+ curve remains frozen.
