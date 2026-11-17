@@ -8,8 +8,10 @@ reporting source-weighted and escape-weighted phase-space bins.
 from __future__ import annotations
 
 import argparse
+import csv
 import hashlib
 import json
+import math
 from pathlib import Path
 
 import numpy as np
@@ -29,6 +31,8 @@ except ImportError:
 HERE = Path(__file__).resolve().parent
 DEFAULT_BASELINE = HERE / "outputs" / "b16_global_high_order_independent_grid_10mev_2026-11-09.json"
 DEFAULT_OUTPUT = HERE / "outputs" / "b16_escape_phase_space_10mev_2026-11-10.json"
+DEFAULT_CSV_OUTPUT = HERE / "outputs" / "b16_escape_phase_space_10mev_2026-11-10.csv"
+DEFAULT_SVG_OUTPUT = HERE / "outputs" / "b16_escape_phase_space_10mev_2026-11-10.svg"
 SHELL_EDGES = np.array([0.0, 5.0, 8.0, 10.0, 12.0, 15.0, 16.5, 18.5, 20.0, 22.0, 25.0])
 DIRECTION_EDGES_4 = np.linspace(-1.0, 1.0, 5)
 DIRECTION_EDGES_8 = np.linspace(-1.0, 1.0, 9)
@@ -58,6 +62,188 @@ def reconstruct_energy_grid_from_spectral_measure(spectral_measure, mass,
         lo[below] = mid[below]
         hi[~below] = mid[~below]
     return 0.5 * (lo + hi)
+
+
+
+
+PHASE_SPACE_CSV_FIELDS = [
+    "region",
+    "emission_shell",
+    "energy_bin",
+    "direction_bin",
+    "thin_source_erg_s_per_g2",
+    "escaped_luminosity_erg_s",
+    "thin_source_fraction_of_global",
+    "thin_source_fraction_within_region",
+    "escaped_luminosity_fraction_of_global",
+    "escaped_luminosity_fraction_within_region",
+    "mean_escape_probability",
+    "mean_tau_source_weighted",
+    "mean_tau_escape_weighted",
+]
+
+
+def write_phase_space_csv(result, path):
+    """Write every non-empty joint (radius, energy, direction) bin to CSV."""
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    rows = 0
+    with path.open("w", encoding="utf-8", newline="") as stream:
+        writer = csv.DictWriter(stream, fieldnames=PHASE_SPACE_CSV_FIELDS)
+        writer.writeheader()
+        for region in result["regions"]:
+            for cell in region["joint_radius_energy_direction_bins"]:
+                writer.writerow({"region": region["region"], **cell})
+                rows += 1
+    return {
+        "path": path.name,
+        "sha256": sha256(path),
+        "bytes": path.stat().st_size,
+        "rows": rows,
+        "columns": len(PHASE_SPACE_CSV_FIELDS),
+    }
+
+
+def _phase_space_color(value, log_min, log_max):
+    """Amber-to-navy logarithmic color scale for a positive fraction."""
+    if value is None or value <= 0.0:
+        return "#fffaf0"
+    t = 0.0 if log_max <= log_min else (
+        math.log10(value) - log_min
+    ) / (log_max - log_min)
+    t = min(1.0, max(0.0, t))
+    start = (255, 246, 224)
+    end = (23, 54, 93)
+    rgb = tuple(round(a + t * (b - a)) for a, b in zip(start, end))
+    return "#{:02x}{:02x}{:02x}".format(*rgb)
+
+
+def write_phase_space_svg(result, path):
+    """Render direction-resolved escaped-luminosity fractions as heatmaps.
+
+    Rows are energy bins (high energy at the top), columns are emission
+    shells, and the four panels in each region are the B.16 direction bins.
+    The color scale is logarithmic and shared by both emission regions.
+    """
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    cfg = result["configuration"]
+    shell_edges = cfg["emission_shell_edges_km"]
+    energy_edges = cfg["energy_bin_edges_MeV"]
+    direction_edges = cfg["direction_edges_4"]
+    shell_names = [
+        label(lo, hi, "km") for lo, hi in zip(shell_edges[:-1], shell_edges[1:])
+    ]
+    energy_names = [
+        label(lo, hi, "MeV") for lo, hi in zip(energy_edges[:-1], energy_edges[1:])
+    ]
+    direction_names = [
+        label(lo, hi, "cos(theta)")
+        for lo, hi in zip(direction_edges[:-1], direction_edges[1:])
+    ]
+
+    values = [
+        cell["escaped_luminosity_fraction_within_region"]
+        for region in result["regions"]
+        for cell in region["joint_radius_energy_direction_bins"]
+        if cell["escaped_luminosity_fraction_within_region"] > 0.0
+    ]
+    if not values:
+        raise ValueError("No positive escaped-luminosity fractions to plot")
+    log_min = math.log10(min(values))
+    log_max = math.log10(max(values))
+
+    width, height = 1600, 760
+    panel_w, panel_h = 380, 292
+    grid_x, grid_y = 72, 118
+    cell_w, cell_h = 25, 14
+    svg = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
+        '<rect width="100%" height="100%" fill="#fffdf7"/>',
+        '<style>text{font-family:Arial,sans-serif;fill:#243247}.title{font-size:22px;font-weight:700}.subtitle{font-size:12px}.paneltitle{font-size:13px;font-weight:700}.axis{font-size:8px}.small{font-size:10px}.celllabel{font-size:6px;font-weight:700}</style>',
+        '<text x="42" y="34" class="title">B.16 10 MeV escaping phase space</text>',
+        '<text x="42" y="57" class="subtitle">Fixed-omega Eq. (B.2) baseline · reconstructed SFHo-18.8 profile · high-order quadrature</text>',
+        f'<text x="42" y="78" class="subtitle">Global escape probability = {result["escape_probability"]:.6e} · Fig. 7 luminosity residual = {100*result["relative_difference_vs_fig7"]:+.2f}%</text>',
+    ]
+
+    for row_index, region in enumerate(result["regions"]):
+        valid_shells = {x["bin"] for x in region["emission_radius_bins"]}
+        cell_lookup = {
+            (x["emission_shell"], x["energy_bin"], x["direction_bin"]): x
+            for x in region["joint_radius_energy_direction_bins"]
+        }
+        for col_index, direction_name in enumerate(direction_names):
+            px = grid_x + col_index * panel_w
+            py = grid_y + row_index * panel_h
+            svg.append(
+                f'<text x="{px}" y="{py-18}" class="paneltitle">{region["region"].replace("_", " ")} · {direction_name}</text>'
+            )
+            x0, y0 = px + 58, py + 7
+            for e_index, energy_name in enumerate(reversed(energy_names)):
+                display_row = e_index
+                y = y0 + display_row * cell_h
+                svg.append(
+                    f'<text x="{x0-6}" y="{y+10}" text-anchor="end" class="axis">{energy_name.replace(" MeV","")}</text>'
+                )
+                for s_index, shell_name in enumerate(shell_names):
+                    x = x0 + s_index * cell_w
+                    if shell_name not in valid_shells:
+                        fill = "#e8e8e8"
+                        value = None
+                    else:
+                        cell = cell_lookup.get((shell_name, energy_name, direction_name))
+                        value = (
+                            cell["escaped_luminosity_fraction_within_region"]
+                            if cell else 0.0
+                        )
+                        fill = _phase_space_color(value, log_min, log_max)
+                    svg.append(
+                        f'<rect x="{x}" y="{y}" width="{cell_w-1}" height="{cell_h-1}" fill="{fill}" stroke="#d5d0c6" stroke-width="0.45"/>'
+                    )
+                    if value is not None and value >= 0.02:
+                        t = 0.0 if log_max <= log_min else (
+                            math.log10(value)-log_min
+                        )/(log_max-log_min)
+                        txt = "#ffffff" if t > 0.58 else "#243247"
+                        svg.append(
+                            f'<text x="{x+(cell_w-1)/2:.1f}" y="{y+9.5}" text-anchor="middle" class="celllabel" fill="{txt}">{100*value:.0f}%</text>'
+                        )
+            for s_index, shell_name in enumerate(shell_names):
+                x = x0 + s_index * cell_w + (cell_w-1)/2
+                short = shell_name.replace(" km", "")
+                svg.append(
+                    f'<text x="{x:.1f}" y="{y0+len(energy_names)*cell_h+10}" text-anchor="end" class="axis" transform="rotate(-45 {x:.1f} {y0+len(energy_names)*cell_h+10})">{short}</text>'
+                )
+
+    legend_y = 718
+    legend_x = 90
+    steps = 100
+    legend_w = 700
+    for i in range(steps):
+        t = i / (steps - 1)
+        v = 10 ** (log_min + t * (log_max - log_min))
+        svg.append(
+            f'<rect x="{legend_x+i*legend_w/steps:.2f}" y="{legend_y}" width="{legend_w/steps+0.5:.2f}" height="10" fill="{_phase_space_color(v, log_min, log_max)}"/>'
+        )
+    svg.extend([
+        f'<text x="{legend_x}" y="{legend_y+25}" class="small">min {10**log_min:.2e}</text>',
+        f'<text x="{legend_x+legend_w}" y="{legend_y+25}" text-anchor="end" class="small">max {10**log_max:.2e}</text>',
+        '<rect x="900" y="718" width="12" height="10" fill="#e8e8e8" stroke="#aaa"/>',
+        '<text x="918" y="727" class="small">outside selected emission-radius region</text>',
+        '<text x="42" y="750" class="small">Cell color: log10 escaped-luminosity fraction within the selected region; labels shown for cells ≥2%. White cells are zero/empty bins. Bins are post-processing partitions, not new physics inputs.</text>',
+        '</svg>',
+    ])
+    path.write_text("\n".join(svg) + "\n", encoding="utf-8")
+    return {
+        "path": path.name,
+        "sha256": sha256(path),
+        "bytes": path.stat().st_size,
+        "panels": len(result["regions"]) * len(direction_names),
+        "direction_bins": direction_names,
+        "color_scale": "log10 escaped_luminosity_fraction_within_region",
+        "log10_min": log_min,
+        "log10_max": log_max,
+    }
 
 
 def label(lo: float, hi: float, unit: str) -> str:
@@ -497,6 +683,8 @@ def main():
     parser.add_argument("--fig7", type=Path, default=DEFAULT_FIG7)
     parser.add_argument("--baseline", type=Path, default=DEFAULT_BASELINE)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument("--csv-output", type=Path, default=DEFAULT_CSV_OUTPUT)
+    parser.add_argument("--svg-output", type=Path, default=DEFAULT_SVG_OUTPUT)
     parser.add_argument("--mass", type=float, default=10.0)
     parser.add_argument("--nr", type=int, default=200)
     parser.add_argument("--opacity-order", type=int, default=640)
@@ -510,8 +698,11 @@ def main():
         args.nr, args.opacity_order, args.ne, args.na, args.ns,
         args.energy_offset
     )
+    csv_metadata = write_phase_space_csv(result, args.csv_output)
+    svg_metadata = write_phase_space_svg(result, args.svg_output)
+    result["derived_artifacts"] = {"csv": csv_metadata, "svg": svg_metadata}
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
+    args.output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps({
         "mass_MeV": result["mass_MeV"],
         "coupling": result["coupling"],
@@ -530,6 +721,7 @@ def main():
                 "top_joint_bins": x["top_joint_radius_energy_direction_bins"][:12],
             } for x in result["regions"]
         ],
+        "derived_artifacts": result["derived_artifacts"],
         "output": str(args.output),
     }, indent=2), flush=True)
 
