@@ -1,7 +1,5 @@
 # B.16 10 MeV high-order escape phase-space runbook
 
-<badge> </badge>
-
 **Disposition at 2026-11-17: PASS_WITH_NOTES for the archived high-order vector-baseline phase-space decomposition.** The independent Fig. 7 10 MeV strong-absorption discrepancy remains open and is not closed by this runbook.
 
 This runbook documents the strict, reproducible post-processing diagnostic. It does not change the stellar profile, source kernel, opacity prescription, fixed-\(\omega\) transport convention, production axial-vector outputs, or constraint curve.
