@@ -18,7 +18,7 @@ Live Git-tree inventory for the 90th-review integration branch, based on `main` 
 | `deliverables/` | 22 | Extracted handoff packages and instructions. |
 | `docs/` | 130 | Governance, document registers, review standards and audit reports. |
 | `overleaf-source/` | 29 | Pinned manuscript source package; read-only source archive. |
-| `research/` | 1,091 | Current scientific workstreams, inputs, scripts, tests, outputs and evidence. |
+| `research/` | 1,102 | Current scientific workstreams, inputs, scripts, tests, outputs and evidence. |
 | `work/` | 18 | Intermediate and temporary material; not authoritative until promoted. |
 | `审稿意见-gpt/` | 128 | Internal referee analysis, decisions, writing rules, current execution and original reviewer materials. |
 | `导出/` | 3 | Exported artifacts; identify source and lifecycle before promotion. |

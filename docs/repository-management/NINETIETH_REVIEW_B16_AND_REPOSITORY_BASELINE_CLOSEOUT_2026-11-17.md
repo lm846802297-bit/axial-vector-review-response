@@ -115,9 +115,4 @@ update is permitted on the basis of these results.
 
 ## 6. Repository state
 
-The audit register is updated in the final integration branch to reflect the
-seven dispositions above and to fingerprint the current document versions.
-The new provenance note and this review report are registered. The
-maintenance branch has not been merged; no open pull request was present at
-the time of this review. The next repository step is a final diff/PR review,
-not a scientific promotion of the blocked vector benchmark.
+The final baseline register carries the seven evidence-based `PASS_WITH_NOTES` dispositions and refreshed current-tree fingerprints. The ninetieth report, thermal-convergence provenance note, and closeout workflow review are registered as three supplemental documents. The integration branch is based on current `main` after PR #120, retains the post-PR #117 directory relocation and current index, and adds the closeout evidence without replacing the mainline index. The integration PR is a repository/documentation review only; it does not promote the blocked vector benchmark or update axial-vector constraints.
