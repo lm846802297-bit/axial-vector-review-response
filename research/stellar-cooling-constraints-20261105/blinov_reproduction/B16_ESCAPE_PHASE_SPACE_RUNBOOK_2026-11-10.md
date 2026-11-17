@@ -88,3 +88,17 @@ Do not archive or commit the JSON unless the script exits successfully and all c
 The canonical Python output named above, `outputs/b16_escape_phase_space_10mev_2026-11-10.json`, is not present on either the research branch or the repository-maintenance branch checked for this review. The committed V8 cross-runtime JSON is present, but it explicitly records `status=cross_runtime_computation_not_strict_numpy_grid_acceptance` and `grid_hashes_match=false`; it is not a substitute for the strict Python artifact.
 
 The Python unit-test module currently contains three binning/partition helper tests. The Python driver emits the complete joint radius-energy-direction table, but the inspected driver and unit tests do not themselves assert the runbook's full joint-table closure criterion. That criterion therefore needs a named, automated acceptance checker (or an explicit CI step) before the runbook can be considered fully closed. The current install commands also request unpinned latest NumPy/SciPy; the accepted run must record and pin the Python, NumPy, and SciPy versions used. Until the strict Python JSON, pinned environment, and joint-table check are archived, treat the V8 result as a cross-runtime cross-check only.
+
+
+## Follow-up: archived workflow execution evidence (2026-11-17)
+
+The repository contains an explicit CI acceptance step for the complete joint radius-energy-direction table and its one-dimensional marginals in `.github/workflows/b16-escape-phase-space.yml`. This corrects the earlier scope note that the inspected driver/tests did not themselves assert the joint-table closure criterion: the workflow does assert it, but the step has not yet been reached in a successful run.
+
+The latest inspected run for this workflow is [run 43205614274](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43205614274), run number 12, on commit `f19a4485a19f1d862d9dcd6f7703bc72259566ae` (2026-11-12). Its three binning regression tests passed and the diagnostic compiled, but the high-order computation stopped before writing the canonical JSON. The source-grid and opacity-grid hashes matched the archived baseline; the energy-grid hash did not:
+
+- expected energy grid: `036e6d772f43acf97601c3846b475e8e1c14200d4d82de1dd9af30f01bb87ea3`
+- actual energy grid: `db6f613c7c76c3a80b07f20b6b44feb9520b031e78237685dacd60575c964639`
+
+The run has no uploaded artifacts. The run log records Python 3.12.16, NumPy 2.5.4 and SciPy 1.18.1; the workflow currently requests Python 3.12 and installs unpinned `numpy scipy`, rather than consuming the repository's pinned `requirements-b16-audit.txt`. The strict Python output `outputs/b16_escape_phase_space_10mev_2026-11-10.json` is still absent; the V8 cross-runtime JSON is not a substitute for that canonical output.
+
+**Disposition remains `REVISION_REQUIRED`.** The next repair must reconcile the energy-grid construction with the archived high-order baseline, then rerun the strict Python driver and reach the workflow's joint-table closure checks. This follow-up reads an existing failed run only; it does not rerun the calculation or alter its physics inputs.
