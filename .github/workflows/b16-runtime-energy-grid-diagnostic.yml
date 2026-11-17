@@ -6,6 +6,7 @@ on:
       - research/b16-energy-grid-diagnostic-20261117
     paths:
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/diagnose_b16_runtime_energy_mutation.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/trace_b16_phase_run_grid_hashes.py'
       - '.github/workflows/b16-runtime-energy-grid-diagnostic.yml'
   workflow_dispatch:
 
@@ -37,10 +38,21 @@ jobs:
         run: |
           python research/stellar-cooling-constraints-20261105/blinov_reproduction/diagnose_b16_runtime_energy_mutation.py \
             --output /tmp/b16_runtime_energy_mutation_diagnostic.json
-      - name: Upload staged diagnostic JSON
+      - name: Trace hash calls inside the production phase-space run
+        shell: bash
+        run: |
+          set +e
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/trace_b16_phase_run_grid_hashes.py \
+            2>&1 | tee /tmp/b16_production_hash_trace.log
+          status=\${PIPESTATUS[0]}
+          echo "production phase-space run exit code: \${status}"
+          exit 0
+      - name: Upload staged diagnostic outputs
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: b16-runtime-energy-mutation-diagnostic
-          path: /tmp/b16_runtime_energy_mutation_diagnostic.json
+          name: b16-runtime-energy-grid-trace
+          path: |
+            /tmp/b16_runtime_energy_mutation_diagnostic.json
+            /tmp/b16_production_hash_trace.log
           if-no-files-found: warn
