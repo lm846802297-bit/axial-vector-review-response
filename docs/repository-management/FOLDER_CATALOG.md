@@ -5,10 +5,10 @@ Live Git-tree inventory for branch `maintenance/repository-organization-audit-20
 ## Repository footprint
 
 - **1,680 Git-tree entries:** 1,557 files and 123 directories.
-- **583 Markdown/text files:** 484 `.md` and 99 `.txt`.
+- **584 Markdown/text files:** 485 `.md` and 99 `.txt`.
 - **Baseline document register:** 462/462 individually reviewed; 296 `PASS_WITH_NOTES`, 2 `PASS`, 156 `HISTORICAL`, 8 `REVISION_REQUIRED`, 0 `PENDING`. Current fingerprints: 389 match, 72 content hashes differ from the recorded reviewed version, and 1 size-only metadata discrepancy; reconciliation is open.
-- **Supplemental document register:** 121 post-baseline Markdown/text files; 115 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 0 `PENDING`, and 0 `REVISION_REQUIRED`. Every supplemental document has an individual review disposition; no supplemental `PENDING` or `REVISION_REQUIRED` entries remain.
-- **115 GitHub Actions workflow YAML files:** 54 `REVIEWED_WITH_NOTES`, 15 `HISTORICAL_CANDIDATE`, 46 `PENDING`.
+- **Supplemental document register:** 122 post-baseline Markdown/text files; 116 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 0 `PENDING`, and 0 `REVISION_REQUIRED`. Every supplemental document has an individual review disposition; no supplemental `PENDING` or `REVISION_REQUIRED` entries remain.
+- **115 GitHub Actions workflow YAML files:** 58 `REVIEWED_WITH_NOTES`, 15 `HISTORICAL_CANDIDATE`, 42 `PENDING`.
 - **274 JSON files** and **410 Python files** (file counts only; not all are production code).
 
 | Top-level area | Git-tree entries | Responsibility | Management rule |
@@ -36,12 +36,12 @@ See [ROOT_FILE_CLASSIFICATION.md](ROOT_FILE_CLASSIFICATION.md) for the 24 root f
 
 ## Review coverage and current priorities
 
-The seventy-fourth review completed the last 12 pending supplemental documents. The seventy-fifth review reclassified three explicitly historical baseline files, the seventy-sixth reviewed two remaining B.16 baseline issues, the seventy-seventh reviewed three C4-C4 workflows, and the seventy-eighth reviewed four B.2/B.16 path and source workflows; see the [seventy-fourth report](SEVENTY_FOURTH_REVIEW_FINAL_RESEARCH_READMES_AND_MANIFESTS_2026-11-17.md), [seventy-fifth report](SEVENTY_FIFTH_REVIEW_BASELINE_ARCHIVE_RECLASSIFICATION_2026-11-17.md), [seventy-sixth report](SEVENTY_SIXTH_REVIEW_B16_ESCAPE_AND_FIG7_FOLLOW_UP_2026-11-17.md), and the [seventy-seventh report](workflow-reviews/C4C4_WORKFLOW_REVIEW_2026-11-17.md) and [seventy-eighth report](workflow-reviews/B2_PATH_WORKFLOW_REVIEW_2026-11-17.md).
+The seventy-fourth review completed the last 12 pending supplemental documents. The seventy-fifth review reclassified three explicitly historical baseline files, the seventy-sixth reviewed two remaining B.16 baseline issues, the seventy-seventh reviewed three C4-C4 workflows, and the seventy-eighth reviewed four B.2/B.16 path and source workflows, and the seventy-ninth reviewed four outer-profile sensitivity workflows; see the [seventy-fourth report](SEVENTY_FOURTH_REVIEW_FINAL_RESEARCH_READMES_AND_MANIFESTS_2026-11-17.md), [seventy-fifth report](SEVENTY_FIFTH_REVIEW_BASELINE_ARCHIVE_RECLASSIFICATION_2026-11-17.md), [seventy-sixth report](SEVENTY_SIXTH_REVIEW_B16_ESCAPE_AND_FIG7_FOLLOW_UP_2026-11-17.md), and the [seventy-seventh report](workflow-reviews/C4C4_WORKFLOW_REVIEW_2026-11-17.md) and [seventy-eighth report](workflow-reviews/B2_PATH_WORKFLOW_REVIEW_2026-11-17.md).
 
 1. Keep root `README.md`, `PROJECT_STATUS.md` and the living decision register as concise governance entry points.
-2. All **121 supplemental Markdown/text files** now have individual review dispositions (0 `PENDING`, 0 `REVISION_REQUIRED`). The current section-log sidecar has been regenerated from exact Git bytes and matches 8/8; its superseded hash set remains in Git history.
+2. All **122 supplemental Markdown/text files** now have individual review dispositions (0 `PENDING`, 0 `REVISION_REQUIRED`). The current section-log sidecar has been regenerated from exact Git bytes and matches 8/8; its superseded hash set remains in Git history.
 3. Resolve or explicitly retain the **8 baseline `REVISION_REQUIRED`** items only after evidence-based review; never bulk-promote them.
-4. Continue triage of the **46 pending workflows**. Do not disable or delete a workflow based only on its filename or an old branch reference.
+4. Continue triage of the **42 pending workflows**. Do not disable or delete a workflow based only on its filename or an old branch reference.
 5. Audit relative links, Python imports, workflow paths, LaTeX inputs, bibliography lookup and manifests before any physical relocation.
 6. Refresh the PR-vs-main comparison before integration; this catalog does not authorize merge or scientific acceptance.
 
