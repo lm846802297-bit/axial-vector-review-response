@@ -65,7 +65,7 @@ jobs:
           python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_escape_phase_space.py \
             --mass 10 --nr 200 --opacity-order 640 --ne 200 \
             --na 32 --ns 64 --energy-offset 1000 \
-            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-10.json
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-10.json \
             --csv-output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-10.csv \
             --svg-output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-10.svg
       - name: Validate baseline closure and phase-space normalization
