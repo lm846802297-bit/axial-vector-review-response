@@ -79,13 +79,16 @@ def main():
     ap.add_argument("--profile",type=Path,default=DEFAULT_PROFILE)
     ap.add_argument("--x-values",type=float,nargs="+",default=[0.0,0.015,0.05])
     ap.add_argument("--workers",type=int,default=4)
+    ap.add_argument("--radial-stride",type=int,default=1,help="Use every Nth profile radius; 1 means all 1687 nodes")
     ap.add_argument("--output",type=Path,default=DEFAULT_OUTPUT)
     args=ap.parse_args()
     started=time.time()
     if sha(args.profile)!=PROFILE_SHA:raise RuntimeError("SFHo profile SHA-256 mismatch")
     table=np.genfromtxt(args.profile,delimiter=",",names=True)
     radii=np.asarray(table["r_km"],float)
-    tasks=[(float(r),float(x)) for x in args.x_values for r in radii]
+    if args.radial_stride<1:raise ValueError("--radial-stride must be >=1")
+    scan_radii=radii[::args.radial_stride]
+    tasks=[(float(r),float(x)) for x in args.x_values for r in scan_radii]
     results=[]
     with ProcessPoolExecutor(max_workers=args.workers,initializer=init_worker,initargs=(str(args.profile),)) as pool:
         futures=[pool.submit(evaluate_task,t) for t in tasks]
@@ -107,13 +110,13 @@ def main():
           "maximum_plus_minus_relative_difference":max(z["plus_minus_relative_difference"] for z in subset)
         }
     summary={"run":"P1B-GLOBAL06B-FULL-RADIAL-POLARIZATION-SCAN","profile_sha256":PROFILE_SHA,
-      "radial_nodes":len(radii),"x_values":[float(x) for x in args.x_values],
+      "radial_nodes_in_profile":len(radii),"radial_nodes_scanned":len(scan_radii),"radial_stride":args.radial_stride,"x_values":[float(x) for x in args.x_values],
       "unique_r_x_points":len(tasks),"workers":args.workers,"runtime_seconds":time.time()-started,
       "order_ladder":[list(x) for x in ORDERS]+[list(EXTENSION)],
       "successive_order_tolerance":TOL,"by_x":by_x,
       "acceptance":{"all_points_pass":all(z["quadrature_pass"] for z in results),
         "all_rates_finite_nonnegative":all(z["finite_nonnegative"] for z in results),
-        "full_1687_radius_coverage":True,"full_nine_knot_energy_coverage":False,
+        "full_1687_radius_coverage":bool(args.radial_stride==1 and len(scan_radii)==len(radii)),"full_nine_knot_energy_coverage":False,
         "complete_B1_source":False,"B2_transport":False},
       "scope":"B.13 moving-muon semi-Compton only; all radial vertices at three x anchors. Not the full low-x energy integral or B.2 transport."}
     args.output.mkdir(parents=True,exist_ok=True)
