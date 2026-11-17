@@ -1119,3 +1119,104 @@ The exact moving-muon B.13 local kernel already resolves \(L,+,-\), both muon ch
 Local maxima: spinor/trace relative residual \(1.77\times10^{-13}\); explicit photon-Ward amplitude residual \(1.47\times10^{-13}\); final-muon shell residual \(6.52\times10^{-16}\); vector longitudinal Ward-shift residual \(3.54\times10^{-14}\). All mode matrix elements are nonnegative. The dedicated P1 GitHub Actions workflow completed successfully: [run #43372084167](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43372084167).
 
 This is a pointwise amplitude validation, not a dense continuous-domain thermal convergence bound or global independent-mode transport result. The scalar B.2 baseline and axial-vector production outputs remain unchanged.
+
+
+---
+
+## 2026-11-17 repository baseline closeout
+
+The 2026-11-17 maintenance pass has dispositioned all seven baseline
+`REVISION_REQUIRED` records carried forward by the previous audit. The
+registers now show:
+
+| Register | Documents | PASS_WITH_NOTES | PASS | HISTORICAL | REVISION_REQUIRED |
+|---|---:|---:|---:|---:|---:|
+| Baseline document register | 462 | 304 | 2 | 156 | 0 |
+| Supplemental document register | 136 | 130 | 0 | 6 | 0 |
+| **Total** | **598** | **434** | **2** | **162** | **0** |
+
+The two new 2026-11-17 repository-management notes are supplemental records,
+not baseline documents. Every baseline and supplemental item is now assigned
+an explicit disposition. `PASS_WITH_NOTES` and `HISTORICAL` are retained
+where the underlying physics or historical provenance is intentionally
+limited; this is not a claim that all physical research gates have passed.
+
+### B.16 10 MeV local-rate and global escape deliverables
+
+The previously missing local-rate/polarization/escape handoff is now
+reproducible as two linked layers:
+
+- Local rate and polarization: 54 points, producer/kernel/reference source,
+  five regression tests, CSV, JSON and SVG; successful workflow
+  [#44031506218](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44031506218).
+- Global B.1/B.2 escape phase space: high-order 200 radial source nodes,
+  642 opacity radial nodes, 842 energy nodes, 32 angular order and 64 path
+  order; eight regression tests; full joint-bin JSON, 660-row CSV and
+  eight-panel direction-resolved SVG; successful workflow
+  [#44035746636](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44035746636).
+
+The exact energy-grid SHA-256 matches the archived baseline, with maximum
+relative node difference (2.69\times10^{-16}\). The integrated 10 MeV
+luminosity is (2.4396359574\times10^{52}\) erg/s against the Fig. 7
+reference (1.2678147591\times10^{52}\) erg/s, i.e. (+92.4284\%\).
+The result closes to the independent high-order baseline at
+(2.22\times10^{-16}\), but that is a numerical reproducibility check, not
+a successful physical reproduction of Fig. 7. The 8--15 km region carries
+79.6522% of the B.1 source and 86.8551% of escaped luminosity.
+
+**The pure-vector physical Fig. 7 gate remains blocked.** No opacity
+rescaling, fitted correction, boundary substitution, or axial-vector
+constraint update is authorized. The axial recalculation remains frozen.
+
+### Profile and muon-density provenance
+
+The combined public-figure SFHo-18.8 profile is fingerprinted to
+`data/sfho188_digitized.csv`, SHA-256
+`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`,
+Git blob `e41df78c8035540760fbcb7ef592cd830171822e`, 1687 rows. The
+Caputo thermodynamic curves and Ferreira lapse extraction remain separately
+identified in the provenance record.
+
+Both (n_{\mu^-}), (n_{\mu^+}), net and total densities are now tabulated
+at common 12--15 km vertices. The maximum (\mu^+) fraction is 0.0856%;
+choosing single-particle versus net density changes the comparison by at most
+about 0.09 percentage points. It cannot explain the remaining 6--10%
+Caputo-versus-Bollig Fig. 3 absolute-density offset. The public Fig. 3 label
+does not establish its charge convention. B.17 remains single-(\mu^-\);
+no density or opacity rescaling is made.
+
+### PR52 archive and legacy thermal-convergence provenance
+
+The PR52 current scan archive was actually decompressed and verified by
+workflow [#44033029862](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44033029862):
+the gzip is 20,156,701 bytes; the expanded CSV is 80,770,035 bytes,
+73,728 rows by 77 columns, with no malformed row widths. The compressed
+archive remains canonical in Git; a streaming verifier produces the exact
+expanded CSV on demand and checks its SHA-256. The expanded duplicate is not
+committed to avoid adding 80.8 MB to every clone.
+
+The shared Original-UV/Two-VEV thermal-convergence CSV is documented as a
+legacy generic-kernel table. Its order sweep uses order 10 as its reference,
+while the current driver uses the highest requested order. The exact old
+producer is unrecovered, so direct attribution is withdrawn. The Two-VEV
+scan couples (n_\phi=2n_{\rm GL}) and is joint refinement, not independent
+azimuthal convergence. No radial supernova luminosity or exclusion is
+inferred from this homogeneous-cell benchmark.
+
+### Remaining research limitations
+
+1. The 10 MeV pure-vector Fig. 7 discrepancy remains +92.43%; its physical
+   source/opacity explanation is unresolved.
+2. The reconstructed public profile is not the raw same-snapshot Garching
+   simulation table.
+3. The public Bollig Fig. 3 muon-density charge convention and absolute
+   density offset remain unresolved source-level issues.
+4. The local B.14 Compton polarization split is the stated no-recoil
+   Thomson-limit approximation, not an exact recoil-resolved three-mode
+   kernel.
+5. The legacy thermal-convergence table has an unrecovered exact producer
+   and does not establish independent azimuthal or radial SN convergence.
+
+The 50th review report and the thermal-convergence provenance note are
+registered in the supplemental document register. The maintenance branch
+has not been merged; final PR diff review remains a separate repository step.
