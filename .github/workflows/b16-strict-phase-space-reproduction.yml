@@ -13,6 +13,7 @@ on:
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_phase_space_output_validation.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/diagnose_b16_energy_grid_identity.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_energy_grid_identity.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/trace_b16_phase_run_grid_hashes.py'
       - 'research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv'
       - 'research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_high_order_independent_grid_10mev_2026-11-09.json'
@@ -48,6 +49,21 @@ jobs:
           python --version
           python -c "import numpy, scipy; print('numpy', numpy.__version__); print('scipy', scipy.__version__)"
           git rev-parse HEAD
+      - name: Compile B.16 production audit and validator
+        run: |
+          python -m py_compile \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_escape_phase_space.py \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/validate_b16_escape_phase_space_output.py
+      - name: Run high-order 10 MeV escape phase-space decomposition
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_escape_phase_space.py \
+            --mass 10 --nr 200 --opacity-order 640 --ne 200 \
+            --na 32 --ns 64 --energy-offset 1000 \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-17.json
+      - name: Validate baseline closure and sparse joint-table marginals
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/validate_b16_escape_phase_space_output.py \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-17.json
       - name: Run phase-space binning regression tests
         run: |
           python -m unittest discover \
@@ -63,22 +79,6 @@ jobs:
           python -m unittest discover \
             -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
             -p 'test_b16_phase_space_output_validation.py' -v
-      - name: Compile B.16 diagnostic and validator
-        run: |
-          python -m py_compile \
-            research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_escape_phase_space.py \
-            research/stellar-cooling-constraints-20261105/blinov_reproduction/diagnose_b16_energy_grid_identity.py \
-            research/stellar-cooling-constraints-20261105/blinov_reproduction/validate_b16_escape_phase_space_output.py
-      - name: Run high-order 10 MeV escape phase-space decomposition
-        run: |
-          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_escape_phase_space.py \
-            --mass 10 --nr 200 --opacity-order 640 --ne 200 \
-            --na 32 --ns 64 --energy-offset 1000 \
-            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-17.json
-      - name: Validate baseline closure and sparse joint-table marginals
-        run: |
-          python research/stellar-cooling-constraints-20261105/blinov_reproduction/validate_b16_escape_phase_space_output.py \
-            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-17.json
       - name: Verify axial-vector production outputs remain unchanged
         run: |
           git diff --exit-code -- \
