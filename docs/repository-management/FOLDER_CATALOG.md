@@ -13,7 +13,7 @@ Live Git-tree inventory for branch `maintenance/close-baseline-revision-required
 
 | Top-level area | Git-tree entries | Responsibility | Management rule |
 |---|---:|---|---|
-| `.github/` | 123 | 115 Actions workflows plus workflow catalog, audit register, review notes, templates and metadata | Keep workflow YAML in `.github/workflows/`; review triggers, permissions, paths and write-back behavior before deprecation. |
+| `.github/` | 123 | 118 Actions workflows plus workflow catalog, audit register, review notes, templates and metadata | Keep workflow YAML in `.github/workflows/`; review triggers, permissions, paths and write-back behavior before deprecation. |
 | `archive/` | 20 | Frozen source snapshots and historical response-letter packages | Immutable; add new dated snapshots instead of editing old ones. |
 | `deliverables/` | 22 | Extracted handoff packages and instructions | Keep file-level hashes, extraction provenance and import instructions. Do not store generated ZIP/Base64 bundles as substitutes for extracted contents. |
 | `docs/` | 126 | Repository management, review standards and audit records | Keep navigation, governance, baseline and supplemental audit records here. |
