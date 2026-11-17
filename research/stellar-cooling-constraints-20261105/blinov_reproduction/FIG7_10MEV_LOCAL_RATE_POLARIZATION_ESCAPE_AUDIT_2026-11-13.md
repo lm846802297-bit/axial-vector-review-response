@@ -119,3 +119,12 @@ The current repository tree contains this Markdown report but does not contain t
 To close this item, commit the exact producer and invocation, selected-node data, machine-readable output, plot, input fingerprints (including the profile SHA), and the three regression tests; then rerun the producer and verify the archived values. Until that evidence is present, treat the quoted values as reported numerical evidence rather than an independently reproducible repository output.
 
 **Review disposition: REVISION_REQUIRED.** The physics interpretation has been corrected, but the missing calculation artifacts remain an actionable provenance/reproducibility issue. No source, opacity, coupling, Fig. 7 curve, or axial-vector constraint is changed.
+
+
+## Subsequent B.13 evidence and non-supersession boundary (2026-11-17)
+
+A later, separate artifact package is now present at `blinov_reproduction/results/P1B_B2_EXACT_B13_2026-11-14/`. Its report and summary document a 42-point local exact-B.13 polarization audit and a fixed-\(\omega\) global transport comparison restricted to the 210–510 MeV band. The B.16 scalar high-energy-band baseline is reproduced at relative residual −1.01\times10^{-7}; the seven-point low-x pilot completed only 7 of 24 planned points. The package explicitly states that full-band Fig. 7 reproduction, a complete low-x profile extension, GR-redshifted path energy, the SN1987A limit and the axial exclusion curve are not complete.
+
+This later package is scientifically relevant context, but it does **not** replace the specific 10 MeV local-rate/polarization/escape addendum required by this audit: the producer, selected-node CSV, audit JSON, plot, pinned input set and helper source for the 2026-11-13 addendum are still not all present as one reproducible package. The 210–510 MeV B.13 band result must not be presented as the missing full 10 MeV local-rate/escape result or as a full Fig. 7 validation.
+
+**Disposition remains `REVISION_REQUIRED`.** No rate, opacity, luminosity, escape fraction or exclusion curve was changed in this documentation follow-up.
