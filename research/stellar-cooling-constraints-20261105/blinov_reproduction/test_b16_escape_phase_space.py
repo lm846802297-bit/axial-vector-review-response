@@ -2,7 +2,10 @@ import unittest
 
 import numpy as np
 
-from audit_b16_escape_phase_space import (\n    _axis_bins, reconstruct_energy_grid_from_spectral_measure,\n)\n
+from audit_b16_escape_phase_space import (
+    _axis_bins, reconstruct_energy_grid_from_spectral_measure,
+)
+
 
 class EscapePhaseSpaceBinningTests(unittest.TestCase):
     def setUp(self):
