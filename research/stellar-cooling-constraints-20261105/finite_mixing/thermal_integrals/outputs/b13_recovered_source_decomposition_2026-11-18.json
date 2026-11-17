@@ -1,0 +1,45 @@
+{
+  "status": "LOCAL_B13_SOURCE_DECOMPOSITION_ONLY_NOT_B2",
+  "source_run_id": 43376779901,
+  "source_artifact_id": 14015517843,
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "grid_nodes": 513,
+  "direct_midpoints": 468,
+  "csv_rows": 5886,
+  "mass_MeV": 10.0,
+  "measure": "4*pi*r^2*Delta_r*Delta_omega times direct midpoint spectral_source",
+  "direct_midpoint_source_integral_internal_units": 22480885.750463076,
+  "lapse_weighted_source_integral_internal_units": 18065839.76373589,
+  "lapse_weighted_over_unweighted": 0.8036088953196053,
+  "charge_contributions": {
+    "mu_minus": {"fraction": 0.99318141},
+    "mu_plus": {"fraction": 0.00681859}
+  },
+  "mode_contributions": {
+    "L": {"fraction": 0.0162430},
+    "+": {"fraction": 0.4918787},
+    "-": {"fraction": 0.4918787}
+  },
+  "radial_shell_contributions": {
+    "0-2 km": {"fraction": 0.00003121},
+    "2-4 km": {"fraction": 0.00096337},
+    "4-6 km": {"fraction": 0.01262785},
+    "6-8 km": {"fraction": 0.14822095},
+    "8-10 km": {"fraction": 0.54644950},
+    "10-12 km": {"fraction": 0.27161662},
+    "12-14 km": {"fraction": 0.01849188},
+    "14-16 km": {"fraction": 0.00159863},
+    "16-18 km": {"fraction": 5.30e-10},
+    "18-20 km": {"fraction": 7.29e-14},
+    "20-22 km": {"fraction": 1.39e-16},
+    "22-24 km": {"fraction": 6.55e-19}
+  },
+  "interpretation": [
+    "Direct midpoint values were integrated with the exact cell widths reconstructed from the archived grid-node coordinates.",
+    "The source is concentrated in the 8-12 km region (81.8066% of this local B.13 source integral).",
+    "mu_plus contributes 0.6819%; charge channels are retained separately in the transport implementation.",
+    "The longitudinal mode contributes 1.6243% of the local B.13 source, while each transverse mode contributes 49.1879%.",
+    "These are local B.13 semi-Compton source fractions, not B.2 escape fractions or escaped luminosity fractions.",
+    "Neutrino inverse decay, ray geometry, path attenuation, and full GR transport are excluded."
+  ]
+}
