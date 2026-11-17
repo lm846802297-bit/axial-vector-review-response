@@ -57,12 +57,12 @@ The largest endpoint-to-endpoint neighbor change is 24.759% across the very shor
 22.1918936570\text{ km}\le r\le22.1918946570\text{ km}.
 \]
 
-The high-order direct midpoint interpolation error in this interval is only \(3.08\times10^{-9}\). However, inspection of the profile shows that this interval straddles a sharp change in the tabulated muon chemical potential:
+The high-order direct midpoint interpolation error in this interval is only \(3.08\times10^{-9}\). The profile provenance resolves the origin of this feature: the reconstructed Caputo muon-chemical-potential curve ends at \(r_{\max}=22.191893657048542\) km, and the profile builder records a support-boundary offset of \(10^{-6}\) km. The next profile vertex is exactly \(r_{\max}+10^{-6}\) km, where the unsupported \(\mu_\mu\) input is set to zero.
 
-- left node: \(\mu_\mu=0.999999834\) MeV;
-- right node: \(\mu_\mu=0\) MeV.
+- last source-supported node: \(\mu_\mu=0.999999834\) MeV;
+- first support-boundary node: \(\mu_\mu=0\) MeV.
 
-Thus the large neighbor change is associated with a near-discontinuous profile input, not evidence by itself of a failed midpoint interpolant. The midpoint check establishes consistency at that midpoint only; it does not erase the need to preserve and separately audit this thermodynamic edge in any opacity/path integration.
+This is therefore a **profile-support truncation edge**, not evidence of a physical discontinuity in the supernova muon chemical potential. The direct midpoint test shows that the interpolant reproduces the chosen linear transition at that midpoint, but the support convention itself must remain explicit in any outer-shell opacity/path integration; it must not be mistaken for a resolved physical muonosphere boundary.
 
 ## 3. High-order polarization anchor
 
