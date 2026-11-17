@@ -1,4 +1,4 @@
-# Main research index — 2026-11-14
+# Main research index — 2026-11-17
 
 **Merge-state anchor:** PR #113 merge commit `d2f4037cc965eb2f4184f695dc81a95e1b8283c9`; subsequent commits in this audit refresh status ledgers only.  
 **Purpose:** identify the canonical location, integration history, and scientific acceptance boundary for each active referee-response and stellar-cooling workstream.
@@ -6,20 +6,24 @@
 This index is a navigation and status document. The source files, calculation outputs, validation records, and provenance manifests in the listed directories remain authoritative.
 
 
-## 0. Current merge/status correction (2026-11-14)
+## 0. Historical merge/status snapshot (2026-11-14)
 
-PR #106 (B.2 energy/GR/polarization audit) and PR #113 (P1-B Global-02–05 B.13/B.2 audit archive) are both merged into `main` by squash commits. There are currently no open PRs. The corresponding research branches are historical source branches, not active PRs.
+At this dated checkpoint, PR #106 (B.2 energy/GR/polarization audit) and PR #113 (P1-B Global-02–05 B.13/B.2 audit archive) were merged into `main` by squash commits, and there were no open PRs. This is not a live PR-state statement; use `PROJECT_STATUS.md` for current repository and PR status.
 
 The merged records add code/regression coverage and reproducible numerical diagnostics only. They do **not** close the 10 MeV Fig. 7 physical acceptance gate, do not constitute a full 1687-radius low-x/high-order transport validation, and do not update the SN1987A or axial-vector exclusion curve. The current low-x result is a 16-radius, five-energy, low-order screen; complete full-band B.1/B.2 remains blocked.
 
 
 ## 1. Workstream index
 
+**2026-11-17 navigation update:** Major 2, response-only Major 3, and Major 4.2 script packages were moved from `计算脚本/` into the three `research/` directories below. This did not change their physical inputs or numerical claims; see `docs/repository-management/ACTIVE_SCRIPT_RELOCATION_AUDIT_2026-11-17.md`.
+
 | Workstream | Canonical main location | Integration history | Current interpretation |
 |---|---|---|---|
 | Major 1 — scalar pole / Belle II | `research/radial-scalar-collider-recast-2026-10-28/` | PR #68 merged | Bounded-width recast and independent pointwise/four-body audit are archived. Use the stated width, promptness, and benchmark assumptions; do not promote this to a general scalar-sector exclusion. |
 | Major 1 — Higgs–singlet mixing and UV–EFT | `research/major1-higgs-scalar-mixing-20261109/` | PR #69 merged | Extensive scalar-potential, self-energy, counterterm, threshold, RGE, and fermion-sector sub-audits are present. This is a staged research record, not a completed gauge-independent two-pole prediction or a final Higgs-constraint scan. |
-| Major 3 — neutrino response | `Replies_to_Referee_3_referee_facing_2026-11-04.tex`, `审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-04/`, and `计算脚本/PMNS_Major3/` | PR #72 merged | The minimal-model PMNS assumption and neutrino-sector limitations are recorded in the response. Do not imply that a general PMNS fit was performed in the minimal model. |
+| Major 2 — Fig. 2 parameter window | `research/major2-parameter-window-20261117/` and the 2026-11-04 Major 2 comparison/validation records | Response support integrated; script relocation only | Exact axial (g-2) benchmark check; displayed (g_X) window is a presentation choice, not a universal allowed region. |
+| Major 3 — neutrino response | `research/major3-neutrino-response-optional-seesaw-20261117/`, `Replies_to_Referee_3_referee_facing_2026-11-04.tex`, and the 2026-11-04 response records | PR #72 merged; script path migration only | The minimal-model PMNS limitation is explicit. The optional seesaw is response-only; no general PMNS fit is claimed for the minimal model. |
+| Major 4.2 — kinetic mixing | `research/major4-2-kinetic-mixing-20261117/` and the 2026-11-04 Major 4.2 comparison/validation records | Response support integrated; script relocation only | Momentum-dependent loop and conditional NA64 leading-yield comparison; visual-read-off intervals are not official tabulated data or a detector-level recast. |
 | Major 3 — Overleaf handoff | `deliverables/Overleaf_Reply_Letter_PR72_2026-11-13/` | PR #88 rebuilt from current main; PR #89 corrected checksum; PR #94 extracted the handoff | Upload the extracted TeX/BibTeX/BST/PDF files to Overleaf. There is no need to upload or retain a ZIP in GitHub. |
 | Major 4.4 — axial stellar cooling / Blinov benchmark | `research/stellar-cooling-constraints-20261105/` | PR #56 merged; PR #77 merged; PR #83 closed as duplicate; PR #87 and #90 integrated selected B.13/B.16 and checksum follow-ups | The calculation chain and extensive local diagnostics are archived. **The pure-vector Blinov Fig. 7 physical gate remains NOT PASSED at the 10 MeV strong-absorption end.** |
 | C4-C4-A/Aq energy dependence | `research/stellar-cooling-constraints-20261105/blinov_reproduction/` | PR #79 merged | Local energy-dependent scattering diagnostics are available. They are not a full luminosity or transport acceptance. |

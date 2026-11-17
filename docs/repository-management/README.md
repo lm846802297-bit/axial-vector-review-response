@@ -4,6 +4,8 @@ This document describes the current repository organization and the intended own
 
 ## Canonical top-level layout
 
+The active Major 2 / Major 3 / Major 4.2 script relocation is documented in [ACTIVE_SCRIPT_RELOCATION_AUDIT_2026-11-17.md](ACTIVE_SCRIPT_RELOCATION_AUDIT_2026-11-17.md) and its [path/blob manifest](ACTIVE_SCRIPT_RELOCATION_MANIFEST_2026-11-17.csv).
+
 The 2026-11-17 root-file relocation and directory entry points are recorded in [the relocation audit](ROOT_RELOCATION_AUDIT_2026-11-17.md) and [its blob/size manifest](ROOT_RELOCATION_MANIFEST_2026-11-17.csv).
 
 | Path | Responsibility | Rules |
@@ -36,7 +38,7 @@ The 2026-11-17 root-file relocation and directory entry points are recorded in [
 
 The merged PR #115 integration review records the retained disposition for all seven baseline `REVISION_REQUIRED` items, verifies 499 Actions runs across the 14 retained workflow candidates, and reviews the complete 386-file change set: [FINAL_INTEGRATION_REVIEW_2026-11-17.md](FINAL_INTEGRATION_REVIEW_2026-11-17.md).
 
-The original baseline contains 462 Markdown/text documents and is fully reviewed: 297 `PASS_WITH_NOTES`, 2 `PASS`, 156 `HISTORICAL`, 7 `REVISION_REQUIRED`, and 0 `PENDING`. The current recursive Git tree after relocation contains 601 Markdown/text files (502 `.md`, 99 `.txt`), including 139 later-added documents tracked in the [supplemental register](SUPPLEMENTAL_DOCUMENT_AUDIT_REGISTER.csv): 133 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 0 `PENDING`, and 0 `REVISION_REQUIRED`. All 601 paths are uniquely registered: the two registers have no missing, duplicate, overlapping or unregistered Markdown/text paths, and their current blob SHA/size fields match the recursive Git tree. The baseline register preserves reviewed-version fingerprints alongside current-tree fingerprints: 389 rows `MATCH_CURRENT`, 72 `CONTENT_FINGERPRINT_DIFFERS`, and 1 `SIZE_METADATA_DIFFERS`. These 73 fingerprint differences are preserved historical reviewed-version fingerprints, not unregistered files or current-tree mismatches. See the [baseline audit register](DOCUMENT_AUDIT_REGISTER.csv), [supplemental register](SUPPLEMENTAL_DOCUMENT_AUDIT_REGISTER.csv), and the dated review reports:
+The original baseline contains 462 Markdown/text documents and is fully reviewed: 297 `PASS_WITH_NOTES`, 2 `PASS`, 156 `HISTORICAL`, 7 `REVISION_REQUIRED`, and 0 `PENDING`. The current recursive Git tree after relocation contains 605 Markdown/text files (506 `.md`, 99 `.txt`), including 143 later-added documents tracked in the [supplemental register](SUPPLEMENTAL_DOCUMENT_AUDIT_REGISTER.csv): 137 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 0 `PENDING`, and 0 `REVISION_REQUIRED`. All 605 paths are uniquely registered: the two registers have no missing, duplicate, overlapping or unregistered Markdown/text paths, and their current blob SHA/size fields match the recursive Git tree. The baseline register preserves reviewed-version fingerprints alongside current-tree fingerprints: 389 rows `MATCH_CURRENT`, 72 `CONTENT_FINGERPRINT_DIFFERS`, and 1 `SIZE_METADATA_DIFFERS`. These 73 fingerprint differences are preserved historical reviewed-version fingerprints, not unregistered files or current-tree mismatches. See the [baseline audit register](DOCUMENT_AUDIT_REGISTER.csv), [supplemental register](SUPPLEMENTAL_DOCUMENT_AUDIT_REGISTER.csv), and the dated review reports:
 
 - [Initial governance and entry review](INITIAL_REVIEW_REPORT_2026-11-14.md)
 - [Second review batch](SECOND_REVIEW_REPORT_2026-11-14.md)

@@ -21,7 +21,9 @@
 | 正式回复信 | PROJECT_STATUS → 研究决策登记表 → 写作规范 → 根目录当前权威 TeX / PDF → 对应 Major/Minor 的最新对照与验证记录 |
 | 论文正文同步 | 正文待同步修改清单 → 当前活动 Overleaf 源码确认 → 对应物理证据 → 修改 Diff → 编译与视觉检查记录 |
 | Major 1：Higgs–singlet | research/MAIN_RESEARCH_INDEX → research/major1-higgs-scalar-mixing-20261109/README.md → 对应子计算、反项/匹配与极点审计 |
-| Major 3：中微子 | 研究决策登记表 → 当前回复信 Major 3/4.1 → 2026-11-04 回复对照和验证记录；旧 seesaw 候选笔记仅作历史，不代表原模型扩展 |
+| Major 2：Fig. 2 参数窗口 | [research/major2-parameter-window-20261117](../../research/major2-parameter-window-20261117/README.md) → Major 2 对照/验证记录 → 当前回复信 | 仅为显示窗口 benchmark，不是完整 UV/实验扫描 |
+| Major 3：中微子 | 研究决策登记表 → 当前回复信 Major 3/4.1 → [response-only seesaw research package](../../research/major3-neutrino-response-optional-seesaw-20261117/README.md) → 2026-11-04 对照和验证记录 | 不代表原模型扩展，不是全局 PMNS/LFV 拟合 |
+| Major 4.2：动能混合 | [research/major4-2-kinetic-mixing-20261117](../../research/major4-2-kinetic-mixing-20261117/README.md) → Major 4.2 对照/验证记录 → 当前回复信 | NA64 仅作条件性 leading-yield 对照，不是 detector-level recast |
 | Major 4.2/4.3 | 研究决策登记表 → 对应 kinetic-mixing / 有限矢量耦合计算和实验比较 → 当前回复信对应段落 |
 | Major 4.4：恒星冷却 | research/MAIN_RESEARCH_INDEX → stellar-cooling-constraints README / VALIDATION_AND_REVIEW → collaborator archive STATUS_MATRIX / FIGURE_AUDIT → 原始文献和数值输入 |
 | 计算复现 | 对应 research 工作流 README → 输入清单和 SHA-256 → 精确脚本/命令 → 测试与输出 → 独立验证报告 |

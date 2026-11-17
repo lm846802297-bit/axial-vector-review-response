@@ -1,8 +1,8 @@
 # 计算资料索引
 
-> **当前导航（2026-11-14）：** 下文 2026-10-20 的 v65/v66 “最新版/备份”说法仅记录当时状态，这两份现在均为历史快照；项目当前状态以 [PROJECT_STATUS](../PROJECT_STATUS.md) 为准。`Major2_Fig2/`、`Major42_kinetic/` 和 `PMNS_Major3/` 分别包含后续参数窗口、动能混合和中微子矩阵脚本及其 `outputs/`；使用前核对各专题的模型约定和验证记录。
+> **当前导航（2026-11-14）：** 下文 2026-10-20 的 v65/v66 “最新版/备份”说法仅记录当时状态，这两份现在均为历史快照；项目当前状态以 [PROJECT_STATUS](../PROJECT_STATUS.md) 为准。Major 2、Major 3 和 Major 4.2 的专题脚本已于 2026-11-17 迁入 `research/`，见下文新入口；原路径不再是当前脚本位置。
 
-原始目录整理日期：2026-10-20；本说明复核日期：2026-11-16。本目录保留不同阶段的脚本、计算输出和审计附件，不能把目录内所有文件都视为同一研究阶段或当前生产入口。
+原始目录整理日期：2026-10-20；本说明复核日期：2026-11-17。本目录保留不同阶段的脚本、计算输出和审计附件，不能把目录内所有文件都视为同一研究阶段或当前生产入口。
 
 | 位置 | 内容 |
 | --- | --- |
@@ -32,7 +32,9 @@
 
 - **跨专题权威导航：** [research 主索引](../research/MAIN_RESEARCH_INDEX_2026-11-13.md)；实时分支、PR 和开放验收门槛以 [PROJECT_STATUS.md](../PROJECT_STATUS.md) 为准。
 - **Major 1 Higgs–singlet / UV–EFT：** 当前研究记录和分阶段验收在 [Major 1 research README](../research/major1-higgs-scalar-mixing-20261109/README.md)。本目录根部保留的 Higgs-portal Mathematica、FeynRules、SARAH 和符号审计脚本是研究证据/工具，不应仅凭文件名或旧版号推断其覆盖了完整 UV–EFT matching、规范完备传播矩阵或物理复极点。
-- **Major 2、Major 4.2、Major 3：** `Major2_Fig2/`、`Major42_kinetic/`、`PMNS_Major3/` 是对应专题的脚本入口；使用时仍须结合研究决策登记表、当前回复信和各专题输出/验证记录，不能把局部重建或约束比较解释为完整全局拟合。
+- **Major 2：** 当前脚本和输出位于 [research/major2-parameter-window-20261117/](../research/major2-parameter-window-20261117/README.md)。这是 Fig. 2 显示窗口的精确积分 benchmark，不是完整实验重铸或 UV 扫描。
+- **Major 3：** 可选 seesaw/带电轻子诊断位于 [research/major3-neutrino-response-optional-seesaw-20261117/](../research/major3-neutrino-response-optional-seesaw-20261117/README.md)。仅供 Major 3/4.1 回复论证；不代表原论文加入新场，也不代表完成全局拟合。
+- **Major 4.2：** 动能混合脚本和输出位于 [research/major4-2-kinetic-mixing-20261117/](../research/major4-2-kinetic-mixing-20261117/README.md)。NA64 对照是条件性 leading-yield 比较，不是 detector-level recast。
 - **Section 250–262 与 DeepSeek66：** `section261/`、`section262/`、`计算输出/`、`审计结果/DeepSeek66/` 是历史推导、版本检查和复核材料。它们可用于追溯公式和复现相应局部检查，但不是当前论文模型所有计算的统一入口；Section 259 的文献差异、Section 260 的版本敏感输出比较，以及 Section 261/262 的日志溯源边界均应连同审查报告阅读。
 - **历史版本生成脚本：** `build_v65.py`、`build_v66.py` 只保留旧版生成逻辑和依赖关系，不得作为当前文稿构建或物理结果更新程序。
 
