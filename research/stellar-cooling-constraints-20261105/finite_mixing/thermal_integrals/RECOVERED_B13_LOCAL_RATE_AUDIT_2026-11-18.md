@@ -96,3 +96,17 @@ I also integrated the direct midpoint B.13 spectral source over each radial-ener
 Multiplying the diagnostic measure by the midpoint lapse changes the integrated difference only slightly, to (-1.8090\%). This confirms that the interpolation problem does not disappear merely by weighting with the local Compton source. However, this remains a local-source diagnostic: it omits neutrino inverse decay, ray geometry, path attenuation, and the complete GR transport measure. It must not be quoted as the Fig. 7 luminosity error or as a B.2 error estimate.
 
 Reproduction: `audit_b13_source_weighted_interpolation.py`; result: `outputs/b13_source_weighted_interpolation_diagnostic_2026-11-18.json`.
+
+
+## Reconciliation with later full-profile PCHIP audits
+
+The 57.13% maximum above belongs specifically to the historical 513-node/27-energy-node fixed-(omega) bilinear-log screen. It is **not** the best available production interpolation prescription in this repository and must not be presented as a failure of every B.13 interpolator.
+
+Later full-profile calculations already tested a better thermal coordinate (x=(omega-m_{A'})/T(r)):
+- Global-03's sequential 2D PCHIP in (sqrt{x}), followed by log-linear radial interpolation, was checked at all 1686 radial intervals. Its maximum cell-center error was 0.80678%, with zero of 13,488 checked centers above 1%.
+- Global-06 extended the low-energy range to (0.05\le x\le0.5). Its full-radial energy PCHIP maximum error was 0.03260%; the top-60 radial midpoint maximum was 0.0831%. Targeted high-order checks passed, but global high-order quadrature acceptance remained false.
+- The remaining explicit energy-coverage gap is (0\le x<0.05). The Global-06 summary marks full-band B.1/B.2 as not yet accepted.
+
+Accordingly, the next B.2 implementation should use the already audited thermal-coordinate PCHIP prescription, not the coarse fixed-(omega) bilinear-log interpolation tested in the recovered historical artifact. The 1.808% source-integral shift reported above is a diagnostic of that coarse interpolation only; it is not an estimate of the error of the Global-03/Global-06 PCHIP prescription.
+
+This reconciliation changes no acceptance flag: the recovered historical artifact remains failed under its original criteria, while the later PCHIP interpolation screens are separate successful partial validations. Neither establishes the missing (x<0.05) contribution, global high-order quadrature, B.2 optical depths, or Fig. 7 reproduction.
