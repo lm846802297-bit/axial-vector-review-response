@@ -4,10 +4,10 @@ Live Git-tree inventory for branch `maintenance/repository-organization-audit-20
 
 ## Repository footprint
 
-- **1,676 Git-tree entries:** 1,553 files and 123 directories.
-- **579 Markdown/text files:** 480 `.md` and 99 `.txt`.
-- **Baseline document register:** 462/462 individually reviewed; 296 `PASS_WITH_NOTES`, 2 `PASS`, 153 `HISTORICAL`, 11 `REVISION_REQUIRED`, 0 `PENDING`. Current fingerprints: 390 match, 71 content hashes differ from the recorded reviewed version, and 1 size-only metadata discrepancy; reconciliation is open.
-- **Supplemental document register:** 117 post-baseline Markdown/text files; 111 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 0 `PENDING`, and 0 `REVISION_REQUIRED`. Every supplemental document has an individual review disposition; no supplemental `PENDING` or `REVISION_REQUIRED` entries remain.
+- **1,678 Git-tree entries:** 1,555 files and 123 directories.
+- **581 Markdown/text files:** 482 `.md` and 99 `.txt`.
+- **Baseline document register:** 462/462 individually reviewed; 296 `PASS_WITH_NOTES`, 2 `PASS`, 156 `HISTORICAL`, 8 `REVISION_REQUIRED`, 0 `PENDING`. Current fingerprints: 389 match, 72 content hashes differ from the recorded reviewed version, and 1 size-only metadata discrepancy; reconciliation is open.
+- **Supplemental document register:** 119 post-baseline Markdown/text files; 113 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 0 `PENDING`, and 0 `REVISION_REQUIRED`. Every supplemental document has an individual review disposition; no supplemental `PENDING` or `REVISION_REQUIRED` entries remain.
 - **115 GitHub Actions workflow YAML files:** 47 `REVIEWED_WITH_NOTES`, 16 `HISTORICAL_CANDIDATE`, 52 `PENDING`.
 - **274 JSON files** and **410 Python files** (file counts only; not all are production code).
 
@@ -16,7 +16,7 @@ Live Git-tree inventory for branch `maintenance/repository-organization-audit-20
 | `.github/` | 120 | 115 Actions workflows plus workflow catalog, audit register, review notes, templates and metadata | Keep workflow YAML in `.github/workflows/`; review triggers, permissions, paths and write-back behavior before deprecation. |
 | `archive/` | 20 | Frozen source snapshots and historical response-letter packages | Immutable; add new dated snapshots instead of editing old ones. |
 | `deliverables/` | 22 | Extracted handoff packages and instructions | Keep file-level hashes, extraction provenance and import instructions. Do not store generated ZIP/Base64 bundles as substitutes for extracted contents. |
-| `docs/` | 106 | Repository management, review standards and audit records | Keep navigation, governance, baseline and supplemental audit records here. |
+| `docs/` | 108 | Repository management, review standards and audit records | Keep navigation, governance, baseline and supplemental audit records here. |
 | `overleaf-source/` | 28 | Pinned manuscript source snapshots | Treat as versioned source archives; confirm active Overleaf source before editing. |
 | `research/` | 1,074 | Scientific workstreams, inputs, scripts, tests, outputs and evidence | Use one directory per physical model/workstream; preserve original one-VEV vs two-VEV separation. |
 | `work/` | 18 | Intermediate and temporary research material | Not authoritative until promoted and reviewed. |
@@ -36,11 +36,11 @@ See [ROOT_FILE_CLASSIFICATION.md](ROOT_FILE_CLASSIFICATION.md) for the 24 root f
 
 ## Review coverage and current priorities
 
-The seventy-fourth review completed the last 12 pending supplemental documents; see [the review report](SEVENTY_FOURTH_REVIEW_FINAL_RESEARCH_READMES_AND_MANIFESTS_2026-11-17.md).
+The seventy-fourth review completed the last 12 pending supplemental documents; see [the review report](SEVENTY_FOURTH_REVIEW_FINAL_RESEARCH_READMES_AND_MANIFESTS_2026-11-17.md). The seventy-fifth review reclassified three explicitly historical baseline files, and the seventy-sixth review confirmed two remaining B.16 baseline issues; see [the seventy-fifth report](SEVENTY_FIFTH_REVIEW_BASELINE_ARCHIVE_RECLASSIFICATION_2026-11-17.md) and [the seventy-sixth report](SEVENTY_SIXTH_REVIEW_B16_ESCAPE_AND_FIG7_FOLLOW_UP_2026-11-17.md).
 
 1. Keep root `README.md`, `PROJECT_STATUS.md` and the living decision register as concise governance entry points.
-2. All **117 supplemental Markdown/text files** now have individual review dispositions (0 `PENDING`, 0 `REVISION_REQUIRED`). The current section-log sidecar has been regenerated from exact Git bytes and matches 8/8; its superseded hash set remains in Git history.
-3. Resolve or explicitly retain the **11 baseline `REVISION_REQUIRED`** items only after evidence-based review; never bulk-promote them.
+2. All **119 supplemental Markdown/text files** now have individual review dispositions (0 `PENDING`, 0 `REVISION_REQUIRED`). The current section-log sidecar has been regenerated from exact Git bytes and matches 8/8; its superseded hash set remains in Git history.
+3. Resolve or explicitly retain the **8 baseline `REVISION_REQUIRED`** items only after evidence-based review; never bulk-promote them.
 4. Continue triage of the **52 pending workflows**. Do not disable or delete a workflow based only on its filename or an old branch reference.
 5. Audit relative links, Python imports, workflow paths, LaTeX inputs, bibliography lookup and manifests before any physical relocation.
 6. Refresh the PR-vs-main comparison before integration; this catalog does not authorize merge or scientific acceptance.
