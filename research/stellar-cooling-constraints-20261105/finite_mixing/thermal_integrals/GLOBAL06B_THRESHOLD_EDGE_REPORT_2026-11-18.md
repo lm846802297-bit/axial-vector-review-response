@@ -62,7 +62,7 @@ The high-order direct midpoint interpolation error in this interval is only \(3.
 - last source-supported node: \(\mu_\mu=0.999999834\) MeV;
 - first support-boundary node: \(\mu_\mu=0\) MeV.
 
-This is therefore a **profile-support truncation edge**, not evidence of a physical discontinuity in the supernova muon chemical potential. The direct midpoint test shows that the interpolant reproduces the chosen linear transition at that midpoint, but the support convention itself must remain explicit in any outer-shell opacity/path integration; it must not be mistaken for a resolved physical muonosphere boundary.
+This is therefore a **profile-support truncation edge**, not evidence of a physical discontinuity in the supernova muon chemical potential. The supporting input-domain and support-offset metadata are recorded in the [profile provenance](../../data/profile_provenance.json). The direct midpoint test shows that the interpolant reproduces the chosen linear transition at that midpoint, but the support convention itself must remain explicit in any outer-shell opacity/path integration; it must not be mistaken for a resolved physical muonosphere boundary.
 
 ## 3. High-order polarization anchor
 
