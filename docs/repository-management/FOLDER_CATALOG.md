@@ -1,6 +1,6 @@
 # Folder catalog
 
-Updated 2026-11-17. Counts describe the audited tree after root-file relocation, based on `main` commit `ce9cf1628efc16c55d64aa59f93b7d745f8ef23e`.
+Updated 2026-11-17. Counts describe the audited tree for PR #117 on branch `chore/migrate-major2-major3-major42-scripts-20261117`, based on `main` commit `39814f992c1aa60fed04ab9cf01459f5ea205236`.
 
 ## Repository footprint
 
