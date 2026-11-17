@@ -1,0 +1,53 @@
+name: PR52 scan archive integrity closeout
+
+on:
+  push:
+    branches:
+      - maintenance/close-baseline-revision-required-20261117
+    paths:
+      - 'research/radial-scalar-collider-recast-2026-10-28/data/derived/scan-pr52-thetaR-1e-2/original_uv_width_scan.csv.gz'
+      - 'research/radial-scalar-collider-recast-2026-10-28/data/derived/scan-pr52-thetaR-1e-2/SHA256SUMS.txt'
+      - 'research/radial-scalar-collider-recast-2026-10-28/data/derived/scan-pr52-thetaR-1e-2/scan_version_comparison_2026-11-14.json'
+      - 'research/radial-scalar-collider-recast-2026-10-28/data/derived/scan-pr52-thetaR-1e-2/extract_and_verify_scan_archive.py'
+      - 'research/radial-scalar-collider-recast-2026-10-28/data/derived/scan-pr52-thetaR-1e-2/test_extract_and_verify_scan_archive.py'
+      - '.github/workflows/scan-archive-integrity-closeout.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scan-archive-integrity-closeout-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  verify-and-record:
+    if: github.ref_name == 'maintenance/close-baseline-revision-required-20261117'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Unit-test streaming verifier
+        run: |
+          python -m unittest discover -s research/radial-scalar-collider-recast-2026-10-28/data/derived/scan-pr52-thetaR-1e-2 -p 'test_extract_and_verify_scan_archive.py' -v
+      - name: Decompress and verify current archive
+        run: |
+          python research/radial-scalar-collider-recast-2026-10-28/data/derived/scan-pr52-thetaR-1e-2/extract_and_verify_scan_archive.py --report research/radial-scalar-collider-recast-2026-10-28/data/derived/scan-pr52-thetaR-1e-2/scan_archive_integrity_2026-11-17.json
+      - name: Commit integrity report
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/radial-scalar-collider-recast-2026-10-28/data/derived/scan-pr52-thetaR-1e-2/scan_archive_integrity_2026-11-17.json
+          if git diff --cached --quiet; then
+            echo "Archive integrity report is already current."
+            exit 0
+          fi
+          git commit -m "Record verified PR52 scan archive extraction"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

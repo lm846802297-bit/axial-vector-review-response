@@ -145,3 +145,32 @@ Machine-readable values are in `thermal-convergence-2026-11-05.csv`.
 **Not established:** medium-rest-frame T/L-resolved emissivities or opacities, inverse-process/trapping transport, radial SN profiles, diffusion, SN1987A cooling contours, high-energy neutrino event constraints, or LESN energy deposition. No supernova exclusion or allowed region follows from this record.
 
 The local clone was blocked by the environment's outbound network restriction. The source blobs were fetched and SHA-1 verified before execution; CI was not used.
+
+
+---
+
+## 2026-11-17 convergence-table provenance disposition
+
+The archived `thermal-convergence-2026-11-05.csv` is retained as a legacy
+generic-kernel table, not as a separately generated Two-VEV model-specific
+output. Its exact producer has not been recovered. Its order-sweep relative
+columns use the order-10 row as reference; the current convergence-driver
+blob `e36ab13ae32216ae4d3c9a2323099485f880a1b0` uses the highest requested
+order (12 here) for the order sweep.
+
+For this Two-VEV table, (n_\phi=2n_{\rm GL}) at every row:
+((6,12),(8,16),(10,20),(12,24)). The scan is joint quadrature refinement,
+not an independent azimuthal-convergence study. No independent (n_\phi)
+convergence claim is made.
+
+The shared CSV blob, reference-formula mismatch, separate width-code
+fingerprints, and historical producer limitation are documented in
+[THERMAL_CONVERGENCE_CSV_PROVENANCE_2026-11-17.md](../../docs/repository-management/THERMAL_CONVERGENCE_CSV_PROVENANCE_2026-11-17.md).
+The historical CSV is not silently relabeled as output from the current
+driver. The separate model-specific width result remains distinct; no
+Belle II or supernova exclusion is inferred from this homogeneous-cell
+thermal-kernel benchmark.
+
+The provenance/documentation review is closed with notes. The physical
+convergence claim is limited to the archived benchmark and does not establish
+independent azimuthal convergence or a radial supernova calculation.

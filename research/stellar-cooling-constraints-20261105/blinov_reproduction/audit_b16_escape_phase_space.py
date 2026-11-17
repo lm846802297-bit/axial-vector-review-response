@@ -8,8 +8,10 @@ reporting source-weighted and escape-weighted phase-space bins.
 from __future__ import annotations
 
 import argparse
+import csv
 import hashlib
 import json
+import math
 from pathlib import Path
 
 import numpy as np
@@ -29,6 +31,8 @@ except ImportError:
 HERE = Path(__file__).resolve().parent
 DEFAULT_BASELINE = HERE / "outputs" / "b16_global_high_order_independent_grid_10mev_2026-11-09.json"
 DEFAULT_OUTPUT = HERE / "outputs" / "b16_escape_phase_space_10mev_2026-11-10.json"
+DEFAULT_CSV_OUTPUT = HERE / "outputs" / "b16_escape_phase_space_10mev_2026-11-10.csv"
+DEFAULT_SVG_OUTPUT = HERE / "outputs" / "b16_escape_phase_space_10mev_2026-11-10.svg"
 SHELL_EDGES = np.array([0.0, 5.0, 8.0, 10.0, 12.0, 15.0, 16.5, 18.5, 20.0, 22.0, 25.0])
 DIRECTION_EDGES_4 = np.linspace(-1.0, 1.0, 5)
 DIRECTION_EDGES_8 = np.linspace(-1.0, 1.0, 9)
@@ -36,6 +40,223 @@ DIRECTION_EDGES_8 = np.linspace(-1.0, 1.0, 9)
 
 def sha256(path: Path) -> str:
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def reconstruct_energy_grid_from_spectral_measure(spectral_measure, mass,
+                                                  energy_offset=1000.0):
+    """Invert B.1's monotone E^2 sqrt(E^2-m^2)/(2 pi^2) spectral measure.
+
+    The archived baseline stores this measure for every energy node. Inverting
+    it lets the audit compare physical nodes at a tight binary64 tolerance
+    without treating last-bit interpolation differences as different grids.
+    """
+    target = np.asarray(spectral_measure, float)
+    if target.ndim != 1 or target.size == 0 or np.any(~np.isfinite(target)) or np.any(target <= 0.0):
+        raise ValueError("spectral_measure must be a finite positive one-dimensional array")
+    lo = np.full_like(target, float(mass))
+    hi = np.full_like(target, float(mass) + float(energy_offset) + 1.0)
+    for _ in range(100):
+        mid = 0.5 * (lo + hi)
+        value = mid * mid * np.sqrt(np.maximum(mid * mid - mass * mass, 0.0)) / (2.0 * np.pi**2)
+        below = value < target
+        lo[below] = mid[below]
+        hi[~below] = mid[~below]
+    return 0.5 * (lo + hi)
+
+
+
+
+PHASE_SPACE_CSV_FIELDS = [
+    "region",
+    "emission_shell",
+    "energy_bin",
+    "direction_bin",
+    "thin_source_erg_s_per_g2",
+    "escaped_luminosity_erg_s",
+    "thin_source_fraction_of_global",
+    "thin_source_fraction_within_region",
+    "escaped_luminosity_fraction_of_global",
+    "escaped_luminosity_fraction_within_region",
+    "mean_escape_probability",
+    "mean_tau_source_weighted",
+    "mean_tau_escape_weighted",
+]
+
+
+def write_phase_space_csv(result, path):
+    """Write every non-empty joint (radius, energy, direction) bin to CSV."""
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    rows = 0
+    with path.open("w", encoding="utf-8", newline="") as stream:
+        writer = csv.DictWriter(stream, fieldnames=PHASE_SPACE_CSV_FIELDS)
+        writer.writeheader()
+        for region in result["regions"]:
+            for cell in region["joint_radius_energy_direction_bins"]:
+                writer.writerow({"region": region["region"], **cell})
+                rows += 1
+    return {
+        "path": path.name,
+        "sha256": sha256(path),
+        "bytes": path.stat().st_size,
+        "rows": rows,
+        "columns": len(PHASE_SPACE_CSV_FIELDS),
+    }
+
+
+def _phase_space_color(value, log_min, log_max):
+    """Amber-to-navy logarithmic color scale for a positive fraction."""
+    if value is None or value <= 0.0:
+        return "#fffaf0"
+    t = 0.0 if log_max <= log_min else (
+        math.log10(value) - log_min
+    ) / (log_max - log_min)
+    t = min(1.0, max(0.0, t))
+    start = (255, 246, 224)
+    end = (23, 54, 93)
+    rgb = tuple(round(a + t * (b - a)) for a, b in zip(start, end))
+    return "#{:02x}{:02x}{:02x}".format(*rgb)
+
+
+def write_phase_space_svg(result, path):
+    """Render direction-resolved escaped-luminosity fractions as heatmaps.
+
+    Rows are energy bins (high energy at the top), columns are emission
+    shells, and the four panels in each region are the B.16 direction bins.
+    The color scale is logarithmic and shared by both emission regions.
+    """
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    cfg = result["configuration"]
+    shell_edges = cfg["emission_shell_edges_km"]
+    energy_edges = cfg["energy_bin_edges_MeV"]
+    direction_edges = cfg["direction_edges_4"]
+    shell_names = [
+        label(lo, hi, "km") for lo, hi in zip(shell_edges[:-1], shell_edges[1:])
+    ]
+    energy_names = [
+        label(lo, hi, "MeV") for lo, hi in zip(energy_edges[:-1], energy_edges[1:])
+    ]
+    direction_pairs = [
+        (
+            label(lo, hi, "cos(theta)"),
+            f"{lo:g} to {hi:g} cos(theta)",
+        )
+        for lo, hi in zip(direction_edges[:-1], direction_edges[1:])
+    ]
+    direction_names = [key for key, _ in direction_pairs]
+
+    values = [
+        cell["escaped_luminosity_fraction_within_region"]
+        for region in result["regions"]
+        for cell in region["joint_radius_energy_direction_bins"]
+        if cell["escaped_luminosity_fraction_within_region"] > 0.0
+    ]
+    if not values:
+        raise ValueError("No positive escaped-luminosity fractions to plot")
+    log_max = math.log10(max(values))
+    plotting_floor = max(values) * 1.0e-8
+    log_min = math.log10(max(min(values), plotting_floor))
+    clipped_low_count = sum(value < 10.0**log_min for value in values)
+
+    width, height = 1600, 760
+    panel_w, panel_h = 380, 292
+    grid_x, grid_y = 72, 118
+    cell_w, cell_h = 25, 14
+    svg = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">',
+        '<rect width="100%" height="100%" fill="#fffdf7"/>',
+        '<style>text{font-family:Arial,sans-serif;fill:#243247}.title{font-size:22px;font-weight:700}.subtitle{font-size:12px}.paneltitle{font-size:13px;font-weight:700}.axis{font-size:8px}.small{font-size:10px}.celllabel{font-size:6px;font-weight:700}</style>',
+        '<text x="42" y="34" class="title">B.16 10 MeV escaping phase space</text>',
+        '<text x="42" y="57" class="subtitle">Fixed-omega Eq. (B.2) baseline · reconstructed SFHo-18.8 profile · high-order quadrature</text>',
+        f'<text x="42" y="78" class="subtitle">Global escape probability = {result["escape_probability"]:.6e} · Fig. 7 luminosity residual = {100*result["relative_difference_vs_fig7"]:+.2f}%</text>',
+    ]
+
+    for row_index, region in enumerate(result["regions"]):
+        valid_shells = {x["bin"] for x in region["emission_radius_bins"]}
+        cell_lookup = {
+            (x["emission_shell"], x["energy_bin"], x["direction_bin"]): x
+            for x in region["joint_radius_energy_direction_bins"]
+        }
+        region_title = {
+            "all_emission_radii": "All emission radii",
+            "dominant_8_15km_emission": "Dominant 8–15 km emission",
+        }.get(region["region"], region["region"].replace("_", " "))
+        for col_index, (direction_name, direction_label) in enumerate(direction_pairs):
+            px = grid_x + col_index * panel_w
+            py = grid_y + row_index * panel_h
+            svg.append(
+                f'<text x="{px}" y="{py-18}" class="paneltitle">{region_title} · {direction_label}</text>'
+            )
+            x0, y0 = px + 58, py + 7
+            for e_index, energy_name in enumerate(reversed(energy_names)):
+                display_row = e_index
+                y = y0 + display_row * cell_h
+                svg.append(
+                    f'<text x="{x0-6}" y="{y+10}" text-anchor="end" class="axis">{energy_name.replace(" MeV","")}</text>'
+                )
+                for s_index, shell_name in enumerate(shell_names):
+                    x = x0 + s_index * cell_w
+                    if shell_name not in valid_shells:
+                        fill = "#e8e8e8"
+                        value = None
+                    else:
+                        cell = cell_lookup.get((shell_name, energy_name, direction_name))
+                        value = (
+                            cell["escaped_luminosity_fraction_within_region"]
+                            if cell else 0.0
+                        )
+                        fill = _phase_space_color(value, log_min, log_max)
+                    svg.append(
+                        f'<rect x="{x}" y="{y}" width="{cell_w-1}" height="{cell_h-1}" fill="{fill}" stroke="#d5d0c6" stroke-width="0.45"/>'
+                    )
+                    if value is not None and value >= 0.02:
+                        t = 0.0 if log_max <= log_min else (
+                            math.log10(value)-log_min
+                        )/(log_max-log_min)
+                        txt = "#ffffff" if t > 0.58 else "#243247"
+                        svg.append(
+                            f'<text x="{x+(cell_w-1)/2:.1f}" y="{y+9.5}" text-anchor="middle" class="celllabel" fill="{txt}">{100*value:.0f}%</text>'
+                        )
+            for s_index, shell_name in enumerate(shell_names):
+                x = x0 + s_index * cell_w + (cell_w-1)/2
+                short = shell_name.replace(" km", "")
+                svg.append(
+                    f'<text x="{x:.1f}" y="{y0+len(energy_names)*cell_h+10}" text-anchor="end" class="axis" transform="rotate(-45 {x:.1f} {y0+len(energy_names)*cell_h+10})">{short}</text>'
+                )
+
+    legend_y = 718
+    legend_x = 90
+    steps = 100
+    legend_w = 700
+    for i in range(steps):
+        t = i / (steps - 1)
+        v = 10 ** (log_min + t * (log_max - log_min))
+        svg.append(
+            f'<rect x="{legend_x+i*legend_w/steps:.2f}" y="{legend_y}" width="{legend_w/steps+0.5:.2f}" height="10" fill="{_phase_space_color(v, log_min, log_max)}"/>'
+        )
+    svg.extend([
+        f'<text x="{legend_x}" y="{legend_y+25}" class="small">min {10**log_min:.2e}</text>',
+        f'<text x="{legend_x+legend_w}" y="{legend_y+25}" text-anchor="end" class="small">max {10**log_max:.2e}</text>',
+        '<rect x="900" y="718" width="12" height="10" fill="#e8e8e8" stroke="#aaa"/>',
+        '<text x="918" y="727" class="small">outside selected emission-radius region</text>',
+        f'<text x="42" y="750" class="small">Log color scale; values below 10^-8 of the maximum are clipped to the lightest shade ({clipped_low_count} cells). Gray = outside region; bins are post-processing only.</text>',
+        '</svg>',
+    ])
+    path.write_text("\n".join(svg) + "\n", encoding="utf-8")
+    return {
+        "path": path.name,
+        "sha256": sha256(path),
+        "bytes": path.stat().st_size,
+        "panels": len(result["regions"]) * len(direction_names),
+        "direction_bins": direction_names,
+        "direction_labels": [label for _, label in direction_pairs],
+        "color_scale": "log10 escaped_luminosity_fraction_within_region; values below 1e-8 of maximum clipped",
+        "log10_min": log_min,
+        "log10_max": log_max,
+        "plotting_floor": 10.0**log_min,
+        "clipped_low_cell_count": clipped_low_count,
+    }
 
 
 def label(lo: float, hi: float, unit: str) -> str:
@@ -290,17 +511,46 @@ def run(profile_path=DEFAULT_PROFILE, fig7_path=DEFAULT_FIG7,
     expected_hashes = {
         "source_grid_sha256": baseline_config["source_grid_sha256"],
         "opacity_grid_sha256": baseline_config["opacity_grid_sha256"],
-        "energy_grid_sha256": baseline_config["energy_grid_sha256"],
     }
     actual_hashes = {
         "source_grid_sha256": source_grid_hash,
         "opacity_grid_sha256": opacity_grid_hash,
-        "energy_grid_sha256": energy_grid_hash,
     }
     if actual_hashes != expected_hashes:
         raise ArithmeticError(
-            "Phase-space grids differ from the archived high-order B.16 baseline: "
+            "Source/opacity phase-space grids differ from the archived high-order B.16 baseline: "
             + json.dumps({"expected": expected_hashes, "actual": actual_hashes})
+        )
+
+    baseline_energy_grid = reconstruct_energy_grid_from_spectral_measure(
+        baseline["eq_b1_source_measure"]["spectral_measure_MeV3"],
+        mass,
+        energy_offset,
+    )
+    if len(energies) != len(baseline_energy_grid):
+        raise ArithmeticError(
+            "Energy-grid node count differs from the archived B.16 baseline: "
+            + json.dumps({"expected": len(baseline_energy_grid), "actual": len(energies)})
+        )
+    energy_delta = energies - baseline_energy_grid
+    energy_abs_max = float(np.max(np.abs(energy_delta)))
+    energy_rel_max = float(np.max(np.abs(energy_delta) / baseline_energy_grid))
+    energy_grid_equivalence = {
+        "baseline_exact_sha256": baseline_config["energy_grid_sha256"],
+        "current_exact_sha256": energy_grid_hash,
+        "exact_sha256_match": energy_grid_hash == baseline_config["energy_grid_sha256"],
+        "node_count_match": len(energies) == len(baseline_energy_grid),
+        "max_abs_difference_MeV": energy_abs_max,
+        "max_relative_difference": energy_rel_max,
+        "rtol": 5.0e-14,
+        "atol_MeV": 1.0e-13,
+        "comparison_method": "invert archived B.1 spectral_measure_MeV3 = E^2 sqrt(E^2-m^2)/(2 pi^2)",
+    }
+    if not np.allclose(energies, baseline_energy_grid, rtol=5.0e-14, atol=1.0e-13):
+        raise ArithmeticError(
+            "Energy-grid nodes differ from the archived B.16 baseline beyond "
+            "the 5e-14 relative / 1e-13 MeV tolerance: "
+            + json.dumps(energy_grid_equivalence)
         )
     if current_profile_hash != baseline["profile"]["sha256"]:
         raise ArithmeticError("Profile fingerprint differs from the archived high-order baseline")
@@ -385,6 +635,7 @@ def run(profile_path=DEFAULT_PROFILE, fig7_path=DEFAULT_FIG7,
         "profile": {"sha256": current_profile_hash, "identity": baseline["profile"]["identity"]},
         "fig7_reference_sha256": current_fig7_hash,
         "baseline_json_sha256": sha256(baseline_path),
+        "energy_grid_equivalence": energy_grid_equivalence,
         "configuration": {
             "source_radial_order": radial_order,
             "source_radial_node_count": len(source_r),
@@ -395,6 +646,12 @@ def run(profile_path=DEFAULT_PROFILE, fig7_path=DEFAULT_FIG7,
             "energy_order": energy_order,
             "energy_node_count": len(energies),
             "energy_grid_sha256": energy_grid_hash,
+            "baseline_energy_grid_sha256": baseline_config["energy_grid_sha256"],
+            "energy_grid_exact_sha256_match": energy_grid_equivalence["exact_sha256_match"],
+            "energy_grid_max_abs_difference_MeV": energy_abs_max,
+            "energy_grid_max_relative_difference": energy_rel_max,
+            "energy_grid_equivalence_rtol": energy_grid_equivalence["rtol"],
+            "energy_grid_equivalence_atol_MeV": energy_grid_equivalence["atol_MeV"],
             "angular_order": angular_order,
             "path_order": path_order,
             "direction_weight_sum": float(np.sum(angle_weights)),
@@ -439,6 +696,8 @@ def main():
     parser.add_argument("--fig7", type=Path, default=DEFAULT_FIG7)
     parser.add_argument("--baseline", type=Path, default=DEFAULT_BASELINE)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument("--csv-output", type=Path, default=DEFAULT_CSV_OUTPUT)
+    parser.add_argument("--svg-output", type=Path, default=DEFAULT_SVG_OUTPUT)
     parser.add_argument("--mass", type=float, default=10.0)
     parser.add_argument("--nr", type=int, default=200)
     parser.add_argument("--opacity-order", type=int, default=640)
@@ -452,8 +711,11 @@ def main():
         args.nr, args.opacity_order, args.ne, args.na, args.ns,
         args.energy_offset
     )
+    csv_metadata = write_phase_space_csv(result, args.csv_output)
+    svg_metadata = write_phase_space_svg(result, args.svg_output)
+    result["derived_artifacts"] = {"csv": csv_metadata, "svg": svg_metadata}
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
+    args.output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps({
         "mass_MeV": result["mass_MeV"],
         "coupling": result["coupling"],
@@ -472,6 +734,7 @@ def main():
                 "top_joint_bins": x["top_joint_radius_energy_direction_bins"][:12],
             } for x in result["regions"]
         ],
+        "derived_artifacts": result["derived_artifacts"],
         "output": str(args.output),
     }, indent=2), flush=True)
 
