@@ -78,18 +78,28 @@ jobs:
         with:
           name: fig7-10mev-equation-chain-audit
           path: /tmp/fig7-10mev-equation-chain-audit
-      - name: Commit only the validated JSON to the diagnostic branch
+      - name: Commit validated JSON with race-safe branch synchronization
         shell: bash
         run: |
           set -euo pipefail
           target="research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/fig7_10mev_equation_chain_audit.json"
-          cp /tmp/fig7-10mev-equation-chain-audit/fig7_10mev_equation_chain_audit.json "$target"
+          artifact="/tmp/fig7-10mev-equation-chain-audit/fig7_10mev_equation_chain_audit.json"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+actions[bot]@users.noreply.github.com"
-          git add "$target"
-          if git diff --cached --quiet; then
-            echo "Diagnostic JSON is unchanged."
-            exit 0
-          fi
-          git commit -m "Archive validated 10 MeV equation-chain diagnostic"
-          git push origin "HEAD:refs/heads/research/b16-energy-grid-diagnostic-20261117"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin "refs/heads/research/b16-energy-grid-diagnostic-20261117"
+            git reset --hard "origin/research/b16-energy-grid-diagnostic-20261117"
+            cp "$artifact" "$target"
+            git add "$target"
+            if git diff --cached --quiet; then
+              echo "Diagnostic JSON is already current on the latest branch tip."
+              exit 0
+            fi
+            git commit -m "Archive validated 10 MeV equation-chain diagnostic"
+            if git push origin "HEAD:refs/heads/research/b16-energy-grid-diagnostic-20261117"; then
+              exit 0
+            fi
+            echo "Concurrent branch update detected; retrying from latest branch tip ($attempt/5)."
+          done
+          echo "Could not archive after five branch-sync attempts."
+          exit 1

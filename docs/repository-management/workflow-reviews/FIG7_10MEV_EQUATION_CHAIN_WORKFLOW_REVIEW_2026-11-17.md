@@ -29,10 +29,10 @@ The currently archived JSON records profile SHA-256 `9fb14e796d6e7731f21993632af
 
 ## Execution status
 
-No new workflow run is asserted here. The existing JSON and its source script were inspected; the new workflow must execute on the PR branch before its amended YAML can be considered execution-tested. YAML parsing and static branch/permission review are separate from the scientific result.
+The first execution on commit `d42724f06395a5d8a4c88cf15107a9e38410a2d8` completed the numerical job successfully: pinned dependencies installed, the 10 MeV equation-chain diagnostic ran, JSON identity/scope gates passed, and the artifact uploaded successfully. The archival job then failed at `git push` because a separate workflow-register commit advanced the branch after the calculation checkout (non-fast-forward). This is an archival race, not a numerical failure. The write-back step has now been changed to fetch/reset to the latest exact branch tip and retry the single JSON commit up to five times. The corrected archival retry still requires a new execution before the workflow can be considered end-to-end successful. YAML parsing and static branch/permission review are separate from the scientific result.
 
 ## Remaining evidence gap
 
 The dedicated 10 MeV local-rate/polarization/escape package still needs its exact producer/helper source, selected-node CSV, machine-readable pointwise output, plot, pinned-input manifest and independent rerun. The 42-point B.13 summary in the 2026-11-14 report is a restricted local-kernel result; it does not by itself provide the missing reproducible 10 MeV addendum or full-band B.2 transport.
 
-No opacity rescaling, physical convention change, Fig. 7 acceptance, SN1987A limit update, or axial-vector constraint update is authorized by this workflow repair.
+No opacity rescaling, physical convention change, Fig. 7 acceptance, SN1987A limit update, or axial-vector constraint update is authorized by this workflow repair. First-run record: [Actions run #44094488520](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44094488520) — calculation job success, archival job failure due to non-fast-forward.
