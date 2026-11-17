@@ -2,7 +2,7 @@
 
 Review date: 2026-11-17  
 Reviewed PR source head: `c7c8084e93316c8880da5c57f951b825d1ec3f87`  
-Review type: static workflow/YAML and source-path review; no workflow was run as part of this review.
+Review type: static workflow/YAML and source-path review; both files parsed successfully with PyYAML 6.0.3 (syntax check only); no workflow was run as part of this review.
 
 ## Scope
 
