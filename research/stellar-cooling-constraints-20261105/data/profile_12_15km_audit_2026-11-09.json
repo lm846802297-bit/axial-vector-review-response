@@ -1764,7 +1764,7 @@
   },
   "title": "SFHo-18.8 profile input audit in the 12--15 km region",
   "charge_convention_audit": {
-    "method": "Relativistic Fermi-Dirac number-density integrals with E_mu=sqrt(p^2+m_mu^2), n_mu-/+ = (2 pi^2 hbarc^3)^-1 integral_0^infty p^2 f_mu-/+ dp; n_mu_net=n_mu--n_mu+, n_mu_total=n_mu-+n_mu+.",
+    "method": "Relativistic Fermi-Dirac number-density integrals including the two spin states: n_mu-/+ = (pi^2 (hbar c)^3)^-1 integral_0^infty p^2 f_mu-/+ dp, with E_mu=sqrt(p^2+m_mu^2); n_mu_net=n_mu--n_mu+, n_mu_total=n_mu-+n_mu+.",
     "units": "fm^-3",
     "benchmark": "Caputo SFHo-18.8, t_pb=1 s, 12--15 km common vertices",
     "b17_source_convention": "The B.17 opacity/source kernel retains the single negative-muon species n_mu- and its susceptibility. The net density is a separately reported charge-neutrality diagnostic; it is not substituted into B.17.",
