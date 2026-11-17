@@ -140,7 +140,8 @@ class EscapePhaseSpaceBinningTests(unittest.TestCase):
             self.assertEqual(metadata["panels"], 4)
             self.assertIn("B.16 10 MeV escaping phase space", svg)
             self.assertIn("0 to 1 cos(theta)", svg)
-            self.assertIn("escaped-luminosity fraction", svg)
+            self.assertIn("Log color scale", svg)
+            self.assertIn("values below 10^-8", svg)
             self.assertTrue(svg.rstrip().endswith("</svg>"))
             self.assertTrue(metadata["sha256"])
 
