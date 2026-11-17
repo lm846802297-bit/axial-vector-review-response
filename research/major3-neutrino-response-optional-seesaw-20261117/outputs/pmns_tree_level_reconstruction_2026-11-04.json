@@ -128,11 +128,11 @@
   "relative_Aprime_mass_shift": 0.00124921972503933,
   "caveat": "No scalar-potential/vacuum, LFV, HNL, cosmology, A-prime, or statistical-likelihood constraints are evaluated.",
   "reproducibility": {
-    "calculation_script": "计算脚本/PMNS_Major3/pmns_tree_level_reconstruction.py",
+    "calculation_script": "research/major3-neutrino-response-optional-seesaw-20261117/pmns_tree_level_reconstruction.py",
     "calculation_script_sha256": "defcb737e09844ee0c51a6c6caeaa80e31eb72aa01d2941c301d011ae13ba658",
-    "runner_script": "计算脚本/PMNS_Major3/reproduce_pmns_tree_level_reconstruction.py",
+    "runner_script": "research/major3-neutrino-response-optional-seesaw-20261117/reproduce_pmns_tree_level_reconstruction.py",
     "python_version": "3.14.7",
     "numpy_version": "2.5.4",
-    "invocation": "python 计算脚本/PMNS_Major3/reproduce_pmns_tree_level_reconstruction.py"
+    "invocation": "python research/major3-neutrino-response-optional-seesaw-20261117/reproduce_pmns_tree_level_reconstruction.py"
   }
 }

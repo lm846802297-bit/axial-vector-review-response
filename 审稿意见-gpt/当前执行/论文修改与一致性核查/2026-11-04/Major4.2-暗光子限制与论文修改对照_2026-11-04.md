@@ -117,4 +117,4 @@ NA64 Fig. 3 的 90% CL 曲线不是机器可读表。本轮从公开 PDF 的 log
 | K-04 | 现有实验约束讨论 | 引用 NA64:2023lightDM 的电子束不可见结果，给出质量依赖的 epsilon_lim 区间、epsilon_eff=|epsilon|sqrt(Br_inv)、300 MeV dimuon 分支比和次级正电子共振适用性；仅作 leading-yield 对照，不称 detector-level recast |
 | K-05 | Fig. 2 及参数范围文字 | g_X=0.1 为归一化示例；图上限为 1；与 Major 2、4.3 一致 |
 
-完整回复在根目录 TeX；计算入口为 [check_kinetic_dark_photon.py](../../../../计算脚本/Major42_kinetic/check_kinetic_dark_photon.py)，输出为 [JSON](../../../../计算脚本/Major42_kinetic/outputs/kinetic_dark_photon_2026-11-04.json)，核验结果见 [Major 4.2 验证记录](Major4.2-验证记录_2026-11-04.md)。本轮不引入新的实验排除曲线，也不需要改动 Fig. 2 本身。
+完整回复在根目录 TeX；计算入口为 [check_kinetic_dark_photon.py](../../../../research/major4-2-kinetic-mixing-20261117/check_kinetic_dark_photon.py)，输出为 [JSON](../../../../research/major4-2-kinetic-mixing-20261117/outputs/kinetic_dark_photon_2026-11-04.json)，核验结果见 [Major 4.2 验证记录](Major4.2-验证记录_2026-11-04.md)。本轮不引入新的实验排除曲线，也不需要改动 Fig. 2 本身。
