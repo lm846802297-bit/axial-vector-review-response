@@ -3,7 +3,7 @@ name: B.16 high-order 10 MeV escaping phase-space decomposition
 on:
   push:
     branches:
-      - research/moving-muon-thermal-rates-20261107
+      - research/b16-phase-space-grid-repro-20261117
     paths:
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_escape_phase_space.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_escape_phase_space.py'
@@ -12,6 +12,7 @@ on:
       - 'research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv'
       - 'research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_high_order_independent_grid_10mev_2026-11-09.json'
+      - 'research/stellar-cooling-constraints-20261105/requirements-b16-audit.txt'
       - '.github/workflows/b16-escape-phase-space.yml'
   workflow_dispatch:
 
@@ -24,7 +25,7 @@ concurrency:
 
 jobs:
   phase-space-audit:
-    if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
+    if: github.ref_name == 'research/b16-phase-space-grid-repro-20261117'
     runs-on: ubuntu-latest
     timeout-minutes: 180
     steps:
@@ -48,11 +49,19 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: '3.13.5'
       - name: Install numerical dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install numpy scipy
+          python -m pip install -r research/stellar-cooling-constraints-20261105/requirements-b16-audit.txt
+          python - <<'PY'
+          import numpy, scipy, sys
+          print(f'Python {sys.version}')
+          print(f'NumPy {numpy.__version__}')
+          print(f'SciPy {scipy.__version__}')
+          assert numpy.__version__ == '2.3.5'
+          assert scipy.__version__ == '1.17.0'
+          PY
       - name: Run phase-space binning regression tests
         run: |
           python -m unittest discover -s research/stellar-cooling-constraints-20261105/blinov_reproduction -p 'test_b16_escape_phase_space.py' -v
