@@ -150,3 +150,65 @@ For scale, the higher-order B.16 baseline retained in PR #121 is \(2.43963595736
 At the high-order anchor \(r=8.2482\) km, the charge-summed B.13 Compton source fractions at \(x=0.015\) are approximately \((L,+,-)=(31.57,34.22,34.22)\%\); at \(x=0.05\) they are \((27.85,36.07,36.07)\%\). After adding neutrino inverse decay at the same point, the total source fractions become \((32.87,33.50,33.63)\%\) and \((31.91,33.93,34.16)\%\), respectively.
 
 These pointwise low-\(x\) fractions must not be confused with the recovered full radial-energy B.1-motivated B.13 source fractions, for which the longitudinal component is only \(1.6120\%\). The latter integrates a much broader energy domain with the \(\omega^2 k\), lapse, and escape-threshold weights. The difference is a reminder that a local polarization ratio cannot be substituted for a source-integrated mode fraction or for an escaped-luminosity fraction.
+
+
+## 8. First global mode-resolved pilot (2026-11-18)
+
+**Status: exploratory only.** This run uses the exact 40-node source radial rule, 100-node logarithmic energy construction (142 nodes after escape-threshold insertions), 16-angle ray quadrature, 32-point path quadrature, and the edge-augmented 44-node opacity grid. The direct B.13 kernel order was only \\((8,4,4,4)\\), so the global mode-resolved luminosities below are not convergence accepted.
+
+### 8.1 Hard baseline and local checks
+
+| Check | Result |
+|---|---:|
+| Literal B.16 25-point luminosity curve vs archived baseline | maximum relative residual 0 |
+| Support-edge insertion effect on B.16 curve | \\(7.9350\\times10^{-7}\\) maximum |
+| Direct B.13 kernel evaluations | 3432 |
+| B.13 mode/charge detailed-balance maximum residual | \\(3.63\\times10^{-14}\\) |
+| Final-muon mass-shell maximum residual | \\(3.71\\times10^{-13}\\) |
+| Neutrino mode sum vs scalar production maximum relative residual | \\(8.91\\times10^{-8}\\) |
+| All direct B.13 rates finite and nonnegative | yes |
+
+The 10 inactive opacity radii use the explicitly declared B.16 Compton fallback split equally over modes. At the \\(10^{-8}\\) local-opacity threshold, these radii account for \\(1.657\\times10^{-3}\\) of the B.16 total source, but only \\(3.34\\times10^{-14}\\) of its Compton source and \\(2.32\\times10^{-12}\\) of its source-weighted mean Compton optical depth. The fallback is therefore negligible for the Compton channel in this benchmark, but remains an approximation and is recorded rather than hidden.
+
+### 8.2 Preliminary 10 MeV strong-coupling endpoint
+
+At the largest Fig. 7 coupling, \\(g_X=4.1716896502\\times10^{-8}\\):
+
+| Lane | \\(L_V\\) [erg s\\(^{-1}\\)] | Relative to Fig. 7 |
+|---|---:|---:|
+| Archived literal B.16 scalar | \\(2.43725\\times10^{52}\\) | \\(+92.24\\%\\) |
+| B.13 mode-summed opacity, \\(\\mu^-+\\mu^+\\) | \\(2.93535\\times10^{52}\\) | \\(+131.53\\%\\) |
+| B.13 equal-occupation opacity average, \\(\\mu^-+\\mu^+\\) | \\(1.78744\\times10^{54}\\) | \\(+1.3999\\times10^{4}\\%\\) |
+| B.13 independent-mode transport, \\(\\mu^-+\\mu^+\\) | \\(1.78811\\times10^{54}\\) | \\(+1.4004\\times10^{4}\\%\\) |
+| B.16 equal-Compton-split independent-mode diagnostic | \\(1.92736\\times10^{54}\\) | \\(+1.5102\\times10^{4}\\%\\) |
+
+The B.13 independent-mode result is about \\(7.23\\%\\) below the B.16 equal-split independent-mode diagnostic at this endpoint. The B.13 \\(\\mu^+\\) contribution is below one percent of the Compton source in this pilot. The maximum difference between the B.13 equal-occupation and independent-mode luminosity curves is \\(3.73\\times10^{-4}\\), so the large separation from the scalar-sum lane is primarily the opacity state-counting convention, not a large L/T anisotropy in this particular benchmark.
+
+**Do not interpret the large equal-occupation/no-mixing luminosity as a revised SN bound.** The published scalar B.2 calculation is retained as the reproduction lane. The mode-resolved result is a separate transport diagnostic and requires the polarization-resolved Boltzmann/state-counting derivation to be finalized before it can replace the published scalar prescription.
+
+### 8.3 State-counting convention
+
+The paper's Appendix B writes the thermal production rate with a sum over spin/polarization states, explicitly notes the factor of three associated with the averaged vacuum vector width in Eq. (B.7), and obtains the scalar absorption rate by detailed balance in Eqs. (B.10) and (B.19). The scalar reproduction lane therefore keeps the summed rate appearing in the published B.2 implementation.
+
+By contrast, the mode-resolved kinetic equation evolves each polarization occupation separately:
+\\[
+\\frac{d f_h}{ds}
+=\\Gamma_{\\mathrm{prod},h}(1+f_h)
+-\\Gamma_{\\mathrm{abs},h}f_h .
+\\]
+Its escape exponent uses \\(\\tau_h\\), not \\(\\sum_{h'}\\tau_{h'}\\). If one additionally imposes a common occupation \\(f_L=f_+=f_-\\), the unpolarized average opacity is \\(\\bar\\Gamma_{\\mathrm{abs}}=\\frac13\\sum_h\\Gamma_{\\mathrm{abs},h}\\). These are distinct conventions and must be shown side by side; no factor of three is to be inserted into the published scalar curve by hand.
+
+Reference: [Blinov et al., arXiv:2511.09619v2, Appendix B, Eqs. (B.1)--(B.19)](https://arxiv.org/pdf/2511.09619).
+
+## 9. Local B.13 quadrature ladder and fast-kernel validation
+
+A 15-point anchor scan was performed at \\(r=8,10,12,15,18.66\\) km and \\(\\omega=15,30,100\\) MeV, retaining both charges and all three modes.
+
+- The low global order \\((8,4,4,4)\\) differs from \\((12,8,8,8)\\) by as much as \\(5.43\\%\\) on these anchors.
+- The optimized order \\((12,8,16,8)\\) differs from the reference \\((20,12,12,12)\\) by at most \\(1.113\\times10^{-3}\\).
+- The higher order \\((16,10,20,10)\\) differs from \\((20,12,12,12)\\) by at most \\(4.193\\times10^{-4}\\).
+- Maximum detailed-balance residual across the ladder is below \\(10^{-10}\\); maximum final-muon mass-shell residual is \\(1.63\\times10^{-13}\\).
+
+A pure-vector fast kernel was also regression-compared against the original full mode/charge implementation at four representative points and four quadrature orders. It evaluates the longitudinal and one transverse matrix element, uses exact T+ / T− degeneracy for a parity-even vector current, and reuses the matrix elements for the separate \\(\\mu^-\\) and \\(\\mu^+\\) statistical factors. The production and absorption arrays agree with the original implementation to better than \\(4\\times10^{-16}\\) relative in these tests. This optimization is valid only for the pure-vector, isotropic benchmark; it is not an axial-current shortcut.
+
+The higher-order full-grid B.13 transport run did not complete within the available execution window. Consequently the global result in §8.2 remains explicitly low-order and must not be promoted to a final numerical result. The next computational gate is a converged global B.13 run (or a validated adaptive correction to the low-order grid), followed by radial, energy, angular, and path-order comparisons.
