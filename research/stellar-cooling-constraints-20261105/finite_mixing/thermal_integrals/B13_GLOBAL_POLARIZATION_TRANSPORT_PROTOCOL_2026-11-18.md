@@ -143,3 +143,10 @@ This establishes that the support edge is now explicitly represented and that it
 
 
 For scale, the higher-order B.16 baseline retained in PR #121 is \(2.439635957361032\times10^{52}\) erg s\(^{-1}\), about \(9.77\times10^{-4}\) above the present 40-radial/100-energy-node result. That overall quadrature change is roughly three orders of magnitude larger than the support-edge insertion effect. The sharp \(\mu_\mu\) support convention must be represented, but it is not the origin of the approximately 92% Fig. 7 strong-endpoint discrepancy.
+
+
+### Local polarization fractions are not the integrated source fractions
+
+At the high-order anchor \(r=8.2482\) km, the charge-summed B.13 Compton source fractions at \(x=0.015\) are approximately \((L,+,-)=(31.57,34.22,34.22)\%\); at \(x=0.05\) they are \((27.85,36.07,36.07)\%\). After adding neutrino inverse decay at the same point, the total source fractions become \((32.87,33.50,33.63)\%\) and \((31.91,33.93,34.16)\%\), respectively.
+
+These pointwise low-\(x\) fractions must not be confused with the recovered full radial-energy B.1-motivated B.13 source fractions, for which the longitudinal component is only \(1.6120\%\). The latter integrates a much broader energy domain with the \(\omega^2 k\), lapse, and escape-threshold weights. The difference is a reminder that a local polarization ratio cannot be substituted for a source-integrated mode fraction or for an escaped-luminosity fraction.
