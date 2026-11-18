@@ -87,7 +87,7 @@ The mode-summed scalar lane uses \(\sum_h\tau_h^Q\) in the scalar exponent, exac
 
 The source measure \(d\mathcal P\) must be identical across all lanes and must retain the Eq. (B.1) lapse-squared factor, the escape threshold \(\omega_{\min}=m_{A'}/N(r)\), and the phase-space factor \(\omega^2 k/(2\pi^2)\). The source quadrature and opacity quadrature may be independent, but the interpolation between them must be validated.
 
-## 5. Reconstructed muon-support edge
+## 5. Reconstructed muon-chemical-potential support edge
 
 The reconstructed profile has a sharp support transition in \(\mu_\mu(r)\) at approximately
 
@@ -97,7 +97,7 @@ r_{\mathrm{last\ support}}=22.191893657048542\ \mathrm{km},
 r_{\mathrm{first\ zero}}=22.191894657048542\ \mathrm{km}.
 \]
 
-This is a profile-support convention, not evidence of a resolved physical discontinuity in the supernova medium. The opacity path grid must explicitly include both profile vertices. Otherwise linear interpolation between sparse Gauss nodes can smear the support transition and bias the outer-shell B.13 opacity.
+This is the support edge of the reconstructed chemical-potential input \(\mu_\mu(r)\), not a cutoff of the thermal muon population and not evidence of a resolved physical discontinuity in the supernova medium. The B.13 kernel must still retain the thermal \(\mu^-\) and \(\mu^+\) populations when \(\mu_\mu=0\). The opacity path grid must explicitly include both profile vertices. Otherwise linear interpolation between sparse Gauss nodes can smear the support transition and bias the outer-shell B.13 opacity.
 
 For a clean comparison:
 1. Keep the original source radial quadrature and B.1 energy grid unchanged.
