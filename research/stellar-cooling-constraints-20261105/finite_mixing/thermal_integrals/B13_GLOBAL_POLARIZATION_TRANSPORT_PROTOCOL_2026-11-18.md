@@ -14,6 +14,8 @@ Two existing calculations each contain only half of the required physics:
 
 Neither calculation is the desired physical no-mixing result. The hybrid must use the **direct B.13 mode-resolved Compton rates** and the **direct mode-resolved neutrino inverse-decay rates** before constructing any optical depth.
 
+The recovered B.13 source decomposition provides a useful radial prior: under the B.1-motivated lapse/threshold measure, the 8--12 km shell contributes \(82.5585\%\) of the local B.13 semi-Compton source, with \(99.3354\%\) of that source from \(\mu^-\) and \(0.6646\%\) from \(\mu^+\). These are source fractions only. They do **not** imply that the B.2 opacity is concentrated at 8--12 km: rays emitted there still traverse the outer layers, which must remain in the attenuation integral.
+
 ## 2. Local channel combination
 
 At each opacity-grid point \((r_i,\omega_j)\), the mode order is \((L,+,-)\). For a charge convention \(Q\in\{\mu^-,\mu^-+\mu^+\}\),
