@@ -105,3 +105,83 @@ The low-x screen is restricted to \(0\le x\le0.05\). It cannot by itself supply 
 6. Only after the vector benchmark passes should any axial-vector stellar-cooling curve be reconsidered.
 
 Until these gates pass, do not update Fig. 7, the escaped luminosity, the SN1987A bound, or the axial-vector exclusion.
+
+
+## 6. Exact software interface and state-counting contract
+
+The implementation must combine two independent mode-resolved local kernels. For the same local \((r,\omega)\) and the same mode ordering \((L,+,-)\):
+
+- The function `moving_muon_compton_rates(..., g_vector=1, g_axial=0)` supplies the exact-recoil B.13 \(\mu^-+\mu^+\) production and absorption arrays. Its `charge_resolved` member must be retained for closure checks.
+- The function `rates.neutrino_rates(m,\omega,T,\mu_{\nu_\mu})` supplies the \(\nu_\mu+\nu_\tau\) inverse-decay production and absorption arrays. It already returns the three physical polarization modes.
+
+The no-mixing physical lane is assembled directly as
+
+\[
+\Gamma_{\mathrm{prod},h}^{\mathrm{tot}}
+=\Gamma_{\mathrm{prod},h}^{\nu\bar\nu}
++\Gamma_{\mathrm{prod},h}^{\mu\gamma},
+\]
+
+\[
+\boxed{
+\widetilde\Gamma_{\mathrm{abs},h}^{\mathrm{tot}}
+=(1-e^{-\omega/T})
+\left[
+\Gamma_{\mathrm{abs},h}^{\nu\bar\nu}
++\Gamma_{\mathrm{abs},h}^{\mu\gamma}
+\right].
+}
+\]
+
+The local B.13 rates are per \(g_X^2\); the coupling factor is applied once in the ray exponent and once in the luminosity normalization. Do not multiply the local rates by \(g_X^2\) and then multiply by \(g_X^2\) again downstream.
+
+For each mode, the ray optical depth is
+
+\[
+\tau_h(r,\omega,\mu)
+=\frac{g_X^2}{v_{A'}}
+\int_{\mathrm{ray}(r,\mu)} ds\,
+\widetilde\Gamma_{\mathrm{abs},h}^{\mathrm{tot}}
+\bigl(r(s),\omega_{\mathrm{loc}}(s)\bigr),
+\]
+
+with the existing unit conversion and the already-selected fixed-\(\omega\) or redshifted-energy prescription applied consistently. The escaped no-mixing luminosity is the sum of the three separately propagated mode sources,
+
+\[
+L_\infty^{\mathrm{no\ mix}}
+=g_X^2\sum_{h=L,+,-}
+\int d\mathcal P\,
+\Gamma_{\mathrm{prod},h}^{\mathrm{tot}}
+\,e^{-\tau_h}.
+\]
+
+Here \(d\mathcal P\) denotes the same B.1 radial, energy, phase-space, and lapse measure used by the scalar reference. This is a transport prescription, not a claim that the three modes have equal populations.
+
+**Do not construct the B.13 mode opacity by subtracting the neutrino sum from the scalar B.16 result and dividing the remainder by three.** That operation recovers the old polarization-summed B.14--B.16 Compton approximation, not the exact B.13 mode rates. It remains valid only inside the old equal-thirds diagnostic lane.
+
+Keep three outputs distinct:
+
+| Lane | Compton input | Attenuation |
+|---|---|---|
+| Literal published scalar reference | Original B.14--B.16 scalar rate | Unmodified scalar B.2 exponent |
+| Exact B.13, no polarization mixing | Direct B.13 \(L,+,-\) rates | Three independent \(e^{-\tau_h}\) factors |
+| Equal-occupation closure | Direct B.13 mode rates summed over modes | \(\sum_h\widetilde\Gamma_h^*/3\), only if an explicit rapid-mixing/equal-occupation assumption is adopted |
+
+The scalar reference is never overwritten by either alternative lane. The B.13 no-mixing result is not required to reproduce the B.14--B.16 Fig. 7 curve because it changes the local Compton physics as well as the polarization transport prescription.
+
+## 7. Acceptance tests for the B.13-to-B.2 adapter
+
+Before any global luminosity run, the adapter must pass all of the following at identical \((r,\omega)\) points:
+
+1. **Mode ordering:** both kernels use exactly \((L,+,-)\); no hidden permutation.
+2. **Charge closure:** \(\Gamma^{\mu\gamma}_{h}=\Gamma^{\mu^-\gamma}_{h}+\Gamma^{\mu^+\gamma}_{h}\) for each mode and for production and absorption.
+3. **Neutrino closure:** sum of the three mode rates agrees with the independently retained polarization-summed neutrino rate to numerical precision.
+4. **Detailed balance:** test production/absorption separately for each channel, charge, and polarization before combining channels.
+5. **Reduced-opacity identity:** reconstruct \((1-e^{-\omega/T})\Gamma_{\rm abs,h}\) independently and compare with the sum of channel-wise reduced opacities.
+6. **Positivity and finiteness:** all per-charge and per-mode production, absorption, and reduced-absorption rates are finite and nonnegative.
+7. **Threshold symmetry:** \(\Gamma_L/[(\Gamma_++\Gamma_-)/2]\to1\) as \(k\to0\); transverse equality is checked separately.
+8. **Interpolation:** interpolate each positive charge/mode channel in the audited thermal coordinate \(x\), then reconstruct production and reduced absorption using exact detailed balance. Never interpolate a polarization ratio alone.
+9. **Transport convention:** the same local-energy convention is used in source evaluation and along every opacity ray; the current fixed-\(\omega\) baseline and the redshifted diagnostic remain separate.
+10. **State counting:** no-mixing attenuation has no factor \(1/3\); the factor \(1/3\) appears only in the explicitly separate equal-occupation closure.
+
+Only after these tests pass over the complete energy domain and the radial path should the B.13 no-mixing B.2 calculation be run. The present three-anchor scan is a local-kernel polarization study and does not satisfy this global transport gate.
