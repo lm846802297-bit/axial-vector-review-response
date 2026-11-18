@@ -43,42 +43,42 @@ At the high-order anchor \(r=8.2482183145\) km, \(T=39.1873531264\) MeV, the dir
 | 0.015 | 10.5878 | 0.921539 | 7.846% |
 | 0.05 | 11.9594 | 0.771126 | 22.887% |
 
-The \(+\) and \(-\) rates agree to better than \(3\times10^{-16}\) at this anchor. All three points pass the successive-order quadrature criterion of \(10^{-3}\).
+The \(+\) and \(-\) rates agree to better than \(3\times10^{-16}\) at this anchor. All three points pass the successive-order quadrature criterion of \(10^{-3}\). **These quoted ratios are for the charge-summed \(\mu^-+\mu^+\) kernel output.** The like-for-like \(\mu^-\)-only ratios are retained separately in the charge-resolved data and must be used for comparison with the single-species B.17 reference.
 
 The low-order full-radial screen indicates that this polarization splitting is also radial dependent. At \(x=0.05\), its preliminary \(R_{LT}\) range is 0.77298--0.97325 across the profile, with the strongest suppression near 8.25 km and weaker suppression toward 25 km. The full-radial high-order scan is being run to replace this low-order estimate. At the 8.2482 km anchor, the low-order full-radial screen differs from the high-order \(R_{LT}\) result by 0.24--0.28% over the three tested \(x\) values, so the low-order radial envelope is a screening result rather than the final high-order profile.
 
 ## 3. Correct channel combination for B.2
 
-For each physical polarization \(h\), the local total reduced absorption must be assembled channel by channel:
+For each physical polarization \(h\) and each separately retained charge convention \(Q\), the local total reduced absorption is assembled channel by channel:
 
 \[
-\widetilde\Gamma_{\rm abs,h}^{\rm tot}(r,\omega)
+\widetilde\Gamma_{\rm abs,h}^{\rm tot,Q}(r,\omega)
 =
 \widetilde\Gamma_{\rm abs,h}^{\nu\bar\nu\to A'}(r,\omega)
 +
-\widetilde\Gamma_{\rm abs,h}^{\mu\gamma\to\mu A'}(r,\omega)
+\widetilde\Gamma_{\rm abs,h}^{\mu\gamma,Q}(r,\omega)
 +
 \widetilde\Gamma_{\rm abs,h}^{\rm other}(r,\omega).
 \]
 
-For the 10 MeV benchmark, the dimuon decay channel is kinematically closed because \(m_{A'}<2m_\mu\). The Compton term is to be taken directly from the B.13 moving-muon calculation, summed over \(\mu^-\) and \(\mu^+\) but **not** summed or equally split over \(L,+,-\).
+For the 10 MeV benchmark, the dimuon decay channel is kinematically closed because \(m_{A'}<2m_\mu\). The primary like-for-like B.13 lane takes the \(\mu^-\) component only, matching the one-species B.17 convention. The \(\mu^-+\mu^+\) charge sum is a separate thermal-gas extension. In both lanes the Compton contribution is retained separately for \(L,+,-\); it is never divided equally among the three modes.
 
 At the source, the corresponding per-mode production is
 
 \[
-\Gamma_{\rm prod,h}^{\rm tot}
+\Gamma_{\rm prod,h}^{\rm tot,Q}
 =
 \Gamma_{\rm prod,h}^{\nu\bar\nu\to A'}
 +
-\Gamma_{\rm prod,h}^{\mu\gamma\to\mu A'}.
+\Gamma_{\rm prod,h}^{\mu\gamma,Q}.
 \]
 
-The B.13 kernel already supplies charge-resolved production and absorption. Detailed balance is checked per charge and per mode; reduced absorption is reconstructed using
+The B.13 kernel supplies charge-resolved production and absorption. Detailed balance is checked per charge and per mode before the charge convention is selected. Reduced absorption is reconstructed using
 
 \[
-\widetilde\Gamma_{\rm abs,h}
+\widetilde\Gamma_{\rm abs,h}^{Q}
 =
-\left(1-e^{-\omega/T}\right)\Gamma_{\rm abs,h}.
+\left(1-e^{-\omega/T}\right)\Gamma_{\rm abs,h}^{Q}.
 \]
 
 This avoids an inconsistent shortcut in which a polarization-summed Compton rate is divided by three. The old equal-thirds transport result remains a diagnostic comparison only.
