@@ -125,7 +125,7 @@ Q\in\{\mu^-,\;\mu^-+\mu^+\},
 
 \[
 \boxed{
-\widetilde\Gamma_{\mathrm{abs},h}^{\mathrm{tot}}
+\widetilde\Gamma_{\mathrm{abs},h}^{\mathrm{tot},Q}
 =(1-e^{-\omega/T})
 \left[
 \Gamma_{\mathrm{abs},h}^{\nu\bar\nu}
@@ -139,7 +139,7 @@ The local B.13 rates are per \(g_X^2\); the coupling factor is applied once in t
 For each mode, the ray optical depth is
 
 \[
-\tau_h(r,\omega,\mu)
+\tau_h^Q(r,\omega,\mu)
 =\frac{g_X^2}{v_{A'}}
 \int_{\mathrm{ray}(r,\mu)} ds\,
 \widetilde\Gamma_{\mathrm{abs},h}^{\mathrm{tot}}
@@ -149,10 +149,10 @@ For each mode, the ray optical depth is
 with the existing unit conversion and the already-selected fixed-\(\omega\) or redshifted-energy prescription applied consistently. The escaped no-mixing luminosity is the sum of the three separately propagated mode sources,
 
 \[
-L_\infty^{\mathrm{no\ mix}}
+L_\infty^{\mathrm{no\ mix},Q}
 =g_X^2\sum_{h=L,+,-}
 \int d\mathcal P\,
-\Gamma_{\mathrm{prod},h}^{\mathrm{tot}}
+\Gamma_{\mathrm{prod},h}^{\mathrm{tot},Q}
 \,e^{-\tau_h}.
 \]
 
@@ -160,7 +160,7 @@ Here \(d\mathcal P\) denotes the same B.1 radial, energy, phase-space, and lapse
 
 **Do not construct the B.13 mode opacity by subtracting the neutrino sum from the scalar B.16 result and dividing the remainder by three.** That operation recovers the old polarization-summed B.14--B.16 Compton approximation, not the exact B.13 mode rates. It remains valid only inside the old equal-thirds diagnostic lane.
 
-Keep three outputs distinct:
+Keep the following four outputs distinct:
 
 | Lane | Compton input | Attenuation |
 |---|---|---|
