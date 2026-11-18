@@ -260,3 +260,10 @@ A high-order local polarization anchor shows that the exact-recoil moving-muon C
 - [Polarization-anchor driver](../finite_mixing/thermal_integrals/run_p1b_global06b_polarization_anchor_high_order.py)
 - [Full-radial polarization scan driver](../finite_mixing/thermal_integrals/run_p1b_global06b_full_radial_polarization_scan.py)
 - [Full-radial polarization output validator](../finite_mixing/thermal_integrals/validate_p1b_global06b_full_radial_polarization_scan.py)
+
+
+## 10 MeV B.13 polarization-resolved transport follow-up (2026-11-18)
+
+The new [B.13 global polarization-resolved B.2 protocol and pilot results](../finite_mixing/thermal_integrals/B13_GLOBAL_POLARIZATION_TRANSPORT_PROTOCOL_2026-11-18.md) records the three distinct opacity conventions (published scalar sum, equal-occupation average, and independent-mode propagation), the 40/100/16/32 baseline closure, the support-edge test, and the low-order B.13 pilot. **The global mode-resolved result remains exploratory:** the high-order full-grid B.13 run has not passed convergence, and no SN1987A or axial-vector constraint is updated.
+
+The 10 MeV pilot uses the exact-recoil moving-muon B.13 kernel and keeps \\(\\mu^-\\) and \\(\\mu^+\\) separate. The mode-resolved extension must not be substituted for the published scalar B.2 curve until the polarization/state-counting derivation and full global convergence are complete.
