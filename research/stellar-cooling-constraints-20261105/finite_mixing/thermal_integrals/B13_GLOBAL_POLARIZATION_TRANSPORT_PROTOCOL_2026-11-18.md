@@ -138,3 +138,6 @@ The B.16 scalar reference was evaluated with the original 42-node opacity grid a
 | Mean absolute relative change over the coupling grid | \(2.4741966\times10^{-7}\) |
 
 This establishes that the support edge is now explicitly represented and that its insertion changes the current B.16 scalar luminosity by less than \(8\times10^{-7}\) on this grid. It does **not** justify dropping the edge: the mode-resolved B.13 opacity must still sample both sides directly, because the exact Compton kernel and the ray integrand need not have the same sensitivity as the old scalar approximation. The edge-augmented grid is therefore retained in the hybrid calculation.
+
+
+For scale, the higher-order B.16 baseline retained in PR #121 is \(2.439635957361032\times10^{52}\) erg s\(^{-1}\), about \(9.77\times10^{-4}\) above the present 40-radial/100-energy-node result. That overall quadrature change is roughly three orders of magnitude larger than the support-edge insertion effect. The sharp \(\mu_\mu\) support convention must be represented, but it is not the origin of the approximately 92% Fig. 7 strong-endpoint discrepancy.
