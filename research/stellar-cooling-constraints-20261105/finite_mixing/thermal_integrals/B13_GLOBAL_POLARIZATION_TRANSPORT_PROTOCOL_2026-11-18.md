@@ -123,3 +123,18 @@ A global result is not accepted until all of the following are reported:
 ## 7. Scope
 
 This is a 10 MeV pure-vector benchmark. The dimuon channel is kinematically closed. The current result is a reconstructed public-figure profile calculation, not a calculation on the raw Garching SFHo-18.8 simulation table. The fixed-\(\omega\) path is the primary lane; a conserved-energy-at-infinity redshifted path remains a separately labeled sensitivity diagnostic and must not be mixed into the published B.2 reproduction.
+
+
+### 5.1 First numerical check of the support-edge augmentation
+
+The B.16 scalar reference was evaluated with the original 42-node opacity grid and again after adding the two exact support-edge vertices (44 nodes total). The source radial quadrature, 100-node energy grid, 16-angle ray quadrature, 32-point path quadrature, and all couplings were held fixed.
+
+| Quantity | Result |
+|---|---:|
+| Strong-endpoint luminosity, original grid | \(2.437254944803213\times10^{52}\) erg s\(^{-1}\) |
+| Strong-endpoint luminosity, augmented grid | \(2.437253010842578\times10^{52}\) erg s\(^{-1}\) |
+| Strong-endpoint relative change | \(-7.9349952\times10^{-7}\) |
+| Maximum absolute relative change over the 25-point Fig. 7 coupling grid | \(7.9349952\times10^{-7}\) |
+| Mean absolute relative change over the coupling grid | \(2.4741966\times10^{-7}\) |
+
+This establishes that the support edge is now explicitly represented and that its insertion changes the current B.16 scalar luminosity by less than \(8\times10^{-7}\) on this grid. It does **not** justify dropping the edge: the mode-resolved B.13 opacity must still sample both sides directly, because the exact Compton kernel and the ray integrand need not have the same sensitivity as the old scalar approximation. The edge-augmented grid is therefore retained in the hybrid calculation.
