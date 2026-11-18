@@ -250,6 +250,9 @@ A high-order local polarization anchor shows that the exact-recoil moving-muon C
 
 - [Global-06B targeted high-order report](../finite_mixing/thermal_integrals/GLOBAL06B_THRESHOLD_EDGE_REPORT_2026-11-18.md)
 - [B.13 polarization-resolved Compton to B.2 handoff](../finite_mixing/thermal_integrals/B13_POLARIZATION_RESOLVED_COMPTON_TO_B2_TRANSPORT_PLAN_2026-11-18.md)
+- [Pointwise B.13 plus neutrino mode-adapter audit](../finite_mixing/thermal_integrals/B13_B2_LOCAL_MODE_ADAPTER_AUDIT_2026-11-18.md)
+- [Machine-readable local mode-adapter results](../finite_mixing/thermal_integrals/results/B13_B2_LOCAL_MODE_ADAPTER_2026-11-18.json)
+- [Reproduction script](../finite_mixing/thermal_integrals/test_b13_b2_mode_adapter_local.py)
 - [High-order acceptance summary](../finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_ACCEPTANCE_SUMMARY.json)
 - [Frozen high-order target set](../finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_TARGETS_INPUT.json)
 - [Targeted high-order driver](../finite_mixing/thermal_integrals/run_p1b_global06b_threshold_edge_high_order_targets.py)
