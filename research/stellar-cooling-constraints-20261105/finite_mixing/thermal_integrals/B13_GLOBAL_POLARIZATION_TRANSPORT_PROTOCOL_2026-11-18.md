@@ -212,3 +212,53 @@ A 15-point anchor scan was performed at \\(r=8,10,12,15,18.66\\) km and \\(\\ome
 A pure-vector fast kernel was also regression-compared against the original full mode/charge implementation at four representative points and four quadrature orders. It evaluates the longitudinal and one transverse matrix element, uses exact T+ / T− degeneracy for a parity-even vector current, and reuses the matrix elements for the separate \\(\\mu^-\\) and \\(\\mu^+\\) statistical factors. The production and absorption arrays agree with the original implementation to better than \\(4\\times10^{-16}\\) relative in these tests. This optimization is valid only for the pure-vector, isotropic benchmark; it is not an axial-current shortcut.
 
 The higher-order full-grid B.13 transport run did not complete within the available execution window. Consequently the global result in §8.2 remains explicitly low-order and must not be promoted to a final numerical result. The next computational gate is a converged global B.13 run (or a validated adaptive correction to the low-order grid), followed by radial, energy, angular, and path-order comparisons.
+
+
+## 10. Local B.13 kernel refinement and B.2 angular/path convergence — 2026-11-18
+
+All calculations below were performed in the local Python environment; no CI run was used.
+
+### 10.1 Refined local-kernel sample
+
+The 144 selected B.2 radial-energy sample points were recomputed at kernel orders
+\((16,10,20,10)\), \((20,12,24,12)\), and \((24,14,28,14)\).
+
+- Maximum final successive-order change: \(9.8553\times10^{-5}\).
+- Maximum detailed-balance residual: \(2.5585\times10^{-14}\).
+- Maximum final-muon mass-shell residual: \(3.7965\times10^{-13}\).
+- All rates finite and nonnegative; all 144 points satisfy the \(10^{-3}\) criterion.
+
+The worst point is \(r=8.6600189564\) km, \(\omega=10.8733512165\) MeV. This is a targeted local-kernel check, not a full high-order recomputation of all \(44\times78\) B.2 grid points. Full pointwise local output is archived as `B13_B2_KERNEL_CONVERGENCE_SAMPLE_REFINED_2026-11-18.json`.
+
+### 10.2 B.2 angular/path convergence
+
+The existing all-radii local-rate table was propagated with \((N_\theta,N_s)=(16,32),(24,48),(32,64)\). The local B.13 rate table itself remains at exploratory order \((8,4,4,4)\), so this isolates B.2 angular/path convergence conditional on that table.
+
+Maximum relative changes over the complete 25-point coupling curve:
+
+| Charge convention | Lane | (16,32) to (24,48) | (24,48) to (32,64) |
+|---|---|---:|---:|
+| \(\mu^-\) | mode-summed scalar | \(8.74\times10^{-6}\) | \(3.43\times10^{-6}\) |
+| \(\mu^-\) | equal occupation | \(4.50\times10^{-6}\) | \(3.38\times10^{-6}\) |
+| \(\mu^-\) | independent mode | \(4.55\times10^{-6}\) | \(3.34\times10^{-6}\) |
+| \(\mu^-+\mu^+\) | mode-summed scalar | \(8.73\times10^{-6}\) | \(3.34\times10^{-6}\) |
+| \(\mu^-+\mu^+\) | equal occupation | \(4.54\times10^{-6}\) | \(3.28\times10^{-6}\) |
+| \(\mu^-+\mu^+\) | independent mode | \(4.61\times10^{-6}\) | \(3.23\times10^{-6}\) |
+
+The literal B.16 scalar baseline is exactly recovered at \((16,32)\); at \((32,64)\) its maximum difference from the archived curve is \(3.36\times10^{-5}\).
+
+For both muon charges at the strongest coupling, the \((32,64)\) luminosities are:
+
+- B.16 literal scalar: \(2.43734\times10^{52}\) erg s\(^{-1}\).
+- B.13 mode-summed scalar: \(2.93538\times10^{52}\) erg s\(^{-1}\).
+- Equal-occupation: \(1.78744\times10^{54}\) erg s\(^{-1}\).
+- Independent-mode: \(1.78811\times10^{54}\) erg s\(^{-1}\).
+- Fig. 7 digitized reference: \(1.26781\times10^{52}\) erg s\(^{-1}\).
+
+The equal-occupation and independent-mode lanes differ by only about \(3.74\times10^{-4}\) at the strong endpoint. However, the enormous separation between these lanes and the mode-summed scalar lane is a state-counting/transport-convention issue. It must not be interpreted as a revised SN bound until the polarization-resolved kinetic equation and its unpolarized normalization are settled.
+
+### 10.3 Acceptance boundary
+
+The B.2 angular/path quadrature is now numerically stable for the archived local-rate table. This does not establish convergence of the full B.13 local kernel over every radial-energy node, nor radial/source-energy convergence of B.1/B.2. The 144-point high-order kernel sample cannot be substituted for a complete \(44\times78\) high-order local-rate table.
+
+The Fig. 7 strong-endpoint discrepancy remains unresolved. No opacity, source, coupling, or normalization rescaling was applied, and no SN1987A or axial-vector constraint is updated. The next P0 task remains full-grid high-order B.13 local-rate evaluation (or a validated adaptive correction) before the global transport is repeated.
