@@ -111,15 +111,16 @@ Until these gates pass, do not update Fig. 7, the escaped luminosity, the SN1987
 
 The implementation must combine two independent mode-resolved local kernels. For the same local \((r,\omega)\) and the same mode ordering \((L,+,-)\):
 
-- The function `moving_muon_compton_rates(..., g_vector=1, g_axial=0)` supplies the exact-recoil B.13 \(\mu^-+\mu^+\) production and absorption arrays. Its `charge_resolved` member must be retained for closure checks.
+- The function `moving_muon_compton_rates(..., g_vector=1, g_axial=0)` supplies exact-recoil B.13 production and absorption arrays separately for \(\mu^-\) and \(\mu^+\), as well as their sum. Its `charge_resolved` member must be retained. The **primary like-for-like lane** uses the \(\mu^-\) component alone, matching the single negative-muon distribution in the printed B.17 prescription. The \(\mu^-+\mu^+\) result is a separately labeled charge-summed thermal-gas extension; it must never be silently substituted for the one-species reference.
 - The function `rates.neutrino_rates(m,\omega,T,\mu_{\nu_\mu})` supplies the \(\nu_\mu+\nu_\tau\) inverse-decay production and absorption arrays. It already returns the three physical polarization modes.
 
 The no-mixing physical lane is assembled directly as
 
 \[
-\Gamma_{\mathrm{prod},h}^{\mathrm{tot}}
+\Gamma_{\mathrm{prod},h}^{\mathrm{tot},Q}
 =\Gamma_{\mathrm{prod},h}^{\nu\bar\nu}
-+\Gamma_{\mathrm{prod},h}^{\mu\gamma},
++\Gamma_{\mathrm{prod},h}^{\mu\gamma,Q},\qquad
+Q\in\{\mu^-,\;\mu^-+\mu^+\},
 \]
 
 \[
@@ -128,7 +129,7 @@ The no-mixing physical lane is assembled directly as
 =(1-e^{-\omega/T})
 \left[
 \Gamma_{\mathrm{abs},h}^{\nu\bar\nu}
-+\Gamma_{\mathrm{abs},h}^{\mu\gamma}
++\Gamma_{\mathrm{abs},h}^{\mu\gamma,Q}
 \right].
 }
 \]
@@ -164,7 +165,8 @@ Keep three outputs distinct:
 | Lane | Compton input | Attenuation |
 |---|---|---|
 | Literal published scalar reference | Original B.14--B.16 scalar rate | Unmodified scalar B.2 exponent |
-| Exact B.13, no polarization mixing | Direct B.13 \(L,+,-\) rates | Three independent \(e^{-\tau_h}\) factors |
+| Exact B.13, \(\mu^-\)-only, no mixing | Direct \(\mu^-\) B.13 \(L,+,-\) rates | Three independent \(e^{-\tau_h}\) factors |
+| Exact B.13, \(\mu^-+\mu^+\), no mixing | Charge-summed B.13 \(L,+,-\) rates | Separate charge-summed extension with three independent \(e^{-\tau_h}\) factors |
 | Equal-occupation closure | Direct B.13 mode rates summed over modes | \(\sum_h\widetilde\Gamma_h^*/3\), only if an explicit rapid-mixing/equal-occupation assumption is adopted |
 
 The scalar reference is never overwritten by either alternative lane. The B.13 no-mixing result is not required to reproduce the B.14--B.16 Fig. 7 curve because it changes the local Compton physics as well as the polarization transport prescription.
@@ -174,7 +176,7 @@ The scalar reference is never overwritten by either alternative lane. The B.13 n
 Before any global luminosity run, the adapter must pass all of the following at identical \((r,\omega)\) points:
 
 1. **Mode ordering:** both kernels use exactly \((L,+,-)\); no hidden permutation.
-2. **Charge closure:** \(\Gamma^{\mu\gamma}_{h}=\Gamma^{\mu^-\gamma}_{h}+\Gamma^{\mu^+\gamma}_{h}\) for each mode and for production and absorption.
+2. **Charge closure:** \(\Gamma^{\mu\gamma}_{h}=\Gamma^{\mu^-\gamma}_{h}+\Gamma^{\mu^+\gamma}_{h}\) for each mode and for production and absorption. Retain the \(\mu^-\)-only and \(\mu^-+\mu^+\) transport lanes separately.
 3. **Neutrino closure:** sum of the three mode rates agrees with the independently retained polarization-summed neutrino rate to numerical precision.
 4. **Detailed balance:** test production/absorption separately for each channel, charge, and polarization before combining channels.
 5. **Reduced-opacity identity:** reconstruct \((1-e^{-\omega/T})\Gamma_{\rm abs,h}\) independently and compare with the sum of channel-wise reduced opacities.
