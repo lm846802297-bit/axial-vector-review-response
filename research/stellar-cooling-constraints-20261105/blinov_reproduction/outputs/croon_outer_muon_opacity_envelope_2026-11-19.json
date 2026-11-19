@@ -1,0 +1,160 @@
+{
+  "title": "Croon 0.1 eV full source-weighted outer muon-opacity envelope",
+  "source_paper": "Croon et al., JHEP 01 (2021) 107, arXiv:2006.13942",
+  "equations": [
+    "Eqs. (3.3)-(3.4)",
+    "Eq. (4.6)",
+    "Eq. (4.7)"
+  ],
+  "profile": {
+    "path": "research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv",
+    "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+    "rows": 1687,
+    "R_nu_km": 25.151168281622343,
+    "last_nonzero_digitized_muon_sample": {
+      "r_km": 22.1918936570485,
+      "T_MeV": 3.51524345680526,
+      "mu_mu_MeV": 0.999999834223691,
+      "chi_mu_MeV3": 1.1351833714357841e-10
+    }
+  },
+  "model": {
+    "mass_MeV": 1e-7,
+    "neutrino_flavour_factor": 2,
+    "R_far_km": 100,
+    "production_radius_limit_km": 25.151168281622343,
+    "energy_measure": "domega * k * omega^2 / (2*pi^2); the emitted-particle energy is included exactly once",
+    "transport": "radial optical depth with detailed-balance absorption; no angular escape average or lapse/redshift"
+  },
+  "outer_envelopes": {
+    "T3": {
+      "chi_mu_MeV3": 1.1351833714357841e-10,
+      "path_km": [
+        25.151168281622343,
+        100
+      ],
+      "T_outer_MeV": 3,
+      "assumption": "conditional envelope: chi_mu(r) does not exceed the last nonzero digitized value for r>=R_nu; T<=3 MeV outside R_nu; not a measured tail"
+    },
+    "edge_T": {
+      "chi_mu_MeV3": 1.1351833714357841e-10,
+      "path_km": [
+        22.1918936570485,
+        100
+      ],
+      "T_outer_MeV": 3.51524345680526,
+      "assumption": "conditional envelope: chi_mu(r) does not exceed the last nonzero digitized value beyond r_edge; T does not exceed T_edge; neither is a measured outer profile"
+    }
+  },
+  "quadrature": {
+    "susceptibility_order": 256,
+    "local_energy_order": 96,
+    "optical_depth_energy_grid_points": 601
+  },
+  "luminosity_comparison": [
+    {
+      "g_X": 0.000003,
+      "L_Rfar100_vacuum_tail_erg_s": 1.156914921550659e+54,
+      "L_RfarRnu_erg_s": 1.1569149216076764e+54,
+      "L_Rfar100_outer_chi_edge_T3_erg_s": 1.156914921354935e+54,
+      "L_Rfar100_outer_chi_edge_Tedge_erg_s": 1.1569149213469614e+54,
+      "Rnu_over_vacuum_luminosity_ratio": 1.000000000049284,
+      "vacuum_over_T3_envelope_luminosity_ratio": 1.0000000001691776,
+      "vacuum_over_Tedge_envelope_luminosity_ratio": 1.0000000001760696,
+      "Rnu_over_T3_envelope_luminosity_ratio": 1.0000000002184615,
+      "Rnu_over_Tedge_envelope_luminosity_ratio": 1.0000000002253537
+    },
+    {
+      "g_X": 0.00001,
+      "L_Rfar100_vacuum_tail_erg_s": 5.375844898769697e+53,
+      "L_RfarRnu_erg_s": 5.375844902436781e+53,
+      "L_Rfar100_outer_chi_edge_T3_erg_s": 5.375844888646973e+53,
+      "L_Rfar100_outer_chi_edge_Tedge_erg_s": 5.37584488822393e+53,
+      "Rnu_over_vacuum_luminosity_ratio": 1.0000000006821408,
+      "vacuum_over_T3_envelope_luminosity_ratio": 1.0000000018830015,
+      "vacuum_over_Tedge_envelope_luminosity_ratio": 1.0000000019616948,
+      "Rnu_over_T3_envelope_luminosity_ratio": 1.0000000025651423,
+      "Rnu_over_Tedge_envelope_luminosity_ratio": 1.0000000026438358
+    },
+    {
+      "g_X": 0.0001,
+      "L_Rfar100_vacuum_tail_erg_s": 1.9598102630932875e+53,
+      "L_RfarRnu_erg_s": 1.9598104420733195e+53,
+      "L_Rfar100_outer_chi_edge_T3_erg_s": 1.959809892278105e+53,
+      "L_Rfar100_outer_chi_edge_Tedge_erg_s": 1.9598098757950264e+53,
+      "Rnu_over_vacuum_luminosity_ratio": 1.0000000913251836,
+      "vacuum_over_T3_envelope_luminosity_ratio": 1.0000001892097719,
+      "vacuum_over_Tedge_envelope_luminosity_ratio": 1.0000001976203232,
+      "Rnu_over_T3_envelope_luminosity_ratio": 1.0000002805349728,
+      "Rnu_over_Tedge_envelope_luminosity_ratio": 1.0000002889455248
+    },
+    {
+      "g_X": 0.001,
+      "L_Rfar100_vacuum_tail_erg_s": 8.796915962427741e+52,
+      "L_RfarRnu_erg_s": 8.797017199201535e+52,
+      "L_Rfar100_outer_chi_edge_T3_erg_s": 8.796748253584311e+52,
+      "L_Rfar100_outer_chi_edge_Tedge_erg_s": 8.796740173925707e+52,
+      "Rnu_over_vacuum_luminosity_ratio": 1.0000115082119945,
+      "vacuum_over_T3_envelope_luminosity_ratio": 1.000019064867903,
+      "vacuum_over_Tedge_envelope_luminosity_ratio": 1.0000199833686751,
+      "Rnu_over_T3_envelope_luminosity_ratio": 1.0000305732993,
+      "Rnu_over_Tedge_envelope_luminosity_ratio": 1.0000314918106425
+    },
+    {
+      "g_X": 0.01,
+      "L_Rfar100_vacuum_tail_erg_s": 4.3722539691867566e+52,
+      "L_RfarRnu_erg_s": 4.3784375492274914e+52,
+      "L_Rfar100_outer_chi_edge_T3_erg_s": 4.3638319113210167e+52,
+      "L_Rfar100_outer_chi_edge_Tedge_erg_s": 4.3633847284094125e+52,
+      "Rnu_over_vacuum_luminosity_ratio": 1.0014142774148787,
+      "vacuum_over_T3_envelope_luminosity_ratio": 1.0019299684398684,
+      "vacuum_over_Tedge_envelope_luminosity_ratio": 1.0020326515605185,
+      "Rnu_over_T3_envelope_luminosity_ratio": 1.003346975365523,
+      "Rnu_over_Tedge_envelope_luminosity_ratio": 1.0034498037085917
+    },
+    {
+      "g_X": 0.03,
+      "L_Rfar100_vacuum_tail_erg_s": 3.2138674879776576e+52,
+      "L_RfarRnu_erg_s": 3.258796468069566e+52,
+      "L_Rfar100_outer_chi_edge_T3_erg_s": 3.1582456601498544e+52,
+      "L_Rfar100_outer_chi_edge_Tedge_erg_s": 3.155177864004231e+52,
+      "Rnu_over_vacuum_luminosity_ratio": 1.0139797238871788,
+      "vacuum_over_T3_envelope_luminosity_ratio": 1.0176116217080986,
+      "vacuum_over_Tedge_envelope_luminosity_ratio": 1.0186010508767147,
+      "Rnu_over_T3_envelope_luminosity_ratio": 1.031837551203962,
+      "Rnu_over_Tedge_envelope_luminosity_ratio": 1.0328408123191615
+    }
+  ],
+  "effective_constant_outer_susceptibility": [
+    {
+      "g_X": 0.000003,
+      "target_solid_dashed_ratio": 3.3819,
+      "chi_required_MeV3": 0.8176995425922493,
+      "chi_required_over_digitized_edge_value": 7203237495.965255,
+      "achieved_ratio": 3.3819,
+      "interpretation": "constant Rnu-to-Rfar susceptibility equivalent only; not a reconstructed physical radial profile"
+    },
+    {
+      "g_X": 0.03,
+      "target_solid_dashed_ratio": 3.3819,
+      "chi_required_MeV3": 7.863418484794447e-9,
+      "chi_required_over_digitized_edge_value": 69.27002881348382,
+      "achieved_ratio": 3.3819000000000004,
+      "interpretation": "constant Rnu-to-Rfar susceptibility equivalent only; not a reconstructed physical radial profile"
+    }
+  ],
+  "paper_reference": {
+    "median_solid_over_dashed_luminosity_ratio": 3.3819,
+    "digitized_g_interval": [
+      0.000003,
+      0.03
+    ],
+    "interpretation": "published median ratio of the 0.1 eV Rfar=Rnu dashed curve to the Rfar=100 km solid curve; not a local optical depth"
+  },
+  "limitations": [
+    "The outer envelopes are conditional sensitivity assumptions, not Garching simulation data.",
+    "A non-monotonic outer muon-rich layer is not excluded by the public inner profile.",
+    "The constant-susceptibility equivalent does not reconstruct a radial opacity profile.",
+    "The calculation is a vector C0 benchmark and does not produce an axial-vector cooling limit."
+  ]
+}
