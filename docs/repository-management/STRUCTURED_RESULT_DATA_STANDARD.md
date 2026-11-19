@@ -175,4 +175,6 @@ python docs/repository-management/schemas/validate_result_records.py --repo-root
 
 **UV–EFT 与圈图计算**应记录 VLL/标量参数、重整化方案/尺度、规范与 gamma5 约定、IR 处理、算符基底、matching scale、图与 counterterm 覆盖。不同物理模型和 benchmark 必须使用独立的 `run_id`。
 
-当前 C1 PR 中已有 JSON/CSV 是保留的历史/当前研究产物；本规范不要求重写其原始数值文件。后续 C1/A0 正式运行应补齐标准运行清单，并将大规模耦合/能量/径向数组放入 CSV。
+当前 C1 PR 中已有 JSON/CSV 是保留的历史/当前研究产物；本规范不要求重写其原始数值文件。
+
+其中 PR #123 的 `croon_c1_b13_vector_transport_10mev_single_baseline_2026-11-20.json` 与对应 CSV 保持原样；后续可新增符合 v1.0.0 的 `run_manifest.json` / `validation_report.json` sidecar，引用这些文件并记录可核实的运行来源。后续 C1/A0 正式运行应补齐标准运行清单，并将大规模耦合/能量/径向数组放入 CSV。
