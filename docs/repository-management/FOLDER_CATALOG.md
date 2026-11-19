@@ -25,7 +25,7 @@ Updated 2026-11-17. Counts describe the audited tree after PR #117 merged into `
 | `弃用/` | 7 | Explicitly deprecated material; retain pending provenance/link checks. |
 | `计算脚本/` | 112 | Legacy calculation scripts, outputs and audit records. |
 | `附件/` | 4 | Supporting historical attachments. |
-| `[root]` | 12 files + 13 top-level directories | Governance, current status, formal reply TeX/PDF and its BibTeX/style dependencies. |
+| `[root]` | 12 files + 13 top-level directories | Governance/navigation (`README*`, `AGENTS.md`, `GIT_MERGE_POLICY.md`, `仓库分类索引.md`, `.gitignore`), current status, formal reply TeX/PDF and BibTeX/style dependencies. |
 
 The root has 12 files after the PR #116 historical-file moves; the active-script relocation does not change the root file count. The original 24-file audit remains a historical baseline; see [the relocation audit](ROOT_RELOCATION_AUDIT_2026-11-17.md) and [blob/size manifest](ROOT_RELOCATION_MANIFEST_2026-11-17.csv). Counts include each top-level directory node.
 
