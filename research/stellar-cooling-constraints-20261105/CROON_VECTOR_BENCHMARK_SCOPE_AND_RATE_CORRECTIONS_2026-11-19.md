@@ -72,6 +72,68 @@ Implementation rule:
 
 Source: https://arxiv.org/abs/2511.09619, Appendix B, Eqs. (B.7)--(B.10).
 
+### 2.1.1 Matched two-flavour normalization: resolved
+
+For the \(L_\mu-L_\tau\) benchmark, the comparison must include both \(\nu_\mu\) and \(\nu_\tau\), while retaining their chemical potentials separately. Blinov Eq. (B.8) gives the spin-averaged vacuum width for **one left-handed neutrino flavour**:
+\[
+\Gamma_{V\to\bar\nu\nu}^{(1\,{\rm flavour})}
+=\frac{\alpha_Vm_V}{6}.
+\]
+The factor 3 in Eq. (B.7) converts this spin-averaged width into the polarization-summed production rate. Summing the two flavours therefore gives, per \(g_{\mu\tau}^2\),
+\[
+\Gamma_{\rm B7}^{(\nu_\mu+\nu_\tau)}
+=\frac{m_V^2}{8\pi\omega}
+\left[I\!\left(\frac{\mu_{\nu_\mu}}T,\frac\omega T,v_V\right)
++I\!\left(\frac{\mu_{\nu_\tau}}T,\frac\omega T,v_V\right)\right].
+\]
+Croon Eq. (4.6), as printed, is
+\[
+\Gamma_{\rm Croon}
+=\frac{\alpha_Vm_V^2}{3\omega}f_B(\omega),
+\qquad f_B(\omega)=\frac1{e^{\omega/T}-1}.
+\]
+Consequently, with the same coupling and two-flavour \(L_\mu-L_\tau\) content,
+\[
+\boxed{
+\frac{\Gamma_{\rm B7}^{(\nu_\mu+\nu_\tau)}}{\Gamma_{\rm Croon}}
+=\frac32\,
+\frac{I_{\nu_\mu}+I_{\nu_\tau}}{f_B(\omega)}
+}.
+\]
+This resolves the prefactor bookkeeping. In the Maxwell-Boltzmann / negligible-occupation limit, \(I_{\nu_\mu}\simeq I_{\nu_\tau}\simeq e^{-\omega/T}\) and \(f_B\simeq e^{-\omega/T}\), so the **polarization-summed two-flavour B.7 rate is three times the literal Croon Eq. (4.6) rate**. The factor 3 is the vector-polarization sum; it is not a third neutrino flavour.
+
+This is also consistent with Lai et al. Eq. (10), which gives the two-flavour Maxwell-Boltzmann rate
+\[
+\Gamma_{\rm Lai}^{\rm MB}
+\simeq\frac{g_{\mu\tau}^2m_V^2}{4\pi\omega}e^{-\omega/T}.
+\]
+The B.7 two-flavour rate reduces to this expression in the stated limit. Croon Eq. (4.6) does not: its printed coefficient is smaller by a factor 3 in that limit. Croon's Eq. (4.6) uses the conventional spin-averaged total width \(\alpha_Vm_V/3\) for the two left-handed flavours, whereas B.7 explicitly converts the averaged width to a polarization sum. Croon's Eq. (3.2) has no separate explicit factor of 3. We therefore retain the literal Croon rate as its own benchmark and flag the polarization-state convention as a real normalization discrepancy to be checked in any historical Fig. 2 reproduction; we do not silently insert a factor 3 into Croon's code.
+
+Away from the Maxwell-Boltzmann limit, the ratio is **not** a constant. For \(E_1+E_2=\omega\), the exact Fermi identity
+\[
+f_{\bar\nu}(E_1;-\mu_\nu)f_\nu(E_2;\mu_\nu)
+=f_B(\omega)\left[1-f_{\bar\nu}(E_1;-\mu_\nu)-f_\nu(E_2;\mu_\nu)\right]
+\]
+shows how Pauli occupancy suppresses the B.7 integral relative to the Bose factor used in Croon Eq. (4.6). The local ratio can therefore be below one at low \(\omega/T\), and approaches three only when the final-state neutrino occupations are negligible.
+
+A direct 1024-point Gauss-Legendre integration of the B.6 angular average was performed at \(m_V=10\) MeV using the archived SFHo-18.8 profile (SHA-256 \`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c\)); \(\mu_{\nu_\tau}=0\) follows the published profile assumption. The resulting pointwise ratio is:
+
+| Radius | \(\omega=12\) MeV | \(\omega=50\) MeV | \(\omega=210\) MeV |
+|---:|---:|---:|---:|
+| 0 km | 0.2724 | 1.0175 | 2.3788 |
+| 8 km | 0.2235 | 0.8812 | 2.2178 |
+| 12.5 km | 0.3738 | 1.3488 | 2.5278 |
+| 15 km | 0.6655 | 1.9454 | 2.7394 |
+
+Thus neither a universal factor 3 nor the Croon Bose-factor spectrum reproduces the local B.7 spectrum over the full SN energy range. These are local-rate comparisons only, not an integrated luminosity result.
+
+Reproduction code:
+- \`blinov_reproduction/croon_neutrino_rate_comparison.py\`
+- \`blinov_reproduction/test_croon_neutrino_rate_comparison.py\`
+- \`blinov_reproduction/outputs/croon_blinov_neutrino_rate_comparison_2026-11-19.json\`
+
+Sources: Croon et al., https://arxiv.org/abs/2006.13942, Eqs. (4.5)--(4.6); Blinov et al., https://arxiv.org/abs/2511.09619, Appendix B, Eqs. (B.6)--(B.10); Lai et al., https://arxiv.org/abs/2401.16023, Eqs. (6), (10), and the discussion immediately below Eq. (10).
+
 ### 2.2 Semi-Compton production
 
 Croon Eq. (4.7) uses a Thomson/no-recoil approximation:
