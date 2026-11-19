@@ -91,11 +91,12 @@ class CroonC0LuminosityTests(unittest.TestCase):
             free["nu_coalescence"]/3.05793824e70, 1.0, delta=2e-3
         )
         low, high = result["coupling_curve"]
-        for key in ("vacuum_tail", "T3_outer_envelope"):
-            self.assertGreater(low[key]["L_total_erg_s"], 0.0)
-            self.assertGreater(high[key]["L_total_erg_s"], 0.0)
+        for record in (low, high):
+            self.assertGreater(record["vacuum_tail"]["L_total_erg_s"], 0.0)
+            self.assertGreater(record["T3_outer_envelope"]["L_total_erg_s"], 0.0)
             self.assertLessEqual(
-                low[key]["L_total_erg_s"], high[key]["L_total_erg_s"]*1.001
+                record["T3_outer_envelope"]["L_total_erg_s"],
+                record["vacuum_tail"]["L_total_erg_s"]*1.001
             )
         self.assertLess(
             high["vacuum_tail"]["L_total_erg_s"]/high["g_X"]**2,
