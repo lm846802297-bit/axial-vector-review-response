@@ -134,6 +134,45 @@ Reproduction code:
 
 Sources: Croon et al., https://arxiv.org/abs/2006.13942, Eqs. (4.5)--(4.6); Blinov et al., https://arxiv.org/abs/2511.09619, Appendix B, Eqs. (B.6)--(B.10); Lai et al., https://arxiv.org/abs/2401.16023, Eqs. (6), (10), and the discussion immediately below Eq. (10).
 
+### 2.1.2 Full-profile energy-integrated local emissivity scan
+
+The local spectral comparison was extended to the complete archived SFHo-18.8 profile. At each of the 1687 profile radii, both rates were integrated over the same massive-vector phase space,
+\[
+Q(r)=\frac1{2\pi^2}\int_{m_V}^{m_V+36T(r)}
+d\omega\;\omega^2\sqrt{\omega^2-m_V^2}\,
+\Gamma_{\rm prod}(\omega,r).
+\]
+The B.7 integrand uses the two flavours separately, with the tabulated \(\mu_{\nu_\mu}(r)\) and \(\mu_{\nu_\tau}=0\); the Croon integrand uses Eq. (4.6) literally. All results are per \(g_X^2\), with \(m_V=10\) MeV.
+
+The 1687-point radial scan gives
+\[
+1.05929\leq \frac{Q_{\rm B7}^{(\nu_\mu+\nu_\tau)}(r)}
+{Q_{\rm Croon}^{\rm Eq.(4.6)}(r)}
+\leq 2.31942,
+\]
+with the minimum at \(r=0\) km and the maximum at \(r=25\) km.
+
+| Radius | \(T\) [MeV] | \(\mu_{\nu_\mu}\) [MeV] | \(Q_{\rm B7}\) [MeV\(^5\)] | \(Q_{\rm Croon}\) [MeV\(^5\)] | Ratio |
+|---:|---:|---:|---:|---:|---:|
+| 0 km | 19.2652 | -58.6138 | \(2.19077\times10^3\) | \(2.06815\times10^3\) | 1.05929 |
+| 8.482 km | 39.2497 | -18.0203 | \(2.71734\times10^4\) | \(1.88577\times10^4\) | 1.44097 |
+| 12.5 km | 23.8820 | -2.59166 | \(6.09637\times10^3\) | \(4.06719\times10^3\) | 1.49891 |
+| 15 km | 13.2314 | 0 | \(9.81433\times10^2\) | \(6.14097\times10^2\) | 1.59817 |
+| 22 km | 3.55139 | 0 | 8.41804 | 3.81594 | 2.20602 |
+| 25 km | 3.03377 | 0 | 3.99954 | 1.72437 | 2.31942 |
+
+This does **not** contradict the fixed-energy table, where the B.7/Croon ratio can be below one at low \(\omega/T\). The emissivity integral weights the spectrum by \(\omega^2\sqrt{\omega^2-m_V^2}\); the higher-energy part of the spectrum consequently has much more leverage on \(Q\) than the low-energy pointwise rate. One must not infer an integrated emissivity correction from a single fixed-\(\omega\) ratio.
+
+The full radial scan used energy order 64 and angular order 128. At six anchors (0, 8.482, 12.5, 15, 22 and 24 km), refinement to energy order 96 and angular order 256 changed \(Q_{\rm B7}\) by at most \(3.8\times10^{-15}\) and \(Q_{\rm Croon}\) by at most \(2.5\times10^{-15}\). This is a selected-anchor convergence check, not an exhaustive high-order scan at all 1687 radii.
+
+Machine-readable full profile (1687 rows): [GitHub Actions artifact](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44444298287/artifacts/14492642478). Artifact ZIP SHA-256: \`0cff04d011092b292bbbcefbbae516861d8c1b1c595d8b73ee59c581461bed6b\`. The input profile SHA-256 is \`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c\`.
+
+This is an energy-integrated **local emissivity** comparison only. It does not perform the radial proper-volume integral, lapse/redshift weighting, attenuation, escape-probability calculation, or total luminosity integration.
+
+Reproduction code and tests:
+- \`blinov_reproduction/croon_blinov_neutrino_emissivity.py\`
+- \`blinov_reproduction/test_croon_blinov_neutrino_emissivity.py\`
+
 ### 2.2 Semi-Compton production
 
 Croon Eq. (4.7) uses a Thomson/no-recoil approximation:
