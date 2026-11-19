@@ -135,10 +135,17 @@ Until these steps are complete, keep the (R_{\rm far}=R_\nu) curve as the cleane
 
 ## 8. CI / PR bookkeeping
 
-PR #123 remains Draft. The 72-test workflow run [44487078124](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44487078124) completed successfully on commit `6005a51e4ab3ff7032ff1270ba803586b020ba46`. The PR branch has advanced since that run, but GitHub's commit comparison shows only Markdown files changed between the tested commit and the current branch head; no calculation-code files changed. Thus the 72 tests cover the same calculation code, but there is no workflow run attached to the exact current PR head. Do not describe the run as having tested that exact head.
+PR #123 remains Draft. The new full source-weighted outer-opacity calculation is implemented in `audit_croon_outer_muon_opacity_envelope.py`, with four regression tests in `test_audit_croon_outer_muon_opacity_envelope.py`.
+
+GitHub Actions run [44509948112](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44509948112) completed successfully on calculation-code commit `77e98c42e47c92246b21f1d9927915b6fb8a9e2f). The new test class passed **4/4 tests**. The workflow also regenerated the machine-readable result artifact:
+
+- [Outer muon-opacity envelope JSON artifact](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44509948112/artifacts/14522621089)
+- Artifact SHA-256: `d21316f7d12153d4ef70a5b4ca951710165d5b6dccaa834f8af723fa6b9b1e1b`
+- Committed result: `blinov_reproduction/outputs/croon_outer_muon_opacity_envelope_2026-11-19.json`
+
+The current branch subsequently added the generated JSON result as a tracked file; no calculation code changed after the tested commit. The earlier 72-test run [44487078124](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44487078124) remains the previous full-suite baseline; run 44509948112 is the current successful workflow verification for the new envelope code.
 
 No manuscript, referee response, validated Blinov baseline, or axial-vector exclusion curve is changed by this source audit.
-
 
 ## 9. Conditional monotonic-tail upper-envelope diagnostic
 
