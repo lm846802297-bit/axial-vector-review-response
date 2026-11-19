@@ -210,12 +210,12 @@ The table distinguishes the vacuum neutrino-decay tail from the additional semi-
 
 | \(g_X\) | \(L(R_\nu)/L_{\rm vacuum}\) | \(L_{\rm vacuum}/L_{T=3}\) | \(L(R_\nu)/L_{T=3}\) | \(L(R_\nu)/L_{\rm edge,T_{\rm edge}}\) |
 |---:|---:|---:|---:|---:|
-| \(3\times10^{-6}\) | 1.00000000005 | 1.00000000017 | 1.00000000022 | 1.00000000023 |
-| \(10^{-5}\) | 1.00000000068 | 1.00000000188 | 1.00000000257 | 1.00000000264 |
-| \(10^{-4}\) | 1.00000009131 | 1.00000018921 | 1.00000028052 | 1.00000028893 |
-| \(10^{-3}\) | 1.00001150561 | 1.00001906487 | 1.00003057070 | 1.00003148921 |
-| \(10^{-2}\) | 1.00141388607 | 1.00192996867 | 1.00334658349 | 1.00344941186 |
-| \(3\times10^{-2}\) | 1.01397554888 | 1.01761164230 | 1.03183332355 | 1.03283658663 |
+| \(3\times10^{-6}\) | 1.0000000000493 | 1.0000000001692 | 1.0000000002185 | 1.0000000002254 |
+| \(10^{-5}\) | 1.0000000006821 | 1.0000000018830 | 1.0000000025651 | 1.0000000026438 |
+| \(10^{-4}\) | 1.0000000913252 | 1.0000001892098 | 1.0000002805350 | 1.0000002889455 |
+| \(10^{-3}\) | 1.0000115082120 | 1.0000190648679 | 1.0000305732993 | 1.0000314918106 |
+| \(10^{-2}\) | 1.0014142774149 | 1.0019299684399 | 1.0033469753655 | 1.0034498037086 |
+| \(3\times10^{-2}\) | 1.0139797238872 | 1.0176116217081 | 1.0318375512040 | 1.0328408123192 |
 
 At the upper end of the scanned coupling interval:
 
@@ -236,7 +236,7 @@ unexplained. This is a stronger statement than the earlier 1.7% representative-s
 
 The full source-weighted calculation also solves for the constant susceptibility on \(R_\nu\to100\) km that would be needed to reproduce the published median ratio 3.38190. The numerator is the \(R_{\rm far}=R_\nu\) luminosity; the denominator includes the vacuum neutrino tail and the trial outer semi-Compton opacity.
 
-| Coupling | Required constant \(\chi_\mu\) (MeV\(^3\)) | Ratio to resolved edge |
+| Coupling | Required constant \(\chi_\mu\) (MeV\(^3\)) | Ratio to digitized edge value |
 |---:|---:|---:|
 | \(3\times10^{-6}\) | 0.81770 | \(7.20\times10^9\) |
 | \(3\times10^{-2}\) | \(7.8634\times10^{-9}\) | 69.27 |
