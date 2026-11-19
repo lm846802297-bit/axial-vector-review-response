@@ -37,6 +37,12 @@ jobs:
       - name: Generate local neutrino-rate comparison table
         working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
         run: python croon_neutrino_rate_comparison.py
+      - name: Upload full 28-point local neutrino-rate table
+        uses: actions/upload-artifact@v4
+        with:
+          name: croon-blinov-neutrino-rate-comparison
+          path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_blinov_neutrino_rate_comparison_2026-11-19.json
+          if-no-files-found: error
       - name: Re-run exact B13 to B16 controlled-limit regression
         working-directory: research/stellar-cooling-constraints-20261105
         env:
