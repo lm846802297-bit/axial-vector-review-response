@@ -15,6 +15,8 @@ on:
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_croon_fig2_literal_transport.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/digitize_croon_fig2_vector_paths.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_digitize_croon_fig2_vector_paths.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/digitize_croon_fig2_curves.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_digitize_croon_fig2_curves.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_c0_luminosity.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_croon_c0_luminosity_convergence.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_croon_c0_luminosity.py'
@@ -139,6 +141,20 @@ jobs:
           path: |
             research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_fig2_vector_paths_2026-11-19.json
             research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_fig2_source_crop_2026-11-19.png
+          if-no-files-found: error
+      - name: Run Croon Fig. 2 curve-digitization regression tests
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest -v test_digitize_croon_fig2_curves.py
+      - name: Digitize Croon Fig. 2 vector curves
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python digitize_croon_fig2_curves.py
+      - name: Upload Croon Fig. 2 digitized curve data
+        uses: actions/upload-artifact@v4
+        with:
+          name: croon-fig2-digitized-curves
+          path: |
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_fig2_digitized_curves_2026-11-19.json
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_fig2_digitized_curves_2026-11-19.csv
           if-no-files-found: error
       - name: Re-run exact B13 to B16 controlled-limit regression
         working-directory: research/stellar-cooling-constraints-20261105
