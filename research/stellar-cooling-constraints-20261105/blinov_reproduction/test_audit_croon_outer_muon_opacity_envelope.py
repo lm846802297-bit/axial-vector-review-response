@@ -23,9 +23,13 @@ class CroonOuterMuonOpacityEnvelopeTests(unittest.TestCase):
             "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
         )
         self.assertEqual(self.result["profile"]["rows"], 1687)
+        self.assertEqual(
+            self.result["profile"]["path"],
+            "research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv",
+        )
         self.assertAlmostEqual(self.result["profile"]["R_nu_km"], 25.1511682816, places=8)
 
-    def test_resolved_edge_susceptibility_is_reproduced(self):
+    def test_last_nonzero_digitized_sample_susceptibility_is_reproduced(self):
         edge = self.result["profile"]["last_nonzero_digitized_muon_sample"]
         self.assertAlmostEqual(edge["r_km"], 22.1918936570, places=8)
         self.assertAlmostEqual(edge["T_MeV"], 3.5152434568, places=8)
@@ -59,7 +63,7 @@ class CroonOuterMuonOpacityEnvelopeTests(unittest.TestCase):
         self.assertGreater(high["chi_required_MeV3"], 6.0e-9)
         self.assertLess(high["chi_required_MeV3"], 1.0e-8)
         self.assertGreater(low["chi_required_MeV3"] / high["chi_required_MeV3"], 1.0e7)
-        self.assertGreater(high["chi_required_over_resolved_edge"], 50.0)
+        self.assertGreater(high["chi_required_over_digitized_edge_value"], 50.0)
         self.assertLess(high["chi_required_over_resolved_edge"], 100.0)
 
 
