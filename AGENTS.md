@@ -79,7 +79,7 @@ Do not merge these file roles or copy internal workflow content into the referee
 
 The following rules are mandatory for numerical research, phenomenology, data processing, and computational validation carried out for this project.
 
-For new machine-readable results, follow [Structured Research Result Data Standard](docs/repository-management/STRUCTURED_RESULT_DATA_STANDARD.md) and validate JSON records against `docs/repository-management/schemas/research-result-record-v1.0.0.schema.json`. Keep the run manifest, result summary, validation report, pointwise CSV data, and SHA-256 manifest in their distinct roles. Existing historical files remain unchanged.
+For new machine-readable results, follow [Structured Research Result Data Standard](docs/repository-management/STRUCTURED_RESULT_DATA_STANDARD.md) and validate JSON records with `docs/repository-management/schemas/validate_result_records.py` and `docs/repository-management/schemas/research-result-record-v1.0.0.schema.json`. Keep the run manifest, result summary, validation report, pointwise CSV data, and SHA-256 manifest in their distinct roles. Existing historical files remain unchanged.
 
 ### 5.1 Commit completed research results to GitHub
 
