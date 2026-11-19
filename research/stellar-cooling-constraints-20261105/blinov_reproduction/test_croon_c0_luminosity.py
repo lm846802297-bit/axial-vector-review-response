@@ -26,7 +26,7 @@ except ImportError:
 
 
 class CroonC0LuminosityTests(unittest.TestCase):
-    def test_vectorized_nmu_fdeg_matches_existing_B17_quadrature(self):
+    def test_vectorized_nmu_fdeg_matches_bollig_single_muon_component(self):
         temperatures = np.array([19.265221107965, 39.2496793414134,
                                   23.881959149249, 3.03377069226813])
         chemical_potentials = np.array([46.6743284468278, 87.638,

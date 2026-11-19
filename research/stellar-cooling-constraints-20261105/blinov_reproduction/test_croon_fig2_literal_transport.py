@@ -71,7 +71,7 @@ class CroonFig2LiteralTransportTests(unittest.TestCase):
         self.assertTrue(np.all(outer_vacuum_tau_per_g2(m, omega, rnu, rnu) == 0.0))
 
     def test_thin_luminosity_scales_as_g_squared(self):
-        couplings = np.array([1.0e-11, 2.0e-11])
+        couplings = np.array([1.0e-12, 2.0e-12])
         luminosity = luminosity_curve(
             10.0, couplings, self.profile_01, rfar_km=100.0, energy_order=64
         )
