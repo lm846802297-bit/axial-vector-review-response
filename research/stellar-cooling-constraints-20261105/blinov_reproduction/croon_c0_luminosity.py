@@ -66,11 +66,11 @@ def vectorized_muon_susceptibility(
     order: int = 128,
     include_antimuons: bool = False,
 ) -> np.ndarray:
-    """Return n_mu*Fdeg for mu-minus, optionally adding mu-plus as a sensitivity.
+    """Return n_mu*Fdeg from the single mu-minus distribution by default.
 
-    The Croon/Bollig Eq. (2) baseline is the single f_mu(E,mu_mu) term.
-    include_antimuons=True is a separate charge-summed sensitivity, not C0.
-    The two muon spin states are included for each species.
+    Bollig Eq. (2) defines Fdeg using f_mu(E,mu_mu), with two spin states.
+    The optional antimuon sum is retained only as a separately labelled
+    sensitivity diagnostic; it is not part of the literal Croon lane.
     """
     temp = np.asarray(temperature_MeV, dtype=float)
     mu = np.asarray(mu_mu_MeV, dtype=float)
@@ -91,16 +91,18 @@ def vectorized_muon_susceptibility(
     energy = M_MU + temp[:, None] * x
     radial = 2.0 * temp[:, None] * p * energy * t * wt / np.pi**2
 
-    f_minus = np.exp(-np.logaddexp(0.0, (energy - mu[:, None]) / temp[:, None]))
-    chi = np.sum(radial * f_minus * (1.0 - f_minus), axis=1)
-    if include_antimuons:
-        f_plus = np.exp(-np.logaddexp(0.0, (energy + mu[:, None]) / temp[:, None]))
-        chi = chi + np.sum(radial * f_plus * (1.0 - f_plus), axis=1)
+    chi = np.zeros_like(temp)
+    chemical_potentials = (mu, -mu) if include_antimuons else (mu,)
+    for chemical in chemical_potentials:
+        f = np.exp(-np.logaddexp(0.0, (energy - chemical[:, None]) / temp[:, None]))
+        chi += np.sum(radial * f * (1.0 - f), axis=1)
     return chi
+
+
 def outer_vacuum_neutrino_tau_per_g2(
     mass_MeV: float, omega_MeV: np.ndarray, r_nu_km: float,
     r_far_km: float = R_FAR_KM,
-    neutrino_flavour_factor: float = 2.0,
+    neutrino_flavour_factor: float = 1.0,
 ) -> np.ndarray:
     """Croon Eq. (3.3) vacuum tail, doubled for the two Lmu-Ltau flavours."""
     omega = np.asarray(omega_MeV, dtype=float)
@@ -151,7 +153,7 @@ def build_croon_optical_depth(
     omega_grid_MeV: np.ndarray,
     r_far_km: float = R_FAR_KM,
     outer_temperature_envelope_MeV: float = 0.0,
-    neutrino_flavour_factor: float = 2.0,
+    neutrino_flavour_factor: float = 1.0,
 ) -> np.ndarray:
     """Return tau_C(omega,r)/g_X^2 for all energies and source radii."""
     r = np.asarray(r_km, float)
@@ -218,7 +220,7 @@ def run_c0_luminosity(
     energy_order: int = 64,
     tau_grid_points: int = 301,
     susceptibility_order: int = 128,
-    neutrino_flavour_factor: float = 2.0,
+    neutrino_flavour_factor: float = 1.0,
     include_antimuons: bool = False,
 ) -> dict:
     rows = np.genfromtxt(profile_path, delimiter=",", names=True)
@@ -323,7 +325,7 @@ def run_c0_luminosity(
         "R_nu_km": float(r_nu),
         "R_far_km": float(R_FAR_KM),
         "neutrino_flavour_factor": float(neutrino_flavour_factor),
-        "neutrino_flavour_source": "Croon et al., Sec. 4.4: L_mu-L_tau doubles both differential power Q and absorptive optical depth relative to the generic single-neutrino-flavour case",
+        "neutrino_flavour_source": "Croon Eq. (4.6) uses Gamma(Zprime->nu nu)=alpha_Zprime*mZprime/3, already the two-flavour L_mu-L_tau width; no extra factor of two is applied",
         "temperature_max_MeV": t_max,
         "muon_susceptibility": {
             "definition": "chi_mu = int 2 d^3p/(2pi)^3 f_mu-(1-f_mu-); matches the single negative-muon species in Bollig Eq. (2) and Croon n_mu Fdeg",
@@ -361,7 +363,7 @@ def main() -> None:
     parser.add_argument("--energy-order", type=int, default=64)
     parser.add_argument("--tau-grid-points", type=int, default=301)
     parser.add_argument("--susceptibility-order", type=int, default=128)
-    parser.add_argument("--neutrino-flavour-factor", type=float, default=2.0)
+    parser.add_argument("--neutrino-flavour-factor", type=float, default=1.0)
     parser.add_argument("--include-antimuons", action="store_true")
     args = parser.parse_args()
     result = run_c0_luminosity(
