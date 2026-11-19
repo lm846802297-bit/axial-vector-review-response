@@ -77,7 +77,7 @@ def find_figure_page(doc) -> tuple[int, str]:
     candidates = []
     for index, page in enumerate(doc):
         text = page.get_text("text")
-        if "Figure 2:" in text or "Figure 2" in text:
+        if "Figure 2:" in text or "Figure 2 :" in text:
             candidates.append((index, text))
     if len(candidates) != 1:
         raise RuntimeError(
