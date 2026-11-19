@@ -43,6 +43,7 @@ if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
 from rates import neutrino_rates
+from adaptive_radial_transport import AdaptiveRadialProfile
 from finite_mixing.moving_muon_compton import moving_muon_compton_rates
 from croon_c0_luminosity import (
     M_MU,
@@ -196,6 +197,7 @@ def _compute_mass(
     susceptibility_order: int,
     couplings: np.ndarray,
     muon_current: tuple[float, float] = (1.0, 0.0),
+    include_adaptive_radial: bool = False,
 ) -> tuple[dict, list[dict]]:
     r_km = profile["r_km"]
     temp = profile["temperature_MeV"]
@@ -387,6 +389,34 @@ def _compute_mass(
         mass, omega, R_FAR_KM - float(profile["R_nu_km"])
     )
     outer_tail_zero = np.zeros_like(outer_tail_100)
+    adaptive_profiles = None
+    adaptive_surface_limit = None
+    if include_adaptive_radial:
+        adaptive_profiles = [
+            [
+                AdaptiveRadialProfile(
+                    r_nat,
+                    source_total[:, ie, im],
+                    kappa_total[:, ie, im],
+                )
+                for im in range(len(MODES))
+            ]
+            for ie in range(n_e)
+        ]
+        surface_limit = {}
+        for im, mode in enumerate(MODES):
+            ratios = [
+                adaptive_profiles[ie][im].surface_source_over_opacity
+                for ie in range(n_e)
+            ]
+            if any(value is None for value in ratios):
+                surface_limit[mode] = None
+            else:
+                surface_limit[mode] = float(
+                    np.sum(domega_weights * np.asarray(ratios, dtype=float))
+                    * MEV2_TO_ERG_PER_SECOND
+                )
+        adaptive_surface_limit = surface_limit
     curve = []
     for g in couplings:
         g2 = float(g * g)
@@ -420,6 +450,91 @@ def _compute_mass(
             record[f"{label}_mode_sum_relative_residual"] = float(
                 abs(float(np.sum(mode_luminosity_erg_s)) - luminosity_erg_s)
                 / max(abs(luminosity_erg_s), 1e-300)
+            )
+        if adaptive_profiles is not None:
+            adaptive_radial = np.zeros((n_e, len(MODES)), dtype=float)
+            adaptive_error = np.zeros_like(adaptive_radial)
+            for ie in range(n_e):
+                for im in range(len(MODES)):
+                    value, error = adaptive_profiles[ie][im].integrate(float(g))
+                    adaptive_radial[ie, im] = value
+                    adaptive_error[ie, im] = error
+
+            adaptive_rnu_by_mode = np.sum(
+                domega_weights[:, None] * adaptive_radial, axis=0
+            )
+            adaptive_rnu_error_by_mode = np.sum(
+                domega_weights[:, None] * adaptive_error, axis=0
+            )
+            adaptive_outer_factor = np.exp(-g2 * outer_tail_100)
+            adaptive_100_by_mode = np.sum(
+                domega_weights[:, None]
+                * adaptive_radial
+                * adaptive_outer_factor[:, None],
+                axis=0,
+            )
+            adaptive_100_error_by_mode = np.sum(
+                domega_weights[:, None]
+                * adaptive_error
+                * adaptive_outer_factor[:, None],
+                axis=0,
+            )
+
+            adaptive_rnu_by_mode_erg_s = (
+                adaptive_rnu_by_mode * MEV2_TO_ERG_PER_SECOND
+            )
+            adaptive_100_by_mode_erg_s = (
+                adaptive_100_by_mode * MEV2_TO_ERG_PER_SECOND
+            )
+            adaptive_rnu_total_erg_s = float(
+                np.sum(adaptive_rnu_by_mode_erg_s)
+            )
+            adaptive_100_total_erg_s = float(
+                np.sum(adaptive_100_by_mode_erg_s)
+            )
+            adaptive_rnu_error_by_mode_relative = {
+                mode: float(
+                    adaptive_rnu_error_by_mode[im]
+                    / max(abs(adaptive_rnu_by_mode[im]), 1.0e-300)
+                )
+                for im, mode in enumerate(MODES)
+            }
+            adaptive_100_error_by_mode_relative = {
+                mode: float(
+                    adaptive_100_error_by_mode[im]
+                    / max(abs(adaptive_100_by_mode[im]), 1.0e-300)
+                )
+                for im, mode in enumerate(MODES)
+            }
+            adaptive_rnu_error = float(
+                np.sum(adaptive_rnu_error_by_mode)
+                / max(abs(np.sum(adaptive_rnu_by_mode)), 1.0e-300)
+            )
+            adaptive_100_error = float(
+                np.sum(adaptive_100_error_by_mode)
+                / max(abs(np.sum(adaptive_100_by_mode)), 1.0e-300)
+            )
+            record["Rfar_Rnu_adaptive_quad"] = adaptive_rnu_total_erg_s
+            record["Rfar_Rnu_adaptive_quad_by_mode_erg_s"] = {
+                mode: float(adaptive_rnu_by_mode_erg_s[im])
+                for im, mode in enumerate(MODES)
+            }
+            record["Rfar_Rnu_adaptive_quad_relative_error_estimate"] = adaptive_rnu_error
+            record["Rfar_Rnu_adaptive_quad_relative_error_estimate_by_mode"] = adaptive_rnu_error_by_mode_relative
+            record["Rfar_Rnu_adaptive_quad_mode_sum_relative_residual"] = float(
+                abs(np.sum(adaptive_rnu_by_mode_erg_s) - adaptive_rnu_total_erg_s)
+                / max(abs(adaptive_rnu_total_erg_s), 1.0e-300)
+            )
+            record["Rfar_100km_vacuum_nu_tail_adaptive_quad"] = adaptive_100_total_erg_s
+            record["Rfar_100km_vacuum_nu_tail_adaptive_quad_by_mode_erg_s"] = {
+                mode: float(adaptive_100_by_mode_erg_s[im])
+                for im, mode in enumerate(MODES)
+            }
+            record["Rfar_100km_vacuum_nu_tail_adaptive_quad_relative_error_estimate"] = adaptive_100_error
+            record["Rfar_100km_vacuum_nu_tail_adaptive_quad_relative_error_estimate_by_mode"] = adaptive_100_error_by_mode_relative
+            record["Rfar_100km_vacuum_nu_tail_adaptive_quad_mode_sum_relative_residual"] = float(
+                abs(np.sum(adaptive_100_by_mode_erg_s) - adaptive_100_total_erg_s)
+                / max(abs(adaptive_100_total_erg_s), 1.0e-300)
             )
         curve.append(record)
 
@@ -498,6 +613,14 @@ def _compute_mass(
                 float(thin_sc / thin_croon_sc) if thin_croon_sc > 0.0 else None
             ),
         },
+        "adaptive_radial_enabled": bool(include_adaptive_radial),
+        "adaptive_radial_surface_asymptote_Rnu_erg_s_by_mode": adaptive_surface_limit,
+        "adaptive_radial_integrator": (
+            "PCHIP source and reduced opacity; exact PCHIP opacity antiderivative "
+            "for tau; QUADPACK adaptive Gauss-Kronrod radial integration with "
+            "explicit g_X^2*tau boundary-layer split points"
+            if include_adaptive_radial else None
+        ),
         "coupling_curve": curve,
         "local_profile": local_rows,
         "outer_opacity": (
@@ -517,6 +640,7 @@ def compute_c1(
     neutrino_order: int = 96,
     susceptibility_order: int = 128,
     coupling_count: int = 121,
+    include_adaptive_radial: bool = False,
 ) -> dict:
     if sha256(profile_path) != PROFILE_SHA256:
         raise ValueError("The C1 run is pinned to the reviewed public SFHo profile SHA-256")
@@ -527,7 +651,8 @@ def compute_c1(
     for mass in masses:
         item, local_rows = _compute_mass(
             float(mass), profile, energy_order, inner_orders,
-            neutrino_order, susceptibility_order, couplings
+            neutrino_order, susceptibility_order, couplings,
+            include_adaptive_radial=include_adaptive_radial,
         )
         results[f"{mass:.9g}"] = item
         local_all.extend(local_rows)
@@ -568,7 +693,13 @@ def compute_c1(
             "coupling_count": int(coupling_count),
             "coupling_range": [float(couplings[0]), float(couplings[-1])],
             "energy_map": "omega=m+Tmax*y^2, y in [0,6], Gauss-Legendre in y",
-            "radial_integrator": "cumulative_simpson for optical depth; Simpson for luminosity",
+            "radial_integrator": (
+                "legacy cumulative_simpson/Simpson; independent adaptive PCHIP/"
+                "QUADPACK radial integration enabled"
+                if include_adaptive_radial else
+                "cumulative_simpson for optical depth; Simpson for luminosity"
+            ),
+            "adaptive_radial_enabled": bool(include_adaptive_radial),
         },
         "masses": results,
         "scope": (
@@ -596,6 +727,11 @@ def main() -> None:
     parser.add_argument("--neutrino-order", type=int, default=96)
     parser.add_argument("--susceptibility-order", type=int, default=128)
     parser.add_argument("--coupling-count", type=int, default=121)
+    parser.add_argument(
+        "--adaptive-radial",
+        action="store_true",
+        help="also evaluate the independent PCHIP/QUADPACK radial integral",
+    )
     args = parser.parse_args()
     masses = CROON_MASSES_MEV if args.all_croon_masses else tuple(
         float(x) for x in args.masses.split(",") if x.strip()
@@ -606,7 +742,7 @@ def main() -> None:
     result = compute_c1(
         args.profile, tuple(masses), args.radial_points, args.energy_order,
         orders, args.neutrino_order, args.susceptibility_order,
-        args.coupling_count
+        args.coupling_count, args.adaptive_radial
     )
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
@@ -630,6 +766,7 @@ def main() -> None:
             }
             for key, value in result["masses"].items()
         },
+        "adaptive_radial_enabled": result["numerics"]["adaptive_radial_enabled"],
         "output_json": str(args.output),
         "output_csv": str(args.csv),
     }

@@ -6,6 +6,8 @@ import numpy as np
 
 from rates import neutrino_rates
 from finite_mixing.moving_muon_compton import moving_muon_compton_rates
+from adaptive_radial_transport import AdaptiveRadialProfile
+
 from croon_c1_b13_vector_transport import (
     DEFAULT_PROFILE,
     PROFILE_SHA256,
@@ -116,6 +118,90 @@ class CroonC1B13VectorTransportTests(unittest.TestCase):
         self.assertLess(
             result["diagnostics"]["final_muon_shell_relative_error"], 2e-10
         )
+
+
+
+class AdaptiveRadialBoundaryLayerTests(unittest.TestCase):
+    def test_constant_source_and_opacity_match_analytic_integral(self):
+        radius = np.linspace(0.0, 2.0, 103)
+        source = np.full_like(radius, 3.2)
+        opacity = np.full_like(radius, 0.7)
+        profile = AdaptiveRadialProfile(radius, source, opacity)
+        for coupling in (1.0e-11, 1.0e-5, 0.1, 1.0, 100.0):
+            value, error = profile.integrate(coupling)
+            expected = (
+                3.2 / 0.7
+                * (-math.expm1(-coupling**2 * 0.7 * 2.0))
+            )
+            self.assertAlmostEqual(value / expected, 1.0, delta=2.0e-8)
+            self.assertLessEqual(error, 2.0e-8 * abs(value) + 1.0e-300)
+
+    def test_high_coupling_reaches_surface_source_over_opacity(self):
+        radius = np.linspace(0.0, 1.0, 103)
+        source = 2.0 + 0.3 * radius
+        opacity = 0.7 + 0.1 * radius
+        profile = AdaptiveRadialProfile(radius, source, opacity)
+        value, _ = profile.integrate(1.0e3)
+        expected = source[-1] / opacity[-1]
+        self.assertAlmostEqual(value / expected, 1.0, delta=2.0e-7)
+        self.assertAlmostEqual(
+            profile.surface_source_over_opacity, expected, places=14
+        )
+
+    def test_outer_optical_depth_is_an_exact_multiplicative_tail(self):
+        radius = np.linspace(0.0, 1.0, 103)
+        profile = AdaptiveRadialProfile(
+            radius, 1.0 + radius, 0.5 + 0.2 * radius
+        )
+        coupling = 0.7
+        inside, _ = profile.integrate(coupling)
+        with_tail, _ = profile.integrate(coupling, tau_outer=0.3)
+        self.assertAlmostEqual(
+            with_tail / inside,
+            math.exp(-coupling**2 * 0.3),
+            places=14,
+        )
+
+    def test_adaptive_integral_removes_fixed_simpson_endpoint_artifact(self):
+        from scipy.integrate import simpson
+
+        legacy_values = []
+        adaptive_values = []
+        for count in (103, 153):
+            radius = np.linspace(0.0, 1.0, count)
+            source = np.ones_like(radius)
+            opacity = np.ones_like(radius)
+            tau_sampled = 1.0 - radius
+            coupling = 100.0
+            legacy = coupling**2 * simpson(
+                source * np.exp(-coupling**2 * tau_sampled),
+                x=radius,
+            )
+            adaptive, _ = AdaptiveRadialProfile(
+                radius, source, opacity
+            ).integrate(coupling)
+            legacy_values.append(legacy)
+            adaptive_values.append(adaptive)
+
+        # The fixed-grid Simpson endpoint weight scales with dr. The adaptive
+        # integral instead approaches the exact surface limit S/kappa = 1.
+        self.assertAlmostEqual(
+            legacy_values[1] / legacy_values[0], 2.0 / 3.0, delta=2.0e-3
+        )
+        np.testing.assert_allclose(
+            adaptive_values, [1.0, 1.0], rtol=2.0e-8, atol=1.0e-12
+        )
+
+    def test_zero_opacity_outer_interval_remains_finite(self):
+        radius = np.linspace(0.0, 1.0, 103)
+        source = np.ones_like(radius)
+        opacity = np.where(radius < 0.6, 1.0, 0.0)
+        profile = AdaptiveRadialProfile(radius, source, opacity)
+        value, error = profile.integrate(3.0)
+        self.assertTrue(math.isfinite(value))
+        self.assertGreaterEqual(value, 0.0)
+        self.assertTrue(math.isfinite(error))
+        self.assertGreaterEqual(error, 0.0)
 
 
 if __name__ == "__main__":
