@@ -265,6 +265,29 @@ The five-mass Lai neutrino-only plateau reference is archived [here](https://git
 
 The current workflow run [#44509948112](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44509948112) completed successfully with 76 passing tests, including the four full source-weighted outer-opacity envelope tests, the solid/dashed outer-opacity diagnostic, C0 metadata checks, the eight Lai 2024 plateau/rate-convention/ν-only plateau tests, PDF vector extraction/digitization, no-fit comparison, energy-threshold audit, and the existing B.13/B.16 and Ward-identity regression suites.
 
+### Lai 2024 surface semi-Compton cross-check
+
+The Lai Eq. (23) inverse semi-Compton opacity was compared directly with its two-flavour neutrino-decay opacity using the same public profile B. At \(R_\nu=25.15117\) km, the public-profile extrapolation gives \(\chi_\mu=3.82365\times10^{-13}\ {\rm MeV}^3\). The last nonzero digitized sample has \(\chi_\mu=1.13518\times10^{-10}\ {\rm MeV}^3\) and is used only as a conditional edge-value envelope.
+
+The maximum of \(\kappa_{\rm sC}/\kappa_\nu\) over \(2\le\omega/T_\nu\le8\) is:
+
+| \(m_{Z'}\) | Public \(R_\nu\) extrapolation | Conditional edge envelope |
+|---:|---:|---:|
+| 0.1 eV | \(1.0054\times10^{-2}\) | 2.9849 |
+| 2 eV | \(2.5135\times10^{-5}\) | \(7.4622\times10^{-3}\) |
+| 10 eV | \(1.0054\times10^{-6}\) | \(2.9849\times10^{-4}\) |
+
+This supports Lai's omission of inverse semi-Compton absorption at the neutrinosphere for its 2 eV and 10 eV benchmarks. At 0.1 eV, the same edge-value envelope can make the local semi-Compton opacity competitive or dominant, which is relevant to the unresolved Croon outer-profile sensitivity. It does not imply a muon-rich physical neutrinosphere.
+
+The six-test regression also verifies the printed-equation identity
+\[
+\kappa_{\rm sC}/\kappa_\nu
+=2\,\Gamma_{\rm sC}^{\rm prod}/\Gamma_{\nu\bar\nu}^{\rm prod}.
+\]
+The pointwise output is archived in [workflow artifact #14522239803](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44512793672/artifacts/14522239803), with a compact committed summary at blinov_reproduction/outputs/lai2024_surface_semicompton_check_summary_2026-11-19.json.
+
+The latest full benchmark workflow [#44512793672](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44512793672) passed **82/82 tests**, including the six new Lai surface-opacity tests and the four full source-weighted Croon outer-opacity tests.
+
 ## What remains before calling this a Fig. 2 reproduction
 
 1. Obtain the raw Garching SFHo-18.8, \(t_{\rm pb}=1\) s radial profile through \(R_{\rm far}\), including the muon susceptibility \(n_\mu F_{\rm deg}\). Until then, do not claim a complete \(R_{\rm far}=100\) km low-mass transport calculation.
