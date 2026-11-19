@@ -13,6 +13,7 @@ The 2026-11-17 root-file relocation and directory entry points are recorded in [
 | `README.md`, `README-先读这里.md` | Project entry points | Keep short; link to authoritative sources rather than duplicating status. |
 | `仓库分类索引.md` | Repository classification and reading map | Navigation only; live status is in `PROJECT_STATUS.md`, scientific workstream authority is in `research/MAIN_RESEARCH_INDEX_2026-11-13.md`; keep path links current. |
 | `AGENTS.md` | Mandatory contributor/agent rules | Normative workflow instructions. |
+| `STRUCTURED_RESULT_DATA_STANDARD.md` and `schemas/` | Machine-readable numerical result records | JSON run/result/validation records, unit-labelled CSV tables, provenance and checksums. |
 | `PROJECT_STATUS.md` | Current project status | Single current status source; dated historical snapshots must be labeled. |
 | `GIT_MERGE_POLICY.md` | Research history and merge policy | Preserve scientific provenance. |
 | `research/` | Scientific workstreams, calculations, validation and evidence | Each workstream owns a README, inputs, code, tests, outputs and limitations. |
