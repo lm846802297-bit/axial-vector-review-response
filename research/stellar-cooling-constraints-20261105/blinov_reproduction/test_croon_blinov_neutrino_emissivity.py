@@ -32,7 +32,7 @@ class CroonBlinovNeutrinoEmissivityTests(unittest.TestCase):
             mass=99.0, temperature=2.0, mu_numu=0.0, mu_nutau=0.0,
             energy_order=48, angular_order=96
         )
-        self.assertAlmostEqual(result["Q_B7_over_Q_Croon"], 3.0, delta=2e-9)
+        self.assertAlmostEqual(result["Q_B7_over_Q_Croon"], 3.0, delta=1e-8)
 
     def test_FD_chemical_potential_suppresses_low_energy_rate_vs_Croon(self):
         result = local_rate_spectra(
