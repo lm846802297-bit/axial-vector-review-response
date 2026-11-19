@@ -142,37 +142,42 @@ No manuscript, referee response, validated Blinov baseline, or axial-vector excl
 
 ## 9. Conditional monotonic-tail upper-envelope diagnostic
 
-A separate numerical diagnostic was run using the same Fermi--Dirac susceptibility integral implemented in `croon_c0_luminosity.py`. It is not a full replacement C0 run; it tests whether a smooth, non-increasing continuation of the resolved profile could plausibly account for the published solid/dashed luminosity separation.
+This section tests a deliberately conservative continuation of the last nonzero point in the public digitization. It is a conditional sensitivity calculation, not a reconstruction of the protected Garching radial profile.
 
-### Resolved edge susceptibility
+### 9.1 Digitized edge and screening estimate
 
-At the last nonzero \(\mu_\mu\) sample in the current CSV,
+The last nonzero digitized muon-chemical-potential sample is
+
 \[
 r_{\rm edge}=22.191893657~\mathrm{km},\quad
-T_{\rm edge}=3.51524346~\mathrm{MeV},\quad
-\mu_{\mu,\rm edge}=0.999999834~\mathrm{MeV},
+T_{\rm edge}=3.515243457~\mathrm{MeV},\quad
+\mu_{\mu,\rm edge}=0.999999834~\mathrm{MeV}.
 \]
-the C0 susceptibility integral gives
+
+The value near 1 MeV is the lower plotting floor of the logarithmic source curve. It is not a measurement that the physical chemical potential remains exactly 1 MeV at this radius. The current CSV sets the subsequent values to zero; that zero-filled continuation is likewise not a measurement of the physical outer profile.
+
+Using the same free relativistic Fermi--Dirac susceptibility integral as the C0 calculation gives
+
 \[
 \chi_{\mu,\rm edge}
 =n_\mu F_{\rm deg}
 =1.13518337\times10^{-10}~\mathrm{MeV}^3.
 \]
-For comparison, the zero-filled endpoint used at \(T=3\,\mathrm{MeV}\), \(\mu_\mu=0\), gives
+
+At \(T=3\,\mathrm{MeV}\), \(\mu_\mu=0\), the same integral gives
+
 \[
 \chi_\mu(3~\mathrm{MeV},0)
 =3.82364561\times10^{-13}~\mathrm{MeV}^3.
 \]
 
-### Deliberately conservative continuation
+For the first screening estimate, the outer path is specifically \(R_\nu\to R_{\rm far}\), not \(r_{\rm edge}\to R_{\rm far}\). The conditional assumptions are:
 
-Assume, conditionally, that for \(r\ge r_{\rm edge}\):
+1. \(\chi_\mu(r)\le\chi_{\mu,\rm edge}\) for \(r\ge R_\nu\);
+2. \(T(r)\le3\,\mathrm{MeV}\) for \(r\ge R_\nu\);
+3. the upper-envelope value \(\chi_{\mu,\rm edge}\) is held constant from \(R_\nu\) to 100 km.
 
-1. \(\chi_\mu(r)\le\chi_{\mu,\rm edge}\) (no outer resurgence);
-2. \(T(r)\le3\,\mathrm{MeV}\);
-3. the edge value is held constant all the way to 100 km, maximizing the path-integrated semi-Compton opacity under those assumptions.
-
-For \(m_{Z'}=0.1\,\mathrm{eV}\), \(g=0.03\), and a 75 km outer path, the resulting energy-dependent optical depths are:
+This gives an outer path of \(100-R_\nu\simeq74.85\) km. At \(m_{Z'}=0.1\,\mathrm{eV}\), \(g=0.03\), the energy-dependent semi-Compton optical depths are:
 
 | \(\omega\) (MeV) | \(\tau_{\rm sc}^{\rm edge\ envelope}\) |
 |---:|---:|
@@ -182,38 +187,69 @@ For \(m_{Z'}=0.1\,\mathrm{eV}\), \(g=0.03\), and a 75 km outer path, the resulti
 | 10 | 0.01755 |
 | 30 | 0.01692 |
 
-The very soft end has a larger Bose enhancement, but it carries little source energy. Weighting the attenuation with the representative semi-Compton source spectrum
-\[
-Q_\omega\propto\frac{\omega^3}{e^{\omega/T_{\rm src}}-1}
-\]
-and integrating from the \(0.1\,\mathrm{eV}\) mass threshold gives:
+The very soft end has a larger Bose enhancement, but carries little source energy. The earlier representative-spectrum estimate, using \(Q_\omega\propto\omega^3/[e^{\omega/T_{\rm src}}-1]\), gave an additional suppression of about 1.7%. That was a screening estimate; the full source-weighted result is reported next.
 
-| \(T_{\rm src}\) (MeV) | \(L_{\rm with\ edge\ envelope}/L_{\rm without\ outer\ tail}\) | Luminosity suppression factor |
+### 9.2 Full C0 source-weighted re-evaluation
+
+A separate calculation now uses the complete C0 source and transport structure rather than a representative source spectrum:
+
+- profile B, SHA-256 9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c, 1687 radial nodes;
+- \(m_{Z'}=0.1\,\mathrm{eV}\);
+- both \(\nu_\mu\) and \(\nu_\tau\) in the \(L_\mu-L_\tau\) source and inverse-decay opacity;
+- the local energy measure \(d\omega\,k\omega^2/(2\pi^2)\), with the emitted-particle energy included exactly once;
+- the radius-dependent semi-Compton and neutrino source terms;
+- detailed-balance absorption and source-radius-dependent optical depth;
+- susceptibility order 256, local energy order 96, and 601 optical-depth energy nodes.
+
+Two conditional outer semi-Compton envelopes are evaluated:
+
+1. **Neutrinosphere envelope:** \(\chi_\mu=\chi_{\mu,\rm edge}\) from \(R_\nu\) to 100 km at \(T=3\,\mathrm{MeV}\).
+2. **Edge-temperature envelope:** \(\chi_\mu=\chi_{\mu,\rm edge}\) from \(r_{\rm edge}\) to 100 km at \(T=T_{\rm edge}=3.51524\,\mathrm{MeV}\). This also fills the digitized zero interval between \(r_{\rm edge}\) and \(R_\nu\), and is the more conservative of the two envelopes under its stated assumptions.
+
+The table distinguishes the vacuum neutrino-decay tail from the additional semi-Compton envelope. All entries are ratios of integrated luminosities; they are not local optical depths.
+
+| \(g_X\) | \(L(R_\nu)/L_{\rm vacuum}\) | \(L_{\rm vacuum}/L_{T=3}\) | \(L(R_\nu)/L_{T=3}\) | \(L(R_\nu)/L_{\rm edge,T_{\rm edge}}\) |
+|---:|---:|---:|---:|---:|
+| \(3\times10^{-6}\) | 1.00000000005 | 1.00000000017 | 1.00000000022 | 1.00000000023 |
+| \(10^{-5}\) | 1.00000000068 | 1.00000000188 | 1.00000000257 | 1.00000000264 |
+| \(10^{-4}\) | 1.00000009131 | 1.00000018921 | 1.00000028052 | 1.00000028893 |
+| \(10^{-3}\) | 1.00001150561 | 1.00001906487 | 1.00003057070 | 1.00003148921 |
+| \(10^{-2}\) | 1.00141388607 | 1.00192996867 | 1.00334658349 | 1.00344941186 |
+| \(3\times10^{-2}\) | 1.01397554888 | 1.01761164230 | 1.03183332355 | 1.03283658663 |
+
+At the upper end of the scanned coupling interval:
+
+- the vacuum neutrino-decay tail alone gives a factor 1.01398;
+- the \(T=3\) MeV outer semi-Compton envelope adds a further factor 1.01761 relative to that vacuum-tail calculation;
+- the combined \(R_\nu\)-to-100 km suppression is a factor 1.03183;
+- the more conservative edge-to-100 km, \(T=T_{\rm edge}\) envelope gives a combined factor 1.03284.
+
+The published median solid/dashed ratio is 3.38190. Thus even the more conservative full C0 envelope accounts for only about 3.3% suppression, leaving a factor
+
+\[
+\frac{3.38190}{1.03284}=3.2744
+\]
+
+unexplained. This is a stronger statement than the earlier 1.7% representative-spectrum estimate because it includes both the actual source-weighted outer semi-Compton attenuation and the vacuum neutrino tail.
+
+### 9.3 Effective constant-susceptibility equivalents
+
+The full source-weighted calculation also solves for the constant susceptibility on \(R_\nu\to100\) km that would be needed to reproduce the published median ratio 3.38190. The numerator is the \(R_{\rm far}=R_\nu\) luminosity; the denominator includes the vacuum neutrino tail and the trial outer semi-Compton opacity.
+
+| Coupling | Required constant \(\chi_\mu\) (MeV\(^3\)) | Ratio to resolved edge |
 |---:|---:|---:|
-| 10 | 0.98311 | 1.01718 |
-| 20 | 0.98320 | 1.01708 |
-| 30 | 0.98322 | 1.01707 |
-| 40 | 0.98322 | 1.01707 |
-| 50 | 0.98322 | 1.01707 |
+| \(3\times10^{-6}\) | 0.81770 | \(7.20\times10^9\) |
+| \(3\times10^{-2}\) | \(7.8634\times10^{-9}\) | 69.27 |
 
-Thus, under the monotonic-tail assumptions, the integrated suppression is only about 1.7%, not the factor 3.38 inferred from the Fig. 2 solid/dashed pair.
+These are effective constant-tail equivalents, not inferred physical profiles. The same median luminosity ratio requires constant susceptibilities differing by about \(1.04\times10^8\) between the two coupling endpoints. A single constant outer susceptibility therefore cannot reproduce the same median suppression at both endpoints. This does not exclude a non-monotonic radial profile or a more structured outer medium.
 
-### Effective susceptibility needed to reproduce the plotted separation
+### 9.4 Interpretation and limitations
 
-In the same representative energy-weighted model, matching the median published ratio 3.38190 at \(g=0.03\) would require a constant outer susceptibility of approximately
-\[
-\chi_{\mu,\rm req}
-=(8.13\text{--}8.17)\times10^{-9}~\mathrm{MeV}^3,
-\]
-about 72 times the last resolved value. This is an effective constant-tail equivalent, not a reconstructed radial profile. Because the optical depth scales as \(g^2\chi_\mu\), the equivalent susceptibility at \(g=3\times10^{-6}\) would be about \(0.813\,\mathrm{MeV}^3\) in this simplified model.
-
-### Interpretation and limitations
-
-This diagnostic **rules out only the simple monotonic continuation** of the currently resolved public profile as an explanation of the full solid/dashed separation. It does not rule out:
+The full source-weighted result rules out only the following conditional explanation: a smooth/non-increasing continuation whose outer susceptibility never exceeds the last nonzero digitized value. It does not rule out:
 
 - a non-monotonic muon-rich outer shell in the original simulation;
-- a difference between the current digitized reconstruction and the original Garching table;
-- an additional outer-medium absorption process;
-- an issue in the published transport convention or in our curve interpretation.
+- a difference between the published-figure reconstruction and the original Garching table;
+- another outer-medium absorption process;
+- a difference in the authors' transport convention or in our reading of the solid/dashed comparison.
 
-The calculation uses a single representative source spectrum and a constant outer envelope, so it is a screening bound rather than the final radial/energy-resolved C0 result. The raw Garching profile remains necessary to decide among the possibilities. No luminosity curve, opacity coefficient, or profile has been tuned.
+The edge-temperature envelope assumes the outer temperature never exceeds the last digitized edge temperature. Neither envelope is a substitute for the protected Garching profile. The source-weighted calculation is archived and tested separately; no luminosity curve, opacity coefficient, or profile has been fitted or rescaled.
