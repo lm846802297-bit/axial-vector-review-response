@@ -339,7 +339,7 @@ def run_c0_luminosity(
             "lapse_redshift": "omitted",
             "angular_escape_average": "omitted",
             "outer_neutrino_opacity": "vacuum tail to Rfar=100 km; T=3 MeV outer thermal envelope is a separate sensitivity case; Rfar=Rnu is also reported",
-            "outer_semicompton_opacity": "zero once muon susceptibility vanishes",
+            "outer_semicompton_opacity": "not included for Rnu < r < Rfar because no validated outer muon-susceptibility profile is available; zero is a truncation assumption, not a measured physical profile",
         },
         "quadrature": {
             "local_energy_order": int(energy_order),
@@ -351,7 +351,7 @@ def run_c0_luminosity(
             "total": float((free_nu_nat+free_sc_nat)*MEV2_TO_ERG_PER_SECOND),
         },
         "coupling_curve": curve,
-        "scope": "Croon Eqs. (3.3)-(3.4), (4.6)-(4.7) generic one-neutrino-flavour baseline; set neutrino_flavour_factor=2 for the Sec. 4.4 L_mu-L_tau variant; public-profile reconstruction, not a raw-Garching reproduction and not an axial-vector result",
+        "scope": "Croon Eqs. (3.3)-(3.4), (4.6)-(4.7) interior-rate public-profile reconstruction; the outer semi-Compton opacity from Rnu to Rfar is omitted for lack of validated outer muon data, so the low-mass strong-coupling Rfar=100 km result is incomplete; set neutrino_flavour_factor=2 for the Sec. 4.4 L_mu-L_tau variant; not a raw-Garching reproduction and not an axial-vector result",
     }
 
 
