@@ -410,3 +410,47 @@ This paper is used here only as a source of SFHo-18.8 background information. It
 Primary sources:
 - arXiv PDF: https://arxiv.org/pdf/2506.16922
 - Journal version and data/code availability statements: https://link.springer.com/article/10.1007/JHEP10%282025%29024
+
+
+### 12.1 Preliminary graphical upper envelope from Fig. 5
+
+A conservative read of the logarithmic number-density panel in Huang--Liu Fig. 5 gives
+\[
+n_{\mu^-}(r),\,n_{\mu^+}(r)\lesssim 10^{22}\ {\rm cm}^{-3},
+\qquad 22\lesssim r\le30\ {\rm km}.
+\]
+The blue dashed \(\mu^+\) curve is the dominant charge-conjugate component in this interval, while the blue solid \(\mu^-\) curve falls rapidly. The bound above is deliberately rounded upward relative to the plotted curves; it is a figure-level envelope, not a replacement for vector-path digitization.
+
+For the Croon susceptibility convention,
+\[
+\chi_{\mu^\pm}=n_{\mu^\pm}F_{\rm deg}^{\mu^\pm},
+\qquad
+0\le F_{\rm deg}^{\mu^\pm}\le1,
+\]
+because the Fermi-integral numerator contains \(f(1-f)\le f\). Therefore
+\[
+\chi_{\mu^-}+\chi_{\mu^+}
+\le n_{\mu^-}+n_{\mu^+}
+\lesssim2\times10^{22}\ {\rm cm}^{-3}.
+\]
+Using
+\[
+1\ {\rm MeV}^3=1.301\times10^{32}\ {\rm cm}^{-3},
+\]
+this gives the preliminary bound
+\[
+\boxed{
+\chi_{\mu^-}+\chi_{\mu^+}
+\lesssim1.54\times10^{-10}\ {\rm MeV}^3
+}
+\qquad (22\lesssim r\le30\ {\rm km}).
+\]
+
+The previously computed Caputo/Bollig edge susceptibility including both charges is
+\[
+\chi_{\rm edge}^{\mu^-+\mu^+}
+=1.77783\times10^{-10}\ {\rm MeV}^3.
+\]
+Thus the conservative Fig. 5 number-density envelope is about \(0.865\) times this edge value. This suggests that the signed \(\mu_\mu<0\) tail changes which charge dominates, but does not make the **total** susceptibility exceed the old charge-summed edge envelope over the plotted \(22\)--\(30\) km interval.
+
+This is a useful consistency bound, not yet a final numerical opacity result: the Fig. 5 curves still need vector-path digitization, and the \(30\)--\(100\) km interval remains unmeasured. The old source-weighted edge envelope can therefore be retained as a conservative conditional envelope for the displayed \(22\)--\(30\) km interval, but its extension to 100 km remains conditional on the absence of a new outer muon-rich shell.
