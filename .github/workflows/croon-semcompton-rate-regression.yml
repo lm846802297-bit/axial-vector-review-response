@@ -27,6 +27,8 @@ on:
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_audit_croon_fig2_outer_opacity_gap.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/lai2024_plateau_equation_audit.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_lai2024_plateau_equation_audit.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/run_lai2024_surface_semicompton_check.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_lai2024_surface_semicompton_check.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/run_lai2024_neutrino_only_plateau_reference.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_c0_luminosity.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_croon_c0_luminosity_convergence.py'
@@ -193,6 +195,18 @@ jobs:
         with:
           name: lai2024-neutrino-only-plateau-reference
           path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/lai2024_neutrino_only_plateau_reference_2026-11-19.json
+          if-no-files-found: error
+      - name: Run Lai surface semi-Compton versus neutrino opacity tests
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest -v test_lai2024_surface_semicompton_check.py
+      - name: Compute Lai surface semi-Compton versus neutrino opacity check
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python run_lai2024_surface_semicompton_check.py
+      - name: Upload Lai surface semi-Compton versus neutrino opacity check
+        uses: actions/upload-artifact@v4
+        with:
+          name: lai2024-surface-semicompton-check
+          path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/lai2024_surface_semicompton_check_2026-11-19.json
           if-no-files-found: error
       - name: Diagnose missing outer opacity from solid/dashed Fig. 2 curves
         working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
