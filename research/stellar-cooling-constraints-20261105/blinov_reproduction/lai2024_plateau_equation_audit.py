@@ -66,6 +66,72 @@ def lai_semicompton_inverse_mfp_coefficient(
     )
 
 
+def lai_neutrino_inverse_mfp_coefficient(
+    omega_MeV: np.ndarray,
+    mass_MeV: float,
+) -> np.ndarray:
+    """Lai Eq. (20): two-flavour Z' -> nu nu-bar inverse mean free path / g^2."""
+    omega = np.asarray(omega_MeV, dtype=float)
+    if mass_MeV <= 0.0 or np.any(omega <= mass_MeV):
+        raise ValueError("Require positive mass and energies strictly above threshold")
+    velocity = np.sqrt(1.0 - (mass_MeV / omega) ** 2)
+    return mass_MeV**2 / (12.0 * np.pi * omega * velocity)
+
+
+def lai_semicompton_production_coefficient(
+    omega_MeV: np.ndarray,
+    temperature_MeV: float,
+    mass_MeV: float,
+    chi_mu_MeV3: float,
+) -> np.ndarray:
+    """Lai Eq. (11): semi-Compton production rate / g^2."""
+    omega = np.asarray(omega_MeV, dtype=float)
+    if (temperature_MeV <= 0.0 or mass_MeV < 0.0 or chi_mu_MeV3 < 0.0
+            or np.any(omega <= mass_MeV)):
+        raise ValueError("Unphysical semi-Compton production inputs")
+    velocity = np.sqrt(1.0 - (mass_MeV / omega) ** 2)
+    return (
+        2.0 * ALPHA_EM / (3.0 * M_MU_MEV**2)
+        * chi_mu_MeV3 * velocity * bose_occupation(omega, temperature_MeV)
+    )
+
+
+def lai_semicompton_to_neutrino_opacity_ratio(
+    omega_MeV: np.ndarray,
+    temperature_MeV: float,
+    mass_MeV: float,
+    chi_mu_MeV3: float,
+) -> np.ndarray:
+    """Eq. (23) semi-Compton opacity divided by Eq. (20) two-flavour decay opacity."""
+    omega = np.asarray(omega_MeV, dtype=float)
+    if chi_mu_MeV3 < 0.0:
+        raise ValueError("Muon susceptibility cannot be negative")
+    kappa_sc = lai_semicompton_inverse_mfp_coefficient(
+        omega, temperature_MeV, mass_MeV, chi_mu_MeV3
+    )
+    kappa_nu = lai_neutrino_inverse_mfp_coefficient(omega, mass_MeV)
+    return kappa_sc / kappa_nu
+
+
+def lai_semicompton_to_neutrino_production_ratio(
+    omega_MeV: np.ndarray,
+    temperature_MeV: float,
+    mass_MeV: float,
+    chi_mu_MeV3: float,
+) -> np.ndarray:
+    """Eq. (11) semi-Compton production divided by Eq. (10) two-flavour coalescence."""
+    omega = np.asarray(omega_MeV, dtype=float)
+    if chi_mu_MeV3 < 0.0:
+        raise ValueError("Muon susceptibility cannot be negative")
+    gamma_sc = lai_semicompton_production_coefficient(
+        omega, temperature_MeV, mass_MeV, chi_mu_MeV3
+    )
+    gamma_nu = lai_two_flavour_neutrino_coalescence_coefficient(
+        omega, mass_MeV, temperature_MeV
+    )
+    return gamma_sc / gamma_nu
+
+
 def lai_over_croon_semicompton_opacity_ratio(
     omega_MeV: np.ndarray,
     mass_MeV: float,
