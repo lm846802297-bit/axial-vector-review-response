@@ -123,6 +123,56 @@ def lai_over_croon_lmutau_neutrino_ratio(
     return lai / croon
 
 
+MEV2_TO_ERG_PER_SECOND = 1.602176634e-6 / 6.582119569e-22
+MEV_INV_PER_KM = 1.0e5 / (197.3269804e-13)
+
+
+def lai_neutrino_only_plateau(
+    mass_MeV: float,
+    temperature_MeV: float,
+    neutrinosphere_radius_km: float,
+    energy_order: int = 256,
+    tail_in_T: float = 40.0,
+) -> dict:
+    """Lai thin-shell plateau from nu_mu+nu_tau coalescence/decay only.
+
+    Uses Lai Eq. (7), Eq. (10), Eq. (20), and Appendix E Eq. (E2).
+    It deliberately omits semi-Compton and loop-bremsstrahlung channels.
+    """
+    from numpy.polynomial.legendre import leggauss
+
+    if (mass_MeV < 0.0 or temperature_MeV <= 0.0
+            or neutrinosphere_radius_km <= 0.0 or energy_order < 16
+            or tail_in_T < 20.0):
+        raise ValueError("Invalid mass, temperature, radius, or quadrature settings")
+    z, weights = leggauss(energy_order)
+    x = 0.5 * tail_in_T * (z + 1.0)
+    wx = 0.5 * tail_in_T * weights
+    omega = mass_MeV + temperature_MeV * x
+    v2 = np.maximum(1.0 - (mass_MeV / omega) ** 2, 0.0)
+    integrand = omega**3 * v2 * np.exp(-omega / temperature_MeV)
+    spectral_integral = float(temperature_MeV * np.dot(wx, integrand))
+
+    r_nu = neutrinosphere_radius_km * MEV_INV_PER_KM
+    luminosity_natural = 3.0 * r_nu**2 / (2.0 * np.pi) * spectral_integral
+    luminosity_erg_s = luminosity_natural * MEV2_TO_ERG_PER_SECOND
+
+    massless_limit = 9.0 / np.pi * r_nu**2 * temperature_MeV**4
+    return {
+        "mass_MeV": float(mass_MeV),
+        "temperature_MeV": float(temperature_MeV),
+        "neutrinosphere_radius_km": float(neutrinosphere_radius_km),
+        "energy_order": int(energy_order),
+        "tail_in_T": float(tail_in_T),
+        "spectral_integral_MeV4": spectral_integral,
+        "L_nu_only_plateau_natural_MeV2": float(luminosity_natural),
+        "L_nu_only_plateau_erg_s": float(luminosity_erg_s),
+        "massless_limit_erg_s": float(massless_limit * MEV2_TO_ERG_PER_SECOND),
+        "relative_to_massless_limit": float(luminosity_natural / massless_limit),
+        "scope": "neutrino-pair coalescence/decay channel only; omits semi-Compton and loop-bremsstrahlung",
+    }
+
+
 def plateau_luminosity_natural_units(
     neutrinosphere_radius_MeV_inv: float,
     omega_MeV: np.ndarray,
