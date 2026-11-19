@@ -25,6 +25,7 @@ on:
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_audit_croon_fig2_outer_opacity_gap.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/lai2024_plateau_equation_audit.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_lai2024_plateau_equation_audit.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/run_lai2024_neutrino_only_plateau_reference.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_c0_luminosity.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_croon_c0_luminosity_convergence.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_croon_c0_luminosity.py'
@@ -182,6 +183,15 @@ jobs:
       - name: Run Lai 2024 plateau and rate-convention equation audit
         working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
         run: python -m unittest -v test_lai2024_plateau_equation_audit.py
+      - name: Generate Lai neutrino-only thin-shell plateau reference
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python run_lai2024_neutrino_only_plateau_reference.py
+      - name: Upload Lai neutrino-only thin-shell plateau reference
+        uses: actions/upload-artifact@v4
+        with:
+          name: lai2024-neutrino-only-plateau-reference
+          path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/lai2024_neutrino_only_plateau_reference_2026-11-19.json
+          if-no-files-found: error
       - name: Diagnose missing outer opacity from solid/dashed Fig. 2 curves
         working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
         run: python audit_croon_fig2_outer_opacity_gap.py
