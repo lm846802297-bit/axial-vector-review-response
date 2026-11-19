@@ -56,6 +56,9 @@ jobs:
       - name: Generate Croon-literal C0 luminosity curve
         working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
         run: python croon_c0_luminosity.py
+      - name: Generate Lmu-Ltau two-neutrino-flavour C0 sensitivity curve
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python croon_c0_luminosity.py --neutrino-flavour-factor 2.0 --output outputs/croon_c0_luminosity_10mev_lmutau_2026-11-19.json
       - name: Generate charge-conjugate muon sensitivity curve
         working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
         run: python croon_c0_luminosity.py --include-antimuons --output outputs/croon_c0_luminosity_10mev_antimuons_2026-11-19.json
@@ -82,6 +85,12 @@ jobs:
         with:
           name: croon-c0-luminosity-10mev
           path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c0_luminosity_10mev_2026-11-19.json
+          if-no-files-found: error
+      - name: Upload Lmu-Ltau two-neutrino-flavour C0 sensitivity curve
+        uses: actions/upload-artifact@v4
+        with:
+          name: croon-c0-luminosity-10mev-lmutau
+          path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c0_luminosity_10mev_lmutau_2026-11-19.json
           if-no-files-found: error
       - name: Upload charge-conjugate muon sensitivity curve
         uses: actions/upload-artifact@v4
