@@ -1,4 +1,6 @@
+import json
 import unittest
+from pathlib import Path
 
 from audit_croon_antimuon_opacity_sensitivity import (
     DEFAULT_PROFILE,
@@ -44,6 +46,26 @@ class CroonAntimuonOpacitySensitivityTests(unittest.TestCase):
         self.assertGreater(
             row["mu_minus_only_gap_remaining"],
             row["mu_pm_gap_remaining"],
+        )
+
+    def test_committed_high_order_summary_matches_the_full_run(self):
+        summary_path = (
+            Path(__file__).parent
+            / "outputs"
+            / "croon_antimuon_opacity_sensitivity_summary_2026-11-19.json"
+        )
+        summary = json.loads(summary_path.read_text(encoding="utf-8"))
+        self.assertEqual(summary["validation"]["workflow_run"], 44519016169)
+        self.assertEqual(summary["validation"]["tests_passed"], 86)
+        row = next(
+            item for item in summary["comparison"]
+            if item["g_X"] == 3.0e-2
+        )
+        self.assertAlmostEqual(
+            row["mu_pm_Rnu_over_Tedge_ratio"], 1.0436723843403004, places=12
+        )
+        self.assertAlmostEqual(
+            row["mu_pm_gap_remaining"], 3.240384675060345, places=12
         )
 
     def test_literal_croon_convention_is_retained(self):
