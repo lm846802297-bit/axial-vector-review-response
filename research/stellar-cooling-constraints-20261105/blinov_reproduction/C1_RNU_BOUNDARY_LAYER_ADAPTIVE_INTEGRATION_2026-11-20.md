@@ -44,6 +44,19 @@ The implementation uses:
 5. Explicit integration split points at fixed values of \(g_X^2\tau\), together with radial knots inside the optically relevant surface layer.
 6. Separate integration for every energy node and each of \(L,+,-\), followed by the original energy quadrature.
 
+Writing \(L_r=R_\nu-r_{\min}\) and \(s=(R_\nu-r)/L_r\), the transformed quantities are
+
+\[
+\tau(s)=L_r\int_0^s du\,\kappa(R_\nu-L_r u,\omega),
+\]
+
+\[
+L_h(g_X,\omega)=g_X^2L_r\int_0^1 ds\,
+S_h(R_\nu-L_r s,\omega)e^{-g_X^2\tau_h(s,\omega)}.
+\]
+
+In particular, \(\tau(0)=0\) is evaluated directly at the surface; no subtraction of two large optical-depth values is required.
+
 The optical-depth split levels are 80, 64, 48, 32, 16, 8, 4, 2, 1, 0.5, 0.1, and 0.01. This makes the narrow escape layer visible to the adaptive integrator even when it is much thinner than one original radial cell.
 
 The old cumulative-Simpson optical depth and Simpson luminosity remain unchanged. New fields ending in adaptive_quad report the independent calculation.
