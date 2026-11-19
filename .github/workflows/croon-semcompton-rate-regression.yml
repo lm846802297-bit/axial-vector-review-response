@@ -13,6 +13,8 @@ on:
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_croon_blinov_neutrino_emissivity.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_fig2_literal_transport.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_croon_fig2_literal_transport.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_croon_fig2_energy_threshold_convergence.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_audit_croon_fig2_energy_threshold_convergence.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/digitize_croon_fig2_vector_paths.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_digitize_croon_fig2_vector_paths.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/digitize_croon_fig2_curves.py'
