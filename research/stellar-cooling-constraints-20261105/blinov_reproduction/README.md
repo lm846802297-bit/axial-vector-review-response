@@ -15,6 +15,7 @@ These modules are independent literature lanes and must not be mixed into the va
 - [Croon outer-profile and opacity-channel audit](../CROON_OUTER_PROFILE_SOURCE_AUDIT_2026-11-19.md)
 - [Croon/Lai benchmark scope and rate conventions](../CROON_VECTOR_BENCHMARK_SCOPE_AND_RATE_CORRECTIONS_2026-11-19.md)
 - [Lai 2024 plateau and equation-level comparison](../LAI2024_PLATEAU_BENCHMARK_AND_CROON_DIFFERENCES_2026-11-19.md)
+- [C1 10 MeV kernel convergence and execution audit](C1_10MEV_KERNEL_AND_EXECUTION_AUDIT_2026-11-20.md)
 
 The Croon literal lane retains the single-\(\mu^-\) \(F_{\rm deg}\) convention quoted from Bollig et al. A separate C0+\(\mu^+\) sensitivity adds the equilibrium antimuon distribution to both source and inverse semi-Compton opacity; it is not substituted into the literal reproduction. The high-order sensitivity result is archived at outputs/croon_antimuon_opacity_sensitivity_summary_2026-11-19.json.
 
