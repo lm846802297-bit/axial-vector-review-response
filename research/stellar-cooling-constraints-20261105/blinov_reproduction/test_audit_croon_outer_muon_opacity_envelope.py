@@ -64,7 +64,7 @@ class CroonOuterMuonOpacityEnvelopeTests(unittest.TestCase):
         self.assertLess(high["chi_required_MeV3"], 1.0e-8)
         self.assertGreater(low["chi_required_MeV3"] / high["chi_required_MeV3"], 1.0e7)
         self.assertGreater(high["chi_required_over_digitized_edge_value"], 50.0)
-        self.assertLess(high["chi_required_over_resolved_edge"], 100.0)
+        self.assertLess(high["chi_required_over_digitized_edge_value"], 100.0)
 
 
 if __name__ == "__main__":
