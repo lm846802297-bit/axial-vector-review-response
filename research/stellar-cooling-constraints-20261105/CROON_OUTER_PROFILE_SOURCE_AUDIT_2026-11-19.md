@@ -135,14 +135,14 @@ Until these steps are complete, keep the (R_{\rm far}=R_\nu) curve as the cleane
 
 ## 8. CI / PR bookkeeping
 
-PR #123 remains Draft. The 72-test workflow run [44487078124](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44487078124) completed successfully on commit \`6005a51e4ab3ff7032ff1270ba803586b020ba46\`. The PR branch has advanced since that run, but GitHub's commit comparison shows only Markdown files changed between the tested commit and the current branch head; no calculation-code files changed. Thus the 72 tests cover the same calculation code, but there is no workflow run attached to the exact current PR head. Do not describe the run as having tested that exact head.
+PR #123 remains Draft. The 72-test workflow run [44487078124](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44487078124) completed successfully on commit `6005a51e4ab3ff7032ff1270ba803586b020ba46`. The PR branch has advanced since that run, but GitHub's commit comparison shows only Markdown files changed between the tested commit and the current branch head; no calculation-code files changed. Thus the 72 tests cover the same calculation code, but there is no workflow run attached to the exact current PR head. Do not describe the run as having tested that exact head.
 
 No manuscript, referee response, validated Blinov baseline, or axial-vector exclusion curve is changed by this source audit.
 
 
 ## 9. Conditional monotonic-tail upper-envelope diagnostic
 
-A separate numerical diagnostic was run using the same Fermi--Dirac susceptibility integral implemented in \`croon_c0_luminosity.py\`. It is not a full replacement C0 run; it tests whether a smooth, non-increasing continuation of the resolved profile could plausibly account for the published solid/dashed luminosity separation.
+A separate numerical diagnostic was run using the same Fermi--Dirac susceptibility integral implemented in `croon_c0_luminosity.py`. It is not a full replacement C0 run; it tests whether a smooth, non-increasing continuation of the resolved profile could plausibly account for the published solid/dashed luminosity separation.
 
 ### Resolved edge susceptibility
 
