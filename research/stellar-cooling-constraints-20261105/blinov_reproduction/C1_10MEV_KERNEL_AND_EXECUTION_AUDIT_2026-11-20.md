@@ -57,13 +57,24 @@ These are independent B.13 kernel and B.1/B.2 transport validations. They are no
 
 The current C1 script evaluates the updated B.7 two-flavour neutrino rates and exact moving-muon B.13 rates on the reviewed profile, retaining both muon charges and all three vector polarizations. The outer (R_\nu\to100\) km path includes the two-flavour vacuum B.7 tail; the unvalidated outer semi-Compton opacity is not inserted.
 
-### Isolated single-mass baseline
+### Isolated single-mass baseline: first execution and archival retry
 
+First execution:
 - Workflow: [Croon C1 10 MeV single-mass baseline](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44569820441)
 - Workflow source commit: `beeca694274151d4217ade48bd26f253bc87f643`
-- Configuration: 101 radial points, 32 energy nodes, B.13 orders `12,8,8,8`, B.7 angular order 128, susceptibility order 192, 121 coupling points.
-- Six C1 equation, detailed-balance, and boundary tests passed before the transport calculation began.
-- At the latest status check, the isolated transport step was still running. JSON/CSV validation, checksum creation, and commit of the native outputs had not yet run.
+- Configuration: 101 requested radial points, 32 energy nodes, B.13 orders `12,8,8,8`, B.7 angular order 128, susceptibility order 192, 121 coupling points.
+- The sampled profile adds the muon-density edge and neutrinosphere boundary, giving 103 actual radial nodes.
+- Six C1 equation, detailed-balance, and boundary tests passed. The full transport calculation, JSON/CSV validation, and SHA-256 manifest creation all passed.
+- The physical diagnostics were: maximum B.7 detailed-balance residual (3.3114\times10^{-14}), maximum B.13 charge-mode residual (5.1765\times10^{-14}), and final-muon shell residual (5.3802\times10^{-13}).
+- The integrated optically-thin source per (g_X^2) was (4.45124\times10^{70}\) erg/s from B.7 neutrino coalescence, (7.28021\times10^{69}\) erg/s from (mu^-) B.13, and (5.04202\times10^{67}\) erg/s from (mu^+) B.13. Thus B.7 contributes 85.86% and B.13 14.14% of the combined thin source; (mu^+) contributes 0.688% of the B.13 component.
+- The exact moving-muon B.13 source (both charges) is 0.69598 of the same-grid Croon Eq. (4.7) (mu^-)-only source. This is a thin-source comparison, not an escaping luminosity or an exclusion limit.
+- Git archival failed after the calculations had passed: the branch advanced while the job was running, so the runner's direct push was rejected as non-fast-forward. The artifact step was ordered after the failed push and was skipped; no native JSON/CSV was retained from that execution.
+
+Archival retry:
+- The workflow was corrected to upload the native JSON/CSV and SHA-256 manifest before attempting the Git push, then fetch and rebase onto the latest PR branch before pushing.
+- Retry workflow: [Croon C1 10 MeV single-mass baseline](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44572225917)
+- Retry source commit: `9835706cb738c756234812cfc672a22cf50fc086`
+- The retry is running the same calculation and validation configuration. Its artifact and remote Git commit must be verified before declaring the native files archived.
 
 ### Earlier full-grid high-order attempt
 
