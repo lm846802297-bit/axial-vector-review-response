@@ -67,7 +67,7 @@ Implementation rule:
 
 1. Reproduce Croon Eq. (4.6) as a named legacy lane.
 2. Implement the chemical-potential-dependent B.7--B.10 expression as a separate updated lane.
-3. Test the updated expression against Croon in the Maxwell-Boltzmann / zero-chemical-potential limit.
+3. Compare the updated expression with Croon only after matching the number of neutrino flavors, chiral states, the vacuum-width convention (spin-averaged versus polarization-summed), and the definition of the coupling. Do **not** assume the prefactors coincide: Blinov et al. explicitly state that their Maxwell-Boltzmann limit matches Ref. [17] (Lai et al.), not that it reproduces Croon Eq. (4.6). Resolve this normalization algebraically before using it as a regression test.
 4. In the actual SFHo calculation, use the \(\nu_\mu\) and \(\nu_\tau\) chemical potentials separately when supplied by the profile. Do not replace them by zero in the production result merely to improve agreement.
 
 Source: https://arxiv.org/abs/2511.09619, Appendix B, Eqs. (B.7)--(B.10).
@@ -136,7 +136,7 @@ Do not compare total luminosities until the following are matched or explicitly 
 ### Local-rate acceptance
 
 - Croon-literal expressions reproduce the printed equations in their stated limit.
-- Corrected neutrino rate reproduces Croon Eq. (4.6) in the stated Maxwell-Boltzmann / zero-degeneracy limit.
+- Corrected neutrino rate has a separately derived Maxwell-Boltzmann limit; compare its normalization with Croon Eq. (4.6) only after matching flavor multiplicity, chiral-state counting, spin averaging, and coupling definitions.
 - Corrected semi-Compton rate reproduces Blinov B.16 in the no-recoil limit.
 - Full moving-muon B.13 kernel approaches the same controlled limit.
 - Forward and inverse rates satisfy detailed balance pointwise, flavor by flavor and polarization by polarization.
