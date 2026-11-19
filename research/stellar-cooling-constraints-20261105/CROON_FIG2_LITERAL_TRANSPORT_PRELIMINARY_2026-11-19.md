@@ -242,21 +242,22 @@ For \(m_{Z'}=0.1\) eV, the vacuum neutrino-decay opacity is proportional to \(m_
 
 The current profile is available only through \(R_\nu\simeq25.15\) km. In the C0 code, the muon susceptibility is therefore truncated at the edge of the public profile; the \(R_{\rm far}=100\) km calculation includes only the vacuum neutrino-decay tail outside \(R_\nu\). It must now be described as an **interior-profile calculation with a vacuum-only outer continuation**, not as a complete Croon \(R_{\rm far}=100\) km transport result. The dashed \(R_{\rm far}=R_\nu\) curve is the cleaner comparison for the presently available profile.
 
-The missing input is the raw outer radial profile (at minimum \(T(r)\) and \(\mu_\mu(r)\), or \(n_\mu(r)F_{\rm deg}(r)\)) between \(R_\nu\) and 100 km. The official Garching archive lists the Bollig radial-profile dataset, but its endpoint returns HTTP 401; the archive explicitly says that some data are password-protected and requests that users contact the maintainers. A separate publication also states that the Bollig radial profiles are available upon request. We cannot infer a physical outer profile from the Fig. 2 luminosity curves without tuning. Therefore, we retain the outer-opacity gap as unresolved and do not fit an opacity profile to the figure.
+The missing input is the raw outer radial profile (at minimum \(T(r)\) and \(\mu_\mu(r)\), or \(n_\mu(r)F_{\rm deg}(r)\)) between \(R_\nu\) and 100 km. The official Garching archive lists the Bollig radial-profile dataset, but its endpoint returns HTTP 401; the archive explicitly says that some data are password-protected and requests that users contact the maintainers. A separate publication also states that the Bollig radial profiles are available upon request. Independently, the public [SNforMuTau code repository](https://github.com/spinjo/SNforMuTau) explicitly says that its simulation data must be requested from the authors of Bollig et al. (arXiv:2005.07141). We cannot infer a physical outer profile from the Fig. 2 luminosity curves without tuning. Therefore, we retain the outer-opacity gap as unresolved and do not fit an opacity profile to the figure.
 
 
-The model output including this separate \(T_{\rm outer}=3\) MeV envelope is archived in [workflow artifact](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44464580478/artifacts/14500909045). The 13-test Fig. 2 transport suite checks both the vacuum and finite-temperature outer-tail formulas.
+The model output including this separate \(T_{\rm outer}=3\) MeV envelope is archived in [workflow artifact](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44483931250/artifacts/14509432825). The 13-test Fig. 2 transport suite checks both the vacuum and finite-temperature outer-tail formulas.
 
 The 0.1 MeV curve has a separate high-\(g\) endpoint outlier (maximum absolute residual 0.535 dex); its median is much closer. This endpoint must be inspected independently before interpreting the full RMS as a smooth physical discrepancy.
 
 Raw-profile access note: [official Garching archive entry](https://wwwmpa.mpa-garching.mpg.de/ccsnarchive/archive.html) lists the Bollig radial profiles; the [radial-profile data endpoint](https://wwwmpa.mpa-garching.mpg.de/ccsnarchive/data/Bollig2016_radial_profiles/) is access-controlled (HTTP 401). The archive asks users to contact the maintainers for password-protected data.
 
 Reproducible outputs:
-- [No-fit pointwise comparison JSON](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44463503829/artifacts/14501271226)
-- [Croon Fig. 2 model curves](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44463503829/artifacts/14501216341)
-- [Digitized PDF vector curves](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44463503829/artifacts/14500373943)
+- [No-fit pointwise comparison JSON](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44483931250/artifacts/14509377783)
+- [Croon Fig. 2 model curves](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44483931250/artifacts/14509432825)
+- [Digitized PDF vector curves](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44483931250/artifacts/14510310390)
+- [Outer-opacity gap diagnostic](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44483931250/artifacts/14510025921)
 
-The comparison workflow run #44463503829 completed successfully. The subsequent outer-opacity sensitivity run #44464580478 also completed successfully, with 61 passing unit tests across the equation-level checks, C0 luminosity, PDF vector extraction/digitization, no-fit comparison, energy-threshold audit, and the existing B.13/B.16 and Ward-identity regression suites.
+The current workflow run [#44483931250](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44483931250) completed successfully with 64 passing tests, including the new solid/dashed outer-opacity diagnostic, C0 metadata checks, PDF vector extraction/digitization, no-fit comparison, energy-threshold audit, and the existing B.13/B.16 and Ward-identity regression suites.
 
 ## What remains before calling this a Fig. 2 reproduction
 
