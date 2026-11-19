@@ -103,6 +103,14 @@ The paper explains that the rate contains an additional \(1/v_V\) and a factor 2
 
 Consequently, Croon Eq. (4.7) is **not** the corrected formula to use for the production calculation. It remains a legacy comparison. Do not apply a guessed global factor to the final rate; implement B.13--B.19 from the phase-space integral and verify it numerically.
 
+For the same (n_\mu F_{\rm deg}), coupling and Bose factor, direct substitution gives the equation-level ratio
+\[
+\frac{\Gamma_{\rm B16}}{\Gamma_{\rm Croon}}
+=\frac{2\left(1+m_V^2/(2\omega^2)\right)}{v_V},
+\qquad v_V=\sqrt{1-m_V^2/\omega^2}.
+\]
+Thus the ratio tends to 2 for (m_V/\omega\to0), and grows as threshold is approached. This is a controlled comparison of the two printed non-recoil formulae, not a universal correction factor to be applied to arbitrary kernels.
+
 The full moving-muon/recoil kernel already developed in this repository is the next level beyond this non-recoil limit. It must reduce to the updated B.16 expression in the appropriate controlled limit, not necessarily to Croon Eq. (4.7).
 
 Source: https://arxiv.org/abs/2511.09619, Appendix B, Eqs. (B.13)--(B.19).
