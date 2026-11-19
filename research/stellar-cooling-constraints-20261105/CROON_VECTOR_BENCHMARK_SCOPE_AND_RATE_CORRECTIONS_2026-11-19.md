@@ -247,7 +247,7 @@ L_{Z'}^{\rm free}=\int_0^{R_\nu}4\pi r^2dr
 \left[\Gamma_{\nu\bar\nu}^{\rm prod}+
 \Gamma_{\gamma\mu}^{\rm prod}\right]e^{-\tau(\omega,r)}.
 \]
-It follows Croon Eqs. (3.3)--(3.4), (4.6)--(4.7): flat \(4\pi r^2dr\), no lapse/redshift, no angular escape average, and no explicit \(1/v_V\) in the optical-depth integral. The standard outer boundary is \(R_{\rm far}=100\) km and retains the vacuum \(Z'\to\nu\bar\nu\) absorption tail. The \(R_{\rm far}=R_\nu\) result is retained as a separate sensitivity.
+It follows Croon Eqs. (3.3)--(3.4), (4.6)--(4.7) for the interior profile: flat \(4\pi r^2dr\), no lapse/redshift, no angular escape average, and no explicit \(1/v_V\) in the optical-depth integral. The standard outer boundary is \(R_{\rm far}=100\) km and retains the vacuum \(Z'\to\nu\bar\nu\) absorption tail. **However, the outer semi-Compton opacity is not included for \(R_\nu<r<R_{\rm far}\)** because no validated outer muon-susceptibility profile is available. The \(R_{\rm far}=R_\nu\) result is retained as a separate interior-profile sensitivity. Consequently, low-mass strong-coupling C0 results at \(R_{\rm far}=100\) km are not complete Croon transport results.
 
 For \(m_V=10\) MeV, the optically-thin channel luminosities per \(g_X^2\) are:
 
