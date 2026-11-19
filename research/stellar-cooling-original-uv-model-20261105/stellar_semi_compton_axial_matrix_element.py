@@ -174,6 +174,64 @@ def amplitude_matrix(
     return vertex_x @ prop_s @ vertex_gamma + vertex_gamma @ prop_u @ vertex_x
 
 
+def pseudoscalar_amplitude_matrix(
+    p: np.ndarray,
+    k: np.ndarray,
+    p_prime: np.ndarray,
+    q: np.ndarray,
+    muon_mass: float,
+    epsilon_gamma: np.ndarray,
+) -> np.ndarray:
+    """Spinor-space matrix with a unit pseudoscalar A' Goldstone vertex."""
+    s_invariant = (p[0] + k[0]) ** 2 - np.dot(p[1:] + k[1:], p[1:] + k[1:])
+    r = p - q
+    u_invariant = r[0] ** 2 - np.dot(r[1:], r[1:])
+    denom_s = s_invariant - muon_mass**2
+    denom_u = u_invariant - muon_mass**2
+    vertex_p = GAMMA5
+    vertex_gamma = slash(epsilon_gamma)
+    prop_s = (slash(p + k) + muon_mass * ID4) / denom_s
+    prop_u = (slash(r) + muon_mass * ID4) / denom_u
+    return vertex_p @ prop_s @ vertex_gamma + vertex_gamma @ prop_u @ vertex_p
+
+
+def axial_goldstone_ward_identity_residual(
+    photon_energy: float,
+    vector_mass: float,
+    cos_theta: float,
+    muon_mass: float = M_MU_MEV,
+) -> float:
+    """Check q_nu M_A^nu = 2*m_mu*M_P for the complete s+u amplitude.
+
+    The A' vertex convention is gamma^nu(gV - gA gamma5).  Setting
+    (gV,gA)=(0,1) and inserting epsilon_X=q contracts the axial amplitude.
+    The pseudoscalar amplitude uses a unit gamma5 vertex.  This identity is
+    exact for on-shell external muons; Goldstone equivalence of a physical
+    longitudinal A' is a separate high-energy approximation.
+    """
+    p, k, p_prime, q = lab_kinematics(
+        photon_energy, vector_mass, cos_theta, muon_mass
+    )
+    residual = 0.0
+    for epsilon_gamma in photon_polarizations():
+        axial_contracted = amplitude_matrix(
+            p, k, p_prime, q, muon_mass, epsilon_gamma, q, 0.0, 1.0
+        )
+        pseudoscalar = pseudoscalar_amplitude_matrix(
+            p, k, p_prime, q, muon_mass, epsilon_gamma
+        )
+        for initial_spin in range(2):
+            u_in = u_spinor(p, muon_mass, initial_spin)
+            for final_spin in range(2):
+                u_out = u_spinor(p_prime, muon_mass, final_spin)
+                ubar_out = u_out.conj().T @ GAMMA[0]
+                lhs = ubar_out @ axial_contracted @ u_in
+                rhs = 2.0 * muon_mass * (ubar_out @ pseudoscalar @ u_in)
+                scale = max(abs(lhs), abs(rhs), 1.0e-300)
+                residual = max(residual, abs(lhs-rhs)/scale)
+    return float(residual)
+
+
 def ward_identity_residual(
     photon_energy: float,
     vector_mass: float,
