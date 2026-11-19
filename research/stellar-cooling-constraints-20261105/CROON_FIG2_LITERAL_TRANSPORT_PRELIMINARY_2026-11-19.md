@@ -169,7 +169,7 @@ The corresponding generic, \(L_\mu-L_\tau\), charge-conjugate, high-order and co
 - [high-order 10 MeV C0 curve](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449522338/artifacts/14495071605)
 - [quadrature and profile-convention audit](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449522338/artifacts/14495515156)
 
-All these calculations remain preliminary because the public figure reconstruction is not the raw Garching radial table and the Croon Fig. 2 curve has not yet been digitized point-by-point.
+All these calculations remain preliminary because the public profile is not the raw Garching radial table and the low-mass strong-coupling (R_{\rm far}=100) km curve lacks the outer semi-Compton opacity input. The PDF Fig. 2 paths have now been digitized and compared point-by-point; that comparison localizes, but does not remove, the missing outer-opacity contribution.
 
 ## Pointwise comparison with the published Fig. 2 vector paths (2026-11-19)
 
