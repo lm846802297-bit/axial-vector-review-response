@@ -429,6 +429,7 @@ def _compute_mass(
         "radial_points": int(n_r),
         "energy_order": int(energy_order),
         "energy_points": int(n_e),
+        "polarization_modes": list(MODES),
         "inner_orders": list(inner_orders),
         "neutrino_angular_order": int(neutrino_order),
         "maximum_B7_mode_detailed_balance_residual": max_nu_db,
