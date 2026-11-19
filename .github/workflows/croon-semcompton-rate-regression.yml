@@ -11,6 +11,8 @@ on:
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_croon_neutrino_rate_comparison.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_blinov_neutrino_emissivity.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_croon_blinov_neutrino_emissivity.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_fig2_literal_transport.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_croon_fig2_literal_transport.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_c0_luminosity.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_croon_c0_luminosity.py'
       - '.github/workflows/croon-semcompton-rate-regression.yml'
@@ -70,6 +72,20 @@ jobs:
         with:
           name: croon-c0-luminosity-10mev
           path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c0_luminosity_10mev_2026-11-19.json
+          if-no-files-found: error
+      - name: Run Croon Fig. 2 literal-transport regression tests
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest -v test_croon_fig2_literal_transport.py
+      - name: Generate Croon Fig. 2 literal-transport benchmark
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python croon_fig2_literal_transport.py
+      - name: Upload Croon Fig. 2 literal-transport benchmark
+        uses: actions/upload-artifact@v4
+        with:
+          name: croon-fig2-literal-transport-preliminary
+          path: |
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_fig2_literal_transport_preliminary_2026-11-19.json
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_fig2_literal_transport_preliminary_2026-11-19.csv
           if-no-files-found: error
       - name: Re-run exact B13 to B16 controlled-limit regression
         working-directory: research/stellar-cooling-constraints-20261105
