@@ -46,7 +46,7 @@ class CroonNeutrinoRateComparisonTests(unittest.TestCase):
         self.assertAlmostEqual(rate / expected, 1.0, places=14)
 
     def test_two_flavour_MB_limit_matches_Lai_and_is_three_times_Croon(self):
-        mass, omega, temperature = 1.0, 100.0, 2.0
+        mass, omega, temperature = 99.0, 100.0, 2.0
         velocity = np.sqrt(1.0 - (mass / omega) ** 2)
         b7 = blinov_b7_two_flavour_rate_per_g2(
             mass, omega, temperature, 0.0, 0.0, order=256
