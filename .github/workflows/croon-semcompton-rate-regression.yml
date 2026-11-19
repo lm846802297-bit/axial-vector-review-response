@@ -9,6 +9,8 @@ on:
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_croon_semicompton_rate_comparison.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_neutrino_rate_comparison.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_croon_neutrino_rate_comparison.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_blinov_neutrino_emissivity.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_croon_blinov_neutrino_emissivity.py'
       - '.github/workflows/croon-semcompton-rate-regression.yml'
   workflow_dispatch:
 
@@ -18,7 +20,7 @@ permissions:
 jobs:
   equation-level-regression:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -37,11 +39,23 @@ jobs:
       - name: Generate local neutrino-rate comparison table
         working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
         run: python croon_neutrino_rate_comparison.py
+      - name: Run full-profile neutrino emissivity regression tests
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest -v test_croon_blinov_neutrino_emissivity.py
+      - name: Generate full-profile local neutrino emissivity comparison
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python croon_blinov_neutrino_emissivity.py
       - name: Upload full 28-point local neutrino-rate table
         uses: actions/upload-artifact@v4
         with:
           name: croon-blinov-neutrino-rate-comparison
           path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_blinov_neutrino_rate_comparison_2026-11-19.json
+          if-no-files-found: error
+      - name: Upload full-profile local neutrino emissivity table
+        uses: actions/upload-artifact@v4
+        with:
+          name: croon-blinov-neutrino-emissivity-profile
+          path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_blinov_neutrino_emissivity_profile_2026-11-19.json
           if-no-files-found: error
       - name: Re-run exact B13 to B16 controlled-limit regression
         working-directory: research/stellar-cooling-constraints-20261105
