@@ -506,6 +506,7 @@ In this project, do not assume that the neutrino coupling equals the charged-muo
 
 - This document is a literature/formula audit and execution specification.
 - Croon Fig. 2 is compared point-by-point against digitized PDF vector paths, but the low-mass strong-coupling \(R_{\rm far}=100\) km curve remains incomplete because the raw outer muon-opacity profile is unavailable.
+- A full source-weighted, edge-bounded outer semi-Compton envelope has been tested at m_Z'=0.1 eV. It produces only a 1.03284 luminosity ratio at g_X=0.03, compared with the digitized solid/dashed median 3.38190. The monotonic continuation of the public profile is therefore insufficient; a non-monotonic outer shell or other outer-medium opacity remains open pending the raw Garching profile. See CROON_OUTER_PROFILE_SOURCE_AUDIT_2026-11-19.md and workflow run #44509948112.
 - The \(R_{\rm far}=R_\nu\) dashed comparison is consistent with the interior-profile calculation at approximately the 0.05 dex level on the low-mass strong-coupling plateau.
 - It does not claim that the Croon rates are the corrected modern rates.
 - It does not claim that Blinov 2026 is an exact ground truth; it is a more complete, independently checkable reference with its own profile and transport assumptions.
