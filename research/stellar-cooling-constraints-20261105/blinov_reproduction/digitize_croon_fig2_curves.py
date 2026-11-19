@@ -27,6 +27,16 @@ MASS_VALUES_MEV = {
     "1 eV": 1.0e-6,
     "0.1 eV": 1.0e-7,
 }
+# The PDF's legend text is black; the curve strokes carry the mass palette.
+# These are the measured vector stroke colours from the source PDF.
+MASS_STROKE_RGB = {
+    "200 MeV": (0.0, 1.0, 1.0),
+    "10 MeV": (0.0078431377, 0.9686274529, 0.4901960790),
+    "0.1 MeV": (0.0, 0.0, 1.0),
+    "10 eV": (1.0, 0.6470588446, 0.0),
+    "1 eV": (1.0, 0.0, 0.0),
+    "0.1 eV": (0.0, 0.0, 0.0),
+}
 
 
 def _rgb_from_int(value: int) -> np.ndarray:
@@ -121,38 +131,69 @@ def calibrate_axes(paths: list[dict]) -> dict:
 
 
 def match_label_paths(text_spans: list[dict], paths: list[dict]) -> dict:
+    """Match black legend labels to the actual coloured curve strokes.
+
+    The PDF legend text itself is black, so matching the text colour to the
+    curve colour is incorrect. Instead, require each printed label and match
+    its curve using the independently inspected source-PDF stroke palette.
+    """
     labels = {}
     selected_path_indices: set[int] = set()
     for label in MASS_LABELS:
         candidates = [s for s in text_spans if s["text"].strip() == label]
         if len(candidates) != 1:
-            raise RuntimeError(f"Expected one in-plot colour label {label!r}, found {len(candidates)}")
-        target = _rgb_from_int(candidates[0]["color"])
-        scored = [
-            (_colour_distance(p["stroke_rgb"], target), p)
-            for p in paths if p.get("stroke_rgb") is not None
+            raise RuntimeError(
+                f"Expected one in-plot legend label {label!r}, found {len(candidates)}"
+            )
+        target = np.asarray(MASS_STROKE_RGB[label], dtype=float)
+        eligible = [
+            p for p in paths
+            if p.get("stroke_rgb") is not None
             and p.get("flattened_points")
-            and p["rect"][2]-p["rect"][0] > 50.0
+            and p["rect"][2]-p["rect"][0] > 100.0
             and p["rect"][3]-p["rect"][1] > 50.0
         ]
         if label == "0.1 eV":
-            scored = [item for item in scored if item[1].get("dashes") == "[] 0"]
+            eligible = [
+                p for p in eligible
+                if max(p["stroke_rgb"]) < 0.03 and p.get("dashes") == "[] 0"
+            ]
+        else:
+            eligible = [
+                p for p in eligible
+                if p.get("dashes") in (None, "[] 0")
+                and max(p["stroke_rgb"]) > 0.05
+            ]
+        scored = [
+            (_colour_distance(p["stroke_rgb"], target), p)
+            for p in eligible
+        ]
         if not scored:
-            raise RuntimeError(f"No eligible in-plot vector path found for label {label!r}")
-        distance, chosen = min(scored, key=lambda item: item[0])
+            raise RuntimeError(f"No eligible vector path found for label {label!r}")
+        scored.sort(key=lambda item: item[0])
+        distance, chosen = scored[0]
+        if distance > 0.03:
+            raise RuntimeError(
+                f"Could not match label {label!r} to a vector path "
+                f"(stroke-colour distance {distance})"
+            )
+        if len(scored) > 1 and abs(scored[1][0]-distance) < 1e-8:
+            raise RuntimeError(
+                f"Ambiguous curve matching for label {label!r}: "
+                f"paths {chosen['index']} and {scored[1][1]['index']}"
+            )
         chosen_index = int(chosen["index"])
-        if distance > 0.35:
-            raise RuntimeError(f"Could not match label {label!r} to a vector path (colour distance {distance})")
         if chosen_index in selected_path_indices:
             raise RuntimeError(
                 f"Ambiguous curve matching: labels already selected vector path {chosen_index}"
             )
         selected_path_indices.add(chosen_index)
         labels[label] = {
-            "path_index": int(chosen["index"]),
+            "path_index": chosen_index,
             "colour_distance": float(distance),
-            "label_colour_rgb": target.tolist(),
+            "label_stroke_rgb": target.tolist(),
             "path_colour_rgb": chosen["stroke_rgb"],
+            "legend_text_colour_rgb": _rgb_from_int(candidates[0]["color"]).tolist(),
         }
     return labels
 
