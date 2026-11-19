@@ -18,6 +18,9 @@ except ImportError:
         DEFAULT_PROFILE,
         local_rate_spectra,
         load_profile,
+        free_streaming_volume_integral,
+        MEV_INV_PER_KM,
+        MEV2_TO_ERG_PER_SECOND,
     )
     from reference import fermi_pair_average as reference_pair_average
 
