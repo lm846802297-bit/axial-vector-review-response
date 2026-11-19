@@ -54,7 +54,7 @@ class CroonFig2LiteralTransportTests(unittest.TestCase):
         rates = croon_local_rates_per_g2(mass, omega, temperature, chi)
         bose = 1.0 / np.expm1(omega[None, :] / temperature[:, None])
         velocity = np.sqrt(1.0 - (mass/omega)**2)
-        expected_nu = 2.0*mass**2/(12*np.pi*omega[None, :])*bose
+        expected_nu = mass**2/(12*np.pi*omega[None, :])*bose
         expected_sc = (2/137.035999084/(3*M_MU_MEV**2)
                        * chi[:, None]*velocity[None, :]*bose)
         np.testing.assert_allclose(rates["neutrino_production_per_g2"], expected_nu)
@@ -65,7 +65,7 @@ class CroonFig2LiteralTransportTests(unittest.TestCase):
         m = 10.0
         rnu = self.profile_005["rnu_km"]
         tau = outer_vacuum_tau_per_g2(m, omega, rnu, 100.0)
-        expected = 2.0*(100.0-rnu)*KM_TO_MEV_INV*m*m/(12*np.pi*omega)
+        expected = (100.0-rnu)*KM_TO_MEV_INV*m*m/(12*np.pi*omega)
         np.testing.assert_allclose(tau, expected, rtol=1e-14)
         self.assertTrue(np.all(tau > 0.0))
         self.assertTrue(np.all(outer_vacuum_tau_per_g2(m, omega, rnu, rnu) == 0.0))
