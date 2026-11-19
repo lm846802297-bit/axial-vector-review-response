@@ -171,12 +171,64 @@ The corresponding generic, \(L_\mu-L_\tau\), charge-conjugate, high-order and co
 
 All these calculations remain preliminary because the public figure reconstruction is not the raw Garching radial table and the Croon Fig. 2 curve has not yet been digitized point-by-point.
 
+## Pointwise comparison with the published Fig. 2 vector paths (2026-11-19)
+
+The PDF curve extraction and a no-fit numerical comparison are now complete. The comparison uses the published arXiv PDF vector paths, not a raster screenshot. The source PDF SHA-256 is
+\[
+\texttt{c080958470a1e242b8c0a97a5f9225f0261e807e499c7690683805ebec6977e5}.
+\]
+The axis calibration residuals are \(3.68\times10^{-7}\) dex in \(\log_{10}g_{Z'}\) and \(1.44\times10^{-7}\) dex in \(\log_{10}L\). The digitizer extracts 40, 42, 55, 87, 73, 76 and 50 points for the six solid curves and the \(R_{\rm far}=R_\nu\) dashed sensitivity curve, respectively. The vector-path stroke width is not yet propagated as an uncertainty.
+
+For each digitized point, the model luminosity is linearly interpolated in \(\log_{10}L\) versus \(\log_{10}g\). Define
+\[
+\Delta=\log_{10}\!\left(\frac{L_{\rm model}}{L_{\rm Fig.\,2}}\right).
+\]
+No normalization fit, coupling shift, or curve rescaling is performed.
+
+| Fig. 2 curve | Points | Median \(\Delta\) [dex] | RMS [dex] | Median \(L_{\rm model}/L_{\rm Fig.2}\) |
+|---|---:|---:|---:|---:|
+| 200 MeV | 40 | +0.0467 | 0.0461 | 1.114 |
+| 10 MeV | 42 | +0.0326 | 0.0392 | 1.078 |
+| 0.1 MeV | 55 | -0.0507 | 0.1484 | 0.890 |
+| 10 eV | 87 | +0.4987 | 0.4247 | 3.152 |
+| 1 eV | 73 | +0.4679 | 0.3918 | 2.937 |
+| 0.1 eV, \(R_{\rm far}=100\) km | 76 | +0.4806 | 0.4073 | 3.024 |
+| 0.1 eV, \(R_{\rm far}=R_\nu\) | 50 | -0.0442 | 0.2265 | 0.903 |
+
+The branch split is more diagnostic than the full-curve median:
+
+| Fig. 2 curve | Low-\(g\) median \(\Delta\) [dex] | High-\(g\) median \(\Delta\) [dex] |
+|---|---:|---:|
+| 200 MeV | +0.0469 | +0.0441 |
+| 10 MeV | +0.0321 | +0.0381 |
+| 0.1 MeV | -0.0507 | -0.0777 |
+| 10 eV | -0.0775 | +0.5092 |
+| 1 eV | -0.0791 | +0.4890 |
+| 0.1 eV, \(R_{\rm far}=100\) km | -0.0806 | +0.4897 |
+| 0.1 eV, \(R_{\rm far}=R_\nu\) | -0.0551 | -0.0417 |
+
+This establishes three distinct outcomes:
+
+1. **High masses:** the 10 and 200 MeV curves are close to the published vector paths at the roughly 8--11% median level. This is encouraging, but it is not a precision reproduction.
+2. **Weak-coupling low-mass branch:** the 10 eV, 1 eV and 0.1 eV curves are within about 0.08 dex at their low-\(g\) points. Thus the optically-thin semi-Compton normalization is not globally wrong by a factor of three.
+3. **Strong-coupling low-mass branch:** for the conservative \(R_{\rm far}=100\) km curves, the model is high by a median factor of about 3.1. The \(R_{\rm far}=R_\nu\) dashed sensitivity curve has a much smaller median offset, although its RMS and maximum residual remain affected by the high-\(g\) endpoint.
+
+The discrepancy is therefore **not** repaired by a single source normalization. The pattern points to the trapping/opacity treatment, especially the \(R_\nu\to R_{\rm far}\) contribution, as the next place to investigate. The current implementation explicitly uses the vacuum \(Z'\to\nu\bar\nu\) decay tail outside the available \(R_\nu\) profile. The public profile ends at 25 km and is not the raw Garching radial table used by Croon. We have not established that the vacuum-tail continuation is identical to the authors' numerical treatment, nor have we established that the raw simulation has no additional outer-medium opacity. The residual is retained as an unresolved reproduction difference; no opacity or rate is tuned to remove it.
+
+The 0.1 MeV curve has a separate high-\(g\) endpoint outlier (maximum absolute residual 0.535 dex); its median is much closer. This endpoint must be inspected independently before interpreting the full RMS as a smooth physical discrepancy.
+
+Reproducible outputs:
+- [No-fit pointwise comparison JSON](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44463503829/artifacts/14501271226)
+- [Croon Fig. 2 model curves](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44463503829/artifacts/14501216341)
+- [Digitized PDF vector curves](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44463503829/artifacts/14500373943)
+
+The comparison workflow run #44463503829 completed successfully. It contains 59 passing unit tests across the equation-level checks, C0 luminosity, PDF vector extraction/digitization, no-fit comparison, energy-threshold audit, and the existing B.13/B.16 and Ward-identity regression suites.
+
 ## What remains before calling this a Fig. 2 reproduction
 
-1. Run the committed full-profile implementation on all 1687 source rows and archive the JSON/CSV output.
-2. Digitize Croon Fig. 2 from the original PDF and compare curve positions and luminosities without fitting or tuning any normalization.
-3. Quantify the public-profile reconstruction uncertainty, especially \(T(r)\) and \(n_\mu F_{\rm deg}(r)\), against the Bollig SFHo-18.8 profile.
-4. Bracket the unknown \(R_\nu\to100\) km finite-temperature opacity between the literal vacuum tail and a \(T=3\) MeV upper envelope.
-5. Keep the C0 result separate from the corrected B.13 local-rate lane and from all axial-vector predictions.
+1. Audit the (R_\nu\to R_{\rm far}) absorptive opacity against the literal Croon equations and the available outer-profile information; keep vacuum-tail and finite-temperature upper-envelope variants separate.
+2. Inspect the 0.1 MeV high-(g) digitized endpoint and propagate the PDF line-stroke uncertainty.
+3. Quantify how much of the low-mass trapping discrepancy can be attributed to the unavailable raw Garching outer profile versus the optical-depth continuation.
+4. Keep the C0 result separate from the corrected B.13 local-rate lane and from all axial-vector predictions.
 
 No axial-vector curve or SN1987A exclusion is updated by this preliminary calculation.
