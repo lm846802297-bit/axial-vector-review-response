@@ -104,6 +104,23 @@ class CroonFig2CurveDigitizationTests(unittest.TestCase):
             digitizer_module.MASS_STROKE_RGB = original_palette
 
 
+    def test_segment_clipping_inserts_boundary_intersections(self):
+        axes = {
+            "plot_rect_pdf_points": [0.0, 0.0, 10.0, 10.0],
+            "x_log10_g_from_pdf_x": {"slope": 1.0, "intercept": 0.0},
+            "y_log10_L_from_pdf_y": {"slope": -1.0, "intercept": 10.0},
+        }
+        # Both original endpoints of the first segment are not both in-frame;
+        # the lower edge crossing at y=10 must nevertheless be retained.
+        points = digitize_points(
+            [[-5.0, 12.0], [5.0, 5.0], [15.0, 5.0]], axes
+        )
+        self.assertEqual(len(points), 3)
+        self.assertAlmostEqual(points[0]["pdf_y"], 10.0, places=12)
+        self.assertAlmostEqual(points[0]["pdf_x"], -5.0 + (2.0/7.0)*10.0, places=12)
+        self.assertAlmostEqual(points[-1]["pdf_x"], 10.0, places=12)
+        self.assertAlmostEqual(points[-1]["pdf_y"], 5.0, places=12)
+
     def test_digitization_discards_points_outside_axes_and_maps_log_ticks(self):
         axes = {
             "plot_rect_pdf_points": [10.0, 20.0, 410.0, 220.0],
