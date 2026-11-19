@@ -55,6 +55,12 @@ jobs:
       - name: Generate Croon-literal C0 luminosity curve
         working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
         run: python croon_c0_luminosity.py
+      - name: Generate charge-conjugate muon sensitivity curve
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python croon_c0_luminosity.py --include-antimuons --output outputs/croon_c0_luminosity_10mev_antimuons_2026-11-19.json
+      - name: Generate high-order C0 convergence curve
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python croon_c0_luminosity.py --energy-order 96 --tau-grid-points 601 --susceptibility-order 192 --output outputs/croon_c0_luminosity_10mev_highorder_2026-11-19.json
       - name: Upload full 28-point local neutrino-rate table
         uses: actions/upload-artifact@v4
         with:
@@ -72,6 +78,18 @@ jobs:
         with:
           name: croon-c0-luminosity-10mev
           path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c0_luminosity_10mev_2026-11-19.json
+          if-no-files-found: error
+      - name: Upload charge-conjugate muon sensitivity curve
+        uses: actions/upload-artifact@v4
+        with:
+          name: croon-c0-luminosity-10mev-antimuons
+          path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c0_luminosity_10mev_antimuons_2026-11-19.json
+          if-no-files-found: error
+      - name: Upload high-order C0 convergence curve
+        uses: actions/upload-artifact@v4
+        with:
+          name: croon-c0-luminosity-10mev-highorder
+          path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c0_luminosity_10mev_highorder_2026-11-19.json
           if-no-files-found: error
       - name: Run Croon Fig. 2 literal-transport regression tests
         working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
