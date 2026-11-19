@@ -1,0 +1,166 @@
+name: Croon A0 UV finite-mixing axial transport
+
+on:
+  push:
+    branches:
+      - research/croon-vector-benchmark-and-rate-corrections-20261119
+    paths:
+      - '.github/workflows/croon-a0-uv-axial-transport.yml'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_a0_uv_axial_transport.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_croon_a0_uv_axial_transport.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_c1_b13_vector_transport.py'
+      - 'research/stellar-cooling-constraints-20261105/finite_mixing/model.py'
+      - 'research/stellar-cooling-constraints-20261105/finite_mixing/moving_muon_compton.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  a0-10mev-transport:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Record source revision and profile identity
+        run: |
+          python --version
+          git rev-parse HEAD
+          sha256sum research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv
+      - name: Install pinned numerical dependencies
+        run: python -m pip install numpy==2.5.5 scipy==1.18.1
+      - name: Run A0 mapping, kernel, and unchanged C1 regression tests
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        env:
+          PYTHONPATH: ..
+        run: |
+          python -m unittest -v \
+            test_croon_a0_uv_axial_transport.py \
+            test_croon_c1_b13_vector_transport.py
+      - name: Compute 10 MeV A0 UV finite-mixing transport
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        env:
+          PYTHONPATH: ..
+        run: |
+          python croon_a0_uv_axial_transport.py \
+            --masses 10.0 \
+            --radial-points 101 \
+            --energy-order 32 \
+            --inner-orders 12 8 8 8 \
+            --neutrino-order 128 \
+            --susceptibility-order 192 \
+            --coupling-count 121 \
+            --theta-mu-r 0.01 \
+            --output outputs/croon_a0_uv_axial_transport_10mev_2026-11-20.json \
+            --csv outputs/croon_a0_uv_axial_transport_10mev_2026-11-20.csv
+      - name: Validate A0 transport and unchanged B.7 neutrino channel
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: |
+          python - <<'PY'
+          import csv, json, math
+          from pathlib import Path
+          a0_path = Path("outputs/croon_a0_uv_axial_transport_10mev_2026-11-20.json")
+          a0_csv = Path("outputs/croon_a0_uv_axial_transport_10mev_2026-11-20.csv")
+          c1_path = Path("outputs/croon_c1_b13_vector_transport_10mev_mode_resolved_2026-11-20.json")
+          a0 = json.loads(a0_path.read_text())
+          c1 = json.loads(c1_path.read_text())
+          assert a0["status"].startswith("A0 interior-profile")
+          assert a0["model"]["theta_mu_R"] == 0.01
+          assert abs(a0["model"]["gV_mu_over_gX"] - math.sin(0.01)**2) < 1e-15
+          assert abs(a0["model"]["gA_mu_over_gX"] + math.cos(0.01)**2) < 1e-15
+          assert a0["model"]["neutrino_couplings_over_gX"] == {"nu_mu": 1.0, "nu_tau": -1.0}
+          item = a0["masses"]["10"]
+          c1_item = c1["masses"]["10"]
+          modes = ("L", "+", "-")
+          assert item["mass_MeV"] == 10.0
+          assert item["radial_points"] == c1_item["radial_points"]
+          assert item["energy_points"] == c1_item["energy_points"] == 32
+          assert item["polarization_modes"] == list(modes)
+          assert len(item["coupling_curve"]) == 121
+          assert len(item["local_profile"]) == item["radial_points"]
+          assert item["maximum_B7_mode_detailed_balance_residual"] < 1e-10
+          assert item["maximum_B13_charge_mode_detailed_balance_residual"] < 1e-10
+          assert item["maximum_final_muon_shell_relative_error"] < 2e-10
+          # B.7 is unchanged by theta_muR: compare the same-grid integrated
+          # source and each physical polarization against the accepted C1 run.
+          a0_b7 = item["thin_source_per_g2_erg_s"]["B7_nu_mu_plus_nu_tau"]
+          c1_b7 = c1_item["thin_source_per_g2_erg_s"]["B7_nu_mu_plus_nu_tau"]
+          assert abs(a0_b7-c1_b7)/max(abs(c1_b7),1e-300) < 1e-12
+          for mode in modes:
+              av = item["thin_source_by_mode_per_g2_erg_s"]["B7_nu_mu_plus_nu_tau"][mode]
+              cv = c1_item["thin_source_by_mode_per_g2_erg_s"]["B7_nu_mu_plus_nu_tau"][mode]
+              assert abs(av-cv)/max(abs(cv),1e-300) < 1e-12
+          assert max(item["thin_source_mode_sum_relative_residuals"].values()) < 1e-12
+          for key, value in item["thin_source_per_g2_erg_s"].items():
+              assert math.isfinite(value) and value >= 0, (key, value)
+          for row in item["coupling_curve"]:
+              assert 0 < row["g_X"] <= 1
+              for key in ("Rfar_Rnu", "Rfar_100km_vacuum_nu_tail"):
+                  assert math.isfinite(row[key]) and row[key] >= 0
+                  by_mode = row[key + "_by_mode_erg_s"]
+                  assert set(by_mode) == set(modes)
+                  assert all(math.isfinite(v) and v >= 0 for v in by_mode.values())
+                  residual = abs(sum(by_mode.values())-row[key])/max(abs(row[key]),1e-300)
+                  assert residual < 1e-12
+          with a0_csv.open(newline="") as handle:
+              rows = list(csv.DictReader(handle))
+          assert len(rows) == item["radial_points"]
+          for row in rows:
+              for mode in modes:
+                  for key in (f"Q_B7_{mode}_per_g2_MeV5",
+                              f"Q_B13_mu_minus_{mode}_per_g2_MeV5",
+                              f"Q_B13_mu_plus_{mode}_per_g2_MeV5",
+                              f"Q_B7_plus_B13_{mode}_per_g2_MeV5"):
+                      assert math.isfinite(float(row[key])), (key, row[key])
+          print("A0 10 MeV transport and three-mode closure: PASS")
+          print("B.7 unchanged against C1: PASS")
+          print("gV/gX:", a0["model"]["gV_mu_over_gX"])
+          print("gA/gX:", a0["model"]["gA_mu_over_gX"])
+          print("thin source:", item["thin_source_per_g2_erg_s"])
+          print("max B7 DB:", item["maximum_B7_mode_detailed_balance_residual"])
+          print("max B13 DB:", item["maximum_B13_charge_mode_detailed_balance_residual"])
+          print("max final-muon shell residual:", item["maximum_final_muon_shell_relative_error"])
+          PY
+      - name: Create SHA-256 manifest for A0 native outputs
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: |
+          sha256sum \
+            outputs/croon_a0_uv_axial_transport_10mev_2026-11-20.json \
+            outputs/croon_a0_uv_axial_transport_10mev_2026-11-20.csv \
+            > outputs/SHA256SUMS_croon_a0_uv_axial_transport_10mev_2026-11-20.txt
+      - name: Upload A0 native outputs and checksum manifest
+        uses: actions/upload-artifact@v4
+        with:
+          name: croon-a0-uv-axial-transport-10mev-2026-11-20
+          path: |
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_a0_uv_axial_transport_10mev_2026-11-20.json
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_a0_uv_axial_transport_10mev_2026-11-20.csv
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/SHA256SUMS_croon_a0_uv_axial_transport_10mev_2026-11-20.txt
+          if-no-files-found: error
+      - name: Commit A0 native calculation outputs to the research branch
+        env:
+          GIT_AUTHOR_NAME: github-actions[bot]
+          GIT_AUTHOR_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+          GIT_COMMITTER_NAME: github-actions[bot]
+          GIT_COMMITTER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+        run: |
+          git add \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_a0_uv_axial_transport_10mev_2026-11-20.json \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_a0_uv_axial_transport_10mev_2026-11-20.csv \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/SHA256SUMS_croon_a0_uv_axial_transport_10mev_2026-11-20.txt
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive A0 10 MeV UV axial transport baseline"
+            for attempt in 1 2 3; do
+              git fetch origin "\${GITHUB_REF_NAME}"
+              git rebase "origin/\${GITHUB_REF_NAME}"
+              if git push origin "HEAD:\${GITHUB_REF_NAME}"; then
+                exit 0
+              fi
+            done
+            exit 1
+          fi
