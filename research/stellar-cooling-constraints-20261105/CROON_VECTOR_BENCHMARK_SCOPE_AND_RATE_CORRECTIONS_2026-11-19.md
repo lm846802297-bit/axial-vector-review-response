@@ -93,13 +93,13 @@ Croon Eq. (4.6), as printed, is
 =\frac{\alpha_Vm_V^2}{3\omega}f_B(\omega),
 \qquad f_B(\omega)=\frac1{e^{\omega/T}-1}.
 \]
-This is the generic one-neutrino-flavour normalization used for the Croon Fig. 2 baseline. Croon Sec. 4.4 explicitly states that the \(U(1)_{L_\mu-L_\tau}\) model has an additional factor of two in both the differential neutrino power \(Q\) and the neutrino absorptive optical depth \(\tau_{\rm abs}\). Therefore
+This is the generic one-neutrino-flavour normalization. The published Fig. 2 caption identifies the gauged \(U(1)_{L_\mu-L_\tau}\) model without kinetic mixing; Croon Sec. 4.4 explicitly states that this model has an additional factor of two in both the differential neutrino power \(Q\) and the neutrino absorptive optical depth \(\tau_{\rm abs}\). Thus the actual Fig. 2 L_mu-L_tau rate is
 \[
 \Gamma_{\rm Croon}^{L_\mu-L_\tau}
 =2\Gamma_{\rm Croon}^{\rm generic}.
 \]
 
-The two relevant ratios are consequently
+The generic one-flavour expression remains a separate equation-level baseline. The two relevant ratios are consequently
 \[
 \boxed{
 \frac{\Gamma_{\rm B7}^{(\nu_\mu+\nu_\tau)}}{\Gamma_{\rm Croon}^{\rm generic}}
@@ -153,7 +153,7 @@ d\omega\;\omega^2\sqrt{\omega^2-m_V^2}\,
 \]
 The B.7 integrand uses the two flavours separately, with the tabulated \(\mu_{\nu_\mu}(r)\) and \(\mu_{\nu_\tau}=0\); the Croon integrand uses Eq. (4.6) literally. All results are per \(g_X^2\), with \(m_V=10\) MeV.
 
-**Flavour-matched comparison:** Croon Eq. (4.6) is the generic one-neutrino-flavour normalization used for the Fig. 2 baseline. Croon Sec. 4.4 explicitly states that the \(U(1)_{L_\mu-L_\tau}\) model has an additional factor of two in both the differential neutrino power and the neutrino absorptive optical depth. Thus the generic ratio below is an equation-level comparison, not the same-model comparison. For the latter, use \(Q_{\rm Croon}^{L_\mu-L_\tau}=2Q_{\rm Croon}^{\rm generic}\), so every B.7/generic ratio below must be divided by two.
+**Flavour-matched comparison:** Croon Eq. (4.6) is the generic one-neutrino-flavour normalization. The published Fig. 2 is for gauged \(U(1)_{L_\mu-L_\tau}\), so its neutrino source and opacity include the Sec. 4.4 factor of two. The generic ratio below is an equation-level comparison, not the same-model Fig. 2 comparison. For the latter, use \(Q_{\rm Croon}^{L_\mu-L_\tau}=2Q_{\rm Croon}^{\rm generic}\), so every B.7/generic ratio below must be divided by two.
 
 The 1687-point radial scan gives
 \[
