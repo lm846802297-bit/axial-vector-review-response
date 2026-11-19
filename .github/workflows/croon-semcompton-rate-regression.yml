@@ -19,6 +19,8 @@ on:
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_digitize_croon_fig2_vector_paths.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/digitize_croon_fig2_curves.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_digitize_croon_fig2_curves.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/compare_croon_fig2_digitized_curves.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_compare_croon_fig2_digitized_curves.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_c0_luminosity.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_croon_c0_luminosity_convergence.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_croon_c0_luminosity.py'
@@ -150,6 +152,18 @@ jobs:
       - name: Digitize Croon Fig. 2 vector curves
         working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
         run: python digitize_croon_fig2_curves.py
+      - name: Run no-fit Croon Fig. 2 pointwise comparison tests
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest -v test_compare_croon_fig2_digitized_curves.py
+      - name: Compare model curves against digitized Croon Fig. 2 paths
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python compare_croon_fig2_digitized_curves.py
+      - name: Upload no-fit Croon Fig. 2 pointwise comparison
+        uses: actions/upload-artifact@v4
+        with:
+          name: croon-fig2-digitized-comparison
+          path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_fig2_digitized_comparison_2026-11-19.json
+          if-no-files-found: error
       - name: Upload Croon Fig. 2 digitized curve data
         uses: actions/upload-artifact@v4
         with:
