@@ -132,7 +132,7 @@ def match_label_paths(text_spans: list[dict], paths: list[dict]) -> dict:
             (_colour_distance(p["stroke_rgb"], target), p)
             for p in paths if p.get("stroke_rgb") is not None
             and p.get("flattened_points")
-            and p["rect"][2]-p["rect"][0] > 100.0
+            and p["rect"][2]-p["rect"][0] > 50.0
             and p["rect"][3]-p["rect"][1] > 50.0
         ]
         if label == "0.1 eV":
