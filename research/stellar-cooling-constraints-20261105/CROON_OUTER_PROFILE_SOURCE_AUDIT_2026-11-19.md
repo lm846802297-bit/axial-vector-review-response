@@ -454,3 +454,14 @@ The previously computed Caputo/Bollig edge susceptibility including both charges
 Thus the conservative Fig. 5 number-density envelope is about \(0.865\) times this edge value. This suggests that the signed \(\mu_\mu<0\) tail changes which charge dominates, but does not make the **total** susceptibility exceed the old charge-summed edge envelope over the plotted \(22\)--\(30\) km interval.
 
 This is a useful consistency bound, not yet a final numerical opacity result: the Fig. 5 curves still need vector-path digitization, and the \(30\)--\(100\) km interval remains unmeasured. The old source-weighted edge envelope can therefore be retained as a conservative conditional envelope for the displayed \(22\)--\(30\) km interval, but its extension to 100 km remains conditional on the absence of a new outer muon-rich shell.
+
+
+For comparison with the high-coupling endpoint in Sec. 9.3, the required effective constant susceptibility is
+\[
+\chi_{\rm req}=7.8634185\times10^{-9}\ {\rm MeV}^3.
+\]
+Relative to the **charge-summed** edge value \(1.7778325\times10^{-10}\ {\rm MeV}^3\), this is
+\[
+\frac{\chi_{\rm req}}{\chi_{\rm edge}^{\mu^-+\mu^+}}=44.23.
+\]
+The earlier factor \(69.27\) in Sec. 9.3 uses the single-\(\mu^-\) edge susceptibility. The charge-summed comparison is the appropriate conservative reference for the signed outer-profile audit. The required opacity is still more than forty times the charge-summed edge susceptibility if it is represented by a constant tail.
