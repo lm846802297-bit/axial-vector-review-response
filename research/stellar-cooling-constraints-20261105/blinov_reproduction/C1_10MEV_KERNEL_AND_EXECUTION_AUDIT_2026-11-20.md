@@ -89,8 +89,10 @@ Mode-resolved extension:
 ### Earlier full-grid high-order attempt
 
 - Workflow: [Croon C1 10 MeV high-order vector transport](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44567808760)
-- It requests 101 radial points, 48 energy nodes, and B.13 orders `16,10,10,10`.
-- The workflow API continued to report the transport step as in progress, with no artifact available at the latest check. It is not counted as a completed result.
+- Configuration: 101 radial points, 48 energy nodes, and B.13 orders `16,10,10,10`.
+- The transport calculation, JSON/CSV structure checks, finite-value checks, and SHA-256 manifest creation all completed successfully.
+- The final Git push was rejected as non-fast-forward because the PR branch advanced during the calculation. The artifact-upload step was placed after the failing commit step and was skipped, so the full-grid high-order output was not archived. It is a successful execution/validation without a retained result file, and is not counted as an archived benchmark.
+- The corrected mode-resolved workflow now uploads artifacts before the Git push and rebases the result commit onto the latest branch.
 
 ## 6. Acceptance gates
 
