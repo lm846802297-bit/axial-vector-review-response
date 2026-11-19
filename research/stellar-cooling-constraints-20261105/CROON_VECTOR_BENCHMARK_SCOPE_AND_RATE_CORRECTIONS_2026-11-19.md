@@ -177,6 +177,32 @@ The full moving-muon/recoil kernel already developed in this repository is the n
 
 Source: https://arxiv.org/abs/2511.09619, Appendix B, Eqs. (B.13)--(B.19).
 
+### 2.2.1 Existing B.13-to-B.16 numerical cross-check
+
+The repository already contains a direct pure-vector comparison between the exact moving-muon B.13 kernel and the B.14--B.16 non-recoil approximation. We re-ran its controlled-limit and independent-spinor regression gates in this benchmark workflow.
+
+For the physical SFHo-18.8, \(t_{\rm pb}=1\) s profile and \(m_V=10\) MeV, the local energy-integrated vector Compton source gives:
+
+| Radius | \(T\) | \(\mu_\mu\) | \(Q_{\rm B13}\) | \(Q_{\rm B16}\) | B13/B16 |
+|---:|---:|---:|---:|---:|---:|
+| 0 km | 19.265 MeV | 46.674 MeV | 13.6975 MeV\(^5\) | 28.5916 MeV\(^5\) | 0.4791 |
+| 12.5 km | 23.882 MeV | 90.217 MeV | 381.1135 MeV\(^5\) | 889.2185 MeV\(^5\) | 0.4286 |
+
+These are **not** acceptance failures of the exact B.13 kernel. They show that the non-relativistic/no-recoil B.14--B.16 approximation is not quantitatively reliable at these hot, muon-rich SFHo points. It overestimates the exact moving-muon vector source by factors of about 2.09 and 2.33, respectively. We must not calibrate B.13 to B.16 at these physical points.
+
+The same B.13 implementation does pass its controlled common-limit test: \(T=0.5\) MeV, \(\mu_\mu=m_\mu+0.05\) MeV, \(m_V=0.05\) MeV and \(\omega=0.5\) MeV. In that non-relativistic, low-recoil regime, the transverse-mode ratios and total B.13/B.16 rate agree within the existing 5% acceptance tolerance. The B.13 detailed-balance residual at the physical points is below \(5.0\times10^{-15}\); the archived quadrature refinements change the integrated source by \(1.6\times10^{-4}\) or less.
+
+The independent explicit-spinor audit separately verifies the B.13 Dirac-trace implementation, photon Ward identity, vector longitudinal Ward shift, and on-shell final muon. These checks validate the exact kernel; they do not make the B.16 approximation valid outside its controlled limit.
+
+Reproduction records:
+- \`finite_mixing/outputs/b13_b16_comparison_2026-11-12.json\`
+- \`finite_mixing/test_b13_b16_comparison.py\`
+- \`finite_mixing/test_b13_moving_muon_spinor_reference.py\`
+
+The current benchmark workflow re-runs both regression suites. The B.13/B.16 comparison is vector-only and does not assign the vector B.14 approximation to the axial or UV-mixed current.
+
+
+
 ## 3. Transport prescriptions are separate benchmarks
 
 Croon's luminosity calculation uses its own definitions of the production region, \(R_{\rm far}\), and absorption/escape treatment (Sec. 3, especially Eqs. (3.3)--(3.5)); it adopts \(R_{\rm far}=100\) km in its results. It should be implemented literally for a historical Fig. 2 reproduction.
