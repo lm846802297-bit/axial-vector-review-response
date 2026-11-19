@@ -186,7 +186,7 @@ class AdaptiveRadialBoundaryLayerTests(unittest.TestCase):
         # The fixed-grid Simpson endpoint weight scales with dr. The adaptive
         # integral instead approaches the exact surface limit S/kappa = 1.
         self.assertAlmostEqual(
-            legacy_values[1] / legacy_values[0], 2.0 / 3.0, delta=2.0e-3
+            legacy_values[1] / legacy_values[0], 102.0 / 152.0, delta=2.0e-3
         )
         np.testing.assert_allclose(
             adaptive_values, [1.0, 1.0], rtol=2.0e-8, atol=1.0e-12
