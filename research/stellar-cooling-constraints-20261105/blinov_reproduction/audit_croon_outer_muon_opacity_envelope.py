@@ -265,6 +265,8 @@ def run_outer_muon_opacity_envelope(
             "sha256": profile["profile_sha256"],
             "rows": profile["profile_rows"],
             "R_nu_km": r_nu,
+            "chi_mu_Rnu_MeV3": float(profile["chi_mu_MeV3"][-1]),
+            "muon_targets": "mu-minus only" if not include_antimuons else "mu-minus plus mu-plus",
             "last_nonzero_digitized_muon_sample": {
                 "r_km": r_edge,
                 "T_MeV": T_edge,
