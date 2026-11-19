@@ -257,7 +257,7 @@ Reproducible outputs:
 - [Digitized PDF vector curves](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44487078124/artifacts/14511780107)
 - [Outer-opacity gap diagnostic](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44487078124/artifacts/14510554287)
 
-The five-mass Lai neutrino-only plateau reference is archived [here](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44487078124/artifacts/14510499394). It gives (9.17626\times10^{51}) erg/s at 2 eV for the public-profile (T_\nu=3) MeV, (R_\nu=25.1512) km surface, but omits semi-Compton and loop-bremsstrahlung and is not the full Lai plateau.
+The five-mass Lai neutrino-only plateau reference is archived [here](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44487078124/artifacts/14510499394). It gives \(9.17626\times10^{51}\) erg/s at 2 eV for the public-profile \(T_\nu=3\) MeV, \(R_\nu=25.1512\) km surface, but omits semi-Compton and loop-bremsstrahlung and is not the full Lai plateau.
 
 The current workflow run [#44487078124](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44487078124) completed successfully with 72 passing tests, including the solid/dashed outer-opacity diagnostic, C0 metadata checks, the eight Lai 2024 plateau/rate-convention/ν-only plateau tests, PDF vector extraction/digitization, no-fit comparison, energy-threshold audit, and the existing B.13/B.16 and Ward-identity regression suites.
 
