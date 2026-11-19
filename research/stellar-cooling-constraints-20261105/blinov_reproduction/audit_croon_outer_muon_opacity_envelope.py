@@ -37,7 +37,9 @@ DEFAULT_COUPLINGS = np.array([3e-6, 1e-5, 1e-4, 1e-3, 1e-2, 3e-2])
 PAPER_MEDIAN_SOLID_DASHED_RATIO = 3.38190
 
 
-def _prepare_profile(profile_path: Path, susceptibility_order: int) -> dict:
+def _prepare_profile(
+    profile_path: Path, susceptibility_order: int, include_antimuons: bool = False
+) -> dict:
     rows = np.genfromtxt(profile_path, delimiter=",", names=True)
     required = {"r_km", "T_MeV", "mu_mu_MeV"}
     if rows.dtype.names is None or not required.issubset(rows.dtype.names):
@@ -56,13 +58,15 @@ def _prepare_profile(profile_path: Path, susceptibility_order: int) -> dict:
         * (r_nu - r_src[-1]) / (r_src[-1] - r_src[-2])
     )
     chi_src = vectorized_muon_susceptibility(
-        temperature_src, mu_src, order=susceptibility_order
+        temperature_src, mu_src, order=susceptibility_order,
+        include_antimuons=include_antimuons,
     )
     chi_nu = float(
         vectorized_muon_susceptibility(
             np.array([T_NU_MEV]),
             np.array([mu_nu]),
             order=susceptibility_order,
+            include_antimuons=include_antimuons,
         )[0]
     )
 
@@ -94,6 +98,7 @@ def _prepare_profile(profile_path: Path, susceptibility_order: int) -> dict:
         "profile_sha256": hashlib.sha256(profile_path.read_bytes()).hexdigest(),
         "profile_rows": int(len(rows)),
         "profile_path": profile_label,
+        "include_antimuons": bool(include_antimuons),
     }
 
 
@@ -117,6 +122,7 @@ def run_outer_muon_opacity_envelope(
     susceptibility_order: int = 256,
     neutrino_flavour_factor: float = 2.0,
     paper_ratio_target: float = PAPER_MEDIAN_SOLID_DASHED_RATIO,
+    include_antimuons: bool = False,
 ) -> dict:
     """Run the source-weighted edge-envelope and effective-susceptibility tests."""
     profile_path = Path(profile_path)
@@ -130,7 +136,7 @@ def run_outer_muon_opacity_envelope(
     if np.any(np.diff(couplings) <= 0.0):
         raise ValueError("Couplings must be strictly increasing")
 
-    profile = _prepare_profile(profile_path, susceptibility_order)
+    profile = _prepare_profile(profile_path, susceptibility_order, include_antimuons)
     r = profile["r_km"]
     temperature = profile["temperature_MeV"]
     chi = profile["chi_mu_MeV3"]
@@ -273,6 +279,7 @@ def run_outer_muon_opacity_envelope(
             "production_radius_limit_km": float(r_nu),
             "energy_measure": "domega * k * omega^2 / (2*pi^2); the emitted-particle energy is included exactly once",
             "transport": "radial optical depth with detailed-balance absorption; no angular escape average or lapse/redshift",
+            "muon_targets": "mu-minus only (literal Bollig/Croon convention)" if not include_antimuons else "mu-minus plus mu-plus equilibrium distributions (separate charge-conjugate sensitivity, not the literal Croon baseline)",
         },
         "outer_envelopes": {
             "T3": {
