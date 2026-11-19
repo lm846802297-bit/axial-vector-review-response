@@ -53,44 +53,47 @@ class AdaptiveRadialProfile:
         if not math.isfinite(self.length) or self.length <= 0.0:
             raise ValueError("radial interval must have positive finite length")
 
-        # Normalize to [0,1] to avoid loss of precision for radii of order
-        # 10^16--10^17 MeV^-1.
-        self.x = (radius - radius[0]) / self.length
+        # Use inward distance from the neutrinosphere. The escape layer is
+        # located at s=0, so a layer much thinner than one radial cell remains
+        # representable. Building tau from the antiderivative at s=0 also avoids
+        # subtracting two O(kappa*R_nu) quantities to obtain a tiny surface tau.
+        self.s = (radius[-1] - radius[::-1]) / self.length
         self.source_values = source.copy()
         self.opacity_values = opacity.copy()
-        self.source_spline = PchipInterpolator(self.x, source, extrapolate=False)
+        self.source_spline = PchipInterpolator(
+            self.s, source[::-1], extrapolate=False
+        )
         self.opacity_spline = PchipInterpolator(
-            self.x, opacity * self.length, extrapolate=False
+            self.s, opacity[::-1] * self.length, extrapolate=False
         )
         self.opacity_antiderivative = self.opacity_spline.antiderivative()
 
-        opacity_integral_at_surface = float(self.opacity_antiderivative(1.0))
-        opacity_integral_at_center = float(self.opacity_antiderivative(0.0))
-        self.tau0 = opacity_integral_at_surface - opacity_integral_at_center
+        tau_origin = float(self.opacity_antiderivative(0.0))
+        tau_at_center = float(self.opacity_antiderivative(1.0))
+        self.tau0 = tau_at_center - tau_origin
         tolerance = 128.0 * np.finfo(float).eps * max(
-            abs(opacity_integral_at_surface),
-            abs(opacity_integral_at_center),
+            abs(tau_at_center),
+            abs(tau_origin),
             1.0,
         )
         if self.tau0 < -tolerance:
             raise ValueError("interpolated reduced opacity gives negative optical depth")
         self.tau0 = max(self.tau0, 0.0)
         self.tau_knots = np.maximum(
-            opacity_integral_at_surface
-            - np.asarray(self.opacity_antiderivative(self.x), dtype=float),
+            np.asarray(self.opacity_antiderivative(self.s), dtype=float)
+            - tau_origin,
             0.0,
         )
-        if np.any(np.diff(self.tau_knots) > tolerance):
-            raise ValueError("interpolated optical depth is not monotone")
-
-        self._opacity_integral_at_surface = opacity_integral_at_surface
+        if np.any(np.diff(self.tau_knots) < -tolerance):
+            raise ValueError("inward optical depth is not monotone")
+        self._tau_origin = tau_origin
         self._max_source = float(np.max(source))
 
-    def tau(self, x):
-        """Optical depth from normalized radius x to the R_nu boundary."""
+    def tau(self, s):
+        """Optical depth inward from R_nu to normalized distance s."""
         value = (
-            self._opacity_integral_at_surface
-            - float(self.opacity_antiderivative(float(x)))
+            float(self.opacity_antiderivative(float(s)))
+            - self._tau_origin
         )
         return max(value, 0.0)
 
@@ -132,10 +135,10 @@ class AdaptiveRadialProfile:
             active = (
                 (self.tau_knots <= 80.0 / coupling2)
                 & (self.tau_knots > 0.0)
-                & (self.x > 0.0)
-                & (self.x < 1.0)
+                & (self.s > 0.0)
+                & (self.s < 1.0)
             )
-            points.extend(self.x[active].tolist())
+            points.extend(self.s[active].tolist())
 
             # Resolve the optically thin escape layer explicitly. Roots are
             # found on the monotone opacity antiderivative, not sampled tau.
@@ -147,7 +150,7 @@ class AdaptiveRadialProfile:
                             lambda z: self.tau(z) - target_tau,
                             0.0,
                             1.0,
-                            xtol=1.0e-14,
+                            xtol=1.0e-300,
                             rtol=4.0 * np.finfo(float).eps,
                         )
                     except ValueError:
@@ -155,26 +158,17 @@ class AdaptiveRadialProfile:
                     if 0.0 < root < 1.0:
                         points.append(float(root))
 
-        # Deduplicate only at floating-point resolution. A wider cut could
-        # erase the very thin layer that this routine is designed to resolve.
-        points.sort()
-        unique_points = []
-        minimum_spacing = 64.0 * np.finfo(float).eps
-        for point in points:
-            if (
-                minimum_spacing < point < 1.0 - minimum_spacing
-                and (
-                    not unique_points
-                    or point - unique_points[-1] > minimum_spacing
-                )
-            ):
-                unique_points.append(point)
+        # Preserve distinct representable split points even when they are
+        # extremely close to s=0; that is precisely where the escape layer sits.
+        unique_points = sorted(
+            set(float(point) for point in points if 0.0 < point < 1.0)
+        )
 
-        def integrand(x):
-            exponent = coupling2 * self.tau(x)
+        def integrand(s):
+            exponent = coupling2 * self.tau(s)
             if exponent > 745.0:
                 return 0.0
-            return float(self.source_spline(x)) * math.exp(-exponent)
+            return float(self.source_spline(s)) * math.exp(-exponent)
 
         value, error = quad(
             integrand,

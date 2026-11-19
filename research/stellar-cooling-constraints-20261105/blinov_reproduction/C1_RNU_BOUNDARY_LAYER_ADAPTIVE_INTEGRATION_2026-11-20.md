@@ -2,7 +2,7 @@
 
 Date: 2026-11-20
 
-Status: **Independent adaptive radial integrator implemented; numerical C1 baseline pending.**
+Status: **Surface-centered adaptive radial integrator implemented; numerical C1 baseline pending.**
 
 ## 1. Objective
 
@@ -68,7 +68,8 @@ The adaptive integrator is tested against:
 - the surface asymptote \(S(R_\nu)/\kappa(R_\nu)\);
 - exact factorization of a constant outer optical-depth tail;
 - a synthetic 103-node versus 153-node Simpson endpoint artifact, for which the fixed-grid result changes by approximately one third while the adaptive result remains at the analytic limit;
-- a profile with a zero-opacity outer interval.
+- a profile with a zero-opacity outer interval;
+- an extreme kappa*R test in which the physical escape layer is below the relative machine resolution of an outward radial coordinate.
 
 ## 6. Acceptance
 

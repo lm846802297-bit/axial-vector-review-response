@@ -192,6 +192,22 @@ class AdaptiveRadialBoundaryLayerTests(unittest.TestCase):
             adaptive_values, [1.0, 1.0], rtol=2.0e-8, atol=1.0e-12
         )
 
+    def test_surface_centered_coordinate_resolves_sub_ulp_escape_layer(self):
+        # kappa*R is so large that the physical escape layer is only
+        # O(10^-16) of the stellar radius. A center-to-surface coordinate
+        # would place it next to x=1, where double precision loses resolution.
+        radius = np.linspace(0.0, 1.0e17, 103)
+        source = np.full_like(radius, 2.0)
+        opacity = np.full_like(radius, 0.2)
+        profile = AdaptiveRadialProfile(radius, source, opacity)
+        value, error = profile.integrate(1.0)
+        expected = (
+            2.0 / 0.2
+            * (-math.expm1(-0.2 * 1.0e17))
+        )
+        self.assertAlmostEqual(value / expected, 1.0, delta=2.0e-8)
+        self.assertLess(error, 2.0e-8 * expected)
+
     def test_zero_opacity_outer_interval_remains_finite(self):
         radius = np.linspace(0.0, 1.0, 103)
         source = np.ones_like(radius)
