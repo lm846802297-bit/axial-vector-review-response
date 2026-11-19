@@ -45,10 +45,13 @@ def _synthetic_labels_and_curves():
     for i, label in enumerate(MASS_LABELS):
         rgb = digitizer_module.MASS_STROKE_RGB[label]
         # The printed legend text is black; the path stroke carries the colour.
-        spans.append({"text": label, "color": 0x000000})
+        spans.append({"text": label, "color": 0x000000,
+                      "bbox": [50.0+i, 100.0, 60.0+i, 110.0]})
+        # The 200 MeV curve is short in the real PDF but still spans >50 pt.
+        x_end = 90.0 if label == "200 MeV" else 220.0
         paths.append(_path(
-            100+i, (20.0, 40.0+i, 220.0, 180.0-i),
-            rgb, "[] 0", points=[[20.0, 100.0], [220.0, 180.0]]
+            100+i, (20.0, 40.0+i, x_end, 180.0-i),
+            rgb, "[] 0", points=[[20.0, 100.0], [x_end, 180.0]]
         ))
     # A separate black dashed path represents the R_far=R_nu sensitivity.
     paths.append(_path(
@@ -68,7 +71,11 @@ class CroonFig2CurveDigitizationTests(unittest.TestCase):
 
     def test_mass_labels_match_distinct_in_plot_paths(self):
         spans, paths = _synthetic_labels_and_curves()
-        matches = match_label_paths(spans, paths)
+        axes = calibrate_axes(_synthetic_axis_paths())
+        # A duplicate text occurrence outside the axes is not a curve label.
+        spans.append({"text": "1 eV", "color": 0x000000,
+                      "bbox": [500.0, 300.0, 510.0, 310.0]})
+        matches = match_label_paths(spans, paths, axes)
         self.assertEqual(set(matches), set(MASS_LABELS))
         indices = [matches[label]["path_index"] for label in MASS_LABELS]
         self.assertEqual(len(indices), len(set(indices)))
@@ -84,8 +91,8 @@ class CroonFig2CurveDigitizationTests(unittest.TestCase):
                 "10 MeV": (1.0, 0.0, 0.0),
             }
             spans = [
-                {"text": "200 MeV", "color": 0x000000},
-                {"text": "10 MeV", "color": 0x000000},
+                {"text": "200 MeV", "color": 0x000000, "bbox": [50.0, 100.0, 60.0, 110.0]},
+                {"text": "10 MeV", "color": 0x000000, "bbox": [50.0, 100.0, 60.0, 110.0]},
             ]
             paths = [
                 _path(1, (20.0, 40.0, 220.0, 180.0), (1.0, 0.0, 0.0)),
