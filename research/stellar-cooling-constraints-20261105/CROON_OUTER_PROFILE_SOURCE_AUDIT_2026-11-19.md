@@ -253,3 +253,27 @@ The full source-weighted result rules out only the following conditional explana
 - a difference in the authors' transport convention or in our reading of the solid/dashed comparison.
 
 The edge-temperature envelope assumes the outer temperature never exceeds the last digitized edge temperature. Neither envelope is a substitute for the protected Garching profile. The source-weighted calculation is archived and tested separately; no luminosity curve, opacity coefficient, or profile has been fitted or rescaled.
+
+
+## 10. Primary-data recovery route
+
+The Croon paper itself states that the full profile data used for its SFHo-18.8 calculation are available through the Garching Core-Collapse Supernova Archive (arXiv:2006.13942, footnote on p. 4). The official archive states that some datasets are password-protected and that access should be requested from the archive contact. The specific Bollig radial-profile endpoint is access-controlled (HTTP 401), consistent with that policy.
+
+Official sources:
+
+- Croon et al., arXiv:2006.13942, p. 4: https://arxiv.org/pdf/2006.13942
+- Garching Core-Collapse Supernova Archive: https://wwwmpa.mpa-garching.mpg.de/ccsnarchive/archive.html
+- Bollig radial profiles: https://wwwmpa.mpa-garching.mpg.de/ccsnarchive/data/Bollig2016_radial_profiles/
+- Archive contact: Hans-Thomas Janka, thj@mpa-garching.mpg.de
+
+A data request should identify the exact target as the SFHo-18.8 model at \(t_{\rm pb}=1\,\mathrm{s}\), and ask for the radial profile extending through at least \(R_{\rm far}=100\) km. The minimum fields needed to close the present opacity question are:
+
+1. radius and temperature \(T(r)\);
+2. \(\mu_\mu(r)\) or separately \(n_{\mu^-}(r)\) and \(n_{\mu^+}(r)\), with the chemical-potential/dispersion convention;
+3. the muon degeneracy factor or sufficient thermodynamic information to reconstruct \(n_\mu F_{\rm deg}\);
+4. the neutrino chemical potentials and relevant neutrino thermodynamic fields used for the \(Z'\to\nu\bar\nu\) channel;
+5. the exact snapshot identifier, radial sampling, and any profile-version notes.
+
+The immediate priority is the outer interval \(25\lesssim r\le100\) km, but the complete profile is preferable so the source and opacity are derived from one consistent snapshot.
+
+**Disposition:** no email has been sent, no access key has been requested or obtained, and no access restriction has been bypassed. The current public-figure reconstruction remains the only numerical input used in the committed calculation. The full-profile request is the next data-dependent step; the conditional envelopes in Sec. 9 remain sensitivity tests until that data is available.
