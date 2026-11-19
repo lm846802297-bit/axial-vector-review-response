@@ -12,6 +12,7 @@ OUT = HERE / "outputs"
 BASE = OUT / "croon_c0_luminosity_10mev_2026-11-19.json"
 HIGH = OUT / "croon_c0_luminosity_10mev_highorder_2026-11-19.json"
 BOTH = OUT / "croon_c0_luminosity_10mev_antimuons_2026-11-19.json"
+LMUTAU = OUT / "croon_c0_luminosity_10mev_lmutau_2026-11-19.json"
 DEFAULT_OUTPUT = OUT / "croon_c0_luminosity_convergence_2026-11-19.json"
 RAFFELT = 3.0e52
 SCENARIOS = ("vacuum_tail", "Rfar_Rnu", "T3_outer_envelope")
@@ -43,35 +44,50 @@ def peak(curve: list[dict], scenario: str) -> dict:
     return {"g_X": item["g_X"], **item[scenario]}
 
 
-def run(base_path: Path = BASE, high_path: Path = HIGH, both_path: Path = BOTH) -> dict:
-    base, high, both = load(base_path), load(high_path), load(both_path)
-    if base["profile_sha256"] != high["profile_sha256"] or base["profile_sha256"] != both["profile_sha256"]:
-        raise ValueError("The three runs must use exactly the same profile")
-    if base["neutrino_flavour_factor"] != 2.0 or high["neutrino_flavour_factor"] != 2.0:
-        raise ValueError("The primary C0 comparison must use the Lmu-Ltau two-flavour factor")
+def run(
+    base_path: Path = BASE, high_path: Path = HIGH,
+    both_path: Path = BOTH, lmutau_path: Path = LMUTAU
+) -> dict:
+    base, high, both, lmutau = (
+        load(base_path), load(high_path), load(both_path), load(lmutau_path)
+    )
+    if len({x["profile_sha256"] for x in (base, high, both, lmutau)}) != 1:
+        raise ValueError("All four runs must use exactly the same profile")
+    if base["neutrino_flavour_factor"] != 1.0 or high["neutrino_flavour_factor"] != 1.0:
+        raise ValueError("The primary C0 curve is the generic one-neutrino-flavour baseline")
+    if lmutau["neutrino_flavour_factor"] != 2.0:
+        raise ValueError("The Lmu-Ltau variant must use the Sec. 4.4 factor of two")
     if base["muon_susceptibility"]["charge_conjugate_mu_plus_included"]:
         raise ValueError("Primary baseline must use mu- only")
     if not both["muon_susceptibility"]["charge_conjugate_mu_plus_included"]:
         raise ValueError("Charge-conjugate sensitivity file must include mu+")
 
-    bcurve, hcurve, acurve = base["coupling_curve"], high["coupling_curve"], both["coupling_curve"]
+    bcurve, hcurve, acurve, lcurve = (
+        base["coupling_curve"], high["coupling_curve"],
+        both["coupling_curve"], lmutau["coupling_curve"]
+    )
     gb = np.asarray([x["g_X"] for x in bcurve])
     gh = np.asarray([x["g_X"] for x in hcurve])
     ga = np.asarray([x["g_X"] for x in acurve])
-    if not (np.array_equal(gb, gh) and np.array_equal(gb, ga)):
+    gl = np.asarray([x["g_X"] for x in lcurve])
+    if not (np.array_equal(gb, gh) and np.array_equal(gb, ga) and np.array_equal(gb, gl)):
         raise ValueError("Coupling grids differ between runs")
 
     convergence = {}
     anti_sensitivity = {}
+    lmutau_sensitivity = {}
     for scenario in SCENARIOS:
         convergence[scenario] = {}
         anti_sensitivity[scenario] = {}
+        lmutau_sensitivity[scenario] = {}
         for channel in CHANNELS:
             b = np.asarray([x[scenario][channel] for x in bcurve])
             h = np.asarray([x[scenario][channel] for x in hcurve])
             a = np.asarray([x[scenario][channel] for x in acurve])
+            l = np.asarray([x[scenario][channel] for x in lcurve])
             rel = np.abs(h/b-1.0)
             anti = a/b-1.0
+            lmutau_rel = l/b-1.0
             convergence[scenario][channel] = {
                 "maximum_absolute_relative_change": float(np.max(rel)),
                 "mean_absolute_relative_change": float(np.mean(rel)),
@@ -81,6 +97,14 @@ def run(base_path: Path = BASE, high_path: Path = HIGH, both_path: Path = BOTH) 
                 "maximum_relative_change": float(np.max(anti)),
                 "relative_change_at_g1e-9": float(
                     a[int(np.argmin(np.abs(gb-1e-9)))] /
+                    b[int(np.argmin(np.abs(gb-1e-9)))] - 1.0
+                ),
+            }
+            lmutau_sensitivity[scenario][channel] = {
+                "minimum_relative_change_vs_generic": float(np.min(lmutau_rel)),
+                "maximum_relative_change_vs_generic": float(np.max(lmutau_rel)),
+                "relative_change_at_g1e-9": float(
+                    l[int(np.argmin(np.abs(gb-1e-9)))] /
                     b[int(np.argmin(np.abs(gb-1e-9)))] - 1.0
                 ),
             }
@@ -100,10 +124,12 @@ def run(base_path: Path = BASE, high_path: Path = HIGH, both_path: Path = BOTH) 
 
     crossings = {
         scenario: {
-            "baseline_gX_crossings_of_Raffelt_3e52": crossing_couplings(bcurve, scenario),
-            "high_order_gX_crossings_of_Raffelt_3e52": crossing_couplings(hcurve, scenario),
-            "baseline_peak": peak(bcurve, scenario),
-            "high_order_peak": peak(hcurve, scenario),
+            "generic_baseline_gX_crossings_of_Raffelt_3e52": crossing_couplings(bcurve, scenario),
+            "generic_high_order_gX_crossings_of_Raffelt_3e52": crossing_couplings(hcurve, scenario),
+            "LmuLtau_gX_crossings_of_Raffelt_3e52": crossing_couplings(lcurve, scenario),
+            "generic_baseline_peak": peak(bcurve, scenario),
+            "generic_high_order_peak": peak(hcurve, scenario),
+            "LmuLtau_peak": peak(lcurve, scenario),
         }
         for scenario in SCENARIOS
     }
@@ -113,7 +139,8 @@ def run(base_path: Path = BASE, high_path: Path = HIGH, both_path: Path = BOTH) 
         "profile_sha256": base["profile_sha256"],
         "profile_rows": base["profile_rows"],
         "mass_MeV": 10.0,
-        "neutrino_flavour_factor": 2.0,
+        "generic_neutrino_flavour_factor": 1.0,
+        "LmuLtau_neutrino_flavour_factor": 2.0,
         "muon_charge_convention": "mu- only baseline; mu- + mu+ sensitivity reported separately",
         "R_nu_km": base["R_nu_km"],
         "quadrature": {
@@ -124,10 +151,11 @@ def run(base_path: Path = BASE, high_path: Path = HIGH, both_path: Path = BOTH) 
         "free_streaming_channel_luminosity_high_order": high["free_streaming_channel_luminosity_per_g2_erg_s"],
         "high_order_convergence": convergence,
         "antimuon_charge_conjugate_sensitivity": anti_sensitivity,
+        "LmuLtau_two_flavour_sensitivity_vs_generic": lmutau_sensitivity,
         "raffelt_threshold_erg_s": RAFFELT,
         "crossings_and_peaks": crossings,
         "Rfar_ordering_checks": ordering_checks,
-        "scope": "public Caputo/Bollig profile reconstruction using Croon Eqs. (3.3)-(3.4), (4.6)-(4.7), and Sec. 4.4 two-neutrino-flavour normalization; not a raw-Garching reproduction or final cooling bound",
+        "scope": "public Caputo/Bollig profile reconstruction; generic Croon Fig. 2 baseline compared with the separate Sec. 4.4 Lmu-Ltau factor-two variant; not a raw-Garching reproduction or final cooling bound",
     }
 
 
@@ -136,15 +164,17 @@ def main() -> None:
     parser.add_argument("--baseline", type=Path, default=BASE)
     parser.add_argument("--high-order", type=Path, default=HIGH)
     parser.add_argument("--antimuons", type=Path, default=BOTH)
+    parser.add_argument("--lmutau", type=Path, default=LMUTAU)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     args = parser.parse_args()
-    result = run(args.baseline, args.high_order, args.antimuons)
+    result = run(args.baseline, args.high_order, args.antimuons, args.lmutau)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2)+"\n", encoding="utf-8")
     print(json.dumps({
         "R_nu_km": result["R_nu_km"],
         "high_order_convergence": result["high_order_convergence"],
         "antimuon_charge_conjugate_sensitivity": result["antimuon_charge_conjugate_sensitivity"],
+        "LmuLtau_two_flavour_sensitivity_vs_generic": result["LmuLtau_two_flavour_sensitivity_vs_generic"],
         "crossings_and_peaks": result["crossings_and_peaks"],
         "output": str(args.output),
     }, indent=2))
