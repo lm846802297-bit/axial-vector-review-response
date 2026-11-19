@@ -70,6 +70,34 @@ class CroonFig2LiteralTransportTests(unittest.TestCase):
         self.assertTrue(np.all(tau > 0.0))
         self.assertTrue(np.all(outer_vacuum_tau_per_g2(m, omega, rnu, rnu) == 0.0))
 
+    def test_T3_outer_envelope_is_bose_enhanced_relative_to_vacuum_tail(self):
+        omega = np.array([0.2, 1.0, 3.0, 10.0])
+        mass = 1.0e-7
+        rnu = self.profile_005["rnu_km"]
+        vacuum = outer_vacuum_tau_per_g2(mass, omega, rnu, 100.0)
+        t3 = outer_vacuum_tau_per_g2(
+            mass, omega, rnu, 100.0, outer_temperature_mev=3.0
+        )
+        bose = bose_factor(omega, np.full_like(omega, 3.0))
+        np.testing.assert_allclose(t3/vacuum, 1.0+bose, rtol=2e-14)
+        zero_path = outer_vacuum_tau_per_g2(
+            mass, omega, rnu, rnu, outer_temperature_mev=3.0
+        )
+        np.testing.assert_array_equal(zero_path, np.zeros_like(omega))
+
+    def test_T3_outer_envelope_reduces_low_mass_trapped_luminosity(self):
+        coupling = np.array([0.1])
+        vacuum = luminosity_curve(
+            1.0e-7, coupling, self.profile_01,
+            rfar_km=100.0, energy_order=64
+        )[0]
+        t3 = luminosity_curve(
+            1.0e-7, coupling, self.profile_01,
+            rfar_km=100.0, energy_order=64,
+            outer_temperature_mev=3.0
+        )[0]
+        self.assertLess(t3, vacuum)
+
     def test_thin_luminosity_scales_as_g_squared(self):
         couplings = np.array([1.0e-12, 2.0e-12])
         luminosity = luminosity_curve(
