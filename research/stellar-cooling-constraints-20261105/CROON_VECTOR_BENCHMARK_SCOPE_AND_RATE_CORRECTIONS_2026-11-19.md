@@ -170,7 +170,7 @@ The same-model \(L_\mu-L_\tau\) ratios are therefore
 {Q_{\rm Croon}^{L_\mu-L_\tau}(r)}
 \leq 1.15971.
 \]
-At the six radii in the table, the corresponding ratios are respectively 0.529645, 0.720485, 0.749455, 0.799085, 1.10301 and 1.15971. These are obtained from the archived generic-rate output by the exact factor-two prescription; the updated machine-readable output separately stores both normalizations.
+At the six radii in the table, the corresponding ratios are respectively 0.529645, 0.720485, 0.749456, 0.799087, 1.10301 and 1.15971. These are obtained from the archived generic-rate output by the exact factor-two prescription; the updated machine-readable output separately stores both normalizations.
 
 | Radius | \(T\) [MeV] | \(\mu_{\nu_\mu}\) [MeV] | \(Q_{\rm B7}\) [MeV\(^5\)] | \(Q_{\rm Croon}\) [MeV\(^5\)] | Ratio |
 |---:|---:|---:|---:|---:|---:|
@@ -185,7 +185,7 @@ This does **not** contradict the fixed-energy table, where the B.7/Croon ratio c
 
 The full radial scan used energy order 64 and angular order 128. At six anchors (0, 8.482, 12.5, 15, 22 and 24 km), refinement to energy order 96 and angular order 256 changed \(Q_{\rm B7}\) by at most \(3.8\times10^{-15}\) and \(Q_{\rm Croon}\) by at most \(2.5\times10^{-15}\). This is a selected-anchor convergence check, not an exhaustive high-order scan at all 1687 radii.
 
-Machine-readable full profile (1687 rows): [GitHub Actions artifact](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44444298287/artifacts/14492642478). Artifact ZIP SHA-256: \`0cff04d011092b292bbbcefbbae516861d8c1b1c595d8b73ee59c581461bed6b\`. The input profile SHA-256 is \`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c\`.
+Machine-readable full profile (1687 rows, generic and flavour-matched ratios): [GitHub Actions artifact](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449132291/artifacts/14494128373). Artifact SHA-256: \`2b7e4808859884d58a4ec6596bda3510e5312c8ef05bccd79923a8019d5f6721\`. The input profile SHA-256 is \`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c\`.
 
 This is an energy-integrated **local emissivity** comparison only. It does not perform the radial proper-volume integral, lapse/redshift weighting, attenuation, escape-probability calculation, or total luminosity integration.
 
@@ -228,7 +228,7 @@ L_{\rm Croon,\,L_\mu-L_\tau}^{\rm free}/g_X^2
 =6.11588\times10^{70}\ {\rm erg\,s^{-1}},
 \qquad
 \frac{L_{\rm B7}^{\rm free}}{L_{\rm Croon,\,L_\mu-L_\tau}^{\rm free}}
-=0.7279136.
+=0.72791354.
 \]
 Thus the earlier 1.455827 ratio is retained only as a generic one-flavour equation comparison; 0.7279136 is the flavour-matched ratio. The Croon factor of two must also be applied to its absorptive optical depth before comparing finite-coupling luminosity curves.
 \]
@@ -236,7 +236,57 @@ The direct trapezoidal cross-check differs from the analytic piecewise-linear ra
 
 At \(g_X=10^{-9}\), these channel-only optically-thin values scale to \(4.45183\times10^{52}\) and \(3.05794\times10^{52}\) erg/s, respectively. This is a useful normalization comparison against the \(3\times10^{52}\) erg/s Raffelt scale, **not a cooling bound**: this calculation has no attenuation, no semi-Compton contribution, no lapse/redshift factor, and no transport/escape probability. In particular, one must not interpret the \(g_X=10^{-9}\) scaling point as necessarily lying in the free-streaming regime.
 
-The machine-readable output is the same 1687-row profile artifact, now including the \(R_\nu\) extrapolation and the volume-integrated channel contributions: [GitHub Actions artifact](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44445643329/artifacts/14492579306). ZIP SHA-256: \`622d35b222b425daf35b5c21ec4e1dc701b5dacc1bdf26e61de80453e8a6c611\`.
+The updated 1687-row profile artifact stores both generic and flavour-matched local emissivities and their volume integrals: [GitHub Actions artifact](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449132291/artifacts/14494128373). Artifact SHA-256: \`2b7e4808859884d58a4ec6596bda3510e5312c8ef05bccd79923a8019d5f6721\`.
+
+### 2.1.4 C0 luminosity with absorption: generic Croon versus \(L_\mu-L_\tau\)
+
+A separate C0 calculation evaluates the energy-dependent local source, radial optical depth and attenuated luminosity,
+\[
+L_{Z'}^{\rm free}=\int_0^{R_\nu}4\pi r^2dr
+\int d\omega\,
+\frac{\omega^2\sqrt{\omega^2-m_V^2}}{2\pi^2}
+\left[\Gamma_{\nu\bar\nu}^{\rm prod}+
+\Gamma_{\gamma\mu}^{\rm prod}\right]e^{-\tau(\omega,r)}.
+\]
+It follows Croon Eqs. (3.3)--(3.4), (4.6)--(4.7): flat \(4\pi r^2dr\), no lapse/redshift, no angular escape average, and no explicit \(1/v_V\) in the optical-depth integral. The standard outer boundary is \(R_{\rm far}=100\) km and retains the vacuum \(Z'\to\nu\bar\nu\) absorption tail. The \(R_{\rm far}=R_\nu\) result is retained as a separate sensitivity.
+
+For \(m_V=10\) MeV, the optically-thin channel luminosities per \(g_X^2\) are:
+
+| Channel | Generic one-flavour Croon | \(L_\mu-L_\tau\) transfer |
+|---|---:|---:|
+| Neutrino coalescence | \(3.05794\times10^{70}\) | \(6.11588\times10^{70}\) |
+| Semi-Compton | \(1.05404\times10^{70}\) | \(1.05404\times10^{70}\) |
+| Total | \(4.11198\times10^{70}\) | \(7.16992\times10^{70}\) |
+
+The \(L_\mu-L_\tau\) transfer doubles the neutrino source and neutrino absorption only; it does not double the semi-Compton source.
+
+Using the \(3\times10^{52}\) erg/s Raffelt reference line and \(R_{\rm far}=100\) km, the two provisional crossings are:
+
+| Model | Low-\(g_X\) crossing | High-\(g_X\) crossing |
+|---|---:|---:|
+| Generic one-neutrino-flavour | \(8.60466\times10^{-10}\) | \(3.19141\times10^{-8}\) |
+| \(L_\mu-L_\tau\), factor two in \(Q_\nu\) and \(\tau_\nu\) | \(6.52618\times10^{-10}\) | \(2.18470\times10^{-8}\) |
+
+At \(g_X=10^{-9}\), the attenuated total luminosities are \(4.03156\times10^{52}\) erg/s and \(6.88108\times10^{52}\) erg/s, respectively. These are C0 volume-emission reference curves, not complete SN1987A exclusion limits.
+
+The numerical audit gives:
+- baseline quadrature \((N_\omega,N_{\tau,\omega},N_p)=(64,301,128)\);
+- high-order quadrature \((96,601,192)\);
+- maximum relative change in total luminosity below \(1.95\times10^{-4}\);
+- adding \(\mu^+\) changes the total at \(g_X=10^{-9}\) by 0.18%;
+- using \(R_{\rm far}=R_\nu\) shifts the high-\(g_X\) crossing to \(8.60158\times10^{-8}\) (generic) or \(6.20862\times10^{-8}\) (\(L_\mu-L_\tau\)), while the low-\(g_X\) crossing changes by less than 1%.
+
+The independent 0.05 km Simpson implementation of the full Croon Fig. 2 mass sweep gives, at 10 MeV, low/high crossings \(8.60711\times10^{-10}\) and \(3.18779\times10^{-8}\). These agree with the 1687-node C0 adapter to 0.03% and 0.11%, respectively. This checks numerical implementation consistency, not agreement with digitized Fig. 2 data.
+
+Outputs from successful workflow run [#44449132291](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449132291):
+- [Generic 10 MeV C0 curve](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449132291/artifacts/14493653832)
+- [\(L_\mu-L_\tau\) 10 MeV C0 curve](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449132291/artifacts/14494073335)
+- [High-order C0 curve](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449132291/artifacts/14494043560)
+- [Charge-conjugate sensitivity](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449132291/artifacts/14494726643)
+- [Convergence and convention audit](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449132291/artifacts/14493603942)
+- [Full Croon Fig. 2 mass sweep](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449132291/artifacts/14494581986)
+
+This remains a public-profile reconstruction. The original raw Garching radial table is unavailable in the current workspace; no claim of raw-profile reproduction or final cooling-bound reproduction is made.
 
 ### 2.2 Semi-Compton production
 
