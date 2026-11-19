@@ -230,11 +230,10 @@ L_{\rm Croon,\,L_\mu-L_\tau}^{\rm free}/g_X^2
 \frac{L_{\rm B7}^{\rm free}}{L_{\rm Croon,\,L_\mu-L_\tau}^{\rm free}}
 =0.72791354.
 \]
-Thus the earlier 1.455827 ratio is retained only as a generic one-flavour equation comparison; 0.7279136 is the flavour-matched ratio. The Croon factor of two must also be applied to its absorptive optical depth before comparing finite-coupling luminosity curves.
-\]
+Thus the earlier 1.455827 ratio is retained only as a generic one-flavour equation comparison; 0.72791354 is the flavour-matched ratio. The Croon factor of two must also be applied to its absorptive optical depth before comparing finite-coupling luminosity curves.
 The direct trapezoidal cross-check differs from the analytic piecewise-linear radial integral by only \(5.8\times10^{-6}\) for each channel.
 
-At \(g_X=10^{-9}\), these channel-only optically-thin values scale to \(4.45183\times10^{52}\) and \(3.05794\times10^{52}\) erg/s, respectively. This is a useful normalization comparison against the \(3\times10^{52}\) erg/s Raffelt scale, **not a cooling bound**: this calculation has no attenuation, no semi-Compton contribution, no lapse/redshift factor, and no transport/escape probability. In particular, one must not interpret the \(g_X=10^{-9}\) scaling point as necessarily lying in the free-streaming regime.
+At \(g_X=10^{-9}\), these channel-only optically-thin values scale to \(4.45183\times10^{52}\), \(3.05794\times10^{52}\), and \(6.11588\times10^{52}\) erg/s for B.7, generic Croon, and flavour-matched Croon, respectively. This is a useful normalization comparison against the \(3\times10^{52}\) erg/s Raffelt scale, **not a cooling bound**: this calculation has no attenuation, no semi-Compton contribution, no lapse/redshift factor, and no transport/escape probability. In particular, one must not interpret the \(g_X=10^{-9}\) scaling point as necessarily lying in the free-streaming regime.
 
 The updated 1687-row profile artifact stores both generic and flavour-matched local emissivities and their volume integrals: [GitHub Actions artifact](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449132291/artifacts/14494128373). Artifact SHA-256: \`2b7e4808859884d58a4ec6596bda3510e5312c8ef05bccd79923a8019d5f6721\`.
 
