@@ -33,9 +33,9 @@ def _synthetic_axis_paths():
         _path(3, (10.0, 220.0, 410.0, 220.0)),
     ]
     for i, x in enumerate(np.linspace(10.0, 410.0, 6)):
-        paths.append(_path(10+i, (x, 220.0, x, 226.0)))
+        paths.append(_path(10+i, (x, 214.0, x, 220.0)))
     for i, y in enumerate(np.linspace(20.0, 220.0, 5)):
-        paths.append(_path(20+i, (4.0, y, 10.0, y)))
+        paths.append(_path(20+i, (10.0, y, 16.0, y)))
     return paths
 
 
@@ -102,7 +102,7 @@ class CroonFig2CurveDigitizationTests(unittest.TestCase):
     def test_digitization_discards_points_outside_axes_and_maps_log_ticks(self):
         axes = {
             "plot_rect_pdf_points": [10.0, 20.0, 410.0, 220.0],
-            "x_log10_g_from_pdf_x": {"slope": 0.1, "intercept": -12.0},
+            "x_log10_g_from_pdf_x": {"slope": 0.025, "intercept": -11.25},
             "y_log10_L_from_pdf_y": {"slope": -0.02, "intercept": 55.4},
         }
         points = digitize_points(
