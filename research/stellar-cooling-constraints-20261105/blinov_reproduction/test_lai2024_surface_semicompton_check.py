@@ -63,6 +63,10 @@ class Lai2024SurfaceSemiComptonTests(unittest.TestCase):
             "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
         )
         self.assertEqual(profile["rows"], 1687)
+        self.assertEqual(
+            profile["path"],
+            "research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv",
+        )
         self.assertAlmostEqual(profile["R_nu_km"], 25.1511682816, places=8)
         self.assertAlmostEqual(
             profile["chi_mu_Rnu_extrapolated_MeV3"],
