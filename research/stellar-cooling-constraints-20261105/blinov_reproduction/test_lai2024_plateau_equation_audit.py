@@ -48,6 +48,18 @@ class Lai2024PlateauEquationAuditTests(unittest.TestCase):
             rtol=2e-15,
         )
 
+    def test_lai_neutrino_rate_matches_B7_in_MB_two_flavour_limit(self):
+        omega = np.array([5.0, 15.0, 40.0])
+        mass = 2.0
+        temperature = 8.0
+        b7_mb = mass**2/(8.0*np.pi*omega) * (
+            2.0*np.exp(-omega/temperature)
+        )
+        lai = lai_two_flavour_neutrino_coalescence_coefficient(
+            omega, mass, temperature
+        )
+        np.testing.assert_allclose(lai, b7_mb, rtol=2e-15)
+
     def test_plateau_formula_is_independent_of_coupling(self):
         omega = np.linspace(1.0, 50.0, 200)
         emissivity = np.exp(-omega / 10.0) * omega**3
