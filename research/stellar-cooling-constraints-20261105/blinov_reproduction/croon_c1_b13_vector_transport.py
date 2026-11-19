@@ -179,6 +179,14 @@ def integrate_spherical_source(
     return float(np.sum(np.asarray(domega_weights)[:, None] * radial))
 
 
+def integrate_spherical_source_by_mode(
+    source: np.ndarray, r_nat: np.ndarray, domega_weights: np.ndarray
+) -> np.ndarray:
+    """Integrate a (radius, energy, mode) source and retain (L,+,-)."""
+    radial = simpson(np.asarray(source, float), x=np.asarray(r_nat, float), axis=0)
+    return np.sum(np.asarray(domega_weights)[:, None] * radial, axis=0)
+
+
 def _compute_mass(
     mass: float,
     profile: dict,
@@ -302,29 +310,50 @@ def _compute_mass(
     ))
     thin_total = thin_nu + thin_sc
 
-    # Per-radius source ratios after energy integration.
-    q_sc_minus = np.sum(
-        domega_weights[None, :] * phase[None, :] * np.sum(prod_sc_minus, axis=2),
+    # Retain the three physical polarizations separately before summing.
+    thin_nu_modes = integrate_spherical_source_by_mode(source_nu, r_nat, domega_weights)
+    thin_sc_minus_modes = integrate_spherical_source_by_mode(
+        source_sc_minus, r_nat, domega_weights
+    )
+    thin_sc_plus_modes = integrate_spherical_source_by_mode(
+        source_sc_plus, r_nat, domega_weights
+    )
+    thin_sc_modes = thin_sc_minus_modes + thin_sc_plus_modes
+    thin_total_modes = thin_nu_modes + thin_sc_modes
+
+    # Per-radius source ratios after energy integration, retaining L,+,-.
+    q_nu_by_mode = np.sum(
+        domega_weights[None, :, None] * phase[None, :, None] * prod_nu, axis=1
+    )
+    q_sc_minus_by_mode = np.sum(
+        domega_weights[None, :, None] * phase[None, :, None] * prod_sc_minus,
         axis=1
     )
-    q_sc_plus = np.sum(
-        domega_weights[None, :] * phase[None, :] * np.sum(prod_sc_plus, axis=2), axis=1
+    q_sc_plus_by_mode = np.sum(
+        domega_weights[None, :, None] * phase[None, :, None] * prod_sc_plus,
+        axis=1
     )
+    q_sc_minus = np.sum(q_sc_minus_by_mode, axis=1)
+    q_sc_plus = np.sum(q_sc_plus_by_mode, axis=1)
     q_croon = np.sum(
         domega_weights[None, :] * phase[None, :] * gamma_croon_sc, axis=1
     )
     local_rows = []
     for ir in range(n_r):
-        local_rows.append({
+        row = {
             "mass_MeV": float(mass),
             "r_km": float(r_km[ir]),
             "T_MeV": float(temp[ir]),
             "mu_mu_MeV": float(mu_mu[ir]),
             "mu_numu_MeV": float(mu_numu[ir]),
             "chi_mu_minus_MeV3": float(chi_minus[ir]),
+            "Q_B7_nu_mu_plus_nu_tau_per_g2_MeV5": float(np.sum(q_nu_by_mode[ir])),
             "Q_B13_mu_minus_per_g2_MeV5": float(q_sc_minus[ir]),
             "Q_B13_mu_plus_per_g2_MeV5": float(q_sc_plus[ir]),
             "Q_B13_mu_pm_per_g2_MeV5": float(q_sc_minus[ir] + q_sc_plus[ir]),
+            "Q_B7_plus_B13_per_g2_MeV5": float(
+                np.sum(q_nu_by_mode[ir]) + q_sc_minus[ir] + q_sc_plus[ir]
+            ),
             "Q_Croon_Eq47_mu_minus_per_g2_MeV5": float(q_croon[ir]),
             "B13_mu_minus_over_Croon_Eq47": (
                 float(q_sc_minus[ir] / q_croon[ir]) if q_croon[ir] > 0.0 else None
@@ -333,7 +362,24 @@ def _compute_mass(
                 float((q_sc_minus[ir] + q_sc_plus[ir]) / q_croon[ir])
                 if q_croon[ir] > 0.0 else None
             ),
-        })
+        }
+        for im, mode in enumerate(MODES):
+            row[f"Q_B7_{mode}_per_g2_MeV5"] = float(q_nu_by_mode[ir, im])
+            row[f"Q_B13_mu_minus_{mode}_per_g2_MeV5"] = float(
+                q_sc_minus_by_mode[ir, im]
+            )
+            row[f"Q_B13_mu_plus_{mode}_per_g2_MeV5"] = float(
+                q_sc_plus_by_mode[ir, im]
+            )
+            row[f"Q_B13_mu_pm_{mode}_per_g2_MeV5"] = float(
+                q_sc_minus_by_mode[ir, im] + q_sc_plus_by_mode[ir, im]
+            )
+            row[f"Q_B7_plus_B13_{mode}_per_g2_MeV5"] = float(
+                q_nu_by_mode[ir, im]
+                + q_sc_minus_by_mode[ir, im]
+                + q_sc_plus_by_mode[ir, im]
+            )
+        local_rows.append(row)
 
     outer_tail_100 = outer_vacuum_neutrino_opacity_per_g2(
         mass, omega, R_FAR_KM - float(profile["R_nu_km"])
@@ -355,10 +401,27 @@ def _compute_mass(
             luminosity_mev2 = g2 * float(np.sum(
                 domega_weights[:, None] * radial_energy_mode
             ))
-            record[label] = float(luminosity_mev2 * MEV2_TO_ERG_PER_SECOND)
+            luminosity_by_mode_mev2 = g2 * np.sum(
+                domega_weights[:, None] * radial_energy_mode, axis=0
+            )
+            luminosity_erg_s = float(
+                luminosity_mev2 * MEV2_TO_ERG_PER_SECOND
+            )
+            mode_luminosity_erg_s = (
+                luminosity_by_mode_mev2 * MEV2_TO_ERG_PER_SECOND
+            )
+            record[label] = luminosity_erg_s
+            record[f"{label}_by_mode_erg_s"] = {
+                mode: float(mode_luminosity_erg_s[im])
+                for im, mode in enumerate(MODES)
+            }
+            record[f"{label}_mode_sum_relative_residual"] = float(
+                abs(float(np.sum(mode_luminosity_erg_s)) - luminosity_erg_s)
+                / max(abs(luminosity_erg_s), 1e-300)
+            )
         curve.append(record)
 
-    # A mode-resolved optically-thin contribution table for exact channel audit.
+    # Charge- and mode-resolved optically-thin contributions for exact channel audit.
     return {
         "mass_MeV": float(mass),
         "profile_sha256": profile["profile_sha256"],
@@ -381,6 +444,48 @@ def _compute_mass(
             "B13_mu_pm": float(thin_sc * MEV2_TO_ERG_PER_SECOND),
             "B7_plus_B13": float(thin_total * MEV2_TO_ERG_PER_SECOND),
             "Croon_Eq47_mu_minus_only": float(thin_croon_sc * MEV2_TO_ERG_PER_SECOND),
+        },
+        "thin_source_by_mode_per_g2_erg_s": {
+            "B7_nu_mu_plus_nu_tau": {
+                mode: float(thin_nu_modes[im] * MEV2_TO_ERG_PER_SECOND)
+                for im, mode in enumerate(MODES)
+            },
+            "B13_mu_minus": {
+                mode: float(thin_sc_minus_modes[im] * MEV2_TO_ERG_PER_SECOND)
+                for im, mode in enumerate(MODES)
+            },
+            "B13_mu_plus": {
+                mode: float(thin_sc_plus_modes[im] * MEV2_TO_ERG_PER_SECOND)
+                for im, mode in enumerate(MODES)
+            },
+            "B13_mu_pm": {
+                mode: float(thin_sc_modes[im] * MEV2_TO_ERG_PER_SECOND)
+                for im, mode in enumerate(MODES)
+            },
+            "B7_plus_B13": {
+                mode: float(thin_total_modes[im] * MEV2_TO_ERG_PER_SECOND)
+                for im, mode in enumerate(MODES)
+            },
+        },
+        "thin_source_mode_sum_relative_residuals": {
+            "B7_nu_mu_plus_nu_tau": float(
+                abs(np.sum(thin_nu_modes) - thin_nu) / max(abs(thin_nu), 1e-300)
+            ),
+            "B13_mu_minus": float(
+                abs(np.sum(thin_sc_minus_modes) - thin_sc_minus)
+                / max(abs(thin_sc_minus), 1e-300)
+            ),
+            "B13_mu_plus": float(
+                abs(np.sum(thin_sc_plus_modes) - thin_sc_plus)
+                / max(abs(thin_sc_plus), 1e-300)
+            ),
+            "B13_mu_pm": float(
+                abs(np.sum(thin_sc_modes) - thin_sc) / max(abs(thin_sc), 1e-300)
+            ),
+            "B7_plus_B13": float(
+                abs(np.sum(thin_total_modes) - thin_total)
+                / max(abs(thin_total), 1e-300)
+            ),
         },
         "thin_source_ratios": {
             "B13_mu_minus_over_Croon_Eq47": (
