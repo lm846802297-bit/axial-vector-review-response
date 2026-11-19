@@ -10,15 +10,25 @@ The implementation is deliberately isolated as lane C0. It uses Croon's own loca
 
 ## Literal equations implemented
 
-Croon Eq. (4.6), per \(g_{Z'}^2\), is implemented as
+Croon Eq. (4.6), per \(g_{Z'}^2\), is the generic **single-neutrino-flavour** expression,
 
 \[
-\Gamma_{\nu\bar\nu}^{\rm prod}/g_{Z'}^2
+\Gamma_{\nu\bar\nu,\,\rm generic}^{\rm prod}/g_{Z'}^2
 =\frac{m_{Z'}^2}{12\pi\omega}\,
 \frac{1}{e^{\omega/T}-1}.
 \]
 
-This is the printed two-neutrino-flavour \(L_\mu-L_\tau\) normalization with zero neutrino chemical potentials. It is not replaced by the B.7 rate.
+For the actual \(U(1)_{L_\mu-L_\tau}\) model, Croon Sec. 4.4 explicitly states that both \(\nu_\mu\) and \(\nu_\tau\) contribute. We therefore apply the factor of two to **both** the differential production power and the absorptive optical depth:
+
+\[
+\Gamma_{\nu\bar\nu,\,L_\mu-L_\tau}^{\rm prod}/g_{Z'}^2
+=2\,\Gamma_{\nu\bar\nu,\,\rm generic}^{\rm prod}/g_{Z'}^2,
+\qquad
+\Gamma_{\nu\bar\nu,\,L_\mu-L_\tau}^{\rm abs}/g_{Z'}^2
+=2\,\Gamma_{\nu\bar\nu,\,\rm generic}^{\rm abs}/g_{Z'}^2.
+\]
+
+The factor of two is a model-flavour multiplicity, not a vector-polarization factor. The B.7 rate is not substituted.
 
 Croon Eq. (4.7), per \(g_{Z'}^2\), is implemented as
 
@@ -42,7 +52,7 @@ so the local absorption expressions contain \(1+f_B\). The outer \(R_\nu\to R_{\
 
 \[
 \tau_{\nu,\rm out}/g_{Z'}^2
-=(R_{\rm far}-R_\nu)\frac{m_{Z'}^2}{12\pi\omega},
+=2(R_{\rm far}-R_\nu)\frac{m_{Z'}^2}{12\pi\omega},
 \]
 
 with \(R_{\rm far}=100\) km. No extra \(1/v_{Z'}\) is inserted in the radial optical-depth integral because Croon Eq. (3.3) does not contain it.
@@ -70,7 +80,7 @@ The \(T=3\) MeV boundary is obtained by linearly extrapolating the final two pro
 R_\nu=25.1511683\ {\rm km}.
 \]
 
-The C0 run uses:
+The corrected C0 run uses the Croon Sec. 4.4 two-neutrino-flavour factor in both source and opacity, and uses the single \(\mu^-\) susceptibility convention. It uses:
 
 - \(R_{\rm far}=100\) km;
 - \(r\)-grid spacing 0.05 km, with the last nonzero and first zero muon-profile points retained;
@@ -83,7 +93,7 @@ The 0.1 eV curve is also computed with \(R_{\rm far}=R_\nu\), corresponding to t
 
 ## Preliminary numerical results
 
-The current local Python calculation, using the same public profile reconstruction and the literal C0 formulae, gives:
+The table below is retained as a **historical single-neutrino-flavour run** and is superseded. It predates the explicit Croon Sec. 4.4 factor of two in both neutrino production and opacity. The corrected two-flavour run is being regenerated and its numerical output will replace this table before any quantitative comparison with Fig. 2:
 
 | \(m_{Z'}\) | Peak \(g_{Z'}\) | Peak \(L_{Z'}\) [erg/s] | Low-\(g\) crossing of \(3\times10^{52}\) | High-\(g\) crossing |
 |---:|---:|---:|---:|---:|
