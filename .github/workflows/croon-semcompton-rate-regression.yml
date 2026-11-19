@@ -11,6 +11,8 @@ on:
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_croon_neutrino_rate_comparison.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_blinov_neutrino_emissivity.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_croon_blinov_neutrino_emissivity.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_c0_luminosity.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_croon_c0_luminosity.py'
       - '.github/workflows/croon-semcompton-rate-regression.yml'
   workflow_dispatch:
 
@@ -45,6 +47,12 @@ jobs:
       - name: Generate full-profile local neutrino emissivity comparison
         working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
         run: python croon_blinov_neutrino_emissivity.py
+      - name: Run Croon-literal C0 optical-depth and luminosity tests
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest -v test_croon_c0_luminosity.py
+      - name: Generate Croon-literal C0 luminosity curve
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python croon_c0_luminosity.py
       - name: Upload full 28-point local neutrino-rate table
         uses: actions/upload-artifact@v4
         with:
@@ -56,6 +64,12 @@ jobs:
         with:
           name: croon-blinov-neutrino-emissivity-profile
           path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_blinov_neutrino_emissivity_profile_2026-11-19.json
+          if-no-files-found: error
+      - name: Upload Croon-literal C0 luminosity curve
+        uses: actions/upload-artifact@v4
+        with:
+          name: croon-c0-luminosity-10mev
+          path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c0_luminosity_10mev_2026-11-19.json
           if-no-files-found: error
       - name: Re-run exact B13 to B16 controlled-limit regression
         working-directory: research/stellar-cooling-constraints-20261105
