@@ -378,3 +378,35 @@ The paper's transport equations are for an LFV-ALP model and its LESN energy-dep
 **Conclusion:** the additional 2026 paper strengthens the inner-profile provenance check but does not close the outer-opacity data gap. The current source-weighted outer-opacity envelope remains a conditional sensitivity analysis. No new outer profile is inferred from the figure, no opacity is fitted, and no C0 luminosity or Fig. 2 curve is modified.
 
 Primary reference: https://arxiv.org/pdf/2510.22523
+
+
+## 12. New outer muon-profile source: Huang and Liu (2025)
+
+A more directly relevant public profile source has now been identified:
+
+Z.-M. Huang and Z. Liu, *Low-Energy Supernova Constraints on Lepton Flavor Violating Axions*, JHEP 10 (2025) 024, arXiv:2506.16922v2.
+
+This paper uses the Garching muonic SFHo-18.8 model at one second post-bounce and extends the displayed radial background to **30 km**:
+
+- **Fig. 2, PDF p. 5 (printed p. 4):** \(T(r)\), \(\mu_e(r)\), \(\mu_\mu(r)\), lapse, and in-medium electron mass over approximately \(0\)--\(30\) km.
+- **Fig. 5, PDF p. 7 (printed p. 6):** left panel, signed \(\mu_e(r)\) and \(\mu_\mu(r)\); right panel, \(n_{e^-},n_{\mu^-},n_{e^+},n_{\mu^+}\) over approximately \(0\)--\(30\) km. The number densities are calculated using the paper's Eq. (4.8).
+- **Sec. 4, PDF p. 6:** the authors explicitly state that \(\mu_\mu\) becomes negative for \(r\gtrsim22\) km and consequently \(n_{\mu^+}>n_{\mu^-}\) in that region.
+
+This changes the charge-conjugate bookkeeping of the outer-profile audit. The earlier C0 antimuon sensitivity used the public Caputo/Bollig profile with \(\mu_\mu\) set to zero after its last digitized positive sample at about 22.19 km. That prescription does not reproduce the signed \(\mu_\mu(r)\) tail shown in Huang--Liu Fig. 5. It therefore cannot be used as the final charge-summed \(22\)--\(30\) km profile.
+
+The correct next calculation is to digitize the correlated \(T(r)\) and signed \(\mu_\mu(r)\) curves from Huang--Liu Figs. 2 and 5, calculate
+\[
+\chi_{\mu^-}(r)=n_{\mu^-}(r)F_{\rm deg}^{\mu^-}(r),\qquad
+\chi_{\mu^+}(r)=n_{\mu^+}(r)F_{\rm deg}^{\mu^+}(r),
+\]
+and compare their sum with the last nonzero Caputo/Bollig susceptibility sample. The right panel of Fig. 5 supplies an independent number-density cross-check for the Fermi-integral reconstruction.
+
+The paper's Data Availability Statement says that no associated data are deposited, and its Code Availability Statement says that no code is deposited. Thus Figs. 2 and 5 provide a public figure-digitization lane, not the original numerical Garching table. The displayed profile stops at 30 km; the \(30\)--\(100\) km interval remains unprovided.
+
+**Required correction to the previous envelope:** the earlier constant-edge, source-weighted opacity envelope remains a useful conditional reference, but it is not yet a demonstrated upper bound on the charge-summed outer susceptibility. That status can be assigned only after the signed \(\mu_\mu\) tail from Fig. 5 has been digitized and its \(\chi_{\mu^-}+\chi_{\mu^+}\) evaluated. No luminosity curve is changed by identifying this source.
+
+This paper is used here only as a source of SFHo-18.8 background information. Its LFV-ALP production, absorption, mantle transport, and limits are not imported into the vector-boson calculation.
+
+Primary sources:
+- arXiv PDF: https://arxiv.org/pdf/2506.16922
+- Journal version and data/code availability statements: https://link.springer.com/article/10.1007/JHEP10%282025%29024
