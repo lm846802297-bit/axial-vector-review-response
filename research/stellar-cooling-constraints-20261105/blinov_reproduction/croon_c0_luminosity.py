@@ -317,7 +317,7 @@ def run_c0_luminosity(
         curve.append(record)
 
     return {
-        "title": "Croon Eq. (3.4) Lmu-Ltau two-neutrino-flavour luminosity adapter, mV=10 MeV",
+        "title": "Croon Eq. (3.4) generic one-neutrino-flavour luminosity adapter, mV=10 MeV",
         "profile_file": profile_path.name,
         "profile_sha256": profile_hash,
         "profile_rows": int(len(rows)),
@@ -325,7 +325,7 @@ def run_c0_luminosity(
         "R_nu_km": float(r_nu),
         "R_far_km": float(R_FAR_KM),
         "neutrino_flavour_factor": float(neutrino_flavour_factor),
-        "neutrino_flavour_source": "Croon Eq. (4.6) uses Gamma(Zprime->nu nu)=alpha_Zprime*mZprime/3, already the two-flavour L_mu-L_tau width; no extra factor of two is applied",
+        "neutrino_flavour_source": "Croon Eq. (4.6) generic normalization is the factor=1 baseline; Croon Sec. 4.4 prescribes multiplying both neutrino production Q and neutrino absorptive optical depth by 2 for U(1)_{L_mu-L_tau}; neutrino_flavour_factor is an explicit switch",
         "temperature_max_MeV": t_max,
         "muon_susceptibility": {
             "definition": "chi_mu = int 2 d^3p/(2pi)^3 f_mu-(1-f_mu-); matches the single negative-muon species in Bollig Eq. (2) and Croon n_mu Fdeg",
@@ -351,7 +351,7 @@ def run_c0_luminosity(
             "total": float((free_nu_nat+free_sc_nat)*MEV2_TO_ERG_PER_SECOND),
         },
         "coupling_curve": curve,
-        "scope": "Croon Eqs. (3.3)-(3.4), (4.6)-(4.7) with the Sec. 4.4 L_mu-L_tau two-neutrino-flavour factor; public-profile reconstruction, not a raw-Garching reproduction and not an axial-vector result",
+        "scope": "Croon Eqs. (3.3)-(3.4), (4.6)-(4.7) generic one-neutrino-flavour baseline; set neutrino_flavour_factor=2 for the Sec. 4.4 L_mu-L_tau variant; public-profile reconstruction, not a raw-Garching reproduction and not an axial-vector result",
     }
 
 
