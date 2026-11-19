@@ -8,6 +8,9 @@ try:
         DEFAULT_PROFILE,
         local_rate_spectra,
         load_profile,
+        free_streaming_volume_integral,
+        MEV_INV_PER_KM,
+        MEV2_TO_ERG_PER_SECOND,
     )
     from .reference import fermi_pair_average as reference_pair_average
 except ImportError:
@@ -64,6 +67,27 @@ class CroonBlinovNeutrinoEmissivityTests(unittest.TestCase):
             - float(result["I_nutau"][idx])
         )
         self.assertAlmostEqual(extracted/sampled_ref, 1.0, delta=3e-12)
+
+    def test_piecewise_linear_spherical_volume_integral_and_units(self):
+        result = free_streaming_volume_integral(
+            r_km=np.array([0.0, 1.0]),
+            temperature_MeV=np.array([5.0, 4.0]),
+            q_b7_MeV5=np.array([2.0, 2.0]),
+            q_croon_MeV5=np.array([1.0, 1.0]),
+            neutrinosphere_temperature_MeV=3.0,
+        )
+        self.assertAlmostEqual(result["neutrinosphere_radius_km"], 2.0, places=13)
+        self.assertAlmostEqual(
+            result["Q_B7_over_Q_Croon_free_streaming_luminosity"], 2.0, places=13
+        )
+        expected = (
+            4.0*np.pi*2.0*(2.0**3)/3.0
+            * MEV_INV_PER_KM**3 * MEV2_TO_ERG_PER_SECOND
+        )
+        self.assertAlmostEqual(
+            result["Q_B7_free_streaming_luminosity_per_g2_erg_s"]/expected,
+            1.0, delta=2e-13
+        )
 
     def test_selected_energy_angular_quadrature_converges(self):
         coarse = local_rate_spectra(
