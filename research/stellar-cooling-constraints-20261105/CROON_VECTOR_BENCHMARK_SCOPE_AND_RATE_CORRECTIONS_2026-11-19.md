@@ -144,6 +144,8 @@ d\omega\;\omega^2\sqrt{\omega^2-m_V^2}\,
 \]
 The B.7 integrand uses the two flavours separately, with the tabulated \(\mu_{\nu_\mu}(r)\) and \(\mu_{\nu_\tau}=0\); the Croon integrand uses Eq. (4.6) literally. All results are per \(g_X^2\), with \(m_V=10\) MeV.
 
+**Flavour-matched comparison:** Croon Eq. (4.6) is the generic one-neutrino-flavour normalization used for the Fig. 2 baseline. Croon Sec. 4.4 explicitly states that the \(U(1)_{L_\mu-L_\tau}\) model has an additional factor of two in both the differential neutrino power and the neutrino absorptive optical depth. Thus the generic ratio below is an equation-level comparison, not the same-model comparison. For the latter, use \(Q_{\rm Croon}^{L_\mu-L_\tau}=2Q_{\rm Croon}^{\rm generic}\), so every B.7/generic ratio below must be divided by two.
+
 The 1687-point radial scan gives
 \[
 1.05929\leq \frac{Q_{\rm B7}^{(\nu_\mu+\nu_\tau)}(r)}
@@ -151,6 +153,15 @@ The 1687-point radial scan gives
 \leq 2.31942,
 \]
 with the minimum at \(r=0\) km and the maximum at \(r=25\) km.
+
+The same-model \(L_\mu-L_\tau\) ratios are therefore
+\[
+0.529645\leq
+\frac{Q_{\rm B7}^{(\nu_\mu+\nu_\tau)}(r)}
+{Q_{\rm Croon}^{L_\mu-L_\tau}(r)}
+\leq 1.15971.
+\]
+At the six radii in the table, the corresponding ratios are respectively 0.529645, 0.720485, 0.749455, 0.799085, 1.10301 and 1.15971. These are obtained from the archived generic-rate output by the exact factor-two prescription; the updated machine-readable output separately stores both normalizations.
 
 | Radius | \(T\) [MeV] | \(\mu_{\nu_\mu}\) [MeV] | \(Q_{\rm B7}\) [MeV\(^5\)] | \(Q_{\rm Croon}\) [MeV\(^5\)] | Ratio |
 |---:|---:|---:|---:|---:|---:|
@@ -201,6 +212,16 @@ and
 \boxed{
 L_{\rm B7}^{\rm free}/L_{\rm Croon}^{\rm free}=1.455827.
 }
+
+Here \(L_{\rm Croon}^{\rm free}\) is the **generic one-flavour** Eq. (4.6) result. For the same \(L_\mu-L_\tau\) model as B.7, Croon Sec. 4.4 gives
+\[
+L_{\rm Croon,\,L_\mu-L_\tau}^{\rm free}/g_X^2
+=6.11588\times10^{70}\ {\rm erg\,s^{-1}},
+\qquad
+\frac{L_{\rm B7}^{\rm free}}{L_{\rm Croon,\,L_\mu-L_\tau}^{\rm free}}
+=0.7279136.
+\]
+Thus the earlier 1.455827 ratio is retained only as a generic one-flavour equation comparison; 0.7279136 is the flavour-matched ratio. The Croon factor of two must also be applied to its absorptive optical depth before comparing finite-coupling luminosity curves.
 \]
 The direct trapezoidal cross-check differs from the analytic piecewise-linear radial integral by only \(5.8\times10^{-6}\) for each channel.
 
