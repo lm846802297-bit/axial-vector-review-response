@@ -42,8 +42,8 @@ class CroonAntimuonOpacitySensitivityTests(unittest.TestCase):
         row = self.result["comparison"][0]
         self.assertGreater(row["mu_pm_gap_remaining"], 3.0)
         self.assertGreater(
-            row["mu_pm_gap_remaining"],
             row["mu_minus_only_gap_remaining"],
+            row["mu_pm_gap_remaining"],
         )
 
     def test_literal_croon_convention_is_retained(self):
