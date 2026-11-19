@@ -155,7 +155,7 @@ def run(
         "raffelt_threshold_erg_s": RAFFELT,
         "crossings_and_peaks": crossings,
         "Rfar_ordering_checks": ordering_checks,
-        "scope": "public Caputo/Bollig profile reconstruction; generic Croon Fig. 2 baseline compared with the separate Sec. 4.4 Lmu-Ltau factor-two variant; not a raw-Garching reproduction or final cooling bound",
+        "scope": "public Caputo/Bollig profile reconstruction; generic one-neutrino-flavour C0 baseline compared with the separate Sec. 4.4 Lmu-Ltau factor-two variant; the six-mass Fig. 2 run is maintained in its own two-flavour Lmu-Ltau lane; not a raw-Garching reproduction or final cooling bound",
     }
 
 
