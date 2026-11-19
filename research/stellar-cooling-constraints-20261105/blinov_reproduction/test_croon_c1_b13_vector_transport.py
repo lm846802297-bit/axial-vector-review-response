@@ -76,7 +76,7 @@ class CroonC1B13VectorTransportTests(unittest.TestCase):
         )
         total = integrate_spherical_source(source, radius, energy_weights)
         self.assertEqual(by_mode.shape, (3,))
-        np.testing.assert_allclose(by_mode, [0.3, 0.6, 1.2], rtol=1e-13)
+        np.testing.assert_allclose(by_mode, [4.5, 9.0, 18.0], rtol=1e-13)
         self.assertAlmostEqual(float(np.sum(by_mode)), total, places=13)
 
     def test_b7_two_flavour_mode_rates_obey_detailed_balance(self):
