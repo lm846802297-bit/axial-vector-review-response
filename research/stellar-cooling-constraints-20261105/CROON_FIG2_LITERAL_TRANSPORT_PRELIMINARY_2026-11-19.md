@@ -1,4 +1,4 @@
-# Croon Fig. 2: literal transport reconstruction (preliminary)
+# Croon Fig. 2: inner-profile benchmark and unresolved outer opacity (preliminary)
 
 Date: 2026-11-19
 
@@ -213,9 +213,37 @@ This establishes three distinct outcomes:
 2. **Weak-coupling low-mass branch:** the 10 eV, 1 eV and 0.1 eV curves are within about 0.08 dex at their low-\(g\) points. Thus the optically-thin semi-Compton normalization is not globally wrong by a factor of three.
 3. **Strong-coupling low-mass branch:** for the conservative \(R_{\rm far}=100\) km curves, the model is high by a median factor of about 3.1. The \(R_{\rm far}=R_\nu\) dashed sensitivity curve has a much smaller median offset, although its RMS and maximum residual remain affected by the high-\(g\) endpoint.
 
-The discrepancy is therefore **not** repaired by a single source normalization. The pattern points to the trapping/opacity treatment, especially the \(R_\nu\to R_{\rm far}\) contribution, as the next place to investigate. The current implementation explicitly uses the vacuum \(Z'\to\nu\bar\nu\) decay tail outside the available \(R_\nu\) profile. The public profile ends at 25 km and is not the raw Garching radial table used by Croon. We have not established that the vacuum-tail continuation is identical to the authors' numerical treatment, nor have we established that the raw simulation has no additional outer-medium opacity. The official Garching archive lists the Bollig radial-profile dataset, but its data endpoint returned HTTP 401 (authorization required); the archive itself notes that some datasets are password-protected and directs users to contact the archive maintainers. Until access is granted, the raw profile cannot be used for this comparison. The residual is retained as an unresolved reproduction difference; no opacity or rate is tuned to remove it.
+The discrepancy is now localized more sharply by using the two published 0.1 eV curves themselves. The Fig. 2 caption says that the dashed curve changes only \(R_{\rm far}\) from 100 km to \(R_\nu\). For each common coupling, define
+\[
+S_{\rm paper}(g)=
+\frac{L_{\rm Fig.2}(R_{\rm far}=R_\nu)}
+{L_{\rm Fig.2}(R_{\rm far}=100\ {\rm km})}.
+\]
+Across the strong-coupling plateau \(3\times10^{-6}\le g_{Z'}\le3\times10^{-2}\), 27 digitized solid-curve points give
+\[
+{\rm median}\ S_{\rm paper}=3.38190,\qquad
+P_{16-84}=[3.22590,\,3.64968],
+\]
+with pointwise range 3.12740--3.72331. Thus the published \(R_\nu\to R_{\rm far}\) optical-depth segment suppresses the integrated luminosity by a factor of about 3.4 over this plateau.
 
-A separate outer-opacity sensitivity was computed by replacing the vacuum tail with a Bose-enhanced \(T_{\rm outer}=3\) MeV neutrino bath over \(R_\nu\to100\) km. This is an upper-envelope stress test for the **neutrino-decay Bose factor only**; it is not a bound on the total outer opacity, does not include any possible outer muon-scattering opacity, is not the default Croon prescription, and is not a reconstructed outer hydrodynamic profile. For the 0.1 eV curve it changes the luminosity by only 1.14% at \(g=0.1\) and 2.34% at \(g=0.3\). The pointwise median residual against the solid \(R_{\rm far}=100\) km curve remains \(+0.4796\) dex (median ratio 3.02), essentially unchanged from the vacuum-tail result. Thus the missing discrepancy is **not** explained by simply Bose-enhancing the outer neutrino-decay tail at \(T=3\) MeV. A possible additional outer-medium opacity or another trapping-prescription difference remains to be isolated.
+The current implementation instead gives
+\[
+{\rm median}\ S_{\rm model}=1.0000009,\qquad
+P_{16-84}=[1.00000,\,1.00059],
+\]
+over the same coupling window. Its additional missing integrated-luminosity suppression is therefore
+\[
+\boxed{S_{\rm paper}/S_{\rm model}=3.38190,\qquad
+\ln(S_{\rm paper}/S_{\rm model})=1.21844.}
+\]
+The logarithm is an **effective luminosity-suppression diagnostic**, not a local optical depth and not a unique reconstruction of \(\Gamma_{\rm abs}(r,\omega)\). The current \(R_{\rm far}=R_\nu\) model curve agrees with the digitized dashed curve to a median \(0.026\) dex on this plateau, while the current \(R_{\rm far}=100\) km curve is high by a median factor 3.21 relative to the digitized solid curve. This isolates the missing effect to the outer segment rather than to the interior semi-Compton normalization.
+
+For \(m_{Z'}=0.1\) eV, the vacuum neutrino-decay opacity is proportional to \(m_{Z'}^2\) and is numerically negligible throughout most of this plateau. The \(T_{\rm outer}=3\) MeV Bose-enhanced neutrino-decay envelope also changes the luminosity by only 1.14% at \(g=0.1\) and 2.34% at \(g=0.3\). It cannot explain the factor-3.4 solid/dashed separation. Since the low-mass Croon production and absorption channels are dominated by semi-Compton scattering, the missing \(R_\nu\to R_{\rm far}\) term is strongly indicative of **outer semi-Compton absorption on the residual muon population**, or another outer-medium opacity included in the authors' profile but absent from ours.
+
+The current profile is available only through \(R_\nu\simeq25.15\) km. In the C0 code, the muon susceptibility is therefore truncated at the edge of the public profile; the \(R_{\rm far}=100\) km calculation includes only the vacuum neutrino-decay tail outside \(R_\nu\). It must now be described as an **interior-profile calculation with a vacuum-only outer continuation**, not as a complete Croon \(R_{\rm far}=100\) km transport result. The dashed \(R_{\rm far}=R_\nu\) curve is the cleaner comparison for the presently available profile.
+
+The missing input is the raw outer radial profile (at minimum \(T(r)\) and \(\mu_\mu(r)\), or \(n_\mu(r)F_{\rm deg}(r)\)) between \(R_\nu\) and 100 km. The official Garching archive lists the Bollig radial-profile dataset, but its endpoint returns HTTP 401; the archive explicitly says that some data are password-protected and requests that users contact the maintainers. A separate publication also states that the Bollig radial profiles are available upon request. We cannot infer a physical outer profile from the Fig. 2 luminosity curves without tuning. Therefore, we retain the outer-opacity gap as unresolved and do not fit an opacity profile to the figure.
+
 
 The model output including this separate \(T_{\rm outer}=3\) MeV envelope is archived in [workflow artifact](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44464580478/artifacts/14500909045). The 13-test Fig. 2 transport suite checks both the vacuum and finite-temperature outer-tail formulas.
 
@@ -232,9 +260,9 @@ The comparison workflow run #44463503829 completed successfully. The subsequent 
 
 ## What remains before calling this a Fig. 2 reproduction
 
-1. Audit the (R_\nu\to R_{\rm far}) absorptive opacity against the literal Croon equations and the available outer-profile information; keep vacuum-tail and finite-temperature upper-envelope variants separate.
-2. Inspect the 0.1 MeV high-(g) digitized endpoint and propagate the PDF line-stroke uncertainty.
-3. Quantify how much of the low-mass trapping discrepancy can be attributed to the unavailable raw Garching outer profile versus the optical-depth continuation.
+1. Obtain the raw Garching SFHo-18.8, \(t_{\rm pb}=1\) s radial profile through \(R_{\rm far}\), including the muon susceptibility \(n_\mu F_{\rm deg}\). Until then, do not claim a complete \(R_{\rm far}=100\) km low-mass transport calculation.
+2. Re-run the outer-opacity integral with the actual profile and independently verify its radial interpolation and tail.
+3. Inspect the 0.1 MeV high-\(g\) digitized endpoint and propagate the PDF line-stroke uncertainty.
 4. Keep the C0 result separate from the corrected B.13 local-rate lane and from all axial-vector predictions.
 
 No axial-vector curve or SN1987A exclusion is updated by this preliminary calculation.
