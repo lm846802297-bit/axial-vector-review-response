@@ -72,12 +72,19 @@ L_{\infty,\nu{\rm-only}}
 \int_{m_{Z'}}^\infty d\omega\,
 \omega^3\left(1-\frac{m_{Z'}^2}{\omega^2}\right)e^{-\omega/T_\nu}.
 \]
-For \(m_{Z'}=2\) eV, \(T_\nu=3\) MeV and \(R_\nu=25.1511683\) km, numerical quadrature gives
-\[
-\boxed{L_{\infty,\nu{\rm-only}}=9.1762591\times10^{51}\ {\rm erg\,s^{-1}}.}
-\]
-The result is within \(2\times10^{-8}\) relative of the massless analytic limit \(9R_\nu^2T_\nu^4/\pi\). This is a **neutrino-only reference**, not the full Lai plateau or a lower bound on the total luminosity: once semi-Compton and loop-bremsstrahlung are included, their production and absorption contributions enter the same total attenuation factor and cannot be added as independent plateau luminosities.
+For \(T_\nu=3\) MeV and \(R_\nu=25.1511683\) km, numerical quadrature gives:
 
+| \(m_{Z'}\) | \(L_{\infty,\nu{\rm-only}}\) [erg/s] |
+|---:|---:|
+| 2 eV | \(9.1762591\times10^{51}\) |
+| 10 eV | \(9.1762591\times10^{51}\) |
+| 0.1 MeV | \(9.1745603\times10^{51}\) |
+| 1 MeV | \(9.0102906\times10^{51}\) |
+| 10 MeV | \(2.6309547\times10^{51}\) |
+
+For \(m_{Z'}=2\) eV the result is within \(2\times10^{-8}\) relative of the massless analytic limit \(9R_\nu^2T_\nu^4/\pi\). This is a **neutrino-only reference**, not the full Lai plateau or a lower bound on the total luminosity: once semi-Compton and loop-bremsstrahlung are included, their production and absorption contributions enter the same total attenuation factor and cannot be added as independent plateau luminosities.
+
+Machine-readable five-mass output: [Lai neutrino-only plateau artifact](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44487078124/artifacts/14510499394).
 ## 4. Rate-level comparison
 
 ### 4.1 Neutrino-pair coalescence
