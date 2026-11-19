@@ -87,7 +87,7 @@ The published Fig. 2 caption identifies the gauged \(U(1)_{L_\mu-L_\tau}\) model
 - 160-point transformed energy Gauss quadrature, \(\omega=m+T_{\max}y^2\), \(0\le y\le6\);
 - 256-point Gauss-Legendre momentum quadrature for \(n_\mu F_{\rm deg}\);
 - cumulative Simpson integration for \(\tau_{\rm abs}\) and Simpson integration for the volume integral;
-- 201 logarithmic couplings from \(10^{-11}\) to \(10^{-1}\).
+- 221 logarithmic couplings from \(10^{-11}\) to \(1\).
 
 The 0.1 eV curve is also computed with \(R_{\rm far}=R_\nu\), corresponding to the dashed-boundary comparison described in the Fig. 2 caption.
 
