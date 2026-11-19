@@ -190,6 +190,18 @@ For the physical SFHo-18.8, \(t_{\rm pb}=1\) s profile and \(m_V=10\) MeV, the l
 
 These are **not** acceptance failures of the exact B.13 kernel. They show that the non-relativistic/no-recoil B.14--B.16 approximation is not quantitatively reliable at these hot, muon-rich SFHo points. It overestimates the exact moving-muon vector source by factors of about 2.09 and 2.33, respectively. We must not calibrate B.13 to B.16 at these physical points.
 
+The existing three-level audit further separates this difference without changing the underlying B.13 or B.16 calculations. Inserting the stationary-muon exact-recoil kernel between them gives
+
+| Radius | \(Q_{\rm B13}/Q_{\rm stationary,exact}\) | \(Q_{\rm stationary,exact}/Q_{\rm B16}\) | Product \(Q_{\rm B13}/Q_{\rm B16}\) |
+|---:|---:|---:|---:|
+| 0 km | 0.842632 | 0.568544 | 0.479073 |
+| 12.5 km | 0.799793 | 0.535881 | 0.428594 |
+
+Thus the exact stationary-target Compton result is already 43.1% and 46.4% below B.14--B.16. Allowing the muon target to move in the full thermal distribution then lowers the rate by a further 15.7% and 20.0% relative to the stationary exact-recoil result. The first difference measures finite-energy/Compton corrections beyond the Thomson approximation with the same effective susceptibility; it should not be described as recoil alone. The second isolates the additional moving-muon thermal-kinematic effect within the project's matched comparison.
+
+The explicit \(1+m_V^2/(2\omega^2)\) correction in B.14 changes the *energy-integrated* B.16 emissivity by only 2.23% at 0 km and 1.56% at 12.5 km. It therefore cannot explain the 52.1% and 57.1% total B.13/B.16 differences. The susceptibility quadrature is converged: changing its Gauss-Legendre order from 128 to 192 changes \(n_\mu F_{\rm deg}\) by less than \(5\times10^{-15}\) in both cases. The B.13/B.16 energy and angular integrations are also converged at the recorded orders.
+
+
 The same B.13 implementation does pass its controlled common-limit test: \(T=0.5\) MeV, \(\mu_\mu=m_\mu+0.05\) MeV, \(m_V=0.05\) MeV and \(\omega=0.5\) MeV. In that non-relativistic, low-recoil regime, the transverse-mode ratios and total B.13/B.16 rate agree within the existing 5% acceptance tolerance. The B.13 detailed-balance residual at the physical points is below \(5.0\times10^{-15}\); the archived quadrature refinements change the integrated source by \(1.6\times10^{-4}\) or less.
 
 The independent explicit-spinor audit separately verifies the B.13 Dirac-trace implementation, photon Ward identity, vector longitudinal Ward shift, and on-shell final muon. These checks validate the exact kernel; they do not make the B.16 approximation valid outside its controlled limit.
