@@ -348,3 +348,33 @@ A data request should identify the exact target as the SFHo-18.8 model at \(t_{\
 The immediate priority is the outer interval \(25\lesssim r\le100\) km, but the complete profile is preferable so the source and opacity are derived from one consistent snapshot.
 
 **Disposition:** no email has been sent, no access key has been requested or obtained, and no access restriction has been bypassed. The current public-figure reconstruction remains the only numerical input used in the committed calculation. The full-profile request is the next data-dependent step; the conditional envelopes in Sec. 9 remain sensitivity tests until that data is available.
+
+
+## 11. Independent 2026 SFHo-18.8 profile cross-check
+
+A further independent literature source was checked:
+
+Z.-M. Huang, C. Li and Z. Liu, *Refined Low-Energy Supernova Constraints on Lepton Flavor Violating Axions*, JHEP 05 (2026) 292, arXiv:2510.22523.
+
+The paper states in Sec. 4 that it adopts the radial distributions and temporal evolution of the Garching SFHo-18.8 model. Its Fig. 2 (PDF p. 6) shows the \(t_{\rm pb}=1\) s spatial profiles of
+\[
+T(r),\quad \mu_e(r),\quad \mu_\mu(r),\quad U_p(r),\quad
+m_p^*(r),\quad \mu_p(r),\quad \text{lapse}(r),\quad m_e(r).
+\]
+The plotted radial range is approximately \(0\)--\(20\) km. The figure therefore supplies an independent inner-profile cross-check, but it does not extend through the \(25\)--\(100\) km interval required by the Croon \(R_{\rm far}=100\) km opacity integral. It also does not publish a numerical \(n_B(r)\) or a machine-readable outer muon-susceptibility table.
+
+The authors acknowledge Hans-Thomas Janka for providing the supernova profiles used in their numerical calculations. This is consistent with the Garching archive being the primary data route; it is not evidence that the underlying radial tables are publicly downloadable. The paper also states that electron and muon number densities decrease rapidly outside the SN core (PDF p. 14), which is a useful qualitative physical cross-check, not a quantitative upper bound on the \(25\)--\(100\) km semi-Compton opacity.
+
+The paper's transport equations are for an LFV-ALP model and its LESN energy-deposition calculation. They are not imported into the Croon vector benchmark. In particular, its \(R_c=20\) km core boundary, angular trajectory average, lapse treatment, and interaction channels are not interchangeable with Croon's \(R_\nu\)-to-\(R_{\rm far}\) vector calculation.
+
+### Updated source disposition
+
+| Source | Radial information | What it establishes | What it does not establish |
+|---|---|---|---|
+| Caputo/Bollig public figures used in this repository | Inner SFHo-18.8 profile; muon curve support ends near 22 km | Reconstructed \(T,\mu_\mu\) and inner thermodynamic consistency checks | Original \(25\)--\(100\) km muon susceptibility |
+| Huang, Li and Liu, arXiv:2510.22523, Fig. 2 | Garching SFHo-18.8 profiles to about 20 km at \(t_{\rm pb}=1\) s | Independent inner \(T,\mu_\mu,\mu_e\), proton-potential and lapse comparison | A numerical outer profile or \(n_B(r)\) table |
+| Garching Core-Collapse Supernova Archive, Bollig radial-profile collection | Original simulation radial-profile collection, access-controlled | Primary provenance route for the exact simulation data | Public unauthenticated access; the linked endpoint returns HTTP 401 |
+
+**Conclusion:** the additional 2026 paper strengthens the inner-profile provenance check but does not close the outer-opacity data gap. The current source-weighted outer-opacity envelope remains a conditional sensitivity analysis. No new outer profile is inferred from the figure, no opacity is fitted, and no C0 luminosity or Fig. 2 curve is modified.
+
+Primary reference: https://arxiv.org/pdf/2510.22523
