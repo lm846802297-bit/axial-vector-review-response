@@ -185,7 +185,7 @@ This does **not** contradict the fixed-energy table, where the B.7/Croon ratio c
 
 The full radial scan used energy order 64 and angular order 128. At six anchors (0, 8.482, 12.5, 15, 22 and 24 km), refinement to energy order 96 and angular order 256 changed \(Q_{\rm B7}\) by at most \(3.8\times10^{-15}\) and \(Q_{\rm Croon}\) by at most \(2.5\times10^{-15}\). This is a selected-anchor convergence check, not an exhaustive high-order scan at all 1687 radii.
 
-Machine-readable full profile (1687 rows, generic and flavour-matched ratios): [GitHub Actions artifact](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449132291/artifacts/14494128373). Artifact SHA-256: \`2b7e4808859884d58a4ec6596bda3510e5312c8ef05bccd79923a8019d5f6721\`. The input profile SHA-256 is \`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c\`.
+Machine-readable full profile (1687 rows, generic and flavour-matched ratios): [GitHub Actions artifact](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449522338/artifacts/14495081528). Artifact SHA-256: \`494a74a0b772a00c6f5f5d24989439b408880fa0dbdb8323ef1c9e6101f4a2ac\`. The input profile SHA-256 is \`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c\`.
 
 This is an energy-integrated **local emissivity** comparison only. It does not perform the radial proper-volume integral, lapse/redshift weighting, attenuation, escape-probability calculation, or total luminosity integration.
 
@@ -235,7 +235,7 @@ The direct trapezoidal cross-check differs from the analytic piecewise-linear ra
 
 At \(g_X=10^{-9}\), these channel-only optically-thin values scale to \(4.45183\times10^{52}\), \(3.05794\times10^{52}\), and \(6.11588\times10^{52}\) erg/s for B.7, generic Croon, and flavour-matched Croon, respectively. This is a useful normalization comparison against the \(3\times10^{52}\) erg/s Raffelt scale, **not a cooling bound**: this calculation has no attenuation, no semi-Compton contribution, no lapse/redshift factor, and no transport/escape probability. In particular, one must not interpret the \(g_X=10^{-9}\) scaling point as necessarily lying in the free-streaming regime.
 
-The updated 1687-row profile artifact stores both generic and flavour-matched local emissivities and their volume integrals: [GitHub Actions artifact](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449132291/artifacts/14494128373). Artifact SHA-256: \`2b7e4808859884d58a4ec6596bda3510e5312c8ef05bccd79923a8019d5f6721\`.
+The updated 1687-row profile artifact stores both generic and flavour-matched local emissivities and their volume integrals: [GitHub Actions artifact](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449522338/artifacts/14495081528). Artifact SHA-256: \`494a74a0b772a00c6f5f5d24989439b408880fa0dbdb8323ef1c9e6101f4a2ac\`.
 
 ### 2.1.4 C0 luminosity with absorption: generic Croon versus \(L_\mu-L_\tau\)
 
@@ -277,13 +277,13 @@ The numerical audit gives:
 
 The independent 0.05 km Simpson implementation of the full Croon Fig. 2 mass sweep gives, at 10 MeV, low/high crossings \(8.60711\times10^{-10}\) and \(3.18779\times10^{-8}\). These agree with the 1687-node C0 adapter to 0.03% and 0.11%, respectively. This checks numerical implementation consistency, not agreement with digitized Fig. 2 data.
 
-Outputs from successful workflow run [#44449132291](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449132291):
-- [Generic 10 MeV C0 curve](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449132291/artifacts/14493653832)
-- [\(L_\mu-L_\tau\) 10 MeV C0 curve](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449132291/artifacts/14494073335)
-- [High-order C0 curve](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449132291/artifacts/14494043560)
-- [Charge-conjugate sensitivity](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449132291/artifacts/14494726643)
-- [Convergence and convention audit](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449132291/artifacts/14493603942)
-- [Full Croon Fig. 2 mass sweep](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449132291/artifacts/14494581986)
+Outputs from successful workflow run [#44449522338](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449522338):
+- [Generic 10 MeV C0 curve](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449522338/artifacts/14495061522)
+- [\(L_\mu-L_\tau\) 10 MeV C0 curve](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449522338/artifacts/14495290606)
+- [High-order C0 curve](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449522338/artifacts/14495071605)
+- [Charge-conjugate sensitivity](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449522338/artifacts/14495400333)
+- [Convergence and convention audit](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449522338/artifacts/14495515156)
+- [Full Croon Fig. 2 mass sweep](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449522338/artifacts/14494204948)
 
 This remains a public-profile reconstruction. The original raw Garching radial table is unavailable in the current workspace; no claim of raw-profile reproduction or final cooling-bound reproduction is made.
 
