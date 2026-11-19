@@ -1,6 +1,6 @@
 """Quantify the charge-conjugate muon contribution to Croon C0 opacity.
 
-The literal Croon/Bollig convention uses the single f_mu(E, +mu_mu)
+The literal Croon/Bollig convention uses the single mu-minus f_mu(E, +mu_mu)
 distribution. This separate sensitivity adds the equilibrium mu-plus
 distribution f_mu(E, -mu_mu) to both the local source and opacity. It is
 not substituted into the literal Fig. 2 reproduction.
