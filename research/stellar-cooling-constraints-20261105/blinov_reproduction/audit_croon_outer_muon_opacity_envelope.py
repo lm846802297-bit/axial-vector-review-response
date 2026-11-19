@@ -75,6 +75,11 @@ def _prepare_profile(profile_path: Path, susceptibility_order: int) -> dict:
         raise ValueError("The profile has no positive muon chemical-potential sample")
     edge = int(edge_candidates[-1])
 
+    try:
+        profile_label = str(profile_path.resolve().relative_to(HERE.parents[2].resolve()))
+    except ValueError:
+        profile_label = profile_path.name
+
     return {
         "r_km": r,
         "temperature_MeV": temperature,
@@ -236,7 +241,7 @@ def run_outer_muon_opacity_envelope(
             "g_X": float(coupling),
             "target_solid_dashed_ratio": float(paper_ratio_target),
             "chi_required_MeV3": float(value),
-            "chi_required_over_resolved_edge": float(value / chi_edge),
+            "chi_required_over_digitized_edge_value": float(value / chi_edge),
             "achieved_ratio": float(ratio(value)),
             "interpretation": (
                 "constant Rnu-to-Rfar susceptibility equivalent only; "
@@ -249,7 +254,7 @@ def run_outer_muon_opacity_envelope(
         "source_paper": "Croon et al., JHEP 01 (2021) 107, arXiv:2006.13942",
         "equations": ["Eqs. (3.3)-(3.4)", "Eq. (4.6)", "Eq. (4.7)"],
         "profile": {
-            "path": str(profile_path),
+            "path": profile_label,
             "sha256": profile["profile_sha256"],
             "rows": profile["profile_rows"],
             "R_nu_km": r_nu,
@@ -273,13 +278,13 @@ def run_outer_muon_opacity_envelope(
                 "chi_mu_MeV3": chi_edge,
                 "path_km": [r_nu, R_FAR_KM],
                 "T_outer_MeV": T_NU_MEV,
-                "assumption": "chi_mu(r) does not exceed the last resolved value outside R_nu; T<=3 MeV outside R_nu",
+                "assumption": "conditional envelope: chi_mu(r) does not exceed the last nonzero digitized value for r>=R_nu; T<=3 MeV outside R_nu; not a measured tail",
             },
             "edge_T": {
                 "chi_mu_MeV3": chi_edge,
                 "path_km": [r_edge, R_FAR_KM],
                 "T_outer_MeV": T_edge,
-                "assumption": "chi_mu(r) does not exceed the last resolved value beyond the last nonzero sample; T does not exceed the last resolved edge temperature",
+                "assumption": "conditional envelope: chi_mu(r) does not exceed the last nonzero digitized value beyond r_edge; T does not exceed T_edge; neither is a measured outer profile",
             },
         },
         "quadrature": {
