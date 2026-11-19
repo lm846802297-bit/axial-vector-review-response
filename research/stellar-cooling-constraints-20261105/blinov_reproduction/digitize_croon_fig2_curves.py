@@ -216,18 +216,57 @@ def match_label_paths(
     return labels
 
 
+def _clip_segment_to_rect(
+    p0: tuple[float, float],
+    p1: tuple[float, float],
+    rect: tuple[float, float, float, float],
+) -> tuple[tuple[float, float], tuple[float, float], float, float] | None:
+    """Liang-Barsky clip of one PDF-coordinate segment to the plot rectangle."""
+    x0, y0, x1, y1 = rect
+    ax, ay = p0
+    bx, by = p1
+    dx, dy = bx-ax, by-ay
+    p = (-dx, dx, -dy, dy)
+    q = (ax-x0, x1-ax, ay-y0, y1-ay)
+    t0, t1 = 0.0, 1.0
+    for pi, qi in zip(p, q):
+        if abs(pi) < 1e-15:
+            if qi < 0.0:
+                return None
+            continue
+        ratio = qi/pi
+        if pi < 0.0:
+            t0 = max(t0, ratio)
+        else:
+            t1 = min(t1, ratio)
+        if t0 > t1:
+            return None
+    start = (ax+t0*dx, ay+t0*dy)
+    stop = (ax+t1*dx, ay+t1*dy)
+    return start, stop, float(t0), float(t1)
+
+
 def digitize_points(points: list[list[float]], axes: dict) -> list[dict]:
-    x0, y0, x1, y1 = axes["plot_rect_pdf_points"]
+    """Clip every vector segment to the plot before converting PDF to log axes.
+
+    Merely retaining vertices inside the frame loses curve portions whose
+    endpoints lie outside the frame. Intersections with the frame are inserted
+    by segment clipping, which is essential for Raffelt-line crossings.
+    """
+    rect = tuple(float(x) for x in axes["plot_rect_pdf_points"])
     xs = axes["x_log10_g_from_pdf_x"]
     ys = axes["y_log10_L_from_pdf_y"]
-    out = []
-    for index, (x, y) in enumerate(points):
-        if x < x0-1e-6 or x > x1+1e-6 or y < y0-1e-6 or y > y1+1e-6:
-            continue
+    out: list[dict] = []
+
+    def append_point(x: float, y: float, segment_index: int, segment_t: float) -> None:
+        if out and abs(out[-1]["pdf_x"]-x) < 1e-10 and abs(out[-1]["pdf_y"]-y) < 1e-10:
+            return
         logg = xs["slope"]*x + xs["intercept"]
         logL = ys["slope"]*y + ys["intercept"]
         out.append({
-            "point_index": int(index),
+            "point_index": int(segment_index),
+            "segment_index": int(segment_index),
+            "segment_t": float(segment_t),
             "pdf_x": float(x),
             "pdf_y": float(y),
             "log10_g": float(logg),
@@ -235,6 +274,18 @@ def digitize_points(points: list[list[float]], axes: dict) -> list[dict]:
             "g": float(10.0**logg),
             "L_erg_s": float(10.0**logL),
         })
+
+    for index, (p0, p1) in enumerate(zip(points[:-1], points[1:])):
+        clipped = _clip_segment_to_rect(
+            (float(p0[0]), float(p0[1])),
+            (float(p1[0]), float(p1[1])),
+            rect,
+        )
+        if clipped is None:
+            continue
+        start, stop, t0, t1 = clipped
+        append_point(start[0], start[1], index, t0)
+        append_point(stop[0], stop[1], index, t1)
     return out
 
 
