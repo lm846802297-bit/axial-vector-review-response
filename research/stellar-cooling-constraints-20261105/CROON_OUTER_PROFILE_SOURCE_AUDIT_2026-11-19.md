@@ -262,6 +262,42 @@ The full source-weighted result rules out only the following conditional explana
 The edge-temperature envelope assumes the outer temperature never exceeds the last digitized edge temperature. Neither envelope is a substitute for the protected Garching profile. The source-weighted calculation is archived and tested separately; no luminosity curve, opacity coefficient, or profile has been fitted or rescaled.
 
 
+### 9.5 Inventory of the opacity channels in the published Croon benchmark
+
+Croon et al. Sec. 4.2 identify two leading rates for the muon-coupled vector benchmark:
+
+1. Neutrino-pair coalescence, Eq. (4.6), whose inverse process supplies the neutrino-decay absorptive opacity.
+2. Semi-Compton scattering, Eq. (4.7), whose inverse process supplies the muon absorptive opacity.
+
+Both are present in the C0 implementation. The neutrino channel includes the two \(L_\mu-L_\tau\) neutrino flavours. The semi-Compton channel uses the local susceptibility \(n_\mu F_{\rm deg}\), with the detailed-balance factor \(1+f_B\), and the full source-weighted outer-envelope calculation explicitly tests its continuation beyond \(R_\nu\).
+
+The paper also discusses other processes in Appendix A:
+
+- **\(\nu\nu\to Z'Z'\), Appendix A.1:** this is a two-vector production process and is suppressed by an additional power of the gauge coupling relative to the leading single-\(Z'\) channels. It is not an omitted leading single-particle absorptive width in Eq. (3.3).
+- **Loop-induced nucleon bremsstrahlung, Appendix A.2:** this is induced by kinetic mixing. The Fig. 2 benchmark is the no-kinetic-mixing \(L_\mu-L_\tau\) case, so this channel is not part of that plotted baseline. The paper also discusses plasma screening for the mixing-induced contribution.
+- **Muon-proton bremsstrahlung, Appendix A.3:** the paper estimates it to be suppressed relative to semi-Compton by an additional \(\alpha_{\rm EM}\) and the three-body final-state phase space.
+
+Thus, within the stated no-kinetic-mixing Croon benchmark, the two leading single-\(Z'\) opacity channels have already been included and the additional channels identified by the authors are subdominant or absent from that benchmark. The present factor-3.38 outer-segment discrepancy cannot currently be assigned to an unexamined leading Croon opacity channel. The remaining data-driven possibilities are the true Garching outer profile or a difference in the original profile, implementation convention, or digitized figure.
+
+#### Charge-conjugate muon target sensitivity
+
+The printed degeneracy prescription quoted by Croon from Bollig et al. defines
+\[
+F_{\rm deg}=\frac{1}{n_{\mu,\rm th}}
+\int\frac{2\,d^3p}{(2\pi)^3}
+f_\mu(E;\mu_\mu)\,[1-f_\mu(E;\mu_\mu)],
+\]
+with one \(f_\mu(E;\mu_\mu)\) distribution. This is the literal single-\(\mu^-\) convention used in C0. A vector interaction also couples to \(\mu^+\), whose equilibrium distribution is \(f_\mu(E;-\mu_\mu)\). We therefore added a separate charge-conjugate sensitivity that replaces the single-species susceptibility by
+\[
+\chi_{\mu^\pm}
+=\int\frac{d^3p}{\pi^2}
+\left[
+f_\mu(E;\mu_\mu)(1-f_\mu(E;\mu_\mu))
++f_\mu(E;-\mu_\mu)(1-f_\mu(E;-\mu_\mu))
+\right].
+\]
+This extension is applied consistently to both the local source and the inverse semi-Compton opacity. It is not silently substituted into the literal Croon baseline. The full source-weighted result is recorded in the following update after the high-order regression completes.
+
 ## 10. Primary-data recovery route
 
 The Croon paper itself states that the full profile data used for its SFHo-18.8 calculation are available through the Garching Core-Collapse Supernova Archive (arXiv:2006.13942, footnote on p. 4). The official archive states that some datasets are password-protected and that access should be requested from the archive contact. The specific Bollig radial-profile endpoint is access-controlled (HTTP 401), consistent with that policy.
