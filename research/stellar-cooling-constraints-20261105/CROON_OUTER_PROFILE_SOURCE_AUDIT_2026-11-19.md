@@ -143,7 +143,7 @@ GitHub Actions run [44509948112](https://github.com/lm846802297-bit/axial-vector
 - Artifact SHA-256: `d21316f7d12153d4ef70a5b4ca951710165d5b6dccaa834f8af723fa6b9b1e1b`
 - Committed result: `blinov_reproduction/outputs/croon_outer_muon_opacity_envelope_2026-11-19.json`
 
-The current branch subsequently added the generated JSON result as a tracked file; no calculation code changed after the tested commit. The earlier 72-test run [44487078124](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44487078124) remains the previous full-suite baseline; run 44509948112 is the current successful workflow verification for the new envelope code.
+Eight subsequent commits only refined the documentation and added the generated JSON result as a tracked file; no calculation code changed after the tested commit. The earlier 72-test run [44487078124](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44487078124) remains the previous full-suite baseline; run 44509948112 is the current successful workflow verification for the new envelope code.
 
 No manuscript, referee response, validated Blinov baseline, or axial-vector exclusion curve is changed by this source audit.
 
