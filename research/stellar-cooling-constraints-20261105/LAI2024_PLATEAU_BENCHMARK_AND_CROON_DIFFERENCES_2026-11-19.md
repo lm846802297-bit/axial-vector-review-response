@@ -91,6 +91,15 @@ Therefore, at the level of the printed equations,
 \]
 The ratio tends to \(3/2\) in the Maxwell-Boltzmann limit, but it is energy-dependent when the Croon Bose factor is retained. These are not interchangeable rate tables. The difference must be resolved by tracking polarization sums, flavour counting and statistical conventions, rather than applying a constant rescaling.
 
+There is also a direct check against the Blinov B.7 kernel. For zero neutrino chemical potential and the Maxwell-Boltzmann limit, \(I_{\nu_\mu}=I_{\nu_\tau}=e^{-\omega/T}\), so
+\[
+\Gamma_{\rm B7}^{\nu_\mu+\nu_\tau}/g_X^2
+=\frac{m_{Z'}^2}{8\pi\omega}
+(I_{\nu_\mu}+I_{\nu_\tau})
+=\frac{m_{Z'}^2}{4\pi\omega}e^{-\omega/T},
+\]
+which is exactly the printed Lai Eq. (10). This is an independent normalization cross-check for the two-flavour B.7 vector kernel. Away from the Maxwell-Boltzmann limit, the full Fermi-Dirac angular integrals in B.7 must be retained; the equality is not a universal finite-temperature rescaling.
+
 ### 4.2 Semi-Compton production
 
 Croon Eq. (4.7) and Lai Eq. (11) use the same Thomson/no-recoil production structure:
