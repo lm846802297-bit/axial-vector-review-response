@@ -102,7 +102,7 @@ def vectorized_muon_susceptibility(
 def outer_vacuum_neutrino_tau_per_g2(
     mass_MeV: float, omega_MeV: np.ndarray, r_nu_km: float,
     r_far_km: float = R_FAR_KM,
-    neutrino_flavour_factor: float = 2.0,
+    neutrino_flavour_factor: float = 1.0,
 ) -> np.ndarray:
     """Croon Eq. (3.3) vacuum tail, with the Sec. 4.4 nu_tau factor for Lmu-Ltau."""
     omega = np.asarray(omega_MeV, dtype=float)
@@ -153,7 +153,7 @@ def build_croon_optical_depth(
     omega_grid_MeV: np.ndarray,
     r_far_km: float = R_FAR_KM,
     outer_temperature_envelope_MeV: float = 0.0,
-    neutrino_flavour_factor: float = 2.0,
+    neutrino_flavour_factor: float = 1.0,
 ) -> np.ndarray:
     """Return tau_C(omega,r)/g_X^2 for all energies and source radii."""
     r = np.asarray(r_km, float)
@@ -220,7 +220,7 @@ def run_c0_luminosity(
     energy_order: int = 64,
     tau_grid_points: int = 301,
     susceptibility_order: int = 128,
-    neutrino_flavour_factor: float = 2.0,
+    neutrino_flavour_factor: float = 1.0,
     include_antimuons: bool = False,
 ) -> dict:
     rows = np.genfromtxt(profile_path, delimiter=",", names=True)
