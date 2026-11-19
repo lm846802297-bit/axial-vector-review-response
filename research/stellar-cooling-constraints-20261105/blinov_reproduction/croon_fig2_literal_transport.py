@@ -121,10 +121,11 @@ def croon_local_rates_per_g2(
         momentum, omega, out=np.zeros_like(momentum), where=omega > 0.0
     )
 
-    # Croon Eq. (4.6): alpha_Z' = g_Z'^2/(4*pi), two L_mu-L_tau
-    # neutrino flavours, with the paper's massless/zero-degeneracy approximation.
+    # Croon Eq. (4.6) is the generic one-flavour expression. Croon Sec. 4.4
+    # explicitly doubles both Q and tau_abs for U(1)_{L_mu-L_tau}.
+    neutrino_flavour_factor = 2.0
     neutrino = (
-        mass_mev**2 / (12.0 * np.pi * omega[None, :]) * bose
+        neutrino_flavour_factor * mass_mev**2 / (12.0 * np.pi * omega[None, :]) * bose
     )
 
     # Croon Eq. (4.7): Thomson semi-Compton rate. The unpolarized Thomson
@@ -139,7 +140,7 @@ def croon_local_rates_per_g2(
     # Detailed balance: Gamma_abs = exp(omega/T) Gamma_prod.
     # Since exp(omega/T) n_B = 1+n_B, this is stable numerically.
     neutrino_absorption = (
-        mass_mev**2 / (12.0 * np.pi * omega[None, :]) * (1.0 + bose)
+        neutrino_flavour_factor * mass_mev**2 / (12.0 * np.pi * omega[None, :]) * (1.0 + bose)
     )
     semi_compton_absorption = (
         C_SEMICOMPTON_PER_G2
@@ -167,6 +168,7 @@ def outer_vacuum_tau_per_g2(
     return (
         (rfar_km - rnu_km)
         * KM_TO_MEV_INV
+        * 2.0
         * mass_mev**2
         / (12.0 * np.pi * omega)
     )
