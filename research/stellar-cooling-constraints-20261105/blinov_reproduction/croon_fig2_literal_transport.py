@@ -362,7 +362,7 @@ def compute_benchmark(
     radial_step_km: float = 0.05,
     energy_order: int = 160,
     momentum_order: int = 256,
-    coupling_count: int = 81,
+    coupling_count: int = 201,
 ) -> dict:
     profile = load_and_sample_profile(profile_path, radial_step_km)
     # Recompute chi with the requested momentum order, rather than silently
@@ -478,7 +478,7 @@ def main() -> None:
     parser.add_argument("--radial-step-km", type=float, default=0.05)
     parser.add_argument("--energy-order", type=int, default=160)
     parser.add_argument("--momentum-order", type=int, default=256)
-    parser.add_argument("--coupling-count", type=int, default=81)
+    parser.add_argument("--coupling-count", type=int, default=201)
     args = parser.parse_args()
 
     result = compute_benchmark(
