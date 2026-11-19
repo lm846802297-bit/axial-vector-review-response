@@ -296,7 +296,35 @@ f_\mu(E;\mu_\mu)(1-f_\mu(E;\mu_\mu))
 +f_\mu(E;-\mu_\mu)(1-f_\mu(E;-\mu_\mu))
 \right].
 \]
-This extension is applied consistently to both the local source and the inverse semi-Compton opacity. It is not silently substituted into the literal Croon baseline. The full source-weighted result is recorded in the following update after the high-order regression completes.
+This extension is applied consistently to both the local source and the inverse semi-Compton opacity. It is not silently substituted into the literal Croon baseline.
+
+The high-order calculation gives the following edge and neutrinosphere susceptibilities:
+
+| Location | \(\chi_{\mu^-}\) (MeV\(^3\)) | \(\chi_{\mu^\pm}\) (MeV\(^3\)) | Total / \(\mu^-\) |
+|---|---:|---:|---:|
+| \(R_\nu=25.15117\) km | \(3.82365\times10^{-13}\) | \(7.64729\times10^{-13}\) | 2.000 |
+| Last nonzero digitized edge, \(r=22.19189\) km | \(1.13518\times10^{-10}\) | \(1.77783\times10^{-10}\) | 1.566 |
+
+The charge-conjugate susceptibility therefore raises the edge value by 56.61%. Its effect on the full source-weighted luminosity is much smaller because the edge susceptibility is tiny in absolute terms and occupies only the conditional outer continuation.
+
+At \(g_X=0.03\), the full source-weighted luminosity ratios are:
+
+| Quantity | \(\mu^-\) only | \(\mu^-+\mu^+\) |
+|---|---:|---:|
+| \(L(R_\nu)/L_{\rm edge,T_{\rm edge}}\) | 1.03284081 | 1.04367238 |
+| \(L(R_\nu)/L_{T=3}\) | 1.03183755 | 1.04208600 |
+| Remaining factor to published median 3.38190 | 3.27436712 | 3.24038468 |
+
+Thus the equilibrium \(\mu^+\) extension increases the outer-segment attenuation by about one percent in the integrated luminosity at the upper coupling endpoint, but still leaves a factor 3.24038 relative to the published median solid/dashed ratio. It does not close the Fig. 2 discrepancy.
+
+The six-coupling result and all quadrature settings are archived in [the committed summary](blinov_reproduction/outputs/croon_antimuon_opacity_sensitivity_summary_2026-11-19.json) and [the full workflow artifact](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44519016169/artifacts/14527216779). The combined workflow [#44519016169](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44519016169) passed **86/86 tests**, including four new charge-conjugate sensitivity tests.
+
+The result keeps two conventions distinct:
+
+- **C0 literal:** single-\(\mu^-\) susceptibility, following the printed Croon/Bollig \(F_{\rm deg}\) convention.
+- **C0+\(\mu^+\) sensitivity:** equilibrium \(\mu^-\) and \(\mu^+\) target populations included consistently in production and absorption.
+
+
 
 ## 10. Primary-data recovery route
 
