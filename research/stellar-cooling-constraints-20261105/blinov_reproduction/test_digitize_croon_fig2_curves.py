@@ -110,14 +110,14 @@ class CroonFig2CurveDigitizationTests(unittest.TestCase):
             "x_log10_g_from_pdf_x": {"slope": 1.0, "intercept": 0.0},
             "y_log10_L_from_pdf_y": {"slope": -1.0, "intercept": 10.0},
         }
-        # Both original endpoints of the first segment are not both in-frame;
-        # the lower edge crossing at y=10 must nevertheless be retained.
+        # The first point is below the panel and the last point is right of it;
+        # both edge intersections must be inserted into the digitized curve.
         points = digitize_points(
-            [[-5.0, 12.0], [5.0, 5.0], [15.0, 5.0]], axes
+            [[5.0, 12.0], [5.0, 5.0], [15.0, 5.0]], axes
         )
         self.assertEqual(len(points), 3)
         self.assertAlmostEqual(points[0]["pdf_y"], 10.0, places=12)
-        self.assertAlmostEqual(points[0]["pdf_x"], -5.0 + (2.0/7.0)*10.0, places=12)
+        self.assertAlmostEqual(points[0]["pdf_x"], 5.0, places=12)
         self.assertAlmostEqual(points[-1]["pdf_x"], 10.0, places=12)
         self.assertAlmostEqual(points[-1]["pdf_y"], 5.0, places=12)
 
