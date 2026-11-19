@@ -362,7 +362,7 @@ def compute_benchmark(
     radial_step_km: float = 0.05,
     energy_order: int = 160,
     momentum_order: int = 256,
-    coupling_count: int = 201,
+    coupling_count: int = 221,
 ) -> dict:
     profile = load_and_sample_profile(profile_path, radial_step_km)
     # Recompute chi with the requested momentum order, rather than silently
@@ -372,7 +372,7 @@ def compute_benchmark(
         profile["muon_chemical_potential_mev"],
         order=momentum_order,
     )
-    couplings = np.logspace(-11.0, -1.0, int(coupling_count))
+    couplings = np.logspace(-11.0, 0.0, int(coupling_count))
     curves: dict[str, dict] = {}
     summary: dict[str, dict] = {}
 
@@ -478,7 +478,7 @@ def main() -> None:
     parser.add_argument("--radial-step-km", type=float, default=0.05)
     parser.add_argument("--energy-order", type=int, default=160)
     parser.add_argument("--momentum-order", type=int, default=256)
-    parser.add_argument("--coupling-count", type=int, default=201)
+    parser.add_argument("--coupling-count", type=int, default=221)
     args = parser.parse_args()
 
     result = compute_benchmark(
