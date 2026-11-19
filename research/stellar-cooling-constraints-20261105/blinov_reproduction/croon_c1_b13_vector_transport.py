@@ -53,8 +53,8 @@ from croon_c0_luminosity import (
 )
 
 DEFAULT_PROFILE = ROOT / "data" / "sfho188_digitized.csv"
-DEFAULT_OUTPUT = HERE / "outputs" / "croon_c1_b13_vector_transport_10mev_2026-11-19.json"
-DEFAULT_CSV = HERE / "outputs" / "croon_c1_b13_vector_transport_10mev_2026-11-19.csv"
+DEFAULT_OUTPUT = HERE / "outputs" / "croon_c1_b13_vector_transport_2026-11-19.json"
+DEFAULT_CSV = HERE / "outputs" / "croon_c1_b13_vector_transport_2026-11-19.csv"
 CROON_MASSES_MEV = (1.0e-7, 1.0e-6, 1.0e-5, 0.1, 10.0, 200.0)
 MODES = ("L", "+", "-")
 CHARGES = ("mu_minus", "mu_plus")
