@@ -199,6 +199,7 @@ def run_outer_muon_opacity_envelope(
             "Rnu_over_vacuum_luminosity_ratio": L_rnu / L_vac,
             "vacuum_over_T3_envelope_luminosity_ratio": L_vac / L_T3,
             "vacuum_over_Tedge_envelope_luminosity_ratio": L_vac / L_Tedge,
+            "Rnu_over_T3_envelope_luminosity_ratio": L_rnu / L_T3,
             "Rnu_over_Tedge_envelope_luminosity_ratio": L_rnu / L_Tedge,
         })
 
@@ -206,7 +207,10 @@ def run_outer_muon_opacity_envelope(
     # for it separately at the two ends of the published plateau; do not treat
     # it as a recovered radial profile.
     def required_chi(coupling: float) -> dict:
-        base = _luminosity(r_nat, source_weighted, tau_vac_local, coupling)
+        # The paper ratio is dashed R_far=R_nu divided by solid R_far=100 km.
+        # The numerator therefore uses tau_Rnu, while the denominator retains
+        # the vacuum neutrino tail plus the trial outer semi-Compton opacity.
+        base = _luminosity(r_nat, source_weighted, tau_rnu_local, coupling)
         def ratio(candidate: float) -> float:
             tau_extra = np.empty_like(tau_outer_T3)
             # tau_outer_T3 is linear in chi_edge; rescale it to the candidate.
