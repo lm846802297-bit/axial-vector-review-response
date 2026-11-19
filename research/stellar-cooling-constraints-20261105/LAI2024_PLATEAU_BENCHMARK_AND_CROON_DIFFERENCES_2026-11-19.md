@@ -63,6 +63,21 @@ L_\infty=\pi R_\nu^2\int d\omega\,
 \]
 The unit tests explicitly rescale \(g_{Z'}\) over \(10^{-9}\) to \(0.1\) and verify that the thin-shell result is invariant. This is an algebraic and numerical structural check; it is not yet a reproduction of Lai Fig. 4.
 
+### Neutrino-only thin-shell reference
+
+Using Lai Eqs. (7), (10), (20) and Appendix E Eq. (E2), but retaining only neutrino-pair coalescence and inverse decay, the plateau integral can be reduced to
+\[
+L_{\infty,\nu{\rm-only}}
+=\frac{3R_\nu^2}{2\pi}
+\int_{m_{Z'}}^\infty d\omega\,
+\omega^3\left(1-\frac{m_{Z'}^2}{\omega^2}\right)e^{-\omega/T_\nu}.
+\]
+For \(m_{Z'}=2\) eV, \(T_\nu=3\) MeV and \(R_\nu=25.1511683\) km, numerical quadrature gives
+\[
+\boxed{L_{\infty,\nu{\rm-only}}=9.1762591\times10^{51}\ {\rm erg\,s^{-1}}.}
+\]
+The result is within \(2\times10^{-8}\) relative of the massless analytic limit \(9R_\nu^2T_\nu^4/\pi\). This is a **neutrino-only reference**, not the full Lai plateau or a lower bound on the total luminosity: once semi-Compton and loop-bremsstrahlung are included, their production and absorption contributions enter the same total attenuation factor and cannot be added as independent plateau luminosities.
+
 ## 4. Rate-level comparison
 
 ### 4.1 Neutrino-pair coalescence
