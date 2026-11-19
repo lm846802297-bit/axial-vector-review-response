@@ -40,26 +40,15 @@ def _synthetic_axis_paths():
 
 
 def _synthetic_labels_and_curves():
-    colours = {
-        "200 MeV": (1.0, 0.0, 0.0),
-        "10 MeV": (0.0, 0.0, 1.0),
-        "0.1 MeV": (0.0, 0.6, 0.0),
-        "10 eV": (1.0, 0.5, 0.0),
-        "1 eV": (0.5, 0.0, 0.8),
-        "0.1 eV": (0.0, 0.0, 0.0),
-    }
     spans = []
     paths = []
     for i, label in enumerate(MASS_LABELS):
-        rgb = colours[label]
-        integer = (round(rgb[0]*255) << 16) | (round(rgb[1]*255) << 8) | round(rgb[2]*255)
-        spans.append({"text": label, "color": integer})
-        # The 200 MeV curve is physically short in the PDF panel but still
-        # spans >50 pt; this guards against filtering it out as a short path.
-        x_end = 90.0 if label == "200 MeV" else 220.0
+        rgb = digitizer_module.MASS_STROKE_RGB[label]
+        # The printed legend text is black; the path stroke carries the colour.
+        spans.append({"text": label, "color": 0x000000})
         paths.append(_path(
-            100+i, (20.0, 40.0+i, x_end, 180.0-i),
-            rgb, "[] 0", points=[[20.0, 100.0], [x_end, 180.0]]
+            100+i, (20.0, 40.0+i, 220.0, 180.0-i),
+            rgb, "[] 0", points=[[20.0, 100.0], [220.0, 180.0]]
         ))
     # A separate black dashed path represents the R_far=R_nu sensitivity.
     paths.append(_path(
@@ -86,21 +75,27 @@ class CroonFig2CurveDigitizationTests(unittest.TestCase):
         self.assertEqual(matches["0.1 eV"]["path_index"], 105)
 
     def test_duplicate_path_match_is_rejected(self):
-        spans = [
-            {"text": "200 MeV", "color": 0xFF0000},
-            {"text": "10 MeV", "color": 0xFF0000},
-        ]
-        paths = [
-            _path(1, (20.0, 40.0, 220.0, 180.0), (1.0, 0.0, 0.0)),
-        ]
-        # Supply only the labels needed for this ambiguity test.
-        original = digitizer_module.MASS_LABELS
+        original_labels = digitizer_module.MASS_LABELS
+        original_palette = digitizer_module.MASS_STROKE_RGB
         try:
             digitizer_module.MASS_LABELS = ("200 MeV", "10 MeV")
+            digitizer_module.MASS_STROKE_RGB = {
+                "200 MeV": (1.0, 0.0, 0.0),
+                "10 MeV": (1.0, 0.0, 0.0),
+            }
+            spans = [
+                {"text": "200 MeV", "color": 0x000000},
+                {"text": "10 MeV", "color": 0x000000},
+            ]
+            paths = [
+                _path(1, (20.0, 40.0, 220.0, 180.0), (1.0, 0.0, 0.0)),
+            ]
             with self.assertRaisesRegex(RuntimeError, "Ambiguous curve matching"):
                 digitizer_module.match_label_paths(spans, paths)
         finally:
-            digitizer_module.MASS_LABELS = original
+            digitizer_module.MASS_LABELS = original_labels
+            digitizer_module.MASS_STROKE_RGB = original_palette
+
 
     def test_digitization_discards_points_outside_axes_and_maps_log_ticks(self):
         axes = {
