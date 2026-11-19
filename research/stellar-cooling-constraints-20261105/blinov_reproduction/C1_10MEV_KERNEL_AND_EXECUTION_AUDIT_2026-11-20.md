@@ -100,7 +100,20 @@ Mode-resolved extension — completed and archived:
 - The final Git push was rejected as non-fast-forward because the PR branch advanced during the calculation. The artifact-upload step was placed after the failing commit step and was skipped, so the full-grid high-order output was not archived. It is a successful execution/validation without a retained result file, and is not counted as an archived benchmark.
 - The corrected mode-resolved workflow now uploads artifacts before the Git push and rebases the result commit onto the latest branch.
 
-## 6. Acceptance gates
+## 6. C1-specific radial, energy, and neutrino-angular convergence
+
+The archived 103-radial-node / 32-energy-node mode-resolved result is the reference. A separate audit is now running:
+
+- Workflow: [Croon C1 10 MeV grid convergence audit](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44577096997)
+- Configurations: radial 153 / energy 32; radial 103 / energy 48; radial 153 / energy 48; and radial 103 / energy 32 with B.7 neutrino angular order 192.
+- The B.13 four-dimensional local quadrature remains `12,8,8,8`; its higher-order spot-check ladder is independently archived in §3.
+- All runs retain 121 coupling points and three-polarization outputs.
+- The acceptance target is a maximum normalized change below 1% for the total and each mode-resolved luminosity curve, together with channel-by-channel thin-source stability below 1%.
+- The workflow saves native JSON/CSV for each refinement, a machine-readable comparison summary, and a SHA-256 manifest. Artifacts are uploaded before the Git push, and the result commit rebases onto the current PR branch.
+
+The run is in progress. Its result determines whether the 10 MeV C1 baseline is grid-converged or requires another refinement.
+
+## 7. Acceptance gates
 
 The 10 MeV C1 baseline is accepted only after:
 
