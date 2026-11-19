@@ -114,6 +114,126 @@ def load_profile(path: Path) -> np.ndarray:
     return rows
 
 
+MEV_INV_PER_KM = 1.0e5 / (197.3269804e-13)
+MEV2_TO_ERG_PER_SECOND = 1.602176634e-6 / 6.582119569e-22
+
+
+def _piecewise_linear_spherical_integral(r_mev_inv: np.ndarray, q_mev5: np.ndarray) -> float:
+    """Exact integral of 4*pi*r^2*Q(r) when Q is linear on each radial cell."""
+    r = np.asarray(r_mev_inv, dtype=float)
+    q = np.asarray(q_mev5, dtype=float)
+    if r.ndim != 1 or q.ndim != 1 or len(r) != len(q) or len(r) < 2:
+        raise ValueError("r and q must be one-dimensional arrays with equal length >=2")
+    if not np.all(np.isfinite(r)) or not np.all(np.isfinite(q)):
+        raise ValueError("r and q must be finite")
+    if np.any(np.diff(r) <= 0.0) or np.any(q < 0.0):
+        raise ValueError("r must increase strictly and q must be nonnegative")
+    a = r[:-1]
+    b = r[1:]
+    slope = np.diff(q) / np.diff(r)
+    segment = (
+        q[:-1] * (b**3 - a**3) / 3.0
+        + slope * ((b**4 - a**4) / 4.0 - a * (b**3 - a**3) / 3.0)
+    )
+    return float(4.0 * np.pi * np.sum(segment))
+
+
+def free_streaming_volume_integral(
+    r_km: np.ndarray,
+    temperature_MeV: np.ndarray,
+    q_b7_MeV5: np.ndarray,
+    q_croon_MeV5: np.ndarray,
+    neutrinosphere_temperature_MeV: float = 3.0,
+) -> dict:
+    """Croon Eq. (3.1) optically-thin neutrino-coalescence channel only.
+
+    Uses the literal flat radial volume 4*pi*r^2 dr, no lapse/redshift, and
+    linearly extrapolates the last profile cell to the T=3 MeV neutrinosphere.
+    Returned luminosities are per g_X^2.
+    """
+    r = np.asarray(r_km, dtype=float)
+    temp = np.asarray(temperature_MeV, dtype=float)
+    qb = np.asarray(q_b7_MeV5, dtype=float)
+    qc = np.asarray(q_croon_MeV5, dtype=float)
+    if not (r.ndim == temp.ndim == qb.ndim == qc.ndim == 1):
+        raise ValueError("Profile arrays must be one-dimensional")
+    if not (len(r) == len(temp) == len(qb) == len(qc)) or len(r) < 2:
+        raise ValueError("Profile arrays must have equal length >=2")
+    if not np.all(np.isfinite(np.concatenate([r, temp, qb, qc]))):
+        raise ValueError("Profile arrays must be finite")
+    if np.any(np.diff(r) <= 0.0) or np.any(temp <= 0.0):
+        raise ValueError("Radius must increase and temperatures must be positive")
+    if np.any(qb < 0.0) or np.any(qc < 0.0):
+        raise ValueError("Emissivities must be nonnegative")
+
+    cutoff = float(neutrinosphere_temperature_MeV)
+    crossings = np.where(
+        (temp[:-1] - cutoff) * (temp[1:] - cutoff) <= 0.0
+    )[0]
+    if len(crossings):
+        # The outermost downward crossing is the neutrinosphere.
+        candidates = [
+            int(i) for i in crossings
+            if temp[i] >= cutoff and temp[i + 1] <= cutoff
+        ]
+        if not candidates:
+            raise ValueError("No outward downward T=3 MeV crossing found")
+        i = candidates[-1]
+        fraction = (cutoff - temp[i]) / (temp[i + 1] - temp[i])
+        r_nu = float(r[i] + fraction * (r[i + 1] - r[i]))
+        keep = i + 1
+        r_use = r[:keep].copy()
+        qb_use = qb[:keep].copy()
+        qc_use = qc[:keep].copy()
+        if r_nu > r_use[-1]:
+            qb_nu = float(qb[i] + fraction * (qb[i + 1] - qb[i]))
+            qc_nu = float(qc[i] + fraction * (qc[i + 1] - qc[i]))
+            r_use = np.append(r_use, r_nu)
+            qb_use = np.append(qb_use, qb_nu)
+            qc_use = np.append(qc_use, qc_nu)
+    else:
+        # Public digitization stops just above 3 MeV; extrapolate only the
+        # final profile cell, recording that this is a boundary extension.
+        if not (temp[-2] > cutoff and temp[-1] > cutoff and temp[-1] < temp[-2]):
+            raise ValueError("T=3 MeV crossing is not bracketed and final profile is not extrapolatable")
+        r_nu = float(
+            r[-1] + (cutoff - temp[-1]) * (r[-1] - r[-2]) / (temp[-1] - temp[-2])
+        )
+        qb_nu = float(qb[-1] + (qb[-1] - qb[-2]) * (r_nu - r[-1]) / (r[-1] - r[-2]))
+        qc_nu = float(qc[-1] + (qc[-1] - qc[-2]) * (r_nu - r[-1]) / (r[-1] - r[-2]))
+        if qb_nu < 0.0 or qc_nu < 0.0:
+            raise ValueError("Linear emissivity extrapolation became negative")
+        r_use = np.append(r, r_nu)
+        qb_use = np.append(qb, qb_nu)
+        qc_use = np.append(qc, qc_nu)
+
+    r_natural = r_use * MEV_INV_PER_KM
+    lb_nat = _piecewise_linear_spherical_integral(r_natural, qb_use)
+    lc_nat = _piecewise_linear_spherical_integral(r_natural, qc_use)
+    lb = lb_nat * MEV2_TO_ERG_PER_SECOND
+    lc = lc_nat * MEV2_TO_ERG_PER_SECOND
+    trap_b = float(np.trapezoid(4.0 * np.pi * r_natural**2 * qb_use, r_natural))
+    trap_c = float(np.trapezoid(4.0 * np.pi * r_natural**2 * qc_use, r_natural))
+    return {
+        "neutrinosphere_temperature_MeV": cutoff,
+        "neutrinosphere_radius_km": r_nu,
+        "profile_supported_outer_radius_km": float(r[-1]),
+        "outer_boundary_extension_km": float(r_nu - r[-1]),
+        "boundary_extension_Q_B7_MeV5": float(qb_use[-1]),
+        "boundary_extension_Q_Croon_MeV5": float(qc_use[-1]),
+        "volume_measure": "4*pi*r^2*dr; no lapse, redshift, opacity, or escape factor",
+        "radial_interpolation": "piecewise-linear Q(r); analytic integration of 4*pi*r^2*Q(r)",
+        "Q_B7_free_streaming_luminosity_per_g2_erg_s": float(lb),
+        "Q_Croon_free_streaming_luminosity_per_g2_erg_s": float(lc),
+        "Q_B7_over_Q_Croon_free_streaming_luminosity": float(lb / lc),
+        "trapezoid_check_B7_erg_s_per_g2": float(trap_b * MEV2_TO_ERG_PER_SECOND),
+        "trapezoid_check_Croon_erg_s_per_g2": float(trap_c * MEV2_TO_ERG_PER_SECOND),
+        "trapezoid_relative_difference_B7": float(trap_b / lb_nat - 1.0),
+        "trapezoid_relative_difference_Croon": float(trap_c / lc_nat - 1.0),
+        "scope": "optically-thin neutrino-pair-coalescence channel only; not total SN luminosity or a cooling bound",
+    }
+
+
 def run_profile(
     profile_path: Path = DEFAULT_PROFILE,
     mass: float = 10.0,
@@ -173,6 +293,11 @@ def run_profile(
         })
 
     ratios = np.asarray([p["Q_B7_over_Q_Croon"] for p in radial])
+    volume_integral = free_streaming_volume_integral(
+        rows["r_km"], rows["T_MeV"],
+        np.asarray([p["Q_B7_two_flavour_per_g2_MeV5"] for p in radial]),
+        np.asarray([p["Q_Croon_Eq46_per_g2_MeV5"] for p in radial]),
+    )
     min_index = int(np.argmin(ratios))
     max_index = int(np.argmax(ratios))
     return {
@@ -204,6 +329,7 @@ def run_profile(
             "maximum_ratio": float(ratios[max_index]),
             "maximum_ratio_radius_km": radial[max_index]["r_km"],
         },
+        "free_streaming_volume_integral": volume_integral,
         "selected_convergence": convergence,
         "radial_local_emissivity": radial,
         "scope": "local energy-integrated emissivity only; no radial volume integral, optical depth, escape probability, or luminosity",
