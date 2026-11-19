@@ -122,6 +122,7 @@ def calibrate_axes(paths: list[dict]) -> dict:
 
 def match_label_paths(text_spans: list[dict], paths: list[dict]) -> dict:
     labels = {}
+    selected_path_indices: set[int] = set()
     for label in MASS_LABELS:
         candidates = [s for s in text_spans if s["text"].strip() == label]
         if len(candidates) != 1:
@@ -136,9 +137,17 @@ def match_label_paths(text_spans: list[dict], paths: list[dict]) -> dict:
         ]
         if label == "0.1 eV":
             scored = [item for item in scored if item[1].get("dashes") == "[] 0"]
+        if not scored:
+            raise RuntimeError(f"No eligible in-plot vector path found for label {label!r}")
         distance, chosen = min(scored, key=lambda item: item[0])
+        chosen_index = int(chosen["index"])
         if distance > 0.35:
             raise RuntimeError(f"Could not match label {label!r} to a vector path (colour distance {distance})")
+        if chosen_index in selected_path_indices:
+            raise RuntimeError(
+                f"Ambiguous curve matching: labels already selected vector path {chosen_index}"
+            )
+        selected_path_indices.add(chosen_index)
         labels[label] = {
             "path_index": int(chosen["index"]),
             "colour_distance": float(distance),
