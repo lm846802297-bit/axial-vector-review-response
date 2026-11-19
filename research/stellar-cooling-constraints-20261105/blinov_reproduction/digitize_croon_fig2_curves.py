@@ -28,8 +28,9 @@ MASS_VALUES_MEV = {
     "1 eV": 1.0e-6,
     "0.1 eV": 1.0e-7,
 }
-# The PDF's legend text is black; the curve strokes carry the mass palette.
-# These are the measured vector stroke colours from the source PDF.
+# These are the measured, colour-coded legend/curve stroke values from the
+# source PDF.  They are retained explicitly so a path cannot be assigned to
+# the wrong mass by geometric proximity alone.
 MASS_STROKE_RGB = {
     "200 MeV": (0.0, 1.0, 1.0),
     "10 MeV": (0.0078431377, 0.9686274529, 0.4901960790),
