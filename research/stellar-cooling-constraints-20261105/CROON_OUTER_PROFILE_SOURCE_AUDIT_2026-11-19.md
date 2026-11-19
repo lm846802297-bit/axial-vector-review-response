@@ -137,7 +137,7 @@ Until these steps are complete, keep the (R_{\rm far}=R_\nu) curve as the cleane
 
 PR #123 remains Draft. The new full source-weighted outer-opacity calculation is implemented in `audit_croon_outer_muon_opacity_envelope.py`, with four regression tests in `test_audit_croon_outer_muon_opacity_envelope.py`.
 
-GitHub Actions run [44509948112](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44509948112) completed successfully on calculation-code commit `77e98c42e47c92246b21f1d9927915b6fb8a9e2f). The new test class passed **4/4 tests**. The workflow also regenerated the machine-readable result artifact:
+GitHub Actions run [44509948112](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44509948112) completed successfully on calculation-code commit `77e98c42e47c92246b21f1d9927915b6fb8a9e2f`). The new test class passed **4/4 tests**. The workflow also regenerated the machine-readable result artifact:
 
 - [Outer muon-opacity envelope JSON artifact](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44509948112/artifacts/14522621089)
 - Artifact SHA-256: `d21316f7d12153d4ef70a5b4ca951710165d5b6dccaa834f8af723fa6b9b1e1b`
@@ -245,8 +245,8 @@ The full source-weighted calculation also solves for the constant susceptibility
 
 | Coupling | Required constant \(\chi_\mu\) (MeV\(^3\)) | Ratio to digitized edge value |
 |---:|---:|---:|
-| \(3\times10^{-6}\) | 0.81770 | \(7.20\times10^9\) |
-| \(3\times10^{-2}\) | \(7.8634\times10^{-9}\) | 69.27 |
+| \(3\times10^{-6}\) | 0.81769954 | \(7.20\times10^9\) |
+| \(3\times10^{-2}\) | \(7.8634\times10^{-9}\) | 69.2700 |
 
 These are effective constant-tail equivalents, not inferred physical profiles. The same median luminosity ratio requires constant susceptibilities differing by about \(1.04\times10^8\) between the two coupling endpoints. A single constant outer susceptibility therefore cannot reproduce the same median suppression at both endpoints. This does not exclude a non-monotonic radial profile or a more structured outer medium.
 
