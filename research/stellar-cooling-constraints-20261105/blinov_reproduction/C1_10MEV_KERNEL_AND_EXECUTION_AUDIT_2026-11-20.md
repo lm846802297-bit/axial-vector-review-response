@@ -70,11 +70,21 @@ First execution:
 - The exact moving-muon B.13 source (both charges) is 0.69598 of the same-grid Croon Eq. (4.7) (mu^-)-only source. This is a thin-source comparison, not an escaping luminosity or an exclusion limit.
 - Git archival failed after the calculations had passed: the branch advanced while the job was running, so the runner's direct push was rejected as non-fast-forward. The artifact step was ordered after the failed push and was skipped; no native JSON/CSV was retained from that execution.
 
-Archival retry:
+Successful archival retry:
 - The workflow was corrected to upload the native JSON/CSV and SHA-256 manifest before attempting the Git push, then fetch and rebase onto the latest PR branch before pushing.
-- Retry workflow: [Croon C1 10 MeV single-mass baseline](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44572225917)
-- Retry source commit: `9835706cb738c756234812cfc672a22cf50fc086`
-- The retry is running the same calculation and validation configuration. Its artifact and remote Git commit must be verified before declaring the native files archived.
+- Successful workflow: [Croon C1 10 MeV single-mass baseline](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44572225917)
+- Workflow source commit: `9835706cb738c756234812cfc672a22cf50fc086`
+- Result commit: `fdf746bf62f52ff60bc14b1c0f33991563abb3fc), subsequently retained in the PR branch history.
+- Native outputs: `outputs/croon_c1_b13_vector_transport_10mev_single_baseline_2026-11-20.json`, `outputs/croon_c1_b13_vector_transport_10mev_single_baseline_2026-11-20.csv`, and `outputs/SHA256SUMS_croon_c1_10mev_single_baseline_2026-11-20.txt`.
+- The workflow artifact is `14554794921` (42,037 bytes). The JSON and CSV were fetched back from the PR branch and independently SHA-256 checked against the committed manifest; both hashes match exactly.
+- The 121-point (R_{\\rm far}=100\) km curve peaks at (g_X=1.05925\\times10^{-8}), with (L=1.53681\\times10^{54}\) erg/s. Log-log interpolation of the (3\\times10^{52}\) erg/s Raffelt reference gives provisional crossings (g_X=7.64248\\times10^{-10}) and (3.37326\\times10^{-8}). These are C1 interior-profile results with the two-flavour B.7 vacuum tail; outer B.13 opacity is omitted, so they are not the final SN1987A exclusion.
+- The archived aggregate output includes all three modes in the calculation and mode-resolved detailed-balance diagnostics, but it does not preserve the mode-by-mode global luminosity decomposition. It is retained as the first aggregate baseline, not as the final polarization-resolved C1 deliverable.
+
+Mode-resolved extension:
+- The source code now retains (L,+,-) separately in the optically-thin source table, per-radius CSV, and both escape-radius luminosity curves. It also records mode-sum closure residuals.
+- A unit test checks that the three-mode source integral sums back to the total.
+- The six-mass workflow's automatic push trigger was disabled; the six-mass scan is now manual so ordinary source/test edits do not start expensive scans.
+- Mode-resolved workflow: [Croon C1 10 MeV mode-resolved single-mass baseline](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44573957318). At the latest check it was executing the updated single-mass calculation. This output is the one to use for final C1 polarization acceptance.
 
 ### Earlier full-grid high-order attempt
 
