@@ -135,46 +135,46 @@ Until these steps are complete, keep the (R_{\rm far}=R_\nu) curve as the cleane
 
 ## 8. CI / PR bookkeeping
 
-PR #123 remains Draft. The 72-test workflow run [44487078124](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44487078124) completed successfully on commit `6005a51e4ab3ff7032ff1270ba803586b020ba46). The current PR head at the time of this audit is `60e570e79c770a498a987ddfc1ade80c11244497), five commits ahead. The intervening comparison contains only three Markdown files and no calculation-code changes. Thus the 72 passing tests cover the same calculation code, but there is no workflow run attached to the exact current PR head. Do not describe the run as having tested that exact head.
+PR #123 remains Draft. The 72-test workflow run [44487078124](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44487078124) completed successfully on commit \`6005a51e4ab3ff7032ff1270ba803586b020ba46\`. The PR branch has advanced since that run, but GitHub's commit comparison shows only Markdown files changed between the tested commit and the current branch head; no calculation-code files changed. Thus the 72 tests cover the same calculation code, but there is no workflow run attached to the exact current PR head. Do not describe the run as having tested that exact head.
 
 No manuscript, referee response, validated Blinov baseline, or axial-vector exclusion curve is changed by this source audit.
 
 
 ## 9. Conditional monotonic-tail upper-envelope diagnostic
 
-A separate numerical diagnostic was run using the same Fermi--Dirac susceptibility integral implemented in `croon_c0_luminosity.py`. It is not a full replacement C0 run; it tests whether a smooth, non-increasing continuation of the resolved profile could plausibly account for the published solid/dashed luminosity separation.
+A separate numerical diagnostic was run using the same Fermi--Dirac susceptibility integral implemented in \`croon_c0_luminosity.py\`. It is not a full replacement C0 run; it tests whether a smooth, non-increasing continuation of the resolved profile could plausibly account for the published solid/dashed luminosity separation.
 
 ### Resolved edge susceptibility
 
-At the last nonzero \\(\mu_\\mu\\) sample in the current CSV,
-\\[
-r_{\\rm edge}=22.191893657~\\mathrm{km},\\quad
-T_{\\rm edge}=3.51524346~\\mathrm{MeV},\\quad
-\\mu_{\\mu,\\rm edge}=0.999999834~\\mathrm{MeV},
-\\]
+At the last nonzero \(\mu_\mu\) sample in the current CSV,
+\[
+r_{\rm edge}=22.191893657~\mathrm{km},\quad
+T_{\rm edge}=3.51524346~\mathrm{MeV},\quad
+\mu_{\mu,\rm edge}=0.999999834~\mathrm{MeV},
+\]
 the C0 susceptibility integral gives
-\\[
-\\chi_{\\mu,\\rm edge}
-=n_\\mu F_{\\rm deg}
-=1.13518337\\times10^{-10}~\\mathrm{MeV}^3.
-\\]
-For comparison, the zero-filled endpoint used at (T=3\,\mathrm{MeV}), \\(\mu_\\mu=0\\), gives
-\\[
-\\chi_\\mu(3~\\mathrm{MeV},0)
-=3.82364561\\times10^{-13}~\\mathrm{MeV}^3.
-\\]
+\[
+\chi_{\mu,\rm edge}
+=n_\mu F_{\rm deg}
+=1.13518337\times10^{-10}~\mathrm{MeV}^3.
+\]
+For comparison, the zero-filled endpoint used at \(T=3\,\mathrm{MeV}\), \(\mu_\mu=0\), gives
+\[
+\chi_\mu(3~\mathrm{MeV},0)
+=3.82364561\times10^{-13}~\mathrm{MeV}^3.
+\]
 
 ### Deliberately conservative continuation
 
-Assume, conditionally, that for (r\ge r_{\rm edge}):
+Assume, conditionally, that for \(r\ge r_{\rm edge}\):
 
-1. \\(\chi_\\mu(r)\\le\chi_{\\mu,\\rm edge}\\) (no outer resurgence);
-2. (T(r)\le3\,\mathrm{MeV});
+1. \(\chi_\mu(r)\le\chi_{\mu,\rm edge}\) (no outer resurgence);
+2. \(T(r)\le3\,\mathrm{MeV}\);
 3. the edge value is held constant all the way to 100 km, maximizing the path-integrated semi-Compton opacity under those assumptions.
 
-For (m_{Z'}=0.1\,\mathrm{eV}), (g=0.03), and a 75 km outer path, the resulting energy-dependent optical depths are:
+For \(m_{Z'}=0.1\,\mathrm{eV}\), \(g=0.03\), and a 75 km outer path, the resulting energy-dependent optical depths are:
 
-| (\omega) (MeV) | (\tau_{\rm sc}^{\rm edge\ envelope}) |
+| \(\omega\) (MeV) | \(\tau_{\rm sc}^{\rm edge\ envelope}\) |
 |---:|---:|
 | 0.1 | 0.5162 |
 | 1 | 0.05970 |
@@ -183,12 +183,12 @@ For (m_{Z'}=0.1\,\mathrm{eV}), (g=0.03), and a 75 km outer path, the resulting e
 | 30 | 0.01692 |
 
 The very soft end has a larger Bose enhancement, but it carries little source energy. Weighting the attenuation with the representative semi-Compton source spectrum
-\\[
-Q_\\omega\\propto\\frac{\\omega^3}{e^{\\omega/T_{\\rm src}}-1}
-\\]
-and integrating from the (0.1\,\mathrm{eV}) mass threshold gives:
+\[
+Q_\omega\propto\frac{\omega^3}{e^{\omega/T_{\rm src}}-1}
+\]
+and integrating from the \(0.1\,\mathrm{eV}\) mass threshold gives:
 
-| (T_{\rm src}) (MeV) | (L_{\rm with\ edge\ envelope}/L_{\rm without\ outer\ tail}) | Luminosity suppression factor |
+| \(T_{\rm src}\) (MeV) | \(L_{\rm with\ edge\ envelope}/L_{\rm without\ outer\ tail}\) | Luminosity suppression factor |
 |---:|---:|---:|
 | 10 | 0.98311 | 1.01718 |
 | 20 | 0.98320 | 1.01708 |
@@ -200,12 +200,12 @@ Thus, under the monotonic-tail assumptions, the integrated suppression is only a
 
 ### Effective susceptibility needed to reproduce the plotted separation
 
-In the same representative energy-weighted model, matching the median published ratio 3.38190 at (g=0.03) would require a constant outer susceptibility of approximately
-\\[
-\\chi_{\\mu,\\rm req}
-=(8.13\text{--}8.17)\\times10^{-9}~\\mathrm{MeV}^3,
-\\]
-about 72 times the last resolved value. This is an effective constant-tail equivalent, not a reconstructed radial profile. Because the optical depth scales as (g^2\chi_\mu), the equivalent susceptibility at (g=3\times10^{-6}) would be about (0.813\,\mathrm{MeV}^3) in this simplified model.
+In the same representative energy-weighted model, matching the median published ratio 3.38190 at \(g=0.03\) would require a constant outer susceptibility of approximately
+\[
+\chi_{\mu,\rm req}
+=(8.13\text{--}8.17)\times10^{-9}~\mathrm{MeV}^3,
+\]
+about 72 times the last resolved value. This is an effective constant-tail equivalent, not a reconstructed radial profile. Because the optical depth scales as \(g^2\chi_\mu\), the equivalent susceptibility at \(g=3\times10^{-6}\) would be about \(0.813\,\mathrm{MeV}^3\) in this simplified model.
 
 ### Interpretation and limitations
 
