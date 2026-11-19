@@ -47,7 +47,7 @@ class CroonAntimuonOpacitySensitivityTests(unittest.TestCase):
         )
 
     def test_literal_croon_convention_is_retained(self):
-        self.assertIn("single f_mu", self.result["reference_convention"])
+        self.assertIn("single mu-minus", self.result["reference_convention"])
         self.assertIn("not the literal", self.result["sensitivity_convention"])
 
 
