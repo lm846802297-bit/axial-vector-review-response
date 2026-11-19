@@ -54,9 +54,12 @@ def _synthetic_labels_and_curves():
         rgb = colours[label]
         integer = (round(rgb[0]*255) << 16) | (round(rgb[1]*255) << 8) | round(rgb[2]*255)
         spans.append({"text": label, "color": integer})
+        # The 200 MeV curve is physically short in the PDF panel but still
+        # spans >50 pt; this guards against filtering it out as a short path.
+        x_end = 90.0 if label == "200 MeV" else 220.0
         paths.append(_path(
-            100+i, (20.0, 40.0+i, 220.0, 180.0-i),
-            rgb, "[] 0", points=[[20.0, 100.0], [220.0, 180.0]]
+            100+i, (20.0, 40.0+i, x_end, 180.0-i),
+            rgb, "[] 0", points=[[20.0, 100.0], [x_end, 180.0]]
         ))
     # A separate black dashed path represents the R_far=R_nu sensitivity.
     paths.append(_path(
