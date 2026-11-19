@@ -10,6 +10,8 @@ from croon_c1_b13_vector_transport import (
     DEFAULT_PROFILE,
     PROFILE_SHA256,
     energy_quadrature,
+    integrate_spherical_source,
+    integrate_spherical_source_by_mode,
     neutrinosphere_radius,
     outer_vacuum_neutrino_opacity_per_g2,
     radial_optical_depth,
@@ -61,6 +63,21 @@ class CroonC1B13VectorTransportTests(unittest.TestCase):
         tau = radial_optical_depth(kappa, r)
         expected = np.array([3.0, 2.0, 1.0, 0.0])[:, None, None]
         np.testing.assert_allclose(tau, np.broadcast_to(expected, (4, 2, 3)), rtol=1e-13, atol=1e-13)
+
+    def test_three_mode_source_integral_closes_to_mode_sum(self):
+        radius = np.array([0.0, 1.0, 2.0, 3.0])
+        source = np.zeros((4, 5, 3))
+        source[:, :, 0] = 1.0
+        source[:, :, 1] = 2.0
+        source[:, :, 2] = 4.0
+        energy_weights = np.array([0.1, 0.2, 0.3, 0.4, 0.5])
+        by_mode = integrate_spherical_source_by_mode(
+            source, radius, energy_weights
+        )
+        total = integrate_spherical_source(source, radius, energy_weights)
+        self.assertEqual(by_mode.shape, (3,))
+        np.testing.assert_allclose(by_mode, [0.3, 0.6, 1.2], rtol=1e-13)
+        self.assertAlmostEqual(float(np.sum(by_mode)), total, places=13)
 
     def test_b7_two_flavour_mode_rates_obey_detailed_balance(self):
         mass, temperature, mu_numu = 10.0, 20.0, -15.0
