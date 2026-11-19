@@ -30,7 +30,7 @@ Croon Eq. (4.7), per \(g_{Z'}^2\), is implemented as
 \frac{1}{e^{\omega/T}-1}.
 \]
 
-The susceptibility \(n_\mu F_{\rm deg}\) is evaluated from the single \(\mu^-\) Fermi-Dirac distribution used in Bollig et al. Eq. (2), including the two muon spin states. Antimuons are not added to this Croon-literal lane.
+The susceptibility \(n_\mu F_{\rm deg}\) is evaluated from the single \(\mu^-\) Fermi-Dirac distribution used in Bollig et al. Eq. (2), including the two muon spin states. Antimuons are not added to this Croon-literal lane. A separate charge-summed sensitivity check finds the \(\mu^+\) susceptibility is at most about 1.5% of the \(\mu^-\) susceptibility in the muon-rich region; it remains a separate convention, not part of C0.
 
 Detailed balance is imposed as
 
@@ -111,7 +111,7 @@ Thus the semi-Compton channel controls the sub-MeV curves, while neutrino coales
 
 ## Numerical checks completed locally
 
-- The thin-limit luminosity scales as \(g_{Z'}^2\); the ratio between the first two coupling points agrees with the exact quadratic scaling to better than \(2\times10^{-8}\).
+- The thin-limit luminosity scales as \(g_{Z'}^2\); a dedicated \(g=(1,2)\times10^{-12}\) test pair agrees with the exact quadratic scaling to better than \(2\times10^{-5}\). The plotted \(10^{-11}\) lower edge is not forced to be perfectly thin for the 10 MeV case: its small residual outer-decay attenuation is retained.
 - The energy quadrature change from order 160 to 240 is below \(10^{-11}\) over the luminosity range used for the crossing extraction.
 - The momentum susceptibility at order 256 agrees with order 512 to numerical precision in the muon-rich region.
 - Refining the radial integration from 0.1 km to 0.05 km changes the peak luminosities by less than \(0.03\%\); the radial-integrated curve differs by less than about \(0.13\%\) near the high-coupling tail for the low-mass cases when Simpson integration is used.

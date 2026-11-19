@@ -61,12 +61,16 @@ def neutrinosphere_radius(r_km: np.ndarray, temperature: np.ndarray,
 
 
 def vectorized_muon_susceptibility(
-    temperature_MeV: np.ndarray, mu_mu_MeV: np.ndarray, order: int = 128
+    temperature_MeV: np.ndarray,
+    mu_mu_MeV: np.ndarray,
+    order: int = 128,
+    include_antimuons: bool = False,
 ) -> np.ndarray:
-    """Return n_mu*Fdeg for the single mu-minus species in Bollig Eq. (2).
+    """Return n_mu*Fdeg for mu-minus, optionally adding mu-plus as a sensitivity.
 
-    Bollig Eq. (2) defines Fdeg with f_mu(E,mu_mu), not a sum over
-    mu-minus and mu-plus. The spin multiplicity two is included.
+    The Croon/Bollig Eq. (2) baseline is the single f_mu(E,mu_mu) term.
+    include_antimuons=True is a separate charge-summed sensitivity, not C0.
+    The two muon spin states are included for each species.
     """
     temp = np.asarray(temperature_MeV, dtype=float)
     mu = np.asarray(mu_mu_MeV, dtype=float)
@@ -86,8 +90,13 @@ def vectorized_muon_susceptibility(
     p = np.sqrt(temp[:, None] * x * (2.0 * M_MU + temp[:, None] * x))
     energy = M_MU + temp[:, None] * x
     radial = 2.0 * temp[:, None] * p * energy * t * wt / np.pi**2
-    f = np.exp(-np.logaddexp(0.0, (energy - mu[:, None]) / temp[:, None]))
-    return np.sum(radial * f * (1.0 - f), axis=1)
+
+    f_minus = np.exp(-np.logaddexp(0.0, (energy - mu[:, None]) / temp[:, None]))
+    chi = np.sum(radial * f_minus * (1.0 - f_minus), axis=1)
+    if include_antimuons:
+        f_plus = np.exp(-np.logaddexp(0.0, (energy + mu[:, None]) / temp[:, None]))
+        chi = chi + np.sum(radial * f_plus * (1.0 - f_plus), axis=1)
+    return chi
 def outer_vacuum_neutrino_tau_per_g2(
     mass_MeV: float, omega_MeV: np.ndarray, r_nu_km: float,
     r_far_km: float = R_FAR_KM,
