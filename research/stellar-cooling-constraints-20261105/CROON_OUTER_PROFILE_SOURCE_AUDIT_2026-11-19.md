@@ -227,7 +227,7 @@ At the upper end of the scanned coupling interval:
 The published median solid/dashed ratio is 3.38190. Thus even the more conservative full C0 envelope accounts for only about 3.3% suppression, leaving a factor
 
 \[
-\frac{3.38190}{1.03284}=3.2744
+\frac{3.38190}{1.03284}=3.27437
 \]
 
 unexplained. This is a stronger statement than the earlier 1.7% representative-spectrum estimate because it includes both the actual source-weighted outer semi-Compton attenuation and the vacuum neutrino tail.
