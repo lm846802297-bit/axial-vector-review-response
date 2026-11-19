@@ -38,7 +38,13 @@ class CroonBlinovNeutrinoEmissivityTests(unittest.TestCase):
             mass=99.0, temperature=2.0, mu_numu=0.0, mu_nutau=0.0,
             energy_order=48, angular_order=96
         )
-        self.assertAlmostEqual(result["Q_B7_over_Q_Croon"], 3.0, delta=1e-8)
+        self.assertAlmostEqual(result["Q_B7_over_Croon_generic_one_flavour"], 3.0, delta=1e-8)
+        self.assertAlmostEqual(result["Q_B7_over_Croon_LmuLtau_two_flavour"], 1.5, delta=1e-8)
+        self.assertAlmostEqual(
+            result["Q_Croon_Eq46_LmuLtau_two_flavour_per_g2_MeV5"]
+            / result["Q_Croon_Eq46_generic_one_flavour_per_g2_MeV5"],
+            2.0, delta=1e-14
+        )
 
     def test_FD_chemical_potential_suppresses_low_energy_rate_vs_Croon(self):
         result = local_rate_spectra(
@@ -49,6 +55,15 @@ class CroonBlinovNeutrinoEmissivityTests(unittest.TestCase):
         self.assertGreater(result["Q_B7_two_flavour_per_g2_MeV5"], 0.0)
         self.assertGreater(result["Q_Croon_Eq46_per_g2_MeV5"], 0.0)
         self.assertLess(result["Q_B7_over_Q_Croon"], 3.0)
+
+    def test_Croon_LmuLtau_rate_is_twice_generic_in_every_energy_bin(self):
+        result = local_rate_spectra(
+            mass=10.0, temperature=20.0, mu_numu=0.0, mu_nutau=0.0,
+            energy_order=32, angular_order=64
+        )
+        generic = np.asarray(result["Croon_Eq46_generic_one_flavour_rate_per_g2_MeV"])
+        lmutau = np.asarray(result["Croon_Eq46_LmuLtau_two_flavour_rate_per_g2_MeV"])
+        np.testing.assert_allclose(lmutau, 2.0*generic, rtol=0.0, atol=0.0)
 
     def test_direct_B6_angular_average_matches_B9_reference(self):
         mass, temperature, mu_nu, omega = 10.0, 23.881959149249, -2.59165549916519, 50.0
