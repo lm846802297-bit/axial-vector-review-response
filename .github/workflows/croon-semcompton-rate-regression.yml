@@ -13,6 +13,8 @@ on:
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_croon_blinov_neutrino_emissivity.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_fig2_literal_transport.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_croon_fig2_literal_transport.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/digitize_croon_fig2_vector_paths.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_digitize_croon_fig2_vector_paths.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_c0_luminosity.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_croon_c0_luminosity_convergence.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_croon_c0_luminosity.py'
@@ -34,7 +36,7 @@ jobs:
       - name: Record runtime
         run: python --version
       - name: Install numerical dependencies
-        run: python -m pip install numpy scipy
+        run: python -m pip install numpy scipy pymupdf
       - name: Run Croon/Blinov semi-Compton equation checks
         working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
         run: python -m unittest -v test_croon_semicompton_rate_comparison.py
@@ -123,6 +125,20 @@ jobs:
           path: |
             research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_fig2_literal_transport_preliminary_2026-11-19.json
             research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_fig2_literal_transport_preliminary_2026-11-19.csv
+          if-no-files-found: error
+      - name: Run Croon Fig. 2 vector-extraction tests
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest -v test_digitize_croon_fig2_vector_paths.py
+      - name: Extract Croon Fig. 2 PDF vector paths
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python digitize_croon_fig2_vector_paths.py
+      - name: Upload Croon Fig. 2 vector-path inventory and source crop
+        uses: actions/upload-artifact@v4
+        with:
+          name: croon-fig2-vector-path-inventory
+          path: |
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_fig2_vector_paths_2026-11-19.json
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_fig2_source_crop_2026-11-19.png
           if-no-files-found: error
       - name: Re-run exact B13 to B16 controlled-limit regression
         working-directory: research/stellar-cooling-constraints-20261105
