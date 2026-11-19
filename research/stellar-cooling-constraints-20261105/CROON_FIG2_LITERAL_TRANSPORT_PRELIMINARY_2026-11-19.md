@@ -80,7 +80,7 @@ The \(T=3\) MeV boundary is obtained by linearly extrapolating the final two pro
 R_\nu=25.1511683\ {\rm km}.
 \]
 
-The Fig. 2 C0 run uses the generic single-neutrino-flavour Eq. (4.6) normalization, as in the muon-number-coupled reference used for Fig. 2. The separate \(U(1)_{L_\mu-L_\tau}\) extension applies the Sec. 4.4 factor of two to both neutrino production and absorption; it is not folded into the generic Fig. 2 curve. Both lanes use the single \(\mu^-\) susceptibility convention. The Fig. 2 run uses:
+The published Fig. 2 caption identifies the gauged \(U(1)_{L_\mu-L_\tau}\) model without kinetic mixing. Eq. (4.6) is the generic one-neutrino-flavour expression, so the actual Fig. 2 calculation applies the Sec. 4.4 factor of two to both neutrino production and neutrino absorption. The generic one-flavour C0 curve is retained separately as a diagnostic baseline. Both lanes use the single \(\mu^-\) susceptibility convention. The Fig. 2 run uses:
 
 - \(R_{\rm far}=100\) km;
 - \(r\)-grid spacing 0.05 km, with the last nonzero and first zero muon-profile points retained;
@@ -93,7 +93,7 @@ The 0.1 eV curve is also computed with \(R_{\rm far}=R_\nu\), corresponding to t
 
 ## Preliminary numerical results
 
-The table below is the current **generic single-neutrino-flavour Fig. 2 benchmark**. It uses Croon Eq. (4.6) as written for the muon-number-coupled reference. The separate Sec. 4.4 \(L_\mu-L_\tau\) extension, which doubles both the neutrino source and opacity, is not included in these six curves. These values remain preliminary until compared with digitized points from the original figure:
+The table below is the **generic one-neutrino-flavour diagnostic baseline**, not the published Fig. 2 result. It uses Croon Eq. (4.6) before the Sec. 4.4 factor of two. The actual Fig. 2 L_mu-L_tau curves are being regenerated with the factor applied to both neutrino source and opacity; these generic values are retained only to make the flavour-multiplicity effect auditable:
 
 | \(m_{Z'}\) | Peak \(g_{Z'}\) | Peak \(L_{Z'}\) [erg/s] | Low-\(g\) crossing of \(3\times10^{52}\) | High-\(g\) crossing |
 |---:|---:|---:|---:|---:|
@@ -148,9 +148,9 @@ For the generic one-neutrino-flavour case with \(R_{\rm far}=100\) km:
 | Peak coupling | \(1.00\times10^{-8}\) | \(1.00\times10^{-8}\) |
 | Peak luminosity [erg/s] | \(1.04889\times10^{54}\) | \(1.04884\times10^{54}\) |
 
-The low- and high-coupling crossing differences are about 0.03% and 0.11%, respectively. This is an independent numerical cross-check of the two radial-integration implementations; it is **not** a comparison with digitized points from the paper.
+The low- and high-coupling crossing differences are about 0.03% and 0.11%, respectively. This is an independent numerical cross-check of the two radial-integration implementations in the **generic one-flavour lane**; it is **not** a comparison with the published two-flavour Fig. 2 or its digitized points.
 
-The separate \(L_\mu-L_\tau\) variant applies the Sec. 4.4 factor of two to both the neutrino source and the neutrino absorptive optical depth, leaving the semi-Compton source unchanged. For the same 10 MeV profile and \(R_{\rm far}=100\) km, it gives the provisional Raffelt-line crossings
+The separate \(L_\mu-L_\tau\) variant applies the Sec. 4.4 factor of two to both the neutrino source and the neutrino absorptive optical depth, leaving the semi-Compton source unchanged. This is the flavour prescription required for the published Fig. 2. For the same 10 MeV profile and \(R_{\rm far}=100\) km, it gives the provisional Raffelt-line crossings
 \[
 g_X^{\rm low}=6.52618\times10^{-10},\qquad
 g_X^{\rm high}=2.18470\times10^{-8}.
