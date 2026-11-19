@@ -178,6 +178,47 @@ through the muon/tau-loop-induced photon mixing, together with its inverse absor
 
 Croon discusses additional bremsstrahlung channels but treats them as subdominant in its principal vector benchmark. Lai retains the loop-bremsstrahlung channel explicitly in its trapping calculation. It is therefore not valid to compare the two plateau curves while silently treating their opacity channel sets as identical.
 
+### 4.5 Surface semi-Compton opacity versus neutrino decay
+
+Lai states near Fig. 5 that inverse semi-Compton absorption is omitted in the neutrinosphere plateau estimate because the muon number density is negligible near \(R_\nu\). We tested this statement directly using the public profile-B digitization and the printed Lai Eqs. (10), (11), (20), and (23).
+
+The comparison is between the two-flavour neutrino-decay inverse mean free path and the semi-Compton inverse mean free path:
+\[
+\frac{\kappa_{\rm sC}}{\kappa_\nu}
+=\frac{16\pi\alpha}{3m_\mu^2}
+\frac{\chi_\mu\omega v}{m_{Z'}^2}(1+f_B).
+\]
+The public profile gives
+\[
+R_\nu=25.1511683~{\rm km},\qquad
+\mu_\mu(R_\nu)_{\rm extrapolated}=0,
+\]
+\[
+\chi_\mu(R_\nu)=3.82364561\times10^{-13}~{\rm MeV}^3.
+\]
+The last nonzero digitized sample is at \(r=22.19189\) km and has \(\chi_\mu=1.13518337\times10^{-10}\ {\rm MeV}^3\). It is the lower plotting floor of the digitized curve, not a measured physical boundary. We use it only as a conditional edge-value envelope.
+
+The largest \(\kappa_{\rm sC}/\kappa_\nu\) over \(2\le\omega/T_\nu\le8\), with \(T_\nu=3\) MeV, is:
+
+| \(m_{Z'}\) | Public-profile \(R_\nu\) extrapolation | Conditional edge-value envelope |
+|---:|---:|---:|
+| 0.1 eV | \(1.0054\times10^{-2}\) | 2.9849 |
+| 2 eV | \(2.5135\times10^{-5}\) | \(7.4622\times10^{-3}\) |
+| 10 eV | \(1.0054\times10^{-6}\) | \(2.9849\times10^{-4}\) |
+
+At the representative energy \(\omega=3T_\nu\), the 2 eV ratios are \(9.9162\times10^{-6}\) for the public-profile surface value and \(2.9440\times10^{-3}\) for the edge envelope. Thus the inverse semi-Compton opacity is sub-percent even under the edge envelope for Lai's 2 eV benchmark, and is still smaller for 10 eV. This quantitatively supports Lai's omission at the neutrinosphere for its eV-scale benchmarks.
+
+For \(m_{Z'}=0.1\) eV, the same edge envelope can instead make the local semi-Compton opacity comparable to or larger than neutrino decay. This is relevant to the Croon 0.1 eV outer-profile sensitivity, but it does not imply a muon-rich physical neutrinosphere: the public-profile surface extrapolation remains at the percent level or below.
+
+The source-rate comparison is also tested. With the printed Eqs. (10), (11), (20), and (23),
+\[
+\frac{\kappa_{\rm sC}}{\kappa_\nu}
+=2\,\frac{\Gamma_{\rm sC}^{\rm prod}}{\Gamma_{\nu\bar\nu}^{\rm prod}}.
+\]
+This exact factor-two identity follows from the different detailed-balance/polarization prefactors in the two channels and is checked pointwise in the regression suite.
+
+Machine-readable output: [Lai surface semi-Compton check, workflow artifact](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44512793672/artifacts/14522239803).
+
 ## 5. Transport conventions that must remain separate
 
 | Ingredient | Croon 2021 lane | Lai 2024 lane |
@@ -226,12 +267,15 @@ No outer profile, nucleon cross section, or opacity is fitted to Fig. 4.
 
 - lai2024_plateau_equation_audit.py
 - test_lai2024_plateau_equation_audit.py
+- run_lai2024_surface_semicompton_check.py
+- test_lai2024_surface_semicompton_check.py
 
 The tests cover:
 - the \(2/(3v_{Z'})\) semi-Compton inverse-length ratio;
+- the surface semi-Compton/neutrino opacity and production ratios, including the public-profile and edge-envelope susceptibility cases;
 - the two-flavour/Bose-versus-Maxwell-Boltzmann neutrino coalescence ratio;
 - coupling independence of the thin-shell plateau;
 - the full-angle \(1/4\) versus two-ray \(1/2\) surface geometry factor;
 - input-domain and positivity checks.
 
-The tests establish the algebra encoded in the printed equations. They do not validate the unavailable hydrodynamic profile or the full luminosity curve. The latest full benchmark workflow [run #44509948112](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44509948112) passed all 76 tests in the combined suite, including all eight Lai-specific tests and the four full source-weighted outer-opacity tests. The five-mass neutrino-only output is archived [here](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44487078124/artifacts/14510499394).
+The tests establish the algebra encoded in the printed equations. They do not validate the unavailable hydrodynamic profile or the full luminosity curve. The latest full benchmark workflow [run #44512793672](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44512793672) passed all 82 tests in the combined suite, including all 14 Lai-specific tests, six new surface semi-Compton tests, and four full source-weighted outer-opacity tests. The five-mass neutrino-only output is archived [here](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44487078124/artifacts/14510499394).
