@@ -94,6 +94,15 @@ jobs:
             outputs/croon_c1_b13_vector_transport_10mev_single_baseline_2026-11-20.json \
             outputs/croon_c1_b13_vector_transport_10mev_single_baseline_2026-11-20.csv \
             > outputs/SHA256SUMS_croon_c1_10mev_single_baseline_2026-11-20.txt
+      - name: Upload native outputs and checksum manifest
+        uses: actions/upload-artifact@v4
+        with:
+          name: croon-c1-10mev-single-baseline-2026-11-20
+          path: |
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_single_baseline_2026-11-20.json
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_single_baseline_2026-11-20.csv
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/SHA256SUMS_croon_c1_10mev_single_baseline_2026-11-20.txt
+          if-no-files-found: error
       - name: Commit native calculation outputs to the research branch
         env:
           GIT_AUTHOR_NAME: github-actions[bot]
@@ -105,14 +114,14 @@ jobs:
             research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_single_baseline_2026-11-20.json \
             research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_single_baseline_2026-11-20.csv \
             research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/SHA256SUMS_croon_c1_10mev_single_baseline_2026-11-20.txt
-          git commit -m "Archive isolated C1 10 MeV single-mass baseline"
-          git push origin "HEAD:${GITHUB_REF_NAME}"
-      - name: Upload native outputs and checksum manifest
-        uses: actions/upload-artifact@v4
-        with:
-          name: croon-c1-10mev-single-baseline-2026-11-20
-          path: |
-            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_single_baseline_2026-11-20.json
-            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_single_baseline_2026-11-20.csv
-            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/SHA256SUMS_croon_c1_10mev_single_baseline_2026-11-20.txt
-          if-no-files-found: error
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive isolated C1 10 MeV single-mass baseline"
+            for attempt in 1 2 3; do
+              git fetch origin "${GITHUB_REF_NAME}"
+              git rebase "origin/${GITHUB_REF_NAME}"
+              if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+                exit 0
+              fi
+            done
+            exit 1
+          fi
