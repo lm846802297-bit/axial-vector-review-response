@@ -51,8 +51,8 @@ Detailed balance is imposed as
 so the local absorption expressions contain \(1+f_B\). The generic one-flavour outer \(R_\nu\to R_{\rm far}\) opacity retains the vacuum \(Z'\to\nu\bar\nu\) decay tail,
 
 \[
-\tau_{\nu,\rm out}/g_{Z'}^2
-=2(R_{\rm far}-R_\nu)\frac{m_{Z'}^2}{12\pi\omega},
+\tau_{\nu,\rm out}^{\rm generic}/g_{Z'}^2
+=(R_{\rm far}-R_\nu)\frac{m_{Z'}^2}{12\pi\omega},
 \]
 
 with \(R_{\rm far}=100\) km. No extra \(1/v_{Z'}\) is inserted in the radial optical-depth integral because Croon Eq. (3.3) does not contain it. For the \(L_\mu-L_\tau\) transfer, the same neutrino vacuum tail and the interior neutrino absorption are both multiplied by two, as stated in Sec. 4.4.
@@ -80,7 +80,7 @@ The \(T=3\) MeV boundary is obtained by linearly extrapolating the final two pro
 R_\nu=25.1511683\ {\rm km}.
 \]
 
-The corrected C0 run uses the Croon Sec. 4.4 two-neutrino-flavour factor in both source and opacity, and uses the single \(\mu^-\) susceptibility convention. It uses:
+The main Fig. 2 C0 run uses the generic single-neutrino-flavour Eq. (4.6) normalization. The separate \(U(1)_{L_\mu-L_\tau}\) extension applies the Sec. 4.4 factor of two to both neutrino production and absorption; it is not folded into the generic Fig. 2 curve. Both lanes use the single \(\mu^-\) susceptibility convention. The Fig. 2 run uses:
 
 - \(R_{\rm far}=100\) km;
 - \(r\)-grid spacing 0.05 km, with the last nonzero and first zero muon-profile points retained;
@@ -93,7 +93,7 @@ The 0.1 eV curve is also computed with \(R_{\rm far}=R_\nu\), corresponding to t
 
 ## Preliminary numerical results
 
-The table below is retained as a **historical single-neutrino-flavour run** and is superseded. It predates the explicit Croon Sec. 4.4 factor of two in both neutrino production and opacity. The corrected two-flavour run is being regenerated and its numerical output will replace this table before any quantitative comparison with Fig. 2:
+The table below is the current **generic single-neutrino-flavour Fig. 2 benchmark**. It uses Croon Eq. (4.6) as written for the muon-number-coupled reference. The separate Sec. 4.4 \(L_\mu-L_\tau\) extension, which doubles both the neutrino source and opacity, is not included in these six curves. These values remain preliminary until compared with digitized points from the original figure:
 
 | \(m_{Z'}\) | Peak \(g_{Z'}\) | Peak \(L_{Z'}\) [erg/s] | Low-\(g\) crossing of \(3\times10^{52}\) | High-\(g\) crossing |
 |---:|---:|---:|---:|---:|
