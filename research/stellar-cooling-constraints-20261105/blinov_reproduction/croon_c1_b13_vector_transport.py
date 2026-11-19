@@ -195,6 +195,7 @@ def _compute_mass(
     neutrino_order: int,
     susceptibility_order: int,
     couplings: np.ndarray,
+    muon_current: tuple[float, float] = (1.0, 0.0),
 ) -> tuple[dict, list[dict]]:
     r_km = profile["r_km"]
     temp = profile["temperature_MeV"]
@@ -239,7 +240,8 @@ def _compute_mass(
         for ie, energy in enumerate(omega):
             local = moving_muon_compton_rates(
                 mass, float(energy), t, mu,
-                g_vector=1.0, g_axial=0.0, orders=inner_orders
+                g_vector=float(muon_current[0]),
+                g_axial=float(muon_current[1]), orders=inner_orders
             )
             max_shell_error = max(
                 max_shell_error,
