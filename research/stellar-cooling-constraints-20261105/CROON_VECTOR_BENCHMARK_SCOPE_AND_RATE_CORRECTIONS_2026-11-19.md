@@ -31,7 +31,25 @@ For the charged muon this is
 g_\mu Z'_\alpha\bar\mu\gamma^\alpha\mu,
 \qquad g_V=g_\mu,\quad g_A=0.
 \]
-Thus the Croon \(Z'\) rates and bounds are **not** directly transferable to the axial-vector model.
+Thus the Croon \\(Z'\\) rates and bounds are **not** directly transferable to the axial-vector model.
+
+The ALP interaction is also distinct at the field and amplitude level:
+
+\\[
+\\mathcal L_{a\\mu}
+= g_{a\\mu} (\\partial_\\rho a)
+\\bar\\mu\\gamma^\\rho\\gamma_5\\mu
+\\]
+describes a **spin-0 pseudoscalar** \\(a\\) coupled to the axial current. The appearance of \\(\\gamma_5\\) does not make the emitted particle an axial-vector boson. Our target interaction is instead
+
+\\[
+\\mathcal L_{A'\\mu}
+= g_A A'_\\rho
+\\bar\\mu\\gamma^\\rho\\gamma_5\\mu,
+\\]
+where \\(A'_\\rho\\) is a **spin-1 massive vector field** with three physical polarizations. Its production amplitudes, polarization sums, longitudinal mode, and absorptive kernels differ. The pseudoscalar equation-of-motion relation to a pseudoscalar Yukawa coupling does not turn it into a spin-1 axial-vector interaction.
+
+Croon's ALP cooling result therefore cannot be imported as an axial-vector limit. Croon's vector \\(Z'\\) calculation remains useful as a separate vector benchmark for the thermal profile, semi-Compton conventions, and transport integration.
 
 For \(U(1)_{L_\mu-L_\tau}\), Eq. (4.2) has equal-sign left- and right-handed charged-lepton couplings at tree level. The neutrino interaction is left-chiral. The paper also discusses loop-induced kinetic mixing. These model details must be kept separate from a generic muon-only vector benchmark.
 
