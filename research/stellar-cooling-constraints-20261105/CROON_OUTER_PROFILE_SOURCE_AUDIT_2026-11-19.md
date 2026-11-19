@@ -414,28 +414,22 @@ Primary sources:
 
 ### 12.1 Preliminary graphical check from Fig. 5
 
-A first visual inspection of the logarithmic number-density panel in Huang--Liu Fig. 5 shows that the \(\mu^+\) component dominates over \(\mu^-\) after the sign change, while both curves remain many orders of magnitude below their core values. The plot is consistent with an outer \(\mu^+\) density in the broad \(10^{20}\)--\(10^{22}\ {\rm cm}^{-3}\) range, but the line width and logarithmic scale do not support treating this visual read as a hard numerical bound.
+A first visual inspection of the logarithmic number-density panel in Huang--Liu Fig. 5 shows that the \(\mu^+\) component dominates over \(\mu^-\) after the sign change. The plotted densities fall rapidly with radius, but the \(22\)--\(25\) km transition region is not negligible and must be treated separately from the \(25\)--\(30\) km outer path. The figure does not support assigning a single constant density to the entire \(22\)--\(30\) km interval.
 
 For the Croon susceptibility convention,
 \[
 \chi_{\mu^\pm}=n_{\mu^\pm}F_{\rm deg}^{\mu^\pm},
 \qquad 0\le F_{\rm deg}^{\mu^\pm}\le1,
 \]
-because the Fermi-integral numerator contains \(f(1-f)\le f\). Thus the number-density curves give a rigorous route to an upper bound once digitized:
+because the Fermi-integral numerator contains \(f(1-f)\le f\). Hence the number-density curves provide the model-independent inequality
 \[
 \chi_{\mu^-}+\chi_{\mu^+}
 \le n_{\mu^-}+n_{\mu^+}.
 \]
-For scale, if the digitized curves confirm \(n_{\mu^\pm}\le10^{22}\ {\rm cm}^{-3}\) separately, then
+The right panel of Fig. 5 should therefore be digitized directly, alongside \(T(r)\) and signed \(\mu_\mu(r)\), before assigning a numerical outer-opacity bound. A conditional scale conversion is
 \[
-\chi_{\mu^-}+\chi_{\mu^+}
-\le2\times10^{22}\ {\rm cm}^{-3}
-=1.54\times10^{-10}\ {\rm MeV}^3,
+10^{22}\ {\rm cm}^{-3}=7.69\times10^{-11}\ {\rm MeV}^3,
 \]
-using \(1\ {\rm MeV}^3=1.301\times10^{32}\ {\rm cm}^{-3}\). This would be below the Caputo/Bollig charge-summed edge value
-\[
-\chi_{\rm edge}^{\mu^-+\mu^+}
-=1.77783\times10^{-10}\ {\rm MeV}^3.
-\]
+using \(1\ {\rm MeV}^3=1.301\times10^{32}\ {\rm cm}^{-3}\).
 
-The numerical inequality above is conditional on the \(10^{22}\ {\rm cm}^{-3}\) figure-level envelope and is **not yet promoted to a verified bound**. The next task is to digitize the correlated \(T(r)\), signed \(\mu_\mu(r)\), and both number-density curves from Figs. 2 and 5, then evaluate \(\chi_{\mu^-}+\chi_{\mu^+}\) directly. Until that is done, the constant-edge source-weighted opacity envelope remains a reference sensitivity case, not a proven upper bound on the full charge-summed tail. The \(30\)--\(100\) km interval also remains unmeasured.
+The signed \(\mu_\mu<0\) tail can enhance the \(\mu^+\) susceptibility relative to the zero-filled Caputo/Bollig profile even when the total density is already falling. Consequently, the old constant-edge source-weighted opacity envelope is retained only as a reference sensitivity case; it is not yet a proven upper bound for the signed \(22\)--\(30\) km profile or the \(30\)--\(100\) km tail. The next calculation must digitize both charge densities and the correlated \(T,\mu_\mu\) curves and then integrate the exact charge-summed susceptibility.
