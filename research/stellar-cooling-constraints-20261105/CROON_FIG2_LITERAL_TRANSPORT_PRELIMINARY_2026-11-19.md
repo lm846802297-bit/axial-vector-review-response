@@ -288,6 +288,22 @@ The pointwise output is archived in [workflow artifact #14522239803](https://git
 
 The latest full benchmark workflow [#44512793672](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44512793672) passed **82/82 tests**, including the six new Lai surface-opacity tests and the four full source-weighted Croon outer-opacity tests.
 
+### Charge-conjugate muon sensitivity
+
+The literal Croon/Bollig susceptibility uses the single \(\mu^-\) Fermi distribution. A separate C0 sensitivity now adds the equilibrium \(\mu^+\) distribution,
+\[
+\chi_{\mu^\pm}
+=\int\frac{d^3p}{\pi^2}
+\left[f_-(1-f_-)+f_+(1-f_+)\right],
+\qquad
+f_\pm(E)=\frac{1}{e^{(E\mp\mu_\mu)/T}+1},
+\]
+to both the local semi-Compton source and its inverse opacity. This is a physical charge-conjugate extension, not a change to the literal Croon baseline.
+
+At the digitized edge, \(\chi_{\mu^\pm}/\chi_{\mu^-}=1.56612\); at the extrapolated \(R_\nu\) point with \(\mu_\mu=0\), the ratio is exactly 2. At \(g_X=0.03\), the full source-weighted \(R_\nu\)-to-100 km edge-temperature luminosity ratio increases from 1.03284081 (\(\mu^-\) only) to 1.04367238 (\(\mu^-+\mu^+\)). The remaining factor relative to the published median solid/dashed ratio 3.38190 is still 3.24038468. Charge conjugation therefore produces a real but quantitatively small correction to the integrated outer attenuation; it does not close the Fig. 2 gap.
+
+The high-order result is archived in [the committed summary](blinov_reproduction/outputs/croon_antimuon_opacity_sensitivity_summary_2026-11-19.json) and [workflow artifact #14527216779](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44519016169/artifacts/14527216779). The combined workflow [#44519016169](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44519016169) passed 86/86 tests.
+
 ## What remains before calling this a Fig. 2 reproduction
 
 1. Obtain the raw Garching SFHo-18.8, \(t_{\rm pb}=1\) s radial profile through \(R_{\rm far}\), including the muon susceptibility \(n_\mu F_{\rm deg}\). Until then, do not claim a complete \(R_{\rm far}=100\) km low-mass transport calculation.
