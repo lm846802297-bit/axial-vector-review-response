@@ -61,6 +61,8 @@ The optical-depth split levels are 80, 64, 48, 32, 16, 8, 4, 2, 1, 0.5, 0.1, and
 
 The old cumulative-Simpson optical depth and Simpson luminosity remain unchanged. New fields ending in adaptive_quad report the independent calculation.
 
+The QUADPACK error estimate measures integration error for the continuous PCHIP representation. It does not include radial interpolation uncertainty; that is assessed separately by repeating the full transport on the refined radial grid.
+
 ## 4. High-coupling check
 
 If the reduced opacity is positive at the surface and the source and opacity are continuous there, the radial integral has the limiting behavior
