@@ -114,12 +114,17 @@ def run_surface_semicompton_check(
                 "ratios_at_omega_over_T_2_3_4_5_8": ratios,
             })
 
+    try:
+        profile_label = str(profile_path.resolve().relative_to(HERE.parents[2].resolve()))
+    except ValueError:
+        profile_label = profile_path.name
+
     return {
         "title": "Lai 2024 surface semi-Compton opacity check",
         "source_paper": "Lai, Leung and Lin, Phys. Rev. D 110, 103023 (2024), arXiv:2401.16023",
         "equations": ["Eq. (10)", "Eq. (11)", "Eq. (20)", "Eq. (23)"],
         "profile": {
-            "path": str(profile_path),
+            "path": profile_label,
             "sha256": hashlib.sha256(profile_path.read_bytes()).hexdigest(),
             "rows": int(len(rows)),
             "R_nu_km": float(r_nu),
