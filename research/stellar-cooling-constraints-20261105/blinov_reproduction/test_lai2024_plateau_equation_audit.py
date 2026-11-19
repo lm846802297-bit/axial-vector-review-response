@@ -77,6 +77,28 @@ class Lai2024PlateauEquationAuditTests(unittest.TestCase):
         self.assertAlmostEqual(two_ray_surface_geometry_factor(), 0.5, places=15)
         self.assertAlmostEqual(geometry_factor_ratio_two_ray_to_full_angle(), 2.0, places=15)
 
+    def test_lai_neutrino_only_plateau_reaches_massless_limit(self):
+        from lai2024_plateau_equation_audit import lai_neutrino_only_plateau
+
+        result = lai_neutrino_only_plateau(
+            mass_MeV=2.0e-6,
+            temperature_MeV=3.0,
+            neutrinosphere_radius_km=25.151168281622343,
+            energy_order=256,
+        )
+        self.assertAlmostEqual(result["relative_to_massless_limit"], 1.0, delta=2e-8)
+        self.assertAlmostEqual(
+            result["L_nu_only_plateau_erg_s"], 9.1762591e51, delta=2e-5*9.1762591e51
+        )
+        self.assertIn("omits semi-Compton", result["scope"])
+
+    def test_lai_neutrino_only_plateau_is_mass_suppressed(self):
+        from lai2024_plateau_equation_audit import lai_neutrino_only_plateau
+
+        light = lai_neutrino_only_plateau(2.0e-6, 3.0, 25.151168281622343)
+        heavy = lai_neutrino_only_plateau(10.0, 3.0, 25.151168281622343)
+        self.assertLess(heavy["L_nu_only_plateau_erg_s"], light["L_nu_only_plateau_erg_s"])
+
     def test_plateau_integral_rejects_nonphysical_opacity_and_grid(self):
         omega = np.array([1.0, 2.0, 3.0])
         emissivity = np.ones(3)
