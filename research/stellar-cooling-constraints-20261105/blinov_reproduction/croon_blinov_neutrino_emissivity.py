@@ -82,21 +82,32 @@ def local_rate_spectra(
     # L_mu-L_tau flavours are then added explicitly.
     b7_rate = mass * mass / (8.0 * np.pi * omega) * (i_numu + i_nutau)
 
-    # Croon Eq. (4.6), literally as printed: alpha_V*m_V^2/(3 omega)*f_B.
-    croon_rate = mass * mass / (12.0 * np.pi * omega) * _bose(omega / temperature)
+    # Croon Eq. (4.6), literally as printed, is the generic one-neutrino-flavour rate.
+    croon_generic_rate = mass * mass / (12.0 * np.pi * omega) * _bose(omega / temperature)
+    # Croon Sec. 4.4 states that U(1)_{L_mu-L_tau} has two neutrino flavours:
+    # both Q and tau_abs are twice the generic single-flavour result.
+    croon_lmutau_rate = 2.0 * croon_generic_rate
 
     q_b7 = float(np.dot(phase, b7_rate))
-    q_croon = float(np.dot(phase, croon_rate))
+    q_croon_generic = float(np.dot(phase, croon_generic_rate))
+    q_croon_lmutau = float(np.dot(phase, croon_lmutau_rate))
     return {
         "omega_MeV": omega.tolist(),
         "phase_space_weights_MeV3": phase.tolist(),
         "I_numu": i_numu.tolist(),
         "I_nutau": i_nutau.tolist(),
         "B7_two_flavour_rate_per_g2_MeV": b7_rate.tolist(),
-        "Croon_Eq46_rate_per_g2_MeV": croon_rate.tolist(),
+        "Croon_Eq46_generic_one_flavour_rate_per_g2_MeV": croon_generic_rate.tolist(),
+        "Croon_Eq46_LmuLtau_two_flavour_rate_per_g2_MeV": croon_lmutau_rate.tolist(),
+        # Retain the old generic aliases for historical machine-readable consumers.
+        "Croon_Eq46_rate_per_g2_MeV": croon_generic_rate.tolist(),
         "Q_B7_two_flavour_per_g2_MeV5": q_b7,
-        "Q_Croon_Eq46_per_g2_MeV5": q_croon,
-        "Q_B7_over_Q_Croon": q_b7 / q_croon,
+        "Q_Croon_Eq46_generic_one_flavour_per_g2_MeV5": q_croon_generic,
+        "Q_Croon_Eq46_LmuLtau_two_flavour_per_g2_MeV5": q_croon_lmutau,
+        "Q_Croon_Eq46_per_g2_MeV5": q_croon_generic,
+        "Q_B7_over_Croon_generic_one_flavour": q_b7 / q_croon_generic,
+        "Q_B7_over_Croon_LmuLtau_two_flavour": q_b7 / q_croon_lmutau,
+        "Q_B7_over_Q_Croon": q_b7 / q_croon_generic,
         "energy_order": int(energy_order),
         "angular_order": int(angular_order),
     }
@@ -257,6 +268,10 @@ def run_profile(
             "mu_numu_MeV": float(row["mu_numu_MeV"]),
             "lapse": float(row["lapse"]),
             "Q_B7_two_flavour_per_g2_MeV5": point["Q_B7_two_flavour_per_g2_MeV5"],
+            "Q_Croon_Eq46_generic_one_flavour_per_g2_MeV5": point["Q_Croon_Eq46_generic_one_flavour_per_g2_MeV5"],
+            "Q_Croon_Eq46_LmuLtau_two_flavour_per_g2_MeV5": point["Q_Croon_Eq46_LmuLtau_two_flavour_per_g2_MeV5"],
+            "Q_B7_over_Croon_generic_one_flavour": point["Q_B7_over_Croon_generic_one_flavour"],
+            "Q_B7_over_Croon_LmuLtau_two_flavour": point["Q_B7_over_Croon_LmuLtau_two_flavour"],
             "Q_Croon_Eq46_per_g2_MeV5": point["Q_Croon_Eq46_per_g2_MeV5"],
             "Q_B7_over_Q_Croon": point["Q_B7_over_Q_Croon"],
         })
@@ -293,14 +308,22 @@ def run_profile(
             "fine_ratio": fine["Q_B7_over_Q_Croon"],
         })
 
-    ratios = np.asarray([p["Q_B7_over_Q_Croon"] for p in radial])
-    volume_integral = free_streaming_volume_integral(
+    ratios_generic = np.asarray([p["Q_B7_over_Croon_generic_one_flavour"] for p in radial])
+    ratios_lmutau = np.asarray([p["Q_B7_over_Croon_LmuLtau_two_flavour"] for p in radial])
+    volume_integral_generic = free_streaming_volume_integral(
         rows["r_km"], rows["T_MeV"],
         np.asarray([p["Q_B7_two_flavour_per_g2_MeV5"] for p in radial]),
-        np.asarray([p["Q_Croon_Eq46_per_g2_MeV5"] for p in radial]),
+        np.asarray([p["Q_Croon_Eq46_generic_one_flavour_per_g2_MeV5"] for p in radial]),
     )
-    min_index = int(np.argmin(ratios))
-    max_index = int(np.argmax(ratios))
+    volume_integral_lmutau = free_streaming_volume_integral(
+        rows["r_km"], rows["T_MeV"],
+        np.asarray([p["Q_B7_two_flavour_per_g2_MeV5"] for p in radial]),
+        np.asarray([p["Q_Croon_Eq46_LmuLtau_two_flavour_per_g2_MeV5"] for p in radial]),
+    )
+    min_index_generic = int(np.argmin(ratios_generic))
+    max_index_generic = int(np.argmax(ratios_generic))
+    min_index_lmutau = int(np.argmin(ratios_lmutau))
+    max_index_lmutau = int(np.argmax(ratios_lmutau))
     return {
         "title": "Full-profile local emissivity: Blinov B.7-B.10 versus Croon Eq. (4.6)",
         "mass_MeV": float(mass),
@@ -313,9 +336,11 @@ def run_profile(
             "nu_tau": "mu_nutau=0, following the Blinov profile convention",
         },
         "normalization": {
-            "B7": "mV^2/(8*pi*omega)*(I_numu+I_nutau) per g_X^2",
-            "Croon_Eq46": "mV^2/(12*pi*omega)*1/(exp(omega/T)-1) per g_X^2",
-            "ratio": "Q_B7/Q_Croon after the same massive-vector phase-space integral",
+            "B7": "mV^2/(8*pi*omega)*(I_numu+I_nutau) per g_X^2; both neutrino flavours explicitly included",
+            "Croon_Eq46_generic": "mV^2/(12*pi*omega)*1/(exp(omega/T)-1) per g_X^2; generic single-neutrino-flavour equation",
+            "Croon_Eq46_LmuLtau": "2 times Croon Eq. (4.6), as explicitly prescribed in Croon Sec. 4.4 for U(1)_{L_mu-L_tau}; both Q and tau_abs doubled",
+            "like_for_like_ratio": "Q_B7_two_flavour/Q_Croon_LmuLtau_two_flavour",
+            "generic_crosscheck_ratio": "Q_B7_two_flavour/Q_Croon_generic_one_flavour; retained only as an equation-level normalization comparison",
             "phase_space": "domega*omega^2*sqrt(omega^2-mV^2)/(2*pi^2), x=(omega-mV)/T in [0,36]",
         },
         "quadrature": {
@@ -324,13 +349,22 @@ def run_profile(
             "selected_convergence_energy_order": int(convergence_order),
             "selected_convergence_angular_order": int(convergence_angular_order),
         },
-        "radial_summary": {
-            "minimum_ratio": float(ratios[min_index]),
-            "minimum_ratio_radius_km": radial[min_index]["r_km"],
-            "maximum_ratio": float(ratios[max_index]),
-            "maximum_ratio_radius_km": radial[max_index]["r_km"],
+        "radial_summary_generic_one_flavour": {
+            "minimum_B7_over_Croon_ratio": float(ratios_generic[min_index_generic]),
+            "minimum_radius_km": radial[min_index_generic]["r_km"],
+            "maximum_B7_over_Croon_ratio": float(ratios_generic[max_index_generic]),
+            "maximum_radius_km": radial[max_index_generic]["r_km"],
         },
-        "free_streaming_volume_integral": volume_integral,
+        "radial_summary_LmuLtau_two_flavour": {
+            "minimum_B7_over_Croon_ratio": float(ratios_lmutau[min_index_lmutau]),
+            "minimum_radius_km": radial[min_index_lmutau]["r_km"],
+            "maximum_B7_over_Croon_ratio": float(ratios_lmutau[max_index_lmutau]),
+            "maximum_radius_km": radial[max_index_lmutau]["r_km"],
+        },
+        "free_streaming_volume_integral_generic_one_flavour": volume_integral_generic,
+        "free_streaming_volume_integral_LmuLtau_two_flavour": volume_integral_lmutau,
+        # Keep the old generic alias, explicitly marked as such above.
+        "free_streaming_volume_integral": volume_integral_generic,
         "selected_convergence": convergence,
         "radial_local_emissivity": radial,
         "scope": "local energy-integrated emissivity only; no radial volume integral, optical depth, escape probability, or luminosity",
@@ -364,6 +398,8 @@ def main() -> None:
         "max_selected_Q_Croon_relative_change": max(
             abs(p["relative_Q_Croon_change"]) for p in result["selected_convergence"]
         ),
+        "radial_summary_LmuLtau_two_flavour": result["radial_summary_LmuLtau_two_flavour"],
+        "free_streaming_volume_integral_LmuLtau_two_flavour": result["free_streaming_volume_integral_LmuLtau_two_flavour"],
         "output": str(args.output),
     }, indent=2))
 
