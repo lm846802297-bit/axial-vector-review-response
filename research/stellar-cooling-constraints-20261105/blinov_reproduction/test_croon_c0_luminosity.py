@@ -123,6 +123,14 @@ class CroonC0LuminosityTests(unittest.TestCase):
         )
         free = result["free_streaming_channel_luminosity_per_g2_erg_s"]
         self.assertAlmostEqual(result["R_nu_km"], 25.1511683, places=5)
+        self.assertIn(
+            "not included for Rnu < r < Rfar",
+            result["Croon_literal_transport"]["outer_semicompton_opacity"]
+        )
+        self.assertIn(
+            "low-mass strong-coupling Rfar=100 km result is incomplete",
+            result["scope"]
+        )
         self.assertAlmostEqual(
             free["nu_coalescence"]/3.05793824e70, 1.0, delta=2e-3
         )
