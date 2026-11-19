@@ -38,10 +38,11 @@ L_{100,h}=e^{-g_X^2\tau_{{\rm out},h}}L_{\nu,h}.
 The implementation uses:
 
 1. Shape-preserving PCHIP interpolation for the sampled source and reduced opacity.
-2. The exact antiderivative of the PCHIP opacity interpolant to construct the continuous optical depth.
-3. QUADPACK adaptive Gauss-Kronrod integration in a normalized radial coordinate.
-4. Explicit integration split points at fixed values of \(g_X^2\tau\), together with radial knots inside the optically relevant surface layer.
-5. Separate integration for every energy node and each of \(L,+,-\), followed by the original energy quadrature.
+2. An inward-from-surface coordinate \(s=(R_\nu-r)/(R_\nu-r_{\min})\), placing the escape layer at \(s=0\).
+3. The exact antiderivative of the reversed PCHIP opacity interpolant, constructing \(\tau(s)\) from zero at the surface without subtracting two large optical-depth integrals.
+4. QUADPACK adaptive Gauss-Kronrod integration in \(s\).
+5. Explicit integration split points at fixed values of \(g_X^2\tau\), together with radial knots inside the optically relevant surface layer.
+6. Separate integration for every energy node and each of \(L,+,-\), followed by the original energy quadrature.
 
 The optical-depth split levels are 80, 64, 48, 32, 16, 8, 4, 2, 1, 0.5, 0.1, and 0.01. This makes the narrow escape layer visible to the adaptive integrator even when it is much thinner than one original radial cell.
 
