@@ -440,7 +440,7 @@ def compute_benchmark(
             }
 
     return {
-        "status": "preliminary_public_profile_reconstruction_not_digitized_fig2_validation",
+        "status": "preliminary_public_profile_reconstruction_with_digitized_fig2_comparison_unresolved",
         "source_paper": "Croon et al., JHEP 01 (2021) 107, arXiv:2006.13942",
         "equations": ["Croon Eqs. (3.2)-(3.4)", "Croon Eqs. (4.6)-(4.7)"],
         "profile": {
@@ -480,7 +480,7 @@ def compute_benchmark(
         "curves": curves,
         "limitations": [
             "The profile is a Caputo-based public-figure reconstruction cross-checked against Bollig, not the raw Garching profile used by Croon.",
-            "No digitized Croon Fig. 2 points have yet been fitted or compared quantitatively.",
+            "Digitized Croon Fig. 2 PDF vector paths have been compared pointwise without fitting; the low-mass strong-coupling discrepancy remains unresolved.",
             "This is the Croon-literal vector lane, not the corrected B.13 lane and not an axial-vector result.",
             "No kinetic mixing, gravitational lapse/redshift, Blinov B.2 transport, or Lai trapping prescription is included.",
         ],
