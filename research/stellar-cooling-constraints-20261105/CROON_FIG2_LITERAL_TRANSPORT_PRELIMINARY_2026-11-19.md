@@ -106,7 +106,7 @@ The table below is the current **generic single-neutrino-flavour Fig. 2 benchmar
 
 These are **preliminary public-profile reconstruction results**, not a final reproduction of the digitized Fig. 2 curves. The run uses the generic one-neutrino-flavour normalization; the separate \(L_\mu-L_\tau\) transfer doubles both neutrino production and neutrino absorption as stated in Sec. 4.4. No curve has been rescaled to force agreement with the paper's plot.
 
-Machine-readable output (JSON + CSV): [GitHub Actions artifact](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449132291/artifacts/14494581986). Artifact SHA-256: 7cdc41ceeef61d079a34c308071beab7490bb8ede290cd9b2937a20b69a7210e. The run used 1687 source rows, a 507-point 0.05 km radial grid, 160-point energy quadrature, 256-point muon-momentum quadrature and 81 logarithmic couplings.
+Machine-readable output (JSON + CSV): [GitHub Actions artifact](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449522338/artifacts/14494204948). Artifact SHA-256: 7eaaafe9a5e0d28615e6ebc97386139808d354c1ec376694484fc98e8bd06b74. The run used 1687 source rows, a 507-point 0.05 km radial grid, 160-point energy quadrature, 256-point muon-momentum quadrature and 81 logarithmic couplings.
 
 The optically-thin source fractions show the expected channel hierarchy:
 
@@ -163,10 +163,11 @@ The C0 numerical audit also finds:
 - changing \(R_{\rm far}=100\) km to \(R_{\rm far}=R_\nu\) raises the high-coupling crossing substantially, as expected from the reduced outer vacuum-decay opacity. Croon uses \(R_{\rm far}=100\) km for its conservative result.
 
 The corresponding generic, \(L_\mu-L_\tau\), charge-conjugate, high-order and convergence-audit outputs are archived in the same workflow run:
-- [generic 10 MeV C0 curve](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449132291/artifacts/14493653832)
-- [\(L_\mu-L_\tau\) 10 MeV C0 curve](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449132291/artifacts/14494073335)
-- [\(\mu^+\) sensitivity curve](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449132291/artifacts/14494726643)
-- [quadrature and profile-convention audit](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449132291/artifacts/14493603942)
+- [generic 10 MeV C0 curve](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449522338/artifacts/14495061522)
+- [\(L_\mu-L_\tau\) 10 MeV C0 curve](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449522338/artifacts/14495290606)
+- [\(\mu^+\) sensitivity curve](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449522338/artifacts/14495400333)
+- [high-order 10 MeV C0 curve](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449522338/artifacts/14495071605)
+- [quadrature and profile-convention audit](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449522338/artifacts/14495515156)
 
 All these calculations remain preliminary because the public figure reconstruction is not the raw Garching radial table and the Croon Fig. 2 curve has not yet been digitized point-by-point.
 
