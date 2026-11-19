@@ -1,18 +1,18 @@
-name: Croon C1 10 MeV single-mass baseline
+name: Croon C1 10 MeV mode-resolved single-mass baseline
 
 on:
   push:
     branches:
       - research/croon-vector-benchmark-and-rate-corrections-20261119
     paths:
-      - '.github/workflows/croon-c1-10mev-single-baseline.yml'
+      - '.github/workflows/croon-c1-10mev-mode-resolved.yml'
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  c1-10mev-single-baseline:
+  c1-10mev-mode-resolved:
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
@@ -45,16 +45,16 @@ jobs:
             --neutrino-order 128 \
             --susceptibility-order 192 \
             --coupling-count 121 \
-            --output outputs/croon_c1_b13_vector_transport_10mev_single_baseline_2026-11-20.json \
-            --csv outputs/croon_c1_b13_vector_transport_10mev_single_baseline_2026-11-20.csv
+            --output outputs/croon_c1_b13_vector_transport_10mev_mode_resolved_2026-11-20.json \
+            --csv outputs/croon_c1_b13_vector_transport_10mev_mode_resolved_2026-11-20.csv
       - name: Validate JSON, CSV, detailed balance, shell closure, and finite values
         working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
         run: |
           python - <<'PY'
           import csv, json, math
           from pathlib import Path
-          jp = Path("outputs/croon_c1_b13_vector_transport_10mev_single_baseline_2026-11-20.json")
-          cp = Path("outputs/croon_c1_b13_vector_transport_10mev_single_baseline_2026-11-20.csv")
+          jp = Path("outputs/croon_c1_b13_vector_transport_10mev_mode_resolved_2026-11-20.json")
+          cp = Path("outputs/croon_c1_b13_vector_transport_10mev_mode_resolved_2026-11-20.csv")
           data = json.loads(jp.read_text())
           assert data["status"].startswith("C1 interior-profile")
           assert list(data["masses"]) == ["10"]
@@ -62,6 +62,8 @@ jobs:
           assert item["mass_MeV"] == 10.0
           assert item["radial_points"] >= 101
           assert item["energy_points"] == 32
+          modes = ("L", "+", "-")
+          assert item["polarization_modes"] == list(modes)
           assert len(item["coupling_curve"]) == 121
           assert len(item["local_profile"]) == item["radial_points"]
           assert item["maximum_B7_mode_detailed_balance_residual"] < 1e-10
@@ -69,18 +71,46 @@ jobs:
           assert item["maximum_final_muon_shell_relative_error"] < 2e-10
           for key, value in item["thin_source_per_g2_erg_s"].items():
               assert math.isfinite(value) and value >= 0, (key, value)
+          for key, by_mode in item["thin_source_by_mode_per_g2_erg_s"].items():
+              assert set(by_mode) == set(modes), (key, by_mode)
+              assert all(math.isfinite(v) and v >= 0 for v in by_mode.values())
+              total = item["thin_source_per_g2_erg_s"][key]
+              residual = abs(sum(by_mode.values()) - total) / max(abs(total), 1e-300)
+              assert residual < 1e-12, (key, residual)
+          assert max(item["thin_source_mode_sum_relative_residuals"].values()) < 1e-12
           for row in item["coupling_curve"]:
               assert 0 < row["g_X"] <= 1
               for key in ("Rfar_Rnu", "Rfar_100km_vacuum_nu_tail"):
                   assert math.isfinite(row[key]) and row[key] >= 0, (key, row[key])
+                  by_mode = row[key + "_by_mode_erg_s"]
+                  assert set(by_mode) == set(modes)
+                  assert all(math.isfinite(v) and v >= 0 for v in by_mode.values())
+                  residual = abs(sum(by_mode.values()) - row[key]) / max(abs(row[key]), 1e-300)
+                  assert residual < 1e-12, (key, residual)
+                  assert row[key + "_mode_sum_relative_residual"] < 1e-12
           with cp.open(newline="") as f:
               rows = list(csv.DictReader(f))
           assert len(rows) == item["radial_points"]
           for row in rows:
-              for key in ("r_km", "T_MeV", "Q_B13_mu_minus_per_g2_MeV5",
-                          "Q_B13_mu_plus_per_g2_MeV5", "Q_B13_mu_pm_per_g2_MeV5"):
+              for key in ("r_km", "T_MeV", "Q_B7_nu_mu_plus_nu_tau_per_g2_MeV5",
+                          "Q_B13_mu_minus_per_g2_MeV5", "Q_B13_mu_plus_per_g2_MeV5",
+                          "Q_B13_mu_pm_per_g2_MeV5", "Q_B7_plus_B13_per_g2_MeV5"):
                   assert math.isfinite(float(row[key])), (key, row[key])
-          print("C1 10 MeV JSON/CSV and physical-kernel regression checks: PASS")
+              for channel in ("B7", "B13_mu_minus", "B13_mu_plus",
+                              "B13_mu_pm", "B7_plus_B13"):
+                  mode_values = [float(row[f"Q_{channel}_{mode}_per_g2_MeV5"])
+                                 for mode in modes]
+                  total_key = {
+                      "B7": "Q_B7_nu_mu_plus_nu_tau_per_g2_MeV5",
+                      "B13_mu_minus": "Q_B13_mu_minus_per_g2_MeV5",
+                      "B13_mu_plus": "Q_B13_mu_plus_per_g2_MeV5",
+                      "B13_mu_pm": "Q_B13_mu_pm_per_g2_MeV5",
+                      "B7_plus_B13": "Q_B7_plus_B13_per_g2_MeV5",
+                  }[channel]
+                  total = float(row[total_key])
+                  residual = abs(sum(mode_values) - total) / max(abs(total), 1e-300)
+                  assert residual < 1e-12, (channel, residual)
+          print("C1 10 MeV JSON/CSV, three-polarization closure, and physical-kernel checks: PASS")
           print("radial rows:", len(rows), "energy nodes:", item["energy_points"],
                 "coupling points:", len(item["coupling_curve"]))
           print("max B7 DB:", item["maximum_B7_mode_detailed_balance_residual"])
@@ -91,17 +121,17 @@ jobs:
         working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
         run: |
           sha256sum \
-            outputs/croon_c1_b13_vector_transport_10mev_single_baseline_2026-11-20.json \
-            outputs/croon_c1_b13_vector_transport_10mev_single_baseline_2026-11-20.csv \
-            > outputs/SHA256SUMS_croon_c1_10mev_single_baseline_2026-11-20.txt
+            outputs/croon_c1_b13_vector_transport_10mev_mode_resolved_2026-11-20.json \
+            outputs/croon_c1_b13_vector_transport_10mev_mode_resolved_2026-11-20.csv \
+            > outputs/SHA256SUMS_croon_c1_10mev_mode_resolved_2026-11-20.txt
       - name: Upload native outputs and checksum manifest
         uses: actions/upload-artifact@v4
         with:
-          name: croon-c1-10mev-single-baseline-2026-11-20
+          name: croon-c1-10mev-mode-resolved-2026-11-20
           path: |
-            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_single_baseline_2026-11-20.json
-            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_single_baseline_2026-11-20.csv
-            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/SHA256SUMS_croon_c1_10mev_single_baseline_2026-11-20.txt
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_mode_resolved_2026-11-20.json
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_mode_resolved_2026-11-20.csv
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/SHA256SUMS_croon_c1_10mev_mode_resolved_2026-11-20.txt
           if-no-files-found: error
       - name: Commit native calculation outputs to the research branch
         env:
@@ -111,9 +141,9 @@ jobs:
           GIT_COMMITTER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
         run: |
           git add \
-            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_single_baseline_2026-11-20.json \
-            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_single_baseline_2026-11-20.csv \
-            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/SHA256SUMS_croon_c1_10mev_single_baseline_2026-11-20.txt
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_mode_resolved_2026-11-20.json \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_mode_resolved_2026-11-20.csv \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/SHA256SUMS_croon_c1_10mev_mode_resolved_2026-11-20.txt
           if ! git diff --cached --quiet; then
             git commit -m "Archive isolated C1 10 MeV single-mass baseline"
             for attempt in 1 2 3; do
