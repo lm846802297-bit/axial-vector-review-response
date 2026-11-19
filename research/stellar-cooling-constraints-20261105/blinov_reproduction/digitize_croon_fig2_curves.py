@@ -131,7 +131,11 @@ def match_label_paths(text_spans: list[dict], paths: list[dict]) -> dict:
             (_colour_distance(p["stroke_rgb"], target), p)
             for p in paths if p.get("stroke_rgb") is not None
             and p.get("flattened_points")
+            and p["rect"][2]-p["rect"][0] > 100.0
+            and p["rect"][3]-p["rect"][1] > 50.0
         ]
+        if label == "0.1 eV":
+            scored = [item for item in scored if item[1].get("dashes") == "[] 0"]
         distance, chosen = min(scored, key=lambda item: item[0])
         if distance > 0.35:
             raise RuntimeError(f"Could not match label {label!r} to a vector path (colour distance {distance})")
@@ -205,6 +209,8 @@ def run(input_path: Path = DEFAULT_INPUT, csv_path: Path = DEFAULT_CSV,
         and p["index"] != black_solid_index
         and p.get("dashes") not in (None, "[] 0")
         and p.get("flattened_points")
+        and p["rect"][2]-p["rect"][0] > 100.0
+        and p["rect"][3]-p["rect"][1] > 50.0
     ]
     if len(black_dashed) != 1:
         raise RuntimeError(f"Expected one black dashed Rfar=Rnu path, found {len(black_dashed)}")
