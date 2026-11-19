@@ -156,6 +156,20 @@ jobs:
             research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_fig2_digitized_curves_2026-11-19.json
             research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_fig2_digitized_curves_2026-11-19.csv
           if-no-files-found: error
+      - name: Run low-mass Fig. 2 energy-threshold convergence tests
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest -v test_audit_croon_fig2_energy_threshold_convergence.py
+      - name: Audit low-mass Fig. 2 energy-threshold convergence
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python audit_croon_fig2_energy_threshold_convergence.py
+      - name: Upload low-mass Fig. 2 energy-threshold convergence audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: croon-fig2-energy-threshold-convergence
+          path: |
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_fig2_energy_threshold_convergence/croon_fig2_energy_threshold_convergence.json
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_fig2_energy_threshold_convergence/croon_fig2_energy_threshold_convergence.csv
+          if-no-files-found: error
       - name: Re-run exact B13 to B16 controlled-limit regression
         working-directory: research/stellar-cooling-constraints-20261105
         env:
