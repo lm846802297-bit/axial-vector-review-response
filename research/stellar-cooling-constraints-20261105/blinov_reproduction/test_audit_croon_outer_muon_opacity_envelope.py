@@ -26,7 +26,7 @@ class CroonOuterMuonOpacityEnvelopeTests(unittest.TestCase):
         self.assertAlmostEqual(self.result["profile"]["R_nu_km"], 25.1511682816, places=8)
 
     def test_resolved_edge_susceptibility_is_reproduced(self):
-        edge = self.result["profile"]["last_resolved_muon_sample"]
+        edge = self.result["profile"]["last_nonzero_digitized_muon_sample"]
         self.assertAlmostEqual(edge["r_km"], 22.1918936570, places=8)
         self.assertAlmostEqual(edge["T_MeV"], 3.5152434568, places=8)
         self.assertAlmostEqual(edge["mu_mu_MeV"], 0.9999998342, places=8)
@@ -42,6 +42,10 @@ class CroonOuterMuonOpacityEnvelopeTests(unittest.TestCase):
             high["vacuum_over_T3_envelope_luminosity_ratio"],
         )
         self.assertLess(high["vacuum_over_Tedge_envelope_luminosity_ratio"], 1.025)
+        self.assertGreater(high["Rnu_over_T3_envelope_luminosity_ratio"], 1.03)
+        self.assertLess(high["Rnu_over_T3_envelope_luminosity_ratio"], 1.04)
+        self.assertGreater(high["Rnu_over_Tedge_envelope_luminosity_ratio"], 1.03)
+        self.assertLess(high["Rnu_over_Tedge_envelope_luminosity_ratio"], 1.04)
         self.assertGreater(
             self.result["paper_reference"]["median_solid_over_dashed_luminosity_ratio"],
             3.0,
@@ -56,6 +60,7 @@ class CroonOuterMuonOpacityEnvelopeTests(unittest.TestCase):
         self.assertLess(high["chi_required_MeV3"], 1.0e-8)
         self.assertGreater(low["chi_required_MeV3"] / high["chi_required_MeV3"], 1.0e7)
         self.assertGreater(high["chi_required_over_resolved_edge"], 50.0)
+        self.assertLess(high["chi_required_over_resolved_edge"], 100.0)
 
 
 if __name__ == "__main__":
