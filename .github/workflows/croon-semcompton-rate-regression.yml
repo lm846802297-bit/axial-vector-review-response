@@ -23,6 +23,8 @@ on:
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_compare_croon_fig2_digitized_curves.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_croon_fig2_outer_opacity_gap.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_audit_croon_fig2_outer_opacity_gap.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/lai2024_plateau_equation_audit.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_lai2024_plateau_equation_audit.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_c0_luminosity.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_croon_c0_luminosity_convergence.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_croon_c0_luminosity.py'
@@ -177,6 +179,9 @@ jobs:
       - name: Run Croon Fig. 2 outer-opacity gap regression tests
         working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
         run: python -m unittest -v test_audit_croon_fig2_outer_opacity_gap.py
+      - name: Run Lai 2024 plateau and rate-convention equation audit
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest -v test_lai2024_plateau_equation_audit.py
       - name: Diagnose missing outer opacity from solid/dashed Fig. 2 curves
         working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
         run: python audit_croon_fig2_outer_opacity_gap.py
