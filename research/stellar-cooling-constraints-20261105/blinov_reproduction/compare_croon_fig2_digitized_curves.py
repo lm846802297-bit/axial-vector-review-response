@@ -49,33 +49,57 @@ def compare_curves(model: dict, digitized: dict) -> dict:
         if (gm.ndim != 1 or lm.ndim != 1 or gd.ndim != 1 or ld.ndim != 1
                 or len(gm) != len(lm) or len(gd) != len(ld)):
             raise ValueError(f"{label}: malformed curve arrays")
-        valid_model = (
-            np.isfinite(gm) & np.isfinite(lm) & (gm > 0.0) & (lm > 0.0)
-        )
-        gm, lm = gm[valid_model], lm[valid_model]
-        if len(gm) < 2 or np.any(np.diff(gm) <= 0.0):
-            raise ValueError(f"{label}: model grid must be positive and strictly increasing")
+        if (np.any(~np.isfinite(gm)) or np.any(~np.isfinite(lm))
+                or np.any(gm <= 0.0) or np.any(np.diff(gm) <= 0.0)):
+            raise ValueError(f"{label}: model coupling grid must be finite, positive, and strictly increasing")
         if np.any(np.diff(gd) < 0.0):
             raise ValueError(f"{label}: digitized points must be ordered by increasing g")
 
         valid_data = np.isfinite(gd) & np.isfinite(ld) & (gd > 0.0) & (ld > 0.0)
         in_range = valid_data & (gd >= gm[0]) & (gd <= gm[-1])
-        used_g = gd[in_range]
-        used_ld = ld[in_range]
-        if len(used_g) == 0:
-            raise ValueError(f"{label}: no digitized points overlap the model coupling range")
+        model_log_g = np.log10(gm)
+        model_log_l = np.full(len(gm), np.nan)
+        positive_model = lm > 0.0
+        model_log_l[positive_model] = np.log10(lm[positive_model])
 
-        model_log_l = np.interp(np.log10(used_g), np.log10(gm), np.log10(lm))
-        residual = model_log_l - np.log10(used_ld)
-        peak_index = int(np.argmax(lm))
+        interpolable = np.zeros(len(gd), dtype=bool)
+        interpolated_log_l = np.full(len(gd), np.nan)
+        for j in np.flatnonzero(in_range):
+            right = int(np.searchsorted(gm, gd[j], side="left"))
+            if right < len(gm) and abs(np.log10(gd[j])-model_log_g[right]) <= 1e-13:
+                if positive_model[right]:
+                    interpolable[j] = True
+                    interpolated_log_l[j] = model_log_l[right]
+                continue
+            left = right - 1
+            if (left >= 0 and right < len(gm)
+                    and positive_model[left] and positive_model[right]):
+                fraction = (
+                    np.log10(gd[j])-model_log_g[left]
+                ) / (model_log_g[right]-model_log_g[left])
+                interpolated_log_l[j] = (
+                    model_log_l[left]
+                    + fraction*(model_log_l[right]-model_log_l[left])
+                )
+                interpolable[j] = True
+
+        used_mask = in_range & interpolable
+        used_g = gd[used_mask]
+        used_ld = ld[used_mask]
+        model_log_l_used = interpolated_log_l[used_mask]
+        if len(used_g) == 0:
+            raise ValueError(f"{label}: no digitized points overlap positive model segments")
+
+        residual = model_log_l_used - np.log10(used_ld)
+        peak_index = int(np.argmax(np.where(positive_model, lm, -np.inf)))
         peak_g = float(gm[peak_index])
         low = used_g <= peak_g
         high = used_g > peak_g
 
         point_rows = []
-        used_indices = np.flatnonzero(in_range)
+        used_indices = np.flatnonzero(used_mask)
         for source_index, g, l_data, log_l_model, res in zip(
-            used_indices, used_g, used_ld, model_log_l, residual
+            used_indices, used_g, used_ld, model_log_l_used, residual
         ):
             point_rows.append({
                 "digitized_point_index": int(source_index),
@@ -91,7 +115,8 @@ def compare_curves(model: dict, digitized: dict) -> dict:
             "source_pdf_path_index": dcurve.get("source_path_index"),
             "digitized_point_count": int(len(points)),
             "used_point_count": int(len(used_g)),
-            "excluded_outside_model_range_count": int(len(points)-len(used_g)),
+            "excluded_outside_model_range_count": int(np.sum(valid_data & ~in_range)),
+            "excluded_nonpositive_model_interval_count": int(np.sum(in_range & ~interpolable)),
             "model_peak_g": peak_g,
             "all_points": _metrics(residual),
             "low_g_branch": _metrics(residual[low]),
