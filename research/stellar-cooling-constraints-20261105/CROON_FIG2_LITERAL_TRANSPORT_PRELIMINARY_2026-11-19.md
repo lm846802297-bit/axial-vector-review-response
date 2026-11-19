@@ -215,6 +215,10 @@ This establishes three distinct outcomes:
 
 The discrepancy is therefore **not** repaired by a single source normalization. The pattern points to the trapping/opacity treatment, especially the \(R_\nu\to R_{\rm far}\) contribution, as the next place to investigate. The current implementation explicitly uses the vacuum \(Z'\to\nu\bar\nu\) decay tail outside the available \(R_\nu\) profile. The public profile ends at 25 km and is not the raw Garching radial table used by Croon. We have not established that the vacuum-tail continuation is identical to the authors' numerical treatment, nor have we established that the raw simulation has no additional outer-medium opacity. The official Garching archive lists the Bollig radial-profile dataset, but its data endpoint returned HTTP 401 (authorization required); the archive itself notes that some datasets are password-protected and directs users to contact the archive maintainers. Until access is granted, the raw profile cannot be used for this comparison. The residual is retained as an unresolved reproduction difference; no opacity or rate is tuned to remove it.
 
+A separate outer-opacity sensitivity was computed by replacing the vacuum tail with a Bose-enhanced \(T_{\rm outer}=3\) MeV neutrino bath over \(R_\nu\to100\) km. This is an explicit upper-envelope diagnostic, not the default Croon prescription and not a reconstructed outer hydrodynamic profile. For the 0.1 eV curve it changes the luminosity by only 1.14% at \(g=0.1\) and 2.34% at \(g=0.3\). The pointwise median residual against the solid \(R_{\rm far}=100\) km curve remains \(+0.4796\) dex (median ratio 3.02), essentially unchanged from the vacuum-tail result. Thus the missing discrepancy is **not** explained by simply Bose-enhancing the outer neutrino-decay tail at \(T=3\) MeV. A possible additional outer-medium opacity or another trapping-prescription difference remains to be isolated.
+
+The model output including this separate \(T_{\rm outer}=3\) MeV envelope is archived in [workflow artifact](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44464580478/artifacts/14500909045). The 13-test Fig. 2 transport suite checks both the vacuum and finite-temperature outer-tail formulas.
+
 The 0.1 MeV curve has a separate high-\(g\) endpoint outlier (maximum absolute residual 0.535 dex); its median is much closer. This endpoint must be inspected independently before interpreting the full RMS as a smooth physical discrepancy.
 
 Raw-profile access note: [official Garching archive entry](https://wwwmpa.mpa-garching.mpg.de/ccsnarchive/archive.html) lists the Bollig radial profiles; the [radial-profile data endpoint](https://wwwmpa.mpa-garching.mpg.de/ccsnarchive/data/Bollig2016_radial_profiles/) is access-controlled (HTTP 401). The archive asks users to contact the maintainers for password-protected data.
@@ -224,7 +228,7 @@ Reproducible outputs:
 - [Croon Fig. 2 model curves](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44463503829/artifacts/14501216341)
 - [Digitized PDF vector curves](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44463503829/artifacts/14500373943)
 
-The comparison workflow run #44463503829 completed successfully. It contains 59 passing unit tests across the equation-level checks, C0 luminosity, PDF vector extraction/digitization, no-fit comparison, energy-threshold audit, and the existing B.13/B.16 and Ward-identity regression suites.
+The comparison workflow run #44463503829 completed successfully. The subsequent outer-opacity sensitivity run #44464580478 also completed successfully, with 61 passing unit tests across the equation-level checks, C0 luminosity, PDF vector extraction/digitization, no-fit comparison, energy-threshold audit, and the existing B.13/B.16 and Ward-identity regression suites.
 
 ## What remains before calling this a Fig. 2 reproduction
 
