@@ -4,7 +4,7 @@ Date: 2026-11-19
 
 ## Status
 
-This is the first independent numerical implementation of the Croon et al. (2021) vector luminosity prescription. It is a **preliminary public-profile reconstruction**, not yet a quantitative reproduction of the digitized Fig. 2 points. It does not alter the validated Blinov B.2/B.13 baseline and it is not an axial-vector result.
+This is the first independent numerical implementation of the Croon et al. (2021) vector luminosity prescription. It remains a **preliminary public-profile reconstruction**: the pointwise comparison with digitized Fig. 2 vector paths is complete, but the low-mass strong-coupling trapping discrepancy remains unresolved, so this is not yet a quantitative reproduction. It does not alter the validated Blinov B.2/B.13 baseline and it is not an axial-vector result.
 
 The implementation is deliberately isolated as lane C0. It uses Croon's own local-rate approximations and Sec. 3 transport prescription without importing Blinov's velocity factor, reduced opacity, lapse/redshift, or the Lai trapping prescription.
 
