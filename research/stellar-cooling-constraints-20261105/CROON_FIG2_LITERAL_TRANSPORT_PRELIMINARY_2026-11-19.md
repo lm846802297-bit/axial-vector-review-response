@@ -87,7 +87,7 @@ The published Fig. 2 caption identifies the gauged \(U(1)_{L_\mu-L_\tau}\) model
 - 160-point transformed energy Gauss quadrature, \(\omega=m+T_{\max}y^2\), \(0\le y\le6\);
 - 256-point Gauss-Legendre momentum quadrature for \(n_\mu F_{\rm deg}\);
 - cumulative Simpson integration for \(\tau_{\rm abs}\) and Simpson integration for the volume integral;
-- 81 logarithmic couplings from \(10^{-11}\) to \(10^{-1}\).
+- 201 logarithmic couplings from \(10^{-11}\) to \(10^{-1}\).
 
 The 0.1 eV curve is also computed with \(R_{\rm far}=R_\nu\), corresponding to the dashed-boundary comparison described in the Fig. 2 caption.
 
@@ -132,14 +132,14 @@ Thus the semi-Compton channel controls the sub-MeV curves, while neutrino coales
 
 
 
-## Dedicated 10 MeV C0 cross-check: generic versus \(L_\mu-L_\tau\)
+## Dedicated 10 MeV C0 cross-check: generic baseline and Fig. 2 L_mu-L_tau lane
 
-The same 10 MeV benchmark was computed independently in two numerical implementations:
+Two distinct comparisons are retained:
 
-1. the full Fig. 2 implementation, using a 0.05 km radial grid and Simpson integration;
-2. the C0 adapter, using all 1687 archived radial nodes and analytic piecewise-linear integration of the spherical volume.
+1. **Generic one-flavour diagnostic:** the archived single-flavour six-mass scan is compared with the generic C0 adapter. This validates the two radial-integration implementations but is not the published Fig. 2 model.
+2. **Published Fig. 2 model:** the current two-flavour six-mass scan is compared with the independent C0 adapter with `neutrino_flavour_factor=2`, using the same SFHo-18.8 profile and (R_{\rm far}=100) km.
 
-For the generic one-neutrino-flavour case with \(R_{\rm far}=100\) km:
+For the generic one-neutrino-flavour diagnostic with \(R_{\rm far}=100\) km:
 
 | Quantity | Fig. 2 mass sweep | 1687-node C0 adapter |
 |---|---:|---:|
