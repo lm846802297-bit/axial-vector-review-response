@@ -409,7 +409,7 @@ R_\nu(T=3\,{\rm MeV})=25.1512\ {\rm km}.
 \]
 This is consistent with Croon's stated approximate \(R_\nu\simeq25\) km. The current profile ends at 25 km, so the final 0.151 km inside the production boundary requires a short interpolation/extrapolation.
 
-Croon uses \(R_{\rm far}=100\) km. The profile-B file does not extend to 100 km. This does **not** mean the outer opacity can be set to zero: the neutrino-pair inverse-decay opacity tends to the vacuum decay width as \(T\to0\). For \(r>R_\nu\), the C0 adapter must retain the analytic vacuum tail
+Croon uses \(R_{\rm far}=100\) km. The profile-B file does not extend to 100 km. This does **not** mean the full outer opacity is known or zero: the neutrino-pair inverse-decay opacity tends to the vacuum decay width as \(T\to0\), but the semi-Compton opacity also depends on the outer muon susceptibility. For \(r>R_\nu\), the current C0 adapter retains the analytic vacuum neutrino-decay tail
 \[
 \tau_{\nu,{\rm out}}=
 (R_{\rm far}-R_\nu)\frac{\alpha_Vm_V^2}{3\omega}
@@ -427,9 +427,17 @@ For \(m_V=10\) MeV, \(R_{\rm far}-R_\nu=74.8488\) km, and the literal Croon vacu
 2.0123\times10^{16}, & \omega=50\ {\rm MeV}.
 \end{cases}
 \]
-At the threshold, taking the entire outer 74.85 km to remain at the maximum allowed \(T=3\) MeV would increase the vacuum decay opacity by only \(f_B(10\,{\rm MeV},3\,{\rm MeV})=3.70\%\); the correction is smaller at larger \(\omega\). Thus the unknown outer temperature profile can be bracketed between the vacuum tail and the \(T=3\) MeV upper envelope for this 10 MeV benchmark, rather than silently set to zero.
+At the threshold, taking the entire outer 74.85 km to remain at the maximum allowed \(T=3\) MeV would increase the vacuum neutrino-decay opacity by only \(f_B(10\,{\rm MeV},3\,{\rm MeV})=3.70\%\); the correction is smaller at larger \(\omega\). This brackets only the **neutrino-decay Bose factor**. It says nothing about the unknown outer semi-Compton opacity, which requires \(n_\mu F_{\rm deg}(r)\) outside \(R_\nu\).
 
-The input provenance is explicit: Croon cites the Bollig et al. SFHo-18.8, \(t_{\rm pb}=1\) s Garching profile. The current profile-B reconstruction is the Caputo-based public-figure reconstruction selected by the existing Bollig Fig. 4 cross-check; it is not the raw Garching file. Therefore any resulting curve must be labelled a **public-profile Croon-literal reproduction**, with the profile reconstruction uncertainty retained.
+The published Fig. 2 solid/dashed 0.1 eV pair now isolates this missing segment. Over 27 common digitized points in \(3\times10^{-6}\le g_{Z'}\le3\times10^{-2}\), the paper's ratio
+\[
+S_{\rm paper}=L(R_{\rm far}=R_\nu)/L(R_{\rm far}=100\,{\rm km})
+\]
+has median 3.38190 (16--84 percentile 3.22590--3.64968). The current model gives median \(S_{\rm model}=1.00000003\), because its outer continuation contains only the neutrino vacuum tail and no measured muon opacity. The missing integrated-luminosity suppression is a factor 3.38190, \(\ln S_{\rm missing}=1.21844\). This is an effective luminosity diagnostic, not a local optical depth or a unique radial opacity reconstruction. The \(R_{\rm far}=R_\nu\) model agrees with the digitized dashed curve to within roughly 0.05 dex on the plateau; the \(R_{\rm far}=100\) km model is high relative to the solid curve by a median factor 3.21.
+
+The low-mass strong-coupling mismatch is therefore localized to the \(R_\nu\to R_{\rm far}\) opacity segment. The neutrino-decay tail and its \(T=3\) MeV Bose enhancement are too small to explain it. The missing term is strongly indicative of outer semi-Compton absorption on residual muons (or another outer-medium opacity in the authors' profile), but the available public profile does not determine that term. We must not fit an outer profile to the plotted luminosity.
+
+The input provenance is explicit: Croon cites the Bollig et al. SFHo-18.8, \(t_{\rm pb}=1\) s Garching profile. The current profile-B reconstruction is the Caputo-based public-figure reconstruction selected by the existing Bollig Fig. 4 cross-check; it is not the raw Garching file. The official [Garching archive](https://wwwmpa.mpa-garching.mpg.de/ccsnarchive/archive.html) lists the Bollig radial-profile dataset, but the [radial-profile endpoint](https://wwwmpa.mpa-garching.mpg.de/ccsnarchive/data/Bollig2016_radial_profiles/) returns HTTP 401; the archive notes that some data are password-protected and asks users to contact the maintainers. A separate publication states that the Bollig radial profiles are available upon request. Thus the current \(R_{\rm far}=100\) km low-mass strong-coupling curve is an **interior-profile calculation with a vacuum-only outer continuation**, not a complete Croon transport result. It must remain preliminary until the raw outer profile is obtained.
 
 
 
@@ -497,7 +505,8 @@ In this project, do not assume that the neutrino coupling equals the charged-muo
 ## 7. Current status and non-claims
 
 - This document is a literature/formula audit and execution specification.
-- It does not claim that Croon Fig. 2 has been reproduced.
+- Croon Fig. 2 is compared point-by-point against digitized PDF vector paths, but the low-mass strong-coupling \(R_{\rm far}=100\) km curve remains incomplete because the raw outer muon-opacity profile is unavailable.
+- The \(R_{\rm far}=R_\nu\) dashed comparison is consistent with the interior-profile calculation at approximately the 0.05 dex level on the low-mass strong-coupling plateau.
 - It does not claim that the Croon rates are the corrected modern rates.
 - It does not claim that Blinov 2026 is an exact ground truth; it is a more complete, independently checkable reference with its own profile and transport assumptions.
 - It does not update any axial-vector luminosity or SN1987A exclusion.
