@@ -253,7 +253,7 @@ def run_outer_muon_opacity_envelope(
             "sha256": profile["profile_sha256"],
             "rows": profile["profile_rows"],
             "R_nu_km": r_nu,
-            "last_resolved_muon_sample": {
+            "last_nonzero_digitized_muon_sample": {
                 "r_km": r_edge,
                 "T_MeV": T_edge,
                 "mu_mu_MeV": profile["mu_edge_MeV"],
