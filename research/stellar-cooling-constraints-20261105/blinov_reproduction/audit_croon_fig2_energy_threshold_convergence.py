@@ -68,6 +68,7 @@ def run_audit(
         convergence[label] = {}
         for rfar_label, rfar in rfar_cases.items():
             curves[label][rfar_label] = {}
+            convergence[label][rfar_label] = {}
             previous = None
             for order in orders:
                 luminosity = luminosity_curve(
