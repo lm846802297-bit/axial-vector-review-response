@@ -121,7 +121,7 @@ Therefore, the EOS can support a **separate sensitivity model** once its assumpt
 
 The no-fit comparison of the two published 0.1 eV curves gives a median solid/dashed luminosity ratio of about 3.38 over the selected strong-coupling interval. The current model gives a ratio essentially equal to one because it has no measured muon opacity outside (R_\nu). The logarithm of the missing suppression, \(\ln(3.38)\simeq1.22\), is an **effective integrated-luminosity diagnostic**, not a local optical depth and not a unique reconstruction of \(\Gamma_{\rm abs}(r,\omega)\).
 
-The existing finite-temperature/vacuum neutrino-decay tail tests are much too small to account for this low-mass separation. The missing term is therefore consistent with additional outer-medium absorption, most naturally the semi-Compton channel on residual muons in Croon's radial input. However, until the raw profile is available, we cannot establish the radial shape, magnitude, or even the detailed composition of that missing opacity. It must not be fitted to the luminosity curves.
+The existing finite-temperature/vacuum neutrino-decay tail tests are much too small to account for this low-mass separation. Additional outer-medium absorption remains one possible explanation, but a quantitative conditional test below shows that a simple monotonic continuation of the currently resolved muon susceptibility is far too small. A non-monotonic outer muon-rich layer, a different raw radial profile, another opacity prescription, or a mismatch in the interpretation of the solid/dashed comparison must be investigated. The luminosity ratio is not used to fit a local opacity.
 
 ## 7. Required next steps
 
@@ -138,3 +138,82 @@ Until these steps are complete, keep the (R_{\rm far}=R_\nu) curve as the cleane
 PR #123 remains Draft. The 72-test workflow run [44487078124](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44487078124) completed successfully on commit `6005a51e4ab3ff7032ff1270ba803586b020ba46). The current PR head at the time of this audit is `60e570e79c770a498a987ddfc1ade80c11244497), five commits ahead. The intervening comparison contains only three Markdown files and no calculation-code changes. Thus the 72 passing tests cover the same calculation code, but there is no workflow run attached to the exact current PR head. Do not describe the run as having tested that exact head.
 
 No manuscript, referee response, validated Blinov baseline, or axial-vector exclusion curve is changed by this source audit.
+
+
+## 9. Conditional monotonic-tail upper-envelope diagnostic
+
+A separate numerical diagnostic was run using the same Fermi--Dirac susceptibility integral implemented in `croon_c0_luminosity.py`. It is not a full replacement C0 run; it tests whether a smooth, non-increasing continuation of the resolved profile could plausibly account for the published solid/dashed luminosity separation.
+
+### Resolved edge susceptibility
+
+At the last nonzero \\(\mu_\\mu\\) sample in the current CSV,
+\\[
+r_{\\rm edge}=22.191893657~\\mathrm{km},\\quad
+T_{\\rm edge}=3.51524346~\\mathrm{MeV},\\quad
+\\mu_{\\mu,\\rm edge}=0.999999834~\\mathrm{MeV},
+\\]
+the C0 susceptibility integral gives
+\\[
+\\chi_{\\mu,\\rm edge}
+=n_\\mu F_{\\rm deg}
+=1.13518337\\times10^{-10}~\\mathrm{MeV}^3.
+\\]
+For comparison, the zero-filled endpoint used at (T=3\,\mathrm{MeV}), \\(\mu_\\mu=0\\), gives
+\\[
+\\chi_\\mu(3~\\mathrm{MeV},0)
+=3.82364561\\times10^{-13}~\\mathrm{MeV}^3.
+\\]
+
+### Deliberately conservative continuation
+
+Assume, conditionally, that for (r\ge r_{\rm edge}):
+
+1. \\(\chi_\\mu(r)\\le\chi_{\\mu,\\rm edge}\\) (no outer resurgence);
+2. (T(r)\le3\,\mathrm{MeV});
+3. the edge value is held constant all the way to 100 km, maximizing the path-integrated semi-Compton opacity under those assumptions.
+
+For (m_{Z'}=0.1\,\mathrm{eV}), (g=0.03), and a 75 km outer path, the resulting energy-dependent optical depths are:
+
+| (\omega) (MeV) | (\tau_{\rm sc}^{\rm edge\ envelope}) |
+|---:|---:|
+| 0.1 | 0.5162 |
+| 1 | 0.05970 |
+| 3 | 0.02677 |
+| 10 | 0.01755 |
+| 30 | 0.01692 |
+
+The very soft end has a larger Bose enhancement, but it carries little source energy. Weighting the attenuation with the representative semi-Compton source spectrum
+\\[
+Q_\\omega\\propto\\frac{\\omega^3}{e^{\\omega/T_{\\rm src}}-1}
+\\]
+and integrating from the (0.1\,\mathrm{eV}) mass threshold gives:
+
+| (T_{\rm src}) (MeV) | (L_{\rm with\ edge\ envelope}/L_{\rm without\ outer\ tail}) | Luminosity suppression factor |
+|---:|---:|---:|
+| 10 | 0.98311 | 1.01718 |
+| 20 | 0.98320 | 1.01708 |
+| 30 | 0.98322 | 1.01707 |
+| 40 | 0.98322 | 1.01707 |
+| 50 | 0.98322 | 1.01707 |
+
+Thus, under the monotonic-tail assumptions, the integrated suppression is only about 1.7%, not the factor 3.38 inferred from the Fig. 2 solid/dashed pair.
+
+### Effective susceptibility needed to reproduce the plotted separation
+
+In the same representative energy-weighted model, matching the median published ratio 3.38190 at (g=0.03) would require a constant outer susceptibility of approximately
+\\[
+\\chi_{\\mu,\\rm req}
+=(8.13\text{--}8.17)\\times10^{-9}~\\mathrm{MeV}^3,
+\\]
+about 72 times the last resolved value. This is an effective constant-tail equivalent, not a reconstructed radial profile. Because the optical depth scales as (g^2\chi_\mu), the equivalent susceptibility at (g=3\times10^{-6}) would be about (0.813\,\mathrm{MeV}^3) in this simplified model.
+
+### Interpretation and limitations
+
+This diagnostic **rules out only the simple monotonic continuation** of the currently resolved public profile as an explanation of the full solid/dashed separation. It does not rule out:
+
+- a non-monotonic muon-rich outer shell in the original simulation;
+- a difference between the current digitized reconstruction and the original Garching table;
+- an additional outer-medium absorption process;
+- an issue in the published transport convention or in our curve interpretation.
+
+The calculation uses a single representative source spectrum and a constant outer envelope, so it is a screening bound rather than the final radial/energy-resolved C0 result. The raw Garching profile remains necessary to decide among the possibilities. No luminosity curve, opacity coefficient, or profile has been tuned.
