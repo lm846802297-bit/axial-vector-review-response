@@ -80,7 +80,7 @@ The \(T=3\) MeV boundary is obtained by linearly extrapolating the final two pro
 R_\nu=25.1511683\ {\rm km}.
 \]
 
-The main Fig. 2 C0 run uses the generic single-neutrino-flavour Eq. (4.6) normalization. The separate \(U(1)_{L_\mu-L_\tau}\) extension applies the Sec. 4.4 factor of two to both neutrino production and absorption; it is not folded into the generic Fig. 2 curve. Both lanes use the single \(\mu^-\) susceptibility convention. The Fig. 2 run uses:
+The Fig. 2 C0 run uses the generic single-neutrino-flavour Eq. (4.6) normalization, as in the muon-number-coupled reference used for Fig. 2. The separate \(U(1)_{L_\mu-L_\tau}\) extension applies the Sec. 4.4 factor of two to both neutrino production and absorption; it is not folded into the generic Fig. 2 curve. Both lanes use the single \(\mu^-\) susceptibility convention. The Fig. 2 run uses:
 
 - \(R_{\rm far}=100\) km;
 - \(r\)-grid spacing 0.05 km, with the last nonzero and first zero muon-profile points retained;
