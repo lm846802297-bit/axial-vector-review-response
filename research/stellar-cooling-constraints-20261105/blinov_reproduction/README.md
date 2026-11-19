@@ -1,11 +1,22 @@
 # Independent Blinov vector reproduction
 
-> **Independent literature benchmarks (2026-11-19):** this directory also contains separate Croon et al. (2021) and Lai et al. (2024) vector-benchmark modules. These are cross-checks, not modifications to the validated Blinov baseline. The Croon \(R_{\rm far}=100\) km low-mass strong-coupling curve remains incomplete without the raw outer muon-opacity profile; the Lai work currently validates printed equations and thin-shell plateau scaling, not the full Fig. 4 luminosity. See the parent research README for the current validation policy and links.
+> **Independent literature benchmarks (2026-11-19):** this directory also contains separate Croon et al. (2021) and Lai et al. (2024) vector-benchmark modules. These are cross-checks, not modifications to the validated Blinov baseline. The Croon \(R_{\rm far}=100\) km low-mass strong-coupling curve remains incomplete without the raw outer muon-opacity profile. The full source-weighted edge envelope, the separate \(\mu^-+\mu^+\) sensitivity, and the Lai surface semi-Compton check are archived in the Croon/Lai benchmark notes; the combined regression has 86 passing tests. The Lai work validates printed equations and thin-shell plateau scaling, not the full Fig. 4 luminosity. See the parent research README for the current validation policy and links.
 
 
 > **Checksum note (2026-11-17):** the original [2026-11-13 GR audit manifest](SHA256SUMS_10MEV_GR_PATH_AUDIT_2026-11-13.txt) matches historical commit `ba581642dd749d8a4c54ea9553a2c3d1baf839c3`. The [2026-11-14 current sidecar](SHA256SUMS_10MEV_GR_PATH_CURRENT_2026-11-14.txt) was refreshed after the B.2 report was extended on this maintenance branch; all five entries now match current Git bytes. Use that single corrected sidecar; no duplicate 2026-11-17 copy is needed. The current test module contains seven test methods, while the archived JSON summary and earlier B.2 report record six passing tests; no seven-test output log is committed, so the seventh method's pass status is not independently evidenced here. Neither checksum verification nor these unit tests closes the Fig. 7 physics gate. See [manifest audit](../../../docs/repository-management/MANIFEST_REVIEW_2026-11-14.md).
 
 This directory is a deliberately separate implementation of the **vector-boson** ballistic-cooling prescription in Blinov et al., arXiv:2511.09619v2, Appendix B, Eqs. (17)--(35). The word scalar below refers only to the paper's mode-summed (scalar) opacity treatment; it does not mean a scalar mediator.
+
+## Separate Croon and Lai vector benchmarks
+
+These modules are independent literature lanes and must not be mixed into the validated Blinov implementation:
+
+- [Croon Fig. 2 literal transport and unresolved outer opacity](../CROON_FIG2_LITERAL_TRANSPORT_PRELIMINARY_2026-11-19.md)
+- [Croon outer-profile and opacity-channel audit](../CROON_OUTER_PROFILE_SOURCE_AUDIT_2026-11-19.md)
+- [Croon/Lai benchmark scope and rate conventions](../CROON_VECTOR_BENCHMARK_SCOPE_AND_RATE_CORRECTIONS_2026-11-19.md)
+- [Lai 2024 plateau and equation-level comparison](../LAI2024_PLATEAU_BENCHMARK_AND_CROON_DIFFERENCES_2026-11-19.md)
+
+The Croon literal lane retains the single-\(\mu^-\) \(F_{\rm deg}\) convention quoted from Bollig et al. A separate C0+\(\mu^+\) sensitivity adds the equilibrium antimuon distribution to both source and inverse semi-Compton opacity; it is not substituted into the literal reproduction. The high-order sensitivity result is archived at outputs/croon_antimuon_opacity_sensitivity_summary_2026-11-19.json.
 
 ## Independence boundary
 
