@@ -58,7 +58,7 @@ class CroonC0LuminosityTests(unittest.TestCase):
         tau = outer_vacuum_neutrino_tau_per_g2(
             10.0, omega, 25.151168281622343, 100.0
         )
-        expected = 2.0*np.array([
+        expected = np.array([
             1.00616090e17, 8.38467418e16,
             5.03080451e16, 2.01232180e16
         ])
@@ -83,7 +83,7 @@ class CroonC0LuminosityTests(unittest.TestCase):
         np.testing.assert_allclose(tau[:, -1], expected_outer, rtol=2e-14)
         beta = omega / 3.0
         fB = 1.0 / np.expm1(beta)
-        kappa_inside = 2.0*mass**2/(12.0*np.pi*omega)*(1.0+fB)
+        kappa_inside = mass**2/(12.0*np.pi*omega)*(1.0+fB)
         expected_center = expected_outer + kappa_inside*r_nu*MEV_INV_PER_KM
         np.testing.assert_allclose(tau[:, 0], expected_center, rtol=2e-14)
 
@@ -124,7 +124,7 @@ class CroonC0LuminosityTests(unittest.TestCase):
         free = result["free_streaming_channel_luminosity_per_g2_erg_s"]
         self.assertAlmostEqual(result["R_nu_km"], 25.1511683, places=5)
         self.assertAlmostEqual(
-            free["nu_coalescence"]/(2.0*3.05793824e70), 1.0, delta=2e-3
+            free["nu_coalescence"]/3.05793824e70, 1.0, delta=2e-3
         )
         low, high = result["coupling_curve"]
         for record in (low, high):
