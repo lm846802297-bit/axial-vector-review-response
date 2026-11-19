@@ -104,7 +104,7 @@ def outer_vacuum_neutrino_tau_per_g2(
     r_far_km: float = R_FAR_KM,
     neutrino_flavour_factor: float = 1.0,
 ) -> np.ndarray:
-    """Croon Eq. (3.3) vacuum tail, with the Sec. 4.4 nu_tau factor for Lmu-Ltau."""
+    """Croon Eq. (3.3) vacuum tail; factor 1 is generic and factor 2 is Lmu-Ltau."""
     omega = np.asarray(omega_MeV, dtype=float)
     if (mass_MeV <= 0.0 or np.any(omega < mass_MeV)
             or r_far_km < r_nu_km or neutrino_flavour_factor <= 0.0):
@@ -363,7 +363,7 @@ def main() -> None:
     parser.add_argument("--energy-order", type=int, default=64)
     parser.add_argument("--tau-grid-points", type=int, default=301)
     parser.add_argument("--susceptibility-order", type=int, default=128)
-    parser.add_argument("--neutrino-flavour-factor", type=float, default=2.0)
+    parser.add_argument("--neutrino-flavour-factor", type=float, default=1.0)
     parser.add_argument("--include-antimuons", action="store_true")
     args = parser.parse_args()
     result = run_c0_luminosity(
