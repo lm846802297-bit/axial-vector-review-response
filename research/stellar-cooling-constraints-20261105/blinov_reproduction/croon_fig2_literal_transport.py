@@ -428,7 +428,7 @@ def compute_benchmark(
         "local_rate_conventions": {
             "neutrino": "Croon Eq. (4.6), generic Fig. 2 one-flavour normalization; zero neutrino chemical potentials; Sec. 4.4 L_mu-L_tau transfer doubles Q and tau_abs",
             "semi_compton": "Croon Eq. (4.7), Thomson approximation, n_mu*F_deg from the single mu-minus distribution",
-            "polarization": "no additional spin-1 polarization multiplier; the factor two in the neutrino channel is the Sec. 4.4 nu_tau flavour multiplicity, not a polarization factor",
+            "polarization": "generic printed Croon normalization; no additional spin-1 polarization multiplier; Sec. 4.4 L_mu-L_tau flavour factor two is not included in this generic Fig. 2 lane",
             "dimuon_channel": "closed for all plotted masses because 200 MeV < 2*m_mu",
         },
         "numerics": {
