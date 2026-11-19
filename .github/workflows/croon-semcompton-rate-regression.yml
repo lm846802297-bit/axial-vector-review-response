@@ -26,6 +26,8 @@ jobs:
           python-version: '3.13'
       - name: Record runtime
         run: python --version
+      - name: Install numerical dependencies
+        run: python -m pip install numpy scipy
       - name: Run Croon/Blinov semi-Compton equation checks
         working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
         run: python -m unittest -v test_croon_semicompton_rate_comparison.py
