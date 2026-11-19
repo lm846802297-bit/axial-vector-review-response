@@ -356,6 +356,7 @@ def main() -> None:
         "profile_sha256": result["profile_sha256"],
         "profile_row_count": result["profile_row_count"],
         "radial_summary": result["radial_summary"],
+        "free_streaming_volume_integral": result["free_streaming_volume_integral"],
         "max_selected_Q_B7_relative_change": max(
             abs(p["relative_Q_B7_change"]) for p in result["selected_convergence"]
         ),
