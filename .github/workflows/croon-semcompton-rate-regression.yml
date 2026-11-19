@@ -7,6 +7,8 @@ on:
     paths:
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_semicompton_rate_comparison.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_croon_semicompton_rate_comparison.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_neutrino_rate_comparison.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_croon_neutrino_rate_comparison.py'
       - '.github/workflows/croon-semcompton-rate-regression.yml'
   workflow_dispatch:
 
@@ -27,3 +29,9 @@ jobs:
       - name: Run Croon/Blinov semi-Compton equation checks
         working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
         run: python -m unittest -v test_croon_semicompton_rate_comparison.py
+      - name: Run Croon/Blinov neutrino inverse-decay normalization checks
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest -v test_croon_neutrino_rate_comparison.py
+      - name: Generate local neutrino-rate comparison table
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python croon_neutrino_rate_comparison.py
