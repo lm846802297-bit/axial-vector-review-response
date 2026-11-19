@@ -207,6 +207,67 @@ The current benchmark workflow re-runs both regression suites. The B.13/B.16 com
 
 Croon's luminosity calculation uses its own definitions of the production region, \(R_{\rm far}\), and absorption/escape treatment (Sec. 3, especially Eqs. (3.3)--(3.5)); it adopts \(R_{\rm far}=100\) km in its results. It should be implemented literally for a historical Fig. 2 reproduction.
 
+### 3.1 C0 transport adapter: literal geometry and outer opacity
+
+Croon Eqs. (3.2)--(3.4) define
+\[
+L_C(g)=\int_0^{R_\nu}4\pi r^2dr
+\int_{m_V}^{\infty}d\omega\,
+\frac{\omega^2\sqrt{\omega^2-m_V^2}}{2\pi^2}
+\Gamma_{\rm prod}(\omega,r;g)e^{-\tau_C(\omega,r;g)},
+\]
+\[
+\tau_C(\omega,r;g)=\int_r^{R_{\rm far}}dr'\,
+\Gamma_{\rm abs}(\omega,r';g),
+\qquad
+\Gamma_{\rm prod}=e^{-\omega/T}\Gamma_{\rm abs}.
+\]
+The literal printed prescription is a **radial path integral**. Eq. (3.3) contains no explicit \(1/v_V\), and the luminosity has no angular escape average. These omissions must remain in the C0 reproduction; adding \(1/v_V\), a direction average, lapse factors, or the B.2 reduced-opacity prescription would define a different lane.
+
+For the two Croon channels, detailed balance gives
+\[
+\Gamma_{\rm abs}^{\nu\bar\nu}
+=e^{\omega/T}\Gamma_{\rm prod}^{\nu\bar\nu}
+=\frac{\alpha_Vm_V^2}{3\omega}(1+f_B),
+\]
+\[
+\Gamma_{\rm abs}^{\mu\gamma}
+=e^{\omega/T}\Gamma_{\rm prod}^{\mu\gamma}
+=\frac{8\pi\alpha_{\rm EM}\alpha_V}{3m_\mu^2}
+n_\mu F_{\rm deg}\,v_V(1+f_B).
+\]
+Both channels are proportional to \(g^2\), so the optical depth can be tabulated per \(g^2\) and scaled without re-evaluating the local thermodynamics.
+
+The current profile-B file has \(T(25\,{\rm km})=3.0337707\) MeV. Linear extrapolation of its last two nodes gives
+\[
+R_\nu(T=3\,{\rm MeV})=25.1512\ {\rm km}.
+\]
+This is consistent with Croon's stated approximate \(R_\nu\simeq25\) km. The current profile ends at 25 km, so the final 0.151 km inside the production boundary requires a short interpolation/extrapolation.
+
+Croon uses \(R_{\rm far}=100\) km. The profile-B file does not extend to 100 km. This does **not** mean the outer opacity can be set to zero: the neutrino-pair inverse-decay opacity tends to the vacuum decay width as \(T\to0\). For \(r>R_\nu\), the C0 adapter must retain the analytic vacuum tail
+\[
+\tau_{\nu,{\rm out}}=
+(R_{\rm far}-R_\nu)\frac{\alpha_Vm_V^2}{3\omega}
+\]
+in natural units, with an optional finite-temperature correction bracket. The semi-Compton opacity is negligible outside the muon-rich region once \(n_\mu F_{\rm deg}\) vanishes.
+
+For \(m_V=10\) MeV, \(R_{\rm far}-R_\nu=74.8488\) km, and the literal Croon vacuum tail is
+\[
+\frac{\tau_{\nu,{\rm out}}}{g^2}
+=
+\begin{cases}
+1.0062\times10^{17}, & \omega=10\ {\rm MeV},\\
+8.3847\times10^{16}, & \omega=12\ {\rm MeV},\\
+5.0308\times10^{16}, & \omega=20\ {\rm MeV},\\
+2.0123\times10^{16}, & \omega=50\ {\rm MeV}.
+\end{cases}
+\]
+At the threshold, taking the entire outer 74.85 km to remain at the maximum allowed \(T=3\) MeV would increase the vacuum decay opacity by only \(f_B(10\,{\rm MeV},3\,{\rm MeV})=3.70\%\); the correction is smaller at larger \(\omega\). Thus the unknown outer temperature profile can be bracketed between the vacuum tail and the \(T=3\) MeV upper envelope for this 10 MeV benchmark, rather than silently set to zero.
+
+The input provenance is explicit: Croon cites the Bollig et al. SFHo-18.8, \(t_{\rm pb}=1\) s Garching profile. The current profile-B reconstruction is the Caputo-based public-figure reconstruction selected by the existing Bollig Fig. 4 cross-check; it is not the raw Garching file. Therefore any resulting curve must be labelled a **public-profile Croon-literal reproduction**, with the profile reconstruction uncertainty retained.
+
+
+
 Blinov et al. 2026 use a revised ballistic treatment, including the vector-speed factor in optical depth, reduced absorption / stimulated emission, the \(R_{\max}=R_\nu\) boundary, and gravitational lapse/redshift effects. These are not optional numerical refinements to be mixed into the Croon lane; they define a different physical calculation.
 
 Lai, Leung and Lin (2024), arXiv:2401.16023, study the trapping regime and argue for a luminosity plateau at large coupling with the attenuation boundary tied to the production boundary. This is a third independent transport prescription. Compare it as its own lane and record the boundary and opacity definitions.
