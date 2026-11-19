@@ -1,0 +1,70 @@
+{
+  "title": "Lai 2024 surface semi-Compton opacity check — archived summary",
+  "source_paper": "Lai, Leung and Lin, Phys. Rev. D 110, 103023 (2024), arXiv:2401.16023",
+  "equations": [
+    "Eq. (10)",
+    "Eq. (11)",
+    "Eq. (20)",
+    "Eq. (23)"
+  ],
+  "profile": {
+    "path": "research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv",
+    "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+    "rows": 1687,
+    "R_nu_km": 25.151168281622343,
+    "T_nu_MeV": 3,
+    "mu_mu_Rnu_extrapolated_MeV": 0,
+    "chi_mu_Rnu_extrapolated_MeV3": 3.823645612797899e-13,
+    "last_nonzero_digitized_sample": {
+      "r_km": 22.1918936570485,
+      "T_MeV": 3.51524345680526,
+      "mu_mu_MeV": 0.999999834223691,
+      "chi_mu_MeV3": 1.1351833714357841e-10
+    }
+  },
+  "max_kappa_sC_over_kappa_nu_over_omega_over_T_2_to_8": [
+    {
+      "mass": "0.1 eV",
+      "public_Rnu": 0.010054041219380284,
+      "conditional_edge": 2.9848949311018966
+    },
+    {
+      "mass": "2 eV",
+      "public_Rnu": 0.000025135103048450617,
+      "conditional_edge": 0.007462237327754714
+    },
+    {
+      "mass": "10 eV",
+      "public_Rnu": 0.0000010054041219379407,
+      "conditional_edge": 0.00029848949311016363
+    }
+  ],
+  "at_omega_over_Tnu_3": [
+    {
+      "mass": "0.1 eV",
+      "public_Rnu": 0.003966480089505398,
+      "conditional_edge": 1.1775887978914643
+    },
+    {
+      "mass": "2 eV",
+      "public_Rnu": 0.00000991620022376325,
+      "conditional_edge": 0.0029439719947285873
+    },
+    {
+      "mass": "10 eV",
+      "public_Rnu": 3.966480089502949e-7,
+      "conditional_edge": 0.00011775887978907371
+    }
+  ],
+  "identity": "kappa_sC/kappa_nu = 2 * Gamma_sC_prod/Gamma_nunu_prod",
+  "interpretation": [
+    "For Lai's 2 eV and 10 eV benchmarks, inverse semi-Compton opacity is below one percent of two-flavour neutrino decay even under the conditional edge-value envelope.",
+    "For Croon's 0.1 eV benchmark, the edge-value envelope can make the local semi-Compton opacity competitive or dominant; this is an outer-profile sensitivity and not evidence for a muon-rich physical neutrinosphere.",
+    "This check does not reproduce the full Lai plateau because inverse loop-bremsstrahlung remains a separate opacity channel."
+  ],
+  "full_pointwise_artifact": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44512793672/artifacts/14522239803",
+  "validation": {
+    "workflow_run": 44512793672,
+    "tests_passed": 82
+  }
+}
