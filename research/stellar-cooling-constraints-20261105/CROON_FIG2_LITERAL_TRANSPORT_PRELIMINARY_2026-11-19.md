@@ -48,14 +48,14 @@ Detailed balance is imposed as
 \Gamma_{\rm abs}=e^{\omega/T}\Gamma_{\rm prod},
 \]
 
-so the local absorption expressions contain \(1+f_B\). The outer \(R_\nu\to R_{\rm far}\) opacity retains the vacuum \(Z'\to\nu\bar\nu\) decay tail,
+so the local absorption expressions contain \(1+f_B\). The generic one-flavour outer \(R_\nu\to R_{\rm far}\) opacity retains the vacuum \(Z'\to\nu\bar\nu\) decay tail,
 
 \[
 \tau_{\nu,\rm out}/g_{Z'}^2
 =2(R_{\rm far}-R_\nu)\frac{m_{Z'}^2}{12\pi\omega},
 \]
 
-with \(R_{\rm far}=100\) km. No extra \(1/v_{Z'}\) is inserted in the radial optical-depth integral because Croon Eq. (3.3) does not contain it.
+with \(R_{\rm far}=100\) km. No extra \(1/v_{Z'}\) is inserted in the radial optical-depth integral because Croon Eq. (3.3) does not contain it. For the \(L_\mu-L_\tau\) transfer, the same neutrino vacuum tail and the interior neutrino absorption are both multiplied by two, as stated in Sec. 4.4.
 
 The luminosity integral is
 
