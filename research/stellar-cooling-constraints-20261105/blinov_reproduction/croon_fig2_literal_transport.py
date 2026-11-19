@@ -160,18 +160,38 @@ def croon_local_rates_per_g2(
 
 
 def outer_vacuum_tau_per_g2(
-    mass_mev: float, omega_mev: np.ndarray, rnu_km: float, rfar_km: float
+    mass_mev: float,
+    omega_mev: np.ndarray,
+    rnu_km: float,
+    rfar_km: float,
+    outer_temperature_mev: float | None = None,
 ) -> np.ndarray:
-    """Croon outer vacuum-decay tail per g_Z'^2, including both L_mu-L_tau neutrino flavours."""
+    """Outer neutrino-decay optical-depth tail per g_Z'^2.
+
+    None is the literal vacuum tail. A positive outer temperature multiplies
+    the inverse-decay opacity by 1+f_B(omega,T_outer); this is a sensitivity
+    envelope, not the default Croon prescription. Both L_mu-L_tau neutrino
+    flavours are included.
+    """
     if rfar_km < rnu_km:
         raise ValueError("R_far must be >= R_nu")
     omega = np.asarray(omega_mev, dtype=float)
+    if mass_mev <= 0.0 or np.any(omega <= 0.0):
+        raise ValueError("Mass and energies must be positive")
+    enhancement = np.ones_like(omega)
+    if outer_temperature_mev is not None:
+        if outer_temperature_mev <= 0.0:
+            raise ValueError("Outer temperature must be positive when supplied")
+        x = omega / outer_temperature_mev
+        bose = np.exp(-x) / (-np.expm1(-x))
+        enhancement = 1.0 + bose
     return (
         (rfar_km - rnu_km)
         * KM_TO_MEV_INV
         * 2.0
         * mass_mev**2
         / (12.0 * np.pi * omega)
+        * enhancement
     )
 
 
@@ -296,12 +316,15 @@ def luminosity_curve(
     profile: dict,
     rfar_km: float = R_FAR_KM,
     energy_order: int = 160,
+    outer_temperature_mev: float | None = None,
 ) -> np.ndarray:
-    """Croon Eq. (3.4), using its own radial opacity prescription."""
+    """Croon Eq. (3.4); finite outer T is an explicit sensitivity envelope."""
     prepared = _rates_and_source(mass_mev, profile, energy_order)
     omega = prepared["omega_mev"]
     rnu = float(profile["rnu_km"])
-    tau_outer = outer_vacuum_tau_per_g2(mass_mev, omega, rnu, rfar_km)
+    tau_outer = outer_vacuum_tau_per_g2(
+        mass_mev, omega, rnu, rfar_km, outer_temperature_mev
+    )
     total_tau = prepared["tau_inside_per_g2"] + tau_outer[None, :]
     result = np.empty(len(couplings), dtype=float)
     for i, coupling in enumerate(np.asarray(couplings, dtype=float)):
@@ -403,6 +426,18 @@ def compute_benchmark(
                 "g": couplings.tolist(),
                 "L_erg_s": luminosity_rnu.tolist(),
             }
+            # Explicit upper-envelope sensitivity: keep a thermal T=3 MeV
+            # neutrino bath throughout Rnu..Rfar. This is not the default
+            # Croon vacuum-tail prescription and is never used for Fig. 2.
+            luminosity_t3_outer = luminosity_curve(
+                mass, couplings, profile, R_FAR_KM, energy_order,
+                outer_temperature_mev=3.0
+            )
+            curves["0.1 eV (Rfar=100 km, Touter=3 MeV envelope)"] = {
+                "mass_mev": mass,
+                "g": couplings.tolist(),
+                "L_erg_s": luminosity_t3_outer.tolist(),
+            }
 
     return {
         "status": "preliminary_public_profile_reconstruction_not_digitized_fig2_validation",
@@ -420,7 +455,7 @@ def compute_benchmark(
         },
         "transport": {
             "R_far_km": R_FAR_KM,
-            "outer_opacity": "vacuum Zprime -> nu nu decay tail",
+            "outer_opacity": "vacuum Zprime -> nu nu decay tail; optional T=3 MeV Bose-enhanced upper-envelope sensitivity is stored separately",
             "radial_optical_depth": "integral dr Gamma_abs; no extra 1/v",
             "volume_element": "4*pi*r^2 dr; no lapse/redshift factor",
             "detailed_balance": "Gamma_abs = exp(omega/T) Gamma_prod",
