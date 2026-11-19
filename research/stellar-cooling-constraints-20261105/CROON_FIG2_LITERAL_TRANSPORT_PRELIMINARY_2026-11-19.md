@@ -97,14 +97,16 @@ The table below is the current **generic single-neutrino-flavour Fig. 2 benchmar
 
 | \(m_{Z'}\) | Peak \(g_{Z'}\) | Peak \(L_{Z'}\) [erg/s] | Low-\(g\) crossing of \(3\times10^{52}\) | High-\(g\) crossing |
 |---:|---:|---:|---:|---:|
-| 0.1 eV | \(7.50\times10^{-8}\) | \(2.244\times10^{55}\) | \(1.672\times10^{-9}\) | \(4.03\times10^{-2}\) |
-| 1 eV | \(7.50\times10^{-8}\) | \(2.244\times10^{55}\) | \(1.672\times10^{-9}\) | \(1.75\times10^{-2}\) |
-| 10 eV | \(7.50\times10^{-8}\) | \(2.244\times10^{55}\) | \(1.672\times10^{-9}\) | \(3.38\times10^{-3}\) |
-| 0.1 MeV | \(7.50\times10^{-8}\) | \(2.229\times10^{55}\) | \(1.672\times10^{-9}\) | \(1.57\times10^{-6}\) |
-| 10 MeV | \(1.00\times10^{-8}\) | \(1.049\times10^{54}\) | \(8.61\times10^{-10}\) | \(3.19\times10^{-8}\) |
-| 200 MeV | \(7.50\times10^{-10}\) | \(6.325\times10^{52}\) | \(3.41\times10^{-10}\) | \(1.21\times10^{-9}\) |
+| 0.1 eV | \(7.49894\times10^{-8}\) | \(2.24478\times10^{55}\) | \(1.67154\times10^{-9}\) | \(4.03453\times10^{-2}\) |
+| 1 eV | \(7.49894\times10^{-8}\) | \(2.24478\times10^{55}\) | \(1.67154\times10^{-9}\) | \(1.75438\times10^{-2}\) |
+| 10 eV | \(7.49894\times10^{-8}\) | \(2.24478\times10^{55}\) | \(1.67154\times10^{-9}\) | \(3.37991\times10^{-3}\) |
+| 0.1 MeV | \(7.49894\times10^{-8}\) | \(2.229\times10^{55}\) | \(1.67154\times10^{-9}\) | \(1.56646\times10^{-6}\) |
+| 10 MeV | \(1.00\times10^{-8}\) | \(1.04889\times10^{54}\) | \(8.60711\times10^{-10}\) | \(3.18779\times10^{-8}\) |
+| 200 MeV | \(7.50\times10^{-10}\) | \(6.32692\times10^{52}\) | \(3.40662\times10^{-10}\) | \(1.20614\times10^{-9}\) |
 
-These are **not yet the final Croon Fig. 2 benchmark numbers**. They are the output of the literal equations on the public-profile reconstruction, before digitized-curve comparison and before profile-systematic bracketing.
+These are **preliminary public-profile reconstruction results**, not a final reproduction of the digitized Fig. 2 curves. The run uses the generic one-neutrino-flavour normalization; the separate \(L_\mu-L_\tau\) transfer doubles both neutrino production and neutrino absorption as stated in Sec. 4.4. No curve has been rescaled to force agreement with the paper's plot.
+
+Machine-readable output (JSON + CSV): [GitHub Actions artifact](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449132291/artifacts/14494581986). Artifact SHA-256: 7cdc41ceeef61d079a34c308071beab7490bb8ede290cd9b2937a20b69a7210e. The run used 1687 source rows, a 507-point 0.05 km radial grid, 160-point energy quadrature, 256-point muon-momentum quadrature and 81 logarithmic couplings.
 
 The optically-thin source fractions show the expected channel hierarchy:
 
@@ -127,6 +129,46 @@ Thus the semi-Compton channel controls the sub-MeV curves, while neutrino coales
 - Refining the radial integration from 0.1 km to 0.05 km changes the peak luminosities by less than \(0.03\%\); the radial-integrated curve differs by less than about \(0.13\%\) near the high-coupling tail for the low-mass cases when Simpson integration is used.
 - The detailed-balance identity \(\Gamma_{\rm abs}/\Gamma_{\rm prod}=e^{\omega/T}\) is satisfied algebraically.
 - The outer vacuum decay tail has a visible effect for heavier masses. For \(m=0.1\) eV, \(R_{\rm far}=100\) km and \(R_{\rm far}=R_\nu\) differ by less than \(0.1\%\) at \(g=10^{-2}\), increasing to about 8% at \(g=0.1\).
+
+
+
+## Dedicated 10 MeV C0 cross-check: generic versus \(L_\mu-L_\tau\)
+
+The same 10 MeV benchmark was computed independently in two numerical implementations:
+
+1. the full Fig. 2 implementation, using a 0.05 km radial grid and Simpson integration;
+2. the C0 adapter, using all 1687 archived radial nodes and analytic piecewise-linear integration of the spherical volume.
+
+For the generic one-neutrino-flavour case with \(R_{\rm far}=100\) km:
+
+| Quantity | Fig. 2 mass sweep | 1687-node C0 adapter |
+|---|---:|---:|
+| Low-\(g\) Raffelt crossing | \(8.60711\times10^{-10}\) | \(8.60466\times10^{-10}\) |
+| High-\(g\) Raffelt crossing | \(3.18779\times10^{-8}\) | \(3.19141\times10^{-8}\) |
+| Peak coupling | \(1.00\times10^{-8}\) | \(1.00\times10^{-8}\) |
+| Peak luminosity [erg/s] | \(1.04889\times10^{54}\) | \(1.04884\times10^{54}\) |
+
+The low- and high-coupling crossing differences are about 0.03% and 0.11%, respectively. This is an independent numerical cross-check of the two radial-integration implementations; it is **not** a comparison with digitized points from the paper.
+
+The separate \(L_\mu-L_\tau\) variant applies the Sec. 4.4 factor of two to both the neutrino source and the neutrino absorptive optical depth, leaving the semi-Compton source unchanged. For the same 10 MeV profile and \(R_{\rm far}=100\) km, it gives the provisional Raffelt-line crossings
+\[
+g_X^{\rm low}=6.52618\times10^{-10},\qquad
+g_X^{\rm high}=2.18470\times10^{-8}.
+\]
+These are the same public-profile reconstruction and Croon transport assumptions, not a new SN1987A exclusion.
+
+The C0 numerical audit also finds:
+- refining the local energy order from 64 to 96, the optical-depth energy grid from 301 to 601 points, and the susceptibility order from 128 to 192 changes the total luminosity by at most 0.019%;
+- including the \(\mu^+\) susceptibility changes the total luminosity by only 0.18% at \(g_X=10^{-9}\), with a maximum absolute change below 0.4% across the scanned coupling range;
+- changing \(R_{\rm far}=100\) km to \(R_{\rm far}=R_\nu\) raises the high-coupling crossing substantially, as expected from the reduced outer vacuum-decay opacity. Croon uses \(R_{\rm far}=100\) km for its conservative result.
+
+The corresponding generic, \(L_\mu-L_\tau\), charge-conjugate, high-order and convergence-audit outputs are archived in the same workflow run:
+- [generic 10 MeV C0 curve](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449132291/artifacts/14493653832)
+- [\(L_\mu-L_\tau\) 10 MeV C0 curve](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449132291/artifacts/14494073335)
+- [\(\mu^+\) sensitivity curve](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449132291/artifacts/14494726643)
+- [quadrature and profile-convention audit](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44449132291/artifacts/14493603942)
+
+All these calculations remain preliminary because the public figure reconstruction is not the raw Garching radial table and the Croon Fig. 2 curve has not yet been digitized point-by-point.
 
 ## What remains before calling this a Fig. 2 reproduction
 
