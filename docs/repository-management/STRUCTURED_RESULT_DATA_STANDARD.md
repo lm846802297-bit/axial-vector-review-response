@@ -163,10 +163,10 @@ python docs/repository-management/schemas/validate_result_records.py --repo-root
 
 **超新星与输运计算**应在 `extensions.supernova_transport` 中记录：
 
-- (m_{A'})、(g_X)、矢量/轴矢量耦合分量及归一化；
-- SFHo 等背景模型、快照时间、剖面来源/版本/SHA-256、径向覆盖和 (R_\nu,R_{\rm far})；
-- (T(r))、化学势、各物种密度及其定义；
-- 产生/吸收通道、中微子味、(mu^-)/(mu^+)、L/T+/T− 模式；
+- $m_{A'}$、$g_X$、矢量/轴矢量耦合分量及归一化；
+- SFHo 等背景模型、快照时间、剖面来源/版本/SHA-256、径向覆盖和 $R_\nu,R_{\rm far}$；
+- $T(r)$、化学势、各物种密度及其定义；
+- 产生/吸收通道、中微子味、$\mu^-$ / $\mu^+$、L/T+/T− 模式；
 - opacity/reduced-opacity 定义、详细平衡约定、引力红移、逃逸路径和边界条件；
 - 径向/能量/角积分节点、局域核求积阶数、积分器、容差；
 - 每通道/每极化的局域率、薄源光度、光深度、逃逸概率和总光度。
