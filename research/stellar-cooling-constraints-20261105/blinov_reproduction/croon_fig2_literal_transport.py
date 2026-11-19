@@ -440,7 +440,7 @@ def compute_benchmark(
             }
 
     return {
-        "status": "preliminary_public_profile_reconstruction_with_digitized_fig2_comparison_unresolved",
+        "status": "preliminary_public_profile_reconstruction_with_outer_muon_opacity_missing",
         "source_paper": "Croon et al., JHEP 01 (2021) 107, arXiv:2006.13942",
         "equations": ["Croon Eqs. (3.2)-(3.4)", "Croon Eqs. (4.6)-(4.7)"],
         "profile": {
@@ -455,7 +455,7 @@ def compute_benchmark(
         },
         "transport": {
             "R_far_km": R_FAR_KM,
-            "outer_opacity": "vacuum Zprime -> nu nu decay tail; optional T=3 MeV Bose-enhanced upper-envelope sensitivity is stored separately",
+            "outer_opacity": "only vacuum Zprime -> nu nu decay tail is included outside Rnu; outer semi-Compton muon opacity is unavailable and omitted, so the Rfar=100 km low-mass strong-coupling curve is incomplete",
             "radial_optical_depth": "integral dr Gamma_abs; no extra 1/v",
             "volume_element": "4*pi*r^2 dr; no lapse/redshift factor",
             "detailed_balance": "Gamma_abs = exp(omega/T) Gamma_prod",
@@ -480,6 +480,8 @@ def compute_benchmark(
         "curves": curves,
         "limitations": [
             "The profile is a Caputo-based public-figure reconstruction cross-checked against Bollig, not the raw Garching profile used by Croon.",
+            "The available profile ends at R_nu; no validated muon-susceptibility profile is available for R_nu < r < R_far. The implementation therefore omits the outer semi-Compton absorptive opacity and retains only the vacuum neutrino-decay tail.",
+            "The published solid/dashed 0.1 eV comparison demonstrates a large R_nu-to-R_far suppression absent from this outer-tail approximation; the Rfar=100 km low-mass strong-coupling curve is not a complete Croon transport result.",
             "Digitized Croon Fig. 2 PDF vector paths have been compared pointwise without fitting; the low-mass strong-coupling discrepancy remains unresolved.",
             "This is the Croon-literal vector lane, not the corrected B.13 lane and not an axial-vector result.",
             "No kinetic mixing, gravitational lapse/redshift, Blinov B.2 transport, or Lai trapping prescription is included.",
