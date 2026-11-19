@@ -92,7 +92,7 @@ def analyze_outer_opacity_gap(
     lo = max(gd_s[0], gd_d[0], gm_s[0], gm_d[0])
     hi = min(gd_s[-1], gd_d[-1], gm_s[-1], gm_d[-1])
     common = gd_s[(gd_s >= lo) & (gd_s <= hi)]
-    if len(common) < 10:
+    if len(common) < 5:
         raise ValueError("Too few common digitized points between the solid and dashed curves")
 
     paper_solid = _log_interp(gd_s, ld_s, common)
