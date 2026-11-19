@@ -1,8 +1,9 @@
 """Digitize Croon Fig. 2 vector curves using the extracted PDF path inventory.
 
-The axes are calibrated from the major tick marks and their printed labels.
-Mass-to-colour matching is based on the colours of the in-plot text labels.
-The black dashed curve is retained separately as the R_far=R_nu variant.
+The axes are calibrated from the major tick marks. The PDF's legend text is
+black, so curve identity is assigned from the measured vector-stroke palette
+and checked against the in-plot label positions. The black dashed curve is
+retained separately as the R_far=R_nu variant.
 """
 from __future__ import annotations
 
@@ -130,27 +131,44 @@ def calibrate_axes(paths: list[dict]) -> dict:
     }
 
 
-def match_label_paths(text_spans: list[dict], paths: list[dict]) -> dict:
-    """Match black legend labels to the actual coloured curve strokes.
+def match_label_paths(
+    text_spans: list[dict], paths: list[dict], axes: dict | None = None
+) -> dict:
+    """Match each in-plot mass label to one unique source-PDF vector curve.
 
-    The PDF legend text itself is black, so matching the text colour to the
-    curve colour is incorrect. Instead, require each printed label and match
-    its curve using the independently inspected source-PDF stroke palette.
+    The legend text itself is black. Curve identities therefore use the
+    measured PDF stroke palette, while the text-span bounding boxes establish
+    that the matching mass labels are actually inside the plot panel.
     """
     labels = {}
     selected_path_indices: set[int] = set()
+    plot_rect = axes["plot_rect_pdf_points"] if axes is not None else None
     for label in MASS_LABELS:
-        candidates = [s for s in text_spans if s["text"].strip() == label]
+        candidates = []
+        for span in text_spans:
+            if span["text"].strip() != label:
+                continue
+            if plot_rect is not None:
+                bbox = span.get("bbox")
+                if bbox is None or len(bbox) != 4:
+                    continue
+                cx = 0.5 * (float(bbox[0]) + float(bbox[2]))
+                cy = 0.5 * (float(bbox[1]) + float(bbox[3]))
+                x0, y0, x1, y1 = plot_rect
+                if not (x0 <= cx <= x1 and y0 <= cy <= y1):
+                    continue
+            candidates.append(span)
         if len(candidates) != 1:
             raise RuntimeError(
-                f"Expected one in-plot legend label {label!r}, found {len(candidates)}"
+                f"Expected one in-plot mass label {label!r}, found {len(candidates)}"
             )
+
         target = np.asarray(MASS_STROKE_RGB[label], dtype=float)
         eligible = [
             p for p in paths
             if p.get("stroke_rgb") is not None
             and p.get("flattened_points")
-            and p["rect"][2]-p["rect"][0] > 100.0
+            and p["rect"][2]-p["rect"][0] > 50.0
             and p["rect"][3]-p["rect"][1] > 50.0
         ]
         if label == "0.1 eV":
@@ -225,7 +243,7 @@ def run(input_path: Path = DEFAULT_INPUT, csv_path: Path = DEFAULT_CSV,
     source = json.loads(input_path.read_text(encoding="utf-8"))
     paths = source["vector_paths"]
     axes = calibrate_axes(paths)
-    label_matches = match_label_paths(source["text_spans"], paths)
+    label_matches = match_label_paths(source["text_spans"], paths, axes)
     by_index = {p["index"]: p for p in paths}
 
     curves = {}
