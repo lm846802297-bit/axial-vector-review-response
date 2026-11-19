@@ -302,7 +302,7 @@ to both the local semi-Compton source and its inverse opacity. This is a physica
 
 At the digitized edge, \(\chi_{\mu^\pm}/\chi_{\mu^-}=1.56612\); at the extrapolated \(R_\nu\) point with \(\mu_\mu=0\), the ratio is exactly 2. At \(g_X=0.03\), the full source-weighted \(R_\nu\)-to-100 km edge-temperature luminosity ratio increases from 1.03284081 (\(\mu^-\) only) to 1.04367238 (\(\mu^-+\mu^+\)). The remaining factor relative to the published median solid/dashed ratio 3.38190 is still 3.24038468. Charge conjugation therefore produces a real but quantitatively small correction to the integrated outer attenuation; it does not close the Fig. 2 gap.
 
-The high-order result is archived in [the committed summary](blinov_reproduction/outputs/croon_antimuon_opacity_sensitivity_summary_2026-11-19.json) and [workflow artifact #14527216779](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44519016169/artifacts/14527216779). The combined workflow [#44519016169](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44519016169) passed 86/86 tests.
+The high-order result is archived in [the committed summary](blinov_reproduction/outputs/croon_antimuon_opacity_sensitivity_summary_2026-11-19.json) and was rerun in [workflow #44520787056](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44520787056), whose full output is [artifact #14527932533](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44520787056/artifacts/14527932533). The latest combined workflow passed 87/87 tests.
 
 ## What remains before calling this a Fig. 2 reproduction
 
