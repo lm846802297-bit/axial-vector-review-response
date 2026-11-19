@@ -1,8 +1,9 @@
 """Full-profile local emissivity comparison: Croon Eq. (4.6) vs Blinov B.7-B.10.
 
 This integrates the energy-dependent local production rates over the massive-vector
-phase space at each archived SFHo-18.8 profile radius. It is deliberately not
-a radial luminosity, optical-depth, or transport calculation.
+phase space at each archived SFHo-18.8 profile radius, then evaluates the
+optically-thin neutrino-coalescence volume integral in the literal flat Croon
+geometry. It is not a total luminosity, optical-depth, or transport calculation.
 """
 from __future__ import annotations
 
