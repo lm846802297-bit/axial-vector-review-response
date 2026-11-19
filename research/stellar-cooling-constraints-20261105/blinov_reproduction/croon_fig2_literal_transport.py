@@ -121,10 +121,10 @@ def croon_local_rates_per_g2(
         momentum, omega, out=np.zeros_like(momentum), where=omega > 0.0
     )
 
-    # Croon Eq. (4.6) is used literally for the generic Fig. 2 benchmark.
-    # Croon Sec. 4.4 prescribes a separate factor of two in both Q and tau_abs
-    # when transferring this generic curve to the U(1)_{L_mu-L_tau} model.
-    neutrino_flavour_factor = 1.0
+    # The Fig. 2 caption identifies the gauged U(1)_{L_mu-L_tau} model.
+    # Eq. (4.6) is the generic one-flavour expression; Sec. 4.4 adds nu_tau,
+    # so the Fig. 2 source and opacity both carry the explicit factor of two.
+    neutrino_flavour_factor = 2.0
     neutrino = (
         neutrino_flavour_factor * mass_mev**2 / (12.0 * np.pi * omega[None, :]) * bose
     )
@@ -162,13 +162,14 @@ def croon_local_rates_per_g2(
 def outer_vacuum_tau_per_g2(
     mass_mev: float, omega_mev: np.ndarray, rnu_km: float, rfar_km: float
 ) -> np.ndarray:
-    """Croon radial outer tail from vacuum Z' -> nu nu decay, per g_Z'^2."""
+    """Croon outer vacuum-decay tail per g_Z'^2, including both L_mu-L_tau neutrino flavours."""
     if rfar_km < rnu_km:
         raise ValueError("R_far must be >= R_nu")
     omega = np.asarray(omega_mev, dtype=float)
     return (
         (rfar_km - rnu_km)
         * KM_TO_MEV_INV
+        * 2.0
         * mass_mev**2
         / (12.0 * np.pi * omega)
     )
@@ -426,9 +427,9 @@ def compute_benchmark(
             "raffelt_line_erg_s": CROON_RAFFELT_ERG_PER_S,
         },
         "local_rate_conventions": {
-            "neutrino": "Croon Eq. (4.6), generic Fig. 2 one-flavour normalization; zero neutrino chemical potentials; Sec. 4.4 L_mu-L_tau transfer doubles Q and tau_abs",
+            "neutrino": "Croon Eq. (4.6) generic one-flavour expression multiplied by two per Sec. 4.4 for the gauged L_mu-L_tau model shown in Fig. 2; zero neutrino chemical potentials",
             "semi_compton": "Croon Eq. (4.7), Thomson approximation, n_mu*F_deg from the single mu-minus distribution",
-            "polarization": "generic printed Croon normalization; no additional spin-1 polarization multiplier; Sec. 4.4 L_mu-L_tau flavour factor two is not included in this generic Fig. 2 lane",
+            "polarization": "no additional spin-1 polarization multiplier; the explicit factor two in neutrino source and opacity is the Sec. 4.4 nu_tau flavour multiplicity",
             "dimuon_channel": "closed for all plotted masses because 200 MeV < 2*m_mu",
         },
         "numerics": {
