@@ -80,11 +80,17 @@ Successful archival retry:
 - The 121-point (R_{\\rm far}=100\) km curve peaks at (g_X=1.05925\\times10^{-8}), with (L=1.53681\\times10^{54}\) erg/s. Log-log interpolation of the (3\\times10^{52}\) erg/s Raffelt reference gives provisional crossings (g_X=7.64248\\times10^{-10}) and (3.37326\\times10^{-8}). These are C1 interior-profile results with the two-flavour B.7 vacuum tail; outer B.13 opacity is omitted, so they are not the final SN1987A exclusion.
 - The archived aggregate output includes all three modes in the calculation and mode-resolved detailed-balance diagnostics, but it does not preserve the mode-by-mode global luminosity decomposition. It is retained as the first aggregate baseline, not as the final polarization-resolved C1 deliverable.
 
-Mode-resolved extension:
-- The source code now retains (L,+,-) separately in the optically-thin source table, per-radius CSV, and both escape-radius luminosity curves. It also records mode-sum closure residuals.
-- A unit test checks that the three-mode source integral sums back to the total.
-- The six-mass workflow's automatic push trigger was disabled; the six-mass scan is now manual so ordinary source/test edits do not start expensive scans.
-- Mode-resolved workflow: [Croon C1 10 MeV mode-resolved single-mass baseline](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44573957318). At the latest check it was executing the updated single-mass calculation. This output is the one to use for final C1 polarization acceptance.
+Mode-resolved extension — completed and archived:
+- The source code retains (L,+,-) separately in the optically-thin source table, per-radius CSV, and both escape-radius luminosity curves. It records mode-sum closure residuals.
+- A seventh unit test checks that the three-mode source integral sums back to the total; all seven C1 tests pass.
+- Workflow: [Croon C1 10 MeV mode-resolved single-mass baseline](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44573957318). The full calculation, JSON/CSV validation, SHA-256 creation, artifact upload, and rebased Git push all succeeded.
+- Result commit: `974cbb6929edbedadd18484bd09d4594b7104720`. Artifact: `14556901412` (99,626 bytes). The native files are `outputs/croon_c1_b13_vector_transport_10mev_mode_resolved_2026-11-20.json`, `outputs/croon_c1_b13_vector_transport_10mev_mode_resolved_2026-11-20.csv`, and `outputs/SHA256SUMS_croon_c1_10mev_mode_resolved_2026-11-20.txt`.
+- The remote JSON and CSV were fetched back and their SHA-256 hashes match the manifest exactly: JSON `e5003ec284f63871f5bd19582c1b08610a1d456d2b48ed8dc04134532dbbd5cd`; CSV `3db1d849c9748401b85b9d99c1874cf5d2d5e234b9f9a8dd229eb61acf80832d`.
+- Output dimensions: 103 radial nodes, 32 energy nodes, 121 coupling points, and 29 CSV columns. The mode order is `L,+,-`.
+- Maximum closure residuals: thin-source mode sum (2.57\\times10^{-16}); luminosity mode sum (4.32\\times10^{-16}); per-radius CSV mode sum (2.82\\times10^{-16}). The B.7/B.13 detailed-balance residuals and final-muon shell residual are unchanged from the aggregate baseline.
+- The mode-resolved calculation reproduces the aggregate baseline: the maximum relative difference in either total luminosity curve is (6.00\\times10^{-15}), and the integrated thin-source total is identical.
+- Integrated B.7+B.13 thin source by mode is (1.55810\\times10^{70}) (L), (1.76068\\times10^{70}) (+), and (1.86552\\times10^{70}) (-) erg/s per (g_X^2), corresponding to 30.05%, 33.96%, and 35.98%. At the (R_{\\rm far}=100) km luminosity peak, the mode fractions are 29.55%, 34.11%, and 36.34%, respectively.
+- The six-mass workflow's automatic push trigger was disabled; ordinary source/test edits no longer start the expensive scan.
 
 ### Earlier full-grid high-order attempt
 
