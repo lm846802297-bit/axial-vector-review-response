@@ -257,7 +257,7 @@ Reproducible outputs:
 - [Digitized PDF vector curves](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44485973996/artifacts/14509664425)
 - [Outer-opacity gap diagnostic](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44485973996/artifacts/14510372968)
 
-The current workflow run [ #44485973996](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44485973996) completed successfully with 69 passing tests, including the new solid/dashed outer-opacity diagnostic, C0 metadata checks, PDF vector extraction/digitization, no-fit comparison, energy-threshold audit, and the existing B.13/B.16 and Ward-identity regression suites.
+The current workflow run [#44485973996](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44485973996) completed successfully with 69 passing tests, including the new solid/dashed outer-opacity diagnostic, C0 metadata checks, Lai 2024 plateau/rate-convention equation audit, PDF vector extraction/digitization, no-fit comparison, energy-threshold audit, and the existing B.13/B.16 and Ward-identity regression suites.
 
 ## What remains before calling this a Fig. 2 reproduction
 
