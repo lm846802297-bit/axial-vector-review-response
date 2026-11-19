@@ -147,7 +147,7 @@ def main() -> None:
         susceptibility_order=args.susceptibility_order,
     )
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(result, indent=2) + "\\n", encoding="utf-8")
+    args.output.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({
         "profile": result["profile"],
         "comparison": result["comparison"],
