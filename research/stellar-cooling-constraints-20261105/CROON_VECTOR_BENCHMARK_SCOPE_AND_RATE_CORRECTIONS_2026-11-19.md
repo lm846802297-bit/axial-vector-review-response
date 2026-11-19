@@ -173,6 +173,41 @@ Reproduction code and tests:
 - \`blinov_reproduction/croon_blinov_neutrino_emissivity.py\`
 - \`blinov_reproduction/test_croon_blinov_neutrino_emissivity.py\`
 
+### 2.1.3 Optically-thin volume-integrated neutrino-coalescence contribution
+
+The full-profile \(Q(r)\) scan was next integrated over the Croon Eq. (3.1) flat spherical volume, using the \(T=3\) MeV neutrinosphere definition and the same two local rate prescriptions. The profile's final tabulated point is at 25 km with \(T=3.03377\) MeV; linear extrapolation of the last two temperature nodes gives
+\[
+R_\nu=25.1511683\ {\rm km}.
+\]
+The last 0.15117 km is filled by a linear extrapolation of the local emissivity. The radial integral is evaluated analytically for piecewise-linear \(Q(r)\):
+\[
+L_{\nu\bar\nu}^{\rm free}
+=\int_0^{R_\nu}4\pi r^2\,dr\,Q_{\nu\bar\nu}(r).
+\]
+The conversion from natural units to erg/s is performed after the volume integral.
+
+For the \(m_V=10\) MeV benchmark, the resulting **neutrino-coalescence channel only**, per \(g_X^2\), is
+\[
+\boxed{
+L_{\rm B7}^{\rm free}/g_X^2
+=4.45183\times10^{70}\ {\rm erg\,s^{-1}},
+\qquad
+L_{\rm Croon}^{\rm free}/g_X^2
+=3.05794\times10^{70}\ {\rm erg\,s^{-1}}
+}
+\]
+and
+\[
+\boxed{
+L_{\rm B7}^{\rm free}/L_{\rm Croon}^{\rm free}=1.455827.
+}
+\]
+The direct trapezoidal cross-check differs from the analytic piecewise-linear radial integral by only \(5.8\times10^{-6}\) for each channel.
+
+At \(g_X=10^{-9}\), these channel-only optically-thin values scale to \(4.45183\times10^{52}\) and \(3.05794\times10^{52}\) erg/s, respectively. This is a useful normalization comparison against the \(3\times10^{52}\) erg/s Raffelt scale, **not a cooling bound**: this calculation has no attenuation, no semi-Compton contribution, no lapse/redshift factor, and no transport/escape probability. In particular, one must not interpret the \(g_X=10^{-9}\) scaling point as necessarily lying in the free-streaming regime.
+
+The machine-readable output is the same 1687-row profile artifact, now including the \(R_\nu\) extrapolation and the volume-integrated channel contributions: [GitHub Actions artifact](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44445643329/artifacts/14492579306). ZIP SHA-256: \`622d35b222b425daf35b5c21ec4e1dc701b5dacc1bdf26e61de80453e8a6c611\`.
+
 ### 2.2 Semi-Compton production
 
 Croon Eq. (4.7) uses a Thomson/no-recoil approximation:
