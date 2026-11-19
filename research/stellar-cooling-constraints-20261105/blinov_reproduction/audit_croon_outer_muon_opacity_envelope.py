@@ -93,6 +93,7 @@ def _prepare_profile(profile_path: Path, susceptibility_order: int) -> dict:
         "chi_edge_MeV3": float(chi[edge]),
         "profile_sha256": hashlib.sha256(profile_path.read_bytes()).hexdigest(),
         "profile_rows": int(len(rows)),
+        "profile_path": profile_label,
     }
 
 
@@ -254,7 +255,7 @@ def run_outer_muon_opacity_envelope(
         "source_paper": "Croon et al., JHEP 01 (2021) 107, arXiv:2006.13942",
         "equations": ["Eqs. (3.3)-(3.4)", "Eq. (4.6)", "Eq. (4.7)"],
         "profile": {
-            "path": profile_label,
+            "path": profile["profile_path"],
             "sha256": profile["profile_sha256"],
             "rows": profile["profile_rows"],
             "R_nu_km": r_nu,
