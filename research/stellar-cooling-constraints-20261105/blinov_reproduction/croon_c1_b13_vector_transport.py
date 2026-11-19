@@ -304,10 +304,8 @@ def _compute_mass(
 
     # Per-radius source ratios after energy integration.
     q_sc_minus = np.sum(
-        domega_weights[None, :] * simpson(source_sc_minus, x=r_nat, axis=0)[None, :],
+        domega_weights[None, :] * phase[None, :] * np.sum(prod_sc_minus, axis=2),
         axis=1
-    ) if False else np.sum(
-        domega_weights[None, :] * phase[None, :] * np.sum(prod_sc_minus, axis=2), axis=1
     )
     q_sc_plus = np.sum(
         domega_weights[None, :] * phase[None, :] * np.sum(prod_sc_plus, axis=2), axis=1
@@ -374,7 +372,7 @@ def _compute_mass(
         "maximum_B13_charge_mode_detailed_balance_residual": max_sc_db,
         "maximum_final_muon_shell_relative_error": max_shell_error,
         "minimum_B13_matrix_element_before_roundoff_clip": (
-            None if min_matrix_element is math.inf else float(min_matrix_element)
+            None if not math.isfinite(min_matrix_element) else float(min_matrix_element)
         ),
         "thin_source_per_g2_erg_s": {
             "B7_nu_mu_plus_nu_tau": float(thin_nu * MEV2_TO_ERG_PER_SECOND),
