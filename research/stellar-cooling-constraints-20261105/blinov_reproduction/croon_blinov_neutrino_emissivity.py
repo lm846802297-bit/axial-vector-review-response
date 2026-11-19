@@ -390,8 +390,10 @@ def main() -> None:
     print(json.dumps({
         "profile_sha256": result["profile_sha256"],
         "profile_row_count": result["profile_row_count"],
-        "radial_summary": result["radial_summary"],
-        "free_streaming_volume_integral": result["free_streaming_volume_integral"],
+        "radial_summary_generic_one_flavour": result["radial_summary_generic_one_flavour"],
+        "radial_summary_LmuLtau_two_flavour": result["radial_summary_LmuLtau_two_flavour"],
+        "free_streaming_volume_integral_generic_one_flavour": result["free_streaming_volume_integral_generic_one_flavour"],
+        "free_streaming_volume_integral_LmuLtau_two_flavour": result["free_streaming_volume_integral_LmuLtau_two_flavour"],
         "max_selected_Q_B7_relative_change": max(
             abs(p["relative_Q_B7_change"]) for p in result["selected_convergence"]
         ),
