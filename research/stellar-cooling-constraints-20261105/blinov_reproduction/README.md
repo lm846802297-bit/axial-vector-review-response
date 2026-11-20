@@ -227,3 +227,15 @@ The analytic result is deliberately limited: it does not settle the authors' int
 ## C4-C4 anchor provenance (2026-11-15)
 
 The exact historical C4-C4-A input has been recovered and the downstream input paths repaired. See [the anchor provenance note](audit_provenance/README.md) before rerunning C4-C4-Aq or C4-C4-B.
+
+## Structured C1 10 MeV archive
+
+The accepted C1 10 MeV result is packaged by `archive_croon_c1_10mev.py` without rerunning the physics integration. The archive is written to:
+
+`outputs/c1_10mev_structured_archive_2026-11-20/`
+
+It contains `run_manifest.json`, `result_summary.json`, `validation_report.json`, `convergence_report.json`, a 121-point coupling-curve CSV, the existing 153-node local-profile CSV reference, and a combined SHA-256 manifest. The local validator at `docs/repository-management/schemas/validate_result_records.py` checks the JSON records and all referenced inputs/outputs.
+
+The numerical convergence checks are accepted (103/153 radial nodes and 32/48 energy order). The overall physical status remains **partial** because the outer 25--100 km B.13 semi-Compton opacity and the final SN1987A exclusion curve are not part of this 10 MeV archive.
+
+The archive-only workflow is `.github/workflows/croon-c1-10mev-result-archive.yml`. It packages existing outputs and validates provenance; it does not execute the C1 physics calculation again.
