@@ -1,7 +1,7 @@
 # Croon A0: original-UV finite-mixing axial-vector transport
 
 Date: 2026-11-20  
-Status: **A0 now uses the surface-centered adaptive radial integrator; the 10 MeV adaptive baseline is running, followed by an independent radial-grid convergence check.**
+Status: **10 MeV A0 adaptive-radial baseline passed on 103 nodes; the independent 153-node radial refinement is next.**
 
 ## 1. Purpose and separation from C1
 
@@ -193,7 +193,39 @@ directly into the shared transport kernel with include_adaptive_radial=True. The
 
 The adaptive A0 acceptance checks include finite nonnegative luminosities, three-mode closure, QUADPACK error estimates below \(10^{-6}\), and agreement of the high-coupling result with the A0-specific surface asymptote. C1's numerical convergence does not substitute for A0's own radial and energy refinement.
 
-## 8. Current execution and acceptance
+## 8. First adaptive 10 MeV A0 result
+
+Workflow [#44656918116](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44656918116) completed successfully. The output uses 103 actual radial nodes, energy order 32, 121 \(g_X\) points, and all three physical polarizations. The adaptive-radial fields are present and the legacy Simpson fields are retained only for diagnostics.
+
+The accepted local source coefficients per \(g_X^2\) are:
+
+| Channel | Thin source \(({\rm erg/s})/g_X^2\) |
+|---|---:|
+| B.7, \(\nu_\mu+\nu_\tau\) | \(4.45124477\times10^{70}\) |
+| B.13, \(\mu^-\) | \(4.25564242\times10^{71}\) |
+| B.13, \(\mu^+\) | \(2.92955313\times10^{69}\) |
+| B.13, \(\mu^-+\mu^+\) | \(4.28493795\times10^{71}\) |
+| B.7 + B.13 | \(4.73006243\times10^{71}\) |
+
+The B.7 source agrees with the accepted C1 same-grid source in the total and each polarization. The detailed-balance and shell checks are:
+
+\[
+\begin{aligned}
+\epsilon_{\rm DB}^{B.7}&=3.31\times10^{-14},\\
+\epsilon_{\rm DB}^{B.13}&=5.91\times10^{-14},\\
+\epsilon_{\rm shell}^{\mu'}&=5.38\times10^{-13}.
+\end{aligned}
+\]
+
+The maximum adaptive QUADPACK relative-error estimate is \(3.69\times10^{-8}\). At \(g_X=1\), the adaptive luminosity is
+\[
+L_{A0}(R_\nu)=1.4380831321\times10^{52}\ {\rm erg/s},
+\]
+with each mode agreeing with its A0 surface asymptote to better than \(6\times10^{-16}\).
+
+This is an interior-profile A0 result. The outer 25--100 km semi-Compton opacity is still omitted, and the 103/153-node A0 radial convergence check has not yet been completed. It is not an SN1987A exclusion curve.
+
+## 9. Current execution and acceptance
 
 A0 implementation and tests are committed to the PR #123 research branch.
 
@@ -201,7 +233,7 @@ A0 implementation and tests are committed to the PR #123 research branch.
 - C1 10 MeV grid convergence: [run 44577096997](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44577096997)
 
 The A0 mapping/kernel tests and the existing C1 regression tests are rerun
-before the adaptive 10 MeV transport calculation. The current adaptive run is
+before the adaptive 10 MeV transport calculation. The accepted 103-node adaptive baseline is
 [workflow #44656918116](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44656918116).
 
 The A0 baseline acceptance requires:
@@ -217,7 +249,7 @@ The A0 baseline acceptance requires:
 6. QUADPACK error estimates below \(10^{-6}\) and high-coupling convergence to the A0 surface asymptote;
 7. native-output SHA-256 manifest, artifact upload, and rebased Git archival.
 
-After the baseline, A0 requires its own radial/energy convergence scan.
+After the baseline, A0 requires its own 103/153 radial and energy-order convergence scans. The 153-node radial audit script is committed as audit_croon_a0_10mev_adaptive_radial_convergence.py.
 C1 grid convergence does not automatically establish A0 convergence
 because the axial longitudinal source and opacity have different
 kinematic weights.
