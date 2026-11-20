@@ -64,6 +64,35 @@ class MovingMuonComptonKernelTests(unittest.TestCase):
             self.assertLess(point["final_muon_shell_relative_error"],1e-10)
             self.assertLess(max(point["photon_ward_relative_residual_by_mode"]),1e-9)
 
+    def test_ultralight_axial_longitudinal_rate_is_finite_and_positive(self):
+        theta = 1.0e-2
+        mass = 1.0e-7
+        energy = 5.332961631033191e-4
+        temperature = 19.265221107965
+        mu_mu = 46.6743284468278
+        result = moving_muon_compton_rates(
+            mass, energy, temperature, mu_mu,
+            math.sin(theta)**2, -math.cos(theta)**2,
+            orders=(12, 8, 8, 8),
+        )
+        self.assertTrue(np.all(np.isfinite(result["production"])))
+        self.assertTrue(np.all(np.isfinite(result["absorption"])))
+        self.assertTrue(np.all(result["production"] > 0.0))
+        self.assertTrue(np.all(result["absorption"] > 0.0))
+        np.testing.assert_allclose(
+            result["production"],
+            math.exp(-energy/temperature)*result["absorption"],
+            rtol=5.0e-11,
+            atol=1.0e-14,
+        )
+        for charge in ("mu_minus", "mu_plus"):
+            self.assertGreaterEqual(
+                result["charge_resolved"][charge][
+                    "minimum_matrix_element_before_roundoff_clip"
+                ],
+                0.0,
+            )
+
     def test_moving_muon_rates_obey_mode_by_mode_detailed_balance(self):
         mass,energy,T,mu=10.0,15.0,25.0,46.674
         result=moving_muon_compton_rates(
