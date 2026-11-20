@@ -234,7 +234,7 @@ The accepted C1 10 MeV result is packaged by `archive_croon_c1_10mev.py` without
 
 `outputs/c1_10mev_structured_archive_2026-11-20/`
 
-It contains `run_manifest.json`, `result_summary.json`, `validation_report.json`, `convergence_report.json`, a 121-point coupling-curve CSV, the existing 153-node local-profile CSV reference, and a combined SHA-256 manifest. The local validator at `docs/repository-management/schemas/validate_result_records.py` checks the JSON records and all referenced inputs/outputs.
+The downloadable archive is self-contained. It contains `run_manifest.json`, `result_summary.json`, `validation_report.json`, `convergence_report.json`, the SFHo-18.8 profile snapshot, 103/153-node radial JSON/CSV, the 153x48 final transport JSON/CSV, both convergence reports, original checksum manifests, the 121-point coupling-curve CSV, and a combined SHA-256 manifest. The manifest records two input snapshots and 17 output files. The local validator at `docs/repository-management/schemas/validate_result_records.py` checks the JSON records, input/output hashes, CSV dimensions, headers, and units.
 
 The numerical convergence checks are accepted (103/153 radial nodes and 32/48 energy order). The overall physical status remains **partial** because the outer 25--100 km B.13 semi-Compton opacity and the final SN1987A exclusion curve are not part of this 10 MeV archive.
 
