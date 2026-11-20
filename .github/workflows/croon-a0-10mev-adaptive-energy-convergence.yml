@@ -24,6 +24,12 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Validate A0 energy-audit Python syntax
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m py_compile audit_croon_a0_10mev_adaptive_energy_convergence.py
       - name: Check that both independent reference files are available
         id: baseline
         shell: bash
