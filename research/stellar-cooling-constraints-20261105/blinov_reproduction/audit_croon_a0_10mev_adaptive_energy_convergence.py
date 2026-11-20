@@ -251,7 +251,8 @@ def main():
         and db["max_B7_mode_residual"] < 1.0e-10
         and db["max_B13_charge_mode_residual"] < 1.0e-10
         and db["max_final_muon_shell_relative_error"] < 2.0e-10
-    ) else "REFINE"
+        else "REFINE"
+    )
 
     report = {
         "title": "A0 10 MeV adaptive-radial energy-order convergence",
