@@ -207,6 +207,8 @@ The accepted local source coefficients per \(g_X^2\) are:
 | B.13, \(\mu^-+\mu^+\) | \(4.28493795\times10^{71}\) |
 | B.7 + B.13 | \(4.73006243\times10^{71}\) |
 
+On the same 103-node, energy-32 grid, the optically-thin A0 source is (9.12381) times the C1 pure-vector source. Within A0, B.13 contributes (90.5895\%\) of the total thin source, with (B.13/B.7=9.62638). The (mu^+) target contributes (0.68369\%\) of the B.13 source; it is included explicitly rather than absorbed into an effective susceptibility.
+
 The B.7 source agrees with the accepted C1 same-grid source in the total and each polarization. The detailed-balance and shell checks are:
 
 \[
