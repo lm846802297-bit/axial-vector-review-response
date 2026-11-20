@@ -1,7 +1,7 @@
 # Croon A0: original-UV finite-mixing axial-vector transport
 
 Date: 2026-11-20  
-Status: **10 MeV A0 adaptive-radial baseline passed on 103 nodes; the independent 153-node radial refinement is next.**
+Status: **10 MeV A0 adaptive-radial baseline passed on 103 nodes; independent 153-node radial refinement is running after a validator-schema correction.**
 
 ## 1. Purpose and separation from C1
 
@@ -235,6 +235,28 @@ L_{A0}(R_\nu)=1.4380831321\times10^{52}\ {\rm erg/s},
 with each mode agreeing with its A0 surface asymptote to better than \(6\times10^{-16}\).
 
 This is an interior-profile A0 result. The outer 25--100 km semi-Compton opacity is still omitted, and the 103/153-node A0 radial convergence check has not yet been completed. It is not an SN1987A exclusion curve.
+
+## 8.1 Preliminary adaptive 103-node comparison with C1
+
+The accepted A0 103-node output contains both the legacy Simpson columns and the independent adaptive PCHIP/QUADPACK columns. The following comparison uses only the adaptive columns, with the same 10 MeV mass, 103 radial nodes, energy order 32, 121-point \(g_X\) grid, and three physical polarizations in A0 and C1.
+
+| \(g_X\) (nearest scan point) | \(L_{\rm A0}/L_{\rm C1}\), \(R_{\rm far}=R_\nu\) |
+|---:|---:|
+| \(1.00\times10^{-11}\) | 9.1273 |
+| \(1.04\times10^{-9}\) | 9.0624 |
+| \(1.06\times10^{-8}\) | 4.7821 |
+| \(1.08\times10^{-7}\) | 0.8630 |
+| \(1.10\times10^{-6}\) | 1.0000 |
+| \(9.09\times10^{-6}\) | 1.0000 |
+| \(9.26\times10^{-5}\) | 1.0000 |
+| \(9.44\times10^{-4}\) | 1.0000 |
+| \(9.62\times10^{-3}\) | 1.0000 |
+| \(9.81\times10^{-2}\) | 1.0000 |
+| \(1\) | 1.0000 |
+
+At low coupling, the UV axial charged-muon current increases the interior-profile escaped luminosity relative to the pure-vector C1 reference. At larger coupling the two curves approach the same surface-limited value. This is expected from the surface detailed-balance limit: once the escape layer is confined to the neutrinosphere boundary, the limiting luminosity depends on the common local Bose factor rather than the interior source normalization.
+
+This comparison is a diagnostic from the 103-node baseline. The independent 153-node A0 refinement is required before quoting the radial uncertainty of the A0/C1 ratio. The outer 25--100 km semi-Compton opacity remains omitted; these values are not SN1987A limits.
 
 ## 9. Current execution and acceptance
 
