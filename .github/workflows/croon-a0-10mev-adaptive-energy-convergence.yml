@@ -41,6 +41,11 @@ jobs:
             echo "ready=false" >> "$GITHUB_OUTPUT"
             echo "A0 radial-153 or C1 energy-48 reference is not committed yet; computation will wait for the matching push."
           fi
+      - name: Require independent A0 and C1 reference outputs
+        if: steps.baseline.outputs.ready != 'true'
+        run: |
+          echo "::error::A0 energy convergence cannot run until the A0 radial-153 and C1 energy-48 reference files are committed."
+          exit 1
       - uses: actions/setup-python@v5
         if: steps.baseline.outputs.ready == 'true'
         with:
