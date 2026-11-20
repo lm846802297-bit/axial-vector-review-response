@@ -28,13 +28,19 @@ jobs:
           find "$root/finite_mixing" -type f -name '*.py' -not -path '*/outputs/*' -exec cp --parents {} "$bundle/" \;
           cp "$root/data/sfho188_digitized.csv" "$bundle/$root/data/"
           cp "$root/data/profile_provenance.json" "$bundle/$root/data/"
+          # rates.py is imported by croon_c1_b13_vector_transport.py; include
+          # it explicitly because it lives at the research root, not in either
+          # copied package directory.
+          cp "$root/rates.py" "$bundle/$root/"
           outputs="$bundle/$root/blinov_reproduction/outputs"
           mkdir -p "$outputs"
           cp "$root/blinov_reproduction/outputs/croon_a0_uv_axial_transport_10mev_2026-11-20.json" "$outputs/"
           cp "$root/blinov_reproduction/outputs/croon_a0_uv_axial_transport_10mev_153nodes_adaptive_2026-11-20.json" "$outputs/"
           cp "$root/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_energy48_2026-11-20.json" "$outputs/"
           cp "$root/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_2026-11-20.json" "$outputs/"
-          find "$bundle" -type f -print0 | sort -z | xargs -0 sha256sum > "$bundle/SHA256SUMS.txt"
+          # Exclude the manifest itself: shell redirection creates it
+          # before find runs, so including it would hash an empty placeholder.
+          find "$bundle" -type f ! -name 'SHA256SUMS.txt' -print0 | sort -z | xargs -0 sha256sum > "$bundle/SHA256SUMS.txt"
           tar -czf a0-energy-local-source-bundle.tar.gz "$bundle"
           sha256sum a0-energy-local-source-bundle.tar.gz
       - uses: actions/upload-artifact@v4
