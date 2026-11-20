@@ -2,7 +2,7 @@
 
 Date: 2026-11-20
 
-Status: **Surface-centered adaptive radial integrator implemented; numerical C1 baseline pending.**
+Status: **103-node C1 adaptive calculation completed successfully; independent 153-node radial refinement is running.**
 
 ## 1. Objective
 
@@ -87,7 +87,41 @@ The adaptive integrator is tested against:
 - a profile with a zero-opacity outer interval;
 - an extreme kappa*R test in which the physical escape layer is below the relative machine resolution of an outward radial coordinate.
 
-## 6. Acceptance
+## 6. First 103-node C1 result
+
+The first complete 10 MeV run used the pinned 1687-row public SFHo-18.8 profile and sampled it at 103 radial nodes. It evaluated 121 couplings over \(10^{-11}\le g_X\le1\), 32 energy nodes, and all three physical polarizations.
+
+The maximum QUADPACK relative error estimate over the full coupling curve and both reported outer-boundary conventions is
+
+\[
+\epsilon_{\rm quad}^{\max}=6.13179\times10^{-8}.
+\]
+
+At \(g_X=1\), the adaptive result and the independently calculated surface asymptote agree to
+
+\[
+\frac{|L_{\rm adaptive}-L_{\rm surf}|}{L_{\rm surf}}
+=5.55\times10^{-16}.
+\]
+
+The surface asymptote is \(4.7936104404\times10^{51}\) erg/s in each of \(L,+,-\), giving \(1.4380831321\times10^{52}\) erg/s in total. The equality of the three surface limits follows from local detailed balance: at fixed \(\omega\), \(S_h/\kappa_h\) reduces to the same Bose factor for every polarization.
+
+The fixed-grid Simpson result is not reliable on the strong-coupling branch. Representative ratios of legacy Simpson to adaptive luminosity are:
+
+| \(g_X\) (nearest scan point) | \(L_{\rm Simpson}/L_{\rm adaptive}\) |
+|---:|---:|
+| \(1.00\times10^{-11}\) | 0.99981 |
+| \(1.08\times10^{-7}\) | 1.0314 |
+| \(1.10\times10^{-6}\) | 67.26 |
+| \(9.09\times10^{-6}\) | 4584.9 |
+| \(9.26\times10^{-5}\) | 476435.7 |
+| \(1.00\) | \(5.55\times10^{13}\) |
+
+This is the fixed endpoint-weight artifact: once the physical escape layer becomes thinner than the radial spacing, the last Simpson endpoint contribution scales with the mesh spacing instead of approaching \(S(R_\nu)/\kappa(R_\nu)\). The adaptive result instead saturates at the finite surface limit.
+
+The independent 153-node calculation uses the same profile, coupling grid, energy quadrature, angular order, susceptibility order, and polarization definitions. Its purpose is to quantify the radial interpolation uncertainty, which is not included in the QUADPACK error estimate.
+
+## 7. Acceptance
 
 The 10 MeV C1 baseline uses the reviewed SFHo-18.8 profile, 103 actual radial nodes, 32 energy nodes, 121 coupling points, and all three physical polarizations.
 
