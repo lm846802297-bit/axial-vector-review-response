@@ -1137,9 +1137,10 @@ This is a pointwise amplitude validation, not a dense continuous-domain thermal 
 
 ## Structured result archive — C1 10 MeV (2026-11-20)
 
-- **Archive workflow:** [#44668361374](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44668361374) — success.
+- **Archive workflow:** [#44669468291](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44668361374) — success.
 - **Archive location:** `research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/`.
-- **Records:** `run_manifest.json`, `result_summary.json`, `validation_report.json`, `convergence_report.json`, `coupling_curve.csv`, `SHA256SUMS.txt`.
+- **Self-contained archive:** includes the SFHo profile snapshot, 103/153-node radial JSON/CSV, 153x48 final transport JSON/CSV, radial/energy reports, source checksum manifests, generated coupling curve, and the four structured JSON/Markdown records.
+- **Records:** 2 input snapshots and 17 output records; the downloadable ZIP independently passes its SHA-256 list and file-record checks.
 - **Integrity:** JSON Schema, source/input provenance, output hashes, CSV row counts, column headers and units validated.
 - **Numerical status:** radial 103/153 comparison 0.11693% (<0.12%); energy 32/48 maximum metric (1.3031\times10^{-7}) (<(10^{-4})).
 - **Physical scope:** overall validation is `partial` by design. The outer 25–100 km B.13 semi-Compton opacity is not included, and no final SN1987A exclusion curve is claimed.
