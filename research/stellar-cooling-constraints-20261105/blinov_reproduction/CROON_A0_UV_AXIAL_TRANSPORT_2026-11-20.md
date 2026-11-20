@@ -1,7 +1,7 @@
 # Croon A0: original-UV finite-mixing axial-vector transport
 
 Date: 2026-11-20  
-Status: **10 MeV A0 adaptive-radial baseline passed on 103 nodes; independent 153-node radial refinement is running after a validator-schema correction.**
+Status: **10 MeV A0 baseline, 103/153 radial convergence, and 32/48 energy convergence passed. The B.13 kernel now uses a stable explicit-spinor physical-photon sum for ultralight masses; the six-mass scan is in progress.**
 
 ## 1. Purpose and separation from C1
 
@@ -408,3 +408,53 @@ For the existing 121-point scan, \(g_X\in[10^{-11},1]\), and \(\theta_{\mu R}=10
 At 10 MeV, for example, the endpoint \(g_X=1\) gives \(y_{G\mu\mu}=21.13\) and \(\alpha_G=35.53\), outside this conservative perturbative criterion. The accepted 10 MeV radial-convergence result remains a valid numerical transport diagnostic; its nonperturbative high-\(g_X\) points must not be used as perturbative model bounds. At 200 MeV the entire scanned interval satisfies the criterion.
 
 The reproducible calculation is in audit_a0_goldstone_perturbativity.py, with its JSON and CSV outputs in outputs/A0_GOLDSTONE_PERTURBATIVITY_WINDOW_2026-11-20.{json,csv}. This mask will be carried into the six-mass scan and its final plots.
+
+
+## 11. Low-mass longitudinal stability: explicit spinor and physical-photon sum
+
+The six-mass preparation exposed a numerical failure that is absent at the 10 MeV benchmark. For
+\[
+m_{A'}=10^{-7}\ \mathrm{MeV},\qquad
+\omega=5.3329616310\times10^{-4}\ \mathrm{MeV},
+\]
+at the central reconstructed-profile point, the former covariant photon sum using
+\(-g_{\mu\nu}\) returned a negative longitudinal matrix element,
+\[
+|\mathcal M_L|^2=-4.670\times10^3,
+\]
+while the physical rate must be nonnegative. The failure occurs because
+\(\epsilon_L^\mu\simeq q^\mu/m_{A'}\) and the covariant photon sum subtracts large unphysical components. This is a numerical cancellation in the trace representation, not a negative physical rate.
+
+The production kernel now evaluates the positive sum directly:
+\[
+\overline{|\mathcal M_h|^2}
+=\frac{e^2}{2}
+\sum_{s_i,s_f}\sum_{\lambda_\gamma=1}^{2}
+\left|
+\bar u_{s_f}(p_f)\,
+\mathcal A_{h,\lambda_\gamma}\,
+u_{s_i}(p_i)
+\right|^2,
+\]
+using two orthonormal physical photon polarizations. The covariant \(-g_{\mu\nu}\) trace is retained as a separate moderate-mass diagnostic, not used for the low-mass production rates.
+
+### 11.1 Independent checks
+
+- The vectorized explicit-spinor point kernel agrees with the independently written explicit-spinor reference for all six vector, axial, mixed-current and charge cases at the 0.1 eV benchmark point. The largest relative residual is \(4.62\times10^{-9}\); the photon-Ward residuals are below \(10^{-8}\).
+- The complete low-mass thermal kernel gives finite, strictly positive production and absorption in all three modes and both muon-charge sectors. Its mode/charge detailed-balance residual is below \(5\times10^{-14}\).
+- The 10 MeV A0 calculation was repeated with the explicit-spinor implementation in [workflow #44681748661](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44681748661). Relative to the former covariant-trace baseline on the identical 103-node/energy-32 grid, the B.13 thin-source totals and mode components change by at most \(4.45\times10^{-16}\); the adaptive \(R_{\rm far}=R_\nu\) luminosity curve changes by at most \(4.26\times10^{-16}\), and the 100 km curve by at most \(6.18\times10^{-15}\). The unchanged B.7 source is identical.
+
+The low-mass pilot also completed for all six benchmark masses with reduced diagnostic grids. These pilot values establish that the explicit-spinor kernel is numerically operational across the mass range; they are not the accepted six-mass transport results. The full 153-node, 32/48-order scans and the Goldstone perturbativity masks are being calculated separately.
+
+### 11.2 Regression coverage
+
+The new regression coverage includes:
+
+1. explicit-spinor comparison at 0.1 eV for all six current/charge cases;
+2. positivity of the longitudinal and transverse matrix elements;
+3. photon-Ward identity and final-muon mass-shell closure;
+4. ultralight thermal production/absorption detailed balance;
+5. stationary-muon vector and axial endpoint recovery;
+6. unchanged A0 and C1 mapping/transport regressions.
+
+The local finite-mixing test run passed all A0-relevant and moving-muon tests. The full package discovery also encountered one unrelated test import requiring the separate literature reference module; that test is outside this A0 bundle's source scope. The dedicated GitHub workflow [#44682747697](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44682747697) runs the targeted regression set independently.
