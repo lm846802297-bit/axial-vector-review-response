@@ -121,6 +121,9 @@ This is the fixed endpoint-weight artifact: once the physical escape layer becom
 
 The independent 153-node calculation uses the same profile, coupling grid, energy quadrature, angular order, susceptibility order, and polarization definitions. Its purpose is to quantify the radial interpolation uncertainty, which is not included in the QUADPACK error estimate.
 
+The earlier Simpson-based C1 grid audit provides an independent diagnosis of the problem. Raising the requested radial grid from 101 to 151 points (103 to 153 actual nodes) changed the \(R_{\rm far}=R_\nu\) total and each mode curve by \(0.3333333\), while the corresponding \(R_{\rm far}=100\) km curves changed by only \(2.47\times10^{-4}\). The thin-source changes were at most \(5.65\times10^{-4}\). By contrast, increasing the energy order from 32 to 48 changed the \(R_\nu\) total curve by only \(1.32\times10^{-7}\), and increasing the B.7 neutrino angular order from 128 to 192 changed it by less than \(10^{-14}\). The \(33.3\%\) radial change is therefore isolated to the \(R_\nu\) Simpson endpoint contribution; the adaptive 103/153 comparison directly tests whether that artifact is removed.
+
+
 ## 7. Acceptance
 
 The 10 MeV C1 baseline uses the reviewed SFHo-18.8 profile, 103 actual radial nodes, 32 energy nodes, 121 coupling points, and all three physical polarizations.
