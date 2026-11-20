@@ -51,8 +51,6 @@ def _curve_change(reference, varied, key):
     val = np.asarray([row[key] for row in varied], dtype=float)
     if not np.all(np.isfinite(ref)) or not np.all(np.isfinite(val)):
         raise ValueError((key, "non-finite luminosity curve"))
-    if not np.all(np.isfinite(ref)) or not np.all(np.isfinite(val)):
-        raise ValueError((key, mode, "non-finite mode-resolved luminosity curve"))
     peak = max(float(np.max(np.abs(ref))), 1.0e-300)
     relevant = np.abs(ref) > 1.0e-8 * peak
     index = int(np.argmax(np.abs(val - ref)))
@@ -72,6 +70,8 @@ def _mode_change(reference, varied, total_key, mode):
     key = total_key + "_by_mode_erg_s"
     ref = np.asarray([row[key][mode] for row in reference], dtype=float)
     val = np.asarray([row[key][mode] for row in varied], dtype=float)
+    if not np.all(np.isfinite(ref)) or not np.all(np.isfinite(val)):
+        raise ValueError((key, mode, "non-finite mode-resolved luminosity curve"))
     peak = max(float(np.max(np.abs(ref))), 1.0e-300)
     relevant = np.abs(ref) > 1.0e-8 * peak
     index = int(np.argmax(np.abs(val - ref)))
