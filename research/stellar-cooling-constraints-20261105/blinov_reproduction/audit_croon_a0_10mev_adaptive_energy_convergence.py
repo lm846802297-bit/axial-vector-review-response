@@ -39,12 +39,20 @@ TARGET_NORMALIZED = 1.0e-4
 
 
 def _relative_change(reference: float, varied: float) -> float:
-    return abs(float(varied) - float(reference)) / max(abs(float(reference)), 1.0e-300)
+    reference = float(reference)
+    varied = float(varied)
+    if not np.isfinite(reference) or not np.isfinite(varied):
+        raise ValueError(("non-finite comparison input", reference, varied))
+    return abs(varied - reference) / max(abs(reference), 1.0e-300)
 
 
 def _curve_change(reference, varied, key):
     ref = np.asarray([row[key] for row in reference], dtype=float)
     val = np.asarray([row[key] for row in varied], dtype=float)
+    if not np.all(np.isfinite(ref)) or not np.all(np.isfinite(val)):
+        raise ValueError((key, "non-finite luminosity curve"))
+    if not np.all(np.isfinite(ref)) or not np.all(np.isfinite(val)):
+        raise ValueError((key, mode, "non-finite mode-resolved luminosity curve"))
     peak = max(float(np.max(np.abs(ref))), 1.0e-300)
     relevant = np.abs(ref) > 1.0e-8 * peak
     index = int(np.argmax(np.abs(val - ref)))
@@ -201,6 +209,8 @@ def main():
         for value in channel.values()
     )
     all_metrics.extend(surface_changes.values())
+    if not all(np.isfinite(value) for value in all_metrics):
+        raise ValueError(("non-finite convergence metric", all_metrics))
     maximum_metric = max(all_metrics)
 
     max_quad_error = 0.0
@@ -223,11 +233,14 @@ def main():
             max_mode_closure = max(max_mode_closure, closure)
             if closure >= 1.0e-12:
                 raise ValueError((modes_key, closure))
-            max_quad_error = max(
-                max_quad_error,
-                float(row[error_key]),
-                *[float(v) for v in row[mode_error_key].values()],
-            )
+            quad_error = float(row[error_key])
+            mode_errors = [float(v) for v in row[mode_error_key].values()]
+            if (
+                not np.isfinite(quad_error) or quad_error < 0.0
+                or any(not np.isfinite(v) or v < 0.0 for v in mode_errors)
+            ):
+                raise ValueError((error_key, quad_error, mode_errors))
+            max_quad_error = max(max_quad_error, quad_error, *mode_errors)
 
     high = curve[-1]["Rfar_Rnu_adaptive_quad_by_mode_erg_s"]
     surface_residuals = {
@@ -239,6 +252,8 @@ def main():
         "max_B13_charge_mode_residual": float(item["maximum_B13_charge_mode_detailed_balance_residual"]),
         "max_final_muon_shell_relative_error": float(item["maximum_final_muon_shell_relative_error"]),
     }
+    if any(not np.isfinite(value) or value < 0.0 for value in db.values()):
+        raise ValueError(("non-finite detailed-balance or shell residual", db))
 
     status = (
         "PASS"
