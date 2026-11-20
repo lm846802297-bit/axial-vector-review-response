@@ -119,6 +119,14 @@ The fixed-grid Simpson result is not reliable on the strong-coupling branch. Rep
 
 This is the fixed endpoint-weight artifact: once the physical escape layer becomes thinner than the radial spacing, the last Simpson endpoint contribution scales with the mesh spacing instead of approaching \(S(R_\nu)/\kappa(R_\nu)\). The adaptive result instead saturates at the finite surface limit.
 
+For a uniform Simpson grid with spacing \(h\), once all interior nodes are exponentially suppressed, the last endpoint alone contributes approximately
+
+\[
+L_{\rm Simpson}\simeq g_X^2\,\frac{h}{3}\,S(R_\nu).
+\]
+
+It therefore grows as \(g_X^2\) and changes in proportion to \(h\) when the grid is refined. The physical integral instead has the finite limit \(S(R_\nu)/\kappa(R_\nu)\).
+
 The independent 153-node calculation uses the same profile, coupling grid, energy quadrature, angular order, susceptibility order, and polarization definitions. Its purpose is to quantify the radial interpolation uncertainty, which is not included in the QUADPACK error estimate.
 
 The earlier Simpson-based C1 grid audit provides an independent diagnosis of the problem. Raising the requested radial grid from 101 to 151 points (103 to 153 actual nodes) changed the \(R_{\rm far}=R_\nu\) total and each mode curve by \(0.3333333\), while the corresponding \(R_{\rm far}=100\) km curves changed by only \(2.47\times10^{-4}\). The thin-source changes were at most \(5.65\times10^{-4}\). By contrast, increasing the energy order from 32 to 48 changed the \(R_\nu\) total curve by only \(1.32\times10^{-7}\), and increasing the B.7 neutrino angular order from 128 to 192 changed it by less than \(10^{-14}\). The \(33.3\%\) radial change is therefore isolated to the \(R_\nu\) Simpson endpoint contribution; the adaptive 103/153 comparison directly tests whether that artifact is removed.
