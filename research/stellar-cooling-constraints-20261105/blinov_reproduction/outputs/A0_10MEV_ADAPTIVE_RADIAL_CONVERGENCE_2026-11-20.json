@@ -1,0 +1,144 @@
+{
+  "title": "A0 10 MeV adaptive radial-grid convergence",
+  "status": "PASS",
+  "baseline": {
+    "path": "outputs/croon_a0_uv_axial_transport_10mev_2026-11-20.json",
+    "sha256": "4f719a1ea2d78e6f4121f9aaefa88d6e281206bc8640655841af2ab4c19daa4e",
+    "radial_points": 103,
+    "energy_order": 32
+  },
+  "refined": {
+    "json_path": "outputs/croon_a0_uv_axial_transport_10mev_153nodes_adaptive_2026-11-20.json",
+    "csv_path": "outputs/croon_a0_uv_axial_transport_10mev_153nodes_adaptive_2026-11-20.csv",
+    "sha256_json": "e168da3ba5040d6642295450910edda5a4ad4473d35da4f5b808ee59a37a02ce",
+    "sha256_csv": "d964807daee04b51ccffc75310625cf5eac687105ba7abeca037aa7561e9e4f4",
+    "radial_points": 153,
+    "energy_order": 32
+  },
+  "fixed_parameters": {
+    "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+    "theta_mu_R": 0.01,
+    "gV_mu_over_gX": 9.99966667111108e-05,
+    "gA_mu_over_gX": -0.9999000033332889,
+    "neutrino_couplings_over_gX": {
+      "nu_mu": 1.0,
+      "nu_tau": -1.0
+    },
+    "neutrino_angular_order": 128,
+    "susceptibility_order": 192,
+    "inner_orders": [
+      12,
+      8,
+      8,
+      8
+    ],
+    "coupling_count": 121,
+    "adaptive_radial": true
+  },
+  "target": 0.01,
+  "maximum_radial_change_metric": 0.004021771558064145,
+  "total_curve_changes": {
+    "Rfar_Rnu_adaptive_quad": {
+      "max_absolute_difference_over_reference_peak": 0.0002420610526621925,
+      "max_pointwise_relative_difference_above_1e-8_peak": 0.0009852493181011408,
+      "at_g_X_max_absolute_difference": 1.0592537251772898e-08
+    },
+    "Rfar_100km_vacuum_nu_tail_adaptive_quad": {
+      "max_absolute_difference_over_reference_peak": 0.00030821255280580437,
+      "max_pointwise_relative_difference_above_1e-8_peak": 0.0011665690534823716,
+      "at_g_X_max_absolute_difference": 8.576958985908945e-09
+    }
+  },
+  "mode_curve_changes": {
+    "Rfar_Rnu_adaptive_quad": {
+      "L": {
+        "max_absolute_difference_over_reference_peak": 0.00027530416769199753,
+        "max_pointwise_relative_difference_above_1e-8_peak": 0.0025108075813259304,
+        "at_g_X_max_absolute_difference": 1.0592537251772898e-08
+      },
+      "+": {
+        "max_absolute_difference_over_reference_peak": 9.820673854885631e-05,
+        "max_pointwise_relative_difference_above_1e-8_peak": 0.0009770688070476418,
+        "at_g_X_max_absolute_difference": 2.4641473082812814e-08
+      },
+      "-": {
+        "max_absolute_difference_over_reference_peak": 0.00027168863064259334,
+        "max_pointwise_relative_difference_above_1e-8_peak": 0.0009857171841899939,
+        "at_g_X_max_absolute_difference": 3.0432198871077156e-08
+      }
+    },
+    "Rfar_100km_vacuum_nu_tail_adaptive_quad": {
+      "L": {
+        "max_absolute_difference_over_reference_peak": 0.0003265939995650092,
+        "max_pointwise_relative_difference_above_1e-8_peak": 0.004021771558064145,
+        "at_g_X_max_absolute_difference": 8.576958985908945e-09
+      },
+      "+": {
+        "max_absolute_difference_over_reference_peak": 0.0001840541714776117,
+        "max_pointwise_relative_difference_above_1e-8_peak": 0.001142189364600747,
+        "at_g_X_max_absolute_difference": 1.0592537251772898e-08
+      },
+      "-": {
+        "max_absolute_difference_over_reference_peak": 0.00020791560459275182,
+        "max_pointwise_relative_difference_above_1e-8_peak": 0.0011876702761815605,
+        "at_g_X_max_absolute_difference": 1.0592537251772898e-08
+      }
+    }
+  },
+  "thin_source_total_relative_changes": {
+    "B7_nu_mu_plus_nu_tau": 8.499656035452798e-05,
+    "B13_mu_minus": 0.0006176999472083548,
+    "B13_mu_plus": 0.0006246357791860834,
+    "B13_mu_pm": 0.0006177473665374666,
+    "B7_plus_B13": 0.0005676126320650469,
+    "Croon_Eq47_mu_minus_only": 0.0006197951399423387
+  },
+  "thin_source_mode_relative_changes": {
+    "B7_nu_mu_plus_nu_tau": {
+      "L": 8.376505742365777e-05,
+      "+": 5.007791419693495e-05,
+      "-": 0.00011874794406405805
+    },
+    "B13_mu_minus": {
+      "L": 0.0006222617471062137,
+      "+": 0.0004930606733372031,
+      "-": 0.0004930521877206328
+    },
+    "B13_mu_plus": {
+      "L": 0.0006276421267508656,
+      "+": 0.0005430992598162035,
+      "-": 0.0005431049412895876
+    },
+    "B13_mu_pm": {
+      "L": 0.0006222985223785229,
+      "+": 0.0004934051905236534,
+      "-": 0.0004933968826508532
+    },
+    "B7_plus_B13": {
+      "L": 0.0006028800931361493,
+      "+": 0.00020559383527444733,
+      "-": 0.0002440695498789632
+    }
+  },
+  "B7_unchanged_against_C1_153node": {
+    "total_relative_difference": 0.0,
+    "per_mode_relative_differences": {
+      "L": 0.0,
+      "+": 0.0,
+      "-": 0.0
+    }
+  },
+  "surface_asymptote_high_g_relative_residuals": {
+    "L": 5.545832372683879e-16,
+    "+": 4.159374279512907e-16,
+    "-": 4.1593742795129064e-16
+  },
+  "max_quadpack_relative_error_estimate": 3.572066148527478e-07,
+  "max_mode_sum_relative_residual": 2.1948610007733746e-16,
+  "detailed_balance": {
+    "max_B7_mode_residual": 3.462988002993237e-14,
+    "max_B13_charge_mode_residual": 5.782179033648379e-14,
+    "max_final_muon_shell_relative_error": 5.380211888635872e-13
+  },
+  "scope": "A0 10 MeV adaptive radial convergence on the reconstructed SFHo-18.8 interior profile. Outer 25--100 km semi-Compton opacity is omitted; this is not an SN1987A exclusion curve."
+}
