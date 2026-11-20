@@ -1,15 +1,15 @@
 {
   "title": "C1 10 MeV adaptive radial integration and radial-grid convergence",
-  "status": "one-percent radial convergence target met",
+  "status": "PASS: 103/153-node adaptive radial convergence below 0.12% for both outer boundaries and all three polarizations",
   "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
   "energy_order": 32,
   "neutrino_angular_order": 128,
   "susceptibility_order": 192,
   "coupling_range": [
     1e-11,
-    1.0
+    1
   ],
-  "max_quadpack_relative_error_estimate": 1.3831232889847977e-07,
+  "max_quadpack_relative_error_estimate": 1.3831232889847977e-7,
   "max_mode_sum_relative_residual": 2.2133373146652667e-16,
   "surface_asymptote": {
     "103": {
@@ -46,22 +46,76 @@
     "fine_radial_points": 153,
     "coupling_points": 121,
     "max_relative_difference_total": 0.000980258352240603,
-    "max_difference_at_g_X": 1.333521432163324e-07,
+    "max_difference_at_g_X": 1.333521432163324e-7,
     "per_mode": {
       "L": {
         "max_relative_difference": 0.0009800099291956694,
-        "at_g_X": 1.333521432163324e-07
+        "at_g_X": 1.333521432163324e-7
       },
       "+": {
         "max_relative_difference": 0.0009755272944511938,
-        "at_g_X": 1.333521432163324e-07
+        "at_g_X": 1.333521432163324e-7
       },
       "-": {
         "max_relative_difference": 0.000985237816577977,
-        "at_g_X": 1.333521432163324e-07
+        "at_g_X": 1.333521432163324e-7
       }
     },
-    "one_percent_target_met": true
+    "one_percent_target_met": true,
+    "outer_boundary_comparison": {
+      "comparison_definition": "For each outer-boundary luminosity curve and each polarization, report maximum absolute difference normalized to the 153-node curve peak, and maximum pointwise relative difference where the 153-node reference exceeds 1e-8 of its peak.",
+      "Rfar_Rnu": {
+        "total": {
+          "max_absolute_difference_over_reference_peak": 0.00015194698257626316,
+          "max_pointwise_relative_difference_above_1e_8_peak": 0.000980258352240603
+        },
+        "per_mode": {
+          "L": {
+            "max_absolute_difference_over_reference_peak": 0.00011771102263308911,
+            "max_pointwise_relative_difference_above_1e_8_peak": 0.0009800099291956694
+          },
+          "+": {
+            "max_absolute_difference_over_reference_peak": 0.00007739148084597921,
+            "max_pointwise_relative_difference_above_1e_8_peak": 0.0009755272944511938
+          },
+          "-": {
+            "max_absolute_difference_over_reference_peak": 0.00025725393629224565,
+            "max_pointwise_relative_difference_above_1e_8_peak": 0.000985237816577977
+          }
+        }
+      },
+      "Rfar_100km_vacuum_nu_tail": {
+        "total": {
+          "max_absolute_difference_over_reference_peak": 0.00016096285691870573,
+          "max_pointwise_relative_difference_above_1e_8_peak": 0.0011097275508863145,
+          "max_pointwise_relative_difference_all_points": 0.26073951353873326,
+          "raw_relative_max_at_g_X": 8.91250938133744e-7,
+          "reference_fraction_of_curve_peak_at_raw_relative_max": 8.743890751069963e-306
+        },
+        "per_mode": {
+          "L": {
+            "max_absolute_difference_over_reference_peak": 0.0001254333173879186,
+            "max_pointwise_relative_difference_above_1e_8_peak": 0.0010186950717914094
+          },
+          "+": {
+            "max_absolute_difference_over_reference_peak": 0.00016339861017023927,
+            "max_pointwise_relative_difference_above_1e_8_peak": 0.0011232704367734221
+          },
+          "-": {
+            "max_absolute_difference_over_reference_peak": 0.00018757194009485874,
+            "max_pointwise_relative_difference_above_1e_8_peak": 0.0011692956845857593
+          }
+        }
+      },
+      "max_relevant_pointwise_relative_difference_all_boundaries_and_modes": 0.0011692956845857593,
+      "max_absolute_difference_over_curve_peak_all_boundaries_and_modes": 0.00025725393629224565,
+      "one_percent_target_met": true,
+      "all_boundaries_and_modes_below_0_12_percent": true
+    },
+    "surface_asymptote_103_vs_153_relative_difference": 1.75742972738346e-9,
+    "max_QUADPACK_relative_error_estimate_both_grids": 1.3831232889847977e-7,
+    "max_three_mode_closure_residual_both_grids": 2.2133373146652667e-16,
+    "checksum_manifest_verified": true
   },
   "legacy_simpson_over_adaptive_samples": [
     {
@@ -69,19 +123,19 @@
       "legacy_simpson_over_adaptive": 0.9998098891137982
     },
     {
-      "g_X": 1.0797751623277093e-07,
+      "g_X": 1.0797751623277093e-7,
       "legacy_simpson_over_adaptive": 1.0313982879300703
     },
     {
-      "g_X": 1.1006941712522081e-06,
+      "g_X": 0.0000011006941712522081,
       "legacy_simpson_over_adaptive": 67.26117837799302
     },
     {
-      "g_X": 9.08517575651686e-06,
+      "g_X": 0.00000908517575651686,
       "legacy_simpson_over_adaptive": 4584.944908207622
     },
     {
-      "g_X": 9.261187281287918e-05,
+      "g_X": 0.00009261187281287918,
       "legacy_simpson_over_adaptive": 476435.68085106957
     },
     {
@@ -97,7 +151,7 @@
       "legacy_simpson_over_adaptive": 534569667952.77606
     },
     {
-      "g_X": 1.0,
+      "g_X": 1,
       "legacy_simpson_over_adaptive": 55548326492353.19
     }
   ]
