@@ -18,26 +18,38 @@ permissions:
 
 jobs:
   a0-adaptive-energy-convergence:
-    # The first push creates this workflow before the 153-node A0 file exists.
-    # It is intentionally skipped until both independent reference files exist.
-    if: ${{ hashFiles('research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_a0_uv_axial_transport_10mev_153nodes_adaptive_2026-11-20.json') != '' && hashFiles('research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_energy48_2026-11-20.json') != '' }}
     runs-on: ubuntu-latest
     timeout-minutes: 180
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: Check that both independent reference files are available
+        id: baseline
+        shell: bash
+        run: |
+          if [[ -f research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_a0_uv_axial_transport_10mev_153nodes_adaptive_2026-11-20.json && \
+                -f research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_energy48_2026-11-20.json ]]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "A0 radial-153 or C1 energy-48 reference is not committed yet; computation will wait for the matching push."
+          fi
       - uses: actions/setup-python@v5
+        if: steps.baseline.outputs.ready == 'true'
         with:
           python-version: '3.13'
       - name: Record source revision and profile identity
+        if: steps.baseline.outputs.ready == 'true'
         run: |
           python --version
           git rev-parse HEAD
           sha256sum research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv
       - name: Install pinned numerical dependencies
+        if: steps.baseline.outputs.ready == 'true'
         run: python -m pip install numpy==2.5.5 scipy==1.18.1
       - name: Run A0 and C1 kernel regression tests
+        if: steps.baseline.outputs.ready == 'true'
         working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
         env:
           PYTHONPATH: ..
@@ -46,11 +58,13 @@ jobs:
             test_croon_a0_uv_axial_transport.py \
             test_croon_c1_b13_vector_transport.py
       - name: Compute independent A0 energy-order-48 transport
+        if: steps.baseline.outputs.ready == 'true'
         working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
         env:
           PYTHONPATH: ..
         run: python audit_croon_a0_10mev_adaptive_energy_convergence.py
       - name: Validate A0 energy convergence and native outputs
+        if: steps.baseline.outputs.ready == 'true'
         working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
         run: |
           python - <<'PY'
@@ -99,6 +113,7 @@ jobs:
           print("three-mode closure:", summary["max_mode_sum_relative_residual"])
           PY
       - name: Create SHA-256 manifest for A0 energy outputs
+        if: steps.baseline.outputs.ready == 'true'
         working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
         run: |
           sha256sum \
@@ -107,6 +122,7 @@ jobs:
             outputs/A0_10MEV_ADAPTIVE_ENERGY_CONVERGENCE_2026-11-20.json \
             > outputs/SHA256SUMS_croon_a0_adaptive_energy_convergence_2026-11-20.txt
       - name: Upload native A0 energy convergence outputs
+        if: steps.baseline.outputs.ready == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: croon-a0-10mev-adaptive-energy-convergence-2026-11-20
@@ -117,6 +133,7 @@ jobs:
             research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/SHA256SUMS_croon_a0_adaptive_energy_convergence_2026-11-20.txt
           if-no-files-found: error
       - name: Commit A0 energy convergence outputs to the research branch
+        if: steps.baseline.outputs.ready == 'true'
         env:
           GIT_AUTHOR_NAME: github-actions[bot]
           GIT_AUTHOR_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
