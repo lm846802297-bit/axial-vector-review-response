@@ -1,5 +1,7 @@
 import unittest
 
+import numpy as np
+
 from finite_mixing.thermal_integrals.audit_b13_moving_muon_spinor_reference import (
     CURRENT_CASES,
     KINEMATIC_POINTS,
