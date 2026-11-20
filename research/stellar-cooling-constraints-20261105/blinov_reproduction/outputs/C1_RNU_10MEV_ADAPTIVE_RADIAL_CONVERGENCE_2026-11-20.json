@@ -1,0 +1,104 @@
+{
+  "title": "C1 10 MeV adaptive radial integration and radial-grid convergence",
+  "status": "one-percent radial convergence target met",
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "energy_order": 32,
+  "neutrino_angular_order": 128,
+  "susceptibility_order": 192,
+  "coupling_range": [
+    1e-11,
+    1.0
+  ],
+  "max_quadpack_relative_error_estimate": 1.3831232889847977e-07,
+  "max_mode_sum_relative_residual": 2.2133373146652667e-16,
+  "surface_asymptote": {
+    "103": {
+      "by_mode_erg_s": {
+        "L": 4.793610440402357e+51,
+        "+": 4.7936104404023585e+51,
+        "-": 4.793610440402357e+51
+      },
+      "total_erg_s": 1.4380831321207074e+52,
+      "high_g_total_relative_residual": 3.697221575291644e-16,
+      "high_g_mode_relative_residuals": {
+        "L": 4.1593742722031004e-16,
+        "+": 2.772916181468733e-16,
+        "-": 5.545832362937467e-16
+      }
+    },
+    "153": {
+      "by_mode_erg_s": {
+        "L": 4.793610431977923e+51,
+        "+": 4.7936104319779255e+51,
+        "-": 4.793610431977926e+51
+      },
+      "total_erg_s": 1.4380831295933773e+52,
+      "high_g_total_relative_residual": 3.6972215817892513e-16,
+      "high_g_mode_relative_residuals": {
+        "L": 5.545832372683879e-16,
+        "+": 4.159374279512907e-16,
+        "-": 2.7729161863419376e-16
+      }
+    }
+  },
+  "radial_grid_convergence": {
+    "coarse_radial_points": 103,
+    "fine_radial_points": 153,
+    "coupling_points": 121,
+    "max_relative_difference_total": 0.000980258352240603,
+    "max_difference_at_g_X": 1.333521432163324e-07,
+    "per_mode": {
+      "L": {
+        "max_relative_difference": 0.0009800099291956694,
+        "at_g_X": 1.333521432163324e-07
+      },
+      "+": {
+        "max_relative_difference": 0.0009755272944511938,
+        "at_g_X": 1.333521432163324e-07
+      },
+      "-": {
+        "max_relative_difference": 0.000985237816577977,
+        "at_g_X": 1.333521432163324e-07
+      }
+    },
+    "one_percent_target_met": true
+  },
+  "legacy_simpson_over_adaptive_samples": [
+    {
+      "g_X": 1e-11,
+      "legacy_simpson_over_adaptive": 0.9998098891137982
+    },
+    {
+      "g_X": 1.0797751623277093e-07,
+      "legacy_simpson_over_adaptive": 1.0313982879300703
+    },
+    {
+      "g_X": 1.1006941712522081e-06,
+      "legacy_simpson_over_adaptive": 67.26117837799302
+    },
+    {
+      "g_X": 9.08517575651686e-06,
+      "legacy_simpson_over_adaptive": 4584.944908207622
+    },
+    {
+      "g_X": 9.261187281287918e-05,
+      "legacy_simpson_over_adaptive": 476435.68085106957
+    },
+    {
+      "g_X": 0.0009440608762859227,
+      "legacy_simpson_over_adaptive": 49507498.06085959
+    },
+    {
+      "g_X": 0.009623506263980867,
+      "legacy_simpson_over_adaptive": 5144434548.040882
+    },
+    {
+      "g_X": 0.09809947127268744,
+      "legacy_simpson_over_adaptive": 534569667952.77606
+    },
+    {
+      "g_X": 1.0,
+      "legacy_simpson_over_adaptive": 55548326492353.19
+    }
+  ]
+}
