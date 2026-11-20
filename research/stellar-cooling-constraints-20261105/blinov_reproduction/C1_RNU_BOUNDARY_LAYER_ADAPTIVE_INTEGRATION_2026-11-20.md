@@ -145,7 +145,16 @@ The maximum differences are:
 | Transverse \(+\) | \(9.75527\times10^{-4}\) | \(1.33352\times10^{-7}\) |
 | Transverse \(-\) | \(9.85238\times10^{-4}\) | \(1.33352\times10^{-7}\) |
 
-Thus the 103/153-node radial-grid difference is below \(0.1\%\) for the total and every physical polarization over the full coupling scan.
+The table above is the \(R_{\rm far}=R_\nu\) interior luminosity. We separately compared the \(R_{\rm far}=100\) km curve, including its unchanged energy-dependent vacuum-neutrino-decay tail. Since the tail can suppress the curve by hundreds of orders of magnitude, the pointwise relative comparison is restricted to points where the 153-node reference exceeds \(10^{-8}\) of its curve peak. The maximum differences are:
+
+| Quantity at \(R_{\rm far}=100\) km | Absolute difference / curve peak | Maximum relevant pointwise relative difference |
+|---|---:|---:|
+| Total, three modes | \(1.60963\times10^{-4}\) | \(1.10973\times10^{-3}\) |
+| Longitudinal \(L\) | \(1.25433\times10^{-4}\) | \(1.01870\times10^{-3}\) |
+| Transverse \(+\) | \(1.63399\times10^{-4}\) | \(1.12327\times10^{-3}\) |
+| Transverse \(-\) | \(1.87572\times10^{-4}\) | \(1.16930\times10^{-3}\) |
+
+Across both outer-boundary conventions and all three polarizations, the maximum relevant pointwise relative difference is \(0.11693\\%\\), and the largest absolute difference normalized to the corresponding curve peak is \(0.02573\\%\\). The raw all-point relative maximum of \(26.07\\%\\) occurs at \(g_X=8.91251\\times10^{-7}\), where the 100 km reference is only \(8.74\\times10^{-306}\) of its peak; it is a numerical underflow tail and is excluded by the stated flux-relevance criterion.
 
 The integrated surface asymptote also changes by only
 \[
