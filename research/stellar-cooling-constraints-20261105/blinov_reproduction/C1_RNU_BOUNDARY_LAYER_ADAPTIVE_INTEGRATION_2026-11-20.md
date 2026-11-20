@@ -2,7 +2,7 @@
 
 Date: 2026-11-20
 
-Status: **103-node C1 adaptive calculation completed successfully; independent 153-node radial refinement is running.**
+Status: **103/153-node adaptive radial convergence passed; energy-order refinement is the next numerical acceptance gate.**
 
 ## 1. Objective
 
@@ -127,12 +127,39 @@ L_{\rm Simpson}\simeq g_X^2\,\frac{h}{3}\,S(R_\nu).
 
 It therefore grows as \(g_X^2\) and changes in proportion to \(h\) when the grid is refined. The physical integral instead has the finite limit \(S(R_\nu)/\kappa(R_\nu)\).
 
-The independent 153-node calculation uses the same profile, coupling grid, energy quadrature, angular order, susceptibility order, and polarization definitions. Its purpose is to quantify the radial interpolation uncertainty, which is not included in the QUADPACK error estimate.
+The independent 153-node calculation uses the same profile, coupling grid, energy quadrature, angular order, susceptibility order, and polarization definitions. It quantifies radial interpolation uncertainty, which is not included in the QUADPACK error estimate.
 
-The earlier Simpson-based C1 grid audit provides an independent diagnosis of the problem. Raising the requested radial grid from 101 to 151 points (103 to 153 actual nodes) changed the \(R_{\rm far}=R_\nu\) total and each mode curve by \(0.3333333\), while the corresponding \(R_{\rm far}=100\) km curves changed by only \(2.47\times10^{-4}\). The thin-source changes were at most \(5.65\times10^{-4}\). By contrast, increasing the energy order from 32 to 48 changed the \(R_\nu\) total curve by only \(1.32\times10^{-7}\), and increasing the B.7 neutrino angular order from 128 to 192 changed it by less than \(10^{-14}\). The \(33.3\%\) radial change is therefore isolated to the \(R_\nu\) Simpson endpoint contribution; the adaptive 103/153 comparison directly tests whether that artifact is removed.
+## 7. Adaptive 103/153-node radial convergence
+
+The full 121-point coupling curves were compared point by point using
+\[
+\delta_{\rm rad}^{\max}
+=\max_{g_X}\frac{|L_{153}(g_X)-L_{103}(g_X)|}{L_{153}(g_X)}.
+\]
+The maximum differences are:
+
+| Quantity | Maximum relative difference | Coupling |
+|---|---:|---:|
+| Total, three modes | \(9.80258\times10^{-4}\) | \(1.33352\times10^{-7}\) |
+| Longitudinal \(L\) | \(9.80010\times10^{-4}\) | \(1.33352\times10^{-7}\) |
+| Transverse \(+\) | \(9.75527\times10^{-4}\) | \(1.33352\times10^{-7}\) |
+| Transverse \(-\) | \(9.85238\times10^{-4}\) | \(1.33352\times10^{-7}\) |
+
+Thus the 103/153-node radial-grid difference is below \(0.1\%\) for the total and every physical polarization over the full coupling scan.
+
+The integrated surface asymptote also changes by only
+\[
+\frac{|L_{\rm surf}^{103}-L_{\rm surf}^{153}|}
+{L_{\rm surf}^{153}}=1.757\times10^{-9}.
+\]
+The high-coupling adaptive integral reaches the surface asymptote on both grids with relative residuals below \(4\times10^{-16}\). Across both grids, the maximum QUADPACK relative-error estimate is \(1.38313\times10^{-7}\), and the maximum three-mode sum residual is \(2.21334\times10^{-16}\).
+
+This resolves the earlier \(33.3\%\) 103/153-node discrepancy: that discrepancy belongs to the fixed-grid Simpson endpoint weight and is absent in the surface-centered adaptive integral. It is not a physical radial-grid sensitivity of the converged C1 transport result.
+
+The separate legacy Simpson comparison remains archived. Its large strong-coupling ratios are a diagnostic of the endpoint-weight failure, not alternative luminosity predictions. The adaptive radial result is now the accepted C1 interior-profile numerical baseline. Energy-order convergence of the adaptive integral is the next acceptance gate.
 
 
-## 7. Acceptance
+## 8. Acceptance
 
 The 10 MeV C1 baseline uses the reviewed SFHo-18.8 profile, 103 actual radial nodes, 32 energy nodes, 121 coupling points, and all three physical polarizations.
 
