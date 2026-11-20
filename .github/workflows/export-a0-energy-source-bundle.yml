@@ -6,6 +6,10 @@ on:
       - research/croon-vector-benchmark-and-rate-corrections-20261119
     paths:
       - '.github/workflows/export-a0-energy-source-bundle.yml'
+      - 'research/stellar-cooling-constraints-20261105/rates.py'
+      - 'research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/**'
+      - 'research/stellar-cooling-constraints-20261105/finite_mixing/**'
 
 permissions:
   contents: read
