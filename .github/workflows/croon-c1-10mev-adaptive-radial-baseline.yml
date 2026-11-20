@@ -37,7 +37,7 @@ jobs:
         env:
           PYTHONPATH: ..
         run: python -m unittest -v test_croon_c1_b13_vector_transport.py
-      - name: Compute 10 MeV C1 transport with independent adaptive radial integration
+      - name: Compute 10 MeV C1 transport on the 103-node radial grid
         working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
         env:
           PYTHONPATH: ..
@@ -53,59 +53,153 @@ jobs:
             --adaptive-radial \
             --output outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_2026-11-20.json \
             --csv outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_2026-11-20.csv
-      - name: Validate adaptive luminosity curves and mode closure
+      - name: Compute independent 10 MeV C1 transport on the 153-node radial grid
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        env:
+          PYTHONPATH: ..
+        run: |
+          python croon_c1_b13_vector_transport.py \
+            --masses 10.0 \
+            --radial-points 151 \
+            --energy-order 32 \
+            --inner-orders 12,8,8,8 \
+            --neutrino-order 128 \
+            --susceptibility-order 192 \
+            --coupling-count 121 \
+            --adaptive-radial \
+            --output outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_2026-11-20.json \
+            --csv outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_2026-11-20.csv
+      - name: Validate adaptive integration and 103/153-node radial convergence
         working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
         run: |
           python - <<'PY'
           import json, math
           from pathlib import Path
-          path = Path("outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_2026-11-20.json")
-          data = json.loads(path.read_text())
-          assert data["numerics"]["adaptive_radial_enabled"] is True
-          item = data["masses"]["10"]
-          assert item["adaptive_radial_enabled"] is True
-          assert item["radial_points"] == 103
-          assert item["energy_points"] == 32
-          assert item["polarization_modes"] == ["L", "+", "-"]
-          assert len(item["coupling_curve"]) == 121
-          assert all(v is not None and v > 0 for v in item["adaptive_radial_surface_asymptote_Rnu_erg_s_by_mode"].values())
-          for row in item["coupling_curve"]:
-              for key in (
-                  "Rfar_Rnu_adaptive_quad",
-                  "Rfar_100km_vacuum_nu_tail_adaptive_quad",
-                  "Rfar_Rnu_adaptive_quad_relative_error_estimate",
-                  "Rfar_100km_vacuum_nu_tail_adaptive_quad_relative_error_estimate",
-              ):
-                  assert math.isfinite(row[key]) and row[key] >= 0, (key, row[key])
-              assert row["Rfar_100km_vacuum_nu_tail_adaptive_quad"] <= row["Rfar_Rnu_adaptive_quad"] * (1.0 + 1e-12)
-              for label in ("Rfar_Rnu", "Rfar_100km_vacuum_nu_tail"):
-                  mode_key = label + "_adaptive_quad_by_mode_erg_s"
-                  total_key = label + "_adaptive_quad"
-                  error_mode_key = label + "_adaptive_quad_relative_error_estimate_by_mode"
-                  modes = row[mode_key]
-                  assert set(modes) == {"L", "+", "-"}
-                  assert all(math.isfinite(v) and v >= 0 for v in modes.values())
-                  assert set(row[error_mode_key]) == {"L", "+", "-"}
-                  assert all(math.isfinite(v) and v < 1e-6 for v in row[error_mode_key].values())
-                  residual = abs(sum(modes.values()) - row[total_key]) / max(abs(row[total_key]), 1e-300)
-                  assert residual < 1e-12
-          max_error = max(
-              max(
-                  row["Rfar_Rnu_adaptive_quad_relative_error_estimate"],
-                  row["Rfar_100km_vacuum_nu_tail_adaptive_quad_relative_error_estimate"],
-                  *row["Rfar_Rnu_adaptive_quad_relative_error_estimate_by_mode"].values(),
-                  *row["Rfar_100km_vacuum_nu_tail_adaptive_quad_relative_error_estimate_by_mode"].values(),
-              )
-              for row in item["coupling_curve"]
+
+          coarse_path = Path("outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_2026-11-20.json")
+          fine_path = Path("outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_2026-11-20.json")
+          coarse = json.loads(coarse_path.read_text())
+          fine = json.loads(fine_path.read_text())
+          coarse_item = coarse["masses"]["10"]
+          fine_item = fine["masses"]["10"]
+          assert coarse["numerics"]["adaptive_radial_enabled"] is True
+          assert fine["numerics"]["adaptive_radial_enabled"] is True
+          assert coarse_item["radial_points"] == 103
+          assert fine_item["radial_points"] == 153
+          assert coarse_item["energy_points"] == fine_item["energy_points"] == 32
+          assert coarse_item["polarization_modes"] == fine_item["polarization_modes"] == ["L", "+", "-"]
+          coarse_curve = coarse_item["coupling_curve"]
+          fine_curve = fine_item["coupling_curve"]
+          assert len(coarse_curve) == len(fine_curve) == 121
+          assert [r["g_X"] for r in coarse_curve] == [r["g_X"] for r in fine_curve]
+
+          def max_rel(values_a, values_b):
+              pairs = [
+                  (abs(a-b) / max(abs(b), 1e-300), i)
+                  for i, (a,b) in enumerate(zip(values_a, values_b))
+              ]
+              return max(pairs)
+
+          max_quad_error = 0.0
+          max_mode_closure = 0.0
+          for item, curve in ((coarse_item, coarse_curve), (fine_item, fine_curve)):
+              assert item["adaptive_radial_enabled"] is True
+              for row in curve:
+                  for key in (
+                      "Rfar_Rnu_adaptive_quad",
+                      "Rfar_100km_vacuum_nu_tail_adaptive_quad",
+                      "Rfar_Rnu_adaptive_quad_relative_error_estimate",
+                      "Rfar_100km_vacuum_nu_tail_adaptive_quad_relative_error_estimate",
+                  ):
+                      assert math.isfinite(row[key]) and row[key] >= 0, (key, row[key])
+                  assert row["Rfar_100km_vacuum_nu_tail_adaptive_quad"] <= row["Rfar_Rnu_adaptive_quad"] * (1.0 + 1e-12)
+                  for label in ("Rfar_Rnu", "Rfar_100km_vacuum_nu_tail"):
+                      mode_key = label + "_adaptive_quad_by_mode_erg_s"
+                      total_key = label + "_adaptive_quad"
+                      error_mode_key = label + "_adaptive_quad_relative_error_estimate_by_mode"
+                      modes = row[mode_key]
+                      assert set(modes) == {"L", "+", "-"}
+                      assert all(math.isfinite(v) and v >= 0 for v in modes.values())
+                      assert set(row[error_mode_key]) == {"L", "+", "-"}
+                      assert all(math.isfinite(v) and v < 1e-6 for v in row[error_mode_key].values())
+                      residual = abs(sum(modes.values()) - row[total_key]) / max(abs(row[total_key]), 1e-300)
+                      assert residual < 1e-12
+                      max_mode_closure = max(max_mode_closure, residual)
+                  max_quad_error = max(
+                      max_quad_error,
+                      row["Rfar_Rnu_adaptive_quad_relative_error_estimate"],
+                      row["Rfar_100km_vacuum_nu_tail_adaptive_quad_relative_error_estimate"],
+                      *row["Rfar_Rnu_adaptive_quad_relative_error_estimate_by_mode"].values(),
+                      *row["Rfar_100km_vacuum_nu_tail_adaptive_quad_relative_error_estimate_by_mode"].values(),
+                  )
+          assert max_quad_error < 1e-6, max_quad_error
+
+          surface_results = {}
+          for label, item in (("103", coarse_item), ("153", fine_item)):
+              surface = item["adaptive_radial_surface_asymptote_Rnu_erg_s_by_mode"]
+              high = item["coupling_curve"][-1]["Rfar_Rnu_adaptive_quad_by_mode_erg_s"]
+              surface_total = sum(surface.values())
+              high_total = item["coupling_curve"][-1]["Rfar_Rnu_adaptive_quad"]
+              total_residual = abs(high_total-surface_total)/surface_total
+              mode_residuals = {
+                  mode: abs(high[mode]-surface[mode])/surface[mode]
+                  for mode in ("L", "+", "-")
+              }
+              assert total_residual < 1e-6, (label, total_residual)
+              assert max(mode_residuals.values()) < 1e-6, (label, mode_residuals)
+              surface_results[label] = {
+                  "by_mode_erg_s": surface,
+                  "total_erg_s": surface_total,
+                  "high_g_total_relative_residual": total_residual,
+                  "high_g_mode_relative_residuals": mode_residuals,
+              }
+
+          coarse_total = [r["Rfar_Rnu_adaptive_quad"] for r in coarse_curve]
+          fine_total = [r["Rfar_Rnu_adaptive_quad"] for r in fine_curve]
+          total_max, total_i = max_rel(coarse_total, fine_total)
+          mode_convergence = {}
+          for mode in ("L", "+", "-"):
+              a = [r["Rfar_Rnu_adaptive_quad_by_mode_erg_s"][mode] for r in coarse_curve]
+              b = [r["Rfar_Rnu_adaptive_quad_by_mode_erg_s"][mode] for r in fine_curve]
+              value, index = max_rel(a, b)
+              mode_convergence[mode] = {"max_relative_difference": value, "at_g_X": coarse_curve[index]["g_X"]}
+          convergence = {
+              "coarse_radial_points": 103,
+              "fine_radial_points": 153,
+              "coupling_points": 121,
+              "max_relative_difference_total": total_max,
+              "max_difference_at_g_X": coarse_curve[total_i]["g_X"],
+              "per_mode": mode_convergence,
+              "one_percent_target_met": total_max < 0.01 and all(x["max_relative_difference"] < 0.01 for x in mode_convergence.values()),
+          }
+
+          legacy_rows = []
+          for target in (1e-11, 1e-7, 1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1.0):
+              i = min(range(len(coarse_curve)), key=lambda j: abs(math.log(coarse_curve[j]["g_X"]/target)))
+              row = coarse_curve[i]
+              legacy_rows.append({
+                  "g_X": row["g_X"],
+                  "legacy_simpson_over_adaptive": row["Rfar_Rnu"]/row["Rfar_Rnu_adaptive_quad"],
+              })
+
+          report = {
+              "title": "C1 10 MeV adaptive radial integration and radial-grid convergence",
+              "status": "one-percent radial convergence target met" if convergence["one_percent_target_met"] else "radial refinement comparison completed; further refinement required",
+              "profile_sha256": coarse["source_profile"]["sha256"],
+              "energy_order": coarse["numerics"]["energy_order"],
+              "neutrino_angular_order": coarse["numerics"]["neutrino_angular_order"],
+              "susceptibility_order": coarse["numerics"]["susceptibility_order"],
+              "coupling_range": coarse["numerics"]["coupling_range"],
+              "max_quadpack_relative_error_estimate": max_quad_error,
+              "max_mode_sum_relative_residual": max_mode_closure,
+              "surface_asymptote": surface_results,
+              "radial_grid_convergence": convergence,
+              "legacy_simpson_over_adaptive_samples": legacy_rows,
+          }
+          Path("outputs/C1_RNU_10MEV_ADAPTIVE_RADIAL_CONVERGENCE_2026-11-20.json").write_text(
+              json.dumps(report, indent=2) + "\n"
           )
-          assert max_error < 1e-6, max_error
-          print("Adaptive radial C1 10 MeV baseline: PASS")
-          print("surface asymptote [erg/s]:", item["adaptive_radial_surface_asymptote_Rnu_erg_s_by_mode"])
-          print("maximum QUADPACK relative error estimate:", max_error)
-          for row in (item["coupling_curve"][0], item["coupling_curve"][60], item["coupling_curve"][-1]):
-              print("gX", row["g_X"],
-                    "L_Rnu", row["Rfar_Rnu_adaptive_quad"],
-                    "L_100km", row["Rfar_100km_vacuum_nu_tail_adaptive_quad"])
+          print(json.dumps(report, indent=2))
           PY
       - name: Create SHA-256 manifest for adaptive native outputs
         working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
@@ -113,6 +207,9 @@ jobs:
           sha256sum \
             outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_2026-11-20.json \
             outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_2026-11-20.csv \
+            outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_2026-11-20.json \
+            outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_2026-11-20.csv \
+            outputs/C1_RNU_10MEV_ADAPTIVE_RADIAL_CONVERGENCE_2026-11-20.json \
             > outputs/SHA256SUMS_croon_c1_adaptive_radial_2026-11-20.txt
       - name: Upload native adaptive outputs before Git archival
         uses: actions/upload-artifact@v4
@@ -121,6 +218,9 @@ jobs:
           path: |
             research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_2026-11-20.json
             research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_2026-11-20.csv
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_2026-11-20.json
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_2026-11-20.csv
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/C1_RNU_10MEV_ADAPTIVE_RADIAL_CONVERGENCE_2026-11-20.json
             research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/SHA256SUMS_croon_c1_adaptive_radial_2026-11-20.txt
           if-no-files-found: error
       - name: Commit adaptive radial results to the research branch
@@ -133,6 +233,9 @@ jobs:
           git add \
             research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_2026-11-20.json \
             research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_2026-11-20.csv \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_2026-11-20.json \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_2026-11-20.csv \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/C1_RNU_10MEV_ADAPTIVE_RADIAL_CONVERGENCE_2026-11-20.json \
             research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/SHA256SUMS_croon_c1_adaptive_radial_2026-11-20.txt
           if ! git diff --cached --quiet; then
             git commit -m "Archive C1 adaptive radial boundary-layer baseline"
