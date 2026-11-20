@@ -367,3 +367,42 @@ after these checks pass.
 The A0 energy audit is a distinct calculation. C1's energy convergence does
 not establish A0 energy convergence because the axial current changes the
 longitudinal production and absorption kernels.
+
+## 11. Goldstone-Yukawa perturbativity mask for the six-mass scan
+
+Before accepting the A0 six-mass scan, the UV longitudinal sector needs a coupling-domain mask. The finite-mixing model gives
+\[
+g_A^\mu=-g_X\cos^2\theta_{\mu R},\qquad m_{A'}=2g_Xv_s,
+\]
+and the Goldstone-equivalence relation is
+\[
+y_{G\mu\mu}=\frac{2|g_A^\mu|m_\mu}{m_{A'}}
+=\frac{2g_X\cos^2\theta_{\mu R}m_\mu}{m_{A'}}
+=\frac{\cos^2\theta_{\mu R}m_\mu}{v_s}.
+\]
+
+Using the conservative Yukawa perturbativity criterion
+\[
+\alpha_G\equiv\frac{y_{G\mu\mu}^2}{4\pi}\leq1,
+\]
+the maximum perturbative gauge coupling at fixed mediator mass is
+\[
+\boxed{g_X^{\rm pert}(m_{A'})=
+\frac{\sqrt{4\pi}\,m_{A'}}{2m_\mu\cos^2\theta_{\mu R}}.}
+\]
+This is a theory-validity mask, not an additional supernova exclusion. The full transport curve can be retained for numerical diagnostics, while the physically interpreted A0 parameter region is restricted to the points below this line.
+
+For the existing 121-point scan, \(g_X\in[10^{-11},1]\), and \(\theta_{\mu R}=10^{-2}\), the local calculation gives:
+
+| \(m_{A'}\) | \(g_X^{\rm pert}\) | Perturbative scan points |
+|---:|---:|---:|
+| 0.1 eV | \(1.6777\times10^{-9}\) | 25/121 |
+| 1 eV | \(1.6777\times10^{-8}\) | 36/121 |
+| 10 eV | \(1.6777\times10^{-7}\) | 47/121 |
+| 0.1 MeV | \(1.6777\times10^{-3}\) | 90/121 |
+| 10 MeV | \(1.6777\times10^{-1}\) | 112/121 |
+| 200 MeV | 3.3554 | 121/121 |
+
+At 10 MeV, for example, the endpoint \(g_X=1\) gives \(y_{G\mu\mu}=21.13\) and \(\alpha_G=35.53\), outside this conservative perturbative criterion. The accepted 10 MeV radial-convergence result remains a valid numerical transport diagnostic; its nonperturbative high-\(g_X\) points must not be used as perturbative model bounds. At 200 MeV the entire scanned interval satisfies the criterion.
+
+The reproducible calculation is in audit_a0_goldstone_perturbativity.py, with its JSON and CSV outputs in outputs/A0_GOLDSTONE_PERTURBATIVITY_WINDOW_2026-11-20.{json,csv}. This mask will be carried into the six-mass scan and its final plots.
