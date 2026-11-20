@@ -207,7 +207,16 @@ The accepted local source coefficients per \(g_X^2\) are:
 | B.13, \(\mu^-+\mu^+\) | \(4.28493795\times10^{71}\) |
 | B.7 + B.13 | \(4.73006243\times10^{71}\) |
 
-On the same 103-node, energy-32 grid, the optically-thin A0 source is (9.12381) times the C1 pure-vector source. Within A0, B.13 contributes (90.5895\%\) of the total thin source, with (B.13/B.7=9.62638). The (mu^+) target contributes (0.68369\%\) of the B.13 source; it is included explicitly rather than absorbed into an effective susceptibility.
+On the same 103-node, energy-32 grid, the optically thin A0 source is 9.12381 times the C1 pure-vector source. Within A0, B.13 contributes 90.5895% of the total thin source, with B.13/B.7 = 9.62638. The mu-plus target contributes 0.68369% of the B.13 source; it is included explicitly rather than absorbed into an effective susceptibility.
+
+The mode decomposition shows why the axial calculation cannot be obtained by rescaling the vector luminosity:
+
+| B.13 source | Longitudinal L fraction | Transverse + fraction | Transverse - fraction |
+|---|---:|---:|---:|
+| A0 original-UV V-A current | 96.4692% | 1.76552% | 1.76531% |
+| C1 pure-vector current | 1.61501% | 49.1925% | 49.1925% |
+
+At fixed g_X, the A0/C1 B.13 thin-source ratios are 3491.53 in L, 2.09786 in +, and 2.09762 in -; the total B.13 ratio is 58.4525. This large longitudinal enhancement is the finite-temperature transport signature of the nonconserved axial current and its physical longitudinal-vector/Goldstone-equivalence contribution. It requires mode-resolved production and absorption in A0.
 
 The B.7 source agrees with the accepted C1 same-grid source in the total and each polarization. The detailed-balance and shell checks are:
 
