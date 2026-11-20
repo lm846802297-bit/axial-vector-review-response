@@ -270,6 +270,26 @@ The first crossing below unity occurs between
 
 This comparison is a diagnostic from the 103-node baseline. The independent 153-node A0 refinement is required before quoting the radial uncertainty of the A0/C1 ratio. The outer 25--100 km semi-Compton opacity remains omitted; these values are not SN1987A limits.
 
+## 8.2 Accepted 153-node A0/C1 comparison
+
+The independent A0 153-node, energy-32 refinement has now passed. On the same 153-node/energy-32 grid, the thin-source ratios are:
+
+| Channel | A0/C1 source ratio |
+|---|---:|
+| B.7, nu_mu + nu_tau | 1.00000 |
+| B.13, mu-minus | 58.4603 |
+| B.13, mu-plus | 58.1062 |
+| B.13, both charges | 58.4578 |
+| B.7 + B.13 total | 9.12764 |
+
+The B.13 mode ratios are 3492.32 in L, 2.09779 in +, and 2.09754 in -. The B.7 source agrees exactly with C1 in the total and all three modes. Thus the large A0 enhancement is localized in the charged-muon B.13 current, particularly its longitudinal mode; it is not a neutrino normalization change.
+
+For the neutrinosphere boundary R_far=R_nu, the 121-point escaped-luminosity ratio has maximum 9.12551 at g_X=10^-11 and minimum 0.739221 at g_X=8.7431e-8. It returns to unity in the surface-limited high-coupling regime. The first crossing below unity lies between g_X=3.0432e-8 and 3.7584e-8. These values are based on the accepted 153-node A0 result and the matching C1 153-node/energy-32 output.
+
+The A0 radial-grid acceptance report gives a maximum normalized change metric of 0.00402177 against a 0.01 target. The largest relevant pointwise curve difference is 0.40218% (longitudinal mode, R_far=100 km); the total-luminosity differences are 0.09852% for R_far=R_nu and 0.11666% for R_far=100 km. Thin-source changes from 103 to 153 nodes are 0.06177% for B.13 (both charges), 0.00850% for B.7, and 0.05676% for B.7+B.13.
+
+The numerical checks also pass: maximum QUADPACK relative-error estimate 3.5721e-7; three-mode closure 2.19e-16; B.7 detailed-balance residual 3.46e-14; B.13 charge/mode detailed-balance residual 5.78e-14; final-muon shell residual 5.38e-13; and high-coupling surface-asymptote residual below 5.6e-16. The native JSON, CSV, convergence report, and SHA-256 manifest are committed in the PR branch.
+
 ## 9. Current execution and acceptance
 
 A0 implementation and tests are committed to the PR #123 research branch.
@@ -316,13 +336,13 @@ Source: finite_mixing/thermal_integrals/outputs/b13_moving_muon_explicit_spinor_
 
 ## 10. Independent A0 radial and energy convergence
 
-The first A0 153-node radial attempt, [workflow #44661771748](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44661771748), completed the numerical integration but failed its post-processing validator because the independently generated 121-point coupling grids were compared bit-for-bit. The grids are numerically identical to floating-point precision; the validator was corrected to require a maximum relative difference below 1e-13, matching the robust comparison convention used elsewhere.
+The first A0 153-node radial attempt, [workflow #44661771748](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44661771748), completed the numerical integration but failed its post-processing validator because the independently generated 121-point coupling grids were compared bit-for-bit. The grids are numerically identical to floating-point precision; the validator was corrected to require a maximum relative difference below 1e-13.
 
-The corrected 153-node radial refinement is currently running in [workflow #44671688630](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44671688630). Its kernel tests have passed; the active step is the independent adaptive radial computation. No A0 radial-convergence number is accepted until the computation, validator, checksum, and Git archival steps all complete.
+The corrected 153-node radial refinement passed in [workflow #44671688630](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44671688630). Its native JSON, CSV, convergence report, and SHA-256 manifest are committed to the research branch. The accepted numerical results and tolerances are recorded in Sec. 8.2 above.
 
-The A0 energy-order audit is implemented in audit_croon_a0_10mev_adaptive_energy_convergence.py. Its first attempt, [workflow #44671693423](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44671693423), stopped at the input gate because the A0 153-node reference had not yet been committed; no energy-order-48 computation was performed. The gate was changed to defer cleanly rather than mark a not-yet-runnable calculation as a failure. The deferral checks [#44672658393](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44672658393) and [#44673027259](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44673027259) completed successfully with the numerical stage skipped because the reference output is still pending.
+The A0 energy-order audit is implemented in audit_croon_a0_10mev_adaptive_energy_convergence.py. Its first attempt, [workflow #44671693423](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44671693423), stopped at the input gate because the A0 153-node reference had not yet been committed; no energy-order-48 computation was performed. The gate was changed to defer cleanly rather than mark a not-yet-runnable calculation as a failure. The deferral checks [#44672658393](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44672658393) and [#44673027259](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44673027259) completed successfully with the numerical stage skipped.
 
-The energy-audit coupling-grid validator was also changed from bitwise equality to a 1e-13 maximum relative tolerance. Once the radial-153 output is archived, the energy audit will be explicitly retriggered against that output and the already archived C1 153-node/energy-48 reference.
+The energy-audit coupling-grid validator was changed from bitwise equality to a 1e-13 maximum relative tolerance. The workflow now records SHA-256 fingerprints of the A0 153-node/energy-32 and C1 153-node/energy-48 reference outputs before computing. The newly triggered audit is queued in [workflow #44673753335](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44673753335).
 
 The energy comparison holds fixed the 153-node radial grid, 121-point
 \(g_X\) grid, \(\theta_{\mu R}=10^{-2}\), neutrino angular order 128,
