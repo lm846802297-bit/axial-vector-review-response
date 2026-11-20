@@ -1134,3 +1134,14 @@ The exact moving-muon B.13 local kernel already resolves \(L,+,-\), both muon ch
 Local maxima: spinor/trace relative residual \(1.77\times10^{-13}\); explicit photon-Ward amplitude residual \(1.47\times10^{-13}\); final-muon shell residual \(6.52\times10^{-16}\); vector longitudinal Ward-shift residual \(3.54\times10^{-14}\). All mode matrix elements are nonnegative. The dedicated P1 GitHub Actions workflow completed successfully: [run #43372084167](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43372084167).
 
 This is a pointwise amplitude validation, not a dense continuous-domain thermal convergence bound or global independent-mode transport result. The scalar B.2 baseline and axial-vector production outputs remain unchanged.
+
+## Structured result archive — C1 10 MeV (2026-11-20)
+
+- **Archive workflow:** [#44668361374](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44668361374) — success.
+- **Archive location:** `research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/`.
+- **Records:** `run_manifest.json`, `result_summary.json`, `validation_report.json`, `convergence_report.json`, `coupling_curve.csv`, `SHA256SUMS.txt`.
+- **Integrity:** JSON Schema, source/input provenance, output hashes, CSV row counts, column headers and units validated.
+- **Numerical status:** radial 103/153 comparison 0.11693% (<0.12%); energy 32/48 maximum metric (1.3031\times10^{-7}) (<(10^{-4})).
+- **Physical scope:** overall validation is `partial` by design. The outer 25–100 km B.13 semi-Compton opacity is not included, and no final SN1987A exclusion curve is claimed.
+- **Execution policy:** the archive-only workflow packages the existing C1 outputs; it does not rerun the physics integration.
+- **PR:** [#123](https://github.com/lm846802297-bit/axial-vector-review-response/pull/123), still open and unmerged.
