@@ -136,10 +136,22 @@ def main():
         raise ValueError("Unexpected A0 refined radial or energy grid")
     if item["polarization_modes"] != list(MODES):
         raise ValueError("Unexpected A0 polarization basis")
-    if len(curve) != len(base_curve) or any(
-        a["g_X"] != b["g_X"] for a, b in zip(base_curve, curve)
-    ):
-        raise ValueError("A0 coupling grids do not match")
+    if len(curve) != len(base_curve):
+        raise ValueError(
+            f"A0 coupling-grid length mismatch: baseline={len(base_curve)}, refined={len(curve)}"
+        )
+    coupling_grid_relative_difference = max(
+        _relative_change(a["g_X"], b["g_X"])
+        for a, b in zip(base_curve, curve)
+    )
+    # Independently generated logspace grids can differ by a few ulps across
+    # NumPy/libm implementations. Require numerical identity, not bitwise
+    # equality of binary floating-point representations.
+    if coupling_grid_relative_difference > 1.0e-13:
+        raise ValueError(
+            "A0 coupling grids differ physically: "
+            f"maximum relative difference={coupling_grid_relative_difference:.6e}"
+        )
 
     json_path, csv_path = _write_payload(payload)
 
@@ -309,6 +321,7 @@ def main():
             "are reported over the full curve."
         ),
         "target": TARGET_NORMALIZED,
+        "coupling_grid_max_relative_difference": coupling_grid_relative_difference,
         "maximum_over_all_reported_metrics": maximum_metric,
         "total_curve_changes": total_changes,
         "mode_curve_changes": mode_changes,
