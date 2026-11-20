@@ -78,7 +78,7 @@ Do not merge these file roles or copy internal workflow content into the referee
 
 ## 5. Numerical calculation result submission and reproducibility
 
-All numerical work must follow [RESEARCH_COMPUTE_POLICY.md](RESEARCH_COMPUTE_POLICY.md): run the primary calculation in the current ChatGPT Linux environment when available, archive source/inputs/native outputs in GitHub, and use Actions only for independent verification and CI. Here, “local” means the active ChatGPT Linux session, not the user's Windows computer.
+All numerical work must follow [RESEARCH_COMPUTE_POLICY.md](RESEARCH_COMPUTE_POLICY.md): ordinary GPT chat uses ChatGPT Linux as the primary environment; Codex and ChatGPT Work use the user's Windows local environment. Archive source/inputs/native outputs in GitHub, and use Actions only for independent verification and CI. “Local” means the active mode's primary execution environment.
 
 The following rules are mandatory for numerical research, phenomenology, data processing, and computational validation carried out for this project.
 
