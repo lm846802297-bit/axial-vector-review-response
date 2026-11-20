@@ -256,6 +256,18 @@ The accepted A0 103-node output contains both the legacy Simpson columns and the
 
 At low coupling, the UV axial charged-muon current increases the interior-profile escaped luminosity relative to the pure-vector C1 reference. At larger coupling the two curves approach the same surface-limited value. This is expected from the surface detailed-balance limit: once the escape layer is confined to the neutrinosphere boundary, the limiting luminosity depends on the common local Bose factor rather than the interior source normalization.
 
+A full 121-point comparison of the 103-node adaptive curves gives
+\[
+\max_{g_X}\frac{L_{\rm A0}}{L_{\rm C1}}=9.12732
+\quad(g_X=10^{-11}),
+\qquad
+\min_{g_X}\frac{L_{\rm A0}}{L_{\rm C1}}=0.739287
+\quad(g_X=8.7431\times10^{-8}).
+\]
+The first crossing below unity occurs between
+\(g_X=3.0432\times10^{-8}\) and
+\(3.7584\times10^{-8}\). The longitudinal ratio is the dominant source of the low-coupling enhancement; the two transverse ratios remain near 1.2 at the weakest coupling. These are 103-node diagnostics and will be recomputed from the accepted 153-node A0 result.
+
 This comparison is a diagnostic from the 103-node baseline. The independent 153-node A0 refinement is required before quoting the radial uncertainty of the A0/C1 ratio. The outer 25--100 km semi-Compton opacity remains omitted; these values are not SN1987A limits.
 
 ## 9. Current execution and acceptance
@@ -283,31 +295,34 @@ The A0 baseline acceptance requires:
 7. native-output SHA-256 manifest, artifact upload, and rebased Git archival.
 
 After the baseline, A0 requires its own 103/153 radial and energy-order convergence scans. The 153-node radial audit script is committed as audit_croon_a0_10mev_adaptive_radial_convergence.py.
-C1 grid convergence does not automatically establish A0 convergence
-because the axial longitudinal source and opacity have different
-kinematic weights.
+C1 grid convergence does not automatically establish A0 convergence because the axial longitudinal source and opacity have different kinematic weights.
 
-Only after the A0 10 MeV convergence audit should the A0 six-mass scan be
-accepted. No A0 exclusion curve is produced by this diagnostic stage.
+Only after the A0 10 MeV convergence audit should the A0 six-mass scan be accepted. No A0 exclusion curve is produced by this diagnostic stage.
 
+## 9.1 Independent explicit-spinor and Ward audit
 
-## 10. Independent A0 energy-order convergence audit
+The separate B.13 explicit-spinor audit covers five kinematic points and six current/charge cases (vector, axial, and mixed currents for both mu-minus and mu-plus). Its archived results are:
 
-The independent 153-node A0 radial calculation is running in
-[workflow #44661771748](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44661771748).
-The kernel regression tests completed successfully; the active step is the
-153-node adaptive radial refinement. Its result has not yet been accepted or
-archived, so no A0 radial-convergence number is quoted here.
+| Audit quantity | Maximum residual |
+|---|---:|
+| Explicit-spinor sum vs Dirac trace | 1.77e-13 |
+| Photon Ward amplitude | 1.47e-13 |
+| Vector longitudinal Ward shift | 3.54e-14 |
+| Final-muon mass shell | 6.52e-16 |
 
-The separate energy-order audit is now implemented in
-\`audit_croon_a0_10mev_adaptive_energy_convergence.py\`, with workflow
-\`.github/workflows/croon-a0-10mev-adaptive-energy-convergence.yml\`.
-The latest workflow check,
-[#44663872270](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44663872270),
-passed Python syntax validation. Its numerical stage is gated until both
-the A0 153-node/energy-32 result and the C1 153-node/energy-48 reference are
-committed. The A0 radial workflow's output push will satisfy that condition
-and trigger the energy audit automatically.
+All mode matrix elements are nonnegative. This is an amplitude-level independent validation; it does not replace the A0 thermal phase-space, radial, or energy convergence checks.
+
+Source: finite_mixing/thermal_integrals/outputs/b13_moving_muon_explicit_spinor_audit_2026-11-13.json.
+
+## 10. Independent A0 radial and energy convergence
+
+The first A0 153-node radial attempt, [workflow #44661771748](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44661771748), completed the numerical integration but failed its post-processing validator because the independently generated 121-point coupling grids were compared bit-for-bit. The grids are numerically identical to floating-point precision; the validator was corrected to require a maximum relative difference below 1e-13, matching the robust comparison convention used elsewhere.
+
+The corrected 153-node radial refinement is currently running in [workflow #44671688630](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44671688630). Its kernel tests have passed; the active step is the independent adaptive radial computation. No A0 radial-convergence number is accepted until the computation, validator, checksum, and Git archival steps all complete.
+
+The A0 energy-order audit is implemented in audit_croon_a0_10mev_adaptive_energy_convergence.py. Its first attempt, [workflow #44671693423](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44671693423), stopped at the input gate because the A0 153-node reference had not yet been committed; no energy-order-48 computation was performed. The gate was changed to defer cleanly rather than mark a not-yet-runnable calculation as a failure. The deferral checks [#44672658393](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44672658393) and [#44673027259](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44673027259) completed successfully with the numerical stage skipped because the reference output is still pending.
+
+The energy-audit coupling-grid validator was also changed from bitwise equality to a 1e-13 maximum relative tolerance. Once the radial-153 output is archived, the energy audit will be explicitly retriggered against that output and the already archived C1 153-node/energy-48 reference.
 
 The energy comparison holds fixed the 153-node radial grid, 121-point
 \(g_X\) grid, \(\theta_{\mu R}=10^{-2}\), neutrino angular order 128,
