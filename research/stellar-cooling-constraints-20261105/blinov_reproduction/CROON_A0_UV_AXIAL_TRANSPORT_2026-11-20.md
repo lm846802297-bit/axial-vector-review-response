@@ -1,7 +1,7 @@
 # Croon A0: original-UV finite-mixing axial-vector transport
 
 Date: 2026-11-20  
-Status: **10 MeV full radial transport running; A0 regression tests passed. This is not yet a converged A0 luminosity result.**
+Status: **A0 now uses the surface-centered adaptive radial integrator; the 10 MeV adaptive baseline is running, followed by an independent radial-grid convergence check.**
 
 ## 1. Purpose and separation from C1
 
@@ -180,27 +180,42 @@ At \(r=12.5\) km the total mixed-to-pure-axial ratio is \(0.99980001690\).
 These are local B.13 thermal emissivities. They are not radial
 luminosities, optical depths, or SN1987A limits.
 
-## 7. Current execution and acceptance
+## 7. Adaptive radial integration correction
+
+The first A0 output (workflow run 44588722728) was generated before the C1 surface-centered adaptive radial method was integrated into the A0 driver. Inspection of the archived JSON and source showed that this output contained only the legacy fixed-grid Simpson luminosities. It is retained as a historical diagnostic and is not an accepted strong-coupling A0 transport result.
+
+The A0 driver now passes the original finite-mixing current
+\[
+(g_V^\mu/g_X,\ g_A^\mu/g_X)
+=(\sin^2\theta_{\mu R},-\cos^2\theta_{\mu R})
+\]
+directly into the shared transport kernel with include_adaptive_radial=True. The adaptive method interpolates the A0 mode-resolved source and reduced opacity separately and computes the optical-depth boundary layer with the same surface-centered PCHIP/QUADPACK procedure accepted for C1. The legacy Simpson fields remain in the output only to make the endpoint artifact visible.
+
+The adaptive A0 acceptance checks include finite nonnegative luminosities, three-mode closure, QUADPACK error estimates below \(10^{-6}\), and agreement of the high-coupling result with the A0-specific surface asymptote. C1's numerical convergence does not substitute for A0's own radial and energy refinement.
+
+## 8. Current execution and acceptance
 
 A0 implementation and tests are committed to the PR #123 research branch.
 
 - A0 workflow: [run 44582338538](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44582338538)
 - C1 10 MeV grid convergence: [run 44577096997](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44577096997)
 
-The A0 mapping/kernel tests and the existing C1 regression tests passed
-before the 10 MeV transport calculation started.
+The A0 mapping/kernel tests and the existing C1 regression tests are rerun
+before the adaptive 10 MeV transport calculation. The current adaptive run is
+[workflow #44656918116](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44656918116).
 
 The A0 baseline acceptance requires:
 
 1. native JSON and radial CSV with 103 actual radial nodes, 32 energy
-   nodes, and 121 \(g_X\) points;
+   nodes, 121 \(g_X\) points, and adaptive-radial fields enabled;
 2. B.7 detailed balance, B.13 charge-mode detailed balance, and
    final-muon shell closure;
 3. three-polarization source and luminosity closure;
 4. exact agreement of the B.7 thin-source total and each mode with the
    same-grid accepted C1 result;
 5. finite, nonnegative source and luminosity data;
-6. native-output SHA-256 manifest, artifact upload, and rebased Git archival.
+6. QUADPACK error estimates below \(10^{-6}\) and high-coupling convergence to the A0 surface asymptote;
+7. native-output SHA-256 manifest, artifact upload, and rebased Git archival.
 
 After the baseline, A0 requires its own radial/energy convergence scan.
 C1 grid convergence does not automatically establish A0 convergence
