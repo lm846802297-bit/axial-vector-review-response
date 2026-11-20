@@ -1,0 +1,45 @@
+name: A0 low-mass spinor-kernel stability tests
+
+on:
+  push:
+    branches:
+      - research/croon-vector-benchmark-and-rate-corrections-20261119
+    paths:
+      - '.github/workflows/a0-spinor-stability-tests.yml'
+      - 'research/stellar-cooling-constraints-20261105/finite_mixing/moving_muon_compton.py'
+      - 'research/stellar-cooling-constraints-20261105/finite_mixing/test_thermal_rates.py'
+      - 'research/stellar-cooling-constraints-20261105/finite_mixing/test_b13_moving_muon_spinor_reference.py'
+      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/audit_b13_moving_muon_spinor_reference.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_croon_a0_uv_axial_transport.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_croon_c1_b13_vector_transport.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  spinor-kernel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install numerical dependencies
+        run: python -m pip install numpy==2.5.5 scipy==1.18.1
+      - name: Run A0 and C1 transport regressions
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        env:
+          PYTHONPATH: ..
+        run: |
+          python -m unittest -v \
+            test_croon_a0_uv_axial_transport.py \
+            test_croon_c1_b13_vector_transport.py
+      - name: Run moving-muon thermal and low-mass spinor references
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        env:
+          PYTHONPATH: ..
+        run: |
+          python ../finite_mixing/test_thermal_rates.py
+          python ../finite_mixing/test_b13_moving_muon_spinor_reference.py
