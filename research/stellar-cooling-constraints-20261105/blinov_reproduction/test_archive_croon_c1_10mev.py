@@ -22,6 +22,7 @@ class C1ArchiveUnitTests(unittest.TestCase):
 
     def test_profile_units_are_explicit(self):
         self.assertEqual(archive.unit_profile("r_km"), "km")
+        self.assertEqual(archive.unit_profile("lapse"), "1")
         self.assertEqual(archive.unit_profile("T_MeV"), "MeV")
         self.assertEqual(archive.unit_profile("chi_mu_minus_MeV3"), "MeV^3")
         self.assertEqual(archive.unit_profile("Q_B13_mu_minus_per_g2_MeV5"), "MeV^5")
