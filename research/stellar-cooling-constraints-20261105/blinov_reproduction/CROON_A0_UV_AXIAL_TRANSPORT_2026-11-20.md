@@ -289,3 +289,46 @@ kinematic weights.
 
 Only after the A0 10 MeV convergence audit should the A0 six-mass scan be
 accepted. No A0 exclusion curve is produced by this diagnostic stage.
+
+
+## 10. Independent A0 energy-order convergence audit
+
+The independent 153-node A0 radial calculation is running in
+[workflow #44661771748](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44661771748).
+The kernel regression tests completed successfully; the active step is the
+153-node adaptive radial refinement. Its result has not yet been accepted or
+archived, so no A0 radial-convergence number is quoted here.
+
+The separate energy-order audit is now implemented in
+\`audit_croon_a0_10mev_adaptive_energy_convergence.py\`, with workflow
+\`.github/workflows/croon-a0-10mev-adaptive-energy-convergence.yml\`.
+The latest workflow check,
+[#44663872270](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44663872270),
+passed Python syntax validation. Its numerical stage is gated until both
+the A0 153-node/energy-32 result and the C1 153-node/energy-48 reference are
+committed. The A0 radial workflow's output push will satisfy that condition
+and trigger the energy audit automatically.
+
+The energy comparison holds fixed the 153-node radial grid, 121-point
+\(g_X\) grid, \(\theta_{\mu R}=10^{-2}\), neutrino angular order 128,
+susceptibility order 192, and inner quadrature orders \((12,8,8,8)\).
+Only the energy order changes from 32 to 48. The audit compares:
+
+1. both \(R_{\rm far}=R_\nu\) and \(R_{\rm far}=100\) km luminosity curves;
+2. total luminosity and each \(L,+,-\) polarization separately;
+3. B.7 and B.13 thin-source channel integrals and their mode decomposition;
+4. the A0 surface asymptotes and high-coupling residuals;
+5. the B.7 source against C1 on the identical 153-node/energy-48 grid;
+6. QUADPACK estimates, three-mode closure, detailed balance, and final-muon
+   on-shell closure.
+
+The numerical acceptance target is a maximum reported normalized/physical
+relative change below \(10^{-4}\), with QUADPACK relative-error estimates
+below \(10^{-6}\), three-mode closure below \(10^{-12}\), B.7 cross-check
+below \(10^{-12}\), and the existing detailed-balance/on-shell tolerances.
+The generated JSON, CSV, report, and SHA-256 manifest are committed only
+after these checks pass.
+
+The A0 energy audit is a distinct calculation. C1's energy convergence does
+not establish A0 energy convergence because the axial current changes the
+longitudinal production and absorption kernels.
