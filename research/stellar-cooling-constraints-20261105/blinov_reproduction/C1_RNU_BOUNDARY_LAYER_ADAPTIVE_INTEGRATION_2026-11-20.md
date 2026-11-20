@@ -165,7 +165,7 @@ The high-coupling adaptive integral reaches the surface asymptote on both grids 
 
 This resolves the earlier \(33.3\%\) 103/153-node discrepancy: that discrepancy belongs to the fixed-grid Simpson endpoint weight and is absent in the surface-centered adaptive integral. It is not a physical radial-grid sensitivity of the converged C1 transport result.
 
-The separate legacy Simpson comparison remains archived. Its large strong-coupling ratios are a diagnostic of the endpoint-weight failure, not alternative luminosity predictions. The adaptive radial result is now the accepted C1 interior-profile numerical baseline. Energy-order convergence of the adaptive integral is the next acceptance gate.
+The separate legacy Simpson comparison remains archived. Its large strong-coupling ratios are a diagnostic of the endpoint-weight failure, not alternative luminosity predictions. The two-boundary output audit is reproducible with audit_croon_c1_adaptive_radial_output_convergence.py and passed independently in [workflow #44658776526](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44658776526). Native JSON/CSV SHA-256 checksums were verified; the derived convergence report has its own separate checksum. The adaptive radial result is now the accepted C1 interior-profile numerical baseline. Energy-order convergence of the adaptive integral is the next acceptance gate.
 
 
 ## 8. Acceptance
