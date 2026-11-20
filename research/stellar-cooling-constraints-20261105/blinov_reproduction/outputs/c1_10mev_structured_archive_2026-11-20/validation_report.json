@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "record_type": "validation_report",
   "run_id": "C1-10MeV-153R-48E-20261120-44656225572",
-  "created_at": "2026-11-20T03:32:13Z",
+  "created_at": "2026-11-20T03:42:16Z",
   "status": "partial",
   "checks": [
     {
@@ -26,7 +26,7 @@
       "observed": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
       "threshold": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
       "unit": "sha256",
-      "evidence_path": "research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv",
+      "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/sfho188_digitized.csv",
       "notes": "Profile bytes match the recorded SHA-256."
     },
     {
@@ -38,7 +38,7 @@
       "observed": 0.0011692956845857593,
       "threshold": 0.0012,
       "unit": "1",
-      "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/C1_RNU_10MEV_ADAPTIVE_RADIAL_CONVERGENCE_2026-11-20.json",
+      "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/radial_convergence_report.json",
       "notes": "Raw 100 km tail relative maximum occurs where reference luminosity is 8.7e-306 of peak."
     },
     {
@@ -50,7 +50,7 @@
       "observed": 1.3031064813802635e-07,
       "threshold": 0.0001,
       "unit": "1",
-      "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/C1_RNU_10MEV_ADAPTIVE_ENERGY_CONVERGENCE_2026-11-20.json"
+      "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/energy_convergence_report.json"
     },
     {
       "check_id": "C1-B7-DB",
@@ -61,7 +61,7 @@
       "observed": 3.295430550940328e-14,
       "threshold": 1e-10,
       "unit": "1",
-      "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_energy48_2026-11-20.json"
+      "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/final_transport.json"
     },
     {
       "check_id": "C1-B13-DB",
@@ -83,7 +83,7 @@
       "observed": 5.380211888635872e-13,
       "threshold": 2e-10,
       "unit": "1",
-      "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_energy48_2026-11-20.json"
+      "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/final_transport.json"
     },
     {
       "check_id": "C1-QUADPACK",
@@ -94,7 +94,7 @@
       "observed": 1.3831232889847977e-07,
       "threshold": 1e-06,
       "unit": "1",
-      "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/C1_RNU_10MEV_ADAPTIVE_ENERGY_CONVERGENCE_2026-11-20.json"
+      "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/energy_convergence_report.json"
     },
     {
       "check_id": "C1-MODE-CLOSURE",
@@ -105,7 +105,7 @@
       "observed": 2.2133373146652667e-16,
       "threshold": 1e-12,
       "unit": "1",
-      "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/C1_RNU_10MEV_ADAPTIVE_ENERGY_CONVERGENCE_2026-11-20.json"
+      "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/energy_convergence_report.json"
     },
     {
       "check_id": "C1-CHECKSUMS",
@@ -116,7 +116,7 @@
       "observed": 8,
       "threshold": "all listed files",
       "unit": "files",
-      "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/SHA256SUMS_croon_c1_adaptive_energy_convergence_2026-11-20.txt"
+      "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/energy_SHA256SUMS.txt"
     },
     {
       "check_id": "C1-OUTER-OPACITY",
@@ -127,7 +127,7 @@
       "observed": "omitted",
       "threshold": "validated outer opacity included",
       "unit": "scope",
-      "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_energy48_2026-11-20.json",
+      "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/final_transport.json",
       "notes": "No validated 25-100 km muon-susceptibility profile is included."
     },
     {

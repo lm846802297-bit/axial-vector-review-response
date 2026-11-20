@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "record_type": "run_manifest",
   "run_id": "C1-10MeV-153R-48E-20261120-44656225572",
-  "created_at": "2026-11-20T03:32:13Z",
+  "created_at": "2026-11-20T03:42:16Z",
   "project": {
     "repository": "lm846802297-bit/axial-vector-review-response",
     "project_id": "axial-vector-supernova-cooling",
@@ -21,24 +21,25 @@
       "name": "reviewed reconstructed SFHo-18.8 1 s profile",
       "source": "repository input used by C1 energy-order workflow",
       "version": "git:758e16f06d88ad7c6bb42ee3b91b14c323743b43",
-      "path": "research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv",
+      "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/sfho188_digitized.csv",
       "uri": "https://github.com/lm846802297-bit/axial-vector-review-response/blob/758e16f06d88ad7c6bb42ee3b91b14c323743b43/research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv",
       "format": "csv",
       "bytes": 182716,
       "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
-      "access": "repository source file",
-      "transformation": "used directly; no resampling or modification in C1 run"
+      "access": "archived input snapshot; source URI retained",
+      "transformation": "byte-for-byte snapshot; no resampling or modification in C1 run"
     },
     {
       "name": "C1 adaptive 153-node energy-order-32 reference",
       "source": "C1 radial workflow #44650913407",
       "version": "workflow:44650913407;source:0bd47c1e9a263c1291dee8dce2701206e9035e80;archive:5e037cec96480ee03c3eb64f00c32aa8bc4fcc4d",
-      "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_2026-11-20.json",
+      "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/radial_153_nodes_energy32.json",
+      "uri": "https://github.com/lm846802297-bit/axial-vector-review-response/blob/0bd47c1e9a263c1291dee8dce2701206e9035e80/research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_2026-11-20.json",
       "format": "json",
       "bytes": 710053,
       "sha256": "3e9a9d4e979e557ec0cbf9b02a7daf00ce7289413765909e1ccacd82bff9c295",
-      "access": "repository output",
-      "transformation": "fixed reference for the 32-to-48 energy-order comparison"
+      "access": "archived reference snapshot; source URI retained",
+      "transformation": "byte-for-byte snapshot; used as the fixed 32-to-48 energy-order reference"
     }
   ],
   "configuration": {
@@ -125,14 +126,14 @@
   },
   "outputs": [
     {
-      "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_2026-11-20.json",
+      "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/radial_103_nodes.json",
       "role": "103-node adaptive radial transport JSON",
       "format": "json",
       "bytes": 552242,
       "sha256": "1ae6dcb8840b11a0c5e84be5972f42745afe59ab41c794b81b829bd9f9503125"
     },
     {
-      "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_2026-11-20.csv",
+      "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/radial_103_nodes.csv",
       "role": "103-node local production-rate CSV",
       "format": "csv",
       "bytes": 56034,
@@ -202,15 +203,15 @@
       }
     },
     {
-      "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_2026-11-20.json",
-      "role": "153-node adaptive radial reference JSON",
+      "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/radial_153_nodes_energy32.json",
+      "role": "153-node energy-order-32 reference JSON",
       "format": "json",
       "bytes": 710053,
       "sha256": "3e9a9d4e979e557ec0cbf9b02a7daf00ce7289413765909e1ccacd82bff9c295"
     },
     {
-      "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_2026-11-20.csv",
-      "role": "153-node local production-rate CSV",
+      "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/radial_153_nodes_energy32.csv",
+      "role": "153-node energy-order-32 local production-rate CSV",
       "format": "csv",
       "bytes": 82890,
       "sha256": "51d479033d7acf5dc4a24d3ad841782fc5426c4faacb96c6cf597ee523e2fd6b",
@@ -279,35 +280,35 @@
       }
     },
     {
-      "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/C1_RNU_10MEV_ADAPTIVE_RADIAL_CONVERGENCE_2026-11-20.json",
+      "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/radial_convergence_report.json",
       "role": "103/153 radial convergence report",
       "format": "json",
       "bytes": 9315,
       "sha256": "299359be5ebd87b9494c219651fc356a4730b91a7c019e1aa5c0cdfb5c864085"
     },
     {
-      "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/SHA256SUMS_croon_c1_adaptive_radial_2026-11-20.txt",
+      "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/radial_native_SHA256SUMS.txt",
       "role": "radial native-output SHA-256 manifest",
       "format": "text",
       "bytes": 584,
       "sha256": "877ebe9a6635b7219b0ceb469119a4d6320a714bff72d1a3726ca33f2c84860b"
     },
     {
-      "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/SHA256SUMS_C1_RNU_10MEV_ADAPTIVE_RADIAL_CONVERGENCE_2026-11-20.txt",
+      "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/radial_report_SHA256SUMS.txt",
       "role": "radial-report SHA-256 manifest",
       "format": "text",
       "bytes": 131,
       "sha256": "58bd22c7cd838c08454b2c8e38df107e166f2c4ba29170ce3eca00463967607e"
     },
     {
-      "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_energy48_2026-11-20.json",
-      "role": "153-node energy-48 transport JSON",
+      "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/final_transport.json",
+      "role": "153-node energy-48 final transport JSON",
       "format": "json",
       "bytes": 710476,
       "sha256": "4064d5d5b5abe4d8c6c0702f727a884a6a9b40e775199ddee03e30a10dd855ec"
     },
     {
-      "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_energy48_2026-11-20.csv",
+      "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/local_profile.csv",
       "role": "153-node energy-48 local production-rate CSV",
       "format": "csv",
       "bytes": 82928,
@@ -377,14 +378,14 @@
       }
     },
     {
-      "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/C1_RNU_10MEV_ADAPTIVE_ENERGY_CONVERGENCE_2026-11-20.json",
+      "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/energy_convergence_report.json",
       "role": "32/48 energy convergence report",
       "format": "json",
       "bytes": 5552,
       "sha256": "71717b2128ce95b34a7d9764ca37e059d13b31a1a1999c212f71286091c92a1b"
     },
     {
-      "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/SHA256SUMS_croon_c1_adaptive_energy_convergence_2026-11-20.txt",
+      "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/energy_SHA256SUMS.txt",
       "role": "energy SHA-256 manifest",
       "format": "text",
       "bytes": 450,
@@ -465,35 +466,35 @@
       "role": "combined convergence report",
       "format": "json",
       "bytes": 7146,
-      "sha256": "649736fe2145b3a2bbe3ad80164ca90ac84917f8921ad38aa6e3e44106edf231"
+      "sha256": "14cd2bd70844451a69ebe7373271c9c9000fc121a10b50975e91740c181eb9ec"
     },
     {
       "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/result_summary.json",
       "role": "structured result summary",
       "format": "json",
-      "bytes": 13202,
-      "sha256": "6ebe22ba693d3a438b68afcb6f119ca71d5bc2df6d917c78a94e1629ee6b0ecd"
+      "bytes": 13724,
+      "sha256": "84fb268b34b9e15fa61e79c9e130c7fa157c85988d332e21c7b932167b8728be"
     },
     {
       "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/validation_report.json",
       "role": "structured validation report",
       "format": "json",
-      "bytes": 14774,
-      "sha256": "9e43bad9a844bbc050faa534d762a3894d6a6eb980b0bb41719d14132a59152a"
+      "bytes": 14808,
+      "sha256": "0fc417fcdff6e6c5689ee413e276db3579a3c72b28367f267608ebe2d07a5bf0"
     },
     {
       "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/README.md",
       "role": "archive guide",
       "format": "markdown",
-      "bytes": 808,
-      "sha256": "c4f55847ed5021a95dec8c54df191955d2249b283edafc898bbf29421ca1bbd6"
+      "bytes": 1064,
+      "sha256": "fb0b0bbcac68d7b469523900108fc002468177df499100dcb304271c2e389d18"
     },
     {
       "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/SHA256SUMS.txt",
       "role": "combined SHA-256 manifest",
       "format": "text",
-      "bytes": 3285,
-      "sha256": "8d06a7cbdbead00ccdd0ff686f20e77dfb0f1e4864a9d3e897b9d403e8956777"
+      "bytes": 1525,
+      "sha256": "6c72e7858ca14f02358edb968fdd5f4616d7781958bf59212420758b130da231"
     }
   ],
   "validation": {
@@ -520,7 +521,7 @@
         "observed": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
         "threshold": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
         "unit": "sha256",
-        "evidence_path": "research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv",
+        "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/sfho188_digitized.csv",
         "notes": "Profile bytes match the recorded SHA-256."
       },
       {
@@ -532,7 +533,7 @@
         "observed": 0.0011692956845857593,
         "threshold": 0.0012,
         "unit": "1",
-        "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/C1_RNU_10MEV_ADAPTIVE_RADIAL_CONVERGENCE_2026-11-20.json",
+        "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/radial_convergence_report.json",
         "notes": "Raw 100 km tail relative maximum occurs where reference luminosity is 8.7e-306 of peak."
       },
       {
@@ -544,7 +545,7 @@
         "observed": 1.3031064813802635e-07,
         "threshold": 0.0001,
         "unit": "1",
-        "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/C1_RNU_10MEV_ADAPTIVE_ENERGY_CONVERGENCE_2026-11-20.json"
+        "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/energy_convergence_report.json"
       },
       {
         "check_id": "C1-B7-DB",
@@ -555,7 +556,7 @@
         "observed": 3.295430550940328e-14,
         "threshold": 1e-10,
         "unit": "1",
-        "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_energy48_2026-11-20.json"
+        "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/final_transport.json"
       },
       {
         "check_id": "C1-B13-DB",
@@ -577,7 +578,7 @@
         "observed": 5.380211888635872e-13,
         "threshold": 2e-10,
         "unit": "1",
-        "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_energy48_2026-11-20.json"
+        "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/final_transport.json"
       },
       {
         "check_id": "C1-QUADPACK",
@@ -588,7 +589,7 @@
         "observed": 1.3831232889847977e-07,
         "threshold": 1e-06,
         "unit": "1",
-        "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/C1_RNU_10MEV_ADAPTIVE_ENERGY_CONVERGENCE_2026-11-20.json"
+        "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/energy_convergence_report.json"
       },
       {
         "check_id": "C1-MODE-CLOSURE",
@@ -599,7 +600,7 @@
         "observed": 2.2133373146652667e-16,
         "threshold": 1e-12,
         "unit": "1",
-        "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/C1_RNU_10MEV_ADAPTIVE_ENERGY_CONVERGENCE_2026-11-20.json"
+        "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/energy_convergence_report.json"
       },
       {
         "check_id": "C1-CHECKSUMS",
@@ -610,7 +611,7 @@
         "observed": 8,
         "threshold": "all listed files",
         "unit": "files",
-        "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/SHA256SUMS_croon_c1_adaptive_energy_convergence_2026-11-20.txt"
+        "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/energy_SHA256SUMS.txt"
       },
       {
         "check_id": "C1-OUTER-OPACITY",
@@ -621,7 +622,7 @@
         "observed": "omitted",
         "threshold": "validated outer opacity included",
         "unit": "scope",
-        "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_energy48_2026-11-20.json",
+        "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/final_transport.json",
         "notes": "No validated 25-100 km muon-susceptibility profile is included."
       },
       {
@@ -640,8 +641,7 @@
     "report_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/validation_report.json"
   },
   "archive": {
-    "status": "committed_to_pr_branch",
-    "pr_url": "https://github.com/lm846802297-bit/axial-vector-review-response/pull/123"
+    "status": "local_only"
   },
   "extensions": {
     "source_files": {
@@ -663,11 +663,69 @@
     },
     "archive_generation": {
       "generator_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/archive_croon_c1_10mev.py",
-      "generator_sha256": "36d4db41064bbc17af666bcd091bf736c4fecc4ea390bf671d5a5652a5e37ab3",
-      "generated_at": "2026-11-20T03:32:13Z",
-      "archive_workflow_run_id": "44668361374",
-      "archive_workflow_commit_sha": "e892c085e0943b5c32613f6638b96208701f1bd0",
-      "finalized_at": "2026-11-20T03:32:16Z"
+      "generator_sha256": "49fc019d6b18c678ec3a2800aeea33d1f78885475080514ea114ccc2c00e40da",
+      "generated_at": "2026-11-20T03:42:16Z",
+      "archive_workflow_run_id": "44669468291",
+      "archive_workflow_commit_sha": "d968655cf1980166834c0e9ce7fd8653deddfeca"
+    },
+    "source_outputs": {
+      "original_repository_paths": {
+        "r103j": {
+          "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_2026-11-20.json",
+          "sha256": "1ae6dcb8840b11a0c5e84be5972f42745afe59ab41c794b81b829bd9f9503125",
+          "bytes": 552242
+        },
+        "r103c": {
+          "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_2026-11-20.csv",
+          "sha256": "f0b469435b6e39b27f390ab513671dd4bac4a681405f2a73092aae7c87ec580c",
+          "bytes": 56034
+        },
+        "r153j": {
+          "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_2026-11-20.json",
+          "sha256": "3e9a9d4e979e557ec0cbf9b02a7daf00ce7289413765909e1ccacd82bff9c295",
+          "bytes": 710053
+        },
+        "r153c": {
+          "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_2026-11-20.csv",
+          "sha256": "51d479033d7acf5dc4a24d3ad841782fc5426c4faacb96c6cf597ee523e2fd6b",
+          "bytes": 82890
+        },
+        "radial": {
+          "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/C1_RNU_10MEV_ADAPTIVE_RADIAL_CONVERGENCE_2026-11-20.json",
+          "sha256": "299359be5ebd87b9494c219651fc356a4730b91a7c019e1aa5c0cdfb5c864085",
+          "bytes": 9315
+        },
+        "rsha": {
+          "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/SHA256SUMS_croon_c1_adaptive_radial_2026-11-20.txt",
+          "sha256": "877ebe9a6635b7219b0ceb469119a4d6320a714bff72d1a3726ca33f2c84860b",
+          "bytes": 584
+        },
+        "rreportsha": {
+          "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/SHA256SUMS_C1_RNU_10MEV_ADAPTIVE_RADIAL_CONVERGENCE_2026-11-20.txt",
+          "sha256": "58bd22c7cd838c08454b2c8e38df107e166f2c4ba29170ce3eca00463967607e",
+          "bytes": 131
+        },
+        "finalj": {
+          "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_energy48_2026-11-20.json",
+          "sha256": "4064d5d5b5abe4d8c6c0702f727a884a6a9b40e775199ddee03e30a10dd855ec",
+          "bytes": 710476
+        },
+        "finalc": {
+          "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_energy48_2026-11-20.csv",
+          "sha256": "0684921de1208ff605ea2f00d2a3da7a98ed90ff559fae711eaab1a1c4334c89",
+          "bytes": 82928
+        },
+        "energy": {
+          "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/C1_RNU_10MEV_ADAPTIVE_ENERGY_CONVERGENCE_2026-11-20.json",
+          "sha256": "71717b2128ce95b34a7d9764ca37e059d13b31a1a1999c212f71286091c92a1b",
+          "bytes": 5552
+        },
+        "esha": {
+          "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/SHA256SUMS_croon_c1_adaptive_energy_convergence_2026-11-20.txt",
+          "sha256": "8af9ddb224d265f47d59426a091becc190de7261ab95544b51942615d48fe323",
+          "bytes": 450
+        }
+      }
     },
     "source_checksum_verification": {
       "radial_native": [

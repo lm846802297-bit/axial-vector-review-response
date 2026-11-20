@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "record_type": "result_summary",
   "run_id": "C1-10MeV-153R-48E-20261120-44656225572",
-  "created_at": "2026-11-20T03:32:13Z",
+  "created_at": "2026-11-20T03:42:16Z",
   "project": {
     "repository": "lm846802297-bit/axial-vector-review-response",
     "project_id": "axial-vector-supernova-cooling",
@@ -171,7 +171,7 @@
   ],
   "data_files": [
     {
-      "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_energy48_2026-11-20.csv",
+      "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/local_profile.csv",
       "role": "153-node local production-rate profile",
       "format": "csv",
       "bytes": 82928,
@@ -309,6 +309,13 @@
         "Rfar_100km_vacuum_nu_tail_adaptive_quad_relative_error_estimate_by_mode_-": "1",
         "Rfar_100km_vacuum_nu_tail_adaptive_quad_mode_sum_relative_residual": "1"
       }
+    },
+    {
+      "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/final_transport.json",
+      "role": "full 153x48 C1 transport result with local profile and coupling scan",
+      "format": "json",
+      "bytes": 710476,
+      "sha256": "4064d5d5b5abe4d8c6c0702f727a884a6a9b40e775199ddee03e30a10dd855ec"
     }
   ],
   "scientific_status": "provisional",
@@ -316,7 +323,8 @@
   "extensions": {
     "supernova_transport": {
       "source_profile": {
-        "path": "research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv",
+        "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/sfho188_digitized.csv",
+        "original_source_path": "research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv",
         "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
         "bytes": 182716,
         "rows": 1687,
