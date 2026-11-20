@@ -1,0 +1,298 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "validation_report",
+  "run_id": "C1-10MeV-153R-48E-20261120-44656225572",
+  "created_at": "2026-11-20T03:32:13Z",
+  "status": "partial",
+  "checks": [
+    {
+      "check_id": "C1-SOURCE-PROVENANCE",
+      "name": "Physics source commit provenance",
+      "category": "integrity",
+      "status": "passed",
+      "method": "Compare source/input files with git show at the recorded physics commit.",
+      "observed": 6,
+      "threshold": 6,
+      "unit": "files",
+      "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_croon_c1_10mev_adaptive_energy_convergence.py",
+      "notes": "All six source/input paths match the physics commit."
+    },
+    {
+      "check_id": "C1-PROFILE-INTEGRITY",
+      "name": "Reviewed SFHo-18.8 profile integrity",
+      "category": "integrity",
+      "status": "passed",
+      "method": "SHA-256 comparison with the profile hash embedded in the original C1 output.",
+      "observed": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+      "threshold": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+      "unit": "sha256",
+      "evidence_path": "research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv",
+      "notes": "Profile bytes match the recorded SHA-256."
+    },
+    {
+      "check_id": "C1-RADIAL-103-153",
+      "name": "Adaptive radial grid convergence",
+      "category": "convergence",
+      "status": "passed",
+      "method": "103/153-node comparison for both R_far boundaries and all three modes in the stated reference region.",
+      "observed": 0.0011692956845857593,
+      "threshold": 0.0012,
+      "unit": "1",
+      "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/C1_RNU_10MEV_ADAPTIVE_RADIAL_CONVERGENCE_2026-11-20.json",
+      "notes": "Raw 100 km tail relative maximum occurs where reference luminosity is 8.7e-306 of peak."
+    },
+    {
+      "check_id": "C1-ENERGY-32-48",
+      "name": "Adaptive energy-order convergence",
+      "category": "convergence",
+      "status": "passed",
+      "method": "Full 121-point curves, source integrals, and surface asymptotes compared at fixed 153 radial nodes.",
+      "observed": 1.3031064813802635e-07,
+      "threshold": 0.0001,
+      "unit": "1",
+      "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/C1_RNU_10MEV_ADAPTIVE_ENERGY_CONVERGENCE_2026-11-20.json"
+    },
+    {
+      "check_id": "C1-B7-DB",
+      "name": "B.7 mode detailed balance",
+      "category": "analytic",
+      "status": "passed",
+      "method": "Maximum mode-resolved detailed-balance residual.",
+      "observed": 3.295430550940328e-14,
+      "threshold": 1e-10,
+      "unit": "1",
+      "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_energy48_2026-11-20.json"
+    },
+    {
+      "check_id": "C1-B13-DB",
+      "name": "B.13 charge/mode detailed balance",
+      "category": "analytic",
+      "status": "passed",
+      "method": "Maximum charge- and polarization-resolved detailed-balance residual.",
+      "observed": 6.064784371309958e-14,
+      "threshold": 1e-10,
+      "unit": "1",
+      "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_energy48_2026-11-20.json"
+    },
+    {
+      "check_id": "C1-MUON-SHELL",
+      "name": "Final-muon on-shell closure",
+      "category": "analytic",
+      "status": "passed",
+      "method": "Maximum final-muon mass-shell residual.",
+      "observed": 5.380211888635872e-13,
+      "threshold": 2e-10,
+      "unit": "1",
+      "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_energy48_2026-11-20.json"
+    },
+    {
+      "check_id": "C1-QUADPACK",
+      "name": "Adaptive radial quadrature error estimate",
+      "category": "convergence",
+      "status": "passed",
+      "method": "Maximum QUADPACK relative error estimate across radial and energy audits.",
+      "observed": 1.3831232889847977e-07,
+      "threshold": 1e-06,
+      "unit": "1",
+      "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/C1_RNU_10MEV_ADAPTIVE_ENERGY_CONVERGENCE_2026-11-20.json"
+    },
+    {
+      "check_id": "C1-MODE-CLOSURE",
+      "name": "Three-polarization sum closure",
+      "category": "analytic",
+      "status": "passed",
+      "method": "Maximum L+T++T- closure residual.",
+      "observed": 2.2133373146652667e-16,
+      "threshold": 1e-12,
+      "unit": "1",
+      "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/C1_RNU_10MEV_ADAPTIVE_ENERGY_CONVERGENCE_2026-11-20.json"
+    },
+    {
+      "check_id": "C1-CHECKSUMS",
+      "name": "Original workflow checksum manifests",
+      "category": "integrity",
+      "status": "passed",
+      "method": "Recompute all entries in radial-native, radial-report, and energy SHA-256 manifests.",
+      "observed": 8,
+      "threshold": "all listed files",
+      "unit": "files",
+      "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/SHA256SUMS_croon_c1_adaptive_energy_convergence_2026-11-20.txt"
+    },
+    {
+      "check_id": "C1-OUTER-OPACITY",
+      "name": "Outer 25-100 km semi-Compton opacity",
+      "category": "physical",
+      "status": "partial",
+      "method": "Inspect the final transport scope metadata.",
+      "observed": "omitted",
+      "threshold": "validated outer opacity included",
+      "unit": "scope",
+      "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_energy48_2026-11-20.json",
+      "notes": "No validated 25-100 km muon-susceptibility profile is included."
+    },
+    {
+      "check_id": "C1-SN1987A-LIMIT",
+      "name": "Final SN1987A exclusion curve",
+      "category": "physical",
+      "status": "not_run",
+      "method": "Not evaluated by this 10 MeV interior-profile benchmark.",
+      "observed": null,
+      "threshold": "requires full outer transport and mass scan",
+      "unit": "scope",
+      "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_energy48_2026-11-20.json",
+      "notes": "No exclusion curve is inferred from this result."
+    }
+  ],
+  "convergence": {
+    "radial_grid": {
+      "workflow_run_id": 44650913407,
+      "workflow_started_at": "2026-11-20T01:05:01Z",
+      "workflow_finished_at": "2026-11-20T01:33:02Z",
+      "workflow_wall_time_s": 1681,
+      "workflow_source_commit": "0bd47c1e9a263c1291dee8dce2701206e9035e80",
+      "native_outputs_archive_commit": "5e037cec96480ee03c3eb64f00c32aa8bc4fcc4d",
+      "final_report_commit": "db82bd60ec30ffeae7846067b34d748c037a98f8",
+      "coarse_radial_points": 103,
+      "fine_radial_points": 153,
+      "energy_order_fixed": 32,
+      "coupling_points": 121,
+      "maximum_relevant_pointwise_relative_difference": 0.0011692956845857593,
+      "acceptance_threshold": 0.0012,
+      "maximum_absolute_difference_over_curve_peak": 0.00025725393629224565,
+      "surface_asymptote_relative_difference": 1.75742972738346e-09,
+      "maximum_QUADPACK_relative_error_estimate": 1.3831232889847977e-07,
+      "maximum_three_mode_closure_residual": 2.2133373146652667e-16,
+      "relevant_region_definition": "Reference luminosity > 1e-8 of the 153-node curve peak",
+      "raw_100km_tail_relative_max": 0.26073951353873326,
+      "raw_100km_tail_reference_fraction_of_peak": 8.743890751069963e-306,
+      "Rfar_Rnu": {
+        "total": {
+          "max_absolute_difference_over_reference_peak": 0.00015194698257626316,
+          "max_pointwise_relative_difference_above_1e-8_peak": 0.000980258352240603,
+          "at_g_X_max_absolute_difference": 3.0432198871077156e-08,
+          "max_pointwise_relative_difference_all_points": 0.000980258352240603,
+          "at_g_X_max_relative_difference_all_points": 1.333521432163324e-07,
+          "reference_fraction_of_peak_at_raw_relative_max": 0.0014615916307777045,
+          "at_g_X_max_relevant_relative_difference": 1.333521432163324e-07
+        },
+        "per_mode": {
+          "L": {
+            "max_absolute_difference_over_reference_peak": 0.00011771102263308911,
+            "max_pointwise_relative_difference_above_1e-8_peak": 0.0009800099291956694,
+            "at_g_X_max_absolute_difference": 3.0432198871077156e-08,
+            "max_pointwise_relative_difference_all_points": 0.0009800099291956694,
+            "at_g_X_max_relative_difference_all_points": 1.333521432163324e-07,
+            "reference_fraction_of_peak_at_raw_relative_max": 0.0016706714933368116,
+            "at_g_X_max_relevant_relative_difference": 1.333521432163324e-07
+          },
+          "+": {
+            "max_absolute_difference_over_reference_peak": 7.739148084597921e-05,
+            "max_pointwise_relative_difference_above_1e-8_peak": 0.0009755272944511938,
+            "at_g_X_max_absolute_difference": 1.9952623149688786e-08,
+            "max_pointwise_relative_difference_all_points": 0.0009755272944511938,
+            "at_g_X_max_relative_difference_all_points": 1.333521432163324e-07,
+            "reference_fraction_of_peak_at_raw_relative_max": 0.0014148673088029192,
+            "at_g_X_max_relevant_relative_difference": 1.333521432163324e-07
+          },
+          "-": {
+            "max_absolute_difference_over_reference_peak": 0.00025725393629224565,
+            "max_pointwise_relative_difference_above_1e-8_peak": 0.000985237816577977,
+            "at_g_X_max_absolute_difference": 3.0432198871077156e-08,
+            "max_pointwise_relative_difference_all_points": 0.000985237816577977,
+            "at_g_X_max_relative_difference_all_points": 1.333521432163324e-07,
+            "reference_fraction_of_peak_at_raw_relative_max": 0.0013390145943353504,
+            "at_g_X_max_relevant_relative_difference": 1.333521432163324e-07
+          }
+        }
+      },
+      "Rfar_100km_vacuum_nu_tail": {
+        "total": {
+          "max_absolute_difference_over_reference_peak": 0.00016096285691870573,
+          "max_pointwise_relative_difference_above_1e-8_peak": 0.0011097275508863145,
+          "at_g_X_max_absolute_difference": 1.3081774742601928e-08,
+          "max_pointwise_relative_difference_all_points": 0.26073951353873326,
+          "at_g_X_max_relative_difference_all_points": 8.91250938133744e-07,
+          "reference_fraction_of_peak_at_raw_relative_max": 8.743890751069963e-306,
+          "at_g_X_max_relevant_relative_difference": 7.079457843841373e-08
+        },
+        "per_mode": {
+          "L": {
+            "max_absolute_difference_over_reference_peak": 0.0001254333173879186,
+            "max_pointwise_relative_difference_above_1e-8_peak": 0.0010186950717914094,
+            "at_g_X_max_absolute_difference": 1.3081774742601928e-08,
+            "max_pointwise_relative_difference_all_points": 0.2701100451427167,
+            "at_g_X_max_relative_difference_all_points": 8.91250938133744e-07,
+            "reference_fraction_of_peak_at_raw_relative_max": 1.9280189593194844e-305,
+            "at_g_X_max_relevant_relative_difference": 7.079457843841373e-08
+          },
+          "+": {
+            "max_absolute_difference_over_reference_peak": 0.00016339861017023927,
+            "max_pointwise_relative_difference_above_1e-8_peak": 0.0011232704367734221,
+            "at_g_X_max_absolute_difference": 1.3081774742601928e-08,
+            "max_pointwise_relative_difference_all_points": 0.24381242989296947,
+            "at_g_X_max_relative_difference_all_points": 8.91250938133744e-07,
+            "reference_fraction_of_peak_at_raw_relative_max": 4.4573602873623565e-306,
+            "at_g_X_max_relevant_relative_difference": 7.079457843841373e-08
+          },
+          "-": {
+            "max_absolute_difference_over_reference_peak": 0.00018757194009485874,
+            "max_pointwise_relative_difference_above_1e-8_peak": 0.0011692956845857593,
+            "at_g_X_max_absolute_difference": 1.3081774742601928e-08,
+            "max_pointwise_relative_difference_all_points": 0.24261457333271805,
+            "at_g_X_max_relative_difference_all_points": 8.91250938133744e-07,
+            "reference_fraction_of_peak_at_raw_relative_max": 4.198852169483397e-306,
+            "at_g_X_max_relevant_relative_difference": 7.079457843841373e-08
+          }
+        }
+      }
+    },
+    "energy_order": {
+      "workflow_run_id": 44656225572,
+      "workflow_started_at": "2026-11-20T01:48:03Z",
+      "workflow_finished_at": "2026-11-20T02:15:39Z",
+      "workflow_wall_time_s": 1656,
+      "workflow_source_commit": "758e16f06d88ad7c6bb42ee3b91b14c323743b43",
+      "native_outputs_archive_commit": "43b01af00bb617cb4cbebaa34b2e363c5e14690f",
+      "reference_energy_order": 32,
+      "refined_energy_order": 48,
+      "radial_points_fixed": 153,
+      "maximum_over_all_reported_metrics": 1.3031064813802635e-07,
+      "acceptance_threshold": 0.0001,
+      "maximum_QUADPACK_relative_error_estimate": 5.7783770229782604e-08,
+      "maximum_three_mode_closure_residual": 2.149740412312329e-16,
+      "maximum_B7_detailed_balance_residual": 3.295430550940328e-14,
+      "maximum_B13_detailed_balance_residual": 6.064784371309958e-14,
+      "maximum_final_muon_shell_relative_error": 5.380211888635872e-13
+    },
+    "numerical_acceptance": "PASS",
+    "overall_physical_scope": "PARTIAL"
+  },
+  "extensions": {
+    "supernova_transport": {
+      "numerical_baseline_accepted": true,
+      "outer_semicompton_25_100_km": "not included",
+      "final_SN1987A_exclusion": "not computed"
+    },
+    "validation_workflows": {
+      "radial": {
+        "run_id": 44650913407,
+        "source_commit": "0bd47c1e9a263c1291dee8dce2701206e9035e80",
+        "native_outputs_archive_commit": "5e037cec96480ee03c3eb64f00c32aa8bc4fcc4d",
+        "final_report_commit": "db82bd60ec30ffeae7846067b34d748c037a98f8",
+        "started_at": "2026-11-20T01:05:01Z",
+        "finished_at": "2026-11-20T01:33:02Z",
+        "wall_time_s": 1681,
+        "conclusion": "success"
+      },
+      "energy": {
+        "run_id": 44656225572,
+        "source_commit": "758e16f06d88ad7c6bb42ee3b91b14c323743b43",
+        "native_outputs_archive_commit": "43b01af00bb617cb4cbebaa34b2e363c5e14690f",
+        "started_at": "2026-11-20T01:48:03Z",
+        "finished_at": "2026-11-20T02:15:39Z",
+        "wall_time_s": 1656,
+        "conclusion": "success"
+      }
+    }
+  }
+}
