@@ -42,6 +42,32 @@ jobs:
       - name: Generate structured archive from existing C1 outputs
         run: python research/stellar-cooling-constraints-20261105/blinov_reproduction/archive_croon_c1_10mev.py
 
+      - name: Verify archive is self-contained and checksum list is reproducible
+        run: |
+          python - <<'PY'
+          import json
+          import subprocess
+          from pathlib import Path
+
+          archive_dir = Path("research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20")
+          manifest = json.loads((archive_dir / "run_manifest.json").read_text())
+          summary = json.loads((archive_dir / "result_summary.json").read_text())
+          for item in manifest["outputs"]:
+              path = Path(item["path"])
+              assert path.is_relative_to(archive_dir), f"output is outside archive: {path}"
+              assert path.is_file(), f"missing archived output: {path}"
+          for item in manifest["inputs"]:
+              path = Path(item["path"])
+              assert path.is_relative_to(archive_dir), f"input is outside archive: {path}"
+              assert path.is_file(), f"missing archived input: {path}"
+          for item in summary["data_files"]:
+              path = Path(item["path"])
+              assert path.is_relative_to(archive_dir), f"data file is outside archive: {path}"
+              assert path.is_file(), f"missing archived data file: {path}"
+          subprocess.run(["sha256sum", "-c", "SHA256SUMS.txt"], cwd=archive_dir, check=True)
+          print(f"SELF-CONTAINED ARCHIVE PASS: {len(manifest['outputs'])} output records")
+          PY
+
       - name: Validate run manifest, result summary, validation report, and all referenced files
         run: |
           python docs/repository-management/schemas/validate_result_records.py --repo-root . \
