@@ -640,7 +640,8 @@
     "report_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/validation_report.json"
   },
   "archive": {
-    "status": "local_only"
+    "status": "committed_to_pr_branch",
+    "pr_url": "https://github.com/lm846802297-bit/axial-vector-review-response/pull/123"
   },
   "extensions": {
     "source_files": {
@@ -665,7 +666,8 @@
       "generator_sha256": "36d4db41064bbc17af666bcd091bf736c4fecc4ea390bf671d5a5652a5e37ab3",
       "generated_at": "2026-11-20T03:32:13Z",
       "archive_workflow_run_id": "44668361374",
-      "archive_workflow_commit_sha": "e892c085e0943b5c32613f6638b96208701f1bd0"
+      "archive_workflow_commit_sha": "e892c085e0943b5c32613f6638b96208701f1bd0",
+      "finalized_at": "2026-11-20T03:32:16Z"
     },
     "source_checksum_verification": {
       "radial_native": [
