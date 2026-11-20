@@ -50,6 +50,7 @@ def compute_a0(
     susceptibility_order: int = 192,
     coupling_count: int = 121,
     theta_mu_r: float = 1.0e-2,
+    include_adaptive_radial: bool = True,
 ) -> dict:
     """Compute B.7+B.13 transport with the original UV finite-mixing current.
 
@@ -94,6 +95,7 @@ def compute_a0(
             int(susceptibility_order),
             g_x_values,
             muon_current=(g_vector_fraction, g_axial_fraction),
+            include_adaptive_radial=bool(include_adaptive_radial),
         )
         results[f"{float(mass):.9g}"] = item
         local_all.extend(local_rows)
@@ -104,7 +106,10 @@ def compute_a0(
             "plus UV-mixed exact-recoil B.13 moving-muon transport"
         ),
         "status": (
-            "A0 interior-profile transport diagnostic; outer 25--100 km "
+            "A0 interior-profile adaptive-radial transport diagnostic; outer "
+            "25--100 km semi-Compton opacity remains unavailable"
+            if include_adaptive_radial else
+            "A0 interior-profile legacy-Simpson diagnostic; outer 25--100 km "
             "semi-Compton opacity remains unavailable"
         ),
         "source_profile": {
@@ -148,6 +153,13 @@ def compute_a0(
                 "radial integral of reduced absorption Gamma_abs-Gamma_prod, "
                 "mode by mode"
             ),
+            "radial_luminosity_integrator": (
+                "surface-centered PCHIP source and reduced opacity; exact "
+                "PCHIP opacity antiderivative; QUADPACK adaptive Gauss-Kronrod "
+                "with explicit g_X^2*tau boundary-layer split points"
+                if include_adaptive_radial else
+                "legacy fixed-grid Simpson; diagnostic only"
+            ),
             "angular_escape_average": "omitted to match the C1 radial prescription",
             "lapse_redshift": "omitted to match the C1 comparison convention",
             "R_far_values_km": [profile["R_nu_km"], R_FAR_KM],
@@ -169,6 +181,7 @@ def compute_a0(
                 float(g_x_values[0]), float(g_x_values[-1])
             ],
             "theta_mu_R": float(theta_mu_r),
+            "adaptive_radial_enabled": bool(include_adaptive_radial),
         },
         "comparison_reference": (
             "The retained Croon Eq. (4.7) quantity in each mass record is the "
@@ -179,10 +192,12 @@ def compute_a0(
         "scope": (
             "The A0 calculation keeps the C1 B.7 neutrino rates unchanged and "
             "replaces only the charged-muon B.13 current by the original UV "
-            "finite-mixing V-A current. It uses the reconstructed public "
-            "SFHo-18.8 profile and does not include the unavailable outer "
-            "25--100 km semi-Compton opacity. It is not a final SN1987A "
-            "exclusion curve."
+            "finite-mixing V-A current. Its accepted luminosity fields use "
+            "the surface-centered adaptive radial integrator when enabled; "
+            "legacy Simpson fields are retained only as diagnostics. It uses "
+            "the reconstructed public SFHo-18.8 profile and does not include "
+            "the unavailable outer 25--100 km semi-Compton opacity. It is not "
+            "a final SN1987A exclusion curve."
         ),
         "local_profile_rows": local_all,
     }
@@ -199,6 +214,13 @@ def main() -> None:
     parser.add_argument("--susceptibility-order", type=int, default=192)
     parser.add_argument("--coupling-count", type=int, default=121)
     parser.add_argument("--theta-mu-r", type=float, default=1.0e-2)
+    parser.add_argument(
+        "--no-adaptive-radial",
+        action="store_false",
+        dest="include_adaptive_radial",
+        help="Use the legacy fixed-grid Simpson luminosity as a diagnostic",
+    )
+    parser.set_defaults(include_adaptive_radial=True)
     parser.add_argument("--output", default=str(DEFAULT_OUTPUT))
     parser.add_argument("--csv", default=str(DEFAULT_CSV))
     args = parser.parse_args()
@@ -213,6 +235,7 @@ def main() -> None:
         susceptibility_order=args.susceptibility_order,
         coupling_count=args.coupling_count,
         theta_mu_r=args.theta_mu_r,
+        include_adaptive_radial=args.include_adaptive_radial,
     )
     output_path = Path(args.output)
     csv_path = Path(args.csv)
@@ -234,6 +257,7 @@ def main() -> None:
         "theta_mu_R": args.theta_mu_r,
         "radial_points": result["source_profile"]["radial_points"],
         "status": result["status"],
+        "adaptive_radial_enabled": result["numerics"]["adaptive_radial_enabled"],
     }, indent=2))
 
 

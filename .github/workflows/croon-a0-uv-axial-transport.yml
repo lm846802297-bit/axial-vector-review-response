@@ -70,6 +70,7 @@ jobs:
           a0 = json.loads(a0_path.read_text())
           c1 = json.loads(c1_path.read_text())
           assert a0["status"].startswith("A0 interior-profile")
+          assert a0["numerics"]["adaptive_radial_enabled"] is True
           assert a0["model"]["theta_mu_R"] == 0.01
           assert abs(a0["model"]["gV_mu_over_gX"] - math.sin(0.01)**2) < 1e-15
           assert abs(a0["model"]["gA_mu_over_gX"] + math.cos(0.01)**2) < 1e-15
@@ -78,6 +79,8 @@ jobs:
           c1_item = c1["masses"]["10"]
           modes = ("L", "+", "-")
           assert item["mass_MeV"] == 10.0
+          assert item["adaptive_radial_enabled"] is True
+          assert "QUADPACK adaptive Gauss-Kronrod" in item["adaptive_radial_integrator"]
           assert item["radial_points"] == c1_item["radial_points"]
           assert item["energy_points"] == c1_item["energy_points"] == 32
           assert item["polarization_modes"] == list(modes)
@@ -98,8 +101,23 @@ jobs:
           assert max(item["thin_source_mode_sum_relative_residuals"].values()) < 1e-12
           for key, value in item["thin_source_per_g2_erg_s"].items():
               assert math.isfinite(value) and value >= 0, (key, value)
+          max_adaptive_error = 0.0
           for row in item["coupling_curve"]:
               assert 0 < row["g_X"] <= 1
+              for key in (
+                  "Rfar_Rnu_adaptive_quad",
+                  "Rfar_100km_vacuum_nu_tail_adaptive_quad",
+                  "Rfar_Rnu_adaptive_quad_relative_error_estimate",
+                  "Rfar_100km_vacuum_nu_tail_adaptive_quad_relative_error_estimate",
+              ):
+                  assert math.isfinite(row[key]) and row[key] >= 0
+              for label in ("Rfar_Rnu", "Rfar_100km_vacuum_nu_tail"):
+                  adaptive_total = row[label + "_adaptive_quad"]
+                  adaptive_modes = row[label + "_adaptive_quad_by_mode_erg_s"]
+                  adaptive_residual = abs(sum(adaptive_modes.values())-adaptive_total)/max(abs(adaptive_total),1e-300)
+                  assert adaptive_residual < 1e-12
+                  error_key = label + "_adaptive_quad_relative_error_estimate"
+                  max_adaptive_error = max(max_adaptive_error, row[error_key])
               for key in ("Rfar_Rnu", "Rfar_100km_vacuum_nu_tail"):
                   assert math.isfinite(row[key]) and row[key] >= 0
                   by_mode = row[key + "_by_mode_erg_s"]
@@ -117,7 +135,13 @@ jobs:
                               f"Q_B13_mu_plus_{mode}_per_g2_MeV5",
                               f"Q_B7_plus_B13_{mode}_per_g2_MeV5"):
                       assert math.isfinite(float(row[key])), (key, row[key])
-          print("A0 10 MeV transport and three-mode closure: PASS")
+          assert max_adaptive_error < 1e-6, max_adaptive_error
+          surface = item["adaptive_radial_surface_asymptote_Rnu_erg_s_by_mode"]
+          high = item["coupling_curve"][-1]["Rfar_Rnu_adaptive_quad_by_mode_erg_s"]
+          for mode in modes:
+              assert abs(high[mode]-surface[mode])/surface[mode] < 1e-6
+          print("A0 10 MeV adaptive radial transport and three-mode closure: PASS")
+          print("maximum adaptive quadrature error:", max_adaptive_error)
           print("B.7 unchanged against C1: PASS")
           print("gV/gX:", a0["model"]["gV_mu_over_gX"])
           print("gA/gX:", a0["model"]["gA_mu_over_gX"])
