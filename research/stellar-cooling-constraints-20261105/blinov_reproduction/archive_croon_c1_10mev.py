@@ -49,6 +49,7 @@ def rel(root,p): return p.resolve().relative_to(root.resolve()).as_posix()
 def gitshow(root, commit, path): return subprocess.run(["git","show",f"{commit}:{path}"],cwd=root,check=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE).stdout
 
 def unit_profile(c):
+    if c == "lapse": return "1"
     if c.endswith("_km"): return "km"
     if c.endswith("_MeV3"): return "MeV^3"
     if c.endswith("_MeV5"): return "MeV^5"
