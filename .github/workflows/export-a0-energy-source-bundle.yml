@@ -25,7 +25,7 @@ jobs:
           bundle="a0-energy-local-bundle"
           mkdir -p "$bundle/$root/blinov_reproduction" "$bundle/$root/data"
           find "$root/blinov_reproduction" -maxdepth 1 -type f -name '*.py' -exec cp {} "$bundle/$root/blinov_reproduction/" \;
-          find "$root/finite_mixing" -type f -name '*.py' -not -path '*/outputs/*' -exec cp --parents {} "$bundle/" \\;
+          find "$root/finite_mixing" -type f -name '*.py' -not -path '*/outputs/*' -exec cp --parents {} "$bundle/" \;
           cp "$root/data/sfho188_digitized.csv" "$bundle/$root/data/"
           cp "$root/data/profile_provenance.json" "$bundle/$root/data/"
           outputs="$bundle/$root/blinov_reproduction/outputs"
