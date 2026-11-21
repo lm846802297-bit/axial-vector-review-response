@@ -1,24 +1,24 @@
 # Folder catalog
 
-Updated 2026-11-17. Counts describe the audited tree after PR #117 merged into `main`, based on commit `2d9bf2e050f161b152d1761265796ad9c86e97a1`.
+Live Git-tree inventory for the 90th-review integration branch, based on `main` at `0d2f6232694b4e151d0fafbb47a072d5d7d1b3a4` plus the 90th-review closeout files. Counts are structural entries, not unique scientific results.
 
 ## Repository footprint
 
-- **1,712 Git-tree entries:** 1,581 files and 131 directories.
-- **605 Markdown/text files:** 506 `.md` and 99 `.txt`.
-- **Baseline register:** 462/462 individually reviewed — 297 `PASS_WITH_NOTES`, 2 `PASS`, 156 `HISTORICAL`, 7 `REVISION_REQUIRED`, 0 `PENDING`.
-- **Supplemental register:** 143 entries — 137 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 0 `PENDING`, 0 `REVISION_REQUIRED`.
-- **Workflow inventory:** 115 YAML workflows — 100 `REVIEWED_WITH_NOTES`, 1 `ACTIVE`, 14 `HISTORICAL_CANDIDATE`, 0 `PENDING`.
+- **1,729 Git-tree entries:** 1,598 files and 131 directories.
+- **608 Markdown/text files:** 509 `.md` and 99 `.txt`.
+- **Baseline register:** 462/462 individually reviewed — 304 `PASS_WITH_NOTES`, 2 `PASS`, 156 `HISTORICAL`, 0 `REVISION_REQUIRED`, 0 `PENDING`.
+- **Supplemental register:** 146 entries — 140 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 0 `PENDING`, 0 `REVISION_REQUIRED`.
+- **Workflow inventory:** 118 YAML workflows — 103 `REVIEWED_WITH_NOTES`, 1 `ACTIVE`, 14 `HISTORICAL_CANDIDATE`, 0 `PENDING`.
 
 | Area | Git-tree entries | Responsibility |
 |---|---:|---|
 | `.freebuff/` | 2 | Tool/project metadata; do not treat as research content. |
-| `.github/` | 120 | Actions workflows, catalogs, audit registers and templates. |
+| `.github/` | 123 | Actions workflows, catalogs, audit registers and templates. |
 | `archive/` | 37 | Frozen reply versions, historical research, referee analysis and manuscript baselines. |
 | `deliverables/` | 22 | Extracted handoff packages and instructions. |
-| `docs/` | 127 | Governance, document registers, review standards and audit reports. |
+| `docs/` | 130 | Governance, document registers, review standards and audit reports. |
 | `overleaf-source/` | 29 | Pinned manuscript source package; read-only source archive. |
-| `research/` | 1,091 | Current scientific workstreams, inputs, scripts, tests, outputs and evidence. |
+| `research/` | 1,102 | Current scientific workstreams, inputs, scripts, tests, outputs and evidence. |
 | `work/` | 18 | Intermediate and temporary material; not authoritative until promoted. |
 | `审稿意见-gpt/` | 128 | Internal referee analysis, decisions, writing rules, current execution and original reviewer materials. |
 | `导出/` | 3 | Exported artifacts; identify source and lifecycle before promotion. |
@@ -51,3 +51,7 @@ The root has 12 files after the PR #116 historical-file moves; the active-script
 7. CI success is not equivalent to physical acceptance or a validated phenomenological exclusion.
 
 Registers: [baseline](DOCUMENT_AUDIT_REGISTER.csv), [supplemental](SUPPLEMENTAL_DOCUMENT_AUDIT_REGISTER.csv), [workflow](../../.github/workflows/WORKFLOW_AUDIT_REGISTER.csv).
+
+## 90th-review closeout integration
+
+The seven baseline `REVISION_REQUIRED` records now have evidence-based `PASS_WITH_NOTES` dispositions. The 90th review, thermal-convergence provenance note, and closeout workflow review are included as supplemental records. The pure-vector Fig. 7 10 MeV physical discrepancy remains +92.4284%; no opacity rescaling or axial-vector constraint update is authorized.

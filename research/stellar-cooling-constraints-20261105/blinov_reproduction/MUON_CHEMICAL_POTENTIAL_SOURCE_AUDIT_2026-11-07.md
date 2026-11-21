@@ -164,3 +164,32 @@ Do not tune the source normalization or opacity to compensate for this discrepan
 4. Only after this profile-source check, freeze the adopted \(\mu_\mu(r)\) baseline and proceed to the 15--25 km neutrino-absorption audit.
 
 No formal paper, referee response, or axial-vector exclusion curve is modified by this research note.
+
+
+---
+
+## 2026-11-17: profile fingerprints and the (n_{\mu^-}) versus net-density check
+
+The current combined SFHo-18.8 profile used by the B.16 calculations is pinned to:
+
+- `data/sfho188_digitized.csv` Git blob SHA-1: `e41df78c8035540760fbcb7ef592cd830171822e`
+- SHA-256: `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`
+- 1687 rows.
+- Caputo `SNProfile.pdf` SHA-256: `19ca5ee492dea689a4a9851e999f7d05d0f26be7dfc820e817cc5bc310065c8e`.
+- Ferreira `SNModelComparison.pdf` SHA-256: `5cc8b07dad824b65391fae6229bb9eca138c1cf5ff0348c8aaf712779a2566f2`.
+
+The serialized profile is a composite of the Caputo thermodynamic curves and the Ferreira lapse curve. This distinction is now explicit; the source PDF fingerprints are not described as two interchangeable full profiles.
+
+For the 12--15 km shell, the independent Fermi-Dirac calculation reports (n_{\mu^-}), (n_{\mu^+}), (n_{\mu,\mathrm{net}}=n_{\mu^-}-n_{\mu^+}), and (n_{\mu,\mathrm{total}}=n_{\mu^-}+n_{\mu^+}) separately. The number-density integral includes the two spin states:
+[
+n_{\mu^- / \mu^+}
+=\frac{1}{\pi^2(\hbar c)^3}
+\int_0^\infty dp\,p^2
+\left[\exp\left(\frac{\sqrt{p^2+m_\mu^2}\mp\mu_\mu}{T}\right)+1\right]^{-1}.
+]
+
+At the five common vertices (r=12,12.5,13,14,15\) km, the (n_{\mu^+}) fraction of (n_{\mu^-}+n_{\mu^+}) decreases from 0.0856% to 0.00825%. Across these vertices, the mean relative offset from Bollig Fig. 3 is 7.90% for (n_{\mu^-}) and 7.86% for (n_{\mu,\mathrm{net}}); the maxima are 9.65% and 9.64%, respectively. The charge-convention choice therefore cannot account for the Fig. 3 offset.
+
+**Do not change the B.17 kernel:** its published/source convention is one negative-muon species, (n_{\mu^-}), and its susceptibility. The net density is recorded as a separate diagnostic, not substituted into the B.17 source or opacity. The public Fig. 3 label alone does not determine whether the plotted quantity is (n_{\mu^-}) or (n_{\mu,\mathrm{net}}); no convention is asserted without primary evidence.
+
+The profile fingerprint, all nine 12--15 km charge-density rows, and the source-PDF hashes are machine-readable in `data/profile_12_15km_audit_2026-11-09.json`. The common-vertex comparison is also retained in `outputs/bollig_muon_density_b1_source_audit_2026-11-09.json`. This closes the bookkeeping and charge-convention diagnostic, **not** the physical absolute-density discrepancy. No rescaling is made.

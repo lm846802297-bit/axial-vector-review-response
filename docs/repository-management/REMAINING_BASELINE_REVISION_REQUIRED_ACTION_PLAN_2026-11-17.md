@@ -1,5 +1,13 @@
 # Baseline revision-required items: action plan
 
+> **Superseded on 2026-11-17.** This was the seven-item action plan at the time it
+> was written. The 90th review has now dispositioned all seven records with
+> evidence and updated the baseline register to 0 `REVISION_REQUIRED`.
+> Retain this file as the historical plan; the current source of truth is
+> [the 90th review](NINETIETH_REVIEW_B16_AND_REPOSITORY_BASELINE_CLOSEOUT_2026-11-17.md)
+> and [DOCUMENT_AUDIT_REGISTER.csv](DOCUMENT_AUDIT_REGISTER.csv).
+
+
 Date: 2026-11-17  
 Branch: `maintenance/repository-organization-audit-20261114`  
 Source of truth: `docs/repository-management/DOCUMENT_AUDIT_REGISTER.csv`  

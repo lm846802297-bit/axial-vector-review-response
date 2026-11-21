@@ -216,3 +216,34 @@ Two scope clarifications are added. First, the absence of \(A(r)\) or \(M(r)\) i
 The later 42nd review independently reproduced neighboring high-energy chord and analytic-path diagnostics, but it does not change the Fig. 7 acceptance decision or remove the physical-profile limitation.
 
 **Review disposition: PASS_WITH_NOTES.** Keep PR #57 Draft/Open and do not update any axial-vector constraint until the pure-vector benchmark and energy-redistribution physics pass their independent gates.
+
+ 
+ ---
+ 
+ ## 2026-11-17 high-order phase-space closeout (numerical gate only)
+ 
+ The strict-NumPy B.16 phase-space run now completes on the exact archived
+ source, opacity and 842-node energy grids. Workflow
+ [#44035746636](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44035746636)
+ passed all eight regression tests, high-order calculation, complete joint
+ radius-energy-direction normalization, and artifact archival.
+ 
+ The recomputed 10 MeV luminosity is
+ (2.4396359574\times10^{52}\) erg/s against the Fig. 7 reference
+ (1.2678147591\times10^{52}\) erg/s, i.e. (+92.4284\%\). The integrated
+ luminosity closes to the independent high-order B.16 baseline at
+ (2.22\times10^{-16}\); this confirms reproducibility of the existing
+ prediction, not agreement with Fig. 7. The energy-node maximum relative
+ difference is (2.69\times10^{-16}\).
+ 
+ The new CSV and direction-resolved SVG provide all 660 non-empty joint bins
+ (508 all-radius and 152 core-region entries) and eight heatmap panels.
+ The 8--15 km region carries 79.6522% of the thin B.1 source and 86.8551% of
+ escaped luminosity. The source-weighted global escape probability is
+ (3.25177\times10^{-4}\).
+ 
+ **Acceptance decision is unchanged:** the pure-vector fixed-(\omega\)
+ Fig. 7 physical benchmark still fails at 10 MeV. No fitted opacity,
+ rescaling, outer-boundary substitution, or axial-vector curve update is
+ authorized. Axial recalculation remains frozen until the physical source /
+ opacity discrepancy is independently explained.

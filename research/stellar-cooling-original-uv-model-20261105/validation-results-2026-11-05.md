@@ -141,3 +141,26 @@ Machine-readable values are in \`thermal-convergence-2026-11-05.csv\`.
 **Not established:** medium-rest-frame T/L-resolved emissivities or opacities, inverse-process/trapping transport, radial SN profiles, diffusion, SN1987A cooling contours, high-energy-neutrino event constraints, or LESN energy deposition. No supernova exclusion or allowed region follows from this record.
 
 A direct \`git clone\` was unavailable in the earlier execution environment; source files were fetched from GitHub and their blob SHAs recorded above. The single-VEV map suite was rerun for this clean branch. CI was not used, and no CI pass is claimed.
+
+
+---
+
+## 2026-11-17 convergence-table provenance disposition
+
+The historical `thermal-convergence-2026-11-05.csv` is retained as a legacy
+table. Its exact producer has not been recovered, and its order-sweep
+`relative_*_percent` columns use the order-10 row as reference, whereas the
+current convergence-driver blob
+`e36ab13ae32216ae4d3c9a2323099485f880a1b0` uses the highest requested order
+(order 12 in this scan). We therefore withdraw direct attribution of the CSV
+to the current driver. The cutoff rows remain referenced to the order-10
+default cutoff benchmark.
+
+The CSV's shared blob, the current Original-UV and Two-VEV driver hashes,
+the separate model-specific width-script hashes, the historical width-script
+hash limitation, and the Two-VEV joint (n_{\rm GL})-(n_\phi) refinement
+are recorded in
+[THERMAL_CONVERGENCE_CSV_PROVENANCE_2026-11-17.md](../../docs/repository-management/THERMAL_CONVERGENCE_CSV_PROVENANCE_2026-11-17.md).
+No independent azimuthal-convergence claim or new Ward-residual bound is
+made. The historical table remains a homogeneous-cell benchmark, not a
+supernova luminosity or opacity result.

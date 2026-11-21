@@ -124,3 +124,58 @@ For each variant, compare local \(\nu_\mu\) and \(\nu_\tau\) reduced absorption,
 - audit_b16_inner_path_channel_directional.py: B.2 shell/channel/direction sensitivity.
 
 The profile remains a reconstructed public-figure benchmark, not the raw Garching simulation.
+
+
+---
+
+## 2026-11-17 fingerprint and charge-convention addendum
+
+This addendum pins the exact profile used by the 10 MeV B.16 local-rate and high-order baseline outputs and keeps the two muon charge conventions separate. It does not remove the absolute Fig. 3 density discrepancy.
+
+### Profile identity
+
+| Input | Fingerprint / identity |
+|---|---|
+| Combined profile | `data/sfho188_digitized.csv` |
+| Git blob SHA-1 | `e41df78c8035540760fbcb7ef592cd830171822e` |
+| File SHA-256 | `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c` |
+| Rows | 1687 |
+| Caputo source PDF | `SNProfile.pdf`, SHA-256 `19ca5ee492dea689a4a9851e999f7d05d0f26be7dfc820e817cc5bc310065c8e` |
+| Ferreira source PDF | `SNModelComparison.pdf`, SHA-256 `5cc8b07dad824b65391fae6229bb9eca138c1cf5ff0348c8aaf712779a2566f2` |
+
+The serialized profile is a documented composite: Caputo supplies the baseline thermodynamic curves (T,\mu_\mu,\mu_{\nu_\mu}), while the Ferreira extraction supplies the lapse. The two source PDFs are not interchangeable profile versions. The exact profile fingerprint is also recorded in the 2026-11-09 high-order B.16 JSON and the 2026-11-17 local-rate package.
+
+### Both charge densities at common 12--15 km vertices
+
+The independent relativistic Fermi-Dirac calculation includes the two muon spin states:
+[
+n_{\mu^- / \mu^+}
+=\frac{1}{\pi^2(\hbar c)^3}
+\int_0^\infty dp\,p^2
+\left[\exp\left(\frac{\sqrt{p^2+m_\mu^2}\mp\mu_\mu}{T}\right)+1\right]^{-1}.
+]
+We retain
+[
+n_{\mu,\mathrm{net}}=n_{\mu^-}-n_{\mu^+},
+\qquad
+n_{\mu,\mathrm{total}}=n_{\mu^-}+n_{\mu^+}.
+]
+
+| (r) (km) | (n_{\mu^-}) (fm(^{-3})) | (n_{\mu^+}) (fm(^{-3})) | (n_{\mu,\mathrm{net}}) (fm(^{-3})) | Bollig Fig. 3 (n_\mu) (fm(^{-3})) | (n_{\mu^-}) vs Fig. 3 | (n_{\mu,\mathrm{net}}) vs Fig. 3 |
+|---:|---:|---:|---:|---:|---:|---:|
+| 12.0 | (1.94368\times10^{-3}) | (1.66478\times10^{-6}) | (1.94202\times10^{-3}) | (1.82890\times10^{-3}) | +6.276% | +6.185% |
+| 12.5 | (1.40719\times10^{-3}) | (8.40062\times10^{-7}) | (1.40635\times10^{-3}) | (1.31426\times10^{-3}) | +7.071% | +7.007% |
+| 13.0 | (9.38592\times10^{-4}) | (3.85617\times10^{-7}) | (9.38206\times10^{-4}) | (8.71601\times10^{-4}) | +7.686% | +7.642% |
+| 14.0 | (3.00067\times10^{-4}) | (5.37729\times10^{-8}) | (3.00014\times10^{-4}) | (2.75751\times10^{-4}) | +8.818% | +8.799% |
+| 15.0 | (4.01355\times10^{-5}) | (3.31169\times10^{-9}) | (4.01322\times10^{-5}) | (3.66023\times10^{-5}) | +9.653% | +9.644% |
+
+At these common vertices, the largest positive-muon number fraction (n_{\mu^+}/(n_{\mu^-}+n_{\mu^+})) is 0.0856% (at 12 km). The mean relative offsets from Bollig Fig. 3 are 7.90% for (n_{\mu^-}) and 7.86% for (n_{\mu,\mathrm{net}}). Thus replacing the single-particle density by the net density changes the comparison by at most about 0.09 percentage points; it cannot explain the approximately 6--10% Fig. 3 offset.
+
+### Source convention and disposition
+
+- Blinov B.17 is retained as a **single negative-muon** source/opacity convention, using (n_{\mu^-}) and its corresponding susceptibility. We do not substitute (n_{\mu,\mathrm{net}}) or (n_{\mu,\mathrm{total}}) into that kernel.
+- The public Bollig Fig. 3 label (n_\mu) does not, by itself, resolve whether the plotted quantity is (n_{\mu^-}), (n_{\mu,\mathrm{net}}), or a total number density. Both definitions remain in the audit record.
+- The charge-convention ambiguity is now quantitatively bounded and cannot explain the remaining absolute-density mismatch. No opacity rescaling or density renormalization is made.
+- Machine-readable values and exact profile identity are stored in `data/profile_12_15km_audit_2026-11-09.json` and `blinov_reproduction/outputs/bollig_muon_density_b1_source_audit_2026-11-09.json`.
+
+The profile-fingerprint and charge-convention bookkeeping is complete. The physical Caputo-versus-Bollig Fig. 3 absolute-density offset remains an explicitly unresolved source-level discrepancy.
