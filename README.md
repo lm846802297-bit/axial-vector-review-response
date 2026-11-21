@@ -1,5 +1,7 @@
 # Axial-vector model: manuscript revision and referee response
 
+- Mandatory research compute architecture and reproducibility policy: [RESEARCH_COMPUTE_POLICY.md](RESEARCH_COMPUTE_POLICY.md)
+
 > **Mandatory project rule:** before every task in this repository, read [AGENTS.md](AGENTS.md). For referee-response work, the authoritative writing rules and the separate internal manuscript-change checklist are linked below.
 
 本仓库用于整理轴矢量 \(U(1)_{L_\mu-L_\tau}\) 模型论文的审稿意见、论文修订、计算核查和回复信。资料包括论文与审稿报告基线、Overleaf 源码、逐条回复工作稿、会议记录和专题研究证据。
