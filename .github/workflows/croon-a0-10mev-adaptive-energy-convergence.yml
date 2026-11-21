@@ -1,0 +1,171 @@
+name: Croon A0 10 MeV adaptive energy-order convergence
+
+on:
+  push:
+    branches:
+      - research/croon-vector-benchmark-and-rate-corrections-20261119
+    paths:
+      - '.github/workflows/croon-a0-10mev-adaptive-energy-convergence.yml'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_croon_a0_10mev_adaptive_energy_convergence.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_a0_uv_axial_transport.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_c1_b13_vector_transport.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_a0_uv_axial_transport_10mev_153nodes_adaptive_2026-11-20.json'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_energy48_2026-11-20.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  a0-adaptive-energy-convergence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Validate A0 energy-audit Python syntax
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m py_compile audit_croon_a0_10mev_adaptive_energy_convergence.py
+      - name: Check that both independent reference files are available
+        id: baseline
+        shell: bash
+        run: |
+          if [[ -f research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_a0_uv_axial_transport_10mev_153nodes_adaptive_2026-11-20.json && \
+                -f research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_energy48_2026-11-20.json ]]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "A0 radial-153 or C1 energy-48 reference is not committed yet; computation will wait for the matching push."
+          fi
+      - name: Defer A0 energy convergence until independent reference outputs exist
+        if: steps.baseline.outputs.ready != 'true'
+        run: |
+          echo "::notice::A0 energy convergence is deferred. The A0 153-node radial output and C1 153-node energy-48 reference must both be committed first."
+      - uses: actions/setup-python@v5
+        if: steps.baseline.outputs.ready == 'true'
+        with:
+          python-version: '3.13'
+      - name: Record source revision and independent reference fingerprints
+        if: steps.baseline.outputs.ready == 'true'
+        run: |
+          python --version
+          git rev-parse HEAD
+          sha256sum research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv
+          sha256sum \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_a0_uv_axial_transport_10mev_153nodes_adaptive_2026-11-20.json \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_energy48_2026-11-20.json
+      - name: Install pinned numerical dependencies
+        if: steps.baseline.outputs.ready == 'true'
+        run: python -m pip install numpy==2.5.5 scipy==1.18.1
+      - name: Run A0 and C1 kernel regression tests
+        if: steps.baseline.outputs.ready == 'true'
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        env:
+          PYTHONPATH: ..
+        run: |
+          python -m unittest -v \
+            test_croon_a0_uv_axial_transport.py \
+            test_croon_c1_b13_vector_transport.py
+      - name: Compute independent A0 energy-order-48 transport
+        if: steps.baseline.outputs.ready == 'true'
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        env:
+          PYTHONPATH: ..
+        run: python audit_croon_a0_10mev_adaptive_energy_convergence.py
+      - name: Validate A0 energy convergence and native outputs
+        if: steps.baseline.outputs.ready == 'true'
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: |
+          python - <<'PY'
+          import csv, json, math
+          from pathlib import Path
+          root = Path("outputs")
+          summary = json.loads((root / "A0_10MEV_ADAPTIVE_ENERGY_CONVERGENCE_2026-11-20.json").read_text())
+          assert summary["status"] == "PASS", summary
+          assert summary["maximum_over_all_reported_metrics"] < 1e-4
+          assert summary["refined"]["radial_points"] == 153
+          assert summary["refined"]["energy_order"] == 48
+          assert summary["fixed_parameters"]["adaptive_radial"] is True
+          assert summary["fixed_parameters"]["coupling_count"] == 121
+          assert summary["fixed_parameters"]["polarizations"] == ["L", "+", "-"]
+          assert summary["B7_unchanged_against_C1_153node_energy48"]["total_relative_difference"] < 1e-12
+          assert max(summary["B7_unchanged_against_C1_153node_energy48"]["per_mode_relative_differences"].values()) < 1e-12
+          assert summary["max_quadpack_relative_error_estimate"] < 1e-6
+          assert summary["max_mode_sum_relative_residual"] < 1e-12
+          assert max(summary["surface_asymptote_high_g_relative_residuals"].values()) < 1e-6
+          assert summary["detailed_balance"]["max_B7_mode_residual"] < 1e-10
+          assert summary["detailed_balance"]["max_B13_charge_mode_residual"] < 1e-10
+          assert summary["detailed_balance"]["max_final_muon_shell_relative_error"] < 2e-10
+          data = json.loads((root / "croon_a0_uv_axial_transport_10mev_153nodes_adaptive_energy48_2026-11-20.json").read_text())
+          item = data["masses"]["10"]
+          assert item["radial_points"] == 153 and item["energy_points"] == 48
+          assert item["polarization_modes"] == ["L", "+", "-"]
+          assert len(item["coupling_curve"]) == 121
+          assert len(item["local_profile"]) == 153
+          for row in item["coupling_curve"]:
+              for label in ("Rfar_Rnu", "Rfar_100km_vacuum_nu_tail"):
+                  total = row[label + "_adaptive_quad"]
+                  modes = row[label + "_adaptive_quad_by_mode_erg_s"]
+                  assert set(modes) == {"L", "+", "-"}
+                  assert math.isfinite(total) and total >= 0
+                  assert all(math.isfinite(v) and v >= 0 for v in modes.values())
+                  assert abs(sum(modes.values()) - total) / max(abs(total), 1e-300) < 1e-12
+          csv_path = root / "croon_a0_uv_axial_transport_10mev_153nodes_adaptive_energy48_2026-11-20.csv"
+          with csv_path.open(newline="") as handle:
+              rows = list(csv.DictReader(handle))
+          assert len(rows) == 153
+          assert all(math.isfinite(float(row["r_km"])) for row in rows)
+          print("A0 153-node energy-32/48 convergence: PASS")
+          print("maximum reported relative metric:", summary["maximum_over_all_reported_metrics"])
+          print("B.7 agreement with C1 energy-48:", summary["B7_unchanged_against_C1_153node_energy48"])
+          print("QUADPACK maximum error estimate:", summary["max_quadpack_relative_error_estimate"])
+          print("three-mode closure:", summary["max_mode_sum_relative_residual"])
+          PY
+      - name: Create SHA-256 manifest for A0 energy outputs
+        if: steps.baseline.outputs.ready == 'true'
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: |
+          sha256sum \
+            outputs/croon_a0_uv_axial_transport_10mev_153nodes_adaptive_energy48_2026-11-20.json \
+            outputs/croon_a0_uv_axial_transport_10mev_153nodes_adaptive_energy48_2026-11-20.csv \
+            outputs/A0_10MEV_ADAPTIVE_ENERGY_CONVERGENCE_2026-11-20.json \
+            > outputs/SHA256SUMS_croon_a0_adaptive_energy_convergence_2026-11-20.txt
+      - name: Upload native A0 energy convergence outputs
+        if: steps.baseline.outputs.ready == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: croon-a0-10mev-adaptive-energy-convergence-2026-11-20
+          path: |
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_a0_uv_axial_transport_10mev_153nodes_adaptive_energy48_2026-11-20.json
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_a0_uv_axial_transport_10mev_153nodes_adaptive_energy48_2026-11-20.csv
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/A0_10MEV_ADAPTIVE_ENERGY_CONVERGENCE_2026-11-20.json
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/SHA256SUMS_croon_a0_adaptive_energy_convergence_2026-11-20.txt
+          if-no-files-found: error
+      - name: Commit A0 energy convergence outputs to the research branch
+        if: steps.baseline.outputs.ready == 'true'
+        env:
+          GIT_AUTHOR_NAME: github-actions[bot]
+          GIT_AUTHOR_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+          GIT_COMMITTER_NAME: github-actions[bot]
+          GIT_COMMITTER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+        run: |
+          git add \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_a0_uv_axial_transport_10mev_153nodes_adaptive_energy48_2026-11-20.json \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_a0_uv_axial_transport_10mev_153nodes_adaptive_energy48_2026-11-20.csv \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/A0_10MEV_ADAPTIVE_ENERGY_CONVERGENCE_2026-11-20.json \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/SHA256SUMS_croon_a0_adaptive_energy_convergence_2026-11-20.txt
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive A0 10 MeV adaptive energy convergence"
+            for attempt in 1 2 3; do
+              git fetch origin "research/croon-vector-benchmark-and-rate-corrections-20261119"
+              git rebase "origin/research/croon-vector-benchmark-and-rate-corrections-20261119"
+              if git push origin "HEAD:research/croon-vector-benchmark-and-rate-corrections-20261119"; then
+                exit 0
+              fi
+            done
+            exit 1
+          fi

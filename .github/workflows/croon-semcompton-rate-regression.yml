@@ -1,0 +1,269 @@
+name: Croon semi-Compton rate regression
+
+on:
+  push:
+    branches:
+      - research/croon-vector-benchmark-and-rate-corrections-20261119
+    paths:
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_semicompton_rate_comparison.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_croon_semicompton_rate_comparison.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_neutrino_rate_comparison.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_croon_neutrino_rate_comparison.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_blinov_neutrino_emissivity.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_croon_blinov_neutrino_emissivity.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_fig2_literal_transport.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_croon_fig2_literal_transport.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_croon_fig2_energy_threshold_convergence.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_audit_croon_fig2_energy_threshold_convergence.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/digitize_croon_fig2_vector_paths.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_digitize_croon_fig2_vector_paths.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/digitize_croon_fig2_curves.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_digitize_croon_fig2_curves.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/compare_croon_fig2_digitized_curves.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_compare_croon_fig2_digitized_curves.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_croon_fig2_outer_opacity_gap.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_croon_outer_muon_opacity_envelope.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_audit_croon_outer_muon_opacity_envelope.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_croon_antimuon_opacity_sensitivity.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_audit_croon_antimuon_opacity_sensitivity.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_audit_croon_fig2_outer_opacity_gap.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/lai2024_plateau_equation_audit.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_lai2024_plateau_equation_audit.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/run_lai2024_surface_semicompton_check.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_lai2024_surface_semicompton_check.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/run_lai2024_neutrino_only_plateau_reference.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_c0_luminosity.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_croon_c0_luminosity_convergence.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_croon_c0_luminosity.py'
+      - '.github/workflows/croon-semcompton-rate-regression.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  equation-level-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Record runtime
+        run: python --version
+      - name: Install numerical dependencies
+        run: python -m pip install numpy scipy pymupdf
+      - name: Run Croon/Blinov semi-Compton equation checks
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest -v test_croon_semicompton_rate_comparison.py
+      - name: Run Croon/Blinov neutrino inverse-decay normalization checks
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest -v test_croon_neutrino_rate_comparison.py
+      - name: Generate local neutrino-rate comparison table
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python croon_neutrino_rate_comparison.py
+      - name: Run full-profile neutrino emissivity regression tests
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest -v test_croon_blinov_neutrino_emissivity.py
+      - name: Generate full-profile local neutrino emissivity comparison
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python croon_blinov_neutrino_emissivity.py
+      - name: Run Croon-literal C0 optical-depth and luminosity tests
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest -v test_croon_c0_luminosity.py
+      - name: Generate Croon-literal C0 luminosity curve
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python croon_c0_luminosity.py
+      - name: Generate Lmu-Ltau two-neutrino-flavour C0 sensitivity curve
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python croon_c0_luminosity.py --neutrino-flavour-factor 2.0 --output outputs/croon_c0_luminosity_10mev_lmutau_2026-11-19.json
+      - name: Generate charge-conjugate muon sensitivity curve
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python croon_c0_luminosity.py --include-antimuons --output outputs/croon_c0_luminosity_10mev_antimuons_2026-11-19.json
+      - name: Generate high-order C0 convergence curve
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python croon_c0_luminosity.py --energy-order 96 --tau-grid-points 601 --susceptibility-order 192 --output outputs/croon_c0_luminosity_10mev_highorder_2026-11-19.json
+      - name: Audit C0 quadrature convergence and charge-conjugate sensitivity
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python audit_croon_c0_luminosity_convergence.py
+      - name: Upload full 28-point local neutrino-rate table
+        uses: actions/upload-artifact@v4
+        with:
+          name: croon-blinov-neutrino-rate-comparison
+          path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_blinov_neutrino_rate_comparison_2026-11-19.json
+          if-no-files-found: error
+      - name: Upload full-profile local neutrino emissivity table
+        uses: actions/upload-artifact@v4
+        with:
+          name: croon-blinov-neutrino-emissivity-profile
+          path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_blinov_neutrino_emissivity_profile_2026-11-19.json
+          if-no-files-found: error
+      - name: Upload Croon-literal C0 luminosity curve
+        uses: actions/upload-artifact@v4
+        with:
+          name: croon-c0-luminosity-10mev
+          path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c0_luminosity_10mev_2026-11-19.json
+          if-no-files-found: error
+      - name: Upload Lmu-Ltau two-neutrino-flavour C0 sensitivity curve
+        uses: actions/upload-artifact@v4
+        with:
+          name: croon-c0-luminosity-10mev-lmutau
+          path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c0_luminosity_10mev_lmutau_2026-11-19.json
+          if-no-files-found: error
+      - name: Upload charge-conjugate muon sensitivity curve
+        uses: actions/upload-artifact@v4
+        with:
+          name: croon-c0-luminosity-10mev-antimuons
+          path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c0_luminosity_10mev_antimuons_2026-11-19.json
+          if-no-files-found: error
+      - name: Upload high-order C0 convergence curve
+        uses: actions/upload-artifact@v4
+        with:
+          name: croon-c0-luminosity-10mev-highorder
+          path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c0_luminosity_10mev_highorder_2026-11-19.json
+          if-no-files-found: error
+      - name: Upload C0 convergence and charge-conjugate audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: croon-c0-luminosity-convergence-audit
+          path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c0_luminosity_convergence_2026-11-19.json
+          if-no-files-found: error
+      - name: Run Croon Fig. 2 literal-transport regression tests
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest -v test_croon_fig2_literal_transport.py
+      - name: Generate Croon Fig. 2 literal-transport benchmark
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python croon_fig2_literal_transport.py
+      - name: Upload Croon Fig. 2 literal-transport benchmark
+        uses: actions/upload-artifact@v4
+        with:
+          name: croon-fig2-literal-transport-preliminary
+          path: |
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_fig2_literal_transport_preliminary_2026-11-19.json
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_fig2_literal_transport_preliminary_2026-11-19.csv
+          if-no-files-found: error
+      - name: Run Croon Fig. 2 vector-extraction tests
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest -v test_digitize_croon_fig2_vector_paths.py
+      - name: Extract Croon Fig. 2 PDF vector paths
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python digitize_croon_fig2_vector_paths.py
+      - name: Upload Croon Fig. 2 vector-path inventory and source crop
+        uses: actions/upload-artifact@v4
+        with:
+          name: croon-fig2-vector-path-inventory
+          path: |
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_fig2_vector_paths_2026-11-19.json
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_fig2_source_crop_2026-11-19.png
+          if-no-files-found: error
+      - name: Run Croon Fig. 2 curve-digitization regression tests
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest -v test_digitize_croon_fig2_curves.py
+      - name: Digitize Croon Fig. 2 vector curves
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python digitize_croon_fig2_curves.py
+      - name: Run no-fit Croon Fig. 2 pointwise comparison tests
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest -v test_compare_croon_fig2_digitized_curves.py
+      - name: Compare model curves against digitized Croon Fig. 2 paths
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python compare_croon_fig2_digitized_curves.py
+      - name: Upload no-fit Croon Fig. 2 pointwise comparison
+        uses: actions/upload-artifact@v4
+        with:
+          name: croon-fig2-digitized-comparison
+          path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_fig2_digitized_comparison_2026-11-19.json
+          if-no-files-found: error
+      - name: Upload Croon Fig. 2 digitized curve data
+        uses: actions/upload-artifact@v4
+        with:
+          name: croon-fig2-digitized-curves
+          path: |
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_fig2_digitized_curves_2026-11-19.json
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_fig2_digitized_curves_2026-11-19.csv
+          if-no-files-found: error
+      - name: Run Croon Fig. 2 outer-opacity gap regression tests
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest -v test_audit_croon_fig2_outer_opacity_gap.py
+      - name: Run Lai 2024 plateau and rate-convention equation audit
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest -v test_lai2024_plateau_equation_audit.py
+      - name: Generate Lai neutrino-only thin-shell plateau reference
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python run_lai2024_neutrino_only_plateau_reference.py
+      - name: Upload Lai neutrino-only thin-shell plateau reference
+        uses: actions/upload-artifact@v4
+        with:
+          name: lai2024-neutrino-only-plateau-reference
+          path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/lai2024_neutrino_only_plateau_reference_2026-11-19.json
+          if-no-files-found: error
+      - name: Run Lai surface semi-Compton versus neutrino opacity tests
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest -v test_lai2024_surface_semicompton_check.py
+      - name: Compute Lai surface semi-Compton versus neutrino opacity check
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python run_lai2024_surface_semicompton_check.py
+      - name: Upload Lai surface semi-Compton versus neutrino opacity check
+        uses: actions/upload-artifact@v4
+        with:
+          name: lai2024-surface-semicompton-check
+          path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/lai2024_surface_semicompton_check_2026-11-19.json
+          if-no-files-found: error
+      - name: Diagnose missing outer opacity from solid/dashed Fig. 2 curves
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python audit_croon_fig2_outer_opacity_gap.py
+      - name: Upload Croon Fig. 2 outer-opacity gap diagnostic
+        uses: actions/upload-artifact@v4
+        with:
+          name: croon-fig2-outer-opacity-gap
+          path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_fig2_outer_opacity_gap_2026-11-19.json
+          if-no-files-found: error
+      - name: Run full source-weighted outer muon-opacity envelope tests
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest -v test_audit_croon_outer_muon_opacity_envelope.py
+      - name: Compute full source-weighted outer muon-opacity envelope
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python audit_croon_outer_muon_opacity_envelope.py
+      - name: Upload full source-weighted outer muon-opacity envelope
+        uses: actions/upload-artifact@v4
+        with:
+          name: croon-outer-muon-opacity-envelope
+          path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_outer_muon_opacity_envelope_2026-11-19.json
+          if-no-files-found: error
+      - name: Run Croon charge-conjugate muon-opacity sensitivity tests
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest -v test_audit_croon_antimuon_opacity_sensitivity.py
+      - name: Compute Croon charge-conjugate muon-opacity sensitivity
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python audit_croon_antimuon_opacity_sensitivity.py
+      - name: Upload Croon charge-conjugate muon-opacity sensitivity
+        uses: actions/upload-artifact@v4
+        with:
+          name: croon-antimuon-opacity-sensitivity
+          path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_antimuon_opacity_sensitivity_2026-11-19.json
+          if-no-files-found: error
+      - name: Run low-mass Fig. 2 energy-threshold convergence tests
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest -v test_audit_croon_fig2_energy_threshold_convergence.py
+      - name: Audit low-mass Fig. 2 energy-threshold convergence
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python audit_croon_fig2_energy_threshold_convergence.py
+      - name: Upload low-mass Fig. 2 energy-threshold convergence audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: croon-fig2-energy-threshold-convergence
+          path: |
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_fig2_energy_threshold_convergence/croon_fig2_energy_threshold_convergence.json
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_fig2_energy_threshold_convergence/croon_fig2_energy_threshold_convergence.csv
+          if-no-files-found: error
+      - name: Re-run exact B13 to B16 controlled-limit regression
+        working-directory: research/stellar-cooling-constraints-20261105
+        env:
+          PYTHONPATH: blinov_reproduction
+        run: python -m unittest -v finite_mixing.test_b13_b16_comparison
+      - name: Re-run independent B13 explicit-spinor and Ward-identity audit
+        working-directory: research/stellar-cooling-constraints-20261105
+        env:
+          PYTHONPATH: blinov_reproduction
+        run: python -m unittest -v finite_mixing.test_b13_moving_muon_spinor_reference

@@ -2,7 +2,9 @@
 
 # Major 4.4：轴矢量 EFT 超新星冷却限制
 
-> **2026-11-07 验证更新：** 作者选择仅复现 Blinov et al. 作为矢量基准，不要求复现多篇文献或获得原始剖面。边界诊断复现、偏振归一化差异、光度曲线的未决问题及 223 MeV 端点误读的纠正见 [矢量基准核查](VECTOR_BENCHMARK_AUDIT_2026-11-07.md)。B.7–B.19 的逐偏振产生率、吸收率、详细平衡和 Python 对照见 [逐偏振理论核查](POLARIZATION_DETAILED_BALANCE_AUDIT_2026-11-07.md)。既有曲线尚不能依据此次诊断认定完整物理验证通过。
+> **2026-11-19 研究原则更新（当前）：** 目标是建立物理上正确、数值上可靠、可独立验证的超新星矢量/轴矢量产生与输运计算体系，而不是强行复现某一篇论文的最终曲线。文献曲线作为 benchmark；优先验证局域率、详细平衡、偏振、光学深度、输运边界和数值收敛，再与多篇独立论文交叉比较。Croon et al. (2021) 的矢量基准现已加入 [Croon benchmark 记录](CROON_VECTOR_BENCHMARK_SCOPE_AND_RATE_CORRECTIONS_2026-11-19.md) 和 [Fig. 2 输运审计](CROON_FIG2_LITERAL_TRANSPORT_PRELIMINARY_2026-11-19.md)。 Lai et al. (2024) 的独立 trapping/plateau 基准已加入 [Lai plateau 方程审计](LAI2024_PLATEAU_BENCHMARK_AND_CROON_DIFFERENCES_2026-11-19.md)，用于检验全角度逃逸、薄壳 plateau 和不同吸收率约定。当前 Fig. 2 的 0.1 eV 强耦合、\(R_{\\rm far}=100\) km 曲线仍因缺少原始 Garching 外层缪子吸收剖面而不完整；没有据此更新任何轴矢量约束。
+>
+> **历史记录（已被上面的研究原则取代）：** 2026-11-07 曾将 Blinov et al. 作为唯一矢量基准。边界诊断、偏振归一化差异及当时的光度曲线问题见 [旧版矢量基准核查](VECTOR_BENCHMARK_AUDIT_2026-11-07.md)；B.7–B.19 的逐偏振产生率、吸收率、详细平衡和 Python 对照见 [逐偏振理论核查](POLARIZATION_DETAILED_BALANCE_AUDIT_2026-11-07.md)。这些历史诊断仍可追溯，但不再代表当前的跨文献验证策略。
 
 2026-11-06。这里给出可复算的 **固定剖面、弹道能量逃逸（ballistic cooling）条件性限制**，以及正式回复信所用的图、数值和验证依据。该结果包含产生端和吸收/衰变截获端；它不是完整流体演化、扩散输运或所有超新星观测的联合排除。
 

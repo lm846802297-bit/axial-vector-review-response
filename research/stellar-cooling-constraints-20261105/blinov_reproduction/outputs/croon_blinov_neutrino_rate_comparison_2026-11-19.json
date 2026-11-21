@@ -1,0 +1,29 @@
+{
+  "title": "Croon Eq. (4.6) versus Blinov Eqs. (B.7)-(B.9): local neutrino production comparison",
+  "mediator_mass_MeV": 10.0,
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "angular_legendre_order": 1024,
+  "assumptions": {
+    "flavours": ["nu_mu", "nu_tau"],
+    "mu_nu_tau_MeV": 0.0,
+    "mu_nu_mu": "interpolated from the archived SFHo-18.8 t_pb=1s profile",
+    "Croon_rate": "Eq. (4.6) literal: alpha_V*mV^2/(3*omega)/(exp(omega/T)-1)",
+    "Blinov_rate": "Eq. (B.7) per flavour, summed over nu_mu and nu_tau; Gamma_decay_per_flavour=alpha_V*mV/6 and factor 3 for the vector-polarization sum",
+    "ratio": "Gamma_B7_two_flavour/Gamma_Croon = 3/2*(I_numu+I_nutau)/f_B",
+    "scope": "local rate comparison only; no luminosity or transport integration"
+  },
+  "selected_points": [
+    {"radius_km": 0.0, "omega_MeV": 12.0, "temperature_MeV": 19.265221107965, "mu_numu_MeV": -58.6137567217484, "omega_over_T": 0.6228841046126757, "I_numu": 0.03181614253898944, "I_nutau": 0.1782987123104535, "bose_factor": 1.1570095199199335, "B7_over_Croon": 0.27240249699585417},
+    {"radius_km": 0.0, "omega_MeV": 50.0, "temperature_MeV": 19.265221107965, "mu_numu_MeV": -58.6137567217484, "omega_over_T": 2.5953504358861488, "I_numu": 0.01251356307574365, "I_nutau": 0.04218388765774102, "bose_factor": 0.0806368190923951, "B7_over_Croon": 1.0174778348612317},
+    {"radius_km": 0.0, "omega_MeV": 210.0, "temperature_MeV": 19.265221107965, "mu_numu_MeV": -58.6137567217484, "omega_over_T": 10.900471830721825, "I_numu": 1.314757997094438e-05, "I_nutau": 1.611131874149091e-05, "bose_factor": 1.8449867279535134e-05, "B7_over_Croon": 2.378789364915082},
+    {"radius_km": 8.0, "omega_MeV": 12.0, "temperature_MeV": 38.847171184805, "mu_numu_MeV": -20.4279370538693, "omega_over_T": 0.3089028012596649, "I_numu": 0.19886189337566706, "I_nutau": 0.21282028217382526, "bose_factor": 2.7629653196882162, "B7_over_Croon": 0.22350018616734654},
+    {"radius_km": 8.0, "omega_MeV": 50.0, "temperature_MeV": 38.847171184805, "mu_numu_MeV": -20.4279370538693, "omega_over_T": 1.2870950052486039, "I_numu": 0.10881271765593747, "I_nutau": 0.11520887508055898, "bose_factor": 0.3813520897226196, "B7_over_Croon": 0.8811604765275086},
+    {"radius_km": 8.0, "omega_MeV": 210.0, "temperature_MeV": 38.847171184805, "mu_numu_MeV": -20.4279370538693, "omega_over_T": 5.405799022044136, "I_numu": 0.003306677674821299, "I_nutau": 0.003362719326845841, "bose_factor": 0.004510720218055575, "B7_over_Croon": 2.2178488176801956},
+    {"radius_km": 12.5, "omega_MeV": 12.0, "temperature_MeV": 23.881959149249, "mu_numu_MeV": -2.59165549916519, "omega_over_T": 0.5024713393489477, "I_numu": 0.19057067217050105, "I_nutau": 0.19112092667492858, "bose_factor": 1.5318607284307282, "B7_over_Croon": 0.3737529056278271},
+    {"radius_km": 12.5, "omega_MeV": 50.0, "temperature_MeV": 23.881959149249, "mu_numu_MeV": -2.59165549916519, "omega_over_T": 2.0936305806206152, "I_numu": 0.0631376393922523, "I_nutau": 0.06325909234195329, "bose_factor": 0.14056154295692314, "B7_over_Croon": 1.3488404695401799},
+    {"radius_km": 12.5, "omega_MeV": 210.0, "temperature_MeV": 23.881959149249, "mu_numu_MeV": -2.59165549916519, "omega_over_T": 8.793248438606584, "I_numu": 0.00012786224150656677, "I_nutau": 0.00012791306024511432, "bose_factor": 0.00015177723476050001, "B7_over_Croon": 2.527803021533041},
+    {"radius_km": 15.0, "omega_MeV": 12.0, "temperature_MeV": 13.2314158304208, "mu_numu_MeV": 0.0, "omega_over_T": 0.9069324215788298, "I_numu": 0.15021416350573907, "I_nutau": 0.15021416350573907, "bose_factor": 0.677179491819317, "B7_over_Croon": 0.665469784541934},
+    {"radius_km": 15.0, "omega_MeV": 50.0, "temperature_MeV": 13.2314158304208, "mu_numu_MeV": 0.0, "omega_over_T": 3.7788850899117907, "I_numu": 0.015162706837490457, "I_nutau": 0.015162706837490457, "bose_factor": 0.023382395360615968, "B7_over_Croon": 1.9454003668541624},
+    {"radius_km": 15.0, "omega_MeV": 210.0, "temperature_MeV": 13.2314158304208, "mu_numu_MeV": 0.0, "omega_over_T": 15.871317377629522, "I_numu": 1.168700068370377e-07, "I_nutau": 1.168700068370377e-07, "bose_factor": 1.2798954582044846e-07, "B7_over_Croon": 2.7393645181222084}
+  ]
+}

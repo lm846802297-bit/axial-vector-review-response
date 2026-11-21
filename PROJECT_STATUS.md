@@ -1,5 +1,17 @@
 # 2026-11-17 live status: post-PR #106 / #113 merge, reply-letter acceptance and repository document review
 
+## Latest update (2026-11-20): C1 10 MeV mode-resolved vector baseline
+
+- **C1 10 MeV aggregate and mode-resolved baselines:** completed on the reviewed reconstructed SFHo-18.8 profile and archived in PR #123. The authoritative polarization-resolved output is `research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_mode_resolved_2026-11-20.json` plus its radial CSV and SHA-256 manifest. Workflow [#44573957318](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44573957318) passed all seven tests, calculation, structural/finite-value checks, mode-sum closure, checksum creation, artifact upload and rebased Git archival. Result commit: `974cbb6929edbedadd18484bd09d4594b7104720`.
+- **Numerical acceptance at the 10 MeV baseline:** 103 actual radial nodes (101 requested plus the muon-edge and neutrinosphere boundaries), 32 energy nodes and 121 (g_X) points. Maximum B.7 detailed-balance residual (3.31\times10^{-14}); B.13 charge/mode residual (5.18\times10^{-14}); final-muon shell residual (5.38\times10^{-13}). Thin-source, global-luminosity and per-radius CSV polarization-sum residuals are (2.57\times10^{-16}), (4.32\times10^{-16}), and (2.82\times10^{-16}), respectively. The mode-resolved and aggregate luminosity curves agree within (6.00\times10^{-15}).
+- **10 MeV thin-source result:** (Q_{\rm thin}/g_X^2=5.18431\times10^{70}\) erg/s, with B.7 neutrino coalescence contributing 85.86% and exact moving-muon B.13 contributing 14.14%. The (mu^+) component is 0.688% of B.13. The B.13 (mu^-+mu^+) source is 0.69598 of the same-grid Croon Eq. (4.7) (mu^-)-only source.
+- **Polarization decomposition:** the integrated B.7+B.13 thin source is 30.05% longitudinal, 33.96% transverse (+), and 35.98% transverse (-). At the (R_{\rm far}=100\) km luminosity peak the corresponding fractions are 29.55%, 34.11%, and 36.34%.
+- **Provisional luminosity crossing:** the 121-point (R_{\rm far}=100\) km curve peaks at (g_X=1.05925\times10^{-8}), (L=1.53681\times10^{54}\) erg/s. Log-log interpolation at (3\times10^{52}\) erg/s gives (g_X=7.64248\times10^{-10}) and (3.37326\times10^{-8}). These are interior-profile C1 results with the two-flavour B.7 vacuum tail; the outer 25–100 km semi-Compton opacity is not included, so they are not the final SN1987A exclusion.
+- **C1 grid convergence:** workflow [#44577096997](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44577096997) is running four independent refinements: radial 153 / energy 32; radial 103 / energy 48; combined radial 153 / energy 48; and B.7 angular order 192 at the 103 / 32 baseline. The acceptance target is below 1% normalized change for total and each mode-resolved luminosity curve, and below 1% channel-by-channel thin-source change. The execution record is [C1_10MEV_KERNEL_AND_EXECUTION_AUDIT_2026-11-20.md](research/stellar-cooling-constraints-20261105/blinov_reproduction/C1_10MEV_KERNEL_AND_EXECUTION_AUDIT_2026-11-20.md).
+- **Six-mass scan policy:** the old automatic push trigger was disabled after source/test edits unintentionally launched duplicate six-mass runs. Those already-started runs are not accepted as results. The six-mass scan is now a deliberate manual stage after the 10 MeV grid-convergence audit.
+- **Next physics stages:** after C1 convergence, complete the six-mass C1 scan; then compute A0 axial-vector local rates with the actual UV axial coupling and finite vector admixture; then run the full radial A0 transport. Original outer-profile data and the Croon outer-opacity comparison remain the final separate stage.
+
+
 > This entry supersedes earlier live summaries below wherever they list PR #106 or #113 as open/draft, report an older main SHA, or describe either branch as an active PR. It also supersedes the pre-merge PR #56 status and the 2026-11-06 response-PDF validation metadata: PR #56 merged on 2026-11-12, and the final response-PDF layout acceptance recorded on 2026-11-16 below. Older dated entries remain as historical snapshots.
 
 
@@ -1122,3 +1134,15 @@ The exact moving-muon B.13 local kernel already resolves \(L,+,-\), both muon ch
 Local maxima: spinor/trace relative residual \(1.77\times10^{-13}\); explicit photon-Ward amplitude residual \(1.47\times10^{-13}\); final-muon shell residual \(6.52\times10^{-16}\); vector longitudinal Ward-shift residual \(3.54\times10^{-14}\). All mode matrix elements are nonnegative. The dedicated P1 GitHub Actions workflow completed successfully: [run #43372084167](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43372084167).
 
 This is a pointwise amplitude validation, not a dense continuous-domain thermal convergence bound or global independent-mode transport result. The scalar B.2 baseline and axial-vector production outputs remain unchanged.
+
+## Structured result archive — C1 10 MeV (2026-11-20)
+
+- **Archive workflow:** [#44669468291](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44668361374) — success.
+- **Archive location:** `research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/`.
+- **Self-contained archive:** includes the SFHo profile snapshot, 103/153-node radial JSON/CSV, 153x48 final transport JSON/CSV, radial/energy reports, source checksum manifests, generated coupling curve, and the four structured JSON/Markdown records.
+- **Records:** 2 input snapshots and 17 output records; the downloadable ZIP independently passes its SHA-256 list and file-record checks.
+- **Integrity:** JSON Schema, source/input provenance, output hashes, CSV row counts, column headers and units validated.
+- **Numerical status:** radial 103/153 comparison 0.11693% (<0.12%); energy 32/48 maximum metric (1.3031\times10^{-7}) (<(10^{-4})).
+- **Physical scope:** overall validation is `partial` by design. The outer 25–100 km B.13 semi-Compton opacity is not included, and no final SN1987A exclusion curve is claimed.
+- **Execution policy:** the archive-only workflow packages the existing C1 outputs; it does not rerun the physics integration.
+- **PR:** [#123](https://github.com/lm846802297-bit/axial-vector-review-response/pull/123), still open and unmerged.

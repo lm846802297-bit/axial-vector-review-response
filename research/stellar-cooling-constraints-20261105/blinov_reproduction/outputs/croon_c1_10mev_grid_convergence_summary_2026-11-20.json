@@ -1,0 +1,328 @@
+{
+  "title": "C1 10 MeV radial-energy-angular convergence audit",
+  "baseline": {
+    "path": "outputs/croon_c1_b13_vector_transport_10mev_mode_resolved_2026-11-20.json",
+    "sha256": "e5003ec284f63871f5bd19582c1b08610a1d456d2b48ed8dc04134532dbbd5cd",
+    "radial_points": 103,
+    "energy_points": 32,
+    "inner_orders": [
+      12,
+      8,
+      8,
+      8
+    ],
+    "neutrino_angular_order": 128,
+    "susceptibility_order": 192,
+    "coupling_points": 121
+  },
+  "comparison_definition": "Maximum absolute curve difference normalized to the reference curve's peak, separately for total and each polarization; thin source relative changes are checked channel by channel.",
+  "acceptance_target": 0.01,
+  "configurations": [
+    {
+      "configuration": {
+        "name": "radial151_energy32",
+        "radial_points": 151,
+        "energy_order": 32,
+        "neutrino_order": 128
+      },
+      "actual_radial_points": 153,
+      "energy_points": 32,
+      "polarization_modes": [
+        "L",
+        "+",
+        "-"
+      ],
+      "max_B7_detailed_balance_residual": 3.462988002993237e-14,
+      "max_B13_detailed_balance_residual": 5.311679762718902e-14,
+      "max_final_muon_shell_relative_error": 5.380211888635872e-13,
+      "total_curve_max_normalized_changes": {
+        "Rfar_Rnu": 0.3333333335978368,
+        "Rfar_100km_vacuum_nu_tail": 0.00024691189295398554
+      },
+      "mode_curve_max_normalized_changes": {
+        "Rfar_Rnu": {
+          "L": 0.3333333334376796,
+          "+": 0.3333333336820862,
+          "-": 0.3333333336820863
+        },
+        "Rfar_100km_vacuum_nu_tail": {
+          "L": 0.0001766070454828596,
+          "+": 0.0002549875576301785,
+          "-": 0.000296511131226101
+        }
+      },
+      "thin_source_total_relative_changes": {
+        "B7_nu_mu_plus_nu_tau": 8.49965603546657e-05,
+        "B13_mu_minus": 0.0005269052779449604,
+        "B13_mu_plus": 0.0005649537873734521,
+        "B13_mu_pm": 0.0005271669763997738,
+        "B7_plus_B13": 0.0001475196026399816,
+        "Croon_Eq47_mu_minus_only": 0.0006197951399423387
+      },
+      "thin_source_mode_relative_changes": {
+        "B7_nu_mu_plus_nu_tau": {
+          "L": 8.376505742365777e-05,
+          "+": 5.007791419693495e-05,
+          "-": 0.00011874794406405805
+        },
+        "B13_mu_minus": {
+          "L": 0.00039373637103811923,
+          "+": 0.0005290924897068947,
+          "-": 0.0005290924897071087
+        },
+        "B13_mu_plus": {
+          "L": 0.0004514915755194852,
+          "+": 0.0005666675539149269,
+          "-": 0.0005666675539149269
+        },
+        "B13_mu_pm": {
+          "L": 0.0003941023600225486,
+          "+": 0.0005293512655608268,
+          "-": 0.0005293512655610394
+        },
+        "B7_plus_B13": {
+          "L": 8.612312062047703e-05,
+          "+": 0.00014823964425419807,
+          "-": 0.00019811898104106463
+        }
+      },
+      "maximum_curve_or_source_change": 0.3333333336820863,
+      "target_relative": 0.01,
+      "status": "REFINE",
+      "json_path": "outputs/croon_c1_10mev_grid_radial151_energy32_2026-11-20.json",
+      "csv_path": "outputs/croon_c1_10mev_grid_radial151_energy32_2026-11-20.csv",
+      "json_sha256": "ec34ca068e63ed93d753fc003cb1f628277184c7949fd4abcf50eb1b80393fbe",
+      "csv_sha256": "fb66ab6692eba37cf5e73cf07ccced47ec775d5cb9deeac6b99fd5aa9d208b82"
+    },
+    {
+      "configuration": {
+        "name": "radial101_energy48",
+        "radial_points": 101,
+        "energy_order": 48,
+        "neutrino_order": 128
+      },
+      "actual_radial_points": 103,
+      "energy_points": 48,
+      "polarization_modes": [
+        "L",
+        "+",
+        "-"
+      ],
+      "max_B7_detailed_balance_residual": 3.178446349971744e-14,
+      "max_B13_detailed_balance_residual": 5.243509573504072e-14,
+      "max_final_muon_shell_relative_error": 5.464939634913602e-13,
+      "total_curve_max_normalized_changes": {
+        "Rfar_Rnu": 1.3239639430134893e-07,
+        "Rfar_100km_vacuum_nu_tail": 1.3560975708233685e-10
+      },
+      "mode_curve_max_normalized_changes": {
+        "Rfar_Rnu": {
+          "L": 1.4749186970981439e-07,
+          "+": 1.2445553556855095e-07,
+          "-": 1.2445553556855095e-07
+        },
+        "Rfar_100km_vacuum_nu_tail": {
+          "L": 2.3723345154610074e-10,
+          "+": 1.6515411433840714e-10,
+          "-": 2.8098439575631815e-10
+        }
+      },
+      "thin_source_total_relative_changes": {
+        "B7_nu_mu_plus_nu_tau": 1.4749019507990615e-10,
+        "B13_mu_minus": 1.186471344690134e-11,
+        "B13_mu_plus": 1.1967821338985997e-13,
+        "B13_mu_pm": 1.1783734857582111e-11,
+        "B7_plus_B13": 1.249687794316622e-10,
+        "Croon_Eq47_mu_minus_only": 2.4734582207283274e-15
+      },
+      "thin_source_mode_relative_changes": {
+        "B7_nu_mu_plus_nu_tau": {
+          "L": 5.5953110359637015e-11,
+          "+": 1.681587995939134e-11,
+          "-": 3.631127041206817e-10
+        },
+        "B13_mu_minus": {
+          "L": 1.58826929546203e-11,
+          "+": 1.179876757808298e-11,
+          "-": 1.1798553619109765e-11
+        },
+        "B13_mu_plus": {
+          "L": 2.475453273079385e-12,
+          "+": 8.436518627975196e-14,
+          "-": 8.436518627975196e-14
+        },
+        "B13_mu_pm": {
+          "L": 1.5797821887783433e-11,
+          "+": 1.1718148056744305e-11,
+          "-": 1.1717935571285965e-11
+        },
+        "B7_plus_B13": {
+          "L": 5.540796197712286e-11,
+          "+": 1.0971547118112302e-11,
+          "-": 2.906566087344292e-10
+        }
+      },
+      "maximum_curve_or_source_change": 1.4749186970981439e-07,
+      "target_relative": 0.01,
+      "status": "PASS",
+      "json_path": "outputs/croon_c1_10mev_grid_radial101_energy48_2026-11-20.json",
+      "csv_path": "outputs/croon_c1_10mev_grid_radial101_energy48_2026-11-20.csv",
+      "json_sha256": "da97a1540218cd1bfc42736f5d253e884d6d1eff6bf83109b7f8903b0b449295",
+      "csv_sha256": "e2c65366ccb41bf6e6991afe34a30b222c8a66e6dc1fc91e8389cd61b0db516b"
+    },
+    {
+      "configuration": {
+        "name": "radial151_energy48",
+        "radial_points": 151,
+        "energy_order": 48,
+        "neutrino_order": 128
+      },
+      "actual_radial_points": 153,
+      "energy_points": 48,
+      "polarization_modes": [
+        "L",
+        "+",
+        "-"
+      ],
+      "max_B7_detailed_balance_residual": 3.295430550940328e-14,
+      "max_B13_detailed_balance_residual": 6.064784371309958e-14,
+      "max_final_muon_shell_relative_error": 5.380211888635872e-13,
+      "total_curve_max_normalized_changes": {
+        "Rfar_Rnu": 0.33333324506905093,
+        "Rfar_100km_vacuum_nu_tail": 0.00024691178664264506
+      },
+      "mode_curve_max_normalized_changes": {
+        "Rfar_Rnu": {
+          "L": 0.33333323500540096,
+          "+": 0.3333332503629566,
+          "-": 0.3333332503629564
+        },
+        "Rfar_100km_vacuum_nu_tail": {
+          "L": 0.00017660700829214704,
+          "+": 0.0002549875753827333,
+          "-": 0.00029651085223326746
+        }
+      },
+      "thin_source_total_relative_changes": {
+        "B7_nu_mu_plus_nu_tau": 8.499670950954623e-05,
+        "B13_mu_minus": 0.0005269052660528817,
+        "B13_mu_plus": 0.0005649537872510432,
+        "B13_mu_pm": 0.0005271669645886529,
+        "B7_plus_B13": 0.00014751972903427572,
+        "Croon_Eq47_mu_minus_only": 0.0006197951399398653
+      },
+      "thin_source_mode_relative_changes": {
+        "B7_nu_mu_plus_nu_tau": {
+          "L": 8.376511441087756e-05,
+          "+": 5.0077931502313016e-05,
+          "-": 0.00011874831058470587
+        },
+        "B13_mu_minus": {
+          "L": 0.00039373635487636473,
+          "+": 0.0005290924778848056,
+          "-": 0.0005290924778850196
+        },
+        "B13_mu_plus": {
+          "L": 0.00045149157279567617,
+          "+": 0.0005666675538315259,
+          "-": 0.0005666675538315259
+        },
+        "B13_mu_pm": {
+          "L": 0.00039410234394622,
+          "+": 0.0005293512538197303,
+          "-": 0.0005293512538199429
+        },
+        "B7_plus_B13": {
+          "L": 8.612317705252702e-05,
+          "+": 0.00014823965561028727,
+          "-": 0.0001981192744422495
+        }
+      },
+      "maximum_curve_or_source_change": 0.3333332503629566,
+      "target_relative": 0.01,
+      "status": "REFINE",
+      "json_path": "outputs/croon_c1_10mev_grid_radial151_energy48_2026-11-20.json",
+      "csv_path": "outputs/croon_c1_10mev_grid_radial151_energy48_2026-11-20.csv",
+      "json_sha256": "5764362d7c1f4a651e35619ccfa144f161b82ed55a18a95750104802fe12d980",
+      "csv_sha256": "97b016855cdf2f3c4ba1583c30e429bdf1244382bf302c88c8e4d1e8b521ca21"
+    },
+    {
+      "configuration": {
+        "name": "radial101_energy32_nu192",
+        "radial_points": 101,
+        "energy_order": 32,
+        "neutrino_order": 192
+      },
+      "actual_radial_points": 103,
+      "energy_points": 32,
+      "polarization_modes": [
+        "L",
+        "+",
+        "-"
+      ],
+      "max_B7_detailed_balance_residual": 3.000984325460755e-14,
+      "max_B13_detailed_balance_residual": 5.1764781423464834e-14,
+      "max_final_muon_shell_relative_error": 5.380211888635872e-13,
+      "total_curve_max_normalized_changes": {
+        "Rfar_Rnu": 9.367297113285763e-16,
+        "Rfar_100km_vacuum_nu_tail": 8.856870411124948e-16
+      },
+      "mode_curve_max_normalized_changes": {
+        "Rfar_Rnu": {
+          "L": 4.75552270423581e-15,
+          "+": 7.147445717297998e-16,
+          "-": 1.0721168575946997e-15
+        },
+        "Rfar_100km_vacuum_nu_tail": {
+          "L": 2.4350136396325646e-15,
+          "+": 1.2982589247744484e-15,
+          "-": 4.341736595390172e-15
+        }
+      },
+      "thin_source_total_relative_changes": {
+        "B7_nu_mu_plus_nu_tau": 1.2394249766283115e-15,
+        "B13_mu_minus": 0.0,
+        "B13_mu_plus": 0.0,
+        "B13_mu_pm": 0.0,
+        "B7_plus_B13": 1.0641698772113863e-15,
+        "Croon_Eq47_mu_minus_only": 0.0
+      },
+      "thin_source_mode_relative_changes": {
+        "B7_nu_mu_plus_nu_tau": {
+          "L": 4.7572601880809e-15,
+          "+": 6.567505907539514e-16,
+          "-": 8.146641234914051e-16
+        },
+        "B13_mu_minus": {
+          "L": 0.0,
+          "+": 0.0,
+          "-": 0.0
+        },
+        "B13_mu_plus": {
+          "L": 0.0,
+          "+": 0.0,
+          "-": 0.0
+        },
+        "B13_mu_pm": {
+          "L": 0.0,
+          "+": 0.0,
+          "-": 0.0
+        },
+        "B7_plus_B13": {
+          "L": 4.721112679957499e-15,
+          "+": 3.4815939828363853e-16,
+          "-": 6.571867411026404e-16
+        }
+      },
+      "maximum_curve_or_source_change": 4.7572601880809e-15,
+      "target_relative": 0.01,
+      "status": "PASS",
+      "json_path": "outputs/croon_c1_10mev_grid_radial101_energy32_nu192_2026-11-20.json",
+      "csv_path": "outputs/croon_c1_10mev_grid_radial101_energy32_nu192_2026-11-20.csv",
+      "json_sha256": "dea32b144919fd42db767f8733c1815a0e7489522b7c836821c786484bf6498a",
+      "csv_sha256": "4a5b0f60d443b0f9d47086bcd9efbeb46fb3c279b893daf6c358bb0702344b72"
+    }
+  ],
+  "overall_status": "REFINE",
+  "scope": "This is a C1 interior-profile grid-convergence audit. It does not add the unavailable outer 25--100 km semi-Compton opacity."
+}
