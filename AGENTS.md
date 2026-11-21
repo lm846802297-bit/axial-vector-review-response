@@ -9,6 +9,7 @@ Before starting any task in this repository, read:
 
 1. [PROJECT_STATUS.md](PROJECT_STATUS.md) — current project stage, verified repository state, open work, and next actions.
 2. [README-先读这里.md](README-先读这里.md) — repository navigation and task-based reading routes.
+3. [RESEARCH_COMPUTE_POLICY.md](RESEARCH_COMPUTE_POLICY.md) — mandatory primary-compute, GitHub-archive, and independent-Actions architecture.
 
 This file (AGENTS.md) defines mandatory rules. Do not load every research document by default; follow the task routes below.
 
@@ -80,6 +81,8 @@ Do not merge these file roles or copy internal workflow content into the referee
 
 ## 5. Numerical calculation result submission and reproducibility
 
+All numerical work must follow [RESEARCH_COMPUTE_POLICY.md](RESEARCH_COMPUTE_POLICY.md): ordinary GPT chat uses ChatGPT Linux; Codex/Work may execute on the user's Windows local environment or on a GPT-managed cloud computer. Archive source/inputs/native outputs in GitHub, and use Actions only for independent verification and CI. “Local” means the active mode's primary execution environment.
+
 The following rules are mandatory for numerical research, phenomenology, data processing, and computational validation carried out for this project.
 
 For new machine-readable results, follow [Structured Research Result Data Standard](docs/repository-management/STRUCTURED_RESULT_DATA_STANDARD.md) and validate JSON records with `docs/repository-management/schemas/validate_result_records.py` and `docs/repository-management/schemas/research-result-record-v1.0.0.schema.json`. Keep the run manifest, result summary, validation report, pointwise CSV data, and SHA-256 manifest in their distinct roles. Existing historical files remain unchanged.
@@ -117,7 +120,7 @@ Continuous integration (CI) is optional supporting infrastructure. It is not a p
 
 - Do not require a CI run to start, continue, or complete a calculation; perform numerical or scientific validation; prepare or archive results; commit or push research files; open or update a pull request; mark a pull request ready for review; or merge a pull request.
 - If the calculation can be run directly on an available local machine or an approved compute runner, proceed. Do not pause research solely because GitHub Actions is queued, unavailable, disabled, blocked by account/billing limits, or failing for infrastructure reasons.
-- GitHub Actions may still be used when useful as an optional compute, dispatch, or artifact-handoff mechanism. A workflow that actually executes a research calculation is an execution run: record its exact source commit, inputs, settings, environment, logs, and outputs. Its use does not make a separate CI status check mandatory.
+- For this project, GitHub Actions is reserved for independent verification, regression testing, and CI; it must not silently replace the primary computation. If an explicitly approved independent Actions run executes a calculation, record its exact source commit, inputs, settings, environment, logs, and outputs.
 - This policy does not waive scientific or numerical validation. Perform the checks appropriate to the claim—such as analytic identities, dimensional and unit checks, limiting cases, independent implementations, convergence, uncertainty estimates, provenance, and output-integrity checks—locally or on an approved runner, and record exactly what was performed. CI neither substitutes for these checks nor adds a mandatory gate.
 - If CI is run, report its exact commit SHA and actual result. If it is not run, queued, blocked, cancelled, or failed, record that status truthfully and distinguish infrastructure failure from a scientific or numerical failure. Never describe an unrun check as passed.
 - Base review and merge decisions on the actual diff, reproducibility, scientific evidence, scope, and the checks that are genuinely relevant to the change—not on whether a CI badge is green. Do not configure CI status checks as required branch-protection gates under this repository policy. Do not change repository protection settings without explicit authorization.
