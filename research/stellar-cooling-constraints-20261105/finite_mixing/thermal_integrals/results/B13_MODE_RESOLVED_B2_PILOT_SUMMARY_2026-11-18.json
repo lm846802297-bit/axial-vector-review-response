@@ -1,0 +1,65 @@
+{
+  "title": "10 MeV B.13 mode-resolved B.2 pilot summary",
+  "status": "EXPLORATORY_NOT_CONVERGENCE_ACCEPTED",
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "configuration": {
+    "radial_order": 40,
+    "source_radial_nodes": 40,
+    "opacity_radial_nodes": 44,
+    "energy_order": 100,
+    "energy_nodes": 142,
+    "active_energy_nodes": 101,
+    "angular_order": 16,
+    "path_order": 32,
+    "kernel_orders": [
+      8,
+      4,
+      4,
+      4
+    ],
+    "active_radial_nodes": 34,
+    "active_threshold": 1e-8,
+    "edge_augmented": true,
+    "fixed_local_omega": true
+  },
+  "baseline": {
+    "literal_B16_reproduction_max_relative_residual": 0,
+    "strong_endpoint_erg_s": 2.437254944803213e+52,
+    "fig7_strong_endpoint_erg_s": 1.26781475907372e+52,
+    "support_edge_max_relative_change": 7.934995225691545e-7
+  },
+  "local_validation": {
+    "direct_B13_kernel_evaluations": 3432,
+    "maximum_B13_detailed_balance_residual": 3.633946209504694e-14,
+    "maximum_final_muon_mass_shell_residual": 3.7117270388590294e-13,
+    "neutrino_mode_sum_vs_scalar_production_max_relative_residual": 8.913602585634422e-8,
+    "all_rates_finite_nonnegative": true
+  },
+  "inactive_region_fallback": {
+    "inactive_radial_nodes": 10,
+    "inactive_total_B16_source_fraction": 0.0016567885296151082,
+    "inactive_B16_compton_source_fraction": 3.343888184726721e-14,
+    "inactive_B16_compton_source_weighted_tau_fraction": 2.316386685969385e-12
+  },
+  "both_charge_lane": {
+    "mode_summed_scalar_strong_endpoint_erg_s": 2.93535238035546e+52,
+    "equal_occupation_strong_endpoint_erg_s": 1.7874428312985665e+54,
+    "no_mixing_strong_endpoint_erg_s": 1.7881100836616385e+54,
+    "no_mixing_over_fig7": 141.03874961733783,
+    "no_mixing_over_B16_equal_split_no_mixing_at_strong_endpoint": 0.9277487511741338,
+    "maximum_no_mixing_vs_equal_occupation_curve_difference": 0.00037329997434776274,
+    "mu_plus_fraction_of_compton_source": 0.007466329641718585
+  },
+  "code_hashes": {
+    "global_driver_sha256": "86d11d9d9e9d9a90c9b6ad2f397994851c29049b7c87b145cdb09f52dffe40c0",
+    "fast_vector_kernel_sha256": "abcf9404a72e5dc28c0563b37830417cce2244c41901332ed7ac41b9ad8c4e83",
+    "local_order_ladder_sha256": "ebf3eb8e2c06ae9d0ab8cefbdd3d798dae7d552a40dc0039d312beb9f34cc87c"
+  },
+  "output_sha256": "cabc2f9f54cc79eff8c2b9585588fa75bc7fd70780f3b1560ea03e4df668a3ec",
+  "caveats": [
+    "Global B.13 kernel order (8,4,4,4) is not converged; do not use as a final constraint.",
+    "Inactive radial nodes retain the B.16 Compton source and opacity split equally among modes.",
+    "The profile is reconstructed from public figures, not raw Garching SFHo-18.8 simulation data.",
+    "No SN1987A or axial-vector constraint has been updated."
+  ]
+}

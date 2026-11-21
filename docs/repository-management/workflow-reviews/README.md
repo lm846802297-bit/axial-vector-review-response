@@ -16,6 +16,9 @@
 | [FIG7_SOURCE_AND_CONVERGENCE_WORKFLOW_REVIEW_2026-11-17.md](FIG7_SOURCE_AND_CONVERGENCE_WORKFLOW_REVIEW_2026-11-17.md) | Fig. 7 源文件与收敛工作流 |
 | [FINAL_COLLIDER_AND_RESPONSE_WORKFLOW_REVIEW_2026-11-17.md](FINAL_COLLIDER_AND_RESPONSE_WORKFLOW_REVIEW_2026-11-17.md) | 最后六项 collider、response 与吸收工作流 |
 | [HISTORICAL_CANDIDATE_WORKFLOW_TRIAGE_2026-11-17.md](HISTORICAL_CANDIDATE_WORKFLOW_TRIAGE_2026-11-17.md) | 14 historical-candidate workflows individually checked; one PR response build classified active. A subsequent query verified 499 Actions runs across all 14 retained candidates; see the final integration review. |
+| [B16_STRICT_PHASE_SPACE_AND_ENERGY_GRID_WORKFLOW_REVIEW_2026-11-17.md](B16_STRICT_PHASE_SPACE_AND_ENERGY_GRID_WORKFLOW_REVIEW_2026-11-17.md) | B.16 能量网格身份诊断与严格 10 MeV phase-space 工作流：分支保护、权限分离、触发依赖和科学适用边界 |
+| [FIG7_10MEV_EQUATION_CHAIN_WORKFLOW_REVIEW_2026-11-17.md](FIG7_10MEV_EQUATION_CHAIN_WORKFLOW_REVIEW_2026-11-17.md) | Fig. 7 10 MeV equation-chain workflow: compute, JSON validation and race-safe archival passed in run #44095081113; only three representative coupling points |
+| [B13_LOCAL_KERNEL_ARTIFACT_RECOVERY_WORKFLOW_REVIEW_2026-11-17.md](B13_LOCAL_KERNEL_ARTIFACT_RECOVERY_WORKFLOW_REVIEW_2026-11-17.md) | Recovery of the original 10 MeV B.13 radial-energy local-kernel artifact; exact source/input provenance, pointwise CSV and SVG generation; preserves failed quadrature/interpolation acceptance |
 | [B13_WORKFLOW_REVIEW_BATCH_2026-11-14.md](B13_WORKFLOW_REVIEW_BATCH_2026-11-14.md) | B.13 核与整体输运 |
 | [B14_B16_LOCAL_WORKFLOW_REVIEW_2026-11-14.md](B14_B16_LOCAL_WORKFLOW_REVIEW_2026-11-14.md) | B.14/B.16 局域计算 |
 | [B16_ESCAPE_BENCHMARK_WORKFLOW_REVIEW_2026-11-14.md](B16_ESCAPE_BENCHMARK_WORKFLOW_REVIEW_2026-11-14.md) | B.16 逃逸与矢量基准 |

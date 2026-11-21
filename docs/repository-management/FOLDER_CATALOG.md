@@ -1,24 +1,24 @@
 # Folder catalog
 
-Updated 2026-11-17. Counts describe the audited tree after PR #117 merged into `main`, based on commit `2d9bf2e050f161b152d1761265796ad9c86e97a1`.
+Updated 2026-11-17. Counts describe the PR #121 branch snapshot after synchronizing with current `main`; PR #121 remains Draft and these counts are not yet the merged-main inventory.
 
 ## Repository footprint
 
-- **1,712 Git-tree entries:** 1,581 files and 131 directories.
-- **605 Markdown/text files:** 506 `.md` and 99 `.txt`.
-- **Baseline register:** 462/462 individually reviewed — 297 `PASS_WITH_NOTES`, 2 `PASS`, 156 `HISTORICAL`, 7 `REVISION_REQUIRED`, 0 `PENDING`.
-- **Supplemental register:** 143 entries — 137 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 0 `PENDING`, 0 `REVISION_REQUIRED`.
-- **Workflow inventory:** 115 YAML workflows — 100 `REVIEWED_WITH_NOTES`, 1 `ACTIVE`, 14 `HISTORICAL_CANDIDATE`, 0 `PENDING`.
+- **1,727 Git-tree entries:** 1,596 files and 131 directories.
+- **610 Markdown/text files:** 511 `.md` and 99 `.txt`.
+- **Baseline register:** 462/462 individually reviewed — 298 `PASS_WITH_NOTES`, 2 `PASS`, 156 `HISTORICAL`, 6 `REVISION_REQUIRED`, 0 `PENDING`.
+- **Supplemental register:** 148 entries — 142 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 0 `PENDING`, 0 `REVISION_REQUIRED`.
+- **Workflow inventory:** 118 YAML workflows — 103 `REVIEWED_WITH_NOTES`, 1 `ACTIVE`, 14 `HISTORICAL_CANDIDATE`, 0 `PENDING`.
 
 | Area | Git-tree entries | Responsibility |
 |---|---:|---|
 | `.freebuff/` | 2 | Tool/project metadata; do not treat as research content. |
-| `.github/` | 120 | Actions workflows, catalogs, audit registers and templates. |
+| `.github/` | 123 | Actions workflows, catalogs, audit registers and templates. |
 | `archive/` | 37 | Frozen reply versions, historical research, referee analysis and manuscript baselines. |
 | `deliverables/` | 22 | Extracted handoff packages and instructions. |
-| `docs/` | 127 | Governance, document registers, review standards and audit reports. |
+| `docs/` | 130 | Governance, document registers, review standards and audit reports. |
 | `overleaf-source/` | 29 | Pinned manuscript source package; read-only source archive. |
-| `research/` | 1,091 | Current scientific workstreams, inputs, scripts, tests, outputs and evidence. |
+| `research/` | 1,100 | Current scientific workstreams, inputs, scripts, tests, outputs and evidence. |
 | `work/` | 18 | Intermediate and temporary material; not authoritative until promoted. |
 | `审稿意见-gpt/` | 128 | Internal referee analysis, decisions, writing rules, current execution and original reviewer materials. |
 | `导出/` | 3 | Exported artifacts; identify source and lifecycle before promotion. |
@@ -44,7 +44,7 @@ The root has 12 files after the PR #116 historical-file moves; the active-script
 
 1. Keep root `README.md`, `PROJECT_STATUS.md` and the living decision register as concise entry points.
 2. Keep the baseline and supplemental registers non-overlapping and synchronized with the current Git tree.
-3. Resolve the seven baseline `REVISION_REQUIRED` items only after row-specific evidence is committed and independently checked.
+3. Resolve the six baseline `REVISION_REQUIRED` items only after row-specific evidence is committed and independently checked.
 4. Do not delete or disable workflows based only on filenames or old branch references.
 5. Before moving files, audit Markdown links, code imports, workflow shell paths, TeX/BibTeX dependencies and manifests.
 6. A move must preserve original blob/size and be recorded in a path/SHA manifest.

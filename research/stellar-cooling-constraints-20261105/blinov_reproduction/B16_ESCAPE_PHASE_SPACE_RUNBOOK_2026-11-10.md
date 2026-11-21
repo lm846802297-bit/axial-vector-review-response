@@ -1,27 +1,66 @@
 # B.16 10 MeV high-order escape phase-space runbook
 
-This runbook executes the targeted post-processing diagnostic against the archived high-order fixed-\(\omega\) B.16 baseline. It does not change the stellar profile, opacity prescription, source kernel, or production axial-vector outputs.
+**Disposition at 2026-11-17: PASS_WITH_NOTES for the archived high-order vector-baseline phase-space decomposition.** The independent Fig. 7 10 MeV strong-absorption discrepancy remains open and is not closed by this runbook.
 
-## 1. Environment
+This runbook documents the strict, reproducible post-processing diagnostic. It does not change the stellar profile, source kernel, opacity prescription, fixed-\(\omega\) transport convention, production axial-vector outputs, or constraint curve.
 
-From the repository root, use Python 3.10+ with NumPy and SciPy:
+## 1. Pinned environment
 
-```bash
-python -m pip install numpy scipy
-```
+The accepted GitHub Actions run used:
 
-## 2. Run the binning regression tests first
+| Component | Version |
+|---|---:|
+| Python | 3.12.16 |
+| NumPy | 2.5.4 |
+| SciPy | 1.18.1 |
 
-```bash
+For a local environment:
+
+\`\`\`bash
+python -m pip install numpy==2.5.4 scipy==1.18.1
+\`\`\`
+
+The calculation is CPU-based NumPy/SciPy code; it does not use CUDA or the RTX GPU.
+
+## 2. Regression tests and compile check
+
+From the repository root:
+
+\`\`\`bash
 python -m unittest discover -s research/stellar-cooling-constraints-20261105/blinov_reproduction -p 'test_b16_escape_phase_space.py' -v
+python -m unittest discover -s research/stellar-cooling-constraints-20261105/blinov_reproduction -p 'test_b16_energy_grid_identity.py' -v
+python -m unittest discover -s research/stellar-cooling-constraints-20261105/blinov_reproduction -p 'test_b16_phase_space_output_validation.py' -v
 python -m py_compile research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_escape_phase_space.py
-```
+python -m py_compile research/stellar-cooling-constraints-20261105/blinov_reproduction/validate_b16_escape_phase_space_output.py
+\`\`\`
 
-The tests verify that energy and direction bins are restricted to the selected emission-radius region and that both regional and global fractions close.
+The tests cover region-restricted energy/direction binning, energy-grid construction, and sparse joint-table marginal handling.
 
-## 3. Run the high-order 10 MeV decomposition
+## 3. Energy-grid identity preflight
 
-```bash
+The accepted baseline fingerprints are:
+
+| Grid | Nodes | SHA-256 |
+|---|---:|---|
+| Source radial grid | 200 | \`1a007702d1f7c8b81200e648a763f7f1a0e3565a39d57c8174dada5aad1a4cb5\` |
+| Opacity radial grid | 642 | \`6701fc3fe06bf07879612e591ae62c494f673928bc18f169d4b6f3fabed7d378\` |
+| Energy grid | 842 | \`036e6d772f43acf97601c3846b475e8e1c14200d4d82de1dd9af30f01bb87ea3\` |
+
+The independent diagnostic reconstructs the energy array through the high-order driver setup, the phase-space driver setup, and a direct CSV-lapse interpolation. All three arrays must be exactly equal to one another and reproduce the archived baseline hash. The current profile SHA-256 must also match the baseline:
+
+\`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c\`.
+
+Run:
+
+\`\`\`bash
+python research/stellar-cooling-constraints-20261105/blinov_reproduction/diagnose_b16_energy_grid_identity.py --mass 10 --nr 200 --opacity-order 640 --ne 200 --energy-offset 1000 --strict-baseline
+\`\`\`
+
+Do not update a baseline hash to make this check pass.
+
+## 4. Run the high-order 10 MeV decomposition
+
+\`\`\`bash
 python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_escape_phase_space.py \
   --mass 10 \
   --nr 200 \
@@ -30,75 +69,66 @@ python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b
   --na 32 \
   --ns 64 \
   --energy-offset 1000 \
-  --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-10.json
-```
+  --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-17.json
+\`\`\`
 
-The script requires exact SHA-256 identity of the source-radius, opacity-radius, and energy grids, the reconstructed SFHo-18.8 profile, and the Fig. 7 digitization relative to the archived high-order baseline. It also requires the recomputed integrated luminosity and optically thin source to close against that baseline to \(2\times10^{-10}\).
+The calculation uses the fixed-\(\omega\) Eq. (B.2) chord convention. Energy-bin edges are reporting partitions; they do not alter the underlying energy quadrature.
 
-## 4. Acceptance checks
+## 5. Automated acceptance
 
-The output is accepted only if all of the following hold:
+Run the validator against the produced JSON:
 
-- The regression tests pass.
-- The luminosity and thin-source closure residuals are each below \(2\times10^{-10}\).
-- The angular quadrature weights sum to one within \(10^{-14}\).
-- For each region, the emission-radius, energy, four-bin direction, and eight-bin direction partitions each sum to one for both the thin source and escaped luminosity, within \(2\times10^{-10}\).
-- The complete radius-energy-direction joint table (not merely its top-ranked cells) must sum to the regional thin source and escaped luminosity within \(2\times10^{-10}\), and its global fractions must reproduce the region's global source and escaped-luminosity fractions.
-- The 8--15 km region contributes between 75% and 85% of the global B.1 source.
-- The production axial-vector source, transport, JSON, PDF, and PNG files remain unchanged.
+\`\`\`bash
+python research/stellar-cooling-constraints-20261105/blinov_reproduction/validate_b16_escape_phase_space_output.py \
+  research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-17.json
+\`\`\`
 
-A failed closure or normalization test is a calculation failure, not a result to be interpreted physically.
+Acceptance requires:
 
-## 5. Archive after successful execution
+- Exact source, opacity, and energy grid identity against the archived high-order baseline.
+- Exact profile fingerprint identity.
+- Luminosity and optically thin source closure each below \(2\times10^{-10}\).
+- Escape-probability closure below \(2\times10^{-13}\).
+- Angular quadrature weights summing to one within \(10^{-14}\).
+- Regional emission-radius, energy, four-bin direction, and eight-bin direction partitions closing for both thin source and escaped luminosity within \(2\times10^{-10}\).
+- The complete non-empty radius-energy-direction joint table closing to the regional thin source and escaped luminosity within \(2\times10^{-10}\).
+- Joint-table global fractions reproducing each region's global source and escaped-luminosity fractions.
+- The 8–15 km region contributing between 75% and 85% of the global B.1 source.
+- Production axial-vector source, transport, JSON, PDF, and PNG outputs remaining unchanged.
 
-Only after all acceptance checks pass:
+**Sparse-table convention:** the joint table stores non-empty cells only. A one-dimensional partition can contain a zero-weight bin absent from the joint table. The validator treats an absent bin as zero only when the stored marginal for that bin is exactly zero. Missing non-zero bins and unexpected joint labels remain hard failures. For this result, the 10–11 MeV bin in the 8–15 km region has exactly zero thin-source and escaped-luminosity weight.
 
-```bash
-git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-10.json
-git commit -m "Archive high-order 10 MeV escape phase-space decomposition"
-git push origin research/moving-muon-thermal-rates-20261107
-```
+## 6. Accepted result and evidence
 
-## 6. Interpretation boundary
+The strict production run passed on 2026-11-17:
 
-The output partitions the same B.1 source measure multiplied by the same B.2 survival factor. Energy bins are reporting partitions; they do not alter the energy quadrature. The result is a diagnostic of the current reconstructed-profile, fixed-\(\omega\), 25 km vector benchmark. It does not establish the private implementation used for Fig. 7, does not justify an empirical rescaling, and does not update the axial-vector constraint curve.
+- [Energy-grid identity workflow, run #44054718118](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44054718118).
+- [Strict 10 MeV phase-space workflow, run #44059347513](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44059347513).
 
+Archived files:
 
-## 7. Windows PowerShell local execution
+- \`outputs/b16_escape_phase_space_10mev_2026-11-17.json\`: complete machine-readable result, including the full non-empty joint radius-energy-direction table.
+- \`B16_ESCAPE_PHASE_SPACE_10MEV_RESULT_2026-11-17.md\`: numerical summary, closure residuals, regional fractions, and interpretation boundary.
 
-The calculation is CPU-based NumPy/SciPy code; it does not use CUDA or the RTX GPU. From a local clone of this exact branch, open PowerShell at the repository root:
+Key closure residuals:
 
-```powershell
-git switch research/moving-muon-thermal-rates-20261107
-git pull --ff-only origin research/moving-muon-thermal-rates-20261107
-py -3.12 -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install --upgrade pip
-python -m pip install numpy scipy
-python -m unittest discover -s research/stellar-cooling-constraints-20261105/blinov_reproduction -p "test_b16_escape_phase_space.py" -v
-python -m py_compile research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_escape_phase_space.py
-python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_escape_phase_space.py --mass 10 --nr 200 --opacity-order 640 --ne 200 --na 32 --ns 64 --energy-offset 1000 --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-10.json
-```
+| Check | Residual |
+|---|---:|
+| Luminosity vs archived high-order baseline | \(-2.220446049250313\times10^{-16}\) |
+| Optically thin luminosity vs baseline | \(0\) |
+| Escape probability vs baseline | \(-5.421010862427522\times10^{-20}\) |
+| Maximum joint-to-marginal residual | \(6.661338147750939\times10^{-16}\) |
 
-Do not archive or commit the JSON unless the script exits successfully and all closure/normalization checks pass. The GitHub workflow's final acceptance checks should also be run against the local JSON; the local run is a way to execute the identical diagnostic, not a relaxation of its acceptance standard.
+The 8–15 km region contains 79.6522% of the global thin source and 86.8551% of the escaped luminosity.
 
+## 7. Historical failed-run fingerprint
 
-## 8. Archive status at the 2026-11-15 review
+The earlier workflow run [#43205614274](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43205614274), on commit \`f19a4485a19f1d862d9dcd6f7703bc72259566ae\`, recorded the energy hash \`db6f613c7c76c3a80b07f20b6b44feb9520b031e78237685dacd60575c964639\` and stopped before producing the canonical JSON.
 
-The canonical Python output named above, `outputs/b16_escape_phase_space_10mev_2026-11-10.json`, is not present on either the research branch or the repository-maintenance branch checked for this review. The committed V8 cross-runtime JSON is present, but it explicitly records `status=cross_runtime_computation_not_strict_numpy_grid_acceptance` and `grid_hashes_match=false`; it is not a substitute for the strict Python artifact.
+That historical hash was not reproduced by the current-main identity diagnostic or the final production phase-space run. The current profile and baseline inputs reproduce the archived \`036e6d77...\` grid exactly. The exact trigger of the historical discrepancy has not been established; it remains a non-reproduced historical run record. No baseline hash was changed to close the check.
 
-The Python unit-test module currently contains three binning/partition helper tests. The Python driver emits the complete joint radius-energy-direction table, but the inspected driver and unit tests do not themselves assert the runbook's full joint-table closure criterion. That criterion therefore needs a named, automated acceptance checker (or an explicit CI step) before the runbook can be considered fully closed. The current install commands also request unpinned latest NumPy/SciPy; the accepted run must record and pin the Python, NumPy, and SciPy versions used. Until the strict Python JSON, pinned environment, and joint-table check are archived, treat the V8 result as a cross-runtime cross-check only.
+## 8. Interpretation boundary and remaining work
 
+The accepted phase-space result reproduces the archived high-order vector baseline. It does **not** reproduce the digitized Fig. 7 10 MeV strong-absorption endpoint: the calculated luminosity is \(2.439635957361032\times10^{52}\) erg/s, versus the digitized reference \(1.26781475907372\times10^{52}\) erg/s, a \(+92.4284\%\) difference.
 
-## Follow-up: archived workflow execution evidence (2026-11-17)
-
-The repository contains an explicit CI acceptance step for the complete joint radius-energy-direction table and its one-dimensional marginals in `.github/workflows/b16-escape-phase-space.yml`. This corrects the earlier scope note that the inspected driver/tests did not themselves assert the joint-table closure criterion: the workflow does assert it, but the step has not yet been reached in a successful run.
-
-The latest inspected run for this workflow is [run 43205614274](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43205614274), run number 12, on commit `f19a4485a19f1d862d9dcd6f7703bc72259566ae` (2026-11-12). Its three binning regression tests passed and the diagnostic compiled, but the high-order computation stopped before writing the canonical JSON. The source-grid and opacity-grid hashes matched the archived baseline; the energy-grid hash did not:
-
-- expected energy grid: `036e6d772f43acf97601c3846b475e8e1c14200d4d82de1dd9af30f01bb87ea3`
-- actual energy grid: `db6f613c7c76c3a80b07f20b6b44feb9520b031e78237685dacd60575c964639`
-
-The run has no uploaded artifacts. The run log records Python 3.12.16, NumPy 2.5.4 and SciPy 1.18.1; the workflow currently requests Python 3.12 and installs unpinned `numpy scipy`, rather than consuming the repository's pinned `requirements-b16-audit.txt`. The strict Python output `outputs/b16_escape_phase_space_10mev_2026-11-10.json` is still absent; the V8 cross-runtime JSON is not a substitute for that canonical output.
-
-**Disposition remains `REVISION_REQUIRED`.** The next repair must reconcile the energy-grid construction with the archived high-order baseline, then rerun the strict Python driver and reach the workflow's joint-table closure checks. This follow-up reads an existing failed run only; it does not rerun the calculation or alter its physics inputs.
+That discrepancy remains a separate open audit requiring the local-rate, polarization, and escape evidence package. It is not resolved by the baseline phase-space closure. No empirical opacity rescaling, change of physical convention, or axial-vector constraint update is authorized by this runbook.
