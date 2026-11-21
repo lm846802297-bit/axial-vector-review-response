@@ -1,5 +1,8 @@
 # Repository instructions — axial-vector paper revision project
 
+> **Mandatory compute architecture:** Follow [RESEARCH_COMPUTE_POLICY.md](RESEARCH_COMPUTE_POLICY.md) for all numerical and computational work. Select the primary environment by actual execution target: ordinary GPT chat uses ChatGPT Linux; Codex/Work local execution uses the user's Windows environment; Codex/Work cloud-computer execution uses the GPT-managed cloud environment. GitHub is the canonical source/result archive; GitHub Actions is reserved for independent verification and CI, not the primary calculation engine.
+
+
 ## 1. Minimal preflight: every task
 
 Before starting any task in this repository, read:
@@ -81,6 +84,8 @@ Do not merge these file roles or copy internal workflow content into the referee
 All numerical work must follow [RESEARCH_COMPUTE_POLICY.md](RESEARCH_COMPUTE_POLICY.md): ordinary GPT chat uses ChatGPT Linux; Codex/Work may execute on the user's Windows local environment or on a GPT-managed cloud computer. Archive source/inputs/native outputs in GitHub, and use Actions only for independent verification and CI. “Local” means the active mode's primary execution environment.
 
 The following rules are mandatory for numerical research, phenomenology, data processing, and computational validation carried out for this project.
+
+For new machine-readable results, follow [Structured Research Result Data Standard](docs/repository-management/STRUCTURED_RESULT_DATA_STANDARD.md) and validate JSON records with `docs/repository-management/schemas/validate_result_records.py` and `docs/repository-management/schemas/research-result-record-v1.0.0.schema.json`. Keep the run manifest, result summary, validation report, pointwise CSV data, and SHA-256 manifest in their distinct roles. Existing historical files remain unchanged.
 
 ### 5.1 Commit completed research results to GitHub
 
