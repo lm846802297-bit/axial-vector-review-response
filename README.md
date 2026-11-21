@@ -15,6 +15,7 @@
 - [GitHub Actions 工作流索引](.github/workflows/README.md) 与 [工作流审查登记表](.github/workflows/WORKFLOW_AUDIT_REGISTER.csv)：118 个工作流按物理专题分类，并逐份记录触发条件、权限和输出行为；目前 103 个完成静态审查，1 个为 ACTIVE，14 个保留为历史候选，0 个待审查。第八十至八十八轮审查见[工作流审查索引](docs/repository-management/workflow-reviews/README.md)。
 
 - [根目录迁移审查](docs/repository-management/ROOT_RELOCATION_AUDIT_2026-11-17.md)；[原始 24 文件审查基线](docs/repository-management/ROOT_FILE_AUDIT_REPORT_2026-11-14.md)：记录 2026-11-14 时根目录 24 个文件的逐项审查，包括权威入口、回复信 TeX/PDF、BibTeX、论文和审稿报告基线及历史工作稿。
+- [科研计算执行规范](RESEARCH_COMPUTE_POLICY.md)：普通 GPT 聊天模式使用 ChatGPT Linux；Codex/Work 可使用 Windows 本地环境或 GPT 管理的云端计算机；GitHub 负责归档，Actions 只负责独立验证。
 - [Git 合并策略与科研提交历史规范](GIT_MERGE_POLICY.md)：实质性科研 PR 默认采用 Merge Commit。
 
 - [项目入口与阅读说明](README-先读这里.md)
