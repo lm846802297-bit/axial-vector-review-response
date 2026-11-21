@@ -3,7 +3,7 @@ name: B.16 high-order 10 MeV escaping phase-space decomposition
 on:
   push:
     branches:
-      - research/moving-muon-thermal-rates-20261107
+      - research/b16-phase-space-grid-repro-20261117
     paths:
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_escape_phase_space.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_escape_phase_space.py'
@@ -12,6 +12,7 @@ on:
       - 'research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv'
       - 'research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_high_order_independent_grid_10mev_2026-11-09.json'
+      - 'research/stellar-cooling-constraints-20261105/requirements-b16-audit.txt'
       - '.github/workflows/b16-escape-phase-space.yml'
   workflow_dispatch:
 
@@ -24,7 +25,7 @@ concurrency:
 
 jobs:
   phase-space-audit:
-    if: github.ref_name == 'research/moving-muon-thermal-rates-20261107'
+    if: github.ref_name == 'research/b16-phase-space-grid-repro-20261117'
     runs-on: ubuntu-latest
     timeout-minutes: 180
     steps:
@@ -48,11 +49,19 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: '3.13.5'
       - name: Install numerical dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install numpy scipy
+          python -m pip install -r research/stellar-cooling-constraints-20261105/requirements-b16-audit.txt
+          python - <<'PY'
+          import numpy, scipy, sys
+          print(f'Python {sys.version}')
+          print(f'NumPy {numpy.__version__}')
+          print(f'SciPy {scipy.__version__}')
+          assert numpy.__version__ == '2.3.5'
+          assert scipy.__version__ == '1.17.0'
+          PY
       - name: Run phase-space binning regression tests
         run: |
           python -m unittest discover -s research/stellar-cooling-constraints-20261105/blinov_reproduction -p 'test_b16_escape_phase_space.py' -v
@@ -97,8 +106,11 @@ jobs:
               joint_esc_global = sum(x["escaped_luminosity_fraction_of_global"] for x in joint)
               assert abs(joint_thin_global - region["source_fraction_of_global_B1"]) < 2e-10
               assert abs(joint_esc_global - region["escaped_luminosity_fraction_of_global"]) < 2e-10
-              # Independently reconstruct all one-dimensional marginals from
-              # the complete joint table and compare with the stored partitions.
+              # The joint table is sparse: zero-weight cells are omitted.
+              # Reconstruct each marginal with missing keys interpreted as zero.
+              import sys
+              sys.path.insert(0, "research/stellar-cooling-constraints-20261105/blinov_reproduction")
+              from audit_b16_escape_phase_space import assert_sparse_marginal_matches
               for axis, field, key in (
                   ("emission_shell", "emission_radius_bins", "bin"),
                   ("energy_bin", "energy_bins", "bin"),
@@ -108,13 +120,10 @@ jobs:
                       "thin_source_fraction_within_region",
                       "escaped_luminosity_fraction_within_region",
                   ):
-                      marginal = {}
-                      for cell in joint:
-                          marginal[cell[axis]] = marginal.get(cell[axis], 0.0) + cell[observable]
-                      expected = {row[key]: row[observable] for row in region[field]}
-                      assert marginal.keys() == expected.keys(), (region["region"], field, marginal.keys(), expected.keys())
-                      for bin_name, value in expected.items():
-                          assert abs(marginal[bin_name] - value) < 2e-10, (region["region"], field, bin_name, marginal[bin_name], value)
+                      assert_sparse_marginal_matches(
+                          joint, region[field], axis, key, observable,
+                          tolerance=2e-10,
+                      )
           core = next(x for x in d["regions"] if x["region"] == "dominant_8_15km_emission")
           assert 0.75 < core["source_fraction_of_global_B1"] < 0.85
           print(json.dumps({

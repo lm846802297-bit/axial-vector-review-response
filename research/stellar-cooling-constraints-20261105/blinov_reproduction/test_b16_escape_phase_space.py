@@ -2,7 +2,11 @@ import unittest
 
 import numpy as np
 
-from audit_b16_escape_phase_space import _axis_bins
+from audit_b16_escape_phase_space import (
+    _axis_bins,
+    assert_sparse_marginal_matches,
+    reconstruct_sparse_marginal,
+)
 
 
 class EscapePhaseSpaceBinningTests(unittest.TestCase):
@@ -79,6 +83,92 @@ class EscapePhaseSpaceBinningTests(unittest.TestCase):
             1.0,
             places=13,
         )
+
+    def test_sparse_joint_marginal_treats_absent_zero_bin_as_zero(self):
+        joint = [
+            {
+                "energy_bin": "11-12 MeV",
+                "thin_source_fraction_within_region": 0.6,
+                "escaped_luminosity_fraction_within_region": 0.5,
+            },
+            {
+                "energy_bin": "12-13 MeV",
+                "thin_source_fraction_within_region": 0.4,
+                "escaped_luminosity_fraction_within_region": 0.5,
+            },
+        ]
+        expected = [
+            {
+                "bin": "10-11 MeV",
+                "thin_source_fraction_within_region": 0.0,
+                "escaped_luminosity_fraction_within_region": 0.0,
+            },
+            {
+                "bin": "11-12 MeV",
+                "thin_source_fraction_within_region": 0.6,
+                "escaped_luminosity_fraction_within_region": 0.5,
+            },
+            {
+                "bin": "12-13 MeV",
+                "thin_source_fraction_within_region": 0.4,
+                "escaped_luminosity_fraction_within_region": 0.5,
+            },
+        ]
+        for observable in (
+            "thin_source_fraction_within_region",
+            "escaped_luminosity_fraction_within_region",
+        ):
+            assert_sparse_marginal_matches(
+                joint, expected, "energy_bin", "bin", observable
+            )
+
+    def test_sparse_joint_marginal_still_rejects_missing_nonzero_bin(self):
+        joint = [
+            {
+                "energy_bin": "11-12 MeV",
+                "thin_source_fraction_within_region": 0.6,
+            },
+            {
+                "energy_bin": "12-13 MeV",
+                "thin_source_fraction_within_region": 0.4,
+            },
+        ]
+        expected = [
+            {"bin": "10-11 MeV", "thin_source_fraction_within_region": 0.1},
+            {"bin": "11-12 MeV", "thin_source_fraction_within_region": 0.5},
+            {"bin": "12-13 MeV", "thin_source_fraction_within_region": 0.4},
+        ]
+        with self.assertRaisesRegex(AssertionError, "10-11 MeV"):
+            assert_sparse_marginal_matches(
+                joint, expected, "energy_bin", "bin",
+                "thin_source_fraction_within_region"
+            )
+
+    def test_sparse_joint_marginal_rejects_unexpected_nonzero_bin(self):
+        joint = [
+            {
+                "energy_bin": "11-12 MeV",
+                "thin_source_fraction_within_region": 0.6,
+            },
+            {
+                "energy_bin": "12-13 MeV",
+                "thin_source_fraction_within_region": 0.4,
+            },
+            {
+                "energy_bin": "13-15 MeV",
+                "thin_source_fraction_within_region": 0.01,
+            },
+        ]
+        expected = [
+            {"bin": "10-11 MeV", "thin_source_fraction_within_region": 0.0},
+            {"bin": "11-12 MeV", "thin_source_fraction_within_region": 0.6},
+            {"bin": "12-13 MeV", "thin_source_fraction_within_region": 0.4},
+        ]
+        with self.assertRaisesRegex(AssertionError, "13-15 MeV"):
+            assert_sparse_marginal_matches(
+                joint, expected, "energy_bin", "bin",
+                "thin_source_fraction_within_region"
+            )
 
 
 if __name__ == "__main__":
