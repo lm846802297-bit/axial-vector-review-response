@@ -160,5 +160,28 @@ class StrictNumericValidationTests(unittest.TestCase):
 
 
 
+    def test_joint_fraction_string_fails(self):
+        data = minimal_valid_data()
+        data["regions"][0]["joint_radius_energy_direction_bins"][0][
+            "thin_source_fraction_within_region"
+        ] = "1.0"
+        with self.assertRaisesRegex(AssertionError, "must be a JSON number"):
+            validate(data)
+
+    def test_joint_fraction_boolean_fails(self):
+        data = minimal_valid_data()
+        data["regions"][0]["joint_radius_energy_direction_bins"][0][
+            "thin_source_fraction_within_region"
+        ] = True
+        with self.assertRaisesRegex(AssertionError, "must be a JSON number"):
+            validate(data)
+
+    def test_joint_bin_count_boolean_fails(self):
+        data = minimal_valid_data()
+        data["regions"][0]["joint_bin_count_nonempty"] = True
+        with self.assertRaisesRegex(AssertionError, "must be an integer"):
+            validate(data)
+
+
 if __name__ == "__main__":
     unittest.main()
