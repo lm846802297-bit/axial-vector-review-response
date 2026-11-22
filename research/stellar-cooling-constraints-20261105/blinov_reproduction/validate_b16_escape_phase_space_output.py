@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import math
 import re
@@ -108,7 +109,11 @@ def compare_joint_marginal(joint, partition_rows, axis, observable, tolerance=TO
     }
 
 
-def validate(data: dict, baseline: dict | None = None) -> dict:
+def validate(
+    data: dict,
+    baseline: dict | None = None,
+    baseline_sha256: str | None = None,
+) -> dict:
     _assert_finite_tree(data)
     if baseline is not None:
         _assert_finite_tree(baseline, "$.baseline")
@@ -160,6 +165,12 @@ def validate(data: dict, baseline: dict | None = None) -> dict:
             raise AssertionError(f"configuration.{key} must be a positive integer")
 
     if baseline is not None:
+        expected_baseline_sha256 = _check_sha256(
+            data["baseline_json_sha256"], "baseline_json_sha256"
+        )
+        if baseline_sha256 is not None and expected_baseline_sha256 != baseline_sha256:
+            raise AssertionError("baseline_json_sha256 does not match the supplied baseline file")
+
         baseline_result = baseline.get("result", baseline)
         expected = baseline_result["configuration"]
         for key in ("source_grid_sha256", "opacity_grid_sha256", "energy_grid_sha256"):
@@ -167,6 +178,79 @@ def validate(data: dict, baseline: dict | None = None) -> dict:
                 raise AssertionError(f"{key} differs from the archived high-order baseline")
         if data["profile"]["sha256"] != baseline_result["profile"]["sha256"]:
             raise AssertionError("Profile fingerprint differs from the archived high-order baseline")
+
+        baseline_mass = _finite_number(baseline_result["mass_MeV"], "baseline.mass_MeV")
+        if baseline_mass != mass:
+            raise AssertionError("Mass differs from the archived high-order baseline")
+        baseline_points = baseline_result["eq_b2_fixed_omega_baseline"]["points"]
+        matching_points = [
+            point for point in baseline_points
+            if math.isclose(
+                _finite_number(point["g"], "baseline.eq_b2_fixed_omega_baseline.points.g"),
+                coupling,
+                rel_tol=1.0e-13,
+                abs_tol=0.0,
+            )
+        ]
+        if len(matching_points) != 1:
+            raise AssertionError(
+                "Expected exactly one archived high-order baseline point at the requested coupling"
+            )
+        baseline_point = matching_points[0]
+        baseline_luminosity = _finite_number(
+            baseline_point["calculated_luminosity_erg_s"],
+            "baseline.calculated_luminosity_erg_s",
+        )
+        baseline_thin_luminosity = _finite_number(
+            baseline_point["optically_thin_luminosity_erg_s"],
+            "baseline.optically_thin_luminosity_erg_s",
+        )
+        baseline_escape_probability = _finite_number(
+            baseline_point["escape_fraction"], "baseline.escape_fraction"
+        )
+        baseline_reference_luminosity = _finite_number(
+            baseline_point["reference_luminosity_erg_s"],
+            "baseline.reference_luminosity_erg_s",
+        )
+        if not math.isclose(
+            reference_luminosity,
+            baseline_reference_luminosity,
+            rel_tol=RATIO_CONSISTENCY_TOL,
+            abs_tol=0.0,
+        ):
+            raise AssertionError("Fig. 7 reference luminosity differs from the archived high-order baseline")
+
+        computed_baseline_residuals = {
+            "luminosity_relative_residual_vs_high_order_baseline": (
+                luminosity / baseline_luminosity - 1.0,
+                CLOSURE_TOL,
+            ),
+            "thin_luminosity_relative_residual_vs_high_order_baseline": (
+                thin_luminosity / baseline_thin_luminosity - 1.0,
+                CLOSURE_TOL,
+            ),
+            "escape_probability_absolute_residual_vs_high_order_baseline": (
+                escape_probability - baseline_escape_probability,
+                ESCAPE_PROBABILITY_TOL,
+            ),
+        }
+        for key, (computed_residual, tolerance) in computed_baseline_residuals.items():
+            stored_residual = _finite_number(closure[key], f"closure.{key}")
+            if not math.isclose(
+                stored_residual, computed_residual, rel_tol=1.0e-12, abs_tol=1.0e-15
+            ):
+                raise AssertionError(f"{key} is inconsistent with the archived high-order baseline")
+            if abs(computed_residual) >= tolerance:
+                raise AssertionError(f"{key} exceeds the baseline closure tolerance: {computed_residual}")
+
+    required_regions = {"all_emission_radii", "dominant_8_15km_emission"}
+    region_names = [region["region"] for region in data["regions"]]
+    if len(region_names) != len(set(region_names)):
+        raise AssertionError("Duplicate region names in phase-space result")
+    if set(region_names) != required_regions:
+        raise AssertionError(
+            "Phase-space result must contain exactly all_emission_radii and dominant_8_15km_emission"
+        )
 
     region_reports = []
     for region in data["regions"]:
@@ -318,7 +402,10 @@ def main() -> int:
     args = parser.parse_args()
     data = load_json(args.result)
     baseline = None if args.no_baseline else load_json(args.baseline)
-    report = validate(data, baseline)
+    baseline_sha256 = (
+        None if args.no_baseline else hashlib.sha256(args.baseline.read_bytes()).hexdigest()
+    )
+    report = validate(data, baseline, baseline_sha256)
     print(json.dumps(report, indent=2, sort_keys=True, allow_nan=False))
     return 0
 

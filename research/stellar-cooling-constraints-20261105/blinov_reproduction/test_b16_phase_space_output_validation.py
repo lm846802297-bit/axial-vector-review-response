@@ -97,6 +97,28 @@ def minimal_valid_data():
     }
 
 
+
+
+def minimal_baseline(data):
+    return {
+        "result": {
+            "mass_MeV": data["mass_MeV"],
+            "configuration": dict(data["configuration"]),
+            "profile": dict(data["profile"]),
+            "eq_b2_fixed_omega_baseline": {
+                "points": [{
+                    "g": data["coupling"],
+                    "calculated_luminosity_erg_s": data["calculated_luminosity_erg_s"],
+                    "optically_thin_luminosity_erg_s": data["optically_thin_luminosity_erg_s"],
+                    "escape_fraction": data["escape_probability"],
+                    "reference_luminosity_erg_s": data["reference_luminosity_erg_s"],
+                    "relative_difference": data["relative_difference_vs_fig7"],
+                }]
+            },
+        }
+    }
+
+
 class StrictNumericValidationTests(unittest.TestCase):
     def test_valid_minimal_result_passes(self):
         self.assertEqual(validate(minimal_valid_data())["status"], "PASS")
@@ -147,10 +169,64 @@ class StrictNumericValidationTests(unittest.TestCase):
 
     def test_baseline_grid_mismatch_fails(self):
         data = minimal_valid_data()
-        baseline = {"configuration": dict(data["configuration"]), "profile": dict(data["profile"])}
-        baseline["configuration"]["energy_grid_sha256"] = "0" * 64
+        baseline = minimal_baseline(data)
+        baseline["result"]["configuration"]["energy_grid_sha256"] = "0" * 64
         with self.assertRaisesRegex(AssertionError, "energy_grid_sha256 differs"):
             validate(data, baseline)
+
+    def test_valid_result_matches_archived_baseline(self):
+        data = minimal_valid_data()
+        self.assertEqual(validate(data, minimal_baseline(data))["status"], "PASS")
+
+    def test_baseline_file_sha256_mismatch_fails(self):
+        data = minimal_valid_data()
+        baseline = minimal_baseline(data)
+        with self.assertRaisesRegex(AssertionError, "does not match the supplied baseline file"):
+            validate(data, baseline, baseline_sha256="c" * 64)
+
+    def test_baseline_luminosity_mismatch_fails(self):
+        data = minimal_valid_data()
+        baseline = minimal_baseline(data)
+        data["calculated_luminosity_erg_s"] = 1.1
+        data["relative_difference_vs_fig7"] = 1.1 / data["reference_luminosity_erg_s"] - 1.0
+        data["escape_probability"] = 1.1 / data["optically_thin_luminosity_erg_s"]
+        with self.assertRaisesRegex(
+            AssertionError, "luminosity_relative_residual_vs_high_order_baseline is inconsistent"
+        ):
+            validate(data, baseline)
+
+    def test_baseline_thin_luminosity_mismatch_fails(self):
+        data = minimal_valid_data()
+        baseline = minimal_baseline(data)
+        data["optically_thin_luminosity_erg_s"] = 110.0
+        data["escape_probability"] = (
+            data["calculated_luminosity_erg_s"] / data["optically_thin_luminosity_erg_s"]
+        )
+        with self.assertRaisesRegex(
+            AssertionError, "thin_luminosity_relative_residual_vs_high_order_baseline is inconsistent"
+        ):
+            validate(data, baseline)
+
+    def test_baseline_escape_probability_mismatch_fails(self):
+        data = minimal_valid_data()
+        baseline = minimal_baseline(data)
+        baseline["result"]["eq_b2_fixed_omega_baseline"]["points"][0]["escape_fraction"] = 0.02
+        with self.assertRaisesRegex(
+            AssertionError, "escape_probability_absolute_residual_vs_high_order_baseline is inconsistent"
+        ):
+            validate(data, baseline)
+
+    def test_missing_all_emission_region_fails(self):
+        data = minimal_valid_data()
+        data["regions"] = [data["regions"][1]]
+        with self.assertRaisesRegex(AssertionError, "must contain exactly"):
+            validate(data)
+
+    def test_duplicate_region_name_fails(self):
+        data = minimal_valid_data()
+        data["regions"][1]["region"] = "all_emission_radii"
+        with self.assertRaisesRegex(AssertionError, "Duplicate region names"):
+            validate(data)
 
     def test_duplicate_partition_label_fails(self):
         rows = [{"bin":"x", "thin_source_fraction_within_region":0.5},
