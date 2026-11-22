@@ -90,9 +90,9 @@ The first 24-test attempt exposed a missing digest argument in the positive-base
 - Workflow: `.github/workflows/b16-output-validator-tests.yml`
 - Workflow blob: `f28ab2605261b07cef767d0f573c0800578adb9d`
 - Successful push run: [#45051207273](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45051207273)
-- Successful PR run on the final PR head: [#45054043193](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45054043193)
-- Earlier PR run on the preceding metadata head: [#45053795864](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45053795864)
-- Validator/test code head: `9f5a42fcc756ac18ddd6122136b9b613e3655128`; final PR head: `754c88d03448440437c940d886d753ee6e624cbd`
+- Successful PR run on the final PR head: [#45054313254](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45054313254)
+- Earlier PR run on the preceding metadata head: [#45054043193](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45054043193)
+- Validator/test code head: `9f5a42fcc756ac18ddd6122136b9b613e3655128`; final PR head: `e6d8de6b7a021a0e665e2bf23eb793ab3349d423`
 - Runner: Ubuntu 24.04; Python 3.13.5
 - GITHUB_TOKEN permission: `contents: read`
 - Compilation: PASS
@@ -120,9 +120,9 @@ No luminosity, opacity, source, transport prescription, production axial-vector 
 
 ## 5. Remaining review and integration items
 
-1. **B.16 validator verification:** complete for the final 24-test validator revision and the current mainline 10 MeV result. Exact-head push run #45051207273 and PR run #45051211748 both passed. This is validation against mainline data, not a merge into main.
+1. **B.16 validator verification:** complete for the final 24-test validator revision and the current mainline 10 MeV result. Push run #45051207273 and exact PR-head run #45054313254 both passed. This is validation against mainline data, not a merge into main.
 2. **PR #121 synchronization and overlap reconciliation:** pending. PR #121 remains Draft at head `e49908762e90271f4bc84be75e19577431febd4c`, based on the older `9bee9b3410d34195b09a4dff001174fb1d86edee` snapshot. Compared with current main `a7ac6456dafb27492183912fe4abbaa73a9455f7`, it is 27 commits behind and 125 commits ahead. Six paths overlap PR #134; the B.16 validator and test files on this branch are the newer strict revision and should be retained during reconciliation.
-3. **Workflow inventory reconciliation:** PR #121's 118-workflow snapshot adds three workflows but omits three workflows now present on current main after PR #122. PR #134 adds one more workflow. The reconciled union is 122 workflows; regenerate the workflow catalog and register from the final Git tree rather than choosing either stale inventory wholesale.
+3. **Workflow inventory reconciliation:** PR #121's 118-workflow snapshot adds three workflows but omits three workflows now present on current main after PR #122. PR #133 adds the B.13 targeted high-order workflow and PR #134 adds the B.16 validator workflow. The reconciled union is 123 workflow YAMLs; regenerate the workflow catalog and register from the final Git tree rather than choosing either stale inventory wholesale. B.13 PR #133 and B.16 PR #134 share three documentation/catalog paths: `.github/workflows/README.md`, `.github/workflows/WORKFLOW_AUDIT_REGISTER.csv`, and `docs/repository-management/README.md`. Merge these files by retaining both workflow links, both register rows and both repository entry points; no calculation source or native output overlaps.
 4. **Split-permission strict workflow:** execute the split-permission strict phase-space workflow on its guarded diagnostic branch before describing that YAML as execution-tested. Historical successful runs belong to the earlier workflow-wide write-permission blob.
 5. Keep historical successful run IDs linked to their exact workflow blobs.
 6. Keep the +92.4284% Fig. 7 discrepancy open as a physical investigation. No opacity rescaling or constraint update is authorized by these validator results.
