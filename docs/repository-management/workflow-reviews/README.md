@@ -3,6 +3,7 @@
 这里保存对 `.github/workflows/` 的历史静态审查；工作流 YAML 仍在原目录，运行入口及状态登记见 [工作流索引](../../../.github/workflows/README.md) 和 [审查台账](../../../.github/workflows/WORKFLOW_AUDIT_REGISTER.csv)。静态审查不表示计算运行成功或物理结果已通过验收。
 
 | 审查记录 | 内容 |
+| [B16_STRICT_PHASE_SPACE_AND_ENERGY_GRID_WORKFLOW_REVIEW_2026-11-22.md](B16_STRICT_PHASE_SPACE_AND_ENERGY_GRID_WORKFLOW_REVIEW_2026-11-22.md) | B.16 严格相空间、能量网格与权限分离版本校正 |
 |---|---|
 | [C4C4_WORKFLOW_REVIEW_2026-11-17.md](C4C4_WORKFLOW_REVIEW_2026-11-17.md) | C4-C4 锚点扫描、积分收敛与全径向工作流 |
 | [B2_PATH_WORKFLOW_REVIEW_2026-11-17.md](B2_PATH_WORKFLOW_REVIEW_2026-11-17.md) | B.2 光学深度、径向源积分与 B.16 lapse 边界敏感性工作流 |
