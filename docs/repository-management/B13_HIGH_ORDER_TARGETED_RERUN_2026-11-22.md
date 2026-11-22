@@ -92,7 +92,7 @@ The local run record's validator hash `00e6d1ef2c75d23e3e9b774ac30f7bbb7a427b9f7
 
 ## Workflow inventory and permission review
 
-The B.13 branch now has **119 workflow YAML files and 119 unique register entries**, with zero missing, duplicate or extra entries. The workflow README has 119 links. Status counts are 104 `REVIEWED_WITH_NOTES`, 14 `HISTORICAL_CANDIDATE`, one `ACTIVE`, and zero pending.
+The B.13 branch now has **119 workflow YAML files and 119 unique register entries**, with zero missing, duplicate or extra entries. The workflow README has 119 links. Status counts are 104 `REVIEWED_WITH_NOTES`, 14 `HISTORICAL`, one `ACTIVE`, and zero pending.
 
 The B.13 workflow uses `contents: read` by default and for Calculate. Only the separate push archive job receives `contents: write`. PR events `opened`, `reopened` and `ready_for_review` run read-only validation; `synchronize` is excluded so an archive-bot commit does not request an approval-gated PR workflow. Push path filters exclude generated output files. Before write-back and before every retry rebase, the archive job compares the workflow, local run summary, source identity and independent validator Git blobs against the latest branch; it refuses stale output and retries at most five times.
 

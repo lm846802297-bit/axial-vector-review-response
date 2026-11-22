@@ -685,7 +685,7 @@
     "workflow_readme_link_count": 119,
     "status_counts": {
       "REVIEWED_WITH_NOTES": 104,
-      "HISTORICAL_CANDIDATE": 14,
+      "HISTORICAL": 14,
       "ACTIVE": 1
     },
     "workflow_path": ".github/workflows/b13-high-order-provenance-validation.yml",
