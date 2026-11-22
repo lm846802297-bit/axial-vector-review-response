@@ -1,0 +1,104 @@
+{
+  "record": "B13_P1B_GLOBAL06B_HIGH_ORDER_TARGETED_RERUN",
+  "date": "2026-11-22",
+  "repository": "lm846802297-bit/axial-vector-review-response",
+  "source_commit": "e49908762e90271f4bc84be75e19577431febd4c",
+  "base_source_snapshot_commit": "5e7b60dc61b3f36909ed39f3400b06884fc77053",
+  "branch": "research/b13-high-order-provenance-rerun-20261122",
+  "run": {
+    "label": "P1B-GLOBAL06B-HIGH-ORDER-TARGETS",
+    "start_utc": "2026-11-22T14:28:12Z",
+    "end_utc": "2026-11-22T14:33:59Z",
+    "exit_status": 0,
+    "runtime_seconds": 343.58147954940796,
+    "workers": 4,
+    "command": "python3 finite_mixing/thermal_integrals/run_p1b_global06b_threshold_edge_high_order_targets.py --targets finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_TARGETS_INPUT.json --profile data/sfho188_digitized.csv --output /mnt/data/b13-independent-rerun-20261122/results --workers 4"
+  },
+  "environment": {
+    "os": "Linux",
+    "kernel": "6.18.57",
+    "python": "3.13.5",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "cpu": "AMD EPYC 9V74 80-Core Processor",
+    "visible_logical_cpus": 5,
+    "memory_total_bytes": 6227702579
+  },
+  "task_reconstruction": {
+    "profile_radial_rows": 1687,
+    "x_grid_nodes": 9,
+    "x_validation_nodes": 8,
+    "radial_target_intervals": 10,
+    "radial_unique_r_x_points": 261,
+    "energy_target_points": 10,
+    "energy_unique_r_x_points": 170,
+    "intersection_points": 0,
+    "union_points": 431
+  },
+  "numerics": {
+    "unique_r_x_points": 431,
+    "nominal_ordered_evaluations": 2155,
+    "actual_orders_per_point": 5,
+    "quadrature_extension_used": false,
+    "order_ladder": [
+      [
+        10,
+        6,
+        6,
+        6
+      ],
+      [
+        14,
+        8,
+        8,
+        8
+      ],
+      [
+        18,
+        10,
+        10,
+        10
+      ],
+      [
+        22,
+        12,
+        12,
+        12
+      ],
+      [
+        26,
+        14,
+        14,
+        14
+      ]
+    ],
+    "maximum_final_successive_order_change": 0.000329220848525901,
+    "maximum_high_order_radial_midpoint_interpolation_error": 0.0008311070322862653,
+    "maximum_high_order_energy_pchip_error": 0.0006716564877619043,
+    "maximum_detailed_balance_residual": 5.027846521385086e-15,
+    "maximum_mass_shell_residual": 2.0432421890821873e-13,
+    "all_targeted_quadrature_pass": true,
+    "all_rates_finite_nonnegative": true,
+    "full_global_high_order_acceptance": false
+  },
+  "inputs": {
+    "targets_sha256": "5417ca8f0724ac35b46a3abed986711ab8fe4afde6f70d10f1e60f93ce3411b0",
+    "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+    "driver_sha256": "67de0b7231881f2a76dc64a4f220a793f90298bae2ceb429334ecafce8e42c28",
+    "audit_kernel_sha256": "ff6479a8d6d4ba417dc4b31e745b4028a28d9e42df5598144334453ea9627683"
+  },
+  "hashes": {
+    "raw_results_sha256": "f8287ce92b4a2dd241928197a28b27bd655b0e2a23895478b40f30c49f9d313e",
+    "local_summary_sha256": "77a0bfb727171a1506e0c44b4ecdfce5f7bc0283ea4330504a2db2823f9599bd",
+    "run_log_sha256": "53210178bab8253bf4200c8b232530e7a53270f0dd8e66165ce75129353a90e8",
+    "environment_sha256": "d66c6987e3282b875d904053b068bae412b54eeef6b295ced2283cbdab6fb563",
+    "run_command_sha256": "5c139a4ae160d87168c0ba0009f04cd07e16fdd0848ce21267f43cb73342b749",
+    "input_manifest_sha256": "d161826412f3442b0581ecf0cdab9de9d00f843d3133603b6cffd7d2c5a1af9b",
+    "source_manifest_sha256": "f3d63b1e8579ae8597fa1e4cf081b284c1384024466201be00f5e88dac671c29",
+    "source_snapshot_zip_sha256": "a3bfefeb1c910cfa3c3d941b41439b0dae4aa3885c34bf4f993e27393bd35cbc",
+    "independent_validator_sha256": "00e6d1ef2c75d23e3e9b774ac30f7bbb7a427b9f77cdfc9f739b7cc22858284a",
+    "independent_validation_report_sha256": "cfae07459e24f4914c41272381f5b6f8595850f4ffeee1144d75c4f692817f0d"
+  },
+  "status": "LOCAL_RUN_VERIFIED_PENDING_CI_CROSSCHECK",
+  "scope": "P1B-GLOBAL06B targeted high-order checks: worst ten radial intervals and ten worst low-x energy points. This is not full 1687-node global high-order acceptance."
+}

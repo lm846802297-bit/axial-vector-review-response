@@ -4,6 +4,8 @@ This document describes the current repository organization and the intended own
 
 The 90th-review closeout integration was merged via [PR #122](https://github.com/lm846802297-bit/axial-vector-review-response/pull/122) into `main` on 2026-11-22 at commit `128c866e2a1a19812da1d16d17a7f4f2a28ecc39` using a merge commit. It carried 39 original closeout paths plus two entry-point updates, with no file deletions. PR #129 synchronized the post-closeout status and register metadata at `2cff95b3cc7442010fd3702d1036fcd4d7bb4500`; PR #130 completed the final-main status reconciliation at `8117b1df0d08949e1b566536a66dedcaf179f9a2`. The inventory snapshot below is based on the PR #130 merge tree. The 10 MeV Fig. 7 physical discrepancy remains +92.4284% and is not changed by repository integration.
 
+- [B.13 targeted high-order rerun and provenance (2026-11-22)](B13_HIGH_ORDER_TARGETED_RERUN_2026-11-22.md)
+
 ## Canonical top-level layout
 
 The active Major 2 / Major 3 / Major 4.2 script relocation is documented in [ACTIVE_SCRIPT_RELOCATION_AUDIT_2026-11-17.md](ACTIVE_SCRIPT_RELOCATION_AUDIT_2026-11-17.md) and its [path/blob manifest](ACTIVE_SCRIPT_RELOCATION_MANIFEST_2026-11-17.csv).
