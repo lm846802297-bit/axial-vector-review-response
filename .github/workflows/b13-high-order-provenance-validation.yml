@@ -131,7 +131,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+actions[bot]@users.noreply.github.com"
           git checkout -B research/b13-high-order-provenance-rerun-20261122 "${GITHUB_SHA}"
-          git add "$target/HIGH_ORDER_TARGETED_POINTS.json" "$target/HIGH_ORDER_ACCEPTANCE_SUMMARY.json" "$target/INDEPENDENT_VALIDATION_REPORT.json" "$target/CI_ENVIRONMENT.txt" "$target/CI_RUN.log" "$target/CI_OUTPUT_HASHES.sha256"
+          git add "$target/HIGH_ORDER_TARGETED_POINTS.json" "$target/HIGH_ORDER_ACCEPTANCE_SUMMARY.json" "$target/INDEPENDENT_VALIDATION_REPORT.json" "$target/CI_ENVIRONMENT.txt" "$target/CI_OUTPUT_HASHES.sha256"
+          git add -f "$target/CI_RUN.log"
           if git diff --cached --quiet; then
             echo "Independent high-order outputs already archived."
             exit 0

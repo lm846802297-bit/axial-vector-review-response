@@ -1,0 +1,55 @@
+{
+  "record": "B13_LOCAL_PRIMARY_VS_GITHUB_ACTIONS_CROSS_RUN_COMPARISON",
+  "date": "2026-11-22",
+  "local_primary": {
+    "source_commit": "e49908762e90271f4bc84be75e19577431febd4c",
+    "raw_results_sha256": "f8287ce92b4a2dd241928197a28b27bd655b0e2a23895478b40f30c49f9d313e",
+    "summary_sha256": "77a0bfb727171a1506e0c44b4ecdfce5f7bc0283ea4330504a2db2823f9599bd",
+    "independent_report_sha256": "cfae07459e24f4914c41272381f5b6f8595850f4ffeee1144d75c4f692817f0d",
+    "runtime_seconds": 343.58147954940796,
+    "environment": {
+      "python": "3.13.5",
+      "numpy": "2.3.5",
+      "scipy": "1.17.0",
+      "cpu": "AMD EPYC 9V74",
+      "workers": 4
+    }
+  },
+  "independent_github_actions": {
+    "run_id": 45041173008,
+    "run_url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45041173008",
+    "head_sha": "0bf434a9e24695547b250b3c0f2c2b8d757755dd",
+    "artifact_id": 14761963117,
+    "artifact_zip_sha256": "3b03866d451daf831cace785374da79e450ca47826cf75505e0be922100ee111",
+    "raw_results_sha256": "79e997869c1bf76e9f204c4ba86270dbaa943b05f4f9e300ea794d5d919d8343",
+    "summary_sha256": "b7505f06a7988d6aa565098424036d3c83fd603d6c13a7b7535ff910cbe5d421",
+    "independent_report_sha256": "bfa5e10947a4421ae56b99b86e516334f55f5e3c22d8d09aa6df19c02fc2750a",
+    "runtime_seconds": 479.8092064857483,
+    "environment": {
+      "runner": "ubuntu-24.04",
+      "python": "3.13.5",
+      "numpy": "2.3.5",
+      "scipy": "1.17.0",
+      "cpu": "Intel Xeon 6975P-C",
+      "workers": 4
+    }
+  },
+  "comparison": {
+    "local_and_ci_raw_files_byte_identical": false,
+    "reason": "JSON row ordering and run-specific runtime metadata differ; numerical payloads were compared by unique (r,x) key.",
+    "unique_points_each": 431,
+    "identical_task_key_sets": true,
+    "identical_order_ladders": true,
+    "rate_components_compared": 10344,
+    "max_absolute_final_order_change_difference": 0,
+    "max_absolute_detailed_balance_residual_difference": 0,
+    "max_absolute_mass_shell_residual_difference": 0,
+    "max_absolute_rate_difference": 0,
+    "max_relative_rate_difference": 0,
+    "all_ci_targeted_quadrature_pass": true,
+    "all_ci_rates_finite_nonnegative": true,
+    "full_global_high_order_acceptance": false
+  },
+  "acceptance": "PASS",
+  "scope": "Targeted high-order audit of ten worst radial intervals and ten worst low-x interpolation points; not exhaustive high-order validation of all 1687 radial nodes."
+}
