@@ -1,125 +1,41 @@
-name: C1 10 MeV structured result archive
+name: C1 10 MeV historical archive validation
 
 on:
-  push:
-    branches:
-      - research/croon-vector-benchmark-and-rate-corrections-20261119
-    paths:
-      - .github/workflows/croon-c1-10mev-result-archive.yml
-      - research/stellar-cooling-constraints-20261105/blinov_reproduction/archive_croon_c1_10mev.py
-      - research/stellar-cooling-constraints-20261105/blinov_reproduction/test_archive_croon_c1_10mev.py
-      - docs/repository-management/schemas/research-result-record-v1.0.0.schema.json
-      - docs/repository-management/schemas/validate_result_records.py
-      - docs/repository-management/schemas/requirements-result-validation.txt
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  archive:
+  validate:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - name: Checkout full history
+      - name: Checkout research branch with full history
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.ref_name }}
+          ref: research/croon-vector-benchmark-and-rate-corrections-20261119
           fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.13"
+          python-version: '3.13'
 
-      - name: Install JSON Schema validator
+      - name: Install result validator dependencies
         run: python -m pip install -r docs/repository-management/schemas/requirements-result-validation.txt
 
-      - name: Test C1 archive writer against existing outputs
+      - name: Test C1 archive writer
         working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
         run: python -m unittest -v test_archive_croon_c1_10mev.py
 
-      - name: Generate structured archive from existing C1 outputs
-        run: python research/stellar-cooling-constraints-20261105/blinov_reproduction/archive_croon_c1_10mev.py
-
-      - name: Verify archive is self-contained and checksum list is reproducible
-        run: |
-          python - <<'PY'
-          import json
-          import subprocess
-          from pathlib import Path
-
-          archive_dir = Path("research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20")
-          manifest = json.loads((archive_dir / "run_manifest.json").read_text())
-          summary = json.loads((archive_dir / "result_summary.json").read_text())
-          for item in manifest["outputs"]:
-              path = Path(item["path"])
-              assert path.is_relative_to(archive_dir), f"output is outside archive: {path}"
-              assert path.is_file(), f"missing archived output: {path}"
-          for item in manifest["inputs"]:
-              path = Path(item["path"])
-              assert path.is_relative_to(archive_dir), f"input is outside archive: {path}"
-              assert path.is_file(), f"missing archived input: {path}"
-          for item in summary["data_files"]:
-              path = Path(item["path"])
-              assert path.is_relative_to(archive_dir), f"data file is outside archive: {path}"
-              assert path.is_file(), f"missing archived data file: {path}"
-          subprocess.run(["sha256sum", "-c", "SHA256SUMS.txt"], cwd=archive_dir, check=True)
-          print(f"SELF-CONTAINED ARCHIVE PASS: {len(manifest['outputs'])} output records")
-          PY
-
-      - name: Validate run manifest, result summary, validation report, and all referenced files
+      - name: Validate the immutable 2026-11-20 historical records
         run: |
           python docs/repository-management/schemas/validate_result_records.py --repo-root . \
             research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/run_manifest.json \
             research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/result_summary.json \
             research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/validation_report.json
 
-      - name: Commit generated archive (initial local-only state)
-        env:
-          BRANCH: ${{ github.ref_name }}
-        run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20
-          git commit -m "Archive structured C1 10 MeV result package"
-          for attempt in 1 2 3; do
-            git fetch origin "$BRANCH"
-            if ! git rebase "origin/$BRANCH"; then git rebase --abort || true; continue; fi
-            if git push origin "HEAD:$BRANCH"; then exit 0; fi
-          done
-          echo "Unable to push generated C1 archive after three attempts" >&2
-          exit 1
-
-      - name: Mark archive committed to PR branch
-        run: |
-          python research/stellar-cooling-constraints-20261105/blinov_reproduction/archive_croon_c1_10mev.py \
-            --finalize \
-            --pr-url https://github.com/lm846802297-bit/axial-vector-review-response/pull/123
-          python docs/repository-management/schemas/validate_result_records.py --repo-root . \
-            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/run_manifest.json \
-            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/result_summary.json \
-            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/validation_report.json
-
-      - name: Commit final archive status
-        env:
-          BRANCH: ${{ github.ref_name }}
-        run: |
-          set -euo pipefail
-          git add research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/run_manifest.json
-          git commit -m "Mark C1 10 MeV archive committed to PR branch"
-          for attempt in 1 2 3; do
-            git fetch origin "$BRANCH"
-            if ! git rebase "origin/$BRANCH"; then git rebase --abort || true; continue; fi
-            if git push origin "HEAD:$BRANCH"; then exit 0; fi
-          done
-          echo "Unable to finalize C1 archive status after three attempts" >&2
-          exit 1
-
-      - name: Upload validated structured archive
-        uses: actions/upload-artifact@v4
-        with:
-          name: c1-10mev-structured-result-archive
-          path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/
-          if-no-files-found: error
+      - name: Verify historical archive checksums without rewriting files
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20
+        run: sha256sum -c SHA256SUMS.txt
