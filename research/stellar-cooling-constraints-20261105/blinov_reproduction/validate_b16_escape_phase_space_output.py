@@ -196,8 +196,9 @@ def validate(data: dict, baseline: dict | None = None) -> dict:
         joint = region["joint_radius_energy_direction_bins"]
         if not joint:
             raise AssertionError(f"{name} has an empty joint table")
-        if region.get("joint_bin_count_nonempty") != len(joint):
-            raise AssertionError(f"{name} joint_bin_count_nonempty does not match the table")
+        joint_count = region.get("joint_bin_count_nonempty")
+        if isinstance(joint_count, bool) or not isinstance(joint_count, int) or joint_count != len(joint):
+            raise AssertionError(f"{name} joint_bin_count_nonempty must be an integer matching the table")
         for cell in joint:
             for key in (
                 "thin_source_fraction_within_region",
@@ -205,7 +206,8 @@ def validate(data: dict, baseline: dict | None = None) -> dict:
                 "thin_source_fraction_of_global",
                 "escaped_luminosity_fraction_of_global",
             ):
-                if float(cell[key]) < 0.0:
+                value = _finite_number(cell[key], f"{name}.joint.{key}")
+                if value < 0.0:
                     raise AssertionError(f"{name} has a negative joint-table fraction: {key}")
 
         cell_ids = [
@@ -215,15 +217,27 @@ def validate(data: dict, baseline: dict | None = None) -> dict:
         if len(cell_ids) != len(set(cell_ids)):
             raise AssertionError(f"{name} contains duplicate radius-energy-direction cells")
 
-        joint_thin = sum(float(x["thin_source_fraction_within_region"]) for x in joint)
-        joint_escaped = sum(float(x["escaped_luminosity_fraction_within_region"]) for x in joint)
+        joint_thin = sum(
+            _finite_number(x["thin_source_fraction_within_region"], f"{name}.joint.thin")
+            for x in joint
+        )
+        joint_escaped = sum(
+            _finite_number(x["escaped_luminosity_fraction_within_region"], f"{name}.joint.escaped")
+            for x in joint
+        )
         if abs(joint_thin - 1.0) >= TOL:
             raise AssertionError(f"{name} joint thin partition does not close: {joint_thin:.17g}")
         if abs(joint_escaped - 1.0) >= TOL:
             raise AssertionError(f"{name} joint escaped partition does not close: {joint_escaped:.17g}")
 
-        joint_thin_global = sum(float(x["thin_source_fraction_of_global"]) for x in joint)
-        joint_escaped_global = sum(float(x["escaped_luminosity_fraction_of_global"]) for x in joint)
+        joint_thin_global = sum(
+            _finite_number(x["thin_source_fraction_of_global"], f"{name}.joint.thin_global")
+            for x in joint
+        )
+        joint_escaped_global = sum(
+            _finite_number(x["escaped_luminosity_fraction_of_global"], f"{name}.joint.escaped_global")
+            for x in joint
+        )
         if abs(joint_thin_global - float(region["source_fraction_of_global_B1"])) >= TOL:
             raise AssertionError(f"{name} joint table does not reproduce its global source fraction")
         if abs(joint_escaped_global - float(region["escaped_luminosity_fraction_of_global"])) >= TOL:
