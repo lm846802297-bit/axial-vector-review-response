@@ -172,11 +172,17 @@ class StrictNumericValidationTests(unittest.TestCase):
         baseline = minimal_baseline(data)
         baseline["result"]["configuration"]["energy_grid_sha256"] = "0" * 64
         with self.assertRaisesRegex(AssertionError, "energy_grid_sha256 differs"):
-            validate(data, baseline)
+            validate(data, baseline, baseline_sha256="a" * 64)
 
     def test_valid_result_matches_archived_baseline(self):
         data = minimal_valid_data()
         self.assertEqual(validate(data, minimal_baseline(data))["status"], "PASS")
+
+    def test_baseline_hash_argument_required(self):
+        data = minimal_valid_data()
+        baseline = minimal_baseline(data)
+        with self.assertRaisesRegex(AssertionError, "baseline_sha256 is required"):
+            validate(data, baseline, baseline_sha256="a" * 64)
 
     def test_baseline_file_sha256_mismatch_fails(self):
         data = minimal_valid_data()
@@ -193,7 +199,7 @@ class StrictNumericValidationTests(unittest.TestCase):
         with self.assertRaisesRegex(
             AssertionError, "luminosity_relative_residual_vs_high_order_baseline is inconsistent"
         ):
-            validate(data, baseline)
+            validate(data, baseline, baseline_sha256="a" * 64)
 
     def test_baseline_thin_luminosity_mismatch_fails(self):
         data = minimal_valid_data()
@@ -205,7 +211,7 @@ class StrictNumericValidationTests(unittest.TestCase):
         with self.assertRaisesRegex(
             AssertionError, "thin_luminosity_relative_residual_vs_high_order_baseline is inconsistent"
         ):
-            validate(data, baseline)
+            validate(data, baseline, baseline_sha256="a" * 64)
 
     def test_baseline_escape_probability_mismatch_fails(self):
         data = minimal_valid_data()
@@ -214,7 +220,7 @@ class StrictNumericValidationTests(unittest.TestCase):
         with self.assertRaisesRegex(
             AssertionError, "escape_probability_absolute_residual_vs_high_order_baseline is inconsistent"
         ):
-            validate(data, baseline)
+            validate(data, baseline, baseline_sha256="a" * 64)
 
     def test_missing_all_emission_region_fails(self):
         data = minimal_valid_data()

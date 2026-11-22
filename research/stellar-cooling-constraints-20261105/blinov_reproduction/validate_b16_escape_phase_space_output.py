@@ -165,6 +165,8 @@ def validate(
             raise AssertionError(f"configuration.{key} must be a positive integer")
 
     if baseline is not None:
+        if baseline_sha256 is None:
+            raise AssertionError("baseline_sha256 is required when a baseline is supplied")
         expected_baseline_sha256 = _check_sha256(
             data["baseline_json_sha256"], "baseline_json_sha256"
         )
