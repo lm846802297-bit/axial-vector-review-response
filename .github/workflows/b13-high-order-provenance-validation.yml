@@ -10,6 +10,14 @@ on:
       - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/SOURCE_FILE_IDENTITY.json'
       - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/validate_b13_high_order_rerun.py'
   pull_request:
+    # PR-open and ready-for-review events run read-only validation.
+    # Subsequent commits are validated by the guarded branch push workflow.
+    # Excluding synchronize prevents archive-bot pushes from requesting approval
+    # for another PR workflow run.
+    types:
+      - opened
+      - reopened
+      - ready_for_review
     branches:
       - main
     paths:
