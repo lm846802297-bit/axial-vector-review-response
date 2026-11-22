@@ -127,18 +127,30 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          target="research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/"
+          target="research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22"
+          branch="research/b13-high-order-provenance-rerun-20261122"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+actions[bot]@users.noreply.github.com"
+          git fetch origin "$branch"
+          for path in \
+            ".github/workflows/b13-high-order-provenance-validation.yml" \
+            "$target/LOCAL_RUN_SUMMARY.json" \
+            "$target/SOURCE_FILE_IDENTITY.json" \
+            "$target/validate_b13_high_order_rerun.py"; do
+            event_blob="$(git rev-parse "${GITHUB_SHA}:${path}")"
+            latest_blob="$(git rev-parse "FETCH_HEAD:${path}")"
+            if [ "$event_blob" != "$latest_blob" ]; then
+              echo "Refusing stale archive: calculation input changed after event commit: $path"
+              exit 1
+            fi
+          done
+          git checkout -B "$branch" FETCH_HEAD
           mkdir -p "$target"
           cp /tmp/b13-high-order/* "$target/"
           (
             cd "$target"
             sha256sum HIGH_ORDER_TARGETED_POINTS.json HIGH_ORDER_ACCEPTANCE_SUMMARY.json INDEPENDENT_VALIDATION_REPORT.json CI_ENVIRONMENT.txt CI_RUN.log > CI_OUTPUT_HASHES.sha256
           )
-          branch="research/b13-high-order-provenance-rerun-20261122"
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+actions[bot]@users.noreply.github.com"
-          git fetch origin "$branch"
-          git checkout -B "$branch" FETCH_HEAD
           git add "$target/HIGH_ORDER_TARGETED_POINTS.json" "$target/HIGH_ORDER_ACCEPTANCE_SUMMARY.json" "$target/INDEPENDENT_VALIDATION_REPORT.json" "$target/CI_ENVIRONMENT.txt" "$target/CI_OUTPUT_HASHES.sha256"
           git add -f "$target/CI_RUN.log"
           if git diff --cached --quiet; then
