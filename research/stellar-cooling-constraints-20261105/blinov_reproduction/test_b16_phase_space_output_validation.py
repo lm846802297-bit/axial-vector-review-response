@@ -182,7 +182,7 @@ class StrictNumericValidationTests(unittest.TestCase):
         data = minimal_valid_data()
         baseline = minimal_baseline(data)
         with self.assertRaisesRegex(AssertionError, "baseline_sha256 is required"):
-            validate(data, baseline, baseline_sha256="a" * 64)
+            validate(data, baseline)
 
     def test_baseline_file_sha256_mismatch_fails(self):
         data = minimal_valid_data()
