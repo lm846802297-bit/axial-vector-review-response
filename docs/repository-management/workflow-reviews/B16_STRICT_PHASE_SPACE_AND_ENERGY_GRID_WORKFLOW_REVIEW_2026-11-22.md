@@ -4,11 +4,13 @@ Review date: 2026-11-22
 
 Main baseline: a7ac6456dafb27492183912fe4abbaa73a9455f7
 
+B.16 validator branch validation commit: 32125a04f4f3b319030f5ab886fbae7325849c30
+
 PR #121 source snapshot: e49908762e90271f4bc84be75e19577431febd4c
 
 This report supersedes the permission and run-version statements in the 2026-11-17 B.16 workflow review draft. The successful strict-workflow runs used the earlier single-job, workflow-wide write-permission YAML, not the later split-permission YAML.
 
-## 1. Energy-grid identity diagnostic
+## 1. Energy-grid identity diagnostic — PR #121 source only
 
 Workflow: **.github/workflows/b16-energy-grid-identity-diagnostic.yml**
 
@@ -29,7 +31,7 @@ Recorded result:
 
 Workflow: **.github/workflows/b16-strict-phase-space-reproduction.yml**
 
-PR #121 source workflow blob: **d736265c4c9647f33b83627b4d69aed37b657501**. The B.16 review branch carries the same permission structure, removes one stale path-filter entry, and has branch blob **4eed19b894d1250429995f98828540f70d2cdb50**.
+PR #121 source workflow blob: **d736265c4c9647f33b83627b4d69aed37b657501**. This workflow is part of PR #121's source snapshot only; it is not present in main or in the separate B.16 validator branch.
 
 Disposition: **REVIEWED_WITH_NOTES; current permission split statically verified, execution pending**.
 
@@ -68,15 +70,27 @@ The validator rejects non-finite values before any closure arithmetic:
 - SHA-256 fields, grid node counts and non-negative partition fractions are checked.
 - Sparse joint tables continue to accept omitted zero-weight bins; missing non-zero bins, unexpected labels and duplicate partition labels fail.
 
-Local prototype verification:
-- 13/13 tests passed.
-- Tests cover nested NaN, positive infinity, negative infinity, invalid JSON constants, inconsistent Fig. 7 residual, inconsistent escape probability, negative fractions, baseline-grid mismatch and sparse zero-bin handling.
-- The downloaded artifact from run #44059773875 (artifact 14317158089) passed a local hardened-validator integration check in no-baseline mode.
-- Artifact ZIP SHA-256: 0bd67edea604e92b0fdaed69681beb107a61107acfd3ad6098a884aff2f2b9ad.
-- Extracted JSON SHA-256: 0c919c883e9399f8570393fd7b2e959834da38bb7e67f66113a46fc5ae7c57d4.
+Exact branch-head GitHub Actions verification:
 
-The new read-only validator-test workflow runs the negative tests and validates the committed mainline 10 MeV result against the archived high-order baseline. Its exact branch-head run is pending.
+- Workflow: `.github/workflows/b16-output-validator-tests.yml`
+- Workflow blob: `f28ab2605261b07cef767d0f573c0800578adb9d`
+- Successful run: [#45039964078](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45039964078)
+- Exact head: `32125a04f4f3b319030f5ab886fbae7325849c30`
+- Runner: Ubuntu 24.04; Python 3.13.5
+- GITHUB_TOKEN permission: `contents: read`
+- Compilation: PASS
+- Regression tests: **16/16 PASS**
+- Mainline 10 MeV result against the archived high-order baseline: **PASS**
 
+The preceding [run #45039906417](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45039906417) stopped at Python setup because the Ubuntu 26.04 image did not provide Python 3.13.5; test and validation steps were skipped. Pinning Ubuntu 24.04 resolved the environment mismatch. The successful run above validates the exact branch head.
+
+Exact source identities:
+- Validator Git blob SHA-1: `699a34b6c7d29632b2af96df7ee7aeb3084c0eed`
+- Validator SHA-256: `b90f981ad01a6ad2e8ddc9b3d5ea363789757c97e5bf444e07c985b73c943d49`
+- Test Git blob SHA-1: `85b0434c1dfd77c90819a1127183946fb491891f`
+- Test SHA-256: `8cd46f6757571455216682706009189b6a80c555388425c22ab20773a8d11041`
+
+The earlier 13-test local prototype is retained as development history only; it is not the acceptance result.
 ## 4. Scientific result and acceptance boundary
 
 The committed 10 MeV mainline result remains:
@@ -91,7 +105,7 @@ No luminosity, opacity, source, transport prescription, production axial-vector 
 
 ## 5. Remaining review items
 
-1. Run the new read-only validator workflow on this branch and inspect the exact head SHA.
+1. B.16 validator branch exact-head tests and mainline integration: complete.
 2. Execute the split-permission strict workflow on its guarded diagnostic branch before describing that YAML as execution-tested.
 3. Keep historical successful run IDs linked to their old workflow blob.
 4. Keep the +92.4284% Fig. 7 discrepancy open as a physical investigation.

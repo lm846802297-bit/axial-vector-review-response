@@ -4,9 +4,9 @@
   "repository": "lm846802297-bit/axial-vector-review-response",
   "base_main_sha": "a7ac6456dafb27492183912fe4abbaa73a9455f7",
   "source_pr121_head": "e49908762e90271f4bc84be75e19577431febd4c",
-  "branch_head_before_docs": "78e30b479f3ac4d7f1857a0320c3488b7c2bcef9",
-  "validator_sha256": "c8464f041c882f1235e6210731eb5e56ad8db2876c35aefc973cb02b9df13f77",
-  "test_sha256": "785124a0ca7c9992f0c34a5d46898e3a965bbe9db7b4158f33d7fc7605ad6126",
+  "branch_head_before_docs": "32125a04f4f3b319030f5ab886fbae7325849c30",
+  "validator_sha256": "b90f981ad01a6ad2e8ddc9b3d5ea363789757c97e5bf444e07c985b73c943d49",
+  "test_sha256": "8cd46f6757571455216682706009189b6a80c555388425c22ab20773a8d11041",
   "mainline_inputs": {
     "phase_space_result_sha256": "e1cbefd3615ff0a85999c0d96eda478ad91dd799741a887711353cae8936ce6d",
     "high_order_baseline_sha256": "dc7cce151ce9d8ec79d37c0f75c03984f8c5f9660b102f0f054f622b7f33c373",
@@ -14,25 +14,30 @@
     "energy_grid_sha256": "036e6d772f43acf97601c3846b475e8e1c14200d4d82de1dd9af30f01bb87ea3"
   },
   "validation_evidence": {
-    "local_environment": {
-      "python": "3.13.5",
-      "numpy": "2.3.5",
-      "scipy": "1.17.0",
-      "os": "Linux 6.18.57",
-      "cpu": "AMD EPYC 9V74",
-      "visible_logical_cpus": 5
+    "successful_actions_run": {
+      "run_id": 45039964078,
+      "url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45039964078",
+      "head_sha": "32125a04f4f3b319030f5ab886fbae7325849c30",
+      "conclusion": "success",
+      "token_contents_permission": "read",
+      "compile": "PASS",
+      "unit_tests": {
+        "passed": 16,
+        "failed": 0
+      },
+      "mainline_result_against_high_order_baseline": "PASS"
     },
-    "local_prototype_tests": {
+    "environment_failure_and_resolution": {
+      "failed_run_id": 45039906417,
+      "failed_head_sha": "539fce589a74123fb2b3101e2d672d5fe5dcfaec",
+      "runner": "ubuntu-26.04",
+      "failure": "Python 3.13.5 unavailable on Ubuntu 26.04 image; test and validation steps were skipped",
+      "resolution": "Pin runner to ubuntu-24.04"
+    },
+    "earlier_local_prototype": {
       "passed": 13,
-      "failed": 0
-    },
-    "integration_artifact": {
-      "workflow_run_id": 44059773875,
-      "artifact_id": 14317158089,
-      "artifact_zip_sha256": "0bd67edea604e92b0fdaed69681beb107a61107acfd3ad6098a884aff2f2b9ad",
-      "extracted_json_sha256": "0c919c883e9399f8570393fd7b2e959834da38bb7e67f66113a46fc5ae7c57d4",
-      "result": "PASS",
-      "scope": "local integration check of hardened validator logic"
+      "failed": 0,
+      "acceptance_status": "historical_only_not_authoritative"
     }
   },
   "physical_result": {
@@ -59,7 +64,40 @@
       "old_blob": "12b5a61523aec6f497144332da5c88267aab6f0a",
       "old_workflow_wide_contents_write": true,
       "current_split_execution_verified": false
+    },
+    "energy_grid_diagnostic": {
+      "source": "PR #121 only",
+      "source_blob_sha1": "93a713d20d6e74430bdeaf3d382b39c2de4ca213",
+      "run_id": 44054718118,
+      "run_head": "853b0341aa603726c0760d494ec7725b9021e1a0",
+      "not_present_in_main_or_validator_branch": true
+    },
+    "strict_phase_space": {
+      "source": "PR #121 only",
+      "source_blob_sha1": "d736265c4c9647f33b83627b4d69aed37b657501",
+      "historical_run_ids": [
+        44059347513,
+        44059773875
+      ],
+      "historical_blob_sha1": "12b5a61523aec6f497144332da5c88267aab6f0a",
+      "historical_workflow_wide_contents_write": true,
+      "split_permission_execution_verified": false,
+      "not_present_in_main_or_validator_branch": true
     }
   },
-  "scope": "Validator and workflow governance only; no production rates, opacities, transport outputs, axial-vector constraints or Fig. 7 values changed."
+  "scope": "Validator and workflow governance only; no production rates, opacities, transport outputs, axial-vector constraints or Fig. 7 values changed.",
+  "validator_branch_validation_head": "32125a04f4f3b319030f5ab886fbae7325849c30",
+  "validator_git_blob_sha1": "699a34b6c7d29632b2af96df7ee7aeb3084c0eed",
+  "test_git_blob_sha1": "85b0434c1dfd77c90819a1127183946fb491891f",
+  "workflow": {
+    "path": ".github/workflows/b16-output-validator-tests.yml",
+    "git_blob_sha1": "f28ab2605261b07cef767d0f573c0800578adb9d",
+    "sha256": "755f4d152b54804897a9eebd395ea1be49f98185094c61dc0bb2da78e39b5c72",
+    "permissions": {
+      "workflow": "contents:read",
+      "job": "contents:read"
+    },
+    "runner": "ubuntu-24.04",
+    "python": "3.13.5"
+  }
 }
