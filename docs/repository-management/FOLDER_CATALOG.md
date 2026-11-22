@@ -1,13 +1,13 @@
 # Folder catalog
 
-Live Git-tree inventory for the 90th-review integration branch, based on `main` at `0d2f6232694b4e151d0fafbb47a072d5d7d1b3a4` plus the 90th-review closeout files. Counts are structural entries, not unique scientific results.
+Live Git-tree inventory for the 90th-review integration branch, based on `main` at `9bee9b3410d34195b09a4dff001174fb1d86edee` plus the 90th-review closeout files. Counts are structural entries, not unique scientific results.
 
 ## Repository footprint
 
-- **1,729 Git-tree entries:** 1,598 files and 131 directories.
-- **608 Markdown/text files:** 509 `.md` and 99 `.txt`.
+- **1,730 Git-tree entries:** 1,599 files and 131 directories.
+- **609 Markdown/text files:** 510 `.md` and 99 `.txt`.
 - **Baseline register:** 462/462 individually reviewed — 304 `PASS_WITH_NOTES`, 2 `PASS`, 156 `HISTORICAL`, 0 `REVISION_REQUIRED`, 0 `PENDING`.
-- **Supplemental register:** 146 entries — 140 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 0 `PENDING`, 0 `REVISION_REQUIRED`.
+- **Supplemental register:** 147 entries — 141 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 0 `PENDING`, 0 `REVISION_REQUIRED`.
 - **Workflow inventory:** 118 YAML workflows — 103 `REVIEWED_WITH_NOTES`, 1 `ACTIVE`, 14 `HISTORICAL_CANDIDATE`, 0 `PENDING`.
 
 | Area | Git-tree entries | Responsibility |
@@ -25,9 +25,9 @@ Live Git-tree inventory for the 90th-review integration branch, based on `main` 
 | `弃用/` | 7 | Explicitly deprecated material; retain pending provenance/link checks. |
 | `计算脚本/` | 112 | Legacy calculation scripts, outputs and audit records. |
 | `附件/` | 4 | Supporting historical attachments. |
-| `[root]` | 12 files + 13 top-level directories | Governance/navigation (`README*`, `AGENTS.md`, `GIT_MERGE_POLICY.md`, `仓库分类索引.md`, `.gitignore`), current status, formal reply TeX/PDF and BibTeX/style dependencies. |
+| `[root]` | 13 files + 13 top-level directories | Governance/navigation (`README*`, `AGENTS.md`, `GIT_MERGE_POLICY.md`, `仓库分类索引.md`, `.gitignore`), current status, formal reply TeX/PDF and BibTeX/style dependencies. |
 
-The root has 12 files after the PR #116 historical-file moves; the active-script relocation does not change the root file count. The original 24-file audit remains a historical baseline; see [the relocation audit](ROOT_RELOCATION_AUDIT_2026-11-17.md) and [blob/size manifest](ROOT_RELOCATION_MANIFEST_2026-11-17.csv). Counts include each top-level directory node.
+The root has 13 files: PR #128 added `RESEARCH_COMPUTE_POLICY.md` to the 12-file post-PR #116 layout. The active-script relocation does not change the root file count. The original 24-file audit remains a historical baseline; see [the relocation audit](ROOT_RELOCATION_AUDIT_2026-11-17.md) and [blob/size manifest](ROOT_RELOCATION_MANIFEST_2026-11-17.csv). Counts include each top-level directory node.
 
 ## Directory ownership and migration boundaries
 

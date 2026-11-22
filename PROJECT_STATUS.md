@@ -1,11 +1,21 @@
-# 2026-11-17 live status: post-PR #106 / #113 merge, reply-letter acceptance and repository document review
+# 2026-11-22 live status: post-PR #120 / #128 merge, 90th-review closeout and repository inventory reconciliation
 
 > This entry supersedes earlier live summaries below wherever they list PR #106 or #113 as open/draft, report an older main SHA, or describe either branch as an active PR. It also supersedes the pre-merge PR #56 status and the 2026-11-06 response-PDF validation metadata: PR #56 merged on 2026-11-12, and the final response-PDF layout acceptance recorded on 2026-11-16 below. Older dated entries remain as historical snapshots.
 
 
-## Latest update (2026-11-17)
+## Latest update (2026-11-22)
 
-- **PR state after index reconciliation:** PR #120 merged into `main` at `0d2f6232694b4e151d0fafbb47a072d5d7d1b3a4`. PR #122 (90th-review closeout integration) is open and mergeable, with 41 changed paths and no deletions. PR #119 and PR #121 remain separate open/draft B.16 validation branches; neither is merged by PR #122.
+- **Current main baseline:** PR #120 is merged at `0d2f6232694b4e151d0fafbb47a072d5d7d1b3a4`; PR #128 is merged at `9bee9b3410d34195b09a4dff001174fb1d86edee`. The current `main` baseline is the latter commit. PR #128 adds the normative `RESEARCH_COMPUTE_POLICY.md` and updates the project governance/merge rules.
+- **PR #122 closeout integration:** open, non-draft and mergeable; based on the current `main` commit above. Its current diff contains 42 paths (17 added, 25 modified, 0 deleted): the 39 original closeout paths plus three integration-entry updates (`AGENTS.md`, `README.md`, and `README-先读这里.md`). The old closeout source branch is not merged wholesale.
+- **B.16 branch separation:** PR #119 and PR #121 remain separate Draft PRs. PR #122 overlaps four changed paths with #119 and 13 with #121. Of the 13 #121 overlaps, `AGENTS.md` is byte-identical and the other 12 are different branch versions. Neither research PR is merged by the closeout integration; any later integration requires path-level reconciliation.
+- **Energy-grid cross-check:** successful closeout run [#44035746636](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44035746636) used Python 3.12.16, NumPy 2.5.4 and SciPy 1.18.1 and reproduced the 842-node baseline energy-grid SHA-256 `036e6d772f43acf97601c3846b475e8e1c14200d4d82de1dd9af30f01bb87ea3`. The earlier grid mismatch is therefore not isolated as a dependency-version-only effect; source/method differences also need to be controlled in the separate PR #119 comparison.
+- **Current document inventory:** 1,730 Git-tree entries = 1,599 files + 131 directories; 609 Markdown/text files = 510 `.md` + 99 `.txt`. The baseline register contains 462 rows; the supplemental register contains 147 rows (141 `PASS_WITH_NOTES`, 6 `HISTORICAL`). All 609 paths are registered exactly once, with no missing, duplicate or overlapping paths. Current blob-SHA/size metadata matches the tree. Baseline historical fingerprint status is 369 `MATCH_CURRENT`, 92 `CONTENT_FINGERPRINT_DIFFERS`, and 1 `SIZE_METADATA_DIFFERS`.
+- **Workflow inventory:** all 118 workflow YAML files are registered; 103 are `REVIEWED_WITH_NOTES`, 1 is `ACTIVE`, 14 are `HISTORICAL_CANDIDATE`, and 0 are `PENDING`.
+- **Physical acceptance boundary:** the 10 MeV pure-vector Fig. 7 luminosity remains +92.4284% above the digitized reference. The closeout preserves numerical bookkeeping and provenance evidence; it does not resolve the Fig. 7 physical discrepancy, authorize opacity rescaling, or update the axial-vector constraint.
+
+## Historical status snapshot (2026-11-17)
+
+- **PR state at the 2026-11-17 index-reconciliation checkpoint:** PR #120 had merged into `main` at `0d2f6232694b4e151d0fafbb47a072d5d7d1b3a4`. The 90th-review closeout was subsequently integrated on the updated main baseline in PR #122. PR #119 and PR #121 remain separate B.16 validation branches.
 
 - **Ninetieth baseline closeout (2026-11-17):** the seven previously `REVISION_REQUIRED` baseline records now have evidence-based `PASS_WITH_NOTES` dispositions. This closes their document/provenance deliverables, not the underlying physical questions: the pure-vector 10 MeV Fig. 7 result remains +92.4284% above the digitized reference. No opacity rescaling or axial-vector constraint update is authorized. See the [90th review](docs/repository-management/NINETIETH_REVIEW_B16_AND_REPOSITORY_BASELINE_CLOSEOUT_2026-11-17.md), [thermal-convergence provenance note](docs/repository-management/THERMAL_CONVERGENCE_CSV_PROVENANCE_2026-11-17.md), and [closeout workflow review](docs/repository-management/workflow-reviews/B16_LOCAL_RATE_ESCAPE_AND_SCAN_ARCHIVE_WORKFLOW_REVIEW_2026-11-17.md).
 

@@ -20,10 +20,16 @@ independent physics validation beyond the stated tests and numerical closures.
 | `.github/workflows/b16-escape-phase-space-closeout.yml` | Path-filtered push on closeout branch plus manual dispatch; explicit job branch guard | Python 3.12; NumPy 2.5.4 / SciPy 1.18.1 pinned; 8 regression tests; py_compile; high-order B.1/B.2; energy-grid, closure, marginal and joint-bin checks; JSON/CSV/SVG archived | [#44035746636](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44035746636) | `REVIEWED_WITH_NOTES` |
 | `.github/workflows/scan-archive-integrity-closeout.yml` | Path-filtered push on closeout branch; explicit job branch guard; no manual dispatch | Python 3.12; standard-library streaming verifier; tests; gzip CRC, compressed/uncompressed SHA-256, byte count, CSV dimensions and row widths; JSON report archived | [#44033029862](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44033029862) | `REVIEWED_WITH_NOTES` |
 
-All three use least-privilege `contents: write` for the explicit artifact
-write-back step and a commit-pinned checkout of `github.sha`. The two
-numerical workflows pin NumPy/SciPy. The archive verifier uses only the Python
-standard library, so it does not install numerical dependencies.
+All three declare `permissions: contents: write` at workflow scope. The token
+permission is therefore available to every step in each job, not only the final
+artifact write-back step; this is not step-scoped least privilege. The branch
+guards, path filters and commit-pinned checkout of `github.sha` restrict the
+execution target but do not narrow token scope. The two numerical workflows
+pin NumPy/SciPy. The archive verifier uses only the Python standard library,
+so it does not install numerical dependencies. Before these workflows are
+reused with broader or recurring triggers, split computation/validation into a
+`contents: read` job and artifact archival into a separate minimal
+`contents: write` job.
 
 ## Review findings and residual workflow risks
 
@@ -46,7 +52,11 @@ standard library, so it does not install numerical dependencies.
    (`actions/checkout@v4`, `actions/setup-python@v5`) rather than immutable
    commit SHAs. This matches the existing repository convention but is not
    maximal supply-chain pinning.
-6. **Scientific scope:** the B.16 workflow proves strict numerical
+6. **Permission scope:** the workflow-level `contents: write` grant is available
+   during test and calculation steps. The current push/path/branch guards keep
+   these closeout jobs on the trusted maintenance branch; a future reusable
+   version should separate read-only computation from write-only archival.
+7. **Scientific scope:** the B.16 workflow proves strict numerical
    reproducibility of the archived fixed-(\omega\) baseline and the
    correctness of the phase-space partitions. It does not pass the physical
    Fig. 7 gate: the calculated 10 MeV luminosity remains (+92.4284\%)
