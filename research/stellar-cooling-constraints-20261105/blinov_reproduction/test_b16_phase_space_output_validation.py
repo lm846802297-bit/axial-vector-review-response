@@ -176,7 +176,7 @@ class StrictNumericValidationTests(unittest.TestCase):
 
     def test_valid_result_matches_archived_baseline(self):
         data = minimal_valid_data()
-        self.assertEqual(validate(data, minimal_baseline(data))["status"], "PASS")
+        self.assertEqual(validate(data, minimal_baseline(data), baseline_sha256="a" * 64)["status"], "PASS")
 
     def test_baseline_hash_argument_required(self):
         data = minimal_valid_data()
