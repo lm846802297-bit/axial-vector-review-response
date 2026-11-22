@@ -119,7 +119,7 @@ No luminosity, opacity, source, transport prescription, production axial-vector 
 
 ## 5. Remaining review and integration items
 
-1. **B.16 validator verification:** complete for the 23-test validator revision and the current mainline 10 MeV result. This is validation against mainline data, not a merge into main.
+1. **B.16 validator verification:** complete for the final 24-test validator revision and the current mainline 10 MeV result. Exact-head push run #45051207273 and PR run #45051211748 both passed. This is validation against mainline data, not a merge into main.
 2. **PR #121 synchronization and overlap reconciliation:** pending. PR #121 remains Draft at head `e49908762e90271f4bc84be75e19577431febd4c`, based on the older `9bee9b3410d34195b09a4dff001174fb1d86edee` snapshot. Compared with current main `a7ac6456dafb27492183912fe4abbaa73a9455f7`, it is 27 commits behind and 125 commits ahead. Six paths overlap PR #134; the B.16 validator and test files on this branch are the newer strict revision and should be retained during reconciliation.
 3. **Workflow inventory reconciliation:** PR #121's 118-workflow snapshot adds three workflows but omits three workflows now present on current main after PR #122. PR #134 adds one more workflow. The reconciled union is 122 workflows; regenerate the workflow catalog and register from the final Git tree rather than choosing either stale inventory wholesale.
 4. **Split-permission strict workflow:** execute the split-permission strict phase-space workflow on its guarded diagnostic branch before describing that YAML as execution-tested. Historical successful runs belong to the earlier workflow-wide write-permission blob.
