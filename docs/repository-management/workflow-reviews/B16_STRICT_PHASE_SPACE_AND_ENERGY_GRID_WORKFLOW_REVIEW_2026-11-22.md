@@ -90,9 +90,9 @@ The first 24-test attempt exposed a missing digest argument in the positive-base
 - Workflow: `.github/workflows/b16-output-validator-tests.yml`
 - Workflow blob: `f28ab2605261b07cef767d0f573c0800578adb9d`
 - Successful push run: [#45051207273](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45051207273)
-- Successful PR run on the final PR head: [#45053795864](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45053795864)
-- Earlier PR run on the preceding metadata head: [#45053271897](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45053271897)
-- Validator/test code head: `9f5a42fcc756ac18ddd6122136b9b613e3655128`; final PR head: `65f8246bebc3694e268e56ac20bc5935472695d6`
+- Successful PR run on the final PR head: [#45054043193](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45054043193)
+- Earlier PR run on the preceding metadata head: [#45053795864](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45053795864)
+- Validator/test code head: `9f5a42fcc756ac18ddd6122136b9b613e3655128`; final PR head: `754c88d03448440437c940d886d753ee6e624cbd`
 - Runner: Ubuntu 24.04; Python 3.13.5
 - GITHUB_TOKEN permission: `contents: read`
 - Compilation: PASS
