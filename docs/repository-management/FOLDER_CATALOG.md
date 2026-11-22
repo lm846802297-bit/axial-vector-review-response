@@ -1,6 +1,6 @@
 # Folder catalog
 
-Live Git-tree inventory for the 90th-review integration branch, based on `main` at `9bee9b3410d34195b09a4dff001174fb1d86edee` plus the 90th-review closeout files. Counts are structural entries, not unique scientific results.
+Live Git-tree inventory for `main` at `128c866e2a1a19812da1d16d17a7f4f2a28ecc39`, after the PR #122 90th-review closeout merge. Counts are structural entries, not unique scientific results.
 
 ## Repository footprint
 
