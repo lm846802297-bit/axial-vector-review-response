@@ -2,7 +2,7 @@
 
 更新日期：2026-11-22。
 
-> **当前仓库状态（2026-11-22）：** `main` 基线为 `128c866e2a1a19812da1d16d17a7f4f2a28ecc39`（PR #120、#128、#122 已合并）。PR #122 已采用 Create a merge commit 合并，包含 41 个变更路径（17 新增、24 修改、无删除）；PR #119 和 #121 仍是独立 Draft，均落后 main 21 个提交。当前 Git 树有 1,730 个条目、1,599 个文件和 131 个目录；609 份 Markdown/text 文件（510 `.md`、99 `.txt`）已在 462 条基线与 147 条补充登记中各登记一次。补充登记为 141 `PASS_WITH_NOTES`、6 `HISTORICAL`；基线指纹为 370 `MATCH_CURRENT`、91 `CONTENT_FINGERPRINT_DIFFERS`、1 `SIZE_METADATA_DIFFERS`。118 个工作流全部登记，103 个静态审查、1 个 ACTIVE、14 个历史候选。第九十轮已归档 B.16 局域速率/逃逸相空间和 PR52 数据完整性证据；Fig. 7 10 MeV 的 +92.4284% 物理偏差仍未解决，没有更新生产轴矢量约束。详细状态以 [PROJECT_STATUS.md](PROJECT_STATUS.md) 顶部最新记录为准。
+> **当前仓库状态（2026-11-22）：** `main` 基线为 `2cff95b3cc7442010fd3702d1036fcd4d7bb4500`（PR #120、#128、#122、#129 已合并）。PR #122 已采用 Create a merge commit 合并，包含 41 个变更路径（17 新增、24 修改、无删除）；PR #129 完成合并后状态同步；PR #119 和 #121 仍是独立 Draft，均落后 main 23 个提交。当前 Git 树有 1,730 个条目、1,599 个文件和 131 个目录；609 份 Markdown/text 文件（510 `.md`、99 `.txt`）已在 462 条基线与 147 条补充登记中各登记一次。补充登记为 141 `PASS_WITH_NOTES`、6 `HISTORICAL`；基线指纹为 370 `MATCH_CURRENT`、91 `CONTENT_FINGERPRINT_DIFFERS`、1 `SIZE_METADATA_DIFFERS`。118 个工作流全部登记，103 个静态审查、1 个 ACTIVE、14 个历史候选。第九十轮已归档 B.16 局域速率/逃逸相空间和 PR52 数据完整性证据；Fig. 7 10 MeV 的 +92.4284% 物理偏差仍未解决，没有更新生产轴矢量约束。详细状态以 [PROJECT_STATUS.md](PROJECT_STATUS.md) 顶部最新记录为准。
 
 > **当前状态提示（2026-11-16）：** 本文件中带有 2026-11-06 日期的任务条目属于历史工作快照，不再代表当前 PR 或科学验收状态。最新状态请以根目录 [PROJECT_STATUS.md](PROJECT_STATUS.md) 和 [research 主索引](research/MAIN_RESEARCH_INDEX_2026-11-13.md) 为准。
 

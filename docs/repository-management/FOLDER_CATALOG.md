@@ -1,6 +1,6 @@
 # Folder catalog
 
-Live Git-tree inventory for `main` at `128c866e2a1a19812da1d16d17a7f4f2a28ecc39`, after the PR #122 90th-review closeout merge. Counts are structural entries, not unique scientific results.
+Live Git-tree inventory for `main` at `2cff95b3cc7442010fd3702d1036fcd4d7bb4500`, after the PR #122 closeout and PR #129 status-synchronization merges. Counts are structural entries, not unique scientific results.
 
 ## Repository footprint
 
