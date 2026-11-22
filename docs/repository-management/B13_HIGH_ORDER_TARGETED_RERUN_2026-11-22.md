@@ -50,3 +50,50 @@ This is a targeted high-order audit of the ten worst radial intervals and ten wo
 `"full_global_high_order_acceptance": false`
 
 No production rate, opacity, transport output, Fig. 7 result or axial-vector constraint is changed.
+
+
+## Latest independent CI reproductions
+
+### Read-only PR-event validation — run #45052985191
+
+[Run #45052985191](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45052985191) validated PR #133 at head `e0e5ea8a9599dedce5d14429a0e19aeca39b4653` (event merge SHA `bb32e67c0704ed0dfb9b43eb731d0badbc75fb4d`). The Calculate job completed all 431 points and independent validation; artifact #14766419782 was uploaded. The archive job was skipped by design and the job token was `contents: read`. Runtime was 456.835 s on Ubuntu 24.04 / Python 3.13.5 / NumPy 2.3.5 / SciPy 1.17.0 / Intel Xeon 6975P-C, four workers.
+
+### Latest exact-workflow push reproduction — run #45054965537
+
+[Run #45054965537](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45054965537) ran on exact workflow head `e2a9bea45c84f996ab728ec0d29bafa4cfd7c8cc`, workflow blob `2a250a2dc32d2c3c676b7220c838ba52e5382525`. Calculate, Validate and Archive all succeeded. The calculation job had `contents: read`; only the guarded archive job had `contents: write`.
+
+- Calculate job: `137308041672`; archive job: `137311756148`.
+- Artifact #14766494558, 199,597 bytes; ZIP SHA-256 `05b71bc6bd27dbe42ba0f5eed975861c16ec8fe181ff913924d84e791058e487`.
+- Archive commit: `27204a98aacac2eb2df9731fec30a894dfd2616a`.
+- Environment: Ubuntu 24.04, Python 3.13.5, NumPy 2.3.5, SciPy 1.17.0, AMD EPYC 7763, four visible vCPUs, 16,760,344,576 bytes RAM.
+- Runtime: 709.780 s; 431/431 points; 2,155 ordered evaluations.
+- All five artifact files match the branch's Git blob SHA-1 and `CI_OUTPUT_HASHES.sha256` entries byte-for-byte.
+
+## Cross-run numerical comparison
+
+The four Intel Xeon runs (#45043212683, #45048755752, #45050501965 and #45052985191) have identical task-key sets and quadrature ladders and match exactly across 10,344 charge/mode rate components.
+
+The AMD EPYC run #45054965537 was compared against those Intel runs after alignment by `(r_km,x)`:
+- 431/431 task keys and identical quadrature order ladders;
+- 10,344 rate components;
+- maximum absolute rate difference: `2.220446049250313e-16`;
+- maximum relative rate difference: `5.141200469148187e-16`;
+- maximum final-order-change difference: `4.153554699990326e-16`;
+- maximum detailed-balance residual difference: `3.537854528309584e-16`;
+- maximum mass-shell residual difference: `0`.
+
+These are floating-point roundoff-scale differences across CPU architectures. The targeted convergence and physical closure gates remain passed.
+
+## Provenance hash reconciliation
+
+The current local files were rehashed from their committed bytes. The environment hash is `9372d470c0fbb9629de515e7b94415b6ed82874877bedee9abffea434f809b50`, the run-command hash is `e1246d7e89358c74f614b5b7c1cbdca659749d062faa73017681829b29b46d2c`, and the updated comparison-report hash is `50e91d3ad929c1b3d3936d43b0c018d963c79b604a65b93164f23bf5ae59d4d8`; the output manifest also includes the corrected local run summary hash `80916409f3eae841d2944f929ecf2988107fd2f679d03d527da3d3508ebc06a2`. The original raw result, acceptance summary, local validation report and run log hashes continue to match.
+
+The local run record's validator hash `00e6d1ef2c75d23e3e9b774ac30f7bbb7a427b9f77cdfc9f739b7cc22858284a` does not match the committed validator file (`c15cb3d706bd4ee03beae83755dd465fef8197e38d1699952edaee0440433d36`, Git blob `1f3a10da5f4aa33c25b371333d76ff8f6a2a4f2a`). The exact local validator bytes are not present in repository history or the retained local runtime files. This identity gap is explicitly recorded; the committed validator is a separate reproducible validator that was compiled and executed successfully by the independent CI runs.
+
+## Workflow inventory and permission review
+
+The B.13 branch now has **119 workflow YAML files and 119 unique register entries**, with zero missing, duplicate or extra entries. The workflow README has 119 links. Status counts are 104 `REVIEWED_WITH_NOTES`, 14 `HISTORICAL_CANDIDATE`, one `ACTIVE`, and zero pending.
+
+The B.13 workflow uses `contents: read` by default and for Calculate. Only the separate push archive job receives `contents: write`. PR events `opened`, `reopened` and `ready_for_review` run read-only validation; `synchronize` is excluded so an archive-bot commit does not request an approval-gated PR workflow. Push path filters exclude generated output files. Before write-back and before every retry rebase, the archive job compares the workflow, local run summary, source identity and independent validator Git blobs against the latest branch; it refuses stale output and retries at most five times.
+
+The final branch head before this metadata refresh was `27204a98aacac2eb2df9731fec30a894dfd2616a`. No production rate, opacity, transport result, Fig. 7 value or axial-vector constraint is changed.

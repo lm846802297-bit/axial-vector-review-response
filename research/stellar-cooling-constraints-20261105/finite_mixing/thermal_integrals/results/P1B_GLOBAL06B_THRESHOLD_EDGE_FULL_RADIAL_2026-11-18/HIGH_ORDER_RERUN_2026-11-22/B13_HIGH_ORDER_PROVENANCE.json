@@ -104,15 +104,19 @@
       "raw_results_sha256": "f8287ce92b4a2dd241928197a28b27bd655b0e2a23895478b40f30c49f9d313e",
       "local_summary_sha256": "77a0bfb727171a1506e0c44b4ecdfce5f7bc0283ea4330504a2db2823f9599bd",
       "run_log_sha256": "53210178bab8253bf4200c8b232530e7a53270f0dd8e66165ce75129353a90e8",
-      "environment_sha256": "d66c6987e3282b875d904053b068bae412b54eeef6b295ced2283cbdab6fb563",
-      "run_command_sha256": "5c139a4ae160d87168c0ba0009f04cd07e16fdd0848ce21267f43cb73342b749",
+      "environment_sha256": "9372d470c0fbb9629de515e7b94415b6ed82874877bedee9abffea434f809b50",
+      "run_command_sha256": "e1246d7e89358c74f614b5b7c1cbdca659749d062faa73017681829b29b46d2c",
       "input_manifest_sha256": "d161826412f3442b0581ecf0cdab9de9d00f843d3133603b6cffd7d2c5a1af9b",
       "source_manifest_sha256": "f3d63b1e8579ae8597fa1e4cf081b284c1384024466201be00f5e88dac671c29",
       "source_snapshot_zip_sha256": "a3bfefeb1c910cfa3c3d941b41439b0dae4aa3885c34bf4f993e27393bd35cbc",
       "independent_validator_sha256": "00e6d1ef2c75d23e3e9b774ac30f7bbb7a427b9f77cdfc9f739b7cc22858284a",
-      "independent_validation_report_sha256": "cfae07459e24f4914c41272381f5b6f8595850f4ffeee1144d75c4f692817f0d"
+      "independent_validation_report_sha256": "cfae07459e24f4914c41272381f5b6f8595850f4ffeee1144d75c4f692817f0d",
+      "archived_validator_sha256": "c15cb3d706bd4ee03beae83755dd465fef8197e38d1699952edaee0440433d36",
+      "archived_validator_git_blob_sha1": "1f3a10da5f4aa33c25b371333d76ff8f6a2a4f2a",
+      "local_ci_cross_run_comparison_sha256": "50e91d3ad929c1b3d3936d43b0c018d963c79b604a65b93164f23bf5ae59d4d8",
+      "local_run_summary_sha256": "80916409f3eae841d2944f929ecf2988107fd2f679d03d527da3d3508ebc06a2"
     },
-    "status": "LOCAL_RUN_VERIFIED",
+    "status": "LOCAL_RUN_VERIFIED_CI_CROSSCHECK_PASS_WITH_VALIDATOR_IDENTITY_NOTE",
     "scope": "P1B-GLOBAL06B targeted high-order checks: worst ten radial intervals and ten worst low-x energy points. This is not full 1687-node global high-order acceptance.",
     "raw_output_archive": {
       "raw_results_path": "LOCAL_HIGH_ORDER_TARGETED_POINTS.json",
@@ -121,6 +125,15 @@
       "acceptance_summary_sha256": "77a0bfb727171a1506e0c44b4ecdfce5f7bc0283ea4330504a2db2823f9599bd",
       "independent_validation_report_path": "LOCAL_INDEPENDENT_VALIDATION_REPORT.json",
       "independent_validation_report_sha256": "cfae07459e24f4914c41272381f5b6f8595850f4ffeee1144d75c4f692817f0d"
+    },
+    "validator_identity": {
+      "recorded_local_validator_sha256": "00e6d1ef2c75d23e3e9b774ac30f7bbb7a427b9f77cdfc9f739b7cc22858284a",
+      "committed_validator_path": "validate_b13_high_order_rerun.py",
+      "committed_validator_sha256": "c15cb3d706bd4ee03beae83755dd465fef8197e38d1699952edaee0440433d36",
+      "committed_validator_git_blob_sha1": "1f3a10da5f4aa33c25b371333d76ff8f6a2a4f2a",
+      "hash_match": false,
+      "status": "UNRESOLVED_LOCAL_VALIDATOR_SOURCE_IDENTITY",
+      "note": "The exact local validator bytes represented by the recorded local hash are not present in the current branch history or retained local runtime files. The committed validator is preserved as a separate reproducible validator; the independent GitHub Actions calculate/validate jobs compiled and executed this committed version successfully. Do not conflate the two hashes."
     }
   },
   "source_file_identity": {
@@ -264,7 +277,7 @@
     }
   },
   "scientific_scope": "Targeted high-order audit of ten worst radial intervals and ten worst low-x energy points; not full 1687-node global high-order acceptance.",
-  "local_ci_cross_run_comparison_sha256": "0c579e13b1fa6dc88b3d943e7fff201684f3c560dedb41cd4bf7f812e51128a0",
+  "local_ci_cross_run_comparison_sha256": "50e91d3ad929c1b3d3936d43b0c018d963c79b604a65b93164f23bf5ae59d4d8",
   "initial_ci_attempt": {
     "status": "CALCULATION_AND_VALIDATION_PASS_ARCHIVE_JOB_FAILED",
     "run_id": 45041173008,
@@ -329,6 +342,217 @@
     }
   },
   "pr_event_verification": {
+    "run_id": 45052985191,
+    "run_url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45052985191",
+    "event": "pull_request",
+    "pull_request": 133,
+    "branch_head": "e0e5ea8a9599dedce5d14429a0e19aeca39b4653",
+    "event_merge_sha": "bb32e67c0704ed0dfb9b43eb731d0badbc75fb4d",
+    "conclusion": "success",
+    "calculate_job_id": 137303479861,
+    "calculate_job_permission": "contents:read",
+    "archive_job_id": 137306441057,
+    "archive_job": "skipped_by_design",
+    "token_contents_permission": "read",
+    "artifact_id": 14766419782,
+    "artifact_name": "b13-high-order-431-point-reproduction",
+    "artifact_size_bytes": 199756,
+    "artifact_zip_sha256": "5c9b9e3a09f9f745793794efe77aebbff48e6f4b0af710b58c66400517c67e0f",
+    "environment": {
+      "runner": "ubuntu-24.04",
+      "python": "3.13.5",
+      "numpy": "2.3.5",
+      "scipy": "1.17.0",
+      "cpu": "Intel Xeon 6975P-C",
+      "workers": 4
+    },
+    "runtime_seconds": 456.8349516391754,
+    "archived_artifact_files": [
+      {
+        "path": "HIGH_ORDER_TARGETED_POINTS.json",
+        "bytes": 1092559,
+        "sha256": "30a61697afb33dade365ba87421f634bfd029ab89073ebdd031ac82d1622a993",
+        "git_blob_sha1": "da712b76bb85febd67d284447231807597b48930"
+      },
+      {
+        "path": "HIGH_ORDER_ACCEPTANCE_SUMMARY.json",
+        "bytes": 56504,
+        "sha256": "5d590aa78448c50314f3556d04bb0bae23436926dfa64914dc62f621d36a44e6",
+        "git_blob_sha1": "805d99820bb06ac0da4ef422e9ae9bd617e5f330"
+      },
+      {
+        "path": "INDEPENDENT_VALIDATION_REPORT.json",
+        "bytes": 1432,
+        "sha256": "c0e3e87e517cd655b3f027003738179b996d7a3e4ea3f81890822815cdebe1b7",
+        "git_blob_sha1": "ba3bda868b994291c4ac612cba8e32391045eaa8"
+      },
+      {
+        "path": "CI_ENVIRONMENT.txt",
+        "bytes": 2993,
+        "sha256": "d2c72337d344a78b127d1f31ca1574eccf6f9cacd4e38f8e9d14bd491294c66c",
+        "git_blob_sha1": "dc77d738a1dff57d7c0830c77049fca1eeba7909"
+      },
+      {
+        "path": "CI_RUN.log",
+        "bytes": 728,
+        "sha256": "e2b5d5fafe7aa8a1d601ea39e5f735119156ccae3aa5560ae7378070b687d961",
+        "git_blob_sha1": "21f213aa833f7b6d6f1f496602444bfa250d979e"
+      }
+    ],
+    "numerical_comparison_to_prior_intel_runs": {
+      "points": 431,
+      "rate_components": 10344,
+      "identical_task_key_sets": true,
+      "identical_order_ladders": true,
+      "max_absolute_rate_difference": 0,
+      "max_relative_rate_difference": 0,
+      "max_final_order_change_difference": 0,
+      "max_detailed_balance_residual_difference": 0,
+      "max_mass_shell_residual_difference": 0
+    }
+  },
+  "previous_successful_ci_runs": [
+    {
+      "run_id": 45043212683,
+      "artifact_id": 14762941323,
+      "archive_commit_sha": "8b5d28b58951623e375436478e6a524670e7ee18",
+      "status": "CALCULATE_VALIDATE_ARCHIVE_ALL_SUCCESS"
+    }
+  ],
+  "canonical_local_ci_comparison_run_id": 45043212683,
+  "workflow_versions": {
+    "original_push_archive_workflow_blob_sha1": "d15fd9b7521242d1fc0d1942aef86c90cc9459c7",
+    "current_pr_validation_workflow_blob_sha1": "2a250a2dc32d2c3c676b7220c838ba52e5382525",
+    "default_permission": "contents:read",
+    "calculate_job_permission": "contents:read",
+    "archive_job_permission": "contents:write",
+    "pull_request_archive_job": "skipped; no repository writeback",
+    "push_archive_run_calculate_token": "contents:read",
+    "push_archive_run_archive_token": "contents:write",
+    "pull_request_run_token": "contents:read",
+    "current_push_archive_workflow_blob_sha1": "2a250a2dc32d2c3c676b7220c838ba52e5382525",
+    "previous_guarded_workflow_blob_sha1": "f72063ac83a9fe5224442c0b0b9e12c9adb9f179",
+    "pull_request_event_types": [
+      "opened",
+      "reopened",
+      "ready_for_review"
+    ],
+    "push_path_filter_includes_only_inputs_and_workflow": true,
+    "generated_output_paths_excluded_from_push_and_pull_request_filters": true,
+    "archive_input_identity_guard": {
+      "checked_before_initial_archive": true,
+      "checked_before_every_retry_rebase": true,
+      "protected_inputs": [
+        ".github/workflows/b13-high-order-provenance-validation.yml",
+        "research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/LOCAL_RUN_SUMMARY.json",
+        "research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/SOURCE_FILE_IDENTITY.json",
+        "research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/validate_b13_high_order_rerun.py"
+      ],
+      "maximum_push_retries": 5
+    }
+  },
+  "branch_head_at_pr_event_validation": "b328f1bfba935ed50c8aee4ed0c15c1b273e0b33",
+  "branch_head_at_current_provenance_update": "27204a98aacac2eb2df9731fec30a894dfd2616a",
+  "artifact_archive_verification": {
+    "run_id": 45054965537,
+    "artifact_id": 14766494558,
+    "archive_commit_sha": "27204a98aacac2eb2df9731fec30a894dfd2616a",
+    "files_verified": 5,
+    "files_total": 5,
+    "artifact_files_byte_identical_to_archived_git_blobs": true,
+    "git_blob_sha1_and_sha256_manifest_match": true
+  },
+  "repeated_ci_numerical_comparison": {
+    "baseline_comparison_run_id": 45043212683,
+    "prior_archived_push_run_id": 45048755752,
+    "prior_pr_event_run_id": 45050501965,
+    "latest_pr_event_run_id": 45052985191,
+    "latest_push_run_id": 45054965537,
+    "points_per_run": 431,
+    "rate_components_compared_per_pair": 10344,
+    "identical_task_key_sets": true,
+    "identical_order_ladders": true,
+    "intel_xeon_runs_450432_450487_450505_450529_exact_numeric_match": true,
+    "intel_xeon_max_absolute_rate_difference": 0,
+    "intel_xeon_max_relative_rate_difference": 0,
+    "latest_amd_vs_intel_max_absolute_rate_difference": 2.220446049250313e-16,
+    "latest_amd_vs_intel_max_relative_rate_difference": 5.141200469148187e-16,
+    "latest_amd_vs_intel_max_absolute_final_order_change_difference": 4.153554699990326e-16,
+    "latest_amd_vs_intel_max_absolute_detailed_balance_residual_difference": 3.537854528309584e-16,
+    "latest_amd_vs_intel_max_absolute_mass_shell_residual_difference": 0,
+    "full_global_high_order_acceptance": false
+  },
+  "latest_successful_pr_event_validation": {
+    "run_id": 45052985191,
+    "run_url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45052985191",
+    "event": "pull_request",
+    "pull_request": 133,
+    "branch_head": "e0e5ea8a9599dedce5d14429a0e19aeca39b4653",
+    "event_merge_sha": "bb32e67c0704ed0dfb9b43eb731d0badbc75fb4d",
+    "conclusion": "success",
+    "calculate_job_id": 137303479861,
+    "calculate_job_permission": "contents:read",
+    "archive_job_id": 137306441057,
+    "archive_job": "skipped_by_design",
+    "token_contents_permission": "read",
+    "artifact_id": 14766419782,
+    "artifact_name": "b13-high-order-431-point-reproduction",
+    "artifact_size_bytes": 199756,
+    "artifact_zip_sha256": "5c9b9e3a09f9f745793794efe77aebbff48e6f4b0af710b58c66400517c67e0f",
+    "environment": {
+      "runner": "ubuntu-24.04",
+      "python": "3.13.5",
+      "numpy": "2.3.5",
+      "scipy": "1.17.0",
+      "cpu": "Intel Xeon 6975P-C",
+      "workers": 4
+    },
+    "runtime_seconds": 456.8349516391754,
+    "archived_artifact_files": [
+      {
+        "path": "HIGH_ORDER_TARGETED_POINTS.json",
+        "bytes": 1092559,
+        "sha256": "30a61697afb33dade365ba87421f634bfd029ab89073ebdd031ac82d1622a993",
+        "git_blob_sha1": "da712b76bb85febd67d284447231807597b48930"
+      },
+      {
+        "path": "HIGH_ORDER_ACCEPTANCE_SUMMARY.json",
+        "bytes": 56504,
+        "sha256": "5d590aa78448c50314f3556d04bb0bae23436926dfa64914dc62f621d36a44e6",
+        "git_blob_sha1": "805d99820bb06ac0da4ef422e9ae9bd617e5f330"
+      },
+      {
+        "path": "INDEPENDENT_VALIDATION_REPORT.json",
+        "bytes": 1432,
+        "sha256": "c0e3e87e517cd655b3f027003738179b996d7a3e4ea3f81890822815cdebe1b7",
+        "git_blob_sha1": "ba3bda868b994291c4ac612cba8e32391045eaa8"
+      },
+      {
+        "path": "CI_ENVIRONMENT.txt",
+        "bytes": 2993,
+        "sha256": "d2c72337d344a78b127d1f31ca1574eccf6f9cacd4e38f8e9d14bd491294c66c",
+        "git_blob_sha1": "dc77d738a1dff57d7c0830c77049fca1eeba7909"
+      },
+      {
+        "path": "CI_RUN.log",
+        "bytes": 728,
+        "sha256": "e2b5d5fafe7aa8a1d601ea39e5f735119156ccae3aa5560ae7378070b687d961",
+        "git_blob_sha1": "21f213aa833f7b6d6f1f496602444bfa250d979e"
+      }
+    ],
+    "numerical_comparison_to_prior_intel_runs": {
+      "points": 431,
+      "rate_components": 10344,
+      "identical_task_key_sets": true,
+      "identical_order_ladders": true,
+      "max_absolute_rate_difference": 0,
+      "max_relative_rate_difference": 0,
+      "max_final_order_change_difference": 0,
+      "max_detailed_balance_residual_difference": 0,
+      "max_mass_shell_residual_difference": 0
+    }
+  },
+  "previous_successful_pr_event_verification_45050501965": {
     "status": "CALCULATE_VALIDATE_SUCCESS_ARCHIVE_SKIPPED_BY_DESIGN",
     "run_id": 45050501965,
     "run_url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45050501965",
@@ -369,29 +593,82 @@
       "max_absolute_mass_shell_residual_difference": 0
     }
   },
-  "previous_successful_ci_runs": [
-    {
-      "run_id": 45043212683,
-      "artifact_id": 14762941323,
-      "archive_commit_sha": "8b5d28b58951623e375436478e6a524670e7ee18",
-      "status": "CALCULATE_VALIDATE_ARCHIVE_ALL_SUCCESS"
+  "previous_successful_ci_independent_reproduction_45048755752": {
+    "status": "CALCULATE_VALIDATE_ARCHIVE_ALL_SUCCESS",
+    "run_id": 45048755752,
+    "run_url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45048755752",
+    "event": "push",
+    "run_head": "1ee26f742e9f03cbccdd4237bbc8bb1c790ce91a",
+    "artifact_id": 14764174323,
+    "artifact_name": "b13-high-order-431-point-reproduction",
+    "artifact_zip_sha256": "5714902f8d44be284e5f067d99dcccff16556a1e9552f9f38a5bf1c993d8ff0d",
+    "raw_results_sha256": "92bf228464c85cc20b790d5bdb7ab4dc401d0f86b6b8b8cb96778e7701f17735",
+    "summary_sha256": "1ef279a4b34110ce44363f662c31dabd36c1722afa9dc5d489b4fd4583eb88b5",
+    "independent_report_sha256": "ec2504be67d478c474a56a6e524b81fe57cd77529b7dd963bd6ac2f4b1e5a57e",
+    "environment_sha256": "1ec0c8ef82c256d18ed5448245fbcd5e50513c086b239cbf0fd31820d7edc4a8",
+    "run_log_sha256": "e133fcf2de4d6dd703bac58529f7d10b44638984d56dd5bb32f87bd69f6ea329",
+    "environment": {
+      "runner": "ubuntu-24.04",
+      "python": "3.13.5",
+      "numpy": "2.3.5",
+      "scipy": "1.17.0",
+      "cpu": "Intel Xeon 6975P-C",
+      "workers": 4
+    },
+    "runtime_seconds": 485.5,
+    "calculate_job": "success",
+    "calculate_job_id": 137289012717,
+    "archive_job": "success",
+    "archive_job_id": 137291535181,
+    "archive_commit_sha": "04d7064602b3246e760ba6d80d0c4a0be7744418",
+    "archived_files": [
+      {
+        "path": "HIGH_ORDER_TARGETED_POINTS.json",
+        "bytes": 1092559,
+        "sha256": "92bf228464c85cc20b790d5bdb7ab4dc401d0f86b6b8b8cb96778e7701f17735",
+        "git_blob_sha1": "0f826d12b72cc6b294e6dbee91af55e094d32d1d"
+      },
+      {
+        "path": "HIGH_ORDER_ACCEPTANCE_SUMMARY.json",
+        "bytes": 56505,
+        "sha256": "1ef279a4b34110ce44363f662c31dabd36c1722afa9dc5d489b4fd4583eb88b5",
+        "git_blob_sha1": "1bc547720fb5c782da77718bdd1647cc6a8750b1"
+      },
+      {
+        "path": "INDEPENDENT_VALIDATION_REPORT.json",
+        "bytes": 1432,
+        "sha256": "ec2504be67d478c474a56a6e524b81fe57cd77529b7dd963bd6ac2f4b1e5a57e",
+        "git_blob_sha1": "423a72b8edd15e9ba27e3657af0a562760d8ad95"
+      },
+      {
+        "path": "CI_ENVIRONMENT.txt",
+        "bytes": 2995,
+        "sha256": "1ec0c8ef82c256d18ed5448245fbcd5e50513c086b239cbf0fd31820d7edc4a8",
+        "git_blob_sha1": "d434fd53e946bb65cc6ec561a7b7f6649a5cbf9f"
+      },
+      {
+        "path": "CI_RUN.log",
+        "bytes": 728,
+        "sha256": "e133fcf2de4d6dd703bac58529f7d10b44638984d56dd5bb32f87bd69f6ea329",
+        "git_blob_sha1": "5011dc84f95f4a1f956b5142e4f24e8a4ebc7214"
+      }
+    ],
+    "numerical_crosscheck": {
+      "status": "PASS",
+      "unique_points_each": 431,
+      "identical_task_key_sets": true,
+      "identical_order_ladders": true,
+      "rate_components_compared": 10344,
+      "max_absolute_rate_difference": 0,
+      "max_relative_rate_difference": 0,
+      "max_absolute_final_order_change_difference": 0,
+      "max_absolute_detailed_balance_residual_difference": 0,
+      "max_absolute_mass_shell_residual_difference": 0,
+      "full_global_high_order_acceptance": false
     }
-  ],
-  "canonical_local_ci_comparison_run_id": 45043212683,
-  "workflow_versions": {
-    "original_push_archive_workflow_blob_sha1": "d15fd9b7521242d1fc0d1942aef86c90cc9459c7",
-    "current_pr_validation_workflow_blob_sha1": "5608a4cccd5460eefd26b51439dfd8f08fb8bad8",
-    "default_permission": "contents:read",
-    "calculate_job_permission": "contents:read",
-    "archive_job_permission": "contents:write",
-    "pull_request_archive_job": "skipped; no repository writeback",
-    "push_archive_run_calculate_token": "contents:read",
-    "push_archive_run_archive_token": "contents:write",
-    "pull_request_run_token": "contents:read"
   },
-  "branch_head_at_pr_event_validation": "b328f1bfba935ed50c8aee4ed0c15c1b273e0b33",
-  "branch_head_at_current_provenance_update": "b328f1bfba935ed50c8aee4ed0c15c1b273e0b33",
-  "artifact_archive_verification": {
+  "branch_head_before_provenance_refresh": "27204a98aacac2eb2df9731fec30a894dfd2616a",
+  "previous_artifact_archive_verification_45048755752": {
     "run_id": 45048755752,
     "artifact_id": 14764174323,
     "files_verified": 5,
@@ -399,16 +676,22 @@
     "artifact_files_byte_identical_to_archived_git_blobs": true,
     "git_blob_sha1_and_sha256_manifest_match": true
   },
-  "repeated_ci_numerical_comparison": {
-    "baseline_comparison_run_id": 45043212683,
-    "archived_push_run_id": 45048755752,
-    "pull_request_run_id": 45050501965,
-    "points_per_run": 431,
-    "rate_components_compared_per_pair": 10344,
-    "identical_task_key_sets": true,
-    "max_absolute_rate_difference": 0,
-    "max_absolute_final_order_change_difference": 0,
-    "max_absolute_detailed_balance_residual_difference": 0,
-    "max_absolute_mass_shell_residual_difference": 0
-  }
+  "workflow_catalog_audit": {
+    "workflow_yaml_count": 119,
+    "register_entry_count": 119,
+    "missing_register_entries": [],
+    "extra_register_entries": [],
+    "duplicate_register_entries": [],
+    "workflow_readme_link_count": 119,
+    "status_counts": {
+      "REVIEWED_WITH_NOTES": 104,
+      "HISTORICAL_CANDIDATE": 14,
+      "ACTIVE": 1
+    },
+    "workflow_path": ".github/workflows/b13-high-order-provenance-validation.yml",
+    "workflow_blob_sha1": "2a250a2dc32d2c3c676b7220c838ba52e5382525",
+    "review_status": "REVIEWED_WITH_NOTES"
+  },
+  "local_run_summary_sha256": "80916409f3eae841d2944f929ecf2988107fd2f679d03d527da3d3508ebc06a2",
+  "local_output_hash_manifest_sha256": "4e961dec9ffa38a61de6db72b4b9b04e9f1e3e79a72cbdaa166bb14e2640bc70"
 }
