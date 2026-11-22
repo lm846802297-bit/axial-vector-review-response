@@ -44,7 +44,7 @@ The root has 13 files: PR #128 added `RESEARCH_COMPUTE_POLICY.md` to the 12-file
 
 1. Keep root `README.md`, `PROJECT_STATUS.md` and the living decision register as concise entry points.
 2. Keep the baseline and supplemental registers non-overlapping and synchronized with the current Git tree.
-3. Resolve the seven baseline `REVISION_REQUIRED` items only after row-specific evidence is committed and independently checked.
+3. The seven baseline items dispositioned by the 90th review are `PASS_WITH_NOTES`; reopen any item only when new evidence changes its recorded disposition.
 4. Do not delete or disable workflows based only on filenames or old branch references.
 5. Before moving files, audit Markdown links, code imports, workflow shell paths, TeX/BibTeX dependencies and manifests.
 6. A move must preserve original blob/size and be recorded in a path/SHA manifest.

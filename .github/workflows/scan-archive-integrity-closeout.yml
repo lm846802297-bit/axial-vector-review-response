@@ -7,6 +7,7 @@ on:
     paths:
       - 'research/radial-scalar-collider-recast-2026-10-28/data/derived/scan-pr52-thetaR-1e-2/original_uv_width_scan.csv.gz'
       - 'research/radial-scalar-collider-recast-2026-10-28/data/derived/scan-pr52-thetaR-1e-2/SHA256SUMS.txt'
+      - 'research/radial-scalar-collider-recast-2026-10-28/data/derived/scan-pr52-thetaR-1e-2/source-sha256.txt'
       - 'research/radial-scalar-collider-recast-2026-10-28/data/derived/scan-pr52-thetaR-1e-2/scan_version_comparison_2026-11-14.json'
       - 'research/radial-scalar-collider-recast-2026-10-28/data/derived/scan-pr52-thetaR-1e-2/extract_and_verify_scan_archive.py'
       - 'research/radial-scalar-collider-recast-2026-10-28/data/derived/scan-pr52-thetaR-1e-2/test_extract_and_verify_scan_archive.py'

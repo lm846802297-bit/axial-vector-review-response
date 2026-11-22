@@ -16,9 +16,9 @@ independent physics validation beyond the stated tests and numerical closures.
 
 | Workflow | Trigger / guard | Runtime and validation | Successful run | Disposition |
 |---|---|---|---|---|
-| `.github/workflows/b16-local-rate-polarization-samples.yml` | Push to the closeout branch with explicit source/test/profile path filters; explicit job branch guard; no manual dispatch | Python 3.12; NumPy 2.5.4 / SciPy 1.18.1 pinned; local-rate tests; 54-point CSV/JSON/SVG generation; profile fingerprint and closure maxima checked | [#44031506218](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44031506218) | `REVIEWED_WITH_NOTES` |
+| `.github/workflows/b16-local-rate-polarization-samples.yml` | Push to the closeout branch with source/test/profile filters, including `profile_provenance.json` and the legacy local-rate JSON test fixture; explicit job branch guard; no manual dispatch | Python 3.12; NumPy 2.5.4 / SciPy 1.18.1 pinned; local-rate tests; 54-point CSV/JSON/SVG generation; profile fingerprint and closure maxima checked | [#44031506218](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44031506218) | `REVIEWED_WITH_NOTES` |
 | `.github/workflows/b16-escape-phase-space-closeout.yml` | Path-filtered push on closeout branch plus manual dispatch; explicit job branch guard | Python 3.12; NumPy 2.5.4 / SciPy 1.18.1 pinned; 8 regression tests; py_compile; high-order B.1/B.2; energy-grid, closure, marginal and joint-bin checks; JSON/CSV/SVG archived | [#44035746636](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44035746636) | `REVIEWED_WITH_NOTES` |
-| `.github/workflows/scan-archive-integrity-closeout.yml` | Path-filtered push on closeout branch; explicit job branch guard; no manual dispatch | Python 3.12; standard-library streaming verifier; tests; gzip CRC, compressed/uncompressed SHA-256, byte count, CSV dimensions and row widths; JSON report archived | [#44033029862](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44033029862) | `REVIEWED_WITH_NOTES` |
+| `.github/workflows/scan-archive-integrity-closeout.yml` | Path-filtered push on closeout branch, including `source-sha256.txt`; explicit job branch guard; no manual dispatch | Python 3.12; standard-library streaming verifier; tests; gzip CRC, compressed/uncompressed SHA-256, byte count, CSV dimensions and row widths; JSON report archived | [#44033029862](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44033029862) | `REVIEWED_WITH_NOTES` |
 
 All three declare `permissions: contents: write` at workflow scope. The token
 permission is therefore available to every step in each job, not only the final
@@ -30,6 +30,18 @@ so it does not install numerical dependencies. Before these workflows are
 reused with broader or recurring triggers, split computation/validation into a
 `contents: read` job and artifact archival into a separate minimal
 `contents: write` job.
+
+## 2026-11-22 path-filter follow-up
+
+The final dependency trace found three workflow inputs that were read but not
+included in the original push filters. The local-rate workflow now watches
+`profile_provenance.json` (serialized source-PDF metadata) and
+`b16_local_absorption_vertex_preserving_10mev_2026-11-09.json` (the
+legacy comparison fixture used by its tests). The PR52 archive workflow now
+watches `source-sha256.txt` because the verifier copies its entries
+into the integrity report. These are trigger-only changes; the successful
+2026-11-17 calculation/verification runs remain tied to their original source
+commits and were not rerun after this path-filter correction.
 
 ## Review findings and residual workflow risks
 
