@@ -28,7 +28,7 @@ The archive commit is `04d7064602b3246e760ba6d80d0c4a0be7744418`. The five artif
 
 ## Numerical cross-checks
 
-The original [local/CI comparison report](LOCAL_CI_CROSS_RUN_COMPARISON.json) compares the local run with CI run #45043212683. I also independently compared the archived #45048755752 result with #45043212683, and the PR-event #45050501965 artifact with the archived #45048755752 result.
+The original [local/CI comparison report](../../research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/LOCAL_CI_CROSS_RUN_COMPARISON.json) compares the local run with CI run #45043212683. I also independently compared the archived #45048755752 result with #45043212683, and the PR-event #45050501965 artifact with the archived #45048755752 result.
 
 For each pair:
 - 431/431 identical task keys after alignment by `(r_km,x)`;
