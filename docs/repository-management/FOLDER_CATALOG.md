@@ -1,33 +1,33 @@
 # Folder catalog
 
-Updated 2026-11-17. Counts describe the audited tree after PR #117 merged into `main`, based on commit `2d9bf2e050f161b152d1761265796ad9c86e97a1`.
+Live Git-tree inventory for the 90th-review integration branch, based on `main` at `9bee9b3410d34195b09a4dff001174fb1d86edee` plus the 90th-review closeout files. Counts are structural entries, not unique scientific results.
 
 ## Repository footprint
 
-- **1,712 Git-tree entries:** 1,581 files and 131 directories.
-- **605 Markdown/text files:** 506 `.md` and 99 `.txt`.
-- **Baseline register:** 462/462 individually reviewed — 297 `PASS_WITH_NOTES`, 2 `PASS`, 156 `HISTORICAL`, 7 `REVISION_REQUIRED`, 0 `PENDING`.
-- **Supplemental register:** 143 entries — 137 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 0 `PENDING`, 0 `REVISION_REQUIRED`.
-- **Workflow inventory:** 115 YAML workflows — 100 `REVIEWED_WITH_NOTES`, 1 `ACTIVE`, 14 `HISTORICAL_CANDIDATE`, 0 `PENDING`.
+- **1,730 Git-tree entries:** 1,599 files and 131 directories.
+- **609 Markdown/text files:** 510 `.md` and 99 `.txt`.
+- **Baseline register:** 462/462 individually reviewed — 304 `PASS_WITH_NOTES`, 2 `PASS`, 156 `HISTORICAL`, 0 `REVISION_REQUIRED`, 0 `PENDING`.
+- **Supplemental register:** 147 entries — 141 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 0 `PENDING`, 0 `REVISION_REQUIRED`.
+- **Workflow inventory:** 118 YAML workflows — 103 `REVIEWED_WITH_NOTES`, 1 `ACTIVE`, 14 `HISTORICAL_CANDIDATE`, 0 `PENDING`.
 
 | Area | Git-tree entries | Responsibility |
 |---|---:|---|
 | `.freebuff/` | 2 | Tool/project metadata; do not treat as research content. |
-| `.github/` | 120 | Actions workflows, catalogs, audit registers and templates. |
+| `.github/` | 123 | Actions workflows, catalogs, audit registers and templates. |
 | `archive/` | 37 | Frozen reply versions, historical research, referee analysis and manuscript baselines. |
 | `deliverables/` | 22 | Extracted handoff packages and instructions. |
-| `docs/` | 127 | Governance, document registers, review standards and audit reports. |
+| `docs/` | 130 | Governance, document registers, review standards and audit reports. |
 | `overleaf-source/` | 29 | Pinned manuscript source package; read-only source archive. |
-| `research/` | 1,091 | Current scientific workstreams, inputs, scripts, tests, outputs and evidence. |
+| `research/` | 1,102 | Current scientific workstreams, inputs, scripts, tests, outputs and evidence. |
 | `work/` | 18 | Intermediate and temporary material; not authoritative until promoted. |
 | `审稿意见-gpt/` | 128 | Internal referee analysis, decisions, writing rules, current execution and original reviewer materials. |
 | `导出/` | 3 | Exported artifacts; identify source and lifecycle before promotion. |
 | `弃用/` | 7 | Explicitly deprecated material; retain pending provenance/link checks. |
 | `计算脚本/` | 112 | Legacy calculation scripts, outputs and audit records. |
 | `附件/` | 4 | Supporting historical attachments. |
-| `[root]` | 12 files + 13 top-level directories | Governance/navigation (`README*`, `AGENTS.md`, `GIT_MERGE_POLICY.md`, `仓库分类索引.md`, `.gitignore`), current status, formal reply TeX/PDF and BibTeX/style dependencies. |
+| `[root]` | 13 files + 13 top-level directories | Governance/navigation (`README*`, `AGENTS.md`, `GIT_MERGE_POLICY.md`, `仓库分类索引.md`, `.gitignore`), current status, formal reply TeX/PDF and BibTeX/style dependencies. |
 
-The root has 12 files after the PR #116 historical-file moves; the active-script relocation does not change the root file count. The original 24-file audit remains a historical baseline; see [the relocation audit](ROOT_RELOCATION_AUDIT_2026-11-17.md) and [blob/size manifest](ROOT_RELOCATION_MANIFEST_2026-11-17.csv). Counts include each top-level directory node.
+The root has 13 files: PR #128 added `RESEARCH_COMPUTE_POLICY.md` to the 12-file post-PR #116 layout. The active-script relocation does not change the root file count. The original 24-file audit remains a historical baseline; see [the relocation audit](ROOT_RELOCATION_AUDIT_2026-11-17.md) and [blob/size manifest](ROOT_RELOCATION_MANIFEST_2026-11-17.csv). Counts include each top-level directory node.
 
 ## Directory ownership and migration boundaries
 
@@ -44,10 +44,14 @@ The root has 12 files after the PR #116 historical-file moves; the active-script
 
 1. Keep root `README.md`, `PROJECT_STATUS.md` and the living decision register as concise entry points.
 2. Keep the baseline and supplemental registers non-overlapping and synchronized with the current Git tree.
-3. Resolve the seven baseline `REVISION_REQUIRED` items only after row-specific evidence is committed and independently checked.
+3. The seven baseline items dispositioned by the 90th review are `PASS_WITH_NOTES`; reopen any item only when new evidence changes its recorded disposition.
 4. Do not delete or disable workflows based only on filenames or old branch references.
 5. Before moving files, audit Markdown links, code imports, workflow shell paths, TeX/BibTeX dependencies and manifests.
 6. A move must preserve original blob/size and be recorded in a path/SHA manifest.
 7. CI success is not equivalent to physical acceptance or a validated phenomenological exclusion.
 
 Registers: [baseline](DOCUMENT_AUDIT_REGISTER.csv), [supplemental](SUPPLEMENTAL_DOCUMENT_AUDIT_REGISTER.csv), [workflow](../../.github/workflows/WORKFLOW_AUDIT_REGISTER.csv).
+
+## 90th-review closeout integration
+
+The seven baseline `REVISION_REQUIRED` records now have evidence-based `PASS_WITH_NOTES` dispositions. The 90th review, thermal-convergence provenance note, and closeout workflow review are included as supplemental records. The pure-vector Fig. 7 10 MeV physical discrepancy remains +92.4284%; no opacity rescaling or axial-vector constraint update is authorized.

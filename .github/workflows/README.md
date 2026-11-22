@@ -1,6 +1,6 @@
 # GitHub Actions workflow catalog
 
-Inventory updated from `maintenance/repository-organization-audit-20261114` on 2026-11-17. The 115 YAML files are listed below by provisional topic. This index is not a claim that all workflows are active or that their historical runs passed. 100 of the 115 workflows have individual static YAML reviews recorded in the register; 14 are historical candidates, one is active, and 0 remain pending. Reviews 80–88 complete the static inventory, including individual triage of all 15 former historical candidates; run history has now been queried for all 14 candidates: 499 runs across their configured branches, with failures and cancellations preserved in the record. Static review does not establish successful execution or scientific acceptance. See the [C4-C4 review](../../docs/repository-management/workflow-reviews/C4C4_WORKFLOW_REVIEW_2026-11-17.md), [B.2 path workflow review](../../docs/repository-management/workflow-reviews/B2_PATH_WORKFLOW_REVIEW_2026-11-17.md), [outer-profile sensitivity review](../../docs/repository-management/workflow-reviews/B16_OUTER_PROFILE_SENSITIVITY_WORKFLOW_REVIEW_2026-11-17.md), and [muon-profile/neutrino-branch review](../../docs/repository-management/workflow-reviews/B16_MUON_PROFILE_AND_NEUTRINO_BRANCH_WORKFLOW_REVIEW_2026-11-17.md). The historical-candidate triage is recorded in [the final review](../../docs/repository-management/workflow-reviews/HISTORICAL_CANDIDATE_WORKFLOW_TRIAGE_2026-11-17.md). The complete later review series is linked in [the review index](../../docs/repository-management/workflow-reviews/README.md): [B.16 全径向 SFHo EOS 占据数](../../docs/repository-management/workflow-reviews/B16_FULL_RADIAL_EOS_OCCUPATION_WORKFLOW_REVIEW_2026-11-17.md), [C4 EOS 响应与碰撞核](../../docs/repository-management/workflow-reviews/B16_C4_EOS_RESPONSE_AND_COLLISION_WORKFLOW_REVIEW_2026-11-17.md), [B.16 路径积分与剖面敏感性](../../docs/repository-management/workflow-reviews/B16_PATH_QUADRATURE_AND_PROFILE_SENSITIVITY_WORKFLOW_REVIEW_2026-11-17.md), [Bollig 图像与缪子密度来源](../../docs/repository-management/workflow-reviews/BOLLIG_FIGURE_AND_MUON_DENSITY_WORKFLOW_REVIEW_2026-11-17.md), [剖面来源、碰撞积分与 B.2 审计](../../docs/repository-management/workflow-reviews/PROFILE_SOURCE_COLLISION_AND_B2_WORKFLOW_REVIEW_2026-11-17.md), [Fig. 7 源文件与收敛工作流](../../docs/repository-management/workflow-reviews/FIG7_SOURCE_AND_CONVERGENCE_WORKFLOW_REVIEW_2026-11-17.md), [最后六项 collider、response 与吸收工作流](../../docs/repository-management/workflow-reviews/FINAL_COLLIDER_AND_RESPONSE_WORKFLOW_REVIEW_2026-11-17.md).
+Inventory updated from `maintenance/close-baseline-revision-required-20261117` on 2026-11-17. The 118 YAML files are listed below by provisional topic. This index is not a claim that all workflows are active or that their historical runs passed. 103 of the 118 workflows have individual static YAML reviews recorded in the register; 14 are historical candidates, one is active, and 0 remain pending. Reviews 80–90 extend the static inventory; the 90th review adds three individually checked closeout workflows. All 14 retained historical candidates have run-history triage: 499 runs across their configured branches, with failures and cancellations preserved in the record. Static review does not establish successful execution or scientific acceptance. See the [C4-C4 review](../../docs/repository-management/workflow-reviews/C4C4_WORKFLOW_REVIEW_2026-11-17.md), [B.2 path workflow review](../../docs/repository-management/workflow-reviews/B2_PATH_WORKFLOW_REVIEW_2026-11-17.md), [outer-profile sensitivity review](../../docs/repository-management/workflow-reviews/B16_OUTER_PROFILE_SENSITIVITY_WORKFLOW_REVIEW_2026-11-17.md), and [muon-profile/neutrino-branch review](../../docs/repository-management/workflow-reviews/B16_MUON_PROFILE_AND_NEUTRINO_BRANCH_WORKFLOW_REVIEW_2026-11-17.md). The historical-candidate triage is recorded in [the final review](../../docs/repository-management/workflow-reviews/HISTORICAL_CANDIDATE_WORKFLOW_TRIAGE_2026-11-17.md). The complete later review series is linked in [the review index](../../docs/repository-management/workflow-reviews/README.md): [B.16 全径向 SFHo EOS 占据数](../../docs/repository-management/workflow-reviews/B16_FULL_RADIAL_EOS_OCCUPATION_WORKFLOW_REVIEW_2026-11-17.md), [C4 EOS 响应与碰撞核](../../docs/repository-management/workflow-reviews/B16_C4_EOS_RESPONSE_AND_COLLISION_WORKFLOW_REVIEW_2026-11-17.md), [B.16 路径积分与剖面敏感性](../../docs/repository-management/workflow-reviews/B16_PATH_QUADRATURE_AND_PROFILE_SENSITIVITY_WORKFLOW_REVIEW_2026-11-17.md), [Bollig 图像与缪子密度来源](../../docs/repository-management/workflow-reviews/BOLLIG_FIGURE_AND_MUON_DENSITY_WORKFLOW_REVIEW_2026-11-17.md), [剖面来源、碰撞积分与 B.2 审计](../../docs/repository-management/workflow-reviews/PROFILE_SOURCE_COLLISION_AND_B2_WORKFLOW_REVIEW_2026-11-17.md), [Fig. 7 源文件与收敛工作流](../../docs/repository-management/workflow-reviews/FIG7_SOURCE_AND_CONVERGENCE_WORKFLOW_REVIEW_2026-11-17.md), [最后六项 collider、response 与吸收工作流](../../docs/repository-management/workflow-reviews/FINAL_COLLIDER_AND_RESPONSE_WORKFLOW_REVIEW_2026-11-17.md).
 
 ## Topic groups
 
@@ -8,7 +8,7 @@ Inventory updated from `maintenance/repository-organization-audit-20261114` on 2
 
 - [`axial-goldstone-pmns-regression.yml`](axial-goldstone-pmns-regression.yml)
 
-### Major 4.4 stellar cooling / transport (104)
+### Major 4.4 stellar cooling / transport (106)
 
 - [`b13-exact-compton-radial.yml`](b13-exact-compton-radial.yml)
 - [`b13-exact-compton-vertex-preserving.yml`](b13-exact-compton-vertex-preserving.yml)
@@ -27,6 +27,7 @@ Inventory updated from `maintenance/repository-organization-audit-20261114` on 2
 - [`b16-directional-escape.yml`](b16-directional-escape.yml)
 - [`b16-emission-radius-escape.yml`](b16-emission-radius-escape.yml)
 - [`b16-escape-phase-space.yml`](b16-escape-phase-space.yml)
+- [`b16-escape-phase-space-closeout.yml`](b16-escape-phase-space-closeout.yml)
 - [`b16-flavour-fixed-vs-redshift.yml`](b16-flavour-fixed-vs-redshift.yml)
 - [`b16-full-b1b2-independent.yml`](b16-full-b1b2-independent.yml)
 - [`b16-global-fig7-vertex-preserving.yml`](b16-global-fig7-vertex-preserving.yml)
@@ -46,6 +47,7 @@ Inventory updated from `maintenance/repository-organization-audit-20261114` on 2
 - [`b16-lapse-boundary-sensitivity.yml`](b16-lapse-boundary-sensitivity.yml)
 - [`b16-local-absorption-vertex-preserving.yml`](b16-local-absorption-vertex-preserving.yml)
 - [`b16-local-absorption.yml`](b16-local-absorption.yml)
+- [`b16-local-rate-polarization-samples.yml`](b16-local-rate-polarization-samples.yml)
 - [`b16-neutrino-flavour-opacity.yml`](b16-neutrino-flavour-opacity.yml)
 - [`b16-neutrino-inverse-decay-audit.yml`](b16-neutrino-inverse-decay-audit.yml)
 - [`b16-neutrino-inverse-decay-direct.yml`](b16-neutrino-inverse-decay-direct.yml)
@@ -115,7 +117,7 @@ Inventory updated from `maintenance/repository-organization-audit-20261114` on 2
 - [`transport-prescription-audit.yml`](transport-prescription-audit.yml)
 - [`vector-rescaling-audit.yml`](vector-rescaling-audit.yml)
 
-### Major 1 scalar / Higgs / collider (6)
+### Major 1 scalar / Higgs / collider (7)
 
 - [`finite-mixing-model-map.yml`](finite-mixing-model-map.yml)
 - [`independent-belleii-pointwise-audit.yml`](independent-belleii-pointwise-audit.yml)
@@ -123,6 +125,7 @@ Inventory updated from `maintenance/repository-organization-audit-20261114` on 2
 - [`independent-higgs-scalar-matrix-audit.yml`](independent-higgs-scalar-matrix-audit.yml)
 - [`major1-higgs-scalar-mixing.yml`](major1-higgs-scalar-mixing.yml)
 - [`major1-scalar-belleii.yml`](major1-scalar-belleii.yml)
+- [`scan-archive-integrity-closeout.yml`](scan-archive-integrity-closeout.yml)
 
 ### Needs manual classification (1)
 
@@ -139,7 +142,7 @@ Inventory updated from `maintenance/repository-organization-audit-20261114` on 2
 
 ## Individual audit register
 
-See [WORKFLOW_AUDIT_REGISTER.csv](WORKFLOW_AUDIT_REGISTER.csv). Current register totals are 100 `REVIEWED_WITH_NOTES`, 1 `ACTIVE`, 14 `HISTORICAL_CANDIDATE`, and 0 `PENDING`. Individual review records are grouped in [batch 1](../../docs/repository-management/workflow-reviews/WORKFLOW_REVIEW_BATCH_2026-11-14.md), [batch 2](../../docs/repository-management/workflow-reviews/WORKFLOW_REVIEW_BATCH_2_2026-11-14.md), [B.13 kernel and global review](../../docs/repository-management/workflow-reviews/B13_WORKFLOW_REVIEW_BATCH_2026-11-14.md), [B.14/B.16 local review](../../docs/repository-management/workflow-reviews/B14_B16_LOCAL_WORKFLOW_REVIEW_2026-11-14.md), [B.16 escape benchmark review](../../docs/repository-management/workflow-reviews/B16_ESCAPE_BENCHMARK_WORKFLOW_REVIEW_2026-11-14.md), and [B.16 high-order inner-path review](../../docs/repository-management/workflow-reviews/B16_HIGH_ORDER_INNER_PATH_REVIEW_2026-11-14.md), and [B.16 outer-profile and polarization review](../../docs/repository-management/workflow-reviews/B16_OUTER_PROFILE_AND_POLARIZATION_WORKFLOW_REVIEW_2026-11-15.md). The older [batch 2 summary](../../docs/repository-management/workflow-reviews/WORKFLOW_REVIEW_BATCH_2.md) is retained as an earlier review note.
+See [WORKFLOW_AUDIT_REGISTER.csv](WORKFLOW_AUDIT_REGISTER.csv). Current register totals are 103 `REVIEWED_WITH_NOTES`, 1 `ACTIVE`, 14 `HISTORICAL_CANDIDATE`, and 0 `PENDING`. Individual review records are grouped in [batch 1](../../docs/repository-management/workflow-reviews/WORKFLOW_REVIEW_BATCH_2026-11-14.md), [batch 2](../../docs/repository-management/workflow-reviews/WORKFLOW_REVIEW_BATCH_2_2026-11-14.md), [B.13 kernel and global review](../../docs/repository-management/workflow-reviews/B13_WORKFLOW_REVIEW_BATCH_2026-11-14.md), [B.14/B.16 local review](../../docs/repository-management/workflow-reviews/B14_B16_LOCAL_WORKFLOW_REVIEW_2026-11-14.md), [B.16 escape benchmark review](../../docs/repository-management/workflow-reviews/B16_ESCAPE_BENCHMARK_WORKFLOW_REVIEW_2026-11-14.md), and [B.16 high-order inner-path review](../../docs/repository-management/workflow-reviews/B16_HIGH_ORDER_INNER_PATH_REVIEW_2026-11-14.md), and [B.16 outer-profile and polarization review](../../docs/repository-management/workflow-reviews/B16_OUTER_PROFILE_AND_POLARIZATION_WORKFLOW_REVIEW_2026-11-15.md). The [2026-11-17 local-rate, escape-phase-space and PR52 archive workflow review](../../docs/repository-management/workflow-reviews/B16_LOCAL_RATE_ESCAPE_AND_SCAN_ARCHIVE_WORKFLOW_REVIEW_2026-11-17.md) covers the three new closeout workflows. The older [batch 2 summary](../../docs/repository-management/workflow-reviews/WORKFLOW_REVIEW_BATCH_2.md) is retained as an earlier review note.
 
 ## Classification and maintenance rules
 

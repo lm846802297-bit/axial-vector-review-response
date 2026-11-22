@@ -102,3 +102,88 @@ The latest inspected run for this workflow is [run 43205614274](https://github.c
 The run has no uploaded artifacts. The run log records Python 3.12.16, NumPy 2.5.4 and SciPy 1.18.1; the workflow currently requests Python 3.12 and installs unpinned `numpy scipy`, rather than consuming the repository's pinned `requirements-b16-audit.txt`. The strict Python output `outputs/b16_escape_phase_space_10mev_2026-11-10.json` is still absent; the V8 cross-runtime JSON is not a substitute for that canonical output.
 
 **Disposition remains `REVISION_REQUIRED`.** The next repair must reconcile the energy-grid construction with the archived high-order baseline, then rerun the strict Python driver and reach the workflow's joint-table closure checks. This follow-up reads an existing failed run only; it does not rerun the calculation or alter its physics inputs.
+
+
+---
+
+## 2026-11-17 superseding strict-NumPy closeout
+
+This section supersedes the 2026-11-15/17 notes above that state the canonical
+strict-NumPy JSON is absent or the energy-grid hash mismatch is unresolved.
+The old failure was real; the repaired producer now reconstructs the archived
+energy nodes from the stored B.1 spectral measure and compares the physical
+nodes at a tight floating-point tolerance.
+
+### Reproduction command
+
+From the repository root:
+
+```bash
+python -m unittest discover -s research/stellar-cooling-constraints-20261105/blinov_reproduction -p 'test_b16_escape_phase_space.py' -v
+python -m py_compile research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_escape_phase_space.py
+python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_escape_phase_space.py \
+  --mass 10 --nr 200 --opacity-order 640 --ne 200 \
+  --na 32 --ns 64 --energy-offset 1000 \
+  --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-10.json \
+  --csv-output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-10.csv \
+  --svg-output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-10.svg
+```
+
+### Successful workflow evidence
+
+- Workflow: [B.16 baseline closeout run #44035746636](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44035746636)
+- Checked-out source commit: `b2280807acf0669717152d2a3a58ead5d11f258c`
+- Run conclusion: `success`; all 8 regression tests, compilation, high-order calculation, closure/normalization checks, and archival steps passed.
+- Runtime: Python 3.12.16, NumPy 2.5.4, SciPy 1.18.1.
+- Profile: `data/sfho188_digitized.csv`, SHA-256
+  `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`.
+- Archived energy grid: 842 nodes; baseline and current exact grid SHA-256 both
+  `036e6d772f43acf97601c3846b475e8e1c14200d4d82de1dd9af30f01bb87ea3`.
+  Reconstructed-node maximum absolute difference is
+  (1.14\times10^{-13}\) MeV and maximum relative difference is
+  (2.69\times10^{-16}\), within the explicit (10^{-13}\) MeV /
+  (5\times10^{-14}\) comparison tolerance.
+
+### Archived outputs
+
+| Artifact | Git blob SHA-1 | SHA-256 / size |
+|---|---|---|
+| JSON | `9dda96c2e851b94ab5a65b38febe3023d80ba63b` | canonical full result and run metadata |
+| CSV | `af40a7b3e0bd164f6833a1ec29fbf69e7e7ac4b9` | SHA-256 `38e18c97225f08d653feed1dc0e359f5a4e62f569439dd8af645d352b8a4bfec`; 166,149 bytes; 660 rows × 13 columns |
+| SVG | `cd776943218642b9f80b9f18830dbb1568c4041a` | SHA-256 `808e30611da404c1d9194de141b978b5d775adb7090eaa227c6638a70083755c`; 137,196 bytes; 8 direction-resolved panels |
+
+The CSV contains all 508 non-empty joint bins for all emission radii plus all
+152 non-empty joint bins for the selected 8--15 km core. The SVG shows the
+escaped-luminosity fraction over emission shell and energy, separately for
+the four (cos\theta) bins and for the full/core regions. Its logarithmic
+color scale clips values below (10^{-8}) of the maximum to the lightest
+shade; this is a visualization floor only and does not remove rows from the
+CSV or JSON.
+
+### Numerical result and physical disposition
+
+| Quantity | Result |
+|---|---:|
+| Calculated 10 MeV luminosity | (2.4396359574\times10^{52}\) erg/s |
+| Fig. 7 reference luminosity | (1.2678147591\times10^{52}\) erg/s |
+| Relative difference | (+92.4284\%\) |
+| Global source-weighted escape probability | (3.2517740194\times10^{-4}\) |
+| 8--15 km fraction of total B.1 source | 79.6522% |
+| 8--15 km fraction of escaped luminosity | 86.8551% |
+
+The luminosity closure residual against the archived high-order baseline is
+(-2.22\times10^{-16}\); the optically thin luminosity residual is zero, and
+the escape-probability absolute residual is (-5.42\times10^{-20}\).
+The complete joint partitions close to one for both source and escaped
+luminosity. These are internal reproduction and decomposition checks.
+
+**Do not interpret this as a successful Fig. 7 physical reproduction.** The
+literal fixed-(omega), scalar B.2 result remains 92.43% above the plotted
+reference. The decomposition explains where the current result comes from;
+it does not explain the mismatch, correct the opacity, or justify a fit or
+rescaling. The public-figure-reconstructed profile is not the original raw
+Garching table. No axial-vector output or constraint curve is changed.
+
+The former `REVISION_REQUIRED` disposition for the **missing producer/output
+package and strict energy-grid gate** is superseded by successful artifact
+generation. The separate physical Fig. 7 acceptance gate remains blocked.

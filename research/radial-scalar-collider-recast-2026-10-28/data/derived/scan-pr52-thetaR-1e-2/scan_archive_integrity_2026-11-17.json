@@ -1,0 +1,156 @@
+{
+  "archive": {
+    "bytes": 20156701,
+    "expected_bytes": 20156701,
+    "expected_sha256": "f8dde6825e3c658cb841f06e1ac2aa9de36519e805e589d86fc07e37079429ff",
+    "path": "original_uv_width_scan.csv.gz",
+    "sha256": "f8dde6825e3c658cb841f06e1ac2aa9de36519e805e589d86fc07e37079429ff"
+  },
+  "date": "2026-11-17",
+  "decompressed_csv": {
+    "bad_width_rows": [],
+    "bytes": 80770035,
+    "column_count": 77,
+    "expected_bytes": 80770035,
+    "expected_sha256": "5d5f0ce306d6ac75498eef054c9c02f6897b676fe0cf6626fb5dcbdbc390dd67",
+    "header": [
+      "ms_GeV",
+      "mA_GeV",
+      "gX",
+      "vs_GeV",
+      "lambdaS",
+      "passes_lambdaS_le_4pi",
+      "y_smu",
+      "y_stau",
+      "passes_y_smu_le_sqrt4pi",
+      "passes_y_stau_le_sqrt4pi",
+      "passes_scalar_yukawas_le_sqrt4pi",
+      "passes_lambdaS_and_scalar_yukawas_le_4pi",
+      "Gamma_mu_mu_GeV",
+      "Gamma_tau_tau_GeV",
+      "Gamma_A_A_on_shell_GeV",
+      "Gamma_gamma_gamma_mu_tau_loops_GeV",
+      "Gamma_A_nu_nu_mu_mu_tau_tau_three_body_GeV",
+      "Gamma_Astar_Astar_four_fermion_diagonal_GeV",
+      "Gamma_4f_same_species_diagonal_GeV",
+      "Gamma_4f_identical_exchange_upper_GeV",
+      "fourbody_status",
+      "fourbody_identical_exchange_explicitly_integrated",
+      "fourbody_upper_over_direct_widths",
+      "Gamma_s_factorized_diagonal_GeV",
+      "Gamma_s_upper_bound_GeV",
+      "Gamma_s_over_ms_factorized_diagonal",
+      "Gamma_s_over_ms_lower_bound",
+      "Gamma_s_over_ms_upper_bound",
+      "ctau_s_factorized_diagonal_m",
+      "ctau_s_lower_bound_m",
+      "ctau_s_upper_bound_m",
+      "beta_gamma_s_lab_kinematic_max",
+      "scalar_mean_lab_flight_max_lower_m",
+      "scalar_mean_lab_flight_max_upper_m",
+      "scalar_flight_upper_over_track_DCA_transverse",
+      "scalar_flight_upper_over_track_DCA_longitudinal",
+      "beta_gamma_A_lab_kinematic_max",
+      "A_mean_lab_flight_max_m",
+      "fourmu_Gamma_MR_lower_GeV",
+      "fourmu_Gamma_MR_upper_GeV",
+      "fourmu_sigma_MR_min_GeV",
+      "fourmu_sigma_MR_max_GeV",
+      "fourmu_Gamma_over_sigma_lower_bound",
+      "fourmu_Gamma_over_sigma_upper_bound",
+      "fourmu_mass_in_published_scan",
+      "tau_sigma_recoil_min_GeV",
+      "tau_sigma_recoil_max_GeV",
+      "tau_Gamma_over_sigma_lower_bound",
+      "tau_Gamma_over_sigma_upper_bound",
+      "tau_mass_in_published_scan",
+      "branching_fractions_exact_under_declared_benchmark",
+      "branching_fractions_bounded_under_declared_benchmark",
+      "branching_fractions_nontrivially_bounded_under_declared_benchmark",
+      "width_regime",
+      "fraction_diagonal_mu_mu",
+      "fraction_diagonal_tau_tau",
+      "fraction_diagonal_A_A_on_shell",
+      "fraction_diagonal_gamma_gamma_mu_tau_loops",
+      "fraction_diagonal_A_nu_nu_mu_mu_tau_tau_three_body",
+      "fraction_diagonal_Astar_Astar_four_fermion_diagonal",
+      "BR_mu_mu_min",
+      "BR_mu_mu_max",
+      "BR_tau_tau_min",
+      "BR_tau_tau_max",
+      "BR_A_A_on_shell_min",
+      "BR_A_A_on_shell_max",
+      "BR_gamma_gamma_mu_tau_loops_min",
+      "BR_gamma_gamma_mu_tau_loops_max",
+      "BR_A_nu_nu_mu_mu_tau_tau_three_body_min",
+      "BR_A_nu_nu_mu_mu_tau_tau_three_body_max",
+      "A_width_GeV",
+      "A_ctau_m",
+      "A_BR_nunu",
+      "A_BR_mumu",
+      "A_BR_tautau",
+      "portal_width_included",
+      "VLL_loop_width_included"
+    ],
+    "path": "temporary extraction (not committed)",
+    "row_count": 73728,
+    "sha256": "5d5f0ce306d6ac75498eef054c9c02f6897b676fe0cf6626fb5dcbdbc390dd67"
+  },
+  "manifest": {
+    "path": "SHA256SUMS.txt",
+    "uncompressed_csv_sha256": "5d5f0ce306d6ac75498eef054c9c02f6897b676fe0cf6626fb5dcbdbc390dd67"
+  },
+  "old_vs_current": {
+    "changed_columns": {
+      "fourmu_Gamma_over_sigma_lower_bound": 70656,
+      "fourmu_Gamma_over_sigma_upper_bound": 70656
+    },
+    "changed_rows": 70656,
+    "current_archive": {
+      "csv": {
+        "bytes": 80770035,
+        "sha256": "5d5f0ce306d6ac75498eef054c9c02f6897b676fe0cf6626fb5dcbdbc390dd67"
+      },
+      "gzip": {
+        "bytes": 20156701,
+        "sha256": "f8dde6825e3c658cb841f06e1ac2aa9de36519e805e589d86fc07e37079429ff"
+      }
+    },
+    "current_lower_greater_count": 0,
+    "exact_swapped_pairs": 64567,
+    "max_relative_difference_from_swap": 1.849010258605991e-06,
+    "nonfinite_bound_rows": 3072,
+    "old_archive": {
+      "csv": {
+        "bytes": 80770106,
+        "sha256": "67ec36a50c65b9c03de9e63c83039feb965f12335dbd3984be92d4ab214ca783"
+      },
+      "gzip": {
+        "bytes": 20156614,
+        "sha256": "ca723a11f69b58558f71520cf944733bd33d323abd58f29de275eb391d3c9c8a"
+      }
+    },
+    "old_lower_greater_count": 70656,
+    "swapped_within_1e_minus_12": 68691
+  },
+  "repository_policy": {
+    "persistent_extraction": "python extract_and_verify_scan_archive.py --output /path/to/original_uv_width_scan.csv",
+    "reason": "The 80,770,035-byte extracted CSV duplicates the 20,156,701-byte gzip archive; keep the canonical compressed archive and a verified on-demand extractor rather than adding an 80.8 MB duplicate to Git history.",
+    "uncompressed_csv_committed": false
+  },
+  "source": {
+    "commit": "b362de7cc345ec75ef9f4ae117364c1ee59e6e4d",
+    "sha256_manifest": [
+      "3c62a95a70f950312bac972ae61dcc31cd785746f99f58197572e1ce2e51cf03  radial_scalar_widths.py",
+      "f721e77f7cdd4aaa0ecb067b2f532594cc71b2b2605ab41902fd90573f6c45e3  off_shell_cascades.py",
+      "3a343d0233cb1a01b76c6f74746c6404f2d91f14e7f00e7fd5c92eda9390165a  off_shell_four_body.py",
+      "48fcd7feaa2528283dc11c83f28c15047609d8d974cc57e840df21301c6c419a  scan_original_uv_widths.py",
+      "4400f78c1a6e6504f9a02b00d1012b5b1b521c8fe2d8be5da00e296c783fb3df  belleii_resolution_promptness.py",
+      "7de6f6e8ddab0cabaccf0389e7d13b32a4f4d39bafb0afeec9a0c8299b0cf44c  narrow_prompt_benchmark_recast.py",
+      "fa72663de302f6c0ee5a6ff5dce73840c574de9c06386299cd11d09351f9c4cd  test_scan_original_uv_widths.py",
+      "131b3ff057691831e57f7ae388a21cb44ab3bc94bdac971480cee446d9632627  test_narrow_prompt_benchmark_recast.py"
+    ]
+  },
+  "status": "PASS",
+  "title": "PR52 current width-scan archive extraction and integrity audit"
+}
