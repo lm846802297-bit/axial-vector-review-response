@@ -5,26 +5,10 @@ on:
     branches:
       - research/b13-high-order-provenance-rerun-20261122
     paths:
+      - '.github/workflows/b13-high-order-provenance-validation.yml'
       - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/LOCAL_RUN_SUMMARY.json'
       - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/SOURCE_FILE_IDENTITY.json'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/SOURCE_MANIFEST.sha256'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/LOCAL_INPUT_HASHES.sha256'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/LOCAL_OUTPUT_HASHES.sha256'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/CI_OUTPUT_HASHES.sha256'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/LOCAL_HIGH_ORDER_TARGETED_POINTS.json'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/LOCAL_HIGH_ORDER_ACCEPTANCE_SUMMARY.json'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/LOCAL_INDEPENDENT_VALIDATION_REPORT.json'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/LOCAL_CI_CROSS_RUN_COMPARISON.json'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/HIGH_ORDER_TARGETED_POINTS.json'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/HIGH_ORDER_ACCEPTANCE_SUMMARY.json'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/INDEPENDENT_VALIDATION_REPORT.json'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/CI_ENVIRONMENT.txt'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/CI_RUN.log'
       - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/validate_b13_high_order_rerun.py'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/LOCAL_ENVIRONMENT.txt'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/LOCAL_RUN_COMMAND.sh'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/LOCAL_RUN_LOG.txt'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/SOURCE_ARCHIVE_SHA256.txt'
   pull_request:
     branches:
       - main
@@ -32,24 +16,7 @@ on:
       - '.github/workflows/b13-high-order-provenance-validation.yml'
       - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/LOCAL_RUN_SUMMARY.json'
       - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/SOURCE_FILE_IDENTITY.json'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/SOURCE_MANIFEST.sha256'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/LOCAL_INPUT_HASHES.sha256'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/LOCAL_OUTPUT_HASHES.sha256'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/CI_OUTPUT_HASHES.sha256'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/LOCAL_HIGH_ORDER_TARGETED_POINTS.json'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/LOCAL_HIGH_ORDER_ACCEPTANCE_SUMMARY.json'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/LOCAL_INDEPENDENT_VALIDATION_REPORT.json'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/LOCAL_CI_CROSS_RUN_COMPARISON.json'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/HIGH_ORDER_TARGETED_POINTS.json'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/HIGH_ORDER_ACCEPTANCE_SUMMARY.json'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/INDEPENDENT_VALIDATION_REPORT.json'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/CI_ENVIRONMENT.txt'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/CI_RUN.log'
       - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/validate_b13_high_order_rerun.py'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/LOCAL_ENVIRONMENT.txt'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/LOCAL_RUN_COMMAND.sh'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/LOCAL_RUN_LOG.txt'
-      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/SOURCE_ARCHIVE_SHA256.txt'
   workflow_dispatch:
 
 permissions:
@@ -167,9 +134,11 @@ jobs:
             cd "$target"
             sha256sum HIGH_ORDER_TARGETED_POINTS.json HIGH_ORDER_ACCEPTANCE_SUMMARY.json INDEPENDENT_VALIDATION_REPORT.json CI_ENVIRONMENT.txt CI_RUN.log > CI_OUTPUT_HASHES.sha256
           )
+          branch="research/b13-high-order-provenance-rerun-20261122"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+actions[bot]@users.noreply.github.com"
-          git checkout -B research/b13-high-order-provenance-rerun-20261122 "${GITHUB_SHA}"
+          git fetch origin "$branch"
+          git checkout -B "$branch" FETCH_HEAD
           git add "$target/HIGH_ORDER_TARGETED_POINTS.json" "$target/HIGH_ORDER_ACCEPTANCE_SUMMARY.json" "$target/INDEPENDENT_VALIDATION_REPORT.json" "$target/CI_ENVIRONMENT.txt" "$target/CI_OUTPUT_HASHES.sha256"
           git add -f "$target/CI_RUN.log"
           if git diff --cached --quiet; then
@@ -177,4 +146,17 @@ jobs:
             exit 0
           fi
           git commit -m "Archive independent B.13 431-point high-order reproduction"
-          git push origin HEAD:refs/heads/research/b13-high-order-provenance-rerun-20261122
+          for attempt in 1 2 3 4 5; do
+            if git push origin "HEAD:refs/heads/$branch"; then
+              exit 0
+            fi
+            echo "Archive push attempt $attempt failed; fetching and rebasing onto the latest branch."
+            git fetch origin "$branch"
+            if ! git rebase FETCH_HEAD; then
+              git rebase --abort || true
+              echo "Concurrent archive conflict; refusing to overwrite branch history."
+              exit 1
+            fi
+          done
+          echo "Archive push failed after five attempts."
+          exit 1
