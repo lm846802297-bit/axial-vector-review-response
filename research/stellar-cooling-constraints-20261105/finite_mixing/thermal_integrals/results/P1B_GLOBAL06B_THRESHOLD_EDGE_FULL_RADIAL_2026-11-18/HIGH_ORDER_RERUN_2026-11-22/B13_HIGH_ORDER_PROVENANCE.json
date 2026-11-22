@@ -191,26 +191,68 @@
   },
   "ci_independent_reproduction": {
     "status": "CALCULATE_VALIDATE_ARCHIVE_ALL_SUCCESS",
-    "run_id": 45043212683,
-    "run_url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45043212683",
-    "run_head": "71e32f9e7f0832fd4f8058db2e2b3debe9a204dc",
-    "artifact_id": 14762941323,
-    "artifact_zip_sha256": "20cb282c2f43237d9190b59a2056e1fd8b5a405410a83238e900121b22ff9e70",
-    "raw_results_sha256": "1b87bc09d8dae4f5155805dc9048d8cd6307a0b0478da3e816f0281af593be6b",
-    "summary_sha256": "49d4a17a99fcc5608902cee2b6379f75e511021fe05241db1b4024ced7fe6193",
-    "independent_report_sha256": "8ede68ae90f3ccd7cf6111abccd648a889c2f13e7fb0863abc6dc71dfb5be5a7",
-    "environment_sha256": "252f3bc405b75460e0fb4add8e560125202b7fc399c4b5661be679eb36c73f36",
-    "run_log_sha256": "fab1401acb22fa35b0971723638a2fa00e35077aff6380ec3697acb9bfc84d3b",
+    "run_id": 45048755752,
+    "run_url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45048755752",
+    "event": "push",
+    "run_head": "1ee26f742e9f03cbccdd4237bbc8bb1c790ce91a",
+    "artifact_id": 14764174323,
+    "artifact_name": "b13-high-order-431-point-reproduction",
+    "artifact_zip_sha256": "5714902f8d44be284e5f067d99dcccff16556a1e9552f9f38a5bf1c993d8ff0d",
+    "raw_results_sha256": "92bf228464c85cc20b790d5bdb7ab4dc401d0f86b6b8b8cb96778e7701f17735",
+    "summary_sha256": "1ef279a4b34110ce44363f662c31dabd36c1722afa9dc5d489b4fd4583eb88b5",
+    "independent_report_sha256": "ec2504be67d478c474a56a6e524b81fe57cd77529b7dd963bd6ac2f4b1e5a57e",
+    "environment_sha256": "1ec0c8ef82c256d18ed5448245fbcd5e50513c086b239cbf0fd31820d7edc4a8",
+    "run_log_sha256": "e133fcf2de4d6dd703bac58529f7d10b44638984d56dd5bb32f87bd69f6ea329",
+    "environment": {
+      "runner": "ubuntu-24.04",
+      "python": "3.13.5",
+      "numpy": "2.3.5",
+      "scipy": "1.17.0",
+      "cpu": "Intel Xeon 6975P-C",
+      "workers": 4
+    },
+    "runtime_seconds": 485.5,
     "calculate_job": "success",
-    "calculate_job_id": 137272037416,
+    "calculate_job_id": 137289012717,
     "archive_job": "success",
-    "archive_job_id": 137274541161,
-    "archive_commit_sha": "8b5d28b58951623e375436478e6a524670e7ee18",
-    "runtime_seconds": 475.1,
-    "workers": 4,
+    "archive_job_id": 137291535181,
+    "archive_commit_sha": "04d7064602b3246e760ba6d80d0c4a0be7744418",
+    "archived_files": [
+      {
+        "path": "HIGH_ORDER_TARGETED_POINTS.json",
+        "bytes": 1092559,
+        "sha256": "92bf228464c85cc20b790d5bdb7ab4dc401d0f86b6b8b8cb96778e7701f17735",
+        "git_blob_sha1": "0f826d12b72cc6b294e6dbee91af55e094d32d1d"
+      },
+      {
+        "path": "HIGH_ORDER_ACCEPTANCE_SUMMARY.json",
+        "bytes": 56505,
+        "sha256": "1ef279a4b34110ce44363f662c31dabd36c1722afa9dc5d489b4fd4583eb88b5",
+        "git_blob_sha1": "1bc547720fb5c782da77718bdd1647cc6a8750b1"
+      },
+      {
+        "path": "INDEPENDENT_VALIDATION_REPORT.json",
+        "bytes": 1432,
+        "sha256": "ec2504be67d478c474a56a6e524b81fe57cd77529b7dd963bd6ac2f4b1e5a57e",
+        "git_blob_sha1": "423a72b8edd15e9ba27e3657af0a562760d8ad95"
+      },
+      {
+        "path": "CI_ENVIRONMENT.txt",
+        "bytes": 2995,
+        "sha256": "1ec0c8ef82c256d18ed5448245fbcd5e50513c086b239cbf0fd31820d7edc4a8",
+        "git_blob_sha1": "d434fd53e946bb65cc6ec561a7b7f6649a5cbf9f"
+      },
+      {
+        "path": "CI_RUN.log",
+        "bytes": 728,
+        "sha256": "e133fcf2de4d6dd703bac58529f7d10b44638984d56dd5bb32f87bd69f6ea329",
+        "git_blob_sha1": "5011dc84f95f4a1f956b5142e4f24e8a4ebc7214"
+      }
+    ],
     "numerical_crosscheck": {
-      "identical_task_key_sets": true,
+      "status": "PASS",
       "unique_points_each": 431,
+      "identical_task_key_sets": true,
       "identical_order_ladders": true,
       "rate_components_compared": 10344,
       "max_absolute_rate_difference": 0,
@@ -253,5 +295,120 @@
     "files_verified": 5,
     "files_total": 5,
     "archive_commit_sha": "8b5d28b58951623e375436478e6a524670e7ee18"
+  },
+  "previous_successful_ci_run_45043212683": {
+    "status": "CALCULATE_VALIDATE_ARCHIVE_ALL_SUCCESS",
+    "run_id": 45043212683,
+    "run_url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45043212683",
+    "run_head": "71e32f9e7f0832fd4f8058db2e2b3debe9a204dc",
+    "artifact_id": 14762941323,
+    "artifact_zip_sha256": "20cb282c2f43237d9190b59a2056e1fd8b5a405410a83238e900121b22ff9e70",
+    "raw_results_sha256": "1b87bc09d8dae4f5155805dc9048d8cd6307a0b0478da3e816f0281af593be6b",
+    "summary_sha256": "49d4a17a99fcc5608902cee2b6379f75e511021fe05241db1b4024ced7fe6193",
+    "independent_report_sha256": "8ede68ae90f3ccd7cf6111abccd648a889c2f13e7fb0863abc6dc71dfb5be5a7",
+    "environment_sha256": "252f3bc405b75460e0fb4add8e560125202b7fc399c4b5661be679eb36c73f36",
+    "run_log_sha256": "fab1401acb22fa35b0971723638a2fa00e35077aff6380ec3697acb9bfc84d3b",
+    "calculate_job": "success",
+    "calculate_job_id": 137272037416,
+    "archive_job": "success",
+    "archive_job_id": 137274541161,
+    "archive_commit_sha": "8b5d28b58951623e375436478e6a524670e7ee18",
+    "runtime_seconds": 475.1,
+    "workers": 4,
+    "numerical_crosscheck": {
+      "identical_task_key_sets": true,
+      "unique_points_each": 431,
+      "identical_order_ladders": true,
+      "rate_components_compared": 10344,
+      "max_absolute_rate_difference": 0,
+      "max_relative_rate_difference": 0,
+      "max_absolute_final_order_change_difference": 0,
+      "max_absolute_detailed_balance_residual_difference": 0,
+      "max_absolute_mass_shell_residual_difference": 0,
+      "full_global_high_order_acceptance": false
+    }
+  },
+  "pr_event_verification": {
+    "status": "CALCULATE_VALIDATE_SUCCESS_ARCHIVE_SKIPPED_BY_DESIGN",
+    "run_id": 45050501965,
+    "run_url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45050501965",
+    "event": "pull_request",
+    "pull_request": 133,
+    "branch_head": "b328f1bfba935ed50c8aee4ed0c15c1b273e0b33",
+    "event_merge_sha": "38c2ed77ee95c6c9b3f9741d50dbc3bd5d3851c4",
+    "artifact_id": 14765736550,
+    "artifact_name": "b13-high-order-431-point-reproduction",
+    "artifact_zip_sha256": "47b1296a13aa5d115e85e92108741629d3e8b7ce08a683fba82974732923c327",
+    "raw_results_sha256": "fb4fddf4c468ca2b6c17911b6ddc0460d4cb6b7a5306e5b1ad1e03d4ba77feb9",
+    "summary_sha256": "6bafa4fa7e5b8a2c3047c38cb0618d7eaba793c706cfa5919d88adee8a8aab15",
+    "independent_report_sha256": "40bc09204c72455c0759d7694ae756c438e59da9367c1977a515183cf15969e7",
+    "environment_sha256": "80ff68703df2a324c66d5d3a510b3674dec403f32e842d0c75f3b051cd6c9e56",
+    "run_log_sha256": "872cc24ee833982ee9d9e1163f11395f92ed80d82d12b711e98607cc7627ea2c",
+    "environment": {
+      "runner": "ubuntu-24.04",
+      "python": "3.13.5",
+      "numpy": "2.3.5",
+      "scipy": "1.17.0",
+      "cpu": "Intel Xeon 6975P-C",
+      "workers": 4
+    },
+    "runtime_seconds": 466.4,
+    "calculate_job": "success",
+    "calculate_job_id": 137294332029,
+    "archive_job": "skipped",
+    "archive_job_id": 137296738495,
+    "token_contents_permission": "read",
+    "numerical_comparison_to_archived_push_run": {
+      "comparison_run_id": 45048755752,
+      "unique_points_each": 431,
+      "identical_task_key_sets": true,
+      "rate_components_compared": 10344,
+      "max_absolute_rate_difference": 0,
+      "max_absolute_final_order_change_difference": 0,
+      "max_absolute_detailed_balance_residual_difference": 0,
+      "max_absolute_mass_shell_residual_difference": 0
+    }
+  },
+  "previous_successful_ci_runs": [
+    {
+      "run_id": 45043212683,
+      "artifact_id": 14762941323,
+      "archive_commit_sha": "8b5d28b58951623e375436478e6a524670e7ee18",
+      "status": "CALCULATE_VALIDATE_ARCHIVE_ALL_SUCCESS"
+    }
+  ],
+  "canonical_local_ci_comparison_run_id": 45043212683,
+  "workflow_versions": {
+    "original_push_archive_workflow_blob_sha1": "d15fd9b7521242d1fc0d1942aef86c90cc9459c7",
+    "current_pr_validation_workflow_blob_sha1": "5608a4cccd5460eefd26b51439dfd8f08fb8bad8",
+    "default_permission": "contents:read",
+    "calculate_job_permission": "contents:read",
+    "archive_job_permission": "contents:write",
+    "pull_request_archive_job": "skipped; no repository writeback",
+    "push_archive_run_calculate_token": "contents:read",
+    "push_archive_run_archive_token": "contents:write",
+    "pull_request_run_token": "contents:read"
+  },
+  "branch_head_at_pr_event_validation": "b328f1bfba935ed50c8aee4ed0c15c1b273e0b33",
+  "branch_head_at_current_provenance_update": "b328f1bfba935ed50c8aee4ed0c15c1b273e0b33",
+  "artifact_archive_verification": {
+    "run_id": 45048755752,
+    "artifact_id": 14764174323,
+    "files_verified": 5,
+    "files_total": 5,
+    "artifact_files_byte_identical_to_archived_git_blobs": true,
+    "git_blob_sha1_and_sha256_manifest_match": true
+  },
+  "repeated_ci_numerical_comparison": {
+    "baseline_comparison_run_id": 45043212683,
+    "archived_push_run_id": 45048755752,
+    "pull_request_run_id": 45050501965,
+    "points_per_run": 431,
+    "rate_components_compared_per_pair": 10344,
+    "identical_task_key_sets": true,
+    "max_absolute_rate_difference": 0,
+    "max_absolute_final_order_change_difference": 0,
+    "max_absolute_detailed_balance_residual_difference": 0,
+    "max_absolute_mass_shell_residual_difference": 0
   }
 }
