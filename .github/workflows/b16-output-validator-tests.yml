@@ -1,0 +1,59 @@
+name: B.16 output-validator hardening tests
+
+on:
+  push:
+    branches:
+      - review/b16-validator-hardening-20261122
+    paths:
+      - '.github/workflows/b16-output-validator-tests.yml'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/validate_b16_escape_phase_space_output.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_phase_space_output_validation.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-10.json'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_high_order_independent_grid_10mev_2026-11-09.json'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/b16-output-validator-tests.yml'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/validate_b16_escape_phase_space_output.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_phase_space_output_validation.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-10.json'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_high_order_independent_grid_10mev_2026-11-09.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: b16-output-validator-tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/review/b16-validator-hardening-20261122'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out the exact event commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - name: Compile validator and tests
+        run: |
+          python -m py_compile \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/validate_b16_escape_phase_space_output.py \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_phase_space_output_validation.py
+      - name: Run strict numeric and sparse-marginal tests
+        run: |
+          python -m unittest discover \
+            -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
+            -p 'test_b16_phase_space_output_validation.py' -v
+      - name: Validate the committed 10 MeV mainline result
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/validate_b16_escape_phase_space_output.py \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-10.json \
+            --baseline research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_high_order_independent_grid_10mev_2026-11-09.json
