@@ -4,7 +4,7 @@ Review date: 2026-11-22
 
 Main baseline: a7ac6456dafb27492183912fe4abbaa73a9455f7
 
-B.16 validator branch validation commit: e69389d6a4bb6077002ca61c094f6ba0b0b453be
+B.16 validator branch validation commit: 9f5a42fcc756ac18ddd6122136b9b613e3655128
 
 PR #121 source snapshot: e49908762e90271f4bc84be75e19577431febd4c
 
@@ -83,24 +83,26 @@ The corrected validator now:
 - checks the Fig. 7 reference luminosity against the baseline;
 - requires exactly the two intended regions, with no duplicate region names.
 
-Exact revised branch-head verification:
+The 23-test revision passed in [push run #45049753048](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45049753048) and [PR run #45049757154](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45049757154). A further API-level hardening then made the baseline digest mandatory whenever a baseline object is supplied, preventing callers from bypassing the digest check by omitting the optional argument.
+
+The first 24-test attempt exposed a missing digest argument in the positive-baseline test fixture (push run #45051097952 and PR run #45051101967); the fixture was corrected. The final exact-head validation is:
 
 - Workflow: `.github/workflows/b16-output-validator-tests.yml`
 - Workflow blob: `f28ab2605261b07cef767d0f573c0800578adb9d`
-- Successful push run: [#45049753048](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45049753048)
-- Successful PR run: [#45049757154](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45049757154)
-- Exact tested head: `e69389d6a4bb6077002ca61c094f6ba0b0b453be`
+- Successful push run: [#45051207273](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45051207273)
+- Successful PR run: [#45051211748](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45051211748)
+- Exact tested head: `9f5a42fcc756ac18ddd6122136b9b613e3655128`
 - Runner: Ubuntu 24.04; Python 3.13.5
 - GITHUB_TOKEN permission: `contents: read`
 - Compilation: PASS
-- Regression tests: **23/23 PASS**
+- Regression tests: **24/24 PASS**
 - Mainline 10 MeV result against the archived high-order baseline: **PASS**
 
-Exact revised source identities:
-- Validator Git blob SHA-1: `25aa9ac9d27da216e7d2f4e884e666f701a7944a`
-- Validator SHA-256: `1d6ac491c485e8a1d1a832a6561b70432e2a18c143756dc0dabdede7773a2a5f`
-- Test Git blob SHA-1: `7b5d6c694f2efb205bb91b78b2f38c46c46ed2e4`
-- Test SHA-256: `418e34a6108d187f9bbbd25e2d846132e86f1d054152bd3b054adcf620a6fc90`
+Final source identities:
+- Validator Git blob SHA-1: `22aa5fc0ef12a48a5bb65f0dbd1054c182deeb47`
+- Validator SHA-256: `1c6cf1973d1ddd87bd1867689c47857da9b97b20e16c3656dfb40aa1e5c71be6`
+- Test Git blob SHA-1: `b19c3a1839c8cf28f2010e63b513acc0441b3941`
+- Test SHA-256: `05db94b092ff59be9aef3eddd5bca435d804f73560b43c5265091b44db09f3d0`
 
 The earlier 13-test local prototype remains development history only.
 ## 4. Scientific result and acceptance boundary
