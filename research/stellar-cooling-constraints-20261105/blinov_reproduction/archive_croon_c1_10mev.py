@@ -1,21 +1,24 @@
 #!/usr/bin/env python3
 """Package the accepted C1 10 MeV outputs; never reruns the physics calculation."""
 from __future__ import annotations
-import argparse, csv, hashlib, json, math, os, shutil, subprocess
+import argparse, csv, hashlib, json, math, os, platform, shutil, subprocess
+from importlib import metadata as importlib_metadata
 from datetime import datetime, timezone
 from pathlib import Path
 
-RUN_ID = "C1-10MeV-153R-48E-20261120-44656225572"
-BRANCH = "research/croon-vector-benchmark-and-rate-corrections-20261119"
-PHYSICS_COMMIT = "758e16f06d88ad7c6bb42ee3b91b14c323743b43"
-PHYSICS_RUN_ID = 44656225572
+RUN_ID = os.getenv("C1_RUN_ID", "C1-10MeV-153R-48E-20261120-44656225572")
+BRANCH = os.getenv("C1_BRANCH", "research/croon-vector-benchmark-and-rate-corrections-20261119")
+PHYSICS_COMMIT = os.getenv("C1_SOURCE_COMMIT", "758e16f06d88ad7c6bb42ee3b91b14c323743b43")
+PHYSICS_RUN_ID = int(os.getenv("C1_WORKFLOW_RUN_ID", "44656225572"))
 RADIAL_RUN_ID = 44650913407
 RADIAL_RUN_COMMIT = "0bd47c1e9a263c1291dee8dce2701206e9035e80"
 RADIAL_OUTPUT_COMMIT = "5e037cec96480ee03c3eb64f00c32aa8bc4fcc4d"
 RADIAL_REPORT_COMMIT = "db82bd60ec30ffeae7846067b34d748c037a98f8"
-ENERGY_OUTPUT_COMMIT = "43b01af00bb617cb4cbebaa34b2e363c5e14690f"
-RADIAL_START, RADIAL_END, RADIAL_WALL = "2026-11-20T01:05:01Z", "2026-11-20T01:33:02Z", 1681
-ENERGY_START, ENERGY_END, ENERGY_WALL = "2026-11-20T01:48:03Z", "2026-11-20T02:15:39Z", 1656
+remove fixed archive commitRADIAL_START, RADIAL_END, RADIAL_WALL = "2026-11-20T01:05:01Z", "2026-11-20T01:33:02Z", 1681
+ENERGY_START = os.getenv("C1_EXECUTION_STARTED_AT", "2026-11-20T01:48:03Z")
+ENERGY_END = os.getenv("C1_EXECUTION_FINISHED_AT", "2026-11-20T02:15:39Z")
+ENERGY_WALL = float(os.getenv("C1_EXECUTION_WALL_TIME_S", "1656"))
+ENERGY_OUTPUT_COMMIT = os.getenv("C1_NATIVE_OUTPUT_COMMIT", "43b01af00bb617cb4cbebaa34b2e363c5e14690f") or None
 PROFILE_SHA = "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c"
 PROFILE_BYTES = 182716
 BASE = "research/stellar-cooling-constraints-20261105"
@@ -41,6 +44,47 @@ P = {
 }
 
 def now(): return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+
+def runtime_environment():
+    cpu_model = None
+    try:
+        for line in Path("/proc/cpuinfo").read_text(encoding="utf-8").splitlines():
+            if line.lower().startswith(("model name", "hardware")):
+                cpu_model = line.split(":", 1)[1].strip()
+                break
+    except OSError:
+        pass
+    memory_bytes = None
+    try:
+        for line in Path("/proc/meminfo").read_text(encoding="utf-8").splitlines():
+            if line.startswith("MemTotal:"):
+                memory_bytes = int(line.split()[1]) * 1024
+                break
+    except (OSError, ValueError, IndexError):
+        pass
+    dependencies = {}
+    for package in ("numpy", "scipy", "jsonschema"):
+        try:
+            dependencies[package] = importlib_metadata.version(package)
+        except importlib_metadata.PackageNotFoundError:
+            dependencies[package] = "not_installed"
+    hardware = {
+        "runner": os.getenv("RUNNER_NAME") or platform.node(),
+        "runner_label": os.getenv("C1_RUNNER_LABEL"),
+        "machine_model": cpu_model or platform.processor() or "not_available",
+        "architecture": platform.machine(),
+        "logical_cpu_count": os.cpu_count(),
+        "memory_bytes": memory_bytes,
+        "runner_os": os.getenv("RUNNER_OS", platform.system()),
+        "runner_arch": os.getenv("RUNNER_ARCH", platform.machine()),
+    }
+    return {
+        "platform": platform.platform(),
+        "runtime": {"python": platform.python_version(), "implementation": platform.python_implementation()},
+        "dependencies": dependencies,
+        "hardware": {key: value for key, value in hardware.items() if value is not None},
+    }
+
 def digest(b): return hashlib.sha256(b).hexdigest()
 def filehash(p): return digest(p.read_bytes())
 def load(p): return json.loads(p.read_text(encoding="utf-8"), parse_constant=lambda x: (_ for _ in ()).throw(ValueError(x)))
@@ -246,7 +290,7 @@ def build(root, out, override_script_sha=None, profile_bytes_override=None):
       "configuration":{"physics":{"mediator_mass_MeV":10.0,"current_benchmark":"pure vector C1 endpoint","gV_over_gX":1.0,"gA_over_gX":0.0,"neutrino_flavours":["nu_mu","nu_tau"],"muon_targets":["mu_minus","mu_plus"],"channels":["B.7","B.13"],"polarizations":["L","+","-"]},
        "numerics":{"radial_points_requested":151,"radial_points_actual":153,"radial_reference_points":103,"energy_order_reference":32,"energy_order_refined":48,"inner_orders":[12,8,8,8],"neutrino_angular_order":128,"susceptibility_order":192,"coupling_count":121,"coupling_range_gX":[1e-11,1.0],"radial_integrator":"PCHIP source/reduced opacity with exact opacity antiderivative and QUADPACK adaptive Gauss-Kronrod integration","energy_map":"omega=m+Tmax*y^2, y in [0,6], Gauss-Legendre in y"},
        "conventions":{"volume_element":"4*pi*r^2 dr","reduced_opacity":"Gamma_abs-Gamma_prod, mode by mode","R_nu_km":m["R_nu_km"],"R_far_km":[m["R_nu_km"],100.0],"outer_neutrino_opacity":"B.7 two-flavour vacuum decay width per mode","outer_semicompton_opacity":"omitted for 25-100 km","angular_escape_average":"omitted to match Croon radial prescription","lapse_redshift":"omitted to match Croon Sec. 3 convention"}},
-      "environment":{"platform":"GitHub-hosted ubuntu-latest runner","runtime":{"python":"3.13"},"dependencies":{"numpy":"2.5.5","scipy":"1.18.1"},"hardware":{"runner":"ubuntu-latest","machine_model":"not recorded in original workflow metadata"}},
+      "environment":runtime_environment(),
       "execution":{"status":"succeeded","command":"python -m unittest -v test_croon_c1_b13_vector_transport.py && python audit_croon_c1_10mev_adaptive_energy_convergence.py; followed by convergence/CSV assertions and SHA-256 manifest generation","started_at":ENERGY_START,"finished_at":ENERGY_END,"exit_code":0,"wall_time_s":ENERGY_WALL},
       "outputs":outputs,"validation":{"status":vstatus,"checks":checks,"report_path":rel(root,validation_path)},"archive":{"status":"local_only"},
       "extensions":{"source_files":source_hashes,"supernova_transport":{"radial_workflow_run_id":RADIAL_RUN_ID,"radial_source_commit":RADIAL_RUN_COMMIT,"radial_output_archive_commit":RADIAL_OUTPUT_COMMIT,"radial_report_commit":RADIAL_REPORT_COMMIT,"energy_output_archive_commit":ENERGY_OUTPUT_COMMIT,"outer_semicompton_25_100_km":"not included","final_SN1987A_exclusion":"not computed"},
@@ -260,6 +304,6 @@ def main():
     a=ap.parse_args(); root=a.repo_root.resolve(); out=a.output_dir if a.output_dir.is_absolute() else root/a.output_dir
     if a.finalize:
         if not a.pr_url: ap.error("--finalize requires --pr-url")
-        p=out/"run_manifest.json"; m=load(p); m["archive"]={"status":"committed_to_pr_branch","pr_url":a.pr_url}; m.setdefault("extensions",{}).setdefault("archive_generation",{})["finalized_at"]=now(); dump(p,m); print(p); return 0
+        p=out/"run_manifest.json"; m=load(p); m["archive"]={"status":"committed_to_pr_branch","pr_url":a.pr_url,"verified_at":now()}; m.setdefault("extensions",{}).setdefault("archive_generation",{})["finalized_at"]=now(); dump(p,m); print(p); return 0
     p=build(root,out,a.script_sha256,a.profile_bytes); print(p); return 0
 if __name__=="__main__": raise SystemExit(main())
