@@ -4,9 +4,9 @@
   "repository": "lm846802297-bit/axial-vector-review-response",
   "base_main_sha": "a7ac6456dafb27492183912fe4abbaa73a9455f7",
   "source_pr121_head": "e49908762e90271f4bc84be75e19577431febd4c",
-  "branch_head_before_docs": "32125a04f4f3b319030f5ab886fbae7325849c30",
-  "validator_sha256": "b90f981ad01a6ad2e8ddc9b3d5ea363789757c97e5bf444e07c985b73c943d49",
-  "test_sha256": "8cd46f6757571455216682706009189b6a80c555388425c22ab20773a8d11041",
+  "branch_head_before_docs": "e69389d6a4bb6077002ca61c094f6ba0b0b453be",
+  "validator_sha256": "1d6ac491c485e8a1d1a832a6561b70432e2a18c143756dc0dabdede7773a2a5f",
+  "test_sha256": "418e34a6108d187f9bbbd25e2d846132e86f1d054152bd3b054adcf620a6fc90",
   "mainline_inputs": {
     "phase_space_result_sha256": "e1cbefd3615ff0a85999c0d96eda478ad91dd799741a887711353cae8936ce6d",
     "high_order_baseline_sha256": "dc7cce151ce9d8ec79d37c0f75c03984f8c5f9660b102f0f054f622b7f33c373",
@@ -15,29 +15,43 @@
   },
   "validation_evidence": {
     "successful_actions_run": {
-      "run_id": 45039964078,
-      "url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45039964078",
-      "head_sha": "32125a04f4f3b319030f5ab886fbae7325849c30",
+      "run_id": 45049757154,
+      "url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45049757154",
+      "event": "pull_request",
+      "head_sha": "e69389d6a4bb6077002ca61c094f6ba0b0b453be",
       "conclusion": "success",
       "token_contents_permission": "read",
+      "runner": "ubuntu-24.04",
+      "python": "3.13.5",
       "compile": "PASS",
       "unit_tests": {
-        "passed": 16,
+        "passed": 23,
         "failed": 0
       },
       "mainline_result_against_high_order_baseline": "PASS"
     },
-    "environment_failure_and_resolution": {
-      "failed_run_id": 45039906417,
-      "failed_head_sha": "539fce589a74123fb2b3101e2d672d5fe5dcfaec",
-      "runner": "ubuntu-26.04",
-      "failure": "Python 3.13.5 unavailable on Ubuntu 26.04 image; test and validation steps were skipped",
-      "resolution": "Pin runner to ubuntu-24.04"
+    "push_event_run": {
+      "run_id": 45049753048,
+      "url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45049753048",
+      "event": "push",
+      "head_sha": "e69389d6a4bb6077002ca61c094f6ba0b0b453be",
+      "conclusion": "success"
     },
-    "earlier_local_prototype": {
-      "passed": 13,
-      "failed": 0,
-      "acceptance_status": "historical_only_not_authoritative"
+    "new_baseline_integrity_checks": {
+      "baseline_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_high_order_independent_grid_10mev_2026-11-09.json",
+      "baseline_sha256": "dc7cce151ce9d8ec79d37c0f75c03984f8c5f9660b102f0f054f622b7f33c373",
+      "phase_space_recorded_baseline_sha256_matches_file": true,
+      "unique_baseline_coupling_point": 4.171689650228597e-8,
+      "recomputed_residuals": {
+        "luminosity_relative": -2.220446049250313e-16,
+        "thin_luminosity_relative": 0,
+        "escape_probability_absolute": -5.421010862427522e-20
+      },
+      "exact_required_regions": [
+        "all_emission_radii",
+        "dominant_8_15km_emission"
+      ],
+      "region_names_unique": true
     }
   },
   "physical_result": {
@@ -86,9 +100,9 @@
     }
   },
   "scope": "Validator and workflow governance only; no production rates, opacities, transport outputs, axial-vector constraints or Fig. 7 values changed.",
-  "validator_branch_validation_head": "32125a04f4f3b319030f5ab886fbae7325849c30",
-  "validator_git_blob_sha1": "699a34b6c7d29632b2af96df7ee7aeb3084c0eed",
-  "test_git_blob_sha1": "85b0434c1dfd77c90819a1127183946fb491891f",
+  "validator_branch_validation_head": "e69389d6a4bb6077002ca61c094f6ba0b0b453be",
+  "validator_git_blob_sha1": "25aa9ac9d27da216e7d2f4e884e666f701a7944a",
+  "test_git_blob_sha1": "7b5d6c694f2efb205bb91b78b2f38c46c46ed2e4",
   "workflow": {
     "path": ".github/workflows/b16-output-validator-tests.yml",
     "git_blob_sha1": "f28ab2605261b07cef767d0f573c0800578adb9d",
@@ -99,5 +113,39 @@
     },
     "runner": "ubuntu-24.04",
     "python": "3.13.5"
+  },
+  "previous_validation_evidence_16_tests": {
+    "successful_actions_run": {
+      "run_id": 45039964078,
+      "url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45039964078",
+      "head_sha": "32125a04f4f3b319030f5ab886fbae7325849c30",
+      "conclusion": "success",
+      "token_contents_permission": "read",
+      "compile": "PASS",
+      "unit_tests": {
+        "passed": 16,
+        "failed": 0
+      },
+      "mainline_result_against_high_order_baseline": "PASS"
+    },
+    "environment_failure_and_resolution": {
+      "failed_run_id": 45039906417,
+      "failed_head_sha": "539fce589a74123fb2b3101e2d672d5fe5dcfaec",
+      "runner": "ubuntu-26.04",
+      "failure": "Python 3.13.5 unavailable on Ubuntu 26.04 image; test and validation steps were skipped",
+      "resolution": "Pin runner to ubuntu-24.04"
+    },
+    "earlier_local_prototype": {
+      "passed": 13,
+      "failed": 0,
+      "acceptance_status": "historical_only_not_authoritative"
+    }
+  },
+  "validator_hardening": {
+    "baseline_sha256_checked_against_file": true,
+    "baseline_point_selected_by_mass_and_coupling": true,
+    "luminosity_thin_luminosity_and_escape_closure_recomputed": true,
+    "fig7_reference_luminosity_checked_against_baseline": true,
+    "required_region_set_and_uniqueness_checked": true
   }
 }

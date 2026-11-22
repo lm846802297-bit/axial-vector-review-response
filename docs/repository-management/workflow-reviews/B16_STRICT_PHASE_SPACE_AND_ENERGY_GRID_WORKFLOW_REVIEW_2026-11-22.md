@@ -4,7 +4,7 @@ Review date: 2026-11-22
 
 Main baseline: a7ac6456dafb27492183912fe4abbaa73a9455f7
 
-B.16 validator branch validation commit: 32125a04f4f3b319030f5ab886fbae7325849c30
+B.16 validator branch validation commit: e69389d6a4bb6077002ca61c094f6ba0b0b453be
 
 PR #121 source snapshot: e49908762e90271f4bc84be75e19577431febd4c
 
@@ -70,27 +70,39 @@ The validator rejects non-finite values before any closure arithmetic:
 - SHA-256 fields, grid node counts and non-negative partition fractions are checked.
 - Sparse joint tables continue to accept omitted zero-weight bins; missing non-zero bins, unexpected labels and duplicate partition labels fail.
 
-Exact branch-head GitHub Actions verification:
+The initial 16-test revision passed in [run #45048853354](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45048853354); it is retained as a superseded validation snapshot.
+
+### Baseline-integrity correction
+
+The code review identified that the earlier validator checked the stored closure residuals and grid/profile fingerprints, but did not independently recompute luminosity closure from the selected high-order baseline point. The validator could therefore trust a stale or incorrectly populated residual field.
+
+The corrected validator now:
+- hashes the exact baseline JSON file and compares it with `baseline_json_sha256`;
+- checks the baseline mass and selects exactly one point at the requested coupling;
+- recomputes the luminosity, optically-thin luminosity and escape-probability residuals from that baseline point;
+- checks the Fig. 7 reference luminosity against the baseline;
+- requires exactly the two intended regions, with no duplicate region names.
+
+Exact revised branch-head verification:
 
 - Workflow: `.github/workflows/b16-output-validator-tests.yml`
 - Workflow blob: `f28ab2605261b07cef767d0f573c0800578adb9d`
-- Successful run: [#45039964078](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45039964078)
-- Exact head: `32125a04f4f3b319030f5ab886fbae7325849c30`
+- Successful push run: [#45049753048](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45049753048)
+- Successful PR run: [#45049757154](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45049757154)
+- Exact tested head: `e69389d6a4bb6077002ca61c094f6ba0b0b453be`
 - Runner: Ubuntu 24.04; Python 3.13.5
 - GITHUB_TOKEN permission: `contents: read`
 - Compilation: PASS
-- Regression tests: **16/16 PASS**
+- Regression tests: **23/23 PASS**
 - Mainline 10 MeV result against the archived high-order baseline: **PASS**
 
-The preceding [run #45039906417](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45039906417) stopped at Python setup because the Ubuntu 26.04 image did not provide Python 3.13.5; test and validation steps were skipped. Pinning Ubuntu 24.04 resolved the environment mismatch. The successful run above validates the exact branch head.
+Exact revised source identities:
+- Validator Git blob SHA-1: `25aa9ac9d27da216e7d2f4e884e666f701a7944a`
+- Validator SHA-256: `1d6ac491c485e8a1d1a832a6561b70432e2a18c143756dc0dabdede7773a2a5f`
+- Test Git blob SHA-1: `7b5d6c694f2efb205bb91b78b2f38c46c46ed2e4`
+- Test SHA-256: `418e34a6108d187f9bbbd25e2d846132e86f1d054152bd3b054adcf620a6fc90`
 
-Exact source identities:
-- Validator Git blob SHA-1: `699a34b6c7d29632b2af96df7ee7aeb3084c0eed`
-- Validator SHA-256: `b90f981ad01a6ad2e8ddc9b3d5ea363789757c97e5bf444e07c985b73c943d49`
-- Test Git blob SHA-1: `85b0434c1dfd77c90819a1127183946fb491891f`
-- Test SHA-256: `8cd46f6757571455216682706009189b6a80c555388425c22ab20773a8d11041`
-
-The earlier 13-test local prototype is retained as development history only; it is not the acceptance result.
+The earlier 13-test local prototype remains development history only.
 ## 4. Scientific result and acceptance boundary
 
 The committed 10 MeV mainline result remains:
