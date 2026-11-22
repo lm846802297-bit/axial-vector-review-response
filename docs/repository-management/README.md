@@ -2,6 +2,8 @@
 
 This document describes the current repository organization and the intended ownership of each area. It is an organizational map, not a claim that every file has passed scientific review.
 
+The 90th-review closeout integration was merged via [PR #122](https://github.com/lm846802297-bit/axial-vector-review-response/pull/122) into `main` on 2026-11-22 at commit `128c866e2a1a19812da1d16d17a7f4f2a28ecc39` using a merge commit. It carried 39 original closeout paths plus two entry-point updates, with no file deletions. The post-merge tree and both document registers were independently reconciled; the 10 MeV Fig. 7 physical discrepancy remains +92.4284% and is not changed by repository integration.
+
 ## Canonical top-level layout
 
 The active Major 2 / Major 3 / Major 4.2 script relocation is documented in [ACTIVE_SCRIPT_RELOCATION_AUDIT_2026-11-17.md](ACTIVE_SCRIPT_RELOCATION_AUDIT_2026-11-17.md) and its [path/blob manifest](ACTIVE_SCRIPT_RELOCATION_MANIFEST_2026-11-17.csv).
