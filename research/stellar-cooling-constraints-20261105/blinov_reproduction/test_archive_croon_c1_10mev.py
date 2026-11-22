@@ -56,6 +56,21 @@ class C1ArchiveUnitTests(unittest.TestCase):
             self.assertEqual(float(csv_rows[0]["g_X"]), curve[0]["g_X"])
             self.assertEqual(float(csv_rows[-1]["g_X"]), curve[-1]["g_X"])
 
+    def test_runtime_environment_records_execution_and_hardware(self):
+        environment = archive.runtime_environment()
+        self.assertTrue(environment["platform"])
+        self.assertTrue(environment["runtime"]["python"])
+        self.assertTrue(environment["runtime"]["implementation"])
+        self.assertIn("numpy", environment["dependencies"])
+        self.assertIn("scipy", environment["dependencies"])
+        self.assertIn("jsonschema", environment["dependencies"])
+        hardware = environment["hardware"]
+        self.assertTrue(hardware["machine_model"])
+        self.assertTrue(hardware["architecture"])
+        self.assertGreater(hardware["logical_cpu_count"], 0)
+        self.assertIn("runner_os", hardware)
+        self.assertIn("runner_arch", hardware)
+
     def test_existing_convergence_records_meet_acceptance(self):
         root = Path(__file__).resolve().parents[3]
         radial_path = root / archive.P["radial"]
