@@ -1,6 +1,6 @@
 # Folder catalog
 
-Live Git-tree inventory for `main` at `2cff95b3cc7442010fd3702d1036fcd4d7bb4500`, after the PR #122 closeout and PR #129 status-synchronization merges. Counts are structural entries, not unique scientific results.
+Inventory snapshot measured on `main` at PR #130 merge commit `8117b1df0d08949e1b566536a66dedcaf179f9a2`, after the PR #122 closeout and PR #129 status-synchronization merges. The subsequent status-only synchronization changes no tree inventory. Counts are structural entries, not unique scientific results.
 
 ## Repository footprint
 
