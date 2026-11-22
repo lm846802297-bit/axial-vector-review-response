@@ -2,7 +2,7 @@
 
 This document describes the current repository organization and the intended ownership of each area. It is an organizational map, not a claim that every file has passed scientific review.
 
-The 90th-review closeout integration was merged via [PR #122](https://github.com/lm846802297-bit/axial-vector-review-response/pull/122) into `main` on 2026-11-22 at commit `128c866e2a1a19812da1d16d17a7f4f2a28ecc39` using a merge commit. It carried 39 original closeout paths plus two entry-point updates, with no file deletions. The post-merge tree and both document registers were independently reconciled; the 10 MeV Fig. 7 physical discrepancy remains +92.4284% and is not changed by repository integration.
+The 90th-review closeout integration was merged via [PR #122](https://github.com/lm846802297-bit/axial-vector-review-response/pull/122) into `main` on 2026-11-22 at commit `128c866e2a1a19812da1d16d17a7f4f2a28ecc39` using a merge commit. It carried 39 original closeout paths plus two entry-point updates, with no file deletions. The post-merge tree and both document registers were independently reconciled; the 10 MeV Fig. 7 physical discrepancy remains +92.4284% and is not changed by repository integration. PR #129 then synchronized the live status and register metadata and merged at `2cff95b3cc7442010fd3702d1036fcd4d7bb4500`, which is the current `main` SHA.
 
 ## Canonical top-level layout
 
