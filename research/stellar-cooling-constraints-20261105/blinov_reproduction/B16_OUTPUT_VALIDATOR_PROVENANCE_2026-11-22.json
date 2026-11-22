@@ -15,10 +15,10 @@
   },
   "validation_evidence": {
     "successful_actions_run": {
-      "run_id": 45051211748,
-      "url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45051211748",
+      "run_id": 45052366668,
+      "url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45052366668",
       "event": "pull_request",
-      "head_sha": "9f5a42fcc756ac18ddd6122136b9b613e3655128",
+      "head_sha": "9b2ac733bfd4fdcd7c12af22445a37796651e729",
       "conclusion": "success",
       "token_contents_permission": "read",
       "runner": "ubuntu-24.04",
@@ -195,5 +195,22 @@
       ],
       "region_names_unique": true
     }
-  }
+  },
+  "previous_successful_pr_validation_run_45051211748": {
+    "run_id": 45051211748,
+    "url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45051211748",
+    "event": "pull_request",
+    "head_sha": "9f5a42fcc756ac18ddd6122136b9b613e3655128",
+    "conclusion": "success",
+    "token_contents_permission": "read",
+    "runner": "ubuntu-24.04",
+    "python": "3.13.5",
+    "compile": "PASS",
+    "unit_tests": {
+      "passed": 24,
+      "failed": 0
+    },
+    "mainline_result_against_high_order_baseline": "PASS"
+  },
+  "final_pull_request_head": "9b2ac733bfd4fdcd7c12af22445a37796651e729"
 }
