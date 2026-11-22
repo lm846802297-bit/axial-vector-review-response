@@ -131,19 +131,22 @@ jobs:
           branch="research/b13-high-order-provenance-rerun-20261122"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+actions[bot]@users.noreply.github.com"
+          check_event_inputs() {
+            for input_path in \
+              ".github/workflows/b13-high-order-provenance-validation.yml" \
+              "$target/LOCAL_RUN_SUMMARY.json" \
+              "$target/SOURCE_FILE_IDENTITY.json" \
+              "$target/validate_b13_high_order_rerun.py"; do
+              event_blob="$(git rev-parse "${GITHUB_SHA}:${input_path}")"
+              latest_blob="$(git rev-parse "FETCH_HEAD:${input_path}")"
+              if [ "$event_blob" != "$latest_blob" ]; then
+                echo "Refusing stale archive: calculation input changed after event commit: $input_path"
+                return 1
+              fi
+            done
+          }
           git fetch origin "$branch"
-          for path in \
-            ".github/workflows/b13-high-order-provenance-validation.yml" \
-            "$target/LOCAL_RUN_SUMMARY.json" \
-            "$target/SOURCE_FILE_IDENTITY.json" \
-            "$target/validate_b13_high_order_rerun.py"; do
-            event_blob="$(git rev-parse "${GITHUB_SHA}:${path}")"
-            latest_blob="$(git rev-parse "FETCH_HEAD:${path}")"
-            if [ "$event_blob" != "$latest_blob" ]; then
-              echo "Refusing stale archive: calculation input changed after event commit: $path"
-              exit 1
-            fi
-          done
+          check_event_inputs
           git checkout -B "$branch" FETCH_HEAD
           mkdir -p "$target"
           cp /tmp/b13-high-order/* "$target/"
@@ -164,6 +167,10 @@ jobs:
             fi
             echo "Archive push attempt $attempt failed; fetching and rebasing onto the latest branch."
             git fetch origin "$branch"
+            if ! check_event_inputs; then
+              echo "Calculation inputs changed during archive retry; refusing stale write-back."
+              exit 1
+            fi
             if ! git rebase FETCH_HEAD; then
               git rebase --abort || true
               echo "Concurrent archive conflict; refusing to overwrite branch history."
