@@ -77,6 +77,8 @@ def runtime_environment():
         "memory_bytes": memory_bytes,
         "runner_os": os.getenv("RUNNER_OS", platform.system()),
         "runner_arch": os.getenv("RUNNER_ARCH", platform.machine()),
+        "image_os": os.getenv("ImageOS"),
+        "image_version": os.getenv("ImageVersion"),
     }
     return {
         "platform": platform.platform(),
@@ -291,7 +293,7 @@ def build(root, out, override_script_sha=None, profile_bytes_override=None):
        "numerics":{"radial_points_requested":151,"radial_points_actual":153,"radial_reference_points":103,"energy_order_reference":32,"energy_order_refined":48,"inner_orders":[12,8,8,8],"neutrino_angular_order":128,"susceptibility_order":192,"coupling_count":121,"coupling_range_gX":[1e-11,1.0],"radial_integrator":"PCHIP source/reduced opacity with exact opacity antiderivative and QUADPACK adaptive Gauss-Kronrod integration","energy_map":"omega=m+Tmax*y^2, y in [0,6], Gauss-Legendre in y"},
        "conventions":{"volume_element":"4*pi*r^2 dr","reduced_opacity":"Gamma_abs-Gamma_prod, mode by mode","R_nu_km":m["R_nu_km"],"R_far_km":[m["R_nu_km"],100.0],"outer_neutrino_opacity":"B.7 two-flavour vacuum decay width per mode","outer_semicompton_opacity":"omitted for 25-100 km","angular_escape_average":"omitted to match Croon radial prescription","lapse_redshift":"omitted to match Croon Sec. 3 convention"}},
       "environment":runtime_environment(),
-      "execution":{"status":"succeeded","command":"python -m unittest -v test_croon_c1_b13_vector_transport.py && python audit_croon_c1_10mev_adaptive_energy_convergence.py; followed by convergence/CSV assertions and SHA-256 manifest generation","started_at":ENERGY_START,"finished_at":ENERGY_END,"exit_code":0,"wall_time_s":ENERGY_WALL},
+      "execution":{"status":"succeeded","command":"python -m unittest -v test_croon_c1_b13_vector_transport.py; python -m unittest -v test_archive_croon_c1_10mev.py; python audit_croon_c1_10mev_adaptive_energy_convergence.py; native-output assertions and SHA-256 manifest generation","started_at":ENERGY_START,"finished_at":ENERGY_END,"exit_code":0,"wall_time_s":ENERGY_WALL},
       "outputs":outputs,"validation":{"status":vstatus,"checks":checks,"report_path":rel(root,validation_path)},"archive":{"status":"local_only"},
       "extensions":{"source_files":source_hashes,"supernova_transport":{"radial_workflow_run_id":RADIAL_RUN_ID,"radial_source_commit":RADIAL_RUN_COMMIT,"radial_output_archive_commit":RADIAL_OUTPUT_COMMIT,"radial_report_commit":RADIAL_REPORT_COMMIT,"energy_output_archive_commit":ENERGY_OUTPUT_COMMIT,"outer_semicompton_25_100_km":"not included","final_SN1987A_exclusion":"not computed"},
        "archive_generation":{"generator_path":f"{HERE_REL}/archive_croon_c1_10mev.py","generator_sha256":filehash(Path(__file__)),"generated_at":now(),"archive_workflow_run_id":os.getenv("GITHUB_RUN_ID"),"archive_workflow_commit_sha":os.getenv("GITHUB_SHA")},
