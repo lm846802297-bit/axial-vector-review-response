@@ -106,5 +106,11 @@
     "free_streaming_low_mass_scaling": "gX_lower proportional to mAprime",
     "original_single_VEV_mapping": "vS_upper approximately mass independent at low mass",
     "limitation": "The fixed-profile convergence scan is not yet recomputed with the moving-muon local kernel in full radial transport."
+  },
+  "inputs": {
+    "thermal_response_scan": "research/stellar-cooling-constraints-20261105/finite_mixing/outputs/thermal_response_scan.json",
+    "thermal_response_scan_git_blob_sha1": "1ea3530fb10226402dce25ba266e603127475fa6",
+    "convergence_scan": "research/stellar-cooling-constraints-20261105/outputs/convergence.json",
+    "convergence_scan_git_blob_sha1": "f8b4042a85964950d13c4bbe17cb6fcaa1eff204"
   }
 }
