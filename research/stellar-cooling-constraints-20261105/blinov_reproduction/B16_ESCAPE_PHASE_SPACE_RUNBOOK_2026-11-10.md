@@ -100,10 +100,13 @@ Acceptance requires:
 
 ## 6. Accepted result and evidence
 
-The strict production run passed on 2026-11-17:
+The strict production run was repeated with the current validator and ULP-tolerant archived-node comparison on 2026-11-23:
 
-- [Energy-grid identity workflow, run #44054718118](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44054718118).
-- [Strict 10 MeV phase-space workflow, run #44059347513](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44059347513).
+- [Energy-grid identity diagnostic, run #45171900209](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45171900209).
+- [Strict 10 MeV phase-space reproduction, run #45172485856](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45172485856).
+- [Independent output-validator suite, run #45173157775](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45173157775).
+
+The strict calculation used the original 842-node reference array. The runtime SHA-256 can differ by one ULP on a threshold node; the archived node-by-node comparison uses \(\\mathrm{rtol}=5\\times10^{-15}\), zero absolute tolerance, and retains the original baseline SHA-256 unchanged.
 
 Archived files:
 
@@ -125,7 +128,7 @@ The 8–15 km region contains 79.6522% of the global thin source and 86.8551% of
 
 The earlier workflow run [#43205614274](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/43205614274), on commit \`f19a4485a19f1d862d9dcd6f7703bc72259566ae\`, recorded the energy hash \`db6f613c7c76c3a80b07f20b6b44feb9520b031e78237685dacd60575c964639\` and stopped before producing the canonical JSON.
 
-That historical hash was not reproduced by the current-main identity diagnostic or the final production phase-space run. The current profile and baseline inputs reproduce the archived \`036e6d77...\` grid exactly. The exact trigger of the historical discrepancy has not been established; it remains a non-reproduced historical run record. No baseline hash was changed to close the check.
+The 2026-11-23 cross-runner comparison identifies this fingerprint as a one-ULP floating-point variant of the archived 842-node reference, not a different physical grid. In the successful strict run #45172485856, the maximum absolute node difference is \(5.684341886080802\\times10^{-14}\) MeV, the maximum relative difference is \(1.1675488289093305\\times10^{-16}\), and the maximum difference is one ULP. The reference file retains the original SHA-256 \`036e6d77...\`; no baseline hash was changed.
 
 ## 8. Interpretation boundary and remaining work
 
