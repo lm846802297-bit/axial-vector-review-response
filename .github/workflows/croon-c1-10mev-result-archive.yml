@@ -1,0 +1,41 @@
+name: C1 10 MeV historical archive validation
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout research branch with full history
+        uses: actions/checkout@v4
+        with:
+          ref: research/croon-vector-benchmark-and-rate-corrections-20261119
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install result validator dependencies
+        run: python -m pip install -r docs/repository-management/schemas/requirements-result-validation.txt
+
+      - name: Test C1 archive writer
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        run: python -m unittest -v test_archive_croon_c1_10mev.py
+
+      - name: Validate the immutable 2026-11-20 historical records
+        run: |
+          python docs/repository-management/schemas/validate_result_records.py --repo-root . \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/run_manifest.json \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/result_summary.json \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20/validation_report.json
+
+      - name: Verify historical archive checksums without rewriting files
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/c1_10mev_structured_archive_2026-11-20
+        run: sha256sum -c SHA256SUMS.txt

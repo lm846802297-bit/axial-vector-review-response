@@ -1,0 +1,63 @@
+name: Croon C1 B7+B13 vector transport
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  c1-vector-transport:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Record runtime and source revision
+        run: |
+          python --version
+          git rev-parse HEAD
+      - name: Install numerical dependencies
+        run: python -m pip install numpy scipy
+      - name: Run C1 equation, detailed-balance, and boundary tests
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        env:
+          PYTHONPATH: ..
+        run: python -m unittest -v test_croon_c1_b13_vector_transport.py
+      - name: Compute six-mass C1 vector transport scan
+        working-directory: research/stellar-cooling-constraints-20261105/blinov_reproduction
+        env:
+          PYTHONPATH: ..
+        run: |
+          python croon_c1_b13_vector_transport.py \
+            --all-croon-masses \
+            --radial-points 101 \
+            --energy-order 32 \
+            --inner-orders 12,8,8,8 \
+            --neutrino-order 96 \
+            --susceptibility-order 128 \
+            --coupling-count 121
+      - name: Archive native C1 JSON and radial CSV on the research branch
+        env:
+          GIT_AUTHOR_NAME: github-actions[bot]
+          GIT_AUTHOR_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+          GIT_COMMITTER_NAME: github-actions[bot]
+          GIT_COMMITTER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+        run: |
+          git add \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_2026-11-19.json \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_2026-11-19.csv
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive C1 B7+B13 vector transport results"
+            git push origin "HEAD:\${GITHUB_REF_NAME}"
+          fi
+      - name: Upload C1 machine-readable result files
+        uses: actions/upload-artifact@v4
+        with:
+          name: croon-c1-b7-b13-vector-transport
+          path: |
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_2026-11-19.json
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_2026-11-19.csv
+          if-no-files-found: error

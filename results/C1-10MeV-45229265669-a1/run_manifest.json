@@ -1,0 +1,792 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "run_manifest",
+  "run_id": "C1-10MeV-45229265669-a1",
+  "created_at": "2026-11-23T17:48:21Z",
+  "project": {
+    "repository": "lm846802297-bit/axial-vector-review-response",
+    "project_id": "axial-vector-supernova-cooling",
+    "workstream_id": "C1-10MeV"
+  },
+  "source": {
+    "commit_sha": "f404abed92d5095a306dda81b755372b119c6e92",
+    "branch": "research/croon-vector-benchmark-and-rate-corrections-20261119",
+    "script_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_croon_c1_10mev_adaptive_energy_convergence.py",
+    "script_sha256": "4c34390662552738cce62619f1bb5d405c9dec87067b666817437742977e551b",
+    "workflow_path": ".github/workflows/croon-c1-10mev-adaptive-energy-convergence.yml",
+    "workflow_run_id": 45229265669
+  },
+  "inputs": [
+    {
+      "name": "reviewed reconstructed SFHo-18.8 1 s profile",
+      "source": "repository input used by C1 energy-order workflow",
+      "version": "git:f404abed92d5095a306dda81b755372b119c6e92",
+      "path": "results/C1-10MeV-45229265669-a1/sfho188_digitized.csv",
+      "uri": "https://github.com/lm846802297-bit/axial-vector-review-response/blob/f404abed92d5095a306dda81b755372b119c6e92/research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv",
+      "format": "csv",
+      "bytes": 182716,
+      "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+      "access": "archived input snapshot; source URI retained",
+      "transformation": "byte-for-byte snapshot; no resampling or modification in C1 run"
+    },
+    {
+      "name": "C1 adaptive 153-node energy-order-32 reference",
+      "source": "C1 radial workflow #44650913407",
+      "version": "workflow:44650913407;source:0bd47c1e9a263c1291dee8dce2701206e9035e80;archive:5e037cec96480ee03c3eb64f00c32aa8bc4fcc4d",
+      "path": "results/C1-10MeV-45229265669-a1/radial_153_nodes_energy32.json",
+      "uri": "https://github.com/lm846802297-bit/axial-vector-review-response/blob/0bd47c1e9a263c1291dee8dce2701206e9035e80/research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_2026-11-20.json",
+      "format": "json",
+      "bytes": 710053,
+      "sha256": "3e9a9d4e979e557ec0cbf9b02a7daf00ce7289413765909e1ccacd82bff9c295",
+      "access": "archived reference snapshot; source URI retained",
+      "transformation": "byte-for-byte snapshot; used as the fixed 32-to-48 energy-order reference"
+    }
+  ],
+  "configuration": {
+    "physics": {
+      "mediator_mass_MeV": 10.0,
+      "current_benchmark": "pure vector C1 endpoint",
+      "gV_over_gX": 1.0,
+      "gA_over_gX": 0.0,
+      "neutrino_flavours": [
+        "nu_mu",
+        "nu_tau"
+      ],
+      "muon_targets": [
+        "mu_minus",
+        "mu_plus"
+      ],
+      "channels": [
+        "B.7",
+        "B.13"
+      ],
+      "polarizations": [
+        "L",
+        "+",
+        "-"
+      ]
+    },
+    "numerics": {
+      "radial_points_requested": 151,
+      "radial_points_actual": 153,
+      "radial_reference_points": 103,
+      "energy_order_reference": 32,
+      "energy_order_refined": 48,
+      "inner_orders": [
+        12,
+        8,
+        8,
+        8
+      ],
+      "neutrino_angular_order": 128,
+      "susceptibility_order": 192,
+      "coupling_count": 121,
+      "coupling_range_gX": [
+        1e-11,
+        1.0
+      ],
+      "radial_integrator": "PCHIP source/reduced opacity with exact opacity antiderivative and QUADPACK adaptive Gauss-Kronrod integration",
+      "energy_map": "omega=m+Tmax*y^2, y in [0,6], Gauss-Legendre in y"
+    },
+    "conventions": {
+      "volume_element": "4*pi*r^2 dr",
+      "reduced_opacity": "Gamma_abs-Gamma_prod, mode by mode",
+      "R_nu_km": 25.151168281622343,
+      "R_far_km": [
+        25.151168281622343,
+        100.0
+      ],
+      "outer_neutrino_opacity": "B.7 two-flavour vacuum decay width per mode",
+      "outer_semicompton_opacity": "omitted for 25-100 km",
+      "angular_escape_average": "omitted to match Croon radial prescription",
+      "lapse_redshift": "omitted to match Croon Sec. 3 convention"
+    }
+  },
+  "environment": {
+    "platform": "Linux-7.0.0-1020-azure-x86_64-with-glibc2.43",
+    "runtime": {
+      "python": "3.13.18",
+      "implementation": "CPython"
+    },
+    "dependencies": {
+      "numpy": "2.5.5",
+      "scipy": "1.18.1",
+      "jsonschema": "4.26.0"
+    },
+    "hardware": {
+      "runner": "GitHub Actions 1000014863",
+      "runner_label": "ubuntu-latest",
+      "machine_model": "AMD EPYC 9V45 96-Core Processor",
+      "architecture": "x86_64",
+      "logical_cpu_count": 4,
+      "memory_bytes": 16759431168,
+      "runner_os": "Linux",
+      "runner_arch": "X64",
+      "image_os": "ubuntu26",
+      "image_version": "20261116.202.1"
+    }
+  },
+  "execution": {
+    "status": "succeeded",
+    "command": "python -m unittest -v test_croon_c1_b13_vector_transport.py; python -m unittest -v test_archive_croon_c1_10mev.py; python audit_croon_c1_10mev_adaptive_energy_convergence.py; native-output assertions and SHA-256 manifest generation",
+    "started_at": "2026-11-23T17:35:29Z",
+    "finished_at": "2026-11-23T17:48:21Z",
+    "exit_code": 0,
+    "wall_time_s": 772.0
+  },
+  "outputs": [
+    {
+      "path": "results/C1-10MeV-45229265669-a1/radial_103_nodes.json",
+      "role": "103-node adaptive radial transport JSON",
+      "format": "json",
+      "bytes": 552242,
+      "sha256": "1ae6dcb8840b11a0c5e84be5972f42745afe59ab41c794b81b829bd9f9503125"
+    },
+    {
+      "path": "results/C1-10MeV-45229265669-a1/radial_103_nodes.csv",
+      "role": "103-node local production-rate CSV",
+      "format": "csv",
+      "bytes": 56034,
+      "sha256": "f0b469435b6e39b27f390ab513671dd4bac4a681405f2a73092aae7c87ec580c",
+      "rows": 103,
+      "columns": [
+        "mass_MeV",
+        "r_km",
+        "T_MeV",
+        "mu_mu_MeV",
+        "mu_numu_MeV",
+        "chi_mu_minus_MeV3",
+        "Q_B7_nu_mu_plus_nu_tau_per_g2_MeV5",
+        "Q_B13_mu_minus_per_g2_MeV5",
+        "Q_B13_mu_plus_per_g2_MeV5",
+        "Q_B13_mu_pm_per_g2_MeV5",
+        "Q_B7_plus_B13_per_g2_MeV5",
+        "Q_Croon_Eq47_mu_minus_per_g2_MeV5",
+        "B13_mu_minus_over_Croon_Eq47",
+        "B13_mu_pm_over_Croon_Eq47",
+        "Q_B7_L_per_g2_MeV5",
+        "Q_B13_mu_minus_L_per_g2_MeV5",
+        "Q_B13_mu_plus_L_per_g2_MeV5",
+        "Q_B13_mu_pm_L_per_g2_MeV5",
+        "Q_B7_plus_B13_L_per_g2_MeV5",
+        "Q_B7_+_per_g2_MeV5",
+        "Q_B13_mu_minus_+_per_g2_MeV5",
+        "Q_B13_mu_plus_+_per_g2_MeV5",
+        "Q_B13_mu_pm_+_per_g2_MeV5",
+        "Q_B7_plus_B13_+_per_g2_MeV5",
+        "Q_B7_-_per_g2_MeV5",
+        "Q_B13_mu_minus_-_per_g2_MeV5",
+        "Q_B13_mu_plus_-_per_g2_MeV5",
+        "Q_B13_mu_pm_-_per_g2_MeV5",
+        "Q_B7_plus_B13_-_per_g2_MeV5"
+      ],
+      "units": {
+        "mass_MeV": "MeV",
+        "r_km": "km",
+        "T_MeV": "MeV",
+        "mu_mu_MeV": "MeV",
+        "mu_numu_MeV": "MeV",
+        "chi_mu_minus_MeV3": "MeV^3",
+        "Q_B7_nu_mu_plus_nu_tau_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_minus_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_plus_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_pm_per_g2_MeV5": "MeV^5",
+        "Q_B7_plus_B13_per_g2_MeV5": "MeV^5",
+        "Q_Croon_Eq47_mu_minus_per_g2_MeV5": "MeV^5",
+        "B13_mu_minus_over_Croon_Eq47": "1",
+        "B13_mu_pm_over_Croon_Eq47": "1",
+        "Q_B7_L_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_minus_L_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_plus_L_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_pm_L_per_g2_MeV5": "MeV^5",
+        "Q_B7_plus_B13_L_per_g2_MeV5": "MeV^5",
+        "Q_B7_+_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_minus_+_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_plus_+_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_pm_+_per_g2_MeV5": "MeV^5",
+        "Q_B7_plus_B13_+_per_g2_MeV5": "MeV^5",
+        "Q_B7_-_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_minus_-_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_plus_-_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_pm_-_per_g2_MeV5": "MeV^5",
+        "Q_B7_plus_B13_-_per_g2_MeV5": "MeV^5"
+      }
+    },
+    {
+      "path": "results/C1-10MeV-45229265669-a1/radial_153_nodes_energy32.json",
+      "role": "153-node energy-order-32 reference JSON",
+      "format": "json",
+      "bytes": 710053,
+      "sha256": "3e9a9d4e979e557ec0cbf9b02a7daf00ce7289413765909e1ccacd82bff9c295"
+    },
+    {
+      "path": "results/C1-10MeV-45229265669-a1/radial_153_nodes_energy32.csv",
+      "role": "153-node energy-order-32 local production-rate CSV",
+      "format": "csv",
+      "bytes": 82890,
+      "sha256": "51d479033d7acf5dc4a24d3ad841782fc5426c4faacb96c6cf597ee523e2fd6b",
+      "rows": 153,
+      "columns": [
+        "mass_MeV",
+        "r_km",
+        "T_MeV",
+        "mu_mu_MeV",
+        "mu_numu_MeV",
+        "chi_mu_minus_MeV3",
+        "Q_B7_nu_mu_plus_nu_tau_per_g2_MeV5",
+        "Q_B13_mu_minus_per_g2_MeV5",
+        "Q_B13_mu_plus_per_g2_MeV5",
+        "Q_B13_mu_pm_per_g2_MeV5",
+        "Q_B7_plus_B13_per_g2_MeV5",
+        "Q_Croon_Eq47_mu_minus_per_g2_MeV5",
+        "B13_mu_minus_over_Croon_Eq47",
+        "B13_mu_pm_over_Croon_Eq47",
+        "Q_B7_L_per_g2_MeV5",
+        "Q_B13_mu_minus_L_per_g2_MeV5",
+        "Q_B13_mu_plus_L_per_g2_MeV5",
+        "Q_B13_mu_pm_L_per_g2_MeV5",
+        "Q_B7_plus_B13_L_per_g2_MeV5",
+        "Q_B7_+_per_g2_MeV5",
+        "Q_B13_mu_minus_+_per_g2_MeV5",
+        "Q_B13_mu_plus_+_per_g2_MeV5",
+        "Q_B13_mu_pm_+_per_g2_MeV5",
+        "Q_B7_plus_B13_+_per_g2_MeV5",
+        "Q_B7_-_per_g2_MeV5",
+        "Q_B13_mu_minus_-_per_g2_MeV5",
+        "Q_B13_mu_plus_-_per_g2_MeV5",
+        "Q_B13_mu_pm_-_per_g2_MeV5",
+        "Q_B7_plus_B13_-_per_g2_MeV5"
+      ],
+      "units": {
+        "mass_MeV": "MeV",
+        "r_km": "km",
+        "T_MeV": "MeV",
+        "mu_mu_MeV": "MeV",
+        "mu_numu_MeV": "MeV",
+        "chi_mu_minus_MeV3": "MeV^3",
+        "Q_B7_nu_mu_plus_nu_tau_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_minus_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_plus_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_pm_per_g2_MeV5": "MeV^5",
+        "Q_B7_plus_B13_per_g2_MeV5": "MeV^5",
+        "Q_Croon_Eq47_mu_minus_per_g2_MeV5": "MeV^5",
+        "B13_mu_minus_over_Croon_Eq47": "1",
+        "B13_mu_pm_over_Croon_Eq47": "1",
+        "Q_B7_L_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_minus_L_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_plus_L_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_pm_L_per_g2_MeV5": "MeV^5",
+        "Q_B7_plus_B13_L_per_g2_MeV5": "MeV^5",
+        "Q_B7_+_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_minus_+_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_plus_+_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_pm_+_per_g2_MeV5": "MeV^5",
+        "Q_B7_plus_B13_+_per_g2_MeV5": "MeV^5",
+        "Q_B7_-_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_minus_-_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_plus_-_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_pm_-_per_g2_MeV5": "MeV^5",
+        "Q_B7_plus_B13_-_per_g2_MeV5": "MeV^5"
+      }
+    },
+    {
+      "path": "results/C1-10MeV-45229265669-a1/radial_convergence_report.json",
+      "role": "103/153 radial convergence report",
+      "format": "json",
+      "bytes": 9315,
+      "sha256": "299359be5ebd87b9494c219651fc356a4730b91a7c019e1aa5c0cdfb5c864085"
+    },
+    {
+      "path": "results/C1-10MeV-45229265669-a1/radial_native_SHA256SUMS.txt",
+      "role": "radial native-output SHA-256 manifest",
+      "format": "text",
+      "bytes": 584,
+      "sha256": "877ebe9a6635b7219b0ceb469119a4d6320a714bff72d1a3726ca33f2c84860b"
+    },
+    {
+      "path": "results/C1-10MeV-45229265669-a1/radial_report_SHA256SUMS.txt",
+      "role": "radial-report SHA-256 manifest",
+      "format": "text",
+      "bytes": 131,
+      "sha256": "58bd22c7cd838c08454b2c8e38df107e166f2c4ba29170ce3eca00463967607e"
+    },
+    {
+      "path": "results/C1-10MeV-45229265669-a1/final_transport.json",
+      "role": "153-node energy-48 final transport JSON",
+      "format": "json",
+      "bytes": 710457,
+      "sha256": "67abb7a492f112223f5e994edb5a6c9fc16014358c1914b72ba168534eaf95f0"
+    },
+    {
+      "path": "results/C1-10MeV-45229265669-a1/local_profile.csv",
+      "role": "153-node energy-48 local production-rate CSV",
+      "format": "csv",
+      "bytes": 82881,
+      "sha256": "e2e88ddc21820c99c5ce0173a00764d617d21e3fbb8c92787278b58c73a95d7e",
+      "rows": 153,
+      "columns": [
+        "mass_MeV",
+        "r_km",
+        "T_MeV",
+        "mu_mu_MeV",
+        "mu_numu_MeV",
+        "chi_mu_minus_MeV3",
+        "Q_B7_nu_mu_plus_nu_tau_per_g2_MeV5",
+        "Q_B13_mu_minus_per_g2_MeV5",
+        "Q_B13_mu_plus_per_g2_MeV5",
+        "Q_B13_mu_pm_per_g2_MeV5",
+        "Q_B7_plus_B13_per_g2_MeV5",
+        "Q_Croon_Eq47_mu_minus_per_g2_MeV5",
+        "B13_mu_minus_over_Croon_Eq47",
+        "B13_mu_pm_over_Croon_Eq47",
+        "Q_B7_L_per_g2_MeV5",
+        "Q_B13_mu_minus_L_per_g2_MeV5",
+        "Q_B13_mu_plus_L_per_g2_MeV5",
+        "Q_B13_mu_pm_L_per_g2_MeV5",
+        "Q_B7_plus_B13_L_per_g2_MeV5",
+        "Q_B7_+_per_g2_MeV5",
+        "Q_B13_mu_minus_+_per_g2_MeV5",
+        "Q_B13_mu_plus_+_per_g2_MeV5",
+        "Q_B13_mu_pm_+_per_g2_MeV5",
+        "Q_B7_plus_B13_+_per_g2_MeV5",
+        "Q_B7_-_per_g2_MeV5",
+        "Q_B13_mu_minus_-_per_g2_MeV5",
+        "Q_B13_mu_plus_-_per_g2_MeV5",
+        "Q_B13_mu_pm_-_per_g2_MeV5",
+        "Q_B7_plus_B13_-_per_g2_MeV5"
+      ],
+      "units": {
+        "mass_MeV": "MeV",
+        "r_km": "km",
+        "T_MeV": "MeV",
+        "mu_mu_MeV": "MeV",
+        "mu_numu_MeV": "MeV",
+        "chi_mu_minus_MeV3": "MeV^3",
+        "Q_B7_nu_mu_plus_nu_tau_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_minus_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_plus_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_pm_per_g2_MeV5": "MeV^5",
+        "Q_B7_plus_B13_per_g2_MeV5": "MeV^5",
+        "Q_Croon_Eq47_mu_minus_per_g2_MeV5": "MeV^5",
+        "B13_mu_minus_over_Croon_Eq47": "1",
+        "B13_mu_pm_over_Croon_Eq47": "1",
+        "Q_B7_L_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_minus_L_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_plus_L_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_pm_L_per_g2_MeV5": "MeV^5",
+        "Q_B7_plus_B13_L_per_g2_MeV5": "MeV^5",
+        "Q_B7_+_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_minus_+_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_plus_+_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_pm_+_per_g2_MeV5": "MeV^5",
+        "Q_B7_plus_B13_+_per_g2_MeV5": "MeV^5",
+        "Q_B7_-_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_minus_-_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_plus_-_per_g2_MeV5": "MeV^5",
+        "Q_B13_mu_pm_-_per_g2_MeV5": "MeV^5",
+        "Q_B7_plus_B13_-_per_g2_MeV5": "MeV^5"
+      }
+    },
+    {
+      "path": "results/C1-10MeV-45229265669-a1/energy_convergence_report.json",
+      "role": "32/48 energy convergence report",
+      "format": "json",
+      "bytes": 5554,
+      "sha256": "2df033579fe24c402252a95cf0bc5b0add68168a8305c31934a7a658925cf16a"
+    },
+    {
+      "path": "results/C1-10MeV-45229265669-a1/energy_SHA256SUMS.txt",
+      "role": "energy SHA-256 manifest",
+      "format": "text",
+      "bytes": 450,
+      "sha256": "86a22f6ff3c005fc21a8e285b7350ba5379227cf52116d946c90bdf5ef9aeab8"
+    },
+    {
+      "path": "results/C1-10MeV-45229265669-a1/coupling_curve.csv",
+      "role": "121-point adaptive coupling/luminosity curve CSV",
+      "format": "csv",
+      "bytes": 58749,
+      "sha256": "a6bed8201af52dbed63c08424162ae71aa3d59c6f3a5d7f1d390775724a9e5ed",
+      "rows": 121,
+      "columns": [
+        "g_X",
+        "Rfar_Rnu",
+        "Rfar_Rnu_by_mode_erg_s_L",
+        "Rfar_Rnu_by_mode_erg_s_+",
+        "Rfar_Rnu_by_mode_erg_s_-",
+        "Rfar_Rnu_mode_sum_relative_residual",
+        "Rfar_100km_vacuum_nu_tail",
+        "Rfar_100km_vacuum_nu_tail_by_mode_erg_s_L",
+        "Rfar_100km_vacuum_nu_tail_by_mode_erg_s_+",
+        "Rfar_100km_vacuum_nu_tail_by_mode_erg_s_-",
+        "Rfar_100km_vacuum_nu_tail_mode_sum_relative_residual",
+        "Rfar_Rnu_adaptive_quad",
+        "Rfar_Rnu_adaptive_quad_by_mode_erg_s_L",
+        "Rfar_Rnu_adaptive_quad_by_mode_erg_s_+",
+        "Rfar_Rnu_adaptive_quad_by_mode_erg_s_-",
+        "Rfar_Rnu_adaptive_quad_relative_error_estimate",
+        "Rfar_Rnu_adaptive_quad_relative_error_estimate_by_mode_L",
+        "Rfar_Rnu_adaptive_quad_relative_error_estimate_by_mode_+",
+        "Rfar_Rnu_adaptive_quad_relative_error_estimate_by_mode_-",
+        "Rfar_Rnu_adaptive_quad_mode_sum_relative_residual",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad_by_mode_erg_s_L",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad_by_mode_erg_s_+",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad_by_mode_erg_s_-",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad_relative_error_estimate",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad_relative_error_estimate_by_mode_L",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad_relative_error_estimate_by_mode_+",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad_relative_error_estimate_by_mode_-",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad_mode_sum_relative_residual"
+      ],
+      "units": {
+        "g_X": "1",
+        "Rfar_Rnu": "erg s^-1",
+        "Rfar_Rnu_by_mode_erg_s_L": "erg s^-1",
+        "Rfar_Rnu_by_mode_erg_s_+": "erg s^-1",
+        "Rfar_Rnu_by_mode_erg_s_-": "erg s^-1",
+        "Rfar_Rnu_mode_sum_relative_residual": "1",
+        "Rfar_100km_vacuum_nu_tail": "erg s^-1",
+        "Rfar_100km_vacuum_nu_tail_by_mode_erg_s_L": "erg s^-1",
+        "Rfar_100km_vacuum_nu_tail_by_mode_erg_s_+": "erg s^-1",
+        "Rfar_100km_vacuum_nu_tail_by_mode_erg_s_-": "erg s^-1",
+        "Rfar_100km_vacuum_nu_tail_mode_sum_relative_residual": "1",
+        "Rfar_Rnu_adaptive_quad": "erg s^-1",
+        "Rfar_Rnu_adaptive_quad_by_mode_erg_s_L": "erg s^-1",
+        "Rfar_Rnu_adaptive_quad_by_mode_erg_s_+": "erg s^-1",
+        "Rfar_Rnu_adaptive_quad_by_mode_erg_s_-": "erg s^-1",
+        "Rfar_Rnu_adaptive_quad_relative_error_estimate": "1",
+        "Rfar_Rnu_adaptive_quad_relative_error_estimate_by_mode_L": "1",
+        "Rfar_Rnu_adaptive_quad_relative_error_estimate_by_mode_+": "1",
+        "Rfar_Rnu_adaptive_quad_relative_error_estimate_by_mode_-": "1",
+        "Rfar_Rnu_adaptive_quad_mode_sum_relative_residual": "1",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad": "erg s^-1",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad_by_mode_erg_s_L": "erg s^-1",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad_by_mode_erg_s_+": "erg s^-1",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad_by_mode_erg_s_-": "erg s^-1",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad_relative_error_estimate": "1",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad_relative_error_estimate_by_mode_L": "1",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad_relative_error_estimate_by_mode_+": "1",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad_relative_error_estimate_by_mode_-": "1",
+        "Rfar_100km_vacuum_nu_tail_adaptive_quad_mode_sum_relative_residual": "1"
+      }
+    },
+    {
+      "path": "results/C1-10MeV-45229265669-a1/convergence_report.json",
+      "role": "combined convergence report",
+      "format": "json",
+      "bytes": 7094,
+      "sha256": "b25383b35e87f014f30e0055ba25c4d005e4a6b2b062e8376734cc852e8ea168"
+    },
+    {
+      "path": "results/C1-10MeV-45229265669-a1/result_summary.json",
+      "role": "structured result summary",
+      "format": "json",
+      "bytes": 13223,
+      "sha256": "6101654204da43f302ef4c25117f681f87e2f4bac1c0ad5d0e4f32efedfeab38"
+    },
+    {
+      "path": "results/C1-10MeV-45229265669-a1/validation_report.json",
+      "role": "structured validation report",
+      "format": "json",
+      "bytes": 13990,
+      "sha256": "02830dc1e6780dc6440712f13f7cadd2f3704e2c4f605fb8d596d019ac99954b"
+    },
+    {
+      "path": "results/C1-10MeV-45229265669-a1/README.md",
+      "role": "archive guide",
+      "format": "markdown",
+      "bytes": 1049,
+      "sha256": "12595c46d32731cb32de14983a42fa6738f0828b6464e310ddefd3d0538557db"
+    },
+    {
+      "path": "results/C1-10MeV-45229265669-a1/SHA256SUMS.txt",
+      "role": "combined SHA-256 manifest",
+      "format": "text",
+      "bytes": 1525,
+      "sha256": "10318784768f0616d645626ffa0ed0f9a491d0675bd995ab9897942bae39ddef"
+    }
+  ],
+  "validation": {
+    "status": "partial",
+    "checks": [
+      {
+        "check_id": "C1-SOURCE-PROVENANCE",
+        "name": "Physics source commit provenance",
+        "category": "integrity",
+        "status": "passed",
+        "method": "Compare source/input files with git show at the recorded physics commit.",
+        "observed": 6,
+        "threshold": 6,
+        "unit": "files",
+        "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_croon_c1_10mev_adaptive_energy_convergence.py",
+        "notes": "All six source/input paths match the physics commit."
+      },
+      {
+        "check_id": "C1-PROFILE-INTEGRITY",
+        "name": "Reviewed SFHo-18.8 profile integrity",
+        "category": "integrity",
+        "status": "passed",
+        "method": "SHA-256 comparison with the profile hash embedded in the original C1 output.",
+        "observed": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+        "threshold": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+        "unit": "sha256",
+        "evidence_path": "results/C1-10MeV-45229265669-a1/sfho188_digitized.csv",
+        "notes": "Profile bytes match the recorded SHA-256."
+      },
+      {
+        "check_id": "C1-RADIAL-103-153",
+        "name": "Adaptive radial grid convergence",
+        "category": "convergence",
+        "status": "passed",
+        "method": "103/153-node comparison for both R_far boundaries and all three modes in the stated reference region.",
+        "observed": 0.0011692956845857593,
+        "threshold": 0.0012,
+        "unit": "1",
+        "evidence_path": "results/C1-10MeV-45229265669-a1/radial_convergence_report.json",
+        "notes": "Raw 100 km tail relative maximum occurs where reference luminosity is 8.7e-306 of peak."
+      },
+      {
+        "check_id": "C1-ENERGY-32-48",
+        "name": "Adaptive energy-order convergence",
+        "category": "convergence",
+        "status": "passed",
+        "method": "Full 121-point curves, source integrals, and surface asymptotes compared at fixed 153 radial nodes.",
+        "observed": 1.3031064843244444e-07,
+        "threshold": 0.0001,
+        "unit": "1",
+        "evidence_path": "results/C1-10MeV-45229265669-a1/energy_convergence_report.json"
+      },
+      {
+        "check_id": "C1-B7-DB",
+        "name": "B.7 mode detailed balance",
+        "category": "analytic",
+        "status": "passed",
+        "method": "Maximum mode-resolved detailed-balance residual.",
+        "observed": 3.295430550940328e-14,
+        "threshold": 1e-10,
+        "unit": "1",
+        "evidence_path": "results/C1-10MeV-45229265669-a1/final_transport.json"
+      },
+      {
+        "check_id": "C1-B13-DB",
+        "name": "B.13 charge/mode detailed balance",
+        "category": "analytic",
+        "status": "passed",
+        "method": "Maximum charge- and polarization-resolved detailed-balance residual.",
+        "observed": 6.077111168812619e-14,
+        "threshold": 1e-10,
+        "unit": "1",
+        "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_energy48_2026-11-20.json"
+      },
+      {
+        "check_id": "C1-MUON-SHELL",
+        "name": "Final-muon on-shell closure",
+        "category": "analytic",
+        "status": "passed",
+        "method": "Maximum final-muon mass-shell residual.",
+        "observed": 5.380211888635872e-13,
+        "threshold": 2e-10,
+        "unit": "1",
+        "evidence_path": "results/C1-10MeV-45229265669-a1/final_transport.json"
+      },
+      {
+        "check_id": "C1-QUADPACK",
+        "name": "Adaptive radial quadrature error estimate",
+        "category": "convergence",
+        "status": "passed",
+        "method": "Maximum QUADPACK relative error estimate across radial and energy audits.",
+        "observed": 1.3831232889847977e-07,
+        "threshold": 1e-06,
+        "unit": "1",
+        "evidence_path": "results/C1-10MeV-45229265669-a1/energy_convergence_report.json"
+      },
+      {
+        "check_id": "C1-MODE-CLOSURE",
+        "name": "Three-polarization sum closure",
+        "category": "analytic",
+        "status": "passed",
+        "method": "Maximum L+T++T- closure residual.",
+        "observed": 2.2133373146652667e-16,
+        "threshold": 1e-12,
+        "unit": "1",
+        "evidence_path": "results/C1-10MeV-45229265669-a1/energy_convergence_report.json"
+      },
+      {
+        "check_id": "C1-CHECKSUMS",
+        "name": "Original workflow checksum manifests",
+        "category": "integrity",
+        "status": "passed",
+        "method": "Recompute all entries in radial-native, radial-report, and energy SHA-256 manifests.",
+        "observed": 8,
+        "threshold": "all listed files",
+        "unit": "files",
+        "evidence_path": "results/C1-10MeV-45229265669-a1/energy_SHA256SUMS.txt"
+      },
+      {
+        "check_id": "C1-OUTER-OPACITY",
+        "name": "Outer 25-100 km semi-Compton opacity",
+        "category": "physical",
+        "status": "partial",
+        "method": "Inspect the final transport scope metadata.",
+        "observed": "omitted",
+        "threshold": "validated outer opacity included",
+        "unit": "scope",
+        "evidence_path": "results/C1-10MeV-45229265669-a1/final_transport.json",
+        "notes": "No validated 25-100 km muon-susceptibility profile is included."
+      },
+      {
+        "check_id": "C1-SN1987A-LIMIT",
+        "name": "Final SN1987A exclusion curve",
+        "category": "physical",
+        "status": "not_run",
+        "method": "Not evaluated by this 10 MeV interior-profile benchmark.",
+        "observed": null,
+        "threshold": "requires full outer transport and mass scan",
+        "unit": "scope",
+        "evidence_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_energy48_2026-11-20.json",
+        "notes": "No exclusion curve is inferred from this result."
+      }
+    ],
+    "report_path": "results/C1-10MeV-45229265669-a1/validation_report.json"
+  },
+  "archive": {
+    "status": "committed_to_pr_branch",
+    "pr_url": "https://github.com/lm846802297-bit/axial-vector-review-response/pull/123",
+    "verified_at": "2026-11-23T17:48:23Z"
+  },
+  "extensions": {
+    "source_files": {
+      "research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_croon_c1_10mev_adaptive_energy_convergence.py": "4c34390662552738cce62619f1bb5d405c9dec87067b666817437742977e551b",
+      "research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_c1_b13_vector_transport.py": "5a841fc06045fe556452d30693899dfb51f6c3ad81522596abe3076d8eb48177",
+      "research/stellar-cooling-constraints-20261105/blinov_reproduction/adaptive_radial_transport.py": "e3321e530c676cef8bd880f20dc6e1f6a345949c6119c4d533eabe618c0d34df",
+      ".github/workflows/croon-c1-10mev-adaptive-energy-convergence.yml": "a8f395cff64005a66543e9689f9d475209d80ff254a89165004fabdbb9e0369c",
+      "research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+      "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_2026-11-20.json": "3e9a9d4e979e557ec0cbf9b02a7daf00ce7289413765909e1ccacd82bff9c295"
+    },
+    "supernova_transport": {
+      "radial_workflow_run_id": 44650913407,
+      "radial_source_commit": "0bd47c1e9a263c1291dee8dce2701206e9035e80",
+      "radial_output_archive_commit": "5e037cec96480ee03c3eb64f00c32aa8bc4fcc4d",
+      "radial_report_commit": "db82bd60ec30ffeae7846067b34d748c037a98f8",
+      "energy_output_archive_commit": null,
+      "outer_semicompton_25_100_km": "not included",
+      "final_SN1987A_exclusion": "not computed"
+    },
+    "archive_generation": {
+      "generator_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/archive_croon_c1_10mev.py",
+      "generator_sha256": "9ae3b3ee6a38ea4939cc66460252aaaa5cef12b459119cd9a7348bce67c32a92",
+      "generated_at": "2026-11-23T17:48:21Z",
+      "archive_workflow_run_id": "45229265669",
+      "archive_workflow_commit_sha": "f404abed92d5095a306dda81b755372b119c6e92",
+      "finalized_at": "2026-11-23T17:48:23Z"
+    },
+    "source_outputs": {
+      "original_repository_paths": {
+        "r103j": {
+          "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_2026-11-20.json",
+          "sha256": "1ae6dcb8840b11a0c5e84be5972f42745afe59ab41c794b81b829bd9f9503125",
+          "bytes": 552242
+        },
+        "r103c": {
+          "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_2026-11-20.csv",
+          "sha256": "f0b469435b6e39b27f390ab513671dd4bac4a681405f2a73092aae7c87ec580c",
+          "bytes": 56034
+        },
+        "r153j": {
+          "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_2026-11-20.json",
+          "sha256": "3e9a9d4e979e557ec0cbf9b02a7daf00ce7289413765909e1ccacd82bff9c295",
+          "bytes": 710053
+        },
+        "r153c": {
+          "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_2026-11-20.csv",
+          "sha256": "51d479033d7acf5dc4a24d3ad841782fc5426c4faacb96c6cf597ee523e2fd6b",
+          "bytes": 82890
+        },
+        "radial": {
+          "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/C1_RNU_10MEV_ADAPTIVE_RADIAL_CONVERGENCE_2026-11-20.json",
+          "sha256": "299359be5ebd87b9494c219651fc356a4730b91a7c019e1aa5c0cdfb5c864085",
+          "bytes": 9315
+        },
+        "rsha": {
+          "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/SHA256SUMS_croon_c1_adaptive_radial_2026-11-20.txt",
+          "sha256": "877ebe9a6635b7219b0ceb469119a4d6320a714bff72d1a3726ca33f2c84860b",
+          "bytes": 584
+        },
+        "rreportsha": {
+          "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/SHA256SUMS_C1_RNU_10MEV_ADAPTIVE_RADIAL_CONVERGENCE_2026-11-20.txt",
+          "sha256": "58bd22c7cd838c08454b2c8e38df107e166f2c4ba29170ce3eca00463967607e",
+          "bytes": 131
+        },
+        "finalj": {
+          "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_energy48_2026-11-20.json",
+          "sha256": "67abb7a492f112223f5e994edb5a6c9fc16014358c1914b72ba168534eaf95f0",
+          "bytes": 710457
+        },
+        "finalc": {
+          "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_energy48_2026-11-20.csv",
+          "sha256": "e2e88ddc21820c99c5ce0173a00764d617d21e3fbb8c92787278b58c73a95d7e",
+          "bytes": 82881
+        },
+        "energy": {
+          "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/C1_RNU_10MEV_ADAPTIVE_ENERGY_CONVERGENCE_2026-11-20.json",
+          "sha256": "2df033579fe24c402252a95cf0bc5b0add68168a8305c31934a7a658925cf16a",
+          "bytes": 5554
+        },
+        "esha": {
+          "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/SHA256SUMS_croon_c1_adaptive_energy_convergence_2026-11-20.txt",
+          "sha256": "86a22f6ff3c005fc21a8e285b7350ba5379227cf52116d946c90bdf5ef9aeab8",
+          "bytes": 450
+        }
+      }
+    },
+    "source_checksum_verification": {
+      "radial_native": [
+        {
+          "file": "outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_2026-11-20.json",
+          "sha256": "1ae6dcb8840b11a0c5e84be5972f42745afe59ab41c794b81b829bd9f9503125",
+          "matches": true
+        },
+        {
+          "file": "outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_2026-11-20.csv",
+          "sha256": "f0b469435b6e39b27f390ab513671dd4bac4a681405f2a73092aae7c87ec580c",
+          "matches": true
+        },
+        {
+          "file": "outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_2026-11-20.json",
+          "sha256": "3e9a9d4e979e557ec0cbf9b02a7daf00ce7289413765909e1ccacd82bff9c295",
+          "matches": true
+        },
+        {
+          "file": "outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_2026-11-20.csv",
+          "sha256": "51d479033d7acf5dc4a24d3ad841782fc5426c4faacb96c6cf597ee523e2fd6b",
+          "matches": true
+        }
+      ],
+      "radial_report": [
+        {
+          "file": "outputs/C1_RNU_10MEV_ADAPTIVE_RADIAL_CONVERGENCE_2026-11-20.json",
+          "sha256": "299359be5ebd87b9494c219651fc356a4730b91a7c019e1aa5c0cdfb5c864085",
+          "matches": true
+        }
+      ],
+      "energy": [
+        {
+          "file": "outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_energy48_2026-11-20.json",
+          "sha256": "67abb7a492f112223f5e994edb5a6c9fc16014358c1914b72ba168534eaf95f0",
+          "matches": true
+        },
+        {
+          "file": "outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_energy48_2026-11-20.csv",
+          "sha256": "e2e88ddc21820c99c5ce0173a00764d617d21e3fbb8c92787278b58c73a95d7e",
+          "matches": true
+        },
+        {
+          "file": "outputs/C1_RNU_10MEV_ADAPTIVE_ENERGY_CONVERGENCE_2026-11-20.json",
+          "sha256": "2df033579fe24c402252a95cf0bc5b0add68168a8305c31934a7a658925cf16a",
+          "matches": true
+        }
+      ]
+    }
+  }
+}

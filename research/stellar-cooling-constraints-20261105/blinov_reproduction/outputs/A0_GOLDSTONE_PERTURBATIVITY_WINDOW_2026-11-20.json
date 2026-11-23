@@ -1,0 +1,103 @@
+{
+  "title": "A0 Goldstone-Yukawa perturbativity window",
+  "status": "computed locally",
+  "criterion": "y_Gμμ^2/(4 pi) <= 1",
+  "theta_mu_R": 0.01,
+  "coupling_map": {
+    "g_A_mu_over_g_X": "-cos(theta_mu_R)^2",
+    "m_A_prime": "2 g_X v_s",
+    "y_G_mumu": "2 |g_A_mu| m_mu / m_A_prime = cos(theta_mu_R)^2 m_mu / v_s"
+  },
+  "scan": {
+    "g_X_min": 1e-11,
+    "g_X_max": 1,
+    "points": 121
+  },
+  "masses": [
+    {
+      "mass_label": "0.1 eV",
+      "m_A_MeV": 1e-7,
+      "g_X_perturbative_max": 1.6777005132997098e-9,
+      "g_X_scan_min": 1e-11,
+      "g_X_scan_max": 1,
+      "scan_points": 121,
+      "perturbative_points": 25,
+      "perturbative_fraction_of_scan": 0.2066115702479339,
+      "largest_perturbative_scan_point": 1.584893192461111e-9,
+      "goldstone_yukawa_at_gX_1": 2112956200.2927978,
+      "alpha_G_at_gX_1": 355280298613367900,
+      "goldstone_yukawa_at_perturbative_boundary": 3.5449077018110318
+    },
+    {
+      "mass_label": "1 eV",
+      "m_A_MeV": 0.000001,
+      "g_X_perturbative_max": 1.67770051329971e-8,
+      "g_X_scan_min": 1e-11,
+      "g_X_scan_max": 1,
+      "scan_points": 121,
+      "perturbative_points": 36,
+      "perturbative_fraction_of_scan": 0.2975206611570248,
+      "largest_perturbative_scan_point": 1.615598098439876e-8,
+      "goldstone_yukawa_at_gX_1": 211295620.0292798,
+      "alpha_G_at_gX_1": 3552802986133679,
+      "goldstone_yukawa_at_perturbative_boundary": 3.5449077018110318
+    },
+    {
+      "mass_label": "10 eV",
+      "m_A_MeV": 0.00001,
+      "g_X_perturbative_max": 1.6777005132997103e-7,
+      "g_X_scan_min": 1e-11,
+      "g_X_scan_max": 1,
+      "scan_points": 121,
+      "perturbative_points": 47,
+      "perturbative_fraction_of_scan": 0.3884297520661157,
+      "largest_perturbative_scan_point": 1.6468978654828688e-7,
+      "goldstone_yukawa_at_gX_1": 21129562.002927978,
+      "alpha_G_at_gX_1": 35528029861336.78,
+      "goldstone_yukawa_at_perturbative_boundary": 3.5449077018110318
+    },
+    {
+      "mass_label": "0.1 MeV",
+      "m_A_MeV": 0.1,
+      "g_X_perturbative_max": 0.00167770051329971,
+      "g_X_scan_min": 1e-11,
+      "g_X_scan_max": 1,
+      "scan_points": 121,
+      "perturbative_points": 90,
+      "perturbative_fraction_of_scan": 0.743801652892562,
+      "largest_perturbative_scan_point": 0.0014399033208816327,
+      "goldstone_yukawa_at_gX_1": 2112.956200292798,
+      "alpha_G_at_gX_1": 355280.29861336784,
+      "goldstone_yukawa_at_perturbative_boundary": 3.5449077018110318
+    },
+    {
+      "mass_label": "10 MeV",
+      "m_A_MeV": 10,
+      "g_X_perturbative_max": 0.167770051329971,
+      "g_X_scan_min": 1e-11,
+      "g_X_scan_max": 1,
+      "scan_points": 121,
+      "perturbative_points": 112,
+      "perturbative_fraction_of_scan": 0.9256198347107438,
+      "largest_perturbative_scan_point": 0.1496235656094436,
+      "goldstone_yukawa_at_gX_1": 21.129562002927976,
+      "alpha_G_at_gX_1": 35.52802986133678,
+      "goldstone_yukawa_at_perturbative_boundary": 3.5449077018110318
+    },
+    {
+      "mass_label": "200 MeV",
+      "m_A_MeV": 200,
+      "g_X_perturbative_max": 3.35540102659942,
+      "g_X_scan_min": 1e-11,
+      "g_X_scan_max": 1,
+      "scan_points": 121,
+      "perturbative_points": 121,
+      "perturbative_fraction_of_scan": 1,
+      "largest_perturbative_scan_point": 1,
+      "goldstone_yukawa_at_gX_1": 1.056478100146399,
+      "alpha_G_at_gX_1": 0.08882007465334199,
+      "goldstone_yukawa_at_perturbative_boundary": 3.5449077018110318
+    }
+  ],
+  "interpretation": "The full transport scan may be retained for numerical diagnostics, but only points satisfying the stated Goldstone-Yukawa criterion belong to this conservative perturbative A0 domain."
+}
