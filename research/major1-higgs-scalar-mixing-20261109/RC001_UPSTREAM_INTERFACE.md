@@ -453,3 +453,21 @@ The complete frozen `high-energy-theory-research` main-branch RC-001 payload is 
 The remote read-back comparison checked all 480 source paths against their mapped destination paths. All 480 Git blob SHAs and file sizes match exactly; there are zero missing paths, SHA mismatches, or size mismatches. This is an archival-integrity check. It does not rerun calculations or change the scientific validation status.
 
 The original source repository's PR #9 and PR #14 were still open at migration time and are not included in this frozen main-branch snapshot. Their proposed changes remain separate review work and must not be described as merged research results.
+
+
+## 8. Canonical archive relocation — 2026-11-23
+
+The concrete RC-001 source materials have been mirrored into this project repository. The immutable source snapshot is:
+
+- Source repository: [high-energy-theory-research](https://github.com/lm846802297-bit/high-energy-theory-research)
+- Frozen source `main`: `b2dd8f7e4427d0292bc299d273c780c05021fdab`
+- Target archive root: [`research/rc001-vll-higgs-singlet-uv-eft/upstream/`](../rc001-vll-higgs-singlet-uv-eft/upstream/)
+- Migration PR: [#135](https://github.com/lm846802297-bit/axial-vector-review-response/pull/135)
+
+The archive preserves the original source-relative paths beneath `upstream/`, including `research/`, `calculations/`, `validation/`, `artifacts/`, and the three RC-001 workflow files. The existing Major 1 workstream files are not overwritten. The source `research/README.md` is retained inside the mirrored `upstream/research/` subtree.
+
+**Remote read-back result:** all 480 source files are present at their mapped target paths. For every file, the target Git blob SHA and byte size match the frozen source tree exactly: 480/480 matched, 0 missing, 0 mismatches. This is an archive-integrity result, not a new physics validation.
+
+The old sections above retain their historical pinned commits as provenance snapshots. For current file access, use the mirrored archive root and the frozen source commit recorded here. PR #9 and PR #14 were open at the time of migration and are not included in this frozen-main snapshot; their unmerged changes remain separate.
+
+The source repository will be cleaned only after this migration PR is reviewed and merged, followed by a separate source-repository cleanup PR.
