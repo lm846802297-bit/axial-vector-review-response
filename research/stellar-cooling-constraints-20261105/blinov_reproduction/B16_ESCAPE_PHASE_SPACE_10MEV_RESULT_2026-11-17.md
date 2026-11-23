@@ -35,7 +35,7 @@ The source and opacity grids reproduce their archived fingerprints exactly. The 
 Profile SHA-256:
 `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`.
 
-The byte-level runtime hash \`db6f613c...\` also appears in a cross-runner production run. Its 842 nodes nevertheless match the immutable archived reference within a maximum absolute difference of \(5.684341886080802\times10^{-14}\) MeV, maximum relative difference \(1.1675488289093305\times10^{-16}\), and one ULP. The original baseline hash \`036e6d77...\` and immutable node reference remain unchanged; physical grid equivalence is established by the node-wise comparison, not by requiring identical floating-point bytes.
+The byte-level runtime hash `db6f613c...` also appears in a cross-runner production run. Its 842 nodes nevertheless match the immutable archived reference within a maximum absolute difference of \(5.684341886080802\times10^{-14}\) MeV, maximum relative difference \(1.1675488289093305\times10^{-16}\), and one ULP. The original baseline hash `036e6d77...` and immutable node reference remain unchanged; physical grid equivalence is established by the node-wise comparison, not by requiring identical floating-point bytes.
 
 ## Global luminosity and baseline closure
 
