@@ -1,0 +1,37 @@
+{
+  "record_type": "task_provenance",
+  "provenance_version": "1.0.0",
+  "task_id": "20261123-ldw06-external-antilepton-leg",
+  "repository": "lm846802297-bit/axial-vector-review-response",
+  "task_brief_path": "research/rc001-vll-higgs-singlet-uv-eft/task_briefs/20261123-ldw06-external-antilepton-leg.md",
+  "task_brief_sha256": "6051278c962aac02d3dace3091e90e3c91d2462622e8ba87dcd7fe2a6393a3b4",
+  "central_repository": "lm846802297-bit/high-energy-theory-research",
+  "central_commit_sha": "db503f0eb579bdbcac702e44237a6610c34690e7",
+  "lock_file_path": "research/standards-lock.yaml",
+  "lock_file_sha256": "165a29e0b6f372f194d33acac208edfcd2c850d1019db6f18111c5b0f7984813",
+  "applied_profiles": [
+    "task-handoff",
+    "research-compute",
+    "research-quality-gate",
+    "rcrps-v1.0.1"
+  ],
+  "project_extensions": [
+    {
+      "path": "AGENTS.md",
+      "scope": "Axial task routes and scope boundaries",
+      "sha256": "03339c1c5eb9ec3e8b70039485cab9c43f886692dbbaa27335afe14d8eedfd93"
+    },
+    {
+      "path": "docs/repository-management/STRUCTURED_RESULT_DATA_STANDARD.md",
+      "scope": "Axial UV–EFT metadata",
+      "sha256": "e74fae2e8d2da8ed655d9f764f70cbca74c6b2614bb6efcb7011fa604abd5cc3"
+    }
+  ],
+  "acceptance_criteria": [
+    "Exact momentum conservation, left-arrow and chiral Ward endpoint on the actual seed, including dual weak representation.",
+    "Two nonzero rational off-shell cases, one on-shell left-fermion row after amputation, and matrix element equality at zero tolerance.",
+    "Wrong arrow, crossing, order, projector, and unconverted weak action fail; the inverse term can only be removed after the on-shell row projection.",
+    "Fresh byte-identical run on topic base and actual source-control, standards, and native I/O provenance.",
+    "No claim about whole external-leg sum, full LSZ, Ward/STI, or integrated matching."
+  ]
+}

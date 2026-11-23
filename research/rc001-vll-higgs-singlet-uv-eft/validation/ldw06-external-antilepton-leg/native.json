@@ -1,0 +1,89 @@
+{
+  "scope": "single reducible barred L(p1) emission of the LD-W-06 ordered box prior to integration",
+  "runtime": {
+    "python": "3.12.14",
+    "sympy": "1.14.0",
+    "platform": "Linux",
+    "machine": "x86_64"
+  },
+  "symbolic": {
+    "connected_ward_polynomial": 16,
+    "amputated_ward_polynomial": 16,
+    "dual_representation_generators": 3,
+    "routing": "exact"
+  },
+  "points": [
+    {
+      "p1_squared": "3",
+      "q_squared": "-4",
+      "P_squared": "3",
+      "lower_box_poles": [
+        "10",
+        "11",
+        "19",
+        "-408"
+      ],
+      "heavy_pole_without_crossed_shift": "-398",
+      "entries": {
+        "uncontracted": 3072,
+        "contracted": 768,
+        "barred_external_propagator_restored": 768,
+        "barred_on_shell_projected": 0,
+        "reversed_arrow": 288,
+        "wrong_crossing": 288,
+        "wrong_matrix_order": 288,
+        "wrong_chirality": 288,
+        "wrong_dual_charge": 192,
+        "missing_inverse_propagator_term": 288
+      }
+    },
+    {
+      "p1_squared": "3",
+      "q_squared": "0",
+      "P_squared": "7",
+      "lower_box_poles": [
+        "34",
+        "35",
+        "61",
+        "-396"
+      ],
+      "heavy_pole_without_crossed_shift": "-386",
+      "entries": {
+        "uncontracted": 3072,
+        "contracted": 768,
+        "barred_external_propagator_restored": 768,
+        "barred_on_shell_projected": 0,
+        "reversed_arrow": 288,
+        "wrong_crossing": 288,
+        "wrong_matrix_order": 144,
+        "wrong_chirality": 288,
+        "wrong_dual_charge": 192,
+        "missing_inverse_propagator_term": 288
+      }
+    },
+    {
+      "p1_squared": "0",
+      "q_squared": "-4",
+      "P_squared": "-6",
+      "lower_box_poles": [
+        "19",
+        "23",
+        "27",
+        "-395"
+      ],
+      "heavy_pole_without_crossed_shift": "-385",
+      "entries": {
+        "uncontracted": 3072,
+        "contracted": 768,
+        "barred_external_propagator_restored": 0,
+        "barred_on_shell_projected": 768,
+        "reversed_arrow": 288,
+        "wrong_crossing": 288,
+        "wrong_matrix_order": 144,
+        "wrong_chirality": 288,
+        "wrong_dual_charge": 192,
+        "missing_inverse_propagator_term": 0
+      }
+    }
+  ]
+}

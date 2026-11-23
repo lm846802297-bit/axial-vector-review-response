@@ -1,0 +1,239 @@
+{
+  "schema_version": "1.0.1",
+  "record_type": "run_manifest",
+  "run_id": "rc001-ldw06-barL-20261123T133638Z",
+  "created_at": "2026-11-23T13:36:46.369547+00:00",
+  "project": {
+    "repository": "lm846802297-bit/axial-vector-review-response",
+    "project_id": "RC-001",
+    "workstream_id": "RC-001-WW-UV-FF-02"
+  },
+  "source": {
+    "commit_sha": "738ea49a0146ee3777d4c057bbb9a40ef77b8fc1",
+    "script_path": "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-external-antilepton-leg/check.py",
+    "script_sha256": "e06493bd2915a2693a49b753f03dfab6e8510010dcbd50af6014e3ac51cc1a43"
+  },
+  "inputs": [
+    {
+      "name": "RC-001-dim6-WW-UV-fivepoint-routing-Ward-numerators.md",
+      "source": "Frozen analytic convention or kernel from exact axial-vector topic base",
+      "version": "738ea49a0146ee3777d4c057bbb9a40ef77b8fc1",
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-UV-fivepoint-routing-Ward-numerators.md",
+      "format": "markdown",
+      "bytes": 13031,
+      "sha256": "e08371ce9013fdfd1c1a3a68189c607ed15e535e51bd76f1e1d9e4e5f751343c",
+      "transformation": "Used to derive the symbolic diagnostic; not opened by check.py."
+    },
+    {
+      "name": "RC-001-dim6-WW-fivepoint-oriented-numerators-phases.md",
+      "source": "Frozen analytic convention or kernel from exact axial-vector topic base",
+      "version": "738ea49a0146ee3777d4c057bbb9a40ef77b8fc1",
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-fivepoint-oriented-numerators-phases.md",
+      "format": "markdown",
+      "bytes": 14903,
+      "sha256": "481723f6351c393118b6bfb46727c49a9aad868279116e1ab4b0bd811ea9879e",
+      "transformation": "Used to derive the symbolic diagnostic; not opened by check.py."
+    },
+    {
+      "name": "RC-001-dim6-WW-cross-vertex-raw-weak-index-bridge.md",
+      "source": "Frozen analytic convention or kernel from exact axial-vector topic base",
+      "version": "738ea49a0146ee3777d4c057bbb9a40ef77b8fc1",
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-cross-vertex-raw-weak-index-bridge.md",
+      "format": "markdown",
+      "bytes": 7997,
+      "sha256": "a908cc810572f1c5a22477f87b6475575afe54be096f7eb941facc82e5d971ff",
+      "transformation": "Used to derive the symbolic diagnostic; not opened by check.py."
+    },
+    {
+      "name": "RC-001-dim6-WW-fivepoint-1PI-vs-1PR-LSZ-boundary.md",
+      "source": "Frozen analytic convention or kernel from exact axial-vector topic base",
+      "version": "738ea49a0146ee3777d4c057bbb9a40ef77b8fc1",
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-fivepoint-1PI-vs-1PR-LSZ-boundary.md",
+      "format": "markdown",
+      "bytes": 4558,
+      "sha256": "4d2e151dc466714f242bffce4da7cc3735eae9fa0020cff618c5f35bf58cbe84",
+      "transformation": "Used to derive the symbolic diagnostic; not opened by check.py."
+    },
+    {
+      "name": "RC-001-dim6-WW-fivepoint-common-k-ordinary-matter-assembly-ledger.md",
+      "source": "Frozen analytic convention or kernel from exact axial-vector topic base",
+      "version": "738ea49a0146ee3777d4c057bbb9a40ef77b8fc1",
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-fivepoint-common-k-ordinary-matter-assembly-ledger.md",
+      "format": "markdown",
+      "bytes": 39402,
+      "sha256": "dc7849f6969253df9c70b025c3f79072fe790e4013843c7f7ed67f8760d5e101",
+      "transformation": "Used to derive the symbolic diagnostic; not opened by check.py."
+    }
+  ],
+  "configuration": {
+    "physics": {
+      "diagnostic_M_E_squared": "400 in consistent arbitrary units",
+      "process": "external barred L(p1) on ordered LD-W-06 S–S four-point box"
+    },
+    "numerics": {
+      "method": "exact symbolic/rational matrix arithmetic",
+      "diagnostic_points": 3,
+      "comparison_tolerance": 0
+    },
+    "conventions": {
+      "metric": "+---",
+      "momentum": "all incoming",
+      "fourier_phase": "exp(-ipx)",
+      "q_is_external_W": true
+    }
+  },
+  "environment": {
+    "platform": "Linux x86_64",
+    "runtime": {
+      "python": "3.12.14",
+      "implementation": "CPython",
+      "git": "git version 2.56.1"
+    },
+    "dependencies": {
+      "sympy": "1.14.0"
+    },
+    "hardware": {
+      "execution_target": "GPT-managed Linux cloud workspace",
+      "processes": 1,
+      "logical_cpus_available": 9,
+      "gpu_used": false
+    }
+  },
+  "execution": {
+    "status": "succeeded",
+    "command": "python -B research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-external-antilepton-leg/check.py",
+    "started_at": "2026-11-23T13:36:38.250710+00:00",
+    "finished_at": "2026-11-23T13:36:46.369547+00:00",
+    "exit_code": 0,
+    "wall_time_s": 8.118825,
+    "source_control": {
+      "event": "local_manual",
+      "checkout_mode": "detached_commit",
+      "checkout_ref": null,
+      "pr_number": null,
+      "pr_url": null,
+      "pr_head_sha": null,
+      "base_sha": null,
+      "tested_merge_sha": null,
+      "head_ref": null,
+      "base_ref": null,
+      "workflow_run_id": null,
+      "workflow_run_attempt": null,
+      "working_tree_state": "dirty",
+      "dirty_paths": [
+        "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-external-antilepton-leg/check.py"
+      ]
+    }
+  },
+  "outputs": [
+    {
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-external-antilepton-leg/native.json",
+      "role": "native exact matrix-component diagnostics",
+      "format": "json",
+      "sha256": "8a466405834bb89d7f04737f46a91cb25a6fb9ad6eab9f6d6b81bee860aae4bb",
+      "bytes": 2244,
+      "records": 3
+    }
+  ],
+  "validation": {
+    "status": "passed",
+    "checks": [
+      {
+        "check_id": "analytic-routing",
+        "name": "Symbolic left chiral Ward identities and actual vertex routing",
+        "category": "analytic",
+        "status": "passed",
+        "threshold": "exact",
+        "observed": "32/32 polynomial matrix entries; 3/3 dual weak generators and exact routing",
+        "evidence_path": "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-external-antilepton-leg/native.json"
+      },
+      {
+        "check_id": "signed-sewing",
+        "name": "Direct bare sewing vs Ward formula",
+        "category": "independent",
+        "status": "passed",
+        "threshold": "zero differing entries",
+        "observed": "uncontracted=9216, contracted=2304, barred_external_propagator_restored=1536, barred_on_shell_projected=768",
+        "evidence_path": "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-external-antilepton-leg/native.json"
+      },
+      {
+        "check_id": "negative-sign-controls",
+        "name": "Crossing, arrow, matrix and projector order, dual weak action and off-shell inverse mutations",
+        "category": "unit",
+        "status": "passed",
+        "threshold": "each applicable mutation detected",
+        "observed": "all requested controls detected; inverse-drop agrees only at barred on-shell row projection",
+        "evidence_path": "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-external-antilepton-leg/native.json"
+      },
+      {
+        "check_id": "native-byte-replay",
+        "name": "Fresh native output vs previously reviewed exact JSON",
+        "category": "integrity",
+        "status": "passed",
+        "threshold": "byte-identical stdout and no stderr",
+        "observed": "8a466405834bb89d7f04737f46a91cb25a6fb9ad6eab9f6d6b81bee860aae4bb",
+        "evidence_path": "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-external-antilepton-leg/native.json"
+      }
+    ]
+  },
+  "archive": {
+    "status": "local_only"
+  },
+  "extensions": {
+    "standards_provenance": {
+      "task_id": "20261123-ldw06-external-antilepton-leg",
+      "task_brief_path": "research/rc001-vll-higgs-singlet-uv-eft/task_briefs/20261123-ldw06-external-antilepton-leg.md",
+      "task_brief_sha256": "6051278c962aac02d3dace3091e90e3c91d2462622e8ba87dcd7fe2a6393a3b4",
+      "central_repository": "lm846802297-bit/high-energy-theory-research",
+      "central_commit_sha": "db503f0eb579bdbcac702e44237a6610c34690e7",
+      "lock_file_path": "research/standards-lock.yaml",
+      "lock_file_sha256": "165a29e0b6f372f194d33acac208edfcd2c850d1019db6f18111c5b0f7984813",
+      "applied_profiles": [
+        "task-handoff",
+        "research-compute",
+        "research-quality-gate",
+        "rcrps-v1.0.1"
+      ],
+      "project_extensions": [
+        "AGENTS.md",
+        "docs/repository-management/STRUCTURED_RESULT_DATA_STANDARD.md"
+      ],
+      "project_extension_records": [
+        {
+          "path": "AGENTS.md",
+          "scope": "Axial task routes and scope boundaries",
+          "sha256": "03339c1c5eb9ec3e8b70039485cab9c43f886692dbbaa27335afe14d8eedfd93"
+        },
+        {
+          "path": "docs/repository-management/STRUCTURED_RESULT_DATA_STANDARD.md",
+          "scope": "Axial UV–EFT metadata",
+          "sha256": "e74fae2e8d2da8ed655d9f764f70cbca74c6b2614bb6efcb7011fa604abd5cc3"
+        }
+      ]
+    },
+    "uv_eft": {
+      "model": "Unbroken SU(2) singlet vector-like heavy lepton E; Higgs and light fermions massless",
+      "parameters": {
+        "M_E_squared_diagnostic": 400,
+        "y_ell": "symbolic Yukawa; squared modulus in P4",
+        "g2": "symbolic SU(2) coupling",
+        "scalar_mass": 0
+      },
+      "gauge": "ordinary Feynman gauge",
+      "gamma5": "four-dimensional exact Dirac matrices with P_L=(I−γ5)/2; no D-dimensional trace, integration or scheme claim",
+      "ir_prescription": "nonsingular off-shell rational momenta; separate external massless barred-row projection after amputation; no integrated IR regulator",
+      "renormalization": {
+        "scheme": null,
+        "scale": null,
+        "reason": "bare integrand diagnostic, no loop integral or UV subtraction"
+      },
+      "matching": {
+        "scale": null,
+        "operator_basis": null,
+        "reason": "no EFT projection, matching or Wilson extraction"
+      },
+      "diagram_coverage": "one LD-W-06 left barred L(p1) reducible emission attached to the actual ordered UV S–S box",
+      "counterterms": "not evaluated; no field-strength or full LSZ claim"
+    }
+  }
+}
