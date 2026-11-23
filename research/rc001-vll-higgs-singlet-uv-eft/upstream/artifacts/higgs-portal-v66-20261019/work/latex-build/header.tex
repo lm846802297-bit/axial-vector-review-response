@@ -1,0 +1,6 @@
+\usepackage{etoolbox}
+\AtBeginEnvironment{longtable}{\footnotesize\setlength{\tabcolsep}{2.8pt}\renewcommand{\arraystretch}{1.12}}
+\AtBeginEnvironment{tabular}{\footnotesize\setlength{\tabcolsep}{2.8pt}\renewcommand{\arraystretch}{1.12}}
+\setlength{\parskip}{0.22em}
+\setlength{\emergencystretch}{3em}
+\providecommand{\slashed}[1]{\mathord{\setbox0=\hbox{$#1$}\hbox to \wd0{\hss$/$\hss}\llap{\box0}}}
