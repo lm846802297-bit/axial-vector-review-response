@@ -1,0 +1,3 @@
+Heavy propagator: -i slash(P)/M^2 + O(M^-4): PASS
+Common light-only loop factor cancels at O(M^-2): PASS
+SCOPE: requires the complete gauge-covariant EFT insertion/contact set; no loop integral is evaluated.

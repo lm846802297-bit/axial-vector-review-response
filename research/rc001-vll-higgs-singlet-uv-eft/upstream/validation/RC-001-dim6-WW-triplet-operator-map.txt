@@ -1,0 +1,27 @@
+RC-001 Q_LD triplet derivative operator map
+
+Derived off-shell identity:
+  Q_LD^(3) = 2 i (D_mu H)^dag H (bar L gamma^mu L)
+             + 2(H^dag H)(bar L i slash D L) - Q_LD.
+
+Equivalent current decomposition:
+  2 i (D_mu H)^dag H
+    = i partial_mu(H^dag H) - H^dag i<->D_mu H.
+
+Checks:
+  PASS: explicit two-component Pauli-matrix completeness contraction.
+  PASS: component-level identity with independent symbolic bilinears.
+  PASS: derivative/current decomposition.
+  PASS: lepton-EOM current divergence and IBP reduction to -O_Hl^(1) plus the Hermitian Yukawa-source pair.
+  Local SymPy reproduction: all three algebraic residuals simplify exactly to zero. The regression suite contains 3 tests.
+
+EOM convention:
+  L_Y = -bar L Y_e H e_R + h.c.
+  i slash D L = Y_e H e_R.
+The EOM term is therefore a Higgs-dressed Yukawa/source operator and must not be discarded.
+The total-derivative term must be integrated by parts together with the divergence of bar L gamma^mu L.
+
+Boundary:
+  The first identity is exact off shell; the final boxed basis relation uses IBP and the stated light-lepton EOM.
+  It does not calculate the UV one-W five-point form factor,
+  perform the common UV-EFT subtraction, or determine a final Warsaw-basis Wilson coefficient.

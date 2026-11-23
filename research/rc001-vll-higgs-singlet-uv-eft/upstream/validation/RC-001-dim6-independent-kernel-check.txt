@@ -1,0 +1,26 @@
+PASS: direct Feynman-parameter logarithm integral is -2
+PASS: symmetric Feynman-parameter first moment is 1/2
+PASS: 2 k.(k+q) numerator identity
+PASS: crossed-current hard/soft sum
+PASS: four-fermion hard/soft sum
+PASS: Q6-quartic hard/soft sum
+PASS: Q6-quartic vector coefficients are proportional to p+Q/2
+PASS: SU(2) completeness component 0000
+PASS: SU(2) completeness component 0001
+PASS: SU(2) completeness component 0010
+PASS: SU(2) completeness component 0011
+PASS: SU(2) completeness component 0100
+PASS: SU(2) completeness component 0101
+PASS: SU(2) completeness component 0110
+PASS: SU(2) completeness component 0111
+PASS: SU(2) completeness component 1000
+PASS: SU(2) completeness component 1001
+PASS: SU(2) completeness component 1010
+PASS: SU(2) completeness component 1011
+PASS: SU(2) completeness component 1100
+PASS: SU(2) completeness component 1101
+PASS: SU(2) completeness component 1110
+PASS: SU(2) completeness component 1111
+RESULT: 23 exact symbolic checks passed (16 SU(2) components).
+SCOPE: independent local algebra/Feynman-parameter checks of stripped kernels only.
+NOT CLAIMED: full UV diagram generation, gauge-sector closure, or model-level Wilson-vector closure.

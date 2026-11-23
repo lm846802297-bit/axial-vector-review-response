@@ -1,0 +1,18 @@
+RC-001 symmetric nonexceptional four-point kinematics
+
+Euclidean external momenta:
+  p1+p2+p3+p4=0
+  p_i^2=mu_IR^2
+  p_i.p_j=-mu_IR^2/3 for i != j
+
+Exact SymPy checks:
+  PASS: p4=-(p1+p2+p3) also satisfies p4^2=mu_IR^2.
+  PASS: all three p4.p_i equal -mu_IR^2/3.
+  PASS: det Gram(p1,p2,p3)=16 mu_IR^6/27.
+  PASS: Gram eigenvalues are (1/3,4/3,4/3) mu_IR^2.
+  PASS: every two-particle channel (p_i+p_j)^2=4 mu_IR^2/3.
+
+The 4x4 Gram matrix has one zero eigenvalue from momentum conservation and three positive eigenvalues, so no external leg or two-particle channel is exceptional.
+
+Boundary:
+  Kinematics and Gram-matrix check only. No loop integral, Dirac projector, EFT contact graph, R* forest, or Wilson coefficient is evaluated.
