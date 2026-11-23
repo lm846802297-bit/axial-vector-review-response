@@ -20,10 +20,16 @@ try:
     from .audit_b16_global_redshift import (
         DEFAULT_FIG7, eq_b1_source_measure, float_array_sha256, weighted_quantile,
     )
+    from .energy_grid_identity import (
+        DEFAULT_ENERGY_GRID_REFERENCE, compare_energy_grid, load_energy_grid_reference,
+    )
 except ImportError:
     from reference import DEFAULT_PROFILE, radial_rule, load_profile, local_rates, scalar_optical_depths
     from audit_b16_global_redshift import (
         DEFAULT_FIG7, eq_b1_source_measure, float_array_sha256, weighted_quantile,
+    )
+    from energy_grid_identity import (
+        DEFAULT_ENERGY_GRID_REFERENCE, compare_energy_grid, load_energy_grid_reference,
     )
 
 HERE = Path(__file__).resolve().parent
@@ -233,7 +239,8 @@ def region_summary(name, region_mask, r, energies, angles, angle_weights,
 def run(profile_path=DEFAULT_PROFILE, fig7_path=DEFAULT_FIG7,
         baseline_path=DEFAULT_BASELINE, mass=10.0,
         radial_order=200, opacity_order=640, energy_order=200,
-        angular_order=32, path_order=64, energy_offset=1000.0):
+        angular_order=32, path_order=64, energy_offset=1000.0,
+        grid_reference_path=DEFAULT_ENERGY_GRID_REFERENCE):
     if float(mass) != 10.0:
         raise ValueError("This targeted audit is deliberately restricted to m=10 MeV")
     baseline_payload = json.loads(Path(baseline_path).read_text(encoding="utf-8"))
@@ -290,17 +297,25 @@ def run(profile_path=DEFAULT_PROFILE, fig7_path=DEFAULT_FIG7,
     expected_hashes = {
         "source_grid_sha256": baseline_config["source_grid_sha256"],
         "opacity_grid_sha256": baseline_config["opacity_grid_sha256"],
-        "energy_grid_sha256": baseline_config["energy_grid_sha256"],
     }
     actual_hashes = {
         "source_grid_sha256": source_grid_hash,
         "opacity_grid_sha256": opacity_grid_hash,
-        "energy_grid_sha256": energy_grid_hash,
     }
     if actual_hashes != expected_hashes:
         raise ArithmeticError(
-            "Phase-space grids differ from the archived high-order B.16 baseline: "
+            "B.16 source or opacity grid differs from the archived baseline: "
             + json.dumps({"expected": expected_hashes, "actual": actual_hashes})
+        )
+    grid_reference = load_energy_grid_reference(
+        grid_reference_path, baseline_config["energy_grid_sha256"]
+    )
+    energy_grid_comparison = compare_energy_grid(energies, grid_reference)
+    if not energy_grid_comparison["matches"]:
+        raise ArithmeticError(
+            "B.16 energy grid differs from the archived node reference beyond "
+            "the declared floating-point tolerance: "
+            + json.dumps(energy_grid_comparison)
         )
     if current_profile_hash != baseline["profile"]["sha256"]:
         raise ArithmeticError("Profile fingerprint differs from the archived high-order baseline")
@@ -395,6 +410,9 @@ def run(profile_path=DEFAULT_PROFILE, fig7_path=DEFAULT_FIG7,
             "energy_order": energy_order,
             "energy_node_count": len(energies),
             "energy_grid_sha256": energy_grid_hash,
+            "energy_grid_reference_file_sha256": grid_reference["_file_sha256"],
+            "energy_grid_reference_comparison": energy_grid_comparison,
+            "energy_grid_nodes_MeV": energies.tolist(),
             "angular_order": angular_order,
             "path_order": path_order,
             "direction_weight_sum": float(np.sum(angle_weights)),
@@ -446,11 +464,12 @@ def main():
     parser.add_argument("--na", type=int, default=32)
     parser.add_argument("--ns", type=int, default=64)
     parser.add_argument("--energy-offset", type=float, default=1000.0)
+    parser.add_argument("--grid-reference", type=Path, default=DEFAULT_ENERGY_GRID_REFERENCE)
     args = parser.parse_args()
     result = run(
         args.profile, args.fig7, args.baseline, args.mass,
         args.nr, args.opacity_order, args.ne, args.na, args.ns,
-        args.energy_offset
+        args.energy_offset, args.grid_reference
     )
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
