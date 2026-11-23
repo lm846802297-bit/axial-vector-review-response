@@ -1,0 +1,190 @@
+name: B.13 targeted high-order provenance validation
+# Exact-head validation refresh after native CI artifact provenance update (2026-11-23).
+
+on:
+  push:
+    branches:
+      - research/b13-high-order-provenance-rerun-20261122
+    paths:
+      - '.github/workflows/b13-high-order-provenance-validation.yml'
+      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/LOCAL_RUN_SUMMARY.json'
+      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/SOURCE_FILE_IDENTITY.json'
+      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/validate_b13_high_order_rerun.py'
+  pull_request:
+    # PR-open and ready-for-review events run read-only validation.
+    # Subsequent commits are validated by the guarded branch push workflow.
+    # Excluding synchronize prevents archive-bot pushes from requesting approval
+    # for another PR workflow run.
+    types:
+      - opened
+      - reopened
+      - ready_for_review
+    branches:
+      - main
+    paths:
+      - '.github/workflows/b13-high-order-provenance-validation.yml'
+      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/LOCAL_RUN_SUMMARY.json'
+      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/SOURCE_FILE_IDENTITY.json'
+      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/validate_b13_high_order_rerun.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: b13-high-order-provenance-validation-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  calculate:
+    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/research/b13-high-order-provenance-rerun-20261122'
+    permissions:
+      contents: read
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Check out the exact event commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - name: Check out the exact source commit used by the local run
+        uses: actions/checkout@v4
+        with:
+          ref: e49908762e90271f4bc84be75e19577431febd4c
+          path: source
+      - name: Set up the local-run Python version
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - name: Install pinned numerical dependencies
+        run: |
+          python -m pip install numpy==2.3.5 scipy==1.17.0
+      - name: Record independent runner environment
+        run: |
+          uname -a
+          python --version
+          python -c "import numpy, scipy; print('numpy', numpy.__version__); print('scipy', scipy.__version__)"
+          lscpu | head -30
+          free -b
+          mkdir -p out
+          {
+            echo "github_run_id=${GITHUB_RUN_ID}"
+            echo "github_sha=${GITHUB_SHA}"
+            echo "source_commit=e49908762e90271f4bc84be75e19577431febd4c"
+            python --version
+            python -c "import numpy, scipy; print('numpy', numpy.__version__); print('scipy', scipy.__version__)"
+            uname -a
+            lscpu | head -30
+            free -b
+          } > out/CI_ENVIRONMENT.txt
+      - name: Compile the exact source driver and independent validator
+        run: |
+          python -m py_compile \
+            source/research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/run_p1b_global06b_threshold_edge_high_order_targets.py \
+            source/research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/audit_b13_local_kernel_radial_energy_10mev.py \
+            research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/validate_b13_high_order_rerun.py
+      - name: Run B.13 local-kernel regression tests
+        working-directory: source/research/stellar-cooling-constraints-20261105
+        run: |
+          python -m unittest discover \
+            -s finite_mixing/thermal_integrals \
+            -p 'test_p1b_b13_local_kernel_radial_energy_10mev.py' -v
+      - name: Reproduce the 431-point high-order target set
+        working-directory: source/research/stellar-cooling-constraints-20261105
+        run: |
+          python finite_mixing/thermal_integrals/run_p1b_global06b_threshold_edge_high_order_targets.py \
+            --targets finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_TARGETS_INPUT.json \
+            --profile data/sfho188_digitized.csv \
+            --output "${GITHUB_WORKSPACE}/out" --workers 4 2>&1 | tee "${GITHUB_WORKSPACE}/out/CI_RUN.log"
+      - name: Independently validate source identity, task coverage and convergence
+        run: |
+          python research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/validate_b13_high_order_rerun.py \
+            --source-root source/research/stellar-cooling-constraints-20261105 \
+            --results-dir out \
+            --local-summary research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/LOCAL_RUN_SUMMARY.json \
+            --source-identity research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22/SOURCE_FILE_IDENTITY.json
+      - name: Upload the independent reproduction
+        uses: actions/upload-artifact@v4
+        with:
+          name: b13-high-order-431-point-reproduction
+          path: |
+            out/HIGH_ORDER_TARGETED_POINTS.json
+            out/HIGH_ORDER_ACCEPTANCE_SUMMARY.json
+            out/INDEPENDENT_VALIDATION_REPORT.json
+            out/CI_ENVIRONMENT.txt
+            out/CI_RUN.log
+          if-no-files-found: error
+
+  archive-result:
+    needs: calculate
+    if: needs.calculate.result == 'success' && github.event_name != 'pull_request' && github.ref == 'refs/heads/research/b13-high-order-provenance-rerun-20261122'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - name: Check out the provenance branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Download the validated independent result
+        uses: actions/download-artifact@v4
+        with:
+          name: b13-high-order-431-point-reproduction
+          path: /tmp/b13-high-order
+      - name: Archive the independently reproduced native outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          target="research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_RERUN_2026-11-22"
+          branch="research/b13-high-order-provenance-rerun-20261122"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+actions[bot]@users.noreply.github.com"
+          check_event_inputs() {
+            for input_path in \
+              ".github/workflows/b13-high-order-provenance-validation.yml" \
+              "$target/LOCAL_RUN_SUMMARY.json" \
+              "$target/SOURCE_FILE_IDENTITY.json" \
+              "$target/validate_b13_high_order_rerun.py"; do
+              event_blob="$(git rev-parse "${GITHUB_SHA}:${input_path}")"
+              latest_blob="$(git rev-parse "FETCH_HEAD:${input_path}")"
+              if [ "$event_blob" != "$latest_blob" ]; then
+                echo "Refusing stale archive: calculation input changed after event commit: $input_path"
+                return 1
+              fi
+            done
+          }
+          git fetch origin "$branch"
+          check_event_inputs
+          git checkout -B "$branch" FETCH_HEAD
+          mkdir -p "$target"
+          cp /tmp/b13-high-order/* "$target/"
+          (
+            cd "$target"
+            sha256sum HIGH_ORDER_TARGETED_POINTS.json HIGH_ORDER_ACCEPTANCE_SUMMARY.json INDEPENDENT_VALIDATION_REPORT.json CI_ENVIRONMENT.txt CI_RUN.log > CI_OUTPUT_HASHES.sha256
+          )
+          git add "$target/HIGH_ORDER_TARGETED_POINTS.json" "$target/HIGH_ORDER_ACCEPTANCE_SUMMARY.json" "$target/INDEPENDENT_VALIDATION_REPORT.json" "$target/CI_ENVIRONMENT.txt" "$target/CI_OUTPUT_HASHES.sha256"
+          git add -f "$target/CI_RUN.log"
+          if git diff --cached --quiet; then
+            echo "Independent high-order outputs already archived."
+            exit 0
+          fi
+          git commit -m "Archive independent B.13 431-point high-order reproduction"
+          for attempt in 1 2 3 4 5; do
+            if git push origin "HEAD:refs/heads/$branch"; then
+              exit 0
+            fi
+            echo "Archive push attempt $attempt failed; fetching and rebasing onto the latest branch."
+            git fetch origin "$branch"
+            if ! check_event_inputs; then
+              echo "Calculation inputs changed during archive retry; refusing stale write-back."
+              exit 1
+            fi
+            if ! git rebase FETCH_HEAD; then
+              git rebase --abort || true
+              echo "Concurrent archive conflict; refusing to overwrite branch history."
+              exit 1
+            fi
+          done
+          echo "Archive push failed after five attempts."
+          exit 1

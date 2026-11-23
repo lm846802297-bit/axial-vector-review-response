@@ -1,0 +1,10 @@
+test_chord_with_full_acceptance_matches_independent_native_rule (test_overlap.DomainTests.test_chord_with_full_acceptance_matches_independent_native_rule) ... ok
+test_gap_uses_separate_extrema_even_with_misaligned_endpoints (test_overlap.DomainTests.test_gap_uses_separate_extrema_even_with_misaligned_endpoints) ... ok
+test_limits_reject_duplicate_keys (test_overlap.DomainTests.test_limits_reject_duplicate_keys) ... ok
+test_rectangle_applies_local_temperature_and_energy_cap (test_overlap.DomainTests.test_rectangle_applies_local_temperature_and_energy_cap) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.004s
+
+OK
+Byte-exact native replay passed.

@@ -1,4 +1,17 @@
-# 2026-11-22 live status: post-PR #120 / #128 / #122 / #129 / #130 merge, 90th-review closeout and repository inventory reconciliation
+# 2026-11-23 live status: B.13/B.16 first-batch integration and inventory reconciliation
+
+## Latest update (2026-11-23)
+
+- **Main baseline:** current main is `276cb335d466d1c1864448bcd222fe60d7fdcdc8`, including the central standards-adoption workflow. The B.13/B.16 first-batch integration is open as [PR #140](https://github.com/lm846802297-bit/axial-vector-review-response/pull/140) from `integration/b13-b16-first-batch-20261123`; it combines PR #121, #133 and #134 without deleting source history. Its own pull-request validation and full diff review are the merge gate.
+- **B.16 strict 10 MeV phase space:** [run #45172485856](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45172485856) passed calculation, archived-baseline checks, regression tests and guarded result archival. The independent 24-test output-validator run [#45173157775](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45173157775) passed against the archived result.
+- **Energy-grid identity:** the immutable 842-node reference retains SHA-256 `036e6d772f43acf97601c3846b475e8e1c14200d4d82de1dd9af30f01bb87ea3`. The current production run differs by one ULP at one node (maximum relative difference `1.1675488289093305e-16`) and passes the declared `5e-15` node-level tolerance. Source and opacity grid hashes remain exact. No baseline hash was changed.
+- **B.13 targeted high-order:** current-head run [#45172924204](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45172924204) passed Calculate/Validate/Archive for 431/431 targeted `(r,x)` points and 2,155 ordered evaluations. Compared with run #45054965537, 28,446 numeric leaf fields match exactly. The full 1,687-node global high-order acceptance remains false.
+- **Workflow inventory:** 125 YAML files, all 125 registered: 110 `REVIEWED_WITH_NOTES`, 1 `ACTIVE`, 14 `HISTORICAL_CANDIDATE`, 0 `PENDING`. Seven workflows have new individual review evidence, including two governance workflows previously missing from the catalog.
+- **Document inventory:** 877 Markdown/text files (646 `.md`, 231 `.txt`): 462 baseline and 415 supplemental entries, all paths registered exactly once. The supplemental register has 167 `PASS_WITH_NOTES`, 6 `HISTORICAL`, and 242 `PENDING`. The 242 pending records are pre-existing imported documents now inventoried but not yet content-reviewed (240 RC001 upstream files and two repository-management files).
+- **Physical boundary:** the B.16 phase-space bookkeeping closes against the archived high-order baseline, but the pure-vector 10 MeV Fig. 7 luminosity remains `+92.4284%` above the digitized reference. No opacity rescaling, production axial-vector output, SN1987A limit or exclusion curve is updated.
+- **Next:** create and validate the first-batch integration PR; merge it only after the branch checks and full diff review. Keep PR #123 as a separate Croon/Lai integration. Keep PR #132 waiting on central PR #27 publication and Skill acceptance.
+
+## Historical checkpoint (2026-11-22)
 
 > This entry supersedes earlier live summaries below wherever they list PR #106 or #113 as open/draft, report an older main SHA, or describe either branch as an active PR. It also supersedes the pre-merge PR #56 status and the 2026-11-06 response-PDF validation metadata: PR #56 merged on 2026-11-12, and the final response-PDF layout acceptance recorded on 2026-11-16 below. Older dated entries remain as historical snapshots.
 

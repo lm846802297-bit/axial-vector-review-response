@@ -1,0 +1,66 @@
+{
+  "repository": "lm846802297-bit/axial-vector-review-response",
+  "source_commit": "e49908762e90271f4bc84be75e19577431febd4c",
+  "files": {
+    "finite_mixing/thermal_integrals/run_p1b_global06b_threshold_edge_high_order_targets.py": {
+      "git_blob_sha1": "bb99c675b2bcf4f47b7d8b883f0a243675df6afe",
+      "sha256": "67de0b7231881f2a76dc64a4f220a793f90298bae2ceb429334ecafce8e42c28",
+      "bytes": 10264
+    },
+    "finite_mixing/thermal_integrals/results/P1B_GLOBAL06B_THRESHOLD_EDGE_FULL_RADIAL_2026-11-18/HIGH_ORDER_TARGETS_INPUT.json": {
+      "git_blob_sha1": "c082573452b84a3c63cf55cdfc6113f3a1aae3d1",
+      "sha256": "5417ca8f0724ac35b46a3abed986711ab8fe4afde6f70d10f1e60f93ce3411b0",
+      "bytes": 3649
+    },
+    "finite_mixing/thermal_integrals/audit_b13_local_kernel_radial_energy_10mev.py": {
+      "git_blob_sha1": "96b70750333af1b89274b60ffb4bc9492514ecbf",
+      "sha256": "ff6479a8d6d4ba417dc4b31e745b4028a28d9e42df5598144334453ea9627683",
+      "bytes": 35145
+    },
+    "finite_mixing/moving_muon_compton.py": {
+      "git_blob_sha1": "918d38504b8a0df1c21dfe243bc25eab9808e6a9",
+      "sha256": "38436b94f070069c8696b37b9bce1955e2d5d7e39dad9b302ab754582ff6a5a5",
+      "bytes": 17409
+    },
+    "blinov_reproduction/reference.py": {
+      "git_blob_sha1": "374c8d69311231533faf9f8c4f8bea84d0f97b42",
+      "sha256": "f81468f4305cf57eb86cc0210abc7afc333d434ae70da307ca64a824e486107c",
+      "bytes": 15174
+    },
+    "rates.py": {
+      "git_blob_sha1": "dd4d1accfd58a574e704f477f611299f15943465",
+      "sha256": "2fc7bc2d3b0d7b98c191755cd2bb87944e4ebe259adc3d3bbc8e0f60dcc57f56",
+      "bytes": 17006
+    },
+    "data/sfho188_digitized.csv": {
+      "git_blob_sha1": "e41df78c8035540760fbcb7ef592cd830171822e",
+      "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+      "bytes": 182716
+    },
+    "data/profile_provenance.json": {
+      "git_blob_sha1": "08e697fddcc448681b58ac0a1d653addd879ed99",
+      "sha256": "025329271bb66c55d9d8067ed714dd425b4c4dc08d09c1970f08e272461ea3e2",
+      "bytes": 49376
+    },
+    "blinov_reproduction/__init__.py": {
+      "git_blob_sha1": "848e1c759d643e1b6f1a7f9ab072d3fef668aaa7",
+      "sha256": "d8dca5f077a75491aa25cf42f0da23ec0e582817298eee8aa4b9de95f0bd94f4",
+      "bytes": 70
+    },
+    "finite_mixing/__init__.py": {
+      "git_blob_sha1": "092dfde3c99603fefe9e3bb891a9bc403294ff22",
+      "sha256": "55182807a380885e8a1c2fa9ed6db7bed0449bb4ecaf33d438b1e18584eeb5c1",
+      "bytes": 53
+    },
+    "finite_mixing/thermal_integrals/__init__.py": {
+      "git_blob_sha1": "4bba5697860c879937d19fdccd46f4faef40b5a1",
+      "sha256": "b238b2d6bd28beebcacd0391aa09a4ef07b6bd62a35a64677a0debaf653a06a8",
+      "bytes": 79
+    },
+    "finite_mixing/thermal_integrals/test_p1b_b13_local_kernel_radial_energy_10mev.py": {
+      "git_blob_sha1": "cb52f9947ca794795968724a11cca269c9d19c17",
+      "sha256": "e7577db0a0ecb22b74b5eaba8ce3a39e8e32bbcbb9db551e343165036a1c1de2",
+      "bytes": 5795
+    }
+  }
+}

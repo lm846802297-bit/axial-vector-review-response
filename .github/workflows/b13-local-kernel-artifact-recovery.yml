@@ -1,0 +1,103 @@
+name: Recover P1-B 10 MeV B.13 local-kernel artifact
+on:
+  push:
+    branches:
+      - research/b16-energy-grid-diagnostic-20261117
+    paths:
+      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/build_p1b_b13_local_archive.py'
+      - 'research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/test_build_p1b_b13_local_archive.py'
+      - '.github/workflows/b13-local-kernel-artifact-recovery.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: p1b-b13-local-kernel-artifact-recovery-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  recover-and-package:
+    if: github.ref == 'refs/heads/research/b16-energy-grid-diagnostic-20261117'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      actions: read
+      contents: read
+    steps:
+      - name: Check out current audit branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.16'
+      - name: Recover original numerical artifact from run 43376779901
+        uses: actions/download-artifact@v4
+        with:
+          name: p1b-b13-local-radial-energy-10mev
+          run-id: 43376779901
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: /tmp/p1b-b13-original
+      - name: Verify original JSON identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          input="/tmp/p1b-b13-original/p1b_b13_local_kernel_radial_energy_10mev_2026-11-13.json"
+          test -f "$input"
+          echo "14c4405f9421aca517ff00310232ad9aead4c0cdd61868e2788125875cb84dc0  $input" | sha256sum -c -
+      - name: Build CSV, plots and provenance manifest
+        run: |
+          set -euo pipefail
+          out="/tmp/p1b-b13-package"
+          mkdir -p "$out"
+          cp /tmp/p1b-b13-original/p1b_b13_local_kernel_radial_energy_10mev_2026-11-13.json "$out/"
+          python research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/build_p1b_b13_local_archive.py --input "$out/p1b_b13_local_kernel_radial_energy_10mev_2026-11-13.json" --output-dir "$out"
+      - name: Test point counts, charge/mode coverage and failed acceptance preservation
+        env:
+          P1B_ARCHIVE_DIR: /tmp/p1b-b13-package
+        run: |
+          python -m unittest discover -s research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals -p "test_build_p1b_b13_local_archive.py" -v
+      - name: Upload recovered evidence package
+        uses: actions/upload-artifact@v4
+        with:
+          name: p1b-b13-local-kernel-archive-2026-11-17
+          path: /tmp/p1b-b13-package/
+          if-no-files-found: error
+  archive-package:
+    needs: recover-and-package
+    if: needs.recover-and-package.result == 'success' && github.ref == 'refs/heads/research/b16-energy-grid-diagnostic-20261117'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out audit branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Download recovered evidence package
+        uses: actions/download-artifact@v4
+        with:
+          name: p1b-b13-local-kernel-archive-2026-11-17
+          path: /tmp/p1b-b13-package
+      - name: Commit package with race-safe branch synchronization
+        shell: bash
+        run: |
+          set -euo pipefail
+          target="research/stellar-cooling-constraints-20261105/finite_mixing/thermal_integrals/results/P1B_10MeV_LOCAL_KERNEL_ARCHIVE_2026-11-17"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+actions[bot]@users.noreply.github.com"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin refs/heads/research/b16-energy-grid-diagnostic-20261117
+            git reset --hard origin/research/b16-energy-grid-diagnostic-20261117
+            mkdir -p "$target"
+            cp /tmp/p1b-b13-package/* "$target/"
+            git add "$target"
+            if git diff --cached --quiet; then
+              echo "Recovered P1-B package already matches the branch."
+              exit 0
+            fi
+            git commit -m "Archive original P1-B 10 MeV B.13 local-kernel evidence"
+            if git push origin HEAD:refs/heads/research/b16-energy-grid-diagnostic-20261117; then exit 0; fi
+            echo "Concurrent branch update detected; retrying ($attempt/5)."
+          done
+          exit 1

@@ -1,0 +1,30 @@
+{
+  "checks": {
+    "all_rates_finite_nonnegative": true,
+    "all_targeted_quadrature_pass": true,
+    "driver_sha256": "67de0b7231881f2a76dc64a4f220a793f90298bae2ceb429334ecafce8e42c28",
+    "each_point_order_count": [
+      5
+    ],
+    "energy_targets": 10,
+    "full_global_high_order_acceptance": false,
+    "independently_reconstructed_task_keys": 431,
+    "max_detailed_balance_residual": 5.027846521385086e-15,
+    "max_final_successive_change": 0.000329220848525901,
+    "max_mass_shell_residual": 2.0432421890821873e-13,
+    "ordered_evaluations": 2155,
+    "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+    "radial_targets": 10,
+    "raw_rows": 431,
+    "raw_sha256": "f8287ce92b4a2dd241928197a28b27bd655b0e2a23895478b40f30c49f9d313e",
+    "recomputed_max_energy_pchip_error": 0.0006716564877619043,
+    "recomputed_max_radial_midpoint_error": 0.0008311070322862653,
+    "stored_max_energy_pchip_error": 0.0006716564877619043,
+    "stored_max_radial_midpoint_error": 0.0008311070322862653,
+    "summary_sha256": "77a0bfb727171a1506e0c44b4ecdfce5f7bc0283ea4330504a2db2823f9599bd",
+    "target_sha256": "5417ca8f0724ac35b46a3abed986711ab8fe4afde6f70d10f1e60f93ce3411b0",
+    "unique_task_keys": 431
+  },
+  "scope": "Top ten radial-variation intervals and ten worst low-x energy interpolation points only; not exhaustive high-order validation of all 1687 radial nodes.",
+  "status": "PASS"
+}

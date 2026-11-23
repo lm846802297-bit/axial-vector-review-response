@@ -1,0 +1,313 @@
+{
+  "record": "B16_OUTPUT_VALIDATOR_HARDENING",
+  "date": "2026-11-22",
+  "repository": "lm846802297-bit/axial-vector-review-response",
+  "base_main_sha": "a7ac6456dafb27492183912fe4abbaa73a9455f7",
+  "source_pr121_head": "e49908762e90271f4bc84be75e19577431febd4c",
+  "branch_head_before_docs": "9f5a42fcc756ac18ddd6122136b9b613e3655128",
+  "validator_sha256": "1c6cf1973d1ddd87bd1867689c47857da9b97b20e16c3656dfb40aa1e5c71be6",
+  "test_sha256": "05db94b092ff59be9aef3eddd5bca435d804f73560b43c5265091b44db09f3d0",
+  "mainline_inputs": {
+    "phase_space_result_sha256": "e1cbefd3615ff0a85999c0d96eda478ad91dd799741a887711353cae8936ce6d",
+    "high_order_baseline_sha256": "dc7cce151ce9d8ec79d37c0f75c03984f8c5f9660b102f0f054f622b7f33c373",
+    "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+    "energy_grid_sha256": "036e6d772f43acf97601c3846b475e8e1c14200d4d82de1dd9af30f01bb87ea3"
+  },
+  "validation_evidence": {
+    "successful_actions_run": {
+      "run_id": 45054313254,
+      "url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45054313254",
+      "event": "pull_request",
+      "head_sha": "e6d8de6b7a021a0e665e2bf23eb793ab3349d423",
+      "conclusion": "success",
+      "token_contents_permission": "read",
+      "runner": "ubuntu-24.04",
+      "python": "3.13.5",
+      "compile": "PASS",
+      "unit_tests": {
+        "passed": 24,
+        "failed": 0
+      },
+      "mainline_result_against_high_order_baseline": "PASS"
+    },
+    "push_event_run": {
+      "run_id": 45051207273,
+      "url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45051207273",
+      "event": "push",
+      "head_sha": "9f5a42fcc756ac18ddd6122136b9b613e3655128",
+      "conclusion": "success"
+    },
+    "baseline_integrity_checks": {
+      "baseline_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_high_order_independent_grid_10mev_2026-11-09.json",
+      "baseline_sha256": "dc7cce151ce9d8ec79d37c0f75c03984f8c5f9660b102f0f054f622b7f33c373",
+      "phase_space_recorded_baseline_sha256_matches_file": true,
+      "baseline_sha256_required_by_validator_api": true,
+      "unique_baseline_coupling_point": 4.171689650228597e-8,
+      "recomputed_residuals": {
+        "luminosity_relative": -2.220446049250313e-16,
+        "thin_luminosity_relative": 0,
+        "escape_probability_absolute": -5.421010862427522e-20
+      },
+      "exact_required_regions": [
+        "all_emission_radii",
+        "dominant_8_15km_emission"
+      ],
+      "region_names_unique": true
+    },
+    "superseded_development_runs": {
+      "failed_push_run": 45051097952,
+      "failed_pull_request_run": 45051101967,
+      "cause": "The positive baseline fixture did not pass baseline_sha256 after the validator API was tightened to require it. The fixture was corrected and the exact final head passed both events."
+    }
+  },
+  "physical_result": {
+    "calculated_luminosity_erg_s": 2.439635957361032e+52,
+    "reference_luminosity_erg_s": 1.26781475907372e+52,
+    "relative_difference_vs_fig7": 0.9242842378199307,
+    "escape_probability": 0.00032517740193528985,
+    "energy_node_count": 842
+  },
+  "workflow_versions": {
+    "energy": {
+      "blob": "93a713d20d6e74430bdeaf3d382b39c2de4ca213",
+      "run_id": 44054718118,
+      "run_head": "853b0341aa603726c0760d494ec7725b9021e1a0",
+      "current_yaml_matches_run": true
+    },
+    "strict": {
+      "source_blob": "d736265c4c9647f33b83627b4d69aed37b657501",
+      "branch_blob": "4eed19b894d1250429995f98828540f70d2cdb50",
+      "old_run_ids": [
+        44059347513,
+        44059773875
+      ],
+      "old_blob": "12b5a61523aec6f497144332da5c88267aab6f0a",
+      "old_workflow_wide_contents_write": true,
+      "current_split_execution_verified": false
+    },
+    "energy_grid_diagnostic": {
+      "source": "PR #121 only",
+      "source_blob_sha1": "93a713d20d6e74430bdeaf3d382b39c2de4ca213",
+      "run_id": 44054718118,
+      "run_head": "853b0341aa603726c0760d494ec7725b9021e1a0",
+      "not_present_in_main_or_validator_branch": true
+    },
+    "strict_phase_space": {
+      "source": "PR #121 only",
+      "source_blob_sha1": "d736265c4c9647f33b83627b4d69aed37b657501",
+      "historical_run_ids": [
+        44059347513,
+        44059773875
+      ],
+      "historical_blob_sha1": "12b5a61523aec6f497144332da5c88267aab6f0a",
+      "historical_workflow_wide_contents_write": true,
+      "split_permission_execution_verified": false,
+      "not_present_in_main_or_validator_branch": true
+    }
+  },
+  "scope": "Validator and workflow governance only; no production rates, opacities, transport outputs, axial-vector constraints or Fig. 7 values changed.",
+  "validator_branch_validation_head": "9f5a42fcc756ac18ddd6122136b9b613e3655128",
+  "validator_git_blob_sha1": "22aa5fc0ef12a48a5bb65f0dbd1054c182deeb47",
+  "test_git_blob_sha1": "b19c3a1839c8cf28f2010e63b513acc0441b3941",
+  "workflow": {
+    "path": ".github/workflows/b16-output-validator-tests.yml",
+    "git_blob_sha1": "f28ab2605261b07cef767d0f573c0800578adb9d",
+    "sha256": "755f4d152b54804897a9eebd395ea1be49f98185094c61dc0bb2da78e39b5c72",
+    "permissions": {
+      "workflow": "contents:read",
+      "job": "contents:read"
+    },
+    "runner": "ubuntu-24.04",
+    "python": "3.13.5"
+  },
+  "previous_validation_evidence_16_tests": {
+    "successful_actions_run": {
+      "run_id": 45039964078,
+      "url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45039964078",
+      "head_sha": "32125a04f4f3b319030f5ab886fbae7325849c30",
+      "conclusion": "success",
+      "token_contents_permission": "read",
+      "compile": "PASS",
+      "unit_tests": {
+        "passed": 16,
+        "failed": 0
+      },
+      "mainline_result_against_high_order_baseline": "PASS"
+    },
+    "environment_failure_and_resolution": {
+      "failed_run_id": 45039906417,
+      "failed_head_sha": "539fce589a74123fb2b3101e2d672d5fe5dcfaec",
+      "runner": "ubuntu-26.04",
+      "failure": "Python 3.13.5 unavailable on Ubuntu 26.04 image; test and validation steps were skipped",
+      "resolution": "Pin runner to ubuntu-24.04"
+    },
+    "earlier_local_prototype": {
+      "passed": 13,
+      "failed": 0,
+      "acceptance_status": "historical_only_not_authoritative"
+    }
+  },
+  "validator_hardening": {
+    "baseline_sha256_checked_against_file": true,
+    "baseline_sha256_required_when_baseline_object_supplied": true,
+    "baseline_point_selected_by_mass_and_coupling": true,
+    "luminosity_thin_luminosity_and_escape_closure_recomputed": true,
+    "fig7_reference_luminosity_checked_against_baseline": true,
+    "required_region_set_and_uniqueness_checked": true
+  },
+  "previous_validation_evidence_23_tests": {
+    "successful_actions_run": {
+      "run_id": 45049757154,
+      "url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45049757154",
+      "event": "pull_request",
+      "head_sha": "e69389d6a4bb6077002ca61c094f6ba0b0b453be",
+      "conclusion": "success",
+      "token_contents_permission": "read",
+      "runner": "ubuntu-24.04",
+      "python": "3.13.5",
+      "compile": "PASS",
+      "unit_tests": {
+        "passed": 23,
+        "failed": 0
+      },
+      "mainline_result_against_high_order_baseline": "PASS"
+    },
+    "push_event_run": {
+      "run_id": 45049753048,
+      "url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45049753048",
+      "event": "push",
+      "head_sha": "e69389d6a4bb6077002ca61c094f6ba0b0b453be",
+      "conclusion": "success"
+    },
+    "new_baseline_integrity_checks": {
+      "baseline_path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_high_order_independent_grid_10mev_2026-11-09.json",
+      "baseline_sha256": "dc7cce151ce9d8ec79d37c0f75c03984f8c5f9660b102f0f054f622b7f33c373",
+      "phase_space_recorded_baseline_sha256_matches_file": true,
+      "unique_baseline_coupling_point": 4.171689650228597e-8,
+      "recomputed_residuals": {
+        "luminosity_relative": -2.220446049250313e-16,
+        "thin_luminosity_relative": 0,
+        "escape_probability_absolute": -5.421010862427522e-20
+      },
+      "exact_required_regions": [
+        "all_emission_radii",
+        "dominant_8_15km_emission"
+      ],
+      "region_names_unique": true
+    }
+  },
+  "previous_successful_pr_validation_run_45051211748": {
+    "run_id": 45051211748,
+    "url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45051211748",
+    "event": "pull_request",
+    "head_sha": "9f5a42fcc756ac18ddd6122136b9b613e3655128",
+    "conclusion": "success",
+    "token_contents_permission": "read",
+    "runner": "ubuntu-24.04",
+    "python": "3.13.5",
+    "compile": "PASS",
+    "unit_tests": {
+      "passed": 24,
+      "failed": 0
+    },
+    "mainline_result_against_high_order_baseline": "PASS"
+  },
+  "final_pull_request_head": "e6d8de6b7a021a0e665e2bf23eb793ab3349d423",
+  "previous_successful_pr_validation_run_45052366668": {
+    "run_id": 45052366668,
+    "url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45052366668",
+    "event": "pull_request",
+    "head_sha": "9b2ac733bfd4fdcd7c12af22445a37796651e729",
+    "conclusion": "success",
+    "token_contents_permission": "read",
+    "runner": "ubuntu-24.04",
+    "python": "3.13.5",
+    "compile": "PASS",
+    "unit_tests": {
+      "passed": 24,
+      "failed": 0
+    },
+    "mainline_result_against_high_order_baseline": "PASS"
+  },
+  "previous_successful_pr_validation_run_45052829520": {
+    "run_id": 45052829520,
+    "url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45052829520",
+    "event": "pull_request",
+    "head_sha": "c0e19f2abe28981a0b585beb9c8729ed8e1ebedf",
+    "conclusion": "success",
+    "token_contents_permission": "read",
+    "runner": "ubuntu-24.04",
+    "python": "3.13.5",
+    "compile": "PASS",
+    "unit_tests": {
+      "passed": 24,
+      "failed": 0
+    },
+    "mainline_result_against_high_order_baseline": "PASS"
+  },
+  "previous_successful_pr_validation_run_45053097099": {
+    "run_id": 45053097099,
+    "url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45053097099",
+    "event": "pull_request",
+    "head_sha": "67b98f9577f13bc343da0407ebfa2cd27c25c247",
+    "conclusion": "success",
+    "token_contents_permission": "read",
+    "runner": "ubuntu-24.04",
+    "python": "3.13.5",
+    "compile": "PASS",
+    "unit_tests": {
+      "passed": 24,
+      "failed": 0
+    },
+    "mainline_result_against_high_order_baseline": "PASS"
+  },
+  "previous_successful_pr_validation_run_45053271897": {
+    "run_id": 45053271897,
+    "url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45053271897",
+    "event": "pull_request",
+    "head_sha": "6536db3c404bfdcb3534543f79e9c06a45d3c9d7",
+    "conclusion": "success",
+    "token_contents_permission": "read",
+    "runner": "ubuntu-24.04",
+    "python": "3.13.5",
+    "compile": "PASS",
+    "unit_tests": {
+      "passed": 24,
+      "failed": 0
+    },
+    "mainline_result_against_high_order_baseline": "PASS"
+  },
+  "previous_successful_pr_validation_run_45053795864": {
+    "run_id": 45053795864,
+    "url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45053795864",
+    "event": "pull_request",
+    "head_sha": "65f8246bebc3694e268e56ac20bc5935472695d6",
+    "conclusion": "success",
+    "token_contents_permission": "read",
+    "runner": "ubuntu-24.04",
+    "python": "3.13.5",
+    "compile": "PASS",
+    "unit_tests": {
+      "passed": 24,
+      "failed": 0
+    },
+    "mainline_result_against_high_order_baseline": "PASS"
+  },
+  "previous_successful_pr_validation_run_45054043193": {
+    "run_id": 45054043193,
+    "url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45054043193",
+    "event": "pull_request",
+    "head_sha": "754c88d03448440437c940d886d753ee6e624cbd",
+    "conclusion": "success",
+    "token_contents_permission": "read",
+    "runner": "ubuntu-24.04",
+    "python": "3.13.5",
+    "compile": "PASS",
+    "unit_tests": {
+      "passed": 24,
+      "failed": 0
+    },
+    "mainline_result_against_high_order_baseline": "PASS"
+  },
+  "final_pull_request_head_validation_run_id": 45054313254
+}

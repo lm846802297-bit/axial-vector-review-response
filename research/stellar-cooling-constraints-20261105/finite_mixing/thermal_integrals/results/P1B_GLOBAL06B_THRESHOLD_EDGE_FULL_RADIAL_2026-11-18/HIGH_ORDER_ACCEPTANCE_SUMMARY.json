@@ -1,0 +1,50 @@
+{
+  "run": "P1B-GLOBAL06B-HIGH-ORDER-TARGETS",
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "targets_sha256": "5417ca8f0724ac35b46a3abed986711ab8fe4afde6f70d10f1e60f93ce3411b0",
+  "source_run_target_selection_sha256": "f67f6d51de03731cd03ee80ef60d8d00ef023e3758dca513998d1f5b116abd90",
+  "unique_r_x_points": 431,
+  "nominal_ordered_evaluations": 2155,
+  "workers": 4,
+  "runtime_seconds": 591.3744122982025,
+  "order_ladder": [[10,6,6,6],[14,8,8,8],[18,10,10,10],[22,12,12,12],[26,14,14,14]],
+  "optional_extension_order": [30,16,16,16],
+  "criterion_successive_order_change_below": 0.001,
+  "targeted_radial_intervals": 10,
+  "targeted_energy_worst_points": 10,
+  "acceptance": {
+    "all_rates_finite_nonnegative": true,
+    "all_targeted_quadrature_pass": true,
+    "full_global_high_order_acceptance": false,
+    "maximum_detailed_balance_residual": 5.027846521385086e-15,
+    "maximum_final_successive_order_change": 0.000329220848525901,
+    "maximum_high_order_energy_pchip_error": 0.0006716564877619043,
+    "maximum_high_order_radial_midpoint_interpolation_error": 0.0008311070322862653,
+    "maximum_mass_shell_residual": 2.0432421890821873e-13
+  },
+  "radial_results": [
+    {"rank":1,"interval_index":1487,"r_left_km":22.1918936570485,"r_mid_km":22.1918941570485,"r_right_km":22.1918946570485,"maximum_high_order_midpoint_interpolation_error":3.0782953169018143e-9,"all_quadrature_pass":true},
+    {"rank":2,"interval_index":1479,"r_left_km":22.1,"r_mid_km":22.11755213605035,"r_right_km":22.1351042721007,"maximum_high_order_midpoint_interpolation_error":0.00012810579106991226,"all_quadrature_pass":true},
+    {"rank":3,"interval_index":1464,"r_left_km":21.9585462632003,"r_mid_km":21.979273131600152,"r_right_km":22.0,"maximum_high_order_midpoint_interpolation_error":0.0001274717046376823,"all_quadrature_pass":true},
+    {"rank":4,"interval_index":1486,"r_left_km":22.1798016958767,"r_mid_km":22.1858476764626,"r_right_km":22.1918936570485,"maximum_high_order_midpoint_interpolation_error":3.5533171954030706e-5,"all_quadrature_pass":true},
+    {"rank":5,"interval_index":1484,"r_left_km":22.1517032202208,"r_mid_km":22.16253830895775,"r_right_km":22.1733733976947,"maximum_high_order_midpoint_interpolation_error":6.622442835009553e-5,"all_quadrature_pass":true},
+    {"rank":6,"interval_index":1024,"r_left_km":15.5,"r_mid_km":15.525,"r_right_km":15.55,"maximum_high_order_midpoint_interpolation_error":0.0008311070322862653,"all_quadrature_pass":true},
+    {"rank":7,"interval_index":1156,"r_left_km":18.0046023594009,"r_mid_km":18.02730117970045,"r_right_km":18.05,"maximum_high_order_midpoint_interpolation_error":0.0004837632970746865,"all_quadrature_pass":true},
+    {"rank":8,"interval_index":993,"r_left_km":14.85,"r_mid_km":14.875,"r_right_km":14.9,"maximum_high_order_midpoint_interpolation_error":0.000772553664313139,"all_quadrature_pass":true},
+    {"rank":9,"interval_index":1158,"r_left_km":18.0501630240016,"r_mid_km":18.0730872297728,"r_right_km":18.096011435544,"maximum_high_order_midpoint_interpolation_error":0.0004701241786183291,"all_quadrature_pass":true},
+    {"rank":10,"interval_index":1131,"r_left_km":17.4521831450639,"r_mid_km":17.47521607964125,"r_right_km":17.4982490142186,"maximum_high_order_midpoint_interpolation_error":0.0005142482231733843,"all_quadrature_pass":true}
+  ],
+  "energy_results": [
+    {"rank":1,"radial_index":703,"r_km":8.4821412022467,"x_validation":0.0003125,"high_order_pchip_error":0.0006716564877619043,"maximum_final_order_change":0.000329220848525901,"all_grid_and_validation_quadrature_pass":true},
+    {"rank":2,"radial_index":702,"r_km":8.4783373082451,"x_validation":0.0003125,"high_order_pchip_error":0.0006716399560415651,"maximum_final_order_change":0.0003290888451656651,"all_grid_and_validation_quadrature_pass":true},
+    {"rank":3,"radial_index":701,"r_km":8.4779518483159,"x_validation":0.0003125,"high_order_pchip_error":0.0006716382808539409,"maximum_final_order_change":0.0003290754743897376,"all_grid_and_validation_quadrature_pass":true},
+    {"rank":4,"radial_index":700,"r_km":8.47047221993952,"x_validation":0.0003125,"high_order_pchip_error":0.0006716057736502559,"maximum_final_order_change":0.00032881622632449425,"all_grid_and_validation_quadrature_pass":true},
+    {"rank":5,"radial_index":699,"r_km":8.47016324575835,"x_validation":0.0003125,"high_order_pchip_error":0.0006716044308175595,"maximum_final_order_change":0.00032880552552561624,"all_grid_and_validation_quadrature_pass":true},
+    {"rank":6,"radial_index":698,"r_km":8.46237414427839,"x_validation":0.0003125,"high_order_pchip_error":0.0006715705774343822,"maximum_final_order_change":0.0003285359782321821,"all_grid_and_validation_quadrature_pass":true},
+    {"rank":7,"radial_index":697,"r_km":8.46229815745278,"x_validation":0.0003125,"high_order_pchip_error":0.0006715702471034149,"maximum_final_order_change":0.00032853335060216145,"all_grid_and_validation_quadrature_pass":true},
+    {"rank":8,"radial_index":696,"r_km":8.45450905597281,"x_validation":0.0003125,"high_order_pchip_error":0.0006715363925434846,"maximum_final_order_change":0.0003282642255980882,"all_grid_and_validation_quadrature_pass":true},
+    {"rank":9,"radial_index":695,"r_km":8.45420008179165,"x_validation":0.0003125,"high_order_pchip_error":0.0006715350496152049,"maximum_final_order_change":0.0003282535587606305,"all_grid_and_validation_quadrature_pass":true},
+    {"rank":10,"radial_index":694,"r_km":8.45,"x_validation":0.0003125,"high_order_pchip_error":0.0006715167938489615,"maximum_final_order_change":0.00032810862200015876,"all_grid_and_validation_quadrature_pass":true}
+  ],
+  "scope": "Top ten radial-variation intervals and ten worst low-x energy interpolation points only; not exhaustive high-order validation of all 1687 radial nodes."
+}

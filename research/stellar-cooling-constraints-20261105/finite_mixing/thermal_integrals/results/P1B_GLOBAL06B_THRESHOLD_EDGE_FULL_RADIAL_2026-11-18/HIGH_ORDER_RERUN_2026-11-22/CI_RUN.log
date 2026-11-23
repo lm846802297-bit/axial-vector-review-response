@@ -1,0 +1,20 @@
+high-order points 50/431
+high-order points 100/431
+high-order points 150/431
+high-order points 200/431
+high-order points 250/431
+high-order points 300/431
+high-order points 350/431
+high-order points 400/431
+high-order points 431/431
+{
+  "all_targeted_quadrature_pass": true,
+  "maximum_high_order_radial_midpoint_interpolation_error": 0.0008311070322862653,
+  "maximum_high_order_energy_pchip_error": 0.0006716564877619043,
+  "maximum_final_successive_order_change": 0.000329220848525901,
+  "maximum_detailed_balance_residual": 5.027846521385086e-15,
+  "maximum_mass_shell_residual": 2.0432421890821873e-13,
+  "all_rates_finite_nonnegative": true,
+  "full_global_high_order_acceptance": false
+}
+unique points=431 runtime=707.7s

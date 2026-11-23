@@ -1,0 +1,94 @@
+{
+  "archive_ref": "972f282a2958aa39ada1c630901cc5720a451ea2",
+  "at_weak_peak_strong_vertices": [
+    {
+      "g": 4.796429536550025e-10,
+      "index": 0,
+      "maximum_archive_closure_absolute": 1.3322676295501878e-15,
+      "neutrino_esc_weighted_opacity_fraction_beta_lt_0p9": 0.07757980061954411,
+      "neutrino_escaped_source_fraction_beta_lt_0p9": 0.029687607865962546,
+      "semi_compton_esc_weighted_opacity": {
+        "matched_s_p2ratio_relative_to_printed_lab_beta2": 0.98849649722375,
+        "propagation_beta_lt_0p9": 0.022122861721126926,
+        "stationary_absorption_recoil_90_gt_10pct": 0.995221631176302,
+        "stationary_absorption_recoil_90_gt_50pct": 0.5144892267033676,
+        "stationary_production_backward_forbidden": 0.8373552709865211,
+        "stationary_production_cosine_support_fraction_geometric": 0.5591075401174926
+      },
+      "semi_compton_escaped_source": {
+        "matched_s_p2ratio_relative_to_printed_lab_beta2": 0.9902487234756857,
+        "propagation_beta_lt_0p9": 0.010266242838017098,
+        "stationary_absorption_recoil_90_gt_10pct": 0.998418809002965,
+        "stationary_absorption_recoil_90_gt_50pct": 0.6077739573015628,
+        "stationary_production_backward_forbidden": 0.8919170199510376,
+        "stationary_production_cosine_support_fraction_geometric": 0.5001628419538166
+      }
+    },
+    {
+      "g": 1.1341108687336194e-08,
+      "index": 17,
+      "maximum_archive_closure_absolute": 2.4424906541753444e-15,
+      "neutrino_esc_weighted_opacity_fraction_beta_lt_0p9": 0.009466335849395798,
+      "neutrino_escaped_source_fraction_beta_lt_0p9": 0.004146924852527173,
+      "semi_compton_esc_weighted_opacity": {
+        "matched_s_p2ratio_relative_to_printed_lab_beta2": 0.9916570390389294,
+        "propagation_beta_lt_0p9": 0.0019510344665812655,
+        "stationary_absorption_recoil_90_gt_10pct": 0.9998942185561209,
+        "stationary_absorption_recoil_90_gt_50pct": 0.6839104918625459,
+        "stationary_production_backward_forbidden": 0.9418881876018276,
+        "stationary_production_cosine_support_fraction_geometric": 0.45209528084066175
+      },
+      "semi_compton_escaped_source": {
+        "matched_s_p2ratio_relative_to_printed_lab_beta2": 0.9923611746120091,
+        "propagation_beta_lt_0p9": 0.001125768162978246,
+        "stationary_absorption_recoil_90_gt_10pct": 0.9999484374322907,
+        "stationary_absorption_recoil_90_gt_50pct": 0.7406855575251269,
+        "stationary_production_backward_forbidden": 0.9585684313946562,
+        "stationary_production_cosine_support_fraction_geometric": 0.41806636985815654
+      }
+    },
+    {
+      "g": 4.171689650228597e-08,
+      "index": 24,
+      "maximum_archive_closure_absolute": 1.0658141036401503e-14,
+      "neutrino_esc_weighted_opacity_fraction_beta_lt_0p9": 0.006639643458616578,
+      "neutrino_escaped_source_fraction_beta_lt_0p9": 0.052989777934403626,
+      "semi_compton_esc_weighted_opacity": {
+        "matched_s_p2ratio_relative_to_printed_lab_beta2": 0.9963631599965833,
+        "propagation_beta_lt_0p9": 8.177386220845218e-14,
+        "stationary_absorption_recoil_90_gt_10pct": 1.0,
+        "stationary_absorption_recoil_90_gt_50pct": 0.9982025766739733,
+        "stationary_production_backward_forbidden": 0.9999989392217467,
+        "stationary_production_cosine_support_fraction_geometric": 0.2034128162923589
+      },
+      "semi_compton_escaped_source": {
+        "matched_s_p2ratio_relative_to_printed_lab_beta2": 0.9963361851613077,
+        "propagation_beta_lt_0p9": 1.1075549128514596e-13,
+        "stationary_absorption_recoil_90_gt_10pct": 1.0,
+        "stationary_absorption_recoil_90_gt_50pct": 0.9979506327592519,
+        "stationary_production_backward_forbidden": 0.9999986685270333,
+        "stationary_production_cosine_support_fraction_geometric": 0.2049276249682563
+      }
+    }
+  ],
+  "domain": "Diagnostics of unmodified reconstructed B.16 source, escaping source, and derivative opacity measure; no model replacement or refit.",
+  "energy_grid_sha256": "036e6d772f43acf97601c3846b475e8e1c14200d4d82de1dd9af30f01bb87ea3",
+  "mass_MeV": 10.0,
+  "neutrino_thin_source_fraction_beta_lt_0p9": 0.029817412034439942,
+  "runtime": [
+    "3.12.14",
+    "2.3.5",
+    "1.17.0"
+  ],
+  "semi_compton_thin_source": {
+    "matched_s_p2ratio_relative_to_printed_lab_beta2": 0.9902428128835904,
+    "propagation_beta_lt_0p9": 0.010308934824026431,
+    "stationary_absorption_recoil_90_gt_10pct": 0.9984088019305156,
+    "stationary_absorption_recoil_90_gt_50pct": 0.6074779786646279,
+    "stationary_production_backward_forbidden": 0.8917236286386286,
+    "stationary_production_cosine_support_fraction_geometric": 0.5003534498391444
+  },
+  "stationary_absorption_90deg_loss_gt_50pct_energy_MeV": 106.59649266966983,
+  "stationary_muon_mass_MeV": 105.6583755,
+  "stationary_production_backward_threshold_MeV": 53.30241100147806
+}

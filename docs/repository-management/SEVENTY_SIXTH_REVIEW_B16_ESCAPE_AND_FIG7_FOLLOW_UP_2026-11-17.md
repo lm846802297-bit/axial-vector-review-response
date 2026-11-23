@@ -43,4 +43,27 @@ This later B.13 band result is relevant context but does not provide the specifi
 - No production calculation, transport scan, rate, opacity, luminosity, escape fraction, constraint curve, manuscript source or model parameter was changed.
 - No GitHub Actions workflow was triggered in this review.
 
-This report is supplemental item 119. The remaining eight baseline `REVISION_REQUIRED` entries continue to be tracked separately from the fully reviewed supplemental-document queue.
+At the time of the initial review, this report was supplemental item 119 and eight baseline `REVISION_REQUIRED` entries remained. Subsequent archive reclassification and the strict B.16 follow-up changed the live baseline queue; the current count is six, as recorded in the updated action plan.
+
+
+## Post-review update — strict B.16 phase-space evidence (2026-11-17)
+
+This addendum supersedes the B.16 runbook disposition above; it does not supersede the separate Fig. 7 local-rate/polarization/escape finding.
+
+The strict Python phase-space calculation was subsequently run on the diagnostic branch with pinned Python 3.12.16, NumPy 2.5.4, and SciPy 1.18.1:
+
+- [Energy-grid identity run #44054718118](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44054718118) passed. The high-order, phase-space, and independent CSV-lapse constructions all reproduce the archived 842-node energy grid SHA-256 `036e6d77...`; source and opacity grid hashes and the profile fingerprint also match.
+- [Strict phase-space run #44059347513](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44059347513) passed. The canonical JSON is committed in the PR branch and the full non-empty joint radius-energy-direction table closes against its regional and global source/escape fractions.
+- Luminosity, optically thin source, and escape-probability residuals against the archived high-order baseline are \(-2.22\times10^{-16}\), \(0\), and \(-5.42\times10^{-20}\), respectively. The maximum reconstructed joint-to-marginal residual is \(6.66\times10^{-16}\).
+- The 8–15 km region contributes 79.6522% of the global B.1 source and 86.8551% of the escaped luminosity.
+
+The first post-review acceptance attempt exposed a validator edge case: the sparse joint table intentionally omits the 10–11 MeV energy bin in the 8–15 km region because both stored marginal weights are exactly zero. The validator now accepts an omitted bin only when its one-dimensional marginal is exactly zero; missing non-zero bins and unexpected labels still fail. Dedicated regression tests pass.
+
+The old failed-run energy hash `db6f613c...` was not reproduced by the current-main identity diagnostic or final production run. Its exact historical trigger remains unknown; no baseline hash was changed.
+
+**Updated disposition:**
+
+- `B16_ESCAPE_PHASE_SPACE_RUNBOOK_2026-11-10.md`: `PASS_WITH_NOTES`. The phase-space decomposition is accepted against the archived high-order baseline.
+- `FIG7_10MEV_LOCAL_RATE_POLARIZATION_ESCAPE_AUDIT_2026-11-13.md`: remains `REVISION_REQUIRED`. The calculated 10 MeV luminosity is still +92.4284% above the digitized Fig. 7 reference, and the dedicated local-rate/polarization evidence package remains incomplete.
+
+The baseline audit register and six-item action plan are updated in the same PR. No axial-vector rate, opacity normalization, physical convention, constraint curve, or manuscript source was changed.
