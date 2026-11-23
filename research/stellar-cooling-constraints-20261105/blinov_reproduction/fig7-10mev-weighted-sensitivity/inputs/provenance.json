@@ -1,0 +1,47 @@
+[
+  {
+    "repo": "lm846802297-bit/axial-vector-review-response",
+    "commit": "a7ac6456dafb27492183912fe4abbaa73a9455f7",
+    "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py",
+    "local_name": "reference.py",
+    "git_blob": "374c8d69311231533faf9f8c4f8bea84d0f97b42",
+    "sha256": "f81468f4305cf57eb86cc0210abc7afc333d434ae70da307ca64a824e486107c",
+    "bytes": 15174
+  },
+  {
+    "repo": "lm846802297-bit/axial-vector-review-response",
+    "commit": "a7ac6456dafb27492183912fe4abbaa73a9455f7",
+    "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_global_redshift.py",
+    "local_name": "audit_b16_global_redshift.py",
+    "git_blob": "7a2efb0317c9030f40e2bc1f64d97ee08f040aa0",
+    "sha256": "2cebb1fdab73a22877057408f2945551dc7844a417bdeaba066e4c42c1b31fcd",
+    "bytes": 35564
+  },
+  {
+    "repo": "lm846802297-bit/axial-vector-review-response",
+    "commit": "a7ac6456dafb27492183912fe4abbaa73a9455f7",
+    "path": "research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv",
+    "local_name": "sfho188_digitized.csv",
+    "git_blob": "e41df78c8035540760fbcb7ef592cd830171822e",
+    "sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+    "bytes": 182716
+  },
+  {
+    "repo": "lm846802297-bit/axial-vector-review-response",
+    "commit": "a7ac6456dafb27492183912fe4abbaa73a9455f7",
+    "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_high_order_independent_grid_10mev_2026-11-09.json",
+    "local_name": "high_order.json",
+    "git_blob": "7c92e605bad15f24ff7041938af5cbd9df6bb031",
+    "sha256": "dc7cce151ce9d8ec79d37c0f75c03984f8c5f9660b102f0f054f622b7f33c373",
+    "bytes": 90042
+  },
+  {
+    "repo": "lm846802297-bit/axial-vector-review-response",
+    "commit": "773233e50305e83bf2dab6faed51ed61f31c94d1",
+    "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/fig7-10mev-coupling-shape-audit/fig7-shape-native.json",
+    "local_name": "fig7-shape-native.json",
+    "git_blob": "8835ff228a3dbc7c5ae893d8fcbf9229041badb6",
+    "sha256": "11e92bf1b18c4975413c9a50ca103ac64b19bdf60b3366fe81e5a7294cb6d005",
+    "bytes": 37098
+  }
+]
