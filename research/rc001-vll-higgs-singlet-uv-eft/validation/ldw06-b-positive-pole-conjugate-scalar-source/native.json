@@ -1,0 +1,108 @@
+{
+  "scope": "B positive Y pole and Hdag charge source only; fixed-k bare subset",
+  "runtime": {
+    "python": "3.12.14",
+    "sympy": "1.14.0",
+    "platform": "Linux",
+    "machine": "x86_64"
+  },
+  "symbolic": {
+    "current_and_pole_maps": "exact",
+    "B_WTI_sign": "exact",
+    "a_dot_b_cancels_in_selected_pair": true
+  },
+  "points": [
+    {
+      "q_squared": "-4",
+      "a_dot_b": "45",
+      "a_dot_q": "-9",
+      "shared_denominators_W_left_scalar_right_scalar_heavy": [
+        "10",
+        "11",
+        "15",
+        "-393"
+      ],
+      "right_scalar_wrong_unshifted_denominator": "19",
+      "entries": {
+        "pole_and_external_matrix_checks": 1536,
+        "factored_current_checks": 768,
+        "residual_nonzero": 288,
+        "copied_internal_current": 288,
+        "wrong_relative_sign": 288,
+        "wrong_weak_order": 288,
+        "unshifted_B_propagator": 288
+      },
+      "first_nonzero_entry": {
+        "generator": 0,
+        "weak_indices": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "dirac_row_col": [
+          0,
+          0
+        ],
+        "common_normalized_value": "-1/288200"
+      }
+    },
+    {
+      "q_squared": "0",
+      "a_dot_b": "73",
+      "a_dot_q": "-9",
+      "shared_denominators_W_left_scalar_right_scalar_heavy": [
+        "34",
+        "35",
+        "75",
+        "-377"
+      ],
+      "right_scalar_wrong_unshifted_denominator": "61",
+      "entries": {
+        "pole_and_external_matrix_checks": 1536,
+        "factored_current_checks": 768,
+        "residual_nonzero": 288,
+        "copied_internal_current": 288,
+        "wrong_relative_sign": 288,
+        "wrong_weak_order": 288,
+        "unshifted_B_propagator": 288
+      },
+      "first_nonzero_entry": {
+        "generator": 0,
+        "weak_indices": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "dirac_row_col": [
+          0,
+          0
+        ],
+        "common_normalized_value": "-3/17945200"
+      }
+    },
+    {
+      "q_squared": "-4",
+      "a_dot_b": "13",
+      "a_dot_q": "0",
+      "shared_denominators_W_left_scalar_right_scalar_heavy": [
+        "19",
+        "10",
+        "30",
+        "-394"
+      ],
+      "right_scalar_wrong_unshifted_denominator": "32",
+      "entries": {
+        "pole_and_external_matrix_checks": 1536,
+        "factored_current_checks": 768,
+        "residual_nonzero": 0,
+        "copied_internal_current": 0,
+        "wrong_relative_sign": 288,
+        "wrong_weak_order": 288,
+        "unshifted_B_propagator": 288
+      },
+      "first_nonzero_entry": null
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "record_type": "task_provenance",
+  "provenance_version": "1.0.0",
+  "task_id": "20261123-ldw06-b-positive-pole-conjugate-scalar-source",
+  "repository": "lm846802297-bit/axial-vector-review-response",
+  "task_brief_path": "research/rc001-vll-higgs-singlet-uv-eft/task_briefs/20261123-ldw06-b-positive-pole-conjugate-scalar-source.md",
+  "task_brief_sha256": "227f315b8855c6de643b51beae203ed9bfea0a2e7c384ed0b86e91bb8e01b667",
+  "central_repository": "lm846802297-bit/high-energy-theory-research",
+  "central_commit_sha": "db503f0eb579bdbcac702e44237a6610c34690e7",
+  "lock_file_path": "research/standards-lock.yaml",
+  "lock_file_sha256": "165a29e0b6f372f194d33acac208edfcd2c850d1019db6f18111c5b0f7984813",
+  "applied_profiles": [
+    "task-handoff",
+    "research-compute",
+    "research-quality-gate",
+    "rcrps-v1.0.1"
+  ],
+  "project_extensions": [
+    {
+      "path": "AGENTS.md",
+      "scope": "Axial task routes and scope boundaries",
+      "sha256": "03339c1c5eb9ec3e8b70039485cab9c43f886692dbbaa27335afe14d8eedfd93"
+    },
+    {
+      "path": "docs/repository-management/STRUCTURED_RESULT_DATA_STANDARD.md",
+      "scope": "Axial UV–EFT metadata",
+      "sha256": "e74fae2e8d2da8ed655d9f764f70cbca74c6b2614bb6efcb7011fa604abd5cc3"
+    }
+  ],
+  "acceptance_criteria": [
+    "Exact B-line Ward sign, independently derived shifted H-dagger F3 and shared momenta at fixed k.",
+    "Explicit cancellation of a·b, with nonzero a·q residual at two points and an a·q=0 control at nonzero q with nonzero a·b.",
+    "Detect incorrect pole, weak order, copied B current and charge sign.",
+    "Fresh measured exact byte replay, source/task/standard and RCRPS validation.",
+    "Only B positive pole and external H-dagger charge; no inverse/source completion, full STI, integrated Ward or Wilson."
+  ]
+}
