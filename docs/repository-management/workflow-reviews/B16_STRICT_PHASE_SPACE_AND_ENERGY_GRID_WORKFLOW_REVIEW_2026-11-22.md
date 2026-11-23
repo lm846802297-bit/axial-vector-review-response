@@ -126,3 +126,16 @@ No luminosity, opacity, source, transport prescription, production axial-vector 
 4. **Split-permission strict workflow:** execute the split-permission strict phase-space workflow on its guarded diagnostic branch before describing that YAML as execution-tested. Historical successful runs belong to the earlier workflow-wide write-permission blob.
 5. Keep historical successful run IDs linked to their exact workflow blobs.
 6. Keep the +92.4284% Fig. 7 discrepancy open as a physical investigation. No opacity rescaling or constraint update is authorized by these validator results.
+
+## 6. 2026-11-23 integration follow-up
+
+The pending items above are historical to the 2026-11-22 review snapshot. They were resolved by the first-batch integration branch:
+
+- The strict workflow now uses the read-only calculation / separate write-enabled archive split. Current execution: [run #45172485856](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45172485856); all calculation, validation, regression and archival steps passed.
+- The output validator is the 24-test hardened revision. [Run #45173157775](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45173157775) passed the 24-test suite and independently validated the newly archived strict result.
+- The energy-grid comparison now uses the immutable 842-node reference file and an explicit \(5\times10^{-15}\) relative node tolerance. The original SHA-256 remains unchanged; the production run differs by one ULP at one node and passes the node-level comparison.
+- The B.13 high-order provenance workflow and B.13 local-kernel recovery workflow are included in the same integration batch. The current-head B.13 run [#45172924204](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45172924204) passed the 431-point targeted validation and archive.
+- The workflow inventory has been reconciled to 125 YAML files and 125 register entries, including the two governance workflows previously omitted from the catalog.
+
+The physical acceptance boundary is unchanged: the B.16 phase-space bookkeeping is accepted against the archived baseline, while the +92.4284% Fig. 7 luminosity discrepancy remains unresolved. The B.13 result is targeted 431-point acceptance, not full 1,687-node global high-order acceptance. No production opacity or axial-vector constraint is updated.
+
