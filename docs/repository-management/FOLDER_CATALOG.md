@@ -1,24 +1,25 @@
 # Folder catalog
 
-Inventory snapshot measured on `main` at PR #130 merge commit `8117b1df0d08949e1b566536a66dedcaf179f9a2`, after the PR #122 closeout and PR #129 status-synchronization merges. The subsequent status-only synchronization changes no tree inventory. Counts are structural entries, not unique scientific results.
+Inventory snapshot measured on the first-batch integration branch `integration/b13-b16-first-batch-20261123`, based on main commit `276cb335d466d1c1864448bcd222fe60d7fdcdc8`. It includes the B.13/B.16 first-batch files and the central standards-adoption workflow; it is not yet a main-branch merge. Counts are structural Git-tree entries, not unique scientific results.
 
 ## Repository footprint
 
-- **1,730 Git-tree entries:** 1,599 files and 131 directories.
-- **609 Markdown/text files:** 510 `.md` and 99 `.txt`.
-- **Baseline register:** 462/462 individually reviewed — 304 `PASS_WITH_NOTES`, 2 `PASS`, 156 `HISTORICAL`, 0 `REVISION_REQUIRED`, 0 `PENDING`.
-- **Supplemental register:** 147 entries — 141 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 0 `PENDING`, 0 `REVISION_REQUIRED`.
-- **Workflow inventory:** 118 YAML workflows — 103 `REVIEWED_WITH_NOTES`, 1 `ACTIVE`, 14 `HISTORICAL_CANDIDATE`, 0 `PENDING`.
+- **2,380 Git-tree entries:** 2,218 files and 162 directories.
+- **877 Markdown/text files:** 646 `.md` and 231 `.txt`.
+- **Baseline register:** 462/462 dispositioned — 304 `PASS_WITH_NOTES`, 2 `PASS`, 156 `HISTORICAL`, 0 `REVISION_REQUIRED`, 0 `PENDING`.
+- **Supplemental register:** 415 entries — 167 `PASS_WITH_NOTES`, 6 `HISTORICAL`, 242 `PENDING`, 0 `REVISION_REQUIRED`.
+- **Document coverage:** all 877 Markdown/text paths are registered exactly once. The 242 pending records are pre-existing imported documents now inventoried but not yet content-reviewed.
+- **Workflow inventory:** 125 YAML workflows — 110 `REVIEWED_WITH_NOTES`, 1 `ACTIVE`, 14 `HISTORICAL_CANDIDATE`, 0 `PENDING`.
 
 | Area | Git-tree entries | Responsibility |
 |---|---:|---|
 | `.freebuff/` | 2 | Tool/project metadata; do not treat as research content. |
-| `.github/` | 123 | Actions workflows, catalogs, audit registers and templates. |
+| `.github/` | 130 | Actions workflows, catalogs, audit registers and templates. |
 | `archive/` | 37 | Frozen reply versions, historical research, referee analysis and manuscript baselines. |
 | `deliverables/` | 22 | Extracted handoff packages and instructions. |
-| `docs/` | 130 | Governance, document registers, review standards and audit reports. |
+| `docs/` | 148 | Governance, document registers, review standards and audit reports. |
 | `overleaf-source/` | 29 | Pinned manuscript source package; read-only source archive. |
-| `research/` | 1,102 | Current scientific workstreams, inputs, scripts, tests, outputs and evidence. |
+| `research/` | 1,727 | Current scientific workstreams, inputs, scripts, tests, outputs and evidence. |
 | `work/` | 18 | Intermediate and temporary material; not authoritative until promoted. |
 | `审稿意见-gpt/` | 128 | Internal referee analysis, decisions, writing rules, current execution and original reviewer materials. |
 | `导出/` | 3 | Exported artifacts; identify source and lifecycle before promotion. |
@@ -27,7 +28,7 @@ Inventory snapshot measured on `main` at PR #130 merge commit `8117b1df0d08949e1
 | `附件/` | 4 | Supporting historical attachments. |
 | `[root]` | 13 files + 13 top-level directories | Governance/navigation (`README*`, `AGENTS.md`, `GIT_MERGE_POLICY.md`, `仓库分类索引.md`, `.gitignore`), current status, formal reply TeX/PDF and BibTeX/style dependencies. |
 
-The root has 13 files: PR #128 added `RESEARCH_COMPUTE_POLICY.md` to the 12-file post-PR #116 layout. The active-script relocation does not change the root file count. The original 24-file audit remains a historical baseline; see [the relocation audit](ROOT_RELOCATION_AUDIT_2026-11-17.md) and [blob/size manifest](ROOT_RELOCATION_MANIFEST_2026-11-17.csv). Counts include each top-level directory node.
+The root has 13 files: PR #128 added `RESEARCH_COMPUTE_POLICY.md` to the 12-file post-PR #116 layout. The first-batch integration adds no root files; the active-script relocation does not change the root file count. The original 24-file audit remains a historical baseline; see [the relocation audit](ROOT_RELOCATION_AUDIT_2026-11-17.md) and [blob/size manifest](ROOT_RELOCATION_MANIFEST_2026-11-17.csv). Counts include each top-level directory node.
 
 ## Directory ownership and migration boundaries
 
