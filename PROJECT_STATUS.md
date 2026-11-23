@@ -1,4 +1,21 @@
-# 2026-11-23 live status: B.13/B.16 first-batch integration and inventory reconciliation
+# 2026-11-24 live status: PR #123 Croon/Lai archive and repository inventory review
+
+## Latest update (2026-11-24): PR #123 inventory reconciliation
+
+- **Main baseline:** B.13/B.16 integration PR #140 is merged at `871c9c57feb36ea0df549550bb4c307dacadb8cd`. B.13 targeted high-order and B.16 strict phase-space evidence remain archived; full 1,687-node B.13 global high-order acceptance remains false.
+- **Croon/Lai scope:** PR #123 is a separate pure-vector benchmark package. Its C1 10 MeV result uses $g_V/g_X=1$, $g_A/g_X=0$, B.7 two-flavour neutrino coalescence and B.13 moving-muon semi-Compton. It is not an axial-vector constraint.
+- **C1 archive:** run #45229265669 has a structured run manifest, result summary, validation report, 153 radial nodes, energy order 48 and 121 coupling points. Numerical convergence passed; the physical scope is partial because outer 25–100 km semi-Compton opacity is omitted. No final SN1987A exclusion curve is computed.
+- **Croon outer-opacity issue:** the public reconstructed profile does not determine the raw Garching outer muon profile. The conditional outer-opacity envelopes leave the published low-mass solid/dashed suppression unexplained. This remains an explicit unresolved source/opacity issue; no fitted opacity or rescaled constraint is introduced.
+- **Workflow inventory on PR #123 branch:** 140 YAML files, all 140 registered: 110 `REVIEWED_WITH_NOTES`, 1 `ACTIVE`, 14 `HISTORICAL_CANDIDATE`, and 15 `PENDING`. The 15 new Croon/A0 workflows are inventory-registered only; their full static/permission/latest-run audit is still pending.
+- **Document inventory on PR #123 branch:** 903 Markdown/text files. The 462 baseline records and 441 supplemental records cover all 903 paths exactly once. The 26 newly added Croon/C1 archive documents are registered as `PENDING`, not marked reviewed. The supplemental pending count is now 268 (242 existing pending + 26 new pending).
+- **PR #132:** remains dependent on central Research Skill PR #27 publication and acceptance; central PR #27 remains Draft.
+
+## Current physical boundary
+
+The C1 benchmark is a pure-vector calculation and cannot update the axial-vector constraint. Its 25–100 km outer semi-Compton opacity is omitted, and its final SN1987A exclusion curve is `not_run`. The Croon Fig. 2 low-mass strong-coupling opacity discrepancy is not resolved. No axial-vector contour or manuscript constraint is changed.
+
+---
+
 
 ## Latest update (2026-11-24): B.13/B.16 merged; Croon/Lai C1 benchmark independently archived
 
