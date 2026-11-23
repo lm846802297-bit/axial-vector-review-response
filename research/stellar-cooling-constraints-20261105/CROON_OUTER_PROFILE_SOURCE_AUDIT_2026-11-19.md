@@ -7,17 +7,17 @@
 ## Executive finding
 
 The missing input for the conservative Croon (R_{\rm far}=100\,\mathrm{km}) curve is not merely an outer temperature profile. It is the radial **muon absorptive susceptibility**
-\[
+$$
 n_{\mu^-}(r)F_{\rm deg}(r)
-\]
+$$
 (or enough thermodynamic and composition data to reconstruct it) along the propagation path from the neutrinosphere to (R_{\rm far}).
 
 Croon et al. define
-\[
+$$
 \tau_{\rm abs}(\omega,r)=\int_r^{R_{\rm far}}dr'\,\Gamma_{\rm abs}(\omega,r'),
 \qquad R_{\rm far}\simeq100\,\mathrm{km},
-\]
-while the production integral is restricted to (r<R_\nu\), with (R_\nu\simeq25\,\mathrm{km}) defined by (T=3\,\mathrm{MeV}). Their semi-Compton rate contains (n_\mu F_{\rm deg}), and the text explicitly says that the muon degeneracy factors are taken from the Bollig simulation as functions of radius. Therefore, a complete (R_{\rm far}=100\,\mathrm{km}) calculation needs the simulation's outer muon profile, not just a vacuum-decay tail.
+$$
+while the production integral is restricted to (r<R_\nu), with (R_\nu\simeq25\,\mathrm{km}) defined by (T=3\,\mathrm{MeV}). Their semi-Compton rate contains (n_\mu F_{\rm deg}), and the text explicitly says that the muon degeneracy factors are taken from the Bollig simulation as functions of radius. Therefore, a complete (R_{\rm far}=100\,\mathrm{km}) calculation needs the simulation's outer muon profile, not just a vacuum-decay tail.
 
 The public figures inspected do not provide that 25--100 km profile. The Garching archive lists the relevant radial-profile collection, but the endpoint is access-controlled. The public SNforMuTau implementation likewise says that the simulation data must be requested from the Bollig et al. authors. The current C0 calculation must therefore remain labeled an **interior-profile calculation with a vacuum-only outer continuation**, not a complete reproduction of the solid Croon curve.
 
@@ -31,7 +31,7 @@ Croon et al., *Supernova Muons: New Constraints on Z' Bosons, Axions, and ALPs*,
 - The text immediately below Eq. (4.7) states that the muon (F_{\rm deg}) values are taken from the Bollig simulation as functions of radius.
 - The Fig. 2 caption says the dashed 0.1 eV curve changes (R_{\rm far}\to R_\nu) in the trapping/luminosity prescription. The paper uses (R_{\rm far}=100\,\mathrm{km}) for its conservative result.
 
-The paper's (R_{\rm far}\) variation is consequently a change to the **outer absorption path**. It is not a change to the local production normalization. For the sub-MeV curves, semi-Compton production and muon rescattering dominate; the vacuum (Z'\to\nu\bar\nu) width is proportional to (m_{Z'}^2) and is too small at (m_{Z'}=0.1\,\mathrm{eV}) to explain the observed solid/dashed separation in the scanned coupling interval.
+The paper's (R_{\rm far}) variation is consequently a change to the **outer absorption path**. It is not a change to the local production normalization. For the sub-MeV curves, semi-Compton production and muon rescattering dominate; the vacuum (Z'\to\nu\bar\nu) width is proportional to (m_{Z'}^2) and is too small at (m_{Z'}=0.1\,\mathrm{eV}) to explain the observed solid/dashed separation in the scanned coupling interval.
 
 Reference: [Croon et al., arXiv:2006.13942](https://arxiv.org/abs/2006.13942).
 
@@ -42,7 +42,7 @@ Reference: [Croon et al., arXiv:2006.13942](https://arxiv.org/abs/2006.13942).
 Bollig et al., *Muons in supernovae: implications for the axion-muon coupling*, arXiv:2005.07141, identify the SFHo-18.8 model and show:
 
 - Fig. 3: the muon number-density profile;
-- Fig. 4: the muon degeneracy parameter \(\mu_\mu/T\).
+- Fig. 4: the muon degeneracy parameter $\mu_\mu/T$.
 
 The displayed radial range is approximately 1--20 km. These figures are valuable independent checks of the inner muon-rich region, but they do not show the 25--100 km tail required by Croon's (R_{\rm far}=100\,\mathrm{km}) integral.
 
@@ -58,7 +58,7 @@ Reference: [Caputo et al., arXiv:2109.03244](https://arxiv.org/abs/2109.03244).
 
 ### Esseili and Kribs (2026)
 
-*Hiding a light vector boson from terrestrial experiments: a chargephobic dark photon*, Phys. Rev. D 114, 016023 (2026), Fig. 12, shows the temperature and particle-density profiles for SFHo-18.8. The plotted radius again ends near 20 km. In its PNS cooling calculation, the authors explicitly choose (R_{\max}=R_\nu\simeq25\,\mathrm{km}), and discuss the different trapping results obtained in earlier work with (R_{\max}\sim100\) or (1000\,\mathrm{km}).
+*Hiding a light vector boson from terrestrial experiments: a chargephobic dark photon*, Phys. Rev. D 114, 016023 (2026), Fig. 12, shows the temperature and particle-density profiles for SFHo-18.8. The plotted radius again ends near 20 km. In its PNS cooling calculation, the authors explicitly choose (R_{\max}=R_\nu\simeq25\,\mathrm{km}), and discuss the different trapping results obtained in earlier work with (R_{\max}\sim100) or (1000\,\mathrm{km}).
 
 This is an important comparison of transport conventions, but it does not supply the missing muon susceptibility from 25 to 100 km.
 
@@ -77,16 +77,16 @@ A direct scan of the committed CSV finds:
 
 | Quantity | Value |
 |---|---:|
-| Last nonzero \(\mu_\mu\) sample | \(r=22.191893657\,\mathrm{km}\) |
-| Last nonzero \(\mu_\mu\) value | \(0.999999834\,\mathrm{MeV}\) |
-| First subsequent zero-filled sample | \(r=22.191894657\,\mathrm{km}\) |
-| Temperature at that boundary | \(3.51524\,\mathrm{MeV}\) |
+| Last nonzero $\mu_\mu$ sample | $r=22.191893657\,\mathrm{km}$ |
+| Last nonzero $\mu_\mu$ value | $0.999999834\,\mathrm{MeV}$ |
+| First subsequent zero-filled sample | $r=22.191894657\,\mathrm{km}$ |
+| Temperature at that boundary | $3.51524\,\mathrm{MeV}$ |
 | Final radius in file | 25 km |
-| \(\mu_\mu\) values after the boundary | zero through the end of the CSV |
+| $\mu_\mu$ values after the boundary | zero through the end of the CSV |
 
 The transition from almost exactly 1 MeV to zero at the next sample is a digitization/representation boundary. It is **not evidence that the physical muon chemical potential or muon density is exactly zero** outside 22.19 km. In particular, the interval 22.19--25 km is not a measured zero-susceptibility shell, and the file contains no data at all for 25--100 km.
 
-The current C0 implementation uses the public profile inside (R_\nu\), zero-fills the unresolved muon tail, and includes only the vacuum neutrino-decay continuation outside (R_\nu\). That is an explicit approximation, not the original Garching outer medium.
+The current C0 implementation uses the public profile inside (R_\nu), zero-fills the unresolved muon tail, and includes only the vacuum neutrino-decay continuation outside (R_\nu). That is an explicit approximation, not the original Garching outer medium.
 
 ## 4. Archive and code-repository access check
 
@@ -119,7 +119,7 @@ Therefore, the EOS can support a **separate sensitivity model** once its assumpt
 
 ## 6. Interpretation of the Fig. 2 discrepancy
 
-The no-fit comparison of the two published 0.1 eV curves gives a median solid/dashed luminosity ratio of about 3.38 over the selected strong-coupling interval. The current model gives a ratio essentially equal to one because it has no measured muon opacity outside (R_\nu). The logarithm of the missing suppression, \(\ln(3.38)\simeq1.22\), is an **effective integrated-luminosity diagnostic**, not a local optical depth and not a unique reconstruction of \(\Gamma_{\rm abs}(r,\omega)\).
+The no-fit comparison of the two published 0.1 eV curves gives a median solid/dashed luminosity ratio of about 3.38 over the selected strong-coupling interval. The current model gives a ratio essentially equal to one because it has no measured muon opacity outside (R_\nu). The logarithm of the missing suppression, $\ln(3.38)\simeq1.22$, is an **effective integrated-luminosity diagnostic**, not a local optical depth and not a unique reconstruction of $\Gamma_{\rm abs}(r,\omega)$.
 
 The existing finite-temperature/vacuum neutrino-decay tail tests are much too small to account for this low-mass separation. Additional outer-medium absorption remains one possible explanation, but a quantitative conditional test below shows that a simple monotonic continuation of the currently resolved muon susceptibility is far too small. A non-monotonic outer muon-rich layer, a different raw radial profile, another opacity prescription, or a mismatch in the interpretation of the solid/dashed comparison must be investigated. The luminosity ratio is not used to fit a local opacity.
 
@@ -155,38 +155,38 @@ This section tests a deliberately conservative continuation of the last nonzero 
 
 The last nonzero digitized muon-chemical-potential sample is
 
-\[
+$$
 r_{\rm edge}=22.191893657~\mathrm{km},\quad
 T_{\rm edge}=3.515243457~\mathrm{MeV},\quad
 \mu_{\mu,\rm edge}=0.999999834~\mathrm{MeV}.
-\]
+$$
 
 The value near 1 MeV is the lower plotting floor of the logarithmic source curve. It is not a measurement that the physical chemical potential remains exactly 1 MeV at this radius. The current CSV sets the subsequent values to zero; that zero-filled continuation is likewise not a measurement of the physical outer profile.
 
 Using the same free relativistic Fermi--Dirac susceptibility integral as the C0 calculation gives
 
-\[
+$$
 \chi_{\mu,\rm edge}
 =n_\mu F_{\rm deg}
 =1.13518337\times10^{-10}~\mathrm{MeV}^3.
-\]
+$$
 
-At \(T=3\,\mathrm{MeV}\), \(\mu_\mu=0\), the same integral gives
+At $T=3\,\mathrm{MeV}$, $\mu_\mu=0$, the same integral gives
 
-\[
+$$
 \chi_\mu(3~\mathrm{MeV},0)
 =3.82364561\times10^{-13}~\mathrm{MeV}^3.
-\]
+$$
 
-For the first screening estimate, the outer path is specifically \(R_\nu\to R_{\rm far}\), not \(r_{\rm edge}\to R_{\rm far}\). The conditional assumptions are:
+For the first screening estimate, the outer path is specifically $R_\nu\to R_{\rm far}$, not $r_{\rm edge}\to R_{\rm far}$. The conditional assumptions are:
 
-1. \(\chi_\mu(r)\le\chi_{\mu,\rm edge}\) for \(r\ge R_\nu\);
-2. \(T(r)\le3\,\mathrm{MeV}\) for \(r\ge R_\nu\);
-3. the upper-envelope value \(\chi_{\mu,\rm edge}\) is held constant from \(R_\nu\) to 100 km.
+1. $\chi_\mu(r)\le\chi_{\mu,\rm edge}$ for $r\ge R_\nu$;
+2. $T(r)\le3\,\mathrm{MeV}$ for $r\ge R_\nu$;
+3. the upper-envelope value $\chi_{\mu,\rm edge}$ is held constant from $R_\nu$ to 100 km.
 
-This gives an outer path of \(100-R_\nu\simeq74.85\) km. At \(m_{Z'}=0.1\,\mathrm{eV}\), \(g=0.03\), the energy-dependent semi-Compton optical depths are:
+This gives an outer path of $100-R_\nu\simeq74.85$ km. At $m_{Z'}=0.1\,\mathrm{eV}$, $g=0.03$, the energy-dependent semi-Compton optical depths are:
 
-| \(\omega\) (MeV) | \(\tau_{\rm sc}^{\rm edge\ envelope}\) |
+| $\omega$ (MeV) | $\tau_{\rm sc}^{\rm edge\ envelope}$ |
 |---:|---:|
 | 0.1 | 0.5162 |
 | 1 | 0.05970 |
@@ -194,61 +194,61 @@ This gives an outer path of \(100-R_\nu\simeq74.85\) km. At \(m_{Z'}=0.1\,\mathr
 | 10 | 0.01755 |
 | 30 | 0.01692 |
 
-The very soft end has a larger Bose enhancement, but carries little source energy. The earlier representative-spectrum estimate, using \(Q_\omega\propto\omega^3/[e^{\omega/T_{\rm src}}-1]\), gave an additional suppression of about 1.7%. That was a screening estimate; the full source-weighted result is reported next.
+The very soft end has a larger Bose enhancement, but carries little source energy. The earlier representative-spectrum estimate, using $Q_\omega\propto\omega^3/[e^{\omega/T_{\rm src}}-1]$, gave an additional suppression of about 1.7%. That was a screening estimate; the full source-weighted result is reported next.
 
 ### 9.2 Full C0 source-weighted re-evaluation
 
 A separate calculation now uses the complete C0 source and transport structure rather than a representative source spectrum:
 
 - profile B, SHA-256 9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c, 1687 radial nodes;
-- \(m_{Z'}=0.1\,\mathrm{eV}\);
-- both \(\nu_\mu\) and \(\nu_\tau\) in the \(L_\mu-L_\tau\) source and inverse-decay opacity;
-- the local energy measure \(d\omega\,k\omega^2/(2\pi^2)\), with the emitted-particle energy included exactly once;
+- $m_{Z'}=0.1\,\mathrm{eV}$;
+- both $\nu_\mu$ and $\nu_\tau$ in the $L_\mu-L_\tau$ source and inverse-decay opacity;
+- the local energy measure $d\omega\,k\omega^2/(2\pi^2)$, with the emitted-particle energy included exactly once;
 - the radius-dependent semi-Compton and neutrino source terms;
 - detailed-balance absorption and source-radius-dependent optical depth;
 - susceptibility order 256, local energy order 96, and 601 optical-depth energy nodes.
 
 Two conditional outer semi-Compton envelopes are evaluated:
 
-1. **Neutrinosphere envelope:** \(\chi_\mu=\chi_{\mu,\rm edge}\) from \(R_\nu\) to 100 km at \(T=3\,\mathrm{MeV}\).
-2. **Edge-temperature envelope:** \(\chi_\mu=\chi_{\mu,\rm edge}\) from \(r_{\rm edge}\) to 100 km at \(T=T_{\rm edge}=3.51524\,\mathrm{MeV}\). This also fills the digitized zero interval between \(r_{\rm edge}\) and \(R_\nu\), and is the more conservative of the two envelopes under its stated assumptions.
+1. **Neutrinosphere envelope:** $\chi_\mu=\chi_{\mu,\rm edge}$ from $R_\nu$ to 100 km at $T=3\,\mathrm{MeV}$.
+2. **Edge-temperature envelope:** $\chi_\mu=\chi_{\mu,\rm edge}$ from $r_{\rm edge}$ to 100 km at $T=T_{\rm edge}=3.51524\,\mathrm{MeV}$. This also fills the digitized zero interval between $r_{\rm edge}$ and $R_\nu$, and is the more conservative of the two envelopes under its stated assumptions.
 
 The table distinguishes the vacuum neutrino-decay tail from the additional semi-Compton envelope. All entries are ratios of integrated luminosities; they are not local optical depths.
 
-| \(g_X\) | \(L(R_\nu)/L_{\rm vacuum}\) | \(L_{\rm vacuum}/L_{T=3}\) | \(L(R_\nu)/L_{T=3}\) | \(L(R_\nu)/L_{\rm edge,T_{\rm edge}}\) |
+| $g_X$ | $L(R_\nu)/L_{\rm vacuum}$ | $L_{\rm vacuum}/L_{T=3}$ | $L(R_\nu)/L_{T=3}$ | $L(R_\nu)/L_{\rm edge,T_{\rm edge}}$ |
 |---:|---:|---:|---:|---:|
-| \(3\times10^{-6}\) | 1.0000000000493 | 1.0000000001692 | 1.0000000002185 | 1.0000000002254 |
-| \(10^{-5}\) | 1.0000000006821 | 1.0000000018830 | 1.0000000025651 | 1.0000000026438 |
-| \(10^{-4}\) | 1.0000000913252 | 1.0000001892098 | 1.0000002805350 | 1.0000002889455 |
-| \(10^{-3}\) | 1.0000115082120 | 1.0000190648679 | 1.0000305732993 | 1.0000314918106 |
-| \(10^{-2}\) | 1.0014142774149 | 1.0019299684399 | 1.0033469753655 | 1.0034498037086 |
-| \(3\times10^{-2}\) | 1.0139797238872 | 1.0176116217081 | 1.0318375512040 | 1.0328408123192 |
+| $3\times10^{-6}$ | 1.0000000000493 | 1.0000000001692 | 1.0000000002185 | 1.0000000002254 |
+| $10^{-5}$ | 1.0000000006821 | 1.0000000018830 | 1.0000000025651 | 1.0000000026438 |
+| $10^{-4}$ | 1.0000000913252 | 1.0000001892098 | 1.0000002805350 | 1.0000002889455 |
+| $10^{-3}$ | 1.0000115082120 | 1.0000190648679 | 1.0000305732993 | 1.0000314918106 |
+| $10^{-2}$ | 1.0014142774149 | 1.0019299684399 | 1.0033469753655 | 1.0034498037086 |
+| $3\times10^{-2}$ | 1.0139797238872 | 1.0176116217081 | 1.0318375512040 | 1.0328408123192 |
 
 At the upper end of the scanned coupling interval:
 
 - the vacuum neutrino-decay tail alone gives a factor 1.01398;
-- the \(T=3\) MeV outer semi-Compton envelope adds a further factor 1.01761 relative to that vacuum-tail calculation;
-- the combined \(R_\nu\)-to-100 km suppression is a factor 1.03183;
-- the more conservative edge-to-100 km, \(T=T_{\rm edge}\) envelope gives a combined factor 1.03284.
+- the $T=3$ MeV outer semi-Compton envelope adds a further factor 1.01761 relative to that vacuum-tail calculation;
+- the combined $R_\nu$-to-100 km suppression is a factor 1.03183;
+- the more conservative edge-to-100 km, $T=T_{\rm edge}$ envelope gives a combined factor 1.03284.
 
 The published median solid/dashed ratio is 3.38190. Thus even the more conservative full C0 envelope accounts for only about 3.3% suppression, leaving a factor
 
-\[
+$$
 \frac{3.38190}{1.03284}=3.27437
-\]
+$$
 
 unexplained. This is a stronger statement than the earlier 1.7% representative-spectrum estimate because it includes both the actual source-weighted outer semi-Compton attenuation and the vacuum neutrino tail.
 
 ### 9.3 Effective constant-susceptibility equivalents
 
-The full source-weighted calculation also solves for the constant susceptibility on \(R_\nu\to100\) km that would be needed to reproduce the published median ratio 3.38190. The numerator is the \(R_{\rm far}=R_\nu\) luminosity; the denominator includes the vacuum neutrino tail and the trial outer semi-Compton opacity.
+The full source-weighted calculation also solves for the constant susceptibility on $R_\nu\to100$ km that would be needed to reproduce the published median ratio 3.38190. The numerator is the $R_{\rm far}=R_\nu$ luminosity; the denominator includes the vacuum neutrino tail and the trial outer semi-Compton opacity.
 
-| Coupling | Required constant \(\chi_\mu\) (MeV\(^3\)) | Ratio to digitized edge value |
+| Coupling | Required constant $\chi_\mu$ (MeV$^3$) | Ratio to digitized edge value |
 |---:|---:|---:|
-| \(3\times10^{-6}\) | 0.81769954 | \(7.2032\times10^9\) |
-| \(3\times10^{-2}\) | \(7.8634185\times10^{-9}\) | 69.2700 |
+| $3\times10^{-6}$ | 0.81769954 | $7.2032\times10^9$ |
+| $3\times10^{-2}$ | $7.8634185\times10^{-9}$ | 69.2700 |
 
-These are effective constant-tail equivalents, not inferred physical profiles. The same median luminosity ratio requires constant susceptibilities differing by about \(1.04\times10^8\) between the two coupling endpoints. A single constant outer susceptibility therefore cannot reproduce the same median suppression at both endpoints. This does not exclude a non-monotonic radial profile or a more structured outer medium.
+These are effective constant-tail equivalents, not inferred physical profiles. The same median luminosity ratio requires constant susceptibilities differing by about $1.04\times10^8$ between the two coupling endpoints. A single constant outer susceptibility therefore cannot reproduce the same median suppression at both endpoints. This does not exclude a non-monotonic radial profile or a more structured outer medium.
 
 ### 9.4 Interpretation and limitations
 
@@ -269,60 +269,60 @@ Croon et al. Sec. 4.2 identify two leading rates for the muon-coupled vector ben
 1. Neutrino-pair coalescence, Eq. (4.6), whose inverse process supplies the neutrino-decay absorptive opacity.
 2. Semi-Compton scattering, Eq. (4.7), whose inverse process supplies the muon absorptive opacity.
 
-Both are present in the C0 implementation. The neutrino channel includes the two \(L_\mu-L_\tau\) neutrino flavours. The semi-Compton channel uses the local susceptibility \(n_\mu F_{\rm deg}\), with the detailed-balance factor \(1+f_B\), and the full source-weighted outer-envelope calculation explicitly tests its continuation beyond \(R_\nu\).
+Both are present in the C0 implementation. The neutrino channel includes the two $L_\mu-L_\tau$ neutrino flavours. The semi-Compton channel uses the local susceptibility $n_\mu F_{\rm deg}$, with the detailed-balance factor $1+f_B$, and the full source-weighted outer-envelope calculation explicitly tests its continuation beyond $R_\nu$.
 
 The paper also discusses other processes in Appendix A:
 
-- **\(\nu\nu\to Z'Z'\), Appendix A.1:** this is a two-vector production process and is suppressed by an additional power of the gauge coupling relative to the leading single-\(Z'\) channels. It is not an omitted leading single-particle absorptive width in Eq. (3.3).
-- **Loop-induced nucleon bremsstrahlung, Appendix A.2:** this is induced by kinetic mixing. The Fig. 2 benchmark is the no-kinetic-mixing \(L_\mu-L_\tau\) case, so this channel is not part of that plotted baseline. The paper also discusses plasma screening for the mixing-induced contribution.
-- **Muon-proton bremsstrahlung, Appendix A.3:** the paper estimates it to be suppressed relative to semi-Compton by an additional \(\alpha_{\rm EM}\) and the three-body final-state phase space.
+- **$\nu\nu\to Z'Z'$, Appendix A.1:** this is a two-vector production process and is suppressed by an additional power of the gauge coupling relative to the leading single-$Z'$ channels. It is not an omitted leading single-particle absorptive width in Eq. (3.3).
+- **Loop-induced nucleon bremsstrahlung, Appendix A.2:** this is induced by kinetic mixing. The Fig. 2 benchmark is the no-kinetic-mixing $L_\mu-L_\tau$ case, so this channel is not part of that plotted baseline. The paper also discusses plasma screening for the mixing-induced contribution.
+- **Muon-proton bremsstrahlung, Appendix A.3:** the paper estimates it to be suppressed relative to semi-Compton by an additional $\alpha_{\rm EM}$ and the three-body final-state phase space.
 
-Thus, within the stated no-kinetic-mixing Croon benchmark, the two leading single-\(Z'\) opacity channels have already been included and the additional channels identified by the authors are subdominant or absent from that benchmark. The present factor-3.38 outer-segment discrepancy cannot currently be assigned to an unexamined leading Croon opacity channel. The remaining data-driven possibilities are the true Garching outer profile or a difference in the original profile, implementation convention, or digitized figure.
+Thus, within the stated no-kinetic-mixing Croon benchmark, the two leading single-$Z'$ opacity channels have already been included and the additional channels identified by the authors are subdominant or absent from that benchmark. The present factor-3.38 outer-segment discrepancy cannot currently be assigned to an unexamined leading Croon opacity channel. The remaining data-driven possibilities are the true Garching outer profile or a difference in the original profile, implementation convention, or digitized figure.
 
 #### Charge-conjugate muon target sensitivity
 
 The printed degeneracy prescription quoted by Croon from Bollig et al. defines
-\[
+$$
 F_{\rm deg}=\frac{1}{n_{\mu,\rm th}}
 \int\frac{2\,d^3p}{(2\pi)^3}
 f_\mu(E;\mu_\mu)\,[1-f_\mu(E;\mu_\mu)],
-\]
-with one \(f_\mu(E;\mu_\mu)\) distribution. This is the literal single-\(\mu^-\) convention used in C0. A vector interaction also couples to \(\mu^+\), whose equilibrium distribution is \(f_\mu(E;-\mu_\mu)\). We therefore added a separate charge-conjugate sensitivity that replaces the single-species susceptibility by
-\[
+$$
+with one $f_\mu(E;\mu_\mu)$ distribution. This is the literal single-$\mu^-$ convention used in C0. A vector interaction also couples to $\mu^+$, whose equilibrium distribution is $f_\mu(E;-\mu_\mu)$. We therefore added a separate charge-conjugate sensitivity that replaces the single-species susceptibility by
+$$
 \chi_{\mu^\pm}
 =\int\frac{d^3p}{\pi^2}
 \left[
 f_\mu(E;\mu_\mu)(1-f_\mu(E;\mu_\mu))
 +f_\mu(E;-\mu_\mu)(1-f_\mu(E;-\mu_\mu))
 \right].
-\]
+$$
 This extension is applied consistently to both the local source and the inverse semi-Compton opacity. It is not silently substituted into the literal Croon baseline.
 
 The high-order calculation gives the following edge and neutrinosphere susceptibilities:
 
-| Location | \(\chi_{\mu^-}\) (MeV\(^3\)) | \(\chi_{\mu^\pm}\) (MeV\(^3\)) | Total / \(\mu^-\) |
+| Location | $\chi_{\mu^-}$ (MeV$^3$) | $\chi_{\mu^\pm}$ (MeV$^3$) | Total / $\mu^-$ |
 |---|---:|---:|---:|
-| \(R_\nu=25.15117\) km | \(3.82365\times10^{-13}\) | \(7.64729\times10^{-13}\) | 2.000 |
-| Last nonzero digitized edge, \(r=22.19189\) km | \(1.13518\times10^{-10}\) | \(1.77783\times10^{-10}\) | 1.566 |
+| $R_\nu=25.15117$ km | $3.82365\times10^{-13}$ | $7.64729\times10^{-13}$ | 2.000 |
+| Last nonzero digitized edge, $r=22.19189$ km | $1.13518\times10^{-10}$ | $1.77783\times10^{-10}$ | 1.566 |
 
 The charge-conjugate susceptibility therefore raises the edge value by 56.61%. Its effect on the full source-weighted luminosity is much smaller because the edge susceptibility is tiny in absolute terms and occupies only the conditional outer continuation.
 
-At \(g_X=0.03\), the full source-weighted luminosity ratios are:
+At $g_X=0.03$, the full source-weighted luminosity ratios are:
 
-| Quantity | \(\mu^-\) only | \(\mu^-+\mu^+\) |
+| Quantity | $\mu^-$ only | $\mu^-+\mu^+$ |
 |---|---:|---:|
-| \(L(R_\nu)/L_{\rm edge,T_{\rm edge}}\) | 1.03284081 | 1.04367238 |
-| \(L(R_\nu)/L_{T=3}\) | 1.03183755 | 1.04208600 |
+| $L(R_\nu)/L_{\rm edge,T_{\rm edge}}$ | 1.03284081 | 1.04367238 |
+| $L(R_\nu)/L_{T=3}$ | 1.03183755 | 1.04208600 |
 | Remaining factor to published median 3.38190 | 3.27436712 | 3.24038468 |
 
-Thus the equilibrium \(\mu^+\) extension increases the outer-segment attenuation by about one percent in the integrated luminosity at the upper coupling endpoint, but still leaves a factor 3.24038 relative to the published median solid/dashed ratio. It does not close the Fig. 2 discrepancy.
+Thus the equilibrium $\mu^+$ extension increases the outer-segment attenuation by about one percent in the integrated luminosity at the upper coupling endpoint, but still leaves a factor 3.24038 relative to the published median solid/dashed ratio. It does not close the Fig. 2 discrepancy.
 
 The six-coupling result and all quadrature settings are archived in [the committed summary](blinov_reproduction/outputs/croon_antimuon_opacity_sensitivity_summary_2026-11-19.json) and [the full workflow artifact](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44519016169/artifacts/14527216779). The full high-order sensitivity was first produced by workflow [#44519016169](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44519016169). The latest combined regression [#44520787056](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44520787056) reran the calculation and passed **87/87 tests**, including four charge-conjugate sensitivity tests and the archived-summary integrity test. The latest full output is [artifact #14527932533](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44520787056/artifacts/14527932533).
 
 The result keeps two conventions distinct:
 
-- **C0 literal:** single-\(\mu^-\) susceptibility, following the printed Croon/Bollig \(F_{\rm deg}\) convention.
-- **C0+\(\mu^+\) sensitivity:** equilibrium \(\mu^-\) and \(\mu^+\) target populations included consistently in production and absorption.
+- **C0 literal:** single-$\mu^-$ susceptibility, following the printed Croon/Bollig $F_{\rm deg}$ convention.
+- **C0+$\mu^+$ sensitivity:** equilibrium $\mu^-$ and $\mu^+$ target populations included consistently in production and absorption.
 
 
 
@@ -337,15 +337,15 @@ Official sources:
 - Bollig radial profiles: https://wwwmpa.mpa-garching.mpg.de/ccsnarchive/data/Bollig2016_radial_profiles/
 - Archive contact: Hans-Thomas Janka, thj@mpa-garching.mpg.de
 
-A data request should identify the exact target as the SFHo-18.8 model at \(t_{\rm pb}=1\,\mathrm{s}\), and ask for the radial profile extending through at least \(R_{\rm far}=100\) km. The minimum fields needed to close the present opacity question are:
+A data request should identify the exact target as the SFHo-18.8 model at $t_{\rm pb}=1\,\mathrm{s}$, and ask for the radial profile extending through at least $R_{\rm far}=100$ km. The minimum fields needed to close the present opacity question are:
 
-1. radius and temperature \(T(r)\);
-2. \(\mu_\mu(r)\) or separately \(n_{\mu^-}(r)\) and \(n_{\mu^+}(r)\), with the chemical-potential/dispersion convention;
-3. the muon degeneracy factor or sufficient thermodynamic information to reconstruct \(n_\mu F_{\rm deg}\);
-4. the neutrino chemical potentials and relevant neutrino thermodynamic fields used for the \(Z'\to\nu\bar\nu\) channel;
+1. radius and temperature $T(r)$;
+2. $\mu_\mu(r)$ or separately $n_{\mu^-}(r)$ and $n_{\mu^+}(r)$, with the chemical-potential/dispersion convention;
+3. the muon degeneracy factor or sufficient thermodynamic information to reconstruct $n_\mu F_{\rm deg}$;
+4. the neutrino chemical potentials and relevant neutrino thermodynamic fields used for the $Z'\to\nu\bar\nu$ channel;
 5. the exact snapshot identifier, radial sampling, and any profile-version notes.
 
-The immediate priority is the outer interval \(25\lesssim r\le100\) km, but the complete profile is preferable so the source and opacity are derived from one consistent snapshot.
+The immediate priority is the outer interval $25\lesssim r\le100$ km, but the complete profile is preferable so the source and opacity are derived from one consistent snapshot.
 
 **Disposition:** no email has been sent, no access key has been requested or obtained, and no access restriction has been bypassed. The current public-figure reconstruction remains the only numerical input used in the committed calculation. The full-profile request is the next data-dependent step; the conditional envelopes in Sec. 9 remain sensitivity tests until that data is available.
 
@@ -356,23 +356,23 @@ A further independent literature source was checked:
 
 Z.-M. Huang, C. Li and Z. Liu, *Refined Low-Energy Supernova Constraints on Lepton Flavor Violating Axions*, JHEP 05 (2026) 292, arXiv:2510.22523.
 
-The paper states in Sec. 4 that it adopts the radial distributions and temporal evolution of the Garching SFHo-18.8 model. Its Fig. 2 (PDF p. 6) shows the \(t_{\rm pb}=1\) s spatial profiles of
-\[
+The paper states in Sec. 4 that it adopts the radial distributions and temporal evolution of the Garching SFHo-18.8 model. Its Fig. 2 (PDF p. 6) shows the $t_{\rm pb}=1$ s spatial profiles of
+$$
 T(r),\quad \mu_e(r),\quad \mu_\mu(r),\quad U_p(r),\quad
 m_p^*(r),\quad \mu_p(r),\quad \text{lapse}(r),\quad m_e(r).
-\]
-The plotted radial range is approximately \(0\)--\(20\) km. The figure therefore supplies an independent inner-profile cross-check, but it does not extend through the \(25\)--\(100\) km interval required by the Croon \(R_{\rm far}=100\) km opacity integral. It also does not publish a numerical \(n_B(r)\) or a machine-readable outer muon-susceptibility table.
+$$
+The plotted radial range is approximately $0$--$20$ km. The figure therefore supplies an independent inner-profile cross-check, but it does not extend through the $25$--$100$ km interval required by the Croon $R_{\rm far}=100$ km opacity integral. It also does not publish a numerical $n_B(r)$ or a machine-readable outer muon-susceptibility table.
 
-The authors acknowledge Hans-Thomas Janka for providing the supernova profiles used in their numerical calculations. This is consistent with the Garching archive being the primary data route; it is not evidence that the underlying radial tables are publicly downloadable. The paper also states that electron and muon number densities decrease rapidly outside the SN core (PDF p. 14), which is a useful qualitative physical cross-check, not a quantitative upper bound on the \(25\)--\(100\) km semi-Compton opacity.
+The authors acknowledge Hans-Thomas Janka for providing the supernova profiles used in their numerical calculations. This is consistent with the Garching archive being the primary data route; it is not evidence that the underlying radial tables are publicly downloadable. The paper also states that electron and muon number densities decrease rapidly outside the SN core (PDF p. 14), which is a useful qualitative physical cross-check, not a quantitative upper bound on the $25$--$100$ km semi-Compton opacity.
 
-The paper's transport equations are for an LFV-ALP model and its LESN energy-deposition calculation. They are not imported into the Croon vector benchmark. In particular, its \(R_c=20\) km core boundary, angular trajectory average, lapse treatment, and interaction channels are not interchangeable with Croon's \(R_\nu\)-to-\(R_{\rm far}\) vector calculation.
+The paper's transport equations are for an LFV-ALP model and its LESN energy-deposition calculation. They are not imported into the Croon vector benchmark. In particular, its $R_c=20$ km core boundary, angular trajectory average, lapse treatment, and interaction channels are not interchangeable with Croon's $R_\nu$-to-$R_{\rm far}$ vector calculation.
 
 ### Updated source disposition
 
 | Source | Radial information | What it establishes | What it does not establish |
 |---|---|---|---|
-| Caputo/Bollig public figures used in this repository | Inner SFHo-18.8 profile; muon curve support ends near 22 km | Reconstructed \(T,\mu_\mu\) and inner thermodynamic consistency checks | Original \(25\)--\(100\) km muon susceptibility |
-| Huang, Li and Liu, arXiv:2510.22523, Fig. 2 | Garching SFHo-18.8 profiles to about 20 km at \(t_{\rm pb}=1\) s | Independent inner \(T,\mu_\mu,\mu_e\), proton-potential and lapse comparison | A numerical outer profile or \(n_B(r)\) table |
+| Caputo/Bollig public figures used in this repository | Inner SFHo-18.8 profile; muon curve support ends near 22 km | Reconstructed $T,\mu_\mu$ and inner thermodynamic consistency checks | Original $25$--$100$ km muon susceptibility |
+| Huang, Li and Liu, arXiv:2510.22523, Fig. 2 | Garching SFHo-18.8 profiles to about 20 km at $t_{\rm pb}=1$ s | Independent inner $T,\mu_\mu,\mu_e$, proton-potential and lapse comparison | A numerical outer profile or $n_B(r)$ table |
 | Garching Core-Collapse Supernova Archive, Bollig radial-profile collection | Original simulation radial-profile collection, access-controlled | Primary provenance route for the exact simulation data | Public unauthenticated access; the linked endpoint returns HTTP 401 |
 
 **Conclusion:** the additional 2026 paper strengthens the inner-profile provenance check but does not close the outer-opacity data gap. The current source-weighted outer-opacity envelope remains a conditional sensitivity analysis. No new outer profile is inferred from the figure, no opacity is fitted, and no C0 luminosity or Fig. 2 curve is modified.
@@ -388,22 +388,22 @@ Z.-M. Huang and Z. Liu, *Low-Energy Supernova Constraints on Lepton Flavor Viola
 
 This paper uses the Garching muonic SFHo-18.8 model at one second post-bounce and extends the displayed radial background to **30 km**:
 
-- **Fig. 2, PDF p. 5 (printed p. 4):** \(T(r)\), \(\mu_e(r)\), \(\mu_\mu(r)\), lapse, and in-medium electron mass over approximately \(0\)--\(30\) km.
-- **Fig. 5, PDF p. 7 (printed p. 6):** left panel, signed \(\mu_e(r)\) and \(\mu_\mu(r)\); right panel, \(n_{e^-},n_{\mu^-},n_{e^+},n_{\mu^+}\) over approximately \(0\)--\(30\) km. The number densities are calculated using the paper's Eq. (4.8).
-- **Sec. 4, PDF p. 6:** the authors explicitly state that \(\mu_\mu\) becomes negative for \(r\gtrsim22\) km and consequently \(n_{\mu^+}>n_{\mu^-}\) in that region.
+- **Fig. 2, PDF p. 5 (printed p. 4):** $T(r)$, $\mu_e(r)$, $\mu_\mu(r)$, lapse, and in-medium electron mass over approximately $0$--$30$ km.
+- **Fig. 5, PDF p. 7 (printed p. 6):** left panel, signed $\mu_e(r)$ and $\mu_\mu(r)$; right panel, $n_{e^-},n_{\mu^-},n_{e^+},n_{\mu^+}$ over approximately $0$--$30$ km. The number densities are calculated using the paper's Eq. (4.8).
+- **Sec. 4, PDF p. 6:** the authors explicitly state that $\mu_\mu$ becomes negative for $r\gtrsim22$ km and consequently $n_{\mu^+}>n_{\mu^-}$ in that region.
 
-This changes the charge-conjugate bookkeeping of the outer-profile audit. The earlier C0 antimuon sensitivity used the public Caputo/Bollig profile with \(\mu_\mu\) set to zero after its last digitized positive sample at about 22.19 km. That prescription does not reproduce the signed \(\mu_\mu(r)\) tail shown in Huang--Liu Fig. 5. It therefore cannot be used as the final charge-summed \(22\)--\(30\) km profile.
+This changes the charge-conjugate bookkeeping of the outer-profile audit. The earlier C0 antimuon sensitivity used the public Caputo/Bollig profile with $\mu_\mu$ set to zero after its last digitized positive sample at about 22.19 km. That prescription does not reproduce the signed $\mu_\mu(r)$ tail shown in Huang--Liu Fig. 5. It therefore cannot be used as the final charge-summed $22$--$30$ km profile.
 
-The correct next calculation is to digitize the correlated \(T(r)\) and signed \(\mu_\mu(r)\) curves from Huang--Liu Figs. 2 and 5, calculate
-\[
+The correct next calculation is to digitize the correlated $T(r)$ and signed $\mu_\mu(r)$ curves from Huang--Liu Figs. 2 and 5, calculate
+$$
 \chi_{\mu^-}(r)=n_{\mu^-}(r)F_{\rm deg}^{\mu^-}(r),\qquad
 \chi_{\mu^+}(r)=n_{\mu^+}(r)F_{\rm deg}^{\mu^+}(r),
-\]
+$$
 and compare their sum with the last nonzero Caputo/Bollig susceptibility sample. The right panel of Fig. 5 supplies an independent number-density cross-check for the Fermi-integral reconstruction.
 
-The paper's Data Availability Statement says that no associated data are deposited, and its Code Availability Statement says that no code is deposited. Thus Figs. 2 and 5 provide a public figure-digitization lane, not the original numerical Garching table. The displayed profile stops at 30 km; the \(30\)--\(100\) km interval remains unprovided.
+The paper's Data Availability Statement says that no associated data are deposited, and its Code Availability Statement says that no code is deposited. Thus Figs. 2 and 5 provide a public figure-digitization lane, not the original numerical Garching table. The displayed profile stops at 30 km; the $30$--$100$ km interval remains unprovided.
 
-**Required correction to the previous envelope:** the earlier constant-edge, source-weighted opacity envelope remains a useful conditional reference, but it is not yet a demonstrated upper bound on the charge-summed outer susceptibility. That status can be assigned only after the signed \(\mu_\mu\) tail from Fig. 5 has been digitized and its \(\chi_{\mu^-}+\chi_{\mu^+}\) evaluated. No luminosity curve is changed by identifying this source.
+**Required correction to the previous envelope:** the earlier constant-edge, source-weighted opacity envelope remains a useful conditional reference, but it is not yet a demonstrated upper bound on the charge-summed outer susceptibility. That status can be assigned only after the signed $\mu_\mu$ tail from Fig. 5 has been digitized and its $\chi_{\mu^-}+\chi_{\mu^+}$ evaluated. No luminosity curve is changed by identifying this source.
 
 This paper is used here only as a source of SFHo-18.8 background information. Its LFV-ALP production, absorption, mantle transport, and limits are not imported into the vector-boson calculation.
 
@@ -414,22 +414,22 @@ Primary sources:
 
 ### 12.1 Preliminary graphical check from Fig. 5
 
-A first visual inspection of the logarithmic number-density panel in Huang--Liu Fig. 5 shows that the \(\mu^+\) component dominates over \(\mu^-\) after the sign change. The plotted densities fall rapidly with radius, but the \(22\)--\(25\) km transition region is not negligible and must be treated separately from the \(25\)--\(30\) km outer path. The figure does not support assigning a single constant density to the entire \(22\)--\(30\) km interval.
+A first visual inspection of the logarithmic number-density panel in Huang--Liu Fig. 5 shows that the $\mu^+$ component dominates over $\mu^-$ after the sign change. The plotted densities fall rapidly with radius, but the $22$--$25$ km transition region is not negligible and must be treated separately from the $25$--$30$ km outer path. The figure does not support assigning a single constant density to the entire $22$--$30$ km interval.
 
 For the Croon susceptibility convention,
-\[
+$$
 \chi_{\mu^\pm}=n_{\mu^\pm}F_{\rm deg}^{\mu^\pm},
 \qquad 0\le F_{\rm deg}^{\mu^\pm}\le1,
-\]
-because the Fermi-integral numerator contains \(f(1-f)\le f\). Hence the number-density curves provide the model-independent inequality
-\[
+$$
+because the Fermi-integral numerator contains $f(1-f)\le f$. Hence the number-density curves provide the model-independent inequality
+$$
 \chi_{\mu^-}+\chi_{\mu^+}
 \le n_{\mu^-}+n_{\mu^+}.
-\]
-The right panel of Fig. 5 should therefore be digitized directly, alongside \(T(r)\) and signed \(\mu_\mu(r)\), before assigning a numerical outer-opacity bound. A conditional scale conversion is
-\[
+$$
+The right panel of Fig. 5 should therefore be digitized directly, alongside $T(r)$ and signed $\mu_\mu(r)$, before assigning a numerical outer-opacity bound. A conditional scale conversion is
+$$
 10^{22}\ {\rm cm}^{-3}=7.69\times10^{-11}\ {\rm MeV}^3,
-\]
-using \(1\ {\rm MeV}^3=1.301\times10^{32}\ {\rm cm}^{-3}\).
+$$
+using $1\ {\rm MeV}^3=1.301\times10^{32}\ {\rm cm}^{-3}$.
 
-The signed \(\mu_\mu<0\) tail can enhance the \(\mu^+\) susceptibility relative to the zero-filled Caputo/Bollig profile even when the total density is already falling. Consequently, the old constant-edge source-weighted opacity envelope is retained only as a reference sensitivity case; it is not yet a proven upper bound for the signed \(22\)--\(30\) km profile or the \(30\)--\(100\) km tail. The next calculation must digitize both charge densities and the correlated \(T,\mu_\mu\) curves and then integrate the exact charge-summed susceptibility.
+The signed $\mu_\mu<0$ tail can enhance the $\mu^+$ susceptibility relative to the zero-filled Caputo/Bollig profile even when the total density is already falling. Consequently, the old constant-edge source-weighted opacity envelope is retained only as a reference sensitivity case; it is not yet a proven upper bound for the signed $22$--$30$ km profile or the $30$--$100$ km tail. The next calculation must digitize both charge densities and the correlated $T,\mu_\mu$ curves and then integrate the exact charge-summed susceptibility.
