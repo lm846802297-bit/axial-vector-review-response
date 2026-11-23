@@ -1,0 +1,25 @@
+RC-001 B2c-IVn-h/03: LD-W-05 actual S-F open-chain WTI bridge
+
+PASS: oriented B-side fermion WTI (16/16 Dirac components).
+PASS: actual open Lorentz-index chain (64/64 matrix components).
+PASS: Feynman-gauge contraction with D(k) and V_A(k) (16/16 matrix components).
+PASS: explicit two-endpoint RHS split (exact matrix equality).
+PASS: B-side unshifted endpoint/heavy-channel momentum identities (8/8 vector components).
+
+RATIONAL DENOMINATORS:
+  (k^2,kappa^2,r_AY^2,r_AW^2,r_BW^2,r_BY^2,h^2-M_E^2)
+  =(20,8,17,23,-22,-4,-390).
+
+NONZERO CONTRACTED OPEN-CHAIN ENTRIES: 16/16.
+
+RESULT:
+  The B-side fermion WTI holds after insertion into the actual S-F open chain.
+
+BOUNDARY:
+  The A-side scalar-line/seagull q contacts remain a separate sub-block.
+  The separate R_FG projector/order comparison remains open.
+  No complete 24-graph Ward/LSZ/ST sum, loop integration, UV-EFT subtraction,
+  or Wilson coefficient is claimed.
+
+The exact assertions were executed directly with local SymPy arithmetic.
+The standalone unittest module is included; no CI result is claimed.

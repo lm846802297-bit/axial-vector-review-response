@@ -1,0 +1,39 @@
+RC-001 B2c-IVc Lorentz endpoint audit
+
+PASS: A-side fermion numerator difference (16/16 Dirac components).
+PASS: B-side fermion numerator difference (16/16 Dirac components).
+PASS: A/B scalar propagator differences (2/2).
+PASS: scalar seagull metric contraction q_alpha g^(alpha mu)=q^mu (4/4 Lorentz components).
+PASS: three-W contraction (16/16 Lorentz components).
+PASS: Feynman-gauge W-chain decomposition including R_FG (16/16 components).
+PASS: R_FG is generically nonzero (explicit rational diagnostic point).
+
+PAIR CENSUS:
+  LD-W-01: A=F, B=F, scalar seagulls=0, three-W=1
+  LD-W-02: A=F, B=S, scalar seagulls=1, three-W=1
+  LD-W-03: A=F, B=S, scalar seagulls=1, three-W=1
+  LD-W-04: A=S, B=F, scalar seagulls=1, three-W=1
+  LD-W-05: A=S, B=F, scalar seagulls=1, three-W=1
+  LD-W-06: A=S, B=S, scalar seagulls=2, three-W=1
+
+TOTAL:
+  12 matter-line insertions
+  6 scalar seagulls
+  6 three-W insertions
+  24 internal attachment topologies
+
+IMPORTANT SCOPE:
+  The scalar-line WTI and scalar-seagull Lorentz numerator are checked separately.
+  Their weak tensors are not identified; the raw-index bridge gives the
+  seagull anticommutator tensor as the sum of the two ordered line tensors.
+  No combined weak-index-weighted scalar endpoint cancellation is claimed.
+
+BOUNDARY:
+  Exact Lorentz endpoint identities and topology census only.
+  No complete weak-index/phase-weighted 24-graph cancellation.
+  No ghost/gauge-fixing Slavnov-Taylor completion.
+  No external-leg/counterterm sum.
+  No loop integration, transverse form factor, or Wilson coefficient.
+
+Execution: local Python + SymPy exact symbolic arithmetic.
+This is not a GitHub Actions result or an independent FeynArts/FeynCalc run.

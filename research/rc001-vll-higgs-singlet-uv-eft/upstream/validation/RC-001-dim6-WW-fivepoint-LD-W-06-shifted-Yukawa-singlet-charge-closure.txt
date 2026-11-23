@@ -1,0 +1,16 @@
+RC-001 B2c-IVn-g/02: shifted Yukawa-singlet charge closure
+
+PASS: A-side bar-L/H endpoint variations share h-q (8/8 vector components).
+PASS: B-side Hdagger/L endpoint variations share h+q (8/8 vector components).
+PASS: shifted left/right Yukawa-singlet charge sums (96/96 weak components).
+RATIONAL HEAVY DENOMINATORS: H0, HA, HB=(-377, -389, -365).
+
+RESULT: the secondary h-q and h+q shifts do not spoil the local Yukawa-singlet charge cancellation.
+
+BOUNDARY:
+  This only closes the local endpoint charge factors after the secondary shifts.
+  It does not cancel the full scalar-line/three-W integrand or the reducible LSZ terms.
+  No complete STI or Wilson coefficient is claimed.
+
+Local regression suite: 5/5 tests passed.
+Execution was local exact SymPy arithmetic; no GitHub Actions result is claimed.

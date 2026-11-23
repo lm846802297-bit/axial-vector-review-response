@@ -1,0 +1,25 @@
+RC-001 B2c-IVn-h/04: LD-W-03/04 same-vertex open-chain WTI bridge
+
+PASS: two oriented symbolic fermion WTIs (32/32 Dirac components).
+PASS: k-independent heavy spectators (16/16 derivative checks).
+PASS: LD-W-03 left-open chain (64/64 Lorentz-index matrix components; 16/16 contracted entries).
+PASS: LD-W-04 right-open chain (64/64 Lorentz-index matrix components; 16/16 contracted entries).
+PASS: both endpoint decompositions (exact matrix equalities).
+
+LD-W-03 denominators:
+  (k^2,kappa^2,r_FW^2,r_FY^2,r_SY^2,r_SW^2,hE^2-M_E^2)
+  =(7,10,13,16,8,11,-402); h_E=(2,1,1,2).
+
+LD-W-04 denominators:
+  (7,10,-10,-5,2,5,-401); h_E=(-1,-1,0,-1).
+
+RESULT:
+  Both same-vertex fermion WTIs hold in their actual ordered open chains.
+
+BOUNDARY:
+  The four-attachment same-vertex sum, scalar-line/seagull combination,
+  and external-leg/LSZ/ghost-ST completion remain open.
+  No loop integration, UV-EFT subtraction, or Wilson coefficient is claimed.
+
+The exact assertions were executed directly with local SymPy arithmetic.
+The standalone unittest module is included; no CI result is claimed.

@@ -1,0 +1,35 @@
+RC-001 B2c-IVn-f/05: LD-W-06 S-S two-endpoint common-k bridge
+
+PASS: A-side scalar WTI/current rebase (1/1, 4/4).
+PASS: B-side scalar WTI/current rebase (1/1, 4/4).
+PASS: A scalar shift and B unshifted common-k routes (24/24 vector components).
+PASS: distinct A/B seagull denominator relations (2/2 exact identities).
+PASS: A/B commutators and separate seagull tensors:
+      A_commutator=48, B_commutator=48, A_seagull=48, B_seagull=48.
+PASS: actual S-S R_FG direct-vs-factorized contraction (32/32 matrix components).
+PASS: A/B scalar endpoint kernels raw-vs-rebased (64/64 matrix components).
+
+Point 1:
+  D3W=(10,8,11,15,-393)
+  DA-line=(8,15,11,17,-393); DA-seagull=(8,15,11,-393)
+  DB-line=(10,11,15,19,-393); DB-seagull=(10,11,15,-393)
+  delta_A=6/187; delta_B=4/285; N06=12/16 nonzero entries.
+  q-contact nonzero entries (A_sym,A_comm,B_sym,B_comm)=(12,12,12,12).
+Point 2:
+  D3W=(34,44,35,75,-377)
+  DA-line=(44,75,35,49,-377); DA-seagull=(44,75,35,-377)
+  DB-line=(34,35,75,61,-377); DB-seagull=(34,35,75,-377)
+  delta_A=2/245; delta_B=-14/4575; N06=8/16 nonzero entries.
+  q-contact nonzero entries (A_sym,A_comm,B_sym,B_comm)=(8,8,8,8).
+
+RESULT:
+  A: V_A^line=V_A^3W-q; B: V_B^line=V_B^3W+q.
+  Both symmetric q coefficients are Delta_Y+delta/2; both commutator coefficients are +i delta/2.
+  S_A and S_B remain distinct; the common G_AB tensor does not identify the two seagulls.
+
+BOUNDARY:
+  No sum with the fermion/Yukawa endpoint variations, three-W D(k)-D(k+q),
+  external legs/LSZ, or ghost/ST terms is claimed. No Wilson coefficient is extracted.
+
+Local regression suite: 6/6 tests passed.
+Execution was local exact SymPy arithmetic; no GitHub Actions result is claimed.
