@@ -2,6 +2,7 @@
 """Post-process existing low-mass axial supernova numerical outputs."""
 from __future__ import annotations
 import argparse
+import hashlib
 import json
 import math
 from pathlib import Path
@@ -20,6 +21,12 @@ def load_json(path: Path) -> dict:
     with path.open(encoding="utf-8") as stream:
         return json.load(stream)
 
+
+
+def git_blob_sha1(path: Path) -> str:
+    data = path.read_bytes()
+    header = f"blob {len(data)}\\0".encode("ascii")
+    return hashlib.sha1(header + data).hexdigest()
 
 
 def mass_row(rows: list[dict], mass: float) -> dict:
@@ -89,9 +96,9 @@ def main() -> None:
         "cooling_threshold_erg_s": L_CRIT,
         "inputs": {
             "thermal_response_scan": str(args.thermal),
-            "thermal_response_scan_git_blob_sha1": "1ea3530fb10226402dce25ba266e603127475fa6",
+            "thermal_response_scan_git_blob_sha1": git_blob_sha1(args.thermal),
             "convergence_scan": str(args.convergence),
-            "convergence_scan_git_blob_sha1": "f8b4042a85964950d13c4bbe17cb6fcaa1eff204",
+            "convergence_scan_git_blob_sha1": git_blob_sha1(args.convergence),
         },
         "local_moving_muon_compton": {
             "profile_point": thermal["profile"]["center"],
