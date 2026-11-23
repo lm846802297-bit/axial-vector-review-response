@@ -1,5 +1,7 @@
 """Reconstruct and compare the B.16 high-order energy-grid identities.
 
+2026-11-23 exact-head refresh after strict phase-space re-run.
+
 This is a read-only diagnostic. It does not evaluate production rates, opacity,
 luminosity, or alter any physics input. It reproduces the energy-grid
 construction used by the archived high-order run and the B.16 phase-space
