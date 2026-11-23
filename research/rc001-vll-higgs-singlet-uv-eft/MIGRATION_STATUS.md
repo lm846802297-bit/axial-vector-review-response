@@ -1,45 +1,45 @@
 # RC-001 upstream archive migration
 
-**Archive import status:** COMPLETE  
-**Integration/review status:** IN PROGRESS — draft PR #135  
+**Status:** archive transfer and byte-integrity verification complete; PR #135 remains Draft pending reference/workflow review.  
 **Source repository:** https://github.com/lm846802297-bit/high-energy-theory-research  
 **Frozen source main:** `b2dd8f7e4427d0292bc299d273c780c05021fdab`  
 **Target branch:** `migration/rc001-rehome-20261123`
 
-## Canonical location
+## Canonical archive
 
-The exact source-relative tree is mirrored under:
+The complete frozen source tree is mirrored under:
 
 `research/rc001-vll-higgs-singlet-uv-eft/upstream/<original-source-path>`
 
-The imported source set contains 480 files (14,283,294 bytes) across `research/`, `calculations/`, `validation/`, `artifacts/`, and three RC-001-specific workflows. The original source directory hierarchy is retained.
+This preserves the source-relative paths and original directory hierarchy. The target repository's existing Major 1 workstream is not overwritten. The source `research/README.md` remains within the mirrored `upstream/research/` directory.
 
-## Remote read-back verification
+## Archive-integrity acceptance
 
-Compared every frozen source path with its mapped destination path in the target branch:
+| Check | Result |
+|---|---:|
+| Source files in frozen inventory | 480 |
+| Target mapped paths present | 480 |
+| Git blob SHA matches | 480 |
+| Byte sizes match | 480 |
+| Missing paths | 0 |
+| SHA/size mismatches | 0 |
 
-- Source paths: 480
-- Destination paths present: 480
-- Missing paths: 0
-- Git blob SHA mismatches: 0
-- File-size mismatches: 0
-- Total source bytes: 14,283,294
-- Total mapped destination bytes: 14,283,294
+The comparison was made against the remote source Git tree and the remote target branch tree. This establishes byte-for-byte archive identity at the Git blob level; it does not revalidate physical claims or recalculate any result.
 
-All 480 files match exactly by Git blob SHA and size. The four content-identical paths already present in the target repository were reused without duplicating blob content.
+## Workflow disposition
 
-## Repository integration still pending
-
-1. Audit relative Markdown links within the mirrored snapshot. Links to shared infrastructure documents should resolve to the canonical central repository or be represented by explicit navigation stubs; do not alter the byte-identical source snapshot.
-2. Audit scripts, test fixtures, and workflow path dependencies. The three imported workflow YAML files are archival snapshots under `upstream/.github/workflows/`; GitHub Actions does not execute workflows from this nested path.
-3. Confirm the target index and `RC001_UPSTREAM_INTERFACE.md` point to the local snapshot. The interface file links to the local archived files while retaining old source commit/PR URLs only as historical provenance.
-4. Run the relevant path/link and repository tests against the exact final PR head.
-5. Review and merge PR #135 before any source cleanup.
+The three RC-001 workflow files are retained under the mirrored source snapshot at `upstream/.github/workflows/` as historical source artifacts. They are not active workflows in the target repository because GitHub Actions only discovers workflows in the repository-root `.github/workflows/` directory. The target project's existing tests and workflow policy remain authoritative. If any of these checks are still required operationally, they must be deliberately adapted into the target repository's active workflow layout and reviewed separately; do not simply copy the historical YAML to the root.
 
 ## Unmerged source work
 
-Source PR #9 and PR #14 were open at migration time and are not part of the frozen source `main` snapshot. Their proposed changes remain separate review work and are not represented as merged research results.
+Source PR #9 and PR #14 are not part of the frozen source `main` snapshot. Their proposed changes remain separate and must not be represented as merged research results.
 
-## Scientific boundary
+## Remaining acceptance gates
 
-This is an archival and repository-organization change. No physics calculation has been rerun, modified, or newly validated. Existing scientific claim statuses remain unchanged. The active Major 1 calculations remain separate from the imported snapshot.
+1. Complete the target reference/link and script-dependency review.
+2. Confirm the archived workflow disposition above and identify any genuinely reusable active checks.
+3. Run the relevant target repository checks against the exact PR head.
+4. Review and merge PR #135.
+5. Only after merge and remote read-back verification, open a separate cleanup PR in the source infrastructure repository.
+
+No physical calculation is rerun or modified by this archive migration. Software and archive checks are not physical validation.
