@@ -28,6 +28,9 @@ This directory contains the scientific source records, calculations, tests, nume
 | [stellar-cooling-shared-20261105/](stellar-cooling-shared-20261105/README.md) | Shared infrastructure and reusable microphysics for stellar-cooling studies | Check each module's model applicability before reuse. |
 | [stellar-cooling-two-vev-20261105/](stellar-cooling-two-vev-20261105/README.md) | Separate two-VEV axial microphysics extension | Distinct model extension; not a replacement for the original one-VEV manuscript model. |
 
+
+| [rc001-vll-higgs-singlet-uv-eft/](rc001-vll-higgs-singlet-uv-eft/MIGRATION_STATUS.md) | RC-001 upstream UV–EFT derivations, scripts, validation outputs and v66 historical source snapshot | Frozen source-main archive relocated from `high-energy-theory-research`; 480/480 files pass Git blob SHA and size comparison. PR #9 and #14 remain separate unmerged work. See [upstream interface](major1-higgs-scalar-mixing-20261109/RC001_UPSTREAM_INTERFACE.md). |
+
 ## Scientific evidence rules
 
 1. Distinguish analytic derivation, code implementation, unit/regression tests, numerical convergence, literature reproduction, transport validation and phenomenological acceptance.
