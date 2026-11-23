@@ -1,5 +1,5 @@
 name: B.16 energy-grid identity diagnostic
-# Cross-runner energy-grid node capture (2026-11-23).
+# Cross-runner energy-grid node capture repeat 2 (2026-11-23).
 
 on:
   push:
