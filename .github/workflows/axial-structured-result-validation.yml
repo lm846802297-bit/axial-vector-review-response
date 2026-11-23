@@ -6,6 +6,7 @@ on:
       - "docs/repository-management/schemas/**"
       - "docs/repository-management/STRUCTURED_RESULT_DATA_STANDARD.md"
       - ".github/workflows/axial-structured-result-validation.yml"
+      - "results/**"
   push:
     branches:
       - main
@@ -13,6 +14,7 @@ on:
       - "docs/repository-management/schemas/**"
       - "docs/repository-management/STRUCTURED_RESULT_DATA_STANDARD.md"
       - ".github/workflows/axial-structured-result-validation.yml"
+      - "results/**"
   workflow_dispatch:
 
 permissions:
@@ -35,6 +37,18 @@ jobs:
 
       - name: Run structured-result regression tests
         run: python -m unittest discover -s docs/repository-management/schemas/tests -v
+
+      - name: Validate structured records and referenced artifacts
+        shell: bash
+        run: |
+          mapfile -d '' records < <(find results -type f \\
+            \\( -name 'run_manifest.json' -o -name 'result_summary.json' -o -name 'validation_report.json' \\) \\
+            -print0 | sort -z)
+          if (( ${#records[@]} )); then
+            python docs/repository-management/schemas/validate_result_records.py --repo-root . "${records[@]}"
+          else
+            echo "No structured result records found; schema unit tests remain the applicable checks."
+          fi
 
       - name: Compile validator
         run: python -m compileall -q docs/repository-management/schemas
