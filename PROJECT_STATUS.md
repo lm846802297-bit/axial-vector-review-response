@@ -1,5 +1,26 @@
 # 2026-11-23 live status: B.13/B.16 first-batch integration and inventory reconciliation
 
+## Latest update (2026-11-24): B.13/B.16 merged; Croon/Lai C1 benchmark independently archived
+
+- **Main baseline:** PR #140 merged as `871c9c57feb36ea0df549550bb4c307dacadb8cd`. The B.13/B.16 first-batch integration is now part of main; PRs #121, #133 and #134 were superseded by that integration.
+- **B.16:** strict 10 MeV phase-space run [#45172485856](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45172485856) passed. The immutable 842-node reference SHA-256 remains unchanged; the current production grid differs by one ULP at one node, with maximum relative difference $1.16755\\times10^{-16}$, below the declared $5\\times10^{-15}$ node-level tolerance. The independent 24-test output-validator run [#45173157775](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45173157775) passed.
+- **B.13:** current-head targeted high-order run [#45172924204](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45172924204) passed Calculate/Validate/Archive for 431/431 targeted $(r,x)$ points and 2,155 ordered evaluations. The full 1,687-node global high-order acceptance remains false.
+- **Workflow inventory:** 125 YAML files, all 125 registered: 110 `REVIEWED_WITH_NOTES`, 1 `ACTIVE`, 14 `HISTORICAL_CANDIDATE`, 0 `PENDING`.
+- **Document inventory at this checkpoint:** 877 Markdown/text files (646 `.md`, 231 `.txt`), with 462 baseline and 415 supplemental records. All paths are registered exactly once. The supplemental register contains 167 `PASS_WITH_NOTES`, 6 `HISTORICAL`, and 242 `PENDING`; the 242 pending records are inventoried but not yet content-reviewed.
+- **Croon C1 10 MeV vector benchmark:** independent adaptive transport run [#45229265669](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45229265669) completed successfully on the reconstructed SFHo-18.8 profile. It uses 153 radial nodes, energy order 48, 121 coupling points, B.7 two-flavour neutrino coalescence, exact moving-muon B.13 semi-Compton, both muon charges, and $L,+,-$ modes. The 103/153 radial-grid change is $1.16930\\times10^{-3}$ against a $1.2\\times10^{-3}$ threshold; the 32/48 energy-order metric is $1.30311\\times10^{-7}$ against $10^{-4}$. The structured archive is in `results/C1-10MeV-45229265669-a1/` on this PR branch.
+- **C1 physical boundary:** the run manifest and validation report mark the result `partial`: the outer 25--100 km B.13 semi-Compton opacity is omitted, and no final SN1987A exclusion curve is computed. This is a pure-vector benchmark ($g_A/g_X=0$), not an axial-vector constraint. No axial-vector contour has been updated.
+- **PR #123 integration:** the branch now contains a merge commit with current main as first parent and the Croon/Lai research branch as second parent. Main's current compute/governance instructions and RCRPS schemas are retained where the branches differed. The C1 structured records are being validated against the current main schema/validator before the PR is marked ready.
+- **PR #132:** remains blocked on central Research Skill PR #27 publication and acceptance; PR #27 is still Draft.
+
+## Next actions
+
+1. Validate the C1 `run_manifest.json`, `result_summary.json`, and `validation_report.json` against the current main RCRPS v1.0.1-compatible validator and all local SHA-256/CSV references.
+2. Complete the full diff review for PR #123, retaining the outer-opacity limitation and keeping the C1 vector result separate from axial-vector constraints.
+3. Continue the 242 pending document reviews in small, individually dispositioned batches; do not bulk-mark them as passed.
+4. Revisit PR #132 only after central PR #27 is merged and the Skill publication checks are complete.
+
+---
+
 ## Latest update (2026-11-23)
 
 - **Main baseline:** current main is `276cb335d466d1c1864448bcd222fe60d7fdcdc8`, including the central standards-adoption workflow. The B.13/B.16 first-batch integration is open as [PR #140](https://github.com/lm846802297-bit/axial-vector-review-response/pull/140) from `integration/b13-b16-first-batch-20261123`; it combines PR #121, #133 and #134 without deleting source history. Its own pull-request validation and full diff review are the merge gate.
