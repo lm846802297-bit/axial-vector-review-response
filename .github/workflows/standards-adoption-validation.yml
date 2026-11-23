@@ -1,0 +1,115 @@
+name: Central standards adoption validation
+
+on:
+  pull_request:
+    paths:
+      - "research/standards-lock.yaml"
+      - "research/standards-provenance/**"
+      - "research/**/task_briefs/**"
+      - "**/run_manifest.json"
+      - "AGENTS.md"
+      - ".github/workflows/standards-adoption-validation.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "research/standards-lock.yaml"
+      - "research/standards-provenance/**"
+      - "research/**/task_briefs/**"
+      - "**/run_manifest.json"
+      - "AGENTS.md"
+      - ".github/workflows/standards-adoption-validation.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out project
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install pinned validator dependencies
+        run: python -m pip install "jsonschema[format]==4.26.0" "PyYAML==6.0.2"
+
+      - name: Read exact central standards commit
+        id: lock
+        run: |
+          echo "central_sha=$(python -c 'import yaml; print(yaml.safe_load(open("research/standards-lock.yaml", encoding="utf-8"))["source_commit"])')" >> "$GITHUB_OUTPUT"
+
+      - name: Check out pinned central validator
+        env:
+          CENTRAL_VALIDATOR_SHA: db503f0eb579bdbcac702e44237a6610c34690e7
+        run: |
+          git init "$RUNNER_TEMP/central-validator"
+          git -C "$RUNNER_TEMP/central-validator" remote add origin https://github.com/lm846802297-bit/high-energy-theory-research.git
+          git -C "$RUNNER_TEMP/central-validator" fetch --no-tags --depth=1 origin "$CENTRAL_VALIDATOR_SHA"
+          git -C "$RUNNER_TEMP/central-validator" checkout --detach FETCH_HEAD
+
+      - name: Check out exact locked central standards
+        env:
+          CENTRAL_STANDARDS_SHA: ${{ steps.lock.outputs.central_sha }}
+        run: |
+          git init "$RUNNER_TEMP/central-standards"
+          git -C "$RUNNER_TEMP/central-standards" remote add origin https://github.com/lm846802297-bit/high-energy-theory-research.git
+          git -C "$RUNNER_TEMP/central-standards" fetch --no-tags --depth=1 origin "$CENTRAL_STANDARDS_SHA"
+          git -C "$RUNNER_TEMP/central-standards" checkout --detach FETCH_HEAD
+
+      - name: Validate lock, task provenance, reports, and run manifests
+        env:
+          VALIDATOR_ROOT: ${{ runner.temp }}/central-validator
+          CENTRAL_ROOT: ${{ runner.temp }}/central-standards
+          PROJECT_ROOT: ${{ github.workspace }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import subprocess
+          import sys
+          from pathlib import Path
+
+          root = Path(os.environ["PROJECT_ROOT"]).resolve()
+          validator = Path(os.environ["VALIDATOR_ROOT"]) / "docs/schemas/validate_standards_adoption.py"
+          central = Path(os.environ["CENTRAL_ROOT"])
+          lock = root / "research/standards-lock.yaml"
+
+          def validate(extra):
+              command = [
+                  sys.executable, str(validator),
+                  "--repo-root", str(root),
+                  "--central-root", str(central),
+                  "--require-central-commit",
+                  "--lock", str(lock),
+                  *extra,
+              ]
+              subprocess.run(command, cwd=root, check=True)
+
+          validate([])
+
+          task_dir = root / "research/standards-provenance/tasks"
+          if task_dir.is_dir():
+              for task in sorted(task_dir.glob("*.json")):
+                  extra = ["--task-provenance", str(task)]
+                  report = root / "research/standards-provenance/reports" / task.name
+                  if report.is_file():
+                      extra.extend(["--report", str(report)])
+                  validate(extra)
+
+          ignored = {".git", ".venv", "node_modules", "__pycache__"}
+          for manifest_path in root.rglob("run_manifest.json"):
+              if ignored.intersection(manifest_path.parts):
+                  continue
+              try:
+                  record = json.loads(manifest_path.read_text(encoding="utf-8"))
+              except (OSError, json.JSONDecodeError):
+                  continue
+              if record.get("extensions", {}).get("standards_provenance") is not None:
+                  validate(["--run-manifest", str(manifest_path)])
+          PY

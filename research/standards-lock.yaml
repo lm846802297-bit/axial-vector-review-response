@@ -2,10 +2,10 @@ lock_version: 1
 
 central_repository: lm846802297-bit/high-energy-theory-research
 standards_release: null
-source_commit: "aa635d2505546e0862c5a2509185501bd9c88d6b"
+source_commit: "db503f0eb579bdbcac702e44237a6610c34690e7"
 
 adopted_at: "2026-11-23"
-adoption_pr: "https://github.com/lm846802297-bit/axial-vector-review-response/pull/136"
+adoption_pr: "https://github.com/lm846802297-bit/axial-vector-review-response/pull/139"
 
 adopted_profiles:
   - core-governance
