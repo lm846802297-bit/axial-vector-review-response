@@ -1,0 +1,36 @@
+RC-001 Q_LD^(3) contact component from the nonexceptional WW hard polynomial
+
+Hard polynomial momentum basis:
+  C_hard^fin = a v_D + b v_minus + c v_plus
+  v_D = p3+p4 = -(p1+p2)
+  v_minus = p2-p3
+  v_plus = p2+p3
+
+Exact coefficients:
+  a = -1/2 + L/2
+  b = -1/32 + 7L/16
+  c = 7/32 - 5L/16
+  L=ln(M_E^2/mu_R^2).
+
+Only v_D is identified with the matrix element of Q_LD^(3), whose
+derivative acts on Hdag sigma^I L. The raw +slash(P) amplitude coefficient
+is -a because v_D=-P. In the all-incoming Fourier convention, the operator
+coefficient is therefore a.
+
+At mu_R=M_E:
+  C_Q3/C_LD = -g2^2/(32 pi^2),
+  where C_LD=|y_l|^2/M_E^2 and the common loop normalization is 1/(16 pi^2).
+
+The corresponding EFT one-W contact from the adjoint derivative is
+  i g2 C_Q3 epsilon^{IJK}
+    (barL sigma^I H) gamma^mu W_mu^J (Hdag sigma^K L).
+
+The contact sign follows the coefficient of v_D, not the raw +slash(P)
+amplitude label.
+
+Boundary:
+  This is only the v_D/Q_LD^(3) component of the local polynomial.
+  The v_minus and v_plus structures are not yet assigned to operators.
+  The UV one-loop external-W five-point form factor and complete
+  Slavnov-Taylor sum are not calculated here.
+  Source: calculations/RC-001-dim6-WW-triplet-contact-from-hard-polynomial.py.

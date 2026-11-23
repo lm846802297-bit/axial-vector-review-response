@@ -1,0 +1,47 @@
+RC-001 six-pair internal-W hard-matching summary
+
+External ordering:
+  barL(p1), H(p2), Hdag(p3), L(p4), all incoming.
+  p1+p2+p3+p4=0.
+
+Cross-vertex classes LD-W-01/02/05/06:
+  Nonexceptional d-dimensional hard/soft pole closure is recorded in
+  research/RC-001-dim6-nonexceptional-matching-kinematics.md §§3.1-3.4.
+  Their weak-triplet weighted hard pole residue is
+    (1/2) p1 + (3/8) p2 + (3/4) p3.
+  Their MS-bar finite local hard polynomial is
+    (1/2-L/2) p1 +(11/16-3L/8) p2 +(1/4-3L/4) p3,
+  with L=ln(M_E^2/mu_R^2).
+
+Same-vertex classes LD-W-03/04:
+  Their SU(2) generator tensor is -3/4 T0 for each class.
+  Their heavy propagator carries only the external momentum P=p1+p2,
+  independent of the W-loop momentum.
+  The chiral heavy propagator reduces to -slash(P)/M_E^2.
+  The EFT derivative momentum q_D=p3+p4=-P gives the same insertion.
+  Their W-loop integrals are pure-soft and reproduced by the EFT;
+  the hard-region loop integrals are scaleless.
+  Therefore their hard-minus-EFT contribution at O(M_E^-2) is zero.
+  Details: research/RC-001-dim6-WW-same-vertex-soft-matching.md.
+
+Six-pair result:
+  At the internal-W four-point hard-matching level, the only nonzero
+  hard local term in this fixed ordering is the triplet cross-vertex
+  polynomial above. The same-vertex singlet pairs contribute no hard
+  threshold at this order.
+
+At mu_R=M_E:
+  C_hard = (1/2) p1 +(11/16) p2 +(1/4) p3.
+
+Local reproduction:
+  The symbolic six-pair assembly script reproduces the cross-box
+  pole/finite polynomial and adds the zero same-vertex hard contribution.
+  Source: calculations/RC-001-dim6-WW-six-pair-hard-summary.py.
+
+Boundary:
+  This is the internal-W exchange hard-matching sub-block for one fixed
+  ordered tree exchange and unit multiplicity. It is not the full
+  renormalized four-point amplitude or a complete Wilson coefficient.
+  External legs, parameter/operator counterterms, external-W five-point
+  form factor, full Slavnov-Taylor sum, and common EOM/IBP basis projection
+  remain open. No diagram-package validation is claimed.

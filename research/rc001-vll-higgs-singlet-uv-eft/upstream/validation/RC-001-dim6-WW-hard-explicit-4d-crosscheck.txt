@@ -1,0 +1,33 @@
+RC-001 explicit 4D Dirac-matrix cross-check of nonexceptional hard kernels
+
+Method:
+  - Construct explicit Euclidean 4x4 gamma matrices.
+  - Build the four unshifted UV numerator chains with the general external
+    momenta and heavy momentum k-p1-p2.
+  - Expand each numerator to first order in a common external-momentum scale.
+  - Perform explicit rank-two and rank-four Euclidean angular averages at d=4.
+  - Project the resulting open chiral line onto the independent p1,p2,p3 basis.
+
+Results:
+  PASS LD-W-01:
+    J coefficients = (-1, 0, -1)
+    K coefficients = (1, 1, 0)
+  PASS LD-W-02:
+    J coefficients = (0, -1, 3/2)
+    K coefficients = (1/2, 1/2, 0)
+  PASS LD-W-05:
+    J coefficients = (0, 3/2, 1/2)
+    K coefficients = (-1/2, -1/2, 0)
+  PASS LD-W-06:
+    J coefficients = (-1, -1, 0)
+    K coefficients = (1/2, 1/2, 0)
+
+Conclusion:
+  The explicit four-dimensional matrix implementation reproduces the d=4
+  limit of all four nonexceptional hard pair kernels in the analytic
+  d-dimensional reduction.
+
+Boundary:
+  This is an independent 4D Dirac/tensor implementation. It does not validate
+  O(epsilon) terms, d-dimensional evanescent structures, graph multiplicities,
+  the second external-field routing, or the complete Ward sum.
