@@ -7,7 +7,7 @@ The shared review dimensions, proportionality rules, review dispositions, scient
 
 ## 1. Project-specific audit requirement
 
-For a declared repository-wide document audit in this project, every in-scope human-readable Markdown/text document must receive an individual review record. A folder README or aggregate inventory does not substitute for reviewing the documents within it. This is a stricter project-level requirement; it does not require a full repository audit for every ordinary research task or minor edit.
+Every human-readable Markdown/text document in this repository must have an individual review record in the project's audit registers. A folder README or aggregate inventory does not substitute for reviewing the documents within it. This is a stricter project-level coverage requirement; it does not mean that every ordinary edit triggers a new full-repository audit. Create or update the individual record when a document is introduced, materially revised, or included in a declared review batch.
 
 The project maintains:
 - `DOCUMENT_AUDIT_REGISTER.csv` for the original 462-document baseline;
