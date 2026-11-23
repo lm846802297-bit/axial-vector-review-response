@@ -1,5 +1,5 @@
 name: B.13 targeted high-order provenance validation
-# Exact-head revalidation refresh after provenance metadata reconciliation (2026-11-23).
+# Exact-head validation refresh after native CI artifact provenance update (2026-11-23).
 
 on:
   push:
