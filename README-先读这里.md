@@ -21,8 +21,8 @@
 
 1. 仓库根目录 [AGENTS.md](AGENTS.md)：强制规则和按任务读取路径。
 2. [中央规范锁](research/standards-lock.yaml)：本项目采用的中央规范精确版本。
-2. [PROJECT_STATUS.md](PROJECT_STATUS.md)：当前项目阶段、权威文件、开放 PR、正文同步状态和下一步工作。
-3. 本文件：仓库导航和专题入口。
+3. [PROJECT_STATUS.md](PROJECT_STATUS.md)：当前项目阶段、权威文件、开放 PR、正文同步状态和下一步工作。
+4. 本文件：仓库导航和专题入口。
 
 根据任务再追加读取：
 - 回复信任务：[审稿回复写作原则](审稿意见-gpt/写作规范/审稿回复写作原则.md)、根目录当前权威 [回复 TeX](Replies_to_Referee_3_referee_facing_2026-11-04.tex) 与 [回复 PDF](Replies_to_Referee_3_referee_facing_2026-11-04.pdf)、[正文待同步清单](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-03/论文正文待同步修改清单_2026-11-03.md)。PR #40 是 Major 3 历史修订；PR #56 已于 2026-11-12 合并 Major 4.4 固定剖面 EFT benchmark。当前 PDF 已于 2026-11-16完成同源构建及64页逐页视觉验收，详见 [正式回复信最终排版验收](docs/repository-management/REPLY_LETTER_FINAL_ACCEPTANCE_2026-11-16.md)。
