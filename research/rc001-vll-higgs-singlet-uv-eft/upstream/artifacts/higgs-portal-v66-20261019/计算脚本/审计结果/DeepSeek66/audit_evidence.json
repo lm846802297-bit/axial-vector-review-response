@@ -1,0 +1,77 @@
+{
+  "reviewed_md": "C:\\Users\\84680\\Desktop\\测试（非gpt）\\outputs\\higgs_portal_mixing_unified_reviewer_response_and_uv_eft_UPDATED_v2(8)(20261019)(66).md",
+  "reviewed_md_sha256": "5ded5e1f507af552f1b9c666695f3585821455def628ea8eaf00c2c8c91fe9a1",
+  "ds_script_sha256": "e1c3bdf445caeda4624793e9d4ade157f91a7bc85110600abe0acc8534e52657",
+  "assertions_rerun_successfully": 73,
+  "history_reruns_executed_in_this_audit": false,
+  "check_call_count": 73,
+  "AST_identical_actual_expected_count": 14,
+  "AST_identical_examples": [
+    {
+      "line": 136,
+      "label": "mu vertex factor C5_mu v"
+    },
+    {
+      "line": 137,
+      "label": "tau vertex factor C5_tau v"
+    },
+    {
+      "line": 138,
+      "label": "mu-tau flavour separated"
+    },
+    {
+      "line": 145,
+      "label": "C_5 dimension 1/M proxy"
+    },
+    {
+      "line": 157,
+      "label": "trace is even (chirality-blind)"
+    },
+    {
+      "line": 201,
+      "label": "B0 bracket coefficient (2m^2 - p^2/2)"
+    },
+    {
+      "line": 241,
+      "label": "Pi real symmetric hh"
+    },
+    {
+      "line": 242,
+      "label": "Pi real symmetric hs=sh"
+    },
+    {
+      "line": 243,
+      "label": "Pi real symmetric ss"
+    },
+    {
+      "line": 245,
+      "label": "determinant structure"
+    },
+    {
+      "line": 246,
+      "label": "trace structure"
+    },
+    {
+      "line": 253,
+      "label": "pole shift m^2 = m_loc^2 - Re Pi"
+    },
+    {
+      "line": 345,
+      "label": "det Gamma(0) symmetric structure"
+    },
+    {
+      "line": 350,
+      "label": "pole shift sign -Re Pi"
+    }
+  ],
+  "claimed_mma_complete_log_present": false,
+  "independent_engine": "Mathematica 14.2.0",
+  "independent_symbolic_identities_verified": 7,
+  "specific_relations_falsified_with_overlapping_examples": 12,
+  "independent_B0_integral_cases": 3,
+  "independent_script_sha256": "39053c06bbc05f357a556e735d474cf45cd6a671fbdd00bbc6d315d7e083d39b",
+  "independent_log_sha256": "48f5124b0a9d3564e6fefd7638aeba500a6b497b8ff9f0126b68d11e35a1fd5e",
+  "review_report_sha256": "bed8da4cb51b5528db5e26b287fe8c18bc5b47f93c918eb8a94d91fcfb13d9be",
+  "reviewed_manuscript_unchanged": true,
+  "review_only_no_manuscript_or_library_edits": true
+}
