@@ -2,7 +2,7 @@ lock_version: 1
 
 central_repository: lm846802297-bit/high-energy-theory-research
 standards_release: null
-source_commit: "142267bc803c90aa681110293b66b73947bbcaa1"
+source_commit: "aa635d2505546e0862c5a2509185501bd9c88d6b"
 
 adopted_at: "2026-11-23"
 adoption_pr: "https://github.com/lm846802297-bit/axial-vector-review-response/pull/136"
@@ -17,6 +17,7 @@ adopted_profiles:
   - rcrps-v1.0.1
   - git-review-and-merge
   - document-review
+  - generated-figure-and-report
   - referee-response-and-manuscript-synchronization
 
 local_extensions:
