@@ -1,0 +1,36 @@
+{
+  "base": "4bcb99c66992750c6d8e36f4d5234b395dded050",
+  "observed_main": "871c9c57feb36ea0df549550bb4c307dacadb8cd",
+  "inputs": [
+    {
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-fivepoint-oriented-numerators-phases.md",
+      "git_blob": "b0d8739a2f80d2886f7347b7a09070d75422fa00",
+      "sha256": "481723f6351c393118b6bfb46727c49a9aad868279116e1ab4b0bd811ea9879e"
+    },
+    {
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-cross-vertex-raw-weak-index-bridge.md",
+      "git_blob": "73400daad3f33bec2f7497b6f4c4073a14e9b809",
+      "sha256": "a908cc810572f1c5a22477f87b6475575afe54be096f7eb941facc82e5d971ff"
+    },
+    {
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-fivepoint-LD-W-06-common-k-SS-two-endpoint-bridge.md",
+      "git_blob": "e9144c0438aecaaa7c469314317c12cd4848c939",
+      "sha256": "962a10f30b07f802f50e3a4ea886e7d66b69ecc595a78f7373c6192c39e513a8"
+    },
+    {
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-fivepoint-common-k-ordinary-matter-assembly-ledger.md",
+      "git_blob": "22fc3b0373f350ae7973390cc6fe0e5582418e89",
+      "sha256": "dc7849f6969253df9c70b025c3f79072fe790e4013843c7f7ed67f8760d5e101"
+    },
+    {
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-a-seagull-charge-subtotal/README.md",
+      "git_blob": "5a418002e4ee0ab6e1b42ba680e29d4c4b96c0b8",
+      "sha256": "fe010bb2a9fe9b17c812e577e4e74282b53b71ae1f92a2fef630b815d736bc43"
+    },
+    {
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-b-seagull-charge-subtotal/README.md",
+      "git_blob": "be5513f18ce4c71d384f2bc6208ea6f9bbfc9200",
+      "sha256": "5cb19013115a41d484567fe32ffb503cbfce62e0323d2c5f8fd592294502696e"
+    }
+  ]
+}

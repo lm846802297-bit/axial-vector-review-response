@@ -1,0 +1,249 @@
+{
+  "schema_version": "1.0.1",
+  "record_type": "run_manifest",
+  "run_id": "rc001-ldw06-three-w-20261123T213652Z",
+  "created_at": "2026-11-23T21:36:53.130065+00:00",
+  "project": {
+    "repository": "lm846802297-bit/axial-vector-review-response",
+    "project_id": "RC-001",
+    "workstream_id": "RC-001-WW-UV-FF-02"
+  },
+  "source": {
+    "commit_sha": "4bcb99c66992750c6d8e36f4d5234b395dded050",
+    "script_path": "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-three-w-commutator/check.py",
+    "script_sha256": "15c2ce32a62ac10c88242b1c83b8160c0d4db0df58fc7b3fddbe6cf5dd776e80"
+  },
+  "inputs": [
+    {
+      "name": "RC-001-dim6-WW-fivepoint-oriented-numerators-phases.md",
+      "source": "Analytic convention, route or prior subtotal from exact axial-vector topic base",
+      "version": "4bcb99c66992750c6d8e36f4d5234b395dded050",
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-fivepoint-oriented-numerators-phases.md",
+      "format": "markdown",
+      "bytes": 14903,
+      "sha256": "481723f6351c393118b6bfb46727c49a9aad868279116e1ab4b0bd811ea9879e",
+      "transformation": "Used to derive the symbolic diagnostic; not opened by check.py."
+    },
+    {
+      "name": "RC-001-dim6-WW-cross-vertex-raw-weak-index-bridge.md",
+      "source": "Analytic convention, route or prior subtotal from exact axial-vector topic base",
+      "version": "4bcb99c66992750c6d8e36f4d5234b395dded050",
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-cross-vertex-raw-weak-index-bridge.md",
+      "format": "markdown",
+      "bytes": 7997,
+      "sha256": "a908cc810572f1c5a22477f87b6475575afe54be096f7eb941facc82e5d971ff",
+      "transformation": "Used to derive the symbolic diagnostic; not opened by check.py."
+    },
+    {
+      "name": "RC-001-dim6-WW-fivepoint-LD-W-06-common-k-SS-two-endpoint-bridge.md",
+      "source": "Analytic convention, route or prior subtotal from exact axial-vector topic base",
+      "version": "4bcb99c66992750c6d8e36f4d5234b395dded050",
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-fivepoint-LD-W-06-common-k-SS-two-endpoint-bridge.md",
+      "format": "markdown",
+      "bytes": 7240,
+      "sha256": "962a10f30b07f802f50e3a4ea886e7d66b69ecc595a78f7373c6192c39e513a8",
+      "transformation": "Used to derive the symbolic diagnostic; not opened by check.py."
+    },
+    {
+      "name": "RC-001-dim6-WW-fivepoint-common-k-ordinary-matter-assembly-ledger.md",
+      "source": "Analytic convention, route or prior subtotal from exact axial-vector topic base",
+      "version": "4bcb99c66992750c6d8e36f4d5234b395dded050",
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-fivepoint-common-k-ordinary-matter-assembly-ledger.md",
+      "format": "markdown",
+      "bytes": 39402,
+      "sha256": "dc7849f6969253df9c70b025c3f79072fe790e4013843c7f7ed67f8760d5e101",
+      "transformation": "Used to derive the symbolic diagnostic; not opened by check.py."
+    },
+    {
+      "name": "README.md",
+      "source": "Analytic convention, route or prior subtotal from exact axial-vector topic base",
+      "version": "4bcb99c66992750c6d8e36f4d5234b395dded050",
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-a-seagull-charge-subtotal/README.md",
+      "format": "markdown",
+      "bytes": 4327,
+      "sha256": "fe010bb2a9fe9b17c812e577e4e74282b53b71ae1f92a2fef630b815d736bc43",
+      "transformation": "Used to derive the symbolic diagnostic; not opened by check.py."
+    },
+    {
+      "name": "README.md",
+      "source": "Analytic convention, route or prior subtotal from exact axial-vector topic base",
+      "version": "4bcb99c66992750c6d8e36f4d5234b395dded050",
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-b-seagull-charge-subtotal/README.md",
+      "format": "markdown",
+      "bytes": 4831,
+      "sha256": "5cb19013115a41d484567fe32ffb503cbfce62e0323d2c5f8fd592294502696e",
+      "transformation": "Used to derive the symbolic diagnostic; not opened by check.py."
+    }
+  ],
+  "configuration": {
+    "physics": {
+      "diagnostic_M_E_squared": "400 in consistent arbitrary units",
+      "process": "LD-W-06 selected endpoint commutators versus actual internal three-W chain"
+    },
+    "numerics": {
+      "method": "exact symbolic/rational matrix arithmetic",
+      "diagnostic_points": 5,
+      "comparison_tolerance": 0
+    },
+    "conventions": {
+      "metric": "+---",
+      "momentum": "all incoming",
+      "fourier_phase": "exp(-ipx)",
+      "q_is_external_W": true
+    }
+  },
+  "environment": {
+    "platform": "Linux x86_64",
+    "runtime": {
+      "python": "3.12.14",
+      "implementation": "CPython",
+      "git": "git version 2.56.1"
+    },
+    "dependencies": {
+      "sympy": "1.14.0"
+    },
+    "hardware": {
+      "execution_target": "GPT-managed Linux cloud workspace",
+      "processes": 1,
+      "logical_cpus_available": 9,
+      "gpu_used": false
+    }
+  },
+  "execution": {
+    "status": "succeeded",
+    "command": "python -B research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-three-w-commutator/check.py",
+    "started_at": "2026-11-23T21:36:52.418607+00:00",
+    "finished_at": "2026-11-23T21:36:53.130065+00:00",
+    "exit_code": 0,
+    "wall_time_s": 0.711446,
+    "source_control": {
+      "event": "local_manual",
+      "checkout_mode": "detached_commit",
+      "checkout_ref": null,
+      "pr_number": null,
+      "pr_url": null,
+      "pr_head_sha": null,
+      "base_sha": null,
+      "tested_merge_sha": null,
+      "head_ref": null,
+      "base_ref": null,
+      "workflow_run_id": null,
+      "workflow_run_attempt": null,
+      "working_tree_state": "dirty",
+      "dirty_paths": [
+        "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-three-w-commutator/check.py"
+      ]
+    }
+  },
+  "outputs": [
+    {
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-three-w-commutator/native.json",
+      "role": "native exact matrix-component diagnostics",
+      "format": "json",
+      "sha256": "f48ff4d40ef1579d4d9ac5913a757a2f5e447dd69dd57891028be1c8a526f463",
+      "bytes": 5390,
+      "records": 5
+    }
+  ],
+  "validation": {
+    "status": "passed",
+    "checks": [
+      {
+        "check_id": "analytic-routing",
+        "name": "Independent cubic-action permutation, weak order and exact common route",
+        "category": "analytic",
+        "status": "passed",
+        "threshold": "exact",
+        "observed": "Four symbolic sewn identities and 96 exact raw weak entries",
+        "evidence_path": "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-three-w-commutator/native.json"
+      },
+      {
+        "check_id": "signed-sewing",
+        "name": "Actual sewn 3W plus isolated endpoint commutators",
+        "category": "independent",
+        "status": "passed",
+        "threshold": "zero differing entries",
+        "observed": "Five numerator controls: 0, 20, 0, 20, 112",
+        "evidence_path": "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-three-w-commutator/native.json"
+      },
+      {
+        "check_id": "negative-sign-controls",
+        "name": "Wrong phase, metric-only three-W, swapped single-W weights",
+        "category": "unit",
+        "status": "passed",
+        "threshold": "each applicable mutation detected",
+        "observed": "Equal-virtuality cancellation detects flipped sign and metric-only; unequal-virtuality control detects swapped virtualities",
+        "evidence_path": "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-three-w-commutator/native.json"
+      },
+      {
+        "check_id": "native-byte-replay",
+        "name": "Fresh native output vs previously reviewed exact JSON",
+        "category": "integrity",
+        "status": "passed",
+        "threshold": "byte-identical stdout and no stderr",
+        "observed": "f48ff4d40ef1579d4d9ac5913a757a2f5e447dd69dd57891028be1c8a526f463",
+        "evidence_path": "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-three-w-commutator/native.json"
+      }
+    ]
+  },
+  "archive": {
+    "status": "local_only"
+  },
+  "extensions": {
+    "standards_provenance": {
+      "task_id": "20261123-ldw06-three-w-commutator",
+      "task_brief_path": "research/rc001-vll-higgs-singlet-uv-eft/task_briefs/20261123-ldw06-three-w-commutator.md",
+      "task_brief_sha256": "0b2c1446397bf592ef456d13417c5ae8e190ec1493eadfdbf9776ccebcfd8b3e",
+      "central_repository": "lm846802297-bit/high-energy-theory-research",
+      "central_commit_sha": "db503f0eb579bdbcac702e44237a6610c34690e7",
+      "lock_file_path": "research/standards-lock.yaml",
+      "lock_file_sha256": "165a29e0b6f372f194d33acac208edfcd2c850d1019db6f18111c5b0f7984813",
+      "applied_profiles": [
+        "task-handoff",
+        "research-compute",
+        "research-quality-gate",
+        "rcrps-v1.0.1"
+      ],
+      "project_extensions": [
+        "AGENTS.md",
+        "docs/repository-management/STRUCTURED_RESULT_DATA_STANDARD.md"
+      ],
+      "project_extension_records": [
+        {
+          "path": "AGENTS.md",
+          "scope": "Axial task routes and scope boundaries",
+          "sha256": "03339c1c5eb9ec3e8b70039485cab9c43f886692dbbaa27335afe14d8eedfd93"
+        },
+        {
+          "path": "docs/repository-management/STRUCTURED_RESULT_DATA_STANDARD.md",
+          "scope": "Axial UV–EFT metadata",
+          "sha256": "e74fae2e8d2da8ed655d9f764f70cbca74c6b2614bb6efcb7011fa604abd5cc3"
+        }
+      ]
+    },
+    "uv_eft": {
+      "model": "Unbroken SU(2) singlet vector-like heavy lepton E; Higgs and light fermions massless",
+      "parameters": {
+        "M_E_squared_diagnostic": 400,
+        "y_ell": "symbolic Yukawa; squared modulus in P4",
+        "g2": "symbolic SU(2) coupling",
+        "scalar_mass": 0
+      },
+      "gauge": "ordinary Feynman gauge",
+      "gamma5": "four-dimensional exact Dirac matrices with P_L=(I−γ5)/2; no D-dimensional trace, integration or scheme claim",
+      "ir_prescription": "nonsingular off-shell rational momenta; four equal-W-virtuality nonsingular controls and one generic nonsingular control; all nonzero q; no original mass-shell limit; no integrated IR regulator",
+      "renormalization": {
+        "scheme": null,
+        "scale": null,
+        "reason": "bare integrand diagnostic, no loop integral or UV subtraction"
+      },
+      "matching": {
+        "scale": null,
+        "operator_basis": null,
+        "reason": "no EFT projection, matching or Wilson extraction"
+      },
+      "diagram_coverage": "Only projected A/B post-contact commutators and the internal three-W; no remaining diagrams",
+      "counterterms": "not evaluated; no field-strength or full LSZ claim"
+    }
+  }
+}
