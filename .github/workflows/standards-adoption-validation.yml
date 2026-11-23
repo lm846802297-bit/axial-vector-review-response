@@ -65,7 +65,7 @@ jobs:
       - name: Validate lock, task provenance, reports, and run manifests
         env:
           VALIDATOR_ROOT: ${{ runner.temp }}/central-validator
-          CENTRAL_ROOT: @@RUNNER_TEMP@@/central-standards
+          CENTRAL_ROOT: ${{ runner.temp }}/central-standards
           PROJECT_ROOT: ${{ github.workspace }}
         run: |
           python - <<'PY'
