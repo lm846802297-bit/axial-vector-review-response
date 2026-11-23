@@ -6,16 +6,20 @@ Before starting any task in this repository, read:
 
 1. [PROJECT_STATUS.md](PROJECT_STATUS.md) — current project stage, verified repository state, open work, and next actions.
 2. [README-先读这里.md](README-先读这里.md) — repository navigation and task-based reading routes.
-3. [RESEARCH_COMPUTE_POLICY.md](RESEARCH_COMPUTE_POLICY.md) — mandatory primary-compute, GitHub-archive, and independent-Actions architecture.
+3. The [central standards index](https://github.com/lm846802297-bit/high-energy-theory-research/blob/142267bc803c90aa681110293b66b73947bbcaa1/docs/governance/CENTRAL_STANDARDS_INDEX.md) and [research/standards-lock.yaml](research/standards-lock.yaml) — the exact adopted shared standards revision and profiles.
+4. [RESEARCH_COMPUTE_POLICY.md](RESEARCH_COMPUTE_POLICY.md) — the local compatibility pointer to the pinned central compute policy.
 
-This file (AGENTS.md) defines mandatory rules. Do not load every research document by default; follow the task routes below.
+This file (AGENTS.md) defines mandatory project rules. Shared governance, task handoff, compute, archival, RCRPS, document review, referee-response, and Git requirements are maintained centrally at the pinned revision. Do not load every research document by default; follow the task routes below.
+
+For substantive research, derivation, numerical, code, validation, or referee-response work, follow the [central Research Task Handoff Standard](https://github.com/lm846802297-bit/high-energy-theory-research/blob/142267bc803c90aa681110293b66b73947bbcaa1/docs/RESEARCH_TASK_HANDOFF_STANDARD.md) and use the [central Research Task Brief template](https://github.com/lm846802297-bit/high-energy-theory-research/blob/142267bc803c90aa681110293b66b73947bbcaa1/templates/research-task-brief.md). Trivial editorial/maintenance changes may omit a brief when the PR explains why it is not applicable.
 
 ## 2. Task-based reading routes
 
 ### Referee-response writing, editing, or audit
 
 Read:
-- [审稿回复信与论文修改清单写作规范](审稿意见-gpt/写作规范/审稿回复写作原则.md)
+- [中央审稿回复与论文同步规范](https://github.com/lm846802297-bit/high-energy-theory-research/blob/142267bc803c90aa681110293b66b73947bbcaa1/docs/REFEREE_RESPONSE_AND_MANUSCRIPT_SYNCHRONIZATION_STANDARD.md)
+- [轴矢量项目审稿回复写作扩展](审稿意见-gpt/写作规范/审稿回复写作原则.md)
 - [Current referee-facing response](Replies_to_Referee_3_referee_facing_2026-11-04.tex)
 - [Internal manuscript synchronization checklist](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-03/论文正文待同步修改清单_2026-11-03.md)
 - The relevant original referee-report passage and relevant meeting summary/transcript where needed.
@@ -76,88 +80,30 @@ Do not claim CI, compilation, or tests passed unless the exact current commit ha
 
 Do not merge these file roles or copy internal workflow content into the referee-facing letter.
 
-## 5. Numerical calculation result submission and reproducibility
+## 5. Numerical research and result archival
 
-All numerical work must follow [RESEARCH_COMPUTE_POLICY.md](RESEARCH_COMPUTE_POLICY.md): ordinary GPT chat uses ChatGPT Linux; Codex/Work may execute on the user's Windows local environment or on a GPT-managed cloud computer. Archive source/inputs/native outputs in GitHub, and use Actions only for independent verification and CI. “Local” means the active mode's primary execution environment.
+The shared rules for primary execution environment, run provenance, GitHub archival, native outputs, extraction, SHA-256 verification, and structured numerical records are governed by the pinned central [Research Compute Policy](https://github.com/lm846802297-bit/high-energy-theory-research/blob/142267bc803c90aa681110293b66b73947bbcaa1/RESEARCH_COMPUTE_POLICY.md), [Calculation-result Archival Policy](https://github.com/lm846802297-bit/high-energy-theory-research/blob/142267bc803c90aa681110293b66b73947bbcaa1/docs/CALCULATION_RESULT_ARCHIVAL_POLICY.md), and [RCRPS v1.0.1](https://github.com/lm846802297-bit/high-energy-theory-research/blob/142267bc803c90aa681110293b66b73947bbcaa1/docs/STRUCTURED_RESULT_DATA_STANDARD_v1.0.1.md).
 
-The following rules are mandatory for numerical research, phenomenology, data processing, and computational validation carried out for this project.
+The axial-vector project-specific RCRPS extension is [docs/repository-management/STRUCTURED_RESULT_DATA_STANDARD.md](docs/repository-management/STRUCTURED_RESULT_DATA_STANDARD.md). It defines only the `supernova_transport` and `uv_eft` fields. Preserve existing C1/A0 JSON, CSV, figures, and historical calculation outputs; new substantial runs must use the v1.0.1 source-control provenance contract and retain the project-specific physical metadata.
 
-### 5.1 Commit completed research results to GitHub
+The local `RESEARCH_COMPUTE_POLICY.md` remains as a stable compatibility entry point; it is not a second copy of the shared policy.
 
-- A completed calculation that is used to support a scientific statement, comparison, figure, benchmark, parameter limit, or a declared research milestone must be committed to the project GitHub repository. Do not leave the only copy on a local machine, in a temporary workspace, chat attachment, or expiring CI artifact.
-- Submit the actual result files in their native, directly usable formats (for example CSV, JSON/JSONL, TXT, ROOT, HDF5, or the native format required by the calculation). **Extract-before-upload is mandatory:** whenever a calculation or result bundle is delivered as ZIP/TAR—including a ChatGPT handoff bundle, local-runner package, GitHub Actions artifact, collaborator delivery, or upstream archive—extract it first, then commit/upload the required extracted files individually while preserving meaningful filenames and directory structure. A newly generated delivery ZIP/TAR is a transfer container only and must not be committed as the sole or substitute archive of its extracted contents. Preserve an original upstream archive only when the exact container is needed for provenance/reproducibility or extracted source files cannot legally be redistributed; record source/version, byte size, SHA-256, extraction command, and per-file checksums, and still commit all extracted files that may be redistributed. Tool-native compressed formats that are themselves the original data product may be retained when necessary and documented.
-- Place results under the relevant research topic directory. Use a dated, task-specific subdirectory when this avoids collisions or preserves a stable historical snapshot. Do not scatter one calculation across unrelated directories or create duplicate competing “authoritative” copies.
-- Commit the calculation script or exact source revision needed to reproduce the result. If the script already exists in repository history, record its repository path and immutable commit/blob SHA rather than copying an identical source file without reason.
-- Include the necessary inputs, or identify their immutable repository/source locations and record their SHA-256 checksums. Record the calculation settings and conventions that affect interpretation: units, parameter values, physical approximations, grids/quadrature, boundary conditions, and random seeds where applicable.
-- Include a concise README or run record stating the purpose, input provenance, exact command or entry point, relevant software/runtime versions, output-file descriptions, and the validation performed. Preserve useful machine-readable outputs and the logs/checkpoints needed to resume or audit a long calculation; omit disposable caches, temporary build products, and unrelated scratch files.
-- Add a SHA-256 manifest for submitted data files when practical, and especially for multi-file datasets or externally sourced inputs. Do not alter line endings, precision, column ordering, units, or source data silently during transfer; document any deliberate transformation.
 
-### 5.2 Large, external, or restricted data
+## CI and independent verification
 
-- Prefer directly committed, uncompressed files when their size and licensing permit. If a file exceeds GitHub's normal size limits or the repository's agreed storage policy, do not silently omit it or replace it with an opaque archive. Use Git LFS or another repository-approved durable storage location, and commit a manifest containing the exact filename, immutable retrieval location, byte size, format, and SHA-256 checksum.
-- For externally hosted, licensed, or otherwise non-redistributable inputs, do not commit a prohibited copy. Record the original citation/source, version or release identifier, retrieval instructions, file identity, and checksum so that an authorized researcher can obtain and verify the same input.
-- Never commit credentials, access tokens, private keys, personal data, or unrelated machine-specific configuration.
+Follow the pinned central [Research Compute Policy](https://github.com/lm846802297-bit/high-energy-theory-research/blob/142267bc803c90aa681110293b66b73947bbcaa1/RESEARCH_COMPUTE_POLICY.md). GitHub Actions is optional supporting infrastructure unless the task owner explicitly requires a particular run. It does not replace the primary calculation or scientific validation. Record the exact status and commit for checks actually run; do not treat a queued workflow as a blocker or an unrun check as passed.
 
-### 5.3 Submission and verification workflow
 
-1. Finish the calculation locally and retain the exact output produced by the run.
-2. Check file completeness, row/record counts, units, numerical finiteness, and the calculation-specific validation criteria. Record failed or incomplete checks explicitly; do not label a partial run as complete.
-3. Organize the uncompressed deliverables and add the README/run record, provenance, and checksum manifest.
-4. Commit to the appropriate task branch and submit through the relevant pull request. Do not push research changes directly to `main` unless the author explicitly instructs otherwise.
-5. After the push, inspect the actual PR diff and retrieve the committed files from GitHub. Compare the remote file contents or Git blob identities against the local submission; verify the expected paths, file count, and checksums before reporting that the upload is complete.
-6. Report repository submission status separately from scientific validation status. A successful commit, checksum match, or passing CI job does not by itself establish that the physical calculation is correct or that the research task is complete.
+## GitHub PR review and merge
 
-These rules apply to all future calculations in this repository, not only to the stellar-cooling work or the current PR.
-
-## CI is optional; research work must not wait for CI
-
-Continuous integration (CI) is optional supporting infrastructure. It is not a prerequisite, acceptance gate, or merge condition for research work.
-
-- Do not require a CI run to start, continue, or complete a calculation; perform numerical or scientific validation; prepare or archive results; commit or push research files; open or update a pull request; mark a pull request ready for review; or merge a pull request.
-- If the calculation can be run directly on an available local machine or an approved compute runner, proceed. Do not pause research solely because GitHub Actions is queued, unavailable, disabled, blocked by account/billing limits, or failing for infrastructure reasons.
-- For this project, GitHub Actions is reserved for independent verification, regression testing, and CI; it must not silently replace the primary computation. If an explicitly approved independent Actions run executes a calculation, record its exact source commit, inputs, settings, environment, logs, and outputs.
-- This policy does not waive scientific or numerical validation. Perform the checks appropriate to the claim—such as analytic identities, dimensional and unit checks, limiting cases, independent implementations, convergence, uncertainty estimates, provenance, and output-integrity checks—locally or on an approved runner, and record exactly what was performed. CI neither substitutes for these checks nor adds a mandatory gate.
-- If CI is run, report its exact commit SHA and actual result. If it is not run, queued, blocked, cancelled, or failed, record that status truthfully and distinguish infrastructure failure from a scientific or numerical failure. Never describe an unrun check as passed.
-- Base review and merge decisions on the actual diff, reproducibility, scientific evidence, scope, and the checks that are genuinely relevant to the change—not on whether a CI badge is green. Do not configure CI status checks as required branch-protection gates under this repository policy. Do not change repository protection settings without explicit authorization.
-- CI becomes mandatory for a particular task only when the author explicitly requests it for that task.
-
-## GitHub PR merge strategy and commit-history preservation
-
-Before opening or merging a pull request, read and follow [GIT_MERGE_POLICY.md](GIT_MERGE_POLICY.md). For substantive physics, numerical, validation, referee-response, and archival work, **Create a merge commit is the default**. Preserve meaningful topic-branch commits and the PR integration boundary so equations, implementations, numerical corrections, tests, and evidence remain traceable. Squash merge is reserved for trivial, indivisible maintenance changes with no useful per-commit research history. Rebase and merge is allowed only when linear history is explicitly needed and the commits are already meaningful and reviewable. Do not rewrite reviewed/shared history merely to shorten the log. After merge, verify the integrated main state and report Git archival separately from scientific validation.
+Follow the pinned central [Git Merge Policy](https://github.com/lm846802297-bit/high-energy-theory-research/blob/142267bc803c90aa681110293b66b73947bbcaa1/docs/governance/GIT_MERGE_POLICY.md). This repository retains **Create a merge commit** as its default for substantive research, numerical, validation, referee-response, and archival work. The local [GIT_MERGE_POLICY.md](GIT_MERGE_POLICY.md) is a compatibility pointer, not an independent second policy.
 
 
 ## Research communication and decision policy
 
-Research communication must be direct, evidence-led, and useful for advancing the work. Scientific rigor is expressed through derivations, quantitative checks, explicit assumptions, and accurate status labels—not through defensive or repetitive caveats.
+Follow the pinned central [Research Governance Standard](https://github.com/lm846802297-bit/high-energy-theory-research/blob/142267bc803c90aa681110293b66b73947bbcaa1/docs/RESEARCH_GOVERNANCE_STANDARD.md) and the [Research reporting standard](https://github.com/lm846802297-bit/high-energy-theory-research/blob/142267bc803c90aa681110293b66b73947bbcaa1/docs/scientific-diff-workflow.md#11-research-reporting-and-communication-standard). For referee-response work, also follow the central [Referee Response and Manuscript Synchronization Standard](https://github.com/lm846802297-bit/high-energy-theory-research/blob/142267bc803c90aa681110293b66b73947bbcaa1/docs/REFEREE_RESPONSE_AND_MANUSCRIPT_SYNCHRONIZATION_STANDARD.md) and the stricter axial-vector [local writing profile](审稿意见-gpt/写作规范/审稿回复写作原则.md).
 
-### Required report structure
-
-For research questions, calculation reports, reviews, and task handoffs, use this structure unless the task clearly calls for another format:
-
-1. **Conclusion** — answer the question directly and state the current judgment.
-2. **Evidence** — give the equations, derivation, code path, data, or validation that supports it.
-3. **Results** — report numerical values, units, precision, benchmark parameters, comparisons, and physical interpretation.
-4. **Remaining work** — list only tasks that materially affect the next research step.
-
-### Evidence and status rules
-
-- **Completed calculations:** report the actual result, units, numerical precision, parameter point, and checks performed. Do not bury a completed result under generic warnings.
-- **Established formulas or derivations:** state the formula and give the derivation or a precise derivation reference. Do not weaken a proven result with unnecessary hedging.
-- **Explicit approximations:** state the approximation and its domain of validity once where it is introduced. Do not repeat the same limitation in every paragraph or use it to obscure results obtained within that approximation.
-- **Unfinished calculations:** label the specific item as pending, blocked, or in progress and identify what remains. Its status does not downgrade independent completed calculations or results.
-- **Physics or implementation errors:** identify the incorrect statement, equation, sign, normalization, variable, or code path directly; provide the corrected version and explain the impact on affected results.
-- **Alternative theoretical or numerical schemes:** compare them quantitatively under matched assumptions and benchmarks, then state a recommended scheme and why. Preserve an adopted decision unless new evidence materially changes the comparison.
-- **Settled research direction:** execute the adopted direction. Do not repeatedly ask for confirmation or reopen a settled choice. Ask only when a genuinely missing input prevents the next concrete action.
-- **Unavailable resources:** state the exact resource, attempted access route, and resulting limitation, then continue with available alternatives where possible. Avoid generic capability disclaimers.
-
-### Style and scientific integrity
-
-- Do not turn each progress report into a disclaimer.
-- Avoid unnecessary defensive phrases, repetitive caveats, generic risk warnings, and formulaic “however” paragraphs.
-- Do not treat work remaining for a later phase as evidence against a result already established in the current phase.
-- Distinguish a result's scientific scope, validation status, and work not yet performed.
-- Be candid when evidence is insufficient, but make the limitation specific and proportional to the claim.
-- This policy governs communication and task execution; it does not lower scientific acceptance criteria, suppress genuine physical limitations, or permit claims beyond the evidence.
+The [研究决策与不可回退事项](审稿意见-gpt/项目规范/研究决策与不可回退事项.md) remains the project-specific author-approved decision register. It records current model choices and historical decision changes; it does not replace the central source hierarchy.
 
 
 ### Axial-vector referee-response boundary
