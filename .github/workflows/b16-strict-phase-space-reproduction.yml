@@ -11,7 +11,6 @@ on:
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/validate_b16_escape_phase_space_output.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_phase_space_output_validation.py'
-      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/diagnose_b16_energy_grid_identity.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_energy_grid_identity.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/trace_b16_phase_run_grid_hashes.py'
       - 'research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv'
