@@ -5,7 +5,7 @@ standards_release: null
 source_commit: "142267bc803c90aa681110293b66b73947bbcaa1"
 
 adopted_at: "2026-11-23"
-adoption_pr: "PENDING"
+adoption_pr: "https://github.com/lm846802297-bit/axial-vector-review-response/pull/136"
 
 adopted_profiles:
   - core-governance
