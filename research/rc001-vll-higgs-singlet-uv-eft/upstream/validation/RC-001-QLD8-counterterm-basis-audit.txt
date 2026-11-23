@@ -1,0 +1,35 @@
+RC-001 QLD8 one-loop counterterm-basis seed audit
+
+PASS: exact (+---) Clifford algebra and open-line gamma5 projectors.
+PASS: rank-3 duality: 64/64 index assignments.
+PASS: rank-4 duality: 256/256 index assignments.
+PASS: contracted Gamma_(3) x Gamma_(3) projections for RR, RL, LR, LL.
+      coefficient = 6 eta_X eta_Y times vector x vector.
+PASS: contracted Gamma_(4) x Gamma_(4) projections for RR, RL, LR, LL.
+      coefficient = 24 eta_X eta_Y times scalar x scalar.
+PASS: direct RL tensor contraction vanishes in 4D (candidate evanescent).
+PASS: two-gamma RL chain = 4 scalar + direct RL tensor in 4D.
+PASS: SU(3) completeness: 81/81 color-index assignments.
+PASS: J_d, J_u, J_e all transform as (1,2,+1/2).
+PASS: SU(2) epsilon is invariant under all three generators.
+PASS: Q_L, u_R, d_R, L_e, e_R, H are U(1)_X neutral.
+PASS: six independent source-pair sectors and nine ordered pairs.
+PASS: four derivative placements per ordered pair: 36 total.
+CANDIDATE one-gauge-exchange rank ceiling: RL/LR <= 3; RR/LL <= 4.
+
+Scope limitation:
+This is an exact representation/color/Dirac-basis seed audit. It does not
+evaluate a loop integral, UV pole, Z matrix, anomalous dimension, finite
+Wilson coefficient, or UV-EFT matching result. The candidate gamma-rank
+ceiling is a bookkeeping bound to be checked against explicit numerators;
+it is not a proof that the one-loop evanescent basis is closed.
+
+Reproducible source:
+calculations/RC-001-QLD8-counterterm-basis-audit.py
+
+Additional interpretation:
+The d-dimensional identity is Gamma^mu Gamma^nu P_R tensor P_L Gamma_nu Gamma_mu
+= D P_R tensor P_L + sigma^{mu nu} P_R tensor sigma_{mu nu} P_L.
+The direct RL tensor term is evanescent in four dimensions. Its relation to
+the crossed-basis Fierz/rank-three evanescents must be determined by the
+d-dimensional Fierz map before independent operator counting.

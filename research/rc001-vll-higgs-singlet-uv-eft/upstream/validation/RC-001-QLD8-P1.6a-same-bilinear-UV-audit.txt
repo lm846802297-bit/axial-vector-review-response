@@ -1,0 +1,10 @@
+RC-001 QLD8 P1.6a same-bilinear UV audit
+PASS: A wedge B = x p1 wedge p2 after the Feynman-parameter shift.
+PASS: Feynman-parameter prefactor 2 times simplex volume 1/2 = 1.
+PASS: scalar integral has Gamma(epsilon) UV pole with coefficient D/4.
+PASS: antisymmetric tensor integral has Gamma(1+epsilon), no UV pole.
+PASS: gamma sandwich gives per-graph D^2/4 and two-graph D^2/2.
+PASS: full D=4-2epsilon expansions through O(epsilon^2).
+PASS: frozen Feynman-rule phase product is +C g_s^2 before integration.
+PASS: SU(3) two-graph direct-color block diag(2 D^2/3,-D^2/12).
+LIMIT: external legs, background gluons, complete Z matrix and matching remain open.

@@ -1,0 +1,27 @@
+RC-001 QLD8 d†d QCD momentum-routing audit
+
+PASS: q_A + q_B = 0 for four incoming external momenta.
+PASS: four derivative placements sum to q_A^2.
+PASS: all six exchange routings have the correct source-current shift.
+PASS: q_A^(ab) + q_B^(ab) = 0 for all six topologies.
+PASS: insertion factor is [q_A^(ab)]^2 for all six topologies.
+
+External-leg order:
+(bar Q, d, bar d, Q) for the original source grouping;
+the color matrices use the equivalent ordered tensor (bar Q, Q, bar d, d).
+
+Source-current groups:
+A = (bar Q, d), B = (bar d, Q).
+
+Loop momentum convention:
+ell flows from the first named external leg to the second;
+the momenta entering the insertion shift by +ell and -ell, respectively.
+
+Scope limitation:
+This validates only the tree insertion momentum and the six topology routings.
+No Dirac numerator, tensor loop integral, UV pole, wavefunction counterterm,
+evanescent mixing, Z matrix, anomalous dimension, or Wilson coefficient is
+claimed.
+
+Reproducible source:
+calculations/RC-001-QLD8-QCD-momentum-routing-audit.py

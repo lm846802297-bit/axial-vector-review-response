@@ -1,0 +1,11 @@
+RC-001 QLD8 P1.5c+ D-dimensional Dirac-rank closure audit
+PASS: exact rank-0/rank-2 decomposition from gamma gamma = metric + Gamma_(2).
+PASS: cross-source TS chain signs = [-1, -1, 1, 1].
+PASS: cross-source ST chain signs = [-1, 1, -1, 1].
+PASS: cross-source TT chain signs = [-1, 1, 1, -1].
+PASS: color-weighted TS/ST/TT signs reproduce P1.5a.
+PASS: gamma^rho Gamma_(0) gamma_rho = D Gamma_(0).
+PASS: gamma^rho Gamma_(2) gamma_rho = (D-4) Gamma_(2).
+PASS: D=4-2 epsilon gives D-4=-2 epsilon.
+PASS: all six listed one-gluon exchange chains have gamma rank <=2 per bilinear.
+LIMIT: no same-bilinear loop UV poles, external-gluon completion, or full Z matrix.
