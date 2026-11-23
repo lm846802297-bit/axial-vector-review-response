@@ -56,6 +56,14 @@
 
 ## 计算入口
 
+从仓库根目录运行低质量标度后处理：
+
+```bash
+python research/stellar-cooling-constraints-20261105/low_mass_axial/analyze_low_mass_scaling.py
+```
+
+该程序只读取已有 JSON 并生成派生汇总，不重新运行局域碰撞积分或恒星输运。
+
 从仓库根目录运行局域 moving-muon 热响应扫描：
 
 \`\`\`bash
