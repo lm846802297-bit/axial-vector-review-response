@@ -1,0 +1,8 @@
+PASS: all shifted propagators expanded in the hard region.
+PASS: numerator polynomials included through external degree two.
+PASS: total-degree-five coefficient generated for all vector components.
+Term counts (expanded monomials):
+  Light attachment: k^mu 28, p^mu 20, q^mu 20.
+  Heavy attachment: k^mu 28, p^mu 20, p'^mu 20.
+PASS: every retained monomial has total external degree exactly five.
+SCOPE: integrand Taylor coefficients only; tensor/radial integration and hard-soft matching remain open.

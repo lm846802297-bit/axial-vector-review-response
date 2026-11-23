@@ -1,0 +1,102 @@
+RC-001 Abelian QLD8 IBP/EOM reduction — exact coefficient audit
+
+Convention:
+  D_mu = partial_mu + i g_A q_H A_mu
+  [D_mu,D_nu]H = i g_A q_H F_mu_nu H
+  X=H^dagger H, Y=S^dagger S
+  j_H^mu = i H^dagger <->D^mu H
+  f_H = -mu_H^2 + 2 lambda_H X + lambda_HS Y
+  D^2 H = -f_H H - J_H
+
+Exact Abelian IBP identity:
+  O_Q = -i (D_mu H)^dagger D_nu H Box F^mu nu
+  O_Q ~= -i F^mu nu Box[(D_mu H)^dagger D_nu H]
+  Box[(D_mu H)^dagger D_nu H]
+    = (D^2 D_mu H)^dagger D_nu H
+      + 2(D_rho D_mu H)^dagger D^rho D_nu H
+      + (D_mu H)^dagger D^2 D_nu H
+  Therefore:
+    O_P + O_Q/2 ~= O_E,H
+  O_E,H = -i/2 F^mu nu[
+      (D^2 D_mu H)^dagger D_nu H
+      + (D_mu H)^dagger D^2 D_nu H ]
+
+Its one-background vertex is:
+  B_E,H = B_P + B_Q/2 = (P+P') T^mu/2
+  This is transverse and vanishes for P=P'=0.
+
+Commutator:
+  [D^2,D_mu]H = i g_A q_H[
+      (partial_rho F^rho_mu)H + 2 F^rho_mu D_rho H ]
+
+Writing O_E,H = O_E,H(ordered) + O_comm gives:
+  O_E,H(ordered) =
+    -i/2 F^mu nu[
+      (D_mu D^2 H)^dagger D_nu H
+      + (D_mu H)^dagger D_nu D^2 H ]
+  O_comm =
+    -(g_A q_H/2) F^mu nu (partial_rho F^rho_mu) partial_nu X
+    -g_A q_H F^mu nu F^rho_mu[
+       (D_rho H)^dagger D_nu H
+       +(D_nu H)^dagger D_rho H ]
+
+Higgs EOM reduction:
+  O_E,H(ordered) ~= f_H O_FH^(6)
+    - (1/2) F^mu nu j_H_mu partial_nu f_H
+    + O_FJ_H^(8) + O_EOM
+  O_FH^(6) = i F^mu nu (D_mu H)^dagger D_nu H
+  O_FJ_H^(8) = i/2 F^mu nu[
+      (D_mu J_H)^\dagger D_nu H
+      +(D_mu H)^\dagger D_nu J_H ]
+  O_EOM is proportional to D^2 H + f_H H + J_H.
+
+Potential/current companions:
+  f_H O_FH^(6)
+    = [-mu_H^2 + 2 lambda_H X + lambda_HS Y] O_FH^(6)
+  -(1/2) F j_H partial f_H
+    = -lambda_H F^mu nu j_H_mu partial_nu X
+      -(lambda_HS/2) F^mu nu j_H_mu partial_nu Y
+
+Gauge-EOM alternative (Abelian, with -F^2/4 and the stated D convention):
+  partial_rho F^rho_mu = g_A J_mu^tot
+  O_comm,gauge ~= -(g_A^2 q_H/2)
+       F^mu nu J_mu^tot partial_nu X
+  Keep either partial.F or the total-current representative, never both.
+
+Charge boundary:
+  U(1)_X: q_H=0, so the commutator-generated O(F dF dX) and O(F^2 H^2 D^2) pieces for the external A' vanish.
+  U(1)_Y: q_H=+1/2, so both pieces remain.
+  SU(2)_L: only the amplitude-level coefficient map is quoted; the non-Abelian adjoint derivative and ordered generator products are not yet reduced.
+
+Hard coefficient reparameterization:
+  a O_P + b O_Q ~= a O_E,H + (b-a/2) O_Q
+
+  U(1)_X: b_X-a_X/2 = -(30/eps_IR+30 L_M+28)/1440
+  U(1)_Y: b_Y-a_Y/2 = +(60/eps_IR+60 L_M+47)/5760
+  SU(2)_L amplitude-level: b_L-a_L/2 = -(12/eps_IR+12 L_M+13)/576
+
+These remain hard-region coefficients with IR poles; they are not finite renormalized Wilson coefficients. The scalar-source coefficient c_S=1/192 is not altered by this transverse IBP step.
+
+Reproducibility boundary:
+  The script checks the exact polynomial vertex identity, coefficient
+  reparameterization, potential derivatives, and charge boundary. The
+  covariant product-rule/commutator derivation is displayed above; this
+  is not an independent diagram-package run or a complete SMEFT basis.
+
+
+Actual local script output (SymPy exact symbolic arithmetic):
+~~~text
+RC-001 Abelian QLD8 IBP/EOM coefficient audit
+PASS: O_P + O_Q/2 has the exact off-shell vertex (P+P') T^mu/2.
+PASS: the combination is transverse and vanishes on the massless on-shell surface.
+PASS: a O_P + b O_Q -> a O_E,H + (b-a/2) O_Q.
+Hard-region retained O_Q coefficients (IR poles not yet subtracted):
+  U(1)_X: -(15*L_M*eps_IR + 14*eps_IR + 15)/(720*eps_IR) with overall q_E
+  U(1)_Y: (60*L_M*eps_IR + 47*eps_IR + 60)/(5760*eps_IR)
+  SU(2)_L amplitude-level only: -(12*L_M*eps_IR + 13*eps_IR + 12)/(576*eps_IR) (non-Abelian EOM reduction not claimed)
+PASS: f_H and partial_nu f_H generate the stated X,Y companions.
+PASS: q_H=0 removes the A'-commutator terms for U(1)_X.
+PASS: c_S=1/192 is untouched by this transverse IBP step.
+LIMIT: this is an exact coefficient/kinematic audit, not an external
+diagram-package run or a complete non-Abelian SMEFT basis reduction.
+~~~
