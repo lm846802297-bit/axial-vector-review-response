@@ -1,0 +1,100 @@
+{
+  "commands": [
+    [
+      "python",
+      "-B",
+      "replay.py",
+      "--variant",
+      "pristine"
+    ],
+    [
+      "python",
+      "-B",
+      "replay.py",
+      "--variant",
+      "corrected"
+    ],
+    [
+      "python",
+      "-B",
+      "-m",
+      "unittest",
+      "-v",
+      "test_signed_route"
+    ]
+  ],
+  "corrected": {
+    "exit": 0,
+    "route_checks_each_side": 8,
+    "test_cases": {
+      "test_A_and_B_secondary_heavy_channels": "ok",
+      "test_local_charge_sum_survives_arbitrary_heavy_factors": "ok",
+      "test_main_preserves_LSZ_boundary": "ok",
+      "test_rational_heavy_channels": "ok",
+      "test_shifted_singlet_charge_sums": "ok"
+    },
+    "weak_index_checks": 96
+  },
+  "independent": {
+    "exit": 0,
+    "test_cases": {
+      "test_archive_rational_anchor_vs_common_endpoint": "ok",
+      "test_derivative_changes_only_two_vector_initializers": "ok",
+      "test_exact_componentwise_routing_and_wrong_sign_controls": "ok"
+    }
+  },
+  "input_sha256": {
+    "RC-001-dim6-WW-fivepoint-LD-W-06-shifted-Yukawa-singlet-charge-closure.py": "15e6cf120beec06798feae6e6e14354d996f6271a736569d9eacf847ca4d57b8",
+    "test_RC001_dim6_WW_fivepoint_LD_W_06_shifted_Yukawa_singlet_charge_closure.py": "bf929a15995356584c3a367deb5a841e1c53a63feb55b149138b4ec3c66936ab"
+  },
+  "patch_sha256": "3ded5413fd18d17d31202f1dba41f5b779f15a49bcf3ee2f44837dc65308ef2f",
+  "pristine": {
+    "errors": [
+      {
+        "exception": "IndexError",
+        "message": "list index out of range",
+        "test": "test_A_and_B_secondary_heavy_channels"
+      },
+      {
+        "exception": "IndexError",
+        "message": "list index out of range",
+        "test": "test_main_preserves_LSZ_boundary"
+      }
+    ],
+    "exit": 1,
+    "test_cases": {
+      "test_A_and_B_secondary_heavy_channels": "ERROR",
+      "test_local_charge_sum_survives_arbitrary_heavy_factors": "ok",
+      "test_main_preserves_LSZ_boundary": "ERROR",
+      "test_rational_heavy_channels": "ok",
+      "test_shifted_singlet_charge_sums": "ok"
+    }
+  },
+  "rational_diagnostic": {
+    "anchor_denominators": [
+      -377,
+      -389,
+      -365
+    ],
+    "anchor_order": [
+      "h0",
+      "h0-q",
+      "h0+q"
+    ],
+    "common_endpoint_order": [
+      "hA-q",
+      "hB+q"
+    ],
+    "endpoint_denominators": [
+      -377,
+      -377
+    ]
+  },
+  "runtime": {
+    "python": "3.12.14",
+    "sympy": "1.14.0"
+  },
+  "scope": "LD-W-06 local endpoint test reproducibility only; no CI or full STI/Wilson claim.",
+  "target_main_input_commit": "89cd043984012215f74ae331049a626badea9d57",
+  "temporary_derivative_sha256": "95c140ccb8da0275545b22f1863f5bfc85b673e7a83cf019f1214cb455718178"
+}

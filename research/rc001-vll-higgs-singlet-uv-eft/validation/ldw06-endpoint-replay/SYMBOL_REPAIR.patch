@@ -1,0 +1,7 @@
+--- immutable-upstream/RC-001-dim6-WW-fivepoint-LD-W-06-shifted-Yukawa-singlet-charge-closure.py
++++ temporary-derived/RC-001-dim6-WW-fivepoint-LD-W-06-shifted-Yukawa-singlet-charge-closure.py
+@@ -57,2 +57,2 @@
+-    p1 = list(sp.symbols("p10:4", real=True))
+-    p2 = list(sp.symbols("p20:4", real=True))
++    p1 = [sp.Symbol(f"p1_{i}", real=True) for i in range(4)]
++    p2 = [sp.Symbol(f"p2_{i}", real=True) for i in range(4)]
