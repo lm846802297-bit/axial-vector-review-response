@@ -1,22 +1,35 @@
 # Axial-vector model: manuscript revision and referee response
 
-- Mandatory research compute architecture and reproducibility policy: [RESEARCH_COMPUTE_POLICY.md](RESEARCH_COMPUTE_POLICY.md)
+- Shared research standards: [central standards index](https://github.com/lm846802297-bit/high-energy-theory-research/blob/142267bc803c90aa681110293b66b73947bbcaa1/docs/governance/CENTRAL_STANDARDS_INDEX.md); exact adopted revision: [research/standards-lock.yaml](research/standards-lock.yaml)
+- Project compute-policy entry point: [RESEARCH_COMPUTE_POLICY.md](RESEARCH_COMPUTE_POLICY.md) (adopts the pinned central policy)
 
 > **Mandatory project rule:** before every task in this repository, read [AGENTS.md](AGENTS.md). For referee-response work, the authoritative writing rules and the separate internal manuscript-change checklist are linked below.
 
 本仓库用于整理轴矢量 \(U(1)_{L_\mu-L_\tau}\) 模型论文的审稿意见、论文修订、计算核查和回复信。资料包括论文与审稿报告基线、Overleaf 源码、逐条回复工作稿、会议记录和专题研究证据。
 
+## 共享科研规范与项目扩展
+
+本项目采用中央仓库的科研治理、计算执行、任务交接、质量门、归档、RCRPS、文档审查、审稿回复和 Git 集成规范。具体采用版本记录在 [research/standards-lock.yaml](research/standards-lock.yaml)。模型身份、作者决策、审稿人问题映射、论文路径、审计登记表和历史工作流仍由本仓库维护。
+
+- [中央科研规范索引](https://github.com/lm846802297-bit/high-energy-theory-research/blob/142267bc803c90aa681110293b66b73947bbcaa1/docs/governance/CENTRAL_STANDARDS_INDEX.md)
+- [中央科研治理规范](https://github.com/lm846802297-bit/high-energy-theory-research/blob/142267bc803c90aa681110293b66b73947bbcaa1/docs/RESEARCH_GOVERNANCE_STANDARD.md)
+- [中央科研任务交接规范](https://github.com/lm846802297-bit/high-energy-theory-research/blob/142267bc803c90aa681110293b66b73947bbcaa1/docs/RESEARCH_TASK_HANDOFF_STANDARD.md)
+- [中央科研质量门](https://github.com/lm846802297-bit/high-energy-theory-research/blob/142267bc803c90aa681110293b66b73947bbcaa1/docs/governance/RESEARCH_QUALITY_GATE.md)
+- [中央文档审查规范](https://github.com/lm846802297-bit/high-energy-theory-research/blob/142267bc803c90aa681110293b66b73947bbcaa1/docs/DOCUMENT_REVIEW_STANDARD.md)
+- [中央审稿回复与论文同步规范](https://github.com/lm846802297-bit/high-energy-theory-research/blob/142267bc803c90aa681110293b66b73947bbcaa1/docs/REFEREE_RESPONSE_AND_MANUSCRIPT_SYNCHRONIZATION_STANDARD.md)
+
 ## 快速入口
 
 - [仓库结构与文件管理说明](docs/repository-management/README.md)：目录职责、迁移原则和导航。
-- [逐文档审查标准](docs/repository-management/DOCUMENT_REVIEW_STANDARD.md)、[462 份基线文档登记表](docs/repository-management/DOCUMENT_AUDIT_REGISTER.csv) 与 [147 份补充文档登记表](docs/repository-management/SUPPLEMENTAL_DOCUMENT_AUDIT_REGISTER.csv)：当前 Git 树共有 609 份 Markdown/text 文件（510 `.md`、99 `.txt`）；原始 462 份基线已逐份审查；新增 147 份已入补充台账，其中 141 份 PASS_WITH_NOTES、6 份 HISTORICAL、0 份 PENDING、0 份 REVISION_REQUIRED。基线登记表保留审查时指纹，并记录当前指纹状态为 370 MATCH_CURRENT、91 CONTENT_FINGERPRINT_DIFFERS 和 1 SIZE_METADATA_DIFFERS；这些差异作为历史审查版本指纹予以保留；全部当前 blob/size 元数据与 Git 树一致。详见[最终集成审查](docs/repository-management/FINAL_INTEGRATION_REVIEW_2026-11-17.md)及[活动专题脚本迁移审查](docs/repository-management/ACTIVE_SCRIPT_RELOCATION_AUDIT_2026-11-17.md)。
+- [项目逐文档审查扩展](docs/repository-management/DOCUMENT_REVIEW_STANDARD.md)、[462 份基线文档登记表](docs/repository-management/DOCUMENT_AUDIT_REGISTER.csv) 与 [147 份补充文档登记表](docs/repository-management/SUPPLEMENTAL_DOCUMENT_AUDIT_REGISTER.csv)：当前 Git 树共有 609 份 Markdown/text 文件（510 `.md`、99 `.txt`）；原始 462 份基线已逐份审查；新增 147 份已入补充台账，其中 141 份 PASS_WITH_NOTES、6 份 HISTORICAL、0 份 PENDING、0 份 REVISION_REQUIRED。基线登记表保留审查时指纹，并记录当前指纹状态为 370 MATCH_CURRENT、91 CONTENT_FINGERPRINT_DIFFERS 和 1 SIZE_METADATA_DIFFERS；这些差异作为历史审查版本指纹予以保留；全部当前 blob/size 元数据与 Git 树一致。详见[最终集成审查](docs/repository-management/FINAL_INTEGRATION_REVIEW_2026-11-17.md)及[活动专题脚本迁移审查](docs/repository-management/ACTIVE_SCRIPT_RELOCATION_AUDIT_2026-11-17.md)。
 
 > **2026-11-17审查状态：** 原始基线 462/462 已审查（304 PASS_WITH_NOTES、2 PASS、156 HISTORICAL、0 REVISION_REQUIRED、0 PENDING）；补充台账另有 146 份新增文本文件，其中 140 份 PASS_WITH_NOTES、6 份 HISTORICAL、0 份 PENDING、0 份 REVISION_REQUIRED。第六十九轮完成最后 54 份基线文件审查；第七十五轮将三个明确归档的历史变体重新分类为 HISTORICAL；第七十六轮时 B.16 escape-phase-space runbook 与 10 MeV Fig. 7 local-rate audit 两项基线交付仍缺；第九十轮补齐局域速率、逃逸相空间和归档证据；第八十九轮将 Global-02 报告中无依据的 1140 次计数更正为汇总 JSON 记录的 1080 次；当时基线待修复项降至 7 条。第九十轮将这 7 条文档/来源交付改为 PASS_WITH_NOTES，但不代表 Fig. 7 物理复现通过。完成了受限的 10 MeV 局域速率/逃逸相空间与 PR52 归档完整性诊断，但没有更新生产轴矢量约束；Fig. 7 物理偏差仍未解决。相关报告见[第六十九轮报告](docs/repository-management/SIXTY_NINTH_REVIEW_FINAL_54_DOCUMENT_AUDIT_2026-11-16.md)、[端点积分修复报告](docs/repository-management/SIXTY_SIXTH_REVIEW_MAJOR1_ENDPOINT_QUADRATURE_2026-11-16.md)、[第七十五轮报告](docs/repository-management/SEVENTY_FIFTH_REVIEW_BASELINE_ARCHIVE_RECLASSIFICATION_2026-11-17.md)和[第七十六轮报告](docs/repository-management/SEVENTY_SIXTH_REVIEW_B16_ESCAPE_AND_FIG7_FOLLOW_UP_2026-11-17.md)和[第八十九轮报告](docs/repository-management/EIGHTY_NINTH_REVIEW_P1B_GLOBAL02_REPORT_COUNT_RECONCILIATION_2026-11-17.md)、[第九十轮报告](docs/repository-management/NINETIETH_REVIEW_B16_AND_REPOSITORY_BASELINE_CLOSEOUT_2026-11-17.md)及[7 条基线待修复项行动表](docs/repository-management/REMAINING_BASELINE_REVISION_REQUIRED_ACTION_PLAN_2026-11-17.md)。第七十至八十九轮补充审查报告见[仓库管理文档索引](docs/repository-management/README.md)及[工作流审查索引](docs/repository-management/workflow-reviews/README.md)。
 - [GitHub Actions 工作流索引](.github/workflows/README.md) 与 [工作流审查登记表](.github/workflows/WORKFLOW_AUDIT_REGISTER.csv)：118 个工作流按物理专题分类，并逐份记录触发条件、权限和输出行为；目前 103 个完成静态审查，1 个为 ACTIVE，14 个保留为历史候选，0 个待审查。第八十至八十八轮审查见[工作流审查索引](docs/repository-management/workflow-reviews/README.md)。
 
 - [根目录迁移审查](docs/repository-management/ROOT_RELOCATION_AUDIT_2026-11-17.md)；[原始 24 文件审查基线](docs/repository-management/ROOT_FILE_AUDIT_REPORT_2026-11-14.md)：记录 2026-11-14 时根目录 24 个文件的逐项审查，包括权威入口、回复信 TeX/PDF、BibTeX、论文和审稿报告基线及历史工作稿。
-- [科研计算执行规范](RESEARCH_COMPUTE_POLICY.md)：普通 GPT 聊天模式使用 ChatGPT Linux；Codex/Work 可使用 Windows 本地环境或 GPT 管理的云端计算机；GitHub 负责归档，Actions 只负责独立验证。
-- [Git 合并策略与科研提交历史规范](GIT_MERGE_POLICY.md)：实质性科研 PR 默认采用 Merge Commit。
+- [科研计算规范入口](RESEARCH_COMPUTE_POLICY.md)：采用中央计算执行与溯源规范。
+- [Git 合并规范入口](GIT_MERGE_POLICY.md)：采用中央 PR 审查与 Merge Commit 规范。
+- [轴矢量 RCRPS v1.0.1 领域扩展](docs/repository-management/STRUCTURED_RESULT_DATA_STANDARD.md)：保留超新星输运与 UV–EFT 专属元数据。
 
 - [项目入口与阅读说明](README-先读这里.md)
 - [历史归档总索引](archive/README.md)、[Overleaf 源码归档说明](overleaf-source/README.md)、[审稿意见资料索引](审稿意见-gpt/README.md)
