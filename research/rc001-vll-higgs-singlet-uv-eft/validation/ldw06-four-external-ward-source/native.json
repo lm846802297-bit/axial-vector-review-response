@@ -1,0 +1,189 @@
+{
+  "scope": "four bare reducible LD-W-06 external emissions at a fixed loop coordinate; selected internal diagnostic is not an integrated physics test",
+  "runtime": {
+    "python": "3.12.14",
+    "sympy": "1.14.0",
+    "platform": "Linux",
+    "machine": "x86_64"
+  },
+  "symbolic": {
+    "seed_tensor_entries": 16,
+    "global_covariance_entries": 48
+  },
+  "points": [
+    {
+      "q_squared": "-4",
+      "q_zero": false,
+      "all_original_legs_null": false,
+      "original_virtualities": [
+        "3",
+        "-5",
+        "1",
+        "-11"
+      ],
+      "shifted_virtualities": [
+        "3",
+        "-17",
+        "-5",
+        "-1"
+      ],
+      "heavy_denominators_for_four_shifts": [
+        "-408",
+        "-408",
+        "-398",
+        "-398"
+      ],
+      "counts": {
+        "amputated": 768,
+        "connected": 768,
+        "projected": 0,
+        "wrong_fermion_order": 352,
+        "omitted_inverse": 352,
+        "wrong_heavy_rule": 288,
+        "missing_one_leg": 288,
+        "source_nonzero": 352,
+        "projected_source_nonzero": 0,
+        "selected_internal_remainder_nonzero": 352
+      },
+      "partial_internal_diagnostic_evaluated": true,
+      "pointwise_partial_remainder_example": {
+        "W_generator_index_zero_based": 0,
+        "weak_indices_zero_based": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "dirac_entry_zero_based_and_value": [
+          0,
+          0,
+          "-64943/11312752000 + 1117*I/56563760"
+        ]
+      }
+    },
+    {
+      "q_squared": "0",
+      "q_zero": false,
+      "all_original_legs_null": false,
+      "original_virtualities": [
+        "3",
+        "-5",
+        "3",
+        "11"
+      ],
+      "shifted_virtualities": [
+        "7",
+        "-9",
+        "7",
+        "7"
+      ],
+      "heavy_denominators_for_four_shifts": [
+        "-396",
+        "-396",
+        "-386",
+        "-386"
+      ],
+      "counts": {
+        "amputated": 768,
+        "connected": 768,
+        "projected": 0,
+        "wrong_fermion_order": 320,
+        "omitted_inverse": 352,
+        "wrong_heavy_rule": 288,
+        "missing_one_leg": 288,
+        "source_nonzero": 352,
+        "projected_source_nonzero": 0,
+        "selected_internal_remainder_nonzero": 352
+      },
+      "partial_internal_diagnostic_evaluated": true,
+      "pointwise_partial_remainder_example": {
+        "W_generator_index_zero_based": 0,
+        "weak_indices_zero_based": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "dirac_entry_zero_based_and_value": [
+          0,
+          0,
+          "-15833/29420727000 - 64*I/4854419955"
+        ]
+      }
+    },
+    {
+      "q_squared": "78",
+      "q_zero": false,
+      "all_original_legs_null": true,
+      "original_virtualities": [
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "shifted_virtualities": [
+        "52",
+        "46",
+        "36",
+        "22"
+      ],
+      "heavy_denominators_for_four_shifts": [
+        "-242",
+        "-242",
+        "-388",
+        "-388"
+      ],
+      "counts": {
+        "amputated": 768,
+        "connected": 0,
+        "projected": 768,
+        "wrong_fermion_order": 352,
+        "omitted_inverse": 0,
+        "wrong_heavy_rule": 288,
+        "missing_one_leg": 288,
+        "source_nonzero": 352,
+        "projected_source_nonzero": 352,
+        "selected_internal_remainder_nonzero": 0
+      },
+      "partial_internal_diagnostic_evaluated": false,
+      "pointwise_partial_remainder_example": null
+    },
+    {
+      "q_squared": "0",
+      "q_zero": true,
+      "all_original_legs_null": false,
+      "original_virtualities": [
+        "3",
+        "-5",
+        "1",
+        "-1"
+      ],
+      "shifted_virtualities": [
+        "3",
+        "-5",
+        "1",
+        "-1"
+      ],
+      "heavy_denominators_for_four_shifts": [
+        "-398",
+        "-398",
+        "-398",
+        "-398"
+      ],
+      "counts": {
+        "amputated": 768,
+        "connected": 768,
+        "projected": 0,
+        "wrong_fermion_order": 0,
+        "omitted_inverse": 0,
+        "wrong_heavy_rule": 0,
+        "missing_one_leg": 0,
+        "source_nonzero": 0,
+        "projected_source_nonzero": 0,
+        "selected_internal_remainder_nonzero": 0
+      },
+      "partial_internal_diagnostic_evaluated": false,
+      "pointwise_partial_remainder_example": null
+    }
+  ]
+}
