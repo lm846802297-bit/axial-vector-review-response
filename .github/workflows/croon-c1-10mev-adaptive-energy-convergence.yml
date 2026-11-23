@@ -9,6 +9,7 @@ on:
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_croon_c1_10mev_adaptive_energy_convergence.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/croon_c1_b13_vector_transport.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/adaptive_radial_transport.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/archive_croon_c1_10mev.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/croon_c1_b13_vector_transport_10mev_adaptive_radial_153nodes_2026-11-20.json'
   workflow_dispatch:
 
