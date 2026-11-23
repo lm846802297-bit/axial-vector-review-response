@@ -1,0 +1,9 @@
+test_nonconvex_peak_fails_exact_but_fits_perturbation (test_shape.NecessaryLaplaceChecks.test_nonconvex_peak_fails_exact_but_fits_perturbation) ... ok
+test_normalization_free (test_shape.NecessaryLaplaceChecks.test_normalization_free) ... ok
+test_pinned_figure_crosscheck (test_shape.NecessaryLaplaceChecks.test_pinned_figure_crosscheck) ... ok
+test_positive_mixture (test_shape.NecessaryLaplaceChecks.test_positive_mixture) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.014s
+
+OK

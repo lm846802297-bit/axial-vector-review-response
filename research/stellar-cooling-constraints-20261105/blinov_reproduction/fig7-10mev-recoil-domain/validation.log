@@ -1,0 +1,9 @@
+test_backward_domain_and_absorption_half_loss (test_recoil.StationaryKinematics.test_backward_domain_and_absorption_half_loss) ... ok
+test_cm_ratio_against_two_body_momenta (test_recoil.StationaryKinematics.test_cm_ratio_against_two_body_momenta) ... ok
+test_mass_shell_from_independent_four_vector (test_recoil.StationaryKinematics.test_mass_shell_from_independent_four_vector) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.002s
+
+OK
+Exact-native replay passed.

@@ -1,0 +1,284 @@
+{
+  "record": "B13_LOCAL_PRIMARY_VS_GITHUB_ACTIONS_CROSS_RUN_COMPARISON",
+  "date": "2026-11-22",
+  "local_primary": {
+    "source_commit": "e49908762e90271f4bc84be75e19577431febd4c",
+    "raw_results_sha256": "f8287ce92b4a2dd241928197a28b27bd655b0e2a23895478b40f30c49f9d313e",
+    "summary_sha256": "77a0bfb727171a1506e0c44b4ecdfce5f7bc0283ea4330504a2db2823f9599bd",
+    "independent_report_sha256": "cfae07459e24f4914c41272381f5b6f8595850f4ffeee1144d75c4f692817f0d",
+    "runtime_seconds": 343.58147954940796,
+    "environment": {
+      "python": "3.13.5",
+      "numpy": "2.3.5",
+      "scipy": "1.17.0",
+      "cpu": "AMD EPYC 9V74",
+      "workers": 4
+    }
+  },
+  "independent_github_actions": {
+    "run_id": 45043212683,
+    "run_url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45043212683",
+    "head_sha": "71e32f9e7f0832fd4f8058db2e2b3debe9a204dc",
+    "artifact_id": 14762941323,
+    "artifact_name": "b13-high-order-431-point-reproduction",
+    "artifact_zip_sha256": "20cb282c2f43237d9190b59a2056e1fd8b5a405410a83238e900121b22ff9e70",
+    "raw_results_sha256": "1b87bc09d8dae4f5155805dc9048d8cd6307a0b0478da3e816f0281af593be6b",
+    "summary_sha256": "49d4a17a99fcc5608902cee2b6379f75e511021fe05241db1b4024ced7fe6193",
+    "independent_report_sha256": "8ede68ae90f3ccd7cf6111abccd648a889c2f13e7fb0863abc6dc71dfb5be5a7",
+    "environment_sha256": "252f3bc405b75460e0fb4add8e560125202b7fc399c4b5661be679eb36c73f36",
+    "run_log_sha256": "fab1401acb22fa35b0971723638a2fa00e35077aff6380ec3697acb9bfc84d3b",
+    "runtime_seconds": 475.1,
+    "environment": {
+      "runner": "ubuntu-24.04",
+      "python": "3.13.5",
+      "numpy": "2.3.5",
+      "scipy": "1.17.0",
+      "cpu": "Intel Xeon 6975P-C",
+      "workers": 4
+    },
+    "calculate_job": "success",
+    "calculate_job_id": 137272037416,
+    "archive_job": "success",
+    "archive_job_id": 137274541161,
+    "archive_commit_sha": "8b5d28b58951623e375436478e6a524670e7ee18",
+    "archived_files": [
+      {
+        "path": "HIGH_ORDER_TARGETED_POINTS.json",
+        "bytes": 1092559,
+        "sha256": "1b87bc09d8dae4f5155805dc9048d8cd6307a0b0478da3e816f0281af593be6b",
+        "git_blob_sha1": "aae8c70856dcf8accf24916af00a0752f4c2341a"
+      },
+      {
+        "path": "HIGH_ORDER_ACCEPTANCE_SUMMARY.json",
+        "bytes": 56505,
+        "sha256": "49d4a17a99fcc5608902cee2b6379f75e511021fe05241db1b4024ced7fe6193",
+        "git_blob_sha1": "2030c53d159623bc50afc0c60462bfdd7d632633"
+      },
+      {
+        "path": "INDEPENDENT_VALIDATION_REPORT.json",
+        "bytes": 1432,
+        "sha256": "8ede68ae90f3ccd7cf6111abccd648a889c2f13e7fb0863abc6dc71dfb5be5a7",
+        "git_blob_sha1": "8b4d21e01d2610427f0377b37f96cab904519a1d"
+      },
+      {
+        "path": "CI_ENVIRONMENT.txt",
+        "bytes": 2994,
+        "sha256": "252f3bc405b75460e0fb4add8e560125202b7fc399c4b5661be679eb36c73f36",
+        "git_blob_sha1": "80ac0c228fb6baaac4c3ae35ec3a3ab72c53a076"
+      },
+      {
+        "path": "CI_RUN.log",
+        "bytes": 728,
+        "sha256": "fab1401acb22fa35b0971723638a2fa00e35077aff6380ec3697acb9bfc84d3b",
+        "git_blob_sha1": "23c93fc8b248a808f143cb9983a97d855918db6c"
+      }
+    ],
+    "numerical_crosscheck": {
+      "status": "PASS",
+      "local_and_ci_raw_files_byte_identical": false,
+      "raw_file_difference_reason": "JSON record ordering differs; numerical payloads were aligned by unique (r,x) keys.",
+      "identical_task_key_sets": true,
+      "unique_points_each": 431,
+      "identical_order_ladders": true,
+      "rate_components_compared": 10344,
+      "max_absolute_rate_difference": 0,
+      "max_relative_rate_difference": 0,
+      "max_absolute_final_order_change_difference": 0,
+      "max_absolute_detailed_balance_residual_difference": 0,
+      "max_absolute_mass_shell_residual_difference": 0,
+      "all_ci_targeted_quadrature_pass": true,
+      "all_ci_rates_finite_nonnegative": true,
+      "full_global_high_order_acceptance": false
+    },
+    "status": "CALCULATE_VALIDATE_ARCHIVE_ALL_SUCCESS"
+  },
+  "comparison": {
+    "local_and_ci_raw_files_byte_identical": false,
+    "reason": "JSON row ordering and run-specific runtime metadata differ; numerical payloads were compared by unique (r,x) key.",
+    "unique_points_each": 431,
+    "identical_task_key_sets": true,
+    "identical_order_ladders": true,
+    "rate_components_compared": 10344,
+    "max_absolute_final_order_change_difference": 0,
+    "max_absolute_detailed_balance_residual_difference": 0,
+    "max_absolute_mass_shell_residual_difference": 0,
+    "max_absolute_rate_difference": 0,
+    "max_relative_rate_difference": 0,
+    "all_ci_targeted_quadrature_pass": true,
+    "all_ci_rates_finite_nonnegative": true,
+    "full_global_high_order_acceptance": false,
+    "independent_run_id": 45043212683,
+    "archive_commit_sha": "8b5d28b58951623e375436478e6a524670e7ee18",
+    "direct_current_run_recheck": {
+      "aligned_by": "(r_km,x)",
+      "local_points": 431,
+      "ci_points": 431,
+      "identical_key_sets": true,
+      "compared_rate_components": 10344,
+      "max_absolute_rate_difference": 0,
+      "max_relative_rate_difference": 0,
+      "max_absolute_final_order_change_difference": 0,
+      "max_absolute_detailed_balance_residual_difference": 0,
+      "max_absolute_mass_shell_residual_difference": 0
+    }
+  },
+  "acceptance": "PASS",
+  "scope": "Targeted high-order audit of ten worst radial intervals and ten worst low-x interpolation points; not exhaustive high-order validation of all 1687 radial nodes.",
+  "previous_ci_attempts": [
+    {
+      "run_id": 45041173008,
+      "run_url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45041173008",
+      "head_sha": "0bf434a9e24695547b250b3c0f2c2b8d757755dd",
+      "artifact_id": 14761963117,
+      "artifact_zip_sha256": "3b03866d451daf831cace785374da79e450ca47826cf75505e0be922100ee111",
+      "raw_results_sha256": "79e997869c1bf76e9f204c4ba86270dbaa943b05f4f9e300ea794d5d919d8343",
+      "summary_sha256": "b7505f06a7988d6aa565098424036d3c83fd603d6c13a7b7535ff910cbe5d421",
+      "independent_report_sha256": "bfa5e10947a4421ae56b99b86e516334f55f5e3c22d8d09aa6df19c02fc2750a",
+      "runtime_seconds": 479.8092064857483,
+      "environment": {
+        "runner": "ubuntu-24.04",
+        "python": "3.13.5",
+        "numpy": "2.3.5",
+        "scipy": "1.17.0",
+        "cpu": "Intel Xeon 6975P-C",
+        "workers": 4
+      }
+    }
+  ],
+  "artifact_archive_verification": {
+    "artifact_id": 14762941323,
+    "zip_sha256": "20cb282c2f43237d9190b59a2056e1fd8b5a405410a83238e900121b22ff9e70",
+    "files_verified": 5,
+    "files_total": 5,
+    "artifact_files_byte_identical_to_archived_git_blobs": true
+  },
+  "subsequent_independent_reproductions": {
+    "intel_xeon_reproductions": {
+      "run_ids": [
+        45043212683,
+        45048755752,
+        45050501965,
+        45052985191
+      ],
+      "runner": "ubuntu-24.04 / Intel Xeon 6975P-C",
+      "python": "3.13.5",
+      "numpy": "2.3.5",
+      "scipy": "1.17.0",
+      "workers": 4,
+      "points_per_run": 431,
+      "identical_task_key_sets": true,
+      "identical_order_ladders": true,
+      "rate_components_compared_per_pair": 10344,
+      "max_absolute_rate_difference": 0,
+      "max_relative_rate_difference": 0,
+      "max_absolute_final_order_change_difference": 0,
+      "max_absolute_detailed_balance_residual_difference": 0,
+      "max_absolute_mass_shell_residual_difference": 0,
+      "note": "The PR-event run #45052985191 was compared with the earlier Intel Xeon push and PR artifacts; all numerical payloads matched exactly after (r_km,x) alignment."
+    },
+    "latest_cross_hardware_reproduction": {
+      "run_id": 45054965537,
+      "run_url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45054965537",
+      "event": "push",
+      "head_sha": "e2a9bea45c84f996ab728ec0d29bafa4cfd7c8cc",
+      "runner": "ubuntu-24.04 / AMD EPYC 7763 64-Core Processor (4 visible vCPUs)",
+      "python": "3.13.5",
+      "numpy": "2.3.5",
+      "scipy": "1.17.0",
+      "workers": 4,
+      "runtime_seconds": 709.7804145812988,
+      "compared_against_run_ids": [
+        45043212683,
+        45048755752,
+        45050501965,
+        45052985191
+      ],
+      "points_per_run": 431,
+      "identical_task_key_sets": true,
+      "identical_order_ladders": true,
+      "rate_components_compared_per_pair": 10344,
+      "max_absolute_rate_difference": 2.220446049250313e-16,
+      "max_relative_rate_difference": 5.141200469148187e-16,
+      "max_absolute_final_order_change_difference": 4.153554699990326e-16,
+      "max_absolute_detailed_balance_residual_difference": 3.537854528309584e-16,
+      "max_absolute_mass_shell_residual_difference": 0,
+      "interpretation": "The AMD-vs-Intel differences are at floating-point roundoff scale; the 431-point task set, quadrature ladder, nonnegative finite rates, detailed-balance closure and mass-shell closure remain consistent."
+    }
+  },
+  "latest_successful_push_reproduction": {
+    "run_id": 45054965537,
+    "run_url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45054965537",
+    "event": "push",
+    "run_head": "e2a9bea45c84f996ab728ec0d29bafa4cfd7c8cc",
+    "workflow_blob_sha1": "2a250a2dc32d2c3c676b7220c838ba52e5382525",
+    "conclusion": "success",
+    "calculate_job_id": 137308041672,
+    "calculate_job_permission": "contents:read",
+    "archive_job_id": 137311756148,
+    "archive_job_permission": "contents:write",
+    "archive_commit_sha": "27204a98aacac2eb2df9731fec30a894dfd2616a",
+    "artifact_id": 14766494558,
+    "artifact_name": "b13-high-order-431-point-reproduction",
+    "artifact_size_bytes": 199597,
+    "artifact_zip_sha256": "05b71bc6bd27dbe42ba0f5eed975861c16ec8fe181ff913924d84e791058e487",
+    "environment": {
+      "runner": "ubuntu-24.04",
+      "python": "3.13.5",
+      "numpy": "2.3.5",
+      "scipy": "1.17.0",
+      "cpu": "AMD EPYC 7763 64-Core Processor",
+      "visible_logical_cpus": 4,
+      "memory_total_bytes": 16760344576,
+      "workers": 4
+    },
+    "runtime_seconds": 709.7804145812988,
+    "numerical_result": {
+      "unique_points": 431,
+      "ordered_evaluations": 2155,
+      "maximum_final_successive_order_change": 0.000329220848525901,
+      "maximum_radial_midpoint_interpolation_error": 0.0008311070322862653,
+      "maximum_energy_pchip_error": 0.0006716564877619043,
+      "maximum_detailed_balance_residual": 5.027846521385086e-15,
+      "maximum_mass_shell_residual": 2.0432421890821873e-13,
+      "all_targeted_quadrature_pass": true,
+      "all_rates_finite_nonnegative": true,
+      "full_global_high_order_acceptance": false
+    },
+    "archived_files": [
+      {
+        "path": "HIGH_ORDER_TARGETED_POINTS.json",
+        "bytes": 1092659,
+        "sha256": "600fab64f90c63149f197093e5dfc5293c71b3c10017a57819341d236edcc9da",
+        "git_blob_sha1": "406396d38c162904cbfd2cef2479ee41c4783ba6"
+      },
+      {
+        "path": "HIGH_ORDER_ACCEPTANCE_SUMMARY.json",
+        "bytes": 56505,
+        "sha256": "a046f4894b30a2dc7a4ac264e7716c33fe292c7c5b835e3cab636392549ecdfa",
+        "git_blob_sha1": "a300683cfc69e6bd146446931a95d9b3cad68fba"
+      },
+      {
+        "path": "INDEPENDENT_VALIDATION_REPORT.json",
+        "bytes": 1432,
+        "sha256": "add13399c612b14f0911014fc2913c3d680fb45fcf314cfa62c566a87625d88d",
+        "git_blob_sha1": "f5b4a6a470dae83e9d82fb46da0c4286266353a1"
+      },
+      {
+        "path": "CI_ENVIRONMENT.txt",
+        "bytes": 2769,
+        "sha256": "f05fb87eb404d7c9caaf1adec7c7010161b2115522036cef996488ff6cf115a1",
+        "git_blob_sha1": "eefd5131e8f433f1721173766c971194fad58a5c"
+      },
+      {
+        "path": "CI_RUN.log",
+        "bytes": 728,
+        "sha256": "8380bbe8e374977ab0eefe38599a60a88a1335ba452323e87666617287403985",
+        "git_blob_sha1": "ab44a59de40725b8e6cfd7d0a3792ee4c2c10292"
+      }
+    ],
+    "artifact_files_verified": 5,
+    "artifact_files_total": 5,
+    "artifact_files_byte_identical_to_archived_git_blobs": true,
+    "sha256_manifest_matches": true
+  }
+}

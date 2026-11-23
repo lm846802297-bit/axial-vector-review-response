@@ -1,0 +1,12 @@
+README.md: OK
+weighted.py: OK
+test_weighted.py: OK
+weighted-native.json: OK
+run.log: OK
+validation.log: OK
+inputs/audit_b16_global_redshift.py: OK
+inputs/reference.py: OK
+inputs/fig7-shape-native.json: OK
+inputs/high_order.json: OK
+inputs/provenance.json: OK
+inputs/sfho188_digitized.csv: OK

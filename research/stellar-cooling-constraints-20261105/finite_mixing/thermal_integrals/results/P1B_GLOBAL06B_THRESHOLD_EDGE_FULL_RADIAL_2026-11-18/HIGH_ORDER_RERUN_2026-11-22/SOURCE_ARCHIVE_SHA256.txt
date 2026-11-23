@@ -1,0 +1,3 @@
+B13_HIGH_ORDER_SOURCE_SNAPSHOT_2026-11-22.zip  a3bfefeb1c910cfa3c3d941b41439b0dae4aa3885c34bf4f993e27393bd35cbc
+
+The full source snapshot archive was created in the ChatGPT Linux compute environment. The exact source files used are independently addressable at PR #121 source commit e49908762e90271f4bc84be75e19577431febd4c and are verified by SOURCE_FILE_IDENTITY.json. The older base bundle hash b27c101a063d6f5784d72ef12ad699abc2ceae000b5824cfc4aaa0d191c3474d refers only to the base bundle and is not the full current source snapshot.

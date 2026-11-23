@@ -1,0 +1,69 @@
+{
+  "b16_weighted_archive_sha256": "a93b2d515586976d7012a80bad6be7b2f004eccb3a70c9b5116746f04e8723bc",
+  "grid_identity": {
+    "energy_grid_sha256": "036e6d772f43acf97601c3846b475e8e1c14200d4d82de1dd9af30f01bb87ea3",
+    "energy_node_count": 842,
+    "opacity_grid_sha256": "6701fc3fe06bf07879612e591ae62c494f673928bc18f169d4b6f3fabed7d378",
+    "opacity_radial_node_count": 642,
+    "source_grid_mode": "independent",
+    "source_grid_sha256": "1a007702d1f7c8b81200e648a763f7f1a0e3565a39d57c8174dada5aad1a4cb5",
+    "source_radial_node_count": 200
+  },
+  "runtime": {
+    "numpy": "2.3.5",
+    "python": "3.12.14",
+    "scipy": "1.17.0"
+  },
+  "scope": "Upper bounds for targeted #133 validation only; no B.13 values interpolated, rates or luminosities replaced, or full B.13 archive coverage inferred.",
+  "source_gap_certificate": {
+    "controlling_interval_km": [
+      9.0,
+      9.04853670535704
+    ],
+    "intervals": 794,
+    "min_gap_lower_bound_mev": 0.6069451102492354
+  },
+  "target_archive_sha256": "f8287ce92b4a2dd241928197a28b27bd655b0e2a23895478b40f30c49f9d313e",
+  "target_envelope": {
+    "energy_equivalence_max_abs_mev": 0.0,
+    "n": 431,
+    "n_radial": 39,
+    "n_x": 17,
+    "omega_max": 11.96248396707067,
+    "r_max": 22.1918946570485,
+    "r_min": 8.45,
+    "x_max": 0.05,
+    "x_min": 0.0
+  },
+  "thin_semi_compton_source_energy_only_overlap_upper_bound": 3.471703162900876e-06,
+  "thin_semi_compton_source_r_x_energy_overlap_upper_bound": 0.0,
+  "vertices": [
+    {
+      "archive_closure_max": 0.0,
+      "g": 4.796429536550025e-10,
+      "opacity_energy_only_overlap_upper_bound": 0.00020921098804731187,
+      "opacity_r_x_energy_overlap_upper_bound": 6.371052198727706e-05,
+      "source_energy_only_overlap_upper_bound": 3.437799654290983e-06,
+      "source_r_x_energy_overlap_upper_bound": 0.0,
+      "vertex": 0
+    },
+    {
+      "archive_closure_max": 0.0,
+      "g": 1.1341108687336194e-08,
+      "opacity_energy_only_overlap_upper_bound": 1.6194064398346453e-07,
+      "opacity_r_x_energy_overlap_upper_bound": 2.4886095685690087e-08,
+      "source_energy_only_overlap_upper_bound": 2.065591906709082e-08,
+      "source_r_x_energy_overlap_upper_bound": 0.0,
+      "vertex": 17
+    },
+    {
+      "archive_closure_max": 2.220446049250313e-16,
+      "g": 4.171689650228597e-08,
+      "opacity_energy_only_overlap_upper_bound": 4.578396260282248e-21,
+      "opacity_r_x_energy_overlap_upper_bound": 7.409510983564442e-45,
+      "source_energy_only_overlap_upper_bound": 7.362125352369211e-21,
+      "source_r_x_energy_overlap_upper_bound": 0.0,
+      "vertex": 24
+    }
+  ]
+}

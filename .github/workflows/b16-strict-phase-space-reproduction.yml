@@ -1,0 +1,163 @@
+name: B.16 strict 10 MeV escape phase-space reproduction
+
+on:
+  push:
+    branches:
+      - research/b16-energy-grid-diagnostic-20261117
+    paths:
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_escape_phase_space.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_escape_phase_space.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_global_redshift.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/validate_b16_escape_phase_space_output.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_phase_space_output_validation.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/energy_grid_identity.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_energy_grid_reference_10mev_2026-11-09.json'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_energy_grid_identity.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/trace_b16_phase_run_grid_hashes.py'
+      - 'research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv'
+      - 'research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_high_order_independent_grid_10mev_2026-11-09.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: b16-strict-phase-space-reproduction-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  phase-space-audit:
+    if: github.ref == 'refs/heads/research/b16-energy-grid-diagnostic-20261117'
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - name: Check out diagnostic branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned numerical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy==2.5.4 scipy==1.18.1
+      - name: Record exact runtime
+        run: |
+          python --version
+          python -c "import numpy, scipy; print('numpy', numpy.__version__); print('scipy', scipy.__version__)"
+          git rev-parse HEAD
+      - name: Compile B.16 production audit and validator
+        run: |
+          python -m py_compile \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_escape_phase_space.py \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/validate_b16_escape_phase_space_output.py
+      - name: Run high-order 10 MeV escape phase-space decomposition
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_escape_phase_space.py \
+            --mass 10 --nr 200 --opacity-order 640 --ne 200 \
+            --na 32 --ns 64 --energy-offset 1000 \
+            --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-17.json
+      - name: Validate baseline closure and sparse joint-table marginals
+        run: |
+          python research/stellar-cooling-constraints-20261105/blinov_reproduction/validate_b16_escape_phase_space_output.py \
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-17.json
+      - name: Run phase-space binning regression tests
+        run: |
+          python -m unittest discover \
+            -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
+            -p 'test_b16_escape_phase_space.py' -v
+      - name: Run energy-grid identity regression tests
+        run: |
+          python -m unittest discover \
+            -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
+            -p 'test_b16_energy_grid_identity.py' -v
+      - name: Run sparse joint-table validation regression tests
+        run: |
+          python -m unittest discover \
+            -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
+            -p 'test_b16_phase_space_output_validation.py' -v
+      - name: Verify axial-vector production outputs remain unchanged
+        run: |
+          git diff --exit-code -- \
+            research/stellar-cooling-constraints-20261105/rates.py \
+            research/stellar-cooling-constraints-20261105/transport.py \
+            research/stellar-cooling-constraints-20261105/outputs/axial.json \
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.pdf \
+            research/stellar-cooling-constraints-20261105/outputs/axial_stellar_constraints.png
+      - name: Upload strict phase-space result
+        uses: actions/upload-artifact@v4
+        with:
+          name: b16-strict-10mev-escape-phase-space
+          path: research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-17.json
+          if-no-files-found: error
+
+  archive-result:
+    needs: phase-space-audit
+    if: needs.phase-space-audit.result == 'success' && github.ref == 'refs/heads/research/b16-energy-grid-diagnostic-20261117'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out the diagnostic branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - name: Download the validated phase-space result
+        uses: actions/download-artifact@v4
+        with:
+          name: b16-strict-10mev-escape-phase-space
+          path: /tmp/b16-phase-space-result
+      - name: Archive the validated result with race-safe branch synchronization
+        shell: bash
+        run: |
+          set -euo pipefail
+          branch="research/b16-energy-grid-diagnostic-20261117"
+          target="research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-17.json"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+actions[bot]@users.noreply.github.com"
+          check_event_inputs() {
+            for input_path in \
+              "research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_escape_phase_space.py" \
+              "research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b16_global_redshift.py" \
+              "research/stellar-cooling-constraints-20261105/blinov_reproduction/energy_grid_identity.py" \
+              "research/stellar-cooling-constraints-20261105/blinov_reproduction/validate_b16_escape_phase_space_output.py" \
+              "research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_phase_space_output_validation.py" \
+              "research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_energy_grid_identity.py" \
+              "research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_escape_phase_space.py" \
+              "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_energy_grid_reference_10mev_2026-11-09.json" \
+              "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_high_order_independent_grid_10mev_2026-11-09.json" \
+              "research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py" \
+              "research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv" \
+              "research/stellar-cooling-constraints-20261105/outputs/vector_audit/luminosity_comparison.json"; do
+              event_blob="$(git rev-parse "${GITHUB_SHA}:${input_path}")"
+              latest_blob="$(git rev-parse "FETCH_HEAD:${input_path}")"
+              if [ "$event_blob" != "$latest_blob" ]; then
+                echo "Refusing stale B.16 archive: input changed after calculation event: $input_path"
+                return 1
+              fi
+            done
+          }
+          for attempt in 1 2 3 4 5; do
+            git fetch origin "$branch"
+            check_event_inputs
+            git checkout -B "$branch" FETCH_HEAD
+            mkdir -p "$(dirname "$target")"
+            cp /tmp/b16-phase-space-result/b16_escape_phase_space_10mev_2026-11-17.json "$target"
+            git add "$target"
+            if git diff --cached --quiet; then
+              echo "Identical phase-space result is already archived."
+              exit 0
+            fi
+            git commit -m "Archive strict 10 MeV B.16 escape phase-space result"
+            if git push origin "HEAD:refs/heads/$branch"; then
+              exit 0
+            fi
+            echo "Concurrent branch update detected; retrying ($attempt/5)."
+          done
+          exit 1

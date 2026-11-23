@@ -1,0 +1,72 @@
+{
+  "run": "LOCAL-B13-B2-ANGULAR-PATH-CONVERGENCE-2026-11-18",
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "local_b13_kernel_orders": [
+    8,
+    4,
+    4,
+    4
+  ],
+  "grid": {
+    "source_radial_nodes": 40,
+    "opacity_radial_nodes": 44,
+    "energy_nodes": 142,
+    "active_energy_nodes": 78,
+    "coupling_points": 25,
+    "edge_augmented": true
+  },
+  "angular_path_ladders": [
+    [
+      16,
+      32
+    ],
+    [
+      24,
+      48
+    ],
+    [
+      32,
+      64
+    ]
+  ],
+  "maximum_curve_changes": {
+    "mu_minus": {
+      "mode_summed_scalar": [
+        0.0000087433941658,
+        0.0000034325235894
+      ],
+      "equal_occupation": [
+        0.0000044953122522,
+        0.0000033796874456
+      ],
+      "independent_mode": [
+        0.000004554493052,
+        0.0000033353029306
+      ]
+    },
+    "mu_minus_plus_mu_plus": {
+      "mode_summed_scalar": [
+        0.0000087290530613,
+        0.0000033373271723
+      ],
+      "equal_occupation": [
+        0.0000045435225118,
+        0.000003283100093
+      ],
+      "independent_mode": [
+        0.0000046068815027,
+        0.0000032325347239
+      ]
+    }
+  },
+  "strong_endpoint_erg_s_32x64": {
+    "fig7_reference": 1.26781475907372e+52,
+    "b16_literal_scalar": 2.437336789305061e+52,
+    "b13_mode_summed_scalar_both_charges": 2.9353847743872576e+52,
+    "equal_occupation_both_charges": 1.7874386777725905e+54,
+    "independent_mode_both_charges": 1.788107311224244e+54
+  },
+  "b16_baseline_max_relative_residual_vs_archived_32x64": 0.000033580607569371204,
+  "interpretation": "B.2 angular/path convergence conditional on the archived low-order B.13 rate table; not a full high-order B.13+B.2 acceptance.",
+  "no_constraint_update": true
+}
