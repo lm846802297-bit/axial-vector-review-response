@@ -190,6 +190,15 @@ def run(profile_path: Path, baseline_path: Path, mass: float,
             "first_12": energy_high_order[:12].tolist(),
             "last_12": energy_high_order[-12:].tolist(),
         },
+        "energy_grid_nodes_MeV": energy_high_order.tolist(),
+        "energy_grid_seed_nodes_MeV": (
+            mass + np.geomspace(
+                max(mass * 1.0e-6, 1.0e-6), energy_offset, energy_order
+            )
+        ).tolist(),
+        "energy_grid_lapse_threshold_nodes_MeV": (
+            mass / high_order_profile["lapse"]
+        ).tolist(),
         "interpretation": (
             "A matching current grid with a historical failed-run mismatch means "
             "the old failure is not reproducible from the current main inputs. "
