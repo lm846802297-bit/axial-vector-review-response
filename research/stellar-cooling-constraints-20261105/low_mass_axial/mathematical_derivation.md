@@ -72,29 +72,29 @@ $$
 
 自由 Dirac 方程及其 Dirac 共轭方程分别为
 
-$
+$$
 (i\gamma^\mu\partial_\mu-m_\mu)\mu=0.
 \tag{5}
-$
+$$
 
-$
+$$
 i(\partial_\mu\bar\mu)\gamma^\mu
 +m_\mu\bar\mu=0.
 \tag{6}
-$
+$$
 
 由式 (5) 得
 
-$
+$$
 \gamma^\mu\partial_\mu\mu=-i m_\mu\mu,
-$
+$$
 
 由式 (6) 得
 
-$
+$$
 (\partial_\mu\bar\mu)\gamma^\mu
 =i m_\mu\bar\mu.
-$
+$$
 
 对轴流求散度：
 
@@ -333,13 +333,13 @@ $$
 
 将式 (10) 乘以 $g_A^\mu$，并用于完整振幅：
 
-$
+$$
 \mathcal M_L
 =
 \frac{2g_A^\mu m_\mu}{m_{A'}}\widehat{\mathcal M}_P
 +
 O\!\left(\frac{m_{A'}}{E_{A'}}\mathcal M_A\right).
-$
+$$
 
 因此
 
