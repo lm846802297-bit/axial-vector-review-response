@@ -1,0 +1,41 @@
+{
+  "base": "c4b1292d6407b1615cc9e8080729b4e67ba95132",
+  "observed_main": "871c9c57feb36ea0df549550bb4c307dacadb8cd",
+  "inputs": [
+    {
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-fivepoint-oriented-numerators-phases.md",
+      "git_blob": "b0d8739a2f80d2886f7347b7a09070d75422fa00",
+      "sha256": "481723f6351c393118b6bfb46727c49a9aad868279116e1ab4b0bd811ea9879e"
+    },
+    {
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-UV-fivepoint-routing-Ward-numerators.md",
+      "git_blob": "4a23895de00243073d30f74e1229c5ec79ec0adb",
+      "sha256": "e08371ce9013fdfd1c1a3a68189c607ed15e535e51bd76f1e1d9e4e5f751343c"
+    },
+    {
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-fivepoint-LD-W-06-secondary-shift-heavy-channel-audit.md",
+      "git_blob": "7365c54ae9bbd3a4679feee06e4736fec5591856",
+      "sha256": "58495507f5fb8d7280ed2ef8182b6cb828f97ba73ea76edccc674383f3ca9049"
+    },
+    {
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-same-vertex-soft-matching.md",
+      "git_blob": "cf4c983c60bd857be5922fb49e9d31c4902bf541",
+      "sha256": "e1d831b638bc5bd1c5c369182334c8e6e8698efc31f460f0aca93387c521801e"
+    },
+    {
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-fivepoint-common-k-ordinary-matter-assembly-ledger.md",
+      "git_blob": "22fc3b0373f350ae7973390cc6fe0e5582418e89",
+      "sha256": "dc7849f6969253df9c70b025c3f79072fe790e4013843c7f7ed67f8760d5e101"
+    },
+    {
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-negative-pole-fermion-source-bridge/README.md",
+      "git_blob": "5c8597b2dd1edeb687a2400fd71adda4e0d945a3",
+      "sha256": "5ce881ab3124aa9ad2699ca96197b19d18f53496d567ebbde3e511f041f5d205"
+    },
+    {
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-four-external-ward-source/README.md",
+      "git_blob": "d37429b19982b9e45c82a3247c647393bda29cd5",
+      "sha256": "14e9776a5543de4f8fc46f138376d4077c682c74127294637aad9ea2e80306de"
+    }
+  ]
+}

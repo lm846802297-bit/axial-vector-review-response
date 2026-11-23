@@ -1,0 +1,259 @@
+{
+  "schema_version": "1.0.1",
+  "record_type": "run_manifest",
+  "run_id": "rc001-ldw06-translation-20261123T223147Z",
+  "created_at": "2026-11-23T22:31:48.335239+00:00",
+  "project": {
+    "repository": "lm846802297-bit/axial-vector-review-response",
+    "project_id": "RC-001",
+    "workstream_id": "RC-001-WW-UV-FF-02"
+  },
+  "source": {
+    "commit_sha": "c4b1292d6407b1615cc9e8080729b4e67ba95132",
+    "script_path": "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-euclidean-routing-translation/check.py",
+    "script_sha256": "8a4953b71a077bbef4a9db1a2745f14b6bcba70a660854064e684a6d3b493641"
+  },
+  "inputs": [
+    {
+      "name": "RC-001-dim6-WW-fivepoint-oriented-numerators-phases.md",
+      "source": "Analytic convention, route or prior subtotal from exact axial-vector topic base",
+      "version": "c4b1292d6407b1615cc9e8080729b4e67ba95132",
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-fivepoint-oriented-numerators-phases.md",
+      "format": "markdown",
+      "bytes": 14903,
+      "sha256": "481723f6351c393118b6bfb46727c49a9aad868279116e1ab4b0bd811ea9879e",
+      "transformation": "Used to derive the symbolic diagnostic; not opened by check.py."
+    },
+    {
+      "name": "RC-001-dim6-WW-UV-fivepoint-routing-Ward-numerators.md",
+      "source": "Analytic convention, route or prior subtotal from exact axial-vector topic base",
+      "version": "c4b1292d6407b1615cc9e8080729b4e67ba95132",
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-UV-fivepoint-routing-Ward-numerators.md",
+      "format": "markdown",
+      "bytes": 13031,
+      "sha256": "e08371ce9013fdfd1c1a3a68189c607ed15e535e51bd76f1e1d9e4e5f751343c",
+      "transformation": "Used to derive the symbolic diagnostic; not opened by check.py."
+    },
+    {
+      "name": "RC-001-dim6-WW-fivepoint-LD-W-06-secondary-shift-heavy-channel-audit.md",
+      "source": "Analytic convention, route or prior subtotal from exact axial-vector topic base",
+      "version": "c4b1292d6407b1615cc9e8080729b4e67ba95132",
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-fivepoint-LD-W-06-secondary-shift-heavy-channel-audit.md",
+      "format": "markdown",
+      "bytes": 4822,
+      "sha256": "58495507f5fb8d7280ed2ef8182b6cb828f97ba73ea76edccc674383f3ca9049",
+      "transformation": "Used to derive the symbolic diagnostic; not opened by check.py."
+    },
+    {
+      "name": "RC-001-dim6-WW-same-vertex-soft-matching.md",
+      "source": "Analytic convention, route or prior subtotal from exact axial-vector topic base",
+      "version": "c4b1292d6407b1615cc9e8080729b4e67ba95132",
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-same-vertex-soft-matching.md",
+      "format": "markdown",
+      "bytes": 5983,
+      "sha256": "e1d831b638bc5bd1c5c369182334c8e6e8698efc31f460f0aca93387c521801e",
+      "transformation": "Used to derive the symbolic diagnostic; not opened by check.py."
+    },
+    {
+      "name": "RC-001-dim6-WW-fivepoint-common-k-ordinary-matter-assembly-ledger.md",
+      "source": "Analytic convention, route or prior subtotal from exact axial-vector topic base",
+      "version": "c4b1292d6407b1615cc9e8080729b4e67ba95132",
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-fivepoint-common-k-ordinary-matter-assembly-ledger.md",
+      "format": "markdown",
+      "bytes": 39402,
+      "sha256": "dc7849f6969253df9c70b025c3f79072fe790e4013843c7f7ed67f8760d5e101",
+      "transformation": "Used to derive the symbolic diagnostic; not opened by check.py."
+    },
+    {
+      "name": "README.md",
+      "source": "Analytic convention, route or prior subtotal from exact axial-vector topic base",
+      "version": "c4b1292d6407b1615cc9e8080729b4e67ba95132",
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-negative-pole-fermion-source-bridge/README.md",
+      "format": "markdown",
+      "bytes": 5663,
+      "sha256": "5ce881ab3124aa9ad2699ca96197b19d18f53496d567ebbde3e511f041f5d205",
+      "transformation": "Used to derive the symbolic diagnostic; not opened by check.py."
+    },
+    {
+      "name": "README.md",
+      "source": "Analytic convention, route or prior subtotal from exact axial-vector topic base",
+      "version": "c4b1292d6407b1615cc9e8080729b4e67ba95132",
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-four-external-ward-source/README.md",
+      "format": "markdown",
+      "bytes": 5842,
+      "sha256": "14e9776a5543de4f8fc46f138376d4077c682c74127294637aad9ea2e80306de",
+      "transformation": "Used to derive the symbolic diagnostic; not opened by check.py."
+    }
+  ],
+  "configuration": {
+    "physics": {
+      "diagnostic_M_E_squared": "400 in consistent arbitrary units",
+      "process": "LD-W-06 unexpanded Euclidean negative scalar pole and external source box routing translation"
+    },
+    "numerics": {
+      "method": "exact symbolic/rational matrix arithmetic",
+      "diagnostic_points": 3,
+      "comparison_tolerance": 0
+    },
+    "conventions": {
+      "metric": "++++ Euclidean",
+      "momentum": "all incoming",
+      "fourier_phase": "exp(-ipx)",
+      "q_is_external_W": true
+    }
+  },
+  "environment": {
+    "platform": "Linux x86_64",
+    "runtime": {
+      "python": "3.12.14",
+      "implementation": "CPython",
+      "git": "git version 2.56.1"
+    },
+    "dependencies": {
+      "sympy": "1.14.0"
+    },
+    "hardware": {
+      "execution_target": "GPT-managed Linux cloud workspace",
+      "processes": 1,
+      "logical_cpus_available": 9,
+      "gpu_used": false
+    }
+  },
+  "execution": {
+    "status": "succeeded",
+    "command": "python -B research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-euclidean-routing-translation/check.py",
+    "started_at": "2026-11-23T22:31:47.150708+00:00",
+    "finished_at": "2026-11-23T22:31:48.335239+00:00",
+    "exit_code": 0,
+    "wall_time_s": 1.184518,
+    "source_control": {
+      "event": "local_manual",
+      "checkout_mode": "detached_commit",
+      "checkout_ref": null,
+      "pr_number": null,
+      "pr_url": null,
+      "pr_head_sha": null,
+      "base_sha": null,
+      "tested_merge_sha": null,
+      "head_ref": null,
+      "base_ref": null,
+      "workflow_run_id": null,
+      "workflow_run_attempt": null,
+      "working_tree_state": "dirty",
+      "dirty_paths": [
+        "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-euclidean-routing-translation/check.py"
+      ]
+    }
+  },
+  "outputs": [
+    {
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-euclidean-routing-translation/native.json",
+      "role": "native exact matrix-component diagnostics",
+      "format": "json",
+      "sha256": "ca997d4dff7f5b354278f37b3185b30aff16ea52000174afb8173dbec7feaa2c",
+      "bytes": 4212,
+      "records": 3
+    }
+  ],
+  "validation": {
+    "status": "passed",
+    "checks": [
+      {
+        "check_id": "analytic-routing",
+        "name": "Exact complete translated lower-box factors and heavy difference",
+        "category": "analytic",
+        "status": "passed",
+        "threshold": "exact",
+        "observed": "64 symbolic route checks; exact heavy-difference identity; 16 Euclidean Clifford pairs",
+        "evidence_path": "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-euclidean-routing-translation/native.json"
+      },
+      {
+        "check_id": "signed-sewing",
+        "name": "Exact Euclidean large-ray tests for all routed factors",
+        "category": "independent",
+        "status": "passed",
+        "threshold": "zero differing entries",
+        "observed": "Three rays: eight nonzero R^-5 leading checks and five R^-6 differences per ray",
+        "evidence_path": "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-euclidean-routing-translation/native.json"
+      },
+      {
+        "check_id": "negative-sign-controls",
+        "name": "Distinct and coincident pole-center controls",
+        "category": "unit",
+        "status": "passed",
+        "threshold": "each applicable mutation detected",
+        "observed": "Eight three-center nominal cases; exceptional p2=0 collapses W/A centers",
+        "evidence_path": "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-euclidean-routing-translation/native.json"
+      },
+      {
+        "check_id": "native-byte-replay",
+        "name": "Fresh native output vs previously reviewed exact JSON",
+        "category": "integrity",
+        "status": "passed",
+        "threshold": "byte-identical stdout and no stderr",
+        "observed": "ca997d4dff7f5b354278f37b3185b30aff16ea52000174afb8173dbec7feaa2c",
+        "evidence_path": "research/rc001-vll-higgs-singlet-uv-eft/validation/ldw06-euclidean-routing-translation/native.json"
+      }
+    ]
+  },
+  "archive": {
+    "status": "local_only"
+  },
+  "extensions": {
+    "standards_provenance": {
+      "task_id": "20261123-ldw06-euclidean-routing-translation",
+      "task_brief_path": "research/rc001-vll-higgs-singlet-uv-eft/task_briefs/20261123-ldw06-euclidean-routing-translation.md",
+      "task_brief_sha256": "62e3598e405e312ff42bc07346bdb4e45d0ee63b41b9b433bc9321c50923ea78",
+      "central_repository": "lm846802297-bit/high-energy-theory-research",
+      "central_commit_sha": "db503f0eb579bdbcac702e44237a6610c34690e7",
+      "lock_file_path": "research/standards-lock.yaml",
+      "lock_file_sha256": "165a29e0b6f372f194d33acac208edfcd2c850d1019db6f18111c5b0f7984813",
+      "applied_profiles": [
+        "task-handoff",
+        "research-compute",
+        "research-quality-gate",
+        "rcrps-v1.0.1"
+      ],
+      "project_extensions": [
+        "AGENTS.md",
+        "docs/repository-management/STRUCTURED_RESULT_DATA_STANDARD.md"
+      ],
+      "project_extension_records": [
+        {
+          "path": "AGENTS.md",
+          "scope": "Axial task routes and scope boundaries",
+          "sha256": "03339c1c5eb9ec3e8b70039485cab9c43f886692dbbaa27335afe14d8eedfd93"
+        },
+        {
+          "path": "docs/repository-management/STRUCTURED_RESULT_DATA_STANDARD.md",
+          "scope": "Axial UV–EFT metadata",
+          "sha256": "e74fae2e8d2da8ed655d9f764f70cbca74c6b2614bb6efcb7011fa604abd5cc3"
+        }
+      ]
+    },
+    "uv_eft": {
+      "model": "Unbroken SU(2) singlet vector-like heavy lepton E; Higgs and light fermions massless",
+      "parameters": {
+        "M_E_squared_diagnostic": 400,
+        "y_ell": "symbolic Yukawa; squared modulus in P4",
+        "g2": "symbolic SU(2) coupling",
+        "scalar_mass": 0
+      },
+      "gauge": "ordinary Feynman gauge; Euclidean representatives",
+      "gamma5": "four-dimensional exact Euclidean Clifford matrices and chiral projector; no D-dimensional trace or gamma5 scheme result",
+      "ir_prescription": "nonsingular off-shell rational momenta; exact archived nonexceptional orthogonal Euclidean external point and explicit exceptional center-collision control; no original mass-shell limit; no integrated IR regulator",
+      "renormalization": {
+        "scheme": null,
+        "scale": null,
+        "reason": "bare integrand diagnostic, no loop integration evaluated or UV subtraction"
+      },
+      "matching": {
+        "scale": null,
+        "operator_basis": null,
+        "reason": "no EFT projection, matching or Wilson extraction"
+      },
+      "diagram_coverage": "Only two negative scalar poles and four external-source lower boxes; other topologies not covered",
+      "counterterms": "not evaluated; no field-strength or full LSZ claim"
+    }
+  }
+}
