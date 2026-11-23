@@ -5,6 +5,8 @@ import argparse
 import hashlib
 import json
 import math
+import platform
+import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -27,6 +29,21 @@ def git_blob_sha1(path: Path) -> str:
     data = path.read_bytes()
     header = f"blob {len(data)}\0".encode("ascii")
     return hashlib.sha1(header + data).hexdigest()
+
+
+def sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for chunk in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def repository_path(path: Path) -> str:
+    try:
+        return path.resolve().relative_to(ROOT).as_posix()
+    except ValueError:
+        return str(path.resolve())
 
 
 def mass_row(rows: list[dict], mass: float) -> dict:
@@ -94,11 +111,38 @@ def main() -> None:
     result = {
         "title": "Low-mass axial-vector supernova scaling summary",
         "cooling_threshold_erg_s": L_CRIT,
+        "source": {
+            "script_path": repository_path(Path(__file__)),
+            "script_sha256": sha256_file(Path(__file__)),
+            "script_git_blob_sha1": git_blob_sha1(Path(__file__)),
+        },
         "inputs": {
-            "thermal_response_scan": str(args.thermal),
-            "thermal_response_scan_git_blob_sha1": git_blob_sha1(args.thermal),
-            "convergence_scan": str(args.convergence),
-            "convergence_scan_git_blob_sha1": git_blob_sha1(args.convergence),
+            "thermal_response_scan": {
+                "path": repository_path(args.thermal),
+                "sha256": sha256_file(args.thermal),
+                "git_blob_sha1": git_blob_sha1(args.thermal),
+            },
+            "convergence_scan": {
+                "path": repository_path(args.convergence),
+                "sha256": sha256_file(args.convergence),
+                "git_blob_sha1": git_blob_sha1(args.convergence),
+            },
+        },
+        "configuration": {
+            "mass_points_MeV": list(MASSES),
+            "fixed_v_s_points_GeV": list(VS_VALUES),
+            "cooling_threshold_erg_s": L_CRIT,
+            "trapping_boundary_interpolation": "log-linear in mass and upper coupling",
+        },
+        "environment": {
+            "python_version": platform.python_version(),
+            "platform": platform.platform(),
+            "machine": platform.machine(),
+            "processor": platform.processor() or "not_reported",
+        },
+        "execution": {
+            "command": "python research/stellar-cooling-constraints-20261105/low_mass_axial/analyze_low_mass_scaling.py",
+            "arguments": sys.argv[1:],
         },
         "local_moving_muon_compton": {
             "profile_point": thermal["profile"]["center"],
