@@ -1,6 +1,6 @@
 {
   "record": "B13_LOCAL_PRIMARY_VS_GITHUB_ACTIONS_CROSS_RUN_COMPARISON",
-  "date": "2026-11-22",
+  "date": "2026-11-23",
   "local_primary": {
     "source_commit": "e49908762e90271f4bc84be75e19577431febd4c",
     "raw_results_sha256": "f8287ce92b4a2dd241928197a28b27bd655b0e2a23895478b40f30c49f9d313e",
@@ -206,6 +206,94 @@
     }
   },
   "latest_successful_push_reproduction": {
+    "run_id": 45172924204,
+    "run_url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45172924204",
+    "event": "push",
+    "run_head": "080882237e2455a774011aa0dcd40ae4b1831965",
+    "source_commit": "e49908762e90271f4bc84be75e19577431febd4c",
+    "artifact_id": 14817924904,
+    "artifact_name": "b13-high-order-431-point-reproduction",
+    "artifact_size_bytes": 199526,
+    "artifact_zip_sha256": "5f691d3e856c95e229c21587587685e6ad0eefa9e270131af600deb8fe05da1e",
+    "environment": {
+      "runner": "ubuntu-24.04",
+      "kernel": "7.0.0-1017-azure",
+      "python": "3.13.5",
+      "numpy": "2.3.5",
+      "scipy": "1.17.0",
+      "cpu": "AMD EPYC 7763 64-Core Processor",
+      "visible_logical_cpus": 4,
+      "memory_total_bytes": 16760340480,
+      "workers": 4
+    },
+    "runtime_seconds": 707.7,
+    "numerical_result": {
+      "unique_points": 431,
+      "ordered_evaluations": 2155,
+      "maximum_final_successive_order_change": 0.000329220848525901,
+      "maximum_radial_midpoint_interpolation_error": 0.0008311070322862653,
+      "maximum_energy_pchip_error": 0.0006716564877619043,
+      "maximum_detailed_balance_residual": 5.027846521385086e-15,
+      "maximum_mass_shell_residual": 2.0432421890821873e-13,
+      "all_targeted_quadrature_pass": true,
+      "all_rates_finite_nonnegative": true,
+      "full_global_high_order_acceptance": false
+    },
+    "independent_validation": {
+      "status": "PASS",
+      "source_files_verified": 12,
+      "task_points": 431,
+      "ordered_evaluations": 2155,
+      "all_targeted_quadrature_pass": true,
+      "full_global_high_order_acceptance": false
+    },
+    "comparison_with_run_45054965537": {
+      "identical_task_key_sets": true,
+      "identical_order_ladders": true,
+      "numeric_leaf_fields_compared": 28446,
+      "numeric_leaf_fields_different": 0,
+      "maximum_absolute_difference": 0,
+      "maximum_relative_difference": 0,
+      "interpretation": "The two AMD EPYC 7763 runs use the same pinned Python/NumPy/SciPy environment and reproduce all 431 point records exactly."
+    },
+    "archived_files": [
+      {
+        "path": "HIGH_ORDER_TARGETED_POINTS.json",
+        "bytes": 1092659,
+        "sha256": "600fab64f90c63149f197093e5dfc5293c71b3c10017a57819341d236edcc9da",
+        "git_blob_sha1": "406396d38c162904cbfd2cef2479ee41c4783ba6"
+      },
+      {
+        "path": "HIGH_ORDER_ACCEPTANCE_SUMMARY.json",
+        "bytes": 56505,
+        "sha256": "a046f4894b30a2dc7a4ac264e7716c33fe292c7c5b835e3cab636392549ecdfa",
+        "git_blob_sha1": "a300683cfc69e6bd146446931a95d9b3cad68fba"
+      },
+      {
+        "path": "INDEPENDENT_VALIDATION_REPORT.json",
+        "bytes": 1432,
+        "sha256": "add13399c612b14f0911014fc2913c3d680fb45fcf314cfa62c566a87625d88d",
+        "git_blob_sha1": "f5b4a6a470dae83e9d82fb46da0c4286266353a1"
+      },
+      {
+        "path": "CI_ENVIRONMENT.txt",
+        "bytes": 2769,
+        "sha256": "f05fb87eb404d7c9caaf1adec7c7010161b2115522036cef996488ff6cf115a1",
+        "git_blob_sha1": "eefd5131e8f433f1721173766c971194fad58a5c"
+      },
+      {
+        "path": "CI_RUN.log",
+        "bytes": 728,
+        "sha256": "8380bbe8e374977ab0eefe38599a60a88a1335ba452323e87666617287403985",
+        "git_blob_sha1": "ab44a59de40725b8e6cfd7d0a3792ee4c2c10292"
+      }
+    ],
+    "artifact_files_verified": 5,
+    "artifact_files_total": 5,
+    "artifact_files_byte_identical_to_archived_git_blobs": true,
+    "sha256_manifest_matches": true
+  },
+  "previous_successful_push_reproduction": {
     "run_id": 45054965537,
     "run_url": "https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45054965537",
     "event": "push",
