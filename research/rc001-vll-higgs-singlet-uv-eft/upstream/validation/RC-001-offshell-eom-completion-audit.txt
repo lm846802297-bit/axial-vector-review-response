@@ -1,0 +1,6 @@
+PASS 1: off-shell minus old on-shell representative is a*Sigma/3
+PASS 2: eta_H=eta_S=-a/3 supplies exactly +a*sum_i(p_i^2)/3
+PASS 3: EOM shifts cH,cS,cD by equal amounts 2*a/3
+PASS 4: completed cH,cS,cD exactly match the two-point hard coefficients
+PASS 5: cD - (cH+cS)/2 is unchanged
+LIMIT: coefficient mapping only; underlying box integral not independently reintegrated.
