@@ -13,11 +13,16 @@
 - [仓库分类索引](仓库分类索引.md)：按权威入口、会议决策、回复信与 Diff、专题计算、脚本日志、历史归档和分支审计定位材料。
 - [根目录迁移审查](docs/repository-management/ROOT_RELOCATION_AUDIT_2026-11-17.md)；[原始 24 文件审查基线](docs/repository-management/ROOT_FILE_AUDIT_REPORT_2026-11-14.md)：记录根目录文档、TeX、BibTeX、PDF 和构建依赖的审查结论及待办。
 
+## 共享科研规范
+
+本项目采用中央仓库共享规范，具体版本见 [research/standards-lock.yaml](research/standards-lock.yaml)。先阅读[中央科研规范索引](https://github.com/lm846802297-bit/high-energy-theory-research/blob/142267bc803c90aa681110293b66b73947bbcaa1/docs/governance/CENTRAL_STANDARDS_INDEX.md)；模型和审稿决策仍以本仓库的项目专属记录为准。
+
 ## 每次开展本项目工作前必读（轻量启动）
 
 1. 仓库根目录 [AGENTS.md](AGENTS.md)：强制规则和按任务读取路径。
-2. [PROJECT_STATUS.md](PROJECT_STATUS.md)：当前项目阶段、权威文件、开放 PR、正文同步状态和下一步工作。
-3. 本文件：仓库导航和专题入口。
+2. [中央规范锁](research/standards-lock.yaml)：本项目采用的中央规范精确版本。
+3. [PROJECT_STATUS.md](PROJECT_STATUS.md)：当前项目阶段、权威文件、开放 PR、正文同步状态和下一步工作。
+4. 本文件：仓库导航和专题入口。
 
 根据任务再追加读取：
 - 回复信任务：[审稿回复写作原则](审稿意见-gpt/写作规范/审稿回复写作原则.md)、根目录当前权威 [回复 TeX](Replies_to_Referee_3_referee_facing_2026-11-04.tex) 与 [回复 PDF](Replies_to_Referee_3_referee_facing_2026-11-04.pdf)、[正文待同步清单](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-03/论文正文待同步修改清单_2026-11-03.md)。PR #40 是 Major 3 历史修订；PR #56 已于 2026-11-12 合并 Major 4.4 固定剖面 EFT benchmark。当前 PDF 已于 2026-11-16完成同源构建及64页逐页视觉验收，详见 [正式回复信最终排版验收](docs/repository-management/REPLY_LETTER_FINAL_ACCEPTANCE_2026-11-16.md)。

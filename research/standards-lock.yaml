@@ -1,0 +1,36 @@
+lock_version: 1
+
+central_repository: lm846802297-bit/high-energy-theory-research
+standards_release: null
+source_commit: "142267bc803c90aa681110293b66b73947bbcaa1"
+
+adopted_at: "2026-11-23"
+adoption_pr: "https://github.com/lm846802297-bit/axial-vector-review-response/pull/136"
+
+adopted_profiles:
+  - core-governance
+  - research-compute
+  - task-handoff
+  - scientific-diff
+  - research-quality-gate
+  - calculation-result-archive
+  - rcrps-v1.0.1
+  - git-review-and-merge
+  - document-review
+  - referee-response-and-manuscript-synchronization
+
+local_extensions:
+  - path: "AGENTS.md"
+    scope: "Axial-vector repository task routes and project-specific model/manuscript boundaries"
+  - path: "审稿意见-gpt/写作规范/审稿回复写作原则.md"
+    scope: "Original one-VEV model baseline, referee-point mapping, project-specific response rules, and local manuscript synchronization workflow"
+  - path: "审稿意见-gpt/项目规范/研究决策与不可回退事项.md"
+    scope: "Author-approved axial-vector model decisions and their historical change record"
+  - path: "docs/repository-management/DOCUMENT_REVIEW_STANDARD.md"
+    scope: "Project-wide individual document review requirement, legacy audit-register compatibility, and local coverage inventories"
+  - path: "docs/repository-management/STRUCTURED_RESULT_DATA_STANDARD.md"
+    scope: "extensions.supernova_transport and extensions.uv_eft metadata"
+  - path: "docs/repository-management/README.md"
+    scope: "Repository-specific document inventory, workflow catalog, and archive navigation"
+
+deviations: []

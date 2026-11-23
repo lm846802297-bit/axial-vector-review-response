@@ -1,6 +1,6 @@
 # Repository structure and navigation
 
-This document describes the current repository organization and the intended ownership of each area. It is an organizational map, not a claim that every file has passed scientific review.
+This document describes the current repository organization and the intended ownership of each area. It is an organizational map, not a claim that every file has passed scientific review. Shared governance and document-review requirements are defined by the pinned central standards in [research/standards-lock.yaml](../../research/standards-lock.yaml).
 
 The 90th-review closeout integration was merged via [PR #122](https://github.com/lm846802297-bit/axial-vector-review-response/pull/122) into `main` on 2026-11-22 at commit `128c866e2a1a19812da1d16d17a7f4f2a28ecc39` using a merge commit. It carried 39 original closeout paths plus two entry-point updates, with no file deletions. PR #129 synchronized the post-closeout status and register metadata at `2cff95b3cc7442010fd3702d1036fcd4d7bb4500`; PR #130 completed the final-main status reconciliation at `8117b1df0d08949e1b566536a66dedcaf179f9a2`. The inventory snapshot below is based on the PR #130 merge tree. The 10 MeV Fig. 7 physical discrepancy remains +92.4284% and is not changed by repository integration.
 
@@ -14,9 +14,10 @@ The 2026-11-17 root-file relocation and directory entry points are recorded in [
 |---|---|---|
 | `README.md`, `README-先读这里.md` | Project entry points | Keep short; link to authoritative sources rather than duplicating status. |
 | `仓库分类索引.md` | Repository classification and reading map | Navigation only; live status is in `PROJECT_STATUS.md`, scientific workstream authority is in `research/MAIN_RESEARCH_INDEX_2026-11-13.md`; keep path links current. |
-| `AGENTS.md` | Mandatory contributor/agent rules | Normative workflow instructions. |
+| `AGENTS.md` | Mandatory contributor/agent rules | Normative project instructions plus links to the pinned central standards. |
+| `research/standards-lock.yaml` | Adopted central standards revision | Full central commit SHA, selected profiles, local extensions, and deviations. |
 | `PROJECT_STATUS.md` | Current project status | Single current status source; dated historical snapshots must be labeled. |
-| `GIT_MERGE_POLICY.md` | Research history and merge policy | Preserve scientific provenance. |
+| `GIT_MERGE_POLICY.md` | Compatibility entry point to central Git policy | Shared PR/merge requirements are maintained centrally. |
 | `research/` | Scientific workstreams, calculations, validation and evidence | Each workstream owns a README, inputs, code, tests, outputs and limitations. |
 | `审稿意见-gpt/` | Referee-response analysis, writing rules, meeting records and revision history | Separate reviewer-facing text from internal notes. |
 | `deliverables/` | Extracted, directly usable handoff files | Preserve manifests and extraction provenance. |
