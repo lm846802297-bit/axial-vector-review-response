@@ -24,18 +24,22 @@ The calculation uses the reconstructed public-figure SFHo-18.8 profile already a
 
 ## Grid identity
 
-The phase-space calculation reproduces all archived high-order grid fingerprints exactly:
+The source and opacity grids retain exact archived fingerprints. The 842-node energy grid is checked against a separately archived node array because two supported runner environments can differ by one ULP in a single interpolated threshold node.
 
-| Grid | Nodes | SHA-256 |
+| Grid | Nodes | Acceptance |
 |---|---:|---|
-| Source radial grid | 200 | \`1a007702d1f7c8b81200e648a763f7f1a0e3565a39d57c8174dada5aad1a4cb5\` |
-| Opacity radial grid | 642 | \`6701fc3fe06bf07879612e591ae62c494f673928bc18f169d4b6f3fabed7d378\` |
-| Energy grid | 842 | \`036e6d772f43acf97601c3846b475e8e1c14200d4d82de1dd9af30f01bb87ea3\` |
+| Source radial grid | 200 | Exact SHA-256 match |
+| Opacity radial grid | 642 | Exact SHA-256 match |
+| Energy grid | 842 | Node-by-node comparison, (\mathrm{rtol}=5\times10^{-15}), zero absolute tolerance |
 
-Profile SHA-256:
-\`9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c\`.
+The immutable reference is `outputs/b16_energy_grid_reference_10mev_2026-11-09.json`, with file SHA-256 `3a99a994d9cab96fd194cf540d75ef698f871354839c8f55f05eeaa11f02d957`. Its energy-node SHA-256 reproduces the original archived baseline:
 
-The historical failed-run energy hash \`db6f613c...\` was not reproduced from the current main inputs. The independent grid diagnostic and the production phase-space run both reproduce the archived \`036e6d77...\` fingerprint. No baseline hash was changed.
+`036e6d772f43acf97601c3846b475e8e1c14200d4d82de1dd9af30f01bb87ea3`.
+
+In the current strict production run [#45172485856](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45172485856), the runtime energy-grid SHA-256 was `db6f613c7c76c3a80b07f20b6b44feb9520b031e78237685dacd60575c964639`. Compared with the archived reference, the maximum absolute difference is (5.684341886080802\times10^{-14}) MeV, the maximum relative difference is (1.1675488289093305\times10^{-16}), and the maximum difference is one ULP. The three grid constructions within the same run are exactly equal. This passes the predeclared node-level tolerance; neither the reference nodes nor the original baseline SHA-256 were changed.
+
+The SFHo-18.8 profile SHA-256 remains `9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c`.
+
 
 ## Global luminosity and baseline closure
 
@@ -81,8 +85,9 @@ Regression tests cover this behavior. No phase-space cell or physical contributi
 
 ## Validation record
 
-- [Energy-grid identity workflow](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44054718118) — passed.
-- [Strict phase-space reproduction workflow](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/44059347513) — passed.
+- [Current energy-grid identity diagnostic](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45171900209) — passed.
+- [Strict 10 MeV phase-space reproduction](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45172485856) — calculation, baseline validation, regression tests, and race-safe archival all passed.
+- [Independent archived-result validator](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45173157775) — compilation, 24 regression tests, and validation of the newly archived result all passed.
 - The production result JSON is archived beside this report as \`outputs/b16_escape_phase_space_10mev_2026-11-17.json\`.
 - The axial-vector production files and constraint outputs were verified unchanged.
 
