@@ -1,0 +1,68 @@
+RC-001 Q_LD pure-WW cross-box explicit numerator audit
+
+External ordering:
+  barL(p1) H(p2) Hdag(p3) L(p4)
+Local projection:
+  p1=p3=0, p2=P, p4=-P; q=k-P.
+Dimension:
+  d=4-2 eps
+
+Explicit numerator/denominator reductions:
+  LD-W-01 = 2(d-2) K/d
+  LD-W-02 = -J + 2K/d
+  LD-W-05 = 2(1-1/d) J - 2K/d
+  LD-W-06 = -J + 2K/d
+
+The equality LD-W-02 = LD-W-06 follows from
+  - (2P-k).k = k^2 - 2 k.P = (k-P)^2 + O(P^2),
+so the q^2 numerator cancels the q^2 denominator in LD-W-06.
+
+The SU(2) triplet weights are (-,+,+,-)/4 for pairs (01,02,05,06).
+
+Longitudinal R_xi projector reductions (g_munu -> k_mu k_nu/k^2):
+  LD-W-01 = -2 K/d
+  LD-W-02 = -J + 2 K/d
+  LD-W-05 = -2 K/d
+  LD-W-06 = -J + 2 K/d
+  Weighted triplet sum = 0 exactly.
+Therefore the fixed-routing cross-box triplet sub-block is independent of xi.
+This is not the complete Slavnov-Taylor identity for the full amplitude.
+
+The weighted integrand reduces to
+  (d-1)/(2d) (J-K).
+
+Independent gamma-function evaluation:
+  J_full-K_full = -(M_E^2) int_k 1/[k^4 (k^2-M_E^2)^2]
+  = [Delta_IR + 2 - L]/M_E^2 at O(eps^0).
+  Multiplication by (d-1)/(2d) reproduces the full IR-pole coefficient and finite 11/16.
+
+Scalar masters:
+  J_hard = (Delta_UV + 1 - L)/M_E^2
+  J_soft = (-Delta_UV + Delta_IR)/M_E^2
+  J_full = (Delta_IR + 1 - L)/M_E^2
+  K_hard = K_full = -1/M_E^2
+  K_soft = 0  (scaleless power integral at O(M_E^-2))
+
+Weighted hard:
+  A_hard = (3 Delta_UV/8 - 3 L/8 + 11/16)/M_E^2
+Weighted soft (master-level):
+  A_soft = 3(-Delta_UV + Delta_IR)/(8 M_E^2)
+Weighted full:
+  A_full = (3 Delta_IR/8 - 3 L/8 + 11/16)/M_E^2
+
+Dimensional finite term:
+  (d-1)/(2d) = 3/8 - eps/16 + O(eps^2)
+  d=4 finite constant from J-K = 3/4
+  O(eps)*Delta_UV correction = -1/16
+  final finite constant = 11/16
+
+Local execution:
+  13/13 regression tests passed using SymPy.
+  Test source: calculations/test_RC001_dim6_WW_crossbox_exact_routing.py
+  The test suite checks explicit vector-numerator reductions, integrated J/K coefficients, SU(2)-weighted sum, hard/soft/full master split, UV/IR pole bookkeeping, the O(eps) finite term, the Hermitian-conjugate operator identity modulo a total derivative, an independent gamma-function evaluation of the combined full master, and the longitudinal R_xi projector cancellation.
+
+Evidence boundary:
+  This is one fixed ordered tree contraction with unit multiplicity.
+  The charge-conjugate operator is identified with the same action operator modulo a total derivative; no extra factor of two is assigned. A diagram-generator enumeration of the graph labels remains outstanding.
+  No FeynArts/QGRAF generation, full one-W Ward sum, or complete Wilson coefficient is claimed.
+  GitHub Actions was not used as evidence.

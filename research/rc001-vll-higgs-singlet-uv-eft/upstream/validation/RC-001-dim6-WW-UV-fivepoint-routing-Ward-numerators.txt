@@ -1,0 +1,46 @@
+RC-001-WW-UV-FF-02 Stage B1/B2 routing and longitudinal numerator audit
+
+PASS: six four-point seed routings satisfy vertex momentum conservation (6/6).
+PASS: five-point attachment routings satisfy vertex momentum conservation (24/24).
+PASS: massless chiral fermion line contraction (16/16 Dirac components).
+PASS: complex-scalar line contraction (1/1 identity).
+PASS: scalar two-gauge seagull anticommutator {t^a,t^b}=delta^ab I/2 (9/9).
+PASS: bare three-W contraction to transverse inverse-kernel difference (16/16 Lorentz components).
+PASS: Feynman-gauge contracted W propagator chain including R_FG (16/16 components).
+
+ATTACHMENTS:
+  12 matter-line insertions
+   6 scalar two-gauge seagulls
+   6 internal-W three-gauge insertions
+  -----------------------------------
+  24 direct external-W five-point attachments
+
+PER-PAIR COUNTS:
+  LD-W-01: 3
+  LD-W-02: 4
+  LD-W-03: 4
+  LD-W-04: 4
+  LD-W-05: 4
+  LD-W-06: 5
+
+PROPOSED 5-POINT EUCLIDEAN DIAGNOSTIC POINT:
+  p1=e1 mu_IR, p2=e2 mu_IR, p3=e3 mu_IR,
+  q=e4 mu_IR, p4=-(e1+e2+e3+e4) mu_IR.
+  (p1^2,p2^2,p3^2,p4^2,q^2)/mu_IR^2 = (1,1,1,4,1).
+
+RESULT:
+  B1 routing and B2 line-level longitudinal numerator identities pass.
+
+BOUNDARY:
+  No five-point loop integration.
+  No complete graph-specific weak/phase sum.
+  No gauge-fixing/ghost Slavnov-Taylor completion.
+  No external-leg/LSZ or field/parameter/operator counterterm sum.
+  No transverse form factor or Wilson coefficient.
+
+NOTE:
+  Goldstone terms are absent in this unbroken, massless SU(2)_L sub-block.
+  They must be restored together with fermion mass terms in a broken-phase calculation.
+
+Execution: local Python + SymPy exact symbolic arithmetic.
+This is not a GitHub Actions result or an independent FeynArts/FeynCalc run.

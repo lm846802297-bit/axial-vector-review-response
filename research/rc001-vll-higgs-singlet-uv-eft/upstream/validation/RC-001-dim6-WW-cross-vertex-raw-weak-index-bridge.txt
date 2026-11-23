@@ -1,0 +1,39 @@
+RC-001 B2c-IVd explicit raw-index bridge: cross-vertex WW pairs
+
+PASS: physical representation algebra (144/144 matrix components).
+PASS: four seed pair tensors (64/64 weak components).
+PASS: A-line ordered commutator (192/192 components).
+PASS: B-line ordered commutator (192/192 components).
+PASS: A-line phase-weighted commutator = three-W group-phase factor (192/192).
+PASS: B-line phase-weighted commutator = three-W group-phase factor (192/192).
+PASS: raw A scalar seagull anticommutator (96/96).
+PASS: raw B scalar seagull anticommutator (96/96).
+PASS: A scalar line tensor = 1/2 seagull tensor + i/2 three-W tensor (96/96).
+PASS: B scalar line tensor = 1/2 seagull tensor + i/2 three-W tensor (96/96).
+
+CROSS-VERTEX ATTACHMENT CENSUS:
+  LD-W-01: 3 graphs; A seagull=False; B seagull=False
+  LD-W-02: 4 graphs; A seagull=False; B seagull=True
+  LD-W-05: 4 graphs; A seagull=True; B seagull=False
+  LD-W-06: 5 graphs; A seagull=True; B seagull=True
+  total = 16 direct five-point attachments
+
+RELATIVE PHASES (relative to the four-point seed):
+  ordinary matter-line insertion: -g2
+  scalar seagull: +g2
+  internal-W three-gauge insertion: -i g2
+
+GROUP-PHASE RESULT:
+  -g2*(W_A-W_A_rev) = -i g2*G_AB
+  -g2*(W_B-W_B_rev) = -i g2*G_AB
+  These are the same group-phase factors as the three-W insertion.
+  This is a necessary group-theory relation, not a Lorentz-kernel cancellation.
+
+BOUNDARY:
+  Cross-vertex weak-index ordering and relative phases only.
+  Same-vertex LD-W-03/04 raw ordering remains separate because its internal W flows S -> F.
+  No complete Lorentz-weighted 24-graph sum, ghost/ST completion, external-leg/CT sum,
+  loop integration, transverse form factor, or Wilson coefficient is claimed.
+
+Execution: exact SymPy arithmetic in the local calculation session.
+This is not a GitHub Actions result or a FeynArts/FeynCalc run.

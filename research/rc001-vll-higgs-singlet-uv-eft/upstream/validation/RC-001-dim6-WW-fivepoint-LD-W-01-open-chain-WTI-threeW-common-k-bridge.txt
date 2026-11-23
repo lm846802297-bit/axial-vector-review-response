@@ -1,0 +1,24 @@
+RC-001 B2c-IVn-h/01: LD-W-01 open-chain WTI/three-W bridge
+
+PASS: actual A/B oriented fermion WTIs (32/32 Dirac components).
+PASS: actual Feynman-gauge open chains with h-q/h (32/32 matrix components).
+PASS: A-side Yukawa endpoint common-k shift (16/16 vector components).
+PASS: A-shifted and B-unshifted WTI endpoint denominators align with the two three-W W propagators (2/2 identities).
+PASS: actual LD-W-01 R_FG direct contraction (16/16 nonzero numerator entries).
+
+RATIONAL DENOMINATORS:
+  (k^2,kappa^2,r_A^2,r_A^Y^2,r_B^W^2,r_B^Y^2,h^2-M_E^2,(h-q)^2-M_E^2)
+  =(10,8,6,2,-18,-4,-393,-405).
+  A-shifted endpoint=(8,6,-4,-393)=D3W/k^2.
+  B-common endpoint=(10,6,-4,-393)=D3W/kappa^2.
+
+RESULT:
+  The A-side second WTI endpoint maps to the kappa-W part of the three-W reference;
+  the B-side second endpoint is already in the k-W common routing.
+
+BOUNDARY:
+  The first A/B endpoint terms retain their own Yukawa-channel denominators.
+  Their local charge factors are checked separately; no full 24-graph or LSZ/ST sum is claimed.
+
+Local regression suite: 6/6 tests passed.
+Execution was local exact SymPy arithmetic; no GitHub Actions result is claimed.
