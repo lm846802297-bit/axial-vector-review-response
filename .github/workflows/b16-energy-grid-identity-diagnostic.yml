@@ -1,4 +1,5 @@
 name: B.16 energy-grid identity diagnostic
+# Exact-head energy-grid revalidation refresh (2026-11-23).
 
 on:
   push:
