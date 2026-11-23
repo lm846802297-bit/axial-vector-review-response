@@ -70,7 +70,7 @@ python research/stellar-cooling-constraints-20261105/low_mass_axial/analyze_low_
 python research/stellar-cooling-constraints-20261105/finite_mixing/thermal_response_scan.py
 ```
 
-固定剖面冷却扫描的参数由对应 JSON 中的 \`config\` 和 \`couplings\` 记录。入口程序为 \`research/stellar-cooling-constraints-20261105/run_scan.py\`。
+固定剖面冷却扫描的参数由对应 JSON 中的 `config` 和 `couplings` 记录。入口程序为 `research/stellar-cooling-constraints-20261105/run_scan.py`。
 
 ## 结果状态
 
