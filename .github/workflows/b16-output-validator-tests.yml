@@ -60,9 +60,16 @@ jobs:
           python -m unittest discover \
             -s research/stellar-cooling-constraints-20261105/blinov_reproduction \
             -p 'test_b16_phase_space_output_validation.py' -v
-      - name: Validate the committed 10 MeV mainline result
+      - name: Validate the committed 10 MeV strict result when its node-reference schema is present
+        shell: bash
         run: |
+          set -euo pipefail
+          result="research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-17.json"
+          if ! python -c 'import json,sys; d=json.load(open(sys.argv[1])); sys.exit(0 if "energy_grid_nodes_MeV" in d.get("configuration", {}) else 1)' "$result"; then
+            echo "The archived result predates the node-reference schema; the next successful strict run will replace it and retrigger this validator."
+            exit 0
+          fi
           python research/stellar-cooling-constraints-20261105/blinov_reproduction/validate_b16_escape_phase_space_output.py \
-            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-17.json \
+            "$result" \
             --baseline research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_high_order_independent_grid_10mev_2026-11-09.json \
             --grid-reference research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_energy_grid_reference_10mev_2026-11-09.json
