@@ -1,0 +1,130 @@
+{
+  "scope": "single A positive Y-pole and external H charge only; no integral translation asserted",
+  "runtime": {
+    "python": "3.12.14",
+    "sympy": "1.14.0",
+    "platform": "Linux",
+    "machine": "x86_64"
+  },
+  "symbolic": {
+    "A_WTI_sign": "exact",
+    "anchored_momenta": "exact",
+    "bare_pole_sign_and_slot_order": "explicit"
+  },
+  "points": [
+    {
+      "q_squared": "-4",
+      "a_dot_b": "45",
+      "b_dot_q": "5",
+      "shared_anchored_W_scalar_scalar_heavy_denominators": [
+        "8",
+        "11",
+        "15",
+        "-393"
+      ],
+      "unanchored_heavy_denominator": "-405",
+      "entries": {
+        "pole_and_source_checks": 1536,
+        "factored_pair_checks": 768,
+        "symmetric_nonzero": 192,
+        "commutator_nonzero": 288,
+        "total_nonzero": 352,
+        "wrong_pole_sign": 288,
+        "wrong_source_weak_order": 288,
+        "wrong_same_loop_label": 288,
+        "omitted_reanchored_heavy_shift": 288,
+        "copied_internal_current": 288
+      },
+      "representative": {
+        "generator": 0,
+        "weak_index": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "Dirac_row_column": [
+          0,
+          0
+        ],
+        "common_normalized_value": "-1/51876"
+      }
+    },
+    {
+      "q_squared": "0",
+      "a_dot_b": "73",
+      "b_dot_q": "-9",
+      "shared_anchored_W_scalar_scalar_heavy_denominators": [
+        "44",
+        "35",
+        "75",
+        "-377"
+      ],
+      "unanchored_heavy_denominator": "-389",
+      "entries": {
+        "pole_and_source_checks": 1536,
+        "factored_pair_checks": 768,
+        "symmetric_nonzero": 192,
+        "commutator_nonzero": 288,
+        "total_nonzero": 352,
+        "wrong_pole_sign": 288,
+        "wrong_source_weak_order": 288,
+        "wrong_same_loop_label": 288,
+        "omitted_reanchored_heavy_shift": 288,
+        "copied_internal_current": 288
+      },
+      "representative": {
+        "generator": 0,
+        "weak_index": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "Dirac_row_column": [
+          0,
+          0
+        ],
+        "common_normalized_value": "-41/34834800"
+      }
+    },
+    {
+      "q_squared": "-4",
+      "a_dot_b": "45",
+      "b_dot_q": "0",
+      "shared_anchored_W_scalar_scalar_heavy_denominators": [
+        "19",
+        "20",
+        "32",
+        "-386"
+      ],
+      "unanchored_heavy_denominator": "-400",
+      "entries": {
+        "pole_and_source_checks": 1536,
+        "factored_pair_checks": 768,
+        "symmetric_nonzero": 192,
+        "commutator_nonzero": 0,
+        "total_nonzero": 192,
+        "wrong_pole_sign": 288,
+        "wrong_source_weak_order": 288,
+        "wrong_same_loop_label": 288,
+        "omitted_reanchored_heavy_shift": 288,
+        "copied_internal_current": 0
+      },
+      "representative": {
+        "generator": 0,
+        "weak_index": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "Dirac_row_column": [
+          0,
+          0
+        ],
+        "common_normalized_value": "-27/7510016"
+      }
+    }
+  ]
+}
