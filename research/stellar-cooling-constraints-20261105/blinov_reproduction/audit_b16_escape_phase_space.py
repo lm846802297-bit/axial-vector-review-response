@@ -1,8 +1,9 @@
 """High-order 10 MeV B.16 escape distribution over emission radius, energy and direction.
 
 This is a post-processing diagnostic of the literal fixed-omega B.2 baseline.
-It repeats the high-order source/opacity construction and verifies exact grid
-identity and luminosity closure against the archived high-order result before
+It repeats the high-order source/opacity construction and verifies exact
+source/opacity grid identity, tolerance-aware energy-grid identity, and
+luminosity closure against the archived high-order result before
 reporting source-weighted and escape-weighted phase-space bins.
 """
 from __future__ import annotations
