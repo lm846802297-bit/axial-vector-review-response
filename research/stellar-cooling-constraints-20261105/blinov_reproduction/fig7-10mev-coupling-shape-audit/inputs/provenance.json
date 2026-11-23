@@ -1,0 +1,34 @@
+[
+  {
+    "local_name": "high_order.json",
+    "repo": "lm846802297-bit/axial-vector-review-response",
+    "commit": "a7ac6456dafb27492183912fe4abbaa73a9455f7",
+    "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_high_order_independent_grid_10mev_2026-11-09.json",
+    "git_blob": "7c92e605bad15f24ff7041938af5cbd9df6bb031",
+    "sha256": "dc7cce151ce9d8ec79d37c0f75c03984f8c5f9660b102f0f054f622b7f33c373"
+  },
+  {
+    "local_name": "geometry.json",
+    "repo": "lm846802297-bit/axial-vector-review-response",
+    "commit": "a7ac6456dafb27492183912fe4abbaa73a9455f7",
+    "path": "research/stellar-cooling-constraints-20261105/outputs/fig7_digitization_geometry_2026-11-08.json",
+    "git_blob": "218b30ec8b29721aeb5241133ce44aedefe99914",
+    "sha256": "af91dc3d0dd551c7884739e86171fb9e9e50e124458d225e2743d59b7ff95398"
+  },
+  {
+    "local_name": "drawings.json",
+    "repo": "lm846802297-bit/axial-vector-review-response",
+    "commit": "a7ac6456dafb27492183912fe4abbaa73a9455f7",
+    "path": "research/stellar-cooling-constraints-20261105/outputs/fig7_source_drawings_2026-11-07.json",
+    "git_blob": "7a774ab23e5c863c1dd64a0d3d384c88ea737a5e",
+    "sha256": "e1b4642adc4e6a986c8105077f217603779f6d661aea885329e0667afc243d0b"
+  },
+  {
+    "local_name": "c1_convergence.json",
+    "repo": "lm846802297-bit/axial-vector-review-response",
+    "commit": "b406a37ea0b1adbb8b9b0e84563f2c67902f832c",
+    "path": "research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/C1_RNU_10MEV_ADAPTIVE_RADIAL_CONVERGENCE_2026-11-20.json",
+    "git_blob": "fca7a29cd9a9b7cff63c86a5ae86b7100216433e",
+    "sha256": "299359be5ebd87b9494c219651fc356a4730b91a7c019e1aa5c0cdfb5c864085"
+  }
+]

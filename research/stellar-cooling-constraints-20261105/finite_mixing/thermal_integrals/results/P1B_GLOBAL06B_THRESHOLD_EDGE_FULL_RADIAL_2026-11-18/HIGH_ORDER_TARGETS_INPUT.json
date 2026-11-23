@@ -1,0 +1,32 @@
+{
+  "source_run": "P1B-GLOBAL06B-THRESHOLD-EDGE-FULL-RADIAL",
+  "source_profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "radial_ranking_sha256": "01b7a79c6d4c1389bfe168415b8730772014e9d488de6c4f70503fd9886c4af3",
+  "energy_validation_sha256": "bcd147502635f7a8dce2f089ab7a8af1ec62e2cfcaad1707162f94eebd6063e8",
+  "radial_top10": [
+    {"left_index":1487,"right_index":1488,"r_left_km":22.1918936570485,"r_right_km":22.1918946570485,"dr_km":1.0000000010279564e-6,"maximum_neighbor_change":0.24759234978274675},
+    {"left_index":1479,"right_index":1480,"r_left_km":22.1,"r_right_km":22.1351042721007,"dr_km":0.035104272100699774,"maximum_neighbor_change":0.24477948031177207},
+    {"left_index":1464,"right_index":1465,"r_left_km":21.9585462632003,"r_right_km":22.0,"dr_km":0.041453736799699215,"maximum_neighbor_change":0.21147513563175702},
+    {"left_index":1486,"right_index":1487,"r_left_km":22.1798016958767,"r_right_km":22.1918936570485,"dr_km":0.012091961171798005,"maximum_neighbor_change":0.2099773153563156},
+    {"left_index":1484,"right_index":1485,"r_left_km":22.1517032202208,"r_right_km":22.1733733976947,"dr_km":0.021670177473900765,"maximum_neighbor_change":0.20940577730957022},
+    {"left_index":1024,"right_index":1025,"r_left_km":15.5,"r_right_km":15.55,"dr_km":0.05000000000000071,"maximum_neighbor_change":0.2058867537981676},
+    {"left_index":1156,"right_index":1157,"r_left_km":18.0046023594009,"r_right_km":18.05,"dr_km":0.04539764059910212,"maximum_neighbor_change":0.20331286964048223},
+    {"left_index":993,"right_index":994,"r_left_km":14.85,"r_right_km":14.9,"dr_km":0.05000000000000071,"maximum_neighbor_change":0.20256589530891758},
+    {"left_index":1158,"right_index":1159,"r_left_km":18.0501630240016,"r_right_km":18.096011435544,"dr_km":0.04584841154240138,"maximum_neighbor_change":0.20169531558556328},
+    {"left_index":1131,"right_index":1132,"r_left_km":17.4521831450639,"r_right_km":17.4982490142186,"dr_km":0.046065869154702455,"maximum_neighbor_change":0.2005349881213957}
+  ],
+  "energy_worst10": [
+    {"radial_index":703,"r_km":8.4821412022467,"x_validation":0.0003125,"maximum_channel_relative_error":0.0006711931901418715},
+    {"radial_index":702,"r_km":8.4783373082451,"x_validation":0.0003125,"maximum_channel_relative_error":0.0006711767123838585},
+    {"radial_index":701,"r_km":8.4779518483159,"x_validation":0.0003125,"maximum_channel_relative_error":0.0006711750426578688},
+    {"radial_index":700,"r_km":8.47047221993952,"x_validation":0.0003125,"maximum_channel_relative_error":0.0006711426415841296},
+    {"radial_index":699,"r_km":8.47016324575835,"x_validation":0.0003125,"maximum_channel_relative_error":0.00067114130312145},
+    {"radial_index":698,"r_km":8.46237414427839,"x_validation":0.0003125,"maximum_channel_relative_error":0.0006711075602919835},
+    {"radial_index":697,"r_km":8.46229815745278,"x_validation":0.0003125,"maximum_channel_relative_error":0.0006711072310380505},
+    {"radial_index":696,"r_km":8.45450905597281,"x_validation":0.0003125,"maximum_channel_relative_error":0.0006710734870468217},
+    {"radial_index":695,"r_km":8.45420008179165,"x_validation":0.0003125,"maximum_channel_relative_error":0.0006710721484877624},
+    {"radial_index":694,"r_km":8.45,"x_validation":0.0003125,"maximum_channel_relative_error":0.0006710539523577811}
+  ],
+  "x_grid": [0.0,0.00125,0.005,0.009330127018922192,0.015,0.021856601717798217,0.03,0.03936491673103709,0.05],
+  "x_validation": [0.0003125,0.0028125,0.006997595264191645,0.011997595264191644,0.018267451288348658,0.02576745128834866,0.034523687548277816,0.04452368754827782]
+}

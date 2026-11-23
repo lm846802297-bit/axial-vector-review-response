@@ -33,13 +33,14 @@ python research/stellar-cooling-constraints-20261105/blinov_reproduction/audit_b
   --output research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-10.json
 ```
 
-The script requires exact SHA-256 identity of the source-radius, opacity-radius, and energy grids, the reconstructed SFHo-18.8 profile, and the Fig. 7 digitization relative to the archived high-order baseline. It also requires the recomputed integrated luminosity and optically thin source to close against that baseline to \(2\times10^{-10}\).
+The script requires exact SHA-256 identity of the source-radius and opacity-radius grids, the reconstructed SFHo-18.8 profile, and the Fig. 7 digitization relative to the archived high-order baseline. The energy grid is compared node-by-node with the immutable 842-node reference at relative tolerance 5e-14 and absolute tolerance 1e-13 MeV. It also requires the recomputed integrated luminosity and optically thin source to close against that baseline to \(2\times10^{-10}\).
 
 ## 4. Acceptance checks
 
 The output is accepted only if all of the following hold:
 
 - The regression tests pass.
+- The 842 energy nodes match the immutable archived node reference at relative tolerance 5e-14 and absolute tolerance 1e-13 MeV; the original baseline hash is preserved as provenance.
 - The luminosity and thin-source closure residuals are each below \(2\times10^{-10}\).
 - The angular quadrature weights sum to one within \(10^{-14}\).
 - For each region, the emission-radius, energy, four-bin direction, and eight-bin direction partitions each sum to one for both the thin source and escaped luminosity, within \(2\times10^{-10}\).
@@ -187,3 +188,12 @@ Garching table. No axial-vector output or constraint curve is changed.
 The former `REVISION_REQUIRED` disposition for the **missing producer/output
 package and strict energy-grid gate** is superseded by successful artifact
 generation. The separate physical Fig. 7 acceptance gate remains blocked.
+
+
+## 2026-11-23 cross-runner energy-grid identity
+
+The original archived energy-grid fingerprint remains `036e6d772f43acf97601c3846b475e8e1c14200d4d82de1dd9af30f01bb87ea3`. The immutable 842-node reference is stored in `outputs/b16_energy_grid_reference_10mev_2026-11-09.json`; its file SHA-256 is `3a99a994d9cab96fd194cf540d75ef698f871354839c8f55f05eeaa11f02d957`.
+
+A cross-runner diagnostic produced runtime hash `db6f613c...`, but all 842 nodes matched the reference with maximum absolute difference 5.684341886080802e-14 MeV, maximum relative difference 1.1675488289093305e-16, and maximum ULP difference 1. Another independent run reproduced the original `036e6d77...` byte hash. The two hashes therefore reflect last-bit floating-point representation, not different physical energy grids.
+
+The production result records the full energy-node array and reference-file fingerprint. The validator checks the immutable reference and complete node array; neither the baseline hash nor the reference file is rewritten.

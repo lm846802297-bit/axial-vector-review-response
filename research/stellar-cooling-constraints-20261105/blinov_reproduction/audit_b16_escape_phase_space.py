@@ -22,10 +22,16 @@ try:
     from .audit_b16_global_redshift import (
         DEFAULT_FIG7, eq_b1_source_measure, float_array_sha256, weighted_quantile,
     )
+    from .energy_grid_identity import (
+        DEFAULT_ENERGY_GRID_REFERENCE, compare_energy_grid, load_energy_grid_reference,
+    )
 except ImportError:
     from reference import DEFAULT_PROFILE, radial_rule, load_profile, local_rates, scalar_optical_depths
     from audit_b16_global_redshift import (
         DEFAULT_FIG7, eq_b1_source_measure, float_array_sha256, weighted_quantile,
+    )
+    from energy_grid_identity import (
+        DEFAULT_ENERGY_GRID_REFERENCE, compare_energy_grid, load_energy_grid_reference,
     )
 
 HERE = Path(__file__).resolve().parent
@@ -454,7 +460,8 @@ def region_summary(name, region_mask, r, energies, angles, angle_weights,
 def run(profile_path=DEFAULT_PROFILE, fig7_path=DEFAULT_FIG7,
         baseline_path=DEFAULT_BASELINE, mass=10.0,
         radial_order=200, opacity_order=640, energy_order=200,
-        angular_order=32, path_order=64, energy_offset=1000.0):
+        angular_order=32, path_order=64, energy_offset=1000.0,
+        grid_reference_path=DEFAULT_ENERGY_GRID_REFERENCE):
     if float(mass) != 10.0:
         raise ValueError("This targeted audit is deliberately restricted to m=10 MeV")
     baseline_payload = json.loads(Path(baseline_path).read_text(encoding="utf-8"))
@@ -552,6 +559,25 @@ def run(profile_path=DEFAULT_PROFILE, fig7_path=DEFAULT_FIG7,
             "the 5e-14 relative / 1e-13 MeV tolerance: "
             + json.dumps(energy_grid_equivalence)
         )
+    grid_reference = load_energy_grid_reference(
+        grid_reference_path, baseline_config["energy_grid_sha256"]
+    )
+    energy_grid_reference_comparison = compare_energy_grid(
+        energies, grid_reference, rtol=5.0e-14, atol=1.0e-13
+    )
+    baseline_reference_comparison = compare_energy_grid(
+        baseline_energy_grid, grid_reference, rtol=5.0e-14, atol=1.0e-13
+    )
+    if not energy_grid_reference_comparison["matches"]:
+        raise ArithmeticError(
+            "Current energy grid differs from the immutable node reference: "
+            + json.dumps(energy_grid_reference_comparison)
+        )
+    if not baseline_reference_comparison["matches"]:
+        raise ArithmeticError(
+            "Archived spectral-measure reconstruction differs from the immutable node reference: "
+            + json.dumps(baseline_reference_comparison)
+        )
     if current_profile_hash != baseline["profile"]["sha256"]:
         raise ArithmeticError("Profile fingerprint differs from the archived high-order baseline")
     # Compare the source PDF and the numerical 10 MeV vertices, not the
@@ -636,6 +662,8 @@ def run(profile_path=DEFAULT_PROFILE, fig7_path=DEFAULT_FIG7,
         "fig7_reference_sha256": current_fig7_hash,
         "baseline_json_sha256": sha256(baseline_path),
         "energy_grid_equivalence": energy_grid_equivalence,
+        "energy_grid_reference_comparison": energy_grid_reference_comparison,
+        "baseline_spectral_measure_reference_comparison": baseline_reference_comparison,
         "configuration": {
             "source_radial_order": radial_order,
             "source_radial_node_count": len(source_r),
@@ -647,6 +675,8 @@ def run(profile_path=DEFAULT_PROFILE, fig7_path=DEFAULT_FIG7,
             "energy_node_count": len(energies),
             "energy_grid_sha256": energy_grid_hash,
             "baseline_energy_grid_sha256": baseline_config["energy_grid_sha256"],
+            "energy_grid_reference_file_sha256": grid_reference["_file_sha256"],
+            "energy_grid_nodes_MeV": energies.tolist(),
             "energy_grid_exact_sha256_match": energy_grid_equivalence["exact_sha256_match"],
             "energy_grid_max_abs_difference_MeV": energy_abs_max,
             "energy_grid_max_relative_difference": energy_rel_max,
@@ -705,11 +735,12 @@ def main():
     parser.add_argument("--na", type=int, default=32)
     parser.add_argument("--ns", type=int, default=64)
     parser.add_argument("--energy-offset", type=float, default=1000.0)
+    parser.add_argument("--grid-reference", type=Path, default=DEFAULT_ENERGY_GRID_REFERENCE)
     args = parser.parse_args()
     result = run(
         args.profile, args.fig7, args.baseline, args.mass,
         args.nr, args.opacity_order, args.ne, args.na, args.ns,
-        args.energy_offset
+        args.energy_offset, args.grid_reference
     )
     csv_metadata = write_phase_space_csv(result, args.csv_output)
     svg_metadata = write_phase_space_svg(result, args.svg_output)

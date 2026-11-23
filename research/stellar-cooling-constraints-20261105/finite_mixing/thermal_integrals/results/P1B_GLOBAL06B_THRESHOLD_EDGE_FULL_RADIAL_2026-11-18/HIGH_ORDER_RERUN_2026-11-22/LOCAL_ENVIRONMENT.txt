@@ -1,0 +1,25 @@
+run_label=P1B-GLOBAL06B-HIGH-ORDER-TARGETS-INDEPENDENT-RERUN
+source_repository=lm846802297-bit/axial-vector-review-response
+source_pr_head=e49908762e90271f4bc84be75e19577431febd4c
+main_base=a7ac6456dafb27492183912fe4abbaa73a9455f7
+base_source_snapshot_commit=5e7b60dc61b3f36909ed39f3400b06884fc77053
+base_bundle_zip_sha256=b27c101a063d6f5784d72ef12ad699abc2ceae000b5824cfc4aaa0d191c3474d
+full_source_snapshot_zip_sha256=a3bfefeb1c910cfa3c3d941b41439b0dae4aa3885c34bf4f993e27393bd35cbc
+start_utc=2026-11-22T14:28:12Z
+end_utc=2026-11-22T14:33:59Z
+exit_status=0
+runtime_seconds=343.58147954940796
+workers=4
+Linux 491a2c84bb9a 6.18.57 #1 SMP Tue Oct 20 21:56:04 UTC 2026 x86_64 GNU/Linux
+CPU(s): 5
+On-line CPU(s) list: 0-4
+Model name: AMD EPYC 9V74 80-Core Processor
+Thread(s) per core: 1
+Core(s) per socket: 5
+Socket(s): 1
+NUMA node(s): 1
+NUMA node0 CPU(s): 0-4
+Mem: 5.8GiB total
+Python 3.13.5
+numpy=2.3.5
+scipy=1.17.0

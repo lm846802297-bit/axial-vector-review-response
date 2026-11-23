@@ -1,0 +1,8 @@
+test_exact_derivative_against_two_ray_hand_coded_central_difference (test_weighted.ChannelDerivativeTests.test_exact_derivative_against_two_ray_hand_coded_central_difference) ... ok
+test_one_ray_one_open_channel (test_weighted.ChannelDerivativeTests.test_one_ray_one_open_channel) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+OK
+Byte-exact native replay passed.

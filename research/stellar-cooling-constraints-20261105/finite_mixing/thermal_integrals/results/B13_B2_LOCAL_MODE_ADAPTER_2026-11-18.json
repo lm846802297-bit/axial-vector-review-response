@@ -1,0 +1,69 @@
+{
+  "run": "B13-B2-LOCAL-MODE-ADAPTER",
+  "date": "2026-11-18",
+  "scope": "One radius, three local x anchors; pointwise channel adapter only, not B2 transport",
+  "profile_sha256": "9fb14e796d6e7731f21993632af43ba2c6ed642ffe66b1e9de8ccbac240c001c",
+  "source_bundle_zip_sha256": "b27c101a063d6f5784d72ef12ad699abc2ceae000b5824cfc4aaa0d191c3474d",
+  "audit_kernel_sha256": "ff6479a8d6d4ba417dc4b31e745b4028a28d9e42df5598144334453ea9627683",
+  "moving_muon_kernel_sha256": "38436b94f070069c8696b37b9bce1955e2d5d7e39dad9b302ab754582ff6a5a5",
+  "neutrino_rates_sha256": "2fc7bc2d3b0d7b98c191755cd2bb87944e4ebe259adc3d3bbc8e0f60dcc57f56",
+  "mass_MeV": 10.0,
+  "current": {"g_vector_over_gX": 1.0, "g_axial_over_gX": 0.0},
+  "radius_km": 8.24821831451522,
+  "T_MeV": 39.1873531264166,
+  "mu_mu_MeV": 95.5870186126576,
+  "mu_numu_MeV": -18.9549075346137,
+  "quadrature": {"compton_orders": [26, 14, 14, 14], "neutrino_angular_order": 64},
+  "mode_order": ["L", "+", "-"],
+  "charge_lanes": ["mu_minus", "mu_minus_plus_mu_plus"],
+  "points": [
+    {
+      "x": 0.0,
+      "omega_local_MeV": 10.0,
+      "R_LT_compton_mu_minus": 1.0001597795571995,
+      "R_LT_compton_charge_sum": 1.0001591986995173,
+      "R_LT_neutrino": 1.000000000000002,
+      "R_LT_total_mu_minus_lane": 1.0000424548857676,
+      "R_LT_total_charge_sum_lane": 1.0000426664569304,
+      "compton_fraction_total_absorption_mu_minus_lane": 0.2657195126949294,
+      "compton_fraction_total_absorption_charge_sum_lane": 0.26801798239568864
+    },
+    {
+      "x": 0.015,
+      "omega_local_MeV": 10.587810296896249,
+      "R_LT_compton_mu_minus": 0.9215786466639221,
+      "R_LT_compton_mu_plus": 0.918201807647046,
+      "R_LT_compton_charge_sum": 0.9215392414116093,
+      "R_LT_neutrino": 1.0000900688102237,
+      "R_LT_total_mu_minus_lane": 0.9790279543451459,
+      "R_LT_total_charge_sum_lane": 0.9788358985341029,
+      "compton_fraction_total_absorption_mu_minus_lane": 0.2630947171160262,
+      "compton_fraction_total_absorption_charge_sum_lane": 0.2653741014564916
+    },
+    {
+      "x": 0.05,
+      "omega_local_MeV": 11.95936765632083,
+      "R_LT_compton_mu_minus": 0.7712273007845494,
+      "R_LT_compton_mu_plus": 0.7625190857727212,
+      "R_LT_compton_charge_sum": 0.771125846759931,
+      "R_LT_neutrino": 1.0003198287608654,
+      "R_LT_total_mu_minus_lane": 0.9377530436634907,
+      "R_LT_total_charge_sum_lane": 0.9371907219663164,
+      "compton_fraction_total_absorption_mu_minus_lane": 0.25762605265415683,
+      "compton_fraction_total_absorption_charge_sum_lane": 0.2598666428580365
+    }
+  ],
+  "closure": {
+    "charge_sum_residual": 0.0,
+    "neutrino_mode_sum_residual_max": 6.8163039705219625e-15,
+    "compton_detailed_balance_residual_max": 5.237569567432536e-16,
+    "neutrino_detailed_balance_residual_max": 4.91212332643039e-16,
+    "transverse_plus_minus_relative_difference_max": 2.960662365704169e-16
+  },
+  "acceptance": {
+    "local_channel_adapter": true,
+    "radial_transport": false,
+    "complete_energy_domain": false,
+    "B2_luminosity": false
+  }
+}

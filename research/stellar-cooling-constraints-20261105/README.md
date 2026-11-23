@@ -154,3 +154,10 @@ PDF 经视觉核对并复制至根目录后，可运行 `python research/stellar
 源图再提取命令和权利边界见 `extract_profile.py --help`。图中径向剖面数据及公开源图位置可供复算，但未分发原始受限模拟数据。
 
 耦合网格复核 `coupling_refinement.json` 使用同一基准积分设置、1/250/255/260 MeV 和 `--gcount 1201`；与 301 点边界的最大差小于 0.3%。这项检查不修改主图输入，避免把不同扫描分辨率混作一个均匀网格。
+
+
+## 2026-11-23 B.13/B.16 integration update
+
+The B.16 10 MeV escape phase-space decomposition has been independently rerun and archived. The source and opacity grids retain exact fingerprints; the 842-node energy grid is validated against the immutable archived node reference, with the original byte-level SHA-256 retained as provenance. The strict calculation, output validator, sparse joint-table tests, and archive step passed in [Actions run #45172485856](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45172485856). The Fig. 7 10 MeV luminosity discrepancy remains +92.4284%; no opacity rescaling or axial-vector constraint update was made.
+
+The B.13 targeted high-order reproduction covers 431 frozen target points and has a successful independent reproduction and provenance archive in [Actions run #45172924204](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45172924204). This is targeted acceptance, not full 1687-radius high-order convergence.

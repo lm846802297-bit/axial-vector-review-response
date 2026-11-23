@@ -212,3 +212,10 @@ The analytic result is deliberately limited: it does not settle the authors' int
 ## C4-C4 anchor provenance (2026-11-15)
 
 The exact historical C4-C4-A input has been recovered and the downstream input paths repaired. See [the anchor provenance note](audit_provenance/README.md) before rerunning C4-C4-Aq or C4-C4-B.
+
+
+## B.16 energy-grid identity and strict phase-space result (2026-11-23)
+
+The original 842-node energy-grid reference is preserved in `outputs/b16_energy_grid_reference_10mev_2026-11-09.json`. Cross-runner byte hashes can differ by one ULP while the physical nodes agree within the declared tolerance. The production output stores the full node array and reference-file SHA-256; the validator checks both. See [the energy-grid diagnostic](B16_ENERGY_GRID_IDENTITY_DIAGNOSTIC.md), [the strict result report](B16_ESCAPE_PHASE_SPACE_10MEV_RESULT_2026-11-17.md), and [the runbook](B16_ESCAPE_PHASE_SPACE_RUNBOOK_2026-11-10.md).
+
+The latest strict run passed calculation, validation, regression tests, and result archival ([Actions #45172485856](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45172485856)). The +92.4284% Fig. 7 10 MeV luminosity discrepancy remains open and is not changed by this bookkeeping result.
