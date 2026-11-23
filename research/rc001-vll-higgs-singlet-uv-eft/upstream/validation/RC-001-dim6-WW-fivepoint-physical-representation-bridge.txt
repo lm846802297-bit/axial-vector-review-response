@@ -1,0 +1,31 @@
+RC-001 physical SU(2) field-representation bridge
+
+PASS: physical field generators satisfy [R^a,R^b]=+i epsilon R (9216 component checks).
+REPRESENTATIONS:
+  R_barL=-t^T
+  R_H=+t
+  R_Hdag=-t^T
+  R_L=+t
+
+PASS: six pair projections unchanged (96/96).
+PASS: candidate A-line ordered commutator in physical-representation algebra = +i G_AB (288/288).
+PASS: candidate B-line ordered commutator in physical-representation algebra = +i G_AB (288/288).
+PASS: physical scalar-seagull anticommutator identities (288/288).
+
+SCOPE CLARIFICATION:
+  These are algebraic physical-representation identities for all six pair labels.
+  The explicit raw open-chain ordering is independently mapped only for
+  cross-vertex LD-W-01/02/05/06 in:
+  research/RC-001-dim6-WW-cross-vertex-raw-weak-index-bridge.md
+  Same-vertex LD-W-03/04 have a distinct S -> F internal-W orientation;
+  their graph-level raw ordering remains open.
+
+BOUNDARY:
+  No Lorentz-weighted A/B matter-line plus three-W cancellation.
+  No complete scalar-line/seagull endpoint sum.
+  No ghost/gauge-fixing Slavnov-Taylor completion.
+  No external-leg/counterterm sum.
+  No loop integration, transverse form factor, or Wilson coefficient.
+
+Execution: local Python + SymPy exact symbolic arithmetic.
+This is not a GitHub Actions result or an independent FeynArts/FeynCalc run.

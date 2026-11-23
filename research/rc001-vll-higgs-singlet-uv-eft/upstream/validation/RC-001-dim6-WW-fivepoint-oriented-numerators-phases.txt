@@ -1,0 +1,37 @@
+RC-001-WW-UV-FF-02 Stage B2c oriented numerator and phase audit
+
+PASS: A-oriented fermion insertion WTI (16/16 Dirac components).
+PASS: B-oriented fermion insertion WTI (16/16 Dirac components).
+PASS: oppositely oriented scalar-line WTI (2/2 identities).
+PASS: scalar seagull anticommutator (9/9 generator pairs).
+PASS: bare three-W contraction (16/16 Lorentz components).
+PASS: Feynman-gauge W chain including R_FG (16/16 components).
+PASS: LD-W-03/04 Dirac-Hermitian conjugate numerator relation (16/16 components).
+PASS: Feynman-rule phase ratios:
+  common four-point skeleton: -g2^2 |y_l|^2
+  ordinary fermion/scalar line insertion: -g2
+  scalar seagull replacement: +g2
+  internal-W three-gauge insertion: -i g2
+
+DIRECT FIVE-POINT GRAPH CENSUS:
+  LD-W-01: 3
+  LD-W-02: 4
+  LD-W-03: 4
+  LD-W-04: 4
+  LD-W-05: 4
+  LD-W-06: 5
+  total: 24 = 12 matter-line + 6 scalar seagull + 6 three-W
+
+RESULT:
+  Oriented line numerators and relative phase building blocks pass.
+
+BOUNDARY:
+  No complete 24-graph weak/Lorentz sum.
+  No matter-line/three-W commutator cancellation claimed.
+  No full scalar-line/seagull endpoint sum.
+  No ghost/gauge-fixing Slavnov-Taylor completion.
+  No external-leg/counterterm sum.
+  No loop integration, transverse form factor, or Wilson coefficient.
+
+Execution: local Python + SymPy exact symbolic arithmetic.
+This is not a GitHub Actions result or an independent FeynArts/FeynCalc run.

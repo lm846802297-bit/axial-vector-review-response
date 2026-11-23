@@ -1,0 +1,32 @@
+RC-001 B2c-IVj explicit common-k shift-map audit
+
+PASS: cross-vertex Yukawa-endpoint maps (8/8; 32 vector equalities = 128 components).
+PASS: same-vertex Yukawa-endpoint maps (4/4; 16 vector equalities = 64 components).
+PASS: all Yukawa-endpoint maps (12/12; 48 vector equalities = 192 components).
+PASS: cross-vertex scalar-seagull maps (4/4; 12 vector equalities = 48 components).
+PASS: same-vertex scalar-seagull maps (2/2; 6 vector equalities = 24 components).
+PASS: all scalar-seagull maps (6/6; 18 vector equalities = 72 components).
+
+PROPAGATOR-DIFFERENCE ASSIGNMENT:
+  cross A-Yukawa endpoint, after k_old -> k+q: D(k+q)
+  cross B-Yukawa endpoint, unshifted: D(k)
+  same F-Yukawa endpoint, unshifted: D(k)
+  same S-Yukawa endpoint, after k_old -> k+q: D(k+q)
+
+PAIR-LEVEL ROUTING:
+  LD-W-01: both cross Yukawa endpoints aligned
+  LD-W-02: both cross Yukawa endpoints and B seagull aligned
+  LD-W-03: both same-vertex Yukawa endpoints and S seagull aligned
+  LD-W-04: both same-vertex Yukawa endpoints and S seagull aligned
+  LD-W-05: both cross Yukawa endpoints and A seagull aligned
+  LD-W-06: both cross Yukawa endpoints and A/B seagulls aligned
+
+BOUNDARY:
+  Adjacent matter momenta, heavy-channel momenta and W momenta match
+  the corresponding three-W reference routing exactly.
+  This is kinematic alignment only; it does not sum weak tensors or
+  prove cancellation of the scalar seagull, ghost/ST, or external terms.
+  No loop integration, UV-EFT subtraction, or Wilson coefficient is claimed.
+
+Execution: local exact SymPy arithmetic in the calculation session.
+This is not a GitHub Actions result or a FeynArts/FeynCalc run.
