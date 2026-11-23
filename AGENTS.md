@@ -6,19 +6,24 @@ Before starting any task in this repository, read:
 
 1. [PROJECT_STATUS.md](PROJECT_STATUS.md) — current project stage, verified repository state, open work, and next actions.
 2. [README-先读这里.md](README-先读这里.md) — repository navigation and task-based reading routes.
-3. The [central standards index](https://github.com/lm846802297-bit/high-energy-theory-research/blob/142267bc803c90aa681110293b66b73947bbcaa1/docs/governance/CENTRAL_STANDARDS_INDEX.md) and [research/standards-lock.yaml](research/standards-lock.yaml) — the exact adopted shared standards revision and profiles.
+3. The [central standards index](https://github.com/lm846802297-bit/high-energy-theory-research/blob/db503f0eb579bdbcac702e44237a6610c34690e7/docs/governance/CENTRAL_STANDARDS_INDEX.md) and [research/standards-lock.yaml](research/standards-lock.yaml) — the exact adopted shared standards revision and profiles.
 4. [RESEARCH_COMPUTE_POLICY.md](RESEARCH_COMPUTE_POLICY.md) — the local compatibility pointer to the pinned central compute policy.
 
 This file (AGENTS.md) defines mandatory project rules. Shared governance, task handoff, compute, archival, RCRPS, document review, referee-response, and Git requirements are maintained centrally at the pinned revision. Do not load every research document by default; follow the task routes below.
 
-For substantive research, derivation, numerical, code, validation, or referee-response work, follow the [central Research Task Handoff Standard](https://github.com/lm846802297-bit/high-energy-theory-research/blob/142267bc803c90aa681110293b66b73947bbcaa1/docs/RESEARCH_TASK_HANDOFF_STANDARD.md) and use the [central Research Task Brief template](https://github.com/lm846802297-bit/high-energy-theory-research/blob/142267bc803c90aa681110293b66b73947bbcaa1/templates/research-task-brief.md). Trivial editorial/maintenance changes may omit a brief when the PR explains why it is not applicable.
+For substantive research, derivation, numerical, code, validation, or referee-response work, follow the [central Research Task Handoff Standard](https://github.com/lm846802297-bit/high-energy-theory-research/blob/db503f0eb579bdbcac702e44237a6610c34690e7/docs/RESEARCH_TASK_HANDOFF_STANDARD.md) and use the [central Research Task Brief template](https://github.com/lm846802297-bit/high-energy-theory-research/blob/db503f0eb579bdbcac702e44237a6610c34690e7/templates/research-task-brief.md). Trivial editorial/maintenance changes may omit a brief when the PR explains why it is not applicable.
+
+## Task-level central standards provenance
+
+For every substantive task, create a machine-readable record at `research/standards-provenance/tasks/<task-id>.json` using the central Standards Adoption schema. Bind the exact standards-lock and finalized task-brief bytes by SHA-256; record the locked central commit, only the profiles actually applied, project-local extensions, and predeclared acceptance criteria. For numerical runs, repeat the same provenance in `run_manifest.extensions.standards_provenance`. The `.github/workflows/standards-adoption-validation.yml` workflow validates the lock and any task/run provenance records. A lock file alone does not prove task-level application.
+
 
 ## 2. Task-based reading routes
 
 ### Referee-response writing, editing, or audit
 
 Read:
-- [中央审稿回复与论文同步规范](https://github.com/lm846802297-bit/high-energy-theory-research/blob/142267bc803c90aa681110293b66b73947bbcaa1/docs/REFEREE_RESPONSE_AND_MANUSCRIPT_SYNCHRONIZATION_STANDARD.md)
+- [中央审稿回复与论文同步规范](https://github.com/lm846802297-bit/high-energy-theory-research/blob/db503f0eb579bdbcac702e44237a6610c34690e7/docs/REFEREE_RESPONSE_AND_MANUSCRIPT_SYNCHRONIZATION_STANDARD.md)
 - [轴矢量项目审稿回复写作扩展](审稿意见-gpt/写作规范/审稿回复写作原则.md)
 - [Current referee-facing response](Replies_to_Referee_3_referee_facing_2026-11-04.tex)
 - [Internal manuscript synchronization checklist](审稿意见-gpt/当前执行/论文修改与一致性核查/2026-11-03/论文正文待同步修改清单_2026-11-03.md)
@@ -82,7 +87,7 @@ Do not merge these file roles or copy internal workflow content into the referee
 
 ## 5. Numerical research and result archival
 
-The shared rules for primary execution environment, run provenance, GitHub archival, native outputs, extraction, SHA-256 verification, and structured numerical records are governed by the pinned central [Research Compute Policy](https://github.com/lm846802297-bit/high-energy-theory-research/blob/142267bc803c90aa681110293b66b73947bbcaa1/RESEARCH_COMPUTE_POLICY.md), [Calculation-result Archival Policy](https://github.com/lm846802297-bit/high-energy-theory-research/blob/142267bc803c90aa681110293b66b73947bbcaa1/docs/CALCULATION_RESULT_ARCHIVAL_POLICY.md), and [RCRPS v1.0.1](https://github.com/lm846802297-bit/high-energy-theory-research/blob/142267bc803c90aa681110293b66b73947bbcaa1/docs/STRUCTURED_RESULT_DATA_STANDARD_v1.0.1.md).
+The shared rules for primary execution environment, run provenance, GitHub archival, native outputs, extraction, SHA-256 verification, and structured numerical records are governed by the pinned central [Research Compute Policy](https://github.com/lm846802297-bit/high-energy-theory-research/blob/db503f0eb579bdbcac702e44237a6610c34690e7/RESEARCH_COMPUTE_POLICY.md), [Calculation-result Archival Policy](https://github.com/lm846802297-bit/high-energy-theory-research/blob/db503f0eb579bdbcac702e44237a6610c34690e7/docs/CALCULATION_RESULT_ARCHIVAL_POLICY.md), and [RCRPS v1.0.1](https://github.com/lm846802297-bit/high-energy-theory-research/blob/db503f0eb579bdbcac702e44237a6610c34690e7/docs/STRUCTURED_RESULT_DATA_STANDARD_v1.0.1.md).
 
 The axial-vector project-specific RCRPS extension is [docs/repository-management/STRUCTURED_RESULT_DATA_STANDARD.md](docs/repository-management/STRUCTURED_RESULT_DATA_STANDARD.md). It defines only the `supernova_transport` and `uv_eft` fields. Preserve existing C1/A0 JSON, CSV, figures, and historical calculation outputs; new substantial runs must use the v1.0.1 source-control provenance contract and retain the project-specific physical metadata.
 
@@ -91,17 +96,17 @@ The local `RESEARCH_COMPUTE_POLICY.md` remains as a stable compatibility entry p
 
 ## CI and independent verification
 
-Follow the pinned central [Research Compute Policy](https://github.com/lm846802297-bit/high-energy-theory-research/blob/142267bc803c90aa681110293b66b73947bbcaa1/RESEARCH_COMPUTE_POLICY.md). GitHub Actions is optional supporting infrastructure unless the task owner explicitly requires a particular run. It does not replace the primary calculation or scientific validation. Record the exact status and commit for checks actually run; do not treat a queued workflow as a blocker or an unrun check as passed.
+Follow the pinned central [Research Compute Policy](https://github.com/lm846802297-bit/high-energy-theory-research/blob/db503f0eb579bdbcac702e44237a6610c34690e7/RESEARCH_COMPUTE_POLICY.md). GitHub Actions is optional supporting infrastructure unless the task owner explicitly requires a particular run. It does not replace the primary calculation or scientific validation. Record the exact status and commit for checks actually run; do not treat a queued workflow as a blocker or an unrun check as passed.
 
 
 ## GitHub PR review and merge
 
-Follow the pinned central [Git Merge Policy](https://github.com/lm846802297-bit/high-energy-theory-research/blob/142267bc803c90aa681110293b66b73947bbcaa1/docs/governance/GIT_MERGE_POLICY.md). This repository retains **Create a merge commit** as its default for substantive research, numerical, validation, referee-response, and archival work. The local [GIT_MERGE_POLICY.md](GIT_MERGE_POLICY.md) is a compatibility pointer, not an independent second policy.
+Follow the pinned central [Git Merge Policy](https://github.com/lm846802297-bit/high-energy-theory-research/blob/db503f0eb579bdbcac702e44237a6610c34690e7/docs/governance/GIT_MERGE_POLICY.md). This repository retains **Create a merge commit** as its default for substantive research, numerical, validation, referee-response, and archival work. The local [GIT_MERGE_POLICY.md](GIT_MERGE_POLICY.md) is a compatibility pointer, not an independent second policy.
 
 
 ## Research communication and decision policy
 
-Follow the pinned central [Research Governance Standard](https://github.com/lm846802297-bit/high-energy-theory-research/blob/142267bc803c90aa681110293b66b73947bbcaa1/docs/RESEARCH_GOVERNANCE_STANDARD.md) and the [Research reporting standard](https://github.com/lm846802297-bit/high-energy-theory-research/blob/142267bc803c90aa681110293b66b73947bbcaa1/docs/scientific-diff-workflow.md#11-research-reporting-and-communication-standard). For referee-response work, also follow the central [Referee Response and Manuscript Synchronization Standard](https://github.com/lm846802297-bit/high-energy-theory-research/blob/142267bc803c90aa681110293b66b73947bbcaa1/docs/REFEREE_RESPONSE_AND_MANUSCRIPT_SYNCHRONIZATION_STANDARD.md) and the stricter axial-vector [local writing profile](审稿意见-gpt/写作规范/审稿回复写作原则.md).
+Follow the pinned central [Research Governance Standard](https://github.com/lm846802297-bit/high-energy-theory-research/blob/db503f0eb579bdbcac702e44237a6610c34690e7/docs/RESEARCH_GOVERNANCE_STANDARD.md) and the [Research reporting standard](https://github.com/lm846802297-bit/high-energy-theory-research/blob/db503f0eb579bdbcac702e44237a6610c34690e7/docs/scientific-diff-workflow.md#11-research-reporting-and-communication-standard). For referee-response work, also follow the central [Referee Response and Manuscript Synchronization Standard](https://github.com/lm846802297-bit/high-energy-theory-research/blob/db503f0eb579bdbcac702e44237a6610c34690e7/docs/REFEREE_RESPONSE_AND_MANUSCRIPT_SYNCHRONIZATION_STANDARD.md) and the stricter axial-vector [local writing profile](审稿意见-gpt/写作规范/审稿回复写作原则.md).
 
 The [研究决策与不可回退事项](审稿意见-gpt/项目规范/研究决策与不可回退事项.md) remains the project-specific author-approved decision register. It records current model choices and historical decision changes; it does not replace the central source hierarchy.
 
