@@ -1,0 +1,90 @@
+{
+  "check_scope": "one reducible external Hdagger(p3) LD-W-06 graph, before loop integration",
+  "runtime": {
+    "python": "3.12.14",
+    "sympy": "1.14.0",
+    "os": "Linux",
+    "machine": "x86_64"
+  },
+  "symbolic": "vertex conservation, scalar Ward factor and B-side current shift exact",
+  "points": [
+    {
+      "q_squared": "-4",
+      "p3_squared": "1",
+      "P_squared": "-5",
+      "reduced_four_point_poles": [
+        "10",
+        "11",
+        "15",
+        "-393"
+      ],
+      "ward_scalar_factor": "6/5",
+      "B_dot_A_shifted": "54",
+      "B_dot_A_internal_current": "36",
+      "exact_entry_counts": {
+        "uncontracted": 3072,
+        "amputated": 768,
+        "external_scalar_restored": 768,
+        "after_scalar_pole_projection": 0,
+        "wrong_crossing": 288,
+        "wrong_transpose": 96,
+        "wrong_order": 288,
+        "missing_relative_minus": 288,
+        "copied_internal_current": 288,
+        "discarded_inverse": 288
+      }
+    },
+    {
+      "q_squared": "0",
+      "p3_squared": "3",
+      "P_squared": "7",
+      "reduced_four_point_poles": [
+        "34",
+        "35",
+        "75",
+        "-377"
+      ],
+      "ward_scalar_factor": "4/7",
+      "B_dot_A_shifted": "82",
+      "B_dot_A_internal_current": "64",
+      "exact_entry_counts": {
+        "uncontracted": 3072,
+        "amputated": 768,
+        "external_scalar_restored": 768,
+        "after_scalar_pole_projection": 0,
+        "wrong_crossing": 288,
+        "wrong_transpose": 96,
+        "wrong_order": 288,
+        "missing_relative_minus": 288,
+        "copied_internal_current": 288,
+        "discarded_inverse": 288
+      }
+    },
+    {
+      "q_squared": "-4",
+      "p3_squared": "0",
+      "P_squared": "-2",
+      "reduced_four_point_poles": [
+        "19",
+        "23",
+        "25",
+        "-387"
+      ],
+      "ward_scalar_factor": "1",
+      "B_dot_A_shifted": "45",
+      "B_dot_A_internal_current": "37",
+      "exact_entry_counts": {
+        "uncontracted": 3072,
+        "amputated": 768,
+        "external_scalar_restored": 0,
+        "after_scalar_pole_projection": 768,
+        "wrong_crossing": 288,
+        "wrong_transpose": 96,
+        "wrong_order": 288,
+        "missing_relative_minus": 288,
+        "copied_internal_current": 288,
+        "discarded_inverse": 0
+      }
+    }
+  ]
+}
