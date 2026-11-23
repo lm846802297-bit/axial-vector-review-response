@@ -11,6 +11,7 @@ on:
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/energy_grid_identity.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_energy_grid_reference_10mev_2026-11-09.json'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-10.json'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-17.json'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_high_order_independent_grid_10mev_2026-11-09.json'
   pull_request:
     branches:
@@ -22,6 +23,7 @@ on:
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/energy_grid_identity.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_energy_grid_reference_10mev_2026-11-09.json'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-10.json'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-17.json'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_high_order_independent_grid_10mev_2026-11-09.json'
   workflow_dispatch:
 
@@ -59,5 +61,6 @@ jobs:
       - name: Validate the committed 10 MeV mainline result
         run: |
           python research/stellar-cooling-constraints-20261105/blinov_reproduction/validate_b16_escape_phase_space_output.py \
-            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-10.json \
-            --baseline research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_high_order_independent_grid_10mev_2026-11-09.json
+            research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_escape_phase_space_10mev_2026-11-17.json \
+            --baseline research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_global_high_order_independent_grid_10mev_2026-11-09.json \
+            --grid-reference research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_energy_grid_reference_10mev_2026-11-09.json
