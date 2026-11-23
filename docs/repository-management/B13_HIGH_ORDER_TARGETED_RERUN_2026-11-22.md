@@ -97,3 +97,27 @@ The B.13 branch now has **119 workflow YAML files and 119 unique register entrie
 The B.13 workflow uses `contents: read` by default and for Calculate. Only the separate push archive job receives `contents: write`. PR events `opened`, `reopened` and `ready_for_review` run read-only validation; `synchronize` is excluded so an archive-bot commit does not request an approval-gated PR workflow. Push path filters exclude generated output files. Before write-back and before every retry rebase, the archive job compares the workflow, local run summary, source identity and independent validator Git blobs against the latest branch; it refuses stale output and retries at most five times.
 
 The final branch head before this metadata refresh was `27204a98aacac2eb2df9731fec30a894dfd2616a`. No production rate, opacity, transport result, Fig. 7 value or axial-vector constraint is changed.
+
+## Exact current-head reproduction — 2026-11-23
+
+The updated B.13 provenance branch was rerun at its current PR head. [Actions run #45172924204](https://github.com/lm846802297-bit/axial-vector-review-response/actions/runs/45172924204) completed Calculate, Validate and Archive successfully.
+
+- Event commit: \`080882237e2455a774011aa0dcd40ae4b1831965\`.
+- Exact calculation source commit: \`e49908762e90271f4bc84be75e19577431febd4c\`.
+- Runner: Ubuntu 24.04 / AMD EPYC 7763, four visible vCPUs.
+- Environment: Python 3.13.5, NumPy 2.3.5, SciPy 1.17.0.
+- Runtime: 707.7 s.
+- Reproduced 431/431 unique \((r,x)\) points and 2,155 ordered evaluations.
+- Maximum final successive-order change: \(3.29220848525901\times10^{-4}\).
+- Maximum radial midpoint interpolation error: \(8.311070322862653\times10^{-4}\).
+- Maximum energy PCHIP error: \(6.716564877619043\times10^{-4}\).
+- Maximum detailed-balance residual: \(5.027846521385086\times10^{-15}\).
+- Maximum mass-shell residual: \(2.0432421890821873\times10^{-13}\).
+- All targeted quadrature and finite/nonnegative-rate checks pass.
+
+The new artifact \`14817924904\` has ZIP SHA-256 \`5f691d3e856c95e229c21587587685e6ad0eefa9e270131af600deb8fe05da1e\`. All five archived native files match their Git blobs and the SHA-256 manifest.
+
+The 431-point JSON was independently compared with the prior successful AMD EPYC run #45054965537 after alignment by exact \((r,x)\) keys. All 431 task keys and order ladders match; 28,446 numerical leaf fields were compared with zero differences. This is an exact repeat of the same targeted computation on the same pinned numerical environment.
+
+The acceptance remains deliberately limited to the 431-point targeted set. The full 1,687-node global high-order acceptance remains false; no B.1/B.2 production result, Fig. 7 curve, opacity, or axial-vector constraint is promoted by this rerun.
+
