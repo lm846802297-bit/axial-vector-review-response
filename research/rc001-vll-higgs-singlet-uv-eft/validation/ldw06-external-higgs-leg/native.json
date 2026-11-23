@@ -1,0 +1,80 @@
+{
+  "python": "3.12.14",
+  "sympy": "1.14.0",
+  "scope": "one LD-W-06 reducible H(p2) emission; no full LSZ, Ward/STI or matching",
+  "symbolic": {
+    "vertices_and_common_k_routes": "pass",
+    "scalar_WTI": "pass"
+  },
+  "points": [
+    {
+      "p2_squared": "-5",
+      "q_squared": "-4",
+      "shifted_scalar_virtuality": "-17",
+      "four_point_denominators": [
+        "10",
+        "-3",
+        "19",
+        "-405"
+      ],
+      "scalar_ward_factor": "12/17",
+      "entry_counts": {
+        "amputated": 768,
+        "uncontracted": 3072,
+        "projected_scalar_mass_shell": 0,
+        "connected": 768,
+        "omitted_heavy_shift": 288,
+        "reversed_weak_order": 216,
+        "omitted_external_inverse_propagator_term": 216,
+        "wrong_current_rebase": 216,
+        "omitted_external_relative_minus": 216
+      }
+    },
+    {
+      "p2_squared": "-5",
+      "q_squared": "0",
+      "shifted_scalar_virtuality": "-9",
+      "four_point_denominators": [
+        "34",
+        "21",
+        "61",
+        "-389"
+      ],
+      "scalar_ward_factor": "4/9",
+      "entry_counts": {
+        "amputated": 768,
+        "uncontracted": 3072,
+        "projected_scalar_mass_shell": 0,
+        "connected": 768,
+        "omitted_heavy_shift": 288,
+        "reversed_weak_order": 288,
+        "omitted_external_inverse_propagator_term": 288,
+        "wrong_current_rebase": 288,
+        "omitted_external_relative_minus": 288
+      }
+    },
+    {
+      "p2_squared": "0",
+      "q_squared": "-4",
+      "shifted_scalar_virtuality": "-2",
+      "four_point_denominators": [
+        "19",
+        "9",
+        "11",
+        "-397"
+      ],
+      "scalar_ward_factor": "1",
+      "entry_counts": {
+        "amputated": 768,
+        "uncontracted": 3072,
+        "projected_scalar_mass_shell": 768,
+        "connected": 0,
+        "omitted_heavy_shift": 216,
+        "reversed_weak_order": 288,
+        "omitted_external_inverse_propagator_term": 0,
+        "wrong_current_rebase": 288,
+        "omitted_external_relative_minus": 288
+      }
+    }
+  ]
+}
