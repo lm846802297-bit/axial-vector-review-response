@@ -1,0 +1,36 @@
+{
+  "exact_symbolic_cleared_heavy_difference_matrix_checks": 16,
+  "points": [
+    {
+      "V_A_dot_q": "-9",
+      "V_B_dot_q": "5",
+      "heavy_shifted_A": "-405",
+      "heavy_unshifted": "-393",
+      "negative_control_changed_entries": {
+        "contact_sign": 216,
+        "missing_RFG": 216,
+        "missing_shifted_heavy": 216
+      },
+      "q_squared": "-4",
+      "shifted_raw_matrix_checks": 768,
+      "unshifted_raw_matrix_checks": 768
+    },
+    {
+      "V_A_dot_q": "-9",
+      "V_B_dot_q": "-9",
+      "heavy_shifted_A": "-389",
+      "heavy_unshifted": "-377",
+      "negative_control_changed_entries": {
+        "contact_sign": 144,
+        "missing_RFG": 144,
+        "missing_shifted_heavy": 144
+      },
+      "q_squared": "0",
+      "shifted_raw_matrix_checks": 768,
+      "unshifted_raw_matrix_checks": 768
+    }
+  ],
+  "python": "3.12.14",
+  "scope": "scalar-line A/B plus two seagulls plus contracted 3W subset; no Yukawa/LSZ/BRST closure or Wilson coefficient",
+  "sympy": "1.14.0"
+}

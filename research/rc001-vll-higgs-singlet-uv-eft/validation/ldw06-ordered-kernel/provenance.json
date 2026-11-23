@@ -1,0 +1,30 @@
+{
+  "source_commit": "89cd043984012215f74ae331049a626badea9d57",
+  "source_files": [
+    {
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-fivepoint-common-k-ordinary-matter-assembly-ledger.md",
+      "blob": "22fc3b0373f350ae7973390cc6fe0e5582418e89",
+      "sha256": "dc7849f6969253df9c70b025c3f79072fe790e4013843c7f7ed67f8760d5e101"
+    },
+    {
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-fivepoint-LD-W-06-common-k-SS-two-endpoint-bridge.md",
+      "blob": "e9144c0438aecaaa7c469314317c12cd4848c939",
+      "sha256": "962a10f30b07f802f50e3a4ea886e7d66b69ecc595a78f7373c6192c39e513a8"
+    },
+    {
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-fivepoint-LD-W-06-secondary-shift-heavy-channel-audit.md",
+      "blob": "7365c54ae9bbd3a4679feee06e4736fec5591856",
+      "sha256": "58495507f5fb8d7280ed2ef8182b6cb828f97ba73ea76edccc674383f3ca9049"
+    },
+    {
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-fivepoint-common-k-lorentz-kernel.md",
+      "blob": "884b03c49adc6dbf7685335370eaa7854b5a017c",
+      "sha256": "bae207a235ac0e5c9f687b7adba61517e3416f50b71004587241a9054a42d91b"
+    },
+    {
+      "path": "research/rc001-vll-higgs-singlet-uv-eft/upstream/research/RC-001-dim6-WW-fivepoint-explicit-scalar-line-seagull-six-pair.md",
+      "blob": "66b9512f85659ad47728c2cc7a55df07b4ae1b1f",
+      "sha256": "263deae3dba5d088b0b0811e3498f44dc5cb289c13b12aca8666a01af4a5c732"
+    }
+  ]
+}
