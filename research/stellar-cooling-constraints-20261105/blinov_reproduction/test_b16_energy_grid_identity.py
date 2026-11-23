@@ -3,6 +3,7 @@ import unittest
 import numpy as np
 
 from diagnose_b16_energy_grid_identity import build_energy_grid
+from energy_grid_identity import compare_energy_grid
 
 
 class EnergyGridIdentityTests(unittest.TestCase):
@@ -30,6 +31,29 @@ class EnergyGridIdentityTests(unittest.TestCase):
         first, _ = build_energy_grid(10.0, 200, 1000.0, lapse)
         second, _ = build_energy_grid(10.0, 200, 1000.0, lapse.copy())
         np.testing.assert_array_equal(first, second)
+
+    def test_one_ulp_platform_roundoff_is_accepted(self):
+        reference_nodes = np.linspace(10.0, 1010.0, 842)
+        actual_nodes = reference_nodes.copy()
+        actual_nodes[486] = np.nextafter(actual_nodes[486], np.inf)
+        report = compare_energy_grid(actual_nodes, {"_nodes": reference_nodes})
+        self.assertTrue(report["matches"])
+        self.assertLessEqual(report["max_relative_difference"], 5.0e-15)
+        self.assertGreater(report["max_ulp_difference"], 0.0)
+
+    def test_material_energy_grid_shift_is_rejected(self):
+        reference_nodes = np.linspace(10.0, 1010.0, 842)
+        actual_nodes = reference_nodes.copy()
+        actual_nodes[486] *= 1.0 + 1.0e-10
+        report = compare_energy_grid(actual_nodes, {"_nodes": reference_nodes})
+        self.assertFalse(report["matches"])
+
+    def test_energy_grid_node_count_mismatch_is_rejected(self):
+        reference_nodes = np.linspace(10.0, 1010.0, 842)
+        report = compare_energy_grid(reference_nodes[:-1], {"_nodes": reference_nodes})
+        self.assertFalse(report["matches"])
+        self.assertEqual(report["actual_node_count"], 841)
+        self.assertEqual(report["reference_node_count"], 842)
 
 
 if __name__ == "__main__":
