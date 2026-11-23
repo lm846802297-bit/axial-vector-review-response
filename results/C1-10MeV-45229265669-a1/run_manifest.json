@@ -651,7 +651,9 @@
     "report_path": "results/C1-10MeV-45229265669-a1/validation_report.json"
   },
   "archive": {
-    "status": "local_only"
+    "status": "committed_to_pr_branch",
+    "pr_url": "https://github.com/lm846802297-bit/axial-vector-review-response/pull/123",
+    "verified_at": "2026-11-23T17:48:23Z"
   },
   "extensions": {
     "source_files": {
@@ -676,7 +678,8 @@
       "generator_sha256": "9ae3b3ee6a38ea4939cc66460252aaaa5cef12b459119cd9a7348bce67c32a92",
       "generated_at": "2026-11-23T17:48:21Z",
       "archive_workflow_run_id": "45229265669",
-      "archive_workflow_commit_sha": "f404abed92d5095a306dda81b755372b119c6e92"
+      "archive_workflow_commit_sha": "f404abed92d5095a306dda81b755372b119c6e92",
+      "finalized_at": "2026-11-23T17:48:23Z"
     },
     "source_outputs": {
       "original_repository_paths": {
