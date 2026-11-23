@@ -7,6 +7,8 @@ on:
       - research/b16-energy-grid-diagnostic-20261117
     paths:
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/diagnose_b16_energy_grid_identity.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/energy_grid_identity.py'
+      - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/outputs/b16_energy_grid_reference_10mev_2026-11-09.json'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/test_b16_energy_grid_identity.py'
       - 'research/stellar-cooling-constraints-20261105/blinov_reproduction/reference.py'
       - 'research/stellar-cooling-constraints-20261105/data/sfho188_digitized.csv'
