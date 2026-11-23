@@ -4,11 +4,13 @@ This audit separates a mismatch in the **shape of the strong-coupling decline** 
 
 ## Derivation
 
-For a fixed domain with nonnegative coupling-independent source weights and ray optical depths that scale as $g^2$, set $x=(g/g_*)^2$ and let (	au_*) be depth at $g_*$. Up to fixed units,
+For a fixed domain with nonnegative coupling-independent source weights and ray optical depths that scale as \(g^2\), set \(x=(g/g_*)^2\) and let \(\tau_*\) denote the optical depth at \(g_*\). Up to fixed units,
 $$
-Q(x)=\frac{L$g$}{g^2}=\int w(d\tau_*) e^{-x\tau_*},\
+Q(x)=\frac{L(g)}{g^2}=\int w(d\tau_*)\,e^{-x\tau_*},
+$$
+$$
 -\frac{d\log Q}{dx}=\langle\tau_*\rangle_x,\qquad
-\frac{d^2\log Q}{dx^2}=\operatorname{Var}_x$\tau_*$\geq0 .
+\frac{d^2\log Q}{dx^2}=\operatorname{Var}_x(\tau_*)\geq0.
 $$
 A negative secant of $\log Q$ is the interval mean of the escaping-source depth, not an estimate of local opacity. The code checks only the **necessary** decreasing and convex shape on the sampled grid. A convex interpolant does not prove that the curve admits a positive Laplace mixture. The linear program asks for the minimum symmetric vertical envelope about the archived centerline within which these inequalities are feasible at fixed $g$; it neither reports an adjusted reference nor fits a transport model.
 
