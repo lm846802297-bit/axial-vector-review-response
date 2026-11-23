@@ -21,10 +21,18 @@ import scipy
 
 try:
     from .reference import DEFAULT_PROFILE, radial_rule, load_profile
-    from .audit_b16_global_redshift import float_array_sha256, sha256
+    from .audit_b16_global_redshift import sha256
+    from .energy_grid_identity import (
+        DEFAULT_ENERGY_GRID_REFERENCE, compare_energy_grid,
+        float_array_sha256, load_energy_grid_reference,
+    )
 except ImportError:
     from reference import DEFAULT_PROFILE, radial_rule, load_profile
-    from audit_b16_global_redshift import float_array_sha256, sha256
+    from audit_b16_global_redshift import sha256
+    from energy_grid_identity import (
+        DEFAULT_ENERGY_GRID_REFERENCE, compare_energy_grid,
+        float_array_sha256, load_energy_grid_reference,
+    )
 
 HERE = Path(__file__).resolve().parent
 DEFAULT_BASELINE = (
@@ -70,7 +78,7 @@ def _profile_lapse_direct(profile_path: Path, opacity_grid: np.ndarray) -> np.nd
 
 def run(profile_path: Path, baseline_path: Path, mass: float,
         radial_order: int, opacity_order: int, energy_order: int,
-        energy_offset: float) -> dict:
+        energy_offset: float, grid_reference_path: Path = DEFAULT_ENERGY_GRID_REFERENCE) -> dict:
     baseline_payload = json.loads(baseline_path.read_text(encoding="utf-8"))
     baseline = baseline_payload["result"]
     baseline_config = baseline["configuration"]
@@ -103,6 +111,8 @@ def run(profile_path: Path, baseline_path: Path, mass: float,
     phase_hash = float_array_sha256(energy_phase)
     direct_hash = float_array_sha256(energy_direct)
     expected_hash = baseline_config["energy_grid_sha256"]
+    grid_reference = load_energy_grid_reference(grid_reference_path, expected_hash)
+    grid_comparison = compare_energy_grid(energy_high_order, grid_reference)
     profile_hash = sha256(profile_path)
 
     current_code_hashes = {
@@ -120,7 +130,8 @@ def run(profile_path: Path, baseline_path: Path, mass: float,
         np.array_equal(high_order_profile["lapse"], phase_profile["lapse"])
         and np.array_equal(high_order_profile["lapse"], direct_lapse)
     )
-    baseline_match = high_hash == expected_hash
+    baseline_hash_match = high_hash == expected_hash
+    baseline_match = grid_comparison["matches"]
     profile_match = profile_hash == baseline["profile"]["sha256"]
 
     return {
@@ -167,6 +178,7 @@ def run(profile_path: Path, baseline_path: Path, mass: float,
             "phase_space_driver_energy_grid_sha256": phase_hash,
             "direct_csv_energy_grid_sha256": direct_hash,
             "historical_failed_run_energy_grid_sha256": HISTORICAL_FAILED_HASH,
+            "energy_grid_reference_file_sha256": grid_reference["_file_sha256"],
         },
         "construction_details": {
             "high_order_driver": details_high_order,
@@ -181,7 +193,9 @@ def run(profile_path: Path, baseline_path: Path, mass: float,
                 np.max(np.abs(high_order_profile["lapse"] - phase_profile["lapse"])),
                 np.max(np.abs(high_order_profile["lapse"] - direct_lapse)),
             )),
-            "high_order_vs_baseline_hash_match": bool(baseline_match),
+            "high_order_vs_baseline_hash_match": bool(baseline_hash_match),
+            "high_order_vs_baseline_nodes_match": bool(baseline_match),
+            "energy_grid_reference_comparison": grid_comparison,
             "profile_hash_matches_baseline": bool(profile_match),
             "current_code_sha256": current_code_hashes,
             "baseline_code_sha256": baseline_code_hashes,
@@ -219,11 +233,12 @@ def main() -> int:
     parser.add_argument("--ne", type=int, default=200)
     parser.add_argument("--energy-offset", type=float, default=1000.0)
     parser.add_argument("--strict-baseline", action="store_true")
+    parser.add_argument("--grid-reference", type=Path, default=DEFAULT_ENERGY_GRID_REFERENCE)
     args = parser.parse_args()
 
     result = run(
         args.profile, args.baseline, args.mass, args.nr,
-        args.opacity_order, args.ne, args.energy_offset
+        args.opacity_order, args.ne, args.energy_offset, args.grid_reference
     )
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
