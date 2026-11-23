@@ -1,0 +1,24 @@
+RC-001 tree-level dimension-five matching audit
+Audit date: 2026-10-27
+Script: calculations/RC-001-tree-level-C5-matching-check.py
+Script SHA-256: 84fa01356cc8f939873a850f074f640e8446fc7fa83c32bdf154f1034d071a4b
+Runtime: Python 3.13.5; SymPy 1.14.0
+Command: python calculations/RC-001-tree-level-C5-matching-check.py
+
+STDOUT:
+PASS: P_R^2=P_R
+PASS: P_L^2=P_L
+PASS: P_R P_L=0
+PASS: Minkowski Clifford algebra gives slash(p)^2=p^2
+PASS: P_R slash(p) P_R=0
+PASS: P_R slash(p) P_L=slash(p) P_L
+PASS: mass-numerator P_R propagator through O(p^2/M^3)
+PASS: chirality-preserving P_R...P_L propagator starts at O(p/M^2)
+PASS: Schur complement of the heavy E block
+PASS: declared EFT mass entry C5 vh vs/2 fixes C5=-y lambda/M
+RESULT: 10 exact symbolic tree-level matching checks passed.
+
+Scope:
+- Verifies the operator and mass-matrix convention C5=-y lambda/M_E.
+- Verifies chiral-projector identities and the low-momentum propagator power counting.
+- Does not calculate one-loop corrections to C5, close the full dimension-six Wilson vector, or resolve the physical B1/B3 amplitude sign.

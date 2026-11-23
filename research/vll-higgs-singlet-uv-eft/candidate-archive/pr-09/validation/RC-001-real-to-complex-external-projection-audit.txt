@@ -1,0 +1,27 @@
+RC-001 real-to-complex external-state projection audit
+Audit date: 2026-10-27
+Repository: lm846802297-bit/high-energy-theory-research
+PR #9 branch: research/rc001-portal-boundary-b1b3-reconciliation-2026-10-27
+Script: calculations/RC-001-real-to-complex-external-projection-audit.py
+GitHub content/blob SHA: 05c4ad3f5292a29d7167ffda31cca853f0cd62a2
+SHA-256 of fetched UTF-8/LF source: 98131993a8b4059d78eff026285e04f419a8fdc38f1d6098073d3a43c595b094
+Runtime: Python 3.13.5
+Executed local source: /tmp/rc001_run/RC-001-real-to-complex-external-projection-audit.py
+Command: python -u /tmp/rc001_run/RC-001-real-to-complex-external-projection-audit.py
+Exit code: 0
+
+STDOUT:
+PASS: 16 raw real-to-complex field assignments reduce to 4 charge-neutral assignments.
+PASS: each allowed assignment carries weight (1/sqrt(2))^4=1/4; total field-decomposition weight is 1.
+PASS: 6 labeled cycles = 4!/4, with 3 reverse pairs already included.
+PASS: projection ledger contains 24 assignment-cycle rows = 4 orientations x 6 cycles.
+LIMIT: this does not assign momentum invariants, evaluate diagrams, or determine which interaction-basis orientation/cycle terms vanish.
+CSV: ./rc001_real_to_complex_external_projection.csv (3228 bytes)
+SHA256: 89998e3f899230f6939cd496bca530bc8105ace7b1876009618cb158aab27fa9
+
+Interpretation:
+- For each labeled real field, (h_i=(H_i+H_i^dagger)/sqrt2) and (s_i=(S_i+S_i^dagger)/sqrt2). Of the (2^4=16) assignments, charge neutrality leaves four assignments with one (H), one (H^dagger), one (S), and one (S^dagger).
+- Each allowed assignment has weight (1/4), so the field-decomposition weights sum to one. This is a field-projection identity, not a statement that the four momentum-routed complex amplitudes are equal.
+- The six labeled real-field cycles remain six cycles with three reverse pairs. The projection ledger lists all 24 orientation/cycle combinations; it adds no extra factor for reverse loops.
+- The momentum routing, channel crossings, and which interaction-basis orientations vanish must still be derived from the original Yukawa vertices. This script does not evaluate the amplitude or its Wilson coefficients.
+- The local source SHA-256 matched the fetched GitHub UTF-8/LF source byte-for-byte before execution. Git checkout was not available because the execution container could not resolve github.com; this is source-aligned local execution, not a clean-checkout claim.

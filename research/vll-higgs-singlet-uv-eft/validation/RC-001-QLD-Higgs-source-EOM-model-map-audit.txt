@@ -1,0 +1,13 @@
+RC-001 Higgs-source and fermion-EOM model-map audit
+
+PASS 1: the charged-lepton U(1)_X Yukawa charge matrix is
+        [[0,-1,+1],[-1,-2,0],[+1,0,+2]].
+PASS 2: only e-e, mu-tau, and tau-mu renormalizable entries are gauge invariant.
+PASS 3: the original flavor-diagonal model keeps e-e and sets the gauge-allowed mu-tau/tau-mu entries to zero; they are not described as gauge-forbidden.
+PASS 4: diagonal mu-mu and tau-tau renormalizable Yukawas are gauge-forbidden.
+PASS 5: S* bar(mu_R) L_mu and S bar(tau_R) L_tau dimension-five Higgs sources are separately U(1)_X neutral.
+PASS 6: an O(M_E^-4) source operator times C5 starts at O(M_E^-5); the C5 source-square starts at O(M_E^-6).
+PASS 7: the leading fermion EOM fixes only gamma-contracted derivatives; free-index D_mu fermion structures retain gamma-traceless derivative components.
+
+SCOPE: model-specific Higgs-source inventory, charge classification, and power counting before Fierz reduction.
+NOT CLAIMED: complete fermionic dimension-eight basis, Fierz closure, loop matching, or physical observables.

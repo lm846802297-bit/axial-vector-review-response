@@ -1,0 +1,35 @@
+RC-001 fixed-complex finite-mixing B2 path-integral ledger
+Audit date: 2026-10-27
+Script: calculations/RC-001-fixed-complex-finite-mixing-B2-ledger.py
+Git blob SHA: 40d099dbf8689747288a22b72fd442beb4dca391
+Runtime for expression replay: Python 3.13.5; SymPy 1.14.0; mpmath available
+Execution note: the same path matrices, route geometry, simplex moments, and integration expressions were executed in a SymPy notebook. The checked-in script was not launched as a standalone process in this turn; this is expression-replay evidence, not a byte-aligned script-process log.
+
+SCOPE:
+- Fixed complex orientation only: mu H,S,Sdag,Hdag; tau H,Sdag,S,Hdag.
+- Positive-light-mass Eq. (13) vertex convention, real Yukawa benchmark, and fixed chiral sequence P_R,P_R,P_L,P_L.
+- All 16 internal mass-eigenstate paths retained for each flavor.
+- Only the C_13 mass-numerator structure is present, so the O(p^2) kernel is B2-type. No B1/B3 term is inserted into this fixed complex amplitude.
+- The d=4 simplex integral includes Gamma(4)=6 exactly once.
+
+RESULTS:
+- 192 path/invariant rows generated analytically: 2 flavors x 16 paths x 6 invariants.
+- In the zero-mixing limit, each fixed complex orientation has exactly one nonzero path, (0,1,0,1), with coupling product y^2 lambda^2; all other path coupling products vanish.
+- The exact rational benchmark (c_L=c_R=12/13, s_L=s_R=5/13, m_1=1, m_2=144/25, y=2/7, lambda=3/11) satisfies the triangular M11=0 constraint.
+- At that benchmark, the integrated mu/tau sums obey the S <-> Sdag permutation Q2 <-> Q3 and Q4 <-> Q5; Q1 and Q6 remain invariant. The six numeric coefficients (Q1..Q6) are:
+  mu: -0.00012717262521532017560098347971532490,
+      -0.00014191162881651268074184311739712318,
+      -0.000035519534585996893374642299335605754,
+      -0.00023356471944583596296818429777684232,
+      -0.000020780530984804388233782661653807472,
+      -0.000050258538187189398515501937017404036.
+  tau: -0.00012717262521532017560098347971532490,
+       -0.000035519534585996893374642299335605754,
+       -0.00014191162881651268074184311739712318,
+       -0.000020780530984804388233782661653807472,
+       -0.00023356471944583596296818429777684232,
+       -0.000050258538187189398515501937017404036.
+- The notebook-generated 192-row CSV is 63,259 bytes with SHA-256 3cd876b6938db7d1d86da179279d94be1554ec271c1a7de16774887be0f9dba7. It is a reproducible local artifact and is not committed.
+
+INTERPRETATION BOUNDARY:
+This is a finite-mass d=4 conditional kernel sum, not the dimensionally regulated hard coefficient. The m_1 -> 0 limit cannot be taken naively: endpoint/IR-sensitive terms must be separated from the EFT soft contribution. The common diagrammatic i/sign, determinant-log multiplicity, soft bubble/contact/counterterm subtraction in the same scheme, and final common-basis UV-EFT coefficient remain open.

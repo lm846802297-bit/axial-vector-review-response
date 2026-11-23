@@ -1,0 +1,23 @@
+RC-001 B2c-IVg scalar endpoint Lorentz/weak decomposition
+
+PASS: A scalar line + seagull decomposition.
+  symmetric tensor S_A and antisymmetric tensor G_AB kept separate.
+PASS: B/S scalar line + seagull decomposition.
+  symmetric tensor S_B and antisymmetric tensor G_FS kept separate.
+PASS: cross-vertex three-W group phase equals the line commutator group phase.
+PASS: same-vertex S->F three-W group phase is opposite to the line commutator group phase.
+
+A-side formula:
+  g2*[(-1/2*(DeltaY-DeltaW)*V_A + DeltaY*q)*S_A
+      - i/2*(DeltaY-DeltaW)*V_A*G_AB]
+
+B/S-side formula:
+  g2*[(+1/2*(DeltaY-DeltaW)*V_B + DeltaY*q)*S_B
+      + i/2*(DeltaY-DeltaW)*V_B*G_FS]
+
+BOUNDARY:
+  Exact algebraic Lorentz/weak decomposition only.
+  No common-k integrand sum, loop integration, or full Slavnov-Taylor closure.
+
+Execution: local SymPy exact symbolic arithmetic.
+This is not a GitHub Actions result or a FeynArts/FeynCalc run.

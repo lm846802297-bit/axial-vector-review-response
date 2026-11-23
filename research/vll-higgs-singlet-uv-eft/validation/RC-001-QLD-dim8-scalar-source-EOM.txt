@@ -1,0 +1,58 @@
+RC-001 QLD8 scalar-source higher-derivative EOM audit
+
+Let K=-D^2 and K_H=f_H H+J_H, with
+  f_H=-mu_H^2+2 lambda_H X+lambda_HS Y,
+  D^2 H=-f_H H-J_H.
+
+Since K is self-adjoint in the action,
+  H^dagger K^3 H = (K H)^dagger K(K H)
+  ~= K_H^dagger(-D^2)K_H
+  ~= (D_mu K_H)^dagger D^mu K_H.
+Thus
+  O_S ~= |D_mu(f_H H+J_H)|^2.
+
+Product rule:
+  D_mu K_H=(partial_mu f_H)H+f_H D_mu H+D_mu J_H.
+
+Full source decomposition:
+  |D K_H|^2 =
+      X (partial f_H)^2
+    + f_H^2 |D H|^2
+    + (D J_H)^dagger(D J_H)
+    + f_H (partial_mu f_H)(partial^mu X)
+    + (partial_mu f_H)[H^dagger D^mu J_H+(D^mu J_H)^dagger H]
+    + f_H[(D_mu H)^dagger D^mu J_H+(D^mu J_H)^dagger D_mu H].
+
+Pure-bosonic expansion:
+  f_H^2 =
+      mu_H^4 - 4 mu_H^2 lambda_H X
+      - 2 mu_H^2 lambda_HS Y
+      + 4 lambda_H^2 X^2
+      + 4 lambda_H lambda_HS X Y
+      + lambda_HS^2 Y^2.
+
+  X(partial f_H)^2+f_H(partial f_H).(partial X) =
+      [-2 mu_H^2 lambda_H + 8 lambda_H^2 X
+       + 2 lambda_H lambda_HS Y] (partial X)^2
+    + [-mu_H^2 lambda_HS + 6 lambda_H lambda_HS X
+       + lambda_HS^2 Y] partial X.partial Y
+    + lambda_HS^2 X (partial Y)^2.
+
+Source companions are all retained:
+  (partial f_H)[H^dagger D J_H+h.c.]
+  f_H[(D H)^dagger D J_H+h.c.]
+  (D J_H)^dagger D J_H.
+
+The renormalizable SM Yukawa source J_H^(4) contributes at this order. The dimension-five C5 source is suppressed by one additional 1/M_E and is beyond the strict M_E^-4 coefficient order; it is not set to zero.
+
+Actual local SymPy script output:
+~~~text
+RC-001 QLD8 scalar-source higher-derivative EOM audit
+PASS: H^dagger(-D^2)^3H ~= |D_mu(f_H H+J_H)|^2.
+PASS: f_H^2 expansion into X,Y potential companions.
+PASS: all three pure-bosonic derivative coefficients.
+PASS: source norm splits into |D J_H|^2 and both cross-term families.
+PASS: source coefficient c_S=1/192 is carried unchanged.
+LIMIT: no further fermion-EOM, IBP-basis, or Fierz reduction is claimed.
+LIMIT: this is an exact EOM/IBP algebra check, not a new loop calculation.
+~~~

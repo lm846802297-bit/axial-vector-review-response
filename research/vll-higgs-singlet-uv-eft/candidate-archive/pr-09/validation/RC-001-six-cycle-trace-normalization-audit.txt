@@ -1,0 +1,33 @@
+RC-001 six-cycle raw-trace and normalization audit
+Audit date: 2026-10-27 (byte-aligned follow-up rerun)
+Repository baseline: main d6143c2aa15191ac8521e062d90860ba86713f00
+PR #9 branch: research/rc001-portal-boundary-b1b3-reconciliation-2026-10-27
+Current PR #9 HEAD at run time: e9286b8fd1227aac02bd2b6f5e6137e60f7c9381
+Script: calculations/RC-001-six-cycle-trace-normalization-audit.py
+Current GitHub content/blob SHA: 22b47f7b95d68b4e86735e8e1c0e3abb63521f43
+SHA-256 of fetched UTF-8/LF source: 762527917e0021cca7753b27b4bb9943eb0316dc5a8d69f8baf2dd1d8335343b
+Runtime: Python 3.13.5; SymPy 1.14.0
+Executed byte-aligned local copy: /tmp/rc001_run/RC-001-six-cycle-trace-normalization-audit.py
+Exit code: 0
+
+STDOUT:
+PASS: Eq.(13) positive-light-mass Y_h/Y_s map to §276 signed-light-mass G_h/G_s by right rephasing D=diag(-1,1).
+PASS: 6 inequivalent labeled cycles = 4!/4; each cycle is represented once.
+PASS: explicit Dirac trace/decomposition for 96 cases = 6 labeled cycles x 16 paths.
+PASS: reverse-cycle path/weight/mass mapping for 48 path pairs across 3 reverse pairs.
+PASS: Gamma(4)=6; four-parameter simplex volume=1/6; their product=1.
+PASS: four-propagator Feynman parameter prefactor Gamma(4)/prod Gamma(1)=6.
+PASS: all five stated Euclidean scalar-integral factors match the Gamma-function formula.
+PASS: determinant-log expansion coefficient at fourth order is +i/4 for Gamma_f=-i Tr ln(1+X).
+CONVENTION: the closed-fermion-loop Feynman-rule sign is -1 and must be reconciled with the determinant expansion; this script does not prove the full diagram's common i/sign.
+LIMIT: exact rational-point trace audit, not a symbolic O(p^2) coefficient proof; no full simplex integration, FeynArts/FeynCalc run, or complete EFT soft/counterterm subtraction.
+
+Execution/provenance notes:
+- The local source file was reconstructed from the exact GitHub-returned UTF-8/LF source content. Its local sha256sum matched the source digest above byte-for-byte before execution.
+- A Git clone could not resolve github.com from the execution container, so this was a byte-aligned source-copy run, not a clean git checkout. The distinction is recorded explicitly.
+- This rerun supersedes the earlier stdout/source-hash pairing. The old recorded SHA-256 d0a8cc18af7feb1019e6de279e8be6270ebed884bb088eb88c5abe13c60f5cac did not match the current script content and must not be used as provenance for this source.
+- The 96 comparisons are exact rational-point checks of the explicit Dirac trace against the projector decomposition; they are not a full symbolic O(p^2) coefficient proof.
+- The 48 reverse-cycle checks cover path-weight/mass mappings only. Delta0 and B1/B2/B3 reverse mappings are checked separately by the O(p^2) candidate-kernel ledger.
+- Gamma(4), the simplex volume, five Euclidean scalar-integral factors, and the determinant-log fourth-order coefficient are exact symbolic checks.
+- The closed-fermion-loop factor -1 is recorded as a Feynman-rule convention, not derived from the numerator trace. Its reconciliation with the determinant convention and the full common Minkowski/Wick i-factor remains open.
+- Complete EFT soft-graph/counterterm closure and the final UV-EFT Wilson coefficient remain unresolved.

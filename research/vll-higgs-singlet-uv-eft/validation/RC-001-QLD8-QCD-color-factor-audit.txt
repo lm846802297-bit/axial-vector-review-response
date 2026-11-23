@@ -1,0 +1,25 @@
+RC-001 QLD8 d†d SU(3) exchange-color audit
+
+PASS: crossed source tensor C_X = (1/3) C_1 + 2 C_8.
+PASS: T_barQ·T_Q = [[-4/3, 0], [0, 1/6]]
+PASS: T_barQ·T_bard = [[0, 2/9], [1, -1/3]]
+PASS: T_barQ·T_d = [[0, -2/9], [-1, -7/6]]
+PASS: T_Q·T_bard = [[0, -2/9], [-1, -7/6]]
+PASS: T_Q·T_d = [[0, 2/9], [1, -1/3]]
+PASS: T_bard·T_d = [[-4/3, 0], [0, 1/6]]
+PASS: sum over all six pair exchanges = -(8/3) I = -2 C_F I.
+
+Conventions:
+- external-leg order: (bar Q, Q, bar d, d), all legs outgoing;
+- T_q^A = T^A and T_barq^A = -T^{A T};
+- tr(T^A T^B) = delta^{AB}/2;
+- C_1 = delta_ij delta_kl, C_8 = T^A_ij T^A_kl;
+- C_X = delta_il delta_kj = C_1/3 + 2 C_8.
+
+Scope limitation:
+These are exact SU(3) generator factors only. No Feynman-rule signs,
+momentum kernels, Dirac numerators, UV poles, wavefunction counterterms,
+Z matrix, anomalous dimension, or finite matching coefficient is claimed.
+
+Reproducible source:
+calculations/RC-001-QLD8-QCD-color-factor-audit.py

@@ -1,0 +1,15 @@
+RC-001 B2c-IVk exact R_FG current projection
+
+PASS: J_L^mu R_FG,mu nu J_R^nu equals
+  -[(J_L.k)(J_R.q)+(J_L.q)(J_R.k)+(J_L.q)(J_R.q)]/[k^2(k+q)^2].
+PASS: sufficient condition J_L.k=0 and J_R.(k+q)=0 implies zero.
+IMPORTANT: no such transversality condition is assumed for off-shell matter currents.
+PASS: generic rational diagnostic gives +2/55 (nonzero).
+
+BOUNDARY:
+  This identifies the exact current projection of the Feynman-gauge remainder.
+  It does not calculate the pair-specific fermion/scalar currents or the ghost/ST terms.
+  No loop integration, UV-EFT subtraction, or Wilson coefficient is claimed.
+
+Execution: exact SymPy symbolic arithmetic.
+This is not a GitHub Actions result or a FeynArts/FeynCalc run.

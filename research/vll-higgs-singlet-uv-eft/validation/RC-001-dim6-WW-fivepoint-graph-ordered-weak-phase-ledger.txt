@@ -1,0 +1,19 @@
+RC-001 signed-action SU(2) algebra check (B2c-III)
+
+PASS: six seed pair tensors reproduce T0/T3 projections (96/96).
+PASS: candidate A-order commutator identity (288/288).
+PASS: candidate B-order commutator identity (288/288).
+PASS: candidate scalar-seagull signed-action identity (288/288).
+
+BOUNDARY:
+  Signed-action algebra only.
+  Raw weak-index ordering of each Feynman graph is not established.
+  No Lorentz-weighted matter-line/three-W cancellation.
+  No complete scalar-line/seagull endpoint sum.
+  No ghost/gauge-fixing Slavnov-Taylor completion.
+  No external-leg/counterterm sum or integrated Wilson coefficient.
+
+Next: explicit raw t^a index contractions and field-arrow mapping for all 24 graphs.
+
+Execution: local Python + SymPy exact symbolic arithmetic.
+This is not a GitHub Actions result or an independent FeynArts/FeynCalc run.

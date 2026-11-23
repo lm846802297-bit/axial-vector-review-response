@@ -1,0 +1,19 @@
+RC-001 fixed-complex path small-mixing power-counting audit
+Audit date: 2026-10-27
+Script: calculations/RC-001-fixed-complex-path-power-counting.py
+Git blob SHA: 1e6bf44b35651e05bc687dd584ab4ec56d64b569
+Runtime for expression replay: Python 3.13.5; SymPy 1.14.0
+Execution note: the same exact matrix products, exponent extraction, and M11 substitution rules were run in the SymPy notebook. The checked-in script was not launched as a standalone process in this turn.
+
+RESULTS:
+- 32 flavor/path rows evaluated: 16 for the fixed mu orientation and 16 for the fixed tau orientation.
+- For both flavors, the unique degree-zero path is (0,1,0,1), written as path string 1212.
+- Its coupling product is y^2 lambda^2 c_L^4 c_R^4; its C13 mass weight is y^2 lambda^2 c_L^4 c_R^4 m_2^2. In the zero-mixing limit this becomes y^2 lambda^2 m_2^2, matching the source-aligned complex box numerator.
+- The triangular condition M11=0 gives m_1/m_2=s_L s_R/(c_L c_R). Each light mass numerator among the two C13 mass factors adds one power of both s_L and s_R.
+- All 30 non-leading flavor/path rows have total effective mixing degree at least 2 after applying that mass relation. The minimum non-leading degree is exactly 2; paths at that order include terms proportional to s_L^2 or s_R^2.
+
+INTERPRETATION:
+At the numerator/coupling level, the unbroken leading term is the unique source-aligned path already used in the §9.4 hard-region calculation. The remaining mass-basis paths are suppressed by at least quadratic powers of the VEV-induced mixing angles after enforcing M11=0. This supports treating them as higher-order broken-phase/VEV corrections rather than adding them to the leading unbroken dimension-six coefficient.
+
+BOUNDARY:
+This is power counting, not the hard-region integral of the suppressed paths. It does not rule out IR-sensitive logarithms; the method-of-regions expansion must still separate hard and EFT-soft contributions before claiming the higher-order corrections are quantitatively matched. The complete finite-mixing UV-EFT coefficient is not established by this audit.

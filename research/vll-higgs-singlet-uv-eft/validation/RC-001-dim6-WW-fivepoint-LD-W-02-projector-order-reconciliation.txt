@@ -1,0 +1,23 @@
+RC-001 B2c-IVn-h/06: LD-W-02 projector/order reconciliation
+
+PASS: gamma/projector intertwining (10/10 identities).
+PASS: actual A-WTI endpoint reductions (128/128 matrix entries).
+PASS: the two endpoints share rightmost P_L and ordered gamma_mu slash(r_A) slash(h_A),
+      while retaining distinct r_A^W and r_A^Y momenta.
+PASS: corrected two-W R_FG and both signed single-W endpoint numerators remain
+      separate (16/16, 16/16, 16/16 nonzero entries).
+RATIONAL V_B DOTS: V_B(kappa).k=-33, V_B(kappa).kappa=-18.
+RATIONAL DENOMINATORS: (20, 8, 11, 5, 20, -390, -402).
+
+Local run provenance:
+- Source commit: ddf9d41d408b4ee94ccb0c313befcb97423f4b81
+- Calculation/test files: the corresponding LD-W-05 and LD-W-02 source and unittest modules in calculations/
+- Runtime: Python 3.13.5; SymPy 1.14.0; Linux x86_64 (glibc 2.41)
+- Execution: both calculation modules' main() functions and the combined unittest suite were executed locally from a temporary directory containing the branch file contents.
+- Regression result: 9 tests passed (LD-W-05: 4/4; LD-W-02: 5/5).
+- GitHub Actions: not passed; the latest PR-head runs for candidate schema validation, QLD8 counterterm-basis seed audit, and QLD chiral Fierz identities concluded failure. Their causes are not inferred from the available job metadata.
+
+BOUNDARY:
+  Projector placement is reconciled; no equality of single-W endpoints
+  and the two-W R_FG projection is asserted.
+  No complete matter/scalar/three-W/LSZ/ST sum or Wilson coefficient is claimed.

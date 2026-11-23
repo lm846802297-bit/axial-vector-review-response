@@ -1,0 +1,121 @@
+{
+  "run_id": "RC001-LDW01-projector-order-20261112",
+  "date": "2026-11-12",
+  "research_change": "RC-001",
+  "workstream": "RC-001-WW-UV-FF-02",
+  "stage": "B2c-IVn-h/07",
+  "baseline_commit": "6909feccb58b9e4b79da72f3a6af96a47edb3e10",
+  "source_commit": "892eaa4acbab8a707ae9953c10ba4b50d61e6110",
+  "source_files": [
+    {
+      "path": "calculations/RC-001-dim6-WW-fivepoint-LD-W-01-projector-order-reconciliation.py",
+      "git_blob_sha1": "2ecbb3b4824abeed5d4348764d70092629e5b175",
+      "bytes": 7046,
+      "sha256": "a8ca7dff24840d65b2ed8d863d685bc302c680fab27958e7ceec9c5e80d8112d"
+    },
+    {
+      "path": "calculations/test_RC001_dim6_WW_fivepoint_LD_W_01_projector_order_reconciliation.py",
+      "git_blob_sha1": "9bd355402d9680c6b8d2e814ab034c7b59ae80af",
+      "bytes": 1576,
+      "sha256": "fa35c7ad7f5753d02d592adb5da3ef30a45a5ed86ed21b4c73fecdf2f2c21a3c"
+    }
+  ],
+  "runtime": {
+    "python": "3.13.5",
+    "sympy": "1.14.0",
+    "platform": "Linux x86_64, glibc 2.41"
+  },
+  "commands": [
+    "python calculations/RC-001-dim6-WW-fivepoint-LD-W-01-projector-order-reconciliation.py",
+    "cd calculations && python -m unittest -v test_RC001_dim6_WW_fivepoint_LD_W_01_projector_order_reconciliation.py"
+  ],
+  "inputs": {
+    "type": "exact integer four-vectors; no external data",
+    "metric": "(+---)",
+    "gamma5": "i gamma^0 gamma^1 gamma^2 gamma^3",
+    "projectors": "P_L=(1-gamma5)/2; P_R=(1+gamma5)/2",
+    "momentum_conservation": "p1+p2+p3+p4+q=0",
+    "routing": "kappa=k+q",
+    "k": [
+      4,
+      1,
+      2,
+      1
+    ],
+    "q": [
+      1,
+      2,
+      0,
+      1
+    ],
+    "p1": [
+      1,
+      0,
+      1,
+      0
+    ],
+    "p2": [
+      0,
+      1,
+      0,
+      2
+    ],
+    "p3": [
+      2,
+      0,
+      1,
+      1
+    ],
+    "p4": [
+      -4,
+      -3,
+      -2,
+      -4
+    ],
+    "M_E_squared": 400,
+    "M_E_squared_role": "nonsingular algebraic diagnostic only; not a physical benchmark"
+  },
+  "checks": {
+    "chiral_intertwining_identities": "10/10 passed",
+    "actual_A_B_WTI_endpoint_projector_matrix_entries": "1024/1024 passed",
+    "common_k_shifted_second_endpoint_matrix_entries": "256/256 passed",
+    "A_side_shift_vector_components": "16/16 passed",
+    "single_W_denominator_alignment": "2/2 passed",
+    "direct_vs_factorized_RFG_matrix_entries": "16/16 passed",
+    "incorrect_pre_right_W_P_L_placement_rejected": "16/16 passed",
+    "RFG_vs_one_W_endpoint_contraction_differences": "64/64 passed",
+    "standalone_unittest": "6/6 passed"
+  },
+  "rational_denominator_factors": {
+    "k_squared": 10,
+    "kappa_squared": 8,
+    "r_A_W_squared": 6,
+    "r_A_Y_squared": 2,
+    "r_B_W_squared": -13,
+    "r_B_Y_squared": -3,
+    "h_squared_minus_M_E_squared": -393,
+    "h_minus_q_squared_minus_M_E_squared": -405
+  },
+  "outputs": [
+    {
+      "path": "research/RC-001-dim6-WW-fivepoint-LD-W-01-projector-order-reconciliation.md",
+      "bytes": 5670,
+      "sha256": "379f3defd229d4ae26923bb89fea7048e3ee6d23d5283a223ef26cbb9ac3ee06"
+    },
+    {
+      "path": "validation/RC-001-dim6-WW-fivepoint-LD-W-01-projector-order-reconciliation.txt",
+      "bytes": 1686,
+      "sha256": "85e805dcf974ea744943ef2ace37a45ff67e1bd2939d5c6877cca8c708768a5f"
+    }
+  ],
+  "warnings": [
+    "The Python subprocess emitted a non-fatal artifact_tool spreadsheet warmup diagnostic on stderr; both calculation and unittest processes returned exit code 0.",
+    "An initial unittest harness attempt failed only because an assertion expected a different literal boundary phrase; the assertion was corrected without changing calculation expressions, and the final run passed 6/6."
+  ],
+  "scientific_boundary": [
+    "This is a local exact Dirac/projector and rational-point audit only.",
+    "R_FG remains nonzero and is not identified with a single-W endpoint.",
+    "No complete six-pair sum, LSZ, ghost/ST completion, counterterm closure, loop integration, UV-EFT subtraction, or Wilson coefficient is claimed."
+  ],
+  "archive_status": "Source and tests are committed at source_commit; this note, validation output, and run manifest are included in the present archival commit."
+}

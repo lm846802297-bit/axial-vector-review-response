@@ -1,0 +1,16 @@
+Local analytic reproduction log — 2026-10-23
+
+Environment: Python tool runtime, SymPy 1.14.0.
+Method: independently re-evaluated the Feynman-parameter integrals and epsilon expansions displayed in research/RC-001-dim6-heavy-line-vertex-box-integrals.md; expanded the propagator inverse using the explicitly declared convention S^{-1}=(1-a Sigma_V) slash(p) - (1+a Sigma_S) M; checked the crossed-box partial fractions and the stated hard-minus-soft identity; checked the equal-heavy-mass limit of the B-A' threshold.
+
+Output:
+heavy-line Feynman-parameter epsilon expansion: PASS
+heavy-light vertex d*B0 finite epsilon-times-pole term: PASS
+propagator insertion sign from stated inverse-propagator convention: PASS
+crossed-box partial fractions and hard-soft subtraction: PASS
+equal-mass B-A' threshold cancellation: PASS
+
+Scope boundary:
+- These are local algebra/integral checks, not a diagram generator or independent full-amplitude calculation.
+- They do not verify graph multiplicities, Feynman-rule orientation signs, all EFT contact graphs, the full counterterm matrix, Ward-identity completion, or finite Q_LD/Q_RD Wilson coefficients.
+- No GitHub Actions/CI run is claimed.

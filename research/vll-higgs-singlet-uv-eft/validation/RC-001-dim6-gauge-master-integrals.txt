@@ -1,0 +1,7 @@
+Feynman-parameter integrals: PASS
+Heavy-light vertex numerator d*B0: 4*Delta+2-4*L (O(epsilon)*UV-pole retained)
+Heavy self-energy: Sigma_V(0)=-Delta+L-1/2; Sigma_S(0)=4Delta-4L+2
+Chirality-preserving propagator insertion: -7Delta+7L-7/2
+Crossed-box partial-fraction identity: PASS
+UV/IR split: J_full-J_soft=J_hard= (Delta_UV+1-L)/M_E^2
+SCOPE: no complete vertex/box amplitude, diagram multiplicity, or Wilson coefficient.

@@ -1,0 +1,35 @@
+RC-001 fixed-sector hard/soft pole ledger
+Audit date: 2026-10-27
+Repository main baseline: d6143c2aa15191ac8521e062d90860ba86713f00
+PR #9 head before this audit extension: 7b0d8f034eeb3fdf5a50e1d5a62bfd8ce0f22c80
+Script: calculations/RC-001-fixed-sector-hard-soft-pole-ledger.py
+Script SHA-256 (executed source, byte-aligned with committed file): e2da3ec064b0ce45c8aa735a8fe69b08e58ffab0677c75805b0cf60cf92f3424
+GitHub blob SHA: a1fe07c7ea9b6de40e79f120677ef8a7b93269ad
+Runtime: Python 3.13.5; SymPy 1.14.0
+Command: python calculations/RC-001-fixed-sector-hard-soft-pole-ledger.py
+Exit code: 0
+
+STDOUT:
+PASS: hard-region IR pole residue is -s
+PASS: bare EFT soft-loop UV pole residue is +s
+PASS: local EFT counterterm cancels the soft UV pole
+PASS: renormalized soft term retains the nonlocal logarithm and finite constant
+PASS: hard-plus-soft region sum retains separately labeled pole difference
+PASS: identifying region IR/UV poles cancels the pole in the full region sum
+PASS: finite local hard polynomial has the source-recorded coefficients
+PASS: finite local t coefficient is 1/6
+PASS: finite local s coefficient is L-2
+PASS: two-point EFT bubble/contact UV pole cancels its local inverse-kernel counterterm
+PASS: contact tadpole has zero external-momentum derivative
+PASS: two-point dimension-six derivative counterterm cancels the p2 pole
+RESULT: 12 exact symbolic pole/counterterm checks passed.
+SCOPE: fixed §248 four-scalar hard/soft sector plus existing §39 two-point pole identities.
+OPEN: this does not enumerate/evaluate every same-order EFT soft graph, integrate the six-cycle UV kernels, or establish the final finite Wilson vector.
+
+Interpretation:
+- The hard-region IR pole (-Delta_IR) and bare EFT soft-loop UV pole (+Delta_UV) are kept as separately labeled quantities until the method-of-regions identification.
+- The hard-plus-soft sum is proportional to (Delta_UV-Delta_IR); identifying the region poles cancels them and leaves the finite nonlocal logarithm plus the local t/6 term.
+- The local EFT counterterm cancels the soft-loop UV pole in the renormalized EFT amplitude.
+- The finite local hard polynomial is (L-2)s+t/6 in the source's normalization.
+- The separate two-point checks reproduce the recorded bubble/contact and derivative-counterterm pole cancellations.
+- This validates only the fixed sector already specified in the source record. It is not the complete set of four-scalar EFT soft graphs/counterterms and does not integrate or close the six-cycle candidate kernel.

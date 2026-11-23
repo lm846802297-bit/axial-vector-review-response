@@ -1,0 +1,12 @@
+RC-001 dimension-eight soft-current-bubble checks
+
+PASS: integral_0^1 dx x(1-x) = 1/6
+PASS: integral_0^1 dx x(1-x) log[x(1-x)] = -5/18
+PASS: finite massless Weyl-current constant = 5/3
+PASS: one-Weyl transverse-polarization pole coefficient = 1/(24 pi^2)
+PASS: two-insertion effective-action coefficient = 1/(192 pi^2)
+PASS: all 16 mixed L/R chiral-current traces vanish exactly
+PASS: S_tau=S* gives j_tau=-j_S and equal squared-current kernels
+
+Execution: local Python 3 + SymPy exact arithmetic.
+Scope: analytic Feynman-parameter and chiral-projector checks for the EOM-reduced EFT soft kernels. No UV hard matching, FeynArts/FeynCalc generation, or full dimension-eight Wilson-vector closure is claimed.

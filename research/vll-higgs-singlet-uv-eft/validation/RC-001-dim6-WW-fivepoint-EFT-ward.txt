@@ -1,0 +1,13 @@
+RC-001 EFT local one-W vertex and SU(2) Ward-covariance audit
+PASS: [t^J,sigma^I] = -i epsilon^{IJK} sigma^K for all generators.
+PASS: the inhomogeneous local-gauge variation cancels in D_adj Y.
+PASS: X^I (D_adj Y)^I is locally SU(2)-invariant.
+PASS: T3_(ij,kl) is invariant under all four external doublet transformations.
+PASS: exact T3 times Higgs-generator contraction for I=1,2,3.
+PASS: O_minus contact is +2 g2 Hdag T^J H; O_plus contact is zero.
+Coefficients: a=L/2 - 1/2, b=7*L/16 - 1/32, c=7/32 - 5*L/16
+Explicit-log slopes d(a,b,c)/dln(mu_R)=(-1, -7/8, 5/8)
+At mu_R=M_E, contact coefficients (including F): (-I*F*g2/2, -F*g2/16, 0)
+F = g2^2 |y_l|^2/(16 pi^2 M_E^2).
+BOUNDARY: exact local EFT contact/covariance audit only;
+          UV one-loop five-point form factor and full ST sum remain open.

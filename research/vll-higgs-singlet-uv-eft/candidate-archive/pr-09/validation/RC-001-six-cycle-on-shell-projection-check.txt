@@ -1,0 +1,30 @@
+RC-001 six-cycle on-shell projection symmetry check
+Audit date: 2026-10-27
+Repository: lm846802297-bit/high-energy-theory-research
+PR #9 branch: research/rc001-portal-boundary-b1b3-reconciliation-2026-10-27
+Script: calculations/RC-001-six-cycle-on-shell-projection-check.py
+GitHub content/blob SHA: 8deabecc04ea334b516e3109f87a6580eef4f5ba
+SHA-256 of fetched UTF-8/LF source: 3d88b0c96ffcb4740af57849047c85774e4df2725bb40ab26eade4d672f0cdcf
+Runtime: Python 3.13.5; SymPy 1.14.0
+Input CSV: /tmp/rc001_run/RC-001-six-cycle-integrated-candidate-kernel-ledger.csv
+Input CSV SHA-256: 410fc59b6f1b0b59e0e6d8e6b84b55c62c0b9f7e78d57b59cf7fddf6a2d7f0f0
+Executed local source: /tmp/rc001_run/RC-001-six-cycle-on-shell-projection-check.py
+Command: python -u /tmp/rc001_run/RC-001-six-cycle-on-shell-projection-check.py
+Exit code: 0
+
+STDOUT:
+PASS: exact rational benchmark satisfies the triangular mass-matrix M11=0 constraint.
+PASS: aggregated alpha=5 from 96 rows (6 cycles x 16 paths).
+PASS: aggregated alpha=6 from 96 rows (6 cycles x 16 paths).
+PASS: complete six-cycle finite-mass candidate sum has equal Q5/Q6 coefficients at the exact benchmark.
+BENCHMARK: sum(Q5) = 0.000153524642191426725
+BENCHMARK: sum(Q6) = 0.000153524642191426725
+ON-SHELL MAP: Q1=Q2=Q3=0; Q4=t_R/2; Q5=s_R/2; Q6=u_R/2.
+LIMIT: this verifies s1<->s2 symmetry of the integrated candidate kernels at one exact physical mass/angle point; it does not compare the finite-mass result to the dimensionally regulated hard Wilson coefficient or EFT soft subtraction.
+
+Interpretation:
+- The exact rational benchmark is (c_L=c_R=12/13), (s_L=s_R=5/13), (m_1=1), (m_2=144/25), (a=2/7), (b=3/11); it satisfies the triangular mass-matrix condition (-c_Lc_Rm_1+m_2s_Ls_R=0).
+- The on-shell map follows from (p_4=-(p_1+p_2+p_3)): (Q_1=Q_2=Q_3=0), (Q_4=t_R/2), (Q_5=s_R/2), (Q_6=u_R/2).
+- Summing all six cycle/path rows gives equal coefficients for (Q_5) and (Q_6) at this physical benchmark, as required by (s_1\leftrightarrow s_2) Bose symmetry.
+- This is an exact symbolic equality after benchmark substitution, with the displayed decimal only for readability. It is a symmetry check on the finite-mass candidate kernels, not a comparison to the source §248 Wilson coefficient: no (d=4-2\epsilon) massless-light-state regions expansion or EFT subtraction is performed here.
+- The local source SHA-256 matched the fetched GitHub UTF-8/LF content byte-for-byte before execution. Git checkout was not available because the execution container could not resolve github.com; this is a byte-aligned source-copy run, not a clean-checkout claim.

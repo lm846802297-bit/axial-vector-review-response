@@ -1,0 +1,43 @@
+RC-001 complex-external cycle projection audit
+Audit date: 2026-10-27
+Script: calculations/RC-001-complex-external-cycle-projection.py
+Script SHA-256: c52400e00bdbf435dfe3f5972c5593d9e49b92a053a184d7bdbf776279583ba9
+Script size: 9132 bytes
+Runtime: Python 3.13.5; SymPy 1.14.0
+Command: python calculations/RC-001-complex-external-cycle-projection.py
+Exit code: 0
+Elapsed time: 8.74 s
+
+STDOUT:
+PASS: generic P_R,P_R,P_L,P_L trace reduces to 2 m1 m3 k2.k4
+PASS: mu complex projection selects only H-S-Sdag-Hdag path 0101 in the s channel
+PASS: tau complex projection selects only H-Sdag-S-Hdag path 0101 in the u channel
+PASS: mu projected trace is +2 y^2 lambda^2 M_E^2 k_2.k_4
+PASS: mu projected path has mass pattern (M_E,0,M_E,0)
+PASS: mu projected channel label is s
+PASS: tau projected trace is +2 y^2 lambda^2 M_E^2 k_2.k_4
+PASS: tau projected path has mass pattern (M_E,0,M_E,0)
+PASS: tau projected channel label is u
+PASS: mu routing: light lines are k and k-q_s
+PASS: mu routing: heavy lines are k+S and k-Sdag
+PASS: tau routing: light lines are k and k-q_u
+PASS: tau routing: heavy lines are k+Sdag and k-S
+PASS: real-scalar projection has four nonzero cycle/path rows in this limit
+MU surviving row: ('H', 'S', 'Sdag', 'Hdag') (0, 1, 0, 1) channel s
+TAU surviving row: ('H', 'Sdag', 'S', 'Hdag') (0, 1, 0, 1) channel u
+REAL-SCALAR surviving rows: [(('H', 'Hdag', 'S', 'Sdag'), (1, 0, 1, 0)), (('H', 'Hdag', 'Sdag', 'S'), (1, 0, 1, 0)), (('H', 'S', 'Sdag', 'Hdag'), (0, 1, 0, 1)), (('H', 'Sdag', 'S', 'Hdag'), (0, 1, 0, 1))]
+RESULT: 14 exact complex-external projection checks passed; each flavor selects one cycle/path in the zero-mixing limit.
+SCOPE: complex external-field orientation and s/u routing only; not the finite-mixing Wilson coefficient.
+OPEN: finite-mixing mass-path sums, common graph multiplicities, EFT soft/counterterm subtraction, and final UV-EFT match.
+
+Interpretation:
+- For the muon assignment S_mu=S, the fixed complex external fields select the cycle H -> S -> S^dagger -> H^dagger and the path (light, heavy, light, heavy), with the two light lines carrying k and k-q_s, q_s=-(p_H+p_S). The numerator is +2 y^2 lambda^2 M_E^2 k.(k-q_s).
+- For the tau assignment S_tau=S^*, the fixed complex external fields select H -> S^dagger -> S -> H^dagger and the same mass pattern, but q_u=-(p_H+p_S^dagger). Its hard kernel is the u-channel analogue.
+- In this zero-mixing limit, the real-scalar projection has four nonzero cycle/path rows: two reverse-order rows for the s pairing and two for the u pairing. The complex-field projection selects one oriented row per flavor; summing all four real-scalar rows as one fixed complex amplitude would overcount or include forbidden field orientations.
+- The generic fixed-chirality trace identity is exactly \(2m_1m_3 k_2\cdot k_4\) for the sequence \(P_R,P_R,P_L,P_L\). Thus this complex external amplitude contains only the two mass numerators and the two slash numerators; the real-scalar four-slash \(H G\) and constant four-mass \(M\) structures do not contribute to this fixed complex projection.
+- The surviving mu and tau traces have the same positive numerator form, with the appropriate s/u routing and heavy denominators:
+  mu: k^2 (k-q_s)^2 [(k+S)^2-M_E^2] [(k-S^dagger)^2-M_E^2];
+  tau: k^2 (k-q_u)^2 [(k+S^dagger)^2-M_E^2] [(k-S)^2-M_E^2].
+- This resolves the zero-mixing external-field projection and channel assignment. At finite mixing, the same complex vertex orientation must be retained while all allowed internal mass-eigenstate paths are summed. The full UV–EFT soft/counterterm subtraction remains open.
+
+Environment note: the Python harness emitted a non-fatal spreadsheet-runtime initialization warning on stderr; the script exited 0 and all 14 stdout checks passed.

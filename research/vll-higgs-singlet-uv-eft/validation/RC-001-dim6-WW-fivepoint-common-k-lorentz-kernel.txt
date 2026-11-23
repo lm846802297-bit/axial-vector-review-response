@@ -1,0 +1,38 @@
+RC-001 B2c-IVh common-k longitudinal Lorentz-kernel audit
+
+PASS: oriented matter-line WTI inputs (102 = 6*16 Dirac + 6 scalar checks).
+PASS: three-W contraction to K(k+q)-K(k) (16/16 Lorentz components).
+PASS: both W-propagator orientations give D(k)-D(k+q)+R_FG (32/32 components).
+PASS: six pairwise arbitrary-current contractions (96/96 components).
+PASS: scalar-line/seagull weak-tensor decompositions (3/3).
+
+PAIRWISE GROUP-PHASED RESULT:
+  LD-W-01: F-F, A -> B, transverse-kernel cancellation
+  LD-W-02: F-S, A -> B, transverse-kernel cancellation
+  LD-W-03: F-S, S -> F, transverse-kernel cancellation
+  LD-W-04: S-F, S -> F, transverse-kernel cancellation
+  LD-W-05: S-F, A -> B, transverse-kernel cancellation
+  LD-W-06: S-S, A -> B, transverse-kernel cancellation
+
+  Cross A -> B:
+    line + three-W = -i g2 G_AB * J_left.R_FG.J_right
+  Same S -> F:
+    line + three-W = +i g2 G_FS * J_left.R_FG.J_right
+
+R_FG DIAGNOSTIC:
+  k=(3,2,0,0), q=(1,0,1,0)
+  k^2=5, (k+q)^2=11, R_FG^00=-7/55
+  R_FG = 1/55 * [[-7,-2,-4,0],[-2,0,-2,0],[-4,-2,-1,0],[0,0,0,0]]
+
+BOUNDARY:
+  The D(k)-D(k+q) transverse-kernel pieces cancel pairwise for arbitrary
+  endpoint Lorentz currents in all six pair classes.
+  The ordinary-Feynman-gauge R_FG remainder is nonzero and is retained.
+  No ghost/gauge-fixing Slavnov-Taylor cancellation is claimed.
+  Arbitrary endpoint currents are used; explicit pair numerators are not
+  inserted into a common loop integral.
+  No external-leg/LSZ, counterterm, complete 24-graph amplitude, UV-EFT
+  subtraction, transverse form factor, or Wilson coefficient is claimed.
+
+Execution: local exact SymPy arithmetic in the calculation session.
+This is not a GitHub Actions result or a FeynArts/FeynCalc run.

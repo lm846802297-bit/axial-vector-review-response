@@ -1,0 +1,22 @@
+RC-001 QLD8 d†d QCD open-line numerator gamma audit
+
+PASS: four cross-exchange decompositions: 64/64 Lorentz-index assignments.
+PASS: same-bilinear contracted chain in 4D: 16/16 assignments.
+PASS: all displayed direct-pairing chains contain gamma rank at most two on each bilinear.
+
+D-dimensional identity used:
+gamma^rho Gamma^(2) gamma_rho = (D-4) Gamma^(2).
+
+Topology map:
+- cross-bilinear exchanges: (barQ,Q), (barQ,bard), (Q,d), (bard,d);
+- same-bilinear exchanges: (barQ,d), (Q,bard).
+
+Scope limitation:
+This checks the gamma-chain decompositions in an explicit 4D Minkowski
+representation. The general-D rank statement follows from the Clifford
+identities recorded in the research note. No overall Feynman-rule signs,
+loop integrals, UV poles, wavefunction counterterms, Z matrix, or Wilson
+coefficient is claimed.
+
+Reproducible source:
+calculations/RC-001-QLD8-QCD-open-line-numerator-audit.py

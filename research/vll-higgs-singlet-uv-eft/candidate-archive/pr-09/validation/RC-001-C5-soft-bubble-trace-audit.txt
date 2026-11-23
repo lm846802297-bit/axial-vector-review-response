@@ -1,0 +1,33 @@
+RC-001 EFT C5 C5* soft-bubble trace/pole audit
+Audit date: 2026-10-27
+Repository main baseline: d6143c2aa15191ac8521e062d90860ba86713f00
+PR #9 head before this audit extension: c5d367a5169de8297848d4c80985764d8e74f489
+Script: calculations/RC-001-C5-soft-bubble-trace-audit.py
+Script SHA-256 (executed source, byte-aligned with committed file): ea8b9c3fc34d682f69bce3b230169c1814b53388ee599f265fd7b92a8a9693fc
+GitHub blob SHA: 1becb98f7942c100c79c2418a48f3d3b623492f3
+Runtime: Python 3.13.5; SymPy 1.14.0
+Command: python calculations/RC-001-C5-soft-bubble-trace-audit.py
+Exit code: 0
+
+STDOUT:
+PASS: massless chiral trace equals 2 k dot (k+q)
+PASS: 2 k dot (k+q) numerator reduces to k^2+(k+q)^2-s
+PASS: two vertices, two propagators, and closed fermion loop combine to -1
+PASS: full soft-bubble prefactor is +i s B0/(16 pi^2)
+PASS: bare soft-loop UV pole is +i s Delta_UV
+PASS: local EFT counterterm cancels the soft UV pole
+PASS: renormalized soft bubble keeps -log(-s/mu^2)+2
+PASS: hard plus bare soft has separately labeled DeltaUV-DeltaIR poles
+PASS: hard-soft region poles cancel after DeltaIR=DeltaUV
+PASS: hard local matching polynomial remains (L-2)s+t/6
+RESULT: 10 exact trace/sign/pole checks passed.
+SCOPE: the SFT-01 massless C5 C5* bubble and its local UV counterterm, plus §248 hard/soft pole comparison.
+OPEN: independent FeynArts/FeynCalc graph generation, other EFT operator sectors, path-dependent UV simplex integration, and final finite Wilson-vector closure.
+
+Interpretation:
+- The explicit Dirac trace gives 2 k·(k+q).
+- Using 2 k·(k+q)=k^2+(k+q)^2-s, the two one-propagator integrals are scaleless and vanish in dimensional regularization; the remaining numerator contributes -s times the massless scalar B0 bubble.
+- The declared two-vertex factor (-i)^2, two-propagator factor i^2, and closed-loop factor -1 multiply to -1. Combined with the reduced -i s B0 integral, the source-convention bubble amplitude is +i |C5|^2 s B0/(16 pi^2).
+- The bare EFT soft-loop UV pole is +i |C5|^2 s Delta_UV/(16 pi^2); the local EFT counterterm has the opposite pole.
+- The hard-region IR pole and soft-region UV pole remain separately labeled until the method-of-regions identification. Their sum leaves (L-log(-s/mu^2))s+t/6 after pole cancellation; the local hard polynomial alone is (L-2)s+t/6.
+- This checks the SFT-01 bubble algebra under the source's B0 and Feynman-rule conventions. It does not generate all EFT diagrams or independently perform the scalar loop integration.

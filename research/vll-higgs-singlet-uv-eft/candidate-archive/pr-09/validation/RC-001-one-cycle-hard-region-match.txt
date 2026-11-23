@@ -1,0 +1,39 @@
+RC-001 one-cycle dimensionally regulated hard-region/sign audit
+Audit date: 2026-10-27
+Script: calculations/RC-001-one-cycle-hard-region-match.py
+Script SHA-256: abc661cd482d2bd8426fec95f2329e69fd1f44520d483a3efa9e96eabf6036ea
+Script size: 5279 bytes
+Runtime: Python 3.13.5; SymPy 1.14.0
+Command: python calculations/RC-001-one-cycle-hard-region-match.py
+Exit code: 0
+Elapsed time: 4.79 s
+
+STDOUT:
+PASS: hard expansion of numerator times denominators through O(p^2)
+PASS: J_22 master integral has the expected Gamma(-epsilon) IR pole
+PASS: J_13 master integral has the expected Gamma(1-epsilon) factor
+PASS: J_04 master integral reduces to Gamma(2+epsilon)/6
+PASS: d-dimensional tensor reduction gives the stated J22/J13/J04 vector
+PASS: pre-loop-sign hard s coefficient is 1/epsilon + 2 - L
+PASS: pre-loop-sign hard t coefficient is -1/6
+PASS: four vertices times four propagators times closed-loop sign equals -1
+PASS: four-vertex factor is +1
+PASS: four-propagator factor is +1
+PASS: full hard s coefficient is -1/epsilon + L - 2
+PASS: full hard t coefficient is +1/6
+PASS: hard s coefficient matches source after Delta_IR=1/epsilon_IR
+PASS: hard t coefficient matches the source §248 finite term
+RESULT: 14 exact symbolic hard-region/sign checks passed.
+MATCH: i |C5|^2/(16 pi^2) [(-Delta_IR+L-2) s + t/6].
+SCOPE: one source-aligned box; does not close the mixed-mass six-cycle sum.
+OPEN: flavor-resolved s/u routing, full B1/B3 signs, complete EFT graph/counterterm vector.
+
+DERIVATION RECORD:
+- The hard expansion of the numerator/denominator product through O(p^2) reduces, after d-dimensional tensor averaging, to
+  2 M_E^2 |y lambda|^2 { s [-(1-2/d) J_22 + (2/d) J_13] - (2t/d) J_04 }.
+- The master integrals use the MS-bar scale factor exp[epsilon (gamma_E-L)] with L=ln(M_E^2/mu_R^2). J_22 contains Gamma(-epsilon), which carries the hard-region IR pole; J_13 and J_04 supply finite terms and the epsilon-dependent tensor factors.
+- Before the closed-loop sign, the coefficients are s(1/epsilon + 2 - L) - t/6. The four Yukawa vertices contribute (-i)^4=+1, the four fermion propagators contribute i^4=+1, and the closed fermion loop contributes -1. Applying that sign gives s(-1/epsilon + L - 2) + t/6.
+- With the source's MS-bar convention Delta_IR=1/epsilon_IR after the standard constants are absorbed, the result matches the recorded hard polynomial i |C5|^2/(16 pi^2) [(-Delta_IR+L-2)s+t/6].
+- This is a genuine one-cycle hard-region and global-prefactor check. It does not establish the physical sign of B1/B3, because those structures vanish in the zero-mixing path used here; nor does it determine multiplicities or the complete mixed-mass six-cycle amplitude.
+
+Environment note: the Python harness emitted a non-fatal spreadsheet-runtime initialization warning on stderr; the calculation script itself exited 0 and all 14 stdout checks passed.

@@ -1,0 +1,7 @@
+RC-001 EOM-generated chiral Fierz exact-matrix audit
+PASS: scalar-vector identities: 16/16
+PASS: opposite-chirality scalar-tensor identities: 12/12
+PASS: same-chirality scalar-tensor identities: 6/6
+PASS: total exact components: 8704/8704
+PASS: chiral tensor self-duality relations: 6/6
+LIMIT: four-dimensional Fierz projections only; no d-dimensional loop mixing or finite matching

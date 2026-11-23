@@ -1,0 +1,5 @@
+LD mixed Yukawa parameter pole: +9/2 rho*eta: PASS
+RD mixed Yukawa parameter pole: 0: PASS
+Heavy-mass mixed parameter pole: +6 rho*eta: PASS
+Coefficient parameter sub-blocks: LD=-3 rho*eta; RD=-12 rho*eta: PASS
+SCOPE: parameter counterterms only; no full mixed-gauge Wilson coefficient.

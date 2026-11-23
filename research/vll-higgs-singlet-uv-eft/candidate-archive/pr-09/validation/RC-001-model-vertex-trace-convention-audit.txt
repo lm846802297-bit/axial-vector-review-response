@@ -1,0 +1,21 @@
+RC-001 model-vertex trace and signed-mass convention audit
+Audit date: 2026-10-27
+Script: calculations/RC-001-model-vertex-trace-convention-audit.py
+Script Git blob: 5e0d94f1c0d394f997f597b08f45f08d34bf26e4
+Source integrity identifier: Git blob SHA 5e0d94f1c0d394f997f597b08f45f08d34bf26e4. No SHA-256 claim is made in this record.
+Runtime for algebraic expression run: Python/SymPy symbolic notebook; SymPy version 1.14.0
+Execution note: the same exact matrix, path-weight, and rational-point trace expressions were run in the notebook; this turn did not launch the checked-in script as a standalone process. The file hash above is the current GitHub-returned source hash. Do not treat this as a byte-aligned script-process log.
+
+RESULTS:
+- Exact matrix identities G_h = Y_h D and G_s = Y_s D passed, with D = diag(-1,1).
+- 864/864 pathwise trace-weight comparisons passed: 6 labeled cycles x 16 internal-state paths x (H, H_odd, M, six C_ij weights).
+- For cycle h1-h2-s1-s2 and path (0,0,1,1), the direct 4x4 trace agrees between the signed-mass G convention and positive-mass Y convention exactly.
+- The same direct trace equals the full chiral decomposition 2 H G + 2 sum(C_ij k_i.k_j) + 2 M + 2 i epsilon H_odd with exact zero residual.
+- The selected rational-point benchmark has H_odd = -171072/4998175 and det(k_i)=106, both nonzero. Thus the explicit comparison exercises the parity-odd trace term rather than only a parity-even special case.
+- The common signed/positive convention mapping is verified at the weight level for all 96 cycle/path combinations.
+
+INTERPRETATION:
+The v153 signed-light-mass vertices and the Eq. (13) positive-light-mass vertices are equivalent for the four-vertex trace only when the mass-flip numerators are transformed with the same right-handed rephasing. The candidate ledger's positive-mass convention is therefore consistent with the source convention under G_h=Y_h D, G_s=Y_s D and m_1^(signed)=-m_1.
+
+OPEN:
+This audit does not establish the common diagrammatic i/sign, graph/symmetry multiplicity, physical sum over six cycles, full mixed-mass hard-region expansion, EFT counterterm/current-source closure, or final UV-EFT Wilson coefficient.

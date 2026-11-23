@@ -1,0 +1,34 @@
+RC-001 mass-basis vertex and light-state rephasing audit
+Audit date: 2026-10-27
+Repository: lm846802297-bit/high-energy-theory-research
+PR #9 branch: research/rc001-portal-boundary-b1b3-reconciliation-2026-10-27
+Script: calculations/RC-001-mass-basis-vertex-rephasing-audit.py
+GitHub content/blob SHA: 5b3b4d770c1ac1546ffc0dde8faae657b0b9bf74
+SHA-256 of fetched UTF-8/LF source: a59af93f8f720e50be6b1874f87057134727d0c9fbd3d97488990f4d1c192a9c
+Runtime: Python 3.13.5; SymPy 1.14.0
+Executed local source: /tmp/rc001_run/RC-001-mass-basis-vertex-rephasing-audit.py
+Command: python -u /tmp/rc001_run/RC-001-mass-basis-vertex-rephasing-audit.py
+Exit code: 0
+
+STDOUT:
+PASS: left rotation obeys UL^T UL=(cL^2+sL^2) I
+PASS: right rotation obeys UR^T UR=(cR^2+sR^2) I
+PASS: signed-light h vertex equals the source §276 matrix
+PASS: signed-light s vertex equals the source §276 matrix
+PASS: positive-light h vertex is Gh times D and reproduces Eq.(13)
+PASS: positive-light s vertex is Gs times D and reproduces Eq.(13)
+PASS: mass-matrix reconstruction has the expected M12=mL
+PASS: mass-matrix reconstruction has the expected M21=mR
+PASS: mass-matrix reconstruction has the expected heavy entry ME
+PASS: mass-matrix reconstruction's M11 is the exact zero-entry constraint
+PASS: determinant identity reduces to the M11=0 constraint for normalized rotations
+RESULT: 11 exact symbolic mass-basis/rephasing checks passed.
+CONVENTION: signed mass matrix diag(-m1,m2); positive-mass convention uses right-handed D=diag(-1,1).
+SCOPE: confirms vertex/mass-basis conventions only; does not prove loop multiplicities, Wick signs, massless-region subtraction, or Wilson coefficients.
+
+Interpretation:
+- With (U_L=[[c_L,s_L],[-s_L,c_L]]), (U_R=[[c_R,s_R],[-s_R,c_R]]), and signed mass matrix (operatorname{diag}(-m_1,m_2)), the reconstructed interaction-basis mass matrix has entries (M_{12}=m_L), (M_{21}=m_R), and (M_{22}=M_E); its (M_{11}=0) condition is (-c_Lc_Rm_1+m_2s_Ls_R=0).
+- The interaction-basis Yukawa matrices (Y_h^{(0)}=a[[0,1],[0,0]]) and (Y_s^{(0)}=b[[0,0],[1,0]]) rotate to the signed-light-mass matrices quoted in source §276.
+- The right-handed rephasing (D=operatorname{diag}(-1,1)) maps those signed-light matrices exactly to the positive-light-mass Eq. (13) matrices (Y_h,Y_s).
+- This removes the vertex-phase ambiguity between the two displayed mass conventions for subsequent trace comparisons. It does not prove that the six-cycle amplitude's loop/symmetry factors, IR-region expansion, or Wilson coefficient are correct.
+- The local source SHA-256 matched the fetched GitHub UTF-8/LF content byte-for-byte before execution. Git checkout was not available because the execution container could not resolve github.com; this is a source-aligned local execution, not a clean-checkout claim.

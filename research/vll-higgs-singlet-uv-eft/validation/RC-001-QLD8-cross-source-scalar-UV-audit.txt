@@ -1,0 +1,45 @@
+RC-001 QLD8 cross-source scalar UV-Taylor audit
+
+PASS: exact gamma-trace scalar projection: 12/12 topology/sample checks.
+Scalar projection identity:
+  Tr[(PR x PL) N_ab]/4 = r_a.r_b.
+
+Common auxiliary-mass UV radial factors:
+  A=D/4
+  B=D(D+2)/24
+  C=D(D+2)(D+4)/192
+
+D=4 topology coefficients in the invariant basis
+(p1^2, p2^2, p3^2, p1.p2, p1.p3, p2.p3):
+
+(barQ,Q):
+  (0, 0, 1/2, -1/2, 1/2, 3/2)
+
+(barQ,bard):
+  (0, -1, 1/2, -3/2, 1/2, -1/2)
+
+(Q,d):
+  (0, 0, 1/2, -1/2, 3/2, 1/2)
+
+(bard,d):
+  (-1, 0, 1/2, -3/2, -1/2, 1/2)
+
+Tree-color weights:
+  (-1, +1, +1, -1)
+
+PASS: color-weighted scalar projection:
+  K_SS,total(D) = (D^2+10D-8)/48 * (p1-p2).(p3-p4).
+
+At D=4:
+  K_SS,total = (p1-p2).(p3-p4).
+
+At D=4-2epsilon:
+  factor = 1 - 3epsilon/4 + epsilon^2/12.
+
+Scope limitation:
+  Scalar-scalar projection only. No tensor projections, complete QCD Z
+  matrix, full graph phase/sign restoration, R* completion, EOM/IBP
+  quotient, or finite evanescent-scheme Wilson coefficient is claimed.
+
+Reproducible source:
+  calculations/RC-001-QLD8-cross-source-scalar-UV-audit.py

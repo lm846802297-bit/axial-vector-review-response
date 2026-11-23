@@ -1,0 +1,8 @@
+PASS 1: d-dimensional hard-region expansion isolates the transverse P.P' q^2 projection
+PASS 2: 11 radial structures integrate to the hard pole and finite term
+PASS 3: hard = -(Delta_IR - L_E + 17/12)/(24 pi^2 M_E^4) per ordered box
+PASS 4: soft Feynman parameter integral gives +(Delta_UV - ln(q^2/mu^2) + 5/3)/(24 pi^2 M_E^4)
+PASS 5: determinant 1/2 and J=2P conversion give equal-and-opposite hard IR / soft UV poles
+PASS 6: finite hard+soft kernel = [ln(M_E^2/q^2) + 1/4]/(192 pi^2 M_E^4) in the current effective-action basis
+SCOPE: Yukawa-only transverse current channel, one ordered box, NDR parity-even chiral trace
+OPEN: other independent tensor projections, complete crossed-channel/weak-tensor ledger, EOM/source reduction, and FeynArts/FeynCalc validation

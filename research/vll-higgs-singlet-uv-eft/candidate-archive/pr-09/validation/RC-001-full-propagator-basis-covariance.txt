@@ -1,0 +1,43 @@
+RC-001 full-propagator basis-covariance and path-sum audit
+Audit date: 2026-11-12
+Repository: lm846802297-bit/high-energy-theory-research
+PR #9 branch: research/rc001-portal-boundary-b1b3-reconciliation-2026-10-27
+Script: calculations/RC-001-full-propagator-basis-covariance.py
+GitHub content/blob SHA: bdbd129f4dc2d0b1c0dc7d602c1ff90a498a851d
+SHA-256 of fetched GitHub UTF-8/LF source: 7cd57179ebafee8ee5b81d9beafa6cb2c4aec26948dfdacf59aaadb0604d06bf
+Runtime: Python 3.13; SymPy
+Executed byte-aligned local source: ./RC-001-full-propagator-basis-covariance.py
+Local SHA-256 before execution: 7cd57179ebafee8ee5b81d9beafa6cb2c4aec26948dfdacf59aaadb0604d06bf
+Command: exec(compile(source, path, "exec"))
+Exit code: 0
+
+STDOUT:
+PASS: interaction-basis mass matrix has exact M11=0
+PASS: left rotation is exactly orthogonal
+PASS: right rotation is exactly orthogonal
+PASS: mass-basis Higgs vertex is the positive-mass Eq.(13) matrix
+PASS: mass-basis singlet vertex is the positive-mass Eq.(13) matrix
+PASS: all 16 internal mass paths sum to the mass-basis matrix trace
+PASS: finite generic mixing retains all 16 allowed mass paths
+PASS: finite-mixing mass-basis path sum equals interaction-basis propagator trace
+PASS: unbroken limit leaves exactly one mass path
+PASS: the unique unbroken path is (light,heavy,light,heavy)
+PASS: unbroken path has the source-aligned y^2 lambda^2 M_E^2 numerator and denominators
+PASS: full unbroken numerator is 2 y^2 lambda^2 M_E^2 k2.k4
+PASS: real-field loop normalization is exactly one quarter of complex orientation
+PASS: four neutral external assignments have total decomposition weight one
+RESULT: 14 exact symbolic full-propagator/path-sum checks passed.
+FINITE-MIXING IDENTITY: the 16 mass-eigenstate paths are one matrix-propagator trace, not 16 independent diagrams.
+UNBROKEN LIMIT: only path 0101 survives and gives the source-aligned two-heavy/two-light box.
+NORMALIZATION: the real-field four-vertex factor 1/4 equals the external complex-field projection weight; do not apply another factor 1/4.
+SCOPE: exact integrand-level flavor/basis identity and unbroken-limit reduction; no new loop integration, determinant-log multiplicity, or Wilson coefficient.
+
+DERIVATION / INTERPRETATION:
+- The mass eigenvalues are positive, with the right-handed light-state rephasing D=diag(-1,1). The interaction-basis mass matrix is reconstructed as M_I=U_L diag(m_1,m_2) (U_R D)^T. Enforcing M_{11}=0 gives m_1/m_2=s_L s_R/(c_L c_R).
+- The positive-mass Eq. (13) Yukawa matrices are verified as Y_h=U_L^T Y_h^(I) U_R D and Y_s=U_L^T Y_s^(I) U_R D.
+- For the fixed chiral sequence P_R,P_R,P_L,P_L, the flavor part of the loop is Tr[Y_h P_1 Y_s D_2 Y_s^T P_3 Y_h^T D_4], where D_i=diag((k_i^2-m_a^2)^(-1)) and P_i=diag(m_a(k_i^2-m_a^2)^(-1)). The 16 explicit internal-state paths are exactly the component expansion of this matrix trace.
+- Transforming P_1,D_2,P_3,D_4 with the appropriate U_L/U_R rotations gives the interaction-basis propagator blocks. Their rotation matrices telescope around the trace, proving exact equality of the finite-mixing mass-basis path sum and the interaction-basis loop integrand before loop integration.
+- In the unbroken limit s_L=s_R=m_1=0, only path (0,1,0,1) survives. Its flavor factor is y^2 lambda^2 M_E^2/[(k_1^2-M_E^2) k_2^2 (k_3^2-M_E^2) k_4^2]. The fixed chiral Dirac trace supplies 2 k_2.k_4, reproducing the source-aligned two-heavy/two-light box numerator and denominator structure.
+- Four real-field vertices each carry 1/sqrt(2), so their product is 1/4. This equals the 1/4 weight of one charge-neutral external-field assignment. The four assignments sum to unit projection weight; do not apply a second factor 1/4 to the real-field loop.
+- This proves integrand-level basis covariance and the unbroken-limit reduction. It does not itself compute the d=4-2epsilon hard/soft regions, fix the determinant-log/diagram combinatoric factor beyond the source-aligned one-cycle calibration, or close the full model-level Wilson vector.
+- The fetched GitHub source and executed local source matched byte-for-byte by SHA-256. This is a byte-aligned local execution; no clean Git checkout is claimed.

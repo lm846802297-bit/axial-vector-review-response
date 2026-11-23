@@ -1,0 +1,16 @@
+RC-001 UV external-W longitudinal Ward-contraction audit
+PASS: massless fermion line WTI (16/16 Dirac components).
+PASS: scalar line WTI (1/1 identity).
+PASS: propagator-chain telescoping (6/6 chain lengths, n=1..6).
+PASS: both Yukawa singlet endpoint identities (96/96 index/generator checks).
+PASS: T0 and T3 total SU(2) invariance (96/96 checks).
+PASS: six internal-W pair projections (96/96 tensor components).
+PASS: non-Abelian three-W contraction equals transverse inverse-kernel difference (16/16 Lorentz components).
+PASS: conventional Feynman-gauge longitudinal remainder identified (16/16 components).
+PASS: EFT local one-W contact cross-check at mu_R=M_E: (-I*F*g2/2, -F*g2/16, 0).
+Hard-polynomial coefficients: a=L/2 - 1/2, b=7*L/16 - 1/32, c=7/32 - 5*L/16.
+RESULT: all exact line-level and SU(2) Ward-contraction checks passed.
+BOUNDARY: this is the longitudinal identity/telescoping reduction,
+          not the integrated UV five-point form factor or full STI sum.
+NEXT: compute the UV matter-line, scalar-seagull, and internal-W attachments;
+      retain the ordinary-Feynman-gauge STI remainder and off-shell endpoints.

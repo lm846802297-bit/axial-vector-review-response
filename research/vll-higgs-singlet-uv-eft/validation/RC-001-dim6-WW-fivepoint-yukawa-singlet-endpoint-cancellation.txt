@@ -1,0 +1,12 @@
+RC-001 B2c-IVn-b Yukawa-singlet endpoint cancellation
+
+PASS: left and right Yukawa-singlet physical SU(2) charge sums (96/96 weak components).
+PASS: cross-vertex A/B WTI endpoints share the common heavy channel after shifts (8/8 vector components).
+PASS: same-vertex F/S/seagull/three-W routes share h_E=p_F+p_S+q (12/12 vector components).
+PASS: common heavy spectator factors out of each local singlet charge sum (96/96 component checks).
+RESULT: the local Yukawa-endpoint gauge variations cancel at each singlet vertex.
+BOUNDARY: this is the local endpoint sub-block only; it is not the full external-leg/LSZ sum,
+          the gauge-fixing/ghost Slavnov-Taylor identity, or a five-point Wilson coefficient.
+
+Execution: local exact SymPy symbolic arithmetic.
+This is not a GitHub Actions run and not a FeynArts/QGRAF run.

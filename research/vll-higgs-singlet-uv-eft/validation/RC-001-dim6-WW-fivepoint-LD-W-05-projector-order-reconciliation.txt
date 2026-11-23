@@ -1,0 +1,24 @@
+RC-001 B2c-IVn-h/05: LD-W-05 projector/order reconciliation
+
+PASS: gamma/projector intertwining identities (10/10).
+PASS: actual B-WTI endpoint projector reductions (128/128 matrix components).
+PASS: both endpoints reduce to the same right-chiral Dirac orientation,
+      with distinct r_B^W and r_B^Y momenta retained.
+PASS: graph-specific R_FG numerator is nonzero (16/16 entries).
+PASS: both signed single-W endpoint numerators are distinct from R_FG
+      (16/16 for the W endpoint; 16/16 for the Yukawa endpoint).
+RATIONAL CURRENT DOTS: V_A.k=-28, V_A.kappa=-31.
+
+Local run provenance:
+- Source commit: ddf9d41d408b4ee94ccb0c313befcb97423f4b81
+- Calculation/test files: the corresponding LD-W-05 and LD-W-02 source and unittest modules in calculations/
+- Runtime: Python 3.13.5; SymPy 1.14.0; Linux x86_64 (glibc 2.41)
+- Execution: both calculation modules' main() functions and the combined unittest suite were executed locally from a temporary directory containing the branch file contents.
+- Regression result: 9 tests passed (LD-W-05: 4/4; LD-W-02: 5/5).
+- GitHub Actions: not passed; the latest PR-head runs for candidate schema validation, QLD8 counterterm-basis seed audit, and QLD chiral Fierz identities concluded failure. Their causes are not inferred from the available job metadata.
+
+BOUNDARY:
+  This is not an equality of the single-W WTI endpoints and R_FG.
+  Their cancellation must be established only in the complete longitudinal
+  matter + scalar + three-W + LSZ/ST sum.
+  No loop integration, UV-EFT subtraction, or Wilson coefficient is claimed.

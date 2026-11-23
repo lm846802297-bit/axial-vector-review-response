@@ -1,0 +1,17 @@
+RC-001 B2c-IVn-f/01: LD-W-01 exact common-k F-F bridge
+
+PASS: oriented A/B fermion WTIs (32/32 Dirac components).
+PASS: A-shift and B-unshift common-k maps (32/32 vector components).
+PASS: three-W denominator equals the two single-W endpoint denominators (2/2 exact identities).
+PASS: q.Gamma_3W = K(k+q)-K(k) (16/16 Lorentz components).
+PASS: Feynman-gauge propagator-chain decomposition (16/16 tensor components).
+PASS: actual LD-W-01 Dirac-chain cancellation to R_FG at an exact rational point (32/32 matrix components).
+PASS: physical A/B weak commutator and phase alignment (48/48 and 48/48 weak components).
+RATIONAL DIAGNOSTIC: denominator factors=(10, 8, 6, -3, -393); nonzero N_01 entries=16/16.
+RESULT: the LD-W-01 F-F commutator/three-W sub-block is exactly reduced to the explicit R_FG projection.
+BOUNDARY: this does not include the Yukawa-endpoint gauge variations, external-leg/LSZ,
+          gauge-fixing/ghost STI, counterterms, other five-point pairs, loop integration,
+          UV-EFT subtraction, or a Wilson coefficient. R_FG is retained, not set to zero.
+
+Local test suite: 6/6 passed.
+Execution was local exact SymPy arithmetic; no GitHub Actions result is claimed.

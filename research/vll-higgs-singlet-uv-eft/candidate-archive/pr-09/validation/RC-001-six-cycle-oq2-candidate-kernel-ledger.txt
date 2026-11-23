@@ -1,0 +1,39 @@
+RC-001 six-cycle O(p^2) candidate-kernel ledger
+Audit date: 2026-10-27 (optimized, byte-aligned follow-up rerun)
+Repository main baseline: d6143c2aa15191ac8521e062d90860ba86713f00
+PR #9 branch: research/rc001-portal-boundary-b1b3-reconciliation-2026-10-27
+Current script: calculations/RC-001-six-cycle-oq2-candidate-kernel-ledger.py
+Current GitHub content/blob SHA: a2d6e5ca324985ad21e89378bf84bb12193e4137
+SHA-256 of fetched UTF-8/LF source: 96a15369e190e83f97dfa72b6ca3d27dc29613e2ffa80366ccfbeeccccb92857
+Runtime: Python 3.13.5; SymPy 1.14.0
+Executed byte-aligned local copy: /tmp/rc001_run/RC-001-six-cycle-oq2-candidate-kernel-ledger-bytealigned.py
+Command: python -u /tmp/rc001_run/RC-001-six-cycle-oq2-candidate-kernel-ledger-bytealigned.py
+Exit code: 0
+Elapsed time: 18.78 seconds
+
+STDOUT:
+PASS: generic Dirac trace identity verified symbolically for arbitrary u_i,v_i,m_i,k_i.
+PASS: built 576 O(p^2) candidate-kernel coefficient rows = 6 cycles x 16 paths x 6 invariants.
+PASS: all six cycle geometries have invertible exact invariant-basis transforms.
+PASS: reverse-cycle coefficient audit 1152/1152 = 3 pairs x 16 paths x 6 invariants x 4 objects.
+PASS: each row retains path-specific Delta0, all C_ij, H, S, M, F_alpha, g_alpha, d_alpha, and B1/B2/B3.
+CONVENTION: B1/B2/B3 use the corrected candidate Wick formulas; this checks the complete path/cycle bookkeeping under that convention, not the physical global loop sign.
+LIMIT: no path-dependent simplex integrations, no FeynArts/FeynCalc run, and no complete EFT soft/counterterm subtraction.
+CSV: ./rc001_six_cycle_oq2_candidate_kernel_ledger.csv (1632774 bytes)
+SHA256: 01c95525e2e3c1b9998192e0347c82f4bd8bfbb85f96e2cefe09c0ec6de55f8e
+
+Optimization and provenance:
+- The exact current source was run from a local copy whose SHA-256 matched the fetched GitHub UTF-8/LF content byte-for-byte.
+- A clean Git checkout was unavailable because the execution container could not resolve github.com; this is byte-aligned source-copy evidence, not a clean-checkout claim.
+- The previous source/log pair (SHA-256 731ab3d363946c9dba71568a05889b667de85e8cce6157ce8aafce30303856bf; 990,656-byte CSV) belongs to a prior source revision and is retained only as historical evidence.
+- The current script avoids repeated symbolic factorization by keeping exact expanded polynomials and uses expanded exact differences for the reverse-map assertions. This changes representation/performance, not the algebraic identities being tested.
+- The current 1,632,774-byte CSV is not committed; it is reproducible by rerunning the script. The output SHA-256 is recorded above.
+
+Interpretation:
+- The generic trace identity is an exact symbolic equality for arbitrary chiral couplings, masses, and four independent Minkowski momenta.
+- Model-specific couplings and all six labeled cycles x 16 internal-state paths are assembled symbolically in the common external-invariant basis.
+- The 576 rows retain path-specific Delta0 and the full C_ij/H/S/M weights rather than prematurely combining mass paths.
+- The 1,152 reverse-cycle checks compare Delta0 and B1/B2/B3 coefficient objects under the recorded path map, Feynman-parameter permutation, and simplex constraint.
+- B1/B2/B3 are candidate kernels under the declared Minkowski/Wick convention. This proves internal algebraic consistency and reverse-cycle bookkeeping, not the final physical overall sign.
+- The separate simplex-integration script now analytically integrates all 576 conditional kernels and checks 288 numerical reverse-cycle comparisons.
+- FeynArts/FeynCalc diagram generation, complete EFT soft graph/counterterm closure, full-amplitude UV/IR pole cancellation, and final Wilson-coefficient extraction remain open.

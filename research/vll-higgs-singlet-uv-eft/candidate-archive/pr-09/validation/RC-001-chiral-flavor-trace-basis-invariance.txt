@@ -1,0 +1,45 @@
+RC-001 chiral-flavor trace basis-invariance audit
+Audit date: 2026-10-27
+Repository: lm846802297-bit/high-energy-theory-research
+PR #9 branch: research/rc001-portal-boundary-b1b3-reconciliation-2026-10-27
+Script: calculations/RC-001-chiral-flavor-trace-basis-invariance.py
+GitHub content/blob SHA: 64f878fd39b40f31005b23f0229ab04094b9a00f
+SHA-256 of fetched UTF-8/LF source: bf947b79bacd098fdbf3e0ead32aeb377638e5cde1129de6627c3169e56e1669
+Runtime: Python 3.13.5; SymPy 1.14.0
+Executed local source: /tmp/rc001_run/RC-001-chiral-flavor-trace-basis-invariance.py
+Command: python -u /tmp/rc001_run/RC-001-chiral-flavor-trace-basis-invariance.py
+Exit code: 0
+
+STDOUT:
+PASS: U_L is exactly orthogonal under rational angle parametrization
+PASS: U_R is exactly orthogonal under rational angle parametrization
+PASS: cyclic trace basis invariance for chirality flow LLLL
+PASS: cyclic trace basis invariance for chirality flow LLLR
+PASS: cyclic trace basis invariance for chirality flow LLRL
+PASS: cyclic trace basis invariance for chirality flow LLRR
+PASS: cyclic trace basis invariance for chirality flow LRLL
+PASS: cyclic trace basis invariance for chirality flow LRLR
+PASS: cyclic trace basis invariance for chirality flow LRRL
+PASS: cyclic trace basis invariance for chirality flow LRRR
+PASS: cyclic trace basis invariance for chirality flow RLLL
+PASS: cyclic trace basis invariance for chirality flow RLLR
+PASS: cyclic trace basis invariance for chirality flow RLRL
+PASS: cyclic trace basis invariance for chirality flow RLRR
+PASS: cyclic trace basis invariance for chirality flow RRLL
+PASS: cyclic trace basis invariance for chirality flow RRLR
+PASS: cyclic trace basis invariance for chirality flow RRRL
+PASS: cyclic trace basis invariance for chirality flow RRRR
+PASS: signed-light h vertex matches source §276
+PASS: signed-light s vertex matches source §276
+PASS: positive-light h vertex after D rephasing matches Eq.(13)
+PASS: positive-light s vertex after D rephasing matches Eq.(13)
+RESULT: 22 exact symbolic chiral-flavor basis-invariance checks passed.
+INTERPRETATION: with complete chiral blocks and all internal mass indices summed, each fixed ordered-loop trace is basis invariant; omitted chiral blocks or incomplete path sums would break this identity.
+LIMIT: this is an algebraic trace-covariance identity, not an explicit evaluation of the six-cycle momentum integrals, common i/symmetry factors, or UV-EFT finite matching.
+
+Interpretation:
+- For each chirality-flow pattern (a_iin{L,R}), the transformed flavor blocks (U_{a_i}^T X_i U_{a_{i+1}}) telescope around the closed trace because (U_L,U_R) are orthogonal. The 16 possible patterns are checked exactly with rational parametrizations that satisfy the normalization identities identically.
+- This algebraic identity explains why a complete internal mass-eigenstate sum for a fixed ordered loop is basis invariant, provided every chirality block and all internal-state paths are included.
+- The same run verifies the model's signed-light-mass vertex matrices and the right-handed rephasing (D=operatorname{diag}(-1,1)) to Eq. (13).
+- This is not an explicit loop integration and does not fix external-field projection weights, common diagrammatic signs, symmetry factors, massless-light-state region poles, or finite UV-EFT matching.
+- The local source SHA-256 matched the fetched GitHub UTF-8/LF content byte-for-byte before execution. Git checkout was not available because the execution container could not resolve github.com; this is source-aligned local execution, not a clean-checkout claim.

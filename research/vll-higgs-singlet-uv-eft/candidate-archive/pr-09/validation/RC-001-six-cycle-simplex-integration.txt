@@ -1,0 +1,43 @@
+RC-001 six-cycle conditional simplex-integration audit
+Audit date: 2026-10-27 (optimized, byte-aligned follow-up rerun)
+Repository: lm846802297-bit/high-energy-theory-research
+PR #9 branch: research/rc001-portal-boundary-b1b3-reconciliation-2026-10-27
+Script: calculations/RC-001-six-cycle-simplex-integration.py
+Current GitHub content/blob SHA: c387c84d417df5bc0a6d12c853c6ca249d381698
+SHA-256 of fetched UTF-8/LF source: 46c71cdeb105d2b681b53752887a7528a4a032aeb6db346051cb00ec75b6b31e
+Runtime: Python 3.13.5; SymPy 1.14.0; mpmath 1.3.0
+Executed byte-aligned local copy: /tmp/rc001_run/RC-001-six-cycle-simplex-integration-final.py
+Command: RC001_OUTPUT_DIR=/tmp/rc001_run python -u /tmp/rc001_run/RC-001-six-cycle-simplex-integration-final.py
+Exit code: 0
+Elapsed time: 30.26 seconds
+
+RESULTS:
+- 48/48 exact equal-mass simplex-moment checks passed (four monomial structures x four mass-tag patterns x n=1,2,3).
+- 4/4 non-degenerate moment formulas agreed with direct one-dimensional numerical quadrature.
+- Analytically integrated all 576 conditional kernel coefficients: 6 labeled cycles x 16 internal mass paths x 6 external invariants.
+- 288/288 numerical reverse-cycle integrated-kernel comparisons passed for three reversal pairs.
+- Maximum absolute reverse-cycle difference: 1.11487e-41 at the declared 40-digit numerical precision.
+- Cached 464 distinct numerical simplex moments for reverse-cycle checks.
+- Gamma(4)=6 was included exactly once in the integrated candidate kernel.
+- Generated CSV: RC-001-six-cycle-integrated-candidate-kernel-ledger.csv
+  Size: 1,724,229 bytes
+  SHA-256: 410fc882b73d20d70f66eda588296e5e5818131c0667579cb624e8d6a594028f
+- The generated CSV is reproducible and not committed; set RC001_OUTPUT_DIR to choose its output directory.
+
+INTEGRAL REPRESENTATION:
+For each path and invariant, the script integrates
+  6 * integral_simplex [B1/Delta0 + B2/Delta0^2 + B3/Delta0^3]
+using a Beta-weighted Gauss hypergeometric representation, with
+  Delta0 = sum_i x_i m_i^2, x_i >= 0, sum_i x_i = 1.
+The factor Gamma(4)=6 appears exactly once. Numerical reverse checks use a cached mpmath evaluation of the same monomial moments, avoiding repeated symbolic hypergeometric evaluation.
+
+PROVENANCE:
+- The executed local source file's sha256sum matched the fetched GitHub UTF-8/LF source digest above byte-for-byte before execution.
+- A Git clone could not resolve github.com from the execution container, so this was a byte-aligned source-copy run, not a clean git checkout.
+- This run supersedes the earlier validation record's source digest a34616d31b01c05a09b422505e64a94ad26d4abb86d1d5aa71bf0d438f73e67d and generated CSV digest 7b1466f672f7785fd792d142ca635fdc69d61b854cd958d2cda0119637cfefd2. The source and output were regenerated after optimizing the symbolic expansion and reverse-check evaluation.
+
+IMPORTANT LIMITS:
+- This is conditional on the declared B1/B2/B3 candidate kernels and the two-mass path assignment.
+- It does not determine the physical B1/B3 sign or the common Minkowski/Wick phase.
+- It does not include the common 1/(16*pi^2), closed-fermion-loop sign, graph/symmetry factors, the full EFT soft-graph/counterterm set, or the final UV-EFT subtraction.
+- It is therefore a completed pathwise simplex-integration subtask, not a completed physical Wilson-coefficient match.

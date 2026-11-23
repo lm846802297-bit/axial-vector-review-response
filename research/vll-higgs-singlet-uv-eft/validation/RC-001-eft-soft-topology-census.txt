@@ -1,0 +1,67 @@
+RC-001 EFT soft topology census
+Method: L = I - V + 1 for connected graphs; Wilson-coefficient powers are counted explicitly.
+Scope: structural/topological and mass-power checks only; no loop integral is evaluated.
+
+SFT-01 | L=1 | 1/M_E^2 | 1PI=True | KEEP: explicit soft integral already exists; independent graph-level check open
+  Reason: The two conjugate dimension-five vertices provide exactly the four marked external scalars.
+SFT-02 | L=1 | 1/M_E^2 | 1PI=False | DROP from strict massless 1PI scalar matching at O(M_E^-2)
+  Reason: The graph is scalar-line reducible; its only fermion loop is a scaleless one-propagator tadpole in the unbroken massless theory and vanishes in dimensional regularization.
+SFT-03 | L=1 | 1/M_E^2 | 1PI=False | DROP from strict massless 1PI scalar matching at O(M_E^-2)
+  Reason: Same reducibility and scaleless-tadpole argument as SFT-02. A broken-phase mass insertion must be re-counted rather than promoted to O(M_E^-2).
+SFT-04 | L=1 | 1/M_E^4 | 1PI=True | EXCLUDE at O(M_E^-2); retain for O(M_E^-4)
+  Reason: Two tree-level dimension-six insertions carry four inverse powers of M_E in total.
+SFT-05 | L=1 | 1/M_E^4 | 1PI=True | EXCLUDE at O(M_E^-2); retain for O(M_E^-4)
+  Reason: Two tree-level dimension-six insertions carry four inverse powers of M_E in total.
+SFT-06 | L=1 | 1/M_E^4 | 1PI=True | EXCLUDE at O(M_E^-2); retain for O(M_E^-4)
+  Reason: The four external scalar legs are supplied directly, but the product of Wilson coefficients is O(M_E^-4).
+SFT-07 | L=1 | 1/M_E^2 | 1PI=False | TRACK separately; not a direct 1PI O_D projection
+  Reason: At one loop and O(g_X^2 |y|^2/M_E^2), this is reducible through the exchanged A'. Its current form factor and matching counterpart must be handled if the connected amplitude or current-operator vector is matched.
+SFT-08 | L=1 | 1/M_E^2 | 1PI=False | TRACK separately; not a direct 1PI O_D projection
+  Reason: At one loop and O(g_Y^2 |lambda|^2/M_E^2), this is reducible through the exchanged B field. It belongs in the current/source ledger, not as an unqualified local four-scalar 1PI coefficient.
+SFT-09 | L=1 | 1/M_E^2 | 1PI=False | TRACK separately for a complete connected amplitude/current vector
+  Reason: The graph is O(g_SM^2 |y|^2/M_E^2) and one-loop, but is one-particle reducible through the gauge propagator.
+SFT-10 | L=1 | 1/M_E^2 | 1PI=False | TRACK separately for a complete connected amplitude/current vector
+  Reason: The graph is O(g_X^2 |lambda|^2/M_E^2) and one-loop, but is one-particle reducible through the gauge propagator.
+SFT-11 | L=1 | 1/M_E^4 | 1PI=True | RETAIN for the O(M_E^-4) X^2 Y^2 sector
+  Reason: This is the unbroken-phase dimension-eight soft topology. The broken-phase C5-squared constant projection is its VEV projection, not an independent extra graph to add again.
+SFT-12 | L=1 | 1/M_E^4 | 1PI=True | CONDITIONAL: derive and reduce the tree-level 1/M_E^3 operator first
+  Reason: The product is O(M_E^-4). If the dimension-seven representative is EOM-redundant, its induced source/potential companions must still be tracked.
+SFT-13 | L=1 | 1/M_E^4 | 1PI=True | EXCLUDE at O(M_E^-2); retain at O(M_E^-4)
+  Reason: At fixed v_h,v_s the extra Q6 insertion adds two inverse powers of M_E; this agrees with the explicit delta-Z scaling in source §243.4.
+SFT-14 | L=1 | 1/M_E^2 | 1PI=True | KEEP for the complete dimension-six fermion-operator vector
+  Reason: One internal fermion and one internal scalar propagator form a one-loop 1PI graph at O(M_E^-2).
+SFT-15 | L=1 | 1/M_E^2 | 1PI=True | KEEP for the complete dimension-six fermion-operator vector
+  Reason: One internal fermion and one internal scalar propagator form a one-loop 1PI graph at O(M_E^-2).
+SFT-16 | L=1 | 1/M_E^2 | 1PI=True | KEEP for the complete dimension-six fermion-operator vector
+  Reason: One internal fermion and one internal scalar propagator form a one-loop 1PI graph at O(M_E^-2).
+SFT-17 | L=1 | 1/M_E^2 | 1PI=True | KEEP for the complete dimension-six fermion-operator vector
+  Reason: One internal fermion and one internal scalar propagator form a one-loop 1PI graph at O(M_E^-2).
+SFT-18 | L=1 | 1/M_E^2 | 1PI=True | KEEP for the complete dimension-six four-fermion vector
+  Reason: The four external fermions are supplied by the two C5 vertices; internal H and S propagators close a one-loop scalar bubble at O(M_E^-2).
+SFT-19 | L=1 | 1/M_E^2 | 1PI=True | KEEP for the complete dimension-six fermion-operator vector
+  Reason: Both H legs of QLD connect to the scalar quartic; the quartic supplies the external H pair. Two scalar propagators give a non-scaleless one-loop bubble.
+SFT-20 | L=1 | 1/M_E^2 | 1PI=True | KEEP for the complete dimension-six fermion-operator vector
+  Reason: The QLD H pair connects to the portal vertex; the portal supplies the external S pair. The scalar bubble is one-loop and O(lambda_HS |y|^2/M_E^2).
+SFT-21 | L=1 | 1/M_E^2 | 1PI=True | KEEP for the complete dimension-six fermion-operator vector
+  Reason: Both S legs of QRD connect to the scalar quartic; the quartic supplies the external S pair. Two scalar propagators give a non-scaleless one-loop bubble.
+SFT-22 | L=1 | 1/M_E^2 | 1PI=True | KEEP for the complete dimension-six fermion-operator vector
+  Reason: The QRD S pair connects to the portal vertex; the portal supplies the external H pair. The scalar bubble is one-loop and O(lambda_HS |lambda|^2/M_E^2).
+SFT-23 | L=1 | 1/M_E^1 | 1PI=True | KEEP only if claiming one-loop closure of C5; not needed to extract the one-loop dimension-six scalar coefficient
+  Reason: The C5 scalar legs connect to the portal vertex and the portal supplies the external H,S pair; two scalar propagators form one loop.
+SFT-24 | L=1 | 1/M_E^1 | 1PI=True | KEEP only if claiming one-loop closure of C5
+  Reason: Gauge vertex, leg, and covariant-derivative contact graphs renormalize the dimension-five operator at O(g^2 C5); the gauge-invariant set and external-field scheme must be used together.
+SFT-25 | L=1 | 1/M_E^2 | 1PI=True | KEEP for the complete one-loop QLD coefficient
+  Reason: Gauge vertex, leg, and covariant-derivative contact graphs give O(g^2 |y|^2/M_E^2) soft renormalization; include the gauge-invariant set and counterterms.
+SFT-26 | L=1 | 1/M_E^2 | 1PI=True | KEEP for the complete one-loop QRD coefficient
+  Reason: Gauge vertex, leg, and covariant-derivative contact graphs give O(g^2 |lambda|^2/M_E^2) soft renormalization; include the gauge-invariant set and counterterms.
+
+PASS: unique topology IDs
+PASS: every listed candidate has the stated one-loop Euler count
+PASS: C5 C5* four-scalar bubble is O(M_E^-2) and 1PI
+PASS: scalar-quartic tadpole candidates in four-scalar amplitudes are reducible/scaleless in the massless unbroken scheme
+PASS: C5 C5* crossed two-fermion/two-scalar and four-fermion graphs are O(M_E^-2) and 1PI
+PASS: Q6-plus-quartic scalar bubbles in two-fermion/two-scalar channels are O(M_E^-2) and 1PI
+PASS: Q6 x Q6, C5 x C7, C5^4, and Q6-inserted C5^2 corrections are O(M_E^-4)
+PASS: gauge-current exchange candidates are kept distinct from the local 1PI scalar projection
+LIMIT: this census is not a Feynman-rule-complete diagram generation or independent loop-integral validation.
+OPEN: explicitly integrate the listed C5-crossed and Q6 scalar/gauge soft sectors required by the basis; close all fermionic amplitudes; then enumerate the full O(M_E^-4) hard/soft set.

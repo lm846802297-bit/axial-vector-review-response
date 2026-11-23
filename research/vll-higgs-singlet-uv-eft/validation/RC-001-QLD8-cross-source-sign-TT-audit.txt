@@ -1,0 +1,16 @@
+RC-001 QLD8 cross-source sign and TT Dirac audit
+PASS: common pre-loop Feynman-rule phase = +1 for all four graphs.
+PASS: anti-quark minus signs occur only in T_barq=-T^T color action.
+PASS: color weights = (-1,+1,+1,-1); TT gamma-index signs = (-1,+1,+1,-1).
+PASS: fully signed TT weights are (+1,+1,+1,+1), hence I1+I2+I3+I4.
+PASS: mixed TS/ST signed weights reproduce (+,-,+,-) and (+,+,-,-).
+PASS: exact D-dimensional compact J_ab identity and symmetry (16 components).
+PASS: independent symbolic-D transverse-metric coefficient matches Gscalar.
+PASS: D=4-2epsilon expansion retains the full O(epsilon) tensor J1.
+PASS: explicit 4D gamma index-sign identities (64 checks).
+PASS: exact 4D matrix comparison of four TT topologies against compact sum.
+PASS: g_ab Gamma^{a rho} PR x Gamma^{b}{}_rho PL is evanescent in 4D.
+Minkowski normalization: each logarithmic master has UV residue +i/(16 pi^2 epsilon)
+after the stated Wick convention; the 1PI amplitude carries a common +i.
+LIMIT: no 4D Fierz reduction is used; the D-dimensional TT evanescent seed is retained.
+LIMIT: this is the TT part of the raw direct-octet pole, not the merged full Z block.

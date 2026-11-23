@@ -1,0 +1,28 @@
+RC-001 B2c-IVn-g/01: LD-W-06 secondary shift/heavy-channel audit
+
+PASS: A-side -Delta_AW secondary shift k'=k+q (16/16 vector components, 4/4 factor maps).
+PASS: B-side -Delta_BW secondary shift k'=k-q (16/16 vector components, 4/4 factor maps).
+PASS: generic shifted heavy-denominator identities (2/2 exact identities).
+
+RATIONAL POINT:
+  k^2=34, kappa^2=44, h=(5,-1,-1,0), h^2=23.
+  H0=h^2-M_E^2=-377.
+  HA=(h-q)^2-M_E^2=-389.
+  HB=(h+q)^2-M_E^2=-365.
+
+A -Delta_W denominator before/after shift:
+  (44,75,49,-377) -> (34,61,35,-389).
+B -Delta_W denominator before/after shift:
+  (34,35,61,-377) -> (44,49,75,-365).
+
+RESULT:
+  The A and B secondary shifts align the scalar/W/current factors,
+  but the heavy channel becomes h-q and h+q, respectively.
+
+BOUNDARY:
+  These shifted terms are not identified with the h-channel three-W integrand.
+  Their cancellation must be tested against the corresponding Yukawa-endpoint/LSZ terms.
+  No physical non-cancellation or complete Ward/ST identity is claimed.
+
+Local regression suite: 6/6 tests passed.
+Execution was local exact SymPy arithmetic; no GitHub Actions result is claimed.

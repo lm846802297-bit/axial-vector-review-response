@@ -1,0 +1,4 @@
+Yukawa-vertex charge conservation: PASS for mu and tau
+All 12 pair tuples (36 exact B, X, and mixed BX factor entries): PASS
+Mixed BX fermion-pair zeros in RD vertices: PASS
+SCOPE: charge-factor algebra only; no loop amplitudes or Wilson coefficients.

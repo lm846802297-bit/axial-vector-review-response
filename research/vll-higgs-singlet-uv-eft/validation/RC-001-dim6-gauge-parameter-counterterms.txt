@@ -1,0 +1,7 @@
+delta y_LD/y_LD: gY^2=-15/8, g2^2=-9/8, gX^2 Q_l^2=-3
+delta M_E/M_E: gY^2=-3, g2^2=0, gX^2 Q_l^2=-3
+2 delta y/y - 2 delta M/M for C_LD: gY^2=9/4, g2^2=-9/4, gX^2 Q_l^2=0
+delta lambda_RD/lambda_RD: gY^2=-3, g2^2=0, gX^2 Q_l^2=-3
+2 delta lambda/lambda - 2 delta M/M for C_RD: gY^2=0, g2^2=0, gX^2 Q_l^2=0
+RESULT: exact-rational parameter-counterterm algebra PASS.
+SCOPE: no loop integrals, mixed B-A' terms, EFT operator counterterms, or finite Wilson coefficients.

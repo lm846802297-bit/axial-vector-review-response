@@ -1,0 +1,58 @@
+RC-001 fixed-complex power-soft EFT topology map
+Audit date: 2026-11-12
+Repository: lm846802297-bit/high-energy-theory-research
+PR #9 branch: research/rc001-portal-boundary-b1b3-reconciliation-2026-10-27
+Script: calculations/RC-001-fixed-complex-power-soft-EFT-topology-map.py
+GitHub content/blob SHA: 818c73b03652eb45a904cc0960aec4f7e979c1a4
+Runtime for exact expression replay: Python 3.13.5; SymPy 1.14.0
+Execution mode: local SymPy expression replay of the checked-in script's exact symbolic definitions and assertions; this is not a standalone process/byte-aligned script execution record.
+Exit status: 0
+
+RESULTS:
+PASS: 10 exact symbolic coupling and factorization identities.
+
+The triangular mass-matrix condition gives
+[
+m_1=M_Erac{s_Ls_R}{c_Lc_R}.
+]
+From the positive-light-mass Eq. (13) Yukawa matrices, the light-light entries are
+[
+y_h^{m light}=y c_Ls_R,qquad
+lambda_s^{m light}=lambda s_Lc_R.
+]
+The source-aligned heavy-exchange coefficient in this convention is
+[
+C_{5,m eff}=rac{ylambda c_L^2c_R^2}{M_E},
+]
+and the exact identity
+[
+y_h^{m light}lambda_s^{m light}=C_{5,m eff}m_1
+]
+is verified symbolically.
+
+The three power-soft coefficients reported by the fixed-complex boundary audit factorize as
+[
+mathcal S_{0000}
+=-rac{|C_{5,m eff}|^2}{120}(17s+7t+u),
+]
+[
+mathcal S_{0001}
+=+rac{5|C_{5,m eff}|^2}{12}s,
+qquad
+mathcal S_{0100}
+=+rac{|C_{5,m eff}|^2}{12}(6s+t+u).
+]
+Their sum is
+[
+mathcal S_{m power}
+=rac{|C_{5,m eff}|^2}{40}(31s+t+3u).
+]
+The leading logarithmic path 0101 has the source-aligned (-|C_{5,m eff}|^2s) residue.
+
+EFT TOPOLOGY INTERPRETATION:
+- 0000: all-light box with four induced light-light Yukawa vertices.
+- 0001 and 0100: one-heavy/three-light soft triangles; in the EFT these are represented by one (C_5) insertion and two induced light-light Yukawa vertices.
+- 0101: two-heavy/two-light logarithmic region, matched to the (C_5C_5^ast) light-fermion bubble already treated in the source-aligned hard/soft ledger.
+
+IMPORTANT LIMIT:
+The 0000, 0001, and 0100 terms are power-soft contributions of the broken-phase finite-mixing amplitude. Their existence shows why numerator-only mixing suppression is insufficient: inverse powers of (m_1) from the soft region compensate the small light-Yukawa/mass numerators. The 0101 logarithm is the leading unbroken dimension-six channel. This audit only identifies the EFT topology and factorizes the coefficients; it does not yet evaluate the all-light box or one-heavy triangles in (d=4-2epsilon), add their counterterms, or demonstrate cancellation against the UV soft regions. Do not subtract the displayed polynomial by hand or add it to the unbroken dimension-six Wilson coefficient.

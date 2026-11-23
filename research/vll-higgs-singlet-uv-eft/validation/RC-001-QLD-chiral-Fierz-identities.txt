@@ -1,0 +1,8 @@
+RC-001 chiral Fierz exact-matrix audit
+PASS RR_scalar_tensor: 256/256 components
+PASS LL_scalar_tensor: 256/256 components
+PASS RL_vector: 256/256 components
+PASS LR_vector: 256/256 components
+PASS total: 1024/1024 exact components
+The c-number matrix identities have positive RHS; anticommuting-field operator Fierz identities acquire an overall minus from interchanging the middle two fermion fields.
+SCOPE: four-dimensional spinor algebra only; no d-dimensional evanescent mixing is computed

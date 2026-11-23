@@ -1,0 +1,44 @@
+RC-001 real-to-complex momentum-routing projection
+Audit date: 2026-10-27
+Repository: lm846802297-bit/high-energy-theory-research
+PR #9 branch: research/rc001-portal-boundary-b1b3-reconciliation-2026-10-27
+Script: calculations/RC-001-real-to-complex-momentum-routing-projection.py
+GitHub content/blob SHA: 12bfb3c3484333cad4c740d1619b8ae996137fd5
+SHA-256 of fetched UTF-8/LF source: c53ba5d90ce0946baaf5487d04451d2a86750fc99e38e3449e76c48832a2b5db
+Runtime: Python 3.13.5; SymPy 1.14.0
+Executed local source: /tmp/rc001_run/RC-001-real-to-complex-momentum-routing-projection.py
+Command: python -u /tmp/rc001_run/RC-001-real-to-complex-momentum-routing-projection.py
+Exit code: 0
+
+STDOUT:
+PASS: four charge-neutral assignments each carry weight 1/4
+PASS: mu-channel routing maps to s_R twice
+PASS: mu-channel routing maps to u_R twice
+PASS: tau-channel routing maps to s_R twice
+PASS: tau-channel routing maps to u_R twice
+PASS: every orientation preserves the h-h / s-s invariant t_R
+PASS: projected mu local polynomial
+PASS: projected tau local polynomial
+PROJECTED LOCAL AMPLITUDE (common i/(16 pi^2) factored out):
+  |C5_mu|^2 * [(L_mu-2)(s_R+u_R)/2 + t_R/6]
++ |C5_tau|^2 * [(L_tau-2)(s_R+u_R)/2 + t_R/6]
+RESULT: 8 exact symbolic projection checks passed.
+LIMIT: uses the source-aligned complex local amplitudes as inputs; does not evaluate or validate the mass-basis six-cycle UV loop or global graph factors.
+ASSIGNMENTS:
+  1: h1:H;h2:Hdag;s1:S;s2:Sdag | mu s-channel=s_R, tau u-channel=u_R, t=t_R, weight=1/4
+  2: h1:H;h2:Hdag;s1:Sdag;s2:S | mu s-channel=u_R, tau u-channel=s_R, t=t_R, weight=1/4
+  3: h1:Hdag;h2:H;s1:S;s2:Sdag | mu s-channel=u_R, tau u-channel=s_R, t=t_R, weight=1/4
+  4: h1:Hdag;h2:H;s1:Sdag;s2:S | mu s-channel=s_R, tau u-channel=u_R, t=t_R, weight=1/4
+
+PROJECTED RESULT:
+After averaging the four charge-neutral field assignments with weight 1/4, the source-aligned local amplitudes project to
+[
+mathcal A_{hhss,mathrm{local}}
+=rac{i}{16pi^2}sum_{ell=mu,	au}|C_{5,ell}|^2
+left[rac{L_ell-2}{2}(s_R+u_R)+rac{t_R}{6}ight].
+]
+Here (s_R=(p_{h1}+p_{s1})^2), (u_R=(p_{h1}+p_{s2})^2), and (t_R=(p_{h1}+p_{h2})^2), with all external momenta incoming. This is the projection of the source-aligned complex **local matching polynomial**; it is not the full nonlocal UV amplitude.
+
+PROVENANCE / LIMIT:
+- The local source SHA-256 matched the fetched GitHub UTF-8/LF source byte-for-byte before execution. Git checkout was not available because the execution container could not resolve github.com; this is a byte-aligned source-copy run, not a clean-checkout claim.
+- The calculation assumes the source §248 (mu)- and (	au)-channel local amplitudes as inputs. It does not independently compute the mass-basis six-cycle UV amplitude, establish its global graph factors, or determine which interaction-basis orientation/cycle terms vanish.

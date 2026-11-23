@@ -1,0 +1,7 @@
+PASS 1: Q8 contact Ward contraction gives Slash(P+q)^3 - Slash(P)^3
+PASS 2: ordinary fermion line obeys S_out qslash S_in = S_in - S_out
+PASS 3: traced one-loop numerator contraction matches the propagator Ward identity
+PASS 4: Q_LD and Q_RD composite charges are (Y,x)=(-1,eta_l), eta_mu=+1, eta_tau=-1
+PASS 5: direct Q8 contacts are B: -gY, A_prime: eta_l*gX*Q_l, W: 0
+SCOPE: algebraic Ward building blocks only; no loop integration or UV pole evaluated
+OPEN: integrated one-loop soft amplitude, two-background amplitude, and hard matching

@@ -1,0 +1,42 @@
+RC-001 B2c-IVn-h/07: LD-W-01 F-F WTI projector/order reconciliation
+
+Source commit: 892eaa4acbab8a707ae9953c10ba4b50d61e6110
+Baseline commit: 6909feccb58b9e4b79da72f3a6af96a47edb3e10
+
+PASS: chiral intertwining identities (10/10).
+PASS: actual A/B WTI endpoint reductions (1024/1024 matrix entries;
+      256 each for A_W, A_Y, B_W, B_Y).
+PASS: shifted A-side and common-k B-side second endpoints (256/256).
+PASS: A-side shift maps (16/16); single-W denominator alignments (2/2).
+PASS: direct/factorized R_FG contraction (16/16).
+PASS: incorrect pre-slash(k) P_L placement rejected (16/16).
+PASS: R_FG distinct from common one-W chain and four endpoint contractions
+      (64/64 matrix-entry differences).
+
+Exact rational denominator factors:
+  k^2=10, kappa^2=8, (r_A^W)^2=6, (r_A^Y)^2=2,
+  (r_B^W)^2=-13, (r_B^Y)^2=-3,
+  h^2-M_E^2=-393, (h-q)^2-M_E^2=-405.
+  All are nonzero.
+
+Environment:
+  Python 3.13.5
+  SymPy 1.14.0
+  Linux x86_64, glibc 2.41
+
+Commands:
+  python calculations/RC-001-dim6-WW-fivepoint-LD-W-01-projector-order-reconciliation.py
+  cd calculations && python -m unittest -v test_RC001_dim6_WW_fivepoint_LD_W_01_projector_order_reconciliation.py
+
+Execution:
+  Calculation entry point: exit 0.
+  Standalone unittest suite: 6/6 tests passed; exit 0.
+  The Python subprocess emitted a non-fatal artifact_tool spreadsheet warmup
+  diagnostic on stderr; it did not affect either process exit status or test
+  results.
+
+BOUNDARY:
+  This is an exact local Dirac/projector and rational-point audit only.
+  R_FG remains nonzero. No complete six-pair sum, LSZ, ghost/ST completion,
+  counterterm closure, loop integration, UV-EFT subtraction, or Wilson
+  coefficient is claimed.

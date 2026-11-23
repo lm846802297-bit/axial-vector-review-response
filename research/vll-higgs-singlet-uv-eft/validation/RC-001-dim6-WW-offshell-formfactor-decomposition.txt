@@ -1,0 +1,30 @@
+RC-001 nonexceptional hard off-shell momentum decomposition
+
+The finite local hard polynomial is
+  C = (1/2-L/2) p1 +(11/16-3L/8) p2 +(1/4-3L/4) p3,
+  L=ln(M_E^2/mu_R^2).
+
+Choose the independent momentum vectors
+  v_D = p3+p4 = -(p1+p2),
+  v_minus = p2-p3,
+  v_plus = p2+p3.
+
+Exact SymPy decomposition:
+  C = a v_D + b v_minus + c v_plus,
+  a = -1/2 + L/2,
+  b = -1/32 + 7L/16,
+  c = 7/32 - 5L/16.
+
+At mu_R=M_E:
+  (a,b,c)=(-1/2,-1/32,7/32).
+
+Checks:
+  PASS: exact reconstruction of all three independent p_i coefficients.
+  PASS: exceptional limit p1=p3=0, p2=P gives 11/16-3L/8.
+
+Interpretation boundary:
+  v_D is the derivative momentum of the triplet Q_LD^(3) representative.
+  v_minus and v_plus are retained as independent off-shell form-factor
+  directions at this stage. They are not yet assigned to Warsaw-basis
+  operators: weak-index contractions, total derivatives, EOM/source terms,
+  and the complete amplitude sum must be included before such an assignment.

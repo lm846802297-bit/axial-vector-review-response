@@ -1,0 +1,86 @@
+RC-001 nonexceptional pure-WW hard-region expansion
+
+Conventions:
+  All external momenta incoming: p1+p2+p3+p4=0.
+  Heavy momentum: k-p1-p2.
+  Light-line shifts:
+    LD-W-01: a=-p1, b=p4
+    LD-W-02: a=-p1, b=p3
+    LD-W-05: a=-p2, b=p4
+    LD-W-06: a=-p2, b=p3
+  Scalar masters use the same convention as the checked exceptional-routing
+  calculation:
+    J_hard = (Delta_UV + 1 - L)/M_E^2
+    K_hard = -1/M_E^2
+    L = ln(M_E^2/mu_R^2).
+
+d-dimensional pair kernels:
+  Pair 01:
+    J_01 = (d-2)^2/d (p2+p4)
+    K_01 = 2(d-2)/d (p1+p2)
+  Pair 02:
+    J_02 = -p2 + 2(1-1/d)p3
+    K_02 = 2/d (p1+p2)
+  Pair 05:
+    J_05 = 2(1-1/d)p2 + (1-2/d)p3
+    K_05 = -2/d (p1+p2)
+  Pair 06:
+    J_06 = -(p1+p2)
+    K_06 = 2/d (p1+p2)
+
+Exceptional check (p1=p3=0, p2=P, p4=-P):
+  Pair 01: J=0, K=2(d-2)/d P
+  Pair 02: J=-P, K=2/d P
+  Pair 05: J=2(1-1/d)P, K=-2/d P
+  Pair 06: J=-P, K=2/d P
+  These reproduce the previously checked fixed-routing kernels exactly.
+
+Weak-triplet weighted kernels (-,+,+,-)/4, after momentum conservation:
+  R_J(d) = [(d^2-3d+4)/(4d)] p1
+          +[(d-1)/(2d)] p2
+          +[(d-1)/4] p3
+  R_K(d) = -[(d-1)/(2d)] (p1+p2)
+
+At d=4-2 epsilon:
+  R_J = (1/2 - 3 epsilon/8) p1
+       +(3/8 - epsilon/16) p2
+       +(3/4 - epsilon/2) p3
+  R_K = (-3/8 + epsilon/16)(p1+p2)
+
+Hard-region amplitude:
+  A_hard = R_J J_hard + R_K K_hard
+  UV pole residue = (1/2)p1 +(3/8)p2 +(3/4)p3.
+  This is exactly the d=4 nonexceptional EFT-soft UV residue; the EFT-soft
+  contribution has the opposite UV-pole sign. The pole cancellation is
+  therefore explicit for this fixed four-cross-box triplet sub-block.
+
+After MS-bar subtraction, the finite local hard polynomial is:
+  C_hard^fin = (1/2)(1-L) p1
+             +(11/16 - 3L/8) p2
+             +(1/4 - 3L/4) p3
+  with the common factor 1/(16 pi^2 M_E^2) g2^2 |y_l|^2 and the overall
+  Feynman-rule phase understood.
+
+At mu_R=M_E (L=0):
+  C_hard^fin = (1/2) p1 +(11/16) p2 +(1/4) p3.
+
+Exceptional projection:
+  p1=p3=0, p2=P gives 11/16 - 3L/8, reproducing the earlier result.
+
+Soft finite terms:
+  For each pair, q_D=p3+p4+k=k-p1-p2=q_E. Once the tree-level Q_LD
+  derivative vertex is inserted with this momentum and the same ordinary
+  W endpoints, the UV soft-expanded numerator and EFT insertion numerator
+  are algebraically identical. The nonlocal scalar-triangle and rank-three
+  form factors therefore cancel in UV-minus-EFT matching for this fixed
+  soft sub-block. This is a consequence of the EFT expansion identity, not
+  an independent diagram-generator validation.
+
+Validation boundary:
+  The d-dimensional gamma_mu A B C gamma^mu identity is retained for pair 01;
+  the tensor averages use d and d(d+2). The pairwise expressions are reduced
+  analytically and checked by SymPy regression tests. No FeynArts/FeynCalc
+  diagram generation is claimed.
+  Still open: the second external-field routing, same-vertex attachments,
+  external-leg and parameter/operator counterterms, the external-W five-point
+  form factor, complete Ward/Slavnov-Taylor sum, and common-basis projection.

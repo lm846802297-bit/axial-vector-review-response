@@ -1,0 +1,41 @@
+RC-001 B2c-IVn-e momentum-dependent scalar-current audit
+
+PASS: exact A/B/S scalar-current shifts are q (12/12 vector components).
+PASS: three-W internal-leg exchange Lorentz sign (64/64), group sign (27/27), combined vertex invariance (1728/1728).
+PASS: actual cross/same-vertex line, seagull and three-W denominator factor maps (7/7 exact identities).
+ACTUAL IVm versus IVl CURRENT ROUTES:
+  LD-W-02 B scalar: V_B(k) versus V_B(k+q)
+  LD-W-03/04 S scalar: V_S(k+q) versus V_S(k)
+  LD-W-05 A scalar: V_A(k+q) versus V_A(k)
+  LD-W-06 A scalar route: (V_A(k+q),V_B(k+q)) versus mixed three-W currents
+  LD-W-06 B scalar route: (V_A(k),V_B(k)) versus mixed three-W currents
+RATIONAL DIAGNOSTIC (M_E^2=400; all listed denominators nonzero):
+  LD-W-02:B: nonzero entries in current-substitution difference = 16/16; trace=0
+  LD-W-05:A: nonzero entries in current-substitution difference = 16/16; trace=0
+  LD-W-06:A-current: nonzero entries in current-substitution difference = 12/16; trace=0
+  LD-W-06:B-current: nonzero entries in current-substitution difference = 12/16; trace=0
+  LD-W-03:S: nonzero entries in current-substitution difference = 16/16; trace=-184
+  LD-W-04:S: nonzero entries in current-substitution difference = 16/16; trace=-132
+RESULT: the actual scalar-current substitutions are not interchangeable inside the R_FG projection.
+INTERPRETATION: IVh's arbitrary-current tensor identity remains valid, but its use as a
+  graph-specific cancellation is not yet demonstrated for momentum-dependent scalar currents.
+  A common routing or an explicit change-of-variable identity is required before summing.
+BOUNDARY: no physical non-cancellation is claimed; no graph is omitted, no R_FG is removed,
+  and no loop integration, ghost/ST completion, UV-EFT subtraction, or Wilson coefficient is claimed.
+
+Denominator-factor identities:
+  cross A line: D_Aline*k^2 = D_3W*(r_A+q)^2; A seagull*k^2 = D_3W
+  cross B line: D_Bline*(k+q)^2 = D_3W*r_B^2; B seagull*(k+q)^2 = D_3W
+  same F line: D_Fline*(k+q)^2 = D_3W*r_F^2
+  same S line: D_Sline*k^2 = D_3W*r_S^2; S seagull*k^2 = D_3W
+
+Three-W exchange identity:
+  Gamma_{alpha nu mu}(q,-k-q,k) = -Gamma_{alpha mu nu}(q,k,-k-q)
+  epsilon^{a c b} = -epsilon^{a b c}; their product is invariant.
+This is a vertex-slot relabeling only; it does not exchange the attached matter endpoints or their momenta.
+
+Execution: local exact SymPy symbolic/rational arithmetic.
+Diagnostic point: k=(4,1,2,1), q=(1,2,0,1),
+p1=(1,0,1,0), p2=(0,1,0,2), p3=(2,0,1,1), p4=(-4,-3,-2,-4).
+Metric: diag(1,-1,-1,-1); M_E^2=400 is a nonsingular diagnostic only.
+This is not a GitHub Actions result.

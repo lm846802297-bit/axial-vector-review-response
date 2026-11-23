@@ -1,0 +1,45 @@
+RC-001 B1/B3 Wick-rotation kernel-sign audit
+Audit date: 2026-10-27
+Script: calculations/RC-001-B1-B3-Wick-sign-check.py
+Script SHA-256: 6bc1aa3f057b8ba6e52597a01e8e7482a915f83b25f326449af29859680f1cba
+Script size: 5278 bytes
+Runtime: Python 3.13.5; SymPy 1.14.0
+Command: python calculations/RC-001-B1-B3-Wick-sign-check.py
+Exit code: 0
+Elapsed time: 4.84 s
+
+STDOUT:
+PASS: ledger g_alpha is the angular-averaged K^2 coefficient of G for h1-h2-s1-s2
+PASS: ledger g_alpha is the angular-averaged K^2 coefficient of G for h1-h2-s2-s1
+PASS: ledger g_alpha is the angular-averaged K^2 coefficient of G for h1-s1-h2-s2
+PASS: ledger g_alpha is the angular-averaged K^2 coefficient of G for h1-s1-s2-h2
+PASS: ledger g_alpha is the angular-averaged K^2 coefficient of G for h1-s2-h2-s1
+PASS: ledger g_alpha is the angular-averaged K^2 coefficient of G for h1-s2-s1-h2
+PASS: I_0^(4) = 1/(16 pi^2 6 Delta^2)
+PASS: I_1^(4) = 1/(16 pi^2 3 Delta)
+PASS: I_0^(5) = 1/(16 pi^2 12 Delta^3)
+PASS: I_1^(5) = 1/(16 pi^2 12 Delta^2)
+PASS: I_2^(5) = 1/(16 pi^2 4 Delta)
+PASS: quartic loop-momentum term keeps its sign under Wick rotation
+PASS: Wick and denominator shift give B1=H(-2g/3+2d)
+PASS: historical B1 sign is the exact opposite
+PASS: Wick and denominator shift give B3=+2 M d/3
+PASS: historical B3 sign is the exact opposite
+PASS: B2 remains (F-2 S d)/3 with the same Wick convention
+PASS: Gamma(4) times the simplex volume is one
+RESULT: 18 exact Wick/kernel-sign checks passed.
+RESULTING KERNELS: B1=H(-2 g/3+2 d), B2=(F-2 S d)/3, B3=+2 M d/3.
+SCOPE: resolves the algebraic B1/B3 Wick-sign choice under the declared trace and d conventions.
+OPEN: full mixed-mass six-cycle sum, physical graph multiplicity, determinant-log mapping, and complete UV-EFT subtraction.
+
+DERIVATION:
+- The six-cycle ledger's g_alpha expression was checked against the coefficient of K_M^2 in G after angular averaging, for all six labeled cycles.
+- The Euclidean denominator is K_E^2+Delta0-d, so its fourth-power expansion contains +4d.
+- The K_M^2 g_alpha numerator term acquires a minus sign under Wick rotation, while K_M^4 retains a positive sign. Thus the B1 terms are -2 H g_alpha I_1^(4) + 8 H d_alpha I_2^(5), yielding H(-2g_alpha/3+2d_alpha).
+- The constant trace term 2M times the +4d denominator correction gives 8M d I_0^(5)=+2M d/(3 Delta0^3), yielding B3=+2M d/3.
+- The B2 kernel remains (F-2S d)/3, consistent with the independently calibrated source-aligned one-cycle numerator and denominator shift.
+- The historical formulas B1=H(2g/3-2d) and B3=-2Md/3 are exactly opposite to the Wick-consistent expressions under this declared trace and d convention.
+
+Interpretation boundary:
+This resolves the algebraic B1/B3 sign choice conditional on the verified trace decomposition and denominator convention. It is not a final six-cycle Wilson coefficient. The common determinant-log-to-diagram multiplicity, complete mixed-mass path sum, flavor-resolved s/u routing, and same-scheme UV-EFT soft/counterterm subtraction remain open.
+Environment note: the Python harness emitted a non-fatal spreadsheet-runtime initialization warning on stderr; the script exited 0 and all 18 stdout checks passed.

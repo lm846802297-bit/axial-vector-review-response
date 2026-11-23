@@ -1,0 +1,29 @@
+RC-001 QLD8 d-dimensional direct RL tensor Fierz-projection audit
+
+PASS: sigma-Gamma^(n)-sigma eigenvalue checked explicitly for n=0,...,4 in 4D.
+PASS: formal Clifford eigenvalue lambda_n = D(D-1)-4 n(D-n).
+PASS: chiral trace norm t_n = 2 (-1)^[n(n-1)/2] D(D-1)...(D-n+1), odd n.
+PASS: f_1(D) = (D - 4)*(D - 1)/(2*D)
+PASS: f_3(D) = -(D - 9)*(D - 4)/(2*D*(D - 2)*(D - 1))
+PASS: f_5(D) = (D**2 - 21*D + 100)/(2*D*(D - 4)*(D - 3)*(D - 2)*(D - 1))
+PASS: D=4-2epsilon: f_1 = -3 epsilon/4 + O(epsilon^2).
+PASS: D=4-2epsilon: f_3 = -5 epsilon/24 + O(epsilon^2).
+PASS: D=4-2epsilon: f_5 = -1/(3 epsilon) + O(1).
+PASS: rank-five chiral Gram norm vanishes at D=4; f_5 pole is a basis-projection singularity.
+
+Interpretation:
+- f_n is the projection coefficient onto the crossed odd-rank channel
+  (Gamma^(n) P_R) tilde-tensor (Gamma_(n) P_L).
+- The f_5 pole is caused by the rank-five Gram norm vanishing at D=4.
+  It is not a loop UV pole.
+- The scalar-vector E_RL;V structure is not the direct Fierz image of
+  the Lorentz-scalar direct tensor-tensor structure.
+- A finite rank-1/rank-3-only crossed basis is not established.
+
+Reproducible source:
+calculations/RC-001-QLD8-ddim-Fierz-projection-audit.py
+
+Scope limitation:
+Projection coefficients and gamma-algebra checks only. No loop integral,
+UV pole, Z matrix, anomalous dimension, finite matching coefficient, or
+PR #69 scalar two-point contribution is calculated.

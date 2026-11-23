@@ -1,0 +1,45 @@
+RC-001 one-cycle fixed-sector B2 calibration
+Audit date: 2026-10-27
+Script: calculations/RC-001-one-cycle-fixed-sector-calibration.py
+Script SHA-256: b689f6b88974291741793920616a5b9ed8f36c18ab9b0c19898c1f666ec2cc45
+Script size: 8098 bytes
+Runtime: Python 3.13.5; SymPy 1.14.0
+Command: python calculations/RC-001-one-cycle-fixed-sector-calibration.py
+Exit code: 0
+Elapsed time: 8.26 s
+
+STDOUT:
+PASS: direct trace = 2 y^2 lambda^2 M_E^2 k_2.k_4
+PASS: exhaustive 16-path sum leaves only path (0,1,0,1) nonzero
+PASS: path has exactly two heavy propagators
+PASS: ordered propagator masses are (M_E,0,M_E,0)
+PASS: selected chiral-coupling product is +y^2 lambda^2
+PASS: H vanishes in this chiral limit
+PASS: parity-odd trace weight H_odd vanishes in this chiral limit
+PASS: four-mass numerator term vanishes in this chiral limit
+PASS: only C_(2,4) survives and equals y^2 lambda^2 M_E^2
+PASS: all other C_ij vanish
+PASS: heavy line 1 is k+p4
+PASS: heavy line 3 is k-p2
+PASS: light line 4 is k-q with q=-(p1+p4)
+PASS: Feynman denominator = K_M^2-Delta0+d on sum(x_i)=1
+PASS: Delta0 = M_E^2 (x1+x3)
+PASS: f equals the shifted light-line product f_24
+PASS: shifted numerator separates into K^2, odd K, and f=R.(R+q)
+PASS: Euclidean denominator expansion has the +4d term
+PASS: loop-integral factors give B2=F/3-2 S d/3
+PASS: this path gives B2=C(f-2d)/3
+PASS: B1 and B3 vanish in this chiral limit
+PASS: Gamma(4)=6 cancels the simplex volume 1/6 exactly once
+RESULT: 22 exact symbolic one-cycle calibration checks passed.
+SCOPE: one chiral path; exact numerator, fixed denominator routing, B2 sign/factor.
+OPEN: common diagrammatic i/sign, physical graph multiplicity, B1/B3 signs, full six-cycle UV-EFT subtraction.
+
+Interpretation:
+- In the zero-mixing/unbroken limit, for the labeled cycle h1 -> s1 -> s2 -> h2, the only nonzero internal-state path is (light, heavy, light, heavy).
+- Its direct trace is 2 y^2 lambda^2 M_E^2 k.(k-q), and its denominator is k^2 (k-q)^2 [(k-p2)^2-M_E^2] [(k+p4)^2-M_E^2], matching the fixed-sector UV integrand recorded in RC-001 §248 after the stated external-momentum relabeling.
+- With d = sum_i x_i r_i^2 - R^2, the shifted Minkowski denominator is K_M^2 - Delta0 + d; after Wick rotation the Euclidean denominator is K_E^2 + Delta0 - d, whose fourth-power expansion contains +4d.
+- The loop-integral factors yield B2 = F/3 - 2 S d/3 for this path. B1 and B3 vanish in this limit, so this check cannot adjudicate their competing historical signs.
+- The overall diagrammatic i/sign and graph multiplicity are not included in the check. The source-aligned hard coefficient and EFT soft subtraction have not been independently recalculated by this script.
+
+Environment note: the Python harness emitted a non-fatal spreadsheet-runtime initialization warning on stderr in one run; the calculation script itself exited 0 and all 22 stdout checks passed.

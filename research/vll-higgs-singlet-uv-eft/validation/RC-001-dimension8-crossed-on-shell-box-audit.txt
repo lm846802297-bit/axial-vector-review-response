@@ -1,0 +1,14 @@
+PASS 1: 13 nonzero radial tensor structures in the complete on-shell hard expansion
+PASS 2: hard kernel = [(s^2+2su)(Delta_IR-L_E)+11s^2/6+10su/3-3u^2/10]/(96 pi^2 M_E^4)
+PASS 3: direct soft expansion of the same UV numerator reproduces the one-Weyl current kernel
+PASS 4: hard IR and soft UV poles cancel in the s channel
+PASS 5: the matched nonlocal term is independent of the arbitrary matching scale
+PASS 6: the transverse-current part has the 17/12 hard constant
+PASS 7: an additional finite local hard polynomial remains beyond the transverse-current projection
+PASS 8: the crossed channel is obtained by s <-> u; the sum is crossing symmetric
+PASS 9: SU(2) tensors are delta_jk delta_li and delta_lk delta_ji; no extra doublet multiplicity
+PASS 10: the exact chiral trace is one half the Dirac trace plus the gamma5-odd term
+PASS 11: determinant, EOM-current, current-matrix-element, and functional-derivative factors give 1/24
+PASS 12: S_tau=S* reverses j_S but leaves the quadratic singlet kernel unchanged
+SCOPE: on-shell pure-Higgs/pure-singlet one-cycle four-scalar box at O(p^4/M_E^4)
+OPEN: off-shell Green-basis decomposition, EOM/IBP operator reduction, and FeynArts/FeynCalc diagram generation

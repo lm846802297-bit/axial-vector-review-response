@@ -1,0 +1,34 @@
+RC-001 interaction-basis complex-field cycle-flow audit
+Audit date: 2026-10-27
+Script: calculations/RC-001-interaction-basis-complex-cycle-flow.py
+Git blob SHA: b7dad8fcc6bb12c88b3c854574161150388be4b1
+Runtime for algebraic expression run: Python/SymPy symbolic notebook; SymPy 1.14.0
+Execution note: the interaction-basis matrix, path enumeration, chiral traces, and invariant-routing checks were run in the notebook using the same exact algebra. This turn did not launch the checked-in script as a standalone process; no byte-aligned script-process claim is made.
+
+RESULTS:
+- Enumerated 4 charge-neutral assignments x 2 flavors (mu,tau) x 6 labeled cycles = 48 cycle/flavor/assignment cases.
+- 32/48 cases have no allowed interaction-basis flavor path.
+- 16/48 cases have one unique allowed flavor path.
+- Of the 16 allowed cases, 8 have identically zero chiral Dirac trace and 8 give a nonzero trace.
+- Each of the 8 nonzero traces reduces exactly to 2 M^2 times the dot product of the two massless-light-line momenta.
+- All 8 nonzero bubble invariants match the source-aligned channel: the mu loop uses the H+S invariant (s_R or u_R), and the tau loop uses the H+S^dagger invariant (u_R or s_R), exactly as assigned by the four external-state projections.
+- The 8 nonzero contributions occupy four distinct labeled real-field cycles. The two remaining cycle orderings do not contribute in this interaction-basis unbroken limit.
+- The real-field vertex normalization is a^2 b^2 = y^2 lambda^2/4, matching the 1/4 external-field decomposition weight of one complex-field assignment. Do not apply another factor of 1/4 to the real-field loop contribution.
+
+NONZERO CYCLE TABLE:
+1 mu  h1-s1-s2-h2  path (0,1,0,1)  invariant s_R
+1 tau h1-s2-s1-h2  path (0,1,0,1)  invariant u_R
+2 mu  h1-s2-s1-h2  path (0,1,0,1)  invariant u_R
+2 tau h1-s1-s2-h2  path (0,1,0,1)  invariant s_R
+3 mu  h1-h2-s1-s2  path (1,0,1,0)  invariant u_R
+3 tau h1-h2-s2-s1  path (1,0,1,0)  invariant s_R
+4 mu  h1-h2-s2-s1  path (1,0,1,0)  invariant s_R
+4 tau h1-h2-s1-s2  path (1,0,1,0)  invariant u_R
+
+Validation result: 33 exact symbolic checks passed, plus the exact enumeration-count assertions above.
+
+INTERPRETATION:
+The interaction-basis flow removes the ambiguity about which oriented cycles can contribute in the unbroken, massless-light-state limit. Each complex assignment/flavor pair has one nonzero orientation; the other flow-compatible orientation has zero chiral trace. The mu/tau channel invariant assignments agree with the existing real-to-complex momentum-routing table.
+
+OPEN:
+This is a topology/trace/routing audit, not the dimensionally regulated hard-region integral. It does not determine the full mixed-mass finite-mass simplex limit, the determinant-log to diagrammatic multiplicity, or the final common-basis UV-EFT coefficient. The full UV–EFT subtraction and independent diagram-package validation remain open.

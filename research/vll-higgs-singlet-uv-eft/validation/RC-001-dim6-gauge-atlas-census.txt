@@ -1,0 +1,127 @@
+FLAVOR eta=1 (mu)
+Q_LD: E,Lbar,L,Hbar,H
+  B: 10 classes
+    E-Lbar: -1/2
+    E-L: 1/2
+    E-Hbar: 1/2
+    E-H: -1/2
+    Lbar-L: -1/4
+    Lbar-Hbar: -1/4
+    Lbar-H: 1/4
+    L-Hbar: 1/4
+    L-H: -1/4
+    Hbar-H: -1/4
+  W: 6 classes
+    Lbar-L: T_i.T_j
+    Lbar-Hbar: T_i.T_j
+    Lbar-H: T_i.T_j
+    L-Hbar: T_i.T_j
+    L-H: T_i.T_j
+    Hbar-H: T_i.T_j
+  X: 3 classes
+    E-Lbar: -1
+    E-L: 1
+    Lbar-L: -1
+  BX: 9 classes
+    E-Lbar: 3/2
+    E-L: -3/2
+    E-Hbar: -1/2
+    E-H: 1/2
+    Lbar-L: 1
+    Lbar-Hbar: 1/2
+    Lbar-H: -1/2
+    L-Hbar: -1/2
+    L-H: 1/2
+
+Q_RD: E,lbar,l,Sbar,S
+  B: 3 classes
+    E-lbar: -1
+    E-l: 1
+    lbar-l: -1
+  W: 0 classes
+  X: 10 classes
+    E-lbar: 1
+    E-l: -1
+    E-Sbar: -2
+    E-S: 2
+    lbar-l: -1
+    lbar-Sbar: -2
+    lbar-S: 2
+    l-Sbar: 2
+    l-S: -2
+    Sbar-S: -4
+  BX: 7 classes
+    E-Sbar: 2
+    E-S: -2
+    lbar-l: -2
+    lbar-Sbar: -2
+    lbar-S: 2
+    l-Sbar: 2
+    l-S: -2
+
+FLAVOR eta=-1 (tau)
+Q_LD: E,Lbar,L,Hbar,H
+  B: 10 classes
+    E-Lbar: -1/2
+    E-L: 1/2
+    E-Hbar: 1/2
+    E-H: -1/2
+    Lbar-L: -1/4
+    Lbar-Hbar: -1/4
+    Lbar-H: 1/4
+    L-Hbar: 1/4
+    L-H: -1/4
+    Hbar-H: -1/4
+  W: 6 classes
+    Lbar-L: T_i.T_j
+    Lbar-Hbar: T_i.T_j
+    Lbar-H: T_i.T_j
+    L-Hbar: T_i.T_j
+    L-H: T_i.T_j
+    Hbar-H: T_i.T_j
+  X: 3 classes
+    E-Lbar: -1
+    E-L: 1
+    Lbar-L: -1
+  BX: 9 classes
+    E-Lbar: -3/2
+    E-L: 3/2
+    E-Hbar: 1/2
+    E-H: -1/2
+    Lbar-L: -1
+    Lbar-Hbar: -1/2
+    Lbar-H: 1/2
+    L-Hbar: 1/2
+    L-H: -1/2
+
+Q_RD: E,lbar,l,Sbar,S
+  B: 3 classes
+    E-lbar: -1
+    E-l: 1
+    lbar-l: -1
+  W: 0 classes
+  X: 10 classes
+    E-lbar: 1
+    E-l: -1
+    E-Sbar: -2
+    E-S: 2
+    lbar-l: -1
+    lbar-Sbar: -2
+    lbar-S: 2
+    l-Sbar: 2
+    l-S: -2
+    Sbar-S: -4
+  BX: 7 classes
+    E-Sbar: -2
+    E-S: 2
+    lbar-l: 2
+    lbar-Sbar: 2
+    lbar-S: -2
+    l-Sbar: -2
+    l-S: 2
+
+CONTACTS
+  Q_LD: D(Hdagger L) has Y=-1, X=eta, SU(2)=singlet; B and A' contacts, no W contact.
+  Q_RD: D(S_l l_R) has Y=-1, X=eta, SU(2)=singlet; B and A' contacts, no W contact.
+RESULT: attachment-class counts verified for both flavors.
+SCOPE: structural charge/representation census only; no loop integrals or exact Feynman-graph multiplicities.
